@@ -43,7 +43,7 @@ const HEADS = {
   monk: ["", "", "....SSSS", "...SSSSSSs", "..YYYYYYYY", "..Y.SSSSES", ".Y..SSSSSs", ".....sSSs", "......ss"],
   druid: ["", "....X.X.X", "...XXYXXXX", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "...hZSSSZs", "....ZZZZZ", ".....ZZZ"],
   berserker: ["", "..X......X", "..XHHHHHHX", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "...ZZSSSZZ", "....ZZZZZ", ".....ZZZ"],
-  samurai: ["......HH", "......Hh", "....HHHHH", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "....SSSSSs", ".....sSSs", "......ss"],
+  samurai: ["....Y...Y", ".....Y.Y", "...HHYHHH", "..HHHHHHHh", ".hHhSSSSSS", ".hH.SSSSES", ".hh.SSSSSs", ".....XXXX", "......ss"],
 };
 
 // ---------- Armes : { rangée: motif } (la main droite est en rangée 11, colonne 11) ----------
@@ -97,15 +97,19 @@ const WEAPONS = {
 const SKIN = { S: "#f1c7a0", s: "#d9a27a", E: "#1d1a26" };
 const DEFS = {
   warrior: { head: "warrior", torso: TORSO, legs: LEGS, weapon: "sword",
-    pal: { ...SKIN, H: "#6b4226", h: "#4a2c18", A: "#3a6ea5", a: "#2a4f7a", B: "#e9b949", L: "#5a4632", l: "#43342a", K: "#2a1f18", W: "#dfe7ef", w: "#9aa6b5", G: "#6b4a2b" } },
+    front: { 10: ".YY.", 11: "YXXY", 12: "YXZY", 13: "YXXY", 14: ".YY." },
+    pal: { ...SKIN, H: "#6b4226", h: "#4a2c18", A: "#3a6ea5", a: "#2a4f7a", B: "#e9b949", L: "#5a4632", l: "#43342a", K: "#2a1f18", W: "#dfe7ef", w: "#9aa6b5", G: "#6b4a2b", X: "#8a5a2b", Y: "#c9ced6", Z: "#e9b949" } },
   ranger: { head: "ranger", torso: TORSO, legs: LEGS, weapon: "bow",
-    pal: { ...SKIN, H: "#3f7a3a", h: "#2a5527", A: "#6a8f3a", a: "#4b6a28", B: "#8a5a2b", L: "#5a4632", l: "#43342a", K: "#3a2a1a", W: "#a0713c", w: "#6b4a2b", G: "#6b4a2b", X: "#e3ebf3", Y: "#e3ebf3" } },
+    back: { 5: "X.X", 6: "XXX.", 7: ".WW", 8: ".kkk", 9: "kkk", 10: "kkk", 11: "kk", 12: "kk" },
+    pal: { ...SKIN, H: "#3f7a3a", h: "#2a5527", A: "#6a8f3a", a: "#4b6a28", B: "#8a5a2b", L: "#5a4632", l: "#43342a", K: "#3a2a1a", W: "#a0713c", w: "#6b4a2b", G: "#6b4a2b", X: "#e3ebf3", Y: "#e3ebf3", k: "#4a3220" } },
   mage: { head: "mage", torso: TORSO, legs: ROBE, weapon: "staff",
     pal: { ...SKIN, H: "#4b2a7a", h: "#341c58", A: "#6a3fa0", a: "#4b2a7a", B: "#e9b949", K: "#2a1f18", W: "#7fd6ff", w: "#ffffff", G: "#8a5a2b", Y: "#ffd34d", Z: "#e8e4d6" } },
   paladin: { head: "paladin", legs: LEGS, weapon: "hammer",
+    back: { 9: "..Y", 10: ".YY", 11: ".YY", 12: "YYy", 13: "YYy", 14: "Yy.", 15: "y.." },
     torso: ["..aaAAAAAAaa....", "..aAAABBBAAa....", "..SaAAABAAaS....", "...aBBBBBBa.....", "...aAAAAAAa....."],
-    pal: { ...SKIN, H: "#d7dde5", h: "#8a93a0", Y: "#c0392b", A: "#dfe4ea", a: "#9aa3ad", B: "#e9b949", L: "#9aa3ad", l: "#7a828c", K: "#5a6270", W: "#c9ced6", w: "#7a828c", G: "#6b4a2b" } },
+    pal: { ...SKIN, H: "#d7dde5", h: "#8a93a0", Y: "#c0392b", y: "#8a2420", A: "#dfe4ea", a: "#9aa3ad", B: "#e9b949", L: "#9aa3ad", l: "#7a828c", K: "#5a6270", W: "#c9ced6", w: "#7a828c", G: "#6b4a2b" } },
   assassin: { head: "assassin", torso: TORSO, legs: LEGS, weapon: "daggers",
+    back: { 8: "..BB", 9: ".BB.", 10: "BB..", 11: "B..." },
     pal: { ...SKIN, E: "#ff4a4a", H: "#2a2638", h: "#1a1724", X: "#3a3550", A: "#3b3550", a: "#2a2638", B: "#8a2a2a", L: "#2a2638", l: "#1a1724", K: "#14121f", W: "#e3ebf3", w: "#9aa6b5", G: "#8a2a2a" } },
   necro: { head: "necro", torso: TORSO, legs: ROBE, weapon: "scythe",
     pal: { S: "#cfd8c8", s: "#a9b5a4", E: "#7dff9a", H: "#1f1d2e", h: "#14121f", A: "#2e2a40", a: "#1f1d2e", B: "#7dff9a", K: "#14121f", W: "#c9d1c4", w: "#8a948a", G: "#4a3a2a", X: "#7dff9a" } },
@@ -117,8 +121,8 @@ const DEFS = {
     torso: ["..aAAASSSAAa....", "..aAASBSSSAa....", "..SaSSBSSSaS....", "...aBBBBBBa.....", "...aAAAAAAa....."],
     pal: { ...SKIN, H: "#8a8f99", h: "#5c616b", X: "#e8e4d6", Z: "#c0562b", A: "#7a5233", a: "#5a3a20", B: "#3a2a1a", L: "#4a3a2a", l: "#3a2a1a", K: "#2a1f18", W: "#c9d1dc", w: "#7a828c", G: "#6b4a2b" } },
   samurai: { head: "samurai", legs: HAKAMA, weapon: "katana",
-    torso: ["..aaAAAAAAaa....", "..aABABABAAa....", "..SaAAAAAAaS....", "...aBBBBBBa.....", "...aAAAAAAa....."],
-    pal: { ...SKIN, H: "#1d1a26", h: "#14121f", A: "#b8322a", a: "#8a2420", B: "#2a2638", L: "#3a3550", l: "#2a2638", K: "#8a5a2b", W: "#eef3f8", w: "#9aa6b5", G: "#2a2638", Y: "#e9b949" } },
+    torso: [".aaAAAAAAAAaa...", ".aABABABABAa....", "..SaAAAAAAaS....", "GG.aYYXXXXa.....", "..GaAAAAAAa....."],
+    pal: { ...SKIN, H: "#2a2638", h: "#14121f", A: "#b8322a", a: "#7a1e1a", B: "#e9b949", L: "#3a3550", l: "#2a2638", K: "#5a3a20", W: "#eef3f8", w: "#9aa6b5", G: "#2a2638", Y: "#e9b949", X: "#8a2420" } },
 };
 
 /** Superpose des calques ({ rangée: motif } ou tableaux à partir d'une rangée). */
@@ -160,9 +164,11 @@ function buildClass(def) {
   const dressed = dressTorso(def.torso);
   const pal = { ...def.pal, N: def.pal.S, Q: def.pal[dressed.under], _q: dressed.under };
   const frame = (pose) => compose([
+    [def.back || {}, 0],
     [HEADS[def.head], 0],
     [dressed.rows, 9],
     [def.legs[pose], 14],
+    [def.front || {}, 0],
     [WEAPONS[def.weapon][pose === "attack" ? "attack" : "idle"], 0],
   ]);
   return { pal, walk1: frame("walk1"), walk2: frame("walk2"), attack: frame("attack") };
