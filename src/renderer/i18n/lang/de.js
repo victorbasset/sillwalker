@@ -203,4 +203,8 @@ export default {
   1327: "keiner",
   1328: "Fenstergröße",
   1329: "Vergrößert das ganze Fenster: Text, Schaltflächen und Symbole.",
+  1330: "Klicke, um zuzuschlagen!",
+  1331: "Monster schlagen",
+  1332: "Klick-Schläge",
+  1333: "Tipp: Klicke auf das Monster, das dein Held bekämpft, um Bonusschläge auszuteilen!",
 };

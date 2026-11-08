@@ -191,7 +191,7 @@ async function boot() {
     const h = nextHint(game);
     if (!h) return;
     markHint(game, h.id);
-    showToast(`<span class="hint">💡</span> ${esc(h.text)}`, () => { openPanel(); panel.setTab(h.tab); }, 14000);
+    showToast(`<span class="hint">💡</span> ${esc(h.text)}`, h.tab ? () => { openPanel(); panel.setTab(h.tab); } : null, 14000);
   }
 
   /* ---------- Succès Steam ---------- */

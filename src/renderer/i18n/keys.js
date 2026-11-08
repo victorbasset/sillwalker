@@ -1331,5 +1331,9 @@ export const KEYS = [
   "{0} victoires",
   "aucun",
   "Taille du panneau",
-  "Agrandit tout le panneau : texte, boutons et icônes."
+  "Agrandit tout le panneau : texte, boutons et icônes.",
+  "Clique pour frapper !",
+  "Frapper le monstre",
+  "Coups au clic",
+  "Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"
 ];

@@ -281,6 +281,20 @@ async function runSelfTest(strip) {
     await sleep(200);
   }
   check("étoile filante attrapée : vitesse permanente", (await state("S.speed")) > speed0, `${speed0} -> ${await state("S.speed")}`);
+  // Clic sur le monstre combattu : coup bonus
+  await js("window.__pause = false");
+  // Dès qu'un combat commence : pause, et monstre increvable le temps du test.
+  await until(() => js("(() => { const g = window.__game; if (g.R.mode !== 'fight' || !g.R.mon) return false; window.__pause = true; g.R.mon.hp = g.R.mon.max = 1e12; return true; })()"), 15000);
+  await sleep(700); // zone de clic placée et zones cliquables à jour
+  const taps0 = await state("S.stats.taps || 0");
+  const tapRect = await js(`(() => { const s = document.querySelector('.tapzone'); if (!s || s.hidden) return null; const r = s.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) }; })()`);
+  check("monstre : zone de clic", !!tapRect && strip.hitTest(b0.x + tapRect.x, b0.y + tapRect.y));
+  if (tapRect) {
+    wc.sendInputEvent({ type: "mouseDown", x: tapRect.x, y: tapRect.y, button: "left", clickCount: 1 });
+    wc.sendInputEvent({ type: "mouseUp", x: tapRect.x, y: tapRect.y, button: "left", clickCount: 1 });
+    await sleep(200);
+  }
+  check("monstre : un clic donne un coup bonus", (await state("S.stats.taps || 0")) > taps0);
   await click("#menu-btn");
   await sleep(400);
 

@@ -40,6 +40,8 @@ import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
 
+const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
+
 const AUTO_POTIONS = 5; // stock visé par l'achat automatique de potions
 
 const UPGRADE_EPS = 0.005;
@@ -306,6 +308,26 @@ export class Game {
       }
     }
     return false;
+  }
+
+  /**
+   * Clic du joueur sur le monstre combattu : coup bonus (25 % de l'attaque,
+   * 4 par seconde au plus). Récompense le jeu actif sans rendre l'inactif inutile.
+   */
+  tapMonster() {
+    const R = this.R, m = R.mon;
+    if (R.mode !== "fight" || !m || m.hp <= 0) return false;
+    if (R.time - (R.lastTap ?? -1) < TAP_INTERVAL) return false;
+    R.lastTap = R.time;
+    const hs = this.stats();
+    let dmg = hs.atk * TAP_DMG * rnd(0.9, 1.1);
+    if (m.boss) dmg *= 1 + hs.bossDmg / 100;
+    if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; this.emit("bossShieldHit", { amount: a }); }
+    m.hp -= dmg;
+    this.S.stats.taps = (this.S.stats.taps || 0) + 1;
+    this.emit("tap", { dmg, mon: m });
+    if (m.hp <= 0) this.killMonster();
+    return true;
   }
 
   heroStrike(m, hs, first, extra) {

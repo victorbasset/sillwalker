@@ -203,4 +203,8 @@ export default {
   1327: "brak",
   1328: "Rozmiar panelu",
   1329: "Powiększa cały panel: tekst, przyciski i ikony.",
+  1330: "Kliknij, aby uderzyć!",
+  1331: "Uderz potwora",
+  1332: "Ciosy kliknięciem",
+  1333: "Wskazówka: kliknij potwora, z którym walczy bohater, aby zadać dodatkowe ciosy!",
 };

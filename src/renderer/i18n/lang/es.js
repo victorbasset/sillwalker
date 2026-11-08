@@ -203,4 +203,8 @@ export default {
   1327: "ninguno",
   1328: "Tamaño del panel",
   1329: "Amplía todo el panel: texto, botones e iconos.",
+  1330: "¡Haz clic para golpear!",
+  1331: "Golpear al monstruo",
+  1332: "Golpes con clic",
+  1333: "Consejo: ¡haz clic en el monstruo que combate tu héroe para darle golpes extra!",
 };

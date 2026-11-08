@@ -820,4 +820,22 @@ test("style de combat : 5 paliers, de plus en plus durs", async () => {
   S.prestige.count = 3; assert.equal(attackTier(S), 4);
 });
 
+
+test("clic sur le monstre : coup bonus limité en cadence", () => {
+  const g = new Game(freshState());
+  assert.equal(g.tapMonster(), false, "hors combat : rien");
+  for (let i = 0; i < 2000 && g.R.mode !== "fight"; i++) g.step(0.05);
+  assert.equal(g.R.mode, "fight");
+  const m = g.R.mon; m.hp = m.max = 1e9;
+  assert.ok(g.tapMonster(), "premier clic");
+  assert.ok(m.hp < 1e9);
+  assert.equal(g.tapMonster(), false, "trop rapproché");
+  g.R.time += 0.3;
+  assert.ok(g.tapMonster(), "après le délai");
+  assert.equal(g.S.stats.taps, 2);
+  m.hp = 1; g.R.time += 0.3; const k = g.S.stats.kills;
+  g.tapMonster();
+  assert.ok(g.S.stats.kills > k || g.R.mon !== m, "le clic peut achever le monstre");
+});
+
 console.log(`\n${pass} tests réussis`);

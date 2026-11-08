@@ -85,6 +85,7 @@ export class Sound {
   /** Branche les sons sur les événements du jeu. */
   bind(game) {
     game.on("heroAttack", ({ crit, iai }) => this.play(crit || iai ? "crit" : "hit"));
+    game.on("tap", () => this.play("hit"));
     game.on("kill", ({ mon }) => { this.play("coin"); if (mon.boss) this.play("boss"); });
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
     game.on("levelUp", () => this.play("level"));

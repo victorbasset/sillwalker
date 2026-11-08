@@ -44,6 +44,7 @@ export class StatsTab {
         ${line(tx("Champions vaincus"), fmt(st.champions || 0))}
         ${line(tx("Gobelins dorés attrapés"), fmt(st.goblins || 0))}
         ${line("K.O.", fmt(st.deaths))}
+        ${line(tx("Coups au clic"), fmt(st.taps || 0))}
       </ul></article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("ws_gold", 3)}" alt="">${tx("Richesse et butin")}</span></h2><ul class="lines">
         ${line(tx("Or gagné au total"), fmt(st.goldTotal || 0))}

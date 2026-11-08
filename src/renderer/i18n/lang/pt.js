@@ -203,4 +203,8 @@ export default {
   1327: "nenhum",
   1328: "Tamanho do painel",
   1329: "Amplia todo o painel: texto, botões e ícones.",
+  1330: "Clique para golpear!",
+  1331: "Golpear o monstro",
+  1332: "Golpes com clique",
+  1333: "Dica: clique no monstro que seu herói enfrenta para dar golpes extras!",
 };

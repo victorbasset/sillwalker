@@ -203,4 +203,8 @@ export default {
   1327: "none",
   1328: "Panel size",
   1329: "Enlarges the whole panel: text, buttons and icons.",
+  1330: "Click to strike!",
+  1331: "Strike the monster",
+  1332: "Click strikes",
+  1333: "Tip: click the monster your hero is fighting to land bonus hits!",
 };

@@ -29,6 +29,8 @@ export const HINTS = [
     when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
   { id: "classes", tab: "class", text: tx("D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de classe en faisant une ascension."),
     when: (g) => g.S.best >= 2 && (g.S.classesUnlocked || []).length <= 1 },
+  { id: "tap", tab: null, text: tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"),
+    when: (g) => g.S.stats.kills >= 40 && !(g.S.stats.taps > 0) },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
     when: (g) => (g.S.speed || 0) > 0 },
 ];

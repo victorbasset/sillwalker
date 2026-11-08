@@ -78,8 +78,13 @@ export class StripRenderer {
         this.juice.sparkles(this.monX() + 12, py - 4, color, 3 + tier * 2);
         if (tier >= 4 && (crit || iai)) { this.juice.flash(color, 0.12); this.shake(0.12); }
       }
-      const label = (iai ? tx("Iai ! ") : first ? tx("Ouverture ") : crit ? tx("Crit ") : "") + Math.round(dmg);
+      const label = (iai ? tx("Iai ! ") : first ? tx("Ouverture ") : crit ? tx("Crit ") : "") + fmt(dmg);
       this.float(this.monX() + 14 + (extra ? 12 : 0), (mon.boss ? 20 : 46) - (extra ? 10 : 0), label, crit || first ? "#ffe27a" : "#ffffff", crit || first, true);
+    });
+    g.on("tap", ({ dmg }) => {
+      this.monHit = 0.1;
+      this.float(this.monX() + 4 + Math.round(Math.random() * 20), 30 + Math.round(Math.random() * 16), fmt(dmg), "#9fd8ff", false, true);
+      if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 12, this.ground - 30, "#9fd8ff", 4);
     });
     g.on("dodge", () => this.float(this.heroX + 16, 44, tx("Esquive"), "#9fd8ff"));
     g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + Math.round(dmg), "#ffb07a"));
@@ -227,6 +232,12 @@ export class StripRenderer {
     this.wisps = []; this.coreKey = null;
     this.heroBar = new Bar(this.stage, "#6fd17f");
     this.slash = el("div", "slash", this.stage);
+    // Zone cliquable sur le monstre combattu : un clic = coup bonus.
+    this.tap = el("button", "tapzone hit", this.stage);
+    this.tap.hidden = true;
+    this.tap.title = tx("Clique pour frapper !");
+    this.tap.setAttribute("aria-label", tx("Frapper le monstre"));
+    this.tap.addEventListener("pointerdown", (e) => { e.preventDefault(); this.tapAt = { x: e.offsetX, y: e.offsetY }; this.game.tapMonster(); });
   }
 
   /** Serviteur (nécromancien : squelette, druide : loup) quand la stat « minion » est active. */
@@ -399,6 +410,17 @@ export class StripRenderer {
       if (a.el.classList.contains("shelled") !== shelled) { a.el.classList.toggle("shelled", shelled); mark("boss"); }
       const poisoned = !!(fighting && R.mon.poisonT > 0);
       if (a.el.classList.contains("poisoned") !== poisoned) { a.el.classList.toggle("poisoned", poisoned); mark("poison"); }
+    }
+    // Zone de clic calée sur le monstre combattu
+    const tapOn = R.mode === "fight" && !!R.mon && !!this.slots[cur] && this.slots[cur].shown;
+    if (this.tap.hidden === tapOn) { this.tap.hidden = !tapOn; mark("tap"); }
+    if (tapOn) {
+      const a = this.slots[cur], tk = a.tx + "|" + a.w;
+      if (tk !== this.tapKey) {
+        this.tapKey = tk;
+        const [ax, ay] = a.tx.split(",").map(Number);
+        this.tap.style.cssText = `width:${a.w + 18}px;height:${a.h + 18}px;transform:translate3d(${ax - 9}px,${ay - 12}px,0)`;
+      }
     }
     if (this.corpse) {
       if (R.corpse) this.corpse.alpha(Math.max(0, R.corpse.t / 0.45));
