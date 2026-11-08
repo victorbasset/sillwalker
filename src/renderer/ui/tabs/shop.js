@@ -73,7 +73,7 @@ export class ShopTab {
         <img src="${shopIconURL(c.id, 6)}" alt="">
         <div class="nm rc${c.minRarity}">${esc(c.name)}</div>
         <div class="eff">${esc(RARITIES[c.minRarity].name)} ${tx("ou mieux")}</div>
-        <div class="sub">niveau ${S.best}</div>
+        <div class="sub">${tx("niveau {0}", { 0: S.best })}</div>
         ${buy("s-chest", c.id, chestPrice(c, S), full ? tx("Sac plein") : "")}
       </div>`).join("") + `<div class="ctile chesttile">
         <img src="${shopIconURL("egg", 6)}" alt="">

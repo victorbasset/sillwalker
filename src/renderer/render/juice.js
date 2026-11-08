@@ -109,7 +109,7 @@ export class Juice {
   }
 
   place(node, x, y, extra = "") {
-    const t = `${tx("translate3d({0}px,{1}px,0){2}", { 0: q(x), 1: q(y), 2: extra })}`;
+    const t = `translate3d(${q(x)}px,${q(y)}px,0)${extra}`;
     if (node._t !== t) { node._t = t; node.style.transform = t; mark("juice"); }
   }
 
@@ -146,7 +146,7 @@ export class Juice {
       this.place(beam, x - 4, 0);
       this.add(beam, (p) => { const o = Math.round((1 - p.t / 2.2) * 10) / 10; if (beam._o !== o) { beam._o = o; beam.style.opacity = Math.max(0, o); } return p.t < 2.2; });
     }
-    const img = el("img", tx("itemfx rb") + r, this.layer);
+    const img = el("img", "itemfx rb" + r, this.layer);
     img.src = itemIconURL(item);
     const st = { vx: 30 + Math.random() * 30, vy: -170, x, y: y0 };
     this.add(img, (p, dt) => {
@@ -157,7 +157,7 @@ export class Juice {
       }
       if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
       const k = Math.min(1, (p.t - st.ht) / 0.6), tg = this.bagTarget();
-      this.place(img, st.hx + (tg.x - st.hx) * easeIn(k), st.hy + (tg.y - st.hy) * easeIn(k), ` ${tx("scale({0})", { 0: (1 - k * 0.6).toFixed(2) })}`);
+      this.place(img, st.hx + (tg.x - st.hx) * easeIn(k), st.hy + (tg.y - st.hy) * easeIn(k), ` scale(${(1 - k * 0.6).toFixed(2)})`);
       return k < 1;
     });
     if (r === LEGENDARY) {
@@ -188,7 +188,7 @@ export class Juice {
     this.add(node, (p) => {
       p.slot = slot;
       const k = p.t / life, pop = p.t < 0.18 ? 0.6 + (p.t / 0.18) * 0.5 : p.t < 0.3 ? 1.1 - (p.t - 0.18) : 1;
-      this.place(node, cx, 28 + slot * 24 - easeOut(Math.min(1, k)) * 6, ` ${tx("translate(-50%,0) scale({0})", { 0: pop.toFixed(2) })}`);
+      this.place(node, cx, 28 + slot * 24 - easeOut(Math.min(1, k)) * 6, ` translate(-50%,0) scale(${pop.toFixed(2)})`);
       const o = k > 0.8 ? Math.round((1 - (k - 0.8) / 0.2) * 8) / 8 : 1;
       if (node._o !== o) { node._o = o; node.style.opacity = o; }
       return k < 1;
@@ -243,7 +243,7 @@ export class Juice {
   chest(gold) {
     if (!this.active) return;
     const x = this.s.heroX + 46, y = this.ground() - 18, node = el("div", "chest", this.layer);
-    node.innerHTML = tx("<i class=\"lid\"></i><i class=\"box\"></i>");
+    node.innerHTML = "<i class=\"lid\"></i><i class=\"box\"></i>";
     let opened = false;
     this.add(node, (p) => {
       this.place(node, x, y - (p.t < 0.25 ? Math.sin(p.t / 0.25 * Math.PI) * 10 : 0));
@@ -264,7 +264,7 @@ export class Juice {
   spawnStar() {
     if (!this.active) return;
     this.removeStar();
-    const node = el("button", tx("star hit"), this.layer);
+    const node = el("button", "star hit", this.layer);
     node.title = tx("Attrape l’étoile filante !");
     node.setAttribute("aria-label", tx("Attraper l’étoile filante"));
     node.innerHTML = "<i></i>";
@@ -283,7 +283,7 @@ export class Juice {
     if (this.pulse > 0) {
       this.pulse = Math.max(0, this.pulse - dt);
       const sc = (1 + this.pulse * 1.1).toFixed(2);
-      if (this.s.hudR.c._sc !== sc) { this.s.hudR.c._sc = sc; this.s.hudR.c.style.transform = `${tx("scale({0})", { 0: sc })}`; mark("juice"); }
+      if (this.s.hudR.c._sc !== sc) { this.s.hudR.c._sc = sc; this.s.hudR.c.style.transform = `scale(${sc})`; mark("juice"); }
     }
     if (this.star) { const p = this.starPos(); this.place(this.star, p.x, p.y); }
     this.ambient(dt);

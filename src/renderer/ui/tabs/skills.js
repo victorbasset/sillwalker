@@ -77,13 +77,13 @@ export class SkillsTab {
       t.textContent = s.name;
       t.style.fill = s.color;
       this.coreText ||= {};
-      this.coreText[s.id] = svg("text", { x: cx, y: cy + 42, class: tx("lbl corepct") }, g);
+      this.coreText[s.id] = svg("text", { x: cx, y: cy + 42, class: "lbl corepct" }, g);
     }
     this.bindView(el.querySelector(".skillview"), el.querySelector(".skilltip"));
   }
 
   /* ---------- Navigation : glisser / molette ---------- */
-  applyView() { this.g.setAttribute("transform", `${tx("translate({0},{1}) scale({2})", { 0: this.view.x, 1: this.view.y, 2: this.view.k })}`); }
+  applyView() { this.g.setAttribute("transform", `translate(${this.view.x},${this.view.y}) scale(${this.view.k})`); }
 
   /** Recentre sur l'origine, à un zoom lisible (molette pour voir tout l'arbre). */
   center() {

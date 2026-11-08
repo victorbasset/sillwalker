@@ -42,12 +42,12 @@ export class StripRenderer {
     this.layerKey = ""; this.hudLKey = ""; this.hudRKey = ""; this.xpKey = "";
     this.heroX = LEFT;
 
-    this.base = makeCanvas(container, tx("layer base"), false);
+    this.base = makeCanvas(container, "layer base", false);
     this.stage = el("div", "stage", container);
     this.fxLayer = el("div", "fxlayer", container);
     this.fade = el("div", "fade", container);
-    this.hudL = makeCanvas(container, tx("layer hud"));
-    this.hudR = makeCanvas(container, tx("layer hud"));
+    this.hudL = makeCanvas(container, "layer hud");
+    this.hudR = makeCanvas(container, "layer hud");
     this.xp = el("div", "xpbar", container);
     this.xpFill = el("i", "", this.xp);
 
@@ -152,7 +152,7 @@ export class StripRenderer {
       f.t += dt;
       const k = Math.min(1, f.t / f.life);
       const y = -q(k * f.rise), x = q(k * f.dx), o = f.keep ? 1 : Math.round((1 - k) * 8) / 8;
-      if (y !== f.y || x !== f.x) { f.y = y; f.x = x; f.node.style.transform = `${tx("translate3d({0}px,{1}px,0)", { 0: x, 1: y })}`; mark("fx"); }
+      if (y !== f.y || x !== f.x) { f.y = y; f.x = x; f.node.style.transform = `translate3d(${x}px,${y}px,0)`; mark("fx"); }
       if (o !== f.o) { f.o = o; f.node.style.opacity = o; }
     }
     this.fx = this.fx.filter((f) => (f.t < f.life ? true : (f.node.remove(), false)));
@@ -287,13 +287,13 @@ export class StripRenderer {
       const boss = k === FIGHTS - 1;
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss);
       if (boss) {
-        const tag = el("div", tx("affix bossname"), a.el);
+        const tag = el("div", "affix bossname", a.el);
         tag.textContent = bossName(this.game.S.zone);
       }
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");
         const af = ELITE_AFFIXES[line[k].affix];
-        if (line[k].champion) { const tag = el("div", tx("affix champ"), a.el); tag.textContent = tx("Champion") + (af ? " " + af.name.toLowerCase() : ""); }
+        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = tx("Champion") + (af ? " " + af.name.toLowerCase() : ""); }
         else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name; tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
@@ -340,7 +340,7 @@ export class StripRenderer {
     const cx = x + this.hero.w / 2, cy = GROUND - this.hero.h / 2 - 4, n = this.wisps.length;
     this.wisps.forEach((w, i) => {
       const a = R.time * 1.6 + (i * Math.PI * 2) / n;
-      const t = `${tx("translate3d({0}px,{1}px,0)", { 0: q(cx + Math.cos(a) * 26 - 3), 1: q(cy + Math.sin(a) * 12 - 3) })}`;
+      const t = `translate3d(${q(cx + Math.cos(a) * 26 - 3)}px,${q(cy + Math.sin(a) * 12 - 3)}px,0)`;
       if (w._t !== t) { w._t = t; w.style.transform = t; w.style.zIndex = Math.sin(a) > 0 ? 3 : 1; mark("wisp"); }
     });
   }
@@ -373,7 +373,7 @@ export class StripRenderer {
     if (this.shakeT > 0 || this.shakeK) {
       this.shakeT = Math.max(0, this.shakeT - dt);
       const amp = this.shakeT > 0 ? P * (this.shakeT > 0.15 ? 2 : 1) : 0;
-      const k = amp ? `${tx("translate3d({0}px,{1}px,0)", { 0: (Math.random() < 0.5 ? -1 : 1) * amp, 1: (Math.random() < 0.5 ? -1 : 1) * (amp / P | 0) * P })}` : "";
+      const k = amp ? `translate3d(${(Math.random() < 0.5 ? -1 : 1) * amp}px,${(Math.random() < 0.5 ? -1 : 1) * (amp / P | 0) * P}px,0)` : "";
       if (k !== this.shakeK) { this.shakeK = k; this.stage.style.transform = k; mark("shake"); }
     }
     this.syncSlots();
@@ -422,7 +422,7 @@ export class StripRenderer {
     this.hero.move(x + (this.lunge > 0 && melee ? 6 : 0) + (this.flash > 0 ? -3 : 0), GROUND - fr.ch + P + bob);
     this.hero.alpha(R.mode === "dead" ? 0.35 : 1);
     const bx = q(x + 3);
-    if (bx !== this.heroBarX) { this.heroBarX = bx; this.heroBar.el.style.transform = `${tx("translate3d({0}px,{1}px,0)", { 0: bx, 1: GROUND - this.hero.h - 2 })}`; mark("move"); }
+    if (bx !== this.heroBarX) { this.heroBarX = bx; this.heroBar.el.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 2}px,0)`; mark("move"); }
     this.heroBar.set(R.hp / game.stats().hp);
     this.syncPet();
     this.syncMinion();
@@ -452,7 +452,7 @@ export class StripRenderer {
       if (sx !== this.slashX || this.slashScaleK !== this.slashTier) {
         this.slashX = sx; this.slashScaleK = this.slashTier;
         const k = [1, 1.35, 1.7, 2.1, 2.7][attackTier(S)] || 1;
-        this.slash.style.transform = `${tx("translate3d({0}px,{1}px,0) scale({2})", { 0: sx, 1: q(GROUND - 36), 2: k })}`;
+        this.slash.style.transform = `translate3d(${sx}px,${q(GROUND - 36)}px,0) scale(${k})`;
       }
     }
     if (this.slash.classList.contains("on") !== !!slashOn) { this.slash.classList.toggle("on", !!slashOn); mark("slash"); }
@@ -463,7 +463,7 @@ export class StripRenderer {
       if (this.slashTier && +this.slashTier.split(":")[1] < t && this.slashTier.split(":")[0] === S.cls)
         this.juice.banner(`${tx("Style de combat : {0} !", { 0: ATTACK_TIERS[t].name })}`, CLASS_FX[S.cls] || "#fff", this.heroX + 80, true);
       this.slashTier = tierKey;
-      this.slash.className = tx("slash t") + t + (slashOn ? " on" : "");
+      this.slash.className = "slash t" + t + (slashOn ? " on" : "");
       this.slash.style.setProperty("--c", CLASS_FX[S.cls] || "#fff");
     }
 
@@ -475,7 +475,7 @@ export class StripRenderer {
     this.drawHudLeft();
     this.drawHudRight();
     const xpPct = (100 * S.xp / game.xpNeed()).toFixed(1);
-    if (xpPct !== this.xpKey) { this.xpKey = xpPct; this.xpFill.style.transform = `${tx("scaleX({0})", { 0: xpPct / 100 })}`; mark("xp"); }
+    if (xpPct !== this.xpKey) { this.xpKey = xpPct; this.xpFill.style.transform = `scaleX(${xpPct / 100})`; mark("xp"); }
   }
 
   /* ---------- ATH (redessinés seulement quand le texte change) ---------- */

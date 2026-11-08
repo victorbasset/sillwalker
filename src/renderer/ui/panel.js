@@ -81,7 +81,7 @@ const LOG_COLORS = [
   [/Quête accomplie|revient de|L’œuf éclot|Un œuf/, "lg-good"],
   [/K.O.|est tombé|Trop dur|Dernière potion/, "lg-bad"],
 ];
-const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); return m ? ` ${tx("class=\"{0}\"", { 0: m[1] })}` : ""; };
+const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); return m ? ` class="${m[1]}"` : ""; };
 
 export class Panel {
   constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
@@ -109,14 +109,14 @@ export class Panel {
   build() {
     const dev = this.isDev ? `
       <div class="controls" role="group" aria-label="${esc(tx("Vitesse de test"))}">
-        <span class="devtag">${tx("DEV")}</span>
+        <span class="devtag">DEV</span>
         <button data-speed="1" aria-pressed="${this.speed === 1}">×1</button>
         <button data-speed="3" aria-pressed="${this.speed === 3}">×3</button>
         <button data-speed="10" aria-pressed="${this.speed === 10}">×10</button>
       </div>` : "";
     this.root.innerHTML = `
       <header class="ptop">
-        <h1>${tx("Sillwalker")}</h1>
+        <h1>Sillwalker</h1>
         <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(tx("Raccourci : {0}", { 0: "1234567890-"[i] }))}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt="">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
         <div class="controls">
           ${dev}
@@ -308,7 +308,7 @@ export class Panel {
       .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
     const dm = activeDayMod(S);
     const day = dm ? `<span class="chip daymod" title="${esc(tx("Bénédiction du jour : change chaque jour à minuit."))}">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
-    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>niveau ${S.lvl}</small></h2>
+    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>
       <div class="kv"><span>${tx("Expérience")}</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">
         <div class="tile"><img src="${shopIconURL("heart", 3)}" alt=""><span>${tx("Points de vie")}</span><b>${fmtStat("hp", hs.hp)}</b></div>
@@ -404,7 +404,7 @@ export class Panel {
     $(this.root, "#p-zone").innerHTML = `<h2>${tx("Zone {0}", { 0: S.zone })} <small>${tx("record : {0}", { 0: S.best })}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
       <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(MONSTERS[Z.boss].name.toLowerCase()), 2: fmt(bb.hp) })}</p>
-      <p class="note tight bossmech">${tx("Boss :")} <b class="bname">${esc(bossName(S.zone))}</b>. Capacité${bossMechanics(S.zone).length > 1 ? "s" : ""} du boss : ${bossMechanics(S.zone).map((id) => `<b title="${esc(BOSS_MECHANICS[id].desc)}">${esc(BOSS_MECHANICS[id].name)}</b>`).join(", ")}.</p>
+      <p class="note tight bossmech">${tx("Boss :")} <b class="bname">${esc(bossName(S.zone))}</b>. ${tx("Capacités du boss :")} ${bossMechanics(S.zone).map((id) => `<b title="${esc(BOSS_MECHANICS[id].desc)}">${esc(BOSS_MECHANICS[id].name)}</b>`).join(", ")}.</p>
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> ${tx("Passer à la zone suivante après le boss")}</label>
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>${tx("Zone précédente")}</button>

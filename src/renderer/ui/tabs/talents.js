@@ -39,10 +39,10 @@ export class TalentsTab {
     const spentAll = talentPointsSpent(S), voie = chosenVoie(S);
     const voies = (VOIES[S.cls] || []).map((v) => {
       const taken = voie && voie.id === v.id, closed = voie && !taken, locked = spentAll < VOIE_REQ;
-      const cls = ["talent", "voie", taken ? tx("has maxed") : "", closed ? "closed" : "", locked ? "locked" : "", this.sel === v.id ? "sel" : ""].join(" ");
+      const cls = ["talent", "voie", taken ? "has maxed" : "", closed ? "closed" : "", locked ? "locked" : "", this.sel === v.id ? "sel" : ""].join(" ");
       const armed = this.armed === v.id && !taken;
       return `<button class="${cls}${armed ? " armed" : ""}" data-action="t-voie" data-id="${v.id}" data-tid="${v.id}"><span class="tn">${taken ? "✦ " : ""}${esc(v.name)}</span>
-        <span class="tr">${taken ? "choisie" : locked ? "🔒 " + VOIE_REQ + " pts" : closed ? "—" : armed ? tx("cliquer encore pour confirmer") : "choisir"}</span><span class="vt">${esc(v.text)}</span></button>`;
+        <span class="tr">${taken ? tx("choisie") : locked ? "🔒 " + VOIE_REQ + " pts" : closed ? "—" : armed ? tx("cliquer encore pour confirmer") : tx("choisir")}</span><span class="vt">${esc(v.text)}</span></button>`;
     }).join("");
     const masteries = MASTERIES.map((m) => {
       const r = ranks[m.id] || 0, locked = spentAll < MASTERY_REQ;
@@ -51,7 +51,7 @@ export class TalentsTab {
         <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace(tx("Maîtrise : "), "")))}</span><span class="tr">${locked ? "🔒 " + MASTERY_REQ + " pts" : "rang " + r}</span>
         ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">tout</span>` : ""}</button>`;
     }).join("");
-    const extra = `<article class="panel tbranch tvoie"><h2>${tx("Voie")} <small>${voie ? "choisie" : `${tx("dès {0} pts", { 0: VOIE_REQ })}`}</small></h2>${voies}
+    const extra = `<article class="panel tbranch tvoie"><h2>${tx("Voie")} <small>${voie ? tx("choisie") : `${tx("dès {0} pts", { 0: VOIE_REQ })}`}</small></h2>${voies}
         <p class="note">${tx("Une seule voie par classe. Pour en changer : réinitialiser les talents.")}</p></article>
       <article class="panel tbranch tmastery"><h2>${tx("Maîtrises")} <small>${tx("rangs illimités")}</small></h2>${masteries}
         <p class="note">${tx("Dès {0} points dépensés : chaque point en plus y trouve sa place, aucun n’est perdu.", { 0: MASTERY_REQ })}</p></article>`;

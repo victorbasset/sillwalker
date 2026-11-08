@@ -5,6 +5,8 @@
 // du sac, constellations. Remis à zéro : niveau, zone, or, équipement, sac,
 // talents, élixirs, quêtes, marchand.
 
+import { t as tx } from "../i18n/index.js";
+
 export const ASCEND_MIN_ZONE = 20;
 
 /** Éclats gagnés en montant maintenant (selon la meilleure zone atteinte). */
@@ -18,29 +20,29 @@ export const shardsFor = (best) => (best < ASCEND_MIN_ZONE ? 0 : Math.floor(Math
  * Coût du rang n+1 : base × (n + 1).
  */
 export const CONSTELLATIONS = [
-  { id: "c_warrior", name: "Le Guerrier",   base: 3, max: 20, eff: { atkPct: 5 } },
-  { id: "c_tower",   name: "La Tour",       base: 3, max: 20, eff: { hpPct: 5 } },
-  { id: "c_coin",    name: "La Pièce",      base: 3, max: 20, eff: { gold: 10 } },
-  { id: "c_owl",     name: "La Chouette",   base: 3, max: 20, eff: { xp: 10 } },
-  { id: "c_comet",   name: "La Comète",     base: 5, max: 10, eff: { critDmg: 10 } },
-  { id: "c_chalice", name: "Le Calice",     base: 5, max: 10, eff: { drop: 5 } },
-  { id: "c_road",    name: "La Route",      base: 8, max: 10, eff: { startZone: 2 } },
-  { id: "c_tree",    name: "L’Arbre",       base: 10, max: 10, eff: { talentPts: 1 } },
-  { id: "c_moon",    name: "La Lune",       base: 6, max: 8,  eff: { offlineH: 1 } },
-  { id: "c_flask",   name: "La Fiole",      base: 2, max: 5,  eff: { potions: 2 } },
-  { id: "c_north",   name: "L’Étoile polaire", base: 6, max: 15, eff: { skillPts: 2 } },
-  { id: "c_shield",  name: "Le Bouclier",   base: 3, max: 20, eff: { defPct: 5 } },
-  { id: "c_crown",   name: "La Couronne",   base: 5, max: 10, eff: { bossDmg: 8 } },
-  { id: "c_serpent", name: "Le Serpent",    base: 5, max: 10, eff: { lifesteal: 0.5 } },
-  { id: "c_wing",    name: "L’Aile",        base: 12, max: 10, eff: { moveSpd: 3 } },
+  { id: "c_warrior", name: tx("Le Guerrier"),   base: 3, max: 20, eff: { atkPct: 5 } },
+  { id: "c_tower",   name: tx("La Tour"),       base: 3, max: 20, eff: { hpPct: 5 } },
+  { id: "c_coin",    name: tx("La Pièce"),      base: 3, max: 20, eff: { gold: 10 } },
+  { id: "c_owl",     name: tx("La Chouette"),   base: 3, max: 20, eff: { xp: 10 } },
+  { id: "c_comet",   name: tx("La Comète"),     base: 5, max: 10, eff: { critDmg: 10 } },
+  { id: "c_chalice", name: tx("Le Calice"),     base: 5, max: 10, eff: { drop: 5 } },
+  { id: "c_road",    name: tx("La Route"),      base: 8, max: 10, eff: { startZone: 2 } },
+  { id: "c_tree",    name: tx("L’Arbre"),       base: 10, max: 10, eff: { talentPts: 1 } },
+  { id: "c_moon",    name: tx("La Lune"),       base: 6, max: 8,  eff: { offlineH: 1 } },
+  { id: "c_flask",   name: tx("La Fiole"),      base: 2, max: 5,  eff: { potions: 2 } },
+  { id: "c_north",   name: tx("L’Étoile polaire"), base: 6, max: 15, eff: { skillPts: 2 } },
+  { id: "c_shield",  name: tx("Le Bouclier"),   base: 3, max: 20, eff: { defPct: 5 } },
+  { id: "c_crown",   name: tx("La Couronne"),   base: 5, max: 10, eff: { bossDmg: 8 } },
+  { id: "c_serpent", name: tx("Le Serpent"),    base: 5, max: 10, eff: { lifesteal: 0.5 } },
+  { id: "c_wing",    name: tx("L’Aile"),        base: 12, max: 10, eff: { moveSpd: 3 } },
 ];
 
 export const SPECIAL_EFFECTS = {
-  talentPts: (v) => `+${v} point${v > 1 ? "s" : ""} de talent`,
-  skillPts: (v) => `+${v} points de compétence`,
-  startZone: (v) => `recommence en zone ${1 + v} (au plus 5 zones sous le record)`,
-  offlineH: (v) => `+${v} h de progression hors ligne`,
-  potions: (v) => `+${v} potions au départ`,
+  talentPts: (v) => `${tx("+{0} point{1} de talent", { 0: v, 1: v > 1 ? "s" : "" })}`,
+  skillPts: (v) => `${tx("+{0} points de compétence", { 0: v })}`,
+  startZone: (v) => `${tx("recommence en zone {0} (au plus 5 zones sous le record)", { 0: 1 + v })}`,
+  offlineH: (v) => `${tx("+{0} h de progression hors ligne", { 0: v })}`,
+  potions: (v) => `${tx("+{0} potions au départ", { 0: v })}`,
 };
 
 export const constellationCost = (c, rank) => c.base * (rank + 1);

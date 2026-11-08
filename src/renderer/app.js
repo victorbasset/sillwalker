@@ -340,7 +340,7 @@ async function boot() {
   if (game.S.stats.kills > 0) { const sum = game.applyOffline(away); if (sum) showOffline(sum); }
   checkAchievements(true);
   checkDaily();
-  await Promise.all([document.fonts.load(tx("13px 'Geist Pixel'")), document.fonts.load(tx("600 13px 'Pixelify Sans'"))]).catch(() => {});
+  await Promise.all([document.fonts.load("13px 'Geist Pixel'"), document.fonts.load("600 13px 'Pixelify Sans'")]).catch(() => {});
   await document.fonts.ready;
   applyLayout(init.layout);
   setVisible(init.visible !== false);
