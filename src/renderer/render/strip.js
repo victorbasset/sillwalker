@@ -31,7 +31,7 @@ export class StripRenderer {
     this.game = game;
     this.rightReserve = rightReserve;
     this.W = 800; this.dpr = 0; this.cssDpr = 1;
-    this.lunge = 0; this.flash = 0; this.monHit = 0; this.fadeT = 0;
+    this.lunge = 0; this.flash = 0; this.monHit = 0; this.fadeT = 0; this.shakeT = 0; this.shakeK = "";
     this.lastDraw = 0;
     this.active = true;
     this.fx = [];
@@ -80,7 +80,7 @@ export class StripRenderer {
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
-    g.on("smash", ({ dmg }) => { this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + " !", "#ff4a4a", true); });
+    g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + " !", "#ff4a4a", true); });
     g.on("bossShieldHit", () => { this.monHit = 0.06; });
     g.on("mirrorHit", ({ dmg }) => { this.flash = Math.max(this.flash, 0.08); this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#e0d8ff", false, true); });
     g.on("flee", ({ mon }) => {
@@ -90,8 +90,11 @@ export class StripRenderer {
     g.on("egg", () => this.float(this.heroX + 16, 30, "Un œuf !", "#ffe27a", true));
     g.on("petLevel", ({ pet }) => this.float(this.heroX - 10, 50, pet.name + " monte de niveau", "#9fe0a8"));
     g.on("questDone", () => this.float(this.heroX + 16, 30, "Quête accomplie !", "#9fd8ff", true));
+    g.on("loot", ({ item }) => { if (item.r >= 4) this.shake(0.3); });
+    g.on("chest", () => this.shake(0.2));
     g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#ff7a6b", false, true); });
     g.on("kill", ({ mon, gold }) => {
+      if (mon.boss) this.shake(0.35);
       this.float(this.monX() + 10, 50, "+" + fmt(gold) + " or", "#ffd34d");
       if (this.active) this.makeCorpse(mon, this.monX());
     });
@@ -301,6 +304,8 @@ export class StripRenderer {
     this.corpse = a;
   }
 
+  shake(t) { if (this.active && this.game.S.settings.fullEffects !== false) this.shakeT = Math.max(this.shakeT, t); }
+
   /* ---------- Image ---------- */
   draw(now) {
     const dt = this.lastDraw ? Math.min(0.25, (now - this.lastDraw) / 1000) : 0;
@@ -325,6 +330,13 @@ export class StripRenderer {
     }
     this.updateFx(dt);
     this.juice.update(dt);
+    // Tremblement de la scène (boss vaincu, coup dévastateur, légendaire, coffre) : par pas de 3 px.
+    if (this.shakeT > 0 || this.shakeK) {
+      this.shakeT = Math.max(0, this.shakeT - dt);
+      const amp = this.shakeT > 0 ? P * (this.shakeT > 0.15 ? 2 : 1) : 0;
+      const k = amp ? `translate3d(${(Math.random() < 0.5 ? -1 : 1) * amp}px,${(Math.random() < 0.5 ? -1 : 1) * (amp / P | 0) * P}px,0)` : "";
+      if (k !== this.shakeK) { this.shakeK = k; this.stage.style.transform = k; mark("shake"); }
+    }
     this.syncSlots();
 
     // Monstres en attente / combat en cours
