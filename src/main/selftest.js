@@ -82,6 +82,15 @@ async function runSelfTest(strip) {
   if (hasMiniStar) await click("#mini .ministar");
   await sleep(200);
   check("étoile filante attrapée en mode mini", hasMiniStar && (await state("S.speed")) > ms0);
+  // Clic sur le monstre en mode mini : coup bonus, l'encart reste petit
+  await js("window.__pause = false");
+  await until(() => js("(() => { const g = window.__game; if (g.R.mode !== 'fight' || !g.R.mon) return false; window.__pause = true; g.R.mon.hp = g.R.mon.max = 1e12; return true; })()"), 15000);
+  await sleep(500);
+  const mt0 = await state("S.stats.taps || 0");
+  const miniTap = await js("!document.querySelector('#mini .minitap').hidden");
+  if (miniTap) await click("#mini .minitap");
+  await sleep(300);
+  check("mode mini : clic sur le monstre = coup bonus", miniTap && (await state("S.stats.taps || 0")) > mt0 && strip.mode() === "mini");
   // Icône seule depuis le mini
   await click("#mini-icon");
   await sleep(500);

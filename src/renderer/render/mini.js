@@ -30,6 +30,14 @@ export class MiniRenderer {
     this.monActor = null; this.monRef = null;
     game.on("heroAttack", () => { this.lunge = 0.15; this.monHit = 0.12; });
     game.on("heroHurt", () => { this.flash = 0.12; });
+    game.on("tap", () => { this.monHit = 0.12; });
+    // Clic sur le monstre combattu : coup bonus (sans agrandir l'encart).
+    this.tap = el("button", "minitap", this.root);
+    this.tap.hidden = true;
+    this.tap.title = tx("Clique pour frapper !");
+    this.tap.setAttribute("aria-label", tx("Frapper le monstre"));
+    this.tap.addEventListener("click", (e) => e.stopPropagation());
+    this.tap.addEventListener("pointerdown", (e) => { e.stopPropagation(); e.preventDefault(); game.tapMonster(); });
     this.resize();
   }
 
@@ -91,6 +99,9 @@ export class MiniRenderer {
       a.alpha(alive ? Math.min(1, m.age / 0.4) : Math.max(0, R.corpse.t / 0.45));
       if (a.bar.el.style.opacity !== String(a.alphaV)) a.bar.el.style.opacity = a.alphaV;
       a.bar.visible(alive);
+      const tapOn = alive && R.mode === "fight";
+      if (this.tap.hidden === tapOn) { this.tap.hidden = !tapOn; mark("tap"); }
+      if (tapOn && this.tapX !== a.x) { this.tapX = a.x; this.tap.style.left = (a.x - 8) + "px"; this.tap.style.width = (a.w + 16) + "px"; }
       if (alive) {
         a.bar.set(m.hp / m.max);
         const bx = a.x + Math.round(a.w / 2 - 19);
