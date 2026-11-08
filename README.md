@@ -9,9 +9,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 
 ## Contenu
 
-- **9 classes** (onglet Classe, changement gratuit, chaque classe garde ses talents) :
+- **10 classes** (onglet Classe, changement gratuit, chaque classe garde ses talents) :
   Guerrier (riposte), Rôdeur (tir d'ouverture), Mage (brûlure), Paladin (bouclier sacré), Assassin (poison cumulable),
-  Nécromancien (serviteur squelette), Moine (enchaînement), Druide (épines, esprit-loup), Samouraï (iaijutsu : un coup sur 4 critique renforcé).
+  Nécromancien (serviteur squelette), Moine (enchaînement), Druide (épines, esprit-loup), Samouraï (iaijutsu : un coup sur 4 critique renforcé),
+  Berserker (vol de vie, exécution des cibles affaiblies).
 - **Arbre de compétences** commun à toutes les classes : 144 nœuds en 6 secteurs (Force, Agilité, Arcanes,
   Vitalité, Fortune, Maîtrise), 24 nœuds remarquables, 6 clés de voûte. 1 point tous les 2 niveaux + points
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux.

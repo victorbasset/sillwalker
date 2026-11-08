@@ -42,6 +42,7 @@ const HEADS = {
   necro: ["", "", "....HHHHH", "...HHHHHHHh", "..HHHhhhhHh", "..HHh.SSEHh", "..HHh.SSSHh", "...Hh.ssHh", "....hh..h"],
   monk: ["", "", "....SSSS", "...SSSSSSs", "..YYYYYYYY", "..Y.SSSSES", ".Y..SSSSSs", ".....sSSs", "......ss"],
   druid: ["", "....X.X.X", "...XXYXXXX", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "...hZSSSZs", "....ZZZZZ", ".....ZZZ"],
+  berserker: ["", "..X......X", "..XHHHHHHX", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "...ZZSSSZZ", "....ZZZZZ", ".....ZZZ"],
   samurai: ["......HH", "......Hh", "....HHHHH", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "....SSSSSs", ".....sSSs", "......ss"],
 };
 
@@ -82,6 +83,10 @@ const WEAPONS = {
     idle: { 2: col(11, "XYX"), 3: col(10, "XXWXX"), 4: col(11, "XWX"), ...range(5, 17, col(12, "G")) },
     attack: { 1: col(10, "Y.X.Y"), 2: col(10, "XXYXX"), 3: col(9, "XXXWXXX"), 4: col(10, "XXWXX"), ...range(5, 17, col(12, "G")) },
   },
+  greataxe: {
+    idle: { 2: col(12, "G"), 3: col(12, "GWW"), 4: col(12, "GWWw"), 5: col(12, "GWWw"), 6: col(12, "GWW"), ...range(7, 12, col(12, "G")) },
+    attack: { 9: col(17, "W"), 10: col(16, "WWW"), 11: col(12, "GGGGGWWw"), 12: col(16, "WWw"), 13: col(17, "w") },
+  },
   katana: {
     idle: { 1: col(12, "w"), ...range(2, 9, col(12, "W")), 10: col(12, "Y"), 11: col(12, "G"), 12: col(12, "G") },
     attack: { 11: col(12, "GGYWWWWWWWWw") },
@@ -108,6 +113,9 @@ const DEFS = {
     pal: { ...SKIN, Y: "#c0392b", A: "#e8963a", a: "#c06a1e", B: "#8a2a2a", K: "#8a5a2b", W: "#f2efe6", w: "#c9c3b4" } },
   druid: { head: "druid", torso: TORSO, legs: ROBE, weapon: "druidstaff",
     pal: { ...SKIN, X: "#5fae4a", Y: "#ff9ad8", H: "#7a4a2a", h: "#5a341c", Z: "#8a5a3a", A: "#6a5a3a", a: "#4f4229", B: "#5fae4a", K: "#3a2a1a", G: "#8a5a2b", W: "#8fd86a", w: "#5fae4a" } },
+  berserker: { head: "berserker", legs: LEGS, weapon: "greataxe",
+    torso: ["..aAAASSSAAa....", "..aAASBSSSAa....", "..SaSSBSSSaS....", "...aBBBBBBa.....", "...aAAAAAAa....."],
+    pal: { ...SKIN, H: "#8a8f99", h: "#5c616b", X: "#e8e4d6", Z: "#c0562b", A: "#7a5233", a: "#5a3a20", B: "#3a2a1a", L: "#4a3a2a", l: "#3a2a1a", K: "#2a1f18", W: "#c9d1dc", w: "#7a828c", G: "#6b4a2b" } },
   samurai: { head: "samurai", legs: HAKAMA, weapon: "katana",
     torso: ["..aaAAAAAAaa....", "..aABABABAAa....", "..SaAAAAAAaS....", "...aBBBBBBa.....", "...aAAAAAAa....."],
     pal: { ...SKIN, H: "#1d1a26", h: "#14121f", A: "#b8322a", a: "#8a2420", B: "#2a2638", L: "#3a3550", l: "#2a2638", K: "#8a5a2b", W: "#eef3f8", w: "#9aa6b5", G: "#2a2638", Y: "#e9b949" } },

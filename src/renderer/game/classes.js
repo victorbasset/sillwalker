@@ -104,6 +104,17 @@ export const CLASSES = {
     contact: 44,
     projectile: null,
   },
+  berserker: {
+    name: "Berserker",
+    role: "Rage et hache, au corps à corps",
+    desc: "Plus l’ennemi saigne, plus il frappe fort ; chaque coup le soigne.",
+    mul: { hp: 1.15, atk: 1.2, def: 0.85 },
+    add: { spd: 10 },
+    passive: { lifesteal: 6, execute: 35 },
+    passiveText: "Rage sanguinaire : 6 % des dégâts infligés rendent des PV, et +35 % de dégâts contre les cibles sous 30 % de vie.",
+    contact: 44,
+    projectile: null,
+  },
 };
 export const CLASS_KEYS = Object.keys(CLASSES);
 export const classDef = (id) => CLASSES[id] || CLASSES.warrior;

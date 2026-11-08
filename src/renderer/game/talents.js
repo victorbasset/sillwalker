@@ -43,6 +43,26 @@ export const EFFECTS = {
 const T = (id, name, tier, max, eff, text) => ({ id, name, tier, max, eff, text });
 
 export const TREES = {
+  berserker: [
+    { name: "Carnage", talents: [
+      T("be_axe", "Hache lourde", 0, 10, { atkPct: 3 }),
+      T("be_cleave", "Fendoir", 1, 5, { critDmg: 12 }),
+      T("be_finish", "Achever", 2, 5, { execute: 12 }),
+      T("be_butcher", "Boucher des champs", 3, 1, { execute: 60, bossDmg: 20 }, "Ultime : +60 % de dégâts contre les cibles affaiblies et +20 % contre les boss."),
+    ] },
+    { name: "Sang", talents: [
+      T("be_thick", "Peau épaisse", 0, 10, { hpPct: 4 }),
+      T("be_drink", "Boire le sang", 1, 5, { lifesteal: 1.5 }),
+      T("be_scars", "Cicatrices", 2, 5, { thorns: 8 }),
+      T("be_undying", "Rage immortelle", 3, 1, { secondWind: 1, lifesteal: 5 }, "Ultime : second souffle et +5 % de vol de vie."),
+    ] },
+    { name: "Frénésie", talents: [
+      T("be_wild", "Sauvagerie", 0, 10, { spd: 3 }),
+      T("be_howl", "Hurlement", 1, 5, { firstStrike: 0.4 }),
+      T("be_storm", "Tourbillon", 2, 5, { doubleShot: 6 }),
+      T("be_frenzy", "Frénésie sanglante", 3, 1, { combo: 3, spd: 25 }, "Ultime : enchaînement +3 % par coup et +25 % de vitesse d’attaque."),
+    ] },
+  ],
   samurai: [
     { name: "Lame", talents: [
       T("sa_edge", "Fil du sabre", 0, 10, { atkPct: 3 }),
