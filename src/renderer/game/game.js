@@ -8,6 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
+import { activeDayMod, dayModFor } from "./daymods.js";
 import {
   RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
@@ -84,9 +85,10 @@ export class Game {
     const R = this.R;
     if (!R.lineup || R.lineupZone !== this.S.zone) {
       const Z = zoneDef(this.S.zone);
-      R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance
+      const dm = activeDayMod(this.S);
+      R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
         ? { type: "goblin", elite: false, goblin: true }
-        : (() => { const elite = rand() < ELITE.chance; return { type: pick(Z.monsters), elite, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null }; })()));
+        : (() => { const elite = rand() < ELITE.chance * (dm?.elite || 1); return { type: pick(Z.monsters), elite, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null }; })()));
       R.lineupZone = this.S.zone;
     }
     return R.lineup;
@@ -831,13 +833,14 @@ export class Game {
    */
   claimDaily(today) {
     const D = (this.S.daily ||= { last: null, streak: 0 });
+    if (D.mod !== dayModFor(today)) { D.mod = dayModFor(today); this.R.lineup = null; this.changed(); }
     if (D.last === today) return null;
     const yesterday = new Date(new Date(today + "T12:00:00").getTime() - 86400000).toISOString().slice(0, 10);
     D.streak = D.last === yesterday ? (D.streak % 7) + 1 : 1;
     D.last = today;
     const day = D.streak, gold = Math.round(3 * Math.pow(1.25, this.S.best - 1) * 40 * day);
     this.S.gold += gold;
-    const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null };
+    const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null, mod: D.mod };
     if (reward.potions) this.S.potions = Math.min(20, this.S.potions + reward.potions);
     if (day === 7 && !this.bagFull()) { reward.item = this.newItem(3, this.S.best); this.S.bag.push(reward.item); }
     this.log(`Récompense du jour ${day}/7 : +${fmt(gold)} or${reward.potions ? ", 2 potions" : ""}${reward.item ? ", " + reward.item.name : ""}.`);

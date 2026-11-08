@@ -23,6 +23,7 @@ import { POWER_INDEX } from "../game/powers.js";
 import { describeEffects } from "../game/talents.js";
 import { SETS, setCounts } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
+import { activeDayMod } from "../game/daymods.js";
 import { BOSS_MECHANICS, bossMechanics, bossName } from "../game/bosses.js";
 
 const $ = (root, s) => root.querySelector(s);
@@ -249,12 +250,14 @@ export class Panel {
       .map(([id, n]) => `<span class="chip" style="--c:${SETS[id].color};border-color:${SETS[id].color};color:${SETS[id].color}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
     const events = Object.entries(g.R.events).filter(([, t]) => t > 0)
       .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
+    const dm = activeDayMod(S);
+    const day = dm ? `<span class="chip daymod" title="Bénédiction du jour : change chaque jour à minuit.">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
     $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>niveau ${S.lvl}</small></h2>
       <div class="kv"><span>Expérience</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <dl class="stats">${Object.keys(STAT_NAMES).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
       <dt>Potions de soin</dt><dd>${S.potions}</dd><dt>Or</dt><dd id="goldtxt"></dd>
       ${S.prestige.count ? `<dt>Ascensions</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl>
-      ${buffs || events || sets ? `<div class="chips">${sets}${events}${buffs}</div>` : ""}
+      ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${free} point${free > 1 ? "s" : ""} de talent à dépenser →</button>` : ""}
       <div class="heroview">
         <img class="heroport${heroVisual(S).aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, heroVisual(S))}" alt="Ton héros et son équipement">

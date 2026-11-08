@@ -340,6 +340,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.frenzy { filter: drop-shadow(0 0 2px #ff4a4a) drop-shadow(0 0 1px #ff7a6b); }
 .layer.hud { transform-origin: 80% 50%; }
 .chip.event { border-color: var(--c); color: var(--c); }
+.chip.daymod { border-color: #ffd34d; color: #ffe9a8; background: rgba(255, 211, 77, 0.08); }
 .actor.enraged { filter: drop-shadow(0 0 2px #ff2a2a) drop-shadow(1px 0 0 #ff4a4a); }
 .actor.shelled { filter: drop-shadow(0 0 0 #9fd8ff) drop-shadow(1px 0 0 #9fd8ff) drop-shadow(-1px 0 0 #9fd8ff) drop-shadow(0 -1px 0 #9fd8ff); }
 .bossmech b { color: var(--bad); cursor: help; }

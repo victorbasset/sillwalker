@@ -506,4 +506,22 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", async
   test("familiers : tirage pondéré", () => { assert.ok(n.phoenix < n.cat / 2, `phénix ${n.phoenix} / chaton ${n.cat}`); assert.ok(n.rabbit < n.cat); });
 }
 
+{
+  const { DAY_MODS, dayModFor, DAY_MOD_KEYS } = await import("../src/renderer/game/daymods.js");
+  test("bénédiction du jour : déterministe, variée, appliquée", () => {
+    assert.equal(dayModFor("2026-11-08"), dayModFor("2026-11-08"));
+    const seen = new Set();
+    for (let d = 1; d <= 60; d++) seen.add(dayModFor(`2026-01-${String(d).padStart(2, "0")}`));
+    assert.ok(seen.size >= 5, "trop peu de variété : " + seen.size);
+    const g = new Game(freshState());
+    const before = heroStats(g.S);
+    let day = null;
+    for (let d = 1; d <= 31 && !day; d++) if (dayModFor(`2026-03-${String(d).padStart(2, "0")}`) === "fury") day = `2026-03-${String(d).padStart(2, "0")}`;
+    g.claimDaily(day);
+    assert.equal(g.S.daily.mod, "fury");
+    assert.ok(heroStats(g.S).atk > before.atk);
+    for (const k of DAY_MOD_KEYS) assert.ok(DAY_MODS[k].name && DAY_MODS[k].desc);
+  });
+}
+
 console.log(`\n${pass} tests réussis`);

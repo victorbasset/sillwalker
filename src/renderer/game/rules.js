@@ -12,6 +12,7 @@ import { bestiaryEffects } from "./bestiary.js";
 import { skillTreeEffects } from "./skilltree.js";
 import { setEffects, SETS, SET_KEYS, SET_CHANCE } from "./sets.js";
 import { BUFF_EFFECTS } from "./shop.js";
+import { dayModEffects } from "./daymods.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 
 export const xpNeed = (lvl) => Math.floor(20 * Math.pow(1.2, lvl - 1));
@@ -96,7 +97,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // Toutes les sources de bonus : classe + talents, pouvoirs légendaires,
   // familier actif, constellations, bestiaire (puis élixirs ci-dessous).
   const t = talentEffects(S);
-  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S)]) {
+  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), dayModEffects(S)]) {
     for (const k in src) t[k] = (t[k] || 0) + src[k];
   }
   if (buffs) for (const id in S.buffs || {}) if (S.buffs[id] > 0 && BUFF_EFFECTS[id]) {

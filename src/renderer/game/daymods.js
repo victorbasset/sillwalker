@@ -1,0 +1,30 @@
+// Bénédiction du jour : chaque jour (date locale), un modificateur différent
+// s'applique à toute la partie. Le même pour tous les joueurs ce jour-là
+// (choisi à partir de la date), ce qui donne une raison de revenir.
+// `eff` : mêmes clés que les talents (talents.js > EFFECTS) ;
+// `elite` / `goblin` : multiplicateurs des chances d'apparition.
+export const DAY_MODS = {
+  gold:    { icon: "💰", name: "Jour de fortune",   desc: "+50 % d’or.",                         eff: { gold: 50 } },
+  wisdom:  { icon: "📜", name: "Jour du savoir",    desc: "+50 % d’expérience.",                  eff: { xp: 50 } },
+  hunt:    { icon: "⚔", name: "Grande chasse",     desc: "Élites ×3, +25 % de chances de butin.", eff: { drop: 25 }, elite: 3 },
+  wind:    { icon: "🍃", name: "Jour du vent",      desc: "+20 % de vitesse de déplacement.",     eff: { moveSpd: 20 } },
+  fury:    { icon: "🔥", name: "Jour de furie",     desc: "+20 % d’attaque, +10 % de critique.",   eff: { atkPct: 20, crit: 10 } },
+  bulwark: { icon: "🛡", name: "Jour du rempart",   desc: "+25 % de PV et de défense.",            eff: { hpPct: 25, defPct: 25 } },
+  goblins: { icon: "👺", name: "Fête des gobelins", desc: "Gobelins voleurs ×4.",                  eff: { gold: 15 }, goblin: 4 },
+};
+export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
+
+/** Modificateur du jour "AAAA-MM-JJ" (déterministe). */
+export function dayModFor(day) {
+  let h = 2166136261;
+  for (const c of String(day)) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return DAY_MOD_KEYS[(h >>> 0) % DAY_MOD_KEYS.length];
+}
+
+/** Modificateur actif de la partie (ou null). */
+export const activeDayMod = (S) => DAY_MODS[S.daily?.mod] || null;
+
+export function dayModEffects(S) {
+  const m = activeDayMod(S);
+  return m ? { ...m.eff } : {};
+}

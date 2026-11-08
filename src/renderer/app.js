@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { activeDayMod } from "./game/daymods.js";
 import { Game } from "./game/game.js";
 import { freshState, migrate } from "./game/state.js";
 import { reachedAchievements } from "./game/achievements.js";
@@ -277,9 +278,14 @@ async function boot() {
   /* ---------- Récompense quotidienne (au lancement et à minuit) ---------- */
   const localDay = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
   function checkDaily() {
+    const before = game.S.daily?.mod;
     const r = game.claimDaily(localDay());
-    if (!r) return;
-    setTimeout(() => showToast(`🎁 Récompense du jour <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> or${r.potions ? ", 2 potions" : ""}${r.item ? `, <b>${esc(r.item.name)}</b>` : ""}. Reviens demain pour continuer la série !`,
+    const dm = activeDayMod(game.S);
+    if (!r) {
+      if (dm && before && before !== game.S.daily.mod) setTimeout(() => showToast(`${dm.icon} Bénédiction du jour : <b>${esc(dm.name)}</b> — ${esc(dm.desc)}`, () => openPanel(), 12000), 2500);
+      return;
+    }
+    setTimeout(() => showToast(`🎁 Récompense du jour <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> or${r.potions ? ", 2 potions" : ""}${r.item ? `, <b>${esc(r.item.name)}</b>` : ""}. Reviens demain pour continuer la série !${dm ? `<br>${dm.icon} Bénédiction du jour : <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : ""}`,
       () => openPanel(), 15000), 2500);
   }
   setInterval(checkDaily, 60000);

@@ -176,7 +176,7 @@ async function runSelfTest(strip) {
   if (slot) { await move(slot.x, slot.y); await sleep(150); }
   check("infobulle au survol d'un objet", !!slot && (await js("!document.querySelector('.itemtip').hidden")));
   // Vendre ce qui n'améliore pas (avec confirmation)
-  await js("(() => { const g = window.__game; g.autoEquip(); g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed() })()");
+  await js("(() => { const g = window.__game; for (let n = 0; n < 200 && Object.keys(g.S.equip).some((k) => !g.S.equip[k] || g.S.equip[k].r < 3); n++) { const it = g.newItem(3, g.S.best + 10); if (!g.S.equip[it.slot] || g.S.equip[it.slot].r < 3) g.S.equip[it.slot] = it; } g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed() })()");
   await click('[data-tab="adventure"]');
   await sleep(200);
   const bag0 = await state("S.bag.length"), useless = await js("window.__game.uselessItems().length");
