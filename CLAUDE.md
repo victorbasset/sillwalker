@@ -40,6 +40,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   automatique de l'interface, doit afficher « N/N vérifications réussies ».
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
+- Une seule simulation suit une trajectoire aléatoire fixe : pour juger un changement d'équilibrage,
+  comparer les 10 classes avant/après (moyenne du temps d'un déblocage tardif), l'ancienne version
+  dans un `git worktree add <dossier-temporaire> <commit>` (lien vers node_modules), puis `git worktree remove`.
 - Toujours lancer Electron avec **`--ghost`** : fenêtre hors écran, sans focus ni icône de notification.
   Options utiles (dev) : `--user-data=<dossier>`, `--tab=<onglet>`, `--mode=strip|mini`,
   `--shot=<fichier.png> --shot-delay=<ms>`, `--exit-after=<s>`, `--width=1366`,
