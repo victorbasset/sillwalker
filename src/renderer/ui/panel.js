@@ -16,6 +16,7 @@ import { PetsTab } from "./tabs/pets.js";
 import { AscensionTab } from "./tabs/ascension.js";
 import { BestiaryTab } from "./tabs/bestiary.js";
 import { SkillsTab } from "./tabs/skills.js";
+import { StatsTab } from "./tabs/stats.js";
 import { POWER_INDEX } from "../game/powers.js";
 import { describeEffects } from "../game/talents.js";
 import { EVENTS } from "../game/events.js";
@@ -37,6 +38,7 @@ const TABS = [
   { id: "class", label: "Classe", prefix: "c-" },
   { id: "ascension", label: "Ascension", prefix: "a-" },
   { id: "bestiary", label: "Bestiaire", prefix: "b-" },
+  { id: "stats", label: "Statistiques", prefix: "st-" },
 ];
 const n1 = (v) => (Math.round(v * 10) / 10).toString().replace(".", ",");
 // Statistiques secondaires affichées seulement si non nulles.
@@ -66,7 +68,7 @@ export class Panel {
     this.tab = "adventure";
     this.tabs = {
       talents: new TalentsTab(game), skills: new SkillsTab(game), quests: new QuestsTab(game), shop: new ShopTab(game), pets: new PetsTab(game),
-      class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game),
+      class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game),
     };
     this.dirty = true;
     this.isOpen = false;

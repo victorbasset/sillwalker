@@ -135,6 +135,7 @@ export class Game {
   step(dt) {
     const R = this.R, hs = this.stats();
     R.time += dt;
+    this.S.stats.playTime = (this.S.stats.playTime || 0) + dt;
     this.tickBuffs(dt);
     if (R.potionCd > 0) R.potionCd -= dt;
     if (R.corpse) {
@@ -297,6 +298,7 @@ export class Game {
       this.emit("bossShieldHit", { amount: a });
     }
     m.hp -= dmg;
+    if (dmg > (this.S.stats.maxHit || 0)) this.S.stats.maxHit = Math.round(dmg);
     if (hs.poison > 0) { m.poisonStacks = Math.min(5, (m.poisonStacks || 0) + 1); m.poisonT = 4; }
     if (hs.lifesteal > 0) this.R.hp = Math.min(hs.hp, this.R.hp + dmg * hs.lifesteal / 100);
     if (hs.burn > 0) { m.burnDps = hs.atk * hs.burn / 100; m.burnT = BURN_TIME; }
@@ -307,6 +309,7 @@ export class Game {
     const R = this.R;
     if (this.S.potions <= 0 || R.potionCd > 0) return;
     this.S.potions--;
+    this.S.stats.potionsUsed = (this.S.stats.potionsUsed || 0) + 1;
     R.potionCd = POTION_COOLDOWN;
     const heal = hs.hp * POTION_HEAL;
     R.hp = Math.min(hs.hp, R.hp + heal);
@@ -341,6 +344,7 @@ export class Game {
   /** Nouvel objet obtenu (combat, hors ligne, coffre). */
   newItem(minRarity, zone = this.S.zone) {
     const it = this.decorate(rollItem(this.S.nextId++, zone, minRarity));
+    this.S.stats.items = (this.S.stats.items || 0) + 1;
     if (it.r === LEGENDARY) this.S.stats.legendaries++;
     return it;
   }
@@ -373,6 +377,8 @@ export class Game {
     const S = this.S, R = this.R, m = R.mon, hs = this.stats();
     const gold = Math.round(m.gold * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
     S.gold += gold;
+    S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
+    if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`Gobelin doré attrapé : ${fmt(gold)} or !`); }
@@ -462,6 +468,8 @@ export class Game {
     if (kills < 1) return null;
     const bagBefore = S.bag.length, lvl0 = S.lvl;
     const gold = Math.round(kills * b.gold * (1 + hs.gold / 100 + 0.5 * share("fortune")));
+    S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
+    S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
     const xp = Math.round(kills * b.xp * (1 + hs.xp / 100 + 0.5 * share("wisdom")));
     S.gold += gold;
     S.stats.kills += kills;

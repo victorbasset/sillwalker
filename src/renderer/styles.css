@@ -343,3 +343,11 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.enraged { filter: drop-shadow(0 0 2px #ff2a2a) drop-shadow(1px 0 0 #ff4a4a); }
 .actor.shelled { filter: drop-shadow(0 0 0 #9fd8ff) drop-shadow(1px 0 0 #9fd8ff) drop-shadow(-1px 0 0 #9fd8ff) drop-shadow(0 -1px 0 #9fd8ff); }
 .bossmech b { color: var(--bad); cursor: help; }
+/* Statistiques */
+.statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; align-items: start; }
+.statgrid .achievements { grid-column: 1 / -1; }
+.achlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 4px 12px; font-size: 14px; }
+.ach { color: var(--muted); }
+.ach.on { color: var(--ink); }
+.ach .aico { display: inline-block; width: 18px; color: var(--muted); }
+.ach.on .aico { color: var(--accent); }
