@@ -280,7 +280,7 @@ export class Panel {
     const up = from === "bag" && this.game.isUpgrade(it);
     return `<button class="slot rb${it.r}${sel ? " sel" : ""}" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
       aria-label="${esc(itemName(it))}, ${RARITIES[it.r].name}${up ? tx(", amélioration") : ""}">
-      <img src="${itemIconURL(it)}" alt="">${RARITY_PIP[it.r] ? `<span class="rpip" aria-hidden="true">${RARITY_PIP[it.r]}</span>` : ""}${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark" style="color:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
+      <img src="${itemIconURL(it)}" alt="">${RARITY_PIP[it.r] ? `<span class="rpip" aria-hidden="true">${RARITY_PIP[it.r]}</span>` : ""}${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark tint" style="--c:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
   }
 
   /** Survol d'un emplacement : infobulle avec statistiques et comparaison. */
@@ -319,7 +319,7 @@ export class Panel {
       .map((c) => `<span class="chip" title="${esc(c.desc)}">${esc(c.name)} · <span data-buff="${c.id}">${Math.ceil(S.buffs[c.id] / 60)} min</span></span>`).join("");
     const free = g.talentPointsFree();
     const sets = Object.entries(setCounts(S.equip)).filter(([id, n]) => SETS[id] && n >= 2)
-      .map(([id, n]) => `<span class="chip" style="--c:${SETS[id].color};border-color:${SETS[id].color};color:${SETS[id].color}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
+      .map(([id, n]) => `<span class="chip set" style="--c:${SETS[id].color}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
     const events = Object.entries(g.R.events).filter(([, t]) => t > 0)
       .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
     const dm = activeDayMod(S);

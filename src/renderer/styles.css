@@ -17,6 +17,7 @@
   --accent: #a3600c; --good: #2a8a3b; --bad: #c0392b; --bar: #d8dee9; --chip: #eef1f6;
   --r0: #717980; --r1: #2a9440; --r2: #2a6fdc; --r3: #8d40db; --r4: #c97a00;
   --strip: 120px; --panel-h: 480px; --strip-opacity: 1;
+  --tintk: 42%; /* part de la couleur vive dans les textes teintés (thème clair : assombris) */
   color-scheme: light;
   box-sizing: border-box;
 }
@@ -25,6 +26,7 @@
     --bg: #17162a; --panel: #211f38; --line: #3a3760; --ink: #ece6d6; --muted: #a29ec2;
     --accent: #e9b949; --good: #6fd17f; --bad: #ff7a6b; --bar: #2e2b4d; --chip: #2a2846;
     --r0: #a3a9b0; --r1: #5fd36f; --r2: #6aa8ff; --r3: #c08cff; --r4: #ffb733;
+    --tintk: 100%;
     color-scheme: dark;
   }
 }
@@ -32,6 +34,7 @@
   --bg: #17162a; --panel: #211f38; --line: #3a3760; --ink: #ece6d6; --muted: #a29ec2;
   --accent: #e9b949; --good: #6fd17f; --bad: #ff7a6b; --bar: #2e2b4d; --chip: #2a2846;
   --r0: #a3a9b0; --r1: #5fd36f; --r2: #6aa8ff; --r3: #c08cff; --r4: #ffb733;
+  --tintk: 100%;
   color-scheme: dark;
 }
 *, *::before, *::after { box-sizing: inherit; }
@@ -385,7 +388,10 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.frenzy { filter: drop-shadow(0 0 2px #ff4a4a) drop-shadow(0 0 1px #ff7a6b); }
 .layer.hud { transform-origin: 80% 50%; }
 .chip.event { border-color: var(--c); color: var(--c); }
-.chip.daymod { border-color: #ffd34d; color: #ffe9a8; background: rgba(255, 211, 77, 0.08); }
+/* Couleurs vives pensées pour le fond sombre : assombries en thème clair pour rester lisibles. */
+.tint, .sub.tint, .chip.event, .chip.set { color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
+.chip.set { border-color: var(--c); }
+.chip.daymod { --c: #ffe9a8; border-color: #ffd34d; color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); background: rgba(255, 211, 77, 0.08); }
 .actor.enraged { filter: drop-shadow(0 0 2px #ff2a2a) drop-shadow(1px 0 0 #ff4a4a); }
 .actor.shelled { filter: drop-shadow(0 0 0 #9fd8ff) drop-shadow(1px 0 0 #9fd8ff) drop-shadow(-1px 0 0 #9fd8ff) drop-shadow(0 -1px 0 #9fd8ff); }
 .bossmech b { color: var(--bad); cursor: help; }
@@ -461,7 +467,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .juice > .wxc { will-change: auto; }
 
 .powergrid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
-.chip.pow { border-color: #ffb733; color: #ffd38a; }
+.chip.pow { --c: #ffd38a; border-color: #ffb733; color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
 .chip.pow.unknown { border-style: dashed; border-color: #3a3650; color: var(--muted); }
 
 /* Journal : lignes importantes en couleur */

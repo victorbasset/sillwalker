@@ -43,7 +43,7 @@ export class ShopTab {
         <div class="nm rc${it.r}">${esc(itemName(it))}</div>
         <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niv. {1}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il })}</div>
         ${it.power ? `<div class="sub power-mini">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
-        ${it.set && SETS[it.set] ? `<div class="sub" style="color:${SETS[it.set].color}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
+        ${it.set && SETS[it.set] ? `<div class="sub tint" style="--c:${SETS[it.set].color}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
         <div class="verdict ${d > 0.005 || !cur ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${up ? "▲ " : ""}${verdict}</div>
         ${buy("s-item", it.id, it.price, full ? tx("Sac plein") : "", up ? "primary" : "")}
       </div>`;
