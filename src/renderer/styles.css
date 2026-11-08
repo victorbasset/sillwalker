@@ -86,11 +86,15 @@ body.edge-top #menu-btn[aria-expanded="true"] .chev { transform: translateY(2px)
 #menu-btn .badge { position: absolute; right: -4px; top: -4px; width: 9px; height: 9px; background: #6fd17f; border: 2px solid #14121f; }
 #menu-btn .badge[hidden] { display: none; }
 
+/* Bulle d'info : juste au-dessus de la bande (dans la zone transparente), pour ne rien cacher du jeu. */
 #toast { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 5;
-  position: absolute; right: 76px; top: 28px; max-width: calc(100% - 560px); padding: 4px 10px;
+  position: absolute; right: 12px; bottom: calc(var(--strip) + 6px); max-width: calc(100% - 24px); padding: 5px 12px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, .35);
   background: rgba(14, 13, 24, .88); color: #fff; border: 2px solid #e9b949; border-radius: 3px; font-size: 14px; cursor: pointer;
 }
 #toast[hidden] { display: none; }
+body.edge-top #toast { bottom: auto; top: calc(var(--strip) + 6px); }
+body.panel-open #toast { display: none; }
 #toast b { color: #ffd34d; font-weight: 600; }
 
 /* ---------- Mode mini ---------- */
