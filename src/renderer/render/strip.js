@@ -21,6 +21,19 @@ import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
+// Répliques du héros, par circonstance.
+const SPEECH = {
+  idle: [tx("Encore un petit monstre…"), tx("Belle journée pour une balade."), tx("Il me faudrait un plus grand sac."),
+    tx("Je sens de l’or par ici."), tx("Ces bottes me font mal aux pieds."), tx("Hmm… une odeur de dragon."),
+    tx("Un jour, j’écrirai mes mémoires."), tx("Tu regardes ? Je fais de mon mieux !")],
+  night: [tx("Il fait sombre…"), tx("Les étoiles sont belles ce soir."), tx("Je ne dors jamais, moi.")],
+  legendary: [tx("Ça brille !"), tx("Légendaire ! Enfin !"), tx("Celui-là, je le garde.")],
+  boss: [tx("C’est toi, le chef ?"), tx("Allez, approche !"), tx("Il a l’air costaud…")],
+  ko: [tx("Aïe… je reviens."), tx("Juste une égratignure."), tx("Je l’avais presque !")],
+  record: [tx("Jamais allé aussi loin !"), tx("Terre inconnue !")],
+  level: [tx("Je me sens plus fort !"), tx("Encore un niveau !")],
+};
+
 export const STRIP_H = 120;
 const GROUND = 96, CONTACT = 44;
 const LEFT = 24;            // position de départ du héros
@@ -86,6 +99,11 @@ export class StripRenderer {
       this.float(this.monX() + 4 + Math.round(Math.random() * 20), 30 + Math.round(Math.random() * 16), fmt(dmg), "#9fd8ff", false, true);
       if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 12, this.ground - 30, "#9fd8ff", 4);
     });
+    g.on("loot", ({ item }) => { if (item.r >= 4) this.say(SPEECH.legendary, true); });
+    g.on("spawn", (m) => { if (m.boss) this.say(SPEECH.boss); });
+    g.on("heroDown", () => this.say(SPEECH.ko, true));
+    g.on("zoneUp", ({ record }) => { if (record) this.say(SPEECH.record); });
+    g.on("levelUp", () => this.say(SPEECH.level));
     g.on("dodge", () => this.float(this.heroX + 16, 44, tx("Esquive"), "#9fd8ff"));
     g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + Math.round(dmg), "#ffb07a"));
     g.on("potion", () => this.float(this.heroX + 16, 36, tx("Potion !"), "#ff8ad8", true));
@@ -117,6 +135,32 @@ export class StripRenderer {
     });
 
     g.on("heroDown", () => this.float(this.heroX + 6, 40, "K.O.", "#ff7a6b", true));
+  }
+
+  /* ---------- Répliques du héros ---------- */
+  /** Le héros dit une réplique tirée de la liste (au plus une toutes les 45 s, sauf si urgent). */
+  say(list, urgent = false) {
+    if (!this.active || this.game.S.settings.fullEffects === false || !list) return;
+    const now = this.game.R.time;
+    if (!urgent && now - (this.saidAt ?? -1e9) < 45) return;
+    if (urgent && now - (this.saidAt ?? -1e9) < 6) return;
+    this.saidAt = now;
+    this.bubble.textContent = list[Math.floor(Math.random() * list.length)];
+    this.bubble.hidden = false;
+    this.bubbleT = 3.5;
+    this.bubbleX = null;
+    mark("speech");
+  }
+  updateSpeech(dt, x) {
+    if (this.bubbleT > 0) {
+      this.bubbleT -= dt;
+      if (this.bubbleT <= 0) { this.bubble.hidden = true; mark("speech"); return; }
+      const bx = q(x + this.hero.w / 2);
+      if (bx !== this.bubbleX) { this.bubbleX = bx; this.bubble.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 30}px,0) translateX(-50%)`; mark("speech"); }
+    } else if (this.game.R.mode === "walk" && Math.random() < dt / 240) {
+      const night = this.nightLevel().night >= 0.8;
+      this.say(night && Math.random() < 0.4 ? SPEECH.night : SPEECH.idle);
+    }
   }
 
   /* ---------- Effets (animés par la boucle à 30 FPS) ---------- */
@@ -232,6 +276,8 @@ export class StripRenderer {
     this.wisps = []; this.coreKey = null;
     this.heroBar = new Bar(this.stage, "#6fd17f");
     this.slash = el("div", "slash", this.stage);
+    this.bubble = el("div", "speech", this.stage);
+    this.bubble.hidden = true;
     // Zone cliquable sur le monstre combattu : un clic = coup bonus.
     this.tap = el("button", "tapzone hit", this.stage);
     this.tap.hidden = true;
@@ -489,6 +535,7 @@ export class StripRenderer {
       this.slash.style.setProperty("--c", CLASS_FX[S.cls] || "#fff");
     }
 
+    this.updateSpeech(dt, x);
     // Fondu (changement de zone, retour au départ)
     if (this.fadeT > 0) this.fadeT = Math.max(0, this.fadeT - dt);
     const fo = Math.round(Math.min(1, this.fadeT / 0.4) * 8) / 8;

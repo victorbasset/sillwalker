@@ -174,7 +174,7 @@ async function boot() {
     toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
   }
   function showOffline(sum) {
-    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} <b>${fmt(sum.kills)}</b> monstres, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${sum.feathers} ${tx("plume{0} du vent", { 0: sum.feathers > 1 ? "s" : "" })}</b>` : "", 2: sum.chests ? `, <b>${sum.chests} coffre${sum.chests > 1 ? "s" : ""}</b>` : "" })}`,
+    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${tx("{0} monstres", { 0: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${sum.feathers} ${tx("plume{0} du vent", { 0: sum.feathers > 1 ? "s" : "" })}</b>` : "", 2: sum.chests ? ", " + tx(sum.chests > 1 ? "{0} coffres" : "{0} coffre", { 0: `<b>${sum.chests}</b>` }) : "" })}`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {
