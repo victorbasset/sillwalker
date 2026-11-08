@@ -392,8 +392,9 @@ test("vitesse : plumes, rafale, étoile filante, hors ligne", () => {
   g.R.starT = 0.01; let star = false; g.on("star", () => { star = true; });
   g.advance(0.1);
   assert.ok(star && g.R.star, "une étoile passe");
+  const sp0 = g.S.speed; // (une plume a pu tomber pendant la rafale)
   assert.ok(g.catchStar());
-  assert.equal(g.S.speed, 3);
+  assert.equal(g.S.speed, sp0 + 2);
   assert.ok(reachedAchievements(g.S).includes("SHOOTING_STAR"));
   const off0 = new Game(freshState()).applyOffline(3600).kills;
   const o = new Game(freshState()); o.S.speed = 100; o.invalidateStats();

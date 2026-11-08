@@ -602,6 +602,7 @@ export class Game {
     }
     if (out.length) {
       this.S.stats.transmutes = (this.S.stats.transmutes || 0) + out.length;
+      this.questProgress("transmute", out.length);
       const best = out.reduce((a, b) => (b.r > a.r ? b : a));
       this.log(`Transmutation : ${out.length} nouvel${out.length > 1 ? "s" : ""} objet${out.length > 1 ? "s" : ""}, dont ${best.name} (${RARITIES[best.r].name.toLowerCase()}).`);
       this.emit("transmute", { items: out });
@@ -1025,6 +1026,7 @@ export class Game {
     this.S.gold += gold;
     this.S.stats.goldTotal = (this.S.stats.goldTotal || 0) + gold;
     this.S.stats.expeditions = (this.S.stats.expeditions || 0) + 1;
+    this.questProgress("expedition", 1);
     this.petAddXp(id, ex.xp);
     const out = { gold, xp: ex.xp, egg: false, item: null, pet: PET_INDEX[id] };
     if (rand() < ex.egg) { out.egg = true; this.gainEgg(); }

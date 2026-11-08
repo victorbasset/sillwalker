@@ -44,15 +44,24 @@ export const QUEST_TEMPLATES = {
     text: (q) => `Forger ${q.goal} ${plural(q.goal, "fois", "fois")}`,
     make: (S) => ({ goal: randInt(2, 4), reward: { gold: Math.round(goldScale(S) * 80), potions: 2 } }),
   },
+  expedition: {
+    text: (q) => `Ramener ${q.goal} ${plural(q.goal, "expédition")} de familier`,
+    ok: (S) => Object.keys(S.pets.owned).length >= 2,
+    make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 100), egg: rand() < 0.5 } }),
+  },
+  transmute: {
+    text: (q) => `Créer ${q.goal} ${plural(q.goal, "objet")} par transmutation`,
+    make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, potions: 2 } }),
+  },
   zone: {
     text: (q) => `Atteindre la zone ${q.goal}`,
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1 };
 
 export function makeQuest(S, uid, exclude = []) {
-  const kinds = Object.keys(WEIGHTS).filter((k) => !exclude.includes(k));
+  const kinds = Object.keys(WEIGHTS).filter((k) => !exclude.includes(k) && (!QUEST_TEMPLATES[k].ok || QUEST_TEMPLATES[k].ok(S)));
   let total = kinds.reduce((a, k) => a + WEIGHTS[k], 0), x = rand() * total, kind = kinds[0];
   for (const k of kinds) { x -= WEIGHTS[k]; if (x <= 0) { kind = k; break; } }
   const q = Object.assign({ uid, kind, progress: kind === "zone" ? S.best : 0 }, QUEST_TEMPLATES[kind].make(S));
