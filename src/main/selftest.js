@@ -43,7 +43,16 @@ async function runSelfTest(strip) {
   const btn = await rectOf("#menu-btn");
   check("zone transparente au-dessus de la bande : clics traversants", !strip.hitTest(b0.x + Math.round(b0.width / 2), b0.y + 100));
   check("bouton du panneau : zone cliquable", strip.hitTest(b0.x + btn.x, b0.y + btn.y));
-  check("zone vide de la bande : clics traversants", !strip.hitTest(b0.x + Math.round(b0.width / 2), b0.y + b0.height - 40));
+  // Point vide de la bande : à au moins 80 px de tout élément cliquable (le monstre combattu l'est, et
+  // il passe parfois au milieu : un point fixe faisait échouer le test une fois sur trois).
+  const emptyX = await js(`(() => {
+    const y = innerHeight - 40, R = [...document.querySelectorAll(".hit")]
+      .filter((e) => { if (e.closest("[hidden]")) return false; const cs = getComputedStyle(e); return cs.visibility !== "hidden" && cs.display !== "none"; })
+      .map((e) => e.getBoundingClientRect()).filter((r) => r.width && r.height);
+    for (let x = 100; x < innerWidth - 100; x += 50) if (!R.some((r) => x > r.left - 80 && x < r.right + 80 && y > r.top - 20 && y < r.bottom + 20)) return x;
+    return -1;
+  })()`);
+  check("zone vide de la bande : clics traversants", emptyX > 0 && !strip.hitTest(b0.x + emptyX, b0.y + b0.height - 40), `x = ${emptyX}`);
 
   // Panneau : la fenêtre ne doit pas changer de taille (cause du clignotement).
   await click("#menu-btn");

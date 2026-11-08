@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 ## Fait
 
+- 2026-11-09 (it. 8) : l'autotest n'échoue plus au hasard (une fois sur trois) : il vérifiait les clics
+  traversants à un endroit fixe où passe parfois le monstre cliquable. Utile pour le relais automatique,
+  qui ne livre rien si l'autotest n'est pas parfait.
 - 2026-11-09 (it. 7) : en revenant après une absence, le résumé liste aussi « À faire maintenant »
   (quêtes à réclamer, objet plus puissant, points à dépenser, déblocage abordable, œufs, expéditions
   finies) ; un clic mène directement au bon onglet. Bulle du mode mini : « 1 monstre » au singulier.
@@ -35,7 +38,5 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
 - P3 Progression : les deux derniers déblocages arrivent à ~3 h 30 et ~6 h (zones 40 et 45). Pas un vrai
   mur (classes libérées, constellations entre-temps), mais un déblocage vers la zone 50+ prolongerait l'objectif.
-- P2 Autotest : « zone vide de la bande : clics traversants » échoue parfois (1 fois sur 3, avant tout
-  changement de la bande) : vérification sans doute trop rapide sous xvfb ; rendre l'attente plus robuste.
 - P3 Résumé d'absence : le texte « plafonnée à 8 h » ignore la constellation qui allonge ce plafond.
 - P3 Libellé « Prochain déblocage » très petit (≈9 px) dans la carte du héros.
