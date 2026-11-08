@@ -189,6 +189,24 @@ async function runSelfTest(strip) {
   await click('[data-action="confirm-ok"]');
   await sleep(150);
   check("vendre ce qui n'améliore pas (après confirmation)", useless > 0 && (await state("S.bag.length")) === bag0 - useless, `${bag0} -> ${await state("S.bag.length")} (${useless} inutiles)`);
+  // Transmutation (3 communs inutiles -> 1 peu commun), avec confirmation
+  await js("(() => { const g = window.__game; g.S.bag.splice(0, 12); for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; g.S.bag.push(it); } g.changed() })()");
+  await click('[data-tab="adventure"]');
+  await sleep(200);
+  const tr0 = await js("window.__game.S.stats.transmutes || 0");
+  await click('[data-action="transmute"]');
+  await sleep(150);
+  await click('[data-action="confirm-ok"]');
+  await sleep(150);
+  check("transmutation (après confirmation)", (await js("window.__game.S.stats.transmutes || 0")) > tr0, `${tr0} -> ${await js("window.__game.S.stats.transmutes || 0")}`);
+  // Familiers : envoyer un familier en expédition
+  await js("(() => { const P = window.__game.S.pets; P.owned.cat ||= { lvl: 1, xp: 0 }; P.owned.fox ||= { lvl: 1, xp: 0 }; P.active = 'cat'; P.exp = {}; window.__game.changed() })()");
+  await click('[data-tab="pets"]');
+  await sleep(200);
+  await click('[data-action="p-exp"][data-id="fox"][data-kind="short"]');
+  await sleep(150);
+  check("familiers : départ en expédition", (await js("!!(window.__game.S.pets.exp || {}).fox")));
+  await js("window.__game.S.pets.exp = {}; window.__game.changed()");
   // Réglages : son, cycle jour/nuit, opacité (via le processus principal)
   await click('[data-tab="settings"]');
   await sleep(200);
