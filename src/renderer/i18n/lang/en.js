@@ -298,4 +298,6 @@ export default {
   1422: "Miss!",
   1423: "ready to buy!",
   1424: "Next unlock",
+  1425: "First Unlock",
+  1426: "Everything Unlocked",
 };

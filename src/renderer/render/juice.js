@@ -10,6 +10,7 @@ import { t as tx, fsp } from "../i18n/index.js";
 import { CLASSES } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
+import { UNLOCK_INDEX } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
 import { itemIconURL } from "./sprites.js";
 import { q, el, mark, makeCanvas, sizeCanvas } from "./dom.js";
@@ -73,6 +74,12 @@ export class Juice {
     g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
     g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120); });
     g.on("event", ({ id }) => { const ev = EVENTS[id]; this.banner(`${ev.name} ! ${ev.text}`, ev.color, this.s.heroX + 60, true); this.flash(ev.color, 0.2); });
+    g.on("unlock", ({ id }) => {
+      const u = UNLOCK_INDEX[id];
+      this.banner(`🔓 ${tx("Débloqué : {0} !", { 0: u ? u.name : id })}`, "#ffd34d", this.s.heroX + 80, true);
+      this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffd34d", 16);
+      this.flash("#ffe9a8", 0.2);
+    });
     g.on("classUnlock", ({ cls }) => {
       this.banner(`${tx("Héros libéré : {0} !", { 0: CLASSES[cls].name })}`, "#9fe0a8", this.s.heroX + 80, true);
       this.sparkles(this.s.heroX + 18, this.ground() - 40, "#9fe0a8", 16);

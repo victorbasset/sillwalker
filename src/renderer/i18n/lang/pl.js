@@ -298,4 +298,6 @@ export default {
   1422: "Pudło!",
   1423: "gotowe do kupienia!",
   1424: "Następne odblokowanie",
+  1425: "Pierwsze odblokowanie",
+  1426: "Wszystko odblokowane",
 };

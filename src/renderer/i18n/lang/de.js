@@ -298,4 +298,6 @@ export default {
   1422: "Daneben!",
   1423: "bereit zum Kauf!",
   1424: "Nächste Freischaltung",
+  1425: "Erste Freischaltung",
+  1426: "Alles freigeschaltet",
 };

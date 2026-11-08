@@ -298,4 +298,6 @@ export default {
   1422: "Errou!",
   1423: "pronto para comprar!",
   1424: "Próximo desbloqueio",
+  1425: "Primeiro desbloqueio",
+  1426: "Tudo desbloqueado",
 };

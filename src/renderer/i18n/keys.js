@@ -1426,5 +1426,7 @@ export const KEYS = [
   "Gelé !",
   "Raté !",
   "prêt à acheter !",
-  "Prochain déblocage"
+  "Prochain déblocage",
+  "Premier déblocage",
+  "Tout débloqué"
 ];
