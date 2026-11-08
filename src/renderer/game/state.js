@@ -1,7 +1,7 @@
 // Format de la sauvegarde + migrations. Toute nouvelle donnée persistante
 // doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
 import { SLOT_KEYS, LEGENDARY, BAG_SIZE } from "./data.js";
-import { CLASSES } from "./classes.js";
+import { CLASSES, CLASS_UNLOCK_ZONE } from "./classes.js";
 import { codexRecord } from "./codex.js";
 
 export const SAVE_VERSION = 6;
@@ -22,6 +22,8 @@ export function freshState(now = Date.now()) {
     achievements: [],   // identifiants déjà signalés à Steam
     log: [],
     cls: "warrior",     // classe active (voir classes.js)
+    classesUnlocked: ["warrior"], // héros libérés (classes.js > CLASS_UNLOCK_ZONE)
+    nextCls: null,      // classe choisie pour la prochaine ascension
     talents: {},        // { classe: { idTalent: rang } } : chaque classe garde ses talents
     buffs: {},          // { elixir: secondes restantes, ... }
     potions: 3,
@@ -89,6 +91,14 @@ export function migrate(raw) {
   if (!Array.isArray(s.log)) s.log = [];
   if (!Array.isArray(s.achievements)) s.achievements = [];
   if (!CLASSES[s.cls]) s.cls = "warrior";
+  // Héros débloqués : avant ce système, toutes les classes étaient libres ; on garde celles déjà jouées.
+  // Ainsi que les héros des zones dont le boss a déjà été vaincu.
+  if (!Array.isArray(o.classesUnlocked)) {
+    const best = Math.max(s.best || 1, (s.prestige && s.prestige.bestRun) || 0);
+    const beaten = Object.keys(CLASS_UNLOCK_ZONE).filter((c) => best > CLASS_UNLOCK_ZONE[c]);
+    s.classesUnlocked = [...new Set(["warrior", s.cls, ...(s.stats.classes || []), ...beaten])].filter((c) => CLASSES[c]);
+  }
+  if (s.nextCls && !CLASSES[s.nextCls]) s.nextCls = null;
   for (const k of ["talents", "buffs", "upgrades", "bestiary"]) if (!isObj(s[k])) s[k] = {};
   if (!isObj(o.powersSeen)) { s.powersSeen = {}; for (const it of [...s.bag, ...Object.values(s.equip)]) if (it && it.power) s.powersSeen[it.power] = true; }
   if (!isObj(o.codex)) { // collection apparue après coup : on y met les objets déjà possédés

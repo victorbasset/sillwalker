@@ -5,6 +5,7 @@
 //
 // Tout est animé par la boucle à 30 FPS (aucune animation CSS, qui tournerait
 // à la fréquence de l'écran) et n'existe que le temps de l'effet.
+import { CLASSES } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
 import { fmt } from "../game/format.js";
@@ -69,6 +70,11 @@ export class Juice {
     g.on("levelUp", ({ lvl }) => { this.banner(`Niveau ${lvl} !`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
     g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`Nouveau record : zone ${zone} !`, "#9fe0a8", this.s.heroX + 120); });
     g.on("event", ({ id }) => { const ev = EVENTS[id]; this.banner(`${ev.name} ! ${ev.text}`, ev.color, this.s.heroX + 60, true); this.flash(ev.color, 0.2); });
+    g.on("classUnlock", ({ cls }) => {
+      this.banner(`Héros libéré : ${CLASSES[cls].name} !`, "#9fe0a8", this.s.heroX + 80, true);
+      this.sparkles(this.s.heroX + 18, this.ground() - 40, "#9fe0a8", 16);
+      this.flash("#9fe0a8", 0.25);
+    });
     g.on("feather", ({ gain, source, speed }) => {
       this.banner(`${source} : +${gain} % de vitesse pour toujours ! (+${speed} %)`, "#9fd8ff", this.s.heroX + 60, true);
       this.sparkles(this.s.heroX + 18, this.ground() - 50, "#9fd8ff", 14);

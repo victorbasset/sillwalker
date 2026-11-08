@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { CLASSES } from "./game/classes.js";
 import { PET_INDEX } from "./game/pets.js";
 import { activeDayMod } from "./game/daymods.js";
 import { Game } from "./game/game.js";
@@ -303,6 +304,12 @@ async function boot() {
       () => openPanel(), 15000), 2500);
   }
   setInterval(checkDaily, 60000);
+
+  /* ---------- Héros libéré ---------- */
+  game.on("classUnlock", ({ cls }) => {
+    sound.play("legendary");
+    setTimeout(() => showToast(`🗝 <b>${esc(CLASSES[cls].name)}</b> est libéré ! Choisis-le dans l’onglet Classe : tu le joueras à ta prochaine ascension.`, () => { openPanel(); panel.setTab("class"); }, 15000), 1500);
+  });
 
   /* ---------- Retour d'expédition des familiers ---------- */
   let expReady = game.expeditionsReady().length;

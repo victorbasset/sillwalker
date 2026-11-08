@@ -250,6 +250,10 @@ button.close { padding: 2px 9px; font-weight: 700; }
 /* Classes */
 .classgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: start; }
 .classcard.current { border-color: var(--accent); box-shadow: 0 4px 0 var(--accent); }
+.classcard.chosen { border-color: #9fe0a8; box-shadow: 0 4px 0 #9fe0a8; }
+.classcard.locked { opacity: .75; }
+.classcard.locked .nm { color: var(--muted); }
+.classcard img.silhouette { background: none; border-color: transparent; filter: brightness(0) drop-shadow(1px 0 0 #6b6790) drop-shadow(-1px 0 0 #6b6790) drop-shadow(0 1px 0 #6b6790) drop-shadow(0 -1px 0 #6b6790); }
 .classcard .detail-head img { width: 64px; height: auto; }
 .cdesc { margin: 0 0 6px; }
 .passive { font-size: 14px; margin: 8px 0 0; }

@@ -117,4 +117,12 @@ export const CLASSES = {
   },
 };
 export const CLASS_KEYS = Object.keys(CLASSES);
+
+/**
+ * Héros à libérer : chaque classe (sauf le guerrier) est retenue prisonnière
+ * dans une zone ; vaincre le boss de cette zone la débloque. On change de
+ * classe uniquement en faisant une ascension.
+ */
+export const CLASS_UNLOCK_ZONE = { ranger: 1, necro: 3, mage: 5, berserker: 7, paladin: 9, assassin: 12, monk: 13, samurai: 16, druid: 19 };
+export const isClassUnlocked = (S, cls) => cls === "warrior" || (S.classesUnlocked || []).includes(cls);
 export const classDef = (id) => CLASSES[id] || CLASSES.warrior;

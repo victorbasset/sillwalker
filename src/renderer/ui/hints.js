@@ -26,6 +26,8 @@ export const HINTS = [
     when: (g) => Object.keys(g.S.pets.owned).length >= 2 && !Object.keys(g.S.pets.exp || {}).length && !(g.S.stats.expeditions > 0) },
   { id: "codex", tab: "bestiary", text: "Chaque nouveau type d’objet rejoint ta collection et donne un bonus permanent. Clique ici pour la voir.",
     when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
+  { id: "classes", tab: "class", text: "D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de classe en faisant une ascension.",
+    when: (g) => g.S.best >= 2 && (g.S.classesUnlocked || []).length <= 1 },
   { id: "speed", tab: "stats", text: "La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !",
     when: (g) => (g.S.speed || 0) > 0 },
 ];

@@ -125,13 +125,15 @@ async function runSelfTest(strip) {
   check("onglet Boutique : achat d'une potion", !canBuy ? pot0 >= 20 : pot1 === pot0 + 1, `${pot0} -> ${pot1}`);
   await click('[data-tab="class"]');
   await sleep(150);
+  await js("(() => { const g = window.__game; for (const c of ['ranger', 'mage']) if (!g.S.classesUnlocked.includes(c)) g.S.classesUnlocked.push(c); g.S.nextCls = null; g.changed() })()");
+  await sleep(200);
   const cls0 = await state("S.cls");
   const target = cls0 === "ranger" ? "mage" : "ranger";
   await click(`[data-action="c-pick"][data-id="${target}"]`);
   await sleep(200);
-  check("onglet Classe : changement de classe", (await state("S.cls")) === target);
-  await click(`[data-action="c-pick"][data-id="${cls0}"]`);
-  await sleep(200);
+  check("onglet Classe : choix de la classe pour la prochaine ascension", (await state("S.nextCls")) === target && (await state("S.cls")) === cls0);
+  await js("window.__game.S.nextCls = null; window.__game.changed()");
+  await sleep(150);
 
   // Quêtes : on termine la première puis on réclame la récompense
   await js("window.__game.S.bag.splice(0, 6)"); // place pour un éventuel coffre de récompense

@@ -675,4 +675,25 @@ test("pouvoirs légendaires découverts : bonus et migration", async () => {
   assert.ok(migrate(old).powersSeen.p_midas);
 });
 
+test("héros à libérer : boss de zone, changement de classe à l'ascension", async () => {
+  const { CLASS_UNLOCK_ZONE } = await import("../src/renderer/game/classes.js");
+  const g = new Game(freshState());
+  assert.deepEqual(g.S.classesUnlocked, ["warrior"]);
+  assert.ok(!g.chooseNextClass("ranger"), "pas encore libéré");
+  let freed = null; g.on("classUnlock", ({ cls }) => { freed = cls; });
+  g.S.lvl = 15; g.invalidateStats();
+  g.S.kills = 10;
+  for (let i = 0; i < 300 && !freed; i++) g.advance(0.5);
+  assert.equal(freed, Object.keys(CLASS_UNLOCK_ZONE).find((c) => CLASS_UNLOCK_ZONE[c] === 1));
+  assert.ok(g.chooseNextClass("ranger"));
+  assert.equal(g.S.cls, "warrior", "pas de changement immédiat");
+  g.S.best = 30;
+  assert.ok(g.ascend());
+  assert.equal(g.S.cls, "ranger");
+  assert.ok(g.S.classesUnlocked.includes("ranger"));
+  // Anciennes parties : les classes déjà jouées restent débloquées.
+  const old = JSON.parse(JSON.stringify(freshState())); delete old.classesUnlocked; old.stats.classes = ["warrior", "mage", "samurai"];
+  assert.deepEqual(migrate(old).classesUnlocked.sort(), ["mage", "samurai", "warrior"]);
+});
+
 console.log(`\n${pass} tests réussis`);

@@ -19,7 +19,7 @@ import {
   xpNeed, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, heroStats, heroDps, upgradeDelta,
   zoneDef, zoneName, monsterBase, approachTime,
 } from "./rules.js";
-import { CLASSES, classDef } from "./classes.js";
+import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked } from "./classes.js";
 import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree } from "./talents.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
@@ -445,6 +445,7 @@ export class Game {
     else if (m.elite) this.log(`Élite vaincu : ${fmt(gold)} or !`);
     if (m.boss) {
       S.stats.bosses++;
+      this.freeHero(S.zone);
       R.deaths = 0;
       if (S.autoAdvance) {
         S.zone++;
@@ -705,6 +706,26 @@ export class Game {
   setAutoAdvance(on) { this.S.autoAdvance = !!on; this.changed(); }
 
   /* ---------- Classe et talents ---------- */
+  /** Boss de la zone z vaincu : libère le héros qui y était retenu (une seule fois). */
+  freeHero(z) {
+    const cls = Object.keys(CLASS_UNLOCK_ZONE).find((c) => CLASS_UNLOCK_ZONE[c] === z);
+    const U = (this.S.classesUnlocked ||= ["warrior"]);
+    if (!cls || U.includes(cls)) return null;
+    U.push(cls);
+    this.log(`Héros libéré : ${CLASSES[cls].name} ! Choisis-le dans l’onglet Classe pour ta prochaine ascension.`);
+    this.emit("classUnlock", { cls });
+    this.changed();
+    return cls;
+  }
+
+  /** Classe de la prochaine ascension (null : on garde la classe actuelle). */
+  chooseNextClass(cls) {
+    if (!CLASSES[cls] || !isClassUnlocked(this.S, cls)) return false;
+    this.S.nextCls = cls === this.S.cls ? null : cls;
+    this.changed();
+    return true;
+  }
+
   setClass(cls) {
     if (!CLASSES[cls] || cls === this.S.cls) return false;
     this.S.cls = cls;
@@ -1109,13 +1130,15 @@ export class Game {
     P.skillPts = (P.skillPts || 0) + skillGain;
     // Ce qui est conservé
     Object.assign(f, {
-      prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.cls,
+      prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
+      classesUnlocked: old.classesUnlocked,
       upgrades: old.upgrades, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
       stats: old.stats, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));
     f.potions += eff.potions || 0;
+    if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
     this.log(`Ascension n° ${P.count} : +${gain} éclats d’étoile et +${skillGain} points de compétence permanents. Une nouvelle aventure commence${f.zone > 1 ? " en zone " + f.zone : ""} !`);
     this.emit("ascend");
