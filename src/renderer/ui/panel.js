@@ -117,7 +117,7 @@ export class Panel {
     this.root.innerHTML = `
       <header class="ptop">
         <h1>Sillwalker</h1>
-        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(tx("Raccourci : {0}", { 0: "1234567890-"[i] }))}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt="">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
+        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(t.label + " · " + tx("Raccourci : {0}", { 0: "1234567890-"[i] }))}" aria-label="${esc(t.label)}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt=""><span class="tlabel">${t.label}</span><span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
         <div class="controls">
           ${dev}
           <button data-action="mini" class="quiet" title="${esc(tx("Réduire en petit encart près de l’horloge"))}">${tx("Mode mini")}</button>
@@ -194,6 +194,17 @@ export class Panel {
     for (const p of this.root.querySelectorAll("[data-pane]")) p.hidden = p.dataset.pane !== id;
     this.root.scrollTop = 0;
     this.renderAll();
+    this.fitTabs();
+  }
+
+  /** Onglets trop larges pour une ligne (langues aux mots longs, petit écran) :
+   *  seuls l'onglet ouvert garde son nom, les autres n'affichent que leur icône. */
+  fitTabs() {
+    const nav = this.root.querySelector(".tabs"), top = this.root.querySelector(".ptop");
+    if (!nav || !top || !top.offsetWidth) return;
+    nav.classList.remove("compact");
+    const wraps = () => { const b = [...nav.querySelectorAll("button")]; return b.length && b[b.length - 1].offsetTop > b[0].offsetTop + 4 || nav.offsetTop > top.firstElementChild.offsetTop + 8 || top.querySelector(".controls").offsetTop > nav.offsetTop + 8; };
+    if (wraps()) nav.classList.add("compact");
   }
 
   /** Ouverture d'un coffre : le coffre tremble, s'ouvre, l'objet jaillit avec la couleur de sa rareté. */

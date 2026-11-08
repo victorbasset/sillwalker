@@ -92,6 +92,7 @@ async function boot() {
     body.classList.add("panel-open");
     panel.setOpen(true);
     menuBtn.setAttribute("aria-expanded", "true");
+    panel.fitTabs();
     // Deux images : le panneau est d'abord rendu hors champ, puis glisse.
     // Classe ajoutée après un premier rendu (pour que la transition joue). Le minuteur prend le relais
     // si le navigateur ne livre pas d'image d'animation (fenêtre hors écran, écran en veille…).
@@ -292,6 +293,7 @@ async function boot() {
 
   window.addEventListener("resize", () => {
     if (mode === "strip") { strip.resize(); if (frameTimer) strip.draw(performance.now()); }
+    if (panelOpen) panel.fitTabs();
     else if (mode === "mini") mini.resize();
   });
 

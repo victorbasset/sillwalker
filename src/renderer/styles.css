@@ -592,6 +592,8 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .tierpip.on { border-color: #ffd34d; color: #14121f; background: #ffd34d; }
 
 /* Icônes pixel dans l'interface */
+.tabs.compact button:not([aria-selected="true"]) .tlabel { display: none; }
+.tabs.compact button:not([aria-selected="true"]) .ticon { margin-right: 0; }
 .tabs button .ticon { height: 16px; image-rendering: pixelated; vertical-align: -3px; margin-right: 5px; }
 .tile { position: relative; padding-left: 38px; }
 .tile img { position: absolute; left: 6px; top: 50%; translate: 0 -50%; height: 26px; image-rendering: pixelated; }
