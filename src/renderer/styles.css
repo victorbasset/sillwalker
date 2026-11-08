@@ -516,9 +516,10 @@ details.more summary:hover { color: var(--accent); }
 .eqline .nm.empty { color: var(--muted); }
 .eqline .sub { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .linkbtn.back { display: inline-block; width: auto; font-size: 12px; margin: 0 0 0 auto; padding: 1px 8px; }
-.goal { display: grid; grid-template-columns: auto 1fr; gap: 2px 6px; align-items: center; width: 100%; margin: 0 0 8px; padding: 4px 8px; text-align: left; font-size: 12px; border-style: dashed; }
+.goal { display: grid; grid-template-columns: auto 1fr; gap: 2px 6px; align-items: center; width: 100%; margin: 0 0 8px; padding: 4px 8px; text-align: left; font-size: 13px; line-height: 1.25; border-style: dashed; }
 .goal img { grid-row: span 2; width: 22px; image-rendering: pixelated; }
-.goal small { color: var(--muted); margin-right: 4px; }
+/* « Prochain déblocage » sur sa propre ligne, lisible (il faisait ~9 px en ligne avec le nom) */
+.goal small { display: block; color: var(--muted); font-size: 11px; line-height: 1.2; }
 .goal .gbar { height: 4px; background: var(--bar); border-radius: 2px; overflow: hidden; }
 .goal .gbar i { display: block; height: 100%; background: var(--accent); }
 .goal.ready { border-style: solid; border-color: var(--accent); }

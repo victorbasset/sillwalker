@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 ## Fait
 
+- 2026-11-09 (it. 10) : la carte « Prochain déblocage » du héros est plus lisible : le libellé a sa
+  propre ligne et grossit, le nom et la progression aussi (et tiennent sur une ligne en allemand).
 - 2026-11-09 (it. 9) : le résumé d'absence et la confirmation « Quitter » donnent le vrai plafond hors
   ligne (8 h, plus ce qu'ajoute la constellation de la Lune) et signalent quand il a été atteint.
 - 2026-11-09 (it. 8) : l'autotest n'échoue plus au hasard (une fois sur trois) : il vérifiait les clics
@@ -40,4 +42,3 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
 - P3 Progression : les deux derniers déblocages arrivent à ~3 h 30 et ~6 h (zones 40 et 45). Pas un vrai
   mur (classes libérées, constellations entre-temps), mais un déblocage vers la zone 50+ prolongerait l'objectif.
-- P3 Libellé « Prochain déblocage » très petit (≈9 px) dans la carte du héros.
