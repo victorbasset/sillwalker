@@ -46,6 +46,7 @@ export const ACHIEVEMENTS = [
   { id: "PLAY_10H",        name: "Compagnon de route (10 h de jeu)", test: (S) => (S.stats.playTime || 0) >= 36000 },
   { id: "REFORGE_10",      name: "Forgeron (10 reforges)", test: (S) => (S.stats.reforges || 0) >= 10 },
   { id: "EVENTS_10",       name: "Chanceux (10 événements rares)", test: (S) => (S.stats.events || 0) >= 10 },
+  { id: "CHEST",           name: "Chasseur de trésors (un coffre)", test: (S) => (S.stats.chests || 0) >= 1 },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
 ];
 

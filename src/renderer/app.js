@@ -273,6 +273,7 @@ async function boot() {
     strip.juice.loot(game.newItem(4), strip.monX() + 8);
     setTimeout(() => strip.juice.loot(game.newItem(2), strip.monX() + 40), 400);
     game.R.starT = 0.05;
+    setTimeout(() => game.openChest(), 900);
   };
 
   /* ---------- Récompense quotidienne (au lancement et à minuit) ---------- */

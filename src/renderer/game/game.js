@@ -28,7 +28,7 @@ import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, roll
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
 import { bossMechanics, bossName } from "./bosses.js";
 import { rand, rnd, pick } from "./util.js";
 import { freshState } from "./state.js";
@@ -809,6 +809,24 @@ export class Game {
     const chance = m.boss ? FEATHER.boss : m.elite ? FEATHER.elite : FEATHER.normal;
     if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, "Plume du vent"); }
     for (const id in EVENTS) if (rand() < EVENTS[id].chance) { this.startEvent(id); break; }
+    if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal)) this.openChest();
+  }
+
+  /** Coffre au trésor trouvé sur le chemin. */
+  openChest() {
+    const S = this.S, hs = this.stats();
+    const gold = Math.round(3 * Math.pow(1.25, S.best - 1) * CHEST.gold * (1 + hs.gold / 100));
+    S.gold += gold;
+    S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
+    S.stats.chests = (S.stats.chests || 0) + 1;
+    const x = rand(), item = this.newItem(x < CHEST.legendary ? 4 : x < CHEST.epic ? 3 : 2);
+    S.potions = Math.min(20, S.potions + 1);
+    this.log(`Coffre au trésor ! +${fmt(gold)} or, une potion et ${item.name}.`);
+    this.emit("chest", { gold, item });
+    this.emit("loot", { item, chest: true });
+    this.addToBag(item);
+    this.changed();
+    return { gold, item };
   }
 
   /** Clic sur l'étoile filante. */

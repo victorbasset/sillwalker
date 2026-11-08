@@ -423,7 +423,7 @@ test("objets : 7 emplacements, types et matières variés", () => {
 
 test("boss : capacités spéciales", () => {
   const seen = new Set();
-  for (const z of [1, 2, 3, 4, 20]) {
+  for (const z of [1, 2, 3, 4, 6, 10, 20]) {
     const g = new Game(freshState());
     g.S.zone = g.S.best = z; g.S.lvl = 12 + z * 2; g.S.kills = 10; g.invalidateStats();
     g.on("bossSkill", ({ id }) => seen.add(id));
@@ -488,7 +488,7 @@ test("réforge : nouveaux bonus, le reste est conservé", () => {
   assert.ok(changed, "les bonus changent");
   assert.equal(it.st[main], mainV, "statistique principale conservée");
   assert.equal(it.plus, 3, "forge conservée");
-  assert.equal(Object.keys(it.st).length, 1 + 2, "nombre de bonus d'un épique");
+  assert.equal(Object.keys(it.st).length, 1 + (it.r === 4 ? 3 : 2), "nombre de bonus (épique ou légendaire)");
   const common = g.newItem(0); common.r = 0;
   assert.ok(!g.reforge(common), "pas de réforge sans bonus");
 });
@@ -523,5 +523,19 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", async
     for (const k of DAY_MOD_KEYS) assert.ok(DAY_MODS[k].name && DAY_MODS[k].desc);
   });
 }
+
+test("coffre au trésor : or, potion et objet rare ou mieux", () => {
+  const g = new Game(freshState());
+  const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;
+  let seen = null;
+  g.on("chest", (e) => { seen = e; });
+  const r = g.openChest();
+  assert.ok(r.gold > 0 && g.S.gold === gold0 + r.gold);
+  assert.ok(r.item.r >= 2);
+  assert.equal(g.S.bag.length, bag0 + 1);
+  assert.ok(g.S.potions >= Math.min(20, pot0 + 1));
+  assert.ok(seen && seen.item === r.item);
+  assert.ok(reachedAchievements(g.S).includes("CHEST"));
+});
 
 console.log(`\n${pass} tests réussis`);

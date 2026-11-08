@@ -7,6 +7,8 @@
 
 export const SPEED_CAP = 300;           // vitesse permanente maximale (+300 %)
 export const FEATHER = { normal: 0.0015, elite: 0.02, boss: 0.05, gain: 1 };
+/** Coffre au trésor : très rare après une victoire ; or, objet rare ou mieux, potion. */
+export const CHEST = { normal: 0.002, elite: 0.015, boss: 0.03, gold: 80, epic: 0.3, legendary: 0.04 };
 export const STAR = { minS: 40 * 60, maxS: 90 * 60, life: 12, speedGain: 2 };
 
 /** Événements temporaires : chance par victoire, durée, effet. */

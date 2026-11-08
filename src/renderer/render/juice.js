@@ -38,7 +38,7 @@ export class Juice {
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
-    g.on("loot", ({ item, mon }) => this.loot(item, mon ? this.s.monX() + 8 : this.s.heroX + 10));
+    g.on("loot", ({ item, mon, chest }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10));
     g.on("levelUp", ({ lvl }) => { this.banner(`Niveau ${lvl} !`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
     g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`Nouveau record : zone ${zone} !`, "#9fe0a8", this.s.heroX + 120); });
     g.on("event", ({ id }) => { const ev = EVENTS[id]; this.banner(`${ev.name} ! ${ev.text}`, ev.color, this.s.heroX + 60, true); this.flash(ev.color, 0.2); });
@@ -54,6 +54,7 @@ export class Juice {
       if (this.full) this.flash("#ff4a4a", 0.15);
     });
     g.on("starMissed", () => this.removeStar());
+    g.on("chest", ({ gold }) => this.chest(gold));
     g.on("starCaught", ({ gold }) => {
       const p = this.starPos();
       this.removeStar();
@@ -140,7 +141,13 @@ export class Juice {
     const life = big ? 3.2 : 2.4, cx = Math.max(160, Math.min(this.s.W - 360, x));
     // Une ligne par bannière simultanée (3 lignes max) pour qu'elles ne se chevauchent pas.
     const used = new Set(this.parts.filter((p) => p.slot != null).map((p) => p.slot));
-    const slot = [0, 1, 2].find((i) => !used.has(i)) ?? 0;
+    let slot = [0, 1, 2].find((i) => !used.has(i));
+    if (slot == null) { // toutes les lignes prises : la plus ancienne bannière laisse sa place
+      const old = this.parts.find((p) => p.slot != null);
+      slot = old.slot;
+      old.node.remove();
+      this.parts.splice(this.parts.indexOf(old), 1);
+    }
     this.add(node, (p) => {
       p.slot = slot;
       const k = p.t / life, pop = p.t < 0.18 ? 0.6 + (p.t / 0.18) * 0.5 : p.t < 0.3 ? 1.1 - (p.t - 0.18) : 1;
@@ -193,6 +200,27 @@ export class Juice {
     }
     const frenzy = (E.frenzy || 0) > 0;
     if (this.s.hero && this.s.hero.el.classList.contains("frenzy") !== frenzy) this.s.hero.el.classList.toggle("frenzy", frenzy);
+  }
+
+  /* ---------- Coffre au trésor ---------- */
+  chest(gold) {
+    if (!this.active) return;
+    const x = this.s.heroX + 46, y = this.ground() - 18, node = el("div", "chest", this.layer);
+    node.innerHTML = "<i class=\"lid\"></i><i class=\"box\"></i>";
+    let opened = false;
+    this.add(node, (p) => {
+      this.place(node, x, y - (p.t < 0.25 ? Math.sin(p.t / 0.25 * Math.PI) * 10 : 0));
+      if (!opened && p.t > 0.45) {
+        opened = true;
+        node.classList.add("open");
+        this.coins(x + 8, y - 4, 26, true);
+        this.sparkles(x + 8, y - 10, "#ffd34d", 16);
+        if (this.full) this.flash("#ffe9a8", 0.2);
+      }
+      node.style.opacity = p.t > 2.6 ? String(Math.max(0, 1 - (p.t - 2.6) / 0.4)) : "";
+      return p.t < 3;
+    });
+    this.banner(`Coffre au trésor ! +${fmt(gold)} or`, "#ffd34d", x, true);
   }
 
   /* ---------- Étoile filante (cliquable) ---------- */
