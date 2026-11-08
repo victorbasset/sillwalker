@@ -137,14 +137,35 @@ function compose(layers) {
   return rows;
 }
 
+/**
+ * Torse prêt à habiller : N = mains (gants), Q = pendentif (amulette).
+ * Sans gants ni amulette, N et Q prennent la couleur d'origine (voir equipvis.js).
+ */
+function dressTorso(torso) {
+  const set = (row, c, ch) => row.slice(0, c) + ch + row.slice(c + 1);
+  let under = "A";
+  const rows = torso.map((r, i) => {
+    if (i === 2) { if (r[2] === "S") r = set(r, 2, "N"); if (r[11] === "S") r = set(r, 11, "N"); }
+    if (i === 1) {
+      const c = "AS".includes(r[7]) ? 7 : 8;
+      under = r[c];
+      r = set(r, c, "Q");
+    }
+    return r;
+  });
+  return { rows, under };
+}
+
 function buildClass(def) {
+  const dressed = dressTorso(def.torso);
+  const pal = { ...def.pal, N: def.pal.S, Q: def.pal[dressed.under], _q: dressed.under };
   const frame = (pose) => compose([
     [HEADS[def.head], 0],
-    [def.torso, 9],
+    [dressed.rows, 9],
     [def.legs[pose], 14],
     [WEAPONS[def.weapon][pose === "attack" ? "attack" : "idle"], 0],
   ]);
-  return { pal: def.pal, walk1: frame("walk1"), walk2: frame("walk2"), attack: frame("attack") };
+  return { pal, walk1: frame("walk1"), walk2: frame("walk2"), attack: frame("attack") };
 }
 
 /** Sprites des classes (clés = identifiants de classes.js). */
