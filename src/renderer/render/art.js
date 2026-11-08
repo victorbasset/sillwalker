@@ -200,6 +200,15 @@ export const MONSTER_ART = {
   crab: { pal: { R: "#d94a4a", r: "#a8322a", W: "#ffffff", E: "#1a1a1a" }, frames: [
     [".RR.......RR.", "RRrR.....RrRR", ".RR..W.W..RR.", "..R..E.E..R..", "..RRRRRRRRR..", ".RRRRRRRRRRR.", "R.rR.r.r.Rr.R", "..r..r.r..r.."],
     ["RR.........RR", "RrR.......RrR", ".RR..W.W..RR.", "..R..E.E..R..", "..RRRRRRRRR..", ".RRRRRRRRRRR.", ".r.Rr.r.rR.r.", "r...r...r...r"]] },
+  treant: { pal: { G: "#4f9a3a", g: "#2f6a2a", B: "#7a5233", b: "#4a3020", E: "#ffe27a" }, frames: [
+    ["...GG.GG....", "..GGGgGGG...", ".GGgGGGgGG..", "..GGGGGGG...", "...BBBBB....", "..BEBBEBB...", "..BBBBBBB...", "B.BBbbBBB.B.", ".BBBBBBBBBB.", "...BBBBB....", "...BBbBB....", "..BB...BB...", ".bB.....Bb.."],
+    ["..GG.GG.....", ".GGGgGGGG...", "GGgGGGgGGG..", ".GGGGGGGG...", "...BBBBB....", "..BEBBEBB...", "B.BBBBBBB.B.", ".BBBbbBBBB..", "...BBBBBB...", "...BBBBB....", "...BBbBB....", "...BB.BB....", "..bB...Bb..."]] },
+  drake: { pal: { G: "#5a8a6a", g: "#3a6a4a", W: "#8ab89a", Y: "#ffd34d", r: "#e2552b" }, fly: true, frames: [
+    ["......g.......", ".....gWg......", "....gWWWg.....", "GG..WWWWWW....", "GYGGGGGGGGG...", "GGGGGGGGGGGGG.", ".rr.GGGGG...GG", "....G...G.....", "....gg..gg...."],
+    ["..............", "..............", "..............", "GG............", "GYGGGGGGGGG...", "GGGGWWWWWWGGG.", ".rr.gWWWWg..GG", "....GgWgG.....", "....gg..gg...."]] },
+  eye: { pal: { P: "#8a4ab8", p: "#5a2a8a", W: "#f4f0e8", B: "#d94a4a", K: "#1a1a1a" }, fly: true, frames: [
+    ["..p.p.p.p..", "...P.P.P...", "..PPPPPPP..", ".PPWWWWWPP.", "PPWWBBBWWPP", "PPWBKKBBWPP", "PPWWBBBWWPP", ".PPWWWWWPP.", "..PPPPPPP..", "..p..p..p..", ".p..p..p..."],
+    [".p.p.p.p...", "..P.P.P....", "..PPPPPPP..", ".PPWWWWWPP.", "PPWWBBBWWPP", "PPWKKBBBWPP", "PPWWBBBWWPP", ".PPWWWWWPP.", "..PPPPPPP..", "...p..p..p.", "....p..p..p"]] },
   darkknight: { pal: { K: "#2a2638", k: "#14121f", R: "#c0392b", W: "#9aa3ad", B: "#4a4560", G: "#6b4a2b" }, frames: [
     ["....RR......", "...KKKK.....", "..KKKKKK....", "..KkRkRK....", "..KKKKKK....", "...KKKK...W.", ".BKKKKKKB.W.", "B.KBKKBK.BW.", "B.KKKKKK.BB.", "..KKKKKK..G.", "..KK..KK....", "..KK..KK....", ".kKK..KKk..."],
     ["....RR......", "...KKKK.....", "..KKKKKK....", "..KkRkRK....", "..KKKKKK....", "...KKKK.....", ".BKKKKKKBWWW", "B.KBKKBK.BG.", "B.KKKKKK....", "..KKKKKK....", "..KK...KK...", ".KK.....KK..", ".kK.....Kk.."]] },

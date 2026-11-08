@@ -118,6 +118,9 @@ export const MONSTERS = {
   fireelem:   { name: "Élémentaire de feu", hp: 0.9, atk: 1.35, interval: 1 },
   crab:       { name: "Crabe des récifs",  hp: 1.3,  atk: 0.9,  interval: 1.1 },
   darkknight: { name: "Chevalier noir",    hp: 1.35, atk: 1.25, interval: 1.1 },
+  treant:     { name: "Sylvain",           hp: 1.7,  atk: 0.95, interval: 1.3 },
+  drake:      { name: "Wyverne",           hp: 1.1,  atk: 1.3,  interval: 0.9 },
+  eye:        { name: "Tyrannœil",         hp: 1,    atk: 1.4,  interval: 1 },
   // Variantes : même dessin (art), autres couleurs (recolor) et caractéristiques.
   slime_lava:  { name: "Gluant de lave",       art: "slime", recolor: { G: "#e2552b", D: "#a8322a" }, hp: 1.1, atk: 1.2, interval: 1 },
   slime_frost: { name: "Gluant de givre",      art: "slime", recolor: { G: "#9fd8ff", D: "#5a9ac8" }, hp: 1.3, atk: 0.8, interval: 1.2 },
@@ -135,6 +138,10 @@ export const MONSTERS = {
   imp_frost:   { name: "Démon des glaces",     art: "imp",   recolor: { R: "#5a9ad8", D: "#2a5a9a", W: "#3a4a7a", Y: "#ffffff" }, hp: 0.95, atk: 1.2, interval: 0.95 },
   spider_widow: { name: "Veuve noire",         art: "spider", recolor: { B: "#14121f", R: "#ff3a3a" }, hp: 1, atk: 1.35, interval: 0.9 },
   rat_plague:  { name: "Rat pestiféré",        art: "rat",   recolor: { G: "#6a8a4a", D: "#4a5a2a", P: "#a8d86a" }, hp: 0.8, atk: 1, interval: 0.7 },
+  treant_rot:  { name: "Sylvain pourri",      art: "treant", recolor: { G: "#6a5a8a", g: "#4a3a6a", B: "#4a3a3a", b: "#2a2020", E: "#a8ff6a" }, hp: 1.8, atk: 1.05, interval: 1.3 },
+  drake_fire:  { name: "Wyverne de feu",      art: "drake", recolor: { G: "#c0392b", g: "#7a1e1e", W: "#ff9a3a", Y: "#ffe27a" }, hp: 1.15, atk: 1.4, interval: 0.9 },
+  eye_deep:    { name: "Œil des profondeurs", art: "eye",   recolor: { P: "#2a6a8a", p: "#1a4a6a", B: "#3ad8a8" }, hp: 1.1, atk: 1.45, interval: 1 },
+  crab_abyss:  { name: "Crabe abyssal",       art: "crab",  recolor: { R: "#3a4a8a", r: "#2a2a5a", W: "#7fd6ff" }, hp: 1.5, atk: 1.1, interval: 1.1 },
   goblin_raider: { name: "Gobelin pillard",    art: "goblin", recolor: { Y: "#8a5a2b", D: "#5a3a1a", W: "#c9ced6" }, hp: 0.9, atk: 1.15, interval: 0.85 },
   // Rare (GOBLIN.chance) dans n'importe quelle zone : ne se bat pas, s'enfuit
   // au bout de GOBLIN.flee secondes, mais rapporte énormément d'or.
@@ -192,4 +199,14 @@ export const ZONES = [
     sky: ["#14121f", "#3a3550"], far: "#2a2638", near: "#1a1724", g1: "#4a4560", g2: "#2a2638", g3: "#1a1724", prop: "tomb" },
   { name: "Caverne de cristal", monsters: ["golem_crystal", "spider_widow", "skel_frost", "imp_frost"], boss: "golem_crystal",
     sky: ["#1a2a4a", "#4a6aa8"], far: "#3a5a8a", near: "#2a3a6a", g1: "#9fe8ff", g2: "#3a4a7a", g3: "#2a3460", prop: "crystal" },
+  { name: "Bois corrompu", monsters: ["treant", "mush_venom", "wolf_shadow"], boss: "treant_rot",
+    sky: ["#3a2a4a", "#7a5a8a"], far: "#4a3a5a", near: "#2a2038", g1: "#5a4a6a", g2: "#3a2a3a", g3: "#2a1a2a", prop: "tree" },
+  { name: "Pic des wyvernes", monsters: ["drake", "harpy", "bat_vampire"], boss: "drake",
+    sky: ["#d88a5a", "#f8e0b0"], far: "#a87a6a", near: "#7a5a4a", g1: "#b8a08a", g2: "#7a6a5a", g3: "#5a4a3a", prop: "rock" },
+  { name: "Royaume du néant", monsters: ["eye", "ghost_flame", "imp"], boss: "eye",
+    sky: ["#0a0614", "#2a1a4a"], far: "#1a1030", near: "#120a22", g1: "#4a3a7a", g2: "#2a1a4a", g3: "#1a1030", prop: "pillar" },
+  { name: "Récif abyssal", monsters: ["crab_abyss", "eye_deep", "slime_frost"], boss: "crab_abyss",
+    sky: ["#0a2a4a", "#2a6a9a"], far: "#1a4a6a", near: "#0a2a4a", g1: "#3a8aa8", g2: "#1a4a6a", g3: "#0a2a4a", prop: "crystal" },
+  { name: "Volcan des wyvernes", monsters: ["drake_fire", "fireelem", "slime_lava"], boss: "drake_fire",
+    sky: ["#3a0a0a", "#e2552b"], far: "#8a2a1a", near: "#4a1a10", g1: "#5a2a1a", g2: "#3a1a10", g3: "#2a0a08", prop: "rock" },
 ];
