@@ -1,6 +1,7 @@
 // Onglet Boutique : marchand (stock renouvelé, bonne affaire, objet pour
 // l'emplacement le plus faible), potions et élixirs, coffres et œuf,
 // atelier (améliorations permanentes illimitées). Tout est illustré.
+import { itemName } from "../../i18n/data.js";
 import { t as tx } from "../../i18n/index.js";
 import { RARITIES, SLOTS } from "../../game/data.js";
 import {
@@ -37,7 +38,7 @@ export class ShopTab {
       return `<div class="mcard rb${it.r}${it.deal ? " deal" : ""}${up ? " up" : ""}">
         ${it.deal ? `<span class="ribbon">−${Math.round(DEAL_DISCOUNT * 100)} %</span>` : ""}
         <img src="${itemIconURL(it)}" alt="">
-        <div class="nm rc${it.r}">${esc(it.name)}</div>
+        <div class="nm rc${it.r}">${esc(itemName(it))}</div>
         <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niv. {1}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il })}</div>
         ${it.power ? `<div class="sub power-mini">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
         ${it.set && SETS[it.set] ? `<div class="sub" style="color:${SETS[it.set].color}">◆ ${esc(SETS[it.set].name)}</div>` : ""}

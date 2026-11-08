@@ -1,6 +1,6 @@
 // Onglet Réglages : préférences du jeu (sauvegardées avec la partie) et de la
 // fenêtre (position, opacité, démarrage : réglées par le processus principal).
-import { t as tx } from "../../i18n/index.js";
+import { t as tx, LANGS, getLang, setLang } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { esc } from "../../game/format.js";
 
@@ -23,6 +23,9 @@ export class SettingsTab {
     const P = this.game.S.settings, L = this.getLayout ? this.getLayout() : {};
     const check = (key, label, help) => `<label class="toggle"><input type="checkbox" data-action="se-toggle" data-key="${key}"${P[key] ? " checked" : ""}> ${esc(label)}</label>${help ? `<p class="note tight">${esc(help)}</p>` : ""}`;
     el.innerHTML = `<div class="setgrid">
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">Language / Langue</span></h2>
+        <div class="langs">${LANGS.map((l) => `<button data-action="se-lang" data-v="${l.id}" aria-pressed="${getLang() === l.id}">${esc(l.name)}</button>`).join("")}</div>
+      </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">${tx("Son")}</span></h2>
         ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Coupés par défaut."))}
         <label class="range">${tx("Volume")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound ? "" : " disabled"}> <span>${Math.round(P.volume * 100)} %</span></label>
@@ -65,6 +68,15 @@ export class SettingsTab {
     if (a === "se-toggle") { P[b.dataset.key] = b.checked; this.onChange?.(); }
     else if (a === "se-volume") { P.volume = +b.value / 100; this.onChange?.(); }
     else if (a === "se-testsound") this.sound?.play("legendary");
+    else if (a === "se-lang") {
+      if (b.dataset.v === getLang()) return;
+      P.lang = b.dataset.v;
+      setLang(b.dataset.v);
+      this.game.changed();
+      // Sauvegarde puis rechargement de l'affichage dans la nouvelle langue.
+      Promise.resolve(this.api?.writeSave?.(JSON.stringify(this.game.S))).finally(() => location.reload());
+      return;
+    }
     else if (a === "se-edge") this.api?.setWindowSettings({ edge: b.dataset.v });
     else if (a === "se-opacity") this.api?.setWindowSettings({ opacity: +b.dataset.v });
     else if (a === "se-login") { this.api?.setWindowSettings({ openAtLogin: b.checked }); this.win.openAtLogin = b.checked; }

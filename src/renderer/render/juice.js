@@ -5,6 +5,7 @@
 //
 // Tout est animé par la boucle à 30 FPS (aucune animation CSS, qui tournerait
 // à la fréquence de l'écran) et n'existe que le temps de l'effet.
+import { itemName } from "../i18n/data.js";
 import { t as tx } from "../i18n/index.js";
 import { CLASSES } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
@@ -161,9 +162,9 @@ export class Juice {
     });
     if (r === LEGENDARY) {
       this.flash("#ffb733", 0.45);
-      this.banner(`${tx("★ LÉGENDAIRE ! {0}", { 0: item.name })}`, color, x, true);
+      this.banner(`${tx("★ LÉGENDAIRE ! {0}", { 0: itemName(item) })}`, color, x, true);
       this.sparkles(x + 8, y0 - 20, color, 20);
-    } else if (r === 3) this.banner(`${tx("Épique : {0}", { 0: item.name })}`, color, x);
+    } else if (r === 3) this.banner(`${tx("Épique : {0}", { 0: itemName(item) })}`, color, x);
   }
 
   /** Bannière qui surgit au-dessus de la scène. */
@@ -294,7 +295,7 @@ export class Juice {
 
   /* ---------- Météo de la zone ---------- */
   weather(dt) {
-    const kind = this.full && this.s.game.S.settings.weather !== false ? WEATHER[this.s.game.zoneDef().name] || null : null;
+    const kind = this.full && this.s.game.S.settings.weather !== false ? WEATHER[this.s.game.zoneDef().src || this.s.game.zoneDef().name] || null : null;
     if (kind !== this.wxKind) { this.clearWeather(); this.wxKind = kind; }
     if (!kind) return;
     const k = WX[kind], W = this.s.W, G = this.ground();

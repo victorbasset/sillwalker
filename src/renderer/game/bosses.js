@@ -1,6 +1,7 @@
 // Capacités spéciales des boss. Chaque boss de zone en reçoit une (deux à
 // partir de la 2e boucle des zones), choisie selon la zone : on sait donc à
 // l'avance ce qui attend le héros (affiché dans le panneau Zone).
+import { t as tx } from "../i18n/index.js";
 import { ZONES } from "./data.js";
 
 export const BOSS_MECHANICS = {
@@ -24,7 +25,7 @@ export const BOSS_NAMES = [
 /** Nom du boss de la zone z (titre « l'Éveillé » à partir de la 2e boucle). */
 export function bossName(z) {
   const i = (z - 1) % ZONES.length, loop = Math.floor((z - 1) / ZONES.length);
-  return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? " l’Éveillé" : loop >= 2 ? " l’Ancestral " + "+".repeat(loop - 1) : "");
+  return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? tx(" l’Éveillé") : loop >= 2 ? tx(" l’Ancestral") + " " + "+".repeat(loop - 1) : "");
 }
 
 /** Capacités du boss de la zone z. */

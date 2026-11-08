@@ -8,7 +8,8 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
-import { t as tx } from "../i18n/index.js";
+import { itemName } from "../i18n/data.js";
+import { t as tx, tr } from "../i18n/index.js";
 import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -391,7 +392,7 @@ export class Game {
     const newPower = it.power && !(this.S.powersSeen || {})[it.power];
     const fresh = codexRecord(this.S, it);
     if (newPower) this.log(`${tx("Nouveau pouvoir légendaire découvert : {0} !", { 0: POWER_INDEX[it.power]?.name || it.power })}`);
-    if (fresh) { this.invalidateStats(); if (fresh === "new") { this.log(`${tx("Nouveau type d’objet pour la collection : {0} !", { 0: (it.base || "").split(":")[1] || it.name })}`); this.emit("codex", { item: it }); } }
+    if (fresh) { this.invalidateStats(); if (fresh === "new") { this.log(`${tx("Nouveau type d’objet pour la collection : {0} !", { 0: tr((it.base || "").split(":")[1]) || itemName(it) })}`); this.emit("codex", { item: it }); } }
     return it;
   }
 
@@ -427,7 +428,7 @@ export class Game {
       return false;
     }
     S.bag.push(it);
-    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + " : " + it.name + " !");
+    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + " : " + itemName(it) + " !");
     this.changed();
     return true;
   }
@@ -575,7 +576,7 @@ export class Game {
     if (old) S.bag.push(old);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(tx("Équipé : ") + it.name + ".");
+    this.log(tx("Équipé : ") + itemName(it) + ".");
     this.changed();
   }
 
@@ -594,7 +595,7 @@ export class Game {
     const v = sellValue(it);
     this.S.gold += v;
     this.S.bag = this.S.bag.filter((i) => i.id !== it.id);
-    this.log(tx("Vendu : ") + it.name + " (+" + fmt(v) + " or).");
+    this.log(tx("Vendu : ") + itemName(it) + " (+" + fmt(v) + " or).");
     this.changed();
   }
 
@@ -605,7 +606,7 @@ export class Game {
     it.plus++;
     this.invalidateStats();
     this.questProgress("forge", 1);
-    this.log(tx("Forge : ") + it.name + tx(" passe à +") + it.plus + ".");
+    this.log(tx("Forge : ") + itemName(it) + tx(" passe à +") + it.plus + ".");
     this.changed();
     return true;
   }
@@ -643,7 +644,7 @@ export class Game {
       this.S.stats.transmutes = (this.S.stats.transmutes || 0) + out.length;
       this.questProgress("transmute", out.length);
       const best = out.reduce((a, b) => (b.r > a.r ? b : a));
-      this.log(`${tx("Transmutation : {0} nouvel{1} objet{2}, dont {3} ({4}).", { 0: out.length, 1: out.length > 1 ? "s" : "", 2: out.length > 1 ? "s" : "", 3: best.name, 4: RARITIES[best.r].name.toLowerCase() })}`);
+      this.log(`${tx("Transmutation : {0} nouvel{1} objet{2}, dont {3} ({4}).", { 0: out.length, 1: out.length > 1 ? "s" : "", 2: out.length > 1 ? "s" : "", 3: itemName(best), 4: RARITIES[best.r].name.toLowerCase() })}`);
       this.emit("transmute", { items: out });
       this.changed();
     }
@@ -671,7 +672,7 @@ export class Game {
     rerollAffixes(it);
     this.invalidateStats();
     this.S.stats.reforges = (this.S.stats.reforges || 0) + 1;
-    this.log(tx("Réforge : ") + it.name + tx(" a de nouveaux bonus."));
+    this.log(tx("Réforge : ") + itemName(it) + tx(" a de nouveaux bonus."));
     this.changed();
     return true;
   }
@@ -851,7 +852,7 @@ export class Game {
     if (!c || this.bagFull() || !this.pay(chestPrice(c, S))) return null;
     const it = this.newItem(c.minRarity, S.best);
     S.bag.push(it);
-    this.log(`${c.name} ${tx("ouvert : {0} ({1}) !", { 0: it.name, 1: RARITIES[it.r].name.toLowerCase() })}`);
+    this.log(`${c.name} ${tx("ouvert : {0} ({1}) !", { 0: itemName(it), 1: RARITIES[it.r].name.toLowerCase() })}`);
     this.emit("loot", { item: it, mon: null });
     this.changed();
     return it;
@@ -934,7 +935,7 @@ export class Game {
     delete it.price; delete it.deal;
     if (it.r === LEGENDARY) S.stats.legendaries++;
     S.bag.push(it);
-    this.log(tx("Acheté au marchand : ") + it.name + ".");
+    this.log(tx("Acheté au marchand : ") + itemName(it) + ".");
     this.changed();
     return true;
   }
@@ -1001,7 +1002,7 @@ export class Game {
     S.stats.chests = (S.stats.chests || 0) + 1;
     const x = rand(), item = this.newItem(x < CHEST.legendary ? 4 : x < CHEST.epic ? 3 : 2);
     S.potions = Math.min(20, S.potions + 1);
-    this.log(`${tx("Coffre au trésor ! +{0} or, une potion et {1}.", { 0: fmt(gold), 1: item.name })}`);
+    this.log(`${tx("Coffre au trésor ! +{0} or, une potion et {1}.", { 0: fmt(gold), 1: itemName(item) })}`);
     this.emit("chest", { gold, item });
     this.emit("loot", { item, chest: true });
     this.addToBag(item);
@@ -1041,7 +1042,7 @@ export class Game {
     const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null, mod: D.mod };
     if (reward.potions) this.S.potions = Math.min(20, this.S.potions + reward.potions);
     if (day === 7 && !this.bagFull()) { reward.item = this.newItem(3, this.S.best); this.S.bag.push(reward.item); }
-    this.log(`${tx("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: day, 1: fmt(gold), 2: reward.potions ? tx(", 2 potions") : "", 3: reward.item ? ", " + reward.item.name : "" })}`);
+    this.log(`${tx("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: day, 1: fmt(gold), 2: reward.potions ? tx(", 2 potions") : "", 3: reward.item ? ", " + itemName(reward.item) : "" })}`);
     this.emit("daily", reward);
     this.changed();
     return reward;
@@ -1088,7 +1089,7 @@ export class Game {
     const rw = Q.slots[i].reward, parts = [];
     if (rw.chest && this.bagFull()) { this.log(tx("Sac plein : libère une place pour recevoir le coffre.")); return false; }
     if (rw.gold) { S.gold += rw.gold; parts.push(fmt(rw.gold) + " or"); }
-    if (rw.chest) { const it = this.newItem(rw.chest, S.best); S.bag.push(it); parts.push(it.name); this.emit("loot", { item: it, mon: null }); }
+    if (rw.chest) { const it = this.newItem(rw.chest, S.best); S.bag.push(it); parts.push(itemName(it)); this.emit("loot", { item: it, mon: null }); }
     if (rw.buff) { S.buffs[rw.buff] = Math.min(7200, (S.buffs[rw.buff] || 0) + 600); this.invalidateStats(); parts.push(tx("élixir de 10 min")); }
     if (rw.potions) { S.potions = Math.min(20, S.potions + rw.potions); parts.push(rw.potions + " potions"); }
     if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(rw.shards + tx(" éclats d’étoile")); }
@@ -1105,7 +1106,7 @@ export class Game {
       this.invalidateStats();
       const gift = this.bagFull() ? null : this.newItem(Math.min(4, 2 + Math.floor(after / 3)), S.best);
       if (gift) { S.bag.push(gift); this.emit("loot", { item: gift, mon: null }); }
-      this.log(`${tx("Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", { 0: guildRankName(after), 1: gift ? tx(", et un coffre : ") + gift.name : "" })}`);
+      this.log(`${tx("Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", { 0: guildRankName(after), 1: gift ? tx(", et un coffre : ") + itemName(gift) : "" })}`);
       this.emit("guildRank", { rank: after });
     }
     this.log(tx("Récompense de quête : ") + parts.join(", ") + ".");
@@ -1185,7 +1186,7 @@ export class Game {
     const out = { gold, xp: ex.xp, egg: false, item: null, pet: PET_INDEX[id] };
     if (rand() < ex.egg) { out.egg = true; this.gainEgg(); }
     if (rand() < ex.item && !this.bagFull()) { out.item = this.newItem(ex.minRarity, this.S.best); this.addToBag(out.item, true); }
-    this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: ex.name.toLowerCase(), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + out.item.name : "" })}`);
+    this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: ex.name.toLowerCase(), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + itemName(out.item) : "" })}`);
     this.emit("expedition", out);
     this.changed();
     return out;

@@ -6,6 +6,9 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { getLang, setLang, DEFAULT_LANG } from "./i18n/index.js";
+import { translateData } from "./i18n/data.js";
+import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
 import { CLASSES } from "./game/classes.js";
 import { PET_INDEX } from "./game/pets.js";
@@ -38,6 +41,12 @@ async function boot() {
   const init = await api.getInit();
   const loaded = await api.loadSave();
   const game = new Game(migrate(loaded.data) || freshState());
+  // Langue : celle de la sauvegarde (copiée dans localStorage, lue dès le chargement des modules).
+  const wanted = game.S.settings.lang || DEFAULT_LANG;
+  if (wanted !== getLang()) { setLang(wanted); location.reload(); return; }
+  game.S.settings.lang = wanted;
+  translateData();
+  document.documentElement.lang = wanted;
   if (init.isDev) window.__game = game; // inspection par l'auto-test (dev uniquement)
   if (loaded.notice) game.log(loaded.notice);
 
@@ -301,7 +310,7 @@ async function boot() {
       if (dm && before && before !== game.S.daily.mod) setTimeout(() => showToast(`${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}`, () => openPanel(), 12000), 2500);
       return;
     }
-    setTimeout(() => showToast(`${tx("🎁 Récompense du jour")} <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> ${tx("or{0}{1}. Reviens demain pour continuer la série !{2}", { 0: r.potions ? tx(", 2 potions") : "", 1: r.item ? `, <b>${esc(r.item.name)}</b>` : "", 2: dm ? `<br>${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : "" })}`,
+    setTimeout(() => showToast(`${tx("🎁 Récompense du jour")} <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> ${tx("or{0}{1}. Reviens demain pour continuer la série !{2}", { 0: r.potions ? tx(", 2 potions") : "", 1: r.item ? `, <b>${esc(itemName(r.item))}</b>` : "", 2: dm ? `<br>${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : "" })}`,
       () => openPanel(), 15000), 2500);
   }
   setInterval(checkDaily, 60000);

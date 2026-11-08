@@ -3,6 +3,7 @@
 // Chaque onglet hors Aventure est un module de ui/tabs/ avec render(el),
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
+import { itemName } from "../i18n/data.js";
 import { t as tx } from "../i18n/index.js";
 import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
@@ -202,7 +203,7 @@ export class Panel {
     $(this.root, "#mbody").innerHTML = `<div class="reveal" style="--rc:${r.color}">
         <img class="rchest" src="${shopIconURL(chestId, 8)}" alt="">
         <div class="ritem"><span class="rays"></span><img src="${itemIconURL(it)}" alt=""></div>
-        <div class="rname rc${it.r}">${esc(it.name)}</div>
+        <div class="rname rc${it.r}">${esc(itemName(it))}</div>
         <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: r.name.toLowerCase(), 1: it.il, 2: it.power && POWER_INDEX[it.power] ? ` · ★ ${esc(POWER_INDEX[it.power].name)}` : "" })}</div>
         ${up ? `<div class="delta-p">${tx("▲ Plus puissant que ton équipement actuel")}</div>` : ""}
       </div>${up ? `<div class="row"><button class="primary" data-action="reveal-equip" data-id="${it.id}">${tx("Équiper maintenant")}</button></div>` : ""}`;
@@ -262,7 +263,7 @@ export class Panel {
       (this.selected.from === "bag" && this.selected.id === it.id && from === "bag"));
     const up = from === "bag" && this.game.isUpgrade(it);
     return `<button class="slot rb${it.r}${sel ? " sel" : ""}" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
-      aria-label="${esc(it.name)}, ${RARITIES[it.r].name}${up ? tx(", amélioration") : ""}">
+      aria-label="${esc(itemName(it))}, ${RARITIES[it.r].name}${up ? tx(", amélioration") : ""}">
       <img src="${itemIconURL(it)}" alt="">${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark" style="color:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
   }
 
@@ -284,7 +285,7 @@ export class Panel {
       const dd = this.game.upgradeDelta(it);
       verdict = `<p class="verdict ${dd > 0.005 ? "delta-p" : dd < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance : ") + (dd >= 0 ? "+" : "−") + Math.abs(Math.round(dd * 100)) + NB + "%" : tx("Emplacement vide : à équiper !")}</p>`;
     }
-    this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(it.name)}${it.plus ? " +" + it.plus : ""}</div>
+    this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
       <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div>
       <ul class="lines">${lines}</ul>${power(it, S.equip)}${verdict}
       <p class="note tight tiphelp">${fromBag ? tx("Double-clic : équiper") : tx("Double-clic : retirer")}</p>`;
@@ -356,7 +357,7 @@ export class Panel {
       const rows = SLOT_KEYS.map((k) => {
         const e = S.equip[k];
         return `<li class="eqline">${this.slotBtn(e, k, "equip")}<div class="si">${e
-          ? `<div class="nm rc${e.r}">${esc(e.name)}${e.plus ? " +" + e.plus : ""}</div><div class="sub">${SLOTS[k].name}${tx(", niveau {0}{1}", { 0: e.il, 1: e.power && POWER_INDEX[e.power] ? ` · ★ ${esc(POWER_INDEX[e.power].name)}` : "" })}</div>`
+          ? `<div class="nm rc${e.r}">${esc(itemName(e))}${e.plus ? " +" + e.plus : ""}</div><div class="sub">${SLOTS[k].name}${tx(", niveau {0}{1}", { 0: e.il, 1: e.power && POWER_INDEX[e.power] ? ` · ★ ${esc(POWER_INDEX[e.power].name)}` : "" })}</div>`
           : `<div class="nm empty">${SLOTS[k].name} ${tx(": vide")}</div>`}</div></li>`;
       }).join("");
       el.innerHTML = `<h2>${tx("Équipement")} <small>${tx("clique un objet")}</small></h2>
@@ -384,7 +385,7 @@ export class Panel {
     const fc = forgeCost(it), canForge = it.plus < MAX_PLUS && S.gold >= fc;
     el.innerHTML = `<h2>${tx("Objet")} <button class="linkbtn back" data-action="desel">${tx("← équipement")}</button></h2>
       <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div>
-        <div class="nm rc${it.r}">${esc(it.name)}${it.plus ? " +" + it.plus : ""}</div>
+        <div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
         <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: r.name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div></div></div>
       <ul class="lines">${lines}</ul>${power(it, S.equip)}${verdict}
       <div class="row">${fromBag
