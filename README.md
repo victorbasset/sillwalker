@@ -18,12 +18,14 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout. 1 point par niveau.
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
   sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
-- **10 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses),
-  **10 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti),
+- **23 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses… jusqu'au volcan des wyvernes),
+  chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **43 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
 - **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, zone), récompenses variées
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
-- **Familiers** : 6 compagnons qui suivent le héros, sortent d'œufs (boss, élites, quêtes) et montent jusqu'au niveau 10.
+- **Familiers** : 11 compagnons (dont le lapin et le phénix, rares) qui suivent le héros, sortent d'œufs (boss, élites, quêtes)
+  et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
+  or, expérience, œufs et objets.
 - **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 10 pouvoirs uniques.
 - **Bestiaire** : paliers de 10 / 100 / 1 000 / 10 000 victoires par monstre, bonus permanents.
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 10 constellations permanentes
@@ -32,16 +34,20 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Objets** : 7 emplacements (arme, casque, armure, gants, bottes, anneau, amulette), 46 types, des matériaux
   qui évoluent avec le niveau (bronze → étoile, lin → tissu céleste…), 32 icônes. L'armure, le casque, l'arme et
   les bottes portés changent l'apparence du héros ; halo doré avec un légendaire.
-- **Bestiaire** : 36 monstres (dont des variantes recolorées), 18 zones.
+- **Bestiaire** : 43 monstres (dont des variantes recolorées).
+- **Collection d'objets** : chaque type d'objet trouvé (44) donne un bonus permanent, plus encore en épique et en légendaire.
+- **Transmutation** : 3 objets inutiles d'une rareté → 1 objet de la rareté au-dessus.
 - **Vitesse** (le bonus le plus précieux) : plumes du vent très rares et étoiles filantes à attraper d'un clic
-  (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie.
+  (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie,
+  **coffre au trésor** (or, potion, objet rare ou mieux).
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération), deux à partir de la 2e boucle.
 - **Élites à affixes** : rapide, blindé, vampirique ou furieux.
 - **Panoplies** : 5 ensembles (dont le Voyageur du vent, axé vitesse), bonus à 2 et 4 pièces.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
+- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins).
 - **Statistiques** : records, compteurs de l'aventure et liste des succès.
-- **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits,
+- **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo,
   position, opacité, démarrage de Windows.
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
 - **Lueur stellaire** : chaque éclat d'étoile gagné renforce le héros pour toujours.
