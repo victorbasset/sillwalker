@@ -716,4 +716,18 @@ test("talents : voie exclusive et maîtrises (aucun point perdu)", async () => {
   assert.ok(g.stats().atk > atk0);
 });
 
+test("talents : dépense automatique (ultimes, branche, maîtrises ; jamais la voie)", async () => {
+  const { talentPointsFree, chosenVoie } = await import("../src/renderer/game/talents.js");
+  const g = new Game(freshState());
+  g.S.lvl = 26; g.invalidateStats();
+  assert.equal(g.autoSpendTalents(), 25);
+  assert.equal(talentPointsFree(g.S), 0);
+  const ult = TREES.warrior.flatMap((b) => b.talents).filter((t) => t.tier === 3 && (g.S.talents.warrior[t.id] || 0) > 0);
+  assert.equal(ult.length, 1, "une branche menée jusqu'à son ultime");
+  g.S.lvl = 150; g.invalidateStats();
+  g.autoSpendTalents();
+  assert.equal(talentPointsFree(g.S), 0, "le surplus part en maîtrises");
+  assert.equal(chosenVoie(g.S), null, "la voie reste au choix du joueur");
+});
+
 console.log(`\n${pass} tests réussis`);

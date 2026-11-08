@@ -109,12 +109,14 @@ async function runSelfTest(strip) {
   await sleep(150);
   const spent0 = await state("Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0)");
   // Choisit un talent encore améliorable (les tests précédents ont pu en remplir).
-  const learnable = await js(`(() => { const b = [...document.querySelectorAll('.talent:not(.locked):not(.maxed)')][0]; return b ? b.dataset.id : null; })()`);
-  if (learnable) { await click(`.talent[data-id="${learnable}"]`); await sleep(150); }
-  await click('[data-action="t-learn"][data-n="1"]');
-  await sleep(150);
+  // Un seul clic sur un talent disponible = +1 rang.
+  const learnable = await js(`(() => { const b = document.querySelector('.talent.can[data-action="t-learn"]'); return b ? b.dataset.id : null; })()`);
+  if (learnable) { await click(`.talent[data-tid="${learnable}"] .tn`); await sleep(200); }
   const spent1 = await state("Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0)");
-  check("onglet Talents : « Apprendre » dépense un point", spent1 === spent0 + 1, `${spent0} -> ${spent1}`);
+  check("onglet Talents : un clic sur un talent dépense un point", spent1 === spent0 + 1, `${spent0} -> ${spent1}`);
+  await click('[data-action="t-auto"]');
+  await sleep(200);
+  check("onglet Talents : dépenser automatiquement", (await js("window.__game.talentPointsFree()")) === 0 || (await js("window.__game.nextAutoTalent()")) === null);
   await click('[data-tab="shop"]');
   await sleep(150);
   const pot0 = await state("S.potions");

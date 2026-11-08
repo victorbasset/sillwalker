@@ -237,6 +237,8 @@ export class Panel {
 
   /** Survol d'un emplacement : infobulle avec statistiques et comparaison. */
   onHover(e) {
+    const tb = this.tab === "talents" && e.target.closest && e.target.closest("[data-tid]");
+    if (tb) this.tabs.talents.hover(tb.dataset.tid);
     const b = e.target.closest && e.target.closest(".slot[data-from]");
     const it = b && (b.dataset.from === "bag" ? this.game.findBagItem(+b.dataset.id) : this.game.S.equip[b.dataset.slot]);
     if (!it) { this.tip.hidden = true; return; }

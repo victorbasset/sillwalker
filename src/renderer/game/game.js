@@ -20,7 +20,7 @@ import {
   zoneDef, zoneName, monsterBase, approachTime,
 } from "./rules.js";
 import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked } from "./classes.js";
-import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree } from "./talents.js";
+import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES } from "./talents.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
@@ -767,6 +767,33 @@ export class Game {
       this.changed();
     }
     return done;
+  }
+
+  /**
+   * Dépense automatiquement les points libres : ultimes d'abord, puis la branche
+   * la plus avancée (pour atteindre son ultime), puis les maîtrises. La voie
+   * n'est jamais choisie à la place du joueur. Renvoie le nombre de points dépensés.
+   */
+  autoSpendTalents() {
+    const S = this.S;
+    let n = 0;
+    for (let guard = 0; guard < 5000 && talentPointsFree(S) > 0; guard++) {
+      const id = this.nextAutoTalent();
+      if (!id || !this.learnTalent(id, 1)) break;
+      n++;
+    }
+    return n;
+  }
+
+  nextAutoTalent() {
+    const S = this.S, tree = TREES[S.cls] || [], ok = (t) => !cannotLearn(S, t.id);
+    const ult = tree.flatMap((b) => b.talents).find((t) => t.tier === 3 && ok(t));
+    if (ult) return ult.id;
+    const branches = tree.map((b, bi) => ({ bi, spent: branchSpent(S, bi), next: b.talents.filter(ok).sort((x, y) => x.tier - y.tier)[0] }))
+      .filter((b) => b.next).sort((x, y) => y.spent - x.spent);
+    if (branches.length) return branches[0].next.id;
+    const ranks = classTalents(S), ms = MASTERIES.filter(ok).sort((x, y) => (ranks[x.id] || 0) - (ranks[y.id] || 0));
+    return ms.length ? ms[0].id : null;
   }
 
   talentResetCost() { return this.S.lvl < 10 ? 0 : Math.round(25 * this.S.lvl * Math.pow(1.25, this.S.best - 1) / 10); }
