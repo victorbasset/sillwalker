@@ -29,6 +29,10 @@ export const CONSTELLATIONS = [
   { id: "c_moon",    name: "La Lune",       base: 6, max: 8,  eff: { offlineH: 1 } },
   { id: "c_flask",   name: "La Fiole",      base: 2, max: 5,  eff: { potions: 2 } },
   { id: "c_north",   name: "L’Étoile polaire", base: 6, max: 15, eff: { skillPts: 2 } },
+  { id: "c_shield",  name: "Le Bouclier",   base: 3, max: 20, eff: { defPct: 5 } },
+  { id: "c_crown",   name: "La Couronne",   base: 5, max: 10, eff: { bossDmg: 8 } },
+  { id: "c_serpent", name: "Le Serpent",    base: 5, max: 10, eff: { lifesteal: 0.5 } },
+  { id: "c_wing",    name: "L’Aile",        base: 12, max: 10, eff: { moveSpd: 3 } },
 ];
 
 export const SPECIAL_EFFECTS = {

@@ -23,7 +23,7 @@ export class AscensionTab {
       <p><b>Lueur stellaire</b> : chaque éclat gagné, même dépensé, donne pour toujours ${esc(describeEffects(GLOW_PER_SHARD))}.
       ${P.total ? `Actuellement : <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : ""}
       ${P.bestRun ? `<br><span class="note">Meilleure course : zone ${P.bestRun}.</span>` : ""}</p>
-      <p>Ton héros recommence au niveau 1 en zone 1, mais garde ses constellations, ses familiers, son bestiaire, sa classe et les améliorations du sac.
+      <p>Ton héros recommence au niveau 1 en zone 1, mais garde ses constellations, ses familiers, son bestiaire, sa collection d’objets, sa vitesse permanente, ses compétences, sa classe et les améliorations du sac.
       Il perd son niveau, son or, son équipement, son sac, ses talents et ses quêtes.</p>
       ${can
         ? `<p>Ascension maintenant : <b class="gold">+${gain} éclats</b> (record zone ${S.best}). En zone ${nextZone + 4} : +${shardsFor(nextZone + 4)}.</p>

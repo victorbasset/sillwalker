@@ -29,7 +29,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   or, expérience, œufs et objets.
 - **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 24 pouvoirs uniques.
 - **Bestiaire** : paliers de 10 / 100 / 1 000 / 10 000 victoires par monstre, bonus permanents.
-- **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 10 constellations permanentes
+- **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 15 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
 - **Cycle jour / nuit** sur la bande, calé sur l'heure de l'ordinateur.
 - **Objets** : 7 emplacements (arme, casque, armure, gants, bottes, anneau, amulette), 46 types, des matériaux
