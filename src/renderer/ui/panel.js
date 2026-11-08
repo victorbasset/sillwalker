@@ -42,17 +42,17 @@ export const power = (it, equip) => {
   return out;
 };
 const TABS = [
-  { id: "adventure", label: "Aventure" },
-  { id: "talents", label: "Talents", prefix: "t-" },
-  { id: "skills", label: "Compétences", prefix: "k-" },
-  { id: "quests", label: "Quêtes", prefix: "q-" },
-  { id: "shop", label: "Boutique", prefix: "s-" },
-  { id: "pets", label: "Familiers", prefix: "p-", group: true },
-  { id: "class", label: "Classe", prefix: "c-" },
-  { id: "ascension", label: "Ascension", prefix: "a-" },
-  { id: "bestiary", label: "Bestiaire", prefix: "b-" },
-  { id: "stats", label: "Statistiques", prefix: "st-" },
-  { id: "settings", label: "Réglages", prefix: "se-" },
+  { id: "adventure", label: "Aventure", icon: "map" },
+  { id: "talents", label: "Talents", prefix: "t-", icon: "star" },
+  { id: "skills", label: "Compétences", prefix: "k-", icon: "target" },
+  { id: "quests", label: "Quêtes", prefix: "q-", icon: "fortune" },
+  { id: "shop", label: "Boutique", prefix: "s-", icon: "ws_gold" },
+  { id: "pets", label: "Familiers", prefix: "p-", group: true, icon: "egg" },
+  { id: "class", label: "Classe", prefix: "c-", icon: "ws_hp" },
+  { id: "ascension", label: "Ascension", prefix: "a-", icon: "wisdom" },
+  { id: "bestiary", label: "Bestiaire", prefix: "b-", icon: "book" },
+  { id: "stats", label: "Statistiques", prefix: "st-", icon: "trophy" },
+  { id: "settings", label: "Réglages", prefix: "se-", icon: "gear" },
 ];
 const n1 = (v) => (Math.round(v * 10) / 10).toString().replace(".", ",");
 // Statistiques secondaires affichées seulement si non nulles.
@@ -115,7 +115,7 @@ export class Panel {
     this.root.innerHTML = `
       <header class="ptop">
         <h1>Sillwalker</h1>
-        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="Raccourci : ${"1234567890-"[i]}" aria-selected="${t.id === this.tab}">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
+        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="Raccourci : ${"1234567890-"[i]}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt="">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
         <div class="controls">
           ${dev}
           <button data-action="mini" class="quiet" title="Réduire en petit encart près de l’horloge">Mode mini</button>
@@ -309,10 +309,10 @@ export class Panel {
     $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>niveau ${S.lvl}</small></h2>
       <div class="kv"><span>Expérience</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">
-        <div class="tile"><span>Points de vie</span><b>${fmtStat("hp", hs.hp)}</b></div>
-        <div class="tile"><span>Attaque</span><b>${fmtStat("atk", hs.atk)}</b></div>
-        <div class="tile"><span>Défense</span><b>${fmtStat("def", hs.def)}</b></div>
-        <div class="tile power" title="Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."><span>Puissance</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
+        <div class="tile"><img src="${shopIconURL("heart", 3)}" alt=""><span>Points de vie</span><b>${fmtStat("hp", hs.hp)}</b></div>
+        <div class="tile"><img src="${shopIconURL("ws_atk", 3)}" alt=""><span>Attaque</span><b>${fmtStat("atk", hs.atk)}</b></div>
+        <div class="tile"><img src="${shopIconURL("ws_hp", 3)}" alt=""><span>Défense</span><b>${fmtStat("def", hs.def)}</b></div>
+        <div class="tile power" title="Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."><img src="${shopIconURL("star", 3)}" alt=""><span>Puissance</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
       </div>
       ${S.potions === 0 ? `<button class="linkbtn warn" data-tab="shop">Plus de potions de soin : la boutique en vend →</button>` : ""}
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${free} point${free > 1 ? "s" : ""} de talent à dépenser →</button>` : ""}

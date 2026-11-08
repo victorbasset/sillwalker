@@ -13,6 +13,19 @@ const SWORD = [".........W", "........WK", ".......WK.", "......WK..", ".....WK.
 const SHIELD = ["KKKKKKKKK", "KMMMMMMMK", "KMRRYRRMK", "KMRRYRRMK", "KMYYYYYMK", "KMRRYRRMK", ".KMRYRMK.", "..KMMMK..", "...KKK..."];
 const WING = ["........W.", "......WWW.", "....WWWLW.", "..WWWLLW..", ".WWLLLW...", "WWLLLW....", ".WLLW.....", "..WW......", "...W......"];
 
+const HEART = [".RR...RR.", "RRRR.RRRR", "RWRRRRRRR", "RRRRRRRRR", ".RRRRRRR.", "..RRRRR..", "...RRR...", "....R...."];
+const STAR = ["....Y....", "....Y....", "...YYY...", "YYYYYYYYY", ".YYYWYYY.", "..YYYYY..", "..YY.YY..", ".YY...YY."];
+const TARGET = ["..RRRRR..", ".R.....R.", "R..RRR..R", "R.R...R.R", "R.R.W.R.R", "R.R...R.R", "R..RRR..R", ".R.....R.", "..RRRRR.."];
+const SKULL = ["..WWWWW..", ".WWWWWWW.", "WWKKWKKWW", "WWKKWKKWW", "WWWWWWWWW", ".WWWKWWW.", "..W.W.W..", "..WWWWW.."];
+const GEAR = ["...G.G...", ".GGGGGGG.", ".GG...GG.", "GG..K..GG", ".G.KKK.G.", "GG..K..GG", ".GG...GG.", ".GGGGGGG.", "...G.G..."];
+const NOTE = ["....YYYY", "....Y..Y", "....Y..Y", "....Y..Y", "..YYY.YY", ".YYYY.YY", ".YYY....", "........"];
+const EYE = ["...WWW...", ".WWWWWWW.", "WWWBBBWWW", "WWBBKBBWW", "WWWBBBWWW", ".WWWWWWW.", "...WWW..."];
+const TROPHY = ["YYYYYYYYY", "Y.YYYYY.Y", "Y.YYYYY.Y", ".YYYYYYY.", "..YYYYY..", "....Y....", "...YYY...", "..DDDDD.."];
+const BOOK = ["BBBBBBBB.", "BWWWWWWB.", "BWLLLLWB.", "BWWWWWWB.", "BWLLLWWB.", "BWWWWWWB.", "BBBBBBBB.", ".DDDDDDD."];
+const KEYS = ["WWWWWWWWW", "WKWKWKWKW", "WWWWWWWWW", "WKWKWKWKW", "WWWWWWWWW", "WKKKKKKWW", "WWWWWWWWW"];
+const CLOCK = ["..WWWWW..", ".W.....W.", "W...K...W", "W...K...W", "W...KKK.W", "W.......W", ".W.....W.", "..WWWWW.."];
+const MAP = ["PPP.PPP..", "PPLPPPLP.", "PLPPPLPPP", "PPPRPPPLP", "PLPPPPPPP", "PPPPLPPRP", ".PPP.PPPP"];
+
 const OUT = "#14121f";
 export const SHOP_ICON_DEFS = {
   potion:  [FLASK, { L: "#e2394a", D: "#a8222f", W: "#f4f0e8" }],
@@ -31,7 +44,28 @@ export const SHOP_ICON_DEFS = {
   ws_atk:  [SWORD, { W: "#dfe7ef", Y: "#e9b949", G: "#6b4a2b" }],
   ws_hp:   [SHIELD, { M: "#9aa3ad", R: "#c0392b", Y: "#e9b949" }],
   ws_speed: [WING, { W: "#e3ebf3", L: "#9fd8ff" }],
+  heart:   [HEART, { R: "#e2394a", W: "#ffb0b8" }],
+  star:    [STAR, { Y: "#ffd34d", W: "#fff6c8" }],
+  target:  [TARGET, { R: "#ff6b5a", W: "#ffffff" }],
+  skull:   [SKULL, { W: "#e8e4d6" }],
+  gear:    [GEAR, { G: "#a9b6c6" }],
+  note:    [NOTE, { Y: "#ffd34d" }],
+  eye:     [EYE, { W: "#f4f0e8", B: "#5a8ad8" }],
+  trophy:  [TROPHY, { Y: "#ffd34d", D: "#8a5a2b" }],
+  book:    [BOOK, { B: "#8a3a2a", W: "#f0dca8", L: "#8a5a2b", D: "#5a2018" }],
+  keys:    [KEYS, { W: "#c9ced6" }],
+  clock:   [CLOCK, { W: "#c9ced6" }],
+  map:     [MAP, { P: "#e8d8b0", L: "#a8884a", R: "#e2394a" }],
 };
+
+/** Icône d'un effet (clé de talents.js > EFFECTS). */
+const EFFECT_ICON = {
+  atkPct: "ws_atk", critDmg: "target", crit: "target", bossDmg: "skull", execute: "skull", spd: "ws_speed", moveSpd: "ws_speed",
+  hpPct: "heart", regen: "heart", lifesteal: "heart", defPct: "ws_hp", shield: "ws_hp", thorns: "ws_hp", riposte: "ws_hp", dodge: "eye",
+  gold: "ws_gold", drop: "luck", xp: "wisdom", offline: "clock", burn: "elixir", poison: "luck", minion: "skull",
+  doubleShot: "ws_atk", combo: "ws_atk", iai: "ws_atk", firstStrike: "ws_atk", secondWind: "potion",
+};
+export const effectIconURL = (eff, scale = 3) => shopIconURL(EFFECT_ICON[Object.keys(eff || {})[0]] || "star", scale);
 
 const cache = {};
 /** URL (data:) de l'icône `id`, en grand (scale px par pixel). */

@@ -586,3 +586,14 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .tiers { display: flex; gap: 6px; margin: 4px 0; }
 .tierpip { width: 26px; height: 26px; display: grid; place-items: center; border: 2px solid var(--line); border-radius: 3px; color: var(--muted); }
 .tierpip.on { border-color: #ffd34d; color: #14121f; background: #ffd34d; }
+
+/* Icônes pixel dans l'interface */
+.tabs button .ticon { height: 16px; image-rendering: pixelated; vertical-align: -3px; margin-right: 5px; }
+.tile { position: relative; padding-left: 38px; }
+.tile img { position: absolute; left: 6px; top: 50%; translate: 0 -50%; height: 26px; image-rendering: pixelated; }
+.talent .eicon { height: 18px; image-rendering: pixelated; vertical-align: -4px; margin-right: 6px; }
+.hicon { display: inline-flex; align-items: center; gap: 8px; }
+.hicon img { height: 24px; image-rendering: pixelated; }
+.tabs { gap: 3px; }
+.tabs button { padding: 4px 8px; }
+.tabsep { margin: 4px 3px; }

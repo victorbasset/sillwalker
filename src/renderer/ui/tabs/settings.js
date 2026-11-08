@@ -1,5 +1,6 @@
 // Onglet Réglages : préférences du jeu (sauvegardées avec la partie) et de la
 // fenêtre (position, opacité, démarrage : réglées par le processus principal).
+import { shopIconURL } from "../../render/shopart.js";
 import { esc } from "../../game/format.js";
 
 const OPACITIES = [1, 0.85, 0.7, 0.55, 0.4];
@@ -21,18 +22,18 @@ export class SettingsTab {
     const P = this.game.S.settings, L = this.getLayout ? this.getLayout() : {};
     const check = (key, label, help) => `<label class="toggle"><input type="checkbox" data-action="se-toggle" data-key="${key}"${P[key] ? " checked" : ""}> ${esc(label)}</label>${help ? `<p class="note tight">${esc(help)}</p>` : ""}`;
     el.innerHTML = `<div class="setgrid">
-      <article class="panel"><h2>Son</h2>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">Son</span></h2>
         ${check("sound", "Effets sonores", "Coups, pièces, butin, montée de niveau… Coupés par défaut.")}
         <label class="range">Volume <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound ? "" : " disabled"}> <span>${Math.round(P.volume * 100)} %</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>Écouter</button></div>
       </article>
-      <article class="panel"><h2>Affichage</h2>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">Affichage</span></h2>
         ${check("dayNight", "Cycle jour / nuit", "La bande suit l’heure de ton ordinateur.")}
         ${check("damageNumbers", "Nombres de dégâts")}
         ${check("fullEffects", "Effets complets", "Pièces, faisceaux de butin, flashs. Décoche pour une bande plus sobre.")}
         ${check("weather", "Météo des zones", "Neige, braises, feuilles, bulles… (un peu plus de calcul).")}
       </article>
-      <article class="panel"><h2>Fenêtre</h2>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">Fenêtre</span></h2>
         <p class="note tight">Position de la bande</p>
         <div class="row seg">${["bottom", "top"].map((e) => `<button data-action="se-edge" data-v="${e}" aria-pressed="${(L.edge || "bottom") === e}">${e === "bottom" ? "En bas" : "En haut"}</button>`).join("")}</div>
         <p class="note tight">Opacité</p>
@@ -40,11 +41,11 @@ export class SettingsTab {
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> Lancer au démarrage de Windows</label>
         <p class="note">Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.</p>
       </article>
-      <article class="panel danger-zone"><h2>Zone de danger</h2>
+      <article class="panel danger-zone"><h2><span class="hicon"><img src="${shopIconURL("skull", 3)}" alt="">Zone de danger</span></h2>
         <p class="note tight">Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.</p>
         <div class="row"><button data-action="reset" class="quiet">Effacer la partie et recommencer</button></div>
       </article>
-      <article class="panel"><h2>Raccourcis clavier</h2>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">Raccourcis clavier</span></h2>
         <ul class="lines">
           <li><span>Changer d’onglet</span><b>1 … 9, 0, -</b></li>
           <li><span>Équiper le meilleur</span><b>E</b></li>

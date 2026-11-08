@@ -1,4 +1,5 @@
 // Onglet Talents : arbre de la classe active (3 branches × 4 paliers).
+import { effectIconURL } from "../../render/shopart.js";
 import { TREES, TIER_REQ, TALENT_INDEX, cannotLearn, branchSpent, talentPointsFree, talentPointsTotal, talentPointsSpent, describeEffects,
   VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie } from "../../game/talents.js";
 import { fmt, esc } from "../../game/format.js";
@@ -26,7 +27,7 @@ export class TalentsTab {
         const can = !cannotLearn(S, t.id);
         const cls = ["talent", "tier" + t.tier, locked ? "locked" : "", r >= t.max ? "maxed" : "", r > 0 ? "has" : "", can ? "can" : "", this.sel === t.id ? "sel" : ""].join(" ");
         return `<button class="${cls}" data-action="t-learn" data-n="1" data-id="${t.id}" data-tid="${t.id}">
-          <span class="tn">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
+          <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
           <span class="tr">${locked ? "🔒 " + TIER_REQ[t.tier] + " pts" : r + " / " + t.max}</span>
           ${can && t.max - r > 1 ? `<span class="tmax" data-action="t-learn" data-n="99" data-id="${t.id}" title="Monter au maximum possible">max</span>` : ""}</button>`;
       }).join("");
@@ -46,7 +47,7 @@ export class TalentsTab {
       const r = ranks[m.id] || 0, locked = spentAll < MASTERY_REQ;
       const can = !cannotLearn(S, m.id);
       return `<button class="${["talent", "mastery", locked ? "locked" : "", r ? "has" : "", can ? "can" : "", this.sel === m.id ? "sel" : ""].join(" ")}" data-action="t-learn" data-n="1" data-id="${m.id}" data-tid="${m.id}">
-        <span class="tn">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace("Maîtrise : ", "")))}</span><span class="tr">${locked ? "🔒 " + MASTERY_REQ + " pts" : "rang " + r}</span>
+        <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace("Maîtrise : ", "")))}</span><span class="tr">${locked ? "🔒 " + MASTERY_REQ + " pts" : "rang " + r}</span>
         ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="Y mettre tous les points libres">tout</span>` : ""}</button>`;
     }).join("");
     const extra = `<article class="panel tbranch tvoie"><h2>Voie <small>${voie ? "choisie" : `dès ${VOIE_REQ} pts`}</small></h2>${voies}
