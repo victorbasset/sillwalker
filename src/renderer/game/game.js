@@ -8,6 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
+import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
   RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
@@ -361,6 +362,8 @@ export class Game {
     const it = this.decorate(rollItem(this.S.nextId++, zone, minRarity));
     this.S.stats.items = (this.S.stats.items || 0) + 1;
     if (it.r === LEGENDARY) this.S.stats.legendaries++;
+    const fresh = codexRecord(this.S, it);
+    if (fresh) { this.invalidateStats(); if (fresh === "new") this.emit("codex", { item: it }); }
     return it;
   }
 
@@ -984,7 +987,7 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.cls,
       upgrades: old.upgrades, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      stats: old.stats, codex: old.codex, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));

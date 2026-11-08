@@ -5,6 +5,7 @@ import { PETS } from "./pets.js";
 import { MONSTERS } from "./data.js";
 import { CLASS_KEYS } from "./classes.js";
 import { setCounts } from "./sets.js";
+import { codexCounts } from "./codex.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 
 const ULTIMATES = new Set(Object.values(TREES).flatMap((tree) => tree.flatMap((b) => b.talents.filter((t) => t.tier === 3).map((t) => t.id))));
@@ -47,6 +48,8 @@ export const ACHIEVEMENTS = [
   { id: "REFORGE_10",      name: "Forgeron (10 reforges)", test: (S) => (S.stats.reforges || 0) >= 10 },
   { id: "EVENTS_10",       name: "Chanceux (10 événements rares)", test: (S) => (S.stats.events || 0) >= 10 },
   { id: "CHEST",           name: "Chasseur de trésors (un coffre)", test: (S) => (S.stats.chests || 0) >= 1 },
+  { id: "CODEX_HALF",      name: "Collectionneur (la moitié des objets)", test: (S) => { const c = codexCounts(S); return c.found * 2 >= c.total; } },
+  { id: "CODEX_ALL",       name: "Grand collectionneur (tous les objets)", test: (S) => { const c = codexCounts(S); return c.found >= c.total; } },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
 ];
 

@@ -538,4 +538,28 @@ test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   assert.ok(reachedAchievements(g.S).includes("CHEST"));
 });
 
+{
+  const { CODEX_ENTRIES, codexCounts, itemBaseKey } = await import("../src/renderer/game/codex.js");
+  test("collection d'objets : enregistrement, bonus, migration, ascension", () => {
+    const g = new Game(freshState());
+    const before = heroStats(g.S).drop;
+    for (let i = 0; i < 300; i++) g.newItem(0);
+    const c = codexCounts(g.S);
+    assert.ok(c.found > 20 && c.found <= c.total, "types trouvés : " + c.found);
+    assert.ok(heroStats(g.S).drop > before, "bonus de butin");
+    // Le nom suffit pour retrouver le type (le plus long l'emporte).
+    assert.equal(itemBaseKey({ slot: "helm", name: "Casque à cornes de fer" }), "helm:Casque à cornes");
+    assert.equal(itemBaseKey({ slot: "helm", name: "Casque de fer" }), "helm:Casque");
+    // Ancienne sauvegarde sans collection : remplie avec les objets possédés.
+    const old = JSON.parse(JSON.stringify(g.S)); delete old.codex;
+    old.bag = [{ id: 1, slot: "ring", r: 3, il: 1, plus: 0, st: { crit: 1 }, name: "Sceau d’onyx" }];
+    const m = migrate(old);
+    assert.equal(m.codex["ring:Sceau"], 3);
+    // Toutes les entrées ont une icône.
+    for (const e of CODEX_ENTRIES) assert.ok(e.icon && e.key);
+    g.S.best = 30; g.ascend();
+    assert.ok(codexCounts(g.S).found === c.found, "conservée à l'ascension");
+  });
+}
+
 console.log(`\n${pass} tests réussis`);

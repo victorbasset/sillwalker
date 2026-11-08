@@ -2,6 +2,7 @@
 // doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
 import { SLOT_KEYS, LEGENDARY, BAG_SIZE } from "./data.js";
 import { CLASSES } from "./classes.js";
+import { codexRecord } from "./codex.js";
 
 export const SAVE_VERSION = 6;
 
@@ -37,6 +38,7 @@ export function freshState(now = Date.now()) {
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
     settings: { sound: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true },
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
+    codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
   };
 }
 
@@ -86,6 +88,10 @@ export function migrate(raw) {
   if (!Array.isArray(s.achievements)) s.achievements = [];
   if (!CLASSES[s.cls]) s.cls = "warrior";
   for (const k of ["talents", "buffs", "upgrades", "bestiary"]) if (!isObj(s[k])) s[k] = {};
+  if (!isObj(o.codex)) { // collection apparue après coup : on y met les objets déjà possédés
+    s.codex = {};
+    for (const it of [...s.bag, ...Object.values(s.equip)]) if (it) codexRecord(s, it);
+  }
   s.prestige = Object.assign(def.prestige, isObj(o.prestige) ? o.prestige : {});
   if (!isObj(s.prestige.ranks)) s.prestige.ranks = {};
   s.quests = Object.assign(def.quests, isObj(o.quests) ? o.quests : {});
