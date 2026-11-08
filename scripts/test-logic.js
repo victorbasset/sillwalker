@@ -681,10 +681,12 @@ test("héros à libérer : boss de zone, changement de classe à l'ascension", a
   assert.deepEqual(g.S.classesUnlocked, ["warrior"]);
   assert.ok(!g.chooseNextClass("ranger"), "pas encore libéré");
   let freed = null; g.on("classUnlock", ({ cls }) => { freed = cls; });
-  g.S.lvl = 15; g.invalidateStats();
+  const z = CLASS_UNLOCK_ZONE.ranger;
+  assert.ok(z >= 10, "le premier héros ne se libère pas trop tôt");
+  g.S.zone = g.S.best = z; g.S.lvl = 80; g.invalidateStats();
   g.S.kills = 10;
-  for (let i = 0; i < 300 && !freed; i++) g.advance(0.5);
-  assert.equal(freed, Object.keys(CLASS_UNLOCK_ZONE).find((c) => CLASS_UNLOCK_ZONE[c] === 1));
+  for (let i = 0; i < 600 && !freed; i++) { g.S.kills = Math.max(g.S.kills, 10); g.advance(0.5); }
+  assert.equal(freed, "ranger");
   assert.ok(g.chooseNextClass("ranger"));
   assert.equal(g.S.cls, "warrior", "pas de changement immédiat");
   g.S.best = 30;

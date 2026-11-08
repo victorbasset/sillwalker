@@ -123,6 +123,6 @@ export const CLASS_KEYS = Object.keys(CLASSES);
  * dans une zone ; vaincre le boss de cette zone la débloque. On change de
  * classe uniquement en faisant une ascension.
  */
-export const CLASS_UNLOCK_ZONE = { ranger: 1, necro: 3, mage: 5, berserker: 7, paladin: 9, assassin: 12, monk: 13, samurai: 16, druid: 19 };
+export const CLASS_UNLOCK_ZONE = { ranger: 10, necro: 15, mage: 20, berserker: 26, paladin: 32, assassin: 38, monk: 44, samurai: 50, druid: 58 };
 export const isClassUnlocked = (S, cls) => cls === "warrior" || (S.classesUnlocked || []).includes(cls);
 export const classDef = (id) => CLASSES[id] || CLASSES.warrior;
