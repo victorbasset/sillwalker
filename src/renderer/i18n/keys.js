@@ -1363,5 +1363,15 @@ export const KEYS = [
   "{0} monstres",
   "{0} coffres",
   "{0} coffre",
-  "Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici."
+  "Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.",
+  "Champignonnière géante",
+  "Ossuaire des titans",
+  "Steppe des loups",
+  "Lagon de corail",
+  "Glacier hurlant",
+  "Chapeau-Pourpre",
+  "Le Roi Sans-Chair",
+  "Croc-de-Lune",
+  "Serpent des Coraux",
+  "Hurle-Givre"
 ];

@@ -114,6 +114,23 @@ function drawProp(ctx, x, ground, kind, size, col) {
     ctx.fillRect(x, ground - h - P, P * 6, P); ctx.fillRect(x, ground - P, P * 6, P);
     ctx.fillStyle = "rgba(0,0,0,.2)";
     ctx.fillRect(x + P * 3, ground - h, P, h);
+  } else if (kind === "shroom") {
+    // Champignon géant : pied clair, chapeau large
+    const h = (size + 2) * P * 2;
+    ctx.fillRect(x + P * 2, ground - h + P * 3, P * 2, h - P * 3);
+    ctx.fillRect(x - P, ground - h + P, P * 8, P * 2); ctx.fillRect(x, ground - h, P * 6, P);
+    ctx.fillStyle = "rgba(255,255,255,.3)";
+    ctx.fillRect(x + P, ground - h + P, P, P); ctx.fillRect(x + P * 4, ground - h + P * 2, P, P);
+  } else if (kind === "bones") {
+    // Côtes d'un squelette géant à moitié enterré
+    const h = (size + 1) * P * 2;
+    for (let k = 0; k < 3; k++) { const xx = x + k * P * 3; ctx.fillRect(xx, ground - h + k * P, P, h - k * P); ctx.fillRect(xx, ground - h + k * P, P * 2, P); }
+    ctx.fillRect(x - P, ground - P * 2, P * 10, P);
+  } else if (kind === "coral") {
+    // Corail branchu
+    const h = (size + 1) * P * 2;
+    ctx.fillRect(x + P * 2, ground - h, P, h); ctx.fillRect(x, ground - h + P * 3, P, P * 3); ctx.fillRect(x, ground - h + P * 5, P * 2, P);
+    ctx.fillRect(x + P * 4, ground - h + P * 2, P, P * 4); ctx.fillRect(x + P * 3, ground - h + P * 5, P * 2, P);
   } else if (kind === "rock") {
     for (let k = 0; k < size; k++) { const wb = 1 + k * 2; ctx.fillRect(x + P * 3 - wb * P / 2 + P / 2, ground - (size - k) * P * 2, wb * P, P * 2); }
   } else {

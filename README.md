@@ -19,8 +19,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout. 1 point par niveau.
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
   sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
-- **23 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses… jusqu'au volcan des wyvernes),
-  chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **43 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti),
+- **28 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier…),
+  chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
 - **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, zone), récompenses variées
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).

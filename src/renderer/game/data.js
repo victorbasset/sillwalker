@@ -252,4 +252,15 @@ export const ZONES = [
     sky: ["#0a2a4a", "#2a6a9a"], far: "#1a4a6a", near: "#0a2a4a", g1: "#3a8aa8", g2: "#1a4a6a", g3: "#0a2a4a", prop: "crystal" },
   { name: "Volcan des wyvernes", monsters: ["drake_fire", "fireelem", "slime_lava", "lizard_lava", "orc_war", "cultist_fire", "skel_fire"], boss: "drake_fire",
     sky: ["#3a0a0a", "#e2552b"], far: "#8a2a1a", near: "#4a1a10", g1: "#5a2a1a", g2: "#3a1a10", g3: "#2a0a08", prop: "rock" },
+  // Zones ajoutées : de nouveaux décors et de nouveaux mélanges de monstres pour les boucles suivantes.
+  { name: "Champignonnière géante", monsters: ["mush", "mush_venom", "sporeling", "sporeling_glow", "frog", "beetle", "snake"], boss: "mush_venom",
+    sky: ["#2a1a3a", "#6a3a6a"], far: "#4a2a4a", near: "#2e1a32", g1: "#8a5a8a", g2: "#3a2238", g3: "#2a1828", prop: "shroom" },
+  { name: "Ossuaire des titans", monsters: ["skel", "skel_frost", "ghost", "cultist", "rat_plague", "bat", "knight_rust"], boss: "skel_frost",
+    sky: ["#3a3a4a", "#8a8a9a"], far: "#5a5a6a", near: "#3a3a48", g1: "#c8c0a8", g2: "#6a6458", g3: "#4a4640", prop: "bones" },
+  { name: "Steppe des loups", monsters: ["wolf", "wolf_shadow", "boar", "crow", "bandit", "orc", "bear"], boss: "wolf_shadow",
+    sky: ["#c8a868", "#f0e0b0"], far: "#a89060", near: "#7a6a44", g1: "#b8a060", g2: "#8a7444", g3: "#6a5832", prop: "rock" },
+  { name: "Lagon de corail", monsters: ["jelly", "crab", "snake_sea", "frog", "plant", "bandit_pirate", "jelly_fire"], boss: "snake_sea",
+    sky: ["#3ac0c8", "#c8f4ec"], far: "#2a9aa8", near: "#1a6a7a", g1: "#f4e0b8", g2: "#d8bc88", g3: "#b89a68", prop: "coral" },
+  { name: "Glacier hurlant", monsters: ["imp_frost", "slime_frost", "snake_frost", "orc_frost", "bear_polar", "skel_frost", "crow_storm"], boss: "orc_frost",
+    sky: ["#6a8ab8", "#d8e8f8"], far: "#a8c0e0", near: "#7088b0", g1: "#e8f4ff", g2: "#b8cce4", g3: "#90a8c8", prop: "crystal" },
 ];
