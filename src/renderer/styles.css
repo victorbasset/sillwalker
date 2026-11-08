@@ -539,14 +539,16 @@ details.more summary:hover { color: var(--accent); }
 .shopbar .note { margin-left: auto; }
 i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }
 .panel.unlocks { margin-bottom: 12px; }
-.ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; align-items: start; }
 .ucard { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3px; padding: 8px 6px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }
 .ucard img { width: 40px; image-rendering: pixelated; filter: grayscale(1) brightness(.75); }
 .ucard .nm { font-size: 14px; line-height: 1.15; }
 .ucard .sub { font-size: 11px; color: var(--muted); line-height: 1.25; flex: 1; }
 .ucard.next { border-color: var(--accent); }
 .ucard.next img, .ucard.owned img { filter: none; }
-.ucard.owned { border-color: var(--good); }
+.uowned { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.uchip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--good); border: 1px solid var(--good); border-radius: 3px; padding: 1px 7px 1px 3px; }
+.uchip img { width: 18px; image-rendering: pixelated; }
 .ucard .req { font-size: 12px; color: var(--muted); }
 .ucard .got { font-size: 12px; color: var(--good); }
 .shopgrid2 { display: grid; grid-template-columns: 1.4fr 1.6fr 1.2fr 1.2fr; gap: 12px; align-items: start; }

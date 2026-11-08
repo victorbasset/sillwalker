@@ -106,7 +106,8 @@ export class ShopTab {
 
     // --- Déblocages (permanents) : la progression du confort de jeu ---
     const nxt = nextUnlock(S), owned = UNLOCKS.filter((u) => hasUnlock(S, u.id)).length;
-    const unlocks = UNLOCKS.map((u) => {
+    const ownedChips = UNLOCKS.filter((u) => hasUnlock(S, u.id)).map((u) => `<span class="uchip" title="${esc(u.desc)}"><img src="${shopIconURL(u.icon, 2)}" alt="">${esc(u.name)}</span>`).join("");
+    const unlocks = UNLOCKS.filter((u) => !hasUnlock(S, u.id)).map((u) => {
       const have = hasUnlock(S, u.id), isNext = nxt && nxt.id === u.id && unlockAvailable(S, u);
       return `<div class="ucard${have ? " owned" : ""}${isNext ? " next" : ""}" title="${esc(u.desc)}">
         <img src="${shopIconURL(u.icon, 4)}" alt="">
@@ -119,7 +120,7 @@ export class ShopTab {
     el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>
         <span class="note">${tx("Nouvel étal dans")} <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>
         <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmt(rerollPrice(S)) })}</button></div>
-      <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2><div class="ugrid">${unlocks}</div></article>
+      <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2>${ownedChips ? `<div class="uowned">${ownedChips}</div>` : ""}${unlocks ? `<div class="ugrid">${unlocks}</div>` : ""}</article>
       <div class="shopgrid2">
         <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid">${merchant}</div></article>
         <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid">${consumables}</div></article>
