@@ -37,6 +37,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie.
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération), deux à partir de la 2e boucle.
 - **Élites à affixes** : rapide, blindé, vampirique ou furieux.
+- **Panoplies** : 5 ensembles (dont le Voyageur du vent, axé vitesse), bonus à 2 et 4 pièces.
+- **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
 - **Statistiques** : records, compteurs de l'aventure et liste des succès.
 - **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits,
@@ -95,6 +97,7 @@ src/
       skilltree.js        arbre de compétences (graphe généré à partir de SECTORS)
       events.js           vitesse permanente et événements rares
       bosses.js           capacités spéciales des boss
+      sets.js             panoplies
       rules.js            formules d'équilibrage
       game.js             simulation + actions du joueur, émet des événements
       state.js            format de sauvegarde + migrations
@@ -137,7 +140,7 @@ après une mise en veille du PC.
 1. Mettre le vrai App ID dans `src/shared/config.js` (`STEAM_APP_ID`, actuellement 480 = Spacewar).
 2. Steamworks → Stats & Achievements : créer `FIRST_BOSS`, `LEVEL_10`, `FIRST_LEGENDARY`, `ZONE_10`, `ZONE_25`,
    `LEVEL_50`, `ELITE_HUNTER`, `FIRST_PURCHASE`, `TALENT_ULTIMATE`, `ASCENSION`, `ASCENSION_5`, `PET_FIRST`, `PETS_ALL`,
-   `QUESTS_25`, `GOBLIN`, `BESTIARY_ALL`, `FEATHER`, `SHOOTING_STAR`, `SPEED_25`, `SKILL_KEYSTONE`, `SKILL_100`, `MASTER_OF_ALL`, `ALL_CLASSES` (liste dans `game/achievements.js`), puis publier.
+   `QUESTS_25`, `GOBLIN`, `BESTIARY_ALL`, `FULL_SET`, `FEATHER`, `SHOOTING_STAR`, `SPEED_25`, `SKILL_KEYSTONE`, `SKILL_100`, `MASTER_OF_ALL`, `ALL_CLASSES` (liste dans `game/achievements.js`), puis publier.
 3. Steamworks → Steam Cloud : activer, quota (1 fichier, quelques dizaines de Ko suffisent).
    Le jeu écrit `save.json` via l'API Cloud (toutes les 5 min et à la fermeture) et prend la plus récente au lancement.
 4. Option : `STEAM_RELAUNCH_IF_NEEDED: true` pour que Steam relance le jeu s'il est ouvert hors Steam.

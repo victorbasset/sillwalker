@@ -13,7 +13,7 @@ export function freshState(now = Date.now()) {
     equip: Object.fromEntries(SLOT_KEYS.map((k) => [k, null])),
     bag: [],
     autoAdvance: true,
-    autoSell: { common: false, uncommon: false },
+    autoSell: { common: false, uncommon: false, rare: false },
     last: now,
     nextId: 1,
     stats: { kills: 0, deaths: 0, bosses: 0, legendaries: 0, elites: 0, purchases: 0, classes: ["warrior"] },

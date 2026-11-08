@@ -61,6 +61,20 @@ export function rollItem(id, zone, minRarity = 0) {
   return it;
 }
 
+/** Retire au hasard les bonus secondaires d'un objet (rareté, forge, pouvoir, panoplie conservés). */
+export function rerollAffixes(it) {
+  const rar = RARITIES[it.r], main = SLOTS[it.slot].main, mainV = it.st[main];
+  const st = { [main]: mainV };
+  const pool = shuffled(Object.keys(STAT_NAMES).filter((k) => k !== main));
+  for (let i = 0; i < rar.affixes; i++) {
+    const k = pool[i];
+    st[k] = Math.round(affixValue(k, it.il) * rar.mult * rnd(0.5, 0.8) * 10) / 10;
+  }
+  it.st = st;
+  return it;
+}
+export const reforgeCost = (it) => Math.round(40 * it.il * RARITIES[it.r].mult * RARITIES[it.r].mult);
+
 export const itemMult = (it) => 1 + 0.1 * it.plus;
 export const sellValue = (it) => Math.round(5 * it.il * RARITIES[it.r].mult * RARITIES[it.r].mult * (1 + 0.3 * it.plus));
 export const forgeCost = (it) => Math.round(15 * it.il * Math.pow(1.55, it.plus) * RARITIES[it.r].mult);

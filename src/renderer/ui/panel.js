@@ -4,7 +4,7 @@
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
-import { forgeCost, sellValue, monsterBase, itemMult } from "../game/rules.js";
+import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB } from "../game/format.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
@@ -275,6 +275,7 @@ export class Panel {
       <button data-action="autoequip"${this.game.hasUpgrade() ? "" : " disabled"}>Équiper le meilleur</button></div>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="common"${S.autoSell.common ? " checked" : ""}> Vendre les communs dès qu’ils tombent</label>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="uncommon"${S.autoSell.uncommon ? " checked" : ""}> Vendre les peu communs dès qu’ils tombent</label>
+      <label class="toggle"><input type="checkbox" data-action="as" data-r="rare"${S.autoSell.rare ? " checked" : ""}> Vendre les rares dès qu’ils tombent</label>
       <p class="note">▲ signale un objet plus puissant que ce que porte ton héros.</p>`;
   }
 
@@ -313,6 +314,7 @@ export class Panel {
       <div class="row">${fromBag
         ? `<button data-action="equip">Équiper</button><button data-action="sell">Vendre (${fmt(sellValue(it))} or)</button>`
         : `<button data-action="unequip"${this.game.bagFull() ? " disabled" : ""}>Retirer</button>`}
+        ${RARITIES[it.r].affixes ? `<button data-action="reforge"${S.gold >= reforgeCost(it) ? "" : " disabled"} title="Tire au hasard de nouveaux bonus secondaires. Rareté, forge, pouvoir et panoplie sont conservés.">Réforger (${fmt(reforgeCost(it))} or)</button>` : ""}
         <button data-action="forge"${canForge ? "" : " disabled"}>${it.plus >= MAX_PLUS ? "Amélioration maximale" : `Forger +${it.plus + 1} (${fmt(fc)} or)`}</button></div>
       <p class="note">Chaque niveau de forge ajoute 10${NB}% à toutes les statistiques de l’objet. La forge ne peut pas échouer.</p>`;
   }
@@ -386,6 +388,7 @@ export class Panel {
       case "sell": if (it) { g.sell(it); this.selected = null; } break;
       case "unequip": if (it && g.unequip(it.slot)) this.selected = { from: "bag", id: it.id }; break;
       case "forge": if (it) g.forge(it); break;
+      case "reforge": if (it) g.reforge(it); break;
       case "sellless": {
         const n = g.uselessItems().length;
         this.confirm("Vendre les objets inutiles ?", `${n} objet(s) qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés.`, "Vendre", () => {

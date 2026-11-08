@@ -477,4 +477,20 @@ test("panoplies : pièces, bonus à 2 et 4 pièces", () => {
   assert.ok(reachedAchievements(g.S).includes("FULL_SET"));
 });
 
+test("réforge : nouveaux bonus, le reste est conservé", () => {
+  const g = new Game(freshState());
+  g.S.gold = 1e9;
+  const it = g.newItem(3, 10);
+  it.plus = 3;
+  const before = JSON.stringify(it.st), main = Object.keys(it.st)[0], mainV = it.st[main];
+  let changed = false;
+  for (let i = 0; i < 10 && !changed; i++) { assert.ok(g.reforge(it)); changed = JSON.stringify(it.st) !== before; }
+  assert.ok(changed, "les bonus changent");
+  assert.equal(it.st[main], mainV, "statistique principale conservée");
+  assert.equal(it.plus, 3, "forge conservée");
+  assert.equal(Object.keys(it.st).length, 1 + 2, "nombre de bonus d'un épique");
+  const common = g.newItem(0); common.r = 0;
+  assert.ok(!g.reforge(common), "pas de réforge sans bonus");
+});
+
 console.log(`\n${pass} tests réussis`);

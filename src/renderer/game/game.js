@@ -13,7 +13,7 @@ import {
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
 } from "./data.js";
 import {
-  xpNeed, rollItem, rollRarity, sellValue, forgeCost, heroStats, heroDps, upgradeDelta,
+  xpNeed, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, heroStats, heroDps, upgradeDelta,
   zoneDef, zoneName, monsterBase, approachTime,
 } from "./rules.js";
 import { CLASSES, classDef } from "./classes.js";
@@ -569,6 +569,19 @@ export class Game {
     this.emit("sold", { n: sell.size, gold });
     this.changed();
     return { n: sell.size, gold };
+  }
+
+  /** Réforge : nouveaux bonus secondaires (les communs n'en ont pas). */
+  reforge(it) {
+    const c = reforgeCost(it);
+    if (RARITIES[it.r].affixes < 1 || this.S.gold < c) return false;
+    this.S.gold -= c;
+    rerollAffixes(it);
+    this.invalidateStats();
+    this.S.stats.reforges = (this.S.stats.reforges || 0) + 1;
+    this.log("Réforge : " + it.name + " a de nouveaux bonus.");
+    this.changed();
+    return true;
   }
 
   sellCommons() {
