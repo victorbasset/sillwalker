@@ -77,7 +77,7 @@ async function boot() {
   const applySettings = () => sound.set(game.S.settings.sound, game.S.settings.volume);
   applySettings();
   let speed = init.isDev && init.devSpeed ? init.devSpeed : 1;
-  let mode = null, visible = false;
+  let mode = null, visible = false, pendingOffline = null; // pendingOffline : résumé d’absence en attente (mode mini)
 
   /* ---------- Panneau (animation CSS seule : la fenêtre ne change pas de taille) ---------- */
   const menuBtn = $("#menu-btn"), badge = $("#menu-badge"), toast = $("#toast");
@@ -160,6 +160,8 @@ async function boot() {
       if (mode === "strip") strip.resize();
       if (mode === "mini") mini.resize();
       restartLoop();
+      // Résumé d'absence gardé pendant le mode mini : montré dès qu'on agrandit.
+      if (mode === "strip" && pendingOffline) { const sum = pendingOffline; pendingOffline = null; mini.setHint(null); setTimeout(() => showOffline(sum), 400); }
       clickThrough.refresh();
     }
   }
@@ -176,6 +178,11 @@ async function boot() {
     toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
   }
   function showOffline(sum) {
+    if (mode === "mini") {
+      pendingOffline = sum;
+      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${tx("{0} monstres", { 0: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold) })}`);
+      return;
+    }
     showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${tx("{0} monstres", { 0: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${sum.feathers} ${tx("plume{0} du vent", { 0: plS(sum.feathers) })}</b>` : "", 2: sum.chests ? ", " + tx(sum.chests > 1 ? "{0} coffres" : "{0} coffre", { 0: `<b>${sum.chests}</b>` }) : "" })}`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
@@ -189,7 +196,7 @@ async function boot() {
   });
   /** Conseils : un à la fois, quand la bulle est libre et le panneau fermé. */
   function checkHints() {
-    if (mode === "mini") { const h = nextHint(game); mini.setHint(h && h.text); return; }
+    if (mode === "mini") { if (pendingOffline) return; const h = nextHint(game); mini.setHint(h && h.text); return; }
     if (mode !== "strip" || panelOpen || !toast.hidden || Date.now() < toastUntil) return;
     const h = nextHint(game);
     if (!h) return;
