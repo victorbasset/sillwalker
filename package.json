@@ -1,0 +1,75 @@
+{
+  "name": "sillwalker",
+  "productName": "Sillwalker",
+  "version": "0.1.0",
+  "description": "Sillwalker, un idle RPG qui vit en bas de ton écran.",
+  "main": "src/main/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev-tools",
+    "test": "node --experimental-default-type=module scripts/test-logic.js",
+    "perf": "electron . --perf --ghost --user-data=./dev-data",
+    "icons": "node --experimental-default-type=module scripts/make-icons.js",
+    "dist": "electron-builder --win dir",
+    "dist:zip": "electron-builder --win zip",
+    "selftest": "electron . --selftest --ghost --user-data=./dev-data"
+  },
+  "dependencies": {
+    "steamworks.js": "0.4.0"
+  },
+  "devDependencies": {
+    "@fontsource/pixelify-sans": "5.3.0",
+    "electron": "45.2.3",
+    "electron-builder": "26.18.0"
+  },
+  "author": "Victor Basset",
+  "build": {
+    "appId": "com.sillwalker.game",
+    "productName": "Sillwalker",
+    "copyright": "© 2026 Sillwalker",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "package.json",
+      "src/**/*",
+      "assets/**/*",
+      "!node_modules/steamworks.js/dist/{linux64,osx}/**",
+      "!node_modules/steamworks.js/dist/win64/*.lib",
+      "!**/*.{md,d.ts,map}",
+      "!node_modules/@types/**",
+      "!node_modules/undici-types/**",
+      "!src/main/selftest.js",
+      "!src/main/perf.js"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/steamworks.js/dist/win64/**"
+    ],
+    "electronLanguages": [
+      "fr",
+      "en-US"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "executableName": "Sillwalker"
+    },
+    "electronFuses": {
+      "runAsNode": false,
+      "enableCookieEncryption": true,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "onlyLoadAppFromAsar": true
+    }
+  }
+}

@@ -1,0 +1,424 @@
+// Tests rapides de la logique de jeu (sans Electron) :
+//   npm test
+import assert from "node:assert/strict";
+import { Game } from "../src/renderer/game/game.js";
+import { freshState, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
+import { reachedAchievements } from "../src/renderer/game/achievements.js";
+import { setRandom, seeded } from "../src/renderer/game/util.js";
+import { approachTime, heroStats, power } from "../src/renderer/game/rules.js";
+import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
+import { CLASS_KEYS } from "../src/renderer/game/classes.js";
+import { ZONES, MONSTERS } from "../src/renderer/game/data.js";
+import { MONSTER_ART } from "../src/renderer/render/art.js";
+
+setRandom(seeded(42));
+let pass = 0;
+const test = (name, fn) => { fn(); pass++; console.log("ok -", name); };
+
+/** Joue `minutes` minutes comme un joueur attentif (équipe, vend, dépense ses talents). */
+function play(g, minutes) {
+  for (let m = 0; m < minutes; m++) {
+    g.advance(60);
+    g.autoEquip(); g.sellCommons();
+    for (const b of TREES[g.S.cls]) for (const t of b.talents) g.learnTalent(t.id, 99);
+  }
+}
+
+test("état neuf cohérent", () => {
+  const s = freshState();
+  assert.equal(s.v, SAVE_VERSION);
+  assert.equal(s.cls, "warrior");
+});
+
+test("migration v1 (prototype) -> v4", () => {
+  const v1 = { v: 1, lvl: 7, xp: 3, gold: 99, zone: 4, best: 5, kills: 2, equip: { weapon: { id: 1, slot: "weapon", r: 4, il: 3, plus: 0, st: { atk: 9 }, name: "x" } }, bag: [], stats: { kills: 10, deaths: 1, bosses: 3 }, log: [], last: 1 };
+  const s = migrate(v1);
+  assert.equal(s.v, SAVE_VERSION);
+  assert.equal(s.stats.legendaries, 1);
+  assert.equal(s.cls, "warrior");
+  assert.equal(s.bagSize, 24);
+  assert.equal(s.equip.helm, null);
+  assert.equal(migrate(null), null);
+  assert.equal(migrate({ v: 99 }), null);
+});
+
+test("contenu : chaque monstre a un sprite, chaque zone des monstres connus", () => {
+  for (const k in MONSTERS) assert.ok(MONSTER_ART[MONSTERS[k].art || k], "sprite manquant : " + k);
+  for (const k in MONSTERS) for (const c in MONSTERS[k].recolor || {}) assert.ok(c in MONSTER_ART[MONSTERS[k].art || k].pal, `${k} : couleur ${c} inconnue`);
+  assert.ok(Object.keys(MONSTERS).length >= 35, "bestiaire riche : " + Object.keys(MONSTERS).length);
+  for (const z of ZONES) for (const m of [...z.monsters, z.boss]) assert.ok(MONSTERS[m], z.name + " : " + m);
+});
+
+for (const cls of CLASS_KEYS) {
+  test(`classe ${cls} : une heure de jeu fait progresser`, () => {
+    const g = new Game(freshState());
+    g.setClass(cls);
+    let kills = 0;
+    g.on("kill", () => kills++);
+    play(g, 60);
+    console.log(`   ${cls.padEnd(7)} 1 h : niveau ${g.S.lvl}, zone ${g.S.best}, ${kills} victoires, ${g.S.stats.elites} élites, ${g.S.stats.deaths} K.O., ${Math.round(g.S.gold)} or`);
+    assert.ok(kills > 250, "trop peu de victoires : " + kills);
+    assert.ok(g.S.lvl >= 10);
+    assert.ok(reachedAchievements(g.S).includes("FIRST_BOSS"));
+  });
+}
+
+test("talents : points, paliers, réinitialisation, talents par classe", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 30; g.invalidateStats();
+  assert.equal(talentPointsFree(g.S), 29);
+  const [b0] = TREES.warrior;
+  assert.ok(cannotLearn(g.S, b0.talents[1].id), "palier 1 verrouillé au départ");
+  assert.equal(g.learnTalent(b0.talents[0].id, 99), 10);
+  assert.equal(g.learnTalent(b0.talents[1].id, 99), 5);
+  assert.equal(g.learnTalent(b0.talents[3].id), 0, "l'ultime demande " + TIER_REQ[3] + " points");
+  const atk = g.stats().atk;
+  assert.equal(g.learnTalent(b0.talents[2].id, 99), 5);
+  assert.equal(g.learnTalent(b0.talents[3].id), 1);
+  assert.ok(g.stats().atk > atk);
+  g.setClass("mage");
+  assert.equal(talentPointsFree(g.S), 29, "le mage a ses propres points");
+  g.setClass("warrior");
+  assert.equal(talentPointsFree(g.S), 8, "le guerrier retrouve ses talents");
+  g.S.gold = 1e9;
+  assert.ok(g.resetTalents());
+  assert.equal(talentPointsFree(g.S), 29);
+  assert.ok(reachedAchievements({ ...g.S, talents: { warrior: { w_fury: 1 } } }).includes("TALENT_ULTIMATE"));
+  g.setClass("ranger");
+  assert.ok(reachedAchievements(g.S).includes("ALL_CLASSES"));
+});
+
+test("boutique : potions, élixirs, coffres, marchand, sac", () => {
+  const g = new Game(freshState());
+  g.S.gold = 1e7; g.S.best = 5;
+  const p0 = g.S.potions;
+  assert.ok(g.buyConsumable("potion"));
+  assert.equal(g.S.potions, p0 + 1);
+  const atk = g.stats().atk;
+  assert.ok(g.buyConsumable("elixir"));
+  assert.ok(Math.abs(g.stats().atk / atk - 1.25) < 1e-9);
+  g.S.buffs.elixir = 1;
+  g.advance(2);
+  assert.equal(g.S.buffs.elixir, 0, "l'élixir expire");
+  const it = g.buyChest("chest_iron");
+  assert.ok(it && it.r >= 2 && it.il >= 5);
+  const shop = g.shopStock(0);
+  assert.equal(shop.items.length, 4);
+  assert.ok(g.buyShopItem(shop.items[0].id));
+  assert.equal(g.S.shop.items.length, 3);
+  assert.equal(g.shopStock(Date.now() + 16 * 60 * 1000).items.length, 4, "renouvelé après 15 min");
+  assert.ok(g.buyUpgrade("bag"));
+  assert.equal(g.S.bagSize, 30);
+  assert.ok(reachedAchievements(g.S).includes("FIRST_PURCHASE"));
+});
+
+test("combat : potions automatiques, riposte, brûlure, flèche d'ouverture", () => {
+  const g = new Game(freshState());
+  let potions = 0, ripostes = 0;
+  g.on("potion", () => potions++);
+  g.on("riposte", () => ripostes++);
+  g.S.zone = g.S.best = 8; // trop dur pour un héros niveau 1
+  g.advance(120);
+  assert.ok(potions > 0, "potion bue");
+  assert.ok(ripostes > 0, "le guerrier riposte");
+  const m = new Game(freshState());
+  m.setClass("mage");
+  let burnt = false;
+  m.on("heroAttack", ({ mon }) => { if (mon.burnT > 0) burnt = true; });
+  m.advance(30);
+  assert.ok(burnt, "le mage enflamme");
+  const r = new Game(freshState());
+  r.setClass("ranger");
+  let opening = 0;
+  r.on("heroAttack", ({ first }) => { if (first) opening++; });
+  r.advance(30);
+  assert.ok(opening > 0, "tir d'ouverture");
+});
+
+test("rythme indépendant de la largeur d'écran", () => {
+  assert.ok(approachTime() > 2 && approachTime() < 5);
+});
+
+test("hors ligne : plafonné, élixirs consommés", () => {
+  const g = new Game(freshState());
+  assert.equal(g.applyOffline(10), null);
+  g.S.buffs.fortune = 300;
+  const a = g.applyOffline(3600);
+  assert.ok(a && a.kills > 0);
+  assert.equal(g.S.buffs.fortune, 0);
+  const g2 = new Game(freshState());
+  assert.equal(g2.applyOffline(48 * 3600).seconds, 8 * 3600);
+});
+
+test("équiper, forger, vendre", () => {
+  const g = new Game(freshState());
+  g.S.gold = 1e6;
+  const it = g.newItem(0);
+  g.addToBag(it);
+  g.equip(it);
+  const p = power(g.stats());
+  assert.ok(g.forge(it));
+  assert.ok(power(g.stats()) > p);
+  assert.ok(g.unequip(it.slot));
+  g.sell(it);
+  assert.equal(g.S.bag.length, 0);
+});
+
+test("parcours : file de monstres (avec élites) et étapes", () => {
+  const g = new Game(freshState());
+  const line = g.lineup();
+  assert.equal(line.length, 10);
+  assert.ok(line.every((x) => x.type && typeof x.elite === "boolean"));
+  let first = null;
+  g.on("spawn", (m) => { if (!first) first = m; });
+  g.advance(11);
+  assert.equal(first.type, line[0].type);
+  assert.equal(first.elite, line[0].elite);
+});
+
+test("sérialisation aller-retour", () => {
+  const g = new Game(freshState());
+  g.setClass("ranger");
+  play(g, 10);
+  const back = migrate(JSON.parse(JSON.stringify(g.S)));
+  assert.equal(back.lvl, g.S.lvl);
+  assert.equal(back.cls, "ranger");
+  assert.deepEqual(back.talents, g.S.talents);
+  assert.equal(heroStats(back).atk, g.stats().atk);
+});
+
+/* ---------- Contenu v4 ---------- */
+import { POWERS } from "../src/renderer/game/powers.js";
+import { PETS } from "../src/renderer/game/pets.js";
+import { CONSTELLATIONS, ASCEND_MIN_ZONE } from "../src/renderer/game/prestige.js";
+import { bestiaryEffects } from "../src/renderer/game/bestiary.js";
+
+test("migration v3 -> v4", () => {
+  const v3 = freshState(); v3.v = 3; delete v3.prestige; delete v3.quests; delete v3.pets; delete v3.bestiary;
+  const s = migrate(v3);
+  assert.equal(s.v, SAVE_VERSION);
+  assert.deepEqual(s.pets.owned, {});
+  assert.equal(s.prestige.count, 0);
+});
+
+test("légendaires : un pouvoir qui compte dans les statistiques", () => {
+  const g = new Game(freshState());
+  let it;
+  for (let i = 0; i < 2000 && !(it && it.r === 4); i++) it = g.newItem(3);
+  assert.equal(it.r, 4);
+  assert.ok(POWERS.some((p) => p.id === it.power));
+  g.S.equip[it.slot] = it; g.invalidateStats();
+  const withPower = JSON.stringify(g.stats());
+  const saved = it.power; delete it.power; g.invalidateStats();
+  assert.notEqual(withPower, JSON.stringify(g.stats()), "le pouvoir " + saved + " change les statistiques");
+});
+
+test("quêtes : progression, récompense, renouvellement", () => {
+  const g = new Game(freshState());
+  assert.equal(g.S.quests.slots.length, 3);
+  const q = g.S.quests.slots[0];
+  q.progress = q.goal;
+  const done0 = g.S.quests.completed;
+  assert.ok(g.claimQuest(q.uid));
+  assert.equal(g.S.quests.completed, done0 + 1);
+  assert.equal(g.S.quests.slots.length, 3, "une nouvelle quête remplace l'ancienne");
+  assert.ok(!g.S.quests.slots.includes(q));
+  let claimed = 0;
+  for (let m = 0; m < 60; m++) {
+    play(g, 1);
+    for (const x of [...g.S.quests.slots]) if (x.progress >= x.goal && g.claimQuest(x.uid)) claimed++;
+  }
+  console.log(`   1 h de jeu : ${claimed} quêtes réclamées`);
+  assert.ok(claimed >= 3, "les quêtes avancent en jouant");
+});
+
+test("familiers : œufs, éclosion, niveau, bonus", () => {
+  const g = new Game(freshState());
+  g.gainEgg();
+  const r = g.hatchEgg();
+  assert.ok(r && r.isNew);
+  assert.equal(g.S.pets.active, r.pet.id);
+  const p0 = power(g.stats());
+  g.petAddXp(r.pet.id, 1e6);
+  assert.equal(g.S.pets.owned[r.pet.id].lvl, 10);
+  assert.ok(power(g.stats()) >= p0, "le bonus grandit avec le niveau");
+  for (let i = 0; i < 300; i++) { g.gainEgg(); g.hatchEgg(); }
+  assert.equal(Object.keys(g.S.pets.owned).length, PETS.length);
+  assert.ok(reachedAchievements(g.S).includes("PETS_ALL"));
+});
+
+test("bestiaire : paliers et bonus", () => {
+  const g = new Game(freshState());
+  play(g, 20);
+  assert.ok(Object.values(g.S.bestiary).some((n) => n >= 10));
+  assert.ok((bestiaryEffects(g.S).gold || 0) > 0);
+});
+
+test("gobelin doré : s'enfuit ou rapporte gros, le parcours continue", () => {
+  const g = new Game(freshState());
+  g.R.lineup = Array.from({ length: 10 }, () => ({ type: "goblin", elite: false, goblin: true }));
+  g.R.lineupZone = g.S.zone;
+  let fled = 0, caught = 0;
+  g.on("flee", () => fled++);
+  g.on("kill", ({ mon }) => { if (mon.goblin) caught++; });
+  g.advance(60);
+  assert.ok(fled + caught >= 8, `fuites ${fled}, captures ${caught}`);
+});
+
+test("ascension : éclats, conservation, constellations", () => {
+  const g = new Game(freshState());
+  assert.ok(!g.canAscend());
+  g.S.best = g.S.zone = ASCEND_MIN_ZONE + 6; g.S.lvl = 45; g.S.gold = 1e6;
+  g.gainEgg(); g.hatchEgg();
+  g.S.bestiary.slime = 500;
+  const shards = g.ascendShards();
+  assert.ok(shards > 0);
+  assert.ok(g.ascend());
+  assert.equal(g.S.lvl, 1);
+  assert.equal(g.S.gold, 0);
+  assert.equal(g.S.prestige.shards, shards);
+  assert.equal(Object.keys(g.S.pets.owned).length, 1, "familiers conservés");
+  assert.equal(g.S.bestiary.slime, 500, "bestiaire conservé");
+  const atk = g.stats().atk;
+  assert.ok(g.buyConstellation("c_warrior"));
+  assert.ok(g.stats().atk > atk);
+  g.S.prestige.shards = 1e6;
+  for (let i = 0; i < 10; i++) g.buyConstellation("c_tree");
+  assert.equal(talentPointsFree(g.S), 10, "l'Arbre donne des points de talent");
+  for (let i = 0; i < 10; i++) g.buyConstellation("c_road");
+  g.S.best = 40; g.ascend();
+  assert.equal(g.S.zone, 21, "la Route fait recommencer plus loin");
+  assert.ok(reachedAchievements(g.S).includes("ASCENSION"));
+  assert.ok(CONSTELLATIONS.length >= 8);
+});
+
+/* ---------- Classes v5 et arbre de compétences ---------- */
+import { SKILL_TREE, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill } from "../src/renderer/game/skilltree.js";
+
+test("migration v4 -> v5", () => {
+  const v4 = freshState(); v4.v = 4; delete v4.skills;
+  const s = migrate(v4);
+  assert.equal(s.v, SAVE_VERSION);
+  assert.deepEqual(s.skills.order, []);
+});
+
+test("mécaniques : bouclier, poison, serviteur, enchaînement, épines", () => {
+  const seen = {};
+  for (const [cls, ev] of [["paladin", "absorb"], ["necro", "minion"]]) {
+    const g = new Game(freshState()); g.setClass(cls); g.S.zone = g.S.best = 3;
+    g.on(ev, () => { seen[cls] = true; });
+    g.advance(60);
+  }
+  assert.ok(seen.paladin, "le bouclier du paladin absorbe des dégâts");
+  assert.ok(seen.necro, "le serviteur du nécromancien frappe");
+  const a = new Game(freshState()); a.setClass("assassin");
+  let stacks = 0;
+  a.on("heroAttack", ({ mon }) => { stacks = Math.max(stacks, mon.poisonStacks); });
+  a.S.zone = a.S.best = 5; a.advance(60);
+  assert.ok(stacks >= 2, "le poison se cumule : " + stacks);
+  const m = new Game(freshState()); m.setClass("monk");
+  let maxCombo = 0;
+  m.on("heroAttack", () => { maxCombo = Math.max(maxCombo, m.R.combo); });
+  m.S.zone = m.S.best = 5; m.advance(60);
+  assert.ok(maxCombo >= 3, "le moine enchaîne : " + maxCombo);
+  const d = new Game(freshState()); d.setClass("druid");
+  d.S.zone = d.S.best = 4;
+  let thorns = false;
+  d.on("heroHurt", () => { const mon = d.R.mon; if (mon && mon.hp < mon.max) thorns = true; });
+  d.advance(30);
+  assert.ok(thorns, "les épines du druide blessent l'attaquant");
+});
+
+test("arbre de compétences : graphe, adjacence, points, effets", () => {
+  const N = SKILL_TREE.nodes;
+  assert.ok(Object.keys(N).length >= 140, "arbre énorme");
+  const g = new Game(freshState());
+  g.S.lvl = 40; g.invalidateStats();
+  assert.equal(skillPointsTotal(g.S), 20);
+  assert.ok(!canTakeSkill(g.S, "force-c2"), "pas relié : impossible");
+  const atk0 = g.stats().atk;
+  assert.ok(g.takeSkill("force-c1"));
+  assert.ok(g.takeSkill("force-c2"));
+  assert.ok(g.stats().atk > atk0, "les nœuds de Force augmentent l'attaque");
+  // Aller jusqu'à une clé de voûte en suivant le bras gauche
+  g.S.lvl = 200; g.invalidateStats();
+  for (const id of ["force-c3", ...Array.from({ length: 10 }, (_, k) => `force-a0-${k}`), "force-key"]) assert.ok(g.takeSkill(id), id);
+  assert.ok(reachedAchievements(g.S).includes("SKILL_KEYSTONE"));
+  assert.ok(g.undoSkill());
+  assert.ok(!activeSkillSet(g.S).has("force-key"));
+});
+
+test("arbre de compétences : conservé à l'ascension, réactivé au fil des niveaux", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 30; g.S.best = g.S.zone = 30; g.invalidateStats();
+  const path = ["vitality-c1", "vitality-c2", "vitality-c3", "vitality-a0-0", "vitality-a0-1"];
+  for (const id of path) assert.ok(g.takeSkill(id), id);
+  g.ascend();
+  assert.equal(g.S.lvl, 1);
+  assert.deepEqual(g.S.skills.order, path, "chemin conservé");
+  const perm = g.S.prestige.skillPts;
+  assert.ok(perm > 0, "points permanents gagnés");
+  assert.equal(activeSkillSet(g.S).size - 1, Math.min(path.length, skillPointsTotal(g.S)));
+  g.S.lvl = 20; g.invalidateStats();
+  assert.equal(activeSkillSet(g.S).size - 1, path.length, "tout le chemin se réactive");
+  assert.ok(skillPointsFree(g.S) >= 0);
+});
+
+test("samouraï : chaque 4e coup est un iaijutsu critique", () => {
+  const g = new Game(freshState());
+  g.setClass("samurai");
+  g.S.zone = g.S.best = 6;
+  const hits = [];
+  g.on("heroAttack", ({ iai, crit, extra }) => { if (!extra) hits.push({ iai, crit }); });
+  g.advance(40);
+  const iais = hits.filter((h) => h.iai);
+  assert.ok(iais.length >= 2, "iaijutsu déclenchés : " + iais.length);
+  assert.ok(iais.every((h) => h.crit), "toujours critiques");
+  assert.ok(hits.length >= 8);
+});
+
+test("vitesse : plumes, rafale, étoile filante, hors ligne", () => {
+  const g = new Game(freshState());
+  const legs = (game) => { let n = 0; game.on("spawn", () => n++); game.advance(120); return n; };
+  const base = legs(new Game(freshState()));
+  const fast = new Game(freshState()); fast.S.speed = 100; fast.invalidateStats();
+  assert.ok(legs(fast) > base * 1.2, "+100 % de vitesse : plus de combats");
+  g.gainSpeed(1, "test");
+  assert.equal(g.S.speed, 1);
+  assert.ok(g.startEvent("wind"));
+  assert.ok(g.moveMul() >= 2);
+  g.advance(46);
+  assert.ok(g.moveMul() < 2, "la rafale s'arrête");
+  g.R.starT = 0.01; let star = false; g.on("star", () => { star = true; });
+  g.advance(0.1);
+  assert.ok(star && g.R.star, "une étoile passe");
+  assert.ok(g.catchStar());
+  assert.equal(g.S.speed, 3);
+  assert.ok(reachedAchievements(g.S).includes("SHOOTING_STAR"));
+  const off0 = new Game(freshState()).applyOffline(3600).kills;
+  const o = new Game(freshState()); o.S.speed = 100; o.invalidateStats();
+  assert.ok(o.applyOffline(3600).kills > off0, "la vitesse compte hors ligne");
+});
+
+test("vente : uniquement ce qui n'améliore pas, jamais les légendaires", () => {
+  const g = new Game(freshState());
+  for (let i = 0; i < 20; i++) g.addToBag(g.newItem(i % 5 === 0 ? 4 : 0));
+  g.autoEquip(); // un héros sans équipement est amélioré par tout objet
+  for (let i = 0; i < 12; i++) g.addToBag(g.newItem(0));
+  const keep = g.S.bag.filter((it) => it.r === 4 || g.isUpgrade(it)).length;
+  const r = g.sellUseless();
+  assert.equal(g.S.bag.length, keep);
+  assert.ok(r.n > 0 && r.gold > 0);
+  assert.ok(g.S.bag.every((it) => it.r === 4 || g.isUpgrade(it)));
+});
+
+test("objets : 7 emplacements, types et matières variés", () => {
+  const g = new Game(freshState());
+  const names = new Set(), icons = new Set(), slots = new Set();
+  for (let i = 0; i < 400; i++) { const it = g.newItem(0, 1 + (i % 40)); names.add(it.name.split(" ")[0]); icons.add(it.icon); slots.add(it.slot); assert.ok(it.color); }
+  assert.equal(slots.size, 7);
+  assert.ok(icons.size >= 25, "types d'icônes : " + icons.size);
+  assert.ok(names.size >= 30, "noms de base : " + names.size);
+});
+
+console.log(`\n${pass} tests réussis`);

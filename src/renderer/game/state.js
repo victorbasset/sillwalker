@@ -1,0 +1,102 @@
+// Format de la sauvegarde + migrations. Toute nouvelle donnée persistante
+// doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
+import { SLOT_KEYS, LEGENDARY, BAG_SIZE } from "./data.js";
+import { CLASSES } from "./classes.js";
+
+export const SAVE_VERSION = 6;
+
+export function freshState(now = Date.now()) {
+  return {
+    v: SAVE_VERSION,
+    lvl: 1, xp: 0, gold: 0,
+    zone: 1, best: 1, kills: 0,
+    equip: Object.fromEntries(SLOT_KEYS.map((k) => [k, null])),
+    bag: [],
+    autoAdvance: true,
+    autoSell: { common: false, uncommon: false },
+    last: now,
+    nextId: 1,
+    stats: { kills: 0, deaths: 0, bosses: 0, legendaries: 0, elites: 0, purchases: 0, classes: ["warrior"] },
+    achievements: [],   // identifiants déjà signalés à Steam
+    log: [],
+    cls: "warrior",     // classe active (voir classes.js)
+    talents: {},        // { classe: { idTalent: rang } } : chaque classe garde ses talents
+    buffs: {},          // { elixir: secondes restantes, ... }
+    potions: 3,
+    bagSize: BAG_SIZE,
+    upgrades: {},       // améliorations achetées { bag: 2 }
+    shop: null,         // { items: [...], next: horodatage du prochain renouvellement }
+    // v4
+    prestige: { shards: 0, total: 0, count: 0, ranks: {} }, // ascension et constellations
+    quests: { slots: [], completed: 0, nextUid: 1 },
+    pets: { owned: {}, active: null, eggs: 0 },              // owned : { id: { lvl, xp } }
+    bestiary: {},                                            // { typeDeMonstre: victoires }
+    // v5
+    skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
+    // v6
+    speed: 0,               // vitesse de déplacement permanente (%), voir events.js
+  };
+}
+
+const isObj = (o) => o && typeof o === "object" && !Array.isArray(o);
+
+/** Renvoie un état valide à partir de données brutes (ou null si inutilisables). */
+export function migrate(raw) {
+  if (!isObj(raw) || typeof raw.v !== "number") return null;
+  let o = JSON.parse(JSON.stringify(raw));
+  if (o.v === 1) {
+    // v1 (prototype navigateur) -> v2 : compteur de légendaires et succès.
+    const all = [...(o.bag || []), ...Object.values(o.equip || {})].filter(Boolean);
+    o.stats = Object.assign({}, o.stats, { legendaries: all.some((i) => i.r === LEGENDARY) ? 1 : 0 });
+    o.achievements = [];
+    o.v = 2;
+  }
+  if (o.v === 2) {
+    // v2 -> v3 : classes, talents, boutique. Les anciennes parties sont des guerriers.
+    Object.assign(o, { cls: "warrior", talents: {}, buffs: {}, potions: 3, bagSize: BAG_SIZE, upgrades: {}, shop: null });
+    o.stats = Object.assign({ elites: 0, purchases: 0, classes: ["warrior"] }, o.stats);
+    o.v = 3;
+  }
+  if (o.v === 3) {
+    // v3 -> v4 : ascension, quêtes, familiers, bestiaire.
+    const f = freshState();
+    Object.assign(o, { prestige: f.prestige, quests: f.quests, pets: f.pets, bestiary: {} });
+    o.v = 4;
+  }
+  if (o.v === 4) {
+    // v4 -> v5 : arbre de compétences.
+    o.skills = { order: [] };
+    o.v = 5;
+  }
+  if (o.v === 5) {
+    // v5 -> v6 : vitesse permanente, nouveaux emplacements (amulette, gants).
+    o.speed = 0;
+    o.v = 6;
+  }
+  if (o.v !== SAVE_VERSION) return null;
+  const def = freshState(o.last || Date.now());
+  const s = Object.assign(freshState(o.last || Date.now()), o);
+  s.equip = Object.assign(def.equip, isObj(o.equip) ? o.equip : {});
+  s.stats = Object.assign(def.stats, isObj(o.stats) ? o.stats : {});
+  s.autoSell = Object.assign(def.autoSell, isObj(o.autoSell) ? o.autoSell : {});
+  if (!Array.isArray(s.bag)) s.bag = [];
+  if (!Array.isArray(s.log)) s.log = [];
+  if (!Array.isArray(s.achievements)) s.achievements = [];
+  if (!CLASSES[s.cls]) s.cls = "warrior";
+  for (const k of ["talents", "buffs", "upgrades", "bestiary"]) if (!isObj(s[k])) s[k] = {};
+  s.prestige = Object.assign(def.prestige, isObj(o.prestige) ? o.prestige : {});
+  if (!isObj(s.prestige.ranks)) s.prestige.ranks = {};
+  s.quests = Object.assign(def.quests, isObj(o.quests) ? o.quests : {});
+  if (!Array.isArray(s.quests.slots)) s.quests.slots = [];
+  s.pets = Object.assign(def.pets, isObj(o.pets) ? o.pets : {});
+  if (!isObj(s.pets.owned)) s.pets.owned = {};
+  s.skills = Object.assign(def.skills, isObj(o.skills) ? o.skills : {});
+  if (!Array.isArray(s.skills.order)) s.skills.order = [];
+  s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
+  s.speed = Math.max(0, +s.speed || 0);
+  s.potions = Math.max(0, Math.floor(+s.potions || 0));
+  s.bagSize = Math.max(BAG_SIZE, Math.floor(+s.bagSize || BAG_SIZE));
+  for (const k of ["lvl", "zone", "best", "nextId"]) s[k] = Math.max(1, Math.floor(+s[k] || 1));
+  for (const k of ["xp", "gold", "kills"]) s[k] = Math.max(0, +s[k] || 0);
+  return s;
+}
