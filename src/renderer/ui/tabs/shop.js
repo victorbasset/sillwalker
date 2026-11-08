@@ -44,7 +44,8 @@ export class ShopTab {
         owned = rem > 0 ? `<span id="buff-${c.id}">${mmss(rem)}</span> restantes` : "inactif";
         if (rem + c.duration > BUFF_CAP_S) block = "Durée maximale atteinte";
       }
-      return `<li class="shopline"><div class="si"><div class="nm">${esc(c.name)} <small>${owned}</small></div><div class="sub">${esc(c.desc)}</div></div>${buyBtn("s-cons", c.id, price, block)}</li>`;
+      const auto = c.id === "potion" ? `<label class="toggle"><input type="checkbox" data-action="s-autopot"${S.autoPotions ? " checked" : ""}> Racheter automatiquement (jusqu’à 5)</label>` : "";
+      return `<li class="shopline"><div class="si"><div class="nm">${esc(c.name)} <small>${owned}</small></div><div class="sub">${esc(c.desc)}</div>${auto}</div>${buyBtn("s-cons", c.id, price, block)}</li>`;
     }).join("");
 
     const chests = CHESTS.map((c) => `<li class="shopline"><div class="si"><div class="nm rc${c.minRarity}">${esc(c.name)}</div><div class="sub">${esc(c.desc)} Niveau ${S.best}.</div></div>${buyBtn("s-chest", c.id, chestPrice(c, S), full ? "Sac plein" : "")}</li>`).join("");
@@ -75,6 +76,7 @@ export class ShopTab {
     else if (a === "s-chest") g.buyChest(id);
     else if (a === "s-up") g.buyUpgrade(id);
     else if (a === "s-reroll") g.rerollShop();
+    else if (a === "s-autopot") { g.S.autoPotions = b.checked; g.autoBuyPotions(); g.changed(); }
   }
 
   /** Comptes à rebours (sans reconstruire l'onglet). Renvoie true s'il faut tout redessiner. */

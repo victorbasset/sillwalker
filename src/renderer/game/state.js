@@ -15,6 +15,7 @@ export function freshState(now = Date.now()) {
     bag: [],
     autoAdvance: true,
     autoSell: { common: false, uncommon: false, rare: false },
+    autoPotions: false, // rachète des potions automatiquement sous AUTO_POTIONS
     last: now,
     nextId: 1,
     stats: { kills: 0, deaths: 0, bosses: 0, legendaries: 0, elites: 0, purchases: 0, classes: ["warrior"] },

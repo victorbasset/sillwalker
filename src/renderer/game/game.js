@@ -36,6 +36,8 @@ import { rand, rnd, pick } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
 
+const AUTO_POTIONS = 5; // stock visé par l'achat automatique de potions
+
 const UPGRADE_EPS = 0.005;
 const BURN_TIME = 3;
 
@@ -424,6 +426,7 @@ export class Game {
     if ((m.boss && rand() < EGG_CHANCE.boss) || (m.elite && rand() < EGG_CHANCE.elite)) this.gainEgg();
     this.emit("kill", { mon: m, gold });
     this.rollRareThings(m);
+    this.autoBuyPotions();
     this.gainXp(Math.round(m.xp * (1 + hs.xp / 100)));
     if (m.boss || m.elite || rand() < DROP_CHANCE * (1 + hs.drop / 100)) {
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
@@ -757,6 +760,17 @@ export class Game {
     this.log("Acheté : " + c.name + ".");
     this.changed();
     return true;
+  }
+
+  /** Achat automatique de potions (option de la boutique) : complète le stock jusqu'à AUTO_POTIONS. */
+  autoBuyPotions() {
+    const S = this.S;
+    if (!S.autoPotions || S.potions >= AUTO_POTIONS) return 0;
+    const c = CONSUMABLES.find((x) => x.id === "potion"), price = consumablePrice(c, S);
+    let n = 0;
+    while (S.potions < AUTO_POTIONS && S.gold >= price * 4) { S.gold -= price; S.potions++; n++; } // garde de quoi en racheter
+    if (n) { S.stats.purchases = (S.stats.purchases || 0) + n; this.changed(); }
+    return n;
   }
 
   buyChest(id) {

@@ -651,4 +651,16 @@ test("hors ligne : plumes et coffres possibles, plafonnés", () => {
   assert.ok(feathers > 0 && chests > 0, `plumes ${feathers}, coffres ${chests}`);
 });
 
+test("achat automatique de potions", () => {
+  const g = new Game(freshState());
+  g.S.potions = 0; g.S.gold = 1e6;
+  assert.equal(g.autoBuyPotions(), 0, "désactivé par défaut");
+  g.S.autoPotions = true;
+  assert.equal(g.autoBuyPotions(), 5);
+  assert.equal(g.S.potions, 5);
+  g.S.potions = 0; g.S.gold = 10;
+  assert.equal(g.autoBuyPotions(), 0, "pas assez d'or");
+  assert.equal(migrate(JSON.parse(JSON.stringify(g.S))).autoPotions, true);
+});
+
 console.log(`\n${pass} tests réussis`);
