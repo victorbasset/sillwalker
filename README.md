@@ -49,6 +49,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
 - **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins).
 - **Statistiques** : records, compteurs de l'aventure et liste des succès.
+- **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
+  français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
 - **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo,
   position, opacité, démarrage de Windows.
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
@@ -114,6 +116,8 @@ src/
                           strip.js = bande (parcours de zone), mini.js = encart mini, heroart.js = héros
                           assemblés à partir de pièces, equipvis.js = équipement visible, juice.js = effets,
                           sound.js = sons, trayicons.js = icônes de la zone de notification
+    i18n/                 traductions : index.js (t(), langue), keys.js (textes source, ordre fixe),
+                          lang/xx.js (traductions par indice), data.js (noms des données, noms d'objets)
     ui/                   panneau de gestion (panel.js + un module par onglet dans ui/tabs/), clics traversants,
                           conseils (hints.js)
 ```
@@ -134,6 +138,9 @@ src/
 - **Onglet du panneau** : un module dans `ui/tabs/` + une entrée dans `TABS` (`ui/panel.js`).
 - **Objets** : `ITEM_BASES` / `ITEM_SUFFIXES`.
 - **Succès** : une ligne dans `game/achievements.js` (même « API Name » que dans Steamworks).
+- **Texte affiché** : l'écrire en français dans `tx("…")`, puis `scripts/i18n-extract.mjs` / `i18n-append.mjs`
+  pour l'ajouter à `keys.js`, le traduire dans chaque `i18n/lang/xx.js` et vérifier avec `scripts/i18n-check.mjs xx`.
+  Pas de pluriel à la française dans les variables : prévoir une phrase entière par langue.
 - **Nouvelle donnée sauvegardée** : valeur par défaut dans `freshState()`, et si besoin une étape dans `migrate()` en augmentant `SAVE_VERSION`.
 
 ## Sauvegarde
