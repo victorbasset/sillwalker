@@ -326,4 +326,5 @@ export default {
   1450: "{n} item that doesn't upgrade your hero will be sold. Legendaries are always kept.|{n} items that don't upgrade your hero will be sold. Legendaries are always kept.",
   1451: "Each group of 3 useless items of the same rarity becomes 1 item of the next rarity: at least {n} new item. Legendaries are never used.|Each group of 3 useless items of the same rarity becomes 1 item of the next rarity: at least {n} new items. Legendaries are never used.",
   1452: "{n} node waiting for points.|{n} nodes waiting for points.",
+  1453: "Language changed: the log starts again here.",
 };

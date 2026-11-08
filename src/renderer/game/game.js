@@ -122,6 +122,16 @@ export class Game {
   /** Avancement (0..1) vers le prochain combat ; 1 pendant le combat. */
   legProgress() { return this.R.mode === "walk" ? Math.min(1, this.R.legT / this.R.legDur) : 1; }
 
+  /**
+   * Le journal est enregistré en texte déjà traduit : après un changement de langue, on
+   * repart d'un journal neuf plutôt que de mélanger deux langues. (Ancienne sauvegarde : rien n'est effacé.)
+   */
+  syncLogLang(lang) {
+    const S = this.S;
+    if (S.logLang && S.logLang !== lang && S.log.length) S.log = [tx("Langue changée : le journal reprend ici.")];
+    S.logLang = lang;
+  }
+
   log(msg) {
     const L = this.S.log;
     L.unshift(msg);

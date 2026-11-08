@@ -22,6 +22,7 @@ export function freshState(now = Date.now()) {
     stats: { kills: 0, deaths: 0, bosses: 0, legendaries: 0, elites: 0, purchases: 0, classes: ["warrior"] },
     achievements: [],   // identifiants déjà signalés à Steam
     log: [],
+    logLang: null,      // langue dans laquelle le journal est écrit (repart à zéro si elle change)
     cls: "warrior",     // classe active (voir classes.js)
     classesUnlocked: ["warrior"], // héros libérés (classes.js > CLASS_UNLOCK_ZONE)
     nextCls: null,      // classe choisie pour la prochaine ascension

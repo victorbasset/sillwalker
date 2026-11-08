@@ -326,4 +326,5 @@ export default {
   1450: "{n} Gegenstand, der deinen Helden nicht verbessert, wird verkauft. Legendäre werden immer behalten.|{n} Gegenstände, die deinen Helden nicht verbessern, werden verkauft. Legendäre werden immer behalten.",
   1451: "Jede Gruppe aus 3 nutzlosen Gegenständen gleicher Seltenheit wird zu 1 Gegenstand der nächsthöheren Seltenheit: mindestens {n} neuer Gegenstand. Legendäre werden nie verwendet.|Jede Gruppe aus 3 nutzlosen Gegenständen gleicher Seltenheit wird zu 1 Gegenstand der nächsthöheren Seltenheit: mindestens {n} neue Gegenstände. Legendäre werden nie verwendet.",
   1452: "{n} Knoten wartet auf Punkte.|{n} Knoten warten auf Punkte.",
+  1453: "Sprache geändert: Das Protokoll beginnt hier neu.",
 };

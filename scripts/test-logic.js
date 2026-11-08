@@ -950,4 +950,19 @@ test("pluriels : txn choisit la bonne forme dans chaque langue", () => {
   } finally { setLang(before); }
 });
 
+test("journal : repart à zéro quand la langue change, jamais pour une ancienne sauvegarde", () => {
+  const g = new Game(freshLocked());
+  g.log("a"); g.log("b");
+  g.syncLogLang("fr");                       // ancienne sauvegarde (langue inconnue) : rien n'est effacé
+  assert.deepEqual(g.S.log, ["b", "a"]);
+  assert.equal(g.S.logLang, "fr");
+  g.syncLogLang("fr");                       // même langue : inchangé
+  assert.equal(g.S.log.length, 2);
+  g.syncLogLang("en");                       // nouvelle langue : une seule ligne d'explication
+  assert.equal(g.S.log.length, 1);
+  assert.equal(g.S.logLang, "en");
+  const m = migrate(JSON.parse(JSON.stringify(g.S)));
+  assert.equal(m.logLang, "en", "langue du journal conservée dans la sauvegarde");
+});
+
 console.log(`\n${pass} tests réussis`);

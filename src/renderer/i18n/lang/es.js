@@ -326,4 +326,5 @@ export default {
   1450: "Se venderá {n} objeto que no mejora a tu héroe. Los legendarios siempre se conservan.|Se venderán {n} objetos que no mejoran a tu héroe. Los legendarios siempre se conservan.",
   1451: "Cada grupo de 3 objetos inútiles de la misma rareza se convierte en 1 objeto de la rareza superior: al menos {n} objeto nuevo. Los legendarios nunca se usan.|Cada grupo de 3 objetos inútiles de la misma rareza se convierte en 1 objeto de la rareza superior: al menos {n} objetos nuevos. Los legendarios nunca se usan.",
   1452: "{n} nodo esperando puntos.|{n} nodos esperando puntos.",
+  1453: "Idioma cambiado: el registro continúa aquí.",
 };

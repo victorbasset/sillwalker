@@ -46,6 +46,7 @@ async function boot() {
   const wanted = game.S.settings.lang || DEFAULT_LANG;
   if (wanted !== getLang()) { setLang(wanted); location.reload(); return; }
   game.S.settings.lang = wanted;
+  game.syncLogLang(wanted);
   translateData();
   repairItemNames(game.S);
   // Animations réduites demandées par Windows : effets sobres par défaut (une seule fois, modifiable ensuite).

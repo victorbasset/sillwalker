@@ -326,4 +326,5 @@ export default {
   1450: "{n} item que não melhora seu herói será vendido. Os lendários são sempre guardados.|{n} itens que não melhoram seu herói serão vendidos. Os lendários são sempre guardados.",
   1451: "Cada grupo de 3 itens inúteis da mesma raridade vira 1 item da raridade acima: pelo menos {n} item novo. Os lendários nunca são usados.|Cada grupo de 3 itens inúteis da mesma raridade vira 1 item da raridade acima: pelo menos {n} itens novos. Os lendários nunca são usados.",
   1452: "{n} nó esperando pontos.|{n} nós esperando pontos.",
+  1453: "Idioma alterado: o registro recomeça aqui.",
 };

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 ## Fait
 
+- 2026-11-08 (it. 3) : après un changement de langue, le journal d'aventure n'est plus un mélange
+  de deux langues : il repart proprement dans la nouvelle langue.
 - 2026-11-08 (it. 2) : plus de « objet(s) » dans les messages : ventes, objets gardés pendant l'absence,
   équipement automatique, transmutation et nœuds en attente s'accordent au nombre, dans les 10 langues
   (y compris les trois formes du russe et du polonais).
@@ -16,8 +18,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P1 Journal d'aventure : les lignes déjà écrites restent dans la langue où elles ont été créées
-  (passage du français à l'anglais → mélange). Enregistrer une clé + paramètres, ou traduire à l'affichage.
 - P1 Pluriels encore bricolés hors français/anglais : les phrases avec `plS()` ({1} = « s ») sont traduites
   « Talentpunkt(e) », « freie(r) Punkt(e) », « Quest(s) »… (allemand, et sans doute russe, polonais).
   Les passer une à une à `txn()` (points de talent, points libres, quêtes, ascensions, plumes).
