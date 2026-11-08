@@ -13,7 +13,9 @@
     "icons": "node --experimental-default-type=module scripts/make-icons.js",
     "dist": "electron-builder --win dir",
     "dist:zip": "electron-builder --win zip",
-    "selftest": "electron . --selftest --ghost --user-data=./dev-data"
+    "selftest": "electron . --selftest --ghost --user-data=./dev-data",
+    "selftest:linux": "xvfb-run -a -s \"-screen 0 1920x1080x24\" electron . --selftest --ghost --no-sandbox --user-data=./dev-data",
+    "perf:linux": "xvfb-run -a -s \"-screen 0 1920x1080x24\" electron . --perf --ghost --no-sandbox --user-data=./dev-data"
   },
   "dependencies": {
     "steamworks.js": "0.4.0"
