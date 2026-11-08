@@ -363,7 +363,7 @@ export class Game {
     this.S.stats.items = (this.S.stats.items || 0) + 1;
     if (it.r === LEGENDARY) this.S.stats.legendaries++;
     const fresh = codexRecord(this.S, it);
-    if (fresh) { this.invalidateStats(); if (fresh === "new") this.emit("codex", { item: it }); }
+    if (fresh) { this.invalidateStats(); if (fresh === "new") { this.log(`Nouveau type d’objet pour la collection : ${(it.base || "").split(":")[1] || it.name} !`); this.emit("codex", { item: it }); } }
     return it;
   }
 

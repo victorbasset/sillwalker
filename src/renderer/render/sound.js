@@ -2,7 +2,7 @@
 // Sillwalker vit en bas de l'écran pendant qu'on fait autre chose.
 // Chaque son est limité en fréquence pour ne jamais devenir agaçant.
 
-const NOTES = { C5: 523.25, D5: 587.33, E5: 659.25, G5: 783.99, A5: 880, C6: 1046.5, E6: 1318.5, G6: 1568 };
+const NOTES = { C5: 523.25, D5: 587.33, E5: 659.25, G5: 783.99, A5: 880, C6: 1046.5, E6: 1318.5, G6: 1568, D6: 1174.66 };
 
 export class Sound {
   constructor() {
@@ -75,6 +75,8 @@ export class Sound {
       case "smash": this.tone(80, 0, 0.3, "square", 0.4, 0.5); this.noise(0, 0.15, 0.35); break;
       case "event": [NOTES.G5, NOTES.C6, NOTES.G6].forEach((f, i) => this.tone(f, i * 0.06, 0.18, "triangle", 0.25)); break;
       case "star": [NOTES.E6, NOTES.G6, NOTES.C6, NOTES.G6].forEach((f, i) => this.tone(f * 1.0, i * 0.05, 0.2, "sine", 0.3)); break;
+      case "chest": this.noise(0, 0.08, 0.2); [NOTES.C5, NOTES.G5, NOTES.C6, NOTES.E6, NOTES.G6].forEach((f, i) => this.tone(f, 0.12 + i * 0.06, 0.16, "square", 0.2)); break;
+      case "codex": if (this.throttle(id, 1500)) { this.tone(NOTES.G5, 0, 0.08, "sine", 0.2); this.tone(NOTES.D6, 0.07, 0.14, "sine", 0.2); } break;
       case "ko": this.tone(330, 0, 0.5, "triangle", 0.3, 0.4); break;
       default: break;
     }
@@ -90,6 +92,8 @@ export class Sound {
     game.on("event", () => this.play("event"));
     game.on("feather", () => this.play("event"));
     game.on("starCaught", () => this.play("star"));
+    game.on("chest", () => this.play("chest"));
+    game.on("codex", () => this.play("codex"));
     game.on("heroDown", () => this.play("ko"));
   }
 }
