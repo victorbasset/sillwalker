@@ -123,6 +123,7 @@ body.panel-open #toast { display: none; }
 #mini .mini-xp { position: absolute; left: 8px; right: 8px; bottom: 3px; height: 2px; background: rgba(255, 255, 255, 0.12); }
 #mini .mini-xp i { display: block; height: 100%; width: 0; background: #ffd34d; }
 #mini .mini-zone { color: #a29ec2; font-size: 12px; white-space: nowrap; }
+#mini .minihint { position: absolute; right: 32px; top: 5px; font-size: 13px; line-height: 1; filter: drop-shadow(0 0 3px #ffd34d); }
 #mini .mini-btns { position: absolute; right: 4px; top: 4px; display: flex; flex-direction: column; gap: 3px; z-index: 5; }
 #mini .mini-btns .sbtn { width: 22px; height: 18px; }
 #mini .mini-btns .chev { width: 8px; height: 8px; border-width: 2px; }

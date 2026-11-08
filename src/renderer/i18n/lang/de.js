@@ -245,4 +245,5 @@ export default {
   1369: "Mondzahn",
   1370: "Korallenschlange",
   1371: "Frostheuler",
+  1372: "Ein Tipp wartet: zum Vergrößern klicken.",
 };

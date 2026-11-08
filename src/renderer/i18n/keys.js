@@ -1373,5 +1373,6 @@ export const KEYS = [
   "Le Roi Sans-Chair",
   "Croc-de-Lune",
   "Serpent des Coraux",
-  "Hurle-Givre"
+  "Hurle-Givre",
+  "Un conseil t’attend : clique pour agrandir."
 ];

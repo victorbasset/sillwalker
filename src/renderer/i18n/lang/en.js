@@ -245,4 +245,5 @@ export default {
   1369: "Moonfang",
   1370: "Coral Serpent",
   1371: "Frosthowl",
+  1372: "A tip is waiting: click to enlarge.",
 };

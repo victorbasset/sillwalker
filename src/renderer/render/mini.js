@@ -25,6 +25,9 @@ export class MiniRenderer {
     this.lvl = el("div", "mini-lvl", this.info);
     this.gold = el("div", "mini-gold", this.info);
     this.zone = el("div", "mini-zone", this.info);
+    this.hintDot = el("div", "minihint", this.info); // un conseil attend : un clic agrandit l'encart et l'affiche
+    this.hintDot.textContent = "💡";
+    this.hintDot.hidden = true;
     this.xp = el("i", "", el("div", "mini-xp", this.info)); // barre d'expérience fine
     this.xpW = -1;
     this.monActor = null; this.monRef = null;
@@ -56,6 +59,13 @@ export class MiniRenderer {
     }
     sizeCanvas(this.base, SCENE_W, MINI_H, dpr);
     this.sceneKey = "";
+  }
+
+  /** Indique qu'un conseil attend (affiché en grand une fois l'encart agrandi). */
+  setHint(text) {
+    const on = !!text;
+    if (this.hintDot.hidden === on) { this.hintDot.hidden = !on; mark("hud"); }
+    if (on) this.hintDot.title = tx("Un conseil t’attend : clique pour agrandir.") + "\n" + text;
   }
 
   setActive() { this.lastDraw = 0; }

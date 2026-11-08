@@ -189,6 +189,7 @@ async function boot() {
   });
   /** Conseils : un à la fois, quand la bulle est libre et le panneau fermé. */
   function checkHints() {
+    if (mode === "mini") { const h = nextHint(game); mini.setHint(h && h.text); return; }
     if (mode !== "strip" || panelOpen || !toast.hidden || Date.now() < toastUntil) return;
     const h = nextHint(game);
     if (!h) return;
