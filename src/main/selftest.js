@@ -9,6 +9,8 @@ async function runSelfTest(strip) {
   const wc = strip.win.webContents;
   const js = (code) => wc.executeJavaScript(code).catch((e) => { console.log("[selftest] ÉCHEC script :", code.slice(0, 140)); throw e; });
   const state = (expr) => js(`(() => { const S = window.__game.S; return ${expr}; })()`);
+  // Le profil de test s'accumule d'une exécution à l'autre : la vitesse permanente doit pouvoir encore monter.
+  await js("window.__game.S.speed = Math.min(window.__game.S.speed || 0, 100)");
   const rectOf = (sel) => js(`(() => { const e = document.querySelector(${JSON.stringify(sel)}); e.scrollIntoView({ block: "nearest" }); const r = e.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
   const move = async (x, y) => { wc.sendInputEvent({ type: "mouseMove", x, y }); await sleep(150); };
   /** Attend qu'une condition soit vraie (machine chargée : animations plus lentes). */
