@@ -4,6 +4,7 @@ import { PIXEL as P } from "./art.js";
 import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { fmt } from "../game/format.js";
+import { xpNeed } from "../game/rules.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 
 export const MINI_W = 340, MINI_H = 64;
@@ -23,6 +24,8 @@ export class MiniRenderer {
     this.lvl = el("div", "mini-lvl", this.info);
     this.gold = el("div", "mini-gold", this.info);
     this.zone = el("div", "mini-zone", this.info);
+    this.xp = el("i", "", el("div", "mini-xp", this.info)); // barre d'expérience fine
+    this.xpW = -1;
     this.monActor = null; this.monRef = null;
     game.on("heroAttack", () => { this.lunge = 0.15; this.monHit = 0.12; });
     game.on("heroHurt", () => { this.flash = 0.12; });
@@ -124,6 +127,10 @@ export class MiniRenderer {
       } else { this.starBtn.remove(); this.starBtn = null; }
       mark("star");
     }
+
+    // Barre d'expérience (largeur arrondie au pour cent)
+    const xw = Math.max(0, Math.min(100, Math.floor((100 * S.xp) / xpNeed(S.lvl))));
+    if (xw !== this.xpW) { this.xpW = xw; this.xp.style.width = xw + "%"; mark("hud"); }
 
     // Infos (texte DOM, mis à jour seulement s'il change)
     const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills;
