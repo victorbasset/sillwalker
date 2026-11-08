@@ -363,4 +363,9 @@ export default {
   1487: "Furia creciente",
   1488: "Cada 5 s, ataca un 10 % más rápido (hasta 6 veces): hay que abatirlo rápido.",
   1489: "¡Furia!",
+  1490: "nivel {0} → {1}",
+  1491: "récord: zona {0}",
+  1492: "{n} legendario|{n} legendarios",
+  1493: "Haz clic para ocultar",
+  1494: "Desde tu última visita ({0})",
 };

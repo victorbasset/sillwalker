@@ -363,4 +363,9 @@ export default {
   1487: "Growing Fury",
   1488: "Every 5 s, attacks 10% faster (up to 6 times): bring it down fast.",
   1489: "Fury!",
+  1490: "level {0} → {1}",
+  1491: "record: zone {0}",
+  1492: "{n} legendary|{n} legendaries",
+  1493: "Click to hide",
+  1494: "Since your last visit ({0})",
 };

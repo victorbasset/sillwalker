@@ -293,6 +293,15 @@ async function runSelfTest(strip) {
   await click('#modal .linkbtn[data-tab="pets"]');
   await sleep(200);
   check("retour d'absence : le bouton ferme le résumé et ouvre l'onglet", (await js("document.querySelector('#modal').hidden && document.querySelector('[data-tab=pets]').getAttribute('aria-selected') === 'true'")));
+  // « Depuis ta dernière visite » : ligne en haut de la carte du héros, un clic la masque.
+  await click('[data-tab="adventure"]');
+  await js("(() => { const S = window.__game.S; window.__panel.sinceVisit = window.__game.visitSummary({ t: Date.now() - 42 * 60000, gold: 0, kills: 0, lvl: Math.max(1, S.lvl - 2), asc: S.prestige.count, leg: 0, best: 0 }); window.__panel.renderAll(); })()");
+  await sleep(200);
+  check("depuis ta dernière visite : affiché", await js("!!document.querySelector('#p-hero .visit')"));
+  if (process.env.SELFTEST_SHOT2) require("fs").writeFileSync(process.env.SELFTEST_SHOT2, (await wc.capturePage()).toPNG());
+  await click("#p-hero .visit");
+  await sleep(150);
+  check("depuis ta dernière visite : un clic le masque", await js("!document.querySelector('#p-hero .visit')"));
   await click('[data-tab="adventure"]');
   await sleep(150);
   // Étoile filante : apparaît sur la bande et s'attrape d'un clic

@@ -363,4 +363,9 @@ export default {
   1487: "Narastająca furia",
   1488: "Co 5 s atakuje o 10% szybciej (do 6 razy): trzeba go szybko pokonać.",
   1489: "Furia!",
+  1490: "poziom {0} → {1}",
+  1491: "rekord: strefa {0}",
+  1492: "{n} legendarny|{n} legendarne|{n} legendarnych",
+  1493: "Kliknij, aby ukryć",
+  1494: "Od twojej ostatniej wizyty ({0})",
 };

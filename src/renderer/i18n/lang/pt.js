@@ -363,4 +363,9 @@ export default {
   1487: "Fúria crescente",
   1488: "A cada 5 s, ataca 10 % mais rápido (até 6 vezes): é preciso derrotá-lo rápido.",
   1489: "Fúria!",
+  1490: "nível {0} → {1}",
+  1491: "recorde: zona {0}",
+  1492: "{n} lendário|{n} lendários",
+  1493: "Clique para ocultar",
+  1494: "Desde sua última visita ({0})",
 };

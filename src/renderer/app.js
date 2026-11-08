@@ -316,6 +316,7 @@ async function boot() {
   });
 
   /* ---------- Démo des effets (dev) : --demo ---------- */
+  if (init.isDev) window.__panel = panel; // auto-test (dev)
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
   if (init.isDev) window.__demo = () => {
     game.startEvent("wind");

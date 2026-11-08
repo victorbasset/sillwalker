@@ -1491,5 +1491,10 @@ export const KEYS = [
   "record {0}",
   "Fureur croissante",
   "Toutes les 5 s, frappe 10 % plus vite (jusqu’à 6 fois) : il faut l’abattre vite.",
-  "Fureur !"
+  "Fureur !",
+  "niveau {0} → {1}",
+  "record : zone {0}",
+  "{n} légendaire|{n} légendaires",
+  "Cliquer pour masquer",
+  "Depuis ta dernière visite ({0})"
 ];

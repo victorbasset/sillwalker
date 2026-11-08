@@ -927,6 +927,19 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("depuis ta dernière visite : gains affichés après 5 min, pas avant", () => {
+  const g = new Game(freshState()), t0 = 1e12;
+  const snap = g.visitSnapshot(t0);
+  g.S.stats.kills += 120; g.S.stats.goldTotal = (g.S.stats.goldTotal || 0) + 5000; g.S.lvl += 3;
+  assert.equal(g.visitSummary(snap, t0 + 4 * 60000), null, "moins de 5 min : rien");
+  const v = g.visitSummary(snap, t0 + 42 * 60000);
+  assert.ok(v && v.min === 42 && v.kills === 120 && v.gold === 5000);
+  assert.equal(v.lvl1 - v.lvl0, 3, "niveaux gagnés");
+  g.S.prestige.count++; // ascension entre-temps : la comparaison des niveaux n'a plus de sens
+  assert.equal(g.visitSummary(snap, t0 + 42 * 60000).lvl0, 0);
+  assert.equal(g.visitSummary(null), null);
+});
+
 test("record de zone : annoncé seulement au-delà du record de toutes les courses", () => {
   const g = new Game(freshState());
   g.S.autoAdvance = true;

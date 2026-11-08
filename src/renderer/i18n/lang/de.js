@@ -363,4 +363,9 @@ export default {
   1487: "Wachsende Wut",
   1488: "Alle 5 s schlägt er 10 % schneller zu (bis zu 6-mal): Man muss ihn schnell besiegen.",
   1489: "Wut!",
+  1490: "Stufe {0} → {1}",
+  1491: "Rekord: Zone {0}",
+  1492: "{n} legendärer Gegenstand|{n} legendäre Gegenstände",
+  1493: "Zum Ausblenden klicken",
+  1494: "Seit deinem letzten Besuch ({0})",
 };

@@ -1286,6 +1286,29 @@ export class Game {
     return out;
   }
 
+  /** Photo des compteurs à la fermeture du panneau (pour « Depuis ta dernière visite »). */
+  visitSnapshot(now = Date.now()) {
+    const st = this.S.stats;
+    return { t: now, gold: st.goldTotal || 0, kills: st.kills || 0, lvl: this.S.lvl, asc: this.S.prestige.count, leg: st.legendaries || 0, best: recordZone(this.S) };
+  }
+
+  /**
+   * Ce qui a été gagné depuis la photo, si au moins 5 minutes ont passé et que le héros a combattu.
+   * { min, gold, kills, lvl0, lvl1 (si pas d'ascension entre-temps), leg, best (nouveau record ou 0) }, ou null.
+   */
+  visitSummary(snap, now = Date.now()) {
+    if (!snap) return null;
+    const min = Math.floor((now - snap.t) / 60000), now0 = this.visitSnapshot(now);
+    const kills = now0.kills - snap.kills;
+    if (min < 5 || kills <= 0) return null;
+    const sameRun = now0.asc === snap.asc;
+    return {
+      min, kills, gold: Math.max(0, now0.gold - snap.gold), leg: Math.max(0, now0.leg - snap.leg),
+      lvl0: sameRun && now0.lvl > snap.lvl ? snap.lvl : 0, lvl1: now0.lvl,
+      best: now0.best > snap.best ? now0.best : 0,
+    };
+  }
+
   /** Familiers revenus d'expédition (récompense à récupérer). */
   expeditionsReady(now = Date.now()) {
     const E = this.S.pets.exp || {};

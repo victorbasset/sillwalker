@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 21).
 
 ## Fait
 
+- 2026-11-09 (it. 17) : en rouvrant le panneau après au moins 5 minutes, une ligne « Depuis ta dernière
+  visite » résume or gagné, monstres vaincus, niveaux, nouveau record et légendaires ; un clic la masque.
 - 2026-11-09 (it. 16) : « Nouveau record ! » et « Jamais allé aussi loin ! » ne s'affichent plus à chaque
   boss d'une course après ascension : seulement quand le héros dépasse son meilleur record de toutes les courses.
 - 2026-11-09 (it. 15) : nouvelle capacité de boss, « Fureur croissante » : toutes les 5 s le boss frappe

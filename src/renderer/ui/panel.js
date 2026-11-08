@@ -182,7 +182,22 @@ export class Panel {
   /* ---------- Cycle de vie ---------- */
   setOpen(open) {
     this.isOpen = open;
-    if (open) { this.dirty = true; this.update(1); }
+    if (open) {
+      this.sinceVisit = this.game.visitSummary(this.visitSnap); // « Depuis ta dernière visite » (panneau resté fermé ≥ 5 min)
+      this.dirty = true; this.update(1);
+    } else { this.visitSnap = this.game.visitSnapshot(); this.sinceVisit = null; }
+  }
+
+  /** Ligne « Depuis ta dernière visite » en haut de la carte du héros (un clic la ferme). */
+  visitHTML() {
+    const v = this.sinceVisit;
+    if (!v) return "";
+    const dur = v.min >= 60 ? `${Math.floor(v.min / 60)} h ${v.min % 60} min` : `${v.min} min`;
+    const parts = [tx("{0} or", { 0: `<b>+${fmt(v.gold)}</b>` }), txn(v.kills, "{n} monstre|{n} monstres", { n: fmt(v.kills) })];
+    if (v.lvl0) parts.push(tx("niveau {0} → {1}", { 0: v.lvl0, 1: v.lvl1 }));
+    if (v.best) parts.push(`<b>${tx("record : zone {0}", { 0: v.best })}</b>`);
+    if (v.leg) parts.push(`<b class="rc4">${txn(v.leg, "{n} légendaire|{n} légendaires")}</b>`);
+    return `<button class="visit" data-action="visit-ok" title="${esc(tx("Cliquer pour masquer"))}"><small>${tx("Depuis ta dernière visite ({0})", { 0: dur })}</small> ${parts.join(" · ")}</button>`;
   }
 
   /** Appelé à chaque image tant que le panneau est ouvert. */
@@ -354,7 +369,7 @@ export class Panel {
       </div>
       ${S.potions === 0 ? `<button class="linkbtn warn" data-tab="shop">${tx("Plus de potions de soin : la boutique en vend →")}</button>` : ""}
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${txn(free, "{n} point de talent à dépenser →|{n} points de talent à dépenser →")}</button>` : ""}
-      ${this.goalHTML(S)}
+      ${this.visitHTML()}${this.goalHTML(S)}
       ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
@@ -552,6 +567,7 @@ export class Panel {
       case "zprev": g.setZone(g.S.zone - 1); break;
       case "znext": g.setZone(g.S.zone + 1); break;
       case "closemodal": $(this.root, "#modal").hidden = true; return;
+      case "visit-ok": this.sinceVisit = null; this.renderHero(); return;
       case "close": this.onClose?.(); return;
       case "mini": this.onMini?.(); return;
       case "quit": this.confirm(tx("Quitter Sillwalker ?"), tx("Ta partie est sauvegardée. Ton héros continuera de progresser hors ligne (jusqu’à {0} h).", { 0: Math.round(g.offlineCapS() / 3600) }), tx("Quitter le jeu"), () => this.onQuit?.()); return;
