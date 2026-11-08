@@ -184,7 +184,7 @@ export class Game {
         R.mon.dist -= (WALK_SPEED + MONSTER_SPEED) * dt * this.moveMul();
         if (R.mon.dist <= 0) {
           R.mon.dist = 0; R.mode = "fight"; R.atkT = 0.25;
-          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0;
+          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0;
           R.shield = hs.shield > 0 ? hs.hp * hs.shield / 100 : 0;
           if (R.shield > 0) this.emit("shield", { amount: R.shield });
         }
@@ -193,7 +193,8 @@ export class Game {
       const m = R.mon;
       m.age += dt;
       // Attaques du héros
-      R.atkT -= dt * ((R.events.frenzy || 0) > 0 ? 2 : 1);
+      if (R.frozen > 0) R.frozen -= dt;
+      R.atkT -= dt * ((R.events.frenzy || 0) > 0 ? 2 : 1) * (R.frozen > 0 ? 0.6 : 1);
       if (R.atkT <= 0) {
         R.atkT = 1 / (1 + hs.spd / 100);
         this.heroStrike(m, hs, R.firstHit, false);
@@ -293,6 +294,10 @@ export class Game {
     if (mech.includes("regen") && !(m.burnT > 0) && !(m.poisonT > 0) && m.hp < m.max) {
       m.hp = Math.min(m.max, m.hp + m.max * 0.02 * dt);
     }
+    if (mech.includes("frost")) {
+      m.frostT = (m.frostT ?? 5) - dt;
+      if (m.frostT <= 0) { m.frostT = 7; this.R.frozen = 3; this.emit("bossSkill", { id: "frost" }); }
+    }
     if (mech.includes("mirror")) {
       m.mirrorT = (m.mirrorT ?? 6) - dt;
       if (m.mirrorT <= 0 && !(m.mirror > 0)) { m.mirror = 2; this.emit("bossSkill", { id: "mirror" }); }
@@ -332,6 +337,7 @@ export class Game {
   }
 
   heroStrike(m, hs, first, extra) {
+    if (m.mech && m.mech.includes("evasive") && rand() < 0.2) { this.emit("bossDodge"); return; }
     // Iaijutsu (samouraï) : chaque 4e coup est un critique garanti renforcé.
     const iai = !extra && hs.iai > 0 && (this.R.hits = (this.R.hits || 0) + 1) % 4 === 0;
     const crit = iai || rand() < hs.crit / 100;

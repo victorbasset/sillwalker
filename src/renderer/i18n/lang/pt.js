@@ -290,4 +290,10 @@ export default {
   1414: "Forja (+1 a +10) e reforja itens.",
   1415: "Melhorias permanentes da loja (ataque, PV, ouro, velocidade).",
   1416: "Ovos caem de chefes e elites. Desbloqueie a Menagerie para chocá-los: um mascote segue seu herói e o fortalece.",
+  1417: "Sopro gélido",
+  1418: "A cada 7 s, congela o herói: os ataques ficam 40% mais lentos por 3 s.",
+  1419: "Esquivo",
+  1420: "Esquiva 20% dos golpes do herói (golpes com clique sempre acertam).",
+  1421: "Congelado!",
+  1422: "Errou!",
 };

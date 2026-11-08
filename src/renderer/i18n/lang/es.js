@@ -290,4 +290,10 @@ export default {
   1414: "Forja (+1 a +10) y reforja objetos.",
   1415: "Mejoras permanentes de la tienda (ataque, PV, oro, velocidad).",
   1416: "Los huevos caen de jefes y élites. Desbloquea la Casa de fieras para eclosionarlos: una mascota sigue a tu héroe y lo refuerza.",
+  1417: "Aliento helado",
+  1418: "Cada 7 s, congela al héroe: sus ataques se ralentizan un 40 % durante 3 s.",
+  1419: "Escurridizo",
+  1420: "Esquiva el 20 % de los golpes del héroe (los golpes con clic siempre aciertan).",
+  1421: "¡Congelado!",
+  1422: "¡Fallo!",
 };

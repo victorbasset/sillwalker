@@ -290,4 +290,10 @@ export default {
   1414: "Kucie (+1 do +10) i przekuwanie przedmiotów.",
   1415: "Stałe ulepszenia w sklepie (atak, PŻ, złoto, szybkość).",
   1416: "Jaja wypadają z bossów i elit. Odblokuj Menażerię, aby je wykluć: pupil podąża za bohaterem i go wzmacnia.",
+  1417: "Lodowy oddech",
+  1418: "Co 7 s zamraża bohatera: jego ataki zwalniają o 40% na 3 s.",
+  1419: "Nieuchwytny",
+  1420: "Unika 20% ciosów bohatera (ciosy kliknięciem zawsze trafiają).",
+  1421: "Zamrożony!",
+  1422: "Pudło!",
 };

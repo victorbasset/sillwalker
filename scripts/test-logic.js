@@ -634,7 +634,8 @@ test("boss : miroir et vampirisme", async () => {
   g.on("mirrorHit", ({ dmg }) => { mirrored += dmg; });
   const zMirror = [1, 2, 3, 4, 5, 6].find((z) => bossMechanics(z).includes("mirror"));
   g.S.zone = g.S.best = zMirror; g.S.kills = 10;
-  for (let i = 0; i < 200 && !mirrored; i++) { g.S.kills = 10; g.advance(0.5); }
+  g.S.autoAdvance = false;
+  for (let i = 0; i < 400 && !mirrored; i++) { g.S.zone = zMirror; g.S.kills = 10; if (g.R.mon && g.R.mon.boss) g.R.mon.hp = Math.max(g.R.mon.hp, g.R.mon.max * 0.6); g.advance(0.5); }
   assert.ok(mirrored > 0, "le miroir a renvoyé des dégâts");
 });
 
@@ -911,6 +912,18 @@ test("déblocages : une ancienne partie garde ce qu'elle utilisait", () => {
   assert.equal(s.v, SAVE_VERSION);
   assert.ok(s.unlocks.bulkEquip && s.unlocks.autoPotion && s.unlocks.questDesk);
   assert.ok(!s.unlocks.transmute && !s.unlocks.armsValet);
+});
+
+test("boss : souffle glacé et insaisissable", () => {
+  const g = new Game(freshState());
+  for (let i = 0; i < 4000 && g.R.mode !== "fight"; i++) g.step(0.05);
+  const m = g.R.mon; m.hp = m.max = 1e12; m.atk = 0; m.boss = true; m.mech = ["frost", "evasive"];
+  let frost = 0, miss = 0;
+  g.on("bossSkill", ({ id }) => { if (id === "frost") frost++; });
+  g.on("bossDodge", () => miss++);
+  for (let i = 0; i < 400; i++) g.step(0.05);
+  assert.ok(frost >= 2, "gel déclenché");
+  assert.ok(miss > 0, "coups esquivés");
 });
 
 console.log(`\n${pass} tests réussis`);

@@ -290,4 +290,10 @@ export default {
   1414: "Schmieden (+1 bis +10) und Umschmieden von Gegenständen.",
   1415: "Dauerhafte Verbesserungen im Laden (Angriff, LP, Gold, Tempo).",
   1416: "Eier fallen von Bossen und Elitegegnern. Schalte die Menagerie frei, um sie auszubrüten: Ein Begleiter folgt deinem Helden und stärkt ihn.",
+  1417: "Eisatem",
+  1418: "Alle 7 s friert er den Helden ein: Seine Angriffe werden 3 s lang um 40 % langsamer.",
+  1419: "Schwer zu fassen",
+  1420: "Weicht 20 % der Schläge des Helden aus (Klick-Schläge treffen immer).",
+  1421: "Eingefroren!",
+  1422: "Daneben!",
 };

@@ -1418,5 +1418,11 @@ export const KEYS = [
   "Enclume",
   "Forge (+1 à +10) et réforge des objets.",
   "Améliorations permanentes de la boutique (attaque, PV, or, vitesse).",
-  "Les œufs tombent des boss et des élites. Débloque la Ménagerie pour les faire éclore : un familier suit ton héros et le renforce."
+  "Les œufs tombent des boss et des élites. Débloque la Ménagerie pour les faire éclore : un familier suit ton héros et le renforce.",
+  "Souffle glacé",
+  "Toutes les 7 s, gèle le héros : ses attaques ralentissent de 40 % pendant 3 s.",
+  "Insaisissable",
+  "Esquive 20 % des coups du héros (les coups au clic touchent toujours).",
+  "Gelé !",
+  "Raté !"
 ];

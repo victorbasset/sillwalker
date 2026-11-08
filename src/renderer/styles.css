@@ -317,6 +317,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .proj.shadow { width: 12px; height: 8px; border-radius: 4px; background: #7dff9a; box-shadow: 0 0 0 2px #2e2a40, 0 0 0 3px #14121f; }
 .proj.leaf { width: 10px; height: 6px; border-radius: 0 6px 0 6px; background: #5fae4a; box-shadow: 0 0 0 1px #14121f; }
 .actor.shielded { filter: drop-shadow(0 0 0 #9fd8ff) drop-shadow(1px 0 0 #9fd8ff) drop-shadow(-1px 0 0 #9fd8ff) drop-shadow(0 -1px 0 #9fd8ff); }
+.actor.frozen { filter: saturate(.4) brightness(1.15) hue-rotate(160deg) drop-shadow(0 0 2px #bfe8ff); }
 .actor.poisoned::after { content: ""; position: absolute; left: 50%; top: -8px; width: 9px; height: 6px;
   background: linear-gradient(#7dff4a, #7dff4a) 0 0 / 3px 3px no-repeat, linear-gradient(#5fae4a, #5fae4a) 6px 3px / 3px 3px no-repeat; }
 .actor.minion { filter: drop-shadow(0 0 1px #7dff9a); }

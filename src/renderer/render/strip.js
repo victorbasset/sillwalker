@@ -104,6 +104,7 @@ export class StripRenderer {
     g.on("heroDown", () => this.say(SPEECH.ko, true));
     g.on("zoneUp", ({ record }) => { if (record) this.say(SPEECH.record); });
     g.on("levelUp", () => this.say(SPEECH.level));
+    g.on("bossDodge", () => this.float(this.monX() + 14, 40, tx("Raté !"), "#c8c8d8"));
     g.on("dodge", () => this.float(this.heroX + 16, 44, tx("Esquive"), "#9fd8ff"));
     g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + Math.round(dmg), "#ffb07a"));
     g.on("potion", () => this.float(this.heroX + 16, 36, tx("Potion !"), "#ff8ad8", true));
@@ -111,7 +112,8 @@ export class StripRenderer {
     g.on("classChange", () => { this.heroCls = null; this.minionKey = null; });
     g.on("minion", () => { this.minionLunge = 0.2; });
     g.on("bossSkill", ({ id }) => {
-      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], smash: ["", ""] }[id];
+      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""] }[id];
+      if (id === "frost") { this.float(this.heroX + 10, 30, tx("Gelé !"), "#bfe8ff", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#bfe8ff", 8); return; }
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
@@ -506,6 +508,8 @@ export class StripRenderer {
     // Bouclier sacré (paladin) : halo autour du héros tant qu'il tient.
     const shielded = R.mode === "fight" && R.shield > 0;
     if (this.hero.el.classList.contains("shielded") !== shielded) { this.hero.el.classList.toggle("shielded", shielded); mark("shield"); }
+    const frozen = R.mode === "fight" && R.frozen > 0;
+    if (this.hero.el.classList.contains("frozen") !== frozen) { this.hero.el.classList.toggle("frozen", frozen); mark("frost"); }
     if (this.pet) {
       const pf = this.pet.frames[0], moving = R.mode === "walk";
       this.pet.show(Math.floor(R.time * (moving ? 5 : 2)) % 2);

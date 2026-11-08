@@ -11,8 +11,10 @@ export const BOSS_MECHANICS = {
   regen:  { name: "Régénération", desc: "Récupère 2 % de ses PV par seconde, sauf s’il brûle ou est empoisonné." },
   mirror: { name: "Miroir", desc: "Toutes les 8 s, s’entoure d’un miroir pendant 2 s : renvoie 40 % des dégâts reçus (sans pouvoir achever le héros)." },
   drain:  { name: "Vampirisme", desc: "Récupère 40 % des dégâts qu’il inflige." },
+  frost:  { name: "Souffle glacé", desc: "Toutes les 7 s, gèle le héros : ses attaques ralentissent de 40 % pendant 3 s." },
+  evasive: { name: "Insaisissable", desc: "Esquive 20 % des coups du héros (les coups au clic touchent toujours)." },
 };
-const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain"];
+const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive"];
 
 /** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */
 export const BOSS_NAMES = [

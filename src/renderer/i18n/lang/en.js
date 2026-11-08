@@ -290,4 +290,10 @@ export default {
   1414: "Forge (+1 to +10) and reforge items.",
   1415: "Permanent shop upgrades (attack, HP, gold, speed).",
   1416: "Eggs drop from bosses and elites. Unlock the Menagerie to hatch them: a pet follows your hero and makes them stronger.",
+  1417: "Frost Breath",
+  1418: "Every 7 s, freezes the hero: their attacks slow down by 40% for 3 s.",
+  1419: "Elusive",
+  1420: "Dodges 20% of the hero's hits (click strikes always land).",
+  1421: "Frozen!",
+  1422: "Miss!",
 };
