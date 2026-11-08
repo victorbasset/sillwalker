@@ -59,9 +59,16 @@ body.mode-mini #root { display: none; }
 .crown { position: absolute; top: -9px; width: 18px; height: 9px;
   background: linear-gradient(#ffcc33, #ffcc33) 0 6px / 18px 3px no-repeat, linear-gradient(#ffcc33, #ffcc33) 0 0 / 3px 6px no-repeat,
               linear-gradient(#ffcc33, #ffcc33) 7.5px 0 / 3px 6px no-repeat, linear-gradient(#ffcc33, #ffcc33) 15px 0 / 3px 6px no-repeat; }
-.slash { position: absolute; left: 0; top: 0; width: 12px; height: 24px; opacity: 0;
-  background: linear-gradient(#fff, #fff) 0 0 / 3px 6px no-repeat, linear-gradient(#fff, #fff) 3px 6px / 3px 6px no-repeat,
-              linear-gradient(#fff, #fff) 6px 12px / 3px 6px no-repeat, linear-gradient(#fff, #fff) 9px 18px / 3px 6px no-repeat; }
+.slash { --c: #fff; position: absolute; left: 0; top: 0; width: 12px; height: 24px; opacity: 0; transform-origin: 50% 100%;
+  background: linear-gradient(var(--c), var(--c)) 0 0 / 3px 6px no-repeat, linear-gradient(var(--c), var(--c)) 3px 6px / 3px 6px no-repeat,
+              linear-gradient(var(--c), var(--c)) 6px 12px / 3px 6px no-repeat, linear-gradient(var(--c), var(--c)) 9px 18px / 3px 6px no-repeat; }
+/* Paliers d'attaque : de plus en plus grand, lame croisée, lueur */
+.slash.t0 { --c: #fff; }
+/* (la taille est appliquée dans la transformation, en JS : un « scale » CSS déplacerait la lame) */
+.slash.t2 { filter: drop-shadow(0 0 3px var(--c)); }
+.slash.t3 { filter: drop-shadow(0 0 3px var(--c)) drop-shadow(0 0 8px var(--c)); }
+.slash.t4 { filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 18px var(--c)); }
+.slash.t2::after, .slash.t3::after, .slash.t4::after { content: ""; position: absolute; inset: 0; background: inherit; transform: scaleX(-1); }
 .slash.on { opacity: 1; }
 .float { position: absolute; font: 400 13px var(--font-text); white-space: nowrap;
   -webkit-text-stroke: 3px #14121f; paint-order: stroke fill; translate: -50% 0; will-change: transform, opacity; }
@@ -569,3 +576,13 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 /* Feux follets des cœurs, autour du héros */
 .wisp { position: absolute; left: 0; top: 0; width: 6px; height: 6px; background: var(--c); box-shadow: 0 0 6px 2px var(--c); pointer-events: none; }
 .actor.cored { filter: drop-shadow(0 0 2px var(--aura)) drop-shadow(0 0 4px var(--aura)); }
+
+/* Projectiles selon le palier d'attaque */
+.proj.t1 { filter: drop-shadow(0 0 3px var(--c)); }
+.proj.t2 { filter: drop-shadow(0 0 4px var(--c)) drop-shadow(0 0 2px #fff); }
+.proj.t3 { filter: drop-shadow(0 0 4px var(--c)) drop-shadow(0 0 8px var(--c)) drop-shadow(0 0 2px #fff); }
+.proj.t4 { filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 18px var(--c)); }
+.tierbox { margin-bottom: 10px; }
+.tiers { display: flex; gap: 6px; margin: 4px 0; }
+.tierpip { width: 26px; height: 26px; display: grid; place-items: center; border: 2px solid var(--line); border-radius: 3px; color: var(--muted); }
+.tierpip.on { border-color: #ffd34d; color: #14121f; background: #ffd34d; }

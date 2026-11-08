@@ -1,6 +1,6 @@
 // Onglet Classe : les héros libérés et ceux encore prisonniers. On change de
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
-import { CLASSES, CLASS_KEYS, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.js";
+import { CLASSES, CLASS_KEYS, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
 import { esc } from "../../game/format.js";
@@ -49,7 +49,12 @@ export class ClassesTab {
         <div class="row">${action}</div>
       </article>`;
     }).join("");
-    el.innerHTML = `<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> héros libérés. On change de classe en faisant une <b>ascension</b> :
+    const tier = attackTier(S), nextT = ATTACK_TIERS[tier + 1];
+    const style = `<article class="panel tierbox"><h2>Style de combat <small>palier ${tier + 1} / ${ATTACK_TIERS.length} · ${esc(ATTACK_TIERS[tier].name)}</small></h2>
+      <div class="tiers">${ATTACK_TIERS.map((t, i) => `<span class="tierpip${i <= tier ? " on" : ""}" title="${esc(t.name)} : niveau ${t.lvl}${t.asc ? ` et ${t.asc} ascension${t.asc > 1 ? "s" : ""}` : ""}">${i + 1}</span>`).join("")}</div>
+      <p class="note tight">Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).
+      ${nextT ? `Prochain palier : <b>${esc(nextT.name)}</b>, niveau ${nextT.lvl}${nextT.asc ? ` et ${nextT.asc} ascension${nextT.asc > 1 ? "s" : ""}` : ""}.` : "Palier maximal atteint !"}</p></article>`;
+    el.innerHTML = `${style}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> héros libérés. On change de classe en faisant une <b>ascension</b> :
       choisis ici la classe de ta prochaine aventure${S.nextCls ? ` (actuellement : <b>${esc(CLASSES[S.nextCls].name)}</b>)` : ""}. Les autres héros sont prisonniers d’un boss de zone.</p>
       <div class="classgrid">${cards}</div>`;
   }

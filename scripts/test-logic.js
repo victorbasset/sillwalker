@@ -810,4 +810,14 @@ test("compétences : un pétale complet allume son cœur", async () => {
   assert.ok(skillTreeEffects(g.S).bossDmg >= SECTOR_CORES.force.eff.bossDmg);
 });
 
+test("style de combat : 5 paliers, de plus en plus durs", async () => {
+  const { attackTier, ATTACK_TIERS } = await import("../src/renderer/game/classes.js");
+  assert.equal(ATTACK_TIERS.length, 5);
+  const S = freshState();
+  assert.equal(attackTier(S), 0);
+  S.lvl = 60; assert.equal(attackTier(S), 2);
+  S.lvl = 120; assert.equal(attackTier(S), 2, "sans ascension, pas au-delà du 3e palier");
+  S.prestige.count = 3; assert.equal(attackTier(S), 4);
+});
+
 console.log(`\n${pass} tests réussis`);

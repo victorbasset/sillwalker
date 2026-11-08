@@ -124,5 +124,25 @@ export const CLASS_KEYS = Object.keys(CLASSES);
  * classe uniquement en faisant une ascension.
  */
 export const CLASS_UNLOCK_ZONE = { ranger: 10, necro: 15, mage: 20, berserker: 26, paladin: 32, assassin: 38, monk: 44, samurai: 50, druid: 58 };
+/**
+ * Style de combat : 5 paliers d'animation d'attaque, de plus en plus
+ * impressionnants et de plus en plus durs à atteindre (niveau + ascensions).
+ */
+export const ATTACK_TIERS = [
+  { name: "Novice", lvl: 1, asc: 0 },
+  { name: "Aguerri", lvl: 25, asc: 0 },
+  { name: "Maître", lvl: 50, asc: 0 },
+  { name: "Grand maître", lvl: 75, asc: 1 },
+  { name: "Légendaire", lvl: 100, asc: 3 },
+];
+export function attackTier(S) {
+  const asc = (S.prestige && S.prestige.count) || 0;
+  let t = 0;
+  ATTACK_TIERS.forEach((x, i) => { if (S.lvl >= x.lvl && asc >= x.asc) t = i; });
+  return t;
+}
+/** Couleur des effets d'attaque de chaque classe. */
+export const CLASS_FX = { warrior: "#dfe7ef", ranger: "#9fe0a8", mage: "#ffb733", paladin: "#ffe27a", assassin: "#ff4a6a", necro: "#7dff9a", monk: "#ff9a3a", druid: "#8fd86a", samurai: "#9fd8ff", berserker: "#ff5a3a" };
+
 export const isClassUnlocked = (S, cls) => cls === "warrior" || (S.classesUnlocked || []).includes(cls);
 export const classDef = (id) => CLASSES[id] || CLASSES.warrior;

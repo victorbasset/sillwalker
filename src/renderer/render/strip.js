@@ -7,6 +7,7 @@
 // Le décor est fixe (une seule toile, redessinée au changement de zone) et
 // les personnages sont des éléments DOM déplacés par transform : voir dom.js.
 // Ce module lit l'état de la simulation sans jamais le modifier.
+import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet } from "./sprites.js";
@@ -65,8 +66,17 @@ export class StripRenderer {
     const g = this.game;
     g.on("heroAttack", ({ dmg, crit, mon, extra, first, iai }) => {
       this.lunge = 0.15; this.monHit = 0.12;
-      const proj = this.game.classDef().projectile;
-      if (proj) this.projectile(proj, this.heroX + 30, this.monX() + 6, mon.boss ? 40 : 66);
+      const S = this.game.S, tier = attackTier(S), color = CLASS_FX[S.cls] || "#ffffff";
+      const proj = this.game.classDef().projectile, py = mon.boss ? 40 : 66;
+      if (proj) {
+        this.projectile(proj, this.heroX + 30, this.monX() + 6, py, tier, color);
+        if (tier >= 3 && !extra) { this.projectile(proj, this.heroX + 30, this.monX() + 6, py - 12, tier, color); this.projectile(proj, this.heroX + 30, this.monX() + 6, py + 9, tier, color); }
+      }
+      // Impact : étincelles à partir du palier 3, onde de choc au palier 5.
+      if (this.active && this.juice.full && tier >= 2) {
+        this.juice.sparkles(this.monX() + 12, py - 4, color, 3 + tier * 2);
+        if (tier >= 4 && (crit || iai)) { this.juice.flash(color, 0.12); this.shake(0.12); }
+      }
       const label = (iai ? "Iai ! " : first ? "Ouverture " : crit ? "Crit " : "") + Math.round(dmg);
       this.float(this.monX() + 14 + (extra ? 12 : 0), (mon.boss ? 20 : 46) - (extra ? 10 : 0), label, crit || first ? "#ffe27a" : "#ffffff", crit || first, true);
     });
@@ -121,9 +131,10 @@ export class StripRenderer {
   }
 
   /** Flèche ou boule de feu, du héros jusqu'au monstre. */
-  projectile(kind, x0, x1, y) {
+  projectile(kind, x0, x1, y, tier = 0, color = "#fff") {
     if (!this.active) return;
-    const f = el("div", "proj " + kind, this.fxLayer);
+    const f = el("div", "proj " + kind + " t" + tier, this.fxLayer);
+    f.style.setProperty("--c", color);
     this.addFx(f, x0, y, 0.16, 0, x1 - x0, true);
   }
 
@@ -437,9 +448,23 @@ export class StripRenderer {
     const slashOn = melee && R.mode === "fight" && this.lunge > 0.07 && R.mon;
     if (slashOn) {
       const sx = q(this.monX() + 4);
-      if (sx !== this.slashX) { this.slashX = sx; this.slash.style.transform = `translate3d(${sx}px,${q(GROUND - 36)}px,0)`; }
+      if (sx !== this.slashX || this.slashScaleK !== this.slashTier) {
+        this.slashX = sx; this.slashScaleK = this.slashTier;
+        const k = [1, 1.35, 1.7, 2.1, 2.7][attackTier(S)] || 1;
+        this.slash.style.transform = `translate3d(${sx}px,${q(GROUND - 36)}px,0) scale(${k})`;
+      }
     }
     if (this.slash.classList.contains("on") !== !!slashOn) { this.slash.classList.toggle("on", !!slashOn); mark("slash"); }
+    // Style de la lame selon le palier d'attaque (taille, couleur, lame croisée, lueur).
+    const tierKey = S.cls + ":" + attackTier(S);
+    if (tierKey !== this.slashTier) {
+      const t = attackTier(S);
+      if (this.slashTier && +this.slashTier.split(":")[1] < t && this.slashTier.split(":")[0] === S.cls)
+        this.juice.banner(`Style de combat : ${ATTACK_TIERS[t].name} !`, CLASS_FX[S.cls] || "#fff", this.heroX + 80, true);
+      this.slashTier = tierKey;
+      this.slash.className = "slash t" + t + (slashOn ? " on" : "");
+      this.slash.style.setProperty("--c", CLASS_FX[S.cls] || "#fff");
+    }
 
     // Fondu (changement de zone, retour au départ)
     if (this.fadeT > 0) this.fadeT = Math.max(0, this.fadeT - dt);
