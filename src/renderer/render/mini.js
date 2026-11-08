@@ -1,5 +1,6 @@
 // Mode mini : petit encart près de l'horloge. Le héros à gauche, le monstre
 // qui approche puis se bat, et à droite niveau / or / zone.
+import { t as tx } from "../i18n/index.js";
 import { PIXEL as P } from "./art.js";
 import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
@@ -18,7 +19,7 @@ export class MiniRenderer {
     this.lunge = 0; this.flash = 0; this.monHit = 0;
     this.lastDraw = 0; this.sceneKey = ""; this.infoKey = "";
     this.scene = el("div", "mini-scene", container);
-    this.base = makeCanvas(this.scene, "layer base", false);
+    this.base = makeCanvas(this.scene, tx("layer base"), false);
     this.stage = el("div", "stage", this.scene);
     this.info = el("div", "mini-info", container);
     this.lvl = el("div", "mini-lvl", this.info);
@@ -42,7 +43,7 @@ export class MiniRenderer {
       this.stage.replaceChildren();
       this.hero = null; this.heroCls = null;
       this.heroBar = new Bar(this.stage, "#6fd17f");
-      this.heroBar.el.style.transform = `translate3d(${HERO_X + 3}px,4px,0)`;
+      this.heroBar.el.style.transform = `${tx("translate3d({0}px,4px,0)", { 0: HERO_X + 3 })}`;
       this.monActor = null; this.monRef = null;
     }
     sizeCanvas(this.base, SCENE_W, MINI_H, dpr);
@@ -93,7 +94,7 @@ export class MiniRenderer {
       if (alive) {
         a.bar.set(m.hp / m.max);
         const bx = a.x + Math.round(a.w / 2 - 19);
-        if (bx !== a.barX) { a.barX = bx; a.bar.el.style.transform = `translate3d(${bx}px,4px,0)`; }
+        if (bx !== a.barX) { a.barX = bx; a.bar.el.style.transform = `${tx("translate3d({0}px,4px,0)", { 0: bx })}`; }
       }
     }
 
@@ -121,7 +122,7 @@ export class MiniRenderer {
     if (star !== !!this.starBtn) {
       if (star) {
         this.starBtn = el("button", "ministar", this.root);
-        this.starBtn.title = "Attrape l’étoile filante !";
+        this.starBtn.title = tx("Attrape l’étoile filante !");
         this.starBtn.innerHTML = "<i></i>";
         this.starBtn.addEventListener("click", (e) => { e.stopPropagation(); game.catchStar(); });
       } else { this.starBtn.remove(); this.starBtn = null; }
@@ -136,9 +137,9 @@ export class MiniRenderer {
     const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills;
     if (info !== this.infoKey) {
       this.infoKey = info; mark("hud");
-      this.lvl.textContent = "Niv. " + S.lvl;
+      this.lvl.textContent = tx("Niv. ") + S.lvl;
       this.gold.textContent = fmt(S.gold);
-      this.zone.textContent = "Zone " + S.zone + " · " + Math.min(S.kills, 10) + "/10";
+      this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
     }
   }
 }

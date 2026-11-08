@@ -1,4 +1,5 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
+import { t as tx } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { ACHIEVEMENTS, reachedAchievements } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
@@ -27,51 +28,51 @@ export class StatsTab {
     const reached = new Set(reachedAchievements(S));
     const ach = ACHIEVEMENTS.map((a) => `<li class="ach${reached.has(a.id) ? " on" : ""}"><span class="aico">${reached.has(a.id) ? "★" : "☆"}</span>${esc(a.name)}</li>`).join("");
     el.innerHTML = `<div class="statgrid">
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">Records</span></h2><ul class="lines">
-        ${line("Plus gros coup", fmt(st.maxHit || 0))}
-        ${line("Meilleure zone (toutes courses)", Math.max(S.best, P.bestRun || 0))}
-        ${line("Boss le plus lointain vaincu", st.biggestBoss ? "zone " + st.biggestBoss : "—")}
-        ${line("Vitesse permanente", "+" + (S.speed || 0) + " %")}
-        ${line("Ascensions", P.count)}
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
+        ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}
+        ${line(tx("Meilleure zone (toutes courses)"), Math.max(S.best, P.bestRun || 0))}
+        ${line(tx("Boss le plus lointain vaincu"), st.biggestBoss ? "zone " + st.biggestBoss : "—")}
+        ${line(tx("Vitesse permanente"), "+" + (S.speed || 0) + " %")}
+        ${line(tx("Ascensions"), P.count)}
       </ul></article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">Aventure</span></h2><ul class="lines">
-        ${line("Temps de jeu", dur(st.playTime))}
-        ${line("Temps hors ligne compté", dur(st.offlineTime))}
-        ${line("Monstres vaincus", fmt(st.kills))}
-        ${line("Boss vaincus", fmt(st.bosses))}
-        ${line("Élites vaincus", fmt(st.elites || 0))}
-        ${line("Champions vaincus", fmt(st.champions || 0))}
-        ${line("Gobelins dorés attrapés", fmt(st.goblins || 0))}
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Aventure")}</span></h2><ul class="lines">
+        ${line(tx("Temps de jeu"), dur(st.playTime))}
+        ${line(tx("Temps hors ligne compté"), dur(st.offlineTime))}
+        ${line(tx("Monstres vaincus"), fmt(st.kills))}
+        ${line(tx("Boss vaincus"), fmt(st.bosses))}
+        ${line(tx("Élites vaincus"), fmt(st.elites || 0))}
+        ${line(tx("Champions vaincus"), fmt(st.champions || 0))}
+        ${line(tx("Gobelins dorés attrapés"), fmt(st.goblins || 0))}
         ${line("K.O.", fmt(st.deaths))}
       </ul></article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("ws_gold", 3)}" alt="">Richesse et butin</span></h2><ul class="lines">
-        ${line("Or gagné au total", fmt(st.goldTotal || 0))}
-        ${line("Objets trouvés", fmt(st.items || 0))}
-        ${line("Légendaires trouvés", fmt(st.legendaries || 0))}
-        ${line("Achats en boutique", fmt(st.purchases || 0))}
-        ${line("Potions bues", fmt(st.potionsUsed || 0))}
-        ${line("Quêtes accomplies", fmt(S.quests.completed || 0))}
-        ${line("Collection d’objets", `${codexCounts(S).found} / ${codexCounts(S).total}`)}
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("ws_gold", 3)}" alt="">${tx("Richesse et butin")}</span></h2><ul class="lines">
+        ${line(tx("Or gagné au total"), fmt(st.goldTotal || 0))}
+        ${line(tx("Objets trouvés"), fmt(st.items || 0))}
+        ${line(tx("Légendaires trouvés"), fmt(st.legendaries || 0))}
+        ${line(tx("Achats en boutique"), fmt(st.purchases || 0))}
+        ${line(tx("Potions bues"), fmt(st.potionsUsed || 0))}
+        ${line(tx("Quêtes accomplies"), fmt(S.quests.completed || 0))}
+        ${line(tx("Collection d’objets"), `${codexCounts(S).found} / ${codexCounts(S).total}`)}
       </ul></article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("star", 3)}" alt="">Moments rares</span></h2><ul class="lines">
-        ${line("Plumes du vent", fmt(st.feathers || 0))}
-        ${line("Étoiles filantes attrapées", fmt(st.stars || 0))}
-        ${line("Événements (rafale, pluie d’or, frénésie)", fmt(st.events || 0))}
-        ${line("Coffres au trésor", fmt(st.chests || 0))}
-        ${line("Expéditions de familiers", fmt(st.expeditions || 0))}
-        ${line("Héros libérés", (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("star", 3)}" alt="">${tx("Moments rares")}</span></h2><ul class="lines">
+        ${line(tx("Plumes du vent"), fmt(st.feathers || 0))}
+        ${line(tx("Étoiles filantes attrapées"), fmt(st.stars || 0))}
+        ${line(tx("Événements (rafale, pluie d’or, frénésie)"), fmt(st.events || 0))}
+        ${line(tx("Coffres au trésor"), fmt(st.chests || 0))}
+        ${line(tx("Expéditions de familiers"), fmt(st.expeditions || 0))}
+        ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
       </ul></article>
-      <article class="panel wide"><h2><span class="hicon"><img src="${shopIconURL("luck", 3)}" alt="">Probabilités</span></h2><ul class="lines">
-        ${line("Plume du vent (+1 % de vitesse)", `${pct(FEATHER.normal)} · élite ${pct(FEATHER.elite)} · boss ${pct(FEATHER.boss)}`)}
-        ${line("Étoile filante (+2 % de vitesse)", `toutes les ${STAR.minS / 60}–${STAR.maxS / 60} min`)}
-        ${line("Coffre au trésor", `${pct(CHEST.normal)} · élite ${pct(CHEST.elite)} · boss ${pct(CHEST.boss)}`)}
-        ${Object.values(EVENTS).map((e) => line(e.name, pct(e.chance) + " par victoire")).join("")}
-        ${line("Gobelin doré", pct(GOBLIN.chance) + " par monstre")}
-        ${line("Élite", pct(ELITE.chance) + " par monstre")}
-        ${line("Champion (butin épique)", pct(CHAMPION.chance) + " par monstre")}
-        ${line("Œuf", `boss ${pct(EGG_CHANCE.boss)} · élite ${pct(EGG_CHANCE.elite)}`)}
+      <article class="panel wide"><h2><span class="hicon"><img src="${shopIconURL("luck", 3)}" alt="">${tx("Probabilités")}</span></h2><ul class="lines">
+        ${line(tx("Plume du vent (+1 % de vitesse)"), `${pct(FEATHER.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(FEATHER.elite), 1: pct(FEATHER.boss) })}`)}
+        ${line(tx("Étoile filante (+2 % de vitesse)"), `${tx("toutes les {0}–{1} min", { 0: STAR.minS / 60, 1: STAR.maxS / 60 })}`)}
+        ${line(tx("Coffre au trésor"), `${pct(CHEST.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(CHEST.elite), 1: pct(CHEST.boss) })}`)}
+        ${Object.values(EVENTS).map((e) => line(e.name, pct(e.chance) + tx(" par victoire"))).join("")}
+        ${line(tx("Gobelin doré"), pct(GOBLIN.chance) + tx(" par monstre"))}
+        ${line(tx("Élite"), pct(ELITE.chance) + tx(" par monstre"))}
+        ${line(tx("Champion (butin épique)"), pct(CHAMPION.chance) + tx(" par monstre"))}
+        ${line(tx("Œuf"), `${tx("boss {0} · élite {1}", { 0: pct(EGG_CHANCE.boss), 1: pct(EGG_CHANCE.elite) })}`)}
       </ul></article>
-      <article class="panel achievements"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">Succès</span> <small>${reached.size} / ${ACHIEVEMENTS.length}</small></h2><ul class="achlist">${ach}</ul></article>
+      <article class="panel achievements"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Succès")}</span> <small>${reached.size} / ${ACHIEVEMENTS.length}</small></h2><ul class="achlist">${ach}</ul></article>
     </div>`;
   }
 

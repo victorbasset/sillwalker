@@ -1,5 +1,6 @@
 // Onglet Réglages : préférences du jeu (sauvegardées avec la partie) et de la
 // fenêtre (position, opacité, démarrage : réglées par le processus principal).
+import { t as tx } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { esc } from "../../game/format.js";
 
@@ -22,39 +23,39 @@ export class SettingsTab {
     const P = this.game.S.settings, L = this.getLayout ? this.getLayout() : {};
     const check = (key, label, help) => `<label class="toggle"><input type="checkbox" data-action="se-toggle" data-key="${key}"${P[key] ? " checked" : ""}> ${esc(label)}</label>${help ? `<p class="note tight">${esc(help)}</p>` : ""}`;
     el.innerHTML = `<div class="setgrid">
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">Son</span></h2>
-        ${check("sound", "Effets sonores", "Coups, pièces, butin, montée de niveau… Coupés par défaut.")}
-        <label class="range">Volume <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound ? "" : " disabled"}> <span>${Math.round(P.volume * 100)} %</span></label>
-        <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>Écouter</button></div>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">${tx("Son")}</span></h2>
+        ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Coupés par défaut."))}
+        <label class="range">${tx("Volume")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound ? "" : " disabled"}> <span>${Math.round(P.volume * 100)} %</span></label>
+        <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button></div>
       </article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">Affichage</span></h2>
-        ${check("dayNight", "Cycle jour / nuit", "La bande suit l’heure de ton ordinateur.")}
-        ${check("damageNumbers", "Nombres de dégâts")}
-        ${check("fullEffects", "Effets complets", "Pièces, faisceaux de butin, flashs. Décoche pour une bande plus sobre.")}
-        ${check("weather", "Météo des zones", "Neige, braises, feuilles, bulles… (un peu plus de calcul).")}
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">${tx("Affichage")}</span></h2>
+        ${check("dayNight", tx("Cycle jour / nuit"), tx("La bande suit l’heure de ton ordinateur."))}
+        ${check("damageNumbers", tx("Nombres de dégâts"))}
+        ${check("fullEffects", tx("Effets complets"), tx("Pièces, faisceaux de butin, flashs. Décoche pour une bande plus sobre."))}
+        ${check("weather", tx("Météo des zones"), tx("Neige, braises, feuilles, bulles… (un peu plus de calcul)."))}
       </article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">Fenêtre</span></h2>
-        <p class="note tight">Position de la bande</p>
-        <div class="row seg">${["bottom", "top"].map((e) => `<button data-action="se-edge" data-v="${e}" aria-pressed="${(L.edge || "bottom") === e}">${e === "bottom" ? "En bas" : "En haut"}</button>`).join("")}</div>
-        <p class="note tight">Opacité</p>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Fenêtre")}</span></h2>
+        <p class="note tight">${tx("Position de la bande")}</p>
+        <div class="row seg">${["bottom", "top"].map((e) => `<button data-action="se-edge" data-v="${e}" aria-pressed="${(L.edge || "bottom") === e}">${e === "bottom" ? tx("En bas") : tx("En haut")}</button>`).join("")}</div>
+        <p class="note tight">${tx("Opacité")}</p>
         <div class="row seg">${OPACITIES.map((o) => `<button data-action="se-opacity" data-v="${o}" aria-pressed="${Math.abs((L.opacity ?? 1) - o) < 0.01}">${Math.round(o * 100)} %</button>`).join("")}</div>
-        <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> Lancer au démarrage de Windows</label>
-        <p class="note">Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.</p>
+        <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${tx("Lancer au démarrage de Windows")}</label>
+        <p class="note">${tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
       </article>
-      <article class="panel danger-zone"><h2><span class="hicon"><img src="${shopIconURL("skull", 3)}" alt="">Zone de danger</span></h2>
-        <p class="note tight">Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.</p>
-        <div class="row"><button data-action="reset" class="quiet">Effacer la partie et recommencer</button></div>
+      <article class="panel danger-zone"><h2><span class="hicon"><img src="${shopIconURL("skull", 3)}" alt="">${tx("Zone de danger")}</span></h2>
+        <p class="note tight">${tx("Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.")}</p>
+        <div class="row"><button data-action="reset" class="quiet">${tx("Effacer la partie et recommencer")}</button></div>
       </article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">Raccourcis clavier</span></h2>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Raccourcis clavier")}</span></h2>
         <ul class="lines">
-          <li><span>Changer d’onglet</span><b>1 … 9, 0, -</b></li>
-          <li><span>Équiper le meilleur</span><b>E</b></li>
-          <li><span>Vendre ce qui n’améliore pas</span><b>V</b></li>
-          <li><span>Transmuter les objets inutiles</span><b>T</b></li>
-          <li><span>Confirmer une fenêtre</span><b>Entrée</b></li>
-          <li><span>Fermer le panneau</span><b>Échap</b></li>
+          <li><span>${tx("Changer d’onglet")}</span><b>1 … 9, 0, -</b></li>
+          <li><span>${tx("Équiper le meilleur")}</span><b>E</b></li>
+          <li><span>${tx("Vendre ce qui n’améliore pas")}</span><b>V</b></li>
+          <li><span>${tx("Transmuter les objets inutiles")}</span><b>T</b></li>
+          <li><span>${tx("Confirmer une fenêtre")}</span><b>${tx("Entrée")}</b></li>
+          <li><span>${tx("Fermer le panneau")}</span><b>${tx("Échap")}</b></li>
         </ul>
-        <p class="note">Actifs quand le panneau est ouvert et que tu as cliqué dedans.</p>
+        <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>
       </article>
     </div>`;
   }

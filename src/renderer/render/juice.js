@@ -5,6 +5,7 @@
 //
 // Tout est animé par la boucle à 30 FPS (aucune animation CSS, qui tournerait
 // à la fréquence de l'écran) et n'existe que le temps de l'effet.
+import { t as tx } from "../i18n/index.js";
 import { CLASSES } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
@@ -62,28 +63,28 @@ export class Juice {
     const g = this.s.game;
     g.on("kill", ({ mon }) => {
       const n = mon.goblin ? 34 : mon.boss ? 28 : mon.champion ? 30 : mon.elite ? 12 : 2;
-      if (mon.champion) { this.banner("Champion vaincu !", "#c08cff", this.s.monX(), true); this.flash("#c08cff", 0.25); }
+      if (mon.champion) { this.banner(tx("Champion vaincu !"), "#c08cff", this.s.monX(), true); this.flash("#c08cff", 0.25); }
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
     g.on("loot", ({ item, mon, chest }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10));
-    g.on("levelUp", ({ lvl }) => { this.banner(`Niveau ${lvl} !`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
-    g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`Nouveau record : zone ${zone} !`, "#9fe0a8", this.s.heroX + 120); });
+    g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
+    g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120); });
     g.on("event", ({ id }) => { const ev = EVENTS[id]; this.banner(`${ev.name} ! ${ev.text}`, ev.color, this.s.heroX + 60, true); this.flash(ev.color, 0.2); });
     g.on("classUnlock", ({ cls }) => {
-      this.banner(`Héros libéré : ${CLASSES[cls].name} !`, "#9fe0a8", this.s.heroX + 80, true);
+      this.banner(`${tx("Héros libéré : {0} !", { 0: CLASSES[cls].name })}`, "#9fe0a8", this.s.heroX + 80, true);
       this.sparkles(this.s.heroX + 18, this.ground() - 40, "#9fe0a8", 16);
       this.flash("#9fe0a8", 0.25);
     });
     g.on("feather", ({ gain, source, speed }) => {
-      this.banner(`${source} : +${gain} % de vitesse pour toujours ! (+${speed} %)`, "#9fd8ff", this.s.heroX + 60, true);
+      this.banner(`${source} ${tx(": +{0} % de vitesse pour toujours ! (+{1} %)", { 0: gain, 1: speed })}`, "#9fd8ff", this.s.heroX + 60, true);
       this.sparkles(this.s.heroX + 18, this.ground() - 50, "#9fd8ff", 14);
       this.flash("#9fd8ff", 0.25);
     });
     g.on("star", () => this.spawnStar());
     g.on("spawn", (m) => {
       if (!m.boss) return;
-      this.banner(`⚔ ${m.name || "Boss"} approche !`, "#ff7a6b", this.s.monX() - 120, true);
+      this.banner(`${tx("⚔ {0} approche !", { 0: m.name || tx("Boss") })}`, "#ff7a6b", this.s.monX() - 120, true);
       if (this.full) this.flash("#ff4a4a", 0.15);
     });
     g.on("starMissed", () => this.removeStar());
@@ -93,7 +94,7 @@ export class Juice {
       this.removeStar();
       this.sparkles(p.x, p.y, "#fff6c8", 18);
       this.coins(p.x, p.y, 30, true);
-      this.banner(`Étoile filante attrapée ! +${fmt(gold)} or`, "#fff6c8", p.x, true);
+      this.banner(`${tx("Étoile filante attrapée ! +{0} or", { 0: fmt(gold) })}`, "#fff6c8", p.x, true);
     });
   }
 
@@ -107,7 +108,7 @@ export class Juice {
   }
 
   place(node, x, y, extra = "") {
-    const t = `translate3d(${q(x)}px,${q(y)}px,0)${extra}`;
+    const t = `${tx("translate3d({0}px,{1}px,0){2}", { 0: q(x), 1: q(y), 2: extra })}`;
     if (node._t !== t) { node._t = t; node.style.transform = t; mark("juice"); }
   }
 
@@ -144,7 +145,7 @@ export class Juice {
       this.place(beam, x - 4, 0);
       this.add(beam, (p) => { const o = Math.round((1 - p.t / 2.2) * 10) / 10; if (beam._o !== o) { beam._o = o; beam.style.opacity = Math.max(0, o); } return p.t < 2.2; });
     }
-    const img = el("img", "itemfx rb" + r, this.layer);
+    const img = el("img", tx("itemfx rb") + r, this.layer);
     img.src = itemIconURL(item);
     const st = { vx: 30 + Math.random() * 30, vy: -170, x, y: y0 };
     this.add(img, (p, dt) => {
@@ -155,14 +156,14 @@ export class Juice {
       }
       if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
       const k = Math.min(1, (p.t - st.ht) / 0.6), tg = this.bagTarget();
-      this.place(img, st.hx + (tg.x - st.hx) * easeIn(k), st.hy + (tg.y - st.hy) * easeIn(k), ` scale(${(1 - k * 0.6).toFixed(2)})`);
+      this.place(img, st.hx + (tg.x - st.hx) * easeIn(k), st.hy + (tg.y - st.hy) * easeIn(k), ` ${tx("scale({0})", { 0: (1 - k * 0.6).toFixed(2) })}`);
       return k < 1;
     });
     if (r === LEGENDARY) {
       this.flash("#ffb733", 0.45);
-      this.banner(`★ LÉGENDAIRE ! ${item.name}`, color, x, true);
+      this.banner(`${tx("★ LÉGENDAIRE ! {0}", { 0: item.name })}`, color, x, true);
       this.sparkles(x + 8, y0 - 20, color, 20);
-    } else if (r === 3) this.banner(`Épique : ${item.name}`, color, x);
+    } else if (r === 3) this.banner(`${tx("Épique : {0}", { 0: item.name })}`, color, x);
   }
 
   /** Bannière qui surgit au-dessus de la scène. */
@@ -186,7 +187,7 @@ export class Juice {
     this.add(node, (p) => {
       p.slot = slot;
       const k = p.t / life, pop = p.t < 0.18 ? 0.6 + (p.t / 0.18) * 0.5 : p.t < 0.3 ? 1.1 - (p.t - 0.18) : 1;
-      this.place(node, cx, 28 + slot * 24 - easeOut(Math.min(1, k)) * 6, ` translate(-50%,0) scale(${pop.toFixed(2)})`);
+      this.place(node, cx, 28 + slot * 24 - easeOut(Math.min(1, k)) * 6, ` ${tx("translate(-50%,0) scale({0})", { 0: pop.toFixed(2) })}`);
       const o = k > 0.8 ? Math.round((1 - (k - 0.8) / 0.2) * 8) / 8 : 1;
       if (node._o !== o) { node._o = o; node.style.opacity = o; }
       return k < 1;
@@ -241,7 +242,7 @@ export class Juice {
   chest(gold) {
     if (!this.active) return;
     const x = this.s.heroX + 46, y = this.ground() - 18, node = el("div", "chest", this.layer);
-    node.innerHTML = "<i class=\"lid\"></i><i class=\"box\"></i>";
+    node.innerHTML = tx("<i class=\"lid\"></i><i class=\"box\"></i>");
     let opened = false;
     this.add(node, (p) => {
       this.place(node, x, y - (p.t < 0.25 ? Math.sin(p.t / 0.25 * Math.PI) * 10 : 0));
@@ -255,16 +256,16 @@ export class Juice {
       node.style.opacity = p.t > 2.6 ? String(Math.max(0, 1 - (p.t - 2.6) / 0.4)) : "";
       return p.t < 3;
     });
-    this.banner(`Coffre au trésor ! +${fmt(gold)} or`, "#ffd34d", x, true);
+    this.banner(`${tx("Coffre au trésor ! +{0} or", { 0: fmt(gold) })}`, "#ffd34d", x, true);
   }
 
   /* ---------- Étoile filante (cliquable) ---------- */
   spawnStar() {
     if (!this.active) return;
     this.removeStar();
-    const node = el("button", "star hit", this.layer);
-    node.title = "Attrape l’étoile filante !";
-    node.setAttribute("aria-label", "Attraper l’étoile filante");
+    const node = el("button", tx("star hit"), this.layer);
+    node.title = tx("Attrape l’étoile filante !");
+    node.setAttribute("aria-label", tx("Attraper l’étoile filante"));
     node.innerHTML = "<i></i>";
     node.addEventListener("click", () => this.s.game.catchStar());
     this.star = node;
@@ -281,7 +282,7 @@ export class Juice {
     if (this.pulse > 0) {
       this.pulse = Math.max(0, this.pulse - dt);
       const sc = (1 + this.pulse * 1.1).toFixed(2);
-      if (this.s.hudR.c._sc !== sc) { this.s.hudR.c._sc = sc; this.s.hudR.c.style.transform = `scale(${sc})`; mark("juice"); }
+      if (this.s.hudR.c._sc !== sc) { this.s.hudR.c._sc = sc; this.s.hudR.c.style.transform = `${tx("scale({0})", { 0: sc })}`; mark("juice"); }
     }
     if (this.star) { const p = this.starPos(); this.place(this.star, p.x, p.y); }
     this.ambient(dt);

@@ -1,5 +1,6 @@
 // Onglet Quêtes : guilde (rang, réputation, bonus permanents) et trois
 // contrats de 1 à 3 étoiles. Option de réclamation automatique.
+import { t as tx } from "../../i18n/index.js";
 import { questText, questDone, questRerollPrice, guildRank, guildRankName, GUILD_BONUS, STARS } from "../../game/quests.js";
 import { CONSUMABLES } from "../../game/shop.js";
 import { RARITIES } from "../../game/data.js";
@@ -20,12 +21,12 @@ function rewardHTML(rw) {
   const out = [];
   const chip = (icon, txt, cls = "") => `<span class="rwd ${cls}"><img src="${icon}" alt="">${esc(txt)}</span>`;
   if (rw.gold) out.push(chip(shopIconURL("ws_gold", 3), `${fmt(rw.gold)} or`));
-  if (rw.chest) out.push(chip(shopIconURL(rw.chest >= 3 ? "chest_royal" : rw.chest >= 2 ? "chest_iron" : "chest_wood", 3), `coffre ${RARITIES[rw.chest].name.toLowerCase()}+`, "rc" + rw.chest));
+  if (rw.chest) out.push(chip(shopIconURL(rw.chest >= 3 ? "chest_royal" : rw.chest >= 2 ? "chest_iron" : "chest_wood", 3), `${tx("coffre {0}+", { 0: RARITIES[rw.chest].name.toLowerCase() })}`, "rc" + rw.chest));
   if (rw.buff) out.push(chip(shopIconURL(rw.buff, 3), CONSUMABLES.find((c) => c.id === rw.buff).name));
   if (rw.potions) out.push(chip(shopIconURL("potion", 3), `${rw.potions} potions`));
-  if (rw.shards) out.push(chip(shopIconURL("luck", 3), `${rw.shards} éclats d’étoile`, "special"));
-  if (rw.egg) out.push(chip(shopIconURL("egg", 3), "œuf de familier", "special"));
-  if (rw.speed) out.push(chip(shopIconURL("ws_speed", 3), `+${rw.speed} % de vitesse pour toujours`, "special"));
+  if (rw.shards) out.push(chip(shopIconURL("luck", 3), `${rw.shards} ${tx("éclats d’étoile")}`, "special"));
+  if (rw.egg) out.push(chip(shopIconURL("egg", 3), tx("œuf de familier"), "special"));
+  if (rw.speed) out.push(chip(shopIconURL("ws_speed", 3), `${tx("+{0} % de vitesse pour toujours", { 0: rw.speed })}`, "special"));
   return out.join("");
 }
 
@@ -40,13 +41,13 @@ export class QuestsTab {
     const bonus = gr.rank ? Object.fromEntries(Object.entries(GUILD_BONUS).map(([k, v]) => [k, v * gr.rank])) : null;
     const guild = `<article class="panel guild">
       <img src="${itemIconURL({ icon: "medal", slot: "amulet", r: Math.min(4, Math.floor(gr.rank / 2)) })}" alt="">
-      <div class="si"><h2>Guilde des aventuriers <small>rang ${gr.rank + 1} · ${esc(guildRankName(gr.rank))}</small></h2>
-        <div class="kv"><span>Réputation (1 à 3 par quête selon les étoiles)</span><span>${gr.into} / ${gr.need}</span></div>
+      <div class="si"><h2>${tx("Guilde des aventuriers")} <small>${tx("rang {0} · {1}", { 0: gr.rank + 1, 1: esc(guildRankName(gr.rank)) })}</small></h2>
+        <div class="kv"><span>${tx("Réputation (1 à 3 par quête selon les étoiles)")}</span><span>${gr.into} / ${gr.need}</span></div>
         <div class="bar"><i style="width:${(100 * gr.into) / gr.need}%"></i></div>
-        <p class="note tight">Bonus permanent (gardé à l’ascension) : <b class="delta-p">${bonus ? esc(describeEffects(bonus)) : "aucun"}</b> · rang suivant : ${esc(describeEffects(GUILD_BONUS))} et un coffre.</p></div>
+        <p class="note tight">${tx("Bonus permanent (gardé à l’ascension) :")} <b class="delta-p">${bonus ? esc(describeEffects(bonus)) : "aucun"}</b> ${tx("· rang suivant : {0} et un coffre.", { 0: esc(describeEffects(GUILD_BONUS)) })}</p></div>
       <div class="gside">
-        <label class="toggle"><input type="checkbox" data-action="q-auto"${S.quests.auto ? " checked" : ""}> Réclamer automatiquement</label>
-        ${g.questsReady() > 1 ? `<button data-action="q-claimall" class="primary">Tout réclamer (${g.questsReady()})</button>` : ""}
+        <label class="toggle"><input type="checkbox" data-action="q-auto"${S.quests.auto ? " checked" : ""}> ${tx("Réclamer automatiquement")}</label>
+        ${g.questsReady() > 1 ? `<button data-action="q-claimall" class="primary">${tx("Tout réclamer ({0})", { 0: g.questsReady() })}</button>` : ""}
       </div>
     </article>`;
     const cards = slots.map((q) => {
@@ -56,16 +57,16 @@ export class QuestsTab {
         <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)()}" alt=""><div>
           <div class="stars">${"★".repeat(stars)}<span>${"★".repeat(3 - stars)}</span></div>
           <h2>${esc(questText(q, fmt))}</h2></div></div>
-        <div class="kv"><span>Progression</span><span>${prog}</span></div>
+        <div class="kv"><span>${tx("Progression")}</span><span>${prog}</span></div>
         <div class="bar"><i style="width:${pct}%"></i></div>
         <div class="rewards">${rewardHTML(q.reward)}</div>
         <div class="row">${done
-          ? `<button data-action="q-claim" data-id="${q.uid}" class="primary">Réclamer · +${stars} réputation</button>`
-          : `<button data-action="q-reroll" data-id="${q.uid}" class="quiet"${S.gold < reroll ? " disabled" : ""}>Changer (${fmt(reroll)} or)</button>`}</div>
+          ? `<button data-action="q-claim" data-id="${q.uid}" class="primary">${tx("Réclamer · +{0} réputation", { 0: stars })}</button>`
+          : `<button data-action="q-reroll" data-id="${q.uid}" class="quiet"${S.gold < reroll ? " disabled" : ""}>${tx("Changer ({0} or)", { 0: fmt(reroll) })}</button>`}</div>
       </article>`;
     }).join("");
     el.innerHTML = `${guild}<div class="questgrid">${cards}</div>
-      <p class="note">Les quêtes avancent toutes seules, même hors ligne pour les victoires et l’or. ${S.quests.completed} quête${S.quests.completed > 1 ? "s" : ""} accomplie${S.quests.completed > 1 ? "s" : ""} au total. ${STARS[3].w} % des quêtes ont 3 étoiles et une récompense rare.</p>`;
+      <p class="note">${tx("Les quêtes avancent toutes seules, même hors ligne pour les victoires et l’or. {0} quête{1} accomplie{2} au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 0: S.quests.completed, 1: S.quests.completed > 1 ? "s" : "", 2: S.quests.completed > 1 ? "s" : "", 3: STARS[3].w })}</p>`;
   }
 
   onAction(a, b) {

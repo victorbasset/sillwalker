@@ -1,4 +1,5 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
+import { t as tx } from "../../i18n/index.js";
 import { CLASSES } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
@@ -19,30 +20,28 @@ export class AscensionTab {
     const g = this.game, S = g.S, P = S.prestige, can = g.canAscend(), gain = g.ascendShards();
     const nextZone = Math.max(ASCEND_MIN_ZONE, S.best + 1);
     const intro = `<article class="panel ascend">
-      <h2>Ascension <small>${P.count} ascension${P.count > 1 ? "s" : ""}</small></h2>
-      <p class="shards">✦ <b>${P.shards}</b> éclat${P.shards > 1 ? "s" : ""} d’étoile <span class="note">(${P.total} gagnés au total)</span></p>
-      <p><b>Lueur stellaire</b> : chaque éclat gagné, même dépensé, donne pour toujours ${esc(describeEffects(GLOW_PER_SHARD))}.
-      ${P.total ? `Actuellement : <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : ""}
-      ${P.bestRun ? `<br><span class="note">Meilleure course : zone ${P.bestRun}.</span>` : ""}</p>
-      <p class="tight">Ton héros recommence au <b>niveau 1</b>, en zone 1.</p>
+      <h2>${tx("Ascension")} <small>${P.count} ascension${P.count > 1 ? "s" : ""}</small></h2>
+      <p class="shards">✦ <b>${P.shards}</b> ${tx("éclat{0} d’étoile", { 0: P.shards > 1 ? "s" : "" })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
+      <p><b>${tx("Lueur stellaire")}</b> ${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: P.bestRun })}</span>` : "" })}</p>
+      <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone 1.")}</p>
       <div class="keeplose">
-        <div><b class="delta-p">Gardé</b><ul><li>constellations, lueur</li><li>familiers, bestiaire</li><li>collection, pouvoirs</li><li>vitesse permanente</li><li>compétences, héros libérés</li><li>taille du sac</li></ul></div>
-        <div><b class="delta-n">Perdu</b><ul><li>niveau et or</li><li>équipement et sac</li><li>talents</li><li>quêtes en cours</li></ul></div>
+        <div><b class="delta-p">${tx("Gardé")}</b><ul><li>${tx("constellations, lueur")}</li><li>${tx("familiers, bestiaire")}</li><li>${tx("collection, pouvoirs")}</li><li>${tx("vitesse permanente")}</li><li>${tx("compétences, héros libérés")}</li><li>${tx("taille du sac")}</li></ul></div>
+        <div><b class="delta-n">${tx("Perdu")}</b><ul><li>${tx("niveau et or")}</li><li>${tx("équipement et sac")}</li><li>talents</li><li>${tx("quêtes en cours")}</li></ul></div>
       </div>
-      <p>Classe de la prochaine aventure : <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
-        <button class="linkbtn inline" data-tab="class">changer →</button></p>
+      <p>${tx("Classe de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
+        <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button></p>
       ${can
-        ? `<p>Ascension maintenant : <b class="gold">+${gain} éclats</b> (record zone ${S.best}). En zone ${nextZone + 4} : +${shardsFor(nextZone + 4)}.</p>
-           <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? "Confirmer : tout recommencer" : "Monter vers les étoiles"}</button></div>`
-        : `<p class="note">Disponible à partir de la zone ${ASCEND_MIN_ZONE} (record actuel : ${S.best}). Rapportera alors ${shardsFor(ASCEND_MIN_ZONE)} éclats, et plus en allant plus loin.</p>`}
+        ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: gain })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: shardsFor(nextZone + 4) })}</p>
+           <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : tx("Monter vers les étoiles")}</button></div>`
+        : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>`}
     </article>`;
     const stars = CONSTELLATIONS.map((c) => {
       const rank = P.ranks[c.id] || 0, maxed = rank >= c.max, cost = constellationCost(c, rank);
       return `<li class="shopline"><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
-        <div class="sub">${rank ? "Actuel : " + esc(effText(c.eff, rank)) + " · " : ""}${maxed ? "maximum atteint" : "Rang suivant : " + esc(effText(c.eff, 1))}</div></div>
-        ${maxed ? `<button disabled>Maximum</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${cost}</button>`}</li>`;
+        <div class="sub">${rank ? tx("Actuel : ") + esc(effText(c.eff, rank)) + " · " : ""}${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, 1))}</div></div>
+        ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${cost}</button>`}</li>`;
     }).join("");
-    el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>Constellations <small>effets permanents</small></h2><ul class="shoplist two-cols">${stars}</ul></article></div>`;
+    el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2><ul class="shoplist two-cols">${stars}</ul></article></div>`;
   }
 
   onAction(a, b) {

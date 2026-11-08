@@ -1,6 +1,7 @@
 // Onglet Boutique : marchand (stock renouvelé, bonne affaire, objet pour
 // l'emplacement le plus faible), potions et élixirs, coffres et œuf,
 // atelier (améliorations permanentes illimitées). Tout est illustré.
+import { t as tx } from "../../i18n/index.js";
 import { RARITIES, SLOTS } from "../../game/data.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, WORKSHOP, POTION_MAX, BUFF_CAP_S, DEAL_DISCOUNT,
@@ -15,7 +16,7 @@ import { SETS } from "../../game/sets.js";
 
 const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}` : `${m} min ${String(s % 60).padStart(2, "0")}`; };
 /** Effet court affiché sous chaque consommable. */
-const SHORT = { potion: "Rend 50 % des PV", elixir: "+25 % d’attaque", fortune: "+50 % d’or", wisdom: "+50 % d’expérience", haste: "+30 % de vitesse", luck: "+40 % de butin", iron: "+30 % PV et défense" };
+const SHORT = { potion: tx("Rend 50 % des PV"), elixir: tx("+25 % d’attaque"), fortune: tx("+50 % d’or"), wisdom: tx("+50 % d’expérience"), haste: tx("+30 % de vitesse"), luck: tx("+40 % de butin"), iron: tx("+30 % PV et défense") };
 
 export class ShopTab {
   constructor(game) { this.game = game; this.root = null; }
@@ -27,34 +28,34 @@ export class ShopTab {
     const g = this.game, S = g.S, stock = g.shopStock(), full = g.bagFull();
     const buy = (action, id, price, block = "", cls = "") =>
       block ? `<button disabled class="buy">${esc(block)}</button>`
-        : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` disabled title="Pas assez d’or"` : ""}><i class="coin"></i>${fmt(price)}</button>`;
+        : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` ${tx("disabled title=\"Pas assez d’or\"")}` : ""}><i class="coin"></i>${fmt(price)}</button>`;
 
     // --- Marchand ---
     const merchant = stock.items.length ? stock.items.map((it) => {
       const d = g.upgradeDelta(it), cur = S.equip[it.slot], up = !cur || d > 0.005;
-      const verdict = cur ? `${d >= 0 ? "+" : "−"}${Math.abs(Math.round(d * 100))}${NB}% de puissance` : "emplacement vide";
+      const verdict = cur ? `${d >= 0 ? "+" : "−"}${Math.abs(Math.round(d * 100))}${NB}${tx("% de puissance")}` : tx("emplacement vide");
       return `<div class="mcard rb${it.r}${it.deal ? " deal" : ""}${up ? " up" : ""}">
         ${it.deal ? `<span class="ribbon">−${Math.round(DEAL_DISCOUNT * 100)} %</span>` : ""}
         <img src="${itemIconURL(it)}" alt="">
         <div class="nm rc${it.r}">${esc(it.name)}</div>
-        <div class="sub">${SLOTS[it.slot].name} ${RARITIES[it.r].name.toLowerCase()}, niv. ${it.il}</div>
+        <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niv. {1}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il })}</div>
         ${it.power ? `<div class="sub power-mini">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
         ${it.set && SETS[it.set] ? `<div class="sub" style="color:${SETS[it.set].color}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
         <div class="verdict ${d > 0.005 || !cur ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${up ? "▲ " : ""}${verdict}</div>
-        ${buy("s-item", it.id, it.price, full ? "Sac plein" : "", up ? "primary" : "")}
+        ${buy("s-item", it.id, it.price, full ? tx("Sac plein") : "", up ? "primary" : "")}
       </div>`;
-    }).join("") : `<p class="empty">Le marchand a tout vendu. Revenez plus tard !</p>`;
+    }).join("") : `<p class="empty">${tx("Le marchand a tout vendu. Revenez plus tard !")}</p>`;
 
     // --- Potions et élixirs ---
     const consumables = CONSUMABLES.map((c) => {
       const price = consumablePrice(c, S);
       let owned, block = "", active = false;
-      if (c.kind === "stock") { owned = `${S.potions} / ${POTION_MAX}`; if (S.potions >= POTION_MAX) block = "Stock plein"; }
+      if (c.kind === "stock") { owned = `${S.potions} / ${POTION_MAX}`; if (S.potions >= POTION_MAX) block = tx("Stock plein"); }
       else {
         const rem = S.buffs[c.id] || 0;
         active = rem > 0;
-        owned = active ? `actif · <span id="buff-${c.id}">${mmss(rem)}</span>` : "10 min";
-        if (rem + c.duration > BUFF_CAP_S) block = "Maximum";
+        owned = active ? `${tx("actif ·")} <span id="buff-${c.id}">${mmss(rem)}</span>` : tx("10 min");
+        if (rem + c.duration > BUFF_CAP_S) block = tx("Maximum");
       }
       return `<div class="ctile${active ? " active" : ""}" title="${esc(c.desc)}">
         <img src="${shopIconURL(c.id)}" alt="">
@@ -70,15 +71,15 @@ export class ShopTab {
     const chests = CHESTS.map((c) => `<div class="ctile chesttile">
         <img src="${shopIconURL(c.id, 6)}" alt="">
         <div class="nm rc${c.minRarity}">${esc(c.name)}</div>
-        <div class="eff">${esc(RARITIES[c.minRarity].name)} ou mieux</div>
+        <div class="eff">${esc(RARITIES[c.minRarity].name)} ${tx("ou mieux")}</div>
         <div class="sub">niveau ${S.best}</div>
-        ${buy("s-chest", c.id, chestPrice(c, S), full ? "Sac plein" : "")}
+        ${buy("s-chest", c.id, chestPrice(c, S), full ? tx("Sac plein") : "")}
       </div>`).join("") + `<div class="ctile chesttile">
         <img src="${shopIconURL("egg", 6)}" alt="">
-        <div class="nm">Œuf de familier</div>
-        <div class="eff">Un familier au hasard</div>
-        <div class="sub">1 par étal</div>
-        ${buy("s-egg", "egg", eggPrice(S), stock.eggSold ? "Vendu" : "")}
+        <div class="nm">${tx("Œuf de familier")}</div>
+        <div class="eff">${tx("Un familier au hasard")}</div>
+        <div class="sub">${tx("1 par étal")}</div>
+        ${buy("s-egg", "egg", eggPrice(S), stock.eggSold ? tx("Vendu") : "")}
       </div>`;
 
     // --- Atelier (permanent) ---
@@ -88,27 +89,27 @@ export class ShopTab {
       return `<div class="wsline">
         <img src="${shopIconURL(w.id, 4)}" alt="">
         <div class="si"><div class="nm">${esc(w.name)} <small>niv. ${n}${w.max ? " / " + w.max : ""}</small></div>
-          <div class="sub">${n ? `<span class="delta-p">${esc(describeEffects(w.eff, n))}</span> · ` : ""}prochain : ${esc(describeEffects(w.eff, 1))}</div></div>
-        ${maxed ? `<button disabled class="buy">Maximum</button>` : buy("s-ws", w.id, workshopPrice(w, S))}
-        ${!maxed && S.gold >= workshopPrice(w, S) * (1 + w.growth) ? `<button class="quiet wsmax" data-action="s-wsmax" data-id="${w.id}" title="Acheter autant de niveaux que possible">max</button>` : ""}
+          <div class="sub">${n ? `<span class="delta-p">${esc(describeEffects(w.eff, n))}</span> · ` : ""}${tx("prochain : {0}", { 0: esc(describeEffects(w.eff, 1)) })}</div></div>
+        ${maxed ? `<button disabled class="buy">${tx("Maximum")}</button>` : buy("s-ws", w.id, workshopPrice(w, S))}
+        ${!maxed && S.gold >= workshopPrice(w, S) * (1 + w.growth) ? `<button class="quiet wsmax" data-action="s-wsmax" data-id="${w.id}" title="${esc(tx("Acheter autant de niveaux que possible"))}">max</button>` : ""}
       </div>`;
     }).join("") + UPGRADES.map((u) => {
       const have = S.upgrades[u.id] || 0, maxed = have >= u.max;
       return `<div class="wsline">
         <img src="${shopIconURL("bag", 4)}" alt="">
-        <div class="si"><div class="nm">${esc(u.name)} <small>${have} / ${u.max}</small></div><div class="sub">${S.bagSize} places · +6 par niveau</div></div>
-        ${maxed ? `<button disabled class="buy">Maximum</button>` : buy("s-up", u.id, upgradePrice(u, S))}
+        <div class="si"><div class="nm">${esc(u.name)} <small>${have} / ${u.max}</small></div><div class="sub">${S.bagSize} ${tx("places · +6 par niveau")}</div></div>
+        ${maxed ? `<button disabled class="buy">${tx("Maximum")}</button>` : buy("s-up", u.id, upgradePrice(u, S))}
       </div>`;
     }).join("");
 
     el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i><b id="shop-gold">${fmt(S.gold)}</b> or</span>
-        <span class="note">Nouvel étal dans <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>
-        <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>Renouveler l’étal (${fmt(rerollPrice(S))} or)</button></div>
+        <span class="note">${tx("Nouvel étal dans")} <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>
+        <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmt(rerollPrice(S)) })}</button></div>
       <div class="shopgrid2">
-        <article class="panel merchant"><h2>Marchand <small>un objet pour ton point faible, une bonne affaire</small></h2><div class="mgrid">${merchant}</div></article>
-        <article class="panel"><h2>Potions et élixirs <small>10 min de jeu, cumulable jusqu’à 2 h</small></h2><div class="cgrid">${consumables}</div></article>
-        <article class="panel"><h2>Coffres</h2><div class="cgrid">${chests}</div></article>
-        <article class="panel"><h2>Atelier <small>permanent, gardé à l’ascension</small></h2>${workshop}</article>
+        <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid">${merchant}</div></article>
+        <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid">${consumables}</div></article>
+        <article class="panel"><h2>${tx("Coffres")}</h2><div class="cgrid">${chests}</div></article>
+        <article class="panel"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${workshop}</article>
       </div>`;
   }
 

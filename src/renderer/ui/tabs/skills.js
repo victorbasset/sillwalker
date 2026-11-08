@@ -1,6 +1,7 @@
 // Onglet Compétences : l'arbre géant (graphe SVG). Glisser pour se déplacer,
 // molette pour zoomer, clic sur un nœud relié pour le prendre.
 // Le SVG est construit une seule fois ; ensuite seuls les états changent.
+import { t as tx } from "../../i18n/index.js";
 import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
@@ -33,18 +34,17 @@ export class SkillsTab {
     this.el = el;
     el.innerHTML = `<div class="skillwrap">
       <aside class="panel skillside">
-        <h2>Compétences <small>${SKILL_NODE_COUNT} nœuds</small></h2>
+        <h2>${tx("Compétences")} <small>${SKILL_NODE_COUNT} ${tx("nœuds")}</small></h2>
         <p class="skpts"></p>
-        <p class="note">1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).
-        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.</p>
+        <p class="note">${tx("1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).\n        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.")}</p>
         <div class="row">
-          <button data-action="k-undo" class="quiet">Annuler le dernier</button>
-          <button data-action="k-reset" class="quiet">Tout réinitialiser</button>
-          <button data-action="k-center" class="quiet">Recentrer</button>
+          <button data-action="k-undo" class="quiet">${tx("Annuler le dernier")}</button>
+          <button data-action="k-reset" class="quiet">${tx("Tout réinitialiser")}</button>
+          <button data-action="k-center" class="quiet">${tx("Recentrer")}</button>
         </div>
-        <h3>Bonus actifs</h3>
+        <h3>${tx("Bonus actifs")}</h3>
         <ul class="lines sktotal"></ul>
-        <p class="note">Glisser pour se déplacer, molette pour zoomer.</p>
+        <p class="note">${tx("Glisser pour se déplacer, molette pour zoomer.")}</p>
         <div class="sklegend">${SECTORS.map((s) => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("")}</div>
       </aside>
       <div class="skillview">
@@ -77,13 +77,13 @@ export class SkillsTab {
       t.textContent = s.name;
       t.style.fill = s.color;
       this.coreText ||= {};
-      this.coreText[s.id] = svg("text", { x: cx, y: cy + 42, class: "lbl corepct" }, g);
+      this.coreText[s.id] = svg("text", { x: cx, y: cy + 42, class: tx("lbl corepct") }, g);
     }
     this.bindView(el.querySelector(".skillview"), el.querySelector(".skilltip"));
   }
 
   /* ---------- Navigation : glisser / molette ---------- */
-  applyView() { this.g.setAttribute("transform", `translate(${this.view.x},${this.view.y}) scale(${this.view.k})`); }
+  applyView() { this.g.setAttribute("transform", `${tx("translate({0},{1}) scale({2})", { 0: this.view.x, 1: this.view.y, 2: this.view.k })}`); }
 
   /** Recentre sur l'origine, à un zoom lisible (molette pour voir tout l'arbre). */
   center() {
@@ -127,24 +127,24 @@ export class SkillsTab {
 
   coreTip(sec) {
     const S = this.game.S, c = SECTOR_CORES[sec], p = sectorProgress(S, sec), on = p.done >= p.total;
-    return `<b>${esc(c.name)}</b><div class="sub">Cœur du pétale ${esc(SECTOR[sec].name)}</div>
+    return `<b>${esc(c.name)}</b><div class="sub">${tx("Cœur du pétale {0}", { 0: esc(SECTOR[sec].name) })}</div>
       <p class="delta-p">${esc(describeEffects(c.eff))}</p>
-      <p>Allume une aura autour du héros et un feu follet qui l’accompagne.</p>
-      <div class="note">${on ? "Allumé !" : `S’allume quand tout le pétale est acquis : ${p.done} / ${p.total} nœuds.`}</div>`;
+      <p>${tx("Allume une aura autour du héros et un feu follet qui l’accompagne.")}</p>
+      <div class="note">${on ? tx("Allumé !") : `${tx("S’allume quand tout le pétale est acquis : {0} / {1} nœuds.", { 0: p.done, 1: p.total })}`}</div>`;
   }
 
   tipHtml(id) {
     const S = this.game.S, n = SKILL_TREE.nodes[id], order = S.skills.order, active = activeSkillSet(S);
-    const title = n.name || (n.kind === "root" ? "Origine" : "Compétence");
+    const title = n.name || (n.kind === "root" ? tx("Origine") : tx("Compétence"));
     const sector = n.sector ? SECTOR[n.sector].name : "";
     let state;
-    if (id === "root") state = "Point de départ.";
-    else if (active.has(id)) state = "Acquis.";
-    else if (order.includes(id)) state = "Dans ton chemin : se réactivera avec plus de points.";
-    else if (canTakeSkill(S, id)) state = "Clic pour l’apprendre (1 point).";
-    else if (skillPointsFree(S) <= 0) state = "Plus de point libre.";
-    else state = "Doit être relié à un nœud acquis.";
-    const kind = { small: "", notable: "Nœud remarquable · ", keystone: "Clé de voûte · ", root: "" }[n.kind];
+    if (id === "root") state = tx("Point de départ.");
+    else if (active.has(id)) state = tx("Acquis.");
+    else if (order.includes(id)) state = tx("Dans ton chemin : se réactivera avec plus de points.");
+    else if (canTakeSkill(S, id)) state = tx("Clic pour l’apprendre (1 point).");
+    else if (skillPointsFree(S) <= 0) state = tx("Plus de point libre.");
+    else state = tx("Doit être relié à un nœud acquis.");
+    const kind = { small: "", notable: tx("Nœud remarquable · "), keystone: tx("Clé de voûte · "), root: "" }[n.kind];
     return `<b>${esc(title)}</b><div class="sub">${kind}${esc(sector)}</div>
       ${n.text ? `<p>${esc(n.text)}</p>` : Object.keys(n.eff).length ? `<p class="delta-p">${esc(describeEffects(n.eff))}</p>` : ""}
       <div class="note">${esc(state)}</div>`;
@@ -164,7 +164,7 @@ export class SkillsTab {
     for (const sec in this.coreEls) {
       const on = done.has(sec), cls = "core" + (on ? " on" : "");
       if (this.coreEls[sec].getAttribute("class") !== cls) this.coreEls[sec].setAttribute("class", cls);
-      const p = sectorProgress(S, sec, active), txt = on ? "Cœur allumé" : `${p.done} / ${p.total}`;
+      const p = sectorProgress(S, sec, active), txt = on ? tx("Cœur allumé") : `${p.done} / ${p.total}`;
       if (this.coreText[sec].textContent !== txt) this.coreText[sec].textContent = txt;
     }
     for (const e of this.edgeEls) {
@@ -172,13 +172,12 @@ export class SkillsTab {
       if ((e.el.getAttribute("class") || "") !== cls) e.el.setAttribute("class", cls);
     }
     const total = skillPointsTotal(S), free = skillPointsFree(S), used = active.size - 1;
-    this.el.querySelector(".skpts").innerHTML = `<b class="gold">${free}</b> point${free > 1 ? "s" : ""} libre${free > 1 ? "s" : ""} · ${used} / ${SKILL_NODE_COUNT} nœuds actifs · ${total} points au total
-      ${S.skills.order.length > used ? `<br><span class="note">${S.skills.order.length - used} nœud(s) en attente de points.</span>` : ""}`;
+    this.el.querySelector(".skpts").innerHTML = `<b class="gold">${free}</b> ${tx("point{0} libre{1} · {2} / {3} nœuds actifs · {4} points au total\n      {5}", { 0: free > 1 ? "s" : "", 1: free > 1 ? "s" : "", 2: used, 3: SKILL_NODE_COUNT, 4: total, 5: S.skills.order.length > used ? `<br><span class="note">${S.skills.order.length - used} ${tx("nœud(s) en attente de points.")}</span>` : "" })}`;
     const eff = skillTreeEffects(S);
     const lines = Object.keys(eff).map((k) => `<li><span>${esc(describeEffects({ [k]: eff[k] }))}</span></li>`).join("");
-    this.el.querySelector(".sktotal").innerHTML = lines || `<li><span class="note">Aucun pour l’instant : commence près de l’origine.</span></li>`;
+    this.el.querySelector(".sktotal").innerHTML = lines || `<li><span class="note">${tx("Aucun pour l’instant : commence près de l’origine.")}</span></li>`;
     const reset = this.el.querySelector('[data-action="k-reset"]');
-    reset.textContent = this.armedReset ? "Confirmer la réinitialisation" : "Tout réinitialiser";
+    reset.textContent = this.armedReset ? tx("Confirmer la réinitialisation") : tx("Tout réinitialiser");
     reset.classList.toggle("danger", this.armedReset);
   }
 

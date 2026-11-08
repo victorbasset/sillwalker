@@ -8,6 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
+import { t as tx } from "../i18n/index.js";
 import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -144,7 +145,7 @@ export class Game {
         B[id] = 0;
         this.invalidateStats();
         const c = CONSUMABLES.find((x) => x.id === id);
-        this.log((c ? c.name : id) + " : effet terminé.");
+        this.log((c ? c.name : id) + tx(" : effet terminé."));
         this.changed();
       }
     }
@@ -343,7 +344,7 @@ export class Game {
     const heal = hs.hp * POTION_HEAL;
     R.hp = Math.min(hs.hp, R.hp + heal);
     this.emit("potion", { heal });
-    if (this.S.potions === 0) this.log("Dernière potion de soin bue : passe à la boutique !");
+    if (this.S.potions === 0) this.log(tx("Dernière potion de soin bue : passe à la boutique !"));
     this.changed();
   }
 
@@ -377,7 +378,7 @@ export class Game {
       this.invalidateStats();
       this.R.hp = this.stats().hp;
       this.emit("levelUp", { lvl: S.lvl });
-      this.log("Ton héros passe au niveau " + S.lvl + " (+1 point de talent).");
+      this.log(tx("Ton héros passe au niveau ") + S.lvl + tx(" (+1 point de talent)."));
       this.changed();
     }
   }
@@ -389,8 +390,8 @@ export class Game {
     if (it.r === LEGENDARY) this.S.stats.legendaries++;
     const newPower = it.power && !(this.S.powersSeen || {})[it.power];
     const fresh = codexRecord(this.S, it);
-    if (newPower) this.log(`Nouveau pouvoir légendaire découvert : ${POWER_INDEX[it.power]?.name || it.power} !`);
-    if (fresh) { this.invalidateStats(); if (fresh === "new") { this.log(`Nouveau type d’objet pour la collection : ${(it.base || "").split(":")[1] || it.name} !`); this.emit("codex", { item: it }); } }
+    if (newPower) this.log(`${tx("Nouveau pouvoir légendaire découvert : {0} !", { 0: POWER_INDEX[it.power]?.name || it.power })}`);
+    if (fresh) { this.invalidateStats(); if (fresh === "new") { this.log(`${tx("Nouveau type d’objet pour la collection : {0} !", { 0: (it.base || "").split(":")[1] || it.name })}`); this.emit("codex", { item: it }); } }
     return it;
   }
 
@@ -405,11 +406,11 @@ export class Game {
     const L = this.S.log, R = this.R;
     if (R.saleLine && R.saleLine.kind === kind && L[0] === R.saleLine.text) {
       R.saleLine.n++; R.saleLine.gold += v;
-      L[0] = R.saleLine.text = `${label} : ${R.saleLine.n} (+${fmt(R.saleLine.gold)} or).`;
+      L[0] = R.saleLine.text = `${label} ${tx(": {0} (+{1} or).", { 0: R.saleLine.n, 1: fmt(R.saleLine.gold) })}`;
       this.emit("log", L[0]);
       return;
     }
-    R.saleLine = { kind, n: 1, gold: v, text: `${label} : 1 (+${fmt(v)} or).` };
+    R.saleLine = { kind, n: 1, gold: v, text: `${label} ${tx(": 1 (+{0} or).", { 0: fmt(v) })}` };
     this.log(R.saleLine.text);
   }
 
@@ -417,16 +418,16 @@ export class Game {
     const S = this.S, r = RARITIES[it.r];
     if (S.autoSell[r.id]) {
       const v = sellValue(it); S.gold += v;
-      if (!quiet) this.logSale("auto", "Vendus automatiquement", v);
+      if (!quiet) this.logSale("auto", tx("Vendus automatiquement"), v);
       return false;
     }
     if (this.bagFull()) {
       const v = sellValue(it); S.gold += v;
-      if (!quiet) this.logSale("full", "Sac plein, objets vendus", v);
+      if (!quiet) this.logSale("full", tx("Sac plein, objets vendus"), v);
       return false;
     }
     S.bag.push(it);
-    if (!quiet && it.r >= 2) this.log("Butin " + r.name.toLowerCase() + " : " + it.name + " !");
+    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + " : " + it.name + " !");
     this.changed();
     return true;
   }
@@ -439,7 +440,7 @@ export class Game {
     if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
-    if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`Gobelin doré attrapé : ${fmt(gold)} or !`); }
+    if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
     S.bestiary[m.type] = (S.bestiary[m.type] || 0) + 1;
     this.questProgress("kill", 1);
     this.questProgress("hunt", 1, m.type);
@@ -457,8 +458,8 @@ export class Game {
       this.emit("loot", { item: it, mon: m });
       this.addToBag(it);
     }
-    if (m.champion) { S.stats.champions = (S.stats.champions || 0) + 1; this.log(`Champion vaincu : ${fmt(gold)} or et un butin épique !`); }
-    else if (m.elite) this.log(`Élite vaincu : ${fmt(gold)} or !`);
+    if (m.champion) { S.stats.champions = (S.stats.champions || 0) + 1; this.log(`${tx("Champion vaincu : {0} or et un butin épique !", { 0: fmt(gold) })}`); }
+    else if (m.elite) this.log(`${tx("Élite vaincu : {0} or !", { 0: fmt(gold) })}`);
     if (m.boss) {
       S.stats.bosses++;
       this.freeHero(S.zone);
@@ -469,8 +470,8 @@ export class Game {
         S.best = Math.max(S.best, S.zone);
         this.emit("zoneUp", { zone: S.zone, record });
         this.questProgress("zone", 0);
-        this.log(`${m.name || "Boss"} vaincu ! En route vers : ${zoneName(S.zone)}.`);
-      } else this.log("Boss vaincu ! Ton héros reste farmer ici.");
+        this.log(`${m.name || tx("Boss")} ${tx("vaincu ! En route vers : {0}.", { 0: zoneName(S.zone) })}`);
+      } else this.log(tx("Boss vaincu ! Ton héros reste farmer ici."));
       S.kills = 0;
       R.lineupZone = 0; // nouvelle série de monstres
     } else S.kills++;
@@ -485,7 +486,7 @@ export class Game {
   monsterFlees() {
     const S = this.S, R = this.R, m = R.mon;
     this.emit("flee", { mon: m });
-    this.log("Le gobelin doré s’est enfui avec son or…");
+    this.log(tx("Le gobelin doré s’est enfui avec son or…"));
     S.kills++;
     R.corpse = { mon: m, t: 0.45 };
     R.mon = null;
@@ -501,10 +502,10 @@ export class Game {
     this.emit("heroDown");
     if (R.deaths >= 2 && S.zone > 1) {
       S.zone--; R.deaths = 0; S.kills = 0;
-      this.log("Trop dur : ton héros recule vers " + zoneName(S.zone) + ".");
+      this.log(tx("Trop dur : ton héros recule vers ") + zoneName(S.zone) + ".");
     } else {
       S.kills = 0;
-      this.log("Ton héros est tombé. La progression de la zone repart à zéro.");
+      this.log(tx("Ton héros est tombé. La progression de la zone repart à zéro."));
     }
     this.changed();
   }
@@ -552,7 +553,7 @@ export class Game {
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
     const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
     const feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal, 3);
-    if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, "Plumes du vent trouvées en ton absence"); }
+    if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     for (let i = 0; i < chests; i++) this.openChest();
     this.R.hp = this.stats().hp;
     const h = Math.floor(sec / 3600), mn = Math.floor(sec % 3600 / 60);
@@ -560,8 +561,8 @@ export class Game {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
     };
-    this.log("Pendant " + summary.duration + " : " + fmt(kills) + " monstres vaincus, +" + fmt(gold) + " or" +
-      (summary.newLevel ? ", niveau " + S.lvl : "") + ", " + summary.kept + " objet(s) gardé(s).");
+    this.log(tx("Pendant ") + summary.duration + " : " + fmt(kills) + tx(" monstres vaincus, +") + fmt(gold) + " or" +
+      (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + summary.kept + tx(" objet(s) gardé(s)."));
     this.changed();
     return summary;
   }
@@ -574,7 +575,7 @@ export class Game {
     if (old) S.bag.push(old);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log("Équipé : " + it.name + ".");
+    this.log(tx("Équipé : ") + it.name + ".");
     this.changed();
   }
 
@@ -593,7 +594,7 @@ export class Game {
     const v = sellValue(it);
     this.S.gold += v;
     this.S.bag = this.S.bag.filter((i) => i.id !== it.id);
-    this.log("Vendu : " + it.name + " (+" + fmt(v) + " or).");
+    this.log(tx("Vendu : ") + it.name + " (+" + fmt(v) + " or).");
     this.changed();
   }
 
@@ -604,7 +605,7 @@ export class Game {
     it.plus++;
     this.invalidateStats();
     this.questProgress("forge", 1);
-    this.log("Forge : " + it.name + " passe à +" + it.plus + ".");
+    this.log(tx("Forge : ") + it.name + tx(" passe à +") + it.plus + ".");
     this.changed();
     return true;
   }
@@ -642,7 +643,7 @@ export class Game {
       this.S.stats.transmutes = (this.S.stats.transmutes || 0) + out.length;
       this.questProgress("transmute", out.length);
       const best = out.reduce((a, b) => (b.r > a.r ? b : a));
-      this.log(`Transmutation : ${out.length} nouvel${out.length > 1 ? "s" : ""} objet${out.length > 1 ? "s" : ""}, dont ${best.name} (${RARITIES[best.r].name.toLowerCase()}).`);
+      this.log(`${tx("Transmutation : {0} nouvel{1} objet{2}, dont {3} ({4}).", { 0: out.length, 1: out.length > 1 ? "s" : "", 2: out.length > 1 ? "s" : "", 3: best.name, 4: RARITIES[best.r].name.toLowerCase() })}`);
       this.emit("transmute", { items: out });
       this.changed();
     }
@@ -656,7 +657,7 @@ export class Game {
     for (const it of sell) gold += sellValue(it);
     this.S.bag = this.S.bag.filter((it) => !sell.has(it));
     this.S.gold += gold;
-    if (sell.size) this.log(`${sell.size} objet(s) inutile(s) vendu(s) pour ${fmt(gold)} or.`);
+    if (sell.size) this.log(`${sell.size} ${tx("objet(s) inutile(s) vendu(s) pour {0} or.", { 0: fmt(gold) })}`);
     this.emit("sold", { n: sell.size, gold });
     this.changed();
     return { n: sell.size, gold };
@@ -670,7 +671,7 @@ export class Game {
     rerollAffixes(it);
     this.invalidateStats();
     this.S.stats.reforges = (this.S.stats.reforges || 0) + 1;
-    this.log("Réforge : " + it.name + " a de nouveaux bonus.");
+    this.log(tx("Réforge : ") + it.name + tx(" a de nouveaux bonus."));
     this.changed();
     return true;
   }
@@ -682,7 +683,7 @@ export class Game {
       return true;
     });
     this.S.gold += total;
-    if (n) this.log(n + " objet(s) vendu(s) pour " + fmt(total) + " or.");
+    if (n) this.log(n + tx(" objet(s) vendu(s) pour ") + fmt(total) + " or.");
     this.changed();
   }
 
@@ -704,7 +705,7 @@ export class Game {
       }
     }
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    if (n) this.log(n + " objet(s) équipé(s) automatiquement.");
+    if (n) this.log(n + tx(" objet(s) équipé(s) automatiquement."));
     this.changed();
   }
 
@@ -728,7 +729,7 @@ export class Game {
     const U = (this.S.classesUnlocked ||= ["warrior"]);
     if (!cls || U.includes(cls)) return null;
     U.push(cls);
-    this.log(`Héros libéré : ${CLASSES[cls].name} ! Choisis-le dans l’onglet Classe pour ta prochaine ascension.`);
+    this.log(`${tx("Héros libéré : {0} ! Choisis-le dans l’onglet Classe pour ta prochaine ascension.", { 0: CLASSES[cls].name })}`);
     this.emit("classUnlock", { cls });
     this.changed();
     return cls;
@@ -749,7 +750,7 @@ export class Game {
     if (!played.includes(cls)) played.push(cls);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log("Ton héros devient " + CLASSES[cls].name.toLowerCase() + ".");
+    this.log(tx("Ton héros devient ") + CLASSES[cls].name.toLowerCase() + ".");
     this.emit("classChange");
     this.changed();
     return true;
@@ -766,7 +767,7 @@ export class Game {
     if (done) {
       this.invalidateStats();
       const t = TALENT_INDEX[id].talent;
-      if (t.tier === 3) this.log("Talent ultime débloqué : " + t.name + " !");
+      if (t.tier === 3) this.log(tx("Talent ultime débloqué : ") + t.name + " !");
       this.changed();
     }
     return done;
@@ -808,7 +809,7 @@ export class Game {
     this.S.talents[this.S.cls] = {};
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log("Talents réinitialisés" + (cost ? " (" + fmt(cost) + " or)." : "."));
+    this.log(tx("Talents réinitialisés") + (cost ? " (" + fmt(cost) + " or)." : "."));
     this.changed();
     return true;
   }
@@ -829,7 +830,7 @@ export class Game {
     if (!this.pay(consumablePrice(c, S))) return false;
     if (c.kind === "stock") S.potions++;
     else { S.buffs[id] = (S.buffs[id] || 0) + c.duration; this.invalidateStats(); }
-    this.log("Acheté : " + c.name + ".");
+    this.log(tx("Acheté : ") + c.name + ".");
     this.changed();
     return true;
   }
@@ -850,7 +851,7 @@ export class Game {
     if (!c || this.bagFull() || !this.pay(chestPrice(c, S))) return null;
     const it = this.newItem(c.minRarity, S.best);
     S.bag.push(it);
-    this.log(`${c.name} ouvert : ${it.name} (${RARITIES[it.r].name.toLowerCase()}) !`);
+    this.log(`${c.name} ${tx("ouvert : {0} ({1}) !", { 0: it.name, 1: RARITIES[it.r].name.toLowerCase() })}`);
     this.emit("loot", { item: it, mon: null });
     this.changed();
     return it;
@@ -863,7 +864,7 @@ export class Game {
     while (w && done < n && !(w.max && (W[id] || 0) >= w.max) && this.pay(workshopPrice(w, S))) { W[id] = (W[id] || 0) + 1; done++; }
     if (!done) return 0;
     this.invalidateStats();
-    this.log(`Atelier : ${w.name} niveau ${W[id]}.`);
+    this.log(`${tx("Atelier : {0} niveau {1}.", { 0: w.name, 1: W[id] })}`);
     this.changed();
     return done;
   }
@@ -884,7 +885,7 @@ export class Game {
     if (!u || have >= u.max || !this.pay(upgradePrice(u, S))) return false;
     S.upgrades[id] = have + 1;
     if (id === "bag") S.bagSize = Math.min(BAG_MAX, S.bagSize + 6);
-    this.log("Amélioration : " + u.name + ".");
+    this.log(tx("Amélioration : ") + u.name + ".");
     this.changed();
     return true;
   }
@@ -921,7 +922,7 @@ export class Game {
   rerollShop(now = Date.now()) {
     if (!this.pay(rerollPrice(this.S))) return false;
     this.restockShop(now);
-    this.log("Le marchand renouvelle son étal.");
+    this.log(tx("Le marchand renouvelle son étal."));
     return true;
   }
 
@@ -933,7 +934,7 @@ export class Game {
     delete it.price; delete it.deal;
     if (it.r === LEGENDARY) S.stats.legendaries++;
     S.bag.push(it);
-    this.log("Acheté au marchand : " + it.name + ".");
+    this.log(tx("Acheté au marchand : ") + it.name + ".");
     this.changed();
     return true;
   }
@@ -978,7 +979,7 @@ export class Game {
     S.speed = Math.min(SPEED_CAP, S.speed + n);
     if (S.speed === before) return;
     this.invalidateStats();
-    this.log(`${source} : +${n} % de vitesse de déplacement, pour toujours (total +${S.speed} %).`);
+    this.log(`${source} ${tx(": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", { 0: n, 1: S.speed })}`);
     this.emit("feather", { speed: S.speed, gain: n, source });
     this.changed();
   }
@@ -986,7 +987,7 @@ export class Game {
   /** Après chaque victoire : plume du vent, événements temporaires. */
   rollRareThings(m) {
     const chance = m.boss ? FEATHER.boss : m.elite ? FEATHER.elite : FEATHER.normal;
-    if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, "Plume du vent"); }
+    if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, tx("Plume du vent")); }
     for (const id in EVENTS) if (rand() < EVENTS[id].chance) { this.startEvent(id); break; }
     if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal)) this.openChest();
   }
@@ -1000,7 +1001,7 @@ export class Game {
     S.stats.chests = (S.stats.chests || 0) + 1;
     const x = rand(), item = this.newItem(x < CHEST.legendary ? 4 : x < CHEST.epic ? 3 : 2);
     S.potions = Math.min(20, S.potions + 1);
-    this.log(`Coffre au trésor ! +${fmt(gold)} or, une potion et ${item.name}.`);
+    this.log(`${tx("Coffre au trésor ! +{0} or, une potion et {1}.", { 0: fmt(gold), 1: item.name })}`);
     this.emit("chest", { gold, item });
     this.emit("loot", { item, chest: true });
     this.addToBag(item);
@@ -1016,8 +1017,8 @@ export class Game {
     this.S.gold += gold;
     this.S.stats.stars = (this.S.stats.stars || 0) + 1;
     this.emit("starCaught", { gold });
-    this.gainSpeed(STAR.speedGain, "Étoile filante");
-    this.log(`Étoile filante attrapée : +${fmt(gold)} or !`);
+    this.gainSpeed(STAR.speedGain, tx("Étoile filante"));
+    this.log(`${tx("Étoile filante attrapée : +{0} or !", { 0: fmt(gold) })}`);
     this.changed();
     return true;
   }
@@ -1040,7 +1041,7 @@ export class Game {
     const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null, mod: D.mod };
     if (reward.potions) this.S.potions = Math.min(20, this.S.potions + reward.potions);
     if (day === 7 && !this.bagFull()) { reward.item = this.newItem(3, this.S.best); this.S.bag.push(reward.item); }
-    this.log(`Récompense du jour ${day}/7 : +${fmt(gold)} or${reward.potions ? ", 2 potions" : ""}${reward.item ? ", " + reward.item.name : ""}.`);
+    this.log(`${tx("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: day, 1: fmt(gold), 2: reward.potions ? tx(", 2 potions") : "", 3: reward.item ? ", " + reward.item.name : "" })}`);
     this.emit("daily", reward);
     this.changed();
     return reward;
@@ -1074,7 +1075,7 @@ export class Game {
       if (questDone(q)) {
         this.emit("questDone", { quest: q });
         if (this.S.quests.auto && !(q.reward.chest && this.bagFull())) this.R.autoClaim = true;
-        else this.log("Quête accomplie ! Récompense à réclamer.");
+        else this.log(tx("Quête accomplie ! Récompense à réclamer."));
       }
     }
   }
@@ -1085,14 +1086,14 @@ export class Game {
     const S = this.S, Q = S.quests, i = Q.slots.findIndex((q) => q.uid === uid);
     if (i < 0 || !questDone(Q.slots[i])) return false;
     const rw = Q.slots[i].reward, parts = [];
-    if (rw.chest && this.bagFull()) { this.log("Sac plein : libère une place pour recevoir le coffre."); return false; }
+    if (rw.chest && this.bagFull()) { this.log(tx("Sac plein : libère une place pour recevoir le coffre.")); return false; }
     if (rw.gold) { S.gold += rw.gold; parts.push(fmt(rw.gold) + " or"); }
     if (rw.chest) { const it = this.newItem(rw.chest, S.best); S.bag.push(it); parts.push(it.name); this.emit("loot", { item: it, mon: null }); }
-    if (rw.buff) { S.buffs[rw.buff] = Math.min(7200, (S.buffs[rw.buff] || 0) + 600); this.invalidateStats(); parts.push("élixir de 10 min"); }
+    if (rw.buff) { S.buffs[rw.buff] = Math.min(7200, (S.buffs[rw.buff] || 0) + 600); this.invalidateStats(); parts.push(tx("élixir de 10 min")); }
     if (rw.potions) { S.potions = Math.min(20, S.potions + rw.potions); parts.push(rw.potions + " potions"); }
-    if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(rw.shards + " éclats d’étoile"); }
-    if (rw.egg) { this.gainEgg(); parts.push("un œuf"); }
-    if (rw.speed) { this.gainSpeed(rw.speed, "Quête héroïque"); parts.push(`+${rw.speed} % de vitesse pour toujours`); }
+    if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(rw.shards + tx(" éclats d’étoile")); }
+    if (rw.egg) { this.gainEgg(); parts.push(tx("un œuf")); }
+    if (rw.speed) { this.gainSpeed(rw.speed, tx("Quête héroïque")); parts.push(`${tx("+{0} % de vitesse pour toujours", { 0: rw.speed })}`); }
     const stars = Q.slots[i].stars || 1;
     Q.slots.splice(i, 1);
     Q.completed++;
@@ -1104,10 +1105,10 @@ export class Game {
       this.invalidateStats();
       const gift = this.bagFull() ? null : this.newItem(Math.min(4, 2 + Math.floor(after / 3)), S.best);
       if (gift) { S.bag.push(gift); this.emit("loot", { item: gift, mon: null }); }
-      this.log(`Guilde : tu deviens ${guildRankName(after)} ! Bonus permanent augmenté${gift ? ", et un coffre : " + gift.name : ""}.`);
+      this.log(`${tx("Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", { 0: guildRankName(after), 1: gift ? tx(", et un coffre : ") + gift.name : "" })}`);
       this.emit("guildRank", { rank: after });
     }
-    this.log("Récompense de quête : " + parts.join(", ") + ".");
+    this.log(tx("Récompense de quête : ") + parts.join(", ") + ".");
     this.ensureQuests();
     this.changed();
     return true;
@@ -1125,7 +1126,7 @@ export class Game {
   gainEgg() {
     this.S.pets.eggs++;
     this.emit("egg");
-    this.log("Un œuf ! Fais-le éclore dans l’onglet Familiers.");
+    this.log(tx("Un œuf ! Fais-le éclore dans l’onglet Familiers."));
     this.changed();
   }
 
@@ -1138,9 +1139,9 @@ export class Game {
     if (!own) {
       P.owned[pet.id] = { lvl: 1, xp: 0 };
       if (!P.active) P.active = pet.id;
-      this.log(`L’œuf éclot : ${pet.name} !`);
+      this.log(`${tx("L’œuf éclot : {0} !", { 0: pet.name })}`);
     } else {
-      this.log(`L’œuf éclot : encore un ${pet.name.toLowerCase()} ! Ton ${pet.name.toLowerCase()} gagne de l’expérience.`);
+      this.log(`${tx("L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", { 0: pet.name.toLowerCase(), 1: pet.name.toLowerCase() })}`);
       this.petAddXp(pet.id, DUPLICATE_XP);
     }
     this.invalidateStats();
@@ -1156,7 +1157,7 @@ export class Game {
     P.exp ||= {};
     if (P.exp[id]) return false;
     P.exp[id] = { kind, start: now, end: now + ex.min * 60000 };
-    this.log(`${PET_INDEX[id].name} part en ${ex.name.toLowerCase()} (${ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min"}).`);
+    this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: ex.name.toLowerCase(), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
     this.changed();
     return true;
   }
@@ -1184,7 +1185,7 @@ export class Game {
     const out = { gold, xp: ex.xp, egg: false, item: null, pet: PET_INDEX[id] };
     if (rand() < ex.egg) { out.egg = true; this.gainEgg(); }
     if (rand() < ex.item && !this.bagFull()) { out.item = this.newItem(ex.minRarity, this.S.best); this.addToBag(out.item, true); }
-    this.log(`${out.pet.name} revient de ${ex.name.toLowerCase()} : +${fmt(gold)} or${out.egg ? ", un œuf" : ""}${out.item ? ", " + out.item.name : ""} !`);
+    this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: ex.name.toLowerCase(), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + out.item.name : "" })}`);
     this.emit("expedition", out);
     this.changed();
     return out;
@@ -1224,7 +1225,7 @@ export class Game {
       own.lvl++;
       this.invalidateStats();
       this.emit("petLevel", { pet: PET_INDEX[id] });
-      this.log(`${PET_INDEX[id].name} passe au niveau ${own.lvl}.`);
+      this.log(`${PET_INDEX[id].name} ${tx("passe au niveau {0}.", { 0: own.lvl })}`);
     }
     if (own.lvl >= PET_MAX_LVL) own.xp = 0;
   }
@@ -1252,7 +1253,7 @@ export class Game {
     f.potions += eff.potions || 0;
     if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
-    this.log(`Ascension n° ${P.count} : +${gain} éclats d’étoile et +${skillGain} points de compétence permanents. Une nouvelle aventure commence${f.zone > 1 ? " en zone " + f.zone : ""} !`);
+    this.log(`${tx("Ascension n° {0} : +{1} éclats d’étoile et +{2} points de compétence permanents. Une nouvelle aventure commence{3} !", { 0: P.count, 1: gain, 2: skillGain, 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
     this.emit("ascend");
     this.changed();
     return true;
@@ -1268,7 +1269,7 @@ export class Game {
     if (c.eff.potions) this.S.potions = Math.min(20, this.S.potions + c.eff.potions);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(`Constellation ${c.name} : rang ${rank + 1}.`);
+    this.log(`${tx("Constellation {0} : rang {1}.", { 0: c.name, 1: rank + 1 })}`);
     this.changed();
     return true;
   }
@@ -1281,7 +1282,7 @@ export class Game {
     this.S.skills.order.push(id);
     this.invalidateStats();
     const n = SKILL_TREE.nodes[id];
-    if (n.kind === "keystone") this.log("Clé de voûte : " + n.name + " !");
+    if (n.kind === "keystone") this.log(tx("Clé de voûte : ") + n.name + " !");
     this.changed();
     return true;
   }
@@ -1301,7 +1302,7 @@ export class Game {
     this.S.skills.order = [];
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log("Arbre de compétences réinitialisé.");
+    this.log(tx("Arbre de compétences réinitialisé."));
     this.changed();
     return true;
   }

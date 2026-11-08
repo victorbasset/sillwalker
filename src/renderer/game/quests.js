@@ -1,6 +1,7 @@
 // Quêtes (contrats) : QUEST_SLOTS quêtes actives en même temps. Une quête
 // terminée attend que le joueur réclame sa récompense ; une nouvelle prend
 // alors sa place. Les objectifs et récompenses suivent la progression.
+import { t as tx } from "../i18n/index.js";
 import { MONSTERS } from "./data.js";
 import { zoneDef } from "./rules.js";
 import { rand, pick } from "./util.js";
@@ -18,43 +19,43 @@ const plural = (n, s, p = s + "s") => (n > 1 ? p : s);
  */
 export const QUEST_TEMPLATES = {
   kill: {
-    text: (q) => `Vaincre ${q.goal} monstres`,
+    text: (q) => `${tx("Vaincre {0} monstres", { 0: q.goal })}`,
     make: (S) => { const goal = randInt(4, 8) * 10; return { goal, reward: { gold: Math.round(goal * goldScale(S) * 2.5) } }; },
   },
   hunt: {
-    text: (q) => `Chasser ${q.goal} ${MONSTERS[q.type].name.toLowerCase()}${q.goal > 1 && !/s$/.test(MONSTERS[q.type].name) ? "s" : ""}`,
+    text: (q) => `${tx("Chasser {0} {1}{2}", { 0: q.goal, 1: MONSTERS[q.type].name.toLowerCase(), 2: q.goal > 1 && !/s$/.test(MONSTERS[q.type].name) ? "s" : "" })}`,
     make: (S) => {
       const type = pick(zoneDef(S.zone).monsters), goal = randInt(3, 6) * 5;
       return { goal, type, reward: { gold: Math.round(goal * goldScale(S) * 4), egg: rand() < 0.15 } };
     },
   },
   elite: {
-    text: (q) => `Vaincre ${q.goal} ${plural(q.goal, "élite")}`,
+    text: (q) => `${tx("Vaincre {0} {1}", { 0: q.goal, 1: plural(q.goal, tx("élite")) })}`,
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, gold: Math.round(goldScale(S) * 60) } }),
   },
   boss: {
-    text: (q) => `Vaincre ${q.goal} boss`,
+    text: (q) => `${tx("Vaincre {0} boss", { 0: q.goal })}`,
     make: (S) => ({ goal: randInt(2, 3), reward: { gold: Math.round(goldScale(S) * 120), egg: rand() < 0.3, shards: S.prestige.count > 0 ? randInt(1, 3) : 0 } }),
   },
   gold: {
-    text: (q) => `Ramasser ${q.goalText} or`,
+    text: (q) => `${tx("Ramasser {0} or", { 0: q.goalText })}`,
     make: (S) => ({ goal: Math.round(goldScale(S) * randInt(150, 300)), reward: { buff: pick(["elixir", "fortune", "wisdom", "haste", "luck", "iron"]), potions: 3 } }),
   },
   forge: {
-    text: (q) => `Forger ${q.goal} ${plural(q.goal, "fois", "fois")}`,
+    text: (q) => `${tx("Forger {0} {1}", { 0: q.goal, 1: plural(q.goal, "fois", "fois") })}`,
     make: (S) => ({ goal: randInt(2, 4), reward: { gold: Math.round(goldScale(S) * 80), potions: 2 } }),
   },
   expedition: {
-    text: (q) => `Ramener ${q.goal} ${plural(q.goal, "expédition")} de familier`,
+    text: (q) => `${tx("Ramener {0} {1} de familier", { 0: q.goal, 1: plural(q.goal, tx("expédition")) })}`,
     ok: (S) => Object.keys(S.pets.owned).length >= 2,
     make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 100), egg: rand() < 0.5 } }),
   },
   transmute: {
-    text: (q) => `Créer ${q.goal} ${plural(q.goal, "objet")} par transmutation`,
+    text: (q) => `${tx("Créer {0} {1} par transmutation", { 0: q.goal, 1: plural(q.goal, "objet") })}`,
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, potions: 2 } }),
   },
   zone: {
-    text: (q) => `Atteindre la zone ${q.goal}`,
+    text: (q) => `${tx("Atteindre la zone {0}", { 0: q.goal })}`,
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
@@ -99,7 +100,7 @@ export function makeQuest(S, uid, exclude = []) {
  * monter de rang. Chaque rang donne un bonus permanent (conservé à l'ascension)
  * et un coffre.
  */
-export const GUILD_RANKS = ["Recrue", "Apprenti", "Aventurier", "Vétéran", "Expert", "Champion", "Héros", "Légende", "Mythe", "Immortel"];
+export const GUILD_RANKS = [tx("Recrue"), tx("Apprenti"), tx("Aventurier"), tx("Vétéran"), tx("Expert"), tx("Champion"), tx("Héros"), tx("Légende"), tx("Mythe"), tx("Immortel")];
 export const GUILD_BONUS = { gold: 3, xp: 3 }; // par rang
 export const guildNeed = (rank) => Math.round(5 * Math.pow(rank + 1, 1.6)); // réputation pour passer au rang suivant
 export function guildRank(rep) { let r = 0, need = 0; while (true) { need += guildNeed(r); if (rep < need) return { rank: r, into: rep - (need - guildNeed(r)), need: guildNeed(r) }; r++; } }

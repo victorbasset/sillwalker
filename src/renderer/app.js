@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { t as tx } from "./i18n/index.js";
 import { CLASSES } from "./game/classes.js";
 import { PET_INDEX } from "./game/pets.js";
 import { activeDayMod } from "./game/daymods.js";
@@ -149,7 +150,7 @@ async function boot() {
     toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
   }
   function showOffline(sum) {
-    showToast(`Pendant ton absence (${esc(sum.duration)}) : <b>${fmt(sum.kills)}</b> monstres, <b>+${fmt(sum.gold)}</b> or${sum.newLevel ? ", niveau " + sum.newLevel : ""}${sum.feathers ? `, <b>${sum.feathers} plume${sum.feathers > 1 ? "s" : ""} du vent</b>` : ""}${sum.chests ? `, <b>${sum.chests} coffre${sum.chests > 1 ? "s" : ""}</b>` : ""}. Cliquer pour le détail.`,
+    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} <b>${fmt(sum.kills)}</b> monstres, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${sum.feathers} ${tx("plume{0} du vent", { 0: sum.feathers > 1 ? "s" : "" })}</b>` : "", 2: sum.chests ? `, <b>${sum.chests} coffre${sum.chests > 1 ? "s" : ""}</b>` : "" })}`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {
@@ -179,8 +180,8 @@ async function boot() {
     if (fresh.length) {
       game.S.achievements.push(...fresh);
       const names = fresh.map((id) => ACHIEVEMENTS.find((x) => x.id === id)?.name || id);
-      if (resync) setTimeout(() => showToast(`🏆 ${fresh.length > 1 ? `${fresh.length} nouveaux succès` : "Nouveau succès"} : <b>${names.map(esc).join("</b>, <b>")}</b>`, () => { openPanel(); panel.setTab("stats"); }, 12000), 4000);
-      else for (const n of names) { strip.juice.banner(`🏆 Succès : ${n}`, "#ffd34d", strip.heroX + 80, true); sound.play("level"); }
+      if (resync) setTimeout(() => showToast(`🏆 ${fresh.length > 1 ? `${fresh.length} ${tx("nouveaux succès")}` : tx("Nouveau succès")} : <b>${names.map(esc).join("</b>, <b>")}</b>`, () => { openPanel(); panel.setTab("stats"); }, 12000), 4000);
+      else for (const n of names) { strip.juice.banner(`${tx("🏆 Succès : {0}", { 0: n })}`, "#ffd34d", strip.heroX + 80, true); sound.play("level"); }
     }
     // Au démarrage on renvoie tout : rattrape les succès débloqués sans Steam.
     const send = resync ? reached : fresh;
@@ -297,10 +298,10 @@ async function boot() {
     const r = game.claimDaily(localDay());
     const dm = activeDayMod(game.S);
     if (!r) {
-      if (dm && before && before !== game.S.daily.mod) setTimeout(() => showToast(`${dm.icon} Bénédiction du jour : <b>${esc(dm.name)}</b> — ${esc(dm.desc)}`, () => openPanel(), 12000), 2500);
+      if (dm && before && before !== game.S.daily.mod) setTimeout(() => showToast(`${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}`, () => openPanel(), 12000), 2500);
       return;
     }
-    setTimeout(() => showToast(`🎁 Récompense du jour <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> or${r.potions ? ", 2 potions" : ""}${r.item ? `, <b>${esc(r.item.name)}</b>` : ""}. Reviens demain pour continuer la série !${dm ? `<br>${dm.icon} Bénédiction du jour : <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : ""}`,
+    setTimeout(() => showToast(`${tx("🎁 Récompense du jour")} <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> ${tx("or{0}{1}. Reviens demain pour continuer la série !{2}", { 0: r.potions ? tx(", 2 potions") : "", 1: r.item ? `, <b>${esc(r.item.name)}</b>` : "", 2: dm ? `<br>${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : "" })}`,
       () => openPanel(), 15000), 2500);
   }
   setInterval(checkDaily, 60000);
@@ -308,7 +309,7 @@ async function boot() {
   /* ---------- Héros libéré ---------- */
   game.on("classUnlock", ({ cls }) => {
     sound.play("legendary");
-    setTimeout(() => showToast(`🗝 <b>${esc(CLASSES[cls].name)}</b> est libéré ! Choisis-le dans l’onglet Classe : tu le joueras à ta prochaine ascension.`, () => { openPanel(); panel.setTab("class"); }, 15000), 1500);
+    setTimeout(() => showToast(`🗝 <b>${esc(CLASSES[cls].name)}</b> ${tx("est libéré ! Choisis-le dans l’onglet Classe : tu le joueras à ta prochaine ascension.")}`, () => { openPanel(); panel.setTab("class"); }, 15000), 1500);
   });
 
   /* ---------- Retour d'expédition des familiers ---------- */
@@ -316,8 +317,8 @@ async function boot() {
   function checkExpeditions() {
     const ready = game.expeditionsReady();
     if (ready.length > expReady) {
-      const name = PET_INDEX[ready[ready.length - 1]]?.name || "Un familier";
-      showToast(`🐾 <b>${esc(name)}</b> est revenu d’expédition ! Clique ici pour récupérer son butin.`, () => { openPanel(); panel.setTab("pets"); }, 15000);
+      const name = PET_INDEX[ready[ready.length - 1]]?.name || tx("Un familier");
+      showToast(`🐾 <b>${esc(name)}</b> ${tx("est revenu d’expédition ! Clique ici pour récupérer son butin.")}`, () => { openPanel(); panel.setTab("pets"); }, 15000);
       game.changed();
     }
     expReady = ready.length;
@@ -330,7 +331,7 @@ async function boot() {
   if (game.S.stats.kills > 0) { const sum = game.applyOffline(away); if (sum) showOffline(sum); }
   checkAchievements(true);
   checkDaily();
-  await Promise.all([document.fonts.load("13px 'Geist Pixel'"), document.fonts.load("600 13px 'Pixelify Sans'")]).catch(() => {});
+  await Promise.all([document.fonts.load(tx("13px 'Geist Pixel'")), document.fonts.load(tx("600 13px 'Pixelify Sans'"))]).catch(() => {});
   await document.fonts.ready;
   applyLayout(init.layout);
   setVisible(init.visible !== false);
@@ -340,4 +341,4 @@ async function boot() {
   api.ready();
 }
 
-boot().catch((e) => { console.error(e); document.body.textContent = "Erreur au démarrage : " + e.message; });
+boot().catch((e) => { console.error(e); document.body.textContent = tx("Erreur au démarrage : ") + e.message; });

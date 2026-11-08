@@ -7,6 +7,7 @@
 // Le décor est fixe (une seule toile, redessinée au changement de zone) et
 // les personnages sont des éléments DOM déplacés par transform : voir dom.js.
 // Ce module lit l'état de la simulation sans jamais le modifier.
+import { t as tx } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
@@ -41,12 +42,12 @@ export class StripRenderer {
     this.layerKey = ""; this.hudLKey = ""; this.hudRKey = ""; this.xpKey = "";
     this.heroX = LEFT;
 
-    this.base = makeCanvas(container, "layer base", false);
+    this.base = makeCanvas(container, tx("layer base"), false);
     this.stage = el("div", "stage", container);
     this.fxLayer = el("div", "fxlayer", container);
     this.fade = el("div", "fade", container);
-    this.hudL = makeCanvas(container, "layer hud");
-    this.hudR = makeCanvas(container, "layer hud");
+    this.hudL = makeCanvas(container, tx("layer hud"));
+    this.hudR = makeCanvas(container, tx("layer hud"));
     this.xp = el("div", "xpbar", container);
     this.xpFill = el("i", "", this.xp);
 
@@ -77,17 +78,17 @@ export class StripRenderer {
         this.juice.sparkles(this.monX() + 12, py - 4, color, 3 + tier * 2);
         if (tier >= 4 && (crit || iai)) { this.juice.flash(color, 0.12); this.shake(0.12); }
       }
-      const label = (iai ? "Iai ! " : first ? "Ouverture " : crit ? "Crit " : "") + Math.round(dmg);
+      const label = (iai ? tx("Iai ! ") : first ? tx("Ouverture ") : crit ? tx("Crit ") : "") + Math.round(dmg);
       this.float(this.monX() + 14 + (extra ? 12 : 0), (mon.boss ? 20 : 46) - (extra ? 10 : 0), label, crit || first ? "#ffe27a" : "#ffffff", crit || first, true);
     });
-    g.on("dodge", () => this.float(this.heroX + 16, 44, "Esquive", "#9fd8ff"));
-    g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, "Riposte " + Math.round(dmg), "#ffb07a"));
-    g.on("potion", () => this.float(this.heroX + 16, 36, "Potion !", "#ff8ad8", true));
-    g.on("secondWind", () => this.float(this.heroX + 10, 36, "Second souffle !", "#ffe27a", true));
+    g.on("dodge", () => this.float(this.heroX + 16, 44, tx("Esquive"), "#9fd8ff"));
+    g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + Math.round(dmg), "#ffb07a"));
+    g.on("potion", () => this.float(this.heroX + 16, 36, tx("Potion !"), "#ff8ad8", true));
+    g.on("secondWind", () => this.float(this.heroX + 10, 36, tx("Second souffle !"), "#ffe27a", true));
     g.on("classChange", () => { this.heroCls = null; this.minionKey = null; });
     g.on("minion", () => { this.minionLunge = 0.2; });
     g.on("bossSkill", ({ id }) => {
-      const label = { enrage: ["ENRAGÉ !", "#ff4a4a"], shell: ["Carapace !", "#9fd8ff"], mirror: ["Miroir !", "#e0d8ff"], smash: ["", ""] }[id];
+      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], smash: ["", ""] }[id];
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
@@ -95,12 +96,12 @@ export class StripRenderer {
     g.on("bossShieldHit", () => { this.monHit = 0.06; });
     g.on("mirrorHit", ({ dmg }) => { this.flash = Math.max(this.flash, 0.08); this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#e0d8ff", false, true); });
     g.on("flee", ({ mon }) => {
-      this.float(this.monX() + 14, 40, "Il s’enfuit !", "#ffd34d", true);
+      this.float(this.monX() + 14, 40, tx("Il s’enfuit !"), "#ffd34d", true);
       if (this.active) this.makeCorpse(mon, this.monX());
     });
-    g.on("egg", () => this.float(this.heroX + 16, 30, "Un œuf !", "#ffe27a", true));
-    g.on("petLevel", ({ pet }) => this.float(this.heroX - 10, 50, pet.name + " monte de niveau", "#9fe0a8"));
-    g.on("questDone", () => this.float(this.heroX + 16, 30, "Quête accomplie !", "#9fd8ff", true));
+    g.on("egg", () => this.float(this.heroX + 16, 30, tx("Un œuf !"), "#ffe27a", true));
+    g.on("petLevel", ({ pet }) => this.float(this.heroX - 10, 50, pet.name + tx(" monte de niveau"), "#9fe0a8"));
+    g.on("questDone", () => this.float(this.heroX + 16, 30, tx("Quête accomplie !"), "#9fd8ff", true));
     g.on("loot", ({ item }) => { if (item.r >= 4) this.shake(0.3); });
     g.on("chest", () => this.shake(0.2));
     g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#ff7a6b", false, true); });
@@ -151,7 +152,7 @@ export class StripRenderer {
       f.t += dt;
       const k = Math.min(1, f.t / f.life);
       const y = -q(k * f.rise), x = q(k * f.dx), o = f.keep ? 1 : Math.round((1 - k) * 8) / 8;
-      if (y !== f.y || x !== f.x) { f.y = y; f.x = x; f.node.style.transform = `translate3d(${x}px,${y}px,0)`; mark("fx"); }
+      if (y !== f.y || x !== f.x) { f.y = y; f.x = x; f.node.style.transform = `${tx("translate3d({0}px,{1}px,0)", { 0: x, 1: y })}`; mark("fx"); }
       if (o !== f.o) { f.o = o; f.node.style.opacity = o; }
     }
     this.fx = this.fx.filter((f) => (f.t < f.life ? true : (f.node.remove(), false)));
@@ -286,13 +287,13 @@ export class StripRenderer {
       const boss = k === FIGHTS - 1;
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss);
       if (boss) {
-        const tag = el("div", "affix bossname", a.el);
+        const tag = el("div", tx("affix bossname"), a.el);
         tag.textContent = bossName(this.game.S.zone);
       }
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");
         const af = ELITE_AFFIXES[line[k].affix];
-        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = "Champion" + (af ? " " + af.name.toLowerCase() : ""); }
+        if (line[k].champion) { const tag = el("div", tx("affix champ"), a.el); tag.textContent = tx("Champion") + (af ? " " + af.name.toLowerCase() : ""); }
         else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name; tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
@@ -339,7 +340,7 @@ export class StripRenderer {
     const cx = x + this.hero.w / 2, cy = GROUND - this.hero.h / 2 - 4, n = this.wisps.length;
     this.wisps.forEach((w, i) => {
       const a = R.time * 1.6 + (i * Math.PI * 2) / n;
-      const t = `translate3d(${q(cx + Math.cos(a) * 26 - 3)}px,${q(cy + Math.sin(a) * 12 - 3)}px,0)`;
+      const t = `${tx("translate3d({0}px,{1}px,0)", { 0: q(cx + Math.cos(a) * 26 - 3), 1: q(cy + Math.sin(a) * 12 - 3) })}`;
       if (w._t !== t) { w._t = t; w.style.transform = t; w.style.zIndex = Math.sin(a) > 0 ? 3 : 1; mark("wisp"); }
     });
   }
@@ -372,7 +373,7 @@ export class StripRenderer {
     if (this.shakeT > 0 || this.shakeK) {
       this.shakeT = Math.max(0, this.shakeT - dt);
       const amp = this.shakeT > 0 ? P * (this.shakeT > 0.15 ? 2 : 1) : 0;
-      const k = amp ? `translate3d(${(Math.random() < 0.5 ? -1 : 1) * amp}px,${(Math.random() < 0.5 ? -1 : 1) * (amp / P | 0) * P}px,0)` : "";
+      const k = amp ? `${tx("translate3d({0}px,{1}px,0)", { 0: (Math.random() < 0.5 ? -1 : 1) * amp, 1: (Math.random() < 0.5 ? -1 : 1) * (amp / P | 0) * P })}` : "";
       if (k !== this.shakeK) { this.shakeK = k; this.stage.style.transform = k; mark("shake"); }
     }
     this.syncSlots();
@@ -421,7 +422,7 @@ export class StripRenderer {
     this.hero.move(x + (this.lunge > 0 && melee ? 6 : 0) + (this.flash > 0 ? -3 : 0), GROUND - fr.ch + P + bob);
     this.hero.alpha(R.mode === "dead" ? 0.35 : 1);
     const bx = q(x + 3);
-    if (bx !== this.heroBarX) { this.heroBarX = bx; this.heroBar.el.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 2}px,0)`; mark("move"); }
+    if (bx !== this.heroBarX) { this.heroBarX = bx; this.heroBar.el.style.transform = `${tx("translate3d({0}px,{1}px,0)", { 0: bx, 1: GROUND - this.hero.h - 2 })}`; mark("move"); }
     this.heroBar.set(R.hp / game.stats().hp);
     this.syncPet();
     this.syncMinion();
@@ -451,7 +452,7 @@ export class StripRenderer {
       if (sx !== this.slashX || this.slashScaleK !== this.slashTier) {
         this.slashX = sx; this.slashScaleK = this.slashTier;
         const k = [1, 1.35, 1.7, 2.1, 2.7][attackTier(S)] || 1;
-        this.slash.style.transform = `translate3d(${sx}px,${q(GROUND - 36)}px,0) scale(${k})`;
+        this.slash.style.transform = `${tx("translate3d({0}px,{1}px,0) scale({2})", { 0: sx, 1: q(GROUND - 36), 2: k })}`;
       }
     }
     if (this.slash.classList.contains("on") !== !!slashOn) { this.slash.classList.toggle("on", !!slashOn); mark("slash"); }
@@ -460,9 +461,9 @@ export class StripRenderer {
     if (tierKey !== this.slashTier) {
       const t = attackTier(S);
       if (this.slashTier && +this.slashTier.split(":")[1] < t && this.slashTier.split(":")[0] === S.cls)
-        this.juice.banner(`Style de combat : ${ATTACK_TIERS[t].name} !`, CLASS_FX[S.cls] || "#fff", this.heroX + 80, true);
+        this.juice.banner(`${tx("Style de combat : {0} !", { 0: ATTACK_TIERS[t].name })}`, CLASS_FX[S.cls] || "#fff", this.heroX + 80, true);
       this.slashTier = tierKey;
-      this.slash.className = "slash t" + t + (slashOn ? " on" : "");
+      this.slash.className = tx("slash t") + t + (slashOn ? " on" : "");
       this.slash.style.setProperty("--c", CLASS_FX[S.cls] || "#fff");
     }
 
@@ -474,12 +475,12 @@ export class StripRenderer {
     this.drawHudLeft();
     this.drawHudRight();
     const xpPct = (100 * S.xp / game.xpNeed()).toFixed(1);
-    if (xpPct !== this.xpKey) { this.xpKey = xpPct; this.xpFill.style.transform = `scaleX(${xpPct / 100})`; mark("xp"); }
+    if (xpPct !== this.xpKey) { this.xpKey = xpPct; this.xpFill.style.transform = `${tx("scaleX({0})", { 0: xpPct / 100 })}`; mark("xp"); }
   }
 
   /* ---------- ATH (redessinés seulement quand le texte change) ---------- */
   drawHudLeft() {
-    const S = this.game.S, label = "Zone " + S.zone + "  " + this.game.zoneName(), key = label + "|" + S.kills;
+    const S = this.game.S, label = tx("Zone ") + S.zone + "  " + this.game.zoneName(), key = label + "|" + S.kills;
     if (key === this.hudLKey) return;
     this.hudLKey = key; mark("hud");
     const ctx = this.hudL.ctx;
@@ -497,7 +498,7 @@ export class StripRenderer {
   }
 
   drawHudRight() {
-    const S = this.game.S, gt = fmt(S.gold), lvlTxt = "Niv. " + S.lvl, key = gt + "|" + lvlTxt;
+    const S = this.game.S, gt = fmt(S.gold), lvlTxt = tx("Niv. ") + S.lvl, key = gt + "|" + lvlTxt;
     if (key === this.hudRKey) return;
     this.hudRKey = key; mark("hud");
     const ctx = this.hudR.ctx, right = HUD_R_W - 10;

@@ -1,5 +1,6 @@
 // Onglet Classe : les héros libérés et ceux encore prisonniers. On change de
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
+import { t as tx } from "../../i18n/index.js";
 import { CLASSES, CLASS_KEYS, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
@@ -23,39 +24,37 @@ export class ClassesTab {
         return `<article class="panel classcard locked">
           <div class="detail-head"><img class="silhouette" src="${classPortraitURL(k)}" alt=""><div>
             <div class="nm">${esc(c.name)}</div><div class="sub">${esc(c.role)}</div></div></div>
-          <p class="cdesc">Retenu prisonnier en <b>zone ${z}</b> (${esc(zoneName(z))}).</p>
-          <p class="note">Bats le boss de cette zone pour le libérer.${S.best >= z ? " Tu y es déjà passé : retournes-y pour le vaincre." : ""}</p>
+          <p class="cdesc">${tx("Retenu prisonnier en")} <b>zone ${z}</b> (${esc(zoneName(z))}).</p>
+          <p class="note">${tx("Bats le boss de cette zone pour le libérer.{0}", { 0: S.best >= z ? tx(" Tu y es déjà passé : retournes-y pour le vaincre.") : "" })}</p>
         </article>`;
       }
       const mods = [
-        pct(c.mul.hp) && `Points de vie ${pct(c.mul.hp)}`,
-        pct(c.mul.atk) && `Attaque ${pct(c.mul.atk)}`,
-        pct(c.mul.def) && `Défense ${pct(c.mul.def)}`,
-        c.add.crit && `Critique +${c.add.crit} pts`,
-        c.add.spd && `Vitesse d’attaque +${c.add.spd} %`,
-        c.projectile ? "Combat à distance" : "Combat au corps à corps",
+        pct(c.mul.hp) && `${tx("Points de vie {0}", { 0: pct(c.mul.hp) })}`,
+        pct(c.mul.atk) && `${tx("Attaque {0}", { 0: pct(c.mul.atk) })}`,
+        pct(c.mul.def) && `${tx("Défense {0}", { 0: pct(c.mul.def) })}`,
+        c.add.crit && `${tx("Critique +{0} pts", { 0: c.add.crit })}`,
+        c.add.spd && `${tx("Vitesse d’attaque +{0} %", { 0: c.add.spd })}`,
+        c.projectile ? tx("Combat à distance") : tx("Combat au corps à corps"),
       ].filter(Boolean);
       const spent = talentPointsSpent(S, k), chosen = next === k;
-      const action = cur && chosen ? `<button disabled>Classe actuelle</button>`
-        : chosen ? `<button disabled class="primary">Choisie pour l’ascension ✓</button>`
-        : `<button data-action="c-pick" data-id="${k}">${cur ? "Garder cette classe" : "Choisir pour la prochaine ascension"}</button>`;
+      const action = cur && chosen ? `<button disabled>${tx("Classe actuelle")}</button>`
+        : chosen ? `<button disabled class="primary">${tx("Choisie pour l’ascension ✓")}</button>`
+        : `<button data-action="c-pick" data-id="${k}">${cur ? tx("Garder cette classe") : tx("Choisir pour la prochaine ascension")}</button>`;
       return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}">
         <div class="detail-head"><img src="${classPortraitURL(k)}" alt=""><div>
           <div class="nm">${esc(c.name)}${cur ? " <small>(actuelle)</small>" : ""}</div><div class="sub">${esc(c.role)}</div></div></div>
         <p class="cdesc">${esc(c.desc)}</p>
         <ul class="lines">${mods.map((m) => `<li><span>${esc(m)}</span></li>`).join("")}</ul>
-        <p class="passive"><b>Passif.</b> ${esc(c.passiveText)}</p>
-        ${spent ? `<p class="note">${spent} point${spent > 1 ? "s" : ""} de talent répartis.</p>` : ""}
+        <p class="passive"><b>${tx("Passif.")}</b> ${esc(c.passiveText)}</p>
+        ${spent ? `<p class="note">${spent} ${tx("point{0} de talent répartis.", { 0: spent > 1 ? "s" : "" })}</p>` : ""}
         <div class="row">${action}</div>
       </article>`;
     }).join("");
     const tier = attackTier(S), nextT = ATTACK_TIERS[tier + 1];
-    const style = `<article class="panel tierbox"><h2>Style de combat <small>palier ${tier + 1} / ${ATTACK_TIERS.length} · ${esc(ATTACK_TIERS[tier].name)}</small></h2>
-      <div class="tiers">${ATTACK_TIERS.map((t, i) => `<span class="tierpip${i <= tier ? " on" : ""}" title="${esc(t.name)} : niveau ${t.lvl}${t.asc ? ` et ${t.asc} ascension${t.asc > 1 ? "s" : ""}` : ""}">${i + 1}</span>`).join("")}</div>
-      <p class="note tight">Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).
-      ${nextT ? `Prochain palier : <b>${esc(nextT.name)}</b>, niveau ${nextT.lvl}${nextT.asc ? ` et ${nextT.asc} ascension${nextT.asc > 1 ? "s" : ""}` : ""}.` : "Palier maximal atteint !"}</p></article>`;
-    el.innerHTML = `${style}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> héros libérés. On change de classe en faisant une <b>ascension</b> :
-      choisis ici la classe de ta prochaine aventure${S.nextCls ? ` (actuellement : <b>${esc(CLASSES[S.nextCls].name)}</b>)` : ""}. Les autres héros sont prisonniers d’un boss de zone.</p>
+    const style = `<article class="panel tierbox"><h2>${tx("Style de combat")} <small>${tx("palier {0} / {1} · {2}", { 0: tier + 1, 1: ATTACK_TIERS.length, 2: esc(ATTACK_TIERS[tier].name) })}</small></h2>
+      <div class="tiers">${ATTACK_TIERS.map((t, i) => `<span class="tierpip${i <= tier ? " on" : ""}" title="${esc(tx("{0} : niveau {1}{2}", { 0: esc(t.name), 1: t.lvl, 2: t.asc ? ` ${tx("et {0} ascension{1}", { 0: t.asc, 1: t.asc > 1 ? "s" : "" })}` : "" }))}">${i + 1}</span>`).join("")}</div>
+      <p class="note tight">${tx("Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).\n      {0}", { 0: nextT ? `${tx("Prochain palier :")} <b>${esc(nextT.name)}</b>${tx(", niveau {0}{1}.", { 0: nextT.lvl, 1: nextT.asc ? ` ${tx("et {0} ascension{1}", { 0: nextT.asc, 1: nextT.asc > 1 ? "s" : "" })}` : "" })}` : tx("Palier maximal atteint !") })}</p></article>`;
+    el.innerHTML = `${style}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de classe en faisant une")} <b>ascension</b> ${tx(":\n      choisis ici la classe de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
       <div class="classgrid">${cards}</div>`;
   }
 
