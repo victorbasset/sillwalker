@@ -76,12 +76,13 @@ export class StripRenderer {
     g.on("classChange", () => { this.heroCls = null; this.minionKey = null; });
     g.on("minion", () => { this.minionLunge = 0.2; });
     g.on("bossSkill", ({ id }) => {
-      const label = { enrage: ["ENRAGÉ !", "#ff4a4a"], shell: ["Carapace !", "#9fd8ff"], smash: ["", ""] }[id];
+      const label = { enrage: ["ENRAGÉ !", "#ff4a4a"], shell: ["Carapace !", "#9fd8ff"], mirror: ["Miroir !", "#e0d8ff"], smash: ["", ""] }[id];
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + " !", "#ff4a4a", true); });
     g.on("bossShieldHit", () => { this.monHit = 0.06; });
+    g.on("mirrorHit", ({ dmg }) => { this.flash = Math.max(this.flash, 0.08); this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#e0d8ff", false, true); });
     g.on("flee", ({ mon }) => {
       this.float(this.monX() + 14, 40, "Il s’enfuit !", "#ffd34d", true);
       if (this.active) this.makeCorpse(mon, this.monX());

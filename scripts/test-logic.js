@@ -606,4 +606,20 @@ test("transmutation : 3 inutiles -> 1 de la rareté au-dessus", () => {
   assert.equal(g.S.bag.length, 3);
 });
 
+test("boss : miroir et vampirisme", async () => {
+  const { bossMechanics } = await import("../src/renderer/game/bosses.js");
+  const seen = new Set();
+  for (let z = 1; z <= 12; z++) for (const id of bossMechanics(z)) seen.add(id);
+  assert.ok(seen.has("mirror") && seen.has("drain"), [...seen].join(","));
+  // Le miroir ne peut pas achever le héros.
+  const g = new Game(freshState());
+  g.S.lvl = 30; g.invalidateStats();
+  let mirrored = 0;
+  g.on("mirrorHit", ({ dmg }) => { mirrored += dmg; });
+  const zMirror = [1, 2, 3, 4, 5, 6].find((z) => bossMechanics(z).includes("mirror"));
+  g.S.zone = g.S.best = zMirror; g.S.kills = 10;
+  for (let i = 0; i < 200 && !mirrored; i++) { g.S.kills = 10; g.advance(0.5); }
+  assert.ok(mirrored > 0, "le miroir a renvoyé des dégâts");
+});
+
 console.log(`\n${pass} tests réussis`);

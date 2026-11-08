@@ -241,6 +241,7 @@ export class Game {
     R.hp -= dmg;
     if (dmg > 0) this.emit(mult > 1 ? "smash" : "heroHurt", { dmg });
     if (m.affix === "vampiric" && dmg > 0) m.hp = Math.min(m.max, m.hp + dmg * ELITE_AFFIXES.vampiric.lifesteal);
+    if (dmg > 0 && m.mech && m.mech.includes("drain")) m.hp = Math.min(m.max, m.hp + dmg * 0.4);
     if (hs.riposte > 0 && R.hp > 0 && rand() < hs.riposte / 100) {
       const rd = hs.atk * 0.5;
       m.hp -= rd;
@@ -272,6 +273,11 @@ export class Game {
     if (mech.includes("regen") && !(m.burnT > 0) && !(m.poisonT > 0) && m.hp < m.max) {
       m.hp = Math.min(m.max, m.hp + m.max * 0.02 * dt);
     }
+    if (mech.includes("mirror")) {
+      m.mirrorT = (m.mirrorT ?? 6) - dt;
+      if (m.mirrorT <= 0 && !(m.mirror > 0)) { m.mirror = 2; this.emit("bossSkill", { id: "mirror" }); }
+      if (m.mirror > 0) { m.mirror -= dt; if (m.mirror <= 0) { m.mirror = 0; m.mirrorT = 8; } }
+    }
     if (mech.includes("smash")) {
       const before = m.smashT;
       m.smashT -= dt;
@@ -302,6 +308,10 @@ export class Game {
       this.emit("bossShieldHit", { amount: a });
     }
     m.hp -= dmg;
+    if (m.mirror > 0 && dmg > 0) { // miroir du boss : renvoie une partie des dégâts, sans achever le héros
+      const back = Math.min(dmg * 0.4, Math.max(0, this.R.hp - 1));
+      if (back > 0) { this.R.hp -= back; this.emit("mirrorHit", { dmg: back }); }
+    }
     if (dmg > (this.S.stats.maxHit || 0)) this.S.stats.maxHit = Math.round(dmg);
     if (hs.poison > 0) { m.poisonStacks = Math.min(5, (m.poisonStacks || 0) + 1); m.poisonT = 4; }
     if (hs.lifesteal > 0) this.R.hp = Math.min(hs.hp, this.R.hp + dmg * hs.lifesteal / 100);

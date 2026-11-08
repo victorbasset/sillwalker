@@ -8,8 +8,10 @@ export const BOSS_MECHANICS = {
   smash:  { name: "Coup dévastateur", desc: "Toutes les 6 s, annonce puis assène un coup ×2,5 (esquivable)." },
   shell:  { name: "Carapace", desc: "À 50 % de vie, se couvre d’un bouclier de 25 % de ses PV max." },
   regen:  { name: "Régénération", desc: "Récupère 2 % de ses PV par seconde, sauf s’il brûle ou est empoisonné." },
+  mirror: { name: "Miroir", desc: "Toutes les 8 s, s’entoure d’un miroir pendant 2 s : renvoie 40 % des dégâts reçus (sans pouvoir achever le héros)." },
+  drain:  { name: "Vampirisme", desc: "Récupère 40 % des dégâts qu’il inflige." },
 };
-const ORDER = ["enrage", "smash", "shell", "regen"];
+const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain"];
 
 /** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */
 export const BOSS_NAMES = [
@@ -28,6 +30,6 @@ export function bossName(z) {
 /** Capacités du boss de la zone z. */
 export function bossMechanics(z) {
   const i = (z - 1) % ORDER.length, list = [ORDER[i]];
-  if (z > ZONES.length) list.push(ORDER[(i + 2) % ORDER.length]); // 2e boucle : deux capacités
+  if (z > ZONES.length) list.push(ORDER[(i + 3) % ORDER.length]); // 2e boucle : deux capacités
   return list;
 }
