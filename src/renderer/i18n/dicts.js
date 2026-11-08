@@ -9,10 +9,11 @@ import de from "./lang/de.js";
 import pl from "./lang/pl.js";
 import ru from "./lang/ru.js";
 import zh from "./lang/zh.js";
+import ja from "./lang/ja.js";
 
 const build = (tab) => {
   const d = {};
   for (const i in tab) if (KEYS[i] != null && tab[i] != null && tab[i] !== "") d[KEYS[i]] = tab[i];
   return d;
 };
-export const DICTS = { en: build(en), es: build(es), pt: build(pt), de: build(de), pl: build(pl), ru: build(ru), zh: build(zh) };
+export const DICTS = { en: build(en), es: build(es), pt: build(pt), de: build(de), pl: build(pl), ru: build(ru), zh: build(zh), ja: build(ja) };
