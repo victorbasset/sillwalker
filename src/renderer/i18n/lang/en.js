@@ -182,4 +182,12 @@ export default {
   1291: "Eye of the Deep", 1292: "Falcon's Eye", 1293: "Egg", 1294: "Pet egg", 1295: "pet egg", 1296: "egg{0} waiting", 1297: "← equipment", 1298: "▲ More powerful than your current gear",
   1299: "▲ marks an item more powerful than what your hero is wearing.", 1300: "★ LEGENDARY! {0}", 1301: "⚔ {0} approaches!", 1302: "✦ A Way is available: choose it in the \"Way\" box.", 1303: "🎁 Daily reward", 1304: "🏆 Achievement: {0}",
   1305: "Boss abilities:", 1306: "chosen", 1307: "choose", 1308: "level {0}",
+  1309: "{0} gold",
+  1310: "{0} potions",
+  1311: "Gold",
+  1312: "Hunt: {1} ×{0}",
+  1313: "Defeat {0} elites",
+  1314: "Forge {0} times",
+  1315: "Bring back {0} pet expeditions",
+  1316: "Create {0} items by transmutation",
 };

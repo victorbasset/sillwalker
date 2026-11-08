@@ -182,4 +182,12 @@ export default {
   1291: "Oko głębin", 1292: "Oko sokoła", 1293: "Jajo", 1294: "Jajo pupila", 1295: "jajo pupila", 1296: "jaj czeka", 1297: "← ekwipunek", 1298: "▲ Mocniejszy niż obecny ekwipunek",
   1299: "▲ oznacza przedmiot mocniejszy od tego, co nosi bohater.", 1300: "★ LEGENDARNY! {0}", 1301: "⚔ {0} nadchodzi!", 1302: "✦ Dostępna jest Droga: wybierz ją w ramce „Droga”.", 1303: "🎁 Nagroda dnia", 1304: "🏆 Osiągnięcie: {0}",
   1305: "Umiejętności bossa:", 1306: "wybrana", 1307: "wybierz", 1308: "poziom {0}",
+  1309: "{0} złota",
+  1310: "mikstury: {0}",
+  1311: "Złoto",
+  1312: "Upoluj: {1} ×{0}",
+  1313: "Pokonaj elity: {0}",
+  1314: "Wykuj {0} razy",
+  1315: "Ukończ wyprawy pupili: {0}",
+  1316: "Stwórz przedmioty transmutacją: {0}",
 };

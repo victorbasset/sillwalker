@@ -1,7 +1,7 @@
 // Quêtes (contrats) : QUEST_SLOTS quêtes actives en même temps. Une quête
 // terminée attend que le joueur réclame sa récompense ; une nouvelle prend
 // alors sa place. Les objectifs et récompenses suivent la progression.
-import { t as tx } from "../i18n/index.js";
+import { t as tx, getLang } from "../i18n/index.js";
 import { MONSTERS } from "./data.js";
 import { zoneDef } from "./rules.js";
 import { rand, pick } from "./util.js";
@@ -12,6 +12,7 @@ export const questRerollPrice = (S) => Math.round(goldScale(S) * 25);
 
 const randInt = (a, b) => a + Math.floor(rand() * (b - a + 1));
 const plural = (n, s, p = s + "s") => (n > 1 ? p : s);
+const fr = () => getLang() === "fr";
 
 /**
  * Modèles. make(S) -> { goal, type?, reward }. Les récompenses possibles :
@@ -23,14 +24,15 @@ export const QUEST_TEMPLATES = {
     make: (S) => { const goal = randInt(4, 8) * 10; return { goal, reward: { gold: Math.round(goal * goldScale(S) * 2.5) } }; },
   },
   hunt: {
-    text: (q) => `${tx("Chasser {0} {1}{2}", { 0: q.goal, 1: MONSTERS[q.type].name.toLowerCase(), 2: q.goal > 1 && !/s$/.test(MONSTERS[q.type].name) ? "s" : "" })}`,
+    text: (q) => (fr() ? tx("Chasser {0} {1}{2}", { 0: q.goal, 1: MONSTERS[q.type].name.toLowerCase(), 2: q.goal > 1 && !/s$/.test(MONSTERS[q.type].name) ? "s" : "" })
+      : tx("Chasser : {1} ×{0}", { 0: q.goal, 1: MONSTERS[q.type].name })),
     make: (S) => {
       const type = pick(zoneDef(S.zone).monsters), goal = randInt(3, 6) * 5;
       return { goal, type, reward: { gold: Math.round(goal * goldScale(S) * 4), egg: rand() < 0.15 } };
     },
   },
   elite: {
-    text: (q) => `${tx("Vaincre {0} {1}", { 0: q.goal, 1: plural(q.goal, tx("élite")) })}`,
+    text: (q) => (fr() ? tx("Vaincre {0} {1}", { 0: q.goal, 1: plural(q.goal, "élite") }) : tx("Vaincre {0} élites", { 0: q.goal })),
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, gold: Math.round(goldScale(S) * 60) } }),
   },
   boss: {
@@ -42,16 +44,16 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: Math.round(goldScale(S) * randInt(150, 300)), reward: { buff: pick(["elixir", "fortune", "wisdom", "haste", "luck", "iron"]), potions: 3 } }),
   },
   forge: {
-    text: (q) => `${tx("Forger {0} {1}", { 0: q.goal, 1: plural(q.goal, "fois", "fois") })}`,
+    text: (q) => tx("Forger {0} fois", { 0: q.goal }),
     make: (S) => ({ goal: randInt(2, 4), reward: { gold: Math.round(goldScale(S) * 80), potions: 2 } }),
   },
   expedition: {
-    text: (q) => `${tx("Ramener {0} {1} de familier", { 0: q.goal, 1: plural(q.goal, tx("expédition")) })}`,
+    text: (q) => (fr() ? tx("Ramener {0} {1} de familier", { 0: q.goal, 1: plural(q.goal, "expédition") }) : tx("Ramener {0} expéditions de familier", { 0: q.goal })),
     ok: (S) => Object.keys(S.pets.owned).length >= 2,
     make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 100), egg: rand() < 0.5 } }),
   },
   transmute: {
-    text: (q) => `${tx("Créer {0} {1} par transmutation", { 0: q.goal, 1: plural(q.goal, "objet") })}`,
+    text: (q) => (fr() ? tx("Créer {0} {1} par transmutation", { 0: q.goal, 1: plural(q.goal, "objet") }) : tx("Créer {0} objets par transmutation", { 0: q.goal })),
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, potions: 2 } }),
   },
   zone: {

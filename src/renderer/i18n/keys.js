@@ -1310,5 +1310,13 @@ export const KEYS = [
   "Capacités du boss :",
   "choisie",
   "choisir",
-  "niveau {0}"
+  "niveau {0}",
+  "{0} or",
+  "{0} potions",
+  "Or",
+  "Chasser : {1} ×{0}",
+  "Vaincre {0} élites",
+  "Forger {0} fois",
+  "Ramener {0} expéditions de familier",
+  "Créer {0} objets par transmutation"
 ];

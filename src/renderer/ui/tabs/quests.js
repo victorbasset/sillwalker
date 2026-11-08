@@ -20,10 +20,10 @@ const KIND_ICON = {
 function rewardHTML(rw) {
   const out = [];
   const chip = (icon, txt, cls = "") => `<span class="rwd ${cls}"><img src="${icon}" alt="">${esc(txt)}</span>`;
-  if (rw.gold) out.push(chip(shopIconURL("ws_gold", 3), `${fmt(rw.gold)} or`));
+  if (rw.gold) out.push(chip(shopIconURL("ws_gold", 3), tx("{0} or", { 0: fmt(rw.gold) })));
   if (rw.chest) out.push(chip(shopIconURL(rw.chest >= 3 ? "chest_royal" : rw.chest >= 2 ? "chest_iron" : "chest_wood", 3), `${tx("coffre {0}+", { 0: RARITIES[rw.chest].name.toLowerCase() })}`, "rc" + rw.chest));
   if (rw.buff) out.push(chip(shopIconURL(rw.buff, 3), CONSUMABLES.find((c) => c.id === rw.buff).name));
-  if (rw.potions) out.push(chip(shopIconURL("potion", 3), `${rw.potions} potions`));
+  if (rw.potions) out.push(chip(shopIconURL("potion", 3), tx("{0} potions", { 0: rw.potions })));
   if (rw.shards) out.push(chip(shopIconURL("luck", 3), `${rw.shards} ${tx("éclats d’étoile")}`, "special"));
   if (rw.egg) out.push(chip(shopIconURL("egg", 3), tx("œuf de familier"), "special"));
   if (rw.speed) out.push(chip(shopIconURL("ws_speed", 3), `${tx("+{0} % de vitesse pour toujours", { 0: rw.speed })}`, "special"));

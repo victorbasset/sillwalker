@@ -103,7 +103,7 @@ export class ShopTab {
       </div>`;
     }).join("");
 
-    el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i><b id="shop-gold">${fmt(S.gold)}</b> or</span>
+    el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>
         <span class="note">${tx("Nouvel étal dans")} <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>
         <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmt(rerollPrice(S)) })}</button></div>
       <div class="shopgrid2">

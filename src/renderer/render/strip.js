@@ -107,7 +107,7 @@ export class StripRenderer {
     g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#ff7a6b", false, true); });
     g.on("kill", ({ mon, gold }) => {
       if (mon.boss || mon.champion) this.shake(0.35);
-      this.float(this.monX() + 10, 50, "+" + fmt(gold) + " or", "#ffd34d");
+      this.float(this.monX() + 10, 50, "+" + tx("{0} or", { 0: fmt(gold) }), "#ffd34d");
       if (this.active) this.makeCorpse(mon, this.monX());
     });
 

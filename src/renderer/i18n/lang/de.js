@@ -182,4 +182,12 @@ export default {
   1291: "Auge der Tiefe", 1292: "Falkenauge", 1293: "Ei", 1294: "Begleiter-Ei", 1295: "Begleiter-Ei", 1296: "Ei(er) warten", 1297: "← Ausrüstung", 1298: "▲ Stärker als deine aktuelle Ausrüstung",
   1299: "▲ markiert einen Gegenstand, der stärker ist als das, was dein Held trägt.", 1300: "★ LEGENDÄR! {0}", 1301: "⚔ {0} naht!", 1302: "✦ Ein Weg ist verfügbar: Wähle ihn im Kasten „Weg“.", 1303: "🎁 Tagesbelohnung", 1304: "🏆 Erfolg: {0}",
   1305: "Bossfähigkeiten:", 1306: "gewählt", 1307: "wählen", 1308: "Stufe {0}",
+  1309: "{0} Gold",
+  1310: "{0} Tränke",
+  1311: "Gold",
+  1312: "Jagen: {1} ×{0}",
+  1313: "Besiege {0} Elitegegner",
+  1314: "Schmiede {0}-mal",
+  1315: "Schließe {0} Haustier-Expeditionen ab",
+  1316: "Erschaffe {0} Gegenstände durch Transmutation",
 };

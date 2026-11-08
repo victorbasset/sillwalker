@@ -182,4 +182,12 @@ export default {
   1291: "Olho das profundezas", 1292: "Olho do falcão", 1293: "Ovo", 1294: "Ovo de mascote", 1295: "ovo de mascote", 1296: "ovo(s) em espera", 1297: "← equipamento", 1298: "▲ Mais poderoso que seu equipamento atual",
   1299: "▲ indica um item mais poderoso do que o que seu herói usa.", 1300: "★ LENDÁRIO! {0}", 1301: "⚔ {0} se aproxima!", 1302: "✦ Uma Via está disponível: escolha-a no quadro \"Via\".", 1303: "🎁 Recompensa diária", 1304: "🏆 Conquista: {0}",
   1305: "Habilidades do chefe:", 1306: "escolhida", 1307: "escolher", 1308: "nível {0}",
+  1309: "{0} de ouro",
+  1310: "{0} poções",
+  1311: "Ouro",
+  1312: "Caçar: {1} ×{0}",
+  1313: "Derrote {0} elites",
+  1314: "Forje {0} vezes",
+  1315: "Complete {0} expedições de mascotes",
+  1316: "Crie {0} itens por transmutação",
 };

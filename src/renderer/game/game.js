@@ -562,7 +562,7 @@ export class Game {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
     };
-    this.log(tx("Pendant ") + summary.duration + " : " + fmt(kills) + tx(" monstres vaincus, +") + fmt(gold) + " or" +
+    this.log(tx("Pendant ") + summary.duration + " : " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + summary.kept + tx(" objet(s) gardé(s)."));
     this.changed();
     return summary;
@@ -595,7 +595,7 @@ export class Game {
     const v = sellValue(it);
     this.S.gold += v;
     this.S.bag = this.S.bag.filter((i) => i.id !== it.id);
-    this.log(tx("Vendu : ") + itemName(it) + " (+" + fmt(v) + " or).");
+    this.log(tx("Vendu : ") + itemName(it) + " (+" + tx("{0} or", { 0: fmt(v) }) + ").");
     this.changed();
   }
 
@@ -684,7 +684,7 @@ export class Game {
       return true;
     });
     this.S.gold += total;
-    if (n) this.log(n + tx(" objet(s) vendu(s) pour ") + fmt(total) + " or.");
+    if (n) this.log(n + tx(" objet(s) vendu(s) pour ") + tx("{0} or", { 0: fmt(total) }) + ".");
     this.changed();
   }
 
@@ -810,7 +810,7 @@ export class Game {
     this.S.talents[this.S.cls] = {};
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(tx("Talents réinitialisés") + (cost ? " (" + fmt(cost) + " or)." : "."));
+    this.log(tx("Talents réinitialisés") + (cost ? " (" + tx("{0} or", { 0: fmt(cost) }) + ")." : "."));
     this.changed();
     return true;
   }
@@ -1088,10 +1088,10 @@ export class Game {
     if (i < 0 || !questDone(Q.slots[i])) return false;
     const rw = Q.slots[i].reward, parts = [];
     if (rw.chest && this.bagFull()) { this.log(tx("Sac plein : libère une place pour recevoir le coffre.")); return false; }
-    if (rw.gold) { S.gold += rw.gold; parts.push(fmt(rw.gold) + " or"); }
+    if (rw.gold) { S.gold += rw.gold; parts.push(tx("{0} or", { 0: fmt(rw.gold) })); }
     if (rw.chest) { const it = this.newItem(rw.chest, S.best); S.bag.push(it); parts.push(itemName(it)); this.emit("loot", { item: it, mon: null }); }
     if (rw.buff) { S.buffs[rw.buff] = Math.min(7200, (S.buffs[rw.buff] || 0) + 600); this.invalidateStats(); parts.push(tx("élixir de 10 min")); }
-    if (rw.potions) { S.potions = Math.min(20, S.potions + rw.potions); parts.push(rw.potions + " potions"); }
+    if (rw.potions) { S.potions = Math.min(20, S.potions + rw.potions); parts.push(tx("{0} potions", { 0: rw.potions })); }
     if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(rw.shards + tx(" éclats d’étoile")); }
     if (rw.egg) { this.gainEgg(); parts.push(tx("un œuf")); }
     if (rw.speed) { this.gainSpeed(rw.speed, tx("Quête héroïque")); parts.push(`${tx("+{0} % de vitesse pour toujours", { 0: rw.speed })}`); }

@@ -182,4 +182,12 @@ export default {
   1291: "Ojo de las profundidades", 1292: "Ojo del halcón", 1293: "Huevo", 1294: "Huevo de mascota", 1295: "huevo de mascota", 1296: "huevo(s) en espera", 1297: "← equipo", 1298: "▲ Más poderoso que tu equipo actual",
   1299: "▲ indica un objeto más poderoso que el que lleva tu héroe.", 1300: "★ ¡LEGENDARIO! {0}", 1301: "⚔ ¡{0} se acerca!", 1302: "✦ Hay una Vía disponible: elígela en el recuadro «Vía».", 1303: "🎁 Recompensa diaria", 1304: "🏆 Logro: {0}",
   1305: "Habilidades del jefe:", 1306: "elegida", 1307: "elegir", 1308: "nivel {0}",
+  1309: "{0} de oro",
+  1310: "{0} pociones",
+  1311: "Oro",
+  1312: "Cazar: {1} ×{0}",
+  1313: "Derrota a {0} élites",
+  1314: "Forja {0} veces",
+  1315: "Completa {0} expediciones de mascotas",
+  1316: "Crea {0} objetos por transmutación",
 };
