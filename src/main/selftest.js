@@ -199,6 +199,12 @@ async function runSelfTest(strip) {
   check("réglages : opacité appliquée par la fenêtre", strip.settings.get("opacity") === 0.7);
   await click(`[data-action="se-opacity"][data-v="${op0}"]`);
   await sleep(200);
+  // Raccourci clavier : 0 ouvre l'onglet n° 10 (Statistiques)
+  wc.sendInputEvent({ type: "keyDown", keyCode: "0" });
+  wc.sendInputEvent({ type: "char", keyCode: "0" });
+  wc.sendInputEvent({ type: "keyUp", keyCode: "0" });
+  await sleep(200);
+  check("raccourci clavier vers un onglet", (await js("document.querySelector('[data-tab=stats]').getAttribute('aria-selected')")) === "true");
   await click('[data-tab="bestiary"]');
   await sleep(150);
   check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);

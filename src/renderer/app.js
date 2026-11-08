@@ -95,7 +95,11 @@ async function boot() {
   }
   const togglePanel = () => (panelOpen ? closePanel() : openPanel());
   menuBtn.addEventListener("click", togglePanel);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && panelOpen) panel.onEscape(); });
+  document.addEventListener("keydown", (e) => {
+    if (!panelOpen) return;
+    if (e.key === "Escape") { panel.onEscape(); return; }
+    if (panel.onKey(e)) e.preventDefault();
+  });
 
   /* ---------- Boutons de mode ---------- */
   $("#mini-btn").addEventListener("click", () => api.setMode("mini"));

@@ -39,6 +39,16 @@ export class SettingsTab {
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> Lancer au démarrage de Windows</label>
         <p class="note">Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.</p>
       </article>
+      <article class="panel"><h2>Raccourcis clavier</h2>
+        <ul class="lines">
+          <li><span>Changer d’onglet</span><b>1 … 9, 0, -</b></li>
+          <li><span>Équiper le meilleur</span><b>E</b></li>
+          <li><span>Vendre ce qui n’améliore pas</span><b>V</b></li>
+          <li><span>Confirmer une fenêtre</span><b>Entrée</b></li>
+          <li><span>Fermer le panneau</span><b>Échap</b></li>
+        </ul>
+        <p class="note">Actifs quand le panneau est ouvert et que tu as cliqué dedans.</p>
+      </article>
     </div>`;
   }
 

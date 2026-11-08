@@ -102,7 +102,7 @@ export class Panel {
     this.root.innerHTML = `
       <header class="ptop">
         <h1>Sillwalker</h1>
-        <nav class="tabs" role="tablist">${TABS.map((t) => `<button role="tab" data-tab="${t.id}" aria-selected="${t.id === this.tab}">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
+        <nav class="tabs" role="tablist">${TABS.map((t, i) => `<button role="tab" data-tab="${t.id}" title="Raccourci : ${"1234567890-"[i]}" aria-selected="${t.id === this.tab}">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
         <div class="controls">
           ${dev}
           <button data-action="reset" class="quiet">Recommencer</button>
@@ -442,6 +442,26 @@ export class Panel {
     if (b.dataset.action === "se-volume") { this.tabs.settings.onAction("se-volume", b); this.renderAll(); return; }
     if (b.dataset.action === "as") this.game.setAutoSell(b.dataset.r, b.checked);
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
+  }
+
+  /**
+   * Raccourcis clavier (panneau ouvert) : 1-9 et 0 = onglets, - = Réglages,
+   * E = équiper le meilleur, V = vendre ce qui n'améliore pas.
+   * Renvoie true si la touche a été utilisée.
+   */
+  onKey(e) {
+    if (e.ctrlKey || e.altKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return false;
+    if (!$(this.root, "#confirm").hidden) {
+      if (e.key === "Enter") { const fn = this.confirmFn; this.closeConfirm(); fn?.(); return true; }
+      return false;
+    }
+    const order = "1234567890-";
+    const i = order.indexOf(e.key);
+    if (i >= 0 && TABS[i]) { this.setTab(TABS[i].id); return true; }
+    const k = e.key.toLowerCase();
+    if (k === "e") { this.game.autoEquip(); this.selected = null; this.renderAll(); return true; }
+    if (k === "v") { const b = $(this.root, '[data-action="sellless"]'); if (this.tab !== "adventure") this.setTab("adventure"); this.onClick({ target: $(this.root, '[data-action="sellless"]') || b }); return true; }
+    return false;
   }
 
   /** Échap : ferme la modale si ouverte, sinon demande la fermeture du panneau. */
