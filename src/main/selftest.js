@@ -288,6 +288,7 @@ async function runSelfTest(strip) {
   await sleep(300);
   const todo = await js("[...document.querySelectorAll('#modal:not([hidden]) .linkbtn[data-tab]')].map((b) => b.dataset.tab)");
   check("retour d'absence : actions « à faire maintenant »", todo.includes("pets"), JSON.stringify(todo));
+  check("retour d'absence : le focus clavier est sur « Continuer »", (await js("document.activeElement && document.activeElement.dataset.action")) === "closemodal");
   if (process.env.SELFTEST_SHOT) require("fs").writeFileSync(process.env.SELFTEST_SHOT, (await wc.capturePage()).toPNG());
   await click('#modal .linkbtn[data-tab="pets"]');
   await sleep(200);

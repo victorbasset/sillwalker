@@ -247,7 +247,7 @@ export class Panel {
         : tx("La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.", { 0: sum.capH || 8 })}</p>`;
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
-    $(this.root, "#modal button").focus();
+    $(this.root, "#modal [data-action=closemodal]").focus(); // « Continuer », pas une action de la liste
   }
 
   /** « À faire maintenant » : un bouton par action disponible, qui mène droit au bon onglet. */
