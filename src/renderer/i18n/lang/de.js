@@ -251,4 +251,6 @@ export default {
   1375: "Bei jeder Stufe selbst verteilen",
   1376: "Automatisch verteilen",
   1377: "Erweitert das am weitesten entwickelte Blatt, besondere Knoten zuerst.",
+  1378: "Tausend Klicks (Bonusschläge)",
+  1379: "Weltreise (alle Zonen)",
 };

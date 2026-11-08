@@ -1379,5 +1379,7 @@ export const KEYS = [
   "Ton héros et son équipement",
   "À chaque niveau, dépenser tout seul",
   "Dépenser automatiquement",
-  "Prolonge le pétale le plus avancé, nœuds remarquables d’abord."
+  "Prolonge le pétale le plus avancé, nœuds remarquables d’abord.",
+  "Mille clics (coups bonus)",
+  "Tour du monde (toutes les zones)"
 ];

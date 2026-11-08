@@ -251,4 +251,6 @@ export default {
   1375: "Wydawaj sam przy każdym poziomie",
   1376: "Wydaj automatycznie",
   1377: "Rozwija najbardziej zaawansowany płatek, najpierw węzły znaczące.",
+  1378: "Tysiąc kliknięć (ciosy dodatkowe)",
+  1379: "Podróż dookoła świata (wszystkie strefy)",
 };

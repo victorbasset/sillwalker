@@ -251,4 +251,6 @@ export default {
   1375: "Gastar sozinho a cada nível",
   1376: "Gastar automaticamente",
   1377: "Estende a pétala mais avançada, nós notáveis primeiro.",
+  1378: "Mil cliques (golpes extras)",
+  1379: "Volta ao mundo (todas as zonas)",
 };

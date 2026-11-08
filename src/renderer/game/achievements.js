@@ -2,7 +2,7 @@
 // Steamworks (Stats & Achievements). Ajouter un succès = une ligne ici.
 import { TREES } from "./talents.js";
 import { PETS } from "./pets.js";
-import { MONSTERS } from "./data.js";
+import { MONSTERS, ZONES } from "./data.js";
 import { CLASS_KEYS } from "./classes.js";
 import { setCounts } from "./sets.js";
 import { codexCounts } from "./codex.js";
@@ -55,6 +55,8 @@ export const ACHIEVEMENTS = [
   { id: "CHAMPION",        name: "Tueur de champion", test: (S) => (S.stats.champions || 0) >= 1 },
   { id: "POWERS_ALL",      name: "Tous les pouvoirs légendaires", test: (S) => Object.keys(S.powersSeen || {}).length >= POWERS.length },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
+  { id: "TAPS_1000",       name: "Mille clics (coups bonus)", test: (S) => (S.stats.taps || 0) >= 1000 },
+  { id: "WORLD_TOUR",      name: "Tour du monde (toutes les zones)", test: (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0) >= ZONES.length },
 ];
 
 /** Identifiants des succès dont la condition est remplie. */

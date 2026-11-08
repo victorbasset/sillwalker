@@ -251,4 +251,6 @@ export default {
   1375: "Spend on my own at every level",
   1376: "Spend automatically",
   1377: "Extends your most advanced petal, notable nodes first.",
+  1378: "A Thousand Clicks (bonus hits)",
+  1379: "World Tour (every zone)",
 };
