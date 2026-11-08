@@ -296,4 +296,6 @@ export default {
   1420: "Dodges 20% of the hero's hits (click strikes always land).",
   1421: "Frozen!",
   1422: "Miss!",
+  1423: "ready to buy!",
+  1424: "Next unlock",
 };

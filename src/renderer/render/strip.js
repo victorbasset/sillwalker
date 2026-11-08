@@ -571,7 +571,8 @@ export class StripRenderer {
   }
 
   drawHudRight() {
-    const S = this.game.S, gt = fmt(S.gold), lvlTxt = tx("Niv. ") + S.lvl, key = gt + "|" + lvlTxt;
+    const S = this.game.S, gt = fmt(S.gold).replace(/[  ]/g, " "), // espaces fines : absentes de la police pixel du canevas
+      lvlTxt = tx("Niv. ") + S.lvl, key = gt + "|" + lvlTxt;
     if (key === this.hudRKey) return;
     this.hudRKey = key; mark("hud");
     const ctx = this.hudR.ctx, right = HUD_R_W - 10;

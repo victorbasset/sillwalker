@@ -296,4 +296,6 @@ export default {
   1420: "Esquiva el 20 % de los golpes del héroe (los golpes con clic siempre aciertan).",
   1421: "¡Congelado!",
   1422: "¡Fallo!",
+  1423: "¡listo para comprar!",
+  1424: "Próximo desbloqueo",
 };

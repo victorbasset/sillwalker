@@ -296,4 +296,6 @@ export default {
   1420: "Weicht 20 % der Schläge des Helden aus (Klick-Schläge treffen immer).",
   1421: "Eingefroren!",
   1422: "Daneben!",
+  1423: "bereit zum Kauf!",
+  1424: "Nächste Freischaltung",
 };

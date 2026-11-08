@@ -1424,5 +1424,7 @@ export const KEYS = [
   "Insaisissable",
   "Esquive 20 % des coups du héros (les coups au clic touchent toujours).",
   "Gelé !",
-  "Raté !"
+  "Raté !",
+  "prêt à acheter !",
+  "Prochain déblocage"
 ];

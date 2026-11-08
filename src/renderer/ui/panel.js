@@ -29,7 +29,7 @@ import { EVENTS } from "../game/events.js";
 import { activeDayMod } from "../game/daymods.js";
 import { BOSS_MECHANICS, bossMechanics, bossName } from "../game/bosses.js";
 import { lockLink } from "./locks.js";
-import { hasUnlock } from "../game/unlocks.js";
+import { hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 
 const $ = (root, s) => root.querySelector(s);
 /** Lignes « pouvoir légendaire » et « panoplie » d'un objet (ou rien). */
@@ -334,6 +334,7 @@ export class Panel {
       </div>
       ${S.potions === 0 ? `<button class="linkbtn warn" data-tab="shop">${tx("Plus de potions de soin : la boutique en vend →")}</button>` : ""}
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${free} ${tx("point{0} de talent à dépenser →", { 0: plS(free) })}</button>` : ""}
+      ${this.goalHTML(S)}
       ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
@@ -411,6 +412,18 @@ export class Panel {
         ${!hasUnlock(S, "forge") ? lockLink(S, "forge") : ""}${hasUnlock(S, "forge") && RARITIES[it.r].affixes ? `<button data-action="reforge"${S.gold >= reforgeCost(it) ? "" : " disabled"} title="${esc(tx("Tire au hasard de nouveaux bonus secondaires. Rareté, forge, pouvoir et panoplie sont conservés."))}">${tx("Réforger ({0} or)", { 0: fmt(reforgeCost(it)) })}</button>` : ""}
         ${hasUnlock(S, "forge") ? `<button data-action="forge"${canForge ? "" : " disabled"}>${it.plus >= MAX_PLUS ? tx("Amélioration maximale") : `${tx("Forger +{0} ({1} or)", { 0: it.plus + 1, 1: fmt(fc) })}`}</button>` : ""}</div>
       <p class="note">${tx("Chaque niveau de forge ajoute 10{0}% à toutes les statistiques de l’objet. La forge ne peut pas échouer.", { 0: NB })}</p>`;
+  }
+
+  /** Prochain déblocage : objectif visible en permanence (zone record, puis or). */
+  goalHTML(S) {
+    const u = nextUnlock(S);
+    if (!u) return "";
+    const zoneOk = unlockAvailable(S, u);
+    const k = zoneOk ? Math.min(1, S.gold / u.price) : Math.min(1, recordZone(S) / u.zone);
+    const what = zoneOk ? (S.gold >= u.price ? tx("prêt à acheter !") : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
+    return `<button class="goal${zoneOk && S.gold >= u.price ? " ready" : ""}" data-tab="shop" title="${esc(u.desc)}">
+      <img src="${shopIconURL(u.icon, 2)}" alt=""><span class="gtxt"><small>${tx("Prochain déblocage")}</small> ${esc(u.name)} · ${what}</span>
+      <span class="gbar"><i style="width:${Math.round(k * 100)}%"></i></span></button>`;
   }
 
   renderZone() {

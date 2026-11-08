@@ -296,4 +296,6 @@ export default {
   1420: "Unika 20% ciosów bohatera (ciosy kliknięciem zawsze trafiają).",
   1421: "Zamrożony!",
   1422: "Pudło!",
+  1423: "gotowe do kupienia!",
+  1424: "Następne odblokowanie",
 };
