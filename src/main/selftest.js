@@ -57,7 +57,7 @@ async function runSelfTest(strip) {
   const [panelTop, wrapTop] = (await js(tops)).split(",").map(Number);
   check("panneau entièrement glissé en place", panelTop === wrapTop, `panel ${panelTop} / zone ${wrapTop}`);
   const hdr = await js("[...document.querySelectorAll('.ptop button')].map(b => b.textContent.trim()).join(' | ')");
-  check("boutons de l'en-tête", /Mode mini/.test(hdr) && /Quitter/.test(hdr), hdr);
+  check("boutons de l'en-tête", await js("!!document.querySelector('.ptop [data-action=mini]') && !!document.querySelector('.ptop [data-action=quit]')"), hdr);
   check("pas de boutons de vitesse hors dev", app.isPackaged ? !/×10/.test(hdr) : true);
 
   // Fermeture
