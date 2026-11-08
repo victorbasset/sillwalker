@@ -12,6 +12,8 @@ app.setAppUserModelId("com.sillwalker.game");
 registerScheme();
 // Effets sonores (désactivés par défaut) : pas besoin d'un clic pour démarrer l'audio.
 app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
+// Tests (--ghost) : la fenêtre est hors de l'écran ; sans ceci, Windows la croirait cachée et elle ne serait plus dessinée.
+if (process.argv.includes("--ghost")) app.commandLine.appendSwitch("disable-features", "CalculateNativeWinOcclusion");
 
 if (!app.requestSingleInstanceLock()) {
   app.quit();
@@ -48,7 +50,7 @@ function start() {
       ghost: flags.ghost,
       testWidth: flags.width,
     });
-    trayCtl = createTray({ strip, isDev: flags.isDev, steam });
+    if (!flags.ghost) trayCtl = createTray({ strip, isDev: flags.isDev, steam }); // tests : pas d'icône de notification
 
     /* ---------- IPC ---------- */
     ipcMain.handle("init:get", () => ({

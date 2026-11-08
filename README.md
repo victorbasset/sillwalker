@@ -70,7 +70,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 | `npm run dist` | Build Windows dans `dist/win-unpacked/` (le dossier à envoyer sur Steam) |
 
 Options de dev (ignorées dans le build final) : `--user-data=<dossier>` (sauvegarde isolée), `--speed=10`, `--open-panel`,
-`--mode=strip|mini|icon`, `--tab=talents|shop|class`, `--shot=capture.png`, `--shot-delay=<ms>`, `--exit-after=<s>`, `--ghost` (fenêtre à 2 % d'opacité, pour tester sans gêner), `--demo` (déclenche les effets spéciaux),
+`--mode=strip|mini|icon`, `--tab=talents|shop|class`, `--shot=capture.png`, `--shot-delay=<ms>`, `--exit-after=<s>`, `--ghost` (tests invisibles : fenêtre hors de l'écran, jamais au premier plan, sans icône de notification), `--demo` (déclenche les effets spéciaux),
 `--width=1366` (simule un écran plus étroit).
 
 Node 22 est recommandé. Avec Node 20, si le binaire Electron manque après `npm install` : `node --experimental-require-module node_modules/electron/install.js`.

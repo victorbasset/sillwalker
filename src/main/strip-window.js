@@ -11,6 +11,9 @@ const config = require("../shared/config");
 
 const MODES = ["strip", "mini", "icon"];
 
+/** Décalage de la fenêtre en mode --ghost (tests) : hors de l'écran, l'utilisateur ne voit rien. */
+const GHOST_OFFSET = 30000;
+
 class StripWindow {
   constructor({ settings, preload, url, devTools, openDevTools, ghost, testWidth }) {
     this.testWidth = testWidth || 0;
@@ -55,7 +58,10 @@ class StripWindow {
     this.pollTimer = setInterval(() => this.pollCursor(), 50);
     this.win.on("closed", () => clearInterval(this.pollTimer));
     this.win.setMenu(null);
-    if (this.ghost) this.win.setOpacity(0.02); // tests : quasi invisible (les captures restent nettes)
+    if (this.ghost) { // tests : hors de l'écran, quasi transparente, jamais au premier plan (les captures restent nettes)
+      this.win.setOpacity(0.02);
+      this.win.setFocusable(false);
+    }
     this.place();
     this.win.loadURL(url);
 
@@ -104,6 +110,7 @@ class StripWindow {
   place() {
     if (this.win.isDestroyed()) return;
     const b = this.bounds();
+    if (this.ghost) b.x -= GHOST_OFFSET; // tests : loin à gauche, hors de tout écran
     this.win.setBounds(b);
     // Écrans avec des échelles différentes : le 2e appel corrige la taille.
     const got = this.win.getBounds();
