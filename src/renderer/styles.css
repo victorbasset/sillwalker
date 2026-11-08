@@ -402,3 +402,9 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .codexcell img { width: 32px; image-rendering: pixelated; }
 .codexcell.unknown { border: 2px dashed #3a3650; }
 .codexcell.unknown img { opacity: 0.35; filter: brightness(0); }
+
+/* Expéditions des familiers */
+.expe { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; padding: 6px 8px; border: 1px dashed var(--muted); border-radius: 4px; font-size: 12px; }
+.expe.done { border: 1px solid #ffd34d; color: #ffe9a8; }
+.expe-btns { flex-wrap: wrap; margin-top: 6px; }
+.expe-btns button { font-size: 11px; padding: 3px 6px; }

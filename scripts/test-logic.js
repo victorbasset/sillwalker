@@ -562,4 +562,27 @@ test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   });
 }
 
+test("expéditions des familiers", () => {
+  const g = new Game(freshState());
+  g.S.pets.owned = { cat: { lvl: 3, xp: 0 }, fox: { lvl: 1, xp: 0 } };
+  g.S.pets.active = "cat";
+  const t0 = 1_000_000;
+  assert.ok(!g.sendExpedition("cat", "short", t0), "le compagnon actif reste");
+  assert.ok(g.sendExpedition("fox", "long", t0));
+  assert.ok(!g.sendExpedition("fox", "short", t0), "déjà parti");
+  assert.ok(!g.setPet("fox"), "pas d'échange pendant l'expédition");
+  assert.equal(g.claimExpedition("fox", t0 + 60000), null, "pas encore revenu");
+  assert.deepEqual(g.expeditionsReady(t0 + 121 * 60000), ["fox"]);
+  const gold0 = g.S.gold;
+  const r = g.claimExpedition("fox", t0 + 121 * 60000);
+  assert.ok(r && r.gold > 0 && g.S.gold >= gold0 + r.gold);
+  assert.ok(g.S.pets.owned.fox.lvl > 1 || g.S.pets.owned.fox.xp > 0, "expérience gagnée");
+  assert.equal(Object.keys(g.S.pets.exp).length, 0);
+  assert.ok(g.setPet("fox"));
+  // La sauvegarde garde les expéditions en cours.
+  g.sendExpedition("cat", "epic", t0);
+  const m = migrate(JSON.parse(JSON.stringify(g.S)));
+  assert.equal(m.pets.exp.cat.kind, "epic");
+});
+
 console.log(`\n${pass} tests réussis`);

@@ -25,7 +25,7 @@ import {
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
 } from "./shop.js";
 import { POWERS } from "./powers.js";
-import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet } from "./pets.js";
+import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
@@ -948,8 +948,52 @@ export class Game {
     return { pet, isNew: !own };
   }
 
+  /* ---------- Expéditions des familiers ---------- */
+  /** Envoie un familier (pas le compagnon actif) en expédition. */
+  sendExpedition(id, kind, now = Date.now()) {
+    const P = this.S.pets, ex = EXPEDITIONS[kind];
+    if (!ex || !P.owned[id] || P.active === id) return false;
+    P.exp ||= {};
+    if (P.exp[id]) return false;
+    P.exp[id] = { kind, start: now, end: now + ex.min * 60000 };
+    this.log(`${PET_INDEX[id].name} part en ${ex.name.toLowerCase()} (${ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min"}).`);
+    this.changed();
+    return true;
+  }
+
+  /** Familiers revenus d'expédition (récompense à récupérer). */
+  expeditionsReady(now = Date.now()) {
+    const E = this.S.pets.exp || {};
+    return Object.keys(E).filter((id) => E[id].end <= now);
+  }
+
+  /** Récupère le butin d'une expédition terminée. */
+  claimExpedition(id, now = Date.now()) {
+    const P = this.S.pets, e = P.exp && P.exp[id];
+    if (!e || e.end > now) return null;
+    const ex = EXPEDITIONS[e.kind], own = P.owned[id];
+    delete P.exp[id];
+    if (!ex || !own) { this.changed(); return null; }
+    const lvlMul = 1 + 0.1 * (own.lvl - 1);
+    const gold = Math.round(3 * Math.pow(1.25, this.S.best - 1) * ex.gold * lvlMul);
+    this.S.gold += gold;
+    this.S.stats.goldTotal = (this.S.stats.goldTotal || 0) + gold;
+    this.S.stats.expeditions = (this.S.stats.expeditions || 0) + 1;
+    this.petAddXp(id, ex.xp);
+    const out = { gold, xp: ex.xp, egg: false, item: null, pet: PET_INDEX[id] };
+    if (rand() < ex.egg) { out.egg = true; this.gainEgg(); }
+    if (rand() < ex.item && !this.bagFull()) { out.item = this.newItem(ex.minRarity, this.S.best); this.addToBag(out.item, true); }
+    this.log(`${out.pet.name} revient de ${ex.name.toLowerCase()} : +${fmt(gold)} or${out.egg ? ", un œuf" : ""}${out.item ? ", " + out.item.name : ""} !`);
+    this.emit("expedition", out);
+    this.changed();
+    return out;
+  }
+
+  claimAllExpeditions(now = Date.now()) { return this.expeditionsReady(now).map((id) => this.claimExpedition(id, now)).filter(Boolean); }
+
   setPet(id) {
     if (!this.S.pets.owned[id] || this.S.pets.active === id) return false;
+    if (this.S.pets.exp && this.S.pets.exp[id]) return false; // en expédition
     this.S.pets.active = id;
     this.invalidateStats();
     this.changed();

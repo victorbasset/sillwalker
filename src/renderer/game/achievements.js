@@ -50,6 +50,7 @@ export const ACHIEVEMENTS = [
   { id: "CHEST",           name: "Chasseur de trésors (un coffre)", test: (S) => (S.stats.chests || 0) >= 1 },
   { id: "CODEX_HALF",      name: "Collectionneur (la moitié des objets)", test: (S) => { const c = codexCounts(S); return c.found * 2 >= c.total; } },
   { id: "CODEX_ALL",       name: "Grand collectionneur (tous les objets)", test: (S) => { const c = codexCounts(S); return c.found >= c.total; } },
+  { id: "EXPEDITIONS_10",  name: "Explorateurs (10 expéditions)", test: (S) => (S.stats.expeditions || 0) >= 10 },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
 ];
 

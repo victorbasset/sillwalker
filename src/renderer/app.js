@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { PET_INDEX } from "./game/pets.js";
 import { activeDayMod } from "./game/daymods.js";
 import { Game } from "./game/game.js";
 import { freshState, migrate } from "./game/state.js";
@@ -290,6 +291,20 @@ async function boot() {
       () => openPanel(), 15000), 2500);
   }
   setInterval(checkDaily, 60000);
+
+  /* ---------- Retour d'expédition des familiers ---------- */
+  let expReady = game.expeditionsReady().length;
+  function checkExpeditions() {
+    const ready = game.expeditionsReady();
+    if (ready.length > expReady) {
+      const name = PET_INDEX[ready[ready.length - 1]]?.name || "Un familier";
+      showToast(`🐾 <b>${esc(name)}</b> est revenu d’expédition ! Clique ici pour récupérer son butin.`, () => { openPanel(); panel.setTab("pets"); }, 15000);
+      game.changed();
+    }
+    expReady = ready.length;
+  }
+  setInterval(checkExpeditions, 5000);
+  game.on("expedition", () => { expReady = game.expeditionsReady().length; });
 
   /* ---------- Démarrage ---------- */
   const away = (Date.now() - (game.S.last || Date.now())) / 1000;

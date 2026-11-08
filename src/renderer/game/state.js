@@ -30,7 +30,7 @@ export function freshState(now = Date.now()) {
     // v4
     prestige: { shards: 0, total: 0, count: 0, ranks: {} }, // ascension et constellations
     quests: { slots: [], completed: 0, nextUid: 1 },
-    pets: { owned: {}, active: null, eggs: 0 },              // owned : { id: { lvl, xp } }
+    pets: { owned: {}, active: null, eggs: 0, exp: {} },     // owned : { id: { lvl, xp } } ; exp : expéditions en cours
     bestiary: {},                                            // { typeDeMonstre: victoires }
     // v5
     skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
@@ -98,6 +98,7 @@ export function migrate(raw) {
   if (!Array.isArray(s.quests.slots)) s.quests.slots = [];
   s.pets = Object.assign(def.pets, isObj(o.pets) ? o.pets : {});
   if (!isObj(s.pets.owned)) s.pets.owned = {};
+  if (!isObj(s.pets.exp)) s.pets.exp = {};
   s.skills = Object.assign(def.skills, isObj(o.skills) ? o.skills : {});
   if (!Array.isArray(s.skills.order)) s.skills.order = [];
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));

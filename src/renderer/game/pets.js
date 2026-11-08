@@ -27,6 +27,16 @@ export function rollPet(rand) {
   for (const p of PETS) { x -= p.weight ?? 1; if (x <= 0) return p; }
   return PETS[0];
 }
+/**
+ * Expéditions : un familier qui n'est pas le compagnon actif peut partir
+ * explorer (en temps réel, même jeu fermé). Au retour : or, expérience du
+ * familier, parfois un œuf ou un objet. Plus c'est long, plus c'est rentable.
+ */
+export const EXPEDITIONS = {
+  short: { name: "Balade",            min: 30,  gold: 40,  xp: 40,  egg: 0.04, item: 0.25, minRarity: 1 },
+  long:  { name: "Voyage",            min: 120, gold: 200, xp: 160, egg: 0.12, item: 0.6,  minRarity: 2 },
+  epic:  { name: "Grande expédition", min: 480, gold: 900, xp: 600, egg: 0.35, item: 1,    minRarity: 3 },
+};
 export const PET_INDEX = Object.fromEntries(PETS.map((p) => [p.id, p]));
 
 export const petXpNeed = (lvl) => Math.round(25 * Math.pow(lvl, 1.6));
