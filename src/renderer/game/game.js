@@ -858,12 +858,13 @@ export class Game {
     const old = this.S, gain = this.ascendShards(), f = freshState();
     const P = old.prestige, skillGain = ascensionSkillPoints(old.best);
     P.shards += gain; P.total += gain; P.count++;
+    P.bestRun = Math.max(P.bestRun || 0, old.best);
     P.skillPts = (P.skillPts || 0) + skillGain;
     // Ce qui est conservé
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.cls,
       upgrades: old.upgrades, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, nextId: old.nextId, log: old.log, skills: old.skills,
+      stats: old.stats, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));

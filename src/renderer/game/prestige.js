@@ -41,9 +41,17 @@ export const SPECIAL_EFFECTS = {
 
 export const constellationCost = (c, rank) => c.base * (rank + 1);
 
+/** Lueur stellaire : chaque éclat gagné (au total, même dépensé) renforce le héros pour toujours. */
+export const GLOW_PER_SHARD = { atkPct: 3, hpPct: 3, gold: 1 };
+export const glowEffects = (S) => {
+  const n = (S.prestige && S.prestige.total) || 0, out = {};
+  if (n) for (const k in GLOW_PER_SHARD) out[k] = GLOW_PER_SHARD[k] * n;
+  return out;
+};
+
 /** Somme des effets des constellations. */
 export function prestigeEffects(S) {
-  const out = {}, ranks = (S.prestige && S.prestige.ranks) || {};
+  const out = glowEffects(S), ranks = (S.prestige && S.prestige.ranks) || {};
   for (const c of CONSTELLATIONS) {
     const n = Math.min(ranks[c.id] || 0, c.max);
     if (n) for (const k in c.eff) out[k] = (out[k] || 0) + c.eff[k] * n;

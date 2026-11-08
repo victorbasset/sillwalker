@@ -1,5 +1,5 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
-import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor } from "../../game/prestige.js";
+import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
 
@@ -20,6 +20,9 @@ export class AscensionTab {
     const intro = `<article class="panel ascend">
       <h2>Ascension <small>${P.count} ascension${P.count > 1 ? "s" : ""}</small></h2>
       <p class="shards">✦ <b>${P.shards}</b> éclat${P.shards > 1 ? "s" : ""} d’étoile <span class="note">(${P.total} gagnés au total)</span></p>
+      <p><b>Lueur stellaire</b> : chaque éclat gagné, même dépensé, donne pour toujours ${esc(describeEffects(GLOW_PER_SHARD))}.
+      ${P.total ? `Actuellement : <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : ""}
+      ${P.bestRun ? `<br><span class="note">Meilleure course : zone ${P.bestRun}.</span>` : ""}</p>
       <p>Ton héros recommence au niveau 1 en zone 1, mais garde ses constellations, ses familiers, son bestiaire, sa classe et les améliorations du sac.
       Il perd son niveau, son or, son équipement, son sac, ses talents et ses quêtes.</p>
       ${can
