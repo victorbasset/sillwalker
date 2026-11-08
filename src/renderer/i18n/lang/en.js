@@ -349,4 +349,7 @@ export default {
   1473: "{n} egg to hatch|{n} eggs to hatch",
   1474: "{n} expedition finished|{n} expeditions finished",
   1475: "Things to do now",
+  1476: "{0} h cap reached: beyond that, your hero stops progressing. The Moon constellation extends it.",
+  1477: "Offline progress is capped at {0} h and earns a little less than leaving the game open.",
+  1478: "Your game is saved. Your hero will keep progressing offline (up to {0} h).",
 };

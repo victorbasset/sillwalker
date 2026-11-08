@@ -242,7 +242,9 @@ export class Panel {
         ${sum.chests ? `<li><span>${tx("Coffres au trésor")}</span><b>${sum.chests}</b></li>` : ""}
       </ul>
       ${this.todoHtml()}
-      <p class="note">${tx("La progression hors ligne est plafonnée à 8 h et rapporte un peu moins que de laisser le jeu ouvert.")}</p>`;
+      <p class="note">${sum.capped
+        ? tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus. La constellation de la Lune l’allonge.", { 0: sum.capH })
+        : tx("La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.", { 0: sum.capH || 8 })}</p>`;
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal button").focus();
@@ -551,7 +553,7 @@ export class Panel {
       case "closemodal": $(this.root, "#modal").hidden = true; return;
       case "close": this.onClose?.(); return;
       case "mini": this.onMini?.(); return;
-      case "quit": this.confirm(tx("Quitter Sillwalker ?"), tx("Ta partie est sauvegardée. Ton héros continuera de progresser hors ligne (jusqu’à 8 h)."), tx("Quitter le jeu"), () => this.onQuit?.()); return;
+      case "quit": this.confirm(tx("Quitter Sillwalker ?"), tx("Ta partie est sauvegardée. Ton héros continuera de progresser hors ligne (jusqu’à {0} h).", { 0: Math.round(g.offlineCapS() / 3600) }), tx("Quitter le jeu"), () => this.onQuit?.()); return;
       case "reset": this.confirmReset(b); return;
       default: return;
     }

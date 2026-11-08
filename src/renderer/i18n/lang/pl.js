@@ -349,4 +349,7 @@ export default {
   1473: "{n} jajo do wyklucia|{n} jaja do wyklucia|{n} jaj do wyklucia",
   1474: "{n} wyprawa zakończona|{n} wyprawy zakończone|{n} wypraw zakończonych",
   1475: "Do zrobienia teraz",
+  1476: "Osiągnięto limit {0} godz.: dalej bohater nie robi postępów. Konstelacja Księżyca go wydłuża.",
+  1477: "Postęp offline jest ograniczony do {0} godz. i daje nieco mniej niż pozostawienie otwartej gry.",
+  1478: "Gra jest zapisana. Twój bohater będzie dalej robił postępy offline (do {0} godz.).",
 };

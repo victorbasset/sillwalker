@@ -349,4 +349,7 @@ export default {
   1473: "{n} ovo para chocar|{n} ovos para chocar",
   1474: "{n} expedição concluída|{n} expedições concluídas",
   1475: "O que fazer agora",
+  1476: "Limite de {0} h atingido: além disso, seu herói para de progredir. A constelação da Lua o aumenta.",
+  1477: "O progresso offline é limitado a {0} h e rende um pouco menos do que deixar o jogo aberto.",
+  1478: "Seu jogo está salvo. Seu herói continuará progredindo offline (até {0} h).",
 };

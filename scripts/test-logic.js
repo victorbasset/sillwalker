@@ -950,6 +950,17 @@ test("pluriels : txn choisit la bonne forme dans chaque langue", () => {
   } finally { setLang(before); }
 });
 
+test("hors ligne : plafond de 8 h allongé par la Lune, signalé quand il est atteint", () => {
+  const g = new Game(freshLocked());
+  assert.equal(g.offlineCapS(), 8 * 3600);
+  (g.S.prestige.ranks ||= {}).c_moon = 2;
+  assert.equal(g.offlineCapS(), 10 * 3600);
+  const s1 = g.applyOffline(3600);
+  assert.ok(s1 && !s1.capped && s1.capH === 10);
+  const s2 = g.applyOffline(30 * 3600);
+  assert.ok(s2 && s2.capped && s2.seconds === 10 * 3600, "absence de 30 h ramenée à 10 h");
+});
+
 test("retour d'absence : « à faire maintenant » ne liste que ce qui est disponible", () => {
   const g = new Game(freshLocked());
   assert.deepEqual(g.todoNow().map((t) => t.id), [], "partie neuve : rien à faire");

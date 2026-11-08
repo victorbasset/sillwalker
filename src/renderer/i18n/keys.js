@@ -1477,5 +1477,8 @@ export const KEYS = [
   "Déblocage abordable : {0}",
   "{n} œuf à faire éclore|{n} œufs à faire éclore",
   "{n} expédition terminée|{n} expéditions terminées",
-  "À faire maintenant"
+  "À faire maintenant",
+  "Plafond de {0} h atteint : au-delà, ton héros ne progresse plus. La constellation de la Lune l’allonge.",
+  "La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.",
+  "Ta partie est sauvegardée. Ton héros continuera de progresser hors ligne (jusqu’à {0} h)."
 ];

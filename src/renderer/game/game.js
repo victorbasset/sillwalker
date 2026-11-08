@@ -559,8 +559,12 @@ export class Game {
 
   /* ---------- Progression hors ligne ---------- */
   /** Applique `sec` secondes d'absence. Renvoie un résumé, ou null si rien. */
+  /** Plafond de la progression hors ligne, en secondes (8 h + constellation de la Lune). */
+  offlineCapS() { return OFFLINE_CAP_S + (prestigeEffects(this.S).offlineH || 0) * 3600; }
+
   applyOffline(sec) {
-    sec = Math.min(sec, OFFLINE_CAP_S + (prestigeEffects(this.S).offlineH || 0) * 3600);
+    const capped = sec > this.offlineCapS();
+    sec = Math.min(sec, this.offlineCapS());
     if (sec < 30) return null;
     const S = this.S;
     // Statistiques sans élixirs : leur effet est compté au prorata de leur durée restante.
@@ -607,6 +611,7 @@ export class Game {
     const summary = {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
+      capped, capH: Math.round(this.offlineCapS() / 3600),
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));

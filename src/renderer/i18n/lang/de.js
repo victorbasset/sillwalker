@@ -349,4 +349,7 @@ export default {
   1473: "{n} Ei auszubrüten|{n} Eier auszubrüten",
   1474: "{n} Expedition beendet|{n} Expeditionen beendet",
   1475: "Jetzt zu tun",
+  1476: "Grenze von {0} Std. erreicht: Darüber hinaus macht dein Held keine Fortschritte mehr. Das Sternbild Der Mond verlängert sie.",
+  1477: "Der Offline-Fortschritt ist auf {0} Std. begrenzt und bringt etwas weniger, als das Spiel offen zu lassen.",
+  1478: "Dein Spiel ist gespeichert. Dein Held macht offline weiter Fortschritte (bis zu {0} Std.).",
 };
