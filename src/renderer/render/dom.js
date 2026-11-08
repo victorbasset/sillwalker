@@ -3,6 +3,7 @@
 // quelle que soit sa taille. On ne touche donc au DOM que si un pixel change,
 // et on aligne les mouvements sur la grille de pixel art (P = 3 px).
 import { OUTLINE, PIXEL as P } from "./art.js";
+import { ZONES } from "../game/data.js";
 
 export const q = (v) => Math.round(v / P) * P;
 export const FONT = "600 13px 'Pixelify Sans', monospace";
@@ -57,6 +58,9 @@ const hash = (n) => ((n * 2654435761) >>> 0) % 1000;
 export function drawBackdrop(ctx, W, H, ground, Z, seed = 0) {
   const band = ground / 4;
   for (let i = 0; i < 4; i++) { ctx.fillStyle = mix(Z.sky[0], Z.sky[1], i / 3); ctx.fillRect(0, Math.floor(i * band), W, Math.ceil(band) + 1); }
+  // Boucles suivantes (« l'Éveillé », « l'Ancestral ») : ciel teinté de pourpre, de plus en plus.
+  const loop = seed > 0 ? Math.floor((seed - 1) / ZONES.length) : 0;
+  if (loop > 0) { ctx.fillStyle = `rgba(160, 20, 70, ${Math.min(0.4, 0.22 * loop)})`; ctx.fillRect(0, 0, W, ground); }
   ctx.fillStyle = Z.far;
   for (let x = 0; x < W; x += P) {
     const wx = x + seed * 37;
