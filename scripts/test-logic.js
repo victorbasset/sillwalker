@@ -433,4 +433,29 @@ test("boss : capacités spéciales", () => {
   for (const id of ["enrage", "smash", "shell", "telegraph"]) assert.ok(seen.has(id), "capacité jamais vue : " + id);
 });
 
+test("récompense quotidienne : série de 7 jours", () => {
+  const g = new Game(freshState());
+  const days = ["2026-11-01", "2026-11-02", "2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06", "2026-11-07"];
+  let last;
+  for (const d of days) { last = g.claimDaily(d); assert.ok(last); }
+  assert.equal(last.day, 7);
+  assert.ok(last.item && last.item.r >= 3, "coffre royal le 7e jour");
+  assert.equal(g.claimDaily("2026-11-07"), null, "une seule fois par jour");
+  assert.equal(g.claimDaily("2026-11-09").day, 1, "jour manqué : la série repart");
+});
+
+test("élites : affixes appliqués", () => {
+  const g = new Game(freshState());
+  const seen = new Set();
+  for (let i = 0; i < 400; i++) {
+    g.R.lineup = [{ type: "slime", elite: true, affix: ["fast", "armored", "vampiric", "furious"][i % 4] }, ...Array(9).fill({ type: "slime", elite: false })];
+    g.R.lineupZone = g.S.zone; g.S.kills = 0;
+    const m = g.makeMonster(false);
+    seen.add(m.affix);
+    if (m.affix === "fast") assert.ok(m.interval < 1.3);
+    if (m.affix === "armored") assert.ok(m.max > 20);
+  }
+  assert.equal(seen.size, 4);
+});
+
 console.log(`\n${pass} tests réussis`);

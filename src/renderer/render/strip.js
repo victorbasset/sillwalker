@@ -9,7 +9,7 @@
 // Ce module lit l'état de la simulation sans jamais le modifier.
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet } from "./sprites.js";
-import { RARITIES, KILLS_PER_ZONE } from "../game/data.js";
+import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
@@ -267,7 +267,11 @@ export class StripRenderer {
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss);
-      if (!boss && line[k].elite) a.el.classList.add("elite");
+      if (!boss && line[k].elite) {
+        a.el.classList.add("elite");
+        const af = ELITE_AFFIXES[line[k].affix];
+        if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name; tag.style.color = af.color; }
+      }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";

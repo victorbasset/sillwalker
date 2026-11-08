@@ -12,6 +12,12 @@ export const POWERS = [
   { id: "p_king",    name: "Fléau des rois",    eff: { bossDmg: 35 } },
   { id: "p_phoenix", name: "Plume de phénix",   eff: { secondWind: 1, regen: 4 } },
   { id: "p_hermes",  name: "Bottes d’Hermès",    eff: { moveSpd: 20, dodge: 3 } },
+  { id: "p_thorn",   name: "Ronce éternelle",    eff: { thorns: 30, hpPct: 10 } },
+  { id: "p_venom",   name: "Croc de la vouivre", eff: { poison: 8, crit: 5 } },
+  { id: "p_legion",  name: "Cor de la légion",   eff: { minion: 25 } },
+  { id: "p_aegis",   name: "Égide solaire",      eff: { shield: 15, defPct: 15 } },
+  { id: "p_rhythm",  name: "Danse des mille coups", eff: { combo: 2, spd: 10 } },
+  { id: "p_blade",   name: "Lame de l’instant",  eff: { iai: 40, firstStrike: 0.5 } },
 ];
 export const POWER_INDEX = Object.fromEntries(POWERS.map((p) => [p.id, p]));
 

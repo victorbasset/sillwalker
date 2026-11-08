@@ -93,6 +93,18 @@ export function itemIconURL(it) {
   return iconCache[k];
 }
 
+const dressedPortraitCache = new Map();
+/** Portrait du héros habillé de son équipement (data URL), pour le panneau. */
+export function dressedPortraitURL(cls, visual) {
+  const key = cls + "|" + visualKey(visual);
+  if (!dressedPortraitCache.has(key)) {
+    const art = CLASS_ART[cls] || CLASS_ART.warrior;
+    if (dressedPortraitCache.size > 20) dressedPortraitCache.clear();
+    dressedPortraitCache.set(key, buildSprite(art.walk1, dressPalette(art.pal, visual), 4, false, 1).toDataURL());
+  }
+  return dressedPortraitCache.get(key);
+}
+
 const portraitCache = {};
 /** Portrait d'une classe (data URL) pour l'interface. */
 export function classPortraitURL(cls) {

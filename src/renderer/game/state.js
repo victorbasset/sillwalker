@@ -36,6 +36,7 @@ export function freshState(now = Date.now()) {
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
     settings: { sound: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true },
+    daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
   };
 }
 
@@ -96,6 +97,7 @@ export function migrate(raw) {
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
   s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});
+  s.daily = Object.assign(def.daily, isObj(o.daily) ? o.daily : {});
   s.potions = Math.max(0, Math.floor(+s.potions || 0));
   s.bagSize = Math.max(BAG_SIZE, Math.floor(+s.bagSize || BAG_SIZE));
   for (const k of ["lvl", "zone", "best", "nextId"]) s[k] = Math.max(1, Math.floor(+s[k] || 1));

@@ -9,7 +9,7 @@
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import {
-  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, ELITE, GOBLIN, MONSTERS, BAG_SIZE,
+  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
 } from "./data.js";
 import {
@@ -86,7 +86,7 @@ export class Game {
       const Z = zoneDef(this.S.zone);
       R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance
         ? { type: "goblin", elite: false, goblin: true }
-        : { type: pick(Z.monsters), elite: rand() < ELITE.chance }));
+        : (() => { const elite = rand() < ELITE.chance; return { type: pick(Z.monsters), elite, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null }; })()));
       R.lineupZone = this.S.zone;
     }
     return R.lineup;
@@ -237,6 +237,7 @@ export class Game {
     }
     R.hp -= dmg;
     if (dmg > 0) this.emit(mult > 1 ? "smash" : "heroHurt", { dmg });
+    if (m.affix === "vampiric" && dmg > 0) m.hp = Math.min(m.max, m.hp + dmg * ELITE_AFFIXES.vampiric.lifesteal);
     if (hs.riposte > 0 && R.hp > 0 && rand() < hs.riposte / 100) {
       const rd = hs.atk * 0.5;
       m.hp -= rd;
@@ -322,9 +323,20 @@ export class Game {
     const Z = zoneDef(this.S.zone);
     const slot = boss ? { type: Z.boss, elite: false } : this.lineup()[Math.min(this.S.kills, KILLS_PER_ZONE - 1)];
     const b = monsterBase(this.S.zone, boss, slot.type, slot.elite);
-    return Object.assign(b, { type: slot.type, boss, elite: slot.elite, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
+    const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
-      mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0 });
+      mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null });
+    this.applyAffix(mon);
+    return mon;
+  }
+
+  /** Affixe d'élite : modifie les statistiques du monstre (le vampirisme agit au combat). */
+  applyAffix(m) {
+    const a = m.affix && ELITE_AFFIXES[m.affix];
+    if (!a) return;
+    if (a.interval) m.interval *= a.interval;
+    if (a.hp) { m.hp = Math.round(m.hp * a.hp); m.max = m.hp; }
+    if (a.atk) m.atk *= a.atk;
   }
 
   gainXp(x) {
@@ -491,7 +503,7 @@ export class Game {
     this.R.hp = this.stats().hp;
     const h = Math.floor(sec / 3600), mn = Math.floor(sec % 3600 / 60);
     const summary = {
-      seconds: sec, duration: (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
+      seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best,
     };
     this.log("Pendant " + summary.duration + " : " + fmt(kills) + " monstres vaincus, +" + fmt(gold) + " or" +
@@ -797,6 +809,29 @@ export class Game {
     return true;
   }
 
+  /* ---------- Récompense quotidienne ---------- */
+  /**
+   * À appeler au lancement et au changement de jour (date locale "AAAA-MM-JJ").
+   * Série de jours consécutifs : la récompense grandit, le 7e jour donne un coffre
+   * royal (épique ou légendaire), puis la série repart. Renvoie la récompense ou null.
+   */
+  claimDaily(today) {
+    const D = (this.S.daily ||= { last: null, streak: 0 });
+    if (D.last === today) return null;
+    const yesterday = new Date(new Date(today + "T12:00:00").getTime() - 86400000).toISOString().slice(0, 10);
+    D.streak = D.last === yesterday ? (D.streak % 7) + 1 : 1;
+    D.last = today;
+    const day = D.streak, gold = Math.round(3 * Math.pow(1.25, this.S.best - 1) * 40 * day);
+    this.S.gold += gold;
+    const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null };
+    if (reward.potions) this.S.potions = Math.min(20, this.S.potions + reward.potions);
+    if (day === 7 && !this.bagFull()) { reward.item = this.newItem(3, this.S.best); this.S.bag.push(reward.item); }
+    this.log(`Récompense du jour ${day}/7 : +${fmt(gold)} or${reward.potions ? ", 2 potions" : ""}${reward.item ? ", " + reward.item.name : ""}.`);
+    this.emit("daily", reward);
+    this.changed();
+    return reward;
+  }
+
   /* ---------- Quêtes ---------- */
   /** Complète les emplacements de quêtes vides. */
   ensureQuests() {
@@ -914,7 +949,7 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.cls,
       upgrades: old.upgrades, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings,
+      stats: old.stats, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));

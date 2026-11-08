@@ -7,7 +7,8 @@ import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_
 import { forgeCost, sellValue, monsterBase, itemMult } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB } from "../game/format.js";
-import { itemIconURL, classPortraitURL } from "../render/sprites.js";
+import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
+import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
 import { ShopTab } from "./tabs/shop.js";
 import { ClassesTab } from "./tabs/classes.js";
@@ -210,7 +211,10 @@ export class Panel {
       ${S.prestige.count ? `<dt>Ascensions</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl>
       ${buffs || events ? `<div class="chips">${events}${buffs}</div>` : ""}
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${free} point${free > 1 ? "s" : ""} de talent à dépenser →</button>` : ""}
-      <div class="equip">${SLOT_KEYS.map((k) => this.slotBtn(S.equip[k], k, "equip")).join("")}</div>`;
+      <div class="heroview">
+        <img class="heroport${heroVisual(S).aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, heroVisual(S))}" alt="Ton héros et son équipement">
+        <div class="equip">${SLOT_KEYS.map((k) => this.slotBtn(S.equip[k], k, "equip")).join("")}</div>
+      </div>`;
     this.tick();
   }
 

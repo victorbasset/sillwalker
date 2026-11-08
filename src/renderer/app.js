@@ -270,10 +270,21 @@ async function boot() {
     game.R.starT = 0.05;
   };
 
+  /* ---------- Récompense quotidienne (au lancement et à minuit) ---------- */
+  const localDay = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`; };
+  function checkDaily() {
+    const r = game.claimDaily(localDay());
+    if (!r) return;
+    setTimeout(() => showToast(`🎁 Récompense du jour <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> or${r.potions ? ", 2 potions" : ""}${r.item ? `, <b>${esc(r.item.name)}</b>` : ""}. Reviens demain pour continuer la série !`,
+      () => openPanel(), 15000), 2500);
+  }
+  setInterval(checkDaily, 60000);
+
   /* ---------- Démarrage ---------- */
   const away = (Date.now() - (game.S.last || Date.now())) / 1000;
   if (game.S.stats.kills > 0) { const sum = game.applyOffline(away); if (sum) showOffline(sum); }
   checkAchievements(true);
+  checkDaily();
   await document.fonts.ready;
   applyLayout(init.layout);
   setVisible(init.visible !== false);

@@ -144,6 +144,13 @@ export const GOBLIN = { chance: 0.015, flee: 4 };
 
 // Monstres d'élite : rares, plus coriaces, bien plus rentables.
 export const ELITE = { chance: 0.06, hp: 3, atk: 1.5, gold: 4, xp: 3, minRarity: 1 };
+/** Affixes des élites : chaque élite en reçoit un (nom affiché au-dessus de lui). */
+export const ELITE_AFFIXES = {
+  fast:     { name: "Rapide",     color: "#9fd8ff", interval: 0.6 },
+  armored:  { name: "Blindé",     color: "#c9ced6", hp: 1.6 },
+  vampiric: { name: "Vampirique", color: "#ff4a6a", lifesteal: 0.5 },
+  furious:  { name: "Furieux",    color: "#ff9a3a", atk: 1.4 },
+};
 
 // Les zones bouclent : après la dernière, on repart de la première avec des
 // monstres plus forts (« Forêt des murmures + »).
