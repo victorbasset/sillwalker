@@ -41,7 +41,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Vitesse** (le bonus le plus précieux) : plumes du vent très rares et étoiles filantes à attraper d'un clic
   (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie,
   **coffre au trésor** (or, potion, objet rare ou mieux).
-- **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération), deux à partir de la 2e boucle.
+- **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération, miroir, vampirisme), deux à partir de la 2e boucle.
 - **Élites à affixes** : rapide, blindé, vampirique ou furieux.
 - **Panoplies** : 8 ensembles (dont le Voyageur du vent, axé vitesse), bonus à 2 et 4 pièces.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
