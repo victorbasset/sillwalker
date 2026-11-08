@@ -6,7 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
-import { getLang, setLang, DEFAULT_LANG } from "./i18n/index.js";
+import { getLang, setLang, DEFAULT_LANG, plS } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
@@ -176,7 +176,7 @@ async function boot() {
     toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
   }
   function showOffline(sum) {
-    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${tx("{0} monstres", { 0: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${sum.feathers} ${tx("plume{0} du vent", { 0: sum.feathers > 1 ? "s" : "" })}</b>` : "", 2: sum.chests ? ", " + tx(sum.chests > 1 ? "{0} coffres" : "{0} coffre", { 0: `<b>${sum.chests}</b>` }) : "" })}`,
+    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${tx("{0} monstres", { 0: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${sum.feathers} ${tx("plume{0} du vent", { 0: plS(sum.feathers) })}</b>` : "", 2: sum.chests ? ", " + tx(sum.chests > 1 ? "{0} coffres" : "{0} coffre", { 0: `<b>${sum.chests}</b>` }) : "" })}`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {

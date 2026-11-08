@@ -9,7 +9,7 @@
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
-import { t as tx, tr, fsp } from "../i18n/index.js";
+import { t as tx, tr, fsp, plS } from "../i18n/index.js";
 import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -670,7 +670,7 @@ export class Game {
       this.S.stats.transmutes = (this.S.stats.transmutes || 0) + out.length;
       this.questProgress("transmute", out.length);
       const best = out.reduce((a, b) => (b.r > a.r ? b : a));
-      this.log(`${tx("Transmutation : {0} nouvel{1} objet{2}, dont {3} ({4}).", { 0: out.length, 1: out.length > 1 ? "s" : "", 2: out.length > 1 ? "s" : "", 3: itemName(best), 4: RARITIES[best.r].name.toLowerCase() })}`);
+      this.log(`${tx("Transmutation : {0} nouvel{1} objet{2}, dont {3} ({4}).", { 0: out.length, 1: plS(out.length), 2: plS(out.length), 3: itemName(best), 4: RARITIES[best.r].name.toLowerCase() })}`);
       this.emit("transmute", { items: out });
       this.changed();
     }

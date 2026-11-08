@@ -1,5 +1,5 @@
 // Onglet Familiers : collection, œufs à faire éclore, familier actif.
-import { t as tx } from "../../i18n/index.js";
+import { t as tx, plS } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc, fmt } from "../../game/format.js";
@@ -47,7 +47,7 @@ export class PetsTab {
       </article>`;
     }).join("");
     el.innerHTML = `<div class="petbar panel">
-        <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} <b>${P.eggs}</b> ${tx("œuf{0} en attente", { 0: P.eggs > 1 ? "s" : "" })}</div>
+        <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} <b>${P.eggs}</b> ${tx("œuf{0} en attente", { 0: plS(P.eggs) })}</div>
         <button data-action="p-hatchall" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>
         ${idle ? `<span class="sendall">${tx("Envoyer les {0} familiers libres : {1}", { 0: idle, 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
         ${this.readyN > 1 ? `<button data-action="p-claimall" class="primary">${tx("Récupérer {0} expéditions", { 0: this.readyN })}</button>` : ""}

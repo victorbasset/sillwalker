@@ -49,3 +49,5 @@ export function t(src, vars) {
 export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src);
 /** Espace insécable française avant « : », « ! », « ? » (vide dans les autres langues). */
 export const fsp = () => (lang === "fr" ? " " : "");
+/** Marque du pluriel « s » : au-delà de 1 en français, sauf pour 1 en anglais (« 0 quests »). */
+export const plS = (n) => ((lang === "fr" ? n > 1 : n !== 1) ? "s" : "");

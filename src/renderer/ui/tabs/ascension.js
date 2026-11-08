@@ -1,5 +1,5 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
-import { t as tx } from "../../i18n/index.js";
+import { t as tx, plS } from "../../i18n/index.js";
 import { CLASSES } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
@@ -20,8 +20,8 @@ export class AscensionTab {
     const g = this.game, S = g.S, P = S.prestige, can = g.canAscend(), gain = g.ascendShards();
     const nextZone = Math.max(ASCEND_MIN_ZONE, S.best + 1);
     const intro = `<article class="panel ascend">
-      <h2>${tx("Ascension")} <small>${P.count} ascension${P.count > 1 ? "s" : ""}</small></h2>
-      <p class="shards">✦ <b>${P.shards}</b> ${tx("éclat{0} d’étoile", { 0: P.shards > 1 ? "s" : "" })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
+      <h2>${tx("Ascension")} <small>${P.count} ascension${plS(P.count)}</small></h2>
+      <p class="shards">✦ <b>${P.shards}</b> ${tx("éclat{0} d’étoile", { 0: plS(P.shards) })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
       <p><b>${tx("Lueur stellaire")}</b> ${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone 1.")}</p>
       <div class="keeplose">
