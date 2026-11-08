@@ -1,6 +1,6 @@
 // Onglet Classe : les héros libérés et ceux encore prisonniers. On change de
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
-import { t as tx, plS } from "../../i18n/index.js";
+import { t as tx, txn } from "../../i18n/index.js";
 import { CLASSES, CLASS_KEYS, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
@@ -46,14 +46,14 @@ export class ClassesTab {
         <p class="cdesc">${esc(c.desc)}</p>
         <ul class="lines">${mods.map((m) => `<li><span>${esc(m)}</span></li>`).join("")}</ul>
         <p class="passive"><b>${tx("Passif.")}</b> ${esc(c.passiveText)}</p>
-        ${spent ? `<p class="note">${spent} ${tx("point{0} de talent répartis.", { 0: plS(spent) })}</p>` : ""}
+        ${spent ? `<p class="note">${txn(spent, "{n} point de talent réparti.|{n} points de talent répartis.")}</p>` : ""}
         <div class="row">${action}</div>
       </article>`;
     }).join("");
     const tier = attackTier(S), nextT = ATTACK_TIERS[tier + 1];
     const style = `<article class="panel tierbox"><h2>${tx("Style de combat")} <small>${tx("palier {0} / {1} · {2}", { 0: tier + 1, 1: ATTACK_TIERS.length, 2: esc(ATTACK_TIERS[tier].name) })}</small></h2>
-      <div class="tiers">${ATTACK_TIERS.map((t, i) => `<span class="tierpip${i <= tier ? " on" : ""}" title="${esc(tx("{0} : niveau {1}{2}", { 0: esc(t.name), 1: t.lvl, 2: t.asc ? ` ${tx("et {0} ascension{1}", { 0: t.asc, 1: plS(t.asc) })}` : "" }))}">${i + 1}</span>`).join("")}</div>
-      <p class="note tight">${tx("Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).\n      {0}", { 0: nextT ? `${tx("Prochain palier :")} <b>${esc(nextT.name)}</b>${tx(", niveau {0}{1}.", { 0: nextT.lvl, 1: nextT.asc ? ` ${tx("et {0} ascension{1}", { 0: nextT.asc, 1: plS(nextT.asc) })}` : "" })}` : tx("Palier maximal atteint !") })}</p></article>`;
+      <div class="tiers">${ATTACK_TIERS.map((t, i) => `<span class="tierpip${i <= tier ? " on" : ""}" title="${esc(tx("{0} : niveau {1}{2}", { 0: esc(t.name), 1: t.lvl, 2: t.asc ? ` ${txn(t.asc, "et {n} ascension|et {n} ascensions")}` : "" }))}">${i + 1}</span>`).join("")}</div>
+      <p class="note tight">${tx("Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).\n      {0}", { 0: nextT ? `${tx("Prochain palier :")} <b>${esc(nextT.name)}</b>${tx(", niveau {0}{1}.", { 0: nextT.lvl, 1: nextT.asc ? ` ${txn(nextT.asc, "et {n} ascension|et {n} ascensions")}` : "" })}` : tx("Palier maximal atteint !") })}</p></article>`;
     el.innerHTML = `${style}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de classe en faisant une")} <b>ascension</b> ${tx(":\n      choisis ici la classe de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
       <div class="classgrid">${cards}</div>`;
   }

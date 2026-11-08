@@ -5,7 +5,7 @@
 // du sac, constellations. Remis à zéro : niveau, zone, or, équipement, sac,
 // talents, élixirs, quêtes, marchand.
 
-import { t as tx, plS } from "../i18n/index.js";
+import { t as tx, txn } from "../i18n/index.js";
 
 export const ASCEND_MIN_ZONE = 20;
 
@@ -38,7 +38,7 @@ export const CONSTELLATIONS = [
 ];
 
 export const SPECIAL_EFFECTS = {
-  talentPts: (v) => `${tx("+{0} point{1} de talent", { 0: v, 1: plS(v) })}`,
+  talentPts: (v) => txn(v, "+{n} point de talent|+{n} points de talent"),
   skillPts: (v) => `${tx("+{0} points de compétence", { 0: v })}`,
   startZone: (v) => `${tx("recommence en zone {0} (au plus 5 zones sous le record)", { 0: 1 + v })}`,
   offlineH: (v) => `${tx("+{0} h de progression hors ligne", { 0: v })}`,

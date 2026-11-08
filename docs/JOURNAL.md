@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 ## Fait
 
+- 2026-11-08 (it. 4) : fini les « Talentpunkt(e) », « huevo(s) », « 1 monstres » : points de talent,
+  points libres, ascensions, éclats d'étoile, œufs, quêtes, plumes et coffres s'accordent au nombre
+  dans les 10 langues. En français, « 2 nouvels objets » devient « 2 nouveaux objets ».
 - 2026-11-08 (it. 3) : après un changement de langue, le journal d'aventure n'est plus un mélange
   de deux langues : il repart proprement dans la nouvelle langue.
 - 2026-11-08 (it. 2) : plus de « objet(s) » dans les messages : ventes, objets gardés pendant l'absence,
@@ -18,11 +21,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P1 Pluriels encore bricolés hors français/anglais : les phrases avec `plS()` ({1} = « s ») sont traduites
-  « Talentpunkt(e) », « freie(r) Punkt(e) », « Quest(s) »… (allemand, et sans doute russe, polonais).
-  Les passer une à une à `txn()` (points de talent, points libres, quêtes, ascensions, plumes).
+- P3 Anciennes clés « (s) » devenues inutilisées dans keys.js (objet(s)…) : sans effet, à laisser
+  (l'ordre des clés ne doit pas bouger).
 - P2 Performance, bande visible : ~31 % d'un cœur (GPU ~20 %), 29 images/s ; mode mini ~6 %.
-  Piste : baisser la cadence quand rien ne bouge (marche régulière) ou rendre le décor statique en cache.
+  Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
+  (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
 - P2 Progression : après la transmutation (~2 h 30 de jeu simulé), les deux derniers déblocages
   arrivent à ~3 h 30 et ~6 h ; ajouter des étapes intermédiaires (déblocages ou succès à récompense).
 - P3 Libellé « Prochain déblocage » très petit (≈9 px) dans la carte du héros.

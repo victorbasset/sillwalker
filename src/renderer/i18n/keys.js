@@ -1455,5 +1455,20 @@ export const KEYS = [
   "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés.",
   "Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins {n} nouvel objet. Les légendaires ne sont jamais utilisés.|Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins {n} nouveaux objets. Les légendaires ne sont jamais utilisés.",
   "{n} nœud en attente de points.|{n} nœuds en attente de points.",
-  "Langue changée : le journal reprend ici."
+  "Langue changée : le journal reprend ici.",
+  "{n} monstre|{n} monstres",
+  "{n} plume du vent|{n} plumes du vent",
+  "{n} coffre|{n} coffres",
+  "Transmutation : {n} nouvel objet, dont {3} ({4}).|Transmutation : {n} nouveaux objets, dont {3} ({4}).",
+  "{n} point de talent à dépenser →|{n} points de talent à dépenser →",
+  "{n} pt|{n} pts",
+  "{n} / {0} point libre|{n} / {0} points libres",
+  "{n} ascension|{n} ascensions",
+  "{n} éclat d’étoile|{n} éclats d’étoile",
+  "+{n} point de talent|+{n} points de talent",
+  "Les quêtes avancent toutes seules, même hors ligne pour les victoires et l’or. {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne pour les victoires et l’or. {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
+  "{n} œuf en attente|{n} œufs en attente",
+  "{n} point libre · {2} / {3} nœuds actifs · {4} points au total|{n} points libres · {2} / {3} nœuds actifs · {4} points au total",
+  "{n} point de talent réparti.|{n} points de talent répartis.",
+  "et {n} ascension|et {n} ascensions"
 ];

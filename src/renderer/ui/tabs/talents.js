@@ -1,5 +1,5 @@
 // Onglet Talents : arbre de la classe active (3 branches × 4 paliers).
-import { t as tx, plS } from "../../i18n/index.js";
+import { t as tx, txn } from "../../i18n/index.js";
 import { effectIconURL } from "../../render/shopart.js";
 import { TREES, TIER_REQ, TALENT_INDEX, cannotLearn, branchSpent, talentPointsFree, talentPointsTotal, talentPointsSpent, describeEffects,
   VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie } from "../../game/talents.js";
@@ -34,7 +34,7 @@ export class TalentsTab {
           <span class="tr">${locked ? "🔒 " + TIER_REQ[t.tier] + " pts" : r + " / " + t.max}</span>
           ${can && t.max - r > 1 ? `<span class="tmax" data-action="t-learn" data-n="99" data-id="${t.id}" title="${esc(tx("Monter au maximum possible"))}">max</span>` : ""}</button>`;
       }).join("");
-      return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${spent} pt${plS(spent)}</small></h2>${rows}</article>`;
+      return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${txn(spent, "{n} pt|{n} pts")}</small></h2>${rows}</article>`;
     }).join("");
 
     // Voie (spécialisation exclusive) et maîtrises (rangs illimités).
@@ -60,7 +60,7 @@ export class TalentsTab {
 
     const canVoie = !voie && spentAll >= VOIE_REQ;
     const head = `<article class="panel tdetail">
-      <h2>${esc(g.classDef().name)} <small>${free} ${tx("/ {0} point{1} libre{2}", { 0: total, 1: plS(total), 2: plS(free) })}</small></h2>
+      <h2>${esc(g.classDef().name)} <small>${txn(free, "{n} / {0} point libre|{n} / {0} points libres", { 0: total })}</small></h2>
       ${hasUnlock(g.S, "bulkPoints") ? `<div class="row"><button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button></div>` : `<div class="row">${lockLink(g.S, "bulkPoints")}</div>`}
       ${hasUnlock(g.S, "autoLevel") ? `<label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>` : ""}
       ${canVoie ? `<p class="note warnline">${tx("✦ Une voie est disponible : choisis-la dans le cadre « Voie ».")}</p>` : ""}

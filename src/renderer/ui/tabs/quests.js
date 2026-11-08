@@ -1,6 +1,6 @@
 // Onglet Quêtes : guilde (rang, réputation, bonus permanents) et trois
 // contrats de 1 à 3 étoiles. Option de réclamation automatique.
-import { t as tx, plS } from "../../i18n/index.js";
+import { t as tx, txn } from "../../i18n/index.js";
 import { questText, questDone, questRerollPrice, guildRank, guildRankName, GUILD_BONUS, STARS } from "../../game/quests.js";
 import { CONSUMABLES } from "../../game/shop.js";
 import { RARITIES } from "../../game/data.js";
@@ -68,7 +68,7 @@ export class QuestsTab {
       </article>`;
     }).join("");
     el.innerHTML = `${guild}<div class="questgrid">${cards}</div>
-      <p class="note">${tx("Les quêtes avancent toutes seules, même hors ligne pour les victoires et l’or. {0} quête{1} accomplie{2} au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 0: S.quests.completed, 1: plS(S.quests.completed), 2: plS(S.quests.completed), 3: STARS[3].w })}</p>`;
+      <p class="note">${txn(S.quests.completed, "Les quêtes avancent toutes seules, même hors ligne pour les victoires et l’or. {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne pour les victoires et l’or. {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 3: STARS[3].w })}</p>`;
   }
 
   onAction(a, b) {

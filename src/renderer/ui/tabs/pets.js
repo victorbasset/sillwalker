@@ -1,5 +1,5 @@
 // Onglet Familiers : collection, œufs à faire éclore, familier actif.
-import { t as tx, plS, lc } from "../../i18n/index.js";
+import { t as tx, txn, lc } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc, fmt } from "../../game/format.js";
@@ -49,13 +49,13 @@ export class PetsTab {
       </article>`;
     }).join("");
     if (!hasUnlock(S, "menagerie")) {
-      el.innerHTML = `<div class="petbar panel"><div><b>${P.eggs}</b> ${tx("œuf{0} en attente", { 0: plS(P.eggs) })}</div>
+      el.innerHTML = `<div class="petbar panel"><div>${txn(P.eggs, "{n} œuf en attente|{n} œufs en attente", { n: `<b>${P.eggs}</b>` })}</div>
         <span class="note">${tx("Les œufs tombent des boss et des élites. Débloque la Ménagerie pour les faire éclore : un familier suit ton héros et le renforce.")}</span>
         ${lockLink(S, "menagerie")}</div>`;
       return;
     }
     el.innerHTML = `<div class="petbar panel">
-        <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} <b>${P.eggs}</b> ${tx("œuf{0} en attente", { 0: plS(P.eggs) })}</div>
+        <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} ${txn(P.eggs, "{n} œuf en attente|{n} œufs en attente", { n: `<b>${P.eggs}</b>` })}</div>
         ${hasUnlock(S, "petBulk") || P.eggs <= 1 ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>`}
         ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}
         ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${tx("Envoyer les {0} familiers libres : {1}", { 0: idle, 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
