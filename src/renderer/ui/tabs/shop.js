@@ -15,6 +15,7 @@ import { shopIconURL } from "../../render/shopart.js";
 import { POWER_INDEX } from "../../game/powers.js";
 import { SETS } from "../../game/sets.js";
 import { UNLOCKS, hasUnlock, nextUnlock, unlockAvailable } from "../../game/unlocks.js";
+import { lockLink as lockLinkS } from "../locks.js";
 
 const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}` : `${m} min ${String(s % 60).padStart(2, "0")}`; };
 /** Effet court affiché sous chaque consommable. */
@@ -125,7 +126,7 @@ export class ShopTab {
         <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid">${merchant}</div></article>
         <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid">${consumables}</div></article>
         <article class="panel"><h2>${tx("Coffres")}</h2><div class="cgrid">${chests}</div></article>
-        <article class="panel"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${workshop}</article>
+        <article class="panel"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
       </div>`;
   }
 

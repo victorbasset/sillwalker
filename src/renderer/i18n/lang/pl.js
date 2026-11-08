@@ -284,4 +284,10 @@ export default {
   1408: "Giermek: sam zakładaj mocniejsze przedmioty",
   1409: "Nowe odblokowanie w zasięgu: {0} ({1} złota). Kliknij tutaj, aby przejść do sklepu.",
   1410: "Rekordowa strefa {0}",
+  1411: "Menażeria",
+  1412: "Wykluwa jaja pupili: towarzysz podąża za bohaterem i go wzmacnia.",
+  1413: "Kowadło",
+  1414: "Kucie (+1 do +10) i przekuwanie przedmiotów.",
+  1415: "Stałe ulepszenia w sklepie (atak, PŻ, złoto, szybkość).",
+  1416: "Jaja wypadają z bossów i elit. Odblokuj Menażerię, aby je wykluć: pupil podąża za bohaterem i go wzmacnia.",
 };

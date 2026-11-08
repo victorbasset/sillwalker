@@ -12,7 +12,7 @@ async function runSelfTest(strip) {
   // Le profil de test s'accumule d'une exécution à l'autre : la vitesse permanente doit pouvoir encore monter.
   await js("window.__game.S.speed = Math.min(window.__game.S.speed || 0, 100)");
   // Déblocages achetés (le parcours teste les commandes automatiques).
-  await js("Object.assign(window.__game.S.unlocks ||= {}, Object.fromEntries([\"bulkEquip\", \"autoPotion\", \"autoSell\", \"bulkPoints\", \"questDesk\", \"expeditions\", \"petBulk\", \"transmute\", \"autoLevel\"].map((k) => [k, true]))); window.__game.changed()");
+  await js("Object.assign(window.__game.S.unlocks ||= {}, Object.fromEntries([\"bulkEquip\", \"menagerie\", \"forge\", \"workshop\", \"autoPotion\", \"autoSell\", \"bulkPoints\", \"questDesk\", \"expeditions\", \"petBulk\", \"transmute\", \"autoLevel\"].map((k) => [k, true]))); window.__game.changed()");
   const rectOf = (sel) => js(`(() => { const e = document.querySelector(${JSON.stringify(sel)}); e.scrollIntoView({ block: "nearest" }); const r = e.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
   const move = async (x, y) => { wc.sendInputEvent({ type: "mouseMove", x, y }); await sleep(150); };
   /** Attend qu'une condition soit vraie (machine chargée : animations plus lentes). */

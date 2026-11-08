@@ -284,4 +284,10 @@ export default {
   1408: "Ayuda de armas: equipar solo los objetos más poderosos",
   1409: "Nuevo desbloqueo a tu alcance: {0} ({1} de oro). Haz clic aquí para la tienda.",
   1410: "Zona récord {0}",
+  1411: "Casa de fieras",
+  1412: "Eclosiona los huevos de mascota: un compañero sigue a tu héroe y lo refuerza.",
+  1413: "Yunque",
+  1414: "Forja (+1 a +10) y reforja objetos.",
+  1415: "Mejoras permanentes de la tienda (ataque, PV, oro, velocidad).",
+  1416: "Los huevos caen de jefes y élites. Desbloquea la Casa de fieras para eclosionarlos: una mascota sigue a tu héroe y lo refuerza.",
 };

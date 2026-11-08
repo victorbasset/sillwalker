@@ -26,6 +26,7 @@ const KEYS = ["WWWWWWWWW", "WKWKWKWKW", "WWWWWWWWW", "WKWKWKWKW", "WWWWWWWWW", "
 const CLOCK = ["..WWWWW..", ".W.....W.", "W...K...W", "W...K...W", "W...KKK.W", "W.......W", ".W.....W.", "..WWWWW.."];
 const KENNEL = ["....KK....", "...KRRK...", "..KRRRRK..", ".KRRRRRRK.", "KRRRRRRRRK", ".KBBBBBBK.", ".KBBKKBBK.", ".KBKWWKBK.", ".KBKWWKBK.", ".KKKKKKKK."];
 const CAULDRON = ["..G..G.G..", "...G.G....", ".KKKKKKKK.", "KGGGGGGGGK", "KMMMMMMMMK", "KMMMMMMMMK", ".KMMMMMMK.", "..KMMMMK..", ".K.KKKK.K."];
+const ANVIL = [".........", "KKKKKKKK.", "KMMMMMMMK", ".KMMMMMK.", "..KMMMK..", "..KMMMK..", ".KKKKKKK.", "KBBBBBBBK"];
 const MAP = ["PPP.PPP..", "PPLPPPLP.", "PLPPPLPPP", "PPPRPPPLP", "PLPPPPPPP", "PPPPLPPRP", ".PPP.PPPP"];
 
 const OUT = "#14121f";
@@ -59,6 +60,8 @@ export const SHOP_ICON_DEFS = {
   clock:   [CLOCK, { W: "#c9ced6" }],
   kennel:  [KENNEL, { R: "#c0392b", B: "#a8703a", W: "#3a2a1a" }],
   cauldron: [CAULDRON, { G: "#7dff9a", M: "#4a4560" }],
+  anvil:   [ANVIL, { M: "#8a93a0", B: "#6b4a2b" }],
+  kennel2: [EGG, { W: "#f4ecd8", S: "#c0392b" }],
   map:     [MAP, { P: "#e8d8b0", L: "#a8884a", R: "#e2394a" }],
 };
 

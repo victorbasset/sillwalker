@@ -284,4 +284,10 @@ export default {
   1408: "Escudeiro de armas: equipar sozinho os itens mais poderosos",
   1409: "Novo desbloqueio ao seu alcance: {0} ({1} de ouro). Clique aqui para a loja.",
   1410: "Zona recorde {0}",
+  1411: "Menagerie",
+  1412: "Choca ovos de mascote: um companheiro segue seu herói e o fortalece.",
+  1413: "Bigorna",
+  1414: "Forja (+1 a +10) e reforja itens.",
+  1415: "Melhorias permanentes da loja (ataque, PV, ouro, velocidade).",
+  1416: "Ovos caem de chefes e elites. Desbloqueie a Menagerie para chocá-los: um mascote segue seu herói e o fortalece.",
 };

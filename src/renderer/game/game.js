@@ -630,6 +630,7 @@ export class Game {
   }
 
   forge(it) {
+    if (!hasUnlock(this.S, "forge")) return false;
     const c = forgeCost(it);
     if (this.S.gold < c || it.plus >= MAX_PLUS) return false;
     this.S.gold -= c;
@@ -711,6 +712,7 @@ export class Game {
 
   /** Réforge : nouveaux bonus secondaires (les communs n'en ont pas). */
   reforge(it) {
+    if (!hasUnlock(this.S, "forge")) return false;
     const c = reforgeCost(it);
     if (RARITIES[it.r].affixes < 1 || this.S.gold < c) return false;
     this.S.gold -= c;
@@ -906,6 +908,7 @@ export class Game {
 
   /** Atelier : un niveau de plus (illimité, sauf le cartographe). */
   buyWorkshop(id, n = 1) {
+    if (!hasUnlock(this.S, "workshop")) return 0;
     const w = WORKSHOP.find((x) => x.id === id), S = this.S, W = (S.workshop ||= {});
     let done = 0;
     while (w && done < n && !(w.max && (W[id] || 0) >= w.max) && this.pay(workshopPrice(w, S))) { W[id] = (W[id] || 0) + 1; done++; }
@@ -1179,6 +1182,7 @@ export class Game {
 
   /** Fait éclore un œuf. Renvoie { pet, isNew }. */
   hatchEgg() {
+    if (!hasUnlock(this.S, "menagerie")) return null;
     const P = this.S.pets;
     if (P.eggs <= 0) return null;
     P.eggs--;

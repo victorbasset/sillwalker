@@ -1412,5 +1412,11 @@ export const KEYS = [
   "auto",
   "Valet d’armes : équiper tout seul les objets plus puissants",
   "Nouveau déblocage à ta portée : {0} ({1} or). Clique ici pour la boutique.",
-  "Zone record {0}"
+  "Zone record {0}",
+  "Ménagerie",
+  "Fait éclore les œufs de familiers : un compagnon suit ton héros et le renforce.",
+  "Enclume",
+  "Forge (+1 à +10) et réforge des objets.",
+  "Améliorations permanentes de la boutique (attaque, PV, or, vitesse).",
+  "Les œufs tombent des boss et des élites. Débloque la Ménagerie pour les faire éclore : un familier suit ton héros et le renforce."
 ];

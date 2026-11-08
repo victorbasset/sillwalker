@@ -284,4 +284,10 @@ export default {
   1408: "Waffenknecht: stärkere Gegenstände selbst ausrüsten",
   1409: "Neue Freischaltung in Reichweite: {0} ({1} Gold). Hier klicken für den Laden.",
   1410: "Rekordzone {0}",
+  1411: "Menagerie",
+  1412: "Brütet Begleiter-Eier aus: Ein Gefährte folgt deinem Helden und stärkt ihn.",
+  1413: "Amboss",
+  1414: "Schmieden (+1 bis +10) und Umschmieden von Gegenständen.",
+  1415: "Dauerhafte Verbesserungen im Laden (Angriff, LP, Gold, Tempo).",
+  1416: "Eier fallen von Bossen und Elitegegnern. Schalte die Menagerie frei, um sie auszubrüten: Ein Begleiter folgt deinem Helden und stärkt ihn.",
 };

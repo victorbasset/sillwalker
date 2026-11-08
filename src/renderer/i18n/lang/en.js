@@ -284,4 +284,10 @@ export default {
   1408: "Arms Valet: equip stronger items on my own",
   1409: "New unlock within reach: {0} ({1} gold). Click here for the shop.",
   1410: "Record zone {0}",
+  1411: "Menagerie",
+  1412: "Hatches pet eggs: a companion follows your hero and makes them stronger.",
+  1413: "Anvil",
+  1414: "Forge (+1 to +10) and reforge items.",
+  1415: "Permanent shop upgrades (attack, HP, gold, speed).",
+  1416: "Eggs drop from bosses and elites. Unlock the Menagerie to hatch them: a pet follows your hero and makes them stronger.",
 };

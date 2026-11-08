@@ -20,7 +20,7 @@ export const HINTS = [
   { id: "quest", tab: "quests", text: tx("Quête accomplie ! Clique ici pour réclamer ta récompense."),
     when: (g) => g.questsReady() > 0 },
   { id: "egg", tab: "pets", text: tx("Tu as trouvé un œuf ! Clique ici pour le faire éclore."),
-    when: (g) => g.S.pets.eggs > 0 },
+    when: (g) => g.S.pets.eggs > 0 && hasUnlock(g.S, "menagerie") },
   { id: "shop", tab: "shop", text: tx("Ta bourse se remplit : la boutique vend potions, élixirs et coffres. Clique ici."),
     when: (g) => g.S.gold > 2000 && (g.S.stats.purchases || 0) === 0 },
   { id: "ascend", tab: "ascension", text: `${tx("Zone {0} atteinte : l’Ascension est disponible ! Clique ici pour en savoir plus.", { 0: ASCEND_MIN_ZONE })}`,

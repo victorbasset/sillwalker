@@ -5,7 +5,7 @@ import { CLASSES, CLASS_UNLOCK_ZONE } from "./classes.js";
 import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
 
-export const SAVE_VERSION = 7;
+export const SAVE_VERSION = 8;
 
 export function freshState(now = Date.now()) {
   return {
@@ -89,6 +89,11 @@ export function migrate(raw) {
     // v6 -> v7 : déblocages en boutique. On garde ce que le joueur utilisait déjà.
     grandfatherUnlocks(o);
     o.v = 7;
+  }
+  if (o.v === 7) {
+    // v7 -> v8 : nouveaux déblocages (ménagerie, enclume, atelier) : même règle.
+    grandfatherUnlocks(o);
+    o.v = 8;
   }
   if (o.v !== SAVE_VERSION) return null;
   const def = freshState(o.last || Date.now());

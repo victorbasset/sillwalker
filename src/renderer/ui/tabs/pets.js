@@ -48,6 +48,12 @@ export class PetsTab {
         ${this.expeditionHTML(p, active)}
       </article>`;
     }).join("");
+    if (!hasUnlock(S, "menagerie")) {
+      el.innerHTML = `<div class="petbar panel"><div><b>${P.eggs}</b> ${tx("œuf{0} en attente", { 0: plS(P.eggs) })}</div>
+        <span class="note">${tx("Les œufs tombent des boss et des élites. Débloque la Ménagerie pour les faire éclore : un familier suit ton héros et le renforce.")}</span>
+        ${lockLink(S, "menagerie")}</div>`;
+      return;
+    }
     el.innerHTML = `<div class="petbar panel">
         <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} <b>${P.eggs}</b> ${tx("œuf{0} en attente", { 0: plS(P.eggs) })}</div>
         ${hasUnlock(S, "petBulk") || P.eggs <= 1 ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>`}

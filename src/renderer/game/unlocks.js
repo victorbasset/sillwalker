@@ -9,8 +9,11 @@
 /** Dans l'ordre d'achat conseillé. icon = icône de la boutique (render/shopart.js). */
 export const UNLOCKS = [
   { id: "bulkEquip",   price: 300, zone: 1,     icon: "eye",      name: "Œil du connaisseur",       desc: "Boutons « Équiper le meilleur » et « Vendre ce qui n’améliore pas »." },
+  { id: "menagerie",   price: 800, zone: 3,     icon: "kennel2",  name: "Ménagerie",                desc: "Fait éclore les œufs de familiers : un compagnon suit ton héros et le renforce." },
   { id: "autoPotion",  price: 2000, zone: 5,    icon: "potion",   name: "Ceinture d’alchimiste",    desc: "Rachète tout seul des potions de soin quand le stock baisse." },
+  { id: "forge",       price: 5000, zone: 8,    icon: "anvil",    name: "Enclume",                  desc: "Forge (+1 à +10) et réforge des objets." },
   { id: "autoSell",    price: 15000, zone: 10,    icon: "ws_gold",  name: "Tri du marchand",          desc: "Vend dès qu’ils tombent les objets des raretés choisies." },
+  { id: "workshop",    price: 30000, zone: 12,  icon: "gear",     name: "Atelier",                  desc: "Améliorations permanentes de la boutique (attaque, PV, or, vitesse)." },
   { id: "bulkPoints",  price: 60000, zone: 15,   icon: "book",     name: "Manuel du stratège",       desc: "Dépense en un clic tous les points de talent et de compétence." },
   { id: "questDesk",   price: 200000, zone: 20,   icon: "map",      name: "Bureau des contrats",      desc: "Réclame toutes les quêtes d’un coup, ou automatiquement." },
   { id: "expeditions", price: 600000, zone: 25,   icon: "kennel",   name: "Chenil des explorateurs",  desc: "Tes familiers libres partent en expédition (même jeu fermé)." },
@@ -40,6 +43,10 @@ export function grandfatherUnlocks(S) {
   const u = (S.unlocks ||= {});
   const st = S.stats || {};
   if ((st.kills || 0) > 0) u.bulkEquip = true;
+  if (S.pets && Object.keys(S.pets.owned || {}).length) u.menagerie = true;
+  const items = [...(S.bag || []), ...Object.values(S.equip || {})].filter(Boolean);
+  if (items.some((it) => it.plus > 0) || (st.reforges || 0) > 0) u.forge = true;
+  if (S.workshop && Object.values(S.workshop).some((v) => v > 0)) u.workshop = true;
   if (S.autoPotions) u.autoPotion = true;
   if (S.autoSell && Object.values(S.autoSell).some(Boolean)) u.autoSell = true;
   if (S.quests && S.quests.auto) u.questDesk = true;
