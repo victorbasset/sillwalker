@@ -4,10 +4,10 @@ import { t as tx } from "../../i18n/index.js";
 import { CLASSES, CLASS_KEYS, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
-import { esc } from "../../game/format.js";
+import { esc, unit } from "../../game/format.js";
 import { classPortraitURL } from "../../render/sprites.js";
 
-const pct = (m) => (m === 1 ? "" : `${m > 1 ? "+" : "−"}${Math.round(Math.abs(m - 1) * 100)} %`);
+const pct = (m) => (m === 1 ? "" : `${m > 1 ? "+" : "−"}${Math.round(Math.abs(m - 1) * 100)}${unit("%")}`);
 
 export class ClassesTab {
   constructor(game) { this.game = game; }

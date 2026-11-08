@@ -9,7 +9,7 @@
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
-import { t as tx, tr } from "../i18n/index.js";
+import { t as tx, tr, fsp } from "../i18n/index.js";
 import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -407,11 +407,11 @@ export class Game {
     const L = this.S.log, R = this.R;
     if (R.saleLine && R.saleLine.kind === kind && L[0] === R.saleLine.text) {
       R.saleLine.n++; R.saleLine.gold += v;
-      L[0] = R.saleLine.text = `${label} ${tx(": {0} (+{1} or).", { 0: R.saleLine.n, 1: fmt(R.saleLine.gold) })}`;
+      L[0] = R.saleLine.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: R.saleLine.n, 1: fmt(R.saleLine.gold) })}`;
       this.emit("log", L[0]);
       return;
     }
-    R.saleLine = { kind, n: 1, gold: v, text: `${label} ${tx(": 1 (+{0} or).", { 0: fmt(v) })}` };
+    R.saleLine = { kind, n: 1, gold: v, text: `${label}${fsp()}${tx(": 1 (+{0} or).", { 0: fmt(v) })}` };
     this.log(R.saleLine.text);
   }
 
@@ -428,7 +428,7 @@ export class Game {
       return false;
     }
     S.bag.push(it);
-    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + " : " + itemName(it) + " !");
+    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + fsp() + ": " + itemName(it) + fsp() + "!");
     this.changed();
     return true;
   }
@@ -562,7 +562,7 @@ export class Game {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
     };
-    this.log(tx("Pendant ") + summary.duration + " : " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
+    this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + summary.kept + tx(" objet(s) gardé(s)."));
     this.changed();
     return summary;
@@ -980,7 +980,7 @@ export class Game {
     S.speed = Math.min(SPEED_CAP, S.speed + n);
     if (S.speed === before) return;
     this.invalidateStats();
-    this.log(`${source} ${tx(": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", { 0: n, 1: S.speed })}`);
+    this.log(`${source}${fsp()}${tx(": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", { 0: n, 1: S.speed })}`);
     this.emit("feather", { speed: S.speed, gain: n, source });
     this.changed();
   }

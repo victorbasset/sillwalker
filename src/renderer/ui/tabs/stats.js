@@ -8,8 +8,8 @@ import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
 import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
 
-const pct = (p) => (p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)).replace(".", ",") + " %";
-import { fmt, esc } from "../../game/format.js";
+import { fmt, esc, dec, unit } from "../../game/format.js";
+const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)) + unit("%");
 
 const dur = (s) => {
   s = Math.floor(s || 0);
@@ -32,7 +32,7 @@ export class StatsTab {
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}
         ${line(tx("Meilleure zone (toutes courses)"), Math.max(S.best, P.bestRun || 0))}
         ${line(tx("Boss le plus lointain vaincu"), st.biggestBoss ? "zone " + st.biggestBoss : "—")}
-        ${line(tx("Vitesse permanente"), "+" + (S.speed || 0) + " %")}
+        ${line(tx("Vitesse permanente"), "+" + (S.speed || 0) + unit("%"))}
         ${line(tx("Ascensions"), P.count)}
       </ul></article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Aventure")}</span></h2><ul class="lines">

@@ -603,4 +603,4 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .tabsep { margin: 4px 3px; }
 .langs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
 .langs button { text-align: left; font-family: system-ui, sans-serif; font-size: 14px; }
-.langs button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.langs button[aria-pressed="true"] { font-weight: 700; }

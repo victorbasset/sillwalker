@@ -47,3 +47,5 @@ export function t(src, vars) {
 }
 /** Traduction d'un nom de donnée (sans variables). */
 export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src);
+/** Espace insécable française avant « : », « ! », « ? » (vide dans les autres langues). */
+export const fsp = () => (lang === "fr" ? " " : "");

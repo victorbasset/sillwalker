@@ -9,7 +9,7 @@ import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
-import { fmt, fmtStat, esc, NB } from "../game/format.js";
+import { fmt, fmtStat, esc, NB, dec, unit } from "../game/format.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -56,21 +56,21 @@ const TABS = [
   { id: "stats", label: tx("Statistiques"), prefix: "st-", icon: "trophy" },
   { id: "settings", label: tx("Réglages"), prefix: "se-", icon: "gear" },
 ];
-const n1 = (v) => (Math.round(v * 10) / 10).toString().replace(".", ",");
+const n1 = (v) => dec((Math.round(v * 10) / 10).toString());
 // Statistiques secondaires affichées seulement si non nulles.
 const EXTRA_STATS = [
   ["critDmg", tx("Dégâts critiques"), (s) => s.critDmg !== 2, (s) => "×" + n1(s.critDmg)],
-  ["xp", tx("Expérience bonus"), (s) => s.xp > 0, (s) => "+" + n1(s.xp) + NB + "%"],
-  ["drop", tx("Chances de butin"), (s) => s.drop > 0, (s) => "+" + n1(s.drop) + NB + "%"],
-  ["dodge", tx("Esquive"), (s) => s.dodge > 0, (s) => n1(s.dodge) + NB + "%"],
-  ["riposte", tx("Riposte"), (s) => s.riposte > 0, (s) => n1(s.riposte) + NB + "%"],
-  ["doubleShot", tx("Tir double"), (s) => s.doubleShot > 0, (s) => n1(s.doubleShot) + NB + "%"],
-  ["burn", tx("Brûlure"), (s) => s.burn > 0, (s) => n1(s.burn) + NB + "% / s"],
-  ["lifesteal", tx("Vol de vie"), (s) => s.lifesteal > 0, (s) => n1(s.lifesteal) + NB + "%"],
-  ["execute", tx("Coup de grâce"), (s) => s.execute > 0, (s) => "+" + n1(s.execute) + NB + "%"],
-  ["bossDmg", tx("Dégâts aux boss"), (s) => s.bossDmg > 0, (s) => "+" + n1(s.bossDmg) + NB + "%"],
+  ["xp", tx("Expérience bonus"), (s) => s.xp > 0, (s) => "+" + n1(s.xp) + unit("%")],
+  ["drop", tx("Chances de butin"), (s) => s.drop > 0, (s) => "+" + n1(s.drop) + unit("%")],
+  ["dodge", tx("Esquive"), (s) => s.dodge > 0, (s) => n1(s.dodge) + unit("%")],
+  ["riposte", tx("Riposte"), (s) => s.riposte > 0, (s) => n1(s.riposte) + unit("%")],
+  ["doubleShot", tx("Tir double"), (s) => s.doubleShot > 0, (s) => n1(s.doubleShot) + unit("%")],
+  ["burn", tx("Brûlure"), (s) => s.burn > 0, (s) => n1(s.burn) + unit("%") + " / s"],
+  ["lifesteal", tx("Vol de vie"), (s) => s.lifesteal > 0, (s) => n1(s.lifesteal) + unit("%")],
+  ["execute", tx("Coup de grâce"), (s) => s.execute > 0, (s) => "+" + n1(s.execute) + unit("%")],
+  ["bossDmg", tx("Dégâts aux boss"), (s) => s.bossDmg > 0, (s) => "+" + n1(s.bossDmg) + unit("%")],
   ["secondWind", tx("Second souffle"), (s) => s.secondWind, () => "oui"],
-  ["moveSpd", tx("Vitesse de déplacement"), (s) => s.moveSpd > 0, (s) => "+" + n1(s.moveSpd) + NB + "%"],
+  ["moveSpd", tx("Vitesse de déplacement"), (s) => s.moveSpd > 0, (s) => "+" + n1(s.moveSpd) + unit("%")],
 ];
 
 /** Couleur d'une ligne du journal selon ce qu'elle raconte. */
@@ -283,7 +283,7 @@ export class Panel {
     let verdict = "";
     if (fromBag) {
       const dd = this.game.upgradeDelta(it);
-      verdict = `<p class="verdict ${dd > 0.005 ? "delta-p" : dd < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance : ") + (dd >= 0 ? "+" : "−") + Math.abs(Math.round(dd * 100)) + NB + "%" : tx("Emplacement vide : à équiper !")}</p>`;
+      verdict = `<p class="verdict ${dd > 0.005 ? "delta-p" : dd < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance : ") + (dd >= 0 ? "+" : "−") + Math.abs(Math.round(dd * 100)) + unit("%") : tx("Emplacement vide : à équiper !")}</p>`;
     }
     this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
       <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div>
@@ -380,7 +380,7 @@ export class Panel {
     let verdict = "";
     if (fromBag) {
       const d = this.game.upgradeDelta(it);
-      verdict = `<p class="verdict ${d > 0.005 ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance du héros : ") + (d >= 0 ? "+" : "−") + Math.abs(Math.round(d * 100)) + NB + "%" : tx("Emplacement vide : à équiper !")}</p>`;
+      verdict = `<p class="verdict ${d > 0.005 ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance du héros : ") + (d >= 0 ? "+" : "−") + Math.abs(Math.round(d * 100)) + unit("%") : tx("Emplacement vide : à équiper !")}</p>`;
     }
     const fc = forgeCost(it), canForge = it.plus < MAX_PLUS && S.gold >= fc;
     el.innerHTML = `<h2>${tx("Objet")} <button class="linkbtn back" data-action="desel">${tx("← équipement")}</button></h2>

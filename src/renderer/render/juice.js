@@ -6,7 +6,7 @@
 // Tout est animé par la boucle à 30 FPS (aucune animation CSS, qui tournerait
 // à la fréquence de l'écran) et n'existe que le temps de l'effet.
 import { itemName } from "../i18n/data.js";
-import { t as tx } from "../i18n/index.js";
+import { t as tx, fsp } from "../i18n/index.js";
 import { CLASSES } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
@@ -78,7 +78,7 @@ export class Juice {
       this.flash("#9fe0a8", 0.25);
     });
     g.on("feather", ({ gain, source, speed }) => {
-      this.banner(`${source} ${tx(": +{0} % de vitesse pour toujours ! (+{1} %)", { 0: gain, 1: speed })}`, "#9fd8ff", this.s.heroX + 60, true);
+      this.banner(`${source}${fsp()}${tx(": +{0} % de vitesse pour toujours ! (+{1} %)", { 0: gain, 1: speed })}`, "#9fd8ff", this.s.heroX + 60, true);
       this.sparkles(this.s.heroX + 18, this.ground() - 50, "#9fd8ff", 14);
       this.flash("#9fd8ff", 0.25);
     });

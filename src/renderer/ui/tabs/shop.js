@@ -9,7 +9,7 @@ import {
   consumablePrice, chestPrice, upgradePrice, rerollPrice, workshopPrice, eggPrice,
 } from "../../game/shop.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, esc, NB } from "../../game/format.js";
+import { fmt, esc, NB, unit } from "../../game/format.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { POWER_INDEX } from "../../game/powers.js";
@@ -36,7 +36,7 @@ export class ShopTab {
       const d = g.upgradeDelta(it), cur = S.equip[it.slot], up = !cur || d > 0.005;
       const verdict = cur ? `${d >= 0 ? "+" : "−"}${Math.abs(Math.round(d * 100))}${NB}${tx("% de puissance")}` : tx("emplacement vide");
       return `<div class="mcard rb${it.r}${it.deal ? " deal" : ""}${up ? " up" : ""}">
-        ${it.deal ? `<span class="ribbon">−${Math.round(DEAL_DISCOUNT * 100)} %</span>` : ""}
+        ${it.deal ? `<span class="ribbon">−${Math.round(DEAL_DISCOUNT * 100)}${unit("%")}</span>` : ""}
         <img src="${itemIconURL(it)}" alt="">
         <div class="nm rc${it.r}">${esc(itemName(it))}</div>
         <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niv. {1}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il })}</div>
