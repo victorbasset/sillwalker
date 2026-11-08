@@ -342,4 +342,11 @@ export default {
   1466: "{n} free point · {2} / {3} active nodes · {4} points in total|{n} free points · {2} / {3} active nodes · {4} points in total",
   1467: "{n} talent point spent.|{n} talent points spent.",
   1468: "and {n} ascension|and {n} ascensions",
+  1469: "{n} quest to claim|{n} quests to claim",
+  1470: "A more powerful item awaits in your bag",
+  1471: "{n} skill point to spend|{n} skill points to spend",
+  1472: "Unlock within reach: {0}",
+  1473: "{n} egg to hatch|{n} eggs to hatch",
+  1474: "{n} expedition finished|{n} expeditions finished",
+  1475: "Things to do now",
 };

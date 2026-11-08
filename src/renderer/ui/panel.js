@@ -241,10 +241,28 @@ export class Panel {
         ${sum.feathers ? `<li><span>${tx("Plumes du vent")}</span><b>${tx("+{0} % de vitesse", { 0: sum.feathers })}</b></li>` : ""}
         ${sum.chests ? `<li><span>${tx("Coffres au trésor")}</span><b>${sum.chests}</b></li>` : ""}
       </ul>
+      ${this.todoHtml()}
       <p class="note">${tx("La progression hors ligne est plafonnée à 8 h et rapporte un peu moins que de laisser le jeu ouvert.")}</p>`;
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal button").focus();
+  }
+
+  /** « À faire maintenant » : un bouton par action disponible, qui mène droit au bon onglet. */
+  todoHtml() {
+    const T = {
+      quests: (t) => txn(t.n, "{n} quête à réclamer|{n} quêtes à réclamer"),
+      upgrade: () => tx("Un objet plus puissant t’attend dans le sac"),
+      talents: (t) => txn(t.n, "{n} point de talent à dépenser →|{n} points de talent à dépenser →"),
+      skills: (t) => txn(t.n, "{n} point de compétence à dépenser|{n} points de compétence à dépenser"),
+      unlock: (t) => tx("Déblocage abordable : {0}", { 0: t.name }),
+      eggs: (t) => txn(t.n, "{n} œuf à faire éclore|{n} œufs à faire éclore"),
+      expeditions: (t) => txn(t.n, "{n} expédition terminée|{n} expéditions terminées"),
+    };
+    const list = this.game.todoNow();
+    if (!list.length) return "";
+    return `<h3 class="todo-h">${tx("À faire maintenant")}</h3>
+      ${list.map((t) => `<button class="linkbtn" data-tab="${t.tab}">${esc(T[t.id](t)).replace(/ →$/, "")} →</button>`).join("")}`;
   }
 
   /* ---------- Rendu ---------- */
@@ -476,7 +494,7 @@ export class Panel {
   /* ---------- Interactions ---------- */
   onClick(e) {
     const t = e.target.closest("[data-tab]");
-    if (t) { this.setTab(t.dataset.tab); return; }
+    if (t) { if (t.closest("#modal")) $(this.root, "#modal").hidden = true; this.setTab(t.dataset.tab); return; }
     const b = e.target.closest("[data-action],[data-speed]");
     if (!b || b.disabled) return;
     const g = this.game;

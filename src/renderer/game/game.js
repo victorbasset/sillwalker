@@ -39,7 +39,7 @@ import { bossMechanics, bossName } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
-import { UNLOCK_INDEX, hasUnlock, unlockAvailable } from "./unlocks.js";
+import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
 
@@ -1228,6 +1228,27 @@ export class Game {
     this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
     this.changed();
     return true;
+  }
+
+  /**
+   * Ce que le joueur peut faire tout de suite (résumé d'absence) : [{ id, n, tab, name? }],
+   * dans l'ordre d'intérêt. Seulement ce qui est réellement disponible (déblocages compris).
+   */
+  todoNow(now = Date.now()) {
+    const S = this.S, out = [];
+    const q = this.questsReady();
+    if (q) out.push({ id: "quests", n: q, tab: "quests" });
+    if (this.hasUpgradeCached()) out.push({ id: "upgrade", n: 1, tab: "adventure" });
+    const tp = this.talentPointsFree();
+    if (tp > 0) out.push({ id: "talents", n: tp, tab: "talents" });
+    const sp = skillPointsFree(S);
+    if (sp > 0) out.push({ id: "skills", n: sp, tab: "skills" });
+    const u = nextUnlock(S);
+    if (u && unlockAvailable(S, u) && S.gold >= u.price) out.push({ id: "unlock", n: 1, tab: "shop", name: u.name });
+    if (S.pets.eggs > 0 && hasUnlock(S, "menagerie")) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
+    const ex = this.expeditionsReady(now).length;
+    if (ex) out.push({ id: "expeditions", n: ex, tab: "pets" });
+    return out;
   }
 
   /** Familiers revenus d'expédition (récompense à récupérer). */

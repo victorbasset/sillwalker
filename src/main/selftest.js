@@ -274,6 +274,15 @@ async function runSelfTest(strip) {
   await click('[data-tab="bestiary"]');
   await sleep(150);
   check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);
+  // Résumé d'absence : « À faire maintenant » mène droit à l'onglet (ici les œufs → Familiers).
+  await js("window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1 })");
+  await sleep(300);
+  const todo = await js("[...document.querySelectorAll('#modal:not([hidden]) .linkbtn[data-tab]')].map((b) => b.dataset.tab)");
+  check("retour d'absence : actions « à faire maintenant »", todo.includes("pets"), JSON.stringify(todo));
+  if (process.env.SELFTEST_SHOT) require("fs").writeFileSync(process.env.SELFTEST_SHOT, (await wc.capturePage()).toPNG());
+  await click('#modal .linkbtn[data-tab="pets"]');
+  await sleep(200);
+  check("retour d'absence : le bouton ferme le résumé et ouvre l'onglet", (await js("document.querySelector('#modal').hidden && document.querySelector('[data-tab=pets]').getAttribute('aria-selected') === 'true'")));
   await click('[data-tab="adventure"]');
   await sleep(150);
   // Étoile filante : apparaît sur la bande et s'attrape d'un clic

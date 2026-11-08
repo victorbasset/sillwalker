@@ -950,6 +950,21 @@ test("pluriels : txn choisit la bonne forme dans chaque langue", () => {
   } finally { setLang(before); }
 });
 
+test("retour d'absence : « à faire maintenant » ne liste que ce qui est disponible", () => {
+  const g = new Game(freshLocked());
+  assert.deepEqual(g.todoNow().map((t) => t.id), [], "partie neuve : rien à faire");
+  g.S.pets.eggs = 2;
+  assert.ok(!g.todoNow().some((t) => t.id === "eggs"), "œufs sans Ménagerie : rien à proposer");
+  g.S.unlocks.menagerie = true;
+  const eggs = g.todoNow().find((t) => t.id === "eggs");
+  assert.ok(eggs && eggs.n === 2 && eggs.tab === "pets");
+  g.S.gold = 1e9; // le premier déblocage (zone 1) devient abordable
+  const u = g.todoNow().find((t) => t.id === "unlock");
+  assert.ok(u && u.tab === "shop" && u.name, "déblocage abordable proposé");
+  g.S.pets.exp = { cat: { end: Date.now() - 1000 }, dog: { end: Date.now() + 1e6 } };
+  assert.equal(g.todoNow().find((t) => t.id === "expeditions").n, 1, "seules les expéditions finies comptent");
+});
+
 test("journal : repart à zéro quand la langue change, jamais pour une ancienne sauvegarde", () => {
   const g = new Game(freshLocked());
   g.log("a"); g.log("b");

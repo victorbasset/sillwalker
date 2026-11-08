@@ -342,4 +342,11 @@ export default {
   1466: "{n} punto libre · {2} / {3} nodos activos · {4} puntos en total|{n} puntos libres · {2} / {3} nodos activos · {4} puntos en total",
   1467: "{n} punto de talento repartido.|{n} puntos de talento repartidos.",
   1468: "y {n} ascensión|y {n} ascensiones",
+  1469: "{n} misión por reclamar|{n} misiones por reclamar",
+  1470: "Un objeto más poderoso te espera en la bolsa",
+  1471: "{n} punto de habilidad por gastar|{n} puntos de habilidad por gastar",
+  1472: "Desbloqueo a tu alcance: {0}",
+  1473: "{n} huevo por eclosionar|{n} huevos por eclosionar",
+  1474: "{n} expedición terminada|{n} expediciones terminadas",
+  1475: "Qué hacer ahora",
 };

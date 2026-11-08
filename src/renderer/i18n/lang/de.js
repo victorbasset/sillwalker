@@ -342,4 +342,11 @@ export default {
   1466: "{n} freier Punkt · {2} / {3} aktive Knoten · {4} Punkte insgesamt|{n} freie Punkte · {2} / {3} aktive Knoten · {4} Punkte insgesamt",
   1467: "{n} Talentpunkt verteilt.|{n} Talentpunkte verteilt.",
   1468: "und {n} Aufstieg|und {n} Aufstiegen",
+  1469: "{n} Quest abzuholen|{n} Quests abzuholen",
+  1470: "Ein stärkerer Gegenstand wartet in der Tasche",
+  1471: "{n} Fertigkeitspunkt zu vergeben|{n} Fertigkeitspunkte zu vergeben",
+  1472: "Freischaltung erreichbar: {0}",
+  1473: "{n} Ei auszubrüten|{n} Eier auszubrüten",
+  1474: "{n} Expedition beendet|{n} Expeditionen beendet",
+  1475: "Jetzt zu tun",
 };

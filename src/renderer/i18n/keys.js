@@ -1470,5 +1470,12 @@ export const KEYS = [
   "{n} œuf en attente|{n} œufs en attente",
   "{n} point libre · {2} / {3} nœuds actifs · {4} points au total|{n} points libres · {2} / {3} nœuds actifs · {4} points au total",
   "{n} point de talent réparti.|{n} points de talent répartis.",
-  "et {n} ascension|et {n} ascensions"
+  "et {n} ascension|et {n} ascensions",
+  "{n} quête à réclamer|{n} quêtes à réclamer",
+  "Un objet plus puissant t’attend dans le sac",
+  "{n} point de compétence à dépenser|{n} points de compétence à dépenser",
+  "Déblocage abordable : {0}",
+  "{n} œuf à faire éclore|{n} œufs à faire éclore",
+  "{n} expédition terminée|{n} expéditions terminées",
+  "À faire maintenant"
 ];

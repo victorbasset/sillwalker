@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 ## Fait
 
+- 2026-11-09 (it. 7) : en revenant après une absence, le résumé liste aussi « À faire maintenant »
+  (quêtes à réclamer, objet plus puissant, points à dépenser, déblocage abordable, œufs, expéditions
+  finies) ; un clic mène directement au bon onglet. Bulle du mode mini : « 1 monstre » au singulier.
 - 2026-11-08 (it. 6) : mode mini, le texte ne passe plus sous les boutons ^ et — en russe, polonais,
   japonais ou portugais : boutons côte à côte en haut, l'or et la zone prennent toute la largeur.
 - 2026-11-08 (it. 5) : au tout premier lancement, la bulle de bienvenue (« ton héros avance seul,
@@ -32,4 +35,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
 - P3 Progression : les deux derniers déblocages arrivent à ~3 h 30 et ~6 h (zones 40 et 45). Pas un vrai
   mur (classes libérées, constellations entre-temps), mais un déblocage vers la zone 50+ prolongerait l'objectif.
+- P2 Autotest : « zone vide de la bande : clics traversants » échoue parfois (1 fois sur 3, avant tout
+  changement de la bande) : vérification sans doute trop rapide sous xvfb ; rendre l'attente plus robuste.
+- P3 Résumé d'absence : le texte « plafonnée à 8 h » ignore la constellation qui allonge ce plafond.
 - P3 Libellé « Prochain déblocage » très petit (≈9 px) dans la carte du héros.

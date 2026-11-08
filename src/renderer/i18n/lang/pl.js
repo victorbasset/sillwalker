@@ -342,4 +342,11 @@ export default {
   1466: "{n} wolny punkt · {2} / {3} aktywnych węzłów · {4} punktów łącznie|{n} wolne punkty · {2} / {3} aktywnych węzłów · {4} punktów łącznie|{n} wolnych punktów · {2} / {3} aktywnych węzłów · {4} punktów łącznie",
   1467: "Rozdano {n} punkt talentu.|Rozdano {n} punkty talentu.|Rozdano {n} punktów talentu.",
   1468: "i {n} wzniesienie|i {n} wzniesienia|i {n} wzniesień",
+  1469: "{n} zadanie do odebrania|{n} zadania do odebrania|{n} zadań do odebrania",
+  1470: "W torbie czeka mocniejszy przedmiot",
+  1471: "{n} punkt umiejętności do wydania|{n} punkty umiejętności do wydania|{n} punktów umiejętności do wydania",
+  1472: "Odblokowanie w zasięgu: {0}",
+  1473: "{n} jajo do wyklucia|{n} jaja do wyklucia|{n} jaj do wyklucia",
+  1474: "{n} wyprawa zakończona|{n} wyprawy zakończone|{n} wypraw zakończonych",
+  1475: "Do zrobienia teraz",
 };
