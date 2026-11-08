@@ -357,3 +357,4 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .range input { flex: 1; accent-color: var(--accent); }
 .seg { gap: 4px; margin-top: 2px; }
 .seg button { padding: 3px 8px; font-size: 14px; }
+#toast .hint { font-size: 13px; margin-right: 2px; }

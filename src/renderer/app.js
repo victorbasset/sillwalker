@@ -15,6 +15,7 @@ import { MiniRenderer } from "./render/mini.js";
 import { changes } from "./render/dom.js";
 import { makeTrayIcons } from "./render/trayicons.js";
 import { Sound } from "./render/sound.js";
+import { nextHint, markHint } from "./ui/hints.js";
 import { heroVisual, visualKey } from "./render/equipvis.js";
 import { Panel } from "./ui/panel.js";
 import { initClickThrough } from "./ui/clickthrough.js";
@@ -125,24 +126,37 @@ async function boot() {
     }
   }
 
-  /* ---------- Résumé hors ligne ---------- */
-  let toastTimer = 0, pendingSummary = null;
-  function showOffline(sum) {
-    pendingSummary = sum;
-    toast.innerHTML = `Pendant ton absence (${esc(sum.duration)}) : <b>${fmt(sum.kills)}</b> monstres, <b>+${fmt(sum.gold)}</b> or${sum.newLevel ? ", niveau " + sum.newLevel : ""}. Cliquer pour le détail.`;
+  /* ---------- Bulle de la bande : résumé hors ligne et conseils ---------- */
+  let toastTimer = 0, toastAction = null, toastUntil = 0;
+  function showToast(html, action, ms = 15000) {
+    toast.innerHTML = html;
     toast.hidden = false;
+    toastAction = action;
+    toastUntil = Date.now() + ms;
     clickThrough.refresh();
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { toast.hidden = true; clickThrough.refresh(); }, 15000);
+    toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
+  }
+  function showOffline(sum) {
+    showToast(`Pendant ton absence (${esc(sum.duration)}) : <b>${fmt(sum.kills)}</b> monstres, <b>+${fmt(sum.gold)}</b> or${sum.newLevel ? ", niveau " + sum.newLevel : ""}. Cliquer pour le détail.`,
+      () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {
     toast.hidden = true;
     clickThrough.refresh();
     clearTimeout(toastTimer);
-    openPanel();
-    if (pendingSummary) panel.showOfflineSummary(pendingSummary);
-    pendingSummary = null;
+    const act = toastAction;
+    toastAction = null;
+    act?.();
   });
+  /** Conseils : un à la fois, quand la bulle est libre et le panneau fermé. */
+  function checkHints() {
+    if (mode !== "strip" || panelOpen || !toast.hidden || Date.now() < toastUntil) return;
+    const h = nextHint(game);
+    if (!h) return;
+    markHint(game, h.id);
+    showToast(`<span class="hint">💡</span> ${esc(h.text)}`, () => { openPanel(); panel.setTab(h.tab); }, 14000);
+  }
 
   /* ---------- Succès Steam ---------- */
   let achDirty = true;
@@ -208,6 +222,7 @@ async function boot() {
     const up = game.hasUpgradeCached() || game.talentPointsFree() > 0;
     if (up !== !badge.hidden) badge.hidden = !up;
     sendStatus(false);
+    if (perf.sims % 60 === 0) checkHints(); // toutes les 2 s environ
   }
   function frame() {
     simulate();
