@@ -10,7 +10,7 @@ import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 
 export const MINI_W = 340, MINI_H = 64;
-const SCENE_W = 232, GROUND = 58, HERO_X = 8, CONTACT = 44;
+const SCENE_W = 212, GROUND = 58, HERO_X = 8, CONTACT = 44;
 
 export class MiniRenderer {
   constructor(container, game) {

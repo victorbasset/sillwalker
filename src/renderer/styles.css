@@ -116,12 +116,15 @@ body.panel-open #toast { display: none; }
 /* ---------- Mode mini ---------- */
 #mini { position: fixed; inset: 0; display: flex; opacity: var(--strip-opacity); background: #0e0d18;
   border: 2px solid #14121f; border-radius: 4px; overflow: hidden; cursor: pointer; }
-#mini .mini-scene { position: relative; width: 232px; height: 100%; overflow: hidden; flex: none; }
-#mini .mini-info { position: relative; flex: 1; padding: 2px 8px; color: #fff; font-size: 13px; line-height: 1.25;
+#mini .mini-scene { position: relative; width: 212px; height: 100%; overflow: hidden; flex: none; }
+#mini .mini-info { position: relative; flex: 1; min-width: 0; padding: 2px 6px; color: #fff; font-size: 13px; line-height: 1.25;
   background: #1b1930; border-left: 2px solid #14121f; display: flex; flex-direction: column; justify-content: center; }
 #mini .mini-lvl { font-weight: 600; }
-#mini .mini-gold { color: #ffd34d; white-space: nowrap; padding-right: 24px; }
-#mini .mini-lvl { padding-right: 24px; white-space: nowrap; }
+/* Boutons côte à côte en haut à droite : seule la ligne du niveau (courte) les côtoie ; l'or et la zone
+   prennent toute la largeur (langues longues : « 6,01 млрд », « Strefa 4 · 4/10 »). */
+#mini .mini-lvl, #mini .mini-gold, #mini .mini-zone { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#mini .mini-gold { color: #ffd34d; }
+#mini .mini-lvl { padding-right: 48px; }
 #mini .mini-gold::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 4px; background: #ffd34d; border: 2px solid #14121f; vertical-align: -1px; }
 #mini .mini-xp { position: absolute; left: 8px; right: 8px; bottom: 4px; height: 2px; background: rgba(255, 255, 255, 0.12); }
 #mini .mini-goal { position: absolute; left: 8px; right: 8px; bottom: 1px; height: 2px; background: rgba(255, 255, 255, 0.08); }
@@ -129,8 +132,8 @@ body.panel-open #toast { display: none; }
 #mini .mini-goal.ready i { background: #ffd34d; }
 #mini .mini-xp i { display: block; height: 100%; width: 0; background: #ffd34d; }
 #mini .mini-zone { color: #a29ec2; font-size: 12px; white-space: nowrap; }
-#mini .minihint { position: absolute; right: 32px; top: 5px; font-size: 13px; line-height: 1; filter: drop-shadow(0 0 3px #ffd34d); }
-#mini .mini-btns { position: absolute; right: 4px; top: 4px; display: flex; flex-direction: column; gap: 3px; z-index: 5; }
+#mini .minihint { position: absolute; right: 52px; top: 5px; font-size: 13px; line-height: 1; filter: drop-shadow(0 0 3px #ffd34d); }
+#mini .mini-btns { position: absolute; right: 3px; top: 3px; display: flex; flex-direction: row; gap: 3px; z-index: 5; }
 #mini .mini-btns .sbtn { width: 22px; height: 18px; }
 #mini .mini-btns .chev { width: 8px; height: 8px; border-width: 2px; }
 #mini .mini-btns .ico-min { width: 9px; height: 2px; transform: translateY(3px); }

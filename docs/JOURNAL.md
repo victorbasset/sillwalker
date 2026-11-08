@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 ## Fait
 
+- 2026-11-08 (it. 6) : mode mini, le texte ne passe plus sous les boutons ^ et — en russe, polonais,
+  japonais ou portugais : boutons côte à côte en haut, l'or et la zone prennent toute la largeur.
 - 2026-11-08 (it. 5) : au tout premier lancement, la bulle de bienvenue (« ton héros avance seul,
   clique ici pour ouvrir le panneau ») passe avant la récompense du jour au lieu d'attendre derrière elle.
 - 2026-11-08 (it. 4) : fini les « Talentpunkt(e) », « huevo(s) », « 1 monstres » : points de talent,
