@@ -66,7 +66,7 @@ export class StripRenderer {
       const proj = this.game.classDef().projectile;
       if (proj) this.projectile(proj, this.heroX + 30, this.monX() + 6, mon.boss ? 40 : 66);
       const label = (iai ? "Iai ! " : first ? "Ouverture " : crit ? "Crit " : "") + Math.round(dmg);
-      this.float(this.monX() + 14 + (extra ? 12 : 0), (mon.boss ? 20 : 46) - (extra ? 10 : 0), label, crit || first ? "#ffe27a" : "#ffffff", crit || first);
+      this.float(this.monX() + 14 + (extra ? 12 : 0), (mon.boss ? 20 : 46) - (extra ? 10 : 0), label, crit || first ? "#ffe27a" : "#ffffff", crit || first, true);
     });
     g.on("dodge", () => this.float(this.heroX + 16, 44, "Esquive", "#9fd8ff"));
     g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, "Riposte " + Math.round(dmg), "#ffb07a"));
@@ -88,7 +88,7 @@ export class StripRenderer {
     g.on("egg", () => this.float(this.heroX + 16, 30, "Un œuf !", "#ffe27a", true));
     g.on("petLevel", ({ pet }) => this.float(this.heroX - 10, 50, pet.name + " monte de niveau", "#9fe0a8"));
     g.on("questDone", () => this.float(this.heroX + 16, 30, "Quête accomplie !", "#9fd8ff", true));
-    g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#ff7a6b"); });
+    g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#ff7a6b", false, true); });
     g.on("kill", ({ mon, gold }) => {
       this.float(this.monX() + 10, 50, "+" + fmt(gold) + " or", "#ffd34d");
       if (this.active) this.makeCorpse(mon, this.monX());
@@ -98,8 +98,9 @@ export class StripRenderer {
   }
 
   /* ---------- Effets (animés par la boucle à 30 FPS) ---------- */
-  float(x, y, txt, col, big) {
+  float(x, y, txt, col, big, isDamage) {
     if (!this.active) return;
+    if (isDamage && this.game.S.settings.damageNumbers === false) return;
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
@@ -176,6 +177,7 @@ export class StripRenderer {
 
   /** Niveau de nuit (0 = jour, 1 = nuit) selon l'heure réelle. */
   nightLevel() {
+    if (this.game.S.settings && this.game.S.settings.dayNight === false) return { night: 0, dusk: false };
     const d = new Date(), h = d.getHours() + d.getMinutes() / 60;
     // 0 = plein jour, 1 = pleine nuit ; aube 5 h-7 h, crépuscule 19 h-21 h 30.
     let night = 0;

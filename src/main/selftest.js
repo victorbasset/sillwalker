@@ -167,6 +167,20 @@ async function runSelfTest(strip) {
   await click('[data-action="confirm-ok"]');
   await sleep(150);
   check("vendre ce qui n'améliore pas (après confirmation)", useless > 0 && (await state("S.bag.length")) === bag0 - useless, `${bag0} -> ${await state("S.bag.length")} (${useless} inutiles)`);
+  // Réglages : son, cycle jour/nuit, opacité (via le processus principal)
+  await click('[data-tab="settings"]');
+  await sleep(200);
+  const snd0 = await state("S.settings.sound");
+  await click('[data-action="se-toggle"][data-key="sound"]');
+  await sleep(150);
+  check("réglages : activer / couper le son", (await state("S.settings.sound")) === !snd0);
+  if (!snd0) { await click('[data-action="se-toggle"][data-key="sound"]'); await sleep(150); }
+  const op0 = strip.settings.get("opacity");
+  await click('[data-action="se-opacity"][data-v="0.7"]');
+  await sleep(300);
+  check("réglages : opacité appliquée par la fenêtre", strip.settings.get("opacity") === 0.7);
+  await click(`[data-action="se-opacity"][data-v="${op0}"]`);
+  await sleep(200);
   await click('[data-tab="bestiary"]');
   await sleep(150);
   check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);

@@ -14,6 +14,7 @@ import { StripRenderer } from "./render/strip.js";
 import { MiniRenderer } from "./render/mini.js";
 import { changes } from "./render/dom.js";
 import { makeTrayIcons } from "./render/trayicons.js";
+import { Sound } from "./render/sound.js";
 import { heroVisual, visualKey } from "./render/equipvis.js";
 import { Panel } from "./ui/panel.js";
 import { initClickThrough } from "./ui/clickthrough.js";
@@ -39,6 +40,12 @@ async function boot() {
   const strip = new StripRenderer($("#strip"), game, { rightReserve: 64 });
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);
+  const sound = new Sound();
+  sound.bind(game);
+  let currentLayout = init.layout;
+  /** Applique les réglages du joueur (son, etc. ; le rendu les lit directement). */
+  const applySettings = () => sound.set(game.S.settings.sound, game.S.settings.volume);
+  applySettings();
   let speed = init.isDev && init.devSpeed ? init.devSpeed : 1;
   let mode = null, visible = false;
 
@@ -53,6 +60,7 @@ async function boot() {
     onReset: () => { game.reset(); saveNow(); },
     onMini: () => api.setMode("mini"),
     onQuit: () => api.quit(),
+    settings: { api, sound, getLayout: () => currentLayout, onChange: () => { applySettings(); strip.skyKey = ""; saveNow(); } },
   });
 
   function openPanel() {
@@ -96,6 +104,7 @@ async function boot() {
 
   /* ---------- Mise en page imposée par le processus principal ---------- */
   function applyLayout(l) {
+    currentLayout = l;
     body.classList.toggle("edge-top", l.edge === "top");
     body.classList.toggle("edge-bottom", l.edge !== "top");
     const root = document.documentElement.style;

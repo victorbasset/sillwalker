@@ -10,6 +10,8 @@ const { registerScheme, serveDirectory } = require("./protocol");
 if (flags.userData) app.setPath("userData", path.resolve(flags.userData));
 app.setAppUserModelId("com.sillwalker.game");
 registerScheme();
+// Effets sonores (désactivés par défaut) : pas besoin d'un clic pour démarrer l'audio.
+app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
 
 if (!app.requestSingleInstanceLock()) {
   app.quit();
@@ -80,6 +82,16 @@ function start() {
     ipcMain.on("mode:set", (_e, mode) => strip.setMode(String(mode)));
     ipcMain.on("app:quit", () => app.quit());
     ipcMain.on("hero:status", (_e, st) => trayCtl && trayCtl.setStatus(st));
+    // Réglages de fenêtre depuis le panneau (mêmes actions que le menu de l'icône)
+    const { loginItemOptions } = require("./tray");
+    ipcMain.handle("win:get", () => ({ openAtLogin: app.getLoginItemSettings(loginItemOptions()).openAtLogin }));
+    ipcMain.on("win:set", (_e, s) => {
+      if (!s || typeof s !== "object") return;
+      if (s.edge === "top" || s.edge === "bottom") strip.setEdge(s.edge);
+      if (typeof s.opacity === "number" && s.opacity >= 0.2 && s.opacity <= 1) strip.setOpacity(s.opacity);
+      if (typeof s.openAtLogin === "boolean") app.setLoginItemSettings({ openAtLogin: s.openAtLogin, ...loginItemOptions() });
+      if (trayCtl) trayCtl.rebuild();
+    });
     ipcMain.on("tray:icons", (_e, set) => {
       if (trayCtl) trayCtl.setIcons(set);
       // Dev : enregistre l'icône (32 px) à côté de la capture pour vérification.

@@ -35,6 +35,7 @@ export function freshState(now = Date.now()) {
     skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
+    settings: { sound: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true },
   };
 }
 
@@ -94,6 +95,7 @@ export function migrate(raw) {
   if (!Array.isArray(s.skills.order)) s.skills.order = [];
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
+  s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});
   s.potions = Math.max(0, Math.floor(+s.potions || 0));
   s.bagSize = Math.max(BAG_SIZE, Math.floor(+s.bagSize || BAG_SIZE));
   for (const k of ["lvl", "zone", "best", "nextId"]) s[k] = Math.max(1, Math.floor(+s[k] || 1));

@@ -351,3 +351,9 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .ach.on { color: var(--ink); }
 .ach .aico { display: inline-block; width: 18px; color: var(--muted); }
 .ach.on .aico { color: var(--accent); }
+/* Réglages */
+.setgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: start; }
+.range { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 6px 0; }
+.range input { flex: 1; accent-color: var(--accent); }
+.seg { gap: 4px; margin-top: 2px; }
+.seg button { padding: 3px 8px; font-size: 14px; }

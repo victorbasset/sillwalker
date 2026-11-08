@@ -125,4 +125,4 @@ function createTray({ strip, isDev, steam }) {
   return { tray, rebuild: build, setStatus, setIcons, stop: () => clearInterval(timer) };
 }
 
-module.exports = { createTray };
+module.exports = { createTray, loginItemOptions };

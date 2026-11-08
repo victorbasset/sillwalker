@@ -17,6 +17,7 @@ import { AscensionTab } from "./tabs/ascension.js";
 import { BestiaryTab } from "./tabs/bestiary.js";
 import { SkillsTab } from "./tabs/skills.js";
 import { StatsTab } from "./tabs/stats.js";
+import { SettingsTab } from "./tabs/settings.js";
 import { POWER_INDEX } from "../game/powers.js";
 import { describeEffects } from "../game/talents.js";
 import { EVENTS } from "../game/events.js";
@@ -39,6 +40,7 @@ const TABS = [
   { id: "ascension", label: "Ascension", prefix: "a-" },
   { id: "bestiary", label: "Bestiaire", prefix: "b-" },
   { id: "stats", label: "Statistiques", prefix: "st-" },
+  { id: "settings", label: "Réglages", prefix: "se-" },
 ];
 const n1 = (v) => (Math.round(v * 10) / 10).toString().replace(".", ",");
 // Statistiques secondaires affichées seulement si non nulles.
@@ -58,7 +60,7 @@ const EXTRA_STATS = [
 ];
 
 export class Panel {
-  constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit } = {}) {
+  constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
     this.root = root;
     this.game = game;
     this.isDev = isDev;
@@ -69,6 +71,7 @@ export class Panel {
     this.tabs = {
       talents: new TalentsTab(game), skills: new SkillsTab(game), quests: new QuestsTab(game), shop: new ShopTab(game), pets: new PetsTab(game),
       class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game),
+      settings: new SettingsTab(game, settings),
     };
     this.dirty = true;
     this.isOpen = false;
@@ -384,6 +387,7 @@ export class Panel {
 
   onChange(e) {
     const b = e.target;
+    if (b.dataset.action === "se-volume") { this.tabs.settings.onAction("se-volume", b); this.renderAll(); return; }
     if (b.dataset.action === "as") this.game.setAutoSell(b.dataset.r, b.checked);
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
   }

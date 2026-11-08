@@ -914,7 +914,7 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.cls,
       upgrades: old.upgrades, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed,
+      stats: old.stats, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));

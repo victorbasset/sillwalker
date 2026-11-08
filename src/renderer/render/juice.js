@@ -26,6 +26,7 @@ export class Juice {
   }
 
   get active() { return this.s.active; }
+  get full() { return this.s.game.S.settings.fullEffects !== false; }
   ground() { return this.s.ground; }
   goldTarget() { return { x: this.s.W - this.s.rightReserve - 80, y: 10 }; }
   bagTarget() { return { x: this.s.W - 22, y: 12 }; }
@@ -74,6 +75,7 @@ export class Juice {
   /** Pièces : jaillissent, rebondissent, puis filent vers le compteur d'or. */
   coins(x, y, n, big) {
     if (!this.active) return;
+    if (!this.full) n = Math.min(n, 3); // effets réduits
     for (let i = 0; i < n; i++) {
       const node = el("div", "coin" + (big && i % 4 === 0 ? " big" : ""), this.layer);
       const st = { x, y, vx: (Math.random() - 0.5) * (big ? 240 : 120), vy: -(90 + Math.random() * (big ? 170 : 90)), home: 0.75 + i * 0.025, hx: 0, hy: 0 };
@@ -97,7 +99,7 @@ export class Juice {
   loot(item, x) {
     if (!this.active) return;
     const r = item.r, color = RARITIES[r].color, y0 = this.ground() - 24;
-    if (r >= 2) {
+    if (r >= 2 && (this.full || r >= LEGENDARY)) {
       const beam = el("div", "beam" + (r >= LEGENDARY ? " legendary" : ""), this.layer);
       beam.style.setProperty("--c", color);
       this.place(beam, x - 4, 0);
@@ -145,7 +147,7 @@ export class Juice {
   }
 
   flash(color, strength) {
-    if (!this.active) return;
+    if (!this.active || !this.full) return;
     const node = el("div", "flash", this.layer);
     node.style.background = color;
     this.add(node, (p) => {
