@@ -21,9 +21,17 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   `~/.config/Sillwalker` sous Linux). Pour tester sur ses données : en copier une dans un dossier
   de travail et lancer avec `--user-data=<copie>`.
 - Ne jamais fermer le jeu de l'utilisateur ni l'application Claude.
-- Commits : `git -c user.name="Victor Basset" -c user.email="victor.basset@yahoo.fr" commit`,
-  message en français, terminé par la ligne `Co-Authored-By` demandée par la session.
+- Commits : auteur « Victor Basset <victor.basset@yahoo.fr> » (réglé dans `.git/config` du serveur Ubuntu ;
+  ailleurs, passer `-c user.name=… -c user.email=…`). Sur le serveur : `git commit -F <fichier-message>` seul,
+  dans sa propre commande (les commandes enchaînées déclenchent des demandes d'autorisation), message en français, terminé par la ligne `Co-Authored-By` demandée par la session.
   Committer à chaque étape qui marche ; ne pousser que si l'utilisateur l'a demandé.
+
+## Relais automatique (serveur Ubuntu)
+
+- `crontab` lance `scripts/auto-iteration.sh` toutes les 10 minutes : une itération de développement
+  en mode non interactif (`claude -p`, consignes dans `scripts/auto-iteration.md`). Il ne fait rien si une
+  itération tourne déjà ou si une session interactive a touché au dépôt ces 15 dernières minutes.
+  Journal : `logs/auto-iteration.log` (exclu de git). Arrêter : `crontab -r` (ou `crontab -e`).
 
 ## Tests (toujours invisibles)
 
