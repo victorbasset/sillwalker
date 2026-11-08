@@ -245,9 +245,54 @@ export const TREES = {
   ],
 };
 
-/** Index id -> { talent, branch } pour toutes les classes. */
+/**
+ * Voies : à partir de VOIE_REQ points dépensés, chaque classe choisit UNE de
+ * ses deux spécialisations (exclusives), qui change sa façon de se battre.
+ */
+export const VOIE_REQ = 30;
+const V = (id, name, text, eff) => ({ id, name, text, eff, max: 1, tier: 4, voie: true });
+export const VOIES = {
+  warrior:   [V("v_wa_wall", "Voie du rempart", "Encaisser et renvoyer : riposte, épines et défense.", { riposte: 20, thorns: 25, defPct: 20 }),
+              V("v_wa_carnage", "Voie du carnage", "Achever vite : énormes dégâts sur les cibles affaiblies.", { execute: 40, critDmg: 30, atkPct: 10 })],
+  ranger:    [V("v_ra_sniper", "Tireur d’élite", "La première flèche décide du combat.", { firstStrike: 2, crit: 10 }),
+              V("v_ra_rain", "Pluie de flèches", "Tirer, tirer encore : frappes doubles et cadence.", { doubleShot: 25, spd: 15 })],
+  mage:      [V("v_ma_pyro", "Pyromancie", "Tout brûle, longtemps et fort.", { burn: 50, atkPct: 10 }),
+              V("v_ma_arcane", "Arcaniste", "Des critiques dévastateurs.", { critDmg: 50, crit: 8 })],
+  paladin:   [V("v_pa_bastion", "Bastion sacré", "Un bouclier de lumière énorme à chaque combat.", { shield: 30, hpPct: 20 }),
+              V("v_pa_crusader", "Croisé", "Le fléau des boss.", { bossDmg: 40, atkPct: 15 })],
+  assassin:  [V("v_as_venom", "Venin mortel", "Le poison fait tout le travail.", { poison: 20 }),
+              V("v_as_shadow", "Ombre", "Insaisissable, et chaque coup critique fait mal.", { dodge: 15, critDmg: 40 })],
+  necro:     [V("v_ne_lord", "Seigneur des morts", "Le serviteur devient la vraie menace.", { minion: 60 }),
+              V("v_ne_drain", "Drain de vie", "Se nourrir de ses ennemis.", { lifesteal: 6, regen: 4, atkPct: 10 })],
+  monk:      [V("v_mo_fists", "Mille poings", "Des séries encore plus longues et rapides.", { combo: 3, spd: 20 }),
+              V("v_mo_serene", "Esprit serein", "Esquiver, tenir, récupérer.", { dodge: 12, hpPct: 20, regen: 3 })],
+  druid:     [V("v_dr_thorns", "Ronces", "Frapper le druide, c’est se blesser.", { thorns: 60, defPct: 20 }),
+              V("v_dr_pack", "Meute", "L’esprit-loup mène la chasse.", { minion: 40, atkPct: 10 })],
+  samurai:   [V("v_sa_iaido", "Iaido", "Un coup sur quatre tranche tout.", { iai: 100 }),
+              V("v_sa_kenjutsu", "Kenjutsu", "Deux lames, deux coups.", { doubleShot: 20, crit: 8 })],
+  berserker: [V("v_be_blood", "Soif de sang", "Chaque coup soigne, chaque proie affaiblie meurt.", { lifesteal: 6, execute: 30 }),
+              V("v_be_rage", "Rage aveugle", "Frapper plus fort et plus vite… en oubliant de se protéger.", { atkPct: 30, spd: 15, defPct: -20 })],
+};
+
+/**
+ * Maîtrises : rangs illimités, communs à toutes les classes, ouverts à partir de
+ * MASTERY_REQ points dépensés. Aucun point n'est jamais perdu.
+ */
+export const MASTERY_REQ = 40;
+export const MASTERIES = [
+  { id: "ms_power", name: "Maîtrise : puissance", eff: { atkPct: 1.5 }, max: Infinity, tier: 5, mastery: true },
+  { id: "ms_body", name: "Maîtrise : endurance", eff: { hpPct: 2, defPct: 1 }, max: Infinity, tier: 5, mastery: true },
+  { id: "ms_fortune", name: "Maîtrise : fortune", eff: { gold: 2, drop: 0.5 }, max: Infinity, tier: 5, mastery: true },
+];
+
+/** Index id -> { talent, branch, cls } pour toutes les classes (branch : n° de branche, "voie" ou "mastery"). */
 export const TALENT_INDEX = {};
 for (const cls in TREES) TREES[cls].forEach((b, bi) => b.talents.forEach((t) => { TALENT_INDEX[t.id] = { talent: t, branch: bi, cls }; }));
+for (const cls in VOIES) for (const v of VOIES[cls]) TALENT_INDEX[v.id] = { talent: v, branch: "voie", cls };
+for (const m of MASTERIES) TALENT_INDEX[m.id] = { talent: m, branch: "mastery", cls: "*" };
+
+/** Voie choisie par la classe active (ou null). */
+export const chosenVoie = (S, cls = S.cls) => (VOIES[cls] || []).find((v) => (S.talents[cls] || {})[v.id] > 0) || null;
 
 /** 1 point par niveau, plus les points offerts par la constellation de l'Arbre. */
 export const talentPointsTotal = (S) => Math.max(0, S.lvl - 1) + (prestigeEffects(S).talentPts || 0);
@@ -265,9 +310,21 @@ export function branchSpent(S, branch, cls = S.cls) {
 /** Raison pour laquelle on ne peut pas monter ce talent (ou null si possible). */
 export function cannotLearn(S, id) {
   const ix = TALENT_INDEX[id];
-  if (!ix || ix.cls !== S.cls) return "Talent d’une autre classe";
+  if (!ix || (ix.cls !== S.cls && ix.cls !== "*")) return "Talent d’une autre classe";
   const rank = classTalents(S)[id] || 0;
   if (rank >= ix.talent.max) return "Rang maximal atteint";
+  if (ix.branch === "voie") {
+    const cur = chosenVoie(S);
+    if (cur && cur.id !== id) return `Voie déjà choisie : ${cur.name} (réinitialise les talents pour changer)`;
+    if (talentPointsSpent(S) < VOIE_REQ) return `Demande ${VOIE_REQ} points dépensés dans les talents`;
+    if (talentPointsFree(S) <= 0) return "Aucun point disponible (1 point par niveau)";
+    return null;
+  }
+  if (ix.branch === "mastery") {
+    if (talentPointsSpent(S) < MASTERY_REQ) return `Demande ${MASTERY_REQ} points dépensés dans les talents`;
+    if (talentPointsFree(S) <= 0) return "Aucun point disponible (1 point par niveau)";
+    return null;
+  }
   const need = TIER_REQ[ix.talent.tier];
   if (branchSpent(S, ix.branch) < need) return `Demande ${need} points dans la branche ${TREES[S.cls][ix.branch].name}`;
   if (talentPointsFree(S) <= 0) return "Aucun point disponible (1 point par niveau)";
@@ -280,7 +337,7 @@ export function talentEffects(S) {
   const add = (eff, n = 1) => { for (const k in eff) out[k] = (out[k] || 0) + eff[k] * n; };
   add(classDef(S.cls).passive);
   const ranks = S.talents[S.cls] || {};
-  for (const id in ranks) { const ix = TALENT_INDEX[id]; if (ix && ix.cls === S.cls) add(ix.talent.eff, Math.min(ranks[id], ix.talent.max)); }
+  for (const id in ranks) { const ix = TALENT_INDEX[id]; if (ix && (ix.cls === S.cls || ix.cls === "*")) add(ix.talent.eff, Math.min(ranks[id], ix.talent.max)); }
   return out;
 }
 

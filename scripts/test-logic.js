@@ -696,4 +696,24 @@ test("héros à libérer : boss de zone, changement de classe à l'ascension", a
   assert.deepEqual(migrate(old).classesUnlocked.sort(), ["mage", "samurai", "warrior"]);
 });
 
+test("talents : voie exclusive et maîtrises (aucun point perdu)", async () => {
+  const { VOIES, MASTERIES, talentPointsFree } = await import("../src/renderer/game/talents.js");
+  const { CLASS_KEYS: keys } = await import("../src/renderer/game/classes.js");
+  for (const c of keys) assert.equal((VOIES[c] || []).length, 2, "deux voies pour " + c);
+  const g = new Game(freshState());
+  g.S.lvl = 120; g.invalidateStats();
+  const [a, b] = VOIES.warrior;
+  assert.equal(g.learnTalent(a.id), 0, "voie fermée avant 30 points");
+  for (const br of TREES.warrior) for (const t of br.talents) g.learnTalent(t.id, 99);
+  const atk0 = g.stats().atk;
+  assert.equal(g.learnTalent(a.id), 1);
+  assert.equal(g.learnTalent(b.id), 0, "une seule voie");
+  assert.ok(g.stats().riposte > 0);
+  const free = talentPointsFree(g.S);
+  assert.ok(free > 0);
+  assert.equal(g.learnTalent(MASTERIES[0].id, 9999), free, "tous les points vont en maîtrise");
+  assert.equal(talentPointsFree(g.S), 0);
+  assert.ok(g.stats().atk > atk0);
+});
+
 console.log(`\n${pass} tests réussis`);
