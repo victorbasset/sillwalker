@@ -4,6 +4,7 @@
 //    traduits à l'affichage par itemName() ;
 //  - zones : le nom source est gardé dans `src` (météo par zone).
 import { getLang, tr } from "./index.js";
+import { DICTS } from "./dicts.js";
 import { RARITIES, SLOTS, STAT_NAMES, MONSTERS, ZONES, ELITE_AFFIXES, ITEM_BASES, MATERIALS, ITEM_SUFFIXES } from "../game/data.js";
 import { CLASSES, ATTACK_TIERS } from "../game/classes.js";
 import { TREES, EFFECTS, VOIES, MASTERIES } from "../game/talents.js";
@@ -56,6 +57,25 @@ export function translateData() {
   [CONSUMABLES, CHESTS, UPGRADES, WORKSHOP].forEach((l) => l.forEach(fields));
   CONSTELLATIONS.forEach(fields);
   ACHIEVEMENTS.forEach(fields);
+}
+
+/**
+ * Réparation des sauvegardes : avant la correction, une pièce de panoplie créée
+ * dans une autre langue que le français gardait le suffixe traduit dans son nom
+ * (« Brassards de cristal of the Titans »). On remet le suffixe français.
+ */
+export function repairItemNames(S) {
+  const items = [...(S.bag || []), ...Object.values(S.equip || {})].filter((it) => it && it.set && SETS[it.set]);
+  let n = 0;
+  for (const it of items) {
+    const fr = SETS[it.set].srcSuffix || SETS[it.set].suffix;
+    if (it.name.endsWith(" " + fr)) continue;
+    for (const lang in DICTS) {
+      const t = DICTS[lang][fr];
+      if (t && it.name.endsWith(" " + t)) { it.name = it.name.slice(0, -t.length) + fr; n++; break; }
+    }
+  }
+  return n;
 }
 
 /**

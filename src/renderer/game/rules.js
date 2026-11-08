@@ -56,7 +56,7 @@ export function rollItem(id, zone, minRarity = 0) {
   const suffixes = ITEM_SUFFIXES[r];
   // Épiques et légendaires : parfois une pièce de panoplie (voir sets.js).
   const set = SET_CHANCE[r] && rand() < SET_CHANCE[r] ? pick(SET_KEYS) : null;
-  const name = base.n + " " + mat.n + (set ? " " + SETS[set].suffix : suffixes.length ? " " + pick(suffixes) : "");
+  const name = base.n + " " + mat.n + (set ? " " + (SETS[set].srcSuffix || SETS[set].suffix) : suffixes.length ? " " + pick(suffixes) : "");
   // Couleur visible (icône + personnage) : la matière pour le métal, le bois et les gemmes, une teinture sinon.
   const color = base.kind === "cloth" || base.kind === "leather" ? (r >= 2 ? DYES[r] : mat.color) : mat.color;
   const it = { id, slot, r, il, plus: 0, st, name, icon: base.icon, kind: base.kind, color, base: slot + ":" + base.n };

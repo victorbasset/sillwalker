@@ -7,7 +7,7 @@
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
 import { getLang, setLang, DEFAULT_LANG } from "./i18n/index.js";
-import { translateData } from "./i18n/data.js";
+import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
 import { CLASSES } from "./game/classes.js";
@@ -46,6 +46,7 @@ async function boot() {
   if (wanted !== getLang()) { setLang(wanted); location.reload(); return; }
   game.S.settings.lang = wanted;
   translateData();
+  repairItemNames(game.S);
   // Animations réduites demandées par Windows : effets sobres par défaut (une seule fois, modifiable ensuite).
   if (!game.S.settings.motionChecked) {
     game.S.settings.motionChecked = true;

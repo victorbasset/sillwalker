@@ -10,6 +10,9 @@ import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/
 import { CLASS_KEYS } from "../src/renderer/game/classes.js";
 import { ZONES, MONSTERS } from "../src/renderer/game/data.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
+import { SETS as SETS_T } from "../src/renderer/game/sets.js";
+import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
+import { repairItemNames } from "../src/renderer/i18n/data.js";
 
 setRandom(seeded(42));
 let pass = 0;
@@ -836,6 +839,17 @@ test("clic sur le monstre : coup bonus limité en cadence", () => {
   m.hp = 1; g.R.time += 0.3; const k = g.S.stats.kills;
   g.tapMonster();
   assert.ok(g.S.stats.kills > k || g.R.mon !== m, "le clic peut achever le monstre");
+});
+
+test("panoplies : le nom sauvegardé reste en français, même créé dans une autre langue", () => {
+  const key = Object.keys(SETS_T)[0], fr = SETS_T[key].srcSuffix || SETS_T[key].suffix;
+  const en = DICTS_T.en[fr];
+  const S = freshState();
+  S.bag = [{ id: 1, slot: "weapon", set: key, name: "Épée de fer " + en }, { id: 2, slot: "weapon", set: key, name: "Épée de fer " + fr }];
+  assert.ok(en && en !== fr, "suffixe traduit en anglais");
+  assert.equal(repairItemNames(S), 1);
+  assert.equal(S.bag[0].name, "Épée de fer " + fr);
+  assert.equal(S.bag[1].name, "Épée de fer " + fr);
 });
 
 console.log(`\n${pass} tests réussis`);
