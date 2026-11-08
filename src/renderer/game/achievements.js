@@ -34,6 +34,19 @@ export const ACHIEVEMENTS = [
   { id: "FULL_SET",        name: "Panoplie complète (4 pièces)", test: (S) => Object.values(setCounts(S.equip || {})).some((n) => n >= 4) },
   { id: "MASTER_OF_ALL",   name: "Maître de toutes les classes", test: (S) => CLASS_KEYS.every((c) => (S.stats.classes || []).includes(c)) },
   { id: "ALL_CLASSES",     name: "Polyvalent : jouer les 3 classes", test: (S) => (S.stats.classes || []).length >= 3 },
+  { id: "ZONE_50",         name: "Zone 50",            test: (S) => S.best >= 50 },
+  { id: "LEVEL_100",       name: "Niveau 100",         test: (S) => S.lvl >= 100 },
+  { id: "KILLS_1000",      name: "Mille victoires",    test: (S) => (S.stats.kills || 0) >= 1000 },
+  { id: "KILLS_10000",     name: "Dix mille victoires", test: (S) => (S.stats.kills || 0) >= 10000 },
+  { id: "BOSSES_100",      name: "Tueur de boss (100)", test: (S) => (S.stats.bosses || 0) >= 100 },
+  { id: "GOLD_MILLION",    name: "Millionnaire (1 M d’or gagnés)", test: (S) => (S.stats.goldTotal || 0) >= 1e6 },
+  { id: "BIG_HIT",         name: "Coup monstrueux (10 000 dégâts)", test: (S) => (S.stats.maxHit || 0) >= 10000 },
+  { id: "PHOENIX",         name: "Renaissance (obtenir le phénix)", test: (S) => !!S.pets?.owned?.phoenix },
+  { id: "DAILY_7",         name: "Fidèle : 7 jours d’affilée", test: (S) => (S.daily?.streak || 0) >= 7 },
+  { id: "PLAY_10H",        name: "Compagnon de route (10 h de jeu)", test: (S) => (S.stats.playTime || 0) >= 36000 },
+  { id: "REFORGE_10",      name: "Forgeron (10 reforges)", test: (S) => (S.stats.reforges || 0) >= 10 },
+  { id: "EVENTS_10",       name: "Chanceux (10 événements rares)", test: (S) => (S.stats.events || 0) >= 10 },
+  { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
 ];
 
 /** Identifiants des succès dont la condition est remplie. */
