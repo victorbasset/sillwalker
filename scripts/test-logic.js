@@ -249,7 +249,7 @@ test("familiers : œufs, éclosion, niveau, bonus", () => {
 
 test("bestiaire : paliers et bonus", () => {
   const g = new Game(freshState());
-  play(g, 20);
+  play(g, 45); // (plus de types de monstres par zone : il faut un peu plus de temps pour un palier)
   assert.ok(Object.values(g.S.bestiary).some((n) => n >= 10));
   assert.ok((bestiaryEffects(g.S).gold || 0) > 0);
 });

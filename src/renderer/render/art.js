@@ -145,6 +145,8 @@ const SAMURAI_ART = {
 /** Sprites des classes : générés à partir de pièces dans heroart.js. */
 export { CLASS_ART, CLASS_HEADS } from "./heroart.js";
 
+import { MONSTER_ART_2 } from "./art-monsters2.js";
+
 export const MONSTER_ART = {
   slime: { pal: { G: "#6ad35b", D: "#3e9a3a", W: "#ffffff", E: "#1a1a1a" }, frames: [
     ["...GGGGG...", "..GGGGGGG..", ".GGWGGGWGG.", ".GGEGGGEGG.", "GGGGGGGGGGG", "GGGGGGGGGGG", "DGGGGGGGGGD", ".DDDDDDDDD."],
@@ -213,6 +215,18 @@ export const MONSTER_ART = {
     ["....RR......", "...KKKK.....", "..KKKKKK....", "..KkRkRK....", "..KKKKKK....", "...KKKK...W.", ".BKKKKKKB.W.", "B.KBKKBK.BW.", "B.KKKKKK.BB.", "..KKKKKK..G.", "..KK..KK....", "..KK..KK....", ".kKK..KKk..."],
     ["....RR......", "...KKKK.....", "..KKKKKK....", "..KkRkRK....", "..KKKKKK....", "...KKKK.....", ".BKKKKKKBWWW", "B.KBKKBK.BG.", "B.KKKKKK....", "..KKKKKK....", "..KK...KK...", ".KK.....KK..", ".kK.....Kk.."]] },
 };
+
+Object.assign(MONSTER_ART, MONSTER_ART_2);
+// Dessinés tournés vers la gauche par erreur : on les retourne pour qu'ils fassent face au héros.
+for (const k of ["drake", "eye"]) {
+  const a = MONSTER_ART[k], w = Math.max(...a.frames.flat().map((r) => r.length));
+  a.frames = a.frames.map((f) => f.map((r) => r.padEnd(w, ".").split("").reverse().join("")));
+}
+// Toutes les images d'un monstre à la même largeur : le corps ne bouge pas pendant l'animation.
+for (const k in MONSTER_ART) {
+  const a = MONSTER_ART[k], w = Math.max(...a.frames.flat().map((r) => r.length));
+  a.frames = a.frames.map((f) => f.map((r) => r.padEnd(w, ".")));
+}
 
 // Icônes d'objets (8×8). M = matière de l'objet, R = couleur de rareté,
 // X = contour, K = bois / poignée, W = reflet. Clé = ITEM_BASES[...].icon.

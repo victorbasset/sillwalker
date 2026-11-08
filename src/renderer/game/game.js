@@ -32,7 +32,7 @@ import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
 import { bossMechanics, bossName } from "./bosses.js";
-import { rand, rnd, pick } from "./util.js";
+import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
 
@@ -90,11 +90,17 @@ export class Game {
     if (!R.lineup || R.lineupZone !== this.S.zone) {
       const Z = zoneDef(this.S.zone);
       const dm = activeDayMod(this.S);
+      // Les monstres de la zone sont tirés « comme des cartes » : tous passent avant qu'un type revienne.
+      let deck = [], last = null;
+      const draw = () => {
+        if (!deck.length) { deck = shuffled(Z.monsters); if (deck.length > 1 && deck[deck.length - 1] === last) deck.unshift(deck.pop()); }
+        return (last = deck.pop());
+      };
       R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
         ? { type: "goblin", elite: false, goblin: true }
         : (() => {
           const champion = rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * (dm?.elite || 1);
-          return { type: pick(Z.monsters), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
+          return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
       R.lineupZone = this.S.zone;
     }
