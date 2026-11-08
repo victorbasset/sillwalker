@@ -346,8 +346,11 @@ export class Panel {
   renderBag() {
     const S = this.game.S, cells = [];
     const useless = this.game.uselessItems(), uselessGold = useless.reduce((a, it) => a + sellValue(it), 0), tr = this.game.transmutePlan();
+    // Affichage trié (le sac lui-même garde l'ordre d'arrivée) : améliorations ▲, puis rareté, puis emplacement.
+    const slotOrder = Object.keys(SLOTS), up = new Map(S.bag.map((it) => [it.id, this.game.isUpgrade(it)]));
+    const shown = [...S.bag].sort((a, b) => (up.get(b.id) - up.get(a.id)) || (b.r - a.r) || (slotOrder.indexOf(a.slot) - slotOrder.indexOf(b.slot)) || (b.il - a.il));
     for (let i = 0; i < S.bagSize; i++) {
-      const it = S.bag[i];
+      const it = shown[i];
       cells.push(it ? this.slotBtn(it, it.slot, "bag") : `<div class="slot emptyslot" aria-hidden="true"></div>`);
     }
     const full = S.bag.length >= S.bagSize;
