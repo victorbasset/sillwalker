@@ -421,4 +421,16 @@ test("objets : 7 emplacements, types et matières variés", () => {
   assert.ok(names.size >= 30, "noms de base : " + names.size);
 });
 
+test("boss : capacités spéciales", () => {
+  const seen = new Set();
+  for (const z of [1, 2, 3, 4, 20]) {
+    const g = new Game(freshState());
+    g.S.zone = g.S.best = z; g.S.lvl = 12 + z * 2; g.S.kills = 10; g.invalidateStats();
+    g.on("bossSkill", ({ id }) => seen.add(id));
+    g.on("telegraph", () => seen.add("telegraph"));
+    for (let i = 0; i < 4; i++) { g.S.kills = 10; g.advance(40); }
+  }
+  for (const id of ["enrage", "smash", "shell", "telegraph"]) assert.ok(seen.has(id), "capacité jamais vue : " + id);
+});
+
 console.log(`\n${pass} tests réussis`);

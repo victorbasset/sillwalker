@@ -74,6 +74,13 @@ export class StripRenderer {
     g.on("secondWind", () => this.float(this.heroX + 10, 36, "Second souffle !", "#ffe27a", true));
     g.on("classChange", () => { this.heroCls = null; this.minionKey = null; });
     g.on("minion", () => { this.minionLunge = 0.2; });
+    g.on("bossSkill", ({ id }) => {
+      const label = { enrage: ["ENRAGÉ !", "#ff4a4a"], shell: ["Carapace !", "#9fd8ff"], smash: ["", ""] }[id];
+      if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
+    });
+    g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
+    g.on("smash", ({ dmg }) => { this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + " !", "#ff4a4a", true); });
+    g.on("bossShieldHit", () => { this.monHit = 0.06; });
     g.on("flee", ({ mon }) => {
       this.float(this.monX() + 14, 40, "Il s’enfuit !", "#ffd34d", true);
       if (this.active) this.makeCorpse(mon, this.monX());
@@ -324,6 +331,9 @@ export class StripRenderer {
       if (fighting) a.bar.set(R.mon.hp / R.mon.max);
       const burning = !!(fighting && R.mon.burnT > 0);
       if (a.flame.hidden === burning) { a.flame.hidden = !burning; mark("flame"); }
+      const enraged = !!(fighting && R.mon.enraged), shelled = !!(fighting && R.mon.shell > 0);
+      if (a.el.classList.contains("enraged") !== enraged) { a.el.classList.toggle("enraged", enraged); mark("boss"); }
+      if (a.el.classList.contains("shelled") !== shelled) { a.el.classList.toggle("shelled", shelled); mark("boss"); }
       const poisoned = !!(fighting && R.mon.poisonT > 0);
       if (a.el.classList.contains("poisoned") !== poisoned) { a.el.classList.toggle("poisoned", poisoned); mark("poison"); }
     }

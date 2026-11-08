@@ -6,7 +6,8 @@
 // kill({mon,gold}), loot({item}), levelUp({lvl}), heroDown(), respawn(), classChange(),
 // flee({mon}) (gobelin enfui), egg(), petLevel({pet}), questDone({quest}), ascend(),
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
-// feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}).
+// feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
+// bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import {
   RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, ELITE, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
@@ -27,6 +28,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP } from "./events.js";
+import { bossMechanics } from "./bosses.js";
 import { rand, rnd, pick } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
@@ -204,44 +206,78 @@ export class Game {
         if (m.fleeT <= 0) this.monsterFlees();
         return;
       }
+      // Capacités spéciales des boss
+      if (m.boss && this.bossTick(m, hs, dt)) return;
       // Attaques du monstre
       m.t -= dt;
       if (m.t <= 0) {
         m.t = m.interval;
-        if (hs.dodge > 0 && rand() < hs.dodge / 100) this.emit("dodge");
-        else {
-          let dmg = m.atk * rnd(0.85, 1.15) * 40 / (40 + hs.def);
-          if (hs.thorns > 0) {
-            m.hp -= dmg * hs.thorns / 100;
-            if (m.hp <= 0) { this.killMonster(); return; }
-          }
-          if (R.shield > 0) {
-            const absorbed = Math.min(R.shield, dmg);
-            R.shield -= absorbed; dmg -= absorbed;
-            this.emit("absorb", { amount: absorbed });
-          }
-          R.hp -= dmg;
-          if (dmg > 0) this.emit("heroHurt", { dmg });
-          if (hs.riposte > 0 && R.hp > 0 && rand() < hs.riposte / 100) {
-            const rd = hs.atk * 0.5;
-            m.hp -= rd;
-            this.emit("riposte", { dmg: rd });
-            if (m.hp <= 0) { this.killMonster(); return; }
-          }
-        }
-        if (R.hp > 0 && R.hp < hs.hp * POTION_THRESHOLD) this.drinkPotion(hs);
-        if (R.hp <= 0) {
-          if (hs.secondWind && !R.windUsed) {
-            R.windUsed = true;
-            R.hp = hs.hp * 0.3;
-            this.emit("secondWind");
-          } else this.heroDown();
-        }
+        if (this.monsterAttack(m, hs, 1)) return;
       }
     } else if (R.mode === "dead") {
       R.deadT -= dt;
       if (R.deadT <= 0) { R.hp = hs.hp; R.mode = "walk"; this.startLeg(1); this.emit("respawn"); }
     }
+  }
+
+  /** Un coup du monstre (mult > 1 : coup spécial). Renvoie true si le combat est fini. */
+  monsterAttack(m, hs, mult) {
+    const R = this.R;
+    if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
+    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def);
+    if (hs.thorns > 0) {
+      m.hp -= dmg * hs.thorns / 100;
+      if (m.hp <= 0) { this.killMonster(); return true; }
+    }
+    if (R.shield > 0) {
+      const absorbed = Math.min(R.shield, dmg);
+      R.shield -= absorbed; dmg -= absorbed;
+      this.emit("absorb", { amount: absorbed });
+    }
+    R.hp -= dmg;
+    if (dmg > 0) this.emit(mult > 1 ? "smash" : "heroHurt", { dmg });
+    if (hs.riposte > 0 && R.hp > 0 && rand() < hs.riposte / 100) {
+      const rd = hs.atk * 0.5;
+      m.hp -= rd;
+      this.emit("riposte", { dmg: rd });
+      if (m.hp <= 0) { this.killMonster(); return true; }
+    }
+    if (R.hp > 0 && R.hp < hs.hp * POTION_THRESHOLD) this.drinkPotion(hs);
+    if (R.hp <= 0) {
+      if (hs.secondWind && !R.windUsed) {
+        R.windUsed = true;
+        R.hp = hs.hp * 0.3;
+        this.emit("secondWind");
+      } else { this.heroDown(); return true; }
+    }
+    return false;
+  }
+
+  /** Capacités du boss (voir bosses.js). Renvoie true si le combat est fini. */
+  bossTick(m, hs, dt) {
+    const mech = m.mech || [];
+    if (mech.includes("enrage") && !m.enraged && m.hp < m.max * 0.3) {
+      m.enraged = true; m.interval *= 0.6; m.atk *= 1.2;
+      this.emit("bossSkill", { id: "enrage" });
+    }
+    if (mech.includes("shell") && !m.shelled && m.hp < m.max * 0.5) {
+      m.shelled = true; m.shell = m.max * 0.25;
+      this.emit("bossSkill", { id: "shell" });
+    }
+    if (mech.includes("regen") && !(m.burnT > 0) && !(m.poisonT > 0) && m.hp < m.max) {
+      m.hp = Math.min(m.max, m.hp + m.max * 0.02 * dt);
+    }
+    if (mech.includes("smash")) {
+      const before = m.smashT;
+      m.smashT -= dt;
+      if (before > 1 && m.smashT <= 1) this.emit("telegraph");
+      if (m.smashT <= 0) {
+        m.smashT = 6;
+        this.emit("bossSkill", { id: "smash" });
+        if (this.monsterAttack(m, hs, 2.5)) return true;
+      }
+    }
+    return false;
   }
 
   heroStrike(m, hs, first, extra) {
@@ -255,6 +291,11 @@ export class Game {
     if (first && hs.firstStrike > 0) dmg *= 1 + hs.firstStrike;
     if (extra) dmg *= 0.6;
     if (hs.combo > 0) { dmg *= 1 + hs.combo / 100 * Math.min(this.R.combo, 10); this.R.combo++; }
+    if (m.shell > 0) {
+      const a = Math.min(m.shell, dmg);
+      m.shell -= a; dmg -= a;
+      this.emit("bossShieldHit", { amount: a });
+    }
     m.hp -= dmg;
     if (hs.poison > 0) { m.poisonStacks = Math.min(5, (m.poisonStacks || 0) + 1); m.poisonT = 4; }
     if (hs.lifesteal > 0) this.R.hp = Math.min(hs.hp, this.R.hp + dmg * hs.lifesteal / 100);
@@ -279,7 +320,8 @@ export class Game {
     const slot = boss ? { type: Z.boss, elite: false } : this.lineup()[Math.min(this.S.kills, KILLS_PER_ZONE - 1)];
     const b = monsterBase(this.S.zone, boss, slot.type, slot.elite);
     return Object.assign(b, { type: slot.type, boss, elite: slot.elite, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
-      max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0 });
+      max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
+      mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0 });
   }
 
   gainXp(x) {
