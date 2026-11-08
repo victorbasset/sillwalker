@@ -6,6 +6,7 @@ import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { fmt, fmtShort } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
+import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 
 export const MINI_W = 340, MINI_H = 64;
@@ -29,6 +30,8 @@ export class MiniRenderer {
     this.hintDot.textContent = "💡";
     this.hintDot.hidden = true;
     this.xp = el("i", "", el("div", "mini-xp", this.info)); // barre d'expérience fine
+    this.goalWrap = el("div", "mini-goal", this.info); // progression vers le prochain déblocage
+    this.goal = el("i", "", this.goalWrap);
     this.xpW = -1;
     this.monActor = null; this.monRef = null;
     game.on("heroAttack", () => { this.lunge = 0.15; this.monHit = 0.12; });
@@ -161,6 +164,14 @@ export class MiniRenderer {
       this.lvl.textContent = tx("Niv. ") + S.lvl;
       this.gold.textContent = fmtShort(S.gold);
       this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
+      const u = nextUnlock(S);
+      this.goalWrap.hidden = !u;
+      if (u) {
+        const ok = unlockAvailable(S, u), k = ok ? Math.min(1, S.gold / u.price) : Math.min(1, recordZone(S) / u.zone);
+        this.goal.style.width = Math.round(k * 100) + "%";
+        this.goalWrap.classList.toggle("ready", ok && S.gold >= u.price);
+        this.goalWrap.title = tx("Prochain déblocage") + " : " + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}` : tx("Zone record {0}", { 0: u.zone }));
+      }
     }
   }
 }
