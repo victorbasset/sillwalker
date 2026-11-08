@@ -11,6 +11,8 @@ async function runSelfTest(strip) {
   const state = (expr) => js(`(() => { const S = window.__game.S; return ${expr}; })()`);
   const rectOf = (sel) => js(`(() => { const r = document.querySelector(${JSON.stringify(sel)}).getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
   const move = async (x, y) => { wc.sendInputEvent({ type: "mouseMove", x, y }); await sleep(150); };
+  /** Attend qu'une condition soit vraie (machine chargée : animations plus lentes). */
+  const until = async (test, ms = 3000) => { for (let t = 0; t < ms; t += 100) { if (await test()) return true; await sleep(100); } return !!(await test()); };
   const click = async (sel) => {
     const p = await rectOf(sel);
     await move(p.x, p.y);
@@ -44,13 +46,15 @@ async function runSelfTest(strip) {
   const samples = [];
   for (let i = 0; i < 8; i++) { samples.push(JSON.stringify(bounds())); await sleep(30); }
   await sleep(300);
-  const shown = await js("document.body.classList.contains('panel-shown')");
+  let shown = false;
+  for (let i = 0; i < 20 && !(shown = await js("document.body.classList.contains('panel-shown')")); i++) await sleep(100);
   check("panneau ouvert", shown);
   check("fenêtre jamais redimensionnée pendant l'ouverture", samples.every((s) => s === JSON.stringify(b0)), samples[0]);
   const pr = await rectOf("#panel");
-  check("panneau ouvert : sa zone devient cliquable", strip.hitTest(b0.x + pr.x, b0.y + pr.y));
-  const panelTop = await js("Math.round(document.getElementById('panel').getBoundingClientRect().top)");
-  const wrapTop = await js("Math.round(document.getElementById('panel-wrap').getBoundingClientRect().top)");
+  check("panneau ouvert : sa zone devient cliquable", await until(() => strip.hitTest(b0.x + pr.x, b0.y + pr.y)));
+  const tops = "Math.round(document.getElementById('panel').getBoundingClientRect().top) + ',' + Math.round(document.getElementById('panel-wrap').getBoundingClientRect().top)";
+  await until(async () => { const [a, b] = (await js(tops)).split(","); return a === b; });
+  const [panelTop, wrapTop] = (await js(tops)).split(",").map(Number);
   check("panneau entièrement glissé en place", panelTop === wrapTop, `panel ${panelTop} / zone ${wrapTop}`);
   const hdr = await js("[...document.querySelectorAll('.ptop button')].map(b => b.textContent.trim()).join(' | ')");
   check("boutons de l'en-tête", /Mode mini/.test(hdr) && /Quitter/.test(hdr), hdr);
@@ -58,9 +62,8 @@ async function runSelfTest(strip) {
 
   // Fermeture
   await click("#panel .close");
-  await sleep(400);
-  check("panneau refermé", !(await js("document.body.classList.contains('panel-open')")));
-  check("panneau refermé : sa zone laisse passer les clics", !strip.hitTest(b0.x + pr.x, b0.y + pr.y));
+  check("panneau refermé", await until(async () => !(await js("document.body.classList.contains('panel-open')"))));
+  check("panneau refermé : sa zone laisse passer les clics", await until(() => !strip.hitTest(b0.x + pr.x, b0.y + pr.y)));
 
   // Mode mini depuis la bande
   await click("#mini-btn");

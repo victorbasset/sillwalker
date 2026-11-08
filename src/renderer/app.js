@@ -74,7 +74,11 @@ async function boot() {
     panel.setOpen(true);
     menuBtn.setAttribute("aria-expanded", "true");
     // Deux images : le panneau est d'abord rendu hors champ, puis glisse.
-    requestAnimationFrame(() => requestAnimationFrame(() => body.classList.add("panel-shown")));
+    // Classe ajoutée après un premier rendu (pour que la transition joue). Le minuteur prend le relais
+    // si le navigateur ne livre pas d'image d'animation (fenêtre hors écran, écran en veille…).
+    const show = () => { if (panelOpen) body.classList.add("panel-shown"); };
+    requestAnimationFrame(() => requestAnimationFrame(show));
+    setTimeout(show, 60);
     api.setPanelOpen(true);
     clickThrough.refresh();
     setTimeout(() => clickThrough.refresh(), PANEL_ANIM_MS);
