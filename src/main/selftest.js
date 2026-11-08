@@ -25,6 +25,10 @@ async function runSelfTest(strip) {
   await sleep(1500);
   if (strip.mode() !== "strip") await strip.setMode("strip");
   await sleep(500);
+  for (let i = 0; i < 30 && (strip.mode() !== "strip" || bounds().height <= 64); i++) { // démarrage lent : on attend la bande
+    if (strip.mode() !== "strip") await strip.setMode("strip");
+    await sleep(200);
+  }
   const b0 = bounds();
 
   // Zones cliquables : la fenêtre ne devient cliquable qu'au-dessus d'un
