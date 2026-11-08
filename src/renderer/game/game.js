@@ -521,11 +521,16 @@ export class Game {
       best = Math.max(best, it.r);
       this.addToBag(it, true);
     }
+    // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
+    const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
+    const feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal, 3);
+    if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, "Plumes du vent trouvées en ton absence"); }
+    for (let i = 0; i < chests; i++) this.openChest();
     this.R.hp = this.stats().hp;
     const h = Math.floor(sec / 3600), mn = Math.floor(sec % 3600 / 60);
     const summary = {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
-      kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best,
+      kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
     };
     this.log("Pendant " + summary.duration + " : " + fmt(kills) + " monstres vaincus, +" + fmt(gold) + " or" +
       (summary.newLevel ? ", niveau " + S.lvl : "") + ", " + summary.kept + " objet(s) gardé(s).");

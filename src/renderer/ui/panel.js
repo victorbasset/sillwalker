@@ -179,6 +179,8 @@ export class Panel {
         <li><span>Expérience</span><b>+${fmt(sum.xp)}</b></li>
         ${sum.newLevel ? `<li><span>Nouveau niveau</span><b>${sum.newLevel}</b></li>` : ""}
         <li><span>Objets gardés</span><b>${sum.kept}</b></li>${best}
+        ${sum.feathers ? `<li><span>Plumes du vent</span><b>+${sum.feathers} % de vitesse</b></li>` : ""}
+        ${sum.chests ? `<li><span>Coffres au trésor</span><b>${sum.chests}</b></li>` : ""}
       </ul>
       <p class="note">La progression hors ligne est plafonnée à 8 h et rapporte un peu moins que de laisser le jeu ouvert.</p>`;
     this.setTab("adventure");

@@ -464,7 +464,7 @@ test("panoplies : pièces, bonus à 2 et 4 pièces", () => {
   const pieces = {};
   for (let i = 0; i < 3000 && Object.keys(pieces).length < 4; i++) {
     const it = g.newItem(3, 10);
-    if (it.set === "wind" && !pieces[it.slot]) pieces[it.slot] = it;
+    if (it.set === "wind" && !pieces[it.slot]) { delete it.power; pieces[it.slot] = it; } // (sans pouvoir : certains donnent de la vitesse)
   }
   const list = Object.values(pieces);
   assert.equal(list.length, 4, "4 pièces différentes du Voyageur du vent");
@@ -637,6 +637,18 @@ test("champions : plus coriaces, butin épique garanti", async () => {
   assert.ok(g.S.stats.champions >= 1, "un champion vaincu");
   assert.ok(loot.length && loot.every((r) => r >= 3), "butin épique ou mieux : " + loot);
   assert.ok(reachedAchievements(g.S).includes("CHAMPION"));
+});
+
+test("hors ligne : plumes et coffres possibles, plafonnés", () => {
+  let feathers = 0, chests = 0;
+  for (let i = 0; i < 20; i++) {
+    const g = new Game(freshState()); g.S.lvl = 60; g.S.zone = g.S.best = 5; g.S.stats.kills = 1; g.invalidateStats();
+    const sum = g.applyOffline(8 * 3600);
+    assert.ok(sum && sum.feathers <= 5 && sum.chests <= 3);
+    feathers += sum.feathers; chests += sum.chests;
+    assert.equal(g.S.speed, sum.feathers);
+  }
+  assert.ok(feathers > 0 && chests > 0, `plumes ${feathers}, coffres ${chests}`);
 });
 
 console.log(`\n${pass} tests réussis`);

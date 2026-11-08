@@ -144,7 +144,7 @@ async function boot() {
     toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
   }
   function showOffline(sum) {
-    showToast(`Pendant ton absence (${esc(sum.duration)}) : <b>${fmt(sum.kills)}</b> monstres, <b>+${fmt(sum.gold)}</b> or${sum.newLevel ? ", niveau " + sum.newLevel : ""}. Cliquer pour le détail.`,
+    showToast(`Pendant ton absence (${esc(sum.duration)}) : <b>${fmt(sum.kills)}</b> monstres, <b>+${fmt(sum.gold)}</b> or${sum.newLevel ? ", niveau " + sum.newLevel : ""}${sum.feathers ? `, <b>${sum.feathers} plume${sum.feathers > 1 ? "s" : ""} du vent</b>` : ""}${sum.chests ? `, <b>${sum.chests} coffre${sum.chests > 1 ? "s" : ""}</b>` : ""}. Cliquer pour le détail.`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {
