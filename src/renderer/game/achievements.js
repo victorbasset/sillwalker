@@ -4,6 +4,7 @@ import { TREES } from "./talents.js";
 import { PETS } from "./pets.js";
 import { MONSTERS } from "./data.js";
 import { CLASS_KEYS } from "./classes.js";
+import { setCounts } from "./sets.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 
 const ULTIMATES = new Set(Object.values(TREES).flatMap((tree) => tree.flatMap((b) => b.talents.filter((t) => t.tier === 3).map((t) => t.id))));
@@ -30,6 +31,7 @@ export const ACHIEVEMENTS = [
   { id: "FEATHER",         name: "Plume du vent",      test: (S) => (S.stats.feathers || 0) >= 1 },
   { id: "SHOOTING_STAR",   name: "Vœu exaucé (étoile filante)", test: (S) => (S.stats.stars || 0) >= 1 },
   { id: "SPEED_25",        name: "Rapide comme le vent (+25 % de vitesse)", test: (S) => (S.speed || 0) >= 25 },
+  { id: "FULL_SET",        name: "Panoplie complète (4 pièces)", test: (S) => Object.values(setCounts(S.equip || {})).some((n) => n >= 4) },
   { id: "MASTER_OF_ALL",   name: "Maître de toutes les classes", test: (S) => CLASS_KEYS.every((c) => (S.stats.classes || []).includes(c)) },
   { id: "ALL_CLASSES",     name: "Polyvalent : jouer les 3 classes", test: (S) => (S.stats.classes || []).length >= 3 },
 ];

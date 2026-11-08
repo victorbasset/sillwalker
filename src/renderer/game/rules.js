@@ -10,6 +10,7 @@ import { petEffects } from "./pets.js";
 import { prestigeEffects } from "./prestige.js";
 import { bestiaryEffects } from "./bestiary.js";
 import { skillTreeEffects } from "./skilltree.js";
+import { setEffects, SETS, SET_KEYS, SET_CHANCE } from "./sets.js";
 import { BUFF_EFFECTS } from "./shop.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 
@@ -50,10 +51,14 @@ export function rollItem(id, zone, minRarity = 0) {
   const bi = Math.floor(rand() * ITEM_BASES[slot].length), base = ITEM_BASES[slot][bi];
   const { mat } = materialFor(base.kind, il);
   const suffixes = ITEM_SUFFIXES[r];
-  const name = base.n + " " + mat.n + (suffixes.length ? " " + pick(suffixes) : "");
+  // Épiques et légendaires : parfois une pièce de panoplie (voir sets.js).
+  const set = SET_CHANCE[r] && rand() < SET_CHANCE[r] ? pick(SET_KEYS) : null;
+  const name = base.n + " " + mat.n + (set ? " " + SETS[set].suffix : suffixes.length ? " " + pick(suffixes) : "");
   // Couleur visible (icône + personnage) : la matière pour le métal, le bois et les gemmes, une teinture sinon.
   const color = base.kind === "cloth" || base.kind === "leather" ? (r >= 2 ? DYES[r] : mat.color) : mat.color;
-  return { id, slot, r, il, plus: 0, st, name, icon: base.icon, kind: base.kind, color };
+  const it = { id, slot, r, il, plus: 0, st, name, icon: base.icon, kind: base.kind, color };
+  if (set) it.set = set;
+  return it;
 }
 
 export const itemMult = (it) => 1 + 0.1 * it.plus;
@@ -77,7 +82,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // Toutes les sources de bonus : classe + talents, pouvoirs légendaires,
   // familier actif, constellations, bestiaire (puis élixirs ci-dessous).
   const t = talentEffects(S);
-  for (const src of [powerEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S)]) {
+  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S)]) {
     for (const k in src) t[k] = (t[k] || 0) + src[k];
   }
   if (buffs) for (const id in S.buffs || {}) if (S.buffs[id] > 0 && BUFF_EFFECTS[id]) {

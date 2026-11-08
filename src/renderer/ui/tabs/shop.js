@@ -7,6 +7,7 @@ import {
 import { fmt, esc, NB } from "../../game/format.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { POWER_INDEX } from "../../game/powers.js";
+import { SETS } from "../../game/sets.js";
 
 const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}` : `${m} min ${String(s % 60).padStart(2, "0")}`; };
 
@@ -29,6 +30,7 @@ export class ShopTab {
         <img src="${itemIconURL(it)}" alt="" class="rb${it.r}">
         <div class="si"><div class="rc${it.r}">${esc(it.name)}</div>
           ${it.power ? `<div class="sub power-mini">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
+          ${it.set && SETS[it.set] ? `<div class="sub" style="color:${SETS[it.set].color}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
           <div class="sub">${SLOTS[it.slot].name} ${RARITIES[it.r].name.toLowerCase()}, niv. ${it.il} · <span class="${d > 0.005 ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${verdict}</span></div></div>
         ${buyBtn("s-item", it.id, it.price, full ? "Sac plein" : "")}</li>`;
     }).join("") : `<li class="empty">Le marchand a tout vendu. Revenez plus tard !</li>`;

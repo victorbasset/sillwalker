@@ -458,4 +458,23 @@ test("élites : affixes appliqués", () => {
   assert.equal(seen.size, 4);
 });
 
+test("panoplies : pièces, bonus à 2 et 4 pièces", () => {
+  const g = new Game(freshState());
+  const pieces = {};
+  for (let i = 0; i < 3000 && Object.keys(pieces).length < 4; i++) {
+    const it = g.newItem(3, 10);
+    if (it.set === "wind" && !pieces[it.slot]) pieces[it.slot] = it;
+  }
+  const list = Object.values(pieces);
+  assert.equal(list.length, 4, "4 pièces différentes du Voyageur du vent");
+  const mv0 = g.stats().moveSpd;
+  list.slice(0, 2).forEach((it) => { g.S.equip[it.slot] = it; });
+  g.invalidateStats();
+  assert.equal(g.stats().moveSpd - mv0, 10, "bonus 2 pièces");
+  list.slice(2).forEach((it) => { g.S.equip[it.slot] = it; });
+  g.invalidateStats();
+  assert.equal(g.stats().moveSpd - mv0, 35, "bonus 4 pièces");
+  assert.ok(reachedAchievements(g.S).includes("FULL_SET"));
+});
+
 console.log(`\n${pass} tests réussis`);

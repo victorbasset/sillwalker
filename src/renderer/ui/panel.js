@@ -21,14 +21,23 @@ import { StatsTab } from "./tabs/stats.js";
 import { SettingsTab } from "./tabs/settings.js";
 import { POWER_INDEX } from "../game/powers.js";
 import { describeEffects } from "../game/talents.js";
+import { SETS, setCounts } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
 import { BOSS_MECHANICS, bossMechanics } from "../game/bosses.js";
 
 const $ = (root, s) => root.querySelector(s);
-/** Ligne « pouvoir légendaire » d'un objet (ou rien). */
-export const power = (it) => {
+/** Lignes « pouvoir légendaire » et « panoplie » d'un objet (ou rien). */
+export const power = (it, equip) => {
   const p = it.power && POWER_INDEX[it.power];
-  return p ? `<p class="power"><b>★ ${esc(p.name)}</b> : ${esc(describeEffects(p.eff))}</p>` : "";
+  let out = p ? `<p class="power"><b>★ ${esc(p.name)}</b> : ${esc(describeEffects(p.eff))}</p>` : "";
+  const st = it.set && SETS[it.set];
+  if (st) {
+    const n = equip ? setCounts(equip)[it.set] || 0 : 0;
+    out += `<p class="setline" style="--c:${st.color}"><b>◆ ${esc(st.name)}</b>${equip ? ` (${n}/4 portées)` : ""}<br>
+      <span class="${n >= 2 ? "on" : ""}">2 pièces : ${esc(describeEffects(st.two))}</span><br>
+      <span class="${n >= 4 ? "on" : ""}">4 pièces : ${esc(describeEffects(st.four))}</span></p>`;
+  }
+  return out;
 };
 const TABS = [
   { id: "adventure", label: "Aventure" },
@@ -201,7 +210,7 @@ export class Panel {
     const up = from === "bag" && this.game.isUpgrade(it);
     return `<button class="slot rb${it.r}${sel ? " sel" : ""}" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
       aria-label="${esc(it.name)}, ${RARITIES[it.r].name}${up ? ", amélioration" : ""}">
-      <img src="${itemIconURL(it)}" alt="">${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}</button>`;
+      <img src="${itemIconURL(it)}" alt="">${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark" style="color:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
   }
 
   /** Survol d'un emplacement : infobulle avec statistiques et comparaison. */
@@ -222,7 +231,7 @@ export class Panel {
     }
     this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(it.name)}${it.plus ? " +" + it.plus : ""}</div>
       <div class="sub">${SLOTS[it.slot].name} ${RARITIES[it.r].name.toLowerCase()}, niveau ${it.il}${fromBag ? "" : ", équipé"}</div>
-      <ul class="lines">${lines}</ul>${power(it)}${verdict}`;
+      <ul class="lines">${lines}</ul>${power(it, S.equip)}${verdict}`;
     this.tip.hidden = false;
     const r = b.getBoundingClientRect(), pr = this.root.getBoundingClientRect();
     const left = Math.min(pr.width - 280, r.right - pr.left + 8), top = Math.max(4, Math.min(pr.height - this.tip.offsetHeight - 4, r.top - pr.top + this.root.scrollTop));
@@ -236,6 +245,8 @@ export class Panel {
     const buffs = CONSUMABLES.filter((c) => c.kind === "buff" && (S.buffs[c.id] || 0) > 0)
       .map((c) => `<span class="chip" title="${esc(c.desc)}">${esc(c.name)} · <span data-buff="${c.id}">${Math.ceil(S.buffs[c.id] / 60)} min</span></span>`).join("");
     const free = g.talentPointsFree();
+    const sets = Object.entries(setCounts(S.equip)).filter(([id, n]) => SETS[id] && n >= 2)
+      .map(([id, n]) => `<span class="chip" style="--c:${SETS[id].color};border-color:${SETS[id].color};color:${SETS[id].color}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
     const events = Object.entries(g.R.events).filter(([, t]) => t > 0)
       .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
     $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>niveau ${S.lvl}</small></h2>
@@ -243,7 +254,7 @@ export class Panel {
       <dl class="stats">${Object.keys(STAT_NAMES).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
       <dt>Potions de soin</dt><dd>${S.potions}</dd><dt>Or</dt><dd id="goldtxt"></dd>
       ${S.prestige.count ? `<dt>Ascensions</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl>
-      ${buffs || events ? `<div class="chips">${events}${buffs}</div>` : ""}
+      ${buffs || events || sets ? `<div class="chips">${sets}${events}${buffs}</div>` : ""}
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${free} point${free > 1 ? "s" : ""} de talent à dépenser →</button>` : ""}
       <div class="heroview">
         <img class="heroport${heroVisual(S).aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, heroVisual(S))}" alt="Ton héros et son équipement">
@@ -298,7 +309,7 @@ export class Panel {
       <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div>
         <div class="nm rc${it.r}">${esc(it.name)}${it.plus ? " +" + it.plus : ""}</div>
         <div class="sub">${SLOTS[it.slot].name} ${r.name.toLowerCase()}, niveau ${it.il}${fromBag ? "" : ", équipé"}</div></div></div>
-      <ul class="lines">${lines}</ul>${power(it)}${verdict}
+      <ul class="lines">${lines}</ul>${power(it, S.equip)}${verdict}
       <div class="row">${fromBag
         ? `<button data-action="equip">Équiper</button><button data-action="sell">Vendre (${fmt(sellValue(it))} or)</button>`
         : `<button data-action="unequip"${this.game.bagFull() ? " disabled" : ""}>Retirer</button>`}
