@@ -29,6 +29,7 @@ import { initClickThrough } from "./ui/clickthrough.js";
 
 const api = window.sillwalker;
 const FRAME_MS = 1000 / 30;         // rendu plafonné à 30 images/s
+const MINI_FRAME_MS = 1000 / 15;    // mode mini : petite vue, 15 images/s suffisent
 const SIM_BG_MS = 500;              // cadence de simulation quand rien n'est affiché
 const MAX_DT = 1;                   // au-delà de 5 s d'écart : progression hors ligne
 const AUTOSAVE_MS = 15000;
@@ -282,7 +283,7 @@ async function boot() {
     const show = visible && (mode === "strip" || mode === "mini");
     strip.setActive(show && mode === "strip");
     mini.setActive(show && mode === "mini");
-    if (show) { frameTimer = setInterval(frame, FRAME_MS); frame(); }
+    if (show) { frameTimer = setInterval(frame, mode === "mini" ? MINI_FRAME_MS : FRAME_MS); frame(); }
   }
   function setVisible(v) {
     visible = v;
