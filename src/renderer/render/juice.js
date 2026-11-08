@@ -26,7 +26,7 @@ const WEATHER = {
   "Cœur du volcan": "ember", "Bastion noir": "ash", "Caverne de cristal": "mote", "Bois corrompu": "spore",
   "Pic des wyvernes": "dust", "Royaume du néant": "mote", "Récif abyssal": "bubble", "Volcan des wyvernes": "ember",
   "Crypte oubliée": "ash", "Grotte suintante": "drip", "Côte des naufragés": "feather",
-  "Champignonnière géante": "spore", "Ossuaire des titans": "ash", "Steppe des loups": "dust", "Lagon de corail": "bubble", "Glacier hurlant": "snow",
+  "Champignonnière géante": "spore", "Cité engloutie": "bubble", "Mines naines": "ash", "Verger enchanté": "leaf", "Désert de verre": "dust", "Trône des tempêtes": "feather", "Ossuaire des titans": "ash", "Steppe des loups": "dust", "Lagon de corail": "bubble", "Glacier hurlant": "snow",
 };
 const WX = {
   snow:    { c: ["#ffffff", "#e6f1fa"], vx: -14, vy: 24, sway: 10, rate: 3 },

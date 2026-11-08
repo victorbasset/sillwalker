@@ -22,7 +22,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes. Liste dans `game/unlocks.js`.
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
   sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
-- **28 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier…),
+- **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
   chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
 - **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, zone), récompenses variées

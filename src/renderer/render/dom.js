@@ -126,6 +126,16 @@ function drawProp(ctx, x, ground, kind, size, col) {
     const h = (size + 1) * P * 2;
     for (let k = 0; k < 3; k++) { const xx = x + k * P * 3; ctx.fillRect(xx, ground - h + k * P, P, h - k * P); ctx.fillRect(xx, ground - h + k * P, P * 2, P); }
     ctx.fillRect(x - P, ground - P * 2, P * 10, P);
+  } else if (kind === "lantern") {
+    // Poteau de mine avec lanterne
+    const h = (size + 3) * P * 2;
+    ctx.fillRect(x + P * 2, ground - h, P, h); ctx.fillRect(x + P * 2, ground - h, P * 3, P);
+    ctx.fillStyle = "#ffd34d"; ctx.fillRect(x + P * 4, ground - h + P, P * 2, P * 2);
+  } else if (kind === "blossom") {
+    // Arbre en fleurs
+    ctx.fillRect(x + P * 2, ground - P * 4, P * 2, P * 4);
+    ctx.fillStyle = "#f8c8d8";
+    for (let k = 0; k < size; k++) { const wb = 3 + k * 2; ctx.fillRect(x + P * 3 - wb * P / 2, ground - P * 4 - (size - k) * P * 2, wb * P, P * 2); }
   } else if (kind === "coral") {
     // Corail branchu
     const h = (size + 1) * P * 2;

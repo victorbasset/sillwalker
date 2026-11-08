@@ -1437,5 +1437,15 @@ export const KEYS = [
   "Gantelet du frappeur",
   "Cœur de givre",
   "Éclat d’étoile",
-  "Rempart vivant"
+  "Rempart vivant",
+  "Cité engloutie",
+  "Mines naines",
+  "Verger enchanté",
+  "Désert de verre",
+  "Trône des tempêtes",
+  "L’Œil des Profondeurs",
+  "Roc-Barbu",
+  "Grand-Père Saule",
+  "Reine de Verre",
+  "Le Seigneur des Orages"
 ];

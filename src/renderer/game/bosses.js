@@ -24,6 +24,7 @@ export const BOSS_NAMES = [
   "Pince-Abysse", "Le Chevalier Noir", "Colosse de Cristal",
   "Vieux-Tronc le Pourri", "Aile-de-Tempête", "L’Œil qui ne dort pas", "Carapace-des-Abysses", "Ignivore, mère des wyvernes",
   "Chapeau-Pourpre", "Le Roi Sans-Chair", "Croc-de-Lune", "Serpent des Coraux", "Hurle-Givre",
+  "L’Œil des Profondeurs", "Roc-Barbu", "Grand-Père Saule", "Reine de Verre", "Le Seigneur des Orages",
 ];
 /** Nom du boss de la zone z (titre « l'Éveillé » à partir de la 2e boucle). */
 export function bossName(z) {
