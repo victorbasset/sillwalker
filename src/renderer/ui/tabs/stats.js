@@ -1,6 +1,7 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
 import { ACHIEVEMENTS, reachedAchievements } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
+import { codexCounts } from "../../game/codex.js";
 import { fmt, esc } from "../../game/format.js";
 
 const dur = (s) => {
@@ -43,11 +44,14 @@ export class StatsTab {
         ${line("Achats en boutique", fmt(st.purchases || 0))}
         ${line("Potions bues", fmt(st.potionsUsed || 0))}
         ${line("Quêtes accomplies", fmt(S.quests.completed || 0))}
+        ${line("Collection d’objets", `${codexCounts(S).found} / ${codexCounts(S).total}`)}
       </ul></article>
       <article class="panel"><h2>Moments rares</h2><ul class="lines">
         ${line("Plumes du vent", fmt(st.feathers || 0))}
         ${line("Étoiles filantes attrapées", fmt(st.stars || 0))}
         ${line("Événements (rafale, pluie d’or, frénésie)", fmt(st.events || 0))}
+        ${line("Coffres au trésor", fmt(st.chests || 0))}
+        ${line("Expéditions de familiers", fmt(st.expeditions || 0))}
         ${line("Classes jouées", (st.classes || []).length + " / " + Object.keys(CLASSES).length)}
       </ul></article>
       <article class="panel achievements"><h2>Succès <small>${reached.size} / ${ACHIEVEMENTS.length}</small></h2><ul class="achlist">${ach}</ul></article>
