@@ -60,12 +60,54 @@ export const QUEST_TEMPLATES = {
 };
 const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1 };
 
+/**
+ * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes
+ * 3 étoiles ajoutent une récompense rare (vitesse permanente, coffre épique,
+ * œuf ou éclats d'étoile). Chaque quête rapporte `stars` points de réputation.
+ */
+export const STARS = [null, { w: 60, goal: 1, reward: 1 }, { w: 30, goal: 1.8, reward: 2.4 }, { w: 10, goal: 3, reward: 4.5 }];
+const SPECIALS = ["speed", "chest", "egg", "shards"];
+
 export function makeQuest(S, uid, exclude = []) {
   const kinds = Object.keys(WEIGHTS).filter((k) => !exclude.includes(k) && (!QUEST_TEMPLATES[k].ok || QUEST_TEMPLATES[k].ok(S)));
   let total = kinds.reduce((a, k) => a + WEIGHTS[k], 0), x = rand() * total, kind = kinds[0];
   for (const k of kinds) { x -= WEIGHTS[k]; if (x <= 0) { kind = k; break; } }
   const q = Object.assign({ uid, kind, progress: kind === "zone" ? S.best : 0 }, QUEST_TEMPLATES[kind].make(S));
+  // Étoiles
+  let y = rand() * 100, stars = 1;
+  for (let s = 3; s >= 1; s--) { if (y < STARS[s].w) { stars = s; break; } y -= STARS[s].w; }
+  q.stars = stars;
+  const st = STARS[stars];
+  if (kind === "zone") q.goal += stars - 1;
+  else q.goal = Math.max(1, Math.round(q.goal * st.goal));
+  const rw = q.reward;
+  if (rw.gold) rw.gold = Math.round(rw.gold * st.reward);
+  if (rw.potions) rw.potions = Math.min(20, Math.round(rw.potions * st.reward));
+  if (rw.chest && stars >= 2) rw.chest = Math.min(4, rw.chest + 1);
+  if (stars === 3) {
+    const sp = pick(SPECIALS.filter((s) => s !== "shards" || S.prestige.count > 0));
+    if (sp === "speed") rw.speed = 1;
+    else if (sp === "chest") rw.chest = Math.max(rw.chest || 0, 3);
+    else if (sp === "egg") rw.egg = true;
+    else rw.shards = (rw.shards || 0) + 3;
+  }
   return q;
+}
+
+/**
+ * Guilde des aventuriers : la réputation (étoiles des quêtes accomplies) fait
+ * monter de rang. Chaque rang donne un bonus permanent (conservé à l'ascension)
+ * et un coffre.
+ */
+export const GUILD_RANKS = ["Recrue", "Apprenti", "Aventurier", "Vétéran", "Expert", "Champion", "Héros", "Légende", "Mythe", "Immortel"];
+export const GUILD_BONUS = { gold: 3, xp: 3 }; // par rang
+export const guildNeed = (rank) => Math.round(5 * Math.pow(rank + 1, 1.6)); // réputation pour passer au rang suivant
+export function guildRank(rep) { let r = 0, need = 0; while (true) { need += guildNeed(r); if (rep < need) return { rank: r, into: rep - (need - guildNeed(r)), need: guildNeed(r) }; r++; } }
+export const guildRankName = (r) => GUILD_RANKS[Math.min(r, GUILD_RANKS.length - 1)] + (r >= GUILD_RANKS.length ? " " + (r - GUILD_RANKS.length + 2) : "");
+export function guildEffects(S) {
+  const r = guildRank((S.guild && S.guild.rep) || 0).rank, out = {};
+  if (r) for (const k in GUILD_BONUS) out[k] = GUILD_BONUS[k] * r;
+  return out;
 }
 
 export const questText = (q, fmt) => QUEST_TEMPLATES[q.kind].text(Object.assign({ goalText: fmt ? fmt(q.goal) : q.goal }, q));

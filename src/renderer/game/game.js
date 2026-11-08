@@ -30,7 +30,7 @@ import {
 import { POWERS, POWER_INDEX } from "./powers.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
-import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js";
+import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
 import { bossMechanics, bossName } from "./bosses.js";
@@ -132,6 +132,7 @@ export class Game {
       this.step(st);
       dt -= st;
     }
+    this.autoClaimQuests();
   }
 
   tickBuffs(dt) {
@@ -1058,12 +1059,23 @@ export class Game {
     return Q.slots;
   }
 
+  /** Réclame les quêtes terminées si l'option est cochée. */
+  autoClaimQuests() {
+    if (!this.R.autoClaim) return;
+    this.R.autoClaim = false;
+    for (const q of [...this.S.quests.slots]) if (questDone(q)) this.claimQuest(q.uid);
+  }
+
   questProgress(kind, n, type) {
     for (const q of this.S.quests.slots) {
       if (q.kind !== kind || questDone(q)) continue;
       if (kind === "hunt" && q.type !== type) continue;
       q.progress = kind === "zone" ? this.S.best : q.progress + n;
-      if (questDone(q)) { this.emit("questDone", { quest: q }); this.log("Quête accomplie ! Récompense à réclamer."); }
+      if (questDone(q)) {
+        this.emit("questDone", { quest: q });
+        if (this.S.quests.auto && !(q.reward.chest && this.bagFull())) this.R.autoClaim = true;
+        else this.log("Quête accomplie ! Récompense à réclamer.");
+      }
     }
   }
 
@@ -1080,8 +1092,21 @@ export class Game {
     if (rw.potions) { S.potions = Math.min(20, S.potions + rw.potions); parts.push(rw.potions + " potions"); }
     if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(rw.shards + " éclats d’étoile"); }
     if (rw.egg) { this.gainEgg(); parts.push("un œuf"); }
+    if (rw.speed) { this.gainSpeed(rw.speed, "Quête héroïque"); parts.push(`+${rw.speed} % de vitesse pour toujours`); }
+    const stars = Q.slots[i].stars || 1;
     Q.slots.splice(i, 1);
     Q.completed++;
+    // Réputation de guilde
+    const G = (S.guild ||= { rep: 0 }), before = guildRank(G.rep).rank;
+    G.rep += stars;
+    const after = guildRank(G.rep).rank;
+    if (after > before) {
+      this.invalidateStats();
+      const gift = this.bagFull() ? null : this.newItem(Math.min(4, 2 + Math.floor(after / 3)), S.best);
+      if (gift) { S.bag.push(gift); this.emit("loot", { item: gift, mon: null }); }
+      this.log(`Guilde : tu deviens ${guildRankName(after)} ! Bonus permanent augmenté${gift ? ", et un coffre : " + gift.name : ""}.`);
+      this.emit("guildRank", { rank: after });
+    }
     this.log("Récompense de quête : " + parts.join(", ") + ".");
     this.ensureQuests();
     this.changed();
@@ -1220,7 +1245,7 @@ export class Game {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
       upgrades: old.upgrades, workshop: old.workshop, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      stats: old.stats, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));

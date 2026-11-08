@@ -544,3 +544,20 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .reveal .rname { font-size: 18px; margin-top: 8px; }
 @keyframes rshake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-4px); } 40% { transform: translateX(4px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
 @keyframes rpop { from { transform: translateY(-30px) scale(.4); } to { transform: none; } }
+
+/* ---------- Quêtes : guilde, étoiles, récompenses illustrées ---------- */
+.guild { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.guild > img { width: 56px; image-rendering: pixelated; flex: none; }
+.guild .si { flex: 1; min-width: 0; }
+.guild .gside { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.qhead { display: flex; gap: 10px; align-items: center; margin-bottom: 6px; }
+.qhead img { width: 40px; image-rendering: pixelated; flex: none; }
+.qhead h2 { margin: 0; }
+.stars { color: #ffd34d; font-size: 14px; letter-spacing: 1px; }
+.stars span { color: var(--line); }
+.questcard.s2 { border-color: #9fd8ff; }
+.questcard.s3 { border-color: #ffd34d; box-shadow: 0 4px 0 #c99a1a; }
+.rewards { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.rwd { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; padding: 1px 8px 1px 2px; border: 1px solid var(--line); border-radius: 3px; background: var(--chip); }
+.rwd img { height: 22px; image-rendering: pixelated; }
+.rwd.special { border-color: #ffd34d; color: #ffe9a8; }

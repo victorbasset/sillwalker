@@ -431,6 +431,15 @@ test("boss : capacités spéciales", () => {
     g.on("telegraph", () => seen.add("telegraph"));
     for (let i = 0; i < 4; i++) { g.S.kills = 10; g.advance(40); }
   }
+  // Chaque capacité déclenchée directement (le combat réel peut finir avant le coup dévastateur).
+  const g2 = new Game(freshState());
+  g2.S.lvl = 60; g2.invalidateStats();
+  g2.on("bossSkill", ({ id }) => seen.add(id));
+  g2.on("telegraph", () => seen.add("telegraph"));
+  const boss = g2.makeMonster(true);
+  boss.mech = ["enrage", "smash", "shell"];
+  boss.hp = boss.max * 0.2; g2.R.mon = boss; g2.R.hp = g2.stats().hp * 50;
+  for (let t = 0; t < 70; t++) g2.bossTick(boss, g2.stats(), 0.1);
   for (const id of ["enrage", "smash", "shell", "telegraph"]) assert.ok(seen.has(id), "capacité jamais vue : " + id);
 });
 
@@ -765,6 +774,30 @@ test("boutique : atelier permanent, œuf, objet pour le point faible, bonne affa
   const stock = g2.shopStock();
   assert.equal(stock.items.filter((it) => it.deal).length, 1, "une bonne affaire");
   assert.equal(stock.items[0].slot, "weapon", "premier objet pour un emplacement vide");
+});
+
+test("quêtes : étoiles, réputation de guilde, réclamation automatique", async () => {
+  const { makeQuest, guildRank } = await import("../src/renderer/game/quests.js");
+  const g = new Game(freshState());
+  const seen = new Set();
+  for (let i = 0; i < 400; i++) { const q = makeQuest(g.S, i); seen.add(q.stars); if (q.stars === 3) assert.ok(q.reward.speed || q.reward.chest >= 3 || q.reward.egg || q.reward.shards, "récompense rare"); }
+  assert.deepEqual([...seen].sort(), [1, 2, 3]);
+  // Réputation : 30 quêtes accomplies font monter de rang et donnent un bonus.
+  const gold0 = g.stats().gold;
+  for (let i = 0; i < 30; i++) { const q = g.ensureQuests()[0]; q.progress = q.goal; g.claimQuest(q.uid); }
+  assert.ok(g.S.guild.rep >= 30);
+  assert.ok(guildRank(g.S.guild.rep).rank >= 2);
+  assert.ok(g.stats().gold > gold0, "bonus d'or de la guilde");
+  // Réclamation automatique
+  g.S.quests.auto = true;
+  const done0 = g.S.quests.completed;
+  const q = g.ensureQuests().find((x) => x.kind === "kill") || g.ensureQuests()[0];
+  q.kind = "kill"; q.goal = 1; q.progress = 0;
+  g.questProgress("kill", 1);
+  g.advance(0.1);
+  assert.equal(g.S.quests.completed, done0 + 1, "réclamée toute seule");
+  g.S.best = 30; g.ascend();
+  assert.ok(g.S.guild.rep >= 30, "réputation conservée à l'ascension");
 });
 
 console.log(`\n${pass} tests réussis`);

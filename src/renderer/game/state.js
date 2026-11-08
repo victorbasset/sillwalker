@@ -33,7 +33,8 @@ export function freshState(now = Date.now()) {
     shop: null,         // { items: [...], next: horodatage du prochain renouvellement }
     // v4
     prestige: { shards: 0, total: 0, count: 0, ranks: {} }, // ascension et constellations
-    quests: { slots: [], completed: 0, nextUid: 1 },
+    quests: { slots: [], completed: 0, nextUid: 1, auto: false },
+    guild: { rep: 0 },      // réputation de la guilde (quests.js), conservée à l'ascension
     pets: { owned: {}, active: null, eggs: 0, exp: {} },     // owned : { id: { lvl, xp } } ; exp : expéditions en cours
     bestiary: {},                                            // { typeDeMonstre: victoires }
     // v5
@@ -110,6 +111,8 @@ export function migrate(raw) {
   if (!isObj(s.prestige.ranks)) s.prestige.ranks = {};
   s.quests = Object.assign(def.quests, isObj(o.quests) ? o.quests : {});
   if (!Array.isArray(s.quests.slots)) s.quests.slots = [];
+  for (const q of s.quests.slots) if (!q.stars) q.stars = 1;
+  s.guild = Object.assign(def.guild, isObj(o.guild) ? o.guild : {});
   s.pets = Object.assign(def.pets, isObj(o.pets) ? o.pets : {});
   if (!isObj(s.pets.owned)) s.pets.owned = {};
   if (!isObj(s.pets.exp)) s.pets.exp = {};
