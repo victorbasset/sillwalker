@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 21).
 
 ## Fait
 
+- 2026-11-09 (it. 12) : nouveau déblocage de fin, le « Maître de forge » (zone record 50) : il forge tout
+  seul l'équipement porté avec l'or en trop (option à cocher). Un objectif de boutique de plus, vers 7 h de jeu.
 - 2026-11-09 (it. 11, revue générale + corrections) : textes restés en français dans les autres langues
   corrigés : « rang 18 » des Maîtrises, case « auto » des potions, bulle « Agrandir en bande » du mode
   mini, « talents » dans la liste de l'ascension ; plus d'espace avant « : » en anglais (« Stellar Glow: »).
@@ -46,7 +48,5 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
 - P2 Progression lointaine (revue it. 11, simulations 12 h guerrier/mage/rôdeur) : tous les déblocages sont
   acquis vers 5 h 30-6 h 15 de jeu ; ensuite plus aucun objectif de boutique. Une course sur 3-4 ne bat pas
-  le record (ex. 42 → 42, 50 → 50, ~1 h). Pistes : un ou deux déblocages de fin (zones 50 et 55), ou un
-  objectif « record » visible en course (meilleure zone à battre).
-- P3 Ascension : « 540 éclats (0 gagnés au total) » sur la sauvegarde de dev : vérifier que le total suit
-  bien les éclats dans les vraies parties (sinon la Lueur stellaire serait sous-estimée).
+  le record (ex. 42 → 42, 50 → 50, ~1 h). Fait (it. 12) : Maître de forge en zone 50 (~7 h). Reste : un
+  déblocage vers la zone 55-60, ou un objectif « record » visible en course (meilleure zone à battre).

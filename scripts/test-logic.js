@@ -950,6 +950,27 @@ test("pluriels : txn choisit la bonne forme dans chaque langue", () => {
   } finally { setLang(before); }
 });
 
+test("Maître de forge : forge l'équipement porté avec l'or en trop, jamais sans le déblocage", () => {
+  const g = new Game(freshLocked());
+  const it = Object.values(g.S.equip).find(Boolean) || (() => { const x = g.newItem(1); g.S.equip[x.slot] = x; return x; })();
+  it.plus = 0;
+  g.S.gold = 1e12;
+  assert.equal(g.autoForge(), null, "sans le déblocage : rien");
+  assert.equal(it.plus, 0);
+  g.S.unlocks.masterForge = true;
+  const forged = g.autoForge();
+  assert.ok(forged && forged.plus === 1, "forge un objet porté");
+  g.S.settings.autoForge = false;
+  assert.equal(g.autoForge(), null, "option coupée : rien");
+  g.S.settings.autoForge = true;
+  // Garde 3 fois le prix de côté : avec juste de quoi payer, il ne forge pas.
+  for (const x of Object.values(g.S.equip)) if (x) x.plus = 0;
+  g.S.gold = 1;
+  assert.equal(g.autoForge(), null, "or insuffisant : rien");
+  const before = g.S.gold;
+  assert.equal(g.S.gold, before);
+});
+
 test("hors ligne : plafond de 8 h allongé par la Lune, signalé quand il est atteint", () => {
   const g = new Game(freshLocked());
   assert.equal(g.offlineCapS(), 8 * 3600);

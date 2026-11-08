@@ -355,4 +355,8 @@ export default {
   1479: "rank {0}",
   1480: "Expand to strip",
   1481: "talents",
+  1482: "Master Smith",
+  1483: "Forges your worn equipment on its own with spare gold (option).",
+  1484: "Master Smith: {0} reaches +{1}.",
+  1485: "Master Smith: forge worn equipment with spare gold",
 };

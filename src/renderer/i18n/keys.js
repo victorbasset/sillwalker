@@ -1483,5 +1483,9 @@ export const KEYS = [
   "Ta partie est sauvegardée. Ton héros continuera de progresser hors ligne (jusqu’à {0} h).",
   "rang {0}",
   "Agrandir en bande",
-  "talents"
+  "talents",
+  "Maître de forge",
+  "Forge tout seul l’équipement porté avec l’or en trop (option).",
+  "Maître de forge : {0} passe à +{1}.",
+  "Maître de forge : forger l’équipement porté avec l’or en trop"
 ];

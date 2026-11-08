@@ -355,4 +355,8 @@ export default {
   1479: "Rang {0}",
   1480: "Zur Leiste vergrößern",
   1481: "Talente",
+  1482: "Schmiedemeister",
+  1483: "Schmiedet die getragene Ausrüstung selbstständig mit überschüssigem Gold (Option).",
+  1484: "Schmiedemeister: {0} steigt auf +{1}.",
+  1485: "Schmiedemeister: getragene Ausrüstung mit überschüssigem Gold schmieden",
 };

@@ -355,4 +355,8 @@ export default {
   1479: "ranga {0}",
   1480: "Powiększ do paska",
   1481: "talenty",
+  1482: "Mistrz kowalski",
+  1483: "Sam ulepsza noszony ekwipunek za nadmiar złota (opcja).",
+  1484: "Mistrz kowalski: {0} osiąga +{1}.",
+  1485: "Mistrz kowalski: ulepszaj noszony ekwipunek za nadmiar złota",
 };

@@ -355,4 +355,8 @@ export default {
   1479: "nível {0}",
   1480: "Expandir para a faixa",
   1481: "talentos",
+  1482: "Mestre ferreiro",
+  1483: "Forja sozinho o equipamento usado com o ouro de sobra (opção).",
+  1484: "Mestre ferreiro: {0} passa para +{1}.",
+  1485: "Mestre ferreiro: forjar o equipamento usado com o ouro de sobra",
 };

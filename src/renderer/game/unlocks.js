@@ -21,6 +21,7 @@ export const UNLOCKS = [
   { id: "transmute",   price: 6000000, zone: 35,  icon: "cauldron", name: "Creuset du transmutateur", desc: "Transforme 3 objets inutiles en 1 objet de la rareté au-dessus." },
   { id: "autoLevel",   price: 20000000, zone: 40,  icon: "keys",     name: "Grimoire de l’éveil",      desc: "À chaque niveau, les points se dépensent tout seuls (option)." },
   { id: "armsValet",   price: 60000000, zone: 45, icon: "ws_atk",   name: "Valet d’armes",            desc: "Équipe tout seul un objet plus puissant dès qu’il tombe (option)." },
+  { id: "masterForge", price: 200000000, zone: 50, icon: "anvil",   name: "Maître de forge",          desc: "Forge tout seul l’équipement porté avec l’or en trop (option)." },
 ];
 export const UNLOCK_INDEX = Object.fromEntries(UNLOCKS.map((u) => [u.id, u]));
 

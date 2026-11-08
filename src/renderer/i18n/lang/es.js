@@ -355,4 +355,8 @@ export default {
   1479: "rango {0}",
   1480: "Ampliar a la banda",
   1481: "talentos",
+  1482: "Maestro herrero",
+  1483: "Forja por sí solo el equipo que llevas con el oro sobrante (opción).",
+  1484: "Maestro herrero: {0} pasa a +{1}.",
+  1485: "Maestro herrero: forjar el equipo que llevas con el oro sobrante",
 };

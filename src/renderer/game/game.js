@@ -497,6 +497,7 @@ export class Game {
     this.emit("kill", { mon: m, gold });
     this.rollRareThings(m);
     this.autoBuyPotions();
+    this.autoForge();
     this.gainXp(Math.round(m.xp * (1 + hs.xp / 100)));
     if (m.boss || m.elite || rand() < DROP_CHANCE * (1 + hs.drop / 100)) {
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
@@ -903,6 +904,29 @@ export class Game {
     this.log(tx("Acheté : ") + c.name + ".");
     this.changed();
     return true;
+  }
+
+  /**
+   * Maître de forge (déblocage, option) : forge l'objet porté le moins cher à améliorer, une fois
+   * par victoire au plus, et seulement avec l'or en trop (il garde 3 fois le prix de côté).
+   */
+  autoForge() {
+    const S = this.S;
+    if (!hasUnlock(S, "masterForge") || S.settings.autoForge === false) return null;
+    let best = null, cost = Infinity;
+    for (const it of Object.values(S.equip)) {
+      if (!it || it.plus >= MAX_PLUS) continue;
+      const c = forgeCost(it);
+      if (c < cost) { best = it; cost = c; }
+    }
+    if (!best || S.gold < cost * 3) return null;
+    S.gold -= cost;
+    best.plus++;
+    this.invalidateStats();
+    this.questProgress("forge", 1);
+    this.log(tx("Maître de forge : {0} passe à +{1}.", { 0: itemName(best), 1: best.plus }));
+    this.changed();
+    return best;
   }
 
   /** Achat automatique de potions (option de la boutique) : complète le stock jusqu'à AUTO_POTIONS. */
