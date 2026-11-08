@@ -1,7 +1,7 @@
 // Onglet Compétences : l'arbre géant (graphe SVG). Glisser pour se déplacer,
 // molette pour zoomer, clic sur un nœud relié pour le prendre.
 // Le SVG est construit une seule fois ; ensuite seuls les états changent.
-import { t as tx, plS } from "../../i18n/index.js";
+import { t as tx, txn, plS } from "../../i18n/index.js";
 import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
@@ -178,7 +178,7 @@ export class SkillsTab {
       if ((e.el.getAttribute("class") || "") !== cls) e.el.setAttribute("class", cls);
     }
     const total = skillPointsTotal(S), free = skillPointsFree(S), used = active.size - 1;
-    this.el.querySelector(".skpts").innerHTML = `<b class="gold">${free}</b> ${tx("point{0} libre{1} · {2} / {3} nœuds actifs · {4} points au total\n      {5}", { 0: plS(free), 1: plS(free), 2: used, 3: SKILL_NODE_COUNT, 4: total, 5: S.skills.order.length > used ? `<br><span class="note">${S.skills.order.length - used} ${tx("nœud(s) en attente de points.")}</span>` : "" })}`;
+    this.el.querySelector(".skpts").innerHTML = `<b class="gold">${free}</b> ${tx("point{0} libre{1} · {2} / {3} nœuds actifs · {4} points au total\n      {5}", { 0: plS(free), 1: plS(free), 2: used, 3: SKILL_NODE_COUNT, 4: total, 5: S.skills.order.length > used ? `<br><span class="note">${txn(S.skills.order.length - used, "{n} nœud en attente de points.|{n} nœuds en attente de points.")}</span>` : "" })}`;
     const eff = skillTreeEffects(S);
     const lines = Object.keys(eff).map((k) => `<li><span>${esc(describeEffects({ [k]: eff[k] }))}</span></li>`).join("");
     this.el.querySelector(".sktotal").innerHTML = lines || `<li><span class="note">${tx("Aucun pour l’instant : commence près de l’origine.")}</span></li>`;

@@ -4,7 +4,7 @@
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { itemName } from "../i18n/data.js";
-import { t as tx, plS, lc } from "../i18n/index.js";
+import { t as tx, txn, plS, lc } from "../i18n/index.js";
 import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
@@ -509,7 +509,7 @@ export class Panel {
       case "reforge": if (it) g.reforge(it); break;
       case "sellless": {
         const n = g.uselessItems().length;
-        this.confirm(tx("Vendre les objets inutiles ?"), `${n} ${tx("objet(s) qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés.")}`, tx("Vendre"), () => {
+        this.confirm(tx("Vendre les objets inutiles ?"), txn(n, "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés."), tx("Vendre"), () => {
           g.sellUseless();
           if (this.selected?.from === "bag" && !this.getSel()) this.selected = null;
           this.renderAll();
@@ -518,7 +518,7 @@ export class Panel {
       }
       case "transmute": {
         const plan = g.transmutePlan();
-        this.confirm(tx("Transmuter les objets inutiles ?"), `${tx("Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins {0} nouvel(s) objet(s). Les légendaires ne sont jamais utilisés.", { 0: plan.made })}`, tx("Transmuter"), () => {
+        this.confirm(tx("Transmuter les objets inutiles ?"), txn(plan.made, "Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins {n} nouvel objet. Les légendaires ne sont jamais utilisés.|Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins {n} nouveaux objets. Les légendaires ne sont jamais utilisés."), tx("Transmuter"), () => {
           g.transmute();
           if (this.selected?.from === "bag" && !this.getSel()) this.selected = null;
           this.renderAll();

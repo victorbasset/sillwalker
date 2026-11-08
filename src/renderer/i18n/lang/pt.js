@@ -319,4 +319,11 @@ export default {
   1443: "Vovô Salgueiro",
   1444: "Rainha de Vidro",
   1445: "O Senhor das Tempestades",
+  1446: "{n} item guardado.|{n} itens guardados.",
+  1447: "{n} item inútil vendido por {0} de ouro.|{n} itens inúteis vendidos por {0} de ouro.",
+  1448: "{n} item vendido por {0} de ouro.|{n} itens vendidos por {0} de ouro.",
+  1449: "{n} item equipado automaticamente.|{n} itens equipados automaticamente.",
+  1450: "{n} item que não melhora seu herói será vendido. Os lendários são sempre guardados.|{n} itens que não melhoram seu herói serão vendidos. Os lendários são sempre guardados.",
+  1451: "Cada grupo de 3 itens inúteis da mesma raridade vira 1 item da raridade acima: pelo menos {n} item novo. Os lendários nunca são usados.|Cada grupo de 3 itens inúteis da mesma raridade vira 1 item da raridade acima: pelo menos {n} itens novos. Os lendários nunca são usados.",
+  1452: "{n} nó esperando pontos.|{n} nós esperando pontos.",
 };

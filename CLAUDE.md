@@ -48,7 +48,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (ajoutées à la fin de `i18n/keys.js`, l'ordre ne bouge jamais), puis les traduire dans
   **chacun** des fichiers `src/renderer/i18n/lang/{en,es,pt,de,pl,ru,zh,ja,ko}.js` (indice = position),
   et vérifier avec `scripts/i18n-check.mjs <langue>` (0 problème attendu).
-- Pas de pluriel à la française dans les variables : `plS(n)` (i18n/index.js) ou une phrase entière.
+- Pluriels : `txn(n, "{n} objet|{n} objets")` (i18n/index.js) ; chaque traduction donne ses formes séparées
+  par « | » : 1 (zh, ja, ko), 3 (ru, pl : one|few|many), 2 sinon (vérifié par i18n-check). `plS(n)` est l'ancienne
+  méthode (ne marche qu'en français/anglais), à éviter dans les nouveaux textes.
   Nombres : `fmt`, `fmtShort`, `unit("%")`, `dec()` de `game/format.js` (format de la langue).
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
 - Les noms d'objets sont enregistrés **en français** et traduits à l'affichage (`itemName`).

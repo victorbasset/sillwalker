@@ -16,6 +16,7 @@ import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
 import { repairItemNames } from "../src/renderer/i18n/data.js";
+import { setLang, getLang, txn } from "../src/renderer/i18n/index.js";
 
 setRandom(seeded(42));
 let pass = 0;
@@ -924,6 +925,29 @@ test("boss : souffle glacé et insaisissable", () => {
   for (let i = 0; i < 400; i++) g.step(0.05);
   assert.ok(frost >= 2, "gel déclenché");
   assert.ok(miss > 0, "coups esquivés");
+});
+
+test("pluriels : txn choisit la bonne forme dans chaque langue", () => {
+  const before = getLang(), K = "{n} objet gardé.|{n} objets gardés.";
+  try {
+    setLang("fr");
+    assert.equal(txn(0, K), "0 objet gardé.");
+    assert.equal(txn(1, K), "1 objet gardé.");
+    assert.equal(txn(2, K), "2 objets gardés.");
+    setLang("en");
+    assert.equal(txn(1, K), "1 item kept.");
+    assert.equal(txn(0, K), "0 items kept.");
+    setLang("ru");
+    assert.equal(txn(1, K), "сохранён 1 предмет.");
+    assert.equal(txn(3, K), "сохранено 3 предмета.");
+    assert.equal(txn(5, K), "сохранено 5 предметов.");
+    assert.equal(txn(21, K), "сохранён 21 предмет.");
+    setLang("pl");
+    assert.equal(txn(22, K), "zachowano 22 przedmioty.");
+    assert.equal(txn(12, K), "zachowano 12 przedmiotów.");
+    setLang("ja");
+    assert.equal(txn(4, K), "4 個のアイテムを保持しました。");
+  } finally { setLang(before); }
 });
 
 console.log(`\n${pass} tests réussis`);

@@ -319,4 +319,11 @@ export default {
   1443: "Abuelo Sauce",
   1444: "Reina de Cristal",
   1445: "El Señor de las Tormentas",
+  1446: "{n} objeto conservado.|{n} objetos conservados.",
+  1447: "{n} objeto inútil vendido por {0} de oro.|{n} objetos inútiles vendidos por {0} de oro.",
+  1448: "{n} objeto vendido por {0} de oro.|{n} objetos vendidos por {0} de oro.",
+  1449: "{n} objeto equipado automáticamente.|{n} objetos equipados automáticamente.",
+  1450: "Se venderá {n} objeto que no mejora a tu héroe. Los legendarios siempre se conservan.|Se venderán {n} objetos que no mejoran a tu héroe. Los legendarios siempre se conservan.",
+  1451: "Cada grupo de 3 objetos inútiles de la misma rareza se convierte en 1 objeto de la rareza superior: al menos {n} objeto nuevo. Los legendarios nunca se usan.|Cada grupo de 3 objetos inútiles de la misma rareza se convierte en 1 objeto de la rareza superior: al menos {n} objetos nuevos. Los legendarios nunca se usan.",
+  1452: "{n} nodo esperando puntos.|{n} nodos esperando puntos.",
 };

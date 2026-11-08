@@ -1447,5 +1447,12 @@ export const KEYS = [
   "Roc-Barbu",
   "Grand-Père Saule",
   "Reine de Verre",
-  "Le Seigneur des Orages"
+  "Le Seigneur des Orages",
+  "{n} objet gardé.|{n} objets gardés.",
+  "{n} objet inutile vendu pour {0} or.|{n} objets inutiles vendus pour {0} or.",
+  "{n} objet vendu pour {0} or.|{n} objets vendus pour {0} or.",
+  "{n} objet équipé automatiquement.|{n} objets équipés automatiquement.",
+  "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés.",
+  "Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins {n} nouvel objet. Les légendaires ne sont jamais utilisés.|Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins {n} nouveaux objets. Les légendaires ne sont jamais utilisés.",
+  "{n} nœud en attente de points.|{n} nœuds en attente de points."
 ];

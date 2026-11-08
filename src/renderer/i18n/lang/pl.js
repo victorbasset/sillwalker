@@ -319,4 +319,11 @@ export default {
   1443: "Dziadek Wierzba",
   1444: "Szklana Królowa",
   1445: "Władca Burz",
+  1446: "zachowano {n} przedmiot.|zachowano {n} przedmioty.|zachowano {n} przedmiotów.",
+  1447: "Sprzedano {n} bezużyteczny przedmiot za {0} złota.|Sprzedano {n} bezużyteczne przedmioty za {0} złota.|Sprzedano {n} bezużytecznych przedmiotów za {0} złota.",
+  1448: "Sprzedano {n} przedmiot za {0} złota.|Sprzedano {n} przedmioty za {0} złota.|Sprzedano {n} przedmiotów za {0} złota.",
+  1449: "Automatycznie założono {n} przedmiot.|Automatycznie założono {n} przedmioty.|Automatycznie założono {n} przedmiotów.",
+  1450: "Zostanie sprzedany {n} przedmiot, który nie wzmacnia bohatera. Legendarne są zawsze zachowywane.|Zostaną sprzedane {n} przedmioty, które nie wzmacniają bohatera. Legendarne są zawsze zachowywane.|Zostanie sprzedanych {n} przedmiotów, które nie wzmacniają bohatera. Legendarne są zawsze zachowywane.",
+  1451: "Każda grupa 3 bezużytecznych przedmiotów tej samej rzadkości zmienia się w 1 przedmiot wyższej rzadkości: co najmniej {n} nowy przedmiot. Legendarne nigdy nie są używane.|Każda grupa 3 bezużytecznych przedmiotów tej samej rzadkości zmienia się w 1 przedmiot wyższej rzadkości: co najmniej {n} nowe przedmioty. Legendarne nigdy nie są używane.|Każda grupa 3 bezużytecznych przedmiotów tej samej rzadkości zmienia się w 1 przedmiot wyższej rzadkości: co najmniej {n} nowych przedmiotów. Legendarne nigdy nie są używane.",
+  1452: "{n} węzeł czeka na punkty.|{n} węzły czekają na punkty.|{n} węzłów czeka na punkty.",
 };

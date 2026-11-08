@@ -49,6 +49,21 @@ export function t(src, vars) {
 export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src);
 /** Espace insécable française avant « : », « ! », « ? » (vide dans les autres langues). */
 export const fsp = () => (lang === "fr" ? " " : "");
+/**
+ * Phrase au pluriel selon n, dans toutes les langues. La source française donne
+ * « singulier|pluriel » ; chaque traduction donne ses formes séparées par « | » :
+ * une seule (chinois, japonais, coréen), deux (singulier|pluriel) ou trois pour le russe
+ * et le polonais (one|few|many, règles Intl.PluralRules). {n} est remplacé par n.
+ */
+let rules = null, rulesLang = null;
+export function txn(n, src, vars) {
+  const forms = t(src, { n, ...vars }).split("|");
+  if (forms.length < 2) return forms[0];
+  if (rulesLang !== lang) { try { rules = new Intl.PluralRules(lang); } catch { rules = null; } rulesLang = lang; }
+  const cat = rules ? rules.select(n) : n === 1 ? "one" : "other";
+  if (forms.length === 2) return forms[cat === "one" ? 0 : 1];
+  return forms[cat === "one" ? 0 : cat === "few" ? 1 : 2];
+}
 /** Marque du pluriel « s » : au-delà de 1 en français, sauf pour 1 en anglais (« 0 quests »). */
 export const plS = (n) => ((lang === "fr" ? n > 1 : n !== 1) ? "s" : "");
 /** Nom commun en minuscules dans une phrase, sauf en allemand (les noms y prennent une majuscule). */

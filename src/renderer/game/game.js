@@ -9,7 +9,7 @@
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
-import { t as tx, tr, fsp, plS, lc } from "../i18n/index.js";
+import { t as tx, txn, tr, fsp, plS, lc } from "../i18n/index.js";
 import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -599,7 +599,7 @@ export class Game {
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
-      (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + summary.kept + tx(" objet(s) gardé(s)."));
+      (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));
     this.changed();
     return summary;
   }
@@ -710,7 +710,7 @@ export class Game {
     for (const it of sell) gold += sellValue(it);
     this.S.bag = this.S.bag.filter((it) => !sell.has(it));
     this.S.gold += gold;
-    if (sell.size) this.log(`${sell.size} ${tx("objet(s) inutile(s) vendu(s) pour {0} or.", { 0: fmt(gold) })}`);
+    if (sell.size) this.log(txn(sell.size, "{n} objet inutile vendu pour {0} or.|{n} objets inutiles vendus pour {0} or.", { 0: fmt(gold) }));
     this.emit("sold", { n: sell.size, gold });
     this.changed();
     return { n: sell.size, gold };
@@ -737,7 +737,7 @@ export class Game {
       return true;
     });
     this.S.gold += total;
-    if (n) this.log(n + tx(" objet(s) vendu(s) pour ") + tx("{0} or", { 0: fmt(total) }) + ".");
+    if (n) this.log(txn(n, "{n} objet vendu pour {0} or.|{n} objets vendus pour {0} or.", { 0: fmt(total) }));
     this.changed();
   }
 
@@ -760,7 +760,7 @@ export class Game {
       }
     }
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    if (n) this.log(n + tx(" objet(s) équipé(s) automatiquement."));
+    if (n) this.log(txn(n, "{n} objet équipé automatiquement.|{n} objets équipés automatiquement."));
     this.changed();
   }
 
