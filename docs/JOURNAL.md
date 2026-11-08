@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 21).
 
 ## Fait
 
+- 2026-11-09 (it. 18) : nouveau déblocage lointain, le « Filet à étoiles » (zone record 55) : les étoiles
+  filantes que le joueur n'a pas cliquées sont attrapées toutes seules à mi-course (vitesse permanente).
 - 2026-11-09 (it. 17) : en rouvrant le panneau après au moins 5 minutes, une ligne « Depuis ta dernière
   visite » résume or gagné, monstres vaincus, niveaux, nouveau record et légendaires ; un clic la masque.
 - 2026-11-09 (it. 16) : « Nouveau record ! » et « Jamais allé aussi loin ! » ne s'affichent plus à chaque
@@ -66,4 +68,5 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - P2 Progression lointaine (revue it. 11, simulations 12 h guerrier/mage/rôdeur) : tous les déblocages sont
   acquis vers 5 h 30-6 h 15 de jeu ; ensuite plus aucun objectif de boutique. Une course sur 3-4 ne bat pas
   le record (ex. 42 → 42, 50 → 50, ~1 h). Fait (it. 12) : Maître de forge en zone 50 (~7 h). Fait (it. 13) :
-  record à battre affiché sur la bande. Reste : un déblocage vers la zone 55-60 ; le record en mode mini.
+  record à battre affiché sur la bande. Fait (it. 18) :
+  Filet à étoiles en zone 55 (au-delà de 12 h de jeu). Reste : le record en mode mini.

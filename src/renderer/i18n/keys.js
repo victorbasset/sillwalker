@@ -1496,5 +1496,7 @@ export const KEYS = [
   "record : zone {0}",
   "{n} légendaire|{n} légendaires",
   "Cliquer pour masquer",
-  "Depuis ta dernière visite ({0})"
+  "Depuis ta dernière visite ({0})",
+  "Filet à étoiles",
+  "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps."
 ];

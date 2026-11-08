@@ -368,4 +368,6 @@ export default {
   1492: "{n} lendário|{n} lendários",
   1493: "Clique para ocultar",
   1494: "Desde sua última visita ({0})",
+  1495: "Rede de estrelas",
+  1496: "Pega sozinha as estrelas cadentes que você não clicou a tempo.",
 };

@@ -1056,7 +1056,9 @@ export class Game {
     // Étoile filante : passe de temps en temps, il faut cliquer dessus avant qu'elle disparaisse.
     if (R.star) {
       R.star.t -= dt;
-      if (R.star.t <= 0) { R.star = null; this.emit("starMissed"); }
+      // Filet à étoiles (déblocage) : à mi-course, l'étoile pas encore cliquée est attrapée toute seule.
+      if (R.star.t <= R.star.life / 2 && hasUnlock(this.S, "starNet")) this.catchStar();
+      else if (R.star.t <= 0) { R.star = null; this.emit("starMissed"); }
     } else if ((R.starT -= dt) <= 0) {
       R.starT = STAR.minS + rand() * (STAR.maxS - STAR.minS);
       R.star = { t: STAR.life, life: STAR.life };

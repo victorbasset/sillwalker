@@ -368,4 +368,6 @@ export default {
   1492: "{n} legendario|{n} legendarios",
   1493: "Haz clic para ocultar",
   1494: "Desde tu última visita ({0})",
+  1495: "Red de estrellas",
+  1496: "Atrapa por sí sola las estrellas fugaces que no hayas pulsado a tiempo.",
 };

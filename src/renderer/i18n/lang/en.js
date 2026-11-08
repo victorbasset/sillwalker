@@ -368,4 +368,6 @@ export default {
   1492: "{n} legendary|{n} legendaries",
   1493: "Click to hide",
   1494: "Since your last visit ({0})",
+  1495: "Star Net",
+  1496: "Catches on its own the shooting stars you didn't click in time.",
 };

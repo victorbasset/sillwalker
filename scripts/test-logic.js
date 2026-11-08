@@ -927,6 +927,22 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("Filet à étoiles : attrape l'étoile à mi-course, jamais sans le déblocage", () => {
+  const run = (net) => {
+    const g = new Game(freshLocked());
+    if (net) g.S.unlocks.starNet = true;
+    g.R.starT = 0.01; // une étoile passe tout de suite
+    let caught = 0, missed = 0;
+    g.on("starCaught", () => caught++); g.on("starMissed", () => missed++);
+    for (let i = 0; i < 20 / 0.05; i++) g.tickEvents ? g.tickEvents(0.05) : g.step(0.05);
+    return { caught, missed, speed: g.S.speed || 0 };
+  };
+  const off = run(false), on = run(true);
+  assert.equal(off.caught, 0); assert.equal(off.missed, 1, "sans filet : l'étoile file");
+  assert.equal(on.caught, 1); assert.equal(on.missed, 0, "avec le filet : attrapée");
+  assert.ok(on.speed > off.speed, "vitesse permanente gagnée");
+});
+
 test("depuis ta dernière visite : gains affichés après 5 min, pas avant", () => {
   const g = new Game(freshState()), t0 = 1e12;
   const snap = g.visitSnapshot(t0);

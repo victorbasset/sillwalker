@@ -368,4 +368,6 @@ export default {
   1492: "{n} legendärer Gegenstand|{n} legendäre Gegenstände",
   1493: "Zum Ausblenden klicken",
   1494: "Seit deinem letzten Besuch ({0})",
+  1495: "Sternennetz",
+  1496: "Fängt von selbst die Sternschnuppen, die du nicht rechtzeitig angeklickt hast.",
 };
