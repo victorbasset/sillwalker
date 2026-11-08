@@ -98,7 +98,8 @@ async function runSelfTest(strip) {
   // Jeu en pause pendant les clics : sinon le panneau peut se redessiner
   // (victoire, butin) entre l'appui et le relâchement d'un clic simulé.
   await js("window.__pause = true");
-  await js("window.__game.S.gold += 1e6; window.__game.S.lvl = Math.max(window.__game.S.lvl, 5); window.__game.invalidateStats(); window.__game.changed()");
+  // Assez de niveaux pour qu'il reste des points de talent, même après de nombreux lancements.
+  await js("(() => { const g = window.__game, sp = Object.values(g.S.talents[g.S.cls] || {}).reduce((a, b) => a + b, 0); g.S.gold += 1e6; g.S.lvl = Math.max(g.S.lvl, sp + 6); g.invalidateStats(); g.changed() })()");
   await click("#menu-btn");
   await sleep(400);
   await click('[data-tab="talents"]');
