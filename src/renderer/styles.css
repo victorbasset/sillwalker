@@ -496,3 +496,5 @@ details.more summary:hover { color: var(--accent); }
 .talent.voie.armed { border-color: #ffd34d; background: #3a3420; }
 .warnline { color: #9fe0a8; }
 .talent .tr { margin-left: auto; }
+.sendall { display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.sendall button { font-size: 12px; padding: 2px 8px; }

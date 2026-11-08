@@ -151,9 +151,11 @@ async function runSelfTest(strip) {
   await click('[data-tab="pets"]');
   await sleep(150);
   const pets0 = await state("Object.keys(S.pets.owned).length + S.pets.eggs");
-  await click('[data-action="p-hatch"]');
+  await js("window.__game.S.pets.eggs += 2; window.__game.changed()");
   await sleep(150);
-  check("onglet Familiers : faire éclore un œuf", (await state("S.pets.eggs")) >= 0 && (await state("Object.keys(S.pets.owned).length")) >= 1 && (await state("Object.keys(S.pets.owned).length + S.pets.eggs")) <= pets0);
+  await click('[data-action="p-hatchall"]');
+  await sleep(150);
+  check("onglet Familiers : faire éclore tous les œufs en un clic", (await state("S.pets.eggs")) === 0 && (await state("Object.keys(S.pets.owned).length")) >= 1);
   // Ascension : acheter une constellation
   await js("window.__game.S.prestige.shards += 50; window.__game.changed()");
   await click('[data-tab="ascension"]');

@@ -730,4 +730,15 @@ test("talents : dépense automatique (ultimes, branche, maîtrises ; jamais la v
   assert.equal(chosenVoie(g.S), null, "la voie reste au choix du joueur");
 });
 
+test("familiers : tout faire éclore, tout envoyer en expédition", () => {
+  const g = new Game(freshState());
+  g.S.pets.eggs = 6;
+  assert.equal(g.hatchAll().length, 6);
+  assert.equal(g.S.pets.eggs, 0);
+  const idle = g.idlePets().length;
+  assert.equal(g.sendAllExpeditions("short"), idle);
+  assert.equal(g.idlePets().length, 0);
+  assert.ok(g.S.pets.active && !g.S.pets.exp[g.S.pets.active], "le compagnon reste");
+});
+
 console.log(`\n${pass} tests réussis`);

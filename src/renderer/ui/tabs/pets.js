@@ -26,7 +26,7 @@ export class PetsTab {
   render(el) {
     this.root = el;
     this.readyN = this.game.expeditionsReady().length;
-    const P = this.game.S.pets, owned = Object.keys(P.owned).length;
+    const P = this.game.S.pets, owned = Object.keys(P.owned).length, idle = this.game.idlePets().length;
     const cards = PETS.map((p) => {
       const own = P.owned[p.id], active = P.active === p.id;
       if (!own) {
@@ -47,7 +47,8 @@ export class PetsTab {
     }).join("");
     el.innerHTML = `<div class="petbar panel">
         <div><b>${owned} / ${PETS.length}</b> familiers trouvés · <b>${P.eggs}</b> œuf${P.eggs > 1 ? "s" : ""} en attente</div>
-        <button data-action="p-hatch" class="primary"${P.eggs ? "" : " disabled"}>Faire éclore un œuf</button>
+        <button data-action="p-hatchall" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `Faire éclore les ${P.eggs} œufs` : "Faire éclore l’œuf"}</button>
+        ${idle ? `<span class="sendall">Envoyer les ${idle} familiers libres : ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("")}</span>` : ""}
         ${this.readyN > 1 ? `<button data-action="p-claimall" class="primary">Récupérer ${this.readyN} expéditions</button>` : ""}
         <span class="note">Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets.</span>
       </div>
@@ -60,6 +61,8 @@ export class PetsTab {
     else if (a === "p-exp") this.game.sendExpedition(b.dataset.id, b.dataset.kind);
     else if (a === "p-claim") this.game.claimExpedition(b.dataset.id);
     else if (a === "p-claimall") this.game.claimAllExpeditions();
+    else if (a === "p-hatchall") this.game.hatchAll();
+    else if (a === "p-expall") this.game.sendAllExpeditions(b.dataset.kind);
   }
 
   tick() {

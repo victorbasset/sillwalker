@@ -1130,6 +1130,18 @@ export class Game {
     return out;
   }
 
+  /** Familiers libres (ni actif, ni déjà partis). */
+  idlePets() {
+    const P = this.S.pets, E = P.exp || {};
+    return Object.keys(P.owned).filter((id) => id !== P.active && !E[id]);
+  }
+
+  /** Envoie tous les familiers libres dans la même expédition. Renvoie leur nombre. */
+  sendAllExpeditions(kind, now = Date.now()) { return this.idlePets().filter((id) => this.sendExpedition(id, kind, now)).length; }
+
+  /** Fait éclore tous les œufs. Renvoie les résultats. */
+  hatchAll() { const out = []; while (this.S.pets.eggs > 0) { const r = this.hatchEgg(); if (!r) break; out.push(r); } return out; }
+
   claimAllExpeditions(now = Date.now()) { return this.expeditionsReady(now).map((id) => this.claimExpedition(id, now)).filter(Boolean); }
 
   setPet(id) {
