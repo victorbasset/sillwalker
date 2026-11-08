@@ -927,6 +927,27 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("record de zone : annoncé seulement au-delà du record de toutes les courses", () => {
+  const g = new Game(freshState());
+  g.S.autoAdvance = true;
+  g.S.prestige.bestRun = 10; // course précédente : zone 10
+  const seen = [];
+  g.on("zoneUp", (e) => seen.push(e));
+  const killBoss = () => {
+    for (let i = 0; i < 4000 && g.R.mode !== "fight"; i++) g.step(0.05);
+    g.S.kills = 10; // le boss est le prochain monstre
+    for (let i = 0; i < 20000 && !seen.length; i++) { if (g.R.mon) { g.R.mon.hp = 0; g.R.mon.boss = true; } g.step(0.05); }
+  };
+  g.S.zone = g.S.best = 5;
+  killBoss();
+  assert.equal(seen.length, 1);
+  assert.equal(seen[0].record, false, "zone 6 après une course à 10 : pas un record");
+  seen.length = 0;
+  g.S.zone = g.S.best = 10;
+  killBoss();
+  assert.equal(seen[0].record, true, "zone 11 : vrai record");
+});
+
 test("boss : fureur croissante, plafonnée à 6 accélérations", () => {
   const g = new Game(freshState());
   for (let i = 0; i < 4000 && g.R.mode !== "fight"; i++) g.step(0.05);

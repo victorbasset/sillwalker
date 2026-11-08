@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 21).
 
 ## Fait
 
+- 2026-11-09 (it. 16) : « Nouveau record ! » et « Jamais allé aussi loin ! » ne s'affichent plus à chaque
+  boss d'une course après ascension : seulement quand le héros dépasse son meilleur record de toutes les courses.
 - 2026-11-09 (it. 15) : nouvelle capacité de boss, « Fureur croissante » : toutes les 5 s le boss frappe
   10 % plus vite (6 fois au plus), il faut l'abattre vite. Les capacités sont redistribuées entre les zones.
 - 2026-11-09 (it. 14) : au clavier, le résumé d'absence s'ouvre avec le focus sur « Continuer » : Entrée

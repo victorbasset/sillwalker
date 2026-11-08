@@ -39,7 +39,7 @@ import { bossMechanics, bossName, FURY } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
-import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock } from "./unlocks.js";
+import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock, recordZone } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
 
@@ -515,8 +515,10 @@ export class Game {
       this.freeHero(S.zone);
       R.deaths = 0;
       if (S.autoAdvance) {
+        // Vrai record : au-delà de la meilleure zone de TOUTES les courses (pas seulement de celle-ci,
+        // sinon chaque boss d'une course après ascension annonçait « Nouveau record ! »).
+        const record = S.zone + 1 > recordZone(S);
         S.zone++;
-        const record = S.zone > S.best;
         S.best = Math.max(S.best, S.zone);
         this.emit("zoneUp", { zone: S.zone, record });
         this.questProgress("zone", 0);
