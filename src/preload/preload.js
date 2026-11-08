@@ -12,6 +12,7 @@ contextBridge.exposeInMainWorld("sillwalker", {
   getInit: () => ipcRenderer.invoke("init:get"),
   loadSave: () => ipcRenderer.invoke("save:load"),
   writeSave: (json) => ipcRenderer.invoke("save:write", json),
+  setLang: (id) => ipcRenderer.send("lang:set", String(id)),
   setPanelOpen: (open) => ipcRenderer.invoke("panel:set", !!open),
   setHitRects: (rects) => ipcRenderer.send("mouse:rects", rects),
   unlockAchievements: (ids) => ipcRenderer.send("achievements:unlock", ids),

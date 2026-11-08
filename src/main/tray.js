@@ -13,7 +13,8 @@ const FRAMES = {
   dead: ["tray/tray-dead.png", "tray/tray-dead.png"],
   loot: ["tray/tray-loot.png", "tray/tray-walk-a.png"],
 };
-const MODE_LABELS = { strip: "Bande", mini: "Mini (près de l’horloge)", icon: "Icône seule" };
+const { L } = require("./i18n");
+const MODE_LABELS = { strip: "strip", mini: "mini", icon: "icon" }; // clés de i18n.js
 
 function loginItemOptions() {
   // En dev, Windows doit lancer electron.exe avec le dossier du projet.
@@ -71,7 +72,7 @@ function createTray({ strip, isDev, steam }) {
     // fait à chaque victoire) : au plus toutes les 10 s, sauf K.O. / relève.
     const now = Date.now();
     if (now - tipT < TIP_MS && (st.state === "dead") === wasDead) return;
-    const tip = `Sillwalker · Niv. ${st.lvl} · Zone ${st.zone} (${st.kills}/10) · ${st.gold} or` + (st.state === "dead" ? " · K.O." : "");
+    const tip = `Sillwalker · ${L("lvl")} ${st.lvl} · Zone ${st.zone} (${st.kills}/10) · ${st.gold} ${L("gold")}` + (st.state === "dead" ? " · K.O." : "");
     if (tip === lastTip) return;
     tipT = now; lastTip = tip;
     tray.setToolTip(tip);
@@ -87,33 +88,33 @@ function createTray({ strip, isDev, steam }) {
     const mode = strip.mode();
 
     const template = [
-      { label: "Affichage", submenu: Object.entries(MODE_LABELS).map(([m, label]) => ({
-        label, type: "radio", checked: mode === m, click: () => strip.setMode(m),
+      { label: L("display"), submenu: Object.entries(MODE_LABELS).map(([m, key]) => ({ label: L(key),
+        type: "radio", checked: mode === m, click: () => strip.setMode(m),
       })) },
-      { label: "Ouvrir le panneau", click: async () => {
+      { label: L("panel"), click: async () => {
         if (strip.mode() !== "strip") await strip.setMode("strip");
         strip.send("command", "open-panel");
       } },
       { type: "separator" },
-      { label: "Position", submenu: [
-        { label: "En bas de l’écran", type: "radio", checked: settings.get("edge") !== "top", click: () => { strip.setEdge("bottom"); build(); } },
-        { label: "En haut de l’écran", type: "radio", checked: settings.get("edge") === "top", click: () => { strip.setEdge("top"); build(); } },
+      { label: L("position"), submenu: [
+        { label: L("bottom"), type: "radio", checked: settings.get("edge") !== "top", click: () => { strip.setEdge("bottom"); build(); } },
+        { label: L("top"), type: "radio", checked: settings.get("edge") === "top", click: () => { strip.setEdge("top"); build(); } },
       ] },
-      { label: "Écran", enabled: displays.length > 1 || isDev, submenu: displays.map((d, i) => ({
-        label: `Écran ${i + 1} (${d.size.width}×${d.size.height})${d.id === primaryId ? " – principal" : ""}`,
+      { label: L("screen"), enabled: displays.length > 1 || isDev, submenu: displays.map((d, i) => ({
+        label: `${L("screen")} ${i + 1} (${d.size.width}×${d.size.height})${d.id === primaryId ? " – " + L("primary") : ""}`,
         type: "radio", checked: d.id === current,
         click: () => { strip.setDisplay(d.id); build(); },
       })) },
-      { label: "Opacité", submenu: config.OPACITY_CHOICES.map((v) => ({
+      { label: L("opacity"), submenu: config.OPACITY_CHOICES.map((v) => ({
         label: Math.round(v * 100) + " %", type: "radio", checked: Math.abs(opacity - v) < 0.01,
         click: () => { strip.setOpacity(v); build(); },
       })) },
       { type: "separator" },
-      { label: "Lancer au démarrage de Windows" + (isDev ? " (dev)" : ""), type: "checkbox", checked: openAtLogin,
+      { label: L("login") + (isDev ? " (dev)" : ""), type: "checkbox", checked: openAtLogin,
         click: (item) => { app.setLoginItemSettings({ openAtLogin: item.checked, ...loginItemOptions() }); build(); } },
       ...(isDev ? [{ label: "Steam : " + steam.status, enabled: false }] : []),
       { type: "separator" },
-      { label: "Quitter Sillwalker", click: () => app.quit() },
+      { label: L("quit"), click: () => app.quit() },
     ];
     tray.setContextMenu(Menu.buildFromTemplate(template));
   }

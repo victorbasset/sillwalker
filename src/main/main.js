@@ -38,6 +38,7 @@ function start() {
     if (steam.init({ isDev: flags.isDev }) === "relaunch") { app.quit(); return; }
 
     const settings = new Settings();
+    require("./i18n").setLang(settings.get("lang") || "en");
     const store = new SaveStore(app.getPath("userData"), { backupIntervalMs: config.BACKUP_INTERVAL_MS });
     const url = serveDirectory(path.join(__dirname, "..", "renderer"));
 
@@ -84,6 +85,13 @@ function start() {
     ipcMain.handle("panel:set", (_e, open) => strip.setPanelOpen(open));
     ipcMain.on("mode:set", (_e, mode) => strip.setMode(String(mode)));
     ipcMain.on("app:quit", () => app.quit());
+    // Langue de la page : traduit aussi le menu de l'icône (et s'en souvient pour le prochain lancement).
+    ipcMain.on("lang:set", (_e, id) => {
+      const i18n = require("./i18n");
+      if (id === i18n.getLang() && settings.get("lang") === id) return;
+      i18n.setLang(id); settings.set("lang", i18n.getLang());
+      if (trayCtl) trayCtl.rebuild();
+    });
     ipcMain.on("hero:status", (_e, st) => {
       if (trayCtl) trayCtl.setStatus(st);
       if (st && st.lvl) steam.setPresence(st);

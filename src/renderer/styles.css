@@ -1,3 +1,9 @@
+/* Écritures non latines : cyrillique (Pixelify Sans), japonais et la plupart des caractères chinois (DotGothic16, pixel). */
+@import url("assets/fonts/dotgothic16/dotgothic16.css");
+@font-face { font-family: "Pixelify Sans"; font-weight: 400; font-display: block; src: url(assets/fonts/pixelify-sans-cyrillic-400-normal.woff2) format("woff2"); ; }
+@font-face { font-family: "Pixelify Sans"; font-weight: 500; font-display: block; src: url(assets/fonts/pixelify-sans-cyrillic-500-normal.woff2) format("woff2"); ; }
+@font-face { font-family: "Pixelify Sans"; font-weight: 600; font-display: block; src: url(assets/fonts/pixelify-sans-cyrillic-600-normal.woff2) format("woff2"); ; }
+@font-face { font-family: "Pixelify Sans"; font-weight: 700; font-display: block; src: url(assets/fonts/pixelify-sans-cyrillic-700-normal.woff2) format("woff2"); ; }
 @font-face { font-family: "Pixelify Sans"; font-weight: 400; font-display: block; src: url(assets/fonts/pixelify-sans-latin-400-normal.woff2) format("woff2"); }
 @font-face { font-family: "Pixelify Sans"; font-weight: 500; font-display: block; src: url(assets/fonts/pixelify-sans-latin-500-normal.woff2) format("woff2"); }
 @font-face { font-family: "Pixelify Sans"; font-weight: 600; font-display: block; src: url(assets/fonts/pixelify-sans-latin-600-normal.woff2) format("woff2"); }
@@ -33,7 +39,7 @@
 /* ---------- Fenêtre transparente ---------- */
 html, body { margin: 0; height: 100%; overflow: hidden; background: transparent; }
 body { color: var(--ink); font-family: var(--font-text); font-synthesis: none; font-size: 16px; line-height: 1.4; user-select: none; }
-:root { --font-text: "Geist Pixel", "Pixelify Sans", system-ui, sans-serif; --font-title: "Pixelify Sans", system-ui, sans-serif; }
+:root { --font-text: "Geist Pixel", "Pixelify Sans", "DotGothic16", "Microsoft YaHei", "Malgun Gothic", "Yu Gothic", system-ui, sans-serif; --font-title: "Pixelify Sans", "DotGothic16", "Microsoft YaHei", "Malgun Gothic", system-ui, sans-serif; }
 h1, .brand { font-family: var(--font-title); }
 #root { position: fixed; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; }
 body.edge-top #root { flex-direction: column-reverse; justify-content: flex-end; }

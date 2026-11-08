@@ -47,6 +47,7 @@ async function boot() {
   game.S.settings.lang = wanted;
   translateData();
   document.documentElement.lang = wanted;
+  api.setLang?.(wanted);
   if (init.isDev) window.__game = game; // inspection par l'auto-test (dev uniquement)
   if (loaded.notice) game.log(loaded.notice);
 
