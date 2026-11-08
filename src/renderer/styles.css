@@ -453,3 +453,24 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .danger-zone { border-color: #8a2a3a; }
 .danger-zone h2 { color: #ff8a7a; }
 .claimall { margin-bottom: 8px; }
+
+/* Carte du héros : tuiles des statistiques principales */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; }
+.tile { background: var(--chip); border: 2px solid var(--line); border-radius: 4px; padding: 4px 8px; display: flex; flex-direction: column; }
+.tile span { font-size: 12px; color: var(--muted); }
+.tile b { font-size: 20px; font-weight: 400; color: var(--ink); line-height: 1.1; }
+.tile.power b { color: var(--accent); }
+details.more summary { cursor: pointer; color: var(--muted); margin: 6px 0 2px; }
+details.more summary:hover { color: var(--accent); }
+.linkbtn.warn { border-color: #ff8a7a; color: #ff8a7a; }
+/* Colonne Objet : équipement porté */
+.eqview { display: flex; gap: 10px; align-items: flex-start; }
+.eqview .heroport { position: static; width: 72px; flex: none; }
+.eqlist { list-style: none; margin: 0; padding: 0; flex: 1; min-width: 0; }
+.eqline { display: flex; gap: 8px; align-items: center; padding: 2px 0; }
+.eqline .slot { flex: none; }
+.eqline .si { min-width: 0; }
+.eqline .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
+.eqline .nm.empty { color: var(--muted); }
+.eqline .sub { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.linkbtn.back { display: inline-block; width: auto; font-size: 12px; margin: 0 0 0 auto; padding: 1px 8px; }

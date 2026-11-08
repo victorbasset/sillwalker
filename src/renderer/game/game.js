@@ -397,16 +397,29 @@ export class Game {
     return it;
   }
 
+  /** Ventes automatiques regroupées en une seule ligne du journal (au lieu d'une ligne par objet). */
+  logSale(kind, label, v) {
+    const L = this.S.log, R = this.R;
+    if (R.saleLine && R.saleLine.kind === kind && L[0] === R.saleLine.text) {
+      R.saleLine.n++; R.saleLine.gold += v;
+      L[0] = R.saleLine.text = `${label} : ${R.saleLine.n} (+${fmt(R.saleLine.gold)} or).`;
+      this.emit("log", L[0]);
+      return;
+    }
+    R.saleLine = { kind, n: 1, gold: v, text: `${label} : 1 (+${fmt(v)} or).` };
+    this.log(R.saleLine.text);
+  }
+
   addToBag(it, quiet) {
     const S = this.S, r = RARITIES[it.r];
     if (S.autoSell[r.id]) {
       const v = sellValue(it); S.gold += v;
-      if (!quiet) this.log("Vendu automatiquement : " + it.name + " (+" + fmt(v) + " or).");
+      if (!quiet) this.logSale("auto", "Vendus automatiquement", v);
       return false;
     }
     if (this.bagFull()) {
       const v = sellValue(it); S.gold += v;
-      if (!quiet) this.log("Sac plein : " + it.name + " vendu pour " + fmt(v) + " or.");
+      if (!quiet) this.logSale("full", "Sac plein, objets vendus", v);
       return false;
     }
     S.bag.push(it);

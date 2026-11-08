@@ -4,7 +4,7 @@
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
-import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult } from "../game/rules.js";
+import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB } from "../game/format.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
@@ -86,6 +86,7 @@ export class Panel {
     this.game = game;
     this.isDev = isDev;
     this.speed = speed;
+    this.kept = new Set(); // zones repliables ouvertes (data-keep)
     Object.assign(this, { onSpeed, onClose, onReset, onMini, onQuit });
     this.selected = null;
     this.tab = "adventure";
@@ -146,6 +147,7 @@ export class Panel {
         </div>
       </div>`;
     this.root.addEventListener("click", (e) => this.onClick(e));
+    this.watchDetails();
     this.root.addEventListener("change", (e) => this.onChange(e));
     // Infobulle de comparaison au survol d'un objet (sac ou équipement)
     this.tip = document.createElement("div");
@@ -204,6 +206,14 @@ export class Panel {
     else this.tabs[this.tab].render($(this.root, `[data-pane="${this.tab}"]`));
     this.renderBadges();
     this.dirty = false;
+  }
+
+  /** Mémorise les zones repliables ouvertes (l'évènement « toggle » ne remonte pas : écoute en capture). */
+  watchDetails() {
+    this.root.addEventListener("toggle", (e) => {
+      const k = e.target.dataset && e.target.dataset.keep;
+      if (k) { if (e.target.open) this.kept.add(k); else this.kept.delete(k); }
+    }, true);
   }
 
   renderBadges() {
@@ -265,15 +275,19 @@ export class Panel {
     const day = dm ? `<span class="chip daymod" title="Bénédiction du jour : change chaque jour à minuit.">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
     $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>niveau ${S.lvl}</small></h2>
       <div class="kv"><span>Expérience</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
-      <dl class="stats">${Object.keys(STAT_NAMES).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
-      <dt>Potions de soin</dt><dd>${S.potions}</dd><dt>Or</dt><dd id="goldtxt"></dd>
-      ${S.prestige.count ? `<dt>Ascensions</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl>
-      ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
+      <div class="tiles">
+        <div class="tile"><span>Points de vie</span><b>${fmtStat("hp", hs.hp)}</b></div>
+        <div class="tile"><span>Attaque</span><b>${fmtStat("atk", hs.atk)}</b></div>
+        <div class="tile"><span>Défense</span><b>${fmtStat("def", hs.def)}</b></div>
+        <div class="tile power" title="Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."><span>Puissance</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
+      </div>
+      ${S.potions === 0 ? `<button class="linkbtn warn" data-tab="shop">Plus de potions de soin : la boutique en vend →</button>` : ""}
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${free} point${free > 1 ? "s" : ""} de talent à dépenser →</button>` : ""}
-      <div class="heroview">
-        <img class="heroport${heroVisual(S).aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, heroVisual(S))}" alt="Ton héros et son équipement">
-        <div class="equip">${SLOT_KEYS.map((k) => this.slotBtn(S.equip[k], k, "equip")).join("")}</div>
-      </div>`;
+      ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
+      <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>Toutes les statistiques</summary>
+      <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
+      <dt>Potions de soin</dt><dd>${S.potions}</dd><dt>Or</dt><dd id="goldtxt"></dd>
+      ${S.prestige.count ? `<dt>Ascensions</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl></details>`;
     this.tick();
   }
 
@@ -303,7 +317,19 @@ export class Panel {
 
   renderDetail() {
     const it = this.getSel(), el = $(this.root, "#p-detail"), S = this.game.S;
-    if (!it) { el.innerHTML = `<h2>Objet</h2><p class="empty">Choisis un objet dans le sac ou sur ton héros pour le comparer, l’équiper, le vendre ou l’améliorer à la forge.</p>`; return; }
+    if (!it) {
+      const v = heroVisual(S);
+      const rows = SLOT_KEYS.map((k) => {
+        const e = S.equip[k];
+        return `<li class="eqline">${this.slotBtn(e, k, "equip")}<div class="si">${e
+          ? `<div class="nm rc${e.r}">${esc(e.name)}${e.plus ? " +" + e.plus : ""}</div><div class="sub">${SLOTS[k].name}, niveau ${e.il}${e.power && POWER_INDEX[e.power] ? ` · ★ ${esc(POWER_INDEX[e.power].name)}` : ""}</div>`
+          : `<div class="nm empty">${SLOTS[k].name} : vide</div>`}</div></li>`;
+      }).join("");
+      el.innerHTML = `<h2>Équipement <small>clique un objet</small></h2>
+        <div class="eqview"><img class="heroport${v.aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, v)}" alt="Ton héros et son équipement">
+        <ul class="eqlist">${rows}</ul></div>`;
+      return;
+    }
     const fromBag = this.selected.from === "bag";
     const r = RARITIES[it.r], m = itemMult(it), cur = fromBag ? S.equip[it.slot] : null;
     const keys = Object.keys(STAT_NAMES).filter((k) => it.st[k] != null || (cur && cur.st[k] != null));
@@ -322,7 +348,7 @@ export class Panel {
       verdict = `<p class="verdict ${d > 0.005 ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${cur ? "Puissance du héros : " + (d >= 0 ? "+" : "−") + Math.abs(Math.round(d * 100)) + NB + "%" : "Emplacement vide : à équiper !"}</p>`;
     }
     const fc = forgeCost(it), canForge = it.plus < MAX_PLUS && S.gold >= fc;
-    el.innerHTML = `<h2>Objet</h2>
+    el.innerHTML = `<h2>Objet <button class="linkbtn back" data-action="desel">← équipement</button></h2>
       <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div>
         <div class="nm rc${it.r}">${esc(it.name)}${it.plus ? " +" + it.plus : ""}</div>
         <div class="sub">${SLOTS[it.slot].name} ${r.name.toLowerCase()}, niveau ${it.il}${fromBag ? "" : ", équipé"}</div></div></div>
@@ -348,7 +374,7 @@ export class Panel {
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> Passer à la zone suivante après le boss</label>
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>Zone précédente</button>
       <button data-action="znext"${S.zone < S.best ? "" : " disabled"}>Zone suivante</button></div>
-      <details class="rates-box"><summary>Chances de butin</summary>
+      <details class="rates-box" data-keep="rates"${this.kept.has("rates") ? " open" : ""}><summary>Chances de butin</summary>
       <p class="note tight">${Math.round(DROP_CHANCE * 100)}${NB}% par monstre, 100${NB}% sur le boss (rare minimum) et sur les élites dorés (${Math.round(ELITE.chance * 100)}${NB}% des monstres, or ×${ELITE.gold}). Si un objet tombe, sa rareté suit ce tableau :</p>
       <table class="rates">${rows}</table><p class="note">Ces taux sont fixes et identiques pour tout le monde. Élites vaincus : ${S.stats.elites || 0}.</p></details>`;
     this.tick();
@@ -400,6 +426,7 @@ export class Panel {
         this.selected = b.dataset.from === "bag" ? { from: "bag", id: +b.dataset.id } : { from: "equip", slot: b.dataset.slot };
         if (b.dataset.from === "equip" && !g.S.equip[b.dataset.slot]) this.selected = null;
         break;
+      case "desel": this.selected = null; break;
       case "equip": if (it) { g.equip(it); this.selected = { from: "equip", slot: it.slot }; } break;
       case "sell": if (it) { g.sell(it); this.selected = null; } break;
       case "unequip": if (it && g.unequip(it.slot)) this.selected = { from: "bag", id: it.id }; break;
