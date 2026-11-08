@@ -5,6 +5,8 @@ import { t as tx, plS } from "../../i18n/index.js";
 import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
+import { lockLink } from "../locks.js";
+import { hasUnlock } from "../../game/unlocks.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 const RADIUS = { root: 9, small: 6, notable: 10, keystone: 14 };
@@ -37,9 +39,10 @@ export class SkillsTab {
         <h2>${tx("Compétences")} <small>${SKILL_NODE_COUNT} ${tx("nœuds")}</small></h2>
         <p class="skpts"></p>
         <p class="note">${tx("1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).\n        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.")}</p>
-        <div class="row"><button data-action="k-auto" class="primary">${tx("Dépenser automatiquement")}</button></div>
-        <label class="toggle"><input type="checkbox" data-action="k-autoon"> ${tx("À chaque niveau, dépenser tout seul")}</label>
-        <p class="note tight">${tx("Prolonge le pétale le plus avancé, nœuds remarquables d’abord.")}</p>
+        <div class="row k-autorow"><button data-action="k-auto" class="primary">${tx("Dépenser automatiquement")}</button></div>
+        <div class="row k-lock"></div>
+        <label class="toggle k-autolevel"><input type="checkbox" data-action="k-autoon"> ${tx("À chaque niveau, dépenser tout seul")}</label>
+        <p class="note tight k-autorow">${tx("Prolonge le pétale le plus avancé, nœuds remarquables d’abord.")}</p>
         <div class="row">
           <button data-action="k-undo" class="quiet">${tx("Annuler le dernier")}</button>
           <button data-action="k-reset" class="quiet">${tx("Tout réinitialiser")}</button>
@@ -179,6 +182,12 @@ export class SkillsTab {
     const eff = skillTreeEffects(S);
     const lines = Object.keys(eff).map((k) => `<li><span>${esc(describeEffects({ [k]: eff[k] }))}</span></li>`).join("");
     this.el.querySelector(".sktotal").innerHTML = lines || `<li><span class="note">${tx("Aucun pour l’instant : commence près de l’origine.")}</span></li>`;
+    const bulk = hasUnlock(S, "bulkPoints");
+    for (const e of this.el.querySelectorAll(".k-autorow")) e.hidden = !bulk;
+    const lk = this.el.querySelector(".k-lock"), lkHtml = lockLink(S, "bulkPoints");
+    if (lk.innerHTML !== lkHtml) lk.innerHTML = lkHtml;
+    lk.hidden = bulk;
+    this.el.querySelector(".k-autolevel").hidden = !hasUnlock(S, "autoLevel");
     const auto = this.el.querySelector('[data-action="k-auto"]');
     auto.disabled = free <= 0; auto.classList.toggle("primary", free > 0);
     this.el.querySelector('[data-action="k-autoon"]').checked = !!S.settings.autoSkills;

@@ -28,6 +28,8 @@ import { SETS, setCounts } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
 import { activeDayMod } from "../game/daymods.js";
 import { BOSS_MECHANICS, bossMechanics, bossName } from "../game/bosses.js";
+import { lockLink } from "./locks.js";
+import { hasUnlock } from "../game/unlocks.js";
 
 const $ = (root, s) => root.querySelector(s);
 /** Lignes « pouvoir légendaire » et « panoplie » d'un objet (ou rien). */
@@ -349,12 +351,13 @@ export class Panel {
     }
     const full = S.bag.length >= S.bagSize;
     $(this.root, "#p-bag").innerHTML = `<h2>${tx("Sac")} <small${full ? ` ${tx("class=\"warn\" title=\"Sac plein : les nouveaux objets sont vendus automatiquement. Vends ou transmute pour faire de la place.\"")}` : ""}>${full ? tx("plein · ") : ""}${S.bag.length} / ${S.bagSize}</small></h2><div class="bag">${cells.join("")}</div>
-      <div class="row"><button data-action="sellless"${useless.length ? "" : " disabled"} title="${esc(tx("Vend tout ce qui n’est pas plus puissant que ton équipement actuel. Les légendaires sont toujours gardés."))}">${tx("Vendre ce qui ne m’améliore pas{0}", { 0: useless.length ? ` ${tx("({0} · {1} or)", { 0: useless.length, 1: fmt(uselessGold) })}` : "" })}</button>
-      <button data-action="autoequip"${this.game.hasUpgrade() ? ` class="primary"` : " disabled"}>${tx("Équiper le meilleur{0}", { 0: this.game.hasUpgrade() ? " ▲" : "" })}</button>
-      <button data-action="transmute"${tr.made ? "" : " disabled"} title="${esc(tx("3 objets inutiles d’une même rareté → 1 objet de la rareté au-dessus (jusqu’à légendaire)."))}">${tx("Transmuter{0}", { 0: tr.made ? ` ${tx("({0} nouveau{1})", { 0: tr.made, 1: tr.made > 1 ? "x" : "" })}` : " (3 → 1)" })}</button></div>
-      <label class="toggle"><input type="checkbox" data-action="as" data-r="common"${S.autoSell.common ? " checked" : ""}> ${tx("Vendre les communs dès qu’ils tombent")}</label>
+      <div class="row">${hasUnlock(S, "bulkEquip") ? `<button data-action="sellless"${useless.length ? "" : " disabled"} title="${esc(tx("Vend tout ce qui n’est pas plus puissant que ton équipement actuel. Les légendaires sont toujours gardés."))}">${tx("Vendre ce qui ne m’améliore pas{0}", { 0: useless.length ? ` ${tx("({0} · {1} or)", { 0: useless.length, 1: fmt(uselessGold) })}` : "" })}</button>
+      <button data-action="autoequip"${this.game.hasUpgrade() ? ` class="primary"` : " disabled"}>${tx("Équiper le meilleur{0}", { 0: this.game.hasUpgrade() ? " ▲" : "" })}</button>` : lockLink(S, "bulkEquip")}
+      ${hasUnlock(S, "transmute") ? `<button data-action="transmute"${tr.made ? "" : " disabled"} title="${esc(tx("3 objets inutiles d’une même rareté → 1 objet de la rareté au-dessus (jusqu’à légendaire)."))}">${tx("Transmuter{0}", { 0: tr.made ? ` ${tx("({0} nouveau{1})", { 0: tr.made, 1: tr.made > 1 ? "x" : "" })}` : " (3 → 1)" })}</button>` : lockLink(S, "transmute")}</div>
+      ${hasUnlock(S, "autoSell") ? `<label class="toggle"><input type="checkbox" data-action="as" data-r="common"${S.autoSell.common ? " checked" : ""}> ${tx("Vendre les communs dès qu’ils tombent")}</label>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="uncommon"${S.autoSell.uncommon ? " checked" : ""}> ${tx("Vendre les peu communs dès qu’ils tombent")}</label>
-      <label class="toggle"><input type="checkbox" data-action="as" data-r="rare"${S.autoSell.rare ? " checked" : ""}> ${tx("Vendre les rares dès qu’ils tombent")}</label>
+      <label class="toggle"><input type="checkbox" data-action="as" data-r="rare"${S.autoSell.rare ? " checked" : ""}> ${tx("Vendre les rares dès qu’ils tombent")}</label>` : lockLink(S, "autoSell")}
+      ${hasUnlock(S, "armsValet") ? `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>` : ""}
       <p class="note">${tx("▲ signale un objet plus puissant que ce que porte ton héros.")}</p>`;
   }
 
@@ -551,6 +554,7 @@ export class Panel {
     if (b.dataset.action === "se-volume") { this.tabs.settings.onAction("se-volume", b); this.renderAll(); return; }
     if (b.dataset.action === "as") this.game.setAutoSell(b.dataset.r, b.checked);
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
+    if (b.dataset.action === "valet") { this.game.S.settings.autoEquipDrops = b.checked; this.game.changed(); }
   }
 
   /**
@@ -568,6 +572,7 @@ export class Panel {
     const i = order.indexOf(e.key);
     if (i >= 0 && TABS[i]) { this.setTab(TABS[i].id); return true; }
     const k = e.key.toLowerCase();
+    if ((k === "e" || k === "v" || k === "t") && !hasUnlock(this.game.S, k === "t" ? "transmute" : "bulkEquip")) return false;
     if (k === "e") { this.game.autoEquip(); this.selected = null; this.renderAll(); return true; }
     if (k === "t") { if (this.tab !== "adventure") this.setTab("adventure"); const b = $(this.root, '[data-action="transmute"]'); if (b && !b.disabled) this.onClick({ target: b }); return true; }
     if (k === "v") { const b = $(this.root, '[data-action="sellless"]'); if (this.tab !== "adventure") this.setTab("adventure"); this.onClick({ target: $(this.root, '[data-action="sellless"]') || b }); return true; }

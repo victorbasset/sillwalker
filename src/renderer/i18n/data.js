@@ -18,6 +18,7 @@ import { DAY_MODS } from "../game/daymods.js";
 import { CONSUMABLES, CHESTS, UPGRADES, WORKSHOP } from "../game/shop.js";
 import { CONSTELLATIONS } from "../game/prestige.js";
 import { ACHIEVEMENTS } from "../game/achievements.js";
+import { UNLOCKS } from "../game/unlocks.js";
 
 const FIELDS = ["name", "desc", "text", "label", "role", "passiveText"];
 function each(obj, fn) { for (const k in obj) fn(obj[k], k); }
@@ -57,6 +58,7 @@ export function translateData() {
   [CONSUMABLES, CHESTS, UPGRADES, WORKSHOP].forEach((l) => l.forEach(fields));
   CONSTELLATIONS.forEach(fields);
   ACHIEVEMENTS.forEach(fields);
+  UNLOCKS.forEach(fields);
 }
 
 /**

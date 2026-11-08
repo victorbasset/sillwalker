@@ -4,6 +4,8 @@ import { effectIconURL } from "../../render/shopart.js";
 import { TREES, TIER_REQ, TALENT_INDEX, cannotLearn, branchSpent, talentPointsFree, talentPointsTotal, talentPointsSpent, describeEffects,
   VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie } from "../../game/talents.js";
 import { fmt, esc } from "../../game/format.js";
+import { lockLink } from "../locks.js";
+import { hasUnlock } from "../../game/unlocks.js";
 
 export class TalentsTab {
   constructor(game) {
@@ -59,8 +61,8 @@ export class TalentsTab {
     const canVoie = !voie && spentAll >= VOIE_REQ;
     const head = `<article class="panel tdetail">
       <h2>${esc(g.classDef().name)} <small>${free} ${tx("/ {0} point{1} libre{2}", { 0: total, 1: plS(total), 2: plS(free) })}</small></h2>
-      <div class="row"><button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button></div>
-      <label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>
+      ${hasUnlock(g.S, "bulkPoints") ? `<div class="row"><button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button></div>` : `<div class="row">${lockLink(g.S, "bulkPoints")}</div>`}
+      ${hasUnlock(g.S, "autoLevel") ? `<label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>` : ""}
       ${canVoie ? `<p class="note warnline">${tx("✦ Une voie est disponible : choisis-la dans le cadre « Voie ».")}</p>` : ""}
       <p class="note">${tx("Clic sur un talent : +1 rang · « max » : autant que possible. Survole un talent pour voir son effet.")}</p>
       <div id="tsel">${this.detailHTML()}</div>

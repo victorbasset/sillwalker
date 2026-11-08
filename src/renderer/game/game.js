@@ -39,6 +39,7 @@ import { bossMechanics, bossName } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
+import { UNLOCK_INDEX, hasUnlock, unlockAvailable } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
 
@@ -401,8 +402,10 @@ export class Game {
       this.invalidateStats();
       this.R.hp = this.stats().hp;
       this.emit("levelUp", { lvl: S.lvl });
-      if (S.settings.autoTalents) this.autoSpendTalents();
-      if (S.settings.autoSkills) this.autoSpendSkills();
+      if (hasUnlock(S, "autoLevel")) {
+        if (S.settings.autoTalents) this.autoSpendTalents();
+        if (S.settings.autoSkills) this.autoSpendSkills();
+      }
       this.log(tx("Ton héros passe au niveau ") + S.lvl + tx(" (+1 point de talent)."));
       this.changed();
     }
@@ -441,7 +444,7 @@ export class Game {
 
   addToBag(it, quiet) {
     const S = this.S, r = RARITIES[it.r];
-    if (S.autoSell[r.id]) {
+    if (S.autoSell[r.id] && hasUnlock(S, "autoSell")) {
       const v = sellValue(it); S.gold += v;
       if (!quiet) this.logSale("auto", tx("Vendus automatiquement"), v);
       return false;
@@ -452,6 +455,7 @@ export class Game {
       return false;
     }
     S.bag.push(it);
+    if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) { this.equip(it); if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé.")); return true; }
     if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + fsp() + ": " + itemName(it) + fsp() + "!");
     this.changed();
     return true;
@@ -653,7 +657,21 @@ export class Game {
     return { used: made * 3, made }; // (sans compter les enchaînements possibles)
   }
 
+  /** Achète un déblocage (une fois pour toutes). */
+  buyUnlock(id) {
+    const u = UNLOCK_INDEX[id], S = this.S;
+    if (!u || hasUnlock(S, id) || !unlockAvailable(S, u) || !this.pay(u.price)) return false;
+    (S.unlocks ||= {})[id] = true;
+    S.stats.purchases = (S.stats.purchases || 0) + 1;
+    this.log(`${tx("Débloqué : {0} !", { 0: u.name })}`);
+    this.emit("unlock", { id });
+    this.changed();
+    return true;
+  }
+  has(id) { return hasUnlock(this.S, id); }
+
   transmute() {
+    if (!hasUnlock(this.S, "transmute")) return [];
     const out = [];
     for (let r = 0; r < LEGENDARY; r++) {
       const pool = this.uselessItems().filter((it) => it.r === r);
@@ -679,6 +697,7 @@ export class Game {
 
   /** Vend tout ce qui n'améliore pas le héros. Renvoie { n, gold }. */
   sellUseless() {
+    if (!hasUnlock(this.S, "bulkEquip")) return 0;
     const sell = new Set(this.uselessItems());
     let gold = 0;
     for (const it of sell) gold += sellValue(it);
@@ -715,6 +734,7 @@ export class Game {
   }
 
   autoEquip() {
+    if (!hasUnlock(this.S, "bulkEquip")) return;
     let n = 0;
     for (const k of SLOT_KEYS) {
       let best = null, bd = UPGRADE_EPS;
@@ -865,7 +885,7 @@ export class Game {
   /** Achat automatique de potions (option de la boutique) : complète le stock jusqu'à AUTO_POTIONS. */
   autoBuyPotions() {
     const S = this.S;
-    if (!S.autoPotions || S.potions >= AUTO_POTIONS) return 0;
+    if (!S.autoPotions || !hasUnlock(S, "autoPotion") || S.potions >= AUTO_POTIONS) return 0;
     const c = CONSUMABLES.find((x) => x.id === "potion"), price = consumablePrice(c, S);
     let n = 0;
     while (S.potions < AUTO_POTIONS && S.gold >= price * 4) { S.gold -= price; S.potions++; n++; } // garde de quoi en racheter
@@ -1089,7 +1109,7 @@ export class Game {
 
   /** Réclame les quêtes terminées si l'option est cochée. */
   autoClaimQuests() {
-    if (!this.R.autoClaim) return;
+    if (!this.R.autoClaim || !hasUnlock(this.S, "questDesk")) return;
     this.R.autoClaim = false;
     for (const q of [...this.S.quests.slots]) if (questDone(q)) this.claimQuest(q.uid);
   }
@@ -1179,6 +1199,7 @@ export class Game {
   /* ---------- Expéditions des familiers ---------- */
   /** Envoie un familier (pas le compagnon actif) en expédition. */
   sendExpedition(id, kind, now = Date.now()) {
+    if (!hasUnlock(this.S, "expeditions")) return false;
     const P = this.S.pets, ex = EXPEDITIONS[kind];
     if (!ex || !P.owned[id] || P.active === id) return false;
     P.exp ||= {};
@@ -1225,12 +1246,12 @@ export class Game {
   }
 
   /** Envoie tous les familiers libres dans la même expédition. Renvoie leur nombre. */
-  sendAllExpeditions(kind, now = Date.now()) { return this.idlePets().filter((id) => this.sendExpedition(id, kind, now)).length; }
+  sendAllExpeditions(kind, now = Date.now()) { if (!hasUnlock(this.S, "petBulk")) return 0; return this.idlePets().filter((id) => this.sendExpedition(id, kind, now)).length; }
 
   /** Fait éclore tous les œufs. Renvoie les résultats. */
-  hatchAll() { const out = []; while (this.S.pets.eggs > 0) { const r = this.hatchEgg(); if (!r) break; out.push(r); } return out; }
+  hatchAll() { if (!hasUnlock(this.S, "petBulk")) return []; const out = []; while (this.S.pets.eggs > 0) { const r = this.hatchEgg(); if (!r) break; out.push(r); } return out; }
 
-  claimAllExpeditions(now = Date.now()) { return this.expeditionsReady(now).map((id) => this.claimExpedition(id, now)).filter(Boolean); }
+  claimAllExpeditions(now = Date.now()) { if (!hasUnlock(this.S, "petBulk")) return []; return this.expeditionsReady(now).map((id) => this.claimExpedition(id, now)).filter(Boolean); }
 
   setPet(id) {
     if (!this.S.pets.owned[id] || this.S.pets.active === id) return false;
@@ -1272,7 +1293,7 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
-      upgrades: old.upgrades, workshop: old.workshop, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
+      upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
       stats: old.stats, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);

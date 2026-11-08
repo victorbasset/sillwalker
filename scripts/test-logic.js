@@ -2,7 +2,10 @@
 //   npm test
 import assert from "node:assert/strict";
 import { Game } from "../src/renderer/game/game.js";
-import { freshState, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
+import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
+import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
+// Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
+const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet").map((u) => [u.id, true])) });
 import { reachedAchievements } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { approachTime, heroStats, power } from "../src/renderer/game/rules.js";
@@ -758,7 +761,7 @@ test("familiers : tout faire éclore, tout envoyer en expédition", () => {
 test("boutique : atelier permanent, œuf, objet pour le point faible, bonne affaire", async () => {
   const { WORKSHOP, workshopPrice, eggPrice } = await import("../src/renderer/game/shop.js");
   const g = new Game(freshState());
-  g.S.gold = 1e7;
+  g.S.gold = 1e8;
   const atk0 = g.stats().atk;
   assert.equal(g.buyWorkshop("ws_atk"), 1);
   assert.ok(g.stats().atk > atk0);
@@ -879,6 +882,35 @@ test("dépense automatique : compétences et talents à chaque niveau", () => {
   g.gainXp(1e9);
   assert.equal(skillPointsFree(g.S), 0, "points de compétence dépensés au passage de niveau");
   assert.equal(g.talentPointsFree(), 0, "points de talent dépensés au passage de niveau");
+});
+
+test("déblocages : verrouillés au départ, achetés une fois, gardés à l'ascension", () => {
+  const g = new Game(freshLocked());
+  assert.equal(nextUnlock(g.S).id, "bulkEquip");
+  assert.equal(g.has("transmute"), false);
+  assert.deepEqual(g.transmute(), [], "transmutation verrouillée");
+  assert.equal(g.sendExpedition("cat", "short"), false, "expéditions verrouillées");
+  g.S.gold = 0;
+  assert.equal(g.buyUnlock("bulkEquip"), false, "pas assez d'or");
+  g.S.gold = 1e8;
+  assert.ok(g.buyUnlock("bulkEquip"));
+  assert.equal(g.buyUnlock("bulkEquip"), false, "déjà acheté");
+  assert.equal(g.S.gold, 1e8 - 300);
+  assert.equal(g.buyUnlock("transmute"), false, "zone record insuffisante");
+  g.S.best = 40; g.S.zone = 40;
+  assert.ok(g.buyUnlock("transmute"));
+  if (g.canAscend()) g.ascend();
+  assert.ok(hasUnlock(g.S, "transmute"), "conservé à l'ascension");
+});
+
+test("déblocages : une ancienne partie garde ce qu'elle utilisait", () => {
+  const old = JSON.parse(JSON.stringify(freshLocked()));
+  delete old.unlocks; old.v = 6;
+  old.stats.kills = 10; old.autoPotions = true; old.quests.auto = true;
+  const s = migrate(old);
+  assert.equal(s.v, SAVE_VERSION);
+  assert.ok(s.unlocks.bulkEquip && s.unlocks.autoPotion && s.unlocks.questDesk);
+  assert.ok(!s.unlocks.transmute && !s.unlocks.armsValet);
 });
 
 console.log(`\n${pass} tests réussis`);

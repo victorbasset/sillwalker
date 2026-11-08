@@ -4,6 +4,8 @@
 import { t as tx } from "../i18n/index.js";
 import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
 import { skillPointsFree } from "../game/skilltree.js";
+import { nextUnlock, hasUnlock, unlockAvailable } from "../game/unlocks.js";
+import { fmt } from "../game/format.js";
 
 /** { id, text, tab, when(game) } — dans l'ordre de priorité. */
 export const HINTS = [
@@ -24,7 +26,7 @@ export const HINTS = [
   { id: "ascend", tab: "ascension", text: `${tx("Zone {0} atteinte : l’Ascension est disponible ! Clique ici pour en savoir plus.", { 0: ASCEND_MIN_ZONE })}`,
     when: (g) => g.canAscend() && g.S.prestige.count === 0 },
   { id: "expedition", tab: "pets", text: tx("Tu as plusieurs familiers : ceux qui ne t’accompagnent pas peuvent partir en expédition et rapporter or, œufs et objets. Clique ici."),
-    when: (g) => Object.keys(g.S.pets.owned).length >= 2 && !Object.keys(g.S.pets.exp || {}).length && !(g.S.stats.expeditions > 0) },
+    when: (g) => hasUnlock(g.S, "expeditions") && Object.keys(g.S.pets.owned).length >= 2 && !Object.keys(g.S.pets.exp || {}).length && !(g.S.stats.expeditions > 0) },
   { id: "codex", tab: "bestiary", text: tx("Chaque nouveau type d’objet rejoint ta collection et donne un bonus permanent. Clique ici pour la voir."),
     when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
   { id: "classes", tab: "class", text: tx("D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de classe en faisant une ascension."),
@@ -32,6 +34,9 @@ export const HINTS = [
   { id: "stuck", tab: "ascension", text: null, perRun: true,
     textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),
     when: (g) => g.canAscend() && g.S.prestige.count > 0 && (g.R.wallDeaths || []).filter((t) => g.R.time - t < 900).length >= 4 },
+  { id: "unlock", tab: "shop", text: null, perUnlock: true,
+    textFn: (g) => { const u = nextUnlock(g.S); return tx("Nouveau déblocage à ta portée : {0} ({1} or). Clique ici pour la boutique.", { 0: u.name, 1: fmt(u.price) }); },
+    when: (g) => { const u = nextUnlock(g.S); return !!u && unlockAvailable(g.S, u) && g.S.gold >= u.price; } },
   { id: "tap", tab: null, text: tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"),
     when: (g) => g.S.stats.kills >= 40 && !(g.S.stats.taps > 0) },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
@@ -39,7 +44,7 @@ export const HINTS = [
 ];
 
 /** Clé « déjà vu » : une fois pour toutes, ou une fois par course (perRun). */
-const hintKey = (game, h) => (h.perRun ? h.id + ":" + game.S.prestige.count : h.id);
+const hintKey = (game, h) => (h.perRun ? h.id + ":" + game.S.prestige.count : h.perUnlock ? h.id + ":" + (nextUnlock(game.S) || {}).id : h.id);
 
 /** Prochain conseil à montrer (ou null), sans le marquer comme vu. */
 export function nextHint(game) {

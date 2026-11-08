@@ -24,6 +24,8 @@ const TROPHY = ["YYYYYYYYY", "Y.YYYYY.Y", "Y.YYYYY.Y", ".YYYYYYY.", "..YYYYY..",
 const BOOK = ["BBBBBBBB.", "BWWWWWWB.", "BWLLLLWB.", "BWWWWWWB.", "BWLLLWWB.", "BWWWWWWB.", "BBBBBBBB.", ".DDDDDDD."];
 const KEYS = ["WWWWWWWWW", "WKWKWKWKW", "WWWWWWWWW", "WKWKWKWKW", "WWWWWWWWW", "WKKKKKKWW", "WWWWWWWWW"];
 const CLOCK = ["..WWWWW..", ".W.....W.", "W...K...W", "W...K...W", "W...KKK.W", "W.......W", ".W.....W.", "..WWWWW.."];
+const KENNEL = ["....KK....", "...KRRK...", "..KRRRRK..", ".KRRRRRRK.", "KRRRRRRRRK", ".KBBBBBBK.", ".KBBKKBBK.", ".KBKWWKBK.", ".KBKWWKBK.", ".KKKKKKKK."];
+const CAULDRON = ["..G..G.G..", "...G.G....", ".KKKKKKKK.", "KGGGGGGGGK", "KMMMMMMMMK", "KMMMMMMMMK", ".KMMMMMMK.", "..KMMMMK..", ".K.KKKK.K."];
 const MAP = ["PPP.PPP..", "PPLPPPLP.", "PLPPPLPPP", "PPPRPPPLP", "PLPPPPPPP", "PPPPLPPRP", ".PPP.PPPP"];
 
 const OUT = "#14121f";
@@ -55,6 +57,8 @@ export const SHOP_ICON_DEFS = {
   book:    [BOOK, { B: "#8a3a2a", W: "#f0dca8", L: "#8a5a2b", D: "#5a2018" }],
   keys:    [KEYS, { W: "#c9ced6" }],
   clock:   [CLOCK, { W: "#c9ced6" }],
+  kennel:  [KENNEL, { R: "#c0392b", B: "#a8703a", W: "#3a2a1a" }],
+  cauldron: [CAULDRON, { G: "#7dff9a", M: "#4a4560" }],
   map:     [MAP, { P: "#e8d8b0", L: "#a8884a", R: "#e2394a" }],
 };
 

@@ -3,8 +3,9 @@
 import { SLOT_KEYS, LEGENDARY, BAG_SIZE } from "./data.js";
 import { CLASSES, CLASS_UNLOCK_ZONE } from "./classes.js";
 import { codexRecord } from "./codex.js";
+import { grandfatherUnlocks } from "./unlocks.js";
 
-export const SAVE_VERSION = 6;
+export const SAVE_VERSION = 7;
 
 export function freshState(now = Date.now()) {
   return {
@@ -29,6 +30,7 @@ export function freshState(now = Date.now()) {
     potions: 3,
     bagSize: BAG_SIZE,
     upgrades: {},       // améliorations achetées { bag: 2 }
+    unlocks: {},        // déblocages achetés (game/unlocks.js), conservés à l'ascension
     workshop: {},       // atelier : { ws_atk: niveau, ... } (conservé à l'ascension)
     shop: null,         // { items: [...], next: horodatage du prochain renouvellement }
     // v4
@@ -82,6 +84,11 @@ export function migrate(raw) {
     // v5 -> v6 : vitesse permanente, nouveaux emplacements (amulette, gants).
     o.speed = 0;
     o.v = 6;
+  }
+  if (o.v === 6) {
+    // v6 -> v7 : déblocages en boutique. On garde ce que le joueur utilisait déjà.
+    grandfatherUnlocks(o);
+    o.v = 7;
   }
   if (o.v !== SAVE_VERSION) return null;
   const def = freshState(o.last || Date.now());

@@ -9,6 +9,7 @@ import { CONSTELLATIONS, constellationCost } from "../src/renderer/game/prestige
 import { CONSUMABLES, consumablePrice } from "../src/renderer/game/shop.js";
 import { questDone } from "../src/renderer/game/quests.js";
 import { fmt } from "../src/renderer/game/format.js";
+import { nextUnlock } from "../src/renderer/game/unlocks.js";
 
 const HOURS = +process.argv[2] || 12, CLS = process.argv[3] || "warrior";
 setRandom(seeded(7));
@@ -32,8 +33,10 @@ function takeSkills() {
 
 let lastBest = 1, lastBestT = 0, minute = 0, runStart = 0;
 const runs = [];
-const rows = [];
+const rows = [], unlockLog = [];
 function playerTurn() {
+  // Déblocages : le joueur achète le suivant dès qu’il a trois fois son prix.
+  for (let u = nextUnlock(g.S); u && g.S.gold >= u.price * 3; u = nextUnlock(g.S)) if (g.buyUnlock(u.id)) unlockLog.push(`${u.id} à ${Math.round(g.S.stats.playTime / 60 || 0)} min (zone ${g.S.zone})`);
   g.autoEquip();
   g.sellUseless();
   for (const b of TREES[g.S.cls]) for (const t of b.talents) g.learnTalent(t.id, 99);
@@ -70,3 +73,4 @@ console.log(`Classe : ${CLS} · ${HOURS} h simulées en ${((Date.now() - t0) / 1
 console.table(rows);
 console.log("Courses (une ascension à la fin de chacune) :");
 console.table(runs);
+console.log("Déblocages :\n  " + unlockLog.join("\n  "));

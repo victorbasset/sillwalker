@@ -14,6 +14,7 @@ import { itemIconURL } from "../../render/sprites.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { POWER_INDEX } from "../../game/powers.js";
 import { SETS } from "../../game/sets.js";
+import { UNLOCKS, hasUnlock, nextUnlock, unlockAvailable } from "../../game/unlocks.js";
 
 const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}` : `${m} min ${String(s % 60).padStart(2, "0")}`; };
 /** Effet court affiché sous chaque consommable. */
@@ -64,7 +65,7 @@ export class ShopTab {
         <div class="eff">${esc(SHORT[c.id] || "")}</div>
         <div class="sub">${owned}</div>
         ${buy("s-cons", c.id, price, block)}
-        ${c.id === "potion" ? `<label class="toggle mini"><input type="checkbox" data-action="s-autopot"${S.autoPotions ? " checked" : ""}> auto</label>` : ""}
+        ${c.id === "potion" && !hasUnlock(S, "autoPotion") ? `<span class="note lockmini">🔒 ${tx("auto")}</span>` : ""}${c.id === "potion" && hasUnlock(S, "autoPotion") ? `<label class="toggle mini"><input type="checkbox" data-action="s-autopot"${S.autoPotions ? " checked" : ""}> auto</label>` : ""}
       </div>`;
     }).join("");
 
@@ -103,9 +104,22 @@ export class ShopTab {
       </div>`;
     }).join("");
 
+    // --- Déblocages (permanents) : la progression du confort de jeu ---
+    const nxt = nextUnlock(S), owned = UNLOCKS.filter((u) => hasUnlock(S, u.id)).length;
+    const unlocks = UNLOCKS.map((u) => {
+      const have = hasUnlock(S, u.id), isNext = nxt && nxt.id === u.id && unlockAvailable(S, u);
+      return `<div class="ucard${have ? " owned" : ""}${isNext ? " next" : ""}" title="${esc(u.desc)}">
+        <img src="${shopIconURL(u.icon, 4)}" alt="">
+        <div class="nm">${esc(u.name)}</div>
+        <div class="sub">${esc(u.desc)}</div>
+        ${have ? `<div class="got">✓ ${tx("Débloqué")}</div>` : unlockAvailable(S, u) ? buy("s-unlock", u.id, u.price, "", isNext ? "primary" : "") : `<div class="req">🔒 ${tx("Zone record {0}", { 0: u.zone })}</div>`}
+      </div>`;
+    }).join("");
+
     el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>
         <span class="note">${tx("Nouvel étal dans")} <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>
         <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmt(rerollPrice(S)) })}</button></div>
+      <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2><div class="ugrid">${unlocks}</div></article>
       <div class="shopgrid2">
         <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid">${merchant}</div></article>
         <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid">${consumables}</div></article>
@@ -124,6 +138,7 @@ export class ShopTab {
     else if (a === "s-wsmax") g.buyWorkshop(id, 999);
     else if (a === "s-up") g.buyUpgrade(id);
     else if (a === "s-reroll") g.rerollShop();
+    else if (a === "s-unlock") g.buyUnlock(id);
     else if (a === "s-autopot") { g.S.autoPotions = b.checked; g.autoBuyPotions(); g.changed(); }
   }
 

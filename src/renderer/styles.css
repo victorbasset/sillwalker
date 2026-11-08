@@ -503,6 +503,9 @@ details.more summary:hover { color: var(--accent); }
 .eqline .nm.empty { color: var(--muted); }
 .eqline .sub { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .linkbtn.back { display: inline-block; width: auto; font-size: 12px; margin: 0 0 0 auto; padding: 1px 8px; }
+.linkbtn.lock { display: inline-block; width: auto; margin: 4px 0; font-size: 12px; padding: 2px 8px; border-color: var(--line); border-style: dashed; color: var(--muted); }
+.linkbtn.lock:hover { color: var(--accent); border-color: var(--accent); }
+.lockmini { font-size: 11px; }
 .statgrid .panel.wide { grid-column: span 2; }
 .statgrid .panel.wide .lines b { white-space: nowrap; }
 .linkbtn.inline { display: inline-block; width: auto; margin: 0 0 0 6px; padding: 0 8px; }
@@ -535,6 +538,17 @@ details.more summary:hover { color: var(--accent); }
 .shopbar .purse { font-size: 20px; color: #ffd34d; display: inline-flex; align-items: center; gap: 6px; }
 .shopbar .note { margin-left: auto; }
 i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }
+.panel.unlocks { margin-bottom: 12px; }
+.ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.ucard { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3px; padding: 8px 6px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }
+.ucard img { width: 40px; image-rendering: pixelated; filter: grayscale(1) brightness(.75); }
+.ucard .nm { font-size: 14px; line-height: 1.15; }
+.ucard .sub { font-size: 11px; color: var(--muted); line-height: 1.25; flex: 1; }
+.ucard.next { border-color: var(--accent); }
+.ucard.next img, .ucard.owned img { filter: none; }
+.ucard.owned { border-color: var(--good); }
+.ucard .req { font-size: 12px; color: var(--muted); }
+.ucard .got { font-size: 12px; color: var(--good); }
 .shopgrid2 { display: grid; grid-template-columns: 1.4fr 1.6fr 1.2fr 1.2fr; gap: 12px; align-items: start; }
 .mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .mcard { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px; padding: 8px 6px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }

@@ -7,6 +7,8 @@ import { esc, fmt } from "../../game/format.js";
 const left = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return h ? `${h} h ${String(m).padStart(2, "0")}` : `${m} min ${String(s % 60).padStart(2, "0")}`; };
 const dur = (min) => (min >= 60 ? min / 60 + " h" : min + " min");
 import { petURL } from "../../render/sprites.js";
+import { lockLink } from "../locks.js";
+import { hasUnlock } from "../../game/unlocks.js";
 
 export class PetsTab {
   constructor(game) { this.game = game; this.root = null; this.readyN = 0; }
@@ -20,14 +22,14 @@ export class PetsTab {
       return `<div class="expe${done ? " done" : ""}"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `${tx("En {0} · retour dans", { 0: esc(lc(ex.name)) })} <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
         ${done ? `<button class="primary" data-action="p-claim" data-id="${p.id}">${tx("Récupérer le butin")}</button>` : ""}</div>`;
     }
-    if (active) return "";
+    if (active || !hasUnlock(this.game.S, "expeditions")) return "";
     return `<div class="row expe-btns">${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-exp" data-id="${p.id}" data-kind="${k}" title="${esc(tx("{0} : or, expérience, parfois un œuf ({1} %) ou un objet ({2} %)", { 0: esc(ex.name), 1: Math.round(ex.egg * 100), 2: Math.round(ex.item * 100) }))}">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("")}</div>`;
   }
 
   render(el) {
     this.root = el;
     this.readyN = this.game.expeditionsReady().length;
-    const P = this.game.S.pets, owned = Object.keys(P.owned).length, idle = this.game.idlePets().length;
+    const S = this.game.S, P = S.pets, owned = Object.keys(P.owned).length, idle = this.game.idlePets().length;
     const cards = PETS.map((p) => {
       const own = P.owned[p.id], active = P.active === p.id;
       if (!own) {
@@ -48,9 +50,10 @@ export class PetsTab {
     }).join("");
     el.innerHTML = `<div class="petbar panel">
         <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} <b>${P.eggs}</b> ${tx("œuf{0} en attente", { 0: plS(P.eggs) })}</div>
-        <button data-action="p-hatchall" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>
-        ${idle ? `<span class="sendall">${tx("Envoyer les {0} familiers libres : {1}", { 0: idle, 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
-        ${this.readyN > 1 ? `<button data-action="p-claimall" class="primary">${tx("Récupérer {0} expéditions", { 0: this.readyN })}</button>` : ""}
+        ${hasUnlock(S, "petBulk") || P.eggs <= 1 ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>`}
+        ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}
+        ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${tx("Envoyer les {0} familiers libres : {1}", { 0: idle, 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
+        ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${tx("Récupérer {0} expéditions", { 0: this.readyN })}</button>` : ""}
         <span class="note">${tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets.")}</span>
       </div>
       <div class="petgrid">${cards}</div>`;

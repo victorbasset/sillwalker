@@ -8,6 +8,8 @@ import { describeEffects } from "../../game/talents.js";
 import { fmt, esc } from "../../game/format.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { itemIconURL } from "../../render/sprites.js";
+import { lockLink } from "../locks.js";
+import { hasUnlock } from "../../game/unlocks.js";
 
 /** Icône de chaque type de quête (réutilise les dessins de la boutique et des objets). */
 const KIND_ICON = {
@@ -44,10 +46,10 @@ export class QuestsTab {
       <div class="si"><h2>${tx("Guilde des aventuriers")} <small>${tx("rang {0} · {1}", { 0: gr.rank + 1, 1: esc(guildRankName(gr.rank)) })}</small></h2>
         <div class="kv"><span>${tx("Réputation (1 à 3 par quête selon les étoiles)")}</span><span>${gr.into} / ${gr.need}</span></div>
         <div class="bar"><i style="width:${(100 * gr.into) / gr.need}%"></i></div>
-        <p class="note tight">${tx("Bonus permanent (gardé à l’ascension) :")} <b class="delta-p">${bonus ? esc(describeEffects(bonus)) : "aucun"}</b> ${tx("· rang suivant : {0} et un coffre.", { 0: esc(describeEffects(GUILD_BONUS)) })}</p></div>
+        <p class="note tight">${tx("Bonus permanent (gardé à l’ascension) :")} <b class="delta-p">${bonus ? esc(describeEffects(bonus)) : tx("aucun")}</b> ${tx("· rang suivant : {0} et un coffre.", { 0: esc(describeEffects(GUILD_BONUS)) })}</p></div>
       <div class="gside">
-        <label class="toggle"><input type="checkbox" data-action="q-auto"${S.quests.auto ? " checked" : ""}> ${tx("Réclamer automatiquement")}</label>
-        ${g.questsReady() > 1 ? `<button data-action="q-claimall" class="primary">${tx("Tout réclamer ({0})", { 0: g.questsReady() })}</button>` : ""}
+        ${hasUnlock(S, "questDesk") ? `<label class="toggle"><input type="checkbox" data-action="q-auto"${S.quests.auto ? " checked" : ""}> ${tx("Réclamer automatiquement")}</label>
+        ${g.questsReady() > 1 ? `<button data-action="q-claimall" class="primary">${tx("Tout réclamer ({0})", { 0: g.questsReady() })}</button>` : ""}` : lockLink(S, "questDesk")}
       </div>
     </article>`;
     const cards = slots.map((q) => {
