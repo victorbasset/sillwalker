@@ -42,7 +42,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   **coffre au trésor** (or, potion, objet rare ou mieux).
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération), deux à partir de la 2e boucle.
 - **Élites à affixes** : rapide, blindé, vampirique ou furieux.
-- **Panoplies** : 5 ensembles (dont le Voyageur du vent, axé vitesse), bonus à 2 et 4 pièces.
+- **Panoplies** : 8 ensembles (dont le Voyageur du vent, axé vitesse), bonus à 2 et 4 pièces.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
 - **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins).

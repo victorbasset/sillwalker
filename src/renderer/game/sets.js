@@ -12,6 +12,12 @@ export const SETS = {
               two: { gold: 25, drop: 10 }, four: { gold: 50, xp: 25 } },
   archmage: { name: "Archimage",           suffix: "de l’Archimage",         color: "#7fd6ff",
               two: { burn: 15, poison: 4 }, four: { minion: 30, atkPct: 15 } },
+  berserker: { name: "Furie du berserker", suffix: "de la Furie du berserker", color: "#ff7a6b",
+              two: { atkPct: 10, lifesteal: 3 }, four: { combo: 3, spd: 20 } },
+  shadow:   { name: "Danseur d’ombre",     suffix: "du Danseur d’ombre",     color: "#9a8ac8",
+              two: { dodge: 6, crit: 4 }, four: { riposte: 15, doubleShot: 15 } },
+  ronin:    { name: "Ronin errant",        suffix: "du Ronin errant",        color: "#e8e4d6",
+              two: { iai: 30, firstStrike: 0.3 }, four: { critDmg: 40, moveSpd: 15 } },
 };
 export const SET_KEYS = Object.keys(SETS);
 export const SET_CHANCE = { 3: 0.3, 4: 0.2 }; // par rareté (épique, légendaire)
