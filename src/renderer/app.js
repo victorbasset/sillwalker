@@ -338,8 +338,10 @@ async function boot() {
       return;
     }
     setTimeout(() => showToast(`${tx("🎁 Récompense du jour")} <b>${r.day}/7</b> : <b>+${fmt(r.gold)}</b> ${tx("or{0}{1}. Reviens demain pour continuer la série !{2}", { 0: r.potions ? tx(", 2 potions") : "", 1: r.item ? `, <b>${esc(itemName(r.item))}</b>` : "", 2: dm ? `<br>${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : "" })}`,
-      () => openPanel(), 15000), 2500);
+      () => openPanel(), 15000), firstVisit ? 18000 : 2500);
   }
+  // Tout premier lancement : la bulle de bienvenue (comment ouvrir le panneau) passe avant la récompense du jour.
+  const firstVisit = !game.S.stats.kills && !(game.S.settings.hints || {}).welcome;
   setInterval(checkDaily, 60000);
 
   /* ---------- Héros libéré ---------- */

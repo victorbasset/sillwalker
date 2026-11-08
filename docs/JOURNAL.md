@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 11).
 
 ## Fait
 
+- 2026-11-08 (it. 5) : au tout premier lancement, la bulle de bienvenue (« ton héros avance seul,
+  clique ici pour ouvrir le panneau ») passe avant la récompense du jour au lieu d'attendre derrière elle.
 - 2026-11-08 (it. 4) : fini les « Talentpunkt(e) », « huevo(s) », « 1 monstres » : points de talent,
   points libres, ascensions, éclats d'étoile, œufs, quêtes, plumes et coffres s'accordent au nombre
   dans les 10 langues. En français, « 2 nouvels objets » devient « 2 nouveaux objets ».
@@ -26,6 +28,6 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - P2 Performance, bande visible : ~31 % d'un cœur (GPU ~20 %), 29 images/s ; mode mini ~6 %.
   Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
-- P2 Progression : après la transmutation (~2 h 30 de jeu simulé), les deux derniers déblocages
-  arrivent à ~3 h 30 et ~6 h ; ajouter des étapes intermédiaires (déblocages ou succès à récompense).
+- P3 Progression : les deux derniers déblocages arrivent à ~3 h 30 et ~6 h (zones 40 et 45). Pas un vrai
+  mur (classes libérées, constellations entre-temps), mais un déblocage vers la zone 50+ prolongerait l'objectif.
 - P3 Libellé « Prochain déblocage » très petit (≈9 px) dans la carte du héros.
