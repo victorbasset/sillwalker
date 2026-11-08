@@ -125,6 +125,14 @@ async function runSelfTest(strip) {
   await sleep(150);
   const pot1 = await state("S.potions");
   check("onglet Boutique : achat d'une potion", !canBuy ? pot0 >= 20 : pot1 === pot0 + 1, `${pot0} -> ${pot1}`);
+  // Coffre : ouverture animée avec l'objet obtenu
+  await js("(() => { const g = window.__game; while (g.S.bag.length > 10) g.S.bag.pop(); g.S.gold += 1e9; g.changed() })()");
+  await sleep(200);
+  await click('[data-action="s-chest"][data-id="chest_wood"]');
+  await sleep(300);
+  check("boutique : coffre ouvert et objet révélé", await js("!document.getElementById('modal').hidden && !!document.querySelector('#modal .reveal .rname')"));
+  await click('#modal [data-action="closemodal"]');
+  await sleep(150);
   await click('[data-tab="class"]');
   await sleep(150);
   await js("(() => { const g = window.__game; for (const c of ['ranger', 'mage']) if (!g.S.classesUnlocked.includes(c)) g.S.classesUnlocked.push(c); g.S.nextCls = null; g.changed() })()");

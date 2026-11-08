@@ -741,4 +741,28 @@ test("familiers : tout faire éclore, tout envoyer en expédition", () => {
   assert.ok(g.S.pets.active && !g.S.pets.exp[g.S.pets.active], "le compagnon reste");
 });
 
+test("boutique : atelier permanent, œuf, objet pour le point faible, bonne affaire", async () => {
+  const { WORKSHOP, workshopPrice, eggPrice } = await import("../src/renderer/game/shop.js");
+  const g = new Game(freshState());
+  g.S.gold = 1e7;
+  const atk0 = g.stats().atk;
+  assert.equal(g.buyWorkshop("ws_atk"), 1);
+  assert.ok(g.stats().atk > atk0);
+  const lvl = g.buyWorkshop("ws_atk", 999);
+  assert.ok(lvl > 5, "achat en lot : " + lvl);
+  g.S.gold = 1e12;
+  assert.equal(g.buyWorkshop("ws_speed", 999), 20, "cartographe plafonné");
+  g.S.best = 30; assert.ok(g.ascend());
+  assert.ok(g.S.workshop.ws_atk > 5, "atelier conservé à l'ascension");
+  const g2 = new Game(freshState());
+  g2.S.gold = 1e7;
+  const eggs = g2.S.pets.eggs;
+  assert.ok(g2.buyEgg());
+  assert.ok(!g2.buyEgg(), "un œuf par étal");
+  assert.equal(g2.S.pets.eggs, eggs + 1);
+  const stock = g2.shopStock();
+  assert.equal(stock.items.filter((it) => it.deal).length, 1, "une bonne affaire");
+  assert.equal(stock.items[0].slot, "weapon", "premier objet pour un emplacement vide");
+});
+
 console.log(`\n${pass} tests réussis`);

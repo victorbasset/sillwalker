@@ -29,6 +29,7 @@ export function freshState(now = Date.now()) {
     potions: 3,
     bagSize: BAG_SIZE,
     upgrades: {},       // améliorations achetées { bag: 2 }
+    workshop: {},       // atelier : { ws_atk: niveau, ... } (conservé à l'ascension)
     shop: null,         // { items: [...], next: horodatage du prochain renouvellement }
     // v4
     prestige: { shards: 0, total: 0, count: 0, ranks: {} }, // ascension et constellations
@@ -99,7 +100,7 @@ export function migrate(raw) {
     s.classesUnlocked = [...new Set(["warrior", s.cls, ...(s.stats.classes || []), ...beaten])].filter((c) => CLASSES[c]);
   }
   if (s.nextCls && !CLASSES[s.nextCls]) s.nextCls = null;
-  for (const k of ["talents", "buffs", "upgrades", "bestiary"]) if (!isObj(s[k])) s[k] = {};
+  for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop"]) if (!isObj(s[k])) s[k] = {};
   if (!isObj(o.powersSeen)) { s.powersSeen = {}; for (const it of [...s.bag, ...Object.values(s.equip)]) if (it && it.power) s.powersSeen[it.power] = true; }
   if (!isObj(o.codex)) { // collection apparue après coup : on y met les objets déjà possédés
     s.codex = {};

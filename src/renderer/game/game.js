@@ -18,12 +18,14 @@ import {
 import {
   xpNeed, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, heroStats, heroDps, upgradeDelta,
   zoneDef, zoneName, monsterBase, approachTime,
+  itemScore,
 } from "./rules.js";
 import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked } from "./classes.js";
 import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES } from "./talents.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
+  WORKSHOP, workshopPrice, eggPrice, DEAL_DISCOUNT,
 } from "./shop.js";
 import { POWERS, POWER_INDEX } from "./powers.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
@@ -853,6 +855,28 @@ export class Game {
     return it;
   }
 
+  /** Atelier : un niveau de plus (illimité, sauf le cartographe). */
+  buyWorkshop(id, n = 1) {
+    const w = WORKSHOP.find((x) => x.id === id), S = this.S, W = (S.workshop ||= {});
+    let done = 0;
+    while (w && done < n && !(w.max && (W[id] || 0) >= w.max) && this.pay(workshopPrice(w, S))) { W[id] = (W[id] || 0) + 1; done++; }
+    if (!done) return 0;
+    this.invalidateStats();
+    this.log(`Atelier : ${w.name} niveau ${W[id]}.`);
+    this.changed();
+    return done;
+  }
+
+  /** Œuf de familier : un seul par étal. */
+  buyEgg() {
+    const S = this.S, shop = this.shopStock();
+    if (shop.eggSold || !this.pay(eggPrice(S))) return false;
+    shop.eggSold = true;
+    this.gainEgg();
+    this.changed();
+    return true;
+  }
+
   buyUpgrade(id) {
     const u = UPGRADES.find((x) => x.id === id), S = this.S;
     const have = S.upgrades[id] || 0;
@@ -873,11 +897,22 @@ export class Game {
 
   restockShop(now = Date.now()) {
     const S = this.S, items = [];
+    // Le premier objet vise l'emplacement le plus faible du héros (vide, ou le moins puissant).
+    const weak = SLOT_KEYS.find((k) => !S.equip[k]) || SLOT_KEYS.slice().sort((a, b) => itemScore(S.equip[a]) - itemScore(S.equip[b]))[0];
     for (let i = 0; i < SHOP_SLOTS; i++) {
-      const it = this.decorate(rollItem(S.nextId++, S.best, Math.min(3, rollRarity(0) + 1))); // meilleure rareté qu'au combat
+      let it = null;
+      for (let t = 0; t < (i === 0 ? 40 : 1); t++) {
+        it = rollItem(S.nextId, S.best, Math.min(3, rollRarity(0) + 1)); // meilleure rareté qu'au combat
+        if (i !== 0 || it.slot === weak) break;
+      }
+      S.nextId++;
+      it = this.decorate(it);
       it.price = Math.round(sellValue(it) * 6);
       items.push(it);
     }
+    // Bonne affaire : un objet au hasard à prix réduit.
+    const deal = items[Math.floor(rand() * items.length)];
+    deal.deal = true; deal.price = Math.round(deal.price * (1 - DEAL_DISCOUNT));
     S.shop = { items, next: now + SHOP_REFRESH_S * 1000 };
     this.changed();
   }
@@ -894,7 +929,7 @@ export class Game {
     const it = shop && shop.items.find((i) => i.id === id);
     if (!it || this.bagFull() || !this.pay(it.price)) return false;
     shop.items = shop.items.filter((i) => i !== it);
-    delete it.price;
+    delete it.price; delete it.deal;
     if (it.r === LEGENDARY) S.stats.legendaries++;
     S.bag.push(it);
     this.log("Acheté au marchand : " + it.name + ".");
@@ -1184,7 +1219,7 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
-      upgrades: old.upgrades, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
+      upgrades: old.upgrades, workshop: old.workshop, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
       stats: old.stats, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);

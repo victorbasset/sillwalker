@@ -11,7 +11,7 @@ import { prestigeEffects } from "./prestige.js";
 import { bestiaryEffects } from "./bestiary.js";
 import { skillTreeEffects } from "./skilltree.js";
 import { setEffects, SETS, SET_KEYS, SET_CHANCE } from "./sets.js";
-import { BUFF_EFFECTS } from "./shop.js";
+import { BUFF_EFFECTS, workshopEffects } from "./shop.js";
 import { dayModEffects } from "./daymods.js";
 import { codexEffects } from "./codex.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
@@ -78,6 +78,8 @@ export function rerollAffixes(it) {
 export const reforgeCost = (it) => Math.round(40 * it.il * RARITIES[it.r].mult * RARITIES[it.r].mult);
 
 export const itemMult = (it) => 1 + 0.1 * it.plus;
+/** Valeur approximative d'un objet (niveau × rareté × forge) : sert à trouver l'emplacement le plus faible. */
+export const itemScore = (it) => (it ? it.il * RARITIES[it.r].mult * itemMult(it) : 0);
 export const sellValue = (it) => Math.round(5 * it.il * RARITIES[it.r].mult * RARITIES[it.r].mult * (1 + 0.3 * it.plus));
 export const forgeCost = (it) => Math.round(15 * it.il * Math.pow(1.55, it.plus) * RARITIES[it.r].mult);
 
@@ -98,7 +100,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // Toutes les sources de bonus : classe + talents, pouvoirs légendaires,
   // familier actif, constellations, bestiaire (puis élixirs ci-dessous).
   const t = talentEffects(S);
-  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), dayModEffects(S), codexEffects(S)]) {
+  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), dayModEffects(S), codexEffects(S), workshopEffects(S)]) {
     for (const k in src) t[k] = (t[k] || 0) + src[k];
   }
   if (buffs) for (const id in S.buffs || {}) if (S.buffs[id] > 0 && BUFF_EFFECTS[id]) {

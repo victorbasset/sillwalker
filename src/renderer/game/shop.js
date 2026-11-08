@@ -48,6 +48,30 @@ export const UPGRADES = [
     desc: "+6 places dans le sac (jusqu’à 48)." },
 ];
 
+/**
+ * Atelier : améliorations permanentes à niveaux illimités (conservées à
+ * l'ascension). Le prix ne dépend que du niveau (×growth à chaque niveau) :
+ * l'or garde toujours une utilité, sans pouvoir être contourné.
+ */
+export const WORKSHOP = [
+  { id: "ws_atk",   name: "Forge d’armes",  desc: "Attaque permanente.",                      eff: { atkPct: 3 },          base: 300, growth: 1.45 },
+  { id: "ws_hp",    name: "Armurerie",      desc: "Points de vie et défense permanents.",      eff: { hpPct: 3, defPct: 2 }, base: 300, growth: 1.45 },
+  { id: "ws_gold",  name: "Trésorerie",     desc: "Or trouvé, pour toujours.",                 eff: { gold: 4 },            base: 400, growth: 1.5 },
+  { id: "ws_speed", name: "Cartographe",    desc: "Vitesse de déplacement (20 niveaux max).",  eff: { moveSpd: 1 },         base: 2000, growth: 1.7, max: 20 },
+];
+export const workshopPrice = (w, S) => Math.round(w.base * Math.pow(w.growth, (S.workshop || {})[w.id] || 0));
+export function workshopEffects(S) {
+  const out = {}, W = S.workshop || {};
+  for (const w of WORKSHOP) { const n = W[w.id] || 0; if (n) for (const k in w.eff) out[k] = (out[k] || 0) + w.eff[k] * n; }
+  return out;
+}
+
+/** Œuf de familier : un par étal du marchand. */
+export const EGG_PRICE = 1500;
+export const eggPrice = (S) => Math.round(EGG_PRICE * zoneScale(S));
+/** Bonne affaire du marchand : un objet à prix réduit à chaque étal. */
+export const DEAL_DISCOUNT = 0.4;
+
 export const consumablePrice = (c, S) => Math.round(c.base * zoneScale(S));
 export const chestPrice = (c, S) => Math.round(c.base * zoneScale(S));
 export const upgradePrice = (u, S) => Math.round(u.base * Math.pow(u.growth, S.upgrades[u.id] || 0));

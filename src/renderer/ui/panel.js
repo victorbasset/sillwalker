@@ -3,6 +3,7 @@
 // Chaque onglet hors Aventure est un module de ui/tabs/ avec render(el),
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
+import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
@@ -193,7 +194,23 @@ export class Panel {
     this.renderAll();
   }
 
+  /** Ouverture d'un coffre : le coffre tremble, s'ouvre, l'objet jaillit avec la couleur de sa rareté. */
+  revealChest(chestId, it) {
+    const r = RARITIES[it.r], up = this.game.isUpgrade(it);
+    $(this.root, "#mt").textContent = "Coffre ouvert !";
+    $(this.root, "#mbody").innerHTML = `<div class="reveal" style="--rc:${r.color}">
+        <img class="rchest" src="${shopIconURL(chestId, 8)}" alt="">
+        <div class="ritem"><span class="rays"></span><img src="${itemIconURL(it)}" alt=""></div>
+        <div class="rname rc${it.r}">${esc(it.name)}</div>
+        <div class="sub">${SLOTS[it.slot].name} ${r.name.toLowerCase()}, niveau ${it.il}${it.power && POWER_INDEX[it.power] ? ` · ★ ${esc(POWER_INDEX[it.power].name)}` : ""}</div>
+        ${up ? `<div class="delta-p">▲ Plus puissant que ton équipement actuel</div>` : ""}
+      </div>${up ? `<div class="row"><button class="primary" data-action="reveal-equip" data-id="${it.id}">Équiper maintenant</button></div>` : ""}`;
+    $(this.root, "#modal").hidden = false;
+    $(this.root, "#modal button").focus();
+  }
+
   showOfflineSummary(sum) {
+    $(this.root, "#mt").textContent = "Pendant ton absence";
     const best = sum.best >= 0 ? `<li><span>Meilleur butin</span><b class="rc${sum.best}">${RARITIES[sum.best].name}</b></li>` : "";
     $(this.root, "#mbody").innerHTML =
       `<p>Ton héros a continué de farmer ${esc(sum.zone)} pendant ${esc(sum.duration)}.</p>
@@ -434,6 +451,13 @@ export class Panel {
       return;
     }
     const a = b.dataset.action;
+    if (a === "s-chest") { // coffre acheté : ouverture animée
+      const it = g.buyChest(b.dataset.id);
+      this.renderAll();
+      if (it) this.revealChest(b.dataset.id, it);
+      return;
+    }
+    if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }
     const owner = TABS.find((x) => x.prefix && a.startsWith(x.prefix));
     if (owner) { this.tabs[owner.id].onAction(a, b); this.renderAll(); return; }
     const it = this.getSel();

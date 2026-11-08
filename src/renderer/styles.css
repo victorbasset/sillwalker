@@ -504,3 +504,43 @@ details.more summary:hover { color: var(--accent); }
 .tgrid .tdetail { grid-row: span 2; }
 .tgrid .tvoie { grid-column: 2 / span 2; }
 #tsel { height: auto; min-height: 120px; }
+
+/* ---------- Boutique illustrée ---------- */
+.shopbar { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.shopbar .purse { font-size: 20px; color: #ffd34d; display: inline-flex; align-items: center; gap: 6px; }
+.shopbar .note { margin-left: auto; }
+i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }
+.shopgrid2 { display: grid; grid-template-columns: 1.4fr 1.6fr 1.2fr 1.2fr; gap: 12px; align-items: start; }
+.mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mcard { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px; padding: 8px 6px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }
+.mcard img { width: 48px; image-rendering: pixelated; }
+.mcard .nm { font-size: 13px; line-height: 1.2; }
+.mcard .sub, .ctile .sub { font-size: 11px; color: var(--muted); }
+.mcard .verdict { font-size: 12px; margin: 2px 0 4px; }
+.mcard.up { border-color: var(--good); }
+.mcard.deal { box-shadow: 0 0 0 2px #ffd34d inset; }
+.mcard .ribbon { position: absolute; top: -6px; right: -6px; background: #ffd34d; color: #14121f; font-size: 11px; padding: 1px 5px; border-radius: 3px; border: 2px solid #14121f; }
+.cgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
+.ctile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1px; padding: 8px 4px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }
+.ctile img { height: 52px; image-rendering: pixelated; margin-bottom: 2px; }
+.ctile.chesttile img { height: 58px; }
+.ctile .nm { font-size: 13px; line-height: 1.15; }
+.ctile .eff { font-size: 12px; color: #9fe0a8; }
+.ctile.active { border-color: #9fe0a8; }
+.ctile .toggle.mini { font-size: 11px; margin-top: 2px; }
+button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13px; }
+.wsline { display: flex; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.wsline img { width: 40px; image-rendering: pixelated; flex: none; }
+.wsline .si { flex: 1; min-width: 0; }
+.wsline .nm { font-size: 14px; }
+.wsline .sub { font-size: 12px; color: var(--muted); }
+.wsmax { font-size: 12px; padding: 2px 6px; }
+/* Ouverture de coffre */
+.reveal { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 0 10px; text-align: center; }
+.reveal .rchest { width: 112px; image-rendering: pixelated; animation: rshake .5s steps(6) 1; }
+.reveal .ritem { position: relative; width: 72px; height: 72px; margin-top: -6px; animation: rpop .6s steps(6) 1; }
+.reveal .ritem img { position: relative; width: 72px; image-rendering: pixelated; }
+.reveal .rays { position: absolute; inset: -18px; background: radial-gradient(circle, var(--rc) 0, transparent 65%); opacity: .7; }
+.reveal .rname { font-size: 18px; margin-top: 8px; }
+@keyframes rshake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-4px); } 40% { transform: translateX(4px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+@keyframes rpop { from { transform: translateY(-30px) scale(.4); } to { transform: none; } }
