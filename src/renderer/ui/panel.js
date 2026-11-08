@@ -459,7 +459,7 @@ export class Panel {
 
   /**
    * Raccourcis clavier (panneau ouvert) : 1-9 et 0 = onglets, - = Réglages,
-   * E = équiper le meilleur, V = vendre ce qui n'améliore pas.
+   * E = équiper le meilleur, V = vendre ce qui n'améliore pas, T = transmuter.
    * Renvoie true si la touche a été utilisée.
    */
   onKey(e) {
@@ -473,6 +473,7 @@ export class Panel {
     if (i >= 0 && TABS[i]) { this.setTab(TABS[i].id); return true; }
     const k = e.key.toLowerCase();
     if (k === "e") { this.game.autoEquip(); this.selected = null; this.renderAll(); return true; }
+    if (k === "t") { if (this.tab !== "adventure") this.setTab("adventure"); const b = $(this.root, '[data-action="transmute"]'); if (b && !b.disabled) this.onClick({ target: b }); return true; }
     if (k === "v") { const b = $(this.root, '[data-action="sellless"]'); if (this.tab !== "adventure") this.setTab("adventure"); this.onClick({ target: $(this.root, '[data-action="sellless"]') || b }); return true; }
     return false;
   }

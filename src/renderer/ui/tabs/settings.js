@@ -45,6 +45,7 @@ export class SettingsTab {
           <li><span>Changer d’onglet</span><b>1 … 9, 0, -</b></li>
           <li><span>Équiper le meilleur</span><b>E</b></li>
           <li><span>Vendre ce qui n’améliore pas</span><b>V</b></li>
+          <li><span>Transmuter les objets inutiles</span><b>T</b></li>
           <li><span>Confirmer une fenêtre</span><b>Entrée</b></li>
           <li><span>Fermer le panneau</span><b>Échap</b></li>
         </ul>
