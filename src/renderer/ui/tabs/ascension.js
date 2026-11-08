@@ -24,10 +24,13 @@ export class AscensionTab {
       <p><b>Lueur stellaire</b> : chaque éclat gagné, même dépensé, donne pour toujours ${esc(describeEffects(GLOW_PER_SHARD))}.
       ${P.total ? `Actuellement : <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : ""}
       ${P.bestRun ? `<br><span class="note">Meilleure course : zone ${P.bestRun}.</span>` : ""}</p>
-      <p>Ton héros recommence au niveau 1 en zone 1, mais garde ses constellations, ses familiers, son bestiaire, sa collection d’objets, sa vitesse permanente, ses compétences, les héros libérés et les améliorations du sac.
-      Il perd son niveau, son or, son équipement, son sac, ses talents et ses quêtes.</p>
+      <p class="tight">Ton héros recommence au <b>niveau 1</b>, en zone 1.</p>
+      <div class="keeplose">
+        <div><b class="delta-p">Gardé</b><ul><li>constellations, lueur</li><li>familiers, bestiaire</li><li>collection, pouvoirs</li><li>vitesse permanente</li><li>compétences, héros libérés</li><li>taille du sac</li></ul></div>
+        <div><b class="delta-n">Perdu</b><ul><li>niveau et or</li><li>équipement et sac</li><li>talents</li><li>quêtes en cours</li></ul></div>
+      </div>
       <p>Classe de la prochaine aventure : <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
-        <button class="linkbtn" data-tab="class">changer →</button></p>
+        <button class="linkbtn inline" data-tab="class">changer →</button></p>
       ${can
         ? `<p>Ascension maintenant : <b class="gold">+${gain} éclats</b> (record zone ${S.best}). En zone ${nextZone + 4} : +${shardsFor(nextZone + 4)}.</p>
            <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? "Confirmer : tout recommencer" : "Monter vers les étoiles"}</button></div>`
