@@ -12,7 +12,8 @@ const config = require("../shared/config");
 const MODES = ["strip", "mini", "icon"];
 
 class StripWindow {
-  constructor({ settings, preload, url, devTools, openDevTools, ghost }) {
+  constructor({ settings, preload, url, devTools, openDevTools, ghost, testWidth }) {
+    this.testWidth = testWidth || 0;
     this.ghost = !!ghost;
     this.settings = settings;
     this.panelOpen = false;
@@ -96,7 +97,8 @@ class StripWindow {
       return { x: wa.x + wa.width - w - m, y: top ? wa.y + m : wa.y + wa.height - h - m, width: w, height: h };
     }
     const h = config.STRIP_HEIGHT + this.panelHeight(wa);
-    return { x: wa.x, y: top ? wa.y : wa.y + wa.height - h, width: wa.width, height: h };
+    const width = this.testWidth ? Math.min(wa.width, this.testWidth) : wa.width; // --width (dev)
+    return { x: wa.x, y: top ? wa.y : wa.y + wa.height - h, width, height: h };
   }
 
   place() {

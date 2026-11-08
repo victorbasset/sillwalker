@@ -46,6 +46,7 @@ function start() {
       devTools: flags.isDev,
       openDevTools: flags.devTools,
       ghost: flags.ghost,
+      testWidth: flags.width,
     });
     trayCtl = createTray({ strip, isDev: flags.isDev, steam });
 
