@@ -300,4 +300,8 @@ export default {
   1424: "Next unlock",
   1425: "First Unlock",
   1426: "Everything Unlocked",
+  1427: "Hedgehog",
+  1428: "Its spines send hits back.",
+  1429: "Mini Slime",
+  1430: "Sticks to your heels and picks everything up.",
 };

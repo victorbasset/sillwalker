@@ -18,6 +18,8 @@ export const PETS = [
   { id: "raven",  name: "Corbeau",     desc: "Repère les points faibles de l’ennemi.", eff: { crit: 0.8, critDmg: 3 } },
   { id: "golemling", name: "Golem miniature", desc: "Un petit mur qui marche.",        eff: { shield: 1.5, defPct: 2 } },
   { id: "salamander", name: "Salamandre", desc: "Laisse des traces brûlantes.",        eff: { burn: 2, poison: 0.5 } },
+  { id: "hedgehog", name: "Hérisson",   desc: "Ses piquants renvoient les coups.",     eff: { thorns: 3, defPct: 1 } },
+  { id: "slimepet", name: "Mini-gluant", desc: "Il colle aux talons et ramasse tout.",  eff: { gold: 2, drop: 2 } },
   { id: "phoenix", name: "Phénix",     desc: "Un oiseau de légende. Très rare.",       eff: { atkPct: 2, hpPct: 2, regen: 0.5 }, weight: 0.25 },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */

@@ -30,7 +30,7 @@ export class PetsTab {
     this.root = el;
     this.readyN = this.game.expeditionsReady().length;
     const S = this.game.S, P = S.pets, owned = Object.keys(P.owned).length, idle = this.game.idlePets().length;
-    const cards = PETS.map((p) => {
+    const cards = [...PETS].sort((a, b) => (P.owned[b.id] ? 1 : 0) - (P.owned[a.id] ? 1 : 0)).map((p) => { // trouvés d’abord
       const own = P.owned[p.id], active = P.active === p.id;
       if (!own) {
         return `<article class="panel petcard unknown"><div class="detail-head"><div class="petimg">?</div><div>

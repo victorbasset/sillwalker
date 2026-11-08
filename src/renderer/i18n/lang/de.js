@@ -300,4 +300,8 @@ export default {
   1424: "Nächste Freischaltung",
   1425: "Erste Freischaltung",
   1426: "Alles freigeschaltet",
+  1427: "Igel",
+  1428: "Seine Stacheln geben Schläge zurück.",
+  1429: "Mini-Schleim",
+  1430: "Klebt an deinen Fersen und sammelt alles auf.",
 };

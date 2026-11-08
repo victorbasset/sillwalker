@@ -300,4 +300,8 @@ export default {
   1424: "Próximo desbloqueio",
   1425: "Primeiro desbloqueio",
   1426: "Tudo desbloqueado",
+  1427: "Ouriço",
+  1428: "Seus espinhos devolvem os golpes.",
+  1429: "Mini gosma",
+  1430: "Gruda nos seus calcanhares e recolhe tudo.",
 };

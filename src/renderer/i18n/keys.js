@@ -1428,5 +1428,9 @@ export const KEYS = [
   "prêt à acheter !",
   "Prochain déblocage",
   "Premier déblocage",
-  "Tout débloqué"
+  "Tout débloqué",
+  "Hérisson",
+  "Ses piquants renvoient les coups.",
+  "Mini-gluant",
+  "Il colle aux talons et ramasse tout."
 ];

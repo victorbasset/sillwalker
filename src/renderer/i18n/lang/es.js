@@ -300,4 +300,8 @@ export default {
   1424: "Próximo desbloqueo",
   1425: "Primer desbloqueo",
   1426: "Todo desbloqueado",
+  1427: "Erizo",
+  1428: "Sus púas devuelven los golpes.",
+  1429: "Mini babosa",
+  1430: "Se pega a tus talones y lo recoge todo.",
 };

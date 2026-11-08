@@ -300,4 +300,8 @@ export default {
   1424: "Następne odblokowanie",
   1425: "Pierwsze odblokowanie",
   1426: "Wszystko odblokowane",
+  1427: "Jeż",
+  1428: "Jego kolce oddają ciosy.",
+  1429: "Mini-szlam",
+  1430: "Klei się do pięt i zbiera wszystko.",
 };

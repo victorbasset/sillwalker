@@ -299,6 +299,12 @@ export const PET_ART = {
   phoenix: { pal: { R: "#e2552b", O: "#ff9a3a", Y: "#ffe27a" }, fly: true, frames: [
     ["Y.......Y", "OY.....YO", "ROY.Y.YOR", ".ROOOOOR.", "..RRYRR..", "...ROR...", "....R...."],
     [".........", "....Y....", "...YOY...", "YOOOOOOOY", "ORRRYRRRO", "...ROR...", "....R...."]] },
+  hedgehog: { pal: { B: "#7a5a3a", D: "#4a3420", S: "#e8c8a0", E: "#1a1a1a" }, frames: [
+    ["..D.D.D..", ".DBDBDBD.", "DBBBBBBSS", "DBBBBBBSE", ".BBBBBSSS", "..S..S..."],
+    ["..D.D.D..", ".DBDBDBD.", "DBBBBBBSS", "DBBBBBBSE", ".BBBBBSSS", ".S..S...."]] },
+  slimepet: { pal: { G: "#7ad870", L: "#c8f4b0", E: "#1a1a1a" }, frames: [
+    [".........", "...GGG...", "..GLGGG..", ".GGEGEGG.", "GGGGGGGGG", "GGGGGGGGG"],
+    ["...GGG...", "..GLGGG..", ".GGGGGGG.", ".GGEGEGG.", "GGGGGGGGG", ".GGGGGGG."]] },
   fairy: { pal: { P: "#ff9ad8", W: "#dff3ff", S: "#f1c7a0", Y: "#ffe27a" }, fly: true, frames: [
     ["W.....W", "WW.Y.WW", "WWSSSWW", ".WPPPW.", "..PPP..", "..P.P.."],
     [".......", ".W.Y.W.", "WWSSSWW", "WWPPPWW", "..PPP..", "..P.P.."]] },
