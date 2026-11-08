@@ -26,7 +26,14 @@ export function buildSprite(rows, pal, scale, flip, dpr = 1) {
   return c;
 }
 
+const spriteSets = new Map();
+/** Jeu de sprites pour une échelle d'affichage (partagé par la bande et l'encart mini). */
 export function buildSpriteSet(dpr) {
+  if (!spriteSets.has(dpr)) spriteSets.set(dpr, makeSpriteSet(dpr));
+  return spriteSets.get(dpr);
+}
+
+function makeSpriteSet(dpr) {
   // Un jeu de sprites par classe : heroes.warrior, heroes.ranger, heroes.mage.
   const heroes = {};
   for (const cls in CLASS_ART) {
@@ -38,14 +45,24 @@ export function buildSpriteSet(dpr) {
     };
   }
   // Un jeu par monstre de MONSTERS : dessin de base (art) + couleurs propres (recolor).
+  // Construits à la demande : seuls les monstres réellement croisés coûtent de la mémoire.
   const monsters = {};
   for (const k in MONSTERS) {
-    const a = MONSTER_ART[MONSTERS[k].art || k], pal = { ...a.pal, ...(MONSTERS[k].recolor || {}) };
-    monsters[k] = {
-      fly: !!a.fly,
-      normal: a.frames.map((r) => buildSprite(r, pal, PIXEL, true, dpr)),
-      boss: a.frames.map((r) => buildSprite(r, pal, PIXEL * 2, true, dpr)),
-    };
+    let cache = null;
+    Object.defineProperty(monsters, k, {
+      enumerable: true,
+      get() {
+        if (!cache) {
+          const a = MONSTER_ART[MONSTERS[k].art || k], pal = { ...a.pal, ...(MONSTERS[k].recolor || {}) };
+          cache = {
+            fly: !!a.fly,
+            normal: a.frames.map((r) => buildSprite(r, pal, PIXEL, true, dpr)),
+            get boss() { return (this._boss ||= a.frames.map((r) => buildSprite(r, pal, PIXEL * 2, true, dpr))); },
+          };
+        }
+        return cache;
+      },
+    });
   }
   // Familiers : plus petits que le héros, tournés vers la droite.
   const pets = {};
