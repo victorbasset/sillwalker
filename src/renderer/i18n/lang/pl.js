@@ -247,4 +247,5 @@ export default {
   1371: "Mroźny Wyjec",
   1372: "Czeka wskazówka: kliknij, aby powiększyć.",
   1373: "{0}: puste",
+  1374: "Twój bohater i jego ekwipunek",
 };

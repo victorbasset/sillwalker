@@ -247,4 +247,5 @@ export default {
   1371: "Frostheuler",
   1372: "Ein Tipp wartet: zum Vergrößern klicken.",
   1373: "{0}: leer",
+  1374: "Dein Held und seine Ausrüstung",
 };

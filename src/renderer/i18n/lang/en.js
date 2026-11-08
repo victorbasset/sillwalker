@@ -247,4 +247,5 @@ export default {
   1371: "Frosthowl",
   1372: "A tip is waiting: click to enlarge.",
   1373: "{0}: empty",
+  1374: "Your hero and their gear",
 };

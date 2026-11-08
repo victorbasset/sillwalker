@@ -375,7 +375,7 @@ export class Panel {
           : `<div class="nm empty">${SLOTS[k].name} ${tx(": vide")}</div>`}</div></li>`;
       }).join("");
       el.innerHTML = `<h2>${tx("Équipement")} <small>${tx("clique un objet")}</small></h2>
-        <div class="eqview"><img class="heroport${v.aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, v)}" alt="Ton héros et son équipement">
+        <div class="eqview"><img class="heroport${v.aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, v)}" alt="${esc(tx("Ton héros et son équipement"))}">
         <ul class="eqlist">${rows}</ul></div>`;
       return;
     }

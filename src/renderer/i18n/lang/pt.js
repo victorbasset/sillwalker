@@ -247,4 +247,5 @@ export default {
   1371: "Uiva-Gelo",
   1372: "Uma dica espera por você: clique para ampliar.",
   1373: "{0}: vazio",
+  1374: "Seu herói e o equipamento dele",
 };
