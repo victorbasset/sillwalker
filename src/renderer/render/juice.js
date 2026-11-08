@@ -12,7 +12,7 @@ import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
 import { fmt } from "../game/format.js";
 import { itemIconURL } from "./sprites.js";
-import { q, el, mark } from "./dom.js";
+import { q, el, mark, makeCanvas, sizeCanvas } from "./dom.js";
 
 const MAX_PARTS = 90;
 
@@ -294,28 +294,52 @@ export class Juice {
   }
 
   /* ---------- Météo de la zone ---------- */
+  // Toutes les particules dans une seule toile, redessinée 15 fois par seconde
+  // et seulement si un pixel a bougé : un seul calque à composer au lieu d'un
+  // élément par flocon.
   weather(dt) {
     const kind = this.full && this.s.game.S.settings.weather !== false ? WEATHER[this.s.game.zoneDef().src || this.s.game.zoneDef().name] || null : null;
     if (kind !== this.wxKind) { this.clearWeather(); this.wxKind = kind; }
     if (!kind) return;
     const k = WX[kind], W = this.s.W, G = this.ground();
     if (this.wx.length < WX_MAX && Math.random() < dt * k.rate * 2 * W / 1000) {
-      const node = el("div", "wx" + (k.ring ? " ring" : k.tall ? " tall" : ""), this.layer);
-      node.style.background = k.ring ? "transparent" : k.c[Math.floor(Math.random() * k.c.length)];
-      if (k.ring) node.style.borderColor = k.c[0];
       const x0 = k.side ? W + 10 : Math.random() * W, y0 = k.side ? 10 + Math.random() * (G - 20) : k.vy > 0 ? -6 : G - 4;
-      const sp = 0.7 + Math.random() * 0.6;
-      this.wx.push({ node, x0, y0, sp, ph: Math.random() * 6.28, t: 0 });
+      this.wx.push({ c: k.c[Math.floor(Math.random() * k.c.length)], x0, y0, sp: 0.7 + Math.random() * 0.6, ph: Math.random() * 6.28, t: 0 });
     }
+    let key = "";
     this.wx = this.wx.filter((p) => {
       p.t += dt;
-      const x = p.x0 + k.vx * p.sp * p.t + Math.sin(p.t * 1.7 + p.ph) * k.sway, y = p.y0 + k.vy * p.sp * p.t;
-      const alive = y > -10 && y < G + 2 && x > -20 && x < W + 20 && p.t < 12;
-      if (alive) this.place(p.node, x, y); else p.node.remove();
+      p.x = q(p.x0 + k.vx * p.sp * p.t + Math.sin(p.t * 1.7 + p.ph) * k.sway); p.y = q(p.y0 + k.vy * p.sp * p.t);
+      const alive = p.y > -10 && p.y < G + 2 && p.x > -20 && p.x < W + 20 && p.t < 12;
+      if (alive) key += p.x + "," + p.y + ";";
       return alive;
     });
+    this.wxClock = (this.wxClock || 0) + dt;
+    if (this.wxClock < 1 / 15 || key === this.wxKey) return;
+    this.wxClock = 0; this.wxKey = key;
+    const cv = this.wxCanvas();
+    const ctx = cv.ctx;
+    ctx.clearRect(0, 0, W, G + 4);
+    ctx.globalAlpha = k.ring || k.tall ? 0.6 : 0.9;
+    for (const p of this.wx) {
+      ctx.fillStyle = p.c;
+      if (k.ring) { ctx.fillRect(p.x + 1, p.y, 4, 1); ctx.fillRect(p.x + 1, p.y + 5, 4, 1); ctx.fillRect(p.x, p.y + 1, 1, 4); ctx.fillRect(p.x + 5, p.y + 1, 1, 4); }
+      else if (k.tall) ctx.fillRect(p.x, p.y, 2, 6);
+      else ctx.fillRect(p.x, p.y, 3, 3);
+    }
+    ctx.globalAlpha = 1;
+    mark("weather");
   }
-  clearWeather() { for (const p of this.wx) p.node.remove(); this.wx.length = 0; }
+  wxCanvas() {
+    const W = this.s.W, H = this.ground() + 4, dpr = this.s.cssDpr || 1, sz = W + "x" + H + "x" + dpr;
+    if (!this.wxc || !this.wxc.c.isConnected) { this.wxc = makeCanvas(null, "wxc"); this.layer.prepend(this.wxc.c); this.wxSize = ""; }
+    if (this.wxSize !== sz) { this.wxSize = sz; sizeCanvas(this.wxc, W, H, dpr); }
+    return this.wxc;
+  }
+  clearWeather() {
+    this.wx.length = 0; this.wxKey = "";
+    if (this.wxc) { this.wxc.c.remove(); this.wxc = null; }
+  }
 
-  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.star = null; this.wx.length = 0; this.wxKind = null; }
+  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.star = null; this.wx.length = 0; this.wxKind = null; this.wxc = null; this.wxKey = ""; }
 }

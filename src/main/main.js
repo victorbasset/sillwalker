@@ -143,6 +143,11 @@ function start() {
     });
 
     /* ---------- Robustesse ---------- */
+    // Dev : erreurs et avertissements de l'interface recopiés dans la console.
+    if (flags.isDev) strip.win.webContents.on("console-message", (e) => {
+      const level = e.level ?? e.params?.level;
+      if (level === "warning" || level === "error" || level === 2 || level === 3) console.log(`[renderer ${level}] ${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})`);
+    });
     strip.win.webContents.on("render-process-gone", (_e, d) => {
       console.error("[main] renderer arrêté :", d.reason);
       if (!quitting && d.reason !== "clean-exit") strip.win.reload();
