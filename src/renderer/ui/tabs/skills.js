@@ -1,7 +1,7 @@
 // Onglet Compétences : l'arbre géant (graphe SVG). Glisser pour se déplacer,
 // molette pour zoomer, clic sur un nœud relié pour le prendre.
 // Le SVG est construit une seule fois ; ensuite seuls les états changent.
-import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill, skillTreeEffects } from "../../game/skilltree.js";
+import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
 
@@ -66,10 +66,18 @@ export class SkillsTab {
         t.textContent = n.name;
       }
     }
+    this.coreEls = {};
     for (const s of SECTORS) {
-      const k = N[`${s.id}-key`], t = svg("text", { x: k.x * 0.56, y: k.y * 0.56 + 5, class: "sector" }, g);
+      const k = N[`${s.id}-key`], cx = k.x * 0.6, cy = k.y * 0.6;
+      // Cœur du pétale : losange au centre, allumé quand tout le secteur est acquis.
+      const core = svg("polygon", { points: `${cx},${cy - 16} ${cx + 13},${cy} ${cx},${cy + 16} ${cx - 13},${cy}`, class: "core", "data-core": s.id }, g);
+      core.style.setProperty("--c", s.color);
+      this.coreEls[s.id] = core;
+      const t = svg("text", { x: cx, y: cy + 30, class: "sector" }, g);
       t.textContent = s.name;
       t.style.fill = s.color;
+      this.coreText ||= {};
+      this.coreText[s.id] = svg("text", { x: cx, y: cy + 42, class: "lbl corepct" }, g);
     }
     this.bindView(el.querySelector(".skillview"), el.querySelector(".skilltip"));
   }
@@ -106,15 +114,23 @@ export class SkillsTab {
       this.applyView();
     }, { passive: false });
     box.addEventListener("mouseover", (e) => {
-      const id = e.target.dataset && e.target.dataset.id;
-      if (!id) { tip.hidden = true; return; }
-      tip.innerHTML = this.tipHtml(id);
+      const id = e.target.dataset && e.target.dataset.id, core = e.target.dataset && e.target.dataset.core;
+      if (!id && !core) { tip.hidden = true; return; }
+      tip.innerHTML = core ? this.coreTip(core) : this.tipHtml(id);
       tip.hidden = false;
       const r = box.getBoundingClientRect(), t = e.target.getBoundingClientRect();
       tip.style.left = Math.min(r.width - 260, Math.max(4, t.left - r.left + 16)) + "px";
       tip.style.top = Math.max(4, t.top - r.top - 10) + "px";
     });
     box.addEventListener("mouseleave", () => { tip.hidden = true; });
+  }
+
+  coreTip(sec) {
+    const S = this.game.S, c = SECTOR_CORES[sec], p = sectorProgress(S, sec), on = p.done >= p.total;
+    return `<b>${esc(c.name)}</b><div class="sub">Cœur du pétale ${esc(SECTOR[sec].name)}</div>
+      <p class="delta-p">${esc(describeEffects(c.eff))}</p>
+      <p>Allume une aura autour du héros et un feu follet qui l’accompagne.</p>
+      <div class="note">${on ? "Allumé !" : `S’allume quand tout le pétale est acquis : ${p.done} / ${p.total} nœuds.`}</div>`;
   }
 
   tipHtml(id) {
@@ -143,6 +159,13 @@ export class SkillsTab {
       const n = SKILL_TREE.nodes[id];
       const cls = `node ${n.kind} ${st}`;
       if (this.nodeEls[id].getAttribute("class") !== cls) this.nodeEls[id].setAttribute("class", cls);
+    }
+    const done = new Set(completedSectors(S));
+    for (const sec in this.coreEls) {
+      const on = done.has(sec), cls = "core" + (on ? " on" : "");
+      if (this.coreEls[sec].getAttribute("class") !== cls) this.coreEls[sec].setAttribute("class", cls);
+      const p = sectorProgress(S, sec, active), txt = on ? "Cœur allumé" : `${p.done} / ${p.total}`;
+      if (this.coreText[sec].textContent !== txt) this.coreText[sec].textContent = txt;
     }
     for (const e of this.edgeEls) {
       const cls = active.has(e.a) && active.has(e.b) ? "on" : planned.has(e.a) || planned.has(e.b) ? "" : "dim";

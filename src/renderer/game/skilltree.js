@@ -137,11 +137,34 @@ export function canTakeSkill(S, id) {
   return n.links.some((l) => chosen.has(l));
 }
 
+/**
+ * Cœurs de pétale : quand TOUS les nœuds d'un secteur sont actifs, son cœur
+ * s'allume : un bonus puissant, une aura autour du héros et un feu follet de
+ * la couleur du secteur qui tourne autour de lui.
+ */
+export const SECTOR_CORES = {
+  force:    { name: "Cœur de la Force",    eff: { atkPct: 25, bossDmg: 25 } },
+  agility:  { name: "Cœur de l’Agilité",   eff: { spd: 20, dodge: 8, moveSpd: 8 } },
+  arcane:   { name: "Cœur des Arcanes",    eff: { burn: 30, minion: 30, poison: 5 } },
+  vitality: { name: "Cœur de la Vitalité", eff: { hpPct: 30, regen: 8, shield: 10 } },
+  fortune:  { name: "Cœur de la Fortune",  eff: { gold: 50, drop: 20, xp: 15 } },
+  mastery:  { name: "Cœur de la Maîtrise", eff: { combo: 4, riposte: 10, critDmg: 25 } },
+};
+const SECTOR_NODES = {};
+for (const id in SKILL_TREE.nodes) { const s = SKILL_TREE.nodes[id].sector; if (s) (SECTOR_NODES[s] ||= []).push(id); }
+export const sectorProgress = (S, sec, active = activeSkillSet(S)) => ({ done: SECTOR_NODES[sec].filter((id) => active.has(id)).length, total: SECTOR_NODES[sec].length });
+/** Secteurs entièrement acquis (dans l'ordre de SECTORS). */
+export function completedSectors(S) {
+  const active = activeSkillSet(S);
+  return SECTORS.map((s) => s.id).filter((id) => SECTOR_NODES[id].every((n) => active.has(n)));
+}
+
 export function skillTreeEffects(S) {
   const out = {};
   for (const id of activeSkillSet(S)) {
     const eff = SKILL_TREE.nodes[id].eff;
     for (const k in eff) out[k] = (out[k] || 0) + eff[k];
   }
+  for (const sec of completedSectors(S)) for (const k in SECTOR_CORES[sec].eff) out[k] = (out[k] || 0) + SECTOR_CORES[sec].eff[k];
   return out;
 }

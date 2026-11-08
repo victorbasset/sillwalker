@@ -7,6 +7,7 @@
 // Le décor est fixe (une seule toile, redessinée au changement de zone) et
 // les personnages sont des éléments DOM déplacés par transform : voir dom.js.
 // Ce module lit l'état de la simulation sans jamais le modifier.
+import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet } from "./sprites.js";
 import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
@@ -211,6 +212,7 @@ export class StripRenderer {
     this.stage.replaceChildren();
     this.slots = []; this.slotKey = null; this.corpse = null; this.hero = null; this.heroCls = null; this.pet = null; this.petId = undefined;
     this.minion = null; this.minionKey = undefined;
+    this.wisps = []; this.coreKey = null;
     this.heroBar = new Bar(this.stage, "#6fd17f");
     this.slash = el("div", "slash", this.stage);
   }
@@ -306,6 +308,30 @@ export class StripRenderer {
   }
 
   shake(t) { if (this.active && this.game.S.settings.fullEffects !== false) this.shakeT = Math.max(this.shakeT, t); }
+
+  /**
+   * Cœurs des pétales de compétences : aura de la couleur du premier secteur
+   * complété, et un feu follet par cœur allumé qui tourne autour du héros.
+   */
+  drawCores(x, R) {
+    const S = this.game.S, key = S.skills.order.length + ":" + skillPointsTotal(S);
+    if (key !== this.coreKey) {
+      this.coreKey = key;
+      const done = completedSectors(S), colors = done.map((id) => SECTORS.find((s) => s.id === id).color);
+      for (const w of this.wisps || []) w.remove();
+      this.wisps = colors.map((c) => { const w = el("div", "wisp", this.stage); w.style.setProperty("--c", c); return w; });
+      this.hero.el.classList.toggle("cored", colors.length > 0);
+      if (colors.length) this.hero.el.style.setProperty("--aura", colors[0]);
+      mark("cores");
+    }
+    if (!this.wisps || !this.wisps.length) return;
+    const cx = x + this.hero.w / 2, cy = GROUND - this.hero.h / 2 - 4, n = this.wisps.length;
+    this.wisps.forEach((w, i) => {
+      const a = R.time * 1.6 + (i * Math.PI * 2) / n;
+      const t = `translate3d(${q(cx + Math.cos(a) * 26 - 3)}px,${q(cy + Math.sin(a) * 12 - 3)}px,0)`;
+      if (w._t !== t) { w._t = t; w.style.transform = t; w.style.zIndex = Math.sin(a) > 0 ? 3 : 1; mark("wisp"); }
+    });
+  }
 
   /* ---------- Image ---------- */
   draw(now) {
@@ -407,6 +433,7 @@ export class StripRenderer {
       this.pet.move(x - pf.cw - 4, py);
       this.pet.alpha(R.mode === "dead" ? 0.35 : 1);
     }
+    this.drawCores(x, R);
     const slashOn = melee && R.mode === "fight" && this.lunge > 0.07 && R.mon;
     if (slashOn) {
       const sx = q(this.monX() + 4);

@@ -561,3 +561,11 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .rwd { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; padding: 1px 8px 1px 2px; border: 1px solid var(--line); border-radius: 3px; background: var(--chip); }
 .rwd img { height: 22px; image-rendering: pixelated; }
 .rwd.special { border-color: #ffd34d; color: #ffe9a8; }
+
+/* Cœurs des pétales (arbre de compétences) */
+.skillsvg .core { fill: var(--panel); stroke: var(--c); stroke-width: 3; stroke-dasharray: 4 3; opacity: .8; cursor: help; }
+.skillsvg .core.on { fill: var(--c); stroke: #fff; stroke-dasharray: none; opacity: 1; filter: drop-shadow(0 0 6px var(--c)); }
+.skillsvg .corepct { fill: var(--muted); }
+/* Feux follets des cœurs, autour du héros */
+.wisp { position: absolute; left: 0; top: 0; width: 6px; height: 6px; background: var(--c); box-shadow: 0 0 6px 2px var(--c); pointer-events: none; }
+.actor.cored { filter: drop-shadow(0 0 2px var(--aura)) drop-shadow(0 0 4px var(--aura)); }

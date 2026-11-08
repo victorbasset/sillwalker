@@ -800,4 +800,14 @@ test("quêtes : étoiles, réputation de guilde, réclamation automatique", asyn
   assert.ok(g.S.guild.rep >= 30, "réputation conservée à l'ascension");
 });
 
+test("compétences : un pétale complet allume son cœur", async () => {
+  const { SKILL_TREE, completedSectors, SECTOR_CORES, skillTreeEffects } = await import("../src/renderer/game/skilltree.js");
+  const g = new Game(freshState());
+  g.S.lvl = 400; g.invalidateStats();
+  const ids = Object.keys(SKILL_TREE.nodes).filter((id) => SKILL_TREE.nodes[id].sector === "force");
+  for (let pass = 0; pass < 40; pass++) for (const id of ids) g.takeSkill(id);
+  assert.deepEqual(completedSectors(g.S), ["force"]);
+  assert.ok(skillTreeEffects(g.S).bossDmg >= SECTOR_CORES.force.eff.bossDmg);
+});
+
 console.log(`\n${pass} tests réussis`);
