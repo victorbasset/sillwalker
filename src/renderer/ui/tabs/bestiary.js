@@ -4,7 +4,8 @@ import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, besti
 import { describeEffects } from "../../game/talents.js";
 import { fmt, esc } from "../../game/format.js";
 import { monsterURL, itemIconURL } from "../../render/sprites.js";
-import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects } from "../../game/codex.js";
+import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound } from "../../game/codex.js";
+import { POWERS } from "../../game/powers.js";
 import { RARITIES, SLOTS } from "../../game/data.js";
 
 const where = (type) => {
@@ -50,7 +51,11 @@ export class BestiaryTab {
       <p class="note tabintro">Chaque type d’objet trouvé donne ${esc(describeEffects(CODEX_BONUS.found))} ; trouvé en épique ${esc(describeEffects(CODEX_BONUS.epic))} ;
       en légendaire ${esc(describeEffects(CODEX_BONUS.legendary))}. Conservé à l’ascension.
       Bonus actuel : <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : "aucun"}</b>.</p>
-      <div class="codexgrid">${cells}</div>`;
+      <div class="codexgrid">${cells}</div>
+      <h2 class="codexh">Pouvoirs légendaires <small>${powersFound(S)} / ${POWERS.length} découverts · chacun donne ${esc(describeEffects(POWER_CODEX_BONUS))}</small></h2>
+      <div class="powergrid">${POWERS.map((p) => (S.powersSeen || {})[p.id]
+        ? `<span class="chip pow" title="${esc(describeEffects(p.eff))}">★ ${esc(p.name)}</span>`
+        : `<span class="chip pow unknown">???</span>`).join("")}</div>`;
   }
 
   onAction() {}

@@ -6,6 +6,7 @@ import { MONSTERS } from "./data.js";
 import { CLASS_KEYS } from "./classes.js";
 import { setCounts } from "./sets.js";
 import { codexCounts } from "./codex.js";
+import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 
 const ULTIMATES = new Set(Object.values(TREES).flatMap((tree) => tree.flatMap((b) => b.talents.filter((t) => t.tier === 3).map((t) => t.id))));
@@ -52,6 +53,7 @@ export const ACHIEVEMENTS = [
   { id: "CODEX_ALL",       name: "Grand collectionneur (tous les objets)", test: (S) => { const c = codexCounts(S); return c.found >= c.total; } },
   { id: "EXPEDITIONS_10",  name: "Explorateurs (10 expéditions)", test: (S) => (S.stats.expeditions || 0) >= 10 },
   { id: "CHAMPION",        name: "Tueur de champion", test: (S) => (S.stats.champions || 0) >= 1 },
+  { id: "POWERS_ALL",      name: "Tous les pouvoirs légendaires", test: (S) => Object.keys(S.powersSeen || {}).length >= POWERS.length },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
 ];
 

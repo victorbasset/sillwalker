@@ -25,7 +25,7 @@ import {
   CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
 } from "./shop.js";
-import { POWERS } from "./powers.js";
+import { POWERS, POWER_INDEX } from "./powers.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js";
@@ -378,7 +378,9 @@ export class Game {
     const it = this.decorate(rollItem(this.S.nextId++, zone, minRarity));
     this.S.stats.items = (this.S.stats.items || 0) + 1;
     if (it.r === LEGENDARY) this.S.stats.legendaries++;
+    const newPower = it.power && !(this.S.powersSeen || {})[it.power];
     const fresh = codexRecord(this.S, it);
+    if (newPower) this.log(`Nouveau pouvoir légendaire découvert : ${POWER_INDEX[it.power]?.name || it.power} !`);
     if (fresh) { this.invalidateStats(); if (fresh === "new") { this.log(`Nouveau type d’objet pour la collection : ${(it.base || "").split(":")[1] || it.name} !`); this.emit("codex", { item: it }); } }
     return it;
   }
@@ -1103,7 +1105,7 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.cls,
       upgrades: old.upgrades, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, codex: old.codex, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      stats: old.stats, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));

@@ -40,6 +40,7 @@ export function freshState(now = Date.now()) {
     settings: { sound: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true },
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
+    powersSeen: {},         // pouvoirs légendaires découverts { id: true }
   };
 }
 
@@ -89,6 +90,7 @@ export function migrate(raw) {
   if (!Array.isArray(s.achievements)) s.achievements = [];
   if (!CLASSES[s.cls]) s.cls = "warrior";
   for (const k of ["talents", "buffs", "upgrades", "bestiary"]) if (!isObj(s[k])) s[k] = {};
+  if (!isObj(o.powersSeen)) { s.powersSeen = {}; for (const it of [...s.bag, ...Object.values(s.equip)]) if (it && it.power) s.powersSeen[it.power] = true; }
   if (!isObj(o.codex)) { // collection apparue après coup : on y met les objets déjà possédés
     s.codex = {};
     for (const it of [...s.bag, ...Object.values(s.equip)]) if (it) codexRecord(s, it);

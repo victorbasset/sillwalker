@@ -5,6 +5,11 @@
 //   - chaque type trouvé en épique  : +1 % d'or ;
 //   - chaque type trouvé légendaire : +1 % d'attaque.
 import { ITEM_BASES, SLOT_KEYS } from "./data.js";
+import { POWERS } from "./powers.js";
+
+/** Pouvoirs légendaires découverts : +1 % d'attaque et +1 % de PV chacun. */
+export const POWER_CODEX_BONUS = { atkPct: 1, hpPct: 1 };
+export const powersFound = (S) => POWERS.filter((p) => (S.powersSeen || {})[p.id]).length;
 
 export const CODEX_BONUS = { found: { drop: 0.5 }, epic: { gold: 1 }, legendary: { atkPct: 1 } };
 
@@ -25,6 +30,10 @@ export function itemBaseKey(it) {
 
 /** Enregistre un objet ; renvoie true si c'est une nouveauté (type ou rareté). */
 export function codexRecord(S, it) {
+  if (it.power) {
+    const P = (S.powersSeen ||= {});
+    if (!P[it.power]) { P[it.power] = true; if (itemBaseKey(it) && (S.codex || {})[itemBaseKey(it)] >= it.r) return "power"; }
+  }
   const k = itemBaseKey(it);
   if (!k) return false;
   const C = (S.codex ||= {});
@@ -40,6 +49,7 @@ export function codexEffects(S) {
   for (const k in C) { found++; if (C[k] >= 3) epic++; if (C[k] >= 4) leg++; }
   const add = (eff, n) => { if (n) for (const s in eff) out[s] = (out[s] || 0) + eff[s] * n; };
   add(CODEX_BONUS.found, found); add(CODEX_BONUS.epic, epic); add(CODEX_BONUS.legendary, leg);
+  add(POWER_CODEX_BONUS, powersFound(S));
   return out;
 }
 

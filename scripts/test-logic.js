@@ -663,4 +663,16 @@ test("achat automatique de potions", () => {
   assert.equal(migrate(JSON.parse(JSON.stringify(g.S))).autoPotions, true);
 });
 
+test("pouvoirs légendaires découverts : bonus et migration", async () => {
+  const { powersFound } = await import("../src/renderer/game/codex.js");
+  const g = new Game(freshState());
+  const atk0 = heroStats(g.S).atk;
+  for (let i = 0; i < 40; i++) g.newItem(4);
+  assert.ok(powersFound(g.S) >= 5, "pouvoirs : " + powersFound(g.S));
+  assert.ok(heroStats(g.S).atk > atk0);
+  const old = JSON.parse(JSON.stringify(g.S)); delete old.powersSeen;
+  old.bag = [{ id: 9, slot: "ring", r: 4, il: 1, plus: 0, st: { crit: 1 }, name: "Anneau d’or", power: "p_midas" }];
+  assert.ok(migrate(old).powersSeen.p_midas);
+});
+
 console.log(`\n${pass} tests réussis`);

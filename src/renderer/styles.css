@@ -417,3 +417,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .wx { width: 3px; height: 3px; opacity: 0.9; }
 .wx.tall { width: 2px; height: 6px; opacity: 0.6; }
 .wx.ring { width: 6px; height: 6px; border: 1px solid; border-radius: 50%; opacity: 0.6; }
+
+.powergrid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.chip.pow { border-color: #ffb733; color: #ffd38a; }
+.chip.pow.unknown { border-style: dashed; border-color: #3a3650; color: var(--muted); }
