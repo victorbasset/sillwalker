@@ -352,4 +352,7 @@ export default {
   1476: "{0} h cap reached: beyond that, your hero stops progressing. The Moon constellation extends it.",
   1477: "Offline progress is capped at {0} h and earns a little less than leaving the game open.",
   1478: "Your game is saved. Your hero will keep progressing offline (up to {0} h).",
+  1479: "rank {0}",
+  1480: "Expand to strip",
+  1481: "talents",
 };

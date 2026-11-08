@@ -352,4 +352,7 @@ export default {
   1476: "Grenze von {0} Std. erreicht: Darüber hinaus macht dein Held keine Fortschritte mehr. Das Sternbild Der Mond verlängert sie.",
   1477: "Der Offline-Fortschritt ist auf {0} Std. begrenzt und bringt etwas weniger, als das Spiel offen zu lassen.",
   1478: "Dein Spiel ist gespeichert. Dein Held macht offline weiter Fortschritte (bis zu {0} Std.).",
+  1479: "Rang {0}",
+  1480: "Zur Leiste vergrößern",
+  1481: "Talente",
 };

@@ -352,4 +352,7 @@ export default {
   1476: "Osiągnięto limit {0} godz.: dalej bohater nie robi postępów. Konstelacja Księżyca go wydłuża.",
   1477: "Postęp offline jest ograniczony do {0} godz. i daje nieco mniej niż pozostawienie otwartej gry.",
   1478: "Gra jest zapisana. Twój bohater będzie dalej robił postępy offline (do {0} godz.).",
+  1479: "ranga {0}",
+  1480: "Powiększ do paska",
+  1481: "talenty",
 };

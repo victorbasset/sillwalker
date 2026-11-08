@@ -1,10 +1,13 @@
 # Journal de développement
 
 Itérations autonomes : une amélioration à la fois, la plus récente en haut de « Fait ».
-Revue générale toutes les 10 itérations (prochaine : itération 11).
+Revue générale toutes les 10 itérations (prochaine : itération 21).
 
 ## Fait
 
+- 2026-11-09 (it. 11, revue générale + corrections) : textes restés en français dans les autres langues
+  corrigés : « rang 18 » des Maîtrises, case « auto » des potions, bulle « Agrandir en bande » du mode
+  mini, « talents » dans la liste de l'ascension ; plus d'espace avant « : » en anglais (« Stellar Glow: »).
 - 2026-11-09 (it. 10) : la carte « Prochain déblocage » du héros est plus lisible : le libellé a sa
   propre ligne et grossit, le nom et la progression aussi (et tiennent sur une ligne en allemand).
 - 2026-11-09 (it. 9) : le résumé d'absence et la confirmation « Quitter » donnent le vrai plafond hors
@@ -37,8 +40,13 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - P3 Anciennes clés « (s) » devenues inutilisées dans keys.js (objet(s)…) : sans effet, à laisser
   (l'ordre des clés ne doit pas bouger).
-- P2 Performance, bande visible : ~31 % d'un cœur (GPU ~20 %), 29 images/s ; mode mini ~6 %.
+- P2 Performance (revue it. 11, inchangée) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
+  icône seule <1 %. Mémoire ~560-680 Mo (Electron).
   Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
-- P3 Progression : les deux derniers déblocages arrivent à ~3 h 30 et ~6 h (zones 40 et 45). Pas un vrai
-  mur (classes libérées, constellations entre-temps), mais un déblocage vers la zone 50+ prolongerait l'objectif.
+- P2 Progression lointaine (revue it. 11, simulations 12 h guerrier/mage/rôdeur) : tous les déblocages sont
+  acquis vers 5 h 30-6 h 15 de jeu ; ensuite plus aucun objectif de boutique. Une course sur 3-4 ne bat pas
+  le record (ex. 42 → 42, 50 → 50, ~1 h). Pistes : un ou deux déblocages de fin (zones 50 et 55), ou un
+  objectif « record » visible en course (meilleure zone à battre).
+- P3 Ascension : « 540 éclats (0 gagnés au total) » sur la sauvegarde de dev : vérifier que le total suit
+  bien les éclats dans les vraies parties (sinon la Lueur stellaire serait sous-estimée).

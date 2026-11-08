@@ -66,7 +66,7 @@ export class ShopTab {
         <div class="eff">${esc(SHORT[c.id] || "")}</div>
         <div class="sub">${owned}</div>
         ${buy("s-cons", c.id, price, block)}
-        ${c.id === "potion" && !hasUnlock(S, "autoPotion") ? `<span class="note lockmini">🔒 ${tx("auto")}</span>` : ""}${c.id === "potion" && hasUnlock(S, "autoPotion") ? `<label class="toggle mini"><input type="checkbox" data-action="s-autopot"${S.autoPotions ? " checked" : ""}> auto</label>` : ""}
+        ${c.id === "potion" && !hasUnlock(S, "autoPotion") ? `<span class="note lockmini">🔒 ${tx("auto")}</span>` : ""}${c.id === "potion" && hasUnlock(S, "autoPotion") ? `<label class="toggle mini"><input type="checkbox" data-action="s-autopot"${S.autoPotions ? " checked" : ""}> ${tx("auto")}</label>` : ""}
       </div>`;
     }).join("");
 

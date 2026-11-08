@@ -1,5 +1,5 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
-import { t as tx, txn } from "../../i18n/index.js";
+import { t as tx, txn, fsp } from "../../i18n/index.js";
 import { CLASSES } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
@@ -22,11 +22,11 @@ export class AscensionTab {
     const intro = `<article class="panel ascend">
       <h2>${tx("Ascension")} <small>${txn(P.count, "{n} ascension|{n} ascensions")}</small></h2>
       <p class="shards">✦ ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${P.shards}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
-      <p><b>${tx("Lueur stellaire")}</b> ${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
+      <p><b>${tx("Lueur stellaire")}</b>${fsp()}${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone 1.")}</p>
       <div class="keeplose">
         <div><b class="delta-p">${tx("Gardé")}</b><ul><li>${tx("constellations, lueur")}</li><li>${tx("familiers, bestiaire")}</li><li>${tx("collection, pouvoirs")}</li><li>${tx("vitesse permanente")}</li><li>${tx("compétences, héros libérés")}</li><li>${tx("taille du sac")}</li></ul></div>
-        <div><b class="delta-n">${tx("Perdu")}</b><ul><li>${tx("niveau et or")}</li><li>${tx("équipement et sac")}</li><li>talents</li><li>${tx("quêtes en cours")}</li></ul></div>
+        <div><b class="delta-n">${tx("Perdu")}</b><ul><li>${tx("niveau et or")}</li><li>${tx("équipement et sac")}</li><li>${tx("talents")}</li><li>${tx("quêtes en cours")}</li></ul></div>
       </div>
       <p>${tx("Classe de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
         <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button></p>

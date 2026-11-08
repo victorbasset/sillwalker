@@ -352,4 +352,7 @@ export default {
   1476: "Límite de {0} h alcanzado: más allá, tu héroe deja de progresar. La constelación de la Luna lo amplía.",
   1477: "El progreso sin conexión está limitado a {0} h y rinde algo menos que dejar el juego abierto.",
   1478: "Tu partida está guardada. Tu héroe seguirá progresando sin conexión (hasta {0} h).",
+  1479: "rango {0}",
+  1480: "Ampliar a la banda",
+  1481: "talentos",
 };
