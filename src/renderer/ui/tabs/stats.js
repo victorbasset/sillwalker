@@ -31,7 +31,7 @@ export class StatsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}
         ${line(tx("Meilleure zone (toutes courses)"), Math.max(S.best, P.bestRun || 0))}
-        ${line(tx("Boss le plus lointain vaincu"), st.biggestBoss ? "zone " + st.biggestBoss : "—")}
+        ${line(tx("Boss le plus lointain vaincu"), st.biggestBoss ? tx("zone {0}", { 0: st.biggestBoss }) : "—")}
         ${line(tx("Vitesse permanente"), "+" + (S.speed || 0) + unit("%"))}
         ${line(tx("Ascensions"), P.count)}
       </ul></article>

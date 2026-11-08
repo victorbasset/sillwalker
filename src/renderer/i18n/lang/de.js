@@ -370,4 +370,7 @@ export default {
   1494: "Seit deinem letzten Besuch ({0})",
   1495: "Sternennetz",
   1496: "Fängt von selbst die Sternschnuppen, die du nicht rechtzeitig angeklickt hast.",
+  1497: "Zone {0}",
+  1498: "(aktuell)",
+  1499: "Aufstieg",
 };

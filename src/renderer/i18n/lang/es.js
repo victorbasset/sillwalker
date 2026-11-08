@@ -370,4 +370,7 @@ export default {
   1494: "Desde tu última visita ({0})",
   1495: "Red de estrellas",
   1496: "Atrapa por sí sola las estrellas fugaces que no hayas pulsado a tiempo.",
+  1497: "zona {0}",
+  1498: "(actual)",
+  1499: "ascensión",
 };

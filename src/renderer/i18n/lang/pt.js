@@ -370,4 +370,7 @@ export default {
   1494: "Desde sua última visita ({0})",
   1495: "Rede de estrelas",
   1496: "Pega sozinha as estrelas cadentes que você não clicou a tempo.",
+  1497: "zona {0}",
+  1498: "(atual)",
+  1499: "ascensão",
 };

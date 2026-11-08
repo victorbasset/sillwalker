@@ -370,4 +370,7 @@ export default {
   1494: "Since your last visit ({0})",
   1495: "Star Net",
   1496: "Catches on its own the shooting stars you didn't click in time.",
+  1497: "zone {0}",
+  1498: "(current)",
+  1499: "ascension",
 };

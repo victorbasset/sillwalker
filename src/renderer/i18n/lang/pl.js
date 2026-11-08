@@ -370,4 +370,7 @@ export default {
   1494: "Od twojej ostatniej wizyty ({0})",
   1495: "Sieć na gwiazdy",
   1496: "Sama łapie spadające gwiazdy, których nie kliknąłeś na czas.",
+  1497: "strefa {0}",
+  1498: "(obecna)",
+  1499: "wzniesienie",
 };

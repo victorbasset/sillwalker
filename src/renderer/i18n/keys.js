@@ -1498,5 +1498,8 @@ export const KEYS = [
   "Cliquer pour masquer",
   "Depuis ta dernière visite ({0})",
   "Filet à étoiles",
-  "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps."
+  "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps.",
+  "zone {0}",
+  "(actuelle)",
+  "ascension"
 ];
