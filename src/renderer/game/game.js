@@ -23,7 +23,7 @@ import {
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
 } from "./shop.js";
 import { POWERS } from "./powers.js";
-import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed } from "./pets.js";
+import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
@@ -910,7 +910,7 @@ export class Game {
     const P = this.S.pets;
     if (P.eggs <= 0) return null;
     P.eggs--;
-    const pet = pick(PETS), own = P.owned[pet.id];
+    const pet = rollPet(rand), own = P.owned[pet.id];
     if (!own) {
       P.owned[pet.id] = { lvl: 1, xp: 0 };
       if (!P.active) P.active = pet.id;

@@ -242,7 +242,7 @@ test("familiers : œufs, éclosion, niveau, bonus", () => {
   g.petAddXp(r.pet.id, 1e6);
   assert.equal(g.S.pets.owned[r.pet.id].lvl, 10);
   assert.ok(power(g.stats()) >= p0, "le bonus grandit avec le niveau");
-  for (let i = 0; i < 300; i++) { g.gainEgg(); g.hatchEgg(); }
+  for (let i = 0; i < 2000; i++) { g.gainEgg(); g.hatchEgg(); }
   assert.equal(Object.keys(g.S.pets.owned).length, PETS.length);
   assert.ok(reachedAchievements(g.S).includes("PETS_ALL"));
 });
@@ -492,5 +492,18 @@ test("réforge : nouveaux bonus, le reste est conservé", () => {
   const common = g.newItem(0); common.r = 0;
   assert.ok(!g.reforge(common), "pas de réforge sans bonus");
 });
+
+test("familiers : chaque familier a un dessin, les rares sont plus rares", async () => {
+  const { PET_ART } = await import("../src/renderer/render/art.js");
+  const { PETS: list, rollPet } = await import("../src/renderer/game/pets.js");
+  for (const p of list) assert.ok(PET_ART[p.id], "dessin manquant : " + p.id);
+});
+{
+  const { PETS: list, rollPet } = await import("../src/renderer/game/pets.js");
+  const { rand } = await import("../src/renderer/game/util.js");
+  const n = {};
+  for (let i = 0; i < 20000; i++) { const p = rollPet(rand); n[p.id] = (n[p.id] || 0) + 1; }
+  test("familiers : tirage pondéré", () => { assert.ok(n.phoenix < n.cat / 2, `phénix ${n.phoenix} / chaton ${n.cat}`); assert.ok(n.rabbit < n.cat); });
+}
 
 console.log(`\n${pass} tests réussis`);

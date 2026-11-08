@@ -14,7 +14,19 @@ export const PETS = [
   { id: "dragon", name: "Dragonnet",   desc: "Petit mais déjà très chaud.",            eff: { atkPct: 2, burn: 1 } },
   { id: "turtle", name: "Tortue",      desc: "Prête sa carapace.",                     eff: { defPct: 4, hpPct: 2 } },
   { id: "fairy",  name: "Fée",         desc: "Soigne les petites blessures.",          eff: { regen: 1, lifesteal: 0.5 } },
+  { id: "rabbit", name: "Lapin",       desc: "Toujours pressé : le compagnon des voyageurs. Rare.", eff: { moveSpd: 1.5 }, weight: 0.5 },
+  { id: "raven",  name: "Corbeau",     desc: "Repère les points faibles de l’ennemi.", eff: { crit: 0.8, critDmg: 3 } },
+  { id: "golemling", name: "Golem miniature", desc: "Un petit mur qui marche.",        eff: { shield: 1.5, defPct: 2 } },
+  { id: "salamander", name: "Salamandre", desc: "Laisse des traces brûlantes.",        eff: { burn: 2, poison: 0.5 } },
+  { id: "phoenix", name: "Phénix",     desc: "Un oiseau de légende. Très rare.",       eff: { atkPct: 2, hpPct: 2, regen: 0.5 }, weight: 0.25 },
 ];
+/** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
+export function rollPet(rand) {
+  const total = PETS.reduce((a, p) => a + (p.weight ?? 1), 0);
+  let x = rand() * total;
+  for (const p of PETS) { x -= p.weight ?? 1; if (x <= 0) return p; }
+  return PETS[0];
+}
 export const PET_INDEX = Object.fromEntries(PETS.map((p) => [p.id, p]));
 
 export const petXpNeed = (lvl) => Math.round(25 * Math.pow(lvl, 1.6));

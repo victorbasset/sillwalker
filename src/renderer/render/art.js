@@ -261,6 +261,21 @@ export const PET_ART = {
   turtle: { pal: { G: "#5f9a4a", D: "#3a6a2a", S: "#c9a66b", E: "#1a1a1a" }, frames: [
     ["...DDDD...", "..DGDGDD..", ".DGDGDGDSS", ".DDDDDDDSE", "..S..S.SS."],
     ["...DDDD...", "..DGDGDD..", ".DGDGDGDSS", ".DDDDDDDSE", ".S..S..S.."]] },
+  rabbit: { pal: { W: "#f4f0e8", P: "#ffb0c0", E: "#1a1a1a" }, frames: [
+    [".....W.W.", ".....P.P.", "....WWWW.", "W..WWWWEW", "WWWWWWWWP", ".WWWWWWW.", ".W.W..W.."],
+    [".....W.W.", ".....P.P.", "....WWWW.", "W.WWWWWEW", "WWWWWWWWP", "WWWWWWWW.", "W......W."]] },
+  raven: { pal: { K: "#2a2638", B: "#4a4560", Y: "#ffd34d", E: "#ff4a4a" }, fly: true, frames: [
+    ["K.......K", "KK.....KK", ".KKBBBKK.", "..KBEBY..", "...KKK...", "...K.K..."],
+    [".........", "...BBB...", "KKKBEBYKK", "KK.KKK.KK", "K..K.K..K", "........."]] },
+  golemling: { pal: { S: "#8a8f99", D: "#5c616b", E: "#7fd6ff" }, frames: [
+    [".SSSSS.", "SSESESS", "SSSSSSS", "D.SSS.D", ".SS.SS.", ".DD.DD."],
+    [".SSSSS.", "SSESESS", "SSSSSSS", ".DSSSD.", ".SS.SS.", "DD...DD"]] },
+  salamander: { pal: { R: "#e2552b", O: "#ff9a3a", E: "#1a1a1a" }, frames: [
+    ["......ROO", ".....RRRE", "RRORRORR.", ".RRRRRR..", ".O.O.O.O."],
+    ["......ROO", ".....RRRE", ".RORRORR.", "RRRRRRR..", "O.O.O.O.."]] },
+  phoenix: { pal: { R: "#e2552b", O: "#ff9a3a", Y: "#ffe27a" }, fly: true, frames: [
+    ["Y.......Y", "OY.....YO", "ROY.Y.YOR", ".ROOOOOR.", "..RRYRR..", "...ROR...", "....R...."],
+    [".........", "....Y....", "...YOY...", "YOOOOOOOY", "ORRRYRRRO", "...ROR...", "....R...."]] },
   fairy: { pal: { P: "#ff9ad8", W: "#dff3ff", S: "#f1c7a0", Y: "#ffe27a" }, fly: true, frames: [
     ["W.....W", "WW.Y.WW", "WWSSSWW", ".WPPPW.", "..PPP..", "..P.P.."],
     [".......", ".W.Y.W.", "WWSSSWW", "WWPPPWW", "..PPP..", "..P.P.."]] },
