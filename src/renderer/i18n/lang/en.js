@@ -359,4 +359,5 @@ export default {
   1483: "Forges your worn equipment on its own with spare gold (option).",
   1484: "Master Smith: {0} reaches +{1}.",
   1485: "Master Smith: forge worn equipment with spare gold",
+  1486: "record {0}",
 };

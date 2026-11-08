@@ -359,4 +359,5 @@ export default {
   1483: "Forja por sí solo el equipo que llevas con el oro sobrante (opción).",
   1484: "Maestro herrero: {0} pasa a +{1}.",
   1485: "Maestro herrero: forjar el equipo que llevas con el oro sobrante",
+  1486: "récord {0}",
 };

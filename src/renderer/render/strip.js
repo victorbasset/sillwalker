@@ -19,6 +19,7 @@ import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
+import { recordZone } from "../game/unlocks.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
 // Répliques du héros, par circonstance.
@@ -553,14 +554,17 @@ export class StripRenderer {
 
   /* ---------- ATH (redessinés seulement quand le texte change) ---------- */
   drawHudLeft() {
-    const S = this.game.S, label = tx("Zone ") + S.zone + "  " + this.game.zoneName(), key = label + "|" + S.kills;
+    const S = this.game.S, label = tx("Zone ") + S.zone + "  " + this.game.zoneName();
+    // Record à battre (toutes courses confondues), tant que la course actuelle est en dessous.
+    const rec = recordZone(S), recTxt = S.zone < rec ? tx("record {0}", { 0: rec }) : "";
+    const key = label + "|" + S.kills + "|" + recTxt;
     if (key === this.hudLKey) return;
     this.hudLKey = key; mark("hud");
     const ctx = this.hudL.ctx;
     ctx.clearRect(0, 0, HUD_L_W, HUD_H);
     ctx.font = FONT;
-    const lw0 = ctx.measureText(label).width;
-    drawPill(ctx, 3, Math.min(HUD_L_W - 2, 14 + lw0 + 6 + KILLS_PER_ZONE * 9 + 18), HUD_H);
+    const lw0 = ctx.measureText(label).width, rw = recTxt ? ctx.measureText(recTxt).width + 10 : 0;
+    drawPill(ctx, 3, Math.min(HUD_L_W - 2, 14 + lw0 + 6 + KILLS_PER_ZONE * 9 + 18 + rw), HUD_H);
     drawText(ctx, label, 10, 17, "#ffffff");
     ctx.font = FONT;
     let px = 14 + ctx.measureText(label).width + 6;
@@ -568,6 +572,7 @@ export class StripRenderer {
     ctx.fillStyle = OUTLINE; ctx.fillRect(px + 1, 6, 12, 12);
     ctx.fillStyle = S.kills >= KILLS_PER_ZONE ? "#ff6b5a" : "#6b3040"; ctx.fillRect(px + 2, 7, 10, 10);
     ctx.fillStyle = OUTLINE; ctx.fillRect(px + 4, 10, 2, 2); ctx.fillRect(px + 8, 10, 2, 2);
+    if (recTxt) drawText(ctx, recTxt, px + 20, 17, "#a29ec2");
   }
 
   drawHudRight() {

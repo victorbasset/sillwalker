@@ -1487,5 +1487,6 @@ export const KEYS = [
   "Maître de forge",
   "Forge tout seul l’équipement porté avec l’or en trop (option).",
   "Maître de forge : {0} passe à +{1}.",
-  "Maître de forge : forger l’équipement porté avec l’or en trop"
+  "Maître de forge : forger l’équipement porté avec l’or en trop",
+  "record {0}"
 ];

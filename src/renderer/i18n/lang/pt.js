@@ -359,4 +359,5 @@ export default {
   1483: "Forja sozinho o equipamento usado com o ouro de sobra (opção).",
   1484: "Mestre ferreiro: {0} passa para +{1}.",
   1485: "Mestre ferreiro: forjar o equipamento usado com o ouro de sobra",
+  1486: "recorde {0}",
 };

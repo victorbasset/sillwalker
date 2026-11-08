@@ -359,4 +359,5 @@ export default {
   1483: "Schmiedet die getragene Ausrüstung selbstständig mit überschüssigem Gold (Option).",
   1484: "Schmiedemeister: {0} steigt auf +{1}.",
   1485: "Schmiedemeister: getragene Ausrüstung mit überschüssigem Gold schmieden",
+  1486: "Rekord {0}",
 };

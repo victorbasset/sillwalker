@@ -359,4 +359,5 @@ export default {
   1483: "Sam ulepsza noszony ekwipunek za nadmiar złota (opcja).",
   1484: "Mistrz kowalski: {0} osiąga +{1}.",
   1485: "Mistrz kowalski: ulepszaj noszony ekwipunek za nadmiar złota",
+  1486: "rekord {0}",
 };
