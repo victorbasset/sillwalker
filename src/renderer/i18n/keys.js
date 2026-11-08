@@ -1376,5 +1376,8 @@ export const KEYS = [
   "Hurle-Givre",
   "Un conseil t’attend : clique pour agrandir.",
   "{0} : vide",
-  "Ton héros et son équipement"
+  "Ton héros et son équipement",
+  "À chaque niveau, dépenser tout seul",
+  "Dépenser automatiquement",
+  "Prolonge le pétale le plus avancé, nœuds remarquables d’abord."
 ];

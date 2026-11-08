@@ -37,6 +37,9 @@ export class SkillsTab {
         <h2>${tx("Compétences")} <small>${SKILL_NODE_COUNT} ${tx("nœuds")}</small></h2>
         <p class="skpts"></p>
         <p class="note">${tx("1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).\n        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.")}</p>
+        <div class="row"><button data-action="k-auto" class="primary">${tx("Dépenser automatiquement")}</button></div>
+        <label class="toggle"><input type="checkbox" data-action="k-autoon"> ${tx("À chaque niveau, dépenser tout seul")}</label>
+        <p class="note tight">${tx("Prolonge le pétale le plus avancé, nœuds remarquables d’abord.")}</p>
         <div class="row">
           <button data-action="k-undo" class="quiet">${tx("Annuler le dernier")}</button>
           <button data-action="k-reset" class="quiet">${tx("Tout réinitialiser")}</button>
@@ -176,6 +179,9 @@ export class SkillsTab {
     const eff = skillTreeEffects(S);
     const lines = Object.keys(eff).map((k) => `<li><span>${esc(describeEffects({ [k]: eff[k] }))}</span></li>`).join("");
     this.el.querySelector(".sktotal").innerHTML = lines || `<li><span class="note">${tx("Aucun pour l’instant : commence près de l’origine.")}</span></li>`;
+    const auto = this.el.querySelector('[data-action="k-auto"]');
+    auto.disabled = free <= 0; auto.classList.toggle("primary", free > 0);
+    this.el.querySelector('[data-action="k-autoon"]').checked = !!S.settings.autoSkills;
     const reset = this.el.querySelector('[data-action="k-reset"]');
     reset.textContent = this.armedReset ? tx("Confirmer la réinitialisation") : tx("Tout réinitialiser");
     reset.classList.toggle("danger", this.armedReset);
@@ -184,6 +190,8 @@ export class SkillsTab {
   onAction(a, b) {
     const g = this.game;
     if (a === "k-take") { if (!this.dragged) g.takeSkill(b.dataset.id); }
+    else if (a === "k-auto") g.autoSpendSkills();
+    else if (a === "k-autoon") { g.S.settings.autoSkills = b.checked; if (b.checked) g.autoSpendSkills(); g.changed(); }
     else if (a === "k-undo") g.undoSkill();
     else if (a === "k-center") this.center();
     else if (a === "k-reset") {

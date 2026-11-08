@@ -248,4 +248,7 @@ export default {
   1372: "Ein Tipp wartet: zum Vergrößern klicken.",
   1373: "{0}: leer",
   1374: "Dein Held und seine Ausrüstung",
+  1375: "Bei jeder Stufe selbst verteilen",
+  1376: "Automatisch verteilen",
+  1377: "Erweitert das am weitesten entwickelte Blatt, besondere Knoten zuerst.",
 };

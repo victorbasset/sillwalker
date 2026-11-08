@@ -248,4 +248,7 @@ export default {
   1372: "A tip is waiting: click to enlarge.",
   1373: "{0}: empty",
   1374: "Your hero and their gear",
+  1375: "Spend on my own at every level",
+  1376: "Spend automatically",
+  1377: "Extends your most advanced petal, notable nodes first.",
 };

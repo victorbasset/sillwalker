@@ -248,4 +248,7 @@ export default {
   1372: "Uma dica espera por você: clique para ampliar.",
   1373: "{0}: vazio",
   1374: "Seu herói e o equipamento dele",
+  1375: "Gastar sozinho a cada nível",
+  1376: "Gastar automaticamente",
+  1377: "Estende a pétala mais avançada, nós notáveis primeiro.",
 };

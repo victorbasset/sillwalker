@@ -33,7 +33,7 @@ import { POWERS, POWER_INDEX } from "./powers.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
-import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
+import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
 import { bossMechanics, bossName } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
@@ -401,6 +401,8 @@ export class Game {
       this.invalidateStats();
       this.R.hp = this.stats().hp;
       this.emit("levelUp", { lvl: S.lvl });
+      if (S.settings.autoTalents) this.autoSpendTalents();
+      if (S.settings.autoSkills) this.autoSpendSkills();
       this.log(tx("Ton héros passe au niveau ") + S.lvl + tx(" (+1 point de talent)."));
       this.changed();
     }
@@ -1310,6 +1312,28 @@ export class Game {
     if (n.kind === "keystone") this.log(tx("Clé de voûte : ") + n.name + " !");
     this.changed();
     return true;
+  }
+
+  /**
+   * Dépense automatiquement les points de compétence : prolonge le secteur où
+   * le joueur a le plus de nœuds (ou Force au départ), clés de voûte et nœuds
+   * remarquables accessibles d'abord.
+   */
+  autoSpendSkills() {
+    const S = this.S, active = activeSkillSet(S);
+    let n = 0;
+    for (let guard = 0; guard < 400 && skillPointsFree(S) > 0; guard++) {
+      const count = {};
+      for (const id of active) { const s = SKILL_TREE.nodes[id].sector; if (s) count[s] = (count[s] || 0) + 1; }
+      const fav = Object.keys(count).sort((a, b) => count[b] - count[a])[0];
+      const avail = Object.keys(SKILL_TREE.nodes).filter((id) => canTakeSkill(S, id));
+      if (!avail.length) break;
+      const score = (id) => { const nd = SKILL_TREE.nodes[id]; return (nd.sector === fav ? 0 : 10) + (nd.kind === "keystone" ? -3 : nd.kind === "notable" ? -2 : 0); };
+      avail.sort((a, b) => score(a) - score(b));
+      if (!this.takeSkill(avail[0])) break;
+      active.add(avail[0]); n++;
+    }
+    return n;
   }
 
   /** Retire le dernier nœud choisi (seul un nœud « feuille » peut partir sans casser le chemin). */

@@ -60,6 +60,7 @@ export class TalentsTab {
     const head = `<article class="panel tdetail">
       <h2>${esc(g.classDef().name)} <small>${free} ${tx("/ {0} point{1} libre{2}", { 0: total, 1: total > 1 ? "s" : "", 2: free > 1 ? "s" : "" })}</small></h2>
       <div class="row"><button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button></div>
+      <label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>
       ${canVoie ? `<p class="note warnline">${tx("✦ Une voie est disponible : choisis-la dans le cadre « Voie ».")}</p>` : ""}
       <p class="note">${tx("Clic sur un talent : +1 rang · « max » : autant que possible. Survole un talent pour voir son effet.")}</p>
       <div id="tsel">${this.detailHTML()}</div>
@@ -111,6 +112,7 @@ export class TalentsTab {
       else { this.armed = b.dataset.id; setTimeout(() => { if (this.armed === b.dataset.id) { this.armed = null; g.changed(); } }, 4000); }
     }
     else if (a === "t-auto") g.autoSpendTalents();
+    else if (a === "t-autoon") { g.S.settings.autoTalents = b.checked; if (b.checked) g.autoSpendTalents(); g.changed(); }
     else if (a === "t-reset") g.resetTalents();
   }
 

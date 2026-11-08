@@ -248,4 +248,7 @@ export default {
   1372: "Te espera un consejo: haz clic para ampliar.",
   1373: "{0}: vacío",
   1374: "Tu héroe y su equipo",
+  1375: "Gastar solo en cada nivel",
+  1376: "Gastar automáticamente",
+  1377: "Amplía el pétalo más avanzado, primero los nodos notables.",
 };

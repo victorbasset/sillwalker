@@ -248,4 +248,7 @@ export default {
   1372: "Czeka wskazówka: kliknij, aby powiększyć.",
   1373: "{0}: puste",
   1374: "Twój bohater i jego ekwipunek",
+  1375: "Wydawaj sam przy każdym poziomie",
+  1376: "Wydaj automatycznie",
+  1377: "Rozwija najbardziej zaawansowany płatek, najpierw węzły znaczące.",
 };

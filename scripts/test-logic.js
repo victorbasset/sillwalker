@@ -868,4 +868,17 @@ test("conseil : héros bloqué près du record, une fois par course", async () =
   assert.equal(nextHint(g)?.id, "stuck", "de nouveau à la course suivante");
 });
 
+test("dépense automatique : compétences et talents à chaque niveau", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 30; g.invalidateStats();
+  const free0 = skillPointsFree(g.S);
+  assert.ok(free0 > 0);
+  assert.equal(g.autoSpendSkills(), free0);
+  assert.equal(skillPointsFree(g.S), 0);
+  g.S.settings.autoTalents = g.S.settings.autoSkills = true;
+  g.gainXp(1e9);
+  assert.equal(skillPointsFree(g.S), 0, "points de compétence dépensés au passage de niveau");
+  assert.equal(g.talentPointsFree(), 0, "points de talent dépensés au passage de niveau");
+});
+
 console.log(`\n${pass} tests réussis`);
