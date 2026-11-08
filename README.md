@@ -17,6 +17,9 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   Vitalité, Fortune, Maîtrise), 24 nœuds remarquables, 6 clés de voûte. 1 point tous les 2 niveaux + points
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux.
 - **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout, une Voie au choix et des Maîtrises sans limite (aucun point perdu). 1 point par niveau, un clic par rang.
+- **Déblocages** (boutique, permanents) : 13 automatismes et fonctionnalités à acheter, chacun demandant une zone record
+  (1 → 45) et de l’or : boutons groupés, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
+  quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes. Liste dans `game/unlocks.js`.
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
   sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
 - **28 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier…),
