@@ -522,6 +522,8 @@ export class Game {
     const S = this.S, R = this.R;
     R.mode = "dead"; R.deadT = 2.5; R.mon = null;
     S.stats.deaths++; R.deaths++;
+    // Défaites près du record : sert à suggérer une ascension quand le héros bloque.
+    if (S.zone >= S.best - 1) (R.wallDeaths ||= []).push(R.time);
     this.emit("heroDown");
     if (R.deaths >= 2 && S.zone > 1) {
       S.zone--; R.deaths = 0; S.kills = 0;

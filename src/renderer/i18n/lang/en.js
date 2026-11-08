@@ -234,4 +234,5 @@ export default {
   1358: "{0} monsters",
   1359: "{0} chests",
   1360: "{0} chest",
+  1361: "Your hero is stuck near their record. An ascension would bring {0} star shards and make them much stronger. Click here.",
 };

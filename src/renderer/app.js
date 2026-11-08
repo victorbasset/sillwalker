@@ -192,7 +192,7 @@ async function boot() {
     if (mode !== "strip" || panelOpen || !toast.hidden || Date.now() < toastUntil) return;
     const h = nextHint(game);
     if (!h) return;
-    markHint(game, h.id);
+    markHint(game, h.key);
     showToast(`<span class="hint">💡</span> ${esc(h.text)}`, h.tab ? () => { openPanel(); panel.setTab(h.tab); } : null, 14000);
   }
 

@@ -852,4 +852,20 @@ test("panoplies : le nom sauvegardé reste en français, même créé dans une a
   assert.equal(S.bag[1].name, "Épée de fer " + fr);
 });
 
+test("conseil : héros bloqué près du record, une fois par course", async () => {
+  const { nextHint, markHint } = await import("../src/renderer/ui/hints.js");
+  const g = new Game(freshState());
+  g.S.best = g.S.zone = 30; g.S.prestige.count = 1;
+  g.S.settings.hints = Object.fromEntries(["welcome", "upgrade", "talent", "skills", "quest", "egg", "shop", "ascend", "expedition", "codex", "classes"].map((k) => [k, true]));
+  g.talentPointsFree = () => 0; g.hasUpgradeCached = () => false; g.questsReady = () => 0;
+  for (let i = 0; i < 4; i++) { g.R.time += 10; g.heroDown(); g.S.zone = 30; }
+  const h = nextHint(g);
+  assert.equal(h && h.id, "stuck");
+  assert.match(h.text, /\d/);
+  markHint(g, h.key);
+  assert.notEqual(nextHint(g)?.id, "stuck", "déjà vu pour cette course");
+  g.S.prestige.count = 2;
+  assert.equal(nextHint(g)?.id, "stuck", "de nouveau à la course suivante");
+});
+
 console.log(`\n${pass} tests réussis`);

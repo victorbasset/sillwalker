@@ -22,7 +22,7 @@ export class AscensionTab {
     const intro = `<article class="panel ascend">
       <h2>${tx("Ascension")} <small>${P.count} ascension${P.count > 1 ? "s" : ""}</small></h2>
       <p class="shards">✦ <b>${P.shards}</b> ${tx("éclat{0} d’étoile", { 0: P.shards > 1 ? "s" : "" })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
-      <p><b>${tx("Lueur stellaire")}</b> ${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: P.bestRun })}</span>` : "" })}</p>
+      <p><b>${tx("Lueur stellaire")}</b> ${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone 1.")}</p>
       <div class="keeplose">
         <div><b class="delta-p">${tx("Gardé")}</b><ul><li>${tx("constellations, lueur")}</li><li>${tx("familiers, bestiaire")}</li><li>${tx("collection, pouvoirs")}</li><li>${tx("vitesse permanente")}</li><li>${tx("compétences, héros libérés")}</li><li>${tx("taille du sac")}</li></ul></div>

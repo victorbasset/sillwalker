@@ -234,4 +234,5 @@ export default {
   1358: "potwory: {0}",
   1359: "skrzynie: {0}",
   1360: "skrzynia: {0}",
+  1361: "Twój bohater utknął blisko rekordu. Wniebowstąpienie dałoby odłamki gwiazd ({0}) i znacznie by go wzmocniło. Kliknij tutaj.",
 };

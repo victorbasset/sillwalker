@@ -234,4 +234,5 @@ export default {
   1358: "{0} monstros",
   1359: "{0} baús",
   1360: "{0} baú",
+  1361: "Seu herói está travado perto do recorde. Uma ascensão renderia {0} fragmentos de estrela e o deixaria muito mais forte. Clique aqui.",
 };

@@ -1362,5 +1362,6 @@ export const KEYS = [
   "Encore un niveau !",
   "{0} monstres",
   "{0} coffres",
-  "{0} coffre"
+  "{0} coffre",
+  "Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici."
 ];

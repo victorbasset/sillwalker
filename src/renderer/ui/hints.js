@@ -2,7 +2,7 @@
 // devient utile, dans la bulle de la bande. Un clic ouvre l'onglet concerné.
 // Les conseils déjà vus sont retenus dans S.settings.hints.
 import { t as tx } from "../i18n/index.js";
-import { ASCEND_MIN_ZONE } from "../game/prestige.js";
+import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
 import { skillPointsFree } from "../game/skilltree.js";
 
 /** { id, text, tab, when(game) } — dans l'ordre de priorité. */
@@ -29,15 +29,22 @@ export const HINTS = [
     when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
   { id: "classes", tab: "class", text: tx("D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de classe en faisant une ascension."),
     when: (g) => g.S.best >= 2 && (g.S.classesUnlocked || []).length <= 1 },
+  { id: "stuck", tab: "ascension", text: null, perRun: true,
+    textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),
+    when: (g) => g.canAscend() && g.S.prestige.count > 0 && (g.R.wallDeaths || []).filter((t) => g.R.time - t < 900).length >= 4 },
   { id: "tap", tab: null, text: tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"),
     when: (g) => g.S.stats.kills >= 40 && !(g.S.stats.taps > 0) },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
     when: (g) => (g.S.speed || 0) > 0 },
 ];
 
+/** Clé « déjà vu » : une fois pour toutes, ou une fois par course (perRun). */
+const hintKey = (game, h) => (h.perRun ? h.id + ":" + game.S.prestige.count : h.id);
+
 /** Prochain conseil à montrer (ou null), sans le marquer comme vu. */
 export function nextHint(game) {
   const seen = (game.S.settings.hints ||= {});
-  return HINTS.find((h) => !seen[h.id] && h.when(game)) || null;
+  const h = HINTS.find((x) => !seen[hintKey(game, x)] && x.when(game));
+  return h ? { ...h, key: hintKey(game, h), text: h.textFn ? h.textFn(game) : h.text } : null;
 }
 export const markHint = (game, id) => { (game.S.settings.hints ||= {})[id] = true; };

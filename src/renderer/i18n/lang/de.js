@@ -234,4 +234,5 @@ export default {
   1358: "{0} Monster",
   1359: "{0} Truhen",
   1360: "{0} Truhe",
+  1361: "Dein Held kommt bei seinem Rekord nicht weiter. Ein Aufstieg brächte {0} Sternensplitter und würde ihn viel stärker machen. Klicke hier.",
 };
