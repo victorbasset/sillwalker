@@ -11,6 +11,19 @@ export const BOSS_MECHANICS = {
 };
 const ORDER = ["enrage", "smash", "shell", "regen"];
 
+/** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */
+export const BOSS_NAMES = [
+  "Morille la Ronde", "Bave-Reine", "Os-le-Roi", "Gluant des tourbières", "Le Forgeron d’Os",
+  "Dard-de-Sable", "Croc-Blanc l’Ancien", "Mâchoire Verte", "Gardien des Nuées", "Seigneur Cornu",
+  "La Veuve des Égouts", "Pharaon Sans-Nom", "Grand Yéti", "Mère des Harpies", "Cœur-de-Lave",
+  "Pince-Abysse", "Le Chevalier Noir", "Colosse de Cristal",
+];
+/** Nom du boss de la zone z (titre « l'Éveillé » à partir de la 2e boucle). */
+export function bossName(z) {
+  const i = (z - 1) % ZONES.length, loop = Math.floor((z - 1) / ZONES.length);
+  return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? " l’Éveillé" : loop >= 2 ? " l’Ancestral " + "+".repeat(loop - 1) : "");
+}
+
 /** Capacités du boss de la zone z. */
 export function bossMechanics(z) {
   const i = (z - 1) % ORDER.length, list = [ORDER[i]];

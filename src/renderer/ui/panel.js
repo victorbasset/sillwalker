@@ -23,7 +23,7 @@ import { POWER_INDEX } from "../game/powers.js";
 import { describeEffects } from "../game/talents.js";
 import { SETS, setCounts } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
-import { BOSS_MECHANICS, bossMechanics } from "../game/bosses.js";
+import { BOSS_MECHANICS, bossMechanics, bossName } from "../game/bosses.js";
 
 const $ = (root, s) => root.querySelector(s);
 /** Lignes « pouvoir légendaire » et « panoplie » d'un objet (ou rien). */
@@ -327,7 +327,7 @@ export class Panel {
     $(this.root, "#p-zone").innerHTML = `<h2>Zone ${S.zone} <small>record : ${S.best}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
       <p class="note tight">${esc(list)} : ~${fmt(b.hp)} PV. Boss (${esc(MONSTERS[Z.boss].name.toLowerCase())}) : ${fmt(bb.hp)} PV.</p>
-      <p class="note tight bossmech">Capacité${bossMechanics(S.zone).length > 1 ? "s" : ""} du boss : ${bossMechanics(S.zone).map((id) => `<b title="${esc(BOSS_MECHANICS[id].desc)}">${esc(BOSS_MECHANICS[id].name)}</b>`).join(", ")}.</p>
+      <p class="note tight bossmech">Boss : <b class="bname">${esc(bossName(S.zone))}</b>. Capacité${bossMechanics(S.zone).length > 1 ? "s" : ""} du boss : ${bossMechanics(S.zone).map((id) => `<b title="${esc(BOSS_MECHANICS[id].desc)}">${esc(BOSS_MECHANICS[id].name)}</b>`).join(", ")}.</p>
       <div class="kv"><span>Avant le boss</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> Passer à la zone suivante après le boss</label>
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>Zone précédente</button>

@@ -82,7 +82,10 @@ function start() {
     ipcMain.handle("panel:set", (_e, open) => strip.setPanelOpen(open));
     ipcMain.on("mode:set", (_e, mode) => strip.setMode(String(mode)));
     ipcMain.on("app:quit", () => app.quit());
-    ipcMain.on("hero:status", (_e, st) => trayCtl && trayCtl.setStatus(st));
+    ipcMain.on("hero:status", (_e, st) => {
+      if (trayCtl) trayCtl.setStatus(st);
+      if (st && st.lvl) steam.setPresence(st);
+    });
     // Réglages de fenêtre depuis le panneau (mêmes actions que le menu de l'icône)
     const { loginItemOptions } = require("./tray");
     ipcMain.handle("win:get", () => ({ openAtLogin: app.getLoginItemSettings(loginItemOptions()).openAtLogin }));

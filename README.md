@@ -143,8 +143,10 @@ après une mise en veille du PC.
    `QUESTS_25`, `GOBLIN`, `BESTIARY_ALL`, `FULL_SET`, `FEATHER`, `SHOOTING_STAR`, `SPEED_25`, `SKILL_KEYSTONE`, `SKILL_100`, `MASTER_OF_ALL`, `ALL_CLASSES` (liste dans `game/achievements.js`), puis publier.
 3. Steamworks → Steam Cloud : activer, quota (1 fichier, quelques dizaines de Ko suffisent).
    Le jeu écrit `save.json` via l'API Cloud (toutes les 5 min et à la fermeture) et prend la plus récente au lancement.
-4. Option : `STEAM_RELAUNCH_IF_NEEDED: true` pour que Steam relance le jeu s'il est ouvert hors Steam.
-5. Dépôt : envoyer le contenu de `dist/win-unpacked/`, exécutable `Sillwalker.exe`.
-6. Signature de code : non configurée (facultative pour Steam, réduit les alertes SmartScreen hors Steam).
+4. Rich presence : dans Steamworks → Rich Presence, ajouter un fichier de localisation (français) avec
+   `"#Status" "Zone %zone% · Niveau %level% · %class%"`. Le jeu renseigne `zone`, `level`, `class`.
+5. Option : `STEAM_RELAUNCH_IF_NEEDED: true` pour que Steam relance le jeu s'il est ouvert hors Steam.
+6. Dépôt : envoyer le contenu de `dist/win-unpacked/`, exécutable `Sillwalker.exe`.
+7. Signature de code : non configurée (facultative pour Steam, réduit les alertes SmartScreen hors Steam).
 
 Sans Steam (dev ou Steam fermé) le jeu tourne normalement : les succès sont journalisés et renvoyés à Steam au prochain lancement avec Steam.

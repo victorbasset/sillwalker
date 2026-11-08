@@ -48,6 +48,11 @@ export class Juice {
       this.flash("#9fd8ff", 0.25);
     });
     g.on("star", () => this.spawnStar());
+    g.on("spawn", (m) => {
+      if (!m.boss) return;
+      this.banner(`⚔ ${m.name || "Boss"} approche !`, "#ff7a6b", this.s.monX() - 120, true);
+      if (this.full) this.flash("#ff4a4a", 0.15);
+    });
     g.on("starMissed", () => this.removeStar());
     g.on("starCaught", ({ gold }) => {
       const p = this.starPos();

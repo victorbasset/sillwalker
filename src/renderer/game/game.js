@@ -28,7 +28,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP } from "./events.js";
-import { bossMechanics } from "./bosses.js";
+import { bossMechanics, bossName } from "./bosses.js";
 import { rand, rnd, pick } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
@@ -325,7 +325,8 @@ export class Game {
     const b = monsterBase(this.S.zone, boss, slot.type, slot.elite);
     const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
-      mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null });
+      mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null,
+      name: boss ? bossName(this.S.zone) : null });
     this.applyAffix(mon);
     return mon;
   }
@@ -420,7 +421,7 @@ export class Game {
         S.best = Math.max(S.best, S.zone);
         this.emit("zoneUp", { zone: S.zone, record });
         this.questProgress("zone", 0);
-        this.log("Boss vaincu ! En route vers : " + zoneName(S.zone) + ".");
+        this.log(`${m.name || "Boss"} vaincu ! En route vers : ${zoneName(S.zone)}.`);
       } else this.log("Boss vaincu ! Ton héros reste farmer ici.");
       S.kills = 0;
       R.lineupZone = 0; // nouvelle série de monstres
