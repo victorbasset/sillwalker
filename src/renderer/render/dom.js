@@ -41,8 +41,19 @@ export function mix(a, b, t) {
 export function drawText(ctx, t, x, y, col, align, font = FONT) {
   ctx.font = font;
   ctx.textAlign = align || "left";
-  ctx.lineWidth = 3; ctx.strokeStyle = OUTLINE; ctx.strokeText(t, x, y);
+  ctx.lineWidth = 2; ctx.strokeStyle = OUTLINE; ctx.strokeText(t, x, y);
   ctx.fillStyle = col; ctx.fillText(t, x, y);
+}
+
+/** Fond sombre arrondi derrière l'ATH : lisible sur tous les décors (neige, désert…). */
+export function drawPill(ctx, x0, x1, h) {
+  ctx.fillStyle = "rgba(20, 18, 31, 0.72)";
+  const r = 4, y0 = 1, y1 = h - 1;
+  ctx.beginPath();
+  ctx.moveTo(x0 + r, y0); ctx.lineTo(x1 - r, y0); ctx.quadraticCurveTo(x1, y0, x1, y0 + r);
+  ctx.lineTo(x1, y1 - r); ctx.quadraticCurveTo(x1, y1, x1 - r, y1); ctx.lineTo(x0 + r, y1);
+  ctx.quadraticCurveTo(x0, y1, x0, y1 - r); ctx.lineTo(x0, y0 + r); ctx.quadraticCurveTo(x0, y0, x0 + r, y0);
+  ctx.fill();
 }
 
 /** Pièce d'or en pixel art. */

@@ -46,7 +46,7 @@ const TABS = [
   { id: "skills", label: "Compétences", prefix: "k-" },
   { id: "quests", label: "Quêtes", prefix: "q-" },
   { id: "shop", label: "Boutique", prefix: "s-" },
-  { id: "pets", label: "Familiers", prefix: "p-" },
+  { id: "pets", label: "Familiers", prefix: "p-", group: true },
   { id: "class", label: "Classe", prefix: "c-" },
   { id: "ascension", label: "Ascension", prefix: "a-" },
   { id: "bestiary", label: "Bestiaire", prefix: "b-" },
@@ -113,10 +113,9 @@ export class Panel {
     this.root.innerHTML = `
       <header class="ptop">
         <h1>Sillwalker</h1>
-        <nav class="tabs" role="tablist">${TABS.map((t, i) => `<button role="tab" data-tab="${t.id}" title="Raccourci : ${"1234567890-"[i]}" aria-selected="${t.id === this.tab}">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
+        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="Raccourci : ${"1234567890-"[i]}" aria-selected="${t.id === this.tab}">${t.label}<span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
         <div class="controls">
           ${dev}
-          <button data-action="reset" class="quiet">Recommencer</button>
           <button data-action="mini" class="quiet" title="Réduire en petit encart près de l’horloge">Mode mini</button>
           <button data-action="quit" class="quiet quit" title="Quitter Sillwalker (la partie est sauvegardée)">Quitter</button>
           <button data-action="close" class="close" aria-label="Fermer le panneau" title="Fermer (Échap)">✕</button>
@@ -285,9 +284,10 @@ export class Panel {
       const it = S.bag[i];
       cells.push(it ? this.slotBtn(it, it.slot, "bag") : `<div class="slot emptyslot" aria-hidden="true"></div>`);
     }
-    $(this.root, "#p-bag").innerHTML = `<h2>Sac <small>${S.bag.length} / ${S.bagSize}</small></h2><div class="bag">${cells.join("")}</div>
+    const full = S.bag.length >= S.bagSize;
+    $(this.root, "#p-bag").innerHTML = `<h2>Sac <small${full ? ` class="warn" title="Sac plein : les nouveaux objets sont vendus automatiquement. Vends ou transmute pour faire de la place."` : ""}>${full ? "plein · " : ""}${S.bag.length} / ${S.bagSize}</small></h2><div class="bag">${cells.join("")}</div>
       <div class="row"><button data-action="sellless"${useless.length ? "" : " disabled"} title="Vend tout ce qui n’est pas plus puissant que ton équipement actuel. Les légendaires sont toujours gardés.">Vendre ce qui ne m’améliore pas${useless.length ? ` (${useless.length} · ${fmt(uselessGold)} or)` : ""}</button>
-      <button data-action="autoequip"${this.game.hasUpgrade() ? "" : " disabled"}>Équiper le meilleur</button>
+      <button data-action="autoequip"${this.game.hasUpgrade() ? ` class="primary"` : " disabled"}>Équiper le meilleur${this.game.hasUpgrade() ? " ▲" : ""}</button>
       <button data-action="transmute"${tr.made ? "" : " disabled"} title="3 objets inutiles d’une même rareté → 1 objet de la rareté au-dessus (jusqu’à légendaire).">Transmuter${tr.made ? ` (${tr.made} nouveau${tr.made > 1 ? "x" : ""})` : " (3 → 1)"}</button></div>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="common"${S.autoSell.common ? " checked" : ""}> Vendre les communs dès qu’ils tombent</label>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="uncommon"${S.autoSell.uncommon ? " checked" : ""}> Vendre les peu communs dès qu’ils tombent</label>
@@ -342,15 +342,15 @@ export class Panel {
     const list = names.length > 1 ? names.slice(0, -1).join(", ") + " et " + names[names.length - 1].toLowerCase() : names[0];
     $(this.root, "#p-zone").innerHTML = `<h2>Zone ${S.zone} <small>record : ${S.best}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
-      <p class="note tight">${esc(list)} : ~${fmt(b.hp)} PV. Boss (${esc(MONSTERS[Z.boss].name.toLowerCase())}) : ${fmt(bb.hp)} PV.</p>
+      <p class="note tight" title="${esc(list)}">${names.length} types de monstres, ~${fmt(b.hp)} PV. Boss (${esc(MONSTERS[Z.boss].name.toLowerCase())}) : ${fmt(bb.hp)} PV.</p>
       <p class="note tight bossmech">Boss : <b class="bname">${esc(bossName(S.zone))}</b>. Capacité${bossMechanics(S.zone).length > 1 ? "s" : ""} du boss : ${bossMechanics(S.zone).map((id) => `<b title="${esc(BOSS_MECHANICS[id].desc)}">${esc(BOSS_MECHANICS[id].name)}</b>`).join(", ")}.</p>
       <div class="kv"><span>Avant le boss</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> Passer à la zone suivante après le boss</label>
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>Zone précédente</button>
       <button data-action="znext"${S.zone < S.best ? "" : " disabled"}>Zone suivante</button></div>
-      <h3>Chances de butin</h3>
+      <details class="rates-box"><summary>Chances de butin</summary>
       <p class="note tight">${Math.round(DROP_CHANCE * 100)}${NB}% par monstre, 100${NB}% sur le boss (rare minimum) et sur les élites dorés (${Math.round(ELITE.chance * 100)}${NB}% des monstres, or ×${ELITE.gold}). Si un objet tombe, sa rareté suit ce tableau :</p>
-      <table class="rates">${rows}</table><p class="note">Ces taux sont fixes et identiques pour tout le monde. Élites vaincus : ${S.stats.elites || 0}.</p>`;
+      <table class="rates">${rows}</table><p class="note">Ces taux sont fixes et identiques pour tout le monde. Élites vaincus : ${S.stats.elites || 0}.</p></details>`;
     this.tick();
   }
 
@@ -455,11 +455,12 @@ export class Panel {
       this.selected = null;
       this.onReset?.();
       this.renderAll();
-      delete b.dataset.armed; b.textContent = "Recommencer"; b.classList.remove("danger");
+      delete b.dataset.armed; b.textContent = b.dataset.label || "Recommencer"; b.classList.remove("danger");
       return;
     }
-    b.dataset.armed = "1"; b.textContent = "Effacer la partie ? Cliquer pour confirmer"; b.classList.add("danger");
-    setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = "Recommencer"; b.classList.remove("danger"); } }, 4000);
+    b.dataset.label ||= b.textContent;
+    b.dataset.armed = "1"; b.textContent = "Tout effacer ? Cliquer encore pour confirmer"; b.classList.add("danger");
+    setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = b.dataset.label; b.classList.remove("danger"); } }, 4000);
   }
 
   onChange(e) {

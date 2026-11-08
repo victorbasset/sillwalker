@@ -35,12 +35,13 @@ export class QuestsTab {
           : `<button data-action="q-reroll" data-id="${q.uid}" class="quiet"${S.gold < reroll ? " disabled" : ""}>Changer (${fmt(reroll)} or)</button>`}</div>
       </article>`;
     }).join("");
-    el.innerHTML = `<p class="note tabintro">Les quêtes avancent toutes seules pendant que ton héros joue, même hors ligne pour les victoires et l’or. ${S.quests.completed} quête${S.quests.completed > 1 ? "s" : ""} accomplie${S.quests.completed > 1 ? "s" : ""} au total.</p>
+    el.innerHTML = `${g.questsReady() > 1 ? `<div class="row claimall"><button data-action="q-claimall" class="primary">Tout réclamer (${g.questsReady()})</button></div>` : ""}<p class="note tabintro">Les quêtes avancent toutes seules pendant que ton héros joue, même hors ligne pour les victoires et l’or. ${S.quests.completed} quête${S.quests.completed > 1 ? "s" : ""} accomplie${S.quests.completed > 1 ? "s" : ""} au total.</p>
       <div class="questgrid">${cards}</div>`;
   }
 
   onAction(a, b) {
     if (a === "q-claim") this.game.claimQuest(+b.dataset.id);
+    if (a === "q-claimall") for (const q of [...this.game.S.quests.slots]) if (questDone(q)) this.game.claimQuest(q.uid);
     else if (a === "q-reroll") this.game.rerollQuest(+b.dataset.id);
   }
 

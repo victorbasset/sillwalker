@@ -40,6 +40,10 @@ export class SettingsTab {
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> Lancer au démarrage de Windows</label>
         <p class="note">Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.</p>
       </article>
+      <article class="panel danger-zone"><h2>Zone de danger</h2>
+        <p class="note tight">Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.</p>
+        <div class="row"><button data-action="reset" class="quiet">Effacer la partie et recommencer</button></div>
+      </article>
       <article class="panel"><h2>Raccourcis clavier</h2>
         <ul class="lines">
           <li><span>Changer d’onglet</span><b>1 … 9, 0, -</b></li>

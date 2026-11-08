@@ -444,3 +444,12 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .talent.voie.has { border-color: #9fe0a8; }
 .talent.voie.closed { opacity: .45; }
 .tmastery .talent.has { border-color: #ffd34d; }
+
+/* Revue UX */
+.tabsep { width: 2px; align-self: stretch; margin: 4px 6px; background: var(--line); }
+.panel h2 small.warn { color: #ff8a7a; }
+.rates-box summary { cursor: pointer; font-family: var(--font-text); font-weight: 600; margin: 10px 0 4px; color: var(--ink); }
+.rates-box summary:hover { color: var(--accent); }
+.danger-zone { border-color: #8a2a3a; }
+.danger-zone h2 { color: #ff8a7a; }
+.claimall { margin-bottom: 8px; }

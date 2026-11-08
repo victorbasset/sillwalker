@@ -16,7 +16,7 @@ import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
-import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
+import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
 export const STRIP_H = 120;
 const GROUND = 96, CONTACT = 44;
@@ -432,7 +432,10 @@ export class StripRenderer {
     this.hudLKey = key; mark("hud");
     const ctx = this.hudL.ctx;
     ctx.clearRect(0, 0, HUD_L_W, HUD_H);
-    drawText(ctx, label, 10, 18, "#ffffff");
+    ctx.font = FONT;
+    const lw0 = ctx.measureText(label).width;
+    drawPill(ctx, 3, Math.min(HUD_L_W - 2, 14 + lw0 + 6 + KILLS_PER_ZONE * 9 + 18), HUD_H);
+    drawText(ctx, label, 10, 17, "#ffffff");
     ctx.font = FONT;
     let px = 14 + ctx.measureText(label).width + 6;
     for (let i = 0; i < KILLS_PER_ZONE; i++) { ctx.fillStyle = OUTLINE; ctx.fillRect(px - 1, 8, 8, 8); ctx.fillStyle = i < S.kills ? "#ffd34d" : "#4a4560"; ctx.fillRect(px, 9, 6, 6); px += 9; }
@@ -447,10 +450,11 @@ export class StripRenderer {
     this.hudRKey = key; mark("hud");
     const ctx = this.hudR.ctx, right = HUD_R_W - 10;
     ctx.clearRect(0, 0, HUD_R_W, HUD_H);
-    drawText(ctx, lvlTxt, right, 18, "#ffffff", "right");
     ctx.font = FONT;
     const lw = ctx.measureText(lvlTxt).width;
-    drawText(ctx, gt, right - 14 - lw, 18, "#ffd34d", "right");
+    drawPill(ctx, Math.max(2, right - 14 - lw - ctx.measureText(gt).width - 22), HUD_R_W - 3, HUD_H);
+    drawText(ctx, lvlTxt, right, 17, "#ffffff", "right");
+    drawText(ctx, gt, right - 14 - lw, 17, "#ffd34d", "right");
     ctx.font = FONT;
     drawCoin(ctx, right - 14 - lw - ctx.measureText(gt).width - 14, 7);
   }
