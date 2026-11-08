@@ -304,4 +304,9 @@ export default {
   1428: "Its spines send hits back.",
   1429: "Mini Slime",
   1430: "Sticks to your heels and picks everything up.",
+  1431: "click strike damage",
+  1432: "Striker's Gauntlet",
+  1433: "Frost Heart",
+  1434: "Star Shard",
+  1435: "Living Rampart",
 };

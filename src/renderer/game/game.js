@@ -326,7 +326,7 @@ export class Game {
     if (R.time - (R.lastTap ?? -1) < TAP_INTERVAL) return false;
     R.lastTap = R.time;
     const hs = this.stats();
-    let dmg = hs.atk * TAP_DMG * rnd(0.9, 1.1);
+    let dmg = hs.atk * TAP_DMG * (1 + (hs.tapDmg || 0) / 100) * rnd(0.9, 1.1);
     if (m.boss) dmg *= 1 + hs.bossDmg / 100;
     if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; this.emit("bossShieldHit", { amount: a }); }
     m.hp -= dmg;

@@ -1432,5 +1432,10 @@ export const KEYS = [
   "Hérisson",
   "Ses piquants renvoient les coups.",
   "Mini-gluant",
-  "Il colle aux talons et ramasse tout."
+  "Il colle aux talons et ramasse tout.",
+  "dégâts des coups au clic",
+  "Gantelet du frappeur",
+  "Cœur de givre",
+  "Éclat d’étoile",
+  "Rempart vivant"
 ];

@@ -118,7 +118,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
     xp: v("xp"), drop: v("drop"), critDmg: 2 + v("critDmg") / 100, bossDmg: v("bossDmg"),
     execute: v("execute"), regen: 8 + v("regen"), lifesteal: v("lifesteal"), dodge: Math.min(40, v("dodge")),
     riposte: Math.min(60, v("riposte")), doubleShot: Math.min(60, v("doubleShot")), burn: v("burn"),
-    firstStrike: v("firstStrike"), offline: v("offline"), secondWind: v("secondWind") > 0,
+    firstStrike: v("firstStrike"), tapDmg: v("tapDmg"), offline: v("offline"), secondWind: v("secondWind") > 0,
     shield: Math.min(100, v("shield")), poison: v("poison"), minion: v("minion"), combo: v("combo"), thorns: v("thorns"),
     iai: v("iai"), moveSpd: v("moveSpd") + (S.speed || 0),
   });

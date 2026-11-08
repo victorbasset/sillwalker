@@ -38,6 +38,7 @@ export const EFFECTS = {
   moveSpd:     { label: "vitesse de déplacement", unit: "%" },
   burn:        { label: "brûlure (attaque / s pendant 3 s)", unit: "%" },
   firstStrike: { label: "dégâts du premier coup", unit: "×", scale: 100 },
+  tapDmg:      { label: "dégâts des coups au clic", unit: "%" },
   offline:     { label: "efficacité hors ligne", unit: "%" },
   secondWind:  { label: "second souffle", unit: "" },
 };

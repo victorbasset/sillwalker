@@ -304,4 +304,9 @@ export default {
   1428: "Sus púas devuelven los golpes.",
   1429: "Mini babosa",
   1430: "Se pega a tus talones y lo recoge todo.",
+  1431: "daño de los golpes con clic",
+  1432: "Guantelete del golpeador",
+  1433: "Corazón de escarcha",
+  1434: "Esquirla de estrella",
+  1435: "Muralla viviente",
 };

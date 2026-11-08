@@ -304,4 +304,9 @@ export default {
   1428: "Seus espinhos devolvem os golpes.",
   1429: "Mini gosma",
   1430: "Gruda nos seus calcanhares e recolhe tudo.",
+  1431: "dano dos golpes com clique",
+  1432: "Manopla do golpeador",
+  1433: "Coração de gelo",
+  1434: "Lasca de estrela",
+  1435: "Muralha viva",
 };

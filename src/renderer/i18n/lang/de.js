@@ -304,4 +304,9 @@ export default {
   1428: "Seine Stacheln geben Schläge zurück.",
   1429: "Mini-Schleim",
   1430: "Klebt an deinen Fersen und sammelt alles auf.",
+  1431: "Schaden der Klick-Schläge",
+  1432: "Panzerhandschuh des Schlägers",
+  1433: "Frostherz",
+  1434: "Sternsplitter",
+  1435: "Lebendes Bollwerk",
 };

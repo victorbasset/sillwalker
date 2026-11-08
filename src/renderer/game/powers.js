@@ -24,6 +24,10 @@ export const POWERS = [
   { id: "p_shadow",  name: "Voile d’ombre",      eff: { dodge: 10, crit: 5 } },
   { id: "p_vampire", name: "Baiser du vampire",  eff: { lifesteal: 6, regen: 2 } },
   { id: "p_nomad",   name: "Errance éternelle",  eff: { moveSpd: 12, xp: 10, offline: 20 } },
+  { id: "p_tap",     name: "Gantelet du frappeur", eff: { tapDmg: 150, atkPct: 5 } },
+  { id: "p_frost",   name: "Cœur de givre",      eff: { defPct: 12, thorns: 15, regen: 2 } },
+  { id: "p_star",    name: "Éclat d’étoile",     eff: { xp: 15, gold: 15, drop: 5 } },
+  { id: "p_bulwark", name: "Rempart vivant",     eff: { hpPct: 25, shield: 10 } },
   { id: "p_reaper",  name: "Hache du bourreau",  eff: { execute: 30, bossDmg: 15 } },
 ];
 export const POWER_INDEX = Object.fromEntries(POWERS.map((p) => [p.id, p]));

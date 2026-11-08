@@ -304,4 +304,9 @@ export default {
   1428: "Jego kolce oddają ciosy.",
   1429: "Mini-szlam",
   1430: "Klei się do pięt i zbiera wszystko.",
+  1431: "obrażenia ciosów kliknięciem",
+  1432: "Rękawica uderzającego",
+  1433: "Serce szronu",
+  1434: "Odprysk gwiazdy",
+  1435: "Żywy wał",
 };

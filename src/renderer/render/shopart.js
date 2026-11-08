@@ -70,7 +70,7 @@ const EFFECT_ICON = {
   atkPct: "ws_atk", critDmg: "target", crit: "target", bossDmg: "skull", execute: "skull", spd: "ws_speed", moveSpd: "ws_speed",
   hpPct: "heart", regen: "heart", lifesteal: "heart", defPct: "ws_hp", shield: "ws_hp", thorns: "ws_hp", riposte: "ws_hp", dodge: "eye",
   gold: "ws_gold", drop: "luck", xp: "wisdom", offline: "clock", burn: "elixir", poison: "luck", minion: "skull",
-  doubleShot: "ws_atk", combo: "ws_atk", iai: "ws_atk", firstStrike: "ws_atk", secondWind: "potion",
+  doubleShot: "ws_atk", tapDmg: "target", combo: "ws_atk", iai: "ws_atk", firstStrike: "ws_atk", secondWind: "potion",
 };
 export const effectIconURL = (eff, scale = 3) => shopIconURL(EFFECT_ICON[Object.keys(eff || {})[0]] || "star", scale);
 
