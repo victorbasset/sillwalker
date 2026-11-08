@@ -48,6 +48,8 @@ function createTray({ strip, isDev, steam }) {
       const make = (f) => {
         const im = nativeImage.createEmpty();
         im.addRepresentation({ scaleFactor: 1, dataURL: String(f.x1) });
+        if (f.x125) im.addRepresentation({ scaleFactor: 1.25, dataURL: String(f.x125) });
+        if (f.x15) im.addRepresentation({ scaleFactor: 1.5, dataURL: String(f.x15) });
         im.addRepresentation({ scaleFactor: 2, dataURL: String(f.x2) });
         return im;
       };

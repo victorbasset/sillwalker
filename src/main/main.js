@@ -102,7 +102,7 @@ function start() {
       if (trayCtl) trayCtl.setIcons(set);
       // Dev : enregistre l'icône (32 px) à côté de la capture pour vérification.
       if (flags.shot && set && set.walk) try {
-        fs.writeFileSync(path.resolve(flags.shot).replace(/\.png$/, "-tray32.png"), Buffer.from(String(set.walk[0].x2).split(",")[1], "base64"));
+        for (const [k, n] of [["x1", 16], ["x2", 32]]) fs.writeFileSync(path.resolve(flags.shot).replace(/\.png$/, `-tray${n}.png`), Buffer.from(String(set.walk[0][k]).split(",")[1], "base64"));
       } catch { /* sans importance */ }
     });
     ipcMain.on("mouse:rects", (_e, rects) => strip.setHitRects(rects));

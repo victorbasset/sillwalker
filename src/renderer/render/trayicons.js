@@ -1,5 +1,5 @@
 // Icônes de la zone de notification : la tête du héros (classe + casque),
-// cadrée au plus serré pour remplir les 16 px (32 px en haute densité)
+// cadrée au plus serré et agrandie pour remplir toute l'icône (16 à 32 px)
 // imposés par Windows. Une image par état : marche (2), combat (2), K.O., butin.
 import { OUTLINE } from "./art.js";
 import { CLASS_HEADS } from "./heroart.js";
@@ -20,17 +20,23 @@ function gray(c) {
 }
 
 function draw(g, size, { dx = 0, dy = 0, dead = false, overlay = [] } = {}) {
-  const h = g.length + 2, w = g[0].length + 2, s = Math.max(1, Math.floor(size / Math.max(w, h)));
-  const c = document.createElement("canvas");
-  c.width = c.height = size;
-  const ctx = c.getContext("2d");
-  const ox = Math.floor((size - w * s) / 2) + dx * s, oy = Math.floor((size - h * s) / 2) + dy * s;
-  const cell = (x, y, col) => { ctx.fillStyle = col; ctx.fillRect(ox + x * s, oy + y * s, s, s); };
+  // 1) La tête à 1 pixel par case, avec son contour.
+  const h = g.length + 2, w = g[0].length + 2;
+  const art = document.createElement("canvas");
+  art.width = w; art.height = h;
+  const actx = art.getContext("2d");
+  const cell = (x, y, col) => { actx.fillStyle = col; actx.fillRect(x, y, 1, 1); };
   g.forEach((row, y) => row.forEach((col, x) => {
     if (col) for (const [ax, ay] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) if (!(g[y + ay] && g[y + ay][x + ax])) cell(x + 1 + ax, y + 1 + ay, OUTLINE);
   }));
   g.forEach((row, y) => row.forEach((col, x) => { if (col) cell(x + 1, y + 1, dead ? gray(col) : col); }));
-  if (dead) ctx.globalAlpha = 1;
+  // 2) Agrandie pour remplir toute l'icône (sans lissage : reste en pixels nets).
+  const c = document.createElement("canvas");
+  c.width = c.height = size;
+  const ctx = c.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+  const k = size / Math.max(w, h), W = Math.round(w * k), H = Math.round(h * k), step = Math.max(1, Math.round(k / 2));
+  ctx.drawImage(art, Math.floor((size - W) / 2) + dx * step, Math.floor((size - H) / 2) + dy * step, W, H);
   for (const [x, y, col] of overlay) { ctx.fillStyle = col; ctx.fillRect(x * size / 16, y * size / 16, size / 16, size / 16); }
   return c.toDataURL();
 }
@@ -38,7 +44,8 @@ function draw(g, size, { dx = 0, dy = 0, dead = false, overlay = [] } = {}) {
 /** { walk: [{x1, x2}, {x1, x2}], fight: [...], dead: [...], loot: [...] } */
 export function makeTrayIcons(cls, visual) {
   const g = grid(cls, visual);
-  const both = (opts) => ({ x1: draw(g, 16, opts), x2: draw(g, 32, opts) });
+  // Une image par densité d'écran Windows (100 %, 125 %, 150 %, 200 %).
+  const both = (opts) => ({ x1: draw(g, 16, opts), x125: draw(g, 20, opts), x15: draw(g, 24, opts), x2: draw(g, 32, opts) });
   const HIT = "#ff4a4a", SPARK = "#ffd34d";
   return {
     walk: [both({}), both({ dy: -1 })],
