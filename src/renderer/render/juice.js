@@ -60,7 +60,8 @@ export class Juice {
   bind() {
     const g = this.s.game;
     g.on("kill", ({ mon }) => {
-      const n = mon.goblin ? 34 : mon.boss ? 28 : mon.elite ? 12 : 2;
+      const n = mon.goblin ? 34 : mon.boss ? 28 : mon.champion ? 30 : mon.elite ? 12 : 2;
+      if (mon.champion) { this.banner("Champion vaincu !", "#c08cff", this.s.monX(), true); this.flash("#c08cff", 0.25); }
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
@@ -164,7 +165,9 @@ export class Juice {
     const node = el("div", "banner" + (big ? " big" : ""), this.layer);
     node.textContent = text;
     node.style.color = color;
-    const life = big ? 3.2 : 2.4, cx = Math.max(160, Math.min(this.s.W - 360, x));
+    // Centrée sur x, mais jamais coupée par les bords de l'écran (largeur mesurée une fois).
+    const half = Math.ceil((node.offsetWidth || 300) * 1.1 / 2) + 8;
+    const life = big ? 3.2 : 2.4, cx = Math.max(half, Math.min(this.s.W - (this.s.rightReserve || 0) - 160 - half, x));
     // Une ligne par bannière simultanée (3 lignes max) pour qu'elles ne se chevauchent pas.
     const used = new Set(this.parts.filter((p) => p.slot != null).map((p) => p.slot));
     let slot = [0, 1, 2].find((i) => !used.has(i));

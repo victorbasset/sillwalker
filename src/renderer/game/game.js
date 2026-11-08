@@ -13,6 +13,7 @@ import { activeDayMod, dayModFor } from "./daymods.js";
 import {
   RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
+  CHAMPION,
 } from "./data.js";
 import {
   xpNeed, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, heroStats, heroDps, upgradeDelta,
@@ -89,7 +90,10 @@ export class Game {
       const dm = activeDayMod(this.S);
       R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
         ? { type: "goblin", elite: false, goblin: true }
-        : (() => { const elite = rand() < ELITE.chance * (dm?.elite || 1); return { type: pick(Z.monsters), elite, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null }; })()));
+        : (() => {
+          const champion = rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * (dm?.elite || 1);
+          return { type: pick(Z.monsters), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
+        })()));
       R.lineupZone = this.S.zone;
     }
     return R.lineup;
@@ -335,8 +339,8 @@ export class Game {
   makeMonster(boss) {
     const Z = zoneDef(this.S.zone);
     const slot = boss ? { type: Z.boss, elite: false } : this.lineup()[Math.min(this.S.kills, KILLS_PER_ZONE - 1)];
-    const b = monsterBase(this.S.zone, boss, slot.type, slot.elite);
-    const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
+    const b = monsterBase(this.S.zone, boss, slot.type, slot.elite, !boss && slot.champion);
+    const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, champion: !boss && !!slot.champion, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
       mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null,
       name: boss ? bossName(this.S.zone) : null });
@@ -422,11 +426,12 @@ export class Game {
     this.rollRareThings(m);
     this.gainXp(Math.round(m.xp * (1 + hs.xp / 100)));
     if (m.boss || m.elite || rand() < DROP_CHANCE * (1 + hs.drop / 100)) {
-      const it = this.newItem(m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
+      const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
       this.emit("loot", { item: it, mon: m });
       this.addToBag(it);
     }
-    if (m.elite) this.log(`Élite vaincu : ${fmt(gold)} or !`);
+    if (m.champion) { S.stats.champions = (S.stats.champions || 0) + 1; this.log(`Champion vaincu : ${fmt(gold)} or et un butin épique !`); }
+    else if (m.elite) this.log(`Élite vaincu : ${fmt(gold)} or !`);
     if (m.boss) {
       S.stats.bosses++;
       R.deaths = 0;

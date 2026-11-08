@@ -623,4 +623,20 @@ test("boss : miroir et vampirisme", async () => {
   assert.ok(mirrored > 0, "le miroir a renvoyé des dégâts");
 });
 
+test("champions : plus coriaces, butin épique garanti", async () => {
+  const { monsterBase } = await import("../src/renderer/game/rules.js");
+  const e = monsterBase(10, false, "slime", true), c = monsterBase(10, false, "slime", true, true);
+  assert.ok(c.hp > e.hp * 2 && c.gold > e.gold * 4);
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = 5; g.S.lvl = 40; g.invalidateStats();
+  g.R.lineup = Array.from({ length: 10 }, () => ({ type: "slime", elite: true, champion: true, affix: "fast" }));
+  g.R.lineupZone = 5;
+  const loot = [];
+  g.on("loot", ({ item, mon }) => { if (mon) loot.push(item.r); });
+  for (let i = 0; i < 120 && !g.S.stats.champions; i++) g.advance(1);
+  assert.ok(g.S.stats.champions >= 1, "un champion vaincu");
+  assert.ok(loot.length && loot.every((r) => r >= 3), "butin épique ou mieux : " + loot);
+  assert.ok(reachedAchievements(g.S).includes("CHAMPION"));
+});
+
 console.log(`\n${pass} tests réussis`);

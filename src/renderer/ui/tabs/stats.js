@@ -3,7 +3,7 @@ import { ACHIEVEMENTS, reachedAchievements } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
 import { codexCounts } from "../../game/codex.js";
 import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
-import { GOBLIN, ELITE } from "../../game/data.js";
+import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
 
 const pct = (p) => (p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)).replace(".", ",") + " %";
@@ -39,6 +39,7 @@ export class StatsTab {
         ${line("Monstres vaincus", fmt(st.kills))}
         ${line("Boss vaincus", fmt(st.bosses))}
         ${line("Élites vaincus", fmt(st.elites || 0))}
+        ${line("Champions vaincus", fmt(st.champions || 0))}
         ${line("Gobelins dorés attrapés", fmt(st.goblins || 0))}
         ${line("K.O.", fmt(st.deaths))}
       </ul></article>
@@ -66,6 +67,7 @@ export class StatsTab {
         ${Object.values(EVENTS).map((e) => line(e.name, pct(e.chance) + " par victoire")).join("")}
         ${line("Gobelin doré", pct(GOBLIN.chance) + " par monstre")}
         ${line("Élite", pct(ELITE.chance) + " par monstre")}
+        ${line("Champion (butin épique)", pct(CHAMPION.chance) + " par monstre")}
         ${line("Œuf", `boss ${pct(EGG_CHANCE.boss)} · élite ${pct(EGG_CHANCE.elite)}`)}
       </ul></article>
       <article class="panel achievements"><h2>Succès <small>${reached.size} / ${ACHIEVEMENTS.length}</small></h2><ul class="achlist">${ach}</ul></article>

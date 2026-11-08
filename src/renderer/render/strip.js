@@ -94,7 +94,7 @@ export class StripRenderer {
     g.on("chest", () => this.shake(0.2));
     g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#ff7a6b", false, true); });
     g.on("kill", ({ mon, gold }) => {
-      if (mon.boss) this.shake(0.35);
+      if (mon.boss || mon.champion) this.shake(0.35);
       this.float(this.monX() + 10, 50, "+" + fmt(gold) + " or", "#ffd34d");
       if (this.active) this.makeCorpse(mon, this.monX());
     });
@@ -277,9 +277,10 @@ export class StripRenderer {
         tag.textContent = bossName(this.game.S.zone);
       }
       if (!boss && line[k].elite) {
-        a.el.classList.add("elite");
+        a.el.classList.add(line[k].champion ? "champion" : "elite");
         const af = ELITE_AFFIXES[line[k].affix];
-        if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name; tag.style.color = af.color; }
+        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = "Champion" + (af ? " " + af.name.toLowerCase() : ""); }
+        else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name; tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
       a.flame = el("div", "flame", a.el);
@@ -298,7 +299,7 @@ export class StripRenderer {
   makeCorpse(mon, x) {
     if (this.corpse) this.corpse.remove();
     const a = this.monsterActor(mon.type, mon.boss);
-    if (mon.elite) a.el.classList.add("elite");
+    if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));
     this.corpse = a;

@@ -280,6 +280,9 @@ async function boot() {
     setTimeout(() => strip.juice.loot(game.newItem(2), strip.monX() + 40), 400);
     game.R.starT = 0.05;
     setTimeout(() => game.openChest(), 900);
+    const L = game.lineup().map((x) => ({ ...x }));
+    for (let i = game.S.kills + 1; i < L.length; i += 3) Object.assign(L[i], { elite: true, champion: true, goblin: false, affix: "furious" });
+    game.R.lineup = L;
   };
 
   /* ---------- Récompense quotidienne (au lancement et à minuit) ---------- */

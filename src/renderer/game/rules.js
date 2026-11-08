@@ -1,7 +1,7 @@
 // Formules d'équilibrage. Fonctions pures : (état, paramètres) -> valeurs.
 import {
   RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, ITEM_BASES, ITEM_SUFFIXES, ZONES, MONSTERS, ELITE, DYES, materialFor,
-  WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY,
+  WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, CHAMPION,
 } from "./data.js";
 import { classDef } from "./classes.js";
 import { talentEffects } from "./talents.js";
@@ -148,10 +148,11 @@ export function zoneName(z) {
 }
 
 /** Statistiques d'un monstre. Sans `type`, renvoie le monstre « moyen » de la zone. */
-export function monsterBase(z, boss, type, elite) {
+export function monsterBase(z, boss, type, elite, champion) {
   const m = Math.pow(1.28, z - 1), mod = (type && MONSTERS[type]) || { hp: 1, atk: 1, interval: 1 };
   const modGold = mod.gold || 1, modXp = mod.xp || 1;
-  const e = elite ? ELITE : { hp: 1, atk: 1, gold: 1, xp: 1 };
+  const e0 = elite ? ELITE : { hp: 1, atk: 1, gold: 1, xp: 1 }, c = champion ? CHAMPION : { hp: 1, atk: 1, gold: 1, xp: 1 };
+  const e = { hp: e0.hp * c.hp, atk: e0.atk * c.atk, gold: e0.gold * c.gold, xp: e0.xp * c.xp };
   return {
     hp: Math.round(12 * m * (boss ? 6 : 1) * mod.hp * e.hp),
     atk: 2.2 * m * (boss ? 1.5 : 1) * mod.atk * e.atk,
