@@ -18,6 +18,13 @@ export const POWERS = [
   { id: "p_aegis",   name: "Égide solaire",      eff: { shield: 15, defPct: 15 } },
   { id: "p_rhythm",  name: "Danse des mille coups", eff: { combo: 2, spd: 10 } },
   { id: "p_blade",   name: "Lame de l’instant",  eff: { iai: 40, firstStrike: 0.5 } },
+  { id: "p_midas",   name: "Toucher de Midas",   eff: { gold: 15, drop: 15 } },
+  { id: "p_storm",   name: "Cœur de tempête",    eff: { doubleShot: 8, spd: 15 } },
+  { id: "p_titan",   name: "Force du titan",     eff: { atkPct: 10, hpPct: 10, defPct: 10 } },
+  { id: "p_shadow",  name: "Voile d’ombre",      eff: { dodge: 10, crit: 5 } },
+  { id: "p_vampire", name: "Baiser du vampire",  eff: { lifesteal: 6, regen: 2 } },
+  { id: "p_nomad",   name: "Errance éternelle",  eff: { moveSpd: 12, xp: 10, offline: 20 } },
+  { id: "p_reaper",  name: "Hache du bourreau",  eff: { execute: 30, bossDmg: 15 } },
 ];
 export const POWER_INDEX = Object.fromEntries(POWERS.map((p) => [p.id, p]));
 

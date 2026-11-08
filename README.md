@@ -26,7 +26,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Familiers** : 11 compagnons (dont le lapin et le phénix, rares) qui suivent le héros, sortent d'œufs (boss, élites, quêtes)
   et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
   or, expérience, œufs et objets.
-- **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 10 pouvoirs uniques.
+- **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 24 pouvoirs uniques.
 - **Bestiaire** : paliers de 10 / 100 / 1 000 / 10 000 victoires par monstre, bonus permanents.
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 10 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
