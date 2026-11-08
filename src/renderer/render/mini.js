@@ -4,7 +4,7 @@ import { t as tx } from "../i18n/index.js";
 import { PIXEL as P } from "./art.js";
 import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
-import { fmt } from "../game/format.js";
+import { fmt, fmtShort } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 
@@ -138,7 +138,7 @@ export class MiniRenderer {
     if (info !== this.infoKey) {
       this.infoKey = info; mark("hud");
       this.lvl.textContent = tx("Niv. ") + S.lvl;
-      this.gold.textContent = fmt(S.gold);
+      this.gold.textContent = fmtShort(S.gold);
       this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
     }
   }

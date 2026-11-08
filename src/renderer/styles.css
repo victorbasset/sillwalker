@@ -117,7 +117,8 @@ body.panel-open #toast { display: none; }
 #mini .mini-info { position: relative; flex: 1; padding: 4px 8px; color: #fff; font-size: 13px; line-height: 1.25;
   background: #1b1930; border-left: 2px solid #14121f; display: flex; flex-direction: column; justify-content: center; }
 #mini .mini-lvl { font-weight: 600; }
-#mini .mini-gold { color: #ffd34d; }
+#mini .mini-gold { color: #ffd34d; white-space: nowrap; padding-right: 24px; }
+#mini .mini-lvl { padding-right: 24px; white-space: nowrap; }
 #mini .mini-gold::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 4px; background: #ffd34d; border: 2px solid #14121f; vertical-align: -1px; }
 #mini .mini-xp { position: absolute; left: 8px; right: 8px; bottom: 3px; height: 2px; background: rgba(255, 255, 255, 0.12); }
 #mini .mini-xp i { display: block; height: 100%; width: 0; background: #ffd34d; }

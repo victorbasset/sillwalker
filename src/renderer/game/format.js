@@ -23,6 +23,15 @@ export function fmt(n) {
   return n.toLocaleString(LOCALE[L] || "en-US");
 }
 
+/** Format court à 3 chiffres significatifs (mode mini) : 228 M, 1,23 Md, 45,6 k. */
+export function fmtShort(n) {
+  n = Math.floor(n);
+  const L = getLang();
+  const steps = [[1e12, "T"], [1e9, BIG[L] || "B"], [1e6, "M"], [1e3, "k"]];
+  for (const [v, u] of steps) if (n >= v) { const x = n / v; return dec(x >= 99.95 ? String(Math.round(x)) : x.toFixed(x >= 9.995 ? 1 : 2)) + unit(u); }
+  return String(n);
+}
+
 /** Liste « a, b et c » dans la langue choisie. */
 export const listJoin = (arr) => { try { return new Intl.ListFormat(LOCALE[getLang()] || "en-US", { type: "conjunction" }).format(arr); } catch { return arr.join(", "); } };
 
