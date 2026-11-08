@@ -6,7 +6,7 @@ import { OUTLINE, PIXEL as P } from "./art.js";
 import { ZONES } from "../game/data.js";
 
 export const q = (v) => Math.round(v / P) * P;
-export const FONT = "600 13px 'Pixelify Sans', monospace";
+export const FONT = "400 17px 'Jersey 15', 'Pixelify Sans', monospace";
 
 /** Compteur de modifications visibles (instrumentation du banc de mesure). */
 export const changes = { n: 0, why: {} };
