@@ -360,4 +360,7 @@ export default {
   1484: "Schmiedemeister: {0} steigt auf +{1}.",
   1485: "Schmiedemeister: getragene Ausrüstung mit überschüssigem Gold schmieden",
   1486: "Rekord {0}",
+  1487: "Wachsende Wut",
+  1488: "Alle 5 s schlägt er 10 % schneller zu (bis zu 6-mal): Man muss ihn schnell besiegen.",
+  1489: "Wut!",
 };

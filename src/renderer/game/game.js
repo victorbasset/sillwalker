@@ -35,7 +35,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
-import { bossMechanics, bossName } from "./bosses.js";
+import { bossMechanics, bossName, FURY } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
@@ -307,6 +307,10 @@ export class Game {
     if (mech.includes("frost")) {
       m.frostT = (m.frostT ?? 5) - dt;
       if (m.frostT <= 0) { m.frostT = 7; this.R.frozen = 3; this.emit("bossSkill", { id: "frost" }); }
+    }
+    if (mech.includes("fury") && (m.fury || 0) < FURY.max) {
+      m.furyT = (m.furyT ?? FURY.every) - dt;
+      if (m.furyT <= 0) { m.furyT = FURY.every; m.fury = (m.fury || 0) + 1; m.interval *= FURY.speed; this.emit("bossSkill", { id: "fury", n: m.fury }); }
     }
     if (mech.includes("mirror")) {
       m.mirrorT = (m.mirrorT ?? 6) - dt;

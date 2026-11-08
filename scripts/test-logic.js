@@ -927,6 +927,18 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("boss : fureur croissante, plafonnée à 6 accélérations", () => {
+  const g = new Game(freshState());
+  for (let i = 0; i < 4000 && g.R.mode !== "fight"; i++) g.step(0.05);
+  const m = g.R.mon; m.hp = m.max = 1e12; m.atk = 0; m.boss = true; m.mech = ["fury"];
+  const i0 = m.interval;
+  for (let i = 0; i < 12 / 0.05; i++) g.step(0.05); // 12 s : 2 accélérations
+  assert.equal(m.fury, 2);
+  assert.ok(Math.abs(m.interval - i0 * 0.81) < 1e-9, "10 % plus vite à chaque palier");
+  for (let i = 0; i < 60 / 0.05; i++) g.step(0.05); // 1 min de plus : plafonné
+  assert.equal(m.fury, 6, "jamais plus de 6 accélérations");
+});
+
 test("pluriels : txn choisit la bonne forme dans chaque langue", () => {
   const before = getLang(), K = "{n} objet gardé.|{n} objets gardés.";
   try {

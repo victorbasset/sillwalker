@@ -360,4 +360,7 @@ export default {
   1484: "Maestro herrero: {0} pasa a +{1}.",
   1485: "Maestro herrero: forjar el equipo que llevas con el oro sobrante",
   1486: "récord {0}",
+  1487: "Furia creciente",
+  1488: "Cada 5 s, ataca un 10 % más rápido (hasta 6 veces): hay que abatirlo rápido.",
+  1489: "¡Furia!",
 };

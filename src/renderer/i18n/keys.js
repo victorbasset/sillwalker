@@ -1488,5 +1488,8 @@ export const KEYS = [
   "Forge tout seul l’équipement porté avec l’or en trop (option).",
   "Maître de forge : {0} passe à +{1}.",
   "Maître de forge : forger l’équipement porté avec l’or en trop",
-  "record {0}"
+  "record {0}",
+  "Fureur croissante",
+  "Toutes les 5 s, frappe 10 % plus vite (jusqu’à 6 fois) : il faut l’abattre vite.",
+  "Fureur !"
 ];

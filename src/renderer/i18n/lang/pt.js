@@ -360,4 +360,7 @@ export default {
   1484: "Mestre ferreiro: {0} passa para +{1}.",
   1485: "Mestre ferreiro: forjar o equipamento usado com o ouro de sobra",
   1486: "recorde {0}",
+  1487: "Fúria crescente",
+  1488: "A cada 5 s, ataca 10 % mais rápido (até 6 vezes): é preciso derrotá-lo rápido.",
+  1489: "Fúria!",
 };

@@ -13,8 +13,10 @@ export const BOSS_MECHANICS = {
   drain:  { name: "Vampirisme", desc: "Récupère 40 % des dégâts qu’il inflige." },
   frost:  { name: "Souffle glacé", desc: "Toutes les 7 s, gèle le héros : ses attaques ralentissent de 40 % pendant 3 s." },
   evasive: { name: "Insaisissable", desc: "Esquive 20 % des coups du héros (les coups au clic touchent toujours)." },
+  fury:   { name: "Fureur croissante", desc: "Toutes les 5 s, frappe 10 % plus vite (jusqu’à 6 fois) : il faut l’abattre vite." },
 };
-const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive"];
+export const FURY = { every: 5, speed: 0.9, max: 6 };
+const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury"];
 
 /** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */
 export const BOSS_NAMES = [

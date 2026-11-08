@@ -360,4 +360,7 @@ export default {
   1484: "Master Smith: {0} reaches +{1}.",
   1485: "Master Smith: forge worn equipment with spare gold",
   1486: "record {0}",
+  1487: "Growing Fury",
+  1488: "Every 5 s, attacks 10% faster (up to 6 times): bring it down fast.",
+  1489: "Fury!",
 };

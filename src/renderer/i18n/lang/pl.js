@@ -360,4 +360,7 @@ export default {
   1484: "Mistrz kowalski: {0} osiąga +{1}.",
   1485: "Mistrz kowalski: ulepszaj noszony ekwipunek za nadmiar złota",
   1486: "rekord {0}",
+  1487: "Narastająca furia",
+  1488: "Co 5 s atakuje o 10% szybciej (do 6 razy): trzeba go szybko pokonać.",
+  1489: "Furia!",
 };

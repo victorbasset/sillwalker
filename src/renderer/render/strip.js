@@ -113,7 +113,7 @@ export class StripRenderer {
     g.on("classChange", () => { this.heroCls = null; this.minionKey = null; });
     g.on("minion", () => { this.minionLunge = 0.2; });
     g.on("bossSkill", ({ id }) => {
-      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""] }[id];
+      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"] }[id];
       if (id === "frost") { this.float(this.heroX + 10, 30, tx("Gelé !"), "#bfe8ff", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#bfe8ff", 8); return; }
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });
