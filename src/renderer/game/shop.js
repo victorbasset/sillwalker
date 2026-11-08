@@ -23,8 +23,14 @@ export const CONSUMABLES = [
     desc: "+50 % d’or pendant 10 min de jeu (cumulable jusqu’à 2 h)." },
   { id: "wisdom",  name: "Parchemin de savoir",  base: 120, kind: "buff", duration: 600,
     desc: "+50 % d’expérience pendant 10 min de jeu (cumulable jusqu’à 2 h)." },
+  { id: "haste",   name: "Potion de célérité",   base: 260, kind: "buff", duration: 600,
+    desc: "+30 % de vitesse de déplacement pendant 10 min de jeu (cumulable jusqu’à 2 h)." },
+  { id: "luck",    name: "Trèfle à quatre feuilles", base: 200, kind: "buff", duration: 600,
+    desc: "+40 % de chances de butin pendant 10 min de jeu (cumulable jusqu’à 2 h)." },
+  { id: "iron",    name: "Tonique de fer",       base: 150, kind: "buff", duration: 600,
+    desc: "+30 % de PV et de défense pendant 10 min de jeu (cumulable jusqu’à 2 h)." },
 ];
-export const BUFF_EFFECTS = { elixir: { atkPct: 25 }, fortune: { gold: 50 }, wisdom: { xp: 50 } };
+export const BUFF_EFFECTS = { elixir: { atkPct: 25 }, fortune: { gold: 50 }, wisdom: { xp: 50 }, haste: { moveSpd: 30 }, luck: { drop: 40 }, iron: { hpPct: 30, defPct: 30 } };
 
 /** Coffres : un objet de la meilleure zone, rareté minimale garantie. */
 export const CHESTS = [

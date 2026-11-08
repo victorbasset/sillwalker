@@ -38,7 +38,7 @@ export const QUEST_TEMPLATES = {
   },
   gold: {
     text: (q) => `Ramasser ${q.goalText} or`,
-    make: (S) => ({ goal: Math.round(goldScale(S) * randInt(150, 300)), reward: { buff: pick(["elixir", "fortune", "wisdom"]), potions: 3 } }),
+    make: (S) => ({ goal: Math.round(goldScale(S) * randInt(150, 300)), reward: { buff: pick(["elixir", "fortune", "wisdom", "haste", "luck", "iron"]), potions: 3 } }),
   },
   forge: {
     text: (q) => `Forger ${q.goal} ${plural(q.goal, "fois", "fois")}`,
