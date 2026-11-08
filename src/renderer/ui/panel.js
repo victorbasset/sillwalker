@@ -4,7 +4,7 @@
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { itemName } from "../i18n/data.js";
-import { t as tx, plS } from "../i18n/index.js";
+import { t as tx, plS, lc } from "../i18n/index.js";
 import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
@@ -417,7 +417,7 @@ export class Panel {
     const list = listJoin(names);
     $(this.root, "#p-zone").innerHTML = `<h2>${tx("Zone {0}", { 0: S.zone })} <small>${tx("record : {0}", { 0: S.best })}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
-      <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(MONSTERS[Z.boss].name.toLowerCase()), 2: fmt(bb.hp) })}</p>
+      <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(lc(MONSTERS[Z.boss].name)), 2: fmt(bb.hp) })}</p>
       <p class="note tight bossmech">${tx("Boss :")} <b class="bname">${esc(bossName(S.zone))}</b>. ${tx("Capacités du boss :")} ${bossMechanics(S.zone).map((id) => `<b title="${esc(BOSS_MECHANICS[id].desc)}">${esc(BOSS_MECHANICS[id].name)}</b>`).join(", ")}.</p>
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> ${tx("Passer à la zone suivante après le boss")}</label>

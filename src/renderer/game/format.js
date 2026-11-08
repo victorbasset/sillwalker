@@ -8,7 +8,7 @@ export const NB = " "; // espace fine insécable
 const LOCALE = { fr: "fr-FR", en: "en-US", es: "es-ES", pt: "pt-BR", de: "de-DE", pl: "pl-PL", ru: "ru-RU", zh: "zh-CN", ja: "ja-JP", ko: "ko-KR" };
 const COMMA = new Set(["fr", "es", "pt", "de", "pl", "ru"]);
 const SPACED = new Set(["fr", "es", "pt", "de", "pl", "ru"]);
-const BIG = { fr: "Md", es: "mil M", pt: "B", de: "Mrd.", pl: "mld", ru: "млрд" }; // milliard (en, zh, ja, ko : B)
+const BIG = { fr: "Md", es: "mil M", pt: "B", de: "Mrd", pl: "mld", ru: "млрд" }; // milliard (en, zh, ja, ko : B)
 
 export const dec = (s) => (COMMA.has(getLang()) ? s.replace(".", ",") : s);
 export const unit = (u) => (SPACED.has(getLang()) ? NB : "") + u;

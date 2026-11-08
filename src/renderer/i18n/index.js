@@ -51,3 +51,5 @@ export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != nu
 export const fsp = () => (lang === "fr" ? " " : "");
 /** Marque du pluriel « s » : au-delà de 1 en français, sauf pour 1 en anglais (« 0 quests »). */
 export const plS = (n) => ((lang === "fr" ? n > 1 : n !== 1) ? "s" : "");
+/** Nom commun en minuscules dans une phrase, sauf en allemand (les noms y prennent une majuscule). */
+export const lc = (s) => (s == null || lang === "de" ? s : s.toLowerCase());

@@ -1,5 +1,5 @@
 // Onglet Familiers : collection, œufs à faire éclore, familier actif.
-import { t as tx, plS } from "../../i18n/index.js";
+import { t as tx, plS, lc } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc, fmt } from "../../game/format.js";
@@ -17,7 +17,7 @@ export class PetsTab {
     const e = (this.game.S.pets.exp || {})[p.id];
     if (e) {
       const ex = EXPEDITIONS[e.kind], done = e.end <= Date.now();
-      return `<div class="expe${done ? " done" : ""}"><span>${done ? `${tx("De retour de {0} !", { 0: esc(ex.name.toLowerCase()) })}` : `${tx("En {0} · retour dans", { 0: esc(ex.name.toLowerCase()) })} <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
+      return `<div class="expe${done ? " done" : ""}"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `${tx("En {0} · retour dans", { 0: esc(lc(ex.name)) })} <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
         ${done ? `<button class="primary" data-action="p-claim" data-id="${p.id}">${tx("Récupérer le butin")}</button>` : ""}</div>`;
     }
     if (active) return "";

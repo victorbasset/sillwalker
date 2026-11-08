@@ -9,7 +9,7 @@
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
-import { t as tx, tr, fsp, plS } from "../i18n/index.js";
+import { t as tx, tr, fsp, plS, lc } from "../i18n/index.js";
 import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -777,7 +777,7 @@ export class Game {
     if (!played.includes(cls)) played.push(cls);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(tx("Ton héros devient ") + CLASSES[cls].name.toLowerCase() + ".");
+    this.log(tx("Ton héros devient ") + lc(CLASSES[cls].name) + ".");
     this.emit("classChange");
     this.changed();
     return true;
@@ -1168,7 +1168,7 @@ export class Game {
       if (!P.active) P.active = pet.id;
       this.log(`${tx("L’œuf éclot : {0} !", { 0: pet.name })}`);
     } else {
-      this.log(`${tx("L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", { 0: pet.name.toLowerCase(), 1: pet.name.toLowerCase() })}`);
+      this.log(`${tx("L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", { 0: lc(pet.name), 1: lc(pet.name) })}`);
       this.petAddXp(pet.id, DUPLICATE_XP);
     }
     this.invalidateStats();
@@ -1184,7 +1184,7 @@ export class Game {
     P.exp ||= {};
     if (P.exp[id]) return false;
     P.exp[id] = { kind, start: now, end: now + ex.min * 60000 };
-    this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: ex.name.toLowerCase(), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
+    this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
     this.changed();
     return true;
   }
@@ -1212,7 +1212,7 @@ export class Game {
     const out = { gold, xp: ex.xp, egg: false, item: null, pet: PET_INDEX[id] };
     if (rand() < ex.egg) { out.egg = true; this.gainEgg(); }
     if (rand() < ex.item && !this.bagFull()) { out.item = this.newItem(ex.minRarity, this.S.best); this.addToBag(out.item, true); }
-    this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: ex.name.toLowerCase(), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + itemName(out.item) : "" })}`);
+    this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: lc(ex.name), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + itemName(out.item) : "" })}`);
     this.emit("expedition", out);
     this.changed();
     return out;
