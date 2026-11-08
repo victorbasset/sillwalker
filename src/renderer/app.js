@@ -10,7 +10,7 @@ import { PET_INDEX } from "./game/pets.js";
 import { activeDayMod } from "./game/daymods.js";
 import { Game } from "./game/game.js";
 import { freshState, migrate } from "./game/state.js";
-import { reachedAchievements } from "./game/achievements.js";
+import { reachedAchievements, ACHIEVEMENTS } from "./game/achievements.js";
 import { fmt, esc } from "./game/format.js";
 import { StripRenderer } from "./render/strip.js";
 import { MiniRenderer } from "./render/mini.js";
@@ -171,7 +171,12 @@ async function boot() {
     achDirty = false;
     const reached = reachedAchievements(game.S);
     const fresh = reached.filter((id) => !game.S.achievements.includes(id));
-    if (fresh.length) game.S.achievements.push(...fresh);
+    if (fresh.length) {
+      game.S.achievements.push(...fresh);
+      const names = fresh.map((id) => ACHIEVEMENTS.find((x) => x.id === id)?.name || id);
+      if (resync) setTimeout(() => showToast(`🏆 ${fresh.length > 1 ? `${fresh.length} nouveaux succès` : "Nouveau succès"} : <b>${names.map(esc).join("</b>, <b>")}</b>`, () => { openPanel(); panel.setTab("stats"); }, 12000), 4000);
+      else for (const n of names) { strip.juice.banner(`🏆 Succès : ${n}`, "#ffd34d", strip.heroX + 80, true); sound.play("level"); }
+    }
     // Au démarrage on renvoie tout : rattrape les succès débloqués sans Steam.
     const send = resync ? reached : fresh;
     if (send.length) api.unlockAchievements(send);
