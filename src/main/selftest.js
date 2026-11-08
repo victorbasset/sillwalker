@@ -9,7 +9,7 @@ async function runSelfTest(strip) {
   const wc = strip.win.webContents;
   const js = (code) => wc.executeJavaScript(code).catch((e) => { console.log("[selftest] ÉCHEC script :", code.slice(0, 140)); throw e; });
   const state = (expr) => js(`(() => { const S = window.__game.S; return ${expr}; })()`);
-  const rectOf = (sel) => js(`(() => { const r = document.querySelector(${JSON.stringify(sel)}).getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
+  const rectOf = (sel) => js(`(() => { const e = document.querySelector(${JSON.stringify(sel)}); e.scrollIntoView({ block: "nearest" }); const r = e.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
   const move = async (x, y) => { wc.sendInputEvent({ type: "mouseMove", x, y }); await sleep(150); };
   /** Attend qu'une condition soit vraie (machine chargée : animations plus lentes). */
   const until = async (test, ms = 3000) => { for (let t = 0; t < ms; t += 100) { if (await test()) return true; await sleep(100); } return !!(await test()); };
@@ -189,6 +189,19 @@ async function runSelfTest(strip) {
   const slot = await js(`(() => { const s = document.querySelector('#p-bag .slot[data-from="bag"]'); if (!s) return null; const r = s.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) }; })()`);
   if (slot) { await move(slot.x, slot.y); await sleep(150); }
   check("infobulle au survol d'un objet", !!slot && (await js("!document.querySelector('.itemtip').hidden")));
+  // Double-clic sur un objet du sac : équipé directement
+  await js("(() => { const g = window.__game; if (g.bagFull()) g.S.bag.pop(); g.addToBag(g.newItem(4, g.S.best + 20)); g.changed() })()");
+  await click('[data-tab="adventure"]');
+  await sleep(200);
+  const dblId = await js("window.__game.S.bag[window.__game.S.bag.length - 1].id");
+  const ds = await rectOf(`#p-bag .slot[data-from="bag"][data-id="${dblId}"]`);
+  await move(ds.x, ds.y);
+  wc.sendInputEvent({ type: "mouseDown", x: ds.x, y: ds.y, button: "left", clickCount: 1 });
+  wc.sendInputEvent({ type: "mouseUp", x: ds.x, y: ds.y, button: "left", clickCount: 1 });
+  wc.sendInputEvent({ type: "mouseDown", x: ds.x, y: ds.y, button: "left", clickCount: 2 });
+  wc.sendInputEvent({ type: "mouseUp", x: ds.x, y: ds.y, button: "left", clickCount: 2 });
+  await sleep(250);
+  check("double-clic sur un objet du sac : équipé", await js(`Object.values(window.__game.S.equip).some((it) => it && it.id === ${dblId})`));
   // Vendre ce qui n'améliore pas (avec confirmation)
   await js("(() => { const g = window.__game; for (let n = 0; n < 200 && Object.keys(g.S.equip).some((k) => !g.S.equip[k] || g.S.equip[k].r < 3); n++) { const it = g.newItem(3, g.S.best + 10); if (!g.S.equip[it.slot] || g.S.equip[it.slot].r < 3) g.S.equip[it.slot] = it; } g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed() })()");
   await click('[data-tab="adventure"]');

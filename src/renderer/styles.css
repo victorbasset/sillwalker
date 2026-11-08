@@ -498,3 +498,9 @@ details.more summary:hover { color: var(--accent); }
 .talent .tr { margin-left: auto; }
 .sendall { display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
 .sendall button { font-size: 12px; padding: 2px 8px; }
+.tiphelp { margin-top: 4px; color: var(--muted); font-size: 12px; }
+/* Détail du talent : hauteur fixe pour que la grille ne bouge pas au survol */
+#tsel { height: 150px; overflow: hidden; }
+.tgrid .tdetail { grid-row: span 2; }
+.tgrid .tvoie { grid-column: 2 / span 2; }
+#tsel { height: auto; min-height: 120px; }

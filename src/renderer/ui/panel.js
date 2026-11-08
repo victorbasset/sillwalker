@@ -146,7 +146,8 @@ export class Panel {
           <div class="row"><button data-action="closemodal">Continuer</button></div>
         </div>
       </div>`;
-    this.root.addEventListener("click", (e) => this.onClick(e));
+    // Double-clic sur un objet (2e clic d'une série, e.detail = 2) : l'équiper (sac) ou le retirer (héros).
+    this.root.addEventListener("click", (e) => { if (!(e.detail === 2 && this.onDouble(e))) this.onClick(e); });
     this.watchDetails();
     this.root.addEventListener("change", (e) => this.onChange(e));
     // Infobulle de comparaison au survol d'un objet (sac ou équipement)
@@ -156,6 +157,18 @@ export class Panel {
     this.root.appendChild(this.tip);
     this.root.addEventListener("mouseover", (e) => this.onHover(e));
     this.root.addEventListener("mouseleave", () => { this.tip.hidden = true; });
+  }
+
+  /** Double-clic sur un objet : l'équiper (sac) ou le retirer (héros). Renvoie true si traité. */
+  onDouble(e) {
+    const b = e.target.closest && e.target.closest(".slot[data-from]");
+    if (!b) return false;
+    const g = this.game;
+    if (b.dataset.from === "bag") { const it = g.findBagItem(+b.dataset.id); if (it) { g.equip(it); this.selected = null; } }
+    else if (g.S.equip[b.dataset.slot] && !g.bagFull()) { g.unequip(b.dataset.slot); this.selected = null; }
+    this.tip.hidden = true;
+    this.renderAll();
+    return true;
   }
 
   /* ---------- Cycle de vie ---------- */
@@ -255,7 +268,8 @@ export class Panel {
     }
     this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(it.name)}${it.plus ? " +" + it.plus : ""}</div>
       <div class="sub">${SLOTS[it.slot].name} ${RARITIES[it.r].name.toLowerCase()}, niveau ${it.il}${fromBag ? "" : ", équipé"}</div>
-      <ul class="lines">${lines}</ul>${power(it, S.equip)}${verdict}`;
+      <ul class="lines">${lines}</ul>${power(it, S.equip)}${verdict}
+      <p class="note tight tiphelp">${fromBag ? "Double-clic : équiper" : "Double-clic : retirer"}</p>`;
     this.tip.hidden = false;
     const r = b.getBoundingClientRect(), pr = this.root.getBoundingClientRect();
     const left = Math.min(pr.width - 280, r.right - pr.left + 8), top = Math.max(4, Math.min(pr.height - this.tip.offsetHeight - 4, r.top - pr.top + this.root.scrollTop));
