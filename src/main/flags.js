@@ -27,6 +27,7 @@ module.exports = {
   ghost: isDev && !!getArg("ghost"),
   demo: isDev && !!getArg("demo"),
   width: isDev ? Number(getArg("width")) || 0 : 0,       // --width=1366 : simule un écran plus étroit                       // --demo : déclenche les effets spéciaux                     // --ghost : tests invisibles (hors écran, sans focus ni icône)               // --selftest : parcours automatique de l'interface          // --mode=strip|mini|icon
+  dumpText: isDev ? getArg("dump-text") : undefined,    // --dump-text=fichier.txt : texte de chaque onglet (traductions)
   exitAfter: isDev ? Number(getArg("exit-after")) || 0 : 0,
   userData: isDev ? getArg("user-data") : undefined,   // dossier de données isolé pour les tests
 };

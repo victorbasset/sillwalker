@@ -138,6 +138,23 @@ function start() {
         app.quit();
       }, flags.exitAfter * 1000);
       if (flags.selftest) require("./selftest").runSelfTest(strip);
+      if (flags.dumpText) setTimeout(async () => {
+        const wc = strip.win.webContents, tabs = ["adventure", "talents", "skills", "quests", "shop", "pets", "class", "ascension", "bestiary", "stats", "settings"];
+        let out = "";
+        for (const t of tabs) {
+          strip.send("command", "tab:" + t);
+          await new Promise((r) => setTimeout(r, 700));
+          out += `=== ${t}\n` + await wc.executeJavaScript(`(() => {
+            const p = document.querySelector("#panel") || document.body;
+            const extra = [...document.querySelectorAll("[title], [aria-label]")].map((e) => (e.title || "") + " | " + (e.getAttribute("aria-label") || ""));
+            return p.innerText + "\\n--- attributs\\n" + extra.join("\\n");
+          })()`) + "\n";
+        }
+        out += "=== strip\n" + await wc.executeJavaScript("document.body.innerText");
+        fs.writeFileSync(path.resolve(flags.dumpText), out);
+        console.log("[dev] texte :", path.resolve(flags.dumpText));
+        app.quit();
+      }, 1500);
       if (flags.demo) setTimeout(() => strip.win.webContents.executeJavaScript("window.__demo && window.__demo()"), 800);
       if (flags.perf) require("./perf").runPerf(strip, typeof flags.perf === "string" ? { phase: +flags.perf } : {});
     });

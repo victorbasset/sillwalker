@@ -1318,5 +1318,16 @@ export const KEYS = [
   "Vaincre {0} élites",
   "Forger {0} fois",
   "Ramener {0} expéditions de familier",
-  "Créer {0} objets par transmutation"
+  "Créer {0} objets par transmutation",
+  "niv. {0}",
+  "Panneau de gestion",
+  "Le héros traverse la zone et combat",
+  "Réduire en mode mini",
+  "Ouvrir le panneau (héros, sac, zone)",
+  "Ouvrir le panneau de gestion",
+  "Cliquer pour agrandir",
+  "Réduire en icône (zone de notification)",
+  "Réduire en icône",
+  "{0} victoires",
+  "aucun"
 ];

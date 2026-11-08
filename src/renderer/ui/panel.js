@@ -9,7 +9,7 @@ import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
-import { fmt, fmtStat, esc, NB, dec, unit } from "../game/format.js";
+import { fmt, fmtStat, esc, NB, dec, unit, listJoin } from "../game/format.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -398,9 +398,9 @@ export class Panel {
 
   renderZone() {
     const S = this.game.S, Z = this.game.zoneDef(), b = monsterBase(S.zone, false), bb = monsterBase(S.zone, true, Z.boss);
-    const rows = RARITIES.map((r, i) => `<tr><td class="rc${i}">${r.name}</td><td>${r.weight}${NB}%</td></tr>`).join("");
+    const rows = RARITIES.map((r, i) => `<tr><td class="rc${i}">${r.name}</td><td>${r.weight}${unit("%")}</td></tr>`).join("");
     const names = Z.monsters.map((m) => MONSTERS[m].name);
-    const list = names.length > 1 ? names.slice(0, -1).join(", ") + " et " + names[names.length - 1].toLowerCase() : names[0];
+    const list = listJoin(names);
     $(this.root, "#p-zone").innerHTML = `<h2>${tx("Zone {0}", { 0: S.zone })} <small>${tx("record : {0}", { 0: S.best })}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
       <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(MONSTERS[Z.boss].name.toLowerCase()), 2: fmt(bb.hp) })}</p>

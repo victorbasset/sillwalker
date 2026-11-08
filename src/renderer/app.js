@@ -47,6 +47,13 @@ async function boot() {
   game.S.settings.lang = wanted;
   translateData();
   document.documentElement.lang = wanted;
+  // Textes fixes de index.html (attributs d'aide et d'accessibilité).
+  for (const [sel, attr, src] of [
+    ["#panel", "aria-label", "Panneau de gestion"], ["#strip", "aria-label", "Le héros traverse la zone et combat"],
+    ["#mini-btn", "title", "Réduire en mode mini"], ["#mini-btn", "aria-label", "Réduire en mode mini"],
+    ["#menu-btn", "title", "Ouvrir le panneau (héros, sac, zone)"], ["#menu-btn", "aria-label", "Ouvrir le panneau de gestion"],
+    ["#mini", "title", "Cliquer pour agrandir"], ["#mini-icon", "title", "Réduire en icône (zone de notification)"], ["#mini-icon", "aria-label", "Réduire en icône"],
+  ]) { const e = document.querySelector(sel); if (e) e.setAttribute(attr, tx(src)); }
   api.setLang?.(wanted);
   if (init.isDev) window.__game = game; // inspection par l'auto-test (dev uniquement)
   if (loaded.notice) game.log(loaded.notice);

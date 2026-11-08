@@ -23,6 +23,9 @@ export function fmt(n) {
   return n.toLocaleString(LOCALE[L] || "en-US");
 }
 
+/** Liste « a, b et c » dans la langue choisie. */
+export const listJoin = (arr) => { try { return new Intl.ListFormat(LOCALE[getLang()] || "en-US", { type: "conjunction" }).format(arr); } catch { return arr.join(", "); } };
+
 /** Pourcentage : « 12,5 % » en français, « 12.5% » en anglais. */
 export const pct = (v) => dec(String(Math.round(v * 10) / 10)) + unit("%");
 

@@ -89,7 +89,7 @@ export class ShopTab {
       const n = W[w.id] || 0, maxed = w.max && n >= w.max;
       return `<div class="wsline">
         <img src="${shopIconURL(w.id, 4)}" alt="">
-        <div class="si"><div class="nm">${esc(w.name)} <small>niv. ${n}${w.max ? " / " + w.max : ""}</small></div>
+        <div class="si"><div class="nm">${esc(w.name)} <small>${tx("niv. {0}", { 0: n })}${w.max ? " / " + w.max : ""}</small></div>
           <div class="sub">${n ? `<span class="delta-p">${esc(describeEffects(w.eff, n))}</span> · ` : ""}${tx("prochain : {0}", { 0: esc(describeEffects(w.eff, 1)) })}</div></div>
         ${maxed ? `<button disabled class="buy">${tx("Maximum")}</button>` : buy("s-ws", w.id, workshopPrice(w, S))}
         ${!maxed && S.gold >= workshopPrice(w, S) * (1 + w.growth) ? `<button class="quiet wsmax" data-action="s-wsmax" data-id="${w.id}" title="${esc(tx("Acheter autant de niveaux que possible"))}">max</button>` : ""}
