@@ -70,6 +70,16 @@ const EXTRA_STATS = [
   ["moveSpd", "Vitesse de déplacement", (s) => s.moveSpd > 0, (s) => "+" + n1(s.moveSpd) + NB + "%"],
 ];
 
+/** Couleur d'une ligne du journal selon ce qu'elle raconte. */
+const LOG_COLORS = [
+  [/légendaire|pouvoir légendaire/i, "lg-leg"],
+  [/Champion|Coffre au trésor|Étoile filante|Plume|Plumes du vent|vitesse de déplacement, pour toujours/, "lg-rare"],
+  [/épique/i, "lg-epic"],
+  [/Quête accomplie|revient de|L’œuf éclot|Un œuf/, "lg-good"],
+  [/K.O.|est tombé|Trop dur|Dernière potion/, "lg-bad"],
+];
+const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); return m ? ` class="${m[1]}"` : ""; };
+
 export class Panel {
   constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
     this.root = root;
@@ -346,7 +356,7 @@ export class Panel {
 
   renderLog() {
     const el = $(this.root, "#log"), L = this.game.S.log;
-    el.innerHTML = L.length ? L.slice(0, 25).map((l) => `<li>${esc(l)}</li>`).join("") : "<li>Ton héros se met en route.</li>";
+    el.innerHTML = L.length ? L.slice(0, 25).map((l) => `<li${logClass(l)}>${esc(l)}</li>`).join("") : "<li>Ton héros se met en route.</li>";
   }
 
   /** Mises à jour légères (barres, or, comptes à rebours) sans reconstruire le HTML. */

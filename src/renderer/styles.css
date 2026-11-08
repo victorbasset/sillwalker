@@ -421,3 +421,10 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .powergrid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
 .chip.pow { border-color: #ffb733; color: #ffd38a; }
 .chip.pow.unknown { border-style: dashed; border-color: #3a3650; color: var(--muted); }
+
+/* Journal : lignes importantes en couleur */
+#log li.lg-leg { color: #ffb733; }
+#log li.lg-rare { color: #9fd8ff; }
+#log li.lg-epic { color: #c08cff; }
+#log li.lg-good { color: #9fe0a8; }
+#log li.lg-bad { color: #ff8a7a; }
