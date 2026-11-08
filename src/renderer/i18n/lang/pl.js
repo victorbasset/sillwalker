@@ -246,4 +246,5 @@ export default {
   1370: "Wąż Koralowy",
   1371: "Mroźny Wyjec",
   1372: "Czeka wskazówka: kliknij, aby powiększyć.",
+  1373: "{0}: puste",
 };

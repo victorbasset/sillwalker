@@ -246,4 +246,5 @@ export default {
   1370: "Coral Serpent",
   1371: "Frosthowl",
   1372: "A tip is waiting: click to enlarge.",
+  1373: "{0}: empty",
 };

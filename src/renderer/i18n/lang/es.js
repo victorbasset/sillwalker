@@ -246,4 +246,5 @@ export default {
   1370: "Serpiente de los Corales",
   1371: "Aúlla-Escarcha",
   1372: "Te espera un consejo: haz clic para ampliar.",
+  1373: "{0}: vacío",
 };

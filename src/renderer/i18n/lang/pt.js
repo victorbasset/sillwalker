@@ -246,4 +246,5 @@ export default {
   1370: "Serpente dos Corais",
   1371: "Uiva-Gelo",
   1372: "Uma dica espera por você: clique para ampliar.",
+  1373: "{0}: vazio",
 };

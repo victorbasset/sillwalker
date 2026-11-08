@@ -1374,5 +1374,6 @@ export const KEYS = [
   "Croc-de-Lune",
   "Serpent des Coraux",
   "Hurle-Givre",
-  "Un conseil t’attend : clique pour agrandir."
+  "Un conseil t’attend : clique pour agrandir.",
+  "{0} : vide"
 ];

@@ -83,6 +83,9 @@ const LOG_COLORS = [
 ];
 const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); return m ? ` class="${m[1]}"` : ""; };
 
+// Repère de rareté en forme (pas seulement en couleur) : lisible pour les daltoniens.
+const RARITY_PIP = ["", "", "•", "••", "★"];
+
 export class Panel {
   constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
     this.root = root;
@@ -269,13 +272,13 @@ export class Panel {
   }
 
   slotBtn(it, slotKey, from) {
-    if (!it) return `<button class="slot" data-action="sel" data-from="equip" data-slot="${slotKey}" aria-label="${SLOTS[slotKey].name} vide"><span class="lab">${SLOTS[slotKey].name}</span></button>`;
+    if (!it) return `<button class="slot" data-action="sel" data-from="equip" data-slot="${slotKey}" aria-label="${esc(tx("{0} : vide", { 0: SLOTS[slotKey].name }))}"><span class="lab">${SLOTS[slotKey].name}</span></button>`;
     const sel = this.selected && ((this.selected.from === "equip" && this.selected.slot === slotKey && from === "equip") ||
       (this.selected.from === "bag" && this.selected.id === it.id && from === "bag"));
     const up = from === "bag" && this.game.isUpgrade(it);
     return `<button class="slot rb${it.r}${sel ? " sel" : ""}" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
       aria-label="${esc(itemName(it))}, ${RARITIES[it.r].name}${up ? tx(", amélioration") : ""}">
-      <img src="${itemIconURL(it)}" alt="">${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark" style="color:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
+      <img src="${itemIconURL(it)}" alt="">${RARITY_PIP[it.r] ? `<span class="rpip" aria-hidden="true">${RARITY_PIP[it.r]}</span>` : ""}${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark" style="color:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
   }
 
   /** Survol d'un emplacement : infobulle avec statistiques et comparaison. */
