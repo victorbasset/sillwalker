@@ -128,6 +128,13 @@ export class Panel {
       </div>`;
     this.root.addEventListener("click", (e) => this.onClick(e));
     this.root.addEventListener("change", (e) => this.onChange(e));
+    // Infobulle de comparaison au survol d'un objet (sac ou équipement)
+    this.tip = document.createElement("div");
+    this.tip.className = "itemtip";
+    this.tip.hidden = true;
+    this.root.appendChild(this.tip);
+    this.root.addEventListener("mouseover", (e) => this.onHover(e));
+    this.root.addEventListener("mouseleave", () => { this.tip.hidden = true; });
   }
 
   /* ---------- Cycle de vie ---------- */
@@ -171,6 +178,7 @@ export class Panel {
 
   /* ---------- Rendu ---------- */
   renderAll() {
+    if (this.tip) this.tip.hidden = true;
     if (this.tab === "adventure") { this.renderHero(); this.renderBag(); this.renderDetail(); this.renderZone(); this.renderLog(); }
     else this.tabs[this.tab].render($(this.root, `[data-pane="${this.tab}"]`));
     this.renderBadges();
@@ -192,8 +200,34 @@ export class Panel {
       (this.selected.from === "bag" && this.selected.id === it.id && from === "bag"));
     const up = from === "bag" && this.game.isUpgrade(it);
     return `<button class="slot rb${it.r}${sel ? " sel" : ""}" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
-      aria-label="${esc(it.name)}, ${RARITIES[it.r].name}${up ? ", amélioration" : ""}" title="${esc(it.name)}${it.plus ? " +" + it.plus : ""}">
+      aria-label="${esc(it.name)}, ${RARITIES[it.r].name}${up ? ", amélioration" : ""}">
       <img src="${itemIconURL(it)}" alt="">${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}</button>`;
+  }
+
+  /** Survol d'un emplacement : infobulle avec statistiques et comparaison. */
+  onHover(e) {
+    const b = e.target.closest && e.target.closest(".slot[data-from]");
+    const it = b && (b.dataset.from === "bag" ? this.game.findBagItem(+b.dataset.id) : this.game.S.equip[b.dataset.slot]);
+    if (!it) { this.tip.hidden = true; return; }
+    const S = this.game.S, fromBag = b.dataset.from === "bag", cur = fromBag ? S.equip[it.slot] : null, m = itemMult(it);
+    const lines = Object.keys(STAT_NAMES).filter((k) => it.st[k] != null || (cur && cur.st[k] != null)).map((k) => {
+      const v = (it.st[k] || 0) * m, dv = fromBag ? v - (cur ? (cur.st[k] || 0) * itemMult(cur) : 0) : 0;
+      const d = fromBag && Math.abs(dv) >= 0.05 ? ` <span class="${dv > 0 ? "delta-p" : "delta-n"}">(${dv > 0 ? "+" : "−"}${fmtStat(k, Math.abs(dv))})</span>` : "";
+      return `<li><span>${STAT_NAMES[k]}</span><span>${v ? "+" + fmtStat(k, v) : "—"}${d}</span></li>`;
+    }).join("");
+    let verdict = "";
+    if (fromBag) {
+      const dd = this.game.upgradeDelta(it);
+      verdict = `<p class="verdict ${dd > 0.005 ? "delta-p" : dd < -0.005 ? "delta-n" : ""}">${cur ? "Puissance : " + (dd >= 0 ? "+" : "−") + Math.abs(Math.round(dd * 100)) + NB + "%" : "Emplacement vide : à équiper !"}</p>`;
+    }
+    this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(it.name)}${it.plus ? " +" + it.plus : ""}</div>
+      <div class="sub">${SLOTS[it.slot].name} ${RARITIES[it.r].name.toLowerCase()}, niveau ${it.il}${fromBag ? "" : ", équipé"}</div>
+      <ul class="lines">${lines}</ul>${power(it)}${verdict}`;
+    this.tip.hidden = false;
+    const r = b.getBoundingClientRect(), pr = this.root.getBoundingClientRect();
+    const left = Math.min(pr.width - 280, r.right - pr.left + 8), top = Math.max(4, Math.min(pr.height - this.tip.offsetHeight - 4, r.top - pr.top + this.root.scrollTop));
+    this.tip.style.left = left + "px";
+    this.tip.style.top = top + "px";
   }
 
   renderHero() {

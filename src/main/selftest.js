@@ -7,7 +7,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function runSelfTest(strip) {
   const wc = strip.win.webContents;
-  const js = (code) => wc.executeJavaScript(code);
+  const js = (code) => wc.executeJavaScript(code).catch((e) => { console.log("[selftest] ÉCHEC script :", code.slice(0, 140)); throw e; });
+  const state = (expr) => js(`(() => { const S = window.__game.S; return ${expr}; })()`);
   const rectOf = (sel) => js(`(() => { const r = document.querySelector(${JSON.stringify(sel)}).getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
   const move = async (x, y) => { wc.sendInputEvent({ type: "mouseMove", x, y }); await sleep(150); };
   const click = async (sel) => {
@@ -63,6 +64,15 @@ async function runSelfTest(strip) {
   let b = bounds();
   check("bouton mini : passe en mode mini", strip.mode() === "mini" && b.width === 340 && b.height === 64, JSON.stringify(b));
   check("encart mini visible", await js("!document.getElementById('mini').hidden && document.getElementById('strip').hidden"));
+  // Étoile filante en mode mini
+  await js("window.__pause = false; window.__game.R.starT = 0.01");
+  await sleep(700);
+  await js("window.__pause = true");
+  const ms0 = await state("S.speed");
+  const hasMiniStar = await js("!!document.querySelector('#mini .ministar')");
+  if (hasMiniStar) await click("#mini .ministar");
+  await sleep(200);
+  check("étoile filante attrapée en mode mini", hasMiniStar && (await state("S.speed")) > ms0);
   // Icône seule depuis le mini
   await click("#mini-icon");
   await sleep(500);
@@ -81,7 +91,6 @@ async function runSelfTest(strip) {
   check("bouton agrandir : retour à la bande", strip.mode() === "strip" && b.width === b0.width && b.height === b0.height);
 
   // Onglets : talents, boutique, classe (vrais clics dans l'interface)
-  const state = (expr) => js(`(() => { const S = window.__game.S; return ${expr}; })()`);
   // Jeu en pause pendant les clics : sinon le panneau peut se redessiner
   // (victoire, butin) entre l'appui et le relâchement d'un clic simulé.
   await js("window.__pause = true");
@@ -118,7 +127,7 @@ async function runSelfTest(strip) {
 
   // Quêtes : on termine la première puis on réclame la récompense
   await js("window.__game.S.bag.splice(0, 6)"); // place pour un éventuel coffre de récompense
-  await js("const q = window.__game.S.quests.slots[0]; q.progress = q.goal; window.__game.changed()");
+  await js("(() => { const q = window.__game.S.quests.slots[0]; q.progress = q.goal; window.__game.changed() })()");
   await click('[data-tab="quests"]');
   await sleep(150);
   const done0 = await state("S.quests.completed");
@@ -137,10 +146,12 @@ async function runSelfTest(strip) {
   await js("window.__game.S.prestige.shards += 50; window.__game.changed()");
   await click('[data-tab="ascension"]');
   await sleep(150);
-  const r0 = await state("S.prestige.ranks.c_warrior || 0");
-  await click('[data-action="a-buy"][data-id="c_warrior"]');
+  // Première constellation encore achetable (les tests précédents ont pu en remplir)
+  const cid = await js(`(() => { const b = document.querySelector('[data-action="a-buy"]:not([disabled])'); return b ? b.dataset.id : null; })()`);
+  const r0 = cid ? await state(`S.prestige.ranks["${cid}"] || 0`) : 0;
+  if (cid) await click(`[data-action="a-buy"][data-id="${cid}"]`);
   await sleep(150);
-  check("onglet Ascension : acheter une constellation", (await state("S.prestige.ranks.c_warrior || 0")) === r0 + 1);
+  check("onglet Ascension : acheter une constellation", !!cid && (await state(`S.prestige.ranks["${cid}"] || 0`)) === r0 + 1, cid || "aucune");
   // Arbre de compétences : clic sur un nœud relié à l'origine
   await js("window.__game.S.lvl = Math.max(window.__game.S.lvl, 10); window.__game.invalidateStats(); window.__game.changed()");
   await click('[data-tab="skills"]');
@@ -157,8 +168,15 @@ async function runSelfTest(strip) {
   await click('[data-action="k-undo"]');
   await sleep(150);
   check("onglet Compétences : annuler le dernier", (await state("S.skills.order.length")) === sk0);
+  // Infobulle au survol d'un objet du sac
+  await js("(() => { const g = window.__game; if (g.bagFull()) g.S.bag.pop(); g.addToBag(g.newItem(0)); g.changed() })()");
+  await click('[data-tab="adventure"]');
+  await sleep(200);
+  const slot = await js(`(() => { const s = document.querySelector('#p-bag .slot[data-from="bag"]'); if (!s) return null; const r = s.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) }; })()`);
+  if (slot) { await move(slot.x, slot.y); await sleep(150); }
+  check("infobulle au survol d'un objet", !!slot && (await js("!document.querySelector('.itemtip').hidden")));
   // Vendre ce qui n'améliore pas (avec confirmation)
-  await js("const g = window.__game; g.autoEquip(); g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed()");
+  await js("(() => { const g = window.__game; g.autoEquip(); g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed() })()");
   await click('[data-tab="adventure"]');
   await sleep(200);
   const bag0 = await state("S.bag.length"), useless = await js("window.__game.uselessItems().length");

@@ -113,6 +113,18 @@ export class MiniRenderer {
     this.hero.alpha(R.mode === "dead" ? 0.35 : 1);
     this.heroBar.set(R.hp / game.stats().hp);
 
+    // Étoile filante : un bouton dans l'encart tant qu'elle passe
+    const star = !!R.star;
+    if (star !== !!this.starBtn) {
+      if (star) {
+        this.starBtn = el("button", "ministar", this.root);
+        this.starBtn.title = "Attrape l’étoile filante !";
+        this.starBtn.innerHTML = "<i></i>";
+        this.starBtn.addEventListener("click", (e) => { e.stopPropagation(); game.catchStar(); });
+      } else { this.starBtn.remove(); this.starBtn = null; }
+      mark("star");
+    }
+
     // Infos (texte DOM, mis à jour seulement s'il change)
     const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills;
     if (info !== this.infoKey) {
