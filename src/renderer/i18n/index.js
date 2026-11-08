@@ -28,11 +28,12 @@ function stored() {
   try { return typeof localStorage !== "undefined" ? localStorage.getItem(KEY) : null; } catch { return null; }
 }
 
-let lang = DEFAULT_LANG, dict = {};
+let lang = DEFAULT_LANG, dict = {}, fallback = {};
 export const getLang = () => lang;
 export function setLang(id) {
   lang = valid(id) ? id : DEFAULT_LANG;
   dict = lang === "fr" ? {} : DICTS[lang] || {};
+  fallback = lang === "fr" ? {} : DICTS.en || {}; // texte pas encore traduit : anglais plutôt que français
   try { if (typeof localStorage !== "undefined") localStorage.setItem(KEY, lang); } catch { /* sans importance */ }
 }
 setLang(valid(stored()) ? stored() : DEFAULT_LANG);
@@ -41,8 +42,8 @@ const fill = (s, vars) => (vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != 
 /** Texte traduit (source française en clé), avec remplacement des {variables}. */
 export function t(src, vars) {
   if (src == null) return src;
-  const s = lang === "fr" ? src : dict[src] != null ? dict[src] : src;
+  const s = lang === "fr" ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src;
   return fill(s, vars);
 }
 /** Traduction d'un nom de donnée (sans variables). */
-export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : src);
+export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src);
