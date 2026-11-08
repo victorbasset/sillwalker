@@ -22,6 +22,10 @@ export const HINTS = [
     when: (g) => g.S.gold > 2000 && (g.S.stats.purchases || 0) === 0 },
   { id: "ascend", tab: "ascension", text: `Zone ${ASCEND_MIN_ZONE} atteinte : l’Ascension est disponible ! Clique ici pour en savoir plus.`,
     when: (g) => g.canAscend() && g.S.prestige.count === 0 },
+  { id: "expedition", tab: "pets", text: "Tu as plusieurs familiers : ceux qui ne t’accompagnent pas peuvent partir en expédition et rapporter or, œufs et objets. Clique ici.",
+    when: (g) => Object.keys(g.S.pets.owned).length >= 2 && !Object.keys(g.S.pets.exp || {}).length && !(g.S.stats.expeditions > 0) },
+  { id: "codex", tab: "bestiary", text: "Chaque nouveau type d’objet rejoint ta collection et donne un bonus permanent. Clique ici pour la voir.",
+    when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
   { id: "speed", tab: "stats", text: "La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !",
     when: (g) => (g.S.speed || 0) > 0 },
 ];
