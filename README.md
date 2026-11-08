@@ -35,6 +35,14 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Bestiaire** : 36 monstres (dont des variantes recolorées), 18 zones.
 - **Vitesse** (le bonus le plus précieux) : plumes du vent très rares et étoiles filantes à attraper d'un clic
   (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie.
+- **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération), deux à partir de la 2e boucle.
+- **Élites à affixes** : rapide, blindé, vampirique ou furieux.
+- **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
+- **Statistiques** : records, compteurs de l'aventure et liste des succès.
+- **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits,
+  position, opacité, démarrage de Windows.
+- **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
+- **Lueur stellaire** : chaque éclat d'étoile gagné renforce le héros pour toujours.
 - **Effets** : pièces qui volent jusqu'au compteur d'or, faisceaux de butin selon la rareté, célébration des légendaires,
   bannières (niveau, record de zone, événements). `render/juice.js`.
 
@@ -46,12 +54,14 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 | `npm run dev` | Idem + DevTools |
 | `npm test` | Tests de la logique de jeu, sans Electron |
 | `npm run perf` | Mesure RAM/CPU (bande, panneau ouvert, mini, icône seule) → `perf-report.json` |
+| `node --experimental-default-type=module scripts/simulate.js 12 warrior` | Simule un joueur pendant 12 h (équilibrage, records par course) |
 | `npm run selftest` | Parcourt l'interface tout seul (survol, panneau, modes, Quitter) sans toucher à la souris |
 | `npm run icons` | Régénère les icônes à partir du pixel art du héros |
 | `npm run dist` | Build Windows dans `dist/win-unpacked/` (le dossier à envoyer sur Steam) |
 
 Options de dev (ignorées dans le build final) : `--user-data=<dossier>` (sauvegarde isolée), `--speed=10`, `--open-panel`,
-`--mode=strip|mini|icon`, `--tab=talents|shop|class`, `--shot=capture.png`, `--shot-delay=<ms>`, `--exit-after=<s>`, `--ghost` (fenêtre à 2 % d'opacité, pour tester sans gêner), `--demo` (déclenche les effets spéciaux).
+`--mode=strip|mini|icon`, `--tab=talents|shop|class`, `--shot=capture.png`, `--shot-delay=<ms>`, `--exit-after=<s>`, `--ghost` (fenêtre à 2 % d'opacité, pour tester sans gêner), `--demo` (déclenche les effets spéciaux),
+`--width=1366` (simule un écran plus étroit).
 
 Node 22 est recommandé. Avec Node 20, si le binaire Electron manque après `npm install` : `node --experimental-require-module node_modules/electron/install.js`.
 
@@ -84,13 +94,17 @@ src/
       prestige.js         ascension et constellations
       skilltree.js        arbre de compétences (graphe généré à partir de SECTORS)
       events.js           vitesse permanente et événements rares
+      bosses.js           capacités spéciales des boss
       rules.js            formules d'équilibrage
       game.js             simulation + actions du joueur, émet des événements
       state.js            format de sauvegarde + migrations
       achievements.js     succès Steam
     render/               art.js = pixel art, dom.js = briques communes,
-                          strip.js = bande (parcours de zone), mini.js = encart mini
-    ui/                   panneau de gestion (panel.js + un module par onglet dans ui/tabs/), clics traversants
+                          strip.js = bande (parcours de zone), mini.js = encart mini, heroart.js = héros
+                          assemblés à partir de pièces, equipvis.js = équipement visible, juice.js = effets,
+                          sound.js = sons, trayicons.js = icônes de la zone de notification
+    ui/                   panneau de gestion (panel.js + un module par onglet dans ui/tabs/), clics traversants,
+                          conseils (hints.js)
 ```
 
 ### Ajouter du contenu
