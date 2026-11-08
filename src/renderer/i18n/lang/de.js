@@ -201,4 +201,6 @@ export default {
   1325: "Zum Symbol verkleinern",
   1326: "{0} Siege",
   1327: "keiner",
+  1328: "Fenstergröße",
+  1329: "Vergrößert das ganze Fenster: Text, Schaltflächen und Symbole.",
 };

@@ -184,3 +184,6 @@ export class Bar {
     if (v !== this.shown) { this.shown = v; this.el.hidden = !v; mark("vis"); }
   }
 }
+
+/** Agrandissement uniforme du panneau (accessibilité). */
+export function applyUiScale(z) { const p = document.getElementById("panel"); if (p) p.style.zoom = z && z !== 1 ? String(z) : ""; }

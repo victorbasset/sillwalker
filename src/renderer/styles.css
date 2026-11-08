@@ -138,6 +138,10 @@ body.panel-open #panel-wrap { visibility: visible; }
 }
 body.edge-top #panel { border-top: 0; border-bottom: 3px solid #0e0d18; transform: translateY(-100%); }
 body.panel-shown #panel { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  #panel { transition: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
 
 .ptop { display: flex; gap: 16px; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 h1 { font-size: 24px; font-weight: 700; margin: 0; letter-spacing: .5px; line-height: 1; }

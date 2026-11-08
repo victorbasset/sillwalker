@@ -19,7 +19,7 @@ import { reachedAchievements, ACHIEVEMENTS } from "./game/achievements.js";
 import { fmt, esc } from "./game/format.js";
 import { StripRenderer } from "./render/strip.js";
 import { MiniRenderer } from "./render/mini.js";
-import { changes } from "./render/dom.js";
+import { changes, applyUiScale } from "./render/dom.js";
 import { makeTrayIcons } from "./render/trayicons.js";
 import { Sound } from "./render/sound.js";
 import { nextHint, markHint } from "./ui/hints.js";
@@ -46,6 +46,11 @@ async function boot() {
   if (wanted !== getLang()) { setLang(wanted); location.reload(); return; }
   game.S.settings.lang = wanted;
   translateData();
+  // Animations réduites demandées par Windows : effets sobres par défaut (une seule fois, modifiable ensuite).
+  if (!game.S.settings.motionChecked) {
+    game.S.settings.motionChecked = true;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) game.S.settings.fullEffects = false;
+  }
   document.documentElement.lang = wanted;
   // Textes fixes de index.html (attributs d'aide et d'accessibilité).
   for (const [sel, attr, src] of [
@@ -59,6 +64,7 @@ async function boot() {
   if (loaded.notice) game.log(loaded.notice);
 
   const body = document.body;
+  applyUiScale(game.S.settings.uiScale);
   const strip = new StripRenderer($("#strip"), game, { rightReserve: 64 });
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);

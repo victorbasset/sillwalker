@@ -201,4 +201,6 @@ export default {
   1325: "Reduzir a ícone",
   1326: "{0} vitórias",
   1327: "nenhum",
+  1328: "Tamanho do painel",
+  1329: "Amplia todo o painel: texto, botões e ícones.",
 };

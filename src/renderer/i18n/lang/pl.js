@@ -201,4 +201,6 @@ export default {
   1325: "Zmniejsz do ikony",
   1326: "zwycięstwa: {0}",
   1327: "brak",
+  1328: "Rozmiar panelu",
+  1329: "Powiększa cały panel: tekst, przyciski i ikony.",
 };

@@ -1329,5 +1329,7 @@ export const KEYS = [
   "Réduire en icône (zone de notification)",
   "Réduire en icône",
   "{0} victoires",
-  "aucun"
+  "aucun",
+  "Taille du panneau",
+  "Agrandit tout le panneau : texte, boutons et icônes."
 ];

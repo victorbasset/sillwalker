@@ -201,4 +201,6 @@ export default {
   1325: "Shrink to an icon",
   1326: "{0} victories",
   1327: "none",
+  1328: "Panel size",
+  1329: "Enlarges the whole panel: text, buttons and icons.",
 };

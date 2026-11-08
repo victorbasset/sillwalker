@@ -201,4 +201,6 @@ export default {
   1325: "Reducir a icono",
   1326: "{0} victorias",
   1327: "ninguno",
+  1328: "Tamaño del panel",
+  1329: "Amplía todo el panel: texto, botones e iconos.",
 };
