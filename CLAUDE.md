@@ -37,6 +37,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   `--shot=<fichier.png> --shot-delay=<ms>`, `--exit-after=<s>`, `--width=1366`,
   `--dump-text=<fichier>` (texte de chaque onglet, pour traquer les textes non traduits), `--demo`.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
+- Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`
+  de la copie), pas de `settings.json`. Thème sombre : ajouter `--force-dark-mode` (le thème suit Windows).
 - Les erreurs de l'interface s'affichent dans la console sous la forme `[renderer error] …`.
 
 ## Traductions (10 langues, anglais par défaut)
