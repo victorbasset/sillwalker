@@ -564,6 +564,42 @@ export class Game {
   /** Objets du sac qui n'améliorent pas le héros (les légendaires sont toujours gardés). */
   uselessItems() { return this.S.bag.filter((it) => it.r < LEGENDARY && !this.isUpgrade(it)); }
 
+  /**
+   * Transmutation : 3 objets inutiles d'une même rareté (sous légendaire)
+   * donnent 1 objet de la rareté au-dessus, du niveau de ta meilleure zone.
+   * De la plus basse rareté à la plus haute : les nouveaux objets inutiles
+   * peuvent à leur tour être transmutés. Renvoie les objets créés.
+   */
+  transmutePlan() {
+    const by = [0, 0, 0, 0];
+    for (const it of this.uselessItems()) if (it.r < LEGENDARY) by[it.r]++;
+    const made = by.reduce((a, n) => a + Math.floor(n / 3), 0);
+    return { used: made * 3, made }; // (sans compter les enchaînements possibles)
+  }
+
+  transmute() {
+    const out = [];
+    for (let r = 0; r < LEGENDARY; r++) {
+      const pool = this.uselessItems().filter((it) => it.r === r);
+      while (pool.length >= 3) {
+        const three = new Set(pool.splice(0, 3));
+        this.S.bag = this.S.bag.filter((it) => !three.has(it));
+        const it = this.newItem(r + 1, this.S.best);
+        this.S.bag.push(it);
+        out.push(it);
+        this.emit("loot", { item: it, chest: true });
+      }
+    }
+    if (out.length) {
+      this.S.stats.transmutes = (this.S.stats.transmutes || 0) + out.length;
+      const best = out.reduce((a, b) => (b.r > a.r ? b : a));
+      this.log(`Transmutation : ${out.length} nouvel${out.length > 1 ? "s" : ""} objet${out.length > 1 ? "s" : ""}, dont ${best.name} (${RARITIES[best.r].name.toLowerCase()}).`);
+      this.emit("transmute", { items: out });
+      this.changed();
+    }
+    return out;
+  }
+
   /** Vend tout ce qui n'améliore pas le héros. Renvoie { n, gold }. */
   sellUseless() {
     const sell = new Set(this.uselessItems());

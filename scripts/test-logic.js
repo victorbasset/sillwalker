@@ -585,4 +585,25 @@ test("expéditions des familiers", () => {
   assert.equal(m.pets.exp.cat.kind, "epic");
 });
 
+test("transmutation : 3 inutiles -> 1 de la rareté au-dessus", () => {
+  const g = new Game(freshState());
+  g.S.best = 10;
+  // Équipement fort : tout le reste est inutile.
+  for (let n = 0; n < 300 && Object.values(g.S.equip).some((x) => !x || x.r < 4); n++) { const it = g.newItem(4, 40); if (!g.S.equip[it.slot]) g.S.equip[it.slot] = it; }
+  g.invalidateStats();
+  g.S.bag = [];
+  for (let i = 0; i < 9; i++) { const it = g.newItem(0, 1); it.r = 0; g.S.bag.push(it); }
+  const plan = g.transmutePlan();
+  assert.ok(plan.made >= 3, "au moins 3 nouveaux : " + plan.made);
+  const out = g.transmute();
+  assert.ok(out.length >= plan.made);
+  assert.ok(out.some((it) => it.r >= 1));
+  assert.ok(!g.S.bag.some((it) => it.r === 0), "les communs ont été utilisés");
+  // Un légendaire n'est jamais consommé.
+  g.S.bag = [];
+  for (let i = 0; i < 3; i++) { const it = g.newItem(4, 1); g.S.bag.push(it); }
+  assert.equal(g.transmute().length, 0);
+  assert.equal(g.S.bag.length, 3);
+});
+
 console.log(`\n${pass} tests réussis`);

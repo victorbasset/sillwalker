@@ -268,14 +268,15 @@ export class Panel {
 
   renderBag() {
     const S = this.game.S, cells = [];
-    const useless = this.game.uselessItems(), uselessGold = useless.reduce((a, it) => a + sellValue(it), 0);
+    const useless = this.game.uselessItems(), uselessGold = useless.reduce((a, it) => a + sellValue(it), 0), tr = this.game.transmutePlan();
     for (let i = 0; i < S.bagSize; i++) {
       const it = S.bag[i];
       cells.push(it ? this.slotBtn(it, it.slot, "bag") : `<div class="slot emptyslot" aria-hidden="true"></div>`);
     }
     $(this.root, "#p-bag").innerHTML = `<h2>Sac <small>${S.bag.length} / ${S.bagSize}</small></h2><div class="bag">${cells.join("")}</div>
       <div class="row"><button data-action="sellless"${useless.length ? "" : " disabled"} title="Vend tout ce qui n’est pas plus puissant que ton équipement actuel. Les légendaires sont toujours gardés.">Vendre ce qui ne m’améliore pas${useless.length ? ` (${useless.length} · ${fmt(uselessGold)} or)` : ""}</button>
-      <button data-action="autoequip"${this.game.hasUpgrade() ? "" : " disabled"}>Équiper le meilleur</button></div>
+      <button data-action="autoequip"${this.game.hasUpgrade() ? "" : " disabled"}>Équiper le meilleur</button>
+      <button data-action="transmute"${tr.made ? "" : " disabled"} title="3 objets inutiles d’une même rareté → 1 objet de la rareté au-dessus (jusqu’à légendaire).">Transmuter${tr.made ? ` (${tr.made} nouveau${tr.made > 1 ? "x" : ""})` : " (3 → 1)"}</button></div>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="common"${S.autoSell.common ? " checked" : ""}> Vendre les communs dès qu’ils tombent</label>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="uncommon"${S.autoSell.uncommon ? " checked" : ""}> Vendre les peu communs dès qu’ils tombent</label>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="rare"${S.autoSell.rare ? " checked" : ""}> Vendre les rares dès qu’ils tombent</label>
@@ -396,6 +397,15 @@ export class Panel {
         const n = g.uselessItems().length;
         this.confirm("Vendre les objets inutiles ?", `${n} objet(s) qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés.`, "Vendre", () => {
           g.sellUseless();
+          if (this.selected?.from === "bag" && !this.getSel()) this.selected = null;
+          this.renderAll();
+        });
+        return;
+      }
+      case "transmute": {
+        const plan = g.transmutePlan();
+        this.confirm("Transmuter les objets inutiles ?", `Chaque groupe de 3 objets inutiles d’une même rareté devient 1 objet de la rareté au-dessus : au moins ${plan.made} nouvel(s) objet(s). Les légendaires ne sont jamais utilisés.`, "Transmuter", () => {
+          g.transmute();
           if (this.selected?.from === "bag" && !this.getSel()) this.selected = null;
           this.renderAll();
         });
