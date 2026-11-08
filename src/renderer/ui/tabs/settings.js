@@ -30,6 +30,7 @@ export class SettingsTab {
         ${check("dayNight", "Cycle jour / nuit", "La bande suit l’heure de ton ordinateur.")}
         ${check("damageNumbers", "Nombres de dégâts")}
         ${check("fullEffects", "Effets complets", "Pièces, faisceaux de butin, flashs. Décoche pour une bande plus sobre.")}
+        ${check("weather", "Météo des zones", "Neige, braises, feuilles, bulles… (un peu plus de calcul).")}
       </article>
       <article class="panel"><h2>Fenêtre</h2>
         <p class="note tight">Position de la bande</p>

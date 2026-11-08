@@ -408,3 +408,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .expe.done { border: 1px solid #ffd34d; color: #ffe9a8; }
 .expe-btns { flex-wrap: wrap; margin-top: 6px; }
 .expe-btns button { font-size: 11px; padding: 3px 6px; }
+
+/* Météo des zones */
+.wx { width: 3px; height: 3px; opacity: 0.9; }
+.wx.tall { width: 2px; height: 6px; opacity: 0.6; }
+.wx.ring { width: 6px; height: 6px; border: 1px solid; border-radius: 50%; opacity: 0.6; }

@@ -36,7 +36,7 @@ export function freshState(now = Date.now()) {
     skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
-    settings: { sound: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true },
+    settings: { sound: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true },
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
   };

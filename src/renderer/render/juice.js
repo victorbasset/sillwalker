@@ -12,6 +12,30 @@ import { itemIconURL } from "./sprites.js";
 import { q, el, mark } from "./dom.js";
 
 const MAX_PARTS = 90;
+
+// Météo de chaque zone : quelques particules qui flottent (désactivées avec
+// « Effets complets »). vx / vy en px/s, sway : balancement, rate : par seconde et par 1000 px.
+const WEATHER = {
+  "Forêt des murmures": "leaf", "Marais brumeux": "spore", "Forge volcanique": "ember", "Désert brûlant": "dust",
+  "Toundra gelée": "snow", "Jungle étouffante": "leaf", "Ruines célestes": "mote", "Abysses ardents": "ember",
+  "Égouts oubliés": "drip", "Pyramide maudite": "dust", "Pics enneigés": "snow", "Nid des harpies": "feather",
+  "Cœur du volcan": "ember", "Bastion noir": "ash", "Caverne de cristal": "mote", "Bois corrompu": "spore",
+  "Pic des wyvernes": "dust", "Royaume du néant": "mote", "Récif abyssal": "bubble", "Volcan des wyvernes": "ember",
+  "Crypte oubliée": "ash", "Grotte suintante": "drip", "Côte des naufragés": "feather",
+};
+const WX = {
+  snow:    { c: ["#ffffff", "#e6f1fa"], vx: -14, vy: 24, sway: 10, rate: 3 },
+  leaf:    { c: ["#6cbf4f", "#c9a03a", "#a8562b"], vx: -30, vy: 18, sway: 14, rate: 1 },
+  spore:   { c: ["#c9e8a0", "#e8f0c0"], vx: -4, vy: -9, sway: 8, rate: 1.2 },
+  ember:   { c: ["#ff9a3a", "#ffd34d", "#e2552b"], vx: 6, vy: -28, sway: 6, rate: 2.5 },
+  dust:    { c: ["#f0d8a0", "#d8b878"], vx: -70, vy: 2, sway: 2, rate: 1.5, side: true },
+  mote:    { c: ["#e0d8ff", "#9fe8ff", "#ffffff"], vx: -3, vy: -7, sway: 10, rate: 1.2 },
+  drip:    { c: ["#7fb0d8"], vx: 0, vy: 90, sway: 0, rate: 1, tall: true },
+  ash:     { c: ["#8a8f99", "#5c616b"], vx: -8, vy: 14, sway: 6, rate: 1.5 },
+  feather: { c: ["#f4f0e8", "#e8c8a0"], vx: -20, vy: 12, sway: 18, rate: 0.6 },
+  bubble:  { c: ["#9fe8ff"], vx: 0, vy: -22, sway: 6, rate: 1.5, ring: true },
+};
+const WX_MAX = 48;
 const easeIn = (k) => k * k;
 const easeOut = (k) => 1 - (1 - k) * (1 - k);
 
@@ -22,6 +46,8 @@ export class Juice {
     this.parts = [];
     this.pulse = 0;
     this.star = null;
+    this.wx = [];
+    this.wxKind = null;
     this.bind();
   }
 
@@ -250,10 +276,35 @@ export class Juice {
     }
     if (this.star) { const p = this.starPos(); this.place(this.star, p.x, p.y); }
     this.ambient(dt);
+    this.weather(dt);
     if (!this.parts.length) return;
     for (const p of this.parts) { p.t += dt; p.alive = p.update(p, dt); }
     this.parts = this.parts.filter((p) => (p.alive ? true : (p.node.remove(), false)));
   }
 
-  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.star = null; }
+  /* ---------- Météo de la zone ---------- */
+  weather(dt) {
+    const kind = this.full && this.s.game.S.settings.weather !== false ? WEATHER[this.s.game.zoneDef().name] || null : null;
+    if (kind !== this.wxKind) { this.clearWeather(); this.wxKind = kind; }
+    if (!kind) return;
+    const k = WX[kind], W = this.s.W, G = this.ground();
+    if (this.wx.length < WX_MAX && Math.random() < dt * k.rate * 2 * W / 1000) {
+      const node = el("div", "wx" + (k.ring ? " ring" : k.tall ? " tall" : ""), this.layer);
+      node.style.background = k.ring ? "transparent" : k.c[Math.floor(Math.random() * k.c.length)];
+      if (k.ring) node.style.borderColor = k.c[0];
+      const x0 = k.side ? W + 10 : Math.random() * W, y0 = k.side ? 10 + Math.random() * (G - 20) : k.vy > 0 ? -6 : G - 4;
+      const sp = 0.7 + Math.random() * 0.6;
+      this.wx.push({ node, x0, y0, sp, ph: Math.random() * 6.28, t: 0 });
+    }
+    this.wx = this.wx.filter((p) => {
+      p.t += dt;
+      const x = p.x0 + k.vx * p.sp * p.t + Math.sin(p.t * 1.7 + p.ph) * k.sway, y = p.y0 + k.vy * p.sp * p.t;
+      const alive = y > -10 && y < G + 2 && x > -20 && x < W + 20 && p.t < 12;
+      if (alive) this.place(p.node, x, y); else p.node.remove();
+      return alive;
+    });
+  }
+  clearWeather() { for (const p of this.wx) p.node.remove(); this.wx.length = 0; }
+
+  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.star = null; this.wx.length = 0; this.wxKind = null; }
 }
