@@ -5,9 +5,9 @@
 set -euo pipefail
 
 sudo apt-get update
-# Node 20
-if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(".")[0]')" -lt 20 ]; then
-  curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+# Node 22 (Electron 45 demande Node >= 22.12)
+if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split(".")[0]')" -lt 22 ]; then
+  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
   sudo apt-get install -y nodejs
 fi
 # Écran virtuel et bibliothèques nécessaires à Electron
