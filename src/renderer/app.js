@@ -184,14 +184,23 @@ async function boot() {
 
   /* ---------- Bulle de la bande : résumé hors ligne et conseils ---------- */
   let toastTimer = 0, toastAction = null, toastUntil = 0;
-  function showToast(html, action, ms = 15000) {
+  // Bulles en file : une nouvelle bulle (récompense du jour…) attend la fermeture de celle affichée
+  // (résumé d'absence…) au lieu de la remplacer ; sinon le résumé était perdu au bout de 2,5 s.
+  const toastQueue = [];
+  function showToast(html, action, ms = 15000, queue = true) {
+    if (queue && !toast.hidden && Date.now() < toastUntil) { toastQueue.push([html, action, ms]); return; }
     toast.innerHTML = html;
     toast.hidden = false;
     toastAction = action;
     toastUntil = Date.now() + ms;
     clickThrough.refresh();
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
+    toastTimer = setTimeout(hideToast, ms);
+  }
+  function hideToast() {
+    toast.hidden = true; toastAction = null; toastUntil = 0; clickThrough.refresh();
+    const next = toastQueue.shift();
+    if (next) setTimeout(() => showToast(...next), 400);
   }
   function showOffline(sum) {
     // Absence très courte (mise en veille d'une minute…) : le journal suffit, pas de bulle qui dérange.
@@ -206,11 +215,9 @@ async function boot() {
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {
-    toast.hidden = true;
-    clickThrough.refresh();
     clearTimeout(toastTimer);
     const act = toastAction;
-    toastAction = null;
+    hideToast(); // la bulle suivante de la file, s'il y en a une
     act?.();
   });
   /** Conseils : un à la fois, quand la bulle est libre et le panneau fermé. */
@@ -342,6 +349,7 @@ async function boot() {
   /* ---------- Démo des effets (dev) : --demo ---------- */
   if (init.isDev) window.__panel = panel; // auto-test (dev)
   if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
+  if (init.isDev) window.__showToast = showToast; // auto-test (dev) : file des bulles
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
   if (init.isDev) window.__demo = () => {
     game.startEvent("wind");

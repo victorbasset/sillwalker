@@ -398,6 +398,13 @@ async function runSelfTest(strip) {
   // Événement en cours : sa pastille dans la carte du héros donne son effet au survol.
   const evTip = await js("(() => { window.__game.startEvent('goldrain'); window.__panel.renderAll(); return (document.querySelector('#p-hero .chip.event') || {}).title || 'pas de pastille'; })()");
   check("carte du héros : effet de l'événement au survol", evTip && evTip !== "pas de pastille" && /3/.test(evTip), evTip);
+  // Bulles en file : la deuxième attend que la première soit fermée (au lieu de la remplacer).
+  const q1 = await js("(() => { window.__showToast('BULLE-UN', null, 8000); window.__showToast('BULLE-DEUX', null, 8000); return document.getElementById('toast').textContent; })()");
+  await js("document.getElementById('toast').click()");
+  await sleep(700);
+  const q2 = await js("document.getElementById('toast').hidden ? 'cachée' : document.getElementById('toast').textContent");
+  check("bulles : la deuxième attend la fermeture de la première", q1 === "BULLE-UN" && q2 === "BULLE-DEUX", q1 + " / " + q2);
+  await js("document.getElementById('toast').click()");
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
