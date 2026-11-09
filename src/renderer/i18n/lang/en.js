@@ -396,4 +396,5 @@ export default {
   1520: "Boss worn down by your attempts: −{0}% HP for this run.",
   1521: "Boss worn down by your attempts: −{0}% HP until you beat it.",
   1522: "−{0}% HP",
+  1523: "The Hunter",
 };

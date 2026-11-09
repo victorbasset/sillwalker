@@ -396,4 +396,5 @@ export default {
   1520: "Jefe agotado por tus intentos: −{0} % de PV en esta partida.",
   1521: "Jefe agotado por tus intentos: −{0} % de PV hasta que lo derrotes.",
   1522: "−{0} % PV",
+  1523: "El Cazador",
 };

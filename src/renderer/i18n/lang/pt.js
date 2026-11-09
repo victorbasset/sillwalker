@@ -396,4 +396,5 @@ export default {
   1520: "Chefe desgastado pelas suas tentativas: −{0} % de PV nesta jornada.",
   1521: "Chefe desgastado pelas suas tentativas: −{0} % de PV até você vencê-lo.",
   1522: "−{0} % PV",
+  1523: "O Caçador",
 };

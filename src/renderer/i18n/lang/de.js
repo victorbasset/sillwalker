@@ -396,4 +396,5 @@ export default {
   1520: "Boss von deinen Versuchen erschöpft: −{0} % LP für diesen Durchgang.",
   1521: "Boss von deinen Versuchen erschöpft: −{0} % LP, bis du ihn besiegst.",
   1522: "−{0} % LP",
+  1523: "Der Jäger",
 };

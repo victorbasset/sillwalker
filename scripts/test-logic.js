@@ -1009,6 +1009,14 @@ test("Astrolabe : ascension automatique seulement si débloquée, activée et bl
   assert.ok(g.S.unlocks.astrolabe && g.S.settings.autoAscend === true, "déblocage et option conservés");
 });
 
+test("constellation du Chasseur : +5 % d'élites rencontrées par rang", () => {
+  const g = new Game(freshState());
+  g.S.prestige.shards = 1000;
+  assert.ok(g.buyConstellation("c_hunter") && g.buyConstellation("c_hunter"));
+  g.invalidateStats();
+  assert.equal(g.stats().elites, 10);
+});
+
 test("pouvoir Appât des champions : nettement plus d'élites", () => {
   const count = (lure) => {
     setRandom(seeded(7));
