@@ -392,6 +392,9 @@ async function runSelfTest(strip) {
   // « À faire » : points de compétence dépensés d'un clic (Manuel du stratège).
   const sp = await js("(() => { const g = window.__game, S = g.S; S.unlocks.bulkPoints = true; window.__panel.renderAll(); const n = (g.todoNow().find((t) => t.id === 'skills') || {}).n || 0; const b = document.querySelector('#p-hero .todobox [data-what=skills]'); if (!b) return 'pas de ligne (' + n + ' points)'; b.click(); const n2 = (g.todoNow().find((t) => t.id === 'skills') || {}).n || 0; return n + ' -> ' + n2; })()");
   check("carte du héros : points de compétence dépensés d'un clic", /^(\d+) -> (\d+)$/.test(sp) && +sp.split(" -> ")[1] < +sp.split(" -> ")[0], sp);
+  // « À faire » : amélioration du marchand achetée et équipée d'un clic.
+  const mer = await js("(() => { const g = window.__game, S = g.S; S.bag.length = 0; S.gold = Math.max(S.gold, 1e9); let it = g.newItem(4, S.best + 20); it.price = 10; S.shop = { items: [it], next: Date.now() + 600000 }; window.__panel.renderAll(); const d = document.querySelector('#p-hero .todobox'); if (!d) return 'pas de bloc'; const b = d.querySelector('[data-what=merchant]'); if (!b) return 'pas de ligne'; b.click(); return String((S.equip[it.slot] || {}).id === it.id); })()");
+  check("carte du héros : amélioration du marchand achetée et équipée", mer === "true", mer);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

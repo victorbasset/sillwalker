@@ -1169,6 +1169,23 @@ export class Game {
     return true;
   }
 
+  /** Meilleure amélioration abordable chez le marchand (ou null). */
+  merchantUpgrade(now = Date.now()) {
+    const S = this.S, offers = (S.shop && Array.isArray(S.shop.items) && now < S.shop.next) ? S.shop.items : [];
+    if (this.bagFull()) return null;
+    let best = null, bd = 0;
+    for (const it of offers) { if (S.gold < it.price) continue; const d = this.upgradeDelta(it); if (d > UPGRADE_EPS && d > bd) { best = it; bd = d; } }
+    return best;
+  }
+
+  /** Achète au marchand puis équipe l'objet (action directe de « À faire »). */
+  buyAndEquip(id) {
+    if (!this.buyShopItem(id)) return false;
+    const it = this.findBagItem(id);
+    if (it) this.equip(it);
+    return true;
+  }
+
   buyShopItem(id) {
     const S = this.S, shop = S.shop;
     const it = shop && shop.items.find((i) => i.id === id);
@@ -1439,8 +1456,8 @@ export class Game {
     const ex = this.expeditionsReady(now).length;
     if (ex) out.push({ id: "expeditions", n: ex, tab: "pets" });
     // Marchand : une amélioration abordable (sans renouveler le stock ici)
-    const offers = (S.shop && Array.isArray(S.shop.items) && now < S.shop.next) ? S.shop.items : [];
-    if (!this.bagFull() && offers.some((it) => S.gold >= it.price && this.isUpgrade(it))) out.push({ id: "merchant", n: 1, tab: "shop" });
+    const offer = this.merchantUpgrade(now);
+    if (offer) out.push({ id: "merchant", n: 1, tab: "shop", name: itemName(offer), price: offer.price });
     return out;
   }
 

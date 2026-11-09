@@ -486,4 +486,5 @@ export default {
   1610: "Bag full: {n} useless item to sell|Bag full: {n} useless items to sell",
   1611: "Bag full: the next loot will be sold",
   1612: "To do ({0})",
+  1613: "Buy and equip: {0} ({1} gold)",
 };

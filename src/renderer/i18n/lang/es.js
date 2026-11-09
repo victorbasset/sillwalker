@@ -486,4 +486,5 @@ export default {
   1610: "Bolsa llena: {n} objeto inútil para vender|Bolsa llena: {n} objetos inútiles para vender",
   1611: "Bolsa llena: el próximo botín se venderá",
   1612: "Pendiente ({0})",
+  1613: "Comprar y equipar: {0} ({1} de oro)",
 };

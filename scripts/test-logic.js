@@ -1428,6 +1428,20 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("« À faire » : amélioration du marchand achetée et équipée d'un clic", () => {
+  const g = new Game(freshLocked());
+  for (const k in g.S.equip) g.S.equip[k] = null;
+  g.invalidateStats();
+  g.S.bag.length = 0; g.S.gold = 1e9;
+  const it = g.newItem(3); it.price = 100;
+  g.S.shop = { items: [it], next: Date.now() + 600000 };
+  const t = g.todoNow().find((x) => x.id === "merchant");
+  assert.ok(t && t.name && t.price === 100);
+  assert.ok(g.buyAndEquip(g.merchantUpgrade().id));
+  assert.equal(g.S.equip[it.slot].id, it.id, "équipé");
+  assert.ok(!g.todoNow().some((x) => x.id === "merchant"));
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

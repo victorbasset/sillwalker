@@ -486,4 +486,5 @@ export default {
   1610: "Bolsa cheia: {n} item inútil para vender|Bolsa cheia: {n} itens inúteis para vender",
   1611: "Bolsa cheia: o próximo saque será vendido",
   1612: "A fazer ({0})",
+  1613: "Comprar e equipar: {0} ({1} de ouro)",
 };

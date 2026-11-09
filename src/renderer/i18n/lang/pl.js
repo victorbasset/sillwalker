@@ -486,4 +486,5 @@ export default {
   1610: "Torba pełna: {n} zbędny przedmiot do sprzedania|Torba pełna: {n} zbędne przedmioty do sprzedania|Torba pełna: {n} zbędnych przedmiotów do sprzedania",
   1611: "Torba pełna: następny łup zostanie sprzedany",
   1612: "Do zrobienia ({0})",
+  1613: "Kup i załóż: {0} ({1} złota)",
 };

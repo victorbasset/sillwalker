@@ -486,4 +486,5 @@ export default {
   1610: "Tasche voll: {n} nutzloser Gegenstand zu verkaufen|Tasche voll: {n} nutzlose Gegenstände zu verkaufen",
   1611: "Tasche voll: Die nächste Beute wird verkauft",
   1612: "Zu tun ({0})",
+  1613: "Kaufen und ausrüsten: {0} ({1} Gold)",
 };
