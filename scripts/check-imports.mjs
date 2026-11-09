@@ -38,6 +38,10 @@ function codeOnly(src) {
   return out;
 }
 
+// Fonctions exportées par les modules du jeu : un appel « nom( » sans import ni déclaration locale est un oubli.
+const EXPORTED = new Set();
+for (const f of files) for (const m of fs.readFileSync(f, "utf8").matchAll(/export\s+(?:async\s+)?(?:function|const|let)\s+([a-z][\w$]*)/g)) EXPORTED.add(m[1]);
+
 let problems = 0;
 for (const f of files) {
   const src = fs.readFileSync(f, "utf8");
@@ -51,6 +55,11 @@ for (const f of files) {
   for (const m of code.matchAll(/\b(?:const|let|var)\s*\{([^}]*)\}/g)) for (const p of m[1].split(",")) known.add(p.split(":").pop().trim());
   const used = new Set();
   for (const m of code.matchAll(/(?<![\w$.])([A-Z][A-Z0-9_]{2,})\b(?!\s*:)/g)) used.add(m[1]);
+  for (const m of code.matchAll(/(?<![\w$.])([a-z][\w$]*)\s*\(/g)) if (EXPORTED.has(m[1])) used.add(m[1]);
+  // paramètres et variables locales en minuscules : déclarés n'importe où dans le fichier (fonctions, flèches, boucles)
+  for (const m of code.matchAll(/\(([^()]*)\)\s*(?:=>|\{)/g)) for (const p of m[1].split(",")) { const n = p.trim().split(/[\s=]/)[0].replace(/^\.\.\./, ""); if (n) known.add(n); }
+  for (const m of code.matchAll(/(?<![\w$.])([a-z][\w$]*)\s*=>/g)) known.add(m[1]);
+  for (const m of code.matchAll(/^\s*(?:async\s+)?([a-z][\w$]*)\s*\([^)]*\)\s*\{/gm)) known.add(m[1]); // méthodes de classe
   const missing = [...used].filter((n) => !known.has(n));
   if (missing.length) { problems += missing.length; console.log(`${path.relative(ROOT, f)} : ${missing.join(", ")}`); }
 }

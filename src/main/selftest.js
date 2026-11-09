@@ -252,7 +252,7 @@ async function runSelfTest(strip) {
   await sleep(150);
   check("vendre ce qui n'améliore pas (après confirmation)", useless > 0 && (await state("S.bag.length")) === bag0 - useless, `${bag0} -> ${await state("S.bag.length")} (${useless} inutiles)`);
   // Transmutation (3 communs inutiles -> 1 peu commun), avec confirmation
-  await js("(() => { const g = window.__game; g.S.bag.splice(0, 12); for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; g.S.bag.push(it); } g.changed() })()");
+  await js("(() => { const g = window.__game; g.S.bag.splice(0, 12); for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; it.set = null; g.S.bag.push(it); } g.changed() })()");
   await click('[data-tab="adventure"]');
   await sleep(200);
   const tr0 = await js("window.__game.S.stats.transmutes || 0");
@@ -363,7 +363,7 @@ async function runSelfTest(strip) {
   const prog = await js("(() => { const g = window.__game; const it = g.S.bag.find((i) => i.slot !== 'weapon') || g.S.bag[0]; if (!it) return 'sac vide'; it.set = 'hunter'; window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); if (!el) return 'case introuvable'; window.__panel.onHover({ target: el }); return (document.querySelector('.itemtip .setprog') || {}).textContent || 'pas de ligne'; })()");
   check("infobulle : progression de panoplie (« → / 4 »)", /→ .* \/ 4/.test(prog), prog);
   // Pièce d'une panoplie commencée (une pièce portée), pas plus forte seule : gardée, et l'infobulle le dit.
-  const kept = await js("(() => { const g = window.__game, S = g.S; const w = Object.values(S.equip).find(Boolean); w.set = 'hunter'; delete (S.setsDone || {}).hunter; const it = S.bag.find((i) => i.slot !== w.slot && i.r < 4 && !g.isUpgrade(i)); if (!it) return 'aucun objet'; it.set = 'hunter'; g.invalidateStats(); window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); window.__panel.onHover({ target: el }); return [...document.querySelectorAll('.itemtip .setprog')].length + ' ' + !g.uselessItems().includes(it); })()");
+  const kept = await js("(() => { const g = window.__game, S = g.S; const w = Object.values(S.equip).find(Boolean); w.set = 'hunter'; delete (S.setsDone || {}).hunter; const it = g.newItem(2); it.slot = w.slot === 'ring' ? 'boots' : 'ring'; it.st = {}; it.power = null; it.set = 'hunter'; S.bag.unshift(it); g.invalidateStats(); window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); window.__panel.onHover({ target: el }); return [...document.querySelectorAll('.itemtip .setprog')].length + ' ' + !g.uselessItems().includes(it); })()");
   check("infobulle : pièce de panoplie gardée expliquée", kept === "2 true", kept);
   await js("window.__panel.tip.hidden = true");
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
