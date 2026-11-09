@@ -1284,6 +1284,21 @@ test("quêtes : un type inconnu (autre version) est remplacé au chargement, san
   assert.ok(!g.idlePets().includes("licorne_future"));
 });
 
+test("valeurs inconnues d'une autre version (panoplie, pouvoir, déblocage, constellation, élixir) : rien ne plante", () => {
+  const g0 = new Game(freshState());
+  const a = g0.newItem(3), b = g0.newItem(3);
+  a.slot = "ring"; b.slot = "boots";
+  for (const it of [a, b]) { it.set = "panoplie_future"; it.power = "p_futur"; g0.S.equip[it.slot] = it; }
+  g0.S.unlocks.truc_futur = true;
+  g0.S.prestige.ranks = { ...(g0.S.prestige.ranks || {}), c_futur: 3 };
+  g0.S.buffs = { ...(g0.S.buffs || {}), elixir_futur: 300 };
+  const g = new Game(migrate(JSON.parse(JSON.stringify(g0.S))));
+  g.invalidateStats();
+  assert.ok(g.stats().atk > 0);
+  for (let i = 0; i < 200; i++) g.step(0.05);
+  assert.ok(Array.isArray(g.todoNow()));
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);
