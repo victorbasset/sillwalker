@@ -485,4 +485,5 @@ export default {
   1609: "Ein Set-Teil! Trage 2, dann 4 Teile desselben Sets für Boni; jedes zum ersten Mal vervollständigte Set macht deinen Helden außerdem für immer stärker. Alle Sets stehen im Bestiarium: Hier klicken.",
   1610: "Tasche voll: {n} nutzloser Gegenstand zu verkaufen|Tasche voll: {n} nutzlose Gegenstände zu verkaufen",
   1611: "Tasche voll: Die nächste Beute wird verkauft",
+  1612: "Zu tun ({0})",
 };

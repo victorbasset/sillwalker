@@ -1613,5 +1613,6 @@ export const KEYS = [
   "Une pièce du sac complète la panoplie {0}",
   "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus ; chaque panoplie complétée une première fois rend aussi ton héros plus fort pour toujours. Toutes les panoplies sont dans le Bestiaire : clique ici.",
   "Sac plein : {n} objet inutile à vendre|Sac plein : {n} objets inutiles à vendre",
-  "Sac plein : le butin suivant sera vendu"
+  "Sac plein : le butin suivant sera vendu",
+  "À faire ({0})"
 ];

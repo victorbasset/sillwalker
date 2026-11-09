@@ -690,3 +690,4 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .stewrow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .stewrow button { font-size: 12px; padding: 1px 7px; }
 .stewrow button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); }
+.todobox .linkbtn { display: block; width: 100%; margin: 3px 0; text-align: left; }

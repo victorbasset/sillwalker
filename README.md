@@ -75,7 +75,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   sans icônes, puis police réduite ; les icônes seules en dernier recours.
 - **Retour** : après une absence, résumé des gains, meilleur objet (équipable d'un clic) et « À faire maintenant »
   (quêtes, points, déblocage abordable, œufs, expéditions, sac plein, pièce qui complète une panoplie) : avec les déblocages « tout d'un coup », ces lignes
-  s'exécutent d'un clic (✦) et le déblocage payable s'achète directement. Pendant l'absence, les automatismes achetés
+  s'exécutent d'un clic (✦) et le déblocage payable s'achète directement ; la même liste est dans la carte
+  du héros (« À faire (N) », repliable). Pendant l'absence, les automatismes achetés
   (Maître de forge, Creuset, Grand intendant, Grimoire de l'éveil, Valet d'armes) travaillent aussi, et le résumé le
   dit. Le héros accueille le joueur (« Te revoilà ! »). En rouvrant le panneau, « Depuis ta dernière visite ».
   La bande rappelle le record à battre (ou l'événement en cours et ses secondes restantes) ; une fois tout débloqué,

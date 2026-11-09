@@ -294,6 +294,14 @@ export class Panel {
           : `<button class="linkbtn" data-tab="${t.tab}">${esc(todoLabel(t))} →</button>`).join("")}`;
   }
 
+  /** « À faire » dans la carte du héros (repliable) : les mêmes lignes et actions que le résumé de retour. */
+  todoBox() {
+    const list = this.game.todoNow();
+    if (!list.length) return "";
+    const body = this.todoHtml().replace(/^\s*<h3 class="todo-h">.*?<\/h3>/s, "");
+    return `<details class="more todobox" data-keep="hero-todo"${this.kept.has("hero-todo") ? " open" : ""}><summary>${tx("À faire ({0})", { 0: list.length })}</summary>${body}</details>`;
+  }
+
   /** Les actions de « À faire maintenant » que le joueur pourrait déjà faire d'un clic dans leur onglet. */
   todoDirect(t) {
     const S = this.game.S;
@@ -413,6 +421,7 @@ export class Panel {
       ${free > 0 ? `<button class="linkbtn" data-tab="talents">${txn(free, "{n} point de talent à dépenser →|{n} points de talent à dépenser →")}</button>` : ""}
       ${this.visitHTML()}${this.goalHTML(S)}
       ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
+      ${this.todoBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
       <dt>${tx("Potions de soin")}</dt><dd>${S.potions}</dd><dt>${tx("Or")}</dt><dd id="goldtxt"></dd>

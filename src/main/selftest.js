@@ -385,6 +385,9 @@ async function runSelfTest(strip) {
   check("retour d'absence : sac plein vidé d'un clic", /^(\d+) -> (\d+)$/.test(full) && +full.split(" -> ")[1] < +full.split(" -> ")[0], full);
   await js("document.querySelector('#modal [data-action=closemodal]')?.click()");
   await sleep(150);
+  // « À faire » dans la carte du héros : une quête prête, réclamée d'un clic depuis le bloc.
+  const box = await js("(() => { const g = window.__game, S = g.S; S.unlocks.questDesk = true; const q = S.quests.slots[0]; q.progress = q.goal; const uid = q.uid; window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('#p-hero .todobox'); if (!d) return 'pas de bloc'; d.open = true; const b = d.querySelector('[data-what=quests]'); if (!b) return 'pas de ligne'; b.click(); return String(!S.quests.slots.some((x) => x.uid === uid)); })()");
+  check("carte du héros : « À faire » avec actions directes", box === "true", box);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
