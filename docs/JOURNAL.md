@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 304, étude des concurrents, action f) : la silhouette du héros change avec l'équipement, en plus
+  des teintes : plume (couleur de rareté) sur un casque épique ou légendaire, cape (teinte de l'armure, assombrie)
+  derrière une armure épique ou légendaire, qui retombe de deux rangées ; placées d'après le dessin de chaque héros
+  (equipvis.js > gearRows : haut du casque H, bord arrière de l'armure A/a). Test (20 héros, mêmes rangées ajoutées
+  sur les 3 images), capture (mage), autotest vert.
 - 2026-11-09 (it. 303, étude des concurrents, action c) : partie neuve regardée à 9 s et 40 s (bulle d'accueil,
   « Prochaine découverte », À faire : clair) ; seul manque : rien ne dit comment équiper un objet ▲. Astuce
   « upgrade » réécrite (« double-clique dessus pour l'équiper ») et rappel « ▲ double-clic : équiper » dans le titre du
@@ -1174,7 +1179,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      d'événements de zone et de mécaniques de boss.
   e. P2 Rien qui repart à zéro sans contrepartie : l'ascension garde déjà l'essentiel ; l'écran d'ascension le dit
      (fait) ; ne jamais ajouter de reset sans récompense visible.
-  f. P3 Équipement visible sur le héros (formes d'armes / casques, pas seulement des teintes).
+  f. FAIT (it. 304 : plume et cape). P3 Équipement visible sur le héros (formes d'armes / casques, pas seulement des teintes).
   g. P3 Lisibilité : taille de texte par défaut confortable, contraste ; scintillement des menus à surveiller.
   h. Principes à garder : pas d'argent réel, pas de collecte de données, pas de héros payants, pas de baisse de butin
      silencieuse (toute baisse annoncée dans les notes de version).

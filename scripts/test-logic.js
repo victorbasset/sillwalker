@@ -5,6 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import * as M_equipvis_js from "../src/renderer/render/equipvis.js";
 import * as M_skillicons_js from "../src/renderer/render/skillicons.js";
 import * as M_art_js from "../src/renderer/render/art.js";
 import * as M_pets_js from "../src/renderer/game/pets.js";
@@ -585,6 +586,18 @@ test("héros ajoutés : au moins une branche de talents différente de leur mod�
     const sig = (k) => TREES[k].map((b) => JSON.stringify(b.talents.map((t) => t.eff)));
     const mine = sig(cls), model = sig(def.tree);
     assert.ok(mine.some((x, i) => x !== model[i]), cls + " a les mêmes effets que " + def.tree);
+  }
+});
+
+test("silhouette : plume et cape pour un casque / une armure épiques, ajoutées pareil sur les trois images", () => {
+  const { gearRows } = M_equipvis_js, { CLASS_ART } = M_art_js;
+  for (const [cls, art] of Object.entries(CLASS_ART)) {
+    const v = { plume: "#c08cff", cape: "#3a6ab8" };
+    // Autant de rangées ajoutées sur chaque image (le dessin d'attaque peut déjà différer d'une rangée).
+    const h = ["walk1", "walk2", "attack"].map((f) => gearRows(art[f], v).length - art[f].length);
+    assert.ok(h[0] === h[1] && h[1] === h[2], cls + " : rangées ajoutées différentes entre les images");
+    assert.equal(gearRows(art.walk1, {}), art.walk1, "sans plume ni cape : dessin inchangé");
+    if (art.walk1.some((r) => r.includes("A") || r.includes("a"))) assert.ok(gearRows(art.walk1, { cape: "#000000" }).some((r) => r.includes("C")), cls + " : pas de cape");
   }
 });
 

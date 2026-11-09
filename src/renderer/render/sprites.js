@@ -2,7 +2,7 @@
 import { STARBREAKER_ART } from "./art-monsters2.js";
 import { OUTLINE, PIXEL, CLASS_ART, MONSTER_ART, ICON_ART, PET_ART, SLOT_ICON } from "./art.js";
 import { RARITIES, MONSTERS } from "../game/data.js";
-import { dressPalette, visualKey } from "./equipvis.js";
+import { dressPalette, visualKey, gearRows } from "./equipvis.js";
 
 export function buildSprite(rows, pal, scale, flip, dpr = 1) {
   const h = rows.length, w = Math.max(...rows.map((r) => r.length)), g = [];
@@ -92,9 +92,9 @@ export function buildHeroSprites(cls, visual, dpr, scale = PIXEL) {
   if (!set) {
     const art = CLASS_ART[cls] || CLASS_ART.warrior, pal = dressPalette(art.pal, visual);
     set = {
-      walk1: buildSprite(art.walk1, pal, scale, false, dpr),
-      walk2: buildSprite(art.walk2, pal, scale, false, dpr),
-      attack: buildSprite(art.attack, pal, scale, false, dpr),
+      walk1: buildSprite(gearRows(art.walk1, visual), pal, scale, false, dpr),
+      walk2: buildSprite(gearRows(art.walk2, visual), pal, scale, false, dpr),
+      attack: buildSprite(gearRows(art.attack, visual), pal, scale, false, dpr),
     };
     if (dressedCache.size > 40) dressedCache.clear();
     dressedCache.set(key, set);
