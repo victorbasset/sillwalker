@@ -481,4 +481,5 @@ export default {
   1605: "Phönixgefieder",
   1606: "des Phönixgefieders",
   1607: "Großer Verwalter: Eier und Expeditionen automatisch",
+  1608: "Ein Teil in der Tasche vervollständigt das Set {0}",
 };

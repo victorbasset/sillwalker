@@ -1391,6 +1391,20 @@ test("pièces de panoplie pas encore complétée : gardées par « vendre l'inut
   assert.ok(g.uselessItems().includes(a), "panoplie déjà complétée : plus de protection");
 });
 
+test("« À faire maintenant » : une pièce du sac qui complète une panoplie", () => {
+  const g = new Game(freshLocked());
+  for (const k in g.S.equip) g.S.equip[k] = null;
+  for (const slot of ["weapon", "helm", "armor"]) { const it = g.newItem(3); it.slot = slot; it.set = "dawn"; g.S.equip[slot] = it; }
+  g.S.bag.length = 0;
+  assert.ok(!g.todoNow().some((t) => t.id === "setFinish"));
+  const p = g.newItem(3); p.slot = "boots"; p.set = "dawn"; g.S.bag.push(p);
+  const t = g.todoNow().find((x) => x.id === "setFinish");
+  assert.ok(t && t.itemId === p.id);
+  g.equip(g.setFinisher());
+  assert.ok(g.S.setsDone.dawn, "complétée");
+  assert.ok(!g.todoNow().some((x) => x.id === "setFinish"));
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

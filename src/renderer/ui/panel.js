@@ -298,7 +298,7 @@ export class Panel {
   todoDirect(t) {
     const S = this.game.S;
     return (t.id === "quests" && hasUnlock(S, "questDesk")) || ((t.id === "eggs" || t.id === "expeditions") && hasUnlock(S, "petBulk"))
-      || (t.id === "upgrade" && hasUnlock(S, "bulkEquip"));
+      || (t.id === "upgrade" && hasUnlock(S, "bulkEquip")) || t.id === "setFinish";
   }
 
   /** Exécute une action de « À faire maintenant » (le résumé reste ouvert, la ligne passe à ✓). */
@@ -308,6 +308,7 @@ export class Panel {
     else if (what === "eggs") g.hatchAll();
     else if (what === "expeditions") g.claimAllExpeditions();
     else if (what === "upgrade") g.autoEquip();
+    else if (what === "setFinish") { const it = g.setFinisher(); if (it) g.equip(it); }
   }
 
 

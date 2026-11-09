@@ -1427,12 +1427,20 @@ export class Game {
     const u = nextUnlock(S);
     if (u && unlockAvailable(S, u) && S.gold >= u.price) out.push({ id: "unlock", n: 1, tab: "shop", name: u.name, uid: u.id, price: u.price });
     if (S.pets.eggs > 0 && hasUnlock(S, "menagerie")) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
+    const fin = this.setFinisher();
+    if (fin) out.push({ id: "setFinish", n: 1, tab: "adventure", name: SETS[fin.set].name, itemId: fin.id });
     const ex = this.expeditionsReady(now).length;
     if (ex) out.push({ id: "expeditions", n: ex, tab: "pets" });
     // Marchand : une amélioration abordable (sans renouveler le stock ici)
     const offers = (S.shop && Array.isArray(S.shop.items) && now < S.shop.next) ? S.shop.items : [];
     if (!this.bagFull() && offers.some((it) => S.gold >= it.price && this.isUpgrade(it))) out.push({ id: "merchant", n: 1, tab: "shop" });
     return out;
+  }
+
+  /** Pièce du sac qui porterait une panoplie à 4 pièces (bonus de 4 pièces) une fois équipée. */
+  setFinisher() {
+    const S = this.S, worn = setCounts(S.equip);
+    return S.bag.find((it) => it.set && SETS[it.set] && worn[it.set] === 3 && !(S.equip[it.slot] && S.equip[it.slot].set === it.set)) || null;
   }
 
   /** Photo des compteurs à la fermeture du panneau (pour « Depuis ta dernière visite »). */

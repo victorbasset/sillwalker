@@ -1609,5 +1609,6 @@ export const KEYS = [
   "Gardée pour compléter la panoplie : la vente de l’inutile et la transmutation l’épargnent.",
   "Plumage du phénix",
   "du Plumage du phénix",
-  "Grand intendant : œufs et expéditions tout seuls"
+  "Grand intendant : œufs et expéditions tout seuls",
+  "Une pièce du sac complète la panoplie {0}"
 ];

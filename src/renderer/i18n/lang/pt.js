@@ -481,4 +481,5 @@ export default {
   1605: "Plumagem da fênix",
   1606: "da Plumagem da fênix",
   1607: "Grande intendente: ovos e expedições automáticos",
+  1608: "Uma peça da bolsa completa o conjunto {0}",
 };

@@ -481,4 +481,5 @@ export default {
   1605: "Phoenix Plumage",
   1606: "of the Phoenix Plumage",
   1607: "Grand Steward: eggs and expeditions on their own",
+  1608: "A piece in the bag completes the {0} set",
 };
