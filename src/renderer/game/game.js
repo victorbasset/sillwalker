@@ -11,6 +11,8 @@
 import { itemName } from "../i18n/data.js";
 import { openTabs, tabReady } from "./tabs.js";
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
+/** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
+export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
 import { t as tx, txn, tr, fsp, lc } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
@@ -599,7 +601,8 @@ export class Game {
         S.zone++;
         S.best = Math.max(S.best, S.zone);
         this.emit("zoneUp", { zone: S.zone, record });
-        if (record && S.zone % 5 === 0) this.milestone("zone", S.zone);
+        // Carnet : record tous les 5 zones jusqu'à 50, puis tous les 10 (sinon 40 entrées d'ici la zone 200).
+        if (record && journeyZoneStep(S.zone)) this.milestone("zone", S.zone);
         this.questProgress("zone", 0);
         this.log(`${m.name || tx("Boss")} ${tx("vaincu ! En route vers : {0}.", { 0: zoneName(S.zone) })}`);
       } else this.log(tx("Boss vaincu ! Ton héros reste farmer ici."));

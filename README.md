@@ -74,7 +74,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   ordinaires sont réduits (35 % au départ, plein régime en zone 15 ; `earlyPace`, rules.js) : moins d'objets et de
   déblocages d'un coup. Aucun effet après une ascension ; la progression sur 12 h est inchangée.
 - **Carnet de route** (Statistiques) : les grandes étapes datées de la partie (niveaux ronds, records tous les 5
-  zones, premier légendaire, héros libérés, ascensions), gardées à l'ascension.
+  zones puis tous les 10 après la zone 50, premier légendaire, héros libérés, ascensions), gardées à l'ascension.
 - **Onglets progressifs** : un nouveau joueur ne voit que l'Aventure et les Réglages ; les autres onglets s'ouvrent
   selon le record de zone, espacés pour laisser le temps de s'habituer (Talents zone 2, Quêtes 5, Boutique 8, Classe 10,
   Bestiaire 15, Ascension 20, Familiers 25, Compétences 30, Statistiques 40 ; soit de 1 min à plus de 2 h de jeu,

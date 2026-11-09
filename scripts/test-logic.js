@@ -20,7 +20,7 @@ import { makeQuest } from "../src/renderer/game/quests.js";
 import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { fmt as fmtN, fmtShort as fmtS } from "../src/renderer/game/format.js";
-import { Game } from "../src/renderer/game/game.js";
+import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
@@ -1471,6 +1471,8 @@ test("carnet de route : niveaux ronds, records par 5 zones, premier légendaire,
   g.gainXp(1e6);
   assert.ok(g.S.journey.some((e) => e.k === "lvl" && e.v === 10), "niveau 10 noté");
   g.milestone("zone", 5); g.milestone("leg");
+  assert.ok(journeyZoneStep(45) && journeyZoneStep(50) && journeyZoneStep(60) && journeyZoneStep(200));
+  assert.ok(!journeyZoneStep(44) && !journeyZoneStep(55) && !journeyZoneStep(65), "après 50 : tous les 10");
   // panoplie complétée (4 pièces portées) : notée une fois
   const g2 = new Game(freshState()); g2.S.setsDone = {};
   for (const slot of ["helm", "armor", "gloves", "boots"]) { const it = g2.newItem(3); it.slot = slot; it.set = "dawn"; g2.S.bag.push(it); g2.equip(it); }
