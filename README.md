@@ -4,7 +4,8 @@ Idle RPG qui vit dans une bande en bas (ou en haut) de l'écran. Application Ele
 
 Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône de notification) :
 - **Bande** : toute la largeur de l'écran est la carte de la zone. Les 10 monstres attendent le long du chemin, le boss au bout ; le héros avance d'un combat à l'autre.
-- **Mini** : petit encart près de l'horloge (combat en cours, niveau, or, zone). Un clic l'agrandit en bande.
+- **Mini** : petit encart près de l'horloge (combat en cours, niveau, or, zone). Un clic l'agrandit en bande ; au survol,
+  le record à battre et le prochain objectif ; légendaires, records et ascensions s'y signalent brièvement.
 - **Icône seule** : plus de fenêtre ; l'icône de notification s'anime (marche, combat, K.O., butin) et son infobulle donne niveau, zone et or. Clic sur l'icône = retour au dernier affichage.
 
 ## Contenu
@@ -40,7 +41,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Objets** : 7 emplacements (arme, casque, armure, gants, bottes, anneau, amulette), 46 types, des matériaux
   qui évoluent avec le niveau (bronze → étoile, lin → tissu céleste…), 32 icônes. L'armure, le casque, l'arme et
   les bottes portés changent l'apparence du héros ; halo doré avec un légendaire.
-- **Bestiaire** : 43 monstres (dont des variantes recolorées).
+- **Bestiaire** : 83 monstres (dont des variantes recolorées).
 - **Collection d'objets** : chaque type d'objet trouvé (44) donne un bonus permanent, plus encore en épique et en légendaire.
 - **Transmutation** : 3 objets inutiles d'une rareté → 1 objet de la rareté au-dessus.
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.
@@ -52,7 +53,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   insaisissable, fureur croissante), deux à partir de la 2e boucle. Un boss qui bat le héros s'use : −5 % de PV par défaite
   (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu.
 - **Élites à affixes** : rapide, blindé, vampirique ou furieux.
-- **Champions** : très rares (0,5 %), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
+- **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
 - **Panoplies** : 8 ensembles (dont le Voyageur du vent, axé vitesse), bonus à 2 et 4 pièces.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
@@ -62,7 +63,12 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
 - **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo, thème du panneau (Windows, clair, sombre),
   position, opacité, démarrage de Windows.
+- **Clavier** (panneau ouvert) : 1 … 9, 0, - pour les onglets ; E équiper le meilleur ; V vendre l'inutile ; T transmuter ;
+  M mode mini ; Entrée confirmer ; Échap fermer.
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
+- **Retour** : après une absence, résumé des gains, meilleur objet (équipable d'un clic) et « À faire maintenant »
+  (quêtes, points, déblocage abordable, œufs, expéditions) ; en rouvrant le panneau, « Depuis ta dernière visite ».
+  La bande rappelle le record à battre ; une fois tout débloqué, l'objectif devient ce record.
 - **Lueur stellaire** : chaque éclat d'étoile gagné renforce le héros pour toujours.
 - **Effets** : pièces qui volent jusqu'au compteur d'or, faisceaux de butin selon la rareté, célébration des légendaires,
   bannières (niveau, record de zone, événements). `render/juice.js`.
