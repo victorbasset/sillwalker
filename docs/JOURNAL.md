@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 249, demande 17 étape e, fin) : « classe » → « héros » dans tout le jeu : onglet « Héros »
+  (clé déjà traduite), 13 textes réécrits au même rang dans keys.js et le code (Héros actuel, Garder ce héros,
+  Maître de tous les héros…) et leurs traductions dans les 9 langues (class → hero, Klasse → Held…).
+  Vérifié : aucun « classe » dans le texte affiché en français (dump), i18n-check 0, 100/100. README : 20 héros en duo.
+  Demande 17 terminée.
 - 2026-11-09 (it. 248, demande 17 étapes b et c) : duo de héros. S.partner / S.nextPartner (défaut, migration,
   test) : un compagnon de l'autre portée (classes.js isRanged, canPartner) ; il frappe en continu (DUO.atk = 35 %
   de l'attaque du héros par seconde × l'attaque de sa classe, stat « duo », comptée hors ligne via heroDps) et
@@ -865,7 +870,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       Courtes (5 à 15 s), passables d'un clic, discrètes si le joueur travaille ; respecter le réglage du son.
   16. FAIT (2026-11-09). Écran ultra-large (Odyssey) : le panneau laissait de grandes bandes vides à gauche et à
       droite : il ne prend plus que la largeur de son contenu, les côtés laissent voir le bureau.
-  17. EN COURS (it. 239 : 20 héros ; it. 248 : duo et choix à l'ascension ; reste textes « héros ») : équipe de 2 héros, un à distance et un au
+  17. FAIT (it. 239 : 20 héros ; it. 248 : duo et choix à l'ascension ; it. 249 : textes « héros ») : équipe de 2 héros, un à distance et un au
       corps à corps, qui combattent ensemble ; au moins 20 héros à libérer, étalés jusqu'à la zone 200 (environ un
       tous les 10 niveaux de zone, pas forcément pile) ; on ne parle plus de « classes » mais de « héros » ; le duo
       se choisit (se change) à l'ascension.

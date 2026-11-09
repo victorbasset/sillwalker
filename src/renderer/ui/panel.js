@@ -58,7 +58,7 @@ const TABS = [
   { id: "quests", label: tx("Quêtes"), prefix: "q-", icon: "fortune" },
   { id: "shop", label: tx("Boutique"), prefix: "s-", icon: "ws_gold" },
   { id: "pets", label: tx("Familiers"), prefix: "p-", group: true, icon: "egg" },
-  { id: "class", label: tx("Classe"), prefix: "c-", icon: "ws_hp" },
+  { id: "class", label: tx("Héros"), prefix: "c-", icon: "ws_hp" }, // « Héros » plutôt que « Classe » (demande 17)
   { id: "ascension", label: tx("Ascension"), prefix: "a-", icon: "wisdom" },
   { id: "bestiary", label: tx("Bestiaire"), prefix: "b-", icon: "book" },
   { id: "stats", label: tx("Statistiques"), prefix: "st-", icon: "trophy" },

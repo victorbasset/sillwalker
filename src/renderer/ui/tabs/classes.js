@@ -37,9 +37,9 @@ export class ClassesTab {
         c.projectile ? tx("Combat à distance") : tx("Combat au corps à corps"),
       ].filter(Boolean);
       const spent = talentPointsSpent(S, k), chosen = next === k;
-      const action = cur && chosen ? `<button disabled>${tx("Classe actuelle")}</button>`
-        : chosen ? `<button disabled class="primary">${tx("Choisie pour l’ascension ✓")}</button>`
-        : `<button data-action="c-pick" data-id="${k}">${cur ? tx("Garder cette classe") : tx("Choisir pour la prochaine ascension")}</button>`;
+      const action = cur && chosen ? `<button disabled>${tx("Héros actuel")}</button>`
+        : chosen ? `<button disabled class="primary">${tx("Choisi pour l’ascension ✓")}</button>`
+        : `<button data-action="c-pick" data-id="${k}">${cur ? tx("Garder ce héros") : tx("Choisir pour la prochaine ascension")}</button>`;
       // Duo (demande 17) : ce héros peut-il accompagner le héros principal (actuel ou prévu) ? Autre portée seulement.
       const isPartner = S.partner === k, nextPartner = S.nextPartner === k;
       const duo = isPartner ? `<button disabled>${tx("Compagnon actuel")}</button>`
@@ -47,7 +47,7 @@ export class ClassesTab {
         : canPartner(S, next, k) ? `<button data-action="c-partner" data-id="${k}">${S.partner ? tx("Compagnon pour la prochaine ascension") : tx("Prendre comme compagnon")}</button>` : "";
       return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}${isPartner ? " partner" : ""}">
         <div class="detail-head"><img src="${classPortraitURL(k)}" alt=""><div>
-          <div class="nm">${esc(c.name)}${cur ? ` <small>${tx("(actuelle)")}</small>` : ""}${isPartner ? ` <small>${tx("(compagnon)")}</small>` : ""}</div><div class="sub">${esc(c.role)}</div></div></div>
+          <div class="nm">${esc(c.name)}${cur ? ` <small>${tx("(actuel)")}</small>` : ""}${isPartner ? ` <small>${tx("(compagnon)")}</small>` : ""}</div><div class="sub">${esc(c.role)}</div></div></div>
         <p class="cdesc">${esc(c.desc)}</p>
         <ul class="lines">${mods.map((m) => `<li><span>${esc(m)}</span></li>`).join("")}</ul>
         <p class="passive"><b>${tx("Passif.")}</b> ${esc(c.passiveText)}</p>
@@ -62,7 +62,7 @@ export class ClassesTab {
     const P = S.partner && CLASSES[S.partner];
     const duoNote = `<p class="note tabintro">${P ? tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: `<b>${esc(P.name)}</b>` })
       : tx("Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension).")}</p>`;
-    el.innerHTML = `${style}${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de classe en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici la classe de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
+    el.innerHTML = `${style}${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
       <div class="classgrid">${cards}</div>`;
   }
 

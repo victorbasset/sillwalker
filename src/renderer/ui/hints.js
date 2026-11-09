@@ -34,7 +34,7 @@ export const HINTS = [
     when: (g) => [...g.S.bag, ...Object.values(g.S.equip)].some((it) => it && it.set) },
   { id: "codex", tab: "bestiary", text: tx("Chaque nouveau type d’objet rejoint ta collection et donne un bonus permanent. Clique ici pour la voir."),
     when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
-  { id: "classes", tab: "class", text: tx("D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de classe en faisant une ascension."),
+  { id: "classes", tab: "class", text: tx("D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de héros en faisant une ascension."),
     when: (g) => g.S.best >= 2 && (g.S.classesUnlocked || []).length <= 1 },
   { id: "stuck", tab: "ascension", text: null, perRun: true,
     textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),

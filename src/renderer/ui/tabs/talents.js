@@ -57,7 +57,7 @@ export class TalentsTab {
     // une ligne annonce l'objectif en attendant.
     const showVoie = !!voie || spentAll >= VOIE_REQ - 10, showMast = spentAll >= MASTERY_REQ - 10;
     const extraFull = `<article class="panel tbranch tvoie"><h2>${tx("Voie")} <small>${voie ? tx("choisie") : `${tx("dès {0} pts", { 0: VOIE_REQ })}`}</small></h2>${voies}
-        <p class="note">${tx("Une seule voie par classe. Pour en changer : réinitialiser les talents.")}</p></article>
+        <p class="note">${tx("Une seule voie par héros. Pour en changer : réinitialiser les talents.")}</p></article>
       <article class="panel tbranch tmastery"><h2>${tx("Maîtrises")} <small>${tx("rangs illimités")}</small></h2>${masteries}
         <p class="note">${tx("Dès {0} points dépensés : chaque point en plus y trouve sa place, aucun n’est perdu.", { 0: MASTERY_REQ })}</p></article>`;
     const extra = showVoie && showMast ? extraFull

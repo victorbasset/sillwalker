@@ -19,10 +19,12 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Carte du Rebord** (onglet Carte, zone 12) : les 200 zones en serpentin aux couleurs de leur décor, héros
   prisonniers, chroniques, record, Briseur au bout, brouillard au-delà du record ; avec la **Carte du voyageur**
   (déblocage, zone 22), un clic sur une zone déjà atteinte y emmène le héros.
-- **10 classes** : les héros sont prisonniers de boss de zone (zones 10 à 58) ; une fois libérés, on change de classe à l’ascension :
+- **20 héros, en duo** (un à distance + un au corps à corps ; le compagnon frappe à 35 % et apporte la moitié de son passif) :
+  prisonniers de boss de zone (zones 10 à 192) ; une fois libérés, on change de héros et de compagnon à l’ascension :
   Guerrier (riposte), Rôdeur (tir d'ouverture), Mage (brûlure), Paladin (bouclier sacré), Assassin (poison cumulable),
   Nécromancien (serviteur squelette), Moine (enchaînement), Druide (épines, esprit-loup), Samouraï (iaijutsu : un coup sur 4 critique renforcé),
-  Berserker (vol de vie, exécution des cibles affaiblies).
+  Berserker (vol de vie, exécution des cibles affaiblies), puis Arbalétrière, Lancier, Prêtresse, Gladiatrice, Chaman,
+  Danseuse de lames, Cryomancienne, Barde, Gardien des étoiles, Artificière.
 - **Arbre de compétences** commun à toutes les classes : 144 nœuds en 6 secteurs (Force, Agilité, Arcanes,
   Vitalité, Fortune, Maîtrise), 24 nœuds remarquables, 6 clés de voûte. 1 point tous les 2 niveaux + points
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux.

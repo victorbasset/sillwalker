@@ -30,7 +30,7 @@ export class AscensionTab {
         <div><b class="delta-p">${tx("Gardé")}</b><ul><li>${tx("constellations, lueur")}</li><li>${tx("familiers, bestiaire")}</li><li>${tx("collection, pouvoirs")}</li><li>${tx("vitesse permanente")}</li><li>${tx("compétences, héros libérés")}</li><li>${tx("taille du sac")}</li></ul></div>
         <div><b class="delta-n">${tx("Perdu")}</b><ul><li>${tx("niveau et or")}</li><li>${tx("équipement et sac")}</li><li>${tx("talents")}</li><li>${tx("quêtes en cours")}</li></ul></div>
       </div>
-      <p>${tx("Classe de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
+      <p>${tx("Héros de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
         <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button></p>
       ${can
         ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: gain })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: shardsFor(nextZone + 4) })}</p>

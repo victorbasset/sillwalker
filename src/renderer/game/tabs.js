@@ -11,7 +11,7 @@ export const TAB_GATES = {
   talents:   { label: "Talents", hint: "talent", zone: 2, desc: "Dépense tes points de talent à chaque niveau." },
   quests:    { label: "Quêtes", zone: 5, desc: "Des contrats à remplir pour de l’or et des coffres." },
   shop:      { label: "Boutique", zone: 8, desc: "Potions, élixirs, coffres et déblocages permanents." },
-  class:     { label: "Classe", hint: "classes", zone: 10, desc: "D’autres héros sont prisonniers : libère-les." },
+  class:     { label: "Héros", hint: "classes", zone: 10, desc: "D’autres héros sont prisonniers : libère-les." },
   bestiary:  { label: "Bestiaire", zone: 15, desc: "Monstres rencontrés, collection d’objets, panoplies." },
   ascension: { label: "Ascension", zone: ASCEND_MIN_ZONE, desc: "Recommencer plus fort grâce aux éclats d’étoile." },
   pets:      { label: "Familiers", zone: 25, desc: "Des compagnons qui suivent ton héros et le renforcent." },

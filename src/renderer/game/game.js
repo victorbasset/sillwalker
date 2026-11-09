@@ -983,7 +983,7 @@ export class Game {
     const U = (this.S.classesUnlocked ||= ["warrior"]);
     if (!cls || U.includes(cls)) return null;
     U.push(cls);
-    this.log(`${tx("Héros libéré : {0} ! Choisis-le dans l’onglet Classe pour ta prochaine ascension.", { 0: CLASSES[cls].name })}`);
+    this.log(`${tx("Héros libéré : {0} ! Choisis-le dans l’onglet Héros pour ta prochaine ascension.", { 0: CLASSES[cls].name })}`);
     this.emit("classUnlock", { cls });
     this.milestone("cls", cls);
     this.changed();

@@ -35,8 +35,8 @@ export const ACHIEVEMENTS = [
   { id: "SHOOTING_STAR",   name: "Vœu exaucé (étoile filante)", test: (S) => (S.stats.stars || 0) >= 1 },
   { id: "SPEED_25",        name: "Rapide comme le vent (+25 % de vitesse)", test: (S) => (S.speed || 0) >= 25 },
   { id: "FULL_SET",        name: "Panoplie complète (4 pièces)", test: (S) => Object.values(setCounts(S.equip || {})).some((n) => n >= 4) },
-  { id: "MASTER_OF_ALL",   name: "Maître de toutes les classes", test: (S) => CLASS_KEYS.every((c) => (S.stats.classes || []).includes(c)) },
-  { id: "ALL_CLASSES",     name: "Polyvalent : jouer les 3 classes", test: (S) => (S.stats.classes || []).length >= 3 },
+  { id: "MASTER_OF_ALL",   name: "Maître de tous les héros", test: (S) => CLASS_KEYS.every((c) => (S.stats.classes || []).includes(c)) },
+  { id: "ALL_CLASSES",     name: "Polyvalent : jouer 3 héros", test: (S) => (S.stats.classes || []).length >= 3 },
   { id: "STARBREAKER",     name: "Le ciel rallumé",    test: (S) => !!(S.story && S.story.won) }, // Briseur d'Étoiles vaincu
   { id: "ZONE_50",         name: "Zone 50",            test: (S) => S.best >= 50 },
   { id: "LEVEL_100",       name: "Niveau 100",         test: (S) => S.lvl >= 100 },
