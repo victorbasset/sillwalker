@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 ## Fait
 
+- 2026-11-09 (it. 54) : plus de bulle « Pendant ton absence (35 s) » après une courte mise en veille : en dessous de
+  2 minutes, le résumé reste dans le journal. Test d'endurance (≈ 30 min de jeu en accéléré) : mémoire stable
+  (723 → 712 Mo), pas de fuite.
 - 2026-11-09 (it. 53) : les Réglages expliquent les économies d'énergie (animation ralentie sur batterie et en absence,
   le jeu continue) ; consignes du relais automatique enrichies (blocages, équilibrage, couleurs, tests).
 - 2026-11-09 (it. 52) : quand personne n'est devant l'écran depuis 5 min, la bande s'anime à 10 images/s (le jeu

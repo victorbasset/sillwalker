@@ -34,6 +34,7 @@ const IDLE_FRAME_MS = 1000 / 10;    // personne devant l'écran depuis 5 min : 1
 const MINI_FRAME_MS = 1000 / 15;    // mode mini : petite vue, 15 images/s suffisent
 const SIM_BG_MS = 500;              // cadence de simulation quand rien n'est affiché
 const MAX_DT = 1;                   // au-delà de 5 s d'écart : progression hors ligne
+const OFFLINE_TOAST_MIN_S = 120;    // absence plus courte : résumé dans le journal seulement (pas de bulle)
 const AUTOSAVE_MS = 15000;
 const PANEL_ANIM_MS = 180;
 
@@ -191,6 +192,8 @@ async function boot() {
     toastTimer = setTimeout(() => { toast.hidden = true; toastAction = null; clickThrough.refresh(); }, ms);
   }
   function showOffline(sum) {
+    // Absence très courte (mise en veille d'une minute…) : le journal suffit, pas de bulle qui dérange.
+    if (sum.seconds < OFFLINE_TOAST_MIN_S) return;
     if (mode === "mini") {
       pendingOffline = sum;
       mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold) })}`);
