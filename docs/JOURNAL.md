@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 177) : save-fuzz couvre les nouvelles données (onglets ouverts illisibles ou non-objet, thème
+  illisible) : 19/19 ; crawl sur la sauvegarde cumulant les 19 corruptions : 135 clics, 0 erreur. CLAUDE.md : piège
+  du commentaire // qui avale la fin d'une ligne.
 - 2026-11-09 (it. 176) : pastilles d'onglet plafonnées à « 99+ » (« 686 » points de compétence élargissaient
   l'onglet ; le nombre exact reste dans l'onglet). Capture, contrôle d'autotest (80/80).
 - 2026-11-09 (it. 175) : résumé d'absence : « Objets gardés » affichait 0 dès que le sac était plein (différence de

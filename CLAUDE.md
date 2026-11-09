@@ -45,7 +45,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (10 classes) et signale celles qui ne progressent pas (60 graines ≈ 35 s). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
-- Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (16 corruptions de la
+- Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (19 corruptions de la
   sauvegarde de dev : null, valeurs inconnues… ; chacune doit afficher « ok »). À relancer après tout ajout de donnée sauvegardée.
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
   zone, déblocages à 2, 5, 10, 15, 30, 60 min). Le début est volontairement calme (`earlyPace`, rules.js).
@@ -107,6 +107,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.
+- Un commentaire `//` ajouté au milieu d'une ligne (objet littéral, liste d'arguments) avale la fin du code de la
+  ligne sans erreur de syntaxe (déjà arrivé deux fois) : mettre le commentaire sur sa propre ligne, au-dessus.
 - `sed` sur des chaînes JavaScript : attention aux `\u…` et aux `\n`, vérifier le résultat.
 - Le dossier `dist\win-unpacked` peut être verrouillé si l'utilisateur y lance le jeu.
 - Construire la version Windows : `npm run dist` (sous Linux, il faut Wine pour l'icône de l'exécutable).

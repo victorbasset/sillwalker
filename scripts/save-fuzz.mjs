@@ -23,6 +23,9 @@ const cases = {
   bestiaryBad: (o) => { o.bestiary = { nope: null, x: "y" }; },
   workshopBad: (o) => { o.workshop = { nope: 3, w1: null }; },
   logBad: (o) => { o.log = [null, 5, {}]; },
+  tabsBad: (o) => { o.tabsOpen = { talents: null, nope: "x", shop: 5 }; },
+  tabsNotObj: (o) => { o.tabsOpen = "x"; },
+  themeBad: (o) => { o.settings.theme = 42; },
   settingsBad: (o) => { o.settings = { lang: 42, autoPets: "x", hints: null }; },
 };
 // --write-all <dossier> : écrit une sauvegarde qui cumule toutes les corruptions (pour lancer l'interface dessus :
