@@ -185,6 +185,9 @@ export class StripRenderer {
   float(x, y, txt, col, big, isDamage) {
     if (!this.active) return;
     if (isDamage && this.game.S.settings.damageNumbers === false) return;
+    // Face à un boss, les nombres partent plus bas : en montant, ils ne recouvrent plus son nom (en haut de la bande).
+    const m = this.game.R.mon;
+    if (m && m.boss && Math.abs(x - this.monX()) < 90) y = Math.max(y, 46);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;

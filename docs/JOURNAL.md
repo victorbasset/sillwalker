@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 117) : pendant un combat de boss, les nombres de dégâts partent plus bas et ne recouvrent plus le
+  nom du boss en haut de la bande (avant : illisible tout le combat).
 - 2026-11-09 (it. 116) : bulles du héros : près du bord droit, elles s'arrêtent avant la pastille or / niveau ; les
   répliques ordinaires se taisent aussi quand le boss est le prochain monstre (la bulle d'accueil partait avant son
   apparition et cachait ensuite son nom).
