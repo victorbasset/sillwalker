@@ -1338,6 +1338,17 @@ test("absence : le Grimoire de l'éveil dépense les points gagnés", () => {
   assert.ok(g2.talentPointsFree() > 0, "option coupée : les points attendent");
 });
 
+test("sac plein : un objet vendu faute de place prévient le héros (bagFull)", () => {
+  const g = new Game(freshLocked());
+  let n = 0; g.on("bagFull", () => n++);
+  while (!g.bagFull()) { const it = g.newItem(2); it.r = 2; g.S.bag.push(it); }
+  const junk = g.newItem(0); junk.r = 0;
+  g.addToBag(junk);
+  assert.equal(n, 1);
+  g.addToBag(g.newItem(0), true);
+  assert.equal(n, 1, "rien en mode silencieux (absence)");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

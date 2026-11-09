@@ -469,4 +469,7 @@ export default {
   1593: "Wróciłeś!",
   1594: "Tęskniłem!",
   1595: "Nieźle się posunąłem, widzisz?",
+  1596: "Torba mi pęka w szwach!",
+  1597: "Nie ma już miejsca w torbie…",
+  1598: "Trzeba by opróżnić torbę!",
 };

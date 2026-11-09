@@ -516,7 +516,7 @@ export class Game {
         if (!quiet) this.log(tx("Sac plein : {0} vendu pour faire de la place à {1}.", { 0: itemName(worst), 1: itemName(it) }));
       } else {
         const v = sellValue(it); S.gold += v;
-        if (!quiet) this.logSale("full", tx("Sac plein, objets vendus"), v);
+        if (!quiet) { this.logSale("full", tx("Sac plein, objets vendus"), v); this.emit("bagFull"); }
         return false;
       }
     }

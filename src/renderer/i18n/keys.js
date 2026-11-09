@@ -1597,5 +1597,8 @@ export const KEYS = [
   "{0} (équipé)",
   "Te revoilà !",
   "Tu m’as manqué !",
-  "J’ai bien avancé, tu as vu ?"
+  "J’ai bien avancé, tu as vu ?",
+  "Mon sac déborde !",
+  "Plus de place dans le sac…",
+  "Il faudrait vider le sac !"
 ];

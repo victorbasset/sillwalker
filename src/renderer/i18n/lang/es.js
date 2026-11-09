@@ -469,4 +469,7 @@ export default {
   1593: "¡Ya estás aquí!",
   1594: "¡Te he echado de menos!",
   1595: "He avanzado bastante, ¿lo has visto?",
+  1596: "¡Mi bolsa está a rebosar!",
+  1597: "Ya no cabe nada en la bolsa…",
+  1598: "¡Habría que vaciar la bolsa!",
 };

@@ -469,4 +469,7 @@ export default {
   1593: "You're back!",
   1594: "I missed you!",
   1595: "I got pretty far, did you see?",
+  1596: "My bag is overflowing!",
+  1597: "No more room in the bag…",
+  1598: "Someone should empty the bag!",
 };

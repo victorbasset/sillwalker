@@ -469,4 +469,7 @@ export default {
   1593: "Da bist du ja wieder!",
   1594: "Ich hab dich vermisst!",
   1595: "Ich bin ganz schön weit gekommen, siehst du?",
+  1596: "Meine Tasche quillt über!",
+  1597: "Kein Platz mehr in der Tasche …",
+  1598: "Man müsste die Tasche leeren!",
 };

@@ -469,4 +469,7 @@ export default {
   1593: "Você voltou!",
   1594: "Senti sua falta!",
   1595: "Avancei bastante, viu?",
+  1596: "Minha bolsa está transbordando!",
+  1597: "Não cabe mais nada na bolsa…",
+  1598: "Precisava esvaziar a bolsa!",
 };
