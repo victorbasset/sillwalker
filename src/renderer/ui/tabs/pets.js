@@ -41,7 +41,7 @@ export class PetsTab {
       }
       const maxed = own.lvl >= PET_MAX_LVL, need = petXpNeed(own.lvl);
       // Carte compacte (demande 18) : la description d'ambiance passe en infobulle.
-      return `<article class="panel petcard${active ? " current" : ""}" title="${esc(p.desc)}">
+      return `<article class="panel petcard${active ? " current" : ""}" title="${esc(p.desc)}"${active ? " data-hs-start" : ""}>
         <div class="detail-head"><img src="${petURL(p.id)}" alt=""><div>
           <div class="nm">${esc(p.name)} <small>${tx("niv. {0}", { 0: own.lvl })}${maxed ? ` (${tx("max")})` : ""}</small></div></div></div>
         <ul class="lines"><li><span>${tx("Bonus")}</span><span class="delta-p">${esc(describeEffects(p.eff, own.lvl))}</span></li>
@@ -68,7 +68,7 @@ export class PetsTab {
         <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
       </div>
       ${owned < PETS.length ? subtabsHTML([["found", tx("Trouvés"), owned], ["unknown", tx("À découvrir"), PETS.length - owned]], this.sec, "p-sec") : ""}
-      <div class="petgrid sec-${owned < PETS.length ? this.sec : "found"}">${cards}</div>`;
+      <div class="petgrid hscroll sec-${owned < PETS.length ? this.sec : "found"}" data-hs="pets-${this.sec}">${cards}</div>`;
   }
 
   onAction(a, b) {

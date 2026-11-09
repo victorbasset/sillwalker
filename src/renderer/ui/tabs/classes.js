@@ -48,7 +48,7 @@ export class ClassesTab {
         : nextPartner ? `<button disabled class="primary">${tx("Compagnon à l’ascension ✓")}</button>`
         : canPartner(S, next, k) ? `<button data-action="c-partner" data-id="${k}" title="${esc(S.partner ? tx("Compagnon pour la prochaine ascension") : tx("Prendre comme compagnon"))}">${S.partner ? tx("Duo à l’ascension") : tx("Prendre en duo")}</button>` : "";
       // Carte compacte (demande 18) : description d'ambiance en infobulle, modificateurs sur une ligne.
-      return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}${isPartner ? " partner" : ""}" title="${esc(c.desc)}">
+      return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}${isPartner ? " partner" : ""}" title="${esc(c.desc)}"${cur ? " data-hs-start" : ""}>
         <div class="detail-head"><img src="${classPortraitURL(k)}" alt=""><div>
           <div class="nm">${esc(c.name)}${cur ? ` <small>${tx("(actuel)")}</small>` : ""}${isPartner ? ` <small>${tx("(compagnon)")}</small>` : ""}</div><div class="sub">${esc(c.role)}</div></div></div>
         <p class="mods">${mods.map((m) => esc(m)).join(" · ")}</p>
@@ -67,7 +67,7 @@ export class ClassesTab {
     // Style de combat : son propre sous-onglet (demande 18) ; les autres montrent les cartes des héros.
     el.innerHTML = `${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
       ${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Style de combat"), `${tier + 1} / ${ATTACK_TIERS.length}`]], this.sec, "c-sec")}
-      ${this.sec === "style" ? style : `<div class="classgrid sec-${this.sec}">${cards}</div>`}`;
+      ${this.sec === "style" ? style : `<div class="classgrid hscroll sec-${this.sec}" data-hs="heroes-${this.sec}">${cards}</div>`}`;
   }
 
   onAction(a, b) {

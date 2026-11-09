@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 287, demande 32 suite) : Héros et Familiers en rangée latérale (molette / glisser), ouverts sur le
+  héros actuel et le familier actif : plus de défilement vertical. Retiré l'indication « Molette ou glisser » sous
+  les déblocages (inutile, dit Victor ; la clé reste dans keys.js). Un autotest a échoué une fois (retour à la bande,
+  puis cascade) puis réussi deux fois de suite : accident de minutage. 105/105.
 - 2026-11-09 (it. 286, demande 32) : défilement latéral réutilisable (ui/hscroll.js : classe .hscroll + data-hs ;
   molette verticale convertie en latéral, appui-glisser à la souris, position gardée d'un rendu à l'autre, départ
   sur data-hs-start ; un glisser n'appuie pas sur le bouton dessous, sans avaler le clic suivant). Boutique >

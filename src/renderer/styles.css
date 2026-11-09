@@ -890,4 +890,7 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .hscroll > * { flex: 0 0 auto; }
 .ugrid.hscroll > .ucard { width: 168px; }
 .ucard.owned { opacity: 0.75; }
-.hshint { margin-top: 2px; }
+/* Héros et Familiers en rangée latérale (demande 32). */
+.classgrid.hscroll > .classcard { width: 300px; }
+.petgrid.hscroll > .petcard { width: 250px; }
+.classgrid.hscroll, .petgrid.hscroll { align-items: stretch; padding-bottom: 8px; }
