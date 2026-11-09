@@ -979,3 +979,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .hscroll::-webkit-scrollbar { height: 10px; }
 .hscroll::-webkit-scrollbar-track { background: var(--chip); border: 2px solid var(--edge); }
 .skillsvg .sector { fill: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
+/* Étape 5 (demande 35) : infobulles et bulles au même dessin (angles droits, double filet, ombre dure),
+   séparateurs de listes en pointillés pixel. */
+.itemtip, .skilltip, .gtip { border-radius: 0; border: 2px solid var(--edge); outline: 2px solid var(--star); outline-offset: -4px;
+  box-shadow: 0 3px 0 rgba(6, 5, 16, 0.5); padding: 10px 12px; }
+#toast { border-radius: 0; border: 2px solid #0c0910; outline: 2px solid #e8b14a; outline-offset: -4px; padding: 7px 14px;
+  background: rgba(24, 18, 31, 0.94); }
+.lines li { border-bottom: 0; background: linear-gradient(90deg, var(--line) 50%, transparent 0) bottom left / 4px 1px repeat-x; padding-bottom: 3px; }
+.lines li.step { background: linear-gradient(var(--accent), var(--accent)) bottom left / 100% 1px no-repeat; }
