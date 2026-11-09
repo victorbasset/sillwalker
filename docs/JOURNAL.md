@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 280, demande de Victor) : portraits des héros « écrasés » : les sprites sont étroits et hauts
+  (9×17, chaman 5×19…) et les cadres carrés les étiraient ; en plus, l'it. 272 donnait 48 px de large pour 40 de haut.
+  Portraits des héros et des familiers refaits en images carrées (sprite centré, décalage en pixels d'art entiers,
+  squareURL dans sprites.js) ; cadres carrés partout (onglet Héros 48×48, carte du héros 26, duo 24, carte du Rebord
+  18×18, cinématique de libération 56×56). Captures, 103/103.
 - 2026-11-09 (it. 279, demande de Victor) : le familier volant se plaçait devant le visage du compagnon à distance
   (même emplacement, juste derrière le héros) : quand le compagnon est derrière le héros, le familier passe derrière
   lui. Capture (Guerrier + Rôdeur + Fée, marche et combat), 103/103.

@@ -66,7 +66,7 @@ export class MapTab {
       const { x, y } = mapPos(z), free = isClassUnlocked(S, cls), name = (CLASSES[cls] || {}).name || cls;
       const tip = free ? tx("Héros libéré : {0}", { 0: name }) : z <= rec + 3 ? tx("Héros prisonnier : {0} (boss de la zone {1})", { 0: name, 1: z }) : tx("Un héros prisonnier attend ici.");
       parts.push(`<g class="mmark${free ? " on" : ""}" title="${esc(tip)}"><rect class="mcage" x="${x - 9}" y="${y - 22}" width="18" height="19"/>`
-        + `<image href="${classPortraitURL(cls)}" x="${x - 8}" y="${y - 21}" width="16" height="17" class="${free ? "" : "caged"}"/>`
+        + `<image href="${classPortraitURL(cls)}" x="${x - 9}" y="${y - 22}" width="18" height="18" class="${free ? "" : "caged"}"/>`
         + (free ? "" : `<path class="mbars" d="M${x - 4} ${y - 22}v19M${x} ${y - 22}v19M${x + 4} ${y - 22}v19"/>`) + `</g>`);
     }
     // Chroniques : parchemin doré une fois découvertes, « ? » avant.

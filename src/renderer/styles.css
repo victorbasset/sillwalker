@@ -266,7 +266,7 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 .chip { font-size: 12px; padding: 1px 6px; border: 1px solid var(--accent); border-radius: 10px; color: var(--accent); }
 .linkbtn { display: block; width: 100%; margin: 0 0 8px; font-size: 14px; border-color: var(--good); color: var(--good); }
 .hname { display: inline-flex; align-items: center; gap: 6px; }
-.hname img { width: 22px; image-rendering: pixelated; }
+.hname img { width: 26px; height: 26px; image-rendering: pixelated; }
 .gold { color: var(--accent); }
 
 /* Talents */
@@ -779,7 +779,7 @@ svg.rebord { width: 100%; height: calc(var(--panel-h) - 160px); margin: 0 auto; 
 .rebord .mpin { fill: #ffe27a; }
 .cine.freed { background: linear-gradient(rgba(8, 20, 14, 0.94), rgba(14, 34, 24, 0.85)); }
 .cine.freed .cine-title { color: #9fe0a8; text-shadow: 0 0 10px #3a9a5a; }
-.cine-hero { position: absolute; width: 48px; height: 54px; image-rendering: pixelated; }
+.cine-hero { position: absolute; width: 56px; height: 56px; image-rendering: pixelated; }
 .bagdetail .lines.tight { font-size: 13px; margin-top: 6px; }
 .bagdetail .lines.tight li { padding: 1px 0; }
 .bagdetail .detail-head img { width: 40px; height: 40px; }
@@ -839,12 +839,12 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .classcard .detail-head img { width: 40px; height: 40px; }
 /* Compagnon du duo dans la carte du héros */
 .hname .duotag { font-size: 14px; margin-left: 6px; color: var(--good); display: inline-flex; align-items: center; gap: 3px; }
-.hname .duotag img { width: 20px; height: 20px; image-rendering: pixelated; }
+.hname .duotag img { width: 24px; height: 24px; image-rendering: pixelated; }
 /* Héros (demande 18) : cartes plus basses, boutons courts côte à côte. */
 .classcard .mods, .classcard .passive { font-size: 12px; margin: 4px 0; }
 .classcard > .row:last-child { flex-wrap: nowrap; gap: 6px; }
 .classcard > .row:last-child button { flex: 1 1 0; min-width: 0; font-size: 13px; padding: 4px 6px; line-height: 1.2; }
-.classcard .detail-head img { width: 48px; }
+.classcard .detail-head img { width: 48px; height: 48px; padding: 2px; }
 /* Familiers (demande 18) : cartes plus basses. */
 .petcard .lines { font-size: 12px; }
 .petcard .expe { padding: 3px 8px; white-space: nowrap; }

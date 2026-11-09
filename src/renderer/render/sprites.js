@@ -136,16 +136,31 @@ export function starbreakerURL() { return (sbURL ||= buildSprite(STARBREAKER_ART
 export function classPortraitURL(cls) {
   if (!portraitCache[cls]) {
     const art = CLASS_ART[cls];
-    portraitCache[cls] = buildSprite(art.walk1, art.pal, 4, false, 1).toDataURL();
+    portraitCache[cls] = squareURL(buildSprite(art.walk1, art.pal, 4, false, 1), 4);
   }
   return portraitCache[cls];
+}
+
+/**
+ * Portrait carré (data URL) : le sprite, étroit et haut (héros) ou large et bas (familiers), centré sur une toile
+ * carrée, décalé d'un nombre entier de pixels d'art. Les cadres de l'interface sont carrés : sans cela, le sprite
+ * était étiré (« écrasé ») pour les remplir.
+ */
+function squareURL(c, scale) {
+  const side = Math.max(c.width, c.height), q = document.createElement("canvas");
+  q.width = q.height = side;
+  const snap = (v) => Math.floor(v / scale) * scale;
+  const cx = q.getContext("2d");
+  cx.imageSmoothingEnabled = false;
+  cx.drawImage(c, snap((side - c.width) / 2), snap((side - c.height) / 2));
+  return q.toDataURL();
 }
 
 const artCache = {};
 /** Portrait d'un familier (data URL). */
 export function petURL(id) {
   const k = "pet:" + id;
-  if (!artCache[k]) { const a = PET_ART[id]; artCache[k] = buildSprite(a.frames[0], a.pal, 4, false, 1).toDataURL(); }
+  if (!artCache[k]) { const a = PET_ART[id]; artCache[k] = squareURL(buildSprite(a.frames[0], a.pal, 4, false, 1), 4); }
   return artCache[k];
 }
 /** Portrait d'un monstre (data URL), éventuellement en silhouette. */
