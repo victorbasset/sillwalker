@@ -422,6 +422,10 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   5. Nouveau joueur : trop de fonctionnalités d'un coup. Débloquer les onglets au fur et à mesure (talents,
      compétences, quêtes, boutique…) avec une annonce quand chacun se débloque (seuils de niveau/zone, sans
      retirer l'accès aux parties existantes).
+  6. Rythme du début trop rapide (trop d'objets, trop de déblocages en peu de temps) : ralentir la cadence des
+     premières heures pour une progression plus tranquille, étalée dans le temps (demande explicite de Victor, elle
+     prime sur la règle « ne pas rendre plus dur »). À mesurer avec first-minutes.mjs et simulate.js avant/après ;
+     à faire avec le point 5 (déblocage progressif), sans toucher aux parties déjà avancées.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
