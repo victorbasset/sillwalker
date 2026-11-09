@@ -401,4 +401,7 @@ export default {
   1525: "Bolsa llena: {0} vendido para hacer sitio a {1}.",
   1526: "Próximo objetivo",
   1527: "superar tu récord: zona {0}",
+  1528: "Traer {n} expedición de mascota|Traer {n} expediciones de mascota",
+  1529: "Derrota {n} jefe|Derrota {n} jefes",
+  1530: "Forja {n} vez|Forja {n} veces",
 };

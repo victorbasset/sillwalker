@@ -401,4 +401,7 @@ export default {
   1525: "Torba pełna: sprzedano {0}, by zrobić miejsce na {1}.",
   1526: "Następny cel",
   1527: "pobij swój rekord: strefa {0}",
+  1528: "Sprowadź {n} wyprawę chowańca|Sprowadź {n} wyprawy chowańców|Sprowadź {n} wypraw chowańców",
+  1529: "Pokonaj {n} bossa|Pokonaj {n} bossów|Pokonaj {n} bossów",
+  1530: "Wykuj {n} raz|Wykuj {n} razy|Wykuj {n} razy",
 };

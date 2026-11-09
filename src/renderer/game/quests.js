@@ -1,7 +1,7 @@
 // Quêtes (contrats) : QUEST_SLOTS quêtes actives en même temps. Une quête
 // terminée attend que le joueur réclame sa récompense ; une nouvelle prend
 // alors sa place. Les objectifs et récompenses suivent la progression.
-import { t as tx, getLang } from "../i18n/index.js";
+import { t as tx, txn, getLang } from "../i18n/index.js";
 import { MONSTERS } from "./data.js";
 import { zoneDef } from "./rules.js";
 import { rand, pick } from "./util.js";
@@ -36,7 +36,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, gold: Math.round(goldScale(S) * 60) } }),
   },
   boss: {
-    text: (q) => `${tx("Vaincre {0} boss", { 0: q.goal })}`,
+    text: (q) => txn(q.goal, "Vaincre {n} boss|Vaincre {n} boss"),
     make: (S) => ({ goal: randInt(2, 3), reward: { gold: Math.round(goldScale(S) * 120), egg: rand() < 0.3, shards: S.prestige.count > 0 ? randInt(1, 3) : 0 } }),
   },
   gold: {
@@ -44,11 +44,11 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: Math.round(goldScale(S) * randInt(150, 300)), reward: { buff: pick(["elixir", "fortune", "wisdom", "haste", "luck", "iron"]), potions: 3 } }),
   },
   forge: {
-    text: (q) => tx("Forger {0} fois", { 0: q.goal }),
+    text: (q) => txn(q.goal, "Forger {n} fois|Forger {n} fois"),
     make: (S) => ({ goal: randInt(2, 4), reward: { gold: Math.round(goldScale(S) * 80), potions: 2 } }),
   },
   expedition: {
-    text: (q) => (fr() ? tx("Ramener {0} {1} de familier", { 0: q.goal, 1: plural(q.goal, "expédition") }) : tx("Ramener {0} expéditions de familier", { 0: q.goal })),
+    text: (q) => txn(q.goal, "Ramener {n} expédition de familier|Ramener {n} expéditions de familier"),
     ok: (S) => Object.keys(S.pets.owned).length >= 2,
     make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 100), egg: rand() < 0.5 } }),
   },

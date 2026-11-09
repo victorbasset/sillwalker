@@ -401,4 +401,7 @@ export default {
   1525: "Bag full: {0} sold to make room for {1}.",
   1526: "Next goal",
   1527: "beat your record: zone {0}",
+  1528: "Bring back {n} pet expedition|Bring back {n} pet expeditions",
+  1529: "Defeat {n} boss|Defeat {n} bosses",
+  1530: "Forge {n} time|Forge {n} times",
 };

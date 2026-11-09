@@ -401,4 +401,7 @@ export default {
   1525: "Tasche voll: {0} verkauft, um Platz für {1} zu schaffen.",
   1526: "Nächstes Ziel",
   1527: "deinen Rekord schlagen: Zone {0}",
+  1528: "{n} Begleiter-Expedition zurückbringen|{n} Begleiter-Expeditionen zurückbringen",
+  1529: "Besiege {n} Boss|Besiege {n} Bosse",
+  1530: "{n}-mal schmieden|{n}-mal schmieden",
 };

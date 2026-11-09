@@ -401,4 +401,7 @@ export default {
   1525: "Bolsa cheia: {0} vendido para abrir espaço para {1}.",
   1526: "Próximo objetivo",
   1527: "bater seu recorde: zona {0}",
+  1528: "Trazer {n} expedição de mascote|Trazer {n} expedições de mascote",
+  1529: "Derrote {n} chefe|Derrote {n} chefes",
+  1530: "Forje {n} vez|Forje {n} vezes",
 };

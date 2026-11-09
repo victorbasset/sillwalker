@@ -1529,5 +1529,8 @@ export const KEYS = [
   "Astrolabe acquis ! Il est éteint au départ : coche-le dans l’onglet Ascension pour qu’il fasse l’ascension à ta place quand ton héros bloque. Clique ici.",
   "Sac plein : {0} vendu pour faire de la place à {1}.",
   "Prochain objectif",
-  "battre ton record : zone {0}"
+  "battre ton record : zone {0}",
+  "Ramener {n} expédition de familier|Ramener {n} expéditions de familier",
+  "Vaincre {n} boss|Vaincre {n} boss",
+  "Forger {n} fois|Forger {n} fois"
 ];

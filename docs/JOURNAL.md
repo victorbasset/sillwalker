@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 51).
 
 ## Fait
 
+- 2026-11-09 (it. 46) : quêtes bien accordées dans toutes les langues : « Bring back 1 pet expedition » (au lieu de
+  « expeditions »), boss et forge en russe et polonais (« Победи 2 босса », plus de « раз(а) »).
 - 2026-11-09 (it. 45) : au retour d'une absence, le résumé nomme le meilleur objet gardé (pas seulement sa
   rareté) et, si c'est une amélioration, propose « Équiper maintenant » en un clic.
 - 2026-11-09 (it. 44) : touche M pour réduire en mode mini depuis le panneau (ajoutée à la liste des raccourcis).
