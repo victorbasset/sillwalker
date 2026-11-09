@@ -41,8 +41,8 @@ export const power = (it, equip) => {
   if (st) {
     const n = equip ? setCounts(equip)[it.set] || 0 : 0;
     out += `<p class="setline" style="--c:${st.color}"><b>◆ ${esc(st.name)}</b>${equip ? ` ${tx("({0}/4 portées)", { 0: n })}` : ""}<br>
-      <span class="${n >= 2 ? "on" : ""}">${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</span><br>
-      <span class="${n >= 4 ? "on" : ""}">${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</span></p>`;
+      <span class="${n >= 2 ? "on" : ""}">${n >= 2 ? "✓ " : ""}${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</span><br>
+      <span class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</span></p>`;
   }
   return out;
 };

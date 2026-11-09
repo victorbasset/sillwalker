@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 69) : les bonus de panoplie actifs portent une coche ✓ en plus du vert (fiche d'objet, Bestiaire) :
+  lisibles sans distinguer les couleurs. Berserker revérifié en 12 h : 38 → 59 sans palier (idée P3 close).
 - 2026-11-09 (it. 68) : à la première pièce de panoplie trouvée, une bulle explique le principe (bonus à 2 et 4
   pièces) et mène à la liste du Bestiaire ; README à jour (Bestiaire, panoplies).
 - 2026-11-09 (it. 67) : atteindre le bonus 2 ou 4 pièces d'une panoplie est un moment marqué : bannière dans la
@@ -170,11 +172,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 ## Idées
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
-
-
-- P3 Berserker (simulation 12 h, revue it. 41) : 3 courses à la zone 54 avant 58. Essai it. 44 : usure 8 %/40 % → berserker
-  mieux, druide moins bien (bruit des trajectoires) ; non retenu. Piste : regarder ses talents face à Fureur + Carapace.
-
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
