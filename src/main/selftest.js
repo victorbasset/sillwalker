@@ -298,11 +298,19 @@ async function runSelfTest(strip) {
   await until(async () => strip.mode() === "mini", 3000);
   check("raccourci M : mode mini", strip.mode() === "mini");
   await strip.setMode("strip");
-  await until(async () => strip.mode() === "strip" && bounds().height > 64, 4000);
-  await sleep(300);
-  if (!(await js("document.body.classList.contains('panel-open')"))) { await click("#menu-btn"); await sleep(400); }
-  await click('[data-tab="bestiary"]');
-  await sleep(150);
+  await until(async () => strip.mode() === "strip" && bounds().height > 64, 6000);
+  await sleep(500);
+  // Rouvrir le panneau (plusieurs essais : la bande peut mettre un instant à se réafficher)
+  for (let k = 0; k < 5 && !(await js("document.body.classList.contains('panel-shown')")); k++) {
+    if (!(await js("document.body.classList.contains('panel-open')"))) await click("#menu-btn");
+    await until(async () => js("document.body.classList.contains('panel-shown')"), 1500);
+  }
+  check("retour à la bande : panneau rouvert", await js("document.body.classList.contains('panel-shown')"));
+  await sleep(600); // fin de l'animation d'ouverture : les onglets ne bougent plus
+  for (let k = 0; k < 3 && (await js("document.querySelectorAll('.beast').length")) < 11; k++) {
+    await click('[data-tab="bestiary"]');
+    await until(async () => (await js("document.querySelectorAll('.beast').length")) >= 11, 1500);
+  }
   check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);
   // Résumé d'absence : « À faire maintenant » mène droit à l'onglet (ici les œufs → Familiers).
   await js("window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, bestItemId: (window.__game.S.bag[0] || {}).id })");

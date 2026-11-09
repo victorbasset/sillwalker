@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 ## Fait
 
+- 2026-11-09 (it. 55 bis) : autotest fiabilisé après le raccourci M (retour à la bande puis panneau rouvert : attente
+  de la fin de l'animation) ; il échouait parfois en cascade. 4 exécutions de suite à 54/54.
 - 2026-11-09 (it. 55) : les succès chiffrés non obtenus montrent leur progression dans Statistiques
   (« Dix mille victoires (7 420 / 10 000) », « Fidèle : 7 jours (5 / 7) »…).
 - 2026-11-09 (it. 54) : plus de bulle « Pendant ton absence (35 s) » après une courte mise en veille : en dessous de
