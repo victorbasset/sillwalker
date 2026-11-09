@@ -4,6 +4,7 @@ import { t as tx, fsp } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
 import { SETS } from "../game/sets.js";
+import { EVENTS } from "../game/events.js";
 import { PIXEL as P } from "./art.js";
 import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
@@ -45,6 +46,7 @@ export class MiniRenderer {
     this.moment.hidden = true;
     game.on("loot", ({ item }) => { if (item && item.r >= 4) this.showMoment("★ " + tx("Légendaire") + fsp() + "!", itemName(item)); });
     game.on("setBonus", ({ id, n }) => { if (SETS[id]) this.showMoment("◆ " + tx("{0} : bonus {1} pièces !", { 0: SETS[id].name, 1: n })); });
+    game.on("event", ({ id }) => { const ev = EVENTS[id]; if (ev) this.showMoment(ev.name + fsp() + "!", ev.text); });
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(tx("Nouveau record : zone {0} !", { 0: zone })); });
     game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })));
     // Clic sur le monstre combattu : coup bonus (sans agrandir l'encart).
