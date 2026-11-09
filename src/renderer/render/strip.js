@@ -17,7 +17,7 @@ import { buildSpriteSet } from "./sprites.js";
 import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
-import { isFinalZone } from "../game/story.js";
+import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/story.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
@@ -253,15 +253,24 @@ export class StripRenderer {
     this.layerKey = ""; this.hudLKey = ""; this.hudRKey = ""; this.slotKey = null;
   }
 
-  /** Étoiles fixes (même tirage à chaque fois), d'autant plus visibles qu'il fait nuit. */
+  /** Part du ciel étoilé, selon l'histoire : le Briseur a éteint les étoiles ; chaque chronique en rallume, la
+   *  victoire finale les rallume toutes (et davantage). */
+  starShare() {
+    const S = this.game.S;
+    if (storyWon(S)) return 1.3;
+    return 0.15 + 0.85 * chroniclesUnlocked(S, recordZone(S)).length / CHRONICLES.length;
+  }
+
+  /** Étoiles fixes (même tirage à chaque fois, les nouvelles s'ajoutent sans déplacer les autres), d'autant plus
+   *  visibles qu'il fait nuit ; leur nombre suit l'histoire (starShare). */
   drawStars(ctx, alpha) {
     if (alpha <= 0) return;
     ctx.globalAlpha = alpha;
     let seed = 7;
-    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-    for (let i = 0; i < this.W / 18; i++) {
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647), won = storyWon(this.game.S);
+    for (let i = 0; i < Math.round(this.W / 18 * this.starShare()); i++) {
       const x = Math.floor(rnd() * this.W), y = 4 + Math.floor(rnd() * 36), big = rnd() < 0.15;
-      ctx.fillStyle = big ? "#fff6c8" : "#dfe7ff";
+      ctx.fillStyle = big ? (won ? "#ffe27a" : "#fff6c8") : "#dfe7ff";
       ctx.fillRect(x, y, big ? 2 : 1, big ? 2 : 1);
     }
     ctx.globalAlpha = 1;
@@ -453,7 +462,8 @@ export class StripRenderer {
     const minute = Math.floor(Date.now() / 60000);
     if (minute !== this.skyMinute || !this.skyKey) {
       this.skyMinute = minute;
-      const k = JSON.stringify(this.nightLevel());
+      // Clé du décor : heure (nuit) et étoiles rallumées par l'histoire (une chronique de plus = redessiner).
+      const k = JSON.stringify(this.nightLevel()) + this.starShare().toFixed(3);
       if (k !== this.skyKey) { this.skyKey = k; this.drawBase(); }
     }
     this.updateFx(dt);

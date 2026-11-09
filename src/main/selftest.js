@@ -482,6 +482,9 @@ async function runSelfTest(strip) {
   // Carte du voyageur (déblocage) : un clic sur une zone déjà atteinte y emmène le héros.
   const tv = await js("(() => { const g = window.__game, S = g.S, P = window.__panel; const z0 = S.zone, had = S.unlocks.travelMap; S.unlocks.travelMap = true; P.setTab('map'); P.renderAll(); const t = document.querySelector('svg.rebord .mz.go[data-z=\"' + Math.max(1, z0 - 2) + '\"]'); if (!t) return 'pas de zone cliquable'; t.dispatchEvent(new MouseEvent('click', { bubbles: true })); const r = S.zone === Math.max(1, z0 - 2); g.setZone(z0); if (!had) delete S.unlocks.travelMap; P.setTab('adventure'); return String(r); })()");
   check("carte du voyageur : clic sur une zone atteinte = voyage", tv === "true", tv);
+  // Ciel de nuit de la bande : il s'étoile avec l'histoire (plus de chroniques = plus d'étoiles ; victoire = plein).
+  const sky = await js("(() => { const st = window.__strip, S = window.__game.S, keep = { b: S.best, w: S.story.won, pb: S.prestige.bestRun }; S.story.won = false; S.best = 1; S.prestige.bestRun = 1; const a = st.starShare(); S.best = 200; S.prestige.bestRun = 200; const b = st.starShare(); S.story.won = true; const c = st.starShare(); S.best = keep.b; S.story.won = keep.w; S.prestige.bestRun = keep.pb; return a < b && b < c ? 'ok' : [a, b, c].join(' '); })()");
+  check("ciel de nuit : les étoiles suivent l'histoire", sky === "ok", sky);
   // Chroniques de l'histoire : bloc repliable dans la carte du héros, au moins « Le ciel brisé ».
   const ch = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('.chronbox'); return d ? d.querySelectorAll('.chron').length : -1; })()");
   check("chroniques : bloc présent dans la carte du héros, au moins une chronique", ch >= 1, ch);

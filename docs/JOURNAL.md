@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 238) : le ciel de nuit de la bande suit l'histoire (« depuis, la nuit n'a plus d'étoiles ») :
+  15 % des étoiles au début, chaque chronique en rallume (positions fixes, les nouvelles s'ajoutent), plein ciel
+  (×1,3, grosses étoiles dorées) après la victoire sur le Briseur. Décor redessiné quand une chronique s'ajoute.
+  Contrôle d'autotest, captures de nuit, 98/98.
 - 2026-11-09 (it. 237) : --dump-text n'extrayait pas l'onglet Carte (liste d'onglets de main.js) : ajouté. Chasse
   aux textes non traduits sur la carte en russe : 794 lignes propres, et ses 217 infobulles (zones, boss, chroniques,
   héros, Briseur) ne contiennent aucun mot latin.
@@ -800,6 +804,16 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       Courtes (5 à 15 s), passables d'un clic, discrètes si le joueur travaille ; respecter le réglage du son.
   16. FAIT (2026-11-09). Écran ultra-large (Odyssey) : le panneau laissait de grandes bandes vides à gauche et à
       droite : il ne prend plus que la largeur de son contenu, les côtés laissent voir le bureau.
+  17. À FAIRE (2026-11-09, grosse demande, en plusieurs itérations) : équipe de 2 héros, un à distance et un au
+      corps à corps, qui combattent ensemble ; au moins 20 héros à libérer, étalés jusqu'à la zone 200 (environ un
+      tous les 10 niveaux de zone, pas forcément pile) ; on ne parle plus de « classes » mais de « héros » ; le duo
+      se choisit (se change) à l'ascension.
+      Plan : (a) données : 10 héros existants rangés corps à corps / distance + 10 nouveaux (sprites, capacités),
+      zones de libération étalées 10 → ~195 ; (b) moteur de combat à deux héros (le second frappe aussi, PV
+      partagés ou séparés, équipement : celui du héros principal, talents par héros) ; (c) choix du duo à
+      l'ascension (onglet « Héros ») ; (d) migration des parties (classe actuelle = héros principal, compagnon
+      choisi à la prochaine ascension) ; (e) textes « classe » → « héros » dans les 10 langues ; équilibrage
+      (balance.mjs, simulate 168 h), fuzz, carte du Rebord (20 cages).
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
