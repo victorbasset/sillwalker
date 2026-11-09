@@ -574,4 +574,6 @@ export default {
   1698: "Map of the Sill",
   1699: "hover over a place",
   1700: "Your journey along the Sill: the zones you have crossed, the heroes to free, the chronicles, and the Starbreaker awaiting you at the end.",
+  1701: "{0} is free!",
+  1702: "One more hero walks the Sill.",
 };

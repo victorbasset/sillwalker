@@ -574,4 +574,6 @@ export default {
   1698: "Karte des Saums",
   1699: "fahre über einen Ort",
   1700: "Deine Reise entlang des Saums: die durchquerten Zonen, die zu befreienden Helden, die Chroniken und der Sternenbrecher, der dich am Ende erwartet.",
+  1701: "{0} ist frei!",
+  1702: "Ein weiterer Held wandert auf dem Saum.",
 };

@@ -574,4 +574,6 @@ export default {
   1698: "Mapa do Parapeito",
   1699: "passe o mouse sobre um lugar",
   1700: "Sua jornada ao longo do Parapeito: as zonas percorridas, os heróis a libertar, as crônicas e o Quebra-Estrelas que espera por você no fim.",
+  1701: "{0} está livre!",
+  1702: "Mais um herói caminha pelo Parapeito.",
 };

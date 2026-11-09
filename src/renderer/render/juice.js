@@ -14,7 +14,7 @@ import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
 import { UNLOCK_INDEX } from "../game/unlocks.js";
 import { fmt, durText } from "../game/format.js";
-import { itemIconURL } from "./sprites.js";
+import { itemIconURL, classPortraitURL } from "./sprites.js";
 import { q, el, mark, makeCanvas, sizeCanvas } from "./dom.js";
 
 const MAX_PARTS = 90;
@@ -99,10 +99,9 @@ export class Juice {
       this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffd34d", 16);
       this.flash("#ffe9a8", 0.2);
     });
-    g.on("classUnlock", ({ cls }) => {
-      this.banner(`${tx("Héros libéré : {0} !", { 0: CLASSES[cls].name })}`, "#9fe0a8", this.s.heroX + 80, true);
+    g.on("classUnlock", ({ cls }) => { // un moment de l'histoire : petite cinématique (la cage s'ouvre)
       this.sparkles(this.s.heroX + 18, this.ground() - 40, "#9fe0a8", 16);
-      this.flash("#9fe0a8", 0.25);
+      this.cinematic("freed", { cls });
     });
     g.on("feather", ({ gain, source, speed }) => {
       this.banner(`${source}${fsp()}${tx(": +{0} % de vitesse pour toujours ! (+{1} %)", { 0: gain, 1: speed })}`, "#9fd8ff", this.s.heroX + 60, true);
@@ -236,6 +235,7 @@ export class Juice {
    *  arrive  : zone 200, le Briseur d'Étoiles se montre, éclairs, le ciel se fissure au-dessus de lui (5 s) ;
    *  dawn    : il est vaincu, ses éclats remontent et rallument le ciel (12 s), puis enchaîne sur le générique ;
    *  credits : générique de fin personnalisé (statistiques de la partie), sur le ciel rallumé ;
+   *  freed   : un héros prisonnier est libéré (data : { cls }) : sa cage s'ouvre, étincelles, « X est libre ! » (5 s) ;
    *  chronicle : nouvelle chronique (data : { title, n, total }) : le ciel montre une étoile de plus par chronique
    *              découverte, la nouvelle s'allume au centre (5 s). Le ciel se rallume ainsi peu à peu jusqu'à la fin.
    */
@@ -253,6 +253,7 @@ export class Juice {
       intro: { start: 3, step: 9, pages: [["Sillwalker", tx("Le Rebord, il y a mille ans…")]] },
       arrive: { start: 0.6, step: 9, pages: [[tx("Le Briseur d’Étoiles"), tx("Le Briseur d’Étoiles t’attend !")]] },
       dawn: { start: 3, step: 20, pages: [[tx("Le ciel se rallume"), tx("Les héros sont libres.")]] },
+      freed: { start: 1.4, step: 9, pages: [[tx("{0} est libre !", { 0: (CLASSES[data.cls] || {}).name || "" }), tx("Un héros de plus marche sur le Rebord.")]] },
       chronicle: { start: 1, step: 9, pages: [[`📜 ${data.title || ""}`, tx("Chronique {0} / {1}", { 0: data.n || 1, 1: data.total || 1 })]] },
       credits: { start: 0.8, step: 3.2, pages: [
         ["Sillwalker", tx("Le Briseur d’Étoiles est vaincu")],
@@ -262,7 +263,13 @@ export class Juice {
         [tx("Merci d’avoir joué !"), tx("Le voyage continue au-delà du Rebord…")]] },
     }[kind];
     title.textContent = PAGES.pages[0][0]; sub.textContent = PAGES.pages[0][1]; // invisibles jusqu'à leur tour
-    const life = { intro: 7, arrive: 5, dawn: 12, chronicle: 5 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
+    const cageX = Math.round(W / 2 - 230), cageY = Math.round(H * 0.18);
+    if (kind === "freed" && data.cls) {
+      const img = el("img", "cine-hero", node);
+      img.src = classPortraitURL(data.cls);
+      img.style.left = cageX + "px"; img.style.top = cageY + "px";
+    }
+    const life = { intro: 7, arrive: 5, dawn: 12, chronicle: 5, freed: 5 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
     // bx : dawn, là où le Briseur tombe ; arrive, sa place au bout de la bande.
     const bx = kind === "dawn" ? Math.min(W - 220, this.s.monX() + 20) : W - (this.s.rightReserve || 0) - 260, by = this.ground() - 30;
     // Étoiles : dawn, elles montent du Briseur vaincu ; credits, déjà au ciel ; intro, au ciel puis elles tombent.
@@ -331,6 +338,18 @@ export class Juice {
         ctx.fillRect(Math.round(x) - z, Math.round(y), 2 * z + 1, 1);
         ctx.fillRect(Math.round(x), Math.round(y) - z, 1, 2 * z + 1);
         if (e < 1) { ctx.globalAlpha = 0.35; ctx.fillRect(Math.round(x), Math.round(y) + 2, 1, 4); } // traînée
+      }
+      if (kind === "freed") { // barreaux de la cage qui remontent (t 0,9 → 1,6), puis étincelles vertes
+        const up = Math.min(1, Math.max(0, (t - 0.9) / 0.7)), bw = 52, bh = 56;
+        ctx.fillStyle = "#9a96b8";
+        for (let i = 0; i < 5; i++) ctx.fillRect(cageX - 4 + i * 12, Math.round(cageY - 4 - up * (bh + 10)), 3, bh);
+        ctx.fillStyle = "#6a6488"; ctx.fillRect(cageX - 8, cageY + bh - 4, bw + 8, 4); // socle
+        if (up >= 1) for (let i = 0; i < 18; i++) {
+          const a = i * 0.35 + t * 2, rr = 10 + ((t - 1.6) * 40 + i * 7) % 46;
+          ctx.globalAlpha = Math.max(0, 1 - rr / 56); ctx.fillStyle = i % 3 ? "#9fe0a8" : "#fff6c8";
+          ctx.fillRect(Math.round(cageX + 22 + Math.cos(a) * rr), Math.round(cageY + 26 + Math.sin(a) * rr * 0.6), 2, 2);
+        }
+        ctx.globalAlpha = 1;
       }
       if (kind === "chronicle") { // la nouvelle étoile s'allume au centre : croix qui grandit puis scintille
         const u = Math.min(1, Math.max(0, (t - 0.5) / 0.8)), cx = Math.round(W / 2), cy = Math.round(H * 0.12), r = Math.round(2 + u * 6);

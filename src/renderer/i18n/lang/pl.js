@@ -574,4 +574,6 @@ export default {
   1698: "Mapa Krawędzi",
   1699: "najedź na miejsce",
   1700: "Twoja podróż wzdłuż Krawędzi: przebyte strefy, bohaterowie do uwolnienia, kroniki i Łamacz Gwiazd, który czeka na ciebie na końcu.",
+  1701: "{0} jest wolny!",
+  1702: "Kolejny bohater wędruje po Krawędzi.",
 };

@@ -453,8 +453,8 @@ async function boot() {
     panel.dirty = true;
   });
   game.on("classUnlock", ({ cls }) => {
-    sound.play("legendary");
-    setTimeout(() => showToast(`🗝 <b>${esc(CLASSES[cls].name)}</b> ${tx("est libéré ! Choisis-le dans l’onglet Classe : tu le joueras à ta prochaine ascension.")}`, () => { openPanel(); panel.setTab("class"); }, 15000), 1500);
+    if (mode !== "strip") sound.play("legendary"); // dans la bande, la cinématique a son propre son
+    setTimeout(() => showToast(`🗝 <b>${esc(CLASSES[cls].name)}</b> ${tx("est libéré ! Choisis-le dans l’onglet Classe : tu le joueras à ta prochaine ascension.")}`, () => { openPanel(); panel.setTab("class"); }, 15000), 5200); // après la cinématique
   });
 
   /* ---------- Retour d'expédition des familiers ---------- */

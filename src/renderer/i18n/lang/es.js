@@ -574,4 +574,6 @@ export default {
   1698: "Mapa del Alféizar",
   1699: "pasa el ratón por un lugar",
   1700: "Tu viaje a lo largo del Alféizar: las zonas recorridas, los héroes por liberar, las crónicas y el Rompeestrellas que te espera al final.",
+  1701: "¡{0} es libre!",
+  1702: "Un héroe más camina por el Alféizar.",
 };

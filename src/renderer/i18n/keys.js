@@ -1702,5 +1702,7 @@ export const KEYS = [
   "Au-delà du Rebord : zone {0}",
   "Carte du Rebord",
   "survole un lieu",
-  "Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."
+  "Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout.",
+  "{0} est libre !",
+  "Un héros de plus marche sur le Rebord."
 ];

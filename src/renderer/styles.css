@@ -767,3 +767,6 @@ svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; he
 .mapsum { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 4px 0 8px; }
 .mappanel { grid-column: 1 / -1; }
 .rebord .mpin { fill: #ffe27a; }
+.cine.freed { background: linear-gradient(rgba(8, 20, 14, 0.94), rgba(14, 34, 24, 0.85)); }
+.cine.freed .cine-title { color: #9fe0a8; text-shadow: 0 0 10px #3a9a5a; }
+.cine-hero { position: absolute; width: 48px; height: 54px; image-rendering: pixelated; }
