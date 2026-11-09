@@ -487,4 +487,5 @@ export default {
   1611: "Bolsa cheia: o próximo saque será vendido",
   1612: "A fazer ({0})",
   1613: "Comprar e equipar: {0} ({1} de ouro)",
+  1614: "Todos os golpes são críticos!",
 };

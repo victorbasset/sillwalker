@@ -487,4 +487,5 @@ export default {
   1611: "Torba pełna: następny łup zostanie sprzedany",
   1612: "Do zrobienia ({0})",
   1613: "Kup i załóż: {0} ({1} złota)",
+  1614: "Każdy cios jest krytyczny!",
 };

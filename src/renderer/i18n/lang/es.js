@@ -487,4 +487,5 @@ export default {
   1611: "Bolsa llena: el próximo botín se venderá",
   1612: "Pendiente ({0})",
   1613: "Comprar y equipar: {0} ({1} de oro)",
+  1614: "¡Todos los golpes son críticos!",
 };

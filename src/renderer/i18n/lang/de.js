@@ -487,4 +487,5 @@ export default {
   1611: "Tasche voll: Die nächste Beute wird verkauft",
   1612: "Zu tun ({0})",
   1613: "Kaufen und ausrüsten: {0} ({1} Gold)",
+  1614: "Jeder Treffer ist kritisch!",
 };

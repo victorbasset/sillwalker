@@ -383,7 +383,7 @@ export class Game {
     if (m.mech && m.mech.includes("evasive") && rand() < 0.2) { this.emit("bossDodge"); return; }
     // Iaijutsu (samouraï) : chaque 4e coup est un critique garanti renforcé.
     const iai = !extra && hs.iai > 0 && (this.R.hits = (this.R.hits || 0) + 1) % 4 === 0;
-    const crit = iai || rand() < hs.crit / 100;
+    const crit = iai || (this.R.events.hawkeye || 0) > 0 || rand() < hs.crit / 100; // Œil du faucon : critiques garantis
     let dmg = hs.atk * rnd(0.9, 1.1) * (crit ? hs.critDmg : 1);
     if (iai) dmg *= 1 + hs.iai / 100;
     if (m.boss) dmg *= 1 + hs.bossDmg / 100;

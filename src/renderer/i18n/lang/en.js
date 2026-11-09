@@ -487,4 +487,5 @@ export default {
   1611: "Bag full: the next loot will be sold",
   1612: "To do ({0})",
   1613: "Buy and equip: {0} ({1} gold)",
+  1614: "Every hit is critical!",
 };

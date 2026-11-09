@@ -1428,6 +1428,17 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("événement Œil du faucon : tous les coups sont critiques", () => {
+  const g = new Game(freshLocked());
+  g.startEvent("hawkeye");
+  assert.ok(g.R.events.hawkeye > 0);
+  let crits = 0, n = 0;
+  g.on("heroAttack", (e) => { n++; if (e.crit) crits++; });
+  const hs = { ...g.stats(), crit: 0 };
+  for (let i = 0; i < 20; i++) g.heroStrike({ hp: 1e12, max: 1e12, def: 0, mech: [] }, hs, false);
+  assert.equal(crits, 20, "20 critiques sur 20 coups (" + n + ")");
+});
+
 test("« À faire » : amélioration du marchand achetée et équipée d'un clic", () => {
   const g = new Game(freshLocked());
   for (const k in g.S.equip) g.S.equip[k] = null;
