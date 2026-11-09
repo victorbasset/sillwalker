@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 221, demande 14 de Victor) : sac plein : le butin reste au sol, perdu (plus de vente ni d'échange
+  automatique). Animation : l'objet retombe, clignote puis s'efface au lieu de voler vers le sac. Journal : ligne
+  cumulée « Sac plein, objets laissés au sol : n. » ; un légendaire ou une amélioration perdu a sa propre ligne.
+  Le Valet d'armes équipe quand même une amélioration (l'ancienne pièce reste au sol, le sac ne déborde pas) ;
+  la vente automatique (autoSell) passe avant. Réclamer une quête reste possible sac plein (inchangé). Textes du
+  sac et de « À faire » adaptés. 10 langues, tests réécrits, 92/92, fuzz 600/0, balance +0,0.
 - 2026-11-09 (it. 220, revue générale) : simulations 12 h : mage 58, guerrier 54, assassin 60 (stable, ±1,5 de bruit) ;
   perf:linux : bande 16,9 % d'un cœur, panneau 18,2 %, mini 3,9 %, icône 0,4 % ; 560 à 680 Mo. Chasse aux textes
   non traduits (russe) : rien. Captures allemand + thème clair (Chroniques, détail sous le sac) : propres. Corrigé :
@@ -692,7 +698,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       boss/lieutenants, héros libérés, chroniques placées sur le chemin, Briseur d'Étoiles en zone 200 au bout).
       Idée : onglet ou fenêtre « Carte » dessinée en pixel art (chemin sinueux, repères cliquables, brouillard sur
       ce qui n'est pas encore atteint), à faire après le Briseur et la fin (demande 11), qu'elle mettra en valeur.
-  14. Sac plein : les objets qui tombent restent sur le sol (perdus, « tant pis »), au lieu d'être vendus ou
+  14. FAIT (it. 221). Sac plein : les objets qui tombent restent sur le sol (perdus, « tant pis »), au lieu d'être vendus ou
       échangés automatiquement. Garder la vente automatique de l'Encanteur (autoSell, déblocage acheté) et le Valet
       d'armes ; vérifier les textes (« sac plein : objets vendus »), la ligne du journal, les quêtes Réclamer.
   15. Histoire : de toutes petites cinématiques dans la bande, pixel art épique, avec musique et sons (render/,

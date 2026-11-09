@@ -541,4 +541,8 @@ export default {
   1665: "Sobre ti, un destello cruza la noche por primera vez en mil años. El cielo recuerda. El Rompeestrellas te espera al final del Alféizar.",
   1666: "El umbral",
   1667: "El viento ya no sopla. Los monstruos huyen. Unos pasos más y te enfrentarás al Rompeestrellas, en la zona 200.",
+  1668: "Bolsa llena: ¡{0} se quedó en el suelo!",
+  1669: "Bolsa llena, objetos dejados en el suelo: {0}.",
+  1670: "Bolsa llena: el próximo botín se quedará en el suelo",
+  1671: "class=\"warn\" title=\"Bolsa llena: los objetos nuevos se quedan en el suelo. Vende o transmuta para hacer sitio.\"",
 };

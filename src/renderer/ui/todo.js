@@ -11,7 +11,7 @@ const LABELS = {
   eggs: (t) => txn(t.n, "{n} œuf à faire éclore|{n} œufs à faire éclore"),
   expeditions: (t) => txn(t.n, "{n} expédition terminée|{n} expéditions terminées"),
   merchant: () => tx("Le marchand propose une amélioration"),
-  bagFull: (t) => t.n ? txn(t.n, "Sac plein : {n} objet inutile à vendre|Sac plein : {n} objets inutiles à vendre") : tx("Sac plein : le butin suivant sera vendu"),
+  bagFull: (t) => t.n ? txn(t.n, "Sac plein : {n} objet inutile à vendre|Sac plein : {n} objets inutiles à vendre") : tx("Sac plein : le butin suivant restera au sol"),
   setFinish: (t) => tx("Une pièce du sac complète la panoplie {0}", { 0: t.name }),
 };
 

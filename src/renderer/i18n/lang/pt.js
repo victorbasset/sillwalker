@@ -541,4 +541,8 @@ export default {
   1665: "Acima de você, um brilho atravessa a noite pela primeira vez em mil anos. O céu se lembra. O Quebra-Estrelas espera por você no fim do Parapeito.",
   1666: "O limiar",
   1667: "O vento não sopra mais. Os monstros fogem. Mais alguns passos e você enfrentará o Quebra-Estrelas, na zona 200.",
+  1668: "Bolsa cheia: {0} ficou no chão!",
+  1669: "Bolsa cheia, itens deixados no chão: {0}.",
+  1670: "Bolsa cheia: o próximo saque ficará no chão",
+  1671: "class=\"warn\" title=\"Bolsa cheia: os novos itens ficam no chão. Venda ou transmute para abrir espaço.\"",
 };

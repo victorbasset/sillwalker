@@ -541,4 +541,8 @@ export default {
   1665: "Nad tobą po raz pierwszy od tysiąca lat noc przecina błysk. Niebo pamięta. Łamacz Gwiazd czeka na ciebie na końcu Krawędzi.",
   1666: "Próg",
   1667: "Wiatr już nie wieje. Potwory uciekają. Jeszcze kilka kroków i staniesz przed Łamaczem Gwiazd, w strefie 200.",
+  1668: "Torba pełna: {0} został na ziemi!",
+  1669: "Torba pełna, przedmioty zostawione na ziemi: {0}.",
+  1670: "Torba pełna: następny łup zostanie na ziemi",
+  1671: "class=\"warn\" title=\"Torba pełna: nowe przedmioty zostają na ziemi. Sprzedaj lub transmutuj, aby zrobić miejsce.\"",
 };

@@ -541,4 +541,8 @@ export default {
   1665: "Above you, a glimmer crosses the night for the first time in a thousand years. The sky remembers. The Starbreaker awaits you at the end of the Sill.",
   1666: "The threshold",
   1667: "The wind no longer blows. The monsters flee. A few more steps, and you will face the Starbreaker, in zone 200.",
+  1668: "Bag full: {0} was left on the ground!",
+  1669: "Bag full, items left on the ground: {0}.",
+  1670: "Bag full: the next loot will stay on the ground",
+  1671: "class=\"warn\" title=\"Bag full: new items stay on the ground. Sell or transmute to make room.\"",
 };

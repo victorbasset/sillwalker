@@ -72,7 +72,7 @@ export class Juice {
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
     g.on("bossNemesis", ({ name }) => this.banner(tx("{0} enfin vaincu !", { 0: name }), "#ffb733", this.s.monX() - 40));
-    g.on("loot", ({ item, mon, chest }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10));
+    g.on("loot", ({ item, mon, chest, ground }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10, ground));
     g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
     g.on("zoneUp", ({ zone, record }) => {
       if (!record) return;
@@ -151,7 +151,13 @@ export class Juice {
           this.place(node, st.x, st.y);
           return true;
         }
-        if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
+        if (ground) { // sac plein : l'objet reste au sol, clignote puis s'efface (perdu)
+        const k = (p.t - 1.1) / 3;
+        if (k >= 1) return false;
+        img.style.opacity = k < 0.6 ? (Math.floor(p.t * 4) % 2 ? 0.55 : 1) : (1 - k) * 2.5;
+        return true;
+      }
+      if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
         const k = Math.min(1, (p.t - st.ht) / 0.55), tg = this.goldTarget();
         this.place(node, st.hx + (tg.x - st.hx) * easeIn(k), st.hy + (tg.y - st.hy) * easeIn(k) - Math.sin(k * Math.PI) * 30);
         if (k >= 1) { this.pulse = 0.3; return false; }
@@ -161,7 +167,7 @@ export class Juice {
   }
 
   /** Butin : l'icône saute du monstre, puis va dans le sac. Faisceau pour rare et mieux. */
-  loot(item, x) {
+  loot(item, x, ground) {
     if (!this.active) return;
     const r = item.r, color = RARITIES[r].color, y0 = this.ground() - 24;
     if (r >= 2 && (this.full || r >= LEGENDARY)) {

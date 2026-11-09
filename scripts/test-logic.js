@@ -1126,24 +1126,28 @@ test("zone 1 : un monstre trop fort en tête ne bloque jamais le héros", () => 
   for (let i = 0; i < 200; i++) { g.R.lineupZone = -1; assert.ok(!g.lineup().some((m) => m.champion), "pas de champion avant la zone 5"); }
 });
 
-test("sac plein : un légendaire ou une amélioration prend la place du moins précieux, jamais l'inverse", () => {
+test("sac plein : le butin reste au sol, sans or ni échange (demande de Victor) ; le Valet d'armes équipe quand même", () => {
   const g = new Game(freshState());
   g.S.autoSell = { common: false, uncommon: false, rare: false };
   g.isUpgrade = (it) => !!it.up; // contrôle simple des améliorations pour le test
   const mk = (r, up) => { const it = g.newItem(0); it.r = r; it.up = up; return it; };
-  g.S.bag = []; const size = g.bagSize ? g.bagSize() : 24;
+  g.S.bag = [];
   while (!g.bagFull()) g.S.bag.push(mk(1));
-  const keep = g.S.bag[0]; keep.r = 4; // un légendaire dans le sac : jamais évincé
-  const n = g.S.bag.length;
-  assert.equal(g.addToBag(mk(0)), false, "commun : vendu, le sac ne bouge pas");
+  const before = g.S.bag.slice(), gold = g.S.gold, logs = g.S.log.length;
   const leg = mk(4);
-  assert.equal(g.addToBag(leg), true, "légendaire : gardé");
-  assert.ok(g.S.bag.includes(leg) && g.S.bag.includes(keep) && g.S.bag.length === n, "un objet ordinaire a fait la place");
-  const up = mk(1, true);
-  assert.equal(g.addToBag(up), true, "amélioration de même rareté : gardée");
-  for (const b of g.S.bag) if (b !== keep && b !== leg && b !== up) b.r = 4; // sac plein de précieux
-  assert.equal(g.addToBag(mk(3)), false, "rien d'évinçable : le nouvel objet est vendu");
-  assert.ok(g.S.bag.includes(leg) && g.S.bag.includes(up));
+  assert.equal(g.addToBag(leg), false, "légendaire : resté au sol");
+  assert.equal(g.R.grounded, leg.id, "signalé à l'animation (reste au sol)");
+  assert.equal(g.S.log.length, logs + 1, "le légendaire perdu est signalé au journal");
+  assert.equal(g.addToBag(mk(0)), false);
+  assert.equal(g.addToBag(mk(1, true)), false, "amélioration sans Valet : au sol");
+  assert.deepEqual(g.S.bag, before, "le sac n'a pas bougé");
+  assert.equal(g.S.gold, gold, "pas d'or : l'objet n'est pas vendu");
+  // Valet d'armes : l'amélioration est équipée, l'ancienne pièce reste au sol ; le sac ne déborde pas.
+  g.S.unlocks = { ...(g.S.unlocks || {}), armsValet: true };
+  const up = mk(2, true); up.slot = "weapon";
+  assert.equal(g.addToBag(up), true);
+  assert.equal(g.S.equip.weapon, up);
+  assert.equal(g.S.bag.length, g.S.bagSize, "le sac ne déborde pas");
 });
 
 test("usure des boss : -5 % de PV par défaite (30 % au plus), gardée à l'ascension, effacée par la victoire", () => {
@@ -1687,16 +1691,15 @@ test("sauvegarde : nombres illisibles des sous-objets remplacés par leur valeur
   assert.equal(s.stats.bosses, 12, "valeur correcte gardée");
 });
 
-test("journal : sac plein, les échanges ordinaires se cumulent sur une ligne", () => {
+test("journal : sac plein, les objets laissés au sol se cumulent sur une ligne", () => {
   const g = new Game(freshLocked());
   g.S.bag.length = 0; g.S.log.length = 0;
   while (!g.bagFull()) { const it = g.newItem(1); it.r = 0; g.S.bag.push(it); }
   g.isUpgrade = () => false;
   for (let i = 0; i < 5; i++) { const it = g.newItem(1); it.r = 1; g.addToBag(it); }
-  const lines = g.S.log.filter((l) => /replaced|remplacés/.test(l));
+  const lines = g.S.log.filter((l) => /on the ground|au sol/.test(l));
   assert.equal(lines.length, 1, g.S.log.slice(0, 6).join(" | "));
-  assert.match(lines[0], /: 5 /);
-  assert.ok(!g.S.log.some((l) => /pour faire de la place|make room/.test(l)));
+  assert.match(lines[0], /: 5\./);
 });
 
 test("événement Œil du faucon : tous les coups sont critiques", () => {

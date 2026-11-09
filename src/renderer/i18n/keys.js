@@ -1669,5 +1669,9 @@ export const KEYS = [
   "Le ciel se fissure",
   "Au-dessus de toi, une lueur traverse la nuit pour la première fois depuis mille ans. Le ciel se souvient. Le Briseur, lui, t’attend au bout du Rebord.",
   "Le seuil",
-  "Le vent ne souffle plus. Les monstres fuient. Encore quelques pas, et tu feras face au Briseur d’Étoiles, en zone 200."
+  "Le vent ne souffle plus. Les monstres fuient. Encore quelques pas, et tu feras face au Briseur d’Étoiles, en zone 200.",
+  "Sac plein : {0} est resté au sol !",
+  "Sac plein, objets laissés au sol : {0}.",
+  "Sac plein : le butin suivant restera au sol",
+  "class=\"warn\" title=\"Sac plein : les nouveaux objets restent au sol. Vends ou transmute pour faire de la place.\""
 ];

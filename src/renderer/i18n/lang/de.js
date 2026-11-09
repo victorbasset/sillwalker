@@ -541,4 +541,8 @@ export default {
   1665: "Über dir zieht zum ersten Mal seit tausend Jahren ein Schimmer durch die Nacht. Der Himmel erinnert sich. Der Sternenbrecher erwartet dich am Ende des Saums.",
   1666: "Die Schwelle",
   1667: "Der Wind weht nicht mehr. Die Monster fliehen. Noch ein paar Schritte, und du stehst dem Sternenbrecher gegenüber, in Zone 200.",
+  1668: "Tasche voll: {0} ist am Boden liegen geblieben!",
+  1669: "Tasche voll, am Boden liegen gelassen: {0}.",
+  1670: "Tasche voll: Die nächste Beute bleibt am Boden liegen",
+  1671: "class=\"warn\" title=\"Tasche voll: Neue Gegenstände bleiben am Boden liegen. Verkaufe oder transmutiere, um Platz zu schaffen.\"",
 };

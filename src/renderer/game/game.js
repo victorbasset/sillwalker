@@ -517,6 +517,15 @@ export class Game {
   }
 
 
+  /** Sac plein : objets laissés au sol, une ligne cumulée tant qu'elle est récente (comme logSale, sans or). */
+  logLeft() {
+    const L = this.S.log, lines = (this.R.saleLines ||= {}), cur = lines.left;
+    const at = cur ? L.indexOf(cur.text) : -1;
+    if (at >= 0 && at < LOG_MERGE) { cur.n++; L[at] = cur.text = tx("Sac plein, objets laissés au sol : {0}.", { 0: cur.n }); this.emit("log", L[at]); return; }
+    lines.left = { n: 1, text: tx("Sac plein, objets laissés au sol : {0}.", { 0: 1 }) };
+    this.log(lines.left.text);
+  }
+
   addToBag(it, quiet) {
     const S = this.S, r = RARITIES[it.r];
     if (S.autoSell[r.id] && hasUnlock(S, "autoSell")) {
@@ -525,27 +534,23 @@ export class Game {
       return false;
     }
     if (this.bagFull()) {
-      // Sac plein : un objet plus précieux (légendaire, amélioration, rareté supérieure) prend la place du moins
-      // précieux du sac ; légendaires et améliorations du sac ne sont jamais évincés. Sinon, le nouveau est vendu.
-      const precious = it.r >= LEGENDARY || this.isUpgrade(it);
-      let worst = null;
-      for (const b of S.bag) {
-        if (b.r >= LEGENDARY || this.isUpgrade(b)) continue;
-        if (!worst || b.r < worst.r || (b.r === worst.r && sellValue(b) < sellValue(worst))) worst = b;
+      // Sac plein : l'objet reste au sol, perdu (demande de Victor : « tant pis »). Exception : le Valet d'armes
+      // (déblocage acheté) équipe une amélioration ; c'est alors l'ancienne pièce qui reste au sol.
+      if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) {
+        const old = S.equip[it.slot];
+        S.bag.push(it); this.equip(it);
+        if (old) S.bag = S.bag.filter((b) => b.id !== old.id);
+        if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé."));
+        this.changed();
+        return true;
       }
-      if (worst && (precious || it.r > worst.r)) {
-        S.bag.splice(S.bag.indexOf(worst), 1);
-        S.gold += sellValue(worst);
-        // Détail gardé pour un objet marquant (légendaire, amélioration) ; les échanges ordinaires se cumulent sur une ligne.
-        if (!quiet) {
-          if (precious) this.log(tx("Sac plein : {0} vendu pour faire de la place à {1}.", { 0: itemName(worst), 1: itemName(it) }));
-          else this.logSale("swap", tx("Sac plein, objets remplacés par mieux"), sellValue(worst));
-        }
-      } else {
-        const v = sellValue(it); S.gold += v;
-        if (!quiet) { this.logSale("full", tx("Sac plein, objets vendus"), v); this.emit("bagFull"); }
-        return false;
+      this.R.grounded = it.id;
+      if (!quiet) {
+        if (it.r >= LEGENDARY || this.isUpgrade(it)) this.log(tx("Sac plein : {0} est resté au sol !", { 0: itemName(it) }));
+        else this.logLeft();
+        this.emit("bagFull");
       }
+      return false;
     }
     S.bag.push(it);
     if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) { this.equip(it); if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé.")); return true; }
@@ -581,9 +586,9 @@ export class Game {
     this.gainXp(Math.max(1, Math.round(m.xp * pace * (1 + hs.xp / 100) * ((R.events.wisdom || 0) > 0 ? 3 : 1)))); // Souffle de sagesse : ×3
     if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * pace * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
-      this.emit("loot", { item: it, mon: m });
       if (it.r >= 2) this.questProgress("loot", 1);
       this.addToBag(it);
+      this.emit("loot", { item: it, mon: m, ground: this.R.grounded === it.id }); // ground : resté au sol (sac plein)
     }
     if (m.champion) { S.stats.champions = (S.stats.champions || 0) + 1; this.log(`${tx("Champion vaincu : {0} or et un butin épique !", { 0: fmt(gold) })}`); }
     else if (m.elite) this.logSale("elite", tx("Élites vaincues"), gold); // cumul : une ligne au lieu d'une par élite
@@ -1300,8 +1305,8 @@ export class Game {
     S.potions = Math.min(20, S.potions + 1);
     this.log(`${tx("Coffre au trésor ! +{0} or, une potion et {1}.", { 0: fmt(gold), 1: itemName(item) })}`);
     this.emit("chest", { gold, item });
-    this.emit("loot", { item, chest: true });
     this.addToBag(item);
+    this.emit("loot", { item, chest: true, ground: this.R.grounded === item.id });
     this.changed();
     return { gold, item };
   }
