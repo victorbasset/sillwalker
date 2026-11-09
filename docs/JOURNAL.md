@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 282, demandes 27, 29, 30) : Ascension : icônes partout (éclats, gardé / perdu, constellations selon
+  leur effet, pastilles des constellations au maximum, bouton d'ascension) ; « gardé / perdu » en étiquettes sur
+  une ligne chacun, colonne de gauche plus large : plus de défilement même à 1366 px. Aventure : retirés le lien
+  « n points de talent à dépenser » et « plus de potions de soin : la boutique en vend ». Captures, 103/103.
 - 2026-11-09 (it. 281, revue générale) : simulations 12 h : guerrier 59, rôdeur 62, chaman 59 (stables) ; crawl
   294 clics sans erreur (avec un duo) ; texte russe : aucun mot latin suspect ; carte du Rebord : portraits carrés
   nets dans les cages. Perf mesurée à l'it. 270 (stable), non refaite.
@@ -1027,6 +1031,13 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   26. FAIT (2026-11-09). (a) L'opacité de la bande en curseur horizontal, comme le volume ; (b) pouvoir couper
       les effets sonores sans couper la musique ; les boutons haut-parleur coupent les deux et rendent l'état
       d'avant au second clic.
+  27. FAIT (it. 282). Onglet Ascension : ajouter des icônes (constellations, rangs, boutique d'éclats…).
+  28. Mettre un objet à notre niveau (le remonter au niveau d'objet actuel) : très cher, et accessible tard
+      (déblocage de boutique difficile à atteindre).
+  29. FAIT (it. 282). Onglet Ascension : il reste un défilement, à éviter.
+  30. FAIT (it. 282). Aventure : retirer le rappel « dépense 1 point de talent » (inutile) et le message des potions.
+  31. Histoire : une courte cinématique épique, avec une ambiance, à chaque chronique débloquée (ne pas oublier
+      le côté histoire).
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

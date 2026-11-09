@@ -853,3 +853,16 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Talents (demande 18) : lignes plus basses, notes des cadres en ⓘ. */
 .tbranch .talent { padding-top: 5px; padding-bottom: 5px; }
 .tbranch h2 .help { cursor: help; margin-left: 4px; }
+/* Ascension (demandes 27 et 29) : icônes ; « gardé / perdu » en étiquettes compactes. */
+.keeplose ul { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 3px 10px; font-size: 13px; }
+.keeplose li { display: inline-flex; align-items: center; gap: 4px; }
+.keeplose .eicon, .ascend .shards .eicon, .ascend button .eicon { width: 16px; height: 16px; image-rendering: pixelated; vertical-align: -3px; }
+.ascgrid .uowned .chip .eicon { width: 14px; height: 14px; margin-right: 3px; image-rendering: pixelated; vertical-align: -2px; }
+.ascgrid .shopline > .eicon.big { width: 24px; height: 24px; flex: none; image-rendering: pixelated; margin-right: 8px; }
+.keeplose { grid-template-columns: 1fr; gap: 4px; }
+.keeplose > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.keeplose ul { margin: 0; }
+.keeplose > div { flex-wrap: nowrap; }
+.keeplose > div > b { flex: none; min-width: 52px; }
+.keeplose > div > ul { flex: 1; }
+.ascgrid { grid-template-columns: minmax(300px, 1.25fr) minmax(400px, 1.75fr); }

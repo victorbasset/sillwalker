@@ -5,6 +5,12 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, sh
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
 import { hasUnlock } from "../../game/unlocks.js";
+import { shopIconURL, effectIconURL } from "../../render/shopart.js";
+
+// Demande 27 : des icônes dans l'onglet Ascension (gardé / perdu, constellations, éclats).
+const ico = (id) => `<img class="eicon" src="${shopIconURL(id, 3)}" alt="">`;
+const KEEP = [["star", "constellations, lueur"], ["egg", "familiers, bestiaire"], ["book", "collection, pouvoirs"], ["ws_speed", "vitesse permanente"], ["keys", "compétences, héros libérés"], ["bag", "taille du sac"]];
+const LOSE = [["ws_gold", "niveau et or"], ["ws_atk", "équipement et sac"], ["note", "talents"], ["map", "quêtes en cours"]];
 
 /** Effet de `n` rangs. Pour « Rang suivant », la zone de départ s'affiche au total du rang suivant (un écart « zone 3 » trompait). */
 function effText(eff, n) {
@@ -23,28 +29,28 @@ export class AscensionTab {
     const nextZone = Math.max(ASCEND_MIN_ZONE, S.best + 1);
     const intro = `<article class="panel ascend">
       <h2>${tx("Ascension")} <small>${txn(P.count, "{n} ascension|{n} ascensions")}</small></h2>
-      <p class="shards">✦ ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${P.shards}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
+      <p class="shards">${ico("star")} ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${P.shards}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
       <p><b>${tx("Lueur stellaire")}</b>${fsp()}${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone {0}.", { 0: g.nextStartZone() })}</p>
       <div class="keeplose">
-        <div><b class="delta-p">${tx("Gardé")}</b><ul><li>${tx("constellations, lueur")}</li><li>${tx("familiers, bestiaire")}</li><li>${tx("collection, pouvoirs")}</li><li>${tx("vitesse permanente")}</li><li>${tx("compétences, héros libérés")}</li><li>${tx("taille du sac")}</li></ul></div>
-        <div><b class="delta-n">${tx("Perdu")}</b><ul><li>${tx("niveau et or")}</li><li>${tx("équipement et sac")}</li><li>${tx("talents")}</li><li>${tx("quêtes en cours")}</li></ul></div>
+        <div><b class="delta-p">${tx("Gardé")}</b><ul>${KEEP.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}</ul></div>
+        <div><b class="delta-n">${tx("Perdu")}</b><ul>${LOSE.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}</ul></div>
       </div>
       <p>${tx("Héros de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
         <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button></p>
       ${can
         ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: gain })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: shardsFor(nextZone + 4) })}</p>
-           <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : tx("Monter vers les étoiles")}</button></div>`
+           <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : ico("star") + " " + tx("Monter vers les étoiles")}</button></div>`
         : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>`}
       ${hasUnlock(S, "astrolabe") ? `<label class="toggle"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record")}</label>` : ""}
     </article>`;
     // Constellations au maximum : regroupées en une ligne de pastilles (effet au survol) ; la liste ne garde que
     // celles qu'on peut encore améliorer (demande 18 : moins chargé).
     const maxedList = CONSTELLATIONS.filter((c) => (P.ranks[c.id] || 0) >= c.max);
-    const maxedChips = maxedList.map((c) => `<span class="chip" title="${esc(effText(c.eff, c.max))}">✦ ${esc(c.name)}</span>`).join("");
+    const maxedChips = maxedList.map((c) => `<span class="chip" title="${esc(effText(c.eff, c.max))}"><img class="eicon" src="${effectIconURL(c.eff)}" alt="">${esc(c.name)}</span>`).join("");
     const stars = CONSTELLATIONS.filter((c) => (P.ranks[c.id] || 0) < c.max).map((c) => {
       const rank = P.ranks[c.id] || 0, maxed = rank >= c.max, cost = constellationCost(c, rank);
-      return `<li class="shopline"><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
+      return `<li class="shopline"><img class="eicon big" src="${effectIconURL(c.eff)}" alt=""><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
         <div class="sub">${rank ? tx("Actuel : ") + esc(effText(c.eff, rank)) + " · " : ""}${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, c.eff.startZone ? rank + 1 : 1))}</div></div>
         ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${cost}</button>`}</li>`;
     }).join("");

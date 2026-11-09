@@ -473,7 +473,7 @@ export class Panel {
     const extra = EXTRA_STATS.filter(([, , show]) => show(hs)).map(([, label, , val]) => `<dt>${label}</dt><dd>${val(hs)}</dd>`).join("");
     const buffs = CONSUMABLES.filter((c) => c.kind === "buff" && (S.buffs[c.id] || 0) > 0)
       .map((c) => `<span class="chip" title="${esc(c.desc)}">${esc(c.name)} · <span data-buff="${c.id}">${uMin(Math.ceil(S.buffs[c.id] / 60))}</span></span>`).join("");
-    const free = g.talentPointsFree();
+    // Demande 30 : plus de rappels « points de talent à dépenser » ni « plus de potions » dans la carte du héros.
     const sets = Object.entries(setCounts(S.equip)).filter(([id, n]) => SETS[id] && n >= 2)
       .map(([id, n]) => `<span class="chip set" style="--c:${SETS[id].color}" title="${esc(`${n >= 2 ? "✓" : "·"} ${tx("2 pièces : {0}", { 0: describeEffects(SETS[id].two) })}\n${n >= 4 ? "✓" : "·"} ${tx("4 pièces : {0}", { 0: describeEffects(SETS[id].four) })}`)}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
     const events = Object.entries(g.R.events).filter(([, t]) => t > 0)
@@ -491,8 +491,6 @@ export class Panel {
         <div class="tile"><img src="${shopIconURL("ws_hp", 3)}" alt=""><span>${tx("Défense")}</span><b>${fmtStat("def", hs.def)}</b></div>
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
       </div>
-      ${S.potions === 0 && tabOpen(S, "shop") ? `<button class="linkbtn warn" data-tab="shop">${tx("Plus de potions de soin : la boutique en vend →")}</button>` : ""}
-      ${free > 0 && tabOpen(S, "talents") ? `<button class="linkbtn" data-tab="talents">${txn(free, "{n} point de talent à dépenser →|{n} points de talent à dépenser →")}</button>` : ""}
       ${this.visitHTML()}${this.goalHTML(S)}
       ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
       ${this.todoBox()}${this.chronicleBox()}
