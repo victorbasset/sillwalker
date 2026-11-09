@@ -5,6 +5,18 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 239, demande 17 étape a) : 20 héros. 10 nouveaux, libérés tous les 14 zones de 66 à 192, en
+  alternant distance / corps à corps (10 + 10 au total) : Arbalétrière 66 (carreaux jumeaux, boss), Lancier 80
+  (allonge : premier coup ×2, esquive), Prêtresse 94 (bouclier, régénération), Gladiatrice 108 (riposte, vol de
+  vie), Chaman 122 (esprit-loup, épines), Danseuse de lames 136 (frappe double, enchaînement, esquive),
+  Cryomancienne 150 (critiques, boss), Barde 164 (or, expérience, vitesse), Gardien des étoiles 178 (bouclier,
+  exécution, boss), Artificière 192 (brûlure, exécution). Sprites propres (têtes, 10 nouvelles armes, palettes),
+  6 nouveaux projectiles (carreau, lumière, esprit, glace, note, bombe). Arbres de talents et voies copiés d'un
+  héros proche avec identifiants préfixés (classes.js tree/treePrefix ; talents.js), noms déjà traduits.
+  Équilibrage : record en 12 h de 57 à 62 pour les 10 nouveaux (anciens : 55 à 57) ; fuzz 1200 parties (20
+  héros) : 0 bloquée ; save-fuzz ok ; 152 tests ; 98/98 (carte : 19 cages). 40 textes × 9 langues.
+  Attention mesure : la colonne « best » de simulate.js est le record de la course en cours (remis à zéro à
+  l'ascension) ; prendre le maximum sur les heures, et filtrer le 1er tableau (le second, des courses, trompait).
 - 2026-11-09 (it. 238) : le ciel de nuit de la bande suit l'histoire (« depuis, la nuit n'a plus d'étoiles ») :
   15 % des étoiles au début, chaque chronique en rallume (positions fixes, les nouvelles s'ajoutent), plein ciel
   (×1,3, grosses étoiles dorées) après la victoire sur le Briseur. Décor redessiné quand une chronique s'ajoute.
@@ -804,7 +816,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       Courtes (5 à 15 s), passables d'un clic, discrètes si le joueur travaille ; respecter le réglage du son.
   16. FAIT (2026-11-09). Écran ultra-large (Odyssey) : le panneau laissait de grandes bandes vides à gauche et à
       droite : il ne prend plus que la largeur de son contenu, les côtés laissent voir le bureau.
-  17. À FAIRE (2026-11-09, grosse demande, en plusieurs itérations) : équipe de 2 héros, un à distance et un au
+  17. EN COURS (it. 239 : (a) 20 héros faits ; reste duo, choix du duo, textes « héros ») : équipe de 2 héros, un à distance et un au
       corps à corps, qui combattent ensemble ; au moins 20 héros à libérer, étalés jusqu'à la zone 200 (environ un
       tous les 10 niveaux de zone, pas forcément pile) ; on ne parle plus de « classes » mais de « héros » ; le duo
       se choisit (se change) à l'ascension.

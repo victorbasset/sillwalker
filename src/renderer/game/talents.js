@@ -4,7 +4,7 @@
 // Palier t d'une branche : demande TIER_REQ[t] points déjà dépensés dans
 // cette branche. Le palier 3 est un talent « ultime » à 1 rang, qui demande
 // d'avoir rempli toute la branche (10 + 5 + 5).
-import { classDef } from "./classes.js";
+import { classDef, CLASSES } from "./classes.js";
 import { prestigeEffects } from "./prestige.js";
 import { t as tx, txn } from "../i18n/index.js";
 import { dec, unit } from "./format.js";
@@ -288,6 +288,15 @@ export const MASTERIES = [
   { id: "ms_body", name: "Maîtrise : endurance", eff: { hpPct: 2, defPct: 1 }, max: Infinity, tier: 5, mastery: true },
   { id: "ms_fortune", name: "Maîtrise : fortune", eff: { gold: 2, drop: 0.5 }, max: Infinity, tier: 5, mastery: true },
 ];
+
+// Héros ajoutés par la demande 17 : arbre et voies copiés d'un héros proche (classes.js : tree, treePrefix), avec
+// des identifiants préfixés pour que chaque héros garde ses propres rangs. Les noms (déjà traduits) sont les mêmes.
+for (const [cls, def] of Object.entries(CLASSES)) {
+  if (!def.tree || TREES[cls]) continue;
+  const p = def.treePrefix;
+  TREES[cls] = TREES[def.tree].map((b) => ({ ...b, talents: b.talents.map((t) => ({ ...t, id: p + t.id })) }));
+  if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v) => ({ ...v, id: p + v.id }));
+}
 
 /** Index id -> { talent, branch, cls } pour toutes les classes (branch : n° de branche, "voie" ou "mastery"). */
 export const TALENT_INDEX = {};

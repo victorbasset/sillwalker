@@ -44,6 +44,17 @@ const HEADS = {
   druid: ["", "....X.X.X", "...XXYXXXX", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "...hZSSSZs", "....ZZZZZ", ".....ZZZ"],
   berserker: ["", "..X......X", "..XHHHHHHX", "...HHHHHHh", "...HhSSSSS", "...hSSSSES", "...ZZSSSZZ", "....ZZZZZ", ".....ZZZ"],
   samurai: ["....Y...Y", ".....Y.Y", "...HHYHHH", "..HHHHHHHh", ".hHhSSSSSS", ".hH.SSSSES", ".hh.SSSSSs", ".....XXXX", "......ss"],
+  // Héros de la demande 17
+  arbalest: ["", "", "....HHHHH", "...HHHHHHh", "..HHhSSSSS", "..HhhSSSES", ".HHh.SSSSs", ".HH...sSs", ".H.....ss"],
+  lancer: ["..XX", "...XX", "...HHHHH", "..HHHHHHh", "..HHhSSSSS", "..HHhSSSES", "..hHhSSSSs", "...hh.sSs", "......ss"],
+  priestess: ["", "....HHHH", "...HHHHHh", "..HHYYYYYY", "..HHhSSSSS", "..HHhSSSES", "..HH.SSSSs", "..HH..sSs", "..hh...ss"],
+  gladiator: ["....XXXX", "...XXXXXX", "...HHHHHH", "..HHHHHHHh", "..HHHSSSSS", "..HHhSSSES", "..HH.SSSSs", "...h..sSs", "......ss"],
+  shaman: ["..X.X", "..XXX", "...HHHHH", "..HHHHHHh", "..HhZZZZZ", "..HhZSSEZ", "..HhSSSSs", "..Hh..sSs", "..h....ss"],
+  bladedancer: ["", "", "....HHHH", "...HHHHHHh", "..HYYYYYYY", "HHH.SSSSES", "HH..SSSSSs", "H....sSs", "......ss"],
+  cryomancer: ["....Y.Y.Y", "....YYYYY", "...HHHHHHh", "..HHhSSSSS", "..HHhSSSES", "..HH.SSSSs", "..HH..sSs", "..HH...ss", "..h"],
+  bard: ["......X", ".....XX", "..HHHHHHH", ".HHHHHHHHHh", "...HhSSSSS", "...hSSSSES", "....SSSSSs", ".....sSSs", "......ss"],
+  starwarden: ["....Y", "...YYY", "...HHHHH", "..HHHHHHh", "..HHHHHHH", "..HHHYYYH", "..HHHHHHh", "...HHHHh", ".....ss"],
+  artificer: ["", "", "....HHHH", "...HHHHHHh", "...HXXHXXh", "...hSSSSES", "....SSSSSs", ".....sSSs", "......ss"],
 };
 
 // ---------- Armes : { rangée: motif } (la main droite est en rangée 11, colonne 11) ----------
@@ -87,6 +98,46 @@ const WEAPONS = {
     idle: { 2: col(12, "G"), 3: col(12, "GWW"), 4: col(12, "GWWw"), 5: col(12, "GWWw"), 6: col(12, "GWW"), ...range(7, 12, col(12, "G")) },
     attack: { 9: col(17, "W"), 10: col(16, "WWW"), 11: col(12, "GGGGGWWw"), 12: col(16, "WWw"), 13: col(17, "w") },
   },
+  crossbow: {
+    idle: { 9: col(15, "X"), 10: col(15, "X"), 11: col(11, "GWWWW"), 12: col(15, "X"), 13: col(15, "X") },
+    attack: { 8: col(16, "X"), 9: col(16, "X"), 10: col(16, "X"), 11: col(11, "GWWWWWYYw"), 12: col(16, "X"), 13: col(16, "X"), 14: col(16, "X") },
+  },
+  spear: {
+    idle: { 0: col(12, "w"), 1: col(11, "WWW"), 2: col(12, "W"), ...range(3, 17, col(12, "G")) },
+    attack: { 10: col(17, "W"), 11: col(8, "GGGGGGGGGWWw"), 12: col(17, "W") },
+  },
+  holystaff: {
+    idle: { 1: col(11, "YYY"), 2: col(10, "Y.W.Y"), 3: col(11, "YYY"), ...range(4, 17, col(12, "G")) },
+    attack: { 0: col(10, "Y.Y.Y"), 1: col(10, "YYYYY"), 2: col(9, "YY.W.YY"), 3: col(10, "YYYYY"), 4: col(10, "Y.Y.Y"), ...range(5, 17, col(12, "G")) },
+  },
+  gladius: {
+    idle: { 7: col(12, "w"), 8: col(12, "W"), 9: col(12, "W"), 10: col(11, "BBB"), 11: col(12, "G") },
+    attack: { 10: col(13, "B"), 11: col(12, "GBWWWw"), 12: col(13, "B") },
+  },
+  totem: {
+    idle: { 1: col(11, "XXX"), 2: col(11, "ZWZ"), 3: col(11, "XWX"), 4: col(12, "Y"), ...range(5, 17, col(12, "G")) },
+    attack: { 0: col(10, "Y...Y"), 1: col(10, "XXXXX"), 2: col(10, "XZWZX"), 3: col(11, "XWX"), 4: col(12, "Y"), ...range(5, 17, col(12, "G")) },
+  },
+  twinblades: {
+    idle: { 9: col(13, "w"), 10: col(12, "W"), 11: col(12, "G"), 12: "..G", 13: "..W", 14: "...w" },
+    attack: { 10: col(14, "Ww"), 11: col(12, "GWWW"), 12: "..GWW", 13: "....w" },
+  },
+  icestaff: {
+    idle: { 1: col(12, "W"), 2: col(11, "WwW"), 3: col(11, "wWw"), 4: col(12, "W"), ...range(5, 17, col(12, "G")) },
+    attack: { 0: col(10, "Y...Y"), 1: col(12, "W"), 2: col(10, "YWwWY"), 3: col(11, "wWw"), 4: col(10, "Y.W.Y"), ...range(5, 17, col(12, "G")) },
+  },
+  lute: {
+    idle: { 8: col(14, "GG"), 9: col(13, "G"), 10: col(12, "G"), 11: col(10, "WWW"), 12: col(9, "WWwWW"), 13: col(9, "WWWWW"), 14: col(10, "WWW") },
+    attack: { 5: col(14, "Y"), 6: col(15, "YY"), 7: col(16, "Y"), 8: col(14, "GG"), 9: col(13, "G"), 10: col(12, "G"), 11: col(10, "WWW"), 12: col(9, "WWwWW"), 13: col(9, "WWWWW"), 14: col(10, "WWW") },
+  },
+  greatsword: {
+    idle: { 0: col(12, "w"), ...range(1, 8, col(12, "W")), 9: col(11, "YYY"), 10: col(12, "G"), 11: col(12, "G") },
+    attack: { 10: col(13, "Y"), 11: col(12, "GYWWWWWWWWw"), 12: col(13, "Y") },
+  },
+  bomb: {
+    idle: { 10: col(14, "Y"), 11: col(12, "Gw"), 12: col(11, "WWW"), 13: col(11, "WwW"), 14: col(12, "W") },
+    attack: { 7: col(16, "Y"), 8: col(15, "w"), 9: col(14, "WWW"), 10: col(14, "WwW"), 11: col(12, "GGWWW"), 12: col(15, "W") },
+  },
   katana: {
     idle: { 1: col(12, "w"), ...range(2, 9, col(12, "W")), 10: col(12, "Y"), 11: col(12, "G"), 12: col(12, "G") },
     attack: { 11: col(12, "GGYWWWWWWWWw") },
@@ -124,6 +175,33 @@ const DEFS = {
     torso: [".aaAAAAAAAAaa...", ".aABABABABAa....", "..SaAAAAAAaS....", "GG.aYYXXXXa.....", "..GaAAAAAAa....."],
     pal: { ...SKIN, H: "#2a2638", h: "#14121f", A: "#b8322a", a: "#7a1e1a", B: "#e9b949", L: "#3a3550", l: "#2a2638", K: "#5a3a20", W: "#eef3f8", w: "#9aa6b5", G: "#2a2638", Y: "#e9b949", X: "#8a2420" } },
 };
+
+// Héros de la demande 17 (palette : mêmes lettres que les autres ; voir l'en-tête).
+Object.assign(DEFS, {
+  arbalest: { head: "arbalest", torso: TORSO, legs: LEGS, weapon: "crossbow",
+    back: { 7: ".kk", 8: ".kkk", 9: "kkk", 10: "kk" },
+    pal: { ...SKIN, H: "#b8562a", h: "#8a3a1a", A: "#4a6a7a", a: "#34505c", B: "#c9a03a", L: "#4a3a2a", l: "#3a2a1a", K: "#2a1f18", W: "#7a5233", w: "#5a3a20", G: "#5a3a20", X: "#c9ced6", Y: "#e3ebf3", k: "#6b4a2b" } },
+  lancer: { head: "lancer", torso: TORSO, legs: LEGS, weapon: "spear",
+    pal: { ...SKIN, H: "#9aa3ad", h: "#6a727c", X: "#c0392b", A: "#2e6b5a", a: "#1f4c40", B: "#e9b949", L: "#4a3a2a", l: "#3a2a1a", K: "#2a1f18", W: "#dfe7ef", w: "#9aa6b5", G: "#7a5233" } },
+  priestess: { head: "priestess", torso: TORSO, legs: ROBE, weapon: "holystaff",
+    pal: { ...SKIN, H: "#f4f0e8", h: "#c9c3b4", Y: "#ffd34d", A: "#f4f0e8", a: "#c9c3b4", B: "#e9b949", K: "#c9a03a", W: "#fff6c8", w: "#ffffff", G: "#c9a03a" } },
+  gladiator: { head: "gladiator", torso: TORSO, legs: LEGS, weapon: "gladius",
+    front: { 10: ".YY.", 11: "YXXY", 12: "YXXY", 13: "YXXY", 14: ".YY." },
+    pal: { ...SKIN, H: "#c98a3a", h: "#8a5a20", X: "#c0392b", A: "#8a2a2a", a: "#5a1a1a", B: "#c98a3a", L: "#f1c7a0", l: "#d9a27a", K: "#7a5233", W: "#dfe7ef", w: "#9aa6b5", G: "#6b4a2b", Y: "#c98a3a" } },
+  shaman: { head: "shaman", torso: TORSO, legs: ROBE, weapon: "totem",
+    pal: { ...SKIN, S: "#c98a5a", s: "#a8704a", H: "#2a2638", h: "#1a1724", X: "#e8e4d6", Z: "#e8e4d6", Y: "#7fd6ff", A: "#5a7a3a", a: "#3e5a28", B: "#c0392b", K: "#3a2a1a", W: "#7fd6ff", w: "#ffffff", G: "#7a5233" } },
+  bladedancer: { head: "bladedancer", torso: TORSO, legs: HAKAMA, weapon: "twinblades",
+    pal: { ...SKIN, H: "#c0392b", h: "#8a2420", Y: "#ffd34d", A: "#3a2a5a", a: "#2a1e40", B: "#ffd34d", L: "#5a3a7a", l: "#3a2a5a", K: "#2a1e40", W: "#eef3f8", w: "#9aa6b5", G: "#c0392b" } },
+  cryomancer: { head: "cryomancer", torso: TORSO, legs: ROBE, weapon: "icestaff",
+    pal: { ...SKIN, S: "#e8eef8", s: "#c4d0e0", H: "#e8f4ff", h: "#a8c8e8", Y: "#7fd6ff", A: "#3a6ea5", a: "#2a4f7a", B: "#9fe8ff", K: "#2a4f7a", W: "#9fe8ff", w: "#ffffff", G: "#c9d1dc" } },
+  bard: { head: "bard", torso: TORSO, legs: LEGS, weapon: "lute",
+    pal: { ...SKIN, H: "#5a2a7a", h: "#3a1a58", X: "#ff6a6a", A: "#2e8a5a", a: "#1f6040", B: "#e9b949", L: "#e9b949", l: "#c9a03a", K: "#5a3a20", W: "#c98a3a", w: "#8a5a20", G: "#6b4a2b", Y: "#ffd34d" } },
+  starwarden: { head: "starwarden", torso: TORSO, legs: LEGS, weapon: "greatsword",
+    back: { 9: "..Y", 10: ".YY", 11: ".YY", 12: "YYy", 13: "YYy", 14: "Yy.", 15: "y.." },
+    pal: { ...SKIN, H: "#2a2a4a", h: "#1a1a30", Y: "#ffe27a", y: "#c9a03a", A: "#3a3a6a", a: "#2a2a4a", B: "#ffe27a", L: "#2a2a4a", l: "#1a1a30", K: "#14121f", W: "#fff6c8", w: "#ffe27a", G: "#3a3a6a" } },
+  artificer: { head: "artificer", torso: TORSO, legs: LEGS, weapon: "bomb",
+    pal: { ...SKIN, H: "#e2552b", h: "#a83a1a", X: "#7fd6ff", A: "#6b4a2b", a: "#4a3220", B: "#c9a03a", L: "#4a3a2a", l: "#3a2a1a", K: "#2a1f18", W: "#3a3550", w: "#8a86a8", G: "#6b4a2b", Y: "#ffb733" } },
+});
 
 /** Superpose des calques ({ rangée: motif } ou tableaux à partir d'une rangée). */
 function compose(layers) {

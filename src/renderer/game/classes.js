@@ -115,6 +115,79 @@ export const CLASSES = {
     contact: 44,
     projectile: null,
   },
+
+  // ---- Héros libérés plus loin sur le Rebord (demande 17 de Victor : 20 héros jusqu'à la zone 200). ----
+  // tree : arbre de talents copié de ce héros (identifiants préfixés), en attendant des arbres propres.
+  arbalest: {
+    name: "Arbalétrière", role: "Tirs puissants, à distance", desc: "Ses carreaux traversent les armures des plus grands.",
+    mul: { hp: 0.9, atk: 1.15, def: 0.95 }, add: { crit: 5 },
+    passive: { doubleShot: 20, bossDmg: 15 },
+    passiveText: "Carreaux jumeaux : 20 % de chances de tirer deux fois, +15 % de dégâts contre les boss.",
+    contact: 110, projectile: "bolt", tree: "ranger", treePrefix: "ab_",
+  },
+  lancer: {
+    name: "Lancier", role: "Allonge et premier coup, au corps à corps", desc: "Sa lance frappe avant que l’ennemi ne l’atteigne.",
+    mul: { hp: 1.15, atk: 1.05, def: 1.15 }, add: {},
+    passive: { firstStrike: 1, dodge: 8 },
+    passiveText: "Allonge : le premier coup de chaque combat inflige 2 fois plus de dégâts. +8 % d’esquive.",
+    contact: 56, projectile: null, tree: "warrior", treePrefix: "la_",
+  },
+  priestess: {
+    name: "Prêtresse", role: "Lumière et soins, à distance", desc: "Une lumière douce la protège et referme ses plaies.",
+    mul: { hp: 1.05, atk: 1.05, def: 1.1 }, add: {},
+    passive: { shield: 15, regen: 5 },
+    passiveText: "Grâce : chaque combat commence avec un bouclier de 15 % des PV max. Régénération +5 % des PV max par seconde en marchant.",
+    contact: 110, projectile: "holy", tree: "paladin", treePrefix: "pr_",
+  },
+  gladiator: {
+    name: "Gladiatrice", role: "Bouclier et glaive, au corps à corps", desc: "Chaque coup reçu lui donne l’occasion d’en rendre deux.",
+    mul: { hp: 1.25, atk: 1.05, def: 1.2 }, add: {},
+    passive: { riposte: 20, lifesteal: 4 },
+    passiveText: "Arène : 20 % de chances de riposter quand elle est touchée ; 4 % des dégâts infligés rendent des PV.",
+    contact: 44, projectile: null, tree: "warrior", treePrefix: "gl_",
+  },
+  shaman: {
+    name: "Chaman", role: "Esprits et totems, à distance", desc: "L’esprit-loup se bat pour lui, les ronces le protègent.",
+    mul: { hp: 1.0, atk: 1.2, def: 1.0 }, add: {},
+    passive: { minion: 25, thorns: 20 },
+    passiveText: "Esprit-loup : un loup inflige en continu 25 % de l’attaque du chaman par seconde. Épines : renvoie 20 % des dégâts reçus.",
+    contact: 110, projectile: "spirit", minion: "wolf", tree: "druid", treePrefix: "sh_",
+  },
+  bladedancer: {
+    name: "Danseuse de lames", role: "Tourbillon de lames, au corps à corps", desc: "Elle danse entre les coups et frappe deux fois plus souvent.",
+    mul: { hp: 0.95, atk: 1.05, def: 0.95 }, add: { spd: 20 },
+    passive: { doubleShot: 15, combo: 2, dodge: 8 },
+    passiveText: "Tourbillon : 15 % de chances de frapper deux fois, chaque coup d’un combat +2 % de dégâts (10 coups max), +8 % d’esquive.",
+    contact: 44, projectile: null, tree: "assassin", treePrefix: "bd_",
+  },
+  cryomancer: {
+    name: "Cryomancienne", role: "Glace et critiques, à distance", desc: "Ses éclats de glace brisent les ennemis d’un seul coup.",
+    mul: { hp: 0.8, atk: 1.3, def: 0.85 }, add: { crit: 10 },
+    passive: { critDmg: 60, bossDmg: 15 },
+    passiveText: "Éclats de givre : +60 % de dégâts critiques et +15 % de dégâts contre les boss.",
+    contact: 110, projectile: "ice", tree: "mage", treePrefix: "cr_",
+  },
+  bard: {
+    name: "Barde", role: "Chants et fortune, à distance", desc: "Ses chansons pressent le pas et remplissent la bourse.",
+    mul: { hp: 0.95, atk: 1.0, def: 0.95 }, add: { spd: 20 },
+    passive: { gold: 25, xp: 25 },
+    passiveText: "Ballade : +25 % d’or et +25 % d’expérience.",
+    contact: 110, projectile: "note", tree: "monk", treePrefix: "ba_",
+  },
+  starwarden: {
+    name: "Gardien des étoiles", role: "Lame céleste, au corps à corps", desc: "Le dernier gardien du ciel brisé, armé d’une lame d’étoile.",
+    mul: { hp: 1.25, atk: 1.2, def: 1.2 }, add: {},
+    passive: { shield: 15, execute: 30, bossDmg: 20 },
+    passiveText: "Lame d’étoile : bouclier de 15 % des PV max au début de chaque combat, +30 % de dégâts contre les cibles affaiblies et +20 % contre les boss.",
+    contact: 44, projectile: null, tree: "samurai", treePrefix: "sw_",
+  },
+  artificer: {
+    name: "Artificière", role: "Bombes et feu, à distance", desc: "Ses bombes laissent le terrain en flammes et achèvent les blessés.",
+    mul: { hp: 0.9, atk: 1.25, def: 0.9 }, add: {},
+    passive: { burn: 30, execute: 25 },
+    passiveText: "Poudre noire : chaque bombe enflamme la cible (30 % de l’attaque par seconde pendant 3 s), +25 % de dégâts contre les cibles affaiblies.",
+    contact: 110, projectile: "bomb", tree: "mage", treePrefix: "ar_",
+  },
 };
 export const CLASS_KEYS = Object.keys(CLASSES);
 
@@ -123,7 +196,9 @@ export const CLASS_KEYS = Object.keys(CLASSES);
  * dans une zone ; vaincre le boss de cette zone la débloque. On change de
  * classe uniquement en faisant une ascension.
  */
-export const CLASS_UNLOCK_ZONE = { ranger: 10, necro: 15, mage: 20, berserker: 26, paladin: 32, assassin: 38, monk: 44, samurai: 50, druid: 58 };
+export const CLASS_UNLOCK_ZONE = { ranger: 10, necro: 15, mage: 20, berserker: 26, paladin: 32, assassin: 38, monk: 44, samurai: 50, druid: 58,
+  // Demande 17 : les héros suivants s'étalent jusqu'au bout du Rebord (un tous les 14 zones environ).
+  arbalest: 66, lancer: 80, priestess: 94, gladiator: 108, shaman: 122, bladedancer: 136, cryomancer: 150, bard: 164, starwarden: 178, artificer: 192 };
 /** Classes dans l'ordre où on les libère (guerrier d'abord, puis zone du boss qui les retient). */
 export const CLASS_KEYS_BY_UNLOCK = () => [...CLASS_KEYS].sort((a, b) => (CLASS_UNLOCK_ZONE[a] || 0) - (CLASS_UNLOCK_ZONE[b] || 0));
 /**
