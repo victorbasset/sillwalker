@@ -398,4 +398,5 @@ export default {
   1522: "−{0} % LP",
   1523: "Der Jäger",
   1524: "Astrolabium erworben! Es ist anfangs ausgeschaltet: Hake es im Tab Aufstieg an, damit es für dich aufsteigt, wenn dein Held feststeckt. Hier klicken.",
+  1525: "Tasche voll: {0} verkauft, um Platz für {1} zu schaffen.",
 };

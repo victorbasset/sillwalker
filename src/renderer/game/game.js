@@ -107,7 +107,7 @@ export class Game {
       R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
         ? { type: "goblin", elite: false, goblin: true }
         : (() => {
-          const champion = rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * eliteMul;
+          const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * eliteMul;
           return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
       R.lineupZone = this.S.zone;
@@ -473,9 +473,23 @@ export class Game {
       return false;
     }
     if (this.bagFull()) {
-      const v = sellValue(it); S.gold += v;
-      if (!quiet) this.logSale("full", tx("Sac plein, objets vendus"), v);
-      return false;
+      // Sac plein : un objet plus précieux (légendaire, amélioration, rareté supérieure) prend la place du moins
+      // précieux du sac ; légendaires et améliorations du sac ne sont jamais évincés. Sinon, le nouveau est vendu.
+      const precious = it.r >= LEGENDARY || this.isUpgrade(it);
+      let worst = null;
+      for (const b of S.bag) {
+        if (b.r >= LEGENDARY || this.isUpgrade(b)) continue;
+        if (!worst || b.r < worst.r || (b.r === worst.r && sellValue(b) < sellValue(worst))) worst = b;
+      }
+      if (worst && (precious || it.r > worst.r)) {
+        S.bag.splice(S.bag.indexOf(worst), 1);
+        S.gold += sellValue(worst);
+        if (!quiet) this.log(tx("Sac plein : {0} vendu pour faire de la place à {1}.", { 0: itemName(worst), 1: itemName(it) }));
+      } else {
+        const v = sellValue(it); S.gold += v;
+        if (!quiet) this.logSale("full", tx("Sac plein, objets vendus"), v);
+        return false;
+      }
     }
     S.bag.push(it);
     if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) { this.equip(it); if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé.")); return true; }
@@ -565,6 +579,8 @@ export class Game {
       this.log(tx("Trop dur : ton héros recule vers ") + zoneName(S.zone) + ".");
     } else {
       S.kills = 0;
+      // Impossible de reculer (zone 1) : nouvelle série de monstres, sinon un monstre trop fort en tête bloquerait tout.
+      if (R.deaths >= 2) { R.lineupZone = 0; R.deaths = 0; }
       this.log(tx("Ton héros est tombé. La progression de la zone repart à zéro."));
     }
     this.changed();

@@ -398,4 +398,5 @@ export default {
   1522: "−{0}% PŻ",
   1523: "Łowca",
   1524: "Zdobyto Astrolabium! Na początku jest wyłączone: zaznacz je w karcie Wzniesienie, aby wznosiło się za ciebie, gdy bohater utknie. Kliknij tutaj.",
+  1525: "Torba pełna: sprzedano {0}, by zrobić miejsce na {1}.",
 };

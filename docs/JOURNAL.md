@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 ## Fait
 
+- 2026-11-09 (it. 39) : deux pièges corrigés. Un nouveau joueur pouvait rester bloqué à jamais si un champion
+  tombait en premier monstre de la zone 1 (≈ 1 partie sur 200) : plus de champion avant la zone 5, et deux défaites
+  en zone 1 tirent une nouvelle série de monstres. Et quand le sac est plein, un légendaire ou une amélioration
+  n'est plus vendu d'office : il prend la place de l'objet le moins précieux du sac.
 - 2026-11-09 (it. 38) : coulisses : tous les tests de logique sont synchrones, un échec s'affiche à sa place
   (utile au relais automatique, qui ne livre rien si un test échoue).
 - 2026-11-09 (it. 37) : après l'achat de l'Astrolabe (éteint au départ), une bulle explique qu'il faut le cocher

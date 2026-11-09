@@ -398,4 +398,5 @@ export default {
   1522: "−{0}% HP",
   1523: "The Hunter",
   1524: "Astrolabe acquired! It starts switched off: tick it in the Ascension tab so it ascends for you when your hero is stuck. Click here.",
+  1525: "Bag full: {0} sold to make room for {1}.",
 };

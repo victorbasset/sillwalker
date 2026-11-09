@@ -972,6 +972,38 @@ test("sauvegarde d'une version plus récente du jeu : mise de côté, jamais éc
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });
 
+test("zone 1 : un monstre trop fort en tête ne bloque jamais le héros", () => {
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = 1;
+  const line = g.lineup();
+  line[0] = { type: line[0].type, elite: true, champion: true, affix: "armored" }; // le cas qui bloquait
+  g.R.mon = g.makeMonster(false); g.heroDown();
+  g.R.mon = g.makeMonster(false); g.heroDown();
+  assert.equal(g.S.zone, 1);
+  assert.notEqual(g.lineup(), line, "nouvelle série de monstres après 2 défaites en zone 1");
+  for (let i = 0; i < 200; i++) { g.R.lineupZone = -1; assert.ok(!g.lineup().some((m) => m.champion), "pas de champion avant la zone 5"); }
+});
+
+test("sac plein : un légendaire ou une amélioration prend la place du moins précieux, jamais l'inverse", () => {
+  const g = new Game(freshState());
+  g.S.autoSell = { common: false, uncommon: false, rare: false };
+  g.isUpgrade = (it) => !!it.up; // contrôle simple des améliorations pour le test
+  const mk = (r, up) => { const it = g.newItem(0); it.r = r; it.up = up; return it; };
+  g.S.bag = []; const size = g.bagSize ? g.bagSize() : 24;
+  while (!g.bagFull()) g.S.bag.push(mk(1));
+  const keep = g.S.bag[0]; keep.r = 4; // un légendaire dans le sac : jamais évincé
+  const n = g.S.bag.length;
+  assert.equal(g.addToBag(mk(0)), false, "commun : vendu, le sac ne bouge pas");
+  const leg = mk(4);
+  assert.equal(g.addToBag(leg), true, "légendaire : gardé");
+  assert.ok(g.S.bag.includes(leg) && g.S.bag.includes(keep) && g.S.bag.length === n, "un objet ordinaire a fait la place");
+  const up = mk(1, true);
+  assert.equal(g.addToBag(up), true, "amélioration de même rareté : gardée");
+  for (const b of g.S.bag) if (b !== keep && b !== leg && b !== up) b.r = 4; // sac plein de précieux
+  assert.equal(g.addToBag(mk(3)), false, "rien d'évinçable : le nouvel objet est vendu");
+  assert.ok(g.S.bag.includes(leg) && g.S.bag.includes(up));
+});
+
 test("usure des boss : -5 % de PV par défaite (30 % au plus), gardée à l'ascension, effacée par la victoire", () => {
   const g = new Game(freshState());
   g.S.zone = g.S.best = 25;
