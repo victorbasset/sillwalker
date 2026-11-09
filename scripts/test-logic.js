@@ -29,7 +29,7 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { systemLang } from "../src/renderer/i18n/index.js";
-import { INTRO, introDue, markIntro } from "../src/renderer/game/story.js";
+import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles } from "../src/renderer/game/story.js";
 import { approachTime, heroStats, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
@@ -1522,6 +1522,19 @@ test("histoire : intro au tout premier lancement seulement ; parties existantes 
   assert.ok(introDue(migrate(young)), "partie neuve d'avant : intro");
   const bad = JSON.parse(JSON.stringify(freshLocked())); bad.story = { intro: "x", read: 5 };
   const m = migrate(bad); assert.equal(m.story.intro, true); assert.deepEqual(m.story.read, {});
+});
+
+test("chroniques : débloquées aux paliers, annoncées une seule fois ; parties entamées sans rafale", () => {
+  const S = freshLocked();
+  assert.deepEqual(takeNewChronicles(S, 1).map((c) => c.id), [], "« sky » (intro) déjà lue en partie neuve");
+  assert.deepEqual(takeNewChronicles(S, 25).map((c) => c.id), ["captive", "shards"]);
+  assert.deepEqual(takeNewChronicles(S, 25), [], "une seule annonce");
+  S.prestige.count = 1; assert.deepEqual(takeNewChronicles(S, 25).map((c) => c.id), ["rebirth"]);
+  assert.equal(chroniclesUnlocked(S, 200).length, CHRONICLES.length);
+  const old = JSON.parse(JSON.stringify(freshLocked())); delete old.story; old.best = 60;
+  const m = migrate(old);
+  assert.deepEqual(takeNewChronicles(m, 60), [], "déjà méritées : relisibles, pas de rafale");
+  assert.equal(chroniclesUnlocked(m, 60).length, 4);
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {

@@ -10,6 +10,7 @@
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
 import { openTabs, tabReady } from "./tabs.js";
+import { takeNewChronicles } from "./story.js";
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
 export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
@@ -208,7 +209,8 @@ export class Game {
     const R = this.R, hs = this.stats();
     R.time += dt;
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
-    if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh }); }
+    if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh });
+      const chron = takeNewChronicles(this.S, recordZone(this.S)); if (chron.length) this.emit("chronicle", { ids: chron.map((c) => c.id) }); }
     this.S.stats.playTime = (this.S.stats.playTime || 0) + dt;
     this.tickBuffs(dt);
     if (R.potionCd > 0) R.potionCd -= dt;

@@ -7,7 +7,7 @@
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
 import { TAB_GATES } from "./game/tabs.js";
-import { INTRO, introDue, markIntro } from "./game/story.js";
+import { INTRO, introDue, markIntro, CHRONICLES } from "./game/story.js";
 import { journeyText } from "./ui/tabs/stats.js";
 import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
@@ -424,6 +424,13 @@ async function boot() {
 
   /* ---------- Héros libéré ---------- */
   /* ---------- Onglet débloqué (tabs.js) : annonce sobre, un clic l'ouvre ---------- */
+  // Nouvelle chronique : bulle sobre ; un clic ouvre le panneau sur la carte du héros, bloc des chroniques déplié.
+  game.on("chronicle", ({ ids }) => {
+    for (const id of ids) {
+      const c = CHRONICLES.find((x) => x.id === id);
+      if (c) showToast(`<span class="story">📜</span> ${tx("Nouvelle chronique : {0}", { 0: `<b>${esc(tx(c.title))}</b>` })}`, () => { panel.kept.add("hero-chron"); openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 12000);
+    }
+  });
   game.on("tabOpen", ({ ids }) => {
     sound.play("tab");
     for (const id of ids) {

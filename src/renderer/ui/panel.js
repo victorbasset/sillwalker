@@ -33,6 +33,7 @@ import { BOSS_MECHANICS, bossMechanics, bossName, bossWear } from "../game/bosse
 import { lockLink } from "./locks.js";
 import { tabOpen, TAB_GATES } from "../game/tabs.js";
 import { journeyText } from "./tabs/stats.js";
+import { CHRONICLES, chroniclesUnlocked } from "../game/story.js";
 import { hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 
 const $ = (root, s) => root.querySelector(s);
@@ -305,6 +306,13 @@ export class Panel {
   }
 
   /** « À faire » dans la carte du héros (repliable) : les mêmes lignes et actions que le résumé de retour. */
+  /** Chroniques de l'histoire (story.js) : les plus récentes d'abord ; les suivantes restent cachées (« ??? »). */
+  chronicleBox() {
+    const S = this.game.S, got = chroniclesUnlocked(S, recordZone(S));
+    const items = [...got].reverse().map((c) => `<li class="chron"><b>${esc(tx(c.title))}</b><p>${esc(tx(c.text))}</p></li>`).join("");
+    return `<details class="more chronbox" data-keep="hero-chron"${this.kept.has("hero-chron") ? " open" : ""}><summary>📜 ${tx("Chroniques ({0} / {1})", { 0: got.length, 1: CHRONICLES.length })}</summary><ul class="chronlist">${items}</ul></details>`;
+  }
+
   todoBox() {
     const list = this.game.todoNow();
     if (!list.length) return "";
@@ -477,7 +485,7 @@ export class Panel {
       ${free > 0 && tabOpen(S, "talents") ? `<button class="linkbtn" data-tab="talents">${txn(free, "{n} point de talent à dépenser →|{n} points de talent à dépenser →")}</button>` : ""}
       ${this.visitHTML()}${this.goalHTML(S)}
       ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
-      ${this.todoBox()}
+      ${this.todoBox()}${this.chronicleBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
       <dt>${tx("Potions de soin")}</dt><dd>${S.potions}</dd><dt>${tx("Or")}</dt><dd id="goldtxt"></dd>

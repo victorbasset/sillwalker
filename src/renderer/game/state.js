@@ -8,6 +8,7 @@ import { PET_INDEX } from "./pets.js";
 import { SKILL_TREE } from "./skilltree.js";
 import { LANGS } from "../i18n/index.js";
 import { seedTabs } from "./tabs.js";
+import { chroniclesUnlocked } from "./story.js";
 
 export const SAVE_VERSION = 8;
 
@@ -54,7 +55,7 @@ export function freshState(now = Date.now()) {
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
     tabsOpen: {},
-    story: { intro: false, read: {} }, // histoire (story.js) : intro vue, chroniques annoncées
+    story: { intro: false, read: { sky: true } }, // « sky » : c'est l'intro // histoire (story.js) : intro vue, chroniques annoncées
     journey: [],            // carnet de route : grandes étapes datées [{ t, k: lvl|zone|leg|cls|asc, v }] (game.milestone)           // onglets du panneau déjà ouverts { id: true | "new" } (tabs.js : déblocage progressif)
     setsDone: {},           // panoplies complétées (4 pièces portées) au moins une fois { id: true }, voir codex.js
   };
@@ -190,7 +191,11 @@ export function migrate(raw) {
   if (!isObj(o.tabsOpen)) seedTabs(s);
   s.journey = Array.isArray(s.journey) ? s.journey.filter((e) => isObj(e) && Number.isFinite(e.t) && typeof e.k === "string").slice(-120) : [];
   // Histoire apparue après coup : une partie déjà entamée ne revoit pas l'intro surgir (relisible dans les Chroniques).
-  if (!isObj(o.story)) s.story = { intro: (s.best > 1 || s.lvl > 1), read: {} };
+  if (!isObj(o.story)) {
+    s.story = { intro: (s.best > 1 || s.lvl > 1), read: {} };
+    // Chroniques déjà méritées par une partie entamée : relisibles, mais pas annoncées en rafale.
+    for (const c of chroniclesUnlocked(s, Math.max(s.best || 1, (s.prestige && s.prestige.bestRun) || 0))) s.story.read[c.id] = true;
+  }
   else { if (typeof s.story.intro !== "boolean") s.story.intro = true; if (!isObj(s.story.read)) s.story.read = {}; }
   // Carnet apparu après coup, partie déjà entamée : une première entrée situe le point de départ.
   if (!Array.isArray(o.journey) && (s.best > 1 || s.lvl > 1)) s.journey.push({ t: Date.now(), k: "start", v: s.best, l: s.lvl });

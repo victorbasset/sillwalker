@@ -459,6 +459,9 @@ async function runSelfTest(strip) {
   // Clic sur un objet du sac : son détail s'ouvre sous le sac, l'équipement reste affiché (demande de Victor).
   const bd = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const b = document.querySelector('#p-bag .slot[data-from=bag]'); if (!b) return 'sac vide'; b.click(); const r = !!document.querySelector('#p-bag .bagdetail [data-action=equip]') + ' ' + !!document.querySelector('#p-detail .eqlist'); const back = document.querySelector('#p-bag [data-action=desel]'); if (back) back.click(); return r + ' ' + !document.querySelector('#p-bag .bagdetail'); })()");
   check("objet cliqué : détail sous le sac, équipement toujours visible, « ← sac » referme", bd === "true true true", bd);
+  // Chroniques de l'histoire : bloc repliable dans la carte du héros, au moins « Le ciel brisé ».
+  const ch = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('.chronbox'); return d ? d.querySelectorAll('.chron').length : -1; })()");
+  check("chroniques : bloc présent dans la carte du héros, au moins une chronique", ch >= 1, ch);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Tri du marchand, zone 14, remis en vente et payable : contrôle reproductible quelles que soient les zones.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.autoSell; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

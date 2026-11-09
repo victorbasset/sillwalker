@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 219, demande 11 étape b) : Chroniques : 8 fragments d'histoire (story.js CHRONICLES : ciel brisé,
+  premier captif z10, éclats z25, renaissance 1re ascension, Bastion noir z50, au-delà des cartes z100, ciel fissuré
+  z150, le seuil z190). Annoncés une seule fois (bulle 📜 cliquable → panneau, bloc déplié ; moment en mode mini),
+  relisibles dans la carte du héros (bloc repliable « 📜 Chroniques (n / 8) », la plus récente en tête). Migration :
+  chroniques déjà méritées marquées lues (pas de rafale). 10 langues, test, autotest 92/92, save-fuzz, capture.
 - 2026-11-09 (it. 218, demande 12 de Victor) : clic sur un objet : son détail s'ouvre dans le panneau Sac, sous la
   grille, à la place des commandes (vente, transmutation, options) qui reviennent avec « ← sac » ; le panneau
   Équipement reste toujours affiché. itemDetailHTML (panel.js). Contrôle d'autotest (91/91), capture. À voir : le
@@ -669,7 +674,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      déplié : dommage (checkHints n'affiche rien si panelOpen).
   10. FAIT (it. 215, DROP_CHANCE 0,12). Trop d'objets tombent encore (au-delà du tout début, où earlyPace ne joue plus) : réduire la chance de butin
       générale (DROP_CHANCE 0,35) sans casser la progression (balance.mjs, semaine simulée).
-  11. EN COURS (it. 217 : (a) intro faite) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
+  11. EN COURS (it. 217 : (a) intro ; it. 219 : (b) Chroniques) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
       Univers : le Rebord (la bande au bord de l'écran), frontière entre le monde et le vide ; le Briseur d'Étoiles a
       fracassé le ciel (les éclats d'étoile du jeu) ; ses lieutenants (boss de zone) retiennent les héros (classes à
       libérer) ; le héros, dernier marcheur du Rebord, renaît plus fort à chaque ascension.

@@ -1,6 +1,7 @@
 // Mode mini : petit encart près de l'horloge. Le héros à gauche, le monstre
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { TAB_GATES, tabOpen } from "../game/tabs.js";
+import { CHRONICLES } from "../game/story.js";
 import { t as tx, fsp } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
@@ -49,6 +50,7 @@ export class MiniRenderer {
     game.on("setBonus", ({ id, n }) => { if (SETS[id]) this.showMoment("◆ " + tx("{0} : bonus {1} pièces !", { 0: SETS[id].name, 1: n })); });
     game.on("bossNemesis", ({ name }) => this.showMoment(tx("{0} enfin vaincu !", { 0: name })));
     game.on("event", ({ id }) => { const ev = EVENTS[id]; if (ev) this.showMoment(ev.name + fsp() + "!", ev.text); });
+    game.on("chronicle", ({ ids }) => { const c = CHRONICLES.find((x) => x.id === ids[0]); if (c) this.showMoment("📜 " + tx(c.title)); });
     // Onglet débloqué : la bulle de la bande n'est pas visible en mode mini, l'annonce passe par la scène.
     game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(", ") })));
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(zone % 50 === 0 ? "✦ " + tx("Cap franchi : zone {0} !", { 0: zone }) : tx("Nouveau record : zone {0} !", { 0: zone })); });
