@@ -449,4 +449,5 @@ export default {
   1573: "Crisol perpetuo",
   1574: "Transmuta solo los objetos inútiles cuando la bolsa se llena (opción).",
   1575: "Crisol perpetuo: transmutar cuando la bolsa se llena",
+  1576: "Vender en cuanto caigan:",
 };

@@ -449,4 +449,5 @@ export default {
   1573: "Ewiger Tiegel",
   1574: "Transmutiert nutzlose Gegenstände von selbst, wenn sich die Tasche füllt (Option).",
   1575: "Ewiger Tiegel: transmutieren, wenn sich die Tasche füllt",
+  1576: "Sofort verkaufen:",
 };

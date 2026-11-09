@@ -449,4 +449,5 @@ export default {
   1573: "Everlasting Crucible",
   1574: "Transmutes useless items on its own when the bag fills up (option).",
   1575: "Everlasting Crucible: transmute when the bag fills up",
+  1576: "Sell as soon as they drop:",
 };

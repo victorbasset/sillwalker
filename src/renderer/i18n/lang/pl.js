@@ -449,4 +449,5 @@ export default {
   1573: "Wieczny tygiel",
   1574: "Sam transmutuje bezużyteczne przedmioty, gdy torba się zapełnia (opcja).",
   1575: "Wieczny tygiel: transmutuj, gdy torba się zapełnia",
+  1576: "Sprzedawaj od razu:",
 };

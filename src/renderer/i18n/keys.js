@@ -1577,5 +1577,6 @@ export const KEYS = [
   ", en zone {0}.",
   "Creuset perpétuel",
   "Transmute tout seul les objets inutiles quand le sac se remplit (option).",
-  "Creuset perpétuel : transmuter quand le sac se remplit"
+  "Creuset perpétuel : transmuter quand le sac se remplit",
+  "Vendre dès qu’ils tombent :"
 ];

@@ -675,3 +675,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 /* Bestiaire : sommaire en tête d'onglet */
 .bjump { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 6px; }
 .bjump button { font-size: 12px; padding: 2px 8px; }
+/* Sac : vente automatique par rareté sur une ligne */
+.sellrow { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; }
+.sellrow > span { color: var(--muted); }
+.sellrow .toggle { margin: 0; }
