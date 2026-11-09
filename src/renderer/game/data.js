@@ -192,7 +192,7 @@ export const MONSTERS = {
 export const GOBLIN = { chance: 0.015, flee: 4 };
 
 // Monstres d'élite : rares, plus coriaces, bien plus rentables.
-export const ELITE = { chance: 0.06, hp: 3, atk: 1.5, gold: 4, xp: 3, minRarity: 1 };
+export const ELITE = { chance: 0.06, hp: 3, atk: 1.5, gold: 4, xp: 3, minRarity: 1, minZone: 3 }; // minZone : première course
 // Champions : très rares, encore plus coriaces (en plus des bonus d'élite), butin épique garanti.
 export const CHAMPION = { minZone: 5, chance: 0.005, // pas de champion en tout début de partie (zone < 5)
   hp: 2.5, atk: 1.3, gold: 5, xp: 4, minRarity: 3 };

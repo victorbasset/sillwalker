@@ -1445,6 +1445,17 @@ test("liens « 🔒 déblocage » : pas avant la boutique, pas pour un déblocag
   assert.match(lockLink(S, far.id), /🔒/, "proche : annoncé");
 });
 
+test("élites : pas dans les 2 premières zones de la première course, présentes ensuite", () => {
+  const count = (zone, asc) => {
+    let n = 0;
+    for (let i = 0; i < 40; i++) { const g = new Game(freshLocked()); g.S.zone = zone; g.S.prestige.count = asc; g.R.lineupZone = -1; n += g.lineup().filter((s) => s.elite).length; }
+    return n;
+  };
+  assert.equal(count(1, 0), 0, "zone 1, première course");
+  assert.ok(count(5, 0) > 0, "zone 5");
+  assert.ok(count(1, 1) > 0, "zone 1 après une ascension");
+});
+
 test("rythme du début : première course seulement, de 0,35 à 1 en zone 15", () => {
   const S = freshLocked();
   assert.equal(earlyPace(S), 0.35);
@@ -1647,6 +1658,7 @@ test("pouvoir Appât des champions : nettement plus d'élites", () => {
   const count = (lure) => {
     setRandom(seeded(7));
     const g = new Game(freshState());
+    g.S.zone = 5; // élites dès la zone 3 (première course)
     const it = g.newItem(4); it.power = lure ? "p_lure" : "p_purse"; g.S.equip[it.slot] = it; g.invalidateStats();
     let elites = 0;
     for (let i = 0; i < 400; i++) { g.R.lineupZone = -1; elites += g.lineup().filter((m) => m.elite).length; }
