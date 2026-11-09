@@ -684,6 +684,10 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       du Rebord » (le jeu continue). 10 langues, autotest, captures ; parties existantes : chroniques déjà méritées.
   12. FAIT (it. 218). Clic sur un objet : le détail s'ouvre à la place du panneau Équipement ; Victor le veut dans l'espace sous le
       sac (quitte à réduire des éléments du panneau Sac pour que ça tienne).
+  13. Carte interactive et jolie du Rebord : voir son avancement dans le jeu et dans l'histoire (zones, biomes,
+      boss/lieutenants, héros libérés, chroniques placées sur le chemin, Briseur d'Étoiles en zone 200 au bout).
+      Idée : onglet ou fenêtre « Carte » dessinée en pixel art (chemin sinueux, repères cliquables, brouillard sur
+      ce qui n'est pas encore atteint), à faire après le Briseur et la fin (demande 11), qu'elle mettra en valeur.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
