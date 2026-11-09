@@ -73,6 +73,14 @@ export class Sound {
         for (let i = 0; i < 10; i++) this.tone([NOTES.E6, NOTES.G6, NOTES.D6, NOTES.C6][i % 4], 1.4 + i * 0.32, 0.25, "triangle", 0.12);
         [NOTES.D5, NOTES.G5, NOTES.A5, NOTES.D6].forEach((f, i) => this.tone(f, 4.8 + i * 0.18, 0.5, "triangle", 0.25));
         [NOTES.G5, NOTES.C6, NOTES.E6].forEach((f) => this.tone(f, 5.6, 3, "triangle", 0.16)); break;
+      case "intro": // un ciel qui tinte, puis se brise : fracas, éclats qui tombent, accord grave
+        [NOTES.G6, NOTES.E6, NOTES.C6, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.3, 0.4, "triangle", 0.12));
+        this.noise(1.6, 0.7, 0.4); this.tone(NOTES.C6, 1.6, 1.2, "square", 0.15, 0.25); this.tone(NOTES.G5, 1.75, 1.2, "square", 0.12, 0.25);
+        [NOTES.C5, NOTES.G5].forEach((f) => this.tone(f / 2, 3, 2.5, "triangle", 0.22)); this.tone(NOTES.E5, 3.2, 2.3, "triangle", 0.14); break;
+      case "credits": // générique : mélodie douce, deux phrases
+        [NOTES.E5, NOTES.G5, NOTES.A5, NOTES.G5, NOTES.E5, NOTES.D5, NOTES.E5, NOTES.C5,
+         NOTES.E5, NOTES.G5, NOTES.C6, NOTES.D6, NOTES.C6, NOTES.A5, NOTES.G5, NOTES.C6].forEach((f, i) => this.tone(f, i * 0.5, 0.6, "triangle", 0.2));
+        [0, 2, 4, 6].forEach((b) => this.tone(NOTES.C5 / 2, b, 1.9, "triangle", 0.12)); break;
       case "hit": if (this.throttle(id, 140)) this.noise(0, 0.05, 0.18); break;
       case "crit": if (this.throttle(id, 200)) { this.noise(0, 0.06, 0.25); this.tone(NOTES.A5, 0, 0.08, "square", 0.15, 0.6); } break;
       case "coin": if (this.throttle(id, 90)) { this.tone(NOTES.E6, 0, 0.06, "square", 0.12); this.tone(NOTES.G6, 0.05, 0.1, "square", 0.12); } break;
@@ -113,6 +121,7 @@ export class Sound {
     game.on("codex", () => this.play("codex"));
     game.on("heroDown", () => this.play("ko"));
     // Moments marquants qui n'avaient pas de son
+    game.on("cinematic", ({ kind }) => { if (kind === "intro" || kind === "credits") this.play(kind); });
     game.on("starbreaker", ({ first }) => this.play(first ? "dawn" : "legendary"));
     game.on("zoneUp", ({ zone, record }) => {
       // Arrivée chez le Briseur d'Étoiles (zone 200) : grondement ; grand palier : fanfare ; record : petit son.

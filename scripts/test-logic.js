@@ -11,6 +11,7 @@ import * as M_util_js from "../src/renderer/game/util.js";
 import * as M_daymods_js from "../src/renderer/game/daymods.js";
 import * as M_codex_js from "../src/renderer/game/codex.js";
 import * as M_bosses_js from "../src/renderer/game/bosses.js";
+import * as M_achievements_js from "../src/renderer/game/achievements.js";
 import * as M_rules_js from "../src/renderer/game/rules.js";
 import * as M_classes_js from "../src/renderer/game/classes.js";
 import * as M_talents_js from "../src/renderer/game/talents.js";
@@ -1553,6 +1554,7 @@ test("Briseur d'Étoiles : boss final de la zone 200, plus coriace, fin de l'his
   const ev = []; g.on("starbreaker", (e) => ev.push(e.first));
   g.S.kills = KILLS_PER_ZONE; g.R.mon = fb; g.killMonster();
   assert.ok(storyWon(g.S)); assert.deepEqual(ev, [true]);
+  assert.ok(M_achievements_js.reachedAchievements(g.S).includes("STARBREAKER"), "succès « Le ciel rallumé »");
   assert.ok(g.S.journey.some((e) => e.k === "final"));
   assert.equal(g.S.zone, FINAL_ZONE + 1, "le jeu continue au-delà");
   g.S.zone = FINAL_ZONE; g.R.mon = g.makeMonster(true); g.killMonster();

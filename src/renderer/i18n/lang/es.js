@@ -555,4 +555,12 @@ export default {
   1679: "El cielo vuelve a encenderse",
   1680: "Los héroes son libres.",
   1681: "clic: saltar",
+  1682: "El Alféizar, hace mil años…",
+  1683: "Héroes liberados: {0}",
+  1684: "Ascensiones: {0}",
+  1685: "Monstruos derrotados: {0}",
+  1686: "Tiempo de juego: {0}",
+  1687: "Creado por Victor Basset",
+  1688: "¡Gracias por jugar!",
+  1689: "El viaje continúa más allá del Alféizar…",
 };

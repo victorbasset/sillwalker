@@ -1683,5 +1683,13 @@ export const KEYS = [
   "Le Briseur d’Étoiles t’attend !",
   "Le ciel se rallume",
   "Les héros sont libres.",
-  "clic : passer"
+  "clic : passer",
+  "Le Rebord, il y a mille ans…",
+  "Héros libérés : {0}",
+  "Ascensions : {0}",
+  "Monstres vaincus : {0}",
+  "Temps de jeu : {0}",
+  "Imaginé par Victor Basset",
+  "Merci d’avoir joué !",
+  "Le voyage continue au-delà du Rebord…"
 ];

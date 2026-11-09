@@ -13,7 +13,7 @@ import { CLASSES } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
 import { UNLOCK_INDEX } from "../game/unlocks.js";
-import { fmt } from "../game/format.js";
+import { fmt, durText } from "../game/format.js";
 import { itemIconURL } from "./sprites.js";
 import { q, el, mark, makeCanvas, sizeCanvas } from "./dom.js";
 
@@ -229,45 +229,73 @@ export class Juice {
   }
 
   /**
-   * Petites cinématiques de l'histoire (demande de Victor) : une seule pièce animée (un calque + un canevas d'étoiles)
-   * pour ne pas saturer MAX_PARTS. « arrive » : zone 200, le Briseur d'Étoiles se montre (5 s) ; « dawn » : il est
-   * vaincu, ses éclats remontent et rallument le ciel (12 s). Un clic les passe. Toujours jouées (même effets réduits).
+   * Petites cinématiques de l'histoire (demandes de Victor) : une seule pièce animée (un calque + un canevas d'étoiles)
+   * pour ne pas saturer MAX_PARTS ; textes en « pages » (titre + sous-titre) qui se succèdent. Un clic les passe ;
+   * toujours jouées (même effets réduits).
+   *  intro   : premier lancement ; un ciel étoilé se brise, les éclats tombent sur le Rebord, « SILLWALKER » (7 s) ;
+   *  arrive  : zone 200, le Briseur d'Étoiles se montre, éclairs, le ciel se fissure au-dessus de lui (5 s) ;
+   *  dawn    : il est vaincu, ses éclats remontent et rallument le ciel (12 s), puis enchaîne sur le générique ;
+   *  credits : générique de fin personnalisé (statistiques de la partie), sur le ciel rallumé.
    */
   cinematic(kind) {
     if (!this.active) return;
     if (this.cine) this.cine.done = true;
-    const W = this.s.W, H = this.layer.clientHeight || 120, dawn = kind === "dawn";
+    const W = this.s.W, H = this.layer.clientHeight || 120, S = this.s.game.S;
     const node = el("div", "cine " + kind, this.layer), cv = makeCanvas(node, "cine-sky"), dpr = window.devicePixelRatio || 1;
     sizeCanvas(cv, W, H, dpr);
     const ctx = cv.ctx;
     const title = el("div", "cine-title", node), sub = el("div", "cine-sub", node), skip = el("div", "cine-skip", node);
-    title.textContent = dawn ? tx("Le ciel se rallume") : tx("Le Briseur d’Étoiles");
-    sub.textContent = dawn ? tx("Les héros sont libres.") : tx("Le Briseur d’Étoiles t’attend !");
     skip.textContent = tx("clic : passer");
+    // Pages : [titre, sous-titre], à partir de `start`, chacune `step` secondes (la dernière tient jusqu'à la fin).
+    const PAGES = {
+      intro: { start: 3, step: 9, pages: [["Sillwalker", tx("Le Rebord, il y a mille ans…")]] },
+      arrive: { start: 0.6, step: 9, pages: [[tx("Le Briseur d’Étoiles"), tx("Le Briseur d’Étoiles t’attend !")]] },
+      dawn: { start: 3, step: 20, pages: [[tx("Le ciel se rallume"), tx("Les héros sont libres.")]] },
+      credits: { start: 0.8, step: 3.2, pages: [
+        ["Sillwalker", tx("Le Briseur d’Étoiles est vaincu")],
+        [tx("Héros libérés : {0}", { 0: (S.classesUnlocked || []).length }), tx("Ascensions : {0}", { 0: fmt((S.prestige && S.prestige.count) || 0) })],
+        [tx("Monstres vaincus : {0}", { 0: fmt(S.stats.kills || 0) }), tx("Temps de jeu : {0}", { 0: durText(S.stats.playTime || 0) })],
+        ["Sillwalker", tx("Imaginé par Victor Basset")],
+        [tx("Merci d’avoir joué !"), tx("Le voyage continue au-delà du Rebord…")]] },
+    }[kind];
+    title.textContent = PAGES.pages[0][0]; sub.textContent = PAGES.pages[0][1]; // invisibles jusqu'à leur tour
+    const life = { intro: 7, arrive: 5, dawn: 12 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
     // bx : dawn, là où le Briseur tombe ; arrive, sa place au bout de la bande.
-    const life = dawn ? 12 : 5, bx = dawn ? Math.min(W - 220, this.s.monX() + 20) : W - (this.s.rightReserve || 0) - 260, by = this.ground() - 30;
-    // Étoiles : partent du Briseur vaincu (dawn) et montent se fixer dans le ciel ; à l'arrivée, quelques lueurs.
-    const stars = Array.from({ length: dawn ? 70 : 0 }, (_, i) => ({
+    const bx = kind === "dawn" ? Math.min(W - 220, this.s.monX() + 20) : W - (this.s.rightReserve || 0) - 260, by = this.ground() - 30;
+    // Étoiles : dawn, elles montent du Briseur vaincu ; credits, déjà au ciel ; intro, au ciel puis elles tombent.
+    const n = { dawn: 70, credits: 80, intro: 60 }[kind] || 0;
+    const stars = Array.from({ length: n }, (_, i) => ({
       tx: 20 + Math.random() * (W - 40), ty: 6 + Math.random() * (H * 0.6), d: 1.2 + Math.random() * 2.2,
-      start: 0.8 + i * 0.03 + Math.random() * 0.6, ph: Math.random() * 6, big: Math.random() < 0.15 }));
+      start: kind === "dawn" ? 0.8 + i * 0.03 + Math.random() * 0.6 : -10, ph: Math.random() * 6, big: Math.random() < 0.15,
+      fall: 1.8 + Math.random() * 0.8, fx: (Math.random() - 0.5) * 120, gy: this.ground() - 2 - Math.random() * 6 }));
     const state = { done: false };
     this.cine = state;
     node.addEventListener("click", () => { state.done = true; });
-    let lastDraw = -1;
+    this.s.game.emit("cinematic", { kind });
+    let lastDraw = -1, page = -1;
     this.add(node, (p) => {
       const t = p.t, fadeIn = Math.min(1, t / 0.8), fadeOut = state.done ? 0 : Math.min(1, (life - t) / 0.8);
       const k = Math.max(0, Math.min(fadeIn, fadeOut));
-      if (state.done || t >= life) { if (this.cine === state) this.cine = null; return false; }
+      if (state.done || t >= life) {
+        if (this.cine === state) this.cine = null;
+        if (kind === "dawn" && !state.done) setTimeout(() => this.cinematic("credits"), 0); // générique ensuite
+        return false;
+      }
       node.style.opacity = k.toFixed(2);
-      // Titre et sous-titre : apparaissent l'un après l'autre.
-      const tIn = dawn ? 3 : 0.6, sIn = dawn ? 4.6 : 1.8;
-      title.style.opacity = Math.max(0, Math.min(1, (t - tIn) / 0.6)).toFixed(2);
-      sub.style.opacity = Math.max(0, Math.min(1, (t - sIn) / 0.6)).toFixed(2);
+      // Page en cours : titre puis sous-titre, en fondu ; la page suivante remplace la précédente.
+      const pi = Math.min(PAGES.pages.length - 1, Math.floor((t - PAGES.start) / PAGES.step));
+      if (pi >= 0) {
+        if (pi !== page) { page = pi; title.textContent = PAGES.pages[pi][0]; sub.textContent = PAGES.pages[pi][1]; }
+        const at = PAGES.start + pi * PAGES.step, end = pi < PAGES.pages.length - 1 ? at + PAGES.step : life + 1;
+        const vis = (d) => Math.max(0, Math.min(1, (t - at - d) / 0.5, (end - t) / 0.4));
+        title.style.opacity = vis(0).toFixed(2);
+        sub.style.opacity = vis(kind === "credits" ? 0.3 : 1.2).toFixed(2);
+      }
       if (Math.floor(t * 15) === lastDraw) return true; // canevas à 15 images/s : assez pour des étoiles
       lastDraw = Math.floor(t * 15);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
-      if (!dawn) { // éclairs violets : deux fois, le ciel se fend derrière le Briseur
+      if (kind === "arrive") { // éclairs violets : deux fois, le ciel se fend derrière le Briseur
         const f = (t > 0.9 && t < 1.05) || (t > 1.5 && t < 1.6) ? 0.55 : 0;
         if (f) { ctx.fillStyle = `rgba(179,107,255,${f})`; ctx.fillRect(0, 0, W, H); }
         for (let i = 0; i < 3; i++) { // fissure dans le ciel, au-dessus de lui
@@ -276,10 +304,20 @@ export class Juice {
         }
         return true;
       }
+      if (kind === "intro" && t > 1.6 && t < 1.75) { ctx.fillStyle = "rgba(179,107,255,0.5)"; ctx.fillRect(0, 0, W, H); } // le ciel se brise
       for (const s of stars) {
+        let x, y, e = 1;
+        if (kind === "intro" && t > s.fall) { // l'éclat tombe sur le Rebord et y reste
+          const u = Math.min(1, (t - s.fall) / 0.9);
+          x = s.tx + s.fx * u; y = s.ty + (s.gy - s.ty) * easeIn(u); e = u < 1 ? 0.5 : 1;
+          ctx.fillStyle = "#c99bff"; ctx.globalAlpha = 1;
+          if (u < 1) { ctx.globalAlpha = 0.4; ctx.fillRect(Math.round(x), Math.round(y) - 6, 1, 6); ctx.globalAlpha = 1; } // traînée
+          ctx.fillRect(Math.round(x) - 1, Math.round(y), 3, 2);
+          continue;
+        }
         const u = (t - s.start) / s.d;
         if (u <= 0) continue;
-        const e = Math.min(1, u), x = bx + (s.tx - bx) * easeOut(e), y = by + (s.ty - by) * easeOut(e);
+        e = Math.min(1, u); x = bx + (s.tx - bx) * easeOut(e); y = by + (s.ty - by) * easeOut(e);
         const tw = e >= 1 ? 0.6 + 0.4 * Math.sin(t * 3 + s.ph) : 1;
         ctx.globalAlpha = tw;
         ctx.fillStyle = s.big ? "#fff6c8" : "#ffe27a";

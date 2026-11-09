@@ -555,4 +555,12 @@ export default {
   1679: "Der Himmel entflammt aufs Neue",
   1680: "Die Helden sind frei.",
   1681: "Klick: überspringen",
+  1682: "Der Saum, vor tausend Jahren …",
+  1683: "Befreite Helden: {0}",
+  1684: "Aufstiege: {0}",
+  1685: "Besiegte Monster: {0}",
+  1686: "Spielzeit: {0}",
+  1687: "Erdacht von Victor Basset",
+  1688: "Danke fürs Spielen!",
+  1689: "Die Reise geht weiter, jenseits des Saums …",
 };

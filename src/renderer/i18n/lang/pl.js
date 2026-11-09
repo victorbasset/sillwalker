@@ -555,4 +555,12 @@ export default {
   1679: "Niebo znów rozbłyska",
   1680: "Bohaterowie są wolni.",
   1681: "klik: pomiń",
+  1682: "Krawędź, tysiąc lat temu…",
+  1683: "Uwolnieni bohaterowie: {0}",
+  1684: "Wniebowstąpienia: {0}",
+  1685: "Pokonane potwory: {0}",
+  1686: "Czas gry: {0}",
+  1687: "Stworzone przez Victora Basseta",
+  1688: "Dziękujemy za grę!",
+  1689: "Podróż trwa dalej, poza Krawędzią…",
 };

@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 224, demandes 11 et 15) : fin et introduction en cinématiques. juice.cinematic généralisé (textes
+  en « pages » titre + sous-titre). « intro » au tout premier lancement (ciel étoilé qui se brise, éclats qui tombent
+  sur le Rebord, « SILLWALKER », 7 s, son : tintement puis fracas et accord grave), suivie des trois bulles de
+  l'histoire (conseils retenus 9 s). « dawn » enchaîne sur « credits » : générique personnalisé sur le ciel rallumé
+  (héros libérés, ascensions, monstres vaincus, temps de jeu, « Imaginé par Victor Basset », « Merci d'avoir
+  joué ! », « Le voyage continue au-delà du Rebord… », ~17 s, mélodie douce). Succès Steam STARBREAKER « Le ciel
+  rallumé » (README : à déclarer dans Steamworks). Autotest : les 4 cinématiques ; deux contrôles de bulles
+  devenaient faux avec le temps (annonces d'arrivée restées en file, même sur le commit précédent) : file vidée
+  avant eux (window.__clearToasts). 10 langues, test, captures, 94/94.
 - 2026-11-09 (it. 223, demandes 11 et 15) : le Briseur d'Étoiles a sa silhouette (STARBREAKER_ART, art-monsters2.js :
   titan en armure, couronne d'éclats, cape de nuit étoilée, yeux cyan, éclat brandi ; taille de boss dans la bande,
   normale en mode mini, halo violet). Deux petites cinématiques dans la bande (juice.js cinematic, une seule pièce
@@ -704,7 +713,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      déplié : dommage (checkHints n'affiche rien si panelOpen).
   10. FAIT (it. 215, DROP_CHANCE 0,12). Trop d'objets tombent encore (au-delà du tout début, où earlyPace ne joue plus) : réduire la chance de butin
       générale (DROP_CHANCE 0,35) sans casser la progression (balance.mjs, semaine simulée).
-  11. EN COURS (it. 217 : (a) intro ; it. 219 : (b) Chroniques ; it. 222 : (c) Briseur ; it. 223 : silhouette + cinématiques) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
+  11. EN COURS (it. 217 : (a) intro ; it. 219 : (b) Chroniques ; it. 222 : (c) Briseur ; it. 223 : silhouette + cinématiques ; it. 224 : intro, générique, succès) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
       Univers : le Rebord (la bande au bord de l'écran), frontière entre le monde et le vide ; le Briseur d'Étoiles a
       fracassé le ciel (les éclats d'étoile du jeu) ; ses lieutenants (boss de zone) retiennent les héros (classes à
       libérer) ; le héros, dernier marcheur du Rebord, renaît plus fort à chaque ascension.

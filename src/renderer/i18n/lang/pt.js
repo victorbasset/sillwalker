@@ -555,4 +555,12 @@ export default {
   1679: "O céu se reacende",
   1680: "Os heróis estão livres.",
   1681: "clique: pular",
+  1682: "O Parapeito, há mil anos…",
+  1683: "Heróis libertados: {0}",
+  1684: "Ascensões: {0}",
+  1685: "Monstros derrotados: {0}",
+  1686: "Tempo de jogo: {0}",
+  1687: "Criado por Victor Basset",
+  1688: "Obrigado por jogar!",
+  1689: "A jornada continua além do Parapeito…",
 };

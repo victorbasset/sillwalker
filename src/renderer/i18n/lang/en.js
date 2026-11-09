@@ -555,4 +555,12 @@ export default {
   1679: "The sky rekindles",
   1680: "The heroes are free.",
   1681: "click: skip",
+  1682: "The Sill, a thousand years ago…",
+  1683: "Heroes freed: {0}",
+  1684: "Ascensions: {0}",
+  1685: "Monsters defeated: {0}",
+  1686: "Play time: {0}",
+  1687: "Created by Victor Basset",
+  1688: "Thank you for playing!",
+  1689: "The journey continues beyond the Sill…",
 };

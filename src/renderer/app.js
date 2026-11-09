@@ -214,6 +214,8 @@ async function boot() {
 
   /* ---------- Bulle de la bande : résumé hors ligne et conseils ---------- */
   let toastTimer = 0, toastAction = null, toastUntil = 0;
+  // Pendant la cinématique d'introduction (premier lancement), aucun conseil : les bulles de l'histoire passent d'abord.
+  let hintHold = 0;
   // Bulles en file : une nouvelle bulle (récompense du jour…) attend la fermeture de celle affichée
   // (résumé d'absence…) au lieu de la remplacer ; sinon le résumé était perdu au bout de 2,5 s.
   const toastQueue = [];
@@ -258,7 +260,8 @@ async function boot() {
     if (mode === "mini") { if (pendingOffline) return; const h = nextHint(game); mini.setHint(h && h.text); return; }
     // Panneau ouvert compris (demande de Victor : l'astuce à l'ampoule ne s'affichait plus le menu déplié).
     if (window.__noHints) return; // auto-test (dev) : bulles réservées aux contrôles
-    if (mode !== "strip" || !toast.hidden || Date.now() < toastUntil || toastQueue.length) return; // file pleine (intro…) : attendre
+    // File pleine (intro…) ou cinématique d'introduction en cours : attendre.
+    if (mode !== "strip" || !toast.hidden || Date.now() < toastUntil || toastQueue.length || Date.now() < hintHold) return;
     const h = nextHint(game);
     if (!h) return;
     markHint(game, h.key);
@@ -386,6 +389,8 @@ async function boot() {
   if (init.isDev) window.__strip = strip; // auto-test (dev) : cinématiques
   if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
   if (init.isDev) window.__showToast = showToast; // auto-test (dev) : file des bulles
+  // Auto-test (dev) : vider la file des bulles (sinon une annonce restée en attente fausse les contrôles de bulles).
+  if (init.isDev) window.__clearToasts = () => { toastQueue.length = 0; hideToast(); };
   if (init.isDev) window.__checkHints = () => checkHints(); // auto-test (dev)
   if (init.isDev) window.__stepLine = stepLine; // auto-test (dev) : ligne d'étape de la bulle de retour
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
@@ -419,7 +424,10 @@ async function boot() {
   // Introduction de l'histoire (story.js) : trois bulles au tout premier lancement, un clic passe à la suivante.
   if (introDue(game.S)) {
     markIntro(game.S);
-    setTimeout(() => INTRO.forEach((line) => showToast(`<span class="story">📜</span> ${esc(tx(line))}`, null, 14000)), 1200);
+    // Petite cinématique d'abord (le ciel se brise), puis les trois bulles de l'histoire.
+    hintHold = Date.now() + 9000;
+    setTimeout(() => strip.juice.cinematic("intro"), 800);
+    setTimeout(() => INTRO.forEach((line) => showToast(`<span class="story">📜</span> ${esc(tx(line))}`, null, 14000)), 8200);
   }
   setInterval(checkDaily, 60000);
 
