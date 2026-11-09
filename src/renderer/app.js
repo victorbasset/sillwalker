@@ -339,6 +339,7 @@ async function boot() {
 
   /* ---------- Démo des effets (dev) : --demo ---------- */
   if (init.isDev) window.__panel = panel; // auto-test (dev)
+  if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
   if (init.isDev) window.__demo = () => {
     game.startEvent("wind");

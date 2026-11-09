@@ -31,6 +31,7 @@ module.exports = {
   exitAfter: isDev ? Number(getArg("exit-after")) || 0 : 0,
   battery: isDev && !!getArg("battery"),
   idle: isDev && !!getArg("idle"),                       // --idle : simule un utilisateur absent (images/s au ralenti)                 // --battery : simule un portable sur batterie (images/s réduites)
+  crawl: isDev && !!getArg("crawl"),                     // --crawl : clique sur tous les boutons du panneau, signale les erreurs (CRAWL-…)
   releaseUi: isDev && !!getArg("release-ui"),            // --release-ui : cache les commandes de dev (captures fidèles à la version distribuée)
   userData: isDev ? getArg("user-data") : undefined,   // dossier de données isolé pour les tests
 };
