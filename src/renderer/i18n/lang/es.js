@@ -387,4 +387,5 @@ export default {
   1511: "Oscuro",
   1512: "Cuerno de la abundancia",
   1513: "¡Cada victoria deja un objeto!",
+  1514: "¡Ascensión n.º {0}! +{1} fragmentos de estrella",
 };

@@ -1515,5 +1515,6 @@ export const KEYS = [
   "Clair",
   "Sombre",
   "Corne d’abondance",
-  "Chaque victoire laisse un objet !"
+  "Chaque victoire laisse un objet !",
+  "Ascension n° {0} ! +{1} éclats d’étoile"
 ];

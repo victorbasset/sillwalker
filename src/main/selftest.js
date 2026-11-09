@@ -343,6 +343,12 @@ async function runSelfTest(strip) {
     await sleep(200);
   }
   check("monstre : un clic donne un coup bonus", (await state("S.stats.taps || 0")) > taps0);
+  // Ascension : bannière sur la bande (événement seul, l'état du jeu ne change pas).
+  await js("window.__game.emit('ascend', { count: 4, gain: 36 })");
+  await sleep(250);
+  const banners = await js("[...document.querySelectorAll('#strip .banner')].map((b) => b.textContent)");
+  check("ascension : bannière sur la bande", banners.some((t) => t.includes("36")), JSON.stringify(banners));
+  if (process.env.SELFTEST_SHOT3) require("fs").writeFileSync(process.env.SELFTEST_SHOT3, (await wc.capturePage()).toPNG());
   await click("#menu-btn");
   await sleep(400);
 

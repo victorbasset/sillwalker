@@ -387,4 +387,5 @@ export default {
   1511: "Ciemny",
   1512: "Róg obfitości",
   1513: "Każde zwycięstwo zostawia przedmiot!",
+  1514: "Wzniesienie nr {0}! +{1} odłamków gwiazd",
 };

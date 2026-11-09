@@ -1309,7 +1309,7 @@ export class Game {
     return {
       min, kills, gold: Math.max(0, now0.gold - snap.gold), leg: Math.max(0, now0.leg - snap.leg),
       lvl0: sameRun && now0.lvl > snap.lvl ? snap.lvl : 0, lvl1: now0.lvl,
-      best: now0.best > snap.best ? now0.best : 0,
+      best: now0.best > snap.best ? now0.best : 0, asc: Math.max(0, now0.asc - snap.asc),
     };
   }
 
@@ -1420,7 +1420,7 @@ export class Game {
     if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
     this.log(`${tx("Ascension n° {0} : +{1} éclats d’étoile et +{2} points de compétence permanents. Une nouvelle aventure commence{3} !", { 0: P.count, 1: gain, 2: skillGain, 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
-    this.emit("ascend");
+    this.emit("ascend", { count: P.count, gain });
     this.changed();
     return true;
   }

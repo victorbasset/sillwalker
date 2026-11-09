@@ -1010,6 +1010,7 @@ test("depuis ta dernière visite : gains affichés après 5 min, pas avant", () 
   assert.equal(v.lvl1 - v.lvl0, 3, "niveaux gagnés");
   g.S.prestige.count++; // ascension entre-temps : la comparaison des niveaux n'a plus de sens
   assert.equal(g.visitSummary(snap, t0 + 42 * 60000).lvl0, 0);
+  assert.equal(g.visitSummary(snap, t0 + 42 * 60000).asc, 1, "ascension comptée");
   assert.equal(g.visitSummary(null), null);
 });
 

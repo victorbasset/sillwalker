@@ -195,6 +195,7 @@ export class Panel {
     const dur = v.min >= 60 ? `${Math.floor(v.min / 60)} h ${v.min % 60} min` : `${v.min} min`;
     const parts = [tx("{0} or", { 0: `<b>+${fmt(v.gold)}</b>` }), txn(v.kills, "{n} monstre|{n} monstres", { n: fmt(v.kills) })];
     if (v.lvl0) parts.push(tx("niveau {0} → {1}", { 0: v.lvl0, 1: v.lvl1 }));
+    if (v.asc) parts.push(`<b>${txn(v.asc, "{n} ascension|{n} ascensions")}</b>`);
     if (v.best) parts.push(`<b>${tx("record : zone {0}", { 0: v.best })}</b>`);
     if (v.leg) parts.push(`<b class="rc4">${txn(v.leg, "{n} légendaire|{n} légendaires")}</b>`);
     return `<button class="visit" data-action="visit-ok" title="${esc(tx("Cliquer pour masquer"))}"><small>${tx("Depuis ta dernière visite ({0})", { 0: dur })}</small> ${parts.join(" · ")}</button>`;

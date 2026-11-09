@@ -387,4 +387,5 @@ export default {
   1511: "Dark",
   1512: "Horn of Plenty",
   1513: "Every victory leaves an item!",
+  1514: "Ascension #{0}! +{1} star shards",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 ## Fait
 
+- 2026-11-09 (it. 27) : l'ascension se voit enfin sur la bande (bannière « Ascension n° 4 ! +36 éclats d'étoile »
+  et étincelles), et « Depuis ta dernière visite » compte les ascensions faites entre-temps (Astrolabe).
+  Contrôle d'équilibrage de la Corne d'abondance (10 classes, 8 h) : Valet à 344 → 355 min, dans le bruit.
 - 2026-11-09 (it. 26) : nouvel événement rare, la « Corne d'abondance » : pendant 30 s, chaque victoire laisse
   un objet. Et plus d'espace française avant « ! » dans les annonces d'événement, talents ultimes et clés de voûte
   en anglais et dans les autres langues.
