@@ -1213,10 +1213,19 @@ test("journal : les ventes « sac plein » restent un cumul malgré quelques lig
   const sales = g.S.log.filter((l) => /Sac plein, objets vendus/.test(l));
   assert.equal(sales.length, 1, JSON.stringify(g.S.log.slice(0, 8)));
   assert.match(sales[0], /10/);
-  for (let i = 0; i < 7; i++) g.log("autre ligne " + i); // la ligne s'éloigne : une nouvelle commence
+  for (let i = 0; i < 11; i++) g.log("autre ligne " + i); // la ligne s'éloigne : une nouvelle commence
   g.logSale("full", "Sac plein, objets vendus", 5);
   assert.equal(g.S.log.filter((l) => /Sac plein, objets vendus/.test(l)).length, 2);
   assert.ok(g.S.log.length > n0);
+});
+
+test("journal : les défaites répétées se cumulent (×N) au lieu de remplir le journal", () => {
+  const g = new Game(freshState());
+  g.S.zone = 1; g.S.best = 1;
+  for (let i = 0; i < 6; i++) { g.R.mode = "fight"; g.heroDown(); if (i === 2) g.log("Élite vaincu !"); }
+  const lines = g.S.log.filter((l) => /fell|tombé/.test(l));
+  assert.equal(lines.length, 1, JSON.stringify(g.S.log.slice(0, 8)));
+  assert.match(lines[0], /×6/);
 });
 
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {

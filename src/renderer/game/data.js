@@ -18,6 +18,7 @@ export const KILLS_PER_ZONE = 10;
 export const MAX_PLUS = 10;
 export const OFFLINE_CAP_S = 8 * 3600;
 export const LOG_SIZE = 40;
+export const LOG_MERGE = 10; // une ligne répétée (ventes, défaites) se cumule tant qu'elle est parmi les N dernières
 
 // Rythme du combat, en pixels « monde ». Il ne dépend PAS de la largeur de
 // l'écran : un joueur en 4K progresse aussi vite qu'un joueur en 1366 px.

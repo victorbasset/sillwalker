@@ -13,7 +13,7 @@ import { t as tx, txn, tr, fsp, lc } from "../i18n/index.js";
 import { codexRecord } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
-  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
+  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
   CHAMPION,
 } from "./data.js";
@@ -132,6 +132,23 @@ export class Game {
     const S = this.S;
     if (S.logLang && S.logLang !== lang && S.log.length) S.log = [tx("Langue changée : le journal reprend ici.")];
     S.logLang = lang;
+  }
+
+  /**
+   * Message qui peut se répéter souvent (défaites quand le héros bloque) : tant que la même ligne est
+   * parmi les LOG_MERGE dernières du journal, elle devient « … (×N) » au lieu d'une nouvelle ligne.
+   */
+  logRepeat(msg) {
+    const L = this.S.log, reps = (this.R.repLines ||= {}), rep = reps[msg]; // suivi par message (ils alternent)
+    const at = rep ? L.indexOf(rep.text) : -1;
+    if (at >= 0 && at < LOG_MERGE) {
+      rep.n++;
+      L[at] = rep.text = `${msg} (×${rep.n})`;
+      this.emit("log", L[at]);
+      return;
+    }
+    reps[msg] = { n: 1, text: msg };
+    this.log(msg);
   }
 
   log(msg) {
@@ -463,7 +480,7 @@ export class Game {
     // La ligne de ventes reste un cumul tant qu'elle est parmi les dernières du journal
     // (sinon chaque élite ou boss vaincu relançait une nouvelle ligne : des centaines par heure).
     const at = R.saleLine && R.saleLine.kind === kind ? L.indexOf(R.saleLine.text) : -1;
-    if (at >= 0 && at < 6) {
+    if (at >= 0 && at < LOG_MERGE) {
       R.saleLine.n++; R.saleLine.gold += v;
       L[at] = R.saleLine.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: R.saleLine.n, 1: fmt(R.saleLine.gold) })}`;
       this.emit("log", L[at]);
@@ -590,12 +607,12 @@ export class Game {
     if (this.autoAscend()) return;
     if (R.deaths >= 2 && S.zone > 1) {
       S.zone--; R.deaths = 0; S.kills = 0;
-      this.log(tx("Trop dur : ton héros recule vers ") + zoneName(S.zone) + ".");
+      this.logRepeat(tx("Trop dur : ton héros recule vers ") + zoneName(S.zone) + ".");
     } else {
       S.kills = 0;
       // Impossible de reculer (zone 1) : nouvelle série de monstres, sinon un monstre trop fort en tête bloquerait tout.
       if (R.deaths >= 2) { R.lineupZone = 0; R.deaths = 0; }
-      this.log(tx("Ton héros est tombé. La progression de la zone repart à zéro."));
+      this.logRepeat(tx("Ton héros est tombé. La progression de la zone repart à zéro."));
     }
     this.changed();
   }
