@@ -817,6 +817,10 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .classgrid.sec-freed > .classcard.locked, .classgrid.sec-locked > .classcard:not(.locked) { display: none; }
 /* Boutique en sous-onglets (demande 18) : marchand / déblocages / atelier */
 .shoproot.sec-shop .unlocks, .shoproot.sec-shop .wsec { display: none; }
+/* L'Atelier caché ici : trois colonnes seulement, les potions s'étalent sur une rangée. */
+.shoproot.sec-shop .shopgrid2 { grid-template-columns: 1.5fr 2.05fr 1.15fr; }
+.shoproot.sec-shop .mgrid { grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); }
+.shoproot.sec-shop .cgrid { grid-template-columns: repeat(auto-fill, minmax(94px, 1fr)); gap: 6px; }
 .shoproot.sec-unlocks .shopgrid2 { display: none; }
 .shoproot.sec-workshop .unlocks, .shoproot.sec-workshop .shopgrid2 > article:not(.wsec) { display: none; }
 .shoproot.sec-workshop .shopgrid2 { grid-template-columns: 1fr; }
