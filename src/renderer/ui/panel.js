@@ -5,6 +5,7 @@
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { itemName } from "../i18n/data.js";
 import { t as tx, txn, lc } from "../i18n/index.js";
+import { todoLabel } from "./todo.js";
 import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
@@ -271,21 +272,12 @@ export class Panel {
 
   /** « À faire maintenant » : un bouton par action disponible, qui mène droit au bon onglet. */
   todoHtml() {
-    const T = {
-      quests: (t) => txn(t.n, "{n} quête à réclamer|{n} quêtes à réclamer"),
-      upgrade: () => tx("Un objet plus puissant t’attend dans le sac"),
-      talents: (t) => txn(t.n, "{n} point de talent à dépenser →|{n} points de talent à dépenser →"),
-      skills: (t) => txn(t.n, "{n} point de compétence à dépenser|{n} points de compétence à dépenser"),
-      unlock: (t) => tx("Déblocage abordable : {0}", { 0: t.name }),
-      eggs: (t) => txn(t.n, "{n} œuf à faire éclore|{n} œufs à faire éclore"),
-      expeditions: (t) => txn(t.n, "{n} expédition terminée|{n} expéditions terminées"),
-      merchant: () => tx("Le marchand propose une amélioration"),
-    };
     const list = this.game.todoNow();
     if (!list.length) return "";
     return `<h3 class="todo-h">${tx("À faire maintenant")}</h3>
-      ${list.map((t) => `<button class="linkbtn" data-tab="${t.tab}">${esc(T[t.id](t)).replace(/ →$/, "")} →</button>`).join("")}`;
+      ${list.map((t) => `<button class="linkbtn" data-tab="${t.tab}">${esc(todoLabel(t))} →</button>`).join("")}`;
   }
+
 
   /* ---------- Rendu ---------- */
   renderAll() {

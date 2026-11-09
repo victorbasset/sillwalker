@@ -2,6 +2,7 @@
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { t as tx, fsp } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
+import { todoLabel } from "../ui/todo.js";
 import { PIXEL as P } from "./art.js";
 import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
@@ -196,6 +197,10 @@ export class MiniRenderer {
         this.goalWrap.classList.toggle("ready", ok && S.gold >= u.price);
         tip.push(tx("Prochain déblocage") + fsp() + ": " + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}` : tx("Zone record {0}", { 0: u.zone })));
       }
+      // Actions qui attendent le joueur (quêtes, sac, déblocage…) : un point doré près du niveau, détail au survol.
+      const todo = game.todoNow();
+      if (todo.length) tip.push(tx("À faire maintenant") + fsp() + ":\n  • " + todo.map(todoLabel).join("\n  • "));
+      this.info.classList.toggle("todo", todo.length > 0);
       tip.push(tx("Cliquer pour agrandir"));
       this.info.title = tip.join("\n");
     }
