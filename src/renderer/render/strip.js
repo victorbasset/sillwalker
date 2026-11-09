@@ -154,7 +154,8 @@ export class StripRenderer {
     if (!this.active || this.game.S.settings.fullEffects === false || !list) return;
     const now = this.game.R.time;
     if (!urgent && now - (this.saidAt ?? -1e9) < 45) return;
-    if (!urgent && this.game.R.mon && this.game.R.mon.boss) return; // pas de bulle sur le nom du boss
+    const G = this.game; // pas de bulle sur le nom du boss (présent, ou le prochain monstre)
+    if (!urgent && ((G.R.mon && G.R.mon.boss) || G.S.kills >= KILLS_PER_ZONE)) return;
     if (urgent && now - (this.saidAt ?? -1e9) < 6) return;
     this.saidAt = now;
     this.bubble.textContent = list[Math.floor(Math.random() * list.length)];
@@ -171,6 +172,8 @@ export class StripRenderer {
       let bx = q(x + this.hero.w / 2);
       // En début de zone, la bulle passerait sur la pastille de zone (en haut à gauche) : on la décale à sa droite.
       if (this.bubbleW && this.hudLRight && bx - this.bubbleW / 2 < this.hudLRight + 4) bx = q(this.hudLRight + 4 + this.bubbleW / 2);
+      // Près du bord droit : pas sur la pastille or / niveau.
+      if (this.bubbleW && this.hudRLeft && bx + this.bubbleW / 2 > this.hudRLeft - 4) bx = q(this.hudRLeft - 4 - this.bubbleW / 2);
       if (bx !== this.bubbleX) { this.bubbleX = bx; this.bubble.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 30}px,0) translateX(-50%)`; mark("speech"); }
     } else if (this.game.R.mode === "walk" && Math.random() < dt / 240) {
       const night = this.nightLevel().night >= 0.8;
@@ -604,7 +607,9 @@ export class StripRenderer {
     ctx.clearRect(0, 0, HUD_R_W, HUD_H);
     ctx.font = FONT;
     const lw = ctx.measureText(lvlTxt).width;
-    drawPill(ctx, Math.max(2, right - 14 - lw - ctx.measureText(gt).width - 22), HUD_R_W - 3, HUD_H);
+    const pillL = Math.max(2, right - 14 - lw - ctx.measureText(gt).width - 22);
+    this.hudRLeft = this.W - HUD_R_W - this.rightReserve + pillL; // bord gauche de la pastille or / niveau (bulle du héros)
+    drawPill(ctx, pillL, HUD_R_W - 3, HUD_H);
     drawText(ctx, lvlTxt, right, 17, "#ffffff", "right");
     drawText(ctx, gt, right - 14 - lw, 17, "#ffd34d", "right");
     ctx.font = FONT;
