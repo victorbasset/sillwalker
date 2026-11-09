@@ -1005,3 +1005,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .sbtn { border-radius: 0; box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.10), inset -1px -1px 0 rgba(0, 0, 0, 0.3); }
 .sbtn:hover, .sbtn:focus-visible, .sbtn[aria-expanded="true"] { border-color: #e8b14a; }
 .itemtip { width: 340px; font-size: 13px; } /* plus large, donc moins haute : tient sous la barre d'onglets */
+/* Rangées latérales : fondu sur le bord où d'autres cartes attendent (ui/hscroll.js > edgeHints). */
+.hscroll.more-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent); }
+.hscroll.more-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 48px), transparent); }
+.hscroll.more-l.more-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent); }

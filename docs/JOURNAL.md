@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 312, demande 32) : rangées latérales : fondu discret (masque CSS) sur le bord où d'autres cartes
+  attendent, mis à jour au défilement (hscroll.js > edgeHints) ; remplace l'indication écrite que Victor a jugée
+  inutile. Capture (Familiers), autotest vert.
 - 2026-11-10 (it. 311) : infobulle des objets : elle montait par-dessus la barre d'onglets (limite haute à 4 px) ;
   elle s'arrête maintenant sous l'en-tête, et passe de 270 à 340 px de large (texte 13 px) : moins haute, elle tient
   en entier (une légendaire avec pouvoir et panoplie comprise). Capture, autotest vert.

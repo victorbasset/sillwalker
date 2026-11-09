@@ -5,8 +5,16 @@
 
 const DRAG_MIN = 6; // pixels avant qu'un appui devienne un glissement (en dessous, c'est un clic normal)
 
+/** Fondu sur le bord où il reste des cartes cachées (pas de texte d'aide : demande de Victor). */
+export function edgeHints(row) {
+  const max = row.scrollWidth - row.clientWidth;
+  row.classList.toggle("more-l", max > 1 && row.scrollLeft > 1);
+  row.classList.toggle("more-r", max > 1 && row.scrollLeft < max - 1);
+}
+
 /** Branche la molette et le glisser sur `root` (délégation : marche pour les rangées créées plus tard). */
 export function initHScroll(root) {
+  root.addEventListener("scroll", (e) => { if (e.target.classList && e.target.classList.contains("hscroll")) edgeHints(e.target); }, true);
   root.addEventListener("wheel", (e) => {
     const row = e.target.closest && e.target.closest(".hscroll");
     if (!row || row.scrollWidth <= row.clientWidth + 1) return;
@@ -57,9 +65,10 @@ export function saveHScroll(root, store) {
 export function restoreHScroll(root, store) {
   for (const row of root.querySelectorAll(".hscroll[data-hs]")) {
     const k = row.dataset.hs;
-    if (store.has(k)) { row.scrollLeft = store.get(k); continue; }
+    if (store.has(k)) { row.scrollLeft = store.get(k); edgeHints(row); continue; }
     const start = row.querySelector("[data-hs-start]");
     if (start) row.scrollLeft = Math.max(0, start.offsetLeft - row.offsetLeft - 8);
     store.set(k, row.scrollLeft);
+    edgeHints(row);
   }
 }
