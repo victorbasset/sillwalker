@@ -112,6 +112,17 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   ou une couleur vive dans `--c` avec la classe `.tint` (assombrie en thème clair). Vérifier en capture
   dans les deux thèmes. (La bande et le mode mini sont toujours sombres : non concernés.)
 
+- Design « gravure pixel » (demande 35, it. 293-308) : jetons par thème dans styles.css (`--frame` cadre pixel en image
+  9 parties générée en SVG, `--edge` contour sombre, `--star` or des ornements, `--sky` trame d'étoiles du fond).
+  Changer les couleurs du panneau = régénérer `--frame` (sinon le cadre garde l'ancienne teinte). Angles droits partout ;
+  les cartes à état (héros, familiers, quêtes, bestiaire) gardent une bordure colorée, sans cadre image.
+- Pas de défilement vertical à 1920 px (demandes 18 et 32) : l'autotest le contrôle (« aucun onglet ne défile ») ;
+  une liste qui grandit (nouvel événement, nouvelle capacité…) peut le casser. Remède habituel : une rangée latérale
+  (`class="hscroll" data-hs="clé"`, ui/hscroll.js : molette, glisser, position gardée) ou un détail au survol (ⓘ).
+- Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
+  vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
+- Réglages qui touchent l'affichage sans recharger : « Économie d'énergie » (settings.eco, 15 images/s, événement
+  `sillwalker-framerate`) et « Cinématiques de l'histoire » (settings.cinematics ; `data.force` pour le ▶ des chroniques).
 - Bande : la fenêtre laisse traverser les clics sauf au-dessus des éléments `.hit` (ui/clickthrough.js, recalculé par
   `clickThrough.refresh()`). Tout nouvel élément cliquable de la bande doit porter `.hit` ; `element.click()` dans
   l'autotest ne passe pas par ce filtre (un « clic : passer » marchait en test et pas en vrai).

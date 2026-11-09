@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 309) : étiquettes de la bande (zone, or, niveau) vérifiées au nouveau style : cohérentes, rien à
+  changer. CLAUDE.md complété (pièges connus) : jetons du design et --frame à régénérer, règle « pas de défilement »
+  et ses remèdes (hscroll, ⓘ), clés de traduction déjà prises (Cuirasse), réglages Économie / Cinématiques.
 - 2026-11-10 (it. 308, demande 35) : mode mini et boutons de la bande (son, réduire, agrandir) au nouveau style :
   angles droits, petit relief, liseré d'or au survol, encadré nuit violine (le mini gardait l'ancien bleu nuit
   arrondi). Capture, autotest vert.
