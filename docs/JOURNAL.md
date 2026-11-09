@@ -1076,6 +1076,47 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       le côté histoire).
   32. FAIT (it. 286, à étendre). Boutique > Déblocages : les afficher tous, en défilement latéral (molette de la souris, ou appuyer puis
       glisser) ; ergonomie à réutiliser ailleurs pour éviter les défilements verticaux.
+  33. FAIT (it. 290 : étude, liste « À FAIRE » a-h ci-dessous). Étudier les jeux concurrents (Rusty's Retirement, TBH: Task Bar Hero, Desktop Heroes, Desktop Raid) : ce qui
+      plaît vraiment aux joueurs et ce qui leur déplaît (avis Steam, forums) ; reprendre le bon, éviter ou retirer
+      le mauvais si Sillwalker l'a déjà. Résultat : liste d'idées et de défauts ci-dessous (plusieurs itérations).
+  34. Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
+      itérations).
+  35. Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
+      itérations) : identité visuelle propre (cadres, typographie, couleurs, ornements pixel art).
+
+- ÉTUDE DES CONCURRENTS (demande 33, it. 290 ; synthèses d'avis Steam : vaporlens.app, gamepressure, presse).
+  Rusty's Retirement (≈ 96 % positif) : aimé : calme et « cosy », petite place à l'écran, automatisation qui fait
+  passer de l'actif à l'idle, art charmant, léger. Reproché : répétitif / peu profond (33), pas vraiment idle au
+  début (24), pas de tutoriel / mécaniques floues (19), tout repart à zéro sur une nouvelle ferme (14), CPU/GPU élevés
+  même en fond, ventilateurs (14), « toujours au premier plan » parfois ignoré, plein écran.
+  TBH: Task Bar Hero (avis « mitigés ») : aimé : pixel art, boucle simple, progression, équipement visible sur le
+  personnage, non intrusif, léger. Reproché : collecte de données, bans, bots, marché en argent réel, héros payants,
+  baisses de butin, début lent, pas de tutoriel, texte trop petit (Steam Deck), plantages.
+  Desktop Heroes (« plutôt positif ») : aimé : tourne en fond, pixel art. Reproché : demande trop d'attention (pas
+  vraiment idle, interruptions), boucle monotone, inventaire pénible (vente, ramassage), niveaux lents pour libérer
+  les héros, héros trop semblables. Demandé : ramassage automatique, prestige, équipement visible sur le héros.
+  Desktop Raid (« plutôt positif ») : aimé : développeur réactif, contenu créatif, variété classes/compétences.
+  Reproché : bugs (45), boss vaincu non comptabilisé (28), interface et guidage confus (22), descriptions de
+  compétences floues : effets, multiplicateurs (18), scintillement des menus. Demandé : combats enchaînés, équiper en
+  un clic, sauvegarde de secours, version macOS.
+  Déjà chez Sillwalker : combats enchaînés, équiper en un clic (déblocage), vente auto, sauvegarde de secours,
+  prestige, hors-ligne, taille du texte (Réglages), aucun achat ni collecte de données, équipement teinté sur le héros.
+  À FAIRE (tirées de l'étude, par priorité) :
+  a. P1 Bon voisin : consommation en fond (le reproche n° 1 des jeux de bande). Mesurer sous Windows ; envisager un
+     réglage « économie » (images/s plafonnées) visible dans Réglages ; vérifier que la bande cachée ne dessine rien.
+  b. P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
+     (ou les rendre discrètes) ; vérifier qu'aucune action n'est exigée pour progresser (vraiment idle).
+  c. P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
+     premier lancement guidé (bulles d'astuces) : vérifier sur une partie neuve que chaque mécanique est expliquée.
+  d. P2 Profondeur et variété (répétitif = reproche n° 1 de Rusty's) : les 10 nouveaux héros ont des arbres de
+     talents aux mêmes effets que leurs modèles (seuls les noms changent) : leur donner des effets propres ; plus
+     d'événements de zone et de mécaniques de boss.
+  e. P2 Rien qui repart à zéro sans contrepartie : l'ascension garde déjà l'essentiel ; l'écran d'ascension le dit
+     (fait) ; ne jamais ajouter de reset sans récompense visible.
+  f. P3 Équipement visible sur le héros (formes d'armes / casques, pas seulement des teintes).
+  g. P3 Lisibilité : taille de texte par défaut confortable, contraste ; scintillement des menus à surveiller.
+  h. Principes à garder : pas d'argent réel, pas de collecte de données, pas de héros payants, pas de baisse de butin
+     silencieuse (toute baisse annoncée dans les notes de version).
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
