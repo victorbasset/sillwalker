@@ -56,7 +56,7 @@ export class SettingsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Fenêtre")}</span></h2>
         <p class="note tight">${tx("Position de la bande")}</p>
         <div class="row seg">${["bottom", "top"].map((e) => `<button data-action="se-edge" data-v="${e}" aria-pressed="${(L.edge || "bottom") === e}">${e === "bottom" ? tx("En bas") : tx("En haut")}</button>`).join("")}</div>
-        <label class="range">${tx("Opacité")} <input type="range" min="10" max="100" step="5" value="${Math.round(opacity * 100)}" data-action="se-opacity-range"> <span>${Math.round(opacity * 100)}${unit("%")}</span></label>
+        <label class="range">${tx("Opacité")} <input type="range" min="5" max="100" step="5" value="${Math.round(opacity * 100)}" data-action="se-opacity-range"> <span>${Math.round(opacity * 100)}${unit("%")}</span></label>
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${tx("Lancer au démarrage de Windows")}</label>
         <p class="note">${tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
       </article>
@@ -99,7 +99,7 @@ export class SettingsTab {
     else if (a === "se-edge") this.api?.setWindowSettings({ edge: b.dataset.v });
     else if (a === "se-opacity") this.api?.setWindowSettings({ opacity: +b.dataset.v });
     // Relâché : b.blur() laisse les Réglages se redessiner à nouveau.
-    else if (a === "se-opacity-range") { this.opLocal = Math.min(1, Math.max(0.1, +b.value / 100)); this.api?.setWindowSettings({ opacity: this.opLocal }); b.blur(); }
+    else if (a === "se-opacity-range") { this.opLocal = Math.min(1, Math.max(0.05, +b.value / 100)); this.api?.setWindowSettings({ opacity: this.opLocal }); b.blur(); }
     else if (a === "se-login") { this.api?.setWindowSettings({ openAtLogin: b.checked }); this.win.openAtLogin = b.checked; }
     this.game.changed();
   }
