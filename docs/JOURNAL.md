@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 277) : contrôle en thème clair des onglets compactés aux it. 267-276 (Aventure avec le duo, Héros,
+  Familiers, Bestiaire, Boutique, Talents) : lisibles, aucune couleur claire en dur, rien à corriger.
 - 2026-11-09 (it. 276) : Talents sans défilement à 1920 px (59 px avant) : notes des cadres Voie et Maîtrises en ⓘ
   dans leur titre, lignes de talent un peu plus basses. 103/103.
 - 2026-11-09 (it. 275) : Boutique, sous-onglet Marchand (demande 18) : la grille gardait 4 colonnes alors que
