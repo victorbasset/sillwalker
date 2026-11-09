@@ -545,4 +545,11 @@ export default {
   1669: "Bolsa llena, objetos dejados en el suelo: {0}.",
   1670: "Bolsa llena: el próximo botín se quedará en el suelo",
   1671: "class=\"warn\" title=\"Bolsa llena: los objetos nuevos se quedan en el suelo. Vende o transmuta para hacer sitio.\"",
+  1672: "El Rompeestrellas",
+  1673: "¡El Rompeestrellas ha caído! El cielo vuelve a encenderse.",
+  1674: "El Rompeestrellas, derrotado una vez más.",
+  1675: "El Rompeestrellas ha caído",
+  1676: "El cielo reavivado",
+  1677: "El Rompeestrellas se desplomó en mil fragmentos de luz. Uno a uno, subieron de nuevo al cielo: esta noche, por primera vez en mil años, las estrellas brillan sobre el Alféizar. Los héroes son libres. Y tú sigues caminando: más allá del Alféizar, otras tierras esperan.",
+  1678: "¡El Rompeestrellas te espera!",
 };

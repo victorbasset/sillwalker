@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 222, demande 11 étape c) : le Briseur d'Étoiles, boss final de la zone 200 (story.js FINAL_BOSS :
+  PV ×2,5 et attaque ×1,25 par rapport à un boss ordinaire, capacités coup dévastateur + miroir + fureur ; nom et
+  capacités fournis par bosses.js, donc identiques dans la bande et le panneau Zone). Halo violet dans la bande.
+  Arrivée en zone 200 : bannière « Le Briseur d'Étoiles t'attend ! ». Première victoire : S.story.won (+ wonAt),
+  étape du Carnet, bannière dorée, son, moment en mode mini, et 9e chronique « Le ciel rallumé » (l'épilogue court) ;
+  le jeu continue en zone 201. Victoires suivantes : une simple ligne. Test, migration, save-fuzz, fuzz 600/0, 92/92.
+  À faire (étape d + demande 15) : vraie silhouette du Briseur, cinématique de la bande, générique de fin, succès.
 - 2026-11-09 (it. 221, demande 14 de Victor) : sac plein : le butin reste au sol, perdu (plus de vente ni d'échange
   automatique). Animation : l'objet retombe, clignote puis s'efface au lieu de voler vers le sac. Journal : ligne
   cumulée « Sac plein, objets laissés au sol : n. » ; un légendaire ou une amélioration perdu a sa propre ligne.
@@ -684,7 +691,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      déplié : dommage (checkHints n'affiche rien si panelOpen).
   10. FAIT (it. 215, DROP_CHANCE 0,12). Trop d'objets tombent encore (au-delà du tout début, où earlyPace ne joue plus) : réduire la chance de butin
       générale (DROP_CHANCE 0,35) sans casser la progression (balance.mjs, semaine simulée).
-  11. EN COURS (it. 217 : (a) intro ; it. 219 : (b) Chroniques) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
+  11. EN COURS (it. 217 : (a) intro ; it. 219 : (b) Chroniques ; it. 222 : (c) Briseur) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
       Univers : le Rebord (la bande au bord de l'écran), frontière entre le monde et le vide ; le Briseur d'Étoiles a
       fracassé le ciel (les éclats d'étoile du jeu) ; ses lieutenants (boss de zone) retiennent les héros (classes à
       libérer) ; le héros, dernier marcheur du Rebord, renaît plus fort à chaque ascension.

@@ -545,4 +545,11 @@ export default {
   1669: "Bolsa cheia, itens deixados no chão: {0}.",
   1670: "Bolsa cheia: o próximo saque ficará no chão",
   1671: "class=\"warn\" title=\"Bolsa cheia: os novos itens ficam no chão. Venda ou transmute para abrir espaço.\"",
+  1672: "O Quebra-Estrelas",
+  1673: "O Quebra-Estrelas foi derrotado! O céu se reacende.",
+  1674: "O Quebra-Estrelas, derrotado mais uma vez.",
+  1675: "O Quebra-Estrelas foi derrotado",
+  1676: "O céu reaceso",
+  1677: "O Quebra-Estrelas desabou em mil fragmentos de luz. Um a um, eles subiram de volta ao céu: esta noite, pela primeira vez em mil anos, as estrelas brilham sobre o Parapeito. Os heróis estão livres. E você continua caminhando: além do Parapeito, outras terras esperam.",
+  1678: "O Quebra-Estrelas espera por você!",
 };

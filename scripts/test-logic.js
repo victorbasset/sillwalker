@@ -29,13 +29,13 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { systemLang } from "../src/renderer/i18n/index.js";
-import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles } from "../src/renderer/game/story.js";
+import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
 import { approachTime, heroStats, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
-import { ZONES, MONSTERS } from "../src/renderer/game/data.js";
+import { ZONES, MONSTERS, KILLS_PER_ZONE } from "../src/renderer/game/data.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -1534,11 +1534,32 @@ test("chroniques : débloquées aux paliers, annoncées une seule fois ; parties
   assert.deepEqual(takeNewChronicles(S, 25).map((c) => c.id), ["captive", "shards"]);
   assert.deepEqual(takeNewChronicles(S, 25), [], "une seule annonce");
   S.prestige.count = 1; assert.deepEqual(takeNewChronicles(S, 25).map((c) => c.id), ["rebirth"]);
-  assert.equal(chroniclesUnlocked(S, 200).length, CHRONICLES.length);
+  assert.equal(chroniclesUnlocked(S, 200).length, CHRONICLES.length - 1, "« dawn » attend la victoire finale");
+  S.story.won = true; assert.equal(chroniclesUnlocked(S, 200).length, CHRONICLES.length);
   const old = JSON.parse(JSON.stringify(freshLocked())); delete old.story; old.best = 60;
   const m = migrate(old);
   assert.deepEqual(takeNewChronicles(m, 60), [], "déjà méritées : relisibles, pas de rafale");
   assert.equal(chroniclesUnlocked(m, 60).length, 4);
+});
+
+test("Briseur d'Étoiles : boss final de la zone 200, plus coriace, fin de l'histoire la première fois seulement", () => {
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = FINAL_ZONE - 1; const before = g.makeMonster(true);
+  g.S.zone = g.S.best = FINAL_ZONE; const fb = g.makeMonster(true);
+  assert.ok(fb.final && !before.final);
+  assert.deepEqual(fb.mech, FINAL_BOSS.mech);
+  assert.equal(fb.name, M_bosses_js.bossName(FINAL_ZONE));
+  assert.ok(fb.max > before.max * FINAL_BOSS.hp, "plus coriace que le boss précédent");
+  const ev = []; g.on("starbreaker", (e) => ev.push(e.first));
+  g.S.kills = KILLS_PER_ZONE; g.R.mon = fb; g.killMonster();
+  assert.ok(storyWon(g.S)); assert.deepEqual(ev, [true]);
+  assert.ok(g.S.journey.some((e) => e.k === "final"));
+  assert.equal(g.S.zone, FINAL_ZONE + 1, "le jeu continue au-delà");
+  g.S.zone = FINAL_ZONE; g.R.mon = g.makeMonster(true); g.killMonster();
+  assert.deepEqual(ev, [true, false], "les fois suivantes : pas de nouvelle fin");
+  assert.equal(g.S.journey.filter((e) => e.k === "final").length, 1);
+  const m = migrate(JSON.parse(JSON.stringify(g.S))); assert.equal(m.story.won, true);
+  const bad = JSON.parse(JSON.stringify(g.S)); bad.story.won = "oui"; assert.equal(migrate(bad).story.won, false);
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {

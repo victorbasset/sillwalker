@@ -7,6 +7,12 @@
 /** Zone du Briseur d'Étoiles, but final du jeu. */
 export const FINAL_ZONE = 200;
 
+/** Le Briseur d'Étoiles : boss de la zone FINAL_ZONE (première fois et suivantes), plus coriace qu'un boss ordinaire,
+ *  avec trois capacités. Vaincu une première fois : S.story.won (fin de l'histoire, gardée à l'ascension). */
+export const FINAL_BOSS = { name: "Le Briseur d’Étoiles", hp: 2.5, atk: 1.25, mech: ["smash", "mirror", "fury"] };
+export const isFinalZone = (z) => z === FINAL_ZONE;
+export const storyWon = (S) => !!(S.story && S.story.won);
+
 /** Introduction : trois bulles au tout premier lancement (passables d'un clic). */
 export const INTRO = [
   "Il y a mille ans, le Briseur d’Étoiles a fracassé le ciel. Ses éclats sont tombés sur le Rebord, la mince frontière entre le monde et le vide.",
@@ -15,7 +21,7 @@ export const INTRO = [
 ];
 
 /** Valeur par défaut de S.story : intro vue ou non, chroniques déjà annoncées. */
-export const freshStory = () => ({ intro: false, read: {} });
+export const freshStory = () => ({ intro: false, read: {}, won: false });
 
 /** L'introduction est-elle à montrer ? (tout premier lancement seulement) */
 export const introDue = (S) => !(S.story && S.story.intro);
@@ -40,6 +46,8 @@ export const CHRONICLES = [
     text: "Au-dessus de toi, une lueur traverse la nuit pour la première fois depuis mille ans. Le ciel se souvient. Le Briseur, lui, t’attend au bout du Rebord." },
   { id: "threshold", title: "Le seuil", when: (S, rec) => rec >= 190,
     text: "Le vent ne souffle plus. Les monstres fuient. Encore quelques pas, et tu feras face au Briseur d’Étoiles, en zone 200." },
+  { id: "dawn", title: "Le ciel rallumé", when: (S) => storyWon(S),
+    text: "Le Briseur d’Étoiles s’est effondré en mille éclats de lumière. Un à un, ils sont remontés vers le ciel : cette nuit, pour la première fois depuis mille ans, les étoiles brillent sur le Rebord. Les héros sont libres. Et toi, tu marches encore : au-delà du Rebord, d’autres terres attendent." },
 ];
 
 /** Chroniques débloquées (dans l'ordre). */

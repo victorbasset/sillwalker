@@ -545,4 +545,11 @@ export default {
   1669: "Tasche voll, am Boden liegen gelassen: {0}.",
   1670: "Tasche voll: Die nächste Beute bleibt am Boden liegen",
   1671: "class=\"warn\" title=\"Tasche voll: Neue Gegenstände bleiben am Boden liegen. Verkaufe oder transmutiere, um Platz zu schaffen.\"",
+  1672: "Der Sternenbrecher",
+  1673: "Der Sternenbrecher ist besiegt! Der Himmel entflammt aufs Neue.",
+  1674: "Der Sternenbrecher, ein weiteres Mal besiegt.",
+  1675: "Der Sternenbrecher ist besiegt",
+  1676: "Der neu entzündete Himmel",
+  1677: "Der Sternenbrecher zerfiel in tausend Lichtsplitter. Einer nach dem anderen stiegen sie zum Himmel empor: Heute Nacht leuchten zum ersten Mal seit tausend Jahren Sterne über dem Saum. Die Helden sind frei. Und du wanderst weiter: Jenseits des Saums warten andere Länder.",
+  1678: "Der Sternenbrecher erwartet dich!",
 };

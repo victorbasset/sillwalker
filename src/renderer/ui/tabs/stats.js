@@ -27,6 +27,7 @@ export function journeyText(e) {
   if (e.k === "cls") return tx("Héros libéré : {0}", { 0: (CLASSES[e.v] || {}).name || "?" });
   if (e.k === "asc") return tx("Ascension n° {0}", { 0: e.v });
   if (e.k === "set") return tx("Panoplie complétée : {0}", { 0: (SETS[e.v] || {}).name || "?" });
+  if (e.k === "final") return tx("Le Briseur d’Étoiles est vaincu");
   if (e.k === "start") return tx("Début du carnet : niveau {0}, record zone {1}", { 0: fmt(e.l || 1), 1: e.v });
   return "";
 }

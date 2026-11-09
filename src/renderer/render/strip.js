@@ -17,6 +17,7 @@ import { buildSpriteSet } from "./sprites.js";
 import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
+import { isFinalZone } from "../game/story.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
@@ -367,6 +368,7 @@ export class StripRenderer {
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss);
+      if (boss && isFinalZone(g.S.zone)) a.el.classList.add("final"); // le Briseur d'Étoiles
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
@@ -401,6 +403,7 @@ export class StripRenderer {
   makeCorpse(mon, x) {
     if (this.corpse) this.corpse.remove();
     const a = this.monsterActor(mon.type, mon.boss);
+    if (mon.final) a.el.classList.add("final");
     if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));

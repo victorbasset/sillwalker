@@ -10,7 +10,7 @@
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
 import { openTabs, tabReady } from "./tabs.js";
-import { takeNewChronicles } from "./story.js";
+import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js";
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
 export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
@@ -447,6 +447,9 @@ export class Game {
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
       mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null,
       name: boss ? bossName(this.S.zone) : null });
+    if (boss && isFinalZone(this.S.zone)) { // le Briseur d'Étoiles (story.js) : but final de l'histoire
+      mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
+    }
     const wear = boss ? bossWear(this.S, this.S.zone) : 0;
     if (wear) { mon.hp *= 1 - wear; mon.max = mon.hp; mon.worn = wear; } // usure : défaites précédentes contre ce boss
     this.applyAffix(mon);
@@ -601,6 +604,13 @@ export class Game {
       }
       this.freeHero(S.zone);
       R.deaths = 0;
+      if (m.final) { // le Briseur d'Étoiles vaincu : fin de l'histoire la première fois (le jeu continue)
+        const first = !storyWon(S);
+        (S.story ||= { intro: true, read: {} }).won = true;
+        if (first) { S.story.wonAt = Date.now(); this.milestone("final", 1); }
+        this.log(first ? tx("Le Briseur d’Étoiles est vaincu ! Le ciel se rallume.") : tx("Le Briseur d’Étoiles, vaincu une fois de plus."));
+        this.emit("starbreaker", { first });
+      }
       if (S.autoAdvance) {
         // Vrai record : au-delà de la meilleure zone de TOUTES les courses (pas seulement de celle-ci,
         // sinon chaque boss d'une course après ascension annonçait « Nouveau record ! »).

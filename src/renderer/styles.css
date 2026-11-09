@@ -723,3 +723,6 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .chron { padding: 4px 0 6px; border-bottom: 1px dashed var(--line); }
 .chron b { color: var(--accent); font-weight: normal; }
 .chron p { margin: 2px 0 0; font-size: 13px; color: var(--muted); line-height: 1.35; }
+/* Le Briseur d'Étoiles (boss final, zone 200) : silhouette violette et halo d'étoiles */
+.actor.final > img { filter: hue-rotate(250deg) saturate(1.6) brightness(0.85) drop-shadow(0 0 4px #b36bff) drop-shadow(0 0 10px #6a2cff); }
+.actor.final .bossname { color: #e3c6ff; text-shadow: 0 0 6px #8a3cff; }

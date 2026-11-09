@@ -545,4 +545,11 @@ export default {
   1669: "Torba pełna, przedmioty zostawione na ziemi: {0}.",
   1670: "Torba pełna: następny łup zostanie na ziemi",
   1671: "class=\"warn\" title=\"Torba pełna: nowe przedmioty zostają na ziemi. Sprzedaj lub transmutuj, aby zrobić miejsce.\"",
+  1672: "Łamacz Gwiazd",
+  1673: "Łamacz Gwiazd pokonany! Niebo znów rozbłyska.",
+  1674: "Łamacz Gwiazd, pokonany po raz kolejny.",
+  1675: "Łamacz Gwiazd pokonany",
+  1676: "Na nowo rozpalone niebo",
+  1677: "Łamacz Gwiazd rozpadł się na tysiąc odłamków światła. Jeden po drugim wzniosły się z powrotem ku niebu: tej nocy, po raz pierwszy od tysiąca lat, nad Krawędzią świecą gwiazdy. Bohaterowie są wolni. A ty wędrujesz dalej: za Krawędzią czekają inne ziemie.",
+  1678: "Łamacz Gwiazd na ciebie czeka!",
 };

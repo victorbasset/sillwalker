@@ -5,6 +5,7 @@
 //
 // Tout est animé par la boucle à 30 FPS (aucune animation CSS, qui tournerait
 // à la fréquence de l'écran) et n'existe que le temps de l'effet.
+import { isFinalZone } from "../game/story.js";
 import { SETS } from "../game/sets.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, fsp } from "../i18n/index.js";
@@ -77,9 +78,11 @@ export class Juice {
     g.on("zoneUp", ({ zone, record }) => {
       if (!record) return;
       // Grand palier (zone 50, 100, 150, 200…) : bannière dorée, plus marquante qu'un record ordinaire.
-      if (zone % 50 === 0) this.banner(`✦ ${tx("Cap franchi : zone {0} !", { 0: zone })}`, "#ffd34d", this.s.heroX + 120, true);
+      if (isFinalZone(zone)) this.banner(`✦ ${tx("Le Briseur d’Étoiles t’attend !")} ✦`, "#c99bff", this.s.heroX + 120, true);
+      else if (zone % 50 === 0) this.banner(`✦ ${tx("Cap franchi : zone {0} !", { 0: zone })}`, "#ffd34d", this.s.heroX + 120, true);
       else this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120);
     });
+    g.on("starbreaker", ({ first }) => { if (first) this.banner(`✦ ${tx("Le Briseur d’Étoiles est vaincu ! Le ciel se rallume.")} ✦`, "#ffd34d", this.s.heroX + 60, true); });
     g.on("setBonus", ({ id, n }) => { // panoplie : palier de 2 ou 4 pièces atteint
       const st = SETS[id]; if (!st) return;
       this.banner(`◆ ${tx("{0} : bonus {1} pièces !", { 0: st.name, 1: n })}`, st.color, this.s.heroX + 60, n >= 4);

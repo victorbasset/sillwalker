@@ -545,4 +545,11 @@ export default {
   1669: "Bag full, items left on the ground: {0}.",
   1670: "Bag full: the next loot will stay on the ground",
   1671: "class=\"warn\" title=\"Bag full: new items stay on the ground. Sell or transmute to make room.\"",
+  1672: "The Starbreaker",
+  1673: "The Starbreaker is defeated! The sky rekindles.",
+  1674: "The Starbreaker, defeated once more.",
+  1675: "The Starbreaker is defeated",
+  1676: "The rekindled sky",
+  1677: "The Starbreaker collapsed into a thousand shards of light. One by one, they rose back to the sky: tonight, for the first time in a thousand years, the stars shine over the Sill. The heroes are free. And you walk on: beyond the Sill, other lands await.",
+  1678: "The Starbreaker awaits you!",
 };
