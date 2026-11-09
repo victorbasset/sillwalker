@@ -18,6 +18,7 @@ import * as M_shop_js from "../src/renderer/game/shop.js";
 import * as M_quests_js from "../src/renderer/game/quests.js";
 import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
+import { fmt as fmtN, fmtShort as fmtS } from "../src/renderer/game/format.js";
 import { Game } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -970,6 +971,19 @@ test("sauvegarde d'une version plus récente du jeu : mise de côté, jamais éc
     st.write(JSON.stringify(freshLocked()));               // écritures suivantes : pas de nouvelle copie
     assert.equal(fs.readdirSync(dir).filter((f) => f.startsWith("save.newer-")).length, 1);
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+});
+
+test("grands nombres : suffixes au-delà du billion, puis notation scientifique", () => {
+  const before = getLang();
+  try {
+    setLang("en");
+    assert.equal(fmtN(1.113e22), "11.13Sx");
+    assert.equal(fmtN(5e15), "5.00Qa");
+    assert.equal(fmtN(4.3e12), "4.30T");
+    assert.equal(fmtN(2e40), "2.00e40");
+    assert.equal(fmtS(1.113e22), "11.1Sx");
+    assert.equal(fmtN(Infinity), "∞");
+  } finally { setLang(before); }
 });
 
 test("aucune nouvelle partie bloquée : 10 classes × 12 graines, 20 min chacune", () => {
