@@ -47,6 +47,7 @@ const LEFT = 24;            // position de départ du héros
 const RIGHT_MARGIN = 300;   // le boss (2× plus large) s'arrête avant l'or, le niveau et les boutons
 const FIGHTS = KILLS_PER_ZONE + 1;
 const HUD_L_W = 520, HUD_R_W = 260, HUD_H = 24;
+const CENTER_HUD_W = 2400; // au-delà : informations au milieu de la bande (écrans ultra-larges)
 
 export class StripRenderer {
   constructor(container, game, { rightReserve = 0 } = {}) {
@@ -174,10 +175,15 @@ export class StripRenderer {
       this.bubbleT -= dt;
       if (this.bubbleT <= 0) { this.bubble.hidden = true; mark("speech"); return; }
       let bx = q(x + this.hero.w / 2);
-      // En début de zone, la bulle passerait sur la pastille de zone (en haut à gauche) : on la décale à sa droite.
-      if (this.bubbleW && this.hudLRight && bx - this.bubbleW / 2 < this.hudLRight + 4) bx = q(this.hudLRight + 4 + this.bubbleW / 2);
-      // Près du bord droit : pas sur la pastille or / niveau.
-      if (this.bubbleW && this.hudRLeft && bx + this.bubbleW / 2 > this.hudRLeft - 4) bx = q(this.hudRLeft - 4 - this.bubbleW / 2);
+      if (this.centerHud && this.hudSpan && this.bubbleW) { // informations au milieu : la bulle passe à côté du bloc
+        const [a, b] = this.hudSpan, half = this.bubbleW / 2;
+        if (bx + half > a - 4 && bx - half < b + 4) bx = q(bx < (a + b) / 2 ? a - 4 - half : b + 4 + half);
+      } else {
+        // En début de zone, la bulle passerait sur la pastille de zone (en haut à gauche) : on la décale à sa droite.
+        if (this.bubbleW && this.hudLRight && bx - this.bubbleW / 2 < this.hudLRight + 4) bx = q(this.hudLRight + 4 + this.bubbleW / 2);
+        // Près du bord droit : pas sur la pastille or / niveau.
+        if (this.bubbleW && this.hudRLeft && bx + this.bubbleW / 2 > this.hudRLeft - 4) bx = q(this.hudRLeft - 4 - this.bubbleW / 2);
+      }
       if (bx !== this.bubbleX) { this.bubbleX = bx; this.bubble.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 30}px,0) translateX(-50%)`; mark("speech"); }
     } else if (this.game.R.mode === "walk" && Math.random() < dt / 240) {
       const night = this.nightLevel().night >= 0.8;
@@ -250,6 +256,12 @@ export class StripRenderer {
     sizeCanvas(this.hudR, HUD_R_W, HUD_H, dpr);
     this.skyKey = "";
     this.hudR.c.style.left = (this.W - HUD_R_W - this.rightReserve) + "px";
+    // Écran très large (Odyssey G9, demande 21) : zone, or, niveau et boutons regroupés au milieu, dans une languette
+    // qui déplie le panneau, au lieu des deux bouts de l'écran. Écrans ordinaires : inchangés.
+    this.centerHud = this.W >= CENTER_HUD_W;
+    this.root.classList.toggle("hud-center", this.centerHud);
+    document.body.classList.toggle("hud-center", this.centerHud); // bulles centrées elles aussi (styles.css)
+    if (!this.centerHud) { this.hudL.c.style.left = "0px"; const b = this.root.querySelector(".strip-btns"); if (b) b.style.left = ""; }
     this.layerKey = ""; this.hudLKey = ""; this.hudRKey = ""; this.slotKey = null;
   }
 
@@ -608,6 +620,7 @@ export class StripRenderer {
     const lw0 = ctx.measureText(label).width, rw = recTxt ? ctx.measureText(recTxt).width + 10 : 0;
     this.hudLRight = Math.min(HUD_L_W - 2, 14 + lw0 + 6 + KILLS_PER_ZONE * 9 + 18 + rw); // bord droit de la pastille (bulle du héros)
     drawPill(ctx, 3, this.hudLRight, HUD_H);
+    if (this.centerHud) { this.hudLX = Math.round(this.W / 2 - 6 - this.hudLRight); this.hudL.c.style.left = this.hudLX + "px"; this.placeTab(); }
     drawText(ctx, label, 10, 17, "#ffffff");
     ctx.font = FONT;
     let px = 14 + ctx.measureText(label).width + 6;
@@ -616,6 +629,16 @@ export class StripRenderer {
     ctx.fillStyle = S.kills >= KILLS_PER_ZONE ? "#ff6b5a" : "#6b3040"; ctx.fillRect(px + 2, 7, 10, 10);
     ctx.fillStyle = OUTLINE; ctx.fillRect(px + 4, 10, 2, 2); ctx.fillRect(px + 8, 10, 2, 2);
     if (recTxt) drawText(ctx, recTxt, px + 20, 17, recCol);
+  }
+
+  /** Mode centré : boutons après la pastille or / niveau ; languette cliquable sur les deux pastilles. */
+  placeTab() {
+    const L = (this.hudLX || 0) + 3, Rr = this.hudRRight || this.W / 2;
+    const btns = this.root.querySelector(".strip-btns"), tab = this.root.querySelector("#hud-tab");
+    if (btns) btns.style.left = (Rr + 6) + "px";
+    if (tab) { tab.style.left = L + "px"; tab.style.width = Math.max(0, Rr - L) + "px"; }
+    this.hudSpan = [L, Rr + 6 + (btns ? btns.offsetWidth : 60)];
+    if (this.onTab) this.onTab();
   }
 
   drawHudRight() {
@@ -629,6 +652,13 @@ export class StripRenderer {
     const lw = ctx.measureText(lvlTxt).width;
     const pillL = Math.max(2, right - 14 - lw - ctx.measureText(gt).width - 22);
     this.hudRLeft = this.W - HUD_R_W - this.rightReserve + pillL; // bord gauche de la pastille or / niveau (bulle du héros)
+    if (this.centerHud) { // pastille or / niveau juste à droite du milieu, puis les boutons
+      const x = Math.round(this.W / 2 + 6 - pillL);
+      this.hudR.c.style.left = x + "px";
+      this.hudRRight = x + HUD_R_W - 3;
+      this.hudRLeft = x + pillL;
+      this.placeTab();
+    }
     drawPill(ctx, pillL, HUD_R_W - 3, HUD_H);
     drawText(ctx, lvlTxt, right, 17, "#ffffff", "right");
     drawText(ctx, gt, right - 14 - lw, 17, "#ffd34d", "right");

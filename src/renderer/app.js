@@ -80,6 +80,7 @@ async function boot() {
     ["#panel", "aria-label", "Panneau de gestion"], ["#strip", "aria-label", "Le héros traverse la zone et combat"],
     ["#mini-btn", "title", "Réduire en mode mini"], ["#mini-btn", "aria-label", "Réduire en mode mini"],
     ["#menu-btn", "title", "Ouvrir le panneau (héros, sac, zone)"], ["#menu-btn", "aria-label", "Ouvrir le panneau de gestion"],
+    ["#hud-tab", "title", "Ouvrir le panneau (héros, sac, zone)"], ["#hud-tab", "aria-label", "Ouvrir le panneau de gestion"],
     ["#mini", "title", "Cliquer pour agrandir"], ["#mini-icon", "title", "Réduire en icône (zone de notification)"], ["#mini-icon", "aria-label", "Réduire en icône"],
     ["#mini-expand", "title", "Agrandir en bande"], ["#mini-expand", "aria-label", "Agrandir en bande"],
   ]) { const e = document.querySelector(sel); if (e) e.setAttribute(attr, tx(src)); }
@@ -176,6 +177,9 @@ async function boot() {
   }
   const togglePanel = () => (panelOpen ? closePanel() : openPanel());
   menuBtn.addEventListener("click", togglePanel);
+  // Languette du milieu (écran ultra-large) : un clic sur l'or, le niveau ou la zone déplie le panneau.
+  $("#hud-tab").addEventListener("click", togglePanel);
+  strip.onTab = () => clickThrough.refresh();
   document.addEventListener("keydown", (e) => {
     if (!panelOpen) return;
     if (e.key === "Escape") { panel.onEscape(); return; }

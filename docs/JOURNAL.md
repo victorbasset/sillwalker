@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 243, demande 21 de Victor, Odyssey G9 5120 px) : au-delà de 2400 px de large, la bande regroupe au
+  milieu la pastille de zone, la pastille or / niveau et les boutons (strip.js centerHud, placeTab) ; une
+  languette cliquable (#hud-tab, .hit) posée sur les pastilles déplie le panneau. Pièces et butin filent vers le
+  milieu ; les bulles du héros évitent le bloc central ; les bulles d'information sont centrées aussi. Écrans
+  ordinaires inchangés (capture 1920). Captures 5120 px. 98/98.
 - 2026-11-09 (it. 242, demande 18, début) : Bestiaire en sous-onglets : une seule section affichée (monstres par
   défaut, puis collection, pouvoirs, panoplies, capacités des boss, élites ; les sections pas encore rencontrées
   restent cachées), le dernier choix est gardé ; plus de longue page à faire défiler. Contrôle d'autotest, 98/98.
@@ -844,7 +849,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       familier avant l'onglet Familiers) ; vérifier aussi les autres récompenses (éclats d'étoile avant l'Ascension,
       élixirs avant la Boutique…).
   20. FAIT (it. 241). L'icône de la guilde (onglet Quêtes) ne plaît pas à Victor : dessiner un joli blason.
-  21. À FAIRE (2026-11-09, écran Samsung Odyssey G9, 5120 px) : en mode bande, les informations (or, niveau, zone,
+  21. FAIT (it. 243). Écran Samsung Odyssey G9 (5120 px) : en mode bande, les informations (or, niveau, zone,
       boutons) sont aux deux bouts de l'écran : fatigant à regarder. Les regrouper au milieu, juste au-dessus de la
       bande (ou en dessous si la bande est en haut), dans une languette qui sert aussi de bouton pour déplier le
       panneau.

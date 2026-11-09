@@ -61,8 +61,9 @@ export class Juice {
   get active() { return this.s.active; }
   get full() { return this.s.game.S.settings.fullEffects !== false; }
   ground() { return this.s.ground; }
-  goldTarget() { return { x: this.s.W - this.s.rightReserve - 80, y: 10 }; }
-  bagTarget() { return { x: this.s.W - 22, y: 12 }; }
+  // Mode centré (écran ultra-large) : les pièces et le butin filent vers le milieu, là où sont l'or et les boutons.
+  goldTarget() { return { x: this.s.centerHud ? this.s.W / 2 + 60 : this.s.W - this.s.rightReserve - 80, y: 10 }; }
+  bagTarget() { return { x: this.s.centerHud && this.s.hudSpan ? this.s.hudSpan[1] - 20 : this.s.W - 22, y: 12 }; }
 
   bind() {
     const g = this.s.game;
