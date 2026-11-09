@@ -4,6 +4,7 @@ import { shopIconURL } from "../../render/shopart.js";
 import { ACHIEVEMENTS, reachedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
 import { codexCounts } from "../../game/codex.js";
+import { SET_KEYS } from "../../game/sets.js";
 import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
 import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
@@ -57,6 +58,7 @@ export class StatsTab {
         ${line(tx("Potions bues"), fmt(st.potionsUsed || 0))}
         ${line(tx("Quêtes accomplies"), fmt(S.quests.completed || 0))}
         ${line(tx("Collection d’objets"), `${codexCounts(S).found} / ${codexCounts(S).total}`)}
+        ${line(tx("Panoplies"), `${Object.keys(S.setsDone || {}).length} / ${SET_KEYS.length}`)}
       </ul></article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("star", 3)}" alt="">${tx("Moments rares")}</span></h2><ul class="lines">
         ${line(tx("Plumes du vent"), fmt(st.feathers || 0))}
