@@ -927,6 +927,15 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
+  const S = freshLocked();
+  assert.equal(S.settings.theme, null);
+  S.settings.theme = "dark";
+  assert.equal(migrate(JSON.parse(JSON.stringify(S))).settings.theme, "dark");
+  const old = JSON.parse(JSON.stringify(freshLocked())); delete old.settings.theme; // sauvegarde d'avant ce réglage
+  assert.ok(!migrate(old).settings.theme, "ancienne sauvegarde : thème de Windows");
+});
+
 test("Astrolabe : ascension automatique seulement si débloquée, activée et bloquée près du record", () => {
   const mk = () => {
     const g = new Game(freshLocked());

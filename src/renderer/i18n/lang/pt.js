@@ -381,4 +381,8 @@ export default {
   1505: "Faz a ascensão sozinho quando o herói empaca perto do recorde (opção, a ativar).",
   1506: "Astrolábio: o herói estava empacado na zona {0}, ascensão automática (+{1} fragmentos de estrela).",
   1507: "Astrolábio: fazer a ascensão sozinho quando o herói empaca perto do recorde",
+  1508: "Tema do painel",
+  1509: "Automático (Windows)",
+  1510: "Claro",
+  1511: "Escuro",
 };

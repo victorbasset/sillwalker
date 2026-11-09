@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 ## Fait
 
+- 2026-11-09 (it. 25) : Réglages, choix du thème du panneau : automatique (celui de Windows), clair ou
+  sombre ; appliqué tout de suite et retenu. (Recherche d'autres « : » mal espacés : aucun trouvé.)
 - 2026-11-09 (it. 24) : mode mini, survoler les infos (niveau, or, zone) affiche le record à battre et le
   prochain déblocage avec sa progression ; avant, la bulle était sur une barre de 2 px, presque introuvable.
 - 2026-11-09 (it. 23) : nouveau déblocage de fin, l'« Astrolabe » (zone record 60) : il fait l'ascension tout

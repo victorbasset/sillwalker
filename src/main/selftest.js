@@ -275,6 +275,12 @@ async function runSelfTest(strip) {
   await click('[data-action="se-opacity"][data-v="0.7"]');
   await sleep(300);
   check("réglages : opacité appliquée par la fenêtre", strip.settings.get("opacity") === 0.7);
+  await click('[data-action="se-theme"][data-v="dark"]');
+  await sleep(150);
+  check("réglages : thème sombre choisi", (await js("document.documentElement.dataset.theme")) === "dark" && (await state("S.settings.theme")) === "dark");
+  await click('[data-action="se-theme"][data-v=""]');
+  await sleep(150);
+  check("réglages : retour au thème de Windows", !(await js("document.documentElement.dataset.theme || ''")) && (await state("S.settings.theme")) === null);
   await click(`[data-action="se-opacity"][data-v="${op0}"]`);
   await sleep(200);
   // Raccourci clavier : 0 ouvre l'onglet n° 10 (Statistiques)

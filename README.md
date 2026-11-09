@@ -59,7 +59,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Statistiques** : records, compteurs de l'aventure et liste des succès.
 - **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
-- **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo,
+- **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo, thème du panneau (Windows, clair, sombre),
   position, opacité, démarrage de Windows.
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
 - **Lueur stellaire** : chaque éclat d'étoile gagné renforce le héros pour toujours.

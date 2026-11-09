@@ -19,7 +19,7 @@ import { reachedAchievements, ACHIEVEMENTS } from "./game/achievements.js";
 import { fmt, esc } from "./game/format.js";
 import { StripRenderer } from "./render/strip.js";
 import { MiniRenderer } from "./render/mini.js";
-import { changes, applyUiScale } from "./render/dom.js";
+import { changes, applyUiScale, applyTheme } from "./render/dom.js";
 import { makeTrayIcons } from "./render/trayicons.js";
 import { Sound } from "./render/sound.js";
 import { nextHint, markHint } from "./ui/hints.js";
@@ -69,6 +69,7 @@ async function boot() {
 
   const body = document.body;
   applyUiScale(game.S.settings.uiScale);
+  applyTheme(game.S.settings.theme);
   const strip = new StripRenderer($("#strip"), game, { rightReserve: 64 });
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);

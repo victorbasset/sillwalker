@@ -381,4 +381,8 @@ export default {
   1505: "Samo wykonuje wzniesienie, gdy bohater utknie blisko rekordu (opcja do włączenia).",
   1506: "Astrolabium: bohater utknął w strefie {0}, automatyczne wzniesienie (+{1} odłamków gwiazd).",
   1507: "Astrolabium: samo wykonuj wzniesienie, gdy bohater utknie blisko rekordu",
+  1508: "Motyw panelu",
+  1509: "Automatyczny (Windows)",
+  1510: "Jasny",
+  1511: "Ciemny",
 };

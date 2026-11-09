@@ -1509,5 +1509,9 @@ export const KEYS = [
   "Astrolabe",
   "Fait l’ascension tout seul quand le héros bloque près de son record (option, à activer).",
   "Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{1} éclats d’étoile).",
-  "Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record"
+  "Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record",
+  "Thème du panneau",
+  "Automatique (Windows)",
+  "Clair",
+  "Sombre"
 ];

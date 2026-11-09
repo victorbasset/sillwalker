@@ -381,4 +381,8 @@ export default {
   1505: "Steigt selbstständig auf, wenn der Held nahe seinem Rekord feststeckt (Option, einzuschalten).",
   1506: "Astrolabium: Der Held steckte in Zone {0} fest, automatischer Aufstieg (+{1} Sternensplitter).",
   1507: "Astrolabium: selbstständig aufsteigen, wenn der Held nahe seinem Rekord feststeckt",
+  1508: "Design des Panels",
+  1509: "Automatisch (Windows)",
+  1510: "Hell",
+  1511: "Dunkel",
 };

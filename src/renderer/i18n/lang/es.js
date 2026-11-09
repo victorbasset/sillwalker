@@ -381,4 +381,8 @@ export default {
   1505: "Asciende por sí solo cuando el héroe se atasca cerca de su récord (opción, a activar).",
   1506: "Astrolabio: el héroe estaba atascado en la zona {0}, ascensión automática (+{1} fragmentos de estrella).",
   1507: "Astrolabio: ascender solo cuando el héroe se atasca cerca de su récord",
+  1508: "Tema del panel",
+  1509: "Automático (Windows)",
+  1510: "Claro",
+  1511: "Oscuro",
 };
