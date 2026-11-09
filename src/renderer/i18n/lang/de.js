@@ -375,4 +375,6 @@ export default {
   1499: "Aufstieg",
   1500: "angetroffene Elite-Gegner",
   1501: "Köder der Champions",
+  1502: "alle",
+  1503: "{0} T",
 };

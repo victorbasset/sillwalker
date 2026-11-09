@@ -375,4 +375,6 @@ export default {
   1499: "ascension",
   1500: "elites encountered",
   1501: "Champions' Lure",
+  1502: "all",
+  1503: "{0} d",
 };

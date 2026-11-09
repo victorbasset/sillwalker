@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 ## Fait
 
+- 2026-11-09 (it. 22) : deux textes français cachés dans des cas rares traduits : le bouton « tout » des
+  Maîtrises (talents) et l'abréviation des jours dans le temps de jeu (« 3 d 4 h » en anglais, pas « 3 j »).
 - 2026-11-09 (it. 21, revue générale + correction) : en thème clair, d'autres textes trop pâles redeviennent
   lisibles : récompenses spéciales des quêtes (œuf, éclats), couleurs du journal (légendaire, rare…),
   expéditions terminées, avertissements, or de la boutique, effets des constellations. « 1 éclat d'étoile »

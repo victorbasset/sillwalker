@@ -1503,5 +1503,7 @@ export const KEYS = [
   "(actuelle)",
   "ascension",
   "élites rencontrées",
-  "Appât des champions"
+  "Appât des champions",
+  "tout",
+  "{0} j"
 ];

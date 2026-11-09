@@ -375,4 +375,6 @@ export default {
   1499: "wzniesienie",
   1500: "napotkane elity",
   1501: "Przynęta na czempionów",
+  1502: "wszystko",
+  1503: "{0} d",
 };

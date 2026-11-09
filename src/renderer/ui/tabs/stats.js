@@ -14,7 +14,7 @@ const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String
 const dur = (s) => {
   s = Math.floor(s || 0);
   const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
-  return (d ? d + " j " : "") + (d || h ? h + " h " : "") + m + " min";
+  return (d ? tx("{0} j", { 0: d }) + " " : "") + (d || h ? h + " h " : "") + m + " min";
 };
 
 export class StatsTab {

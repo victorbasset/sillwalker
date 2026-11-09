@@ -51,7 +51,7 @@ export class TalentsTab {
       const can = !cannotLearn(S, m.id);
       return `<button class="${["talent", "mastery", locked ? "locked" : "", r ? "has" : "", can ? "can" : "", this.sel === m.id ? "sel" : ""].join(" ")}" data-action="t-learn" data-n="1" data-id="${m.id}" data-tid="${m.id}">
         <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace(tx("Maîtrise : "), "")))}</span><span class="tr">${locked ? "🔒 " + txn(MASTERY_REQ, "{n} pt|{n} pts") : tx("rang {0}", { 0: r })}</span>
-        ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">tout</span>` : ""}</button>`;
+        ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">${tx("tout")}</span>` : ""}</button>`;
     }).join("");
     const extra = `<article class="panel tbranch tvoie"><h2>${tx("Voie")} <small>${voie ? tx("choisie") : `${tx("dès {0} pts", { 0: VOIE_REQ })}`}</small></h2>${voies}
         <p class="note">${tx("Une seule voie par classe. Pour en changer : réinitialiser les talents.")}</p></article>

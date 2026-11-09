@@ -375,4 +375,6 @@ export default {
   1499: "ascensão",
   1500: "elites encontradas",
   1501: "Isca dos campeões",
+  1502: "tudo",
+  1503: "{0} d",
 };
