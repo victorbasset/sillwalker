@@ -471,6 +471,9 @@ async function runSelfTest(strip) {
   await new Promise((r) => setTimeout(r, 400));
   const gone = await js("!document.querySelector('.cine')");
   check("cinématiques : intro, arrivée, victoire, générique et chronique jouées, un clic les passe", cin === "true true true true true true" && gone === true, cin + " / " + gone);
+  // Carte du Rebord : 200 tronçons de zone, le héros, les héros prisonniers ; infobulle au survol d'une zone.
+  const mp = await js("(() => { const S = window.__game.S, P = window.__panel; S.tabsOpen.map = true; P.setTab('map'); P.renderAll(); const z = document.querySelectorAll('svg.rebord .mz').length, h = !!document.querySelector('svg.rebord .mhero'), c = document.querySelectorAll('svg.rebord .mmark').length; const g = document.querySelector('svg.rebord .mz'); g.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); const t = document.querySelector('#panel .gtip'); const tip = !!(t && !t.hidden && /1/.test(t.textContent)); g.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })); P.setTab('adventure'); return [z, h, c, tip].join(' '); })()");
+  check("carte du Rebord : 200 zones, héros, prisonniers, infobulle", mp === "200 true 9 true", mp);
   // Chroniques de l'histoire : bloc repliable dans la carte du héros, au moins « Le ciel brisé ».
   const ch = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('.chronbox'); return d ? d.querySelectorAll('.chron').length : -1; })()");
   check("chroniques : bloc présent dans la carte du héros, au moins une chronique", ch >= 1, ch);

@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 226, demande 13 de Victor) : Carte du Rebord, nouvel onglet (ui/tabs/map.js, ouvert en zone 12,
+  entre Classe et Bestiaire ; raccourci « - », Réglages passent à « = » ; l'Aventure prend l'icône d'épée, la Carte
+  celle de la carte). SVG en pixels : une rangée par boucle des 33 décors, en serpentin jusqu'à la zone 200, chaque
+  zone un tronçon ciel + sol aux couleurs de son décor ; liaisons dorées entre rangées parcourues. Repères : héros
+  prisonniers (portrait en cage à la zone de leur boss, encadré d'or une fois libéré), chroniques (parchemin ou
+  « ? »), héros habillé à sa zone, drapeau du record, forteresse du Briseur d'Étoiles au bout (grisée une fois
+  vaincu) et « Au-delà du Rebord : zone N » ensuite. Ciel : 6 étoiles par chronique découverte, rempli après la
+  victoire. Brouillard au-delà du record (les 3 zones suivantes se devinent). Infobulle au survol : zone, décor,
+  boss, texte de la chronique, héros. Résumé : record / 200, héros libérés, chroniques. Toujours sombre (image).
+  tab-pace : talents 1, quêtes 5, boutique 8, classe 10, carte 12, bestiaire 14 min. Autotest 95/95, captures.
 - 2026-11-09 (it. 225, demande 15) : cinématique de chronique (5 s) : la bande s'assombrit, le ciel montre une
   étoile par chronique déjà découverte (positions fixes d'une fois à l'autre), la nouvelle s'allume au centre ;
   « 📜 Titre » et « Chronique n / 9 », trois notes cristallines. Le ciel se rallume ainsi peu à peu jusqu'à la
@@ -727,7 +737,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       du Rebord » (le jeu continue). 10 langues, autotest, captures ; parties existantes : chroniques déjà méritées.
   12. FAIT (it. 218). Clic sur un objet : le détail s'ouvre à la place du panneau Équipement ; Victor le veut dans l'espace sous le
       sac (quitte à réduire des éléments du panneau Sac pour que ça tienne).
-  13. Carte interactive et jolie du Rebord : voir son avancement dans le jeu et dans l'histoire (zones, biomes,
+  13. FAIT (it. 226). Carte interactive et jolie du Rebord : voir son avancement dans le jeu et dans l'histoire (zones, biomes,
       boss/lieutenants, héros libérés, chroniques placées sur le chemin, Briseur d'Étoiles en zone 200 au bout).
       Idée : onglet ou fenêtre « Carte » dessinée en pixel art (chemin sinueux, repères cliquables, brouillard sur
       ce qui n'est pas encore atteint), à faire après le Briseur et la fin (demande 11), qu'elle mettra en valeur.

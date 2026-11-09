@@ -129,6 +129,10 @@ export function dressedPortraitURL(cls, visual) {
 
 const portraitCache = {};
 /** Portrait d'une classe (data URL) pour l'interface. */
+/** Le Briseur d'Étoiles en petite image (carte du Rebord). */
+let sbURL = null;
+export function starbreakerURL() { return (sbURL ||= buildSprite(STARBREAKER_ART.frames[0], STARBREAKER_ART.pal, 3, true, 1).toDataURL()); }
+
 export function classPortraitURL(cls) {
   if (!portraitCache[cls]) {
     const art = CLASS_ART[cls];

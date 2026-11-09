@@ -17,6 +17,7 @@ export const TAB_GATES = {
   pets:      { label: "Familiers", zone: 25, desc: "Des compagnons qui suivent ton héros et le renforcent." },
   skills:    { label: "Compétences", hint: "skills", zone: 30, desc: "L’arbre de compétences : 1 point tous les 2 niveaux." },
   stats:     { label: "Statistiques", zone: 40, desc: "Tes records et tes chiffres." },
+  map:       { label: "Carte", zone: 12, desc: "La carte du Rebord : ton voyage, les héros prisonniers et l’histoire." },
 };
 for (const g of Object.values(TAB_GATES)) g.when = (S) => recordZone(S) >= g.zone || (g === TAB_GATES.pets && Object.keys(S.pets.owned || {}).length > 0);
 

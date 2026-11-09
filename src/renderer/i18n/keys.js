@@ -1692,5 +1692,15 @@ export const KEYS = [
   "Imaginé par Victor Basset",
   "Merci d’avoir joué !",
   "Le voyage continue au-delà du Rebord…",
-  "Chronique {0} / {1}"
+  "Chronique {0} / {1}",
+  "Carte",
+  "La carte du Rebord : ton voyage, les héros prisonniers et l’histoire.",
+  "Héros prisonnier : {0} (boss de la zone {1})",
+  "Un héros prisonnier attend ici.",
+  "Chronique à découvrir en zone {0}",
+  "Ton héros : zone {0}",
+  "Au-delà du Rebord : zone {0}",
+  "Carte du Rebord",
+  "survole un lieu",
+  "Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."
 ];

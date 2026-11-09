@@ -23,6 +23,7 @@ import { AscensionTab } from "./tabs/ascension.js";
 import { BestiaryTab } from "./tabs/bestiary.js";
 import { SkillsTab } from "./tabs/skills.js";
 import { StatsTab } from "./tabs/stats.js";
+import { MapTab } from "./tabs/map.js";
 import { SettingsTab } from "./tabs/settings.js";
 import { POWER_INDEX } from "../game/powers.js";
 import { describeEffects } from "../game/talents.js";
@@ -51,7 +52,7 @@ export const power = (it, equip) => {
   return out;
 };
 const TABS = [
-  { id: "adventure", label: tx("Aventure"), icon: "map" },
+  { id: "adventure", label: tx("Aventure"), icon: "ws_atk" },
   { id: "talents", label: tx("Talents"), prefix: "t-", icon: "star" },
   { id: "skills", label: tx("Compétences"), prefix: "k-", icon: "target" },
   { id: "quests", label: tx("Quêtes"), prefix: "q-", icon: "fortune" },
@@ -61,6 +62,7 @@ const TABS = [
   { id: "ascension", label: tx("Ascension"), prefix: "a-", icon: "wisdom" },
   { id: "bestiary", label: tx("Bestiaire"), prefix: "b-", icon: "book" },
   { id: "stats", label: tx("Statistiques"), prefix: "st-", icon: "trophy" },
+  { id: "map", label: tx("Carte"), prefix: "m-", icon: "map" },
   { id: "settings", label: tx("Réglages"), prefix: "se-", icon: "gear" },
 ];
 const n1 = (v) => dec((Math.round(v * 10) / 10).toString());
@@ -105,7 +107,7 @@ export class Panel {
     this.tab = "adventure";
     this.tabs = {
       talents: new TalentsTab(game), skills: new SkillsTab(game), quests: new QuestsTab(game), shop: new ShopTab(game), pets: new PetsTab(game),
-      class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game),
+      class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game), map: new MapTab(game),
       settings: new SettingsTab(game, settings),
     };
     this.dirty = true;
@@ -127,7 +129,7 @@ export class Panel {
     this.root.innerHTML = `
       <header class="ptop">
         <h1>Sillwalker</h1>
-        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(t.label + " · " + tx("Raccourci : {0}", { 0: "1234567890-"[i] }))}" aria-label="${esc(t.label)}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt=""><span class="tlabel">${t.label}</span><span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
+        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(t.label + " · " + tx("Raccourci : {0}", { 0: "1234567890-="[i] }))}" aria-label="${esc(t.label)}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt=""><span class="tlabel">${t.label}</span><span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
         <div class="controls">
           ${dev}
           <button data-action="mini" class="quiet" title="${esc(tx("Réduire en petit encart près de l’horloge"))}">${tx("Mode mini")}</button>
@@ -754,7 +756,7 @@ export class Panel {
   }
 
   /**
-   * Raccourcis clavier (panneau ouvert) : 1-9 et 0 = onglets, - = Réglages,
+   * Raccourcis clavier (panneau ouvert) : 1-9, 0 et - = onglets, = = Réglages,
    * E = équiper le meilleur, V = vendre ce qui n'améliore pas, T = transmuter.
    * Renvoie true si la touche a été utilisée.
    */
@@ -764,7 +766,7 @@ export class Panel {
       if (e.key === "Enter") { const fn = this.confirmFn; this.closeConfirm(); fn?.(); return true; }
       return false;
     }
-    const order = "1234567890-";
+    const order = "1234567890-=";
     const i = order.indexOf(e.key);
     if (i >= 0 && TABS[i] && tabOpen(this.game.S, TABS[i].id)) { this.setTab(TABS[i].id); return true; }
     const k = e.key.toLowerCase();

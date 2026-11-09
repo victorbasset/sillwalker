@@ -28,25 +28,25 @@ export const introDue = (S) => !(S.story && S.story.intro);
 export function markIntro(S) { (S.story ||= freshStory()).intro = true; }
 
 /** Chroniques : fragments de l'histoire débloqués à des paliers, relisibles dans la carte du héros.
- *  when(S, rec) : rec = record de zone de toutes les courses. */
+ *  when(S, rec) : rec = record de zone de toutes les courses ; zone : où la placer sur la carte (ui/tabs/map.js). */
 export const CHRONICLES = [
-  { id: "sky", title: "Le ciel brisé", when: () => true,
+  { id: "sky", zone: 1, title: "Le ciel brisé", when: () => true,
     text: "Il y a mille ans, le Briseur d’Étoiles a fracassé le ciel. Ses éclats sont tombés sur le Rebord, la mince frontière entre le monde et le vide. Depuis, la nuit n’a plus d’étoiles." },
-  { id: "captive", title: "Le premier captif", when: (S, rec) => rec >= 10,
+  { id: "captive", zone: 10, title: "Le premier captif", when: (S, rec) => rec >= 10,
     text: "Derrière le boss vaincu, une cage s’ouvre : un autre héros, vivant. Le Briseur n’a pas tué les marcheurs du Rebord ; il les a confiés à ses lieutenants. Tous peuvent être libérés." },
-  { id: "shards", title: "Les éclats", when: (S, rec) => rec >= 25,
+  { id: "shards", zone: 25, title: "Les éclats", when: (S, rec) => rec >= 25,
     text: "Les éclats d’étoile ne sont pas des pierres : ce sont des morceaux de ciel qui se souviennent d’avoir brillé. Rassemblés, ils rendent leur force à qui les porte." },
   { id: "rebirth", title: "Renaissance", when: (S) => (S.prestige.count || 0) > 0,
     text: "Tu es tombé, et tu t’es relevé au premier pas du Rebord, plus fort. Les étoiles rallumées veillent sur toi : chaque renaissance te rapproche du Briseur." },
-  { id: "bastion", title: "Le Bastion noir", when: (S, rec) => rec >= 50,
+  { id: "bastion", zone: 50, title: "Le Bastion noir", when: (S, rec) => rec >= 50,
     text: "Les lieutenants tiennent le Rebord depuis leurs bastions. Plus tu avances, plus ils se méfient : le Briseur sait désormais que quelqu’un marche vers lui." },
-  { id: "beyond", title: "Au-delà des cartes", when: (S, rec) => rec >= 100,
+  { id: "beyond", zone: 100, title: "Au-delà des cartes", when: (S, rec) => rec >= 100,
     text: "Plus aucune carte ne décrit ces terres. Les zones se répètent, déformées, comme si le Rebord se repliait sur lui-même à l’approche du Briseur." },
-  { id: "crack", title: "Le ciel se fissure", when: (S, rec) => rec >= 150,
+  { id: "crack", zone: 150, title: "Le ciel se fissure", when: (S, rec) => rec >= 150,
     text: "Au-dessus de toi, une lueur traverse la nuit pour la première fois depuis mille ans. Le ciel se souvient. Le Briseur, lui, t’attend au bout du Rebord." },
-  { id: "threshold", title: "Le seuil", when: (S, rec) => rec >= 190,
+  { id: "threshold", zone: 190, title: "Le seuil", when: (S, rec) => rec >= 190,
     text: "Le vent ne souffle plus. Les monstres fuient. Encore quelques pas, et tu feras face au Briseur d’Étoiles, en zone 200." },
-  { id: "dawn", title: "Le ciel rallumé", when: (S) => storyWon(S),
+  { id: "dawn", zone: 200, title: "Le ciel rallumé", when: (S) => storyWon(S),
     text: "Le Briseur d’Étoiles s’est effondré en mille éclats de lumière. Un à un, ils sont remontés vers le ciel : cette nuit, pour la première fois depuis mille ans, les étoiles brillent sur le Rebord. Les héros sont libres. Et toi, tu marches encore : au-delà du Rebord, d’autres terres attendent." },
 ];
 

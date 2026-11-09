@@ -739,3 +739,30 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .cine-skip { position: absolute; right: 320px; bottom: 6px; font: 11px "Pixelify Sans", monospace; color: #8a86a8; }
 .cine.intro, .cine.credits, .cine.chronicle { background: linear-gradient(#05030f 0%, #120a2e 65%, rgba(18, 10, 46, 0.7) 100%); }
 .cine.intro .cine-title { font-size: 28px; letter-spacing: 4px; text-transform: uppercase; color: #ffe27a; }
+/* Carte du Rebord (ui/tabs/map.js) : toujours sombre, comme la bande (c'est une image) */
+.mapwrap { overflow-x: auto; border-radius: 6px; background: linear-gradient(#070414, #140b30 70%, #1d1240); border: 1px solid var(--line); padding: 6px; }
+svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; height: auto; display: block; font-family: "Pixelify Sans", monospace; }
+.rebord .mstar { fill: #ffe27a; opacity: 0.8; }
+.rebord .mlink { fill: #3a3358; } .rebord .mlink.lit { fill: #c9a03a; }
+.rebord .mz rect { stroke: #0d0a1c; stroke-width: 1; }
+.rebord .mz.near { opacity: 0.45; filter: grayscale(0.6); }
+.rebord .mz.fog { opacity: 0.16; filter: grayscale(1); }
+.rebord .mz:hover rect { stroke: #ffe27a; }
+.rebord .mz.here rect { stroke: #ffe27a; stroke-width: 2; }
+.rebord .mnum { fill: #8a86a8; font-size: 8px; text-anchor: middle; }
+.rebord .mcage { fill: #1d1838; stroke: #5c5680; stroke-width: 1; }
+.rebord .mmark.on .mcage { fill: #2c2410; stroke: #ffd34d; }
+.rebord .caged { opacity: 0.45; filter: grayscale(1); }
+.rebord .mbars { stroke: #9a96b8; stroke-width: 1.5; }
+.rebord .mchron rect { fill: #2a2540; stroke: #6a6488; }
+.rebord .mchron text { fill: #8a86a8; font-size: 8px; text-anchor: middle; }
+.rebord .mchron.on rect { fill: #e8d8b0; stroke: #a8884a; } .rebord .mchron.on text { fill: #6a4a1a; }
+.rebord .mfinal image { filter: drop-shadow(0 0 3px #b36bff); }
+.rebord .mfinal.won image { filter: grayscale(1) brightness(0.6); }
+.rebord .mfname { fill: #e3c6ff; font-size: 9px; text-anchor: middle; }
+.rebord .mfinal.won .mfname { fill: #ffe27a; }
+.rebord .mflag rect { fill: #e8e4ff; } .rebord .mflag .cloth { fill: #e2394a; }
+.rebord .mbeyond { fill: #ffe27a; font-size: 9px; text-anchor: middle; }
+.rebord image { image-rendering: pixelated; }
+.mapsum { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 4px 0 8px; }
+.mappanel { grid-column: 1 / -1; }
