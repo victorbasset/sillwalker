@@ -220,14 +220,20 @@ export class Panel {
     this.fitTabs();
   }
 
-  /** Onglets trop larges pour une ligne (langues aux mots longs, petit écran) :
-   *  seuls l'onglet ouvert garde son nom, les autres n'affichent que leur icône. */
+  /** Onglets trop larges pour une ligne (langues aux mots longs, petit écran), par paliers :
+   *  marges resserrées, puis sans icônes (le nom dit plus que l'icône), et en dernier recours
+   *  seul l'onglet ouvert garde son nom, les autres n'affichent que leur icône. */
   fitTabs() {
     const nav = this.root.querySelector(".tabs"), top = this.root.querySelector(".ptop");
     if (!nav || !top || !top.offsetWidth) return;
-    nav.classList.remove("compact");
+    const steps = ["tight", "noicon", "compact"];
+    nav.classList.remove(...steps);
     const wraps = () => { const b = [...nav.querySelectorAll("button")]; return b.length && b[b.length - 1].offsetTop > b[0].offsetTop + 4 || nav.offsetTop > top.firstElementChild.offsetTop + 8 || top.querySelector(".controls").offsetTop > nav.offsetTop + 8; };
-    if (wraps()) nav.classList.add("compact");
+    for (const s of steps) {
+      if (!wraps()) return;
+      if (s === "compact") nav.classList.remove("noicon"); // icônes seules : on les rend
+      nav.classList.add(s);
+    }
   }
 
   /** Ouverture d'un coffre : le coffre tremble, s'ouvre, l'objet jaillit avec la couleur de sa rareté. */

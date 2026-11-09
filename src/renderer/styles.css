@@ -679,3 +679,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .sellrow { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; }
 .sellrow > span { color: var(--muted); }
 .sellrow .toggle { margin: 0; }
+/* Onglets trop larges : paliers avant de n'afficher que les icônes (fitTabs) */
+.tabs.tight { gap: 2px; }
+.tabs.tight button { padding: 4px 6px; }
+.tabs.noicon button .ticon { display: none; }
