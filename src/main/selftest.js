@@ -86,6 +86,10 @@ async function runSelfTest(strip) {
   await sleep(300);
   const miniTip = await js("(document.querySelector('#mini .mini-info') || {}).title || ''");
   check("mode mini : bulle d'aide (prochain déblocage, agrandir)", miniTip.split("\n").length >= 2, JSON.stringify(miniTip));
+  await js("window.__game.emit('zoneUp', { zone: 99, record: true })");
+  await sleep(200);
+  check("mode mini : moment marquant (record) affiché", await js("document.querySelector('#mini').classList.contains('moment') && !document.querySelector('#mini .minimoment').hidden && document.querySelector('#mini .minimoment').textContent.includes('99')"));
+  if (process.env.SELFTEST_SHOT4) require("fs").writeFileSync(process.env.SELFTEST_SHOT4, (await wc.capturePage()).toPNG());
   check("encart mini visible", await js("!document.getElementById('mini').hidden && document.getElementById('strip').hidden"));
   // Étoile filante en mode mini
   await js("window.__pause = false; window.__game.R.starT = 0.01");

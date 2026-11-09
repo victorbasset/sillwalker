@@ -1,6 +1,7 @@
 // Mode mini : petit encart près de l'horloge. Le héros à gauche, le monstre
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { t as tx, fsp } from "../i18n/index.js";
+import { itemName } from "../i18n/data.js";
 import { PIXEL as P } from "./art.js";
 import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
@@ -37,6 +38,12 @@ export class MiniRenderer {
     game.on("heroAttack", () => { this.lunge = 0.15; this.monHit = 0.12; });
     game.on("heroHurt", () => { this.flash = 0.12; });
     game.on("tap", () => { this.monHit = 0.12; });
+    // Moments marquants, sobres : un liseré doré et un mot sur la scène pendant quelques secondes, une seule fois.
+    this.moment = el("div", "minimoment", this.scene);
+    this.moment.hidden = true;
+    game.on("loot", ({ item }) => { if (item && item.r >= 4) this.showMoment("★ " + tx("Légendaire") + fsp() + "!", itemName(item)); });
+    game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(tx("Nouveau record : zone {0} !", { 0: zone })); });
+    game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })));
     // Clic sur le monstre combattu : coup bonus (sans agrandir l'encart).
     this.tap = el("button", "minitap", this.root);
     this.tap.hidden = true;
@@ -69,6 +76,17 @@ export class MiniRenderer {
     const on = !!text;
     if (this.hintDot.hidden === on) { this.hintDot.hidden = !on; mark("hud"); }
     if (on) this.hintDot.title = tx("Un conseil t’attend : clique pour agrandir.") + "\n" + text;
+  }
+
+  /** Moment marquant : texte sur la scène et liseré doré (4 s), sans boucle ni clignotement. */
+  showMoment(text, title) {
+    clearTimeout(this.momentTimer);
+    this.moment.textContent = text;
+    this.moment.title = title || "";
+    this.moment.hidden = false;
+    this.root.classList.remove("moment"); void this.root.offsetWidth; this.root.classList.add("moment");
+    mark("moment");
+    this.momentTimer = setTimeout(() => { this.moment.hidden = true; this.root.classList.remove("moment"); mark("moment"); }, 4000);
   }
 
   setActive() { this.lastDraw = 0; }

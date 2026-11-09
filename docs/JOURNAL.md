@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 51).
 
 ## Fait
 
+- 2026-11-09 (it. 42) : le mode mini marque enfin les grands moments (légendaire, nouveau record, ascension) :
+  un mot sur la scène et un liseré doré pendant 4 s, une seule fois.
+  Vérifié : la courbe d'expérience ne fige pas les niveaux en vraie partie (niveau ≈ 1,35 × zone, remis à zéro à
+  l'ascension) ; le niveau 263 de la sauvegarde de test était un artefact. Rien à changer.
 - 2026-11-09 (it. 41, revue générale + correction) : les très grands nombres s'affichent enfin proprement :
   « 11,13 Sx » au lieu de « 11130545777,47 T » (suffixes Qa, Qi, Sx, Sp, Oc, No, Dc, puis notation scientifique).
   Revue : 600 nouvelles parties sans blocage, performance stable, simulations plus régulières qu'à la revue 31.
@@ -109,9 +113,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 51).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P2 Courbe d'expérience (revue it. 41) : xpNeed = 20 × 1,2^(niveau−1) ; au niveau 263 il faut 1,1e22 PX pour quelques
-  millions gagnés : les niveaux se figent à haut niveau (plus de points de talent ni de compétence). Étudier une courbe
-  qui ralentit sans bloquer (polynomiale au-delà d'un seuil ?), en vérifiant l'équilibrage sur 10 classes.
 - P3 Berserker (simulation 12 h, revue it. 41) : 3 courses à la zone 54 avant 58 ; l'usure des boss aide mais lentement.
 
 
