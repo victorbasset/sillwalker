@@ -29,7 +29,8 @@ export class SettingsTab {
     // processus principal ; sans cela le curseur revenait à l'ancienne valeur, signalé par Victor).
     if (this.opLocal != null && Math.abs((L.opacity ?? 1) - this.opLocal) < 0.001) this.opLocal = null;
     const opacity = this.opLocal ?? (L.opacity ?? 1);
-    const check = (key, label, help) => `<label class="toggle"><input type="checkbox" data-action="se-toggle" data-key="${key}"${P[key] ? " checked" : ""}> ${esc(label)}</label>${help ? `<p class="note tight">${esc(help)}</p>` : ""}`;
+    // L'aide de chaque case passe en infobulle (demande 18 : Réglages sans défilement).
+    const check = (key, label, help) => `<label class="toggle"${help ? ` title="${esc(help)}"` : ""}><input type="checkbox" data-action="se-toggle" data-key="${key}"${P[key] ? " checked" : ""}> ${esc(label)}${help ? ` <span class="note help">ⓘ</span>` : ""}</label>`;
     el.innerHTML = `<div class="setgrid">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">Language / Langue</span></h2>
         <div class="langs">${LANGS.map((l) => `<button data-action="se-lang" data-v="${l.id}" aria-pressed="${getLang() === l.id}">${esc(l.name)}</button>`).join("")}</div>
@@ -63,9 +64,9 @@ export class SettingsTab {
         <p class="note tight">${tx("Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.")}</p>
         <div class="row"><button data-action="reset" class="quiet">${tx("Effacer la partie et recommencer")}</button></div>
       </article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Raccourcis clavier")}</span></h2>
+      <article class="panel"><details class="more" data-keep="se-keys"><summary><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Raccourcis clavier")}</span></summary>
         <ul class="lines">
-          <li><span>${tx("Changer d’onglet")}</span><b>1 … 9, 0, -</b></li>
+          <li><span>${tx("Changer d’onglet")}</span><b>1 … 9, 0, -, =</b></li>
           <li><span>${tx("Équiper le meilleur")}</span><b>E</b></li>
           <li><span>${tx("Vendre ce qui n’améliore pas")}</span><b>V</b></li>
           <li><span>${tx("Transmuter les objets inutiles")}</span><b>T</b></li>
@@ -74,7 +75,7 @@ export class SettingsTab {
           <li><span>${tx("Fermer le panneau")}</span><b>${tx("Échap")}</b></li>
           <li><span>${tx("Réduire en mode mini")}</span><b>M</b></li>
         </ul>
-        <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>
+        <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p></details>
       </article>
     </div>`;
   }

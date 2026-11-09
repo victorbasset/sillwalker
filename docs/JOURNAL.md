@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 262, demande 18, fin) : Réglages : l'aide de chaque case passe en infobulle (ⓘ), raccourcis
+  clavier repliés par défaut (« 1 … 9, 0, -, = ») : défilement 100 → 6 px. Le panneau rouvre après chaque rendu
+  tout bloc data-keep resté ouvert, quel que soit l'onglet. Bilan de la demande 18 (1920 px, partie de dev) :
+  Compétences, Quêtes, Ascension, Carte, Statistiques, Réglages ≈ 0 ; Aventure 51, Talents 59, Boutique 72,
+  Familiers 238, Héros 246, Bestiaire 306 (au lieu de 477 / 451 / 1260). 103/103.
 - 2026-11-09 (Victor : « beaucoup plus de diversité d'instruments ») : musique orchestrée par zone (fixe, selon le
   décor puis la graine) : 11 timbres de mélodie (pulse 12,5 / 25 / 50 % façon Game Boy par séries de Fourier,
   flûte à vibrato, sifflet, cloche, marimba, harpe pincée, orgue, cuivres à filtre, cordes désaccordées), 4 basses
@@ -938,7 +943,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       l'ascension (onglet « Héros ») ; (d) migration des parties (classe actuelle = héros principal, compagnon
       choisi à la prochaine ascension) ; (e) textes « classe » → « héros » dans les 10 langues ; équilibrage
       (balance.mjs, simulate 168 h), fuzz, carte du Rebord (20 cages).
-  18. EN COURS (it. 242 : Bestiaire en sous-onglets) : onglets moins chargés visuellement et sans défilement si possible. Bestiaire : n'afficher
+  18. FAIT (it. 242-262 : sous-onglets Bestiaire, Statistiques, Héros, Boutique, Familiers ; fiches compactes ; Carte et Réglages sans défilement) : onglets moins chargés visuellement et sans défilement si possible. Bestiaire : n'afficher
       le contenu d'une section (monstres, panoplies, élites, collection…) qu'au clic sur son bouton (sous-onglets).
       Faire de même ailleurs quand c'est possible ; Carte et Compétences : chercher une idée (plus difficile).
   19. FAIT (it. 240). Les quêtes ne doivent pas proposer de récompenses encore inaccessibles (ex. œufs de

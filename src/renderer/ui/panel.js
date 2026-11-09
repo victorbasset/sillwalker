@@ -352,6 +352,8 @@ export class Panel {
     if (this.tip) this.tip.hidden = true;
     if (this.tab === "adventure") { this.renderHero(); this.renderBag(); this.renderDetail(); this.renderZone(); this.renderLog(); }
     else this.tabs[this.tab].render($(this.root, `[data-pane="${this.tab}"]`));
+    // Blocs repliables des onglets (data-keep) : rouverts s'ils l'étaient avant le nouveau rendu.
+    for (const d of this.root.querySelectorAll("details[data-keep]")) if (this.kept.has(d.dataset.keep)) d.open = true;
     this.renderBadges();
     this.dirty = false;
   }
