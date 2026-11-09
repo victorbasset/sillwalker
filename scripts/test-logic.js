@@ -404,10 +404,11 @@ test("samouraï : chaque 4e coup est un iaijutsu critique", () => {
 
 test("vitesse : plumes, rafale, étoile filante, hors ligne", () => {
   const g = new Game(freshState());
-  const legs = (game) => { let n = 0; game.on("spawn", () => n++); game.advance(120); return n; };
-  const base = legs(new Game(freshState()));
-  const fast = new Game(freshState()); fast.S.speed = 100; fast.invalidateStats();
-  assert.ok(legs(fast) > base * 1.2, "+100 % de vitesse : plus de combats");
+  // Même graine pour les deux parties : seule la vitesse diffère (indépendant des tests précédents).
+  const legs = (speed) => { setRandom(seeded(77)); const game = new Game(freshState()); game.S.speed = speed; game.invalidateStats(); let n = 0; game.on("spawn", () => n++); game.advance(120); return n; };
+  const base = legs(0), nf = legs(100);
+  setRandom(seeded(42));
+  assert.ok(nf > base * 1.2, `+100 % de vitesse : plus de combats (${base} → ${nf})`);
   g.gainSpeed(1, "test");
   assert.equal(g.S.speed, 1);
   assert.ok(g.startEvent("wind"));
@@ -1365,6 +1366,21 @@ test("panoplie complétée une première fois : bonus permanent, gardé à l'asc
   assert.ok(g.canAscend());
   assert.ok(g.ascend() !== false);
   assert.ok(g.S.setsDone.dawn, "gardé à l'ascension");
+});
+
+test("pièces de panoplie pas encore complétée : gardées par « vendre l'inutile » et la transmutation", () => {
+  const g = new Game(freshLocked());
+  g.S.bag.length = 0;
+  const mk = (slot, set) => { const it = g.newItem(0); it.r = 0; it.slot = slot; it.set = set; it.st = {}; g.S.bag.push(it); return it; };
+  const a = mk("ring", "hunter"), b = mk("ring", "hunter"), c = mk("boots", null);
+  assert.ok(g.uselessItems().includes(a), "panoplie pas commencée : pas de protection");
+  const worn = g.newItem(2); worn.slot = "helm"; worn.set = "hunter"; g.S.equip.helm = worn; g.invalidateStats();
+  const u = g.uselessItems();
+  assert.ok(!u.includes(a), "une pièce gardée par panoplie et emplacement");
+  assert.ok(u.includes(b), "le doublon reste vendable");
+  assert.ok(u.includes(c));
+  g.S.setsDone = { hunter: true };
+  assert.ok(g.uselessItems().includes(a), "panoplie déjà complétée : plus de protection");
 });
 
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {

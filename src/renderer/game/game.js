@@ -758,7 +758,18 @@ export class Game {
   }
 
   /** Objets du sac qui n'améliorent pas le héros (les légendaires sont toujours gardés). */
-  uselessItems() { return this.S.bag.filter((it) => it.r < LEGENDARY && !this.isUpgrade(it)); }
+  uselessItems() {
+    // Pièces gardées pour compléter une panoplie jamais complétée : une par panoplie et par emplacement,
+    // si l'emplacement ne porte pas déjà une pièce de cette panoplie (sinon « Vendre » ou le Creuset les détruisaient).
+    // Seulement pour les panoplies commencées (au moins une pièce portée) : le sac ne se remplit pas de pièces dispersées.
+    const S = this.S, done = S.setsDone || {}, worn = setCounts(S.equip), keep = new Set(), seen = new Set();
+    for (const it of S.bag) {
+      if (!it.set || !SETS[it.set] || done[it.set] || !worn[it.set] || (S.equip[it.slot] && S.equip[it.slot].set === it.set)) continue;
+      const k = it.set + "|" + it.slot;
+      if (!seen.has(k)) { seen.add(k); keep.add(it); }
+    }
+    return S.bag.filter((it) => it.r < LEGENDARY && !keep.has(it) && !this.isUpgrade(it));
+  }
 
   /**
    * Transmutation : 3 objets inutiles d'une même rareté (sous légendaire)
