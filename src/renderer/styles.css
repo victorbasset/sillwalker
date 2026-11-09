@@ -766,3 +766,4 @@ svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; he
 .rebord image { image-rendering: pixelated; }
 .mapsum { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 4px 0 8px; }
 .mappanel { grid-column: 1 / -1; }
+.rebord .mpin { fill: #ffe27a; }

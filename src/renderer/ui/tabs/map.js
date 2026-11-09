@@ -81,7 +81,9 @@ export class MapTab {
     if (recordZone(S) !== S.zone) parts.push(`<g class="mflag" title="${esc(tx("Record : zone {0}", { 0: recordZone(S) }))}"><rect x="${rp.x - 1}" y="${rp.y - 14}" width="2" height="14"/><rect class="cloth" x="${rp.x + 1}" y="${rp.y - 14}" width="7" height="5"/></g>`);
     if (S.zone <= FINAL_ZONE) {
       const hp = mapPos(S.zone);
-      parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}"><image href="${dressedPortraitURL(S.cls, heroVisual(S))}" x="${hp.x - 10}" y="${hp.y - 25}" width="20" height="22"/></g>`);
+      // Une cage voisine (zone ±1) : le héros se hisse au-dessus, relié à sa zone par un trait.
+      const lift = Object.values(CLASS_UNLOCK_ZONE).some((z) => Math.abs(z - S.zone) <= 1 && mapPos(z).r === hp.r) ? 24 : 0;
+      parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}">${lift ? `<rect class="mpin" x="${hp.x - 1}" y="${hp.y - lift - 3}" width="2" height="${lift + 3}"/>` : ""}<image href="${dressedPortraitURL(S.cls, heroVisual(S))}" x="${hp.x - 10}" y="${hp.y - 25 - lift}" width="20" height="22"/></g>`);
     } else parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}"><text class="mbeyond" x="${f.x + 35}" y="${f.y + BAND_H + 26}">${esc(tx("Au-delà du Rebord : zone {0}", { 0: S.zone }))} →</text></g>`);
     const freed = Object.keys(CLASSES).filter((c) => isClassUnlocked(S, c)).length;
     el.innerHTML = `<article class="panel mappanel"><h2>${tx("Carte du Rebord")} <small>${tx("survole un lieu")}</small></h2>

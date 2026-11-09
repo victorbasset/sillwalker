@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 227) : carte du Rebord, peaufinage : captures d'une partie jeune (zone 14) en thème clair, haut
+  et bas de la carte (brouillard, parchemins « ? », Briseur au bout) : propres. Corrigé : le héros chevauchait la
+  cage d'un prisonnier voisin (zone ±1) : il se hisse au-dessus, relié à sa zone par un trait doré. Test du
+  serpentin (mapPos). 141 tests, autotest.
 - 2026-11-09 (it. 226, demande 13 de Victor) : Carte du Rebord, nouvel onglet (ui/tabs/map.js, ouvert en zone 12,
   entre Classe et Bestiaire ; raccourci « - », Réglages passent à « = » ; l'Aventure prend l'icône d'épée, la Carte
   celle de la carte). SVG en pixels : une rangée par boucle des 33 décors, en serpentin jusqu'à la zone 200, chaque

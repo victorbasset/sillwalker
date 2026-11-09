@@ -37,6 +37,7 @@ import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/rend
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE } from "../src/renderer/game/data.js";
+import { mapPos } from "../src/renderer/ui/tabs/map.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -1562,6 +1563,14 @@ test("Briseur d'Étoiles : boss final de la zone 200, plus coriace, fin de l'his
   assert.equal(g.S.journey.filter((e) => e.k === "final").length, 1);
   const m = migrate(JSON.parse(JSON.stringify(g.S))); assert.equal(m.story.won, true);
   const bad = JSON.parse(JSON.stringify(g.S)); bad.story.won = "oui"; assert.equal(migrate(bad).story.won, false);
+});
+
+test("carte du Rebord : serpentin (une rangée par boucle des décors, les rangées s'enchaînent)", () => {
+  const L = ZONES.length;
+  assert.equal(mapPos(1).r, 0); assert.equal(mapPos(L).r, 0); assert.equal(mapPos(L + 1).r, 1);
+  assert.equal(mapPos(L).x, mapPos(L + 1).x, "fin de rangée et début de la suivante l'une sous l'autre");
+  assert.equal(mapPos(2 * L).x, mapPos(1).x, "la 2e rangée revient vers la gauche");
+  assert.ok(mapPos(2).x > mapPos(1).x && mapPos(L + 2).x < mapPos(L + 1).x);
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {
