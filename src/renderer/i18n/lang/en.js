@@ -477,4 +477,5 @@ export default {
   1601: "{0} / {1} completed · each gives {2} forever",
   1602: "completed",
   1603: "{0} set: {1} → {2} / 4",
+  1604: "Kept to complete the set: selling useless items and transmutation spare it.",
 };

@@ -477,4 +477,5 @@ export default {
   1601: "{0} / {1} skompletowanych · każdy daje {2} na zawsze",
   1602: "skompletowany",
   1603: "Zestaw {0}: {1} → {2} / 4",
+  1604: "Zachowana do skompletowania zestawu: sprzedaż zbędnych i transmutacja ją oszczędzają.",
 };

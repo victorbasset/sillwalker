@@ -7,7 +7,7 @@ import { itemName } from "../i18n/data.js";
 import { t as tx, txn, lc } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL } from "../render/shopart.js";
-import { RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
+import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB, dec, unit, listJoin } from "../game/format.js";
@@ -354,7 +354,9 @@ export class Panel {
     const now = setCounts(this.game.S.equip)[it.set] || 0, after = now - (cur && cur.set === it.set ? 1 : 0) + 1;
     if (after <= now) return "";
     const unlocks = (now < 2 && after >= 2) || (now < 4 && after >= 4);
-    return `<p class="setprog${unlocks ? " delta-p" : ""}">${unlocks ? "★ " : ""}${esc(tx("Panoplie {0} : {1} → {2} / 4", { 0: SETS[it.set].name, 1: now, 2: Math.min(4, after) }))}</p>`;
+    const g = this.game, kept = it.r < LEGENDARY && !g.isUpgrade(it) && !g.uselessItems().includes(it); // protégée (game.uselessItems)
+    return `<p class="setprog${unlocks ? " delta-p" : ""}">${unlocks ? "★ " : ""}${esc(tx("Panoplie {0} : {1} → {2} / 4", { 0: SETS[it.set].name, 1: now, 2: Math.min(4, after) }))}</p>`
+      + (kept ? `<p class="setprog">${esc(tx("Gardée pour compléter la panoplie : la vente de l’inutile et la transmutation l’épargnent."))}</p>` : "");
   }
 
   onHover(e) {

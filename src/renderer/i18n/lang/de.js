@@ -477,4 +477,5 @@ export default {
   1601: "{0} / {1} vervollständigt · jedes gibt {2} für immer",
   1602: "vervollständigt",
   1603: "Set {0}: {1} → {2} / 4",
+  1604: "Für das Set aufbewahrt: Verkaufen des Nutzlosen und Transmutation verschonen es.",
 };

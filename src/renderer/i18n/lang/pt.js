@@ -477,4 +477,5 @@ export default {
   1601: "{0} / {1} completados · cada um dá {2} para sempre",
   1602: "completado",
   1603: "Conjunto {0}: {1} → {2} / 4",
+  1604: "Guardada para completar o conjunto: a venda do inútil e a transmutação a poupam.",
 };

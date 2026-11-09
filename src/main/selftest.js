@@ -362,6 +362,9 @@ async function runSelfTest(strip) {
   // Pièce de panoplie dans le sac : l'infobulle montre ce que l'équiper change au décompte.
   const prog = await js("(() => { const g = window.__game; const it = g.S.bag.find((i) => i.slot !== 'weapon') || g.S.bag[0]; if (!it) return 'sac vide'; it.set = 'hunter'; window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); if (!el) return 'case introuvable'; window.__panel.onHover({ target: el }); return (document.querySelector('.itemtip .setprog') || {}).textContent || 'pas de ligne'; })()");
   check("infobulle : progression de panoplie (« → / 4 »)", /→ .* \/ 4/.test(prog), prog);
+  // Pièce d'une panoplie commencée (une pièce portée), pas plus forte seule : gardée, et l'infobulle le dit.
+  const kept = await js("(() => { const g = window.__game, S = g.S; const w = Object.values(S.equip).find(Boolean); w.set = 'hunter'; delete (S.setsDone || {}).hunter; const it = S.bag.find((i) => i.slot !== w.slot && i.r < 4 && !g.isUpgrade(i)); if (!it) return 'aucun objet'; it.set = 'hunter'; g.invalidateStats(); window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); window.__panel.onHover({ target: el }); return [...document.querySelectorAll('.itemtip .setprog')].length + ' ' + !g.uselessItems().includes(it); })()");
+  check("infobulle : pièce de panoplie gardée expliquée", kept === "2 true", kept);
   await js("window.__panel.tip.hidden = true");
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
