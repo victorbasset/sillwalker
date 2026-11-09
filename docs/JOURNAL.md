@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 ## Fait
 
+- 2026-11-09 (it. 30) : les messages de récupération de sauvegarde (fermeture brutale, sauvegarde de secours)
+  étaient toujours en français : traduits, et affichés aussi en bulle. Si la sauvegarde vient d'une version plus
+  récente du jeu, le joueur est prévenu (dans sa langue) qu'elle est gardée à part.
 - 2026-11-09 (it. 29) : sécurité des sauvegardes : en revenant à une version plus ancienne du jeu (bêta Steam…),
   la sauvegarde plus récente qu'il ne sait pas lire n'est plus écrasée par une partie neuve : elle est mise de côté
   (save.newer-v…json) et retrouvable en reprenant la bonne version.

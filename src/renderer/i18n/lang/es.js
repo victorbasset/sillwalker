@@ -389,4 +389,8 @@ export default {
   1513: "¡Cada victoria deja un objeto!",
   1514: "¡Ascensión n.º {0}! +{1} fragmentos de estrella",
   1515: "Rareza: • poco común, •• raro, ••• épico, ★ legendario.",
+  1516: "Partida recuperada tras un cierre brusco.",
+  1517: "No se encontró la partida principal: restaurada desde la copia de seguridad.",
+  1518: "Partida principal ilegible: restaurada desde la copia de seguridad.",
+  1519: "Tu partida viene de una versión más reciente del juego: se guarda aparte (save.newer). Vuelve a esa versión para recuperarla.",
 };

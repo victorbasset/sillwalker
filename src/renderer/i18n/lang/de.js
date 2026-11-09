@@ -389,4 +389,8 @@ export default {
   1513: "Jeder Sieg hinterlässt einen Gegenstand!",
   1514: "Aufstieg Nr. {0}! +{1} Sternensplitter",
   1515: "Seltenheit: • ungewöhnlich, •• selten, ••• episch, ★ legendär.",
+  1516: "Spielstand nach einem abrupten Beenden wiederhergestellt.",
+  1517: "Hauptspielstand nicht gefunden: Spiel aus der Sicherung wiederhergestellt.",
+  1518: "Hauptspielstand unlesbar: Spiel aus der Sicherung wiederhergestellt.",
+  1519: "Dein Spielstand stammt aus einer neueren Version des Spiels: Er wird separat aufbewahrt (save.newer). Kehre zu dieser Version zurück, um ihn wiederzubekommen.",
 };

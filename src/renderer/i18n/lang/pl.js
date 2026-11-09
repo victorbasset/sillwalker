@@ -389,4 +389,8 @@ export default {
   1513: "Każde zwycięstwo zostawia przedmiot!",
   1514: "Wzniesienie nr {0}! +{1} odłamków gwiazd",
   1515: "Rzadkość: • niepospolity, •• rzadki, ••• epicki, ★ legendarny.",
+  1516: "Zapis odzyskany po nagłym zamknięciu.",
+  1517: "Nie znaleziono głównego zapisu: gra przywrócona z kopii zapasowej.",
+  1518: "Główny zapis nieczytelny: gra przywrócona z kopii zapasowej.",
+  1519: "Twój zapis pochodzi z nowszej wersji gry: został odłożony na bok (save.newer). Wróć do tej wersji, aby go odzyskać.",
 };

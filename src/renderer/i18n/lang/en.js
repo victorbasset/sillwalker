@@ -389,4 +389,8 @@ export default {
   1513: "Every victory leaves an item!",
   1514: "Ascension #{0}! +{1} star shards",
   1515: "Rarity: • uncommon, •• rare, ••• epic, ★ legendary.",
+  1516: "Save recovered after an abrupt shutdown.",
+  1517: "Main save not found: game restored from the backup save.",
+  1518: "Main save unreadable: game restored from the backup save.",
+  1519: "Your save comes from a newer version of the game: it is kept aside (save.newer). Go back to that version to get it back.",
 };

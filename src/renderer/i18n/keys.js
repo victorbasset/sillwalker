@@ -1517,5 +1517,9 @@ export const KEYS = [
   "Corne d’abondance",
   "Chaque victoire laisse un objet !",
   "Ascension n° {0} ! +{1} éclats d’étoile",
-  "Rareté : • peu commun, •• rare, ••• épique, ★ légendaire."
+  "Rareté : • peu commun, •• rare, ••• épique, ★ légendaire.",
+  "Sauvegarde récupérée après une fermeture brutale.",
+  "Sauvegarde principale introuvable : partie restaurée depuis la sauvegarde de secours.",
+  "Sauvegarde principale illisible : partie restaurée depuis la sauvegarde de secours.",
+  "Ta sauvegarde vient d’une version plus récente du jeu : elle est gardée à part (save.newer). Reprends cette version pour la retrouver."
 ];

@@ -14,7 +14,7 @@ import { CLASSES } from "./game/classes.js";
 import { PET_INDEX } from "./game/pets.js";
 import { activeDayMod } from "./game/daymods.js";
 import { Game } from "./game/game.js";
-import { freshState, migrate } from "./game/state.js";
+import { freshState, migrate, SAVE_VERSION } from "./game/state.js";
 import { reachedAchievements, ACHIEVEMENTS } from "./game/achievements.js";
 import { fmt, esc } from "./game/format.js";
 import { StripRenderer } from "./render/strip.js";
@@ -41,7 +41,13 @@ const perf = (window.__perf = { frames: 0, paints: 0, sims: 0, since: performanc
 async function boot() {
   const init = await api.getInit();
   const loaded = await api.loadSave();
-  const game = new Game(migrate(loaded.data) || freshState());
+  const migrated = migrate(loaded.data);
+  // Sauvegarde d'une version plus récente du jeu (illisible ici) : partie neuve, mais dans la langue du joueur ;
+  // le processus principal met l'ancienne de côté (save.newer-v*.json) avant de l'écraser.
+  const newerSave = !migrated && loaded.data && loaded.data.v > SAVE_VERSION;
+  const fresh = migrated || freshState();
+  if (newerSave && typeof loaded.data.settings?.lang === "string") fresh.settings.lang = loaded.data.settings.lang;
+  const game = new Game(fresh);
   // Langue : celle de la sauvegarde (copiée dans localStorage, lue dès le chargement des modules).
   const wanted = game.S.settings.lang || DEFAULT_LANG;
   if (wanted !== getLang()) { setLang(wanted); location.reload(); return; }
@@ -65,7 +71,9 @@ async function boot() {
   ]) { const e = document.querySelector(sel); if (e) e.setAttribute(attr, tx(src)); }
   api.setLang?.(wanted);
   if (init.isDev) window.__game = game; // inspection par l'auto-test (dev uniquement)
-  if (loaded.notice) game.log(loaded.notice);
+  // Messages de récupération (envoyés en français par le processus principal) : traduits, et aussi en bulle.
+  const saveNotice = newerSave ? tx("Ta sauvegarde vient d’une version plus récente du jeu : elle est gardée à part (save.newer). Reprends cette version pour la retrouver.") : loaded.notice ? tx(loaded.notice) : null;
+  if (saveNotice) { game.log(saveNotice); setTimeout(() => showToast(`⚠ ${esc(saveNotice)}`, null, 20000), 3000); }
 
   const body = document.body;
   applyUiScale(game.S.settings.uiScale);

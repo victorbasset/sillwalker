@@ -389,4 +389,8 @@ export default {
   1513: "Cada vitória deixa um item!",
   1514: "Ascensão nº {0}! +{1} fragmentos de estrela",
   1515: "Raridade: • incomum, •• raro, ••• épico, ★ lendário.",
+  1516: "Jogo recuperado após um fechamento abrupto.",
+  1517: "Salvamento principal não encontrado: jogo restaurado do salvamento de reserva.",
+  1518: "Salvamento principal ilegível: jogo restaurado do salvamento de reserva.",
+  1519: "Seu salvamento vem de uma versão mais recente do jogo: ele foi guardado à parte (save.newer). Volte para essa versão para recuperá-lo.",
 };
