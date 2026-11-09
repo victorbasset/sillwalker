@@ -634,4 +634,6 @@ export default {
   1758: "an ascension will make them much stronger",
   1759: "let them farm a bit lower",
   1760: "stuck",
+  1761: "Background music",
+  1762: "A small tune for each zone, discreet, with a fade when you change zones.",
 };

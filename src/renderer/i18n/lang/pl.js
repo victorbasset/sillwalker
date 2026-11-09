@@ -634,4 +634,6 @@ export default {
   1758: "wniebowstąpienie uczyni go dużo silniejszym",
   1759: "niech pofarmi trochę niżej",
   1760: "utknął",
+  1761: "Muzyka w tle",
+  1762: "Dyskretna melodia dla każdej strefy, z przejściem przy zmianie strefy.",
 };

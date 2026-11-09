@@ -1762,5 +1762,7 @@ export const KEYS = [
   "rachète des potions",
   "une ascension le rendra bien plus fort",
   "laisse-le farmer un peu plus bas",
-  "bloqué"
+  "bloqué",
+  "Musique de fond",
+  "Un petit air par zone, discret, avec un fondu quand on change de zone."
 ];

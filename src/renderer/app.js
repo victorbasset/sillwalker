@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { Music } from "./render/music.js";
 import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
 import { journeyText } from "./ui/tabs/stats.js";
@@ -122,8 +123,12 @@ async function boot() {
   sound.bind(game);
   let currentLayout = init.layout;
   /** Applique les réglages du joueur (son, etc. ; le rendu les lit directement). */
-  const applySettings = () => sound.set(game.S.settings.sound, game.S.settings.volume);
+  // Musique de fond par zone (render/music.js) : suit le son ; option à part dans les Réglages.
+  const music = new Music(sound);
+  const applySettings = () => { sound.set(game.S.settings.sound, game.S.settings.volume); music.set(game.S.settings.music !== false); };
   applySettings();
+  music.setZone(game.S.zone);
+  setInterval(() => music.setZone(game.S.zone), 1000); // changement de zone : fondu vers l'air de la nouvelle
   let speed = init.isDev && init.devSpeed ? init.devSpeed : 1;
   let mode = null, visible = false, pendingOffline = null; // pendingOffline : résumé d’absence en attente (mode mini)
 

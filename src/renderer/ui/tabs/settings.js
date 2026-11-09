@@ -29,6 +29,7 @@ export class SettingsTab {
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">${tx("Son")}</span></h2>
         ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande les coupe d’un clic."))}
+        ${check("music", tx("Musique de fond"), tx("Un petit air par zone, discret, avec un fondu quand on change de zone."))}
         <label class="range">${tx("Volume")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button></div>
       </article>

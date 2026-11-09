@@ -40,6 +40,7 @@ import { ZONES, MONSTERS, KILLS_PER_ZONE } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
+import { songFor } from "../src/renderer/render/music.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -1624,6 +1625,14 @@ test("sons de coup (demande 25) : un timbre par héros et une matière par monst
   assert.equal(materialOf("slime_lava"), "soft"); assert.equal(materialOf("knight_crystal"), "hard");
   assert.equal(materialOf("crow_storm"), "air"); assert.equal(materialOf("boar"), "flesh");
   assert.notEqual(weaponOf("ranger"), weaponOf("warrior"));
+});
+
+test("musique de fond (demande 24) : un air par zone, toujours le même pour une zone, 200 airs différents", () => {
+  const a = songFor(12), b = songFor(12);
+  assert.deepEqual(a, b, "même zone = même air");
+  const keys = new Set(); for (let z = 1; z <= 200; z++) { const s = songFor(z); keys.add(JSON.stringify(s.notes.map((n) => n.midi))); assert.ok(s.bpm >= 80 && s.bpm <= 160 && s.notes.length >= 8, "zone " + z); for (const n of s.notes) assert.ok(n.midi >= 50 && n.midi <= 90); }
+  assert.ok(keys.size >= 195, "quasiment 200 mélodies différentes : " + keys.size);
+  assert.equal(freshState().settings.music, true, "musique activée par défaut");
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {

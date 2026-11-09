@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 247, demande 24 de Victor) : musique de fond par zone (render/music.js), générée : graine par zone
+  → gamme (mineure pour les décors sombres, majeure sinon), tempo 84-130, grille d'accords, mélodie (degrés
+  voisins, silences, refrain repris) ; onde carrée douce + basse triangulaire + charleston de bruit, volume bas ;
+  200 airs différents (test : ≥195 mélodies distinctes, même zone = même air). Fondu enchaîné de 2,5 s au
+  changement de zone. Suit le bouton son ; case « Musique de fond » dans les Réglages (activée par défaut).
+  Planification en avance sur l'horloge audio. perf (son et musique actifs) : bande 19,1 %, mini 5,7 %, icône
+  2,3 % (avant, son coupé : 16,8 / 3,7 / 0,5). Non écoutable ici : à valider par Victor. 99/99, 10 langues.
 - 2026-11-09 (it. 246, demande 25 de Victor) : sons de coup variés (sound.js hit) : un timbre par arme pour les 20
   héros (lame, contondant, lance, arc, feu, glace, ombre, sacré, notes du barde) et une matière par ennemi (mou :
   plus grave + « splotch », dur : plus aigu + clac, volant, chair), plus un léger désaccord aléatoire ; critique
@@ -872,7 +879,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       regarde pas toujours le jeu) : signal visible sans regarder (bulle persistante, repère sur la bande / le mode
       mini / l'icône), avec les pistes utiles (équiper mieux, talents, revenir une zone en arrière, ascension).
   23. FAIT (2026-11-09). Son activé par défaut et bouton pour le couper à côté de réduire / agrandir.
-  24. À FAIRE (2026-11-09) : musique de fond par zone, légère et discrète, dans l'esprit des jeux Game Boy Color
+  24. FAIT (it. 247). Musique de fond par zone, légère et discrète, dans l'esprit des jeux Game Boy Color
       (chiptune, compositions originales, aucune reprise) ; fondu enchaîné à chaque changement de zone ; 200
       musiques (une par zone jusqu'à 200). Idée : générateur procédural (Web Audio, sound.js) : gamme, tempo,
       instruments (carré, triangle, bruit) et motifs tirés d'une graine par zone, couleur selon le décor (forêt

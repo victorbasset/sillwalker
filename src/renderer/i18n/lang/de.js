@@ -634,4 +634,6 @@ export default {
   1758: "ein Aufstieg macht ihn viel stärker",
   1759: "lass ihn etwas weiter unten farmen",
   1760: "festgefahren",
+  1761: "Hintergrundmusik",
+  1762: "Eine kleine, dezente Melodie pro Zone, mit Überblendung beim Zonenwechsel.",
 };

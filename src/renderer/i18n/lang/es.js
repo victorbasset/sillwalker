@@ -634,4 +634,6 @@ export default {
   1758: "una ascensión lo hará mucho más fuerte",
   1759: "déjalo farmear un poco más abajo",
   1760: "atascado",
+  1761: "Música de fondo",
+  1762: "Una pequeña melodía por zona, discreta, con un fundido al cambiar de zona.",
 };
