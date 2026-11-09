@@ -111,6 +111,9 @@ async function runSelfTest(strip) {
   if (miniTap) await click("#mini .minitap");
   await sleep(300);
   check("mode mini : clic sur le monstre = coup bonus", miniTap && (await state("S.stats.taps || 0")) > mt0 && strip.mode() === "mini");
+  // Mode mini : un onglet débloqué s'annonce sur la scène (la bulle de la bande n'y est pas visible).
+  const mtab = await js("(() => { const S = window.__game.S, was = S.tabsOpen.stats; delete S.tabsOpen.stats; window.__game.step(1.1); S.tabsOpen.stats = was || true; const m = [...document.querySelectorAll('#mini *')].find((e) => /✦/.test(e.textContent) && !e.hidden && e.children.length === 0); return m ? m.textContent : 'rien'; })()");
+  check("mode mini : onglet débloqué annoncé sur la scène", /✦/.test(mtab), mtab);
   // Icône seule depuis le mini
   await click("#mini-icon");
   await sleep(500);

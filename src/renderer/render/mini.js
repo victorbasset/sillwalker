@@ -1,5 +1,6 @@
 // Mode mini : petit encart près de l'horloge. Le héros à gauche, le monstre
 // qui approche puis se bat, et à droite niveau / or / zone.
+import { TAB_GATES } from "../game/tabs.js";
 import { t as tx, fsp } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
@@ -48,6 +49,8 @@ export class MiniRenderer {
     game.on("setBonus", ({ id, n }) => { if (SETS[id]) this.showMoment("◆ " + tx("{0} : bonus {1} pièces !", { 0: SETS[id].name, 1: n })); });
     game.on("bossNemesis", ({ name }) => this.showMoment(tx("{0} enfin vaincu !", { 0: name })));
     game.on("event", ({ id }) => { const ev = EVENTS[id]; if (ev) this.showMoment(ev.name + fsp() + "!", ev.text); });
+    // Onglet débloqué : la bulle de la bande n'est pas visible en mode mini, l'annonce passe par la scène.
+    game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(", ") })));
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(tx("Nouveau record : zone {0} !", { 0: zone })); });
     game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })));
     // Clic sur le monstre combattu : coup bonus (sans agrandir l'encart).

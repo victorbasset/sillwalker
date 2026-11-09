@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 179) : mode mini : un onglet débloqué s'annonce sur la scène (« ✦ Nouvel onglet : X ! », moment
+  doré de 4 s) : la bulle de la bande n'y est pas visible. Noms d'onglets ajoutés à TAB_GATES (label). Contrôle
+  d'autotest (81/81). Vérifications de fond après les changements du début de partie : fuzz 120 graines × 60 min =
+  1200 parties, 0 bloquée ; simulation 48 h guerrier saine.
 - 2026-11-09 (it. 178) : Talents : les panneaux Voie et Maîtrises n'apparaissent qu'à 10 points de leur seuil (30 et
   40 points dépensés) ou une fois la voie choisie ; avant, une ligne annonce l'objectif (« Plus tard : une voie dès
   30 points dépensés, des maîtrises dès 40. »). Capture d'un joueur à 0 point dépensé, 10 langues, 80/80 deux fois (contrôle « progression de panoplie »
