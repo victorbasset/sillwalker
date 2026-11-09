@@ -302,6 +302,9 @@ export const PET_ART = {
   hedgehog: { pal: { B: "#7a5a3a", D: "#4a3420", S: "#e8c8a0", E: "#1a1a1a" }, frames: [
     ["..D.D.D..", ".DBDBDBD.", "DBBBBBBSS", "DBBBBBBSE", ".BBBBBSSS", "..S..S..."],
     ["..D.D.D..", ".DBDBDBD.", "DBBBBBBSS", "DBBBBBBSE", ".BBBBBSSS", ".S..S...."]] },
+  squirrel: { pal: { O: "#c86a2a", D: "#7a3a14", W: "#f4e0c0", E: "#1a1a1a" }, frames: [
+    [".OO......", "OOD...OO.", "OO...OOEO", "OO..OOWW.", ".OOOOOWW.", "...D..D.."],
+    [".OO......", "OOD...OO.", "OO...OOEO", "OO..OOWW.", ".OOOOOWW.", "..D..D..."]] },
   slimepet: { pal: { G: "#7ad870", L: "#c8f4b0", E: "#1a1a1a" }, frames: [
     [".........", "...GGG...", "..GLGGG..", ".GGEGEGG.", "GGGGGGGGG", "GGGGGGGGG"],
     ["...GGG...", "..GLGGG..", ".GGGGGGG.", ".GGEGEGG.", "GGGGGGGGG", ".GGGGGGG."]] },

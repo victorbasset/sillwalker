@@ -30,7 +30,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
 - **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, butin rare, expéditions, transmutation, zone), récompenses variées
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
-- **Familiers** : 13 compagnons (dont le lapin et le phénix, rares) qui suivent le héros, sortent d'œufs (boss, élites, quêtes)
+- **Familiers** : 14 compagnons (dont le lapin et le phénix, rares) qui suivent le héros, sortent d'œufs (boss, élites, quêtes)
   et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
   or, expérience, œufs et objets.
 - **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 29 pouvoirs uniques (dont l'Appât des champions, qui attire les élites).

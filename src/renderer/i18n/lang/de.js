@@ -436,4 +436,6 @@ export default {
   1560: "Seltene Ereignisse ({0})",
   1561: "{n} seltenen oder besseren Gegenstand finden|{n} seltene oder bessere Gegenstände finden",
   1562: "Eine erfüllte Quest abholen (alle mit dem Auftragsschalter)",
+  1563: "Eichhörnchen",
+  1564: "Versteckt Nüsse … und Münzen.",
 };

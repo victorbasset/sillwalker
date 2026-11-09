@@ -436,4 +436,6 @@ export default {
   1560: "Rzadkie zdarzenia ({0})",
   1561: "Znajdź {n} rzadki lub lepszy przedmiot|Znajdź {n} rzadkie lub lepsze przedmioty|Znajdź {n} rzadkich lub lepszych przedmiotów",
   1562: "Odbierz ukończone zadanie (wszystkie z Biurem zleceń)",
+  1563: "Wiewiórka",
+  1564: "Chowa orzechy… i monety.",
 };

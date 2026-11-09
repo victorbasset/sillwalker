@@ -436,4 +436,6 @@ export default {
   1560: "Eventos raros ({0})",
   1561: "Encontrar {n} objeto raro o mejor|Encontrar {n} objetos raros o mejores",
   1562: "Reclamar una misión terminada (todas con la Oficina de contratos)",
+  1563: "Ardilla",
+  1564: "Esconde nueces… y monedas.",
 };
