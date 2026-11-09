@@ -41,7 +41,7 @@ export class BestiaryTab {
   }
 
   codexHTML(S) {
-    const C = S.codex || {}, c = codexCounts(S), eff = codexEffects(S);
+    const C = S.codex || {}, c = codexCounts(S), eff = codexEffects(S), show = this.shown(S);
     const cells = CODEX_ENTRIES.map((e) => {
       const r = C[e.key], known = r != null;
       const title = known ? `${tr(e.name)} ${tx("({0}) · meilleur : {1}", { 0: SLOTS[e.slot].name, 1: RARITIES[r].name })}` : `??? (${SLOTS[e.slot].name})`;
@@ -51,25 +51,31 @@ export class BestiaryTab {
     return `<h2 class="codexh first" id="bj-codex">${tx("Collection d’objets")} <small>${c.found} ${tx("/ {0} types · {1} en épique · {2} en légendaire", { 0: c.total, 1: c.epic, 2: c.leg })}</small></h2>
       <p class="note tabintro">${tx("Chaque type d’objet trouvé donne {0} ; trouvé en épique {1} ;\n      en légendaire {2}. Conservé à l’ascension.\n      Bonus actuel :", { 0: esc(describeEffects(CODEX_BONUS.found)), 1: esc(describeEffects(CODEX_BONUS.epic)), 2: esc(describeEffects(CODEX_BONUS.legendary)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : "aucun"}</b>.</p>
       <div class="codexgrid">${cells}</div>
-      <h2 class="codexh" id="bj-powers">${tx("Pouvoirs légendaires")} <small>${powersFound(S)} ${tx("/ {0} découverts · chacun donne {1}", { 0: POWERS.length, 1: esc(describeEffects(POWER_CODEX_BONUS)) })}</small></h2>
+      ${show.powers ? `<h2 class="codexh" id="bj-powers">${tx("Pouvoirs légendaires")} <small>${powersFound(S)} ${tx("/ {0} découverts · chacun donne {1}", { 0: POWERS.length, 1: esc(describeEffects(POWER_CODEX_BONUS)) })}</small></h2>
       <div class="powergrid">${POWERS.map((p) => (S.powersSeen || {})[p.id]
         ? `<span class="chip pow" title="${esc(describeEffects(p.eff))}">★ ${esc(p.name)}</span>`
-        : `<span class="chip pow unknown">???</span>`).join("")}</div>
-      <h2 class="codexh" id="bj-sets">${tx("Panoplies")} <small>${tx("pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées")} · ${tx("{0} / {1} complétées · chacune donne {2} pour toujours", { 0: Object.keys(S.setsDone || {}).length, 1: SET_KEYS.length, 2: esc(describeEffects(SET_CODEX_BONUS)) })}</small></h2>
+        : `<span class="chip pow unknown">???</span>`).join("")}</div>` : ""}
+      ${show.sets ? `<h2 class="codexh" id="bj-sets">${tx("Panoplies")} <small>${tx("pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées")} · ${tx("{0} / {1} complétées · chacune donne {2} pour toujours", { 0: Object.keys(S.setsDone || {}).length, 1: SET_KEYS.length, 2: esc(describeEffects(SET_CODEX_BONUS)) })}</small></h2>
       <div class="setgrid">${SET_KEYS.map((id) => { const st = SETS[id], n = setCounts(S.equip)[id] || 0; // toutes les panoplies, et où en est le héros
         return `<div class="setcard" style="--c:${st.color}"><b class="tint">◆ ${esc(st.name)}</b> <small>${n}/4${(S.setsDone || {})[id] ? " · ✓ " + tx("complétée") : ""}</small>
           <div class="${n >= 2 ? "on" : ""}">${n >= 2 ? "✓ " : ""}${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
-          <div class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>
+          <div class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>` : ""}
       <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle")}</small></h2>
       <div class="setgrid">${Object.values(BOSS_MECHANICS).map((b) => `<div class="setcard" style="--c:#ff9a7a"><b>${esc(b.name)}</b><div>${esc(b.desc)}</div></div>`).join("")}</div>
-      <h2 class="codexh" id="bj-elites">${tx("Élites")} <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
-      <div class="setgrid">${Object.values(ELITE_AFFIXES).map((a) => `<div class="setcard" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b><div>${esc(a.desc || "")}</div></div>`).join("")}</div>`;
+      ${show.elites ? `<h2 class="codexh" id="bj-elites">${tx("Élites")} <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
+      <div class="setgrid">${Object.values(ELITE_AFFIXES).map((a) => `<div class="setcard" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b><div>${esc(a.desc || "")}</div></div>`).join("")}</div>` : ""}`;
+  }
+
+  /** Sections affichées : seulement ce que le joueur a déjà rencontré (moins d'informations d'un coup). */
+  shown(S) {
+    return { powers: powersFound(S) > 0, sets: codexCounts(S).epic > 0 || Object.keys(S.setsDone || {}).length > 0, elites: (S.stats.elites || 0) > 0 };
   }
 
   /** Sommaire de l'onglet (long) : un clic mène à la section. */
   jumpHTML() {
+    const show = this.shown(this.game.S);
     const L = [["codex", tx("Collection d’objets")], ["powers", tx("Pouvoirs légendaires")], ["sets", tx("Panoplies")],
-      ["bosses", tx("Capacités des boss")], ["elites", tx("Élites")], ["beasts", tx("Bestiaire")]];
+      ["bosses", tx("Capacités des boss")], ["elites", tx("Élites")], ["beasts", tx("Bestiaire")]].filter(([k]) => show[k] !== false);
     return `<nav class="bjump" aria-label="${esc(tx("Aller à"))}">${L.map(([k, n]) => `<button class="quiet" data-action="b-jump" data-to="bj-${k}">${esc(n)}</button>`).join("")}</nav>`;
   }
 
