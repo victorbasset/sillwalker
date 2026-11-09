@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 51).
 
 ## Fait
 
+- 2026-11-09 (it. 43) : une fois tout débloqué, la fiche du héros et le mode mini ne restent plus sans objectif :
+  « Prochain objectif : battre ton record (zone 60) » avec sa barre de progression.
 - 2026-11-09 (it. 42) : le mode mini marque enfin les grands moments (légendaire, nouveau record, ascension) :
   un mot sur la scène et un liseré doré pendant 4 s, une seule fois.
   Vérifié : la courbe d'expérience ne fige pas les niveaux en vraie partie (niveau ≈ 1,35 × zone, remis à zéro à

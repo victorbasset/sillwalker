@@ -399,4 +399,6 @@ export default {
   1523: "O Caçador",
   1524: "Astrolábio adquirido! Ele começa desligado: marque-o na aba Ascensão para que ele faça a ascensão por você quando seu herói empacar. Clique aqui.",
   1525: "Bolsa cheia: {0} vendido para abrir espaço para {1}.",
+  1526: "Próximo objetivo",
+  1527: "bater seu recorde: zona {0}",
 };

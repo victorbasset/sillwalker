@@ -457,7 +457,12 @@ export class Panel {
   /** Prochain déblocage : objectif visible en permanence (zone record, puis or). */
   goalHTML(S) {
     const u = nextUnlock(S);
-    if (!u) return "";
+    if (!u) { // tout est débloqué : l'objectif devient le record de toutes les courses
+      const rec = recordZone(S), k = Math.min(1, S.zone / rec);
+      return `<button class="goal${S.zone >= rec ? " ready" : ""}" data-tab="ascension">
+        <img src="${shopIconURL("trophy", 2)}" alt=""><span class="gtxt"><small>${tx("Prochain objectif")}</small> ${tx("battre ton record : zone {0}", { 0: rec })} (${S.zone} / ${rec})</span>
+        <span class="gbar"><i style="width:${Math.round(k * 100)}%"></i></span></button>`;
+    }
     const zoneOk = unlockAvailable(S, u);
     const k = zoneOk ? Math.min(1, S.gold / u.price) : Math.min(1, recordZone(S) / u.zone);
     const what = zoneOk ? (S.gold >= u.price ? tx("prêt à acheter !") : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;

@@ -399,4 +399,6 @@ export default {
   1523: "The Hunter",
   1524: "Astrolabe acquired! It starts switched off: tick it in the Ascension tab so it ascends for you when your hero is stuck. Click here.",
   1525: "Bag full: {0} sold to make room for {1}.",
+  1526: "Next goal",
+  1527: "beat your record: zone {0}",
 };

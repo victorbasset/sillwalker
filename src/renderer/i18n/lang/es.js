@@ -399,4 +399,6 @@ export default {
   1523: "El Cazador",
   1524: "¡Astrolabio conseguido! Empieza apagado: márcalo en la pestaña Ascensión para que ascienda por ti cuando tu héroe se atasque. Haz clic aquí.",
   1525: "Bolsa llena: {0} vendido para hacer sitio a {1}.",
+  1526: "Próximo objetivo",
+  1527: "superar tu récord: zona {0}",
 };

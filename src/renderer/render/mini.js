@@ -185,7 +185,11 @@ export class MiniRenderer {
       const u = nextUnlock(S), rec = recordZone(S), tip = [];
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + fsp() + ": " + rec);
-      this.goalWrap.hidden = !u;
+      this.goalWrap.hidden = false;
+      if (!u) { // tout est débloqué : la barre suit le record de toutes les courses
+        this.goal.style.width = Math.round(Math.min(1, S.zone / rec) * 100) + "%";
+        this.goalWrap.classList.toggle("ready", S.zone >= rec);
+      }
       if (u) {
         const ok = unlockAvailable(S, u), k = ok ? Math.min(1, S.gold / u.price) : Math.min(1, rec / u.zone);
         this.goal.style.width = Math.round(k * 100) + "%";

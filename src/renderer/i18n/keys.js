@@ -1527,5 +1527,7 @@ export const KEYS = [
   "−{0} % PV",
   "Le Chasseur",
   "Astrolabe acquis ! Il est éteint au départ : coche-le dans l’onglet Ascension pour qu’il fasse l’ascension à ta place quand ton héros bloque. Clique ici.",
-  "Sac plein : {0} vendu pour faire de la place à {1}."
+  "Sac plein : {0} vendu pour faire de la place à {1}.",
+  "Prochain objectif",
+  "battre ton record : zone {0}"
 ];
