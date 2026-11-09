@@ -985,12 +985,21 @@ export class Game {
     if (!hasUnlock(S, "steward") || S.settings.autoPets === false) return 0;
     if (now - (this._petT || 0) < 5000) return 0;
     this._petT = now;
-    let n = 0;
-    while (S.pets.eggs > 0 && this.hatchEgg()) n++;
-    for (const id of this.expeditionsReady(now)) if (this.claimExpedition(id, now)) n++;
-    const kind = EXPEDITIONS[S.pets.lastKind] ? S.pets.lastKind : "long";
-    for (const id of this.idlePets()) if (this.sendExpedition(id, kind, now)) n++;
-    return n;
+    // Une seule ligne de journal pour tout le travail (les nouveaux familiers gardent la leur).
+    let hatched = 0, back = 0, gold = 0, items = 0, sent = 0;
+    this._quiet = true;
+    try {
+      while (S.pets.eggs > 0 && this.hatchEgg()) hatched++;
+      for (const id of this.expeditionsReady(now)) { const r = this.claimExpedition(id, now); if (r) { back++; gold += r.gold; if (r.item) items++; } }
+      const kind = EXPEDITIONS[S.pets.lastKind] ? S.pets.lastKind : "long";
+      for (const id of this.idlePets()) if (this.sendExpedition(id, kind, now)) sent++;
+    } finally { this._quiet = false; }
+    const parts = [];
+    if (back) parts.push(txn(back, "{n} expédition récupérée|{n} expéditions récupérées") + ` (+${tx("{0} or", { 0: fmt(gold) })}${items ? ", " + txn(items, "{n} objet trouvé|{n} objets trouvés") : ""})`);
+    if (hatched) parts.push(txn(hatched, "{n} œuf éclos|{n} œufs éclos"));
+    if (sent) parts.push(txn(sent, "{n} familier reparti|{n} familiers repartis"));
+    if (parts.length) this.log(tx("Grand intendant : {0}.", { 0: parts.join(", ") }));
+    return hatched + back + sent;
   }
 
   /** Achat automatique de potions (option de la boutique) : complète le stock jusqu'à AUTO_POTIONS. */
@@ -1305,7 +1314,7 @@ export class Game {
       if (!P.active) P.active = pet.id;
       this.log(`${tx("L’œuf éclot : {0} !", { 0: pet.name })}`);
     } else {
-      this.log(`${tx("L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", { 0: lc(pet.name), 1: lc(pet.name) })}`);
+      if (!this._quiet) this.log(`${tx("L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", { 0: lc(pet.name), 1: lc(pet.name) })}`);
       this.petAddXp(pet.id, DUPLICATE_XP);
     }
     this.invalidateStats();
@@ -1323,7 +1332,7 @@ export class Game {
     if (P.exp[id]) return false;
     P.exp[id] = { kind, start: now, end: now + ex.min * 60000 };
     P.lastKind = kind; // le Grand intendant reprend ce choix
-    this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
+    if (!this._quiet) this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
     this.changed();
     return true;
   }
@@ -1398,7 +1407,7 @@ export class Game {
     const out = { gold, xp: ex.xp, egg: false, item: null, pet: PET_INDEX[id] };
     if (rand() < ex.egg) { out.egg = true; this.gainEgg(); }
     if (rand() < ex.item && !this.bagFull()) { out.item = this.newItem(ex.minRarity, this.S.best); this.addToBag(out.item, true); }
-    this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: lc(ex.name), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + itemName(out.item) : "" })}`);
+    if (!this._quiet) this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: lc(ex.name), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + itemName(out.item) : "" })}`);
     this.emit("expedition", out);
     this.changed();
     return out;

@@ -439,4 +439,9 @@ export default {
   1563: "Wiewiórka",
   1564: "Chowa orzechy… i monety.",
   1565: "{0} wreszcie pokonany!",
+  1566: "{n} wyprawa odebrana|{n} wyprawy odebrane|{n} wypraw odebranych",
+  1567: "{n} przedmiot znaleziony|{n} przedmioty znalezione|{n} przedmiotów znalezionych",
+  1568: "{n} jajo wyklute|{n} jaja wyklute|{n} jaj wyklutych",
+  1569: "{n} chowaniec wysłany ponownie|{n} chowańce wysłane ponownie|{n} chowańców wysłanych ponownie",
+  1570: "Wielki zarządca: {0}.",
 };

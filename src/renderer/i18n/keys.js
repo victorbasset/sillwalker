@@ -1567,5 +1567,10 @@ export const KEYS = [
   "Réclamer une quête terminée (toutes avec le Bureau des contrats)",
   "Écureuil",
   "Cache des noisettes… et des pièces.",
-  "{0} enfin vaincu !"
+  "{0} enfin vaincu !",
+  "{n} expédition récupérée|{n} expéditions récupérées",
+  "{n} objet trouvé|{n} objets trouvés",
+  "{n} œuf éclos|{n} œufs éclos",
+  "{n} familier reparti|{n} familiers repartis",
+  "Grand intendant : {0}."
 ];

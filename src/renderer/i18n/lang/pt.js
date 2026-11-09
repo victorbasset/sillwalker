@@ -439,4 +439,9 @@ export default {
   1563: "Esquilo",
   1564: "Esconde nozes… e moedas.",
   1565: "{0} finalmente derrotado!",
+  1566: "{n} expedição recolhida|{n} expedições recolhidas",
+  1567: "{n} item encontrado|{n} itens encontrados",
+  1568: "{n} ovo chocado|{n} ovos chocados",
+  1569: "{n} mascote enviado de novo|{n} mascotes enviados de novo",
+  1570: "Grande intendente: {0}.",
 };

@@ -439,4 +439,9 @@ export default {
   1563: "Ardilla",
   1564: "Esconde nueces… y monedas.",
   1565: "¡{0} por fin derrotado!",
+  1566: "{n} expedición recogida|{n} expediciones recogidas",
+  1567: "{n} objeto encontrado|{n} objetos encontrados",
+  1568: "{n} huevo eclosionado|{n} huevos eclosionados",
+  1569: "{n} mascota enviada de nuevo|{n} mascotas enviadas de nuevo",
+  1570: "Gran intendente: {0}.",
 };

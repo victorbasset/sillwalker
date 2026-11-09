@@ -921,6 +921,11 @@ test("Grand intendant : œufs éclos, expéditions récupérées et relancées (
   g.autoPets(t0 + 200 * 60000);
   assert.ok(g.S.gold > gold, "expéditions finies récupérées");
   assert.ok(Object.values(g.S.pets.exp).every((e) => e.kind === "short"), "relancées dans le dernier choix");
+  const before = g.S.log.slice(0, 5).join("|");
+  g.autoPets(t0 + 600 * 60000);
+  const fresh = g.S.log.slice(0, g.S.log.findIndex((l, k) => g.S.log.slice(k, k + 5).join("|") === before)); // lignes ajoutées (les plus récentes en tête)
+  assert.equal(fresh.filter((l) => /Grand Steward|Grand intendant/.test(l)).length, 1, "une ligne de résumé : " + JSON.stringify(fresh));
+  assert.ok(fresh.length <= 3, "pas une ligne par familier : " + JSON.stringify(fresh));
   g.S.settings.autoPets = false; g.S.pets.eggs = 2;
   g.autoPets(t0 + 400 * 60000);
   assert.equal(g.S.pets.eggs, 2, "option coupée");

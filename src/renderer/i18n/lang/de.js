@@ -439,4 +439,9 @@ export default {
   1563: "Eichhörnchen",
   1564: "Versteckt Nüsse … und Münzen.",
   1565: "{0} endlich besiegt!",
+  1566: "{n} Expedition abgeholt|{n} Expeditionen abgeholt",
+  1567: "{n} Gegenstand gefunden|{n} Gegenstände gefunden",
+  1568: "{n} Ei ausgebrütet|{n} Eier ausgebrütet",
+  1569: "{n} Begleiter wieder losgeschickt|{n} Begleiter wieder losgeschickt",
+  1570: "Großer Verwalter: {0}.",
 };

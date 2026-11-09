@@ -439,4 +439,9 @@ export default {
   1563: "Squirrel",
   1564: "Hides nuts… and coins.",
   1565: "{0} finally defeated!",
+  1566: "{n} expedition collected|{n} expeditions collected",
+  1567: "{n} item found|{n} items found",
+  1568: "{n} egg hatched|{n} eggs hatched",
+  1569: "{n} pet sent off again|{n} pets sent off again",
+  1570: "Grand Steward: {0}.",
 };
