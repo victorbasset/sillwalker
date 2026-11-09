@@ -452,4 +452,10 @@ export default {
   1576: "Vender en cuanto caigan:",
   1577: "{n} punto libre · {0} en total|{n} puntos libres · {0} en total",
   1578: "Eventos raros",
+  1579: "¿Has visto eso?",
+  1580: "¡Es el momento!",
+  1581: "¡Aprovechemos!",
+  1582: "¡Por fin!",
+  1583: "¡Esta vez sí!",
+  1584: "Sabía que lo lograría.",
 };

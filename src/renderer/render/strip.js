@@ -33,6 +33,8 @@ const SPEECH = {
   ko: [tx("Aïe… je reviens."), tx("Juste une égratignure."), tx("Je l’avais presque !")],
   record: [tx("Jamais allé aussi loin !"), tx("Terre inconnue !")],
   level: [tx("Je me sens plus fort !"), tx("Encore un niveau !")],
+  event: [tx("Tu as vu ça ?"), tx("C’est le moment !"), tx("Profitons-en !")],
+  nemesis: [tx("Enfin !"), tx("Cette fois, c’est la bonne !"), tx("Je savais que j’y arriverais.")],
 };
 
 export const STRIP_H = 120;
@@ -105,6 +107,8 @@ export class StripRenderer {
     g.on("heroDown", () => this.say(SPEECH.ko, true));
     g.on("zoneUp", ({ record }) => { if (record) this.say(SPEECH.record); });
     g.on("levelUp", () => this.say(SPEECH.level));
+    g.on("event", () => this.say(SPEECH.event)); // ordinaire : pas de bulle sur le nom d'un boss
+    g.on("bossNemesis", () => this.say(SPEECH.nemesis, true));
     g.on("bossDodge", () => this.float(this.monX() + 14, 40, tx("Raté !"), "#c8c8d8"));
     g.on("dodge", () => this.float(this.heroX + 16, 44, tx("Esquive"), "#9fd8ff"));
     g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + Math.round(dmg), "#ffb07a"));

@@ -452,4 +452,10 @@ export default {
   1576: "Sell as soon as they drop:",
   1577: "{n} free point · {0} in total|{n} free points · {0} in total",
   1578: "Rare events",
+  1579: "Did you see that?",
+  1580: "Now's the time!",
+  1581: "Let's make the most of it!",
+  1582: "Finally!",
+  1583: "This time's the one!",
+  1584: "I knew I'd make it.",
 };

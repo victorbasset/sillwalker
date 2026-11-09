@@ -452,4 +452,10 @@ export default {
   1576: "Sofort verkaufen:",
   1577: "{n} freier Punkt · {0} insgesamt|{n} freie Punkte · {0} insgesamt",
   1578: "Seltene Ereignisse",
+  1579: "Hast du das gesehen?",
+  1580: "Jetzt ist der Moment!",
+  1581: "Nutzen wir das aus!",
+  1582: "Endlich!",
+  1583: "Diesmal hat’s geklappt!",
+  1584: "Ich wusste, dass ich es schaffe.",
 };

@@ -452,4 +452,10 @@ export default {
   1576: "Sprzedawaj od razu:",
   1577: "{n} wolny punkt · {0} łącznie|{n} wolne punkty · {0} łącznie|{n} wolnych punktów · {0} łącznie",
   1578: "Rzadkie zdarzenia",
+  1579: "Widziałeś to?",
+  1580: "To jest ta chwila!",
+  1581: "Korzystajmy!",
+  1582: "Wreszcie!",
+  1583: "Tym razem się udało!",
+  1584: "Wiedziałem, że dam radę.",
 };

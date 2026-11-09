@@ -1580,5 +1580,11 @@ export const KEYS = [
   "Creuset perpétuel : transmuter quand le sac se remplit",
   "Vendre dès qu’ils tombent :",
   "{n} point libre · {0} au total|{n} points libres · {0} au total",
-  "Événements rares"
+  "Événements rares",
+  "Tu as vu ça ?",
+  "C’est le moment !",
+  "Profitons-en !",
+  "Enfin !",
+  "Cette fois, c’est la bonne !",
+  "Je savais que j’y arriverais."
 ];
