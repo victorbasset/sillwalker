@@ -433,4 +433,5 @@ export default {
   1557: "Gehe zu",
   1558: "Hauch der Weisheit",
   1559: "Erfahrung ×3!",
+  1560: "Seltene Ereignisse ({0})",
 };

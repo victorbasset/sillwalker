@@ -433,4 +433,5 @@ export default {
   1557: "Go to",
   1558: "Breath of Wisdom",
   1559: "Experience ×3!",
+  1560: "Rare events ({0})",
 };

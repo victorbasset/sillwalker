@@ -1561,5 +1561,6 @@ export const KEYS = [
   "Grand intendant : œufs et expéditions ({0}) tout seuls",
   "Aller à",
   "Souffle de sagesse",
-  "Expérience ×3 !"
+  "Expérience ×3 !",
+  "Événements rares ({0})"
 ];
