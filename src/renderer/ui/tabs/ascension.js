@@ -38,13 +38,17 @@ export class AscensionTab {
         : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>`}
       ${hasUnlock(S, "astrolabe") ? `<label class="toggle"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record")}</label>` : ""}
     </article>`;
-    const stars = CONSTELLATIONS.map((c) => {
+    // Constellations au maximum : regroupées en une ligne de pastilles (effet au survol) ; la liste ne garde que
+    // celles qu'on peut encore améliorer (demande 18 : moins chargé).
+    const maxedList = CONSTELLATIONS.filter((c) => (P.ranks[c.id] || 0) >= c.max);
+    const maxedChips = maxedList.map((c) => `<span class="chip" title="${esc(effText(c.eff, c.max))}">✦ ${esc(c.name)}</span>`).join("");
+    const stars = CONSTELLATIONS.filter((c) => (P.ranks[c.id] || 0) < c.max).map((c) => {
       const rank = P.ranks[c.id] || 0, maxed = rank >= c.max, cost = constellationCost(c, rank);
       return `<li class="shopline"><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
         <div class="sub">${rank ? tx("Actuel : ") + esc(effText(c.eff, rank)) + " · " : ""}${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, c.eff.startZone ? rank + 1 : 1))}</div></div>
         ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${cost}</button>`}</li>`;
     }).join("");
-    el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2><ul class="shoplist two-cols">${stars}</ul></article></div>`;
+    el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2>${maxedList.length ? `<p class="note tight">${tx("Au maximum ({0}) :", { 0: maxedList.length })}</p><div class="uowned">${maxedChips}</div>` : ""}<ul class="shoplist two-cols">${stars}</ul></article></div>`;
   }
 
   onAction(a, b) {
