@@ -508,4 +508,5 @@ export default {
   1632: "Uwolniony bohater: {0}",
   1633: "Wniebowstąpienie nr {0}",
   1634: "Tu pojawią się najważniejsze etapy twojej gry.",
+  1635: "Początek dziennika: poziom {0}, rekordowa strefa {1}",
 };

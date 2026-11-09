@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 182) : Carnet de route : une partie déjà entamée (sauvegarde sans carnet) reçoit à la migration une
+  première entrée « Début du carnet : niveau X, record zone Y » datée du jour, au lieu d'un carnet vide. Test,
+  10 langues, capture, 81/81.
 - 2026-11-09 (it. 181) : Carnet de route dans les Statistiques : grandes étapes datées (niveaux 10/25/50/100…, record
   tous les 5 zones, premier légendaire, héros libérés, ascensions ; niveaux gagnés hors ligne compris). S.journey
   (120 au plus), gardé à l'ascension, migration (entrées illisibles retirées), test, save-fuzz 20/20, 10 langues,

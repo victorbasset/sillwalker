@@ -1467,7 +1467,10 @@ test("carnet de route : niveaux ronds, records par 5 zones, premier légendaire,
   g.S.best = 30; if (g.canAscend()) { g.ascend(); assert.ok(g.S.journey.length >= n + 1, "gardé à l'ascension, ascension notée"); assert.ok(g.S.journey.some((e) => e.k === "asc")); }
   const raw = JSON.parse(JSON.stringify(freshLocked())); raw.journey = [null, { t: "x", k: "lvl" }, { t: 5, k: "zone", v: 10 }];
   assert.deepEqual(migrate(raw).journey, [{ t: 5, k: "zone", v: 10 }]);
-  delete raw.journey; assert.deepEqual(migrate(raw).journey, []);
+  delete raw.journey; assert.deepEqual(migrate(raw).journey, [], "partie neuve : carnet vide");
+  raw.best = 40; raw.lvl = 300;
+  const st = migrate(raw).journey;
+  assert.equal(st.length, 1); assert.equal(st[0].k, "start"); assert.equal(st[0].v, 40); assert.equal(st[0].l, 300);
 });
 
 test("quêtes : pas de forge, de transmutation ni d'élites avant qu'elles soient possibles", () => {

@@ -188,6 +188,8 @@ export function migrate(raw) {
   // Onglets progressifs, apparus après coup : tout ce que le joueur connaissait déjà reste ouvert.
   if (!isObj(o.tabsOpen)) seedTabs(s);
   s.journey = Array.isArray(s.journey) ? s.journey.filter((e) => isObj(e) && Number.isFinite(e.t) && typeof e.k === "string").slice(-120) : [];
+  // Carnet apparu après coup, partie déjà entamée : une première entrée situe le point de départ.
+  if (!Array.isArray(o.journey) && (s.best > 1 || s.lvl > 1)) s.journey.push({ t: Date.now(), k: "start", v: s.best, l: s.lvl });
   const ref = freshState(); // def a été fusionné dans s : référence intacte à part
   for (const k of ["stats", "prestige", "guild", "pets", "skills", "daily"]) {
     for (const f in ref[k]) if (typeof ref[k][f] === "number" && !Number.isFinite(s[k][f])) s[k][f] = ref[k][f];

@@ -508,4 +508,5 @@ export default {
   1632: "Héroe liberado: {0}",
   1633: "Ascensión n.º {0}",
   1634: "Las grandes etapas de tu partida aparecerán aquí.",
+  1635: "Inicio del cuaderno: nivel {0}, récord zona {1}",
 };

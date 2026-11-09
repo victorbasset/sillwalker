@@ -508,4 +508,5 @@ export default {
   1632: "Held befreit: {0}",
   1633: "Aufstieg Nr. {0}",
   1634: "Die großen Etappen deines Spiels erscheinen hier.",
+  1635: "Logbuch begonnen: Stufe {0}, Rekordzone {1}",
 };

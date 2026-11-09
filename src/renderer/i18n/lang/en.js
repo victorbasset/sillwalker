@@ -508,4 +508,5 @@ export default {
   1632: "Hero freed: {0}",
   1633: "Ascension #{0}",
   1634: "The big steps of your adventure will appear here.",
+  1635: "Logbook started: level {0}, record zone {1}",
 };

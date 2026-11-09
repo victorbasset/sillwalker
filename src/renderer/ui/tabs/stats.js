@@ -26,6 +26,7 @@ function journeyText(e) {
   if (e.k === "leg") return tx("Premier objet légendaire");
   if (e.k === "cls") return tx("Héros libéré : {0}", { 0: (CLASSES[e.v] || {}).name || "?" });
   if (e.k === "asc") return tx("Ascension n° {0}", { 0: e.v });
+  if (e.k === "start") return tx("Début du carnet : niveau {0}, record zone {1}", { 0: fmt(e.l || 1), 1: e.v });
   return "";
 }
 function journeyHTML(S) {
