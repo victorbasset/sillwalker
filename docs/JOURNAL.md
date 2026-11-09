@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 256, demande 18, suite) : Carte du Rebord sans défilement : 4 rangées de 50 zones (au lieu de 7 de
+  33 : forme large, comme le panneau), titre et résumé sur une ligne, explication en infobulle, la carte prend la
+  hauteur restante ; le Briseur au bout de la dernière rangée, dans le sens de la marche. Test du serpentin mis à
+  jour. Captures 1920 et 1366, 102/102.
+  Relevé du défilement restant par onglet (px au-delà de la hauteur du panneau, 1920 px, partie de dev) :
+  Compétences, Quêtes, Ascension 0 ; Statistiques 5 ; Carte 0 (après) ; Aventure 51 ; Talents 59 ; Boutique 72 ;
+  Réglages 100 ; Héros 451 ; Familiers 477 ; Bestiaire 1260 (83 fiches). Prochaines cibles : Familiers, Héros,
+  Bestiaire (fiches plus compactes ou pages).
 - 2026-11-09 (it. 255, demande 18, suite) : Ascension : les constellations au maximum se regroupent en une ligne de
   pastilles (effet au survol) ; la liste ne garde que celles à améliorer (sur la partie de dev : 11 pastilles et 5
   lignes au lieu de 16 lignes). Capture, 102/102, 10 langues.

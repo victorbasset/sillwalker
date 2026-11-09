@@ -1,11 +1,10 @@
 // Carte du Rebord (demande de Victor : voir son avancement dans le jeu et dans l'histoire, jolie et interactive).
-// Dessin SVG en pixels : une rangée par boucle des décors (ZONES.length zones), en serpentin, chaque zone un tronçon
+// Dessin SVG en pixels : 4 rangées de 50 zones, en serpentin, chaque zone un tronçon
 // aux couleurs de son décor (ciel + sol, comme la bande). Repères : héros prisonniers (zone de leur boss), chroniques,
 // le héros (zone actuelle), le record, et la forteresse du Briseur d'Étoiles en zone 200. Brouillard au-delà du
 // record. Survol : infobulle (zone, boss, chronique, héros). Toujours sombre : c'est une image, comme la bande.
 import { t as tx, fsp } from "../../i18n/index.js";
 import { esc, fmt } from "../../game/format.js";
-import { ZONES } from "../../game/data.js";
 import { zoneName, zoneDef } from "../../game/rules.js";
 import { bossName } from "../../game/bosses.js";
 import { recordZone, hasUnlock, UNLOCK_INDEX } from "../../game/unlocks.js";
@@ -14,8 +13,9 @@ import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game
 import { classPortraitURL, dressedPortraitURL, starbreakerURL } from "../../render/sprites.js";
 import { heroVisual } from "../../render/equipvis.js";
 
-const L = ZONES.length;            // zones par rangée (une boucle des décors)
-const STEP = 20, X0 = 26, ROW_H = 62, Y0 = 52, BAND_W = 18, BAND_H = 14;
+// 4 rangées de 50 zones : la carte entière tient dans le panneau, large et peu haut (demande 18, sans défilement).
+const L = 50;                      // zones par rangée
+const STEP = 20, X0 = 92, ROW_H = 62, Y0 = 52, BAND_W = 18, BAND_H = 14;
 const W = X0 * 2 + STEP * (L - 1);
 
 /** Position du tronçon de la zone z (serpentin : une rangée sur deux de droite à gauche). */
@@ -77,8 +77,10 @@ export class MapTab {
     // La forteresse du Briseur d'Étoiles, au bout du Rebord (zone 200).
     const f = mapPos(FINAL_ZONE);
     const ftip = won ? `${tx("Le Briseur d’Étoiles est vaincu")}\n${tx(CHRONICLES.find((c) => c.id === "dawn").text)}` : `${tx("Le Briseur d’Étoiles")}${fsp()}: ${tx("zone {0}", { 0: FINAL_ZONE })}\n${tx("Atteins la zone 200 et terrasse le Briseur d’Étoiles pour rallumer le ciel. Chaque renaissance te rendra plus fort.")}`;
-    parts.push(`<g class="mfinal${won ? " won" : ""}" title="${esc(ftip)}"><image href="${starbreakerURL()}" x="${f.x + 14}" y="${f.y - 30}" width="42" height="39"/>`
-      + `<text class="mfname" x="${f.x + 35}" y="${f.y + BAND_H + 12}">${esc(won ? "★ " + tx("Le ciel rallumé") : tx("Le Briseur d’Étoiles"))}</text></g>`);
+    // Au bout du chemin, dans le sens de la marche (rangée impaire : vers la gauche).
+    const fdir = f.r % 2 ? -1 : 1, fx = fdir > 0 ? f.x + 14 : f.x - 56, fcx = fx + 21;
+    parts.push(`<g class="mfinal${won ? " won" : ""}" title="${esc(ftip)}"><image href="${starbreakerURL()}" x="${fx}" y="${f.y - 30}" width="42" height="39"/>`
+      + `<text class="mfname" x="${fcx}" y="${f.y + BAND_H + 12}">${esc(won ? "★ " + tx("Le ciel rallumé") : tx("Le Briseur d’Étoiles"))}</text></g>`);
     // Record (drapeau) et héros (portrait habillé) ; au-delà de la zone 200, une flèche « au-delà du Rebord ».
     const recZ = Math.min(recordZone(S), FINAL_ZONE), rp = mapPos(recZ);
     if (recordZone(S) !== S.zone) parts.push(`<g class="mflag" title="${esc(tx("Record : zone {0}", { 0: recordZone(S) }))}"><rect x="${rp.x - 1}" y="${rp.y - 14}" width="2" height="14"/><rect class="cloth" x="${rp.x + 1}" y="${rp.y - 14}" width="7" height="5"/></g>`);
@@ -87,13 +89,14 @@ export class MapTab {
       // Une cage voisine (zone ±1) : le héros se hisse au-dessus, relié à sa zone par un trait.
       const lift = Object.values(CLASS_UNLOCK_ZONE).some((z) => Math.abs(z - S.zone) <= 1 && mapPos(z).r === hp.r) ? 24 : 0;
       parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}">${lift ? `<rect class="mpin" x="${hp.x - 1}" y="${hp.y - lift - 3}" width="2" height="${lift + 3}"/>` : ""}<image href="${dressedPortraitURL(S.cls, heroVisual(S))}" x="${hp.x - 10}" y="${hp.y - 25 - lift}" width="20" height="22"/></g>`);
-    } else parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}"><text class="mbeyond" x="${f.x + 35}" y="${f.y + BAND_H + 26}">${esc(tx("Au-delà du Rebord : zone {0}", { 0: S.zone }))} →</text></g>`);
+    } else parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}"><text class="mbeyond" x="${fcx}" y="${f.y + BAND_H + 26}">${esc(tx("Au-delà du Rebord : zone {0}", { 0: S.zone }))} →</text></g>`);
     const freed = Object.keys(CLASSES).filter((c) => isClassUnlocked(S, c)).length;
-    el.innerHTML = `<article class="panel mappanel"><h2>${tx("Carte du Rebord")} <small>${tx("survole un lieu")}</small></h2>
-      <p class="tabintro">${tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout.")}</p>
-      <ul class="mapsum"><li>${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE}</li><li>${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })}</li><li>📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })}</li></ul>
-      ${travel ? `<p class="note">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : `<p class="note">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
-      <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W + 50} ${H}" role="img" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges">${parts.join("")}</svg></div></article>`;
+    // Tient dans le panneau sans défilement (demande 18) : titre et résumé sur une ligne, explication en infobulle,
+    // la carte prend la hauteur restante (elle se réduit pour rentrer en entier ; le détail est dans les infobulles).
+    el.innerHTML = `<article class="panel mappanel"><h2 title="${esc(tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."))}">${tx("Carte du Rebord")}
+      <small class="mapsum">${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE} · ${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })} · 📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })}</small></h2>
+      ${travel ? `<p class="note tight">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : `<p class="note tight">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
+      <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div></article>`;
   }
 
   onAction(a, b) {

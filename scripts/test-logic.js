@@ -1570,9 +1570,9 @@ test("Briseur d'Étoiles : boss final de la zone 200, plus coriace, fin de l'his
   const bad = JSON.parse(JSON.stringify(g.S)); bad.story.won = "oui"; assert.equal(migrate(bad).story.won, false);
 });
 
-test("carte du Rebord : serpentin (une rangée par boucle des décors, les rangées s'enchaînent)", () => {
-  const L = ZONES.length;
-  assert.equal(mapPos(1).r, 0); assert.equal(mapPos(L).r, 0); assert.equal(mapPos(L + 1).r, 1);
+test("carte du Rebord : serpentin de 4 rangées de 50 zones (tient sans défilement), les rangées s'enchaînent", () => {
+  const L = 50;
+  assert.equal(mapPos(1).r, 0); assert.equal(mapPos(L).r, 0); assert.equal(mapPos(L + 1).r, 1); assert.equal(mapPos(200).r, 3);
   assert.equal(mapPos(L).x, mapPos(L + 1).x, "fin de rangée et début de la suivante l'une sous l'autre");
   assert.equal(mapPos(2 * L).x, mapPos(1).x, "la 2e rangée revient vers la gauche");
   assert.ok(mapPos(2).x > mapPos(1).x && mapPos(L + 2).x < mapPos(L + 1).x);

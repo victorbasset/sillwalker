@@ -745,8 +745,8 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .cine.intro, .cine.credits, .cine.chronicle { background: linear-gradient(#05030f 0%, #120a2e 65%, rgba(18, 10, 46, 0.7) 100%); }
 .cine.intro .cine-title { font-size: 28px; letter-spacing: 4px; text-transform: uppercase; color: #ffe27a; }
 /* Carte du Rebord (ui/tabs/map.js) : toujours sombre, comme la bande (c'est une image) */
-.mapwrap { overflow-x: auto; border-radius: 6px; background: linear-gradient(#070414, #140b30 70%, #1d1240); border: 1px solid var(--line); padding: 6px; }
-svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; height: auto; display: block; font-family: "Pixelify Sans", monospace; }
+.mapwrap { overflow: hidden; border-radius: 6px; background: linear-gradient(#070414, #140b30 70%, #1d1240); border: 1px solid var(--line); padding: 6px; }
+svg.rebord { width: 100%; max-width: 980px; height: calc(var(--panel-h) - 175px); margin: 0 auto; display: block; font-family: "Pixelify Sans", monospace; }
 .rebord .mstar { fill: #ffe27a; opacity: 0.8; }
 .rebord .mlink { fill: #3a3358; } .rebord .mlink.lit { fill: #c9a03a; }
 .rebord .mz rect { stroke: #0d0a1c; stroke-width: 1; }
@@ -769,7 +769,7 @@ svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; he
 .rebord .mflag rect { fill: #e8e4ff; } .rebord .mflag .cloth { fill: #e2394a; }
 .rebord .mbeyond { fill: #ffe27a; font-size: 9px; text-anchor: middle; }
 .rebord image { image-rendering: pixelated; }
-.mapsum { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; padding: 0; margin: 4px 0 8px; }
+.mappanel h2 .mapsum { font-size: 13px; color: var(--muted); }
 .mappanel { grid-column: 1 / -1; }
 .rebord .mpin { fill: #ffe27a; }
 .cine.freed { background: linear-gradient(rgba(8, 20, 14, 0.94), rgba(14, 34, 24, 0.85)); }
