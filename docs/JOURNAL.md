@@ -826,6 +826,12 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       l'ascension (onglet « Héros ») ; (d) migration des parties (classe actuelle = héros principal, compagnon
       choisi à la prochaine ascension) ; (e) textes « classe » → « héros » dans les 10 langues ; équilibrage
       (balance.mjs, simulate 168 h), fuzz, carte du Rebord (20 cages).
+  18. À FAIRE (2026-11-09) : onglets moins chargés visuellement et sans défilement si possible. Bestiaire : n'afficher
+      le contenu d'une section (monstres, panoplies, élites, collection…) qu'au clic sur son bouton (sous-onglets).
+      Faire de même ailleurs quand c'est possible ; Carte et Compétences : chercher une idée (plus difficile).
+  19. À FAIRE (2026-11-09) : les quêtes ne doivent pas proposer de récompenses encore inaccessibles (ex. œufs de
+      familier avant l'onglet Familiers) ; vérifier aussi les autres récompenses (éclats d'étoile avant l'Ascension,
+      élixirs avant la Boutique…).
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
