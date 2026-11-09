@@ -5,6 +5,7 @@ import { CLASSES, CLASS_UNLOCK_ZONE } from "./classes.js";
 import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
 import { PET_INDEX } from "./pets.js";
+import { SKILL_TREE } from "./skilltree.js";
 
 export const SAVE_VERSION = 8;
 
@@ -145,7 +146,8 @@ export function migrate(raw) {
   s.prestige = Object.assign(def.prestige, isObj(o.prestige) ? o.prestige : {});
   if (!isObj(s.prestige.ranks)) s.prestige.ranks = {};
   s.quests = Object.assign(def.quests, isObj(o.quests) ? o.quests : {});
-  if (!Array.isArray(s.quests.slots)) s.quests.slots = [];
+  // Quêtes illisibles retirées (ensureQuests en propose de nouvelles) ; leur sorte inconnue est traitée là-bas.
+  s.quests.slots = Array.isArray(s.quests.slots) ? s.quests.slots.filter(isObj) : [];
   for (const q of s.quests.slots) if (!q.stars) q.stars = 1;
   s.guild = Object.assign(def.guild, isObj(o.guild) ? o.guild : {});
   s.pets = Object.assign(def.pets, isObj(o.pets) ? o.pets : {});
@@ -156,7 +158,8 @@ export function migrate(raw) {
   for (const id of Object.keys(s.pets.exp)) if (!PET_INDEX[id] || !s.pets.owned[id]) delete s.pets.exp[id];
   if (s.pets.active && !s.pets.owned[s.pets.active]) s.pets.active = Object.keys(s.pets.owned)[0] || null;
   s.skills = Object.assign(def.skills, isObj(o.skills) ? o.skills : {});
-  if (!Array.isArray(s.skills.order)) s.skills.order = [];
+  // Nœuds inconnus (autre version) ou doublons retirés : skillTreeEffects lit chaque nœud.
+  s.skills.order = Array.isArray(s.skills.order) ? [...new Set(s.skills.order)].filter((id) => typeof id === "string" && SKILL_TREE.nodes[id]) : [];
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
   s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});

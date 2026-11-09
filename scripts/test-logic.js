@@ -1428,6 +1428,23 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("sauvegarde : quêtes illisibles et compétences inconnues retirées, arbre valide conservé", () => {
+  const g = new Game(freshLocked());
+  g.S.prestige.skillPts = 30; g.autoSpendSkills();
+  const order = [...g.S.skills.order];
+  assert.ok(order.length > 0);
+  const raw = JSON.parse(JSON.stringify(g.S));
+  assert.deepEqual(migrate(JSON.parse(JSON.stringify(raw))).skills.order, order, "arbre valide intact");
+  raw.skills.order = [...order, "nope", null, order[0]];
+  raw.quests.slots = [null, ...raw.quests.slots];
+  const s = migrate(raw);
+  assert.deepEqual(s.skills.order, order);
+  assert.ok(s.quests.slots.every((q) => q && typeof q === "object"));
+  const g2 = new Game(s);
+  for (let i = 0; i < 300; i++) g2.step(0.1);
+  g2.stats();
+});
+
 test("sauvegarde : objets illisibles retirés du sac et de l'équipement, sans plantage", () => {
   const raw = JSON.parse(JSON.stringify(freshState()));
   const good = { id: 6, slot: "weapon", r: 1, il: 1, st: { atk: 5, def: null } };

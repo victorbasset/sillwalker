@@ -45,6 +45,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (10 classes) et signale celles qui ne progressent pas (60 graines ≈ 35 s). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
+- Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (16 corruptions de la
+  sauvegarde de dev : null, valeurs inconnues… ; chacune doit afficher « ok »). À relancer après tout ajout de donnée sauvegardée.
 - Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
