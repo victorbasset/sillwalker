@@ -324,6 +324,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .reward { font-size: 14px; margin: 4px 0 0; }
 .petbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 12px; }
 .petbar .note { flex-basis: 100%; margin: 0; }
+.petbar .note.help { flex-basis: auto; margin-left: auto; }
 .petcard.current { border-color: var(--accent); box-shadow: 0 4px 0 var(--accent); }
 .petcard .detail-head img { width: 52px; height: auto; }
 .petcard.unknown { opacity: .6; }
@@ -840,3 +841,6 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .classcard > .row:last-child { flex-wrap: nowrap; gap: 6px; }
 .classcard > .row:last-child button { flex: 1 1 0; min-width: 0; font-size: 13px; padding: 4px 6px; line-height: 1.2; }
 .classcard .detail-head img { width: 48px; }
+/* Familiers (demande 18) : cartes plus basses. */
+.petcard .lines { font-size: 12px; }
+.petcard .expe { padding: 3px 8px; white-space: nowrap; }

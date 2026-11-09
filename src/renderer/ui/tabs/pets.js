@@ -20,7 +20,8 @@ export class PetsTab {
     const e = (this.game.S.pets.exp || {})[p.id];
     if (e) {
       const ex = EXPEDITIONS[e.kind], done = e.end <= Date.now();
-      return `<div class="expe${done ? " done" : ""}"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `${tx("En {0} · retour dans", { 0: esc(lc(ex.name)) })} <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
+      // Une ligne (demande 18) : « Voyage · 2 h 10 », la phrase complète en infobulle.
+      return `<div class="expe${done ? " done" : ""}" title="${esc(tx("En {0} · retour dans", { 0: lc(ex.name) }))}…"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `${esc(ex.name)} · <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
         ${done ? `<button class="primary" data-action="p-claim" data-id="${p.id}">${tx("Récupérer le butin")}</button>` : ""}</div>`;
     }
     if (active || !hasUnlock(this.game.S, "expeditions")) return "";

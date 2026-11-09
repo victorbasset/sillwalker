@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 273) : Familiers plus compacts (demande 18) : le ⓘ remonte dans la barre du haut (il occupait une
+  ligne), l'expédition en cours tient sur une ligne (« Grande expédition · 4 h 32 », phrase complète en infobulle),
+  bonus en 12 px : ~80 px de moins. Sans nouveau texte. 103/103.
 - 2026-11-09 (it. 272) : onglet Héros plus compact (demande 18) : boutons courts côte à côte (« Jouer à
   l’ascension », « Prendre en duo », texte complet en infobulle), portrait 48 px, modificateurs en 12 px : ~60 px de
   moins par rangée de cartes. 3 textes × 9 langues, captures fr 1920 / de 1366, 103/103.
