@@ -1282,6 +1282,15 @@ test("quêtes : un type inconnu (autre version) est remplacé au chargement, san
   for (const q of g.S.quests.slots) assert.equal(typeof M_quests_js.QUEST_TEMPLATES[q.kind].text(q), "string");
   g.S.pets.owned.licorne_future = { lvl: 1, xp: 0 }; // familier d'une autre version
   assert.ok(!g.idlePets().includes("licorne_future"));
+  // Familier inconnu actif ou en expédition : retiré au chargement, le combat continue.
+  const P = JSON.parse(JSON.stringify(g.S));
+  P.pets.owned = { licorne: { lvl: 3, xp: 0 }, cat: { lvl: 2, xp: 0 }, licorne2: { lvl: 1, xp: 0 } };
+  P.pets.active = "licorne"; P.pets.exp = { licorne2: { kind: "long", start: 0, end: 1 } };
+  const g2 = new Game(migrate(P));
+  assert.equal(g2.S.pets.active, "cat");
+  assert.deepEqual(Object.keys(g2.S.pets.owned), ["cat"]);
+  assert.deepEqual(g2.S.pets.exp, {});
+  for (let i = 0; i < 400; i++) g2.step(0.05);
 });
 
 test("valeurs inconnues d'une autre version (panoplie, pouvoir, déblocage, constellation, élixir) : rien ne plante", () => {

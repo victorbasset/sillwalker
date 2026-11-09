@@ -4,6 +4,7 @@ import { SLOT_KEYS, LEGENDARY, BAG_SIZE } from "./data.js";
 import { CLASSES, CLASS_UNLOCK_ZONE } from "./classes.js";
 import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
+import { PET_INDEX } from "./pets.js";
 
 export const SAVE_VERSION = 8;
 
@@ -130,6 +131,10 @@ export function migrate(raw) {
   s.pets = Object.assign(def.pets, isObj(o.pets) ? o.pets : {});
   if (!isObj(s.pets.owned)) s.pets.owned = {};
   if (!isObj(s.pets.exp)) s.pets.exp = {};
+  // Familiers inconnus (sauvegarde d'une autre version) : retirés, sinon leur nom manque partout (combat, journal).
+  for (const id of Object.keys(s.pets.owned)) if (!PET_INDEX[id]) delete s.pets.owned[id];
+  for (const id of Object.keys(s.pets.exp)) if (!PET_INDEX[id] || !s.pets.owned[id]) delete s.pets.exp[id];
+  if (s.pets.active && !s.pets.owned[s.pets.active]) s.pets.active = Object.keys(s.pets.owned)[0] || null;
   s.skills = Object.assign(def.skills, isObj(o.skills) ? o.skills : {});
   if (!Array.isArray(s.skills.order)) s.skills.order = [];
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));

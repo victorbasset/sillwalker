@@ -85,8 +85,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   un test `async` serait compté réussi tout de suite (échec signalé seulement après le total) :
   tous les tests sont synchrones, avec des imports statiques en tête de fichier ; garder cette règle.
   Ajouter un type de quête, un familier, une panoplie… sans changer SAVE_VERSION est permis, mais le code doit tolérer
-  une valeur inconnue venue d'une autre version (ensureQuests remplace les quêtes illisibles ; idlePets ignore les
-  familiers inconnus).
+  une valeur inconnue venue d'une autre version (ensureQuests remplace les quêtes illisibles ; migrate() retire les
+  familiers inconnus ; ailleurs, tester l'existence avant de lire un nom : `POWER_INDEX[id]?.name`).
 
 - Panneau : thème clair (par défaut) et sombre selon Windows. Jamais de couleur claire en dur pour du texte
   (#ffe9a8, #9fe0a8…) : utiliser les jetons du thème (`--accent`, `--good`, `--bad`, `--r0`…`--r4`, `--muted`)
