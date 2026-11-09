@@ -1541,5 +1541,7 @@ export const KEYS = [
   "(série d’{n} jour interrompue : elle recommence)|(série de {n} jours interrompue : elle recommence)",
   "Le marchand propose une amélioration",
   "Traqueur de champions",
-  "du Traqueur de champions"
+  "du Traqueur de champions",
+  "Panoplies",
+  "pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées"
 ];

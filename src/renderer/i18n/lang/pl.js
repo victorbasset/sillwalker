@@ -413,4 +413,6 @@ export default {
   1537: "Kupiec oferuje ulepszenie",
   1538: "Tropiciel czempionów",
   1539: "Tropiciela Czempionów",
+  1540: "Zestawy",
+  1541: "części z epickich i legendarnych przedmiotów · premie za 2 i 4 noszone części",
 };

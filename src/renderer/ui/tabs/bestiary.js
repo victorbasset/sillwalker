@@ -7,6 +7,7 @@ import { fmt, esc } from "../../game/format.js";
 import { monsterURL, itemIconURL } from "../../render/sprites.js";
 import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound } from "../../game/codex.js";
 import { POWERS } from "../../game/powers.js";
+import { SETS, SET_KEYS, setCounts } from "../../game/sets.js";
 import { RARITIES, SLOTS } from "../../game/data.js";
 
 const where = (type) => {
@@ -52,7 +53,12 @@ export class BestiaryTab {
       <h2 class="codexh">${tx("Pouvoirs légendaires")} <small>${powersFound(S)} ${tx("/ {0} découverts · chacun donne {1}", { 0: POWERS.length, 1: esc(describeEffects(POWER_CODEX_BONUS)) })}</small></h2>
       <div class="powergrid">${POWERS.map((p) => (S.powersSeen || {})[p.id]
         ? `<span class="chip pow" title="${esc(describeEffects(p.eff))}">★ ${esc(p.name)}</span>`
-        : `<span class="chip pow unknown">???</span>`).join("")}</div>`;
+        : `<span class="chip pow unknown">???</span>`).join("")}</div>
+      <h2 class="codexh">${tx("Panoplies")} <small>${tx("pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées")}</small></h2>
+      <div class="setgrid">${SET_KEYS.map((id) => { const st = SETS[id], n = setCounts(S.equip)[id] || 0; // toutes les panoplies, et où en est le héros
+        return `<div class="setcard" style="--c:${st.color}"><b class="tint">◆ ${esc(st.name)}</b> <small>${n}/4</small>
+          <div class="${n >= 2 ? "on" : ""}">${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
+          <div class="${n >= 4 ? "on" : ""}">${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>`;
   }
 
   onAction() {}

@@ -413,4 +413,6 @@ export default {
   1537: "The merchant offers an upgrade",
   1538: "Champion Stalker",
   1539: "of the Champion Stalker",
+  1540: "Sets",
+  1541: "pieces from epics and legendaries · bonuses at 2 and 4 pieces worn",
 };

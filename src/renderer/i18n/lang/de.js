@@ -413,4 +413,6 @@ export default {
   1537: "Der Händler bietet eine Verbesserung an",
   1538: "Champion-Pirscher",
   1539: "des Champion-Pirschers",
+  1540: "Sets",
+  1541: "Teile aus epischen und legendären Gegenständen · Boni bei 2 und 4 getragenen Teilen",
 };

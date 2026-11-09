@@ -413,4 +413,6 @@ export default {
   1537: "El mercader ofrece una mejora",
   1538: "Acechador de campeones",
   1539: "del Acechador de campeones",
+  1540: "Conjuntos",
+  1541: "piezas de épicos y legendarios · bonos con 2 y 4 piezas puestas",
 };

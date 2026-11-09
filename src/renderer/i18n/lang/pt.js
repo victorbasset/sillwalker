@@ -413,4 +413,6 @@ export default {
   1537: "O mercador oferece uma melhoria",
   1538: "Caçador de campeões",
   1539: "do Caçador de campeões",
+  1540: "Conjuntos",
+  1541: "peças de épicos e lendários · bônus com 2 e 4 peças equipadas",
 };
