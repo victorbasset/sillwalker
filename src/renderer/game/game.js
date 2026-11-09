@@ -52,6 +52,9 @@ const BURN_TIME = 3;
 /** Zone de départ après une ascension : 1 + bonus de La Route, sans dépasser 5 zones sous le record. */
 export const ascendStartZone = (eff, best) => Math.max(1, Math.min(1 + (eff.startZone || 0), best - 5));
 
+/** Pièces de panoplie gardées au plus par « vendre l'inutile » et la transmutation (voir uselessItems). */
+const SET_KEEP_MAX = 6;
+
 export class Game {
   constructor(state) {
     this.listeners = {};
@@ -762,9 +765,12 @@ export class Game {
     // Pièces gardées pour compléter une panoplie jamais complétée : une par panoplie et par emplacement,
     // si l'emplacement ne porte pas déjà une pièce de cette panoplie (sinon « Vendre » ou le Creuset les détruisaient).
     // Seulement pour les panoplies commencées (au moins une pièce portée) : le sac ne se remplit pas de pièces dispersées.
+    // Au plus SET_KEEP_MAX pièces, les panoplies les plus avancées d'abord : le sac ne doit jamais se bloquer.
     const S = this.S, done = S.setsDone || {}, worn = setCounts(S.equip), keep = new Set(), seen = new Set();
-    for (const it of S.bag) {
-      if (!it.set || !SETS[it.set] || done[it.set] || !worn[it.set] || (S.equip[it.slot] && S.equip[it.slot].set === it.set)) continue;
+    const cands = S.bag.filter((it) => it.set && SETS[it.set] && !done[it.set] && worn[it.set] && !(S.equip[it.slot] && S.equip[it.slot].set === it.set))
+      .sort((a, b) => worn[b.set] - worn[a.set] || b.r - a.r);
+    for (const it of cands) {
+      if (keep.size >= SET_KEEP_MAX) break;
       const k = it.set + "|" + it.slot;
       if (!seen.has(k)) { seen.add(k); keep.add(it); }
     }

@@ -1414,6 +1414,20 @@ test("« À faire maintenant » : sac plein signalé", () => {
   assert.ok(t && t.n > 0, "objets inutiles comptés");
 });
 
+test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées d'abord (sac jamais bloqué)", () => {
+  const g = new Game(freshLocked());
+  for (const k in g.S.equip) g.S.equip[k] = null;
+  const sets = ["dawn", "dusk", "wind", "merchant", "archmage", "berserker", "shadow"], slots = Object.keys(g.S.equip);
+  slots.forEach((slot, i) => { const it = g.newItem(3); it.slot = slot; it.set = sets[i % sets.length]; g.S.equip[slot] = it; }); // une pièce de 7 panoplies
+  g.S.equip[slots[1]].set = "dawn"; // dawn : 2 pièces portées, la plus avancée
+  g.invalidateStats();
+  g.S.bag.length = 0;
+  for (const set of sets) for (const slot of slots) { const it = g.newItem(0); it.r = 0; it.slot = slot; it.set = set; it.st = {}; g.S.bag.push(it); }
+  const kept = g.S.bag.filter((it) => !g.uselessItems().includes(it) && !g.isUpgrade(it));
+  assert.ok(kept.length <= 6, "au plus 6 : " + kept.length);
+  assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);
