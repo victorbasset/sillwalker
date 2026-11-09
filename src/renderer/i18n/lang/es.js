@@ -466,4 +466,7 @@ export default {
   1590: "{n} objeto transmutado|{n} objetos transmutados",
   1591: "{n} tarea de mascota|{n} tareas de mascotas",
   1592: "{0} (equipado)",
+  1593: "¡Ya estás aquí!",
+  1594: "¡Te he echado de menos!",
+  1595: "He avanzado bastante, ¿lo has visto?",
 };

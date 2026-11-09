@@ -466,4 +466,7 @@ export default {
   1590: "{n} item transmutado|{n} itens transmutados",
   1591: "{n} tarefa de mascote|{n} tarefas de mascotes",
   1592: "{0} (equipado)",
+  1593: "Você voltou!",
+  1594: "Senti sua falta!",
+  1595: "Avancei bastante, viu?",
 };

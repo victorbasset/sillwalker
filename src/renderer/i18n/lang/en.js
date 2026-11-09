@@ -466,4 +466,7 @@ export default {
   1590: "{n} item transmuted|{n} items transmuted",
   1591: "{n} pet task|{n} pet tasks",
   1592: "{0} (equipped)",
+  1593: "You're back!",
+  1594: "I missed you!",
+  1595: "I got pretty far, did you see?",
 };

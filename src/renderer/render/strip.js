@@ -34,6 +34,7 @@ const SPEECH = {
   record: [tx("Jamais allé aussi loin !"), tx("Terre inconnue !")],
   level: [tx("Je me sens plus fort !"), tx("Encore un niveau !")],
   event: [tx("Tu as vu ça ?"), tx("C’est le moment !"), tx("Profitons-en !")],
+  back: [tx("Te revoilà !"), tx("Tu m’as manqué !"), tx("J’ai bien avancé, tu as vu ?")],
   nemesis: [tx("Enfin !"), tx("Cette fois, c’est la bonne !"), tx("Je savais que j’y arriverais.")],
 };
 
@@ -146,6 +147,9 @@ export class StripRenderer {
 
   /* ---------- Répliques du héros ---------- */
   /** Le héros dit une réplique tirée de la liste (au plus une toutes les 45 s, sauf si urgent). */
+  /** Retour du joueur après une absence : le héros l'accueille. */
+  welcomeBack() { this.say(SPEECH.back); } // réplique ordinaire : jamais sur le nom d'un boss
+
   say(list, urgent = false) {
     if (!this.active || this.game.S.settings.fullEffects === false || !list) return;
     const now = this.game.R.time;
@@ -157,13 +161,16 @@ export class StripRenderer {
     this.bubble.hidden = false;
     this.bubbleT = 3.5;
     this.bubbleX = null;
+    this.bubbleW = this.bubble.offsetWidth || 0; // mesurée une fois par réplique
     mark("speech");
   }
   updateSpeech(dt, x) {
     if (this.bubbleT > 0) {
       this.bubbleT -= dt;
       if (this.bubbleT <= 0) { this.bubble.hidden = true; mark("speech"); return; }
-      const bx = q(x + this.hero.w / 2);
+      let bx = q(x + this.hero.w / 2);
+      // En début de zone, la bulle passerait sur la pastille de zone (en haut à gauche) : on la décale à sa droite.
+      if (this.bubbleW && this.hudLRight && bx - this.bubbleW / 2 < this.hudLRight + 4) bx = q(this.hudLRight + 4 + this.bubbleW / 2);
       if (bx !== this.bubbleX) { this.bubbleX = bx; this.bubble.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 30}px,0) translateX(-50%)`; mark("speech"); }
     } else if (this.game.R.mode === "walk" && Math.random() < dt / 240) {
       const night = this.nightLevel().night >= 0.8;
@@ -576,7 +583,8 @@ export class StripRenderer {
     ctx.clearRect(0, 0, HUD_L_W, HUD_H);
     ctx.font = FONT;
     const lw0 = ctx.measureText(label).width, rw = recTxt ? ctx.measureText(recTxt).width + 10 : 0;
-    drawPill(ctx, 3, Math.min(HUD_L_W - 2, 14 + lw0 + 6 + KILLS_PER_ZONE * 9 + 18 + rw), HUD_H);
+    this.hudLRight = Math.min(HUD_L_W - 2, 14 + lw0 + 6 + KILLS_PER_ZONE * 9 + 18 + rw); // bord droit de la pastille (bulle du héros)
+    drawPill(ctx, 3, this.hudLRight, HUD_H);
     drawText(ctx, label, 10, 17, "#ffffff");
     ctx.font = FONT;
     let px = 14 + ctx.measureText(label).width + 6;

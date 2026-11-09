@@ -466,4 +466,7 @@ export default {
   1590: "{n} Gegenstand transmutiert|{n} Gegenstände transmutiert",
   1591: "{n} Begleiter-Aufgabe|{n} Begleiter-Aufgaben",
   1592: "{0} (ausgerüstet)",
+  1593: "Da bist du ja wieder!",
+  1594: "Ich hab dich vermisst!",
+  1595: "Ich bin ganz schön weit gekommen, siehst du?",
 };

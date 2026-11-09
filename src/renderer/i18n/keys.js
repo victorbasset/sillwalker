@@ -1594,5 +1594,8 @@ export const KEYS = [
   "+{n} amélioration|+{n} améliorations",
   "{n} objet transmuté|{n} objets transmutés",
   "{n} tâche de familier|{n} tâches de familiers",
-  "{0} (équipé)"
+  "{0} (équipé)",
+  "Te revoilà !",
+  "Tu m’as manqué !",
+  "J’ai bien avancé, tu as vu ?"
 ];

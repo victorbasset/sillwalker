@@ -466,4 +466,7 @@ export default {
   1590: "{n} przedmiot przemieniony|{n} przedmioty przemienione|{n} przedmiotów przemienionych",
   1591: "{n} zadanie chowańca|{n} zadania chowańców|{n} zadań chowańców",
   1592: "{0} (założony)",
+  1593: "Wróciłeś!",
+  1594: "Tęskniłem!",
+  1595: "Nieźle się posunąłem, widzisz?",
 };
