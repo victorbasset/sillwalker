@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 186) : la bulle de retour d'absence (bande) annonce aussi l'étape du carnet la plus récente franchie
+  hors ligne, sur une deuxième ligne (« ✦ Niveau 25 atteint »). Capture, 81/81. Construction Windows impossible ici
+  (pas de Wine sur le serveur).
 - 2026-11-09 (it. 185) : résumé de retour d'absence : les étapes du Carnet de route franchies hors ligne y figurent
   (« ✦ Niveau 25 atteint »…, en couleur d'accent). Test, capture, 81/81.
 - 2026-11-09 (it. 184) : Carnet de route : la première complétion de chaque panoplie y est notée (« Panoplie

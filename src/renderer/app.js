@@ -7,6 +7,7 @@
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
 import { TAB_GATES } from "./game/tabs.js";
+import { journeyText } from "./ui/tabs/stats.js";
 import { getLang, setLang, DEFAULT_LANG, LANGS, txn } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
@@ -209,6 +210,8 @@ async function boot() {
     const next = toastQueue.shift();
     if (next) setTimeout(() => showToast(...next), 400);
   }
+  /** Étape du carnet franchie pendant l'absence (la dernière, la plus marquante) : une ligne en plus dans la bulle. */
+  const stepLine = (sum) => { const t = (sum.steps || []).map(journeyText).filter(Boolean).pop(); return t ? `<br>✦ <b>${esc(t)}</b>` : ""; };
   function showOffline(sum) {
     // Absence très courte (mise en veille d'une minute…) : le journal suffit, pas de bulle qui dérange.
     if (sum.seconds < OFFLINE_TOAST_MIN_S) return;
@@ -218,7 +221,7 @@ async function boot() {
       return;
     }
     strip.welcomeBack();
-    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: sum.chests ? ", " + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "" })}`,
+    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: sum.chests ? ", " + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "" })}${stepLine(sum)}`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {
