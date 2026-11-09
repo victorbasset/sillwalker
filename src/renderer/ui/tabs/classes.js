@@ -46,11 +46,11 @@ export class ClassesTab {
       const duo = isPartner ? `<button disabled>${tx("Compagnon actuel")}</button>`
         : nextPartner ? `<button disabled class="primary">${tx("Compagnon à l’ascension ✓")}</button>`
         : canPartner(S, next, k) ? `<button data-action="c-partner" data-id="${k}">${S.partner ? tx("Compagnon pour la prochaine ascension") : tx("Prendre comme compagnon")}</button>` : "";
-      return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}${isPartner ? " partner" : ""}">
+      // Carte compacte (demande 18) : description d'ambiance en infobulle, modificateurs sur une ligne.
+      return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}${isPartner ? " partner" : ""}" title="${esc(c.desc)}">
         <div class="detail-head"><img src="${classPortraitURL(k)}" alt=""><div>
           <div class="nm">${esc(c.name)}${cur ? ` <small>${tx("(actuel)")}</small>` : ""}${isPartner ? ` <small>${tx("(compagnon)")}</small>` : ""}</div><div class="sub">${esc(c.role)}</div></div></div>
-        <p class="cdesc">${esc(c.desc)}</p>
-        <ul class="lines">${mods.map((m) => `<li><span>${esc(m)}</span></li>`).join("")}</ul>
+        <p class="mods">${mods.map((m) => esc(m)).join(" · ")}</p>
         <p class="passive"><b>${tx("Passif.")}</b> ${esc(c.passiveText)}</p>
         ${spent ? `<p class="note">${txn(spent, "{n} point de talent réparti.|{n} points de talent répartis.")}</p>` : ""}
         <div class="row">${action}${duo}</div>
@@ -63,9 +63,10 @@ export class ClassesTab {
     const P = S.partner && CLASSES[S.partner];
     const duoNote = `<p class="note tabintro">${P ? tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: `<b>${esc(P.name)}</b>` })
       : tx("Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension).")}</p>`;
-    el.innerHTML = `${style}${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
-      ${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed]], this.sec, "c-sec")}
-      <div class="classgrid sec-${this.sec}">${cards}</div>`;
+    // Style de combat : son propre sous-onglet (demande 18) ; les autres montrent les cartes des héros.
+    el.innerHTML = `${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
+      ${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Style de combat"), `${tier + 1} / ${ATTACK_TIERS.length}`]], this.sec, "c-sec")}
+      ${this.sec === "style" ? style : `<div class="classgrid sec-${this.sec}">${cards}</div>`}`;
   }
 
   onAction(a, b) {

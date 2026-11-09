@@ -332,9 +332,10 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .ascend p { margin: 6px 0; font-size: 15px; }
 .shards { font-size: 20px !important; color: var(--accent); }
 .shoplist.two-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); column-gap: 16px; }
-.beastgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; }
-.beast { display: flex; gap: 10px; align-items: center; padding: 8px 10px; }
-.beast img { width: 48px; image-rendering: pixelated; }
+.beastgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 6px; }
+.beast { display: flex; gap: 8px; align-items: center; padding: 4px 8px; }
+.beast img { width: 32px; image-rendering: pixelated; }
+.beast .nm { font-size: 14px; } .beast .pips { font-size: 12px; }
 .beast.unknown .nm { color: var(--muted); }
 .pips { display: flex; gap: 3px; align-items: center; font-size: 12px; color: var(--muted); margin-top: 3px; }
 .pips i { width: 9px; height: 9px; border: 1px solid var(--line); background: var(--bar); }
@@ -822,3 +823,9 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .petgrid .petcard { padding: 8px 10px; }
 .petgrid .petcard .detail-head img { width: 36px; height: 36px; }
 .petgrid .petcard .lines { font-size: 13px; }
+/* Héros : cartes compactes (demande 18) */
+.classgrid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important; gap: 8px; }
+.classcard { padding: 8px 10px; }
+.classcard .mods { font-size: 13px; color: var(--muted); margin: 4px 0; }
+.classcard .passive { font-size: 13px; margin: 4px 0; }
+.classcard .detail-head img { width: 40px; height: 40px; }

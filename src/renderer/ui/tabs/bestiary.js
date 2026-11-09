@@ -28,10 +28,10 @@ export class BestiaryTab {
     const cards = keys.map((k) => {
       const n = B[k] || 0, known = n > 0, tier = bestiaryTier(n), next = BESTIARY_TIERS[tier];
       const pips = BESTIARY_TIERS.map((t, i) => `<i class="${i < tier ? "on" : ""}" title="${esc(tx("{0} victoires", { 0: fmt(t) }))}"></i>`).join("");
-      return `<article class="panel beast${known ? "" : " unknown"}">
+      // Fiche compacte (demande 18) : les zones où vit le monstre passent en infobulle.
+      return `<article class="panel beast${known ? "" : " unknown"}" title="${esc(known ? where(k) : tx("Pas encore rencontré"))}">
         <img src="${monsterURL(k, !known)}" alt="">
         <div class="si"><div class="nm">${known ? esc(MONSTERS[k].name) : "???"}</div>
-        <div class="sub">${known ? esc(where(k)) : tx("Pas encore rencontré")}</div>
         <div class="pips">${pips}<span>${fmt(n)}${next ? " / " + fmt(next) : " (complet)"}</span></div></div>
       </article>`;
     }).join("");

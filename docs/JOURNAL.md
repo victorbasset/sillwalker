@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 259, demande 18, suite) : Bestiaire : fiches de monstres compactes (zones en infobulle, 10 par
+  rangée en 1920) : défilement 1260 → 306 px. Héros : cartes compactes (description en infobulle, modificateurs
+  sur une ligne), « Style de combat » devient un sous-onglet : 451 → 246 px. Captures, 102/102.
 - 2026-11-09 (retours de Victor) : (1) curseurs des Réglages (opacité, volume) qui revenaient à l'ancienne position :
   l'onglet était redessiné à chaque événement du jeu, en plein glissement ; il ne se redessine plus pendant qu'un
   curseur est actif (blur au relâchement), et le pourcentage suit le glissement. (2) Opacité jusqu'à 10 % (curseur,
