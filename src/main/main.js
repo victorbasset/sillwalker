@@ -61,6 +61,7 @@ function start() {
       visible: strip.renderVisible(),
       version: app.getVersion(),
       steam: { available: steam.available, status: steam.status },
+      onBattery: onBattery(),
     }));
 
     ipcMain.handle("save:load", () => {
@@ -171,9 +172,16 @@ function start() {
     });
     // Arrêt / déconnexion de Windows : dernière sauvegarde.
     strip.win.on("query-session-end", () => { flushRenderer(); });
+    // Portable débranché : la bande s'anime moins souvent (économie de batterie), retour à la normale sur secteur.
+    const sendPower = () => strip.send("power", { onBattery: onBattery() });
+    powerMonitor.on("on-battery", sendPower);
+    powerMonitor.on("on-ac", sendPower);
     powerMonitor.on("lock-screen", () => strip.setLocked(true));
     powerMonitor.on("unlock-screen", () => strip.setLocked(false));
   });
+
+  /** Sur batterie ? (--battery en dev pour le simuler et le mesurer.) */
+  function onBattery() { try { return flags.battery || powerMonitor.isOnBatteryPower(); } catch { return false; } }
 
   /** Demande au renderer une dernière sauvegarde, avec délai maximal. */
   function flushRenderer() {

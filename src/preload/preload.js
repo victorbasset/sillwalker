@@ -27,6 +27,7 @@ contextBridge.exposeInMainWorld("sillwalker", {
 
   onLayout: (cb) => listen("layout", cb),
   onVisibility: (cb) => listen("visibility", cb),
+  onPower: (cb) => listen("power", cb),                     // { onBattery }
   onCommand: (cb) => listen("command", cb),
   // Le processus principal demande une dernière sauvegarde avant de quitter.
   onFlushRequest: (cb) => listen("app:flush", async () => {
