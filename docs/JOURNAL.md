@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 189) : l'unité « pts » des chances de critique (describeEffects) restait en français dans toutes
+  les langues (« +8 pts шанс крита » en russe) : elle passe par le pluriel traduit « {n} pt|{n} pts » (« +8 оч. »,
+  « +8 Pkt. » ; en français « +1 pt » au singulier). Vérifié dans le texte russe extrait (0 « pts »). Recherche des
+  autres textes accentués hors tx() : rien d'autre. 82/82.
 - 2026-11-09 (it. 188) : Talents : le seuil des talents et de la voie verrouillés affichait « pts » en dur (français)
   dans toutes les langues (« 🔒 5 pts » en allemand, à côté de « 0 Pkt. ») : passé par txn (« 5 Pkt. »). Captures
   allemand 1366 px (Statistiques, Talents) sans débordement. 82/82.

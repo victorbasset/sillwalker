@@ -6,7 +6,7 @@
 // d'avoir rempli toute la branche (10 + 5 + 5).
 import { classDef } from "./classes.js";
 import { prestigeEffects } from "./prestige.js";
-import { t as tx } from "../i18n/index.js";
+import { t as tx, txn } from "../i18n/index.js";
 import { dec, unit } from "./format.js";
 
 export const TIER_REQ = [0, 5, 10, 20];
@@ -353,6 +353,7 @@ export function describeEffects(eff, n = 1) {
     if (k === "secondWind") return tx("second souffle");
     const val = v * n * (e.scale || 1), sign = val < 0 ? "−" : "+";
     const txt = dec((Math.round(Math.abs(val) * 10) / 10).toString());
+    if (e.unit === " pts") return `${sign}${txn(Math.abs(val), "{n} pt|{n} pts", { n: txt })} ${e.label}`; // « pts » traduit (Pkt., оч.…)
     return e.unit === "×" || e.unit === "%" ? `${sign}${txt}${unit("%")} ${e.label}` : `${sign}${txt}${e.unit} ${e.label}`;
   }).filter(Boolean).join(", ");
 }
