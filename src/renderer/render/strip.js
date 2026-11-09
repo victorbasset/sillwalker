@@ -30,7 +30,6 @@ const SPEECH = {
     tx("Un jour, j’écrirai mes mémoires."), tx("Tu regardes ? Je fais de mon mieux !")],
   night: [tx("Il fait sombre…"), tx("Les étoiles sont belles ce soir."), tx("Je ne dors jamais, moi.")],
   legendary: [tx("Ça brille !"), tx("Légendaire ! Enfin !"), tx("Celui-là, je le garde.")],
-  boss: [tx("C’est toi, le chef ?"), tx("Allez, approche !"), tx("Il a l’air costaud…")],
   ko: [tx("Aïe… je reviens."), tx("Juste une égratignure."), tx("Je l’avais presque !")],
   record: [tx("Jamais allé aussi loin !"), tx("Terre inconnue !")],
   level: [tx("Je me sens plus fort !"), tx("Encore un niveau !")],
@@ -102,7 +101,7 @@ export class StripRenderer {
       if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 12, this.ground - 30, "#9fd8ff", 4);
     });
     g.on("loot", ({ item }) => { if (item.r >= 4) this.say(SPEECH.legendary, true); });
-    g.on("spawn", (m) => { if (m.boss) this.say(SPEECH.boss); });
+    // Boss : la bannière « … approche ! » l'annonce déjà, et une bulle cacherait son nom (voir say()).
     g.on("heroDown", () => this.say(SPEECH.ko, true));
     g.on("zoneUp", ({ record }) => { if (record) this.say(SPEECH.record); });
     g.on("levelUp", () => this.say(SPEECH.level));
@@ -147,6 +146,7 @@ export class StripRenderer {
     if (!this.active || this.game.S.settings.fullEffects === false || !list) return;
     const now = this.game.R.time;
     if (!urgent && now - (this.saidAt ?? -1e9) < 45) return;
+    if (!urgent && this.game.R.mon && this.game.R.mon.boss) return; // pas de bulle sur le nom du boss
     if (urgent && now - (this.saidAt ?? -1e9) < 6) return;
     this.saidAt = now;
     this.bubble.textContent = list[Math.floor(Math.random() * list.length)];
