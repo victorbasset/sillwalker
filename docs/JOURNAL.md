@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 215, demande 10 de Victor) : moins d'objets : DROP_CHANCE 0,35 → 0,12 (monstres ordinaires ; boss et
+  élites gardent leur butin garanti). early-pace : 207 → 115 objets la première heure (−45 %) ; balance 12 h : −1,2
+  zone (bruit) ; essai intermédiaire à 0,18 : 139 objets, −0,6 zone. Fuzz 600, 90/90.
 - 2026-11-09 (demande de Victor : distinguer les textes qui expliquent le jeu) : l'italique ne s'affiche pas avec la
   police pixel (ni font-style, ni oblique synthétisé : vérifié en capture) ; les paragraphes d'aide (p.note,
   p.tabintro, sauf avertissements) ont un fin trait en marge à gauche. Captures talents, réglages, bestiaire. 90/90.
@@ -651,7 +654,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   9. FAIT (it. 197). Mode mini / bande : les boutons réduire et agrandir ne sont pas dans le même ordre en mode mini et en grand ;
      icônes plus parlantes souhaitées. Les astuces (bulle à l'ampoule 💡) ne s'affichent plus quand le panneau est
      déplié : dommage (checkHints n'affiche rien si panelOpen).
-  10. Trop d'objets tombent encore (au-delà du tout début, où earlyPace ne joue plus) : réduire la chance de butin
+  10. FAIT (it. 215, DROP_CHANCE 0,12). Trop d'objets tombent encore (au-delà du tout début, où earlyPace ne joue plus) : réduire la chance de butin
       générale (DROP_CHANCE 0,35) sans casser la progression (balance.mjs, semaine simulée).
 
 

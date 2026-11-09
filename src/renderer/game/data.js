@@ -11,7 +11,7 @@ export const RARITIES = [
 ];
 export const LEGENDARY = 4;
 
-export const DROP_CHANCE = 0.35;
+export const DROP_CHANCE = 0.12; // monstres ordinaires (boss et élites : butin garanti) ; 0,35 avant le 2026-11-09 : trop d'objets (Victor)
 export const BAG_SIZE = 24;          // taille de départ (agrandissable en boutique)
 export const BAG_MAX = 48;
 export const KILLS_PER_ZONE = 10;
