@@ -837,4 +837,6 @@ export default {
   1961: "Rueda o arrastrar: ver los demás",
   1962: "Ahorro de energía",
   1963: "Animación a 15 imágenes por segundo siempre: menos cálculo, calor y ruido de ventilador. El juego sigue con normalidad. (Ya se ralentiza sola con batería y cuando te ausentas.)",
+  1964: "Cinemáticas de la historia",
+  1965: "Escenas cortas en la franja (crónicas, héroes liberados, el Rompeestrellas). Desmárcalo para no ser interrumpido nunca: puedes volver a verlas con ▶ en la lista de crónicas.",
 };

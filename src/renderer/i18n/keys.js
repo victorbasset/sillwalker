@@ -1965,5 +1965,7 @@ export const KEYS = [
   "Enclume stellaire : {0} remonté au niveau {1}.",
   "Molette ou glisser : voir les autres",
   "Économie d’énergie",
-  "Animation à 15 images par seconde en permanence : moins de calcul, de chaleur et de bruit de ventilateur. Le jeu, lui, continue normalement. (Elle ralentit déjà toute seule sur batterie et quand tu t’absentes.)"
+  "Animation à 15 images par seconde en permanence : moins de calcul, de chaleur et de bruit de ventilateur. Le jeu, lui, continue normalement. (Elle ralentit déjà toute seule sur batterie et quand tu t’absentes.)",
+  "Cinématiques de l’histoire",
+  "Courtes scènes dans la bande (chroniques, héros libérés, Briseur d’Étoiles). Décoche pour ne jamais être interrompu : tu peux les revoir avec ▶ dans la liste des chroniques."
 ];

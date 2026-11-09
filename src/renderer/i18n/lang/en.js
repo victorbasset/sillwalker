@@ -837,4 +837,6 @@ export default {
   1961: "Wheel or drag: see the others",
   1962: "Power saving",
   1963: "Animation at 15 frames per second all the time: less computing, heat and fan noise. The game itself keeps running normally. (It already slows down on its own on battery and when you are away.)",
+  1964: "Story cutscenes",
+  1965: "Short scenes in the strip (chronicles, freed heroes, the Starbreaker). Uncheck to never be interrupted: you can replay them with ▶ in the chronicle list.",
 };

@@ -489,9 +489,9 @@ async function boot() {
   game.on("chronicleReplay", ({ id }) => {
     const c = CHRONICLES.find((x) => x.id === id);
     if (!c) return;
-    if (id === "sky") { strip.juice.cinematic("intro"); return; }
+    if (id === "sky") { strip.juice.cinematic("intro", { force: true }); return; }
     const n = CHRONICLES.findIndex((x) => x.id === id) + 1;
-    strip.juice.cinematic("chronicle", { id, title: tx(c.title), text: tx(c.text), n, total: CHRONICLES.length });
+    strip.juice.cinematic("chronicle", { id, title: tx(c.title), text: tx(c.text), n, total: CHRONICLES.length, force: true });
   });
   game.on("chronicle", ({ ids }) => {
     for (const id of ids) {

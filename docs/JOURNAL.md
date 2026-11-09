@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 299, étude des concurrents, action b) : réglage « Cinématiques de l'histoire » (Réglages >
+  Affichage, actif par défaut) : décoché, plus aucune cinématique automatique (chroniques, héros libérés, Briseur,
+  générique), sauf l'intro du premier lancement ; le ▶ des chroniques les rejoue quand même (data.force).
+  settings.cinematics (défaut, test), contrôle d'autotest, 2 textes × 9 langues (noms du Briseur alignés), 107/107.
 - 2026-11-09 (it. 298, étude des concurrents, action a) : réglage « Économie d'énergie » (Réglages > Affichage,
   désactivé par défaut) : animation plafonnée à 15 images/s en permanence (le jeu continue normalement) ; la cadence
   change aussitôt (événement sillwalker-framerate → restartLoop). S'ajoute aux ralentissements automatiques
@@ -1140,7 +1144,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   a. EN PARTIE (it. 298 : réglage « Économie d'énergie », 15 images/s ; reste : mesurer sous Windows).
      P1 Bon voisin : consommation en fond (le reproche n° 1 des jeux de bande). Mesurer sous Windows ; envisager un
      réglage « économie » (images/s plafonnées) visible dans Réglages ; vérifier que la bande cachée ne dessine rien.
-  b. P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
+  b. EN PARTIE (it. 299 : réglage « Cinématiques de l'histoire »). P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
      (ou les rendre discrètes) ; vérifier qu'aucune action n'est exigée pour progresser (vraiment idle).
   c. P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
      premier lancement guidé (bulles d'astuces) : vérifier sur une partie neuve que chaque mécanique est expliquée.

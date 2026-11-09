@@ -242,6 +242,9 @@ export class Juice {
    */
   cinematic(kind, data = {}) {
     if (!this.active) return;
+    // Réglage « Cinématiques » (étude des concurrents : ne jamais interrompre) : coupées, sauf l'intro du premier
+    // lancement et celles demandées exprès (▶ des chroniques : data.force).
+    if (this.s.game.S.settings.cinematics === false && kind !== "intro" && !data.force) return;
     // Une cinématique en cours : la suivante attend son tour (zone 10 : héros libéré puis chronique, l'une
     // remplaçait l'autre). File courte : au-delà de 3, les plus anciennes en attente sont oubliées.
     if (this.cine && !this.cine.done) {

@@ -80,6 +80,7 @@ test("réglage Économie d'énergie : désactivé par défaut, gardé à la migr
   assert.equal(migrate(JSON.parse(JSON.stringify(o))).settings.eco, true);
   const old = freshState(); delete old.settings.eco;
   assert.equal(migrate(JSON.parse(JSON.stringify(old))).settings.eco, false, "ancienne sauvegarde : valeur par défaut");
+  assert.equal(freshState().settings.cinematics, true, "cinématiques actives par défaut");
 });
 
 test("migration v1 (prototype) -> v4", () => {

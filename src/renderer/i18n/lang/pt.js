@@ -837,4 +837,6 @@ export default {
   1961: "Roda ou arrastar: ver os outros",
   1962: "Economia de energia",
   1963: "Animação a 15 quadros por segundo o tempo todo: menos processamento, calor e ruído de ventoinha. O jogo continua normalmente. (Ela já desacelera sozinha na bateria e quando você se ausenta.)",
+  1964: "Cinemáticas da história",
+  1965: "Cenas curtas na faixa (crônicas, heróis libertados, o Quebra-Estrelas). Desmarque para nunca ser interrompido: você pode revê-las com ▶ na lista de crônicas.",
 };

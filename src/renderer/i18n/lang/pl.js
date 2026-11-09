@@ -837,4 +837,6 @@ export default {
   1961: "Kółko lub przeciągnij: zobacz pozostałe",
   1962: "Oszczędzanie energii",
   1963: "Animacja stale w 15 klatkach na sekundę: mniej obliczeń, ciepła i hałasu wentylatora. Sama gra toczy się normalnie. (Już sama zwalnia na baterii i gdy cię nie ma.)",
+  1964: "Przerywniki fabularne",
+  1965: "Krótkie sceny na pasku (kroniki, uwolnieni bohaterowie, Łamacz Gwiazd). Odznacz, by nigdy nie być przerywanym: możesz je obejrzeć ponownie przyciskiem ▶ na liście kronik.",
 };

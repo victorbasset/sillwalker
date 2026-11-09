@@ -51,6 +51,7 @@ export class SettingsTab {
         <p class="note tight">${tx("Taille du panneau")}</p>
         <div class="row seg">${[1, 1.15, 1.3].map((z) => `<button data-action="se-scale" data-v="${z}" aria-pressed="${Math.abs((P.uiScale || 1) - z) < 0.01}">${Math.round(z * 100)}${unit("%")}</button>`).join("")}</div>
         <p class="note">${tx("Agrandit tout le panneau : texte, boutons et icônes.")}</p>
+        ${check("cinematics", tx("Cinématiques de l’histoire"), tx("Courtes scènes dans la bande (chroniques, héros libérés, Briseur d’Étoiles). Décoche pour ne jamais être interrompu : tu peux les revoir avec ▶ dans la liste des chroniques."))}
         ${check("eco", tx("Économie d’énergie"), tx("Animation à 15 images par seconde en permanence : moins de calcul, de chaleur et de bruit de ventilateur. Le jeu, lui, continue normalement. (Elle ralentit déjà toute seule sur batterie et quand tu t’absentes.)"))}
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Fenêtre")}</span></h2>

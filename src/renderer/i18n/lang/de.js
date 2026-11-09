@@ -837,4 +837,6 @@ export default {
   1961: "Mausrad oder ziehen: weitere ansehen",
   1962: "Energiesparen",
   1963: "Animation dauerhaft mit 15 Bildern pro Sekunde: weniger Rechenlast, Wärme und Lüfterlärm. Das Spiel selbst läuft normal weiter. (Sie verlangsamt sich schon von selbst im Akkubetrieb und wenn du abwesend bist.)",
+  1964: "Zwischensequenzen der Geschichte",
+  1965: "Kurze Szenen in der Leiste (Chroniken, befreite Helden, der Sternenbrecher). Abwählen, um nie unterbrochen zu werden: Mit ▶ in der Chronikliste kannst du sie erneut ansehen.",
 };
