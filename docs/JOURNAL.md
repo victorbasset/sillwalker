@@ -692,6 +692,9 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       boss/lieutenants, héros libérés, chroniques placées sur le chemin, Briseur d'Étoiles en zone 200 au bout).
       Idée : onglet ou fenêtre « Carte » dessinée en pixel art (chemin sinueux, repères cliquables, brouillard sur
       ce qui n'est pas encore atteint), à faire après le Briseur et la fin (demande 11), qu'elle mettra en valeur.
+  14. Sac plein : les objets qui tombent restent sur le sol (perdus, « tant pis »), au lieu d'être vendus ou
+      échangés automatiquement. Garder la vente automatique de l'Encanteur (autoSell, déblocage acheté) et le Valet
+      d'armes ; vérifier les textes (« sac plein : objets vendus »), la ligne du journal, les quêtes Réclamer.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
