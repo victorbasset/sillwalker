@@ -458,4 +458,5 @@ export default {
   1582: "Finally!",
   1583: "This time's the one!",
   1584: "I knew I'd make it.",
+  1585: "Witness {n} rare event|Witness {n} rare events",
 };

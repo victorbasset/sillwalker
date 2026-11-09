@@ -458,4 +458,5 @@ export default {
   1582: "Finalmente!",
   1583: "Desta vez foi!",
   1584: "Eu sabia que ia conseguir.",
+  1585: "Viver {n} evento raro|Viver {n} eventos raros",
 };

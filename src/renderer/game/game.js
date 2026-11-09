@@ -1177,6 +1177,7 @@ export class Game {
     if (!ev || (this.R.events[id] || 0) > 0) return false;
     this.R.events[id] = ev.duration;
     this.S.stats.events = (this.S.stats.events || 0) + 1;
+    this.questProgress("event", 1);
     this.log(`${ev.name}${fsp()}! ${ev.text} (${ev.duration} s)`);
     this.emit("event", { id });
     this.changed();

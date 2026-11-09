@@ -1259,6 +1259,16 @@ test("Creuset perpétuel : transmute quand le sac est aux trois quarts plein, op
   assert.equal(g.autoTransmute().length, 0, "option coupée");
 });
 
+test("quête d'événements rares : chaque événement compte", () => {
+  const g = new Game(freshState());
+  g.S.quests.slots = [{ uid: 1, kind: "event", goal: 2, progress: 0, stars: 1, reward: { gold: 10 } }];
+  assert.ok(g.startEvent("goldrain"));
+  assert.ok(!g.startEvent("goldrain"), "déjà en cours : ne compte pas deux fois");
+  assert.ok(g.startEvent("wisdom"));
+  assert.equal(g.S.quests.slots[0].progress, 2);
+  assert.match(M_quests_js.QUEST_TEMPLATES.event.text({ goal: 2 }), /2/);
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

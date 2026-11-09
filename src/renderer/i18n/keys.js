@@ -1586,5 +1586,6 @@ export const KEYS = [
   "Profitons-en !",
   "Enfin !",
   "Cette fois, c’est la bonne !",
-  "Je savais que j’y arriverais."
+  "Je savais que j’y arriverais.",
+  "Vivre {n} événement rare|Vivre {n} événements rares"
 ];
