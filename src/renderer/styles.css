@@ -774,3 +774,4 @@ svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; he
 .bagdetail .lines.tight li { padding: 1px 0; }
 .bagdetail .detail-head img { width: 40px; height: 40px; }
 .bagdetail .verdict { margin: 4px 0; }
+.rebord .mz.go { cursor: pointer; } .rebord .mz.go:hover rect { stroke: #9fe0a8; stroke-width: 2; }

@@ -576,4 +576,9 @@ export default {
   1700: "Tu viaje a lo largo del Alféizar: las zonas recorridas, los héroes por liberar, las crónicas y el Rompeestrellas que te espera al final.",
   1701: "¡{0} es libre!",
   1702: "Un héroe más camina por el Alféizar.",
+  1703: "Mapa del viajero",
+  1704: "Un clic en el mapa del Alféizar lleva a tu héroe a una zona ya alcanzada.",
+  1705: "Clic: ir allí",
+  1706: "Haz clic en una zona ya alcanzada para llevar allí a tu héroe.",
+  1707: "Próximamente: el {0} permite ir con un clic a una zona ya alcanzada (tienda, zona {1}).",
 };

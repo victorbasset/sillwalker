@@ -576,4 +576,9 @@ export default {
   1700: "Deine Reise entlang des Saums: die durchquerten Zonen, die zu befreienden Helden, die Chroniken und der Sternenbrecher, der dich am Ende erwartet.",
   1701: "{0} ist frei!",
   1702: "Ein weiterer Held wandert auf dem Saum.",
+  1703: "Karte des Reisenden",
+  1704: "Ein Klick auf die Karte des Saums bringt deinen Helden in eine bereits erreichte Zone.",
+  1705: "Klick: dorthin gehen",
+  1706: "Klicke auf eine bereits erreichte Zone, um deinen Helden dorthin zu bringen.",
+  1707: "Bald: Mit der {0} gelangst du mit einem Klick in eine bereits erreichte Zone (Laden, Zone {1}).",
 };

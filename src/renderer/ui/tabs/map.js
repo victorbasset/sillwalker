@@ -8,7 +8,7 @@ import { esc, fmt } from "../../game/format.js";
 import { ZONES } from "../../game/data.js";
 import { zoneName, zoneDef } from "../../game/rules.js";
 import { bossName } from "../../game/bosses.js";
-import { recordZone } from "../../game/unlocks.js";
+import { recordZone, hasUnlock, UNLOCK_INDEX } from "../../game/unlocks.js";
 import { CLASSES, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.js";
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game/story.js";
 import { classPortraitURL, dressedPortraitURL, starbreakerURL } from "../../render/sprites.js";
@@ -34,6 +34,8 @@ export class MapTab {
 
   render(el) {
     const S = this.game.S, rec = Math.max(recordZone(S), S.zone), won = storyWon(S);
+    // Carte du voyageur (déblocage) : un clic sur une zone déjà atteinte dans cette course y emmène le héros.
+    const travel = hasUnlock(S, "travelMap");
     const rows = Math.floor((FINAL_ZONE - 1) / L) + 1, H = Y0 + (rows - 1) * ROW_H + 50;
     const got = new Set(chroniclesUnlocked(S, recordZone(S)).map((c) => c.id));
     const parts = [];
@@ -49,8 +51,9 @@ export class MapTab {
     // Tronçons de zone : ciel en haut, sol en bas ; brouillard au-delà du record (les 3 suivantes se devinent).
     for (let z = 1; z <= FINAL_ZONE; z++) {
       const { x, y } = mapPos(z), d = zoneDef(z), seen = z <= rec, near = !seen && z <= rec + 3;
-      const tip = seen || near ? `${tx("Zone {0}", { 0: z })}${fsp()}: ${zoneName(z)}\n${tx("Boss :")} ${bossName(z)}` : `${tx("Zone {0}", { 0: z })}${fsp()}: ???`;
-      parts.push(`<g class="mz${seen ? "" : near ? " near" : " fog"}${z === S.zone ? " here" : ""}" title="${esc(tip)}">`
+      const go = travel && z <= S.best && z !== S.zone;
+      const tip = (seen || near ? `${tx("Zone {0}", { 0: z })}${fsp()}: ${zoneName(z)}\n${tx("Boss :")} ${bossName(z)}` : `${tx("Zone {0}", { 0: z })}${fsp()}: ???`) + (go ? `\n${tx("Clic : y aller")}` : "");
+      parts.push(`<g class="mz${seen ? "" : near ? " near" : " fog"}${z === S.zone ? " here" : ""}${go ? " go" : ""}" title="${esc(tip)}"${go ? ` data-action="m-go" data-z="${z}"` : ""}>`
         + `<rect x="${x - BAND_W / 2}" y="${y}" width="${BAND_W}" height="${BAND_H / 2}" fill="${d.sky[0]}"/>`
         + `<rect x="${x - BAND_W / 2}" y="${y + BAND_H / 2}" width="${BAND_W}" height="${BAND_H / 2}" fill="${d.g1}"/>`
         + (z % 10 === 0 ? `<text class="mnum" x="${x}" y="${y + BAND_H + 22}">${z}</text>` : "") + `</g>`);
@@ -89,8 +92,11 @@ export class MapTab {
     el.innerHTML = `<article class="panel mappanel"><h2>${tx("Carte du Rebord")} <small>${tx("survole un lieu")}</small></h2>
       <p class="tabintro">${tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout.")}</p>
       <ul class="mapsum"><li>${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE}</li><li>${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })}</li><li>📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })}</li></ul>
+      ${travel ? `<p class="note">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : `<p class="note">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
       <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W + 50} ${H}" role="img" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges">${parts.join("")}</svg></div></article>`;
   }
 
-  onAction() {}
+  onAction(a, b) {
+    if (a === "m-go" && hasUnlock(this.game.S, "travelMap")) this.game.setZone(+b.dataset.z);
+  }
 }

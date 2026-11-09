@@ -576,4 +576,9 @@ export default {
   1700: "Sua jornada ao longo do Parapeito: as zonas percorridas, os heróis a libertar, as crônicas e o Quebra-Estrelas que espera por você no fim.",
   1701: "{0} está livre!",
   1702: "Mais um herói caminha pelo Parapeito.",
+  1703: "Mapa do viajante",
+  1704: "Um clique no mapa do Parapeito leva seu herói a uma zona já alcançada.",
+  1705: "Clique: ir até lá",
+  1706: "Clique em uma zona já alcançada para levar seu herói até lá.",
+  1707: "Em breve: o {0} permite ir com um clique a uma zona já alcançada (loja, zona {1}).",
 };

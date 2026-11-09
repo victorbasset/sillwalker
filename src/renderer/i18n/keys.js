@@ -1704,5 +1704,10 @@ export const KEYS = [
   "survole un lieu",
   "Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout.",
   "{0} est libre !",
-  "Un héros de plus marche sur le Rebord."
+  "Un héros de plus marche sur le Rebord.",
+  "Carte du voyageur",
+  "Un clic sur la carte du Rebord emmène ton héros dans une zone déjà atteinte.",
+  "Clic : y aller",
+  "Clique une zone déjà atteinte pour y emmener ton héros.",
+  "Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1})."
 ];

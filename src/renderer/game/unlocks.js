@@ -15,6 +15,7 @@ export const UNLOCKS = [
   { id: "forge",       price: 4100, zone: 11,    icon: "anvil",    name: "Enclume",                  desc: "Forge (+1 à +10) et réforge des objets." },
   { id: "autoSell",    price: 12000, zone: 14,    icon: "ws_gold",  name: "Tri du marchand",          desc: "Vend dès qu’ils tombent les objets des raretés choisies." },
   { id: "workshop",    price: 33000, zone: 18,  icon: "gear",     name: "Atelier",                  desc: "Améliorations permanentes de la boutique (attaque, PV, or, vitesse)." },
+  { id: "travelMap",   price: 90000, zone: 22,  icon: "map",      name: "Carte du voyageur",        desc: "Un clic sur la carte du Rebord emmène ton héros dans une zone déjà atteinte." },
   { id: "menagerie",   price: 200000, zone: 25,     icon: "kennel2",  name: "Ménagerie",                desc: "Fait éclore les œufs de familiers : un compagnon suit ton héros et le renforce." },
   { id: "bulkPoints",  price: 1.1e6, zone: 32,   icon: "book",     name: "Manuel du stratège",       desc: "Dépense en un clic tous les points de talent et de compétence." },
   { id: "questDesk",   price: 7.8e6, zone: 40,   icon: "map",      name: "Bureau des contrats",      desc: "Réclame toutes les quêtes d’un coup, ou automatiquement." },

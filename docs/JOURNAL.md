@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 231) : la carte sert aussi au jeu : déblocage « Carte du voyageur » (zone 22, 90 000 or, entre
+  Atelier et Ménagerie ; prix selon la formule des autres) : un clic sur une zone déjà atteinte dans la course y
+  emmène le héros (setZone ; infobulle « Clic : y aller », liseré vert au survol). Avant l'achat, la carte l'annonce
+  (« Bientôt : … ») et les boutons Zone précédente / suivante restent là. Test logique, contrôle d'autotest (clic
+  réel sur une zone), 96/96, 10 langues.
 - 2026-11-09 (it. 230, revue générale) : simulations 12 h : guerrier 54, mage 58, assassin 60 (identiques à it. 220) ;
   perf:linux : bande 16,8 % d'un cœur, panneau 18,1 %, mini 3,7 %, icône 0,5 % ; 570 à 680 Mo. Rendu du panneau :
   Carte 1,6 ms, Aventure 9,3 ms, Statistiques 0,9 ms (la carte SVG ne coûte rien). Textes non traduits (russe) :

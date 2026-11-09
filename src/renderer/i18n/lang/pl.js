@@ -576,4 +576,9 @@ export default {
   1700: "Twoja podróż wzdłuż Krawędzi: przebyte strefy, bohaterowie do uwolnienia, kroniki i Łamacz Gwiazd, który czeka na ciebie na końcu.",
   1701: "{0} jest wolny!",
   1702: "Kolejny bohater wędruje po Krawędzi.",
+  1703: "Mapa podróżnika",
+  1704: "Kliknięcie na mapie Krawędzi przenosi bohatera do już osiągniętej strefy.",
+  1705: "Klik: idź tam",
+  1706: "Kliknij już osiągniętą strefę, aby przenieść tam bohatera.",
+  1707: "Wkrótce: {0} pozwala jednym kliknięciem przenieść się do już osiągniętej strefy (sklep, strefa {1}).",
 };

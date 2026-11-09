@@ -576,4 +576,9 @@ export default {
   1700: "Your journey along the Sill: the zones you have crossed, the heroes to free, the chronicles, and the Starbreaker awaiting you at the end.",
   1701: "{0} is free!",
   1702: "One more hero walks the Sill.",
+  1703: "Traveler's Map",
+  1704: "A click on the map of the Sill takes your hero to a zone already reached.",
+  1705: "Click: go there",
+  1706: "Click a zone already reached to take your hero there.",
+  1707: "Coming soon: the {0} lets you go to a zone already reached in one click (shop, zone {1}).",
 };

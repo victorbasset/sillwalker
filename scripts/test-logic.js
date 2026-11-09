@@ -37,7 +37,7 @@ import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/rend
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE } from "../src/renderer/game/data.js";
-import { mapPos } from "../src/renderer/ui/tabs/map.js";
+import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -1571,6 +1571,18 @@ test("carte du Rebord : serpentin (une rangée par boucle des décors, les rang�
   assert.equal(mapPos(L).x, mapPos(L + 1).x, "fin de rangée et début de la suivante l'une sous l'autre");
   assert.equal(mapPos(2 * L).x, mapPos(1).x, "la 2e rangée revient vers la gauche");
   assert.ok(mapPos(2).x > mapPos(1).x && mapPos(L + 2).x < mapPos(L + 1).x);
+});
+
+test("Carte du voyageur : un clic sur la carte emmène le héros dans une zone déjà atteinte, seulement une fois achetée", () => {
+  const g = new Game(freshState()); g.S.zone = 30; g.S.best = 30;
+  const tab = new MapTab(g);
+  g.S.unlocks = {}; tab.onAction("m-go", { dataset: { z: "12" } });
+  assert.equal(g.S.zone, 30, "sans le déblocage : rien");
+  g.S.unlocks = { travelMap: true }; tab.onAction("m-go", { dataset: { z: "12" } });
+  assert.equal(g.S.zone, 12);
+  tab.onAction("m-go", { dataset: { z: "45" } });
+  assert.equal(g.S.zone, 12, "pas au-delà de la meilleure zone de la course");
+  assert.ok(UNLOCKS.findIndex((u) => u.id === "travelMap") > UNLOCKS.findIndex((u) => u.id === "workshop"));
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {
