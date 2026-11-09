@@ -8,7 +8,7 @@ import { t as tx, txn, lc } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
-import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
+import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
@@ -601,7 +601,7 @@ export class Panel {
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>${tx("Zone précédente")}</button>
       <button data-action="znext"${S.zone < S.best ? "" : " disabled"}>${tx("Zone suivante")}</button></div>
       <details class="rates-box" data-keep="rates"${this.kept.has("rates") ? " open" : ""}><summary>${tx("Chances de butin")}</summary>
-      <p class="note tight">${Math.round(DROP_CHANCE * 100)}${NB}${tx("% par monstre, 100{0}% sur le boss (rare minimum) et sur les élites dorés ({1}{2}% des monstres, or ×{3}). Si un objet tombe, sa rareté suit ce tableau :", { 0: NB, 1: Math.round(ELITE.chance * 100), 2: NB, 3: ELITE.gold })}</p>
+      <p class="note tight">${dec(String(Math.round(DROP_CHANCE * earlyPace(S) * 1000) / 10))}${NB}${tx("% par monstre, 100{0}% sur le boss (rare minimum) et sur les élites dorés ({1}{2}% des monstres, or ×{3}). Si un objet tombe, sa rareté suit ce tableau :", { 0: NB, 1: Math.round(ELITE.chance * 100), 2: NB, 3: ELITE.gold })}</p>
       <table class="rates">${rows}</table><p class="note">${tx("Ces taux sont fixes et identiques pour tout le monde. Élites vaincus : {0}.", { 0: S.stats.elites || 0 })}</p></details>`;
     this.tick();
   }

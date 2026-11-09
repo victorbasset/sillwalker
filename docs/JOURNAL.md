@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 216) : après la baisse du butin, vérifié : la quête « Trouver N objets rares ou mieux » reste
+  rapide (36-45 rares+ par heure grâce aux boss et élites, 4e en 3-4 min) : rien à changer. « Chances de butin »
+  (onglet Aventure) affiche maintenant la chance réelle, rythme du tout début compris (avant : 12 % même quand le
+  début la réduisait à ~4 %). 90/90.
 - 2026-11-09 (it. 215, demande 10 de Victor) : moins d'objets : DROP_CHANCE 0,35 → 0,12 (monstres ordinaires ; boss et
   élites gardent leur butin garanti). early-pace : 207 → 115 objets la première heure (−45 %) ; balance 12 h : −1,2
   zone (bruit) ; essai intermédiaire à 0,18 : 139 objets, −0,6 zone. Fuzz 600, 90/90.
