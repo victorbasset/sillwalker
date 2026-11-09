@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 318) : contrôle du rythme de la première heure après Peau de pierre, greffes de talents et
+  nouveaux événements : early-pace à 60 min : zone 22, 105 objets, 5,7 déblocages (repère : 23 / 115) ; tab-pace :
+  talents 1 min, quêtes 5, boutique 8-9, héros 10, carte 12, bestiaire 14-15, ascension 21-22 (3 graines). Stable.
 - 2026-11-10 (it. 317) : astuce 💡 « anvil » à l'achat de l'Enclume stellaire : où trouver « Mettre au niveau »
   (détail d'un objet plus ancien que le record). 1 texte × 9 langues, autotest vert.
 - 2026-11-10 (it. 316) : astuce 💡 « duo » : dès qu'un héros de l'autre portée est libre et qu'aucun compagnon n'est
