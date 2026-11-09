@@ -426,4 +426,5 @@ export default {
   1550: "golden monsters: guaranteed loot, gold ×4; each has an affix",
   1551: "{0} set: {1}-piece bonus!",
   1552: "{0}: {1}-piece bonus!",
+  1553: "A set piece! Wear 2, then 4 pieces of the same set for bonuses. All sets are listed in the Bestiary: click here.",
 };

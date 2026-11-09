@@ -426,4 +426,5 @@ export default {
   1550: "monstros dourados: saque garantido, ouro ×4; cada um tem um afixo",
   1551: "Conjunto {0}: bônus de {1} peças!",
   1552: "{0}: bônus de {1} peças!",
+  1553: "Uma peça de conjunto! Use 2 e depois 4 peças do mesmo conjunto para ganhar bônus. Todos os conjuntos estão no Bestiário: clique aqui.",
 };

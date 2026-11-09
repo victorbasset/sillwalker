@@ -426,4 +426,5 @@ export default {
   1550: "goldene Monster: garantierte Beute, Gold ×4; jeder hat ein Affix",
   1551: "Set {0}: Bonus für {1} Teile!",
   1552: "{0}: Bonus für {1} Teile!",
+  1553: "Ein Set-Teil! Trage 2, dann 4 Teile desselben Sets für Boni. Alle Sets stehen im Bestiarium: Hier klicken.",
 };

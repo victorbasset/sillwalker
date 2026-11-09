@@ -426,4 +426,5 @@ export default {
   1550: "monstruos dorados: botín garantizado, oro ×4; cada uno tiene un afijo",
   1551: "Conjunto {0}: ¡bono de {1} piezas!",
   1552: "{0}: ¡bono de {1} piezas!",
+  1553: "¡Una pieza de conjunto! Lleva 2 y luego 4 piezas del mismo conjunto para obtener bonos. Todos los conjuntos están en el Bestiario: haz clic aquí.",
 };

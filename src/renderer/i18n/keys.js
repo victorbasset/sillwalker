@@ -1554,5 +1554,6 @@ export const KEYS = [
   "Élites",
   "monstres dorés : butin garanti, or ×4 ; chacun a un affixe",
   "Panoplie {0} : bonus {1} pièces !",
-  "{0} : bonus {1} pièces !"
+  "{0} : bonus {1} pièces !",
+  "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus. Toutes les panoplies sont dans le Bestiaire : clique ici."
 ];

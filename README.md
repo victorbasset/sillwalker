@@ -41,7 +41,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Objets** : 7 emplacements (arme, casque, armure, gants, bottes, anneau, amulette), 46 types, des matériaux
   qui évoluent avec le niveau (bronze → étoile, lin → tissu céleste…), 32 icônes. L'armure, le casque, l'arme et
   les bottes portés changent l'apparence du héros ; halo doré avec un légendaire.
-- **Bestiaire** : 83 monstres (dont des variantes recolorées).
+- **Bestiaire** : 83 monstres (dont des variantes recolorées) ; l'onglet présente aussi les panoplies et leurs bonus,
+  les capacités des boss et les affixes d'élite.
 - **Collection d'objets** : chaque type d'objet trouvé (44) donne un bonus permanent, plus encore en épique et en légendaire.
 - **Transmutation** : 3 objets inutiles d'une rareté → 1 objet de la rareté au-dessus.
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.
@@ -54,7 +55,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu.
 - **Élites à affixes** : rapide, blindé, vampirique, furieux ou givré (ses coups peuvent geler le héros).
 - **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
-- **Panoplies** : 9 ensembles (dont le Voyageur du vent, axé vitesse, et le Traqueur de champions, qui attire les élites), bonus à 2 et 4 pièces.
+- **Panoplies** : 9 ensembles (dont le Voyageur du vent, axé vitesse, et le Traqueur de champions, qui attire les élites), bonus à 2 et 4 pièces
+  (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros).
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
 - **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins).

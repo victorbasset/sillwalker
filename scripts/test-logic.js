@@ -901,6 +901,16 @@ test("conseil après la première défaite (début de partie seulement)", () => 
   assert.notEqual(nextHint(g)?.id, "death", "joueur aguerri : inutile");
 });
 
+test("conseil panoplie : à la première pièce trouvée", () => {
+  const g = new Game(freshLocked());
+  g.S.settings.hints = { welcome: true, classes: true };
+  g.talentPointsFree = () => 0; g.hasUpgradeCached = () => false; g.questsReady = () => 0;
+  assert.notEqual(nextHint(g)?.id, "set");
+  const it = g.newItem(3); it.set = "dawn"; g.S.bag.push(it);
+  assert.equal(nextHint(g)?.id, "set");
+  assert.equal(nextHint(g).tab, "bestiary");
+});
+
 test("conseil Astrolabe : après l'achat, tant qu'il n'est pas coché", () => {
   const g = new Game(freshLocked());
   g.S.settings.hints = Object.fromEntries(["welcome", "upgrade", "talent", "skills", "quest", "egg", "shop", "ascend", "expedition", "codex", "classes", "unlock:armsValet", "unlock:masterForge", "unlock:starNet"].map((k) => [k, true]));

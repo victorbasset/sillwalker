@@ -29,6 +29,8 @@ export const HINTS = [
     when: (g) => g.canAscend() && g.S.prestige.count === 0 },
   { id: "expedition", tab: "pets", text: tx("Tu as plusieurs familiers : ceux qui ne t’accompagnent pas peuvent partir en expédition et rapporter or, œufs et objets. Clique ici."),
     when: (g) => hasUnlock(g.S, "expeditions") && Object.keys(g.S.pets.owned).length >= 2 && !Object.keys(g.S.pets.exp || {}).length && !(g.S.stats.expeditions > 0) },
+  { id: "set", tab: "bestiary", text: tx("Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus. Toutes les panoplies sont dans le Bestiaire : clique ici."),
+    when: (g) => [...g.S.bag, ...Object.values(g.S.equip)].some((it) => it && it.set) },
   { id: "codex", tab: "bestiary", text: tx("Chaque nouveau type d’objet rejoint ta collection et donne un bonus permanent. Clique ici pour la voir."),
     when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
   { id: "classes", tab: "class", text: tx("D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de classe en faisant une ascension."),

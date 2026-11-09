@@ -426,4 +426,5 @@ export default {
   1550: "złote potwory: gwarantowany łup, złoto ×4; każdy ma afiks",
   1551: "Zestaw {0}: premia za {1} części!",
   1552: "{0}: premia za {1} części!",
+  1553: "Część zestawu! Noś 2, a potem 4 części tego samego zestawu, by zdobyć premie. Wszystkie zestawy są w Bestiariuszu: kliknij tutaj.",
 };
