@@ -595,7 +595,9 @@ export class StripRenderer {
       const pf = this.pet.frames[0], moving = R.mode === "walk";
       this.pet.show(Math.floor(R.time * (moving ? 5 : 2)) % 2);
       const py = this.pet.fly ? GROUND - pf.ch - 34 + Math.round(Math.sin(R.time * 3) * 3) : GROUND - pf.ch + 2;
-      this.pet.move(x - pf.cw - 4, py);
+      // Compagnon du duo derrière le héros (à distance, ou en marche) : le familier passe derrière lui, pas devant son visage.
+      const back = this.partner && this.partnerX < x ? this.partnerX : x;
+      this.pet.move(back - pf.cw - 4, py);
       this.pet.alpha(R.mode === "dead" ? 0.35 : 1);
     }
     this.drawCores(x, R);

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 279, demande de Victor) : le familier volant se plaçait devant le visage du compagnon à distance
+  (même emplacement, juste derrière le héros) : quand le compagnon est derrière le héros, le familier passe derrière
+  lui. Capture (Guerrier + Rôdeur + Fée, marche et combat), 103/103.
 - 2026-11-09 (it. 278) : solidité. fuzz 60 graines : 1200 parties, 0 bloquée (20 héros, duo). save-fuzz : 4 cas
   ajoutés (compagnon inconnu, compagnon de même portée, héros libérés abîmés, histoire abîmée), tous « ok » ; mais
   une liste de héros libérés abîmée était gardée telle quelle (null, « nope »… comptés comme libérés) : migrate()
