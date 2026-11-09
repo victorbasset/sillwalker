@@ -1773,5 +1773,6 @@ export const KEYS = [
   "Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension).",
   "Chiffres",
   "Libérés",
-  "Prisonniers"
+  "Prisonniers",
+  "Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande coupe tout (effets et musique) et rend l’état d’avant au clic suivant."
 ];

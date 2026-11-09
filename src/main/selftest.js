@@ -288,9 +288,11 @@ async function runSelfTest(strip) {
   check("réglages : activer / couper le son", (await state("S.settings.sound")) === !snd0);
   if (!snd0) { await click('[data-action="se-toggle"][data-key="sound"]'); await sleep(150); }
   const op0 = strip.settings.get("opacity");
-  await click('[data-action="se-opacity"][data-v="0.7"]');
+  // Opacité : curseur horizontal (demande 26) ; la fenêtre l'applique.
+  const setOpacity = (v) => js(`(() => { const r = document.querySelector('[data-action=se-opacity-range]'); r.value = ${Math.round(v * 100)}; r.dispatchEvent(new Event('change', { bubbles: true })); })()`);
+  await setOpacity(0.7);
   await sleep(300);
-  check("réglages : opacité appliquée par la fenêtre", strip.settings.get("opacity") === 0.7);
+  check("réglages : opacité (curseur) appliquée par la fenêtre", strip.settings.get("opacity") === 0.7);
   // Thème sombre par défaut (aucun choix enregistré) : demande de Victor.
   const defTh = await js("(() => { const S = window.__game.S, t = S.settings.theme; S.settings.theme = null; window.__applyTheme(null); const r = document.documentElement.dataset.theme; S.settings.theme = t; window.__applyTheme(t); return r || 'aucun'; })()");
   check("réglages : thème sombre par défaut", defTh === "dark", defTh);
@@ -300,7 +302,7 @@ async function runSelfTest(strip) {
   await click('[data-action="se-theme"][data-v="auto"]');
   await sleep(150);
   check("réglages : retour au thème de Windows", !(await js("document.documentElement.dataset.theme || ''")) && (await state("S.settings.theme")) === "auto");
-  await click(`[data-action="se-opacity"][data-v="${op0}"]`);
+  await setOpacity(op0);
   await sleep(200);
   // Raccourci clavier : 0 ouvre l'onglet n° 10 (Statistiques)
   wc.sendInputEvent({ type: "keyDown", keyCode: "0" });
@@ -487,8 +489,11 @@ async function runSelfTest(strip) {
   const sky = await js("(() => { const st = window.__strip, S = window.__game.S, keep = { b: S.best, w: S.story.won, pb: S.prestige.bestRun }; S.story.won = false; S.best = 1; S.prestige.bestRun = 1; const a = st.starShare(); S.best = 200; S.prestige.bestRun = 200; const b = st.starShare(); S.story.won = true; const c = st.starShare(); S.best = keep.b; S.story.won = keep.w; S.prestige.bestRun = keep.pb; return a < b && b < c ? 'ok' : [a, b, c].join(' '); })()");
   check("ciel de nuit : les étoiles suivent l'histoire", sky === "ok", sky);
   // Bouton son de la bande : un clic coupe, un autre rallume (icône à croix quand coupé).
-  const snd = await js("(() => { const S = window.__game.S, b = document.getElementById('sound-btn'), was = S.settings.sound; b.click(); const a = S.settings.sound !== was && b.classList.contains('muted') === !S.settings.sound; b.click(); return String(a && S.settings.sound === was && b.classList.contains('hit')); })()");
+  const snd = await js("(() => { const P = window.__game.S.settings, b = document.getElementById('sound-btn'), keep = { s: P.sound, m: P.music, mu: P.muted }; P.sound = true; P.muted = false; b.click(); const a = P.muted === true && b.classList.contains('muted'); b.click(); const r = a && P.muted === false && !b.classList.contains('muted') && b.classList.contains('hit'); Object.assign(P, { sound: keep.s, music: keep.m, muted: keep.mu }); return String(r); })()");
   check("bande : bouton son (coupe / rallume)", snd === "true", snd);
+  // Effets coupés, musique gardée (demande 26) ; le bouton coupe tout puis rend exactement l'état d'avant.
+  const snd2 = await js("(() => { const P = window.__game.S.settings, keep = { s: P.sound, m: P.music, mu: P.muted }; P.sound = false; P.music = true; P.muted = false; const b = document.getElementById('sound-btn'); b.click(); const a = P.muted === true; b.click(); const r = a && P.muted === false && P.sound === false && P.music === true; Object.assign(P, { sound: keep.s, music: keep.m, muted: keep.mu }); return String(r); })()");
+  check("son : effets coupés et musique gardée ; le bouton rend l'état d'avant", snd2 === "true", snd2);
   // Duo (demande 17) : l'onglet des héros propose un compagnon de l'autre portée ; le premier arrive tout de suite.
   const duo = await js("(() => { const S = window.__game.S, P = window.__panel, keep = S.partner; S.partner = null; S.nextPartner = null; P.setTab('class'); P.renderAll(); const b = document.querySelector('[data-action=c-partner]'); if (!b) return 'pas de bouton'; b.click(); P.renderAll(); const ok = !!S.partner && !!document.querySelector('.classcard.partner'); const st = window.__game.stats().duo > 0; S.partner = keep; window.__game.invalidateStats(); P.setTab('adventure'); return String(ok && st); })()");
   check("duo : choisir un compagnon dans l'onglet des héros", duo === "true", duo);

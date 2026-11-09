@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (demande 26 de Victor) : son en trois réglages : « Effets sonores » et « Musique de fond » séparés
+  (Réglages), et coupure générale settings.muted (bouton haut-parleur) qui rend l'état d'avant au second clic
+  (sound.audio() : contexte audio pour la musique même effets coupés). Opacité de la bande : curseur horizontal
+  40-100 % comme le volume (au lieu de 5 boutons). Contrôles d'autotest (bouton, effets coupés + musique, curseur
+  d'opacité), capture des Réglages, 101/101, 10 langues.
 - 2026-11-09 (it. 251, demande 18, suite) : sous-onglets aussi pour Statistiques (Chiffres / Succès n/N / Carnet de
   route) et Héros (Libérés / Prisonniers : les cartes des héros encore captifs ne s'affichent plus par défaut).
   Aide commune ui/subtabs.js. 100/100, 10 langues.
@@ -911,7 +916,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   25. FAIT (it. 246). Sons de coup différents selon l'arme (donc le héros) et selon l'ennemi touché ;
       « modificateur » de son par ennemi (hauteur, timbre, bruit : gluant mou, squelette sec, golem lourd…) pour
       que ce soit moins répétitif.
-  26. À FAIRE (2026-11-09) : (a) l'opacité de la bande en curseur horizontal, comme le volume ; (b) pouvoir couper
+  26. FAIT (2026-11-09). (a) L'opacité de la bande en curseur horizontal, comme le volume ; (b) pouvoir couper
       les effets sonores sans couper la musique ; les boutons haut-parleur coupent les deux et rendent l'état
       d'avant au second clic.
 

@@ -5,7 +5,6 @@ import { shopIconURL } from "../../render/shopart.js";
 import { applyUiScale, applyTheme, themeOf } from "../../render/dom.js";
 import { esc, unit } from "../../game/format.js";
 
-const OPACITIES = [1, 0.85, 0.7, 0.55, 0.4];
 
 export class SettingsTab {
   constructor(game, { api, getLayout, onChange, sound } = {}) {
@@ -28,9 +27,9 @@ export class SettingsTab {
         <div class="langs">${LANGS.map((l) => `<button data-action="se-lang" data-v="${l.id}" aria-pressed="${getLang() === l.id}">${esc(l.name)}</button>`).join("")}</div>
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">${tx("Son")}</span></h2>
-        ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande les coupe d’un clic."))}
+        ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande coupe tout (effets et musique) et rend l’état d’avant au clic suivant."))}
         ${check("music", tx("Musique de fond"), tx("Un petit air par zone, discret, avec un fondu quand on change de zone."))}
-        <label class="range">${tx("Volume")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
+        <label class="range">${tx("Volume")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound || P.music !== false ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button></div>
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">${tx("Affichage")}</span></h2>
@@ -48,8 +47,7 @@ export class SettingsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Fenêtre")}</span></h2>
         <p class="note tight">${tx("Position de la bande")}</p>
         <div class="row seg">${["bottom", "top"].map((e) => `<button data-action="se-edge" data-v="${e}" aria-pressed="${(L.edge || "bottom") === e}">${e === "bottom" ? tx("En bas") : tx("En haut")}</button>`).join("")}</div>
-        <p class="note tight">${tx("Opacité")}</p>
-        <div class="row seg">${OPACITIES.map((o) => `<button data-action="se-opacity" data-v="${o}" aria-pressed="${Math.abs((L.opacity ?? 1) - o) < 0.01}">${Math.round(o * 100)}${unit("%")}</button>`).join("")}</div>
+        <label class="range">${tx("Opacité")} <input type="range" min="40" max="100" step="5" value="${Math.round((L.opacity ?? 1) * 100)}" data-action="se-opacity-range"> <span>${Math.round((L.opacity ?? 1) * 100)}${unit("%")}</span></label>
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${tx("Lancer au démarrage de Windows")}</label>
         <p class="note">${tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
       </article>
@@ -91,6 +89,7 @@ export class SettingsTab {
     else if (a === "se-scale") { P.uiScale = +b.dataset.v; applyUiScale(P.uiScale); this.game.changed(); window.dispatchEvent(new Event("resize")); return; }
     else if (a === "se-edge") this.api?.setWindowSettings({ edge: b.dataset.v });
     else if (a === "se-opacity") this.api?.setWindowSettings({ opacity: +b.dataset.v });
+    else if (a === "se-opacity-range") this.api?.setWindowSettings({ opacity: Math.min(1, Math.max(0.4, +b.value / 100)) });
     else if (a === "se-login") { this.api?.setWindowSettings({ openAtLogin: b.checked }); this.win.openAtLogin = b.checked; }
     this.game.changed();
   }

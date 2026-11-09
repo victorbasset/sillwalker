@@ -645,4 +645,5 @@ export default {
   1769: "Numbers",
   1770: "Freed",
   1771: "Captive",
+  1772: "Hits, coins, loot, level-ups… The speaker button on the strip mutes everything (effects and music) and restores the previous state on the next click.",
 };

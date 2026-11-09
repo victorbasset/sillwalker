@@ -748,6 +748,7 @@ export class Panel {
   onChange(e) {
     const b = e.target;
     if (b.dataset.action === "se-volume") { this.tabs.settings.onAction("se-volume", b); this.renderAll(); return; }
+    if (b.dataset.action === "se-opacity-range") { this.tabs.settings.onAction("se-opacity-range", b); return; } // curseur d'opacité (demande 26)
     if (b.dataset.action === "as") this.game.setAutoSell(b.dataset.r, b.checked);
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
     if (b.dataset.action === "valet") { this.game.S.settings.autoEquipDrops = b.checked; this.game.changed(); }

@@ -39,6 +39,12 @@ export class Sound {
 
   ensure() {
     if (!this.enabled) return null;
+    return this.audio();
+  }
+
+  /** Contexte audio, même effets coupés (la musique en a besoin) ; null si tout est coupé (bouton haut-parleur). */
+  audio() {
+    if (this.muted) return null;
     if (!this.ctx) {
       this.ctx = new AudioContext();
       this.master = this.ctx.createGain();

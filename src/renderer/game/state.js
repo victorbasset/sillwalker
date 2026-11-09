@@ -52,7 +52,7 @@ export function freshState(now = Date.now()) {
     skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
-    settings: { sound: true, soundOn2: true, music: true, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
+    settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }

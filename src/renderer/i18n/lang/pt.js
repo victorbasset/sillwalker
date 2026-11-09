@@ -645,4 +645,5 @@ export default {
   1769: "Números",
   1770: "Libertados",
   1771: "Prisioneiros",
+  1772: "Golpes, moedas, saque, subidas de nível… O botão do alto-falante da faixa silencia tudo (efeitos e música) e restaura o estado anterior no clique seguinte.",
 };

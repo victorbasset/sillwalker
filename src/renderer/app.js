@@ -125,7 +125,14 @@ async function boot() {
   /** Applique les réglages du joueur (son, etc. ; le rendu les lit directement). */
   // Musique de fond par zone (render/music.js) : suit le son ; option à part dans les Réglages.
   const music = new Music(sound);
-  const applySettings = () => { sound.set(game.S.settings.sound, game.S.settings.volume); music.set(game.S.settings.music !== false); };
+  // Trois réglages (demande 26) : effets sonores, musique de fond, et coupure générale (bouton haut-parleur) qui rend
+  // l'état d'avant au second clic.
+  const applySettings = () => {
+    const P = game.S.settings;
+    sound.muted = !!P.muted;
+    sound.set(P.sound && !P.muted, P.volume);
+    music.set(P.music !== false);
+  };
   applySettings();
   music.setZone(game.S.zone);
   setInterval(() => music.setZone(game.S.zone), 1000); // changement de zone : fondu vers l'air de la nouvelle
@@ -197,7 +204,7 @@ async function boot() {
   // Son : bouton haut-parleur à côté de réduire / agrandir (bande et mode mini), demande de Victor.
   let soundShown = null;
   function syncSoundBtns() {
-    const on = !!game.S.settings.sound;
+    const P = game.S.settings, on = !P.muted && (!!P.sound || P.music !== false);
     if (on === soundShown) return; // appelé à chaque changement du jeu : rien à faire si le son n'a pas bougé
     soundShown = on;
     const label = on ? tx("Couper le son") : tx("Activer le son");
@@ -205,9 +212,12 @@ async function boot() {
   }
   function toggleSound(e) {
     e.stopPropagation();
-    game.S.settings.sound = !game.S.settings.sound;
+    const P = game.S.settings;
+    if (P.muted) P.muted = false; // rallume : effets et musique reviennent comme avant
+    else if (!P.sound && P.music === false) { P.sound = true; P.music = true; } // tout était coupé dans les Réglages
+    else P.muted = true;
     applySettings(); syncSoundBtns(); game.changed(); panel.dirty = true;
-    if (game.S.settings.sound) sound.play("coin");
+    if (!P.muted && P.sound) sound.play("coin");
   }
   $("#sound-btn").addEventListener("click", toggleSound);
   $("#mini-sound").addEventListener("click", toggleSound);

@@ -645,4 +645,5 @@ export default {
   1769: "Liczby",
   1770: "Uwolnieni",
   1771: "Uwięzieni",
+  1772: "Ciosy, monety, łup, awanse… Przycisk głośnika na pasku wycisza wszystko (efekty i muzykę), a następne kliknięcie przywraca poprzedni stan.",
 };

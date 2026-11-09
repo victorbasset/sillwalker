@@ -53,10 +53,10 @@ export class Music {
     this.timer = null;
   }
 
-  /** Musique active si le son l'est et l'option « Musique de fond » aussi. */
+  /** Musique active si l'option « Musique de fond » l'est et que le son n'est pas coupé (indépendante des effets). */
   set(enabled) {
-    this.enabled = !!enabled;
-    if (!this.enabled || !this.sound.enabled) this.stop();
+    this.enabled = !!enabled && !this.sound.muted;
+    if (!this.enabled) this.stop();
     else if (this.zone) { const z = this.zone; this.zone = 0; this.setZone(z); }
   }
 
@@ -64,8 +64,8 @@ export class Music {
   setZone(zone) {
     if (zone === this.zone) return;
     this.zone = zone;
-    if (!this.enabled || !this.sound.enabled) return;
-    const ctx = this.sound.ensure();
+    if (!this.enabled) return;
+    const ctx = this.sound.audio();
     if (!ctx) return;
     const t = ctx.currentTime, old = this.voice;
     if (old) { old.gain.gain.cancelScheduledValues(t); old.gain.gain.setValueAtTime(old.gain.gain.value, t); old.gain.gain.linearRampToValueAtTime(0, t + 2.5); old.dying = t + 2.6; }
