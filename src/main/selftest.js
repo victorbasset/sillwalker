@@ -293,6 +293,14 @@ async function runSelfTest(strip) {
   wc.sendInputEvent({ type: "keyUp", keyCode: "0" });
   await sleep(200);
   check("raccourci clavier vers un onglet", (await js("document.querySelector('[data-tab=stats]').getAttribute('aria-selected')")) === "true");
+  // M : réduire en mode mini (puis retour à la bande pour la suite du parcours)
+  wc.sendInputEvent({ type: "keyDown", keyCode: "M" }); wc.sendInputEvent({ type: "char", keyCode: "m" }); wc.sendInputEvent({ type: "keyUp", keyCode: "M" });
+  await until(async () => strip.mode() === "mini", 3000);
+  check("raccourci M : mode mini", strip.mode() === "mini");
+  await strip.setMode("strip");
+  await until(async () => strip.mode() === "strip" && bounds().height > 64, 4000);
+  await sleep(300);
+  if (!(await js("document.body.classList.contains('panel-open')"))) { await click("#menu-btn"); await sleep(400); }
   await click('[data-tab="bestiary"]');
   await sleep(150);
   check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);

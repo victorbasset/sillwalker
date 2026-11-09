@@ -633,6 +633,7 @@ export class Panel {
     const i = order.indexOf(e.key);
     if (i >= 0 && TABS[i]) { this.setTab(TABS[i].id); return true; }
     const k = e.key.toLowerCase();
+    if (k === "m") { this.onMini?.(); return true; } // réduire en mode mini sans chercher le bouton
     if ((k === "e" || k === "v" || k === "t") && !hasUnlock(this.game.S, k === "t" ? "transmute" : "bulkEquip")) return false;
     if (k === "e") { this.game.autoEquip(); this.selected = null; this.renderAll(); return true; }
     if (k === "t") { if (this.tab !== "adventure") this.setTab("adventure"); const b = $(this.root, '[data-action="transmute"]'); if (b && !b.disabled) this.onClick({ target: b }); return true; }

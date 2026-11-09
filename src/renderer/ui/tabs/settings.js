@@ -63,6 +63,7 @@ export class SettingsTab {
           <li><span>${tx("Transmuter les objets inutiles")}</span><b>T</b></li>
           <li><span>${tx("Confirmer une fenêtre")}</span><b>${tx("Entrée")}</b></li>
           <li><span>${tx("Fermer le panneau")}</span><b>${tx("Échap")}</b></li>
+          <li><span>${tx("Réduire en mode mini")}</span><b>M</b></li>
         </ul>
         <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>
       </article>

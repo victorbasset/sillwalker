@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 51).
 
 ## Fait
 
+- 2026-11-09 (it. 44) : touche M pour réduire en mode mini depuis le panneau (ajoutée à la liste des raccourcis).
+  Essai d'une usure des boss plus forte (8 %) pour le berserker : résultats mitigés selon les classes, gardé à 5 %.
 - 2026-11-09 (it. 43) : une fois tout débloqué, la fiche du héros et le mode mini ne restent plus sans objectif :
   « Prochain objectif : battre ton record (zone 60) » avec sa barre de progression.
 - 2026-11-09 (it. 42) : le mode mini marque enfin les grands moments (légendaire, nouveau record, ascension) :
@@ -115,7 +117,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 51).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Berserker (simulation 12 h, revue it. 41) : 3 courses à la zone 54 avant 58 ; l'usure des boss aide mais lentement.
+- P3 Berserker (simulation 12 h, revue it. 41) : 3 courses à la zone 54 avant 58. Essai it. 44 : usure 8 %/40 % → berserker
+  mieux, druide moins bien (bruit des trajectoires) ; non retenu. Piste : regarder ses talents face à Fureur + Carapace.
 
 
 
