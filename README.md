@@ -6,7 +6,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Bande** : toute la largeur de l'écran est la carte de la zone. Les 10 monstres attendent le long du chemin, le boss au bout ; le héros avance d'un combat à l'autre.
 - **Mini** : petit encart près de l'horloge (combat en cours, niveau, or, zone). Un clic l'agrandit en bande ; au survol,
   le record à battre et le prochain objectif ; légendaires, records et ascensions s'y signalent brièvement.
-- **Icône seule** : plus de fenêtre ; l'icône de notification s'anime (marche, combat, K.O., butin) et son infobulle donne niveau, zone et or. Clic sur l'icône = retour au dernier affichage.
+- **Icône seule** : plus de fenêtre ; l'icône de notification s'anime (marche, combat, K.O., butin) et son infobulle donne niveau, zone, record à battre et or (traduits). Clic sur l'icône = retour au dernier affichage.
 
 ## Contenu
 
@@ -22,7 +22,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (1 → 70) et de l’or : boutons groupés, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
   quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes, maître de forge
   (forge l’équipement porté avec l’or en trop), filet à étoiles (attrape les étoiles filantes manquées),
-  astrolabe (ascension automatique quand le héros bloque près de son record, option à activer), grand intendant (zone 65 : œufs et expéditions tout seuls), creuset perpétuel (zone 70 : transmutation quand le sac se remplit). Liste dans `game/unlocks.js`.
+  astrolabe (ascension automatique quand le héros bloque près de son record, option à activer), grand intendant (zone 65 : œufs et expéditions tout seuls, expédition choisie d'un clic), creuset perpétuel (zone 70 : transmutation quand le sac se remplit). Liste dans `game/unlocks.js`.
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
   sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
@@ -58,10 +58,12 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Panoplies** : 10 ensembles (dont le Voyageur du vent, axé vitesse, le Traqueur de champions, qui attire les élites, et le Plumage du phénix, qui relève le héros une fois par combat), bonus à 2 et 4 pièces
   (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros) ; chaque panoplie
   complétée une première fois donne +1 % attaque et +1 % PV pour toujours (Bestiaire : « N / 10 complétées »).
+  L'infobulle d'une pièce montre sa progression (« 2 → 3 / 4 ») ; les pièces d'une panoplie commencée sont épargnées
+  par la vente de l'inutile et la transmutation.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
 - **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins).
-- **Statistiques** : records, compteurs de l'aventure et liste des succès.
+- **Statistiques** : records, compteurs de l'aventure (dont la collection de panoplies) et liste des succès.
 - **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
 - **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo, thème du panneau (Windows, clair, sombre),
@@ -72,7 +74,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Onglets** : quand ils ne tiennent pas sur une ligne (langue aux mots longs, petit écran), marges resserrées, puis
   sans icônes, puis police réduite ; les icônes seules en dernier recours.
 - **Retour** : après une absence, résumé des gains, meilleur objet (équipable d'un clic) et « À faire maintenant »
-  (quêtes, points, déblocage abordable, œufs, expéditions) : avec les déblocages « tout d'un coup », ces lignes
+  (quêtes, points, déblocage abordable, œufs, expéditions, sac plein, pièce qui complète une panoplie) : avec les déblocages « tout d'un coup », ces lignes
   s'exécutent d'un clic (✦) et le déblocage payable s'achète directement. Pendant l'absence, les automatismes achetés
   (Maître de forge, Creuset, Grand intendant, Grimoire de l'éveil, Valet d'armes) travaillent aussi, et le résumé le
   dit. Le héros accueille le joueur (« Te revoilà ! »). En rouvrant le panneau, « Depuis ta dernière visite ».
