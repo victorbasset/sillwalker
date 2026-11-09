@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 296, demande 35, étape 4) : palette signature : sombre « nuit violine et laiton » (fond #18121f,
+  panneaux #231a2d, texte parchemin #efe6d2, laiton #e8b14a) au lieu du bleu nuit générique ; clair « parchemin et
+  encre » (#ebe4d6 / #fcf8f0, encre #2a2230). Cadres pixel régénérés aux nouvelles couleurs. Noms de secteurs de
+  l'arbre assombris en thème clair (comme .tint). Captures deux thèmes, autotest vert.
 - 2026-11-09 (it. 295, demande 35, étape 3) : cases à cocher pixel (carré gravé, rempli d'or quand coché), curseurs
   (glissière gravée, poussoir doré en relief), barres de défilement carrées (panneau, journal, rangées latérales).
   Captures deux thèmes (Réglages), autotest vert.
@@ -1104,7 +1108,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   34. FAIT (it. 291 : icône par effet ; it. 292 : 30 dessins uniques des remarquables et clés de voûte). Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
       itérations).
   35. EN COURS (it. 293 : étape 1 cadres et boutons ; it. 294 : onglets gravés, fond étoilé ; it. 295 : cases,
-      curseurs, barres de défilement ; suite : séparateurs ornés, palette signature). Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
+      curseurs, barres de défilement ; it. 296 : palette signature ; suite : séparateurs ornés, palette signature). Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
       itérations) : identité visuelle propre (cadres, typographie, couleurs, ornements pixel art).
 
 - ÉTUDE DES CONCURRENTS (demande 33, it. 290 ; synthèses d'avis Steam : vaporlens.app, gamepressure, presse).

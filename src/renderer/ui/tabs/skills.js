@@ -87,7 +87,7 @@ export class SkillsTab {
       this.coreEls[s.id] = core;
       const t = svg("text", { x: cx, y: cy + 30, class: "sector" }, g);
       t.textContent = s.name;
-      t.style.fill = s.color;
+      t.style.setProperty("--c", s.color); // couleur du secteur, assombrie en thème clair (styles.css)
       this.coreText ||= {};
       this.coreText[s.id] = svg("text", { x: cx, y: cy + 42, class: "lbl corepct" }, g);
     }
