@@ -443,13 +443,13 @@ async function runSelfTest(strip) {
   check("astuce : affichée même le panneau ouvert", hintOpen === "true", hintOpen);
   await js("window.__panel.setTab('adventure')");
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
-  // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
-  await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
+  // (Tri du marchand, zone 14, remis en vente et payable : contrôle reproductible quelles que soient les zones.)
+  await js("(() => { const S = window.__game.S; delete S.unlocks.autoSell; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
   await sleep(100);
   const goalId = await js("(document.querySelector('#p-hero .goal[data-action=goal-buy]') || {}).dataset?.id || null");
   if (goalId) await js("document.querySelector('#p-hero .goal[data-action=goal-buy]').click()");
   await sleep(150);
-  check("prochain déblocage : acheté d'un clic", goalId === "armsValet" && await js("!!window.__game.S.unlocks.armsValet"), goalId);
+  check("prochain déblocage : acheté d'un clic", !!goalId && await js(`!!window.__game.S.unlocks[${JSON.stringify(goalId)}]`), goalId);
   check("depuis ta dernière visite : affiché", await js("!!document.querySelector('#p-hero .visit')"));
   if (process.env.SELFTEST_SHOT2) require("fs").writeFileSync(process.env.SELFTEST_SHOT2, (await wc.capturePage()).toPNG());
   await click("#p-hero .visit");

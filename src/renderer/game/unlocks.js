@@ -7,25 +7,27 @@
 // ils s'étalent sur plusieurs courses, pas seulement sur l'or du moment.
 
 /** Dans l'ordre d'achat conseillé. icon = icône de la boutique (render/shopart.js). */
+// Zones étalées jusqu'à la zone 200 (demande de Victor : ne pas tout débloquer trop vite) ; prix ≈ or d'un monstre
+// de la zone × (100 + 8 × zone), arrondis. Les déblocages déjà achetés restent acquis.
 export const UNLOCKS = [
-  { id: "bulkEquip",   price: 300, zone: 1,     icon: "eye",      name: "Œil du connaisseur",       desc: "Boutons « Équiper le meilleur » et « Vendre ce qui n’améliore pas »." },
-  { id: "menagerie",   price: 800, zone: 3,     icon: "kennel2",  name: "Ménagerie",                desc: "Fait éclore les œufs de familiers : un compagnon suit ton héros et le renforce." },
-  { id: "autoPotion",  price: 2000, zone: 5,    icon: "potion",   name: "Ceinture d’alchimiste",    desc: "Rachète tout seul des potions de soin quand le stock baisse." },
-  { id: "forge",       price: 5000, zone: 8,    icon: "anvil",    name: "Enclume",                  desc: "Forge (+1 à +10) et réforge des objets." },
-  { id: "autoSell",    price: 15000, zone: 10,    icon: "ws_gold",  name: "Tri du marchand",          desc: "Vend dès qu’ils tombent les objets des raretés choisies." },
-  { id: "workshop",    price: 30000, zone: 12,  icon: "gear",     name: "Atelier",                  desc: "Améliorations permanentes de la boutique (attaque, PV, or, vitesse)." },
-  { id: "bulkPoints",  price: 60000, zone: 15,   icon: "book",     name: "Manuel du stratège",       desc: "Dépense en un clic tous les points de talent et de compétence." },
-  { id: "questDesk",   price: 200000, zone: 20,   icon: "map",      name: "Bureau des contrats",      desc: "Réclame toutes les quêtes d’un coup, ou automatiquement." },
-  { id: "expeditions", price: 600000, zone: 25,   icon: "kennel",   name: "Chenil des explorateurs",  desc: "Tes familiers libres partent en expédition (même jeu fermé)." },
-  { id: "petBulk",     price: 2000000, zone: 30,  icon: "egg",      name: "Nid douillet",             desc: "Fait éclore tous les œufs et gère toutes les expéditions en un clic." },
-  { id: "transmute",   price: 6000000, zone: 35,  icon: "cauldron", name: "Creuset du transmutateur", desc: "Transforme 3 objets inutiles en 1 objet de la rareté au-dessus." },
-  { id: "autoLevel",   price: 20000000, zone: 40,  icon: "keys",     name: "Grimoire de l’éveil",      desc: "À chaque niveau, les points se dépensent tout seuls (option)." },
-  { id: "armsValet",   price: 60000000, zone: 45, icon: "ws_atk",   name: "Valet d’armes",            desc: "Équipe tout seul un objet plus puissant dès qu’il tombe (option)." },
-  { id: "masterForge", price: 200000000, zone: 50, icon: "anvil",   name: "Maître de forge",          desc: "Forge tout seul l’équipement porté avec l’or en trop (option)." },
-  { id: "starNet",     price: 600000000, zone: 55, icon: "star",    name: "Filet à étoiles",          desc: "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps." },
-  { id: "astrolabe",   price: 2000000000, zone: 60, icon: "map",   name: "Astrolabe",                desc: "Fait l’ascension tout seul quand le héros bloque près de son record (option, à activer)." },
-  { id: "steward",     price: 8000000000, zone: 65, icon: "kennel2", name: "Grand intendant",         desc: "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option)." },
-  { id: "crucible",    price: 30000000000, zone: 70, icon: "cauldron", name: "Creuset perpétuel",      desc: "Transmute tout seul les objets inutiles quand le sac se remplit (option)." },
+  { id: "bulkEquip",   price: 300, zone: 3,     icon: "eye",      name: "Œil du connaisseur",       desc: "Boutons « Équiper le meilleur » et « Vendre ce qui n’améliore pas »." },
+  { id: "autoPotion",  price: 1400, zone: 6,    icon: "potion",   name: "Ceinture d’alchimiste",    desc: "Rachète tout seul des potions de soin quand le stock baisse." },
+  { id: "forge",       price: 4100, zone: 10,    icon: "anvil",    name: "Enclume",                  desc: "Forge (+1 à +10) et réforge des objets." },
+  { id: "autoSell",    price: 12000, zone: 14,    icon: "ws_gold",  name: "Tri du marchand",          desc: "Vend dès qu’ils tombent les objets des raretés choisies." },
+  { id: "workshop",    price: 33000, zone: 18,  icon: "gear",     name: "Atelier",                  desc: "Améliorations permanentes de la boutique (attaque, PV, or, vitesse)." },
+  { id: "menagerie",   price: 200000, zone: 25,     icon: "kennel2",  name: "Ménagerie",                desc: "Fait éclore les œufs de familiers : un compagnon suit ton héros et le renforce." },
+  { id: "bulkPoints",  price: 1.1e6, zone: 32,   icon: "book",     name: "Manuel du stratège",       desc: "Dépense en un clic tous les points de talent et de compétence." },
+  { id: "questDesk",   price: 7.8e6, zone: 40,   icon: "map",      name: "Bureau des contrats",      desc: "Réclame toutes les quêtes d’un coup, ou automatiquement." },
+  { id: "expeditions", price: 8.7e7, zone: 50,   icon: "kennel",   name: "Chenil des explorateurs",  desc: "Tes familiers libres partent en expédition (même jeu fermé)." },
+  { id: "petBulk",     price: 9.4e8, zone: 60,  icon: "egg",      name: "Nid douillet",             desc: "Fait éclore tous les œufs et gère toutes les expéditions en un clic." },
+  { id: "transmute",   price: 1.6e10, zone: 72,  icon: "cauldron", name: "Creuset du transmutateur", desc: "Transforme 3 objets inutiles en 1 objet de la rareté au-dessus." },
+  { id: "autoLevel",   price: 3.4e11, zone: 85,  icon: "keys",     name: "Grimoire de l’éveil",      desc: "À chaque niveau, les points se dépensent tout seuls (option)." },
+  { id: "armsValet",   price: 1.1e13, zone: 100, icon: "ws_atk",   name: "Valet d’armes",            desc: "Équipe tout seul un objet plus puissant dès qu’il tombe (option)." },
+  { id: "masterForge", price: 3.5e14, zone: 115, icon: "anvil",   name: "Maître de forge",          desc: "Forge tout seul l’équipement porté avec l’or en trop (option)." },
+  { id: "starNet",     price: 1.1e16, zone: 130, icon: "star",    name: "Filet à étoiles",          desc: "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps." },
+  { id: "astrolabe",   price: 1.1e18, zone: 150, icon: "map",   name: "Astrolabe",                desc: "Fait l’ascension tout seul quand le héros bloque près de son record (option, à activer)." },
+  { id: "steward",     price: 1.1e20, zone: 170, icon: "kennel2", name: "Grand intendant",         desc: "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option)." },
+  { id: "crucible",    price: 1e23, zone: 200, icon: "cauldron", name: "Creuset perpétuel",      desc: "Transmute tout seul les objets inutiles quand le sac se remplit (option)." },
 ];
 export const UNLOCK_INDEX = Object.fromEntries(UNLOCKS.map((u) => [u.id, u]));
 

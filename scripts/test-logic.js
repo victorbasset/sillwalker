@@ -983,12 +983,12 @@ test("déblocages : verrouillés au départ, achetés une fois, gardés à l'asc
   assert.equal(g.sendExpedition("cat", "short"), false, "expéditions verrouillées");
   g.S.gold = 0;
   assert.equal(g.buyUnlock("bulkEquip"), false, "pas assez d'or");
-  g.S.gold = 1e8;
+  g.S.gold = 1e8; g.S.best = 3; // Œil du connaisseur : zone 3
   assert.ok(g.buyUnlock("bulkEquip"));
   assert.equal(g.buyUnlock("bulkEquip"), false, "déjà acheté");
   assert.equal(g.S.gold, 1e8 - 300);
   assert.equal(g.buyUnlock("transmute"), false, "zone record insuffisante");
-  g.S.best = 40; g.S.zone = 40;
+  g.S.best = 72; g.S.zone = 72; g.S.gold = 1e11; // transmutation : zone 72
   assert.ok(g.buyUnlock("transmute"));
   if (g.canAscend()) g.ascend();
   assert.ok(hasUnlock(g.S, "transmute"), "conservé à l'ascension");

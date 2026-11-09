@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 199, demande 8 de Victor, 3e partie) : 18 déblocages de boutique étalés jusqu'à la zone 200
+  (Œil 3, Ceinture 6, Enclume 10, Tri 14, Atelier 18, Ménagerie 25 avec l'onglet Familiers, Manuel 32, Bureau 40,
+  Chenil 50, Nid 60, Creuset du transmutateur 72, Grimoire 85, Valet 100, Maître de forge 115, Filet 130, Astrolabe
+  150, Grand intendant 170, Creuset perpétuel 200) ; prix ≈ or d'un monstre × (100 + 8 × zone). Déjà achetés :
+  gardés. Semaine simulée (guerrier) : record 161, Valet ~3,75 j, Astrolabe ~5,6 j. balance 12 h : −4 zones (54,0
+  contre 58,0 : automatismes plus tardifs, voulu). Tests et contrôle d'autotest adaptés, fuzz 600, 85/85.
 - 2026-11-09 (it. 198, demande 8 de Victor, 2e partie) : fin de partie jusqu'à la zone 200. Cause du mur vers 71 :
   objets linéaires (il) contre monstres ×1,28 par zone. zoneMight(z) (rules.js) : ×1,28 jusqu'à la zone 60, puis
   facteur par zone décroissant en 10 zones jusqu'à ×1,04. Essais (simulation 1 semaine, guerrier, records des
@@ -584,7 +590,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   8. EN COURS (demande du 2026-11-09 après-midi) : on débloque encore tout trop vite : « aller jusqu'à 200 zones » et
      répartir les déblocages (onglets et déblocages de boutique) dans le temps ; le joueur doit avoir le temps de
      s'habituer à un onglet avant le suivant. Étape 1 : mesurer la progression réelle sur plusieurs jours simulés.
-     Fait (it. 196) : onglets étalés jusqu'à la zone 40. Fait (it. 198) : zone 200 atteignable. Reste : zone 200 (le record plafonne vers 71-72 en une
+     Fait (it. 196) : onglets étalés jusqu'à la zone 40. Fait (it. 198) : zone 200 atteignable. FAIT (it. 199) : déblocages étalés jusqu'à 200. (Ancien reste : zone 200 (le record plafonne vers 71-72 en une
      semaine simulée : revoir la courbe de fin de partie), puis répartir les déblocages de boutique jusqu'à 200.
   9. FAIT (it. 197). Mode mini / bande : les boutons réduire et agrandir ne sont pas dans le même ordre en mode mini et en grand ;
      icônes plus parlantes souhaitées. Les astuces (bulle à l'ampoule 💡) ne s'affichent plus quand le panneau est
