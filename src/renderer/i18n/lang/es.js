@@ -515,4 +515,5 @@ export default {
   1639: "{0} s",
   1640: "sí",
   1641: "máx.",
+  1642: "Compañeros que siguen a tu héroe y lo fortalecen.",
 };

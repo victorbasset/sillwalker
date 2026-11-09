@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 196, demande 8 de Victor, 1re partie) : onglets ouverts selon le record de zone (toutes courses),
+  espacés : Talents 2, Quêtes 5, Boutique 8, Classe 10 (premier héros libéré), Bestiaire 15, Ascension 20, Familiers
+  25, Compétences 30, Statistiques 40. Mesuré (nouveau scripts/tab-pace.mjs, 3 graines) : 1, 5, 8, 9-10, 13-14,
+  18-20, 24-34 min, Compétences 1 h 10 à 2 h 15, Statistiques après la 1re ascension (avant : tout en ~10 min).
+  Tests adaptés (seuils), 10 langues (texte des Familiers), 83/83. Mesure préalable : sur une semaine simulée, le
+  record plafonne vers la zone 71-72 : la zone 200 demande de revoir la fin de partie (2e partie de la demande).
 - 2026-11-09 (it. 194) : mémoire dans la durée mesurée : 698 → 719 Mo puis 712 Mo sur 6 min en accéléré ×10
   (≈ 1 h de jeu), sans croissance continue : pas de fuite. Nouveau scripts/mem-watch.sh pour refaire la mesure
   (documenté dans CLAUDE.md).
@@ -565,6 +571,11 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   8. EN COURS (demande du 2026-11-09 après-midi) : on débloque encore tout trop vite : « aller jusqu'à 200 zones » et
      répartir les déblocages (onglets et déblocages de boutique) dans le temps ; le joueur doit avoir le temps de
      s'habituer à un onglet avant le suivant. Étape 1 : mesurer la progression réelle sur plusieurs jours simulés.
+     Fait (it. 196) : onglets étalés jusqu'à la zone 40. Reste : zone 200 (le record plafonne vers 71-72 en une
+     semaine simulée : revoir la courbe de fin de partie), puis répartir les déblocages de boutique jusqu'à 200.
+  9. Mode mini / bande : les boutons réduire et agrandir ne sont pas dans le même ordre en mode mini et en grand ;
+     icônes plus parlantes souhaitées. Les astuces (bulle à l'ampoule 💡) ne s'affichent plus quand le panneau est
+     déplié : dommage (checkHints n'affiche rien si panelOpen).
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

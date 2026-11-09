@@ -73,8 +73,9 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Carnet de route** (Statistiques) : les grandes étapes datées de la partie (niveaux ronds, records tous les 5
   zones, premier légendaire, héros libérés, ascensions), gardées à l'ascension.
 - **Onglets progressifs** : un nouveau joueur ne voit que l'Aventure et les Réglages ; les autres onglets s'ouvrent
-  au fil de la partie (Talents au niveau 2, Quêtes, Boutique aux 300 premiers or, Classe, Compétences, Bestiaire,
-  Familiers au premier œuf, Statistiques, Ascension), chacun annoncé par une bulle et marqué ✦ jusqu'à la visite.
+  selon le record de zone, espacés pour laisser le temps de s'habituer (Talents zone 2, Quêtes 5, Boutique 8, Classe 10,
+  Bestiaire 15, Ascension 20, Familiers 25, Compétences 30, Statistiques 40 ; soit de 1 min à plus de 2 h de jeu,
+  scripts/tab-pace.mjs), chacun annoncé par une bulle et marqué ✦ jusqu'à la visite.
   Une fois ouvert, un onglet le reste (ascension comprise) ; les parties existantes gardent tout (game/tabs.js).
   En mode mini, l'annonce passe sur la scène. Dans les onglets aussi, l'information vient à son heure : Bestiaire
   (pouvoirs, panoplies, élites une fois rencontrés), Talents (Voie et Maîtrises à l'approche de leur seuil), liens

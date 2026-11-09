@@ -515,4 +515,5 @@ export default {
   1639: "{0} s",
   1640: "tak",
   1641: "maks.",
+  1642: "Towarzysze, którzy idą za bohaterem i go wzmacniają.",
 };

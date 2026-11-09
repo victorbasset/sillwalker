@@ -2,21 +2,23 @@
 // nouveau joueur). Chaque onglet s'ouvre à un seuil ; une fois ouvert il le reste, même après une ascension
 // (S.tabsOpen : { onglet: true }). Aventure et Réglages sont toujours là.
 import { ASCEND_MIN_ZONE } from "./prestige.js";
+import { recordZone } from "./unlocks.js";
 
-/** hint : conseil de la bande (ui/hints.js) qui ferait doublon avec l'annonce de l'onglet ; marqué vu à l'ouverture.
- *  Seuil d'ouverture de chaque onglet : environ un nouvel onglet toutes les 1 à 2 minutes au début
- *  (mesuré par scripts/first-minutes.mjs). */
+/** Seuil d'ouverture de chaque onglet : record de zone (toutes courses) ; étalés jusqu'à la zone 40 pour laisser le
+ *  temps de s'habituer à chaque onglet avant le suivant (demande de Victor). hint : conseil de la bande
+ *  (ui/hints.js) qui ferait doublon avec l'annonce de l'onglet, marqué vu à l'ouverture. */
 export const TAB_GATES = {
-  talents:   { label: "Talents", hint: "talent", when: (S) => S.lvl >= 2, desc: "Dépense tes points de talent à chaque niveau." },
-  shop:      { label: "Boutique", when: (S) => S.gold >= 300 || S.best >= 8 || (S.stats.purchases || 0) > 0, desc: "Potions, élixirs, coffres et déblocages permanents." },
-  quests:    { label: "Quêtes", when: (S) => (S.stats.kills || 0) >= 25 || (S.quests.slots || []).some((q) => q && q.progress >= q.goal), desc: "Des contrats à remplir pour de l’or et des coffres." },
-  class:     { label: "Classe", hint: "classes", when: (S) => S.best >= 4, desc: "D’autres héros sont prisonniers : libère-les." },
-  bestiary:  { label: "Bestiaire", when: (S) => S.best >= 6, desc: "Monstres rencontrés, collection d’objets, panoplies." },
-  skills:    { label: "Compétences", hint: "skills", when: (S) => S.lvl >= 12, desc: "L’arbre de compétences : 1 point tous les 2 niveaux." },
-  pets:      { label: "Familiers", when: (S) => (S.pets.eggs || 0) > 0 || Object.keys(S.pets.owned || {}).length > 0, desc: "Un œuf ! Les familiers suivent ton héros et le renforcent." },
-  stats:     { label: "Statistiques", when: (S) => (S.stats.kills || 0) >= 150, desc: "Tes records et tes chiffres." },
-  ascension: { label: "Ascension", when: (S) => S.best >= ASCEND_MIN_ZONE - 5 || (S.prestige.count || 0) > 0, desc: "Recommencer plus fort grâce aux éclats d’étoile." },
+  talents:   { label: "Talents", hint: "talent", zone: 2, desc: "Dépense tes points de talent à chaque niveau." },
+  quests:    { label: "Quêtes", zone: 5, desc: "Des contrats à remplir pour de l’or et des coffres." },
+  shop:      { label: "Boutique", zone: 8, desc: "Potions, élixirs, coffres et déblocages permanents." },
+  class:     { label: "Classe", hint: "classes", zone: 10, desc: "D’autres héros sont prisonniers : libère-les." },
+  bestiary:  { label: "Bestiaire", zone: 15, desc: "Monstres rencontrés, collection d’objets, panoplies." },
+  ascension: { label: "Ascension", zone: ASCEND_MIN_ZONE, desc: "Recommencer plus fort grâce aux éclats d’étoile." },
+  pets:      { label: "Familiers", zone: 25, desc: "Des compagnons qui suivent ton héros et le renforcent." },
+  skills:    { label: "Compétences", hint: "skills", zone: 30, desc: "L’arbre de compétences : 1 point tous les 2 niveaux." },
+  stats:     { label: "Statistiques", zone: 40, desc: "Tes records et tes chiffres." },
 };
+for (const g of Object.values(TAB_GATES)) g.when = (S) => recordZone(S) >= g.zone || (g === TAB_GATES.pets && Object.keys(S.pets.owned || {}).length > 0);
 
 /** L'onglet est-il visible ? (Aventure, Réglages et tout onglet sans seuil : toujours.) */
 export const tabOpen = (S, id) => !TAB_GATES[id] || !!(S.tabsOpen && S.tabsOpen[id]);

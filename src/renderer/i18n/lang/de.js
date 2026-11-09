@@ -515,4 +515,5 @@ export default {
   1639: "{0} s",
   1640: "ja",
   1641: "max.",
+  1642: "Begleiter, die deinem Helden folgen und ihn stärken.",
 };

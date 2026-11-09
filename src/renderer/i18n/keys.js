@@ -1643,5 +1643,6 @@ export const KEYS = [
   "{0} min",
   "{0} s",
   "oui",
-  "max"
+  "max",
+  "Des compagnons qui suivent ton héros et le renforcent."
 ];

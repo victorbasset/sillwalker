@@ -943,7 +943,7 @@ test("conseil panoplie : à la première pièce trouvée", () => {
   assert.notEqual(nextHint(g)?.id, "set");
   const it = g.newItem(3); it.set = "dawn"; g.S.bag.push(it);
   assert.notEqual(nextHint(g)?.id, "set", "Bestiaire encore fermé : le conseil attend");
-  g.S.best = 6; openTabs(g.S);
+  g.S.best = 15; openTabs(g.S);
   assert.equal(nextHint(g)?.id, "set");
   assert.equal(nextHint(g).tab, "bestiary");
 });
@@ -1525,7 +1525,7 @@ test("onglets progressifs : fermés au départ, ouverts au seuil, gardés à l'a
   const S = freshLocked();
   for (const id of ["talents", "skills", "quests", "shop", "pets", "class", "ascension", "bestiary", "stats"]) assert.ok(!tabOpen(S, id), id + " fermé au départ");
   assert.ok(tabOpen(S, "adventure") && tabOpen(S, "settings"));
-  S.lvl = 2;
+  S.best = 2;
   assert.deepEqual(openTabs(S), ["talents"]);
   assert.equal(S.tabsOpen.talents, "new");
   assert.deepEqual(openTabs(S), [], "annoncé une seule fois");
@@ -1659,7 +1659,7 @@ test("« À faire » : amélioration du marchand achetée et équipée d'un clic
   g.S.bag.length = 0; g.S.gold = 1e9;
   const it = g.newItem(3); it.price = 100;
   g.S.shop = { items: [it], next: Date.now() + 600000 };
-  openTabs(g.S); // or ≥ 300 : boutique ouverte (fait par step() en jeu)
+  g.S.best = 8; openTabs(g.S); // boutique ouverte dès la zone 8 (fait par step() en jeu)
   const t = g.todoNow().find((x) => x.id === "merchant");
   assert.ok(t && t.name && t.price === 100);
   assert.ok(g.buyAndEquip(g.merchantUpgrade().id));
@@ -1866,6 +1866,7 @@ test("retour d'absence : « à faire maintenant » ne liste que ce qui est dispo
   g.S.pets.eggs = 2;
   assert.ok(!g.todoNow().some((t) => t.id === "eggs"), "œufs sans Ménagerie : rien à proposer");
   g.S.unlocks.menagerie = true;
+  g.S.best = 40; // onglets ouverts (Familiers dès la zone 25)
   const eggs = g.todoNow().find((t) => t.id === "eggs");
   assert.ok(eggs && eggs.n === 2 && eggs.tab === "pets");
   g.S.gold = 1e9; // le premier déblocage (zone 1) devient abordable
