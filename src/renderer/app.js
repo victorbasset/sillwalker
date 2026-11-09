@@ -96,6 +96,7 @@ async function boot() {
   const strip = new StripRenderer($("#strip"), game, { rightReserve: 64 });
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);
+  strip.juice.onHits = () => clickThrough.refresh(); // cinématiques : le calque se clique (« passer »)
   // Infobulles de la bande : celles du système (title) ne s'affichent pas dans cette fenêtre sans focus ; la nôtre
   // apparaît juste au-dessus de l'élément survolé (la fenêtre a de la place au-dessus de la bande, comme les bulles).
   {

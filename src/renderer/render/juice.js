@@ -250,7 +250,8 @@ export class Juice {
       return;
     }
     const W = this.s.W, H = this.layer.clientHeight || 120, S = this.s.game.S;
-    const node = el("div", "cine " + kind, this.layer), cv = makeCanvas(node, "cine-sky"), dpr = window.devicePixelRatio || 1;
+    // « hit » : la fenêtre capte les clics au-dessus du calque (sinon le clic « passer » traversait vers le bureau).
+    const node = el("div", "cine hit " + kind, this.layer), cv = makeCanvas(node, "cine-sky"), dpr = window.devicePixelRatio || 1;
     sizeCanvas(cv, W, H, dpr);
     const ctx = cv.ctx;
     const title = el("div", "cine-title", node), sub = el("div", "cine-sub", node), skip = el("div", "cine-skip", node);
@@ -292,12 +293,14 @@ export class Juice {
     this.cine = state;
     node.addEventListener("click", () => { state.done = true; });
     this.s.game.emit("cinematic", { kind });
+    if (this.onHits) setTimeout(this.onHits, 0); // zones cliquables de la fenêtre à recalculer
     let lastDraw = -1, page = -1;
     this.add(node, (p) => {
       const t = p.t, fadeIn = Math.min(1, t / 0.8), fadeOut = state.done ? 0 : Math.min(1, (life - t) / 0.8);
       const k = Math.max(0, Math.min(fadeIn, fadeOut));
       if (state.done || t >= life) {
         if (this.cine === state) this.cine = null;
+        if (this.onHits) setTimeout(this.onHits, 0); // le calque disparaît : les clics retraversent la bande
         // Générique après la victoire (sauf si on a passé la scène), puis la cinématique suivante en attente.
         if (kind === "dawn" && !state.done) (this.cineQueue ||= []).unshift(["credits", {}]);
         const next = this.cineQueue && this.cineQueue.shift();

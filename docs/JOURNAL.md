@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 235) : « clic : passer » des cinématiques ne marchait qu'en autotest : la bande laisse traverser
+  les clics hors des éléments .hit (ui/clickthrough.js), et le calque des cinématiques n'en était pas ; un vrai clic
+  partait sur le bureau. Le calque est maintenant .hit, et les zones cliquables de la fenêtre sont recalculées à son
+  apparition et à sa disparition (juice.onHits). Contrôle d'autotest complété, 97/97.
+  Leçon : element.click() ne passe pas par le filtre des clics de la fenêtre ; pour tout nouvel élément cliquable
+  de la bande, vérifier qu'il porte .hit.
 - 2026-11-09 (it. 234) : vérification du rythme après la demande 14 (sac plein = butin au sol) : early-pace donnait
   zone 18 à 60 min (avant : 23-24) car le script ne vendait jamais : sac plein dès 30 min, toutes les améliorations
   perdues. Avec une vente par minute (joueur réel) : zone 23, comme avant. Le comportement voulu par Victor est

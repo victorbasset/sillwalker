@@ -471,10 +471,10 @@ async function runSelfTest(strip) {
   await new Promise((r) => setTimeout(r, 400));
   const gone = await js("!document.querySelector('.cine')");
   // File : une cinématique lancée pendant une autre attend la fin de la première (héros libéré puis chronique).
-  const cq = await js("(() => { const J = window.__strip.juice; J.cinematic('freed', { cls: 'ranger' }); J.cinematic('chronicle', { title: 'Q', n: 2, total: 9 }); const one = document.querySelectorAll('.cine.chronicle').length === 0 && !!document.querySelector('.cine.freed'); document.querySelector('.cine.freed').click(); return String(one); })()");
+  const cq = await js("(() => { const J = window.__strip.juice; J.cinematic('freed', { cls: 'ranger' }); J.cinematic('chronicle', { title: 'Q', n: 2, total: 9 }); const one = document.querySelectorAll('.cine.chronicle').length === 0 && !!document.querySelector('.cine.freed') && document.querySelector('.cine.freed').classList.contains('hit'); document.querySelector('.cine.freed').click(); return String(one); })()");
   await new Promise((r) => setTimeout(r, 700));
   const cq2 = await js("(() => { const c = document.querySelector('.cine.chronicle'); if (c) c.click(); return String(!!c); })()");
-  check("cinématiques en file : la chronique attend la fin du héros libéré", cq === "true" && cq2 === "true", cq + " / " + cq2);
+  check("cinématiques en file (la chronique attend la fin du héros libéré), calque cliquable", cq === "true" && cq2 === "true", cq + " / " + cq2);
   check("cinématiques : intro, arrivée, victoire, générique, chronique et héros libéré jouées, un clic les passe", cin === "true true true true true true true" && gone === true, cin + " / " + gone);
   // Carte du Rebord : 200 tronçons de zone, le héros, les héros prisonniers ; infobulle au survol d'une zone.
   const mp = await js("(() => { const S = window.__game.S, P = window.__panel; S.tabsOpen.map = true; P.setTab('map'); P.renderAll(); const z = document.querySelectorAll('svg.rebord .mz').length, h = !!document.querySelector('svg.rebord .mhero'), c = document.querySelectorAll('svg.rebord .mmark').length; const g = document.querySelector('svg.rebord .mz'); g.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); const t = document.querySelector('#panel .gtip'); const tip = !!(t && !t.hidden && /1/.test(t.textContent)); g.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })); P.setTab('adventure'); return [z, h, c, tip].join(' '); })()");

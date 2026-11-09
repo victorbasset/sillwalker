@@ -112,6 +112,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   ou une couleur vive dans `--c` avec la classe `.tint` (assombrie en thème clair). Vérifier en capture
   dans les deux thèmes. (La bande et le mode mini sont toujours sombres : non concernés.)
 
+- Bande : la fenêtre laisse traverser les clics sauf au-dessus des éléments `.hit` (ui/clickthrough.js, recalculé par
+  `clickThrough.refresh()`). Tout nouvel élément cliquable de la bande doit porter `.hit` ; `element.click()` dans
+  l'autotest ne passe pas par ce filtre (un « clic : passer » marchait en test et pas en vrai).
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.
 - Un commentaire `//` ajouté au milieu d'une ligne (objet littéral, liste d'arguments) avale la fin du code de la
