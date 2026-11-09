@@ -76,6 +76,23 @@ export const effectIconURL = (eff, scale = 3) => shopIconURL(EFFECT_ICON[Object.
 
 const cache = {};
 /** URL (data:) de l'icône `id`, en grand (scale px par pixel). */
+// Blason de la guilde des aventuriers (demande 20 de Victor) : écu écartelé azur et gueules, épées croisées sur une
+// gemme, couronne. Le métal (bordure, couronne, gemme) suit le rang : bronze, argent, or, améthyste, étoile.
+const CREST = [
+  "...Y...Y...Y...", "...YY.YYY.YY...", "...YYYYYYYYY...", ".KKKKKKKKKKKKK.", ".KBBBBBBBBBBBK.",
+  ".KBGLLLBRRRGBK.", ".KBLWLLBRRWRBK.", ".KBLLWLBRWRRBK.", ".KBLLLWBWRRRBK.", ".KBBBBBSBBBBBK.",
+  ".KBRRRWBWLLLBK.", ".KBRRWRBLWLLBK.", "..KBWRRBLLWBK..", "...KBRRBLLBK...", "....KBRBLBK....",
+  ".....KBBBK.....", "......KKK......",
+];
+const CREST_METALS = [
+  { B: "#b87333", Y: "#d8955a", S: "#e2394a" }, // bronze
+  { B: "#c9ced6", Y: "#eef3f8", S: "#7fd6ff" }, // argent
+  { B: "#e9b949", Y: "#ffd34d", S: "#e2394a" }, // or
+  { B: "#9a6ad8", Y: "#c08cff", S: "#ffd34d" }, // améthyste
+  { B: "#ffe27a", Y: "#fff6c8", S: "#7fd6ff" }, // étoile
+];
+CREST_METALS.forEach((m, i) => { SHOP_ICON_DEFS["crest" + i] = [CREST, { L: "#3a6ea5", R: "#b8322a", W: "#e3ebf3", G: "#8a5a2b", ...m }]; });
+
 export function shopIconURL(id, scale = 5) {
   const k = id + "@" + scale;
   if (!cache[k]) {

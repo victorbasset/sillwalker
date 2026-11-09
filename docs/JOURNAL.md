@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 241, demande 20 de Victor) : blason de la guilde (onglet Quêtes) à la place de l'amulette :
+  écu écartelé azur et gueules, épées croisées sur une gemme, couronne (shopart.js CREST). Le métal (bordure,
+  couronne, gemme) suit le rang : bronze, argent, or, améthyste, étoile. 10 langues (texte alternatif), 98/98.
 - 2026-11-09 (it. 240, demande 19 de Victor) : plus d'œufs de familier avant l'onglet Familiers (zone 25 ; avant,
   inutilisables) : quêtes (y compris la récompense spéciale 3 étoiles), boss, élites et œuf de la boutique
   (tabs.js eggsAllowed). Une quête déjà tirée qui promettait un œuf le remplace par un coffre (affichage et
@@ -837,7 +840,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   19. FAIT (it. 240). Les quêtes ne doivent pas proposer de récompenses encore inaccessibles (ex. œufs de
       familier avant l'onglet Familiers) ; vérifier aussi les autres récompenses (éclats d'étoile avant l'Ascension,
       élixirs avant la Boutique…).
-  20. À FAIRE (2026-11-09) : l'icône de la guilde (onglet Quêtes) ne plaît pas à Victor : dessiner un joli blason.
+  20. FAIT (it. 241). L'icône de la guilde (onglet Quêtes) ne plaît pas à Victor : dessiner un joli blason.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

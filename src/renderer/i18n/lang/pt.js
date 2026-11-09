@@ -622,4 +622,5 @@ export default {
   1746: "Bombas e fogo, à distância",
   1747: "Suas bombas deixam o chão em chamas e acabam com os feridos.",
   1748: "Pólvora negra: cada bomba incendeia o alvo (30% do ataque por segundo por 3 s), +25% de dano contra alvos enfraquecidos.",
+  1749: "Brasão da guilda",
 };

@@ -622,4 +622,5 @@ export default {
   1746: "Bomby i ogień, dystans",
   1747: "Jej bomby podpalają ziemię i dobijają rannych.",
   1748: "Czarny proch: każda bomba podpala cel (30% ataku na sekundę przez 3 s), +25% obrażeń przeciw osłabionym celom.",
+  1749: "Herb gildii",
 };

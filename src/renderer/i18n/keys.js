@@ -1750,5 +1750,6 @@ export const KEYS = [
   "Artificière",
   "Bombes et feu, à distance",
   "Ses bombes laissent le terrain en flammes et achèvent les blessés.",
-  "Poudre noire : chaque bombe enflamme la cible (30 % de l’attaque par seconde pendant 3 s), +25 % de dégâts contre les cibles affaiblies."
+  "Poudre noire : chaque bombe enflamme la cible (30 % de l’attaque par seconde pendant 3 s), +25 % de dégâts contre les cibles affaiblies.",
+  "Blason de la guilde"
 ];

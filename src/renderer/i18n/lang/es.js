@@ -622,4 +622,5 @@ export default {
   1746: "Bombas y fuego, a distancia",
   1747: "Sus bombas dejan el suelo en llamas y rematan a los heridos.",
   1748: "Pólvora negra: cada bomba incendia al objetivo (30 % del ataque por segundo durante 3 s), +25 % de daño contra objetivos debilitados.",
+  1749: "Blasón del gremio",
 };

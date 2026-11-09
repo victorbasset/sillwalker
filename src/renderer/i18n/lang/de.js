@@ -622,4 +622,5 @@ export default {
   1746: "Bomben und Feuer, Fernkampf",
   1747: "Ihre Bomben setzen den Boden in Brand und erledigen die Verwundeten.",
   1748: "Schwarzpulver: Jede Bombe setzt das Ziel in Brand (30 % des Angriffs pro Sekunde für 3 s), +25 % Schaden gegen geschwächte Ziele.",
+  1749: "Gildenwappen",
 };

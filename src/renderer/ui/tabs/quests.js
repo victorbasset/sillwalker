@@ -44,7 +44,7 @@ export class QuestsTab {
     const rep = (S.guild && S.guild.rep) || 0, gr = guildRank(rep);
     const bonus = gr.rank ? Object.fromEntries(Object.entries(GUILD_BONUS).map(([k, v]) => [k, v * gr.rank])) : null;
     const guild = `<article class="panel guild">
-      <img src="${itemIconURL({ icon: "medal", slot: "amulet", r: Math.min(4, Math.floor(gr.rank / 2)) })}" alt="">
+      <img class="crest" src="${shopIconURL("crest" + Math.min(4, Math.floor(gr.rank / 2)), 4)}" alt="${esc(tx("Blason de la guilde"))}">
       <div class="si"><h2>${tx("Guilde des aventuriers")} <small>${tx("rang {0} · {1}", { 0: gr.rank + 1, 1: esc(guildRankName(gr.rank)) })}</small></h2>
         <div class="kv"><span>${tx("Réputation (1 à 3 par quête selon les étoiles)")}</span><span>${gr.into} / ${gr.need}</span></div>
         <div class="bar"><i style="width:${(100 * gr.into) / gr.need}%"></i></div>
