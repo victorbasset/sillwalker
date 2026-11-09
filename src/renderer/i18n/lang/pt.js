@@ -482,4 +482,5 @@ export default {
   1606: "da Plumagem da fênix",
   1607: "Grande intendente: ovos e expedições automáticos",
   1608: "Uma peça da bolsa completa o conjunto {0}",
+  1609: "Uma peça de conjunto! Use 2 e depois 4 peças do mesmo conjunto para ganhar bônus; cada conjunto completado pela primeira vez também deixa seu herói mais forte para sempre. Todos os conjuntos estão no Bestiário: clique aqui.",
 };

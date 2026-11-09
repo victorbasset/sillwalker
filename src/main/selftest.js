@@ -375,6 +375,11 @@ async function runSelfTest(strip) {
   check("Grand intendant : choix de l'expédition", (await state("S.pets.lastKind")) === "epic" && (await js("document.querySelector('[data-action=p-stewkind][data-kind=epic]')?.getAttribute('aria-pressed')")) === "true");
   await click('[data-tab="adventure"]');
   await sleep(150);
+  // « À faire » : la pièce qui complète une panoplie s'équipe d'un clic depuis le résumé de retour.
+  const fin = await js("(() => { const g = window.__game, S = g.S; const slots = ['weapon', 'helm', 'armor']; for (const k of slots) { const it = g.newItem(3); it.slot = k; it.set = 'phoenix'; S.equip[k] = it; } if (S.equip.boots) S.equip.boots.set = null; let p = g.newItem(3); for (let k = 0; k < 50 && p.slot !== 'boots'; k++) p = g.newItem(3); p.slot = 'boots'; p.set = 'phoenix'; S.bag.unshift(p); delete (S.setsDone || {}).phoenix; g.invalidateStats(); window.__showOffline({ duration: '1 h', zone: 'Zone', kills: 10, gold: 10, xp: 10, newLevel: 0, kept: 0, best: -1, feathers: 0, chests: 0, capped: false, capH: 10 }); const b = document.querySelector('#modal [data-action=todo-do][data-what=setFinish]'); if (!b) return 'pas de ligne'; b.click(); return String(!!(S.setsDone || {}).phoenix); })()");
+  check("retour d'absence : pièce qui complète une panoplie, équipée d'un clic", fin === "true", fin);
+  await js("document.querySelector('#modal [data-action=closemodal]')?.click()");
+  await sleep(150);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

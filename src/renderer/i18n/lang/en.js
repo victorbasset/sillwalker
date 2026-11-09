@@ -482,4 +482,5 @@ export default {
   1606: "of the Phoenix Plumage",
   1607: "Grand Steward: eggs and expeditions on their own",
   1608: "A piece in the bag completes the {0} set",
+  1609: "A set piece! Wear 2, then 4 pieces of the same set for bonuses; each set completed for the first time also makes your hero stronger forever. All sets are listed in the Bestiary: click here.",
 };

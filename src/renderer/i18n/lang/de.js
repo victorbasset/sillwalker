@@ -482,4 +482,5 @@ export default {
   1606: "des Phönixgefieders",
   1607: "Großer Verwalter: Eier und Expeditionen automatisch",
   1608: "Ein Teil in der Tasche vervollständigt das Set {0}",
+  1609: "Ein Set-Teil! Trage 2, dann 4 Teile desselben Sets für Boni; jedes zum ersten Mal vervollständigte Set macht deinen Helden außerdem für immer stärker. Alle Sets stehen im Bestiarium: Hier klicken.",
 };

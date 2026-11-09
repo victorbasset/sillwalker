@@ -1610,5 +1610,6 @@ export const KEYS = [
   "Plumage du phénix",
   "du Plumage du phénix",
   "Grand intendant : œufs et expéditions tout seuls",
-  "Une pièce du sac complète la panoplie {0}"
+  "Une pièce du sac complète la panoplie {0}",
+  "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus ; chaque panoplie complétée une première fois rend aussi ton héros plus fort pour toujours. Toutes les panoplies sont dans le Bestiaire : clique ici."
 ];
