@@ -31,6 +31,7 @@ import { approachTime, heroStats, power, earlyPace } from "../src/renderer/game/
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
+import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS } from "../src/renderer/game/data.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
@@ -1432,6 +1433,16 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   const kept = g.S.bag.filter((it) => !g.uselessItems().includes(it) && !g.isUpgrade(it));
   assert.ok(kept.length <= 6, "au plus 6 : " + kept.length);
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
+});
+
+test("liens « 🔒 déblocage » : pas avant la boutique, pas pour un déblocage lointain", () => {
+  const S = freshLocked();
+  assert.equal(lockLink(S, "transmute"), "", "boutique pas encore ouverte");
+  S.tabsOpen = { shop: true };
+  const far = UNLOCKS.find((u) => u.zone > S.best + LOCK_LOOKAHEAD);
+  assert.equal(lockLink(S, far.id), "", "déblocage lointain : rien");
+  S.best = far.zone - 2;
+  assert.match(lockLink(S, far.id), /🔒/, "proche : annoncé");
 });
 
 test("rythme du début : première course seulement, de 0,35 à 1 en zone 15", () => {
