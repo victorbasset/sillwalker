@@ -38,6 +38,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - `npm test` : syntaxe de tous les fichiers + tests de logique (Node seul, rapide).
 - `npm run selftest` (Windows) / `npm run selftest:linux` (Ubuntu, écran virtuel) : parcours
   automatique de l'interface, doit afficher « N/N vérifications réussies ».
+- Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
+  nouvelles parties (10 classes) et signale celles qui ne progressent pas (60 graines ≈ 35 s). À relancer après
+  tout changement des monstres, élites, champions ou de la mort du héros.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
 - Une seule simulation suit une trajectoire aléatoire fixe : pour juger un changement d'équilibrage,

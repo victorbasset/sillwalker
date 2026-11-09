@@ -972,6 +972,22 @@ test("sauvegarde d'une version plus récente du jeu : mise de côté, jamais éc
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });
 
+test("aucune nouvelle partie bloquée : 10 classes × 12 graines, 20 min chacune", () => {
+  // Recherche de blocages (un champion en tête de la zone 1 en causait un, 1 partie sur 200) ; les graines
+  // couvrent ce cas (mage, graine 11). Exploration plus large : voir CLAUDE.md (« parties bloquées »).
+  const stuck = [];
+  for (const cls of CLASS_KEYS) for (let seed = 1; seed <= 12; seed++) {
+    setRandom(seeded(seed * 7919 + cls.length));
+    const S = freshLocked(); S.cls = cls;
+    const g = new Game(S);
+    let kills = 0; g.on("kill", () => kills++);
+    for (let m = 0; m < 20; m++) { g.advance(60); g.autoEquip(); }
+    if (kills < 40 || g.S.best < 3) stuck.push(`${cls}/${seed} : ${kills} victoires, zone ${g.S.best}`);
+  }
+  setRandom(seeded(42));
+  assert.deepEqual(stuck, [], "parties bloquées");
+});
+
 test("zone 1 : un monstre trop fort en tête ne bloque jamais le héros", () => {
   const g = new Game(freshState());
   g.S.zone = g.S.best = 1;

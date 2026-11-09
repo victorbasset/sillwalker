@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 ## Fait
 
+- 2026-11-09 (it. 40) : chasse aux blocages : 400 nouvelles parties (10 classes) jouées 20 min chacune, aucune
+  bloquée (la même recherche sur la version d'avant trouve bien les 2 parties coincées par un champion). Une version
+  courte fait désormais partie des tests.
 - 2026-11-09 (it. 39) : deux pièges corrigés. Un nouveau joueur pouvait rester bloqué à jamais si un champion
   tombait en premier monstre de la zone 1 (≈ 1 partie sur 200) : plus de champion avant la zone 5, et deux défaites
   en zone 1 tirent une nouvelle série de monstres. Et quand le sac est plein, un légendaire ou une amélioration
