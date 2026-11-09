@@ -876,3 +876,9 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .cine.chronicle.chr-threshold { background: linear-gradient(#020005 0%, #12041e 65%, rgba(24, 6, 36, 0.8) 100%); }
 .cine.chronicle .cine-sub { white-space: normal; width: min(60%, 760px); text-align: center; line-height: 1.25; }
 .chronplay { font-size: 11px; padding: 0 5px; margin-left: 4px; }
+/* Constellations (demande 29) : lignes d'une hauteur, plus de colonnes si la place le permet. */
+.ascgrid .shoplist.two-cols { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); column-gap: 12px; }
+.ascgrid .shopline { padding: 3px 0; gap: 6px; }
+.ascgrid .shopline .si { min-width: 0; flex: 1; }
+.ascgrid .shopline .sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ascgrid .shopline button { min-width: 64px; padding: 3px 8px; }

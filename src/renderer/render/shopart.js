@@ -91,6 +91,27 @@ const CREST_METALS = [
   { B: "#9a6ad8", Y: "#c08cff", S: "#ffd34d" }, // améthyste
   { B: "#ffe27a", Y: "#fff6c8", S: "#7fd6ff" }, // étoile
 ];
+// Constellations de l'Ascension (demande 27 de Victor) : une icône unique par constellation, à son image
+// (le Serpent est un serpent, la Tour une tour…). Clés = identifiants de prestige.js.
+const CONST_ICONS = {
+  c_warrior: [["..KKKKK..", ".KMMMMMK.", "KMMWMMMMK", "KMKKKKKMK", "KMKYKYKMK", "KMMMMMMMK", ".KMMRMMK.", "..KMMMK..", "...KKK..."], { M: "#a9b6c6", W: "#e8eef4", Y: "#ffd34d", R: "#e2394a" }],
+  c_tower: [["..K.K.K..", "..KKKKK..", "..KSSSK..", "..KSWSK..", "..KSSSK..", ".KSSSSSK.", ".KSSKSSK.", ".KSSKSSK.", "KKKKKKKKK"], { S: "#9a8f7a", W: "#ffd34d" }],
+  c_coin: [["..KKKKK..", ".KYYYYYK.", "KYYYWYYYK", "KYYWWWYYK", "KYYYWYYYK", "KYYYYYYDK", ".KYYYYDK.", "..KKKKK.."], { Y: "#ffd34d", W: "#fff6c8", D: "#b8860b" }],
+  c_owl: [[".K.....K.", "KBK...KBK", "KBBKKKBBK", "KWWBBBWWK", "KWKWBWKWK", "KWWBYBWWK", ".KBBBBBK.", ".KBLBLBK.", "..KYKYK.."], { B: "#8a6a4a", W: "#f4ecd8", Y: "#ffb733", L: "#c8a67a" }],
+  c_comet: [["......KK.", ".....KWWK", "....KWYYK", "...KYYYK.", "..LYYK...", ".L.LK....", "L.L......", ".L.......", "L........"], { Y: "#ffe27a", W: "#fff6c8", L: "#7fd6ff" }],
+  c_chalice: [["KKKKKKKKK", "KYRRRRRYK", ".KYRRRYK.", "..KYYYK..", "...KYK...", "...KYK...", "..KYYYK..", ".KYYYYYK.", ".KKKKKKK."], { Y: "#ffd34d", R: "#a01a3a" }],
+  c_road: [["GGGGPGGGG", "GGGPPPGGG", "GGGPDPGGG", "GGPPPPPGG", "GGPPDPPGG", "GPPPPPPPG", "GPPPDPPPG", "PPPPPPPPP", "PPPPDPPPP"], { P: "#d8c08a", D: "#fff6c8", G: "#3f8f4a" }],
+  c_tree: [["...KKK...", ".KKGGGKK.", "KGGGgGGGK", "KGgGGGgGK", "KGGGGGGGK", ".KKGBGKK.", "...KBK...", "...KBK...", "..KBBBK.."], { G: "#5fd36f", g: "#2f8a3f", B: "#8a5a2b" }],
+  c_moon: [["...KKK...", "..KWWK...", ".KWWK..Y.", "KWWK.....", "KWWK.....", "KWWK..Y..", ".KWWK....", "..KWWK...", "...KKK..."], { W: "#f4f0c8", Y: "#ffe27a" }],
+  c_flask: [["...KKK...", "...KWK...", "...KWK...", "..KKKKK..", ".KGGGGGK.", "KGGWGGGGK", "KGGGGGGGK", "KgGGGGGgK", ".KKKKKKK."], { G: "#7dff9a", g: "#2fa85a", W: "#ffffff" }],
+  c_north: [["....W....", "....W....", "...WYW...", "..WYYYW..", "WWYYWYYWW", "..WYYYW..", "...WYW...", "....W....", "....W...."], { Y: "#bde0ff", W: "#ffffff" }],
+  c_shield: [["..KKKKK..", ".KMMMMMK.", "KMBBBBBMK", "KMBYYYBMK", "KMBYMYBMK", "KMBYYYBMK", "KMBBBBBMK", ".KMMMMMK.", "..KKKKK.."], { M: "#a9b6c6", B: "#3a6ab8", Y: "#ffd34d" }],
+  c_crown: [["Y...Y...Y", "YY.YYY.YY", "YYYYYYYYY", "YRYYBYYRY", "YYYYYYYYY", "DDDDDDDDD"], { Y: "#ffd34d", R: "#e2394a", B: "#7fd6ff", D: "#b8860b" }],
+  c_serpent: [["....GGGG.", "...GG.KGR", "...GG....", "....GGGG.", "......GG.", "......GG.", ".GGGGGG..", "GG.......", "G........"], { G: "#5fd36f", R: "#e2394a" }],
+  c_wing: [["......WW.", ".....WLLW", "....WLLW.", "...WLLW..", "..WLLW...", ".WLLW....", "WLLW.....", ".WW......", "W........"], { W: "#ffffff", L: "#bde0ff" }],
+  c_hunter: [["...B.....", "..BS.....", ".B..S....", "B...S..Y.", "BWWWWWWYY", "B...S..Y.", ".B..S....", "..BS.....", "...B....."], { B: "#a8703a", S: "#e8e4d6", W: "#c9ced6", Y: "#ffd34d" }],
+};
+Object.assign(SHOP_ICON_DEFS, CONST_ICONS);
 CREST_METALS.forEach((m, i) => { SHOP_ICON_DEFS["crest" + i] = [CREST, { L: "#3a6ea5", R: "#b8322a", W: "#e3ebf3", G: "#8a5a2b", ...m }]; });
 
 export function shopIconURL(id, scale = 5) {

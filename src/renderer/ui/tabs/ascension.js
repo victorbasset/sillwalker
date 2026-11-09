@@ -5,12 +5,13 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, sh
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
 import { hasUnlock } from "../../game/unlocks.js";
-import { shopIconURL, effectIconURL } from "../../render/shopart.js";
+import { shopIconURL } from "../../render/shopart.js";
 
 // Demande 27 : des icônes dans l'onglet Ascension (gardé / perdu, constellations, éclats).
 const ico = (id) => `<img class="eicon" src="${shopIconURL(id, 3)}" alt="">`;
-const KEEP = [["star", "constellations, lueur"], ["egg", "familiers, bestiaire"], ["book", "collection, pouvoirs"], ["ws_speed", "vitesse permanente"], ["keys", "compétences, héros libérés"], ["bag", "taille du sac"]];
-const LOSE = [["ws_gold", "niveau et or"], ["ws_atk", "équipement et sac"], ["note", "talents"], ["map", "quêtes en cours"]];
+// Mêmes icônes que les onglets (panel.js > TABS) : talents = étoile, compétences = cible, quêtes = parchemin…
+const KEEP = [["wisdom", "constellations, lueur"], ["egg", "familiers, bestiaire"], ["book", "collection, pouvoirs"], ["ws_speed", "vitesse permanente"], ["target", "compétences, héros libérés"], ["bag", "taille du sac"]];
+const LOSE = [["ws_gold", "niveau et or"], ["ws_atk", "équipement et sac"], ["star", "talents"], ["fortune", "quêtes en cours"]];
 
 /** Effet de `n` rangs. Pour « Rang suivant », la zone de départ s'affiche au total du rang suivant (un écart « zone 3 » trompait). */
 function effText(eff, n) {
@@ -47,11 +48,13 @@ export class AscensionTab {
     // Constellations au maximum : regroupées en une ligne de pastilles (effet au survol) ; la liste ne garde que
     // celles qu'on peut encore améliorer (demande 18 : moins chargé).
     const maxedList = CONSTELLATIONS.filter((c) => (P.ranks[c.id] || 0) >= c.max);
-    const maxedChips = maxedList.map((c) => `<span class="chip" title="${esc(effText(c.eff, c.max))}"><img class="eicon" src="${effectIconURL(c.eff)}" alt="">${esc(c.name)}</span>`).join("");
+    const maxedChips = maxedList.map((c) => `<span class="chip" title="${esc(effText(c.eff, c.max))}"><img class="eicon" src="${shopIconURL(c.id, 2)}" alt="">${esc(c.name)}</span>`).join("");
     const stars = CONSTELLATIONS.filter((c) => (P.ranks[c.id] || 0) < c.max).map((c) => {
       const rank = P.ranks[c.id] || 0, maxed = rank >= c.max, cost = constellationCost(c, rank);
-      return `<li class="shopline"><img class="eicon big" src="${effectIconURL(c.eff)}" alt=""><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
-        <div class="sub">${rank ? tx("Actuel : ") + esc(effText(c.eff, rank)) + " · " : ""}${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, c.eff.startZone ? rank + 1 : 1))}</div></div>
+      // Ligne compacte (demande 29) : « rang suivant » seul, l'effet actuel et le texte entier au survol.
+      const full = (rank ? tx("Actuel : ") + effText(c.eff, rank) + " · " : "") + (maxed ? tx("maximum atteint") : tx("Rang suivant : ") + effText(c.eff, c.eff.startZone ? rank + 1 : 1));
+      return `<li class="shopline" title="${esc(full)}"><img class="eicon big" src="${shopIconURL(c.id, 3)}" alt=""><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
+        <div class="sub">${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, c.eff.startZone ? rank + 1 : 1))}</div></div>
         ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${cost}</button>`}</li>`;
     }).join("");
     el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2>${maxedList.length ? `<p class="note tight">${tx("Au maximum ({0}) :", { 0: maxedList.length })}</p><div class="uowned">${maxedChips}</div>` : ""}<ul class="shoplist two-cols">${stars}</ul></article></div>`;

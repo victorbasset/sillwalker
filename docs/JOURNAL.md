@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 285, retours de Victor sur 27 et 29) : 16 icônes uniques dessinées pour les constellations (casque,
+  tour, pièce, chouette, comète, calice, route, arbre, lune, fiole, étoile polaire, bouclier, couronne, serpent,
+  aile, arc ; shopart.js CONST_ICONS) ; « gardé / perdu » avec les mêmes icônes que les onglets (talents = étoile…).
+  Défilement : il venait de la liste des constellations à améliorer (16 lignes de deux étages quand aucune n'est au
+  maximum ; ma sauvegarde de test en avait 11 au maximum) : lignes d'une hauteur (effet actuel au survol), 3 colonnes
+  quand la place le permet : tout tient à 1920 et 1366 px avec les 16. 104/104.
 - 2026-11-09 (it. 284, demande 28) : Enclume stellaire, déblocage de boutique (zone 140, 1e17 or) : dans le détail
   d'un objet plus ancien que le record, « Mettre au niveau N (prix) » : chaque statistique grandit comme celle d'un
   objet neuf de ce niveau (levelUpItem, rules.js) ; tirages, rareté, forge, pouvoir, panoplie conservés. Prix : l'or
