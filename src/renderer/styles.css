@@ -850,3 +850,6 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .petcard .expe { padding: 3px 8px; white-space: nowrap; }
 #p-bag h2 .help { font-size: 13px; margin-left: 4px; font-weight: normal; }
 #p-bag > .row button { font-size: 13px; padding: 4px 8px; }
+/* Talents (demande 18) : lignes plus basses, notes des cadres en ⓘ. */
+.tbranch .talent { padding-top: 5px; padding-bottom: 5px; }
+.tbranch h2 .help { cursor: help; margin-left: 4px; }

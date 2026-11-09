@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 276) : Talents sans défilement à 1920 px (59 px avant) : notes des cadres Voie et Maîtrises en ⓘ
+  dans leur titre, lignes de talent un peu plus basses. 103/103.
 - 2026-11-09 (it. 275) : Boutique, sous-onglet Marchand (demande 18) : la grille gardait 4 colonnes alors que
   l'Atelier y est caché (≈ 400 px vides à droite) : 3 colonnes, marchand / potions / coffres chacun sur une rangée
   (tuiles plus serrées) : plus de défilement à 1920 px (72 px avant). 1366 px inchangé (deux rangées). 103/103.
