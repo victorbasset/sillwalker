@@ -1324,6 +1324,20 @@ test("absence : les automatismes achetés travaillent et le résumé le dit", ()
   assert.ok(!sum2 || (!sum2.forged && !sum2.transmuted && !sum2.petWork), "sans déblocage : rien");
 });
 
+test("absence : le Grimoire de l'éveil dépense les points gagnés", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.autoLevel = true; g.S.settings.autoTalents = true;
+  g.autoSpendTalents();
+  const lvl0 = g.S.lvl;
+  const sum = g.applyOffline(2 * 3600);
+  assert.ok(sum && g.S.lvl > lvl0, "le héros a gagné des niveaux");
+  assert.equal(g.talentPointsFree(), 0, "points de talent dépensés");
+  const g2 = new Game(freshState());
+  g2.S.unlocks.autoLevel = true; g2.S.settings.autoTalents = false;
+  g2.applyOffline(2 * 3600);
+  assert.ok(g2.talentPointsFree() > 0, "option coupée : les points attendent");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

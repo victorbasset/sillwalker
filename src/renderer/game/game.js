@@ -661,6 +661,12 @@ export class Game {
     this.petGainXp(Math.floor(kills / 2));
     S.xp += xp;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; }
+    // Grimoire de l'éveil : les points gagnés pendant l'absence se dépensent comme en jeu (sinon ils attendaient le niveau suivant).
+    if (S.lvl > lvl0 && hasUnlock(S, "autoLevel")) {
+      this.invalidateStats();
+      if (S.settings.autoTalents) this.autoSpendTalents();
+      if (S.settings.autoSkills) this.autoSpendSkills();
+    }
     this.invalidateStats();
     const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * (1 + hs.drop / 100) * 0.3));
     let best = -1, bestItem = null;
