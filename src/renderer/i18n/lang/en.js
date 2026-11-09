@@ -445,4 +445,5 @@ export default {
   1569: "{n} pet sent off again|{n} pets sent off again",
   1570: "Grand Steward: {0}.",
   1571: "Elites defeated",
+  1572: ", in zone {0}.",
 };

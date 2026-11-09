@@ -445,4 +445,5 @@ export default {
   1569: "{n} Begleiter wieder losgeschickt|{n} Begleiter wieder losgeschickt",
   1570: "Großer Verwalter: {0}.",
   1571: "Besiegte Elite-Gegner",
+  1572: ", in Zone {0}.",
 };

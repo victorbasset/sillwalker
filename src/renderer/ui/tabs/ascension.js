@@ -6,6 +6,7 @@ import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
 import { hasUnlock } from "../../game/unlocks.js";
 
+/** Effet de `n` rangs. Pour « Rang suivant », la zone de départ s'affiche au total du rang suivant (un écart « zone 3 » trompait). */
 function effText(eff, n) {
   const normal = {}, special = [];
   for (const k in eff) { if (SPECIAL_EFFECTS[k]) special.push(SPECIAL_EFFECTS[k](eff[k] * n)); else normal[k] = eff[k]; }
@@ -24,7 +25,7 @@ export class AscensionTab {
       <h2>${tx("Ascension")} <small>${txn(P.count, "{n} ascension|{n} ascensions")}</small></h2>
       <p class="shards">✦ ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${P.shards}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
       <p><b>${tx("Lueur stellaire")}</b>${fsp()}${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
-      <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone 1.")}</p>
+      <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone {0}.", { 0: g.nextStartZone() })}</p>
       <div class="keeplose">
         <div><b class="delta-p">${tx("Gardé")}</b><ul><li>${tx("constellations, lueur")}</li><li>${tx("familiers, bestiaire")}</li><li>${tx("collection, pouvoirs")}</li><li>${tx("vitesse permanente")}</li><li>${tx("compétences, héros libérés")}</li><li>${tx("taille du sac")}</li></ul></div>
         <div><b class="delta-n">${tx("Perdu")}</b><ul><li>${tx("niveau et or")}</li><li>${tx("équipement et sac")}</li><li>${tx("talents")}</li><li>${tx("quêtes en cours")}</li></ul></div>
@@ -40,7 +41,7 @@ export class AscensionTab {
     const stars = CONSTELLATIONS.map((c) => {
       const rank = P.ranks[c.id] || 0, maxed = rank >= c.max, cost = constellationCost(c, rank);
       return `<li class="shopline"><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
-        <div class="sub">${rank ? tx("Actuel : ") + esc(effText(c.eff, rank)) + " · " : ""}${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, 1))}</div></div>
+        <div class="sub">${rank ? tx("Actuel : ") + esc(effText(c.eff, rank)) + " · " : ""}${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, c.eff.startZone ? rank + 1 : 1))}</div></div>
         ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${cost}</button>`}</li>`;
     }).join("");
     el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2><ul class="shoplist two-cols">${stars}</ul></article></div>`;

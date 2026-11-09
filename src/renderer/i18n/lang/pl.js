@@ -445,4 +445,5 @@ export default {
   1569: "{n} chowaniec wysłany ponownie|{n} chowańce wysłane ponownie|{n} chowańców wysłanych ponownie",
   1570: "Wielki zarządca: {0}.",
   1571: "Pokonane elity",
+  1572: ", w strefie {0}.",
 };

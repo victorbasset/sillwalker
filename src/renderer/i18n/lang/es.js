@@ -445,4 +445,5 @@ export default {
   1569: "{n} mascota enviada de nuevo|{n} mascotas enviadas de nuevo",
   1570: "Gran intendente: {0}.",
   1571: "Élites derrotados",
+  1572: ", en la zona {0}.",
 };

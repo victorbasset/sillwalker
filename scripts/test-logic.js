@@ -1230,6 +1230,16 @@ test("journal : les défaites répétées se cumulent (×N) au lieu de remplir l
   assert.match(lines[0], /×6/);
 });
 
+test("ascension : la zone de départ annoncée est celle de la course suivante (La Route)", () => {
+  const g = new Game(freshState());
+  g.S.best = g.S.zone = 40;
+  assert.equal(g.nextStartZone(), 1, "sans La Route : zone 1");
+  g.S.prestige.ranks = { ...(g.S.prestige.ranks || {}), c_road: 9 };
+  assert.equal(g.nextStartZone(), 19);
+  g.S.best = 12;
+  assert.equal(g.nextStartZone(), 7, "au plus 5 zones sous le record");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

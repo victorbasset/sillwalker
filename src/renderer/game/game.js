@@ -49,6 +49,9 @@ const AUTO_POTIONS = 5; // stock visé par l'achat automatique de potions
 const UPGRADE_EPS = 0.005;
 const BURN_TIME = 3;
 
+/** Zone de départ après une ascension : 1 + bonus de La Route, sans dépasser 5 zones sous le record. */
+export const ascendStartZone = (eff, best) => Math.max(1, Math.min(1 + (eff.startZone || 0), best - 5));
+
 export class Game {
   constructor(state) {
     this.listeners = {};
@@ -621,6 +624,9 @@ export class Game {
   /* ---------- Progression hors ligne ---------- */
   /** Applique `sec` secondes d'absence. Renvoie un résumé, ou null si rien. */
   /** Plafond de la progression hors ligne, en secondes (8 h + constellation de la Lune). */
+  /** Zone de départ de la prochaine course (constellation La Route, au plus 5 zones sous le record de la course). */
+  nextStartZone() { return ascendStartZone(prestigeEffects(this.S), this.S.best); }
+
   offlineCapS() { return OFFLINE_CAP_S + (prestigeEffects(this.S).offlineH || 0) * 3600; }
 
   applyOffline(sec) {
@@ -1507,7 +1513,7 @@ export class Game {
       stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
-    f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));
+    f.zone = f.best = ascendStartZone(eff, old.best);
     f.potions += eff.potions || 0;
     if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
