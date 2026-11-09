@@ -462,7 +462,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 
 /* Expéditions des familiers */
 .expe { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; padding: 6px 8px; border: 1px dashed var(--muted); border-radius: 4px; font-size: 12px; }
-.expe.done { border: 1px solid #ffd34d; color: #ffe9a8; }
+.expe.done { border: 1px solid #ffd34d; --c: #ffe9a8; color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
 .expe-btns { flex-wrap: wrap; margin-top: 6px; }
 .expe-btns button { font-size: 11px; padding: 3px 6px; }
 
@@ -474,11 +474,11 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .chip.pow.unknown { border-style: dashed; border-color: #3a3650; color: var(--muted); }
 
 /* Journal : lignes importantes en couleur */
-#log li.lg-leg { color: #ffb733; }
-#log li.lg-rare { color: #9fd8ff; }
+#log li.lg-leg { color: var(--r4); }
+#log li.lg-rare { color: var(--r2); }
 #log li.lg-epic { color: #c08cff; }
-#log li.lg-good { color: #9fe0a8; }
-#log li.lg-bad { color: #ff8a7a; }
+#log li.lg-good { color: var(--good); }
+#log li.lg-bad { color: var(--bad); }
 
 /* Talents : voie (spécialisation exclusive) et maîtrises (rangs illimités) */
 .talent.voie { flex-wrap: wrap; height: auto; }
@@ -489,11 +489,11 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 
 /* Revue UX */
 .tabsep { width: 2px; align-self: stretch; margin: 4px 6px; background: var(--line); }
-.panel h2 small.warn { color: #ff8a7a; }
+.panel h2 small.warn { color: var(--bad); }
 .rates-box summary { cursor: pointer; font-family: var(--font-text); font-weight: 600; margin: 10px 0 4px; color: var(--ink); }
 .rates-box summary:hover { color: var(--accent); }
 .danger-zone { border-color: #8a2a3a; }
-.danger-zone h2 { color: #ff8a7a; }
+.danger-zone h2 { color: var(--bad); }
 .claimall { margin-bottom: 8px; }
 
 /* Carte du héros : tuiles des statistiques principales */
@@ -504,7 +504,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .tile.power b { color: var(--accent); }
 details.more summary { cursor: pointer; color: var(--muted); margin: 6px 0 2px; }
 details.more summary:hover { color: var(--accent); }
-.linkbtn.warn { border-color: #ff8a7a; color: #ff8a7a; }
+.linkbtn.warn { border-color: var(--bad); color: var(--bad); }
 /* Colonne Objet : équipement porté */
 .eqview { display: flex; gap: 10px; align-items: flex-start; }
 .eqview .heroport { position: static; width: 72px; flex: none; }
@@ -542,7 +542,7 @@ details.more summary:hover { color: var(--accent); }
 .talent .tmax { margin-left: 6px; align-self: center; font-size: 11px; padding: 0 5px; line-height: 16px; background: var(--good); color: #14121f; border-radius: 3px; cursor: pointer; }
 .talent .tmax:hover { filter: brightness(1.2); }
 .talent.voie.armed { border-color: #ffd34d; background: #3a3420; }
-.warnline { color: #9fe0a8; }
+.warnline { color: var(--good); }
 .talent .tr { margin-left: auto; }
 .sendall { display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
 .sendall button { font-size: 12px; padding: 2px 8px; }
@@ -555,7 +555,7 @@ details.more summary:hover { color: var(--accent); }
 
 /* ---------- Boutique illustrée ---------- */
 .shopbar { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
-.shopbar .purse { font-size: 20px; color: #ffd34d; display: inline-flex; align-items: center; gap: 6px; }
+.shopbar .purse { font-size: 20px; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
 .shopbar .note { margin-left: auto; }
 i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }
 .panel.unlocks { margin-bottom: 12px; }
@@ -586,7 +586,7 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 .ctile img { height: 52px; image-rendering: pixelated; margin-bottom: 2px; }
 .ctile.chesttile img { height: 58px; }
 .ctile .nm { font-size: 13px; line-height: 1.15; }
-.ctile .eff { font-size: 12px; color: #9fe0a8; }
+.ctile .eff { font-size: 12px; color: var(--good); }
 .ctile.active { border-color: #9fe0a8; }
 .ctile .toggle.mini { font-size: 11px; margin-top: 2px; }
 button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13px; }
@@ -621,7 +621,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .rewards { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
 .rwd { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; padding: 1px 8px 1px 2px; border: 1px solid var(--line); border-radius: 3px; background: var(--chip); }
 .rwd img { height: 22px; image-rendering: pixelated; }
-.rwd.special { border-color: #ffd34d; color: #ffe9a8; }
+.rwd.special { border-color: #ffd34d; --c: #ffe9a8; color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
 
 /* Cœurs des pétales (arbre de compétences) */
 .skillsvg .core { fill: var(--panel); stroke: var(--c); stroke-width: 3; stroke-dasharray: 4 3; opacity: .8; cursor: help; }

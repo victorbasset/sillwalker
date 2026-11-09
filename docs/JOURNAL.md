@@ -1,10 +1,14 @@
 # Journal de développement
 
 Itérations autonomes : une amélioration à la fois, la plus récente en haut de « Fait ».
-Revue générale toutes les 10 itérations (prochaine : itération 21).
+Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 ## Fait
 
+- 2026-11-09 (it. 21, revue générale + correction) : en thème clair, d'autres textes trop pâles redeviennent
+  lisibles : récompenses spéciales des quêtes (œuf, éclats), couleurs du journal (légendaire, rare…),
+  expéditions terminées, avertissements, or de la boutique, effets des constellations. « 1 éclat d'étoile »
+  au singulier dans les quêtes.
 - 2026-11-09 (it. 20) : nouveau pouvoir légendaire, « Appât des champions » : +60 % d'élites rencontrées
   (plus coriaces, mais butin garanti et or ×4) et +10 % d'or. Un pouvoir de prise de risque.
 - 2026-11-09 (it. 19) : derniers textes français dans les autres langues corrigés (onglets Classe et
@@ -12,6 +16,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 21).
   « zone 13 » du boss le plus lointain. Vérifié sur tout le texte de l'interface en russe, coréen, chinois.
 - 2026-11-09 (it. 18) : nouveau déblocage lointain, le « Filet à étoiles » (zone record 55) : les étoiles
   filantes que le joueur n'a pas cliquées sont attrapées toutes seules à mi-course (vitesse permanente).
+  (Revue it. 21 : atteint vers 8 h - 10 h 30 de jeu simulé, pas au-delà de 12 h.)
 - 2026-11-09 (it. 17) : en rouvrant le panneau après au moins 5 minutes, une ligne « Depuis ta dernière
   visite » résume or gagné, monstres vaincus, niveaux, nouveau record et légendaires ; un clic la masque.
 - 2026-11-09 (it. 16) : « Nouveau record ! » et « Jamais allé aussi loin ! » ne s'affichent plus à chaque
@@ -66,7 +71,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - P3 Anciennes clés « (s) » devenues inutilisées dans keys.js (objet(s)…) : sans effet, à laisser
   (l'ordre des clés ne doit pas bouger).
-- P2 Performance (revue it. 11, inchangée) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
+- P2 Performance (revues it. 11 et 21, inchangée) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
   icône seule <1 %. Mémoire ~560-680 Mo (Electron).
   Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
@@ -74,4 +79,5 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   acquis vers 5 h 30-6 h 15 de jeu ; ensuite plus aucun objectif de boutique. Une course sur 3-4 ne bat pas
   le record (ex. 42 → 42, 50 → 50, ~1 h). Fait (it. 12) : Maître de forge en zone 50 (~7 h). Fait (it. 13) :
   record à battre affiché sur la bande. Fait (it. 18) :
-  Filet à étoiles en zone 55 (au-delà de 12 h de jeu). Reste : le record en mode mini.
+  Filet à étoiles en zone 55 (~8-10 h). Reste : le record en mode mini ; un déblocage vers la zone 60-65
+  pour l'objectif de plusieurs jours (revue it. 21 : 12 h de jeu simulé atteignent la zone 56-60).
