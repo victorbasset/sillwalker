@@ -71,7 +71,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   `--battery` (simule un portable sur batterie : 20 images/s), `--idle` (simule un utilisateur absent : 10 images/s).
   `--release-ui` : cache les commandes de dev (DEV, ×1, ×3, ×10) pour des captures fidèles à la version distribuée.
   `--crawl` : clique sur tous les boutons de tous les onglets et affiche `CRAWL-ERREUR …` / `CRAWL-FINI N clics`
-  (sur une COPIE de sauvegarde : il achète, vend, dépense). À lancer après un gros changement d'interface.
+  (sur une COPIE de sauvegarde : il achète, vend, dépense ; ajouter `--exit-after=200`, sinon le jeu reste ouvert). À lancer après un gros changement d'interface.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
 - Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`
   de la copie), pas de `settings.json`. Partie neuve (dossier vide) : langue du système, à forcer avec

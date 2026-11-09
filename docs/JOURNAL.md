@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 236) : --crawl après les gros changements d'interface (carte, voyage, détail d'objet) : l'onglet
+  Carte manquait à la liste et ses zones SVG étaient ignorées (pas d'offsetParent, pas de click()) : ajoutés
+  (getClientRects, événement de clic). 291 clics, aucune erreur. CLAUDE.md : --crawl avec --exit-after=200.
 - 2026-11-09 (demande 16 de Victor, écran Samsung Odyssey) : le panneau s'étendait sur toute la largeur de l'écran,
   avec de grandes bandes sombres vides de chaque côté du contenu (limité à 1840 px). Premier essai (contenu sur
   toute la largeur) annulé : Victor voulait garder la largeur du contenu et seulement que le panneau ne prenne
