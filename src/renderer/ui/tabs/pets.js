@@ -11,7 +11,7 @@ import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 
 export class PetsTab {
-  constructor(game) { this.game = game; this.root = null; this.readyN = 0; }
+  constructor(game) { this.game = game; this.root = null; this.readyN = 0; this.eggsN = -1; }
 
   badge() { const n = this.game.S.pets.eggs + this.game.expeditionsReady().length; return n ? String(n) : ""; }
 
@@ -28,7 +28,7 @@ export class PetsTab {
 
   render(el) {
     this.root = el;
-    this.readyN = this.game.expeditionsReady().length;
+    this.readyN = this.game.expeditionsReady().length; this.eggsN = this.game.S.pets.eggs;
     const S = this.game.S, P = S.pets, owned = Object.keys(P.owned).length, idle = this.game.idlePets().length;
     const cards = [...PETS].sort((a, b) => (P.owned[b.id] ? 1 : 0) - (P.owned[a.id] ? 1 : 0)).map((p) => { // trouvés d’abord
       const own = P.owned[p.id], active = P.active === p.id;
@@ -56,7 +56,7 @@ export class PetsTab {
     }
     el.innerHTML = `<div class="petbar panel">
         <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} ${txn(P.eggs, "{n} œuf en attente|{n} œufs en attente", { n: `<b>${P.eggs}</b>` })}</div>
-        ${hasUnlock(S, "petBulk") || P.eggs <= 1 ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>`}
+        ${P.eggs > 0 && (hasUnlock(S, "petBulk") || P.eggs <= 1) ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : P.eggs > 1 ? `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>` : ""}
         ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}
         ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${tx("Envoyer les {0} familiers libres : {1}", { 0: idle, 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
         ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
@@ -81,6 +81,7 @@ export class PetsTab {
   tick() {
     if (!this.root) return false;
     if (this.game.expeditionsReady().length !== this.readyN) return true;
+    if (this.game.S.pets.eggs !== this.eggsN) return true; // œufs gagnés ou éclos (Grand intendant) : bouton à jour
     const E = this.game.S.pets.exp || {};
     for (const n of this.root.querySelectorAll("[data-exp]")) { const e = E[n.dataset.exp]; if (e) n.textContent = left(e.end - Date.now()); }
     return false;
