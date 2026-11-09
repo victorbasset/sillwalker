@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 314, histoire) : deux chroniques de plus pour combler les silences (50 → 100 → 150) : « La forge
+  des cages » (zone 75 : l'atelier où le Briseur forge les cages avec des éclats tordus ; scène : enclumes, marteau,
+  gerbes d'étincelles ; motif : coups d'enclume puis accord) et « Les voix des éclats » (zone 125 : les éclats
+  murmurent le vrai nom du Briseur ; scène : éclats suspendus et ondes violettes ; motif : murmures cristallins).
+  11 chroniques. 4 textes × 9 langues, captures, autotest vert.
 - 2026-11-10 (it. 313) : Quêtes et Carte relues au nouveau design : cohérentes ; seule retouche : pas d'étoile
   d'ornement dans le titre des cartes de quête (elle doublait les étoiles de rareté juste au-dessus). Autotest vert.
 - 2026-11-10 (it. 312, demande 32) : rangées latérales : fondu discret (masque CSS) sur le bord où d'autres cartes

@@ -613,6 +613,29 @@ function chronicleScene(ctx, id, t, W, H, gy) {
       R(bx - 40 + rnd(i + 3) * 230, base - k * (base - 6), 2, 2);
     }
     ctx.globalAlpha = 1;
+  } else if (id === "forge") { // enclumes sombres, coups de marteau et gerbes d'étincelles
+    for (const cx of [L, Rx]) {
+      ctx.fillStyle = "#0c0910"; R(cx - 32, gy - 24, 64, 10); R(cx - 14, gy - 14, 28, 10); R(cx - 24, gy - 4, 48, 4); // enclume
+      ctx.fillStyle = "#3a2c34"; R(cx - 30, gy - 24, 60, 2);
+      const beat = (t * 1.2) % 1, hit = beat < 0.12;
+      ctx.fillStyle = "#3a2c34"; R(cx + 8, gy - 60 + (hit ? 24 : 0), 8, 26); R(cx - 4, gy - 68 + (hit ? 24 : 0), 34, 10); // marteau
+      if (hit) { ctx.globalAlpha = 0.5; ctx.fillStyle = "#ffb733"; R(cx - 40, gy - 30, 80, 6); ctx.globalAlpha = 1; }
+      for (let i = 0; i < 22; i++) {
+        const k = (beat + rnd(i)) % 1, a = -Math.PI / 2 + (rnd(i + 9) - 0.5) * 2.4;
+        ctx.globalAlpha = 1 - k; ctx.fillStyle = i % 3 ? "#ff8a3a" : "#ffe27a";
+        R(cx + Math.cos(a) * k * 70, gy - 28 + Math.sin(a) * k * 70, 3, 3);
+      }
+      ctx.globalAlpha = 1;
+    }
+  } else if (id === "voices") { // éclats suspendus qui murmurent : ondes qui s'élargissent
+    for (let i = 0; i < 6; i++) {
+      const x = (i % 2 ? Rx : L) + (rnd(i) - 0.5) * 120, y = gy - 30 - rnd(i + 3) * 40 + Math.sin(t * 2 + i) * 4;
+      ctx.fillStyle = "#e8e4ff"; R(x - 1, y - 3, 3, 7); R(x - 3, y - 1, 7, 3);
+      const k = ((t * 0.6 + rnd(i + 7)) % 1), r = 4 + k * 26;
+      ctx.globalAlpha = (1 - k) * 0.6; ctx.fillStyle = "#b36bff";
+      for (let a = 0; a < 16; a++) { const an = a / 16 * Math.PI * 2; R(x + Math.cos(an) * r, y + Math.sin(an) * r * 0.6, 2, 2); }
+      ctx.globalAlpha = 1;
+    }
   } else if (id === "beyond") { // brumes qui dérivent sur des terres sans carte
     for (let b = 0; b < 4; b++) {
       ctx.globalAlpha = 0.16; ctx.fillStyle = b % 2 ? "#b8b4d8" : "#8a86a8";

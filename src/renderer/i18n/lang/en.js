@@ -855,4 +855,8 @@ export default {
   1979: "Takes 30% less damage while above 70% of its HP: the first charge is the hardest.",
   1980: "Stoneskin broken!",
   1981: "Stoneskin",
+  1982: "The Cage Forge",
+  1983: "Deep inside a hollow mountain, you find the workshop where the Starbreaker forges the heroes’ cages. Every bar is a star shard twisted by force. You break one: far away, a star lights up again.",
+  1984: "The Voices of the Shards",
+  1985: "The shards you carry begin to whisper. They are the voices of the dead stars: they remember the Starbreaker’s true name, the one he bore before he hated the sky.",
 };

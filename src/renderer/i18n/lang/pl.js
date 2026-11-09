@@ -855,4 +855,8 @@ export default {
   1979: "Otrzymuje o 30% mniej obrażeń, dopóki ma ponad 70% PŻ: pierwsza szarża jest najtrudniejsza.",
   1980: "Kamienna skóra pękła!",
   1981: "Kamienna skóra",
+  1982: "Kuźnia klatek",
+  1983: "W sercu pustej góry odkrywasz warsztat, w którym Łamacz Gwiazd kuje klatki bohaterów. Każdy pręt to odłamek gwiazdy wygięty siłą. Łamiesz jeden: daleko stąd znów zapala się gwiazda.",
+  1984: "Głosy odłamków",
+  1985: "Odłamki, które niesiesz, zaczynają szeptać. To głosy zgasłych gwiazd: pamiętają prawdziwe imię Łamacza Gwiazd, to, które nosił, zanim znienawidził niebo.",
 };

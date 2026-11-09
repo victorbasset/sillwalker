@@ -855,4 +855,8 @@ export default {
   1979: "Sofre 30% menos de dano enquanto tiver mais de 70% dos PV: a primeira investida é a mais dura.",
   1980: "Pele de pedra quebrada!",
   1981: "Pele de pedra",
+  1982: "A forja das jaulas",
+  1983: "No coração de uma montanha oca, você descobre a oficina onde o Quebra-Estrelas forja as jaulas dos heróis. Cada barra é um fragmento de estrela torcido à força. Você quebra uma: muito longe, uma estrela volta a brilhar.",
+  1984: "As vozes dos fragmentos",
+  1985: "Os fragmentos que você carrega começam a sussurrar. São as vozes das estrelas apagadas: elas lembram o verdadeiro nome do Quebra-Estrelas, aquele que ele usava antes de odiar o céu.",
 };

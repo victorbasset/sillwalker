@@ -122,6 +122,12 @@ export class Sound {
       case "bastion": // tambour grave et accord mineur menaçant
         for (let i = 0; i < 6; i++) { T(70, i * 0.6, 0.25, "square", 0.22, 0.5); this.noise(i * 0.6, 0.08, 0.15); }
         [220, 262, 330].forEach((f) => T(f, 1.2, 3.2, "sawtooth", 0.07)); T(196, 3.6, 2, "sawtooth", 0.08); break;
+      case "forge": // coups de marteau sur l'enclume, puis un accord qui se libère
+        for (let i = 0; i < 5; i++) { this.noise(i * 0.83, 0.05, 0.3); T(1568, i * 0.83, 0.25, "square", 0.08, 0.7); T(110, i * 0.83, 0.2, "triangle", 0.25); }
+        [392, 494, 587, 784].forEach((f, i) => T(f, 4.3 + i * 0.12, 1.6, "triangle", 0.13)); break;
+      case "voices": // murmures cristallins, glissés et lointains
+        for (let i = 0; i < 9; i++) T([1047, 1175, 1397, 1568, 1319][i % 5], 0.4 + i * 0.55, 0.9, "sine", 0.07, 1.2);
+        T(196, 0.4, 5, "triangle", 0.07); T(294, 2.2, 3.5, "triangle", 0.06); break;
       case "beyond": // brume : notes lentes, flottantes, sans appui
         [392, 466, 523, 466, 349, 392].forEach((f, i) => T(f, 0.4 + i * 0.9, 1.4, "sine", 0.12)); T(196, 0.4, 5.5, "triangle", 0.08); break;
       case "crack": // le ciel se fissure : craquement, puis tintement cristallin

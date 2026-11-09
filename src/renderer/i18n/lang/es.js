@@ -855,4 +855,8 @@ export default {
   1979: "Recibe un 30 % menos de daño mientras tenga más del 70 % de sus PV: la primera carga es la más dura.",
   1980: "¡Piel de piedra rota!",
   1981: "Piel de piedra",
+  1982: "La forja de las jaulas",
+  1983: "En el corazón de una montaña hueca, descubres el taller donde el Rompeestrellas forja las jaulas de los héroes. Cada barrote es un fragmento de estrella retorcido a la fuerza. Rompes uno: muy lejos, una estrella vuelve a encenderse.",
+  1984: "Las voces de los fragmentos",
+  1985: "Los fragmentos que llevas empiezan a susurrar. Son las voces de las estrellas apagadas: recuerdan el verdadero nombre del Rompeestrellas, el que llevaba antes de odiar el cielo.",
 };

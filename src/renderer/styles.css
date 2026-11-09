@@ -1010,3 +1010,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .hscroll.more-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 48px), transparent); }
 .hscroll.more-l.more-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent); }
 .questcard h2::before { display: none; } /* les étoiles de rareté de la quête suffisent */
+.cine.chronicle.chr-forge { background: linear-gradient(#0b0605 0%, #2e140a 65%, rgba(70, 30, 12, 0.75) 100%); }
+.cine.chronicle.chr-voices { background: linear-gradient(#05030f 0%, #1c1238 65%, rgba(40, 24, 80, 0.75) 100%); }
