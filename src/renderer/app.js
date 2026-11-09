@@ -10,6 +10,7 @@ import { getLang, setLang, DEFAULT_LANG, txn } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
+import { todoLabel } from "./ui/todo.js";
 import { CLASSES } from "./game/classes.js";
 import { PET_INDEX } from "./game/pets.js";
 import { activeDayMod } from "./game/daymods.js";
@@ -286,8 +287,12 @@ async function boot() {
     if (!window.__pause) game.advance(Math.min(dt, MAX_DT) * speed); // __pause : auto-test (dev)
     perf.sims++;
     if (achDirty) checkAchievements(false);
-    const up = game.hasUpgradeCached() || game.talentPointsFree() > 0;
-    if (up !== !badge.hidden) badge.hidden = !up;
+    // Pastille du bouton du panneau : une action attend (quêtes, sac, points, déblocage…) ; recalculée toutes les 2 s.
+    if (perf.sims % 60 === 1) {
+      const todo = game.todoNow(), title = tx("Ouvrir le panneau (héros, sac, zone)") + (todo.length ? "\n" + todo.map((t) => "• " + todoLabel(t)).join("\n") : "");
+      if (!todo.length !== badge.hidden) badge.hidden = !todo.length;
+      if (menuBtn.title !== title) menuBtn.title = title;
+    }
     sendStatus(false);
     if (perf.sims % 60 === 0) checkHints(); // toutes les 2 s environ
   }

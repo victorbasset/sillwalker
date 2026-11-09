@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 ## Fait
 
+- 2026-11-09 (it. 60) : sur la bande, la pastille du bouton du panneau s'allume pour toute action qui attend (quête,
+  déblocage abordable, œuf… et plus seulement amélioration ou talents), et son infobulle les liste.
 - 2026-11-09 (it. 59) : mode mini, un point doré près du niveau signale qu'une action attend (quête à réclamer,
   amélioration, déblocage abordable, œuf…), et la bulle d'aide les liste.
 - 2026-11-09 (it. 58) : au retour, « À faire maintenant » signale aussi une amélioration abordable chez le marchand

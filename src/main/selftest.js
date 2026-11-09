@@ -43,6 +43,8 @@ async function runSelfTest(strip) {
   const btn = await rectOf("#menu-btn");
   check("zone transparente au-dessus de la bande : clics traversants", !strip.hitTest(b0.x + Math.round(b0.width / 2), b0.y + 100));
   check("bouton du panneau : zone cliquable", strip.hitTest(b0.x + btn.x, b0.y + btn.y));
+  await until(async () => js("!document.querySelector('#menu-badge').hidden"), 3000);
+  check("bouton du panneau : pastille et liste des actions en attente", await js("!document.querySelector('#menu-badge').hidden && document.querySelector('#menu-btn').title.includes('\\n•')"));
   // Point vide de la bande : à au moins 80 px de tout élément cliquable (le monstre combattu l'est, et
   // il passe parfois au milieu : un point fixe faisait échouer le test une fois sur trois).
   const emptyX = await js(`(() => {
