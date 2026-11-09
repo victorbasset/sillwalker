@@ -279,6 +279,7 @@ export class Panel {
       unlock: (t) => tx("Déblocage abordable : {0}", { 0: t.name }),
       eggs: (t) => txn(t.n, "{n} œuf à faire éclore|{n} œufs à faire éclore"),
       expeditions: (t) => txn(t.n, "{n} expédition terminée|{n} expéditions terminées"),
+      merchant: () => tx("Le marchand propose une amélioration"),
     };
     const list = this.game.todoNow();
     if (!list.length) return "";

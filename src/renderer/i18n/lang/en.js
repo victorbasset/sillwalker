@@ -410,4 +410,5 @@ export default {
   1534: "Rare events (gust, rain of gold, frenzy, horn of plenty)",
   1535: "Champion (epic loot, from zone {0})",
   1536: "({n}-day streak broken: it starts over)|({n}-day streak broken: it starts over)",
+  1537: "The merchant offers an upgrade",
 };

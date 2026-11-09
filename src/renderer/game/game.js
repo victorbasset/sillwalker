@@ -1314,6 +1314,9 @@ export class Game {
     if (S.pets.eggs > 0 && hasUnlock(S, "menagerie")) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
     const ex = this.expeditionsReady(now).length;
     if (ex) out.push({ id: "expeditions", n: ex, tab: "pets" });
+    // Marchand : une amélioration abordable (sans renouveler le stock ici)
+    const offers = (S.shop && Array.isArray(S.shop.items) && now < S.shop.next) ? S.shop.items : [];
+    if (!this.bagFull() && offers.some((it) => S.gold >= it.price && this.isUpgrade(it))) out.push({ id: "merchant", n: 1, tab: "shop" });
     return out;
   }
 

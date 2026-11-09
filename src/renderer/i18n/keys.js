@@ -1538,5 +1538,6 @@ export const KEYS = [
   "Économie d’énergie : l’animation ralentit sur batterie et quand tu t’absentes (le jeu, lui, continue normalement).",
   "Événements rares (rafale, pluie d’or, frénésie, corne d’abondance)",
   "Champion (butin épique, dès la zone {0})",
-  "(série d’{n} jour interrompue : elle recommence)|(série de {n} jours interrompue : elle recommence)"
+  "(série d’{n} jour interrompue : elle recommence)|(série de {n} jours interrompue : elle recommence)",
+  "Le marchand propose une amélioration"
 ];

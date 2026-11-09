@@ -1305,6 +1305,11 @@ test("retour d'absence : « à faire maintenant » ne liste que ce qui est dispo
   assert.ok(u && u.tab === "shop" && u.name, "déblocage abordable proposé");
   g.S.pets.exp = { cat: { end: Date.now() - 1000 }, dog: { end: Date.now() + 1e6 } };
   assert.equal(g.todoNow().find((t) => t.id === "expeditions").n, 1, "seules les expéditions finies comptent");
+  g.shopStock();
+  g.isUpgrade = (it) => it === g.S.shop.items[0];
+  assert.ok(g.todoNow().some((t) => t.id === "merchant" && t.tab === "shop"), "amélioration abordable chez le marchand");
+  g.S.gold = 0;
+  assert.ok(!g.todoNow().some((t) => t.id === "merchant"), "pas abordable : rien");
 });
 
 test("journal : repart à zéro quand la langue change, jamais pour une ancienne sauvegarde", () => {

@@ -410,4 +410,5 @@ export default {
   1534: "Seltene Ereignisse (Böe, Goldregen, Raserei, Füllhorn)",
   1535: "Champion (epische Beute, ab Zone {0})",
   1536: "(Serie von {n} Tag unterbrochen: Sie beginnt von vorn)|(Serie von {n} Tagen unterbrochen: Sie beginnt von vorn)",
+  1537: "Der Händler bietet eine Verbesserung an",
 };
