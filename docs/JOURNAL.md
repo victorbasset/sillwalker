@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 274) : Aventure, colonne Sac (demande 18) : légende « ▲ / rareté » en ⓘ à côté du titre (elle
+  occupait deux lignes en bas), boutons en 13 px : la colonne tient sans défilement. Autotest : le contrôle « pièce
+  de panoplie gardée » échouait quand le sac de dev était plein (la pièce ajoutée sortait de la grille) : place libérée
+  avant. 103/103.
 - 2026-11-09 (it. 273) : Familiers plus compacts (demande 18) : le ⓘ remonte dans la barre du haut (il occupait une
   ligne), l'expédition en cours tient sur une ligne (« Grande expédition · 4 h 32 », phrase complète en infobulle),
   bonus en 12 px : ~80 px de moins. Sans nouveau texte. 103/103.

@@ -844,3 +844,5 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Familiers (demande 18) : cartes plus basses. */
 .petcard .lines { font-size: 12px; }
 .petcard .expe { padding: 3px 8px; white-space: nowrap; }
+#p-bag h2 .help { font-size: 13px; margin-left: 4px; font-weight: normal; }
+#p-bag > .row button { font-size: 13px; padding: 4px 8px; }
