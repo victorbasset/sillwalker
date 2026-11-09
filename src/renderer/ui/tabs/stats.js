@@ -61,7 +61,7 @@ export class StatsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("star", 3)}" alt="">${tx("Moments rares")}</span></h2><ul class="lines">
         ${line(tx("Plumes du vent"), fmt(st.feathers || 0))}
         ${line(tx("Étoiles filantes attrapées"), fmt(st.stars || 0))}
-        ${line(tx("Événements (rafale, pluie d’or, frénésie)"), fmt(st.events || 0))}
+        ${line(tx("Événements rares (rafale, pluie d’or, frénésie, corne d’abondance)"), fmt(st.events || 0))}
         ${line(tx("Coffres au trésor"), fmt(st.chests || 0))}
         ${line(tx("Expéditions de familiers"), fmt(st.expeditions || 0))}
         ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
@@ -73,7 +73,7 @@ export class StatsTab {
         ${Object.values(EVENTS).map((e) => line(e.name, pct(e.chance) + tx(" par victoire"))).join("")}
         ${line(tx("Gobelin doré"), pct(GOBLIN.chance) + tx(" par monstre"))}
         ${line(tx("Élite"), pct(ELITE.chance) + tx(" par monstre"))}
-        ${line(tx("Champion (butin épique)"), pct(CHAMPION.chance) + tx(" par monstre"))}
+        ${line(tx("Champion (butin épique, dès la zone {0})", { 0: CHAMPION.minZone }), pct(CHAMPION.chance) + tx(" par monstre"))}
         ${line(tx("Œuf"), `${tx("boss {0} · élite {1}", { 0: pct(EGG_CHANCE.boss), 1: pct(EGG_CHANCE.elite) })}`)}
       </ul></article>
       <article class="panel achievements"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Succès")}</span> <small>${reached.size} / ${ACHIEVEMENTS.length}</small></h2><ul class="achlist">${ach}</ul></article>

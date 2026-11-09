@@ -407,4 +407,6 @@ export default {
   1531: "Frostig",
   1532: "Dein Held ist gefallen? Keine Sorge: Er zieht sich ein Stück zurück und macht dann von selbst weiter. Bessere Ausrüstung (▲ in der Tasche) hilft ihm weiter. Hier klicken.",
   1533: "Energiesparen: Die Animation läuft im Akkubetrieb und in deiner Abwesenheit langsamer (das Spiel selbst läuft normal weiter).",
+  1534: "Seltene Ereignisse (Böe, Goldregen, Raserei, Füllhorn)",
+  1535: "Champion (epische Beute, ab Zone {0})",
 };

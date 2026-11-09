@@ -407,4 +407,6 @@ export default {
   1531: "Gélido",
   1532: "¿Tu héroe ha caído? Tranquilo: retrocede un poco y vuelve a ponerse en marcha solo. Un mejor equipo (▲ en la bolsa) le ayudará a pasar. Haz clic aquí.",
   1533: "Ahorro de energía: la animación se ralentiza con batería y cuando te ausentas (el juego sigue funcionando con normalidad).",
+  1534: "Eventos raros (ráfaga, lluvia de oro, frenesí, cuerno de la abundancia)",
+  1535: "Campeón (botín épico, desde la zona {0})",
 };

@@ -407,4 +407,6 @@ export default {
   1531: "Mroźny",
   1532: "Twój bohater padł? Bez obaw: cofa się trochę i sam rusza dalej. Lepszy ekwipunek (▲ w torbie) pomoże mu przejść. Kliknij tutaj.",
   1533: "Oszczędzanie energii: animacja zwalnia na baterii i gdy odchodzisz od komputera (sama gra działa normalnie).",
+  1534: "Rzadkie wydarzenia (podmuch, deszcz złota, szał, róg obfitości)",
+  1535: "Czempion (epicki łup, od strefy {0})",
 };

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 ## Fait
 
+- 2026-11-09 (it. 56) : Statistiques à jour : les événements rares incluent la corne d'abondance, et la probabilité
+  des champions précise « dès la zone 5 ».
 - 2026-11-09 (it. 55 bis) : autotest fiabilisé après le raccourci M (retour à la bande puis panneau rouvert : attente
   de la fin de l'animation) ; il échouait parfois en cascade. 4 exécutions de suite à 54/54.
 - 2026-11-09 (it. 55) : les succès chiffrés non obtenus montrent leur progression dans Statistiques
@@ -143,8 +145,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P1 Statistiques : « Événements (rafale, pluie d'or, frénésie) » oublie la Corne d'abondance ; la probabilité des
-  champions ne dit pas « à partir de la zone 5 ».
 
 - P3 Berserker (simulation 12 h, revue it. 41) : 3 courses à la zone 54 avant 58. Essai it. 44 : usure 8 %/40 % → berserker
   mieux, druide moins bien (bruit des trajectoires) ; non retenu. Piste : regarder ses talents face à Fureur + Carapace.

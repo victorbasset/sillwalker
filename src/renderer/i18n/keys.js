@@ -1535,5 +1535,7 @@ export const KEYS = [
   "Forger {n} fois|Forger {n} fois",
   "Givré",
   "Ton héros est tombé ? Pas de panique : il recule un peu, puis repart tout seul. Un meilleur équipement (▲ dans le sac) l’aidera à passer. Clique ici.",
-  "Économie d’énergie : l’animation ralentit sur batterie et quand tu t’absentes (le jeu, lui, continue normalement)."
+  "Économie d’énergie : l’animation ralentit sur batterie et quand tu t’absentes (le jeu, lui, continue normalement).",
+  "Événements rares (rafale, pluie d’or, frénésie, corne d’abondance)",
+  "Champion (butin épique, dès la zone {0})"
 ];
