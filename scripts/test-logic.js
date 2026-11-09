@@ -1635,6 +1635,10 @@ test("musique de fond (demande 24) : un air par zone, toujours le même pour une
   assert.equal(freshState().settings.music, true, "musique activée par défaut");
   const s12 = songFor(12), A = s12.notes.filter((n) => n.step < 16).map((n) => n.step + ":" + n.midi).join(), A1 = s12.notes.filter((n) => n.step >= 16 && n.step < 32).map((n) => (n.step - 16) + ":" + n.midi).join();
   assert.equal(A, A1, "forme A A B A : le motif revient à l'identique (air reconnaissable)");
+  // Diversité des instruments (demande de Victor) : sur 200 zones, au moins 8 timbres de mélodie, 3 basses, 4 rythmes.
+  const L = new Set(), B = new Set(), D = new Set(); for (let z = 1; z <= 200; z++) { const t = songFor(z); L.add(t.lead); B.add(t.bassInst); D.add(t.drums); }
+  assert.ok(L.size >= 8 && B.size >= 3 && D.size >= 4, [L.size, B.size, D.size].join(" "));
+  assert.equal(songFor(77).lead, songFor(77).lead, "même zone = mêmes instruments");
 });
 
 test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi ; changement à l'ascension", () => {

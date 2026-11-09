@@ -48,8 +48,26 @@ export function songFor(zone) {
   const bass = [];
   const prog8 = [progA[0], progA[1], progA[0], progA[1], progB[0], progB[1], progA[2], progA[3]];
   prog8.forEach((c, bar) => { const b = deg(c) - 12; bass.push({ step: bar * 8, midi: b, len: 3 }, { step: bar * 8 + 4, midi: b + 7, len: 3 }); });
-  return { bpm, notes, bass, hat: r() < 0.7 };
+  // Orchestration (demande de Victor : bien plus de diversité d'instruments) : selon le décor, puis la graine.
+  const n = def.name.toLowerCase(), pickOf = (list) => list[Math.floor(r() * list.length)];
+  const mood = /forêt|jungle|verger|bois|champignon/.test(n) ? "wood" : /toundra|glac|neige|cristal|givr/.test(n) ? "ice"
+    : /volcan|lave|forge|abysses ardents|cœur/.test(n) ? "fire" : /crypt|ossuaire|égout|grotte|maudit|néant|bastion|mines/.test(n) ? "dark"
+    : /récif|lagon|cité engloutie|côte|marais/.test(n) ? "sea" : /ruines célestes|nid|tempête|pic/.test(n) ? "sky" : "any";
+  const LEADS = { wood: ["flute", "pluck", "pulse25", "whistle"], ice: ["bell", "marimba", "flute", "pulse12"], fire: ["brass", "strings", "pulse50", "pulse25"],
+    dark: ["organ", "bell", "strings", "pulse12"], sea: ["marimba", "flute", "pluck", "bell"], sky: ["whistle", "bell", "pulse25", "flute"],
+    any: ["pulse12", "pulse25", "pulse50", "flute", "pluck", "bell", "organ", "brass", "marimba", "strings", "whistle"] };
+  const lead = r() < 0.75 ? pickOf(LEADS[mood]) : pickOf(LEADS.any);
+  const bassInst = pickOf(mood === "dark" || mood === "fire" ? ["pulsebass", "sub", "triangle"] : ["triangle", "sub", "pluckbass", "pulsebass"]);
+  const drums = pickOf(minor ? ["march", "heavy", "soft", "none"] : ["shuffle", "march", "soft", "shaker", "none"]);
+  // Voix d'accompagnement : arpège des accords ou tierce sous la mélodie (pas les deux).
+  const extra = r(), arp = extra < 0.4 ? pickOf(["pluck", "bell", "pulse12", "marimba"]) : null, harm = extra >= 0.4 && extra < 0.7;
+  const arps = [];
+  if (arp) prog8.forEach((c, bar) => { for (let k = 0; k < 4; k++) arps.push({ step: bar * 8 + k * 2, midi: deg(c + [0, 2, 4, 7][k]) + 12, len: 1 }); });
+  return { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm };
 }
+
+// Formes d'onde « pulse » (rapport cyclique 12,5 / 25 / 50 %) façon Game Boy, par séries de Fourier.
+const PULSES = { pulse12: 0.125, pulse25: 0.25, pulse50: 0.5 };
 
 const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
 
@@ -97,29 +115,87 @@ export class Music {
     const ctx = this.sound.ctx;
     if (!ctx || !this.voice) return;
     if (this.old && ctx.currentTime > this.old.dying) { try { this.old.gain.disconnect(); } catch { /* */ } this.old = null; }
-    const v = this.voice, stepDur = 60 / v.song.bpm / 2;
+    const v = this.voice, song = v.song, stepDur = 60 / song.bpm / 2;
     while (v.next < ctx.currentTime + 0.4) {
       const s = v.step % STEPS, t = v.next;
-      for (const n of v.song.notes) if (n.step === s) this.note(v.gain, "square", hz(n.midi), t, n.len * stepDur * 0.9, 0.09);
-      for (const n of v.song.bass) if (n.step === s) this.note(v.gain, "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 0.22);
-      if (v.song.hat && s % 2 === 1) this.hat(v.gain, t);
+      for (const n of song.notes) if (n.step === s) {
+        this.play(v.gain, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1);
+        if (song.harm) this.play(v.gain, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5); // tierce dessous
+      }
+      for (const n of song.bass) if (n.step === s) this.play(v.gain, song.bassInst || "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 1);
+      if (song.arp) for (const n of song.arps) if (n.step === s) this.play(v.gain, song.arp, hz(n.midi), t, stepDur * 1.6, 0.45);
+      this.drum(v.gain, song.drums || (song.hat ? "soft" : "none"), s, t);
       v.step++; v.next += stepDur;
     }
   }
 
-  note(dest, type, f, t, dur, vol) {
-    const ctx = this.sound.ctx, o = ctx.createOscillator(), g = ctx.createGain();
-    o.type = type; o.frequency.setValueAtTime(f, t);
-    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.01);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    o.connect(g); g.connect(dest); o.start(t); o.stop(t + dur + 0.02);
+  /** Une note d'un instrument : oscillateur(s), enveloppe et filtre propres à chaque timbre. */
+  play(dest, inst, f, t, dur, k) {
+    const ctx = this.sound.ctx;
+    const env = (g, peak, a, d) => { g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + a); g.gain.exponentialRampToValueAtTime(0.0001, t + Math.max(a + 0.02, d)); };
+    const osc = (type, freq, g, detune = 0) => {
+      const o = ctx.createOscillator();
+      if (PULSES[type]) o.setPeriodicWave(this.pulseWave(type)); else o.type = type;
+      o.frequency.setValueAtTime(freq, t); if (detune) o.detune.setValueAtTime(detune, t);
+      o.connect(g); o.start(t); o.stop(t + dur + 0.6); return o;
+    };
+    const out = (vol) => { const g = ctx.createGain(); g.connect(dest); return [g, vol * k]; };
+    switch (inst) {
+      case "pulse12": case "pulse25": case "pulse50": { const [g, v] = out(0.08); env(g, v, 0.01, dur); osc(inst, f, g); break; }
+      case "flute": { const [g, v] = out(0.13); env(g, v, 0.06, dur); const o = osc("sine", f, g); const lfo = ctx.createOscillator(), lg = ctx.createGain(); lfo.frequency.value = 5.5; lg.gain.value = f * 0.012; lfo.connect(lg); lg.connect(o.frequency); lfo.start(t); lfo.stop(t + dur + 0.6); break; }
+      case "whistle": { const [g, v] = out(0.1); env(g, v, 0.03, dur); osc("sine", f * 2, g); break; }
+      case "bell": { const [g, v] = out(0.12); env(g, v, 0.005, dur + 0.5); osc("sine", f, g); const [g2, v2] = out(0.05); env(g2, v2, 0.005, dur * 0.6); osc("sine", f * 2.76, g2); break; }
+      case "marimba": { const [g, v] = out(0.15); env(g, v, 0.004, Math.min(dur, 0.35)); osc("sine", f, g); const [g2, v2] = out(0.04); env(g2, v2, 0.003, 0.08); osc("sine", f * 4, g2); break; }
+      case "pluck": { const [g, v] = out(0.12); env(g, v, 0.004, Math.min(dur, 0.4)); osc("triangle", f, g); break; }
+      case "organ": { const [g, v] = out(0.06); env(g, v, 0.02, dur); osc("sine", f, g); osc("sine", f * 2, g); osc("sine", f * 3, g, 3); break; }
+      case "brass": case "strings": {
+        const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.Q.value = inst === "brass" ? 4 : 1;
+        flt.frequency.setValueAtTime(inst === "brass" ? f * 1.5 : f * 3, t); if (inst === "brass") flt.frequency.exponentialRampToValueAtTime(f * 5, t + 0.08);
+        const [g, v] = out(inst === "brass" ? 0.07 : 0.06); flt.connect(g);
+        const g0 = ctx.createGain(); g0.connect(flt); env(g0, 1, inst === "brass" ? 0.03 : 0.12, dur);
+        osc("sawtooth", f, g0); if (inst === "strings") osc("sawtooth", f, g0, 9); g.gain.value = v; break;
+      }
+      case "sub": { const [g, v] = out(0.3); env(g, v, 0.01, dur); osc("sine", f, g); break; }
+      case "pulsebass": { const [g, v] = out(0.08); env(g, v, 0.01, dur); osc("pulse25", f, g); break; }
+      case "pluckbass": { const [g, v] = out(0.25); env(g, v, 0.004, Math.min(dur, 0.3)); osc("triangle", f, g); break; }
+      default: { const [g, v] = out(0.22); env(g, v, 0.01, dur); osc("triangle", f, g); }
+    }
   }
 
-  hat(dest, t) {
-    const ctx = this.sound.ctx, n = Math.floor(ctx.sampleRate * 0.03);
-    if (!this.hatBuf) { this.hatBuf = ctx.createBuffer(1, n, ctx.sampleRate); const d = this.hatBuf.getChannelData(0); for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / n); }
-    const s = ctx.createBufferSource(), g = ctx.createGain();
-    s.buffer = this.hatBuf; g.gain.value = 0.025;
-    s.connect(g); g.connect(dest); s.start(t);
+  pulseWave(type) {
+    this.waves ||= {};
+    if (!this.waves[type]) {
+      const d = PULSES[type], N = 32, re = new Float32Array(N), im = new Float32Array(N);
+      for (let n = 1; n < N; n++) im[n] = (2 / (n * Math.PI)) * Math.sin(n * Math.PI * d);
+      this.waves[type] = this.sound.ctx.createPeriodicWave(re, im);
+    }
+    return this.waves[type];
+  }
+
+  /** Percussions : charleston, grosse caisse (sinus qui descend), caisse claire (bruit), shaker. */
+  drum(dest, kit, s, t) {
+    if (kit === "none") return;
+    const beat = s % 8;
+    if (kit === "soft") { if (s % 2 === 1) this.noiseHit(dest, t, 0.03, 0.022, 7000); return; }
+    if (kit === "shaker") { this.noiseHit(dest, t, 0.04, s % 2 ? 0.02 : 0.012, 9000); if (beat === 0) this.kick(dest, t, 0.25); return; }
+    if (beat === 0 || (kit === "heavy" && beat === 3)) this.kick(dest, t, kit === "heavy" ? 0.4 : 0.3);
+    if (beat === 4) this.noiseHit(dest, t, 0.09, 0.06, 2500);
+    if (kit === "shuffle" ? s % 3 === 1 : s % 2 === 1) this.noiseHit(dest, t, 0.025, 0.02, 7000);
+  }
+
+  kick(dest, t, vol) {
+    const ctx = this.sound.ctx, o = ctx.createOscillator(), g = ctx.createGain();
+    o.frequency.setValueAtTime(140, t); o.frequency.exponentialRampToValueAtTime(45, t + 0.12);
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.15);
+    o.connect(g); g.connect(dest); o.start(t); o.stop(t + 0.17);
+  }
+
+  noiseHit(dest, t, len, vol, cut) {
+    const ctx = this.sound.ctx;
+    if (!this.noiseBuf) { const n = Math.floor(ctx.sampleRate * 0.12); this.noiseBuf = ctx.createBuffer(1, n, ctx.sampleRate); const d = this.noiseBuf.getChannelData(0); for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1; }
+    const s = ctx.createBufferSource(), g = ctx.createGain(), f = ctx.createBiquadFilter();
+    f.type = "highpass"; f.frequency.value = cut;
+    s.buffer = this.noiseBuf; g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + len);
+    s.connect(f); f.connect(g); g.connect(dest); s.start(t); s.stop(t + len + 0.01);
   }
 }

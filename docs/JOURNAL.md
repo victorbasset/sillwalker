@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (Victor : « beaucoup plus de diversité d'instruments ») : musique orchestrée par zone (fixe, selon le
+  décor puis la graine) : 11 timbres de mélodie (pulse 12,5 / 25 / 50 % façon Game Boy par séries de Fourier,
+  flûte à vibrato, sifflet, cloche, marimba, harpe pincée, orgue, cuivres à filtre, cordes désaccordées), 4 basses
+  (triangle, sub, carrée, pincée), 6 rythmes (aucun, doux, shaker, marche, shuffle, lourd : grosse caisse,
+  caisse claire, charleston), arpège d'accords (83 zones) ou tierce sous la mélodie (57 zones). Forêt : flûte /
+  harpe ; glace : cloche / marimba ; volcan : cuivres / cordes ; crypte : orgue… Test (diversité, déterminisme),
+  103/103 ; perf : bande 18,8 %, mini 5,7 %, icône 2,8 %. Non écoutable ici : à valider par Victor.
 - 2026-11-09 (it. 260, revue générale) : simulations 12 h : guerrier 59, mage 54, assassin 56 (stables) ; russe :
   rien de non traduit ; --crawl 302 clics, 0 erreur ; save-fuzz 20/20. Corrigé (Victor : le curseur d'opacité
   revenait encore en arrière, le volume non) : l'opacité fait un aller-retour avec le processus principal ; les
