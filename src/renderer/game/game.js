@@ -555,6 +555,7 @@ export class Game {
     // Défaites près du record : sert à suggérer une ascension quand le héros bloque.
     if (S.zone >= S.best - 1) (R.wallDeaths ||= []).push(R.time);
     this.emit("heroDown");
+    if (this.autoAscend()) return;
     if (R.deaths >= 2 && S.zone > 1) {
       S.zone--; R.deaths = 0; S.kills = 0;
       this.log(tx("Trop dur : ton héros recule vers ") + zoneName(S.zone) + ".");
@@ -1383,6 +1384,21 @@ export class Game {
   /* ---------- Ascension ---------- */
   ascendShards() { return shardsFor(this.S.best); }
   canAscend() { return this.S.best >= ASCEND_MIN_ZONE; }
+
+  /**
+   * Astrolabe (déblocage, option décochée par défaut) : ascension automatique quand le héros bloque
+   * près de son record de toutes les courses (4 défaites près du record en 15 min, comme le conseil « stuck »).
+   */
+  autoAscend() {
+    const S = this.S, R = this.R;
+    if (!hasUnlock(S, "astrolabe") || S.settings.autoAscend !== true || !this.canAscend()) return false;
+    if (S.best < recordZone(S) - 2) return false; // course encore loin du record : elle peut progresser
+    if ((R.wallDeaths || []).filter((t) => R.time - t < 900).length < 4) return false;
+    const gain = this.ascendShards(), best = S.best;
+    if (!this.ascend()) return false;
+    this.log(tx("Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{1} éclats d’étoile).", { 0: best, 1: gain }));
+    return true;
+  }
 
   ascend() {
     if (!this.canAscend()) return false;

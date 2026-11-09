@@ -377,4 +377,8 @@ export default {
   1501: "Champions' Lure",
   1502: "all",
   1503: "{0} d",
+  1504: "Astrolabe",
+  1505: "Ascends on its own when the hero is stuck near their record (option, to turn on).",
+  1506: "Astrolabe: the hero was stuck in zone {0}, automatic ascension (+{1} star shards).",
+  1507: "Astrolabe: ascend on its own when the hero is stuck near their record",
 };

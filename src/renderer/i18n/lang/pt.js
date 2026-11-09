@@ -377,4 +377,8 @@ export default {
   1501: "Isca dos campeões",
   1502: "tudo",
   1503: "{0} d",
+  1504: "Astrolábio",
+  1505: "Faz a ascensão sozinho quando o herói empaca perto do recorde (opção, a ativar).",
+  1506: "Astrolábio: o herói estava empacado na zona {0}, ascensão automática (+{1} fragmentos de estrela).",
+  1507: "Astrolábio: fazer a ascensão sozinho quando o herói empaca perto do recorde",
 };

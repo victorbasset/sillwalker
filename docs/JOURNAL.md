@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 ## Fait
 
+- 2026-11-09 (it. 23) : nouveau déblocage de fin, l'« Astrolabe » (zone record 60) : il fait l'ascension tout
+  seul quand le héros bloque près de son record (option à activer dans l'onglet Ascension, décochée au départ).
 - 2026-11-09 (it. 22) : deux textes français cachés dans des cas rares traduits : le bouton « tout » des
   Maîtrises (talents) et l'abréviation des jours dans le temps de jeu (« 3 d 4 h » en anglais, pas « 3 j »).
 - 2026-11-09 (it. 21, revue générale + correction) : en thème clair, d'autres textes trop pâles redeviennent
@@ -81,5 +83,5 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   acquis vers 5 h 30-6 h 15 de jeu ; ensuite plus aucun objectif de boutique. Une course sur 3-4 ne bat pas
   le record (ex. 42 → 42, 50 → 50, ~1 h). Fait (it. 12) : Maître de forge en zone 50 (~7 h). Fait (it. 13) :
   record à battre affiché sur la bande. Fait (it. 18) :
-  Filet à étoiles en zone 55 (~8-10 h). Reste : le record en mode mini ; un déblocage vers la zone 60-65
-  pour l'objectif de plusieurs jours (revue it. 21 : 12 h de jeu simulé atteignent la zone 56-60).
+  Filet à étoiles en zone 55 (~8-10 h). Fait (it. 23) : Astrolabe en zone 60.
+  Reste : le record en mode mini.

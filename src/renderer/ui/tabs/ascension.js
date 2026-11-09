@@ -4,6 +4,7 @@ import { CLASSES } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
+import { hasUnlock } from "../../game/unlocks.js";
 
 function effText(eff, n) {
   const normal = {}, special = [];
@@ -34,6 +35,7 @@ export class AscensionTab {
         ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: gain })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: shardsFor(nextZone + 4) })}</p>
            <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : tx("Monter vers les étoiles")}</button></div>`
         : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>`}
+      ${hasUnlock(S, "astrolabe") ? `<label class="toggle"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record")}</label>` : ""}
     </article>`;
     const stars = CONSTELLATIONS.map((c) => {
       const rank = P.ranks[c.id] || 0, maxed = rank >= c.max, cost = constellationCost(c, rank);
@@ -46,6 +48,7 @@ export class AscensionTab {
 
   onAction(a, b) {
     if (a === "a-buy") this.game.buyConstellation(b.dataset.id);
+    else if (a === "a-auto") { this.game.S.settings.autoAscend = b.checked; this.game.changed(); }
     else if (a === "a-ascend") {
       if (!this.armed) { this.armed = true; setTimeout(() => { this.armed = false; }, 5000); return; }
       this.armed = false;

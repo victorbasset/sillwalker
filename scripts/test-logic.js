@@ -927,6 +927,27 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("Astrolabe : ascension automatique seulement si débloquée, activée et bloquée près du record", () => {
+  const mk = () => {
+    const g = new Game(freshLocked());
+    g.S.best = g.S.zone = 30; g.S.prestige.count = 1; g.S.prestige.bestRun = 30;
+    g.R.time = 1000; g.R.wallDeaths = [990, 995, 998, 999];
+    return g;
+  };
+  let g = mk();
+  assert.equal(g.autoAscend(), false, "sans déblocage : jamais");
+  g = mk(); g.S.unlocks.astrolabe = true;
+  assert.equal(g.autoAscend(), false, "débloqué mais option décochée par défaut : jamais");
+  g = mk(); g.S.unlocks.astrolabe = true; g.S.settings.autoAscend = true; g.R.wallDeaths = [990, 995];
+  assert.equal(g.autoAscend(), false, "pas assez de défaites : la course continue");
+  g = mk(); g.S.unlocks.astrolabe = true; g.S.settings.autoAscend = true; g.S.prestige.bestRun = 45;
+  assert.equal(g.autoAscend(), false, "loin du record de toutes les courses : la course continue");
+  g = mk(); g.S.unlocks.astrolabe = true; g.S.settings.autoAscend = true;
+  assert.equal(g.autoAscend(), true, "bloqué près du record : ascension");
+  assert.equal(g.S.prestige.count, 2);
+  assert.ok(g.S.unlocks.astrolabe && g.S.settings.autoAscend === true, "déblocage et option conservés");
+});
+
 test("pouvoir Appât des champions : nettement plus d'élites", () => {
   const count = (lure) => {
     setRandom(seeded(7));
