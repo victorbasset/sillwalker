@@ -19,10 +19,13 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux.
 - **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout, une Voie au choix et des Maîtrises sans limite (aucun point perdu). 1 point par niveau, un clic par rang.
 - **Déblocages** (boutique, permanents) : 18 automatismes et fonctionnalités à acheter, chacun demandant une zone record
-  (1 → 70) et de l’or : boutons groupés, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
+  (étalées de la zone 3 à la zone 200) et de l’or : boutons groupés, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
   quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes, maître de forge
   (forge l’équipement porté avec l’or en trop), filet à étoiles (attrape les étoiles filantes manquées),
-  astrolabe (ascension automatique quand le héros bloque près de son record, option à activer), grand intendant (zone 65 : œufs et expéditions tout seuls, expédition choisie d'un clic), creuset perpétuel (zone 70 : transmutation quand le sac se remplit). Liste dans `game/unlocks.js`.
+  astrolabe (ascension automatique quand le héros bloque près de son record, option à activer), grand intendant (zone 170 : œufs et expéditions tout seuls, expédition choisie d'un clic), creuset perpétuel (zone 200 : transmutation quand le sac se remplit). Liste dans `game/unlocks.js`.
+- **Fin de partie** : jusqu'à la zone 60, les monstres gagnent ×1,28 par zone ; ensuite la croissance ralentit en
+  douceur jusqu'à ×1,04 (`zoneMight`, rules.js), pour que la progression continue jusqu'à la zone 200 et au-delà
+  (semaine simulée : record 161).
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
   sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
