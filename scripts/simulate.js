@@ -8,6 +8,8 @@ import { SKILL_TREE, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { CONSTELLATIONS, constellationCost } from "../src/renderer/game/prestige.js";
 import { CONSUMABLES, consumablePrice } from "../src/renderer/game/shop.js";
 import { questDone } from "../src/renderer/game/quests.js";
+import { forgeCost } from "../src/renderer/game/rules.js";
+import { MAX_PLUS } from "../src/renderer/game/data.js";
 import { fmt } from "../src/renderer/game/format.js";
 import { nextUnlock, unlockAvailable } from "../src/renderer/game/unlocks.js";
 
@@ -39,6 +41,11 @@ function playerTurn() {
   for (let u = nextUnlock(g.S); u && g.S.gold >= u.price * 3 && unlockAvailable(g.S, u); u = nextUnlock(g.S)) if (g.buyUnlock(u.id)) unlockLog.push(`${u.id} à ${Math.round(g.S.stats.playTime / 60 || 0)} min (zone ${g.S.zone})`);
   g.autoEquip();
   g.sellUseless();
+  // Forge à la main (comme un joueur, dès l'Enclume) toutes les 10 min : sans cela, le Maître de forge faisait un bond
+  // artificiel (record 89 → 137 juste après son achat, it. 202). Garde une réserve de 4× le coût.
+  if (minute % 10 === 0) for (const it of Object.values(g.S.equip)) {
+    for (let n = 0; it && n < 40 && it.plus < MAX_PLUS && g.S.gold > forgeCost(it) * 4; n++) if (!g.forge(it)) break;
+  }
   for (const b of TREES[g.S.cls]) for (const t of b.talents) g.learnTalent(t.id, 99);
   takeSkills();
   for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid);

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 202) : le bond vers la zone 100 (it. 201) était un artefact de simulation : il suivait l'achat du
+  Maître de forge (89 → 137 juste après), car le joueur simulé ne forgeait jamais à la main. simulate.js forge
+  désormais l'équipement porté toutes les 10 min (réserve de 4× le coût), comme un joueur : semaine du mage régulière
+  (66 → 80 → 99 → 116 → 137 → 152, 155 au mieux). Jeu inchangé. Note : balance.mjs compare désormais un simulateur
+  qui forge (écarts avec les commits antérieurs à prendre avec prudence).
 - 2026-11-09 (it. 201) : fin de partie vérifiée sur des classes plus fragiles (semaine simulée) : mage 144, nécromancien
   143 (guerrier 161) : plus de mur vers 71. Bond vers la zone 100 (99 → 137 en quelques courses), sans doute un
   déblocage de ce palier (Valet d'armes ?) : non vérifié, à surveiller. La carte du héros montre déjà la progression
