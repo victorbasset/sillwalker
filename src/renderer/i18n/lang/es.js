@@ -835,4 +835,6 @@ export default {
   1959: "Sube este objeto al nivel de tu récord: sus estadísticas crecen y el resto se conserva.",
   1960: "Yunque estelar: {0} subido al nivel {1}.",
   1961: "Rueda o arrastrar: ver los demás",
+  1962: "Ahorro de energía",
+  1963: "Animación a 15 imágenes por segundo siempre: menos cálculo, calor y ruido de ventilador. El juego sigue con normalidad. (Ya se ralentiza sola con batería y cuando te ausentas.)",
 };

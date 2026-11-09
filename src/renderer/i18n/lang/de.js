@@ -835,4 +835,6 @@ export default {
   1959: "Hebt diesen Gegenstand auf deine Rekordstufe: seine Werte steigen, alles andere bleibt erhalten.",
   1960: "Sternenamboss: {0} auf Stufe {1} gehoben.",
   1961: "Mausrad oder ziehen: weitere ansehen",
+  1962: "Energiesparen",
+  1963: "Animation dauerhaft mit 15 Bildern pro Sekunde: weniger Rechenlast, Wärme und Lüfterlärm. Das Spiel selbst läuft normal weiter. (Sie verlangsamt sich schon von selbst im Akkubetrieb und wenn du abwesend bist.)",
 };

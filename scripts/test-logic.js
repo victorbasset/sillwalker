@@ -74,6 +74,14 @@ test("migration : héros libérés abîmés ou inconnus retirés (it. 278)", () 
   assert.equal(s.partner, null); assert.equal(s.nextPartner, null);
 });
 
+test("réglage Économie d'énergie : désactivé par défaut, gardé à la migration (étude des concurrents)", () => {
+  assert.equal(freshState().settings.eco, false);
+  const o = freshState(); o.settings.eco = true;
+  assert.equal(migrate(JSON.parse(JSON.stringify(o))).settings.eco, true);
+  const old = freshState(); delete old.settings.eco;
+  assert.equal(migrate(JSON.parse(JSON.stringify(old))).settings.eco, false, "ancienne sauvegarde : valeur par défaut");
+});
+
 test("migration v1 (prototype) -> v4", () => {
   const v1 = { v: 1, lvl: 7, xp: 3, gold: 99, zone: 4, best: 5, kills: 2, equip: { weapon: { id: 1, slot: "weapon", r: 4, il: 3, plus: 0, st: { atk: 9 }, name: "x" } }, bag: [], stats: { kills: 10, deaths: 1, bosses: 3 }, log: [], last: 1 };
   const s = migrate(v1);

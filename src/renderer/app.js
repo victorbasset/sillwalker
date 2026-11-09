@@ -38,6 +38,7 @@ const FRAME_MS = 1000 / 30;         // rendu plafonné à 30 images/s
 const BATTERY_FRAME_MS = 1000 / 20; // portable sur batterie : 20 images/s suffisent
 const IDLE_FRAME_MS = 1000 / 10;    // personne devant l'écran depuis 5 min : 10 images/s
 const MINI_FRAME_MS = 1000 / 15;    // mode mini : petite vue, 15 images/s suffisent
+const ECO_FRAME_MS = 1000 / 15;     // réglage « Économie d'énergie » (étude des concurrents : consommation en fond)
 const SIM_BG_MS = 500;              // cadence de simulation quand rien n'est affiché
 const MAX_DT = 1;                   // au-delà de 5 s d'écart : progression hors ligne
 const OFFLINE_TOAST_MIN_S = 120;    // absence plus courte : résumé dans le journal seulement (pas de bulle)
@@ -132,6 +133,7 @@ async function boot() {
     sound.muted = !!P.muted;
     sound.set(P.sound && !P.muted, P.volume);
     music.set(P.music !== false);
+    window.dispatchEvent(new Event("sillwalker-framerate")); // « Économie d'énergie » a pu changer : cadence à revoir
   };
   applySettings();
   music.setZone(game.S.zone);
@@ -400,14 +402,17 @@ async function boot() {
     if (perf.frames % 15 === 0 || (strip.juice.star && perf.frames % 3 === 0)) clickThrough.refresh(); // 2 fois/s (10 fois/s si une étoile passe)
   }
   /** Cadence d'affichage : la plus lente des contraintes (absent, batterie, mode mini). */
-  function frameMs() { return Math.max(mode === "mini" ? MINI_FRAME_MS : FRAME_MS, onBattery ? BATTERY_FRAME_MS : 0, idle ? IDLE_FRAME_MS : 0); }
+  function frameMs() { return Math.max(mode === "mini" ? MINI_FRAME_MS : FRAME_MS, onBattery ? BATTERY_FRAME_MS : 0, idle ? IDLE_FRAME_MS : 0, game.S.settings.eco ? ECO_FRAME_MS : 0); }
+  let lastFrameMs = 0;
+  window.addEventListener("sillwalker-framerate", () => { if (frameTimer && frameMs() !== lastFrameMs) restartLoop(); });
   function restartLoop() {
     clearInterval(frameTimer);
     frameTimer = 0;
     const show = visible && (mode === "strip" || mode === "mini");
     strip.setActive(show && mode === "strip");
     mini.setActive(show && mode === "mini");
-    if (show) { frameTimer = setInterval(frame, frameMs()); frame(); }
+    lastFrameMs = frameMs();
+    if (show) { frameTimer = setInterval(frame, lastFrameMs); frame(); }
   }
   function setVisible(v) {
     visible = v;

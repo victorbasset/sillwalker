@@ -835,4 +835,6 @@ export default {
   1959: "Podnosi ten przedmiot do poziomu twojego rekordu: statystyki rosną, reszta zostaje.",
   1960: "Gwiezdne kowadło: {0} podniesiony do poziomu {1}.",
   1961: "Kółko lub przeciągnij: zobacz pozostałe",
+  1962: "Oszczędzanie energii",
+  1963: "Animacja stale w 15 klatkach na sekundę: mniej obliczeń, ciepła i hałasu wentylatora. Sama gra toczy się normalnie. (Już sama zwalnia na baterii i gdy cię nie ma.)",
 };

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 298, étude des concurrents, action a) : réglage « Économie d'énergie » (Réglages > Affichage,
+  désactivé par défaut) : animation plafonnée à 15 images/s en permanence (le jeu continue normalement) ; la cadence
+  change aussitôt (événement sillwalker-framerate → restartLoop). S'ajoute aux ralentissements automatiques
+  (batterie 20, absent 10, mini 15). Sauvegarde : settings.eco (défaut, migration, test). 2 textes × 9 langues, 106/106.
 - 2026-11-09 (it. 297, demande 35, étape 5) : infobulles (objets, compétences, aide) et bulle de notification au
   même dessin : angles droits, bord sombre et liseré d'or intérieur (outline décalé), ombre dure ; séparateurs des
   listes de statistiques en pointillés pixel. Capture, autotest vert.
@@ -1133,7 +1137,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   Déjà chez Sillwalker : combats enchaînés, équiper en un clic (déblocage), vente auto, sauvegarde de secours,
   prestige, hors-ligne, taille du texte (Réglages), aucun achat ni collecte de données, équipement teinté sur le héros.
   À FAIRE (tirées de l'étude, par priorité) :
-  a. P1 Bon voisin : consommation en fond (le reproche n° 1 des jeux de bande). Mesurer sous Windows ; envisager un
+  a. EN PARTIE (it. 298 : réglage « Économie d'énergie », 15 images/s ; reste : mesurer sous Windows).
+     P1 Bon voisin : consommation en fond (le reproche n° 1 des jeux de bande). Mesurer sous Windows ; envisager un
      réglage « économie » (images/s plafonnées) visible dans Réglages ; vérifier que la bande cachée ne dessine rien.
   b. P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
      (ou les rendre discrètes) ; vérifier qu'aucune action n'est exigée pour progresser (vraiment idle).

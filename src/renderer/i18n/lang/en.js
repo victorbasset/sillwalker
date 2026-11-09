@@ -835,4 +835,6 @@ export default {
   1959: "Raises this item to your record level: its stats grow, everything else is kept.",
   1960: "Star Anvil: {0} raised to level {1}.",
   1961: "Wheel or drag: see the others",
+  1962: "Power saving",
+  1963: "Animation at 15 frames per second all the time: less computing, heat and fan noise. The game itself keeps running normally. (It already slows down on its own on battery and when you are away.)",
 };

@@ -1963,5 +1963,7 @@ export const KEYS = [
   "Mettre au niveau {0} ({1} or)",
   "Remonte cet objet au niveau de ton record : ses statistiques grandissent, le reste est conservé.",
   "Enclume stellaire : {0} remonté au niveau {1}.",
-  "Molette ou glisser : voir les autres"
+  "Molette ou glisser : voir les autres",
+  "Économie d’énergie",
+  "Animation à 15 images par seconde en permanence : moins de calcul, de chaleur et de bruit de ventilateur. Le jeu, lui, continue normalement. (Elle ralentit déjà toute seule sur batterie et quand tu t’absentes.)"
 ];

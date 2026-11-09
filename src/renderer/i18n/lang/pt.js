@@ -835,4 +835,6 @@ export default {
   1959: "Eleva este item ao nível do seu recorde: os atributos crescem, o resto é mantido.",
   1960: "Bigorna estelar: {0} elevado ao nível {1}.",
   1961: "Roda ou arrastar: ver os outros",
+  1962: "Economia de energia",
+  1963: "Animação a 15 quadros por segundo o tempo todo: menos processamento, calor e ruído de ventoinha. O jogo continua normalmente. (Ela já desacelera sozinha na bateria e quando você se ausenta.)",
 };
