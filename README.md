@@ -68,12 +68,18 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Clavier** (panneau ouvert) : 1 … 9, 0, - pour les onglets ; E équiper le meilleur ; V vendre l'inutile ; T transmuter ; R réclamer une quête (toutes avec le Bureau des contrats) ;
   M mode mini ; Entrée confirmer ; Échap fermer.
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
+- **Onglets** : quand ils ne tiennent pas sur une ligne (langue aux mots longs, petit écran), marges resserrées, puis
+  sans icônes, puis police réduite ; les icônes seules en dernier recours.
 - **Retour** : après une absence, résumé des gains, meilleur objet (équipable d'un clic) et « À faire maintenant »
   (quêtes, points, déblocage abordable, œufs, expéditions) ; en rouvrant le panneau, « Depuis ta dernière visite ».
-  La bande rappelle le record à battre ; une fois tout débloqué, l'objectif devient ce record.
+  La bande rappelle le record à battre (ou l'événement en cours et ses secondes restantes) ; une fois tout débloqué,
+  l'objectif devient ce record. Le prochain déblocage s'achète d'un clic depuis la carte du héros dès qu'il est payable.
 - **Lueur stellaire** : chaque éclat d'étoile gagné renforce le héros pour toujours.
 - **Effets** : pièces qui volent jusqu'au compteur d'or, faisceaux de butin selon la rareté, célébration des légendaires,
-  bannières (niveau, record de zone, événements). `render/juice.js`.
+  bannières (niveau, record de zone, événements, palier de panoplie, boss « enfin vaincu » après un K.O.), répliques
+  du héros, sons pour chacun de ces moments (option). `render/juice.js`, `render/sound.js`.
+- **Journal** : les messages répétitifs se cumulent (ventes du sac plein, élites vaincues, défaites : « … (×N) »),
+  le Grand intendant résume son travail en une ligne.
 
 ## Scripts
 
