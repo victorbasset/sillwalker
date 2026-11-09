@@ -28,6 +28,7 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
+import { systemLang } from "../src/renderer/i18n/index.js";
 import { approachTime, heroStats, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
@@ -1507,6 +1508,15 @@ test("élites : pas dans les 2 premières zones de la première course, présent
   assert.equal(count(1, 0), 0, "zone 1, première course");
   assert.ok(count(5, 0) > 0, "zone 5");
   assert.ok(count(1, 1) > 0, "zone 1 après une ascension");
+});
+
+test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {
+  assert.equal(systemLang(["fr-FR", "en-US"]), "fr");
+  assert.equal(systemLang(["pt-BR"]), "pt");
+  assert.equal(systemLang(["zh-CN"]), "zh");
+  assert.equal(systemLang(["xx-YY", "de-AT"]), "de");
+  assert.equal(systemLang(["xx"]), "en");
+  assert.equal(systemLang([]), "en");
 });
 
 test("zones lointaines : « + », « ++ », puis « +N » (lisible en fin de partie)", () => {

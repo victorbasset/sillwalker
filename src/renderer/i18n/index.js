@@ -36,6 +36,11 @@ export function setLang(id) {
   fallback = lang === "fr" ? {} : DICTS.en || {}; // texte pas encore traduit : anglais plutôt que français
   try { if (typeof localStorage !== "undefined") localStorage.setItem(KEY, lang); } catch { /* sans importance */ }
 }
+/** Langue du système (partie neuve) : première langue préférée connue (« fr-FR » → fr, « pt-BR » → pt…), sinon anglais. */
+export function systemLang(list = (typeof navigator !== "undefined" && (navigator.languages || [navigator.language])) || []) {
+  for (const l of list) { const id = String(l || "").toLowerCase().split(/[-_]/)[0]; if (valid(id)) return id; }
+  return DEFAULT_LANG;
+}
 setLang(valid(stored()) ? stored() : DEFAULT_LANG);
 
 const fill = (s, vars) => (vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : s);

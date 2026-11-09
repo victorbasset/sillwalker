@@ -8,7 +8,7 @@
 // La simulation tourne en permanence, quel que soit le mode.
 import { TAB_GATES } from "./game/tabs.js";
 import { journeyText } from "./ui/tabs/stats.js";
-import { getLang, setLang, DEFAULT_LANG, LANGS, txn } from "./i18n/index.js";
+import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
@@ -56,7 +56,8 @@ async function boot() {
   if (newerSave && typeof loaded.data.settings?.lang === "string") fresh.settings.lang = loaded.data.settings.lang;
   const game = new Game(fresh);
   // Langue : celle de la sauvegarde (copiée dans localStorage, lue dès le chargement des modules).
-  const wanted = game.S.settings.lang || DEFAULT_LANG;
+  // Partie neuve sans langue choisie : celle du système (un Windows en français démarre en français).
+  const wanted = game.S.settings.lang || systemLang();
   // Recharger seulement si la langue voulue est valide (sinon rechargement sans fin) et une seule fois par lancement.
   const reloaded = (() => { try { return sessionStorage.getItem("langReload"); } catch { return wanted; } })();
   if (wanted !== getLang() && LANGS.some((l) => l.id === wanted) && reloaded !== wanted) {
