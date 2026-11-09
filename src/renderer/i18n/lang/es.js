@@ -411,4 +411,6 @@ export default {
   1535: "Campeón (botín épico, desde la zona {0})",
   1536: "(racha de {n} día interrumpida: vuelve a empezar)|(racha de {n} días interrumpida: vuelve a empezar)",
   1537: "El mercader ofrece una mejora",
+  1538: "Acechador de campeones",
+  1539: "del Acechador de campeones",
 };

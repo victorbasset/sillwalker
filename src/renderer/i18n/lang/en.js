@@ -411,4 +411,6 @@ export default {
   1535: "Champion (epic loot, from zone {0})",
   1536: "({n}-day streak broken: it starts over)|({n}-day streak broken: it starts over)",
   1537: "The merchant offers an upgrade",
+  1538: "Champion Stalker",
+  1539: "of the Champion Stalker",
 };

@@ -18,6 +18,8 @@ export const SETS = {
               two: { dodge: 6, crit: 4 }, four: { riposte: 15, doubleShot: 15 } },
   ronin:    { name: "Ronin errant",        suffix: "du Ronin errant",        color: "#e8e4d6",
               two: { iai: 30, firstStrike: 0.3 }, four: { critDmg: 40, moveSpd: 15 } },
+  hunter:   { name: "Traqueur de champions", suffix: "du Traqueur de champions", color: "#7fe0a0", // plus d'élites, et de quoi les abattre
+              two: { elites: 30, gold: 15 }, four: { elites: 50, bossDmg: 25, drop: 15 } },
 };
 export const SET_KEYS = Object.keys(SETS);
 export const SET_CHANCE = { 3: 0.3, 4: 0.2 }; // par rareté (épique, légendaire)

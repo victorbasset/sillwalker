@@ -31,7 +31,7 @@ import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/
 import { CLASS_KEYS } from "../src/renderer/game/classes.js";
 import { ZONES, MONSTERS } from "../src/renderer/game/data.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
-import { SETS as SETS_T } from "../src/renderer/game/sets.js";
+import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
 import { repairItemNames } from "../src/renderer/i18n/data.js";
 import { setLang, getLang, txn } from "../src/renderer/i18n/index.js";
@@ -1005,6 +1005,15 @@ test("récompense du jour : une série interrompue est signalée", () => {
   assert.equal(r.day, 1);
   assert.equal(r.broken, 3, "série de 3 jours interrompue");
   assert.equal(g.claimDaily("2026-11-07").broken, 0, "jour suivant : rien à signaler");
+});
+
+test("panoplie du Traqueur de champions : élites rencontrées à 2 et 4 pièces", () => {
+  const eq = {}, slots = ["weapon", "helm", "armor", "gloves"];
+  slots.slice(0, 2).forEach((k) => { eq[k] = { set: "hunter" }; });
+  assert.equal(setEffects(eq).elites, 30);
+  slots.forEach((k) => { eq[k] = { set: "hunter" }; });
+  assert.equal(setEffects(eq).elites, 80, "2 pièces + 4 pièces");
+  assert.ok(SETS_T.hunter.color && SETS_T.hunter.suffix);
 });
 
 test("grands nombres : suffixes au-delà du billion, puis notation scientifique", () => {

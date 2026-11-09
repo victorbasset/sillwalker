@@ -411,4 +411,6 @@ export default {
   1535: "Czempion (epicki łup, od strefy {0})",
   1536: "(seria {n} dnia przerwana: zaczyna się od nowa)|(seria {n} dni przerwana: zaczyna się od nowa)|(seria {n} dni przerwana: zaczyna się od nowa)",
   1537: "Kupiec oferuje ulepszenie",
+  1538: "Tropiciel czempionów",
+  1539: "Tropiciela Czempionów",
 };

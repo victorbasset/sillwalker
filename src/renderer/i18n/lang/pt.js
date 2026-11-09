@@ -411,4 +411,6 @@ export default {
   1535: "Campeão (saque épico, a partir da zona {0})",
   1536: "(sequência de {n} dia interrompida: ela recomeça)|(sequência de {n} dias interrompida: ela recomeça)",
   1537: "O mercador oferece uma melhoria",
+  1538: "Caçador de campeões",
+  1539: "do Caçador de campeões",
 };

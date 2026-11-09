@@ -1539,5 +1539,7 @@ export const KEYS = [
   "Événements rares (rafale, pluie d’or, frénésie, corne d’abondance)",
   "Champion (butin épique, dès la zone {0})",
   "(série d’{n} jour interrompue : elle recommence)|(série de {n} jours interrompue : elle recommence)",
-  "Le marchand propose une amélioration"
+  "Le marchand propose une amélioration",
+  "Traqueur de champions",
+  "du Traqueur de champions"
 ];
