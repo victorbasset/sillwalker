@@ -636,4 +636,10 @@ export default {
   1760: "travado",
   1761: "Música de fundo",
   1762: "Uma pequena melodia por zona, discreta, com um esmaecimento ao mudar de zona.",
+  1763: "Companheiro na ascensão ✓",
+  1764: "Companheiro para a próxima ascensão",
+  1765: "Escolher como companheiro",
+  1766: "(companheiro)",
+  1767: "Dupla: {0} luta ao lado do seu herói (35% do ataque dele por segundo e metade do passivo).",
+  1768: "Dupla: um herói à distância e um corpo a corpo lutam juntos. Escolha um companheiro do outro alcance (o primeiro chega na hora, os seguintes na ascensão).",
 };

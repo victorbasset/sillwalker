@@ -7,7 +7,7 @@
 // Le décor est fixe (une seule toile, redessinée au changement de zone) et
 // les personnages sont des éléments DOM déplacés par transform : voir dom.js.
 // Ce module lit l'état de la simulation sans jamais le modifier.
-import { CLASSES, CLASS_UNLOCK_ZONE } from "../game/classes.js";
+import { CLASSES, CLASS_UNLOCK_ZONE, isRanged } from "../game/classes.js";
 import { EVENTS } from "../game/events.js";
 import { t as tx, fsp } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
@@ -122,6 +122,12 @@ export class StripRenderer {
     g.on("secondWind", () => this.float(this.heroX + 10, 36, tx("Second souffle !"), "#ffe27a", true));
     g.on("classChange", () => { this.heroCls = null; this.minionKey = null; });
     g.on("minion", () => { this.minionLunge = 0.2; });
+    // Compagnon : coup (pose d'attaque) et, à distance, un projectile de sa classe vers le monstre.
+    g.on("partnerHit", () => {
+      this.partnerAtk = 0.25;
+      const pd = CLASSES[this.partnerCls];
+      if (pd && pd.projectile && this.partner && g.R.mon) this.projectile(pd.projectile, (this.partnerX || this.heroX) + 24, this.monX() + 6, g.R.mon.boss ? 46 : 70, 0, "#fff");
+    });
     g.on("bossSkill", ({ id }) => {
       const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"] }[id];
       if (id === "frost") { this.float(this.heroX + 10, 30, tx("Gelé !"), "#bfe8ff", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#bfe8ff", 8); return; }
@@ -318,7 +324,7 @@ export class StripRenderer {
   buildHero() {
     this.stage.replaceChildren();
     this.slots = []; this.slotKey = null; this.corpse = null; this.hero = null; this.heroCls = null; this.pet = null; this.petId = undefined;
-    this.minion = null; this.minionKey = undefined;
+    this.minion = null; this.minionKey = undefined; this.partner = null; this.partnerCls = undefined;
     this.wisps = []; this.coreKey = null;
     this.heroBar = new Bar(this.stage, "#6fd17f");
     this.slash = el("div", "slash", this.stage);
@@ -340,6 +346,18 @@ export class StripRenderer {
     this.minion = null;
     this.minionKey = kind;
     if (kind) this.minion = new Actor(this.stage, this.sprites.minions[kind], "minion");
+  }
+
+  /** Compagnon du duo (demande 17) : sprite de sa classe ; à distance il reste derrière le héros et tire, au corps à
+   *  corps il va au contact du monstre. */
+  syncPartner() {
+    const cls = this.game.S.partner || null;
+    if (cls === this.partnerCls) return;
+    if (this.partner) this.partner.remove();
+    this.partner = null;
+    this.partnerCls = cls;
+    const set = cls && this.sprites.heroes[cls];
+    if (set) this.partner = new Actor(this.stage, [set.walk1, set.walk2, set.attack], "hero partner");
   }
 
   /** Familier actif : suit le héros à quelques pas. */
@@ -548,6 +566,17 @@ export class StripRenderer {
     this.heroBar.set(R.hp / game.stats().hp);
     this.syncPet();
     this.syncMinion();
+    this.syncPartner();
+    if (this.partner) {
+      this.partnerAtk = Math.max(0, (this.partnerAtk || 0) - dt);
+      const pf = this.partner.frames[0], fighting = R.mode === "fight" && R.mon, ranged = isRanged(this.partnerCls);
+      // Corps à corps : au contact du monstre, juste devant lui ; à distance : quelques pas derrière le héros.
+      const px = fighting && !ranged ? this.monX() - pf.cw + 6 : x - pf.cw + 6;
+      this.partner.show(this.partnerAtk > 0 ? 2 : Math.floor(R.time * (fighting ? 2 : 5) + 1) % 2);
+      this.partner.move(px, GROUND - pf.ch);
+      this.partner.alpha(R.mode === "dead" ? 0.35 : 1);
+      this.partnerX = px;
+    }
     if (this.minion) {
       this.minionLunge = Math.max(0, (this.minionLunge || 0) - dt);
       const mf = this.minion.frames[0], fighting = R.mode === "fight" && R.mon;

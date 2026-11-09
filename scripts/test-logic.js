@@ -31,7 +31,7 @@ import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { systemLang } from "../src/renderer/i18n/index.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
-import { approachTime, heroStats, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
+import { approachTime, heroStats, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
@@ -1633,6 +1633,22 @@ test("musique de fond (demande 24) : un air par zone, toujours le même pour une
   const keys = new Set(); for (let z = 1; z <= 200; z++) { const s = songFor(z); keys.add(JSON.stringify(s.notes.map((n) => n.midi))); assert.ok(s.bpm >= 80 && s.bpm <= 160 && s.notes.length >= 8, "zone " + z); for (const n of s.notes) assert.ok(n.midi >= 50 && n.midi <= 90); }
   assert.ok(keys.size >= 195, "quasiment 200 mélodies différentes : " + keys.size);
   assert.equal(freshState().settings.music, true, "musique activée par défaut");
+});
+
+test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi ; changement à l'ascension", () => {
+  const g = new Game(freshState()); g.S.cls = "warrior"; g.S.classesUnlocked = ["warrior", "ranger", "paladin"]; g.invalidateStats();
+  assert.equal(g.choosePartner("paladin"), false, "même portée (corps à corps) : refusé");
+  assert.equal(g.choosePartner("mage"), false, "pas encore libéré : refusé");
+  const dps0 = heroDps(g.stats());
+  assert.ok(g.choosePartner("ranger")); assert.equal(g.S.partner, "ranger", "premier compagnon : tout de suite");
+  const hs = g.stats();
+  assert.ok(hs.duo > 0 && hs.firstStrike > 0, "dégâts du compagnon et moitié de son tir d'ouverture");
+  assert.ok(heroDps(hs) > dps0 * 1.2, "le duo frappe plus fort");
+  g.S.classesUnlocked.push("necro"); g.choosePartner("necro");
+  assert.equal(g.S.partner, "ranger"); assert.equal(g.S.nextPartner, "necro", "ensuite : à la prochaine ascension");
+  g.S.best = 25; g.ascend(); assert.equal(g.S.partner, "necro");
+  g.chooseNextClass("ranger"); assert.equal(g.S.nextPartner, null, "héros à distance : le compagnon à distance prévu tombe");
+  const bad = JSON.parse(JSON.stringify(g.S)); bad.partner = "inconnu"; assert.equal(migrate(bad).partner, null);
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {

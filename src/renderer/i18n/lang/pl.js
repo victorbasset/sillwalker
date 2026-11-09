@@ -636,4 +636,10 @@ export default {
   1760: "utknął",
   1761: "Muzyka w tle",
   1762: "Dyskretna melodia dla każdej strefy, z przejściem przy zmianie strefy.",
+  1763: "Towarzysz przy wniebowstąpieniu ✓",
+  1764: "Towarzysz na następne wniebowstąpienie",
+  1765: "Weź jako towarzysza",
+  1766: "(towarzysz)",
+  1767: "Duet: {0} walczy u boku twojego bohatera (35% jego ataku na sekundę i połowa jego pasywnej).",
+  1768: "Duet: bohater dystansowy i bohater walczący wręcz walczą razem. Wybierz towarzysza o innym zasięgu (pierwszy dołącza od razu, kolejni przy wniebowstąpieniu).",
 };

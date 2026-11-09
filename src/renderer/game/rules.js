@@ -3,7 +3,7 @@ import {
   RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, ITEM_BASES, ITEM_SUFFIXES, ZONES, MONSTERS, ELITE, DYES, materialFor,
   WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, CHAMPION,
 } from "./data.js";
-import { classDef } from "./classes.js";
+import { classDef, CLASSES, DUO } from "./classes.js";
 import { talentEffects } from "./talents.js";
 import { powerEffects } from "./powers.js";
 import { petEffects } from "./pets.js";
@@ -110,6 +110,9 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), dayModEffects(S), codexEffects(S), workshopEffects(S), guildEffects(S)]) {
     for (const k in src) t[k] = (t[k] || 0) + src[k];
   }
+  // Compagnon du duo : une part de sa capacité (demande 17).
+  const pd = S.partner && CLASSES[S.partner];
+  if (pd) for (const k in pd.passive) t[k] = (t[k] || 0) + pd.passive[k] * DUO.passive;
   if (buffs) for (const id in S.buffs || {}) if (S.buffs[id] > 0 && BUFF_EFFECTS[id]) {
     for (const k in BUFF_EFFECTS[id]) t[k] = (t[k] || 0) + BUFF_EFFECTS[id][k];
   }
@@ -127,6 +130,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
     firstStrike: v("firstStrike"), tapDmg: v("tapDmg"), offline: v("offline"), secondWind: v("secondWind") > 0,
     shield: Math.min(100, v("shield")), poison: v("poison"), minion: v("minion"), combo: v("combo"), thorns: v("thorns"),
     iai: v("iai"), elites: v("elites"), moveSpd: v("moveSpd") + (S.speed || 0),
+    duo: pd ? DUO.atk * (pd.mul.atk || 1) : 0, // dégâts du compagnon (% de l'attaque par seconde)
   });
   return s;
 }
@@ -135,7 +139,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
 export const heroDps = (s) =>
   s.atk * (1 + (s.crit / 100) * (s.critDmg - 1)) * (1 + s.spd / 100) * (1 + 0.6 * s.doubleShot / 100) * (1 + (s.combo || 0) * 5 / 100)
   * (s.iai ? 1 + (s.iai / 100 + (1 - s.crit / 100) * (s.critDmg - 1)) / 4 : 1) // iaijutsu : 1 coup sur 4
-  + s.atk * ((s.minion || 0) + (s.poison || 0) * 3) / 100; // serviteur + poison (≈ 3 charges en moyenne)
+  + s.atk * ((s.minion || 0) + (s.poison || 0) * 3 + (s.duo || 0)) / 100; // serviteur + poison (≈ 3 charges) + compagnon
 
 /** Puissance de combat (sert à comparer les objets) : dégâts × robustesse. */
 export const power = (s) =>

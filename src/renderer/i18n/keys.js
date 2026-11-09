@@ -1764,5 +1764,11 @@ export const KEYS = [
   "laisse-le farmer un peu plus bas",
   "bloqué",
   "Musique de fond",
-  "Un petit air par zone, discret, avec un fondu quand on change de zone."
+  "Un petit air par zone, discret, avec un fondu quand on change de zone.",
+  "Compagnon à l’ascension ✓",
+  "Compagnon pour la prochaine ascension",
+  "Prendre comme compagnon",
+  "(compagnon)",
+  "Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).",
+  "Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension)."
 ];

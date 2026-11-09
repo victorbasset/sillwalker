@@ -1,7 +1,7 @@
 // Format de la sauvegarde + migrations. Toute nouvelle donnée persistante
 // doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
 import { SLOT_KEYS, LEGENDARY, BAG_SIZE, RARITIES } from "./data.js";
-import { CLASSES, CLASS_UNLOCK_ZONE } from "./classes.js";
+import { CLASSES, CLASS_UNLOCK_ZONE, canPartner } from "./classes.js";
 import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
 import { PET_INDEX } from "./pets.js";
@@ -32,6 +32,8 @@ export function freshState(now = Date.now()) {
     cls: "warrior",     // classe active (voir classes.js)
     classesUnlocked: ["warrior"], // héros libérés (classes.js > CLASS_UNLOCK_ZONE)
     nextCls: null,      // classe choisie pour la prochaine ascension
+    partner: null,      // héros compagnon du duo (demande 17) : autre portée que le héros principal
+    nextPartner: null,  // compagnon choisi pour la prochaine ascension
     talents: {},        // { classe: { idTalent: rang } } : chaque classe garde ses talents
     buffs: {},          // { elixir: secondes restantes, ... }
     potions: 3,
@@ -141,6 +143,9 @@ export function migrate(raw) {
     s.classesUnlocked = [...new Set(["warrior", s.cls, ...(s.stats.classes || []), ...beaten])].filter((c) => CLASSES[c]);
   }
   if (s.nextCls && !CLASSES[s.nextCls]) s.nextCls = null;
+  // Duo : compagnon inconnu, pas encore libéré ou de même portée que le héros : retiré.
+  if (s.partner != null && !canPartner(s, s.cls, s.partner)) s.partner = null;
+  if (s.nextPartner != null && !CLASSES[s.nextPartner]) s.nextPartner = null;
   for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop"]) if (!isObj(s[k])) s[k] = {};
   // Talents par classe ({ classe: { talent: rang } }) : entrées illisibles retirées (elles faisaient échouer le démarrage).
   for (const c of Object.keys(s.talents)) {

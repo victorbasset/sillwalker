@@ -489,6 +489,9 @@ async function runSelfTest(strip) {
   // Bouton son de la bande : un clic coupe, un autre rallume (icône à croix quand coupé).
   const snd = await js("(() => { const S = window.__game.S, b = document.getElementById('sound-btn'), was = S.settings.sound; b.click(); const a = S.settings.sound !== was && b.classList.contains('muted') === !S.settings.sound; b.click(); return String(a && S.settings.sound === was && b.classList.contains('hit')); })()");
   check("bande : bouton son (coupe / rallume)", snd === "true", snd);
+  // Duo (demande 17) : l'onglet des héros propose un compagnon de l'autre portée ; le premier arrive tout de suite.
+  const duo = await js("(() => { const S = window.__game.S, P = window.__panel, keep = S.partner; S.partner = null; S.nextPartner = null; P.setTab('class'); P.renderAll(); const b = document.querySelector('[data-action=c-partner]'); if (!b) return 'pas de bouton'; b.click(); P.renderAll(); const ok = !!S.partner && !!document.querySelector('.classcard.partner'); const st = window.__game.stats().duo > 0; S.partner = keep; window.__game.invalidateStats(); P.setTab('adventure'); return String(ok && st); })()");
+  check("duo : choisir un compagnon dans l'onglet des héros", duo === "true", duo);
   // Chroniques de l'histoire : bloc repliable dans la carte du héros, au moins « Le ciel brisé ».
   const ch = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('.chronbox'); return d ? d.querySelectorAll('.chron').length : -1; })()");
   check("chroniques : bloc présent dans la carte du héros, au moins une chronique", ch >= 1, ch);

@@ -636,4 +636,10 @@ export default {
   1760: "stuck",
   1761: "Background music",
   1762: "A small tune for each zone, discreet, with a fade when you change zones.",
+  1763: "Companion at ascension ✓",
+  1764: "Companion for the next ascension",
+  1765: "Take as companion",
+  1766: "(companion)",
+  1767: "Duo: {0} fights alongside your hero (35% of their attack per second and half of their passive).",
+  1768: "Duo: a ranged hero and a melee hero fight together. Pick a companion of the other range (the first joins right away, later ones at ascension).",
 };

@@ -5,6 +5,17 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 248, demande 17 étapes b et c) : duo de héros. S.partner / S.nextPartner (défaut, migration,
+  test) : un compagnon de l'autre portée (classes.js isRanged, canPartner) ; il frappe en continu (DUO.atk = 35 %
+  de l'attaque du héros par seconde × l'attaque de sa classe, stat « duo », comptée hors ligne via heroDps) et
+  apporte la moitié de son passif. Le premier compagnon arrive tout de suite (dès le Rôdeur, zone 10), les
+  changements suivants à l'ascension (comme le héros principal ; le compagnon prévu tombe s'il devient de même
+  portée). Onglet des héros : boutons « Prendre comme compagnon » / « Compagnon pour la prochaine ascension »,
+  carte du compagnon encadrée, explication du duo. Bande : le compagnon marche derrière le héros ; au corps à
+  corps il va au contact, à distance il tire son projectile ; sons de coup de son arme. simulate.js choisit un
+  compagnon. balance 12 h : +0,1 zone (le duo vaut environ une zone de puissance, monstres ×1,28 par zone).
+  Fuzz 600, save-fuzz, 158 tests, 100/100, 10 langues, captures.
+  Reste (demande 17 e) : textes « classe » → « héros » dans tout le jeu.
 - 2026-11-09 (it. 247, demande 24 de Victor) : musique de fond par zone (render/music.js), générée : graine par zone
   → gamme (mineure pour les décors sombres, majeure sinon), tempo 84-130, grille d'accords, mélodie (degrés
   voisins, silences, refrain repris) ; onde carrée douce + basse triangulaire + charleston de bruit, volume bas ;
@@ -854,7 +865,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       Courtes (5 à 15 s), passables d'un clic, discrètes si le joueur travaille ; respecter le réglage du son.
   16. FAIT (2026-11-09). Écran ultra-large (Odyssey) : le panneau laissait de grandes bandes vides à gauche et à
       droite : il ne prend plus que la largeur de son contenu, les côtés laissent voir le bureau.
-  17. EN COURS (it. 239 : (a) 20 héros faits ; reste duo, choix du duo, textes « héros ») : équipe de 2 héros, un à distance et un au
+  17. EN COURS (it. 239 : 20 héros ; it. 248 : duo et choix à l'ascension ; reste textes « héros ») : équipe de 2 héros, un à distance et un au
       corps à corps, qui combattent ensemble ; au moins 20 héros à libérer, étalés jusqu'à la zone 200 (environ un
       tous les 10 niveaux de zone, pas forcément pile) ; on ne parle plus de « classes » mais de « héros » ; le duo
       se choisit (se change) à l'ascension.

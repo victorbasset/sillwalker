@@ -27,7 +27,7 @@ import {
   zoneDef, zoneName, monsterBase, approachTime,
   itemScore,
 } from "./rules.js";
-import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked } from "./classes.js";
+import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked, canPartner } from "./classes.js";
 import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects } from "./talents.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
@@ -270,6 +270,13 @@ export class Game {
         m.poisonT -= dt;
         m.hp -= hs.atk * hs.poison / 100 * m.poisonStacks * t;
         if (m.poisonT <= 0) m.poisonStacks = 0;
+        if (m.hp <= 0) { this.killMonster(); return; }
+      }
+      // Compagnon du duo (demande 17) : frappe en continu ; un signal par seconde pour l'animation et le son.
+      if (hs.duo > 0) {
+        m.hp -= hs.atk * hs.duo / 100 * dt;
+        R.duoT = (R.duoT || 0) + dt;
+        if (R.duoT >= 1) { R.duoT -= 1; this.emit("partnerHit", { dmg: hs.atk * hs.duo / 100 }); }
         if (m.hp <= 0) { this.killMonster(); return; }
       }
       if (hs.minion > 0) {
@@ -983,10 +990,25 @@ export class Game {
     return cls;
   }
 
+  /**
+   * Choisir le compagnon du duo (demande 17). Le tout premier s'applique tout de suite ; ensuite, comme le héros
+   * principal, le changement se fait à la prochaine ascension. null : pas de compagnon.
+   */
+  choosePartner(cls) {
+    const S = this.S, main = S.nextCls || S.cls;
+    if (cls != null && !canPartner(S, main, cls)) return false;
+    if (!S.partner && cls && canPartner(S, S.cls, cls)) { S.partner = cls; S.nextPartner = null; this.invalidateStats(); this.emit("partnerChange", { cls }); }
+    else S.nextPartner = cls === S.partner ? null : cls;
+    this.changed();
+    return true;
+  }
+
   /** Classe de la prochaine ascension (null : on garde la classe actuelle). */
   chooseNextClass(cls) {
     if (!CLASSES[cls] || !isClassUnlocked(this.S, cls)) return false;
     this.S.nextCls = cls === this.S.cls ? null : cls;
+    // Le compagnon prévu doit rester de l'autre portée que le futur héros principal.
+    if (this.S.nextPartner && !canPartner(this.S, cls, this.S.nextPartner)) this.S.nextPartner = null;
     this.changed();
     return true;
   }
@@ -1678,6 +1700,9 @@ export class Game {
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
       stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, journey: old.journey || [], story: old.story || { intro: true, read: {} }, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
+    // Duo : le compagnon prévu (ou l'actuel) suit, s'il reste de l'autre portée que le héros principal.
+    const pick = old.nextPartner || old.partner;
+    f.partner = pick && canPartner(f, f.cls, pick) ? pick : null;
     const eff = prestigeEffects(f);
     f.zone = f.best = ascendStartZone(eff, old.best);
     f.potions += eff.potions || 0;

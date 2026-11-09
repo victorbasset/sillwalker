@@ -156,6 +156,7 @@ export class Sound {
   bind(game) {
     game.on("heroAttack", ({ crit, iai }) => { const m = game.R.mon; this.hit(game.S.cls, m && m.type, crit || iai); });
     game.on("tap", () => this.play("hit"));
+    game.on("partnerHit", () => { const m = game.R.mon; if (game.S.partner) this.hit(game.S.partner, m && m.type, false); }); // compagnon du duo
     game.on("kill", ({ mon }) => { this.play("coin"); if (mon.boss) this.play("boss"); });
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
     game.on("levelUp", () => this.play("level"));

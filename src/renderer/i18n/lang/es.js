@@ -636,4 +636,10 @@ export default {
   1760: "atascado",
   1761: "Música de fondo",
   1762: "Una pequeña melodía por zona, discreta, con un fundido al cambiar de zona.",
+  1763: "Compañero en la ascensión ✓",
+  1764: "Compañero para la próxima ascensión",
+  1765: "Tomar como compañero",
+  1766: "(compañero)",
+  1767: "Dúo: {0} lucha junto a tu héroe (35 % de su ataque por segundo y la mitad de su pasiva).",
+  1768: "Dúo: un héroe a distancia y uno cuerpo a cuerpo luchan juntos. Elige un compañero del otro alcance (el primero llega enseguida, los siguientes en la ascensión).",
 };

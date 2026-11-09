@@ -221,5 +221,13 @@ export function attackTier(S) {
 /** Couleur des effets d'attaque de chaque classe. */
 export const CLASS_FX = { warrior: "#dfe7ef", ranger: "#9fe0a8", mage: "#ffb733", paladin: "#ffe27a", assassin: "#ff4a6a", necro: "#7dff9a", monk: "#ff9a3a", druid: "#8fd86a", samurai: "#9fd8ff", berserker: "#ff5a3a" };
 
+/** Duo de héros (demande 17) : un héros à distance avec un héros au corps à corps. */
+export const isRanged = (cls) => !!(CLASSES[cls] && CLASSES[cls].projectile);
+/** Le compagnon frappe en continu : DUO.atk % de l'attaque du héros par seconde (× l'attaque de sa classe) et
+ *  apporte DUO.passive (part) de sa capacité. */
+export const DUO = { atk: 35, passive: 0.5 };
+/** Ce héros peut-il accompagner le héros principal `main` ? (libéré, autre portée) */
+export const canPartner = (S, main, cls) => !!CLASSES[cls] && cls !== main && isClassUnlocked(S, cls) && isRanged(cls) !== isRanged(main);
+
 export const isClassUnlocked = (S, cls) => cls === "warrior" || (S.classesUnlocked || []).includes(cls);
 export const classDef = (id) => CLASSES[id] || CLASSES.warrior;
