@@ -478,4 +478,6 @@ export default {
   1602: "completed",
   1603: "{0} set: {1} → {2} / 4",
   1604: "Kept to complete the set: selling useless items and transmutation spare it.",
+  1605: "Phoenix Plumage",
+  1606: "of the Phoenix Plumage",
 };

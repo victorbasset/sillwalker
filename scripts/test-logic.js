@@ -1059,6 +1059,14 @@ test("panoplie : un moment au palier de 2 puis de 4 pièces, une seule fois", ()
   assert.deepEqual(seen, [2, 4], "2 pièces puis 4 pièces, pas à la 5e");
 });
 
+test("panoplie du Plumage du phénix : régénération à 2 pièces, second souffle à 4", () => {
+  const two = setEffects({ a: { set: "phoenix" }, b: { set: "phoenix" } });
+  assert.ok(two.regen > 0 && two.lifesteal > 0 && !two.secondWind);
+  const four = setEffects({ a: { set: "phoenix" }, b: { set: "phoenix" }, c: { set: "phoenix" }, d: { set: "phoenix" } });
+  assert.equal(four.secondWind, 1);
+  assert.ok(four.hpPct >= 20);
+});
+
 test("panoplie du Traqueur de champions : élites rencontrées à 2 et 4 pièces", () => {
   const eq = {}, slots = ["weapon", "helm", "armor", "gloves"];
   slots.slice(0, 2).forEach((k) => { eq[k] = { set: "hunter" }; });

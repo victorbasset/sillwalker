@@ -478,4 +478,6 @@ export default {
   1602: "completado",
   1603: "Conjunto {0}: {1} → {2} / 4",
   1604: "Guardada para completar o conjunto: a venda do inútil e a transmutação a poupam.",
+  1605: "Plumagem da fênix",
+  1606: "da Plumagem da fênix",
 };

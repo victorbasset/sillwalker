@@ -1606,5 +1606,7 @@ export const KEYS = [
   "{0} / {1} complétées · chacune donne {2} pour toujours",
   "complétée",
   "Panoplie {0} : {1} → {2} / 4",
-  "Gardée pour compléter la panoplie : la vente de l’inutile et la transmutation l’épargnent."
+  "Gardée pour compléter la panoplie : la vente de l’inutile et la transmutation l’épargnent.",
+  "Plumage du phénix",
+  "du Plumage du phénix"
 ];

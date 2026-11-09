@@ -20,6 +20,8 @@ export const SETS = {
               two: { iai: 30, firstStrike: 0.3 }, four: { critDmg: 40, moveSpd: 15 } },
   hunter:   { name: "Traqueur de champions", suffix: "du Traqueur de champions", color: "#7fe0a0", // plus d'élites, et de quoi les abattre
               two: { elites: 30, gold: 15 }, four: { elites: 50, bossDmg: 25, drop: 15 } },
+  phoenix:  { name: "Plumage du phénix",   suffix: "du Plumage du phénix",   color: "#ff9a3a", // survie : se relever une fois par combat
+              two: { regen: 3, lifesteal: 2 }, four: { secondWind: 1, hpPct: 20 } },
 };
 export const SET_KEYS = Object.keys(SETS);
 export const SET_CHANCE = { 3: 0.3, 4: 0.2 }; // par rareté (épique, légendaire)

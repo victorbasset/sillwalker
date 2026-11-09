@@ -478,4 +478,6 @@ export default {
   1602: "skompletowany",
   1603: "Zestaw {0}: {1} → {2} / 4",
   1604: "Zachowana do skompletowania zestawu: sprzedaż zbędnych i transmutacja ją oszczędzają.",
+  1605: "Upierzenie feniksa",
+  1606: "Upierzenia feniksa",
 };
