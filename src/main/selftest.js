@@ -309,7 +309,8 @@ async function runSelfTest(strip) {
   await sleep(500);
   // Rouvrir le panneau (plusieurs essais : la bande peut mettre un instant à se réafficher)
   for (let k = 0; k < 5 && !(await js("document.body.classList.contains('panel-shown')")); k++) {
-    if (!(await js("document.body.classList.contains('panel-open')"))) await click("#menu-btn");
+    // Clic souris d'abord (vrai parcours) ; s'il n'aboutit pas, clic direct dans la page (coordonnées pas encore à jour sous xvfb).
+    if (!(await js("document.body.classList.contains('panel-open')"))) { if (k < 2) await click("#menu-btn"); else await js("document.querySelector('#menu-btn').click()"); }
     await until(async () => js("document.body.classList.contains('panel-shown')"), 1500);
   }
   check("retour à la bande : panneau rouvert", await js("document.body.classList.contains('panel-shown')"));
