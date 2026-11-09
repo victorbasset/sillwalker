@@ -37,6 +37,10 @@ export const ACHIEVEMENTS = [
   { id: "FULL_SET",        name: "Panoplie complète (4 pièces)", test: (S) => Object.values(setCounts(S.equip || {})).some((n) => n >= 4) },
   { id: "MASTER_OF_ALL",   name: "Maître de tous les héros", test: (S) => CLASS_KEYS.every((c) => (S.stats.classes || []).includes(c)) },
   { id: "ALL_CLASSES",     name: "Polyvalent : jouer 3 héros", test: (S) => (S.stats.classes || []).length >= 3 },
+  // Duo et héros (demande 17)
+  { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
+  { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
+  { id: "HEROES_ALL",      name: "Tous les héros libérés", test: (S) => CLASS_KEYS.every((c) => c === "warrior" || (S.classesUnlocked || []).includes(c)) },
   { id: "STARBREAKER",     name: "Le ciel rallumé",    test: (S) => !!(S.story && S.story.won) }, // Briseur d'Étoiles vaincu
   { id: "ZONE_50",         name: "Zone 50",            test: (S) => S.best >= 50 },
   { id: "LEVEL_100",       name: "Niveau 100",         test: (S) => S.lvl >= 100 },
@@ -72,6 +76,8 @@ export const reachedAchievements = (S) => ACHIEVEMENTS.filter((a) => a.test(S)).
  */
 const rec = (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0);
 export const ACH_PROGRESS = {
+  HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
+  HEROES_ALL: (S) => [new Set(["warrior", ...(S.classesUnlocked || [])]).size, CLASS_KEYS.length],
   LEVEL_10: (S) => [S.lvl, 10], LEVEL_50: (S) => [S.lvl, 50], LEVEL_100: (S) => [S.lvl, 100],
   ZONE_10: (S) => [rec(S), 10], ZONE_25: (S) => [rec(S), 25], ZONE_50: (S) => [rec(S), 50], WORLD_TOUR: (S) => [rec(S), ZONES.length],
   ELITE_HUNTER: (S) => [S.stats.elites || 0, 10],

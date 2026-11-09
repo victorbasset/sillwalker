@@ -822,4 +822,7 @@ export default {
   1946: "Zwei Sternenklingen, zwei Hiebe.",
   1947: "Weg des Pulvers",
   1948: "Weg der Präzision",
+  1949: "Erstes Duo",
+  1950: "Zehn Helden befreit",
+  1951: "Alle Helden befreit",
 };

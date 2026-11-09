@@ -822,4 +822,7 @@ export default {
   1946: "Dwa gwiezdne ostrza, dwa ciosy.",
   1947: "Droga prochu",
   1948: "Droga precyzji",
+  1949: "Pierwszy duet",
+  1950: "Dziesięciu bohaterów uwolnionych",
+  1951: "Wszyscy bohaterowie uwolnieni",
 };

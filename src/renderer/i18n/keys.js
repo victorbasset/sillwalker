@@ -1950,5 +1950,8 @@ export const KEYS = [
   "Voie des constellations",
   "Deux lames d’étoile, deux coups.",
   "Voie de la poudre",
-  "Voie de la précision"
+  "Voie de la précision",
+  "Premier duo",
+  "Dix héros libérés",
+  "Tous les héros libérés"
 ];

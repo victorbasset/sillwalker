@@ -1647,6 +1647,7 @@ test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi 
   assert.equal(g.choosePartner("mage"), false, "pas encore libéré : refusé");
   const dps0 = heroDps(g.stats());
   assert.ok(g.choosePartner("ranger")); assert.equal(g.S.partner, "ranger", "premier compagnon : tout de suite");
+  assert.ok(M_achievements_js.reachedAchievements(g.S).includes("DUO_FIRST"), "succès « Premier duo »");
   const hs = g.stats();
   assert.ok(hs.duo > 0 && hs.firstStrike > 0, "dégâts du compagnon et moitié de son tir d'ouverture");
   assert.ok(heroDps(hs) > dps0 * 1.2, "le duo frappe plus fort");

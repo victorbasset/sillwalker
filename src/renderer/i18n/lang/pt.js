@@ -822,4 +822,7 @@ export default {
   1946: "Duas lâminas de estrela, dois golpes.",
   1947: "Caminho da pólvora",
   1948: "Caminho da precisão",
+  1949: "Primeira dupla",
+  1950: "Dez heróis libertados",
+  1951: "Todos os heróis libertados",
 };

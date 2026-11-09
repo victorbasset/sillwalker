@@ -822,4 +822,7 @@ export default {
   1946: "Two star blades, two strikes.",
   1947: "Way of the Powder",
   1948: "Way of Precision",
+  1949: "First Duo",
+  1950: "Ten Heroes Freed",
+  1951: "All Heroes Freed",
 };
