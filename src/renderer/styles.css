@@ -465,7 +465,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 #mini .ministar i { position: absolute; left: 6px; top: 6px; width: 10px; height: 10px; background: #fff6c8; box-shadow: 0 0 0 2px #ffd34d, 0 0 10px 4px rgba(255, 246, 200, .8); transform: rotate(45deg); }
 /* Panoplies */
 .setline { margin: 6px 0 0; padding: 5px 8px; font-size: 13px; border: 1px solid var(--c); border-radius: 3px; color: var(--muted); }
-.setline b { color: var(--c); }
+.setline b { color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); } /* lisible en thème clair (comme .tint) */
 .setline .on { color: var(--good); }
 .slot .rpip { position: absolute; left: 3px; bottom: 0; font-size: 15px; line-height: 1; font-family: system-ui, sans-serif; color: var(--ink); text-shadow: 0 0 2px var(--panel), 0 0 2px var(--panel), 0 0 1px var(--panel); letter-spacing: -1px; }
 .slot .setmark { position: absolute; right: 2px; bottom: 0; font-size: 11px; }

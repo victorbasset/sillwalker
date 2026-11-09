@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 289) : contrôle en thème clair des changements des it. 282-288 (Ascension et ses icônes, rangée
+  des déblocages, détail d'objet sous le sac) : un défaut, le nom de panoplie (.setline b) prenait la couleur vive
+  telle quelle (jaune pâle sur blanc) : assombri comme .tint. Autotest vert.
 - 2026-11-09 (it. 288, demandes 18 / 32) : plus aucun défilement vertical à 1920 px (largeur de Victor), objet ouvert
   compris. Mesure par onglet (scrollHeight - clientHeight) : talents 5, stats 5, réglages 6, carte 11 → 0 (marges du
   panneau) ; détail d'un objet sous le sac : jusqu'à 242 → 0 (colonne du sac plus large et sac en 2 rangées de 12,
