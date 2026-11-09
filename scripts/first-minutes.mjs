@@ -1,5 +1,5 @@
 // Les dix premières minutes d'une partie neuve (3 graines) : seconde de la première fois pour chaque récompense
-// (objet, rare, épique, légendaire, élite, boss, niveaux, œuf, quête, événement, premier déblocage payable).
+// (objet, rare, épique, légendaire, élite, boss, niveaux, œuf, quête, événement, premier déblocage payable, onglets).
 // Usage : node --experimental-default-type=module scripts/first-minutes.mjs
 const root = new URL("../src/renderer/game/", import.meta.url).href;
 const { Game } = await import(root + "game.js");
@@ -15,6 +15,7 @@ for (const seed of [1, 2, 3]) {
   g.on("levelUp", ({ lvl }) => mark("niv" + lvl));
   g.on("event", () => mark("événement"));
   g.on("questDone", () => mark("quête"));
+  g.on("tabOpen", ({ ids }) => ids.forEach((id) => mark("onglet " + id)));
   for (; t < 900; t += 1) { g.advance(1); if (t % 10 === 0) g.autoEquip(); if (g.S.pets.eggs) mark("œuf"); if (g.S.gold >= 300) mark("300 or (1er déblocage)"); }
   console.log("graine", seed, "zone", g.S.best, "niv", g.S.lvl, JSON.stringify(first));
 }

@@ -31,6 +31,7 @@ import { EVENTS } from "../game/events.js";
 import { activeDayMod } from "../game/daymods.js";
 import { BOSS_MECHANICS, bossMechanics, bossName, bossWear } from "../game/bosses.js";
 import { lockLink } from "./locks.js";
+import { tabOpen, TAB_GATES } from "../game/tabs.js";
 import { hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 
 const $ = (root, s) => root.querySelector(s);
@@ -211,7 +212,8 @@ export class Panel {
   }
 
   setTab(id) {
-    if (!TABS.some((t) => t.id === id)) return;
+    if (!TABS.some((t) => t.id === id) || !tabOpen(this.game.S, id)) return;
+    if (this.game.S.tabsOpen && this.game.S.tabsOpen[id] === "new") this.game.S.tabsOpen[id] = true; // visité : plus de pastille
     this.tab = id;
     for (const b of this.root.querySelectorAll("[data-tab]")) b.setAttribute("aria-selected", String(b.dataset.tab === id));
     for (const p of this.root.querySelectorAll("[data-pane]")) p.hidden = p.dataset.pane !== id;
@@ -344,9 +346,17 @@ export class Panel {
     }, true);
   }
 
+  /** Nom traduit d'un onglet (annonce d'un onglet débloqué). */
+  tabLabel(id) { return (TABS.find((t) => t.id === id) || {}).label || id; }
+
   renderBadges() {
+    const S = this.game.S;
     for (const t of TABS) {
-      const tab = this.tabs[t.id], text = tab ? tab.badge() : "";
+      // Onglet pas encore débloqué (tabs.js) : bouton caché ; tout juste débloqué : pastille ✦ jusqu'à la visite.
+      const btn = $(this.root, `[data-tab="${t.id}"]`), open = tabOpen(S, t.id);
+      if (btn && btn.hidden === open) btn.hidden = !open;
+      const isNew = open && S.tabsOpen && S.tabsOpen[t.id] === "new";
+      const tab = this.tabs[t.id], text = (tab && open ? tab.badge() : "") || (isNew ? "✦" : "");
       const el = $(this.root, `[data-badge="${t.id}"]`);
       if (el.textContent !== text) el.textContent = text;
       el.hidden = !text;
@@ -694,7 +704,7 @@ export class Panel {
     }
     const order = "1234567890-";
     const i = order.indexOf(e.key);
-    if (i >= 0 && TABS[i]) { this.setTab(TABS[i].id); return true; }
+    if (i >= 0 && TABS[i] && tabOpen(this.game.S, TABS[i].id)) { this.setTab(TABS[i].id); return true; }
     const k = e.key.toLowerCase();
     if (k === "m") { this.onMini?.(); return true; } // réduire en mode mini sans chercher le bouton
     if (k === "r") { // réclamer les quêtes terminées : une par appui, toutes avec le Bureau des contrats

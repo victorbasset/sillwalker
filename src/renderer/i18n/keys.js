@@ -1618,5 +1618,15 @@ export const KEYS = [
   "Acheter et équiper : {0} ({1} or)",
   "Tous les coups sont critiques !",
   "Sac plein, objets remplacés par mieux",
-  "{0} (sac plein : vendu {1} or)"
+  "{0} (sac plein : vendu {1} or)",
+  "Nouvel onglet : {0} !",
+  "Dépense tes points de talent à chaque niveau.",
+  "Potions, élixirs, coffres et déblocages permanents.",
+  "Des contrats à remplir pour de l’or et des coffres.",
+  "D’autres héros sont prisonniers : libère-les.",
+  "Monstres rencontrés, collection d’objets, panoplies.",
+  "L’arbre de compétences : 1 point tous les 2 niveaux.",
+  "Un œuf ! Les familiers suivent ton héros et le renforcent.",
+  "Tes records et tes chiffres.",
+  "Recommencer plus fort grâce aux éclats d’étoile."
 ];

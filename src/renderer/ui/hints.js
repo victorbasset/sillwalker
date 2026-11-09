@@ -6,6 +6,7 @@ import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
 import { skillPointsFree } from "../game/skilltree.js";
 import { nextUnlock, hasUnlock, unlockAvailable } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
+import { tabOpen } from "../game/tabs.js";
 
 /** { id, text, tab, when(game) } — dans l'ordre de priorité. */
 export const HINTS = [
@@ -55,7 +56,7 @@ const hintKey = (game, h) => (h.perRun ? h.id + ":" + game.S.prestige.count : h.
 /** Prochain conseil à montrer (ou null), sans le marquer comme vu. */
 export function nextHint(game) {
   const seen = (game.S.settings.hints ||= {});
-  const h = HINTS.find((x) => !seen[hintKey(game, x)] && x.when(game));
+  const h = HINTS.find((x) => !seen[hintKey(game, x)] && (!x.tab || tabOpen(game.S, x.tab)) && x.when(game)); // onglet encore fermé : conseil plus tard
   return h ? { ...h, key: hintKey(game, h), text: h.textFn ? h.textFn(game) : h.text } : null;
 }
 export const markHint = (game, id) => { (game.S.settings.hints ||= {})[id] = true; };

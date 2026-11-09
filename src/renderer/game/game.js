@@ -9,6 +9,7 @@
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
+import { openTabs, tabReady } from "./tabs.js";
 import { t as tx, txn, tr, fsp, lc } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
@@ -193,6 +194,8 @@ export class Game {
   step(dt) {
     const R = this.R, hs = this.stats();
     R.time += dt;
+    // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
+    if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh }); }
     this.S.stats.playTime = (this.S.stats.playTime || 0) + dt;
     this.tickBuffs(dt);
     if (R.potionCd > 0) R.potionCd -= dt;
@@ -1471,7 +1474,7 @@ export class Game {
     // Marchand : une amélioration abordable (sans renouveler le stock ici)
     const offer = this.merchantUpgrade(now);
     if (offer) out.push({ id: "merchant", n: 1, tab: "shop", name: itemName(offer), price: offer.price });
-    return out;
+    return out.filter((t) => !t.tab || tabReady(S, t.tab)); // pas de lien vers un onglet encore fermé
   }
 
   /** Pièce du sac qui porterait une panoplie à 4 pièces (bonus de 4 pièces) une fois équipée. */
@@ -1602,7 +1605,7 @@ export class Game {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = ascendStartZone(eff, old.best);

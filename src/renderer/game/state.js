@@ -7,6 +7,7 @@ import { grandfatherUnlocks } from "./unlocks.js";
 import { PET_INDEX } from "./pets.js";
 import { SKILL_TREE } from "./skilltree.js";
 import { LANGS } from "../i18n/index.js";
+import { seedTabs } from "./tabs.js";
 
 export const SAVE_VERSION = 8;
 
@@ -52,6 +53,7 @@ export function freshState(now = Date.now()) {
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
+    tabsOpen: {},           // onglets du panneau déjà ouverts { id: true | "new" } (tabs.js : déblocage progressif)
     setsDone: {},           // panoplies complétées (4 pièces portées) au moins une fois { id: true }, voir codex.js
   };
 }
@@ -182,6 +184,8 @@ export function migrate(raw) {
   for (const k of ["xp", "gold", "kills"]) s[k] = Math.max(0, +s[k] || 0);
   // Nombres illisibles dans les sous-objets (un NaN ou un Infinity d'un bug passé est enregistré « null ») :
   // valeur par défaut, sinon il se propagerait (éclats, réputation, statistiques…) et pourrait bloquer la partie.
+  // Onglets progressifs, apparus après coup : tout ce que le joueur connaissait déjà reste ouvert.
+  if (!isObj(o.tabsOpen)) seedTabs(s);
   const ref = freshState(); // def a été fusionné dans s : référence intacte à part
   for (const k of ["stats", "prestige", "guild", "pets", "skills", "daily"]) {
     for (const f in ref[k]) if (typeof ref[k][f] === "number" && !Number.isFinite(s[k][f])) s[k][f] = ref[k][f];

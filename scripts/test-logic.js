@@ -23,12 +23,14 @@ import { Game } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
-const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet").map((u) => [u.id, true])) });
+const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet").map((u) => [u.id, true])),
+  tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { approachTime, heroStats, power } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
+import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { ZONES, MONSTERS } from "../src/renderer/game/data.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
@@ -938,6 +940,8 @@ test("conseil panoplie : à la première pièce trouvée", () => {
   g.talentPointsFree = () => 0; g.hasUpgradeCached = () => false; g.questsReady = () => 0;
   assert.notEqual(nextHint(g)?.id, "set");
   const it = g.newItem(3); it.set = "dawn"; g.S.bag.push(it);
+  assert.notEqual(nextHint(g)?.id, "set", "Bestiaire encore fermé : le conseil attend");
+  g.S.best = 6; openTabs(g.S);
   assert.equal(nextHint(g)?.id, "set");
   assert.equal(nextHint(g).tab, "bestiary");
 });
@@ -948,6 +952,7 @@ test("conseil Astrolabe : après l'achat, tant qu'il n'est pas coché", () => {
   g.talentPointsFree = () => 0; g.hasUpgradeCached = () => false; g.questsReady = () => 0;
   assert.notEqual(nextHint(g)?.id, "astrolabe", "pas avant l'achat");
   g.S.unlocks.astrolabe = true;
+  g.S.tabsOpen = Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])); // acheté en zone 60 : onglets ouverts
   const h = nextHint(g);
   assert.equal(h && h.id, "astrolabe");
   assert.equal(h.tab, "ascension");
@@ -1428,6 +1433,26 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("onglets progressifs : fermés au départ, ouverts au seuil, gardés à l'ascension, anciennes parties tout ouvert", () => {
+  const S = freshLocked();
+  for (const id of ["talents", "skills", "quests", "shop", "pets", "class", "ascension", "bestiary", "stats"]) assert.ok(!tabOpen(S, id), id + " fermé au départ");
+  assert.ok(tabOpen(S, "adventure") && tabOpen(S, "settings"));
+  S.lvl = 2;
+  assert.deepEqual(openTabs(S), ["talents"]);
+  assert.equal(S.tabsOpen.talents, "new");
+  assert.deepEqual(openTabs(S), [], "annoncé une seule fois");
+  // l'ascension garde les onglets ouverts
+  const g = new Game(S); g.S.best = 25; openTabs(g.S); g.S.prestige.shards = 0;
+  if (g.canAscend()) { g.ascend(); assert.ok(tabOpen(g.S, "talents") && tabOpen(g.S, "ascension"), "gardés après l'ascension"); }
+  // sauvegarde d'avant ce système, partie avancée : tout est ouvert
+  const old = JSON.parse(JSON.stringify(freshLocked())); delete old.tabsOpen; old.best = 40; old.lvl = 90;
+  const m = migrate(old);
+  for (const id in TAB_GATES) assert.equal(m.tabsOpen[id], true, id);
+  // partie neuve d'avant ce système (rien de fait) : rien d'ouvert
+  const young = JSON.parse(JSON.stringify(freshLocked())); delete young.tabsOpen;
+  assert.deepEqual(migrate(young).tabsOpen, {});
+});
+
 test("classes : ordre de libération (guerrier, puis zone du boss)", () => {
   const o = CLASS_KEYS_BY_UNLOCK();
   assert.equal(o[0], "warrior");
@@ -1546,6 +1571,7 @@ test("« À faire » : amélioration du marchand achetée et équipée d'un clic
   g.S.bag.length = 0; g.S.gold = 1e9;
   const it = g.newItem(3); it.price = 100;
   g.S.shop = { items: [it], next: Date.now() + 600000 };
+  openTabs(g.S); // or ≥ 300 : boutique ouverte (fait par step() en jeu)
   const t = g.todoNow().find((x) => x.id === "merchant");
   assert.ok(t && t.name && t.price === 100);
   assert.ok(g.buyAndEquip(g.merchantUpgrade().id));

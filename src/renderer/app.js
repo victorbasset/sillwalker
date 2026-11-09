@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { TAB_GATES } from "./game/tabs.js";
 import { getLang, setLang, DEFAULT_LANG, LANGS, txn } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
@@ -387,6 +388,14 @@ async function boot() {
   setInterval(checkDaily, 60000);
 
   /* ---------- Héros libéré ---------- */
+  /* ---------- Onglet débloqué (tabs.js) : annonce sobre, un clic l'ouvre ---------- */
+  game.on("tabOpen", ({ ids }) => {
+    for (const id of ids) {
+      const desc = TAB_GATES[id] ? tx(TAB_GATES[id].desc) : "";
+      showToast(`✦ ${tx("Nouvel onglet : {0} !", { 0: `<b>${esc(panel.tabLabel(id))}</b>` })} ${esc(desc)}`, () => { openPanel(); panel.setTab(id); }, 10000);
+    }
+    panel.dirty = true;
+  });
   game.on("classUnlock", ({ cls }) => {
     sound.play("legendary");
     setTimeout(() => showToast(`🗝 <b>${esc(CLASSES[cls].name)}</b> ${tx("est libéré ! Choisis-le dans l’onglet Classe : tu le joueras à ta prochaine ascension.")}`, () => { openPanel(); panel.setTab("class"); }, 15000), 1500);
