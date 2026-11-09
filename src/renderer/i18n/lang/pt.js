@@ -406,4 +406,5 @@ export default {
   1530: "Forje {n} vez|Forje {n} vezes",
   1531: "Gélido",
   1532: "Seu herói caiu? Calma: ele recua um pouco e volta a seguir sozinho. Um equipamento melhor (▲ na bolsa) vai ajudá-lo a passar. Clique aqui.",
+  1533: "Economia de energia: a animação fica mais lenta na bateria e quando você se ausenta (o jogo continua normalmente).",
 };

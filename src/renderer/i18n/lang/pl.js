@@ -406,4 +406,5 @@ export default {
   1530: "Wykuj {n} raz|Wykuj {n} razy|Wykuj {n} razy",
   1531: "Mroźny",
   1532: "Twój bohater padł? Bez obaw: cofa się trochę i sam rusza dalej. Lepszy ekwipunek (▲ w torbie) pomoże mu przejść. Kliknij tutaj.",
+  1533: "Oszczędzanie energii: animacja zwalnia na baterii i gdy odchodzisz od komputera (sama gra działa normalnie).",
 };

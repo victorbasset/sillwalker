@@ -406,4 +406,5 @@ export default {
   1530: "Forge {n} time|Forge {n} times",
   1531: "Frosty",
   1532: "Your hero fell? Don't worry: they step back a little, then set off again on their own. Better gear (▲ in the bag) will help them get through. Click here.",
+  1533: "Energy saving: the animation slows down on battery and when you step away (the game itself keeps running normally).",
 };

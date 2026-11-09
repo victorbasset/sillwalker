@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 ## Fait
 
+- 2026-11-09 (it. 53) : les Réglages expliquent les économies d'énergie (animation ralentie sur batterie et en absence,
+  le jeu continue) ; consignes du relais automatique enrichies (blocages, équilibrage, couleurs, tests).
 - 2026-11-09 (it. 52) : quand personne n'est devant l'écran depuis 5 min, la bande s'anime à 10 images/s (le jeu
   continue normalement) et reprend dès le retour : 34 % → 14 % d'un cœur (−58 %), mode mini 6,3 % → 4 %.
 - 2026-11-09 (it. 51, revue générale) : rien de cassé. Simulations 12 h (guerrier, mage, nécromancien) régulières,

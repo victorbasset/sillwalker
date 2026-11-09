@@ -40,6 +40,16 @@ RÉALISER
   scripts/i18n-check.mjs à 0 problème pour chacune. Pluriels : txn() (voir CLAUDE.md).
 - Une règle de jeu nouvelle ou modifiée : un test dans scripts/test-logic.js.
 
+OUTILS UTILES (voir CLAUDE.md)
+- Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs 60 20` après tout changement des
+  monstres, élites, champions ou de la mort du héros (0 bloquée attendu).
+- Équilibrage : une seule simulation suit une trajectoire aléatoire ; comparer les 10 classes avant/après (moyenne du
+  temps d'un déblocage tardif) avec un `git worktree` de l'ancienne version avant de conclure.
+- Couleurs du panneau : jetons du thème (--accent, --good, --bad, --r0…--r4) ou `.tint`, jamais de couleur claire en dur ;
+  vérifier avec et sans `--force-dark-mode`.
+- Textes en dur hors tx() : extraire le texte affiché en russe (--dump-text) et chercher les mots latins.
+- Tests : toujours synchrones (imports statiques), pluriels avec txn().
+
 VÉRIFIER (obligatoire avant tout commit)
 - `npm test` entièrement vert et `npm run selftest:linux` à N/N.
 - Équilibrage touché : `node --experimental-default-type=module scripts/simulate.js 8` (quelques secondes ;
