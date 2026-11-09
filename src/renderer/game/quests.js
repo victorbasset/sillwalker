@@ -2,7 +2,7 @@
 // terminée attend que le joueur réclame sa récompense ; une nouvelle prend
 // alors sa place. Les objectifs et récompenses suivent la progression.
 import { t as tx, txn, getLang } from "../i18n/index.js";
-import { MONSTERS } from "./data.js";
+import { MONSTERS, ELITE } from "./data.js";
 import { zoneDef } from "./rules.js";
 import { rand, pick } from "./util.js";
 
@@ -32,6 +32,7 @@ export const QUEST_TEMPLATES = {
     },
   },
   elite: {
+    ok: (S) => S.zone >= ELITE.minZone || (S.prestige.count || 0) > 0, // pas d'élite avant la zone 3 en première course
     text: (q) => (fr() ? tx("Vaincre {0} {1}", { 0: q.goal, 1: plural(q.goal, "élite") }) : tx("Vaincre {0} élites", { 0: q.goal })),
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, gold: Math.round(goldScale(S) * 60) } }),
   },

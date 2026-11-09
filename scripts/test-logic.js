@@ -1446,10 +1446,11 @@ test("liens « 🔒 déblocage » : pas avant la boutique, pas pour un déblocag
   assert.match(lockLink(S, far.id), /🔒/, "proche : annoncé");
 });
 
-test("quêtes : pas de forge ni de transmutation avant leur déblocage", () => {
+test("quêtes : pas de forge, de transmutation ni d'élites avant qu'elles soient possibles", () => {
   const S = freshLocked();
   setRandom(seeded(5));
-  for (let i = 0; i < 300; i++) { const q = makeQuest(S, i); assert.ok(q.kind !== "forge" && q.kind !== "transmute", q.kind); }
+  for (let i = 0; i < 300; i++) { const q = makeQuest(S, i); assert.ok(q.kind !== "forge" && q.kind !== "transmute" && q.kind !== "elite", q.kind); }
+  S.zone = 3; assert.ok(Array.from({ length: 300 }, (_, i) => makeQuest(S, i).kind).includes("elite"), "élites dès la zone 3");
   S.unlocks.forge = true; S.unlocks.transmute = true;
   let seen = new Set(); for (let i = 0; i < 300; i++) seen.add(makeQuest(S, i).kind);
   assert.ok(seen.has("forge") && seen.has("transmute"));
