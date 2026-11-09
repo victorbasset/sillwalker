@@ -73,7 +73,7 @@ export class Juice {
     g.on("loot", ({ item, mon, chest }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10));
     g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
     g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120); });
-    g.on("event", ({ id }) => { const ev = EVENTS[id]; this.banner(`${ev.name} ! ${ev.text}`, ev.color, this.s.heroX + 60, true); this.flash(ev.color, 0.2); });
+    g.on("event", ({ id }) => { const ev = EVENTS[id]; this.banner(`${ev.name}${fsp()}! ${ev.text}`, ev.color, this.s.heroX + 60, true); this.flash(ev.color, 0.2); });
     g.on("unlock", ({ id }) => {
       const u = UNLOCK_INDEX[id];
       this.banner(`🔓 ${tx("Débloqué : {0} !", { 0: u ? u.name : id })}`, "#ffd34d", this.s.heroX + 80, true);

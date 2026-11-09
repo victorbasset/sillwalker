@@ -385,4 +385,6 @@ export default {
   1509: "Automatyczny (Windows)",
   1510: "Jasny",
   1511: "Ciemny",
+  1512: "Róg obfitości",
+  1513: "Każde zwycięstwo zostawia przedmiot!",
 };

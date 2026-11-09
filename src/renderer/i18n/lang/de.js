@@ -385,4 +385,6 @@ export default {
   1509: "Automatisch (Windows)",
   1510: "Hell",
   1511: "Dunkel",
+  1512: "Füllhorn",
+  1513: "Jeder Sieg hinterlässt einen Gegenstand!",
 };

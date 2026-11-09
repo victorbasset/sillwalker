@@ -16,4 +16,5 @@ export const EVENTS = {
   wind:     { name: "Rafale de vent", chance: 0.004, duration: 45, text: "Vitesse de déplacement ×2 !", color: "#9fd8ff" },
   goldrain: { name: "Pluie d’or",     chance: 0.003, duration: 30, text: "Or ×3 !",                     color: "#ffd34d" },
   frenzy:   { name: "Frénésie",       chance: 0.003, duration: 30, text: "Vitesse d’attaque ×2 !",      color: "#ff7a6b" },
+  bounty:   { name: "Corne d’abondance", chance: 0.002, duration: 30, text: "Chaque victoire laisse un objet !", color: "#c08cff" },
 };

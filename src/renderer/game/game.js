@@ -504,7 +504,7 @@ export class Game {
     this.autoBuyPotions();
     this.autoForge();
     this.gainXp(Math.round(m.xp * (1 + hs.xp / 100)));
-    if (m.boss || m.elite || rand() < DROP_CHANCE * (1 + hs.drop / 100)) {
+    if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
       this.emit("loot", { item: it, mon: m });
       this.addToBag(it);
@@ -846,7 +846,7 @@ export class Game {
     if (done) {
       this.invalidateStats();
       const t = TALENT_INDEX[id].talent;
-      if (t.tier === 3) this.log(tx("Talent ultime débloqué : ") + t.name + " !");
+      if (t.tier === 3) this.log(tx("Talent ultime débloqué : ") + t.name + fsp() + "!");
       this.changed();
     }
     return done;
@@ -1073,7 +1073,7 @@ export class Game {
     if (!ev || (this.R.events[id] || 0) > 0) return false;
     this.R.events[id] = ev.duration;
     this.S.stats.events = (this.S.stats.events || 0) + 1;
-    this.log(`${ev.name} ! ${ev.text} (${ev.duration} s)`);
+    this.log(`${ev.name}${fsp()}! ${ev.text} (${ev.duration} s)`);
     this.emit("event", { id });
     this.changed();
     return true;
@@ -1448,7 +1448,7 @@ export class Game {
     this.S.skills.order.push(id);
     this.invalidateStats();
     const n = SKILL_TREE.nodes[id];
-    if (n.kind === "keystone") this.log(tx("Clé de voûte : ") + n.name + " !");
+    if (n.kind === "keystone") this.log(tx("Clé de voûte : ") + n.name + fsp() + "!");
     this.changed();
     return true;
   }

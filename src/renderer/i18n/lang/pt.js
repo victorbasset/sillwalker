@@ -385,4 +385,6 @@ export default {
   1509: "Automático (Windows)",
   1510: "Claro",
   1511: "Escuro",
+  1512: "Cornucópia",
+  1513: "Cada vitória deixa um item!",
 };

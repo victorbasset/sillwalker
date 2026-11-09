@@ -385,4 +385,6 @@ export default {
   1509: "Automático (Windows)",
   1510: "Claro",
   1511: "Oscuro",
+  1512: "Cuerno de la abundancia",
+  1513: "¡Cada victoria deja un objeto!",
 };

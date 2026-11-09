@@ -385,4 +385,6 @@ export default {
   1509: "Automatic (Windows)",
   1510: "Light",
   1511: "Dark",
+  1512: "Horn of Plenty",
+  1513: "Every victory leaves an item!",
 };

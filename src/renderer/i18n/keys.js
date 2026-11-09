@@ -1513,5 +1513,7 @@ export const KEYS = [
   "Thème du panneau",
   "Automatique (Windows)",
   "Clair",
-  "Sombre"
+  "Sombre",
+  "Corne d’abondance",
+  "Chaque victoire laisse un objet !"
 ];

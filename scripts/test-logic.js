@@ -927,6 +927,19 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("événement Corne d'abondance : un objet à chaque victoire pendant 30 s", () => {
+  const g = new Game(freshState());
+  g.S.autoSell = { common: false, uncommon: false, rare: false };
+  let loots = 0, kills = 0;
+  g.on("loot", () => loots++);
+  g.on("kill", () => kills++);
+  g.S.bag.length = 0; g.S.bagSize = 48;
+  assert.ok(g.startEvent("bounty"));
+  for (let i = 0; i < 25 / 0.05 && kills < 6; i++) { if (g.R.mon && !g.R.mon.boss) g.R.mon.hp = 0; g.step(0.05); }
+  assert.ok(kills >= 3, "des victoires pendant l'événement");
+  assert.ok(loots >= kills, `${loots} objets pour ${kills} victoires`);
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);
