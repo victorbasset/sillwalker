@@ -1009,3 +1009,4 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .hscroll.more-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent); }
 .hscroll.more-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 48px), transparent); }
 .hscroll.more-l.more-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent); }
+.questcard h2::before { display: none; } /* les étoiles de rareté de la quête suffisent */

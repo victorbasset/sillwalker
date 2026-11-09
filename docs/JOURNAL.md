@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 313) : Quêtes et Carte relues au nouveau design : cohérentes ; seule retouche : pas d'étoile
+  d'ornement dans le titre des cartes de quête (elle doublait les étoiles de rareté juste au-dessus). Autotest vert.
 - 2026-11-10 (it. 312, demande 32) : rangées latérales : fondu discret (masque CSS) sur le bord où d'autres cartes
   attendent, mis à jour au défilement (hscroll.js > edgeHints) ; remplace l'indication écrite que Victor a jugée
   inutile. Capture (Familiers), autotest vert.
