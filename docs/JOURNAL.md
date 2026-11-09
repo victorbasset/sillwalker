@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 192) : processus principal (menu de l'icône, dialogues) vérifié : aucun texte en dur hors outils de
+  dev. Accessibilité : focus clavier visible ajouté aux blocs repliables (summary : « À faire », « Toutes les
+  statistiques »…) et aux éléments tabindex. Contrôle d'autotest de la règle (un focus() par script n'active pas
+  :focus-visible : contrôle de comportement impossible ainsi). 83/83.
 - 2026-11-09 (it. 191) : chasse aux mots latins en chinois et japonais : « max » en dur à trois endroits (raccourci
   des talents, atelier de la boutique, « (max) » des familiers) : nouvelle clé « max » (макс., 最大, máx.…). En
   japonais, « HP », « Lv », « pt » sont des choix de traduction (usage des jeux) : laissés. Capture russe des

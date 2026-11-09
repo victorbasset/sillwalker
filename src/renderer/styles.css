@@ -165,7 +165,7 @@ button { font: inherit; color: inherit; background: var(--chip); border: 2px sol
 button:hover:not(:disabled) { border-color: var(--accent); }
 button:active:not(:disabled) { transform: translateY(2px); box-shadow: none; }
 button:disabled { opacity: .45; cursor: not-allowed; }
-button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 button[aria-pressed="true"] { background: var(--accent); color: var(--panel); border-color: var(--accent); }
 button.quiet { font-size: 14px; }
 button.danger { border-color: var(--bad); color: var(--bad); }

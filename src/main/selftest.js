@@ -433,6 +433,9 @@ async function runSelfTest(strip) {
   // Pastille d'onglet plafonnée à « 99+ ».
   const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts; S.prestige.skillPts = 5000; window.__panel.renderAll(); const t = document.querySelector('[data-badge=skills]').textContent; S.prestige.skillPts = v; window.__panel.renderAll(); return t; })()");
   check("onglets : pastille plafonnée à 99+", bg === "99+", bg);
+  // Accessibilité : les blocs repliables (summary) ont un focus clavier visible (règle présente dans la feuille chargée).
+  const sf = await js("[...document.styleSheets].some((sh) => { try { return [...sh.cssRules].some((r) => /summary:focus-visible/.test(r.selectorText || '') && /outline/.test(r.cssText)); } catch { return false; } })");
+  check("accessibilité : focus clavier visible sur un bloc repliable", sf === true, String(sf));
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
