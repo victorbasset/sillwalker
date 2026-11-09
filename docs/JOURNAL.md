@@ -562,6 +562,9 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      à faire avec le point 5 (déblocage progressif), sans toucher aux parties déjà avancées.
   7. FAIT (it. 162). Thème sombre par défaut pour le panneau (aujourd'hui il suit Windows, clair par défaut) : sombre par défaut, avec
      un réglage pour revenir au clair (ou suivre Windows). Vérifier les captures des deux thèmes.
+  8. EN COURS (demande du 2026-11-09 après-midi) : on débloque encore tout trop vite : « aller jusqu'à 200 zones » et
+     répartir les déblocages (onglets et déblocages de boutique) dans le temps ; le joueur doit avoir le temps de
+     s'habituer à un onglet avant le suivant. Étape 1 : mesurer la progression réelle sur plusieurs jours simulés.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
