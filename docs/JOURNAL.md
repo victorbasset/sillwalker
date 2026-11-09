@@ -848,6 +848,9 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       boutons) sont aux deux bouts de l'écran : fatigant à regarder. Les regrouper au milieu, juste au-dessus de la
       bande (ou en dessous si la bande est en haut), dans une languette qui sert aussi de bouton pour déplier le
       panneau.
+  22. À FAIRE (2026-11-09) : prévenir quand le héros meurt plusieurs fois de suite dans la même zone (Victor ne
+      regarde pas toujours le jeu) : signal visible sans regarder (bulle persistante, repère sur la bande / le mode
+      mini / l'icône), avec les pistes utiles (équiper mieux, talents, revenir une zone en arrière, ascension).
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
