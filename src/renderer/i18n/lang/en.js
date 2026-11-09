@@ -501,4 +501,11 @@ export default {
   1625: "Your records and numbers.",
   1626: "Start over stronger thanks to star shards.",
   1627: "Later: a path from {0} points spent, masteries from {1}.",
+  1628: "Logbook",
+  1629: "Level {0} reached",
+  1630: "Record: zone {0}",
+  1631: "First legendary item",
+  1632: "Hero freed: {0}",
+  1633: "Ascension #{0}",
+  1634: "The big steps of your adventure will appear here.",
 };

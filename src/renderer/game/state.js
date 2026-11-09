@@ -53,7 +53,8 @@ export function freshState(now = Date.now()) {
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
-    tabsOpen: {},           // onglets du panneau déjà ouverts { id: true | "new" } (tabs.js : déblocage progressif)
+    tabsOpen: {},
+    journey: [],            // carnet de route : grandes étapes datées [{ t, k: lvl|zone|leg|cls|asc, v }] (game.milestone)           // onglets du panneau déjà ouverts { id: true | "new" } (tabs.js : déblocage progressif)
     setsDone: {},           // panoplies complétées (4 pièces portées) au moins une fois { id: true }, voir codex.js
   };
 }
@@ -186,6 +187,7 @@ export function migrate(raw) {
   // valeur par défaut, sinon il se propagerait (éclats, réputation, statistiques…) et pourrait bloquer la partie.
   // Onglets progressifs, apparus après coup : tout ce que le joueur connaissait déjà reste ouvert.
   if (!isObj(o.tabsOpen)) seedTabs(s);
+  s.journey = Array.isArray(s.journey) ? s.journey.filter((e) => isObj(e) && Number.isFinite(e.t) && typeof e.k === "string").slice(-120) : [];
   const ref = freshState(); // def a été fusionné dans s : référence intacte à part
   for (const k of ["stats", "prestige", "guild", "pets", "skills", "daily"]) {
     for (const f in ref[k]) if (typeof ref[k][f] === "number" && !Number.isFinite(s[k][f])) s[k][f] = ref[k][f];

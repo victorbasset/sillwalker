@@ -501,4 +501,11 @@ export default {
   1625: "Deine Rekorde und Zahlen.",
   1626: "Mit Sternensplittern stärker neu beginnen.",
   1627: "Später: ein Weg ab {0} ausgegebenen Punkten, Meisterschaften ab {1}.",
+  1628: "Logbuch",
+  1629: "Stufe {0} erreicht",
+  1630: "Rekord: Zone {0}",
+  1631: "Erster legendärer Gegenstand",
+  1632: "Held befreit: {0}",
+  1633: "Aufstieg Nr. {0}",
+  1634: "Die großen Etappen deines Spiels erscheinen hier.",
 };

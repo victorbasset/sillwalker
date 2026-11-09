@@ -1629,5 +1629,12 @@ export const KEYS = [
   "Un œuf ! Les familiers suivent ton héros et le renforcent.",
   "Tes records et tes chiffres.",
   "Recommencer plus fort grâce aux éclats d’étoile.",
-  "Plus tard : une voie dès {0} points dépensés, des maîtrises dès {1}."
+  "Plus tard : une voie dès {0} points dépensés, des maîtrises dès {1}.",
+  "Carnet de route",
+  "Niveau {0} atteint",
+  "Record : zone {0}",
+  "Premier objet légendaire",
+  "Héros libéré : {0}",
+  "Ascension n° {0}",
+  "Les grandes étapes de ta partie apparaîtront ici."
 ];

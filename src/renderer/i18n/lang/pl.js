@@ -501,4 +501,11 @@ export default {
   1625: "Twoje rekordy i liczby.",
   1626: "Zacznij od nowa silniejszy dzięki odłamkom gwiazd.",
   1627: "Później: ścieżka od {0} wydanych punktów, mistrzostwa od {1}.",
+  1628: "Dziennik podróży",
+  1629: "Osiągnięto poziom {0}",
+  1630: "Rekord: strefa {0}",
+  1631: "Pierwszy legendarny przedmiot",
+  1632: "Uwolniony bohater: {0}",
+  1633: "Wniebowstąpienie nr {0}",
+  1634: "Tu pojawią się najważniejsze etapy twojej gry.",
 };

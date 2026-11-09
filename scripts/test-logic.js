@@ -1458,6 +1458,18 @@ test("absence, sac plein : les objets gardés en remplacement sont comptés", ()
   assert.ok(sum.kept >= better, `gardés ${sum.kept}, meilleurs dans le sac ${better}`);
 });
 
+test("carnet de route : niveaux ronds, records par 5 zones, premier légendaire, ascension ; gardé et migré", () => {
+  const g = new Game(freshState());
+  g.gainXp(1e6);
+  assert.ok(g.S.journey.some((e) => e.k === "lvl" && e.v === 10), "niveau 10 noté");
+  g.milestone("zone", 5); g.milestone("leg");
+  const n = g.S.journey.length;
+  g.S.best = 30; if (g.canAscend()) { g.ascend(); assert.ok(g.S.journey.length >= n + 1, "gardé à l'ascension, ascension notée"); assert.ok(g.S.journey.some((e) => e.k === "asc")); }
+  const raw = JSON.parse(JSON.stringify(freshLocked())); raw.journey = [null, { t: "x", k: "lvl" }, { t: 5, k: "zone", v: 10 }];
+  assert.deepEqual(migrate(raw).journey, [{ t: 5, k: "zone", v: 10 }]);
+  delete raw.journey; assert.deepEqual(migrate(raw).journey, []);
+});
+
 test("quêtes : pas de forge, de transmutation ni d'élites avant qu'elles soient possibles", () => {
   const S = freshLocked();
   setRandom(seeded(5));

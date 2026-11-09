@@ -10,6 +10,7 @@
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
 import { openTabs, tabReady } from "./tabs.js";
+const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 import { t as tx, txn, tr, fsp, lc } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
@@ -93,6 +94,13 @@ export class Game {
   /** Version mise en cache (recalculée après chaque changement d'état). */
   hasUpgradeCached() { return (this._upgrade ??= this.hasUpgrade()); }
   talentPointsFree() { return talentPointsFree(this.S); }
+  /** Carnet de route (onglet Statistiques) : grandes étapes datées, gardées à l'ascension (120 au plus). */
+  milestone(k, v) {
+    const J = Array.isArray(this.S.journey) ? this.S.journey : (this.S.journey = []);
+    J.push(v === undefined ? { t: Date.now(), k } : { t: Date.now(), k, v });
+    if (J.length > JOURNEY_MAX) J.splice(0, J.length - JOURNEY_MAX);
+  }
+  noteLevels(from, to) { for (const l of JOURNEY_LEVELS) if (l > from && l <= to) this.milestone("lvl", l); }
   bagFull() { return this.S.bag.length >= this.S.bagSize; }
   findBagItem(id) { return this.S.bag.find((i) => i.id === id) || null; }
 
@@ -454,7 +462,9 @@ export class Game {
     const S = this.S;
     S.xp += x;
     let up = false;
+    const lvlBefore = S.lvl;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; up = true; }
+    if (up) this.noteLevels(lvlBefore, S.lvl);
     if (up) {
       this.invalidateStats();
       this.R.hp = this.stats().hp;
@@ -472,7 +482,7 @@ export class Game {
   newItem(minRarity, zone = this.S.zone) {
     const it = this.decorate(rollItem(this.S.nextId++, zone, minRarity));
     this.S.stats.items = (this.S.stats.items || 0) + 1;
-    if (it.r === LEGENDARY) this.S.stats.legendaries++;
+    if (it.r === LEGENDARY && ++this.S.stats.legendaries === 1) this.milestone("leg");
     const newPower = it.power && !(this.S.powersSeen || {})[it.power];
     const fresh = codexRecord(this.S, it);
     if (newPower) this.log(`${tx("Nouveau pouvoir légendaire découvert : {0} !", { 0: POWER_INDEX[it.power]?.name || it.power })}`);
@@ -589,6 +599,7 @@ export class Game {
         S.zone++;
         S.best = Math.max(S.best, S.zone);
         this.emit("zoneUp", { zone: S.zone, record });
+        if (record && S.zone % 5 === 0) this.milestone("zone", S.zone);
         this.questProgress("zone", 0);
         this.log(`${m.name || tx("Boss")} ${tx("vaincu ! En route vers : {0}.", { 0: zoneName(S.zone) })}`);
       } else this.log(tx("Boss vaincu ! Ton héros reste farmer ici."));
@@ -675,6 +686,7 @@ export class Game {
     this.petGainXp(Math.floor(kills / 2));
     S.xp += xp;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; }
+    this.noteLevels(lvl0, S.lvl);
     // Grimoire de l'éveil : les points gagnés pendant l'absence se dépensent comme en jeu (sinon ils attendaient le niveau suivant).
     if (S.lvl > lvl0 && hasUnlock(S, "autoLevel")) {
       this.invalidateStats();
@@ -937,6 +949,7 @@ export class Game {
     U.push(cls);
     this.log(`${tx("Héros libéré : {0} ! Choisis-le dans l’onglet Classe pour ta prochaine ascension.", { 0: CLASSES[cls].name })}`);
     this.emit("classUnlock", { cls });
+    this.milestone("cls", cls);
     this.changed();
     return cls;
   }
@@ -1206,7 +1219,7 @@ export class Game {
     if (!it || this.bagFull() || !this.pay(it.price)) return false;
     shop.items = shop.items.filter((i) => i !== it);
     delete it.price; delete it.deal;
-    if (it.r === LEGENDARY) S.stats.legendaries++;
+    if (it.r === LEGENDARY && ++S.stats.legendaries === 1) this.milestone("leg");
     S.bag.push(it);
     this.log(tx("Acheté au marchand : ") + itemName(it) + ".");
     this.changed();
@@ -1612,7 +1625,7 @@ export class Game {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, journey: old.journey || [], nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = ascendStartZone(eff, old.best);
@@ -1620,6 +1633,7 @@ export class Game {
     if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
     this.log(`${tx("Ascension n° {0} : +{1} éclats d’étoile et +{2} points de compétence permanents. Une nouvelle aventure commence{3} !", { 0: P.count, 1: gain, 2: skillGain, 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
+    this.milestone("asc", P.count);
     this.emit("ascend", { count: P.count, gain });
     this.changed();
     return true;

@@ -501,4 +501,11 @@ export default {
   1625: "Seus recordes e números.",
   1626: "Recomece mais forte graças aos fragmentos de estrela.",
   1627: "Mais tarde: um caminho a partir de {0} pontos gastos, maestrias a partir de {1}.",
+  1628: "Diário de bordo",
+  1629: "Nível {0} alcançado",
+  1630: "Recorde: zona {0}",
+  1631: "Primeiro item lendário",
+  1632: "Herói libertado: {0}",
+  1633: "Ascensão nº {0}",
+  1634: "As grandes etapas da sua partida aparecerão aqui.",
 };

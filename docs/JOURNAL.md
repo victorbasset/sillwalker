@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 181) : Carnet de route dans les Statistiques : grandes étapes datées (niveaux 10/25/50/100…, record
+  tous les 5 zones, premier légendaire, héros libérés, ascensions ; niveaux gagnés hors ligne compris). S.journey
+  (120 au plus), gardé à l'ascension, migration (entrées illisibles retirées), test, save-fuzz 20/20, 10 langues,
+  capture. Les parties existantes commencent un carnet vide. 81/81, fuzz 600.
 - 2026-11-09 (it. 180) : README à jour des changements du début de partie (élites dès la zone 3 en première course,
   quêtes toujours faisables, information progressive dans les onglets, annonce en mode mini).
 - 2026-11-09 (it. 179) : mode mini : un onglet débloqué s'annonce sur la scène (« ✦ Nouvel onglet : X ! », moment

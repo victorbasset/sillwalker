@@ -25,6 +25,7 @@ const cases = {
   logBad: (o) => { o.log = [null, 5, {}]; },
   tabsBad: (o) => { o.tabsOpen = { talents: null, nope: "x", shop: 5 }; },
   tabsNotObj: (o) => { o.tabsOpen = "x"; },
+  journeyBad: (o) => { o.journey = [null, 5, { t: "x" }, { t: 1, k: "zone", v: 5 }, { t: 2, k: "nope" }]; },
   themeBad: (o) => { o.settings.theme = 42; },
   settingsBad: (o) => { o.settings = { lang: 42, autoPets: "x", hints: null }; },
 };

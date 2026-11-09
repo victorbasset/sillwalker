@@ -1,5 +1,5 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
-import { t as tx } from "../../i18n/index.js";
+import { t as tx, getLang } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { ACHIEVEMENTS, reachedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
@@ -17,6 +17,25 @@ const dur = (s) => {
   const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
   return (d ? tx("{0} j", { 0: d }) + " " : "") + (d || h ? h + " h " : "") + m + " min";
 };
+
+// Carnet de route : grandes étapes datées de la partie (game.milestone), les plus récentes d'abord.
+const LOCALES = { fr: "fr-FR", en: "en-GB", es: "es-ES", pt: "pt-BR", de: "de-DE", pl: "pl-PL", ru: "ru-RU", zh: "zh-CN", ja: "ja-JP", ko: "ko-KR" };
+function journeyText(e) {
+  if (e.k === "lvl") return tx("Niveau {0} atteint", { 0: fmt(e.v) });
+  if (e.k === "zone") return tx("Record : zone {0}", { 0: e.v });
+  if (e.k === "leg") return tx("Premier objet légendaire");
+  if (e.k === "cls") return tx("Héros libéré : {0}", { 0: (CLASSES[e.v] || {}).name || "?" });
+  if (e.k === "asc") return tx("Ascension n° {0}", { 0: e.v });
+  return "";
+}
+function journeyHTML(S) {
+  const J = (Array.isArray(S.journey) ? S.journey : []).filter((e) => journeyText(e)).slice(-30).reverse();
+  let date = () => "";
+  try { const f = new Intl.DateTimeFormat(LOCALES[getLang()] || undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }); date = (t) => f.format(new Date(t)); } catch { /* Intl indisponible */ }
+  return `<article class="panel journey"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Carnet de route")}</span></h2>
+    ${J.length ? `<ul class="lines">${J.map((e) => `<li><span>${esc(journeyText(e))}</span><b class="note">${esc(date(e.t))}</b></li>`).join("")}</ul>`
+      : `<p class="note">${tx("Les grandes étapes de ta partie apparaîtront ici.")}</p>`}</article>`;
+}
 
 export class StatsTab {
   constructor(game) { this.game = game; }
@@ -68,6 +87,7 @@ export class StatsTab {
         ${line(tx("Expéditions de familiers"), fmt(st.expeditions || 0))}
         ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
       </ul></article>
+      ${journeyHTML(S)}
       <article class="panel wide"><h2><span class="hicon"><img src="${shopIconURL("luck", 3)}" alt="">${tx("Probabilités")}</span></h2><ul class="lines">
         ${line(tx("Plume du vent (+1 % de vitesse)"), `${pct(FEATHER.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(FEATHER.elite), 1: pct(FEATHER.boss) })}`)}
         ${line(tx("Étoile filante (+2 % de vitesse)"), `${tx("toutes les {0}–{1} min", { 0: STAR.minS / 60, 1: STAR.maxS / 60 })}`)}
