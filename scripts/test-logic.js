@@ -1269,6 +1269,21 @@ test("quête d'événements rares : chaque événement compte", () => {
   assert.match(M_quests_js.QUEST_TEMPLATES.event.text({ goal: 2 }), /2/);
 });
 
+test("quêtes : un type inconnu (autre version) est remplacé au chargement, sans plantage", () => {
+  const S = freshLocked();
+  S.quests.slots = [{ uid: 1, kind: "voyage_temporel", goal: 3, progress: 0, stars: 1, reward: { gold: 1 } },
+    { uid: 2, kind: "hunt", type: "dragon_inexistant", goal: 3, progress: 0, stars: 1, reward: { gold: 1 } },
+    { uid: 3, kind: "kill", goal: 40, progress: 5, stars: 1, reward: { gold: 1 } }];
+  const g = new Game(migrate(JSON.parse(JSON.stringify(S))));
+  g.ensureQuests();
+  assert.equal(g.S.quests.slots.length, 3);
+  assert.ok(g.S.quests.slots.every((q) => M_quests_js.QUEST_TEMPLATES[q.kind]), JSON.stringify(g.S.quests.slots.map((q) => q.kind)));
+  assert.ok(g.S.quests.slots.some((q) => q.uid === 3 && q.progress === 5), "la quête valide est gardée");
+  for (const q of g.S.quests.slots) assert.equal(typeof M_quests_js.QUEST_TEMPLATES[q.kind].text(q), "string");
+  g.S.pets.owned.licorne_future = { lvl: 1, xp: 0 }; // familier d'une autre version
+  assert.ok(!g.idlePets().includes("licorne_future"));
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

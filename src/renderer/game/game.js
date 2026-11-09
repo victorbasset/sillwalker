@@ -33,7 +33,7 @@ import { POWERS, POWER_INDEX } from "./powers.js";
 import { SETS, setCounts } from "./sets.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
-import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
+import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
 import { bossMechanics, bossName, FURY, bossWear } from "./bosses.js";
@@ -1264,6 +1264,10 @@ export class Game {
   ensureQuests() {
     const Q = this.S.quests;
     let added = false;
+    // Quête illisible (type inconnu : sauvegarde d'une autre version ; chasse d'un monstre disparu) :
+    // remplacée au lieu de casser l'onglet Quêtes.
+    const ok = Q.slots.filter((q) => q && QUEST_TEMPLATES[q.kind] && (q.kind !== "hunt" || MONSTERS[q.type]));
+    if (ok.length !== Q.slots.length) { Q.slots = ok; added = true; }
     while (Q.slots.length < QUEST_SLOTS) {
       Q.slots.push(makeQuest(this.S, Q.nextUid++, Q.slots.map((q) => q.kind)));
       added = true;
@@ -1456,7 +1460,7 @@ export class Game {
   /** Familiers libres (ni actif, ni déjà partis). */
   idlePets() {
     const P = this.S.pets, E = P.exp || {};
-    return Object.keys(P.owned).filter((id) => id !== P.active && !E[id]);
+    return Object.keys(P.owned).filter((id) => id !== P.active && !E[id] && PET_INDEX[id]); // familier inconnu (autre version) : ignoré
   }
 
   /** Envoie tous les familiers libres dans la même expédition. Renvoie leur nombre. */
