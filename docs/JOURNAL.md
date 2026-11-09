@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 208) : liste des idées du journal remise à jour (performance aux chiffres récents ; progression
+  lointaine marquée résolue, avec la piste suivante).
 - 2026-11-09 (it. 207) : grands paliers de record (zones 50, 100, 150, 200…) : bannière dorée « ✦ Cap franchi : zone
   N ! », son des grandes occasions, même texte en mode mini (les autres records restent sobres). 10 langues, contrôle
   d'autotest (86/86).
@@ -632,13 +634,11 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - P3 Anciennes clés « (s) » devenues inutilisées dans keys.js (objet(s)…) : sans effet, à laisser
   (l'ordre des clés ne doit pas bouger).
-- P2 Performance (revues it. 11, 21, 31 ; it. 50 : −27 % sur batterie ; it. 52 : −58 % en absence) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
-  icône seule <1 %. Mémoire ~560-680 Mo (Electron).
+- P2 Performance (revues it. 11 à 200) : bande ~17-19 % d'un cœur, panneau ~18-21 %, mini ~4 %, icône ~0,5 % (sous
+  xvfb, depuis l'it. 163) ; mémoire ~700 Mo stable dans la durée (scripts/mem-watch.sh, it. 194).
   Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
-- P2 Progression lointaine (revue it. 11, simulations 12 h guerrier/mage/rôdeur) : tous les déblocages sont
-  acquis vers 5 h 30-6 h 15 de jeu ; ensuite plus aucun objectif de boutique. Une course sur 3-4 ne bat pas
-  le record (ex. 42 → 42, 50 → 50, ~1 h). Fait (it. 12) : Maître de forge en zone 50 (~7 h). Fait (it. 13) :
-  record à battre affiché sur la bande. Fait (it. 18) :
-  Filet à étoiles en zone 55 (~8-10 h). Fait (it. 23) : Astrolabe en zone 60.
-  Fait (it. 24) : record en bulle d'aide dans le mode mini.
+- P2 Progression lointaine : RÉSOLU (it. 196-205). Avant : plus aucun déblocage après ~6 h et mur vers la zone 71.
+  Maintenant : onglets étalés jusqu'à la zone 40, déblocages jusqu'à la zone 200, monstres adoucis après la zone 60
+  (zoneMight) ; semaine simulée : guerrier 161, mage ~150. Piste suivante possible : de nouveaux objectifs au-delà
+  de la zone 200 (constellations, panoplies), quand un joueur s'en approchera.
