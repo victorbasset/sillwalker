@@ -45,6 +45,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
+  `SEED=<n>` devant la commande change la trajectoire aléatoire (graine 7 par défaut) : utile pour savoir si un
+  écart vu sur une seule simulation est du hasard (lancer 5 graines).
 - Une seule simulation suit une trajectoire aléatoire fixe : pour juger un changement d'équilibrage,
   `node scripts/balance.mjs 12 <commit>` compare le record moyen en 12 h des 10 classes entre ce commit et
   l'état actuel (≈ 1 min 15) ; un écart de ±1,5 zone est du bruit. À lancer après tout ajout qui touche aux combats.

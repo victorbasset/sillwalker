@@ -12,7 +12,7 @@ import { fmt } from "../src/renderer/game/format.js";
 import { nextUnlock, unlockAvailable } from "../src/renderer/game/unlocks.js";
 
 const HOURS = +process.argv[2] || 12, CLS = process.argv[3] || "warrior";
-setRandom(seeded(7));
+setRandom(seeded(+process.env.SEED || 7)); // SEED=… pour une autre trajectoire
 const g = new Game(freshState());
 g.setClass(CLS);
 
