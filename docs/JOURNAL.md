@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 201) : fin de partie vérifiée sur des classes plus fragiles (semaine simulée) : mage 144, nécromancien
+  143 (guerrier 161) : plus de mur vers 71. Bond vers la zone 100 (99 → 137 en quelques courses), sans doute un
+  déblocage de ce palier (Valet d'armes ?) : non vérifié, à surveiller. La carte du héros montre déjà la progression
+  vers un déblocage lointain (« Zone record 115 (53 / 115) » et barre) : rien à changer.
 - 2026-11-09 (it. 200, revue générale) : README à jour (déblocages étalés jusqu'à la zone 200, section Fin de
   partie). Simulation 12 h : guerrier 53, mage 53, assassin 54 (−4 à −8 zones, déblocages plus tardifs, voulu ; la
   semaine simulée atteint la zone 161). Texte russe sans mot latin non traduit. Performance stable (bande 18 %,
