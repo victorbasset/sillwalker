@@ -476,19 +476,20 @@ export class Game {
 
   /** Ventes automatiques regroupées en une seule ligne du journal (au lieu d'une ligne par objet). */
   logSale(kind, label, v) {
-    const L = this.S.log, R = this.R;
-    // La ligne de ventes reste un cumul tant qu'elle est parmi les dernières du journal
+    const L = this.S.log, lines = (this.R.saleLines ||= {}), cur = lines[kind];
+    // Ligne cumulée (ventes, élites) tant qu'elle est parmi les dernières du journal, suivie par sorte
     // (sinon chaque élite ou boss vaincu relançait une nouvelle ligne : des centaines par heure).
-    const at = R.saleLine && R.saleLine.kind === kind ? L.indexOf(R.saleLine.text) : -1;
+    const at = cur ? L.indexOf(cur.text) : -1;
     if (at >= 0 && at < LOG_MERGE) {
-      R.saleLine.n++; R.saleLine.gold += v;
-      L[at] = R.saleLine.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: R.saleLine.n, 1: fmt(R.saleLine.gold) })}`;
+      cur.n++; cur.gold += v;
+      L[at] = cur.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: cur.n, 1: fmt(cur.gold) })}`;
       this.emit("log", L[at]);
       return;
     }
-    R.saleLine = { kind, n: 1, gold: v, text: `${label}${fsp()}${tx(": 1 (+{0} or).", { 0: fmt(v) })}` };
-    this.log(R.saleLine.text);
+    lines[kind] = { n: 1, gold: v, text: `${label}${fsp()}${tx(": 1 (+{0} or).", { 0: fmt(v) })}` };
+    this.log(lines[kind].text);
   }
+
 
   addToBag(it, quiet) {
     const S = this.S, r = RARITIES[it.r];
@@ -553,7 +554,7 @@ export class Game {
       this.addToBag(it);
     }
     if (m.champion) { S.stats.champions = (S.stats.champions || 0) + 1; this.log(`${tx("Champion vaincu : {0} or et un butin épique !", { 0: fmt(gold) })}`); }
-    else if (m.elite) this.log(`${tx("Élite vaincu : {0} or !", { 0: fmt(gold) })}`);
+    else if (m.elite) this.logSale("elite", tx("Élites vaincues"), gold); // cumul : une ligne au lieu d'une par élite
     if (m.boss) {
       S.stats.bosses++;
       const tries = (S.bossDefeats && S.bossDefeats[S.zone]) || 0;

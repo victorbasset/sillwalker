@@ -1213,6 +1213,8 @@ test("journal : les ventes « sac plein » restent un cumul malgré quelques lig
   const sales = g.S.log.filter((l) => /Sac plein, objets vendus/.test(l));
   assert.equal(sales.length, 1, JSON.stringify(g.S.log.slice(0, 8)));
   assert.match(sales[0], /10/);
+  g.logSale("elite", "Élites vaincues", 40); // une autre sorte de cumul ne casse pas celui des ventes
+  assert.equal(g.S.log.filter((l) => /Sac plein, objets vendus/.test(l)).length, 1);
   for (let i = 0; i < 11; i++) g.log("autre ligne " + i); // la ligne s'éloigne : une nouvelle commence
   g.logSale("full", "Sac plein, objets vendus", 5);
   assert.equal(g.S.log.filter((l) => /Sac plein, objets vendus/.test(l)).length, 2);

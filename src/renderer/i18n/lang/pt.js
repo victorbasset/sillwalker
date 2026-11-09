@@ -444,4 +444,5 @@ export default {
   1568: "{n} ovo chocado|{n} ovos chocados",
   1569: "{n} mascote enviado de novo|{n} mascotes enviados de novo",
   1570: "Grande intendente: {0}.",
+  1571: "Elites derrotados",
 };

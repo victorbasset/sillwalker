@@ -444,4 +444,5 @@ export default {
   1568: "{n} egg hatched|{n} eggs hatched",
   1569: "{n} pet sent off again|{n} pets sent off again",
   1570: "Grand Steward: {0}.",
+  1571: "Elites defeated",
 };

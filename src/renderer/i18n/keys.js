@@ -1572,5 +1572,6 @@ export const KEYS = [
   "{n} objet trouvé|{n} objets trouvés",
   "{n} œuf éclos|{n} œufs éclos",
   "{n} familier reparti|{n} familiers repartis",
-  "Grand intendant : {0}."
+  "Grand intendant : {0}.",
+  "Élites vaincues"
 ];
