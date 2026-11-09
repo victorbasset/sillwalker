@@ -460,4 +460,5 @@ export default {
   1584: "Ich wusste, dass ich es schaffe.",
   1585: "{n} seltenes Ereignis erleben|{n} seltene Ereignisse erleben",
   1586: "klicken zum Kaufen ({0} Gold)",
+  1587: "Kaufen: {0} ({1} Gold)",
 };

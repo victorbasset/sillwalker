@@ -282,7 +282,9 @@ export class Panel {
     const list = this.game.todoNow();
     if (!list.length) return "";
     return `<h3 class="todo-h">${tx("À faire maintenant")}</h3>
-      ${list.map((t) => `<button class="linkbtn" data-tab="${t.tab}">${esc(todoLabel(t))} →</button>`).join("")}`;
+      ${list.map((t) => t.id === "unlock" && t.uid // déblocage payable : acheté d'un clic, comme depuis la carte du héros
+        ? `<button class="linkbtn" data-action="goal-buy" data-id="${t.uid}">${esc(tx("Acheter : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
+        : `<button class="linkbtn" data-tab="${t.tab}">${esc(todoLabel(t))} →</button>`).join("")}`;
   }
 
 
@@ -540,7 +542,7 @@ export class Panel {
       if (it) this.revealChest(b.dataset.id, it);
       return;
     }
-    if (a === "goal-buy") { g.buyUnlock(b.dataset.id); this.renderAll(); return; }
+    if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }
     const owner = TABS.find((x) => x.prefix && a.startsWith(x.prefix));
     if (owner) { this.tabs[owner.id].onAction(a, b); this.renderAll(); return; }

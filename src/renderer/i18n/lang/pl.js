@@ -460,4 +460,5 @@ export default {
   1584: "Wiedziałem, że dam radę.",
   1585: "Przeżyj {n} rzadkie zdarzenie|Przeżyj {n} rzadkie zdarzenia|Przeżyj {n} rzadkich zdarzeń",
   1586: "kliknij, aby kupić ({0} złota)",
+  1587: "Kup: {0} ({1} złota)",
 };
