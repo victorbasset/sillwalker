@@ -20,7 +20,7 @@ const dur = (s) => {
 
 // Carnet de route : grandes étapes datées de la partie (game.milestone), les plus récentes d'abord.
 const LOCALES = { fr: "fr-FR", en: "en-GB", es: "es-ES", pt: "pt-BR", de: "de-DE", pl: "pl-PL", ru: "ru-RU", zh: "zh-CN", ja: "ja-JP", ko: "ko-KR" };
-function journeyText(e) {
+export function journeyText(e) {
   if (e.k === "lvl") return tx("Niveau {0} atteint", { 0: fmt(e.v) });
   if (e.k === "zone") return tx("Record : zone {0}", { 0: e.v });
   if (e.k === "leg") return tx("Premier objet légendaire");

@@ -1446,6 +1446,14 @@ test("liens « 🔒 déblocage » : pas avant la boutique, pas pour un déblocag
   assert.match(lockLink(S, far.id), /🔒/, "proche : annoncé");
 });
 
+test("absence : les étapes du carnet franchies hors ligne sont dans le résumé", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 9; g.S.xp = 0;
+  const sum = g.applyOffline(8 * 3600);
+  assert.ok(g.S.lvl >= 10, "niveau 10 franchi");
+  assert.ok(sum.steps.some((e) => e.k === "lvl" && e.v === 10), JSON.stringify(sum.steps));
+});
+
 test("absence, sac plein : les objets gardés en remplacement sont comptés", () => {
   const g = new Game(freshState());
   g.S.best = g.S.zone = 20;

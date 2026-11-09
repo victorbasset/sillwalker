@@ -32,6 +32,7 @@ import { activeDayMod } from "../game/daymods.js";
 import { BOSS_MECHANICS, bossMechanics, bossName, bossWear } from "../game/bosses.js";
 import { lockLink } from "./locks.js";
 import { tabOpen, TAB_GATES } from "../game/tabs.js";
+import { journeyText } from "./tabs/stats.js";
 import { hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 
 const $ = (root, s) => root.querySelector(s);
@@ -269,6 +270,7 @@ export class Panel {
         <li><span>${tx("Or gagné")}</span><b>+${fmt(sum.gold)}</b></li>
         <li><span>${tx("Expérience")}</span><b>+${fmt(sum.xp)}</b></li>
         ${sum.newLevel ? `<li><span>${tx("Nouveau niveau")}</span><b>${sum.newLevel}</b></li>` : ""}
+        ${(sum.steps || []).map((e) => journeyText(e)).filter(Boolean).map((t) => `<li class="step"><span>✦ ${esc(t)}</span></li>`).join("")}
         <li><span>${tx("Objets gardés")}</span><b>${sum.kept}</b></li>${best}
         ${sum.feathers ? `<li><span>${tx("Plumes du vent")}</span><b>${tx("+{0} % de vitesse", { 0: sum.feathers })}</b></li>` : ""}
         ${sum.chests ? `<li><span>${tx("Coffres au trésor")}</span><b>${sum.chests}</b></li>` : ""}

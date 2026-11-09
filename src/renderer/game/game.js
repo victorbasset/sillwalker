@@ -672,7 +672,7 @@ export class Game {
     for (const id in S.buffs) S.buffs[id] = Math.max(0, (S.buffs[id] || 0) - sec);
     this.invalidateStats();
     if (kills < 1) return null;
-    const bagBefore = new Set(S.bag.map((i) => i.id)), lvl0 = S.lvl;
+    const bagBefore = new Set(S.bag.map((i) => i.id)), lvl0 = S.lvl, journey0 = (S.journey || []).length;
     const gold = Math.round(kills * b.gold * earlyPace(S) * (1 + hs.gold / 100 + 0.5 * share("fortune")));
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
@@ -723,6 +723,7 @@ export class Game {
     const summary = {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
+      steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, transmuted, petWork,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
