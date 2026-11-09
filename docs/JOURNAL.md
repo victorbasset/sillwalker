@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 91) : REVUE GÉNÉRALE. Simulation 12 h : assassin 56 (3 courses à 56), moine 56 (1re course de
+  160 min), berserker 60. Fuzz 300 parties : 0 bloquée. Performance stable : bande 34,1 %, panneau 35,7 %,
+  mini 6,6 %, icône 0,6 % ; mémoire 566-682 Mo. Captures (Boutique, Classe, Bestiaire en chinois ; Aventure en
+  anglais sombre ; mini en français) : lisibles. Texte russe : aucun mot non traduit.
 - 2026-11-09 (it. 90) : carte du sac plus compacte : les trois cases de vente automatique tiennent sur une ligne
   (« Vendre dès qu'ils tombent : ☐ commun ☐ peu commun ☐ rare », libellé complet au survol) ; les options du
   Creuset et du Maître de forge restent visibles sans défiler. Case du Creuset vérifiée en capture (allemand).
@@ -224,6 +228,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
+- P3 Bande (revue it. 91) : à l'approche d'un boss, la bulle du héros (« Il a l'air costaud… ») recouvre en partie le
+  nom du boss en haut à droite ; décaler la bulle ou la taire pendant l'annonce.
+- P3 Équilibrage (revue it. 91) : moine, 1re course de 160 min (autres classes ~80) ; assassin 3 courses à 56.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
