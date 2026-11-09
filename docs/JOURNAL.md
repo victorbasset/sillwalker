@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 209, signalé par Victor) : le lien « N points de talent à dépenser → » de la carte du héros
+  apparaissait avant l'ouverture de l'onglet Talents (point gagné au niveau 2, souvent avant la zone 2) ; de même
+  « Plus de potions : la boutique en vend → » avant la Boutique (zone 8). Les deux vérifient l'onglet, et tout lien
+  interne (.linkbtn, .goal) vers un onglet fermé est caché par renderBadges. Contrôle d'autotest (il échoue sans la
+  correction : vérifié). 87/87. Mesuré au passage : premier déblocage (300 or et zone 3) vers 6-8 min.
 - 2026-11-09 (it. 208) : liste des idées du journal remise à jour (performance aux chiffres récents ; progression
   lointaine marquée résolue, avec la piste suivante).
 - 2026-11-09 (it. 207) : grands paliers de record (zones 50, 100, 150, 200…) : bannière dorée « ✦ Cap franchi : zone

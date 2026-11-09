@@ -360,6 +360,8 @@ export class Panel {
       // Onglet pas encore débloqué (tabs.js) : bouton caché ; tout juste débloqué : pastille ✦ jusqu'à la visite.
       const btn = $(this.root, `[data-tab="${t.id}"]`), open = tabOpen(S, t.id);
       if (btn && btn.hidden === open) btn.hidden = !open;
+      // Liens internes vers un onglet encore fermé (cartes, conseils…) : cachés, ils ne mèneraient nulle part.
+      if (!open) for (const l of this.root.querySelectorAll(`.linkbtn[data-tab="${t.id}"], .goal[data-tab="${t.id}"]`)) l.hidden = true;
       const isNew = open && S.tabsOpen && S.tabsOpen[t.id] === "new";
       // Pastille plafonnée à « 99+ » (686 points de compétence élargissaient l'onglet ; le nombre exact est dans l'onglet).
       const raw = (tab0 => (tab0 && open ? tab0.badge() : ""))(this.tabs[t.id]);
@@ -441,8 +443,8 @@ export class Panel {
         <div class="tile"><img src="${shopIconURL("ws_hp", 3)}" alt=""><span>${tx("Défense")}</span><b>${fmtStat("def", hs.def)}</b></div>
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
       </div>
-      ${S.potions === 0 ? `<button class="linkbtn warn" data-tab="shop">${tx("Plus de potions de soin : la boutique en vend →")}</button>` : ""}
-      ${free > 0 ? `<button class="linkbtn" data-tab="talents">${txn(free, "{n} point de talent à dépenser →|{n} points de talent à dépenser →")}</button>` : ""}
+      ${S.potions === 0 && tabOpen(S, "shop") ? `<button class="linkbtn warn" data-tab="shop">${tx("Plus de potions de soin : la boutique en vend →")}</button>` : ""}
+      ${free > 0 && tabOpen(S, "talents") ? `<button class="linkbtn" data-tab="talents">${txn(free, "{n} point de talent à dépenser →|{n} points de talent à dépenser →")}</button>` : ""}
       ${this.visitHTML()}${this.goalHTML(S)}
       ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
       ${this.todoBox()}
