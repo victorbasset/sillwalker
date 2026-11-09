@@ -825,4 +825,7 @@ export default {
   1949: "Pierwszy duet",
   1950: "Dziesięciu bohaterów uwolnionych",
   1951: "Wszyscy bohaterowie uwolnieni",
+  1952: "Graj po wniebowstąpieniu",
+  1953: "Duet po wniebowstąpieniu",
+  1954: "Weź do duetu",
 };

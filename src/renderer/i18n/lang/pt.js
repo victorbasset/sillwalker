@@ -825,4 +825,7 @@ export default {
   1949: "Primeira dupla",
   1950: "Dez heróis libertados",
   1951: "Todos os heróis libertados",
+  1952: "Jogar na ascensão",
+  1953: "Dupla na ascensão",
+  1954: "Formar dupla",
 };

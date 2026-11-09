@@ -825,4 +825,7 @@ export default {
   1949: "First Duo",
   1950: "Ten Heroes Freed",
   1951: "All Heroes Freed",
+  1952: "Play at ascension",
+  1953: "Duo at ascension",
+  1954: "Take as duo",
 };

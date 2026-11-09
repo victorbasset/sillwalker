@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 272) : onglet Héros plus compact (demande 18) : boutons courts côte à côte (« Jouer à
+  l’ascension », « Prendre en duo », texte complet en infobulle), portrait 48 px, modificateurs en 12 px : ~60 px de
+  moins par rangée de cartes. 3 textes × 9 langues, captures fr 1920 / de 1366, 103/103.
 - 2026-11-09 (it. 271) : Bestiaire compact (demande 18) : fiches d'une ligne de nom (coupé, nom entier en infobulle
   avec les zones), icône 24 px, colonnes de 148 px : à 1920 px les 83 monstres tiennent sans défilement (avant :
   306 px de trop) ; à 1366 px il reste ~2 rangées. Corrigé : « aucun » non traduit dans la Collection d'objets.

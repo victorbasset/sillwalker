@@ -40,12 +40,13 @@ export class ClassesTab {
       const spent = talentPointsSpent(S, k), chosen = next === k;
       const action = cur && chosen ? `<button disabled>${tx("Héros actuel")}</button>`
         : chosen ? `<button disabled class="primary">${tx("Choisi pour l’ascension ✓")}</button>`
-        : `<button data-action="c-pick" data-id="${k}">${cur ? tx("Garder ce héros") : tx("Choisir pour la prochaine ascension")}</button>`;
+        : cur ? `<button data-action="c-pick" data-id="${k}">${tx("Garder ce héros")}</button>`
+        : `<button data-action="c-pick" data-id="${k}" title="${esc(tx("Choisir pour la prochaine ascension"))}">${tx("Jouer à l’ascension")}</button>`;
       // Duo (demande 17) : ce héros peut-il accompagner le héros principal (actuel ou prévu) ? Autre portée seulement.
       const isPartner = S.partner === k, nextPartner = S.nextPartner === k;
       const duo = isPartner ? `<button disabled>${tx("Compagnon actuel")}</button>`
         : nextPartner ? `<button disabled class="primary">${tx("Compagnon à l’ascension ✓")}</button>`
-        : canPartner(S, next, k) ? `<button data-action="c-partner" data-id="${k}">${S.partner ? tx("Compagnon pour la prochaine ascension") : tx("Prendre comme compagnon")}</button>` : "";
+        : canPartner(S, next, k) ? `<button data-action="c-partner" data-id="${k}" title="${esc(S.partner ? tx("Compagnon pour la prochaine ascension") : tx("Prendre comme compagnon"))}">${S.partner ? tx("Duo à l’ascension") : tx("Prendre en duo")}</button>` : "";
       // Carte compacte (demande 18) : description d'ambiance en infobulle, modificateurs sur une ligne.
       return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}${isPartner ? " partner" : ""}" title="${esc(c.desc)}">
         <div class="detail-head"><img src="${classPortraitURL(k)}" alt=""><div>

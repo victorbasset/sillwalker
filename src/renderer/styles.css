@@ -835,3 +835,8 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Compagnon du duo dans la carte du héros */
 .hname .duotag { font-size: 14px; margin-left: 6px; color: var(--good); display: inline-flex; align-items: center; gap: 3px; }
 .hname .duotag img { width: 20px; height: 20px; image-rendering: pixelated; }
+/* Héros (demande 18) : cartes plus basses, boutons courts côte à côte. */
+.classcard .mods, .classcard .passive { font-size: 12px; margin: 4px 0; }
+.classcard > .row:last-child { flex-wrap: nowrap; gap: 6px; }
+.classcard > .row:last-child button { flex: 1 1 0; min-width: 0; font-size: 13px; padding: 4px 6px; line-height: 1.2; }
+.classcard .detail-head img { width: 48px; }

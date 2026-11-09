@@ -1953,5 +1953,8 @@ export const KEYS = [
   "Voie de la précision",
   "Premier duo",
   "Dix héros libérés",
-  "Tous les héros libérés"
+  "Tous les héros libérés",
+  "Jouer à l’ascension",
+  "Duo à l’ascension",
+  "Prendre en duo"
 ];
