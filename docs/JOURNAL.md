@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 293, demande 35, étape 1 « gravure pixel ») : cadres pixel art à coins entaillés pour les grands
+  panneaux (image 9 parties générée en SVG, une par thème : --frame ; liseré clair en haut, ombré en bas, ombre dure
+  qui suit la forme : filter drop-shadow), angles droits partout (boutons, pastilles, tuiles, cases), boutons en
+  relief pixel (biseau clair / sombre, ombre dure --edge), étoile d'or à quatre branches devant chaque titre de
+  panneau (--star). Cartes à état (héros, familiers, quêtes, bestiaire) : angles droits, bordure colorée gardée.
+  Captures sombre et clair ; autotest 106/106 (aucun onglet ne défile).
 - 2026-11-09 (it. 292, demande 34, étape 2) : 30 dessins uniques (9×9) pour les 24 nœuds remarquables et les 6 clés
   de voûte (poing du Bras de titan, crâne du Coup fatal, couronne transpercée, haches croisées, casque cornu de la
   Brute, œil des Réflexes, cible, rafale, lames, tourbillon, boule de feu, fiole de venin, invocation, faux, cœur en
@@ -1091,7 +1097,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       le mauvais si Sillwalker l'a déjà. Résultat : liste d'idées et de défauts ci-dessous (plusieurs itérations).
   34. FAIT (it. 291 : icône par effet ; it. 292 : 30 dessins uniques des remarquables et clés de voûte). Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
       itérations).
-  35. Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
+  35. EN COURS (it. 293 : étape 1 cadres et boutons ; suite : barre d'onglets en rubans, fond étoilé tramé,
+      cases à cocher et curseurs pixel, barres de défilement pixel, séparateurs ornés, palette signature). Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
       itérations) : identité visuelle propre (cadres, typographie, couleurs, ornements pixel art).
 
 - ÉTUDE DES CONCURRENTS (demande 33, it. 290 ; synthèses d'avis Steam : vaporlens.app, gamepressure, presse).
