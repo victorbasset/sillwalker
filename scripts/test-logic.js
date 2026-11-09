@@ -1225,6 +1225,18 @@ test("Maître de forge : forge l'équipement porté avec l'or en trop, jamais sa
   assert.equal(g.S.gold, before);
 });
 
+test("retour d'absence : le meilleur objet gardé est désigné (amélioration en priorité)", () => {
+  const g = new Game(freshState());
+  g.S.autoSell = { common: false, uncommon: false, rare: false };
+  g.S.bag = [];
+  const sum = g.applyOffline(4 * 3600);
+  assert.ok(sum && sum.kept > 0, "des objets gardés");
+  const it = g.findBagItem(sum.bestItemId);
+  assert.ok(it, "l'objet désigné est dans le sac");
+  const ups = g.S.bag.filter((x) => g.isUpgrade(x));
+  if (ups.length) assert.ok(g.isUpgrade(it), "une amélioration passe avant un objet plus rare inutile");
+});
+
 test("hors ligne : plafond de 8 h allongé par la Lune, signalé quand il est atteint", () => {
   const g = new Game(freshLocked());
   assert.equal(g.offlineCapS(), 8 * 3600);

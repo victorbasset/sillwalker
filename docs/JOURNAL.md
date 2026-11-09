@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 51).
 
 ## Fait
 
+- 2026-11-09 (it. 45) : au retour d'une absence, le résumé nomme le meilleur objet gardé (pas seulement sa
+  rareté) et, si c'est une amélioration, propose « Équiper maintenant » en un clic.
 - 2026-11-09 (it. 44) : touche M pour réduire en mode mini depuis le panneau (ajoutée à la liste des raccourcis).
   Essai d'une usure des boss plus forte (8 %) pour le berserker : résultats mitigés selon les classes, gardé à 5 %.
 - 2026-11-09 (it. 43) : une fois tout débloqué, la fiche du héros et le mode mini ne restent plus sans objectif :

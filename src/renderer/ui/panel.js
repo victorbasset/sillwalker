@@ -245,7 +245,10 @@ export class Panel {
 
   showOfflineSummary(sum) {
     $(this.root, "#mt").textContent = tx("Pendant ton absence");
-    const best = sum.best >= 0 ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${sum.best}">${RARITIES[sum.best].name}</b></li>` : "";
+    // Meilleur objet gardé : son nom (couleur de rareté) et, si c'est une amélioration, « Équiper maintenant ».
+    const bi = sum.bestItemId != null ? this.game.findBagItem(sum.bestItemId) : null;
+    const best = bi ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${bi.r}">${esc(itemName(bi))}</b></li>${this.game.isUpgrade(bi) ? `<li class="row"><button class="primary" data-action="reveal-equip" data-id="${bi.id}">${tx("Équiper maintenant")}</button></li>` : ""}`
+      : sum.best >= 0 ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${sum.best}">${RARITIES[sum.best].name}</b></li>` : "";
     $(this.root, "#mbody").innerHTML =
       `<p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone), 1: esc(sum.duration) })}</p>
       <ul class="lines">

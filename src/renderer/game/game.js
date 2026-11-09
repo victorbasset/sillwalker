@@ -624,11 +624,12 @@ export class Game {
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; }
     this.invalidateStats();
     const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * (1 + hs.drop / 100) * 0.3));
-    let best = -1;
+    let best = -1, bestItem = null;
     for (let i = 0; i < drops; i++) {
       const it = this.newItem(0);
       best = Math.max(best, it.r);
-      this.addToBag(it, true);
+      // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
+      if (this.addToBag(it, true) && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
     const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
@@ -640,7 +641,7 @@ export class Game {
     const summary = {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
-      capped, capH: Math.round(this.offlineCapS() / 3600),
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));
