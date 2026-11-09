@@ -161,6 +161,7 @@ export class Panel {
     // Double-clic sur un objet (2e clic d'une série, e.detail = 2) : l'équiper (sac) ou le retirer (héros).
     this.root.addEventListener("click", (e) => { if (!(e.detail === 2 && this.onDouble(e))) this.onClick(e); });
     this.watchDetails();
+    this.watchTitles();
     this.root.addEventListener("change", (e) => this.onChange(e));
     // Infobulle de comparaison au survol d'un objet (sac ou équipement)
     this.tip = document.createElement("div");
@@ -344,6 +345,35 @@ export class Panel {
   }
 
   /** Mémorise les zones repliables ouvertes (l'évènement « toggle » ne remonte pas : écoute en capture). */
+  /** Infobulles : celles du système (attribut title) ne s'affichent pas dans cette fenêtre sans focus (signalé par
+   *  Victor sur les déblocages). Tout élément du panneau à title reçoit la nôtre, au survol, près de la souris. */
+  watchTitles() {
+    const tip = document.createElement("div");
+    tip.className = "gtip"; tip.hidden = true; tip.setAttribute("role", "tooltip");
+    this.root.appendChild(tip);
+    this.gtip = tip;
+    let cur = null;
+    const hide = () => { tip.hidden = true; cur = null; };
+    this.root.addEventListener("mouseover", (e) => {
+      const el = e.target.closest && e.target.closest("[title], [data-title]");
+      if (!el || !this.root.contains(el)) { hide(); return; }
+      if (el.hasAttribute("title")) { el.dataset.title = el.getAttribute("title"); el.removeAttribute("title"); } // pas de double bulle
+      const text = el.dataset.title;
+      if (!text) { hide(); return; }
+      cur = el; tip.textContent = text; tip.hidden = false;
+    });
+    this.root.addEventListener("mousemove", (e) => {
+      if (tip.hidden) return;
+      const r = this.root.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+      let x = e.clientX - r.left + 14, y = e.clientY - r.top + 16;
+      if (x + w > r.width - 4) x = Math.max(4, e.clientX - r.left - w - 10);
+      if (y + h > r.height - 4) y = Math.max(4, e.clientY - r.top - h - 10);
+      tip.style.left = x + "px"; tip.style.top = y + this.root.scrollTop + "px"; // panneau défilable
+    });
+    this.root.addEventListener("mouseleave", hide);
+    this.root.addEventListener("mousedown", hide);
+  }
+
   watchDetails() {
     this.root.addEventListener("toggle", (e) => {
       const k = e.target.dataset && e.target.dataset.keep;
@@ -532,6 +562,7 @@ export class Panel {
 
   /** Prochain déblocage : objectif visible en permanence (zone record, puis or). */
   goalHTML(S) {
+    if (!tabOpen(S, "shop")) return ""; // pas de déblocage proposé avant la boutique (signalé par Victor)
     const u = nextUnlock(S);
     if (!u) { // tout est débloqué : l'objectif devient le record de toutes les courses
       const rec = recordZone(S), k = Math.min(1, S.zone / rec);

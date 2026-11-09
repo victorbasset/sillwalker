@@ -437,6 +437,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .heroview .equip { flex: 1; }
 .affix { position: absolute; left: 50%; top: -24px; translate: -50% 0; white-space: nowrap; font: 400 11px var(--font-text); -webkit-text-stroke: 3px #14121f; paint-order: stroke fill; }
 /* Infobulle d'objet */
+.gtip { position: absolute; z-index: 30; max-width: 280px; padding: 6px 9px; background: var(--panel); color: var(--text, inherit); border: 2px solid var(--line); border-radius: 4px; box-shadow: 0 3px 0 var(--line); pointer-events: none; font-size: 13px; line-height: 1.35; white-space: pre-line; }
 .itemtip { position: absolute; z-index: 20; width: 270px; padding: 8px 10px; background: var(--panel); border: 2px solid var(--accent); border-radius: 4px; box-shadow: 0 4px 0 var(--line); pointer-events: none; font-size: 14px; }
 .itemtip[hidden] { display: none; }
 .itemtip .nm { font-weight: 600; font-size: 16px; line-height: 1.2; }

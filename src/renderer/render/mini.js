@@ -1,6 +1,6 @@
 // Mode mini : petit encart près de l'horloge. Le héros à gauche, le monstre
 // qui approche puis se bat, et à droite niveau / or / zone.
-import { TAB_GATES } from "../game/tabs.js";
+import { TAB_GATES, tabOpen } from "../game/tabs.js";
 import { t as tx, fsp } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
@@ -191,7 +191,7 @@ export class MiniRenderer {
       this.lvl.textContent = tx("Niv. ") + S.lvl;
       this.gold.textContent = fmtShort(S.gold);
       this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
-      const u = nextUnlock(S), rec = recordZone(S), tip = [];
+      const u = tabOpen(S, "shop") ? nextUnlock(S) : null, rec = recordZone(S), tip = []; // pas de déblocage avant la boutique
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + fsp() + ": " + rec);
       this.goalWrap.hidden = false;

@@ -7,12 +7,12 @@
 // ils s'étalent sur plusieurs courses, pas seulement sur l'or du moment.
 
 /** Dans l'ordre d'achat conseillé. icon = icône de la boutique (render/shopart.js). */
-// Zones étalées jusqu'à la zone 200 (demande de Victor : ne pas tout débloquer trop vite) ; prix ≈ or d'un monstre
+// Premiers déblocages avec l'ouverture de la boutique (zone 8). Zones étalées jusqu'à la zone 200 (demande de Victor : ne pas tout débloquer trop vite) ; prix ≈ or d'un monstre
 // de la zone × (100 + 8 × zone), arrondis. Les déblocages déjà achetés restent acquis.
 export const UNLOCKS = [
-  { id: "bulkEquip",   price: 300, zone: 3,     icon: "eye",      name: "Œil du connaisseur",       desc: "Boutons « Équiper le meilleur » et « Vendre ce qui n’améliore pas »." },
-  { id: "autoPotion",  price: 1400, zone: 6,    icon: "potion",   name: "Ceinture d’alchimiste",    desc: "Rachète tout seul des potions de soin quand le stock baisse." },
-  { id: "forge",       price: 4100, zone: 10,    icon: "anvil",    name: "Enclume",                  desc: "Forge (+1 à +10) et réforge des objets." },
+  { id: "bulkEquip",   price: 300, zone: 8,     icon: "eye",      name: "Œil du connaisseur",       desc: "Boutons « Équiper le meilleur » et « Vendre ce qui n’améliore pas »." },
+  { id: "autoPotion",  price: 1400, zone: 9,    icon: "potion",   name: "Ceinture d’alchimiste",    desc: "Rachète tout seul des potions de soin quand le stock baisse." },
+  { id: "forge",       price: 4100, zone: 11,    icon: "anvil",    name: "Enclume",                  desc: "Forge (+1 à +10) et réforge des objets." },
   { id: "autoSell",    price: 12000, zone: 14,    icon: "ws_gold",  name: "Tri du marchand",          desc: "Vend dès qu’ils tombent les objets des raretés choisies." },
   { id: "workshop",    price: 33000, zone: 18,  icon: "gear",     name: "Atelier",                  desc: "Améliorations permanentes de la boutique (attaque, PV, or, vitesse)." },
   { id: "menagerie",   price: 200000, zone: 25,     icon: "kennel2",  name: "Ménagerie",                desc: "Fait éclore les œufs de familiers : un compagnon suit ton héros et le renforce." },

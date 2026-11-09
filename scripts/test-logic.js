@@ -983,7 +983,7 @@ test("déblocages : verrouillés au départ, achetés une fois, gardés à l'asc
   assert.equal(g.sendExpedition("cat", "short"), false, "expéditions verrouillées");
   g.S.gold = 0;
   assert.equal(g.buyUnlock("bulkEquip"), false, "pas assez d'or");
-  g.S.gold = 1e8; g.S.best = 3; // Œil du connaisseur : zone 3
+  g.S.gold = 1e8; g.S.best = 8; // Œil du connaisseur : zone 8, avec la boutique
   assert.ok(g.buyUnlock("bulkEquip"));
   assert.equal(g.buyUnlock("bulkEquip"), false, "déjà acheté");
   assert.equal(g.S.gold, 1e8 - 300);

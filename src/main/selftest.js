@@ -432,6 +432,12 @@ async function runSelfTest(strip) {
   // Onglet Talents fermé : pas de lien « points de talent à dépenser » dans la carte du héros (signalé par Victor).
   const tl = await js("(() => { const g = window.__game, S = g.S; const t = S.tabsOpen.talents, tal = S.talents[S.cls]; S.talents[S.cls] = {}; g.invalidateStats(); delete S.tabsOpen.talents; window.__panel.setTab('adventure'); window.__panel.renderAll(); const free = g.talentPointsFree(); const vis = [...document.querySelectorAll('#p-hero [data-tab=talents]')].filter((e) => e.getClientRects().length).length; S.tabsOpen.talents = t || true; S.talents[S.cls] = tal; g.invalidateStats(); window.__panel.renderAll(); return free > 0 ? String(vis) : 'pas de point libre'; })()");
   check("onglet fermé : aucun lien visible vers lui (points de talent)", tl === "0", tl);
+  // Boutique fermée : pas de « prochain déblocage » à acheter dans la carte du héros (signalé par Victor).
+  const gs = await js("(() => { const S = window.__game.S; const t = S.tabsOpen.shop; delete S.tabsOpen.shop; window.__panel.renderAll(); const n = document.querySelectorAll('#p-hero .goal').length; S.tabsOpen.shop = t || true; window.__panel.renderAll(); return String(n); })()");
+  check("boutique fermée : aucun déblocage proposé dans la carte du héros", gs === "0", gs);
+  // Infobulle maison au survol d'un élément à title (celles du système ne s'affichent pas dans cette fenêtre).
+  const gt = await js("(() => { const el = document.querySelector('#panel [title], #panel [data-title]'); if (!el) return 'aucun'; el.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); const t = document.querySelector('#panel .gtip'); const r = t && !t.hidden && t.textContent.length > 0; el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })); return String(r); })()");
+  check("infobulle maison au survol (title)", gt === "true", gt);
   check("onglets progressifs : caché, annoncé, ✦ jusqu'à la visite, conseil en doublon marqué vu", /^true true true ✦ - true$/.test(tb), tb);
   // Pastille d'onglet plafonnée à « 99+ ».
   const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts; S.prestige.skillPts = 5000; window.__panel.renderAll(); const t = document.querySelector('[data-badge=skills]').textContent; S.prestige.skillPts = v; window.__panel.renderAll(); return t; })()");

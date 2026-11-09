@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 210, revue générale + 2 retours de Victor) :
+  1. L'Œil du connaisseur s'achetait (carte du héros) avant l'ouverture de la boutique : aucun déblocage n'est plus
+     proposé tant que la boutique est fermée (carte du héros, mode mini), et les premiers commencent avec elle
+     (Œil zone 8, Ceinture 9, Enclume 11).
+  2. Les infobulles du système (title) ne s'affichent pas dans cette fenêtre sans focus : nouvelle infobulle maison
+     (watchTitles, panel.js) pour tout élément du panneau à title (déblocages et 33 autres endroits), suit la souris,
+     tient compte du défilement. Capture : survol de « Enclume » → « Forge (+1 à +10) et reforge des objets. ».
+  Revue : simulation 12 h guerrier 59, mage 61, assassin 59 (simulateur qui forge, it. 202) ; russe propre ; crawl
+  partie neuve 0 erreur. 2 contrôles d'autotest (89/89).
 - 2026-11-09 (it. 209, signalé par Victor) : le lien « N points de talent à dépenser → » de la carte du héros
   apparaissait avant l'ouverture de l'onglet Talents (point gagné au niveau 2, souvent avant la zone 2) ; de même
   « Plus de potions : la boutique en vend → » avant la Boutique (zone 8). Les deux vérifient l'onglet, et tout lien
