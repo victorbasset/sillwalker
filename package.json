@@ -13,8 +13,8 @@
     "icons": "node --experimental-default-type=module scripts/make-icons.js",
     "dist": "electron-builder --win dir",
     "dist:zip": "electron-builder --win zip",
-    "selftest": "electron . --selftest --ghost --user-data=./dev-data",
-    "selftest:linux": "xvfb-run -a -s \"-screen 0 1920x1080x24\" electron . --selftest --ghost --no-sandbox --user-data=./dev-data",
+    "selftest": "node scripts/selftest.mjs",
+    "selftest:linux": "node scripts/selftest.mjs --linux",
     "perf:linux": "xvfb-run -a -s \"-screen 0 1920x1080x24\" electron . --perf --ghost --no-sandbox --user-data=./dev-data"
   },
   "dependencies": {
