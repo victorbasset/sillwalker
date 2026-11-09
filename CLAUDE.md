@@ -39,7 +39,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   `npm test`) signale les constantes EN_MAJUSCULES utilisées sans import ; les autres oublis (noms en minuscules) ne se
   voient qu'à l'exécution : tout nouveau code d'interface passe aussi par un contrôle d'autotest ou `--crawl`.
 - `npm run selftest` (Windows) / `npm run selftest:linux` (Ubuntu, écran virtuel ; tous deux via scripts/selftest.mjs,
-  sur une COPIE temporaire de dev-data : la sauvegarde de dev n'est plus modifiée par les contrôles) : parcours
+  sur une COPIE temporaire de dev-data : la sauvegarde de dev n'est plus modifiée par les contrôles ; code de sortie 1
+  si une vérification échoue) : parcours
   automatique de l'interface, doit afficher « N/N vérifications réussies ».
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (10 classes) et signale celles qui ne progressent pas (60 graines ≈ 35 s). À relancer après
