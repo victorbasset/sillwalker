@@ -460,10 +460,13 @@ export class Game {
   /** Ventes automatiques regroupées en une seule ligne du journal (au lieu d'une ligne par objet). */
   logSale(kind, label, v) {
     const L = this.S.log, R = this.R;
-    if (R.saleLine && R.saleLine.kind === kind && L[0] === R.saleLine.text) {
+    // La ligne de ventes reste un cumul tant qu'elle est parmi les dernières du journal
+    // (sinon chaque élite ou boss vaincu relançait une nouvelle ligne : des centaines par heure).
+    const at = R.saleLine && R.saleLine.kind === kind ? L.indexOf(R.saleLine.text) : -1;
+    if (at >= 0 && at < 6) {
       R.saleLine.n++; R.saleLine.gold += v;
-      L[0] = R.saleLine.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: R.saleLine.n, 1: fmt(R.saleLine.gold) })}`;
-      this.emit("log", L[0]);
+      L[at] = R.saleLine.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: R.saleLine.n, 1: fmt(R.saleLine.gold) })}`;
+      this.emit("log", L[at]);
       return;
     }
     R.saleLine = { kind, n: 1, gold: v, text: `${label}${fsp()}${tx(": 1 (+{0} or).", { 0: fmt(v) })}` };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 85) : journal plus lisible : la ligne « Sac plein, objets vendus : N (+X or) » reste un cumul tant
+  qu'elle est parmi les 6 dernières lignes (avant : une nouvelle ligne dès qu'une élite ou un boss s'intercalait,
+  jusqu'à ~300 par heure en simulation).
 - 2026-11-09 (it. 84) : le Grand intendant résume son travail en une ligne de journal (« 5 expéditions récupérées
   (+X or, 2 objets trouvés), 3 œufs éclos, 5 familiers repartis ») au lieu d'une ligne par familier ; les nouveaux
   familiers gardent leur annonce.
@@ -207,6 +210,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
+- P3 Journal (mesure it. 85, 1 h de jeu à 5 h) : « Ton héros est tombé » + « Trop dur » = ~160 lignes/h quand le héros
+  bloque ; pourrait se cumuler comme les ventes.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 

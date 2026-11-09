@@ -1206,6 +1206,19 @@ test("boss enfin vaincu après un K.O. : un moment, pas pour une victoire facile
   assert.ok(!Object.values(g.S.bossDefeats).some(Boolean), "usure remise à zéro");
 });
 
+test("journal : les ventes « sac plein » restent un cumul malgré quelques lignes intercalées", () => {
+  const g = new Game(freshState());
+  const n0 = g.S.log.length;
+  for (let i = 0; i < 10; i++) { g.logSale("full", "Sac plein, objets vendus", 5); if (i % 3 === 0) g.log("Élite vaincu !"); }
+  const sales = g.S.log.filter((l) => /Sac plein, objets vendus/.test(l));
+  assert.equal(sales.length, 1, JSON.stringify(g.S.log.slice(0, 8)));
+  assert.match(sales[0], /10/);
+  for (let i = 0; i < 7; i++) g.log("autre ligne " + i); // la ligne s'éloigne : une nouvelle commence
+  g.logSale("full", "Sac plein, objets vendus", 5);
+  assert.equal(g.S.log.filter((l) => /Sac plein, objets vendus/.test(l)).length, 2);
+  assert.ok(g.S.log.length > n0);
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);
