@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 266) : les Voies des 10 nouveaux héros ont leurs noms et descriptions (VOIE_NAMES : le Chaman
+  n'est plus « le druide », la Cryomancienne n'a plus de « Pyromancie » : Voie du blizzard / du cristal…), effets
+  inchangés. 33 textes × 9 langues (table français → langues). 103/103.
 - 2026-11-09 (it. 265) : les talents intermédiaires des 10 nouveaux héros ont aussi leurs noms (90, dont 85
   nouveaux : Barde = Accords puissants, Tempo, Contre-chant, Pas de danse… ; Artificière = Mèche, Charge creuse,
   Poudre fine…), effets inchangés. Traductions rangées depuis une table français → 9 langues (évite les décalages

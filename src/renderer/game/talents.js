@@ -305,12 +305,25 @@ const TREE_NAMES = {
   starwarden: [["Étoiles", "Serment", "Constellations"], ["Lame d’étoile filante", "Dernier gardien", "Pluie d’étoiles"], ["Fil d’étoile", "Éclat céleste", "Brise-astres", "Garde stellaire", "Esquive lunaire", "Riposte d’argent", "Pas de comète", "Éclair premier", "Double étoile"]],
   artificer: [["Poudre", "Mécanique", "Blindage"], ["Grande explosion", "Chef-d’œuvre", "Armure d’acier"], ["Mèche", "Charge creuse", "Dernière salve", "Poudre fine", "Viseur", "Surpression", "Notes d’atelier", "Récupération", "Montage nocturne"]],
 };
+// Voies des héros ajoutés : [nom, description] (mêmes effets que celles du héros d'origine).
+const VOIE_NAMES = {
+  arbalest: [["Tireuse d’élite", "Le premier carreau décide du combat."], ["Grêle de carreaux", "Tirer, tirer encore : tirs doubles et cadence."]],
+  lancer: [["Voie de la phalange", "Tenir la ligne : riposte, épines et défense."], ["Voie de la charge", "Achever vite : énormes dégâts sur les cibles affaiblies."]],
+  priestess: [["Voie du sanctuaire", "Un immense bouclier de lumière à chaque combat."], ["Voie du jugement", "La lumière frappe les boss sans pitié."]],
+  gladiator: [["Voie du bouclier", "Encaisser et rendre coup pour coup : riposte, épines et défense."], ["Voie de la foule", "Achever sous les vivats : énormes dégâts sur les cibles affaiblies."]],
+  shaman: [["Voie de l’écorce", "Frapper le chaman, c’est se blesser."], ["Voie de l’esprit-loup", "L’esprit-loup mène la chasse."]],
+  bladedancer: [["Danse venimeuse", "Le poison fait tout le travail."], ["Danse des ombres", "Insaisissable, et chaque coup critique fait mal."]],
+  cryomancer: [["Voie du blizzard", "Le froid mord longtemps et fort."], ["Voie du cristal", "Des critiques qui brisent tout."]],
+  bard: [["Voie du crescendo", "Des séries encore plus longues et rapides."], ["Voie de la ballade", "Esquiver, tenir, récupérer en chantant."]],
+  starwarden: [["Voie de l’étoile filante", "Un coup sur quatre tranche le ciel."], ["Voie des constellations", "Deux lames d’étoile, deux coups."]],
+  artificer: [["Voie de la poudre", "Tout brûle, longtemps et fort."], ["Voie de la précision", "Des critiques dévastateurs."]],
+};
 for (const [cls, def] of Object.entries(CLASSES)) {
   if (!def.tree || TREES[cls]) continue;
   const p = def.treePrefix, names = TREE_NAMES[cls];
   TREES[cls] = TREES[def.tree].map((b, bi) => ({ ...b, name: names ? names[0][bi] : b.name,
     talents: b.talents.map((t, ti) => ({ ...t, id: p + t.id, name: !names ? t.name : t.tier === 3 ? names[1][bi] : (names[2] && names[2][bi * 3 + ti]) || t.name })) }));
-  if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v) => ({ ...v, id: p + v.id }));
+  if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v, vi) => ({ ...v, id: p + v.id, ...(VOIE_NAMES[cls] ? { name: VOIE_NAMES[cls][vi][0], text: VOIE_NAMES[cls][vi][1] } : {}) }));
 }
 
 /** Index id -> { talent, branch, cls } pour toutes les classes (branch : n° de branche, "voie" ou "mastery"). */
