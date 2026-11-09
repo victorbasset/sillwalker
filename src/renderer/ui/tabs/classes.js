@@ -1,5 +1,6 @@
 // Onglet Classe : les héros libérés et ceux encore prisonniers. On change de
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
+import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, fsp } from "../../i18n/index.js";
 import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
@@ -10,7 +11,7 @@ import { classPortraitURL } from "../../render/sprites.js";
 const pct = (m) => (m === 1 ? "" : `${m > 1 ? "+" : "−"}${Math.round(Math.abs(m - 1) * 100)}${unit("%")}`);
 
 export class ClassesTab {
-  constructor(game) { this.game = game; }
+  constructor(game) { this.game = game; this.sec = "freed"; } // sous-onglet : héros libérés ou prisonniers (demande 18)
 
   badge() { return ""; }
 
@@ -63,11 +64,13 @@ export class ClassesTab {
     const duoNote = `<p class="note tabintro">${P ? tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: `<b>${esc(P.name)}</b>` })
       : tx("Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension).")}</p>`;
     el.innerHTML = `${style}${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
-      <div class="classgrid">${cards}</div>`;
+      ${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed]], this.sec, "c-sec")}
+      <div class="classgrid sec-${this.sec}">${cards}</div>`;
   }
 
   onAction(a, b) {
-    if (a === "c-pick") this.game.chooseNextClass(b.dataset.id);
+    if (a === "c-sec") this.sec = b.dataset.to;
+    else if (a === "c-pick") this.game.chooseNextClass(b.dataset.id);
     else if (a === "c-partner") this.game.choosePartner(b.dataset.id);
   }
 

@@ -642,4 +642,7 @@ export default {
   1766: "(companheiro)",
   1767: "Dupla: {0} luta ao lado do seu herói (35% do ataque dele por segundo e metade do passivo).",
   1768: "Dupla: um herói à distância e um corpo a corpo lutam juntos. Escolha um companheiro do outro alcance (o primeiro chega na hora, os seguintes na ascensão).",
+  1769: "Números",
+  1770: "Libertados",
+  1771: "Prisioneiros",
 };

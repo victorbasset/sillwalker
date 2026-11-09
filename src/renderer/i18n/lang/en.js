@@ -642,4 +642,7 @@ export default {
   1766: "(companion)",
   1767: "Duo: {0} fights alongside your hero (35% of their attack per second and half of their passive).",
   1768: "Duo: a ranged hero and a melee hero fight together. Pick a companion of the other range (the first joins right away, later ones at ascension).",
+  1769: "Numbers",
+  1770: "Freed",
+  1771: "Captive",
 };

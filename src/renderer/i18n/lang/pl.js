@@ -642,4 +642,7 @@ export default {
   1766: "(towarzysz)",
   1767: "Duet: {0} walczy u boku twojego bohatera (35% jego ataku na sekundę i połowa jego pasywnej).",
   1768: "Duet: bohater dystansowy i bohater walczący wręcz walczą razem. Wybierz towarzysza o innym zasięgu (pierwszy dołącza od razu, kolejni przy wniebowstąpieniu).",
+  1769: "Liczby",
+  1770: "Uwolnieni",
+  1771: "Uwięzieni",
 };

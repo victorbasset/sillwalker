@@ -1,4 +1,5 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
+import { subtabsHTML } from "../subtabs.js";
 import { t as tx, getLang } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { ACHIEVEMENTS, reachedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
@@ -41,7 +42,7 @@ function journeyHTML(S) {
 }
 
 export class StatsTab {
-  constructor(game) { this.game = game; }
+  constructor(game) { this.game = game; this.sec = "numbers"; } // sous-onglet affiché (demande 18)
 
   badge() { return ""; }
 
@@ -53,7 +54,8 @@ export class StatsTab {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
       return `<li class="ach${on ? " on" : ""}"><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
     }).join("");
-    el.innerHTML = `<div class="statgrid">
+    const tabs = subtabsHTML([["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")]], this.sec, "st-sec");
+    el.innerHTML = tabs + `<div class="statgrid sec-${this.sec}">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}
         ${line(tx("Meilleure zone (toutes courses)"), Math.max(S.best, P.bestRun || 0))}
@@ -105,6 +107,6 @@ export class StatsTab {
     </div>`;
   }
 
-  onAction() {}
+  onAction(a, b) { if (a === "st-sec") this.sec = b.dataset.to; }
   tick() { return false; }
 }

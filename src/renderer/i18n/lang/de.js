@@ -642,4 +642,7 @@ export default {
   1766: "(Gefährte)",
   1767: "Duo: {0} kämpft an der Seite deines Helden (35 % seines Angriffs pro Sekunde und die Hälfte seiner Passivfähigkeit).",
   1768: "Duo: Ein Fernkämpfer und ein Nahkämpfer kämpfen zusammen. Wähle einen Gefährten der anderen Reichweite (der erste kommt sofort, weitere beim Aufstieg).",
+  1769: "Zahlen",
+  1770: "Befreit",
+  1771: "Gefangen",
 };

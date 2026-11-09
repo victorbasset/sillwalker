@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 251, demande 18, suite) : sous-onglets aussi pour Statistiques (Chiffres / Succès n/N / Carnet de
+  route) et Héros (Libérés / Prisonniers : les cartes des héros encore captifs ne s'affichent plus par défaut).
+  Aide commune ui/subtabs.js. 100/100, 10 langues.
 - 2026-11-09 (it. 250, revue générale) : simulations 12 h (record max, duo compris) : guerrier 59, mage 54,
   assassin 56 ; semaine simulée (mage) : record 155 (repère it. 202 : 152), zone 200 toujours objectif long. Texte
   russe : rien de non traduit. Capture allemand 1366 de l'onglet Héros (duo) : propre ; corrigé : le compagnon du
@@ -908,6 +911,9 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   25. FAIT (it. 246). Sons de coup différents selon l'arme (donc le héros) et selon l'ennemi touché ;
       « modificateur » de son par ennemi (hauteur, timbre, bruit : gluant mou, squelette sec, golem lourd…) pour
       que ce soit moins répétitif.
+  26. À FAIRE (2026-11-09) : (a) l'opacité de la bande en curseur horizontal, comme le volume ; (b) pouvoir couper
+      les effets sonores sans couper la musique ; les boutons haut-parleur coupent les deux et rendent l'état
+      d'avant au second clic.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

@@ -642,4 +642,7 @@ export default {
   1766: "(compañero)",
   1767: "Dúo: {0} lucha junto a tu héroe (35 % de su ataque por segundo y la mitad de su pasiva).",
   1768: "Dúo: un héroe a distancia y uno cuerpo a cuerpo luchan juntos. Elige un compañero del otro alcance (el primero llega enseguida, los siguientes en la ascensión).",
+  1769: "Cifras",
+  1770: "Liberados",
+  1771: "Prisioneros",
 };
