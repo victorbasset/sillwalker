@@ -438,6 +438,8 @@ async function runSelfTest(strip) {
   // Infobulle maison au survol d'un élément à title (celles du système ne s'affichent pas dans cette fenêtre).
   const gt = await js("(() => { const el = document.querySelector('#panel [title], #panel [data-title]'); if (!el) return 'aucun'; el.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); const t = document.querySelector('#panel .gtip'); const r = t && !t.hidden && t.textContent.length > 0; el.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })); return String(r); })()");
   check("infobulle maison au survol (title)", gt === "true", gt);
+  const st = await js("(() => { const b = document.getElementById('mini-btn'); b.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); const t = document.querySelector('.stip'); const r = t && !t.hidden && t.textContent.length > 0 && t.getBoundingClientRect().bottom <= b.getBoundingClientRect().top + 1; b.dispatchEvent(new MouseEvent('mouseout', { bubbles: true })); return String(r); })()");
+  check("infobulle de la bande au survol d'un bouton (au-dessus)", st === "true", st);
   check("onglets progressifs : caché, annoncé, ✦ jusqu'à la visite, conseil en doublon marqué vu", /^true true true ✦ - true$/.test(tb), tb);
   // Pastille d'onglet plafonnée à « 99+ ».
   const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts; S.prestige.skillPts = 5000; window.__panel.renderAll(); const t = document.querySelector('[data-badge=skills]').textContent; S.prestige.skillPts = v; window.__panel.renderAll(); return t; })()");

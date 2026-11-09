@@ -95,6 +95,26 @@ async function boot() {
   const strip = new StripRenderer($("#strip"), game, { rightReserve: 64 });
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);
+  // Infobulles de la bande : celles du système (title) ne s'affichent pas dans cette fenêtre sans focus ; la nôtre
+  // apparaît juste au-dessus de l'élément survolé (la fenêtre a de la place au-dessus de la bande, comme les bulles).
+  {
+    const stip = document.createElement("div");
+    stip.className = "gtip stip"; stip.hidden = true; stip.setAttribute("role", "tooltip");
+    document.body.appendChild(stip);
+    const strip = document.getElementById("strip");
+    strip.addEventListener("mouseover", (e) => {
+      const el = e.target.closest && e.target.closest("[title], [data-title]");
+      if (!el) { stip.hidden = true; return; }
+      if (el.hasAttribute("title")) { el.dataset.title = el.getAttribute("title"); el.removeAttribute("title"); }
+      if (!el.dataset.title) { stip.hidden = true; return; }
+      stip.textContent = el.dataset.title; stip.hidden = false;
+      const r = el.getBoundingClientRect(), w = stip.offsetWidth, h = stip.offsetHeight;
+      stip.style.left = Math.max(4, Math.min(window.innerWidth - w - 4, r.left + r.width / 2 - w / 2)) + "px";
+      stip.style.top = Math.max(4, r.top - h - 6) + "px";
+    });
+    strip.addEventListener("mouseout", (e) => { if (!e.relatedTarget || !strip.contains(e.relatedTarget)) stip.hidden = true; });
+    strip.addEventListener("mousedown", () => { stip.hidden = true; });
+  }
   const sound = new Sound();
   sound.bind(game);
   let currentLayout = init.layout;
