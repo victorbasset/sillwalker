@@ -380,6 +380,11 @@ async function runSelfTest(strip) {
   check("retour d'absence : pièce qui complète une panoplie, équipée d'un clic", fin === "true", fin);
   await js("document.querySelector('#modal [data-action=closemodal]')?.click()");
   await sleep(150);
+  // « À faire » : sac plein, objets inutiles vendus d'un clic depuis le résumé de retour.
+  const full = await js("(() => { const g = window.__game, S = g.S; S.unlocks.bulkEquip = true; while (!g.bagFull()) { const it = g.newItem(0); it.r = 0; it.set = null; it.st = {}; it.power = null; S.bag.push(it); } const n0 = S.bag.length; window.__showOffline({ duration: '1 h', zone: 'Zone', kills: 10, gold: 10, xp: 10, newLevel: 0, kept: 0, best: -1, feathers: 0, chests: 0, capped: false, capH: 10 }); const b = document.querySelector('#modal [data-action=todo-do][data-what=bagFull]'); if (!b) return 'pas de ligne'; b.click(); return n0 + ' -> ' + S.bag.length; })()");
+  check("retour d'absence : sac plein vidé d'un clic", /^(\d+) -> (\d+)$/.test(full) && +full.split(" -> ")[1] < +full.split(" -> ")[0], full);
+  await js("document.querySelector('#modal [data-action=closemodal]')?.click()");
+  await sleep(150);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
