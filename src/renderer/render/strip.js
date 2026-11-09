@@ -7,6 +7,7 @@
 // Le décor est fixe (une seule toile, redessinée au changement de zone) et
 // les personnages sont des éléments DOM déplacés par transform : voir dom.js.
 // Ce module lit l'état de la simulation sans jamais le modifier.
+import { EVENTS } from "../game/events.js";
 import { t as tx, fsp } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
@@ -560,7 +561,10 @@ export class StripRenderer {
   drawHudLeft() {
     const S = this.game.S, label = tx("Zone ") + S.zone + "  " + this.game.zoneName();
     // Record à battre (toutes courses confondues), tant que la course actuelle est en dessous.
-    const rec = recordZone(S), recTxt = S.zone < rec ? tx("record {0}", { 0: rec }) : "";
+    // Événement en cours (nom et secondes restantes, dans sa couleur), sinon le record à battre.
+    const ev = Object.entries(this.game.R.events || {}).find(([id, t]) => t > 0 && EVENTS[id]);
+    const rec = recordZone(S), recTxt = ev ? `${EVENTS[ev[0]].name} ${Math.ceil(ev[1])} s` : S.zone < rec ? tx("record {0}", { 0: rec }) : "";
+    const recCol = ev ? EVENTS[ev[0]].color : "#a29ec2";
     const key = label + "|" + S.kills + "|" + recTxt;
     if (key === this.hudLKey) return;
     this.hudLKey = key; mark("hud");
@@ -576,7 +580,7 @@ export class StripRenderer {
     ctx.fillStyle = OUTLINE; ctx.fillRect(px + 1, 6, 12, 12);
     ctx.fillStyle = S.kills >= KILLS_PER_ZONE ? "#ff6b5a" : "#6b3040"; ctx.fillRect(px + 2, 7, 10, 10);
     ctx.fillStyle = OUTLINE; ctx.fillRect(px + 4, 10, 2, 2); ctx.fillRect(px + 8, 10, 2, 2);
-    if (recTxt) drawText(ctx, recTxt, px + 20, 17, "#a29ec2");
+    if (recTxt) drawText(ctx, recTxt, px + 20, 17, recCol);
   }
 
   drawHudRight() {
