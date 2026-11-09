@@ -461,4 +461,8 @@ export default {
   1585: "Vivir {n} evento raro|Vivir {n} eventos raros",
   1586: "haz clic para comprarlo ({0} de oro)",
   1587: "Comprar: {0} ({1} de oro)",
+  1588: "Maestro herrero: {n} mejora durante tu ausencia.|Maestro herrero: {n} mejoras durante tu ausencia.",
+  1589: "+{n} mejora|+{n} mejoras",
+  1590: "{n} objeto transmutado|{n} objetos transmutados",
+  1591: "{n} tarea de mascota|{n} tareas de mascotas",
 };

@@ -1308,6 +1308,22 @@ test("valeurs inconnues d'une autre version (panoplie, pouvoir, déblocage, cons
   assert.ok(Array.isArray(g.todoNow()));
 });
 
+test("absence : les automatismes achetés travaillent et le résumé le dit", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.masterForge = true; g.S.settings.autoForge = true;
+  for (const slot of ["weapon", "helm", "armor"]) { const it = g.newItem(2); it.slot = slot; it.plus = 0; g.S.equip[slot] = it; }
+  g.invalidateStats();
+  g.S.gold = 1e12;
+  const logBefore = g.S.log.length;
+  const sum = g.applyOffline(3 * 3600);
+  assert.ok(sum, "résumé d'absence");
+  assert.ok(sum.forged > 0, "le Maître de forge a forgé : " + sum.forged);
+  assert.ok(g.S.log.filter((l) => /forge|Smith/i.test(l)).length <= 2, "une ligne de journal, pas une par amélioration");
+  const g2 = new Game(freshLocked());
+  const sum2 = g2.applyOffline(3600);
+  assert.ok(!sum2 || (!sum2.forged && !sum2.transmuted && !sum2.petWork), "sans déblocage : rien");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

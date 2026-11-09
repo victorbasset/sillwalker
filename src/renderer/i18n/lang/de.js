@@ -461,4 +461,8 @@ export default {
   1585: "{n} seltenes Ereignis erleben|{n} seltene Ereignisse erleben",
   1586: "klicken zum Kaufen ({0} Gold)",
   1587: "Kaufen: {0} ({1} Gold)",
+  1588: "Schmiedemeister: {n} Verbesserung während deiner Abwesenheit.|Schmiedemeister: {n} Verbesserungen während deiner Abwesenheit.",
+  1589: "+{n} Verbesserung|+{n} Verbesserungen",
+  1590: "{n} Gegenstand transmutiert|{n} Gegenstände transmutiert",
+  1591: "{n} Begleiter-Aufgabe|{n} Begleiter-Aufgaben",
 };

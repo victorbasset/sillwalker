@@ -675,12 +675,20 @@ export class Game {
     const feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal, 3);
     if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     for (let i = 0; i < chests; i++) this.openChest();
+    // Automatismes achetés : ils ont « travaillé » pendant l'absence (une seule ligne de journal chacun).
+    let forged = 0;
+    this._quiet = true;
+    try { while (forged < 200 && this.autoForge()) forged++; } finally { this._quiet = false; }
+    if (forged) this.log(txn(forged, "Maître de forge : {n} amélioration pendant ton absence.|Maître de forge : {n} améliorations pendant ton absence."));
+    const transmuted = this.autoTransmute().length;
+    this._petT = 0;
+    const petWork = this.autoPets();
     this.R.hp = this.stats().hp;
     const h = Math.floor(sec / 3600), mn = Math.floor(sec % 3600 / 60);
     const summary = {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, transmuted, petWork,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + ", " + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));
@@ -1009,7 +1017,7 @@ export class Game {
     best.plus++;
     this.invalidateStats();
     this.questProgress("forge", 1);
-    this.log(tx("Maître de forge : {0} passe à +{1}.", { 0: itemName(best), 1: best.plus }));
+    if (!this._quiet) this.log(tx("Maître de forge : {0} passe à +{1}.", { 0: itemName(best), 1: best.plus }));
     this.changed();
     return best;
   }

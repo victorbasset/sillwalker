@@ -461,4 +461,8 @@ export default {
   1585: "Przeżyj {n} rzadkie zdarzenie|Przeżyj {n} rzadkie zdarzenia|Przeżyj {n} rzadkich zdarzeń",
   1586: "kliknij, aby kupić ({0} złota)",
   1587: "Kup: {0} ({1} złota)",
+  1588: "Mistrz kowalski: {n} ulepszenie podczas twojej nieobecności.|Mistrz kowalski: {n} ulepszenia podczas twojej nieobecności.|Mistrz kowalski: {n} ulepszeń podczas twojej nieobecności.",
+  1589: "+{n} ulepszenie|+{n} ulepszenia|+{n} ulepszeń",
+  1590: "{n} przedmiot przemieniony|{n} przedmioty przemienione|{n} przedmiotów przemienionych",
+  1591: "{n} zadanie chowańca|{n} zadania chowańców|{n} zadań chowańców",
 };

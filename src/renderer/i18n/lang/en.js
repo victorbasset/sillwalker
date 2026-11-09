@@ -461,4 +461,8 @@ export default {
   1585: "Witness {n} rare event|Witness {n} rare events",
   1586: "click to buy it ({0} gold)",
   1587: "Buy: {0} ({1} gold)",
+  1588: "Master Smith: {n} upgrade while you were away.|Master Smith: {n} upgrades while you were away.",
+  1589: "+{n} upgrade|+{n} upgrades",
+  1590: "{n} item transmuted|{n} items transmuted",
+  1591: "{n} pet task|{n} pet tasks",
 };

@@ -1589,5 +1589,9 @@ export const KEYS = [
   "Je savais que j’y arriverais.",
   "Vivre {n} événement rare|Vivre {n} événements rares",
   "cliquer pour l’acheter ({0} or)",
-  "Acheter : {0} ({1} or)"
+  "Acheter : {0} ({1} or)",
+  "Maître de forge : {n} amélioration pendant ton absence.|Maître de forge : {n} améliorations pendant ton absence.",
+  "+{n} amélioration|+{n} améliorations",
+  "{n} objet transmuté|{n} objets transmutés",
+  "{n} tâche de familier|{n} tâches de familiers"
 ];

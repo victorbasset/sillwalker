@@ -267,6 +267,9 @@ export class Panel {
         <li><span>${tx("Objets gardés")}</span><b>${sum.kept}</b></li>${best}
         ${sum.feathers ? `<li><span>${tx("Plumes du vent")}</span><b>${tx("+{0} % de vitesse", { 0: sum.feathers })}</b></li>` : ""}
         ${sum.chests ? `<li><span>${tx("Coffres au trésor")}</span><b>${sum.chests}</b></li>` : ""}
+        ${sum.forged ? `<li><span>${tx("Maître de forge")}</span><b>${txn(sum.forged, "+{n} amélioration|+{n} améliorations")}</b></li>` : ""}
+        ${sum.transmuted ? `<li><span>${tx("Creuset perpétuel")}</span><b>${txn(sum.transmuted, "{n} objet transmuté|{n} objets transmutés")}</b></li>` : ""}
+        ${sum.petWork ? `<li><span>${tx("Grand intendant")}</span><b>${txn(sum.petWork, "{n} tâche de familier|{n} tâches de familiers")}</b></li>` : ""}
       </ul>
       ${this.todoHtml()}
       <p class="note">${sum.capped
