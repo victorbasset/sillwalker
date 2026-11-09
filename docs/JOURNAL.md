@@ -660,6 +660,14 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      déplié : dommage (checkHints n'affiche rien si panelOpen).
   10. FAIT (it. 215, DROP_CHANCE 0,12). Trop d'objets tombent encore (au-delà du tout début, où earlyPace ne joue plus) : réduire la chance de butin
       générale (DROP_CHANCE 0,35) sans casser la progression (balance.mjs, semaine simulée).
+  11. EN COURS (2026-11-09) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
+      Univers : le Rebord (la bande au bord de l'écran), frontière entre le monde et le vide ; le Briseur d'Étoiles a
+      fracassé le ciel (les éclats d'étoile du jeu) ; ses lieutenants (boss de zone) retiennent les héros (classes à
+      libérer) ; le héros, dernier marcheur du Rebord, renaît plus fort à chaque ascension.
+      Étapes : (a) intro au tout premier lancement, sobre et passable ; (b) Chroniques : fragments débloqués à des
+      paliers (zones 10, 25, 50, 100, 150, héros libérés, 1re ascension), annoncés et relisibles ; (c) le Briseur
+      d'Étoiles en zone 200 (boss unique, annoncé de loin) ; (d) fin : épilogue, générique, succès, puis « au-delà
+      du Rebord » (le jeu continue). 10 langues, autotest, captures ; parties existantes : chroniques déjà méritées.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
