@@ -1359,9 +1359,18 @@ export class Game {
     const S = this.S, Q = S.quests, i = Q.slots.findIndex((q) => q.uid === uid);
     if (i < 0 || !questDone(Q.slots[i])) return false;
     const rw = Q.slots[i].reward, parts = [];
-    if (rw.chest && this.bagFull()) { this.log(tx("Sac plein : libère une place pour recevoir le coffre.")); return false; }
+    // Sac plein : la réclamation n'est jamais bloquée (avant : clic sans effet). Le coffre fait de la place en vendant
+    // l'objet inutile le moins précieux ; s'il n'y en a pas, l'objet du coffre est vendu (son or est donné).
+    if (rw.chest && this.bagFull()) {
+      const worst = this.uselessItems().sort((a, b) => sellValue(a) - sellValue(b))[0];
+      if (worst) this.sell(worst);
+    }
     if (rw.gold) { S.gold += rw.gold; parts.push(tx("{0} or", { 0: fmt(rw.gold) })); }
-    if (rw.chest) { const it = this.newItem(rw.chest, S.best); S.bag.push(it); parts.push(itemName(it)); this.emit("loot", { item: it, mon: null }); }
+    if (rw.chest) {
+      const it = this.newItem(rw.chest, S.best);
+      if (this.bagFull()) { const v = sellValue(it); S.gold += v; parts.push(tx("{0} (sac plein : vendu {1} or)", { 0: itemName(it), 1: fmt(v) })); }
+      else { S.bag.push(it); parts.push(itemName(it)); this.emit("loot", { item: it, mon: null }); }
+    }
     if (rw.buff) { S.buffs[rw.buff] = Math.min(7200, (S.buffs[rw.buff] || 0) + 600); this.invalidateStats(); parts.push(tx("élixir de 10 min")); }
     if (rw.potions) { S.potions = Math.min(20, S.potions + rw.potions); parts.push(tx("{0} potions", { 0: rw.potions })); }
     if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(rw.shards + tx(" éclats d’étoile")); }

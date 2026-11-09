@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 157, demande 1 de Victor) : quête réclamée même sac plein (avant : le clic ne faisait rien, le
+  message n'allait qu'au journal) : le coffre fait de la place en vendant l'objet inutile le moins précieux ; à défaut,
+  l'objet du coffre est vendu et son or donné (« X (sac plein : vendu N or) »). Test, contrôle d'autotest (75/75).
 - 2026-11-09 (it. 156) : interface lancée (--crawl) sur une sauvegarde cumulant les 16 corruptions de save-fuzz
   (nouvelle option --write-all <dossier> [cas]). Trouvé et corrigé : langue inconnue dans la sauvegarde (abîmée ou
   d'une version future) = rechargement SANS FIN de la page (migrate() la retire ; app.js ne recharge que vers une
@@ -411,8 +414,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
 - DEMANDES DE VICTOR (2026-11-09), à traiter en premier, dans cet ordre :
-  1. Quêtes : « Réclamer » ne fait rien quand le sac est plein (récompense objet/coffre) : le dire au joueur
-     (message ou bouton désactivé avec explication), voire réclamer l'or quand même.
+  1. FAIT (it. 157) : quêtes réclamées même sac plein.
   2. Compétences : « Dépenser automatiquement » et « À chaque niveau, dépenser tout seul » visibles sans le Manuel
      du stratège : à cacher (ou verrouiller avec lockLink) avant l'achat.
   3. Classes (onglet Classe) : trier par ordre de déblocage.
@@ -426,6 +428,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      premières heures pour une progression plus tranquille, étalée dans le temps (demande explicite de Victor, elle
      prime sur la règle « ne pas rendre plus dur »). À mesurer avec first-minutes.mjs et simulate.js avant/après ;
      à faire avec le point 5 (déblocage progressif), sans toucher aux parties déjà avancées.
+  7. Thème sombre par défaut pour le panneau (aujourd'hui il suit Windows, clair par défaut) : sombre par défaut, avec
+     un réglage pour revenir au clair (ou suivre Windows). Vérifier les captures des deux thèmes.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

@@ -1428,6 +1428,25 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("quête : réclamée même sac plein (coffre : place faite, ou objet vendu)", () => {
+  const g = new Game(freshLocked());
+  const fill = () => { g.S.bag.length = 0; while (!g.bagFull()) g.S.bag.push(g.newItem(0)); };
+  const quest = () => { g.S.quests.slots = [{ uid: 991, kind: "kill", goal: 1, progress: 1, stars: 1, reward: { gold: 50, chest: 3 } }]; };
+  // 1) des objets inutiles : le moins précieux est vendu, le coffre entre dans le sac
+  g.isUpgrade = () => false; // équipement vide en partie neuve : sinon tout objet serait une amélioration
+  fill(); quest();
+  const gold0 = g.S.gold;
+  assert.ok(g.claimQuest(991), "réclamée");
+  assert.ok(g.S.gold >= gold0 + 50);
+  assert.ok(g.S.bag.some((i) => i.r >= 3), "objet du coffre dans le sac");
+  // 2) aucun objet inutile : l'objet du coffre est vendu, la quête est quand même réclamée
+  fill(); quest(); g.uselessItems = () => [];
+  const n = g.S.bag.length, gold1 = g.S.gold;
+  assert.ok(g.claimQuest(991));
+  assert.equal(g.S.bag.length, n);
+  assert.ok(g.S.gold > gold1 + 50, "or + valeur du coffre");
+});
+
 test("sauvegarde : langue inconnue et talents illisibles retirés (rechargement sans fin, démarrage en échec)", () => {
   const raw = JSON.parse(JSON.stringify(freshState()));
   raw.settings.lang = 42; raw.settings.hints = "x";

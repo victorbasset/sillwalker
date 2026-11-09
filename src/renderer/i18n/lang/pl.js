@@ -489,4 +489,5 @@ export default {
   1613: "Kup i załóż: {0} ({1} złota)",
   1614: "Każdy cios jest krytyczny!",
   1615: "Torba pełna, przedmioty zastąpione lepszymi",
+  1616: "{0} (torba pełna: sprzedano za {1} złota)",
 };

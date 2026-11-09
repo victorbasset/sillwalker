@@ -489,4 +489,5 @@ export default {
   1613: "Kaufen und ausrüsten: {0} ({1} Gold)",
   1614: "Jeder Treffer ist kritisch!",
   1615: "Tasche voll, Gegenstände durch bessere ersetzt",
+  1616: "{0} (Tasche voll: für {1} Gold verkauft)",
 };

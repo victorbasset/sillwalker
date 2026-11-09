@@ -489,4 +489,5 @@ export default {
   1613: "Buy and equip: {0} ({1} gold)",
   1614: "Every hit is critical!",
   1615: "Bag full, items replaced by better ones",
+  1616: "{0} (bag full: sold for {1} gold)",
 };

@@ -489,4 +489,5 @@ export default {
   1613: "Comprar e equipar: {0} ({1} de ouro)",
   1614: "Todos os golpes são críticos!",
   1615: "Bolsa cheia, itens trocados por melhores",
+  1616: "{0} (bolsa cheia: vendido por {1} de ouro)",
 };
