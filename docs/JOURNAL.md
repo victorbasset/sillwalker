@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 281, revue générale) : simulations 12 h : guerrier 59, rôdeur 62, chaman 59 (stables) ; crawl
+  294 clics sans erreur (avec un duo) ; texte russe : aucun mot latin suspect ; carte du Rebord : portraits carrés
+  nets dans les cages. Perf mesurée à l'it. 270 (stable), non refaite.
 - 2026-11-09 (it. 280, demande de Victor) : portraits des héros « écrasés » : les sprites sont étroits et hauts
   (9×17, chaman 5×19…) et les cadres carrés les étiraient ; en plus, l'it. 272 donnait 48 px de large pour 40 de haut.
   Portraits des héros et des familiers refaits en images carrées (sprite centré, décalage en pixels d'art entiers,
