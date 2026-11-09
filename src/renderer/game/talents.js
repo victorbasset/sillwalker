@@ -291,24 +291,25 @@ export const MASTERIES = [
 
 // Héros ajoutés par la demande 17 : arbre et voies copiés d'un héros proche (classes.js : tree, treePrefix), avec
 // des identifiants préfixés pour que chaque héros garde ses propres rangs. Les noms (déjà traduits) sont les mêmes.
-// Noms propres à chaque héros (branches et talents ultimes) : même effets que l'arbre d'origine, autre identité.
+// Noms propres à chaque héros (branches, talents ultimes, puis les 9 autres talents par branche dans l'ordre) :
+// mêmes effets que l'arbre d'origine, autre identité.
 const TREE_NAMES = {
-  arbalest: [["Visée", "Mécanisme", "Embuscade"], ["Carreau perforant", "Rechargement éclair", "Piège du chasseur"]],
-  lancer: [["Hampe", "Phalange", "Avant-garde"], ["Charge du lancier", "Mur de piques", "Étendard conquérant"]],
-  priestess: [["Aube", "Sanctuaire", "Bénédiction"], ["Jugement solaire", "Dernière prière", "Aura de l’aube"]],
-  gladiator: [["Arène", "Bouclier", "Gloire"], ["Coup de grâce", "Endurance du champion", "Faveur de la foule"]],
-  shaman: [["Totems", "Esprits", "Meute"], ["Totem d’écorce", "Souffle des ancêtres", "Esprit de la meute"]],
-  bladedancer: [["Tranchants", "Venins", "Voiles"], ["Danse mortelle", "Poison des fleurs", "Pas de l’ombre"]],
-  cryomancer: [["Givre", "Glace", "Cristal"], ["Hiver éternel", "Zéro absolu", "Armure de cristal"]],
-  bard: [["Rythme", "Mélodie", "Refrain"], ["Crescendo", "Berceuse", "Hymne héroïque"]],
-  starwarden: [["Étoiles", "Serment", "Constellations"], ["Lame d’étoile filante", "Dernier gardien", "Pluie d’étoiles"]],
-  artificer: [["Poudre", "Mécanique", "Blindage"], ["Grande explosion", "Chef-d’œuvre", "Armure d’acier"]],
+  arbalest: [["Visée", "Mécanisme", "Embuscade"], ["Carreau perforant", "Rechargement éclair", "Piège du chasseur"], ["Lunette", "Fêlure d’armure", "Premier carreau", "Manivelle huilée", "Pas de côté", "Double détente", "Cuir épais", "Herbes du maquis", "Carreaux barbelés"]],
+  lancer: [["Hampe", "Phalange", "Avant-garde"], ["Charge du lancier", "Mur de piques", "Étendard conquérant"], ["Bras de lance", "Pointe aiguisée", "Coup d’estoc", "Cuirasse", "Bouclier rond", "Contre-pique", "Butin de guerre", "Ancien soldat", "Tueur de géants"]],
+  priestess: [["Aube", "Sanctuaire", "Bénédiction"], ["Jugement solaire", "Dernière prière", "Aura de l’aube"], ["Zèle", "Sentence", "Rayon purificateur", "Foi inébranlable", "Voile de lumière", "Murs du temple", "Psaume", "Révélation", "Mains guérisseuses"]],
+  gladiator: [["Arène", "Bouclier", "Gloire"], ["Coup de grâce", "Endurance du champion", "Faveur de la foule"], ["Biceps de bronze", "Coup de taille", "Mise à mort", "Endurance de l’arène", "Cuir de bœuf", "Contre-attaque", "Pièces du public", "Expérience des jeux", "Tueuse de champions"]],
+  shaman: [["Totems", "Esprits", "Meute"], ["Totem d’écorce", "Souffle des ancêtres", "Esprit de la meute"], ["Écorce vive", "Ronces", "Racines", "Sève sacrée", "Bourgeons", "Lien vital", "Hurlement", "Crocs", "Appel de la meute"]],
+  bladedancer: [["Tranchants", "Venins", "Voiles"], ["Danse mortelle", "Poison des fleurs", "Pas de l’ombre"], ["Lames effilées", "Coupe tournoyante", "Dernier pas", "Pointes empoisonnées", "Venin rampant", "Fièvre noire", "Pieds légers", "Doigts de fée", "Entrée en scène"]],
+  cryomancer: [["Givre", "Glace", "Cristal"], ["Hiver éternel", "Zéro absolu", "Armure de cristal"], ["Morsure du froid", "Pic de glace", "Gel profond", "Puissance glaciale", "Cristaux acérés", "Éclats tranchants", "Savoir des glaces", "Alchimie du froid", "Sommeil hivernal"]],
+  bard: [["Rythme", "Mélodie", "Refrain"], ["Crescendo", "Berceuse", "Hymne héroïque"], ["Accords puissants", "Tempo", "Contre-chant", "Souffle long", "Pas de danse", "Réplique", "Ballade du voyageur", "Mesure", "Voix d’airain"]],
+  starwarden: [["Étoiles", "Serment", "Constellations"], ["Lame d’étoile filante", "Dernier gardien", "Pluie d’étoiles"], ["Fil d’étoile", "Éclat céleste", "Brise-astres", "Garde stellaire", "Esquive lunaire", "Riposte d’argent", "Pas de comète", "Éclair premier", "Double étoile"]],
+  artificer: [["Poudre", "Mécanique", "Blindage"], ["Grande explosion", "Chef-d’œuvre", "Armure d’acier"], ["Mèche", "Charge creuse", "Dernière salve", "Poudre fine", "Viseur", "Surpression", "Notes d’atelier", "Récupération", "Montage nocturne"]],
 };
 for (const [cls, def] of Object.entries(CLASSES)) {
   if (!def.tree || TREES[cls]) continue;
   const p = def.treePrefix, names = TREE_NAMES[cls];
   TREES[cls] = TREES[def.tree].map((b, bi) => ({ ...b, name: names ? names[0][bi] : b.name,
-    talents: b.talents.map((t) => ({ ...t, id: p + t.id, name: names && t.tier === 3 ? names[1][bi] : t.name })) }));
+    talents: b.talents.map((t, ti) => ({ ...t, id: p + t.id, name: !names ? t.name : t.tier === 3 ? names[1][bi] : (names[2] && names[2][bi * 3 + ti]) || t.name })) }));
   if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v) => ({ ...v, id: p + v.id }));
 }
 
