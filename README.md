@@ -26,9 +26,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
   sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
-  chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti),
+  chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
-- **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, butin rare, événements rares, expéditions, transmutation, zone), récompenses variées
+- **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, butin rare, événements rares, expéditions, transmutation, zone), récompenses variées ;
+  jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
 - **Familiers** : 14 compagnons (dont le lapin et le phénix, rares) qui suivent le héros, sortent d'œufs (boss, élites, quêtes)
   et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
@@ -73,6 +74,9 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   au fil de la partie (Talents au niveau 2, Quêtes, Boutique aux 300 premiers or, Classe, Compétences, Bestiaire,
   Familiers au premier œuf, Statistiques, Ascension), chacun annoncé par une bulle et marqué ✦ jusqu'à la visite.
   Une fois ouvert, un onglet le reste (ascension comprise) ; les parties existantes gardent tout (game/tabs.js).
+  En mode mini, l'annonce passe sur la scène. Dans les onglets aussi, l'information vient à son heure : Bestiaire
+  (pouvoirs, panoplies, élites une fois rencontrés), Talents (Voie et Maîtrises à l'approche de leur seuil), liens
+  « 🔒 déblocage » seulement pour les déblocages proches (5 zones) et une fois la boutique ouverte.
 - **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo, thème du panneau (sombre par défaut, clair, ou selon Windows),
   position, opacité, démarrage de Windows.
 - **Clavier** (panneau ouvert) : 1 … 9, 0, - pour les onglets ; E équiper le meilleur ; V vendre l'inutile ; T transmuter ; R réclamer une quête (toutes avec le Bureau des contrats) ;

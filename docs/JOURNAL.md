@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 180) : README à jour des changements du début de partie (élites dès la zone 3 en première course,
+  quêtes toujours faisables, information progressive dans les onglets, annonce en mode mini).
 - 2026-11-09 (it. 179) : mode mini : un onglet débloqué s'annonce sur la scène (« ✦ Nouvel onglet : X ! », moment
   doré de 4 s) : la bulle de la bande n'y est pas visible. Noms d'onglets ajoutés à TAB_GATES (label). Contrôle
   d'autotest (81/81). Vérifications de fond après les changements du début de partie : fuzz 120 graines × 60 min =
