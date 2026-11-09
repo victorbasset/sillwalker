@@ -1523,5 +1523,6 @@ export const KEYS = [
   "Sauvegarde principale illisible : partie restaurée depuis la sauvegarde de secours.",
   "Ta sauvegarde vient d’une version plus récente du jeu : elle est gardée à part (save.newer). Reprends cette version pour la retrouver.",
   "Boss épuisé par tes tentatives : −{0} % de PV pour cette course.",
-  "Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes."
+  "Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.",
+  "−{0} % PV"
 ];

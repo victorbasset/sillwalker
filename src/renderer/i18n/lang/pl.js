@@ -395,4 +395,5 @@ export default {
   1519: "Twój zapis pochodzi z nowszej wersji gry: został odłożony na bok (save.newer). Wróć do tej wersji, aby go odzyskać.",
   1520: "Boss osłabiony twoimi próbami: −{0}% PŻ w tym podejściu.",
   1521: "Boss osłabiony twoimi próbami: −{0}% PŻ, dopóki go nie pokonasz.",
+  1522: "−{0}% PŻ",
 };

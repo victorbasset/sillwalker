@@ -14,7 +14,7 @@ import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet } from "./sprites.js";
 import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
-import { bossName } from "../game/bosses.js";
+import { bossName, bossWear } from "../game/bosses.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
@@ -348,7 +348,8 @@ export class StripRenderer {
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss);
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
-        tag.textContent = bossName(this.game.S.zone);
+        const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
+        tag.textContent = bossName(this.game.S.zone) + (wear ? " · " + tx("−{0} % PV", { 0: Math.round(wear * 100) }) : "");
       }
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");

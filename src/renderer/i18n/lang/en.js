@@ -395,4 +395,5 @@ export default {
   1519: "Your save comes from a newer version of the game: it is kept aside (save.newer). Go back to that version to get it back.",
   1520: "Boss worn down by your attempts: −{0}% HP for this run.",
   1521: "Boss worn down by your attempts: −{0}% HP until you beat it.",
+  1522: "−{0}% HP",
 };

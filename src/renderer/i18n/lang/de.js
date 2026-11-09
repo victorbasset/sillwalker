@@ -395,4 +395,5 @@ export default {
   1519: "Dein Spielstand stammt aus einer neueren Version des Spiels: Er wird separat aufbewahrt (save.newer). Kehre zu dieser Version zurück, um ihn wiederzubekommen.",
   1520: "Boss von deinen Versuchen erschöpft: −{0} % LP für diesen Durchgang.",
   1521: "Boss von deinen Versuchen erschöpft: −{0} % LP, bis du ihn besiegst.",
+  1522: "−{0} % LP",
 };

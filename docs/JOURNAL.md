@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 ## Fait
 
+- 2026-11-09 (it. 34) : sur la bande, le nom d'un boss usé indique « −15 % PV », et ne passe plus sous l'or et
+  le niveau en haut à droite (il s'étend vers la gauche).
 - 2026-11-09 (it. 33) : panneau Zone, les PV du boss tiennent compte de son usure (45 k au lieu de 53 k à −15 %).
 - 2026-11-09 (it. 32) : fin des murs de plusieurs heures : un boss qui bat le héros s'use (−5 % de PV par défaite,
   30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu ; le panneau Zone l'indique. En simulation,
@@ -89,6 +91,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 ## Idées
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P1 Bande : le nom d'un boss très grand (yéti « Frostheuler », zone 28) dépasse en haut de la bande et est coupé.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
