@@ -103,10 +103,11 @@ export class Game {
         if (!deck.length) { deck = shuffled(Z.monsters); if (deck.length > 1 && deck[deck.length - 1] === last) deck.unshift(deck.pop()); }
         return (last = deck.pop());
       };
+      const eliteMul = (dm?.elite || 1) * (1 + (this.stats().elites || 0) / 100); // Appât des champions
       R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
         ? { type: "goblin", elite: false, goblin: true }
         : (() => {
-          const champion = rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * (dm?.elite || 1);
+          const champion = rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * eliteMul;
           return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
       R.lineupZone = this.S.zone;

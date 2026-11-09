@@ -373,4 +373,6 @@ export default {
   1497: "strefa {0}",
   1498: "(obecna)",
   1499: "wzniesienie",
+  1500: "napotkane elity",
+  1501: "Przynęta na czempionów",
 };

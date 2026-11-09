@@ -373,4 +373,6 @@ export default {
   1497: "zona {0}",
   1498: "(atual)",
   1499: "ascensão",
+  1500: "elites encontradas",
+  1501: "Isca dos campeões",
 };

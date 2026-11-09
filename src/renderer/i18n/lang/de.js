@@ -373,4 +373,6 @@ export default {
   1497: "Zone {0}",
   1498: "(aktuell)",
   1499: "Aufstieg",
+  1500: "angetroffene Elite-Gegner",
+  1501: "Köder der Champions",
 };

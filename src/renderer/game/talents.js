@@ -41,6 +41,7 @@ export const EFFECTS = {
   tapDmg:      { label: "dégâts des coups au clic", unit: "%" },
   offline:     { label: "efficacité hors ligne", unit: "%" },
   secondWind:  { label: "second souffle", unit: "" },
+  elites:      { label: "élites rencontrées", unit: "%" },
 };
 
 const T = (id, name, tier, max, eff, text) => ({ id, name, tier, max, eff, text });

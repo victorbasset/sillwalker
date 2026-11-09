@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 21).
 
 ## Fait
 
+- 2026-11-09 (it. 20) : nouveau pouvoir légendaire, « Appât des champions » : +60 % d'élites rencontrées
+  (plus coriaces, mais butin garanti et or ×4) et +10 % d'or. Un pouvoir de prise de risque.
 - 2026-11-09 (it. 19) : derniers textes français dans les autres langues corrigés (onglets Classe et
   Statistiques) : « zone 15 » des héros prisonniers, « (actuelle) », « ascension » de l'introduction,
   « zone 13 » du boss le plus lointain. Vérifié sur tout le texte de l'interface en russe, coréen, chinois.

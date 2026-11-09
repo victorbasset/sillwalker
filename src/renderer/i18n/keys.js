@@ -1501,5 +1501,7 @@ export const KEYS = [
   "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps.",
   "zone {0}",
   "(actuelle)",
-  "ascension"
+  "ascension",
+  "élites rencontrées",
+  "Appât des champions"
 ];

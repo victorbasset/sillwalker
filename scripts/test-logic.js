@@ -927,6 +927,20 @@ test("boss : souffle glacé et insaisissable", () => {
   assert.ok(miss > 0, "coups esquivés");
 });
 
+test("pouvoir Appât des champions : nettement plus d'élites", () => {
+  const count = (lure) => {
+    setRandom(seeded(7));
+    const g = new Game(freshState());
+    const it = g.newItem(4); it.power = lure ? "p_lure" : "p_purse"; g.S.equip[it.slot] = it; g.invalidateStats();
+    let elites = 0;
+    for (let i = 0; i < 400; i++) { g.R.lineupZone = -1; elites += g.lineup().filter((m) => m.elite).length; }
+    return elites;
+  };
+  const base = count(false), lure = count(true);
+  setRandom(seeded(42)); // la suite des tests reste déterministe
+  assert.ok(lure > base * 1.4, `élites : ${base} sans, ${lure} avec`);
+});
+
 test("Filet à étoiles : attrape l'étoile à mi-course, jamais sans le déblocage", () => {
   const run = (net) => {
     const g = new Game(freshLocked());

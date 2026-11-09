@@ -373,4 +373,6 @@ export default {
   1497: "zone {0}",
   1498: "(current)",
   1499: "ascension",
+  1500: "elites encountered",
+  1501: "Champions' Lure",
 };
