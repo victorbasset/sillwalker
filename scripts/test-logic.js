@@ -1633,6 +1633,8 @@ test("musique de fond (demande 24) : un air par zone, toujours le même pour une
   const keys = new Set(); for (let z = 1; z <= 200; z++) { const s = songFor(z); keys.add(JSON.stringify(s.notes.map((n) => n.midi))); assert.ok(s.bpm >= 80 && s.bpm <= 160 && s.notes.length >= 8, "zone " + z); for (const n of s.notes) assert.ok(n.midi >= 50 && n.midi <= 90); }
   assert.ok(keys.size >= 195, "quasiment 200 mélodies différentes : " + keys.size);
   assert.equal(freshState().settings.music, true, "musique activée par défaut");
+  const s12 = songFor(12), A = s12.notes.filter((n) => n.step < 16).map((n) => n.step + ":" + n.midi).join(), A1 = s12.notes.filter((n) => n.step >= 16 && n.step < 32).map((n) => (n.step - 16) + ":" + n.midi).join();
+  assert.equal(A, A1, "forme A A B A : le motif revient à l'identique (air reconnaissable)");
 });
 
 test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi ; changement à l'ascension", () => {

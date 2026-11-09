@@ -7,7 +7,7 @@ import { ZONES } from "../game/data.js";
 const MAJOR = [0, 2, 4, 5, 7, 9, 11], MINOR = [0, 2, 3, 5, 7, 8, 10];
 const PROG_MAJOR = [[0, 5, 3, 4], [0, 3, 4, 0], [0, 4, 5, 3], [3, 4, 0, 0]];   // I-vi-IV-V…
 const PROG_MINOR = [[0, 5, 2, 6], [0, 3, 4, 0], [0, 6, 5, 4], [0, 5, 6, 4]];   // i-VI-III-VII…
-const STEPS = 32; // 4 mesures de 8 croches
+const STEPS = 64; // 8 mesures de 8 croches (forme A A B A)
 
 /** Générateur pseudo-aléatoire à graine (même zone = même air). */
 function rng(seed) { let s = seed >>> 0 || 1; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
@@ -15,30 +15,39 @@ function rng(seed) { let s = seed >>> 0 || 1; return () => ((s = (s * 1664525 + 
 /** Clarté d'une couleur « #rrggbb » (0 sombre … 1 clair). */
 function light(hex) { const n = parseInt(String(hex).slice(1), 16); return ((n >> 16 & 255) * 0.3 + (n >> 8 & 255) * 0.59 + (n & 255) * 0.11) / 255; }
 
-/** Partition d'une zone : { bpm, notes: [{ step, midi, len }], bass: [{ step, midi, len }], hat } */
+/**
+ * Partition d'une zone : { bpm, notes: [{ step, midi, len }], bass: [{ step, midi, len }], hat }.
+ * Forme A A B A sur 8 mesures (motif de 2 mesures repris, pont, retour du motif) : un air qu'on reconnaît en
+ * revenant dans la zone (demande de Victor). Même zone = même air, toujours.
+ */
 export function songFor(zone) {
   const z = Math.max(1, zone | 0), def = ZONES[(z - 1) % ZONES.length], loop = Math.floor((z - 1) / ZONES.length);
   const r = rng(z * 7919 + 13);
   const minor = light(def.sky[0]) < 0.4 || /crypt|abyss|néant|volcan|ossuaire|bastion|maudit|corrompu/i.test(def.name);
-  const scale = minor ? MINOR : MAJOR, prog = (minor ? PROG_MINOR : PROG_MAJOR)[Math.floor(r() * 4)];
-  const root = 57 + Math.floor(r() * 7) + (loop % 3) - 1; // la grave … mi : un peu plus aigu d'une boucle à l'autre
+  const scale = minor ? MINOR : MAJOR;
+  const progA = (minor ? PROG_MINOR : PROG_MAJOR)[Math.floor(r() * 4)], progB = (minor ? PROG_MINOR : PROG_MAJOR)[Math.floor(r() * 4)];
+  const root = 57 + Math.floor(r() * 7) + (loop % 3) - 1; // un peu plus aigu d'une boucle des décors à l'autre
   const bpm = Math.round((minor ? 84 : 100) + r() * 26 + loop * 2);
   const deg = (d) => root + 12 * Math.floor(d / 7) + scale[((d % 7) + 7) % 7];
-  // Mélodie : surtout par degrés voisins, des silences, une note de l'accord au début de chaque mesure.
-  const notes = [];
-  let d = 7 + Math.floor(r() * 3);
-  for (let s = 0; s < STEPS; s++) {
-    const bar = Math.floor(s / 8), chord = prog[bar];
-    if (s % 8 === 0) { d = Math.min(13, 7 + chord + [0, 2, 4][Math.floor(r() * 3)]); notes.push({ step: s, midi: deg(d), len: 2 }); s++; continue; }
-    if (r() < 0.38) continue; // silence
-    d += [-2, -1, -1, 1, 1, 2, 0][Math.floor(r() * 7)];
-    d = Math.max(5, Math.min(13, d));
-    notes.push({ step: s, midi: deg(d), len: r() < 0.25 ? 2 : 1 });
-  }
-  // Seconde moitié = première moitié légèrement variée (refrain reconnaissable).
-  for (const n of notes.filter((x) => x.step < 16)) if (r() < 0.7 && !notes.some((x) => x.step === n.step + 16)) notes.push({ ...n, step: n.step + 16 });
+  // Un motif de 2 mesures (16 croches) : note de l'accord sur les temps forts, petits pas entre les deux.
+  const phrase = (prog, start) => {
+    const out = [];
+    let d = 7 + prog[0];
+    for (let s = 0; s < 16; s++) {
+      if (s % 8 === 0) { d = Math.min(13, 7 + prog[Math.floor(s / 8) + start] + [0, 2, 4][Math.floor(r() * 3)]); out.push({ step: s, midi: deg(d), len: 2 }); s++; continue; }
+      if (r() < 0.35) continue; // silence
+      d = Math.max(5, Math.min(13, d + [-2, -1, -1, 1, 1, 2, 0][Math.floor(r() * 7)]));
+      out.push({ step: s, midi: deg(d), len: r() < 0.25 ? 2 : 1 });
+    }
+    return out;
+  };
+  const A = phrase(progA, 0), B = phrase(progB, 0), A2 = phrase(progA, 2);
+  const at = (p, off) => p.map((n) => ({ ...n, step: n.step + off }));
+  // A A B A' : le motif deux fois à l'identique (mesures 1-4), le pont (5-6), puis la fin du motif (7-8).
+  const notes = [...at(A, 0), ...at(A, 16), ...at(B, 32), ...at(A2, 48)];
   const bass = [];
-  for (let bar = 0; bar < 4; bar++) { const b = deg(prog[bar]) - 12; bass.push({ step: bar * 8, midi: b, len: 3 }, { step: bar * 8 + 4, midi: b + (r() < 0.5 ? 7 : 0), len: 3 }); }
+  const prog8 = [progA[0], progA[1], progA[0], progA[1], progB[0], progB[1], progA[2], progA[3]];
+  prog8.forEach((c, bar) => { const b = deg(c) - 12; bass.push({ step: bar * 8, midi: b, len: 3 }, { step: bar * 8 + 4, midi: b + 7, len: 3 }); });
   return { bpm, notes, bass, hat: r() < 0.7 };
 }
 

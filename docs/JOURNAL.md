@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (retour de Victor : « les musiques semblent aléatoires ») : elles étaient déjà fixes par zone (test),
+  mais (1) le recul d'une zone après deux défaites changeait d'air, puis le retour encore : la musique ne change
+  plus qu'après 6 s dans la nouvelle zone ; (2) la mélodie, une marche au hasard sur 4 mesures, ne se retenait
+  pas : forme A A B A' sur 8 mesures (motif de 2 mesures joué deux fois à l'identique, pont, fin du motif), basse
+  sur la grille. Test (le motif revient à l'identique ; même zone = même air ; ≥195 airs distincts), 101/101.
 - 2026-11-09 (demande 26 de Victor) : son en trois réglages : « Effets sonores » et « Musique de fond » séparés
   (Réglages), et coupure générale settings.muted (bouton haut-parleur) qui rend l'état d'avant au second clic
   (sound.audio() : contexte audio pour la musique même effets coupés). Opacité de la bande : curseur horizontal

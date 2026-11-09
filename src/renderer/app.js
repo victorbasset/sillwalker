@@ -135,7 +135,13 @@ async function boot() {
   };
   applySettings();
   music.setZone(game.S.zone);
-  setInterval(() => music.setZone(game.S.zone), 1000); // changement de zone : fondu vers l'air de la nouvelle
+  // Changement de zone : fondu vers l'air de la nouvelle, une fois le héros installé depuis 6 s (un recul passager
+  // après une défaite ne fait plus changer la musique ; demande de Victor : un air fixe par zone, reconnaissable).
+  let musicZone = game.S.zone, musicSince = Date.now();
+  setInterval(() => {
+    if (game.S.zone !== musicZone) { musicZone = game.S.zone; musicSince = Date.now(); return; }
+    if (Date.now() - musicSince >= 6000) music.setZone(musicZone);
+  }, 1000);
   let speed = init.isDev && init.devSpeed ? init.devSpeed : 1;
   let mode = null, visible = false, pendingOffline = null; // pendingOffline : résumé d’absence en attente (mode mini)
 
