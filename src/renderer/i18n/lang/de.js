@@ -519,4 +519,7 @@ export default {
   1643: "Noch {n} Freischaltung weiter vorn|Noch {n} Freischaltungen weiter vorn",
   1644: "Meilenstein erreicht: Zone {0}!",
   1645: "Nächste Entdeckung",
+  1646: "Vor tausend Jahren zerschmetterte der Sternenbrecher den Himmel. Seine Splitter fielen auf den Saum, die schmale Grenze zwischen Welt und Leere.",
+  1647: "Seine Statthalter herrschen dort und halten die letzten Helden gefangen. Nur einer wandert noch: deiner.",
+  1648: "Erreiche Zone 200 und bezwinge den Sternenbrecher, um den Himmel neu zu entzünden. Jede Wiedergeburt macht dich stärker.",
 };

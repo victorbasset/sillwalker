@@ -519,4 +519,7 @@ export default {
   1643: "Mais {n} desbloqueio adiante|Mais {n} desbloqueios adiante",
   1644: "Marco alcançado: zona {0}!",
   1645: "Próxima descoberta",
+  1646: "Há mil anos, o Quebra-Estrelas despedaçou o céu. Seus fragmentos caíram sobre o Parapeito, a fina fronteira entre o mundo e o vazio.",
+  1647: "Seus tenentes reinam ali e mantêm prisioneiros os últimos heróis. Só um ainda caminha: o seu.",
+  1648: "Alcance a zona 200 e derrote o Quebra-Estrelas para reacender o céu. Cada renascimento o tornará mais forte.",
 };

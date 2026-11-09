@@ -1647,5 +1647,8 @@ export const KEYS = [
   "Des compagnons qui suivent ton héros et le renforcent.",
   "Encore {n} déblocage plus loin|Encore {n} déblocages plus loin",
   "Cap franchi : zone {0} !",
-  "Prochaine découverte"
+  "Prochaine découverte",
+  "Il y a mille ans, le Briseur d’Étoiles a fracassé le ciel. Ses éclats sont tombés sur le Rebord, la mince frontière entre le monde et le vide.",
+  "Ses lieutenants y règnent et retiennent prisonniers les derniers héros. Un seul marche encore : le tien.",
+  "Atteins la zone 200 et terrasse le Briseur d’Étoiles pour rallumer le ciel. Chaque renaissance te rendra plus fort."
 ];

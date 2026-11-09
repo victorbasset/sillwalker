@@ -7,6 +7,7 @@
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
 import { TAB_GATES } from "./game/tabs.js";
+import { INTRO, introDue, markIntro } from "./game/story.js";
 import { journeyText } from "./ui/tabs/stats.js";
 import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
@@ -257,7 +258,7 @@ async function boot() {
     if (mode === "mini") { if (pendingOffline) return; const h = nextHint(game); mini.setHint(h && h.text); return; }
     // Panneau ouvert compris (demande de Victor : l'astuce à l'ampoule ne s'affichait plus le menu déplié).
     if (window.__noHints) return; // auto-test (dev) : bulles réservées aux contrôles
-    if (mode !== "strip" || !toast.hidden || Date.now() < toastUntil) return;
+    if (mode !== "strip" || !toast.hidden || Date.now() < toastUntil || toastQueue.length) return; // file pleine (intro…) : attendre
     const h = nextHint(game);
     if (!h) return;
     markHint(game, h.key);
@@ -414,6 +415,11 @@ async function boot() {
   }
   // Tout premier lancement : la bulle de bienvenue (comment ouvrir le panneau) passe avant la récompense du jour.
   const firstVisit = !game.S.stats.kills && !(game.S.settings.hints || {}).welcome;
+  // Introduction de l'histoire (story.js) : trois bulles au tout premier lancement, un clic passe à la suivante.
+  if (introDue(game.S)) {
+    markIntro(game.S);
+    setTimeout(() => INTRO.forEach((line) => showToast(`<span class="story">📜</span> ${esc(tx(line))}`, null, 14000)), 1200);
+  }
   setInterval(checkDaily, 60000);
 
   /* ---------- Héros libéré ---------- */

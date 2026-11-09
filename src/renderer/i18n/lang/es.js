@@ -519,4 +519,7 @@ export default {
   1643: "{n} desbloqueo más adelante|{n} desbloqueos más adelante",
   1644: "¡Hito alcanzado: zona {0}!",
   1645: "Próximo descubrimiento",
+  1646: "Hace mil años, el Rompeestrellas hizo añicos el cielo. Sus fragmentos cayeron sobre el Alféizar, la delgada frontera entre el mundo y el vacío.",
+  1647: "Sus lugartenientes reinan allí y mantienen prisioneros a los últimos héroes. Solo uno sigue caminando: el tuyo.",
+  1648: "Alcanza la zona 200 y derrota al Rompeestrellas para volver a encender el cielo. Cada renacimiento te hará más fuerte.",
 };

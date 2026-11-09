@@ -519,4 +519,7 @@ export default {
   1643: "{n} more unlock further on|{n} more unlocks further on",
   1644: "Milestone reached: zone {0}!",
   1645: "Next discovery",
+  1646: "A thousand years ago, the Starbreaker shattered the sky. Its shards fell upon the Sill, the thin border between the world and the void.",
+  1647: "Its lieutenants rule there and hold the last heroes prisoner. Only one still walks: yours.",
+  1648: "Reach zone 200 and slay the Starbreaker to rekindle the sky. Each rebirth will make you stronger.",
 };

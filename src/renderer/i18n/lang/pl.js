@@ -519,4 +519,7 @@ export default {
   1643: "Jeszcze {n} odblokowanie dalej|Jeszcze {n} odblokowania dalej|Jeszcze {n} odblokowań dalej",
   1644: "Kamień milowy: strefa {0}!",
   1645: "Następne odkrycie",
+  1646: "Tysiąc lat temu Łamacz Gwiazd roztrzaskał niebo. Jego odłamki spadły na Krawędź, wąską granicę między światem a pustką.",
+  1647: "Jego namiestnicy tam rządzą i więżą ostatnich bohaterów. Wędruje już tylko jeden: twój.",
+  1648: "Dotrzyj do strefy 200 i pokonaj Łamacza Gwiazd, by na nowo rozpalić niebo. Każde odrodzenie uczyni cię silniejszym.",
 };

@@ -54,6 +54,7 @@ export function freshState(now = Date.now()) {
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
     tabsOpen: {},
+    story: { intro: false, read: {} }, // histoire (story.js) : intro vue, chroniques annoncées
     journey: [],            // carnet de route : grandes étapes datées [{ t, k: lvl|zone|leg|cls|asc, v }] (game.milestone)           // onglets du panneau déjà ouverts { id: true | "new" } (tabs.js : déblocage progressif)
     setsDone: {},           // panoplies complétées (4 pièces portées) au moins une fois { id: true }, voir codex.js
   };
@@ -188,6 +189,9 @@ export function migrate(raw) {
   // Onglets progressifs, apparus après coup : tout ce que le joueur connaissait déjà reste ouvert.
   if (!isObj(o.tabsOpen)) seedTabs(s);
   s.journey = Array.isArray(s.journey) ? s.journey.filter((e) => isObj(e) && Number.isFinite(e.t) && typeof e.k === "string").slice(-120) : [];
+  // Histoire apparue après coup : une partie déjà entamée ne revoit pas l'intro surgir (relisible dans les Chroniques).
+  if (!isObj(o.story)) s.story = { intro: (s.best > 1 || s.lvl > 1), read: {} };
+  else { if (typeof s.story.intro !== "boolean") s.story.intro = true; if (!isObj(s.story.read)) s.story.read = {}; }
   // Carnet apparu après coup, partie déjà entamée : une première entrée situe le point de départ.
   if (!Array.isArray(o.journey) && (s.best > 1 || s.lvl > 1)) s.journey.push({ t: Date.now(), k: "start", v: s.best, l: s.lvl });
   const ref = freshState(); // def a été fusionné dans s : référence intacte à part
