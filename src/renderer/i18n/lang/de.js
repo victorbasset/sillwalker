@@ -465,4 +465,5 @@ export default {
   1589: "+{n} Verbesserung|+{n} Verbesserungen",
   1590: "{n} Gegenstand transmutiert|{n} Gegenstände transmutiert",
   1591: "{n} Begleiter-Aufgabe|{n} Begleiter-Aufgaben",
+  1592: "{0} (ausgerüstet)",
 };

@@ -465,4 +465,5 @@ export default {
   1589: "+{n} mejora|+{n} mejoras",
   1590: "{n} objeto transmutado|{n} objetos transmutados",
   1591: "{n} tarea de mascota|{n} tareas de mascotas",
+  1592: "{0} (equipado)",
 };

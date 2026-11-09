@@ -344,6 +344,12 @@ async function runSelfTest(strip) {
   await click('#modal .linkbtn[data-tab="skills"]');
   await sleep(200);
   check("retour d'absence : le bouton ferme le résumé et ouvre l'onglet", (await js("document.querySelector('#modal').hidden && document.querySelector('[data-tab=skills]').getAttribute('aria-selected') === 'true'")));
+  // Meilleur butin déjà équipé (Valet d'armes) : son nom reste affiché, marqué « équipé ».
+  await js("(() => { const w = Object.values(window.__game.S.equip).find(Boolean); window.__showOffline({ duration: '1 h', zone: 'Zone', kills: 10, gold: 10, xp: 10, newLevel: 0, kept: 0, best: w.r, feathers: 0, chests: 0, capped: false, capH: 10, bestItemId: w.id }); })()");
+  await sleep(200);
+  check("retour d'absence : meilleur butin déjà équipé, nommé", await js("(() => { const w = Object.values(window.__game.S.equip).find(Boolean); const t = document.querySelector('#modal:not([hidden]) .lines')?.textContent || ''; return t.includes('(') && !document.querySelector('#modal [data-action=reveal-equip]'); })()"));
+  await js("document.querySelector('#modal [data-action=closemodal]')?.click()");
+  await sleep(150);
   // « Depuis ta dernière visite » : ligne en haut de la carte du héros, un clic la masque.
   await click('[data-tab="adventure"]');
   await js("(() => { const S = window.__game.S; window.__panel.sinceVisit = window.__game.visitSummary({ t: Date.now() - 42 * 60000, gold: 0, kills: 0, lvl: Math.max(1, S.lvl - 2), asc: S.prestige.count, leg: 0, best: 0 }); window.__panel.renderAll(); })()");

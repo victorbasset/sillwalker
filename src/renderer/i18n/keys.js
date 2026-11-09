@@ -1593,5 +1593,6 @@ export const KEYS = [
   "Maître de forge : {n} amélioration pendant ton absence.|Maître de forge : {n} améliorations pendant ton absence.",
   "+{n} amélioration|+{n} améliorations",
   "{n} objet transmuté|{n} objets transmutés",
-  "{n} tâche de familier|{n} tâches de familiers"
+  "{n} tâche de familier|{n} tâches de familiers",
+  "{0} (équipé)"
 ];

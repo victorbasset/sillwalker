@@ -465,4 +465,5 @@ export default {
   1589: "+{n} upgrade|+{n} upgrades",
   1590: "{n} item transmuted|{n} items transmuted",
   1591: "{n} pet task|{n} pet tasks",
+  1592: "{0} (equipped)",
 };
