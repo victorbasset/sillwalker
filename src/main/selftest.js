@@ -333,12 +333,13 @@ async function runSelfTest(strip) {
     await until(async () => (await js("document.querySelectorAll('.beast').length")) >= 11, 1500);
   }
   check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);
-  // Sommaire du Bestiaire : un clic amène la section « Élites » (en bas de l'onglet) dans la vue.
-  await click('.bjump [data-to="bj-elites"]');
+  // Sous-onglets du Bestiaire (demande 18) : un clic n'affiche que la section choisie (ici « Élites »).
+  await click('.bjump [data-to="elites"]');
   await sleep(300);
-  const elTop = await js("(() => { const h = document.getElementById('bj-elites'); const r = h && h.getBoundingClientRect(); return r ? Math.round(r.top) : -1; })()");
-  const vis = await js("(() => { const h = document.getElementById('bj-elites'), r = h.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; })()");
-  check("Bestiaire : le sommaire mène à la section", vis, "haut de la section à " + elTop);
+  const sub = await js("(() => [!!document.getElementById('bj-elites'), document.querySelectorAll('.beast').length, !!document.querySelector('.bjump .on[data-to=elites]')].join(' '))()");
+  check("Bestiaire : un sous-onglet n'affiche que sa section", sub === "true 0 true", sub);
+  await click('.bjump [data-to="beasts"]');
+  await sleep(200);
   // Résumé d'absence : « À faire maintenant » mène droit à l'onglet (ici les œufs → Familiers).
   await js("delete window.__game.S.unlocks.bulkPoints; delete window.__game.S.unlocks.armsValet; window.__game.S.gold = Math.max(window.__game.S.gold, 1e9); window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, forged: 12, transmuted: 3, petWork: 7, steps: [{ t: Date.now(), k: 'lvl', v: 100 }], bestItemId: (window.__game.S.bag[0] || {}).id })");
   check("retour d'absence : étape du carnet franchie (résumé et bulle)", await js("!!document.querySelector('#mbody .step') && /✦/.test(window.__stepLine({ steps: [{ t: 1, k: 'lvl', v: 100 }] }))"));

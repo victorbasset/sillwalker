@@ -787,3 +787,6 @@ svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; he
 .proj.ice { width: 12px; height: 6px; clip-path: polygon(0 50%, 30% 0, 100% 50%, 30% 100%); background: #bff0ff; filter: drop-shadow(0 0 1px #14121f); }
 .proj.note { width: 8px; height: 10px; border-radius: 50% 50% 50% 0; background: #ffd34d; box-shadow: 0 0 0 1px #14121f; }
 .proj.bomb { width: 10px; height: 10px; border-radius: 50%; background: #3a3550; box-shadow: 0 0 0 1px #14121f, 4px -4px 0 -2px #ffb733; }
+/* Sous-onglets (Bestiaire…) : une section à la fois (demande 18) */
+.subtabs button { font-size: 13px; padding: 3px 10px; }
+.subtabs button.on { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); }

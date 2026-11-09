@@ -18,7 +18,7 @@ const where = (type) => {
 };
 
 export class BestiaryTab {
-  constructor(game) { this.game = game; }
+  constructor(game) { this.game = game; this.sec = "beasts"; } // section affichée (demande 18 : une à la fois, sans défilement)
 
   badge() { return ""; }
 
@@ -36,8 +36,13 @@ export class BestiaryTab {
       </article>`;
     }).join("");
     const eff = bestiaryEffects(S);
-    el.innerHTML = `${this.jumpHTML()}${this.codexHTML(S)}<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(", "), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>.</p>
+    const beasts = `<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(", "), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>.</p>
       <div class="beastgrid">${cards}</div>`;
+    // Une seule section à la fois (sous-onglets) : découpée aux titres <h2 class="codexh" id="bj-…">.
+    const parts = {};
+    for (const html of (this.codexHTML(S) + beasts).split(/(?=<h2 class="codexh)/)) { const m = html.match(/id="bj-(\w+)"/); if (m) parts[m[1]] = html; }
+    if (!parts[this.sec]) this.sec = "beasts";
+    el.innerHTML = this.jumpHTML() + parts[this.sec];
   }
 
   codexHTML(S) {
@@ -71,18 +76,18 @@ export class BestiaryTab {
     return { powers: powersFound(S) > 0, sets: codexCounts(S).epic > 0 || Object.keys(S.setsDone || {}).length > 0, elites: (S.stats.elites || 0) > 0 };
   }
 
-  /** Sommaire de l'onglet (long) : un clic mène à la section. */
+  /** Sous-onglets : un clic affiche la section (les autres restent cachées). */
   jumpHTML() {
     const show = this.shown(this.game.S);
     const L = [["codex", tx("Collection d’objets")], ["powers", tx("Pouvoirs légendaires")], ["sets", tx("Panoplies")],
       ["bosses", tx("Capacités des boss")], ["elites", tx("Élites")], ["beasts", tx("Bestiaire")]].filter(([k]) => show[k] !== false);
-    return `<nav class="bjump" aria-label="${esc(tx("Aller à"))}">${L.map(([k, n]) => `<button class="quiet" data-action="b-jump" data-to="bj-${k}">${esc(n)}</button>`).join("")}</nav>`;
+    // Les monstres en premier : c'est le cœur du bestiaire.
+    L.unshift(...L.splice(L.findIndex(([k]) => k === "beasts"), 1));
+    return `<nav class="bjump subtabs" role="tablist" aria-label="${esc(tx("Aller à"))}">${L.map(([k, n]) => `<button class="quiet${this.sec === k ? " on" : ""}" role="tab" aria-selected="${this.sec === k}" data-action="b-jump" data-to="${k}">${esc(n)}</button>`).join("")}</nav>`;
   }
 
   onAction(a, b) {
-    if (a !== "b-jump") return;
-    const id = b.dataset.to; // après le nouveau rendu du panneau
-    requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ block: "start" }));
+    if (a === "b-jump") this.sec = b.dataset.to.replace(/^bj-/, ""); // le panneau se redessine ensuite
   }
   tick() { return false; }
 }

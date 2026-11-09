@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 242, demande 18, début) : Bestiaire en sous-onglets : une seule section affichée (monstres par
+  défaut, puis collection, pouvoirs, panoplies, capacités des boss, élites ; les sections pas encore rencontrées
+  restent cachées), le dernier choix est gardé ; plus de longue page à faire défiler. Contrôle d'autotest, 98/98.
 - 2026-11-09 (it. 241, demande 20 de Victor) : blason de la guilde (onglet Quêtes) à la place de l'amulette :
   écu écartelé azur et gueules, épées croisées sur une gemme, couronne (shopart.js CREST). Le métal (bordure,
   couronne, gemme) suit le rang : bronze, argent, or, améthyste, étoile. 10 langues (texte alternatif), 98/98.
@@ -834,13 +837,17 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       l'ascension (onglet « Héros ») ; (d) migration des parties (classe actuelle = héros principal, compagnon
       choisi à la prochaine ascension) ; (e) textes « classe » → « héros » dans les 10 langues ; équilibrage
       (balance.mjs, simulate 168 h), fuzz, carte du Rebord (20 cages).
-  18. À FAIRE (2026-11-09) : onglets moins chargés visuellement et sans défilement si possible. Bestiaire : n'afficher
+  18. EN COURS (it. 242 : Bestiaire en sous-onglets) : onglets moins chargés visuellement et sans défilement si possible. Bestiaire : n'afficher
       le contenu d'une section (monstres, panoplies, élites, collection…) qu'au clic sur son bouton (sous-onglets).
       Faire de même ailleurs quand c'est possible ; Carte et Compétences : chercher une idée (plus difficile).
   19. FAIT (it. 240). Les quêtes ne doivent pas proposer de récompenses encore inaccessibles (ex. œufs de
       familier avant l'onglet Familiers) ; vérifier aussi les autres récompenses (éclats d'étoile avant l'Ascension,
       élixirs avant la Boutique…).
   20. FAIT (it. 241). L'icône de la guilde (onglet Quêtes) ne plaît pas à Victor : dessiner un joli blason.
+  21. À FAIRE (2026-11-09, écran Samsung Odyssey G9, 5120 px) : en mode bande, les informations (or, niveau, zone,
+      boutons) sont aux deux bouts de l'écran : fatigant à regarder. Les regrouper au milieu, juste au-dessus de la
+      bande (ou en dessous si la bande est en haut), dans une languette qui sert aussi de bouton pour déplier le
+      panneau.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
