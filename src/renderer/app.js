@@ -480,12 +480,20 @@ async function boot() {
   /* ---------- Héros libéré ---------- */
   /* ---------- Onglet débloqué (tabs.js) : annonce sobre, un clic l'ouvre ---------- */
   // Nouvelle chronique : bulle sobre ; un clic ouvre le panneau sur la carte du héros, bloc des chroniques déplié.
+  // ▶ dans la liste des chroniques : rejoue la cinématique (l'intro pour « Le ciel brisé »).
+  game.on("chronicleReplay", ({ id }) => {
+    const c = CHRONICLES.find((x) => x.id === id);
+    if (!c) return;
+    if (id === "sky") { strip.juice.cinematic("intro"); return; }
+    const n = CHRONICLES.findIndex((x) => x.id === id) + 1;
+    strip.juice.cinematic("chronicle", { id, title: tx(c.title), text: tx(c.text), n, total: CHRONICLES.length });
+  });
   game.on("chronicle", ({ ids }) => {
     for (const id of ids) {
       const c = CHRONICLES.find((x) => x.id === id);
       if (!c) continue;
       // Petite cinématique d'abord (une seule à la fois ; pas pour « Le ciel rallumé », que la victoire met déjà en scène).
-      if (id !== "dawn" && ids.indexOf(id) === ids.length - 1) strip.juice.cinematic("chronicle", { title: tx(c.title), n: chroniclesUnlocked(game.S, recordZone(game.S)).length, total: CHRONICLES.length });
+      if (id !== "dawn" && ids.indexOf(id) === ids.length - 1) strip.juice.cinematic("chronicle", { id, title: tx(c.title), text: tx(c.text), n: chroniclesUnlocked(game.S, recordZone(game.S)).length, total: CHRONICLES.length });
       showToast(`<span class="story">📜</span> ${tx("Nouvelle chronique : {0}", { 0: `<b>${esc(tx(c.title))}</b>` })}`, () => { panel.kept.add("hero-chron"); openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 12000);
     }
   });

@@ -828,4 +828,5 @@ export default {
   1952: "Beim Aufstieg spielen",
   1953: "Duo beim Aufstieg",
   1954: "Als Duo nehmen",
+  1955: "Zwischensequenz erneut ansehen",
 };

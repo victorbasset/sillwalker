@@ -483,6 +483,10 @@ async function runSelfTest(strip) {
   const cq2 = await js("(() => { const c = document.querySelector('.cine.chronicle'); if (c) c.click(); return String(!!c); })()");
   check("cinématiques en file (la chronique attend la fin du héros libéré), calque cliquable", cq === "true" && cq2 === "true", cq + " / " + cq2);
   check("cinématiques : intro, arrivée, victoire, générique, chronique et héros libéré jouées, un clic les passe", cin === "true true true true true true true" && gone === true, cin + " / " + gone);
+  // Chroniques (demande 31) : ▶ dans la carte du héros rejoue la cinématique, avec sa scène et la phrase de la chronique.
+  await sleep(300);
+  const crp = await js("(() => { document.querySelectorAll('.cine').forEach((c) => c.click()); const P = window.__panel; P.setTab('adventure'); P.kept.add('hero-chron'); P.renderAll(); const b = document.querySelector('#p-hero [data-action=chron-play]:not([data-id=sky])'); if (!b) return 'pas de bouton'; b.click(); const c = document.querySelector('.cine.chronicle'); const ok = !!c && [...c.classList].some((k) => k.startsWith('chr-')); if (c) c.click(); return String(ok); })()");
+  check("chroniques : ▶ rejoue la cinématique avec sa scène propre", crp === "true", crp);
   // Carte du Rebord : 200 tronçons de zone, le héros, les héros prisonniers ; infobulle au survol d'une zone.
   const mp = await js("(() => { const S = window.__game.S, P = window.__panel; S.tabsOpen.map = true; P.setTab('map'); P.renderAll(); const z = document.querySelectorAll('svg.rebord .mz').length, h = !!document.querySelector('svg.rebord .mhero'), c = document.querySelectorAll('svg.rebord .mmark').length; const g = document.querySelector('svg.rebord .mz'); g.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); const t = document.querySelector('#panel .gtip'); const tip = !!(t && !t.hidden && /1/.test(t.textContent)); g.dispatchEvent(new MouseEvent('mousedown', { bubbles: true })); P.setTab('adventure'); return [z, h, c, tip].join(' '); })()");
   check("carte du Rebord : 200 zones, héros, prisonniers, infobulle", mp === "200 true 19 true", mp);

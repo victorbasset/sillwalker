@@ -263,7 +263,9 @@ export class Juice {
       arrive: { start: 0.6, step: 9, pages: [[tx("Le Briseur d’Étoiles"), tx("Le Briseur d’Étoiles t’attend !")]] },
       dawn: { start: 3, step: 20, pages: [[tx("Le ciel se rallume"), tx("Les héros sont libres.")]] },
       freed: { start: 1.4, step: 9, pages: [[tx("{0} est libre !", { 0: (CLASSES[data.cls] || {}).name || "" }), tx("Un héros de plus marche sur le Rebord.")]] },
-      chronicle: { start: 1, step: 9, pages: [[`📜 ${data.title || ""}`, tx("Chronique {0} / {1}", { 0: data.n || 1, 1: data.total || 1 })]] },
+      // Demande 31 : le titre, puis la première phrase de la chronique, sur une scène propre à chacune.
+      chronicle: { start: 0.8, step: 3.6, pages: [[`📜 ${data.title || ""}`, tx("Chronique {0} / {1}", { 0: data.n || 1, 1: data.total || 1 })],
+        ...(data.text ? [[data.title || "", firstSentence(data.text)]] : [])] },
       credits: { start: 0.8, step: 3.2, pages: [
         ["Sillwalker", tx("Le Briseur d’Étoiles est vaincu")],
         [tx("Héros libérés : {0}", { 0: (S.classesUnlocked || []).length }), tx("Ascensions : {0}", { 0: fmt((S.prestige && S.prestige.count) || 0) })],
@@ -278,7 +280,8 @@ export class Juice {
       img.src = classPortraitURL(data.cls);
       img.style.left = cageX + "px"; img.style.top = cageY + "px";
     }
-    const life = { intro: 7, arrive: 5, dawn: 12, chronicle: 5, freed: 5 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
+    if (kind === "chronicle" && data.id) node.classList.add("chr-" + data.id); // ambiance de couleur (styles.css)
+    const life = { intro: 7, arrive: 5, dawn: 12, chronicle: data.text ? 10 : 5, freed: 5 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
     // bx : dawn, là où le Briseur tombe ; arrive, sa place au bout de la bande.
     const bx = kind === "dawn" ? Math.min(W - 220, this.s.monX() + 20) : W - (this.s.rightReserve || 0) - 260, by = this.ground() - 30;
     // Étoiles : dawn, elles montent du Briseur vaincu ; credits, déjà au ciel ; intro, au ciel puis elles tombent.
@@ -293,7 +296,7 @@ export class Juice {
     const state = { done: false };
     this.cine = state;
     node.addEventListener("click", () => { state.done = true; });
-    this.s.game.emit("cinematic", { kind });
+    this.s.game.emit("cinematic", { kind, id: data.id });
     if (this.onHits) setTimeout(this.onHits, 0); // zones cliquables de la fenêtre à recalculer
     let lastDraw = -1, page = -1;
     this.add(node, (p) => {
@@ -365,6 +368,7 @@ export class Juice {
         }
         ctx.globalAlpha = 1;
       }
+      if (kind === "chronicle" && data.id) chronicleScene(ctx, data.id, t, W, H, this.ground());
       if (kind === "chronicle") { // la nouvelle étoile s'allume au centre : croix qui grandit puis scintille
         const u = Math.min(1, Math.max(0, (t - 0.5) / 0.8)), cx = Math.round(W / 2), cy = Math.round(H * 0.12), r = Math.round(2 + u * 6);
         ctx.globalAlpha = u * (0.75 + 0.25 * Math.sin(t * 5));
@@ -526,4 +530,118 @@ export class Juice {
   }
 
   clear() { this.layer.replaceChildren(); this.parts.length = 0; this.star = null; this.wx.length = 0; this.wxKind = null; this.wxc = null; this.wxKey = ""; }
+}
+
+/** Première phrase d'un texte (sous-titre court d'une cinématique). */
+function firstSentence(text) {
+  const m = String(text).match(/^.{20,}?[.!?…。！？](?=\s|$)/s);
+  const s = (m ? m[0] : String(text)).replace(/\s+/g, " ").trim();
+  return s.length > 120 ? s.slice(0, 117).trimEnd() + "…" : s;
+}
+
+/**
+ * Décor d'une chronique (demande 31) : une petite scène en pixels, dessinée sur les côtés de la bande (le texte
+ * est au centre). t : secondes depuis le début ; gy : hauteur du sol.
+ */
+function chronicleScene(ctx, id, t, W, H, gy) {
+  const R = (x, y, w, h) => ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
+  const rnd = (i) => { const x = Math.sin(i * 91.7 + 3.3) * 43758.5453; return x - Math.floor(x); };
+  const L = Math.round(W * 0.2), Rx = Math.round(W * 0.8);
+  ctx.globalAlpha = 1;
+  if (id === "captive") { // une cage s'ouvre sur un héros captif, étincelles vertes
+    for (const cx of [L, Rx]) {
+      const up = Math.min(1, Math.max(0, (t - 1.5) / 1.2)), bh = 50, top = gy - bh;
+      ctx.fillStyle = "#1a1830"; R(cx + 14, top + 14, 10, 32); R(cx + 15, top + 6, 8, 8); // silhouette
+      ctx.fillStyle = "#9a96b8";
+      for (let i = 0; i < 5; i++) R(cx + i * 10, top - up * (bh + 20), 3, bh);
+      ctx.fillStyle = "#6a6488"; R(cx - 4, gy - 4, 50, 4);
+      if (up >= 1) for (let i = 0; i < 14; i++) {
+        const a = i * 0.45 + t * 2, rr = (t * 30 + i * 9) % 50;
+        ctx.globalAlpha = Math.max(0, 1 - rr / 50); ctx.fillStyle = i % 3 ? "#9fe0a8" : "#fff6c8";
+        R(cx + 18 + Math.cos(a) * rr, top + 24 + Math.sin(a) * rr * 0.6, 2, 2);
+      }
+      ctx.globalAlpha = 1;
+    }
+  } else if (id === "shards") { // des éclats d'étoile tombent et brillent au sol
+    for (let i = 0; i < 40; i++) {
+      const x = rnd(i) * W, start = rnd(i + 40) * 6, u = Math.min(1, Math.max(0, (t - start) / 1.1));
+      if (u <= 0) continue;
+      const y = -6 + (gy - 4) * u * u;
+      ctx.fillStyle = i % 4 ? "#c99bff" : "#ffe27a";
+      if (u < 1) { ctx.globalAlpha = 0.35; R(x, y - 8, 1, 8); ctx.globalAlpha = 1; R(x - 1, y, 3, 3); }
+      else { ctx.globalAlpha = 0.6 + 0.4 * Math.sin(t * 4 + i); R(x - 1, gy - 4, 3, 2); R(x, gy - 6, 1, 6); ctx.globalAlpha = 1; }
+    }
+  } else if (id === "rebirth") { // une colonne de lumière, le héros se relève, étincelles qui montent
+    for (const cx of [L, Rx]) {
+      const h = Math.min(gy, (t - 0.6) * 60);
+      if (h <= 0) continue;
+      ctx.globalAlpha = 0.25 + 0.1 * Math.sin(t * 3); ctx.fillStyle = "#fff1b0"; R(cx - 14, gy - h, 28, h);
+      ctx.globalAlpha = 0.5; R(cx - 5, gy - h, 10, h);
+      ctx.globalAlpha = 1; ctx.fillStyle = "#2a2240";
+      const rise = Math.min(1, Math.max(0, (t - 2) / 1.5)); // silhouette : à genoux, puis debout
+      R(cx - 5, gy - 14 - rise * 16, 10, 14 + rise * 16); R(cx - 4, gy - 22 - rise * 16, 8, 8);
+      for (let i = 0; i < 12; i++) {
+        const k = ((t * 0.5 + rnd(i)) % 1);
+        ctx.globalAlpha = 1 - k; ctx.fillStyle = "#ffe27a"; R(cx - 16 + rnd(i + 9) * 32, gy - k * gy, 2, 2);
+      }
+      ctx.globalAlpha = 1;
+    }
+  } else if (id === "bastion") { // une forteresse noire, fenêtres rouges, braises
+    const bx = Rx - 70, base = gy, rise = Math.min(1, t / 1.5);
+    ctx.fillStyle = "#08060f";
+    const towers = [[0, 46], [26, 64], [60, 52], [92, 70], [124, 44]];
+    for (const [dx, h] of towers) {
+      const hh = h * rise; R(bx + dx, base - hh, 24, hh);
+      for (let k = 0; k < 3; k++) R(bx + dx + k * 9, base - hh - 5, 5, 5); // créneaux
+    }
+    R(bx, base - 30 * rise, 150, 30 * rise);
+    if (rise >= 1) for (const [dx, h] of towers) {
+      ctx.fillStyle = Math.sin(t * 7 + dx) > -0.3 ? "#ff5a3a" : "#a8321e"; R(bx + dx + 10, base - h + 14, 4, 6);
+    }
+    for (let i = 0; i < 16; i++) {
+      const k = (t * 0.35 + rnd(i)) % 1;
+      ctx.globalAlpha = 1 - k; ctx.fillStyle = i % 2 ? "#ff7a3a" : "#ffb733";
+      R(bx - 40 + rnd(i + 3) * 230, base - k * (base - 6), 2, 2);
+    }
+    ctx.globalAlpha = 1;
+  } else if (id === "beyond") { // brumes qui dérivent sur des terres sans carte
+    for (let b = 0; b < 4; b++) {
+      ctx.globalAlpha = 0.16; ctx.fillStyle = b % 2 ? "#b8b4d8" : "#8a86a8";
+      const y = gy - 14 - b * 13, off = ((t * (14 + b * 6)) % (W + 400)) - 400;
+      for (let x = off; x < W; x += 420) R(x, y, 300, 9);
+    }
+    ctx.globalAlpha = 0.5; ctx.fillStyle = "#6a6488"; // sol qui ondule, comme replié sur lui-même
+    for (let x = 0; x < W; x += 6) R(x, gy - 2 + Math.round(Math.sin(x * 0.03 + t * 2) * 2), 6, 2);
+    ctx.globalAlpha = 1;
+  } else if (id === "crack") { // une fissure de lumière traverse le ciel, des lueurs en tombent
+    const len = Math.min(1, Math.max(0, (t - 0.6) / 2.4)) * W;
+    // Tout en haut de la bande : le titre est juste en dessous.
+    const cyb = 7;
+    let y = cyb;
+    for (let x = 0; x < len; x += 8) {
+      const ny = cyb + Math.sin(x * 0.05) * 3 + (rnd(Math.floor(x / 8)) - 0.5) * 5;
+      ctx.globalAlpha = 0.35; ctx.fillStyle = "#7fd6ff"; R(x, Math.min(y, ny) - 2, 8, Math.abs(ny - y) + 5);
+      ctx.globalAlpha = 1; ctx.fillStyle = "#e8fbff"; R(x, Math.min(y, ny), 8, Math.max(1, Math.abs(ny - y)) + 1);
+      y = ny;
+    }
+    for (let i = 0; i < 20; i++) {
+      const x0 = rnd(i) * len, k = (t * 0.4 + rnd(i + 7)) % 1;
+      ctx.globalAlpha = 1 - k; ctx.fillStyle = "#bdefff"; R(x0, cyb + k * (gy - cyb), 2, 2);
+    }
+    ctx.globalAlpha = 1;
+  } else if (id === "threshold") { // au loin, la silhouette immense du Briseur, ses yeux s'allument
+    const cx = Rx, pulse = 0.5 + 0.5 * Math.sin(t * 2);
+    ctx.fillStyle = "#8a3cff"; // halo doux : bandes de plus en plus larges et pâles
+    for (let k = 0; k < 6; k++) { ctx.globalAlpha = (0.09 - k * 0.012) * (0.6 + 0.4 * pulse); R(cx - 30 - k * 14, gy - 100 - k * 6, 60 + k * 28, 100 + k * 6); }
+    ctx.globalAlpha = Math.min(1, t / 2); ctx.fillStyle = "#05030a";
+    R(cx - 24, gy - 70, 48, 70); R(cx - 16, gy - 90, 32, 22); R(cx - 40, gy - 64, 16, 40); R(cx + 24, gy - 64, 16, 40);
+    R(cx - 20, gy - 98, 6, 10); R(cx + 14, gy - 98, 6, 10); // cornes
+    if (t > 2.4) { ctx.globalAlpha = 0.7 + 0.3 * pulse; ctx.fillStyle = "#ff3a6a"; R(cx - 9, gy - 82, 5, 3); R(cx + 4, gy - 82, 5, 3); }
+    if (t < 2.5) for (let i = 0; i < 10; i++) { // le vent souffle encore… puis plus rien
+      ctx.globalAlpha = 0.4 * (1 - t / 2.5); ctx.fillStyle = "#e8e4ff";
+      R(W - ((t * 700 + rnd(i) * W) % W), 10 + rnd(i + 4) * (gy - 20), 40, 1);
+    }
+    ctx.globalAlpha = 1;
+  }
+  ctx.globalAlpha = 1;
 }

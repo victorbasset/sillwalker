@@ -828,4 +828,5 @@ export default {
   1952: "Jugar en la ascensión",
   1953: "Dúo en la ascensión",
   1954: "Formar dúo",
+  1955: "Volver a ver la cinemática",
 };

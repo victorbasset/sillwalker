@@ -107,8 +107,37 @@ export class Sound {
     else if (mat === "hard") this.tone(2200 * p, 0.015, 0.03, "square", 0.04 * g);
   }
 
-  play(id) {
+  /** Motif d'une chronique (demande 31) : une ambiance par chapitre de l'histoire (fréquences en Hz). */
+  chronicleMotif(cid) {
+    const T = (f, at, d, type, v, sl) => this.tone(f, at, d, type, v, sl);
+    switch (cid) {
+      case "captive": // la cage cède, espoir : arpège majeur montant
+        this.noise(1.5, 0.15, 0.25); [523, 659, 784, 1047].forEach((f, i) => T(f, 2.2 + i * 0.16, 0.5, "square", 0.12));
+        [523, 659, 784].forEach((f) => T(f, 2.9, 2.2, "triangle", 0.14)); break;
+      case "shards": // des éclats qui tintent en tombant
+        for (let i = 0; i < 12; i++) T([1568, 1319, 1175, 1047, 1319, 1760][i % 6], 0.3 + i * 0.33, 0.3, "triangle", 0.1);
+        T(262, 0.3, 4, "triangle", 0.12); T(392, 0.3, 4, "triangle", 0.08); break;
+      case "rebirth": // lumière qui grandit : accord tenu qui s'ouvre
+        [262, 330, 392].forEach((f, i) => T(f, 0.6 + i * 0.5, 4, "triangle", 0.13)); T(523, 2.2, 3, "triangle", 0.12); T(1047, 2.6, 2.4, "sine", 0.08); break;
+      case "bastion": // tambour grave et accord mineur menaçant
+        for (let i = 0; i < 6; i++) { T(70, i * 0.6, 0.25, "square", 0.22, 0.5); this.noise(i * 0.6, 0.08, 0.15); }
+        [220, 262, 330].forEach((f) => T(f, 1.2, 3.2, "sawtooth", 0.07)); T(196, 3.6, 2, "sawtooth", 0.08); break;
+      case "beyond": // brume : notes lentes, flottantes, sans appui
+        [392, 466, 523, 466, 349, 392].forEach((f, i) => T(f, 0.4 + i * 0.9, 1.4, "sine", 0.12)); T(196, 0.4, 5.5, "triangle", 0.08); break;
+      case "crack": // le ciel se fissure : craquement, puis tintement cristallin
+        this.noise(0.6, 0.9, 0.25); T(1760, 1.6, 1.6, "triangle", 0.1); T(2349, 1.9, 1.4, "triangle", 0.07);
+        [523, 784, 1175].forEach((f, i) => T(f, 2.6 + i * 0.3, 2.2, "triangle", 0.12)); break;
+      case "threshold": // silence pesant, battement grave, deux notes sombres
+        for (let i = 0; i < 5; i++) T(55, 0.5 + i * 1.1, 0.4, "sine", 0.3, 0.6);
+        T(233, 2.4, 2.5, "sawtooth", 0.07); T(220, 4.2, 2.5, "sawtooth", 0.08); break;
+      default: return false;
+    }
+    return true;
+  }
+
+  play(id, extra) {
     if (!this.enabled || !this.ensure()) return;
+    if (id === "chronicle" && extra && this.chronicleMotif(extra)) return;
     switch (id) {
       case "doom": // le Briseur se montre : grondement et accords graves qui descendent
         this.noise(0, 1.2, 0.35); this.tone(220, 0.1, 0.9, "sawtooth", 0.25, 0.5); this.tone(165, 0.9, 1.1, "sawtooth", 0.25, 0.6);
@@ -176,7 +205,7 @@ export class Sound {
     game.on("codex", () => this.play("codex"));
     game.on("heroDown", () => this.play("ko"));
     // Moments marquants qui n'avaient pas de son
-    game.on("cinematic", ({ kind }) => { if (kind === "intro" || kind === "credits" || kind === "chronicle" || kind === "freed") this.play(kind); });
+    game.on("cinematic", ({ kind, id }) => { if (kind === "intro" || kind === "credits" || kind === "chronicle" || kind === "freed") this.play(kind, id); });
     game.on("starbreaker", ({ first }) => this.play(first ? "dawn" : "legendary"));
     game.on("zoneUp", ({ zone, record }) => {
       // Arrivée chez le Briseur d'Étoiles (zone 200) : grondement ; grand palier : fanfare ; record : petit son.

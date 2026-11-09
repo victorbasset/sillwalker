@@ -828,4 +828,5 @@ export default {
   1952: "Graj po wniebowstąpieniu",
   1953: "Duet po wniebowstąpieniu",
   1954: "Weź do duetu",
+  1955: "Obejrzyj ponownie przerywnik",
 };

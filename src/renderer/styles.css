@@ -866,3 +866,13 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .keeplose > div > b { flex: none; min-width: 52px; }
 .keeplose > div > ul { flex: 1; }
 .ascgrid { grid-template-columns: minmax(300px, 1.25fr) minmax(400px, 1.75fr); }
+/* Chroniques (demande 31) : une ambiance de couleur par chronique. */
+.cine.chronicle.chr-captive { background: linear-gradient(#040c0a 0%, #0e2a22 65%, rgba(14, 42, 34, 0.75) 100%); }
+.cine.chronicle.chr-shards { background: linear-gradient(#07031a 0%, #24104a 65%, rgba(36, 16, 74, 0.75) 100%); }
+.cine.chronicle.chr-rebirth { background: linear-gradient(#0d0820 0%, #3a2a3a 65%, rgba(80, 58, 40, 0.7) 100%); }
+.cine.chronicle.chr-bastion { background: linear-gradient(#0a0204 0%, #2e0a0e 65%, rgba(60, 14, 14, 0.75) 100%); }
+.cine.chronicle.chr-beyond { background: linear-gradient(#0b0b12 0%, #24243a 65%, rgba(48, 48, 66, 0.75) 100%); }
+.cine.chronicle.chr-crack { background: linear-gradient(#020818 0%, #0a2040 65%, rgba(10, 32, 64, 0.75) 100%); }
+.cine.chronicle.chr-threshold { background: linear-gradient(#020005 0%, #12041e 65%, rgba(24, 6, 36, 0.8) 100%); }
+.cine.chronicle .cine-sub { white-space: normal; width: min(60%, 760px); text-align: center; line-height: 1.25; }
+.chronplay { font-size: 11px; padding: 0 5px; margin-left: 4px; }

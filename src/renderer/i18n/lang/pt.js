@@ -828,4 +828,5 @@ export default {
   1952: "Jogar na ascensão",
   1953: "Dupla na ascensão",
   1954: "Formar dupla",
+  1955: "Rever a cinemática",
 };

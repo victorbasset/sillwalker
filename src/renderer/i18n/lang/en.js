@@ -828,4 +828,5 @@ export default {
   1952: "Play at ascension",
   1953: "Duo at ascension",
   1954: "Take as duo",
+  1955: "Replay the cutscene",
 };

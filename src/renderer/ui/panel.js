@@ -314,7 +314,9 @@ export class Panel {
   /** Chroniques de l'histoire (story.js) : les plus récentes d'abord ; les suivantes restent cachées (« ??? »). */
   chronicleBox() {
     const S = this.game.S, got = chroniclesUnlocked(S, recordZone(S));
-    const items = [...got].reverse().map((c) => `<li class="chron"><b>${esc(tx(c.title))}</b><p>${esc(tx(c.text))}</p></li>`).join("");
+    // ▶ : revoir la cinématique de la chronique (demande 31) ; « Le ciel brisé » rejoue l'intro, la victoire n'en a pas ici.
+    const play = (c) => c.id === "dawn" ? "" : ` <button class="linkbtn inline chronplay" data-action="chron-play" data-id="${c.id}" title="${esc(tx("Revoir la cinématique"))}">▶</button>`;
+    const items = [...got].reverse().map((c) => `<li class="chron"><b>${esc(tx(c.title))}</b>${play(c)}<p>${esc(tx(c.text))}</p></li>`).join("");
     return `<details class="more chronbox" data-keep="hero-chron"${this.kept.has("hero-chron") ? " open" : ""}><summary>📜 ${tx("Chroniques ({0} / {1})", { 0: got.length, 1: CHRONICLES.length })}</summary><ul class="chronlist">${items}</ul></details>`;
   }
 
@@ -680,6 +682,7 @@ export class Panel {
       if (it) this.revealChest(b.dataset.id, it);
       return;
     }
+    if (a === "chron-play") { this.game.emit("chronicleReplay", { id: b.dataset.id }); return; }
     if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); return; }
     if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }

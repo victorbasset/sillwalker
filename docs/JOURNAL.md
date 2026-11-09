@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 283, demande 31) : chaque chronique a sa cinématique épique (10 s, passable d'un clic) : ambiance
+  de couleur propre, scène en pixels sur les côtés (captif : cages qui s'ouvrent ; éclats : pluie d'étoiles ;
+  renaissance : colonnes de lumière ; Bastion : forteresse aux fenêtres rouges et braises ; au-delà : brumes et sol
+  qui ondule ; fissure : le ciel se fend en haut de la bande ; seuil : la silhouette du Briseur, ses yeux s'allument),
+  titre puis première phrase de la chronique, motif musical par chronique (sound.js chronicleMotif). ▶ dans la
+  liste des chroniques (Aventure) : revoir la cinématique (intro pour « Le ciel brisé »). Captures des 7 scènes,
+  1 texte × 9 langues, contrôle d'autotest, 104/104.
 - 2026-11-09 (it. 282, demandes 27, 29, 30) : Ascension : icônes partout (éclats, gardé / perdu, constellations selon
   leur effet, pastilles des constellations au maximum, bouton d'ascension) ; « gardé / perdu » en étiquettes sur
   une ligne chacun, colonne de gauche plus large : plus de défilement même à 1366 px. Aventure : retirés le lien
@@ -1036,7 +1043,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       (déblocage de boutique difficile à atteindre).
   29. FAIT (it. 282). Onglet Ascension : il reste un défilement, à éviter.
   30. FAIT (it. 282). Aventure : retirer le rappel « dépense 1 point de talent » (inutile) et le message des potions.
-  31. Histoire : une courte cinématique épique, avec une ambiance, à chaque chronique débloquée (ne pas oublier
+  31. FAIT (it. 283). Histoire : une courte cinématique épique, avec une ambiance, à chaque chronique débloquée (ne pas oublier
       le côté histoire).
 
 
