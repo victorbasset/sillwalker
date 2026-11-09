@@ -647,4 +647,6 @@ export default {
   1771: "Captive",
   1772: "Hits, coins, loot, level-ups… The speaker button on the strip mutes everything (effects and music) and restores the previous state on the next click.",
   1773: "Maxed out ({0}):",
+  1774: "Found",
+  1775: "To discover",
 };

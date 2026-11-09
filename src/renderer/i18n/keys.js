@@ -1775,5 +1775,7 @@ export const KEYS = [
   "Libérés",
   "Prisonniers",
   "Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande coupe tout (effets et musique) et rend l’état d’avant au clic suivant.",
-  "Au maximum ({0}) :"
+  "Au maximum ({0}) :",
+  "Trouvés",
+  "À découvrir"
 ];

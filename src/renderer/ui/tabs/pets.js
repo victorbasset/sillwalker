@@ -1,4 +1,5 @@
 // Onglet Familiers : collection, œufs à faire éclore, familier actif.
+import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, lc } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
@@ -11,7 +12,7 @@ import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 
 export class PetsTab {
-  constructor(game) { this.game = game; this.root = null; this.readyN = 0; this.eggsN = -1; }
+  constructor(game) { this.game = game; this.root = null; this.readyN = 0; this.eggsN = -1; this.sec = "found"; } // sous-onglet (demande 18)
 
   badge() { const n = this.game.S.pets.eggs + this.game.expeditionsReady().length; return n ? String(n) : ""; }
 
@@ -38,9 +39,10 @@ export class PetsTab {
           <p class="note">${tx("Sort d’un œuf : boss ({0} %), élites ({1} %) ou quêtes.", { 0: Math.round(EGG_CHANCE.boss * 100), 1: Math.round(EGG_CHANCE.elite * 100) })}</p></article>`;
       }
       const maxed = own.lvl >= PET_MAX_LVL, need = petXpNeed(own.lvl);
-      return `<article class="panel petcard${active ? " current" : ""}">
+      // Carte compacte (demande 18) : la description d'ambiance passe en infobulle.
+      return `<article class="panel petcard${active ? " current" : ""}" title="${esc(p.desc)}">
         <div class="detail-head"><img src="${petURL(p.id)}" alt=""><div>
-          <div class="nm">${esc(p.name)} <small>${tx("niv. {0}", { 0: own.lvl })}${maxed ? ` (${tx("max")})` : ""}</small></div><div class="sub">${esc(p.desc)}</div></div></div>
+          <div class="nm">${esc(p.name)} <small>${tx("niv. {0}", { 0: own.lvl })}${maxed ? ` (${tx("max")})` : ""}</small></div></div></div>
         <ul class="lines"><li><span>${tx("Bonus")}</span><span class="delta-p">${esc(describeEffects(p.eff, own.lvl))}</span></li>
         ${maxed ? "" : `<li><span>${tx("Niveau suivant")}</span><span>${esc(describeEffects(p.eff, own.lvl + 1))}</span></li>`}</ul>
         ${maxed ? "" : `<div class="kv"><span>${tx("Expérience")}</span><span>${Math.floor(own.xp)} / ${need}</span></div><div class="bar"><i style="width:${(100 * own.xp) / need}%"></i></div>`}
@@ -62,12 +64,14 @@ export class PetsTab {
         ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
           ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
         ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${tx("Récupérer {0} expéditions", { 0: this.readyN })}</button>` : ""}
-        <span class="note">${tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets.")}</span>
+        <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
       </div>
-      <div class="petgrid">${cards}</div>`;
+      ${owned < PETS.length ? subtabsHTML([["found", tx("Trouvés"), owned], ["unknown", tx("À découvrir"), PETS.length - owned]], this.sec, "p-sec") : ""}
+      <div class="petgrid sec-${owned < PETS.length ? this.sec : "found"}">${cards}</div>`;
   }
 
   onAction(a, b) {
+    if (a === "p-sec") { this.sec = b.dataset.to; return; }
     if (a === "p-hatch") this.game.hatchEgg();
     else if (a === "p-set") this.game.setPet(b.dataset.id);
     else if (a === "p-exp") this.game.sendExpedition(b.dataset.id, b.dataset.kind);

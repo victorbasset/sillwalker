@@ -647,4 +647,6 @@ export default {
   1771: "Prisioneros",
   1772: "Golpes, monedas, botín, subidas de nivel… El botón del altavoz de la banda lo silencia todo (efectos y música) y recupera el estado anterior con el siguiente clic.",
   1773: "Al máximo ({0}):",
+  1774: "Encontrados",
+  1775: "Por descubrir",
 };

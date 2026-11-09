@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 257, demande 18, suite) : Familiers : sous-onglets Trouvés / À découvrir (tant que la collection
+  n'est pas complète), cartes compactes (description d'ambiance en infobulle, 7 par rangée en 1920), explication
+  de la barre en infobulle ⓘ. Défilement : 477 → 238 px (collection complète). 102/102, 10 langues.
 - 2026-11-09 (it. 256, demande 18, suite) : Carte du Rebord sans défilement : 4 rangées de 50 zones (au lieu de 7 de
   33 : forme large, comme le panneau), titre et résumé sur une ligne, explication en infobulle, la carte prend la
   hauteur restante ; le Briseur au bout de la dernière rangée, dans le sens de la marche. Test du serpentin mis à

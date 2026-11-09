@@ -815,3 +815,10 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .shoproot.sec-unlocks .shopgrid2 { display: none; }
 .shoproot.sec-workshop .unlocks, .shoproot.sec-workshop .shopgrid2 > article:not(.wsec) { display: none; }
 .shoproot.sec-workshop .shopgrid2 { grid-template-columns: 1fr; }
+/* Familiers en sous-onglets (demande 18) : trouvés / à découvrir */
+.petgrid.sec-found > .petcard.unknown, .petgrid.sec-unknown > .petcard:not(.unknown) { display: none; }
+.note.help { cursor: help; font-size: 15px; }
+.petgrid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
+.petgrid .petcard { padding: 8px 10px; }
+.petgrid .petcard .detail-head img { width: 36px; height: 36px; }
+.petgrid .petcard .lines { font-size: 13px; }

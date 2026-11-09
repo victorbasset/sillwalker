@@ -647,4 +647,6 @@ export default {
   1771: "Gefangen",
   1772: "Treffer, Münzen, Beute, Stufenaufstiege… Der Lautsprecher-Knopf auf dem Band schaltet alles stumm (Effekte und Musik) und stellt beim nächsten Klick den vorherigen Zustand wieder her.",
   1773: "Ausgereizt ({0}):",
+  1774: "Gefunden",
+  1775: "Zu entdecken",
 };

@@ -647,4 +647,6 @@ export default {
   1771: "Uwięzieni",
   1772: "Ciosy, monety, łup, awanse… Przycisk głośnika na pasku wycisza wszystko (efekty i muzykę), a następne kliknięcie przywraca poprzedni stan.",
   1773: "Na maksimum ({0}):",
+  1774: "Znalezione",
+  1775: "Do odkrycia",
 };
