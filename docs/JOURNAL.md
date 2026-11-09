@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 319) : semaine simulée (mage) après Peau de pierre et les greffes : record de fin 160 (repère
+  152-155), progression régulière ; déblocages étalés jusqu'à l'Astrolabe (zone 150, 6e jour) ; l'Enclume stellaire
+  arrive vers le 5e jour (zone 140), comme voulu (« difficile d'accès »).
 - 2026-11-10 (it. 318) : contrôle du rythme de la première heure après Peau de pierre, greffes de talents et
   nouveaux événements : early-pace à 60 min : zone 22, 105 objets, 5,7 déblocages (repère : 23 / 115) ; tab-pace :
   talents 1 min, quêtes 5, boutique 8-9, héros 10, carte 12, bestiaire 14-15, ascension 21-22 (3 graines). Stable.
