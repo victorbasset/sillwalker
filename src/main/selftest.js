@@ -330,14 +330,19 @@ async function runSelfTest(strip) {
   await js("delete window.__game.S.unlocks.armsValet; window.__game.S.gold = Math.max(window.__game.S.gold, 1e9); window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, bestItemId: (window.__game.S.bag[0] || {}).id })");
   await sleep(300);
   const todo = await js("[...document.querySelectorAll('#modal:not([hidden]) .linkbtn[data-tab]')].map((b) => b.dataset.tab)");
-  check("retour d'absence : actions « à faire maintenant »", todo.includes("pets"), JSON.stringify(todo));
+  check("retour d'absence : actions « à faire maintenant »", todo.includes("skills"), JSON.stringify(todo));
+  // Œufs (Nid douillet acquis) : éclosion d'un clic, le résumé reste ouvert.
+  const eggsBefore = await state("S.pets.eggs");
+  await js("document.querySelector('#modal .linkbtn[data-action=todo-do][data-what=eggs]')?.click()");
+  await sleep(150);
+  check("retour d'absence : œufs éclos d'un clic, résumé ouvert", eggsBefore > 0 && (await state("S.pets.eggs")) === 0 && !(await js("document.querySelector('#modal').hidden")), `${eggsBefore} -> ${await state("S.pets.eggs")}`);
   const buyId = await js("(document.querySelector('#modal:not([hidden]) .linkbtn[data-action=goal-buy]') || {}).dataset?.id || null");
   check("retour d'absence : déblocage payable proposé à l'achat", buyId === "armsValet", buyId);
   check("retour d'absence : le focus clavier est sur « Continuer »", (await js("document.activeElement && document.activeElement.dataset.action")) === "closemodal");
   if (process.env.SELFTEST_SHOT) require("fs").writeFileSync(process.env.SELFTEST_SHOT, (await wc.capturePage()).toPNG());
-  await click('#modal .linkbtn[data-tab="pets"]');
+  await click('#modal .linkbtn[data-tab="skills"]');
   await sleep(200);
-  check("retour d'absence : le bouton ferme le résumé et ouvre l'onglet", (await js("document.querySelector('#modal').hidden && document.querySelector('[data-tab=pets]').getAttribute('aria-selected') === 'true'")));
+  check("retour d'absence : le bouton ferme le résumé et ouvre l'onglet", (await js("document.querySelector('#modal').hidden && document.querySelector('[data-tab=skills]').getAttribute('aria-selected') === 'true'")));
   // « Depuis ta dernière visite » : ligne en haut de la carte du héros, un clic la masque.
   await click('[data-tab="adventure"]');
   await js("(() => { const S = window.__game.S; window.__panel.sinceVisit = window.__game.visitSummary({ t: Date.now() - 42 * 60000, gold: 0, kills: 0, lvl: Math.max(1, S.lvl - 2), asc: S.prestige.count, leg: 0, best: 0 }); window.__panel.renderAll(); })()");

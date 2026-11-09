@@ -284,7 +284,25 @@ export class Panel {
     return `<h3 class="todo-h">${tx("À faire maintenant")}</h3>
       ${list.map((t) => t.id === "unlock" && t.uid // déblocage payable : acheté d'un clic, comme depuis la carte du héros
         ? `<button class="linkbtn" data-action="goal-buy" data-id="${t.uid}">${esc(tx("Acheter : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
-        : `<button class="linkbtn" data-tab="${t.tab}">${esc(todoLabel(t))} →</button>`).join("")}`;
+        : this.todoDirect(t) // action faisable d'un clic ici (déblocage « tout d'un coup » acquis)
+          ? `<button class="linkbtn" data-action="todo-do" data-what="${t.id}">✦ ${esc(todoLabel(t))}</button>`
+          : `<button class="linkbtn" data-tab="${t.tab}">${esc(todoLabel(t))} →</button>`).join("")}`;
+  }
+
+  /** Les actions de « À faire maintenant » que le joueur pourrait déjà faire d'un clic dans leur onglet. */
+  todoDirect(t) {
+    const S = this.game.S;
+    return (t.id === "quests" && hasUnlock(S, "questDesk")) || ((t.id === "eggs" || t.id === "expeditions") && hasUnlock(S, "petBulk"))
+      || (t.id === "upgrade" && hasUnlock(S, "bulkEquip"));
+  }
+
+  /** Exécute une action de « À faire maintenant » (le résumé reste ouvert, la ligne passe à ✓). */
+  todoDo(what) {
+    const g = this.game;
+    if (what === "quests") { for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid); }
+    else if (what === "eggs") g.hatchAll();
+    else if (what === "expeditions") g.claimAllExpeditions();
+    else if (what === "upgrade") g.autoEquip();
   }
 
 
@@ -542,6 +560,7 @@ export class Panel {
       if (it) this.revealChest(b.dataset.id, it);
       return;
     }
+    if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); return; }
     if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }
     const owner = TABS.find((x) => x.prefix && a.startsWith(x.prefix));
