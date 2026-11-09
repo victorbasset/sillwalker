@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 311) : infobulle des objets : elle montait par-dessus la barre d'onglets (limite haute à 4 px) ;
+  elle s'arrête maintenant sous l'en-tête, et passe de 270 à 340 px de large (texte 13 px) : moins haute, elle tient
+  en entier (une légendaire avec pouvoir et panoplie comprise). Capture, autotest vert.
 - 2026-11-10 (it. 310, revue générale) : simulations 12 h : guerrier 60, cryomancienne 59, prêtresse 59 (stables
   après greffes de talents et Peau de pierre) ; crawl 300 clics sans erreur ; texte russe : aucun mot latin suspect ;
   perf : bande 19,2 %, panneau 20,5 %, mini 5,8 %, icône 2,6 % d'un cœur (stables).
@@ -1204,7 +1207,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   e. P2 Rien qui repart à zéro sans contrepartie : l'ascension garde déjà l'essentiel ; l'écran d'ascension le dit
      (fait) ; ne jamais ajouter de reset sans récompense visible.
   f. FAIT (it. 304 : plume et cape). P3 Équipement visible sur le héros (formes d'armes / casques, pas seulement des teintes).
-  g. P3 Lisibilité : taille de texte par défaut confortable, contraste ; scintillement des menus à surveiller.
+  g. VU (it. 311 : tailles 11 px gardées, lisibles en police pixel ; réglage Taille du panneau 115 / 130 %).
+     P3 Lisibilité : taille de texte par défaut confortable, contraste ; scintillement des menus à surveiller.
   h. Principes à garder : pas d'argent réel, pas de collecte de données, pas de héros payants, pas de baisse de butin
      silencieuse (toute baisse annoncée dans les notes de version).
 

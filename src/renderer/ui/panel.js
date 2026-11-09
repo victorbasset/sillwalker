@@ -470,7 +470,9 @@ export class Panel {
       <p class="note tight tiphelp">${fromBag ? tx("Double-clic : équiper") : tx("Double-clic : retirer")}</p>`;
     this.tip.hidden = false;
     const r = b.getBoundingClientRect(), pr = this.root.getBoundingClientRect();
-    const left = Math.min(pr.width - 280, r.right - pr.left + 8), top = Math.max(4, Math.min(pr.height - this.tip.offsetHeight - 4, r.top - pr.top + this.root.scrollTop));
+    // Jamais par-dessus la barre d'onglets : au plus haut, juste sous l'en-tête du panneau.
+    const head = this.root.querySelector(".ptop"), minTop = head ? head.getBoundingClientRect().bottom - pr.top + this.root.scrollTop + 4 : 4;
+    const left = Math.min(pr.width - 350, r.right - pr.left + 8), top = Math.max(minTop, Math.min(pr.height - this.tip.offsetHeight - 4, r.top - pr.top + this.root.scrollTop));
     this.tip.style.left = left + "px";
     this.tip.style.top = top + "px";
   }
