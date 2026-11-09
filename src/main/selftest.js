@@ -314,6 +314,12 @@ async function runSelfTest(strip) {
     await until(async () => (await js("document.querySelectorAll('.beast').length")) >= 11, 1500);
   }
   check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);
+  // Sommaire du Bestiaire : un clic amène la section « Élites » (en bas de l'onglet) dans la vue.
+  await click('.bjump [data-to="bj-elites"]');
+  await sleep(300);
+  const elTop = await js("(() => { const h = document.getElementById('bj-elites'); const r = h && h.getBoundingClientRect(); return r ? Math.round(r.top) : -1; })()");
+  const vis = await js("(() => { const h = document.getElementById('bj-elites'), r = h.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; })()");
+  check("Bestiaire : le sommaire mène à la section", vis, "haut de la section à " + elTop);
   // Résumé d'absence : « À faire maintenant » mène droit à l'onglet (ici les œufs → Familiers).
   await js("window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, bestItemId: (window.__game.S.bag[0] || {}).id })");
   await sleep(300);

@@ -430,4 +430,5 @@ export default {
   1554: "Grande intendente",
   1555: "Choca os ovos e manda os mascotes de volta em expedição sozinho (opção).",
   1556: "Grande intendente: ovos e expedições ({0}) automáticos",
+  1557: "Ir para",
 };

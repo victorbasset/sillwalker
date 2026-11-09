@@ -1558,5 +1558,6 @@ export const KEYS = [
   "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus. Toutes les panoplies sont dans le Bestiaire : clique ici.",
   "Grand intendant",
   "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option).",
-  "Grand intendant : œufs et expéditions ({0}) tout seuls"
+  "Grand intendant : œufs et expéditions ({0}) tout seuls",
+  "Aller à"
 ];

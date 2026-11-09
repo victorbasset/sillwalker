@@ -430,4 +430,5 @@ export default {
   1554: "Wielki zarządca",
   1555: "Sam wykluwa jaja i wysyła chowańce z powrotem na wyprawy (opcja).",
   1556: "Wielki zarządca: jaja i wyprawy ({0}) automatycznie",
+  1557: "Przejdź do",
 };

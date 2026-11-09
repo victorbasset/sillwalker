@@ -430,4 +430,5 @@ export default {
   1554: "Gran intendente",
   1555: "Hace eclosionar los huevos y reenvía solo a las mascotas de expedición (opción).",
   1556: "Gran intendente: huevos y expediciones ({0}) automáticos",
+  1557: "Ir a",
 };

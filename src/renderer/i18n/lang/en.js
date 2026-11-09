@@ -430,4 +430,5 @@ export default {
   1554: "Grand Steward",
   1555: "Hatches eggs and sends pets back on expeditions on its own (option).",
   1556: "Grand Steward: eggs and expeditions ({0}) on their own",
+  1557: "Go to",
 };

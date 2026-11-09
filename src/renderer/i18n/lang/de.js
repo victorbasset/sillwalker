@@ -430,4 +430,5 @@ export default {
   1554: "Großer Verwalter",
   1555: "Brütet Eier aus und schickt Begleiter von selbst wieder auf Expedition (Option).",
   1556: "Großer Verwalter: Eier und Expeditionen ({0}) automatisch",
+  1557: "Gehe zu",
 };
