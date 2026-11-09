@@ -859,4 +859,5 @@ export default {
   1983: "W sercu pustej góry odkrywasz warsztat, w którym Łamacz Gwiazd kuje klatki bohaterów. Każdy pręt to odłamek gwiazdy wygięty siłą. Łamiesz jeden: daleko stąd znów zapala się gwiazda.",
   1984: "Głosy odłamków",
   1985: "Odłamki, które niesiesz, zaczynają szeptać. To głosy zgasłych gwiazd: pamiętają prawdziwe imię Łamacza Gwiazd, to, które nosił, zanim znienawidził niebo.",
+  1986: "Kronikarz",
 };

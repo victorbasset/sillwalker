@@ -5,6 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_events_js from "../src/renderer/game/events.js";
 import * as M_equipvis_js from "../src/renderer/render/equipvis.js";
 import * as M_skillicons_js from "../src/renderer/render/skillicons.js";
@@ -613,6 +614,13 @@ test("événement Pluie d'éclats : seulement après une ascension ; les victoir
   for (let i = 0; i < 200; i++) { g.R.mon = g.makeMonster(false); g.killMonster(); g.R.events.shardfall = 30; }
   assert.ok(g.S.prestige.shards > s0 + 20, "≈ 25 % des victoires : " + (g.S.prestige.shards - s0));
   assert.equal(g.S.prestige.total - t0, g.S.prestige.shards - s0, "comptés aussi au total (lueur)");
+});
+
+test("succès Chroniqueur : toutes les chroniques avant la victoire", () => {
+  const S = freshState(), { CHRONICLES } = M_story_js;
+  assert.ok(!M_achievements_js.reachedAchievements(S).includes("CHRONICLER"));
+  for (const c of CHRONICLES) if (c.id !== "dawn") S.story.read[c.id] = true;
+  assert.ok(M_achievements_js.reachedAchievements(S).includes("CHRONICLER"));
 });
 
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {

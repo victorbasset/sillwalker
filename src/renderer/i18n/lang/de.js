@@ -859,4 +859,5 @@ export default {
   1983: "Im Herzen eines hohlen Berges entdeckst du die Werkstatt, in der der Sternenbrecher die Käfige der Helden schmiedet. Jeder Gitterstab ist ein mit Gewalt verbogener Sternensplitter. Du zerbrichst einen: weit entfernt leuchtet ein Stern wieder auf.",
   1984: "Die Stimmen der Splitter",
   1985: "Die Splitter, die du trägst, beginnen zu flüstern. Es sind die Stimmen der erloschenen Sterne: Sie erinnern sich an den wahren Namen des Sternenbrechers, den er trug, bevor er den Himmel hasste.",
+  1986: "Chronist",
 };

@@ -1987,5 +1987,6 @@ export const KEYS = [
   "La forge des cages",
   "Au cœur d’une montagne creuse, tu découvres l’atelier où le Briseur forge les cages des héros. Chaque barreau est un éclat d’étoile tordu de force. Tu en brises un : très loin, une étoile se rallume.",
   "Les voix des éclats",
-  "Les éclats que tu portes se mettent à murmurer. Ce sont les voix des étoiles éteintes : elles se souviennent du vrai nom du Briseur, celui qu’il portait avant de haïr le ciel."
+  "Les éclats que tu portes se mettent à murmurer. Ce sont les voix des étoiles éteintes : elles se souviennent du vrai nom du Briseur, celui qu’il portait avant de haïr le ciel.",
+  "Chroniqueur"
 ];

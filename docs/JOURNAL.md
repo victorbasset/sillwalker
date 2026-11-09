@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 315) : succès CHRONICLER « Chroniqueur » (toutes les chroniques avant la victoire, progression
+  n / 10 ; compté d'après S.story.read, sans nouvelle donnée) ; README : à déclarer dans Steamworks. Autotest : le
+  contrôle « pièce de panoplie gardée » échouait quand la pièce tombait sur un emplacement portant une autre panoplie
+  (l'équiper casserait celle-ci : inutile à raison) : il choisit maintenant un emplacement sans panoplie. Test, 107/107 ×2.
 - 2026-11-10 (it. 314, histoire) : deux chroniques de plus pour combler les silences (50 → 100 → 150) : « La forge
   des cages » (zone 75 : l'atelier où le Briseur forge les cages avec des éclats tordus ; scène : enclumes, marteau,
   gerbes d'étincelles ; motif : coups d'enclume puis accord) et « Les voix des éclats » (zone 125 : les éclats

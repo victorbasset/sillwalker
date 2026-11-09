@@ -859,4 +859,5 @@ export default {
   1983: "En el corazón de una montaña hueca, descubres el taller donde el Rompeestrellas forja las jaulas de los héroes. Cada barrote es un fragmento de estrella retorcido a la fuerza. Rompes uno: muy lejos, una estrella vuelve a encenderse.",
   1984: "Las voces de los fragmentos",
   1985: "Los fragmentos que llevas empiezan a susurrar. Son las voces de las estrellas apagadas: recuerdan el verdadero nombre del Rompeestrellas, el que llevaba antes de odiar el cielo.",
+  1986: "Cronista",
 };

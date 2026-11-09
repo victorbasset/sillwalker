@@ -859,4 +859,5 @@ export default {
   1983: "Deep inside a hollow mountain, you find the workshop where the Starbreaker forges the heroes’ cages. Every bar is a star shard twisted by force. You break one: far away, a star lights up again.",
   1984: "The Voices of the Shards",
   1985: "The shards you carry begin to whisper. They are the voices of the dead stars: they remember the Starbreaker’s true name, the one he bore before he hated the sky.",
+  1986: "Chronicler",
 };

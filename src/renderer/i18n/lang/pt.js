@@ -859,4 +859,5 @@ export default {
   1983: "No coração de uma montanha oca, você descobre a oficina onde o Quebra-Estrelas forja as jaulas dos heróis. Cada barra é um fragmento de estrela torcido à força. Você quebra uma: muito longe, uma estrela volta a brilhar.",
   1984: "As vozes dos fragmentos",
   1985: "Os fragmentos que você carrega começam a sussurrar. São as vozes das estrelas apagadas: elas lembram o verdadeiro nome do Quebra-Estrelas, aquele que ele usava antes de odiar o céu.",
+  1986: "Cronista",
 };

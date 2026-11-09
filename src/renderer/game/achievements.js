@@ -9,6 +9,10 @@ import { setCounts } from "./sets.js";
 import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
+import { CHRONICLES } from "./story.js";
+
+/** Chroniques lues (annoncées), sans « Le ciel rallumé » qui suit la victoire finale. */
+const chronRead = (S) => CHRONICLES.filter((c) => c.id !== "dawn" && S.story && S.story.read && S.story.read[c.id]).length;
 
 const ULTIMATES = new Set(Object.values(TREES).flatMap((tree) => tree.flatMap((b) => b.talents.filter((t) => t.tier === 3).map((t) => t.id))));
 
@@ -40,6 +44,7 @@ export const ACHIEVEMENTS = [
   // Duo et héros (demande 17)
   { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
   { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
+  { id: "CHRONICLER",      name: "Chroniqueur",        test: (S) => chronRead(S) >= CHRONICLES.length - 1 },
   { id: "HEROES_ALL",      name: "Tous les héros libérés", test: (S) => CLASS_KEYS.every((c) => c === "warrior" || (S.classesUnlocked || []).includes(c)) },
   { id: "STARBREAKER",     name: "Le ciel rallumé",    test: (S) => !!(S.story && S.story.won) }, // Briseur d'Étoiles vaincu
   { id: "ZONE_50",         name: "Zone 50",            test: (S) => S.best >= 50 },
@@ -77,6 +82,7 @@ export const reachedAchievements = (S) => ACHIEVEMENTS.filter((a) => a.test(S)).
 const rec = (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0);
 export const ACH_PROGRESS = {
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
+  CHRONICLER: (S) => [chronRead(S), CHRONICLES.length - 1],
   HEROES_ALL: (S) => [new Set(["warrior", ...(S.classesUnlocked || [])]).size, CLASS_KEYS.length],
   LEVEL_10: (S) => [S.lvl, 10], LEVEL_50: (S) => [S.lvl, 50], LEVEL_100: (S) => [S.lvl, 100],
   ZONE_10: (S) => [rec(S), 10], ZONE_25: (S) => [rec(S), 25], ZONE_50: (S) => [rec(S), 50], WORLD_TOUR: (S) => [rec(S), ZONES.length],
