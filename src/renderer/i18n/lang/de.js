@@ -434,4 +434,5 @@ export default {
   1558: "Hauch der Weisheit",
   1559: "Erfahrung ×3!",
   1560: "Seltene Ereignisse ({0})",
+  1561: "{n} seltenen oder besseren Gegenstand finden|{n} seltene oder bessere Gegenstände finden",
 };

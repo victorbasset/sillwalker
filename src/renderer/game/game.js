@@ -529,6 +529,7 @@ export class Game {
     if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
       this.emit("loot", { item: it, mon: m });
+      if (it.r >= 2) this.questProgress("loot", 1);
       this.addToBag(it);
     }
     if (m.champion) { S.stats.champions = (S.stats.champions || 0) + 1; this.log(`${tx("Champion vaincu : {0} or et un butin épique !", { 0: fmt(gold) })}`); }

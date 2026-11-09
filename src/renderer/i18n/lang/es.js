@@ -434,4 +434,5 @@ export default {
   1558: "Soplo de sabiduría",
   1559: "¡Experiencia ×3!",
   1560: "Eventos raros ({0})",
+  1561: "Encontrar {n} objeto raro o mejor|Encontrar {n} objetos raros o mejores",
 };

@@ -434,4 +434,5 @@ export default {
   1558: "Breath of Wisdom",
   1559: "Experience ×3!",
   1560: "Rare events ({0})",
+  1561: "Find {n} rare or better item|Find {n} rare or better items",
 };

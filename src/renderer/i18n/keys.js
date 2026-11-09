@@ -1562,5 +1562,6 @@ export const KEYS = [
   "Aller à",
   "Souffle de sagesse",
   "Expérience ×3 !",
-  "Événements rares ({0})"
+  "Événements rares ({0})",
+  "Trouver {n} objet rare ou mieux|Trouver {n} objets rares ou mieux"
 ];

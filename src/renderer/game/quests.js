@@ -56,12 +56,16 @@ export const QUEST_TEMPLATES = {
     text: (q) => (fr() ? tx("Créer {0} {1} par transmutation", { 0: q.goal, 1: plural(q.goal, "objet") }) : tx("Créer {0} objets par transmutation", { 0: q.goal })),
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, potions: 2 } }),
   },
+  loot: { // butin trouvé sur les monstres (rare ou mieux)
+    text: (q) => txn(q.goal, "Trouver {n} objet rare ou mieux|Trouver {n} objets rares ou mieux"),
+    make: (S) => ({ goal: randInt(3, 6), reward: { gold: Math.round(goldScale(S) * 90), potions: 2, egg: rand() < 0.2 } }),
+  },
   zone: {
     text: (q) => `${tx("Atteindre la zone {0}", { 0: q.goal })}`,
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

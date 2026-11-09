@@ -1170,6 +1170,16 @@ test("événement Souffle de sagesse : expérience ×3 pendant l'événement", (
   assert.ok(Math.abs(r - 3) < 0.2, `rapport ${r.toFixed(2)}`);
 });
 
+test("quête de butin : chaque objet rare ou mieux trouvé sur un monstre compte", () => {
+  const g = new Game(freshState());
+  g.S.quests.slots = [{ uid: 1, kind: "loot", goal: 3, progress: 0, stars: 1, reward: { gold: 10 } }];
+  let rares = 0; g.on("loot", ({ item }) => { if (item.r >= 2) rares++; });
+  for (let i = 0; i < 200 / 0.05 && rares < 3; i++) { if (g.R.mon) { g.R.mon.boss = true; g.R.mon.hp = 0; } g.step(0.05); }
+  assert.ok(rares >= 1, "des objets rares tombent des boss");
+  assert.equal(g.S.quests.slots[0].progress, Math.min(3, rares));
+  assert.match(M_quests_js.QUEST_TEMPLATES.loot.text({ goal: 4 }), /4/);
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

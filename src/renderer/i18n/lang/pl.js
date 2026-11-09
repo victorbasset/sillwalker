@@ -434,4 +434,5 @@ export default {
   1558: "Tchnienie mądrości",
   1559: "Doświadczenie ×3!",
   1560: "Rzadkie zdarzenia ({0})",
+  1561: "Znajdź {n} rzadki lub lepszy przedmiot|Znajdź {n} rzadkie lub lepsze przedmioty|Znajdź {n} rzadkich lub lepszych przedmiotów",
 };
