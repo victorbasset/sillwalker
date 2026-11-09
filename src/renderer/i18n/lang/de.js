@@ -409,4 +409,5 @@ export default {
   1533: "Energiesparen: Die Animation läuft im Akkubetrieb und in deiner Abwesenheit langsamer (das Spiel selbst läuft normal weiter).",
   1534: "Seltene Ereignisse (Böe, Goldregen, Raserei, Füllhorn)",
   1535: "Champion (epische Beute, ab Zone {0})",
+  1536: "(Serie von {n} Tag unterbrochen: Sie beginnt von vorn)|(Serie von {n} Tagen unterbrochen: Sie beginnt von vorn)",
 };

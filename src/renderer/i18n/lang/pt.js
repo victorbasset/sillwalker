@@ -409,4 +409,5 @@ export default {
   1533: "Economia de energia: a animação fica mais lenta na bateria e quando você se ausenta (o jogo continua normalmente).",
   1534: "Eventos raros (rajada, chuva de ouro, frenesi, cornucópia)",
   1535: "Campeão (saque épico, a partir da zona {0})",
+  1536: "(sequência de {n} dia interrompida: ela recomeça)|(sequência de {n} dias interrompida: ela recomeça)",
 };

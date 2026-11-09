@@ -1164,11 +1164,13 @@ export class Game {
     if (D.mod !== dayModFor(today)) { D.mod = dayModFor(today); this.R.lineup = null; this.changed(); }
     if (D.last === today) return null;
     const yesterday = new Date(new Date(today + "T12:00:00").getTime() - 86400000).toISOString().slice(0, 10);
+    // Série interrompue (au moins un jour manqué) : on le dira au joueur plutôt que de repartir à 1 en silence.
+    const broken = D.last && D.last !== yesterday && D.streak >= 2 ? D.streak : 0;
     D.streak = D.last === yesterday ? (D.streak % 7) + 1 : 1;
     D.last = today;
     const day = D.streak, gold = Math.round(3 * Math.pow(1.25, this.S.best - 1) * 40 * day);
     this.S.gold += gold;
-    const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null, mod: D.mod };
+    const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null, mod: D.mod, broken };
     if (reward.potions) this.S.potions = Math.min(20, this.S.potions + reward.potions);
     if (day === 7 && !this.bagFull()) { reward.item = this.newItem(3, this.S.best); this.S.bag.push(reward.item); }
     this.log(`${tx("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: day, 1: fmt(gold), 2: reward.potions ? tx(", 2 potions") : "", 3: reward.item ? ", " + itemName(reward.item) : "" })}`);

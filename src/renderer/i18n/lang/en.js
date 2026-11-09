@@ -409,4 +409,5 @@ export default {
   1533: "Energy saving: the animation slows down on battery and when you step away (the game itself keeps running normally).",
   1534: "Rare events (gust, rain of gold, frenzy, horn of plenty)",
   1535: "Champion (epic loot, from zone {0})",
+  1536: "({n}-day streak broken: it starts over)|({n}-day streak broken: it starts over)",
 };

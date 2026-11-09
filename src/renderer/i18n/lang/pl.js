@@ -409,4 +409,5 @@ export default {
   1533: "Oszczędzanie energii: animacja zwalnia na baterii i gdy odchodzisz od komputera (sama gra działa normalnie).",
   1534: "Rzadkie wydarzenia (podmuch, deszcz złota, szał, róg obfitości)",
   1535: "Czempion (epicki łup, od strefy {0})",
+  1536: "(seria {n} dnia przerwana: zaczyna się od nowa)|(seria {n} dni przerwana: zaczyna się od nowa)|(seria {n} dni przerwana: zaczyna się od nowa)",
 };

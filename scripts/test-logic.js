@@ -997,6 +997,16 @@ test("succès : la progression affichée correspond au succès (objectif atteint
   assert.ok(Object.keys(ACH_PROGRESS).every((id) => ACH_T.some((a) => a.id === id)), "identifiants connus");
 });
 
+test("récompense du jour : une série interrompue est signalée", () => {
+  const g = new Game(freshState());
+  g.claimDaily("2026-11-01"); g.claimDaily("2026-11-02"); g.claimDaily("2026-11-03");
+  assert.equal(g.S.daily.streak, 3);
+  const r = g.claimDaily("2026-11-06"); // deux jours manqués
+  assert.equal(r.day, 1);
+  assert.equal(r.broken, 3, "série de 3 jours interrompue");
+  assert.equal(g.claimDaily("2026-11-07").broken, 0, "jour suivant : rien à signaler");
+});
+
 test("grands nombres : suffixes au-delà du billion, puis notation scientifique", () => {
   const before = getLang();
   try {
