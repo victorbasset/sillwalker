@@ -40,7 +40,7 @@ export class PetsTab {
       const maxed = own.lvl >= PET_MAX_LVL, need = petXpNeed(own.lvl);
       return `<article class="panel petcard${active ? " current" : ""}">
         <div class="detail-head"><img src="${petURL(p.id)}" alt=""><div>
-          <div class="nm">${esc(p.name)} <small>${tx("niv. {0}", { 0: own.lvl })}${maxed ? " (max)" : ""}</small></div><div class="sub">${esc(p.desc)}</div></div></div>
+          <div class="nm">${esc(p.name)} <small>${tx("niv. {0}", { 0: own.lvl })}${maxed ? ` (${tx("max")})` : ""}</small></div><div class="sub">${esc(p.desc)}</div></div></div>
         <ul class="lines"><li><span>${tx("Bonus")}</span><span class="delta-p">${esc(describeEffects(p.eff, own.lvl))}</span></li>
         ${maxed ? "" : `<li><span>${tx("Niveau suivant")}</span><span>${esc(describeEffects(p.eff, own.lvl + 1))}</span></li>`}</ul>
         ${maxed ? "" : `<div class="kv"><span>${tx("Expérience")}</span><span>${Math.floor(own.xp)} / ${need}</span></div><div class="bar"><i style="width:${(100 * own.xp) / need}%"></i></div>`}

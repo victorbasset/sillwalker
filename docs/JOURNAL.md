@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 191) : chasse aux mots latins en chinois et japonais : « max » en dur à trois endroits (raccourci
+  des talents, atelier de la boutique, « (max) » des familiers) : nouvelle clé « max » (макс., 最大, máx.…). En
+  japonais, « HP », « Lv », « pt » sont des choix de traduction (usage des jeux) : laissés. Capture russe des
+  talents (« макс. » tient dans la pastille). 82/82.
 - 2026-11-09 (it. 190) : chasse aux mots latins courts (2-3 lettres, ignorés jusqu'ici) dans le texte russe :
   « oui » en dur (second souffle, statistiques du héros) et unités de durée « h / min / s » en dur à 8 endroits
   (résumé d'absence, expéditions, boutique, buffs, statistiques) ; nouvelles clés « {0} h », « {0} min », « {0} s »,

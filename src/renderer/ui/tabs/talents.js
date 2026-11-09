@@ -32,7 +32,7 @@ export class TalentsTab {
         return `<button class="${cls}" data-action="t-learn" data-n="1" data-id="${t.id}" data-tid="${t.id}">
           <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
           <span class="tr">${locked ? "🔒 " + txn(TIER_REQ[t.tier], "{n} pt|{n} pts") : r + " / " + t.max}</span>
-          ${can && t.max - r > 1 ? `<span class="tmax" data-action="t-learn" data-n="99" data-id="${t.id}" title="${esc(tx("Monter au maximum possible"))}">max</span>` : ""}</button>`;
+          ${can && t.max - r > 1 ? `<span class="tmax" data-action="t-learn" data-n="99" data-id="${t.id}" title="${esc(tx("Monter au maximum possible"))}">${tx("max")}</span>` : ""}</button>`;
       }).join("");
       return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${txn(spent, "{n} pt|{n} pts")}</small></h2>${rows}</article>`;
     }).join("");

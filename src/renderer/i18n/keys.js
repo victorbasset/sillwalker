@@ -1642,5 +1642,6 @@ export const KEYS = [
   "{0} h",
   "{0} min",
   "{0} s",
-  "oui"
+  "oui",
+  "max"
 ];
