@@ -623,4 +623,7 @@ export default {
   1747: "Sus bombas dejan el suelo en llamas y rematan a los heridos.",
   1748: "Pólvora negra: cada bomba incendia al objetivo (30 % del ataque por segundo durante 3 s), +25 % de daño contra objetivos debilitados.",
   1749: "Blasón del gremio",
+  1750: "Silenciar",
+  1751: "Activar el sonido",
+  1752: "Golpes, monedas, botín, subidas de nivel… El botón del altavoz de la banda los silencia con un clic.",
 };

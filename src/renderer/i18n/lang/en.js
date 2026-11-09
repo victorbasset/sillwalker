@@ -623,4 +623,7 @@ export default {
   1747: "Her bombs leave the ground ablaze and finish off the wounded.",
   1748: "Black powder: each bomb sets the target ablaze (30% of attack per second for 3 s), +25% damage against weakened targets.",
   1749: "Guild crest",
+  1750: "Mute sound",
+  1751: "Turn sound on",
+  1752: "Hits, coins, loot, level-ups… The speaker button on the strip mutes them in one click.",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (demande 23 de Victor) : son activé par défaut (parties neuves ; les parties d'avant passent une fois
+  au son activé, settings.soundOn2, puis le choix est respecté ; test) et bouton haut-parleur à côté de réduire /
+  agrandir, dans la bande et en mode mini (ondes / croix rouge quand coupé, un clic). Place réservée à droite de la
+  bande : 3 boutons (rightReserve 96) ; mode mini élargi à 370 px pour garder le niveau lisible. Texte des Réglages
+  adapté. 10 langues, contrôle d'autotest (bouton son, ordre des boutons, largeur du mini), captures, 99/99.
 - 2026-11-09 (it. 243, demande 21 de Victor, Odyssey G9 5120 px) : au-delà de 2400 px de large, la bande regroupe au
   milieu la pastille de zone, la pastille or / niveau et les boutons (strip.js centerHud, placeTab) ; une
   languette cliquable (#hud-tab, .hit) posée sur les pastilles déplie le panneau. Pièces et butin filent vers le
@@ -856,6 +861,12 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   22. À FAIRE (2026-11-09) : prévenir quand le héros meurt plusieurs fois de suite dans la même zone (Victor ne
       regarde pas toujours le jeu) : signal visible sans regarder (bulle persistante, repère sur la bande / le mode
       mini / l'icône), avec les pistes utiles (équiper mieux, talents, revenir une zone en arrière, ascension).
+  23. FAIT (2026-11-09). Son activé par défaut et bouton pour le couper à côté de réduire / agrandir.
+  24. À FAIRE (2026-11-09) : musique de fond par zone, légère et discrète, dans l'esprit des jeux Game Boy Color
+      (chiptune, compositions originales, aucune reprise) ; fondu enchaîné à chaque changement de zone ; 200
+      musiques (une par zone jusqu'à 200). Idée : générateur procédural (Web Audio, sound.js) : gamme, tempo,
+      instruments (carré, triangle, bruit) et motifs tirés d'une graine par zone, couleur selon le décor (forêt
+      enjouée, crypte mineure, volcan rapide…), volume bas, réglage à part dans les Réglages et bouton son.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

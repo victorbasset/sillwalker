@@ -1600,6 +1600,13 @@ test("quêtes : pas d'œuf de familier avant l'onglet Familiers (demande 19) ; u
   assert.ok(eggs > 0, "ensuite les œufs reviennent");
 });
 
+test("son activé par défaut ; les parties d'avant passent une fois au son activé, puis le choix est respecté", () => {
+  assert.equal(freshState().settings.sound, true);
+  const old = JSON.parse(JSON.stringify(freshState())); old.settings.sound = false; delete old.settings.soundOn2;
+  const m = migrate(old); assert.equal(m.settings.sound, true); assert.equal(m.settings.soundOn2, true);
+  m.settings.sound = false; assert.equal(migrate(JSON.parse(JSON.stringify(m))).settings.sound, false, "coupé par le joueur : reste coupé");
+});
+
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {
   assert.equal(systemLang(["fr-FR", "en-US"]), "fr");
   assert.equal(systemLang(["pt-BR"]), "pt");

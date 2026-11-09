@@ -796,3 +796,9 @@ svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; he
 .hud-center #hud-tab:hover { background: rgba(255, 255, 255, 0.08); }
 .hud-center .strip-btns { right: auto; }
 body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1600px; }
+/* Bouton son (haut-parleur) : ondes quand le son est actif, croix quand il est coupé */
+.ico-snd { width: 14px; height: 12px; fill: #fff; }
+.ico-snd .cross { display: none; fill: #ff6b5a; }
+.sbtn.snd.muted .ico-snd .waves { display: none; }
+.sbtn.snd.muted .ico-snd .cross { display: inline; }
+#mini .mini-btns .ico-snd { width: 11px; height: 9px; }

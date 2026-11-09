@@ -623,4 +623,7 @@ export default {
   1747: "Suas bombas deixam o chão em chamas e acabam com os feridos.",
   1748: "Pólvora negra: cada bomba incendeia o alvo (30% do ataque por segundo por 3 s), +25% de dano contra alvos enfraquecidos.",
   1749: "Brasão da guilda",
+  1750: "Silenciar",
+  1751: "Ativar o som",
+  1752: "Golpes, moedas, saque, subidas de nível… O botão do alto-falante da faixa os silencia com um clique.",
 };

@@ -11,7 +11,7 @@ module.exports = {
   STRIP_HEIGHT: 120,          // hauteur de la bande (px logiques)
   PANEL_MAX_HEIGHT: 500,      // hauteur max du panneau de gestion
   PANEL_MIN_GAP: 40,          // marge laissée en haut de l'écran
-  MINI_WIDTH: 340,            // mode mini : encart près de l'horloge
+  MINI_WIDTH: 370,            // mode mini : encart près de l'horloge (370 : place du bouton son)
   MINI_HEIGHT: 64,
   MINI_MARGIN: 8,
   TRAY_ANIM_MS: 500,          // animation de l'icône en mode « icône seule »

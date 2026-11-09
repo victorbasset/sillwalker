@@ -94,7 +94,7 @@ async function boot() {
   applyUiScale(game.S.settings.uiScale);
   applyTheme(game.S.settings.theme);
   if (init.isDev) window.__applyTheme = applyTheme; // auto-test (dev)
-  const strip = new StripRenderer($("#strip"), game, { rightReserve: 64 });
+  const strip = new StripRenderer($("#strip"), game, { rightReserve: 96 }); // 3 boutons : son, réduire, agrandir
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);
   strip.juice.onHits = () => clickThrough.refresh(); // cinématiques : le calque se clique (« passer »)
@@ -189,6 +189,25 @@ async function boot() {
   /* ---------- Boutons de mode ---------- */
   $("#mini-btn").addEventListener("click", () => api.setMode("mini"));
   $("#mini-expand").addEventListener("click", (e) => { e.stopPropagation(); api.setMode("strip"); });
+  // Son : bouton haut-parleur à côté de réduire / agrandir (bande et mode mini), demande de Victor.
+  let soundShown = null;
+  function syncSoundBtns() {
+    const on = !!game.S.settings.sound;
+    if (on === soundShown) return; // appelé à chaque changement du jeu : rien à faire si le son n'a pas bougé
+    soundShown = on;
+    const label = on ? tx("Couper le son") : tx("Activer le son");
+    for (const b of document.querySelectorAll(".sbtn.snd")) { b.classList.toggle("muted", !on); b.title = label; b.setAttribute("aria-label", label); b.setAttribute("aria-pressed", String(!on)); }
+  }
+  function toggleSound(e) {
+    e.stopPropagation();
+    game.S.settings.sound = !game.S.settings.sound;
+    applySettings(); syncSoundBtns(); game.changed(); panel.dirty = true;
+    if (game.S.settings.sound) sound.play("coin");
+  }
+  $("#sound-btn").addEventListener("click", toggleSound);
+  $("#mini-sound").addEventListener("click", toggleSound);
+  syncSoundBtns();
+  game.on("change", syncSoundBtns);
   $("#mini-icon").addEventListener("click", (e) => { e.stopPropagation(); api.setMode("icon"); });
   $("#mini").addEventListener("click", () => api.setMode("strip"));
 

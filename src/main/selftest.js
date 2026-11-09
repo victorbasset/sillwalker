@@ -91,7 +91,7 @@ async function runSelfTest(strip) {
   await click("#mini-btn");
   await sleep(900);
   let b = bounds();
-  check("bouton mini : passe en mode mini", strip.mode() === "mini" && b.width === 340 && b.height === 64, JSON.stringify(b));
+  check("bouton mini : passe en mode mini", strip.mode() === "mini" && b.width === 370 && b.height === 64, JSON.stringify(b));
   await sleep(300);
   const miniTip = await js("(document.querySelector('#mini .mini-info') || {}).title || ''");
   check("mode mini : bulle d'aide (prochain déblocage, agrandir)", miniTip.split("\n").length >= 2, JSON.stringify(miniTip));
@@ -455,9 +455,9 @@ async function runSelfTest(strip) {
   // Accessibilité : les blocs repliables (summary) ont un focus clavier visible (règle présente dans la feuille chargée).
   const sf = await js("[...document.styleSheets].some((sh) => { try { return [...sh.cssRules].some((r) => /summary:focus-visible/.test(r.selectorText || '') && /outline/.test(r.cssText)); } catch { return false; } })");
   check("accessibilité : focus clavier visible sur un bloc repliable", sf === true, String(sf));
-  // Boutons : même ordre partout (réduire à gauche, agrandir à droite) ; astuce affichée même panneau ouvert.
+  // Boutons : même ordre partout (son, réduire à gauche, agrandir à droite) ; astuce affichée même panneau ouvert.
   const order = await js("(() => { const a = [...document.querySelectorAll('#mini .mini-btns button')].map((b) => b.id).join(','); const s = document.getElementById('mini-btn').compareDocumentPosition(document.getElementById('menu-btn')) & 4 ? 'mini-btn,menu-btn' : 'menu-btn,mini-btn'; return a + ' | ' + s; })()");
-  check("boutons : réduire à gauche, agrandir à droite (mini et bande)", order === "mini-icon,mini-expand | mini-btn,menu-btn", order);
+  check("boutons : réduire à gauche, agrandir à droite (mini et bande)", order === "mini-sound,mini-icon,mini-expand | mini-btn,menu-btn", order);
   const hintOpen = await js("(() => { document.getElementById('toast').click(); window.__noHints = false; window.__game.S.settings.hints = {}; window.__checkHints(); window.__noHints = true; const t = document.getElementById('toast'); const r = !t.hidden && /💡/.test(t.textContent); t.click(); return String(r); })()");
   check("astuce : affichée même le panneau ouvert", hintOpen === "true", hintOpen);
   await js("window.__panel.setTab('adventure')");
@@ -486,6 +486,9 @@ async function runSelfTest(strip) {
   // Ciel de nuit de la bande : il s'étoile avec l'histoire (plus de chroniques = plus d'étoiles ; victoire = plein).
   const sky = await js("(() => { const st = window.__strip, S = window.__game.S, keep = { b: S.best, w: S.story.won, pb: S.prestige.bestRun }; S.story.won = false; S.best = 1; S.prestige.bestRun = 1; const a = st.starShare(); S.best = 200; S.prestige.bestRun = 200; const b = st.starShare(); S.story.won = true; const c = st.starShare(); S.best = keep.b; S.story.won = keep.w; S.prestige.bestRun = keep.pb; return a < b && b < c ? 'ok' : [a, b, c].join(' '); })()");
   check("ciel de nuit : les étoiles suivent l'histoire", sky === "ok", sky);
+  // Bouton son de la bande : un clic coupe, un autre rallume (icône à croix quand coupé).
+  const snd = await js("(() => { const S = window.__game.S, b = document.getElementById('sound-btn'), was = S.settings.sound; b.click(); const a = S.settings.sound !== was && b.classList.contains('muted') === !S.settings.sound; b.click(); return String(a && S.settings.sound === was && b.classList.contains('hit')); })()");
+  check("bande : bouton son (coupe / rallume)", snd === "true", snd);
   // Chroniques de l'histoire : bloc repliable dans la carte du héros, au moins « Le ciel brisé ».
   const ch = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('.chronbox'); return d ? d.querySelectorAll('.chron').length : -1; })()");
   check("chroniques : bloc présent dans la carte du héros, au moins une chronique", ch >= 1, ch);

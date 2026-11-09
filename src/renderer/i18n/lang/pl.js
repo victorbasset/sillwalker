@@ -623,4 +623,7 @@ export default {
   1747: "Jej bomby podpalają ziemię i dobijają rannych.",
   1748: "Czarny proch: każda bomba podpala cel (30% ataku na sekundę przez 3 s), +25% obrażeń przeciw osłabionym celom.",
   1749: "Herb gildii",
+  1750: "Wycisz dźwięk",
+  1751: "Włącz dźwięk",
+  1752: "Ciosy, monety, łup, awanse… Przycisk głośnika na pasku wycisza je jednym kliknięciem.",
 };

@@ -623,4 +623,7 @@ export default {
   1747: "Ihre Bomben setzen den Boden in Brand und erledigen die Verwundeten.",
   1748: "Schwarzpulver: Jede Bombe setzt das Ziel in Brand (30 % des Angriffs pro Sekunde für 3 s), +25 % Schaden gegen geschwächte Ziele.",
   1749: "Gildenwappen",
+  1750: "Ton aus",
+  1751: "Ton an",
+  1752: "Treffer, Münzen, Beute, Stufenaufstiege… Der Lautsprecher-Knopf auf dem Band schaltet sie mit einem Klick stumm.",
 };
