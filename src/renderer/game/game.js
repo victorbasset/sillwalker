@@ -661,7 +661,7 @@ export class Game {
     for (const id in S.buffs) S.buffs[id] = Math.max(0, (S.buffs[id] || 0) - sec);
     this.invalidateStats();
     if (kills < 1) return null;
-    const bagBefore = S.bag.length, lvl0 = S.lvl;
+    const bagBefore = new Set(S.bag.map((i) => i.id)), lvl0 = S.lvl;
     const gold = Math.round(kills * b.gold * earlyPace(S) * (1 + hs.gold / 100 + 0.5 * share("fortune")));
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
@@ -688,7 +688,8 @@ export class Game {
       const it = this.newItem(0);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
-      if (this.addToBag(it, true) && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
+      const kept = this.addToBag(it, true);
+      if (kept && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
     const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
@@ -705,9 +706,11 @@ export class Game {
     const petWork = this.autoPets();
     this.R.hp = this.stats().hp;
     const h = Math.floor(sec / 3600), mn = Math.floor(sec % 3600 / 60);
+    // kept : objets nouveaux dans le sac (remplacements quand il est plein et coffres compris ; avant, la différence
+    // de taille du sac affichait « 0 » dès qu'il était plein).
     const summary = {
       seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
-      kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.length - bagBefore, best, feathers, chests,
+      kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, transmuted, petWork,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +

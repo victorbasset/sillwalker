@@ -1446,6 +1446,18 @@ test("liens « 🔒 déblocage » : pas avant la boutique, pas pour un déblocag
   assert.match(lockLink(S, far.id), /🔒/, "proche : annoncé");
 });
 
+test("absence, sac plein : les objets gardés en remplacement sont comptés", () => {
+  const g = new Game(freshState());
+  g.S.best = g.S.zone = 20;
+  g.S.bag.length = 0; while (!g.bagFull()) { const it = g.newItem(0); it.r = 0; g.S.bag.push(it); }
+  g.isUpgrade = () => false;
+  g.S.autoSell = {};
+  const sum = g.applyOffline(6 * 3600);
+  const better = g.S.bag.filter((i) => i.r > 0).length;
+  assert.ok(better > 0, "des objets meilleurs sont entrés");
+  assert.ok(sum.kept >= better, `gardés ${sum.kept}, meilleurs dans le sac ${better}`);
+});
+
 test("quêtes : pas de forge, de transmutation ni d'élites avant qu'elles soient possibles", () => {
   const S = freshLocked();
   setRandom(seeded(5));
