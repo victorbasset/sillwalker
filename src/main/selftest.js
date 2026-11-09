@@ -326,12 +326,14 @@ async function runSelfTest(strip) {
   await until(async () => strip.mode() === "strip" && bounds().height > 64, 6000);
   await sleep(500);
   // Rouvrir le panneau (plusieurs essais : la bande peut mettre un instant à se réafficher)
-  for (let k = 0; k < 5 && !(await js("document.body.classList.contains('panel-shown')")); k++) {
+  // 8 essais de 2,5 s : sous xvfb le retour en mode bande est parfois lent (échec intermittent, it. 287 et 305).
+  for (let k = 0; k < 8 && !(await js("document.body.classList.contains('panel-shown')")); k++) {
     // Clic souris d'abord (vrai parcours) ; s'il n'aboutit pas, clic direct dans la page (coordonnées pas encore à jour sous xvfb).
     if (!(await js("document.body.classList.contains('panel-open')"))) { if (k < 2) await click("#menu-btn"); else await js("document.querySelector('#menu-btn').click()"); }
-    await until(async () => js("document.body.classList.contains('panel-shown')"), 1500);
+    await until(async () => js("document.body.classList.contains('panel-shown')"), 2500);
   }
-  check("retour à la bande : panneau rouvert", await js("document.body.classList.contains('panel-shown')"));
+  check("retour à la bande : panneau rouvert", await js("document.body.classList.contains('panel-shown')"),
+    await js("[document.body.className, !!document.querySelector('.cine'), document.getElementById('toast').hidden].join(' / ')") + " / mode " + strip.mode() + " / " + JSON.stringify(bounds()));
   await sleep(600); // fin de l'animation d'ouverture : les onglets ne bougent plus
   for (let k = 0; k < 3 && (await js("document.querySelectorAll('.beast').length")) < 11; k++) {
     await click('[data-tab="bestiary"]');

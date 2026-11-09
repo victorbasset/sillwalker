@@ -989,3 +989,12 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .lines li.step { background: linear-gradient(var(--accent), var(--accent)) bottom left / 100% 1px no-repeat; }
 /* Partie neuve (étude des concurrents : « pas de tutoriel ») : rappel du geste pour équiper, les premières zones. */
 #p-bag h2 .baghint { font-size: 12px; font-weight: 400; color: var(--good); margin-left: 6px; }
+/* Étape 6 (demande 35) : rivets dorés aux quatre coins des grands cadres (couverture de grimoire). */
+.panel:not(.classcard):not(.petcard):not(.questcard):not(.beast) { position: relative; }
+.panel:not(.classcard):not(.petcard):not(.questcard):not(.beast)::after { content: ""; position: absolute; inset: -2px; pointer-events: none;
+  background:
+    linear-gradient(var(--star), var(--star)) 0 0 / 3px 3px no-repeat,
+    linear-gradient(var(--star), var(--star)) 100% 0 / 3px 3px no-repeat,
+    linear-gradient(var(--star), var(--star)) 0 100% / 3px 3px no-repeat,
+    linear-gradient(var(--star), var(--star)) 100% 100% / 3px 3px no-repeat; opacity: .85; }
+.modal .panel::after, .panel.skillside::after { inset: 0 !important; } /* panneaux qui défilent : pas de rivet qui dépasse */

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 305, demande 35, étape 6) : rivets dorés aux quatre coins des grands cadres (pseudo-élément ::after,
+  logés dans les entailles ; à l'intérieur pour les panneaux qui défilent). Autotest : l'échec intermittent « retour à
+  la bande : panneau rouvert » (≈ 1 sur 5, puis cascade) revient sans lien avec ce changement ; plus d'essais n'y fait
+  rien : le contrôle affiche maintenant l'état (classes du corps, cinématique, bulle, mode, taille de la fenêtre) pour
+  trouver la cause au prochain échec. 4 passages verts d'affilée ensuite.
 - 2026-11-09 (it. 304, étude des concurrents, action f) : la silhouette du héros change avec l'équipement, en plus
   des teintes : plume (couleur de rareté) sur un casque épique ou légendaire, cape (teinte de l'armure, assombrie)
   derrière une armure épique ou légendaire, qui retombe de deux rangées ; placées d'après le dessin de chaque héros
