@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 264) : les 10 héros ajoutés ont leurs propres noms de branches et de talents ultimes (talents.js
+  TREE_NAMES : Barde = Rythme / Mélodie / Refrain, Crescendo / Berceuse / Hymne héroïque ; Cryomancienne = Givre /
+  Glace / Cristal… ; effets inchangés). 55 textes × 9 langues. Capture (Barde), 103/103. Journal : demande 8
+  marquée FAIT (it. 196-199). Reste : renommer aussi les talents intermédiaires copiés (« Paumes de fer » chez le
+  Barde…), environ 90 noms.
 - 2026-11-09 (it. 262, demande 18, fin) : Réglages : l'aide de chaque case passe en infobulle (ⓘ), raccourcis
   clavier repliés par défaut (« 1 … 9, 0, -, = ») : défilement 100 → 6 px. Le panneau rouvre après chaque rendu
   tout bloc data-keep resté ouvert, quel que soit l'onglet. Bilan de la demande 18 (1920 px, partie de dev) :
@@ -901,7 +906,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      à faire avec le point 5 (déblocage progressif), sans toucher aux parties déjà avancées.
   7. FAIT (it. 162). Thème sombre par défaut pour le panneau (aujourd'hui il suit Windows, clair par défaut) : sombre par défaut, avec
      un réglage pour revenir au clair (ou suivre Windows). Vérifier les captures des deux thèmes.
-  8. EN COURS (demande du 2026-11-09 après-midi) : on débloque encore tout trop vite : « aller jusqu'à 200 zones » et
+  8. FAIT (it. 196-199) (demande du 2026-11-09 après-midi) : on débloque encore tout trop vite : « aller jusqu'à 200 zones » et
      répartir les déblocages (onglets et déblocages de boutique) dans le temps ; le joueur doit avoir le temps de
      s'habituer à un onglet avant le suivant. Étape 1 : mesurer la progression réelle sur plusieurs jours simulés.
      Fait (it. 196) : onglets étalés jusqu'à la zone 40. Fait (it. 198) : zone 200 atteignable. FAIT (it. 199) : déblocages étalés jusqu'à 200. (Ancien reste : zone 200 (le record plafonne vers 71-72 en une

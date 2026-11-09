@@ -291,10 +291,24 @@ export const MASTERIES = [
 
 // Héros ajoutés par la demande 17 : arbre et voies copiés d'un héros proche (classes.js : tree, treePrefix), avec
 // des identifiants préfixés pour que chaque héros garde ses propres rangs. Les noms (déjà traduits) sont les mêmes.
+// Noms propres à chaque héros (branches et talents ultimes) : même effets que l'arbre d'origine, autre identité.
+const TREE_NAMES = {
+  arbalest: [["Visée", "Mécanisme", "Embuscade"], ["Carreau perforant", "Rechargement éclair", "Piège du chasseur"]],
+  lancer: [["Hampe", "Phalange", "Avant-garde"], ["Charge du lancier", "Mur de piques", "Étendard conquérant"]],
+  priestess: [["Aube", "Sanctuaire", "Bénédiction"], ["Jugement solaire", "Dernière prière", "Aura de l’aube"]],
+  gladiator: [["Arène", "Bouclier", "Gloire"], ["Coup de grâce", "Endurance du champion", "Faveur de la foule"]],
+  shaman: [["Totems", "Esprits", "Meute"], ["Totem d’écorce", "Souffle des ancêtres", "Esprit de la meute"]],
+  bladedancer: [["Tranchants", "Venins", "Voiles"], ["Danse mortelle", "Poison des fleurs", "Pas de l’ombre"]],
+  cryomancer: [["Givre", "Glace", "Cristal"], ["Hiver éternel", "Zéro absolu", "Armure de cristal"]],
+  bard: [["Rythme", "Mélodie", "Refrain"], ["Crescendo", "Berceuse", "Hymne héroïque"]],
+  starwarden: [["Étoiles", "Serment", "Constellations"], ["Lame d’étoile filante", "Dernier gardien", "Pluie d’étoiles"]],
+  artificer: [["Poudre", "Mécanique", "Blindage"], ["Grande explosion", "Chef-d’œuvre", "Armure d’acier"]],
+};
 for (const [cls, def] of Object.entries(CLASSES)) {
   if (!def.tree || TREES[cls]) continue;
-  const p = def.treePrefix;
-  TREES[cls] = TREES[def.tree].map((b) => ({ ...b, talents: b.talents.map((t) => ({ ...t, id: p + t.id })) }));
+  const p = def.treePrefix, names = TREE_NAMES[cls];
+  TREES[cls] = TREES[def.tree].map((b, bi) => ({ ...b, name: names ? names[0][bi] : b.name,
+    talents: b.talents.map((t) => ({ ...t, id: p + t.id, name: names && t.tier === 3 ? names[1][bi] : t.name })) }));
   if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v) => ({ ...v, id: p + v.id }));
 }
 
