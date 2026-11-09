@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 291, demande 34, étape 1) : arbre des compétences illustré : 25 icônes pixel art dessinées
+  (render/skillicons.js, une par type d'effet : épée, éclair, flamme, goutte de poison, cœur, bouclier, pièce, gemme,
+  lune, épées croisées, crocs, ailes…), une dans chaque nœud (cercles agrandis : petits 10, remarquables 14, clés 19) ;
+  en couleur si acquis ou disponibles, grisées si verrouillées. Test : chaque effet de l'arbre a son icône. 106/106.
 - 2026-11-09 (it. 289) : contrôle en thème clair des changements des it. 282-288 (Ascension et ses icônes, rangée
   des déblocages, détail d'objet sous le sac) : un défaut, le nom de panoplie (.setline b) prenait la couleur vive
   telle quelle (jaune pâle sur blanc) : assombri comme .tint. Autotest vert.
@@ -1079,7 +1083,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   33. FAIT (it. 290 : étude, liste « À FAIRE » a-h ci-dessous). Étudier les jeux concurrents (Rusty's Retirement, TBH: Task Bar Hero, Desktop Heroes, Desktop Raid) : ce qui
       plaît vraiment aux joueurs et ce qui leur déplaît (avis Steam, forums) ; reprendre le bon, éviter ou retirer
       le mauvais si Sillwalker l'a déjà. Résultat : liste d'idées et de défauts ci-dessous (plusieurs itérations).
-  34. Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
+  34. EN COURS (it. 291 : icône par type d'effet dans chaque nœud ; reste : icônes uniques des 24 nœuds remarquables
+      et des 6 clés de voûte). Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
       itérations).
   35. Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
       itérations) : identité visuelle propre (cadres, typographie, couleurs, ornements pixel art).

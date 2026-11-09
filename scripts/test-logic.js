@@ -5,6 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import * as M_skillicons_js from "../src/renderer/render/skillicons.js";
 import * as M_art_js from "../src/renderer/render/art.js";
 import * as M_pets_js from "../src/renderer/game/pets.js";
 import * as M_util_js from "../src/renderer/game/util.js";
@@ -566,6 +567,11 @@ test("Enclume stellaire (demande 28) : objet remonté au niveau du record, très
   assert.ok(!g.levelItem(it), "déjà au niveau du record : rien");
   S.gold = 0; const it2 = g.newItem(1, 10);
   assert.ok(!g.levelItem(it2), "pas assez d'or");
+});
+
+test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {
+  const { SKILL_TREE } = M_skilltree_js, keys = new Set(M_skillicons_js.SKILL_ICON_KEYS);
+  for (const n of Object.values(SKILL_TREE.nodes)) assert.ok(keys.has(M_skillicons_js.skillIconKey(n)), "icône manquante : " + n.id + " " + M_skillicons_js.skillIconKey(n));
 });
 
 test("familiers : chaque familier a un dessin, les rares sont plus rares", () => {

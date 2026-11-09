@@ -7,9 +7,11 @@ import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
+import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
-const RADIUS = { root: 9, small: 6, notable: 10, keystone: 14 };
+// Nœuds assez grands pour porter une icône (demande 34).
+const RADIUS = { root: 13, small: 10, notable: 14, keystone: 19 };
 const SECTOR = Object.fromEntries(SECTORS.map((s) => [s.id, s]));
 const svg = (tag, attrs, parent) => {
   const e = document.createElementNS(SVGNS, tag);
@@ -61,12 +63,16 @@ export class SkillsTab {
     const g = el.querySelector(".skg"), N = SKILL_TREE.nodes;
     this.g = g;
     this.edgeEls = SKILL_TREE.edges.map(([a, b]) => ({ a, b, el: svg("line", { x1: N[a].x, y1: N[a].y, x2: N[b].x, y2: N[b].y }, g) }));
-    this.nodeEls = {};
+    this.nodeEls = {}; this.iconEls = {};
     for (const id in N) {
       const n = N[id], color = n.sector ? SECTOR[n.sector].color : "#ffd34d";
       const c = svg("circle", { cx: n.x, cy: n.y, r: RADIUS[n.kind], class: "node " + n.kind, "data-action": "k-take", "data-id": id }, g);
       c.style.setProperty("--c", color);
       this.nodeEls[id] = c;
+      // Icône de l'effet du nœud, au centre (ne capte pas les clics : c'est le cercle qui réagit).
+      const sz = Math.round(RADIUS[n.kind] * 1.45);
+      const im = svg("image", { href: skillIconURL(skillIconKey(n)), x: n.x - sz / 2, y: n.y - sz / 2, width: sz, height: sz, class: "nico" }, g);
+      (this.iconEls ||= {})[id] = im;
       if (n.kind === "notable" || n.kind === "keystone") {
         const t = svg("text", { x: n.x, y: n.y + RADIUS[n.kind] + 11, class: "lbl" + (n.kind === "keystone" ? " key" : "") }, g);
         t.textContent = n.name;
@@ -165,6 +171,8 @@ export class SkillsTab {
       const n = SKILL_TREE.nodes[id];
       const cls = `node ${n.kind} ${st}`;
       if (this.nodeEls[id].getAttribute("class") !== cls) this.nodeEls[id].setAttribute("class", cls);
+      const icls = "nico " + st;
+      if (this.iconEls && this.iconEls[id] && this.iconEls[id].getAttribute("class") !== icls) this.iconEls[id].setAttribute("class", icls);
     }
     const done = new Set(completedSectors(S));
     for (const sec in this.coreEls) {
