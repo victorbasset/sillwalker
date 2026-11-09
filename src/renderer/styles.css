@@ -810,3 +810,8 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .statgrid.sec-ach > article:not(.achievements), .statgrid.sec-journey > article:not(.journey) { display: none; }
 .statgrid.sec-ach > .achievements, .statgrid.sec-journey > .journey { grid-column: 1 / -1; }
 .classgrid.sec-freed > .classcard.locked, .classgrid.sec-locked > .classcard:not(.locked) { display: none; }
+/* Boutique en sous-onglets (demande 18) : marchand / déblocages / atelier */
+.shoproot.sec-shop .unlocks, .shoproot.sec-shop .wsec { display: none; }
+.shoproot.sec-unlocks .shopgrid2 { display: none; }
+.shoproot.sec-workshop .unlocks, .shoproot.sec-workshop .shopgrid2 > article:not(.wsec) { display: none; }
+.shoproot.sec-workshop .shopgrid2 { grid-template-columns: 1fr; }

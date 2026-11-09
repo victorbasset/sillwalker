@@ -1,6 +1,7 @@
 // Onglet Boutique : marchand (stock renouvelé, bonne affaire, objet pour
 // l'emplacement le plus faible), potions et élixirs, coffres et œuf,
 // atelier (améliorations permanentes illimitées). Tout est illustré.
+import { subtabsHTML } from "../subtabs.js";
 import { eggsAllowed } from "../../game/tabs.js";
 import { itemName } from "../../i18n/data.js";
 import { t as tx, txn } from "../../i18n/index.js";
@@ -23,7 +24,7 @@ const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60
 const SHORT = { potion: tx("Rend 50 % des PV"), elixir: tx("+25 % d’attaque"), fortune: tx("+50 % d’or"), wisdom: tx("+50 % d’expérience"), haste: tx("+30 % de vitesse"), luck: tx("+40 % de butin"), iron: tx("+30 % PV et défense") };
 
 export class ShopTab {
-  constructor(game) { this.game = game; this.root = null; }
+  constructor(game) { this.game = game; this.root = null; this.sec = "shop"; } // sous-onglet affiché (demande 18)
 
   badge() { return ""; }
 
@@ -123,19 +124,23 @@ export class ShopTab {
       </div>`;
     }).join("") + (later > 0 ? `<div class="ucard later"><div class="sub">${txn(later, "Encore {n} déblocage plus loin|Encore {n} déblocages plus loin")}</div></div>` : "");
 
+    const buyable = UNLOCKS.filter((u) => !hasUnlock(S, u.id) && unlockAvailable(S, u) && S.gold >= u.price).length;
     el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>
         <span class="note">${tx("Nouvel étal dans")} <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>
         <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmt(rerollPrice(S)) })}</button></div>
+      ${subtabsHTML([["shop", tx("Marchand")], ["unlocks", tx("Déblocages"), buyable || null], ["workshop", tx("Atelier")]], this.sec, "s-sec")}
+      <div class="shoproot sec-${this.sec}">
       <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2>${ownedChips ? `<div class="uowned">${ownedChips}</div>` : ""}${unlocks ? `<div class="ugrid">${unlocks}</div>` : ""}</article>
       <div class="shopgrid2">
         <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid">${merchant}</div></article>
         <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid">${consumables}</div></article>
         <article class="panel"><h2>${tx("Coffres")}</h2><div class="cgrid">${chests}</div></article>
-        <article class="panel"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
-      </div>`;
+        <article class="panel wsec"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
+      </div></div>`;
   }
 
   onAction(a, b) {
+    if (a === "s-sec") { this.sec = b.dataset.to; return; }
     const g = this.game, id = a === "s-item" ? +b.dataset.id : b.dataset.id;
     if (a === "s-item") g.buyShopItem(id);
     else if (a === "s-cons") g.buyConsumable(id);

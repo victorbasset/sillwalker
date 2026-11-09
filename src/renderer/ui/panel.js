@@ -600,7 +600,7 @@ export class Panel {
     const ready = zoneOk && S.gold >= u.price;
     const what = zoneOk ? (ready ? tx("cliquer pour l’acheter ({0} or)", { 0: fmt(u.price) }) : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
     // Prêt : un clic l'achète tout de suite (au lieu d'ouvrir la boutique puis d'y cliquer).
-    return `<button class="goal${ready ? " ready" : ""}" ${ready ? `data-action="goal-buy" data-id="${u.id}"` : `data-tab="shop"`} title="${esc(u.desc)}">
+    return `<button class="goal${ready ? " ready" : ""}" ${ready ? `data-action="goal-buy" data-id="${u.id}"` : `data-tab="shop" data-sec="unlocks"`} title="${esc(u.desc)}">
       <img src="${shopIconURL(u.icon, 2)}" alt=""><span class="gtxt"><small>${tx("Prochain déblocage")}</small> ${esc(u.name)} · ${what}</span>
       <span class="gbar"><i style="width:${Math.round(k * 100)}%"></i></span></button>`;
   }
@@ -653,7 +653,12 @@ export class Panel {
   /* ---------- Interactions ---------- */
   onClick(e) {
     const t = e.target.closest("[data-tab]");
-    if (t) { if (t.closest("#modal")) $(this.root, "#modal").hidden = true; this.setTab(t.dataset.tab); return; }
+    if (t) {
+      if (t.closest("#modal")) $(this.root, "#modal").hidden = true;
+      // Lien vers un sous-onglet précis (ex. déblocages de la boutique, demande 18).
+      if (t.dataset.sec && this.tabs[t.dataset.tab]) this.tabs[t.dataset.tab].sec = t.dataset.sec;
+      this.setTab(t.dataset.tab); return;
+    }
     const b = e.target.closest("[data-action],[data-speed]");
     if (!b || b.disabled) return;
     const g = this.game;

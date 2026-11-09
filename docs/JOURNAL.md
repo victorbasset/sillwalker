@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 254, demande 18, suite) : Boutique en sous-onglets : Marchand (marchand, potions et élixirs,
+  coffres ; par défaut) / Déblocages (compteur des déblocages achetables tout de suite) / Atelier ; la barre d'or
+  et de l'étal reste en haut. L'objectif « prochain déblocage » de la carte du héros et les liens 🔒 ouvrent
+  directement le sous-onglet Déblocages (data-sec, panel.js). Contrôle d'autotest, capture, 102/102.
+  Reste pour la demande 18 : Ascension, Carte, Compétences (à étudier).
 - 2026-11-09 (retour de Victor : « les musiques semblent aléatoires ») : elles étaient déjà fixes par zone (test),
   mais (1) le recul d'une zone après deux défaites changeait d'air, puis le retour encore : la musique ne change
   plus qu'après 6 s dans la nouvelle zone ; (2) la mélodie, une marche au hasard sur 4 mesures, ne se retenait
