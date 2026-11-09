@@ -17,6 +17,7 @@ const KIND_ICON = {
   elite: () => itemIconURL({ icon: "crown", slot: "helm", r: 3 }), boss: () => itemIconURL({ icon: "horned", slot: "helm", r: 4 }),
   gold: () => shopIconURL("ws_gold", 4), forge: () => itemIconURL({ icon: "hammer", slot: "weapon", r: 2 }),
   zone: () => shopIconURL("ws_speed", 4), expedition: () => shopIconURL("egg", 4), transmute: () => shopIconURL("chest_iron", 4),
+  loot: () => itemIconURL({ icon: "ring", slot: "ring", r: 2 }), // butin rare ou mieux
 };
 
 function rewardHTML(rw) {
