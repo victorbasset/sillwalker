@@ -171,7 +171,8 @@ button.quiet { font-size: 14px; }
 button.danger { border-color: var(--bad); color: var(--bad); }
 button.close { padding: 2px 9px; font-weight: 700; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; align-items: start; }
+/* Cartes d'une même rangée à la même hauteur (stretch) : demande de Victor, plus harmonieux que des hauteurs inégales. */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; align-items: stretch; }
 .panel { background: var(--panel); border: 2px solid var(--line); border-radius: 4px; box-shadow: 0 4px 0 var(--line); padding: 10px 12px 12px; min-width: 0; }
 .panel h2 { font-size: 19px; margin: 0 0 8px; font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .panel h2 small { font-size: 14px; color: var(--muted); font-weight: 400; }
@@ -273,7 +274,7 @@ button.close { padding: 2px 9px; font-weight: 700; }
 .tfoot { border-top: 1px dashed var(--line); padding-top: 8px; }
 
 /* Boutique */
-.shopgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; align-items: start; }
+.shopgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; align-items: stretch; }
 .shoplist { list-style: none; margin: 0; padding: 0; }
 .shopitem, .shopline { display: flex; align-items: center; gap: 10px; padding: 5px 0; border-bottom: 1px dashed var(--line); }
 .shopitem img { width: 36px; height: 36px; image-rendering: pixelated; border: 2px solid; border-radius: 3px; padding: 3px; background: var(--chip); }
@@ -283,7 +284,11 @@ button.close { padding: 2px 9px; font-weight: 700; }
 .shopitem button, .shopline button { white-space: nowrap; min-width: 92px; }
 
 /* Classes */
-.classgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: start; }
+.classgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: stretch; }
+/* Cartes étirées à la hauteur de la rangée : leur bouton d'action descend en bas, aligné d'une carte à l'autre. */
+.classcard, .petcard, .questcard { display: flex; flex-direction: column; }
+.classcard > .row:last-child, .petcard > .row:last-of-type, .petcard > .expe, .petcard > .expe-btns, .questcard > .row:last-child { margin-top: auto; }
+.petcard > .row:last-of-type + .expe, .petcard > .row:last-of-type + .expe-btns { margin-top: 6px; }
 .classcard.current { border-color: var(--accent); box-shadow: 0 4px 0 var(--accent); }
 .classcard.chosen { border-color: #9fe0a8; box-shadow: 0 4px 0 #9fe0a8; }
 .classcard.locked { opacity: .75; }
@@ -300,7 +305,7 @@ button.close { padding: 2px 9px; font-weight: 700; }
 .tabs { flex-wrap: wrap; }
 .tabs button { padding: 4px 10px; }
 button.primary { background: var(--accent); color: var(--panel); border-color: var(--accent); }
-.questgrid, .petgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: start; }
+.questgrid, .petgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: stretch; }
 .questcard.done { border-color: var(--good); box-shadow: 0 4px 0 var(--good); }
 .questcard h2 { font-size: 17px; }
 .reward { font-size: 14px; margin: 4px 0 0; }
@@ -404,7 +409,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.shelled { filter: drop-shadow(0 0 0 #9fd8ff) drop-shadow(1px 0 0 #9fd8ff) drop-shadow(-1px 0 0 #9fd8ff) drop-shadow(0 -1px 0 #9fd8ff); }
 .bossmech b { color: var(--bad); cursor: help; }
 /* Statistiques */
-.statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; align-items: start; }
+.statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; align-items: stretch; }
 .statgrid .achievements { grid-column: 1 / -1; }
 .achlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 4px 12px; font-size: 14px; }
 .ach { color: var(--muted); }
@@ -412,7 +417,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .ach .aico { display: inline-block; width: 18px; color: var(--muted); }
 .ach.on .aico { color: var(--accent); }
 /* Réglages */
-.setgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: start; }
+.setgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: stretch; }
 .range { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 6px 0; }
 .range input { flex: 1; accent-color: var(--accent); }
 .seg { gap: 4px; margin-top: 2px; }
@@ -515,7 +520,9 @@ details.more summary:hover { color: var(--accent); }
 .eqview .heroport { position: static; width: 72px; flex: none; }
 .eqlist { list-style: none; margin: 0; padding: 0; flex: 1; min-width: 0; }
 .eqline { display: flex; gap: 8px; align-items: center; padding: 2px 0; }
-.eqline .slot { flex: none; }
+.eqline .slot { flex: none; width: 44px; }
+.slot img.ghost { filter: grayscale(1); opacity: .28; }
+.slot.emptyslot { background: transparent; box-shadow: none; }
 .eqline .si { min-width: 0; }
 .eqline .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
 .eqline .nm.empty { color: var(--muted); }
@@ -564,7 +571,7 @@ details.more summary:hover { color: var(--accent); }
 .shopbar .note { margin-left: auto; }
 i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }
 .panel.unlocks { margin-bottom: 12px; }
-.ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; align-items: start; }
+.ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; align-items: stretch; }
 .ucard { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3px; padding: 8px 6px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }
 .ucard img { width: 40px; image-rendering: pixelated; filter: grayscale(1) brightness(.75); }
 .ucard .nm { font-size: 14px; line-height: 1.15; }
@@ -576,7 +583,7 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 .uchip img { width: 18px; image-rendering: pixelated; }
 .ucard .req { font-size: 12px; color: var(--muted); }
 .ucard .got { font-size: 12px; color: var(--good); }
-.shopgrid2 { display: grid; grid-template-columns: 1.4fr 1.6fr 1.2fr 1.2fr; gap: 12px; align-items: start; }
+.shopgrid2 { display: grid; grid-template-columns: 1.4fr 1.6fr 1.2fr 1.2fr; gap: 12px; align-items: stretch; }
 .mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .mcard { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px; padding: 8px 6px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }
 .mcard img { width: 48px; image-rendering: pixelated; }

@@ -354,7 +354,8 @@ export class Panel {
   }
 
   slotBtn(it, slotKey, from) {
-    if (!it) return `<button class="slot" data-action="sel" data-from="equip" data-slot="${slotKey}" aria-label="${esc(tx("{0} : vide", { 0: SLOTS[slotKey].name }))}"><span class="lab">${SLOTS[slotKey].name}</span></button>`;
+    // Emplacement vide : silhouette grisée de l'objet attendu (même taille qu'un objet), plutôt qu'un mot tassé.
+    if (!it) return `<button class="slot emptyslot" data-action="sel" data-from="equip" data-slot="${slotKey}" aria-label="${esc(tx("{0} : vide", { 0: SLOTS[slotKey].name }))}" title="${esc(tx("{0} : vide", { 0: SLOTS[slotKey].name }))}"><img class="ghost" src="${itemIconURL({ slot: slotKey, r: 0 })}" alt=""></button>`;
     const sel = this.selected && ((this.selected.from === "equip" && this.selected.slot === slotKey && from === "equip") ||
       (this.selected.from === "bag" && this.selected.id === it.id && from === "bag"));
     const up = from === "bag" && this.game.isUpgrade(it);
