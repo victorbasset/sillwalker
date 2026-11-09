@@ -1,6 +1,7 @@
 // Onglet Boutique : marchand (stock renouvelé, bonne affaire, objet pour
 // l'emplacement le plus faible), potions et élixirs, coffres et œuf,
 // atelier (améliorations permanentes illimitées). Tout est illustré.
+import { eggsAllowed } from "../../game/tabs.js";
 import { itemName } from "../../i18n/data.js";
 import { t as tx, txn } from "../../i18n/index.js";
 import { RARITIES, SLOTS } from "../../game/data.js";
@@ -77,13 +78,13 @@ export class ShopTab {
         <div class="eff">${esc(RARITIES[c.minRarity].name)} ${tx("ou mieux")}</div>
         <div class="sub">${tx("niveau {0}", { 0: S.best })}</div>
         ${buy("s-chest", c.id, chestPrice(c, S), full ? tx("Sac plein") : "")}
-      </div>`).join("") + `<div class="ctile chesttile">
+      </div>`).join("") + (!eggsAllowed(S) ? "" : `<div class="ctile chesttile">
         <img src="${shopIconURL("egg", 6)}" alt="">
         <div class="nm">${tx("Œuf de familier")}</div>
         <div class="eff">${tx("Un familier au hasard")}</div>
         <div class="sub">${tx("1 par étal")}</div>
         ${buy("s-egg", "egg", eggPrice(S), stock.eggSold ? tx("Vendu") : "")}
-      </div>`;
+      </div>`); // œuf de familier : seulement une fois l'onglet Familiers là (demande 19)
 
     // --- Atelier (permanent) ---
     const W = S.workshop || {};

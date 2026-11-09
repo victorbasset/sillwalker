@@ -26,6 +26,16 @@ export const tabOpen = (S, id) => !TAB_GATES[id] || !!(S.tabsOpen && S.tabsOpen[
 /** Ouvert, ou seuil atteint (il s'ouvrira au prochain passage de openTabs, dans la seconde). */
 export const tabReady = (S, id) => tabOpen(S, id) || TAB_GATES[id].when(S);
 
+/** Les œufs de familier ne servent qu'une fois l'onglet Familiers là (demande 19 de Victor : pas de récompense
+ *  inaccessible) : quêtes, boss, élites et boutique n'en donnent pas avant. */
+export const eggsAllowed = (S) => tabReady(S, "pets");
+
+/** Récompense de quête déjà tirée qui promet un œuf trop tôt : l'œuf devient un coffre. */
+export function fixQuestEgg(S, rw) {
+  if (rw && rw.egg && !eggsAllowed(S)) { delete rw.egg; rw.chest = Math.max(rw.chest || 0, 2); }
+  return rw;
+}
+
 /** Ouvre les onglets dont le seuil est atteint ; renvoie la liste des nouveaux (pour les annoncer). */
 export function openTabs(S) {
   const T = (S.tabsOpen ||= {}), fresh = [];

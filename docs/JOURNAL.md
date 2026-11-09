@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 240, demande 19 de Victor) : plus d'œufs de familier avant l'onglet Familiers (zone 25 ; avant,
+  inutilisables) : quêtes (y compris la récompense spéciale 3 étoiles), boss, élites et œuf de la boutique
+  (tabs.js eggsAllowed). Une quête déjà tirée qui promettait un œuf le remplace par un coffre (affichage et
+  réclamation, fixQuestEgg). Autres récompenses vérifiées : éclats d'étoile déjà réservés aux joueurs ascensionnés ;
+  élixirs, potions et coffres utilisables tout de suite. Test, 98/98, save-fuzz.
 - 2026-11-09 (it. 239, demande 17 étape a) : 20 héros. 10 nouveaux, libérés tous les 14 zones de 66 à 192, en
   alternant distance / corps à corps (10 + 10 au total) : Arbalétrière 66 (carreaux jumeaux, boss), Lancier 80
   (allonge : premier coup ×2, esquive), Prêtresse 94 (bouclier, régénération), Gladiatrice 108 (riposte, vol de
@@ -829,9 +834,10 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   18. À FAIRE (2026-11-09) : onglets moins chargés visuellement et sans défilement si possible. Bestiaire : n'afficher
       le contenu d'une section (monstres, panoplies, élites, collection…) qu'au clic sur son bouton (sous-onglets).
       Faire de même ailleurs quand c'est possible ; Carte et Compétences : chercher une idée (plus difficile).
-  19. À FAIRE (2026-11-09) : les quêtes ne doivent pas proposer de récompenses encore inaccessibles (ex. œufs de
+  19. FAIT (it. 240). Les quêtes ne doivent pas proposer de récompenses encore inaccessibles (ex. œufs de
       familier avant l'onglet Familiers) ; vérifier aussi les autres récompenses (éclats d'étoile avant l'Ascension,
       élixirs avant la Boutique…).
+  20. À FAIRE (2026-11-09) : l'icône de la guilde (onglet Quêtes) ne plaît pas à Victor : dessiner un joli blason.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

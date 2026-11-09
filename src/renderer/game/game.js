@@ -9,7 +9,7 @@
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
-import { openTabs, tabReady } from "./tabs.js";
+import { openTabs, tabReady, eggsAllowed, fixQuestEgg } from "./tabs.js";
 import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js";
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
@@ -581,7 +581,7 @@ export class Game {
     if (m.boss) this.questProgress("boss", 1);
     this.questProgress("gold", gold);
     this.petGainXp(m.boss ? 10 : m.elite ? 5 : 1);
-    if ((m.boss && rand() < EGG_CHANCE.boss) || (m.elite && rand() < EGG_CHANCE.elite)) this.gainEgg();
+    if (eggsAllowed(S) && ((m.boss && rand() < EGG_CHANCE.boss) || (m.elite && rand() < EGG_CHANCE.elite))) this.gainEgg();
     this.emit("kill", { mon: m, gold });
     this.rollRareThings(m);
     this.autoBuyPotions();
@@ -1167,7 +1167,7 @@ export class Game {
   /** Œuf de familier : un seul par étal. */
   buyEgg() {
     const S = this.S, shop = this.shopStock();
-    if (shop.eggSold || !this.pay(eggPrice(S))) return false;
+    if (shop.eggSold || !eggsAllowed(S) || !this.pay(eggPrice(S))) return false;
     shop.eggSold = true;
     this.gainEgg();
     this.changed();
@@ -1373,6 +1373,8 @@ export class Game {
     // remplacée au lieu de casser l'onglet Quêtes.
     const ok = Q.slots.filter((q) => q && QUEST_TEMPLATES[q.kind] && (q.kind !== "hunt" || MONSTERS[q.type]));
     if (ok.length !== Q.slots.length) { Q.slots = ok; added = true; }
+    // Quêtes tirées avant la demande 19 : un œuf promis avant l'onglet Familiers devient un coffre (affichage compris).
+    for (const q of Q.slots) if (q.reward && q.reward.egg && !eggsAllowed(this.S)) { fixQuestEgg(this.S, q.reward); added = true; }
     while (Q.slots.length < QUEST_SLOTS) {
       Q.slots.push(makeQuest(this.S, Q.nextUid++, Q.slots.map((q) => q.kind)));
       added = true;
@@ -1406,7 +1408,7 @@ export class Game {
   claimQuest(uid) {
     const S = this.S, Q = S.quests, i = Q.slots.findIndex((q) => q.uid === uid);
     if (i < 0 || !questDone(Q.slots[i])) return false;
-    const rw = Q.slots[i].reward, parts = [];
+    const rw = fixQuestEgg(S, Q.slots[i].reward), parts = []; // œuf promis trop tôt : un coffre à la place
     // Sac plein : la réclamation n'est jamais bloquée (avant : clic sans effet). Le coffre fait de la place en vendant
     // l'objet inutile le moins précieux ; s'il n'y en a pas, l'objet du coffre est vendu (son or est donné).
     if (rw.chest && this.bagFull()) {

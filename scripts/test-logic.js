@@ -38,6 +38,7 @@ import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
+import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -1585,6 +1586,18 @@ test("Carte du voyageur : un clic sur la carte emmène le héros dans une zone d
   tab.onAction("m-go", { dataset: { z: "45" } });
   assert.equal(g.S.zone, 12, "pas au-delà de la meilleure zone de la course");
   assert.ok(UNLOCKS.findIndex((u) => u.id === "travelMap") > UNLOCKS.findIndex((u) => u.id === "workshop"));
+});
+
+test("quêtes : pas d'œuf de familier avant l'onglet Familiers (demande 19) ; un œuf promis devient un coffre", () => {
+  const g = new Game(freshLocked()); g.S.best = 10; g.S.prestige.bestRun = 10;
+  assert.ok(!eggsAllowed(g.S));
+  for (let i = 0; i < 400; i++) assert.ok(!makeQuest(g.S, 1000 + i).reward.egg, "aucune quête ne promet d'œuf");
+  const rw = fixQuestEgg(g.S, { egg: true, gold: 5 });
+  assert.ok(!rw.egg && rw.chest >= 2, "l'œuf devient un coffre");
+  g.S.best = 25; g.S.prestige.bestRun = 25;
+  assert.ok(eggsAllowed(g.S), "zone 25 : l'onglet Familiers est prêt");
+  let eggs = 0; for (let i = 0; i < 400; i++) if (makeQuest(g.S, 2000 + i).reward.egg) eggs++;
+  assert.ok(eggs > 0, "ensuite les œufs reviennent");
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {

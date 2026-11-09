@@ -5,6 +5,7 @@ import { t as tx, txn, getLang } from "../i18n/index.js";
 import { MONSTERS, ELITE } from "./data.js";
 import { zoneDef } from "./rules.js";
 import { rand, pick } from "./util.js";
+import { eggsAllowed, fixQuestEgg } from "./tabs.js";
 
 export const QUEST_SLOTS = 3;
 export const goldScale = (S) => 3 * Math.pow(1.25, Math.max(1, S.best) - 1); // or d'un monstre normal
@@ -99,12 +100,13 @@ export function makeQuest(S, uid, exclude = []) {
   if (rw.potions) rw.potions = Math.min(20, Math.round(rw.potions * st.reward));
   if (rw.chest && stars >= 2) rw.chest = Math.min(4, rw.chest + 1);
   if (stars === 3) {
-    const sp = pick(SPECIALS.filter((s) => s !== "shards" || S.prestige.count > 0));
+    const sp = pick(SPECIALS.filter((s) => (s !== "shards" || S.prestige.count > 0) && (s !== "egg" || eggsAllowed(S))));
     if (sp === "speed") rw.speed = 1;
     else if (sp === "chest") rw.chest = Math.max(rw.chest || 0, 3);
     else if (sp === "egg") rw.egg = true;
     else rw.shards = (rw.shards || 0) + 3;
   }
+  fixQuestEgg(S, rw); // pas d'œuf avant l'onglet Familiers
   return q;
 }
 
