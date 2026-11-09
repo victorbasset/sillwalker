@@ -16,6 +16,7 @@ import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
 import { ShopTab } from "./tabs/shop.js";
 import { ClassesTab } from "./tabs/classes.js";
+import { initHScroll, saveHScroll, restoreHScroll } from "./hscroll.js";
 import { CLASSES } from "../game/classes.js";
 import { QuestsTab } from "./tabs/quests.js";
 import { questDone } from "../game/quests.js";
@@ -103,6 +104,7 @@ export class Panel {
     this.isDev = isDev;
     this.speed = speed;
     this.kept = new Set(); // zones repliables ouvertes (data-keep)
+    this.hs = new Map(); // positions des rangées à défilement latéral (hscroll.js)
     Object.assign(this, { onSpeed, onClose, onReset, onMini, onQuit });
     this.selected = null;
     this.tab = "adventure";
@@ -164,6 +166,7 @@ export class Panel {
       </div>`;
     // Double-clic sur un objet (2e clic d'une série, e.detail = 2) : l'équiper (sac) ou le retirer (héros).
     // Curseurs : le pourcentage affiché suit le glissement (le réglage s'applique au relâchement).
+    initHScroll(this.root);
     this.root.addEventListener("input", (e) => { const r = e.target; if (r.type === "range" && r.nextElementSibling) r.nextElementSibling.textContent = r.value + unit("%"); });
     this.root.addEventListener("click", (e) => { if (!(e.detail === 2 && this.onDouble(e))) this.onClick(e); });
     this.watchDetails();
@@ -353,10 +356,12 @@ export class Panel {
   /* ---------- Rendu ---------- */
   renderAll() {
     if (this.tip) this.tip.hidden = true;
+    saveHScroll(this.root, this.hs);
     if (this.tab === "adventure") { this.renderHero(); this.renderBag(); this.renderDetail(); this.renderZone(); this.renderLog(); }
     else this.tabs[this.tab].render($(this.root, `[data-pane="${this.tab}"]`));
     // Blocs repliables des onglets (data-keep) : rouverts s'ils l'étaient avant le nouveau rendu.
     for (const d of this.root.querySelectorAll("details[data-keep]")) if (this.kept.has(d.dataset.keep)) d.open = true;
+    restoreHScroll(this.root, this.hs);
     this.renderBadges();
     this.dirty = false;
   }

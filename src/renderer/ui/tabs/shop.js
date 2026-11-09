@@ -109,20 +109,18 @@ export class ShopTab {
 
     // --- Déblocages (permanents) : la progression du confort de jeu ---
     const nxt = nextUnlock(S), owned = UNLOCKS.filter((u) => hasUnlock(S, u.id)).length;
-    const ownedChips = UNLOCKS.filter((u) => hasUnlock(S, u.id)).map((u) => `<span class="uchip" title="${esc(u.desc)}"><img src="${shopIconURL(u.icon, 2)}" alt="">${esc(u.name)}</span>`).join("");
-    // Seulement les déblocages disponibles et les 2 suivants : les plus lointains (jusqu'à la zone 200) sont résumés
-    // en une ligne (moins d'informations d'un coup).
-    const todo = UNLOCKS.filter((u) => !hasUnlock(S, u.id)), lockedAll = todo.filter((u) => !unlockAvailable(S, u));
-    const shown = todo.filter((u) => unlockAvailable(S, u) || lockedAll.indexOf(u) < 2), later = todo.length - shown.length;
-    const unlocks = shown.map((u) => {
+    // Demande 32 : tous les déblocages, acquis compris, sur une rangée qui défile de côté (molette ou glisser),
+    // ouverte au premier qui reste à acheter.
+    const firstTodo = UNLOCKS.find((u) => !hasUnlock(S, u.id));
+    const unlocks = UNLOCKS.map((u) => {
       const have = hasUnlock(S, u.id), isNext = nxt && nxt.id === u.id && unlockAvailable(S, u);
-      return `<div class="ucard${have ? " owned" : ""}${isNext ? " next" : ""}" title="${esc(u.desc)}">
+      return `<div class="ucard${have ? " owned" : ""}${isNext ? " next" : ""}" title="${esc(u.desc)}"${firstTodo === u ? " data-hs-start" : ""}>
         <img src="${shopIconURL(u.icon, 4)}" alt="">
         <div class="nm">${esc(u.name)}</div>
         <div class="sub">${esc(u.desc)}</div>
         ${have ? `<div class="got">✓ ${tx("Débloqué")}</div>` : unlockAvailable(S, u) ? buy("s-unlock", u.id, u.price, "", isNext ? "primary" : "") : `<div class="req">🔒 ${tx("Zone record {0}", { 0: u.zone })}</div>`}
       </div>`;
-    }).join("") + (later > 0 ? `<div class="ucard later"><div class="sub">${txn(later, "Encore {n} déblocage plus loin|Encore {n} déblocages plus loin")}</div></div>` : "");
+    }).join("");
 
     const buyable = UNLOCKS.filter((u) => !hasUnlock(S, u.id) && unlockAvailable(S, u) && S.gold >= u.price).length;
     el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>
@@ -130,7 +128,7 @@ export class ShopTab {
         <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmt(rerollPrice(S)) })}</button></div>
       ${subtabsHTML([["shop", tx("Marchand")], ["unlocks", tx("Déblocages"), buyable || null], ["workshop", tx("Atelier")]], this.sec, "s-sec")}
       <div class="shoproot sec-${this.sec}">
-      <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2>${ownedChips ? `<div class="uowned">${ownedChips}</div>` : ""}${unlocks ? `<div class="ugrid">${unlocks}</div>` : ""}</article>
+      <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2><div class="ugrid hscroll" data-hs="unlocks">${unlocks}</div><p class="note tight hshint">${tx("Molette ou glisser : voir les autres")}</p></article>
       <div class="shopgrid2">
         <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid">${merchant}</div></article>
         <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid">${consumables}</div></article>

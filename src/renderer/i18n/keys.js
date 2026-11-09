@@ -1962,5 +1962,6 @@ export const KEYS = [
   "Remonte un objet au niveau de ton record de zone (statistiques, rareté, forge, pouvoir et panoplie conservés). Très cher.",
   "Mettre au niveau {0} ({1} or)",
   "Remonte cet objet au niveau de ton record : ses statistiques grandissent, le reste est conservé.",
-  "Enclume stellaire : {0} remonté au niveau {1}."
+  "Enclume stellaire : {0} remonté au niveau {1}.",
+  "Molette ou glisser : voir les autres"
 ];

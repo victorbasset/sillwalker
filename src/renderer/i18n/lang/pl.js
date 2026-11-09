@@ -834,4 +834,5 @@ export default {
   1958: "Podnieś do poziomu {0} ({1} złota)",
   1959: "Podnosi ten przedmiot do poziomu twojego rekordu: statystyki rosną, reszta zostaje.",
   1960: "Gwiezdne kowadło: {0} podniesiony do poziomu {1}.",
+  1961: "Kółko lub przeciągnij: zobacz pozostałe",
 };

@@ -834,4 +834,5 @@ export default {
   1958: "Subir al nivel {0} ({1} oro)",
   1959: "Sube este objeto al nivel de tu récord: sus estadísticas crecen y el resto se conserva.",
   1960: "Yunque estelar: {0} subido al nivel {1}.",
+  1961: "Rueda o arrastrar: ver los demás",
 };

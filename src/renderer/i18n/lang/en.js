@@ -834,4 +834,5 @@ export default {
   1958: "Raise to level {0} ({1} gold)",
   1959: "Raises this item to your record level: its stats grow, everything else is kept.",
   1960: "Star Anvil: {0} raised to level {1}.",
+  1961: "Wheel or drag: see the others",
 };

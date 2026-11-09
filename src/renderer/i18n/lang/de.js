@@ -834,4 +834,5 @@ export default {
   1958: "Auf Stufe {0} heben ({1} Gold)",
   1959: "Hebt diesen Gegenstand auf deine Rekordstufe: seine Werte steigen, alles andere bleibt erhalten.",
   1960: "Sternenamboss: {0} auf Stufe {1} gehoben.",
+  1961: "Mausrad oder ziehen: weitere ansehen",
 };

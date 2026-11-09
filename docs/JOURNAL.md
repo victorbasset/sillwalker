@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 286, demande 32) : défilement latéral réutilisable (ui/hscroll.js : classe .hscroll + data-hs ;
+  molette verticale convertie en latéral, appui-glisser à la souris, position gardée d'un rendu à l'autre, départ
+  sur data-hs-start ; un glisser n'appuie pas sur le bouton dessous, sans avaler le clic suivant). Boutique >
+  Déblocages : les 20 affichés (acquis grisés « ✓ Débloqué »), ouverts au premier à acheter. Contrôle d'autotest
+  (molette, glisser, position), 1 texte × 9 langues, 105/105.
 - 2026-11-09 (it. 285, retours de Victor sur 27 et 29) : 16 icônes uniques dessinées pour les constellations (casque,
   tour, pièce, chouette, comète, calice, route, arbre, lune, fiole, étoile polaire, bouclier, couronne, serpent,
   aile, arc ; shopart.js CONST_ICONS) ; « gardé / perdu » avec les mêmes icônes que les onglets (talents = étoile…).
@@ -1055,6 +1060,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   30. FAIT (it. 282). Aventure : retirer le rappel « dépense 1 point de talent » (inutile) et le message des potions.
   31. FAIT (it. 283). Histoire : une courte cinématique épique, avec une ambiance, à chaque chronique débloquée (ne pas oublier
       le côté histoire).
+  32. FAIT (it. 286, à étendre). Boutique > Déblocages : les afficher tous, en défilement latéral (molette de la souris, ou appuyer puis
+      glisser) ; ergonomie à réutiliser ailleurs pour éviter les défilements verticaux.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

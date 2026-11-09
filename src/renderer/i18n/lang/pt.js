@@ -834,4 +834,5 @@ export default {
   1958: "Elevar ao nível {0} ({1} ouro)",
   1959: "Eleva este item ao nível do seu recorde: os atributos crescem, o resto é mantido.",
   1960: "Bigorna estelar: {0} elevado ao nível {1}.",
+  1961: "Roda ou arrastar: ver os outros",
 };

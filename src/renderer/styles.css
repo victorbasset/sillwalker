@@ -882,3 +882,12 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .ascgrid .shopline .si { min-width: 0; flex: 1; }
 .ascgrid .shopline .sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ascgrid .shopline button { min-width: 64px; padding: 3px 8px; }
+/* Défilement latéral (demande 32, ui/hscroll.js) : une rangée de cartes, molette ou glisser. */
+.hscroll { display: flex !important; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; gap: 8px; padding-bottom: 6px;
+  scrollbar-width: thin; cursor: grab; user-select: none; overscroll-behavior-x: contain; }
+.hscroll.dragging { cursor: grabbing; }
+.hscroll.dragging * { pointer-events: none; }
+.hscroll > * { flex: 0 0 auto; }
+.ugrid.hscroll > .ucard { width: 168px; }
+.ucard.owned { opacity: 0.75; }
+.hshint { margin-top: 2px; }
