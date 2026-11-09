@@ -162,6 +162,8 @@ export class Panel {
         </div>
       </div>`;
     // Double-clic sur un objet (2e clic d'une série, e.detail = 2) : l'équiper (sac) ou le retirer (héros).
+    // Curseurs : le pourcentage affiché suit le glissement (le réglage s'applique au relâchement).
+    this.root.addEventListener("input", (e) => { const r = e.target; if (r.type === "range" && r.nextElementSibling) r.nextElementSibling.textContent = r.value + unit("%"); });
     this.root.addEventListener("click", (e) => { if (!(e.detail === 2 && this.onDouble(e))) this.onClick(e); });
     this.watchDetails();
     this.watchTitles();

@@ -20,5 +20,5 @@ module.exports = {
   CLOUD_INTERVAL_MS: 5 * 60 * 1000,    // fréquence d'envoi vers Steam Cloud
   FLUSH_TIMEOUT_MS: 2000,              // attente max de la sauvegarde à la fermeture
 
-  OPACITY_CHOICES: [1, 0.85, 0.7, 0.55, 0.4],
+  OPACITY_CHOICES: [1, 0.85, 0.7, 0.55, 0.4, 0.25, 0.1],
 };

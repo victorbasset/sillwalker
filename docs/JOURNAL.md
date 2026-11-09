@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (retours de Victor) : (1) curseurs des Réglages (opacité, volume) qui revenaient à l'ancienne position :
+  l'onglet était redessiné à chaque événement du jeu, en plein glissement ; il ne se redessine plus pendant qu'un
+  curseur est actif (blur au relâchement), et le pourcentage suit le glissement. (2) Opacité jusqu'à 10 % (curseur,
+  fenêtre, réglages enregistrés ; menu de l'icône : 25 % et 10 % ajoutés). (3) Carte plus grande : toute la
+  largeur, rangées plus serrées (54), numéros de zone sous les tronçons (pas sur un parchemin). 102/102, capture.
 - 2026-11-09 (it. 257, demande 18, suite) : Familiers : sous-onglets Trouvés / À découvrir (tant que la collection
   n'est pas complète), cartes compactes (description d'ambiance en infobulle, 7 par rangée en 1920), explication
   de la barre en infobulle ⓘ. Défilement : 477 → 238 px (collection complète). 102/102, 10 langues.

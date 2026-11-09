@@ -105,7 +105,7 @@ function start() {
     ipcMain.on("win:set", (_e, s) => {
       if (!s || typeof s !== "object") return;
       if (s.edge === "top" || s.edge === "bottom") strip.setEdge(s.edge);
-      if (typeof s.opacity === "number" && s.opacity >= 0.2 && s.opacity <= 1) strip.setOpacity(s.opacity);
+      if (typeof s.opacity === "number" && s.opacity >= 0.1 && s.opacity <= 1) strip.setOpacity(s.opacity);
       if (typeof s.openAtLogin === "boolean") app.setLoginItemSettings({ openAtLogin: s.openAtLogin, ...loginItemOptions() });
       if (trayCtl) trayCtl.rebuild();
     });

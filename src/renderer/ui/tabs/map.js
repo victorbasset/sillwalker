@@ -15,7 +15,7 @@ import { heroVisual } from "../../render/equipvis.js";
 
 // 4 rangées de 50 zones : la carte entière tient dans le panneau, large et peu haut (demande 18, sans défilement).
 const L = 50;                      // zones par rangée
-const STEP = 20, X0 = 92, ROW_H = 62, Y0 = 52, BAND_W = 18, BAND_H = 14;
+const STEP = 20, X0 = 92, ROW_H = 54, Y0 = 44, BAND_W = 18, BAND_H = 14;
 const W = X0 * 2 + STEP * (L - 1);
 
 /** Position du tronçon de la zone z (serpentin : une rangée sur deux de droite à gauche). */
@@ -23,6 +23,9 @@ export function mapPos(z) {
   const r = Math.floor((z - 1) / L), i = (z - 1) % L;
   return { x: X0 + STEP * (r % 2 ? L - 1 - i : i), y: Y0 + r * ROW_H, r };
 }
+
+// Zones où une chronique est placée : pas de numéro de zone par-dessus son parchemin.
+const CHRON_ZONES = new Set(CHRONICLES.map((c) => c.zone).filter(Boolean));
 
 export class MapTab {
   constructor(game) { this.game = game; }
@@ -56,7 +59,7 @@ export class MapTab {
       parts.push(`<g class="mz${seen ? "" : near ? " near" : " fog"}${z === S.zone ? " here" : ""}${go ? " go" : ""}" title="${esc(tip)}"${go ? ` data-action="m-go" data-z="${z}"` : ""}>`
         + `<rect x="${x - BAND_W / 2}" y="${y}" width="${BAND_W}" height="${BAND_H / 2}" fill="${d.sky[0]}"/>`
         + `<rect x="${x - BAND_W / 2}" y="${y + BAND_H / 2}" width="${BAND_W}" height="${BAND_H / 2}" fill="${d.g1}"/>`
-        + (z % 10 === 0 ? `<text class="mnum" x="${x}" y="${y + BAND_H + 22}">${z}</text>` : "") + `</g>`);
+        + (z % 10 === 0 && !CHRON_ZONES.has(z) ? `<text class="mnum" x="${x}" y="${y + BAND_H + 9}">${z}</text>` : "") + `</g>`);
     }
     // Héros prisonniers : portrait au-dessus de la zone de leur boss (grisé tant qu'ils ne sont pas libérés).
     for (const [cls, z] of Object.entries(CLASS_UNLOCK_ZONE)) {

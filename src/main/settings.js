@@ -11,7 +11,7 @@ class Settings {
     const r = readJson(this.file);
     this.data = Object.assign({}, DEFAULTS, r.ok && r.data && typeof r.data === "object" ? r.data : {});
     if (!["top", "bottom"].includes(this.data.edge)) this.data.edge = "bottom";
-    this.data.opacity = Math.min(1, Math.max(0.2, Number(this.data.opacity) || 1));
+    this.data.opacity = Math.min(1, Math.max(0.1, Number(this.data.opacity) || 1));
   }
   get(k) { return this.data[k]; }
   set(k, v) {
