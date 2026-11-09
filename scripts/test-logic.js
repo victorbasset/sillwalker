@@ -66,6 +66,13 @@ test("état neuf cohérent", () => {
   assert.equal(s.cls, "warrior");
 });
 
+test("migration : héros libérés abîmés ou inconnus retirés (it. 278)", () => {
+  const o = freshState(); o.classesUnlocked = [null, "nope", 5, "mage", "mage"]; o.partner = "nope"; o.nextPartner = 42;
+  const s = migrate(JSON.parse(JSON.stringify(o)));
+  assert.deepEqual(s.classesUnlocked, ["warrior", "mage"]);
+  assert.equal(s.partner, null); assert.equal(s.nextPartner, null);
+});
+
 test("migration v1 (prototype) -> v4", () => {
   const v1 = { v: 1, lvl: 7, xp: 3, gold: 99, zone: 4, best: 5, kills: 2, equip: { weapon: { id: 1, slot: "weapon", r: 4, il: 3, plus: 0, st: { atk: 9 }, name: "x" } }, bag: [], stats: { kills: 10, deaths: 1, bosses: 3 }, log: [], last: 1 };
   const s = migrate(v1);

@@ -142,6 +142,8 @@ export function migrate(raw) {
     const beaten = Object.keys(CLASS_UNLOCK_ZONE).filter((c) => best > CLASS_UNLOCK_ZONE[c]);
     s.classesUnlocked = [...new Set(["warrior", s.cls, ...(s.stats.classes || []), ...beaten])].filter((c) => CLASSES[c]);
   }
+  // Liste lisible : héros inconnus (autre version) ou valeurs abîmées retirés, le guerrier toujours libre.
+  else s.classesUnlocked = [...new Set(["warrior", ...o.classesUnlocked.filter((c) => typeof c === "string" && CLASSES[c])])];
   if (s.nextCls && !CLASSES[s.nextCls]) s.nextCls = null;
   // Duo : compagnon inconnu, pas encore libéré ou de même portée que le héros : retiré.
   if (s.partner != null && !canPartner(s, s.cls, s.partner)) s.partner = null;

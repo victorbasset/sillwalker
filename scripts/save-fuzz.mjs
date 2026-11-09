@@ -27,6 +27,11 @@ const cases = {
   tabsNotObj: (o) => { o.tabsOpen = "x"; },
   journeyBad: (o) => { o.journey = [null, 5, { t: "x" }, { t: 1, k: "zone", v: 5 }, { t: 2, k: "nope" }]; },
   themeBad: (o) => { o.settings.theme = 42; },
+  // Duo, héros libérés et histoire (it. 278)
+  partnerBad: (o) => { o.partner = "nope"; o.nextPartner = 42; },
+  partnerSameRange: (o) => { o.cls = "warrior"; o.partner = "berserker"; o.classesUnlocked = ["warrior", "berserker"]; },
+  heroesBad: (o) => { o.classesUnlocked = [null, "nope", 5, "warrior", "mage"]; o.nextCls = "nope"; },
+  storyBad: (o) => { o.story = { intro: "x", read: null, won: 5, wonAt: "y" }; },
   settingsBad: (o) => { o.settings = { lang: 42, autoPets: "x", hints: null }; },
 };
 // --write-all <dossier> : écrit une sauvegarde qui cumule toutes les corruptions (pour lancer l'interface dessus :
