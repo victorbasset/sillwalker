@@ -563,4 +563,5 @@ export default {
   1687: "Criado por Victor Basset",
   1688: "Obrigado por jogar!",
   1689: "A jornada continua além do Parapeito…",
+  1690: "Crônica {0} / {1}",
 };

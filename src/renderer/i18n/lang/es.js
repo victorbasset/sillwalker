@@ -563,4 +563,5 @@ export default {
   1687: "Creado por Victor Basset",
   1688: "¡Gracias por jugar!",
   1689: "El viaje continúa más allá del Alféizar…",
+  1690: "Crónica {0} / {1}",
 };

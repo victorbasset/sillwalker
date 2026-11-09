@@ -563,4 +563,5 @@ export default {
   1687: "Created by Victor Basset",
   1688: "Thank you for playing!",
   1689: "The journey continues beyond the Sill…",
+  1690: "Chronicle {0} / {1}",
 };

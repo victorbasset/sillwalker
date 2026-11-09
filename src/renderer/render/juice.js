@@ -235,9 +235,11 @@ export class Juice {
    *  intro   : premier lancement ; un ciel étoilé se brise, les éclats tombent sur le Rebord, « SILLWALKER » (7 s) ;
    *  arrive  : zone 200, le Briseur d'Étoiles se montre, éclairs, le ciel se fissure au-dessus de lui (5 s) ;
    *  dawn    : il est vaincu, ses éclats remontent et rallument le ciel (12 s), puis enchaîne sur le générique ;
-   *  credits : générique de fin personnalisé (statistiques de la partie), sur le ciel rallumé.
+   *  credits : générique de fin personnalisé (statistiques de la partie), sur le ciel rallumé ;
+   *  chronicle : nouvelle chronique (data : { title, n, total }) : le ciel montre une étoile de plus par chronique
+   *              découverte, la nouvelle s'allume au centre (5 s). Le ciel se rallume ainsi peu à peu jusqu'à la fin.
    */
-  cinematic(kind) {
+  cinematic(kind, data = {}) {
     if (!this.active) return;
     if (this.cine) this.cine.done = true;
     const W = this.s.W, H = this.layer.clientHeight || 120, S = this.s.game.S;
@@ -251,6 +253,7 @@ export class Juice {
       intro: { start: 3, step: 9, pages: [["Sillwalker", tx("Le Rebord, il y a mille ans…")]] },
       arrive: { start: 0.6, step: 9, pages: [[tx("Le Briseur d’Étoiles"), tx("Le Briseur d’Étoiles t’attend !")]] },
       dawn: { start: 3, step: 20, pages: [[tx("Le ciel se rallume"), tx("Les héros sont libres.")]] },
+      chronicle: { start: 1, step: 9, pages: [[`📜 ${data.title || ""}`, tx("Chronique {0} / {1}", { 0: data.n || 1, 1: data.total || 1 })]] },
       credits: { start: 0.8, step: 3.2, pages: [
         ["Sillwalker", tx("Le Briseur d’Étoiles est vaincu")],
         [tx("Héros libérés : {0}", { 0: (S.classesUnlocked || []).length }), tx("Ascensions : {0}", { 0: fmt((S.prestige && S.prestige.count) || 0) })],
@@ -259,12 +262,15 @@ export class Juice {
         [tx("Merci d’avoir joué !"), tx("Le voyage continue au-delà du Rebord…")]] },
     }[kind];
     title.textContent = PAGES.pages[0][0]; sub.textContent = PAGES.pages[0][1]; // invisibles jusqu'à leur tour
-    const life = { intro: 7, arrive: 5, dawn: 12 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
+    const life = { intro: 7, arrive: 5, dawn: 12, chronicle: 5 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
     // bx : dawn, là où le Briseur tombe ; arrive, sa place au bout de la bande.
     const bx = kind === "dawn" ? Math.min(W - 220, this.s.monX() + 20) : W - (this.s.rightReserve || 0) - 260, by = this.ground() - 30;
     // Étoiles : dawn, elles montent du Briseur vaincu ; credits, déjà au ciel ; intro, au ciel puis elles tombent.
-    const n = { dawn: 70, credits: 80, intro: 60 }[kind] || 0;
-    const stars = Array.from({ length: n }, (_, i) => ({
+    // chronicle : une étoile par chronique découverte (sur 9 points du ciel), la dernière est la nouvelle.
+    const n = kind === "chronicle" ? data.n || 1 : { dawn: 70, credits: 80, intro: 60 }[kind] || 0;
+    const seeded = (i) => { const x = Math.sin(i * 12.9898 + 4.1) * 43758.5453; return x - Math.floor(x); };
+    const stars = Array.from({ length: kind === "chronicle" ? Math.max(0, n - 1) : n }, (_, i) => kind === "chronicle" ? ({
+      tx: 40 + seeded(i) * (W - 80), ty: 8 + seeded(i + 50) * (H * 0.45), d: 1, start: -10, ph: i, big: true, fall: 99, fx: 0, gy: 0 }) : ({
       tx: 20 + Math.random() * (W - 40), ty: 6 + Math.random() * (H * 0.6), d: 1.2 + Math.random() * 2.2,
       start: kind === "dawn" ? 0.8 + i * 0.03 + Math.random() * 0.6 : -10, ph: Math.random() * 6, big: Math.random() < 0.15,
       fall: 1.8 + Math.random() * 0.8, fx: (Math.random() - 0.5) * 120, gy: this.ground() - 2 - Math.random() * 6 }));
@@ -325,6 +331,13 @@ export class Juice {
         ctx.fillRect(Math.round(x) - z, Math.round(y), 2 * z + 1, 1);
         ctx.fillRect(Math.round(x), Math.round(y) - z, 1, 2 * z + 1);
         if (e < 1) { ctx.globalAlpha = 0.35; ctx.fillRect(Math.round(x), Math.round(y) + 2, 1, 4); } // traînée
+      }
+      if (kind === "chronicle") { // la nouvelle étoile s'allume au centre : croix qui grandit puis scintille
+        const u = Math.min(1, Math.max(0, (t - 0.5) / 0.8)), cx = Math.round(W / 2), cy = Math.round(H * 0.12), r = Math.round(2 + u * 6);
+        ctx.globalAlpha = u * (0.75 + 0.25 * Math.sin(t * 5));
+        ctx.fillStyle = "#fff6c8"; ctx.fillRect(cx - r, cy, 2 * r + 1, 1); ctx.fillRect(cx, cy - r, 1, 2 * r + 1);
+        ctx.fillStyle = "#ffe27a"; ctx.fillRect(cx - 1, cy - 1, 3, 3);
+        ctx.globalAlpha = 1;
       }
       ctx.globalAlpha = 1;
       return true;

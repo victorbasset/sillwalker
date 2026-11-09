@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 225, demande 15) : cinématique de chronique (5 s) : la bande s'assombrit, le ciel montre une
+  étoile par chronique déjà découverte (positions fixes d'une fois à l'autre), la nouvelle s'allume au centre ;
+  « 📜 Titre » et « Chronique n / 9 », trois notes cristallines. Le ciel se rallume ainsi peu à peu jusqu'à la
+  victoire. Pas pour « Le ciel rallumé » (déjà mis en scène), une seule à la fois. Autotest (5 cinématiques), 94/94.
 - 2026-11-09 (it. 224, demandes 11 et 15) : fin et introduction en cinématiques. juice.cinematic généralisé (textes
   en « pages » titre + sous-titre). « intro » au tout premier lancement (ciel étoilé qui se brise, éclats qui tombent
   sur le Rebord, « SILLWALKER », 7 s, son : tintement puis fracas et accord grave), suivie des trois bulles de

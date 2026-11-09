@@ -1691,5 +1691,6 @@ export const KEYS = [
   "Temps de jeu : {0}",
   "Imaginé par Victor Basset",
   "Merci d’avoir joué !",
-  "Le voyage continue au-delà du Rebord…"
+  "Le voyage continue au-delà du Rebord…",
+  "Chronique {0} / {1}"
 ];

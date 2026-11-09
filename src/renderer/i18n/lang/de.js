@@ -563,4 +563,5 @@ export default {
   1687: "Erdacht von Victor Basset",
   1688: "Danke fürs Spielen!",
   1689: "Die Reise geht weiter, jenseits des Saums …",
+  1690: "Chronik {0} / {1}",
 };

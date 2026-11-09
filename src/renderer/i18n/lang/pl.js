@@ -563,4 +563,5 @@ export default {
   1687: "Stworzone przez Victora Basseta",
   1688: "Dziękujemy za grę!",
   1689: "Podróż trwa dalej, poza Krawędzią…",
+  1690: "Kronika {0} / {1}",
 };

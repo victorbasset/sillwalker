@@ -7,7 +7,7 @@
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
 import { TAB_GATES } from "./game/tabs.js";
-import { INTRO, introDue, markIntro, CHRONICLES } from "./game/story.js";
+import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
 import { journeyText } from "./ui/tabs/stats.js";
 import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
@@ -437,7 +437,10 @@ async function boot() {
   game.on("chronicle", ({ ids }) => {
     for (const id of ids) {
       const c = CHRONICLES.find((x) => x.id === id);
-      if (c) showToast(`<span class="story">📜</span> ${tx("Nouvelle chronique : {0}", { 0: `<b>${esc(tx(c.title))}</b>` })}`, () => { panel.kept.add("hero-chron"); openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 12000);
+      if (!c) continue;
+      // Petite cinématique d'abord (une seule à la fois ; pas pour « Le ciel rallumé », que la victoire met déjà en scène).
+      if (id !== "dawn" && ids.indexOf(id) === ids.length - 1) strip.juice.cinematic("chronicle", { title: tx(c.title), n: chroniclesUnlocked(game.S, recordZone(game.S)).length, total: CHRONICLES.length });
+      showToast(`<span class="story">📜</span> ${tx("Nouvelle chronique : {0}", { 0: `<b>${esc(tx(c.title))}</b>` })}`, () => { panel.kept.add("hero-chron"); openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 12000);
     }
   });
   game.on("tabOpen", ({ ids }) => {

@@ -81,6 +81,9 @@ export class Sound {
         [NOTES.E5, NOTES.G5, NOTES.A5, NOTES.G5, NOTES.E5, NOTES.D5, NOTES.E5, NOTES.C5,
          NOTES.E5, NOTES.G5, NOTES.C6, NOTES.D6, NOTES.C6, NOTES.A5, NOTES.G5, NOTES.C6].forEach((f, i) => this.tone(f, i * 0.5, 0.6, "triangle", 0.2));
         [0, 2, 4, 6].forEach((b) => this.tone(NOTES.C5 / 2, b, 1.9, "triangle", 0.12)); break;
+      case "chronicle": // une étoile s'allume : trois notes cristallines et une résonance
+        [NOTES.G5, NOTES.C6, NOTES.E6].forEach((f, i) => this.tone(f, 0.5 + i * 0.22, 0.6, "triangle", 0.2));
+        this.tone(NOTES.G6, 1.2, 1.8, "triangle", 0.1); this.tone(NOTES.C5, 0.5, 2.2, "triangle", 0.12); break;
       case "hit": if (this.throttle(id, 140)) this.noise(0, 0.05, 0.18); break;
       case "crit": if (this.throttle(id, 200)) { this.noise(0, 0.06, 0.25); this.tone(NOTES.A5, 0, 0.08, "square", 0.15, 0.6); } break;
       case "coin": if (this.throttle(id, 90)) { this.tone(NOTES.E6, 0, 0.06, "square", 0.12); this.tone(NOTES.G6, 0.05, 0.1, "square", 0.12); } break;
@@ -121,7 +124,7 @@ export class Sound {
     game.on("codex", () => this.play("codex"));
     game.on("heroDown", () => this.play("ko"));
     // Moments marquants qui n'avaient pas de son
-    game.on("cinematic", ({ kind }) => { if (kind === "intro" || kind === "credits") this.play(kind); });
+    game.on("cinematic", ({ kind }) => { if (kind === "intro" || kind === "credits" || kind === "chronicle") this.play(kind); });
     game.on("starbreaker", ({ first }) => this.play(first ? "dawn" : "legendary"));
     game.on("zoneUp", ({ zone, record }) => {
       // Arrivée chez le Briseur d'Étoiles (zone 200) : grondement ; grand palier : fanfare ; record : petit son.
