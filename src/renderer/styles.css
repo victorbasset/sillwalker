@@ -664,3 +664,4 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 #mini .minimoment { position: absolute; left: 50%; top: 14px; translate: -50% 0; white-space: nowrap; z-index: 6; pointer-events: none;
   font: 400 12px var(--font-text); color: #ffd34d; -webkit-text-stroke: 3px #14121f; paint-order: stroke fill; }
 #mini.moment { box-shadow: inset 0 0 0 2px #ffd34d; border-color: #ffd34d; }
+.achp { color: var(--muted); font-size: 12px; }

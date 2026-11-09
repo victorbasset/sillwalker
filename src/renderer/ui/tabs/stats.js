@@ -1,7 +1,7 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
 import { t as tx } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
-import { ACHIEVEMENTS, reachedAchievements } from "../../game/achievements.js";
+import { ACHIEVEMENTS, reachedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
 import { codexCounts } from "../../game/codex.js";
 import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
@@ -26,7 +26,10 @@ export class StatsTab {
     const S = this.game.S, st = S.stats, P = S.prestige;
     const line = (label, value) => `<li><span>${esc(label)}</span><b>${value}</b></li>`;
     const reached = new Set(reachedAchievements(S));
-    const ach = ACHIEVEMENTS.map((a) => `<li class="ach${reached.has(a.id) ? " on" : ""}"><span class="aico">${reached.has(a.id) ? "★" : "☆"}</span>${esc(a.name)}</li>`).join("");
+    const ach = ACHIEVEMENTS.map((a) => {
+      const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
+      return `<li class="ach${on ? " on" : ""}"><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
+    }).join("");
     el.innerHTML = `<div class="statgrid">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}

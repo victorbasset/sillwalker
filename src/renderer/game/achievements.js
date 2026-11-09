@@ -64,3 +64,37 @@ export const ACHIEVEMENTS = [
 
 /** Identifiants des succès dont la condition est remplie. */
 export const reachedAchievements = (S) => ACHIEVEMENTS.filter((a) => a.test(S)).map((a) => a.id);
+
+/**
+ * Progression des succès chiffrés : [actuel, objectif] (affichée dans l'onglet Statistiques tant qu'ils
+ * ne sont pas obtenus). Les succès « oui / non » n'en ont pas.
+ */
+const rec = (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0);
+export const ACH_PROGRESS = {
+  LEVEL_10: (S) => [S.lvl, 10], LEVEL_50: (S) => [S.lvl, 50], LEVEL_100: (S) => [S.lvl, 100],
+  ZONE_10: (S) => [rec(S), 10], ZONE_25: (S) => [rec(S), 25], ZONE_50: (S) => [rec(S), 50], WORLD_TOUR: (S) => [rec(S), ZONES.length],
+  ELITE_HUNTER: (S) => [S.stats.elites || 0, 10],
+  ASCENSION_5: (S) => [(S.prestige && S.prestige.count) || 0, 5],
+  PETS_ALL: (S) => [Object.keys((S.pets && S.pets.owned) || {}).length, PETS.length],
+  QUESTS_25: (S) => [(S.quests && S.quests.completed) || 0, 25],
+  BESTIARY_ALL: (S) => [Object.keys(MONSTERS).filter((k) => (S.bestiary && S.bestiary[k]) > 0).length, Object.keys(MONSTERS).length],
+  SKILL_100: (S) => [Math.max(0, activeSkillSet(S).size - 1), 100],
+  SPEED_25: (S) => [Math.floor(S.speed || 0), 25],
+  MASTER_OF_ALL: (S) => [CLASS_KEYS.filter((c) => (S.stats.classes || []).includes(c)).length, CLASS_KEYS.length],
+  ALL_CLASSES: (S) => [(S.stats.classes || []).length, 3],
+  KILLS_1000: (S) => [S.stats.kills || 0, 1000], KILLS_10000: (S) => [S.stats.kills || 0, 10000],
+  BOSSES_100: (S) => [S.stats.bosses || 0, 100],
+  GOLD_MILLION: (S) => [Math.floor(S.stats.goldTotal || 0), 1e6],
+  BIG_HIT: (S) => [Math.floor(S.stats.maxHit || 0), 10000],
+  DAILY_7: (S) => [(S.daily && S.daily.streak) || 0, 7],
+  PLAY_10H: (S) => [Math.floor((S.stats.playTime || 0) / 3600), 10],
+  REFORGE_10: (S) => [S.stats.reforges || 0, 10],
+  EVENTS_10: (S) => [S.stats.events || 0, 10],
+  CODEX_HALF: (S) => { const c = codexCounts(S); return [c.found, Math.ceil(c.total / 2)]; },
+  CODEX_ALL: (S) => { const c = codexCounts(S); return [c.found, c.total]; },
+  EXPEDITIONS_10: (S) => [S.stats.expeditions || 0, 10],
+  POWERS_ALL: (S) => [Object.keys(S.powersSeen || {}).length, POWERS.length],
+  POTIONS_50: (S) => [S.stats.potionsUsed || 0, 50],
+  UNLOCK_ALL: (S) => [UNLOCKS.filter((u) => S.unlocks && S.unlocks[u.id]).length, UNLOCKS.length],
+  TAPS_1000: (S) => [S.stats.taps || 0, 1000],
+};

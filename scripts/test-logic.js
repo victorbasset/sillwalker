@@ -24,7 +24,7 @@ import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/rendere
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
 const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet").map((u) => [u.id, true])) });
-import { reachedAchievements } from "../src/renderer/game/achievements.js";
+import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { approachTime, heroStats, power } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
@@ -982,6 +982,19 @@ test("sauvegarde d'une version plus récente du jeu : mise de côté, jamais éc
     st.write(JSON.stringify(freshLocked()));               // écritures suivantes : pas de nouvelle copie
     assert.equal(fs.readdirSync(dir).filter((f) => f.startsWith("save.newer-")).length, 1);
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+});
+
+test("succès : la progression affichée correspond au succès (objectif atteint ⇔ obtenu)", () => {
+  for (const S of [freshLocked(), (() => { const g = new Game(freshState()); for (let m = 0; m < 30; m++) g.advance(60); return g.S; })()]) {
+    for (const a of ACH_T) {
+      const p = ACH_PROGRESS[a.id];
+      if (!p) continue;
+      const [cur, goal] = p(S);
+      assert.ok(Number.isFinite(cur) && goal > 0, a.id);
+      assert.equal(cur >= goal, !!a.test(S), `${a.id} : ${cur} / ${goal}`);
+    }
+  }
+  assert.ok(Object.keys(ACH_PROGRESS).every((id) => ACH_T.some((a) => a.id === id)), "identifiants connus");
 });
 
 test("grands nombres : suffixes au-delà du billion, puis notation scientifique", () => {

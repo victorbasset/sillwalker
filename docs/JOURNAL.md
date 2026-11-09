@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 ## Fait
 
+- 2026-11-09 (it. 55) : les succès chiffrés non obtenus montrent leur progression dans Statistiques
+  (« Dix mille victoires (7 420 / 10 000) », « Fidèle : 7 jours (5 / 7) »…).
 - 2026-11-09 (it. 54) : plus de bulle « Pendant ton absence (35 s) » après une courte mise en veille : en dessous de
   2 minutes, le résumé reste dans le journal. Test d'endurance (≈ 30 min de jeu en accéléré) : mémoire stable
   (723 → 712 Mo), pas de fuite.
@@ -138,6 +140,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 ## Idées
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P1 Statistiques : « Événements (rafale, pluie d'or, frénésie) » oublie la Corne d'abondance ; la probabilité des
+  champions ne dit pas « à partir de la zone 5 ».
 
 - P3 Berserker (simulation 12 h, revue it. 41) : 3 courses à la zone 54 avant 58. Essai it. 44 : usure 8 %/40 % → berserker
   mieux, druide moins bien (bruit des trajectoires) ; non retenu. Piste : regarder ses talents face à Fureur + Carapace.
