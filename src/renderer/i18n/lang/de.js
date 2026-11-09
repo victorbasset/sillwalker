@@ -393,4 +393,6 @@ export default {
   1517: "Hauptspielstand nicht gefunden: Spiel aus der Sicherung wiederhergestellt.",
   1518: "Hauptspielstand unlesbar: Spiel aus der Sicherung wiederhergestellt.",
   1519: "Dein Spielstand stammt aus einer neueren Version des Spiels: Er wird separat aufbewahrt (save.newer). Kehre zu dieser Version zurück, um ihn wiederzubekommen.",
+  1520: "Boss von deinen Versuchen erschöpft: −{0} % LP für diesen Durchgang.",
+  1521: "Boss von deinen Versuchen erschöpft: −{0} % LP, bis du ihn besiegst.",
 };

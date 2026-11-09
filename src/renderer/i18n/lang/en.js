@@ -393,4 +393,6 @@ export default {
   1517: "Main save not found: game restored from the backup save.",
   1518: "Main save unreadable: game restored from the backup save.",
   1519: "Your save comes from a newer version of the game: it is kept aside (save.newer). Go back to that version to get it back.",
+  1520: "Boss worn down by your attempts: −{0}% HP for this run.",
+  1521: "Boss worn down by your attempts: −{0}% HP until you beat it.",
 };

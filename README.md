@@ -49,7 +49,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie, corne d'abondance (un objet à chaque victoire),
   **coffre au trésor** (or, potion, objet rare ou mieux).
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération, miroir, vampirisme, souffle glacé,
-  insaisissable, fureur croissante), deux à partir de la 2e boucle.
+  insaisissable, fureur croissante), deux à partir de la 2e boucle. Un boss qui bat le héros s'use : −5 % de PV par défaite
+  (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu.
 - **Élites à affixes** : rapide, blindé, vampirique ou furieux.
 - **Champions** : très rares (0,5 %), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
 - **Panoplies** : 8 ensembles (dont le Voyageur du vent, axé vitesse), bonus à 2 et 4 pièces.

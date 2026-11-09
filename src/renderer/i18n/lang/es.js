@@ -393,4 +393,6 @@ export default {
   1517: "No se encontró la partida principal: restaurada desde la copia de seguridad.",
   1518: "Partida principal ilegible: restaurada desde la copia de seguridad.",
   1519: "Tu partida viene de una versión más reciente del juego: se guarda aparte (save.newer). Vuelve a esa versión para recuperarla.",
+  1520: "Jefe agotado por tus intentos: −{0} % de PV en esta partida.",
+  1521: "Jefe agotado por tus intentos: −{0} % de PV hasta que lo derrotes.",
 };

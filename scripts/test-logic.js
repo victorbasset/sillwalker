@@ -947,6 +947,25 @@ test("sauvegarde d'une version plus récente du jeu : mise de côté, jamais éc
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });
 
+test("usure des boss : -5 % de PV par défaite (30 % au plus), gardée à l'ascension, effacée par la victoire", () => {
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = 25;
+  const full = g.makeMonster(true).max;
+  for (let i = 0; i < 3; i++) { g.S.zone = 25; g.R.deaths = 0; g.R.mon = g.makeMonster(true); g.heroDown(); }
+  assert.equal(g.S.bossDefeats[25], 3);
+  g.S.zone = 25;
+  assert.ok(Math.abs(g.makeMonster(true).max - full * 0.85) < 1e-6, "3 défaites : −15 %");
+  g.S.bossDefeats[25] = 50;
+  assert.ok(Math.abs(g.makeMonster(true).max - full * 0.7) < 1e-6, "plafond à −30 %");
+  g.R.deaths = 0; g.R.mon = g.makeMonster(false); g.heroDown();
+  assert.equal(g.S.bossDefeats[25], 50, "une défaite contre un monstre ordinaire ne compte pas");
+  g.S.best = 25; g.ascend();
+  assert.equal(g.S.bossDefeats[25], 50, "gardée à l'ascension : le mur s'use d'une course à l'autre");
+  g.S.zone = 25; g.S.kills = 10; g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.killMonster();
+  assert.ok(!g.S.bossDefeats[25], "boss vaincu : il retrouve toute sa force");
+});
+
+
 test("événement Corne d'abondance : un objet à chaque victoire pendant 30 s", () => {
   const g = new Game(freshState());
   g.S.autoSell = { common: false, uncommon: false, rare: false };

@@ -35,7 +35,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
-import { bossMechanics, bossName, FURY } from "./bosses.js";
+import { bossMechanics, bossName, FURY, bossWear } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt } from "./format.js";
@@ -401,6 +401,8 @@ export class Game {
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
       mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null,
       name: boss ? bossName(this.S.zone) : null });
+    const wear = boss ? bossWear(this.S, this.S.zone) : 0;
+    if (wear) { mon.hp *= 1 - wear; mon.max = mon.hp; mon.worn = wear; } // usure : défaites précédentes contre ce boss
     this.applyAffix(mon);
     return mon;
   }
@@ -513,6 +515,7 @@ export class Game {
     else if (m.elite) this.log(`${tx("Élite vaincu : {0} or !", { 0: fmt(gold) })}`);
     if (m.boss) {
       S.stats.bosses++;
+      if (S.bossDefeats && S.bossDefeats[S.zone]) delete S.bossDefeats[S.zone]; // boss vaincu : il retrouve toute sa force
       this.freeHero(S.zone);
       R.deaths = 0;
       if (S.autoAdvance) {
@@ -550,6 +553,7 @@ export class Game {
 
   heroDown() {
     const S = this.S, R = this.R;
+    if (R.mon && R.mon.boss) (S.bossDefeats ||= {})[S.zone] = (S.bossDefeats[S.zone] || 0) + 1; // usure du boss
     R.mode = "dead"; R.deadT = 2.5; R.mon = null;
     S.stats.deaths++; R.deaths++;
     // Défaites près du record : sert à suggérer une ascension quand le héros bloque.
@@ -1412,7 +1416,7 @@ export class Game {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = Math.max(1, Math.min(1 + (eff.startZone || 0), old.best - 5));

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 ## Fait
 
+- 2026-11-09 (it. 32) : fin des murs de plusieurs heures : un boss qui bat le héros s'use (−5 % de PV par défaite,
+  30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu ; le panneau Zone l'indique. En simulation,
+  plus de série de 3 courses au même record (druide 50-50-50 → 48-49-55, moine 56-56-56 → 56-57).
 - 2026-11-09 (it. 31, revue générale) : rien de cassé trouvé (captures chinois/anglais, aucun texte français en
   espagnol ni portugais, performance stable). Un mur de progression repéré en simulation, noté ci-dessous.
 - 2026-11-09 (it. 30) : les messages de récupération de sauvegarde (fermeture brutale, sauvegarde de secours)
@@ -86,9 +89,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P2 Mur de progression (revue it. 31, simulations 12 h) : moine bloqué en zone 56 pendant 3 courses, druide en
-  zone 50 pendant 3 courses (3-4 h sans nouveau record) ; l'assassin passe (zone 60 vers 11 h 30). Comprendre ce
-  qui bloque (boss à capacité ? constellations achetées par le simulateur ?) avant de toucher à l'équilibrage.
+- P3 Panneau Zone : la ligne « Boss (…) : 53 k PV » montre les PV complets même quand le boss est usé.
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
   applications en plein écran (jeu, vidéo, présentation) : elle peut recouvrir le bas d'un jeu en plein écran

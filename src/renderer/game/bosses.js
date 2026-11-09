@@ -34,6 +34,14 @@ export function bossName(z) {
   return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? tx(" l’Éveillé") : loop >= 2 ? tx(" l’Ancestral") + " " + "+".repeat(loop - 1) : "");
 }
 
+/**
+ * Usure des boss (anti-mur) : chaque défaite du héros contre le boss d'une zone lui retire 5 % de ses PV
+ * (30 % au plus), même d'une course à l'autre ; dès qu'il est vaincu, il retrouve toute sa force.
+ * Le premier essai garde tout son défi ; un héros bloqué finit par passer.
+ */
+export const BOSS_WEAR = { per: 0.05, max: 0.3 };
+export const bossWear = (S, z) => Math.min(BOSS_WEAR.max, BOSS_WEAR.per * ((S.bossDefeats && S.bossDefeats[z]) || 0));
+
 /** Capacités du boss de la zone z. */
 export function bossMechanics(z) {
   const i = (z - 1) % ORDER.length, list = [ORDER[i]];
