@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 300, revue générale) : simulations 12 h : guerrier 59, mage 54, artificière 59 (stables) ; crawl
+  300 clics sans erreur (nouveau design compris) ; texte russe : aucun mot latin suspect ; perf (son + musique) :
+  bande 20,5 %, panneau 22 %, mini 6,2 %, icône 2,7 % d'un cœur ; avec « Économie d'énergie » : bande 13,4 %,
+  panneau 14,2 % (≈ −35 %).
 - 2026-11-09 (it. 299, étude des concurrents, action b) : réglage « Cinématiques de l'histoire » (Réglages >
   Affichage, actif par défaut) : décoché, plus aucune cinématique automatique (chroniques, héros libérés, Briseur,
   générique), sauf l'intro du premier lancement ; le ▶ des chroniques les rejoue quand même (data.force).
