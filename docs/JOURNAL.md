@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 183, revue générale) : simulation 12 h (guerrier 61, mage 56, assassin 54), texte russe sans mot
+  non traduit, performance stable (bande 19 %, panneau 21 %, mini 4 %, icône 0,4 %), capture Statistiques en chinois
+  (Carnet de route correct, date au format chinois). Rien à corriger.
 - 2026-11-09 (it. 182) : Carnet de route : une partie déjà entamée (sauvegarde sans carnet) reçoit à la migration une
   première entrée « Début du carnet : niveau X, record zone Y » datée du jour, au lieu d'un carnet vide. Test,
   10 langues, capture, 81/81.
