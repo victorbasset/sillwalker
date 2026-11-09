@@ -861,4 +861,5 @@ export default {
   1985: "The shards you carry begin to whisper. They are the voices of the dead stars: they remember the Starbreaker’s true name, the one he bore before he hated the sky.",
   1986: "Chronicler",
   1987: "A hero of the other range is free: form a duo! They will fight alongside your hero. Click here.",
+  1988: "Star Anvil acquired! Click an item older than your record: “Raise to level” brings it up (very expensive). Click here.",
 };

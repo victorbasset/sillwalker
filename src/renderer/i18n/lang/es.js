@@ -861,4 +861,5 @@ export default {
   1985: "Los fragmentos que llevas empiezan a susurrar. Son las voces de las estrellas apagadas: recuerdan el verdadero nombre del Rompeestrellas, el que llevaba antes de odiar el cielo.",
   1986: "Cronista",
   1987: "Hay libre un héroe del otro alcance: ¡forma un dúo! Luchará junto a tu héroe. Haz clic aquí.",
+  1988: "¡Yunque estelar adquirido! Haz clic en un objeto más antiguo que tu récord: «Subir al nivel» lo mejora (muy caro). Haz clic aquí.",
 };

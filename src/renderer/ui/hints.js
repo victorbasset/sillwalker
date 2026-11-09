@@ -47,6 +47,8 @@ export const HINTS = [
     when: (g) => { const u = nextUnlock(g.S); return !!u && unlockAvailable(g.S, u) && g.S.gold >= u.price; } },
   { id: "astrolabe", tab: "ascension", text: tx("Astrolabe acquis ! Il est éteint au départ : coche-le dans l’onglet Ascension pour qu’il fasse l’ascension à ta place quand ton héros bloque. Clique ici."),
     when: (g) => hasUnlock(g.S, "astrolabe") && g.S.settings.autoAscend !== true },
+  { id: "anvil", tab: "adventure", text: tx("Enclume stellaire acquise ! Clique un objet plus ancien que ton record : « Mettre au niveau » le remonte (très cher). Clique ici."),
+    when: (g) => hasUnlock(g.S, "starAnvil") },
   { id: "tap", tab: null, text: tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"),
     when: (g) => g.S.stats.kills >= 40 && !(g.S.stats.taps > 0) },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),

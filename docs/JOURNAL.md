@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 317) : astuce 💡 « anvil » à l'achat de l'Enclume stellaire : où trouver « Mettre au niveau »
+  (détail d'un objet plus ancien que le record). 1 texte × 9 langues, autotest vert.
 - 2026-11-10 (it. 316) : astuce 💡 « duo » : dès qu'un héros de l'autre portée est libre et qu'aucun compagnon n'est
   choisi, la bulle propose de former un duo (un clic ouvre l'onglet Héros). Test (proposée puis plus après le duo),
   1 texte × 9 langues, autotest vert.

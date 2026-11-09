@@ -861,4 +861,5 @@ export default {
   1985: "Odłamki, które niesiesz, zaczynają szeptać. To głosy zgasłych gwiazd: pamiętają prawdziwe imię Łamacza Gwiazd, to, które nosił, zanim znienawidził niebo.",
   1986: "Kronikarz",
   1987: "Bohater o innym zasięgu jest wolny: utwórz duet! Będzie walczył u boku twojego bohatera. Kliknij tutaj.",
+  1988: "Gwiezdne kowadło zdobyte! Kliknij przedmiot starszy niż twój rekord: „Podnieś do poziomu” go ulepszy (bardzo drogie). Kliknij tutaj.",
 };

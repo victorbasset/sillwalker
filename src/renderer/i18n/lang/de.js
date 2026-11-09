@@ -861,4 +861,5 @@ export default {
   1985: "Die Splitter, die du trägst, beginnen zu flüstern. Es sind die Stimmen der erloschenen Sterne: Sie erinnern sich an den wahren Namen des Sternenbrechers, den er trug, bevor er den Himmel hasste.",
   1986: "Chronist",
   1987: "Ein Held der anderen Reichweite ist frei: Bilde ein Duo! Er kämpft an der Seite deines Helden. Hier klicken.",
+  1988: "Sternenamboss erworben! Klicke einen Gegenstand, der älter als dein Rekord ist: „Auf Stufe heben“ verbessert ihn (sehr teuer). Hier klicken.",
 };
