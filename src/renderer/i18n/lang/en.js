@@ -626,4 +626,12 @@ export default {
   1750: "Mute sound",
   1751: "Turn sound on",
   1752: "Hits, coins, loot, level-ups… The speaker button on the strip mutes them in one click.",
+  1753: "Your hero is stuck in zone {0} ({1} defeats).",
+  1754: "Ideas:",
+  1755: "equip the best ▲",
+  1756: "spend your talent points",
+  1757: "buy back potions",
+  1758: "an ascension will make them much stronger",
+  1759: "let them farm a bit lower",
+  1760: "stuck",
 };

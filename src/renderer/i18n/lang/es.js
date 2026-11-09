@@ -626,4 +626,12 @@ export default {
   1750: "Silenciar",
   1751: "Activar el sonido",
   1752: "Golpes, monedas, botín, subidas de nivel… El botón del altavoz de la banda los silencia con un clic.",
+  1753: "Tu héroe está atascado en la zona {0} ({1} derrotas).",
+  1754: "Ideas:",
+  1755: "equipa lo mejor ▲",
+  1756: "gasta tus puntos de talento",
+  1757: "vuelve a comprar pociones",
+  1758: "una ascensión lo hará mucho más fuerte",
+  1759: "déjalo farmear un poco más abajo",
+  1760: "atascado",
 };

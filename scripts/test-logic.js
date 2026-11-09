@@ -1607,6 +1607,17 @@ test("son activé par défaut ; les parties d'avant passent une fois au son acti
   m.settings.sound = false; assert.equal(migrate(JSON.parse(JSON.stringify(m))).settings.sound, false, "coupé par le joueur : reste coupé");
 });
 
+test("héros bloqué (demande 22) : 4 défaites près du record en 15 min = une alerte, qui tombe dès qu'il avance", () => {
+  const g = new Game(freshState()); g.S.best = 30; g.S.zone = 30;
+  const ev = []; g.on("stuck", (e) => ev.push(e));
+  for (let i = 0; i < 6; i++) { g.R.time += 30; g.S.zone = 30; g.R.mon = g.makeMonster(false); g.heroDown(); }
+  assert.equal(ev.length, 1, "une seule alerte");
+  assert.equal(ev[0].zone, 30);
+  assert.ok(g.stuckInfo() && g.stuckTips().includes("farm"));
+  g.S.zone = 30; g.S.kills = KILLS_PER_ZONE; g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.S.autoAdvance = true; g.killMonster();
+  assert.equal(g.S.best, 31); assert.equal(g.stuckInfo(), null, "record battu : plus bloqué");
+});
+
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {
   assert.equal(systemLang(["fr-FR", "en-US"]), "fr");
   assert.equal(systemLang(["pt-BR"]), "pt");

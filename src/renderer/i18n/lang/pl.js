@@ -626,4 +626,12 @@ export default {
   1750: "Wycisz dźwięk",
   1751: "Włącz dźwięk",
   1752: "Ciosy, monety, łup, awanse… Przycisk głośnika na pasku wycisza je jednym kliknięciem.",
+  1753: "Twój bohater utknął w strefie {0} ({1} porażek).",
+  1754: "Pomysły:",
+  1755: "załóż najlepsze ▲",
+  1756: "wydaj punkty talentów",
+  1757: "dokup mikstury",
+  1758: "wniebowstąpienie uczyni go dużo silniejszym",
+  1759: "niech pofarmi trochę niżej",
+  1760: "utknął",
 };

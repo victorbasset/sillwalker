@@ -1754,5 +1754,13 @@ export const KEYS = [
   "Blason de la guilde",
   "Couper le son",
   "Activer le son",
-  "Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande les coupe d’un clic."
+  "Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande les coupe d’un clic.",
+  "Ton héros bloque en zone {0} ({1} défaites).",
+  "Pistes :",
+  "équipe le meilleur ▲",
+  "dépense tes points de talent",
+  "rachète des potions",
+  "une ascension le rendra bien plus fort",
+  "laisse-le farmer un peu plus bas",
+  "bloqué"
 ];

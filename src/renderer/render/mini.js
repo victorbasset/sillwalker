@@ -213,6 +213,7 @@ export class MiniRenderer {
       const todo = game.todoNow();
       if (todo.length) tip.push(tx("À faire maintenant") + fsp() + ":\n  • " + todo.map(todoLabel).join("\n  • "));
       this.info.classList.toggle("todo", todo.length > 0);
+      this.info.classList.toggle("stuck", !!this.game.stuckInfo()); // héros bloqué : liseré rouge (demande 22)
       tip.push(tx("Cliquer pour agrandir"));
       this.info.title = tip.join("\n");
     }

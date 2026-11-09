@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 245, demande 22 de Victor) : héros bloqué : 4 défaites près du record en 15 min (game.stuckInfo,
+  comme le conseil « stuck » et l'Astrolabe). Bulle de 2 min avec les deux pistes les plus utiles (équiper mieux,
+  talents, potions, ascension, farmer plus bas ; stuckTips), un clic ouvre le panneau ; « ⚠ bloqué » en rouge
+  dans la pastille de zone de la bande ; liseré rouge sur l'encart mini. L'alerte tombe dès que le record avance
+  (wallDeaths vidé). Une seule bulle par record. Test, capture, fuzz 600 parties, 99/99, 10 langues.
 - 2026-11-09 (demande 23 de Victor) : son activé par défaut (parties neuves ; les parties d'avant passent une fois
   au son activé, settings.soundOn2, puis le choix est respecté ; test) et bouton haut-parleur à côté de réduire /
   agrandir, dans la bande et en mode mini (ondes / croix rouge quand coupé, un clic). Place réservée à droite de la
@@ -858,7 +863,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       boutons) sont aux deux bouts de l'écran : fatigant à regarder. Les regrouper au milieu, juste au-dessus de la
       bande (ou en dessous si la bande est en haut), dans une languette qui sert aussi de bouton pour déplier le
       panneau.
-  22. À FAIRE (2026-11-09) : prévenir quand le héros meurt plusieurs fois de suite dans la même zone (Victor ne
+  22. FAIT (it. 245). Prévenir quand le héros meurt plusieurs fois de suite dans la même zone (Victor ne
       regarde pas toujours le jeu) : signal visible sans regarder (bulle persistante, repère sur la bande / le mode
       mini / l'icône), avec les pistes utiles (équiper mieux, talents, revenir une zone en arrière, ascension).
   23. FAIT (2026-11-09). Son activé par défaut et bouton pour le couper à côté de réduire / agrandir.
@@ -867,6 +872,9 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       musiques (une par zone jusqu'à 200). Idée : générateur procédural (Web Audio, sound.js) : gamme, tempo,
       instruments (carré, triangle, bruit) et motifs tirés d'une graine par zone, couleur selon le décor (forêt
       enjouée, crypte mineure, volcan rapide…), volume bas, réglage à part dans les Réglages et bouton son.
+  25. À FAIRE (2026-11-09) : sons de coup différents selon l'arme (donc le héros) et selon l'ennemi touché ;
+      « modificateur » de son par ennemi (hauteur, timbre, bruit : gluant mou, squelette sec, golem lourd…) pour
+      que ce soit moins répétitif.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les

@@ -626,4 +626,12 @@ export default {
   1750: "Silenciar",
   1751: "Ativar o som",
   1752: "Golpes, moedas, saque, subidas de nível… O botão do alto-falante da faixa os silencia com um clique.",
+  1753: "Seu herói está travado na zona {0} ({1} derrotas).",
+  1754: "Ideias:",
+  1755: "equipe o melhor ▲",
+  1756: "gaste seus pontos de talento",
+  1757: "compre mais poções",
+  1758: "uma ascensão o deixará muito mais forte",
+  1759: "deixe-o farmar um pouco mais abaixo",
+  1760: "travado",
 };

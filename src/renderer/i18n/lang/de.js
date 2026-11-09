@@ -626,4 +626,12 @@ export default {
   1750: "Ton aus",
   1751: "Ton an",
   1752: "Treffer, Münzen, Beute, Stufenaufstiege… Der Lautsprecher-Knopf auf dem Band schaltet sie mit einem Klick stumm.",
+  1753: "Dein Held steckt in Zone {0} fest ({1} Niederlagen).",
+  1754: "Ideen:",
+  1755: "rüste das Beste aus ▲",
+  1756: "gib deine Talentpunkte aus",
+  1757: "kaufe Tränke nach",
+  1758: "ein Aufstieg macht ihn viel stärker",
+  1759: "lass ihn etwas weiter unten farmen",
+  1760: "festgefahren",
 };

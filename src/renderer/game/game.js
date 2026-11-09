@@ -619,6 +619,7 @@ export class Game {
         // sinon chaque boss d'une course après ascension annonçait « Nouveau record ! »).
         const record = S.zone + 1 > recordZone(S);
         S.zone++;
+        if (S.zone > S.best) R.wallDeaths = []; // il avance : plus bloqué (fin de l'alerte, demande 22)
         S.best = Math.max(S.best, S.zone);
         this.emit("zoneUp", { zone: S.zone, record });
         // Carnet : record tous les 5 zones jusqu'à 50, puis tous les 10 (sinon 40 entrées d'ici la zone 200).
@@ -657,6 +658,9 @@ export class Game {
     // Défaites près du record : sert à suggérer une ascension quand le héros bloque.
     if (S.zone >= S.best - 1) (R.wallDeaths ||= []).push(R.time);
     this.emit("heroDown");
+    // Bloqué depuis peu : prévenir une fois par record (l'interface affiche aussi un repère tant que ça dure).
+    const st = this.stuckInfo();
+    if (st && R.stuckWarned !== S.best) { R.stuckWarned = S.best; this.emit("stuck", st); }
     if (this.autoAscend()) return;
     if (R.deaths >= 2 && S.zone > 1) {
       S.zone--; R.deaths = 0; S.kills = 0;
@@ -1622,6 +1626,26 @@ export class Game {
   }
 
   /* ---------- Ascension ---------- */
+  /**
+   * Héros bloqué (demande 22 de Victor : prévenir quand il meurt souvent au même endroit, même sans regarder) :
+   * 4 défaites près de son record en 15 min. Renvoie { zone, deaths } ou null. L'alerte tombe dès qu'il avance.
+   */
+  stuckInfo() {
+    const R = this.R, n = (R.wallDeaths || []).filter((t) => R.time - t < 900).length;
+    return n >= 4 ? { zone: this.S.best, deaths: n } : null;
+  }
+
+  /** Pistes pour débloquer le héros, dans l'ordre le plus utile (identifiants, textes dans l'interface). */
+  stuckTips() {
+    const S = this.S, out = [];
+    if (this.hasUpgrade()) out.push("equip");
+    if (this.talentPointsFree() > 0 && tabReady(S, "talents")) out.push("talents");
+    if (tabReady(S, "shop") && S.potions < 3) out.push("potions");
+    if (this.canAscend()) out.push("ascend");
+    out.push("farm");
+    return out;
+  }
+
   ascendShards() { return shardsFor(this.S.best); }
   canAscend() { return this.S.best >= ASCEND_MIN_ZONE; }
 

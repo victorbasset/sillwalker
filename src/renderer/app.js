@@ -476,6 +476,13 @@ async function boot() {
     }
     panel.dirty = true;
   });
+  // Héros bloqué (demande 22) : bulle qui reste 2 min, avec les pistes utiles ; un clic ouvre le panneau.
+  const STUCK_TIPS = { equip: "équipe le meilleur ▲", talents: "dépense tes points de talent", potions: "rachète des potions",
+    ascend: "une ascension le rendra bien plus fort", farm: "laisse-le farmer un peu plus bas" };
+  game.on("stuck", ({ zone, deaths }) => {
+    const tips = game.stuckTips().slice(0, 2).map((k) => tx(STUCK_TIPS[k])).join(" · ");
+    showToast(`⚠ ${tx("Ton héros bloque en zone {0} ({1} défaites).", { 0: zone, 1: deaths })} ${tx("Pistes :")} ${esc(tips)}`, () => { openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 120000);
+  });
   // Sac plein et une amélioration restée au sol : bulle (au plus une toutes les 3 min) ; un clic ouvre le sac.
   let lostUpAt = 0;
   game.on("lostUpgrade", ({ item }) => {
