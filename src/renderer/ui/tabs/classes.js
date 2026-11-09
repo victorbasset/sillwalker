@@ -1,7 +1,7 @@
 // Onglet Classe : les héros libérés et ceux encore prisonniers. On change de
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
 import { t as tx, txn, fsp } from "../../i18n/index.js";
-import { CLASSES, CLASS_KEYS, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier } from "../../game/classes.js";
+import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
 import { esc, unit } from "../../game/format.js";
@@ -17,7 +17,7 @@ export class ClassesTab {
   render(el) {
     const S = this.game.S, next = S.nextCls || S.cls;
     const freed = CLASS_KEYS.filter((k) => isClassUnlocked(S, k)).length;
-    const cards = CLASS_KEYS.map((k) => {
+    const cards = CLASS_KEYS_BY_UNLOCK().map((k) => { // ordre de libération (demande de Victor)
       const c = CLASSES[k], cur = S.cls === k, open = isClassUnlocked(S, k);
       if (!open) {
         const z = CLASS_UNLOCK_ZONE[k];

@@ -28,7 +28,7 @@ import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { approachTime, heroStats, power } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
-import { CLASS_KEYS } from "../src/renderer/game/classes.js";
+import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { ZONES, MONSTERS } from "../src/renderer/game/data.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
@@ -1426,6 +1426,13 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   const kept = g.S.bag.filter((it) => !g.uselessItems().includes(it) && !g.isUpgrade(it));
   assert.ok(kept.length <= 6, "au plus 6 : " + kept.length);
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
+});
+
+test("classes : ordre de libération (guerrier, puis zone du boss)", () => {
+  const o = CLASS_KEYS_BY_UNLOCK();
+  assert.equal(o[0], "warrior");
+  assert.equal(o.length, CLASS_KEYS.length);
+  for (let i = 2; i < o.length; i++) assert.ok(CLASS_UNLOCK_ZONE[o[i]] >= CLASS_UNLOCK_ZONE[o[i - 1]], o.join(","));
 });
 
 test("quête : réclamée même sac plein (coffre : place faite, ou objet vendu)", () => {

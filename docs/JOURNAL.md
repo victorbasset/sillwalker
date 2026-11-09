@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 159, demande 3 de Victor) : onglet Classe trié par ordre de libération (guerrier, rôdeur z10,
+  nécromancien z15, mage z20, berserker z26…) via CLASS_KEYS_BY_UNLOCK() ; l'ordre interne CLASS_KEYS ne bouge pas.
+  Test, capture.
 - 2026-11-09 (it. 158, demande 2 de Victor) : « Dépenser automatiquement » et « À chaque niveau, dépenser tout seul »
   des compétences étaient visibles sans le Manuel du stratège : le code les cachait (hidden) mais .row et .toggle
   (display: flex) l'emportaient sur l'attribut. Règle globale [hidden] { display: none !important; } (corrige aussi
@@ -421,7 +424,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - DEMANDES DE VICTOR (2026-11-09), à traiter en premier, dans cet ordre :
   1. FAIT (it. 157) : quêtes réclamées même sac plein.
   2. FAIT (it. 158) : boutons automatiques des compétences cachés sans le Manuel du stratège.
-  3. Classes (onglet Classe) : trier par ordre de déblocage.
+  3. FAIT (it. 159) : classes triées par ordre de libération.
   4. Esthétique : cartes de tailles différentes dans une même rangée (Statistiques, panoplies du Bestiaire, et
      ailleurs) : faire le tour de tous les onglets et harmoniser (hauteurs égales par rangée). Équipement vide :
      emplacements vides pas beaux, à soigner.

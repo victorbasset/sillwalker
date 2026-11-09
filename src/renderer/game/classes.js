@@ -124,6 +124,8 @@ export const CLASS_KEYS = Object.keys(CLASSES);
  * classe uniquement en faisant une ascension.
  */
 export const CLASS_UNLOCK_ZONE = { ranger: 10, necro: 15, mage: 20, berserker: 26, paladin: 32, assassin: 38, monk: 44, samurai: 50, druid: 58 };
+/** Classes dans l'ordre où on les libère (guerrier d'abord, puis zone du boss qui les retient). */
+export const CLASS_KEYS_BY_UNLOCK = () => [...CLASS_KEYS].sort((a, b) => (CLASS_UNLOCK_ZONE[a] || 0) - (CLASS_UNLOCK_ZONE[b] || 0));
 /**
  * Style de combat : 5 paliers d'animation d'attaque, de plus en plus
  * impressionnants et de plus en plus durs à atteindre (niveau + ascensions).
