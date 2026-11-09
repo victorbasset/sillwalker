@@ -350,6 +350,9 @@ export class StripRenderer {
         const tag = el("div", "affix bossname", a.el);
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
         tag.textContent = bossName(this.game.S.zone) + (wear ? " · " + tx("−{0} % PV", { 0: Math.round(wear * 100) }) : "");
+        // Boss très grand (ou volant) : le nom ne doit pas sortir par le haut de la bande.
+        const y0 = this.monY(a, 4);
+        if (y0 - 40 < 2) tag.style.top = (2 - y0) + "px";
       }
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 ## Fait
 
+- 2026-11-09 (it. 35) : le nom des boss très grands (yéti de la zone 28…) n'est plus coupé en haut de la bande.
 - 2026-11-09 (it. 34) : sur la bande, le nom d'un boss usé indique « −15 % PV », et ne passe plus sous l'or et
   le niveau en haut à droite (il s'étend vers la gauche).
 - 2026-11-09 (it. 33) : panneau Zone, les PV du boss tiennent compte de son usure (45 k au lieu de 53 k à −15 %).
@@ -92,7 +93,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P1 Bande : le nom d'un boss très grand (yéti « Frostheuler », zone 28) dépasse en haut de la bande et est coupé.
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
