@@ -1427,6 +1427,7 @@ export class Game {
     const u = nextUnlock(S);
     if (u && unlockAvailable(S, u) && S.gold >= u.price) out.push({ id: "unlock", n: 1, tab: "shop", name: u.name, uid: u.id, price: u.price });
     if (S.pets.eggs > 0 && hasUnlock(S, "menagerie")) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
+    if (this.bagFull()) out.push({ id: "bagFull", n: this.uselessItems().length, tab: "adventure" }); // le butin suivant serait vendu d'office
     const fin = this.setFinisher();
     if (fin) out.push({ id: "setFinish", n: 1, tab: "adventure", name: SETS[fin.set].name, itemId: fin.id });
     const ex = this.expeditionsReady(now).length;

@@ -483,4 +483,6 @@ export default {
   1607: "Gran intendente: huevos y expediciones automáticos",
   1608: "Una pieza de la bolsa completa el conjunto {0}",
   1609: "¡Una pieza de conjunto! Lleva 2 y luego 4 piezas del mismo conjunto para obtener bonos; cada conjunto completado por primera vez también hace a tu héroe más fuerte para siempre. Todos los conjuntos están en el Bestiario: haz clic aquí.",
+  1610: "Bolsa llena: {n} objeto inútil para vender|Bolsa llena: {n} objetos inútiles para vender",
+  1611: "Bolsa llena: el próximo botín se venderá",
 };

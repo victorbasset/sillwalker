@@ -483,4 +483,6 @@ export default {
   1607: "Wielki zarządca: jaja i wyprawy automatycznie",
   1608: "Część z torby kompletuje zestaw {0}",
   1609: "Część zestawu! Noś 2, a potem 4 części tego samego zestawu, by zdobyć premie; każdy zestaw skompletowany po raz pierwszy wzmacnia też bohatera na zawsze. Wszystkie zestawy są w Bestiariuszu: kliknij tutaj.",
+  1610: "Torba pełna: {n} zbędny przedmiot do sprzedania|Torba pełna: {n} zbędne przedmioty do sprzedania|Torba pełna: {n} zbędnych przedmiotów do sprzedania",
+  1611: "Torba pełna: następny łup zostanie sprzedany",
 };

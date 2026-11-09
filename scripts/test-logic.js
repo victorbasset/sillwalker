@@ -1405,6 +1405,15 @@ test("« À faire maintenant » : une pièce du sac qui complète une panoplie",
   assert.ok(!g.todoNow().some((x) => x.id === "setFinish"));
 });
 
+test("« À faire maintenant » : sac plein signalé", () => {
+  const g = new Game(freshLocked());
+  g.S.bag.length = 0;
+  assert.ok(!g.todoNow().some((t) => t.id === "bagFull"));
+  while (!g.bagFull()) { const it = g.newItem(0); it.r = 0; it.set = null; it.st = {}; g.S.bag.push(it); }
+  const t = g.todoNow().find((x) => x.id === "bagFull");
+  assert.ok(t && t.n > 0, "objets inutiles comptés");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);
