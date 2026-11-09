@@ -587,6 +587,8 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 .mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .mcard { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px; padding: 8px 6px; border: 2px solid var(--line); border-radius: 4px; background: var(--chip); }
 .mcard img { width: 48px; image-rendering: pixelated; }
+/* Bouton de prix en bas de la tuile : aligné d'une tuile à l'autre quelle que soit la longueur du texte. */
+.mcard > .buy, .ctile > .buy { margin-top: auto; order: 2; } /* la case « auto » de la potion passe au-dessus */
 .mcard .nm { font-size: 13px; line-height: 1.2; }
 .mcard .sub, .ctile .sub { font-size: 11px; color: var(--muted); }
 .mcard .verdict { font-size: 12px; margin: 2px 0 4px; }
