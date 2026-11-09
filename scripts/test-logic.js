@@ -5,6 +5,18 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import * as M_art_js from "../src/renderer/render/art.js";
+import * as M_pets_js from "../src/renderer/game/pets.js";
+import * as M_util_js from "../src/renderer/game/util.js";
+import * as M_daymods_js from "../src/renderer/game/daymods.js";
+import * as M_codex_js from "../src/renderer/game/codex.js";
+import * as M_bosses_js from "../src/renderer/game/bosses.js";
+import * as M_rules_js from "../src/renderer/game/rules.js";
+import * as M_classes_js from "../src/renderer/game/classes.js";
+import * as M_talents_js from "../src/renderer/game/talents.js";
+import * as M_shop_js from "../src/renderer/game/shop.js";
+import * as M_quests_js from "../src/renderer/game/quests.js";
+import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { Game } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
@@ -515,21 +527,21 @@ test("réforge : nouveaux bonus, le reste est conservé", () => {
   assert.ok(!g.reforge(common), "pas de réforge sans bonus");
 });
 
-test("familiers : chaque familier a un dessin, les rares sont plus rares", async () => {
-  const { PET_ART } = await import("../src/renderer/render/art.js");
-  const { PETS: list, rollPet } = await import("../src/renderer/game/pets.js");
+test("familiers : chaque familier a un dessin, les rares sont plus rares", () => {
+  const { PET_ART } = M_art_js;
+  const { PETS: list, rollPet } = M_pets_js;
   for (const p of list) assert.ok(PET_ART[p.id], "dessin manquant : " + p.id);
 });
 {
-  const { PETS: list, rollPet } = await import("../src/renderer/game/pets.js");
-  const { rand } = await import("../src/renderer/game/util.js");
+  const { PETS: list, rollPet } = M_pets_js;
+  const { rand } = M_util_js;
   const n = {};
   for (let i = 0; i < 20000; i++) { const p = rollPet(rand); n[p.id] = (n[p.id] || 0) + 1; }
   test("familiers : tirage pondéré", () => { assert.ok(n.phoenix < n.cat / 2, `phénix ${n.phoenix} / chaton ${n.cat}`); assert.ok(n.rabbit < n.cat); });
 }
 
 {
-  const { DAY_MODS, dayModFor, DAY_MOD_KEYS } = await import("../src/renderer/game/daymods.js");
+  const { DAY_MODS, dayModFor, DAY_MOD_KEYS } = M_daymods_js;
   test("bénédiction du jour : déterministe, variée, appliquée", () => {
     assert.equal(dayModFor("2026-11-08"), dayModFor("2026-11-08"));
     const seen = new Set();
@@ -561,7 +573,7 @@ test("coffre au trésor : or, potion et objet rare ou mieux", () => {
 });
 
 {
-  const { CODEX_ENTRIES, codexCounts, itemBaseKey } = await import("../src/renderer/game/codex.js");
+  const { CODEX_ENTRIES, codexCounts, itemBaseKey } = M_codex_js;
   test("collection d'objets : enregistrement, bonus, migration, ascension", () => {
     const g = new Game(freshState());
     const before = heroStats(g.S).drop;
@@ -628,8 +640,8 @@ test("transmutation : 3 inutiles -> 1 de la rareté au-dessus", () => {
   assert.equal(g.S.bag.length, 3);
 });
 
-test("boss : miroir et vampirisme", async () => {
-  const { bossMechanics } = await import("../src/renderer/game/bosses.js");
+test("boss : miroir et vampirisme", () => {
+  const { bossMechanics } = M_bosses_js;
   const seen = new Set();
   for (let z = 1; z <= 12; z++) for (const id of bossMechanics(z)) seen.add(id);
   assert.ok(seen.has("mirror") && seen.has("drain"), [...seen].join(","));
@@ -645,8 +657,8 @@ test("boss : miroir et vampirisme", async () => {
   assert.ok(mirrored > 0, "le miroir a renvoyé des dégâts");
 });
 
-test("champions : plus coriaces, butin épique garanti", async () => {
-  const { monsterBase } = await import("../src/renderer/game/rules.js");
+test("champions : plus coriaces, butin épique garanti", () => {
+  const { monsterBase } = M_rules_js;
   const e = monsterBase(10, false, "slime", true), c = monsterBase(10, false, "slime", true, true);
   assert.ok(c.hp > e.hp * 2 && c.gold > e.gold * 4);
   const g = new Game(freshState());
@@ -685,8 +697,8 @@ test("achat automatique de potions", () => {
   assert.equal(migrate(JSON.parse(JSON.stringify(g.S))).autoPotions, true);
 });
 
-test("pouvoirs légendaires découverts : bonus et migration", async () => {
-  const { powersFound } = await import("../src/renderer/game/codex.js");
+test("pouvoirs légendaires découverts : bonus et migration", () => {
+  const { powersFound } = M_codex_js;
   const g = new Game(freshState());
   const atk0 = heroStats(g.S).atk;
   for (let i = 0; i < 40; i++) g.newItem(4);
@@ -697,8 +709,8 @@ test("pouvoirs légendaires découverts : bonus et migration", async () => {
   assert.ok(migrate(old).powersSeen.p_midas);
 });
 
-test("héros à libérer : boss de zone, changement de classe à l'ascension", async () => {
-  const { CLASS_UNLOCK_ZONE } = await import("../src/renderer/game/classes.js");
+test("héros à libérer : boss de zone, changement de classe à l'ascension", () => {
+  const { CLASS_UNLOCK_ZONE } = M_classes_js;
   const g = new Game(freshState());
   assert.deepEqual(g.S.classesUnlocked, ["warrior"]);
   assert.ok(!g.chooseNextClass("ranger"), "pas encore libéré");
@@ -720,9 +732,9 @@ test("héros à libérer : boss de zone, changement de classe à l'ascension", a
   assert.deepEqual(migrate(old).classesUnlocked.sort(), ["mage", "samurai", "warrior"]);
 });
 
-test("talents : voie exclusive et maîtrises (aucun point perdu)", async () => {
-  const { VOIES, MASTERIES, talentPointsFree } = await import("../src/renderer/game/talents.js");
-  const { CLASS_KEYS: keys } = await import("../src/renderer/game/classes.js");
+test("talents : voie exclusive et maîtrises (aucun point perdu)", () => {
+  const { VOIES, MASTERIES, talentPointsFree } = M_talents_js;
+  const { CLASS_KEYS: keys } = M_classes_js;
   for (const c of keys) assert.equal((VOIES[c] || []).length, 2, "deux voies pour " + c);
   const g = new Game(freshState());
   g.S.lvl = 120; g.invalidateStats();
@@ -740,8 +752,8 @@ test("talents : voie exclusive et maîtrises (aucun point perdu)", async () => {
   assert.ok(g.stats().atk > atk0);
 });
 
-test("talents : dépense automatique (ultimes, branche, maîtrises ; jamais la voie)", async () => {
-  const { talentPointsFree, chosenVoie } = await import("../src/renderer/game/talents.js");
+test("talents : dépense automatique (ultimes, branche, maîtrises ; jamais la voie)", () => {
+  const { talentPointsFree, chosenVoie } = M_talents_js;
   const g = new Game(freshState());
   g.S.lvl = 26; g.invalidateStats();
   assert.equal(g.autoSpendTalents(), 25);
@@ -765,8 +777,8 @@ test("familiers : tout faire éclore, tout envoyer en expédition", () => {
   assert.ok(g.S.pets.active && !g.S.pets.exp[g.S.pets.active], "le compagnon reste");
 });
 
-test("boutique : atelier permanent, œuf, objet pour le point faible, bonne affaire", async () => {
-  const { WORKSHOP, workshopPrice, eggPrice } = await import("../src/renderer/game/shop.js");
+test("boutique : atelier permanent, œuf, objet pour le point faible, bonne affaire", () => {
+  const { WORKSHOP, workshopPrice, eggPrice } = M_shop_js;
   const g = new Game(freshState());
   g.S.gold = 1e8;
   const atk0 = g.stats().atk;
@@ -789,8 +801,8 @@ test("boutique : atelier permanent, œuf, objet pour le point faible, bonne affa
   assert.equal(stock.items[0].slot, "weapon", "premier objet pour un emplacement vide");
 });
 
-test("quêtes : étoiles, réputation de guilde, réclamation automatique", async () => {
-  const { makeQuest, guildRank } = await import("../src/renderer/game/quests.js");
+test("quêtes : étoiles, réputation de guilde, réclamation automatique", () => {
+  const { makeQuest, guildRank } = M_quests_js;
   const g = new Game(freshState());
   const seen = new Set();
   for (let i = 0; i < 400; i++) { const q = makeQuest(g.S, i); seen.add(q.stars); if (q.stars === 3) assert.ok(q.reward.speed || q.reward.chest >= 3 || q.reward.egg || q.reward.shards, "récompense rare"); }
@@ -813,8 +825,8 @@ test("quêtes : étoiles, réputation de guilde, réclamation automatique", asyn
   assert.ok(g.S.guild.rep >= 30, "réputation conservée à l'ascension");
 });
 
-test("compétences : un pétale complet allume son cœur", async () => {
-  const { SKILL_TREE, completedSectors, SECTOR_CORES, skillTreeEffects } = await import("../src/renderer/game/skilltree.js");
+test("compétences : un pétale complet allume son cœur", () => {
+  const { SKILL_TREE, completedSectors, SECTOR_CORES, skillTreeEffects } = M_skilltree_js;
   const g = new Game(freshState());
   g.S.lvl = 400; g.invalidateStats();
   const ids = Object.keys(SKILL_TREE.nodes).filter((id) => SKILL_TREE.nodes[id].sector === "force");
@@ -823,8 +835,8 @@ test("compétences : un pétale complet allume son cœur", async () => {
   assert.ok(skillTreeEffects(g.S).bossDmg >= SECTOR_CORES.force.eff.bossDmg);
 });
 
-test("style de combat : 5 paliers, de plus en plus durs", async () => {
-  const { attackTier, ATTACK_TIERS } = await import("../src/renderer/game/classes.js");
+test("style de combat : 5 paliers, de plus en plus durs", () => {
+  const { attackTier, ATTACK_TIERS } = M_classes_js;
   assert.equal(ATTACK_TIERS.length, 5);
   const S = freshState();
   assert.equal(attackTier(S), 0);

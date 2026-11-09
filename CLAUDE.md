@@ -74,8 +74,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Sauvegardes : `migrate()` (state.js) renvoie null pour une version inconnue → partie neuve. SaveStore
   (main/save-store.js) met alors de côté la sauvegarde plus récente avant la première écriture
   (`save.newer-v*.json`) ; ne jamais retirer cette protection. Le lanceur `test()` de test-logic est synchrone :
-  un test `async` est compté réussi tout de suite et son échec n'apparaît qu'après le total (processus en erreur) ;
-  préférer des imports statiques et des tests synchrones.
+  un test `async` serait compté réussi tout de suite (échec signalé seulement après le total) :
+  tous les tests sont synchrones, avec des imports statiques en tête de fichier ; garder cette règle.
 
 - Panneau : thème clair (par défaut) et sombre selon Windows. Jamais de couleur claire en dur pour du texte
   (#ffe9a8, #9fe0a8…) : utiliser les jetons du thème (`--accent`, `--good`, `--bad`, `--r0`…`--r4`, `--muted`)
