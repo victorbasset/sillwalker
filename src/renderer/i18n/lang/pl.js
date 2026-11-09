@@ -509,4 +509,5 @@ export default {
   1633: "Wniebowstąpienie nr {0}",
   1634: "Tu pojawią się najważniejsze etapy twojej gry.",
   1635: "Początek dziennika: poziom {0}, rekordowa strefa {1}",
+  1636: "Ukończony zestaw: {0}",
 };

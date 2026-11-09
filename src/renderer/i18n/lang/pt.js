@@ -509,4 +509,5 @@ export default {
   1633: "Ascensão nº {0}",
   1634: "As grandes etapas da sua partida aparecerão aqui.",
   1635: "Início do diário: nível {0}, recorde zona {1}",
+  1636: "Conjunto completo: {0}",
 };

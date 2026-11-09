@@ -746,6 +746,7 @@ export class Game {
       this.log(tx("Panoplie {0} : bonus {1} pièces !", { 0: SETS[it.set].name, 1: n }));
       if (n === 4 && !(S.setsDone ||= {})[it.set]) { // première fois : bonus de collection permanent
         S.setsDone[it.set] = true;
+        this.milestone("set", it.set);
         this.invalidateStats();
         this.log(tx("Panoplie complétée pour la première fois : {0} pour toujours.", { 0: describeEffects(SET_CODEX_BONUS) }));
       }

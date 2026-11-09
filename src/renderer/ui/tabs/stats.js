@@ -4,7 +4,7 @@ import { shopIconURL } from "../../render/shopart.js";
 import { ACHIEVEMENTS, reachedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
 import { codexCounts } from "../../game/codex.js";
-import { SET_KEYS } from "../../game/sets.js";
+import { SET_KEYS, SETS } from "../../game/sets.js";
 import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
 import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
@@ -26,6 +26,7 @@ function journeyText(e) {
   if (e.k === "leg") return tx("Premier objet légendaire");
   if (e.k === "cls") return tx("Héros libéré : {0}", { 0: (CLASSES[e.v] || {}).name || "?" });
   if (e.k === "asc") return tx("Ascension n° {0}", { 0: e.v });
+  if (e.k === "set") return tx("Panoplie complétée : {0}", { 0: (SETS[e.v] || {}).name || "?" });
   if (e.k === "start") return tx("Début du carnet : niveau {0}, record zone {1}", { 0: fmt(e.l || 1), 1: e.v });
   return "";
 }

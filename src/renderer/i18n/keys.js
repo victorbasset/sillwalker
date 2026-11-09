@@ -1637,5 +1637,6 @@ export const KEYS = [
   "Héros libéré : {0}",
   "Ascension n° {0}",
   "Les grandes étapes de ta partie apparaîtront ici.",
-  "Début du carnet : niveau {0}, record zone {1}"
+  "Début du carnet : niveau {0}, record zone {1}",
+  "Panoplie complétée : {0}"
 ];

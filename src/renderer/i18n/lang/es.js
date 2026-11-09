@@ -509,4 +509,5 @@ export default {
   1633: "Ascensión n.º {0}",
   1634: "Las grandes etapas de tu partida aparecerán aquí.",
   1635: "Inicio del cuaderno: nivel {0}, récord zona {1}",
+  1636: "Conjunto completado: {0}",
 };

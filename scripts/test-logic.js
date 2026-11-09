@@ -1463,6 +1463,10 @@ test("carnet de route : niveaux ronds, records par 5 zones, premier légendaire,
   g.gainXp(1e6);
   assert.ok(g.S.journey.some((e) => e.k === "lvl" && e.v === 10), "niveau 10 noté");
   g.milestone("zone", 5); g.milestone("leg");
+  // panoplie complétée (4 pièces portées) : notée une fois
+  const g2 = new Game(freshState()); g2.S.setsDone = {};
+  for (const slot of ["helm", "armor", "gloves", "boots"]) { const it = g2.newItem(3); it.slot = slot; it.set = "dawn"; g2.S.bag.push(it); g2.equip(it); }
+  assert.equal(g2.S.journey.filter((e) => e.k === "set" && e.v === "dawn").length, 1, "panoplie notée");
   const n = g.S.journey.length;
   g.S.best = 30; if (g.canAscend()) { g.ascend(); assert.ok(g.S.journey.length >= n + 1, "gardé à l'ascension, ascension notée"); assert.ok(g.S.journey.some((e) => e.k === "asc")); }
   const raw = JSON.parse(JSON.stringify(freshLocked())); raw.journey = [null, { t: "x", k: "lvl" }, { t: 5, k: "zone", v: 10 }];
