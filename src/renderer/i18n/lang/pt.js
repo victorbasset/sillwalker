@@ -852,4 +852,7 @@ export default {
   1976: "▲ clique duplo: equipar",
   1977: "Chuva de fragmentos",
   1978: "Cada vitória pode deixar um fragmento de estrela!",
+  1979: "Sofre 30% menos de dano enquanto tiver mais de 70% dos PV: a primeira investida é a mais dura.",
+  1980: "Pele de pedra quebrada!",
+  1981: "Pele de pedra",
 };

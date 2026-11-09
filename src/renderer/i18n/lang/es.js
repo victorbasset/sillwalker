@@ -852,4 +852,7 @@ export default {
   1976: "▲ doble clic: equipar",
   1977: "Lluvia de fragmentos",
   1978: "¡Cada victoria puede dejar un fragmento de estrella!",
+  1979: "Recibe un 30 % menos de daño mientras tenga más del 70 % de sus PV: la primera carga es la más dura.",
+  1980: "¡Piel de piedra rota!",
+  1981: "Piel de piedra",
 };

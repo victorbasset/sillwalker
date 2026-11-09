@@ -852,4 +852,7 @@ export default {
   1976: "▲ dwuklik: załóż",
   1977: "Deszcz odłamków",
   1978: "Każde zwycięstwo może zostawić odłamek gwiazdy!",
+  1979: "Otrzymuje o 30% mniej obrażeń, dopóki ma ponad 70% PŻ: pierwsza szarża jest najtrudniejsza.",
+  1980: "Kamienna skóra pękła!",
+  1981: "Kamienna skóra",
 };

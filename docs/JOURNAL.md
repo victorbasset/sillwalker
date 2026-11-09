@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 307, étude des concurrents, action d : variété) : 10e capacité de boss « Peau de pierre » : −30 %
+  de dégâts reçus tant qu'il a plus de 70 % de ses PV (coups et clics) ; « Peau de pierre brisée ! » au passage du
+  seuil. Ajoutée à la rotation (bosses.js > ORDER : la capacité de chaque zone change). Nom « Cuirasse » écarté :
+  clé déjà prise par la pièce d'armure (le sens se serait mélangé dans les traductions). Fuzz 1200 parties, 0
+  bloquée ; balance.mjs 12 h, 10 héros : −0,5 zone (bruit). 3 textes × 9 langues, autotest vert.
 - 2026-11-10 (it. 306, étude des concurrents, action d : variété) : nouvel événement « Pluie d'éclats » (30 s,
   chance 0,15 % par victoire, seulement après la 1re ascension : EVENTS.req) : chaque victoire a 25 % de chances de
   donner un éclat d'étoile (compté aussi au total, donc dans la lueur) ; petites étoiles violettes qui tombent dans

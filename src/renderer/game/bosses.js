@@ -16,9 +16,13 @@ export const BOSS_MECHANICS = {
   frost:  { name: "Souffle glacé", desc: "Toutes les 7 s, gèle le héros : ses attaques ralentissent de 40 % pendant 3 s." },
   evasive: { name: "Insaisissable", desc: "Esquive 20 % des coups du héros (les coups au clic touchent toujours)." },
   fury:   { name: "Fureur croissante", desc: "Toutes les 5 s, frappe 10 % plus vite (jusqu’à 6 fois) : il faut l’abattre vite." },
+  // Étude des concurrents (variété) : une 10e capacité.
+  bulwark: { name: "Peau de pierre", desc: "Subit 30 % de dégâts en moins tant qu’il lui reste plus de 70 % de ses PV : la première charge est la plus dure." },
 };
+/** Cuirasse : réduction des dégâts au-dessus du seuil de PV. */
+export const BULWARK = { above: 0.7, cut: 0.3 };
 export const FURY = { every: 5, speed: 0.9, max: 6 };
-const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury"];
+const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark"];
 
 /** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */
 export const BOSS_NAMES = [

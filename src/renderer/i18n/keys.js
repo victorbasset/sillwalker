@@ -1980,5 +1980,8 @@ export const KEYS = [
   "Un objet plus puissant t’attend dans le sac (▲) : double-clique dessus pour l’équiper (ou clique ici pour ouvrir le sac).",
   "▲ double-clic : équiper",
   "Pluie d’éclats",
-  "Chaque victoire peut laisser un éclat d’étoile !"
+  "Chaque victoire peut laisser un éclat d’étoile !",
+  "Subit 30 % de dégâts en moins tant qu’il lui reste plus de 70 % de ses PV : la première charge est la plus dure.",
+  "Peau de pierre brisée !",
+  "Peau de pierre"
 ];

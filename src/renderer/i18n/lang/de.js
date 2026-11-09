@@ -852,4 +852,7 @@ export default {
   1976: "▲ Doppelklick: ausrüsten",
   1977: "Splitterregen",
   1978: "Jeder Sieg kann einen Sternensplitter hinterlassen!",
+  1979: "Erleidet 30 % weniger Schaden, solange er über 70 % seiner LP hat: Der erste Ansturm ist der härteste.",
+  1980: "Steinhaut gebrochen!",
+  1981: "Steinhaut",
 };

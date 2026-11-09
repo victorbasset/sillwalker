@@ -129,7 +129,7 @@ export class StripRenderer {
       if (pd && pd.projectile && this.partner && g.R.mon) this.projectile(pd.projectile, (this.partnerX || this.heroX) + 24, this.monX() + 6, g.R.mon.boss ? 46 : 70, 0, "#fff");
     });
     g.on("bossSkill", ({ id }) => {
-      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"] }[id];
+      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"], bulwark: [tx("Peau de pierre brisée !"), "#c9ced6"] }[id];
       if (id === "frost") { this.float(this.heroX + 10, 30, tx("Gelé !"), "#bfe8ff", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#bfe8ff", 8); return; }
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });

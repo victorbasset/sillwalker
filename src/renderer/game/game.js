@@ -41,7 +41,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE } from "./events.js";
-import { bossMechanics, bossName, FURY, bossWear } from "./bosses.js";
+import { bossMechanics, bossName, FURY, bossWear, BULWARK } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -396,12 +396,21 @@ export class Game {
     const hs = this.stats();
     let dmg = hs.atk * TAP_DMG * (1 + (hs.tapDmg || 0) / 100) * rnd(0.9, 1.1);
     if (m.boss) dmg *= 1 + hs.bossDmg / 100;
+    dmg *= this.bulwarkFactor(m);
     if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; this.emit("bossShieldHit", { amount: a }); }
     m.hp -= dmg;
     this.S.stats.taps = (this.S.stats.taps || 0) + 1;
     this.emit("tap", { dmg, mon: m });
     if (m.hp <= 0) this.killMonster();
     return true;
+  }
+
+  /** Cuirasse du boss (bosses.js) : dégâts réduits tant qu'il a beaucoup de PV ; annoncée quand elle se brise. */
+  bulwarkFactor(m) {
+    if (!m.mech || !m.mech.includes("bulwark")) return 1;
+    if (m.hp > m.max * BULWARK.above) return 1 - BULWARK.cut;
+    if (!m.bulwarkBroken) { m.bulwarkBroken = true; this.emit("bossSkill", { id: "bulwark" }); }
+    return 1;
   }
 
   heroStrike(m, hs, first, extra) {
@@ -416,6 +425,7 @@ export class Game {
     if (first && hs.firstStrike > 0) dmg *= 1 + hs.firstStrike;
     if (extra) dmg *= 0.6;
     if (hs.combo > 0) { dmg *= 1 + hs.combo / 100 * Math.min(this.R.combo, 10); this.R.combo++; }
+    dmg *= this.bulwarkFactor(m);
     if (m.shell > 0) {
       const a = Math.min(m.shell, dmg);
       m.shell -= a; dmg -= a;

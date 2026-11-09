@@ -852,4 +852,7 @@ export default {
   1976: "▲ double-click: equip",
   1977: "Shardfall",
   1978: "Every victory may drop a star shard!",
+  1979: "Takes 30% less damage while above 70% of its HP: the first charge is the hardest.",
+  1980: "Stoneskin broken!",
+  1981: "Stoneskin",
 };
