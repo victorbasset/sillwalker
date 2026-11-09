@@ -500,4 +500,5 @@ export default {
   1624: "An egg! Pets follow your hero and make it stronger.",
   1625: "Your records and numbers.",
   1626: "Start over stronger thanks to star shards.",
+  1627: "Later: a path from {0} points spent, masteries from {1}.",
 };

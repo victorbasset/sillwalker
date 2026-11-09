@@ -259,6 +259,7 @@ button.close { padding: 2px 9px; font-weight: 700; }
 
 /* Talents */
 .tgrid { display: grid; grid-template-columns: minmax(280px, 1.2fr) repeat(3, minmax(200px, 1fr)); gap: 12px; align-items: start; }
+.tgrid > .tlater { grid-column: 2 / -1; margin: 0; }
 .tbranch { display: flex; flex-direction: column; gap: 6px; }
 .talent { display: flex; justify-content: space-between; gap: 8px; text-align: left; padding: 6px 10px; font-size: 15px; }
 .talent .tr { color: var(--muted); font-size: 13px; white-space: nowrap; }

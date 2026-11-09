@@ -500,4 +500,5 @@ export default {
   1624: "Jajo! Chowańce idą za bohaterem i go wzmacniają.",
   1625: "Twoje rekordy i liczby.",
   1626: "Zacznij od nowa silniejszy dzięki odłamkom gwiazd.",
+  1627: "Później: ścieżka od {0} wydanych punktów, mistrzostwa od {1}.",
 };

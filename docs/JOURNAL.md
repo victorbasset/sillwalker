@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 178) : Talents : les panneaux Voie et Maîtrises n'apparaissent qu'à 10 points de leur seuil (30 et
+  40 points dépensés) ou une fois la voie choisie ; avant, une ligne annonce l'objectif (« Plus tard : une voie dès
+  30 points dépensés, des maîtrises dès 40. »). Capture d'un joueur à 0 point dépensé, 10 langues, 80/80 deux fois (contrôle « progression de panoplie »
+  fiabilisé : la pièce de test prend une panoplie différente de celle portée à cet emplacement).
 - 2026-11-09 (it. 177) : save-fuzz couvre les nouvelles données (onglets ouverts illisibles ou non-objet, thème
   illisible) : 19/19 ; crawl sur la sauvegarde cumulant les 19 corruptions : 135 clics, 0 erreur. CLAUDE.md : piège
   du commentaire // qui avale la fin d'une ligne.

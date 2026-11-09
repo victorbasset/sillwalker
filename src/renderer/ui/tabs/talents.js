@@ -53,10 +53,16 @@ export class TalentsTab {
         <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace(tx("Maîtrise : "), "")))}</span><span class="tr">${locked ? "🔒 " + txn(MASTERY_REQ, "{n} pt|{n} pts") : tx("rang {0}", { 0: r })}</span>
         ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">${tx("tout")}</span>` : ""}</button>`;
     }).join("");
-    const extra = `<article class="panel tbranch tvoie"><h2>${tx("Voie")} <small>${voie ? tx("choisie") : `${tx("dès {0} pts", { 0: VOIE_REQ })}`}</small></h2>${voies}
+    // Voie et maîtrises montrées à l'approche de leur seuil (10 points avant) : moins d'informations d'un coup au début,
+    // une ligne annonce l'objectif en attendant.
+    const showVoie = !!voie || spentAll >= VOIE_REQ - 10, showMast = spentAll >= MASTERY_REQ - 10;
+    const extraFull = `<article class="panel tbranch tvoie"><h2>${tx("Voie")} <small>${voie ? tx("choisie") : `${tx("dès {0} pts", { 0: VOIE_REQ })}`}</small></h2>${voies}
         <p class="note">${tx("Une seule voie par classe. Pour en changer : réinitialiser les talents.")}</p></article>
       <article class="panel tbranch tmastery"><h2>${tx("Maîtrises")} <small>${tx("rangs illimités")}</small></h2>${masteries}
         <p class="note">${tx("Dès {0} points dépensés : chaque point en plus y trouve sa place, aucun n’est perdu.", { 0: MASTERY_REQ })}</p></article>`;
+    const extra = showVoie && showMast ? extraFull
+      : showVoie ? extraFull.slice(0, extraFull.indexOf('<article class="panel tbranch tmastery">'))
+      : `<p class="note tlater">${tx("Plus tard : une voie dès {0} points dépensés, des maîtrises dès {1}.", { 0: VOIE_REQ, 1: MASTERY_REQ })}</p>`;
 
     const canVoie = !voie && spentAll >= VOIE_REQ;
     const head = `<article class="panel tdetail">

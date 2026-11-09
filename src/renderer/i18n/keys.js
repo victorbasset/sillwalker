@@ -1628,5 +1628,6 @@ export const KEYS = [
   "L’arbre de compétences : 1 point tous les 2 niveaux.",
   "Un œuf ! Les familiers suivent ton héros et le renforcent.",
   "Tes records et tes chiffres.",
-  "Recommencer plus fort grâce aux éclats d’étoile."
+  "Recommencer plus fort grâce aux éclats d’étoile.",
+  "Plus tard : une voie dès {0} points dépensés, des maîtrises dès {1}."
 ];

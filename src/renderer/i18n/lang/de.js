@@ -500,4 +500,5 @@ export default {
   1624: "Ein Ei! Begleiter folgen deinem Helden und stärken ihn.",
   1625: "Deine Rekorde und Zahlen.",
   1626: "Mit Sternensplittern stärker neu beginnen.",
+  1627: "Später: ein Weg ab {0} ausgegebenen Punkten, Meisterschaften ab {1}.",
 };

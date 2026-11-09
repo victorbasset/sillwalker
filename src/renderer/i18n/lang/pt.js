@@ -500,4 +500,5 @@ export default {
   1624: "Um ovo! Os mascotes seguem seu herói e o fortalecem.",
   1625: "Seus recordes e números.",
   1626: "Recomece mais forte graças aos fragmentos de estrela.",
+  1627: "Mais tarde: um caminho a partir de {0} pontos gastos, maestrias a partir de {1}.",
 };

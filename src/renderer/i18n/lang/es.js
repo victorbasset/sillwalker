@@ -500,4 +500,5 @@ export default {
   1624: "¡Un huevo! Las mascotas siguen a tu héroe y lo fortalecen.",
   1625: "Tus récords y tus cifras.",
   1626: "Vuelve a empezar más fuerte gracias a los fragmentos de estrella.",
+  1627: "Más adelante: una vía desde {0} puntos gastados, maestrías desde {1}.",
 };
