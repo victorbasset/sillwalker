@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 ## Fait
 
+- 2026-11-09 (it. 37) : après l'achat de l'Astrolabe (éteint au départ), une bulle explique qu'il faut le cocher
+  dans l'onglet Ascension, et un clic y mène.
 - 2026-11-09 (it. 36) : nouvelle constellation, « Le Chasseur » : +5 % d'élites rencontrées par rang (10 rangs),
   pour choisir durablement un style plus risqué et plus rentable.
 - 2026-11-09 (it. 35) : le nom des boss très grands (yéti de la zone 28…) n'est plus coupé en haut de la bande.

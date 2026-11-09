@@ -5,6 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { Game } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -861,8 +862,7 @@ test("panoplies : le nom sauvegardé reste en français, même créé dans une a
   assert.equal(S.bag[1].name, "Épée de fer " + fr);
 });
 
-test("conseil : héros bloqué près du record, une fois par course", async () => {
-  const { nextHint, markHint } = await import("../src/renderer/ui/hints.js");
+test("conseil : héros bloqué près du record, une fois par course", () => {
   const g = new Game(freshState());
   g.S.best = g.S.zone = 30; g.S.prestige.count = 1;
   g.S.settings.hints = Object.fromEntries(["welcome", "upgrade", "talent", "skills", "quest", "egg", "shop", "ascend", "expedition", "codex", "classes"].map((k) => [k, true]));
@@ -875,6 +875,19 @@ test("conseil : héros bloqué près du record, une fois par course", async () =
   assert.notEqual(nextHint(g)?.id, "stuck", "déjà vu pour cette course");
   g.S.prestige.count = 2;
   assert.equal(nextHint(g)?.id, "stuck", "de nouveau à la course suivante");
+});
+
+test("conseil Astrolabe : après l'achat, tant qu'il n'est pas coché", () => {
+  const g = new Game(freshLocked());
+  g.S.settings.hints = Object.fromEntries(["welcome", "upgrade", "talent", "skills", "quest", "egg", "shop", "ascend", "expedition", "codex", "classes", "unlock:armsValet", "unlock:masterForge", "unlock:starNet"].map((k) => [k, true]));
+  g.talentPointsFree = () => 0; g.hasUpgradeCached = () => false; g.questsReady = () => 0;
+  assert.notEqual(nextHint(g)?.id, "astrolabe", "pas avant l'achat");
+  g.S.unlocks.astrolabe = true;
+  const h = nextHint(g);
+  assert.equal(h && h.id, "astrolabe");
+  assert.equal(h.tab, "ascension");
+  g.S.settings.autoAscend = true;
+  assert.notEqual(nextHint(g)?.id, "astrolabe", "déjà coché : inutile");
 });
 
 test("dépense automatique : compétences et talents à chaque niveau", () => {

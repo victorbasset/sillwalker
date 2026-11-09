@@ -397,4 +397,5 @@ export default {
   1521: "Chefe desgastado pelas suas tentativas: −{0} % de PV até você vencê-lo.",
   1522: "−{0} % PV",
   1523: "O Caçador",
+  1524: "Astrolábio adquirido! Ele começa desligado: marque-o na aba Ascensão para que ele faça a ascensão por você quando seu herói empacar. Clique aqui.",
 };

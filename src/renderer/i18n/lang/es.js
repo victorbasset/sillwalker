@@ -397,4 +397,5 @@ export default {
   1521: "Jefe agotado por tus intentos: −{0} % de PV hasta que lo derrotes.",
   1522: "−{0} % PV",
   1523: "El Cazador",
+  1524: "¡Astrolabio conseguido! Empieza apagado: márcalo en la pestaña Ascensión para que ascienda por ti cuando tu héroe se atasque. Haz clic aquí.",
 };

@@ -37,6 +37,8 @@ export const HINTS = [
   { id: "unlock", tab: "shop", text: null, perUnlock: true,
     textFn: (g) => { const u = nextUnlock(g.S); return tx("Nouveau déblocage à ta portée : {0} ({1} or). Clique ici pour la boutique.", { 0: u.name, 1: fmt(u.price) }); },
     when: (g) => { const u = nextUnlock(g.S); return !!u && unlockAvailable(g.S, u) && g.S.gold >= u.price; } },
+  { id: "astrolabe", tab: "ascension", text: tx("Astrolabe acquis ! Il est éteint au départ : coche-le dans l’onglet Ascension pour qu’il fasse l’ascension à ta place quand ton héros bloque. Clique ici."),
+    when: (g) => hasUnlock(g.S, "astrolabe") && g.S.settings.autoAscend !== true },
   { id: "tap", tab: null, text: tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"),
     when: (g) => g.S.stats.kills >= 40 && !(g.S.stats.taps > 0) },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),

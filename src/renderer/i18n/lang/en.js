@@ -397,4 +397,5 @@ export default {
   1521: "Boss worn down by your attempts: −{0}% HP until you beat it.",
   1522: "−{0}% HP",
   1523: "The Hunter",
+  1524: "Astrolabe acquired! It starts switched off: tick it in the Ascension tab so it ascends for you when your hero is stuck. Click here.",
 };

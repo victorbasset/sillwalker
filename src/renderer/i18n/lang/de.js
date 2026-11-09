@@ -397,4 +397,5 @@ export default {
   1521: "Boss von deinen Versuchen erschöpft: −{0} % LP, bis du ihn besiegst.",
   1522: "−{0} % LP",
   1523: "Der Jäger",
+  1524: "Astrolabium erworben! Es ist anfangs ausgeschaltet: Hake es im Tab Aufstieg an, damit es für dich aufsteigt, wenn dein Held feststeckt. Hier klicken.",
 };
