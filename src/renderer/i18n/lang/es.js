@@ -388,4 +388,5 @@ export default {
   1512: "Cuerno de la abundancia",
   1513: "¡Cada victoria deja un objeto!",
   1514: "¡Ascensión n.º {0}! +{1} fragmentos de estrella",
+  1515: "Rareza: • poco común, •• raro, ••• épico, ★ legendario.",
 };

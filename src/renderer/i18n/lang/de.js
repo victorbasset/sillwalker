@@ -388,4 +388,5 @@ export default {
   1512: "Füllhorn",
   1513: "Jeder Sieg hinterlässt einen Gegenstand!",
   1514: "Aufstieg Nr. {0}! +{1} Sternensplitter",
+  1515: "Seltenheit: • ungewöhnlich, •• selten, ••• episch, ★ legendär.",
 };

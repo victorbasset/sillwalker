@@ -388,4 +388,5 @@ export default {
   1512: "Cornucópia",
   1513: "Cada vitória deixa um item!",
   1514: "Ascensão nº {0}! +{1} fragmentos de estrela",
+  1515: "Raridade: • incomum, •• raro, ••• épico, ★ lendário.",
 };

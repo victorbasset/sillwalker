@@ -437,7 +437,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .setline { margin: 6px 0 0; padding: 5px 8px; font-size: 13px; border: 1px solid var(--c); border-radius: 3px; color: var(--muted); }
 .setline b { color: var(--c); }
 .setline .on { color: var(--good); }
-.slot .rpip { position: absolute; left: 3px; bottom: 0; font-size: 10px; line-height: 1.2; color: #fff; text-shadow: 0 0 2px #000, 0 0 2px #000; letter-spacing: -1px; }
+.slot .rpip { position: absolute; left: 3px; bottom: 0; font-size: 15px; line-height: 1; font-family: system-ui, sans-serif; color: var(--ink); text-shadow: 0 0 2px var(--panel), 0 0 2px var(--panel), 0 0 1px var(--panel); letter-spacing: -1px; }
 .slot .setmark { position: absolute; right: 2px; bottom: 0; font-size: 11px; }
 .affix.bossname { top: -40px; color: #ff9a7a; font-size: 12px; }
 .bossmech .bname { color: var(--ink); }

@@ -1516,5 +1516,6 @@ export const KEYS = [
   "Sombre",
   "Corne d’abondance",
   "Chaque victoire laisse un objet !",
-  "Ascension n° {0} ! +{1} éclats d’étoile"
+  "Ascension n° {0} ! +{1} éclats d’étoile",
+  "Rareté : • peu commun, •• rare, ••• épique, ★ légendaire."
 ];

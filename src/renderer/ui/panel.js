@@ -86,7 +86,7 @@ const LOG_COLORS = [
 const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); return m ? ` class="${m[1]}"` : ""; };
 
 // Repère de rareté en forme (pas seulement en couleur) : lisible pour les daltoniens.
-const RARITY_PIP = ["", "", "•", "••", "★"];
+const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible sans les couleurs (daltonisme) : peu commun → légendaire
 
 export class Panel {
   constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
@@ -399,7 +399,7 @@ export class Panel {
       <label class="toggle"><input type="checkbox" data-action="as" data-r="rare"${S.autoSell.rare ? " checked" : ""}> ${tx("Vendre les rares dès qu’ils tombent")}</label>` : lockLink(S, "autoSell")}
       ${hasUnlock(S, "armsValet") ? `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>` : ""}
       ${hasUnlock(S, "masterForge") ? `<label class="toggle"><input type="checkbox" data-action="mforge"${S.settings.autoForge !== false ? " checked" : ""}> ${tx("Maître de forge : forger l’équipement porté avec l’or en trop")}</label>` : ""}
-      <p class="note">${tx("▲ signale un objet plus puissant que ce que porte ton héros.")}</p>`;
+      <p class="note">${tx("▲ signale un objet plus puissant que ce que porte ton héros.")} ${tx("Rareté : • peu commun, •• rare, ••• épique, ★ légendaire.")}</p>`;
   }
 
   getSel() {

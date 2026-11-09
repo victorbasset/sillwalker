@@ -388,4 +388,5 @@ export default {
   1512: "Horn of Plenty",
   1513: "Every victory leaves an item!",
   1514: "Ascension #{0}! +{1} star shards",
+  1515: "Rarity: • uncommon, •• rare, ••• epic, ★ legendary.",
 };
