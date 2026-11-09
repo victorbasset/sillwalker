@@ -446,4 +446,7 @@ export default {
   1570: "Wielki zarządca: {0}.",
   1571: "Pokonane elity",
   1572: ", w strefie {0}.",
+  1573: "Wieczny tygiel",
+  1574: "Sam transmutuje bezużyteczne przedmioty, gdy torba się zapełnia (opcja).",
+  1575: "Wieczny tygiel: transmutuj, gdy torba się zapełnia",
 };

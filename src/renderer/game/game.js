@@ -549,6 +549,7 @@ export class Game {
     this.autoBuyPotions();
     this.autoForge();
     this.autoPets();
+    this.autoTransmute();
     this.gainXp(Math.round(m.xp * (1 + hs.xp / 100) * ((R.events.wisdom || 0) > 0 ? 3 : 1))); // Souffle de sagesse : ×3
     if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
@@ -789,6 +790,17 @@ export class Game {
       this.changed();
     }
     return out;
+  }
+
+  /**
+   * Creuset perpétuel (déblocage, option) : transmute quand le sac est aux trois quarts plein,
+   * par lots (une ligne de journal pour plusieurs objets, et le sac ne déborde pas).
+   */
+  autoTransmute() {
+    const S = this.S;
+    if (!hasUnlock(S, "crucible") || S.settings.autoTransmute === false) return [];
+    if (S.bag.length < S.bagSize * 0.75) return [];
+    return this.transmute();
   }
 
   /** Vend tout ce qui n'améliore pas le héros. Renvoie { n, gold }. */

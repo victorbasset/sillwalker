@@ -446,4 +446,7 @@ export default {
   1570: "Grande intendente: {0}.",
   1571: "Elites derrotados",
   1572: ", na zona {0}.",
+  1573: "Cadinho perpétuo",
+  1574: "Transmuta sozinho os itens inúteis quando a bolsa enche (opção).",
+  1575: "Cadinho perpétuo: transmutar quando a bolsa enche",
 };

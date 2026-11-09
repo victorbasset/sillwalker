@@ -446,4 +446,7 @@ export default {
   1570: "Großer Verwalter: {0}.",
   1571: "Besiegte Elite-Gegner",
   1572: ", in Zone {0}.",
+  1573: "Ewiger Tiegel",
+  1574: "Transmutiert nutzlose Gegenstände von selbst, wenn sich die Tasche füllt (Option).",
+  1575: "Ewiger Tiegel: transmutieren, wenn sich die Tasche füllt",
 };

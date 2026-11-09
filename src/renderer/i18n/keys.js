@@ -1574,5 +1574,8 @@ export const KEYS = [
   "{n} familier reparti|{n} familiers repartis",
   "Grand intendant : {0}.",
   "Élites vaincues",
-  ", en zone {0}."
+  ", en zone {0}.",
+  "Creuset perpétuel",
+  "Transmute tout seul les objets inutiles quand le sac se remplit (option).",
+  "Creuset perpétuel : transmuter quand le sac se remplit"
 ];

@@ -395,6 +395,7 @@ export class Panel {
       <label class="toggle"><input type="checkbox" data-action="as" data-r="uncommon"${S.autoSell.uncommon ? " checked" : ""}> ${tx("Vendre les peu communs dès qu’ils tombent")}</label>
       <label class="toggle"><input type="checkbox" data-action="as" data-r="rare"${S.autoSell.rare ? " checked" : ""}> ${tx("Vendre les rares dès qu’ils tombent")}</label>` : lockLink(S, "autoSell")}
       ${hasUnlock(S, "armsValet") ? `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>` : ""}
+      ${hasUnlock(S, "crucible") ? `<label class="toggle"><input type="checkbox" data-action="crucible"${S.settings.autoTransmute !== false ? " checked" : ""}> ${tx("Creuset perpétuel : transmuter quand le sac se remplit")}</label>` : ""}
       ${hasUnlock(S, "masterForge") ? `<label class="toggle"><input type="checkbox" data-action="mforge"${S.settings.autoForge !== false ? " checked" : ""}> ${tx("Maître de forge : forger l’équipement porté avec l’or en trop")}</label>` : ""}
       <p class="note">${tx("▲ signale un objet plus puissant que ce que porte ton héros.")} ${tx("Rareté : • peu commun, •• rare, ••• épique, ★ légendaire.")}</p>`;
   }
@@ -613,6 +614,7 @@ export class Panel {
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
     if (b.dataset.action === "valet") { this.game.S.settings.autoEquipDrops = b.checked; this.game.changed(); }
     if (b.dataset.action === "mforge") { this.game.S.settings.autoForge = b.checked; this.game.changed(); }
+    if (b.dataset.action === "crucible") { this.game.S.settings.autoTransmute = b.checked; this.game.changed(); }
     if (b.dataset.action === "steward") { this.game.S.settings.autoPets = b.checked; this.game.changed(); }
   }
 

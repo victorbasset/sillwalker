@@ -446,4 +446,7 @@ export default {
   1570: "Grand Steward: {0}.",
   1571: "Elites defeated",
   1572: ", in zone {0}.",
+  1573: "Everlasting Crucible",
+  1574: "Transmutes useless items on its own when the bag fills up (option).",
+  1575: "Everlasting Crucible: transmute when the bag fills up",
 };

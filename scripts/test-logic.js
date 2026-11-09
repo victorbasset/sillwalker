@@ -1240,6 +1240,25 @@ test("ascension : la zone de départ annoncée est celle de la course suivante (
   assert.equal(g.nextStartZone(), 7, "au plus 5 zones sous le record");
 });
 
+test("Creuset perpétuel : transmute quand le sac est aux trois quarts plein, option", () => {
+  const g = new Game(freshLocked());
+  g.S.unlocks.transmute = true;
+  for (const k in g.S.equip) g.S.equip[k] = null;
+  const fill = (n) => { g.S.bag.length = 0; for (let i = 0; i < n; i++) { const it = g.newItem(0); it.r = 0; it.power = 0; it.lvl = 1; g.S.bag.push(it); } };
+  g.uselessItems = () => g.S.bag.filter((it) => it.r === 0); // tous inutiles (le test ne dépend pas du calcul de puissance)
+  fill(Math.ceil(g.S.bagSize * 0.75));
+  assert.equal(g.autoTransmute().length, 0, "rien avant l'achat");
+  g.S.unlocks.crucible = true;
+  fill(Math.ceil(g.S.bagSize * 0.75) - 1);
+  assert.equal(g.autoTransmute().length, 0, "sac pas assez plein");
+  fill(Math.ceil(g.S.bagSize * 0.75));
+  const made = g.autoTransmute();
+  assert.ok(made.length >= 1, "transmutation");
+  assert.ok(g.S.bag.length < Math.ceil(g.S.bagSize * 0.75), "le sac se vide");
+  g.S.settings.autoTransmute = false; fill(g.S.bagSize);
+  assert.equal(g.autoTransmute().length, 0, "option coupée");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

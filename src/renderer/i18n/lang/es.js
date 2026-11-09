@@ -446,4 +446,7 @@ export default {
   1570: "Gran intendente: {0}.",
   1571: "Élites derrotados",
   1572: ", en la zona {0}.",
+  1573: "Crisol perpetuo",
+  1574: "Transmuta solo los objetos inútiles cuando la bolsa se llena (opción).",
+  1575: "Crisol perpetuo: transmutar cuando la bolsa se llena",
 };
