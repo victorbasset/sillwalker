@@ -392,6 +392,7 @@ async function boot() {
   game.on("tabOpen", ({ ids }) => {
     for (const id of ids) {
       const desc = TAB_GATES[id] ? tx(TAB_GATES[id].desc) : "";
+      if (TAB_GATES[id]?.hint) markHint(game, TAB_GATES[id].hint); // l'annonce dit déjà la même chose : pas de deuxième bulle
       showToast(`✦ ${tx("Nouvel onglet : {0} !", { 0: `<b>${esc(panel.tabLabel(id))}</b>` })} ${esc(desc)}`, () => { openPanel(); panel.setTab(id); }, 10000);
     }
     panel.dirty = true;

@@ -3,15 +3,16 @@
 // (S.tabsOpen : { onglet: true }). Aventure et Réglages sont toujours là.
 import { ASCEND_MIN_ZONE } from "./prestige.js";
 
-/** Seuil d'ouverture de chaque onglet : environ un nouvel onglet toutes les 1 à 2 minutes au début
+/** hint : conseil de la bande (ui/hints.js) qui ferait doublon avec l'annonce de l'onglet ; marqué vu à l'ouverture.
+ *  Seuil d'ouverture de chaque onglet : environ un nouvel onglet toutes les 1 à 2 minutes au début
  *  (mesuré par scripts/first-minutes.mjs). */
 export const TAB_GATES = {
-  talents:   { when: (S) => S.lvl >= 2, desc: "Dépense tes points de talent à chaque niveau." },
+  talents:   { hint: "talent", when: (S) => S.lvl >= 2, desc: "Dépense tes points de talent à chaque niveau." },
   shop:      { when: (S) => S.gold >= 300 || S.best >= 8 || (S.stats.purchases || 0) > 0, desc: "Potions, élixirs, coffres et déblocages permanents." },
   quests:    { when: (S) => (S.stats.kills || 0) >= 25 || (S.quests.slots || []).some((q) => q && q.progress >= q.goal), desc: "Des contrats à remplir pour de l’or et des coffres." },
-  class:     { when: (S) => S.best >= 4, desc: "D’autres héros sont prisonniers : libère-les." },
+  class:     { hint: "classes", when: (S) => S.best >= 4, desc: "D’autres héros sont prisonniers : libère-les." },
   bestiary:  { when: (S) => S.best >= 6, desc: "Monstres rencontrés, collection d’objets, panoplies." },
-  skills:    { when: (S) => S.lvl >= 12, desc: "L’arbre de compétences : 1 point tous les 2 niveaux." },
+  skills:    { hint: "skills", when: (S) => S.lvl >= 12, desc: "L’arbre de compétences : 1 point tous les 2 niveaux." },
   pets:      { when: (S) => (S.pets.eggs || 0) > 0 || Object.keys(S.pets.owned || {}).length > 0, desc: "Un œuf ! Les familiers suivent ton héros et le renforcent." },
   stats:     { when: (S) => (S.stats.kills || 0) >= 150, desc: "Tes records et tes chiffres." },
   ascension: { when: (S) => S.best >= ASCEND_MIN_ZONE - 5 || (S.prestige.count || 0) > 0, desc: "Recommencer plus fort grâce aux éclats d’étoile." },
