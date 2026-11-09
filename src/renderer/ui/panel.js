@@ -351,7 +351,7 @@ export class Panel {
       .map((c) => `<span class="chip" title="${esc(c.desc)}">${esc(c.name)} · <span data-buff="${c.id}">${Math.ceil(S.buffs[c.id] / 60)} min</span></span>`).join("");
     const free = g.talentPointsFree();
     const sets = Object.entries(setCounts(S.equip)).filter(([id, n]) => SETS[id] && n >= 2)
-      .map(([id, n]) => `<span class="chip set" style="--c:${SETS[id].color}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
+      .map(([id, n]) => `<span class="chip set" style="--c:${SETS[id].color}" title="${esc(`${n >= 2 ? "✓" : "·"} ${tx("2 pièces : {0}", { 0: describeEffects(SETS[id].two) })}\n${n >= 4 ? "✓" : "·"} ${tx("4 pièces : {0}", { 0: describeEffects(SETS[id].four) })}`)}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
     const events = Object.entries(g.R.events).filter(([, t]) => t > 0)
       .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
     const dm = activeDayMod(S);

@@ -328,6 +328,8 @@ async function runSelfTest(strip) {
   await click('[data-tab="adventure"]');
   await js("(() => { const S = window.__game.S; window.__panel.sinceVisit = window.__game.visitSummary({ t: Date.now() - 42 * 60000, gold: 0, kills: 0, lvl: Math.max(1, S.lvl - 2), asc: S.prestige.count, leg: 0, best: 0 }); window.__panel.renderAll(); })()");
   await sleep(200);
+  const setTip = await js("(document.querySelector('#p-hero .chip.set') || {}).title || null");
+  if (setTip !== null) check("panoplie : bonus au survol de l'étiquette", setTip.split("\n").length === 2, JSON.stringify(setTip));
   check("depuis ta dernière visite : affiché", await js("!!document.querySelector('#p-hero .visit')"));
   if (process.env.SELFTEST_SHOT2) require("fs").writeFileSync(process.env.SELFTEST_SHOT2, (await wc.capturePage()).toPNG());
   await click("#p-hero .visit");
