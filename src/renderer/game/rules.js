@@ -82,6 +82,22 @@ export function rerollAffixes(it) {
   it.st = st;
   return it;
 }
+/**
+ * Enclume stellaire (demande 28) : remonte un objet au niveau `il`. Chaque statistique grandit comme celle d'un
+ * objet neuf de ce niveau (rapport des valeurs de base) ; tirages, rareté, forge, pouvoir et panoplie conservés.
+ */
+export function levelUpItem(it, il) {
+  if (!(il > it.il)) return it;
+  const main = SLOTS[it.slot].main, st = {};
+  for (const k in it.st) {
+    const f = k === main ? mainValue : affixValue, a = f(k, it.il), b = f(k, il);
+    st[k] = Math.round(it.st[k] * (a && b ? b / a : il / it.il) * 10) / 10;
+  }
+  it.st = st; it.il = il;
+  return it;
+}
+/** Prix de l’Enclume stellaire : l’or d’environ 4 000 monstres du record (×1 à ×2,4 selon la rareté, plus si forgé). */
+export const levelUpCost = (it, S) => Math.round(3 * Math.pow(1.25, Math.max(1, S.best) - 1) * 4000 * RARITIES[it.r].mult * (1 + 0.2 * (it.plus || 0)));
 export const reforgeCost = (it) => Math.round(40 * it.il * RARITIES[it.r].mult * RARITIES[it.r].mult);
 
 export const itemMult = (it) => 1 + 0.1 * it.plus;

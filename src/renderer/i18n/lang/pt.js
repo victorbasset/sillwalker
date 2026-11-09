@@ -829,4 +829,9 @@ export default {
   1953: "Dupla na ascensão",
   1954: "Formar dupla",
   1955: "Rever a cinemática",
+  1956: "Bigorna estelar",
+  1957: "Eleva um item ao nível do seu recorde de zona (os atributos crescem; raridade, forja, poder e conjunto são mantidos). Muito caro.",
+  1958: "Elevar ao nível {0} ({1} ouro)",
+  1959: "Eleva este item ao nível do seu recorde: os atributos crescem, o resto é mantido.",
+  1960: "Bigorna estelar: {0} elevado ao nível {1}.",
 };

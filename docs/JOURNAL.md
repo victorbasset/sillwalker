@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 284, demande 28) : Enclume stellaire, déblocage de boutique (zone 140, 1e17 or) : dans le détail
+  d'un objet plus ancien que le record, « Mettre au niveau N (prix) » : chaque statistique grandit comme celle d'un
+  objet neuf de ce niveau (levelUpItem, rules.js) ; tirages, rareté, forge, pouvoir, panoplie conservés. Prix : l'or
+  d'environ 4 000 monstres du record (×rareté, plus si forgé). 5 textes × 9 langues, test, capture, 104/104.
 - 2026-11-09 (it. 283, demande 31) : chaque chronique a sa cinématique épique (10 s, passable d'un clic) : ambiance
   de couleur propre, scène en pixels sur les côtés (captif : cages qui s'ouvrent ; éclats : pluie d'étoiles ;
   renaissance : colonnes de lumière ; Bastion : forteresse aux fenêtres rouges et braises ; au-delà : brumes et sol
@@ -1039,7 +1043,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       les effets sonores sans couper la musique ; les boutons haut-parleur coupent les deux et rendent l'état
       d'avant au second clic.
   27. FAIT (it. 282). Onglet Ascension : ajouter des icônes (constellations, rangs, boutique d'éclats…).
-  28. Mettre un objet à notre niveau (le remonter au niveau d'objet actuel) : très cher, et accessible tard
+  28. FAIT (it. 284). Mettre un objet à notre niveau (le remonter au niveau d'objet actuel) : très cher, et accessible tard
       (déblocage de boutique difficile à atteindre).
   29. FAIT (it. 282). Onglet Ascension : il reste un défilement, à éviter.
   30. FAIT (it. 282). Aventure : retirer le rappel « dépense 1 point de talent » (inutile) et le message des potions.

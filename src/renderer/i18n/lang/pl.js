@@ -829,4 +829,9 @@ export default {
   1953: "Duet po wniebowstąpieniu",
   1954: "Weź do duetu",
   1955: "Obejrzyj ponownie przerywnik",
+  1956: "Gwiezdne kowadło",
+  1957: "Podnosi przedmiot do poziomu twojego rekordu strefy (statystyki rosną; rzadkość, kucie, moc i zestaw zostają). Bardzo drogie.",
+  1958: "Podnieś do poziomu {0} ({1} złota)",
+  1959: "Podnosi ten przedmiot do poziomu twojego rekordu: statystyki rosną, reszta zostaje.",
+  1960: "Gwiezdne kowadło: {0} podniesiony do poziomu {1}.",
 };

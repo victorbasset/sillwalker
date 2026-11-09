@@ -547,6 +547,27 @@ test("réforge : nouveaux bonus, le reste est conservé", () => {
   assert.ok(!g.reforge(common), "pas de réforge sans bonus");
 });
 
+test("Enclume stellaire (demande 28) : objet remonté au niveau du record, très cher, déblocage requis", () => {
+  const g = new Game(freshState()), S = g.S;
+  S.best = 60; S.zone = 60; S.gold = 1e30;
+  const it = g.newItem(3, 10); it.plus = 2; it.set = "dawn";
+  const st0 = { ...it.st }, main = Object.keys(it.st)[0];
+  delete S.unlocks.starAnvil;
+  assert.ok(!g.levelItem(it), "pas sans le déblocage");
+  S.unlocks.starAnvil = true;
+  const cost = M_rules_js.levelUpCost(it, S), gold0 = S.gold;
+  assert.ok(cost > M_rules_js.reforgeCost(it) * 1000, "bien plus cher qu'une réforge");
+  assert.ok(g.levelItem(it));
+  assert.equal(it.il, 60); assert.equal(it.plus, 2); assert.equal(it.set, "dawn");
+  assert.deepEqual(Object.keys(it.st).sort(), Object.keys(st0).sort(), "mêmes statistiques");
+  for (const k in st0) assert.ok(it.st[k] > st0[k], "chaque statistique grandit : " + k);
+  assert.ok(it.st[main] > st0[main] * 3, "la principale grandit nettement");
+  assert.equal(S.gold, gold0 - cost);
+  assert.ok(!g.levelItem(it), "déjà au niveau du record : rien");
+  S.gold = 0; const it2 = g.newItem(1, 10);
+  assert.ok(!g.levelItem(it2), "pas assez d'or");
+});
+
 test("familiers : chaque familier a un dessin, les rares sont plus rares", () => {
   const { PET_ART } = M_art_js;
   const { PETS: list, rollPet } = M_pets_js;

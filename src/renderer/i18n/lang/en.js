@@ -829,4 +829,9 @@ export default {
   1953: "Duo at ascension",
   1954: "Take as duo",
   1955: "Replay the cutscene",
+  1956: "Star Anvil",
+  1957: "Raises an item to your zone record level (stats grow; rarity, forging, power and set are kept). Very expensive.",
+  1958: "Raise to level {0} ({1} gold)",
+  1959: "Raises this item to your record level: its stats grow, everything else is kept.",
+  1960: "Star Anvil: {0} raised to level {1}.",
 };

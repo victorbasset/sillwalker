@@ -829,4 +829,9 @@ export default {
   1953: "Dúo en la ascensión",
   1954: "Formar dúo",
   1955: "Volver a ver la cinemática",
+  1956: "Yunque estelar",
+  1957: "Sube un objeto al nivel de tu récord de zona (las estadísticas crecen; rareza, forja, poder y conjunto se conservan). Muy caro.",
+  1958: "Subir al nivel {0} ({1} oro)",
+  1959: "Sube este objeto al nivel de tu récord: sus estadísticas crecen y el resto se conserva.",
+  1960: "Yunque estelar: {0} subido al nivel {1}.",
 };

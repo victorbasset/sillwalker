@@ -26,6 +26,7 @@ export const UNLOCKS = [
   { id: "armsValet",   price: 1.1e13, zone: 100, icon: "ws_atk",   name: "Valet d’armes",            desc: "Équipe tout seul un objet plus puissant dès qu’il tombe (option)." },
   { id: "masterForge", price: 3.5e14, zone: 115, icon: "anvil",   name: "Maître de forge",          desc: "Forge tout seul l’équipement porté avec l’or en trop (option)." },
   { id: "starNet",     price: 1.1e16, zone: 130, icon: "star",    name: "Filet à étoiles",          desc: "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps." },
+  { id: "starAnvil",   price: 1e17, zone: 140, icon: "anvil",   name: "Enclume stellaire",        desc: "Remonte un objet au niveau de ton record de zone (statistiques, rareté, forge, pouvoir et panoplie conservés). Très cher." },
   { id: "astrolabe",   price: 1.1e18, zone: 150, icon: "map",   name: "Astrolabe",                desc: "Fait l’ascension tout seul quand le héros bloque près de son record (option, à activer)." },
   { id: "steward",     price: 1.1e20, zone: 170, icon: "kennel2", name: "Grand intendant",         desc: "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option)." },
   { id: "crucible",    price: 1e23, zone: 200, icon: "cauldron", name: "Creuset perpétuel",      desc: "Transmute tout seul les objets inutiles quand le sac se remplit (option)." },

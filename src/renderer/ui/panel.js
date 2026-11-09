@@ -8,7 +8,7 @@ import { t as tx, txn, lc, fsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
-import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
+import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
@@ -582,6 +582,7 @@ export class Panel {
       <div class="row">${fromBag
         ? `<button data-action="equip">${tx("Équiper")}</button><button data-action="sell">${tx("Vendre ({0} or)", { 0: fmt(sellValue(it)) })}</button>`
         : `<button data-action="unequip"${this.game.bagFull() ? " disabled" : ""}>${tx("Retirer")}</button>`}
+        ${hasUnlock(S, "starAnvil") && it.il < S.best ? `<button data-action="itemlevel"${S.gold >= levelUpCost(it, S) ? "" : " disabled"} title="${esc(tx("Remonte cet objet au niveau de ton record : ses statistiques grandissent, le reste est conservé."))}">${tx("Mettre au niveau {0} ({1} or)", { 0: S.best, 1: fmt(levelUpCost(it, S)) })}</button>` : ""}
         ${!hasUnlock(S, "forge") ? lockLink(S, "forge") : ""}${hasUnlock(S, "forge") && RARITIES[it.r].affixes ? `<button data-action="reforge"${S.gold >= reforgeCost(it) ? "" : " disabled"} title="${esc(tx("Tire au hasard de nouveaux bonus secondaires. Rareté, forge, pouvoir et panoplie sont conservés."))}">${tx("Réforger ({0} or)", { 0: fmt(reforgeCost(it)) })}</button>` : ""}
         ${hasUnlock(S, "forge") ? `<button data-action="forge"${canForge ? "" : " disabled"} title="${esc(tx("Chaque niveau de forge ajoute 10{0}% à toutes les statistiques de l’objet. La forge ne peut pas échouer.", { 0: NB }))}">${it.plus >= MAX_PLUS ? tx("Amélioration maximale") : `${tx("Forger +{0} ({1} or)", { 0: it.plus + 1, 1: fmt(fc) })}`}</button>` : ""}</div>
       <ul class="lines tight">${lines}</ul>${power(it, S.equip)}</div>`;
@@ -700,6 +701,7 @@ export class Panel {
       case "unequip": if (it && g.unequip(it.slot)) this.selected = { from: "bag", id: it.id }; break;
       case "forge": if (it) g.forge(it); break;
       case "reforge": if (it) g.reforge(it); break;
+      case "itemlevel": if (it) g.levelItem(it); break;
       case "sellless": {
         const n = g.uselessItems().length;
         this.confirm(tx("Vendre les objets inutiles ?"), txn(n, "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés."), tx("Vendre"), () => {

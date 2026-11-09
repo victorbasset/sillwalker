@@ -23,7 +23,7 @@ import {
   CHAMPION,
 } from "./data.js";
 import {
-  xpNeed, earlyPace, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, heroStats, heroDps, upgradeDelta,
+  xpNeed, earlyPace, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, levelUpItem, levelUpCost, heroStats, heroDps, upgradeDelta,
   zoneDef, zoneName, monsterBase, approachTime,
   itemScore,
 } from "./rules.js";
@@ -913,6 +913,21 @@ export class Game {
     this.emit("sold", { n: sell.size, gold });
     this.changed();
     return { n: sell.size, gold };
+  }
+
+  /** Enclume stellaire (demande 28) : l'objet au niveau du record de zone, très cher. */
+  levelItem(it) {
+    const S = this.S, il = S.best;
+    if (!it || !hasUnlock(S, "starAnvil") || !(it.il < il)) return false;
+    const c = levelUpCost(it, S);
+    if (S.gold < c) return false;
+    S.gold -= c;
+    levelUpItem(it, il);
+    this.invalidateStats();
+    S.stats.itemLevels = (S.stats.itemLevels || 0) + 1;
+    this.log(tx("Enclume stellaire : {0} remonté au niveau {1}.", { 0: itemName(it), 1: il }));
+    this.changed();
+    return true;
   }
 
   /** Réforge : nouveaux bonus secondaires (les communs n'en ont pas). */

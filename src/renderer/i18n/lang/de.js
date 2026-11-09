@@ -829,4 +829,9 @@ export default {
   1953: "Duo beim Aufstieg",
   1954: "Als Duo nehmen",
   1955: "Zwischensequenz erneut ansehen",
+  1956: "Sternenamboss",
+  1957: "Hebt einen Gegenstand auf die Stufe deines Zonenrekords (Werte steigen; Seltenheit, Schmiedung, Kraft und Set bleiben erhalten). Sehr teuer.",
+  1958: "Auf Stufe {0} heben ({1} Gold)",
+  1959: "Hebt diesen Gegenstand auf deine Rekordstufe: seine Werte steigen, alles andere bleibt erhalten.",
+  1960: "Sternenamboss: {0} auf Stufe {1} gehoben.",
 };
