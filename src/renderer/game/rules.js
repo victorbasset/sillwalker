@@ -150,10 +150,12 @@ export function upgradeDelta(S, it) {
   return power(heroStats(S, eq)) / power(heroStats(S)) - 1;
 }
 
+/** Marque de boucle : « + », « ++ », puis « +3 », « +6 »… (plus lisible qu'une longue suite de « + » en fin de partie). */
+export const loopMark = (n) => (n <= 2 ? "+".repeat(n) : "+" + n);
 export const zoneDef = (z) => ZONES[(z - 1) % ZONES.length];
 export function zoneName(z) {
   const cycle = Math.floor((z - 1) / ZONES.length);
-  return zoneDef(z).name + (cycle ? " " + "+".repeat(cycle) : "");
+  return zoneDef(z).name + (cycle ? " " + loopMark(cycle) : "");
 }
 
 /** Statistiques d'un monstre. Sans `type`, renvoie le monstre « moyen » de la zone. */

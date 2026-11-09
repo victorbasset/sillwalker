@@ -28,7 +28,7 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
-import { approachTime, heroStats, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH } from "../src/renderer/game/rules.js";
+import { approachTime, heroStats, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
@@ -1505,6 +1505,13 @@ test("élites : pas dans les 2 premières zones de la première course, présent
   assert.equal(count(1, 0), 0, "zone 1, première course");
   assert.ok(count(5, 0) > 0, "zone 5");
   assert.ok(count(1, 1) > 0, "zone 1 après une ascension");
+});
+
+test("zones lointaines : « + », « ++ », puis « +N » (lisible en fin de partie)", () => {
+  assert.match(zoneName(35), / \+$/);
+  assert.match(zoneName(70), / \+\+$/);
+  assert.match(zoneName(200), / \+6$/);
+  assert.equal(loopMark(7), "+7");
 });
 
 test("force des monstres : inchangée jusqu'à la zone 60, puis croissance adoucie sans cassure (zone 200 atteignable)", () => {
