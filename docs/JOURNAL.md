@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 260, revue générale) : simulations 12 h : guerrier 59, mage 54, assassin 56 (stables) ; russe :
+  rien de non traduit ; --crawl 302 clics, 0 erreur ; save-fuzz 20/20. Corrigé (Victor : le curseur d'opacité
+  revenait encore en arrière, le volume non) : l'opacité fait un aller-retour avec le processus principal ; les
+  Réglages se redessinaient avec l'ancienne valeur et plus rien ne les redessinait ensuite. L'onglet garde la valeur
+  choisie jusqu'à la confirmation (opLocal) et applyLayout marque le panneau à redessiner. Contrôle d'autotest
+  (position du curseur après redessin), 103/103.
 - 2026-11-09 (it. 259, demande 18, suite) : Bestiaire : fiches de monstres compactes (zones en infobulle, 10 par
   rangée en 1920) : défilement 1260 → 306 px. Héros : cartes compactes (description en infobulle, modificateurs
   sur une ligne), « Style de combat » devient un sous-onglet : 451 → 246 px. Captures, 102/102.

@@ -235,6 +235,7 @@ async function boot() {
   /* ---------- Mise en page imposée par le processus principal ---------- */
   function applyLayout(l) {
     currentLayout = l;
+    panel.dirty = true; // les Réglages affichent la nouvelle disposition (appelée après la création du panneau)
     body.classList.toggle("edge-top", l.edge === "top");
     body.classList.toggle("edge-bottom", l.edge !== "top");
     const root = document.documentElement.style;

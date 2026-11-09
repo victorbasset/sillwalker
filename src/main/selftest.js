@@ -293,6 +293,9 @@ async function runSelfTest(strip) {
   await setOpacity(0.7);
   await sleep(300);
   check("réglages : opacité (curseur) appliquée par la fenêtre", strip.settings.get("opacity") === 0.7);
+  // Le curseur reste à sa nouvelle position après le retour de la fenêtre et un nouveau dessin (signalé par Victor).
+  const opPos = await js("(() => { window.__panel.renderAll(); const r = document.querySelector('[data-action=se-opacity-range]'); return r ? r.value : 'absent'; })()");
+  check("réglages : le curseur d'opacité garde sa position", opPos === "70", opPos);
   // Thème sombre par défaut (aucun choix enregistré) : demande de Victor.
   const defTh = await js("(() => { const S = window.__game.S, t = S.settings.theme; S.settings.theme = null; window.__applyTheme(null); const r = document.documentElement.dataset.theme; S.settings.theme = t; window.__applyTheme(t); return r || 'aucun'; })()");
   check("réglages : thème sombre par défaut", defTh === "dark", defTh);
