@@ -16,6 +16,7 @@ import * as M_classes_js from "../src/renderer/game/classes.js";
 import * as M_talents_js from "../src/renderer/game/talents.js";
 import * as M_shop_js from "../src/renderer/game/shop.js";
 import * as M_quests_js from "../src/renderer/game/quests.js";
+import { makeQuest } from "../src/renderer/game/quests.js";
 import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { fmt as fmtN, fmtShort as fmtS } from "../src/renderer/game/format.js";
@@ -1443,6 +1444,16 @@ test("liens « 🔒 déblocage » : pas avant la boutique, pas pour un déblocag
   assert.equal(lockLink(S, far.id), "", "déblocage lointain : rien");
   S.best = far.zone - 2;
   assert.match(lockLink(S, far.id), /🔒/, "proche : annoncé");
+});
+
+test("quêtes : pas de forge ni de transmutation avant leur déblocage", () => {
+  const S = freshLocked();
+  setRandom(seeded(5));
+  for (let i = 0; i < 300; i++) { const q = makeQuest(S, i); assert.ok(q.kind !== "forge" && q.kind !== "transmute", q.kind); }
+  S.unlocks.forge = true; S.unlocks.transmute = true;
+  let seen = new Set(); for (let i = 0; i < 300; i++) seen.add(makeQuest(S, i).kind);
+  assert.ok(seen.has("forge") && seen.has("transmute"));
+  setRandom(seeded(42));
 });
 
 test("élites : pas dans les 2 premières zones de la première course, présentes ensuite", () => {

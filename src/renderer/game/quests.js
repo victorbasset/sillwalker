@@ -44,6 +44,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: Math.round(goldScale(S) * randInt(150, 300)), reward: { buff: pick(["elixir", "fortune", "wisdom", "haste", "luck", "iron"]), potions: 3 } }),
   },
   forge: {
+    ok: (S) => !!(S.unlocks && S.unlocks.forge), // pas de quête impossible avant l'Enclume
     text: (q) => txn(q.goal, "Forger {n} fois|Forger {n} fois"),
     make: (S) => ({ goal: randInt(2, 4), reward: { gold: Math.round(goldScale(S) * 80), potions: 2 } }),
   },
@@ -53,6 +54,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 100), egg: rand() < 0.5 } }),
   },
   transmute: {
+    ok: (S) => !!(S.unlocks && S.unlocks.transmute), // pas avant le déblocage de la transmutation
     text: (q) => (fr() ? tx("Créer {0} {1} par transmutation", { 0: q.goal, 1: plural(q.goal, "objet") }) : tx("Créer {0} objets par transmutation", { 0: q.goal })),
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, potions: 2 } }),
   },
