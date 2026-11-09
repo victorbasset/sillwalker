@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 267) : carte du héros : le compagnon du duo s'affiche à côté du héros (« Guerrier + 🧝 Rôdeur »,
+  explication en infobulle, clic vers l'onglet Héros). Écarté : languette sous la bande quand la bande est en haut
+  (le bas de la bande est le sol, où sont le héros et les monstres : la languette les cacherait). 103/103, capture.
 - 2026-11-09 (it. 266) : les Voies des 10 nouveaux héros ont leurs noms et descriptions (VOIE_NAMES : le Chaman
   n'est plus « le druide », la Cryomancienne n'a plus de « Pyromancie » : Voie du blizzard / du cristal…), effets
   inchangés. 33 textes × 9 langues (table français → langues). 103/103.

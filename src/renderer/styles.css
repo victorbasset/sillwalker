@@ -829,3 +829,6 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .classcard .mods { font-size: 13px; color: var(--muted); margin: 4px 0; }
 .classcard .passive { font-size: 13px; margin: 4px 0; }
 .classcard .detail-head img { width: 40px; height: 40px; }
+/* Compagnon du duo dans la carte du héros */
+.hname .duotag { font-size: 14px; margin-left: 6px; color: var(--good); display: inline-flex; align-items: center; gap: 3px; }
+.hname .duotag img { width: 20px; height: 20px; image-rendering: pixelated; }

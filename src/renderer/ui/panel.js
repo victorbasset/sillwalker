@@ -16,6 +16,7 @@ import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
 import { ShopTab } from "./tabs/shop.js";
 import { ClassesTab } from "./tabs/classes.js";
+import { CLASSES } from "../game/classes.js";
 import { QuestsTab } from "./tabs/quests.js";
 import { questDone } from "../game/quests.js";
 import { PetsTab } from "./tabs/pets.js";
@@ -479,7 +480,10 @@ export class Panel {
       .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}" title="${esc(EVENTS[id].text)}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
     const dm = activeDayMod(S);
     const day = dm ? `<span class="chip daymod" title="${esc(tx("Bénédiction du jour : change chaque jour à minuit."))}">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
-    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>
+    // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
+    const pd = S.partner && CLASSES[S.partner];
+    const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }))}">+ <img src="${classPortraitURL(S.partner)}" alt="">${esc(pd.name)}</button>` : "";
+    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}${duo}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>
       <div class="kv"><span>${tx("Expérience")}</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">
         <div class="tile"><img src="${shopIconURL("heart", 3)}" alt=""><span>${tx("Points de vie")}</span><b>${fmtStat("hp", hs.hp)}</b></div>
