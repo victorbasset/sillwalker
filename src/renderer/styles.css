@@ -987,3 +987,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
   background: rgba(24, 18, 31, 0.94); }
 .lines li { border-bottom: 0; background: linear-gradient(90deg, var(--line) 50%, transparent 0) bottom left / 4px 1px repeat-x; padding-bottom: 3px; }
 .lines li.step { background: linear-gradient(var(--accent), var(--accent)) bottom left / 100% 1px no-repeat; }
+/* Partie neuve (étude des concurrents : « pas de tutoriel ») : rappel du geste pour équiper, les premières zones. */
+#p-bag h2 .baghint { font-size: 12px; font-weight: 400; color: var(--good); margin-left: 6px; }

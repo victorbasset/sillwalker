@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 303, étude des concurrents, action c) : partie neuve regardée à 9 s et 40 s (bulle d'accueil,
+  « Prochaine découverte », À faire : clair) ; seul manque : rien ne dit comment équiper un objet ▲. Astuce
+  « upgrade » réécrite (« double-clique dessus pour l'équiper ») et rappel « ▲ double-clic : équiper » dans le titre du
+  sac tant qu'un objet meilleur attend (record ≤ 10, avant la 1re ascension). 2 textes × 9 langues, autotest vert.
 - 2026-11-09 (it. 302, étude des concurrents, action c) : descriptions d'effets claires (talents, compétences,
   constellations, objets) : « +12 % brûlure (attaque / s pendant 3 s) » → « +12 % de l'attaque en brûlure par seconde
   (3 s) » ; idem poison, serviteur, enchaînement, iaijutsu, régénération, bouclier, épines ; « second souffle »
@@ -1161,7 +1165,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      réglage « économie » (images/s plafonnées) visible dans Réglages ; vérifier que la bande cachée ne dessine rien.
   b. EN PARTIE (it. 299 : réglage « Cinématiques de l'histoire »). P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
      (ou les rendre discrètes) ; vérifier qu'aucune action n'est exigée pour progresser (vraiment idle).
-  c. EN PARTIE (it. 302 : 9 libellés d'effets réécrits ; reste : partie neuve guidée à vérifier).
+  c. FAIT (it. 302 : 9 libellés d'effets réécrits ; it. 303 : partie neuve vérifiée, geste « équiper » expliqué).
      P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
      premier lancement guidé (bulles d'astuces) : vérifier sur une partie neuve que chaque mécanique est expliquée.
   d. EN PARTIE (it. 301 : greffes de branches, héros distincts ; reste : événements et mécaniques de boss).

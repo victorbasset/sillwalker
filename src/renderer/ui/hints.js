@@ -14,7 +14,7 @@ export const HINTS = [
     when: (g) => g.S.stats.kills < 30 },
   { id: "death", tab: "adventure", text: tx("Ton héros est tombé ? Pas de panique : il recule un peu, puis repart tout seul. Un meilleur équipement (▲ dans le sac) l’aidera à passer. Clique ici."),
     when: (g) => g.S.stats.deaths > 0 && g.S.prestige.count === 0 && g.S.best <= 15 },
-  { id: "upgrade", tab: "adventure", text: tx("Un objet plus puissant t’attend dans le sac (▲). Clique ici pour l’équiper."),
+  { id: "upgrade", tab: "adventure", text: tx("Un objet plus puissant t’attend dans le sac (▲) : double-clique dessus pour l’équiper (ou clique ici pour ouvrir le sac)."),
     when: (g) => g.hasUpgradeCached() },
   { id: "talent", tab: "talents", text: tx("Niveau supérieur : tu as un point de talent à dépenser. Clique ici !"),
     when: (g) => g.talentPointsFree() > 0 },

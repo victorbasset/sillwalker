@@ -848,4 +848,6 @@ export default {
   1972: "dos PV máx. como escudo no início do combate",
   1973: "do dano recebido devolvido (espinhos)",
   1974: "segundo fôlego (sobrevive uma vez por combate a um golpe fatal)",
+  1975: "Um item mais poderoso te espera na bolsa (▲): clique duas vezes nele para equipá-lo (ou clique aqui para abrir a bolsa).",
+  1976: "▲ clique duplo: equipar",
 };

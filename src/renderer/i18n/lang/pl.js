@@ -848,4 +848,6 @@ export default {
   1972: "maks. PŻ jako tarcza na początku walki",
   1973: "otrzymanych obrażeń odbitych (ciernie)",
   1974: "drugi oddech (raz na walkę przeżywa śmiertelny cios)",
+  1975: "W torbie czeka mocniejszy przedmiot (▲): kliknij go dwukrotnie, aby go założyć (lub kliknij tutaj, by otworzyć torbę).",
+  1976: "▲ dwuklik: załóż",
 };

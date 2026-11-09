@@ -1976,5 +1976,7 @@ export const KEYS = [
   "des PV max régénérés par seconde en marchant",
   "des PV max en bouclier au début du combat",
   "des dégâts reçus renvoyés (épines)",
-  "second souffle (survit une fois par combat à un coup fatal)"
+  "second souffle (survit une fois par combat à un coup fatal)",
+  "Un objet plus puissant t’attend dans le sac (▲) : double-clique dessus pour l’équiper (ou clique ici pour ouvrir le sac).",
+  "▲ double-clic : équiper"
 ];

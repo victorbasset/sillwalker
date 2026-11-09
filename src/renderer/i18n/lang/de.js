@@ -848,4 +848,6 @@ export default {
   1972: "der max. LP als Schild zu Kampfbeginn",
   1973: "des erlittenen Schadens zurückgeworfen (Dornen)",
   1974: "zweiter Atem (überlebt einmal pro Kampf einen tödlichen Treffer)",
+  1975: "Ein stärkerer Gegenstand wartet in der Tasche (▲): Doppelklick darauf, um ihn auszurüsten (oder hier klicken, um die Tasche zu öffnen).",
+  1976: "▲ Doppelklick: ausrüsten",
 };

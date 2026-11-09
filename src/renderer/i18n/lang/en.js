@@ -848,4 +848,6 @@ export default {
   1972: "of max HP as a shield at the start of each fight",
   1973: "of damage taken reflected (thorns)",
   1974: "second wind (survives a fatal blow once per fight)",
+  1975: "A stronger item awaits in your bag (▲): double-click it to equip it (or click here to open the bag).",
+  1976: "▲ double-click: equip",
 };

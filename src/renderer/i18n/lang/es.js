@@ -848,4 +848,6 @@ export default {
   1972: "de los PV máx. como escudo al inicio del combate",
   1973: "del daño recibido devuelto (espinas)",
   1974: "segundo aliento (sobrevive una vez por combate a un golpe mortal)",
+  1975: "Un objeto más poderoso te espera en la bolsa (▲): haz doble clic en él para equiparlo (o haz clic aquí para abrir la bolsa).",
+  1976: "▲ doble clic: equipar",
 };
