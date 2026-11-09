@@ -7,6 +7,7 @@
 // Le décor est fixe (une seule toile, redessinée au changement de zone) et
 // les personnages sont des éléments DOM déplacés par transform : voir dom.js.
 // Ce module lit l'état de la simulation sans jamais le modifier.
+import { CLASSES, CLASS_UNLOCK_ZONE } from "../game/classes.js";
 import { EVENTS } from "../game/events.js";
 import { t as tx, fsp } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
@@ -369,7 +370,10 @@ export class StripRenderer {
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
-        tag.textContent = bossName(this.game.S.zone) + (wear ? " · " + tx("−{0} % PV", { 0: Math.round(wear * 100) }) : "");
+        // Boss qui retient un héros pas encore libéré : on le dit (sinon il fallait ouvrir l'onglet Classe).
+        const S = this.game.S, captive = Object.keys(CLASS_UNLOCK_ZONE).find((c) => CLASS_UNLOCK_ZONE[c] === S.zone && !(S.classesUnlocked || []).includes(c));
+        tag.textContent = bossName(S.zone) + (wear ? " · " + tx("−{0} % PV", { 0: Math.round(wear * 100) }) : "")
+          + (captive ? " · " + tx("captif : {0}", { 0: CLASSES[captive].name }) : "");
         // Boss très grand (ou volant) : le nom ne doit pas sortir par le haut de la bande.
         const y0 = this.monY(a, 4);
         if (y0 - 40 < 2) tag.style.top = (2 - y0) + "px";

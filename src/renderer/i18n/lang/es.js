@@ -472,4 +472,5 @@ export default {
   1596: "¡Mi bolsa está a rebosar!",
   1597: "Ya no cabe nada en la bolsa…",
   1598: "¡Habría que vaciar la bolsa!",
+  1599: "cautivo: {0}",
 };

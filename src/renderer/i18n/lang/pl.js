@@ -472,4 +472,5 @@ export default {
   1596: "Torba mi pęka w szwach!",
   1597: "Nie ma już miejsca w torbie…",
   1598: "Trzeba by opróżnić torbę!",
+  1599: "więzień: {0}",
 };

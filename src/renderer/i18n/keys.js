@@ -1600,5 +1600,6 @@ export const KEYS = [
   "J’ai bien avancé, tu as vu ?",
   "Mon sac déborde !",
   "Plus de place dans le sac…",
-  "Il faudrait vider le sac !"
+  "Il faudrait vider le sac !",
+  "captif : {0}"
 ];
