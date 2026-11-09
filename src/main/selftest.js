@@ -327,10 +327,11 @@ async function runSelfTest(strip) {
   const vis = await js("(() => { const h = document.getElementById('bj-elites'), r = h.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight; })()");
   check("Bestiaire : le sommaire mène à la section", vis, "haut de la section à " + elTop);
   // Résumé d'absence : « À faire maintenant » mène droit à l'onglet (ici les œufs → Familiers).
-  await js("delete window.__game.S.unlocks.armsValet; window.__game.S.gold = Math.max(window.__game.S.gold, 1e9); window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, forged: 12, transmuted: 3, petWork: 7, bestItemId: (window.__game.S.bag[0] || {}).id })");
+  await js("delete window.__game.S.unlocks.bulkPoints; delete window.__game.S.unlocks.armsValet; window.__game.S.gold = Math.max(window.__game.S.gold, 1e9); window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, forged: 12, transmuted: 3, petWork: 7, bestItemId: (window.__game.S.bag[0] || {}).id })");
   await sleep(300);
   const todo = await js("[...document.querySelectorAll('#modal:not([hidden]) .linkbtn[data-tab]')].map((b) => b.dataset.tab)");
-  check("retour d'absence : actions « à faire maintenant »", todo.includes("skills"), JSON.stringify(todo));
+  check("retour d'absence : actions « à faire maintenant »", todo.length > 0, JSON.stringify(todo));
+  const linkTab = todo[0];
   // Œufs (Nid douillet acquis) : éclosion d'un clic, le résumé reste ouvert.
   const eggsBefore = await state("S.pets.eggs");
   await js("document.querySelector('#modal .linkbtn[data-action=todo-do][data-what=eggs]')?.click()");
@@ -338,12 +339,12 @@ async function runSelfTest(strip) {
   check("retour d'absence : œufs éclos d'un clic, résumé ouvert", eggsBefore > 0 && (await state("S.pets.eggs")) === 0 && !(await js("document.querySelector('#modal').hidden")), `${eggsBefore} -> ${await state("S.pets.eggs")}`);
   check("retour d'absence : travail des automatismes affiché", (await js("document.querySelectorAll('#modal:not([hidden]) li').length")) >= 10);
   const buyId = await js("(document.querySelector('#modal:not([hidden]) .linkbtn[data-action=goal-buy]') || {}).dataset?.id || null");
-  check("retour d'absence : déblocage payable proposé à l'achat", buyId === "armsValet", buyId);
+  check("retour d'absence : déblocage payable proposé à l'achat", !!buyId, buyId);
   check("retour d'absence : le focus clavier est sur « Continuer »", (await js("document.activeElement && document.activeElement.dataset.action")) === "closemodal");
   if (process.env.SELFTEST_SHOT) require("fs").writeFileSync(process.env.SELFTEST_SHOT, (await wc.capturePage()).toPNG());
-  await click('#modal .linkbtn[data-tab="skills"]');
+  await click(`#modal .linkbtn[data-tab="${linkTab}"]`);
   await sleep(200);
-  check("retour d'absence : le bouton ferme le résumé et ouvre l'onglet", (await js("document.querySelector('#modal').hidden && document.querySelector('[data-tab=skills]').getAttribute('aria-selected') === 'true'")));
+  check("retour d'absence : le bouton ferme le résumé et ouvre l'onglet", (await js(`document.querySelector('#modal').hidden && document.querySelector('[data-tab=${linkTab}]').getAttribute('aria-selected') === 'true'`)));
   // Meilleur butin déjà équipé (Valet d'armes) : son nom reste affiché, marqué « équipé ».
   await js("(() => { const w = Object.values(window.__game.S.equip).find(Boolean); window.__showOffline({ duration: '1 h', zone: 'Zone', kills: 10, gold: 10, xp: 10, newLevel: 0, kept: 0, best: w.r, feathers: 0, chests: 0, capped: false, capH: 10, bestItemId: w.id }); })()");
   await sleep(200);
@@ -388,6 +389,9 @@ async function runSelfTest(strip) {
   // « À faire » dans la carte du héros : une quête prête, réclamée d'un clic depuis le bloc.
   const box = await js("(() => { const g = window.__game, S = g.S; S.unlocks.questDesk = true; const q = S.quests.slots[0]; q.progress = q.goal; const uid = q.uid; window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('#p-hero .todobox'); if (!d) return 'pas de bloc'; d.open = true; const b = d.querySelector('[data-what=quests]'); if (!b) return 'pas de ligne'; b.click(); return String(!S.quests.slots.some((x) => x.uid === uid)); })()");
   check("carte du héros : « À faire » avec actions directes", box === "true", box);
+  // « À faire » : points de compétence dépensés d'un clic (Manuel du stratège).
+  const sp = await js("(() => { const g = window.__game, S = g.S; S.unlocks.bulkPoints = true; window.__panel.renderAll(); const n = (g.todoNow().find((t) => t.id === 'skills') || {}).n || 0; const b = document.querySelector('#p-hero .todobox [data-what=skills]'); if (!b) return 'pas de ligne (' + n + ' points)'; b.click(); const n2 = (g.todoNow().find((t) => t.id === 'skills') || {}).n || 0; return n + ' -> ' + n2; })()");
+  check("carte du héros : points de compétence dépensés d'un clic", /^(\d+) -> (\d+)$/.test(sp) && +sp.split(" -> ")[1] < +sp.split(" -> ")[0], sp);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

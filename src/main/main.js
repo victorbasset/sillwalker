@@ -140,7 +140,8 @@ function start() {
         try { console.log("[dev] compteurs :", JSON.stringify(await strip.win.webContents.executeJavaScript("window.__perf"))); } catch {}
         app.quit();
       }, flags.exitAfter * 1000);
-      if (flags.selftest) require("./selftest").runSelfTest(strip);
+      // Une erreur imprévue de l'autotest ne doit pas le laisser figé : elle compte comme un échec et on quitte.
+      if (flags.selftest) require("./selftest").runSelfTest(strip).catch((e) => { console.log("[selftest] ÉCHEC erreur imprévue : " + (e && e.message)); app.exit(1); });
       if (flags.dumpText) setTimeout(async () => {
         const wc = strip.win.webContents, tabs = ["adventure", "talents", "skills", "quests", "shop", "pets", "class", "ascension", "bestiary", "stats", "settings"];
         let out = "";
