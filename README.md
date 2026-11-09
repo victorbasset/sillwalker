@@ -10,6 +10,15 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 
 ## Contenu
 
+- **Histoire** (`game/story.js`) : le Briseur d'Étoiles a fracassé le ciel il y a mille ans ; ses lieutenants (les boss)
+  retiennent les héros sur le Rebord. Introduction au premier lancement (petite cinématique dans la bande puis trois
+  bulles), 9 **chroniques** débloquées par paliers (zones 10, 25, 50, 100, 150, 190, première ascension, victoire finale),
+  relisibles dans la carte du héros, chacune avec sa cinématique. **But final** : le Briseur d'Étoiles, boss unique de la
+  zone 200 (sprite propre, 3 capacités, PV ×2,5) ; sa défaite rallume le ciel (cinématique, générique personnalisé,
+  succès STARBREAKER), puis le jeu continue « au-delà du Rebord ». Libérer un héros a aussi sa cinématique.
+- **Carte du Rebord** (onglet Carte, zone 12) : les 200 zones en serpentin aux couleurs de leur décor, héros
+  prisonniers, chroniques, record, Briseur au bout, brouillard au-delà du record ; avec la **Carte du voyageur**
+  (déblocage, zone 22), un clic sur une zone déjà atteinte y emmène le héros.
 - **10 classes** : les héros sont prisonniers de boss de zone (zones 10 à 58) ; une fois libérés, on change de classe à l’ascension :
   Guerrier (riposte), Rôdeur (tir d'ouverture), Mage (brûlure), Paladin (bouclier sacré), Assassin (poison cumulable),
   Nécromancien (serviteur squelette), Moine (enchaînement), Druide (épines, esprit-loup), Samouraï (iaijutsu : un coup sur 4 critique renforcé),
@@ -18,8 +27,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   Vitalité, Fortune, Maîtrise), 24 nœuds remarquables, 6 clés de voûte. 1 point tous les 2 niveaux + points
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux.
 - **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout, une Voie au choix et des Maîtrises sans limite (aucun point perdu). 1 point par niveau, un clic par rang.
-- **Déblocages** (boutique, permanents) : 18 automatismes et fonctionnalités à acheter, chacun demandant une zone record
-  (étalées de la zone 3 à la zone 200) et de l’or : boutons groupés, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
+- **Déblocages** (boutique, permanents) : 19 automatismes et fonctionnalités à acheter, chacun demandant une zone record
+  (étalées de la zone 8 à la zone 200) et de l’or : boutons groupés, carte du voyageur, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
   quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes, maître de forge
   (forge l’équipement porté avec l’or en trop), filet à étoiles (attrape les étoiles filantes manquées),
   astrolabe (ascension automatique quand le héros bloque près de son record, option à activer), grand intendant (zone 170 : œufs et expéditions tout seuls, expédition choisie d'un clic), creuset perpétuel (zone 200 : transmutation quand le sac se remplit). Liste dans `game/unlocks.js`.
