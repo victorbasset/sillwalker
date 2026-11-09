@@ -415,4 +415,13 @@ export default {
   1539: "Tropiciela Czempionów",
   1540: "Zestawy",
   1541: "części z epickich i legendarnych przedmiotów · premie za 2 i 4 noszone części",
+  1542: "Atakuje znacznie szybciej.",
+  1543: "60% więcej punktów życia.",
+  1544: "Leczy się o połowę zadanych obrażeń.",
+  1545: "Uderza o 40% mocniej.",
+  1546: "Jego ciosy mogą zamrozić bohatera (ataki na chwilę spowolnione).",
+  1547: "Zdolności bossów",
+  1548: "jedna na bossa, dwie od 2. pętli",
+  1549: "Elity",
+  1550: "złote potwory: gwarantowany łup, złoto ×4; każdy ma afiks",
 };

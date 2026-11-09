@@ -415,4 +415,13 @@ export default {
   1539: "do Caçador de campeões",
   1540: "Conjuntos",
   1541: "peças de épicos e lendários · bônus com 2 e 4 peças equipadas",
+  1542: "Ataca muito mais rápido.",
+  1543: "60 % a mais de vida.",
+  1544: "Cura metade do dano que causa.",
+  1545: "Golpeia 40 % mais forte.",
+  1546: "Seus golpes podem congelar o herói (ataques mais lentos por um instante).",
+  1547: "Habilidades dos chefes",
+  1548: "uma por chefe, duas a partir do 2º ciclo",
+  1549: "Elites",
+  1550: "monstros dourados: saque garantido, ouro ×4; cada um tem um afixo",
 };

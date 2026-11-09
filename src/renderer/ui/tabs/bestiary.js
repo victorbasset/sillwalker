@@ -8,7 +8,8 @@ import { monsterURL, itemIconURL } from "../../render/sprites.js";
 import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound } from "../../game/codex.js";
 import { POWERS } from "../../game/powers.js";
 import { SETS, SET_KEYS, setCounts } from "../../game/sets.js";
-import { RARITIES, SLOTS } from "../../game/data.js";
+import { RARITIES, SLOTS, ELITE_AFFIXES } from "../../game/data.js";
+import { BOSS_MECHANICS } from "../../game/bosses.js";
 
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
@@ -58,7 +59,11 @@ export class BestiaryTab {
       <div class="setgrid">${SET_KEYS.map((id) => { const st = SETS[id], n = setCounts(S.equip)[id] || 0; // toutes les panoplies, et où en est le héros
         return `<div class="setcard" style="--c:${st.color}"><b class="tint">◆ ${esc(st.name)}</b> <small>${n}/4</small>
           <div class="${n >= 2 ? "on" : ""}">${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
-          <div class="${n >= 4 ? "on" : ""}">${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>`;
+          <div class="${n >= 4 ? "on" : ""}">${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>
+      <h2 class="codexh">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle")}</small></h2>
+      <div class="setgrid">${Object.values(BOSS_MECHANICS).map((b) => `<div class="setcard" style="--c:#ff9a7a"><b>${esc(b.name)}</b><div>${esc(b.desc)}</div></div>`).join("")}</div>
+      <h2 class="codexh">${tx("Élites")} <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
+      <div class="setgrid">${Object.values(ELITE_AFFIXES).map((a) => `<div class="setcard" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b><div>${esc(a.desc || "")}</div></div>`).join("")}</div>`;
   }
 
   onAction() {}

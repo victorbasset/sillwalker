@@ -415,4 +415,13 @@ export default {
   1539: "des Champion-Pirschers",
   1540: "Sets",
   1541: "Teile aus epischen und legendären Gegenständen · Boni bei 2 und 4 getragenen Teilen",
+  1542: "Schlägt viel schneller zu.",
+  1543: "60 % mehr Lebenspunkte.",
+  1544: "Heilt sich um die Hälfte des verursachten Schadens.",
+  1545: "Schlägt 40 % stärker zu.",
+  1546: "Seine Schläge können den Helden einfrieren (Angriffe kurz verlangsamt).",
+  1547: "Bossfähigkeiten",
+  1548: "eine pro Boss, zwei ab der 2. Runde",
+  1549: "Elite-Gegner",
+  1550: "goldene Monster: garantierte Beute, Gold ×4; jeder hat ein Affix",
 };

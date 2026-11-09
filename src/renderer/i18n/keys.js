@@ -1543,5 +1543,14 @@ export const KEYS = [
   "Traqueur de champions",
   "du Traqueur de champions",
   "Panoplies",
-  "pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées"
+  "pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées",
+  "Frappe beaucoup plus vite.",
+  "60 % de points de vie en plus.",
+  "Se soigne de la moitié des dégâts qu’il inflige.",
+  "Frappe 40 % plus fort.",
+  "Ses coups peuvent geler le héros (attaques ralenties un instant).",
+  "Capacités des boss",
+  "une par boss, deux à partir de la 2e boucle",
+  "Élites",
+  "monstres dorés : butin garanti, or ×4 ; chacun a un affixe"
 ];

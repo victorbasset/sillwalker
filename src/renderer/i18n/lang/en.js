@@ -415,4 +415,13 @@ export default {
   1539: "of the Champion Stalker",
   1540: "Sets",
   1541: "pieces from epics and legendaries · bonuses at 2 and 4 pieces worn",
+  1542: "Attacks much faster.",
+  1543: "60% more health.",
+  1544: "Heals for half the damage it deals.",
+  1545: "Hits 40% harder.",
+  1546: "Its blows can freeze the hero (attacks slowed for a moment).",
+  1547: "Boss abilities",
+  1548: "one per boss, two from the 2nd loop",
+  1549: "Elites",
+  1550: "golden monsters: guaranteed loot, gold ×4; each has an affix",
 };

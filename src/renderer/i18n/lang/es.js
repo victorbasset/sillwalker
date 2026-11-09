@@ -415,4 +415,13 @@ export default {
   1539: "del Acechador de campeones",
   1540: "Conjuntos",
   1541: "piezas de épicos y legendarios · bonos con 2 y 4 piezas puestas",
+  1542: "Ataca mucho más rápido.",
+  1543: "60 % más de vida.",
+  1544: "Se cura la mitad del daño que inflige.",
+  1545: "Golpea un 40 % más fuerte.",
+  1546: "Sus golpes pueden congelar al héroe (ataques ralentizados un momento).",
+  1547: "Habilidades de los jefes",
+  1548: "una por jefe, dos desde el 2.º ciclo",
+  1549: "Élites",
+  1550: "monstruos dorados: botín garantizado, oro ×4; cada uno tiene un afijo",
 };
