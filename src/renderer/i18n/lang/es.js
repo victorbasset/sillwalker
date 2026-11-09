@@ -850,4 +850,6 @@ export default {
   1974: "segundo aliento (sobrevive una vez por combate a un golpe mortal)",
   1975: "Un objeto más poderoso te espera en la bolsa (▲): haz doble clic en él para equiparlo (o haz clic aquí para abrir la bolsa).",
   1976: "▲ doble clic: equipar",
+  1977: "Lluvia de fragmentos",
+  1978: "¡Cada victoria puede dejar un fragmento de estrella!",
 };

@@ -5,6 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import * as M_events_js from "../src/renderer/game/events.js";
 import * as M_equipvis_js from "../src/renderer/render/equipvis.js";
 import * as M_skillicons_js from "../src/renderer/render/skillicons.js";
 import * as M_art_js from "../src/renderer/render/art.js";
@@ -599,6 +600,19 @@ test("silhouette : plume et cape pour un casque / une armure épiques, ajoutées
     assert.equal(gearRows(art.walk1, {}), art.walk1, "sans plume ni cape : dessin inchangé");
     if (art.walk1.some((r) => r.includes("A") || r.includes("a"))) assert.ok(gearRows(art.walk1, { cape: "#000000" }).some((r) => r.includes("C")), cls + " : pas de cape");
   }
+});
+
+test("événement Pluie d'éclats : seulement après une ascension ; les victoires donnent des éclats", () => {
+  const { EVENTS } = M_events_js;
+  const g = new Game(freshState());
+  assert.equal(EVENTS.shardfall.req(g.S), false, "pas avant la première ascension");
+  g.S.prestige.count = 1;
+  assert.equal(EVENTS.shardfall.req(g.S), true);
+  assert.ok(g.startEvent("shardfall"));
+  const s0 = g.S.prestige.shards, t0 = g.S.prestige.total;
+  for (let i = 0; i < 200; i++) { g.R.mon = g.makeMonster(false); g.killMonster(); g.R.events.shardfall = 30; }
+  assert.ok(g.S.prestige.shards > s0 + 20, "≈ 25 % des victoires : " + (g.S.prestige.shards - s0));
+  assert.equal(g.S.prestige.total - t0, g.S.prestige.shards - s0, "comptés aussi au total (lueur)");
 });
 
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {

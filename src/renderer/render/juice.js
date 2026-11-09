@@ -424,6 +424,12 @@ export class Juice {
       const node = el("div", "coin", this.layer), x = Math.max(0, Math.min(W - 10, this.s.heroX - 100 + Math.random() * 600));
       this.add(node, (p) => { this.place(node, x, -8 + p.t * 140); return p.t < 0.8; });
     }
+    // Pluie d'éclats : petites étoiles violettes qui tombent autour du héros.
+    if ((E.shardfall || 0) > 0 && Math.random() < dt * 8) {
+      const node = el("div", "spark shardrain", this.layer), x = Math.max(0, Math.min(W - 10, this.s.heroX - 100 + Math.random() * 600));
+      node.style.background = Math.random() < 0.3 ? "#fff6c8" : "#c99bff";
+      this.add(node, (p) => { this.place(node, x, -8 + p.t * 120); return p.t < 0.9; });
+    }
     const frenzy = (E.frenzy || 0) > 0;
     if (this.s.hero && this.s.hero.el.classList.contains("frenzy") !== frenzy) this.s.hero.el.classList.toggle("frenzy", frenzy);
     const hawk = (E.hawkeye || 0) > 0; // Œil du faucon : halo orangé (tous les coups critiques)

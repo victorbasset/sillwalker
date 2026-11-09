@@ -850,4 +850,6 @@ export default {
   1974: "zweiter Atem (überlebt einmal pro Kampf einen tödlichen Treffer)",
   1975: "Ein stärkerer Gegenstand wartet in der Tasche (▲): Doppelklick darauf, um ihn auszurüsten (oder hier klicken, um die Tasche zu öffnen).",
   1976: "▲ Doppelklick: ausrüsten",
+  1977: "Splitterregen",
+  1978: "Jeder Sieg kann einen Sternensplitter hinterlassen!",
 };

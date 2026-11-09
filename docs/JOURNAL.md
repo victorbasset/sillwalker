@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 306, étude des concurrents, action d : variété) : nouvel événement « Pluie d'éclats » (30 s,
+  chance 0,15 % par victoire, seulement après la 1re ascension : EVENTS.req) : chaque victoire a 25 % de chances de
+  donner un éclat d'étoile (compté aussi au total, donc dans la lueur) ; petites étoiles violettes qui tombent dans
+  la bande. Statistiques > Probabilités : les 7 événements en une ligne (détail au survol), sinon l'onglet défilait.
+  2 textes × 9 langues, test, autotest, save-fuzz verts.
 - 2026-11-10 (it. 305, demande 35, étape 6) : rivets dorés aux quatre coins des grands cadres (pseudo-élément ::after,
   logés dans les entailles ; à l'intérieur pour les panneaux qui défilent). Autotest : l'échec intermittent « retour à
   la bande : panneau rouvert » (≈ 1 sur 5, puis cascade) revient sans lien avec ce changement ; plus d'essais n'y fait

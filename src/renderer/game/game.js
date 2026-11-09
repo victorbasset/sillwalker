@@ -40,7 +40,7 @@ import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, roll
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE } from "./events.js";
 import { bossMechanics, bossName, FURY, bossWear } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
@@ -577,6 +577,8 @@ export class Game {
     const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
     S.gold += gold;
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
+    // Pluie d'éclats : un éclat d'étoile de temps en temps (compte aussi dans la lueur stellaire).
+    if ((R.events.shardfall || 0) > 0 && rand() < SHARDFALL_CHANCE) { S.prestige.shards++; S.prestige.total++; this.emit("shardDrop"); }
     if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
@@ -1344,7 +1346,7 @@ export class Game {
   rollRareThings(m) {
     const chance = m.boss ? FEATHER.boss : m.elite ? FEATHER.elite : FEATHER.normal;
     if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, tx("Plume du vent")); }
-    for (const id in EVENTS) if (rand() < EVENTS[id].chance) { this.startEvent(id); break; }
+    for (const id in EVENTS) if ((!EVENTS[id].req || EVENTS[id].req(this.S)) && rand() < EVENTS[id].chance) { this.startEvent(id); break; }
     if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal)) this.openChest();
   }
 

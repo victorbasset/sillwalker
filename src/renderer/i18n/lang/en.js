@@ -850,4 +850,6 @@ export default {
   1974: "second wind (survives a fatal blow once per fight)",
   1975: "A stronger item awaits in your bag (▲): double-click it to equip it (or click here to open the bag).",
   1976: "▲ double-click: equip",
+  1977: "Shardfall",
+  1978: "Every victory may drop a star shard!",
 };

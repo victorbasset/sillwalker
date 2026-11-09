@@ -850,4 +850,6 @@ export default {
   1974: "drugi oddech (raz na walkę przeżywa śmiertelny cios)",
   1975: "W torbie czeka mocniejszy przedmiot (▲): kliknij go dwukrotnie, aby go założyć (lub kliknij tutaj, by otworzyć torbę).",
   1976: "▲ dwuklik: załóż",
+  1977: "Deszcz odłamków",
+  1978: "Każde zwycięstwo może zostawić odłamek gwiazdy!",
 };

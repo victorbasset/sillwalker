@@ -1978,5 +1978,7 @@ export const KEYS = [
   "des dégâts reçus renvoyés (épines)",
   "second souffle (survit une fois par combat à un coup fatal)",
   "Un objet plus puissant t’attend dans le sac (▲) : double-clique dessus pour l’équiper (ou clique ici pour ouvrir le sac).",
-  "▲ double-clic : équiper"
+  "▲ double-clic : équiper",
+  "Pluie d’éclats",
+  "Chaque victoire peut laisser un éclat d’étoile !"
 ];

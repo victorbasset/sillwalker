@@ -850,4 +850,6 @@ export default {
   1974: "segundo fôlego (sobrevive uma vez por combate a um golpe fatal)",
   1975: "Um item mais poderoso te espera na bolsa (▲): clique duas vezes nele para equipá-lo (ou clique aqui para abrir a bolsa).",
   1976: "▲ clique duplo: equipar",
+  1977: "Chuva de fragmentos",
+  1978: "Cada vitória pode deixar um fragmento de estrela!",
 };
