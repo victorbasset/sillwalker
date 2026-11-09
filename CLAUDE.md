@@ -66,7 +66,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (sur une COPIE de sauvegarde : il achète, vend, dépense). À lancer après un gros changement d'interface.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
 - Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`
-  de la copie), pas de `settings.json`. Thème sombre : ajouter `--force-dark-mode` (le thème suit Windows).
+  de la copie), pas de `settings.json`. Le panneau est sombre par défaut ; pour capturer le thème clair, mettre `settings.theme = "light"` dans la copie
+  (ou `"auto"` + `--force-dark-mode` pour tester le suivi de Windows).
 - Les erreurs de l'interface s'affichent dans la console sous la forme `[renderer error] …`.
 
 ## Traductions (10 langues, anglais par défaut)
@@ -97,10 +98,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   une valeur inconnue venue d'une autre version (ensureQuests remplace les quêtes illisibles ; migrate() retire les
   familiers inconnus ; ailleurs, tester l'existence avant de lire un nom : `POWER_INDEX[id]?.name`).
 
-- Panneau : thème clair (par défaut) et sombre selon Windows. Jamais de couleur claire en dur pour du texte
+- Panneau : thème sombre par défaut (demande de Victor, 2026-11-09), clair ou « selon Windows » en réglage. Jamais de couleur claire en dur pour du texte
   (#ffe9a8, #9fe0a8…) : utiliser les jetons du thème (`--accent`, `--good`, `--bad`, `--r0`…`--r4`, `--muted`)
   ou une couleur vive dans `--c` avec la classe `.tint` (assombrie en thème clair). Vérifier en capture
-  avec et sans `--force-dark-mode`. (La bande et le mode mini sont toujours sombres : non concernés.)
+  dans les deux thèmes. (La bande et le mode mini sont toujours sombres : non concernés.)
 
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.

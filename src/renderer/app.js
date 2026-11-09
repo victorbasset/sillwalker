@@ -88,6 +88,7 @@ async function boot() {
   const body = document.body;
   applyUiScale(game.S.settings.uiScale);
   applyTheme(game.S.settings.theme);
+  if (init.isDev) window.__applyTheme = applyTheme; // auto-test (dev)
   const strip = new StripRenderer($("#strip"), game, { rightReserve: 64 });
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);

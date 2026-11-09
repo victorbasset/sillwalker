@@ -281,12 +281,15 @@ async function runSelfTest(strip) {
   await click('[data-action="se-opacity"][data-v="0.7"]');
   await sleep(300);
   check("réglages : opacité appliquée par la fenêtre", strip.settings.get("opacity") === 0.7);
+  // Thème sombre par défaut (aucun choix enregistré) : demande de Victor.
+  const defTh = await js("(() => { const S = window.__game.S, t = S.settings.theme; S.settings.theme = null; window.__applyTheme(null); const r = document.documentElement.dataset.theme; S.settings.theme = t; window.__applyTheme(t); return r || 'aucun'; })()");
+  check("réglages : thème sombre par défaut", defTh === "dark", defTh);
   await click('[data-action="se-theme"][data-v="dark"]');
   await sleep(150);
   check("réglages : thème sombre choisi", (await js("document.documentElement.dataset.theme")) === "dark" && (await state("S.settings.theme")) === "dark");
-  await click('[data-action="se-theme"][data-v=""]');
+  await click('[data-action="se-theme"][data-v="auto"]');
   await sleep(150);
-  check("réglages : retour au thème de Windows", !(await js("document.documentElement.dataset.theme || ''")) && (await state("S.settings.theme")) === null);
+  check("réglages : retour au thème de Windows", !(await js("document.documentElement.dataset.theme || ''")) && (await state("S.settings.theme")) === "auto");
   await click(`[data-action="se-opacity"][data-v="${op0}"]`);
   await sleep(200);
   // Raccourci clavier : 0 ouvre l'onglet n° 10 (Statistiques)
@@ -364,8 +367,9 @@ async function runSelfTest(strip) {
   const prog = await js("(() => { const g = window.__game; const it = g.S.bag.find((i) => i.slot !== 'weapon') || g.S.bag[0]; if (!it) return 'sac vide'; it.set = 'hunter'; window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); if (!el) return 'case introuvable'; window.__panel.onHover({ target: el }); return (document.querySelector('.itemtip .setprog') || {}).textContent || 'pas de ligne'; })()");
   check("infobulle : progression de panoplie (« → / 4 »)", /→ .* \/ 4/.test(prog), prog);
   // Pièce d'une panoplie commencée (une pièce portée), pas plus forte seule : gardée, et l'infobulle le dit.
-  const kept = await js("(() => { const g = window.__game, S = g.S; const w = Object.values(S.equip).find(Boolean); w.set = 'hunter'; delete (S.setsDone || {}).hunter; let it = g.newItem(2); for (let k = 0; k < 80 && (it.slot === w.slot || !S.equip[it.slot]); k++) it = g.newItem(2); it.st = {}; it.power = null; it.set = 'hunter'; S.bag.unshift(it); g.invalidateStats(); window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); window.__panel.onHover({ target: el }); return [...document.querySelectorAll('.itemtip .setprog')].length + ' ' + !g.uselessItems().includes(it); })()");
-  check("infobulle : pièce de panoplie gardée expliquée", kept === "2 true", kept);
+  const kept = await js("(() => { const g = window.__game, S = g.S; const w = Object.values(S.equip).find(Boolean); w.set = 'hunter'; delete (S.setsDone || {}).hunter; let it = g.newItem(2); for (let k = 0; k < 80 && (it.slot === w.slot || !S.equip[it.slot]); k++) it = g.newItem(2); it.st = {}; it.power = null; it.r = 2; it.set = 'hunter'; S.bag.unshift(it); g.invalidateStats(); window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); window.__panel.onHover({ target: el }); return [...document.querySelectorAll('.itemtip .setprog')].length + ' ' + !g.uselessItems().includes(it) + ' ' + g.isUpgrade(it); })()");
+  // Si le bonus à 2 pièces en fait une amélioration, l'infobulle ne dit pas « gardée » (règle de setProgress) : 1 ligne.
+  check("infobulle : pièce de panoplie gardée expliquée", kept === "2 true false" || kept === "1 true true", kept);
   await js("window.__panel.tip.hidden = true");
   // Grand intendant : choix de l'expédition d'un clic dans l'onglet Familiers.
   await js("(() => { window.__game.S.unlocks.steward = true; window.__game.S.pets.lastKind = 'long'; })()");

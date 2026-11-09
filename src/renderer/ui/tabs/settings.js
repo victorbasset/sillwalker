@@ -2,7 +2,7 @@
 // fenêtre (position, opacité, démarrage : réglées par le processus principal).
 import { t as tx, LANGS, getLang, setLang } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
-import { applyUiScale, applyTheme } from "../../render/dom.js";
+import { applyUiScale, applyTheme, themeOf } from "../../render/dom.js";
 import { esc, unit } from "../../game/format.js";
 
 const OPACITIES = [1, 0.85, 0.7, 0.55, 0.4];
@@ -38,7 +38,7 @@ export class SettingsTab {
         ${check("fullEffects", tx("Effets complets"), tx("Pièces, faisceaux de butin, flashs. Décoche pour une bande plus sobre."))}
         ${check("weather", tx("Météo des zones"), tx("Neige, braises, feuilles, bulles… (un peu plus de calcul)."))}
         <p class="note tight">${tx("Thème du panneau")}</p>
-        <div class="row seg">${[[null, tx("Automatique (Windows)")], ["light", tx("Clair")], ["dark", tx("Sombre")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v || ""}" aria-pressed="${(P.theme || null) === v}">${esc(label)}</button>`).join("")}</div>
+        <div class="row seg">${[["dark", tx("Sombre")], ["light", tx("Clair")], ["auto", tx("Automatique (Windows)")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v}" aria-pressed="${themeOf(P.theme) === v}">${esc(label)}</button>`).join("")}</div>
         <p class="note tight">${tx("Taille du panneau")}</p>
         <div class="row seg">${[1, 1.15, 1.3].map((z) => `<button data-action="se-scale" data-v="${z}" aria-pressed="${Math.abs((P.uiScale || 1) - z) < 0.01}">${Math.round(z * 100)}${unit("%")}</button>`).join("")}</div>
         <p class="note">${tx("Agrandit tout le panneau : texte, boutons et icônes.")}</p>
@@ -86,7 +86,7 @@ export class SettingsTab {
       Promise.resolve(this.api?.writeSave?.(JSON.stringify(this.game.S))).finally(() => location.reload());
       return;
     }
-    else if (a === "se-theme") { P.theme = b.dataset.v || null; applyTheme(P.theme); this.game.changed(); return; }
+    else if (a === "se-theme") { P.theme = b.dataset.v || "dark"; applyTheme(P.theme); this.game.changed(); return; }
     else if (a === "se-scale") { P.uiScale = +b.dataset.v; applyUiScale(P.uiScale); this.game.changed(); window.dispatchEvent(new Event("resize")); return; }
     else if (a === "se-edge") this.api?.setWindowSettings({ edge: b.dataset.v });
     else if (a === "se-opacity") this.api?.setWindowSettings({ opacity: +b.dataset.v });

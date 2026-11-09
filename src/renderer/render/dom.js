@@ -214,8 +214,10 @@ export class Bar {
 
 /** Agrandissement uniforme du panneau (accessibilité). */
 /** Thème du panneau : null = celui de Windows, "light" ou "dark" (styles.css : :root[data-theme]). */
+/** Thème du panneau : "auto" = celui de Windows, "light", sinon sombre (par défaut, demande de Victor). */
+export const themeOf = (t) => (t === "light" || t === "auto" ? t : "dark");
 export function applyTheme(t) {
-  const r = document.documentElement;
-  if (t === "light" || t === "dark") r.dataset.theme = t; else delete r.dataset.theme;
+  const r = document.documentElement, v = themeOf(t);
+  if (v === "auto") delete r.dataset.theme; else r.dataset.theme = v;
 }
 export function applyUiScale(z) { const p = document.getElementById("panel"); if (p) p.style.zoom = z && z !== 1 ? String(z) : ""; }
