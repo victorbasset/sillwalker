@@ -151,5 +151,11 @@ export function migrate(raw) {
   s.bagSize = Math.max(BAG_SIZE, Math.floor(+s.bagSize || BAG_SIZE));
   for (const k of ["lvl", "zone", "best", "nextId"]) s[k] = Math.max(1, Math.floor(+s[k] || 1));
   for (const k of ["xp", "gold", "kills"]) s[k] = Math.max(0, +s[k] || 0);
+  // Nombres illisibles dans les sous-objets (un NaN ou un Infinity d'un bug passé est enregistré « null ») :
+  // valeur par défaut, sinon il se propagerait (éclats, réputation, statistiques…) et pourrait bloquer la partie.
+  const ref = freshState(); // def a été fusionné dans s : référence intacte à part
+  for (const k of ["stats", "prestige", "guild", "pets", "skills", "daily"]) {
+    for (const f in ref[k]) if (typeof ref[k][f] === "number" && !Number.isFinite(s[k][f])) s[k][f] = ref[k][f];
+  }
   return s;
 }

@@ -1428,6 +1428,17 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("sauvegarde : nombres illisibles des sous-objets remplacés par leur valeur par défaut", () => {
+  const raw = JSON.parse(JSON.stringify(freshState()));
+  raw.prestige.shards = null; raw.stats.kills = "abc"; raw.guild.rep = null; raw.pets.eggs = null; raw.stats.bosses = 12;
+  const s = migrate(raw);
+  assert.equal(s.prestige.shards, 0);
+  assert.equal(s.stats.kills, 0);
+  assert.equal(s.guild.rep, 0);
+  assert.equal(s.pets.eggs, 0);
+  assert.equal(s.stats.bosses, 12, "valeur correcte gardée");
+});
+
 test("journal : sac plein, les échanges ordinaires se cumulent sur une ligne", () => {
   const g = new Game(freshLocked());
   g.S.bag.length = 0; g.S.log.length = 0;
