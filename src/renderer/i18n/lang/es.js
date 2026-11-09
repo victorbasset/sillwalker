@@ -839,4 +839,13 @@ export default {
   1963: "Animación a 15 imágenes por segundo siempre: menos cálculo, calor y ruido de ventilador. El juego sigue con normalidad. (Ya se ralentiza sola con batería y cuando te ausentas.)",
   1964: "Cinemáticas de la historia",
   1965: "Escenas cortas en la franja (crónicas, héroes liberados, el Rompeestrellas). Desmárcalo para no ser interrumpido nunca: puedes volver a verlas con ▶ en la lista de crónicas.",
+  1966: "del ataque como quemadura por segundo (3 s)",
+  1967: "del ataque como veneno por segundo, por carga (una por golpe)",
+  1968: "del ataque por segundo para el siervo",
+  1969: "de daño por golpe seguido (10 golpes máx.)",
+  1970: "de daño en el 4.º golpe (iaijutsu, siempre crítico)",
+  1971: "de los PV máx. regenerados por segundo al caminar",
+  1972: "de los PV máx. como escudo al inicio del combate",
+  1973: "del daño recibido devuelto (espinas)",
+  1974: "segundo aliento (sobrevive una vez por combate a un golpe mortal)",
 };

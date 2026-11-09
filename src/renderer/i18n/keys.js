@@ -1967,5 +1967,14 @@ export const KEYS = [
   "Économie d’énergie",
   "Animation à 15 images par seconde en permanence : moins de calcul, de chaleur et de bruit de ventilateur. Le jeu, lui, continue normalement. (Elle ralentit déjà toute seule sur batterie et quand tu t’absentes.)",
   "Cinématiques de l’histoire",
-  "Courtes scènes dans la bande (chroniques, héros libérés, Briseur d’Étoiles). Décoche pour ne jamais être interrompu : tu peux les revoir avec ▶ dans la liste des chroniques."
+  "Courtes scènes dans la bande (chroniques, héros libérés, Briseur d’Étoiles). Décoche pour ne jamais être interrompu : tu peux les revoir avec ▶ dans la liste des chroniques.",
+  "de l’attaque en brûlure par seconde (3 s)",
+  "de l’attaque en poison par seconde, par charge (une par coup)",
+  "de l’attaque par seconde pour le serviteur",
+  "de dégâts par coup d’affilée (10 coups max)",
+  "de dégâts au 4e coup (iaijutsu, toujours critique)",
+  "des PV max régénérés par seconde en marchant",
+  "des PV max en bouclier au début du combat",
+  "des dégâts reçus renvoyés (épines)",
+  "second souffle (survit une fois par combat à un coup fatal)"
 ];

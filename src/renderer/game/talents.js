@@ -24,19 +24,19 @@ export const EFFECTS = {
   drop:        { label: "chances de butin", unit: "%" },
   bossDmg:     { label: "dégâts contre les boss", unit: "%" },
   execute:     { label: "dégâts contre les cibles sous 30 % de vie", unit: "%" },
-  regen:       { label: "régénération en marchant (PV max / s)", unit: "%" },
+  regen:       { label: "des PV max régénérés par seconde en marchant", unit: "%" },
   lifesteal:   { label: "vol de vie", unit: "%" },
   dodge:       { label: "chances d’esquive", unit: "%" },
   riposte:     { label: "chances de riposte", unit: "%" },
   doubleShot:  { label: "chances de frappe double", unit: "%" },
-  shield:      { label: "bouclier au début du combat (PV max)", unit: "%" },
-  poison:      { label: "poison par charge (attaque / s)", unit: "%" },
-  minion:      { label: "dégâts du serviteur (attaque / s)", unit: "%" },
-  combo:       { label: "enchaînement (dégâts par coup, 10 coups max)", unit: "%" },
-  thorns:      { label: "épines (dégâts renvoyés)", unit: "%" },
-  iai:         { label: "iaijutsu (dégâts du 4e coup, toujours critique)", unit: "%" },
+  shield:      { label: "des PV max en bouclier au début du combat", unit: "%" },
+  poison:      { label: "de l’attaque en poison par seconde, par charge (une par coup)", unit: "%" },
+  minion:      { label: "de l’attaque par seconde pour le serviteur", unit: "%" },
+  combo:       { label: "de dégâts par coup d’affilée (10 coups max)", unit: "%" },
+  thorns:      { label: "des dégâts reçus renvoyés (épines)", unit: "%" },
+  iai:         { label: "de dégâts au 4e coup (iaijutsu, toujours critique)", unit: "%" },
   moveSpd:     { label: "vitesse de déplacement", unit: "%" },
-  burn:        { label: "brûlure (attaque / s pendant 3 s)", unit: "%" },
+  burn:        { label: "de l’attaque en brûlure par seconde (3 s)", unit: "%" },
   firstStrike: { label: "dégâts du premier coup", unit: "×", scale: 100 },
   tapDmg:      { label: "dégâts des coups au clic", unit: "%" },
   offline:     { label: "efficacité hors ligne", unit: "%" },
@@ -407,7 +407,7 @@ export function describeEffects(eff, n = 1) {
   return Object.entries(eff).map(([k, v]) => {
     const e = EFFECTS[k];
     if (!e) return "";
-    if (k === "secondWind") return tx("second souffle");
+    if (k === "secondWind") return tx("second souffle (survit une fois par combat à un coup fatal)");
     const val = v * n * (e.scale || 1), sign = val < 0 ? "−" : "+";
     const txt = dec((Math.round(Math.abs(val) * 10) / 10).toString());
     if (e.unit === " pts") return `${sign}${txn(Math.abs(val), "{n} pt|{n} pts", { n: txt })} ${e.label}`; // « pts » traduit (Pkt., оч.…)

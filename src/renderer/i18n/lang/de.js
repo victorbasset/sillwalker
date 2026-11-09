@@ -839,4 +839,13 @@ export default {
   1963: "Animation dauerhaft mit 15 Bildern pro Sekunde: weniger Rechenlast, Wärme und Lüfterlärm. Das Spiel selbst läuft normal weiter. (Sie verlangsamt sich schon von selbst im Akkubetrieb und wenn du abwesend bist.)",
   1964: "Zwischensequenzen der Geschichte",
   1965: "Kurze Szenen in der Leiste (Chroniken, befreite Helden, der Sternenbrecher). Abwählen, um nie unterbrochen zu werden: Mit ▶ in der Chronikliste kannst du sie erneut ansehen.",
+  1966: "des Angriffs als Brand pro Sekunde (3 s)",
+  1967: "des Angriffs als Gift pro Sekunde, je Ladung (eine pro Treffer)",
+  1968: "des Angriffs pro Sekunde für den Diener",
+  1969: "Schaden pro Treffer in Folge (max. 10 Treffer)",
+  1970: "Schaden beim 4. Treffer (Iaijutsu, immer kritisch)",
+  1971: "der max. LP pro Sekunde beim Gehen regeneriert",
+  1972: "der max. LP als Schild zu Kampfbeginn",
+  1973: "des erlittenen Schadens zurückgeworfen (Dornen)",
+  1974: "zweiter Atem (überlebt einmal pro Kampf einen tödlichen Treffer)",
 };

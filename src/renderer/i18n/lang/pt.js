@@ -839,4 +839,13 @@ export default {
   1963: "Animação a 15 quadros por segundo o tempo todo: menos processamento, calor e ruído de ventoinha. O jogo continua normalmente. (Ela já desacelera sozinha na bateria e quando você se ausenta.)",
   1964: "Cinemáticas da história",
   1965: "Cenas curtas na faixa (crônicas, heróis libertados, o Quebra-Estrelas). Desmarque para nunca ser interrompido: você pode revê-las com ▶ na lista de crônicas.",
+  1966: "do ataque como queimadura por segundo (3 s)",
+  1967: "do ataque como veneno por segundo, por carga (uma por golpe)",
+  1968: "do ataque por segundo para o servo",
+  1969: "de dano por golpe seguido (10 golpes máx.)",
+  1970: "de dano no 4º golpe (iaijutsu, sempre crítico)",
+  1971: "dos PV máx. regenerados por segundo ao caminhar",
+  1972: "dos PV máx. como escudo no início do combate",
+  1973: "do dano recebido devolvido (espinhos)",
+  1974: "segundo fôlego (sobrevive uma vez por combate a um golpe fatal)",
 };

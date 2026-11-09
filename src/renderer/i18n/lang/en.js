@@ -839,4 +839,13 @@ export default {
   1963: "Animation at 15 frames per second all the time: less computing, heat and fan noise. The game itself keeps running normally. (It already slows down on its own on battery and when you are away.)",
   1964: "Story cutscenes",
   1965: "Short scenes in the strip (chronicles, freed heroes, the Starbreaker). Uncheck to never be interrupted: you can replay them with ▶ in the chronicle list.",
+  1966: "of attack as burn per second (3 s)",
+  1967: "of attack as poison per second, per stack (one per hit)",
+  1968: "of attack per second for the minion",
+  1969: "damage per consecutive hit (10 hits max)",
+  1970: "damage on the 4th hit (iaijutsu, always critical)",
+  1971: "of max HP regenerated per second while walking",
+  1972: "of max HP as a shield at the start of each fight",
+  1973: "of damage taken reflected (thorns)",
+  1974: "second wind (survives a fatal blow once per fight)",
 };

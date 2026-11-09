@@ -839,4 +839,13 @@ export default {
   1963: "Animacja stale w 15 klatkach na sekundę: mniej obliczeń, ciepła i hałasu wentylatora. Sama gra toczy się normalnie. (Już sama zwalnia na baterii i gdy cię nie ma.)",
   1964: "Przerywniki fabularne",
   1965: "Krótkie sceny na pasku (kroniki, uwolnieni bohaterowie, Łamacz Gwiazd). Odznacz, by nigdy nie być przerywanym: możesz je obejrzeć ponownie przyciskiem ▶ na liście kronik.",
+  1966: "ataku jako podpalenie na sekundę (3 s)",
+  1967: "ataku jako trucizna na sekundę, na ładunek (jeden na cios)",
+  1968: "ataku na sekundę dla sługi",
+  1969: "obrażeń za każdy cios z rzędu (maks. 10 ciosów)",
+  1970: "obrażeń przy 4. ciosie (iaijutsu, zawsze krytyczny)",
+  1971: "maks. PŻ regenerowanych na sekundę w marszu",
+  1972: "maks. PŻ jako tarcza na początku walki",
+  1973: "otrzymanych obrażeń odbitych (ciernie)",
+  1974: "drugi oddech (raz na walkę przeżywa śmiertelny cios)",
 };

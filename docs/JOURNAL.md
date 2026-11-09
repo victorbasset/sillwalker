@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 302, étude des concurrents, action c) : descriptions d'effets claires (talents, compétences,
+  constellations, objets) : « +12 % brûlure (attaque / s pendant 3 s) » → « +12 % de l'attaque en brûlure par seconde
+  (3 s) » ; idem poison, serviteur, enchaînement, iaijutsu, régénération, bouclier, épines ; « second souffle »
+  → « second souffle (survit une fois par combat à un coup fatal) ». 9 textes × 9 langues (anciennes clés gardées,
+  l'ordre ne bouge pas). Capture, autotest vert.
 - 2026-11-09 (it. 301, étude des concurrents, action d) : héros ajoutés plus distincts : chacun remplace une branche
   de talents de son modèle par les effets d'une branche d'un autre héros, plus proche de son thème (talents.js >
   GRAFTS : cryomancienne → critiques au lieu de brûlure, barde → or et expérience, chaman → invocations, prêtresse →
@@ -1156,7 +1161,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      réglage « économie » (images/s plafonnées) visible dans Réglages ; vérifier que la bande cachée ne dessine rien.
   b. EN PARTIE (it. 299 : réglage « Cinématiques de l'histoire »). P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
      (ou les rendre discrètes) ; vérifier qu'aucune action n'est exigée pour progresser (vraiment idle).
-  c. P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
+  c. EN PARTIE (it. 302 : 9 libellés d'effets réécrits ; reste : partie neuve guidée à vérifier).
+     P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
      premier lancement guidé (bulles d'astuces) : vérifier sur une partie neuve que chaque mécanique est expliquée.
   d. EN PARTIE (it. 301 : greffes de branches, héros distincts ; reste : événements et mécaniques de boss).
      P2 Profondeur et variété (répétitif = reproche n° 1 de Rusty's) : les 10 nouveaux héros ont des arbres de
