@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 292, demande 34, étape 2) : 30 dessins uniques (9×9) pour les 24 nœuds remarquables et les 6 clés
+  de voûte (poing du Bras de titan, crâne du Coup fatal, couronne transpercée, haches croisées, casque cornu de la
+  Brute, œil des Réflexes, cible, rafale, lames, tourbillon, boule de feu, fiole de venin, invocation, faux, cœur en
+  flammes, cœur de fer, carapace, goutte de sang, ronces, tête de golem, bourse, livre, coffre, lune du Rêveur, main
+  de Midas, bouclier et épée, éclair, notes, chauve-souris, ankh) ; nœuds remarquables agrandis ; icônes verrouillées
+  en couleur à demi-opacité (le gris éteignait l'arbre). Test : chaque remarquable et clé a son dessin. Autotest vert.
 - 2026-11-09 (it. 291, demande 34, étape 1) : arbre des compétences illustré : 25 icônes pixel art dessinées
   (render/skillicons.js, une par type d'effet : épée, éclair, flamme, goutte de poison, cœur, bouclier, pièce, gemme,
   lune, épées croisées, crocs, ailes…), une dans chaque nœud (cercles agrandis : petits 10, remarquables 14, clés 19) ;
@@ -1083,8 +1089,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   33. FAIT (it. 290 : étude, liste « À FAIRE » a-h ci-dessous). Étudier les jeux concurrents (Rusty's Retirement, TBH: Task Bar Hero, Desktop Heroes, Desktop Raid) : ce qui
       plaît vraiment aux joueurs et ce qui leur déplaît (avis Steam, forums) ; reprendre le bon, éviter ou retirer
       le mauvais si Sillwalker l'a déjà. Résultat : liste d'idées et de défauts ci-dessous (plusieurs itérations).
-  34. EN COURS (it. 291 : icône par type d'effet dans chaque nœud ; reste : icônes uniques des 24 nœuds remarquables
-      et des 6 clés de voûte). Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
+  34. FAIT (it. 291 : icône par effet ; it. 292 : 30 dessins uniques des remarquables et clés de voûte). Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
       itérations).
   35. Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
       itérations) : identité visuelle propre (cadres, typographie, couleurs, ornements pixel art).

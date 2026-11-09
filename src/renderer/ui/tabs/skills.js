@@ -11,7 +11,7 @@ import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
-const RADIUS = { root: 13, small: 10, notable: 14, keystone: 19 };
+const RADIUS = { root: 13, small: 10, notable: 16, keystone: 20 };
 const SECTOR = Object.fromEntries(SECTORS.map((s) => [s.id, s]));
 const svg = (tag, attrs, parent) => {
   const e = document.createElementNS(SVGNS, tag);
@@ -70,7 +70,7 @@ export class SkillsTab {
       c.style.setProperty("--c", color);
       this.nodeEls[id] = c;
       // Icône de l'effet du nœud, au centre (ne capte pas les clics : c'est le cercle qui réagit).
-      const sz = Math.round(RADIUS[n.kind] * 1.45);
+      const sz = Math.round(RADIUS[n.kind] * (n.kind === "small" ? 1.45 : 1.6));
       const im = svg("image", { href: skillIconURL(skillIconKey(n)), x: n.x - sz / 2, y: n.y - sz / 2, width: sz, height: sz, class: "nico" }, g);
       (this.iconEls ||= {})[id] = im;
       if (n.kind === "notable" || n.kind === "keystone") {

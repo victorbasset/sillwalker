@@ -572,6 +572,9 @@ test("Enclume stellaire (demande 28) : objet remonté au niveau du record, très
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {
   const { SKILL_TREE } = M_skilltree_js, keys = new Set(M_skillicons_js.SKILL_ICON_KEYS);
   for (const n of Object.values(SKILL_TREE.nodes)) assert.ok(keys.has(M_skillicons_js.skillIconKey(n)), "icône manquante : " + n.id + " " + M_skillicons_js.skillIconKey(n));
+  // Chaque nœud remarquable et chaque clé de voûte a un dessin unique.
+  const uniq = new Set(M_skillicons_js.UNIQUE_SKILL_ICONS);
+  for (const n of Object.values(SKILL_TREE.nodes)) if (n.kind === "notable" || n.kind === "keystone") assert.ok(uniq.has(n.id), "dessin unique manquant : " + n.id + " (" + n.name + ")");
 });
 
 test("familiers : chaque familier a un dessin, les rares sont plus rares", () => {

@@ -926,5 +926,5 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 #p-hero .morerow summary { font-size: 14px; margin: 4px 0 2px; }
 /* Icônes des nœuds de compétences (demande 34). */
 .skillsvg .nico { pointer-events: none; image-rendering: pixelated; }
-.skillsvg .nico.locked { opacity: .35; filter: grayscale(1); }
+.skillsvg .nico.locked { opacity: .5; }
 .skillsvg .nico.avail, .skillsvg .nico.planned { opacity: .85; }
