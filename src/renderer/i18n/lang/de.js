@@ -451,4 +451,5 @@ export default {
   1575: "Ewiger Tiegel: transmutieren, wenn sich die Tasche füllt",
   1576: "Sofort verkaufen:",
   1577: "{n} freier Punkt · {0} insgesamt|{n} freie Punkte · {0} insgesamt",
+  1578: "Seltene Ereignisse",
 };

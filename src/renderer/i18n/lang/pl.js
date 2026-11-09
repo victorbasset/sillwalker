@@ -451,4 +451,5 @@ export default {
   1575: "Wieczny tygiel: transmutuj, gdy torba się zapełnia",
   1576: "Sprzedawaj od razu:",
   1577: "{n} wolny punkt · {0} łącznie|{n} wolne punkty · {0} łącznie|{n} wolnych punktów · {0} łącznie",
+  1578: "Rzadkie zdarzenia",
 };

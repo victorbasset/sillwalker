@@ -451,4 +451,5 @@ export default {
   1575: "Cadinho perpétuo: transmutar quando a bolsa enche",
   1576: "Vender assim que caírem:",
   1577: "{n} ponto livre · {0} no total|{n} pontos livres · {0} no total",
+  1578: "Eventos raros",
 };

@@ -451,4 +451,5 @@ export default {
   1575: "Everlasting Crucible: transmute when the bag fills up",
   1576: "Sell as soon as they drop:",
   1577: "{n} free point · {0} in total|{n} free points · {0} in total",
+  1578: "Rare events",
 };

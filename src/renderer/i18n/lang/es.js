@@ -451,4 +451,5 @@ export default {
   1575: "Crisol perpetuo: transmutar cuando la bolsa se llena",
   1576: "Vender en cuanto caigan:",
   1577: "{n} punto libre · {0} en total|{n} puntos libres · {0} en total",
+  1578: "Eventos raros",
 };
