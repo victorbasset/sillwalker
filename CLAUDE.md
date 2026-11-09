@@ -115,7 +115,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.
 - Un commentaire `//` ajouté au milieu d'une ligne (objet littéral, liste d'arguments) avale la fin du code de la
-  ligne sans erreur de syntaxe (déjà arrivé deux fois) : mettre le commentaire sur sa propre ligne, au-dessus.
+  ligne sans erreur de syntaxe (arrivé trois fois) : mettre le commentaire sur sa propre ligne, au-dessus.
+  `scripts/check-comments.mjs` (lancé par `npm test`) repère les cas typiques (commentaire qui finit par « ; », « , » ou « ); »).
 - `sed` sur des chaînes JavaScript : attention aux `\u…` et aux `\n`, vérifier le résultat.
 - Le dossier `dist\win-unpacked` peut être verrouillé si l'utilisateur y lance le jeu.
 - Construire la version Windows : `npm run dist` (sous Linux, il faut Wine pour l'icône de l'exécutable).

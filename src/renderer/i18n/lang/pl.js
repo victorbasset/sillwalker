@@ -552,4 +552,7 @@ export default {
   1676: "Na nowo rozpalone niebo",
   1677: "Łamacz Gwiazd rozpadł się na tysiąc odłamków światła. Jeden po drugim wzniosły się z powrotem ku niebu: tej nocy, po raz pierwszy od tysiąca lat, nad Krawędzią świecą gwiazdy. Bohaterowie są wolni. A ty wędrujesz dalej: za Krawędzią czekają inne ziemie.",
   1678: "Łamacz Gwiazd na ciebie czeka!",
+  1679: "Niebo znów rozbłyska",
+  1680: "Bohaterowie są wolni.",
+  1681: "klik: pomiń",
 };

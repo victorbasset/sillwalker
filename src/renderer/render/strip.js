@@ -345,11 +345,11 @@ export class StripRenderer {
     this.heroBarX = null;
   }
 
-  monsterActor(type, boss) {
-    const set = this.sprites.monsters[type];
-    const a = new Actor(this.stage, boss ? set.boss : set.normal, boss ? "boss" : "");
+  monsterActor(type, boss, final) {
+    const set = final ? this.sprites.starbreaker : this.sprites.monsters[type];
+    const a = new Actor(this.stage, boss ? set.boss : set.normal, boss ? "boss" + (final ? " final" : "") : "");
     a.fly = set.fly; a.boss = boss;
-    if (boss) a.addCrown();
+    if (boss && !final) a.addCrown(); // le Briseur porte sa propre couronne d'éclats
     return a;
   }
 
@@ -367,8 +367,7 @@ export class StripRenderer {
     this.slots = [];
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
-      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss);
-      if (boss && isFinalZone(g.S.zone)) a.el.classList.add("final"); // le Briseur d'Étoiles
+      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone)); // final : le Briseur d'Étoiles
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
@@ -402,8 +401,7 @@ export class StripRenderer {
 
   makeCorpse(mon, x) {
     if (this.corpse) this.corpse.remove();
-    const a = this.monsterActor(mon.type, mon.boss);
-    if (mon.final) a.el.classList.add("final");
+    const a = this.monsterActor(mon.type, mon.boss, !!mon.final);
     if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));

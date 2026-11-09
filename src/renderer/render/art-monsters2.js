@@ -50,3 +50,15 @@ export const MONSTER_ART_2 = {
     ["....RR......", "...mMMMm....", "...MKKKM....", "...MMMMM....", "..BmMMMmB.W.", ".mMMMMMMMmW.", "mMmMMBMMmMW.", "mMm.MMMM.mG.", "....MM.MM...", "...mm..mm..."],
     ["....RR......", "...mMMMm....", "...MKKKM....", "...MMMMM....", "..BmMMMmB...", ".mMMMMMMMmWWW", "mMmMMBMMmG...", "mMm.MMMM.....", "...MM..MM...", "..mm....mm.."]] },
 };
+
+// Le Briseur d'Étoiles (boss final, zone 200) : titan en armure sombre, couronne d'éclats d'étoile, cape de nuit
+// semée d'étoiles, un éclat brandi. Tourné vers la droite comme les autres, construit en taille de boss.
+export const STARBREAKER_ART = {
+  pal: { K: "#140f26", V: "#3a2466", v: "#5a3a9a", A: "#2a2840", M: "#6d6a92", E: "#7ff3ff", S: "#ffe27a", s: "#fff6c8" },
+  frames: [
+    ["...S.s.S......", "...SSSSS......", "..KMMMMMK.....", "..KAAEAEK....S", "..KAAAAAK...sS", ".vVKMMMKVv..S.",
+     "vVVMMSMMMVAAA.", "vVVMMMMMMVv...", "vVsVMMMMVVv...", "vVVVAAAAVVv...", ".vVVA..AVVs...", ".vV.A..A.Vv...", "..v.KK.KK.v..."],
+    ["...S.s.S....s.", "...SSSSS...sSs", "..KMMMMMK...S.", "..KAAEAEK..A..", "..KAAAAAK.A...", ".vVKMMMKVA....",
+     "vVVMMSMMMV....", "VVVMMMMMMVv...", "vVVsMMMMVVv...", ".vVVAAAAVVv...", ".vVVA..AVVv...", "..vVA..AVv....", "..v.KK.KK.v..."],
+  ],
+};

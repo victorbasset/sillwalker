@@ -122,10 +122,11 @@ export class MiniRenderer {
       if (this.monActor) { this.monActor.remove(); this.monActor.bar.el.remove(); }
       this.monActor = null; this.monRef = m;
       if (m) {
-        const set = this.sprites.monsters[m.type];
+        const set = m.final ? this.sprites.starbreaker : this.sprites.monsters[m.type]; // final : le Briseur d'Étoiles
         const a = new Actor(this.stage, set.normal); // le boss garde la taille normale ici
         a.fly = set.fly;
-        if (m.boss) a.addCrown();
+        if (m.boss && !m.final) a.addCrown();
+        if (m.final) a.el.classList.add("final");
         if (m.elite) a.el.classList.add("elite");
         a.bar = new Bar(this.stage, "#ff6b5a"); // à la même hauteur que celle du héros
         a.barX = null;

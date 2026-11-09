@@ -552,4 +552,7 @@ export default {
   1676: "O céu reaceso",
   1677: "O Quebra-Estrelas desabou em mil fragmentos de luz. Um a um, eles subiram de volta ao céu: esta noite, pela primeira vez em mil anos, as estrelas brilham sobre o Parapeito. Os heróis estão livres. E você continua caminhando: além do Parapeito, outras terras esperam.",
   1678: "O Quebra-Estrelas espera por você!",
+  1679: "O céu se reacende",
+  1680: "Os heróis estão livres.",
+  1681: "clique: pular",
 };

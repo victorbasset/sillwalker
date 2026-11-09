@@ -7,6 +7,13 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function runSelfTest(strip) {
   const wc = strip.win.webContents;
+  // Erreurs de l'interface pendant le parcours : comptées comme un échec (une animation cassée passait inaperçue,
+  // it. 221 → 223 : chaque pièce d'or levait une ReferenceError sans qu'aucune vérification n'échoue).
+  const rendErr = [];
+  wc.on("console-message", (e) => {
+    const level = e.level ?? e.params?.level;
+    if (level === "error" || level === 3) rendErr.push(`${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})`);
+  });
   const js = (code) => wc.executeJavaScript(code).catch((e) => { console.log("[selftest] ÉCHEC script :", code.slice(0, 140)); throw e; });
   const state = (expr) => js(`(() => { const S = window.__game.S; return ${expr}; })()`);
   // Le profil de test s'accumule d'une exécution à l'autre : la vitesse permanente doit pouvoir encore monter.
@@ -459,6 +466,11 @@ async function runSelfTest(strip) {
   // Clic sur un objet du sac : son détail s'ouvre sous le sac, l'équipement reste affiché (demande de Victor).
   const bd = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const b = document.querySelector('#p-bag .slot[data-from=bag]'); if (!b) return 'sac vide'; b.click(); const r = !!document.querySelector('#p-bag .bagdetail [data-action=equip]') + ' ' + !!document.querySelector('#p-detail .eqlist'); const back = document.querySelector('#p-bag [data-action=desel]'); if (back) back.click(); return r + ' ' + !document.querySelector('#p-bag .bagdetail'); })()");
   check("objet cliqué : détail sous le sac, équipement toujours visible, « ← sac » referme", bd === "true true true", bd);
+  // Cinématiques de l'histoire : arrivée chez le Briseur puis victoire, jouées sans erreur, un clic les passe.
+  const cin = await js("(() => { const J = window.__strip.juice; J.cinematic('arrive'); const a = !!document.querySelector('.cine.arrive'); J.cinematic('dawn'); const d = document.querySelector('.cine.dawn'); const t = d && d.querySelector('.cine-title').textContent; d && d.click(); return a + ' ' + !!d + ' ' + !!t; })()");
+  await new Promise((r) => setTimeout(r, 400));
+  const gone = await js("!document.querySelector('.cine')");
+  check("cinématiques : arrivée et victoire jouées, un clic les passe", cin === "true true true" && gone === true, cin + " / " + gone);
   // Chroniques de l'histoire : bloc repliable dans la carte du héros, au moins « Le ciel brisé ».
   const ch = await js("(() => { window.__panel.setTab('adventure'); window.__panel.renderAll(); const d = document.querySelector('.chronbox'); return d ? d.querySelectorAll('.chron').length : -1; })()");
   check("chroniques : bloc présent dans la carte du héros, au moins une chronique", ch >= 1, ch);
@@ -516,6 +528,7 @@ async function runSelfTest(strip) {
   await click("#menu-btn");
   await sleep(400);
 
+  check("aucune erreur de l'interface pendant le parcours", rendErr.length === 0, rendErr.length ? `${rendErr.length} : ${rendErr[0]}` : "");
   const failed = results.filter((r) => !r).length;
   console.log(`[selftest] ${results.length - failed}/${results.length} vérifications réussies — clic sur « Quitter »`);
   await click(".ptop .quit");

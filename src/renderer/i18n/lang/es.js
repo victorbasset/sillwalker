@@ -552,4 +552,7 @@ export default {
   1676: "El cielo reavivado",
   1677: "El Rompeestrellas se desplomó en mil fragmentos de luz. Uno a uno, subieron de nuevo al cielo: esta noche, por primera vez en mil años, las estrellas brillan sobre el Alféizar. Los héroes son libres. Y tú sigues caminando: más allá del Alféizar, otras tierras esperan.",
   1678: "¡El Rompeestrellas te espera!",
+  1679: "El cielo vuelve a encenderse",
+  1680: "Los héroes son libres.",
+  1681: "clic: saltar",
 };

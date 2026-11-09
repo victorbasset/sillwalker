@@ -1680,5 +1680,8 @@ export const KEYS = [
   "Le Briseur d’Étoiles est vaincu",
   "Le ciel rallumé",
   "Le Briseur d’Étoiles s’est effondré en mille éclats de lumière. Un à un, ils sont remontés vers le ciel : cette nuit, pour la première fois depuis mille ans, les étoiles brillent sur le Rebord. Les héros sont libres. Et toi, tu marches encore : au-delà du Rebord, d’autres terres attendent.",
-  "Le Briseur d’Étoiles t’attend !"
+  "Le Briseur d’Étoiles t’attend !",
+  "Le ciel se rallume",
+  "Les héros sont libres.",
+  "clic : passer"
 ];

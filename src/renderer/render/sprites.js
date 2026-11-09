@@ -1,4 +1,5 @@
 // Transforme le pixel art en canvas prêts à dessiner (mis en cache).
+import { STARBREAKER_ART } from "./art-monsters2.js";
 import { OUTLINE, PIXEL, CLASS_ART, MONSTER_ART, ICON_ART, PET_ART, SLOT_ICON } from "./art.js";
 import { RARITIES, MONSTERS } from "../game/data.js";
 import { dressPalette, visualKey } from "./equipvis.js";
@@ -76,7 +77,11 @@ function makeSpriteSet(dpr) {
     const a = MONSTER_ART[k];
     minions[k] = a.frames.map((r) => buildSprite(r, a.pal, PIXEL - 1, false, dpr));
   }
-  return { heroes, monsters, pets, minions };
+  // Le Briseur d'Étoiles : un seul jeu, en taille de boss, construit à la demande (zone 200 seulement).
+  let sb = null;
+  const starbreaker = () => (sb ||= { fly: false, normal: STARBREAKER_ART.frames.map((r) => buildSprite(r, STARBREAKER_ART.pal, PIXEL, true, dpr)),
+    get boss() { return (this._boss ||= STARBREAKER_ART.frames.map((r) => buildSprite(r, STARBREAKER_ART.pal, PIXEL * 2, true, dpr))); } });
+  return { heroes, monsters, pets, minions, get starbreaker() { return starbreaker(); } };
 }
 
 const dressedCache = new Map();

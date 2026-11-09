@@ -552,4 +552,7 @@ export default {
   1676: "Der neu entzündete Himmel",
   1677: "Der Sternenbrecher zerfiel in tausend Lichtsplitter. Einer nach dem anderen stiegen sie zum Himmel empor: Heute Nacht leuchten zum ersten Mal seit tausend Jahren Sterne über dem Saum. Die Helden sind frei. Und du wanderst weiter: Jenseits des Saums warten andere Länder.",
   1678: "Der Sternenbrecher erwartet dich!",
+  1679: "Der Himmel entflammt aufs Neue",
+  1680: "Die Helden sind frei.",
+  1681: "Klick: überspringen",
 };

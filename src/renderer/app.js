@@ -383,6 +383,7 @@ async function boot() {
 
   /* ---------- Démo des effets (dev) : --demo ---------- */
   if (init.isDev) window.__panel = panel; // auto-test (dev)
+  if (init.isDev) window.__strip = strip; // auto-test (dev) : cinématiques
   if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
   if (init.isDev) window.__showToast = showToast; // auto-test (dev) : file des bulles
   if (init.isDev) window.__checkHints = () => checkHints(); // auto-test (dev)

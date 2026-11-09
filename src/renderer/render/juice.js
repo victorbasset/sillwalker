@@ -78,11 +78,11 @@ export class Juice {
     g.on("zoneUp", ({ zone, record }) => {
       if (!record) return;
       // Grand palier (zone 50, 100, 150, 200…) : bannière dorée, plus marquante qu'un record ordinaire.
-      if (isFinalZone(zone)) this.banner(`✦ ${tx("Le Briseur d’Étoiles t’attend !")} ✦`, "#c99bff", this.s.heroX + 120, true);
+      if (isFinalZone(zone)) this.cinematic("arrive");
       else if (zone % 50 === 0) this.banner(`✦ ${tx("Cap franchi : zone {0} !", { 0: zone })}`, "#ffd34d", this.s.heroX + 120, true);
       else this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120);
     });
-    g.on("starbreaker", ({ first }) => { if (first) this.banner(`✦ ${tx("Le Briseur d’Étoiles est vaincu ! Le ciel se rallume.")} ✦`, "#ffd34d", this.s.heroX + 60, true); });
+    g.on("starbreaker", ({ first }) => { if (first) this.cinematic("dawn"); });
     g.on("setBonus", ({ id, n }) => { // panoplie : palier de 2 ou 4 pièces atteint
       const st = SETS[id]; if (!st) return;
       this.banner(`◆ ${tx("{0} : bonus {1} pièces !", { 0: st.name, 1: n })}`, st.color, this.s.heroX + 60, n >= 4);
@@ -154,13 +154,7 @@ export class Juice {
           this.place(node, st.x, st.y);
           return true;
         }
-        if (ground) { // sac plein : l'objet reste au sol, clignote puis s'efface (perdu)
-        const k = (p.t - 1.1) / 3;
-        if (k >= 1) return false;
-        img.style.opacity = k < 0.6 ? (Math.floor(p.t * 4) % 2 ? 0.55 : 1) : (1 - k) * 2.5;
-        return true;
-      }
-      if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
+        if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
         const k = Math.min(1, (p.t - st.ht) / 0.55), tg = this.goldTarget();
         this.place(node, st.hx + (tg.x - st.hx) * easeIn(k), st.hy + (tg.y - st.hy) * easeIn(k) - Math.sin(k * Math.PI) * 30);
         if (k >= 1) { this.pulse = 0.3; return false; }
@@ -186,6 +180,12 @@ export class Juice {
       if (p.t < 1.1) {
         st.vy += 380 * dt; st.x += st.vx * dt; st.y = Math.min(y0, st.y + st.vy * dt);
         this.place(img, st.x, st.y);
+        return true;
+      }
+      if (ground) { // sac plein : l'objet reste au sol, clignote puis s'efface (perdu)
+        const k = (p.t - 1.1) / 3;
+        if (k >= 1) return false;
+        img.style.opacity = k < 0.6 ? (Math.floor(p.t * 4) % 2 ? 0.55 : 1) : (1 - k) * 2.5;
         return true;
       }
       if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
@@ -225,6 +225,71 @@ export class Juice {
       const o = k > 0.8 ? Math.round((1 - (k - 0.8) / 0.2) * 8) / 8 : 1;
       if (node._o !== o) { node._o = o; node.style.opacity = o; }
       return k < 1;
+    });
+  }
+
+  /**
+   * Petites cinématiques de l'histoire (demande de Victor) : une seule pièce animée (un calque + un canevas d'étoiles)
+   * pour ne pas saturer MAX_PARTS. « arrive » : zone 200, le Briseur d'Étoiles se montre (5 s) ; « dawn » : il est
+   * vaincu, ses éclats remontent et rallument le ciel (12 s). Un clic les passe. Toujours jouées (même effets réduits).
+   */
+  cinematic(kind) {
+    if (!this.active) return;
+    if (this.cine) this.cine.done = true;
+    const W = this.s.W, H = this.layer.clientHeight || 120, dawn = kind === "dawn";
+    const node = el("div", "cine " + kind, this.layer), cv = makeCanvas(node, "cine-sky"), dpr = window.devicePixelRatio || 1;
+    sizeCanvas(cv, W, H, dpr);
+    const ctx = cv.ctx;
+    const title = el("div", "cine-title", node), sub = el("div", "cine-sub", node), skip = el("div", "cine-skip", node);
+    title.textContent = dawn ? tx("Le ciel se rallume") : tx("Le Briseur d’Étoiles");
+    sub.textContent = dawn ? tx("Les héros sont libres.") : tx("Le Briseur d’Étoiles t’attend !");
+    skip.textContent = tx("clic : passer");
+    // bx : dawn, là où le Briseur tombe ; arrive, sa place au bout de la bande.
+    const life = dawn ? 12 : 5, bx = dawn ? Math.min(W - 220, this.s.monX() + 20) : W - (this.s.rightReserve || 0) - 260, by = this.ground() - 30;
+    // Étoiles : partent du Briseur vaincu (dawn) et montent se fixer dans le ciel ; à l'arrivée, quelques lueurs.
+    const stars = Array.from({ length: dawn ? 70 : 0 }, (_, i) => ({
+      tx: 20 + Math.random() * (W - 40), ty: 6 + Math.random() * (H * 0.6), d: 1.2 + Math.random() * 2.2,
+      start: 0.8 + i * 0.03 + Math.random() * 0.6, ph: Math.random() * 6, big: Math.random() < 0.15 }));
+    const state = { done: false };
+    this.cine = state;
+    node.addEventListener("click", () => { state.done = true; });
+    let lastDraw = -1;
+    this.add(node, (p) => {
+      const t = p.t, fadeIn = Math.min(1, t / 0.8), fadeOut = state.done ? 0 : Math.min(1, (life - t) / 0.8);
+      const k = Math.max(0, Math.min(fadeIn, fadeOut));
+      if (state.done || t >= life) { if (this.cine === state) this.cine = null; return false; }
+      node.style.opacity = k.toFixed(2);
+      // Titre et sous-titre : apparaissent l'un après l'autre.
+      const tIn = dawn ? 3 : 0.6, sIn = dawn ? 4.6 : 1.8;
+      title.style.opacity = Math.max(0, Math.min(1, (t - tIn) / 0.6)).toFixed(2);
+      sub.style.opacity = Math.max(0, Math.min(1, (t - sIn) / 0.6)).toFixed(2);
+      if (Math.floor(t * 15) === lastDraw) return true; // canevas à 15 images/s : assez pour des étoiles
+      lastDraw = Math.floor(t * 15);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      if (!dawn) { // éclairs violets : deux fois, le ciel se fend derrière le Briseur
+        const f = (t > 0.9 && t < 1.05) || (t > 1.5 && t < 1.6) ? 0.55 : 0;
+        if (f) { ctx.fillStyle = `rgba(179,107,255,${f})`; ctx.fillRect(0, 0, W, H); }
+        for (let i = 0; i < 3; i++) { // fissure dans le ciel, au-dessus de lui
+          ctx.fillStyle = "#c99bff"; const x = bx - 30 + i * 30, h = Math.min(H * 0.5, t * 60);
+          for (let y = 0; y < h; y += 4) ctx.fillRect(Math.round(x + Math.sin(y * 0.3 + i) * 4), y, 2, 3);
+        }
+        return true;
+      }
+      for (const s of stars) {
+        const u = (t - s.start) / s.d;
+        if (u <= 0) continue;
+        const e = Math.min(1, u), x = bx + (s.tx - bx) * easeOut(e), y = by + (s.ty - by) * easeOut(e);
+        const tw = e >= 1 ? 0.6 + 0.4 * Math.sin(t * 3 + s.ph) : 1;
+        ctx.globalAlpha = tw;
+        ctx.fillStyle = s.big ? "#fff6c8" : "#ffe27a";
+        const z = s.big ? 2 : 1;
+        ctx.fillRect(Math.round(x) - z, Math.round(y), 2 * z + 1, 1);
+        ctx.fillRect(Math.round(x), Math.round(y) - z, 1, 2 * z + 1);
+        if (e < 1) { ctx.globalAlpha = 0.35; ctx.fillRect(Math.round(x), Math.round(y) + 2, 1, 4); } // traînée
+      }
+      ctx.globalAlpha = 1;
+      return true;
     });
   }
 

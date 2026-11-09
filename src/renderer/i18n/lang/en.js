@@ -552,4 +552,7 @@ export default {
   1676: "The rekindled sky",
   1677: "The Starbreaker collapsed into a thousand shards of light. One by one, they rose back to the sky: tonight, for the first time in a thousand years, the stars shine over the Sill. The heroes are free. And you walk on: beyond the Sill, other lands await.",
   1678: "The Starbreaker awaits you!",
+  1679: "The sky rekindles",
+  1680: "The heroes are free.",
+  1681: "click: skip",
 };

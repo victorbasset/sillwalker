@@ -5,6 +5,19 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 223, demandes 11 et 15) : le Briseur d'Étoiles a sa silhouette (STARBREAKER_ART, art-monsters2.js :
+  titan en armure, couronne d'éclats, cape de nuit étoilée, yeux cyan, éclat brandi ; taille de boss dans la bande,
+  normale en mode mini, halo violet). Deux petites cinématiques dans la bande (juice.js cinematic, une seule pièce
+  animée, canevas à 15 images/s, un clic les passe) : « arrive » (zone 200 atteinte : la bande s'assombrit, éclairs
+  violets, le ciel se fissure au-dessus de lui, titre « LE BRISEUR D'ÉTOILES », 5 s, son « doom » : grondement et
+  accords graves) et « dawn » (première victoire : nuit, 70 éclats remontent de sa dépouille et se fixent en étoiles
+  qui scintillent, « Le ciel se rallume », « Les héros sont libres. », 12 s, son « dawn » : arpège, accord tenu,
+  étoiles qui tintent). Elles remplacent les bannières de l'it. 222.
+  Bug trouvé et corrigé : depuis l'it. 221, le bloc « objet laissé au sol » avait été inséré dans l'animation des
+  pièces d'or (première ligne identique du fichier) : chaque pièce levait une ReferenceError et l'objet ne clignotait
+  pas. Garde-fous ajoutés : l'autotest compte toute erreur de l'interface comme un échec (vérifié avec une erreur
+  provoquée : 93/94, sortie 1), et scripts/check-comments.mjs (dans npm test) repère un « // » qui avale du code
+  (arrivé trois fois, deux fois dans cette itération). Autotest 94/94, captures des deux cinématiques.
 - 2026-11-09 (it. 222, demande 11 étape c) : le Briseur d'Étoiles, boss final de la zone 200 (story.js FINAL_BOSS :
   PV ×2,5 et attaque ×1,25 par rapport à un boss ordinaire, capacités coup dévastateur + miroir + fureur ; nom et
   capacités fournis par bosses.js, donc identiques dans la bande et le panneau Zone). Halo violet dans la bande.
@@ -691,7 +704,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      déplié : dommage (checkHints n'affiche rien si panelOpen).
   10. FAIT (it. 215, DROP_CHANCE 0,12). Trop d'objets tombent encore (au-delà du tout début, où earlyPace ne joue plus) : réduire la chance de butin
       générale (DROP_CHANCE 0,35) sans casser la progression (balance.mjs, semaine simulée).
-  11. EN COURS (it. 217 : (a) intro ; it. 219 : (b) Chroniques ; it. 222 : (c) Briseur) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
+  11. EN COURS (it. 217 : (a) intro ; it. 219 : (b) Chroniques ; it. 222 : (c) Briseur ; it. 223 : silhouette + cinématiques) : une histoire, une intro, un but final et une fin, épiques, en plusieurs itérations.
       Univers : le Rebord (la bande au bord de l'écran), frontière entre le monde et le vide ; le Briseur d'Étoiles a
       fracassé le ciel (les éclats d'étoile du jeu) ; ses lieutenants (boss de zone) retiennent les héros (classes à
       libérer) ; le héros, dernier marcheur du Rebord, renaît plus fort à chaque ascension.
@@ -708,7 +721,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   14. FAIT (it. 221). Sac plein : les objets qui tombent restent sur le sol (perdus, « tant pis »), au lieu d'être vendus ou
       échangés automatiquement. Garder la vente automatique de l'Encanteur (autoSell, déblocage acheté) et le Valet
       d'armes ; vérifier les textes (« sac plein : objets vendus »), la ligne du journal, les quêtes Réclamer.
-  15. Histoire : de toutes petites cinématiques dans la bande, pixel art épique, avec musique et sons (render/,
+  15. EN COURS (it. 223 : arrivée et victoire du Briseur). Histoire : de toutes petites cinématiques dans la bande, pixel art épique, avec musique et sons (render/,
       sound.js), pour l'intro, les chroniques marquantes, l'arrivée du Briseur d'Étoiles (zone 200) et la fin.
       Courtes (5 à 15 s), passables d'un clic, discrètes si le joueur travaille ; respecter le réglage du son.
 
