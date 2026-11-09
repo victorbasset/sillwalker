@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 194) : mémoire dans la durée mesurée : 698 → 719 Mo puis 712 Mo sur 6 min en accéléré ×10
+  (≈ 1 h de jeu), sans croissance continue : pas de fuite. Nouveau scripts/mem-watch.sh pour refaire la mesure
+  (documenté dans CLAUDE.md).
 - 2026-11-09 (it. 193, revue générale) : simulation 12 h stable (61 / 56 / 54), texte russe : plus aucun mot latin
   hors noms propres, Esc et DEV (chasse élargie aux mots courts), performance stable (bande 17 %, panneau 20 %,
   mini 4 %, icône 0,5 %), captures familiers en coréen (« (최대) », « 2시간 31 » : durées et max traduits) et mini EN.
