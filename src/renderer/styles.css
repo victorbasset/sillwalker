@@ -228,7 +228,9 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 .modal p { margin: 6px 0; }
 
 /* Très larges écrans : contenu du panneau centré, colonnes de taille raisonnable */
-.ptop, .grid { max-width: 1840px; margin-left: auto; margin-right: auto; }
+/* Pas de largeur maximale : sur un écran ultra-large (Odyssey…), le panneau occupe toute la largeur au lieu de
+   laisser deux grandes bandes vides (demande de Victor) ; les grilles ajoutent des colonnes d’elles-mêmes. */
+.ptop, .grid { max-width: none; }
 .grid { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
 .ptop { margin-bottom: 10px; }
 #panel::-webkit-scrollbar, .log::-webkit-scrollbar { width: 10px; }
@@ -255,7 +257,7 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 .tbadge { position: absolute; top: -8px; right: -6px; min-width: 18px; padding: 0 4px; border-radius: 9px; background: var(--good); color: #fff; font-size: 12px; line-height: 18px; }
 .tbadge[hidden] { display: none; }
 .tabpane[hidden] { display: none; }
-.tabpane { max-width: 1840px; margin: 0 auto; }
+.tabpane { max-width: none; }
 .tabintro { margin: 0 0 8px; }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; margin: -4px 0 8px; }
 .chip { font-size: 12px; padding: 1px 6px; border: 1px solid var(--accent); border-radius: 10px; color: var(--accent); }
