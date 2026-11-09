@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (demande de Victor : distinguer les textes qui expliquent le jeu) : l'italique ne s'affiche pas avec la
+  police pixel (ni font-style, ni oblique synthétisé : vérifié en capture) ; les paragraphes d'aide (p.note,
+  p.tabintro, sauf avertissements) ont un fin trait en marge à gauche. Captures talents, réglages, bestiaire. 90/90.
 - 2026-11-09 (it. 214) : infobulles de la bande : ses boutons (réduire, panneau…) avaient des title jamais affichés
   (fenêtre sans focus) ; infobulle maison juste au-dessus de l'élément survolé (.gtip.stip, toujours sombre comme la
   bande). Contrôle d'autotest (90/90). Nouvelle demande de Victor notée : trop d'objets tombent encore (au-delà du

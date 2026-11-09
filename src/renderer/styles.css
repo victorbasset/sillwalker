@@ -215,6 +215,10 @@ button.close { padding: 2px 9px; font-weight: 700; }
 .rates td { padding: 1px 0; } .rates td:last-child { text-align: right; }
 .note { color: var(--muted); font-size: 13px; margin: 6px 0 0; }
 .note.tight { margin: 0 0 6px; }
+/* Textes d'explication (« Clic sur un talent : … », aides des onglets) : un fin trait à gauche, comme une note en marge,
+   pour les distinguer d'un coup d'œil des informations de jeu (demande de Victor ; la police pixel n'a pas d'italique).
+   Les avertissements (warnline) n'en ont pas. */
+p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, var(--muted) 55%, transparent); padding-left: 7px; }
 .log { list-style: none; margin: 0; padding: 0; font-size: 14px; max-height: 340px; overflow: auto; user-select: text; }
 .log li { padding: 3px 0; border-bottom: 1px dashed var(--line); }
 .log li:first-child { font-weight: 500; }
