@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 295, demande 35, étape 3) : cases à cocher pixel (carré gravé, rempli d'or quand coché), curseurs
+  (glissière gravée, poussoir doré en relief), barres de défilement carrées (panneau, journal, rangées latérales).
+  Captures deux thèmes (Réglages), autotest vert.
 - 2026-11-09 (it. 294, demande 35, étape 2) : fond du panneau semé d'étoiles pixel (tuile SVG 96 px, --sky, une
   par thème, très discrète) ; onglets en languettes gravées (angles droits, biseau, ligne d'or sous l'onglet actif),
   séparateur de groupes en petite étoile, pastilles de nombre carrées. Captures deux thèmes, autotest vert.
@@ -1100,8 +1103,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       le mauvais si Sillwalker l'a déjà. Résultat : liste d'idées et de défauts ci-dessous (plusieurs itérations).
   34. FAIT (it. 291 : icône par effet ; it. 292 : 30 dessins uniques des remarquables et clés de voûte). Compétences : une icône unique pour chaque nœud de l'arbre, pour un graphe beaucoup plus joli (plusieurs
       itérations).
-  35. EN COURS (it. 293 : étape 1 cadres et boutons ; it. 294 : onglets gravés, fond étoilé ; suite :
-      cases à cocher et curseurs pixel, barres de défilement pixel, séparateurs ornés, palette signature). Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
+  35. EN COURS (it. 293 : étape 1 cadres et boutons ; it. 294 : onglets gravés, fond étoilé ; it. 295 : cases,
+      curseurs, barres de défilement ; suite : séparateurs ornés, palette signature). Revoir le design pour qu'il soit vraiment unique et qu'on ne devine pas qu'il vient d'une IA (plusieurs
       itérations) : identité visuelle propre (cadres, typographie, couleurs, ornements pixel art).
 
 - ÉTUDE DES CONCURRENTS (demande 33, it. 290 ; synthèses d'avis Steam : vaporlens.app, gamepressure, presse).

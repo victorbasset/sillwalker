@@ -964,3 +964,17 @@ button.primary { box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2
 .tabs .tabsep::after { content: ""; position: absolute; left: 0; top: 50%; width: 6px; height: 6px; margin-top: -3px; background: var(--star); opacity: .7;
   clip-path: polygon(50% 0, 64% 36%, 100% 50%, 64% 64%, 50% 100%, 36% 64%, 0 50%, 36% 36%); }
 .tbadge { border-radius: 0; box-shadow: 0 0 0 2px var(--edge); }
+/* Étape 3 (demande 35) : cases à cocher, curseurs et barres de défilement en pixel. */
+input[type="checkbox"] { appearance: none; -webkit-appearance: none; margin: 0; flex: none; width: 16px; height: 16px; cursor: pointer;
+  border: 2px solid var(--edge); background: var(--chip); box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.18); vertical-align: -3px; }
+input[type="checkbox"]:checked { background: var(--star); box-shadow: inset 0 0 0 2px var(--chip), inset 3px 3px 0 rgba(255, 255, 255, 0.35); }
+input[type="checkbox"]:hover { border-color: var(--accent); }
+input[type="checkbox"]:disabled { opacity: .45; cursor: not-allowed; }
+input[type="range"] { appearance: none; -webkit-appearance: none; height: 18px; background: transparent; cursor: pointer; }
+input[type="range"]::-webkit-slider-runnable-track { height: 8px; background: var(--bar); border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.2); }
+input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 18px; margin-top: -7px; background: var(--star);
+  border: 2px solid var(--edge); box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.4), inset -2px -2px 0 rgba(0, 0, 0, 0.25); }
+#panel::-webkit-scrollbar-thumb, .log::-webkit-scrollbar-thumb, .hscroll::-webkit-scrollbar-thumb { background: var(--line); border: 2px solid var(--edge); border-radius: 0;
+  box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12); }
+.hscroll::-webkit-scrollbar { height: 10px; }
+.hscroll::-webkit-scrollbar-track { background: var(--chip); border: 2px solid var(--edge); }
