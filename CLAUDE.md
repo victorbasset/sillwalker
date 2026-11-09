@@ -50,6 +50,11 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; ~700 Mo stables attendus).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
   zone, déblocages à 2, 5, 10, 15, 30, 60 min). Le début est volontairement calme (`earlyPace`, rules.js).
+- Ouverture des onglets : `node --experimental-default-type=module scripts/tab-pace.mjs` (minute d'ouverture de chaque
+  onglet, 3 graines) ; à relancer si on touche aux seuils de game/tabs.js ou au rythme du début.
+- Fin de partie : `node --experimental-default-type=module scripts/simulate.js 168 <classe>` (une semaine, ~80 s) :
+  les records des dernières courses doivent progresser régulièrement (repère it. 202 : mage 66 → 152, sans saut ni
+  plafond). À relancer après tout changement de zoneMight (rules.js) ou des zones de déblocage.
 - Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
