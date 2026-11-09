@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 207) : grands paliers de record (zones 50, 100, 150, 200…) : bannière dorée « ✦ Cap franchi : zone
+  N ! », son des grandes occasions, même texte en mode mini (les autres records restent sobres). 10 langues, contrôle
+  d'autotest (86/86).
 - 2026-11-09 (it. 206) : contrôle de fond après les changements de fin de partie : fuzz 120 graines × 60 min = 1200
   parties, 0 bloquée ; save-fuzz 20/20. CLAUDE.md : tab-pace.mjs et la semaine simulée (fin de partie) documentés.
 - 2026-11-09 (it. 205) : Carnet de route : record de zone noté tous les 5 jusqu'à la zone 50, puis tous les 10

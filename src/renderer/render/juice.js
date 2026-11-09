@@ -74,7 +74,12 @@ export class Juice {
     g.on("bossNemesis", ({ name }) => this.banner(tx("{0} enfin vaincu !", { 0: name }), "#ffb733", this.s.monX() - 40));
     g.on("loot", ({ item, mon, chest }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10));
     g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
-    g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120); });
+    g.on("zoneUp", ({ zone, record }) => {
+      if (!record) return;
+      // Grand palier (zone 50, 100, 150, 200…) : bannière dorée, plus marquante qu'un record ordinaire.
+      if (zone % 50 === 0) this.banner(`✦ ${tx("Cap franchi : zone {0} !", { 0: zone })}`, "#ffd34d", this.s.heroX + 120, true);
+      else this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120);
+    });
     g.on("setBonus", ({ id, n }) => { // panoplie : palier de 2 ou 4 pièces atteint
       const st = SETS[id]; if (!st) return;
       this.banner(`◆ ${tx("{0} : bonus {1} pièces !", { 0: st.name, 1: n })}`, st.color, this.s.heroX + 60, n >= 4);

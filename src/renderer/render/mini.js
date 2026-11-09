@@ -51,7 +51,7 @@ export class MiniRenderer {
     game.on("event", ({ id }) => { const ev = EVENTS[id]; if (ev) this.showMoment(ev.name + fsp() + "!", ev.text); });
     // Onglet débloqué : la bulle de la bande n'est pas visible en mode mini, l'annonce passe par la scène.
     game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(", ") })));
-    game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(tx("Nouveau record : zone {0} !", { 0: zone })); });
+    game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(zone % 50 === 0 ? "✦ " + tx("Cap franchi : zone {0} !", { 0: zone }) : tx("Nouveau record : zone {0} !", { 0: zone })); });
     game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })));
     // Clic sur le monstre combattu : coup bonus (sans agrandir l'encart).
     this.tap = el("button", "minitap", this.root);

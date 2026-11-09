@@ -517,4 +517,5 @@ export default {
   1641: "máx.",
   1642: "Companheiros que seguem seu herói e o fortalecem.",
   1643: "Mais {n} desbloqueio adiante|Mais {n} desbloqueios adiante",
+  1644: "Marco alcançado: zona {0}!",
 };

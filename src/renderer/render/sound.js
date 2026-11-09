@@ -103,7 +103,7 @@ export class Sound {
     game.on("codex", () => this.play("codex"));
     game.on("heroDown", () => this.play("ko"));
     // Moments marquants qui n'avaient pas de son
-    game.on("zoneUp", ({ record }) => { if (record) this.play("record"); });
+    game.on("zoneUp", ({ zone, record }) => { if (record) this.play(zone % 50 === 0 ? "legendary" : "record"); });
     game.on("ascend", () => this.play("ascend"));
     game.on("setBonus", () => this.play("level"));
     game.on("bossNemesis", () => this.play("legendary"));

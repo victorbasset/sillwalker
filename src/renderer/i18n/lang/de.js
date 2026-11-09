@@ -517,4 +517,5 @@ export default {
   1641: "max.",
   1642: "Begleiter, die deinem Helden folgen und ihn stärken.",
   1643: "Noch {n} Freischaltung weiter vorn|Noch {n} Freischaltungen weiter vorn",
+  1644: "Meilenstein erreicht: Zone {0}!",
 };

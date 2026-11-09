@@ -442,6 +442,9 @@ async function runSelfTest(strip) {
   const hintOpen = await js("(() => { document.getElementById('toast').click(); window.__noHints = false; window.__game.S.settings.hints = {}; window.__checkHints(); window.__noHints = true; const t = document.getElementById('toast'); const r = !t.hidden && /💡/.test(t.textContent); t.click(); return String(r); })()");
   check("astuce : affichée même le panneau ouvert", hintOpen === "true", hintOpen);
   await js("window.__panel.setTab('adventure')");
+  // Grand palier de zone (50, 100…) : bannière dorée « Cap franchi ».
+  const cap = await js("(() => { window.__game.emit('zoneUp', { zone: 100, record: true }); const b = [...document.querySelectorAll('.banner.big')].pop(); return b ? b.textContent : 'aucune'; })()");
+  check("record : grand palier annoncé (bannière dorée)", /100/.test(cap) && /✦/.test(cap), cap);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Tri du marchand, zone 14, remis en vente et payable : contrôle reproductible quelles que soient les zones.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.autoSell; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
