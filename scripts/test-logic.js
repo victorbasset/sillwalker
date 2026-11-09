@@ -1428,6 +1428,18 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("journal : sac plein, les échanges ordinaires se cumulent sur une ligne", () => {
+  const g = new Game(freshLocked());
+  g.S.bag.length = 0; g.S.log.length = 0;
+  while (!g.bagFull()) { const it = g.newItem(1); it.r = 0; g.S.bag.push(it); }
+  g.isUpgrade = () => false;
+  for (let i = 0; i < 5; i++) { const it = g.newItem(1); it.r = 1; g.addToBag(it); }
+  const lines = g.S.log.filter((l) => /replaced|remplacés/.test(l));
+  assert.equal(lines.length, 1, g.S.log.slice(0, 6).join(" | "));
+  assert.match(lines[0], /: 5 /);
+  assert.ok(!g.S.log.some((l) => /pour faire de la place|make room/.test(l)));
+});
+
 test("événement Œil du faucon : tous les coups sont critiques", () => {
   const g = new Game(freshLocked());
   g.startEvent("hawkeye");

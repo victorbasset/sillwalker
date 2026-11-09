@@ -516,7 +516,11 @@ export class Game {
       if (worst && (precious || it.r > worst.r)) {
         S.bag.splice(S.bag.indexOf(worst), 1);
         S.gold += sellValue(worst);
-        if (!quiet) this.log(tx("Sac plein : {0} vendu pour faire de la place à {1}.", { 0: itemName(worst), 1: itemName(it) }));
+        // Détail gardé pour un objet marquant (légendaire, amélioration) ; les échanges ordinaires se cumulent sur une ligne.
+        if (!quiet) {
+          if (precious) this.log(tx("Sac plein : {0} vendu pour faire de la place à {1}.", { 0: itemName(worst), 1: itemName(it) }));
+          else this.logSale("swap", tx("Sac plein, objets remplacés par mieux"), sellValue(worst));
+        }
       } else {
         const v = sellValue(it); S.gold += v;
         if (!quiet) { this.logSale("full", tx("Sac plein, objets vendus"), v); this.emit("bagFull"); }

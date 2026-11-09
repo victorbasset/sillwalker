@@ -1616,5 +1616,6 @@ export const KEYS = [
   "Sac plein : le butin suivant sera vendu",
   "À faire ({0})",
   "Acheter et équiper : {0} ({1} or)",
-  "Tous les coups sont critiques !"
+  "Tous les coups sont critiques !",
+  "Sac plein, objets remplacés par mieux"
 ];
