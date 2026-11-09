@@ -998,3 +998,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
     linear-gradient(var(--star), var(--star)) 0 100% / 3px 3px no-repeat,
     linear-gradient(var(--star), var(--star)) 100% 100% / 3px 3px no-repeat; opacity: .85; }
 .modal .panel::after, .panel.skillside::after { inset: 0 !important; } /* panneaux qui défilent : pas de rivet qui dépasse */
+/* Mode mini et boutons de la bande au nouveau style (demande 35) : angles droits, relief, nuit violine. */
+#mini { border-radius: 0; border-color: #0c0910; background: #120d18; box-shadow: inset 0 0 0 1px #3f3049; }
+#mini .mini-info { background: #1d1526; border-left-color: #0c0910; box-shadow: inset 2px 0 0 #3f3049; }
+#mini .mini-zone { color: #b3a5b9; }
+.sbtn { border-radius: 0; box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.10), inset -1px -1px 0 rgba(0, 0, 0, 0.3); }
+.sbtn:hover, .sbtn:focus-visible, .sbtn[aria-expanded="true"] { border-color: #e8b14a; }

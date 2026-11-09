@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 308, demande 35) : mode mini et boutons de la bande (son, réduire, agrandir) au nouveau style :
+  angles droits, petit relief, liseré d'or au survol, encadré nuit violine (le mini gardait l'ancien bleu nuit
+  arrondi). Capture, autotest vert.
 - 2026-11-10 (it. 307, étude des concurrents, action d : variété) : 10e capacité de boss « Peau de pierre » : −30 %
   de dégâts reçus tant qu'il a plus de 70 % de ses PV (coups et clics) ; « Peau de pierre brisée ! » au passage du
   seuil. Ajoutée à la rotation (bosses.js > ORDER : la capacité de chaque zone change). Nom « Cuirasse » écarté :
