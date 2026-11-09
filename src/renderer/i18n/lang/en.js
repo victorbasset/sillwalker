@@ -424,4 +424,6 @@ export default {
   1548: "one per boss, two from the 2nd loop",
   1549: "Elites",
   1550: "golden monsters: guaranteed loot, gold ×4; each has an affix",
+  1551: "{0} set: {1}-piece bonus!",
+  1552: "{0}: {1}-piece bonus!",
 };

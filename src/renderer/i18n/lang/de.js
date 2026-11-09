@@ -424,4 +424,6 @@ export default {
   1548: "eine pro Boss, zwei ab der 2. Runde",
   1549: "Elite-Gegner",
   1550: "goldene Monster: garantierte Beute, Gold ×4; jeder hat ein Affix",
+  1551: "Set {0}: Bonus für {1} Teile!",
+  1552: "{0}: Bonus für {1} Teile!",
 };

@@ -30,6 +30,7 @@ import {
   WORKSHOP, workshopPrice, eggPrice, DEAL_DISCOUNT,
 } from "./shop.js";
 import { POWERS, POWER_INDEX } from "./powers.js";
+import { SETS, setCounts } from "./sets.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
@@ -655,13 +656,19 @@ export class Game {
 
   /* ---------- Équipement ---------- */
   equip(it) {
-    const S = this.S, old = S.equip[it.slot];
+    const S = this.S, old = S.equip[it.slot], before = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
     S.bag = S.bag.filter((i) => i.id !== it.id);
     S.equip[it.slot] = it;
     if (old) S.bag.push(old);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
     this.log(tx("Équipé : ") + itemName(it) + ".");
+    // Palier de panoplie atteint (2 ou 4 pièces) : un moment à marquer.
+    const after = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
+    for (const n of [2, 4]) if (before < n && after >= n && SETS[it.set]) {
+      this.log(tx("Panoplie {0} : bonus {1} pièces !", { 0: SETS[it.set].name, 1: n }));
+      this.emit("setBonus", { id: it.set, n });
+    }
     this.changed();
   }
 

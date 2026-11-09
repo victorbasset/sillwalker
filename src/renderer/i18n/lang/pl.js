@@ -424,4 +424,6 @@ export default {
   1548: "jedna na bossa, dwie od 2. pętli",
   1549: "Elity",
   1550: "złote potwory: gwarantowany łup, złoto ×4; każdy ma afiks",
+  1551: "Zestaw {0}: premia za {1} części!",
+  1552: "{0}: premia za {1} części!",
 };

@@ -424,4 +424,6 @@ export default {
   1548: "una por jefe, dos desde el 2.º ciclo",
   1549: "Élites",
   1550: "monstruos dorados: botín garantizado, oro ×4; cada uno tiene un afijo",
+  1551: "Conjunto {0}: ¡bono de {1} piezas!",
+  1552: "{0}: ¡bono de {1} piezas!",
 };

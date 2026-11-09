@@ -5,6 +5,7 @@
 //
 // Tout est animé par la boucle à 30 FPS (aucune animation CSS, qui tournerait
 // à la fréquence de l'écran) et n'existe que le temps de l'effet.
+import { SETS } from "../game/sets.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, fsp } from "../i18n/index.js";
 import { CLASSES } from "../game/classes.js";
@@ -73,6 +74,11 @@ export class Juice {
     g.on("loot", ({ item, mon, chest }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10));
     g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
     g.on("zoneUp", ({ zone, record }) => { if (record) this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120); });
+    g.on("setBonus", ({ id, n }) => { // panoplie : palier de 2 ou 4 pièces atteint
+      const st = SETS[id]; if (!st) return;
+      this.banner(`◆ ${tx("{0} : bonus {1} pièces !", { 0: st.name, 1: n })}`, st.color, this.s.heroX + 60, n >= 4);
+      this.sparkles(this.s.heroX + 18, this.ground() - 40, st.color, n >= 4 ? 18 : 10);
+    });
     g.on("ascend", ({ count, gain } = {}) => { // nouvelle course : moment marquant, mais bref
       this.banner(`✦ ${tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })}`, "#c9b8ff", this.s.heroX + 40, true);
       this.sparkles(this.s.heroX + 18, this.ground() - 40, "#e0d8ff", 20);

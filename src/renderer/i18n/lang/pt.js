@@ -424,4 +424,6 @@ export default {
   1548: "uma por chefe, duas a partir do 2º ciclo",
   1549: "Elites",
   1550: "monstros dourados: saque garantido, ouro ×4; cada um tem um afixo",
+  1551: "Conjunto {0}: bônus de {1} peças!",
+  1552: "{0}: bônus de {1} peças!",
 };

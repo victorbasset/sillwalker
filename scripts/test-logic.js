@@ -1007,6 +1007,17 @@ test("récompense du jour : une série interrompue est signalée", () => {
   assert.equal(g.claimDaily("2026-11-07").broken, 0, "jour suivant : rien à signaler");
 });
 
+test("panoplie : un moment au palier de 2 puis de 4 pièces, une seule fois", () => {
+  const g = new Game(freshState());
+  for (const k in g.S.equip) g.S.equip[k] = null;
+  const seen = [];
+  g.on("setBonus", (e) => seen.push(e.n));
+  for (const slot of ["weapon", "helm", "armor", "gloves", "boots"]) {
+    const it = g.newItem(3); it.slot = slot; it.set = "dawn"; g.S.bag.push(it); g.equip(it);
+  }
+  assert.deepEqual(seen, [2, 4], "2 pièces puis 4 pièces, pas à la 5e");
+});
+
 test("panoplie du Traqueur de champions : élites rencontrées à 2 et 4 pièces", () => {
   const eq = {}, slots = ["weapon", "helm", "armor", "gloves"];
   slots.slice(0, 2).forEach((k) => { eq[k] = { set: "hunter" }; });

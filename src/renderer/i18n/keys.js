@@ -1552,5 +1552,7 @@ export const KEYS = [
   "Capacités des boss",
   "une par boss, deux à partir de la 2e boucle",
   "Élites",
-  "monstres dorés : butin garanti, or ×4 ; chacun a un affixe"
+  "monstres dorés : butin garanti, or ×4 ; chacun a un affixe",
+  "Panoplie {0} : bonus {1} pièces !",
+  "{0} : bonus {1} pièces !"
 ];
