@@ -1,6 +1,6 @@
 // Format de la sauvegarde + migrations. Toute nouvelle donnée persistante
 // doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
-import { SLOT_KEYS, LEGENDARY, BAG_SIZE } from "./data.js";
+import { SLOT_KEYS, LEGENDARY, BAG_SIZE, RARITIES } from "./data.js";
 import { CLASSES, CLASS_UNLOCK_ZONE } from "./classes.js";
 import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
@@ -103,9 +103,23 @@ export function migrate(raw) {
   const def = freshState(o.last || Date.now());
   const s = Object.assign(freshState(o.last || Date.now()), o);
   s.equip = Object.assign(def.equip, isObj(o.equip) ? o.equip : {});
+  // Objets illisibles (null, emplacement ou rareté inconnus) : retirés, sinon ils font planter le tri du sac,
+  // « À faire », la vente… Un objet porté doit être à sa place ; ses statistiques illisibles sont écartées.
+  const okItem = (it) => isObj(it) && SLOT_KEYS.includes(it.slot) && Number.isInteger(it.r) && !!RARITIES[it.r];
+  const fixItem = (it) => {
+    if (!isObj(it.st)) it.st = {};
+    for (const k in it.st) if (!Number.isFinite(it.st[k])) delete it.st[k];
+    return it;
+  };
+  for (const k of Object.keys(s.equip)) {
+    const it = s.equip[k];
+    if (!SLOT_KEYS.includes(k)) delete s.equip[k];
+    else if (it != null && !(okItem(it) && it.slot === k)) s.equip[k] = null;
+    else if (it) fixItem(it);
+  }
   s.stats = Object.assign(def.stats, isObj(o.stats) ? o.stats : {});
   s.autoSell = Object.assign(def.autoSell, isObj(o.autoSell) ? o.autoSell : {});
-  if (!Array.isArray(s.bag)) s.bag = [];
+  s.bag = Array.isArray(s.bag) ? s.bag.filter(okItem).map(fixItem) : [];
   if (!Array.isArray(s.log)) s.log = [];
   if (!Array.isArray(s.achievements)) s.achievements = [];
   if (!CLASSES[s.cls]) s.cls = "warrior";

@@ -1428,6 +1428,22 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("sauvegarde : objets illisibles retirés du sac et de l'équipement, sans plantage", () => {
+  const raw = JSON.parse(JSON.stringify(freshState()));
+  const good = { id: 6, slot: "weapon", r: 1, il: 1, st: { atk: 5, def: null } };
+  raw.bag = [null, {}, { id: 5, slot: "nope", r: 1 }, { id: 8, slot: "helm", r: 42 }, good];
+  raw.equip.helm = { id: 7, slot: "ring", r: 2, st: {} }; // pas à sa place
+  raw.equip.bogus = { id: 9 };
+  const s = migrate(raw);
+  assert.equal(s.bag.length, 1);
+  assert.deepEqual(s.bag[0].st, { atk: 5 });
+  assert.equal(s.equip.helm, null);
+  assert.ok(!("bogus" in s.equip));
+  const g = new Game(s);
+  g.uselessItems(); g.todoNow(); g.autoEquip();
+  for (let i = 0; i < 500; i++) g.step(0.1);
+});
+
 test("sauvegarde : nombres illisibles des sous-objets remplacés par leur valeur par défaut", () => {
   const raw = JSON.parse(JSON.stringify(freshState()));
   raw.prestige.shards = null; raw.stats.kills = "abc"; raw.guild.rep = null; raw.pets.eggs = null; raw.stats.bosses = 12;
