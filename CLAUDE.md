@@ -71,6 +71,11 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 
 ## Pièges connus
 
+- Panneau : thème clair (par défaut) et sombre selon Windows. Jamais de couleur claire en dur pour du texte
+  (#ffe9a8, #9fe0a8…) : utiliser les jetons du thème (`--accent`, `--good`, `--bad`, `--r0`…`--r4`, `--muted`)
+  ou une couleur vive dans `--c` avec la classe `.tint` (assombrie en thème clair). Vérifier en capture
+  avec et sans `--force-dark-mode`. (La bande et le mode mini sont toujours sombres : non concernés.)
+
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.
 - `sed` sur des chaînes JavaScript : attention aux `\u…` et aux `\n`, vérifier le résultat.
