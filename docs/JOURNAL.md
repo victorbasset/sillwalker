@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 213) : vérifié : le menu de l'icône (processus principal) suit la langue détectée d'une partie
+  neuve (api.setLang au démarrage). CLAUDE.md : captures d'une partie neuve dans une langue avec --lang=xx-YY.
 - 2026-11-09 (it. 212) : une partie neuve démarrait toujours en anglais : elle prend désormais la langue du système
   (navigator.languages : fr-FR → fr, pt-BR → pt… ; anglais à défaut). systemLang (i18n/index.js), test, capture
   avec --lang=fr-FR (panneau en français, « fr » enregistré). 89/89.

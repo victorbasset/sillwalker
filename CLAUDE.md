@@ -74,7 +74,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (sur une COPIE de sauvegarde : il achète, vend, dépense). À lancer après un gros changement d'interface.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
 - Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`
-  de la copie), pas de `settings.json`. Le panneau est sombre par défaut ; pour capturer le thème clair, mettre `settings.theme = "light"` dans la copie
+  de la copie), pas de `settings.json`. Partie neuve (dossier vide) : langue du système, à forcer avec
+  `--lang=fr-FR` (option de Chromium). Le panneau est sombre par défaut ; pour capturer le thème clair, mettre `settings.theme = "light"` dans la copie
   (ou `"auto"` + `--force-dark-mode` pour tester le suivi de Windows).
 - Les erreurs de l'interface s'affichent dans la console sous la forme `[renderer error] …`.
 
