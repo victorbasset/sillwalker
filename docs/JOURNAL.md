@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 270, revue générale) : simulations 12 h : guerrier 59, mage 54, barde 60 (stables) ; crawl
+  295 clics sans erreur ; texte russe : aucun mot latin suspect ; talents du Barde en allemand bien traduits ;
+  perf (son + musique) : bande 21 %, panneau 24 %, mini 6,4 %, icône 2,6 % d'un cœur (stables).
 - 2026-11-09 (it. 269) : contrôle de fuite après la musique (des nœuds audio créés à chaque note) : mem-watch 10 min à
   ×3, son et musique actifs : 775 à 785 Mo, stable (pas de fuite ; +80 Mo par rapport au repère de 700 Mo : le
   contexte audio). CLAUDE.md : repère mis à jour.
