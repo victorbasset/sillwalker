@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 233) : cinématiques en file : en zone 10, la libération du Rôdeur et la première chronique
+  arrivaient dans la même seconde et la seconde cinématique remplaçait la première (jamais vue). Une cinématique
+  lancée pendant une autre attend maintenant sa fin (file de 3 au plus) ; le générique passe en tête après la
+  victoire. Contrôle d'autotest de la file, 97/97.
 - 2026-11-09 (it. 232) : README à jour : histoire (intro, chroniques, Briseur d'Étoiles, fin, cinématiques), Carte du
   Rebord et Carte du voyageur ; 19 déblocages (zones 8 à 200).
 - 2026-11-09 (it. 231) : la carte sert aussi au jeu : déblocage « Carte du voyageur » (zone 22, 90 000 or, entre

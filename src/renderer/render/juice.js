@@ -241,7 +241,14 @@ export class Juice {
    */
   cinematic(kind, data = {}) {
     if (!this.active) return;
-    if (this.cine) this.cine.done = true;
+    // Une cinématique en cours : la suivante attend son tour (zone 10 : héros libéré puis chronique, l'une
+    // remplaçait l'autre). File courte : au-delà de 3, les plus anciennes en attente sont oubliées.
+    if (this.cine && !this.cine.done) {
+      const Q = (this.cineQueue ||= []);
+      Q.push([kind, data]);
+      if (Q.length > 3) Q.shift();
+      return;
+    }
     const W = this.s.W, H = this.layer.clientHeight || 120, S = this.s.game.S;
     const node = el("div", "cine " + kind, this.layer), cv = makeCanvas(node, "cine-sky"), dpr = window.devicePixelRatio || 1;
     sizeCanvas(cv, W, H, dpr);
@@ -291,7 +298,10 @@ export class Juice {
       const k = Math.max(0, Math.min(fadeIn, fadeOut));
       if (state.done || t >= life) {
         if (this.cine === state) this.cine = null;
-        if (kind === "dawn" && !state.done) setTimeout(() => this.cinematic("credits"), 0); // générique ensuite
+        // Générique après la victoire (sauf si on a passé la scène), puis la cinématique suivante en attente.
+        if (kind === "dawn" && !state.done) (this.cineQueue ||= []).unshift(["credits", {}]);
+        const next = this.cineQueue && this.cineQueue.shift();
+        if (next) setTimeout(() => this.cinematic(next[0], next[1]), 300);
         return false;
       }
       node.style.opacity = k.toFixed(2);
