@@ -405,4 +405,5 @@ export default {
   1529: "Derrota {n} jefe|Derrota {n} jefes",
   1530: "Forja {n} vez|Forja {n} veces",
   1531: "Gélido",
+  1532: "¿Tu héroe ha caído? Tranquilo: retrocede un poco y vuelve a ponerse en marcha solo. Un mejor equipo (▲ en la bolsa) le ayudará a pasar. Haz clic aquí.",
 };

@@ -890,6 +890,17 @@ test("conseil : héros bloqué près du record, une fois par course", () => {
   assert.equal(nextHint(g)?.id, "stuck", "de nouveau à la course suivante");
 });
 
+test("conseil après la première défaite (début de partie seulement)", () => {
+  const g = new Game(freshLocked());
+  g.S.settings.hints = { welcome: true };
+  g.talentPointsFree = () => 0; g.hasUpgradeCached = () => false; g.questsReady = () => 0;
+  assert.notEqual(nextHint(g)?.id, "death", "pas avant une défaite");
+  g.S.stats.deaths = 1;
+  assert.equal(nextHint(g)?.id, "death");
+  g.S.prestige.count = 1;
+  assert.notEqual(nextHint(g)?.id, "death", "joueur aguerri : inutile");
+});
+
 test("conseil Astrolabe : après l'achat, tant qu'il n'est pas coché", () => {
   const g = new Game(freshLocked());
   g.S.settings.hints = Object.fromEntries(["welcome", "upgrade", "talent", "skills", "quest", "egg", "shop", "ascend", "expedition", "codex", "classes", "unlock:armsValet", "unlock:masterForge", "unlock:starNet"].map((k) => [k, true]));

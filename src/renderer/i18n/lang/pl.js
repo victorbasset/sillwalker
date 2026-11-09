@@ -405,4 +405,5 @@ export default {
   1529: "Pokonaj {n} bossa|Pokonaj {n} bossów|Pokonaj {n} bossów",
   1530: "Wykuj {n} raz|Wykuj {n} razy|Wykuj {n} razy",
   1531: "Mroźny",
+  1532: "Twój bohater padł? Bez obaw: cofa się trochę i sam rusza dalej. Lepszy ekwipunek (▲ w torbie) pomoże mu przejść. Kliknij tutaj.",
 };

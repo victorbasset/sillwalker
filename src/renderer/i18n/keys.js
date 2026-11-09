@@ -1533,5 +1533,6 @@ export const KEYS = [
   "Ramener {n} expédition de familier|Ramener {n} expéditions de familier",
   "Vaincre {n} boss|Vaincre {n} boss",
   "Forger {n} fois|Forger {n} fois",
-  "Givré"
+  "Givré",
+  "Ton héros est tombé ? Pas de panique : il recule un peu, puis repart tout seul. Un meilleur équipement (▲ dans le sac) l’aidera à passer. Clique ici."
 ];

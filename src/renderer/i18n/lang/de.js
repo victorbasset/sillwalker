@@ -405,4 +405,5 @@ export default {
   1529: "Besiege {n} Boss|Besiege {n} Bosse",
   1530: "{n}-mal schmieden|{n}-mal schmieden",
   1531: "Frostig",
+  1532: "Dein Held ist gefallen? Keine Sorge: Er zieht sich ein Stück zurück und macht dann von selbst weiter. Bessere Ausrüstung (▲ in der Tasche) hilft ihm weiter. Hier klicken.",
 };

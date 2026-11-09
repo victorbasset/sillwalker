@@ -405,4 +405,5 @@ export default {
   1529: "Defeat {n} boss|Defeat {n} bosses",
   1530: "Forge {n} time|Forge {n} times",
   1531: "Frosty",
+  1532: "Your hero fell? Don't worry: they step back a little, then set off again on their own. Better gear (▲ in the bag) will help them get through. Click here.",
 };
