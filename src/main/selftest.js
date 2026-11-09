@@ -359,6 +359,10 @@ async function runSelfTest(strip) {
   await sleep(100);
   const setTip = await js("(document.querySelector('#p-hero .chip.set') || {}).title || null");
   check("panoplie : bonus au survol de l'étiquette", setTip.split("\n").length === 2, JSON.stringify(setTip));
+  // Pièce de panoplie dans le sac : l'infobulle montre ce que l'équiper change au décompte.
+  const prog = await js("(() => { const g = window.__game; const it = g.S.bag.find((i) => i.slot !== 'weapon') || g.S.bag[0]; if (!it) return 'sac vide'; it.set = 'hunter'; window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); if (!el) return 'case introuvable'; window.__panel.onHover({ target: el }); return (document.querySelector('.itemtip .setprog') || {}).textContent || 'pas de ligne'; })()");
+  check("infobulle : progression de panoplie (« → / 4 »)", /→ .* \/ 4/.test(prog), prog);
+  await js("window.__panel.tip.hidden = true");
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

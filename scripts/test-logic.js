@@ -1362,7 +1362,9 @@ test("panoplie complétée une première fois : bonus permanent, gardé à l'asc
   const old = JSON.parse(JSON.stringify(freshLocked())); delete old.setsDone; // sauvegarde d'avant
   assert.deepEqual(migrate(old).setsDone, {});
   g.S.best = g.S.zone = 30; g.S.prestige.shards = 0;
-  if (g.canAscend()) { g.ascend(); assert.ok(g.S.setsDone.dawn, "gardé à l'ascension"); }
+  assert.ok(g.canAscend());
+  assert.ok(g.ascend() !== false);
+  assert.ok(g.S.setsDone.dawn, "gardé à l'ascension");
 });
 
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {

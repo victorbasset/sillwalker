@@ -476,4 +476,5 @@ export default {
   1600: "Conjunto completado pela primeira vez: {0} para sempre.",
   1601: "{0} / {1} completados · cada um dá {2} para sempre",
   1602: "completado",
+  1603: "Conjunto {0}: {1} → {2} / 4",
 };

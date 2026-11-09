@@ -476,4 +476,5 @@ export default {
   1600: "Set completed for the first time: {0} forever.",
   1601: "{0} / {1} completed · each gives {2} forever",
   1602: "completed",
+  1603: "{0} set: {1} → {2} / 4",
 };

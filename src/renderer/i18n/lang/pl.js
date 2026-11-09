@@ -476,4 +476,5 @@ export default {
   1600: "Zestaw skompletowany po raz pierwszy: {0} na zawsze.",
   1601: "{0} / {1} skompletowanych · każdy daje {2} na zawsze",
   1602: "skompletowany",
+  1603: "Zestaw {0}: {1} → {2} / 4",
 };

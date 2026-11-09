@@ -476,4 +476,5 @@ export default {
   1600: "Set zum ersten Mal vervollständigt: {0} für immer.",
   1601: "{0} / {1} vervollständigt · jedes gibt {2} für immer",
   1602: "vervollständigt",
+  1603: "Set {0}: {1} → {2} / 4",
 };

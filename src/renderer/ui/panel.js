@@ -348,6 +348,15 @@ export class Panel {
   }
 
   /** Survol d'un emplacement : infobulle avec statistiques et comparaison. */
+  /** Pièce de panoplie dans le sac : ce que l'équiper change au décompte (« 2 → 3 / 4 »), mis en valeur s'il débloque un bonus. */
+  setProgress(it, cur, fromBag) {
+    if (!fromBag || !it.set || !SETS[it.set]) return "";
+    const now = setCounts(this.game.S.equip)[it.set] || 0, after = now - (cur && cur.set === it.set ? 1 : 0) + 1;
+    if (after <= now) return "";
+    const unlocks = (now < 2 && after >= 2) || (now < 4 && after >= 4);
+    return `<p class="setprog${unlocks ? " delta-p" : ""}">${unlocks ? "★ " : ""}${esc(tx("Panoplie {0} : {1} → {2} / 4", { 0: SETS[it.set].name, 1: now, 2: Math.min(4, after) }))}</p>`;
+  }
+
   onHover(e) {
     const tb = this.tab === "talents" && e.target.closest && e.target.closest("[data-tid]");
     if (tb) this.tabs.talents.hover(tb.dataset.tid);
@@ -367,7 +376,7 @@ export class Panel {
     }
     this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
       <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div>
-      <ul class="lines">${lines}</ul>${power(it, S.equip)}${verdict}
+      <ul class="lines">${lines}</ul>${power(it, S.equip)}${this.setProgress(it, cur, fromBag)}${verdict}
       <p class="note tight tiphelp">${fromBag ? tx("Double-clic : équiper") : tx("Double-clic : retirer")}</p>`;
     this.tip.hidden = false;
     const r = b.getBoundingClientRect(), pr = this.root.getBoundingClientRect();

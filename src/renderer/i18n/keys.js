@@ -1604,5 +1604,6 @@ export const KEYS = [
   "captif : {0}",
   "Panoplie complétée pour la première fois : {0} pour toujours.",
   "{0} / {1} complétées · chacune donne {2} pour toujours",
-  "complétée"
+  "complétée",
+  "Panoplie {0} : {1} → {2} / 4"
 ];
