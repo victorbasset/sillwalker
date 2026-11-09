@@ -1349,6 +1349,22 @@ test("sac plein : un objet vendu faute de place prévient le héros (bagFull)", 
   assert.equal(n, 1, "rien en mode silencieux (absence)");
 });
 
+test("panoplie complétée une première fois : bonus permanent, gardé à l'ascension et à la migration", () => {
+  const g = new Game(freshLocked());
+  for (const k in g.S.equip) g.S.equip[k] = null;
+  g.invalidateStats();
+  const atk0 = g.stats().atk;
+  for (const slot of ["weapon", "helm", "armor", "gloves"]) { const it = g.newItem(3); it.slot = slot; it.set = "dawn"; g.S.bag.push(it); g.equip(it); }
+  assert.ok(g.S.setsDone.dawn, "complétée");
+  for (const k in g.S.equip) g.S.equip[k] = null; // pièces retirées : le bonus reste
+  g.invalidateStats();
+  assert.ok(g.stats().atk > atk0, "bonus permanent");
+  const old = JSON.parse(JSON.stringify(freshLocked())); delete old.setsDone; // sauvegarde d'avant
+  assert.deepEqual(migrate(old).setsDone, {});
+  g.S.best = g.S.zone = 30; g.S.prestige.shards = 0;
+  if (g.canAscend()) { g.ascend(); assert.ok(g.S.setsDone.dawn, "gardé à l'ascension"); }
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

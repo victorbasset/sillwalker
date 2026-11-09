@@ -10,7 +10,7 @@
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
 import { itemName } from "../i18n/data.js";
 import { t as tx, txn, tr, fsp, lc } from "../i18n/index.js";
-import { codexRecord } from "./codex.js";
+import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
   RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
@@ -23,7 +23,7 @@ import {
   itemScore,
 } from "./rules.js";
 import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked } from "./classes.js";
-import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES } from "./talents.js";
+import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects } from "./talents.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
@@ -715,6 +715,11 @@ export class Game {
     const after = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
     for (const n of [2, 4]) if (before < n && after >= n && SETS[it.set]) {
       this.log(tx("Panoplie {0} : bonus {1} pièces !", { 0: SETS[it.set].name, 1: n }));
+      if (n === 4 && !(S.setsDone ||= {})[it.set]) { // première fois : bonus de collection permanent
+        S.setsDone[it.set] = true;
+        this.invalidateStats();
+        this.log(tx("Panoplie complétée pour la première fois : {0} pour toujours.", { 0: describeEffects(SET_CODEX_BONUS) }));
+      }
       this.emit("setBonus", { id: it.set, n });
     }
     this.changed();
@@ -1541,7 +1546,7 @@ export class Game {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
-      stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     const eff = prestigeEffects(f);
     f.zone = f.best = ascendStartZone(eff, old.best);

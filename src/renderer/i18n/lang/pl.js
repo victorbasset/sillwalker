@@ -473,4 +473,7 @@ export default {
   1597: "Nie ma już miejsca w torbie…",
   1598: "Trzeba by opróżnić torbę!",
   1599: "więzień: {0}",
+  1600: "Zestaw skompletowany po raz pierwszy: {0} na zawsze.",
+  1601: "{0} / {1} skompletowanych · każdy daje {2} na zawsze",
+  1602: "skompletowany",
 };

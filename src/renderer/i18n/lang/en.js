@@ -473,4 +473,7 @@ export default {
   1597: "No more room in the bag…",
   1598: "Someone should empty the bag!",
   1599: "captive: {0}",
+  1600: "Set completed for the first time: {0} forever.",
+  1601: "{0} / {1} completed · each gives {2} forever",
+  1602: "completed",
 };

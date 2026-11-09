@@ -473,4 +473,7 @@ export default {
   1597: "Não cabe mais nada na bolsa…",
   1598: "Precisava esvaziar a bolsa!",
   1599: "cativo: {0}",
+  1600: "Conjunto completado pela primeira vez: {0} para sempre.",
+  1601: "{0} / {1} completados · cada um dá {2} para sempre",
+  1602: "completado",
 };

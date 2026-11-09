@@ -1601,5 +1601,8 @@ export const KEYS = [
   "Mon sac déborde !",
   "Plus de place dans le sac…",
   "Il faudrait vider le sac !",
-  "captif : {0}"
+  "captif : {0}",
+  "Panoplie complétée pour la première fois : {0} pour toujours.",
+  "{0} / {1} complétées · chacune donne {2} pour toujours",
+  "complétée"
 ];

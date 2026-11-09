@@ -50,6 +50,7 @@ export function freshState(now = Date.now()) {
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
+    setsDone: {},           // panoplies complétées (4 pièces portées) au moins une fois { id: true }, voir codex.js
   };
 }
 
@@ -117,6 +118,11 @@ export function migrate(raw) {
   }
   if (s.nextCls && !CLASSES[s.nextCls]) s.nextCls = null;
   for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop"]) if (!isObj(s[k])) s[k] = {};
+  if (!isObj(o.setsDone)) { // apparu après coup : une panoplie complète déjà portée compte
+    s.setsDone = {};
+    const n = {}; for (const it of Object.values(s.equip)) if (it && it.set) n[it.set] = (n[it.set] || 0) + 1;
+    for (const id in n) if (n[id] >= 4) s.setsDone[id] = true;
+  }
   if (!isObj(o.powersSeen)) { s.powersSeen = {}; for (const it of [...s.bag, ...Object.values(s.equip)]) if (it && it.power) s.powersSeen[it.power] = true; }
   if (!isObj(o.codex)) { // collection apparue après coup : on y met les objets déjà possédés
     s.codex = {};

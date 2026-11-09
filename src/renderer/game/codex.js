@@ -43,6 +43,9 @@ export function codexRecord(S, it) {
   return isNew ? "new" : "better";
 }
 
+/** Chaque panoplie complétée (4 pièces portées) au moins une fois : bonus permanent, conservé à l'ascension. */
+export const SET_CODEX_BONUS = { atkPct: 1, hpPct: 1 };
+
 export function codexEffects(S) {
   const C = S.codex || {}, out = {};
   let found = 0, epic = 0, leg = 0;
@@ -50,6 +53,7 @@ export function codexEffects(S) {
   const add = (eff, n) => { if (n) for (const s in eff) out[s] = (out[s] || 0) + eff[s] * n; };
   add(CODEX_BONUS.found, found); add(CODEX_BONUS.epic, epic); add(CODEX_BONUS.legendary, leg);
   add(POWER_CODEX_BONUS, powersFound(S));
+  add(SET_CODEX_BONUS, Object.keys(S.setsDone || {}).length);
   return out;
 }
 

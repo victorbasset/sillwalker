@@ -56,7 +56,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Élites à affixes** : rapide, blindé, vampirique, furieux ou givré (ses coups peuvent geler le héros).
 - **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
 - **Panoplies** : 9 ensembles (dont le Voyageur du vent, axé vitesse, et le Traqueur de champions, qui attire les élites), bonus à 2 et 4 pièces
-  (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros).
+  (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros) ; chaque panoplie
+  complétée une première fois donne +1 % attaque et +1 % PV pour toujours (Bestiaire : « N / 9 complétées »).
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
 - **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins).

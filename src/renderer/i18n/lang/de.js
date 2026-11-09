@@ -473,4 +473,7 @@ export default {
   1597: "Kein Platz mehr in der Tasche …",
   1598: "Man müsste die Tasche leeren!",
   1599: "Gefangener: {0}",
+  1600: "Set zum ersten Mal vervollständigt: {0} für immer.",
+  1601: "{0} / {1} vervollständigt · jedes gibt {2} für immer",
+  1602: "vervollständigt",
 };
