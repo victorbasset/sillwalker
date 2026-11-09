@@ -47,7 +47,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   tout changement des monstres, élites, champions ou de la mort du héros.
 - Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (20 corruptions de la
   sauvegarde de dev : null, valeurs inconnues… ; chacune doit afficher « ok »). À relancer après tout ajout de donnée sauvegardée.
-- Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; ~700 Mo stables attendus).
+- Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; ~780 Mo stables attendus, son et musique actifs).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
   zone, déblocages à 2, 5, 10, 15, 30, 60 min). Le début est volontairement calme (`earlyPace`, rules.js).
 - Ouverture des onglets : `node --experimental-default-type=module scripts/tab-pace.mjs` (minute d'ouverture de chaque

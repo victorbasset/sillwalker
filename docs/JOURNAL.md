@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 269) : contrôle de fuite après la musique (des nœuds audio créés à chaque note) : mem-watch 10 min à
+  ×3, son et musique actifs : 775 à 785 Mo, stable (pas de fuite ; +80 Mo par rapport au repère de 700 Mo : le
+  contexte audio). CLAUDE.md : repère mis à jour.
 - 2026-11-09 (it. 268) : succès DUO_FIRST « Premier duo », HEROES_10 « Dix héros libérés », HEROES_ALL « Tous les
   héros libérés » (progression n / 10, n / 20 dans Statistiques) ; README : à déclarer dans Steamworks. Test, 103/103.
 - 2026-11-09 (it. 267) : carte du héros : le compagnon du duo s'affiche à côté du héros (« Guerrier + 🧝 Rôdeur »,
