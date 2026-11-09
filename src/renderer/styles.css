@@ -100,8 +100,9 @@ body.mode-mini #root { display: none; }
 .chev { width: 10px; height: 10px; border-left: 3px solid #fff; border-top: 3px solid #fff; transform: translateY(2px) rotate(45deg); }
 body.edge-top #menu-btn .chev, body.edge-bottom #menu-btn[aria-expanded="true"] .chev { transform: translateY(-2px) rotate(225deg); }
 body.edge-top #menu-btn[aria-expanded="true"] .chev { transform: translateY(2px) rotate(45deg); }
-.ico-mini { width: 14px; height: 9px; border: 2px solid #fff; border-top-width: 4px; }
+/* Même ordre et mêmes symboles partout, comme les fenêtres : ▁ réduire (à gauche), □ agrandir (à droite). */
 .ico-min { width: 12px; height: 3px; background: #fff; transform: translateY(4px); }
+.ico-max { width: 11px; height: 9px; border: 2px solid #fff; border-top-width: 3px; }
 #menu-btn .badge { position: absolute; right: -4px; top: -4px; width: 9px; height: 9px; background: #6fd17f; border: 2px solid #14121f; }
 #menu-btn .badge[hidden] { display: none; }
 
@@ -140,6 +141,7 @@ body.panel-open #toast { display: none; }
 #mini .mini-btns .sbtn { width: 22px; height: 18px; }
 #mini .mini-btns .chev { width: 8px; height: 8px; border-width: 2px; }
 #mini .mini-btns .ico-min { width: 9px; height: 2px; transform: translateY(3px); }
+#mini .mini-btns .ico-max { width: 8px; height: 6px; border-width: 2px; }
 
 /* ---------- Panneau qui se déploie ---------- */
 /* Le panneau est toujours dans la page (invisible quand fermé) : l'ouvrir

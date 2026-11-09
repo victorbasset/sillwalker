@@ -10,7 +10,7 @@ async function runSelfTest(strip) {
   const js = (code) => wc.executeJavaScript(code).catch((e) => { console.log("[selftest] ÉCHEC script :", code.slice(0, 140)); throw e; });
   const state = (expr) => js(`(() => { const S = window.__game.S; return ${expr}; })()`);
   // Le profil de test s'accumule d'une exécution à l'autre : la vitesse permanente doit pouvoir encore monter.
-  await js("window.__game.S.speed = Math.min(window.__game.S.speed || 0, 100)");
+  await js("window.__game.S.speed = Math.min(window.__game.S.speed || 0, 100); window.__noHints = true"); // astuces coupées : les contrôles maîtrisent la bulle
   // Déblocages achetés (le parcours teste les commandes automatiques).
   await js("Object.assign(window.__game.S.unlocks ||= {}, Object.fromEntries([\"bulkEquip\", \"menagerie\", \"forge\", \"workshop\", \"autoPotion\", \"autoSell\", \"bulkPoints\", \"questDesk\", \"expeditions\", \"petBulk\", \"transmute\", \"autoLevel\"].map((k) => [k, true]))); window.__game.changed()");
   const rectOf = (sel) => js(`(() => { const e = document.querySelector(${JSON.stringify(sel)}); e.scrollIntoView({ block: "nearest" }); const r = e.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
@@ -436,6 +436,12 @@ async function runSelfTest(strip) {
   // Accessibilité : les blocs repliables (summary) ont un focus clavier visible (règle présente dans la feuille chargée).
   const sf = await js("[...document.styleSheets].some((sh) => { try { return [...sh.cssRules].some((r) => /summary:focus-visible/.test(r.selectorText || '') && /outline/.test(r.cssText)); } catch { return false; } })");
   check("accessibilité : focus clavier visible sur un bloc repliable", sf === true, String(sf));
+  // Boutons : même ordre partout (réduire à gauche, agrandir à droite) ; astuce affichée même panneau ouvert.
+  const order = await js("(() => { const a = [...document.querySelectorAll('#mini .mini-btns button')].map((b) => b.id).join(','); const s = document.getElementById('mini-btn').compareDocumentPosition(document.getElementById('menu-btn')) & 4 ? 'mini-btn,menu-btn' : 'menu-btn,mini-btn'; return a + ' | ' + s; })()");
+  check("boutons : réduire à gauche, agrandir à droite (mini et bande)", order === "mini-icon,mini-expand | mini-btn,menu-btn", order);
+  const hintOpen = await js("(() => { document.getElementById('toast').click(); window.__noHints = false; window.__game.S.settings.hints = {}; window.__checkHints(); window.__noHints = true; const t = document.getElementById('toast'); const r = !t.hidden && /💡/.test(t.textContent); t.click(); return String(r); })()");
+  check("astuce : affichée même le panneau ouvert", hintOpen === "true", hintOpen);
+  await js("window.__panel.setTab('adventure')");
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

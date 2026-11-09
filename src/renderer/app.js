@@ -231,10 +231,12 @@ async function boot() {
     hideToast(); // la bulle suivante de la file, s'il y en a une
     act?.();
   });
-  /** Conseils : un à la fois, quand la bulle est libre et le panneau fermé. */
+  /** Conseils : un à la fois, quand la bulle est libre (panneau ouvert ou fermé). */
   function checkHints() {
     if (mode === "mini") { if (pendingOffline) return; const h = nextHint(game); mini.setHint(h && h.text); return; }
-    if (mode !== "strip" || panelOpen || !toast.hidden || Date.now() < toastUntil) return;
+    // Panneau ouvert compris (demande de Victor : l'astuce à l'ampoule ne s'affichait plus le menu déplié).
+    if (window.__noHints) return; // auto-test (dev) : bulles réservées aux contrôles
+    if (mode !== "strip" || !toast.hidden || Date.now() < toastUntil) return;
     const h = nextHint(game);
     if (!h) return;
     markHint(game, h.key);
@@ -361,6 +363,7 @@ async function boot() {
   if (init.isDev) window.__panel = panel; // auto-test (dev)
   if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
   if (init.isDev) window.__showToast = showToast; // auto-test (dev) : file des bulles
+  if (init.isDev) window.__checkHints = () => checkHints(); // auto-test (dev)
   if (init.isDev) window.__stepLine = stepLine; // auto-test (dev) : ligne d'étape de la bulle de retour
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
   if (init.isDev) window.__demo = () => {
