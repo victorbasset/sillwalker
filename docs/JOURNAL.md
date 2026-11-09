@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 220, revue générale) : simulations 12 h : mage 58, guerrier 54, assassin 60 (stable, ±1,5 de bruit) ;
+  perf:linux : bande 16,9 % d'un cœur, panneau 18,2 %, mini 3,9 %, icône 0,4 % ; 560 à 680 Mo. Chasse aux textes
+  non traduits (russe) : rien. Captures allemand + thème clair (Chroniques, détail sous le sac) : propres. Corrigé :
+  pouvoir d'un objet « ★ Nom : effet » gardait l'espace française avant « : » dans les autres langues (fsp()).
 - 2026-11-09 (it. 219, demande 11 étape b) : Chroniques : 8 fragments d'histoire (story.js CHRONICLES : ciel brisé,
   premier captif z10, éclats z25, renaissance 1re ascension, Bastion noir z50, au-delà des cartes z100, ciel fissuré
   z150, le seuil z190). Annoncés une seule fois (bulle 📜 cliquable → panneau, bloc déplié ; moment en mode mini),

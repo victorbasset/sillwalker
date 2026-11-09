@@ -4,7 +4,7 @@
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { itemName } from "../i18n/data.js";
-import { t as tx, txn, lc } from "../i18n/index.js";
+import { t as tx, txn, lc, fsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
@@ -40,7 +40,7 @@ const $ = (root, s) => root.querySelector(s);
 /** Lignes « pouvoir légendaire » et « panoplie » d'un objet (ou rien). */
 export const power = (it, equip) => {
   const p = it.power && POWER_INDEX[it.power];
-  let out = p ? `<p class="power"><b>★ ${esc(p.name)}</b> : ${esc(describeEffects(p.eff))}</p>` : "";
+  let out = p ? `<p class="power"><b>★ ${esc(p.name)}</b>${fsp()}: ${esc(describeEffects(p.eff))}</p>` : "";
   const st = it.set && SETS[it.set];
   if (st) {
     const n = equip ? setCounts(equip)[it.set] || 0 : 0;
