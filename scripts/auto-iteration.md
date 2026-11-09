@@ -43,8 +43,8 @@ RÉALISER
 OUTILS UTILES (voir CLAUDE.md)
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs 60 20` après tout changement des
   monstres, élites, champions ou de la mort du héros (0 bloquée attendu).
-- Équilibrage : une seule simulation suit une trajectoire aléatoire ; comparer les 10 classes avant/après (moyenne du
-  temps d'un déblocage tardif) avec un `git worktree` de l'ancienne version avant de conclure.
+- Équilibrage : une seule simulation suit une trajectoire aléatoire ; `node scripts/balance.mjs 12 <commit-d-avant>`
+  compare le record moyen en 12 h des 10 classes (±1,5 zone = bruit). Un ajout qui durcit le jeu doit être compensé.
 - Couleurs du panneau : jetons du thème (--accent, --good, --bad, --r0…--r4) ou `.tint`, jamais de couleur claire en dur ;
   vérifier avec et sans `--force-dark-mode`.
 - Textes en dur hors tx() : extraire le texte affiché en russe (--dump-text) et chercher les mots latins.
