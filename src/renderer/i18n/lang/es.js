@@ -404,4 +404,5 @@ export default {
   1528: "Traer {n} expedición de mascota|Traer {n} expediciones de mascota",
   1529: "Derrota {n} jefe|Derrota {n} jefes",
   1530: "Forja {n} vez|Forja {n} veces",
+  1531: "Gélido",
 };

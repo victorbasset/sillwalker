@@ -404,4 +404,5 @@ export default {
   1528: "Trazer {n} expedição de mascote|Trazer {n} expedições de mascote",
   1529: "Derrote {n} chefe|Derrote {n} chefes",
   1530: "Forje {n} vez|Forje {n} vezes",
+  1531: "Gélido",
 };

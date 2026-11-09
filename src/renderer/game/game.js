@@ -273,6 +273,10 @@ export class Game {
     R.hp -= dmg;
     if (dmg > 0) this.emit(mult > 1 ? "smash" : "heroHurt", { dmg });
     if (m.affix === "vampiric" && dmg > 0) m.hp = Math.min(m.max, m.hp + dmg * ELITE_AFFIXES.vampiric.lifesteal);
+    if (m.affix === "frosty" && dmg > 0 && rand() < ELITE_AFFIXES.frosty.freeze.chance) { // gel : attaques du héros ralenties
+      R.frozen = Math.max(R.frozen || 0, ELITE_AFFIXES.frosty.freeze.s);
+      this.emit("bossSkill", { id: "frost" });
+    }
     if (dmg > 0 && m.mech && m.mech.includes("drain")) m.hp = Math.min(m.max, m.hp + dmg * 0.4);
     if (hs.riposte > 0 && R.hp > 0 && rand() < hs.riposte / 100) {
       const rd = hs.atk * 0.5;

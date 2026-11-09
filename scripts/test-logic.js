@@ -1169,6 +1169,16 @@ test("record de zone : annoncé seulement au-delà du record de toutes les cours
   assert.equal(seen[0].record, true, "zone 11 : vrai record");
 });
 
+test("élite givrée : ses coups peuvent geler le héros (attaques ralenties)", () => {
+  const g = new Game(freshState());
+  for (let i = 0; i < 4000 && g.R.mode !== "fight"; i++) g.step(0.05);
+  const m = g.R.mon; m.hp = m.max = 1e12; m.affix = "frosty"; m.atk = 1; m.elite = true;
+  let frozen = 0;
+  g.on("bossSkill", ({ id }) => { if (id === "frost") frozen++; });
+  for (let i = 0; i < 1200 && frozen === 0; i++) { g.R.hp = 1e9; g.step(0.05); }
+  assert.ok(frozen > 0 && g.R.frozen > 0, "héros gelé");
+});
+
 test("boss : fureur croissante, plafonnée à 6 accélérations", () => {
   const g = new Game(freshState());
   for (let i = 0; i < 4000 && g.R.mode !== "fight"; i++) g.step(0.05);

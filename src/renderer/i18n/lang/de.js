@@ -404,4 +404,5 @@ export default {
   1528: "{n} Begleiter-Expedition zurückbringen|{n} Begleiter-Expeditionen zurückbringen",
   1529: "Besiege {n} Boss|Besiege {n} Bosse",
   1530: "{n}-mal schmieden|{n}-mal schmieden",
+  1531: "Frostig",
 };

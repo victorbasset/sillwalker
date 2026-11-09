@@ -1532,5 +1532,6 @@ export const KEYS = [
   "battre ton record : zone {0}",
   "Ramener {n} expédition de familier|Ramener {n} expéditions de familier",
   "Vaincre {n} boss|Vaincre {n} boss",
-  "Forger {n} fois|Forger {n} fois"
+  "Forger {n} fois|Forger {n} fois",
+  "Givré"
 ];

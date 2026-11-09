@@ -201,6 +201,7 @@ export const ELITE_AFFIXES = {
   armored:  { name: "Blindé",     color: "#c9ced6", hp: 1.6 },
   vampiric: { name: "Vampirique", color: "#ff4a6a", lifesteal: 0.5 },
   furious:  { name: "Furieux",    color: "#ff9a3a", atk: 1.4 },
+  frosty:   { name: "Givré",      color: "#bfe8ff", freeze: { chance: 0.25, s: 2 } }, // ses coups peuvent geler le héros
 };
 
 // Les zones bouclent : après la dernière, on repart de la première avec des

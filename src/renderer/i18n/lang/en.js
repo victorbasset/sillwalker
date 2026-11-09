@@ -404,4 +404,5 @@ export default {
   1528: "Bring back {n} pet expedition|Bring back {n} pet expeditions",
   1529: "Defeat {n} boss|Defeat {n} bosses",
   1530: "Forge {n} time|Forge {n} times",
+  1531: "Frosty",
 };

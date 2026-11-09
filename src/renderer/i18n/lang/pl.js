@@ -404,4 +404,5 @@ export default {
   1528: "Sprowadź {n} wyprawę chowańca|Sprowadź {n} wyprawy chowańców|Sprowadź {n} wypraw chowańców",
   1529: "Pokonaj {n} bossa|Pokonaj {n} bossów|Pokonaj {n} bossów",
   1530: "Wykuj {n} raz|Wykuj {n} razy|Wykuj {n} razy",
+  1531: "Mroźny",
 };
