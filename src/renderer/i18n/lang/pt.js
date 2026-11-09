@@ -450,4 +450,5 @@ export default {
   1574: "Transmuta sozinho os itens inúteis quando a bolsa enche (opção).",
   1575: "Cadinho perpétuo: transmutar quando a bolsa enche",
   1576: "Vender assim que caírem:",
+  1577: "{n} ponto livre · {0} no total|{n} pontos livres · {0} no total",
 };
