@@ -61,7 +61,7 @@ function start() {
       visible: strip.renderVisible(),
       version: app.getVersion(),
       steam: { available: steam.available, status: steam.status },
-      onBattery: onBattery(),
+      onBattery: onBattery(), idle: isIdle(),
     }));
 
     ipcMain.handle("save:load", () => {
@@ -173,12 +173,21 @@ function start() {
     // Arrêt / déconnexion de Windows : dernière sauvegarde.
     strip.win.on("query-session-end", () => { flushRenderer(); });
     // Portable débranché : la bande s'anime moins souvent (économie de batterie), retour à la normale sur secteur.
-    const sendPower = () => strip.send("power", { onBattery: onBattery() });
+    // Personne devant l'écran (5 min sans souris ni clavier) : animation au ralenti ; vérifié toutes les 5 s.
+    let lastPower = "";
+    const sendPower = () => {
+      const p = { onBattery: onBattery(), idle: isIdle() }, k = JSON.stringify(p);
+      if (k !== lastPower) { lastPower = k; strip.send("power", p); }
+    };
     powerMonitor.on("on-battery", sendPower);
     powerMonitor.on("on-ac", sendPower);
+    setInterval(sendPower, 5000);
     powerMonitor.on("lock-screen", () => strip.setLocked(true));
     powerMonitor.on("unlock-screen", () => strip.setLocked(false));
   });
+
+  /** Personne devant l'écran depuis 5 min ? (--idle en dev pour le simuler.) */
+  function isIdle() { try { return flags.idle || powerMonitor.getSystemIdleTime() >= 300; } catch { return false; } }
 
   /** Sur batterie ? (--battery en dev pour le simuler et le mesurer.) */
   function onBattery() { try { return flags.battery || powerMonitor.isOnBatteryPower(); } catch { return false; } }

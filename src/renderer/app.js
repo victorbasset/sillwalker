@@ -30,6 +30,7 @@ import { initClickThrough } from "./ui/clickthrough.js";
 const api = window.sillwalker;
 const FRAME_MS = 1000 / 30;         // rendu plafonné à 30 images/s
 const BATTERY_FRAME_MS = 1000 / 20; // portable sur batterie : 20 images/s suffisent
+const IDLE_FRAME_MS = 1000 / 10;    // personne devant l'écran depuis 5 min : 10 images/s
 const MINI_FRAME_MS = 1000 / 15;    // mode mini : petite vue, 15 images/s suffisent
 const SIM_BG_MS = 500;              // cadence de simulation quand rien n'est affiché
 const MAX_DT = 1;                   // au-delà de 5 s d'écart : progression hors ligne
@@ -267,7 +268,7 @@ async function boot() {
   api.onFlushRequest(async () => { checkAchievements(false); await saveNow(); });
 
   /* ---------- Boucles ---------- */
-  let lastSim = Date.now(), frameTimer = 0, onBattery = !!init.onBattery; // sur batterie : moins d’images par seconde
+  let lastSim = Date.now(), frameTimer = 0, onBattery = !!init.onBattery, idle = !!init.idle; // sur batterie : moins d’images par seconde
   function simulate() {
     const now = Date.now();
     let dt = (now - lastSim) / 1000;
@@ -293,17 +294,19 @@ async function boot() {
     if (mode === "strip") strip.draw(now); else mini.draw(now);
     if (changes.n !== before) perf.paints++;
     perf.why = changes.why;
-    panel.update((onBattery ? BATTERY_FRAME_MS : FRAME_MS) / 1000);
+    panel.update(frameMs() / 1000);
     perf.frames++;
     if (perf.frames % 15 === 0 || (strip.juice.star && perf.frames % 3 === 0)) clickThrough.refresh(); // 2 fois/s (10 fois/s si une étoile passe)
   }
+  /** Cadence d'affichage : la plus lente des contraintes (absent, batterie, mode mini). */
+  function frameMs() { return Math.max(mode === "mini" ? MINI_FRAME_MS : FRAME_MS, onBattery ? BATTERY_FRAME_MS : 0, idle ? IDLE_FRAME_MS : 0); }
   function restartLoop() {
     clearInterval(frameTimer);
     frameTimer = 0;
     const show = visible && (mode === "strip" || mode === "mini");
     strip.setActive(show && mode === "strip");
     mini.setActive(show && mode === "mini");
-    if (show) { frameTimer = setInterval(frame, mode === "mini" ? MINI_FRAME_MS : onBattery ? BATTERY_FRAME_MS : FRAME_MS); frame(); }
+    if (show) { frameTimer = setInterval(frame, frameMs()); frame(); }
   }
   function setVisible(v) {
     visible = v;
@@ -312,7 +315,7 @@ async function boot() {
   }
   setInterval(() => { if (!frameTimer) simulate(); }, SIM_BG_MS); // la simulation ne s'arrête jamais
   api.onVisibility(setVisible);
-  api.onPower?.(({ onBattery: b }) => { if (b !== onBattery) { onBattery = !!b; restartLoop(); } });
+  api.onPower?.(({ onBattery: b, idle: i }) => { if (!!b !== onBattery || !!i !== idle) { onBattery = !!b; idle = !!i; restartLoop(); } });
   api.onLayout((l) => { applyLayout(l); api.layoutApplied(); });
   api.onCommand((cmd) => {
     if (cmd === "toggle-panel") togglePanel();

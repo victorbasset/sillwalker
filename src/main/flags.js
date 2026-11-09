@@ -29,6 +29,7 @@ module.exports = {
   width: isDev ? Number(getArg("width")) || 0 : 0,       // --width=1366 : simule un écran plus étroit                       // --demo : déclenche les effets spéciaux                     // --ghost : tests invisibles (hors écran, sans focus ni icône)               // --selftest : parcours automatique de l'interface          // --mode=strip|mini|icon
   dumpText: isDev ? getArg("dump-text") : undefined,    // --dump-text=fichier.txt : texte de chaque onglet (traductions)
   exitAfter: isDev ? Number(getArg("exit-after")) || 0 : 0,
-  battery: isDev && !!getArg("battery"),                 // --battery : simule un portable sur batterie (images/s réduites)
+  battery: isDev && !!getArg("battery"),
+  idle: isDev && !!getArg("idle"),                       // --idle : simule un utilisateur absent (images/s au ralenti)                 // --battery : simule un portable sur batterie (images/s réduites)
   userData: isDev ? getArg("user-data") : undefined,   // dossier de données isolé pour les tests
 };
