@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 187) : mode mini : la ligne de retour d'absence mentionne aussi l'étape du carnet franchie
+  (« · ✦ Niveau 25 atteint »). Contrôle d'autotest des étapes dans le résumé et la bulle (82/82).
 - 2026-11-09 (it. 186) : la bulle de retour d'absence (bande) annonce aussi l'étape du carnet la plus récente franchie
   hors ligne, sur une deuxième ligne (« ✦ Niveau 25 atteint »). Capture, 81/81. Construction Windows impossible ici
   (pas de Wine sur le serveur).

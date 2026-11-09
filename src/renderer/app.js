@@ -211,13 +211,14 @@ async function boot() {
     if (next) setTimeout(() => showToast(...next), 400);
   }
   /** Étape du carnet franchie pendant l'absence (la dernière, la plus marquante) : une ligne en plus dans la bulle. */
-  const stepLine = (sum) => { const t = (sum.steps || []).map(journeyText).filter(Boolean).pop(); return t ? `<br>✦ <b>${esc(t)}</b>` : ""; };
+  const stepText = (sum) => (sum.steps || []).map(journeyText).filter(Boolean).pop() || "";
+  const stepLine = (sum) => { const t = stepText(sum); return t ? `<br>✦ <b>${esc(t)}</b>` : ""; };
   function showOffline(sum) {
     // Absence très courte (mise en veille d'une minute…) : le journal suffit, pas de bulle qui dérange.
     if (sum.seconds < OFFLINE_TOAST_MIN_S) return;
     if (mode === "mini") {
       pendingOffline = sum;
-      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold) })}`);
+      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold) })}${stepText(sum) ? " · ✦ " + stepText(sum) : ""}`);
       return;
     }
     strip.welcomeBack();
@@ -360,6 +361,7 @@ async function boot() {
   if (init.isDev) window.__panel = panel; // auto-test (dev)
   if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
   if (init.isDev) window.__showToast = showToast; // auto-test (dev) : file des bulles
+  if (init.isDev) window.__stepLine = stepLine; // auto-test (dev) : ligne d'étape de la bulle de retour
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
   if (init.isDev) window.__demo = () => {
     game.startEvent("wind");
