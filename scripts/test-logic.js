@@ -1428,6 +1428,24 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
 });
 
+test("sauvegarde : langue inconnue et talents illisibles retirés (rechargement sans fin, démarrage en échec)", () => {
+  const raw = JSON.parse(JSON.stringify(freshState()));
+  raw.settings.lang = 42; raw.settings.hints = "x";
+  let s = migrate(raw);
+  assert.ok(s.settings.lang === undefined || s.settings.lang === null);
+  assert.deepEqual(s.settings.hints, {});
+  raw.settings.lang = "xx-future"; assert.ok(!migrate(raw).settings.lang);
+  raw.settings.lang = "de"; assert.equal(migrate(raw).settings.lang, "de");
+  raw.talents = { warrior: { w_str: 3, w_bad: null }, mage: null, rogue: 5 };
+  assert.deepEqual(migrate(raw).talents, { warrior: { w_str: 3 } }, "talents illisibles retirés");
+  raw.shop = { items: [null, { id: 1 }, { id: 2, slot: "ring", r: 1, st: {}, price: 10 }], next: Date.now() + 1e5 };
+  raw.quests.slots = [{ kind: "kill" }, ...raw.quests.slots];
+  const m = migrate(raw);
+  assert.equal(m.shop.items.length, 1, "stock du marchand filtré");
+  assert.ok(m.quests.slots.every((q) => q.reward), "quête sans récompense retirée");
+  raw.shop = { items: "x" }; assert.equal(migrate(raw).shop, null);
+});
+
 test("sauvegarde : quêtes illisibles et compétences inconnues retirées, arbre valide conservé", () => {
   const g = new Game(freshLocked());
   g.S.prestige.skillPts = 30; g.autoSpendSkills();

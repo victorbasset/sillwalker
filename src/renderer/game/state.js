@@ -6,6 +6,7 @@ import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
 import { PET_INDEX } from "./pets.js";
 import { SKILL_TREE } from "./skilltree.js";
+import { LANGS } from "../i18n/index.js";
 
 export const SAVE_VERSION = 8;
 
@@ -121,6 +122,9 @@ export function migrate(raw) {
   s.stats = Object.assign(def.stats, isObj(o.stats) ? o.stats : {});
   s.autoSell = Object.assign(def.autoSell, isObj(o.autoSell) ? o.autoSell : {});
   s.bag = Array.isArray(s.bag) ? s.bag.filter(okItem).map(fixItem) : [];
+  // Stock du marchand illisible : renouvelé (null) ; objets illisibles retirés.
+  if (!isObj(s.shop) || !Array.isArray(s.shop.items) || !Number.isFinite(s.shop.next)) s.shop = null;
+  else s.shop.items = s.shop.items.filter((it) => okItem(it) && Number.isFinite(it.price)).map(fixItem);
   if (!Array.isArray(s.log)) s.log = [];
   if (!Array.isArray(s.achievements)) s.achievements = [];
   if (!CLASSES[s.cls]) s.cls = "warrior";
@@ -133,6 +137,11 @@ export function migrate(raw) {
   }
   if (s.nextCls && !CLASSES[s.nextCls]) s.nextCls = null;
   for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop"]) if (!isObj(s[k])) s[k] = {};
+  // Talents par classe ({ classe: { talent: rang } }) : entrées illisibles retirées (elles faisaient échouer le démarrage).
+  for (const c of Object.keys(s.talents)) {
+    if (!isObj(s.talents[c])) { delete s.talents[c]; continue; }
+    for (const id of Object.keys(s.talents[c])) if (!Number.isFinite(s.talents[c][id])) delete s.talents[c][id];
+  }
   if (!isObj(o.setsDone)) { // apparu après coup : une panoplie complète déjà portée compte
     s.setsDone = {};
     const n = {}; for (const it of Object.values(s.equip)) if (it && it.set) n[it.set] = (n[it.set] || 0) + 1;
@@ -147,7 +156,7 @@ export function migrate(raw) {
   if (!isObj(s.prestige.ranks)) s.prestige.ranks = {};
   s.quests = Object.assign(def.quests, isObj(o.quests) ? o.quests : {});
   // Quêtes illisibles retirées (ensureQuests en propose de nouvelles) ; leur sorte inconnue est traitée là-bas.
-  s.quests.slots = Array.isArray(s.quests.slots) ? s.quests.slots.filter(isObj) : [];
+  s.quests.slots = Array.isArray(s.quests.slots) ? s.quests.slots.filter((q) => isObj(q) && isObj(q.reward)) : [];
   for (const q of s.quests.slots) if (!q.stars) q.stars = 1;
   s.guild = Object.assign(def.guild, isObj(o.guild) ? o.guild : {});
   s.pets = Object.assign(def.pets, isObj(o.pets) ? o.pets : {});
@@ -163,6 +172,9 @@ export function migrate(raw) {
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
   s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});
+  // Langue inconnue (autre version, valeur abîmée) : la page se rechargeait en boucle pour l'appliquer (app.js).
+  if (s.settings.lang != null && !LANGS.some((l) => l.id === s.settings.lang)) delete s.settings.lang;
+  if (s.settings.hints != null && !isObj(s.settings.hints)) s.settings.hints = {};
   s.daily = Object.assign(def.daily, isObj(o.daily) ? o.daily : {});
   s.potions = Math.max(0, Math.floor(+s.potions || 0));
   s.bagSize = Math.max(BAG_SIZE, Math.floor(+s.bagSize || BAG_SIZE));

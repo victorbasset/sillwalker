@@ -6,7 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
-import { getLang, setLang, DEFAULT_LANG, txn } from "./i18n/index.js";
+import { getLang, setLang, DEFAULT_LANG, LANGS, txn } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
@@ -55,7 +55,12 @@ async function boot() {
   const game = new Game(fresh);
   // Langue : celle de la sauvegarde (copiée dans localStorage, lue dès le chargement des modules).
   const wanted = game.S.settings.lang || DEFAULT_LANG;
-  if (wanted !== getLang()) { setLang(wanted); location.reload(); return; }
+  // Recharger seulement si la langue voulue est valide (sinon rechargement sans fin) et une seule fois par lancement.
+  const reloaded = (() => { try { return sessionStorage.getItem("langReload"); } catch { return wanted; } })();
+  if (wanted !== getLang() && LANGS.some((l) => l.id === wanted) && reloaded !== wanted) {
+    try { sessionStorage.setItem("langReload", wanted); } catch { /* stockage indisponible */ }
+    setLang(wanted); location.reload(); return;
+  }
   game.S.settings.lang = wanted;
   game.syncLogLang(wanted);
   translateData();

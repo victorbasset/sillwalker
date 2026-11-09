@@ -21,7 +21,7 @@ export const ACHIEVEMENTS = [
   { id: "LEVEL_50",        name: "Niveau 50",          test: (S) => S.lvl >= 50 },
   { id: "ELITE_HUNTER",    name: "Chasseur d’élites (10)", test: (S) => (S.stats.elites || 0) >= 10 },
   { id: "FIRST_PURCHASE",  name: "Premier achat",      test: (S) => (S.stats.purchases || 0) >= 1 },
-  { id: "TALENT_ULTIMATE", name: "Talent ultime",      test: (S) => Object.values(S.talents || {}).some((r) => Object.keys(r).some((id) => ULTIMATES.has(id) && r[id] > 0)) },
+  { id: "TALENT_ULTIMATE", name: "Talent ultime",      test: (S) => Object.values(S.talents || {}).some((r) => Object.keys(r || {}).some((id) => ULTIMATES.has(id) && r[id] > 0)) },
   { id: "ASCENSION",       name: "Première ascension", test: (S) => (S.prestige?.count || 0) >= 1 },
   { id: "ASCENSION_5",     name: "Cinq ascensions",    test: (S) => (S.prestige?.count || 0) >= 5 },
   { id: "PET_FIRST",       name: "Premier familier",   test: (S) => Object.keys(S.pets?.owned || {}).length >= 1 },

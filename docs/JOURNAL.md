@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 156) : interface lancée (--crawl) sur une sauvegarde cumulant les 16 corruptions de save-fuzz
+  (nouvelle option --write-all <dossier> [cas]). Trouvé et corrigé : langue inconnue dans la sauvegarde (abîmée ou
+  d'une version future) = rechargement SANS FIN de la page (migrate() la retire ; app.js ne recharge que vers une
+  langue valide, une fois par lancement) ; talents illisibles = démarrage en échec ; objet null chez le marchand et
+  quête sans récompense = erreurs d'interface. Crawl sur la sauvegarde abîmée : 131 clics, 0 erreur. Test. 74/74.
 - 2026-11-09 (it. 155) : sauvegardes abîmées, suite : nouveau scripts/save-fuzz.mjs (16 corruptions : quêtes, talents,
   familiers, boutique, buffs, rangs, compétences, expéditions, récompense du jour, journal, réglages…). Deux plantages
   trouvés et corrigés dans migrate() : quête null dans les emplacements, nœud de compétence inconnu (skillTreeEffects).
@@ -404,6 +409,19 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 ## Idées
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- DEMANDES DE VICTOR (2026-11-09), à traiter en premier, dans cet ordre :
+  1. Quêtes : « Réclamer » ne fait rien quand le sac est plein (récompense objet/coffre) : le dire au joueur
+     (message ou bouton désactivé avec explication), voire réclamer l'or quand même.
+  2. Compétences : « Dépenser automatiquement » et « À chaque niveau, dépenser tout seul » visibles sans le Manuel
+     du stratège : à cacher (ou verrouiller avec lockLink) avant l'achat.
+  3. Classes (onglet Classe) : trier par ordre de déblocage.
+  4. Esthétique : cartes de tailles différentes dans une même rangée (Statistiques, panoplies du Bestiaire, et
+     ailleurs) : faire le tour de tous les onglets et harmoniser (hauteurs égales par rangée). Équipement vide :
+     emplacements vides pas beaux, à soigner.
+  5. Nouveau joueur : trop de fonctionnalités d'un coup. Débloquer les onglets au fur et à mesure (talents,
+     compétences, quêtes, boutique…) avec une annonce quand chacun se débloque (seuils de niveau/zone, sans
+     retirer l'accès aux parties existantes).
 
 
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
