@@ -414,6 +414,9 @@ async function runSelfTest(strip) {
   const qf = await js("(() => { const g = window.__game, S = g.S; while (!g.bagFull()) S.bag.push(g.newItem(0)); S.quests.slots = [{ uid: 4242, kind: 'kill', goal: 1, progress: 1, stars: 1, reward: { gold: 10, chest: 3 } }, ...S.quests.slots.filter((q) => q.uid !== 4242)]; window.__panel.setTab('quests'); window.__panel.renderAll(); const b = document.querySelector('[data-action=q-claim][data-id=\"4242\"]'); if (!b) return 'pas de bouton'; b.click(); return String(!S.quests.slots.some((q) => q.uid === 4242)); })()");
   check("quêtes : « Réclamer » marche même sac plein", qf === "true", qf);
   await js("window.__panel.setTab('adventure')");
+  // Compétences sans le Manuel du stratège : « Dépenser automatiquement » et « À chaque niveau » réellement invisibles.
+  const kv = await js("(() => { const S = window.__game.S; const had = S.unlocks.bulkPoints, al = S.unlocks.autoLevel; delete S.unlocks.bulkPoints; delete S.unlocks.autoLevel; window.__panel.setTab('skills'); window.__panel.renderAll(); const vis = (sel) => { const e = document.querySelector(sel); return e ? e.getClientRects().length > 0 : 'absent'; }; const r = vis('.k-autorow') + ' ' + vis('.k-autolevel'); if (had) S.unlocks.bulkPoints = had; if (al) S.unlocks.autoLevel = al; window.__panel.setTab('adventure'); return r; })()");
+  check("compétences : boutons automatiques cachés sans le Manuel du stratège", kv === "false false", kv);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

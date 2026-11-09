@@ -49,6 +49,9 @@ body.edge-top #root { flex-direction: column-reverse; justify-content: flex-end;
 
 /* ---------- Bande ---------- */
 #strip { position: relative; flex: 0 0 var(--strip); height: var(--strip); z-index: 2; opacity: var(--strip-opacity); background: #0e0d18; overflow: hidden; }
+/* L'attribut hidden l'emporte toujours : sans cela, .row ou .toggle (display: flex) gardaient visibles des éléments
+   cachés par le code (boutons « Dépenser automatiquement » des compétences avant le Manuel du stratège…). */
+[hidden] { display: none !important; }
 #strip[hidden], #mini[hidden] { display: none; }
 body.mode-mini #root { display: none; }
 .layer { position: absolute; top: 0; left: 0; display: block; }

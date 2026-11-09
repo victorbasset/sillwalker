@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 158, demande 2 de Victor) : « Dépenser automatiquement » et « À chaque niveau, dépenser tout seul »
+  des compétences étaient visibles sans le Manuel du stratège : le code les cachait (hidden) mais .row et .toggle
+  (display: flex) l'emportaient sur l'attribut. Règle globale [hidden] { display: none !important; } (corrige aussi
+  tout autre élément touché par le même défaut). Contrôle d'autotest (il échoue sans la règle : vérifié). Crawl 123
+  clics, 0 erreur. 76/76.
 - 2026-11-09 (it. 157, demande 1 de Victor) : quête réclamée même sac plein (avant : le clic ne faisait rien, le
   message n'allait qu'au journal) : le coffre fait de la place en vendant l'objet inutile le moins précieux ; à défaut,
   l'objet du coffre est vendu et son or donné (« X (sac plein : vendu N or) »). Test, contrôle d'autotest (75/75).
@@ -415,8 +420,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - DEMANDES DE VICTOR (2026-11-09), à traiter en premier, dans cet ordre :
   1. FAIT (it. 157) : quêtes réclamées même sac plein.
-  2. Compétences : « Dépenser automatiquement » et « À chaque niveau, dépenser tout seul » visibles sans le Manuel
-     du stratège : à cacher (ou verrouiller avec lockLink) avant l'achat.
+  2. FAIT (it. 158) : boutons automatiques des compétences cachés sans le Manuel du stratège.
   3. Classes (onglet Classe) : trier par ordre de déblocage.
   4. Esthétique : cartes de tailles différentes dans une même rangée (Statistiques, panoplies du Bestiaire, et
      ailleurs) : faire le tour de tous les onglets et harmoniser (hauteurs égales par rangée). Équipement vide :
