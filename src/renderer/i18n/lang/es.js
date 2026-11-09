@@ -480,4 +480,5 @@ export default {
   1604: "Se guarda para completar el conjunto: la venta de lo inútil y la transmutación lo respetan.",
   1605: "Plumaje del fénix",
   1606: "del Plumaje del fénix",
+  1607: "Gran intendente: huevos y expediciones automáticos",
 };

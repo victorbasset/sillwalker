@@ -366,6 +366,15 @@ async function runSelfTest(strip) {
   const kept = await js("(() => { const g = window.__game, S = g.S; const w = Object.values(S.equip).find(Boolean); w.set = 'hunter'; delete (S.setsDone || {}).hunter; const it = g.newItem(2); it.slot = w.slot === 'ring' ? 'boots' : 'ring'; it.st = {}; it.power = null; it.set = 'hunter'; S.bag.unshift(it); g.invalidateStats(); window.__panel.renderAll(); const el = document.querySelector(`#p-bag .slot[data-id='${it.id}']`); window.__panel.onHover({ target: el }); return [...document.querySelectorAll('.itemtip .setprog')].length + ' ' + !g.uselessItems().includes(it); })()");
   check("infobulle : pièce de panoplie gardée expliquée", kept === "2 true", kept);
   await js("window.__panel.tip.hidden = true");
+  // Grand intendant : choix de l'expédition d'un clic dans l'onglet Familiers.
+  await js("(() => { window.__game.S.unlocks.steward = true; window.__game.S.pets.lastKind = 'long'; })()");
+  await click('[data-tab="pets"]');
+  await sleep(200);
+  await js("document.querySelector('[data-action=p-stewkind][data-kind=epic]')?.click()");
+  await sleep(150);
+  check("Grand intendant : choix de l'expédition", (await state("S.pets.lastKind")) === "epic" && (await js("document.querySelector('[data-action=p-stewkind][data-kind=epic]')?.getAttribute('aria-pressed')")) === "true");
+  await click('[data-tab="adventure"]');
+  await sleep(150);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

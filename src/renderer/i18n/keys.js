@@ -1608,5 +1608,6 @@ export const KEYS = [
   "Panoplie {0} : {1} → {2} / 4",
   "Gardée pour compléter la panoplie : la vente de l’inutile et la transmutation l’épargnent.",
   "Plumage du phénix",
-  "du Plumage du phénix"
+  "du Plumage du phénix",
+  "Grand intendant : œufs et expéditions tout seuls"
 ];

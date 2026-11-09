@@ -59,7 +59,8 @@ export class PetsTab {
         ${hasUnlock(S, "petBulk") || P.eggs <= 1 ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>`}
         ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}
         ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${tx("Envoyer les {0} familiers libres : {1}", { 0: idle, 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
-        ${hasUnlock(S, "steward") ? `<label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions ({0}) tout seuls", { 0: esc(lc((EXPEDITIONS[P.lastKind] || EXPEDITIONS.long).name)) })}</label>` : ""}
+        ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
+          ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
         ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${tx("Récupérer {0} expéditions", { 0: this.readyN })}</button>` : ""}
         <span class="note">${tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets.")}</span>
       </div>
@@ -74,6 +75,7 @@ export class PetsTab {
     else if (a === "p-claimall") this.game.claimAllExpeditions();
     else if (a === "p-hatchall") this.game.hatchAll();
     else if (a === "p-expall") this.game.sendAllExpeditions(b.dataset.kind);
+    else if (a === "p-stewkind") { if (EXPEDITIONS[b.dataset.kind]) { this.game.S.pets.lastKind = b.dataset.kind; this.game.changed(); } } // expédition du Grand intendant
   }
 
   tick() {

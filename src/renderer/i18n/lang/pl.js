@@ -480,4 +480,5 @@ export default {
   1604: "Zachowana do skompletowania zestawu: sprzedaż zbędnych i transmutacja ją oszczędzają.",
   1605: "Upierzenie feniksa",
   1606: "Upierzenia feniksa",
+  1607: "Wielki zarządca: jaja i wyprawy automatycznie",
 };

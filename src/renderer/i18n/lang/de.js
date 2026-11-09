@@ -480,4 +480,5 @@ export default {
   1604: "Für das Set aufbewahrt: Verkaufen des Nutzlosen und Transmutation verschonen es.",
   1605: "Phönixgefieder",
   1606: "des Phönixgefieders",
+  1607: "Großer Verwalter: Eier und Expeditionen automatisch",
 };
