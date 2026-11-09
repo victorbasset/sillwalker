@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 310, revue générale) : simulations 12 h : guerrier 60, cryomancienne 59, prêtresse 59 (stables
+  après greffes de talents et Peau de pierre) ; crawl 300 clics sans erreur ; texte russe : aucun mot latin suspect ;
+  perf : bande 19,2 %, panneau 20,5 %, mini 5,8 %, icône 2,6 % d'un cœur (stables).
 - 2026-11-10 (it. 309) : étiquettes de la bande (zone, or, niveau) vérifiées au nouveau style : cohérentes, rien à
   changer. CLAUDE.md complété (pièges connus) : jetons du design et --frame à régénérer, règle « pas de défilement »
   et ses remèdes (hscroll, ⓘ), clés de traduction déjà prises (Cuirasse), réglages Économie / Cinématiques.
