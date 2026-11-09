@@ -518,4 +518,5 @@ export default {
   1642: "Towarzysze, którzy idą za bohaterem i go wzmacniają.",
   1643: "Jeszcze {n} odblokowanie dalej|Jeszcze {n} odblokowania dalej|Jeszcze {n} odblokowań dalej",
   1644: "Kamień milowy: strefa {0}!",
+  1645: "Następne odkrycie",
 };

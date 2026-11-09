@@ -518,4 +518,5 @@ export default {
   1642: "Companions who follow your hero and make it stronger.",
   1643: "{n} more unlock further on|{n} more unlocks further on",
   1644: "Milestone reached: zone {0}!",
+  1645: "Next discovery",
 };

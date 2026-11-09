@@ -562,7 +562,13 @@ export class Panel {
 
   /** Prochain déblocage : objectif visible en permanence (zone record, puis or). */
   goalHTML(S) {
-    if (!tabOpen(S, "shop")) return ""; // pas de déblocage proposé avant la boutique (signalé par Victor)
+    if (!tabOpen(S, "shop")) { // pas de déblocage avant la boutique (signalé par Victor) : la prochaine découverte (onglet)
+      const next = Object.values(TAB_GATES).filter((g) => g.zone > recordZone(S)).sort((a, b) => a.zone - b.zone)[0];
+      if (!next) return "";
+      const k = Math.min(1, recordZone(S) / next.zone);
+      return `<div class="goal" role="status"><img src="${shopIconURL("map", 2)}" alt=""><span class="gtxt"><small>${tx("Prochaine découverte")}</small> ${tx("zone {0}", { 0: next.zone })} (${recordZone(S)} / ${next.zone})</span>
+        <span class="gbar"><i style="width:${Math.round(k * 100)}%"></i></span></div>`;
+    }
     const u = nextUnlock(S);
     if (!u) { // tout est débloqué : l'objectif devient le record de toutes les courses
       const rec = recordZone(S), k = Math.min(1, S.zone / rec);

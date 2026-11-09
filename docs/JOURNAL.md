@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 211) : avant la boutique, la carte du héros affiche « Prochaine découverte : zone N (x / N) » (zone
+  du prochain onglet, nom gardé secret) avec sa barre, au lieu de rien. 10 langues, capture partie neuve, 89/89.
 - 2026-11-09 (it. 210, revue générale + 2 retours de Victor) :
   1. L'Œil du connaisseur s'achetait (carte du héros) avant l'ouverture de la boutique : aucun déblocage n'est plus
      proposé tant que la boutique est fermée (carte du héros, mode mini), et les premiers commencent avec elle

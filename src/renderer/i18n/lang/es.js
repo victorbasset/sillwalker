@@ -518,4 +518,5 @@ export default {
   1642: "Compañeros que siguen a tu héroe y lo fortalecen.",
   1643: "{n} desbloqueo más adelante|{n} desbloqueos más adelante",
   1644: "¡Hito alcanzado: zona {0}!",
+  1645: "Próximo descubrimiento",
 };

@@ -1646,5 +1646,6 @@ export const KEYS = [
   "max",
   "Des compagnons qui suivent ton héros et le renforcent.",
   "Encore {n} déblocage plus loin|Encore {n} déblocages plus loin",
-  "Cap franchi : zone {0} !"
+  "Cap franchi : zone {0} !",
+  "Prochaine découverte"
 ];
