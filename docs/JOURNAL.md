@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 229, suite de la demande 12) : détail d'un objet sous le sac compacté : verdict (puissance du héros)
+  et boutons (Équiper, Vendre, Réforger, Forger) juste sous le nom, visibles sans défiler ; statistiques ensuite,
+  serrées (13 px) ; la note de forge devient l'infobulle du bouton Forger. Capture, 95/95.
 - 2026-11-09 (it. 228, demande 15) : cinématique « héros libéré » (5 s, remplace la bannière) : la bande s'assombrit
   en vert, le héros apparaît dans sa cage, les barreaux remontent (cliquetis de serrure), étincelles, « X est
   libre ! », « Un héros de plus marche sur le Rebord. », fanfare courte. La bulle « choisis-le dans l'onglet

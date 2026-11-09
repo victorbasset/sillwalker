@@ -770,3 +770,7 @@ svg.rebord { width: 100%; max-width: 980px; min-width: 640px; margin: 0 auto; he
 .cine.freed { background: linear-gradient(rgba(8, 20, 14, 0.94), rgba(14, 34, 24, 0.85)); }
 .cine.freed .cine-title { color: #9fe0a8; text-shadow: 0 0 10px #3a9a5a; }
 .cine-hero { position: absolute; width: 48px; height: 54px; image-rendering: pixelated; }
+.bagdetail .lines.tight { font-size: 13px; margin-top: 6px; }
+.bagdetail .lines.tight li { padding: 1px 0; }
+.bagdetail .detail-head img { width: 40px; height: 40px; }
+.bagdetail .verdict { margin: 4px 0; }
