@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 204) : boutique : seuls les déblocages disponibles et les 2 suivants sont présentés en cartes ; les
+  plus lointains (jusqu'à la zone 200) tiennent en une carte « Encore N déblocages plus loin » (avant : tous, jusqu'à
+  la zone 200). 10 langues, capture, 85/85.
 - 2026-11-09 (it. 203) : zones et boss lointains lisibles : au-delà de deux boucles, « +N » au lieu d'une suite de
   « + » (zone 200 : « Grotte suintante +6 » au lieu de « ++++++ » ; boss « l'Ancestral +5 »). loopMark (rules.js).
   Test, 85/85.

@@ -2,7 +2,7 @@
 // l'emplacement le plus faible), potions et élixirs, coffres et œuf,
 // atelier (améliorations permanentes illimitées). Tout est illustré.
 import { itemName } from "../../i18n/data.js";
-import { t as tx } from "../../i18n/index.js";
+import { t as tx, txn } from "../../i18n/index.js";
 import { RARITIES, SLOTS } from "../../game/data.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, WORKSHOP, POTION_MAX, BUFF_CAP_S, DEAL_DISCOUNT,
@@ -108,7 +108,11 @@ export class ShopTab {
     // --- Déblocages (permanents) : la progression du confort de jeu ---
     const nxt = nextUnlock(S), owned = UNLOCKS.filter((u) => hasUnlock(S, u.id)).length;
     const ownedChips = UNLOCKS.filter((u) => hasUnlock(S, u.id)).map((u) => `<span class="uchip" title="${esc(u.desc)}"><img src="${shopIconURL(u.icon, 2)}" alt="">${esc(u.name)}</span>`).join("");
-    const unlocks = UNLOCKS.filter((u) => !hasUnlock(S, u.id)).map((u) => {
+    // Seulement les déblocages disponibles et les 2 suivants : les plus lointains (jusqu'à la zone 200) sont résumés
+    // en une ligne (moins d'informations d'un coup).
+    const todo = UNLOCKS.filter((u) => !hasUnlock(S, u.id)), lockedAll = todo.filter((u) => !unlockAvailable(S, u));
+    const shown = todo.filter((u) => unlockAvailable(S, u) || lockedAll.indexOf(u) < 2), later = todo.length - shown.length;
+    const unlocks = shown.map((u) => {
       const have = hasUnlock(S, u.id), isNext = nxt && nxt.id === u.id && unlockAvailable(S, u);
       return `<div class="ucard${have ? " owned" : ""}${isNext ? " next" : ""}" title="${esc(u.desc)}">
         <img src="${shopIconURL(u.icon, 4)}" alt="">
@@ -116,7 +120,7 @@ export class ShopTab {
         <div class="sub">${esc(u.desc)}</div>
         ${have ? `<div class="got">✓ ${tx("Débloqué")}</div>` : unlockAvailable(S, u) ? buy("s-unlock", u.id, u.price, "", isNext ? "primary" : "") : `<div class="req">🔒 ${tx("Zone record {0}", { 0: u.zone })}</div>`}
       </div>`;
-    }).join("");
+    }).join("") + (later > 0 ? `<div class="ucard later"><div class="sub">${txn(later, "Encore {n} déblocage plus loin|Encore {n} déblocages plus loin")}</div></div>` : "");
 
     el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>
         <span class="note">${tx("Nouvel étal dans")} <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>

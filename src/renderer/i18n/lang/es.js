@@ -516,4 +516,5 @@ export default {
   1640: "sí",
   1641: "máx.",
   1642: "Compañeros que siguen a tu héroe y lo fortalecen.",
+  1643: "{n} desbloqueo más adelante|{n} desbloqueos más adelante",
 };

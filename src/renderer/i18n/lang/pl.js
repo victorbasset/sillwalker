@@ -516,4 +516,5 @@ export default {
   1640: "tak",
   1641: "maks.",
   1642: "Towarzysze, którzy idą za bohaterem i go wzmacniają.",
+  1643: "Jeszcze {n} odblokowanie dalej|Jeszcze {n} odblokowania dalej|Jeszcze {n} odblokowań dalej",
 };

@@ -1644,5 +1644,6 @@ export const KEYS = [
   "{0} s",
   "oui",
   "max",
-  "Des compagnons qui suivent ton héros et le renforcent."
+  "Des compagnons qui suivent ton héros et le renforcent.",
+  "Encore {n} déblocage plus loin|Encore {n} déblocages plus loin"
 ];

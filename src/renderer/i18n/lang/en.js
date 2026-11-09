@@ -516,4 +516,5 @@ export default {
   1640: "yes",
   1641: "max",
   1642: "Companions who follow your hero and make it stronger.",
+  1643: "{n} more unlock further on|{n} more unlocks further on",
 };
