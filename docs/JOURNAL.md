@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 250, revue générale) : simulations 12 h (record max, duo compris) : guerrier 59, mage 54,
+  assassin 56 ; semaine simulée (mage) : record 155 (repère it. 202 : 152), zone 200 toujours objectif long. Texte
+  russe : rien de non traduit. Capture allemand 1366 de l'onglet Héros (duo) : propre ; corrigé : le compagnon du
+  duo était traduit « Begleiter », comme l'onglet des familiers : « Gefährte » (déclinaisons). Performances
+  mesurées à l'it. 247 (son et musique actifs : bande 19 %, mini 6 %, icône 2 %).
 - 2026-11-09 (it. 249, demande 17 étape e, fin) : « classe » → « héros » dans tout le jeu : onglet « Héros »
   (clé déjà traduite), 13 textes réécrits au même rang dans keys.js et le code (Héros actuel, Garder ce héros,
   Maître de tous les héros…) et leurs traductions dans les 9 langues (class → hero, Klasse → Held…).
