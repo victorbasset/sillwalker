@@ -47,6 +47,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   tout changement des monstres, élites, champions ou de la mort du héros.
 - Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (16 corruptions de la
   sauvegarde de dev : null, valeurs inconnues… ; chacune doit afficher « ok »). À relancer après tout ajout de donnée sauvegardée.
+- Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
+  zone, déblocages à 2, 5, 10, 15, 30, 60 min). Le début est volontairement calme (`earlyPace`, rules.js).
 - Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`

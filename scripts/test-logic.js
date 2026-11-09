@@ -27,7 +27,7 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
-import { approachTime, heroStats, power } from "../src/renderer/game/rules.js";
+import { approachTime, heroStats, power, earlyPace } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
@@ -1177,6 +1177,7 @@ test("événement Corne d'abondance : un objet à chaque victoire pendant 30 s",
 test("événement Souffle de sagesse : expérience ×3 pendant l'événement", () => {
   const ratio = (on) => {
     const g = new Game(freshState());
+    g.S.best = 15; // hors du rythme du tout début (earlyPace) : les arrondis de petits gains fausseraient le rapport
     let got = 0, base = 0, kills = 0;
     g.gainXp = (n) => { got += n; };
     g.on("kill", ({ mon }) => { base += mon.xp; kills++; });
@@ -1431,6 +1432,20 @@ test("pièces de panoplie gardées : au plus 6, les panoplies les plus avancées
   const kept = g.S.bag.filter((it) => !g.uselessItems().includes(it) && !g.isUpgrade(it));
   assert.ok(kept.length <= 6, "au plus 6 : " + kept.length);
   assert.ok(kept.some((it) => it.set === "dawn"), "la panoplie la plus avancée d'abord");
+});
+
+test("rythme du début : première course seulement, de 0,35 à 1 en zone 15", () => {
+  const S = freshLocked();
+  assert.equal(earlyPace(S), 0.35);
+  S.best = 8; assert.ok(earlyPace(S) > 0.35 && earlyPace(S) < 1);
+  S.best = 15; assert.equal(earlyPace(S), 1);
+  S.best = 2; S.prestige.count = 1; assert.equal(earlyPace(S), 1, "aucun effet après une ascension");
+  // moins d'or par victoire au tout début
+  const g0 = new Game(freshLocked()), g1 = new Game(freshLocked()); g1.S.best = 15;
+  let a = 0, b = 0; g0.on("kill", ({ gold }) => { a += gold; }); g1.on("kill", ({ gold }) => { b += gold; });
+  setRandom(seeded(11)); for (let i = 0; i < 400; i++) g0.step(0.05);
+  setRandom(seeded(11)); for (let i = 0; i < 400; i++) g1.step(0.05);
+  assert.ok(a > 0 && a < b * 0.6, `or ${a} contre ${b}`);
 });
 
 test("onglets progressifs : fermés au départ, ouverts au seuil, gardés à l'ascension, anciennes parties tout ouvert", () => {

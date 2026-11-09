@@ -18,6 +18,12 @@ import { guildEffects } from "./quests.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 
 export const xpNeed = (lvl) => Math.floor(20 * Math.pow(1.2, lvl - 1));
+/** Rythme du tout début (demande de Victor : moins d'objets et de niveaux d'un coup, une progression plus
+ *  tranquille). Première course seulement : 0,35 au départ, revient à 1 en zone EARLY_PACE_ZONE (record).
+ *  S'applique au butin des monstres ordinaires, à l'or et à l'expérience. Aucun effet après une ascension. */
+export const EARLY_PACE_ZONE = 15;
+export const earlyPace = (S) => ((S.prestige && S.prestige.count) > 0 || S.best >= EARLY_PACE_ZONE ? 1
+  : 0.35 + 0.65 * Math.max(0, (S.best || 1) - 1) / (EARLY_PACE_ZONE - 1));
 
 function mainValue(stat, il) {
   return { atk: 3 + il * 2.2, hp: 10 + il * 7, def: 2 + il * 1.6, spd: 4 + il * 0.8, crit: 2 + il * 0.5 }[stat];

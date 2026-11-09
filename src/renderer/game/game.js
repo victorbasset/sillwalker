@@ -19,7 +19,7 @@ import {
   CHAMPION,
 } from "./data.js";
 import {
-  xpNeed, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, heroStats, heroDps, upgradeDelta,
+  xpNeed, earlyPace, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, heroStats, heroDps, upgradeDelta,
   zoneDef, zoneName, monsterBase, approachTime,
   itemScore,
 } from "./rules.js";
@@ -539,7 +539,7 @@ export class Game {
 
   killMonster() {
     const S = this.S, R = this.R, m = R.mon, hs = this.stats();
-    const gold = Math.round(m.gold * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
+    const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
     S.gold += gold;
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
@@ -560,8 +560,9 @@ export class Game {
     this.autoForge();
     this.autoPets();
     this.autoTransmute();
-    this.gainXp(Math.round(m.xp * (1 + hs.xp / 100) * ((R.events.wisdom || 0) > 0 ? 3 : 1))); // Souffle de sagesse : ×3
-    if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
+    const pace = earlyPace(this.S); // tout début de partie : plus tranquille (rules.js)
+    this.gainXp(Math.max(1, Math.round(m.xp * pace * (1 + hs.xp / 100) * ((R.events.wisdom || 0) > 0 ? 3 : 1)))); // Souffle de sagesse : ×3
+    if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * pace * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
       this.emit("loot", { item: it, mon: m });
       if (it.r >= 2) this.questProgress("loot", 1);
@@ -658,10 +659,10 @@ export class Game {
     this.invalidateStats();
     if (kills < 1) return null;
     const bagBefore = S.bag.length, lvl0 = S.lvl;
-    const gold = Math.round(kills * b.gold * (1 + hs.gold / 100 + 0.5 * share("fortune")));
+    const gold = Math.round(kills * b.gold * earlyPace(S) * (1 + hs.gold / 100 + 0.5 * share("fortune")));
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
-    const xp = Math.round(kills * b.xp * (1 + hs.xp / 100 + 0.5 * share("wisdom")));
+    const xp = Math.round(kills * b.xp * earlyPace(S) * (1 + hs.xp / 100 + 0.5 * share("wisdom")));
     S.gold += gold;
     S.stats.kills += kills;
     const types = zoneDef(S.zone).monsters;
@@ -678,7 +679,7 @@ export class Game {
       if (S.settings.autoSkills) this.autoSpendSkills();
     }
     this.invalidateStats();
-    const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * (1 + hs.drop / 100) * 0.3));
+    const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + hs.drop / 100) * 0.3));
     let best = -1, bestItem = null;
     for (let i = 0; i < drops; i++) {
       const it = this.newItem(0);
