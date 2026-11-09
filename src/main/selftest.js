@@ -345,6 +345,14 @@ async function runSelfTest(strip) {
   await sleep(100);
   const setTip = await js("(document.querySelector('#p-hero .chip.set') || {}).title || null");
   check("panoplie : bonus au survol de l'étiquette", setTip.split("\n").length === 2, JSON.stringify(setTip));
+  // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
+  // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
+  await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
+  await sleep(100);
+  const goalId = await js("(document.querySelector('#p-hero .goal[data-action=goal-buy]') || {}).dataset?.id || null");
+  if (goalId) await js("document.querySelector('#p-hero .goal[data-action=goal-buy]').click()");
+  await sleep(150);
+  check("prochain déblocage : acheté d'un clic", goalId === "armsValet" && await js("!!window.__game.S.unlocks.armsValet"), goalId);
   check("depuis ta dernière visite : affiché", await js("!!document.querySelector('#p-hero .visit')"));
   if (process.env.SELFTEST_SHOT2) require("fs").writeFileSync(process.env.SELFTEST_SHOT2, (await wc.capturePage()).toPNG());
   await click("#p-hero .visit");

@@ -468,8 +468,10 @@ export class Panel {
     }
     const zoneOk = unlockAvailable(S, u);
     const k = zoneOk ? Math.min(1, S.gold / u.price) : Math.min(1, recordZone(S) / u.zone);
-    const what = zoneOk ? (S.gold >= u.price ? tx("prêt à acheter !") : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
-    return `<button class="goal${zoneOk && S.gold >= u.price ? " ready" : ""}" data-tab="shop" title="${esc(u.desc)}">
+    const ready = zoneOk && S.gold >= u.price;
+    const what = zoneOk ? (ready ? tx("cliquer pour l’acheter ({0} or)", { 0: fmt(u.price) }) : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
+    // Prêt : un clic l'achète tout de suite (au lieu d'ouvrir la boutique puis d'y cliquer).
+    return `<button class="goal${ready ? " ready" : ""}" ${ready ? `data-action="goal-buy" data-id="${u.id}"` : `data-tab="shop"`} title="${esc(u.desc)}">
       <img src="${shopIconURL(u.icon, 2)}" alt=""><span class="gtxt"><small>${tx("Prochain déblocage")}</small> ${esc(u.name)} · ${what}</span>
       <span class="gbar"><i style="width:${Math.round(k * 100)}%"></i></span></button>`;
   }
@@ -538,6 +540,7 @@ export class Panel {
       if (it) this.revealChest(b.dataset.id, it);
       return;
     }
+    if (a === "goal-buy") { g.buyUnlock(b.dataset.id); this.renderAll(); return; }
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }
     const owner = TABS.find((x) => x.prefix && a.startsWith(x.prefix));
     if (owner) { this.tabs[owner.id].onAction(a, b); this.renderAll(); return; }
