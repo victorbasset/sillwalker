@@ -496,6 +496,11 @@ export class Panel {
       cells.push(it ? this.slotBtn(it, it.slot, "bag") : `<div class="slot emptyslot" aria-hidden="true"></div>`);
     }
     const full = S.bag.length >= S.bagSize;
+    const selIt = this.getSel();
+    if (selIt) { // détail de l'objet sous la grille, à la place des commandes (elles reviennent avec « ← sac »)
+      $(this.root, "#p-bag").innerHTML = `<h2>${tx("Sac")} <small>${S.bag.length} / ${S.bagSize}</small></h2><div class="bag">${cells.join("")}</div>${this.itemDetailHTML(selIt)}`;
+      return;
+    }
     $(this.root, "#p-bag").innerHTML = `<h2>${tx("Sac")} <small${full ? ` ${tx("class=\"warn\" title=\"Sac plein : les nouveaux objets sont vendus automatiquement. Vends ou transmute pour faire de la place.\"")}` : ""}>${full ? tx("plein · ") : ""}${S.bag.length} / ${S.bagSize}</small></h2><div class="bag">${cells.join("")}</div>
       <div class="row">${hasUnlock(S, "bulkEquip") ? `<button data-action="sellless"${useless.length ? "" : " disabled"} title="${esc(tx("Vend tout ce qui n’est pas plus puissant que ton équipement actuel. Les légendaires sont toujours gardés."))}">${tx("Vendre ce qui ne m’améliore pas{0}", { 0: useless.length ? ` ${tx("({0} · {1} or)", { 0: useless.length, 1: fmt(uselessGold) })}` : "" })}</button>
       <button data-action="autoequip"${this.game.hasUpgrade() ? ` class="primary"` : " disabled"}>${tx("Équiper le meilleur{0}", { 0: this.game.hasUpgrade() ? " ▲" : "" })}</button>` : lockLink(S, "bulkEquip")}
@@ -515,8 +520,8 @@ export class Panel {
   }
 
   renderDetail() {
-    const it = this.getSel(), el = $(this.root, "#p-detail"), S = this.game.S;
-    if (!it) {
+    const el = $(this.root, "#p-detail"), S = this.game.S;
+    { // Panneau Équipement toujours visible ; le détail d'un objet s'ouvre sous le sac (demande de Victor).
       const v = heroVisual(S);
       const rows = SLOT_KEYS.map((k) => {
         const e = S.equip[k];
@@ -527,9 +532,12 @@ export class Panel {
       el.innerHTML = `<h2>${tx("Équipement")} <small>${tx("clique un objet")}</small></h2>
         <div class="eqview"><img class="heroport${v.aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, v)}" alt="${esc(tx("Ton héros et son équipement"))}">
         <ul class="eqlist">${rows}</ul></div>`;
-      return;
     }
-    const fromBag = this.selected.from === "bag";
+  }
+
+  /** Détail de l'objet sélectionné (sac ou équipement), affiché dans le panneau Sac, sous la grille. */
+  itemDetailHTML(it) {
+    const S = this.game.S, fromBag = this.selected.from === "bag";
     const r = RARITIES[it.r], m = itemMult(it), cur = fromBag ? S.equip[it.slot] : null;
     const keys = Object.keys(STAT_NAMES).filter((k) => it.st[k] != null || (cur && cur.st[k] != null));
     const lines = keys.map((k) => {
@@ -547,7 +555,7 @@ export class Panel {
       verdict = `<p class="verdict ${d > 0.005 ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance du héros : ") + (d >= 0 ? "+" : "−") + Math.abs(Math.round(d * 100)) + unit("%") : tx("Emplacement vide : à équiper !")}</p>`;
     }
     const fc = forgeCost(it), canForge = it.plus < MAX_PLUS && S.gold >= fc;
-    el.innerHTML = `<h2>${tx("Objet")} <button class="linkbtn back" data-action="desel">${tx("← équipement")}</button></h2>
+    return `<div class="bagdetail"><h3>${tx("Objet")} <button class="linkbtn back" data-action="desel">${tx("← sac")}</button></h3>
       <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div>
         <div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
         <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: r.name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div></div></div>
@@ -557,7 +565,7 @@ export class Panel {
         : `<button data-action="unequip"${this.game.bagFull() ? " disabled" : ""}>${tx("Retirer")}</button>`}
         ${!hasUnlock(S, "forge") ? lockLink(S, "forge") : ""}${hasUnlock(S, "forge") && RARITIES[it.r].affixes ? `<button data-action="reforge"${S.gold >= reforgeCost(it) ? "" : " disabled"} title="${esc(tx("Tire au hasard de nouveaux bonus secondaires. Rareté, forge, pouvoir et panoplie sont conservés."))}">${tx("Réforger ({0} or)", { 0: fmt(reforgeCost(it)) })}</button>` : ""}
         ${hasUnlock(S, "forge") ? `<button data-action="forge"${canForge ? "" : " disabled"}>${it.plus >= MAX_PLUS ? tx("Amélioration maximale") : `${tx("Forger +{0} ({1} or)", { 0: it.plus + 1, 1: fmt(fc) })}`}</button>` : ""}</div>
-      <p class="note">${tx("Chaque niveau de forge ajoute 10{0}% à toutes les statistiques de l’objet. La forge ne peut pas échouer.", { 0: NB })}</p>`;
+      <p class="note">${tx("Chaque niveau de forge ajoute 10{0}% à toutes les statistiques de l’objet. La forge ne peut pas échouer.", { 0: NB })}</p></div>`;
   }
 
   /** Prochain déblocage : objectif visible en permanence (zone record, puis or). */

@@ -522,4 +522,5 @@ export default {
   1646: "Tysiąc lat temu Łamacz Gwiazd roztrzaskał niebo. Jego odłamki spadły na Krawędź, wąską granicę między światem a pustką.",
   1647: "Jego namiestnicy tam rządzą i więżą ostatnich bohaterów. Wędruje już tylko jeden: twój.",
   1648: "Dotrzyj do strefy 200 i pokonaj Łamacza Gwiazd, by na nowo rozpalić niebo. Każde odrodzenie uczyni cię silniejszym.",
+  1649: "← torba",
 };

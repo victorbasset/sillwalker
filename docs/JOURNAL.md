@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 218, demande 12 de Victor) : clic sur un objet : son détail s'ouvre dans le panneau Sac, sous la
+  grille, à la place des commandes (vente, transmutation, options) qui reviennent avec « ← sac » ; le panneau
+  Équipement reste toujours affiché. itemDetailHTML (panel.js). Contrôle d'autotest (91/91), capture. À voir : le
+  détail est long (boutons Équiper/Vendre/Forger sous la ligne de flottaison à 620 px) : le compacter si Victor
+  le trouve gênant (statistiques sur deux colonnes, note de forge en infobulle).
 - 2026-11-09 (it. 217, demande 11 étape a) : histoire, introduction : game/story.js (FINAL_ZONE 200, INTRO), S.story
   { intro, read } (défaut, migration : parties entamées sans intro surgie, gardé à l'ascension). Au tout premier
   lancement, trois bulles 📜 sur la bande (Briseur d'Étoiles, le Rebord, les héros prisonniers, but : zone 200) ; les
@@ -672,7 +677,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       paliers (zones 10, 25, 50, 100, 150, héros libérés, 1re ascension), annoncés et relisibles ; (c) le Briseur
       d'Étoiles en zone 200 (boss unique, annoncé de loin) ; (d) fin : épilogue, générique, succès, puis « au-delà
       du Rebord » (le jeu continue). 10 langues, autotest, captures ; parties existantes : chroniques déjà méritées.
-  12. Clic sur un objet : le détail s'ouvre à la place du panneau Équipement ; Victor le veut dans l'espace sous le
+  12. FAIT (it. 218). Clic sur un objet : le détail s'ouvre à la place du panneau Équipement ; Victor le veut dans l'espace sous le
       sac (quitte à réduire des éléments du panneau Sac pour que ça tienne).
 
 
