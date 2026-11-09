@@ -332,10 +332,13 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .ascend p { margin: 6px 0; font-size: 15px; }
 .shards { font-size: 20px !important; color: var(--accent); }
 .shoplist.two-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); column-gap: 16px; }
-.beastgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 6px; }
-.beast { display: flex; gap: 8px; align-items: center; padding: 4px 8px; }
-.beast img { width: 32px; image-rendering: pixelated; }
-.beast .nm { font-size: 14px; } .beast .pips { font-size: 12px; }
+/* Fiches compactes (demande 18 : pas de défilement) : nom sur une ligne, le nom entier en infobulle. */
+.beastgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 4px; }
+.beast { display: flex; gap: 6px; align-items: center; padding: 2px 6px; min-width: 0; }
+.beast img { width: 24px; flex: none; image-rendering: pixelated; }
+.beast .si { min-width: 0; }
+.beast .nm { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; }
+.beast .pips { font-size: 11px; line-height: 1.2; white-space: nowrap; }
 .beast.unknown .nm { color: var(--muted); }
 .pips { display: flex; gap: 3px; align-items: center; font-size: 12px; color: var(--muted); margin-top: 3px; }
 .pips i { width: 9px; height: 9px; border: 1px solid var(--line); background: var(--bar); }
