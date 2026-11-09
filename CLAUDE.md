@@ -41,6 +41,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (10 classes) et signale celles qui ne progressent pas (60 graines ≈ 35 s). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
+- Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première
+  récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
 - Une seule simulation suit une trajectoire aléatoire fixe : pour juger un changement d'équilibrage,
