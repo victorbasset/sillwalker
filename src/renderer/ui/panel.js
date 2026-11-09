@@ -359,7 +359,9 @@ export class Panel {
       const btn = $(this.root, `[data-tab="${t.id}"]`), open = tabOpen(S, t.id);
       if (btn && btn.hidden === open) btn.hidden = !open;
       const isNew = open && S.tabsOpen && S.tabsOpen[t.id] === "new";
-      const tab = this.tabs[t.id], text = (tab && open ? tab.badge() : "") || (isNew ? "✦" : "");
+      // Pastille plafonnée à « 99+ » (686 points de compétence élargissaient l'onglet ; le nombre exact est dans l'onglet).
+      const raw = (tab0 => (tab0 && open ? tab0.badge() : ""))(this.tabs[t.id]);
+      const text = (/^\d+$/.test(raw) && +raw > 99 ? "99+" : raw) || (isNew ? "✦" : "");
       const el = $(this.root, `[data-badge="${t.id}"]`);
       if (el.textContent !== text) el.textContent = text;
       el.hidden = !text;

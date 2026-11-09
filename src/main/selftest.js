@@ -426,6 +426,9 @@ async function runSelfTest(strip) {
   const tb = await js("(() => { const g = window.__game, S = g.S, P = window.__panel; delete (S.settings.hints || {}).talent; S.tabsOpen.talents = undefined; delete S.tabsOpen.talents; P.renderAll(); const btn = document.querySelector('[data-tab=talents]'); const hid = btn.getClientRects().length === 0; g.step(1.1); P.renderAll(); const toast = document.getElementById('toast').textContent; const vis = btn.getClientRects().length > 0; const badge = document.querySelector('[data-badge=talents]').textContent; P.setTab('talents'); P.renderAll(); const badge2 = document.querySelector('[data-badge=talents]').textContent; P.setTab('adventure'); return [hid, vis, /Talents/.test(toast), badge, badge2 || '-', !!(S.settings.hints || {}).talent].join(' '); })()");
   await js("document.getElementById('toast').click(); window.__panel.setTab('adventure')"); // le clic ouvre l'onglet annoncé : retour à l'aventure
   check("onglets progressifs : caché, annoncé, ✦ jusqu'à la visite, conseil en doublon marqué vu", /^true true true ✦ - true$/.test(tb), tb);
+  // Pastille d'onglet plafonnée à « 99+ ».
+  const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts; S.prestige.skillPts = 5000; window.__panel.renderAll(); const t = document.querySelector('[data-badge=skills]').textContent; S.prestige.skillPts = v; window.__panel.renderAll(); return t; })()");
+  check("onglets : pastille plafonnée à 99+", bg === "99+", bg);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");
