@@ -250,7 +250,8 @@ export class Panel {
         ${up ? `<div class="delta-p">${tx("▲ Plus puissant que ton équipement actuel")}</div>` : ""}
       </div>${up ? `<div class="row"><button class="primary" data-action="reveal-equip" data-id="${it.id}">${tx("Équiper maintenant")}</button></div>` : ""}`;
     $(this.root, "#modal").hidden = false;
-    $(this.root, "#modal button").focus();
+    $(this.root, "#modal button").focus({ preventScroll: true });
+    $(this.root, "#modal .panel").scrollTop = 0;
   }
 
   showOfflineSummary(sum) {
@@ -281,7 +282,9 @@ export class Panel {
         : tx("La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.", { 0: sum.capH || 8 })}</p>`;
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
-    $(this.root, "#modal [data-action=closemodal]").focus(); // « Continuer », pas une action de la liste
+    // « Continuer » reçoit le focus sans faire défiler : le résumé s'ouvre en haut (titre et durée visibles).
+    $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
+    $(this.root, "#modal .panel").scrollTop = 0;
   }
 
   /** « À faire maintenant » : un bouton par action disponible, qui mène droit au bon onglet. */

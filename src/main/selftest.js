@@ -344,6 +344,7 @@ async function runSelfTest(strip) {
   const buyId = await js("(document.querySelector('#modal:not([hidden]) .linkbtn[data-action=goal-buy]') || {}).dataset?.id || null");
   check("retour d'absence : déblocage payable proposé à l'achat", !!buyId, buyId);
   check("retour d'absence : le focus clavier est sur « Continuer »", (await js("document.activeElement && document.activeElement.dataset.action")) === "closemodal");
+  check("retour d'absence : le résumé s'ouvre en haut (titre visible)", (await js("document.querySelector('#modal .panel').scrollTop")) === 0);
   if (process.env.SELFTEST_SHOT) require("fs").writeFileSync(process.env.SELFTEST_SHOT, (await wc.capturePage()).toPNG());
   await click(`#modal .linkbtn[data-tab="${linkTab}"]`);
   await sleep(200);
