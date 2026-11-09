@@ -3,6 +3,8 @@
 //   save.backup.json  sauvegarde de secours, copie de la principale au plus
 //                     toutes les 10 min ; utilisée si la principale est illisible
 //   save.corrupt-*.json  fichiers illisibles mis de côté (jamais supprimés)
+//   save.newer-v*-*.json  sauvegarde d'une version plus récente du jeu (retour à une version
+//                     antérieure) : mise de côté avant d'être remplacée, jamais supprimée
 const fs = require("fs");
 const path = require("path");
 const { readJson, writeJsonAtomic } = require("./json-file");
@@ -48,9 +50,28 @@ class SaveStore {
   write(text) {
     const data = JSON.parse(text);
     if (!isValid(data)) throw new Error("Sauvegarde invalide refusée");
+    if (!this.newerChecked) this.keepNewer(data.v);
     this.rotateBackup();
     writeJsonAtomic(this.main, text);
     return data;
+  }
+
+  /**
+   * Première écriture de la session : si la sauvegarde en place vient d'une version plus récente
+   * du jeu (que celle-ci ne sait pas lire, d'où une partie neuve), on la copie à part au lieu de l'écraser.
+   */
+  keepNewer(v) {
+    this.newerChecked = true;
+    try {
+      for (const file of [this.main, this.backup]) {
+        const cur = readJson(file);
+        if (cur.ok && isValid(cur.data) && cur.data.v > v) {
+          const keep = path.join(this.dir, `save.newer-v${cur.data.v}-${Date.now()}${file === this.backup ? "-backup" : ""}.json`);
+          fs.copyFileSync(file, keep);
+          console.log("[save] sauvegarde d'une version plus récente mise de côté :", keep);
+        }
+      }
+    } catch (e) { console.error("[save] keepNewer", e); }
   }
 
   rotateBackup() {

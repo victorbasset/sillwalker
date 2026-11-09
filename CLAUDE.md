@@ -71,6 +71,11 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 
 ## Pièges connus
 
+- Sauvegardes : `migrate()` (state.js) renvoie null pour une version inconnue → partie neuve. SaveStore
+  (main/save-store.js) met alors de côté la sauvegarde plus récente avant la première écriture
+  (`save.newer-v*.json`) ; ne jamais retirer cette protection. Le lanceur `test()` de test-logic est synchrone :
+  pas de test `async`.
+
 - Panneau : thème clair (par défaut) et sombre selon Windows. Jamais de couleur claire en dur pour du texte
   (#ffe9a8, #9fe0a8…) : utiliser les jetons du thème (`--accent`, `--good`, `--bad`, `--r0`…`--r4`, `--muted`)
   ou une couleur vive dans `--c` avec la classe `.tint` (assombrie en thème clair). Vérifier en capture

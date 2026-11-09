@@ -1,6 +1,10 @@
 // Tests rapides de la logique de jeu (sans Electron) :
 //   npm test
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { createRequire } from "node:module";
 import { Game } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -925,6 +929,22 @@ test("boss : souffle glacé et insaisissable", () => {
   for (let i = 0; i < 400; i++) g.step(0.05);
   assert.ok(frost >= 2, "gel déclenché");
   assert.ok(miss > 0, "coups esquivés");
+});
+
+test("sauvegarde d'une version plus récente du jeu : mise de côté, jamais écrasée", () => {
+  const { SaveStore } = createRequire(import.meta.url)("../src/main/save-store.js");
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "sillwalker-test-"));
+  try {
+    const future = JSON.stringify({ v: SAVE_VERSION + 1, lvl: 999, gold: 123456 });
+    fs.writeFileSync(path.join(dir, "save.json"), future);
+    const st = new SaveStore(dir, { backupIntervalMs: 0 });
+    st.write(JSON.stringify(freshLocked()));               // partie neuve écrite par cette version
+    const kept = fs.readdirSync(dir).filter((f) => f.startsWith(`save.newer-v${SAVE_VERSION + 1}-`));
+    assert.equal(kept.length, 1, "copie de la sauvegarde plus récente");
+    assert.equal(JSON.parse(fs.readFileSync(path.join(dir, kept[0]), "utf8")).lvl, 999);
+    st.write(JSON.stringify(freshLocked()));               // écritures suivantes : pas de nouvelle copie
+    assert.equal(fs.readdirSync(dir).filter((f) => f.startsWith("save.newer-")).length, 1);
+  } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });
 
 test("événement Corne d'abondance : un objet à chaque victoire pendant 30 s", () => {
