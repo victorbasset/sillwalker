@@ -31,7 +31,7 @@ export class TalentsTab {
         const cls = ["talent", "tier" + t.tier, locked ? "locked" : "", r >= t.max ? "maxed" : "", r > 0 ? "has" : "", can ? "can" : "", this.sel === t.id ? "sel" : ""].join(" ");
         return `<button class="${cls}" data-action="t-learn" data-n="1" data-id="${t.id}" data-tid="${t.id}">
           <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
-          <span class="tr">${locked ? "🔒 " + TIER_REQ[t.tier] + " pts" : r + " / " + t.max}</span>
+          <span class="tr">${locked ? "🔒 " + txn(TIER_REQ[t.tier], "{n} pt|{n} pts") : r + " / " + t.max}</span>
           ${can && t.max - r > 1 ? `<span class="tmax" data-action="t-learn" data-n="99" data-id="${t.id}" title="${esc(tx("Monter au maximum possible"))}">max</span>` : ""}</button>`;
       }).join("");
       return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${txn(spent, "{n} pt|{n} pts")}</small></h2>${rows}</article>`;
@@ -44,7 +44,7 @@ export class TalentsTab {
       const cls = ["talent", "voie", taken ? "has maxed" : "", closed ? "closed" : "", locked ? "locked" : "", this.sel === v.id ? "sel" : ""].join(" ");
       const armed = this.armed === v.id && !taken;
       return `<button class="${cls}${armed ? " armed" : ""}" data-action="t-voie" data-id="${v.id}" data-tid="${v.id}"><span class="tn">${taken ? "✦ " : ""}${esc(v.name)}</span>
-        <span class="tr">${taken ? tx("choisie") : locked ? "🔒 " + VOIE_REQ + " pts" : closed ? "—" : armed ? tx("cliquer encore pour confirmer") : tx("choisir")}</span><span class="vt">${esc(v.text)}</span></button>`;
+        <span class="tr">${taken ? tx("choisie") : locked ? "🔒 " + txn(VOIE_REQ, "{n} pt|{n} pts") : closed ? "—" : armed ? tx("cliquer encore pour confirmer") : tx("choisir")}</span><span class="vt">${esc(v.text)}</span></button>`;
     }).join("");
     const masteries = MASTERIES.map((m) => {
       const r = ranks[m.id] || 0, locked = spentAll < MASTERY_REQ;
