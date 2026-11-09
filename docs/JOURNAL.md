@@ -1,10 +1,13 @@
 # Journal de développement
 
 Itérations autonomes : une amélioration à la fois, la plus récente en haut de « Fait ».
-Revue générale toutes les 10 itérations (prochaine : itération 61).
+Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 61, revue générale + correction) : l'élite « Givrée » ralentissait trop le jeu (record moyen en 12 h,
+  10 classes : 58,4 → 56,9 ; paladin 56 → 50). Gel atténué (1 coup sur 7 au lieu de 1 sur 4, 1,5 s au lieu de 2 s) :
+  moyenne 57,7, paladin 56. Revue : 600 parties sans blocage, aucun texte français en coréen.
 - 2026-11-09 (it. 60) : sur la bande, la pastille du bouton du panneau s'allume pour toute action qui attend (quête,
   déblocage abordable, œuf… et plus seulement amélioration ou talents), et son infobulle les liste.
 - 2026-11-09 (it. 59) : mode mini, un point doré près du niveau signale qu'une action attend (quête à réclamer,
@@ -33,7 +36,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 61).
 - 2026-11-09 (it. 49) : à la première défaite d'un nouveau joueur, une bulle rassure (le héros recule puis repart
   seul) et oriente vers le sac (▲ = meilleur équipement).
 - 2026-11-09 (it. 48) : nouvel affixe d'élite, « Givré » : ses coups peuvent geler le héros (attaques 40 % plus
-  lentes pendant 2 s, « Gelé ! » sur la bande).
+  lentes pendant 2 s, « Gelé ! » sur la bande). Atténué à la revue it. 61 (15 %, 1,5 s).
 - 2026-11-09 (it. 47) : README remis à jour (83 monstres et non 43, champions dès la zone 5, retour d'absence,
   mode mini, raccourcis clavier). Inventaire des pluriels bricolés « (s) » encore utilisés : aucun (les particules
   coréennes 이(가), 을(를) sont l'usage normal).
