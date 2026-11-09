@@ -41,7 +41,7 @@ import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST } from "./events.js";
 import { bossMechanics, bossName, FURY, bossWear } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
-import { fmt } from "./format.js";
+import { fmt , durText, uH, uMin } from "./format.js";
 import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock, recordZone } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
@@ -721,7 +721,7 @@ export class Game {
     // kept : objets nouveaux dans le sac (remplacements quand il est plein et coffres compris ; avant, la différence
     // de taille du sac affichait « 0 » dès qu'il était plein).
     const summary = {
-      seconds: sec, duration: sec < 60 ? Math.round(sec) + " s" : (h ? h + " h " : "") + mn + " min", zone: zoneName(S.zone),
+      seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, transmuted, petWork,
@@ -1467,7 +1467,7 @@ export class Game {
     if (P.exp[id]) return false;
     P.exp[id] = { kind, start: now, end: now + ex.min * 60000 };
     P.lastKind = kind; // le Grand intendant reprend ce choix
-    if (!this._quiet) this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
+    if (!this._quiet) this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? uH(ex.min / 60) : uMin(ex.min) })}`);
     this.changed();
     return true;
   }

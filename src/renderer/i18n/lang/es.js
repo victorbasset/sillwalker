@@ -510,4 +510,8 @@ export default {
   1634: "Las grandes etapas de tu partida aparecerán aquí.",
   1635: "Inicio del cuaderno: nivel {0}, récord zona {1}",
   1636: "Conjunto completado: {0}",
+  1637: "{0} h",
+  1638: "{0} min",
+  1639: "{0} s",
+  1640: "sí",
 };

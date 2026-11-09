@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 190) : chasse aux mots latins courts (2-3 lettres, ignorés jusqu'ici) dans le texte russe :
+  « oui » en dur (second souffle, statistiques du héros) et unités de durée « h / min / s » en dur à 8 endroits
+  (résumé d'absence, expéditions, boutique, buffs, statistiques) ; nouvelles clés « {0} h », « {0} min », « {0} s »,
+  « oui » et fonctions uH, uMin, uS, durText (format.js). Russe : « 15 мин 00 », « да ». Restent « max » (bouton
+  international), « Esc » (touche), « DEV » (absent de la version distribuée). 82/82. À faire désormais : la chasse
+  au texte non traduit inclut les mots de 2-3 lettres.
 - 2026-11-09 (it. 189) : l'unité « pts » des chances de critique (describeEffects) restait en français dans toutes
   les langues (« +8 pts шанс крита » en russe) : elle passe par le pluriel traduit « {n} pt|{n} pts » (« +8 оч. »,
   « +8 Pkt. » ; en français « +1 pt » au singulier). Vérifié dans le texte russe extrait (0 « pts »). Recherche des

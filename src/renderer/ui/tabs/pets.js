@@ -2,10 +2,10 @@
 import { t as tx, txn, lc } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
-import { esc, fmt } from "../../game/format.js";
+import { esc, fmt, uH, uMin } from "../../game/format.js";
 
-const left = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return h ? `${h} h ${String(m).padStart(2, "0")}` : `${m} min ${String(s % 60).padStart(2, "0")}`; };
-const dur = (min) => (min >= 60 ? min / 60 + " h" : min + " min");
+const left = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return h ? `${uH(h)} ${String(m).padStart(2, "0")}` : `${uMin(m)} ${String(s % 60).padStart(2, "0")}`; };
+const dur = (min) => (min >= 60 ? uH(min / 60) : uMin(min));
 import { petURL } from "../../render/sprites.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";

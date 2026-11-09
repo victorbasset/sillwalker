@@ -10,7 +10,7 @@ import { shopIconURL } from "../render/shopart.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, sellValue, monsterBase, itemMult, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
-import { fmt, fmtStat, esc, NB, dec, unit, listJoin } from "../game/format.js";
+import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -75,7 +75,7 @@ const EXTRA_STATS = [
   ["lifesteal", tx("Vol de vie"), (s) => s.lifesteal > 0, (s) => n1(s.lifesteal) + unit("%")],
   ["execute", tx("Coup de grâce"), (s) => s.execute > 0, (s) => "+" + n1(s.execute) + unit("%")],
   ["bossDmg", tx("Dégâts aux boss"), (s) => s.bossDmg > 0, (s) => "+" + n1(s.bossDmg) + unit("%")],
-  ["secondWind", tx("Second souffle"), (s) => s.secondWind, () => "oui"],
+  ["secondWind", tx("Second souffle"), (s) => s.secondWind, () => tx("oui")],
   ["moveSpd", tx("Vitesse de déplacement"), (s) => s.moveSpd > 0, (s) => "+" + n1(s.moveSpd) + unit("%")],
 ];
 
@@ -196,7 +196,7 @@ export class Panel {
   visitHTML() {
     const v = this.sinceVisit;
     if (!v) return "";
-    const dur = v.min >= 60 ? `${Math.floor(v.min / 60)} h ${v.min % 60} min` : `${v.min} min`;
+    const dur = v.min >= 60 ? `${uH(Math.floor(v.min / 60))} ${uMin(v.min % 60)}` : uMin(v.min);
     const parts = [tx("{0} or", { 0: `<b>+${fmt(v.gold)}</b>` }), txn(v.kills, "{n} monstre|{n} monstres", { n: fmt(v.kills) })];
     if (v.lvl0) parts.push(tx("niveau {0} → {1}", { 0: v.lvl0, 1: v.lvl1 }));
     if (v.asc) parts.push(`<b>${txn(v.asc, "{n} ascension|{n} ascensions")}</b>`);
@@ -425,7 +425,7 @@ export class Panel {
     const g = this.game, S = g.S, hs = g.stats(), cls = g.classDef();
     const extra = EXTRA_STATS.filter(([, , show]) => show(hs)).map(([, label, , val]) => `<dt>${label}</dt><dd>${val(hs)}</dd>`).join("");
     const buffs = CONSUMABLES.filter((c) => c.kind === "buff" && (S.buffs[c.id] || 0) > 0)
-      .map((c) => `<span class="chip" title="${esc(c.desc)}">${esc(c.name)} · <span data-buff="${c.id}">${Math.ceil(S.buffs[c.id] / 60)} min</span></span>`).join("");
+      .map((c) => `<span class="chip" title="${esc(c.desc)}">${esc(c.name)} · <span data-buff="${c.id}">${uMin(Math.ceil(S.buffs[c.id] / 60))}</span></span>`).join("");
     const free = g.talentPointsFree();
     const sets = Object.entries(setCounts(S.equip)).filter(([id, n]) => SETS[id] && n >= 2)
       .map(([id, n]) => `<span class="chip set" style="--c:${SETS[id].color}" title="${esc(`${n >= 2 ? "✓" : "·"} ${tx("2 pièces : {0}", { 0: describeEffects(SETS[id].two) })}\n${n >= 4 ? "✓" : "·"} ${tx("4 pièces : {0}", { 0: describeEffects(SETS[id].four) })}`)}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");

@@ -1,6 +1,6 @@
 // Mise en forme des nombres et du texte, selon la langue choisie.
 import { PCT_STATS } from "./data.js";
-import { getLang } from "../i18n/index.js";
+import { getLang, t as tx } from "../i18n/index.js";
 
 export const NB = " "; // espace fine insécable
 
@@ -44,6 +44,15 @@ export function fmtShort(n) {
 export const listJoin = (arr) => { try { return new Intl.ListFormat(LOCALE[getLang()] || "en-US", { type: "conjunction" }).format(arr); } catch { return arr.join(", "); } };
 
 /** Pourcentage : « 12,5 % » en français, « 12.5% » en anglais. */
+/** Unités de durée traduites (« 3 h », « 12 min », « 40 s » ; ч / мин / с en russe…). */
+export const uH = (n) => tx("{0} h", { 0: n }), uMin = (n) => tx("{0} min", { 0: n }), uS = (n) => tx("{0} s", { 0: n });
+/** Durée lisible : « 40 s », « 12 min », « 3 h 5 min ». */
+export const durText = (sec) => {
+  sec = Math.max(0, Math.round(sec || 0));
+  if (sec < 60) return uS(sec);
+  const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
+  return h ? uH(h) + " " + uMin(m) : uMin(m);
+};
 export const pct = (v) => dec(String(Math.round(v * 10) / 10)) + unit("%");
 
 export function fmtStat(k, v) {

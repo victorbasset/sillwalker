@@ -510,4 +510,8 @@ export default {
   1634: "The big steps of your adventure will appear here.",
   1635: "Logbook started: level {0}, record zone {1}",
   1636: "Set completed: {0}",
+  1637: "{0} h",
+  1638: "{0} min",
+  1639: "{0} s",
+  1640: "yes",
 };

@@ -510,4 +510,8 @@ export default {
   1634: "Tu pojawią się najważniejsze etapy twojej gry.",
   1635: "Początek dziennika: poziom {0}, rekordowa strefa {1}",
   1636: "Ukończony zestaw: {0}",
+  1637: "{0} godz.",
+  1638: "{0} min",
+  1639: "{0} s",
+  1640: "tak",
 };

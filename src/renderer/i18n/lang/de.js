@@ -510,4 +510,8 @@ export default {
   1634: "Die großen Etappen deines Spiels erscheinen hier.",
   1635: "Logbuch begonnen: Stufe {0}, Rekordzone {1}",
   1636: "Set vervollständigt: {0}",
+  1637: "{0} Std.",
+  1638: "{0} Min.",
+  1639: "{0} s",
+  1640: "ja",
 };

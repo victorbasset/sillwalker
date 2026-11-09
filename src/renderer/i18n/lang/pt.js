@@ -510,4 +510,8 @@ export default {
   1634: "As grandes etapas da sua partida aparecerão aqui.",
   1635: "Início do diário: nível {0}, recorde zona {1}",
   1636: "Conjunto completo: {0}",
+  1637: "{0} h",
+  1638: "{0} min",
+  1639: "{0} s",
+  1640: "sim",
 };

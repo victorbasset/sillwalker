@@ -9,13 +9,13 @@ import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
 import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
 
-import { fmt, esc, dec, unit } from "../../game/format.js";
+import { fmt, esc, dec, unit, uH, uMin } from "../../game/format.js";
 const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)) + unit("%");
 
 const dur = (s) => {
   s = Math.floor(s || 0);
   const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
-  return (d ? tx("{0} j", { 0: d }) + " " : "") + (d || h ? h + " h " : "") + m + " min";
+  return (d ? tx("{0} j", { 0: d }) + " " : "") + (d || h ? uH(h) + " " : "") + uMin(m);
 };
 
 // Carnet de route : grandes étapes datées de la partie (game.milestone), les plus récentes d'abord.

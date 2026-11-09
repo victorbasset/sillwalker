@@ -9,7 +9,7 @@ import {
   consumablePrice, chestPrice, upgradePrice, rerollPrice, workshopPrice, eggPrice,
 } from "../../game/shop.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, esc, NB, unit } from "../../game/format.js";
+import { fmt, esc, NB, unit , uH, uMin } from "../../game/format.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { POWER_INDEX } from "../../game/powers.js";
@@ -17,7 +17,7 @@ import { SETS } from "../../game/sets.js";
 import { UNLOCKS, hasUnlock, nextUnlock, unlockAvailable } from "../../game/unlocks.js";
 import { lockLink as lockLinkS } from "../locks.js";
 
-const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, "0")}` : `${m} min ${String(s % 60).padStart(2, "0")}`; };
+const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${uH(Math.floor(m / 60))} ${String(m % 60).padStart(2, "0")}` : `${uMin(m)} ${String(s % 60).padStart(2, "0")}`; };
 /** Effet court affiché sous chaque consommable. */
 const SHORT = { potion: tx("Rend 50 % des PV"), elixir: tx("+25 % d’attaque"), fortune: tx("+50 % d’or"), wisdom: tx("+50 % d’expérience"), haste: tx("+30 % de vitesse"), luck: tx("+40 % de butin"), iron: tx("+30 % PV et défense") };
 
