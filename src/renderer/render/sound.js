@@ -78,6 +78,7 @@ export class Sound {
       case "chest": this.noise(0, 0.08, 0.2); [NOTES.C5, NOTES.G5, NOTES.C6, NOTES.E6, NOTES.G6].forEach((f, i) => this.tone(f, 0.12 + i * 0.06, 0.16, "square", 0.2)); break;
       case "codex": if (this.throttle(id, 1500)) { this.tone(NOTES.G5, 0, 0.08, "sine", 0.2); this.tone(NOTES.D6, 0.07, 0.14, "sine", 0.2); } break;
       case "ko": this.tone(330, 0, 0.5, "triangle", 0.3, 0.4); break;
+      case "tab": if (this.throttle(id, 1500)) { this.tone(NOTES.A5, 0, 0.12, "sine", 0.2); this.tone(NOTES.E6, 0.1, 0.22, "sine", 0.2); } break; // onglet débloqué : doux
       case "quest": if (this.throttle(id, 1000)) { this.tone(NOTES.D6, 0, 0.08, "triangle", 0.22); this.tone(NOTES.G6, 0.07, 0.14, "triangle", 0.22); } break;
       case "record": [NOTES.C5, NOTES.G5, NOTES.C6, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.09, 0.2, "triangle", 0.28)); break;
       case "ascend": [NOTES.C5, NOTES.E5, NOTES.G5, NOTES.C6, NOTES.E6, NOTES.G6, NOTES.C6 * 2].forEach((f, i) => this.tone(f, i * 0.1, 0.35, "sine", 0.25)); break;

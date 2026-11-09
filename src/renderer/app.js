@@ -390,6 +390,7 @@ async function boot() {
   /* ---------- Héros libéré ---------- */
   /* ---------- Onglet débloqué (tabs.js) : annonce sobre, un clic l'ouvre ---------- */
   game.on("tabOpen", ({ ids }) => {
+    sound.play("tab");
     for (const id of ids) {
       const desc = TAB_GATES[id] ? tx(TAB_GATES[id].desc) : "";
       if (TAB_GATES[id]?.hint) markHint(game, TAB_GATES[id].hint); // l'annonce dit déjà la même chose : pas de deuxième bulle
