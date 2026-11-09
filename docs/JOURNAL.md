@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 301, étude des concurrents, action d) : héros ajoutés plus distincts : chacun remplace une branche
+  de talents de son modèle par les effets d'une branche d'un autre héros, plus proche de son thème (talents.js >
+  GRAFTS : cryomancienne → critiques au lieu de brûlure, barde → or et expérience, chaman → invocations, prêtresse →
+  soins, garde-étoile → boucliers, gladiatrice → vol de vie et épines…). Valeurs reprises telles quelles (déjà
+  équilibrées). Simulations 12 h des 10 héros : dans le bruit (artificière : greffe déplacée de Arcanes vers Savoir
+  après −6 zones, puis 3 graines : 59 contre 57,7 avant). Test, fuzz, autotest vert.
 - 2026-11-09 (it. 300, revue générale) : simulations 12 h : guerrier 59, mage 54, artificière 59 (stables) ; crawl
   300 clics sans erreur (nouveau design compris) ; texte russe : aucun mot latin suspect ; perf (son + musique) :
   bande 20,5 %, panneau 22 %, mini 6,2 %, icône 2,7 % d'un cœur ; avec « Économie d'énergie » : bande 13,4 %,
@@ -1152,7 +1158,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      (ou les rendre discrètes) ; vérifier qu'aucune action n'est exigée pour progresser (vraiment idle).
   c. P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
      premier lancement guidé (bulles d'astuces) : vérifier sur une partie neuve que chaque mécanique est expliquée.
-  d. P2 Profondeur et variété (répétitif = reproche n° 1 de Rusty's) : les 10 nouveaux héros ont des arbres de
+  d. EN PARTIE (it. 301 : greffes de branches, héros distincts ; reste : événements et mécaniques de boss).
+     P2 Profondeur et variété (répétitif = reproche n° 1 de Rusty's) : les 10 nouveaux héros ont des arbres de
      talents aux mêmes effets que leurs modèles (seuls les noms changent) : leur donner des effets propres ; plus
      d'événements de zone et de mécaniques de boss.
   e. P2 Rien qui repart à zéro sans contrepartie : l'ascension garde déjà l'essentiel ; l'écran d'ascension le dit

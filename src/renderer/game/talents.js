@@ -318,11 +318,31 @@ const VOIE_NAMES = {
   starwarden: [["Voie de l’étoile filante", "Un coup sur quatre tranche le ciel."], ["Voie des constellations", "Deux lames d’étoile, deux coups."]],
   artificer: [["Voie de la poudre", "Tout brûle, longtemps et fort."], ["Voie de la précision", "Des critiques dévastateurs."]],
 };
+// Greffes (étude des concurrents : « héros trop semblables ») : chaque héros ajouté remplace une branche de son
+// modèle par les effets d'une branche d'un autre héros, plus proche de son thème (valeurs déjà équilibrées, mêmes
+// rangs). [branche remplacée, héros source, branche source]. Les noms restent ceux du héros.
+const GRAFTS = {
+  arbalest: [2, "warrior", 2],     // Survie → Conquête : chasseuse de primes (or, expérience, butin, boss)
+  lancer: [1, "samurai", 1],       // Robustesse → Bushido : la phalange (esquive, riposte)
+  priestess: [0, "druid", 1],      // Lumière → Nature : soins (régénération, vol de vie)
+  gladiator: [2, "berserker", 1],  // Conquête → Sang : l'arène (vol de vie, épines)
+  shaman: [2, "necro", 0],         // Sauvage → Légion : les esprits invoqués
+  bladedancer: [1, "monk", 0],     // Venin → Poings : la danse (vitesse, coups doubles, combos)
+  cryomancer: [0, "ranger", 0],    // Givre → Précision : éclats de glace critiques (plus de brûlure chez la cryomancienne)
+  bard: [0, "warrior", 2],         // Rythme → Conquête : la ballade rapporte or et expérience
+  starwarden: [1, "paladin", 1],   // Bushido → Bastion : boucliers d'étoile
+  artificer: [2, "berserker", 2],  // Savoir → Frénésie : cadence des machines (Arcanes gardées : sa puissance)
+};
 for (const [cls, def] of Object.entries(CLASSES)) {
   if (!def.tree || TREES[cls]) continue;
   const p = def.treePrefix, names = TREE_NAMES[cls];
   TREES[cls] = TREES[def.tree].map((b, bi) => ({ ...b, name: names ? names[0][bi] : b.name,
     talents: b.talents.map((t, ti) => ({ ...t, id: p + t.id, name: !names ? t.name : t.tier === 3 ? names[1][bi] : (names[2] && names[2][bi * 3 + ti]) || t.name })) }));
+  const g = GRAFTS[cls];
+  if (g && TREES[g[1]] && TREES[g[1]][g[2]]) {
+    const src = TREES[g[1]][g[2]].talents;
+    TREES[cls][g[0]].talents = TREES[cls][g[0]].talents.map((t, ti) => (src[ti] ? { ...t, eff: { ...src[ti].eff }, max: src[ti].max } : t));
+  }
   if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v, vi) => ({ ...v, id: p + v.id, ...(VOIE_NAMES[cls] ? { name: VOIE_NAMES[cls][vi][0], text: VOIE_NAMES[cls][vi][1] } : {}) }));
 }
 

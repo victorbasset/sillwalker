@@ -578,6 +578,16 @@ test("Enclume stellaire (demande 28) : objet remonté au niveau du record, très
   assert.ok(!g.levelItem(it2), "pas assez d'or");
 });
 
+test("héros ajoutés : au moins une branche de talents différente de leur modèle (étude des concurrents)", () => {
+  const { TREES } = M_talents_js, { CLASSES } = M_classes_js;
+  for (const [cls, def] of Object.entries(CLASSES)) {
+    if (!def.tree) continue;
+    const sig = (k) => TREES[k].map((b) => JSON.stringify(b.talents.map((t) => t.eff)));
+    const mine = sig(cls), model = sig(def.tree);
+    assert.ok(mine.some((x, i) => x !== model[i]), cls + " a les mêmes effets que " + def.tree);
+  }
+});
+
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {
   const { SKILL_TREE } = M_skilltree_js, keys = new Set(M_skillicons_js.SKILL_ICON_KEYS);
   for (const n of Object.values(SKILL_TREE.nodes)) assert.ok(keys.has(M_skillicons_js.skillIconKey(n)), "icône manquante : " + n.id + " " + M_skillicons_js.skillIconKey(n));
