@@ -435,4 +435,5 @@ export default {
   1559: "Experiência ×3!",
   1560: "Eventos raros ({0})",
   1561: "Encontrar {n} item raro ou melhor|Encontrar {n} itens raros ou melhores",
+  1562: "Resgatar uma missão concluída (todas com o Balcão de contratos)",
 };

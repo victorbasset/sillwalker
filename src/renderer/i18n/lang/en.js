@@ -435,4 +435,5 @@ export default {
   1559: "Experience ×3!",
   1560: "Rare events ({0})",
   1561: "Find {n} rare or better item|Find {n} rare or better items",
+  1562: "Claim a finished quest (all of them with the Contracts Desk)",
 };

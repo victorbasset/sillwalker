@@ -65,7 +65,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
 - **Réglages** : sons synthétisés (coupés par défaut), cycle jour/nuit, nombres de dégâts, effets réduits, météo, thème du panneau (Windows, clair, sombre),
   position, opacité, démarrage de Windows.
-- **Clavier** (panneau ouvert) : 1 … 9, 0, - pour les onglets ; E équiper le meilleur ; V vendre l'inutile ; T transmuter ;
+- **Clavier** (panneau ouvert) : 1 … 9, 0, - pour les onglets ; E équiper le meilleur ; V vendre l'inutile ; T transmuter ; R réclamer une quête (toutes avec le Bureau des contrats) ;
   M mode mini ; Entrée confirmer ; Échap fermer.
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
 - **Retour** : après une absence, résumé des gains, meilleur objet (équipable d'un clic) et « À faire maintenant »

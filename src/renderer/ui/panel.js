@@ -17,6 +17,7 @@ import { TalentsTab } from "./tabs/talents.js";
 import { ShopTab } from "./tabs/shop.js";
 import { ClassesTab } from "./tabs/classes.js";
 import { QuestsTab } from "./tabs/quests.js";
+import { questDone } from "../game/quests.js";
 import { PetsTab } from "./tabs/pets.js";
 import { AscensionTab } from "./tabs/ascension.js";
 import { BestiaryTab } from "./tabs/bestiary.js";
@@ -631,6 +632,13 @@ export class Panel {
     if (i >= 0 && TABS[i]) { this.setTab(TABS[i].id); return true; }
     const k = e.key.toLowerCase();
     if (k === "m") { this.onMini?.(); return true; } // réduire en mode mini sans chercher le bouton
+    if (k === "r") { // réclamer les quêtes terminées : une par appui, toutes avec le Bureau des contrats
+      const done = this.game.S.quests.slots.filter((q) => questDone(q));
+      if (!done.length) return false;
+      for (const q of hasUnlock(this.game.S, "questDesk") ? done : done.slice(0, 1)) this.game.claimQuest(q.uid);
+      this.renderAll();
+      return true;
+    }
     if ((k === "e" || k === "v" || k === "t") && !hasUnlock(this.game.S, k === "t" ? "transmute" : "bulkEquip")) return false;
     if (k === "e") { this.game.autoEquip(); this.selected = null; this.renderAll(); return true; }
     if (k === "t") { if (this.tab !== "adventure") this.setTab("adventure"); const b = $(this.root, '[data-action="transmute"]'); if (b && !b.disabled) this.onClick({ target: b }); return true; }

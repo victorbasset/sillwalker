@@ -1563,5 +1563,6 @@ export const KEYS = [
   "Souffle de sagesse",
   "Expérience ×3 !",
   "Événements rares ({0})",
-  "Trouver {n} objet rare ou mieux|Trouver {n} objets rares ou mieux"
+  "Trouver {n} objet rare ou mieux|Trouver {n} objets rares ou mieux",
+  "Réclamer une quête terminée (toutes avec le Bureau des contrats)"
 ];

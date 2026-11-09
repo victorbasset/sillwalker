@@ -435,4 +435,5 @@ export default {
   1559: "Erfahrung ×3!",
   1560: "Seltene Ereignisse ({0})",
   1561: "{n} seltenen oder besseren Gegenstand finden|{n} seltene oder bessere Gegenstände finden",
+  1562: "Eine erfüllte Quest abholen (alle mit dem Auftragsschalter)",
 };

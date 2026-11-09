@@ -295,6 +295,11 @@ async function runSelfTest(strip) {
   wc.sendInputEvent({ type: "keyUp", keyCode: "0" });
   await sleep(200);
   check("raccourci clavier vers un onglet", (await js("document.querySelector('[data-tab=stats]').getAttribute('aria-selected')")) === "true");
+  // R : réclamer une quête terminée sans passer par l'onglet
+  await js("(() => { const q = window.__game.S.quests.slots[0]; q.progress = q.goal; window.__rq = q.uid; })()");
+  wc.sendInputEvent({ type: "keyDown", keyCode: "R" }); wc.sendInputEvent({ type: "char", keyCode: "r" }); wc.sendInputEvent({ type: "keyUp", keyCode: "R" });
+  await sleep(200);
+  check("raccourci R : quête terminée réclamée", await js("!window.__game.S.quests.slots.some((q) => q.uid === window.__rq)"));
   // M : réduire en mode mini (puis retour à la bande pour la suite du parcours)
   wc.sendInputEvent({ type: "keyDown", keyCode: "M" }); wc.sendInputEvent({ type: "char", keyCode: "m" }); wc.sendInputEvent({ type: "keyUp", keyCode: "M" });
   await until(async () => strip.mode() === "mini", 3000);
