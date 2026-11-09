@@ -27,6 +27,7 @@ import { nextHint, markHint } from "./ui/hints.js";
 import { heroVisual, visualKey } from "./render/equipvis.js";
 import { Panel } from "./ui/panel.js";
 import { initClickThrough } from "./ui/clickthrough.js";
+import { recordZone } from "./game/unlocks.js";
 
 const api = window.sillwalker;
 const FRAME_MS = 1000 / 30;         // rendu plafonné à 30 images/s
@@ -244,7 +245,7 @@ async function boot() {
   let lastStatus = null, statusT = 0;
   game.on("loot", ({ item }) => { if (item.r >= 2) api.sendStatus({ loot: item.r }); });
   function sendStatus(force) {
-    const S = game.S, st = { state: game.R.mode, lvl: S.lvl, zone: S.zone, kills: Math.min(S.kills, 10), gold: fmt(S.gold), cls: game.classDef().name };
+    const S = game.S, st = { state: game.R.mode, lvl: S.lvl, zone: S.zone, best: recordZone(S), kills: Math.min(S.kills, 10), gold: fmt(S.gold), cls: game.classDef().name };
     const now = Date.now();
     const same = lastStatus && Object.keys(st).every((k) => st[k] === lastStatus[k]);
     // Changement d'état (combat, K.O.) : tout de suite ; le reste : 1 fois/s max.

@@ -72,7 +72,8 @@ function createTray({ strip, isDev, steam }) {
     // fait à chaque victoire) : au plus toutes les 10 s, sauf K.O. / relève.
     const now = Date.now();
     if (now - tipT < TIP_MS && (st.state === "dead") === wasDead) return;
-    const tip = `Sillwalker · ${L("lvl")} ${st.lvl} · Zone ${st.zone} (${st.kills}/10) · ${st.gold} ${L("gold")}` + (st.state === "dead" ? " · K.O." : "");
+    const tip = `Sillwalker · ${L("lvl")} ${st.lvl} · ${L("zone")} ${st.zone} (${st.kills}/10)` + (st.best > st.zone ? ` · ${L("record")} ${st.best}` : "")
+      + ` · ${st.gold} ${L("gold")}` + (st.state === "dead" ? " · K.O." : "");
     if (tip === lastTip) return;
     tipT = now; lastTip = tip;
     tray.setToolTip(tip);

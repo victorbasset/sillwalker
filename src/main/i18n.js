@@ -16,6 +16,8 @@ const T = {
   login:    { fr: "Lancer au démarrage de Windows", en: "Launch at Windows startup", zh: "开机时启动", ru: "Запускать вместе с Windows", es: "Iniciar con Windows", pt: "Iniciar com o Windows", de: "Mit Windows starten", ja: "Windows 起動時に開始", pl: "Uruchamiaj z systemem Windows", ko: "Windows 시작 시 실행" },
   quit:     { fr: "Quitter Sillwalker", en: "Quit Sillwalker", zh: "退出 Sillwalker", ru: "Выйти из Sillwalker", es: "Salir de Sillwalker", pt: "Sair do Sillwalker", de: "Sillwalker beenden", ja: "Sillwalker を終了", pl: "Zamknij Sillwalker", ko: "Sillwalker 종료" },
   lvl:      { fr: "Niv.", en: "Lv.", zh: "等级", ru: "Ур.", es: "Nv.", pt: "Nv.", de: "Stf.", ja: "Lv.", pl: "Poz.", ko: "Lv." },
+  zone:     { fr: "Zone", en: "Zone", zh: "区域", ru: "Зона", es: "Zona", pt: "Zona", de: "Zone", ja: "エリア", pl: "Strefa", ko: "지역" },
+  record:   { fr: "record", en: "best", zh: "纪录", ru: "рекорд", es: "récord", pt: "recorde", de: "Rekord", ja: "記録", pl: "rekord", ko: "기록" },
   gold:     { fr: "or", en: "gold", zh: "金币", ru: "золота", es: "oro", pt: "ouro", de: "Gold", ja: "ゴールド", pl: "złota", ko: "골드" },
 };
 let lang = "en";
