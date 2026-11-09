@@ -256,6 +256,8 @@ export class Juice {
     }
     const frenzy = (E.frenzy || 0) > 0;
     if (this.s.hero && this.s.hero.el.classList.contains("frenzy") !== frenzy) this.s.hero.el.classList.toggle("frenzy", frenzy);
+    const hawk = (E.hawkeye || 0) > 0; // Œil du faucon : halo orangé (tous les coups critiques)
+    if (this.s.hero && this.s.hero.el.classList.contains("hawkeye") !== hawk) this.s.hero.el.classList.toggle("hawkeye", hawk);
   }
 
   /* ---------- Coffre au trésor ---------- */

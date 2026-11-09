@@ -405,6 +405,11 @@ async function runSelfTest(strip) {
   const q2 = await js("document.getElementById('toast').hidden ? 'cachée' : document.getElementById('toast').textContent");
   check("bulles : la deuxième attend la fermeture de la première", q1 === "BULLE-UN" && q2 === "BULLE-DEUX", q1 + " / " + q2);
   await js("document.getElementById('toast').click()");
+  // Œil du faucon : halo sur le héros dans la bande pendant l'événement.
+  await js("window.__game.startEvent('hawkeye')");
+  await sleep(400);
+  const hk = await js("String(!!document.querySelector('.actor.hawkeye'))");
+  check("bande : halo du héros pendant l'Œil du faucon", hk === "true", hk);
   // Prochain déblocage prêt : un clic sur la carte du héros l'achète (sans passer par la boutique).
   // (Valet d'armes remis en vente et payable : contrôle reproductible d'un passage à l'autre.)
   await js("(() => { const S = window.__game.S; delete S.unlocks.armsValet; S.gold = Math.max(S.gold, 1e9); window.__panel.renderAll(); })()");

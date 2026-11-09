@@ -389,6 +389,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .star { pointer-events: auto; width: 26px; height: 26px; padding: 0; border: 0; background: none; box-shadow: none; cursor: pointer; }
 .star i { position: absolute; left: 7px; top: 7px; width: 12px; height: 12px; background: #fff6c8; box-shadow: 0 0 0 2px #ffd34d, 0 0 14px 6px rgba(255, 246, 200, .8), 22px -10px 0 -3px rgba(255, 246, 200, .6), 40px -18px 0 -4px rgba(255, 246, 200, .35); transform: rotate(45deg); }
 .actor.frenzy { filter: drop-shadow(0 0 2px #ff4a4a) drop-shadow(0 0 1px #ff7a6b); }
+.actor.hawkeye { filter: drop-shadow(0 0 2px #ff9f43) drop-shadow(0 0 1px #ffd08a); }
+.actor.frenzy.hawkeye { filter: drop-shadow(0 0 2px #ff4a4a) drop-shadow(0 0 2px #ff9f43); }
 .layer.hud { transform-origin: 80% 50%; }
 .chip.event { border-color: var(--c); color: var(--c); }
 /* Couleurs vives pensées pour le fond sombre : assombries en thème clair pour rester lisibles. */
