@@ -438,4 +438,5 @@ export default {
   1562: "Claim a finished quest (all of them with the Contracts Desk)",
   1563: "Squirrel",
   1564: "Hides nuts… and coins.",
+  1565: "{0} finally defeated!",
 };

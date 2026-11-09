@@ -1566,5 +1566,6 @@ export const KEYS = [
   "Trouver {n} objet rare ou mieux|Trouver {n} objets rares ou mieux",
   "Réclamer une quête terminée (toutes avec le Bureau des contrats)",
   "Écureuil",
-  "Cache des noisettes… et des pièces."
+  "Cache des noisettes… et des pièces.",
+  "{0} enfin vaincu !"
 ];

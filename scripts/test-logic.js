@@ -1180,6 +1180,27 @@ test("quête de butin : chaque objet rare ou mieux trouvé sur un monstre compte
   assert.match(M_quests_js.QUEST_TEMPLATES.loot.text({ goal: 4 }), /4/);
 });
 
+test("boss enfin vaincu après un K.O. : un moment, pas pour une victoire facile", () => {
+  const g = new Game(freshState());
+  const seen = [];
+  g.on("bossNemesis", (e) => seen.push(e));
+  const killBoss = (tries = 0) => {
+    g.S.kills = 10; g.R.mon = null;
+    for (let i = 0; i < 400 && !(g.R.mon && g.R.mon.boss); i++) g.step(0.05);
+    assert.ok(g.R.mon && g.R.mon.boss, "boss en vue");
+    if (tries) (g.S.bossDefeats ||= {})[g.S.zone] = tries;
+    const boss = g.R.mon; boss.hp = 0;
+    for (let i = 0; i < 100 && g.R.mon === boss; i++) g.step(0.05); // le temps que la victoire soit comptée
+  };
+  g.S.autoAdvance = false;
+  killBoss();
+  assert.equal(seen.length, 0, "victoire du premier coup : rien de spécial");
+  killBoss(2);
+  assert.equal(seen.length, 1);
+  assert.equal(seen[0].tries, 2);
+  assert.ok(!Object.values(g.S.bossDefeats).some(Boolean), "usure remise à zéro");
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

@@ -438,4 +438,5 @@ export default {
   1562: "Eine erfüllte Quest abholen (alle mit dem Auftragsschalter)",
   1563: "Eichhörnchen",
   1564: "Versteckt Nüsse … und Münzen.",
+  1565: "{0} endlich besiegt!",
 };

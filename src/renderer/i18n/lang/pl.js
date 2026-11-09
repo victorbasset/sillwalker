@@ -438,4 +438,5 @@ export default {
   1562: "Odbierz ukończone zadanie (wszystkie z Biurem zleceń)",
   1563: "Wiewiórka",
   1564: "Chowa orzechy… i monety.",
+  1565: "{0} wreszcie pokonany!",
 };

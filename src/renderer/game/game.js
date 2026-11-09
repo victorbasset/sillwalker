@@ -536,7 +536,11 @@ export class Game {
     else if (m.elite) this.log(`${tx("Élite vaincu : {0} or !", { 0: fmt(gold) })}`);
     if (m.boss) {
       S.stats.bosses++;
-      if (S.bossDefeats && S.bossDefeats[S.zone]) delete S.bossDefeats[S.zone]; // boss vaincu : il retrouve toute sa force
+      const tries = (S.bossDefeats && S.bossDefeats[S.zone]) || 0;
+      if (tries) { // boss qui avait mis le héros K.O. : enfin vaincu (un moment à marquer)
+        delete S.bossDefeats[S.zone]; // il retrouve toute sa force
+        this.emit("bossNemesis", { name: m.name || tx("Boss"), tries });
+      }
       this.freeHero(S.zone);
       R.deaths = 0;
       if (S.autoAdvance) {

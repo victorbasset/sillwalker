@@ -438,4 +438,5 @@ export default {
   1562: "Reclamar una misión terminada (todas con la Oficina de contratos)",
   1563: "Ardilla",
   1564: "Esconde nueces… y monedas.",
+  1565: "¡{0} por fin derrotado!",
 };

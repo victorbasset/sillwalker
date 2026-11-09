@@ -438,4 +438,5 @@ export default {
   1562: "Resgatar uma missão concluída (todas com o Balcão de contratos)",
   1563: "Esquilo",
   1564: "Esconde nozes… e moedas.",
+  1565: "{0} finalmente derrotado!",
 };
