@@ -221,17 +221,17 @@ export class Panel {
   }
 
   /** Onglets trop larges pour une ligne (langues aux mots longs, petit écran), par paliers :
-   *  marges resserrées, puis sans icônes (le nom dit plus que l'icône), et en dernier recours
+   *  marges resserrées, puis sans icônes (le nom dit plus que l'icône), puis police plus petite, et en dernier recours
    *  seul l'onglet ouvert garde son nom, les autres n'affichent que leur icône. */
   fitTabs() {
     const nav = this.root.querySelector(".tabs"), top = this.root.querySelector(".ptop");
     if (!nav || !top || !top.offsetWidth) return;
-    const steps = ["tight", "noicon", "compact"];
+    const steps = ["tight", "noicon", "small", "compact"];
     nav.classList.remove(...steps);
     const wraps = () => { const b = [...nav.querySelectorAll("button")]; return b.length && b[b.length - 1].offsetTop > b[0].offsetTop + 4 || nav.offsetTop > top.firstElementChild.offsetTop + 8 || top.querySelector(".controls").offsetTop > nav.offsetTop + 8; };
     for (const s of steps) {
       if (!wraps()) return;
-      if (s === "compact") nav.classList.remove("noicon"); // icônes seules : on les rend
+      if (s === "compact") nav.classList.remove("noicon", "small"); // icônes seules : on les rend
       nav.classList.add(s);
     }
   }

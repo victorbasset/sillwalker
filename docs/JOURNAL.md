@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 103) : sur un écran de 1366 px, les onglets gardent leur nom (police un peu plus petite) au lieu des
+  icônes seules, en français, allemand et russe. Nouvelle option de dev `--release-ui` pour capturer l'interface sans
+  les commandes de vitesse (comme dans la version distribuée).
 - 2026-11-09 (it. 102) : onglets du panneau : quand ils ne tiennent pas sur une ligne, on resserre d'abord les marges,
   puis on retire les icônes, et seulement en dernier recours on n'affiche que les icônes. À 1920 px, allemand et
   polonais gardent maintenant noms et icônes, le russe garde les noms (avant : icônes seules dans les trois langues).

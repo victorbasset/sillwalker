@@ -98,7 +98,7 @@ async function boot() {
   const menuBtn = $("#menu-btn"), badge = $("#menu-badge"), toast = $("#toast");
   let panelOpen = false, panelTimer = 0;
   const panel = new Panel($("#panel"), game, {
-    isDev: init.isDev,
+    isDev: init.devControls ?? init.isDev, // commandes de vitesse : cachées avec --release-ui
     speed,
     onSpeed: (v) => { speed = v; },
     onClose: () => closePanel(),

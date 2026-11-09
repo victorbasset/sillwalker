@@ -683,3 +683,4 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .tabs.tight { gap: 2px; }
 .tabs.tight button { padding: 4px 6px; }
 .tabs.noicon button .ticon { display: none; }
+.tabs.small button { font-size: 12px; padding: 4px 5px; }

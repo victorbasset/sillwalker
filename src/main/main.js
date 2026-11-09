@@ -56,6 +56,7 @@ function start() {
     /* ---------- IPC ---------- */
     ipcMain.handle("init:get", () => ({
       isDev: flags.isDev,
+      devControls: flags.isDev && !flags.releaseUi,
       devSpeed: flags.devSpeed,
       layout: strip.layout(),
       visible: strip.renderVisible(),
