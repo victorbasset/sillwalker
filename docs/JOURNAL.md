@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 288, demandes 18 / 32) : plus aucun défilement vertical à 1920 px (largeur de Victor), objet ouvert
+  compris. Mesure par onglet (scrollHeight - clientHeight) : talents 5, stats 5, réglages 6, carte 11 → 0 (marges du
+  panneau) ; détail d'un objet sous le sac : jusqu'à 242 → 0 (colonne du sac plus large et sac en 2 rangées de 12,
+  toujours, sinon les cases bougeaient entre les deux clics d'un double-clic ; boutons serrés, statistiques sur deux
+  colonnes, « ← sac » dans l'en-tête) ; carte du héros : pastilles d'effets sur une ligne latérale (hscroll), résumé
+  d'absence serré, « À faire / Chroniques / Statistiques » côte à côte. Nouveau contrôle d'autotest : aucun onglet ne
+  défile (fenêtre ≥ 1800 px). 106/106. À 1366 px il reste du défilement (Aventure, Statistiques, Bestiaire).
 - 2026-11-09 (it. 287, demande 32 suite) : Héros et Familiers en rangée latérale (molette / glisser), ouverts sur le
   héros actuel et le familier actif : plus de défilement vertical. Retiré l'indication « Molette ou glisser » sous
   les déblocages (inutile, dit Victor ; la clé reste dans keys.js). Un autotest a échoué une fois (retour à la bande,

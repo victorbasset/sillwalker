@@ -499,12 +499,12 @@ export class Panel {
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
       </div>
       ${this.visitHTML()}${this.goalHTML(S)}
-      ${day || buffs || events || sets ? `<div class="chips">${day}${sets}${events}${buffs}</div>` : ""}
-      ${this.todoBox()}${this.chronicleBox()}
+      ${day || buffs || events || sets ? `<div class="chips hscroll" data-hs="hero-chips">${day}${sets}${events}${buffs}</div>` : ""}
+      <div class="morerow">${this.todoBox()}${this.chronicleBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
       <dt>${tx("Potions de soin")}</dt><dd>${S.potions}</dd><dt>${tx("Or")}</dt><dd id="goldtxt"></dd>
-      ${S.prestige.count ? `<dt>${tx("Ascensions")}</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl></details>`;
+      ${S.prestige.count ? `<dt>${tx("Ascensions")}</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl></details></div>`;
     this.tick();
   }
 
@@ -579,10 +579,12 @@ export class Panel {
       verdict = `<p class="verdict ${d > 0.005 ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance du héros : ") + (d >= 0 ? "+" : "−") + Math.abs(Math.round(d * 100)) + unit("%") : tx("Emplacement vide : à équiper !")}</p>`;
     }
     const fc = forgeCost(it), canForge = it.plus < MAX_PLUS && S.gold >= fc;
-    return `<div class="bagdetail"><h3>${tx("Objet")} <button class="linkbtn back" data-action="desel">${tx("← sac")}</button></h3>
-      <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div>
+    // Sans ligne de titre « Objet » (demande 18) : le retour au sac est dans l'en-tête de l'objet.
+    return `<div class="bagdetail">
+      <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div class="dh-main">
         <div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
-        <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: r.name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div></div></div>
+        <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: r.name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div></div>
+        <button class="linkbtn back" data-action="desel">${tx("← sac")}</button></div>
       ${verdict}
       <div class="row">${fromBag
         ? `<button data-action="equip">${tx("Équiper")}</button><button data-action="sell">${tx("Vendre ({0} or)", { 0: fmt(sellValue(it)) })}</button>`

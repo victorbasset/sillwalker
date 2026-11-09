@@ -154,7 +154,7 @@ body.panel-open #panel-wrap { visibility: visible; }
   #panel { max-width: 1878px; margin: 0 auto; border-left: 3px solid #0e0d18; border-right: 3px solid #0e0d18; }
 }
 #panel {
-  height: 100%; overflow: auto; background: var(--bg); padding: 10px 16px 14px;
+  height: 100%; overflow: auto; background: var(--bg); padding: 8px 16px 3px;
   border-top: 3px solid #0e0d18; transform: translateY(100%); transition: transform .18s ease-out; will-change: transform;
 }
 body.edge-top #panel { border-top: 0; border-bottom: 3px solid #0e0d18; transform: translateY(-100%); }
@@ -893,4 +893,34 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Héros et Familiers en rangée latérale (demande 32). */
 .classgrid.hscroll > .classcard { width: 300px; }
 .petgrid.hscroll > .petcard { width: 250px; }
-.classgrid.hscroll, .petgrid.hscroll { align-items: stretch; padding-bottom: 8px; }
+.classgrid.hscroll, .petgrid.hscroll { align-items: stretch; padding-bottom: 2px; }
+/* Détail d'objet sous le sac, compact (demandes 12 et 18) : boutons serrés, statistiques sur deux colonnes. */
+.bagdetail .detail-head .nm { font-size: 15px; line-height: 1.2; }
+.bagdetail .row { gap: 4px; flex-wrap: wrap; }
+.bagdetail .row button { font-size: 12px; padding: 3px 7px; }
+.bagdetail .lines.tight { columns: 2; column-gap: 14px; font-size: 12px; }
+.bagdetail .lines.tight li { break-inside: avoid; }
+/* Écran large : colonne du sac plus large, sac en 2 rangées de 12 (le détail d'un objet tient dessous, sans
+   défilement). Toujours, et pas seulement objet ouvert : les cases ne doivent pas bouger entre deux clics. */
+@media (min-width: 1500px) {
+  [data-pane="adventure"] .grid { grid-template-columns: 1fr 1.7fr 1fr 1fr 0.85fr; }
+  [data-pane="adventure"] #p-bag .bag { grid-template-columns: repeat(12, 1fr); }
+}
+.bagdetail .power, .bagdetail .setline { margin-top: 4px; padding: 3px 7px; font-size: 12px; line-height: 1.3; }
+.bagdetail .verdict { margin: 2px 0; font-size: 14px; }
+.bagdetail .lines.tight { margin-top: 4px; }
+.bagdetail .detail-head { align-items: flex-start; }
+.bagdetail .detail-head .dh-main { flex: 1; min-width: 0; }
+.bagdetail .detail-head .back { flex: none; }
+/* Carte du héros : pastilles d'effets sur une ligne qui défile de côté (demande 32), résumé d'absence serré. */
+.chips.hscroll { gap: 4px; padding-bottom: 2px; scrollbar-width: none; }
+.chips.hscroll::-webkit-scrollbar { display: none; }
+.visit { font-size: 12px; padding: 3px 8px; margin-bottom: 6px; }
+.visit small { display: inline; margin-right: 6px; }
+/* Carte du héros : « À faire », « Chroniques », « Toutes les statistiques » fermés sur une même ligne. */
+#p-hero .morerow { display: flex; flex-wrap: wrap; column-gap: 14px; }
+#p-hero .morerow > details[open] { flex-basis: 100%; }
+#p-hero .tiles { margin: 6px 0; gap: 5px; }
+#p-hero .tile { padding-top: 2px; padding-bottom: 2px; }
+#p-hero .goal { margin-bottom: 6px; padding: 3px 8px; }
+#p-hero .morerow summary { font-size: 14px; margin: 4px 0 2px; }
