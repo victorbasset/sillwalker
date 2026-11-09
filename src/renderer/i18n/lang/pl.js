@@ -581,4 +581,5 @@ export default {
   1705: "Klik: idź tam",
   1706: "Kliknij już osiągniętą strefę, aby przenieść tam bohatera.",
   1707: "Wkrótce: {0} pozwala jednym kliknięciem przenieść się do już osiągniętej strefy (sklep, strefa {1}).",
+  1708: "Torba pełna: ulepszenie zostało na ziemi ({0})! Zrób miejsce w torbie.",
 };

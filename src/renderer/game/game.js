@@ -549,9 +549,12 @@ export class Game {
       }
       this.R.grounded = it.id;
       if (!quiet) {
-        if (it.r >= LEGENDARY || this.isUpgrade(it)) this.log(tx("Sac plein : {0} est resté au sol !", { 0: itemName(it) }));
+        const up = this.isUpgrade(it);
+        if (it.r >= LEGENDARY || up) this.log(tx("Sac plein : {0} est resté au sol !", { 0: itemName(it) }));
         else this.logLeft();
         this.emit("bagFull");
+        // Une amélioration perdue : l'interface prévient (sinon un joueur qui ne trie pas son sac stagne sans le savoir).
+        if (up) this.emit("lostUpgrade", { item: it });
       }
       return false;
     }

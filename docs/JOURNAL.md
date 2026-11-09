@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 234) : vérification du rythme après la demande 14 (sac plein = butin au sol) : early-pace donnait
+  zone 18 à 60 min (avant : 23-24) car le script ne vendait jamais : sac plein dès 30 min, toutes les améliorations
+  perdues. Avec une vente par minute (joueur réel) : zone 23, comme avant. Le comportement voulu par Victor est
+  gardé, mais un joueur qui ne trie pas son sac stagnait sans le savoir (sous la zone 20 de l'ascension) : bulle
+  « 🎒 Sac plein : une amélioration est restée au sol (X) ! » (au plus une toutes les 3 min, clic : ouvre le sac) ;
+  événement lostUpgrade testé. early-pace vend désormais une fois par minute (commentaire). 97/97, 10 langues.
 - 2026-11-09 (it. 233) : cinématiques en file : en zone 10, la libération du Rôdeur et la première chronique
   arrivaient dans la même seconde et la seconde cinématique remplaçait la première (jamais vue). Une cinématique
   lancée pendant une autre attend maintenant sa fin (file de 3 au plus) ; le générique passe en tête après la

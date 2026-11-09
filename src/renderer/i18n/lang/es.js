@@ -581,4 +581,5 @@ export default {
   1705: "Clic: ir allí",
   1706: "Haz clic en una zona ya alcanzada para llevar allí a tu héroe.",
   1707: "Próximamente: el {0} permite ir con un clic a una zona ya alcanzada (tienda, zona {1}).",
+  1708: "Bolsa llena: ¡una mejora se quedó en el suelo ({0})! Haz sitio en la bolsa.",
 };

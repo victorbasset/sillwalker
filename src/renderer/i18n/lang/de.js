@@ -581,4 +581,5 @@ export default {
   1705: "Klick: dorthin gehen",
   1706: "Klicke auf eine bereits erreichte Zone, um deinen Helden dorthin zu bringen.",
   1707: "Bald: Mit der {0} gelangst du mit einem Klick in eine bereits erreichte Zone (Laden, Zone {1}).",
+  1708: "Tasche voll: Eine Verbesserung ist am Boden liegen geblieben ({0})! Schaffe Platz in der Tasche.",
 };

@@ -16,6 +16,8 @@ for (const seed of [1, 2, 3]) {
   for (let t = 1; t <= 3600; t++) {
     g.advance(1);
     if (t % 10 === 0) g.autoEquip();
+    // Le joueur vend ce qui ne l'améliore pas une fois par minute (sac plein : le butin reste au sol, it. 221).
+    if (t % 60 === 0) g.sellUseless();
     const u = nextUnlock(g.S); // le joueur achète un déblocage dès qu'il le peut (au pire)
     if (u && unlockAvailable(g.S, u) && g.S.gold >= u.price) { g.S.gold -= u.price; g.S.unlocks[u.id] = true; }
     if (t === MARKS[m]) { const r = rows[m]; r.items += items / 3; r.lvl += g.S.lvl / 3; r.best += g.S.best / 3; r.unlocks += Object.keys(g.S.unlocks).length / 3; m++; }

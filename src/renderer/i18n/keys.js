@@ -1709,5 +1709,6 @@ export const KEYS = [
   "Un clic sur la carte du Rebord emmène ton héros dans une zone déjà atteinte.",
   "Clic : y aller",
   "Clique une zone déjà atteinte pour y emmener ton héros.",
-  "Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1})."
+  "Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).",
+  "Sac plein : une amélioration est restée au sol ({0}) ! Fais de la place dans le sac."
 ];

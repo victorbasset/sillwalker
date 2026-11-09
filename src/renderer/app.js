@@ -452,6 +452,13 @@ async function boot() {
     }
     panel.dirty = true;
   });
+  // Sac plein et une amélioration restée au sol : bulle (au plus une toutes les 3 min) ; un clic ouvre le sac.
+  let lostUpAt = 0;
+  game.on("lostUpgrade", ({ item }) => {
+    if (Date.now() - lostUpAt < 180000) return;
+    lostUpAt = Date.now();
+    showToast(`🎒 ${tx("Sac plein : une amélioration est restée au sol ({0}) ! Fais de la place dans le sac.", { 0: `<b>${esc(itemName(item))}</b>` })}`, () => { openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 12000);
+  });
   game.on("classUnlock", ({ cls }) => {
     if (mode !== "strip") sound.play("legendary"); // dans la bande, la cinématique a son propre son
     setTimeout(() => showToast(`🗝 <b>${esc(CLASSES[cls].name)}</b> ${tx("est libéré ! Choisis-le dans l’onglet Classe : tu le joueras à ta prochaine ascension.")}`, () => { openPanel(); panel.setTab("class"); }, 15000), 5200); // après la cinématique

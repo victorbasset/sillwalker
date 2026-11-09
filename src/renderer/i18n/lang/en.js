@@ -581,4 +581,5 @@ export default {
   1705: "Click: go there",
   1706: "Click a zone already reached to take your hero there.",
   1707: "Coming soon: the {0} lets you go to a zone already reached in one click (shop, zone {1}).",
+  1708: "Bag full: an upgrade was left on the ground ({0})! Make room in your bag.",
 };

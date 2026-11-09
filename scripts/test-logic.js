@@ -1141,7 +1141,9 @@ test("sac plein : le butin reste au sol, sans or ni échange (demande de Victor)
   assert.equal(g.R.grounded, leg.id, "signalé à l'animation (reste au sol)");
   assert.equal(g.S.log.length, logs + 1, "le légendaire perdu est signalé au journal");
   assert.equal(g.addToBag(mk(0)), false);
+  const lost = []; g.on("lostUpgrade", (e) => lost.push(e.item));
   assert.equal(g.addToBag(mk(1, true)), false, "amélioration sans Valet : au sol");
+  assert.equal(lost.length, 1, "l'interface est prévenue d'une amélioration perdue");
   assert.deepEqual(g.S.bag, before, "le sac n'a pas bougé");
   assert.equal(g.S.gold, gold, "pas d'or : l'objet n'est pas vendu");
   // Valet d'armes : l'amélioration est équipée, l'ancienne pièce reste au sol ; le sac ne déborde pas.

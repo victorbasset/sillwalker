@@ -581,4 +581,5 @@ export default {
   1705: "Clique: ir até lá",
   1706: "Clique em uma zona já alcançada para levar seu herói até lá.",
   1707: "Em breve: o {0} permite ir com um clique a uma zona já alcançada (loja, zona {1}).",
+  1708: "Bolsa cheia: uma melhoria ficou no chão ({0})! Abra espaço na bolsa.",
 };
