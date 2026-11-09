@@ -1,10 +1,12 @@
 # Journal de développement
 
 Itérations autonomes : une amélioration à la fois, la plus récente en haut de « Fait ».
-Revue générale toutes les 10 itérations (prochaine : itération 31).
+Revue générale toutes les 10 itérations (prochaine : itération 41).
 
 ## Fait
 
+- 2026-11-09 (it. 31, revue générale) : rien de cassé trouvé (captures chinois/anglais, aucun texte français en
+  espagnol ni portugais, performance stable). Un mur de progression repéré en simulation, noté ci-dessous.
 - 2026-11-09 (it. 30) : les messages de récupération de sauvegarde (fermeture brutale, sauvegarde de secours)
   étaient toujours en français : traduits, et affichés aussi en bulle. Si la sauvegarde vient d'une version plus
   récente du jeu, le joueur est prévenu (dans sa langue) qu'elle est gardée à part.
@@ -84,6 +86,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
+- P2 Mur de progression (revue it. 31, simulations 12 h) : moine bloqué en zone 56 pendant 3 courses, druide en
+  zone 50 pendant 3 courses (3-4 h sans nouveau record) ; l'assassin passe (zone 60 vers 11 h 30). Comprendre ce
+  qui bloque (boss à capacité ? constellations achetées par le simulateur ?) avant de toucher à l'équilibrage.
+
 - P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
   applications en plein écran (jeu, vidéo, présentation) : elle peut recouvrir le bas d'un jeu en plein écran
   sans bordure. Piste : un petit processus PowerShell persistant (lancé une fois) qui appelle
@@ -93,7 +99,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - P3 Anciennes clés « (s) » devenues inutilisées dans keys.js (objet(s)…) : sans effet, à laisser
   (l'ordre des clés ne doit pas bouger).
-- P2 Performance (revues it. 11 et 21, inchangée) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
+- P2 Performance (revues it. 11, 21 et 31, inchangée) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
   icône seule <1 %. Mémoire ~560-680 Mo (Electron).
   Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
