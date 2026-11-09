@@ -431,4 +431,6 @@ export default {
   1555: "Choca os ovos e manda os mascotes de volta em expedição sozinho (opção).",
   1556: "Grande intendente: ovos e expedições ({0}) automáticos",
   1557: "Ir para",
+  1558: "Sopro de sabedoria",
+  1559: "Experiência ×3!",
 };

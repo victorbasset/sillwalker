@@ -525,7 +525,7 @@ export class Game {
     this.autoBuyPotions();
     this.autoForge();
     this.autoPets();
-    this.gainXp(Math.round(m.xp * (1 + hs.xp / 100)));
+    this.gainXp(Math.round(m.xp * (1 + hs.xp / 100) * ((R.events.wisdom || 0) > 0 ? 3 : 1))); // Souffle de sagesse : ×3
     if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
       this.emit("loot", { item: it, mon: m });

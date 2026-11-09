@@ -1559,5 +1559,7 @@ export const KEYS = [
   "Grand intendant",
   "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option).",
   "Grand intendant : œufs et expéditions ({0}) tout seuls",
-  "Aller à"
+  "Aller à",
+  "Souffle de sagesse",
+  "Expérience ×3 !"
 ];

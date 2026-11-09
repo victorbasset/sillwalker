@@ -17,4 +17,5 @@ export const EVENTS = {
   goldrain: { name: "Pluie d’or",     chance: 0.003, duration: 30, text: "Or ×3 !",                     color: "#ffd34d" },
   frenzy:   { name: "Frénésie",       chance: 0.003, duration: 30, text: "Vitesse d’attaque ×2 !",      color: "#ff7a6b" },
   bounty:   { name: "Corne d’abondance", chance: 0.002, duration: 30, text: "Chaque victoire laisse un objet !", color: "#c08cff" },
+  wisdom:   { name: "Souffle de sagesse", chance: 0.003, duration: 30, text: "Expérience ×3 !",           color: "#7fe0d0" },
 };

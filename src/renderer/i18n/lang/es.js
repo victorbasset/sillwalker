@@ -431,4 +431,6 @@ export default {
   1555: "Hace eclosionar los huevos y reenvía solo a las mascotas de expedición (opción).",
   1556: "Gran intendente: huevos y expediciones ({0}) automáticos",
   1557: "Ir a",
+  1558: "Soplo de sabiduría",
+  1559: "¡Experiencia ×3!",
 };

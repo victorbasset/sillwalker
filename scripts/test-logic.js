@@ -1155,6 +1155,21 @@ test("événement Corne d'abondance : un objet à chaque victoire pendant 30 s",
   assert.ok(loots >= kills, `${loots} objets pour ${kills} victoires`);
 });
 
+test("événement Souffle de sagesse : expérience ×3 pendant l'événement", () => {
+  const ratio = (on) => {
+    const g = new Game(freshState());
+    let got = 0, base = 0, kills = 0;
+    g.gainXp = (n) => { got += n; };
+    g.on("kill", ({ mon }) => { base += mon.xp; kills++; });
+    if (on) assert.ok(g.startEvent("wisdom"));
+    for (let i = 0; i < 25 / 0.05 && kills < 5; i++) { if (g.R.mon && !g.R.mon.boss) g.R.mon.hp = 0; g.step(0.05); }
+    assert.ok(kills >= 3 && base > 0, "des victoires");
+    return got / base;
+  };
+  const r = ratio(true) / ratio(false);
+  assert.ok(Math.abs(r - 3) < 0.2, `rapport ${r.toFixed(2)}`);
+});
+
 test("thème du panneau : celui de Windows par défaut, conservé dans la sauvegarde", () => {
   const S = freshLocked();
   assert.equal(S.settings.theme, null);

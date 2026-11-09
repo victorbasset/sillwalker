@@ -431,4 +431,6 @@ export default {
   1555: "Hatches eggs and sends pets back on expeditions on its own (option).",
   1556: "Grand Steward: eggs and expeditions ({0}) on their own",
   1557: "Go to",
+  1558: "Breath of Wisdom",
+  1559: "Experience ×3!",
 };

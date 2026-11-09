@@ -431,4 +431,6 @@ export default {
   1555: "Sam wykluwa jaja i wysyła chowańce z powrotem na wyprawy (opcja).",
   1556: "Wielki zarządca: jaja i wyprawy ({0}) automatycznie",
   1557: "Przejdź do",
+  1558: "Tchnienie mądrości",
+  1559: "Doświadczenie ×3!",
 };
