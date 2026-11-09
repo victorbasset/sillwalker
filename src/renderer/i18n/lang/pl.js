@@ -427,4 +427,7 @@ export default {
   1551: "Zestaw {0}: premia za {1} części!",
   1552: "{0}: premia za {1} części!",
   1553: "Część zestawu! Noś 2, a potem 4 części tego samego zestawu, by zdobyć premie. Wszystkie zestawy są w Bestiariuszu: kliknij tutaj.",
+  1554: "Wielki zarządca",
+  1555: "Sam wykluwa jaja i wysyła chowańce z powrotem na wyprawy (opcja).",
+  1556: "Wielki zarządca: jaja i wyprawy ({0}) automatycznie",
 };

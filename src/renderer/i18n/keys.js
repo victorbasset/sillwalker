@@ -1555,5 +1555,8 @@ export const KEYS = [
   "monstres dorés : butin garanti, or ×4 ; chacun a un affixe",
   "Panoplie {0} : bonus {1} pièces !",
   "{0} : bonus {1} pièces !",
-  "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus. Toutes les panoplies sont dans le Bestiaire : clique ici."
+  "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus. Toutes les panoplies sont dans le Bestiaire : clique ici.",
+  "Grand intendant",
+  "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option).",
+  "Grand intendant : œufs et expéditions ({0}) tout seuls"
 ];

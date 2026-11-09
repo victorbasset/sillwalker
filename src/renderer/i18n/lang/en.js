@@ -427,4 +427,7 @@ export default {
   1551: "{0} set: {1}-piece bonus!",
   1552: "{0}: {1}-piece bonus!",
   1553: "A set piece! Wear 2, then 4 pieces of the same set for bonuses. All sets are listed in the Bestiary: click here.",
+  1554: "Grand Steward",
+  1555: "Hatches eggs and sends pets back on expeditions on its own (option).",
+  1556: "Grand Steward: eggs and expeditions ({0}) on their own",
 };

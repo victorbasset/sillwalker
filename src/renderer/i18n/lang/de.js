@@ -427,4 +427,7 @@ export default {
   1551: "Set {0}: Bonus für {1} Teile!",
   1552: "{0}: Bonus für {1} Teile!",
   1553: "Ein Set-Teil! Trage 2, dann 4 Teile desselben Sets für Boni. Alle Sets stehen im Bestiarium: Hier klicken.",
+  1554: "Großer Verwalter",
+  1555: "Brütet Eier aus und schickt Begleiter von selbst wieder auf Expedition (Option).",
+  1556: "Großer Verwalter: Eier und Expeditionen ({0}) automatisch",
 };

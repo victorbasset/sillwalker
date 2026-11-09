@@ -901,6 +901,31 @@ test("conseil après la première défaite (début de partie seulement)", () => 
   assert.notEqual(nextHint(g)?.id, "death", "joueur aguerri : inutile");
 });
 
+test("Grand intendant : œufs éclos, expéditions récupérées et relancées (dernier choix), option", () => {
+  const g = new Game(freshLocked());
+  g.S.unlocks.menagerie = true; g.S.unlocks.expeditions = true;
+  const t0 = 1e12;
+  g.S.pets.eggs = 3;
+  assert.equal(g.autoPets(t0), 0, "rien avant l'achat");
+  assert.equal(g.S.pets.eggs, 3);
+  g.S.unlocks.steward = true;
+  g.autoPets(t0);
+  assert.equal(g.S.pets.eggs, 0, "œufs éclos");
+  const idle = g.idlePets();
+  assert.equal(idle.length, 0, "familiers libres partis");
+  const sent = Object.values(g.S.pets.exp);
+  assert.ok(sent.length > 0 && sent.every((e) => e.kind === "long"), "Voyage par défaut");
+  assert.equal(g.autoPets(t0 + 1000), 0, "pas plus d'une fois toutes les 5 s");
+  const gold = g.S.gold;
+  g.S.pets.lastKind = "short";
+  g.autoPets(t0 + 200 * 60000);
+  assert.ok(g.S.gold > gold, "expéditions finies récupérées");
+  assert.ok(Object.values(g.S.pets.exp).every((e) => e.kind === "short"), "relancées dans le dernier choix");
+  g.S.settings.autoPets = false; g.S.pets.eggs = 2;
+  g.autoPets(t0 + 400 * 60000);
+  assert.equal(g.S.pets.eggs, 2, "option coupée");
+});
+
 test("conseil panoplie : à la première pièce trouvée", () => {
   const g = new Game(freshLocked());
   g.S.settings.hints = { welcome: true, classes: true };

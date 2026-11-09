@@ -427,4 +427,7 @@ export default {
   1551: "Conjunto {0}: bônus de {1} peças!",
   1552: "{0}: bônus de {1} peças!",
   1553: "Uma peça de conjunto! Use 2 e depois 4 peças do mesmo conjunto para ganhar bônus. Todos os conjuntos estão no Bestiário: clique aqui.",
+  1554: "Grande intendente",
+  1555: "Choca os ovos e manda os mascotes de volta em expedição sozinho (opção).",
+  1556: "Grande intendente: ovos e expedições ({0}) automáticos",
 };

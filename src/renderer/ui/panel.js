@@ -612,6 +612,7 @@ export class Panel {
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
     if (b.dataset.action === "valet") { this.game.S.settings.autoEquipDrops = b.checked; this.game.changed(); }
     if (b.dataset.action === "mforge") { this.game.S.settings.autoForge = b.checked; this.game.changed(); }
+    if (b.dataset.action === "steward") { this.game.S.settings.autoPets = b.checked; this.game.changed(); }
   }
 
   /**

@@ -24,6 +24,7 @@ export const UNLOCKS = [
   { id: "masterForge", price: 200000000, zone: 50, icon: "anvil",   name: "Maître de forge",          desc: "Forge tout seul l’équipement porté avec l’or en trop (option)." },
   { id: "starNet",     price: 600000000, zone: 55, icon: "star",    name: "Filet à étoiles",          desc: "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps." },
   { id: "astrolabe",   price: 2000000000, zone: 60, icon: "map",   name: "Astrolabe",                desc: "Fait l’ascension tout seul quand le héros bloque près de son record (option, à activer)." },
+  { id: "steward",     price: 8000000000, zone: 65, icon: "kennel2", name: "Grand intendant",         desc: "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option)." },
 ];
 export const UNLOCK_INDEX = Object.fromEntries(UNLOCKS.map((u) => [u.id, u]));
 

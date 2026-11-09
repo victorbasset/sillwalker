@@ -524,6 +524,7 @@ export class Game {
     this.rollRareThings(m);
     this.autoBuyPotions();
     this.autoForge();
+    this.autoPets();
     this.gainXp(Math.round(m.xp * (1 + hs.xp / 100)));
     if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
       const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
@@ -969,6 +970,24 @@ export class Game {
     return best;
   }
 
+  /**
+   * Grand intendant (déblocage, option) : fait éclore les œufs, récupère les expéditions finies et
+   * renvoie les familiers libres dans la dernière expédition choisie (Voyage par défaut).
+   * Au plus une fois toutes les 5 s de jeu réel.
+   */
+  autoPets(now = Date.now()) {
+    const S = this.S;
+    if (!hasUnlock(S, "steward") || S.settings.autoPets === false) return 0;
+    if (now - (this._petT || 0) < 5000) return 0;
+    this._petT = now;
+    let n = 0;
+    while (S.pets.eggs > 0 && this.hatchEgg()) n++;
+    for (const id of this.expeditionsReady(now)) if (this.claimExpedition(id, now)) n++;
+    const kind = EXPEDITIONS[S.pets.lastKind] ? S.pets.lastKind : "long";
+    for (const id of this.idlePets()) if (this.sendExpedition(id, kind, now)) n++;
+    return n;
+  }
+
   /** Achat automatique de potions (option de la boutique) : complète le stock jusqu'à AUTO_POTIONS. */
   autoBuyPotions() {
     const S = this.S;
@@ -1298,6 +1317,7 @@ export class Game {
     P.exp ||= {};
     if (P.exp[id]) return false;
     P.exp[id] = { kind, start: now, end: now + ex.min * 60000 };
+    P.lastKind = kind; // le Grand intendant reprend ce choix
     this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? ex.min / 60 + " h" : ex.min + " min" })}`);
     this.changed();
     return true;

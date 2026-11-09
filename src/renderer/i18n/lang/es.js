@@ -427,4 +427,7 @@ export default {
   1551: "Conjunto {0}: ¡bono de {1} piezas!",
   1552: "{0}: ¡bono de {1} piezas!",
   1553: "¡Una pieza de conjunto! Lleva 2 y luego 4 piezas del mismo conjunto para obtener bonos. Todos los conjuntos están en el Bestiario: haz clic aquí.",
+  1554: "Gran intendente",
+  1555: "Hace eclosionar los huevos y reenvía solo a las mascotas de expedición (opción).",
+  1556: "Gran intendente: huevos y expediciones ({0}) automáticos",
 };
