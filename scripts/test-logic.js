@@ -28,7 +28,7 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
-import { approachTime, heroStats, power, earlyPace } from "../src/renderer/game/rules.js";
+import { approachTime, heroStats, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
@@ -1505,6 +1505,18 @@ test("élites : pas dans les 2 premières zones de la première course, présent
   assert.equal(count(1, 0), 0, "zone 1, première course");
   assert.ok(count(5, 0) > 0, "zone 5");
   assert.ok(count(1, 1) > 0, "zone 1 après une ascension");
+});
+
+test("force des monstres : inchangée jusqu'à la zone 60, puis croissance adoucie sans cassure (zone 200 atteignable)", () => {
+  for (const z of [1, 10, 40, 60]) assert.ok(Math.abs(zoneMight(z) / Math.pow(1.28, z - 1) - 1) < 1e-9, "zone " + z);
+  let prev = zoneMight(60) / zoneMight(59);
+  for (let z = 61; z <= 220; z++) {
+    const g = zoneMight(z) / zoneMight(z - 1);
+    assert.ok(g > 1 && g <= prev + 1e-9, `croissance décroissante en zone ${z}`); // jamais de saut
+    prev = g;
+  }
+  assert.ok(Math.abs(zoneMight(200) / zoneMight(199) - MONSTER_LATE_GROWTH) < 1e-9);
+  assert.ok(zoneMight(200) < Math.pow(1.28, 199) / 1e6, "fin de partie bien plus douce qu'avant");
 });
 
 test("rythme du début : première course seulement, de 0,35 à 1 en zone 15", () => {

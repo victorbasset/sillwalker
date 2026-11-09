@@ -157,8 +157,22 @@ export function zoneName(z) {
 }
 
 /** Statistiques d'un monstre. Sans `type`, renvoie le monstre « moyen » de la zone. */
+/** Force des monstres selon la zone : ×1,28 par zone jusqu'à la zone MONSTER_SOFT_ZONE, puis un facteur par zone
+ *  qui décroît en douceur jusqu'à ×1,04 (zone MONSTER_SOFT_ZONE + MONSTER_SOFT_SPAN et au-delà). Sans cela,
+ *  l'exponentielle distançait le héros (objets linéaires) et la progression butait vers la zone 71 ; une cassure
+ *  brutale, elle, faisait bondir le héros de 65 à 99 (demande de Victor : pouvoir aller jusqu'à la zone 200). */
+export const MONSTER_SOFT_ZONE = 60, MONSTER_SOFT_SPAN = 10, MONSTER_LATE_GROWTH = 1.04;
+const MIGHT = [1];
+export function zoneMight(z) {
+  z = Math.max(1, Math.floor(z));
+  for (let k = MIGHT.length + 1; k <= z; k++) { // MIGHT[k - 1] = force de la zone k
+    const t = Math.min(1, Math.max(0, (k - 1 - MONSTER_SOFT_ZONE) / MONSTER_SOFT_SPAN));
+    MIGHT.push(MIGHT[k - 2] * (1.28 - (1.28 - MONSTER_LATE_GROWTH) * t));
+  }
+  return MIGHT[z - 1];
+}
 export function monsterBase(z, boss, type, elite, champion) {
-  const m = Math.pow(1.28, z - 1), mod = (type && MONSTERS[type]) || { hp: 1, atk: 1, interval: 1 };
+  const m = zoneMight(z), mod = (type && MONSTERS[type]) || { hp: 1, atk: 1, interval: 1 };
   const modGold = mod.gold || 1, modXp = mod.xp || 1;
   const e0 = elite ? ELITE : { hp: 1, atk: 1, gold: 1, xp: 1 }, c = champion ? CHAMPION : { hp: 1, atk: 1, gold: 1, xp: 1 };
   const e = { hp: e0.hp * c.hp, atk: e0.atk * c.atk, gold: e0.gold * c.gold, xp: e0.xp * c.xp };

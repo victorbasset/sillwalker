@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 198, demande 8 de Victor, 2e partie) : fin de partie jusqu'à la zone 200. Cause du mur vers 71 :
+  objets linéaires (il) contre monstres ×1,28 par zone. zoneMight(z) (rules.js) : ×1,28 jusqu'à la zone 60, puis
+  facteur par zone décroissant en 10 zones jusqu'à ×1,04. Essais (simulation 1 semaine, guerrier, records des
+  dernières courses) : avant 71-72 ; polynôme (z/60)^3 : 207-279 mais saut 65 → 99 ; 80 zones → 1,08 : ~71-74 ;
+  30 → 1,10 : ~74-80 ; 15 → 1,08 et 20 → 1,05 : ~80-89 ; 20 → 1,03 : ~81-99 ; retenu 10 → 1,04 : progression
+  régulière 71 → 81 → 93 → 107 → 116 → 126 → 135 en une semaine (zone 200 en quelques semaines). 12 h inchangées
+  (balance 58,0 = 58,0), fuzz 600, test (continuité, pas de saut), 85/85. Prochaine étape : répartir les déblocages
+  de boutique jusqu'à la zone 200.
 - 2026-11-09 (it. 197, demande 9 de Victor) : boutons dans le même ordre partout, comme les fenêtres : réduire à
   gauche, agrandir à droite (le mode mini était inversé). Symboles harmonisés : ▁ pour toute réduction (bande → mini,
   mini → icône), □ pour agrandir en bande, ⌃ reste l'ouverture du panneau. Astuces (💡) affichées aussi le panneau
@@ -576,7 +584,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   8. EN COURS (demande du 2026-11-09 après-midi) : on débloque encore tout trop vite : « aller jusqu'à 200 zones » et
      répartir les déblocages (onglets et déblocages de boutique) dans le temps ; le joueur doit avoir le temps de
      s'habituer à un onglet avant le suivant. Étape 1 : mesurer la progression réelle sur plusieurs jours simulés.
-     Fait (it. 196) : onglets étalés jusqu'à la zone 40. Reste : zone 200 (le record plafonne vers 71-72 en une
+     Fait (it. 196) : onglets étalés jusqu'à la zone 40. Fait (it. 198) : zone 200 atteignable. Reste : zone 200 (le record plafonne vers 71-72 en une
      semaine simulée : revoir la courbe de fin de partie), puis répartir les déblocages de boutique jusqu'à 200.
   9. FAIT (it. 197). Mode mini / bande : les boutons réduire et agrandir ne sont pas dans le même ordre en mode mini et en grand ;
      icônes plus parlantes souhaitées. Les astuces (bulle à l'ampoule 💡) ne s'affichent plus quand le panneau est
