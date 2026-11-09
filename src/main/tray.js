@@ -13,7 +13,7 @@ const FRAMES = {
   dead: ["tray/tray-dead.png", "tray/tray-dead.png"],
   loot: ["tray/tray-loot.png", "tray/tray-walk-a.png"],
 };
-const { L } = require("./i18n");
+const { L, getLang } = require("./i18n");
 const MODE_LABELS = { strip: "strip", mini: "mini", icon: "icon" }; // clés de i18n.js
 
 function loginItemOptions() {
@@ -107,7 +107,7 @@ function createTray({ strip, isDev, steam }) {
         click: () => { strip.setDisplay(d.id); build(); },
       })) },
       { label: L("opacity"), submenu: config.OPACITY_CHOICES.map((v) => ({
-        label: Math.round(v * 100) + " %", type: "radio", checked: Math.abs(opacity - v) < 0.01,
+        label: new Intl.NumberFormat(getLang(), { style: "percent" }).format(v) /* « 100 % » en français, « 100% » en anglais */, type: "radio", checked: Math.abs(opacity - v) < 0.01,
         click: () => { strip.setOpacity(v); build(); },
       })) },
       { type: "separator" },
