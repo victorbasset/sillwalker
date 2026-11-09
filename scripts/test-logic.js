@@ -39,6 +39,7 @@ import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
+import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -1616,6 +1617,13 @@ test("héros bloqué (demande 22) : 4 défaites près du record en 15 min = une 
   assert.ok(g.stuckInfo() && g.stuckTips().includes("farm"));
   g.S.zone = 30; g.S.kills = KILLS_PER_ZONE; g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.S.autoAdvance = true; g.killMonster();
   assert.equal(g.S.best, 31); assert.equal(g.stuckInfo(), null, "record battu : plus bloqué");
+});
+
+test("sons de coup (demande 25) : un timbre par héros et une matière par monstre (variantes comprises)", () => {
+  for (const c of CLASS_KEYS) assert.ok(WEAPON_OF[c], "timbre prévu pour " + c);
+  assert.equal(materialOf("slime_lava"), "soft"); assert.equal(materialOf("knight_crystal"), "hard");
+  assert.equal(materialOf("crow_storm"), "air"); assert.equal(materialOf("boar"), "flesh");
+  assert.notEqual(weaponOf("ranger"), weaponOf("warrior"));
 });
 
 test("langue du système pour une partie neuve (fr-FR → fr, pt-BR → pt, inconnue → en)", () => {

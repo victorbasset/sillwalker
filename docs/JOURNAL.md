@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 246, demande 25 de Victor) : sons de coup variés (sound.js hit) : un timbre par arme pour les 20
+  héros (lame, contondant, lance, arc, feu, glace, ombre, sacré, notes du barde) et une matière par ennemi (mou :
+  plus grave + « splotch », dur : plus aigu + clac, volant, chair), plus un léger désaccord aléatoire ; critique
+  plus fort et plus clair. Test (chaque héros a son timbre ; variantes de monstres reconnues), 99/99.
+  Non vérifiable à l'oreille ici (pas de sortie audio) : à valider par Victor.
 - 2026-11-09 (it. 245, demande 22 de Victor) : héros bloqué : 4 défaites près du record en 15 min (game.stuckInfo,
   comme le conseil « stuck » et l'Astrolabe). Bulle de 2 min avec les deux pistes les plus utiles (équiper mieux,
   talents, potions, ascension, farmer plus bas ; stuckTips), un clic ouvre le panneau ; « ⚠ bloqué » en rouge
@@ -872,7 +877,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
       musiques (une par zone jusqu'à 200). Idée : générateur procédural (Web Audio, sound.js) : gamme, tempo,
       instruments (carré, triangle, bruit) et motifs tirés d'une graine par zone, couleur selon le décor (forêt
       enjouée, crypte mineure, volcan rapide…), volume bas, réglage à part dans les Réglages et bouton son.
-  25. À FAIRE (2026-11-09) : sons de coup différents selon l'arme (donc le héros) et selon l'ennemi touché ;
+  25. FAIT (it. 246). Sons de coup différents selon l'arme (donc le héros) et selon l'ennemi touché ;
       « modificateur » de son par ennemi (hauteur, timbre, bruit : gluant mou, squelette sec, golem lourd…) pour
       que ce soit moins répétitif.
 

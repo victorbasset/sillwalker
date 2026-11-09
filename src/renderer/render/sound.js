@@ -4,6 +4,25 @@
 
 const NOTES = { C5: 523.25, D5: 587.33, E5: 659.25, G5: 783.99, A5: 880, C6: 1046.5, E6: 1318.5, G6: 1568, D6: 1174.66 };
 
+// Sons de coup variés (demande 25 de Victor) : un timbre par arme (donc par héros) et un « modificateur » par
+// matière de l'ennemi touché (hauteur, bruit), plus un léger désaccord aléatoire : moins répétitif.
+export const WEAPON_OF = {
+  warrior: "blade", assassin: "blade", samurai: "blade", gladiator: "blade", bladedancer: "blade", starwarden: "blade",
+  paladin: "blunt", monk: "blunt", berserker: "blunt", lancer: "spear",
+  ranger: "bow", arbalest: "bow", mage: "fire", artificer: "fire", cryomancer: "ice",
+  necro: "shadow", druid: "shadow", shaman: "shadow", priestess: "holy", bard: "note",
+};
+// Matière des monstres (par dessin de base) : mou, dur (os, pierre, métal, carapace), volant ; chair par défaut.
+const MATERIAL = {
+  soft: ["slime", "jelly", "mush", "sporeling", "worm", "frog", "plant", "ghost", "treant"],
+  hard: ["skel", "golem", "knight", "darkknight", "beetle", "crab", "scorp", "mimic", "mummy"],
+  air: ["bat", "crow", "harpy", "wasp", "eye", "imp", "fireelem"],
+};
+const MAT_INDEX = Object.fromEntries(Object.entries(MATERIAL).flatMap(([m, list]) => list.map((k) => [k, m])));
+/** Matière d'un type de monstre (variantes : « slime_lava » → « slime »). */
+export const materialOf = (type) => MAT_INDEX[String(type || "").split("_")[0]] || "flesh";
+export const weaponOf = (cls) => WEAPON_OF[cls] || "blade";
+
 export class Sound {
   constructor() {
     this.ctx = null;
@@ -60,6 +79,28 @@ export class Sound {
     s.start(t);
   }
 
+  /** Coup du héros : timbre de son arme, modifié par la matière de l'ennemi ; plus fort et plus clair en critique. */
+  hit(cls, monType, crit) {
+    if (!this.enabled || !this.ensure() || !this.throttle("hit", 140)) return;
+    const w = weaponOf(cls), mat = materialOf(monType);
+    const p = (mat === "soft" ? 0.72 : mat === "hard" ? 1.25 : mat === "air" ? 1.12 : 1) * (0.94 + Math.random() * 0.12) * (crit ? 1.15 : 1);
+    const g = crit ? 1.35 : 1;
+    switch (w) {
+      case "blade": this.noise(0, 0.045, 0.16 * g); this.tone(1400 * p, 0, 0.06, "square", 0.05 * g, 0.5); break;
+      case "blunt": this.noise(0, 0.07, 0.2 * g); this.tone(150 * p, 0, 0.1, "triangle", 0.3 * g, 0.55); break;
+      case "spear": this.noise(0, 0.035, 0.15 * g); this.tone(900 * p, 0, 0.05, "triangle", 0.12 * g, 0.7); break;
+      case "bow": this.tone(720 * p, 0, 0.09, "triangle", 0.16 * g, 0.5); this.noise(0.02, 0.02, 0.06 * g); break;
+      case "fire": this.noise(0, 0.12, 0.1 * g); this.tone(220 * p, 0, 0.12, "square", 0.06 * g, 0.5); break;
+      case "ice": this.tone(1800 * p, 0, 0.07, "triangle", 0.1 * g, 1.4); this.tone(2600 * p, 0.03, 0.05, "triangle", 0.06 * g); break;
+      case "shadow": this.tone(320 * p, 0, 0.11, "triangle", 0.14 * g, 1.4); break;
+      case "holy": this.tone(880 * p, 0, 0.1, "triangle", 0.11 * g); this.tone(1320 * p, 0.02, 0.1, "triangle", 0.07 * g); break;
+      case "note": this.tone([523, 587, 659, 784][Math.floor(Math.random() * 4)] * p, 0, 0.12, "triangle", 0.13 * g); break;
+    }
+    // Impact selon la matière : « splotch » mou, clac sec, souffle léger.
+    if (mat === "soft") this.tone(110 * p, 0.02, 0.08, "triangle", 0.12 * g, 0.6);
+    else if (mat === "hard") this.tone(2200 * p, 0.015, 0.03, "square", 0.04 * g);
+  }
+
   play(id) {
     if (!this.enabled || !this.ensure()) return;
     switch (id) {
@@ -113,7 +154,7 @@ export class Sound {
 
   /** Branche les sons sur les événements du jeu. */
   bind(game) {
-    game.on("heroAttack", ({ crit, iai }) => this.play(crit || iai ? "crit" : "hit"));
+    game.on("heroAttack", ({ crit, iai }) => { const m = game.R.mon; this.hit(game.S.cls, m && m.type, crit || iai); });
     game.on("tap", () => this.play("hit"));
     game.on("kill", ({ mon }) => { this.play("coin"); if (mon.boss) this.play("boss"); });
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
