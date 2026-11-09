@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-09 (it. 237) : --dump-text n'extrayait pas l'onglet Carte (liste d'onglets de main.js) : ajouté. Chasse
+  aux textes non traduits sur la carte en russe : 794 lignes propres, et ses 217 infobulles (zones, boss, chroniques,
+  héros, Briseur) ne contiennent aucun mot latin.
 - 2026-11-09 (it. 236) : --crawl après les gros changements d'interface (carte, voyage, détail d'objet) : l'onglet
   Carte manquait à la liste et ses zones SVG étaient ignorées (pas d'offsetParent, pas de click()) : ajoutés
   (getClientRects, événement de clic). 291 clics, aucune erreur. CLAUDE.md : --crawl avec --exit-after=200.

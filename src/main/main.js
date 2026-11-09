@@ -143,7 +143,7 @@ function start() {
       // Une erreur imprévue de l'autotest ne doit pas le laisser figé : elle compte comme un échec et on quitte.
       if (flags.selftest) require("./selftest").runSelfTest(strip).catch((e) => { console.log("[selftest] ÉCHEC erreur imprévue : " + (e && e.message)); app.exit(1); });
       if (flags.dumpText) setTimeout(async () => {
-        const wc = strip.win.webContents, tabs = ["adventure", "talents", "skills", "quests", "shop", "pets", "class", "ascension", "bestiary", "stats", "settings"];
+        const wc = strip.win.webContents, tabs = ["adventure", "talents", "skills", "quests", "shop", "pets", "class", "ascension", "bestiary", "stats", "map", "settings"];
         let out = "";
         for (const t of tabs) {
           strip.send("command", "tab:" + t);
