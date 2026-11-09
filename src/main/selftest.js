@@ -83,6 +83,9 @@ async function runSelfTest(strip) {
   await sleep(900);
   let b = bounds();
   check("bouton mini : passe en mode mini", strip.mode() === "mini" && b.width === 340 && b.height === 64, JSON.stringify(b));
+  await sleep(300);
+  const miniTip = await js("(document.querySelector('#mini .mini-info') || {}).title || ''");
+  check("mode mini : bulle d'aide (prochain déblocage, agrandir)", miniTip.split("\n").length >= 2, JSON.stringify(miniTip));
   check("encart mini visible", await js("!document.getElementById('mini').hidden && document.getElementById('strip').hidden"));
   // Étoile filante en mode mini
   await js("window.__pause = false; window.__game.R.starT = 0.01");

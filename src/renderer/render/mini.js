@@ -1,6 +1,6 @@
 // Mode mini : petit encart près de l'horloge. Le héros à gauche, le monstre
 // qui approche puis se bat, et à droite niveau / or / zone.
-import { t as tx } from "../i18n/index.js";
+import { t as tx, fsp } from "../i18n/index.js";
 import { PIXEL as P } from "./art.js";
 import { buildSpriteSet, buildHeroSprites } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
@@ -164,14 +164,18 @@ export class MiniRenderer {
       this.lvl.textContent = tx("Niv. ") + S.lvl;
       this.gold.textContent = fmtShort(S.gold);
       this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
-      const u = nextUnlock(S);
+      const u = nextUnlock(S), rec = recordZone(S), tip = [];
+      // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
+      if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + fsp() + ": " + rec);
       this.goalWrap.hidden = !u;
       if (u) {
-        const ok = unlockAvailable(S, u), k = ok ? Math.min(1, S.gold / u.price) : Math.min(1, recordZone(S) / u.zone);
+        const ok = unlockAvailable(S, u), k = ok ? Math.min(1, S.gold / u.price) : Math.min(1, rec / u.zone);
         this.goal.style.width = Math.round(k * 100) + "%";
         this.goalWrap.classList.toggle("ready", ok && S.gold >= u.price);
-        this.goalWrap.title = tx("Prochain déblocage") + " : " + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}` : tx("Zone record {0}", { 0: u.zone }));
+        tip.push(tx("Prochain déblocage") + fsp() + ": " + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}` : tx("Zone record {0}", { 0: u.zone })));
       }
+      tip.push(tx("Cliquer pour agrandir"));
+      this.info.title = tip.join("\n");
     }
   }
 }

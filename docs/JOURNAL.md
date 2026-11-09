@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 31).
 
 ## Fait
 
+- 2026-11-09 (it. 24) : mode mini, survoler les infos (niveau, or, zone) affiche le record à battre et le
+  prochain déblocage avec sa progression ; avant, la bulle était sur une barre de 2 px, presque introuvable.
 - 2026-11-09 (it. 23) : nouveau déblocage de fin, l'« Astrolabe » (zone record 60) : il fait l'ascension tout
   seul quand le héros bloque près de son record (option à activer dans l'onglet Ascension, décochée au départ).
 - 2026-11-09 (it. 22) : deux textes français cachés dans des cas rares traduits : le bouton « tout » des
@@ -84,4 +86,4 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   le record (ex. 42 → 42, 50 → 50, ~1 h). Fait (it. 12) : Maître de forge en zone 50 (~7 h). Fait (it. 13) :
   record à battre affiché sur la bande. Fait (it. 18) :
   Filet à étoiles en zone 55 (~8-10 h). Fait (it. 23) : Astrolabe en zone 60.
-  Reste : le record en mode mini.
+  Fait (it. 24) : record en bulle d'aide dans le mode mini.
