@@ -1,10 +1,12 @@
 # Journal de développement
 
 Itérations autonomes : une amélioration à la fois, la plus récente en haut de « Fait ».
-Revue générale toutes les 10 itérations (prochaine : itération 51).
+Revue générale toutes les 10 itérations (prochaine : itération 61).
 
 ## Fait
 
+- 2026-11-09 (it. 51, revue générale) : rien de cassé. Simulations 12 h (guerrier, mage, nécromancien) régulières,
+  sans mur ; 600 nouvelles parties sans blocage ; aucun texte français en chinois ni en allemand ; captures propres.
 - 2026-11-09 (it. 50) : portable sur batterie : la bande passe à 20 images/s (au lieu de 30) et revient à 30 sur
   secteur ; mesuré : 32 % → 23,5 % d'un cœur (−27 %), panneau ouvert 34,6 % → 25,4 %.
 - 2026-11-09 (it. 49) : à la première défaite d'un nouveau joueur, une bulle rassure (le héros recule puis repart
@@ -144,7 +146,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - P3 Anciennes clés « (s) » devenues inutilisées dans keys.js (objet(s)…) : sans effet, à laisser
   (l'ordre des clés ne doit pas bouger).
-- P2 Performance (revues it. 11, 21 et 31, inchangée) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
+- P2 Performance (revues it. 11, 21, 31 ; it. 50 : −27 % sur batterie) : bande ~33 % d'un cœur, panneau ouvert ~37 %, mini ~7 %,
   icône seule <1 %. Mémoire ~560-680 Mo (Electron).
   Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
