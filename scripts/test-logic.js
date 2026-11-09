@@ -5,6 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_events_js from "../src/renderer/game/events.js";
 import * as M_equipvis_js from "../src/renderer/render/equipvis.js";
@@ -621,6 +622,18 @@ test("succès Chroniqueur : toutes les chroniques avant la victoire", () => {
   assert.ok(!M_achievements_js.reachedAchievements(S).includes("CHRONICLER"));
   for (const c of CHRONICLES) if (c.id !== "dawn") S.story.read[c.id] = true;
   assert.ok(M_achievements_js.reachedAchievements(S).includes("CHRONICLER"));
+});
+
+test("astuce duo : proposée quand un héros de l'autre portée est libre, plus une fois le duo formé", () => {
+  const g = new Game(freshState()), S = g.S;
+  S.tabsOpen = { ...(S.tabsOpen || {}), class: true };
+  S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((h) => h.id !== "duo").map((h) => [h.id, true]));
+  const duo = () => (M_hints_js.nextHint(g) || {}).id === "duo";
+  assert.ok(!duo(), "personne à prendre en duo");
+  S.classesUnlocked = ["warrior", "ranger"];
+  assert.ok(duo(), "un héros à distance libre : l'astuce vient");
+  S.partner = "ranger";
+  assert.ok(!duo(), "duo formé : plus d'astuce");
 });
 
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {

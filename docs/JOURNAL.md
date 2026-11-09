@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 316) : astuce 💡 « duo » : dès qu'un héros de l'autre portée est libre et qu'aucun compagnon n'est
+  choisi, la bulle propose de former un duo (un clic ouvre l'onglet Héros). Test (proposée puis plus après le duo),
+  1 texte × 9 langues, autotest vert.
 - 2026-11-10 (it. 315) : succès CHRONICLER « Chroniqueur » (toutes les chroniques avant la victoire, progression
   n / 10 ; compté d'après S.story.read, sans nouvelle donnée) ; README : à déclarer dans Steamworks. Autotest : le
   contrôle « pièce de panoplie gardée » échouait quand la pièce tombait sur un emplacement portant une autre panoplie

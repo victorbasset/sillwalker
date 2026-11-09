@@ -7,6 +7,7 @@ import { skillPointsFree } from "../game/skilltree.js";
 import { nextUnlock, hasUnlock, unlockAvailable } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
 import { tabOpen } from "../game/tabs.js";
+import { CLASS_KEYS, canPartner } from "../game/classes.js";
 
 /** { id, text, tab, when(game) } — dans l'ordre de priorité. */
 export const HINTS = [
@@ -36,6 +37,8 @@ export const HINTS = [
     when: (g) => Object.keys(g.S.codex || {}).length >= 8 },
   { id: "classes", tab: "class", text: tx("D’autres héros sont retenus prisonniers par des boss de zone. Libère-les, puis change de héros en faisant une ascension."),
     when: (g) => g.S.best >= 2 && (g.S.classesUnlocked || []).length <= 1 },
+  { id: "duo", tab: "class", text: tx("Un héros de l’autre portée est libre : forme un duo ! Il combattra aux côtés de ton héros. Clique ici."),
+    when: (g) => !g.S.partner && CLASS_KEYS.some((c) => canPartner(g.S, g.S.cls, c)) },
   { id: "stuck", tab: "ascension", text: null, perRun: true,
     textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),
     when: (g) => g.canAscend() && g.S.prestige.count > 0 && (g.R.wallDeaths || []).filter((t) => g.R.time - t < 900).length >= 4 },

@@ -860,4 +860,5 @@ export default {
   1984: "As vozes dos fragmentos",
   1985: "Os fragmentos que você carrega começam a sussurrar. São as vozes das estrelas apagadas: elas lembram o verdadeiro nome do Quebra-Estrelas, aquele que ele usava antes de odiar o céu.",
   1986: "Cronista",
+  1987: "Um herói do outro alcance está livre: forme uma dupla! Ele lutará ao lado do seu herói. Clique aqui.",
 };

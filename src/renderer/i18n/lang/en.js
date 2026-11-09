@@ -860,4 +860,5 @@ export default {
   1984: "The Voices of the Shards",
   1985: "The shards you carry begin to whisper. They are the voices of the dead stars: they remember the Starbreaker’s true name, the one he bore before he hated the sky.",
   1986: "Chronicler",
+  1987: "A hero of the other range is free: form a duo! They will fight alongside your hero. Click here.",
 };
