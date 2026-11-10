@@ -1051,4 +1051,5 @@ export default {
   2175: "Grimório de feitiços: melhorar sozinho o feitiço mais barato",
   2176: "Próprios de cada herói, mantidos na ascensão.",
   2177: "Nível {0}: {1}",
+  2178: "Novo feitiço: {0}!",
 };

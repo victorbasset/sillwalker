@@ -2179,5 +2179,6 @@ export const KEYS = [
   "Améliore tout seul le sort le moins cher de ton héros, tant qu’il coûte moins d’un dixième de ton or (option).",
   "Grimoire des sorts : améliorer tout seul le sort le moins cher",
   "Propres à chaque héros, gardés à l’ascension.",
-  "Rang {0} : {1}"
+  "Rang {0} : {1}",
+  "Nouveau sort : {0} !"
 ];

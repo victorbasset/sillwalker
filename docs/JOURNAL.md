@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 491) : nouveau sort appris (rang 1) : bandeau de fête dans la bande (« Nouveau sort : Météore ! »,
+  couleur du héros), icône du sort qui monte au-dessus du héros, étincelles ; en plus de la ritournelle. Traduit ;
+  capture. 124/124.
 - 2026-11-10 (it. 490, revue générale) : simulations 12 h (graine 7) : rôdeur 54, nécromancien 60, gardienne des
   étoiles 71 ; vérifiés sur 4 graines : rôdeur 60-62, gardienne 60-65, comme avant les sorts (5ed1c8d) : bruit. Fuzz
   1200 parties, 0 bloquée ; crawl fr 313 et pl 318 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ;

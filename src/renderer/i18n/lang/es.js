@@ -1051,4 +1051,5 @@ export default {
   2175: "Grimorio de hechizos: mejorar solo el hechizo más barato",
   2176: "Propios de cada héroe, se conservan al ascender.",
   2177: "Rango {0}: {1}",
+  2178: "¡Nuevo hechizo: {0}!",
 };

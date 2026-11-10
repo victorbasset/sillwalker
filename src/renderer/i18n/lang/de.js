@@ -1051,4 +1051,5 @@ export default {
   2175: "Zaubergrimoire: günstigsten Zauber automatisch verbessern",
   2176: "Eigen für jeden Helden, bleiben beim Aufstieg erhalten.",
   2177: "Rang {0}: {1}",
+  2178: "Neuer Zauber: {0}!",
 };

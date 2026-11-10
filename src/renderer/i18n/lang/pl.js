@@ -1051,4 +1051,5 @@ export default {
   2175: "Grimuar zaklęć: samodzielnie ulepszaj najtańsze zaklęcie",
   2176: "Własne dla każdego bohatera, zachowane po wniebowstąpieniu.",
   2177: "Poziom {0}: {1}",
+  2178: "Nowe zaklęcie: {0}!",
 };
