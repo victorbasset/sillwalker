@@ -9,7 +9,7 @@ import { isFinalZone } from "../game/story.js";
 import { SETS } from "../game/sets.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, fsp } from "../i18n/index.js";
-import { CLASSES } from "../game/classes.js";
+import { CLASSES, duoSynergy } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
 import { UNLOCK_INDEX } from "../game/unlocks.js";
@@ -435,6 +435,12 @@ export class Juice {
       const node = el("div", "spark nestdown", this.layer), x = Math.max(0, Math.min(W - 10, this.s.heroX - 100 + Math.random() * 600)), ph = Math.random() * 6;
       node.style.background = Math.random() < 0.4 ? "#fff3dc" : "#f0c987";
       this.add(node, (p) => { this.place(node, x + Math.sin(ph + p.t * 7) * 10, -8 + p.t * 70); return p.t < 1.4; });
+    }
+    // Duo idéal (synergie) : de temps en temps, une étincelle dorée file entre les deux héros.
+    const st = this.s, gS = st.game.S;
+    if (st.partner && st.partnerX != null && Math.random() < dt * 0.6 && duoSynergy(gS.cls, gS.partner)) {
+      const node = el("div", "spark duolink", this.layer), x0 = st.partnerX + 12, x1 = st.heroX + 12, y = 58 + Math.random() * 14;
+      this.add(node, (p) => { this.place(node, x0 + (x1 - x0) * p.t, y - Math.sin(p.t * Math.PI) * 10); node.style.opacity = String(1 - p.t * 0.6); return p.t < 1; });
     }
     // Zèle : étincelles bleues qui montent du héros (les quêtes avancent deux fois plus vite).
     if ((E.zeal || 0) > 0 && Math.random() < dt * 4) {

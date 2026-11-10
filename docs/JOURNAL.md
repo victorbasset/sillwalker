@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 382) : duo idéal visible dans la bande : quand la synergie est formée, une étincelle dorée file de
+  temps en temps du compagnon au héros (juice.js > ambient, .spark.duolink, ≈ 0,6 par seconde). Mesuré dans le jeu
+  (Guerrier + Rôdeur : jusqu'à 2 étincelles à la fois). 113/113.
 - 2026-11-10 (it. 381) : Statistiques > Probabilités : « Événements rares (vus / total) » et infobulle avec ✓ devant
   les événements déjà vus (S.stats.eventsSeen) : on sait lesquels manquent au « Chasseur d'événements ». 113/113.
 - 2026-11-10 (it. 380, revue générale) : simulations 12 h : berserker 62, lancier 61, assassin 52 (bruit : 59 dans
