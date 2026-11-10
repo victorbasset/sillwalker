@@ -6,8 +6,8 @@ import { t as tx, txn, fsp, tr } from "../../i18n/index.js";
 import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner, DUO_SYNERGIES } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
-import { esc, unit, fmt } from "../../game/format.js";
-import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue } from "../../game/spells.js";
+import { esc, unit, fmt, dec } from "../../game/format.js";
+import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd } from "../../game/spells.js";
 import { recordZone, hasUnlock } from "../../game/unlocks.js";
 import { lockLink } from "../locks.js";
 import { spellIconURL } from "../../render/shopart.js";
@@ -96,11 +96,11 @@ export class ClassesTab {
         : sp.kind === "heal" ? tx("soigne {0} % des PV", { 0: Math.round(v) }) : tx("bouclier de {0} % des PV", { 0: Math.round(v) });
       const btn = !open ? `<span class="note">${tx("zone {0} requise", { 0: sp.zone })}</span>`
         : r >= SPELL_MAX ? `<span class="note">${tx("rang maximal")}</span>`
-        : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""} title="${esc(tx("Rang {0} : {1}", { 0: r + 1, 1: effAt(r + 1) }))}">${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`
+        : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""} title="${esc(tx("Rang {0} : {1}", { 0: r + 1, 1: effAt(r + 1) }) + (spellCd(sp, r + 1) < spellCd(sp, Math.max(1, r)) ? " · " + tx("recharge : {0} s", { 0: dec(String(spellCd(sp, r + 1))) }) : ""))}">${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`
           // « max » (Manuel du stratège, comme les talents) : autant de rangs que l'or le permet, dès que deux sont abordables.
           + (hasUnlock(S, "bulkPoints") && r + 1 < SPELL_MAX && S.gold >= price * 3.5 ? ` <button data-action="c-spellmax" data-id="${sp.id}" class="quiet" title="${esc(tx("Acheter autant de niveaux que possible"))}">${tx("max")}</button>` : "");
       return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3)}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
-        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: sp.cd, 1: eff })}${sp.pierce ? ` · <b class="tint">${tx("transperce : {0} % sur l’ennemi suivant", { 0: Math.round(sp.pierce * 100) })}</b>` : ""}</p>${btn}</div>`;
+        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: dec(String(spellCd(sp, Math.max(1, r)))), 1: eff })}${sp.pierce ? ` · <b class="tint">${tx("transperce : {0} % sur l’ennemi suivant", { 0: Math.round(sp.pierce * 100) })}</b>` : ""}</p>${btn}</div>`;
     }).join("");
     // Grimoire des sorts (case ou lien vers le déblocage) dans le titre : une ligne de moins (sinon l'onglet défilait).
     const book = hasUnlock(S, "spellBook") ? `<label class="toggle" title="${esc(tx("Grimoire des sorts : améliorer tout seul le sort le moins cher"))}"><input type="checkbox" data-action="c-autospells"${S.settings.autoSpells !== false ? " checked" : ""}> ${tx("Grimoire des sorts")}</label>` : lockLink(S, "spellBook");

@@ -7,6 +7,7 @@ import path from "node:path";
 import { createRequire } from "node:module";
 import * as M_news_js from "../src/renderer/game/news.js";
 import * as M_spells_js from "../src/renderer/game/spells.js";
+import { SPELL_INDEX as SPELL_INDEX_T, spellCd } from "../src/renderer/game/spells.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_events_js from "../src/renderer/game/events.js";
@@ -706,7 +707,7 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   let cast = 0; g.on("spell", ({ id }) => { if (id === "warrior.0") cast++; });
   g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = 1e9; g.R.spellT = { "warrior.0": 0 };
   const hp0 = g.R.mon.hp; g.castSpells(g.R.mon, g.stats(), 0.1);
-  assert.equal(cast, 1, "sort lancé"); assert.equal(g.S.stats.spells, 1, "statistique des sorts lancés"); assert.ok(g.R.mon.hp < hp0, "dégâts du sort"); assert.ok(g.R.spellT["warrior.0"] > 5, "recharge relancée");
+  assert.equal(cast, 1, "sort lancé"); assert.equal(g.S.stats.spells, 1, "statistique des sorts lancés"); assert.ok(g.R.mon.hp < hp0, "dégâts du sort"); assert.ok(g.R.spellT["warrior.0"] === spellCd(SPELL_INDEX_T["warrior.0"], SPELL_MAX), "recharge relancée (rang 50 : moitié)");
   // Perçant (demande H) : le Tourbillon (lames) met de côté 50 % de ses dégâts pour le monstre suivant
   assert.ok(g.R.pierce > 0, "dégâts perçants en réserve");
   const reserve = g.R.pierce; g.R.mon = null; g.R.mode = "walk"; g.R.spawnT = 0; g.step(0.05);
@@ -728,6 +729,7 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   const td = t.todoNow().find((x) => x.id === "spell"); assert.ok(td && td.tab === "class" && td.sec === "style", "« À faire » : sort à apprendre");
   t.learnSpell("warrior.0"); const ht2 = nextHint(t); assert.ok(!ht2 || ht2.id !== "spell", "sort appris : plus d'astuce"); assert.ok(!t.todoNow().some((x) => x.id === "spell" && x.name === "Tourbillon"), "Tourbillon appris : plus dans « À faire »");
   assert.deepEqual(ACH_PROGRESS.SPELLS_ALL3(t.S), [1, 3], "Grimoire complet : 1 sort sur 3");
+  { const m = SPELL_INDEX_T["mage.2"]; assert.deepEqual([1, 9, 10, 25, 50].map((r) => spellCd(m, r)), [20, 20, 18, 16, 10], "recharge : -10 % tous les 10 rangs"); }
   { const S3 = { ...t.S, spells: { "mage.0": 1, "mage.1": 2, "mage.2": 1, "warrior.0": 1 } }; assert.ok(ACH_T.find((a) => a.id === "SPELLS_ALL3").test(S3), "Grimoire complet : trois sorts du mage"); }
   // Grimoire des sorts : améliore tout seul le moins cher, sous un dixième de l'or ; coupé = rien
   const gb = new Game(freshState()); gb.S.cls = "warrior"; gb.S.best = gb.S.zone = 60; gb.S.unlocks.spellBook = true; gb.S.gold = 1e15;

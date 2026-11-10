@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 501) : paliers des sorts : recharge -10 % tous les 10 rangs (rang 50 : moitié ; spellCd, spells.js) ;
+  la carte montre la recharge réelle, l'infobulle « Améliorer » annonce la nouvelle au passage d'un palier. Balance 12 h
+  -0,3 zone (bruit) ; semaine mage 179 (repère 179-182). Traduit ; test logique. 124/124 (un premier passage à 123 :
+  « infobulle : pièce de panoplie gardée » a échoué une fois, sans rapport ; à surveiller s'il revient).
 - 2026-11-10 (it. 500, revue générale) : balance 12 h (10 classes) identique à 39107ec (61,0 de moyenne) ; fuzz 1200
   parties, 0 bloquée ; crawl fr 317 et ru 313 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ;
   perf (copie neuve) : bande 18,9 %, panneau 21,6 %, mini 6,0 %, icône 0,5 % ; mémoire stable (≈ 795 Mo sur 6 min).

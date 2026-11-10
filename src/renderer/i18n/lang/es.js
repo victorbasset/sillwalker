@@ -1054,4 +1054,5 @@ export default {
   2178: "¡Nuevo hechizo: {0}!",
   2179: "Hechizo por aprender: {0}",
   2180: "Grimorio completo (los tres hechizos de un héroe)",
+  2181: "recarga: {0} s",
 };

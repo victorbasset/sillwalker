@@ -1054,4 +1054,5 @@ export default {
   2178: "New spell: {0}!",
   2179: "Spell to learn: {0}",
   2180: "Full grimoire (all three spells of a hero)",
+  2181: "cooldown: {0} s",
 };

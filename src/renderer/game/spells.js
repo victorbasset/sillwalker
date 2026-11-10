@@ -55,6 +55,9 @@ export const spellScale = (r) => 1 + 0.25 * Math.max(0, r - 1);
 export const spellPrice = (sp, r) => Math.round(3 * Math.pow(1.25, sp.zone - 1) * 400 * Math.pow(2.5, r));
 export const spellRank = (S, id) => Math.max(0, Math.min(SPELL_MAX, (S.spells && +S.spells[id]) || 0));
 
+/** Recharge au rang r (it. 501, palier de progression) : -10 % tous les 10 rangs (rang 50 : moitié). */
+export const spellCd = (sp, r) => Math.round(sp.cd * (1 - 0.1 * Math.floor(Math.max(0, r) / 10)) * 10) / 10;
+
 /** Valeur du sort au rang r : dégâts en multiple de l'attaque (par coup), ou part des PV max. */
 export function spellValue(sp, r) {
   const k = spellScale(r);

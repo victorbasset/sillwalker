@@ -45,7 +45,7 @@ import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS } fr
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
-import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue } from "./spells.js";
+import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd } from "./spells.js";
 import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock, recordZone } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
@@ -244,7 +244,7 @@ export class Game {
           R.mon.dist = 0; R.mode = "fight"; R.atkT = 0.25;
           R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0;
           R.spellT = {}; // sorts : premier lancer après une demi-recharge (pas tous d'un coup à l'arrivée)
-          for (const sp of classSpells(this.S.cls)) if (spellRank(this.S, sp.id)) R.spellT[sp.id] = sp.cd * 0.5;
+          for (const sp of classSpells(this.S.cls)) if (spellRank(this.S, sp.id)) R.spellT[sp.id] = spellCd(sp, spellRank(this.S, sp.id)) * 0.5;
           R.shield = hs.shield > 0 ? hs.hp * hs.shield / 100 : 0;
           if (R.shield > 0) this.emit("shield", { amount: R.shield });
         }
@@ -442,9 +442,9 @@ export class Game {
     for (const sp of classSpells(S.cls)) {
       const r = spellRank(S, sp.id);
       if (!r) continue;
-      R.spellT[sp.id] = (R.spellT[sp.id] ?? sp.cd * 0.5) - dt;
+      R.spellT[sp.id] = (R.spellT[sp.id] ?? spellCd(sp, r) * 0.5) - dt;
       if (R.spellT[sp.id] > 0) continue;
-      R.spellT[sp.id] = sp.cd;
+      R.spellT[sp.id] = spellCd(sp, r);
       S.stats.spells = (+S.stats.spells || 0) + 1; // statistique et succès « Mage de bataille »
       const v = spellValue(sp, r);
       if (sp.kind === "heal") { const a = Math.min(hs.hp - R.hp, hs.hp * v / 100); if (a > 0) R.hp += a; this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: Math.max(0, a) }); continue; }

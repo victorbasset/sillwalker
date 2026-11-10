@@ -1054,4 +1054,5 @@ export default {
   2178: "Neuer Zauber: {0}!",
   2179: "Zauber zu lernen: {0}",
   2180: "Volles Grimoire (alle drei Zauber eines Helden)",
+  2181: "Abklingzeit: {0} s",
 };

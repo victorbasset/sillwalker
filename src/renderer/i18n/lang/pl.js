@@ -1054,4 +1054,5 @@ export default {
   2178: "Nowe zaklęcie: {0}!",
   2179: "Zaklęcie do nauki: {0}",
   2180: "Pełny grimuar (trzy zaklęcia jednego bohatera)",
+  2181: "odnowienie: {0} s",
 };

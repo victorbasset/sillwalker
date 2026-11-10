@@ -1054,4 +1054,5 @@ export default {
   2178: "Novo feitiço: {0}!",
   2179: "Feitiço para aprender: {0}",
   2180: "Grimório completo (os três feitiços de um herói)",
+  2181: "recarga: {0} s",
 };
