@@ -5,9 +5,10 @@
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { newsShown } from "../game/news.js";
 import { itemName } from "../i18n/data.js";
-import { t as tx, txn, lc, fsp } from "../i18n/index.js";
+import { t as tx, txn, lc, fsp, tr } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
-import { shopIconURL } from "../render/shopart.js";
+import { shopIconURL, spellIconURL } from "../render/shopart.js";
+import { classSpells, spellRank } from "../game/spells.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
@@ -506,7 +507,10 @@ export class Panel {
     const syn = pd && duoSynergy(S.cls, S.partner);
     // Demande F de Victor (on le voyait mal) : le compagnon a sa propre ligne sous le titre, portrait de la même taille.
     const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + " : " + describeEffects(syn.eff) : ""))}"><img src="${classPortraitURL(S.partner)}" alt="">${esc(tx("Compagnon : {0}", { 0: pd.name }))}${syn ? ` <span class="syn">✦ <span class="synname">${esc(tx(syn.name))}</span></span>` : ""}</button>` : "";
-    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>${duo ? `<div class="duoline">${duo}</div>` : ""}
+    // Sorts appris du héros : icônes à droite de la ligne du compagnon (rang en infobulle) ; un clic mène aux sorts.
+    const learned = classSpells(S.cls).filter((x) => spellRank(S, x.id) > 0);
+    const spl = learned.length ? `<button class="linkbtn spellmini" data-tab="class" data-sec="style">${learned.map((x) => `<img src="${spellIconURL(x.tpl, x.color, 2)}" alt="" title="${esc(tx("Rang {0} : {1}", { 0: spellRank(S, x.id), 1: tr(x.name) }))}">`).join("")}</button>` : "";
+    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>${duo || spl ? `<div class="duoline">${duo}${spl}</div>` : ""}
       <div class="kv"><span>${tx("Expérience")}</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">
         <div class="tile"><img src="${shopIconURL("heart", 3)}" alt=""><span>${tx("Points de vie")}</span><b>${fmtStat("hp", hs.hp)}</b></div>

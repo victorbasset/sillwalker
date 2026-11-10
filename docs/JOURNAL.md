@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 493) : carte du héros (Aventure) : icônes des sorts appris à droite de la ligne du compagnon (rang et
+  nom en infobulle) ; un clic ouvre Héros > Sorts et attaque. (Correction d'un résumé de l'it. 492 : le mode mini ne
+  montre « À faire » qu'en infobulle, sans lien ; rien à y faire.) Captures 1920 / 1280. 124/124.
 - 2026-11-10 (it. 492) : « À faire » (Aventure, résumé d'absence, mode mini) : « Sort à apprendre : X » quand un sort du
   héros est débloqué, abordable et pas encore appris ; le lien ouvre Héros > Sorts et attaque (data-sec transmis par la
   liste). Traduit ; test logique. 124/124.
