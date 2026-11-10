@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 327) : solidité des nouveaux réglages : une valeur abîmée (« oui », null…) de settings.eco ou
+  settings.cinematics reprend le défaut au chargement (« oui » activait l'économie d'énergie) ; save-fuzz : cas
+  newsBad ; test. CLAUDE.md : penser à publier une édition « Quoi de neuf » après une série de nouveautés. 107/107.
 - 2026-11-10 (it. 326) : « Quoi de neuf » (game/news.js : NEWS_ID, NEWS_ITEMS) : au premier lancement après une
   mise à jour, une bulle « Du nouveau dans Sillwalker ! » (6 s après le démarrage, non bloquante) ; un clic ouvre la
   liste dans la fenêtre modale (#mt / #mbody). Une seule fois (settings.newsSeen) ; jamais pour une partie neuve ;

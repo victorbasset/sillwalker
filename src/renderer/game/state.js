@@ -210,6 +210,9 @@ export function migrate(raw) {
   // d'office ; ensuite le choix du joueur (bouton haut-parleur, Réglages) est respecté.
   // « Quoi de neuf » (news.js) : une sauvegarde d'avant ce réglage n'a encore rien vu (0) ; partie neuve : à jour.
   if (!isObj(o.settings) || typeof o.settings.newsSeen !== "number") s.settings.newsSeen = 0;
+  // Réglages oui / non : une valeur abîmée (texte, null…) reprend le défaut (sinon « oui » activerait l'économie).
+  s.settings.eco = s.settings.eco === true;
+  s.settings.cinematics = s.settings.cinematics !== false;
   if (!isObj(o.settings) || o.settings.soundOn2 !== true) { s.settings.sound = true; s.settings.soundOn2 = true; }
   // Carnet apparu après coup, partie déjà entamée : une première entrée situe le point de départ.
   if (!Array.isArray(o.journey) && (s.best > 1 || s.lvl > 1)) s.journey.push({ t: Date.now(), k: "start", v: s.best, l: s.lvl });

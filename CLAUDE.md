@@ -121,6 +121,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (`class="hscroll" data-hs="clé"`, ui/hscroll.js : molette, glisser, position gardée) ou un détail au survol (ⓘ).
 - Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
+- « Quoi de neuf » (game/news.js) : après une série de nouveautés visibles, publier une édition (NEWS_ID + 1, nouveaux
+  textes NEWS_ITEMS à traduire) : Victor et les joueurs la voient une fois au lancement suivant.
 - Réglages qui touchent l'affichage sans recharger : « Économie d'énergie » (settings.eco, 15 images/s, événement
   `sillwalker-framerate`) et « Cinématiques de l'histoire » (settings.cinematics ; `data.force` pour le ▶ des chroniques).
 - Bande : la fenêtre laisse traverser les clics sauf au-dessus des éléments `.hit` (ui/clickthrough.js, recalculé par
