@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 361, consommation) : où passent les ~20 % d'un cœur de la bande (perf:linux) ? Mesuré dans le jeu :
+  simulation 0,10 ms + dessin 0,17 ms par image (30 images/s) ≈ 0,8 % d'un cœur ; panneau ouvert : 1 rendu complet en
+  20 s (13 ms), le reste en mises à jour légères. Le coût vient donc de la peinture / composition de Chromium, en
+  logiciel sous xvfb (pas de GPU) : rien à gagner côté JavaScript ; à mesurer sous Windows (GPU) avant toute autre
+  optimisation. Pistes si besoin : réduire la surface repeinte de la bande, ou 20 images/s par défaut.
 - 2026-11-10 (it. 360, revue générale) : simulations 12 h : rôdeur 58, nécromancien 53 (bruit : 60 dans balance.mjs),
   gardien des étoiles 57 ; balance.mjs 12 h contre it. 350 : −1,0 zone (bruit) ; crawl 302 clics sans erreur ; russe :
   aucun mot latin suspect ; save-fuzz ok ; perf : bande 19,8 %, panneau 21,9 %, mini 6,5 %, icône 3,0 % (stables).
