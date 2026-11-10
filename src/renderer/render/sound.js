@@ -163,7 +163,26 @@ export class Sound {
         else if (r > 0.96) this.whoosh(0, 1.6, 300, 900, 0.09, 1.3); break;
       default: // forêts et prairies : gazouillis le jour, grillons la nuit
         if (night) { if (r < 0.2) for (let i = 0; i < 3; i++) this.tone(4200 * j(), i * 0.05, 0.03, "sine", 0.02); }
-        else if (r < (kind === "leaf" ? 0.12 : 0.07)) { const f = 2600 * j(), n = 2 + Math.floor(Math.random() * 3); for (let i = 0; i < n; i++) this.tone(f * (i % 2 ? 1.2 : 1), i * 0.09, 0.07, "sine", 0.045, i % 2 ? 0.8 : 1.25); }
+        else if (r < (kind === "leaf" ? 0.03 : 0.018)) this.birdCall(); // ≈ toutes les 8 s en forêt, 14 s en prairie
+    }
+  }
+
+  /** Chant d'oiseau (retour de Victor : trop proche du critique, trop fréquent) : un trille rapide ou un gazouillis
+   *  vibré qui DESCEND (le critique, lui, est une note seule qui monte), doux. */
+  birdCall() {
+    const ctx = this.ctx, t0 = ctx.currentTime, base = 3000 + Math.random() * 900;
+    if (Math.random() < 0.5) { // trille : 5 à 8 notes très brèves qui alternent
+      const n = 5 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < n; i++) this.tone(base * (i % 2 ? 1.12 : 1) * (1 - i * 0.015), i * 0.045, 0.03, "sine", 0.03);
+      return;
+    }
+    // gazouillis : une note vibrée (modulation rapide) qui glisse vers le bas, parfois répétée
+    for (let k = 0; k < (Math.random() < 0.5 ? 1 : 2); k++) {
+      const t = t0 + k * 0.32, o = ctx.createOscillator(), g = ctx.createGain(), lfo = ctx.createOscillator(), lg = ctx.createGain();
+      o.type = "sine"; o.frequency.setValueAtTime(base, t); o.frequency.exponentialRampToValueAtTime(base * 0.78, t + 0.22);
+      lfo.frequency.value = 28 + Math.random() * 10; lg.gain.value = base * 0.06; lfo.connect(lg); lg.connect(o.frequency);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.03, t + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.24);
+      o.connect(g); g.connect(this.master); o.start(t); lfo.start(t); o.stop(t + 0.26); lfo.stop(t + 0.26);
     }
   }
 

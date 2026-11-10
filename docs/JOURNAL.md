@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 437, retour de Victor : « le bruit des oiseaux est trop ressemblant au critique et trop récurrent ») :
+  les oiseaux étaient des notes sinus vers 2 600 Hz qui montaient (comme le « shing » du critique), toutes les 2-3 s.
+  birdCall : trille de 5 à 8 notes très brèves ou gazouillis vibré (modulation 28-38 Hz) qui DESCEND, vers 3 000-3 900 Hz ;
+  4 fois plus rare (≈ 8 s en forêt, 14 s en prairie). Rendu : 0,003 (critique 0,023). 120/120.
 - 2026-11-10 (it. 436) : contrôle après la refonte du son (nœuds audio créés plusieurs fois par seconde pour
   l'ambiance) : mem-watch 8 min à ×10, son et musique actifs : 788-796 Mo, stable (repère ≈ 780) ; perf : bande 18,7 %,
   panneau 21,5 %, mini 5,9 %, icône 3,1 % (inchangé). Liste « À vérifier par Victor » complétée (son, Mac).
