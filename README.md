@@ -54,6 +54,9 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   or, expérience, œufs et objets.
 - **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 29 pouvoirs uniques (dont l'Appât des champions, qui attire les élites).
 - **Bestiaire** : paliers de 10 / 100 / 1 000 / 10 000 victoires par monstre, bonus permanents.
+- **Sorts** (Héros > Sorts et attaque) : trois sorts propres à chacun des 20 héros (zones 10, 22, 50), appris et améliorés
+  avec de l'or (rangs 1 à 50), lancés tout seuls en combat en plus de l'attaque de base, avec animation, son et icône ;
+  certains transpercent et frappent aussi le monstre suivant. Gardés à l'ascension.
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 16 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
 - **Cycle jour / nuit** sur la bande, calé sur l'heure de l'ordinateur.
@@ -174,6 +177,7 @@ src/
       skilltree.js        arbre de compétences (graphe généré à partir de SECTORS)
       events.js           vitesse permanente et événements rares
       bosses.js           capacités spéciales des boss
+      spells.js           sorts : mécaniques communes et trois sorts par héros
       sets.js             panoplies
       rules.js            formules d'équilibrage
       game.js             simulation + actions du joueur, émet des événements
@@ -202,6 +206,8 @@ src/
 - **Quête** : un modèle dans `QUEST_TEMPLATES` (+ son poids dans `WEIGHTS`) et un appel à `questProgress` là où l'action se produit.
 - **Familier** : une entrée dans `PETS` + un sprite dans `PET_ART`.
 - **Pouvoir légendaire** / **constellation** : une ligne dans `POWERS` / `CONSTELLATIONS`.
+- **Sort** : une mécanique dans `SPELL_TEMPLATES` (+ son effet dans `strip.spellFx`, son son dans `Sound.spellSound`, son
+  dessin dans `SPELL_ART` de `shopart.js`) ; les sorts d'un héros dans `CLASS_SPELLS` (noms à traduire).
 - **Onglet du panneau** : un module dans `ui/tabs/` + une entrée dans `TABS` (`ui/panel.js`).
 - **Objets** : `ITEM_BASES` / `ITEM_SUFFIXES`.
 - **Succès** : une ligne dans `game/achievements.js` (même « API Name » que dans Steamworks).

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 484) : documentation : README (contenu : les sorts ; organisation : spells.js ; « Ajouter un sort ») ;
+  CLAUDE.md : freshState des tests (tous les déblocages sauf armsValet et skyChart), mesure de performance sur une copie
+  neuve, coût des sorts.
 - 2026-11-10 (it. 483) : mode mini : au lancer d'un sort, son icône apparaît 0,7 s au-dessus du héros et s'efface en
   montant (effet léger, sans les anneaux de la bande). Capture. 123/123.
 - 2026-11-10 (it. 482) : sorts dans les Statistiques : compteur stats.spells (ligne « Sorts lancés ») et succès

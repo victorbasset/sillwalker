@@ -81,6 +81,11 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   `--lang=fr-FR` (option de Chromium). Le panneau est sombre par défaut ; pour capturer le thème clair, mettre `settings.theme = "light"` dans la copie
   (ou `"auto"` + `--force-dark-mode` pour tester le suivi de Windows).
 - Les erreurs de l'interface s'affichent dans la console sous la forme `[renderer error] …`.
+- Tests logiques : le `freshState` de `test-logic.js` donne TOUS les déblocages sauf `armsValet` et `skyChart` (ils
+  changent les comptes d'équipement et d'éclats) : un nouveau déblocage automatique peut fausser d'anciens tests ; l'exclure
+  là s'il le faut, et le tester à part.
+- Performance (`--perf`) : toujours mesurer sur une copie NEUVE de dev-data à chaque essai (une copie réutilisée a avancé :
+  autre zone, autre combat, la comparaison ne vaut rien). Les sorts coûtent ≈ +3 points d'un cœur en rendu logiciel (it. 479).
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de
   render/sound.js et signale erreur, NaN ou saturation (pic > 0,2 ; les effets font ≈ 0,02) : ajouter tout nouveau son
   à sa liste (selftest.js, « son : tous les sons ») ; pour comparer des volumes, même méthode dans une injection TEMP.
