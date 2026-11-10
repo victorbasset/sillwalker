@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 384) : consommation du mode mini avec le compagnon du duo (copie avec Guerrier + Rôdeur) : 6,2 % d'un
+  cœur, identique à avant (perf:linux utilise dev-data, sans compagnon : la mesure standard ne le couvre pas).
 - 2026-11-10 (it. 383) : mode mini : le compagnon du duo y apparaît (petite échelle, au bord de l'encart, il marche
   en décalé) et le héros avance de 14 px (barre de vie comprise) ; avant, seul le héros était dessiné. Captures, 113/113.
 - 2026-11-10 (it. 382) : duo idéal visible dans la bande : quand la synergie est formée, une étincelle dorée file de
