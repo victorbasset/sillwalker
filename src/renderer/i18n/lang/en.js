@@ -896,4 +896,6 @@ export default {
   2020: "boss of your zone",
   2021: "next boss: zone {0}",
   2022: "Laptop screens (1366 px): no tab scrolls anymore; long lists slide sideways.",
+  2023: "Talisman of Purity",
+  2024: "resistance to boss Curse (shorter duration)",
 };

@@ -1987,6 +1987,16 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     hs.dodge = 0; hs.thorns = 0; gc.R.shield = 0; let a = 0, b = 0;
     for (let i = 0; i < 200; i++) { gc.R.hp = 1e12; gc.R.cursed = 0; gc.monsterAttack(m, hs, 1); a += 1e12 - gc.R.hp; gc.R.hp = 1e12; gc.R.cursed = 3; gc.monsterAttack(m, hs, 1); b += 1e12 - gc.R.hp; }
     assert.ok(b > a * 1.1, "maudit : plus de dégâts subis");
+    // Talisman de pureté : la malédiction n'a plus d'effet
+    const gp = new Game(freshState()); gp.R.mon = gp.makeMonster(true); gp.R.mon.mech = ["curse"]; gp.R.mon.curseT = 0; gp.R.mode = "fight";
+    const w = gp.newItem(0); w.power = "p_pure"; gp.S.equip[w.slot] = w; gp.invalidateStats();
+    assert.equal(gp.stats().purity, 100, "pureté 100 %");
+    gp.R.cursed = 0; gp.bossTick(gp.R.mon, gp.stats(), 0.1);
+    assert.ok(!(gp.R.cursed > 0), "Talisman de pureté : pas maudit");
+    const gq = new Game(freshState()); gq.R.mon = gq.makeMonster(true); gq.R.mon.mech = ["curse"]; gq.R.mon.curseT = 0;
+    gq.bossTick(gq.R.mon, gq.stats(), 0.1);
+    assert.ok(gq.R.cursed > 0, "sans talisman : maudit");
+
     assert.ok(M_bosses_js.BOSS_MECHANICS.curse && M_bosses_js.bossMechanics(11).includes("curse"), "zone 11 : Malédiction");
   }
   g.startEvent("hawkeye");

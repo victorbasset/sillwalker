@@ -896,4 +896,6 @@ export default {
   2020: "Boss deiner Zone",
   2021: "nächster Boss: Zone {0}",
   2022: "Laptop-Bildschirme (1366 px): Kein Reiter scrollt mehr, lange Listen gleiten seitlich.",
+  2023: "Talisman der Reinheit",
+  2024: "Widerstand gegen den Fluch der Bosse (kürzere Dauer)",
 };

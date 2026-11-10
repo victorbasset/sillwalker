@@ -42,6 +42,7 @@ export const EFFECTS = {
   offline:     { label: "efficacité hors ligne", unit: "%" },
   secondWind:  { label: "second souffle", unit: "" },
   elites:      { label: "élites rencontrées", unit: "%" },
+  purity:      { label: "de résistance à la Malédiction des boss (durée réduite)", unit: "%" },
 };
 
 const T = (id, name, tier, max, eff, text) => ({ id, name, tier, max, eff, text });

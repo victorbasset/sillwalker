@@ -896,4 +896,6 @@ export default {
   2020: "chefe da sua zona",
   2021: "próximo chefe: zona {0}",
   2022: "Telas de notebook (1366 px): nenhuma aba rola mais; as listas longas deslizam para o lado.",
+  2023: "Talismã da pureza",
+  2024: "de resistência à Maldição dos chefes (duração reduzida)",
 };

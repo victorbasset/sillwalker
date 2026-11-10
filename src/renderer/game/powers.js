@@ -29,6 +29,8 @@ export const POWERS = [
   { id: "p_star",    name: "Éclat d’étoile",     eff: { xp: 15, gold: 15, drop: 5 } },
   { id: "p_bulwark", name: "Rempart vivant",     eff: { hpPct: 25, shield: 10 } },
   { id: "p_reaper",  name: "Hache du bourreau",  eff: { execute: 30, bossDmg: 15 } },
+  // Parade à la Malédiction (capacité de boss) : un choix d'équipement contre ces boss.
+  { id: "p_pure",    name: "Talisman de pureté", eff: { purity: 100, hpPct: 10 } },
   { id: "p_lure",    name: "Appât des champions", eff: { elites: 60, gold: 10 } }, // plus d'élites : plus de risque, plus de butin
 ];
 export const POWER_INDEX = Object.fromEntries(POWERS.map((p) => [p.id, p]));

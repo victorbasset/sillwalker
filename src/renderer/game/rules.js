@@ -147,7 +147,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
     riposte: Math.min(60, v("riposte")), doubleShot: Math.min(60, v("doubleShot")), burn: v("burn"),
     firstStrike: v("firstStrike"), tapDmg: v("tapDmg"), offline: v("offline"), secondWind: v("secondWind") > 0,
     shield: Math.min(100, v("shield")), poison: v("poison"), minion: v("minion"), combo: v("combo"), thorns: v("thorns"),
-    iai: v("iai"), elites: v("elites"), moveSpd: v("moveSpd") + (S.speed || 0),
+    iai: v("iai"), elites: v("elites"), purity: Math.min(100, v("purity")), moveSpd: v("moveSpd") + (S.speed || 0),
     duo: pd ? DUO.atk * (pd.mul.atk || 1) : 0, // dégâts du compagnon (% de l'attaque par seconde)
   });
   return s;

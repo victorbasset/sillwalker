@@ -896,4 +896,6 @@ export default {
   2020: "boss twojej strefy",
   2021: "następny boss: strefa {0}",
   2022: "Ekrany laptopów (1366 px): żadna karta już się nie przewija, długie listy przesuwają się w bok.",
+  2023: "Talizman czystości",
+  2024: "odporności na Klątwę bossów (krótszy czas)",
 };

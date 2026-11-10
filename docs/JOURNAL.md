@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 349) : parade à la Malédiction : nouvel effet « pureté » (talents.js EFFECTS.purity, plafonné à
+  100 %, raccourcit la malédiction) et pouvoir légendaire « Talisman de pureté » (p_pure : pureté 100 %, +10 % PV).
+  Le succès « Tous les pouvoirs » demande désormais 17 pouvoirs. Test (immunisé / maudit sans), fuzz 600, 2 textes ×
+  9 langues, 110/110.
 - 2026-11-10 (it. 348, moins de clics) : onglet Héros : sur la carte du héros (actuel ou choisi), « Duo idéal » devient
   un lien qui prend directement le partenaire de synergie comme compagnon (ou pour la prochaine ascension).
   Autotest : nouveau contrôle (clic → nextPartner = ranger). Capture, 110/110.

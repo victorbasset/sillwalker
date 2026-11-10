@@ -896,4 +896,6 @@ export default {
   2020: "jefe de tu zona",
   2021: "próximo jefe: zona {0}",
   2022: "Pantallas de portátil (1366 px): ya ninguna pestaña se desplaza; las listas largas se deslizan de lado.",
+  2023: "Talismán de pureza",
+  2024: "de resistencia a la Maldición de los jefes (duración reducida)",
 };
