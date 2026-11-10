@@ -136,18 +136,13 @@ export class StripRenderer {
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });
     // Sorts (demande D) : chacun son animation ; dégâts en chiffres de la couleur du sort.
+    // Sorts (demandes D et I : « spectaculaires et bien visibles ») : nom du sort en grand, puis l'effet de sa
+    // mécanique (éclair zébré pleine hauteur, croissants de lame, boule de feu qui explose, météore avec traînée,
+    // colonne de soin, dôme de bouclier) ; dégâts en gros chiffres de la couleur du héros.
     g.on("spell", ({ id, dmg, amount }) => {
       if (!this.active) return;
       const sp = SPELL_INDEX[id]; if (!sp) return;
-      const tpl = sp.tpl;
-      const mx = this.monX() + 14, hx = this.heroX + 16, c = sp.color, full = this.juice.full;
-      if (tpl === "bolt") { const b = el("div", "spellfx bolt", this.fxLayer); b.style.setProperty("--c", c); this.addFx(b, mx, 2, 0.3, 0); this.flash = Math.max(this.flash, 0.1); if (full) this.juice.sparkles(mx + 4, this.ground - 24, c, 8); }
-      else if (tpl === "gust") { this.projectile("bolt", hx + 8, mx, 56, 2, c); this.projectile("bolt", hx + 8, mx, 66, 2, c); }
-      else if (tpl === "fire") { this.projectile("fire", hx + 8, mx, 58, 3, c); if (full) this.juice.sparkles(mx + 6, this.ground - 26, c, 10); }
-      else if (tpl === "meteor") { const m = el("div", "spellfx meteor", this.fxLayer); m.style.setProperty("--c", c); this.addFx(m, mx - 50, -10, 0.35, -60, 50); this.shake(0.4); if (full) this.juice.sparkles(mx + 6, this.ground - 18, c, 14); }
-      else if (tpl === "mend") { if (full) this.juice.sparkles(hx, this.ground - 30, c, 10); if (amount > 0) this.float(hx, 40, "+" + fmt(Math.round(amount)), c, false, true); }
-      else if (tpl === "aegis") { if (full) this.juice.sparkles(hx, this.ground - 30, c, 12); this.float(hx, 30, tr(sp.name), c, false); }
-      if (dmg > 0 && this.game.S.settings.damageNumbers !== false) this.float(mx, 30, "-" + fmt(Math.round(dmg)), c, true, true);
+      this.spellFx(sp, dmg, amount);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });
@@ -234,6 +229,37 @@ export class StripRenderer {
   }
 
   /** Flèche ou boule de feu, du héros jusqu'au monstre. */
+  /** Effet visuel d'un sort (voir g.on("spell")). */
+  spellFx(sp, dmg, amount) {
+    const tpl = sp.tpl, c = sp.color, full = this.juice.full, G = this.ground;
+    const mx = this.monX() + 14, hx = this.heroX + 16;
+    const fx = (cls, x, y, life, rise = 0, dx = 0) => { const n = el("div", "spellfx " + cls, this.fxLayer); n.style.setProperty("--c", c); el("i", "", n); this.addFx(n, x, y, life, rise, dx); return n; };
+    const ring = (x, y, big) => fx("ring" + (big ? " big" : ""), x, y, 0.6);
+    const later = (ms, f) => setTimeout(() => { if (this.active) f(); }, ms);
+    this.float(hx, 2, tr(sp.name), c, true); // le nom du sort, en grand
+    if (tpl === "bolt") {
+      fx("bolt", mx - 4, 0, 0.45); this.flash = Math.max(this.flash, 0.22); this.shake(0.2);
+      later(60, () => fx("bolt", mx + 6, 0, 0.35)); ring(mx + 6, G - 20);
+      if (full) this.juice.sparkles(mx + 6, G - 22, c, 16);
+    } else if (tpl === "gust") {
+      for (let k = 0; k < 3; k++) later(k * 70, () => fx("slash", hx + 10, 44 + k * 10, 0.3, 0, mx - hx - 6));
+      later(260, () => { ring(mx + 6, G - 26); if (full) this.juice.sparkles(mx + 6, G - 26, c, 12); });
+    } else if (tpl === "fire") {
+      fx("fireball", hx + 10, 48, 0.28, 0, mx - hx - 6);
+      later(270, () => { ring(mx + 6, G - 26, true); this.shake(0.3); this.flash = Math.max(this.flash, 0.15); if (full) this.juice.sparkles(mx + 6, G - 26, c, 20); });
+    } else if (tpl === "meteor") {
+      fx("meteor", mx - 90, -20, 0.4, -(G - 20), 90);
+      later(380, () => { ring(mx + 6, G - 16, true); later(80, () => ring(mx + 6, G - 16, true)); this.shake(0.6); this.flash = Math.max(this.flash, 0.3); if (full) this.juice.sparkles(mx + 6, G - 18, c, 26); });
+    } else if (tpl === "mend") {
+      fx("column", hx - 10, G - 90, 0.7, 20); ring(hx, G - 26);
+      if (full) this.juice.sparkles(hx, G - 30, c, 14);
+      if (amount > 0) this.float(hx, 40, "+" + fmt(Math.round(amount)), "#7dff9a", true, true);
+    } else if (tpl === "aegis") {
+      fx("dome", hx - 30, G - 66, 0.9); if (full) this.juice.sparkles(hx, G - 30, "#bfefff", 14);
+    }
+    if (dmg > 0 && this.game.S.settings.damageNumbers !== false) later(tpl === "meteor" ? 380 : tpl === "fire" ? 270 : 0, () => this.float(mx, 26, "-" + fmt(Math.round(dmg)), c, true, true));
+  }
+
   projectile(kind, x0, x1, y, tier = 0, color = "#fff") {
     if (!this.active) return;
     const f = el("div", "proj " + kind + " t" + tier, this.fxLayer);

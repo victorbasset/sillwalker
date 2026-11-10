@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 472, demande I : animations des sorts spectaculaires) : strip.spellFx : nom du sort en grand au-dessus
+  du héros, puis par mécanique : éclair zébré pleine hauteur doublé avec flash, secousse et anneau d'impact ; trois
+  croissants de lame qui filent ; grosse boule de feu puis explosion (grand anneau, flash, secousse) ; météore avec
+  traînée qui tombe en diagonale, double explosion, forte secousse ; colonne de soin et anneau ; dôme de bouclier ;
+  dégâts en gros chiffres au moment de l'impact. Éléments à animation CSS (sfxring, sfxspin, sfxdome) dans un
+  conteneur déplacé par la bande. Captures (Boule de feu, Météore, Éclair). À voir en jeu. 122/122.
 - 2026-11-10 (it. 471, demandes J et K) : J. bouclier visible sur la barre de vie du héros : segment bleu-blanc après
   les PV (Bar.setShield, dom.js), calé au bout s'il dépasse ; vérifié dans le jeu (30 % de bouclier = 11 px sur 36).
   K. onglet Héros : le sous-onglet « Style de combat » devient « Sorts et attaque » (compte des sorts appris) ; les
@@ -1651,7 +1657,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - DEMANDES DE VICTOR (2026-11-10, midi), à traiter en premier, dans cet ordre :
   J. FAIT (it. 471). Bouclier visible sur la barre de vie (blanc ou bleu).
   K. FAIT (it. 471). Renommer « Style de combat » ; le bloc du bas : « style de l'auto-attaque » ou équivalent.
-  I. Animations des sorts spectaculaires et bien visibles.
+  I. FAIT (it. 472, à voir en jeu). Animations des sorts spectaculaires et bien visibles.
   G. Une icône pour chaque sort.
   H. Des sorts qui transpercent l'ennemi et touchent le suivant.
 
