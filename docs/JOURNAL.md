@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 509) : thème clair, captures des ajouts récents : les icônes blanches (sorts du guerrier) se perdaient
+  sur le crème ; jeton --iconsh (contour sombre en clair, aucun en sombre) sur les icônes de sorts (carte du héros,
+  cartes de l'onglet Héros, page des sorts). 124/124.
 - 2026-11-10 (it. 508) : documentation : README (sorts : paliers de recharge, trait perçant, cartes, record, succès,
   Grimoire) ; CLAUDE.md (--overflow-report mesure « Quoi de neuf », Sorts et Succès ; relancer lang-overflow après
   un succès ; piège du gabarit HTML présent deux fois). 124/124.
