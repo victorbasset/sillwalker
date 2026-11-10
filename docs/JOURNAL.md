@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 528) : coût de la musique lofi mesuré (copies neuves) : bande 22,7 % avec musique, 18,2 % sans (le
+  piano électrique : 4 oscillateurs par note, 4 notes par accord). Piano allégé (2 oscillateurs, plus de trémolo) :
+  19,9 % avec musique (≈ +1,7 point). Volumes toujours équilibrés. 126/126.
 - 2026-11-10 (it. 527) : Héros > Sorts et attaque : ligne « Sorts du compagnon (Rôdeur), à moitié de leur puissance : »
   avec icônes et rangs des sorts appris pour sa classe (ou « aucun appris (apprends-les en jouant ce héros) »). Traduit ;
   aucun défilement (10 langues, 3 largeurs) ; capture. 126/126.

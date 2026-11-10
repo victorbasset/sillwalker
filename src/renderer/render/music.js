@@ -238,10 +238,11 @@ export class Music {
         const g0 = ctx.createGain(); g0.connect(flt); env(g0, 1, inst === "brass" ? 0.03 : 0.12, dur);
         osc("sawtooth", f, g0); if (inst === "strings") osc("sawtooth", f, g0, 9); g.gain.value = v; break;
       }
-      case "epiano": { // piano électrique doux (façon Rhodes) : sinus + harmonique légère, attaque ronde, tremolo lent
-        const [g, v] = out(0.07); env(g, v, 0.012, dur + 0.3); osc("sine", f, g, -4); osc("sine", f, g, 4);
+      case "epiano": { // piano électrique doux (façon Rhodes) : sinus + harmonique légère, attaque ronde
+        // (it. 528 : 2 oscillateurs par note au lieu de 4 : la musique coûtait ≈ 4,5 points de processeur)
+        const [g, v] = out(0.1); env(g, v, 0.012, dur + 0.3); osc("sine", f, g, 3);
         const [g2, v2] = out(0.018); env(g2, v2, 0.005, Math.min(dur, 0.5)); osc("sine", f * 2, g2);
-        const lfo = ctx.createOscillator(), lg = ctx.createGain(); lfo.frequency.value = 4.2; lg.gain.value = v * 0.25; lfo.connect(lg); lg.connect(g.gain); lfo.start(t); lfo.stop(t + dur + 0.6); break;
+        break;
       }
       case "sub": { const [g, v] = out(0.3); env(g, v, 0.01, dur); osc("sine", f, g); break; }
       case "pulsebass": { const [g, v] = out(0.08); env(g, v, 0.01, dur); osc("pulse25", f, g); break; }
