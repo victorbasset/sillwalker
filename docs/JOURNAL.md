@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 588) : mode mini : la Couronne d'étoiles aussi sur le héros (le drone n'y tient pas : encart de
+  64 px). Semaine simulée après les baisses du Barde et du Gardien : mage 251, guerrier 263, barde 251 (inchangé).
+  132/132.
 - 2026-11-10 (it. 587) : « Quoi de neuf » édition 13 (principe h : aucune baisse silencieuse) : barres de vie en
   combat de boss, succès des reliques, baisses du Barde et du Gardien des étoiles. Traduite ; i18n-quotes ok ;
   lang-overflow de, ru, pl, es à 1366 et 1280 : aucun défilement. 132/132.

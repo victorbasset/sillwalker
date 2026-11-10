@@ -14,7 +14,7 @@ import { fmt, fmtShort } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
 import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
-import { spellIconURL } from "./shopart.js";
+import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 
 export const MINI_W = 340, MINI_H = 64;
@@ -163,13 +163,15 @@ export class MiniRenderer {
     }
 
     // Héros (sur place : c'est le monstre qui arrive). Sprite selon la classe.
-    const vis = heroVisual(S), heroKey = S.cls + "|" + visualKey(vis);
+    const crown = !!(S.relics && S.relics.crown); // Couronne d'étoiles (relique) : aussi sur le héros du mode mini
+    const vis = heroVisual(S), heroKey = S.cls + "|" + visualKey(vis) + (crown ? "|crown" : "");
     if (this.heroCls !== heroKey || !this.hero) {
       if (this.hero) this.hero.remove();
       const h = buildHeroSprites(S.cls, vis, this.dpr, 2); // plus petit : l'encart ne fait que 64 px
       this.hero = new Actor(this.stage, [h.walk1, h.walk2, h.attack]);
       this.heroCls = heroKey;
       this.hero.el.classList.toggle("legend", vis.aura);
+      if (crown) { const im = el("img", "relic-crown", this.hero.el); im.src = relicIconURL("crown", 1); im.alt = ""; im.style.left = Math.round(this.hero.w / 2 - 4) + "px"; im.style.width = "9px"; im.style.top = "0px"; }
     }
     const walkF = Math.floor(R.time * 6) % 2;
     let frame = 0, bob = 0;
