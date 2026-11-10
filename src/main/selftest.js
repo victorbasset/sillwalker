@@ -508,6 +508,9 @@ async function runSelfTest(strip) {
   }
   strip.win.setBounds(bLap);
   await sleep(600);
+  // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
+  const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
+  check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);
   // Duo idéal cliquable (carte du héros) : un clic choisit le partenaire de synergie.
   const syn = await js("(() => { const g = window.__game, S = g.S, P = window.__panel; const keep = { cls: S.cls, nextCls: S.nextCls, partner: S.partner, nextPartner: S.nextPartner, un: (S.classesUnlocked || []).slice() }; S.cls = 'warrior'; S.nextCls = null; S.partner = 'mage'; S.nextPartner = null; for (const c of ['warrior','ranger','mage']) if (!S.classesUnlocked.includes(c)) S.classesUnlocked.push(c); g.invalidateStats(); P.setTab('class'); P.renderAll(); const b = document.querySelector('button.synergy[data-action=c-partner]'); const r = b ? (b.click(), String(S.nextPartner)) : 'pas de lien'; Object.assign(S, { cls: keep.cls, nextCls: keep.nextCls, partner: keep.partner, nextPartner: keep.nextPartner, classesUnlocked: keep.un }); g.invalidateStats(); P.setTab('adventure'); P.renderAll(); return r; })()");
   check("héros : « Duo idéal » cliquable choisit le partenaire", syn === "ranger", syn);

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 364) : autotest : « Quoi de neuf » s'ouvre, liste ses nouveautés et ne défile pas. 112/112.
 - 2026-11-10 (it. 363) : « Quoi de neuf » : en allemand, la 8e nouveauté était coupée (la fenêtre défilait) ; fenêtre
   élargie (860 px, #modal .panel:has(.newslist)) et liste sur deux colonnes (une sous 900 px) : plus de défilement.
   Capture en allemand, 111/111.
