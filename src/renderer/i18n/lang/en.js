@@ -1077,4 +1077,7 @@ export default {
   2201: "Listen to the previous tune (45 s)",
   2202: "Listen to the next tune (45 s)",
   2203: "automatic sales",
+  2204: "Ascension: checked automatic sales stay checked.",
+  2205: "Settings > Sound: ◀ ▶ to listen to the tune of other zones (45 s).",
+  2206: "Music: deserts get their eastern colour; every setting keeps its own in all languages.",
 };

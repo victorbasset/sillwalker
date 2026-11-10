@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 537) : « Quoi de neuf », édition 9 : ventes automatiques gardées à l'ascension (corrige l'annonce de
+  l'édition 5), écoute des airs dans Réglages > Son, couleur des déserts et musique juste dans toutes les langues.
+  Traduit ; aucun défilement (ru, de, pl, fr). 127/127.
 - 2026-11-10 (it. 536, demande P de Victor « tu peux laisser cocher commun, peu commun et rare après une ascension ») :
   le tri du marchand est gardé à l'ascension (annule l'it. 437) ; l'écran d'Ascension le range dans « Gardé » ; plus
   de message « décochées ». Test logique adapté (À ANNONCER dans la prochaine édition de « Quoi de neuf » : l'édition 5

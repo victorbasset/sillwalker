@@ -2205,5 +2205,8 @@ export const KEYS = [
   "Air des zones {0}",
   "Écouter l’air précédent (45 s)",
   "Écouter l’air suivant (45 s)",
-  "ventes automatiques"
+  "ventes automatiques",
+  "Ascension : les ventes automatiques cochées le restent.",
+  "Réglages > Son : ◀ ▶ pour écouter l’air des autres zones (45 s).",
+  "Musique : les déserts ont leur couleur orientale ; chaque décor garde la sienne dans toutes les langues."
 ];

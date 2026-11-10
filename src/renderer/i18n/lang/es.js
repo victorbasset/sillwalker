@@ -1077,4 +1077,7 @@ export default {
   2201: "Escuchar la melodía anterior (45 s)",
   2202: "Escuchar la melodía siguiente (45 s)",
   2203: "ventas automáticas",
+  2204: "Ascensión: las ventas automáticas marcadas siguen marcadas.",
+  2205: "Ajustes > Sonido: ◀ ▶ para escuchar la melodía de otras zonas (45 s).",
+  2206: "Música: los desiertos tienen su color oriental; cada escenario conserva el suyo en todos los idiomas.",
 };

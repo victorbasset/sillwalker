@@ -1077,4 +1077,7 @@ export default {
   2201: "Vorherige Melodie anhören (45 s)",
   2202: "Nächste Melodie anhören (45 s)",
   2203: "automatische Verkäufe",
+  2204: "Aufstieg: angehakte automatische Verkäufe bleiben angehakt.",
+  2205: "Einstellungen > Ton: ◀ ▶, um die Melodie anderer Zonen zu hören (45 s).",
+  2206: "Musik: Wüsten klingen orientalisch; jede Kulisse behält ihre Farbe in allen Sprachen.",
 };
