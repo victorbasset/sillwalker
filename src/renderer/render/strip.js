@@ -46,6 +46,8 @@ const SPEECH = {
 
 export const STRIP_H = 120;
 const GROUND = 96, CONTACT = 44;
+/** Combat de boss : les barres de vie sous les pieds, à cette distance du sol (it. 580). */
+const BOSS_BAR_DY = 5;
 const LEFT = 24;            // position de départ du héros
 const RIGHT_MARGIN = 300;   // le boss (2× plus large) s'arrête avant l'or, le niveau et les boutons
 const FIGHTS = KILLS_PER_ZONE + 1;
@@ -516,7 +518,7 @@ export class StripRenderer {
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone)); // final : le Briseur d'Étoiles
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
       const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
-      if (carried && !hasRelic(g.S, carried)) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); }
+      if (carried && !hasRelic(g.S, carried)) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); im.style.left = (a.w + 3) + "px"; }
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
@@ -540,7 +542,9 @@ export class StripRenderer {
       a.flame.hidden = true;
       a.bar = new Bar(a.el, "#ff6b5a", "mon");
       a.bar.el.style.left = Math.round(a.w / 2 - 19) + "px";
-      a.bar.el.style.top = (boss ? -22 : -10) + "px";
+      // boss : sous ses pieds, plus large (voir BOSS_BAR_DY)
+      a.bar.el.style.top = (boss ? a.h + BOSS_BAR_DY : -10) + "px";
+      if (boss) a.bar.el.classList.add("bossbar");
       a.bar.visible(false);
       a.move(this.fightX(k + 1), this.monY(a, 0));
       this.slots.push(a);
@@ -676,8 +680,11 @@ export class StripRenderer {
     const fr = this.hero.frames[frame];
     this.hero.move(x + (this.lunge > 0 && melee ? 6 : 0) + (this.flash > 0 ? -3 : 0), GROUND - fr.ch + P + bob);
     this.hero.alpha(R.mode === "dead" ? 0.35 : 1);
-    const bx = q(x + 3);
-    if (bx !== this.heroBarX) { this.heroBarX = bx; this.heroBar.el.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 2}px,0)`; mark("move"); }
+    // Demande de Victor (it. 580) : contre un boss, les barres de vie passent sous les pieds (sur le sol) : au-dessus,
+    // celle du boss se cachait sous son nom en haut de la bande, et celle du héros sous les nombres de dégâts.
+    const vsBoss = R.mode === "fight" && !!(R.mon && R.mon.boss);
+    const bx = q(x + 3), by = vsBoss ? GROUND + BOSS_BAR_DY : GROUND - this.hero.h - 2;
+    if (bx !== this.heroBarX || by !== this.heroBarY) { this.heroBarX = bx; this.heroBarY = by; this.heroBar.el.style.transform = `translate3d(${bx}px,${by}px,0)`; mark("move"); }
     this.heroBar.set(R.hp / game.stats().hp);
     this.heroBar.setShield(R.mode === "fight" ? (R.shield || 0) / game.stats().hp : 0);
     this.syncPet();

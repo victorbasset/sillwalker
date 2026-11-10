@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 580, revue générale + demande T) : DEMANDE T de Victor : « on voit pas la barre de vie des bosses
+  et la mienne quand j'affronte un boss ». Vérifié en capture : la barre du boss (au-dessus de son grand sprite)
+  tombait sous la ligne de son nom en haut de la bande ; celle du héros sous les nombres de dégâts. Contre un boss,
+  les deux barres passent sous les pieds, sur le sol (BOSS_BAR_DY, strip.js), celle du boss plus large. La relique
+  gardée passe à droite du boss (à gauche, le héros la cachait en combat). FAIT.
+  Revue : balance 12 h vs 01a4dfd +0,7 (bruit) ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ; crawl 317 clics
+  sans erreur (en, ru, reliques) ; vidage russe : rien de nouveau ; perf bande 20,1 %, panneau 21,1 %, mini 6,7 % ;
+  mémoire 802 Mo stable. 131/131.
 - 2026-11-10 (it. 579) : lang-overflow mesure le pire cas des reliques (les quatre gagnées : ligne « Dégâts du drone
   par seconde », en-tête de la carte) ; de, pl, ru, pt, es, fr à 1920, 1366 et 1280 : aucun défilement.
 - 2026-11-10 (it. 578) : « Toutes les statistiques » : « Dégâts du drone par seconde » (Drone stellaire gagné ;

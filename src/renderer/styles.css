@@ -1247,7 +1247,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .actor .relic-crown { position: absolute; left: 50%; top: -8px; translate: -50% 0; width: 18px; image-rendering: pixelated; pointer-events: none; }
 .actor .relic-mini { position: absolute; left: 50%; top: -20px; translate: -50% 0; display: flex; gap: 2px; pointer-events: none; }
 .actor .relic-mini img { width: 11px; image-rendering: pixelated; }
-.actor .relic-carried { position: absolute; left: -26px; top: 6px; width: 27px; animation: relicBob 1.6s ease-in-out infinite alternate; image-rendering: pixelated; filter: drop-shadow(0 0 3px #fff6a8); pointer-events: none; }
+.actor .relic-carried { position: absolute; top: 22px; width: 27px; animation: relicBob 1.6s ease-in-out infinite alternate; image-rendering: pixelated; filter: drop-shadow(0 0 3px #fff6a8); pointer-events: none; }
 @keyframes relicBob { from { translate: 0 0; } to { translate: 0 -5px; } }
 /* Boss majeurs sur la carte (demande S, it. 573) : la relique gardée, dorée une fois gagnée. */
 .rebord .mmajor image { filter: drop-shadow(0 0 3px #b36bff); }
@@ -1262,3 +1262,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .relicrow { display: inline-flex; gap: 3px; vertical-align: middle; }
 .relicrow img { width: 16px; height: 16px; image-rendering: pixelated; opacity: 0.35; filter: grayscale(1); }
 .relicrow img.on { opacity: 1; filter: drop-shadow(0 0 2px #ffd34d); }
+/* Barre de vie d'un boss (it. 580) : sous ses pieds, plus large. */
+.hpbar.bossbar { transform: scaleX(1.7); }
