@@ -46,7 +46,8 @@ const CLASS_SPELLS = {
   bladedancer: [["gust", "Danse des lames", { hits: 5 }], ["aegis", "Pas de l’ombre", { cdr: 2, haste: 2 }], ["meteor", "Valse mortelle", { execute: 35, haste: 3 }]],
   cryomancer:  [["bolt", "Javelot de glace", { pierce: 0.6, slow: 4 }], ["aegis", "Armure de givre", { slow: 5 }], ["meteor", "Blizzard", { stun: 2, slow: 4 }]],
   bard:        [["gust", "Accord dissonant", { weaken: 4 }], ["mend", "Chant apaisant", { regen: 2, haste: 3 }], ["meteor", "Crescendo final", { echo: 0.4 }]],
-  starwarden:  [["bolt", "Étoile filante", { pierce: 0.7, crit: 1 }], ["aegis", "Égide stellaire", { cdr: 3 }], ["meteor", "Chute d’étoile", { burn: 1, crit: 1 }]],
+  // (it. 570 : la gardienne des étoiles dépassait les autres de ≈ 5 zones en 12 h : perçage et brûlure réduits)
+  starwarden:  [["bolt", "Étoile filante", { pierce: 0.6, slow: 2 }], ["aegis", "Égide stellaire", { cdr: 3 }], ["meteor", "Chute d’étoile", { burn: 0.6, crit: 1 }]],
   artificer:   [["fire", "Grenade", { burn: 0.5, slow: 2 }], ["aegis", "Bouclier mécanique", { weaken: 5 }], ["meteor", "Bombe à fragmentation", { hits: 3, pierce: 0.4 }]],
 };
 

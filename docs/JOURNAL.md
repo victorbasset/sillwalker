@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 570, revue générale) : balance 12 h des 20 héros +0,4 ; gardienne des étoiles ≈ 66 sur 4 graines (était
+  62,5 à l'it. 490) : Étoile filante perçage 0,6 + ralentissement (au lieu du critique), Chute d'étoile brûlure 0,6 ;
+  toujours ≈ 66 (63-69) : écart dû au cumul (compagnon, Grimoire…), À SURVEILLER. Fuzz 1200 ok ; crawl fr / es 321 sans
+  erreur ; russe ok ; save-fuzz ok ; perf bande 19,8 %, panneau 21,0 %, mini 6,8 %, icône 0,5 % ; mémoire ≈ 797 Mo.
 - 2026-11-10 (it. 569) : recherche des autres estimations sans les sorts : heroDps n'est plus utilisé que par power
   (comparaison d'objets, relative : sans effet). « Toutes les statistiques » du héros : « Dégâts des sorts par seconde »
   (spellDps) quand des sorts de dégâts sont appris. Traduit ; aucun défilement (fenêtre ouverte, ru/de/pl). 130/130.
@@ -1979,6 +1983,9 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
+  S. (soir) Trois boss majeurs aux zones 50, 100, 150 (sur la carte, comme le boss final de la zone 200) ; chacun
+     garde une relique unique, visible sur lui, puis obtenue : très puissante (les 10 zones suivantes faciles), par ex.
+     un drone lance-missiles ; 4 reliques en tout (avec la zone 200), avec leur histoire.
   Q. FAIT (it. 548). Sorts uniques pour chaque héros (pas de copies d'un héros à l'autre).
   R. FAIT (it. 547). Perçage : appliqué dès l'impact (sans attendre que le héros arrive au monstre) ; traverse plusieurs ennemis selon
      le rang du sort.
