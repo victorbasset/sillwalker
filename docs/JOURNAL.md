@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 320, revue générale) : simulations 12 h : guerrier 60, barde 58, garde-étoile 59 (stables) ;
+  crawl 300 clics sans erreur ; texte russe : aucun mot latin suspect ; perf : bande 19,1 %, panneau 20,5 %, mini
+  5,8 %, icône 2,6 % d'un cœur (stables).
 - 2026-11-10 (it. 319) : semaine simulée (mage) après Peau de pierre et les greffes : record de fin 160 (repère
   152-155), progression régulière ; déblocages étalés jusqu'à l'Astrolabe (zone 150, 6e jour) ; l'Enclume stellaire
   arrive vers le 5e jour (zone 140), comme voulu (« difficile d'accès »).
