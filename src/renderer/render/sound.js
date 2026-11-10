@@ -180,6 +180,18 @@ export class Sound {
       case "level": [NOTES.C5, NOTES.E5, NOTES.G5, NOTES.C6].forEach((f, i) => this.tone(f, i * 0.07, 0.14, "triangle", 0.3)); break;
       case "boss": this.tone(110, 0, 0.35, "sawtooth", 0.35, 0.4); this.noise(0, 0.2, 0.3); break;
       case "smash": this.tone(80, 0, 0.3, "square", 0.4, 0.5); this.noise(0, 0.15, 0.35); break;
+      // Capacités de boss : un son court et reconnaissable pour chacune (extra = id de la capacité)
+      case "bossSkill":
+        if (this.throttle("bs-" + extra, 1000)) switch (extra) {
+          case "enrage": this.tone(90, 0, 0.35, "sawtooth", 0.3, 0.6); this.noise(0, 0.2, 0.2); break; // grondement
+          case "shell": this.tone(1200, 0, 0.08, "square", 0.12); this.tone(900, 0.06, 0.12, "square", 0.1); break; // carapace qui se ferme
+          case "frost": this.tone(2200, 0, 0.1, "triangle", 0.1, 1.3); this.tone(3000, 0.05, 0.12, "triangle", 0.07); break; // cristaux
+          case "mirror": this.tone(1600, 0, 0.15, "sine", 0.12); this.tone(1650, 0, 0.15, "sine", 0.1); break; // reflet qui vibre
+          case "fury": this.tone(180, 0, 0.12, "sawtooth", 0.18, 1.5); break; // montée
+          case "bulwark": this.noise(0, 0.12, 0.25); this.tone(140, 0, 0.18, "triangle", 0.2, 0.5); break; // pierre qui se fend
+          case "curse": [NOTES.A5, NOTES.E5, NOTES.A5 / 2].forEach((f, i) => this.tone(f * 0.94, i * 0.08, 0.22, "sine", 0.14, 0.92)); break; // accord dissonant qui descend
+        }
+        break;
       case "event": [NOTES.G5, NOTES.C6, NOTES.G6].forEach((f, i) => this.tone(f, i * 0.06, 0.18, "triangle", 0.25)); break;
       case "star": [NOTES.E6, NOTES.G6, NOTES.C6, NOTES.G6].forEach((f, i) => this.tone(f * 1.0, i * 0.05, 0.2, "sine", 0.3)); break;
       case "chest": this.noise(0, 0.08, 0.2); [NOTES.C5, NOTES.G5, NOTES.C6, NOTES.E6, NOTES.G6].forEach((f, i) => this.tone(f, 0.12 + i * 0.06, 0.16, "square", 0.2)); break;
@@ -203,6 +215,7 @@ export class Sound {
     game.on("levelUp", () => this.play("level"));
     game.on("unlock", () => this.play("chest"));
     game.on("smash", () => this.play("smash"));
+    game.on("bossSkill", ({ id }) => { if (id !== "smash") this.play("bossSkill", id); }); // smash a déjà son coup
     game.on("event", () => this.play("event"));
     game.on("feather", () => this.play("event"));
     game.on("starCaught", () => this.play("star"));
