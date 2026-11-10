@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 446) : bouton « Écouter » (Réglages > Son) : au lieu du seul son légendaire, un échantillon pour
+  régler les curseurs à l'oreille : un coup de l'arme du héros avec la cascade de pièces d'une victoire, un coup
+  critique, puis un son de l'ambiance de la zone actuelle (jour / nuit) par son bus (Sound.sample ; zoneSounds accepte
+  force). Essai en jeu : bouton cliqué, ambiance jouée, aucune erreur. 120/120.
 - 2026-11-10 (it. 445) : rythme du début vérifié après les nouveautés (quête des critiques, Voile protecteur dès la
   zone 1, sons) : early-pace à 60 min : zone 23, 109 objets, niveau 39, 6 déblocages (repère 23 / 107 / 39 / 6) ;
   first-minutes : premier objet 41-77 s, premier boss 77-86 s ; tab-pace : talents 1, quêtes 5, boutique 8-9,

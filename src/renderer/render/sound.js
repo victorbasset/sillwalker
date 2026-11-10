@@ -135,6 +135,21 @@ export class Sound {
   /** Ambiance de la zone (demande C : « dans une zone d'eau des petits bruits de bulle… ») : quelques sons épars,
    *  tirés au hasard (4 tirages par seconde), selon le décor (météo de juice.js) ; prairies : oiseaux le jour,
    *  grillons la nuit. Bien plus bas que les effets : un fond, pas un bruit. */
+  /** Bouton « Écouter » des Réglages : de quoi régler les volumes à l'oreille (une victoire avec ses pièces, un coup,
+   *  puis l'ambiance de la zone actuelle par son propre curseur). */
+  sample(cls, kind, night) {
+    if (!this.enabled || !this.ensure()) return;
+    this.hit(cls, "wolf", false);
+    this.coin(5);
+    setTimeout(() => { if (this.enabled) { this.last = {}; this.hit(cls, "skel", true); } }, 450);
+    setTimeout(() => {
+      if (!this.enabled || this.ambLevel === 0) return;
+      if (!this.ambBus || this.ambBus.context !== this.ctx) { this.ambBus = this.ctx.createGain(); this.ambBus.gain.value = this.ambLevel ?? 1; this.ambBus.connect(this.master); }
+      const master = this.master; this.master = this.ambBus;
+      try { this.zoneSounds(kind, night, true); } finally { this.master = master; }
+    }, 1000);
+  }
+
   /** Volume propre de l'ambiance des zones (Réglages, 0 à 2 ; 1 = niveau d'origine). */
   setAmbience(level) { this.ambLevel = Math.max(0, Math.min(2, +level || 0)); if (this.ambBus) this.ambBus.gain.value = this.ambLevel; }
 
@@ -146,8 +161,8 @@ export class Sound {
     try { this.zoneSounds(kind, night); } finally { this.master = master; }
   }
 
-  zoneSounds(kind, night) {
-    const r = Math.random(), j = () => 0.9 + Math.random() * 0.2;
+  zoneSounds(kind, night, force = false) {
+    const r = force ? 0.001 : Math.random(), j = () => 0.9 + Math.random() * 0.2; // force : l'échantillon du bouton « Écouter »
     switch (kind) {
       case "bubble": // bulles qui remontent : petits « blop » montants, souvent en grappe
         if (r < 0.22) { const n = 1 + Math.floor(Math.random() * 3); for (let i = 0; i < n; i++) this.tone(260 * j() + i * 90, i * 0.07, 0.07, "sine", 0.05, 2.6); } break;

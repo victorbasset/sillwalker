@@ -5,6 +5,7 @@ import { shopIconURL } from "../../render/shopart.js";
 import { applyUiScale, applyTheme, themeOf } from "../../render/dom.js";
 // Mac (Victor y joue aussi) : les textes qui nomment Windows ont leur version macOS.
 const IS_MAC = /Mac/i.test(navigator.platform || navigator.userAgent || "");
+import { WEATHER } from "../../render/juice.js";
 import { esc, unit } from "../../game/format.js";
 
 
@@ -85,7 +86,10 @@ export class SettingsTab {
     if (a === "se-toggle") { P[b.dataset.key] = b.checked; this.onChange?.(); }
     else if (a === "se-volume") { P.volume = +b.value / 100; this.onChange?.(); b.blur(); }
     else if (a === "se-musicvol" || a === "se-ambvol") { P[a === "se-musicvol" ? "musicVol" : "ambVol"] = +b.value / 100; this.onChange?.(); b.blur(); }
-    else if (a === "se-testsound") this.sound?.play("legendary");
+    else if (a === "se-testsound") { // échantillon : coups, pièces, puis l'ambiance de la zone (régler les curseurs à l'oreille)
+      const S = this.game.S, z = this.game.zoneDef(), h = new Date().getHours();
+      this.sound?.sample(S.cls, WEATHER[z.src || z.name] || null, S.settings.dayNight !== false && (h >= 21 || h < 6));
+    }
     else if (a === "se-lang") {
       if (b.dataset.v === getLang()) return;
       P.lang = b.dataset.v;
