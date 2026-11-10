@@ -936,9 +936,11 @@ export class Game {
     const share = (id) => Math.min(S.buffs[id] || 0, sec) / sec;
     const atkBoost = 1 + 0.25 * share("elixir");
     // (it. 568) + les sorts de dégâts appris (héros, compagnon à moitié) : avant, l'absence les ignorait
-    const dps = (heroDps(hs) + this.spellDps(hs)) * atkBoost * (1 + hs.burn / 100 * 1.5);
+    // (it. 577) + le Drone stellaire et le Cœur de l'aube (reliques) : l'absence les ignorait
+    const drone = hasRelic(S, "drone") ? (hs.atk * DRONE.atk + b.hp * DRONE.pct) / DRONE.every : 0;
+    const dps = (heroDps(hs) + this.spellDps(hs)) * atkBoost * (1 + hs.burn / 100 * 1.5) + drone;
     const perKill = b.hp / dps + approachTime() / (1 + (hs.moveSpd || 0) / 100);
-    const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100);
+    const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100) * (hasRelic(S, "heart") ? RELIC_POWER.heartGuard : 1);
     const eff = Math.min(0.9, (taken > hs.hp * 0.8 ? 0.25 : 0.6) * (1 + hs.offline / 100));
     const kills = Math.floor(sec / perKill * eff);
     for (const id in S.buffs) S.buffs[id] = Math.max(0, (S.buffs[id] || 0) - sec);

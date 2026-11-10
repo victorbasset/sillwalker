@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 577) : hors ligne : le Drone stellaire (missiles) et le Cœur de l'aube (dégâts subis) comptent
+  dans la progression estimée (applyOffline ; la Lame et la Couronne passaient déjà par heroStats). Test logique. 
 - 2026-11-10 (it. 576) : sons des reliques (sound.js) : tir du Drone stellaire (petit lancement discret, 400 ms
   au moins entre deux) et relique gagnée (carillon qui monte, accord tenu, étoiles qui tintent). Ajoutés au
   rendu hors ligne de l'autotest (« son : tous les sons ») : pas de saturation. 131/131.

@@ -2579,6 +2579,12 @@ test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagné
   const sv = JSON.parse(JSON.stringify(g.S)); sv.relics.inconnue = 1; assert.ok(!migrate(sv).relics.inconnue, "relique inconnue retirée");
 });
 
+test("Hors ligne : le Drone stellaire compte dans la progression estimée (it. 577)", () => {
+  const run = (relic) => { const g = new Game(freshState()); g.setClass("warrior"); g.S.zone = g.S.best = 60; if (relic) g.S.relics = { drone: 1 }; g.invalidateStats(); const r = g.applyOffline(3600); return r ? r.kills : 0; };
+  const a = run(false), b = run(true);
+  assert.ok(b > a, `avec le drone : ${b} victoires, sans : ${a}`);
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));
