@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 535) : écoute des airs : le libellé montre la tranche dont l'air joue (zone en cours, ou tranche
+  écoutée pendant les 45 s) ; ◀ ▶ partent de là (avant : « zones 1–5 » au départ, quelle que soit la zone). 127/127.
 - 2026-11-10 (it. 534) : Réglages > Son : « Air des zones 1–5 ◀ ▶ » : écoute 45 s de l'air d'une autre tranche, puis
   retour à l'air de la zone en cours (Music.preview / endPreview ; un changement de zone pendant l'écoute est retenu).
   Pour que Victor juge les airs sans changer de zone. Traduit ; autotest « écoute d'un autre air puis retour » ; aucun

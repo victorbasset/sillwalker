@@ -24,6 +24,9 @@ export class SettingsTab {
 
   badge() { return ""; }
 
+  /** Tranche dont l'air joue : celle écoutée (Réglages) pendant l'écoute, sinon celle de la zone en cours. */
+  shownZone() { return this.music?.previewing && this.pz ? this.pz : musicZone(this.game.S.zone); }
+
   render(el) {
     // Curseur (volume, opacité) en cours de manipulation : ne pas redessiner, sinon il est remplacé en plein
     // glissement et revient à l'ancienne position (signalé par Victor).
@@ -48,7 +51,7 @@ export class SettingsTab {
         <label class="range">${tx("Musique")} <input type="range" min="0" max="200" step="10" value="${Math.round((P.musicVol ?? 1) * 100)}" data-action="se-musicvol"${P.music !== false ? "" : " disabled"}> <span>${Math.round((P.musicVol ?? 1) * 100)}${unit("%")}</span></label>
         <label class="range">${tx("Volume général")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound || P.music !== false ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button>
-          ${P.music !== false && !P.muted ? `<span class="mpreview">${tx("Air des zones {0}", { 0: `${this.pz || 1}–${(this.pz || 1) + 4}` })} <button data-action="se-mprev" data-d="-1" class="quiet" title="${esc(tx("Écouter l’air précédent (45 s)"))}">◀</button><button data-action="se-mprev" data-d="1" class="quiet" title="${esc(tx("Écouter l’air suivant (45 s)"))}">▶</button></span>` : ""}</div>
+          ${P.music !== false && !P.muted ? `<span class="mpreview">${tx("Air des zones {0}", { 0: `${this.shownZone()}–${this.shownZone() + 4}` })} <button data-action="se-mprev" data-d="-1" class="quiet" title="${esc(tx("Écouter l’air précédent (45 s)"))}">◀</button><button data-action="se-mprev" data-d="1" class="quiet" title="${esc(tx("Écouter l’air suivant (45 s)"))}">▶</button></span>` : ""}</div>
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">${tx("Affichage")}</span></h2>
         ${check("dayNight", tx("Cycle jour / nuit"), tx("La bande suit l’heure de ton ordinateur."))}
@@ -90,7 +93,7 @@ export class SettingsTab {
     else if (a === "se-volume") { P.volume = +b.value / 100; this.onChange?.(); b.blur(); }
     else if (a === "se-musicvol" || a === "se-ambvol") { P[a === "se-musicvol" ? "musicVol" : "ambVol"] = +b.value / 100; this.onChange?.(); b.blur(); }
     else if (a === "se-mprev") { // écoute des airs (it. 534) : tranche de 5 zones précédente / suivante, 45 s
-      const cur = this.pz || musicZone(this.game.S.zone);
+      const cur = this.shownZone();
       this.pz = Math.max(1, Math.min(196, cur + 5 * +b.dataset.d));
       this.music?.preview(this.pz);
     }
