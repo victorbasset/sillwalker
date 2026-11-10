@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 339, écrans de portable) : mesure du défilement à 1366 / 1600 px : aventure 368 / 0, boutique
+  80 / 80, bestiaire 142 / 54, statistiques 168 / 168, réglages 69 / 35 (1920 : 0 partout). Statistiques corrigées :
+  grille à 6 colonnes dès 1280 px (les 5 cartes sur une rangée) → 0 aux trois largeurs. Reste : aventure (1366),
+  boutique, bestiaire, réglages. 108/108.
 - 2026-11-10 (it. 338) : Bestiaire > Capacités des boss : chaque carte indique la prochaine zone dont le boss a
   cette capacité (ou « boss de ta zone ») pour s'y préparer. Malédiction vérifiée en capture (traduite). 2 textes ×
   9 langues, 108/108.

@@ -1021,3 +1021,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spark.nestdown { width: 5px; height: 3px; }
 /* Malédiction (capacité de boss) : halo violet sur le héros maudit. */
 .actor.cursed { filter: drop-shadow(0 0 2px #b07cff) drop-shadow(0 0 1px #6a3fb0); }
+/* Statistiques > Chiffres : les 5 cartes (dont Probabilités, double) sur une seule rangée dès 1280 px, sans défilement
+   sur les écrans de portable (1366, 1600) ; les libellés longs passent à la ligne. */
+@media (min-width: 1280px) {
+  .statgrid.sec-numbers { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .statgrid.sec-numbers .panel.wide .lines b { white-space: normal; text-align: right; }
+}
