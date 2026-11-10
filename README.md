@@ -56,7 +56,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Bestiaire** : paliers de 10 / 100 / 1 000 / 10 000 victoires par monstre, bonus permanents.
 - **Sorts** (Héros > Sorts et attaque) : trois sorts propres à chacun des 20 héros (zones 10, 22, 50), appris et améliorés
   avec de l'or (rangs 1 à 50), lancés tout seuls en combat en plus de l'attaque de base, avec animation, son et icône ;
-  certains transpercent et frappent aussi le monstre suivant. Gardés à l'ascension.
+  certains transpercent et frappent aussi le monstre suivant (le trait file jusqu'à lui). Recharge −10 % tous les 10 rangs
+  (`spellCd`). Visibles sur la carte du héros (Aventure) et sur chaque carte de l'onglet Héros ; record du plus gros
+  sort dans Statistiques ; succès « Mage de bataille » et « Grimoire complet ». Déblocage Grimoire des sorts : les
+  améliore tout seul (une fois par minute de jeu, sous 10 % de l'or). Gardés à l'ascension.
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 16 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
 - **Cycle jour / nuit** sur la bande, calé sur l'heure de l'ordinateur.

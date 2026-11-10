@@ -133,6 +133,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Pas de défilement vertical à 1920 px (demandes 18 et 32), ni à 1366 / 1280 px (écrans de portable) : l'autotest contrôle les trois (en français) ; `node scripts/lang-overflow.mjs [langues] [largeurs]` mesure les 10 langues (≈ 4 min) ;
   une liste qui grandit (nouvel événement, nouvelle capacité…) peut le casser. Remède habituel : une rangée latérale
   (`class="hscroll" data-hs="clé"`, ui/hscroll.js : molette, glisser, position gardée) ou un détail au survol (ⓘ).
+  `--overflow-report` mesure aussi « Quoi de neuf » au pire cas, Héros > Sorts et Statistiques > Succès (la liste des succès
+  grandit à chaque ajout : relancer lang-overflow après un nouveau succès ; it. 503, polonais à 1920).
   Les contrôles mesurent les sections REPLIÉES : une section repliable (<details>) qui grandit fait défiler l'onglet
   une fois dépliée sans qu'aucun contrôle ne le voie. Remède : l'ouvrir dans la fenêtre large (panel.js > MODAL_DETAILS
   et showDetails, comme « Quoi de neuf » et les raccourcis clavier) ; l'autotest et --overflow-report les mesurent ouvertes.
@@ -151,6 +153,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Un commentaire `//` ajouté au milieu d'une ligne (objet littéral, liste d'arguments) avale la fin du code de la
   ligne sans erreur de syntaxe (arrivé trois fois) : mettre le commentaire sur sa propre ligne, au-dessus.
   `scripts/check-comments.mjs` (lancé par `npm test`) repère les cas typiques (commentaire qui finit par « ; », « , » ou « ); »).
+- Remplacement de texte par script (Python `replace(a, b, 1)`) : un même gabarit HTML peut exister deux fois (carte
+  verrouillée et carte normale des héros, it. 505) : compter les occurrences avant de remplacer la première.
 - `sed` sur des chaînes JavaScript : attention aux `\u…` et aux `\n`, vérifier le résultat.
 - Le dossier `dist\win-unpacked` peut être verrouillé si l'utilisateur y lance le jeu.
 - Construire la version Windows : `npm run dist` (sous Linux, il faut Wine pour l'icône de l'exécutable).

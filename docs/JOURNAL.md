@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 508) : documentation : README (sorts : paliers de recharge, trait perçant, cartes, record, succès,
+  Grimoire) ; CLAUDE.md (--overflow-report mesure « Quoi de neuf », Sorts et Succès ; relancer lang-overflow après
+  un succès ; piège du gabarit HTML présent deux fois). 124/124.
 - 2026-11-10 (it. 507) : palier de sort franchi (rangs 10, 20… ; aussi par le Grimoire) : bandeau dans la bande
   « Météore : recharge −10 % ! » (couleur du héros). Traduit ; capture. 124/124.
 - 2026-11-10 (it. 506) : crawl ja 320 et de 315 clics sans erreur. Son du trait perçant (pierceSound) : sifflement qui
