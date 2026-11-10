@@ -934,4 +934,6 @@ export default {
   2058: "Abenteuer: „Zu tun“, „Chroniken“, Statistiken und Beutechancen öffnen sich in einem großen Fenster.",
   2059: "Neue Quest „Kritische Treffer landen“ und neuer Erfolg „Geschärfte Klinge“.",
   2060: "Neue Boss-Fähigkeit: Zäh, er steht einmal mit 25 % seiner LP wieder auf.",
+  2061: "Schützender Schleier",
+  2062: "Erlittener Schaden halbiert!",
 };

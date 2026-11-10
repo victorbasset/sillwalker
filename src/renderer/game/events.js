@@ -33,4 +33,6 @@ export const EVENTS = {
   // Étude des concurrents (variété) : des œufs de familiers ; seulement quand l'onglet Familiers est ouvert.
   nest: { name: "Nichée", chance: 0.0015, duration: 30, text: "Chaque victoire peut laisser un œuf !", color: "#f0c987",
     req: (S) => eggsAllowed(S) },
+  // Variété : un événement défensif (tous les autres aident à frapper ou à gagner) ; utile contre un boss coriace.
+  ward: { name: "Voile protecteur", chance: 0.002, duration: 30, text: "Dégâts subis divisés par deux !", color: "#bfefff" },
 };

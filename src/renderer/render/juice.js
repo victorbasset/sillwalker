@@ -456,6 +456,8 @@ export class Juice {
     if (this.s.hero && this.s.hero.el.classList.contains("frenzy") !== frenzy) this.s.hero.el.classList.toggle("frenzy", frenzy);
     const hawk = (E.hawkeye || 0) > 0; // Œil du faucon : halo orangé (tous les coups critiques)
     if (this.s.hero && this.s.hero.el.classList.contains("hawkeye") !== hawk) this.s.hero.el.classList.toggle("hawkeye", hawk);
+    const ward = (E.ward || 0) > 0; // Voile protecteur : halo bleu pâle (dégâts subis divisés par deux)
+    if (this.s.hero && this.s.hero.el.classList.contains("ward") !== ward) this.s.hero.el.classList.toggle("ward", ward);
     const curse = this.s.game.R.mode === "fight" && (this.s.game.R.cursed || 0) > 0; // Malédiction (boss) : halo violet
     if (this.s.hero && this.s.hero.el.classList.contains("cursed") !== curse) this.s.hero.el.classList.toggle("cursed", curse);
   }

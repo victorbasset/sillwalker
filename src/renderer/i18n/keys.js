@@ -2062,5 +2062,7 @@ export const KEYS = [
   "Il se relève !",
   "Aventure : « À faire », « Chroniques », statistiques et chances de butin s’ouvrent dans une grande fenêtre.",
   "Nouvelle quête « Porter des coups critiques » et nouveau succès « Lame affûtée ».",
-  "Nouvelle capacité de boss : Tenace, il se relève une fois avec 25 % de ses PV."
+  "Nouvelle capacité de boss : Tenace, il se relève une fois avec 25 % de ses PV.",
+  "Voile protecteur",
+  "Dégâts subis divisés par deux !"
 ];

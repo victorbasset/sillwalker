@@ -2072,6 +2072,13 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.equal(gn.S.stats.kills || 0, kills0, "pas encore vaincu");
     gn.R.mon.hp = 0; gn.killMonster(); assert.equal(gn.S.stats.kills, kills0 + 1, "Tenace : tombe la seconde fois");
     assert.ok(M_bosses_js.bossMechanics(12).includes("tenacious"), "zone 12 : Tenace");
+    // Voile protecteur : dégâts subis divisés par deux pendant l'événement
+    const gw = new Game(freshState()), mw = gw.makeMonster(false), hsw = { ...heroStats(gw.S), dodge: 0, thorns: 0, riposte: 0 };
+    mw.hp = mw.max = 1e12; gw.R.hp = 1e9; gw.R.shield = 0;
+    const r0 = gw.R.hp;
+    gw.monsterAttack(mw, hsw, 1); const plain = r0 - gw.R.hp;
+    gw.startEvent("ward"); const r1 = gw.R.hp; gw.monsterAttack(mw, hsw, 1); const warded = r1 - gw.R.hp;
+    assert.ok(warded > 0 && warded < plain * 0.7, "Voile protecteur : environ moitié moins de dégâts (" + plain + " → " + warded + ")");
     // Sac rangé : rareté décroissante (sans amélioration en jeu ici)
     const gb = new Game(freshState()); gb.S.bag = [0, 3, 1, 4, 2].map((r) => { const it = gb.newItem(r); it.r = r; return it; });
     gb.isUpgrade = () => false; gb.sortBag();

@@ -934,4 +934,6 @@ export default {
   2058: "Aventura: «A fazer», «Crônicas», estatísticas e chances de saque abrem numa janela grande.",
   2059: "Nova missão «Acertar golpes críticos» e nova conquista «Lâmina afiada».",
   2060: "Nova habilidade de chefe: Tenaz, levanta-se uma vez com 25% dos PV.",
+  2061: "Véu protetor",
+  2062: "Dano sofrido reduzido pela metade!",
 };

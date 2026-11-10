@@ -312,7 +312,7 @@ export class Game {
   monsterAttack(m, hs, mult) {
     const R = this.R;
     if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
-    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1); // Malédiction : plus de dégâts subis
+    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1); // Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
     if (hs.thorns > 0) {
       m.hp -= dmg * hs.thorns / 100;
       if (m.hp <= 0) { this.killMonster(); return true; }

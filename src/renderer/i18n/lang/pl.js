@@ -934,4 +934,6 @@ export default {
   2058: "Przygoda: „Do zrobienia”, „Kroniki”, statystyki i szanse na łup otwierają się w dużym oknie.",
   2059: "Nowe zadanie „Zadaj ciosy krytyczne” i nowe osiągnięcie „Naostrzone ostrze”.",
   2060: "Nowa zdolność bossa: Nieustępliwy, raz podnosi się z 25% PŻ.",
+  2061: "Ochronny welon",
+  2062: "Otrzymywane obrażenia o połowę mniejsze!",
 };

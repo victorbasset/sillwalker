@@ -934,4 +934,6 @@ export default {
   2058: "Adventure: “To do”, “Chronicles”, statistics and loot chances open in a large window.",
   2059: "New quest “Land critical hits” and new achievement “Honed Blade”.",
   2060: "New boss ability: Tenacious, it gets back up once with 25% of its HP.",
+  2061: "Protective Veil",
+  2062: "Damage taken halved!",
 };

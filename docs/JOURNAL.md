@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 427) : 10e événement rare, « Voile protecteur » (30 s, dégâts subis divisés par deux, chance 0,002) :
+  le premier défensif, utile contre un boss coriace ; halo bleu pâle sur le héros (.actor.ward). « Égide » était déjà
+  un talent : nom distinct. Ajouté en fin de liste (ordre du tirage inchangé pour les autres). Traduit, test logique
+  (marge pour l'écart ±15 % des coups) ; fuzz 1200 parties, 0 bloquée ; balance +0,7 (bruit) ; capture. 119/119.
+  Idée d (voies des héros ajoutés identiques à leurs modèles) : laissée, chantier d'équilibrage plus lourd.
 - 2026-11-10 (it. 426) : « Quoi de neuf » par éditions (NEWS_EDITIONS ; NEWS_ID = leur nombre) : le joueur voit toutes
   celles qu'il n'a pas lues, la plus récente d'abord (newsItems(seen)) ; rien ne se perd s'il en a sauté une. Édition 2
   publiée (3 nouveautés : fenêtres de l'Aventure, quête des critiques et Lame affûtée, Tenace), traduite avec les noms
