@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 471, demandes J et K) : J. bouclier visible sur la barre de vie du héros : segment bleu-blanc après
+  les PV (Bar.setShield, dom.js), calé au bout s'il dépasse ; vérifié dans le jeu (30 % de bouclier = 11 px sur 36).
+  K. onglet Héros : le sous-onglet « Style de combat » devient « Sorts et attaque » (compte des sorts appris) ; les
+  sorts passent en premier ; le bloc du bas devient « Style de l'attaque de base » ; bandeau de la bande « Attaque de
+  base : Maître ! ». Traduit ; capture. 122/122.
 - 2026-11-10 (it. 470, revue générale) : simulations 12 h (sorts achetés) : mage 59, barde 62, druide 59 ; crawl en
   français (313 clics) et en russe (320 clics), copie riche en or pour qu'il achète aussi les sorts : aucune erreur ;
   russe : aucun mot latin suspect ; save-fuzz ok. (Fuzz et équilibrage refaits à l'it. 469 ; perf à l'it. 450.)
@@ -1642,6 +1647,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- DEMANDES DE VICTOR (2026-11-10, midi), à traiter en premier, dans cet ordre :
+  J. FAIT (it. 471). Bouclier visible sur la barre de vie (blanc ou bleu).
+  K. FAIT (it. 471). Renommer « Style de combat » ; le bloc du bas : « style de l'auto-attaque » ou équivalent.
+  I. Animations des sorts spectaculaires et bien visibles.
+  G. Une icône pour chaque sort.
+  H. Des sorts qui transpercent l'ennemi et touchent le suivant.
 
 - DEMANDES DE VICTOR (2026-11-10, fin de matinée), à traiter en premier, dans cet ordre :
   E. FAIT (it. 468). Aventure : le texte « clique un objet » (titre de la carte Équipement) ne veut rien dire.

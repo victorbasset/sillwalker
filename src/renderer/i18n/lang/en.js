@@ -1034,4 +1034,7 @@ export default {
   2158: "Cluster Bomb",
   2159: "{0}'s spells",
   2160: "unique to each hero, kept on ascension",
+  2161: "Basic attack style",
+  2162: "Spells & attack",
+  2163: "Basic attack: {0}!",
 };

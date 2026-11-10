@@ -1,5 +1,5 @@
 // Sorts (demande D de Victor : « différents pour chaque héros ») : chaque héros a ses trois sorts, appris dans
-// « Style de combat ». Ils s'ajoutent à l'attaque de base : chacun se lance tout seul en combat dès qu'il est
+// « Sorts et attaque » (onglet Héros). Ils s'ajoutent à l'attaque de base : chacun se lance tout seul en combat dès qu'il est
 // rechargé, avec son animation (render/strip.js) et son son. Débloqués par la zone record (6, 22, 50), achetés puis
 // améliorés avec de l'or (rangs 1 à SPELL_MAX) ; chaque héros garde les siens à l'ascension.
 import { CLASS_FX } from "./classes.js";

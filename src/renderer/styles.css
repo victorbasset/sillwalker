@@ -1160,3 +1160,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellfx { position: absolute; pointer-events: none; }
 .spellfx.bolt { width: 5px; height: 78px; background: linear-gradient(#fff, var(--c)); box-shadow: 0 0 6px var(--c), 0 0 12px var(--c); clip-path: polygon(40% 0, 100% 35%, 55% 40%, 100% 75%, 30% 100%, 50% 60%, 0 55%, 45% 30%); width: 14px; }
 .spellfx.meteor { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(#fff6c8, var(--c)); box-shadow: 0 0 8px var(--c), -6px -6px 10px var(--c); }
+/* Bouclier sur la barre de vie du héros (demande de Victor) : bleu-blanc, bien visible. */
+.hpbar > b.sh { position: absolute; top: 0; height: 4px; background: linear-gradient(#ffffff, #8fd8ff); box-shadow: 0 0 3px #bfefff; }
+.hpbar > b.sh[hidden] { display: none; }

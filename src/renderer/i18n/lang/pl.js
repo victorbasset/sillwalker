@@ -1034,4 +1034,7 @@ export default {
   2158: "Bomba odłamkowa",
   2159: "Zaklęcia: {0}",
   2160: "własne dla każdego bohatera, zachowane po wniebowstąpieniu",
+  2161: "Styl zwykłego ataku",
+  2162: "Zaklęcia i atak",
+  2163: "Zwykły atak: {0}!",
 };

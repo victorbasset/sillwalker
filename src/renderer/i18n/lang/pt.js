@@ -1034,4 +1034,7 @@ export default {
   2158: "Bomba de fragmentação",
   2159: "Feitiços de {0}",
   2160: "próprios de cada herói, mantidos na ascensão",
+  2161: "Estilo do ataque básico",
+  2162: "Feitiços e ataque",
+  2163: "Ataque básico: {0}!",
 };

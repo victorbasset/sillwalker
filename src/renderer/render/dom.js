@@ -210,6 +210,16 @@ export class Bar {
   visible(v) {
     if (v !== this.shown) { this.shown = v; this.el.hidden = !v; mark("vis"); }
   }
+  /** Bouclier (demande de Victor : le voir sur la barre) : segment bleu-blanc après les PV ; s'il dépasse le maximum,
+   *  il se cale au bout et recouvre les PV. s = bouclier / PV max. */
+  setShield(s) {
+    const w = Math.round(Math.max(0, Math.min(1, s)) * 36);
+    if (w === this.shw && this.v === this.shv) return;
+    this.shw = w; this.shv = this.v;
+    if (!this.sh) { this.sh = el("b", "sh", this.el); }
+    const left = Math.min(Math.round((this.v || 0) * 36), 36 - w);
+    this.sh.style.width = w + "px"; this.sh.style.left = left + "px"; this.sh.hidden = !w; mark("bar");
+  }
 }
 
 /** Agrandissement uniforme du panneau (accessibilité). */

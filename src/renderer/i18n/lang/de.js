@@ -1034,4 +1034,7 @@ export default {
   2158: "Splitterbombe",
   2159: "Zauber von {0}",
   2160: "eigen für jeden Helden, bleiben beim Aufstieg erhalten",
+  2161: "Stil des Grundangriffs",
+  2162: "Zauber & Angriff",
+  2163: "Grundangriff: {0}!",
 };

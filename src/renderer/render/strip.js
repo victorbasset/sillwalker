@@ -582,6 +582,7 @@ export class StripRenderer {
     const bx = q(x + 3);
     if (bx !== this.heroBarX) { this.heroBarX = bx; this.heroBar.el.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 2}px,0)`; mark("move"); }
     this.heroBar.set(R.hp / game.stats().hp);
+    this.heroBar.setShield(R.mode === "fight" ? (R.shield || 0) / game.stats().hp : 0);
     this.syncPet();
     this.syncMinion();
     this.syncPartner();
@@ -634,7 +635,7 @@ export class StripRenderer {
     if (tierKey !== this.slashTier) {
       const t = attackTier(S);
       if (this.slashTier && +this.slashTier.split(":")[1] < t && this.slashTier.split(":")[0] === S.cls)
-        this.juice.banner(`${tx("Style de combat : {0} !", { 0: ATTACK_TIERS[t].name })}`, CLASS_FX[S.cls] || "#fff", this.heroX + 80, true);
+        this.juice.banner(`${tx("Attaque de base : {0} !", { 0: ATTACK_TIERS[t].name })}`, CLASS_FX[S.cls] || "#fff", this.heroX + 80, true);
       this.slashTier = tierKey;
       this.slash.className = "slash t" + t + (slashOn ? " on" : "");
       this.slash.style.setProperty("--c", CLASS_FX[S.cls] || "#fff");

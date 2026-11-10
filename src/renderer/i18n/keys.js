@@ -2162,5 +2162,8 @@ export const KEYS = [
   "Bouclier mécanique",
   "Bombe à fragmentation",
   "Sorts de {0}",
-  "propres à chaque héros, gardés à l’ascension"
+  "propres à chaque héros, gardés à l’ascension",
+  "Style de l’attaque de base",
+  "Sorts et attaque",
+  "Attaque de base : {0} !"
 ];
