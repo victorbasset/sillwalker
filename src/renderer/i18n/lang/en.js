@@ -913,4 +913,5 @@ export default {
   2037: "Event Hunter",
   2038: "Pale Moth",
   2039: "Its wings of light keep curses at bay.",
+  2040: "Companion for the next adventure:",
 };

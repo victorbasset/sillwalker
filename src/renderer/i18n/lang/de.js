@@ -913,4 +913,5 @@ export default {
   2037: "Ereignisjäger",
   2038: "Bleicher Falter",
   2039: "Seine Lichtflügel halten Flüche fern.",
+  2040: "Begleiter des nächsten Abenteuers:",
 };

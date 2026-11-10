@@ -913,4 +913,5 @@ export default {
   2037: "Łowca wydarzeń",
   2038: "Blada ćma",
   2039: "Jej świetliste skrzydła odpędzają klątwy.",
+  2040: "Towarzysz następnej przygody:",
 };

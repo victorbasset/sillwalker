@@ -1,6 +1,6 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
 import { t as tx, txn, fsp } from "../../i18n/index.js";
-import { CLASSES } from "../../game/classes.js";
+import { CLASSES, canPartner, duoSynergy } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
@@ -38,7 +38,12 @@ export class AscensionTab {
         <div><b class="delta-n">${tx("Perdu")}</b><ul>${LOSE.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}</ul></div>
       </div>
       <p>${tx("Héros de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
-        <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button></p>
+        <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button>
+        ${(() => { // compagnon gardé à l'ascension (game.js : nextPartner, sinon le compagnon actuel) et synergie éventuelle
+          const next = S.nextCls || S.cls, pick = S.nextPartner || S.partner;
+          if (!pick || !CLASSES[pick] || !canPartner(S, next, pick)) return "";
+          const syn = duoSynergy(next, pick);
+          return `<br>${tx("Compagnon de la prochaine aventure :")} <b>${esc(CLASSES[pick].name)}</b>${syn ? ` <span class="synergy-on">✦ ${esc(tx(syn.name))}</span>` : ""}`; })()}</p>
       ${can
         ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: gain })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: shardsFor(nextZone + 4) })}</p>
            <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : ico("star") + " " + tx("Monter vers les étoiles")}</button></div>`

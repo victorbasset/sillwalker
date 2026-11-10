@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 396) : onglet Ascension : sous « Héros de la prochaine aventure », le compagnon gardé à l'ascension
+  (nextPartner, sinon l'actuel, s'il reste compatible) et « ✦ duo idéal » quand c'est le cas. Capture, défilement
+  vérifié en allemand et russe, 1 texte × 9 langues, 115/115.
 - 2026-11-10 (it. 395) : arrivée d'un boss dans la bande : sous la bannière « … approche ! », une petite bannière liste
   ses capacités (« Peau de pierre · Coup dévastateur »), noms traduits (BOSS_MECHANICS). Capture, 115/115.
 - 2026-11-10 (it. 394) : fuzz élargi après les ajouts de combat (Malédiction, Talisman, Porte-talisman, coup de pouce,

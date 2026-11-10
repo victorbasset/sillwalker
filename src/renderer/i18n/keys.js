@@ -2041,5 +2041,6 @@ export const KEYS = [
   "Chaque déblocage a sa propre icône ; les capacités des boss ont leur son.",
   "Chasseur d’événements",
   "Phalène pâle",
-  "Ses ailes de lumière éloignent les malédictions."
+  "Ses ailes de lumière éloignent les malédictions.",
+  "Compagnon de la prochaine aventure :"
 ];

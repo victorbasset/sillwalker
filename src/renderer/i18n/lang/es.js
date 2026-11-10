@@ -913,4 +913,5 @@ export default {
   2037: "Cazador de eventos",
   2038: "Polilla pálida",
   2039: "Sus alas de luz alejan las maldiciones.",
+  2040: "Compañero de la próxima aventura:",
 };
