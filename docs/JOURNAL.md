@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 420, revue générale) : simulations 12 h : guerrier 60, nécromancien 63, prêtresse 59 ; crawl 306 clics
+  sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; perf : bande 19,3 %, panneau 20,2 %, mini 6,3 %,
+  icône 3,0 % d'un cœur (stables).
 - 2026-11-10 (it. 419) : CLAUDE.md, pièges connus : les contrôles de défilement mesurent les sections repliées ; une
   section qui grandit s'ouvre dans la fenêtre large (MODAL_DETAILS / showDetails).
 - 2026-11-10 (it. 418) : --overflow-report mesure aussi les quatre sections de l'Aventure ouvertes en fenêtre ;
