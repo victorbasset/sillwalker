@@ -232,6 +232,7 @@ export class Game {
         if (R.spawnT <= 0) {
           R.mon = this.makeMonster(this.S.kills >= KILLS_PER_ZONE);
           this.emit("spawn", R.mon);
+          if (R.mon.boss) this.charmSwap(R.mon);
         }
       } else {
         R.mon.age += dt;
@@ -601,6 +602,7 @@ export class Game {
     // Pluie d'éclats : un éclat d'étoile de temps en temps (compte aussi dans la lueur stellaire).
     if ((R.events.shardfall || 0) > 0 && rand() < SHARDFALL_CHANCE) { S.prestige.shards++; S.prestige.total++; this.emit("shardDrop"); }
     if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
+    if (m.boss) this.charmRestore(); // Porte-talisman : l'objet d'avant revient
     // Boss à Malédiction vaincu sous la protection du Talisman de pureté (succès « Cœur pur »)
     if (m.boss && m.mech && m.mech.includes("curse") && hs.purity >= 100) S.stats.pureBoss = (S.stats.pureBoss || 0) + 1;
     S.stats.kills++;
@@ -793,6 +795,31 @@ export class Game {
   }
 
   /* ---------- Équipement ---------- */
+  /**
+   * Porte-talisman (déblocage) : face à un boss qui maudit, le Talisman de pureté du sac est équipé à la place de
+   * l'objet du même emplacement ; cet objet revient quand le boss tombe (ou au boss suivant s'il ne maudit pas).
+   */
+  charmSwap(m) {
+    const S = this.S, R = this.R;
+    if (!hasUnlock(S, "charmKeeper")) return;
+    const curse = !!(m && m.boss && m.mech && m.mech.includes("curse"));
+    if (curse && !R.charmBack && !Object.values(S.equip).some((it) => it && it.power === "p_pure")) {
+      const charm = S.bag.find((it) => it && it.power === "p_pure");
+      if (!charm) return;
+      const old = S.equip[charm.slot];
+      this.equip(charm);
+      R.charmBack = old ? old.id : null;
+      this.log(tx("Porte-talisman : ") + itemName(charm) + tx(" équipé."));
+    } else if (!curse) this.charmRestore();
+  }
+  charmRestore() {
+    const R = this.R, id = R.charmBack;
+    if (id == null) return;
+    R.charmBack = null;
+    const it = this.S.bag.find((x) => x && x.id === id);
+    if (it) this.equip(it);
+  }
+
   equip(it) {
     const S = this.S, old = S.equip[it.slot], before = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
     S.bag = S.bag.filter((i) => i.id !== it.id);

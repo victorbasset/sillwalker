@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 367, automatisation par déblocage) : déblocage « Porte-talisman » (charmKeeper, zone 122, 2e15 or) :
+  à l'apparition d'un boss à Malédiction, équipe le Talisman de pureté du sac (game.js > charmSwap) et remet l'objet
+  d'avant quand le boss tombe ou au boss suivant sans Malédiction (charmRestore ; R.charmBack, non sauvegardé).
+  21 déblocages (autotest : nombre libre). Test, 3 textes × 9 langues, save-fuzz ok, 113/113.
 - 2026-11-10 (it. 366) : carte Zone : l'infobulle de la Malédiction ajoute « Parade : Talisman de pureté » une fois ce
   pouvoir découvert (powersSeen). Contrôle d'autotest, 1 texte × 9 langues, 113/113.
 - 2026-11-10 (it. 365, son) : les capacités de boss ont leur son (sound.js > bossSkill) : grondement (Enragé), carapace,

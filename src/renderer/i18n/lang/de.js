@@ -903,4 +903,7 @@ export default {
   2027: "Reines Herz",
   2028: "Quests kommen doppelt so schnell voran!",
   2029: "Gegenmittel: {0}",
+  2030: "Talismanträger",
+  2031: "Gegen einen Boss, der verflucht, legt er den Talisman der Reinheit aus der Tasche selbst an und danach den vorherigen Gegenstand wieder.",
+  2032: "Talismanträger: ",
 };

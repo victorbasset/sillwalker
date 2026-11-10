@@ -903,4 +903,7 @@ export default {
   2027: "Corazón puro",
   2028: "¡Las misiones avanzan el doble de rápido!",
   2029: "Remedio: {0}",
+  2030: "Portador de talismanes",
+  2031: "Ante un jefe que maldice, equipa solo el Talismán de pureza de la bolsa y luego vuelve a poner el objeto anterior.",
+  2032: "Portador de talismanes: ",
 };

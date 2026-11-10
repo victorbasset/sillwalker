@@ -2031,5 +2031,8 @@ export const KEYS = [
   "Nouvel événement Nichée (des œufs à chaque victoire) ; nouvelle capacité de boss, la Malédiction, et sa parade : le Talisman de pureté.",
   "Cœur pur",
   "Les quêtes avancent deux fois plus vite !",
-  "Parade : {0}"
+  "Parade : {0}",
+  "Porte-talisman",
+  "Face à un boss qui maudit, équipe tout seul le Talisman de pureté du sac, puis remet l’objet d’avant.",
+  "Porte-talisman : "
 ];

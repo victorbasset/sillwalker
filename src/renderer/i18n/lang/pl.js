@@ -903,4 +903,7 @@ export default {
   2027: "Czyste serce",
   2028: "Zadania postępują dwa razy szybciej!",
   2029: "Ochrona: {0}",
+  2030: "Nosiciel talizmanów",
+  2031: "Przeciw bossowi, który przeklina, sam zakłada Talizman czystości z torby, a potem przywraca poprzedni przedmiot.",
+  2032: "Nosiciel talizmanów: ",
 };

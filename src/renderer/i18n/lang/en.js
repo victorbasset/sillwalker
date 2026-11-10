@@ -903,4 +903,7 @@ export default {
   2027: "Pure Heart",
   2028: "Quests progress twice as fast!",
   2029: "Counter: {0}",
+  2030: "Charm Bearer",
+  2031: "Against a boss that curses, automatically equips the Talisman of Purity from your bag, then puts the previous item back.",
+  2032: "Charm Bearer: ",
 };

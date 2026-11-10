@@ -1997,6 +1997,15 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const gq = new Game(freshState()); gq.R.mon = gq.makeMonster(true); gq.R.mon.mech = ["curse"]; gq.R.mon.curseT = 0;
     gq.bossTick(gq.R.mon, gq.stats(), 0.1);
     assert.ok(gq.R.cursed > 0, "sans talisman : maudit");
+    // Porte-talisman : talisman équipé face au boss qui maudit, objet d'avant remis après sa chute
+    const gk = new Game(freshState()); gk.S.unlocks.charmKeeper = true;
+    const tal = gk.newItem(0); tal.power = "p_pure"; gk.S.bag.push(tal);
+    const worn = gk.S.equip[tal.slot];
+    const bossM = gk.makeMonster(true); bossM.mech = ["curse"]; gk.R.mon = bossM;
+    gk.charmSwap(bossM);
+    assert.equal(gk.S.equip[tal.slot].id, tal.id, "talisman équipé face à la Malédiction");
+    bossM.hp = 0; gk.killMonster();
+    if (worn) assert.equal(gk.S.equip[tal.slot].id, worn.id, "objet d'avant remis après le boss");
     // Succès « Cœur pur » : boss à Malédiction vaincu avec le talisman
     gp.R.mon.hp = 0; gp.killMonster();
     assert.ok(M_achievements_js.reachedAchievements(gp.S).includes("PURE_HEART"), "succès Cœur pur");
