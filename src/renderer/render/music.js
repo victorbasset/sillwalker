@@ -5,6 +5,8 @@
 import { ZONES } from "../game/data.js";
 
 const MAJOR = [0, 2, 4, 5, 7, 9, 11], MINOR = [0, 2, 3, 5, 7, 8, 10];
+// Déserts (it. 533) : gamme orientale (phrygien dominant), la couleur « sable » des déserts façon Terraria.
+const SAND = [0, 1, 4, 5, 7, 8, 10];
 // Grilles (it. 520, demande de Victor : « un mélange de Terraria et de Lofi Girl ») : enchaînements jazzy (ii-V-I,
 // I-vi-ii-V…) joués en accords de septième par un piano électrique doux.
 const PROG_MAJOR = [[0, 5, 3, 4], [1, 4, 0, 0], [0, 5, 1, 4], [3, 2, 1, 0], [0, 3, 2, 5], [3, 4, 2, 5]];
@@ -25,8 +27,9 @@ function light(hex) { const n = parseInt(String(hex).slice(1), 16); return ((n >
 export function songFor(zone, pass = 0) {
   const z = Math.max(1, zone | 0), def = ZONES[(z - 1) % ZONES.length], loop = Math.floor((z - 1) / ZONES.length);
   const r = rng(z * 7919 + 13), rBase = r;
-  const minor = light(def.sky[0]) < 0.4 || /crypt|abyss|néant|volcan|ossuaire|bastion|maudit|corrompu/i.test(def.src || def.name);
-  const scale = minor ? MINOR : MAJOR;
+  const sand = /désert|pyramide|steppe|dune/i.test(def.src || def.name);
+  const minor = sand || light(def.sky[0]) < 0.4 || /crypt|abyss|néant|volcan|ossuaire|bastion|maudit|corrompu/i.test(def.src || def.name);
+  const scale = sand ? SAND : minor ? MINOR : MAJOR;
   const PR = minor ? PROG_MINOR : PROG_MAJOR;
   const progA = PR[Math.floor(r() * PR.length)], progB = PR[Math.floor(r() * PR.length)];
   const root = 57 + Math.floor(r() * 7) + (loop % 3) - 1; // un peu plus aigu d'une boucle des décors à l'autre
@@ -56,12 +59,13 @@ export function songFor(zone, pass = 0) {
   // Nom français d'origine (def.src) : hors français, translateData remplace def.name par sa traduction et les mots-clés
   // ne correspondaient plus (it. 531 : tous les décors tombaient sur « any » en anglais, etc.).
   const n = (def.src || def.name).toLowerCase(), pickOf = (list) => list[Math.floor(r() * list.length)];
-  const mood = /forêt|jungle|verger|bois|champignon/.test(n) ? "wood" : /toundra|glac|neige|cristal|givr/.test(n) ? "ice"
+  const mood = sand ? "sand" : /forêt|jungle|verger|bois|champignon/.test(n) ? "wood" : /toundra|glac|neige|cristal|givr/.test(n) ? "ice"
     : /volcan|lave|forge|abysses ardents|cœur/.test(n) ? "fire" : /crypt|ossuaire|égout|grotte|maudit|néant|bastion|mines/.test(n) ? "dark"
     : /récif|lagon|cité engloutie|côte|marais/.test(n) ? "sea" : /ruines célestes|nid|tempête|pic/.test(n) ? "sky" : "any";
   // Timbre de la mélodie selon le décor (la couleur « Terraria » de chaque zone) ; les ondes carrées restent rares et douces.
   const LEADS = { wood: ["flute", "pluck", "marimba", "whistle"], ice: ["bell", "marimba", "flute", "epiano"], fire: ["strings", "pluck", "pulse25", "epiano"],
     dark: ["bell", "strings", "epiano", "pulse12"], sea: ["marimba", "flute", "pluck", "bell"], sky: ["whistle", "bell", "flute", "pulse12"],
+    sand: ["strings", "pluck", "flute", "marimba"],
     any: ["pulse12", "pulse25", "flute", "pluck", "bell", "marimba", "strings", "whistle", "epiano"] };
   const lead = r() < 0.75 ? pickOf(LEADS[mood]) : pickOf(LEADS.any);
   const bassInst = pickOf(mood === "dark" || mood === "fire" ? ["sub", "sub", "triangle", "pulsebass"] : ["sub", "triangle", "pluckbass"]);
@@ -77,7 +81,7 @@ export function songFor(zone, pass = 0) {
   const arps = [];
   if (arp) prog8.forEach((c, bar) => { for (let k = 0; k < 4; k++) arps.push({ step: bar * 8 + k * 2, midi: deg(c + [0, 2, 4, 7][k]) + 12, len: 1 }); });
   // Couleur du décor (it. 521) : passe-bas plus ou moins ouvert, écho plus ou moins présent.
-  const COLOR = { wood: [2600, 0.18], ice: [3400, 0.3], fire: [2200, 0.12], dark: [1700, 0.22], sea: [2400, 0.34], sky: [3600, 0.3], any: [2600, 0.18] };
+  const COLOR = { sand: [2300, 0.24], wood: [2600, 0.18], ice: [3400, 0.3], fire: [2200, 0.12], dark: [1700, 0.22], sea: [2400, 0.34], sky: [3600, 0.3], any: [2600, 0.18] };
   const [cutoff, echo] = COLOR[mood];
   const song = { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm, chords, swing, vinyl: true, cutoff, echo, mood };
   if (!(pass > 0)) return song;

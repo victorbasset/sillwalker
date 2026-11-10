@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 533) : musique : couleur « sable » pour les déserts (Désert brûlant, Pyramide maudite, Steppe des
+  loups, Désert de verre) : gamme orientale (phrygien dominant), cordes / pincé / flûte / marimba, passe-bas 2,3 kHz,
+  écho moyen. Plus aucun décor sans couleur. Volumes équilibrés (1,49). 126/126.
 - 2026-11-10 (it. 532) : recherche du même bogue ailleurs (logique tirée d'un nom traduit) : aucun autre cas (ambiance
   sonore : WEATHER[z.src], déjà juste ; pluriels des quêtes : français seulement ; objets : noms enregistrés en
   français). Test étendu aux 33 décors (même air avec un nom traduit) ; piège noté dans CLAUDE.md. 126/126.
