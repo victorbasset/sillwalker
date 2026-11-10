@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 410, revue générale) : simulations 12 h (Atelier acheté) : rôdeur 58, barde 60, gladiateur 63 ; crawl
+  304 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; fuzz 1200 parties, 0 bloquée ; perf : bande
+  19,0 %, panneau 21,1 %, mini 6,3 %, icône 2,8 % d'un cœur (stables).
 - 2026-11-10 (it. 409) : 17e constellation « L'Éclair » (prestige.js > c_bolt : +2 % de vitesse d'attaque par rang,
   10 rangs, 10 éclats × rang ; icône éclair jaune, shopart.js) : la vitesse d'attaque n'avait pas de constellation.
   balance.mjs 12 h : −1,0 (bruit) ; sans défilement en fr / de / ru à 1366 et 1280 ; 1 texte × 9 langues, 115/115.
