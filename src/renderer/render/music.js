@@ -181,9 +181,10 @@ export class Music {
   scheduleStep(dest, song, s, base, stepDur, boss = false) {
     // Swing : les croches à contretemps arrivent un peu en retard.
     const t = base + (s % 2 ? (song.swing || 0) * stepDur : 0);
-    if (song.chords) for (const c of song.chords) if (c.step === s) for (const m of c.notes) this.play(dest, "epiano", hz(m), t, c.len * stepDur * 0.95, 0.55);
+    // Mode léger (économie d'énergie, batterie : it. 529) : accords sans la septième, pas de craquements de vinyle.
+    if (song.chords) for (const c of song.chords) if (c.step === s) for (const m of this.lite ? c.notes.slice(0, 3) : c.notes) this.play(dest, "epiano", hz(m), t, c.len * stepDur * 0.95, 0.55);
     // Craquements de vinyle : quelques petits clics très bas.
-    if (song.vinyl && Math.random() < 0.18) this.noiseHit(dest, base + Math.random() * stepDur, 0.006, 0.01 + Math.random() * 0.012, 3000);
+    if (song.vinyl && !this.lite && Math.random() < 0.18) this.noiseHit(dest, base + Math.random() * stepDur, 0.006, 0.01 + Math.random() * 0.012, 3000);
     for (const n of song.notes) if (n.step === s) {
       this.play(dest, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1);
       // tierce dessous

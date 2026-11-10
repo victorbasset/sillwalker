@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 529) : musique légère en économie d'énergie ou sur batterie (music.lite : accords sans la septième,
+  pas de craquements de vinyle) ; état batterie gardé sur l'objet musique (applySettings est défini avant onBattery
+  dans app.js : y lire onBattery aurait levé une erreur au démarrage). Perf --battery : bande 15,3 %. 126/126.
 - 2026-11-10 (it. 528) : coût de la musique lofi mesuré (copies neuves) : bande 22,7 % avec musique, 18,2 % sans (le
   piano électrique : 4 oscillateurs par note, 4 notes par accord). Piano allégé (2 oscillateurs, plus de trémolo) :
   19,9 % avec musique (≈ +1,7 point). Volumes toujours équilibrés. 126/126.

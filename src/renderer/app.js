@@ -127,6 +127,7 @@ async function boot() {
   /** Applique les réglages du joueur (son, etc. ; le rendu les lit directement). */
   // Musique de fond par zone (render/music.js) : suit le son ; option à part dans les Réglages.
   const music = new Music(sound);
+  music.onBattery = !!init.onBattery;
   // Trois réglages (demande 26) : effets sonores, musique de fond, et coupure générale (bouton haut-parleur) qui rend
   // l'état d'avant au second clic.
   const applySettings = () => {
@@ -136,6 +137,8 @@ async function boot() {
     sound.setAmbience(P.ambVol ?? 1);
     music.setLevel(P.musicVol ?? 1);
     music.set(P.music !== false);
+    // économie d'énergie ou batterie : musique plus légère (accords à 3 notes, pas de vinyle) ; music.onBattery : app.js plus bas
+    music.lite = !!P.eco || !!music.onBattery;
     window.dispatchEvent(new Event("sillwalker-framerate")); // « Économie d'énergie » a pu changer : cadence à revoir
   };
   applySettings();
@@ -430,7 +433,7 @@ async function boot() {
   }
   setInterval(() => { if (!frameTimer) simulate(); }, SIM_BG_MS); // la simulation ne s'arrête jamais
   api.onVisibility(setVisible);
-  api.onPower?.(({ onBattery: b, idle: i }) => { if (!!b !== onBattery || !!i !== idle) { onBattery = !!b; idle = !!i; restartLoop(); } });
+  api.onPower?.(({ onBattery: b, idle: i }) => { if (!!b !== onBattery || !!i !== idle) { onBattery = !!b; idle = !!i; music.onBattery = onBattery; music.lite = !!game.S.settings.eco || onBattery; restartLoop(); } });
   api.onLayout((l) => { applyLayout(l); api.layoutApplied(); });
   api.onCommand((cmd) => {
     if (cmd === "toggle-panel") togglePanel();
