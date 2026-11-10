@@ -1050,4 +1050,5 @@ export default {
   2174: "Verbessert automatisch den günstigsten Zauber deines Helden, solange er weniger als ein Zehntel deines Goldes kostet (Option).",
   2175: "Zaubergrimoire: günstigsten Zauber automatisch verbessern",
   2176: "Eigen für jeden Helden, bleiben beim Aufstieg erhalten.",
+  2177: "Rang {0}: {1}",
 };

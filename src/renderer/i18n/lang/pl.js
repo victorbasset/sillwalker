@@ -1050,4 +1050,5 @@ export default {
   2174: "Sam ulepsza najtańsze zaklęcie bohatera, dopóki kosztuje mniej niż jedną dziesiątą twojego złota (opcja).",
   2175: "Grimuar zaklęć: samodzielnie ulepszaj najtańsze zaklęcie",
   2176: "Własne dla każdego bohatera, zachowane po wniebowstąpieniu.",
+  2177: "Poziom {0}: {1}",
 };

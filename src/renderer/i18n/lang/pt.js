@@ -1050,4 +1050,5 @@ export default {
   2174: "Melhora sozinho o feitiço mais barato do seu herói, enquanto custar menos de um décimo do seu ouro (opção).",
   2175: "Grimório de feitiços: melhorar sozinho o feitiço mais barato",
   2176: "Próprios de cada herói, mantidos na ascensão.",
+  2177: "Nível {0}: {1}",
 };

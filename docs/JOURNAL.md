@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 488) : sorts : infobulle du bouton Apprendre / Améliorer : l'effet au rang suivant (« Rang 4 : 2 coups
+  de 105 % de l'attaque »). Liste « À vérifier par Victor » complétée (sorts). Traduit. 123/123.
 - 2026-11-10 (it. 487) : CLAUDE.md : semaine simulée à relancer après tout déblocage qui dépense de l'or tout seul
   (leçon du Grimoire, it. 486) ; repère mis à jour (avec les sorts : 38 → 182).
 - 2026-11-10 (it. 486) : le Grimoire des sorts (it. 485) freinait la fin de partie : à chaque victoire, jusqu'à 5 rangs
@@ -1709,6 +1711,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
      Refonte du son (it. 432-435) : pièces en gamme, coups variés, sons des 10 événements et de l'étoile filante,
      ambiance de chaque zone (Réglages > Son > Ambiance des zones), musique qui varie (intermède, silence) : volumes ?
+  7. Sorts (it. 469-485) : animations dans la bande (éclair, lames, boule de feu, météore, soin, bouclier), sons, icônes,
+     sorts perçants, bouclier bleu-blanc sur la barre de vie, Grimoire des sorts ; trop chargé ou pas assez ?
   6. Sur le Mac : la bande ne doit pas apparaître devant un jeu / une vidéo en plein écran (it. 445) ; textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
   5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.
 

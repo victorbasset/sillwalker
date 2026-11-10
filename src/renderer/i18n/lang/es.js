@@ -1050,4 +1050,5 @@ export default {
   2174: "Mejora solo el hechizo más barato de tu héroe, mientras cueste menos de una décima parte de tu oro (opción).",
   2175: "Grimorio de hechizos: mejorar solo el hechizo más barato",
   2176: "Propios de cada héroe, se conservan al ascender.",
+  2177: "Rango {0}: {1}",
 };

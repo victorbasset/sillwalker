@@ -1050,4 +1050,5 @@ export default {
   2174: "Automatically upgrades your hero's cheapest spell, as long as it costs less than a tenth of your gold (option).",
   2175: "Spell Grimoire: automatically upgrade the cheapest spell",
   2176: "Unique to each hero, kept on ascension.",
+  2177: "Rank {0}: {1}",
 };

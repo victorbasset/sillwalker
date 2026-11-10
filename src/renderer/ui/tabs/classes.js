@@ -89,11 +89,14 @@ export class ClassesTab {
     const rec = recordZone(S);
     const cards = classSpells(S.cls).map((sp) => {
       const r = spellRank(S, sp.id), open = rec >= sp.zone, price = spellPrice(sp, r), v = spellValue(sp, Math.max(1, r));
+      // Effet affiché à un rang donné (le rang actuel sur la carte, le suivant dans l'infobulle du bouton).
+      const effAt = (rank) => { const w = spellValue(sp, Math.max(1, rank)); return sp.kind === "dmg" ? (sp.hits > 1 ? txn(sp.hits, "{n} coup de {0} % de l’attaque|{n} coups de {0} % de l’attaque", { 0: Math.round(w * 100) }) : tx("{0} % de l’attaque", { 0: Math.round(w * 100) }))
+        : sp.kind === "heal" ? tx("soigne {0} % des PV", { 0: Math.round(w) }) : tx("bouclier de {0} % des PV", { 0: Math.round(w) }); };
       const eff = sp.kind === "dmg" ? (sp.hits > 1 ? txn(sp.hits, "{n} coup de {0} % de l’attaque|{n} coups de {0} % de l’attaque", { 0: Math.round(v * 100) }) : tx("{0} % de l’attaque", { 0: Math.round(v * 100) }))
         : sp.kind === "heal" ? tx("soigne {0} % des PV", { 0: Math.round(v) }) : tx("bouclier de {0} % des PV", { 0: Math.round(v) });
       const btn = !open ? `<span class="note">${tx("zone {0} requise", { 0: sp.zone })}</span>`
         : r >= SPELL_MAX ? `<span class="note">${tx("rang maximal")}</span>`
-        : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""}>${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`
+        : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""} title="${esc(tx("Rang {0} : {1}", { 0: r + 1, 1: effAt(r + 1) }))}">${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`
           // « max » (Manuel du stratège, comme les talents) : autant de rangs que l'or le permet, dès que deux sont abordables.
           + (hasUnlock(S, "bulkPoints") && r + 1 < SPELL_MAX && S.gold >= price * 3.5 ? ` <button data-action="c-spellmax" data-id="${sp.id}" class="quiet" title="${esc(tx("Acheter autant de niveaux que possible"))}">${tx("max")}</button>` : "");
       return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3)}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
