@@ -90,6 +90,46 @@ export class Sound {
     s.start(t);
   }
 
+  /** Souffle : bruit filtré dont la couleur glisse de f0 à f1 (vent, étoile filante), avec une montée douce. */
+  whoosh(start, dur, f0, f1, gain = 0.15, q = 2) {
+    const ctx = this.ctx, t = ctx.currentTime + start, n = Math.max(1, Math.floor(ctx.sampleRate * dur));
+    const buf = ctx.createBuffer(1, n, ctx.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+    const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+    s.buffer = buf; f.type = "bandpass"; f.Q.value = q;
+    f.frequency.setValueAtTime(f0, t); f.frequency.exponentialRampToValueAtTime(Math.max(40, f1), t + dur);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + dur * 0.35); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    s.connect(f); f.connect(g); g.connect(this.master);
+    s.start(t);
+  }
+
+  /** Événement rare (demande C) : chacun a sa signature au moment où il commence. */
+  eventSound(id) {
+    const N = NOTES;
+    switch (id) {
+      case "wind": this.whoosh(0, 1.2, 300, 1400, 0.7, 1.5); this.whoosh(0.4, 1.0, 600, 250, 0.4, 2); break; // rafale qui passe
+      case "goldrain": for (let i = 0; i < 9; i++) { const f = COIN_SCALE[(i * 3) % COIN_SCALE.length]; this.tone(f, i * 0.07, 0.14, "sine", 0.1); this.tone(f * 2.76, i * 0.07, 0.07, "sine", 0.03); } break; // averse de pièces
+      case "frenzy": for (let i = 0; i < 6; i++) { const t = 0.32 * (1 - Math.pow(0.8, i)) * 3; this.tone(110, t, 0.08, "triangle", 0.25, 0.6); this.noise(t, 0.04, 0.08, 1800, 1); } break; // roulement qui accélère
+      case "bounty": this.noise(0, 0.06, 0.15, 500, 0.8); [N.C5, N.E5, N.G5, N.C6].forEach((f, i) => this.tone(f, 0.08 + i * 0.05, 0.22, "triangle", 0.16)); break; // corne qui déborde
+      case "wisdom": [N.C5, N.G5, N.E6].forEach((f, i) => this.tone(f, i * 0.12, 0.9, "sine", 0.09)); break; // accord doux qui s'ouvre
+      case "hawkeye": this.tone(2400, 0, 0.35, "triangle", 0.18, 0.62); this.tone(2500, 0.05, 0.3, "sine", 0.1, 0.6); break; // cri du faucon
+      case "shardfall": [N.G6, N.E6, N.C6, N.G5 * 2, N.E6].forEach((f, i) => this.tone(f * 1.5, i * 0.09, 0.3, "sine", 0.13)); break; // éclats cristallins
+      case "zeal": [N.C5, N.E5, N.G5, N.C6].forEach((f, i) => this.tone(f, i * 0.06, 0.1, "square", 0.16)); this.tone(N.C6, 0.26, 0.3, "square", 0.14); break; // petite fanfare
+      case "nest": for (let i = 0; i < 3; i++) this.tone(2000 + i * 300, i * 0.13, 0.08, "sine", 0.17, 1.4); break; // pépiements
+      case "ward": this.tone(N.E5, 0, 0.8, "sine", 0.08, 1.5); this.tone(N.E5 * 1.01, 0, 0.8, "sine", 0.06, 1.5); this.whoosh(0, 0.6, 2000, 4000, 0.05, 3); break; // voile qui se lève
+      default: [N.G5, N.C6, N.G6].forEach((f, i) => this.tone(f, i * 0.06, 0.18, "triangle", 0.25)); break;
+    }
+  }
+
+  /** Ambiance pendant un événement (4 fois par seconde) : discrète, aléatoire, jamais en boucle audible. */
+  eventAmbience(E) {
+    if (!this.enabled || !E || !this.ensure()) return;
+    if ((E.goldrain || 0) > 0 && Math.random() < 0.55) { const f = COIN_SCALE[Math.floor(Math.random() * COIN_SCALE.length)] * (0.98 + Math.random() * 0.04); this.tone(f, Math.random() * 0.2, 0.1, "sine", 0.035); this.tone(f * 2.76, 0, 0.05, "sine", 0.012); }
+    if ((E.wind || 0) > 0 && Math.random() < 0.12) this.whoosh(0, 1.4 + Math.random(), 250 + Math.random() * 200, 700 + Math.random() * 900, 0.2, 1.2);
+    if ((E.shardfall || 0) > 0 && Math.random() < 0.15) this.tone(2600 + Math.random() * 1400, 0, 0.25, "sine", 0.025);
+    if ((E.nest || 0) > 0 && Math.random() < 0.06) this.tone(2100 + Math.random() * 500, 0, 0.07, "sine", 0.03, 1.4);
+  }
+
   /** Pièce (demande C de Victor : satisfaction) : un tintement métallique (fondamentale + harmonique non entière,
    *  comme une vraie pièce), qui monte d'un cran à chaque victoire enchaînée (gamme pentatonique, retombe après une
    *  pause) ; `n` pièces = petite cascade (élites, boss). */
@@ -248,9 +288,14 @@ export class Sound {
     game.on("unlock", () => this.play("chest"));
     game.on("smash", () => this.play("smash"));
     game.on("bossSkill", ({ id }) => { if (id !== "smash") this.play("bossSkill", id); }); // smash a déjà son coup
-    game.on("event", () => this.play("event"));
+    game.on("event", ({ id }) => { if (this.enabled && this.ensure()) this.eventSound(id); });
+    // Étoile filante : sifflement qui descend à son passage ; petite chute de deux notes si elle s'échappe.
+    game.on("star", () => { if (this.enabled && this.ensure()) { this.whoosh(0, 0.9, 5000, 1500, 0.35, 4); this.tone(NOTES.E6 * 2, 0, 0.5, "sine", 0.08, 0.5); } });
+    game.on("starMissed", () => { if (this.enabled && this.ensure()) { this.tone(NOTES.E6, 0, 0.15, "sine", 0.06); this.tone(NOTES.C6, 0.12, 0.25, "sine", 0.05); } });
+    clearInterval(this.ambT);
+    this.ambT = setInterval(() => { if (!document.hidden) this.eventAmbience(game.R && game.R.events); }, 250);
     game.on("feather", () => this.play("event"));
-    game.on("starCaught", () => this.play("star"));
+    game.on("starCaught", () => { this.play("star"); this.coin(4); }); // attrapée : l'étoile tinte, puis l'or tombe
     game.on("chest", () => this.play("chest"));
     game.on("expedition", () => this.play("loot"));
     game.on("codex", () => this.play("codex"));

@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 433, demande C, étape 2/4 : événements) : chaque événement rare a sa signature sonore (eventSound) :
+  rafale (souffle filtré qui passe), averse de pièces, roulement qui accélère (Frénésie), corne qui déborde, accord
+  doux (Sagesse), cri du faucon, éclats cristallins, petite fanfare (Zèle), pépiements (Nichée), voile qui se lève.
+  Ambiance pendant l'événement (eventAmbience, 4 fois par seconde, aléatoire) : pièces qui tintent (pluie d'or),
+  bourrasques (vent), tintements (éclats), pépiements (Nichée). Étoile filante : sifflement qui descend à son passage,
+  deux notes qui tombent si elle s'échappe, cascade de pièces quand on l'attrape. Nouveaux outils : whoosh() (bruit
+  dont le filtre glisse), noise() filtrable. Rendu hors ligne : aucun NaN ; niveaux 0,014-0,027 (ancien carillon
+  0,026), ambiance 0,007. À écouter par Victor. 120/120.
 - 2026-11-10 (it. 432, demande C, étape 1/4 : pièces et coups) : pièces : tintement métallique (fondamentale + partiel
   inharmonique ×2,76) qui monte d'un cran à chaque victoire enchaînée (gamme pentatonique qui monte puis redescend,
   repart du bas après 4 s de pause) ; cascade de 3 pièces pour une élite, 5 pour un boss. Coups : bruit filtré
