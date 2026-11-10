@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 386) : menu de l'icône : la case « Économie d'énergie » suit aussi un changement fait dans le panneau
+  (tray.js > setStatus reconstruit le menu quand status.eco change ; avant, la case restait périmée). 114/114.
 - 2026-11-10 (it. 385, moins de clics) : « Économie d'énergie (15 images/s) » cochable dans le menu de l'icône de
   notification (tray.js, case suivant status.eco envoyé par le jeu ; commande « eco:on / eco:off » → app.js). Libellé
   en 10 langues (main/i18n.js, aligné sur le panneau). Contrôle d'autotest (commande puis retour). 114/114.

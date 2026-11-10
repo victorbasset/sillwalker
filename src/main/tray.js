@@ -66,8 +66,9 @@ function createTray({ strip, isDev, steam }) {
   function setStatus(st) {
     if (!st) return;
     if (st.loot != null) { lootUntil = Date.now() + 1500; return; }
-    const wasDead = status.state === "dead";
+    const wasDead = status.state === "dead", ecoChanged = !!st.eco !== !!status.eco;
     status = st;
+    if (ecoChanged) build(); // réglage changé dans le panneau : la case du menu suit
     // Mettre à jour une infobulle Windows coûte cher (≈ 2 % d'un cœur si on le
     // fait à chaque victoire) : au plus toutes les 10 s, sauf K.O. / relève.
     const now = Date.now();
