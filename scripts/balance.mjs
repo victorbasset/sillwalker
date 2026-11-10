@@ -1,6 +1,6 @@
 // Comparaison d'équilibrage sur les 10 classes : record atteint en N heures simulées (moyenne et par classe).
 // Une seule simulation suit une trajectoire aléatoire ; seule la moyenne des 10 classes permet de conclure.
-// Usage : node scripts/balance.mjs [heures=12] [commit]   — avec un commit, compare l'ancienne version à l'actuelle
+// Usage : [HEROES=all|liste] node scripts/balance.mjs [heures=12] [commit]   — avec un commit, compare l'ancienne version à l'actuelle
 // (copie de travail temporaire via git worktree, supprimée à la fin).
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
@@ -9,7 +9,10 @@ import path from "node:path";
 
 const HOURS = +process.argv[2] || 12, REV = process.argv[3];
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const CLASSES = ["warrior", "ranger", "mage", "paladin", "assassin", "necro", "monk", "druid", "samurai", "berserker"];
+// HEROES=all : les 20 héros (les 10 nouveaux en plus, ≈ 2 fois plus long) ; ou une liste « lancer,bard ».
+const BASE = ["warrior", "ranger", "mage", "paladin", "assassin", "necro", "monk", "druid", "samurai", "berserker"];
+const NEW = ["arbalest", "lancer", "priestess", "gladiator", "shaman", "bladedancer", "cryomancer", "bard", "starwarden", "artificer"];
+const CLASSES = process.env.HEROES === "all" ? [...BASE, ...NEW] : process.env.HEROES ? process.env.HEROES.split(",") : BASE;
 
 function run(dir) {
   const out = {};

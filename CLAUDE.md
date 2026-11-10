@@ -64,7 +64,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   écart vu sur une seule simulation est du hasard (lancer 5 graines).
 - Une seule simulation suit une trajectoire aléatoire fixe : pour juger un changement d'équilibrage,
   `node scripts/balance.mjs 12 <commit>` compare le record moyen en 12 h des 10 classes entre ce commit et
-  l'état actuel (≈ 1 min 15) ; un écart de ±1,5 zone est du bruit. À lancer après tout ajout qui touche aux combats.
+  l'état actuel (≈ 1 min 15) ; un écart de ±1,5 zone est du bruit. `HEROES=all` devant la commande : les 20 héros (≈ 2 fois plus long). À lancer après tout ajout qui touche aux combats.
 - Toujours lancer Electron avec **`--ghost`** : fenêtre hors écran, sans focus ni icône de notification.
   Options utiles (dev) : `--user-data=<dossier>`, `--tab=<onglet>`, `--mode=strip|mini`,
   `--shot=<fichier.png> --shot-delay=<ms>`, `--exit-after=<s>`, `--width=1366`,

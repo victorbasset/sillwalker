@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 399) : balance.mjs accepte HEROES=all (les 20 héros) ou une liste. Les 10 nouveaux héros en 12 h :
+  moyenne 59,5 (arbalétrier 59, lancier 58, prêtresse 57, gladiateur 62, chaman 61, danseuse 59, cryomancienne 57,
+  barde 60, gardien 63, artificière 59), contre 59,1 pour les 10 de départ : équilibrés.
 - 2026-11-10 (it. 398) : --overflow-report (donc lang-overflow.mjs) mesure aussi la fenêtre « Quoi de neuf »
   (« news=N » si elle défile) ; les 10 langues à 1366 px : aucun défilement. 115/115.
 - 2026-11-10 (it. 397) : « Quoi de neuf » : 11e ligne (Phalène pâle, capacités annoncées à l'arrivée d'un boss, coup de
