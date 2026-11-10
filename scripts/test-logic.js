@@ -2434,4 +2434,12 @@ test("journal : repart à zéro quand la langue change, jamais pour une ancienne
   assert.equal(m.logLang, "en", "langue du journal conservée dans la sauvegarde");
 });
 
+test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
+  const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
+  const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));
+  const listed = new Set([...block.matchAll(/`([A-Z0-9_]+)`/g)].map((m) => m[1]));
+  const missing = ACH_T.map((a) => a.id).filter((id) => !listed.has(id));
+  assert.deepEqual(missing, [], "succès absents de la liste Steam du README");
+});
+
 console.log(`\n${pass} tests réussis`);

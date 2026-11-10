@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 497) : README, liste des succès à créer dans Steamworks : manquaient SPELLS_1000, SPELLS_ALL3,
+  CRITS_10000 ; ajoutés, et un test logique compare désormais cette liste à game/achievements.js. 173 tests ; 124/124.
 - 2026-11-10 (it. 496) : succès « Grimoire complet (les trois sorts d'un héros) », avec progression (0 à 3, le meilleur
   héros). Traduit ; test logique ; aucun défilement à 1280 en de / ru / pl. 124/124.
 - 2026-11-10 (it. 495) : Statistiques : record du plus gros sort (stats.bestSpell, dégâts d'un lancer) sur la ligne
