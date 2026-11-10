@@ -901,4 +901,5 @@ export default {
   2025: "O chefe desta zona amaldiçoa seu herói: o Talismã da pureza parado na sua bolsa o protegeria. Clique aqui.",
   2026: "Novo evento Ninhada (ovos a cada vitória); nova habilidade de chefe, a Maldição, e seu antídoto: o Talismã da pureza.",
   2027: "Coração puro",
+  2028: "As missões avançam duas vezes mais rápido!",
 };

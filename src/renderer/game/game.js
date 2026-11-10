@@ -1461,7 +1461,8 @@ export class Game {
     for (const q of this.S.quests.slots) {
       if (q.kind !== kind || questDone(q)) continue;
       if (kind === "hunt" && q.type !== type) continue;
-      q.progress = kind === "zone" ? this.S.best : q.progress + n;
+      // Zèle (événement) : les quêtes avancent deux fois plus vite
+      q.progress = kind === "zone" ? this.S.best : q.progress + n * ((this.R.events.zeal || 0) > 0 ? 2 : 1);
       if (questDone(q)) {
         this.emit("questDone", { quest: q });
         if (this.S.quests.auto && !(q.reward.chest && this.bagFull())) this.R.autoClaim = true;

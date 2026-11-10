@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 359, variété) : 9e événement « Zèle » (events.js > zeal, chance 0,002, 30 s) : progression des quêtes
+  doublée, une fois l'onglet Quêtes ouvert. Test ; l'ancien test de quête de butin ne compte plus que les objets
+  tombés d'un monstre (il échouait selon les tirages). Nom réutilisé (talent « Zèle »), 1 texte × 9 langues, fuzz
+  600, 111/111.
 - 2026-11-10 (it. 358) : autotest : contrôle « aucun onglet ne défile » aussi à 1280 px (1920, 1366, 1280). 111/111.
 - 2026-11-10 (it. 357, écran de 1280 px) : Aventure (notes de la carte Zone resserrées sous 1366 px : 12 → 0) et
   Réglages (5 colonnes dès 1200 px : 202 → 0). Aucun onglet ne défile à 1280, 1366 et 1920 px. Captures, 110/110.

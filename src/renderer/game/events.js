@@ -1,4 +1,4 @@
-import { eggsAllowed } from "./tabs.js";
+import { eggsAllowed, tabReady } from "./tabs.js";
 // Événements rares et vitesse.
 //
 // La vitesse de déplacement accélère tout le trajet entre deux combats
@@ -27,6 +27,9 @@ export const EVENTS = {
   // Étude des concurrents (variété) : un événement qui touche l'Ascension ; seulement après la première.
   shardfall: { name: "Pluie d’éclats", chance: 0.0015, duration: 30, text: "Chaque victoire peut laisser un éclat d’étoile !", color: "#c99bff",
     req: (S) => (S.prestige && S.prestige.count) > 0 },
+  // Variété : les quêtes avancent deux fois plus vite ; seulement une fois l'onglet Quêtes ouvert.
+  zeal: { name: "Zèle", chance: 0.002, duration: 30, text: "Les quêtes avancent deux fois plus vite !", color: "#7fd4ff",
+    req: (S) => tabReady(S, "quests") },
   // Étude des concurrents (variété) : des œufs de familiers ; seulement quand l'onglet Familiers est ouvert.
   nest: { name: "Nichée", chance: 0.0015, duration: 30, text: "Chaque victoire peut laisser un œuf !", color: "#f0c987",
     req: (S) => eggsAllowed(S) },

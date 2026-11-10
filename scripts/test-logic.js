@@ -1357,7 +1357,8 @@ test("événement Souffle de sagesse : expérience ×3 pendant l'événement", (
 test("quête de butin : chaque objet rare ou mieux trouvé sur un monstre compte", () => {
   const g = new Game(freshState());
   g.S.quests.slots = [{ uid: 1, kind: "loot", goal: 3, progress: 0, stars: 1, reward: { gold: 10 } }];
-  let rares = 0; g.on("loot", ({ item }) => { if (item.r >= 2) rares++; });
+  g.startEvent = () => false; // pas d'événement aléatoire (le Zèle doublerait la progression)
+  let rares = 0; g.on("loot", ({ item, mon }) => { if (item.r >= 2 && mon) rares++; }); // seuls les objets tombés d'un monstre comptent
   for (let i = 0; i < 200 / 0.05 && rares < 3; i++) { if (g.R.mon) { g.R.mon.boss = true; g.R.mon.hp = 0; } g.step(0.05); }
   assert.ok(rares >= 1, "des objets rares tombent des boss");
   assert.equal(g.S.quests.slots[0].progress, Math.min(3, rares));
@@ -2010,6 +2011,12 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.ok(ratio > 1.04 && ratio < 1.06, "pureté 100 % ≈ +5 % de puissance : " + ratio);
 
     assert.ok(M_bosses_js.BOSS_MECHANICS.curse && M_bosses_js.bossMechanics(11).includes("curse"), "zone 11 : Malédiction");
+  }
+  {
+    // Zèle : progression des quêtes doublée pendant l'événement
+    const gz = new Game(freshState()); gz.S.quests.slots = [{ uid: 1, kind: "kill", goal: 100, progress: 0, stars: 1, reward: { gold: 1 } }];
+    gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 1);
+    gz.startEvent("zeal"); gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 3, "Zèle : ×2");
   }
   g.startEvent("hawkeye");
   assert.ok(g.R.events.hawkeye > 0);
