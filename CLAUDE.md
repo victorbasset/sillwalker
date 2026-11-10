@@ -118,7 +118,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   Changer les couleurs du panneau = régénérer `--frame` (sinon le cadre garde l'ancienne teinte). Angles droits partout ;
   les cartes à état (héros, familiers, quêtes, bestiaire) gardent une bordure colorée, sans cadre image.
 - Pas de défilement vertical à 1920 px (demandes 18 et 32), ni à 1366 / 1280 px (écrans de portable) : l'autotest contrôle les trois (en français) ; `node scripts/lang-overflow.mjs [langues] [largeurs]` mesure les 10 langues (≈ 4 min) ;
-  une liste qui grandit (nouvel événement, nouvelle capacité…) peut le casser. Remède habituel : une rangée latérale
+  une liste qui grandit (nouvel événement, nouvelle capacité…) peut le casser.
+  Les contrôles mesurent les sections REPLIÉES : une section repliable (<details>) qui grandit fait défiler l'onglet
+  une fois dépliée sans qu'aucun contrôle ne le voie. Remède : l'ouvrir dans la fenêtre large (panel.js > MODAL_DETAILS
+  et showDetails, comme « Quoi de neuf » et les raccourcis clavier) ; l'autotest et --overflow-report les mesurent ouvertes. Remède habituel : une rangée latérale
   (`class="hscroll" data-hs="clé"`, ui/hscroll.js : molette, glisser, position gardée) ou un détail au survol (ⓘ).
 - Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
