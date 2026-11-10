@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 400, revue générale) : équilibrage des 20 héros en 12 h (HEROES=all) : moyenne 59,4, de 56 (mage) à
+  63 (paladin, gardien des étoiles) ; crawl 302 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ;
+  perf : bande 20,7 %, panneau 21,7 %, mini 6,4 %, icône 3,2 % d'un cœur (fourchette habituelle).
 - 2026-11-10 (it. 399) : balance.mjs accepte HEROES=all (les 20 héros) ou une liste. Les 10 nouveaux héros en 12 h :
   moyenne 59,5 (arbalétrier 59, lancier 58, prêtresse 57, gladiateur 62, chaman 61, danseuse 59, cryomancienne 57,
   barde 60, gardien 63, artificière 59), contre 59,1 pour les 10 de départ : équilibrés.
