@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 390, revue générale) : simulations 12 h : druide 55, chaman 59, artificière 59 ; crawl 302 clics sans
+  erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; fuzz 1200 parties, 0 bloquée ; perf : bande 20,3 %,
+  panneau 22,6 %, mini 6,3 %, icône 2,9 % d'un cœur (dans la fourchette habituelle 19-22 %).
 - 2026-11-10 (it. 389) : 55 succès : le sous-onglet Succès (et le Carnet de route) tient sans défilement à 1920 et
   1366 px ; autotest : nouveau contrôle de ces sous-onglets à 1366 px (la liste grandit à chaque succès). 115/115.
 - 2026-11-10 (it. 388) : 17e familier « Phalène pâle » (pets.js > moth, sprite volant art.js) : pureté 5 % et PV 1 %
