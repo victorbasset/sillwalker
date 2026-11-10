@@ -1052,4 +1052,5 @@ export default {
   2176: "Propios de cada héroe, se conservan al ascender.",
   2177: "Rango {0}: {1}",
   2178: "¡Nuevo hechizo: {0}!",
+  2179: "Hechizo por aprender: {0}",
 };

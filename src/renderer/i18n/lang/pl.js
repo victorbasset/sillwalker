@@ -1052,4 +1052,5 @@ export default {
   2176: "Własne dla każdego bohatera, zachowane po wniebowstąpieniu.",
   2177: "Poziom {0}: {1}",
   2178: "Nowe zaklęcie: {0}!",
+  2179: "Zaklęcie do nauki: {0}",
 };

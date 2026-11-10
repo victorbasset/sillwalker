@@ -1052,4 +1052,5 @@ export default {
   2176: "Unique to each hero, kept on ascension.",
   2177: "Rank {0}: {1}",
   2178: "New spell: {0}!",
+  2179: "Spell to learn: {0}",
 };

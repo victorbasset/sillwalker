@@ -1052,4 +1052,5 @@ export default {
   2176: "Próprios de cada herói, mantidos na ascensão.",
   2177: "Nível {0}: {1}",
   2178: "Novo feitiço: {0}!",
+  2179: "Feitiço para aprender: {0}",
 };

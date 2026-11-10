@@ -1712,6 +1712,9 @@ export class Game {
     if (sp > 0) out.push({ id: "skills", n: sp, tab: "skills" });
     const u = nextUnlock(S);
     if (u && unlockAvailable(S, u) && S.gold >= u.price) out.push({ id: "unlock", n: 1, tab: "shop", name: u.name, uid: u.id, price: u.price });
+    // Sort abordable du héros, pas encore appris (Héros > Sorts et attaque)
+    const rec = recordZone(S), sp1 = classSpells(S.cls).find((x) => rec >= x.zone && !spellRank(S, x.id) && S.gold >= spellPrice(x, 0));
+    if (sp1) out.push({ id: "spell", n: 1, tab: "class", sec: "style", name: sp1.name });
     if (S.pets.eggs > 0 && hasUnlock(S, "menagerie")) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
     if (this.bagFull()) out.push({ id: "bagFull", n: this.uselessItems().length, tab: "adventure" }); // le butin suivant serait vendu d'office
     const fin = this.setFinisher();

@@ -322,7 +322,7 @@ export class Panel {
           ? `<button class="linkbtn" data-action="todo-do" data-what="merchant">${esc(tx("Acheter et équiper : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
         : this.todoDirect(t) // action faisable d'un clic ici (déblocage « tout d'un coup » acquis)
           ? `<button class="linkbtn" data-action="todo-do" data-what="${t.id}">✦ ${esc(todoLabel(t))}</button>`
-          : `<button class="linkbtn" data-tab="${t.tab}">${esc(todoLabel(t))} →</button>`).join("")}`;
+          : `<button class="linkbtn" data-tab="${t.tab}"${t.sec ? ` data-sec="${t.sec}"` : ""}>${esc(todoLabel(t))} →</button>`).join("")}`;
   }
 
   /** « À faire » dans la carte du héros (repliable) : les mêmes lignes et actions que le résumé de retour. */

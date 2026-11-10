@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 492) : « À faire » (Aventure, résumé d'absence, mode mini) : « Sort à apprendre : X » quand un sort du
+  héros est débloqué, abordable et pas encore appris ; le lien ouvre Héros > Sorts et attaque (data-sec transmis par la
+  liste). Traduit ; test logique. 124/124.
 - 2026-11-10 (it. 491) : nouveau sort appris (rang 1) : bandeau de fête dans la bande (« Nouveau sort : Météore ! »,
   couleur du héros), icône du sort qui monte au-dessus du héros, étincelles ; en plus de la ritournelle. Traduit ;
   capture. 124/124.

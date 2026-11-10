@@ -1,6 +1,6 @@
 // « À faire maintenant » : libellé de chaque action disponible (game.todoNow()), partagé par le résumé
 // d'absence (panneau) et la bulle d'aide du mode mini.
-import { t as tx, txn } from "../i18n/index.js";
+import { t as tx, txn, tr } from "../i18n/index.js";
 
 const LABELS = {
   quests: (t) => txn(t.n, "{n} quête à réclamer|{n} quêtes à réclamer"),
@@ -8,6 +8,7 @@ const LABELS = {
   talents: (t) => txn(t.n, "{n} point de talent à dépenser →|{n} points de talent à dépenser →").replace(/ →$/, ""),
   skills: (t) => txn(t.n, "{n} point de compétence à dépenser|{n} points de compétence à dépenser"),
   unlock: (t) => tx("Déblocage abordable : {0}", { 0: t.name }),
+  spell: (t) => tx("Sort à apprendre : {0}", { 0: tr(t.name) }),
   eggs: (t) => txn(t.n, "{n} œuf à faire éclore|{n} œufs à faire éclore"),
   expeditions: (t) => txn(t.n, "{n} expédition terminée|{n} expéditions terminées"),
   merchant: () => tx("Le marchand propose une amélioration"),

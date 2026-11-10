@@ -725,7 +725,8 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   const t = new Game(freshState()); t.S.cls = "warrior"; t.S.best = t.S.zone = 12; t.S.gold = 1e12; t.S.tabsOpen = { ...(t.S.tabsOpen || {}), class: true };
   t.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((x) => x.id !== "spell").map((x) => [x.id, true]));
   const ht = nextHint(t); assert.ok(ht && ht.id === "spell" && ht.tab === "class" && ht.sec === "style", "astuce du sort : " + (ht && ht.id));
-  t.learnSpell("warrior.0"); const ht2 = nextHint(t); assert.ok(!ht2 || ht2.id !== "spell", "sort appris : plus d'astuce");
+  const td = t.todoNow().find((x) => x.id === "spell"); assert.ok(td && td.tab === "class" && td.sec === "style", "« À faire » : sort à apprendre");
+  t.learnSpell("warrior.0"); const ht2 = nextHint(t); assert.ok(!ht2 || ht2.id !== "spell", "sort appris : plus d'astuce"); assert.ok(!t.todoNow().some((x) => x.id === "spell" && x.name === "Tourbillon"), "Tourbillon appris : plus dans « À faire »");
   // Grimoire des sorts : améliore tout seul le moins cher, sous un dixième de l'or ; coupé = rien
   const gb = new Game(freshState()); gb.S.cls = "warrior"; gb.S.best = gb.S.zone = 60; gb.S.unlocks.spellBook = true; gb.S.gold = 1e15;
   assert.ok(gb.autoSpells() > 0 && Object.keys(gb.S.spells).length > 0, "Grimoire : rangs achetés"); assert.equal(gb.autoSpells(), 0, "au plus une fois par minute de jeu");

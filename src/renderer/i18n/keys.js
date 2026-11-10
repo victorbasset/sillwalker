@@ -2180,5 +2180,6 @@ export const KEYS = [
   "Grimoire des sorts : améliorer tout seul le sort le moins cher",
   "Propres à chaque héros, gardés à l’ascension.",
   "Rang {0} : {1}",
-  "Nouveau sort : {0} !"
+  "Nouveau sort : {0} !",
+  "Sort à apprendre : {0}"
 ];
