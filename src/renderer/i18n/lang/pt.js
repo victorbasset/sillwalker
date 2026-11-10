@@ -888,4 +888,6 @@ export default {
   2012: "Sinergias de dupla: cada herói tem um parceiro ideal, e essa dupla recebe um pequeno bônus.",
   2013: "Dupla perfeita",
   2014: "A dupla ideal do seu herói está livre: {0} ({1}). Escolha-o como companheiro para a próxima ascensão. Clique aqui.",
+  2015: "Ninhada",
+  2016: "Cada vitória pode deixar um ovo!",
 };

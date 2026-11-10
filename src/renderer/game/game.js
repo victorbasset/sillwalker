@@ -40,7 +40,7 @@ import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, roll
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE } from "./events.js";
 import { bossMechanics, bossName, FURY, bossWear, BULWARK } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
@@ -602,6 +602,7 @@ export class Game {
     this.questProgress("gold", gold);
     this.petGainXp(m.boss ? 10 : m.elite ? 5 : 1);
     if (eggsAllowed(S) && ((m.boss && rand() < EGG_CHANCE.boss) || (m.elite && rand() < EGG_CHANCE.elite))) this.gainEgg();
+    else if ((R.events.nest || 0) > 0 && eggsAllowed(S) && rand() < NEST_CHANCE) this.gainEgg(); // Nichée (events.js)
     this.emit("kill", { mon: m, gold });
     this.rollRareThings(m);
     this.autoBuyPotions();

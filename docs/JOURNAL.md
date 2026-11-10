@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 333, étude des concurrents d : variété) : nouvel événement « Nichée » (events.js > nest) : 30 s
+  pendant lesquelles chaque victoire a 12 % de chances de laisser un œuf de familier ; seulement une fois l'onglet
+  Familiers ouvert. 2 textes × 9 langues, test, fuzz 600 parties, 107/107.
 - 2026-11-10 (it. 332) : astuce « synergy » (hints.js) : quand le partenaire idéal du héros est libéré mais qu'un
   autre compagnon est en place (et pas déjà choisi pour la prochaine ascension), une astuce le propose avec le nom
   du duo (une fois par course). 1 texte × 9 langues, test, 107/107.

@@ -1,3 +1,4 @@
+import { eggsAllowed } from "./tabs.js";
 // Événements rares et vitesse.
 //
 // La vitesse de déplacement accélère tout le trajet entre deux combats
@@ -11,6 +12,8 @@ export const FEATHER = { normal: 0.0015, elite: 0.02, boss: 0.05, gain: 1 };
 export const CHEST = { normal: 0.002, elite: 0.015, boss: 0.03, gold: 80, epic: 0.3, legendary: 0.04 };
 /** Pluie d'éclats : chance par victoire de gagner un éclat d'étoile pendant l'événement. */
 export const SHARDFALL_CHANCE = 0.25;
+/** Nichée : chance par victoire de trouver un œuf de familier pendant l'événement. */
+export const NEST_CHANCE = 0.12;
 export const STAR = { minS: 40 * 60, maxS: 90 * 60, life: 12, speedGain: 2 };
 
 /** Événements temporaires : chance par victoire, durée, effet. */
@@ -24,4 +27,7 @@ export const EVENTS = {
   // Étude des concurrents (variété) : un événement qui touche l'Ascension ; seulement après la première.
   shardfall: { name: "Pluie d’éclats", chance: 0.0015, duration: 30, text: "Chaque victoire peut laisser un éclat d’étoile !", color: "#c99bff",
     req: (S) => (S.prestige && S.prestige.count) > 0 },
+  // Étude des concurrents (variété) : des œufs de familiers ; seulement quand l'onglet Familiers est ouvert.
+  nest: { name: "Nichée", chance: 0.0015, duration: 30, text: "Chaque victoire peut laisser un œuf !", color: "#f0c987",
+    req: (S) => eggsAllowed(S) },
 };

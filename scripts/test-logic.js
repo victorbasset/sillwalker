@@ -1970,6 +1970,17 @@ test("journal : sac plein, les objets laissés au sol se cumulent sur une ligne"
 
 test("événement Œil du faucon : tous les coups sont critiques", () => {
   const g = new Game(freshLocked());
+  {
+    // Nichée : des œufs pendant l'événement, seulement onglet Familiers ouvert
+    const gn = new Game(freshState()); gn.S.pets.owned = {}; gn.S.tabsOpen = {}; gn.S.best = 1;
+    assert.ok(!M_events_js.EVENTS.nest.req(gn.S), "pas de Nichée avant les familiers");
+    gn.S.tabsOpen = { ...(gn.S.tabsOpen || {}), pets: true }; gn.S.best = 60; gn.S.level = 60;
+    if (M_events_js.EVENTS.nest.req(gn.S)) {
+      gn.startEvent("nest"); const e0 = gn.S.pets.eggs;
+      for (let i = 0; i < 200; i++) { gn.R.mon = gn.makeMonster(false); gn.killMonster(); gn.R.events.nest = 30; }
+      assert.ok(gn.S.pets.eggs > e0, "Nichée : des œufs");
+    }
+  }
   g.startEvent("hawkeye");
   assert.ok(g.R.events.hawkeye > 0);
   let crits = 0, n = 0;

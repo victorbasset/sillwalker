@@ -888,4 +888,6 @@ export default {
   2012: "Duo synergies: every hero has an ideal partner, and that duo gets a small bonus.",
   2013: "Perfect Duo",
   2014: "Your hero’s ideal duo is free: {0} ({1}). Choose them as companion for the next ascension. Click here.",
+  2015: "Nesting",
+  2016: "Every victory may leave an egg!",
 };
