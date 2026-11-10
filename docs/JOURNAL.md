@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 380, revue générale) : simulations 12 h : berserker 62, lancier 61, assassin 52 (bruit : 59 dans
+  balance.mjs) ; balance.mjs contre it. 370 : +0,0 zone ; crawl 302 clics sans erreur ; russe : aucun mot latin
+  suspect ; save-fuzz ok ; perf : bande 19,4 %, panneau 21,9 %, mini 6,2 %, icône 3,0 % (stables).
 - 2026-11-10 (it. 379) : succès EVENTS_ALL « Chasseur d'événements » : avoir vu chacun des 9 événements rares, avec
   progression affichée (ACH_PROGRESS). Donnée sauvegardée S.stats.eventsSeen { id: true } (startEvent) ; valeur
   abîmée → {} (migrate) ; save-fuzz : cas eventsSeenBad ; test ; README (Steamworks). 1 texte × 9 langues, 113/113.
