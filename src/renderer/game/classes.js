@@ -176,7 +176,7 @@ export const CLASSES = {
   },
   starwarden: {
     name: "Gardien des étoiles", role: "Lame céleste, au corps à corps", desc: "Le dernier gardien du ciel brisé, armé d’une lame d’étoile.",
-    mul: { hp: 1.25, atk: 1.2, def: 1.2 }, add: {},
+    mul: { hp: 1.15, atk: 1.1, def: 1.12 }, add: {}, // (it. 585 : 1,25 / 1,2 / 1,2 : 69 zones en 12 h contre 62)
     passive: { shield: 15, execute: 30, bossDmg: 20 },
     passiveText: "Lame d’étoile : bouclier de 15 % des PV max au début de chaque combat, +30 % de dégâts contre les cibles affaiblies et +20 % contre les boss.",
     contact: 44, projectile: null, tree: "samurai", treePrefix: "sw_",

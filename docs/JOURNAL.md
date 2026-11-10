@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 585) : équilibrage : le Gardien des étoiles (À SURVEILLER depuis l'it. 570) faisait 69 zones en
+  12 h contre ≈ 62 (HEROES=all) : multiplicateurs 1,25 / 1,2 / 1,2 → 1,15 / 1,1 / 1,12 : 62. Le Barde reste à 68
+  (+25 % or et expérience, vitesse +20) : À SURVEILLER (changer son passif = texte à retraduire). 132/132.
 - 2026-11-10 (it. 584) : journal : « À vérifier par Victor » complété (9 : boss majeurs et reliques, sons, puissance,
   succès Steamworks ; 10 : barres de vie en combat de boss) ; demande T inscrite (FAIT).
 - 2026-11-10 (it. 583) : couronne vérifiée en capture sur 6 classes (mage, nécromancien, samouraï, moine, druide,
