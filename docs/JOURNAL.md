@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 405) : quête « Frapper au clic » : icône propre (gantelet) au lieu de l'épée de « Vaincre des
+  monstres ». Autotest fiabilisé : le contrôle « pièce de panoplie gardée expliquée » a échoué une fois (1 false false) :
+  la recherche d'un emplacement sans panoplie pouvait échouer quand les contrôles précédents en avaient posé partout ;
+  les panoplies des autres emplacements sont retirées avant la recherche. Capture, 115/115 (deux passes).
 - 2026-11-10 (it. 404) : la quête « Frapper au clic » n'est proposée qu'aux joueurs qui ont déjà frappé au clic
   (stats.taps > 0) : un joueur 100 % inactif n'a pas de quête qui traîne (sinon : « Changer » contre de l'or). Test.
   115/115.
