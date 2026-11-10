@@ -892,4 +892,5 @@ export default {
   2016: "Cada vitória pode deixar um ovo!",
   2017: "A cada 9 s, amaldiçoa o herói por 3 s: ele sofre 15% a mais de dano e seu roubo de vida não o cura mais.",
   2018: "Amaldiçoado!",
+  2019: "Novo evento Ninhada (ovos a cada vitória) e nova habilidade de chefe: Maldição.",
 };

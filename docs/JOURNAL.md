@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 336) : héros maudit visible (halo violet .actor.cursed pendant la Malédiction, juice.js) ;
+  « Quoi de neuf » édition 1 : ligne Nichée + Malédiction (7 nouveautés). 1 texte × 9 langues, 107/107.
 - 2026-11-10 (it. 335, étude des concurrents d : mécaniques de boss) : 11e capacité de boss « Malédiction »
   (bosses.js > curse, CURSE) : toutes les 9 s, le héros est maudit 3 s (+15 % de dégâts subis, vol de vie coupé) ;
   libellé « Maudit ! » dans la bande. ORDER passe à 11 (les capacités par zone sont redistribuées). balance.mjs 12 h :

@@ -892,4 +892,5 @@ export default {
   2016: "Jeder Sieg kann ein Ei hinterlassen!",
   2017: "Alle 9 s verflucht er den Helden für 3 s: Er erleidet 15 % mehr Schaden und sein Lebensraub heilt ihn nicht mehr.",
   2018: "Verflucht!",
+  2019: "Neues Ereignis Brutzeit (Eier bei Siegen) und neue Bossfähigkeit: Fluch.",
 };

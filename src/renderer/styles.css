@@ -1019,3 +1019,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .classcard .synergy.on { color: var(--good); }
 /* Nichée (événement) : plumes de duvet plus larges que hautes. */
 .spark.nestdown { width: 5px; height: 3px; }
+/* Malédiction (capacité de boss) : halo violet sur le héros maudit. */
+.actor.cursed { filter: drop-shadow(0 0 2px #b07cff) drop-shadow(0 0 1px #6a3fb0); }
