@@ -1242,3 +1242,10 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .pspells .pplus { padding: 0 5px; margin-left: 3px; font-size: 11px; line-height: 1.2; min-height: 0; }
 /* (it. 559) « + » abordable : couleur d'accent (on voit d'un coup d'œil ce qu'on peut acheter) */
 .pspells .pplus:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+/* Reliques (demande S, it. 572) : sur le héros (drone, couronne, petites icônes) et au-dessus du boss qui la garde. */
+.actor .relic-drone { position: absolute; left: -22px; top: -14px; width: 27px; image-rendering: pixelated; pointer-events: none; }
+.actor .relic-crown { position: absolute; left: 50%; top: -8px; translate: -50% 0; width: 18px; image-rendering: pixelated; pointer-events: none; }
+.actor .relic-mini { position: absolute; left: 50%; top: -20px; translate: -50% 0; display: flex; gap: 2px; pointer-events: none; }
+.actor .relic-mini img { width: 11px; image-rendering: pixelated; }
+.actor .relic-carried { position: absolute; left: -26px; top: 6px; width: 27px; animation: relicBob 1.6s ease-in-out infinite alternate; image-rendering: pixelated; filter: drop-shadow(0 0 3px #fff6a8); pointer-events: none; }
+@keyframes relicBob { from { translate: 0 0; } to { translate: 0 -5px; } }

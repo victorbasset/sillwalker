@@ -1127,4 +1127,5 @@ export default {
   2251: "Dein Angriff wird mit 2,5 multipliziert.",
   2252: "Angriff und LP verdoppelt; verdientes Gold +50 %.",
   2253: "Alle 1,5 s eine Rakete: 1,5 % der LP des Monsters (0,4 % bei einem Boss) + 300 % deines Angriffs.",
+  2254: "Relikt erhalten: {0}!",
 };

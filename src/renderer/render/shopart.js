@@ -146,6 +146,19 @@ const SPELL_ART = {
   meteor: ["W........", ".W.......", "..WC.....", "...CC....", "....CCC..", "...CDDDC.", "...CDWDC.", "...CDDDC.", "....CCC.."],
 };
 const darker = (hex) => { const n = parseInt(hex.slice(1), 16), f = (v) => Math.round(v * 0.55).toString(16).padStart(2, "0"); return "#" + f(n >> 16 & 255) + f(n >> 8 & 255) + f(n & 255); };
+/** Reliques des boss majeurs (demande S, it. 572) : 9×9, couleurs propres (ni teinte du héros ni badge). */
+const RELIC_ART = {
+  drone: [["W.W...W.W", "WWW...WWW", ".W.....W.", "..CCCCC..", ".CCBBBCC.", ".CCBWBCC.", "..CCCCC..", "...D.D...", "........."], { C: "#9aa4b8", B: "#3fa9ff", W: "#ffffff", D: "#5a6478" }],
+  heart: [["..RR.RR..", ".RRRRRRR.", "RRWRRRRRR", "RRRRRRRRR", ".RRRRRRR.", "..RRRRR..", "...RRR...", "....R....", "........."], { R: "#ff5a6e", W: "#ffd0d6" }],
+  blade: [["........W", ".......WP", "......WP.", ".....WP..", "....WP...", ".G.WP....", "..GP.....", ".G.G.....", "G........"], { W: "#ffffff", P: "#b48cff", G: "#ffd34d" }],
+  crown: [[".........", "Y...Y...Y", "YY.YYY.YY", "YYYYYYYYY", "YRYYBYYRY", "YYYYYYYYY", ".........", ".........", "........."], { Y: "#ffd34d", R: "#ff5a6e", B: "#7fc8ff" }],
+};
+export function relicIconURL(id, scale = 3) {
+  const k = "relic:" + id + "@" + scale;
+  if (!cache[k] && RELIC_ART[id]) cache[k] = buildSprite(RELIC_ART[id][0], { K: OUT, ...RELIC_ART[id][1] }, scale, false, 1).toDataURL();
+  return cache[k] || "";
+}
+
 /** Badge d'effet (demande Q, it. 552) : 4×4 pixels dans le coin bas droit de l'icône, le premier effet propre du sort. */
 const SPELL_BADGE = {
   stun:    [["Y.Y.", ".Y..", "Y.Y.", "...."], "#fff27a"], slow:  [["B.B.", ".B..", "B.B.", "...."], "#8fd0ff"],

@@ -24,7 +24,8 @@ import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
-import { spellIconURL } from "./shopart.js";
+import { RELICS, majorBoss, hasRelic } from "../game/relics.js";
+import { spellIconURL, relicIconURL } from "./shopart.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
 // Répliques du héros, par circonstance.
@@ -176,6 +177,20 @@ export class StripRenderer {
           const a = this.slots[slot]; if (a && a.bar) { a.bar.visible(true); a.bar.set(this.game.slotHealth(slot)); }
         }, fly * 1000);
       }, delay);
+    });
+    // Drone stellaire (demande S) : un missile bleu du drone jusqu'au monstre, ses dégâts au-dessus.
+    g.on("droneShot", ({ dmg }) => {
+      if (!this.active) return;
+      const hx = this.heroX - 8, mx = this.monX() + 14;
+      const n = el("div", "spellfx slash pierce", this.fxLayer); n.style.setProperty("--c", "#3fa9ff"); el("i", "", n); this.addFx(n, hx, 22, 0.18, 0, Math.max(10, mx - hx));
+      if (this.game.S.settings.damageNumbers !== false) setTimeout(() => { if (this.active) this.float(mx, 24, "-" + fmt(Math.round(dmg)), "#7fc8ff"); }, 180);
+    });
+    // Relique obtenue : grand bandeau, étincelles ; le héros la porte aussitôt (syncHero).
+    g.on("relic", ({ id }) => {
+      if (!this.active || !RELICS[id]) return;
+      this.juice.banner(tx("Relique obtenue : {0} !", { 0: tx(RELICS[id].name) }), "#ffd34d", this.heroX + 80, true);
+      if (this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, "#ffd34d", 14);
+      this.shake(0.3);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });
@@ -457,13 +472,22 @@ export class StripRenderer {
   /** (Re)crée le sprite du héros pour la classe active. */
   syncHero() {
     const cls = this.game.S.cls;
-    const vis = heroVisual(this.game.S), key = cls + "|" + visualKey(vis);
+    // (it. 572) les reliques gagnées font partie de l'apparence : drone qui l'accompagne, couronne, petites icônes
+    const relics = Object.keys(this.game.S.relics || {}).filter((id) => RELICS[id]).sort();
+    const vis = heroVisual(this.game.S), key = cls + "|" + visualKey(vis) + "|" + relics.join(",");
     if (key === this.heroCls && this.hero) return;
     if (this.hero) this.hero.remove();
     const h = buildHeroSprites(cls, vis, this.dpr); // habillé selon l'équipement
     this.hero = new Actor(this.stage, [h.walk1, h.walk2, h.attack], "hero");
     this.heroCls = key;
     this.hero.el.classList.toggle("legend", vis.aura); // halo des objets légendaires
+    // Reliques (demande S) : le drone vole près du héros, la couronne se pose sur sa tête, cœur et lame au-dessus.
+    for (const id of relics) {
+      if (id === "drone") { const im = el("img", "relic-drone", this.hero.el); im.src = relicIconURL("drone", 3); im.alt = ""; }
+      else if (id === "crown") { const im = el("img", "relic-crown", this.hero.el); im.src = relicIconURL("crown", 2); im.alt = ""; }
+    }
+    const minis = relics.filter((id) => id === "heart" || id === "blade");
+    if (minis.length) { const row = el("div", "relic-mini", this.hero.el); for (const id of minis) { const im = el("img", "", row); im.src = relicIconURL(id, 1); im.alt = ""; } }
     this.heroBarX = null;
   }
 
@@ -490,6 +514,9 @@ export class StripRenderer {
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone)); // final : le Briseur d'Étoiles
+      // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
+      const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
+      if (carried && !hasRelic(g.S, carried)) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); }
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre

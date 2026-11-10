@@ -1127,4 +1127,5 @@ export default {
   2251: "Your attack is multiplied by 2.5.",
   2252: "Attack and HP doubled; gold earned +50%.",
   2253: "Every 1.5 s, a missile: 1.5% of the monster's HP (0.4% for a boss) + 300% of your attack.",
+  2254: "Relic obtained: {0}!",
 };

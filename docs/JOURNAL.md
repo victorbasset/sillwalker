@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 572, demande S, 2e partie : bande) : icônes pixel des 4 reliques (shopart.js relicIconURL) ;
+  la relique gardée flotte à côté du boss majeur (et du Briseur) tant qu'elle n'est pas gagnée ; le héros porte
+  les siennes : drone qui vole près de lui, couronne sur la tête, cœur et lame en petites icônes ; missile bleu du
+  drone jusqu'au monstre avec ses dégâts ; bandeau « Relique obtenue : … ! », étincelles. Vérifié en capture. 130/130.
+  RESTE : carte (boss majeurs), fenêtre de relique obtenue avec l'histoire, chroniques, « Quoi de neuf ».
 - 2026-11-10 (it. 571, demande S, 1re partie : moteur) : game/relics.js : boss majeurs (zone 50 Le Geôlier mécanique,
   100 La Reine des cendres, 150 Le Chevalier de l'éclipse ; PV ×2 à ×2,4, attaque ×1,15-1,2, capacités propres) et
   quatre reliques gagnées en les battant (le Briseur d'Étoiles donne la 4e), gardées pour toujours (S.relics, migrate

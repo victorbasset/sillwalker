@@ -2255,5 +2255,6 @@ export const KEYS = [
   "Dégâts subis −45 % ; tu regagnes 1 % de tes PV chaque seconde.",
   "Ton attaque est multipliée par 2,5.",
   "Attaque et PV doublés ; or gagné +50 %.",
-  "Toutes les 1,5 s, un missile : 1,5 % des PV du monstre (0,4 % pour un boss) + 300 % de ton attaque."
+  "Toutes les 1,5 s, un missile : 1,5 % des PV du monstre (0,4 % pour un boss) + 300 % de ton attaque.",
+  "Relique obtenue : {0} !"
 ];
