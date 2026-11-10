@@ -1030,3 +1030,13 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Réglages : Zone de danger et Raccourcis clavier empilés dans une colonne (pas de 2e rangée sur écran de portable). */
 .setgrid > .stack { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .setgrid > .stack > .panel { flex: 0 0 auto; }
+/* Boutique sur écran de portable (< 1800 px) : marchand, potions et coffres en rangées latérales (molette ou glisser)
+   au lieu de grilles sur plusieurs lignes qui faisaient défiler l'onglet ; à 1920 px, les grilles restent. */
+.mgrid.hscroll > .mcard { width: 132px; }
+.cgrid.hscroll > .ctile { width: 104px; }
+.shopgrid2 > .panel { min-width: 0; }
+@media (min-width: 1800px) {
+  .mgrid.hscroll, .cgrid.hscroll { display: grid !important; overflow: visible; cursor: auto; padding-bottom: 0; }
+  .mgrid.hscroll > .mcard, .cgrid.hscroll > .ctile { width: auto; }
+}
+.mgrid.hscroll { padding-top: 7px; padding-right: 7px; }
