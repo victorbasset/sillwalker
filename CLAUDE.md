@@ -143,6 +143,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   Les contrôles mesurent les sections REPLIÉES : une section repliable (<details>) qui grandit fait défiler l'onglet
   une fois dépliée sans qu'aucun contrôle ne le voie. Remède : l'ouvrir dans la fenêtre large (panel.js > MODAL_DETAILS
   et showDetails, comme « Quoi de neuf » et les raccourcis clavier) ; l'autotest et --overflow-report les mesurent ouvertes.
+- Hors français, `translateData` (i18n/data.js) remplace les noms des données (zones, monstres, classes…) par leur
+  traduction : ne jamais déduire une logique d'un nom affiché (regex sur `def.name`) ; utiliser le nom d'origine
+  (`z.src` pour les zones) ou une clé. Arrivé à la musique (it. 531 : couleur des décors perdue hors français).
 - Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
 - « Quoi de neuf » (game/news.js) : après une série de nouveautés visibles, publier une édition (une liste ajoutée à la

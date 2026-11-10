@@ -1896,8 +1896,9 @@ test("musique de fond (demande 24) : un air par zone, toujours le même pour une
   // Un air par tranche de 5 zones (it. 521, demande de Victor).
   assert.deepEqual([1, 3, 5, 6, 10, 11, 0, 203].map(musicZone), [1, 1, 1, 6, 6, 11, 1, 201], "tranches de 5 zones");
   // Couleur du décor indépendante de la langue (it. 531) : un nom traduit (translateData) ne change pas l'air.
-  { const z1 = ZONES[0], keep = z1.name, before = JSON.stringify(songFor(1)); z1.src ||= keep; z1.name = "Whispering Forest";
-    const after = songFor(1); z1.name = keep; assert.equal(after.mood, "wood", "forêt reconnue en anglais"); assert.equal(JSON.stringify(after), before, "même air dans toutes les langues"); }
+  assert.equal(songFor(1).mood, "wood", "forêt reconnue");
+  ZONES.forEach((z, i) => { const keep = z.name, before = JSON.stringify(songFor(i + 1)); z.src ||= keep; z.name = "Translated " + i;
+    const after = JSON.stringify(songFor(i + 1)); z.name = keep; assert.equal(after, before, "zone " + (i + 1) + " : même air dans toutes les langues"); });
 });
 
 test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi ; changement à l'ascension", () => {

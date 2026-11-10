@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 532) : recherche du même bogue ailleurs (logique tirée d'un nom traduit) : aucun autre cas (ambiance
+  sonore : WEATHER[z.src], déjà juste ; pluriels des quêtes : français seulement ; objets : noms enregistrés en
+  français). Test étendu aux 33 décors (même air avec un nom traduit) ; piège noté dans CLAUDE.md. 126/126.
 - 2026-11-10 (it. 531) : BOGUE musique : hors français, translateData traduit ZONES[].name et la couleur du décor (et le
   mode mineur) se lisait dans ce nom : tous les décors tombaient sur « any ». Lu dans le nom d'origine (def.src) ; test
   « même air dans toutes les langues ». Percussions : plus de tranche sans rythme hors décors sombres (la 1re tranche
