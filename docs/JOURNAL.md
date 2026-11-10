@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 579) : lang-overflow mesure le pire cas des reliques (les quatre gagnées : ligne « Dégâts du drone
+  par seconde », en-tête de la carte) ; de, pl, ru, pt, es, fr à 1920, 1366 et 1280 : aucun défilement.
 - 2026-11-10 (it. 578) : « Toutes les statistiques » : « Dégâts du drone par seconde » (Drone stellaire gagné ;
   game.droneDps, partagé avec l'estimation hors ligne ; survol : effet de la relique). Traduit. 131/131.
 - 2026-11-10 (it. 577) : hors ligne : le Drone stellaire (missiles) et le Cœur de l'aube (dégâts subis) comptent

@@ -14,7 +14,8 @@ let bad = 0;
 for (const lang of langs) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "sw-ovf-"));
   try {
-    fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...base, settings: { ...base.settings, lang } }));
+    // (it. 579) pire cas : les quatre reliques gagnées (ligne du drone dans les statistiques, en-tête de la carte)
+    fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...base, relics: { drone: 1, heart: 1, blade: 1, crown: 1 }, settings: { ...base.settings, lang } }));
     for (const w of widths) {
       let out = "";
       try {
