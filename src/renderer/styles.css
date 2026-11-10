@@ -1040,3 +1040,12 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
   .mgrid.hscroll > .mcard, .cgrid.hscroll > .ctile { width: auto; }
 }
 .mgrid.hscroll { padding-top: 7px; padding-right: 7px; }
+/* Bestiaire sur écran de portable (< 1800 px) : les monstres coulent en colonnes sur 7 rangées et la grille défile
+   sur le côté (molette ou glisser) au lieu de faire défiler l'onglet ; à 1920 px, la grille habituelle. */
+.beastgrid.hscroll { display: grid !important; gap: 4px; }
+@media (max-width: 1799px) {
+  .beastgrid.hscroll { grid-auto-flow: column; grid-template-rows: repeat(7, auto); grid-template-columns: none; grid-auto-columns: 150px; }
+}
+@media (min-width: 1800px) {
+  .beastgrid.hscroll { overflow: visible; cursor: auto; padding-bottom: 0; }
+}

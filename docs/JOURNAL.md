@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 343, écrans de portable) : Bestiaire : sous 1800 px, les monstres coulent en colonnes sur 7 rangées
+  avec défilement latéral (beastgrid hscroll, data-hs beasts) : défilement 142 / 54 → 0 à 1366 / 1600 ; 1920
+  inchangé. Reste : aventure à 1366. 108/108.
 - 2026-11-10 (it. 342, écrans de portable) : Boutique : marchand, potions et coffres en rangées latérales (hscroll,
   data-hs merchant / potions / chests ; grilles gardées ≥ 1800 px) : défilement 80 → 0 à 1366 et 1600 ; ruban
   « -40 % » non rogné. Captures 1366 / 1920. Reste : aventure (1366), bestiaire. 108/108.

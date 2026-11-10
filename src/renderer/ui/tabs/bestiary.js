@@ -37,7 +37,7 @@ export class BestiaryTab {
     }).join("");
     const eff = bestiaryEffects(S);
     const beasts = `<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(", "), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>.</p>
-      <div class="beastgrid">${cards}</div>`;
+      <div class="beastgrid hscroll" data-hs="beasts">${cards}</div>`;
     // Une seule section à la fois (sous-onglets) : découpée aux titres <h2 class="codexh" id="bj-…">.
     const parts = {};
     for (const html of (this.codexHTML(S) + beasts).split(/(?=<h2 class="codexh)/)) { const m = html.match(/id="bj-(\w+)"/); if (m) parts[m[1]] = html; }
