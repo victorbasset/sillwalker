@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 344, écrans de portable) : Aventure entre 1200 et 1499 px : 5 colonnes (Journal en colonne
+  étroite, 1.15 / 1.4 / 0.9 / 1.1 / 0.75 fr) au lieu de 4 + Journal dessous : défilement 368 → 0 à 1366 et 1440
+  (12 px à 1280 ; noms d'équipement plus courts, le clic ouvre le détail). Les écrans de portable 1366 / 1600 ne
+  défilent plus sur aucun onglet. 108/108.
 - 2026-11-10 (it. 343, écrans de portable) : Bestiaire : sous 1800 px, les monstres coulent en colonnes sur 7 rangées
   avec défilement latéral (beastgrid hscroll, data-hs beasts) : défilement 142 / 54 → 0 à 1366 / 1600 ; 1920
   inchangé. Reste : aventure à 1366. 108/108.

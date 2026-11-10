@@ -1049,3 +1049,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 @media (min-width: 1800px) {
   .beastgrid.hscroll { overflow: visible; cursor: auto; padding-bottom: 0; }
 }
+/* Écran de portable (1200-1499 px) : le Journal reste en 5e colonne (étroite) au lieu de passer dessous et de
+   faire défiler l'onglet ; le sac garde ses 8 colonnes. */
+@media (min-width: 1200px) and (max-width: 1499px) {
+  [data-pane="adventure"] .grid { grid-template-columns: 1.15fr 1.4fr 0.9fr 1.1fr 0.75fr; }
+}
