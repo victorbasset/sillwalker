@@ -1062,4 +1062,5 @@ export default {
   2186: "not learned yet (zone {0})",
   2187: "{0}: cooldown −10%!",
   2188: "Your companion casts theirs too, at half power.",
+  2189: "Cast {n} spell|Cast {n} spells",
 };

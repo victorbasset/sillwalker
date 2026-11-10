@@ -1062,4 +1062,5 @@ export default {
   2186: "jeszcze nie poznane (strefa {0})",
   2187: "{0}: odnowienie −10%!",
   2188: "Twój towarzysz też rzuca swoje, z połową mocy.",
+  2189: "Rzuć {n} zaklęcie|Rzuć {n} zaklęcia|Rzuć {n} zaklęć",
 };

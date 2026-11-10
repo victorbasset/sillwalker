@@ -1062,4 +1062,5 @@ export default {
   2186: "noch nicht gelernt (Zone {0})",
   2187: "{0}: Abklingzeit −10 %!",
   2188: "Dein Begleiter wirkt auch seine, mit halber Stärke.",
+  2189: "{n} Zauber wirken|{n} Zauber wirken",
 };

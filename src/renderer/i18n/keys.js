@@ -2190,5 +2190,6 @@ export const KEYS = [
   "Les icônes des onglets restent visibles sur les petits écrans ; nouveau succès « Grimoire complet ».",
   "pas encore appris (zone {0})",
   "{0} : recharge −10 % !",
-  "Ton compagnon lance aussi les siens, à moitié de leur puissance."
+  "Ton compagnon lance aussi les siens, à moitié de leur puissance.",
+  "Lancer {n} sort|Lancer {n} sorts"
 ];

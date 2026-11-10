@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 515) : quête « Lancer N sorts » (15 à 30, or + potion, parfois un œuf), proposée seulement si le
+  héros a appris un sort ; icône d'éclair ; chaque sort lancé (héros ou compagnon) compte. Traduit (3 pluriels ru/pl) ;
+  test logique ; save-fuzz et fuzz ok. 176 tests ; 125/125.
 - 2026-11-10 (it. 514) : simulate.js PARTNER_SPELLS=1 (le compagnon a les rangs de sorts du héros : pire cas des
   sorts du compagnon). 12 h, 3 graines : guerrier 59,3 → 60,3 ; mage 60 → 58,7 ; nécromancien 55 → 60 ; barde 60,3 →
   60,7 (≈ +1,2 zone en moyenne) : effet modeste, moitié de puissance gardée. Noté dans CLAUDE.md. 125/125.

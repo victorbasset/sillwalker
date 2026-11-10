@@ -453,6 +453,7 @@ export class Game {
       R.spellT[key] = spellCd(sp, r);
       const partner = !!pre;
       S.stats.spells = (+S.stats.spells || 0) + 1; // statistique et succès « Mage de bataille »
+      this.questProgress("spell", 1); // quête « Lancer N sorts »
       const v = spellValue(sp, r) * pow;
       if (sp.kind === "heal") { const a = Math.min(hs.hp - R.hp, hs.hp * v / 100); if (a > 0) R.hp += a; this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: Math.max(0, a), partner }); continue; }
       if (sp.kind === "shield") { const a = hs.hp * v / 100; R.shield = Math.max(R.shield || 0, a); this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: a, partner }); continue; }

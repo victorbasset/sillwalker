@@ -2462,6 +2462,17 @@ test("Duo : le compagnon lance les sorts appris pour sa classe, à moitié de le
   assert.ok(!seen.some((x) => x.id === "ranger.0"), "sans compagnon : rien");
 });
 
+test("Quête « Lancer N sorts » : seulement avec un sort appris ; chaque sort lancé compte", () => {
+  const g = new Game(freshState()); g.setClass("warrior"); g.S.best = 30;
+  const kinds = () => new Set(Array.from({ length: 400 }, (_, i) => makeQuest(g.S, i).kind));
+  assert.ok(!kinds().has("spell"), "aucun sort appris : pas de quête de sorts");
+  g.S.spells = { "warrior.0": 1 }; assert.ok(kinds().has("spell"), "un sort appris : la quête peut sortir");
+  const q = makeQuest(g.S, 999); q.kind = "spell"; q.goal = 2; q.progress = 0; g.S.quests.slots = [q];
+  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.spellT = { "warrior.0": 0 };
+  g.castSpells(g.R.mon, g.stats(), 0.1);
+  assert.equal(g.S.quests.slots[0].progress, 1, "un sort lancé : +1");
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));

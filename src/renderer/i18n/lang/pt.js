@@ -1062,4 +1062,5 @@ export default {
   2186: "ainda não aprendido (zona {0})",
   2187: "{0}: recarga −10%!",
   2188: "Seu companheiro também lança os dele, com metade da potência.",
+  2189: "Lançar {n} feitiço|Lançar {n} feitiços",
 };

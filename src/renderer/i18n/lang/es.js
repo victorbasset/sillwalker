@@ -1062,4 +1062,5 @@ export default {
   2186: "aún no aprendido (zona {0})",
   2187: "{0}: ¡recarga −10 %!",
   2188: "Tu compañero también lanza los suyos, a la mitad de potencia.",
+  2189: "Lanzar {n} hechizo|Lanzar {n} hechizos",
 };

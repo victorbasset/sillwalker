@@ -6,7 +6,7 @@ import { CONSUMABLES } from "../../game/shop.js";
 import { RARITIES } from "../../game/data.js";
 import { describeEffects } from "../../game/talents.js";
 import { fmt, esc } from "../../game/format.js";
-import { shopIconURL } from "../../render/shopart.js";
+import { shopIconURL, spellIconURL } from "../../render/shopart.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
@@ -20,6 +20,7 @@ const KIND_ICON = {
   loot: () => itemIconURL({ icon: "ring", slot: "ring", r: 2 }), // butin rare ou mieux
   event: () => shopIconURL("star", 4), // événements rares
   tap: () => itemIconURL({ icon: "gauntlet", slot: "gloves", r: 2 }), // coups au clic : la main du joueur
+  spell: () => spellIconURL("bolt", "#8fd0ff", 2), // sorts lancés : l'éclair
   crit: () => itemIconURL({ icon: "dagger", slot: "weapon", r: 3 }), // coups critiques : la lame qui frappe juste
 };
 
