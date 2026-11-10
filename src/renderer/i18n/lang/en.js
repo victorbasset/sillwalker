@@ -1082,4 +1082,5 @@ export default {
   2206: "Music: deserts get their eastern colour; every setting keeps its own in all languages.",
   2207: "mastered",
   2208: "Mute / unmute music",
+  2209: "pierces {n} enemy: {0}%|pierces {n} enemies: {0}%, then less",
 };

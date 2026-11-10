@@ -1082,4 +1082,5 @@ export default {
   2206: "Música: los desiertos tienen su color oriental; cada escenario conserva el suyo en todos los idiomas.",
   2207: "dominado",
   2208: "Silenciar / activar la música",
+  2209: "atraviesa {n} enemigo: {0} %|atraviesa {n} enemigos: {0} %, luego menos",
 };

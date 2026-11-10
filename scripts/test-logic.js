@@ -7,7 +7,7 @@ import path from "node:path";
 import { createRequire } from "node:module";
 import * as M_news_js from "../src/renderer/game/news.js";
 import * as M_spells_js from "../src/renderer/game/spells.js";
-import { SPELL_INDEX as SPELL_INDEX_T, spellCd } from "../src/renderer/game/spells.js";
+import { SPELL_INDEX as SPELL_INDEX_T, spellCd, pierceTargets } from "../src/renderer/game/spells.js";
 import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
@@ -710,10 +710,11 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   const hp0 = g.R.mon.hp; g.castSpells(g.R.mon, g.stats(), 0.1);
   assert.equal(cast, 1, "sort lancé"); assert.equal(g.S.stats.spells, 1, "statistique des sorts lancés"); assert.ok(g.R.mon.hp < hp0, "dégâts du sort"); assert.ok(g.R.spellT["warrior.0"] === spellCd(SPELL_INDEX_T["warrior.0"], SPELL_MAX), "recharge relancée (rang 50 : moitié)");
   // Perçant (demande H) : le Tourbillon (lames) met de côté 50 % de ses dégâts pour le monstre suivant
-  assert.ok(g.R.pierce > 0, "dégâts perçants en réserve");
-  const reserve = g.R.pierce; g.R.mon = null; g.R.mode = "walk"; g.R.spawnT = 0; g.step(0.05);
+  // (demande R : la file est frappée tout de suite ; au rang 50, six monstres)
+  const nextSlot = g.lineup()[g.S.kills + 1]; assert.ok(nextSlot.pierced > 0, "dégâts perçants sur le suivant de la file");
+  const reserve = nextSlot.pierced; g.S.kills += 1; g.R.mon = null; g.R.mode = "walk"; g.R.spawnT = 0; g.step(0.05);
   assert.ok(g.R.mon && g.R.mon.hp < g.R.mon.max && g.R.mon.hp >= 1, "le suivant arrive blessé, jamais mort d'office");
-  assert.ok(g.R.mon.max - g.R.mon.hp <= reserve + 1e-6 && g.R.pierce === 0, "réserve consommée");
+  assert.ok(g.R.mon.max - g.R.mon.hp <= reserve + 1e-6 && nextSlot.pierced === 0, "réserve consommée");
   // Soin (rôdeur) et bouclier (guerrier)
   const h = new Game(freshState()); h.S.cls = "ranger"; h.S.best = h.S.zone = 60; h.S.spells = { "ranger.1": 1 }; const hs = h.stats();
   h.R.mon = h.makeMonster(false); h.R.mon.hp = 1e15; h.R.hp = hs.hp * 0.5; h.R.spellT = { "ranger.1": 0 };
@@ -2443,15 +2444,25 @@ test("journal : repart à zéro quand la langue change, jamais pour une ancienne
   assert.equal(m.logLang, "en", "langue du journal conservée dans la sauvegarde");
 });
 
-test("Sort perçant (demande L) : le monstre suivant est frappé à son arrivée, l'événement porte le sort", () => {
-  const g = new Game(freshState()); g.setClass("paladin");
-  g.R.mode = "walk"; g.R.mon = null; g.R.spawnT = 0.01; g.R.pierce = 50; g.R.pierceId = "paladin.0";
-  let ev = null; g.on("pierced", (e) => { ev = e; });
-  g.advance(0.05);
-  assert.ok(g.R.mon, "monstre suivant apparu");
-  assert.ok(ev && ev.id === "paladin.0" && ev.dmg > 0 && ev.mon === g.R.mon, "événement pierced avec le sort et les dégâts");
-  assert.ok(g.R.mon.hp >= 1 && g.R.mon.hp < g.R.mon.max, "monstre blessé mais vivant");
-  assert.equal(g.R.pierce, 0, "réserve perçante vidée");
+test("Sort perçant (demandes L et R) : la file est frappée tout de suite, plus de cibles avec le rang, arrivée blessée", () => {
+  const g = new Game(freshState()); g.setClass("paladin"); g.S.kills = 0;
+  const line = g.lineup(); line.forEach((x) => { x.pierced = 0; });
+  const seen = []; g.on("pierced", (e) => seen.push(e));
+  g.S.spells = { "paladin.0": 1 };
+  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.spellT = { "paladin.0": 0 };
+  g.castSpells(g.R.mon, g.stats(), 0.1);
+  assert.equal(seen.length, 1, "rang 1 : un monstre traversé");
+  assert.ok(seen[0].slot === 1 && seen[0].id === "paladin.0" && seen[0].dmg > 0, "tout de suite, sur le suivant de la file");
+  assert.ok(line[1].pierced > 0 && !(line[2].pierced > 0), "dégâts gardés sur sa place");
+  // rang 20 : trois monstres, dégâts décroissants
+  seen.length = 0; g.S.spells["paladin.0"] = 20; g.R.spellT = { "paladin.0": 0 }; g.castSpells(g.R.mon, g.stats(), 0.1);
+  assert.equal(pierceTargets(20), 3); assert.deepEqual(seen.map((e) => e.slot), [1, 2, 3], "rang 20 : trois monstres");
+  assert.ok(seen[1].dmg < seen[0].dmg && seen[2].dmg < seen[1].dmg, "de moins en moins");
+  // arrivée : le monstre 1 apparaît blessé mais vivant, sa réserve est vidée
+  g.S.kills = 1; g.R.mode = "walk"; g.R.mon = null; g.R.spawnT = 0.01; g.advance(0.05);
+  assert.ok(g.R.mon && g.R.mon.hp >= 1 && g.R.mon.hp < g.R.mon.max, "arrive blessé, vivant");
+  assert.equal(line[1].pierced, 0, "réserve vidée");
+  assert.ok(g.slotHealth(2) < 1, "barre de la file entamée");
 });
 
 test("Duo : le compagnon lance les sorts appris pour sa classe, à moitié de leur puissance", () => {

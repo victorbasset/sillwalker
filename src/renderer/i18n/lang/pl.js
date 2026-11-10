@@ -1082,4 +1082,5 @@ export default {
   2206: "Muzyka: pustynie mają orientalny koloryt; każda sceneria zachowuje swój we wszystkich językach.",
   2207: "opanowane",
   2208: "Wyłącz / włącz muzykę",
+  2209: "przebija {n} wroga: {0}%|przebija {n} wrogów: {0}%, potem mniej|przebija {n} wrogów: {0}%, potem mniej",
 };

@@ -49,6 +49,11 @@ export const SPELL_INDEX = Object.fromEntries(SPELLS.map((s) => [s.id, s]));
 /** Sorts d'un héros (liste vide pour un héros inconnu). */
 export const classSpells = (cls) => SPELLS.filter((s) => s.cls === cls);
 
+/** Perçage (demande R de Victor, it. 547) : nombre de monstres traversés au rang r (1, puis +1 tous les 10 rangs) ;
+ *  chaque monstre suivant en prend PIERCE_FALLOFF de moins. */
+export const pierceTargets = (r) => 1 + Math.floor(Math.max(0, r) / 10);
+export const PIERCE_FALLOFF = 0.7;
+
 /** Puissance des sorts lancés par le compagnon du duo (it. 513) : la moitié. */
 export const PARTNER_SPELL = 0.5;
 

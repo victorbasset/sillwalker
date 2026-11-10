@@ -45,7 +45,7 @@ import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS } fr
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
-import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, PARTNER_SPELL } from "./spells.js";
+import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, PARTNER_SPELL, pierceTargets, PIERCE_FALLOFF } from "./spells.js";
 import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock, recordZone } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
@@ -232,8 +232,9 @@ export class Game {
         R.spawnT -= dt * this.moveMul();
         if (R.spawnT <= 0) {
           R.mon = this.makeMonster(this.S.kills >= KILLS_PER_ZONE);
-          // Sort perçant (demande H) : les dégâts qui ont traversé le monstre précédent frappent celui-ci en arrivant.
-          if (R.pierce > 0) { const d = Math.min(R.pierce, R.mon.hp - 1); R.mon.hp -= d; R.pierce = 0; if (d > 0) this.emit("pierced", { mon: R.mon, dmg: d, id: R.pierceId }); }
+          // Sort perçant (demandes H et R) : ce monstre a déjà été frappé dans la file ; il arrive blessé (jamais tué).
+          const slot = !R.mon.boss && this.lineup()[this.S.kills];
+          if (slot && slot.pierced > 0) { R.mon.hp -= Math.min(slot.pierced, R.mon.hp - 1); slot.pierced = 0; }
           this.emit("spawn", R.mon);
           if (R.mon.boss) this.charmSwap(R.mon);
         }
@@ -467,11 +468,32 @@ export class Game {
       }
       // Record du plus gros sort (Statistiques)
       if (total > (+S.stats.bestSpell || 0)) S.stats.bestSpell = total;
-      if (sp.pierce) { R.pierce = (R.pierce || 0) + total * sp.pierce; R.pierceId = sp.id; } // transperce : le suivant prendra sa part
+      // Transperce (demande R) : les monstres suivants de la file sont frappés tout de suite.
+      if (sp.pierce) this.pierceAhead(sp, r, total * sp.pierce);
       this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce, partner });
       if (m.hp <= 0) { this.killMonster(); return true; }
     }
     return false;
+  }
+
+  /** Part de vie restante d'un monstre de la file (barre de la bande après un perçage ; estimation : PV de base). */
+  slotHealth(i) {
+    const s = this.lineup()[i]; if (!s || !(s.pierced > 0)) return 1;
+    const max = monsterBase(this.S.zone, false, s.type, s.elite, !!s.champion).hp;
+    return max > 0 ? Math.max(0.02, 1 - s.pierced / max) : 1;
+  }
+
+  /** Perçage : dégâts sur les monstres qui attendent dans la file (gardés sur leur place, appliqués à leur arrivée,
+   *  jamais mortels) ; un signal par monstre touché pour la bande (le trait et le nombre s'affichent sur eux). */
+  pierceAhead(sp, r, dmg) {
+    const line = this.lineup(), n = pierceTargets(r);
+    for (let k = 1; k <= n; k++) {
+      const i = this.S.kills + k;
+      if (i >= line.length || dmg <= 0) break; // jamais le boss (il n'est pas dans la file)
+      line[i].pierced = (line[i].pierced || 0) + dmg;
+      this.emit("pierced", { id: sp.id, dmg, slot: i, k });
+      dmg *= PIERCE_FALLOFF;
+    }
   }
 
   /** Sort : apprendre (rang 1) ou améliorer, si la zone record le permet et qu'il y a l'or. */

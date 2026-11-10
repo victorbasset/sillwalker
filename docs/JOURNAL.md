@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 547, demande R de Victor) : perçage refait : au lancer, les monstres suivants de la FILE (visibles sur
+  la bande) sont frappés tout de suite (game.pierceAhead : dégâts gardés sur leur place, appliqués à leur arrivée, jamais
+  mortels) ; nombre de cibles = 1 + rang/10 (6 au rang 50), ×0,7 de dégâts d'une cible à la suivante ; jamais le boss.
+  Bande : trait du monstre combattu jusqu'à chaque cible, anneau, « -X · transpercé » sur elle et sa barre de vie
+  entamée (slotHealth). Carte : « transperce N ennemis : X %, puis moins ». Tests réécrits ; balance +0,1 ; fuzz 800 ok ;
+  capture ; aucun défilement. 130/130.
 - 2026-11-10 (it. 546) : menu de l'icône (clic droit) : case « Musique » (commandes music:on / music:off ; l'état
   suit la touche B et les Réglages). Traduit (main/i18n.js) ; autotest « menu de l'icône : case Musique ». 130/130.
 - 2026-11-10 (it. 545) : capture du sort maîtrisé (« ★ maîtrisé », recharge 3 s) : bonne. Touche B du panneau : couper /
@@ -1906,7 +1912,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
   Q. Sorts uniques pour chaque héros (pas de copies d'un héros à l'autre).
-  R. Perçage : appliqué dès l'impact (sans attendre que le héros arrive au monstre) ; traverse plusieurs ennemis selon
+  R. FAIT (it. 547). Perçage : appliqué dès l'impact (sans attendre que le héros arrive au monstre) ; traverse plusieurs ennemis selon
      le rang du sort.
   P. FAIT (it. 536). Garder cochées les ventes automatiques à l'ascension.
   O. FAIT (it. 521). Changer de musique toutes les 5 zones seulement.

@@ -1082,4 +1082,5 @@ export default {
   2206: "Musik: Wüsten klingen orientalisch; jede Kulisse behält ihre Farbe in allen Sprachen.",
   2207: "gemeistert",
   2208: "Musik aus / an",
+  2209: "durchbohrt {n} Gegner: {0} %|durchbohrt {n} Gegner: {0} %, dann weniger",
 };

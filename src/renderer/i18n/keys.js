@@ -2210,5 +2210,6 @@ export const KEYS = [
   "Réglages > Son : ◀ ▶ pour écouter l’air des autres zones (45 s).",
   "Musique : les déserts ont leur couleur orientale ; chaque décor garde la sienne dans toutes les langues.",
   "maîtrisé",
-  "Couper / rallumer la musique"
+  "Couper / rallumer la musique",
+  "transperce {n} ennemi : {0} %|transperce {n} ennemis : {0} %, puis moins"
 ];

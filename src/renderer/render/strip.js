@@ -156,18 +156,22 @@ export class StripRenderer {
       if (this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, sp.color, 10);
     });
     // Sort perçant (demande H) : le monstre suivant arrive déjà blessé.
-    // Demande de Victor (it. 498) : le trait perçant file droit sur le monstre qui arrive et le frappe (avant : un nombre
-    // apparaissait seul, loin du héros).
-    g.on("pierced", ({ dmg, id }) => {
-      if (!this.active) return;
-      const c = SPELL_INDEX[id]?.color || "#bfefff", hx = this.heroX + 16, mx = this.monX() + 14, fly = Math.max(0.12, Math.min(0.3, (mx - hx) / 900));
-      const n = el("div", "spellfx slash pierce", this.fxLayer); n.style.setProperty("--c", c); el("i", "", n); this.addFx(n, hx + 10, 48, fly, 0, mx - hx - 10);
+    // Perçage (demandes L et R) : au lancer, le trait file jusqu'à chaque monstre traversé de la file ; à l'impact, ses
+    // dégâts s'affichent sur lui et sa barre de vie entamée apparaît (il arrivera blessé).
+    g.on("pierced", ({ dmg, id, slot, k = 1 }) => {
+      if (!this.active || slot == null) return;
+      const c = SPELL_INDEX[id]?.color || "#bfefff", hx = this.monX() + 10, tx0 = this.fightX(slot + 1) + 14;
+      const fly = Math.max(0.1, Math.min(0.28, (tx0 - hx) / 900)), delay = 60 + (k - 1) * 90;
       setTimeout(() => {
         if (!this.active) return;
-        const x = this.monX() + 14;
-        if (this.juice.full) { const r = el("div", "spellfx ring", this.fxLayer); r.style.setProperty("--c", c); el("i", "", r); this.addFx(r, x - 8, this.ground - 26, 0.5, 0); this.juice.sparkles(x, this.ground - 26, c, 6); }
-        this.float(x, 30, "-" + fmt(Math.round(dmg)) + " · " + tx("transpercé"), "#bfefff", true, true);
-      }, fly * 1000);
+        const n = el("div", "spellfx slash pierce", this.fxLayer); n.style.setProperty("--c", c); el("i", "", n); this.addFx(n, hx, 48, fly, 0, Math.max(10, tx0 - hx));
+        setTimeout(() => {
+          if (!this.active) return;
+          if (this.juice.full) { const r = el("div", "spellfx ring", this.fxLayer); r.style.setProperty("--c", c); el("i", "", r); this.addFx(r, tx0 - 8, this.ground - 26, 0.5, 0); this.juice.sparkles(tx0, this.ground - 26, c, 5); }
+          if (this.game.S.settings.damageNumbers !== false) this.float(tx0, 30, "-" + fmt(Math.round(dmg)) + " · " + tx("transpercé"), "#bfefff", true, true);
+          const a = this.slots[slot]; if (a && a.bar) { a.bar.visible(true); a.bar.set(this.game.slotHealth(slot)); }
+        }, fly * 1000);
+      }, delay);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });
@@ -288,7 +292,6 @@ export class StripRenderer {
       if (full) fx("dome", hx - 30, G - 66, 0.9); if (full) this.juice.sparkles(hx, G - 30, "#bfefff", 7);
     }
     // Perçant : le trait continue sa course au-delà du monstre, vers le suivant.
-    if (sp.pierce) later(tpl === "bolt" ? 80 : 240, () => fx(tpl === "bolt" ? "slash pierce" : "slash", mx + 10, 48, 0.35, 0, 200));
     if (dmg > 0 && this.game.S.settings.damageNumbers !== false) later(tpl === "meteor" ? 380 : tpl === "fire" ? 270 : 0, () => this.float(mx, 26, "-" + fmt(Math.round(dmg)), c, true, true));
   }
 
