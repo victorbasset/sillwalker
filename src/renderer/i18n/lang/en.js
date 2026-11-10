@@ -925,4 +925,5 @@ export default {
   2049: "Sort the bag: upgrades, then rarity, then level",
   2050: "Sort the bag",
   2051: "Show shortcuts",
+  2052: "Land {n} critical hit|Land {n} critical hits",
 };

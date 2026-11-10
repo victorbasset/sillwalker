@@ -3,7 +3,7 @@
 // alors sa place. Les objectifs et récompenses suivent la progression.
 import { t as tx, txn, getLang } from "../i18n/index.js";
 import { MONSTERS, ELITE } from "./data.js";
-import { zoneDef } from "./rules.js";
+import { zoneDef, heroStats } from "./rules.js";
 import { rand, pick } from "./util.js";
 import { eggsAllowed, fixQuestEgg } from "./tabs.js";
 
@@ -73,12 +73,17 @@ export const QUEST_TEMPLATES = {
     text: (q) => txn(q.goal, "Frapper {n} fois au clic|Frapper {n} fois au clic"),
     make: (S) => ({ goal: randInt(4, 8) * 5, reward: { gold: Math.round(goldScale(S) * 70), potions: 2 } }),
   },
+  crit: { // coups critiques : pour les héros qui en portent assez (sinon elle traînerait)
+    ok: (S) => heroStats(S, S.equip, { buffs: false }).crit >= 8,
+    text: (q) => txn(q.goal, "Porter {n} coup critique|Porter {n} coups critiques"),
+    make: (S) => ({ goal: randInt(4, 8) * 10, reward: { gold: Math.round(goldScale(S) * 80), potions: 1, egg: rand() < 0.15 } }),
+  },
   zone: {
     text: (q) => `${tx("Atteindre la zone {0}", { 0: q.goal })}`,
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

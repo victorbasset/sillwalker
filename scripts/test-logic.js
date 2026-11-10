@@ -2048,6 +2048,12 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.match(M_quests_js.QUEST_TEMPLATES.tap.text({ goal: 20 }), /20/);
     assert.ok(!M_quests_js.QUEST_TEMPLATES.tap.ok(freshState()), "pas proposée à qui n'a jamais cliqué");
     assert.ok(M_quests_js.QUEST_TEMPLATES.tap.ok(gt.S), "proposée après des coups au clic");
+    // Quête « Coups critiques » : chaque critique compte (Œil du faucon : critiques garantis)
+    const gc = new Game(freshState()); gc.S.quests.slots = [{ uid: 8, kind: "crit", goal: 2, progress: 0, stars: 1, reward: { gold: 1 } }];
+    const mc = gc.makeMonster(false); mc.hp = mc.max = 1e12; gc.R.events.hawkeye = 5;
+    const hsc = heroStats(gc.S); gc.heroStrike(mc, hsc, false, false); gc.heroStrike(mc, hsc, false, false);
+    assert.equal(gc.S.quests.slots[0].progress, 2, "2 critiques comptés");
+    assert.match(M_quests_js.QUEST_TEMPLATES.crit.text({ goal: 40 }), /40/);
     // Sac rangé : rareté décroissante (sans amélioration en jeu ici)
     const gb = new Game(freshState()); gb.S.bag = [0, 3, 1, 4, 2].map((r) => { const it = gb.newItem(r); it.r = r; return it; });
     gb.isUpgrade = () => false; gb.sortBag();

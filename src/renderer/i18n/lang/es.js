@@ -925,4 +925,5 @@ export default {
   2049: "Ordenar la bolsa: mejoras, luego rareza, luego nivel",
   2050: "Ordenar la bolsa",
   2051: "Ver los atajos",
+  2052: "Asestar {n} golpe crítico|Asestar {n} golpes críticos",
 };

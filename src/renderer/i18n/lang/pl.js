@@ -925,4 +925,5 @@ export default {
   2049: "Uporządkuj torbę: ulepszenia, potem rzadkość, potem poziom",
   2050: "Uporządkuj torbę",
   2051: "Pokaż skróty",
+  2052: "Zadaj {n} cios krytyczny|Zadaj {n} ciosy krytyczne|Zadaj {n} ciosów krytycznych",
 };

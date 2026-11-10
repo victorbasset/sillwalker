@@ -454,6 +454,7 @@ export class Game {
     if (hs.poison > 0) { m.poisonStacks = Math.min(5, (m.poisonStacks || 0) + 1); m.poisonT = 4; }
     if (hs.lifesteal > 0 && !(this.R.cursed > 0)) this.R.hp = Math.min(hs.hp, this.R.hp + dmg * hs.lifesteal / 100);
     if (hs.burn > 0) { m.burnDps = hs.atk * hs.burn / 100; m.burnT = BURN_TIME; }
+    if (crit) this.questProgress("crit", 1);
     this.emit("heroAttack", { dmg, crit, mon: m, extra, iai, first: first && hs.firstStrike > 0 });
   }
 

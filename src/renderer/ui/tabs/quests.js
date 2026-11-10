@@ -20,6 +20,7 @@ const KIND_ICON = {
   loot: () => itemIconURL({ icon: "ring", slot: "ring", r: 2 }), // butin rare ou mieux
   event: () => shopIconURL("star", 4), // événements rares
   tap: () => itemIconURL({ icon: "gauntlet", slot: "gloves", r: 2 }), // coups au clic : la main du joueur
+  crit: () => itemIconURL({ icon: "dagger", slot: "weapon", r: 3 }), // coups critiques : la lame qui frappe juste
 };
 
 function rewardHTML(rw) {

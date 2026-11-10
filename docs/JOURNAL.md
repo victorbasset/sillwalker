@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 423) : nouvelle quête « Porter {n} coups critiques » (40 à 80 × étoiles ; or, potion, parfois un œuf),
+  proposée seulement si le héros a au moins 8 % de critique hors élixirs (5 % de base pour la plupart : il faut
+  l'équipement ou les talents), icône de dague. Traduite (9 langues, i18n-check 0), test logique ; simulation 12 h
+  assassin : 14 quêtes de critiques réclamées. 119/119.
 - 2026-11-10 (it. 422) : autotest : la bulle « Nouvelle chronique » (événement chronicle émis) ouvre au clic la fenêtre
   Chroniques, sans déplier la section. 119/119.
 - 2026-11-10 (it. 421) : bulle « Nouvelle chronique » : son clic dépliait encore la section Chroniques sur place (défilement

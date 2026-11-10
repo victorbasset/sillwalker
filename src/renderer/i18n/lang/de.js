@@ -925,4 +925,5 @@ export default {
   2049: "Tasche sortieren: Verbesserungen, dann Seltenheit, dann Stufe",
   2050: "Tasche sortieren",
   2051: "Tastenkürzel anzeigen",
+  2052: "{n} kritischen Treffer landen|{n} kritische Treffer landen",
 };

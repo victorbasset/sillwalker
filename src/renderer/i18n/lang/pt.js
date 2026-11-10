@@ -925,4 +925,5 @@ export default {
   2049: "Organizar a bolsa: melhorias, depois raridade, depois nível",
   2050: "Organizar a bolsa",
   2051: "Ver os atalhos",
+  2052: "Acertar {n} golpe crítico|Acertar {n} golpes críticos",
 };
