@@ -170,6 +170,8 @@ function start() {
             P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
+          // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)
+          { P.setTab("class"); P.tabs.class.sec = "style"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("sorts=" + o); P.tabs.class.sec = "freed"; }
           P.kept.clear(); P.setTab("adventure"); P.renderAll();
           for (const k of ["hero-todo", "hero-chron", "hero-stats", "rates"]) {
             const d = document.querySelector("[data-keep=" + k + "]"); if (!d) continue; d.querySelector("summary").click();

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 481) : contrôles des sorts : autotest « sorts : trois cartes, « Apprendre » donne le rang 1 »
+  (sous-onglet Sorts et attaque, état rétabli après) ; --overflow-report mesure aussi Héros > Sorts et attaque :
+  lang-overflow fr / de / ru / pl / pt / es à 1366 et 1280 : aucun défilement. 123/123.
 - 2026-11-10 (it. 480, revue générale) : simulations 12 h : guerrier 59, prêtresse 55, artificière 58 ; la prêtresse
   vérifiée (graines 1-3 : 59, 59, 60 ; balance contre l'avant-sorts 5ed1c8d : 60 = 60) : bruit. Fuzz 1200 parties,
   0 bloquée ; crawl 315 clics sans erreur (copie riche en or) ; russe : aucun mot latin suspect ; save-fuzz ok ;
