@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 451, bon voisin) : quand la bande est cachée (jeu ou vidéo en plein écran, mode icône seule, session
+  verrouillée : signal visibility false), musique et effets continuaient. Sound.setPaused : contexte audio suspendu,
+  aucun nouveau son ; reprise quand la bande revient (setVisible). Essai en jeu : suspended puis running. 121/121.
 - 2026-11-10 (it. 450, revue générale) : simulations 12 h (voie prise) : rôdeur 59, chaman 63, artificière 62 ; crawl
   312 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; perf : bande 18,9 %, panneau 21,4 %,
   mini 6,0 %, icône 3,1 % (stables).

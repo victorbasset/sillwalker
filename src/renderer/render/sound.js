@@ -48,7 +48,7 @@ export class Sound {
 
   /** Contexte audio, même effets coupés (la musique en a besoin) ; null si tout est coupé (bouton haut-parleur). */
   audio() {
-    if (this.muted) return null;
+    if (this.muted || this.paused) return null; // paused : bande cachée (plein écran, icône seule, session verrouillée)
     if (!this.ctx) {
       this.ctx = new AudioContext();
       this.master = this.ctx.createGain();
@@ -57,6 +57,14 @@ export class Sound {
     }
     if (this.ctx.state === "suspended") this.ctx.resume();
     return this.ctx;
+  }
+
+  /** Bande cachée (jeu ou vidéo en plein écran, mode icône seule, session verrouillée) : silence total, musique
+   *  comprise (contexte audio suspendu) ; tout reprend quand la bande revient. */
+  setPaused(paused) {
+    this.paused = !!paused;
+    if (!this.ctx) return;
+    if (this.paused) this.ctx.suspend(); else if (!this.muted) this.ctx.resume();
   }
 
   /** Limite : au plus un son de ce type toutes les `ms` millisecondes. */
