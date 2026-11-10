@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 454, son de gestion, suite) : signaux spent (dans pay : tout achat) et learned (learnTalent,
+  takeSkill) ; sons : achat = « tchic » de caisse et deux notes qui descendent (au plus toutes les 250 ms : achats
+  automatiques et rattrapage hors ligne discrets), point de talent / compétence = petit déclic qui monte (au plus
+  toutes les 90 ms). Ajoutés au contrôle du son de l'autotest. 122/122.
 - 2026-11-10 (it. 453, son de gestion) : nouveaux signaux equipped (rareté) et soldOne (vente à la main) dans game.js ;
   sons : équiper = cliquetis (bruit filtré, choc grave, tintement plus brillant selon la rareté, au plus toutes les
   120 ms : « équiper le meilleur » ne crépite pas), vendre = deux pièces, vente groupée (aussi automatique) = petite

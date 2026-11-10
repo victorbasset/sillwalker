@@ -1122,6 +1122,7 @@ export class Game {
     }
     if (done) {
       this.invalidateStats();
+      this.emit("learned", { n: done }); // son : déclic de talent
       const t = TALENT_INDEX[id].talent;
       if (t.tier === 3) this.log(tx("Talent ultime débloqué : ") + t.name + fsp() + "!");
       this.changed();
@@ -1175,6 +1176,7 @@ export class Game {
     if (this.S.gold < price) return false;
     this.S.gold -= price;
     this.S.stats.purchases++;
+    this.emit("spent", { price }); // son : achat (caisse)
     return true;
   }
 
@@ -1832,6 +1834,7 @@ export class Game {
     if (!canTakeSkill(this.S, id)) return false;
     this.S.skills.order.push(id);
     this.invalidateStats();
+    this.emit("learned", { n: 1, skill: true }); // son : déclic de compétence
     const n = SKILL_TREE.nodes[id];
     if (n.kind === "keystone") this.log(tx("Clé de voûte : ") + n.name + fsp() + "!");
     this.changed();
