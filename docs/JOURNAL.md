@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 486) : le Grimoire des sorts (it. 485) freinait la fin de partie : à chaque victoire, jusqu'à 5 rangs
+  à 10 % de l'or chacun : l'or ne s'accumulait plus (semaine mage : plafond 155 au lieu de 176-179). Désormais au plus
+  une fois par minute de jeu et 3 rangs (le rythme de la simulation) : semaine 38 → 182, régulière ; balance 12 h
+  +0,2 ; fuzz 1200 parties, 0 bloquée. Test logique (une fois par minute). 123/123.
 - 2026-11-10 (it. 485) : déblocage « Grimoire des sorts » (zone 45, 3e7 or, icône grimoire violette) : améliore tout
   seul le sort le moins cher du héros tant qu'il coûte moins d'un dixième de l'or (règle de la simulation : balance 12 h
   -0,7, bruit), au plus 5 rangs par victoire ; actif dès l'achat, case pour le couper (settings.autoSpells). Case (ou

@@ -728,7 +728,7 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   t.learnSpell("warrior.0"); const ht2 = nextHint(t); assert.ok(!ht2 || ht2.id !== "spell", "sort appris : plus d'astuce");
   // Grimoire des sorts : améliore tout seul le moins cher, sous un dixième de l'or ; coupé = rien
   const gb = new Game(freshState()); gb.S.cls = "warrior"; gb.S.best = gb.S.zone = 60; gb.S.unlocks.spellBook = true; gb.S.gold = 1e15;
-  assert.ok(gb.autoSpells() > 0 && Object.keys(gb.S.spells).length > 0, "Grimoire : rangs achetés");
+  assert.ok(gb.autoSpells() > 0 && Object.keys(gb.S.spells).length > 0, "Grimoire : rangs achetés"); assert.equal(gb.autoSpells(), 0, "au plus une fois par minute de jeu");
   const gb2 = new Game(freshState()); gb2.S.cls = "warrior"; gb2.S.best = gb2.S.zone = 60; gb2.S.unlocks.spellBook = true; gb2.S.gold = 1e15; gb2.S.settings.autoSpells = false;
   assert.equal(gb2.autoSpells(), 0, "Grimoire coupé : rien");
   // Ascension : gardés

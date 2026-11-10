@@ -107,7 +107,7 @@ export class ClassesTab {
   }
 
   onAction(a, b) {
-    if (a === "c-autospells") { this.game.S.settings.autoSpells = b.checked; if (b.checked) this.game.autoSpells(); this.game.changed(); return; }
+    if (a === "c-autospells") { this.game.S.settings.autoSpells = b.checked; if (b.checked) this.game.autoSpells({ force: true }); this.game.changed(); return; }
     if (a === "c-spell") { this.game.learnSpell(b.dataset.id); return; }
     if (a === "c-spellmax") { this.game.learnSpellMax(b.dataset.id); return; }
     if (a === "c-sec") this.sec = b.dataset.to;
