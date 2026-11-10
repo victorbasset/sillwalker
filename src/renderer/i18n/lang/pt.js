@@ -921,4 +921,5 @@ export default {
   2045: "Experiência ganha, para sempre.",
   2046: "Melhorias permanentes da loja (ataque, PV, ouro, experiência, velocidade).",
   2047: "O Raio",
+  2048: "Oficina: Biblioteca (experiência); constelação O Raio (velocidade de ataque); missão “Golpear com clique”.",
 };

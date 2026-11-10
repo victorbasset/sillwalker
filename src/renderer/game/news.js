@@ -14,6 +14,7 @@ export const NEWS_ITEMS = [
   "Événement Zèle, déblocage Porte-talisman et une 12e chronique : « Le serment maudit ».",
   "Chaque déblocage a sa propre icône ; les capacités des boss ont leur son.",
   "Familier Phalène pâle ; un boss annonce ses capacités en arrivant ; un coup de pouce si sa Malédiction te bloque.",
+  "Atelier : Bibliothèque (expérience) ; constellation L’Éclair (vitesse d’attaque) ; quête « Frapper au clic ».",
 ];
 
 /** Nouveautés à annoncer ? (pas pour une partie neuve : l'intro passe avant tout) */

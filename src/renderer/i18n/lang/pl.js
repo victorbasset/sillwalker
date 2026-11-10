@@ -921,4 +921,5 @@ export default {
   2045: "Zdobywane doświadczenie, na zawsze.",
   2046: "Stałe ulepszenia w sklepie (atak, PŻ, złoto, doświadczenie, szybkość).",
   2047: "Błyskawica",
+  2048: "Warsztat: Biblioteka (doświadczenie); konstelacja Błyskawica (szybkość ataku); zadanie „Uderzaj kliknięciem”.",
 };

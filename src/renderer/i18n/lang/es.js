@@ -921,4 +921,5 @@ export default {
   2045: "Experiencia obtenida, para siempre.",
   2046: "Mejoras permanentes de la tienda (ataque, PV, oro, experiencia, velocidad).",
   2047: "El Rayo",
+  2048: "Taller: Biblioteca (experiencia); constelación El Rayo (velocidad de ataque); misión «Golpear con clic».",
 };

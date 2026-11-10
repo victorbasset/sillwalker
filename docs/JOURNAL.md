@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 411) : « Quoi de neuf » : 12e ligne (Bibliothèque de l'Atelier, constellation L'Éclair, quête
+  « Frapper au clic ») ; lang-overflow : aucune fenêtre ni onglet ne défile dans les 10 langues à 1366 px. 1 texte ×
+  9 langues, 115/115.
 - 2026-11-10 (it. 410, revue générale) : simulations 12 h (Atelier acheté) : rôdeur 58, barde 60, gladiateur 63 ; crawl
   304 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; fuzz 1200 parties, 0 bloquée ; perf : bande
   19,0 %, panneau 21,1 %, mini 6,3 %, icône 2,8 % d'un cœur (stables).
