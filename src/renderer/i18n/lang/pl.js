@@ -1103,4 +1103,5 @@ export default {
   2227: "Efekty widać w walce; klawisz B lub menu ikony: wycisz tylko muzykę.",
   2228: "+{n} ranga zaklęcia|+{n} rangi zaklęć|+{n} rang zaklęć",
   2229: "Samo ulepsza najtańsze zaklęcie twojego bohatera lub jego towarzysza, dopóki kosztuje mniej niż jedną dziesiątą twojego złota (opcja).",
+  2230: "Zaklęcie towarzysza do nauki: {0}",
 };

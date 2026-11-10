@@ -9,6 +9,7 @@ const LABELS = {
   skills: (t) => txn(t.n, "{n} point de compétence à dépenser|{n} points de compétence à dépenser"),
   unlock: (t) => tx("Déblocage abordable : {0}", { 0: t.name }),
   spell: (t) => tx("Sort à apprendre : {0}", { 0: tr(t.name) }),
+  partnerSpell: (t) => tx("Sort du compagnon à apprendre : {0}", { 0: tr(t.name) }),
   eggs: (t) => txn(t.n, "{n} œuf à faire éclore|{n} œufs à faire éclore"),
   expeditions: (t) => txn(t.n, "{n} expédition terminée|{n} expéditions terminées"),
   merchant: () => tx("Le marchand propose une amélioration"),

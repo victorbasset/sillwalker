@@ -1103,4 +1103,5 @@ export default {
   2227: "Os efeitos aparecem em combate; tecla B ou menu do ícone: silenciar só a música.",
   2228: "+{n} nível de feitiço|+{n} níveis de feitiços",
   2229: "Melhora sozinho o feitiço mais barato do seu herói ou do companheiro dele, enquanto custar menos de um décimo do seu ouro (opção).",
+  2230: "Feitiço do companheiro para aprender: {0}",
 };

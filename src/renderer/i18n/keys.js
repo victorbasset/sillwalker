@@ -2231,5 +2231,6 @@ export const KEYS = [
   "Les sorts perçants frappent tout de suite les monstres qui attendent, et un de plus tous les 10 rangs.",
   "Les effets se voient en combat ; touche B ou menu de l’icône : couper la musique seule.",
   "+{n} rang de sort|+{n} rangs de sorts",
-  "Améliore tout seul le sort le moins cher de ton héros ou de son compagnon, tant qu’il coûte moins d’un dixième de ton or (option)."
+  "Améliore tout seul le sort le moins cher de ton héros ou de son compagnon, tant qu’il coûte moins d’un dixième de ton or (option).",
+  "Sort du compagnon à apprendre : {0}"
 ];

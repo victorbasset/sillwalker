@@ -2544,6 +2544,9 @@ test("Sorts du compagnon (it. 558) : appris depuis le héros actuel ; pas ceux d
   const g = new Game(freshState()); g.setClass("warrior"); g.S.partner = "ranger"; g.S.best = g.S.zone = 30; g.S.gold = 1e12;
   assert.ok(g.learnSpell("ranger.0") && g.S.spells["ranger.0"] === 1, "sort du compagnon appris");
   assert.ok(!g.learnSpell("mage.0"), "ni héros joué ni compagnon : refusé");
+  // « À faire » : sort du compagnon à apprendre, quand ceux du héros sont déjà appris
+  g.S.spells = { "warrior.0": 1, "warrior.1": 1, "warrior.2": 1 };
+  const td = g.todoNow().find((x) => x.id === "partnerSpell"); assert.ok(td && td.tab === "class" && td.sec === "style", "À faire : sort du compagnon");
 });
 
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {

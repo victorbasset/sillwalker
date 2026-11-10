@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 565) : « À faire » : « Sort du compagnon à apprendre : X » (débloqué, abordable, pas encore appris ;
+  quand le héros n'a plus de sort à apprendre) ; le lien ouvre Sorts et attaque. Traduit ; test logique. 130/130.
 - 2026-11-10 (it. 564) : journal : liste « À vérifier par Victor » remise en ordre (ligne orpheline de l'ancien point 7
   supprimée ; point 5 : édition 10).
 - 2026-11-10 (it. 563) : carte du héros (Aventure) : l'infobulle des icônes de sorts donne aussi leurs effets (comme
