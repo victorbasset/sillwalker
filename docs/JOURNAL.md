@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 334) : Nichée visible dans la bande : plumes de duvet crème qui descendent en se balançant autour
+  du héros (juice.js, .spark.nestdown), comme les pièces de la Pluie d'or. Capture, 107/107.
 - 2026-11-10 (it. 333, étude des concurrents d : variété) : nouvel événement « Nichée » (events.js > nest) : 30 s
   pendant lesquelles chaque victoire a 12 % de chances de laisser un œuf de familier ; seulement une fois l'onglet
   Familiers ouvert. 2 textes × 9 langues, test, fuzz 600 parties, 107/107.

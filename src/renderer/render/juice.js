@@ -430,6 +430,12 @@ export class Juice {
       node.style.background = Math.random() < 0.3 ? "#fff6c8" : "#c99bff";
       this.add(node, (p) => { this.place(node, x, -8 + p.t * 120); return p.t < 0.9; });
     }
+    // Nichée : plumes duveteuses qui descendent en se balançant autour du héros.
+    if ((E.nest || 0) > 0 && Math.random() < dt * 5) {
+      const node = el("div", "spark nestdown", this.layer), x = Math.max(0, Math.min(W - 10, this.s.heroX - 100 + Math.random() * 600)), ph = Math.random() * 6;
+      node.style.background = Math.random() < 0.4 ? "#fff3dc" : "#f0c987";
+      this.add(node, (p) => { this.place(node, x + Math.sin(ph + p.t * 7) * 10, -8 + p.t * 70); return p.t < 1.4; });
+    }
     const frenzy = (E.frenzy || 0) > 0;
     if (this.s.hero && this.s.hero.el.classList.contains("frenzy") !== frenzy) this.s.hero.el.classList.toggle("frenzy", frenzy);
     const hawk = (E.hawkeye || 0) > 0; // Œil du faucon : halo orangé (tous les coups critiques)
