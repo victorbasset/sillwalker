@@ -591,6 +591,9 @@ async function runSelfTest(strip) {
   // Touche C du panneau : coupe puis rallume le son (comme le haut-parleur).
   const keyC = await js("(() => { const P = window.__game.S.settings, keep = { s: P.sound, m: P.music, mu: P.muted }; P.sound = true; P.muted = false; window.__panel.onKey({ key: 'c', target: document.body }); const a = P.muted; window.__panel.onKey({ key: 'c', target: document.body }); const b = P.muted; Object.assign(P, { sound: keep.s, music: keep.m, muted: keep.mu }); return a + ' ' + b; })()");
   check("touche C : coupe puis rallume le son", keyC === "true false", keyC);
+  // Touche B (it. 545) : la musique seule, coupée puis rallumée.
+  const keyB = await js("(() => { const P = window.__game.S.settings, keep = P.music; P.music = true; window.__panel.onKey({ key: 'b', target: document.body }); const a = P.music; window.__panel.onKey({ key: 'b', target: document.body }); const b = P.music; P.music = keep; return a + ' ' + b; })()");
+  check("touche B : coupe puis rallume la musique", keyB === "false true", keyB);
   // Sorts (demande D) : sous-onglet « Sorts et attaque », trois cartes du héros, un clic sur « Apprendre » donne le rang 1.
   const spl = await js("(() => { const g = window.__game, S = g.S, P = window.__panel, keep = { sp: JSON.stringify(S.spells || {}), gold: S.gold }; S.spells = {}; S.gold = 1e30; P.setTab('class'); P.tabs.class.sec = 'style'; P.renderAll(); const cards = document.querySelectorAll('.spellcard').length; const b = document.querySelector('[data-action=c-spell]'); if (b) b.click(); const r = Object.values(S.spells || {})[0] || 0; S.spells = JSON.parse(keep.sp); S.gold = keep.gold; P.tabs.class.sec = 'freed'; P.renderAll(); return cards + ' ' + r; })()");
   check("sorts : trois cartes, « Apprendre » donne le rang 1", spl === "3 1", spl);

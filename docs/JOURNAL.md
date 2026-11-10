@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 545) : capture du sort maîtrisé (« ★ maîtrisé », recharge 3 s) : bonne. Touche B du panneau : couper /
+  rallumer la musique seule (C coupe tout) ; dans « Raccourcis clavier ». Traduit ; autotest « touche B ». 129/129.
 - 2026-11-10 (it. 544) : sort au rang maximal (50) : la carte affiche « ★ maîtrisé » (or des ornements) au lieu de
   « rang maximal » ; en combat, un éclat d'étoiles dorées autour du lanceur (Effets complets). Traduit. 128/128.
 - 2026-11-10 (it. 543) : --overflow-report (et lang-overflow) compte aussi les lignes de liste plus larges que leur

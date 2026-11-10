@@ -2209,5 +2209,6 @@ export const KEYS = [
   "Ascension : les ventes automatiques cochées le restent.",
   "Réglages > Son : ◀ ▶ pour écouter l’air des autres zones (45 s).",
   "Musique : les déserts ont leur couleur orientale ; chaque décor garde la sienne dans toutes les langues.",
-  "maîtrisé"
+  "maîtrisé",
+  "Couper / rallumer la musique"
 ];

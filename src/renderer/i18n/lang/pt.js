@@ -1081,4 +1081,5 @@ export default {
   2205: "Configurações > Som: ◀ ▶ para ouvir a melodia de outras zonas (45 s).",
   2206: "Música: os desertos têm sua cor oriental; cada cenário mantém a sua em todos os idiomas.",
   2207: "dominado",
+  2208: "Silenciar / ativar a música",
 };

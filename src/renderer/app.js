@@ -241,6 +241,8 @@ async function boot() {
   }
   $("#sound-btn").addEventListener("click", toggleSound);
   panel.onMute = () => toggleSound(); // touche C du panneau : comme le bouton haut-parleur
+  // Touche B (it. 545) : la musique seule, coupée ou rallumée (les effets restent).
+  panel.onMusicToggle = () => { const P = game.S.settings; P.music = P.music === false; applySettings(); syncSoundBtns(); panel.dirty = true; saveNow(); };
   $("#mini-sound").addEventListener("click", toggleSound);
   syncSoundBtns();
   game.on("change", syncSoundBtns);
