@@ -862,4 +862,8 @@ export default {
   1986: "Chronicler",
   1987: "A hero of the other range is free: form a duo! They will fight alongside your hero. Click here.",
   1988: "Star Anvil acquired! Click an item older than your record: “Raise to level” brings it up (very expensive). Click here.",
+  1989: "Firefly",
+  1990: "Keeps watch while you are away: time spent away counts for more.",
+  1991: "Starling",
+  1992: "A living star shard that chose to follow you. Rare.",
 };

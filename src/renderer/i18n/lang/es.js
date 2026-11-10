@@ -862,4 +862,8 @@ export default {
   1986: "Cronista",
   1987: "Hay libre un héroe del otro alcance: ¡forma un dúo! Luchará junto a tu héroe. Haz clic aquí.",
   1988: "¡Yunque estelar adquirido! Haz clic en un objeto más antiguo que tu récord: «Subir al nivel» lo mejora (muy caro). Haz clic aquí.",
+  1989: "Luciérnaga",
+  1990: "Vigila durante tu ausencia: el tiempo fuera cuenta más.",
+  1991: "Estrellín",
+  1992: "Un fragmento de estrella vivo que eligió seguirte. Raro.",
 };

@@ -862,4 +862,8 @@ export default {
   1986: "Kronikarz",
   1987: "Bohater o innym zasięgu jest wolny: utwórz duet! Będzie walczył u boku twojego bohatera. Kliknij tutaj.",
   1988: "Gwiezdne kowadło zdobyte! Kliknij przedmiot starszy niż twój rekord: „Podnieś do poziomu” go ulepszy (bardzo drogie). Kliknij tutaj.",
+  1989: "Świetlik",
+  1990: "Czuwa pod twoją nieobecność: czas z dala liczy się bardziej.",
+  1991: "Gwiazdek",
+  1992: "Żywy odłamek gwiazdy, który postanowił za tobą podążać. Rzadki.",
 };

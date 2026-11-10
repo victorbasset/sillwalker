@@ -862,4 +862,8 @@ export default {
   1986: "Chronist",
   1987: "Ein Held der anderen Reichweite ist frei: Bilde ein Duo! Er kämpft an der Seite deines Helden. Hier klicken.",
   1988: "Sternenamboss erworben! Klicke einen Gegenstand, der älter als dein Rekord ist: „Auf Stufe heben“ verbessert ihn (sehr teuer). Hier klicken.",
+  1989: "Glühwürmchen",
+  1990: "Wacht, während du fort bist: Abwesenheit zählt mehr.",
+  1991: "Sternling",
+  1992: "Ein lebender Sternensplitter, der dir folgen wollte. Selten.",
 };

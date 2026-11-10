@@ -308,6 +308,12 @@ export const PET_ART = {
   slimepet: { pal: { G: "#7ad870", L: "#c8f4b0", E: "#1a1a1a" }, frames: [
     [".........", "...GGG...", "..GLGGG..", ".GGEGEGG.", "GGGGGGGGG", "GGGGGGGGG"],
     ["...GGG...", "..GLGGG..", ".GGGGGGG.", ".GGEGEGG.", "GGGGGGGGG", ".GGGGGGG."]] },
+  firefly: { pal: { B: "#3a3a5a", W: "#cfe8ff", Y: "#ffe27a", E: "#1a1a1a" }, fly: true, frames: [
+    [".W.W...", "..WW...", "BBBBYY.", "EBBBYYY", ".B.B..."],
+    ["W...W..", ".WWW...", "BBBBYY.", "EBBBYYY", ".B.B..."]] },
+  starling: { pal: { Y: "#ffe27a", W: "#fff6c8", E: "#1a1a1a" }, fly: true, frames: [
+    ["...Y...", "...Y...", "YYYWYYY", ".YEWEY.", "..YYY..", ".Y...Y."],
+    ["...W...", "..YYY..", "YYWWWYY", ".YEWEY.", "..YYY..", "Y.....Y"]] },
   fairy: { pal: { P: "#ff9ad8", W: "#dff3ff", S: "#f1c7a0", Y: "#ffe27a" }, fly: true, frames: [
     ["W.....W", "WW.Y.WW", "WWSSSWW", ".WPPPW.", "..PPP..", "..P.P.."],
     [".......", ".W.Y.W.", "WWSSSWW", "WWPPPWW", "..PPP..", "..P.P.."]] },

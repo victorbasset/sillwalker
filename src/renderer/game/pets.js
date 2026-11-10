@@ -22,6 +22,9 @@ export const PETS = [
   { id: "slimepet", name: "Mini-gluant", desc: "Il colle aux talons et ramasse tout.",  eff: { gold: 2, drop: 2 } },
   { id: "squirrel", name: "Écureuil",  desc: "Cache des noisettes… et des pièces.",   eff: { gold: 2, xp: 2 } },
   { id: "phoenix", name: "Phénix",     desc: "Un oiseau de légende. Très rare.",       eff: { atkPct: 2, hpPct: 2, regen: 0.5 }, weight: 0.25 },
+  // Étude des concurrents (variété) : deux familiers de plus.
+  { id: "firefly", name: "Luciole",     desc: "Veille pendant ton absence : le temps passé loin compte davantage.", eff: { xp: 2, offline: 3 } },
+  { id: "starling", name: "Étoilon",    desc: "Un éclat d’étoile vivant qui a choisi de te suivre. Rare.", eff: { moveSpd: 1, crit: 0.5 }, weight: 0.4 },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

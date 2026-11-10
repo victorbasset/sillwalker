@@ -862,4 +862,8 @@ export default {
   1986: "Cronista",
   1987: "Um herói do outro alcance está livre: forme uma dupla! Ele lutará ao lado do seu herói. Clique aqui.",
   1988: "Bigorna estelar adquirida! Clique em um item mais antigo que seu recorde: “Elevar ao nível” o melhora (muito caro). Clique aqui.",
+  1989: "Vaga-lume",
+  1990: "Vigia durante sua ausência: o tempo fora conta mais.",
+  1991: "Estrelinha",
+  1992: "Um fragmento de estrela vivo que escolheu te seguir. Raro.",
 };

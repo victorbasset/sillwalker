@@ -1990,5 +1990,9 @@ export const KEYS = [
   "Les éclats que tu portes se mettent à murmurer. Ce sont les voix des étoiles éteintes : elles se souviennent du vrai nom du Briseur, celui qu’il portait avant de haïr le ciel.",
   "Chroniqueur",
   "Un héros de l’autre portée est libre : forme un duo ! Il combattra aux côtés de ton héros. Clique ici.",
-  "Enclume stellaire acquise ! Clique un objet plus ancien que ton record : « Mettre au niveau » le remonte (très cher). Clique ici."
+  "Enclume stellaire acquise ! Clique un objet plus ancien que ton record : « Mettre au niveau » le remonte (très cher). Clique ici.",
+  "Luciole",
+  "Veille pendant ton absence : le temps passé loin compte davantage.",
+  "Étoilon",
+  "Un éclat d’étoile vivant qui a choisi de te suivre. Rare."
 ];
