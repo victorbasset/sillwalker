@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 416) : les sections repliables de l'Aventure (À faire, Chroniques, Toutes les statistiques, Chances de
+  butin) faisaient défiler l'onglet une fois dépliées (92 à 465 px) : un clic sur leur titre les ouvre maintenant dans
+  la fenêtre large, listes sur deux colonnes (panel.showDetails, MODAL_DETAILS) ; leurs boutons et liens restent actifs
+  et referment la fenêtre ; ouvertes par le code (autotest), elles se déplient comme avant. Carte du héros : l'étiquette
+  du compagnon n'a plus le cadre de bouton et « niveau N » tient sur une ligne. lang-overflow fr / de / ru aux 3 largeurs :
+  aucun défilement. 117/117.
 - 2026-11-10 (it. 415) : la liste des raccourcis clavier, dépliée dans les Réglages, faisait défiler l'onglet (93 px à
   1920, 190 en russe à 1366). Remplacée par un bouton « Voir les raccourcis » qui ouvre une fenêtre large sur deux
   colonnes (panel.showKeys, comme « Quoi de neuf ») : sans défilement en russe à 1366. Traduction russe corrigée :

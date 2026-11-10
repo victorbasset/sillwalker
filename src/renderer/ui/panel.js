@@ -98,6 +98,9 @@ const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); retur
 // Repère de rareté en forme (pas seulement en couleur) : lisible pour les daltoniens.
 const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible sans les couleurs (daltonisme) : peu commun → légendaire
 
+/** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
+const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates"]);
+
 export class Panel {
   constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
     this.root = root;
@@ -169,6 +172,14 @@ export class Panel {
     // Curseurs : le pourcentage affiché suit le glissement (le réglage s'applique au relâchement).
     initHScroll(this.root);
     this.root.addEventListener("input", (e) => { const r = e.target; if (r.type === "range" && r.nextElementSibling) r.nextElementSibling.textContent = r.value + unit("%"); });
+    // Sections repliables de l'Aventure : dépliées sur place, elles faisaient défiler l'onglet (jusqu'à 465 px) ;
+    // un clic sur leur titre les ouvre dans la fenêtre large. Capture : avant que le <details> ne se déplie.
+    this.root.addEventListener("click", (e) => {
+      const s = e.target.closest && e.target.closest("summary"), d = s && s.parentElement;
+      if (!d || !MODAL_DETAILS.has(d.dataset.keep) || d.open) return;
+      e.preventDefault(); e.stopPropagation();
+      this.showDetails(d);
+    }, true);
     this.root.addEventListener("click", (e) => { if (!(e.detail === 2 && this.onDouble(e))) this.onClick(e); });
     this.watchDetails();
     this.watchTitles();
@@ -601,6 +612,17 @@ export class Panel {
 
   /** « Quoi de neuf » (game/news.js) : la liste des nouveautés dans la fenêtre modale. */
   /** Raccourcis clavier : fenêtre large sur deux colonnes (dépliée dans les Réglages, la liste faisait défiler l'onglet). */
+  /** Contenu d'une section repliable dans la fenêtre large (titre = son résumé). Un bouton ou lien dedans la referme. */
+  showDetails(d) {
+    const body = d.cloneNode(true); body.querySelector("summary")?.remove();
+    $(this.root, "#mt").textContent = d.querySelector("summary").textContent.trim();
+    const mb = $(this.root, "#mbody");
+    mb.innerHTML = `<div class="modalwide">${body.innerHTML}</div>`;
+    mb.firstElementChild.addEventListener("click", (e) => { if (e.target.closest("[data-tab], [data-action]")) $(this.root, "#modal").hidden = true; });
+    $(this.root, "#modal").hidden = false;
+    $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
+  }
+
   showKeys() {
     const K = [[tx("Changer d’onglet"), "1 … 9, 0, -, ="], [tx("Équiper le meilleur"), "E"], [tx("Vendre ce qui n’améliore pas"), "V"],
       [tx("Ranger le sac"), "S"], [tx("Transmuter les objets inutiles"), "T"], [tx("Réclamer une quête terminée (toutes avec le Bureau des contrats)"), "R"],

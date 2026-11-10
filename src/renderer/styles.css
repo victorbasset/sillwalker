@@ -1113,3 +1113,16 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .keylist { columns: 2; column-gap: 28px; }
 .keylist li { break-inside: avoid; }
 @media (max-width: 900px) { .keylist { columns: 1; } }
+/* Sections de l'Aventure ouvertes en fenêtre : large, listes sur deux colonnes. */
+#modal .panel:has(.modalwide) { max-width: 900px; }
+.modalwide .lines { columns: 2; column-gap: 28px; }
+.modalwide .lines li { break-inside: avoid; }
+@media (max-width: 900px) { .modalwide .lines { columns: 1; } }
+.modalwide ul { columns: 2; column-gap: 28px; }
+.modalwide ul li { break-inside: avoid; }
+@media (max-width: 900px) { .modalwide ul { columns: 1; } }
+/* Étiquette du compagnon dans le titre de la carte du héros : un lien discret, pas un bouton encadré. */
+.hname .duotag, .hname .duotag:hover { border: 0; border-image: none; box-shadow: none; background: none; padding: 0 2px; min-height: 0; width: auto; flex: none; white-space: nowrap; }
+.hname .duotag::before, .hname .duotag::after { display: none; }
+#p-hero > h2 small { white-space: nowrap; }
+#p-hero > h2 .hname { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
