@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 375) : semaine simulée (mage, 168 h) après les ajouts de fin de partie (Malédiction, Talisman,
+  Porte-talisman, chronique 170) : 82 courses, records 35 → 62 → 98 → 132 → 143-164, progression régulière, sans saut
+  ni plafond (repère ≈ 160). Rien à corriger.
 - 2026-11-10 (it. 374) : « Quoi de neuf » (édition 1, pas encore vue) : 2 lignes de plus (Zèle, Porte-talisman,
   chronique « Le serment maudit » ; icônes uniques des déblocages, sons des boss) : 10 nouveautés, sans défilement en
   français et en allemand (1920 et 1366 px). 2 textes × 9 langues, 113/113.
