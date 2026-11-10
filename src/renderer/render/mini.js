@@ -13,6 +13,8 @@ import { heroVisual, visualKey } from "./equipvis.js";
 import { fmt, fmtShort } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
 import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
+import { SPELL_INDEX } from "../game/spells.js";
+import { spellIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 
 export const MINI_W = 340, MINI_H = 64;
@@ -42,6 +44,13 @@ export class MiniRenderer {
     this.monActor = null; this.monRef = null;
     game.on("heroAttack", () => { this.lunge = 0.15; this.monHit = 0.12; });
     game.on("heroHurt", () => { this.flash = 0.12; });
+    // Sort (demande D) : son icône apparaît brièvement au-dessus du héros (effet léger, le mode mini est petit).
+    game.on("spell", ({ id }) => {
+      const sp = SPELL_INDEX[id]; if (!sp || !this.stage || !this.stage.isConnected) return;
+      const im = el("img", "minispell", this.stage); im.src = spellIconURL(sp.tpl, sp.color, 2);
+      im.style.transform = `translate3d(${HERO_X + 22}px,14px,0)`;
+      setTimeout(() => im.remove(), 700);
+    });
     game.on("tap", () => { this.monHit = 0.12; });
     // Moments marquants, sobres : un liseré doré et un mot sur la scène pendant quelques secondes, une seule fois.
     this.moment = el("div", "minimoment", this.scene);

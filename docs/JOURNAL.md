@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 483) : mode mini : au lancer d'un sort, son icône apparaît 0,7 s au-dessus du héros et s'efface en
+  montant (effet léger, sans les anneaux de la bande). Capture. 123/123.
 - 2026-11-10 (it. 482) : sorts dans les Statistiques : compteur stats.spells (ligne « Sorts lancés ») et succès
   « Mage de bataille (1 000 sorts lancés) » avec sa progression. Le 57e succès faisait défiler Statistiques > Succès
   (autotest : 12 px à 1366 ; mesuré : ru 61 px, de 7 px à 1280) : liste resserrée à ≤ 1499 px (colonnes 200 px,
