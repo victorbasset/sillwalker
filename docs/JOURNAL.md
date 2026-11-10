@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 362) : Zèle visible dans la bande : petites étincelles bleues qui montent du héros (juice.js,
+  .spark.zealup). Capture, 111/111.
 - 2026-11-10 (it. 361, consommation) : où passent les ~20 % d'un cœur de la bande (perf:linux) ? Mesuré dans le jeu :
   simulation 0,10 ms + dessin 0,17 ms par image (30 images/s) ≈ 0,8 % d'un cœur ; panneau ouvert : 1 rendu complet en
   20 s (13 ms), le reste en mises à jour légères. Le coût vient donc de la peinture / composition de Chromium, en

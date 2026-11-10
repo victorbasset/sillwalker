@@ -436,6 +436,12 @@ export class Juice {
       node.style.background = Math.random() < 0.4 ? "#fff3dc" : "#f0c987";
       this.add(node, (p) => { this.place(node, x + Math.sin(ph + p.t * 7) * 10, -8 + p.t * 70); return p.t < 1.4; });
     }
+    // Zèle : étincelles bleues qui montent du héros (les quêtes avancent deux fois plus vite).
+    if ((E.zeal || 0) > 0 && Math.random() < dt * 4) {
+      const node = el("div", "spark zealup", this.layer), x = this.s.heroX - 10 + Math.random() * 40, y0 = 40 + Math.random() * 20;
+      node.style.background = Math.random() < 0.3 ? "#e6f7ff" : "#7fd4ff";
+      this.add(node, (p) => { this.place(node, x, y0 - p.t * 45); node.style.opacity = String(1 - p.t); return p.t < 1; });
+    }
     const frenzy = (E.frenzy || 0) > 0;
     if (this.s.hero && this.s.hero.el.classList.contains("frenzy") !== frenzy) this.s.hero.el.classList.toggle("frenzy", frenzy);
     const hawk = (E.hawkeye || 0) > 0; // Œil du faucon : halo orangé (tous les coups critiques)
