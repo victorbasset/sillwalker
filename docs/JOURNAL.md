@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 353) : la pureté compte dans la puissance de combat (rules.js > power, ≈ +5 % à 100 %) : le Valet
+  d'armes et « Équiper le meilleur » ne remplacent plus le Talisman de pureté par un objet à peine meilleur.
+  balance.mjs 12 h : −0,2 zone (bruit). 110/110.
 - 2026-11-10 (it. 352) : accessibilité : contour de focus clavier déjà présent partout (styles.css, :focus-visible).
   « Quoi de neuf » : la ligne Nichée / Malédiction mentionne la parade (Talisman de pureté). 1 texte × 9 langues
   (l'ancienne clé reste, inutilisée), 110/110.

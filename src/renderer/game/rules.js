@@ -163,7 +163,9 @@ export const heroDps = (s) =>
 export const power = (s) =>
   heroDps(s) * (1 + s.burn / 100) * (1 + (s.execute || 0) * 0.003) *
   s.hp * (1 + s.def / 40) * (1 + (s.shield || 0) / 200) * (1 + (s.thorns || 0) / 300) *
-  (1 / (1 - Math.min(40, s.dodge || 0) / 100)) * (1 + (s.lifesteal || 0) / 25) * (1 + Math.max(0, (s.regen || 8) - 8) / 40);
+  (1 / (1 - Math.min(40, s.dodge || 0) / 100)) * (1 + (s.lifesteal || 0) / 25) * (1 + Math.max(0, (s.regen || 8) - 8) / 40) *
+  // Pureté : la Malédiction (+15 % de dégâts subis un tiers du temps) vaut ≈ 5 % de robustesse
+  (1 + (s.purity || 0) / 2000);
 
 /** Gain de puissance relatif si l'objet remplaçait celui équipé au même emplacement. */
 export function upgradeDelta(S, it) {
