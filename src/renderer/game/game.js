@@ -528,7 +528,13 @@ export class Game {
 
   /** Ajoute un pouvoir aux objets légendaires. */
   decorate(it) {
-    if (it.r === LEGENDARY && !it.power) it.power = pick(POWERS).id;
+    if (it.r === LEGENDARY && !it.power) {
+      // Coup de pouce : bloqué (3 défaites ou plus) par un boss qui maudit, sans Talisman de pureté en main, le
+      // prochain légendaire a une chance sur deux de le porter.
+      const S = this.S, stuck = ((S.bossDefeats && S.bossDefeats[S.zone]) || 0) >= 3 && bossMechanics(S.zone).includes("curse");
+      const has = [...S.bag, ...Object.values(S.equip)].some((x) => x && x.power === "p_pure");
+      it.power = stuck && !has && rand() < 0.5 ? "p_pure" : pick(POWERS).id;
+    }
     return it;
   }
 

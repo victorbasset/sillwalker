@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 393, anti-frustration) : bloqué (3 défaites ou plus) par un boss qui maudit et sans Talisman de pureté
+  en main, le prochain objet légendaire porte ce pouvoir une fois sur deux (game.js > decorate) ; sinon tirage normal
+  (1 / 17). Test (≥ 30 % bloqué, < 20 % sinon). 115/115.
 - 2026-11-10 (it. 392) : outil scripts/lang-overflow.mjs (option dev --overflow-report) : défilement de chaque onglet
   dans les 10 langues à 1920 / 1366 / 1280 px (copies de dev-data, ≈ 4 min). Trouvé et corrigé : portugais 1280,
   Aventure 9 px (sous-titre de la carte Équipement sur une ligne sous 1500 px). Désormais : aucun défilement nulle part.

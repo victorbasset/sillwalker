@@ -42,7 +42,7 @@ import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
-import { ZONES, MONSTERS, KILLS_PER_ZONE } from "../src/renderer/game/data.js";
+import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
@@ -2013,6 +2013,12 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.equal(gk.S.equip[tal.slot].id, tal.id, "talisman équipé face à la Malédiction");
     bossM.hp = 0; gk.killMonster();
     if (worn) assert.equal(gk.S.equip[tal.slot].id, worn.id, "objet d'avant remis après le boss");
+    // Coup de pouce : bloqué par un boss qui maudit, les légendaires portent souvent le Talisman de pureté
+    const gs = new Game(freshState()); gs.S.zone = 11; gs.S.bossDefeats = { 11: 3 };
+    let pure = 0; for (let i = 0; i < 200; i++) if (gs.decorate({ r: LEGENDARY }).power === "p_pure") pure++;
+    assert.ok(pure > 60, "bloqué : Talisman fréquent (" + pure + " / 200)");
+    gs.S.bossDefeats = {}; pure = 0; for (let i = 0; i < 200; i++) if (gs.decorate({ r: LEGENDARY }).power === "p_pure") pure++;
+    assert.ok(pure < 40, "sinon : rare (" + pure + " / 200)");
     // Succès « Cœur pur » : boss à Malédiction vaincu avec le talisman
     gp.R.mon.hp = 0; gp.killMonster();
     assert.ok(M_achievements_js.reachedAchievements(gp.S).includes("PURE_HEART"), "succès Cœur pur");
