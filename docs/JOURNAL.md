@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 453, son de gestion) : nouveaux signaux equipped (rareté) et soldOne (vente à la main) dans game.js ;
+  sons : équiper = cliquetis (bruit filtré, choc grave, tintement plus brillant selon la rareté, au plus toutes les
+  120 ms : « équiper le meilleur » ne crépite pas), vendre = deux pièces, vente groupée (aussi automatique) = petite
+  cascade au plus toutes les 5 s. Ajoutés au contrôle « son : tous les sons » de l'autotest. 122/122.
 - 2026-11-10 (it. 452) : touche C du panneau : couper / rallumer le son (comme le haut-parleur de la bande ; M était
   pris par le mode mini) ; ajoutée à la fenêtre des raccourcis. Contrôle d'autotest ; lang-overflow fr / de / ru / pl à
   1366 et 1280 : aucun défilement. Traduit. 122/122.

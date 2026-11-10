@@ -404,6 +404,11 @@ export class Sound {
     on("petLevel", 1000, () => [N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, i * 0.06, 0.12, "triangle", 0.12))); // le familier grandit
     on("transmute", 600, () => { this.whoosh(0, 0.5, 600, 3000, 0.15, 3); [N.C6, N.E6, N.G6].forEach((f, i) => this.tone(f, 0.35 + i * 0.05, 0.2, "sine", 0.07)); }); // tourbillon magique
     on("daily", 3000, () => [N.C5, N.E5, N.G5, N.C6, N.G5, N.C6].forEach((f, i) => this.tone(f, i * 0.08, 0.16, "triangle", 0.12))); // récompense du jour
+    // Gestion (satisfaction, demande C) : équiper cliquette (plus brillant pour un objet rare), vendre fait tinter
+    // l'or ; la vente groupée (aussi automatique) au plus toutes les 5 s, discrète.
+    on("equipped", 120, ({ r = 0 }) => { this.noise(0, 0.05, 0.12, 2400, 1.5); this.tone(180, 0, 0.09, "triangle", 0.18, 0.7); this.tone(1200 + r * 260, 0.03, 0.12, "triangle", 0.05 + r * 0.012); });
+    on("soldOne", 150, () => this.coin(2));
+    on("sold", 5000, ({ n = 0 }) => { if (n > 0) this.coin(Math.min(4, 1 + Math.floor(n / 3))); });
     on("flee", 1000, () => [N.G5, N.E5, N.C5].forEach((f, i) => this.tone(f * 1.2, i * 0.07, 0.1, "square", 0.05))); // le gobelin s'échappe : petite moquerie qui descend
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
     game.on("levelUp", () => this.play("level"));

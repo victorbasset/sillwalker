@@ -844,6 +844,7 @@ export class Game {
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
     this.log(tx("Équipé : ") + itemName(it) + ".");
+    this.emit("equipped", { r: it.r }); // son : cliquetis d'équipement
     // Palier de panoplie atteint (2 ou 4 pièces) : un moment à marquer.
     const after = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
     for (const n of [2, 4]) if (before < n && after >= n && SETS[it.set]) {
@@ -875,6 +876,7 @@ export class Game {
     this.S.gold += v;
     this.S.bag = this.S.bag.filter((i) => i.id !== it.id);
     this.log(tx("Vendu : ") + itemName(it) + " (+" + tx("{0} or", { 0: fmt(v) }) + ").");
+    this.emit("soldOne", { gold: v }); // son : pièces
     this.changed();
   }
 
