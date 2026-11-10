@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 568) : BOGUE : le temps hors ligne (applyOffline, formule et non simulation) ignorait les sorts ; un
+  joueur qui y avait investi progressait moins hors ligne qu'en jeu. game.spellDps : dégâts moyens des sorts de dégâts
+  appris (héros + compagnon à moitié, écho compté, recharge réelle ; sans les autres effets), ajoutés aux dégâts du
+  héros dans l'estimation. Test logique. (Les simulations jouent en ligne : équilibrage inchangé.) 130/130.
 - 2026-11-10 (it. 567) : répartition du coût de la bande (copies neuves) : base 20,2 % ; sans son/musique/ambiance 16,8 ;
   sans Effets complets 17,5 ; sans météo et jour/nuit 19,1 ; sans ambiance seule 20,2 ; sans effets sonores seuls 19,7.
   Pas de gain facile sans retirer une fonction (les plus gros postes sont déjà des options). Noté dans CLAUDE.md.

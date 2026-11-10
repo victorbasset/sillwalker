@@ -512,6 +512,15 @@ export class Game {
     if (sp.cdr && R.spellT) for (const key in R.spellT) if (key !== sp.id && !key.endsWith(":" + sp.id)) R.spellT[key] -= sp.cdr;
   }
 
+  /** Dégâts moyens par seconde des sorts de dégâts appris (estimation pour le temps hors ligne : sans les effets). */
+  spellDps(hs) {
+    const S = this.S; let d = 0;
+    const add = (cls, pow) => { for (const sp of classSpells(cls)) { const r = spellRank(S, sp.id); if (r && sp.kind === "dmg") d += hs.atk * spellValue(sp, r) * pow * sp.hits * (sp.echo ? 1 + sp.echo : 1) / spellCd(sp, r); } };
+    add(S.cls, 1);
+    if (S.partner && hs.duo > 0) add(S.partner, PARTNER_SPELL);
+    return d;
+  }
+
   /** Part de vie restante d'un monstre de la file (barre de la bande après un perçage ; estimation : PV de base). */
   slotHealth(i) {
     if (i === this.lineup().length) { // le boss (estimation : PV de base, plafond d'un quart)
@@ -898,7 +907,8 @@ export class Game {
     const hs = heroStats(S, S.equip, { buffs: false }), b = monsterBase(S.zone, false);
     const share = (id) => Math.min(S.buffs[id] || 0, sec) / sec;
     const atkBoost = 1 + 0.25 * share("elixir");
-    const dps = heroDps(hs) * atkBoost * (1 + hs.burn / 100 * 1.5);
+    // (it. 568) + les sorts de dégâts appris (héros, compagnon à moitié) : avant, l'absence les ignorait
+    const dps = (heroDps(hs) + this.spellDps(hs)) * atkBoost * (1 + hs.burn / 100 * 1.5);
     const perKill = b.hp / dps + approachTime() / (1 + (hs.moveSpd || 0) / 100);
     const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100);
     const eff = Math.min(0.9, (taken > hs.hp * 0.8 ? 0.25 : 0.6) * (1 + hs.offline / 100));

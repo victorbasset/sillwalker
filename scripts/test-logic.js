@@ -2549,6 +2549,14 @@ test("Sorts du compagnon (it. 558) : appris depuis le héros actuel ; pas ceux d
   const td = g.todoNow().find((x) => x.id === "partnerSpell"); assert.ok(td && td.tab === "class" && td.sec === "style", "À faire : sort du compagnon");
 });
 
+test("Hors ligne (it. 568) : les sorts de dégâts appris comptent dans l'estimation", () => {
+  const mk = (spells) => { const g = new Game(freshState()); g.setClass("warrior"); g.S.best = 30; g.S.zone = 3; g.S.spells = spells; return g; };
+  const a = mk({}), b = mk({ "warrior.2": 30 });
+  assert.equal(a.spellDps(a.stats()), 0); assert.ok(b.spellDps(b.stats()) > 0, "Fracas du titan : des dégâts par seconde");
+  const ka = a.applyOffline(3600), kb = b.applyOffline(3600);
+  assert.ok(ka && kb && kb.kills > ka.kills, "plus de victoires hors ligne avec un sort puissant");
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));
