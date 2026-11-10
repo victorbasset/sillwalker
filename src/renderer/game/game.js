@@ -462,16 +462,25 @@ export class Game {
   }
 
   /** Sort : apprendre (rang 1) ou améliorer, si la zone record le permet et qu'il y a l'or. */
-  learnSpell(id) {
+  learnSpell(id, { quiet = false } = {}) {
     const sp = SPELL_INDEX[id], S = this.S;
     if (!sp || sp.cls !== S.cls || recordZone(S) < sp.zone) return false; // les sorts du héros actuel
     const r = spellRank(S, id);
     if (r >= SPELL_MAX || !this.pay(spellPrice(sp, r))) return false;
     (S.spells ||= {})[id] = r + 1;
-    this.log(r ? tx("Sort {0} : rang {1}.", { 0: tr(sp.name), 1: r + 1 }) : tx("Nouveau sort appris : {0} !", { 0: tr(sp.name) }));
+    if (!quiet) this.log(r ? tx("Sort {0} : rang {1}.", { 0: tr(sp.name), 1: r + 1 }) : tx("Nouveau sort appris : {0} !", { 0: tr(sp.name) }));
     this.emit("spellLearned", { id, rank: r + 1 });
     this.changed();
     return true;
+  }
+
+  /** « max » : autant de rangs que l'or le permet, une seule ligne au journal. Renvoie le nombre de rangs achetés. */
+  learnSpellMax(id) {
+    let n = 0;
+    while (n < SPELL_MAX && this.learnSpell(id, { quiet: true })) n++;
+    const sp = SPELL_INDEX[id];
+    if (n && sp) this.log(tx("Sort {0} : rang {1}.", { 0: tr(sp.name), 1: spellRank(this.S, id) }));
+    return n;
   }
 
   heroStrike(m, hs, first, extra) {

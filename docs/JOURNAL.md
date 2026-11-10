@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 478) : sorts : bouton « max » (avec le Manuel du stratège, comme les talents ; affiché dès que deux
+  rangs sont abordables) : learnSpellMax achète autant de rangs que l'or permet, une seule ligne au journal (avant,
+  ≈ 15 clics pour rattraper un joueur avancé). Libellés repris de l'Atelier (déjà traduits). Test logique ; capture.
+  122/122.
 - 2026-11-10 (it. 477) : sorts : le prix suivait la zone de déblocage et les rangs plafonnaient à 10 : à la zone 54 de
   Victor (≈ 2e11 or), tout se maximisait d'un coup, sans progression. SPELL_MAX 10 → 50 (prix ×2,5 par rang, +25 %
   de puissance par rang) : ≈ rang 15 avec cet or, puis chaque rang demande de progresser, comme l'Atelier. balance
