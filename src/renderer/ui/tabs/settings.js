@@ -37,6 +37,7 @@ export class SettingsTab {
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">${tx("Son")}</span></h2>
         ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande coupe tout (effets et musique) et rend l’état d’avant au clic suivant."))}
+        ${check("zoneAmbience", tx("Ambiance des zones"), tx("Bulles sous l’eau, braises qui crépitent, oiseaux le jour et grillons la nuit… Très discrète, avec les effets sonores."))}
         ${check("music", tx("Musique de fond"), tx("Un petit air par zone, discret, avec un fondu quand on change de zone."))}
         <label class="range">${tx("Volume")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound || P.music !== false ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button></div>

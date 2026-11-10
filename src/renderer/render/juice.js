@@ -22,7 +22,7 @@ const MAX_PARTS = 90;
 
 // Météo de chaque zone : quelques particules qui flottent (désactivées avec
 // « Effets complets »). vx / vy en px/s, sway : balancement, rate : par seconde et par 1000 px.
-const WEATHER = {
+export const WEATHER = {
   "Forêt des murmures": "leaf", "Marais brumeux": "spore", "Forge volcanique": "ember", "Désert brûlant": "dust",
   "Toundra gelée": "snow", "Jungle étouffante": "leaf", "Ruines célestes": "mote", "Abysses ardents": "ember",
   "Égouts oubliés": "drip", "Pyramide maudite": "dust", "Pics enneigés": "snow", "Nid des harpies": "feather",

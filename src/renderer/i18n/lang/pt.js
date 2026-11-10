@@ -940,4 +940,6 @@ export default {
   2064: "Nas bordas",
   2065: "No meio",
   2066: "Automático (telas muito largas)",
+  2067: "Ambiente das zonas",
+  2068: "Bolhas debaixo d’água, brasas crepitando, pássaros de dia e grilos à noite… Muito discreto, com os efeitos sonoros.",
 };

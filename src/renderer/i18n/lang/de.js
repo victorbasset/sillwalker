@@ -940,4 +940,6 @@ export default {
   2064: "An den Rändern",
   2065: "In der Mitte",
   2066: "Automatisch (sehr breite Bildschirme)",
+  2067: "Zonen-Atmosphäre",
+  2068: "Blasen unter Wasser, knisternde Glut, Vögel am Tag und Grillen in der Nacht … Sehr dezent, mit den Soundeffekten.",
 };

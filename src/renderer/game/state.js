@@ -52,7 +52,7 @@ export function freshState(now = Date.now()) {
     skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
-    settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
+    settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
@@ -213,6 +213,7 @@ export function migrate(raw) {
   if (!isObj(o.settings) || typeof o.settings.newsSeen !== "number") s.settings.newsSeen = 0;
   // Réglages oui / non : une valeur abîmée (texte, null…) reprend le défaut (sinon « oui » activerait l'économie).
   s.settings.eco = s.settings.eco === true;
+  s.settings.zoneAmbience = s.settings.zoneAmbience !== false; // ambiance sonore des zones : active sauf refus explicite
   // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)
   if (!["auto", "center", "edges"].includes(s.settings.hudPos)) s.settings.hudPos = "auto";
   s.settings.cinematics = s.settings.cinematics !== false;

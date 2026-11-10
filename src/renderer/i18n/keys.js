@@ -2068,5 +2068,7 @@ export const KEYS = [
   "Informations de la bande",
   "Aux bords",
   "Au milieu",
-  "Automatique (très grands écrans)"
+  "Automatique (très grands écrans)",
+  "Ambiance des zones",
+  "Bulles sous l’eau, braises qui crépitent, oiseaux le jour et grillons la nuit… Très discrète, avec les effets sonores."
 ];

@@ -940,4 +940,6 @@ export default {
   2064: "Po bokach",
   2065: "Na środku",
   2066: "Automatyczny (bardzo szerokie ekrany)",
+  2067: "Klimat stref",
+  2068: "Bąbelki pod wodą, trzaskający żar, ptaki w dzień i świerszcze w nocy… Bardzo dyskretny, razem z efektami dźwiękowymi.",
 };

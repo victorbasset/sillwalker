@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 434, demande C, étape 3/4 : ambiance des zones) : zoneAmbience (sound.js), 4 tirages par seconde,
+  selon la météo de la zone (WEATHER, exporté de juice.js) : bulles en grappe (récifs, lagon, cité engloutie), gouttes
+  avec écho (égouts, grotte), vent froid (neige), vent sec (désert, steppe), braises qui crépitent et grondement
+  (volcans), coassements et bulles de vase (marais, champignons), carillons lointains (ruines célestes, cristal,
+  néant), écho métallique et battement grave (cryptes, mines, bastion), cris d'oiseaux de mer et bourrasques (côte,
+  nids, tempêtes), gazouillis (forêts, prairies) le jour et grillons la nuit (21 h-6 h, sauf cycle jour / nuit coupé).
+  Case « Ambiance des zones » (Réglages > Son, active par défaut, settings.zoneAmbience, migrate). Rendu hors ligne :
+  aucun NaN ; niveaux 0,001-0,008 (effets ≈ 0,02 : un fond). Traduit ; aucun défilement (5 langues, 1366 / 1280) ;
+  save-fuzz ok. À écouter par Victor. 120/120.
 - 2026-11-10 (it. 433, demande C, étape 2/4 : événements) : chaque événement rare a sa signature sonore (eventSound) :
   rafale (souffle filtré qui passe), averse de pièces, roulement qui accélère (Frénésie), corne qui déborde, accord
   doux (Sagesse), cri du faucon, éclats cristallins, petite fanfare (Zèle), pépiements (Nichée), voile qui se lève.

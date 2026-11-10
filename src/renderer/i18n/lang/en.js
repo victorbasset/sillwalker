@@ -940,4 +940,6 @@ export default {
   2064: "At the edges",
   2065: "In the middle",
   2066: "Automatic (very wide screens)",
+  2067: "Zone ambience",
+  2068: "Bubbles underwater, crackling embers, birds by day and crickets at night… Very discreet, with the sound effects.",
 };

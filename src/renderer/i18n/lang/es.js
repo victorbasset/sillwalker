@@ -940,4 +940,6 @@ export default {
   2064: "En los bordes",
   2065: "En el centro",
   2066: "Automático (pantallas muy anchas)",
+  2067: "Ambiente de las zonas",
+  2068: "Burbujas bajo el agua, brasas que crepitan, pájaros de día y grillos de noche… Muy discreto, con los efectos de sonido.",
 };

@@ -1,3 +1,5 @@
+import { WEATHER } from "./juice.js";
+
 // Effets sonores synthétisés (Web Audio, aucun fichier). Coupés par défaut :
 // Sillwalker vit en bas de l'écran pendant qu'on fait autre chose.
 // Chaque son est limité en fréquence pour ne jamais devenir agaçant.
@@ -128,6 +130,41 @@ export class Sound {
     if ((E.wind || 0) > 0 && Math.random() < 0.12) this.whoosh(0, 1.4 + Math.random(), 250 + Math.random() * 200, 700 + Math.random() * 900, 0.2, 1.2);
     if ((E.shardfall || 0) > 0 && Math.random() < 0.15) this.tone(2600 + Math.random() * 1400, 0, 0.25, "sine", 0.025);
     if ((E.nest || 0) > 0 && Math.random() < 0.06) this.tone(2100 + Math.random() * 500, 0, 0.07, "sine", 0.03, 1.4);
+  }
+
+  /** Ambiance de la zone (demande C : « dans une zone d'eau des petits bruits de bulle… ») : quelques sons épars,
+   *  tirés au hasard (4 tirages par seconde), selon le décor (météo de juice.js) ; prairies : oiseaux le jour,
+   *  grillons la nuit. Bien plus bas que les effets : un fond, pas un bruit. */
+  zoneAmbience(kind, night) {
+    if (!this.enabled || !this.ensure()) return;
+    const r = Math.random(), j = () => 0.9 + Math.random() * 0.2;
+    switch (kind) {
+      case "bubble": // bulles qui remontent : petits « blop » montants, souvent en grappe
+        if (r < 0.22) { const n = 1 + Math.floor(Math.random() * 3); for (let i = 0; i < n; i++) this.tone(260 * j() + i * 90, i * 0.07, 0.07, "sine", 0.05, 2.6); } break;
+      case "drip": // gouttes dans une grotte : « ploc » et son écho
+        if (r < 0.1) { const f = 1300 * j(); this.tone(f, 0, 0.06, "sine", 0.06, 0.55); this.tone(f, 0.18, 0.06, "sine", 0.015, 0.55); } break;
+      case "snow": // vent froid, long et grave
+        if (r < 0.05) this.whoosh(0, 2.5 + Math.random() * 1.5, 180, 420, 0.2, 1.2); break;
+      case "dust": // vent sec du désert
+        if (r < 0.06) this.whoosh(0, 1.8 + Math.random(), 500, 1100, 0.16, 1.4); break;
+      case "ember": // braises qui crépitent, parfois un grondement sourd
+        if (r < 0.35) { const n = 1 + Math.floor(Math.random() * 3); for (let i = 0; i < n; i++) this.noise(i * 0.04 + Math.random() * 0.05, 0.012, 0.09, 2500 * j(), 2); }
+        if (r > 0.985) this.tone(55, 0, 1.2, "triangle", 0.08, 0.8); break;
+      case "spore": // marais : coassements (nuit et jour), bulle de vase
+        if (r < 0.06) { const f = 140 * j(); this.tone(f, 0, 0.09, "square", 0.025, 0.8); this.tone(f, 0.13, 0.09, "square", 0.02, 0.8); }
+        else if (r > 0.97) this.tone(90 * j(), 0, 0.1, "sine", 0.06, 2); break;
+      case "mote": // ruines célestes, cristal, néant : carillons lointains, lents
+        if (r < 0.05) { const f = [NOTES.E6, NOTES.G6, NOTES.C6, NOTES.D6][Math.floor(Math.random() * 4)]; this.tone(f, 0, 1.4, "sine", 0.05); this.tone(f * 1.5, 0.3, 1, "sine", 0.024); } break;
+      case "ash": // cryptes, mines, bastion : écho métallique lointain, battement grave
+        if (r < 0.03) { this.tone(1900 * j(), 0, 0.05, "square", 0.012); this.tone(1900 * j(), 0.25, 0.05, "square", 0.006); }
+        else if (r > 0.985) this.tone(70, 0, 0.6, "sine", 0.06, 0.9); break;
+      case "feather": // côte, nids, tempêtes : cris d'oiseaux de mer, bourrasques
+        if (r < 0.04) this.tone(1600 * j(), 0, 0.35, "triangle", 0.05, 0.65);
+        else if (r > 0.96) this.whoosh(0, 1.6, 300, 900, 0.09, 1.3); break;
+      default: // forêts et prairies : gazouillis le jour, grillons la nuit
+        if (night) { if (r < 0.2) for (let i = 0; i < 3; i++) this.tone(4200 * j(), i * 0.05, 0.03, "sine", 0.02); }
+        else if (r < (kind === "leaf" ? 0.12 : 0.07)) { const f = 2600 * j(), n = 2 + Math.floor(Math.random() * 3); for (let i = 0; i < n; i++) this.tone(f * (i % 2 ? 1.2 : 1), i * 0.09, 0.07, "sine", 0.045, i % 2 ? 0.8 : 1.25); }
+    }
   }
 
   /** Pièce (demande C de Victor : satisfaction) : un tintement métallique (fondamentale + harmonique non entière,
@@ -293,7 +330,15 @@ export class Sound {
     game.on("star", () => { if (this.enabled && this.ensure()) { this.whoosh(0, 0.9, 5000, 1500, 0.35, 4); this.tone(NOTES.E6 * 2, 0, 0.5, "sine", 0.08, 0.5); } });
     game.on("starMissed", () => { if (this.enabled && this.ensure()) { this.tone(NOTES.E6, 0, 0.15, "sine", 0.06); this.tone(NOTES.C6, 0.12, 0.25, "sine", 0.05); } });
     clearInterval(this.ambT);
-    this.ambT = setInterval(() => { if (!document.hidden) this.eventAmbience(game.R && game.R.events); }, 250);
+    this.ambT = setInterval(() => {
+      if (document.hidden) return;
+      this.eventAmbience(game.R && game.R.events);
+      const z = game.zoneDef && game.zoneDef(), S = game.S;
+      if (z && S.settings.zoneAmbience !== false) {
+        const h = new Date().getHours(), night = S.settings.dayNight !== false && (h >= 21 || h < 6);
+        this.zoneAmbience(WEATHER[z.src || z.name] || null, night);
+      }
+    }, 250);
     game.on("feather", () => this.play("event"));
     game.on("starCaught", () => { this.play("star"); this.coin(4); }); // attrapée : l'étoile tinte, puis l'or tombe
     game.on("chest", () => this.play("chest"));
