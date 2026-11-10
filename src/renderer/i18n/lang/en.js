@@ -899,4 +899,5 @@ export default {
   2023: "Talisman of Purity",
   2024: "resistance to boss Curse (shorter duration)",
   2025: "This zone’s boss curses your hero: the Talisman of Purity sleeping in your bag would protect them. Click here.",
+  2026: "New Nesting event (eggs from victories); a new boss ability, the Curse, and its counter: the Talisman of Purity.",
 };

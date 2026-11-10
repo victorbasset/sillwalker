@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 352) : accessibilité : contour de focus clavier déjà présent partout (styles.css, :focus-visible).
+  « Quoi de neuf » : la ligne Nichée / Malédiction mentionne la parade (Talisman de pureté). 1 texte × 9 langues
+  (l'ancienne clé reste, inutilisée), 110/110.
 - 2026-11-10 (it. 351) : astuce « purity » (hints.js) : le boss de la zone a la Malédiction et un Talisman de pureté
   attend dans le sac (pas porté) : l'astuce propose de l'équiper (une fois par course, ouvre l'Aventure). Test,
   1 texte × 9 langues, 110/110.

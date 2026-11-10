@@ -899,4 +899,5 @@ export default {
   2023: "Talismán de pureza",
   2024: "de resistencia a la Maldición de los jefes (duración reducida)",
   2025: "El jefe de esta zona maldice a tu héroe: el Talismán de pureza que duerme en tu bolsa lo protegería. Haz clic aquí.",
+  2026: "Nuevo evento Nidada (huevos con cada victoria); nueva habilidad de jefe, la Maldición, y su remedio: el Talismán de pureza.",
 };

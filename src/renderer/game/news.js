@@ -9,7 +9,7 @@ export const NEWS_ITEMS = [
   "Enclume stellaire, deux familiers, l’événement Pluie d’éclats et la capacité Peau de pierre.",
   "Réglages : économie d’énergie, cinématiques ; la bande se cache devant le plein écran (Windows).",
   "Synergies de duo : chaque héros a un partenaire idéal, et ce duo reçoit un petit bonus.",
-  "Nouvel événement Nichée (des œufs à chaque victoire) et nouvelle capacité de boss : Malédiction.",
+  "Nouvel événement Nichée (des œufs à chaque victoire) ; nouvelle capacité de boss, la Malédiction, et sa parade : le Talisman de pureté.",
   "Écrans de portable (1366 px) : plus aucun onglet ne défile, les longues listes glissent sur le côté.",
 ];
 

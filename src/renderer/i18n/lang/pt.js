@@ -899,4 +899,5 @@ export default {
   2023: "Talismã da pureza",
   2024: "de resistência à Maldição dos chefes (duração reduzida)",
   2025: "O chefe desta zona amaldiçoa seu herói: o Talismã da pureza parado na sua bolsa o protegeria. Clique aqui.",
+  2026: "Novo evento Ninhada (ovos a cada vitória); nova habilidade de chefe, a Maldição, e seu antídoto: o Talismã da pureza.",
 };
