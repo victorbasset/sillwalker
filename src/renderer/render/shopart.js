@@ -127,6 +127,7 @@ const CONST_ICONS = {
   c_crown: [["Y...Y...Y", "YY.YYY.YY", "YYYYYYYYY", "YRYYBYYRY", "YYYYYYYYY", "DDDDDDDDD"], { Y: "#ffd34d", R: "#e2394a", B: "#7fd6ff", D: "#b8860b" }],
   c_serpent: [["....GGGG.", "...GG.KGR", "...GG....", "....GGGG.", "......GG.", "......GG.", ".GGGGGG..", "GG.......", "G........"], { G: "#5fd36f", R: "#e2394a" }],
   c_wing: [["......WW.", ".....WLLW", "....WLLW.", "...WLLW..", "..WLLW...", ".WLLW....", "WLLW.....", ".WW......", "W........"], { W: "#ffffff", L: "#bde0ff" }],
+  c_bolt: [[".....YYY.", "....YYY..", "...YYY...", "..YYYYYY.", ".....YY..", "....YY...", "...YW....", "..YW.....", ".W......."], { Y: "#ffe27a", W: "#ffffff" }],
   c_hunter: [["...B.....", "..BS.....", ".B..S....", "B...S..Y.", "BWWWWWWYY", "B...S..Y.", ".B..S....", "..BS.....", "...B....."], { B: "#a8703a", S: "#e8e4d6", W: "#c9ced6", Y: "#ffd34d" }],
 };
 Object.assign(SHOP_ICON_DEFS, CONST_ICONS);

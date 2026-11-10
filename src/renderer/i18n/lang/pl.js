@@ -920,4 +920,5 @@ export default {
   2044: "Biblioteka",
   2045: "Zdobywane doświadczenie, na zawsze.",
   2046: "Stałe ulepszenia w sklepie (atak, PŻ, złoto, doświadczenie, szybkość).",
+  2047: "Błyskawica",
 };

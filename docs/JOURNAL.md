@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 409) : 17e constellation « L'Éclair » (prestige.js > c_bolt : +2 % de vitesse d'attaque par rang,
+  10 rangs, 10 éclats × rang ; icône éclair jaune, shopart.js) : la vitesse d'attaque n'avait pas de constellation.
+  balance.mjs 12 h : −1,0 (bruit) ; sans défilement en fr / de / ru à 1366 et 1280 ; 1 texte × 9 langues, 115/115.
 - 2026-11-10 (it. 408) : partie neuve vérifiée en capture (8 s et 45 s) après les derniers ajouts : bande sobre, ni
   « Quoi de neuf », ni bulle ni bannière en trop ; le premier boss attend en bout de zone. Rien à corriger.
 - 2026-11-10 (it. 407, simulation réaliste) : simulate.js n'achetait jamais l'Atelier (records sous-estimés) ; il achète

@@ -2048,5 +2048,6 @@ export const KEYS = [
   "Frapper {n} fois au clic|Frapper {n} fois au clic",
   "Bibliothèque",
   "Expérience gagnée, pour toujours.",
-  "Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse)."
+  "Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse).",
+  "L’Éclair"
 ];

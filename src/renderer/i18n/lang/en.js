@@ -920,4 +920,5 @@ export default {
   2044: "Library",
   2045: "Experience gained, forever.",
   2046: "Permanent shop upgrades (attack, HP, gold, experience, speed).",
+  2047: "The Bolt",
 };

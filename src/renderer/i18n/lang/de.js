@@ -920,4 +920,5 @@ export default {
   2044: "Bibliothek",
   2045: "Gewonnene Erfahrung, für immer.",
   2046: "Dauerhafte Verbesserungen im Laden (Angriff, LP, Gold, Erfahrung, Tempo).",
+  2047: "Der Blitz",
 };

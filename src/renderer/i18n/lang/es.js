@@ -920,4 +920,5 @@ export default {
   2044: "Biblioteca",
   2045: "Experiencia obtenida, para siempre.",
   2046: "Mejoras permanentes de la tienda (ataque, PV, oro, experiencia, velocidad).",
+  2047: "El Rayo",
 };

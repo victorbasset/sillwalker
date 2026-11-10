@@ -35,6 +35,7 @@ export const CONSTELLATIONS = [
   { id: "c_crown",   name: tx("La Couronne"),   base: 5, max: 10, eff: { bossDmg: 8 } },
   { id: "c_serpent", name: tx("Le Serpent"),    base: 5, max: 10, eff: { lifesteal: 0.5 } },
   { id: "c_wing",    name: tx("L’Aile"),        base: 12, max: 10, eff: { moveSpd: 3 } },
+  { id: "c_bolt",    name: tx("L’Éclair"),      base: 10, max: 10, eff: { spd: 2 } }, // vitesse d'attaque : la seule statistique majeure sans constellation
   { id: "c_hunter",  name: tx("Le Chasseur"),   base: 6, max: 10, eff: { elites: 5 } }, // plus d'élites : plus de risque, plus de butin
 ];
 
