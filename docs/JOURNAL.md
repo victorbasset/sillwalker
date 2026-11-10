@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 431, demandes A et B) : A. macOS : app.dock.hide() avant le démarrage (plus d'icône dans le Dock,
+  aussi avec npm start ; le jeu se pilote par la bande, le panneau et l'icône de la barre des menus) ; à vérifier par
+  Victor sur son Mac. B. Mode mini : l'ampoule des astuces était sous le bouton son (3 boutons depuis le son) : elle
+  descend sur la ligne de l'or, à droite ; la ligne du niveau réserve la place des 3 boutons. Capture. 120/120.
+- 2026-11-10 (it. 430, revue générale) : simulations 12 h : mage 60, paladin 62, cryomancienne 60 ; crawl 309 clics sans
+  erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; perf : bande 19,0 %, panneau 19,9 %, mini 6,0 %, icône 3,0 %.
 - 2026-11-10 (it. 429 bis, question de Victor : « pourquoi sur mon mac j'ai pas les infos au milieu comme sur mon grand
   écran ? ») : la disposition au milieu (demande 21) ne s'activait qu'à partir de 2400 px (CENTER_HUD_W) ; un Mac fait
   1440-1728 px. Nouveau réglage Réglages > Fenêtre > « Informations de la bande » : Aux bords / Au milieu / Automatique
@@ -1448,6 +1454,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   5. « Quoi de neuf » au lancement (édition 2 : 3 nouveautés, ou 15 si l'édition 1 n'a pas été lue) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- DEMANDES DE VICTOR (2026-11-10, sur Mac), à traiter en premier, dans cet ordre :
+  A. FAIT (it. 431, à vérifier sur le Mac). Mac : icône Electron dans le Dock au lancement (npm start) : la cacher (app.dock.hide()).
+  B. FAIT (it. 431). Mode mini : la petite ampoule (astuces) est sur l'icône du son.
+  C. Son : ambiance sonore par zone (bulles sous l'eau, etc.) ; bruitages des pièces (satisfaction) ; sons des
+     événements (pluie d'or, vent, étoile filante) ; coups moins répétitifs ; musiques moins répétitives.
 
 - DEMANDES DE VICTOR (2026-11-09), à traiter en premier, dans cet ordre :
   1. FAIT (it. 157) : quêtes réclamées même sac plein.

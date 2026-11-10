@@ -1132,3 +1132,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Voile protecteur (événement) : halo bleu pâle autour du héros. */
 .actor.ward { filter: drop-shadow(0 0 2px #bfefff) drop-shadow(0 0 1px #7fc8e8); }
 .actor.ward.cursed { filter: drop-shadow(0 0 2px #b07cff) drop-shadow(0 0 2px #bfefff); }
+/* Mode mini : trois boutons (son, réduire, agrandir) en haut à droite : l'ampoule descend sur la ligne de l'or (demande B). */
+#mini .minihint { right: 8px; top: 23px; }
+#mini .mini-gold { padding-right: 22px; }
+#mini .mini-lvl { padding-right: 76px; }

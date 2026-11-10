@@ -34,6 +34,9 @@ function start() {
   app.on("second-instance", () => { if (strip && !strip.isShown()) strip.toggle(); });
   app.on("window-all-closed", () => { /* appli de zone de notification : on reste ouvert */ });
 
+  // macOS : pas d'icône dans le Dock (comme sous Windows, où la bande n'a pas de bouton dans la barre des tâches) ;
+  // le jeu se pilote par la bande, le panneau et l'icône de la barre des menus.
+  if (process.platform === "darwin" && app.dock) app.dock.hide();
   app.whenReady().then(() => {
     if (steam.init({ isDev: flags.isDev }) === "relaunch") { app.quit(); return; }
 
