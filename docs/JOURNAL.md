@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 539) : revue en capture en allemand à 1280 (Boutique, Familiers, Quêtes) : seul défaut, « Eisenbeschlagene
+  Truhe » plus large que sa carte ; cartes de boutique : coupure des mots longs (overflow-wrap, hyphens). La barre des
+  Familiers déborde à dessein (rangée défilante, fondu au bord : vérifié actif). Aucun défilement. 127/127.
 - 2026-11-10 (it. 538) : Réglages, captures (de 1280, fr clair) : la valeur des curseurs de volume (« 100 % ») passait
   à la ligne et débordait de la colonne Son en allemand à 1280 ; valeur sans retour à la ligne, curseur qui rétrécit
   (min-width 0). Ligne d'écoute des airs lisible. Aucun défilement (de, ru, pl, fr). 127/127.
