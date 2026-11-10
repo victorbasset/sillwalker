@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 373) : vérifié en capture (record 180) : la carte du Rebord place la chronique « Le serment maudit »
+  en zone 170 (compteur 9 / 12) et sa cinématique se joue d'elle-même quand elle est méritée. Rien à corriger.
 - 2026-11-10 (it. 372, histoire) : 12e chronique « Le serment maudit » (zone 170, entre 150 et 190) : la Malédiction des
   boss entre dans l'histoire, et le talisman d'éclat pur la repousse. Cinématique (juice.js : anneau de runes violettes,
   puis gemme dorée dont la lumière les dissipe) et motif sonore (dissonance qui descend, puis accord pur). 2 textes ×
