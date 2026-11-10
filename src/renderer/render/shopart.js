@@ -29,6 +29,14 @@ const CAULDRON = ["..G..G.G..", "...G.G....", ".KKKKKKKK.", "KGGGGGGGGK", "KMMMM
 const ANVIL = [".........", "KKKKKKKK.", "KMMMMMMMK", ".KMMMMMK.", "..KMMMK..", "..KMMMK..", ".KKKKKKK.", "KBBBBBBBK"];
 // Talisman de pureté (Porte-talisman) : cordon, monture dorée, gemme claire.
 const TALISMAN = ["..C...C..", "...C.C...", "....C....", "...GGG...", "..GWBWG..", ".GBBWBBG.", "..GBBBG..", "...GBG...", "....G...."];
+// Icônes propres à certains déblocages (une icône par déblocage, comme l'Ascension) :
+// marteau du Maître de forge, enclume étoilée, parchemin de contrat, astrolabe, cloche du Grand intendant.
+const HAMMER = ["..MMMMM..", "..MMMMM..", "..MMMMM..", "....B....", "....B....", "....B....", "....B....", "...BBB..."];
+const STARANVIL = ["....Y....", "...YYY...", "KKKKKKKK.", "KMMMMMMMK", ".KMMMMMK.", "..KMMMK..", ".KKKKKKK.", "KBBBBBBBK"];
+const CONTRACT = [".PPPPPPP.", "PPLLLLLPP", ".PPPPPPP.", ".PLLLLLP.", ".PPPPPPP.", ".PLLLRRP.", "PPPPPRRPP", ".PPPPPPP."];
+const ASTRO = ["...GGG...", ".GG.Y.GG.", "G..GYG..G", "G.G.Y.G.G", "GYYYYYYYG", "G.G.Y.G.G", "G..GYG..G", ".GG.Y.GG.", "...GGG..."];
+const EVERFIRE = ["..P.W.P..", "...PWP...", ".KKKKKKK.", "KPPPPPPPK", "KMMMMMMMK", ".KMMMMMK.", "..KMMMK..", ".R.RYR.R.", "RYRYRYRYR"];
+const BELL = ["....G....", "...GGG...", "..GGWGG..", "..GGWGG..", ".GGGGGGG.", ".GGGGGGG.", "GGGGGGGGG", "....B...."];
 const MAP = ["PPP.PPP..", "PPLPPPLP.", "PLPPPLPPP", "PPPRPPPLP", "PLPPPPPPP", "PPPPLPPRP", ".PPP.PPPP"];
 
 const OUT = "#14121f";
@@ -65,6 +73,12 @@ export const SHOP_ICON_DEFS = {
   anvil:   [ANVIL, { M: "#8a93a0", B: "#6b4a2b" }],
   kennel2: [EGG, { W: "#f4ecd8", S: "#c0392b" }],
   map:     [MAP, { P: "#e8d8b0", L: "#a8884a", R: "#e2394a" }],
+  hammer:  [HAMMER, { M: "#8a93a0", B: "#6b4a2b" }],
+  staranvil: [STARANVIL, { M: "#6a7fb0", B: "#4a3a6b", Y: "#ffd34d" }],
+  contract: [CONTRACT, { P: "#f0dca8", L: "#a8884a", R: "#c0392b" }],
+  astro:   [ASTRO, { G: "#c9a24a", Y: "#ffe9a8" }],
+  everfire: [EVERFIRE, { P: "#c08cff", W: "#f4e8ff", M: "#4a4560", R: "#e2594a", Y: "#ffd34d" }],
+  bell:    [BELL, { G: "#e8b14a", W: "#fff2c8", B: "#8a5a2b" }],
   talisman: [TALISMAN, { C: "#a8884a", G: "#ffd34d", B: "#9fe0ff", W: "#ffffff" }],
 };
 

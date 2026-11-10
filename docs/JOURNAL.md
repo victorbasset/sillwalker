@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 369, icônes uniques) : chaque déblocage a sa propre icône (6 nouvelles dans shopart.js : contrat
+  du Bureau des contrats, marteau du Maître de forge, enclume étoilée, astrolabe, cloche du Grand intendant, chaudron
+  sur le feu du Creuset perpétuel). Test : aucune icône partagée, toutes dessinées. Capture, 171 tests, 113/113.
 - 2026-11-10 (it. 368) : icône propre pour le Porte-talisman (shopart.js > TALISMAN : cordon, monture dorée, gemme
   claire) au lieu de l'étoile du Filet à étoiles. Capture, 113/113.
 - 2026-11-10 (it. 367, automatisation par déblocage) : déblocage « Porte-talisman » (charmKeeper, zone 122, 2e15 or) :

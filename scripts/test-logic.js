@@ -681,6 +681,13 @@ test("synergies de duo : un partenaire attitré par héros, bonus appliqué au d
   g.S.nextPartner = "ranger"; assert.ok(!M_hints_js.nextHint(g) || M_hints_js.nextHint(g).id !== "synergy", "plus d’astuce une fois choisi");
 });
 
+test("déblocages : une icône propre à chacun, dessinée", () => {
+  const src = fs.readFileSync(new URL("../src/renderer/render/shopart.js", import.meta.url), "utf8");
+  const icons = UNLOCKS.map((u) => u.icon);
+  assert.equal(new Set(icons).size, icons.length, "aucune icône partagée entre deux déblocages");
+  for (const i of icons) assert.ok(new RegExp("\\n  " + i + ":\\s*\\[").test(src), "icône dessinée : " + i);
+});
+
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {
   const { SKILL_TREE } = M_skilltree_js, keys = new Set(M_skillicons_js.SKILL_ICON_KEYS);
   for (const n of Object.values(SKILL_TREE.nodes)) assert.ok(keys.has(M_skillicons_js.skillIconKey(n)), "icône manquante : " + n.id + " " + M_skillicons_js.skillIconKey(n));
