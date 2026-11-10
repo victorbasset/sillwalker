@@ -886,4 +886,5 @@ export default {
   2010: "Tanz der Flammen",
   2011: "Stern und Pulver",
   2012: "Duo-Synergien: Jeder Held hat einen idealen Partner, und dieses Duo erhält einen kleinen Bonus.",
+  2013: "Perfektes Duo",
 };

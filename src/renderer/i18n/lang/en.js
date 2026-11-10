@@ -886,4 +886,5 @@ export default {
   2010: "Dance of Flames",
   2011: "Star and Powder",
   2012: "Duo synergies: every hero has an ideal partner, and that duo gets a small bonus.",
+  2013: "Perfect Duo",
 };

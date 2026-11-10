@@ -2014,5 +2014,6 @@ export const KEYS = [
   "Arène sauvage",
   "Danse des flammes",
   "Étoile et poudre",
-  "Synergies de duo : chaque héros a un partenaire idéal, et ce duo reçoit un petit bonus."
+  "Synergies de duo : chaque héros a un partenaire idéal, et ce duo reçoit un petit bonus.",
+  "Duo parfait"
 ];

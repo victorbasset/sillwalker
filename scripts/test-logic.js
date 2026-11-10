@@ -673,6 +673,7 @@ test("synergies de duo : un partenaire attitré par héros, bonus appliqué au d
   g.choosePartner("mage"); const a0 = g.stats().atk;
   g.S.partner = "ranger"; g.invalidateStats(); const a1 = g.stats().atk;
   assert.ok(a1 > a0, "Frères d’armes : plus d’attaque qu’un duo sans synergie");
+  assert.ok(M_achievements_js.reachedAchievements(g.S).includes("DUO_SYNERGY"), "succès « Duo parfait »");
 });
 
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {

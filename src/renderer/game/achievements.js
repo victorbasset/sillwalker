@@ -4,7 +4,7 @@ import { TREES } from "./talents.js";
 import { PETS } from "./pets.js";
 import { MONSTERS, ZONES } from "./data.js";
 import { UNLOCKS } from "./unlocks.js";
-import { CLASS_KEYS } from "./classes.js";
+import { CLASS_KEYS, duoSynergy } from "./classes.js";
 import { setCounts } from "./sets.js";
 import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
@@ -44,6 +44,7 @@ export const ACHIEVEMENTS = [
   // Duo et héros (demande 17)
   { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
   { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
+  { id: "DUO_SYNERGY",     name: "Duo parfait",        test: (S) => !!duoSynergy(S.cls, S.partner) },
   { id: "CHRONICLER",      name: "Chroniqueur",        test: (S) => chronRead(S) >= CHRONICLES.length - 1 },
   { id: "HEROES_ALL",      name: "Tous les héros libérés", test: (S) => CLASS_KEYS.every((c) => c === "warrior" || (S.classesUnlocked || []).includes(c)) },
   { id: "STARBREAKER",     name: "Le ciel rallumé",    test: (S) => !!(S.story && S.story.won) }, // Briseur d'Étoiles vaincu

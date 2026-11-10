@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 331) : succès DUO_SYNERGY « Duo parfait » (former un duo idéal) ; README : à déclarer dans
+  Steamworks. 1 texte × 9 langues, test, 107/107.
 - 2026-11-10 (it. 330, revue générale) : simulations 12 h : guerrier 60, lancier 59, artificière 60 (stables) ; crawl
   308 clics sans erreur ; texte russe : aucun mot latin suspect ; perf : bande 18,4 %, panneau 20,2 %, mini 5,6 %,
   icône 2,6 % d'un cœur (stables).

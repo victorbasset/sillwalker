@@ -886,4 +886,5 @@ export default {
   2010: "Danza de las llamas",
   2011: "Estrella y pólvora",
   2012: "Sinergias de dúo: cada héroe tiene un compañero ideal, y ese dúo recibe una pequeña bonificación.",
+  2013: "Dúo perfecto",
 };

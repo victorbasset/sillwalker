@@ -886,4 +886,5 @@ export default {
   2010: "Taniec płomieni",
   2011: "Gwiazda i proch",
   2012: "Synergie duetów: każdy bohater ma idealnego partnera, a taki duet dostaje niewielką premię.",
+  2013: "Idealny duet",
 };
