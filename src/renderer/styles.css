@@ -1027,3 +1027,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
   .statgrid.sec-numbers { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .statgrid.sec-numbers .panel.wide .lines b { white-space: normal; text-align: right; }
 }
+/* Réglages : Zone de danger et Raccourcis clavier empilés dans une colonne (pas de 2e rangée sur écran de portable). */
+.setgrid > .stack { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.setgrid > .stack > .panel { flex: 0 0 auto; }

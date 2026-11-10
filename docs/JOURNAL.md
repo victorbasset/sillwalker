@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 341, écrans de portable) : Réglages : Zone de danger et Raccourcis clavier empilés dans une
+  colonne (.setgrid > .stack) : défilement 69 / 35 → 0 à 1366 / 1600 (1920 inchangé). Reste : aventure (1366),
+  boutique, bestiaire. 108/108.
 - 2026-11-10 (it. 340, revue générale) : simulations 12 h : mage 59, gladiateur 63, prêtresse 62 ; semaine (mage) :
   record ≈ 164 (repère 160, la Malédiction ne freine pas la fin de partie) ; crawl 309 clics sans erreur ; russe :
   aucun mot latin suspect ; perf : bande 18,7 %, panneau 20,1 %, mini 6,3 %, icône 2,9 % d'un cœur (stables).

@@ -61,6 +61,7 @@ export class SettingsTab {
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${tx("Lancer au démarrage de Windows")}</label>
         <p class="note">${tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
       </article>
+      <div class="stack">
       <article class="panel danger-zone"><h2><span class="hicon"><img src="${shopIconURL("skull", 3)}" alt="">${tx("Zone de danger")}</span></h2>
         <p class="note tight">${tx("Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.")}</p>
         <div class="row"><button data-action="reset" class="quiet">${tx("Effacer la partie et recommencer")}</button></div>
@@ -78,6 +79,7 @@ export class SettingsTab {
         </ul>
         <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p></details>
       </article>
+      </div>
     </div>`;
   }
 
