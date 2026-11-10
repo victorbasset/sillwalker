@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 448) : simulate.js prend une voie de talents dès qu'elle est permise (VOIE=0 par défaut, 1, ou none
+  pour l'ancien comportement), pour mesurer les voies mêlées de l'it. 429. 20 héros × 3 réglages (12 h, graine 7) :
+  moyenne sans voie 61,0, voie 0 60,4, voie 1 60,9 ; héros ajoutés 60,9 contre leurs modèles 60,6 : équilibré. Vérifié
+  sur 4 graines : chaman voie 1 60,5 (sans voie 61,0), gardienne des étoiles voie 1 63,8 (sans 61,2 : un peu forte,
+  à surveiller), druide voie 1 56,8 (sans 59,8). CLAUDE.md : VOIE documenté. 121/121 (autotest non concerné).
 - 2026-11-10 (it. 447) : contrôle d'autotest permanent du son (jusque-là, seulement des essais temporaires) : rendu hors
   ligne des coups des 9 armes, pièces, 10 événements et un inconnu, 11 ambiances de zone (jour et nuit), oiseau,
   ambiance d'événement, 9 sons de play() ; échec sur erreur, NaN ou pic > 0,2. window.__sound exposé en dev.

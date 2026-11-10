@@ -3,7 +3,7 @@
 import { Game } from "../src/renderer/game/game.js";
 import { freshState } from "../src/renderer/game/state.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
-import { TREES } from "../src/renderer/game/talents.js";
+import { TREES, VOIES, chosenVoie } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS_BY_UNLOCK, canPartner, DUO_SYNERGIES } from "../src/renderer/game/classes.js";
 import { SKILL_TREE, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { CONSTELLATIONS, constellationCost } from "../src/renderer/game/prestige.js";
@@ -55,6 +55,10 @@ function playerTurn() {
   if (minute % 10 === 0) for (const it of Object.values(g.S.equip)) {
     for (let n = 0; it && n < 40 && it.plus < MAX_PLUS && g.S.gold > forgeCost(it) * 4; n++) if (!g.forge(it)) break;
   }
+  // Voie (it. 448) : un joueur la prend dès qu'elle est permise (30 points dépensés). VOIE=0|1 choisit laquelle
+  // (0 par défaut) ; VOIE=none : jamais (ancien comportement, pour comparer).
+  const voieIx = process.env.VOIE === "none" ? -1 : +(process.env.VOIE || 0);
+  if (voieIx >= 0 && VOIES[g.S.cls] && !chosenVoie(g.S)) g.learnTalent(VOIES[g.S.cls][voieIx].id, 1);
   for (const b of TREES[g.S.cls]) for (const t of b.talents) g.learnTalent(t.id, 99);
   // Duo (demande 17) : le joueur prend comme compagnon le premier héros libéré de l'autre portée.
   // Compagnon : le duo idéal (synergie) s'il est libre, sinon le premier héros possible (comme un vrai joueur).
