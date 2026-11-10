@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 555) : cartes de l'onglet Héros : l'infobulle de chaque icône de sort donne aussi ses effets propres
+  (« Fracas du titan · rang 1 / 50 · étourdit 2 s »), pour choisir son prochain héros. 130/130.
 - 2026-11-10 (it. 554) : test : chaque effet de sort appartient à la liste connue et a une valeur positive (une faute
   de frappe serait sinon ignorée sans bruit) ; CLAUDE.md : mesure des sorts des 20 héros. 130/130.
 - 2026-11-10 (it. 553) : --overflow-report mesure la page des sorts des 20 héros (pire cas signalé « sorts=N(héros) ») :

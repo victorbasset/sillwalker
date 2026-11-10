@@ -43,7 +43,7 @@ export class ClassesTab {
     const S = this.game.S, next = S.nextCls || S.cls;
     const freed = CLASS_KEYS.filter((k) => isClassUnlocked(S, k)).length;
     // Ses trois sorts (it. 505) : icônes dans l'en-tête, grisées tant qu'ils ne sont pas appris ; nom et rang en infobulle.
-    const cspells = (cls) => `<span class="cspells">${classSpells(cls).map((x) => { const r = spellRank(S, x.id); return `<img class="${r ? "on" : ""}" src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="" title="${esc(tr(x.name) + " · " + (r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : tx("pas encore appris (zone {0})", { 0: x.zone })))}">`; }).join("")}</span>`;
+    const cspells = (cls) => `<span class="cspells">${classSpells(cls).map((x) => { const r = spellRank(S, x.id); return `<img class="${r ? "on" : ""}" src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="" title="${esc([tr(x.name), r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : tx("pas encore appris (zone {0})", { 0: x.zone }), ...spellFxText(x, r)].join(" · "))}">`; }).join("")}</span>`;
     const cards = CLASS_KEYS_BY_UNLOCK().map((k) => { // ordre de libération (demande de Victor)
       const c = CLASSES[k], cur = S.cls === k, open = isClassUnlocked(S, k);
       if (!open) {
