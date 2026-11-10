@@ -1794,7 +1794,10 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
-      upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize, autoSell: old.autoSell, autoAdvance: old.autoAdvance,
+      upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize,
+      // Ascension (demande de Victor) : le tri du marchand repart décoché ; au début d'une course, les objets
+      // communs ou rares sont de vrais progrès qu'il serait dommage de vendre d'office.
+      autoSell: Object.fromEntries(Object.keys(old.autoSell || {}).map((k) => [k, false])), autoAdvance: old.autoAdvance,
       stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, journey: old.journey || [], story: old.story || { intro: true, read: {} }, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     // Duo : le compagnon prévu (ou l'actuel) suit, s'il reste de l'autre portée que le héros principal.
@@ -1806,6 +1809,7 @@ export class Game {
     if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
     this.log(`${tx("Ascension n° {0} : +{1} éclats d’étoile et +{2} points de compétence permanents. Une nouvelle aventure commence{3} !", { 0: P.count, 1: gain, 2: skillGain, 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
+    if (Object.values(old.autoSell || {}).some(Boolean) && hasUnlock(f, "autoSell")) this.log(tx("Tri du marchand : ventes automatiques décochées pour la nouvelle aventure."));
     this.milestone("asc", P.count);
     this.emit("ascend", { count: P.count, gain });
     this.changed();

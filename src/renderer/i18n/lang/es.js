@@ -954,4 +954,5 @@ export default {
   2078: "Estos ajustes también están en el menú del icono de Sillwalker en la barra de menús, arriba de la pantalla, junto con la elección de pantalla.",
   2079: "Reducir a icono (barra de menús)",
   2080: "Silenciar / activar el sonido",
+  2081: "Clasificación del mercader: ventas automáticas desmarcadas para la nueva aventura.",
 };

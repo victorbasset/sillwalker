@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 455, demande de Victor : « quand on fait une ascension il faudrait que ça décoche les vendre dès qu'ils
+  tombent ») : à l'ascension, le tri du marchand (S.autoSell) repart avec toutes les raretés décochées (le déblocage
+  reste acheté) ; une ligne au journal le dit s'il y avait des cases cochées. Traduit ; test logique ; la simulation
+  n'utilise pas autoSell (sellUseless) : repères inchangés. 122/122.
 - 2026-11-10 (it. 454, son de gestion, suite) : signaux spent (dans pay : tout achat) et learned (learnTalent,
   takeSkill) ; sons : achat = « tchic » de caisse et deux notes qui descendent (au plus toutes les 250 ms : achats
   automatiques et rattrapage hors ligne discrets), point de talent / compétence = petit déclic qui monte (au plus

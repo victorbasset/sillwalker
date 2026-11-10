@@ -954,4 +954,5 @@ export default {
   2078: "Te ustawienia są też w menu ikony Sillwalker na pasku menu u góry ekranu, razem z wyborem ekranu.",
   2079: "Zmniejsz do ikony (pasek menu)",
   2080: "Wycisz / włącz dźwięk",
+  2081: "Sortowanie kupca: automatyczna sprzedaż odznaczona na nową przygodę.",
 };
