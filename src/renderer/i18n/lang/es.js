@@ -917,4 +917,7 @@ export default {
   2041: "Mascota Polilla pálida; los jefes anuncian sus habilidades al llegar; una ayuda si su Maldición te bloquea.",
   2042: "¡Maldición repelida!",
   2043: "Golpear {n} vez con clic|Golpear {n} veces con clic",
+  2044: "Biblioteca",
+  2045: "Experiencia obtenida, para siempre.",
+  2046: "Mejoras permanentes de la tienda (ataque, PV, oro, experiencia, velocidad).",
 };

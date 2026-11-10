@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 406) : 5e amélioration de l'Atelier « Bibliothèque » (shop.js > ws_xp : +4 % d'expérience par niveau,
+  400 or, ×1,5 par niveau ; icône livre bleu ws_xp). Description de l'Atelier (boutique, déblocage) complétée
+  (« …or, expérience, vitesse »). Sous-onglet Atelier sans défilement à 1366 / 1280 en français et russe. 3 textes ×
+  9 langues, 115/115.
 - 2026-11-10 (it. 405) : quête « Frapper au clic » : icône propre (gantelet) au lieu de l'épée de « Vaincre des
   monstres ». Autotest fiabilisé : le contrôle « pièce de panoplie gardée expliquée » a échoué une fois (1 false false) :
   la recherche d'un emplacement sans panoplie pouvait échouer quand les contrôles précédents en avaient posé partout ;

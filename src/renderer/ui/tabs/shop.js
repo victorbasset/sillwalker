@@ -133,7 +133,7 @@ export class ShopTab {
         <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid hscroll" data-hs="merchant">${merchant}</div></article>
         <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid hscroll" data-hs="potions">${consumables}</div></article>
         <article class="panel"><h2>${tx("Coffres")}</h2><div class="cgrid hscroll" data-hs="chests">${chests}</div></article>
-        <article class="panel wsec"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
+        <article class="panel wsec"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
       </div></div>`;
   }
 

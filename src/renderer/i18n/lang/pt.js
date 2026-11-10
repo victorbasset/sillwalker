@@ -917,4 +917,7 @@ export default {
   2041: "Mascote Mariposa pálida; os chefes anunciam suas habilidades ao chegar; uma ajuda se a Maldição te bloquear.",
   2042: "Maldição repelida!",
   2043: "Golpear {n} vez com clique|Golpear {n} vezes com clique",
+  2044: "Biblioteca",
+  2045: "Experiência ganha, para sempre.",
+  2046: "Melhorias permanentes da loja (ataque, PV, ouro, experiência, velocidade).",
 };

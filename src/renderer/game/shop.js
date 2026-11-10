@@ -57,6 +57,7 @@ export const WORKSHOP = [
   { id: "ws_atk",   name: "Forge d’armes",  desc: "Attaque permanente.",                      eff: { atkPct: 3 },          base: 300, growth: 1.45 },
   { id: "ws_hp",    name: "Armurerie",      desc: "Points de vie et défense permanents.",      eff: { hpPct: 3, defPct: 2 }, base: 300, growth: 1.45 },
   { id: "ws_gold",  name: "Trésorerie",     desc: "Or trouvé, pour toujours.",                 eff: { gold: 4 },            base: 400, growth: 1.5 },
+  { id: "ws_xp",    name: "Bibliothèque",   desc: "Expérience gagnée, pour toujours.",         eff: { xp: 4 },              base: 400, growth: 1.5 },
   { id: "ws_speed", name: "Cartographe",    desc: "Vitesse de déplacement (20 niveaux max).",  eff: { moveSpd: 1 },         base: 2000, growth: 1.7, max: 20 },
 ];
 export const workshopPrice = (w, S) => Math.round(w.base * Math.pow(w.growth, (S.workshop || {})[w.id] || 0));

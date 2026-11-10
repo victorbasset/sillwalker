@@ -917,4 +917,7 @@ export default {
   2041: "Pale Moth pet; bosses announce their abilities as they arrive; a helping hand if their Curse blocks you.",
   2042: "Curse repelled!",
   2043: "Strike {n} time by clicking|Strike {n} times by clicking",
+  2044: "Library",
+  2045: "Experience gained, forever.",
+  2046: "Permanent shop upgrades (attack, HP, gold, experience, speed).",
 };

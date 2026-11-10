@@ -917,4 +917,7 @@ export default {
   2041: "Pupil Blada ćma; bossowie zapowiadają swoje umiejętności; pomoc, gdy blokuje cię ich Klątwa.",
   2042: "Klątwa odparta!",
   2043: "Uderz {n} raz kliknięciem|Uderz {n} razy kliknięciem|Uderz {n} razy kliknięciem",
+  2044: "Biblioteka",
+  2045: "Zdobywane doświadczenie, na zawsze.",
+  2046: "Stałe ulepszenia w sklepie (atak, PŻ, złoto, doświadczenie, szybkość).",
 };

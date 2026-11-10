@@ -917,4 +917,7 @@ export default {
   2041: "Begleiter Bleicher Falter; Bosse kündigen ihre Fähigkeiten beim Auftauchen an; Hilfe, wenn dich ihr Fluch aufhält.",
   2042: "Fluch abgewehrt!",
   2043: "{n}-mal per Klick zuschlagen|{n}-mal per Klick zuschlagen",
+  2044: "Bibliothek",
+  2045: "Gewonnene Erfahrung, für immer.",
+  2046: "Dauerhafte Verbesserungen im Laden (Angriff, LP, Gold, Erfahrung, Tempo).",
 };

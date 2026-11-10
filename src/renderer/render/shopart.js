@@ -57,6 +57,7 @@ export const SHOP_ICON_DEFS = {
   ws_atk:  [SWORD, { W: "#dfe7ef", Y: "#e9b949", G: "#6b4a2b" }],
   ws_hp:   [SHIELD, { M: "#9aa3ad", R: "#c0392b", Y: "#e9b949" }],
   ws_speed: [WING, { W: "#e3ebf3", L: "#9fd8ff" }],
+  ws_xp:   [BOOK, { B: "#2a5a8a", W: "#f0dca8", L: "#5a8ad8", D: "#183a5a" }],
   heart:   [HEART, { R: "#e2394a", W: "#ffb0b8" }],
   star:    [STAR, { Y: "#ffd34d", W: "#fff6c8" }],
   target:  [TARGET, { R: "#ff6b5a", W: "#ffffff" }],

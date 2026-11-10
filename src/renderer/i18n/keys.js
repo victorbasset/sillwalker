@@ -2045,5 +2045,8 @@ export const KEYS = [
   "Compagnon de la prochaine aventure :",
   "Familier Phalène pâle ; un boss annonce ses capacités en arrivant ; un coup de pouce si sa Malédiction te bloque.",
   "Malédiction repoussée !",
-  "Frapper {n} fois au clic|Frapper {n} fois au clic"
+  "Frapper {n} fois au clic|Frapper {n} fois au clic",
+  "Bibliothèque",
+  "Expérience gagnée, pour toujours.",
+  "Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse)."
 ];
