@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 461) : « Quoi de neuf », édition 4 (4 nouveautés : sons des pièces qui rentrent et de la gestion,
+  musique de boss et silence bande cachée, volumes / « Écouter » / touche C, ascension et tri du marchand). Pire cas
+  23 nouveautés : russe 7 px de trop → liste dense resserrée (interligne 1,18, sans marge). Autotest 23 / 0 px ;
+  lang-overflow de / ru / pl / pt / es à 1366 et 1280 : aucun défilement. Polonais : « Wniebowstąpienie » (nom déjà
+  employé). Traduit. 122/122.
 - 2026-11-10 (it. 460, revue générale) : simulations 12 h : paladin 60, lancier 62, gladiatrice 60 ; fuzz 1200
   parties, 0 bloquée ; crawl 319 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; mem-watch 6 min
   à ×10, son et musique actifs : 799-806 Mo, stable (it. 436 : ≈ 790).
@@ -1586,7 +1591,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      Refonte du son (it. 432-435) : pièces en gamme, coups variés, sons des 10 événements et de l'étoile filante,
      ambiance de chaque zone (Réglages > Son > Ambiance des zones), musique qui varie (intermède, silence) : volumes ?
   6. Sur le Mac : la bande ne doit pas apparaître devant un jeu / une vidéo en plein écran (it. 445) ; textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
-  5. « Quoi de neuf » au lancement (édition 2 : 3 nouveautés, ou 15 si l'édition 1 n'a pas été lue) ; la bulle disparaît une fois lue.
+  5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 

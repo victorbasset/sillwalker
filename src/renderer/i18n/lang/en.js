@@ -957,4 +957,8 @@ export default {
   2081: "Merchant's Sorting: automatic sales unchecked for the new adventure.",
   2082: "unlocks and workshop",
   2083: "automatic sales (to re-tick)",
+  2084: "Every coin entering your purse chimes; equipping, selling, buying and spending a point have their own sound.",
+  2085: "More intense music during boss fights; silence when the strip is hidden (full screen, icon only).",
+  2086: "Settings > Sound: music and ambience volumes, “Listen” plays a sample; C key: mute.",
+  2087: "Ascension: Merchant's Sorting starts unchecked; potion restocking and quest claiming stay checked.",
 };

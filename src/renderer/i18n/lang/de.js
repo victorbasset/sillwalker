@@ -957,4 +957,8 @@ export default {
   2081: "Händlersortierung: automatische Verkäufe für das neue Abenteuer abgewählt.",
   2082: "Freischaltungen und Werkstatt",
   2083: "automatische Verkäufe (neu ankreuzen)",
+  2084: "Jede Münze, die in den Beutel fällt, klingt; Ausrüsten, Verkaufen, Kaufen und Punkte setzen haben ihren Klang.",
+  2085: "Intensivere Musik in Bosskämpfen; Stille, wenn der Streifen verborgen ist (Vollbild, nur Symbol).",
+  2086: "Einstellungen > Ton: Lautstärke von Musik und Atmosphäre, „Anhören“ spielt eine Probe; Taste C: stumm.",
+  2087: "Aufstieg: Händlersortierung startet abgewählt; Tränke nachkaufen und Quests einlösen bleiben aktiviert.",
 };

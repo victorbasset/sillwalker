@@ -27,7 +27,13 @@ const EDITION_3 = [
   "Nouvel événement Voile protecteur (dégâts subis divisés par deux) ; voies propres aux dix héros ajoutés.",
   "Réglages : informations de la bande au milieu sur tout écran ; ambiance des zones.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3];
+const EDITION_4 = [
+  "Chaque pièce qui rentre dans la bourse tinte ; équiper, vendre, acheter et placer un point ont leur son.",
+  "Musique plus intense pendant les combats de boss ; silence quand la bande est cachée (plein écran, icône seule).",
+  "Réglages > Son : volumes de la musique et de l’ambiance, « Écouter » joue un échantillon ; touche C : couper le son.",
+  "Ascension : le tri du marchand repart décoché ; rachat des potions et réclamation des quêtes restent cochés.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

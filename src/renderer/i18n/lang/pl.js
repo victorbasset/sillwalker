@@ -957,4 +957,8 @@ export default {
   2081: "Sortowanie kupca: automatyczna sprzedaż odznaczona na nową przygodę.",
   2082: "odblokowania i warsztat",
   2083: "automatyczna sprzedaż (do ponownego zaznaczenia)",
+  2084: "Każda moneta wpadająca do sakiewki dzwoni; zakładanie, sprzedaż, zakup i wydanie punktu mają swój dźwięk.",
+  2085: "Bardziej intensywna muzyka w walkach z bossami; cisza, gdy pasek jest ukryty (pełny ekran, sama ikona).",
+  2086: "Ustawienia > Dźwięk: głośność muzyki i klimatu, „Posłuchaj” odtwarza próbkę; klawisz C: wycisz.",
+  2087: "Wniebowstąpienie: Sortowanie kupca wraca odznaczone; dokupowanie mikstur i odbieranie zadań zostają zaznaczone.",
 };

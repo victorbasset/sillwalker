@@ -957,4 +957,8 @@ export default {
   2081: "Clasificación del mercader: ventas automáticas desmarcadas para la nueva aventura.",
   2082: "desbloqueos y taller",
   2083: "ventas automáticas (a volver a marcar)",
+  2084: "Cada moneda que entra en la bolsa tintinea; equipar, vender, comprar y asignar un punto tienen su sonido.",
+  2085: "Música más intensa en los combates contra jefes; silencio cuando la franja está oculta (pantalla completa, solo icono).",
+  2086: "Ajustes > Sonido: volúmenes de la música y del ambiente, «Escuchar» reproduce una muestra; tecla C: silenciar.",
+  2087: "Ascensión: la Clasificación del mercader vuelve desmarcada; la recompra de pociones y el cobro de misiones siguen marcados.",
 };

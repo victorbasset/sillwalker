@@ -957,4 +957,8 @@ export default {
   2081: "Triagem do mercador: vendas automáticas desmarcadas para a nova aventura.",
   2082: "desbloqueios e oficina",
   2083: "vendas automáticas (a marcar de novo)",
+  2084: "Cada moeda que entra na bolsa tilinta; equipar, vender, comprar e gastar um ponto têm seu som.",
+  2085: "Música mais intensa nas lutas contra chefes; silêncio quando a faixa está oculta (tela cheia, só ícone).",
+  2086: "Configurações > Som: volumes da música e do ambiente, «Ouvir» toca uma amostra; tecla C: silenciar.",
+  2087: "Ascensão: a Triagem do mercador volta desmarcada; recompra de poções e coleta de missões continuam marcadas.",
 };

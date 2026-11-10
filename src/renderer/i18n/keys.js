@@ -2085,5 +2085,9 @@ export const KEYS = [
   "Couper / rallumer le son",
   "Tri du marchand : ventes automatiques décochées pour la nouvelle aventure.",
   "déblocages et atelier",
-  "ventes automatiques (à recocher)"
+  "ventes automatiques (à recocher)",
+  "Chaque pièce qui rentre dans la bourse tinte ; équiper, vendre, acheter et placer un point ont leur son.",
+  "Musique plus intense pendant les combats de boss ; silence quand la bande est cachée (plein écran, icône seule).",
+  "Réglages > Son : volumes de la musique et de l’ambiance, « Écouter » joue un échantillon ; touche C : couper le son.",
+  "Ascension : le tri du marchand repart décoché ; rachat des potions et réclamation des quêtes restent cochés."
 ];
