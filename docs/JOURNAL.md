@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 542) : autotest « listes : aucune ligne plus large que sa colonne » (11 onglets ; garde la valeur
+  sans retour à la ligne de l'it. 541 : une valeur trop longue déborderait sans que le défilement vertical le voie).
+  128/128.
 - 2026-11-10 (it. 541) : revue en capture (de 1280) de Talents, Ascension, Statistiques, Bestiaire : propre, sauf les
   valeurs des listes « .lines » coupées en deux (« 63,97 / Mrd », « 44 / / 44 ») ; valeur sans retour à la ligne, le
   libellé passe à la ligne. Mesuré : aucune ligne qui déborde (11 onglets, de et ru, 1280 et 1920) ; aucun défilement
