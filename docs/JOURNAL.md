@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 354) : test : la pureté à 100 % vaut +4 à +6 % de puissance de combat (protège le Talisman de pureté
+  contre le Valet d'armes). 110/110.
 - 2026-11-10 (it. 353) : la pureté compte dans la puissance de combat (rules.js > power, ≈ +5 % à 100 %) : le Valet
   d'armes et « Équiper le meilleur » ne remplacent plus le Talisman de pureté par un objet à peine meilleur.
   balance.mjs 12 h : −0,2 zone (bruit). 110/110.

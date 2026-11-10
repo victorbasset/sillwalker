@@ -2001,6 +2001,10 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     gh.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((h) => h.id !== "purity").map((h) => [h.id, true]));
     const hp = M_hints_js.nextHint(gh);
     assert.ok(hp && hp.id === "purity", "astuce Talisman de pureté");
+    // Score de combat : la pureté compte (sinon le Valet d'armes retirerait le talisman pour un objet à peine meilleur)
+    const st = gh.stats(), pw = M_rules_js.power;
+    const ratio = pw({ ...st, purity: 100 }) / pw({ ...st, purity: 0 });
+    assert.ok(ratio > 1.04 && ratio < 1.06, "pureté 100 % ≈ +5 % de puissance : " + ratio);
 
     assert.ok(M_bosses_js.BOSS_MECHANICS.curse && M_bosses_js.bossMechanics(11).includes("curse"), "zone 11 : Malédiction");
   }
