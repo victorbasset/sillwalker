@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 519) : README à jour : liste des quêtes (coups au clic, critiques, sorts lancés), Marée arcanique
+  parmi les événements, sorts du compagnon dans la description du duo. 125/125.
 - 2026-11-10 (it. 518) : vérifié : les succès obtenus restent (S.achievements, earnedAchievements) même quand un ajout
   de contenu relève la barre (« Chasseur d'événements » et la Marée arcanique). « Quoi de neuf », édition 7 (sorts du
   compagnon, Marée arcanique, quête des sorts et cartes de héros, son du trait perçant et bandeau des paliers).

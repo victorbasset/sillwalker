@@ -20,7 +20,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Carte du Rebord** (onglet Carte, zone 12) : les 200 zones en serpentin aux couleurs de leur décor, héros
   prisonniers, chroniques, record, Briseur au bout, brouillard au-delà du record ; avec la **Carte du voyageur**
   (déblocage, zone 22), un clic sur une zone déjà atteinte y emmène le héros.
-- **20 héros, en duo** (un à distance + un au corps à corps ; le compagnon frappe à 35 % et apporte la moitié de son passif) :
+- **20 héros, en duo** (un à distance + un au corps à corps ; le compagnon frappe à 35 %, apporte la moitié de son passif et lance les sorts appris pour sa classe à moitié de leur puissance) :
   prisonniers de boss de zone (zones 10 à 192) ; une fois libérés, on change de héros et de compagnon à l’ascension :
   Guerrier (riposte), Rôdeur (tir d'ouverture), Mage (brûlure), Paladin (bouclier sacré), Assassin (poison cumulable),
   Nécromancien (serviteur squelette), Moine (enchaînement), Druide (épines, esprit-loup), Samouraï (iaijutsu : un coup sur 4 critique renforcé),
@@ -46,7 +46,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
   chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
-- **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, butin rare, événements rares, expéditions, transmutation, zone), récompenses variées ;
+- **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, butin rare, événements rares, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés), récompenses variées ;
   jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
 - **Familiers** : 14 compagnons (dont le lapin et le phénix, rares) qui suivent le héros, sortent d'œufs (boss, élites, quêtes)
@@ -77,7 +77,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.
 - **Répliques** : le héros parle de temps en temps (légendaire, boss, K.O., record…).
 - **Vitesse** (le bonus le plus précieux) : plumes du vent très rares et étoiles filantes à attraper d'un clic
-  (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie, corne d'abondance (un objet à chaque victoire), souffle de sagesse (expérience ×3), œil du faucon (tous les coups critiques),
+  (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie, corne d'abondance (un objet à chaque victoire), souffle de sagesse (expérience ×3), œil du faucon (tous les coups critiques), marée arcanique (recharges des sorts ×2, si un sort est appris),
   **coffre au trésor** (or, potion, objet rare ou mieux).
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération, miroir, vampirisme, souffle glacé,
   insaisissable, fureur croissante), deux à partir de la 2e boucle. Un boss qui bat le héros s'use : −5 % de PV par défaite
