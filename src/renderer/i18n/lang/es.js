@@ -961,4 +961,5 @@ export default {
   2085: "Música más intensa en los combates contra jefes; silencio cuando la franja está oculta (pantalla completa, solo icono).",
   2086: "Ajustes > Sonido: volúmenes de la música y del ambiente, «Escuchar» reproduce una muestra; tecla C: silenciar.",
   2087: "Ascensión: la Clasificación del mercader vuelve desmarcada; la recompra de pociones y el cobro de misiones siguen marcados.",
+  2088: "… y {n} novedad más antigua.|… y {n} novedades más antiguas.",
 };

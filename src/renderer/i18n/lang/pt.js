@@ -961,4 +961,5 @@ export default {
   2085: "Música mais intensa nas lutas contra chefes; silêncio quando a faixa está oculta (tela cheia, só ícone).",
   2086: "Configurações > Som: volumes da música e do ambiente, «Ouvir» toca uma amostra; tecla C: silenciar.",
   2087: "Ascensão: a Triagem do mercador volta desmarcada; recompra de poções e coleta de missões continuam marcadas.",
+  2088: "… e {n} novidade mais antiga.|… e {n} novidades mais antigas.",
 };

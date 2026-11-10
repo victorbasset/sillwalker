@@ -2089,5 +2089,6 @@ export const KEYS = [
   "Chaque pièce qui rentre dans la bourse tinte ; équiper, vendre, acheter et placer un point ont leur son.",
   "Musique plus intense pendant les combats de boss ; silence quand la bande est cachée (plein écran, icône seule).",
   "Réglages > Son : volumes de la musique et de l’ambiance, « Écouter » joue un échantillon ; touche C : couper le son.",
-  "Ascension : le tri du marchand repart décoché ; rachat des potions et réclamation des quêtes restent cochés."
+  "Ascension : le tri du marchand repart décoché ; rachat des potions et réclamation des quêtes restent cochés.",
+  "… et {n} nouveauté plus ancienne.|… et {n} nouveautés plus anciennes."
 ];

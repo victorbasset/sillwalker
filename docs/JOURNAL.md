@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 462) : « Quoi de neuf » borné pour de bon : au plus 3 éditions non lues affichées (newsShown,
+  NEWS_MAX_EDITIONS), les plus anciennes comptées dans une ligne « … et N nouveautés plus anciennes. » (pluriels
+  traduits, 3 formes ru / pl) ; le pire cas ne grandit plus avec les éditions (11 nouveautés aujourd'hui, au lieu de 23).
+  Test logique (rien ne se perd dans le compte) ; autotest 11 / 0 px ; lang-overflow ru / de / pl : aucun défilement.
+  122/122.
 - 2026-11-10 (it. 461) : « Quoi de neuf », édition 4 (4 nouveautés : sons des pièces qui rentrent et de la gestion,
   musique de boss et silence bande cachée, volumes / « Écouter » / touche C, ascension et tri du marchand). Pire cas
   23 nouveautés : russe 7 px de trop → liste dense resserrée (interligne 1,18, sans marge). Autotest 23 / 0 px ;

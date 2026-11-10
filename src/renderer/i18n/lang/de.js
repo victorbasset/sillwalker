@@ -961,4 +961,5 @@ export default {
   2085: "Intensivere Musik in Bosskämpfen; Stille, wenn der Streifen verborgen ist (Vollbild, nur Symbol).",
   2086: "Einstellungen > Ton: Lautstärke von Musik und Atmosphäre, „Anhören“ spielt eine Probe; Taste C: stumm.",
   2087: "Aufstieg: Händlersortierung startet abgewählt; Tränke nachkaufen und Quests einlösen bleiben aktiviert.",
+  2088: "… und {n} ältere Neuerung.|… und {n} ältere Neuerungen.",
 };

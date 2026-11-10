@@ -676,6 +676,11 @@ test("Quoi de neuf : rien pour une partie neuve, une fois pour une ancienne sauv
   assert.equal(newsItems(0).length, NEWS_EDITIONS.flat().length, "toutes si aucune lue");
   assert.equal(newsItems(0)[0], last[0], "la plus récente d'abord");
   assert.equal(newsItems(NEWS_ID).length, 0);
+  // Au plus 3 éditions affichées ; les plus anciennes sont comptées (« … et N nouveautés plus anciennes »)
+  const { newsShown, NEWS_MAX_EDITIONS } = M_news_js, sh = newsShown(0);
+  assert.equal(sh.items.length + sh.older, NEWS_EDITIONS.flat().length, "rien ne se perd dans le compte");
+  assert.ok(sh.items.length === NEWS_EDITIONS.slice(-NEWS_MAX_EDITIONS).flat().length, "les 3 dernières éditions");
+  assert.equal(newsShown(NEWS_ID - 1).older, 0);
 });
 
 test("synergies de duo : un partenaire attitré par héros, bonus appliqué au duo formé", () => {

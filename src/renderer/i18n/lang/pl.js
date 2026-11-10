@@ -961,4 +961,5 @@ export default {
   2085: "Bardziej intensywna muzyka w walkach z bossami; cisza, gdy pasek jest ukryty (pełny ekran, sama ikona).",
   2086: "Ustawienia > Dźwięk: głośność muzyki i klimatu, „Posłuchaj” odtwarza próbkę; klawisz C: wycisz.",
   2087: "Wniebowstąpienie: Sortowanie kupca wraca odznaczone; dokupowanie mikstur i odbieranie zadań zostają zaznaczone.",
+  2088: "… i {n} starsza nowość.|… i {n} starsze nowości.|… i {n} starszych nowości.",
 };

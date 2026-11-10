@@ -37,6 +37,13 @@ export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();
+/** Au plus NEWS_MAX_EDITIONS éditions affichées (la fenêtre ne doit jamais défiler, même après une longue absence) :
+ *  { items, older } — older = nombre de nouveautés plus anciennes non montrées. */
+export const NEWS_MAX_EDITIONS = 3;
+export function newsShown(seen = 0) {
+  const eds = NEWS_EDITIONS.slice(Math.max(0, seen)).reverse();
+  return { items: eds.slice(0, NEWS_MAX_EDITIONS).flat(), older: eds.slice(NEWS_MAX_EDITIONS).flat().length };
+}
 
 /** Nouveautés à annoncer ? (pas pour une partie neuve : l'intro passe avant tout) */
 export const newsDue = (S) => (S.settings.newsSeen || 0) < NEWS_ID && !!(S.story && S.story.intro) && (S.stats.kills || 0) > 0;
