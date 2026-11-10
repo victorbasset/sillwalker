@@ -233,7 +233,7 @@ export class Game {
         if (R.spawnT <= 0) {
           R.mon = this.makeMonster(this.S.kills >= KILLS_PER_ZONE);
           // Sort perçant (demande H) : les dégâts qui ont traversé le monstre précédent frappent celui-ci en arrivant.
-          if (R.pierce > 0) { const d = Math.min(R.pierce, R.mon.hp - 1); R.mon.hp -= d; R.pierce = 0; if (d > 0) this.emit("pierced", { mon: R.mon, dmg: d }); }
+          if (R.pierce > 0) { const d = Math.min(R.pierce, R.mon.hp - 1); R.mon.hp -= d; R.pierce = 0; if (d > 0) this.emit("pierced", { mon: R.mon, dmg: d, id: R.pierceId }); }
           this.emit("spawn", R.mon);
           if (R.mon.boss) this.charmSwap(R.mon);
         }
@@ -457,7 +457,7 @@ export class Game {
       }
       // Record du plus gros sort (Statistiques)
       if (total > (+S.stats.bestSpell || 0)) S.stats.bestSpell = total;
-      if (sp.pierce) R.pierce = (R.pierce || 0) + total * sp.pierce; // transperce : le suivant prendra sa part
+      if (sp.pierce) { R.pierce = (R.pierce || 0) + total * sp.pierce; R.pierceId = sp.id; } // transperce : le suivant prendra sa part
       this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce });
       if (m.hp <= 0) { this.killMonster(); return true; }
     }

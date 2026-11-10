@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 498, demande de Victor « que les attaques transpercées atteignent directement la cible ») : à
+  l'arrivée du monstre suivant, le trait perçant (couleur du sort) file du héros jusqu'à lui ; à l'impact : anneau,
+  étincelles et « -X · transpercé » sur le monstre (avant : le nombre apparaissait seul). Fuzz 600 parties ok. 124/124.
 - 2026-11-10 (it. 497) : README, liste des succès à créer dans Steamworks : manquaient SPELLS_1000, SPELLS_ALL3,
   CRITS_10000 ; ajoutés, et un test logique compare désormais cette liste à game/achievements.js. 173 tests ; 124/124.
 - 2026-11-10 (it. 496) : succès « Grimoire complet (les trois sorts d'un héros) », avec progression (0 à 3, le meilleur
@@ -1741,6 +1744,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- DEMANDES DE VICTOR (2026-11-10, après-midi) :
+  L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
+  M. Les icônes des onglets (barre du haut) disparaissent quand il y en a trop : les garder.
 
 - DEMANDES DE VICTOR (2026-11-10, midi), à traiter en premier, dans cet ordre :
   J. FAIT (it. 471). Bouclier visible sur la barre de vie (blanc ou bleu).

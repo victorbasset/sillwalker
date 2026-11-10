@@ -153,7 +153,19 @@ export class StripRenderer {
       if (this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, sp.color, 10);
     });
     // Sort perçant (demande H) : le monstre suivant arrive déjà blessé.
-    g.on("pierced", ({ dmg }) => { if (this.active) this.float(this.monX() + 14, 30, "-" + fmt(Math.round(dmg)) + " · " + tx("transpercé"), "#bfefff", true, true); });
+    // Demande de Victor (it. 498) : le trait perçant file droit sur le monstre qui arrive et le frappe (avant : un nombre
+    // apparaissait seul, loin du héros).
+    g.on("pierced", ({ dmg, id }) => {
+      if (!this.active) return;
+      const c = SPELL_INDEX[id]?.color || "#bfefff", hx = this.heroX + 16, mx = this.monX() + 14, fly = Math.max(0.12, Math.min(0.3, (mx - hx) / 900));
+      const n = el("div", "spellfx slash pierce", this.fxLayer); n.style.setProperty("--c", c); el("i", "", n); this.addFx(n, hx + 10, 48, fly, 0, mx - hx - 10);
+      setTimeout(() => {
+        if (!this.active) return;
+        const x = this.monX() + 14;
+        if (this.juice.full) { const r = el("div", "spellfx ring", this.fxLayer); r.style.setProperty("--c", c); el("i", "", r); this.addFx(r, x - 8, this.ground - 26, 0.5, 0); this.juice.sparkles(x, this.ground - 26, c, 6); }
+        this.float(x, 30, "-" + fmt(Math.round(dmg)) + " · " + tx("transpercé"), "#bfefff", true, true);
+      }, fly * 1000);
+    });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });
     g.on("bossShieldHit", () => { this.monHit = 0.06; });
