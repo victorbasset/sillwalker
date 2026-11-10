@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 480, revue générale) : simulations 12 h : guerrier 59, prêtresse 55, artificière 58 ; la prêtresse
+  vérifiée (graines 1-3 : 59, 59, 60 ; balance contre l'avant-sorts 5ed1c8d : 60 = 60) : bruit. Fuzz 1200 parties,
+  0 bloquée ; crawl 315 clics sans erreur (copie riche en or) ; russe : aucun mot latin suspect ; save-fuzz ok ;
+  mem-watch 6 min : 790-797 Mo, stable. Perf mesurée à l'it. 479.
 - 2026-11-10 (it. 479, perf des sorts) : mesure sur copies neuves de dev-data (sorts du héros au rang 20 / sans) :
   bande 19,0-19,4 % sans sorts, 22,0-22,2 % avec (première version : 24,1 %). Allégé : plus de drop-shadow (bolt,
   lames, icône), plus d'animations infinies (rotation, pulsation), anneaux à ombre simple, dôme sans dégradé,
