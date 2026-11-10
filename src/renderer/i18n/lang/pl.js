@@ -1076,4 +1076,5 @@ export default {
   2200: "Melodia stref {0}",
   2201: "Posłuchaj poprzedniej melodii (45 s)",
   2202: "Posłuchaj następnej melodii (45 s)",
+  2203: "automatyczna sprzedaż",
 };

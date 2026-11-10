@@ -340,7 +340,7 @@ test("ascension : éclats, conservation, constellations", () => {
   const shards = g.ascendShards();
   assert.ok(shards > 0);
   assert.ok(g.ascend());
-  assert.deepEqual(g.S.autoSell, { common: false, uncommon: false, rare: false }, "tri du marchand décoché à l'ascension (demande de Victor)");
+  assert.deepEqual(g.S.autoSell, { common: true, uncommon: true, rare: false }, "tri du marchand gardé à l'ascension (demande de Victor, it. 536)");
   assert.ok(g.S.unlocks.autoSell, "le déblocage, lui, est gardé");
   assert.ok(g.S.autoPotions && g.S.quests.auto, "rachat des potions et réclamation des quêtes gardés");
   // Carte du ciel : éclats placés tout seuls dans la constellation la moins chère, sauf refus (settings.autoStars)

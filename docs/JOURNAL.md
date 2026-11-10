@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 536, demande P de Victor « tu peux laisser cocher commun, peu commun et rare après une ascension ») :
+  le tri du marchand est gardé à l'ascension (annule l'it. 437) ; l'écran d'Ascension le range dans « Gardé » ; plus
+  de message « décochées ». Test logique adapté (À ANNONCER dans la prochaine édition de « Quoi de neuf » : l'édition 5
+  disait l'inverse). Aussi : libellé de l'écoute des airs rafraîchi à la fin des 45 s ; autotest : timbres et rythmes
+  rendus à travers le volume de la musique, comme en jeu (le rythme lofi frôlait le seuil : 0,21) ; grosse caisse et
+  caisse claire lofi un peu plus basses. 127/127 (deux fois).
 - 2026-11-10 (it. 535) : écoute des airs : le libellé montre la tranche dont l'air joue (zone en cours, ou tranche
   écoutée pendant les 45 s) ; ◀ ▶ partent de là (avant : « zones 1–5 » au départ, quelle que soit la zone). 127/127.
 - 2026-11-10 (it. 534) : Réglages > Son : « Air des zones 1–5 ◀ ▶ » : écoute 45 s de l'air d'une autre tranche, puis
@@ -1872,6 +1878,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
+  P. FAIT (it. 536). Garder cochées les ventes automatiques à l'ascension.
   O. FAIT (it. 521). Changer de musique toutes les 5 zones seulement.
   N. FAIT (it. 520, à écouter). Musique lofi façon Terraria, différente de zone en zone.
   M. FAIT (it. 499). Les icônes des onglets (barre du haut) disparaissent quand il y en a trop : les garder.

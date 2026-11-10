@@ -1076,4 +1076,5 @@ export default {
   2200: "Tune of zones {0}",
   2201: "Listen to the previous tune (45 s)",
   2202: "Listen to the next tune (45 s)",
+  2203: "automatic sales",
 };

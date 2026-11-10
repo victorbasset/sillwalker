@@ -2204,5 +2204,6 @@ export const KEYS = [
   "aucun appris (apprends-les en jouant ce héros)",
   "Air des zones {0}",
   "Écouter l’air précédent (45 s)",
-  "Écouter l’air suivant (45 s)"
+  "Écouter l’air suivant (45 s)",
+  "ventes automatiques"
 ];

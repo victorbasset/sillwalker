@@ -128,6 +128,8 @@ async function boot() {
   // Musique de fond par zone (render/music.js) : suit le son ; option à part dans les Réglages.
   const music = new Music(sound);
   music.onBattery = !!init.onBattery;
+  // (appelé 45 s après un clic des Réglages : le panneau existe alors)
+  music.onPreviewEnd = () => { panel.dirty = true; };
   // Trois réglages (demande 26) : effets sonores, musique de fond, et coupure générale (bouton haut-parleur) qui rend
   // l'état d'avant au second clic.
   const applySettings = () => {

@@ -149,6 +149,7 @@ export class Music {
     if (!this.previewing) return;
     this.previewing = false; clearTimeout(this.previewT);
     const z = this.home; this.home = 0; if (z) this.applyZone(z);
+    this.onPreviewEnd?.(); // le libellé des Réglages revient à la zone en cours
   }
 
   /** Change d'air (fondu enchaîné de 2,5 s) : un air par tranche de MUSIC_BLOCK zones (demande de Victor). */
@@ -295,8 +296,9 @@ export class Music {
     if (kit === "none") return;
     const beat = s % 8;
     if (kit === "lofi" || kit === "lofi2") { // boom-bap feutré : grosse caisse ronde, caisse claire étouffée sur 2 et 4, charleston doux
-      if (beat === 0 || (kit === "lofi" ? beat === 5 : beat === 3 || beat === 7 && s % 16 === 15)) this.kick(dest, t, 0.26);
-      if (beat === 2 || beat === 6) { this.noiseHit(dest, t, 0.11, 0.035, 1400); this.noiseHit(dest, t, 0.03, 0.02, 4000); }
+      // (it. 536 : un peu plus bas, le pic dépassait parfois le seuil de saturation de l'autotest)
+      if (beat === 0 || (kit === "lofi" ? beat === 5 : beat === 3 || beat === 7 && s % 16 === 15)) this.kick(dest, t, 0.22);
+      if (beat === 2 || beat === 6) { this.noiseHit(dest, t, 0.11, 0.03, 1400); this.noiseHit(dest, t, 0.03, 0.017, 4000); }
       this.noiseHit(dest, t, 0.02, s % 2 ? 0.014 : 0.009, 8000);
       return;
     }

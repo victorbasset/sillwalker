@@ -1076,4 +1076,5 @@ export default {
   2200: "Melodia das zonas {0}",
   2201: "Ouvir a melodia anterior (45 s)",
   2202: "Ouvir a próxima melodia (45 s)",
+  2203: "vendas automáticas",
 };
