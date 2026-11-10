@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 450, revue générale) : simulations 12 h (voie prise) : rôdeur 59, chaman 63, artificière 62 ; crawl
+  312 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; perf : bande 18,9 %, panneau 21,4 %,
+  mini 6,0 %, icône 3,1 % (stables).
 - 2026-11-10 (it. 449) : semaine simulée (mage) avec la voie désormais prise par simulate.js : 76 courses, records
   38 → 57 → 71 → 83 → 111 → 132 → 155 → 179, progression régulière sans plafond (repère précédent 38 → 175) ; 20
   déblocages, le dernier (steward) à 8 493 min. CLAUDE.md : repère mis à jour (it. 449).
