@@ -2002,5 +2002,17 @@ export const KEYS = [
   "Arbre des compétences illustré : une icône pour chaque nœud, un dessin unique pour les grands.",
   "Onze chroniques, chacune avec sa cinématique (▶ pour la revoir dans la carte du héros).",
   "Enclume stellaire, deux familiers, l’événement Pluie d’éclats et la capacité Peau de pierre.",
-  "Réglages : économie d’énergie, cinématiques ; la bande se cache devant le plein écran (Windows)."
+  "Réglages : économie d’énergie, cinématiques ; la bande se cache devant le plein écran (Windows).",
+  "Duo idéal : {0}",
+  "Frères d’armes",
+  "Lumière jumelle",
+  "Ombres et os",
+  "Rythme et souffle",
+  "Lame et carreau",
+  "Rage de la meute",
+  "Phalange de givre",
+  "Arène sauvage",
+  "Danse des flammes",
+  "Étoile et poudre",
+  "Synergies de duo : chaque héros a un partenaire idéal, et ce duo reçoit un petit bonus."
 ];

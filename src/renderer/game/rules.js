@@ -3,7 +3,7 @@ import {
   RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, ITEM_BASES, ITEM_SUFFIXES, ZONES, MONSTERS, ELITE, DYES, materialFor,
   WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, CHAMPION,
 } from "./data.js";
-import { classDef, CLASSES, DUO } from "./classes.js";
+import { classDef, CLASSES, DUO, duoSynergy } from "./classes.js";
 import { talentEffects } from "./talents.js";
 import { powerEffects } from "./powers.js";
 import { petEffects } from "./pets.js";
@@ -129,6 +129,8 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // Compagnon du duo : une part de sa capacité (demande 17).
   const pd = S.partner && CLASSES[S.partner];
   if (pd) for (const k in pd.passive) t[k] = (t[k] || 0) + pd.passive[k] * DUO.passive;
+  const syn = pd && duoSynergy(S.cls, S.partner); // synergie de duo (classes.js)
+  if (syn) for (const k in syn.eff) t[k] = (t[k] || 0) + syn.eff[k];
   if (buffs) for (const id in S.buffs || {}) if (S.buffs[id] > 0 && BUFF_EFFECTS[id]) {
     for (const k in BUFF_EFFECTS[id]) t[k] = (t[k] || 0) + BUFF_EFFECTS[id][k];
   }

@@ -1,8 +1,9 @@
 // Onglet Classe : les héros libérés et ceux encore prisonniers. On change de
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
+import { describeEffects } from "../../game/talents.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, fsp } from "../../i18n/index.js";
-import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner } from "../../game/classes.js";
+import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner, DUO_SYNERGIES } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
 import { esc, unit } from "../../game/format.js";
@@ -53,6 +54,10 @@ export class ClassesTab {
           <div class="nm">${esc(c.name)}${cur ? ` <small>${tx("(actuel)")}</small>` : ""}${isPartner ? ` <small>${tx("(compagnon)")}</small>` : ""}</div><div class="sub">${esc(c.role)}</div></div></div>
         <p class="mods">${mods.map((m) => esc(m)).join(" · ")}</p>
         <p class="passive"><b>${tx("Passif.")}</b> ${esc(c.passiveText)}</p>
+        ${(() => { // duo idéal (synergie, classes.js) : surligné quand ce duo est formé
+          const d = DUO_SYNERGIES.find((x) => x.a === k || x.b === k); if (!d) return "";
+          const mate = d.a === k ? d.b : d.a, on = (S.cls === k && S.partner === mate) || (S.partner === k && S.cls === mate);
+          return `<p class="synergy${on ? " on" : ""}" title="${esc(describeEffects(d.eff))}">✦ ${tx("Duo idéal : {0}", { 0: esc(CLASSES[mate].name) })} · <b>${esc(tx(d.name))}</b> (${esc(describeEffects(d.eff))})</p>`; })()}
         ${spent ? `<p class="note">${txn(spent, "{n} point de talent réparti.|{n} points de talent répartis.")}</p>` : ""}
         <div class="row">${action}${duo}</div>
       </article>`;

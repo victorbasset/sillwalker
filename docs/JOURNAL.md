@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 328, étude des concurrents : bonus d'équipe) : synergies de duo (classes.js > DUO_SYNERGIES) : chaque
+  héros au corps à corps a un partenaire à distance attitré (10 duos, chaque héros une fois : Frères d'armes, Lumière
+  jumelle, Ombres et os…) ; le duo formé reçoit un petit bonus (≈ 5 %, rules.js). Onglet Héros : « Duo idéal » sur
+  chaque carte (vert quand formé) ; infobulle du compagnon. Ajouté au « Quoi de neuf » (édition 1, pas encore vue).
+  12 textes × 9 langues, test (une portée de chaque, tous les héros, bonus appliqué), capture, 107/107.
 - 2026-11-10 (it. 327) : solidité des nouveaux réglages : une valeur abîmée (« oui », null…) de settings.eco ou
   settings.cinematics reprend le défaut au chargement (« oui » activait l'économie d'énergie) ; save-fuzz : cas
   newsBad ; test. CLAUDE.md : penser à publier une édition « Quoi de neuf » après une série de nouveautés. 107/107.

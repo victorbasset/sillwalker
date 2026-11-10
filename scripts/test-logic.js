@@ -663,6 +663,18 @@ test("Quoi de neuf : rien pour une partie neuve, une fois pour une ancienne sauv
   assert.equal(newsDue(S), false, "une seule fois");
 });
 
+test("synergies de duo : un partenaire attitré par héros, bonus appliqué au duo formé", () => {
+  const { DUO_SYNERGIES, duoSynergy, CLASS_KEYS, isRanged } = M_classes_js;
+  const seen = new Set();
+  for (const d of DUO_SYNERGIES) { assert.notEqual(isRanged(d.a), isRanged(d.b), d.name + " : une portée de chaque"); seen.add(d.a); seen.add(d.b); }
+  assert.equal(seen.size, CLASS_KEYS.length, "chaque héros a un duo idéal, une seule fois");
+  assert.equal(duoSynergy("ranger", "warrior").name, "Frères d’armes", "dans les deux sens");
+  const g = new Game(freshState()); g.S.classesUnlocked = ["warrior", "ranger", "mage"];
+  g.choosePartner("mage"); const a0 = g.stats().atk;
+  g.S.partner = "ranger"; g.invalidateStats(); const a1 = g.stats().atk;
+  assert.ok(a1 > a0, "Frères d’armes : plus d’attaque qu’un duo sans synergie");
+});
+
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {
   const { SKILL_TREE } = M_skilltree_js, keys = new Set(M_skillicons_js.SKILL_ICON_KEYS);
   for (const n of Object.values(SKILL_TREE.nodes)) assert.ok(keys.has(M_skillicons_js.skillIconKey(n)), "icône manquante : " + n.id + " " + M_skillicons_js.skillIconKey(n));

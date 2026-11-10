@@ -231,3 +231,23 @@ export const canPartner = (S, main, cls) => !!CLASSES[cls] && cls !== main && is
 
 export const isClassUnlocked = (S, cls) => cls === "warrior" || (S.classesUnlocked || []).includes(cls);
 export const classDef = (id) => CLASSES[id] || CLASSES.warrior;
+
+/**
+ * Synergies de duo (étude des concurrents : bonus d'équipe) : chaque héros au corps à corps a un partenaire à
+ * distance attitré ; formé (dans un sens ou dans l'autre), le duo reçoit un petit bonus. Chaque héros n'apparaît
+ * qu'une fois. Bonus modestes : le choix du compagnon reste libre.
+ */
+export const DUO_SYNERGIES = [
+  { a: "warrior", b: "ranger", name: "Frères d’armes", eff: { atkPct: 5 } },
+  { a: "paladin", b: "priestess", name: "Lumière jumelle", eff: { shield: 5, regen: 1 } },
+  { a: "assassin", b: "necro", name: "Ombres et os", eff: { poison: 2, minion: 5 } },
+  { a: "monk", b: "bard", name: "Rythme et souffle", eff: { combo: 1, xp: 5 } },
+  { a: "samurai", b: "arbalest", name: "Lame et carreau", eff: { critDmg: 10 } },
+  { a: "berserker", b: "shaman", name: "Rage de la meute", eff: { lifesteal: 1, atkPct: 3 } },
+  { a: "lancer", b: "cryomancer", name: "Phalange de givre", eff: { defPct: 5, critDmg: 5 } },
+  { a: "gladiator", b: "druid", name: "Arène sauvage", eff: { thorns: 10, hpPct: 3 } },
+  { a: "bladedancer", b: "mage", name: "Danse des flammes", eff: { burn: 5, spd: 3 } },
+  { a: "starwarden", b: "artificer", name: "Étoile et poudre", eff: { bossDmg: 8 } },
+];
+/** Synergie du duo (héros principal, compagnon), dans un sens ou dans l'autre ; null sinon. */
+export const duoSynergy = (main, partner) => (main && partner && DUO_SYNERGIES.find((d) => (d.a === main && d.b === partner) || (d.b === main && d.a === partner))) || null;
