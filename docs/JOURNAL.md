@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 562) : documentation : repère de la semaine simulée dans CLAUDE.md (it. 561 : mage 186, guerrier 189) ;
+  README : Grimoire et sorts du compagnon. 130/130.
 - 2026-11-10 (it. 561) : Grimoire des sorts : améliore aussi les sorts du compagnon (même règle : le rang le moins cher
   sous 10 % de l'or, une fois par minute de jeu) ; description mise à jour (9 langues). Balance 12 h +0,1 ; semaine mage
   186 (était 178), guerrier 189 : progression régulière. 130/130.

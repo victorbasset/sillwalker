@@ -61,7 +61,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   perçage) ; les sorts perçants frappent tout de suite les monstres de la file, un de plus tous les 10 rangs. Recharge −10 % tous les 10 rangs
   (`spellCd`). Visibles sur la carte du héros (Aventure) et sur chaque carte de l'onglet Héros ; record du plus gros
   sort dans Statistiques ; succès « Mage de bataille » et « Grimoire complet ». Déblocage Grimoire des sorts : les
-  améliore tout seul (une fois par minute de jeu, sous 10 % de l'or). Gardés à l'ascension.
+  améliore tout seul, ceux du compagnon compris (une fois par minute de jeu, sous 10 % de l'or). Les sorts du compagnon
+  s'apprennent aussi à la main (« + », Sorts et attaque). Gardés à l'ascension.
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 16 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
 - **Son** (render/sound.js, render/music.js) : effets variés, ambiance de chaque zone (bulles, braises, oiseaux…),
