@@ -541,6 +541,24 @@ async function runSelfTest(strip) {
   // Réglage « Informations de la bande » : « Au milieu » regroupe les infos au centre sur un écran ordinaire.
   const hp = await js("(() => { const P = window.__panel; P.setTab('settings'); P.renderAll(); const S = window.__game.S, was = S.settings.hudPos; const click = (v) => { document.querySelector('[data-action=se-hudpos][data-v=' + v + ']').click(); return document.body.classList.contains('hud-center'); }; const r = [click('center'), click('edges')]; S.settings.hudPos = was; window.dispatchEvent(new Event('sillwalker-hudpos')); return r.join(' '); })()");
   check("réglages : informations de la bande au milieu / aux bords", hp === "true false", hp);
+  // Son (refonte it. 432-446) : rendu hors ligne de tous les sons ; aucune erreur, aucun NaN, aucune saturation.
+  const sndAll = await js(`(async () => { try {
+    const S0 = window.__sound, out = [];
+    const render = async (name, fn) => { const ctx = new OfflineAudioContext(1, 44100 * 2, 44100), s = new S0.constructor();
+      s.ctx = ctx; s.master = ctx.createGain(); s.master.gain.value = 0.1; s.master.connect(ctx.destination); s.enabled = true; s.ensure = () => ctx; s.audio = () => ctx;
+      fn(s); const d = (await ctx.startRendering()).getChannelData(0); let pk = 0;
+      for (const x of d) { if (Number.isNaN(x)) { out.push(name + ":NaN"); return; } pk = Math.max(pk, Math.abs(x)); }
+      if (pk > 0.2) out.push(name + ":" + pk.toFixed(2)); };
+    for (const c of ["warrior", "paladin", "lancer", "ranger", "mage", "cryomancer", "necro", "priestess", "bard"]) await render("coup-" + c, (s) => { s.hit(c, "skel", true); s.last = {}; s.hit(c, "slime", false); });
+    await render("pièces", (s) => { s.coin(5); s.coinIn(true); });
+    for (const id of ["wind", "goldrain", "frenzy", "bounty", "wisdom", "hawkeye", "shardfall", "zeal", "nest", "ward", "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));
+    for (const k of ["bubble", "drip", "snow", "dust", "ember", "spore", "mote", "ash", "feather", "leaf", null]) await render("zone-" + k, (s) => { s.zoneSounds(k, false, true); s.zoneSounds(k, true, true); });
+    await render("oiseau", (s) => s.birdCall());
+    await render("ambiance-évén", (s) => s.eventAmbience({ goldrain: 5, wind: 5, shardfall: 5, nest: 5 }));
+    for (const id of ["coin", "loot", "legendary", "level", "boss", "chest", "star", "quest", "ascend"]) await render("play-" + id, (s) => s.play(id));
+    return out.join(" ") || "ok";
+  } catch (e) { return "erreur " + e.message; } })()`);
+  check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);

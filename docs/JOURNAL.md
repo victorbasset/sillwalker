@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 447) : contrôle d'autotest permanent du son (jusque-là, seulement des essais temporaires) : rendu hors
+  ligne des coups des 9 armes, pièces, 10 événements et un inconnu, 11 ambiances de zone (jour et nuit), oiseau,
+  ambiance d'événement, 9 sons de play() ; échec sur erreur, NaN ou pic > 0,2. window.__sound exposé en dev.
+  CLAUDE.md : ajouter tout nouveau son à cette liste. 121/121.
 - 2026-11-10 (it. 446) : bouton « Écouter » (Réglages > Son) : au lieu du seul son légendaire, un échantillon pour
   régler les curseurs à l'oreille : un coup de l'arme du héros avec la cascade de pièces d'une victoire, un coup
   critique, puis un son de l'ambiance de la zone actuelle (jour / nuit) par son bus (Sound.sample ; zoneSounds accepte
