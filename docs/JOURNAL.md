@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 573, demande S, 3e partie : carte) : les trois boss majeurs sur la carte du Rebord, au bout
+  des rangées 1 à 3 (zones 50, 100, 150, comme la forteresse du Briseur en 200) : la relique gardée avec son nom,
+  halo violet, puis dorée et « ★ » une fois gagnée ; survol : boss, zone, effet, et l'histoire une fois gagnée.
+  Nom aligné loin du chemin qui descend (vérifié en allemand). 130/130.
 - 2026-11-10 (it. 572, demande S, 2e partie : bande) : icônes pixel des 4 reliques (shopart.js relicIconURL) ;
   la relique gardée flotte à côté du boss majeur (et du Briseur) tant qu'elle n'est pas gagnée ; le héros porte
   les siennes : drone qui vole près de lui, couronne sur la tête, cœur et lame en petites icônes ; missile bleu du

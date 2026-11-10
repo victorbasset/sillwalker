@@ -1249,3 +1249,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .actor .relic-mini img { width: 11px; image-rendering: pixelated; }
 .actor .relic-carried { position: absolute; left: -26px; top: 6px; width: 27px; animation: relicBob 1.6s ease-in-out infinite alternate; image-rendering: pixelated; filter: drop-shadow(0 0 3px #fff6a8); pointer-events: none; }
 @keyframes relicBob { from { translate: 0 0; } to { translate: 0 -5px; } }
+/* Boss majeurs sur la carte (demande S, it. 573) : la relique gardée, dorée une fois gagnée. */
+.rebord .mmajor image { filter: drop-shadow(0 0 3px #b36bff); }
+.rebord .mmajor.won image { filter: drop-shadow(0 0 3px #ffd34d); }
+.rebord .mmajor .mfname { fill: #c9b8f0; font-size: 8px; }
+.rebord .mmajor.won .mfname { fill: #ffe27a; }
