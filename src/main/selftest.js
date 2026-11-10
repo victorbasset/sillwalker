@@ -567,6 +567,9 @@ async function runSelfTest(strip) {
   // Sorts (demande D) : sous-onglet « Sorts et attaque », trois cartes du héros, un clic sur « Apprendre » donne le rang 1.
   const spl = await js("(() => { const g = window.__game, S = g.S, P = window.__panel, keep = { sp: JSON.stringify(S.spells || {}), gold: S.gold }; S.spells = {}; S.gold = 1e30; P.setTab('class'); P.tabs.class.sec = 'style'; P.renderAll(); const cards = document.querySelectorAll('.spellcard').length; const b = document.querySelector('[data-action=c-spell]'); if (b) b.click(); const r = Object.values(S.spells || {})[0] || 0; S.spells = JSON.parse(keep.sp); S.gold = keep.gold; P.tabs.class.sec = 'freed'; P.renderAll(); return cards + ' ' + r; })()");
   check("sorts : trois cartes, « Apprendre » donne le rang 1", spl === "3 1", spl);
+  // Animations des sorts (bande) : les six mécaniques et la frappe perçante ne lèvent aucune erreur.
+  const sfx = await js("(() => { const g = window.__game, bad = []; for (const id of ['warrior.0', 'warrior.1', 'warrior.2', 'ranger.1', 'mage.0', 'paladin.0']) { try { g.emit('spell', { id, dmg: 1234, amount: 567 }); } catch (e) { bad.push(id + ':' + e.message); } } try { g.emit('pierced', { mon: g.R.mon, dmg: 99 }); } catch (e) { bad.push('pierced:' + e.message); } return bad.join(' ') || 'ok'; })()");
+  check("sorts : animations des six mécaniques sans erreur", sfx === "ok", sfx);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);

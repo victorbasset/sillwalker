@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 489) : autotest « sorts : animations des six mécaniques sans erreur » (signal spell pour une
+  mécanique de chaque sorte, plus pierced). 124/124.
 - 2026-11-10 (it. 488) : sorts : infobulle du bouton Apprendre / Améliorer : l'effet au rang suivant (« Rang 4 : 2 coups
   de 105 % de l'attaque »). Liste « À vérifier par Victor » complétée (sorts). Traduit. 123/123.
 - 2026-11-10 (it. 487) : CLAUDE.md : semaine simulée à relancer après tout déblocage qui dépense de l'or tout seul
