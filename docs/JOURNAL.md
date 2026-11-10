@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 522) : documentation de la nouvelle musique : README (section « Son » : effets, ambiance, musique lofi
+  par tranche de 5 zones) et en-tête de music.js (plus de « chiptune », « 200 airs »). Aucun texte du jeu à reprendre.
+  125/125.
 - 2026-11-10 (it. 521, demande O de Victor « ça change trop régulièrement : changer de musique toutes les 5 zones ») :
   un air par tranche de 5 zones (musicZone, MUSIC_BLOCK = 5 : celui de la 1re zone de la tranche). Couleur du décor :
   passe-bas (1,7 kHz sombre … 3,6 kHz ciel) et écho doux en croche pointée (fort en mer, au ciel, dans la glace),

@@ -62,6 +62,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   améliore tout seul (une fois par minute de jeu, sous 10 % de l'or). Gardés à l'ascension.
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 16 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
+- **Son** (render/sound.js, render/music.js) : effets variés, ambiance de chaque zone (bulles, braises, oiseaux…),
+  musique lofi façon Terraria générée (rien d'enregistré) : un air par tranche de 5 zones, tempo posé, swing, accords de
+  septième au piano électrique, rythme feutré, passe-bas et écho selon le décor, craquements de vinyle ; l'air varie
+  d'un passage à l'autre (intermèdes, silences), plus intense contre les boss. Volumes séparés dans Réglages > Son.
 - **Cycle jour / nuit** sur la bande, calé sur l'heure de l'ordinateur.
 - **Bon voisin** : économie d'énergie (15 images/s, Réglages), bande cachée devant une application en plein écran
   (Windows, menu de l'icône), cinématiques désactivables, ralenti automatique sur batterie et en absence.

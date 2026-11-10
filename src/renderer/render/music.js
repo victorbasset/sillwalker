@@ -1,6 +1,6 @@
-// Musique de fond par zone (demande 24 de Victor) : petits airs chiptune originaux, légers, dans l'esprit des jeux
-// Game Boy Color (aucune reprise). Rien n'est enregistré : chaque zone a sa graine, d'où sa gamme, son tempo, sa
-// grille d'accords et sa mélodie (200 zones = 200 airs). Fondu enchaîné à chaque changement de zone.
+// Musique de fond (demande 24 de Victor ; it. 520-521 : « un mélange de Terraria et de Lofi Girl », un air toutes les
+// 5 zones) : airs originaux générés (aucune reprise, rien d'enregistré). La 1re zone de chaque tranche donne la graine,
+// d'où la gamme, le tempo, la grille d'accords, la mélodie et la couleur du décor. Fondu enchaîné au changement d'air.
 // Instruments : mélodie en onde carrée douce, basse triangulaire, charleston de bruit très bas. Volume faible.
 import { ZONES } from "../game/data.js";
 
