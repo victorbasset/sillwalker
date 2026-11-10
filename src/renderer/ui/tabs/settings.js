@@ -57,6 +57,8 @@ export class SettingsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Fenêtre")}</span></h2>
         <p class="note tight">${tx("Position de la bande")}</p>
         <div class="row seg">${["bottom", "top"].map((e) => `<button data-action="se-edge" data-v="${e}" aria-pressed="${(L.edge || "bottom") === e}">${e === "bottom" ? tx("En bas") : tx("En haut")}</button>`).join("")}</div>
+        <p class="note tight">${tx("Informations de la bande")}</p>
+        <div class="row seg">${[["edges", tx("Aux bords")], ["center", tx("Au milieu")], ["auto", tx("Automatique (très grands écrans)")]].map(([v, label]) => `<button data-action="se-hudpos" data-v="${v}" aria-pressed="${(P.hudPos || "auto") === v}">${esc(label)}</button>`).join("")}</div>
         <label class="range">${tx("Opacité")} <input type="range" min="5" max="100" step="5" value="${Math.round(opacity * 100)}" data-action="se-opacity-range"> <span>${Math.round(opacity * 100)}${unit("%")}</span></label>
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${tx("Lancer au démarrage de Windows")}</label>
         <p class="note">${tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
@@ -87,6 +89,7 @@ export class SettingsTab {
       Promise.resolve(this.api?.writeSave?.(JSON.stringify(this.game.S))).finally(() => location.reload());
       return;
     }
+    else if (a === "se-hudpos") { P.hudPos = b.dataset.v || "auto"; window.dispatchEvent(new Event("sillwalker-hudpos")); this.game.changed(); return; }
     else if (a === "se-theme") { P.theme = b.dataset.v || "dark"; applyTheme(P.theme); this.game.changed(); return; }
     else if (a === "se-scale") { P.uiScale = +b.dataset.v; applyUiScale(P.uiScale); this.game.changed(); window.dispatchEvent(new Event("resize")); return; }
     else if (a === "se-edge") this.api?.setWindowSettings({ edge: b.dataset.v });

@@ -538,6 +538,9 @@ async function runSelfTest(strip) {
   await sleep(500);
   const chM = await js("(() => { const m = document.getElementById('modal'), d = document.querySelector('[data-keep=hero-chron]'); const r = (m.hidden ? 'fermée' : 'ouverte') + ' ' + (d ? d.open : '?'); m.hidden = true; document.querySelectorAll('.cine').forEach((c) => c.click()); return r; })()");
   check("bulle de chronique : ouvre la fenêtre Chroniques", chT === "ok" && chM === "ouverte false", chT + " / " + chM);
+  // Réglage « Informations de la bande » : « Au milieu » regroupe les infos au centre sur un écran ordinaire.
+  const hp = await js("(() => { const P = window.__panel; P.setTab('settings'); P.renderAll(); const S = window.__game.S, was = S.settings.hudPos; const click = (v) => { document.querySelector('[data-action=se-hudpos][data-v=' + v + ']').click(); return document.body.classList.contains('hud-center'); }; const r = [click('center'), click('edges')]; S.settings.hudPos = was; window.dispatchEvent(new Event('sillwalker-hudpos')); return r.join(' '); })()");
+  check("réglages : informations de la bande au milieu / aux bords", hp === "true false", hp);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);

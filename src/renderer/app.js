@@ -432,6 +432,8 @@ async function boot() {
     if (cmd === "eco:on" || cmd === "eco:off") { game.S.settings.eco = cmd === "eco:on"; applySettings(); panel.dirty = true; sendStatus(true); }
   });
 
+  // Réglage « Informations de la bande » : la bande se redispose tout de suite.
+  window.addEventListener("sillwalker-hudpos", () => { if (mode === "strip") { strip.resize(); if (frameTimer) strip.draw(performance.now()); } });
   window.addEventListener("resize", () => {
     if (mode === "strip") { strip.resize(); if (frameTimer) strip.draw(performance.now()); }
     if (panelOpen) panel.fitTabs();

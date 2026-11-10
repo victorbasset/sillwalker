@@ -213,6 +213,8 @@ export function migrate(raw) {
   if (!isObj(o.settings) || typeof o.settings.newsSeen !== "number") s.settings.newsSeen = 0;
   // Réglages oui / non : une valeur abîmée (texte, null…) reprend le défaut (sinon « oui » activerait l'économie).
   s.settings.eco = s.settings.eco === true;
+  // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)
+  if (!["auto", "center", "edges"].includes(s.settings.hudPos)) s.settings.hudPos = "auto";
   s.settings.cinematics = s.settings.cinematics !== false;
   if (!isObj(o.settings) || o.settings.soundOn2 !== true) { s.settings.sound = true; s.settings.soundOn2 = true; }
   // Carnet apparu après coup, partie déjà entamée : une première entrée situe le point de départ.

@@ -936,4 +936,8 @@ export default {
   2060: "Nueva habilidad de jefe: Tenaz, se levanta una vez con el 25 % de sus PV.",
   2061: "Velo protector",
   2062: "¡Daño recibido reducido a la mitad!",
+  2063: "Información de la franja",
+  2064: "En los bordes",
+  2065: "En el centro",
+  2066: "Automático (pantallas muy anchas)",
 };

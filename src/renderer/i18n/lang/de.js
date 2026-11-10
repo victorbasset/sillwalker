@@ -936,4 +936,8 @@ export default {
   2060: "Neue Boss-Fähigkeit: Zäh, er steht einmal mit 25 % seiner LP wieder auf.",
   2061: "Schützender Schleier",
   2062: "Erlittener Schaden halbiert!",
+  2063: "Infos im Streifen",
+  2064: "An den Rändern",
+  2065: "In der Mitte",
+  2066: "Automatisch (sehr breite Bildschirme)",
 };

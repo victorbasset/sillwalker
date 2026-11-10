@@ -265,7 +265,9 @@ export class StripRenderer {
     this.hudR.c.style.left = (this.W - HUD_R_W - this.rightReserve) + "px";
     // Écran très large (Odyssey G9, demande 21) : zone, or, niveau et boutons regroupés au milieu, dans une languette
     // qui déplie le panneau, au lieu des deux bouts de l'écran. Écrans ordinaires : inchangés.
-    this.centerHud = this.W >= CENTER_HUD_W;
+    // Réglage « Informations de la bande » : au milieu ou aux bords sur tout écran (portable, Mac…), sinon automatique.
+    const pos = (this.game.S.settings && this.game.S.settings.hudPos) || "auto";
+    this.centerHud = pos === "center" ? this.W >= HUD_L_W + HUD_R_W : pos === "edges" ? false : this.W >= CENTER_HUD_W;
     this.root.classList.toggle("hud-center", this.centerHud);
     document.body.classList.toggle("hud-center", this.centerHud); // bulles centrées elles aussi (styles.css)
     if (!this.centerHud) { this.hudL.c.style.left = "0px"; const b = this.root.querySelector(".strip-btns"); if (b) b.style.left = ""; }

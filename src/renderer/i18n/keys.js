@@ -2064,5 +2064,9 @@ export const KEYS = [
   "Nouvelle quête « Porter des coups critiques » et nouveau succès « Lame affûtée ».",
   "Nouvelle capacité de boss : Tenace, il se relève une fois avec 25 % de ses PV.",
   "Voile protecteur",
-  "Dégâts subis divisés par deux !"
+  "Dégâts subis divisés par deux !",
+  "Informations de la bande",
+  "Aux bords",
+  "Au milieu",
+  "Automatique (très grands écrans)"
 ];

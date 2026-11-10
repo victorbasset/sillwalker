@@ -936,4 +936,8 @@ export default {
   2060: "Nowa zdolność bossa: Nieustępliwy, raz podnosi się z 25% PŻ.",
   2061: "Ochronny welon",
   2062: "Otrzymywane obrażenia o połowę mniejsze!",
+  2063: "Informacje na pasku",
+  2064: "Po bokach",
+  2065: "Na środku",
+  2066: "Automatyczny (bardzo szerokie ekrany)",
 };

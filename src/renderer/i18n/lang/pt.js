@@ -936,4 +936,8 @@ export default {
   2060: "Nova habilidade de chefe: Tenaz, levanta-se uma vez com 25% dos PV.",
   2061: "Véu protetor",
   2062: "Dano sofrido reduzido pela metade!",
+  2063: "Informações da faixa",
+  2064: "Nas bordas",
+  2065: "No meio",
+  2066: "Automático (telas muito largas)",
 };

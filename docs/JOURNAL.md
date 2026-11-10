@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 429 bis, question de Victor : « pourquoi sur mon mac j'ai pas les infos au milieu comme sur mon grand
+  écran ? ») : la disposition au milieu (demande 21) ne s'activait qu'à partir de 2400 px (CENTER_HUD_W) ; un Mac fait
+  1440-1728 px. Nouveau réglage Réglages > Fenêtre > « Informations de la bande » : Aux bords / Au milieu / Automatique
+  (très grands écrans, par défaut : rien ne change sans le choisir). settings.hudPos (migrate : valeur inconnue → auto),
+  événement sillwalker-hudpos (la bande se redispose tout de suite). Placé dans la carte Fenêtre (dans Affichage il
+  faisait défiler l'onglet de 34 à 81 px). Traduit (mêmes mots que « la bande » dans chaque langue) ; lang-overflow
+  8 langues × 3 largeurs : aucun défilement ; capture à 1440 px ; contrôle d'autotest ; save-fuzz ok. 120/120.
 - 2026-11-10 (it. 429) : idée d (héros trop semblables) : les voies des 10 héros ajoutés ne sont plus des copies de
   leurs modèles : chacune mêle à parts égales deux voies existantes choisies pour le thème (VOIE_BLENDS, talents.js :
   cryomancienne cristal = critiques + frappe tous les 4 coups ; barde ballade = esquive + bouclier…). Identifiants
