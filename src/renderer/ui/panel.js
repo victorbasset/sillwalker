@@ -17,7 +17,7 @@ import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/spr
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
 import { ShopTab } from "./tabs/shop.js";
-import { ClassesTab } from "./tabs/classes.js";
+import { ClassesTab, spellFxText } from "./tabs/classes.js";
 import { initHScroll, saveHScroll, restoreHScroll } from "./hscroll.js";
 import { CLASSES, duoSynergy } from "../game/classes.js";
 import { QuestsTab } from "./tabs/quests.js";
@@ -510,7 +510,7 @@ export class Panel {
     const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + " : " + describeEffects(syn.eff) : ""))}"><img src="${classPortraitURL(S.partner)}" alt="">${esc(tx("Compagnon : {0}", { 0: pd.name }))}${syn ? ` <span class="syn">✦ <span class="synname">${esc(tx(syn.name))}</span></span>` : ""}</button>` : "";
     // Sorts appris du héros : icônes à droite de la ligne du compagnon (rang en infobulle) ; un clic mène aux sorts.
     const learned = classSpells(S.cls).filter((x) => spellRank(S, x.id) > 0);
-    const spl = learned.length ? `<button class="linkbtn spellmini" data-tab="class" data-sec="style">${learned.map((x) => `<img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="" title="${esc(tx("Rang {0} : {1}", { 0: spellRank(S, x.id), 1: tr(x.name) }))}">`).join("")}</button>` : "";
+    const spl = learned.length ? `<button class="linkbtn spellmini" data-tab="class" data-sec="style">${learned.map((x) => `<img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="" title="${esc([tx("Rang {0} : {1}", { 0: spellRank(S, x.id), 1: tr(x.name) }), ...spellFxText(x, spellRank(S, x.id))].join(" · "))}">`).join("")}</button>` : "";
     $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>${duo || spl ? `<div class="duoline">${duo}${spl}</div>` : ""}
       <div class="kv"><span>${tx("Expérience")}</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 563) : carte du héros (Aventure) : l'infobulle des icônes de sorts donne aussi leurs effets (comme
+  l'onglet Héros ; spellFxText partagé). Journal : liste « À vérifier par Victor » à jour (sorts, musique). 130/130.
 - 2026-11-10 (it. 562) : documentation : repère de la semaine simulée dans CLAUDE.md (it. 561 : mage 186, guerrier 189) ;
   README : Grimoire et sorts du compagnon. 130/130.
 - 2026-11-10 (it. 561) : Grimoire des sorts : améliore aussi les sorts du compagnon (même règle : le rang le moins cher
@@ -1949,7 +1951,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
      Refonte du son (it. 432-435) : pièces en gamme, coups variés, sons des 10 événements et de l'étoile filante,
      ambiance de chaque zone (Réglages > Son > Ambiance des zones), musique qui varie (intermède, silence) : volumes ?
-  7. Sorts (it. 469-485, son du trait perçant it. 506) : animations dans la bande (éclair, lames, boule de feu, météore, soin, bouclier), sons, icônes,
+  7. Sorts (it. 469-485, 506, 547-561) : animations, sons, icônes (badge de l'effet), effets uniques par héros (étourdi,
+     poison, vol de vie, écho…) visibles en combat, perçage immédiat sur la file et le boss, sorts du compagnon (« + »,
+     Grimoire) ; trop chargé ou pas assez ?
+  8. Musique lofi (it. 520-536) : un air par tranche de 5 zones, couleur du décor, désert oriental ; Réglages > Son ◀ ▶
+     pour écouter les autres airs ; touche B / menu de l'icône pour la couper seule. Volumes et goût à juger.
      sorts perçants, bouclier bleu-blanc sur la barre de vie, Grimoire des sorts ; trop chargé ou pas assez ?
   6. Sur le Mac : la bande ne doit pas apparaître devant un jeu / une vidéo en plein écran (it. 445) ; textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
   5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.

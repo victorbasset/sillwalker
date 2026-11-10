@@ -16,7 +16,7 @@ import { classPortraitURL } from "../../render/sprites.js";
 const pct = (m) => (m === 1 ? "" : `${m > 1 ? "+" : "−"}${Math.round(Math.abs(m - 1) * 100)}${unit("%")}`);
 
 /** Effets propres d'un sort (demande Q), en phrases courtes pour sa carte. */
-function spellFxText(sp, r) {
+export function spellFxText(sp, r) {
   const k = spellScale(Math.max(1, r)), out = [];
   if (sp.pierce) out.push(txn(pierceTargets(Math.max(1, r)), "transperce {n} ennemi : {0} %|transperce {n} ennemis : {0} %, puis moins", { 0: Math.round(sp.pierce * 100) }));
   if (sp.stun) out.push(tx("étourdit {0} s", { 0: dec(String(sp.stun)) }));
