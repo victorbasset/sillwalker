@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 476) : découverte des sorts : le premier sort se débloquait en zone 6 alors que l'onglet Héros
+  s'ouvre en zone 10 : SPELL_ZONES = [10, 22, 50]. Astuce « spell » (une fois par sort) : un sort du héros actuel
+  abordable et pas encore appris ; un clic ouvre Héros > Sorts et attaque (les astuces acceptent maintenant un
+  sous-onglet, sec). Test logique ; tab-pace inchangé. Traduit. 122/122.
 - 2026-11-10 (it. 475) : « Quoi de neuf », édition 5 (sorts par héros, sorts perçants, bouclier sur la barre et ligne
   du compagnon, Carte du ciel) ; pire cas : 3 dernières éditions = 12 nouveautés, 0 px ; noms cités repris des
   libellés traduits (i18n-quotes : 0). Traduit. 122/122.

@@ -2171,5 +2171,6 @@ export const KEYS = [
   "Sorts : trois par héros (Héros > Sorts et attaque), lancés tout seuls en combat avec leur animation, leur son et leur icône.",
   "Certains sorts transpercent : une part des dégâts frappe le monstre suivant dès son arrivée.",
   "Le bouclier se voit sur la barre de vie ; le compagnon a sa ligne dans la carte du héros.",
-  "Déblocage Carte du ciel : les éclats d’étoile se placent tout seuls dans les constellations."
+  "Déblocage Carte du ciel : les éclats d’étoile se placent tout seuls dans les constellations.",
+  "Nouveau sort à apprendre : {0} ({1} or). Clique ici."
 ];

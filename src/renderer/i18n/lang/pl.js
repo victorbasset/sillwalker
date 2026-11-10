@@ -1043,4 +1043,5 @@ export default {
   2167: "Niektóre zaklęcia przebijają: część obrażeń trafia następnego potwora, gdy tylko się pojawi.",
   2168: "Tarczę widać na pasku zdrowia; towarzysz ma własny wiersz na karcie bohatera.",
   2169: "Odblokowanie Mapa nieba: odłamki gwiazd same trafiają do konstelacji.",
+  2170: "Nowe zaklęcie do nauki: {0} ({1} złota). Kliknij tutaj.",
 };

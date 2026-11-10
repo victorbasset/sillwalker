@@ -1043,4 +1043,5 @@ export default {
   2167: "Manche Zauber durchbohren: Ein Teil des Schadens trifft das nächste Monster, sobald es erscheint.",
   2168: "Der Schild ist auf der Lebensleiste zu sehen; der Begleiter hat eine eigene Zeile in der Heldenkarte.",
   2169: "Freischaltung Himmelskarte: Sternensplitter werden automatisch in Sternbilder gesetzt.",
+  2170: "Neuer Zauber zum Lernen: {0} ({1} Gold). Hier klicken.",
 };

@@ -1043,4 +1043,5 @@ export default {
   2167: "Algunos hechizos atraviesan: parte del daño golpea al siguiente monstruo en cuanto llega.",
   2168: "El escudo se ve en la barra de vida; el compañero tiene su propia línea en la tarjeta del héroe.",
   2169: "Desbloqueo Carta celeste: los fragmentos de estrella se colocan solos en las constelaciones.",
+  2170: "Nuevo hechizo para aprender: {0} ({1} de oro). Haz clic aquí.",
 };

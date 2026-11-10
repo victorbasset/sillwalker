@@ -321,7 +321,7 @@ async function boot() {
     const h = nextHint(game);
     if (!h) return;
     markHint(game, h.key);
-    showToast(`<span class="hint">💡</span> ${esc(h.text)}`, h.tab ? () => { openPanel(); panel.setTab(h.tab); } : null, 14000);
+    showToast(`<span class="hint">💡</span> ${esc(h.text)}`, h.tab ? () => { openPanel(); if (h.sec && panel.tabs[h.tab]) panel.tabs[h.tab].sec = h.sec; panel.setTab(h.tab); } : null, 14000);
   }
 
   /* ---------- Succès Steam ---------- */

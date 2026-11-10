@@ -2,12 +2,13 @@ import { bossMechanics } from "../game/bosses.js";
 // Conseils contextuels : chacun s'affiche une seule fois, au moment où il
 // devient utile, dans la bulle de la bande. Un clic ouvre l'onglet concerné.
 // Les conseils déjà vus sont retenus dans S.settings.hints.
-import { t as tx } from "../i18n/index.js";
+import { t as tx, tr } from "../i18n/index.js";
 import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
 import { skillPointsFree } from "../game/skilltree.js";
-import { nextUnlock, hasUnlock, unlockAvailable } from "../game/unlocks.js";
+import { nextUnlock, hasUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
 import { tabOpen } from "../game/tabs.js";
+import { classSpells, spellPrice, spellRank } from "../game/spells.js";
 import { CLASS_KEYS, CLASSES, canPartner, DUO_SYNERGIES } from "../game/classes.js";
 
 /** Partenaire idéal (synergie) du héros, libre et pas encore choisi ; null sinon. */
@@ -66,6 +67,10 @@ export const HINTS = [
   { id: "tap", tab: null, text: tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"),
     when: (g) => g.S.stats.kills >= 40 && !(g.S.stats.taps > 0) },
   // Son (refonte it. 432-454) : les réglages fins existent, encore faut-il le savoir. Une fois, son allumé, après un peu de jeu.
+  // Sorts (demande D) : un sort du héros actuel est abordable et pas encore appris (une fois par sort).
+  { id: "spell", tab: "class", sec: "style", text: null, perSpell: true,
+    textFn: (g) => { const sp = nextSpell(g); return tx("Nouveau sort à apprendre : {0} ({1} or). Clique ici.", { 0: tr(sp.name), 1: fmt(spellPrice(sp, 0)) }); },
+    when: (g) => !!nextSpell(g) },
   { id: "sound", tab: "settings", text: tx("Le son te plaît à moitié ? Réglages > Son : volumes séparés de la musique et de l’ambiance, « Écouter » pour essayer, touche C pour tout couper. Clique ici."),
     when: (g) => g.S.stats.kills >= 300 && g.S.settings.sound !== false && !g.S.settings.muted },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
@@ -73,7 +78,13 @@ export const HINTS = [
 ];
 
 /** Clé « déjà vu » : une fois pour toutes, ou une fois par course (perRun). */
-const hintKey = (game, h) => (h.perRun ? h.id + ":" + game.S.prestige.count : h.perUnlock ? h.id + ":" + (nextUnlock(game.S) || {}).id : h.id);
+const hintKey = (game, h) => (h.perRun ? h.id + ":" + game.S.prestige.count : h.perUnlock ? h.id + ":" + (nextUnlock(game.S) || {}).id
+  : h.perSpell ? h.id + ":" + (nextSpell(game) || {}).id : h.id);
+/** Premier sort du héros actuel débloqué, pas encore appris, que l'or permet d'apprendre. */
+function nextSpell(g) {
+  const rec = recordZone(g.S);
+  return classSpells(g.S.cls).find((sp) => rec >= sp.zone && !spellRank(g.S, sp.id) && g.S.gold >= spellPrice(sp, 0)) || null;
+}
 
 /** Prochain conseil à montrer (ou null), sans le marquer comme vu. */
 export function nextHint(game) {

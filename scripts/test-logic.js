@@ -719,6 +719,11 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   // Les sorts d'un autre héros ne partent pas
   const o = new Game(freshState()); o.S.cls = "warrior"; o.S.spells = { "mage.0": 5 }; o.R.mon = o.makeMonster(false); o.R.mon.hp = o.R.mon.max = 1e15; o.R.spellT = { "mage.0": 0 };
   const hp1 = o.R.mon.hp; o.castSpells(o.R.mon, o.stats(), 0.1); assert.equal(o.R.mon.hp, hp1, "sort d'un autre héros : rien");
+  // Astuce : un sort abordable du héros actuel, pas encore appris, mène à « Sorts et attaque »
+  const t = new Game(freshState()); t.S.cls = "warrior"; t.S.best = t.S.zone = 12; t.S.gold = 1e12; t.S.tabsOpen = { ...(t.S.tabsOpen || {}), class: true };
+  t.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((x) => x.id !== "spell").map((x) => [x.id, true]));
+  const ht = nextHint(t); assert.ok(ht && ht.id === "spell" && ht.tab === "class" && ht.sec === "style", "astuce du sort : " + (ht && ht.id));
+  t.learnSpell("warrior.0"); const ht2 = nextHint(t); assert.ok(!ht2 || ht2.id !== "spell", "sort appris : plus d'astuce");
   // Ascension : gardés
   g.S.best = g.S.zone = 30; assert.ok(g.ascend()); assert.equal(g.S.spells["warrior.0"], SPELL_MAX, "sorts gardés à l'ascension");
   // Sauvegarde abîmée : sort inconnu et rang illisible retirés, rang trop grand borné

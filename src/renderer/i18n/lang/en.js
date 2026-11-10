@@ -1043,4 +1043,5 @@ export default {
   2167: "Some spells pierce: part of the damage hits the next monster as soon as it arrives.",
   2168: "The shield shows on the health bar; the companion has its own line in the hero card.",
   2169: "Sky Chart unlock: star shards are placed into constellations automatically.",
+  2170: "New spell to learn: {0} ({1} gold). Click here.",
 };

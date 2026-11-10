@@ -5,7 +5,7 @@
 import { CLASS_FX } from "./classes.js";
 
 export const SPELL_MAX = 10;
-export const SPELL_ZONES = [6, 22, 50];
+export const SPELL_ZONES = [10, 22, 50]; // 10 : l'onglet Héros s'ouvre en zone 10 (tabs.js)
 
 /** Mécaniques communes (tpl) : dmg = mult × attaque par coup (hits coups), heal / shield = % des PV max. */
 export const SPELL_TEMPLATES = {
