@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 323) : thème clair des ajouts récents (rivets, infobulle élargie, fondus des rangées, rappel du
+  sac, onglet Héros) : lisibles, rien à corriger.
 - 2026-11-10 (it. 322) : fullscreen-watch.js bien embarqué dans la version Windows (build.files : src/**). README à jour :
   11 chroniques et leurs cinématiques, greffes de talents, icônes de l'arbre, 20 déblocages dont l'Enclume stellaire,
   plume et cape, « bon voisin » (économie, plein écran, cinématiques), design « gravure pixel ». Note : le PowerShell
