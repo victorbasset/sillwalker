@@ -159,6 +159,16 @@ function start() {
         console.log("[dev] texte :", path.resolve(flags.dumpText));
         app.quit();
       }, 1500);
+      // Défilement de chaque onglet (langues aux mots longs, petits écrans) : « [overflow] aucun » ou « onglet=px … ».
+      if (flags.overflowReport) setTimeout(async () => {
+        const r = await strip.win.webContents.executeJavaScript(`(() => { const p = document.getElementById("panel"), P = window.__panel, out = []; P.kept.clear();
+          for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) {
+            const b = document.querySelector("[data-tab=" + id + "]"); if (!b || !b.getClientRects().length) continue;
+            P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o); }
+          return innerWidth + " " + (out.join(" ") || "aucun"); })()`).catch((e) => "erreur " + e.message);
+        console.log("[overflow] " + r);
+        app.quit();
+      }, 3000);
       if (flags.demo) setTimeout(() => strip.win.webContents.executeJavaScript("window.__demo && window.__demo()"), 800);
       if (flags.perf) require("./perf").runPerf(strip, typeof flags.perf === "string" ? { phase: +flags.perf } : {});
     });

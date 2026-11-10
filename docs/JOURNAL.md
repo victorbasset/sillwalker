@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 392) : outil scripts/lang-overflow.mjs (option dev --overflow-report) : défilement de chaque onglet
+  dans les 10 langues à 1920 / 1366 / 1280 px (copies de dev-data, ≈ 4 min). Trouvé et corrigé : portugais 1280,
+  Aventure 9 px (sous-titre de la carte Équipement sur une ligne sous 1500 px). Désormais : aucun défilement nulle part.
+  CLAUDE.md : outil ajouté. 115/115.
 - 2026-11-10 (it. 391, langues aux mots longs) : défilement mesuré en allemand, russe et japonais (1920 / 1366 / 1280) :
   1920 et le japonais sans défilement ; corrigé : russe Aventure 47 (notes de la carte Zone resserrées jusqu'à 1499 px)
   et Statistiques 31 (lignes de chiffres en 12 px sous 1500 px), russe Talents 20 à 1280 (sous-titre des Maîtrises sur
