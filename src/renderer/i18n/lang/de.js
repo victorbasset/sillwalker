@@ -1141,4 +1141,5 @@ export default {
   2265: "Bosskämpfe: Deine Lebensleiste und die des Bosses sind unter euren Füßen, gut sichtbar.",
   2266: "Zwei Erfolge: „Erstes Relikt“ und „Alle vier Relikte“.",
   2267: "Balance: Barde +20 % Gold und Erfahrung (statt +25 %); Sternenwächter etwas weniger robust.",
+  2268: "Zone {0}: {1} bewacht ein Relikt, {2}.",
 };

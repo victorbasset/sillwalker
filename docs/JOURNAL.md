@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 591) : panneau de la zone : « Zone 50 : Le Geôlier mécanique garde une relique, Drone stellaire. »
+  quand un boss majeur est à 10 zones au plus et sa relique pas encore gagnée (icône ; survol : effet). Pire cas
+  (zone 145, Chevalier de l'éclipse) en de, pl, ru à 1280 et 1366 : aucun défilement. Perf du mode mini remesurée
+  3 fois : 6,7-7,0 % (le 7,5 % de la revue était du bruit). 132/132.
 - 2026-11-10 (it. 590, revue générale) : balance 12 h vs 8c7008a +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl es 317 / pl 316 clics sans erreur (avec reliques) ; vidage russe (4 reliques, 3 éditions non lues) : rien
   de nouveau (« attributs » = repère du vidage) ; perf bande 20,0 %, panneau 21,2 %, mini 7,5 %, icône 0,6 % ;

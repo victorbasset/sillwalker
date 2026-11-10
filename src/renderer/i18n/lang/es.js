@@ -1141,4 +1141,5 @@ export default {
   2265: "Combates contra jefes: tu barra de vida y la del jefe están bajo vuestros pies, bien visibles.",
   2266: "Dos logros: «Primera reliquia» y «Las cuatro reliquias».",
   2267: "Equilibrio: Bardo +20 % de oro y experiencia (en lugar de +25 %); Guardián de las estrellas algo menos resistente.",
+  2268: "Zona {0}: {1} custodia una reliquia, {2}.",
 };

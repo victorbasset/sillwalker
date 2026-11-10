@@ -7,13 +7,13 @@ import { newsShown } from "../game/news.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, txn, lc, fsp, tr } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
-import { shopIconURL, spellIconURL } from "../render/shopart.js";
+import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
-import { RELICS } from "../game/relics.js";
+import { RELICS, MAJOR_BOSSES, hasRelic } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -681,6 +681,14 @@ export class Panel {
       <span class="gbar"><i style="width:${Math.round(k * 100)}%"></i></span></button>`;
   }
 
+  /** Prochain boss majeur à 10 zones au plus, relique pas encore gagnée (demande S) : une ligne dans la zone. */
+  relicAheadHTML(S) {
+    const mb = MAJOR_BOSSES.find((b) => b.zone >= S.zone && b.zone - S.zone <= 10 && !hasRelic(S, b.relic));
+    if (!mb) return "";
+    const r = RELICS[mb.relic];
+    return `<p class="note tight relicahead" title="${esc(tx(r.effect))}"><img src="${relicIconURL(mb.relic, 1)}" alt=""> ${tx("Zone {0} : {1} garde une relique, {2}.", { 0: mb.zone, 1: tx(mb.name), 2: tx(r.name) })}</p>`;
+  }
+
   renderZone() {
     const S = this.game.S, Z = this.game.zoneDef(), b = monsterBase(S.zone, false), bb = monsterBase(S.zone, true, Z.boss);
     const rows = RARITIES.map((r, i) => `<tr><td class="rc${i}">${r.name}</td><td>${r.weight}${unit("%")}</td></tr>`).join("");
@@ -692,6 +700,7 @@ export class Panel {
       <p class="note tight bossmech">${tx("Boss :")} <b class="bname">${esc(bossName(S.zone))}</b>. ${tx("Capacités du boss :")} ${bossMechanics(S.zone).map((id) => { // Malédiction : la parade, si le joueur a déjà vu le Talisman de pureté
           const parry = id === "curse" && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
           return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(", ")}.</p>
+      ${this.relicAheadHTML(S)}
       ${bossWear(S, S.zone) ? `<p class="note tight">${tx("Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.", { 0: Math.round(bossWear(S, S.zone) * 100) })}</p>` : ""}
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> ${tx("Passer à la zone suivante après le boss")}</label>

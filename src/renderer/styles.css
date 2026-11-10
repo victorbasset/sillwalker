@@ -1264,3 +1264,4 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .relicrow img.on { opacity: 1; filter: drop-shadow(0 0 2px #ffd34d); }
 /* Barre de vie d'un boss (it. 580) : sous ses pieds, plus large. */
 .hpbar.bossbar { transform: scaleX(1.7); }
+.relicahead img { width: 11px; height: 11px; image-rendering: pixelated; vertical-align: -1px; }
