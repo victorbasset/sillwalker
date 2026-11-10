@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 495) : Statistiques : record du plus gros sort (stats.bestSpell, dégâts d'un lancer) sur la ligne
+  « Sorts lancés » (« 6 · record 1,23 T », pas de ligne en plus). Vérifié en russe ; save-fuzz ok. 124/124.
 - 2026-11-10 (it. 494) : ligne du compagnon avec les icônes des sorts : le nom de la synergie se réduit à ✦ (infobulle),
   placé juste après le portrait (jamais rogné ; c'est le nom du compagnon qui s'efface au besoin, en de / ru à 1280).
   Captures fr / de / ru. 124/124.

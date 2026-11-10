@@ -11,7 +11,7 @@ import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
 import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
 
-import { fmt, esc, dec, unit, uH, uMin } from "../../game/format.js";
+import { fmt, fmtShort, esc, dec, unit, uH, uMin } from "../../game/format.js";
 const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)) + unit("%");
 
 const dur = (s) => {
@@ -76,7 +76,7 @@ export class StatsTab {
         ${line("K.O.", fmt(st.deaths))}
         ${line(tx("Coups au clic"), fmt(st.taps || 0))}
         ${line(tx("Coups critiques"), fmt(+st.crits || 0))}
-        ${line(tx("Sorts lancés"), fmt(+st.spells || 0))}
+        ${line(tx("Sorts lancés"), fmt(+st.spells || 0) + (+st.bestSpell > 0 ? ` · ${tx("record {0}", { 0: fmtShort(+st.bestSpell) })}` : ""))}
       </ul></article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("ws_gold", 3)}" alt="">${tx("Richesse et butin")}</span></h2><ul class="lines">
         ${line(tx("Or gagné au total"), fmt(st.goldTotal || 0))}

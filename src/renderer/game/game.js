@@ -455,6 +455,8 @@ export class Game {
         if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; }
         m.hp -= dmg; total += dmg;
       }
+      // Record du plus gros sort (Statistiques)
+      if (total > (+S.stats.bestSpell || 0)) S.stats.bestSpell = total;
       if (sp.pierce) R.pierce = (R.pierce || 0) + total * sp.pierce; // transperce : le suivant prendra sa part
       this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce });
       if (m.hp <= 0) { this.killMonster(); return true; }
