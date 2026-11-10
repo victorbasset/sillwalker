@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 377) : Bestiaire > Capacités des boss : les cartes du boss de la zone actuelle sont entourées de
+  --accent (.setcard.here) ; vérifié dans les deux thèmes (lisibles). 113/113.
 - 2026-11-10 (it. 376) : thème clair vérifié pour les ajouts récents de l'onglet Héros (lien « Duo idéal » en --accent,
   lignes de synergie en --muted) : lisibles. Rien à corriger.
 - 2026-11-10 (it. 375) : semaine simulée (mage, 168 h) après les ajouts de fin de partie (Malédiction, Talisman,

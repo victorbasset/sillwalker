@@ -1082,3 +1082,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .newslist { columns: 2; column-gap: 24px; }
 .newslist li { break-inside: avoid; }
 @media (max-width: 900px) { .newslist { columns: 1; } }
+/* Bestiaire > Capacités des boss : celles du boss de la zone actuelle ressortent. */
+.setcard.here { outline: 2px solid var(--accent); outline-offset: -2px; }

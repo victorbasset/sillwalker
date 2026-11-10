@@ -68,7 +68,7 @@ export class BestiaryTab {
       <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle")}</small></h2>
       <div class="setgrid">${Object.entries(BOSS_MECHANICS).map(([id, b]) => { // prochaine zone (à partir de la zone actuelle) dont le boss a cette capacité
         let nz = 0; for (let z = S.zone; z < S.zone + 60; z++) if (bossMechanics(z).includes(id)) { nz = z; break; }
-        return `<div class="setcard" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
+        return `<div class="setcard${nz === S.zone ? " here" : ""}" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
       ${show.elites ? `<h2 class="codexh" id="bj-elites">${tx("Élites")} <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
       <div class="setgrid">${Object.values(ELITE_AFFIXES).map((a) => `<div class="setcard" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b><div>${esc(a.desc || "")}</div></div>`).join("")}</div>` : ""}`;
   }
