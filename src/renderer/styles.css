@@ -1136,3 +1136,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 #mini .minihint { right: 8px; top: 23px; }
 #mini .mini-gold { padding-right: 22px; }
 #mini .mini-lvl { padding-right: 76px; }
+/* « Quoi de neuf » avec plusieurs éditions non lues (plus de 14 nouveautés) : fenêtre plus large, texte resserré. */
+#modal .panel:has(.newslist.dense) { max-width: 1000px; }
+.newslist.dense li { font-size: 12px; line-height: 1.25; padding: 1px 0; }

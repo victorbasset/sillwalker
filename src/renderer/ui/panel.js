@@ -638,7 +638,7 @@ export class Panel {
   showNews(seen = 0) {
     // Même gabarit que les autres fenêtres (titre #mt, contenu #mbody) : elles restent utilisables ensuite.
     $(this.root, "#mt").textContent = tx("Quoi de neuf");
-    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist">${newsItems(seen).map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`;
+    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist${newsItems(seen).length > 14 ? " dense" : ""}">${newsItems(seen).map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`;
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }

@@ -942,4 +942,8 @@ export default {
   2066: "Automático (telas muito largas)",
   2067: "Ambiente das zonas",
   2068: "Bolhas debaixo d’água, brasas crepitando, pássaros de dia e grilos à noite… Muito discreto, com os efeitos sonoros.",
+  2069: "Som: as moedas tilintam em escala, os golpes variam, cada evento e a estrela cadente têm seu som.",
+  2070: "Ambiente sonoro das zonas (bolhas, brasas, vento, pássaros, grilos…) e música que evolui a cada passagem.",
+  2071: "Novo evento Véu protetor (dano sofrido reduzido pela metade); vias próprias para os dez heróis adicionados.",
+  2072: "Configurações: informações da faixa no meio em qualquer tela; ambiente das zonas.",
 };

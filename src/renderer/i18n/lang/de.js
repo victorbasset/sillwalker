@@ -942,4 +942,8 @@ export default {
   2066: "Automatisch (sehr breite Bildschirme)",
   2067: "Zonen-Atmosphäre",
   2068: "Blasen unter Wasser, knisternde Glut, Vögel am Tag und Grillen in der Nacht … Sehr dezent, mit den Soundeffekten.",
+  2069: "Sound: Münzen klingen in einer Tonleiter, Treffer variieren, jedes Ereignis und die Sternschnuppe haben ihren Klang.",
+  2070: "Klangkulisse der Zonen (Blasen, Glut, Wind, Vögel, Grillen …) und Musik, die sich von Durchgang zu Durchgang entwickelt.",
+  2071: "Neues Ereignis Schützender Schleier (erlittener Schaden halbiert); eigene Wege für die zehn neuen Helden.",
+  2072: "Einstellungen: Infos im Streifen auf jedem Bildschirm in der Mitte; Zonen-Atmosphäre.",
 };

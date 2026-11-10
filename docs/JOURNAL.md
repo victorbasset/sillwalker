@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 438) : « Quoi de neuf », édition 3 (4 nouveautés : son des pièces / coups / événements, ambiance des
+  zones et musique qui évolue, Voile protecteur et voies des héros ajoutés, réglages de la bande et de l'ambiance).
+  Pire cas (aucune édition lue : 19 nouveautés) : 16 px de trop ; au-delà de 14 nouveautés, liste « dense » (fenêtre
+  1000 px, 12 px). Autotest : 19 nouveautés, 0 px ; lang-overflow de / ru / pl / pt / es à 1366 et 1280 : aucun
+  défilement. Traduit. 120/120.
 - 2026-11-10 (it. 437, retour de Victor : « le bruit des oiseaux est trop ressemblant au critique et trop récurrent ») :
   les oiseaux étaient des notes sinus vers 2 600 Hz qui montaient (comme le « shing » du critique), toutes les 2-3 s.
   birdCall : trille de 5 à 8 notes très brèves ou gazouillis vibré (modulation 28-38 Hz) qui DESCEND, vers 3 000-3 900 Hz ;

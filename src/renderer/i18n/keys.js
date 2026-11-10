@@ -2070,5 +2070,9 @@ export const KEYS = [
   "Au milieu",
   "Automatique (très grands écrans)",
   "Ambiance des zones",
-  "Bulles sous l’eau, braises qui crépitent, oiseaux le jour et grillons la nuit… Très discrète, avec les effets sonores."
+  "Bulles sous l’eau, braises qui crépitent, oiseaux le jour et grillons la nuit… Très discrète, avec les effets sonores.",
+  "Son : les pièces tintent en gamme, les coups varient, chaque événement et l’étoile filante ont leur son.",
+  "Ambiance sonore des zones (bulles, braises, vent, oiseaux, grillons…) et musique qui évolue au fil des passages.",
+  "Nouvel événement Voile protecteur (dégâts subis divisés par deux) ; voies propres aux dix héros ajoutés.",
+  "Réglages : informations de la bande au milieu sur tout écran ; ambiance des zones."
 ];

@@ -942,4 +942,8 @@ export default {
   2066: "Automatic (very wide screens)",
   2067: "Zone ambience",
   2068: "Bubbles underwater, crackling embers, birds by day and crickets at night… Very discreet, with the sound effects.",
+  2069: "Sound: coins chime up a scale, hits vary, every event and the shooting star have their own sound.",
+  2070: "Zone soundscapes (bubbles, embers, wind, birds, crickets…) and music that evolves from one pass to the next.",
+  2071: "New event Protective Veil (damage taken halved); unique paths for the ten added heroes.",
+  2072: "Settings: strip information in the middle on any screen; zone ambience.",
 };

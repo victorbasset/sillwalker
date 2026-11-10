@@ -942,4 +942,8 @@ export default {
   2066: "Automático (pantallas muy anchas)",
   2067: "Ambiente de las zonas",
   2068: "Burbujas bajo el agua, brasas que crepitan, pájaros de día y grillos de noche… Muy discreto, con los efectos de sonido.",
+  2069: "Sonido: las monedas suenan en escala, los golpes varían, cada evento y la estrella fugaz tienen su sonido.",
+  2070: "Ambiente sonoro de las zonas (burbujas, brasas, viento, pájaros, grillos…) y música que evoluciona en cada pasada.",
+  2071: "Nuevo evento Velo protector (daño recibido reducido a la mitad); vías propias para los diez héroes añadidos.",
+  2072: "Ajustes: información de la franja en el centro en cualquier pantalla; ambiente de las zonas.",
 };

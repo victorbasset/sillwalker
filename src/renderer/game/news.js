@@ -21,7 +21,13 @@ const EDITION_2 = [
   "Nouvelle quête « Porter des coups critiques » et nouveau succès « Lame affûtée ».",
   "Nouvelle capacité de boss : Tenace, il se relève une fois avec 25 % de ses PV.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2];
+const EDITION_3 = [
+  "Son : les pièces tintent en gamme, les coups varient, chaque événement et l’étoile filante ont leur son.",
+  "Ambiance sonore des zones (bulles, braises, vent, oiseaux, grillons…) et musique qui évolue au fil des passages.",
+  "Nouvel événement Voile protecteur (dégâts subis divisés par deux) ; voies propres aux dix héros ajoutés.",
+  "Réglages : informations de la bande au milieu sur tout écran ; ambiance des zones.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

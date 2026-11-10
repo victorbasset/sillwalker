@@ -942,4 +942,8 @@ export default {
   2066: "Automatyczny (bardzo szerokie ekrany)",
   2067: "Klimat stref",
   2068: "Bąbelki pod wodą, trzaskający żar, ptaki w dzień i świerszcze w nocy… Bardzo dyskretny, razem z efektami dźwiękowymi.",
+  2069: "Dźwięk: monety dzwonią w skali, ciosy są różnorodne, każde wydarzenie i spadająca gwiazda mają swój dźwięk.",
+  2070: "Dźwiękowy klimat stref (bąbelki, żar, wiatr, ptaki, świerszcze…) i muzyka, która zmienia się z każdym przejściem.",
+  2071: "Nowe wydarzenie Ochronny welon (otrzymywane obrażenia o połowę mniejsze); własne ścieżki dziesięciu dodanych bohaterów.",
+  2072: "Ustawienia: informacje na pasku na środku na każdym ekranie; klimat stref.",
 };
