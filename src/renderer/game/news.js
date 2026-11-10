@@ -65,7 +65,12 @@ const EDITION_10 = [
   "Les sorts perçants frappent tout de suite les monstres qui attendent, et un de plus tous les 10 rangs.",
   "Les effets se voient en combat ; touche B ou menu de l’icône : couper la musique seule.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10];
+const EDITION_11 = [
+  "Les sorts du compagnon s’apprennent depuis ton héros (« + ») et le Grimoire les améliore aussi.",
+  "Le perçage atteint aussi le boss au bout de la file (un quart de sa vie au plus).",
+  "Chaque icône de sort porte le badge de son effet ; les infobulles décrivent les effets.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

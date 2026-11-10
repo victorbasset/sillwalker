@@ -1104,4 +1104,7 @@ export default {
   2228: "+{n} ranga zaklęcia|+{n} rangi zaklęć|+{n} rang zaklęć",
   2229: "Samo ulepsza najtańsze zaklęcie twojego bohatera lub jego towarzysza, dopóki kosztuje mniej niż jedną dziesiątą twojego złota (opcja).",
   2230: "Zaklęcie towarzysza do nauki: {0}",
+  2231: "Zaklęcia towarzysza można poznać przez bohatera („+”), a Grimuar też je ulepsza.",
+  2232: "Przebicie sięga też bossa na końcu kolejki (najwyżej ćwierć jego życia).",
+  2233: "Każda ikona zaklęcia ma odznakę swojego efektu; podpowiedzi opisują efekty.",
 };

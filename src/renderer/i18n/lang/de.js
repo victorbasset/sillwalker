@@ -1104,4 +1104,7 @@ export default {
   2228: "+{n} Zauberrang|+{n} Zauberränge",
   2229: "Verbessert automatisch den günstigsten Zauber deines Helden oder seines Begleiters, solange er weniger als ein Zehntel deines Goldes kostet (Option).",
   2230: "Begleiterzauber zu lernen: {0}",
+  2231: "Begleiterzauber lassen sich mit deinem Helden lernen („+“), und das Grimoire verbessert sie auch.",
+  2232: "Durchbohren trifft auch den Boss am Ende der Reihe (höchstens ein Viertel seines Lebens).",
+  2233: "Jedes Zaubersymbol trägt das Abzeichen seines Effekts; Tooltips beschreiben die Effekte.",
 };

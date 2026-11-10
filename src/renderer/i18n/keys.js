@@ -2232,5 +2232,8 @@ export const KEYS = [
   "Les effets se voient en combat ; touche B ou menu de l’icône : couper la musique seule.",
   "+{n} rang de sort|+{n} rangs de sorts",
   "Améliore tout seul le sort le moins cher de ton héros ou de son compagnon, tant qu’il coûte moins d’un dixième de ton or (option).",
-  "Sort du compagnon à apprendre : {0}"
+  "Sort du compagnon à apprendre : {0}",
+  "Les sorts du compagnon s’apprennent depuis ton héros (« + ») et le Grimoire les améliore aussi.",
+  "Le perçage atteint aussi le boss au bout de la file (un quart de sa vie au plus).",
+  "Chaque icône de sort porte le badge de son effet ; les infobulles décrivent les effets."
 ];

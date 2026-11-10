@@ -1104,4 +1104,7 @@ export default {
   2228: "+{n} rango de hechizo|+{n} rangos de hechizos",
   2229: "Mejora solo el hechizo más barato de tu héroe o de su compañero, mientras cueste menos de una décima parte de tu oro (opción).",
   2230: "Hechizo del compañero por aprender: {0}",
+  2231: "Los hechizos del compañero se aprenden desde tu héroe («+») y el Grimorio también los mejora.",
+  2232: "La perforación también alcanza al jefe al final de la fila (un cuarto de su vida como máximo).",
+  2233: "Cada icono de hechizo lleva la insignia de su efecto; los textos emergentes describen los efectos.",
 };

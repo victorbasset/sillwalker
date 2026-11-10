@@ -1104,4 +1104,7 @@ export default {
   2228: "+{n} nível de feitiço|+{n} níveis de feitiços",
   2229: "Melhora sozinho o feitiço mais barato do seu herói ou do companheiro dele, enquanto custar menos de um décimo do seu ouro (opção).",
   2230: "Feitiço do companheiro para aprender: {0}",
+  2231: "Os feitiços do companheiro são aprendidos pelo seu herói («+») e o Grimório também os melhora.",
+  2232: "A perfuração também atinge o chefe no fim da fila (no máximo um quarto da vida dele).",
+  2233: "Cada ícone de feitiço traz o selo do seu efeito; as dicas descrevem os efeitos.",
 };
