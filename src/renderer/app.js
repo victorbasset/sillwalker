@@ -168,7 +168,7 @@ async function boot() {
     onReset: () => { game.reset(); saveNow(); },
     onMini: () => api.setMode("mini"),
     onQuit: () => api.quit(),
-    settings: { api, sound, getLayout: () => currentLayout, onChange: () => { applySettings(); strip.skyKey = ""; saveNow(); } },
+    settings: { api, sound, music, getLayout: () => currentLayout, onChange: () => { applySettings(); strip.skyKey = ""; saveNow(); } },
   });
 
   function openPanel() {

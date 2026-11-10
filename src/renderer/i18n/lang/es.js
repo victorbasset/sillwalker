@@ -1073,4 +1073,7 @@ export default {
   2197: "Piano eléctrico, ritmo suave, leve crujido de vinilo; el volumen se ajusta en Ajustes > Sonido.",
   2198: "Hechizos del compañero ({0}), a la mitad de potencia:",
   2199: "ninguno aprendido (apréndelos jugando con este héroe)",
+  2200: "Melodía de las zonas {0}",
+  2201: "Escuchar la melodía anterior (45 s)",
+  2202: "Escuchar la melodía siguiente (45 s)",
 };

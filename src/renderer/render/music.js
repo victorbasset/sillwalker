@@ -136,9 +136,30 @@ export class Music {
     if (ctx && v && !v.dying) { const t = ctx.currentTime; v.gain.gain.cancelScheduledValues(t); v.gain.gain.setTargetAtTime(MUSIC_GAIN * this.level, t, 0.15); }
   }
 
+  /** Écoute d'un autre air (Réglages > Son, it. 534) pendant 45 s, puis retour à l'air de la zone en cours. */
+  preview(zone) {
+    if (!this.enabled) return;
+    if (!this.previewing) this.home = this.zone;
+    this.previewing = true; clearTimeout(this.previewT);
+    this.applyZone(musicZone(zone));
+    this.previewT = setTimeout(() => this.endPreview(), 45000);
+  }
+
+  endPreview() {
+    if (!this.previewing) return;
+    this.previewing = false; clearTimeout(this.previewT);
+    const z = this.home; this.home = 0; if (z) this.applyZone(z);
+  }
+
   /** Change d'air (fondu enchaîné de 2,5 s) : un air par tranche de MUSIC_BLOCK zones (demande de Victor). */
   setZone(zone) {
     zone = musicZone(zone);
+    // Pendant une écoute (Réglages) : on retient la zone du jeu, on y reviendra.
+    if (this.previewing) { this.home = zone; return; }
+    this.applyZone(zone);
+  }
+
+  applyZone(zone) {
     if (zone === this.zone) return;
     this.zone = zone;
     if (!this.enabled) return;

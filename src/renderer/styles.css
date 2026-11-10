@@ -1211,3 +1211,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .pspells { margin-top: 4px; }
 .pspells .pspell { display: inline-flex; align-items: center; gap: 2px; margin-right: 8px; color: var(--muted); }
 .pspells .pspell img { width: 16px; height: 16px; image-rendering: pixelated; filter: var(--iconsh); vertical-align: middle; }
+/* Réglages > Son : écoute des airs (◀ ▶). */
+.mpreview { display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; color: var(--muted); font-size: 13px; }
+.mpreview button { padding: 2px 8px; }

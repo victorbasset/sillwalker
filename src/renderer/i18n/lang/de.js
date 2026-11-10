@@ -1073,4 +1073,7 @@ export default {
   2197: "E-Piano, gedämpfter Beat, leises Vinylknistern; die Lautstärke stellst du unter Einstellungen > Ton ein.",
   2198: "Zauber des Begleiters ({0}), mit halber Stärke:",
   2199: "keine gelernt (lerne sie, während du diesen Helden spielst)",
+  2200: "Melodie der Zonen {0}",
+  2201: "Vorherige Melodie anhören (45 s)",
+  2202: "Nächste Melodie anhören (45 s)",
 };

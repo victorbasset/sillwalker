@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 534) : Réglages > Son : « Air des zones 1–5 ◀ ▶ » : écoute 45 s de l'air d'une autre tranche, puis
+  retour à l'air de la zone en cours (Music.preview / endPreview ; un changement de zone pendant l'écoute est retenu).
+  Pour que Victor juge les airs sans changer de zone. Traduit ; autotest « écoute d'un autre air puis retour » ; aucun
+  défilement (ru, de, pl, fr). 127/127.
 - 2026-11-10 (it. 533) : musique : couleur « sable » pour les déserts (Désert brûlant, Pyramide maudite, Steppe des
   loups, Désert de verre) : gamme orientale (phrygien dominant), cordes / pincé / flûte / marimba, passe-bas 2,3 kHz,
   écho moyen. Plus aucun décor sans couleur. Volumes équilibrés (1,49). 126/126.

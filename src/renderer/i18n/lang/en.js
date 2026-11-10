@@ -1073,4 +1073,7 @@ export default {
   2197: "Electric piano, mellow beat, a light vinyl crackle; adjust the volume in Settings > Sound.",
   2198: "Companion spells ({0}), at half power:",
   2199: "none learned (learn them while playing this hero)",
+  2200: "Tune of zones {0}",
+  2201: "Listen to the previous tune (45 s)",
+  2202: "Listen to the next tune (45 s)",
 };

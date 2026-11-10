@@ -1073,4 +1073,7 @@ export default {
   2197: "Pianino elektryczne, stłumiony rytm, lekkie trzaski winylu; głośność ustawisz w Ustawienia > Dźwięk.",
   2198: "Zaklęcia towarzysza ({0}), z połową mocy:",
   2199: "żadne nie poznane (poznaj je, grając tym bohaterem)",
+  2200: "Melodia stref {0}",
+  2201: "Posłuchaj poprzedniej melodii (45 s)",
+  2202: "Posłuchaj następnej melodii (45 s)",
 };

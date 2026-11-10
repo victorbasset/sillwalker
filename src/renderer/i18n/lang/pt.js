@@ -1073,4 +1073,7 @@ export default {
   2197: "Piano elétrico, ritmo suave, leve chiado de vinil; o volume se ajusta em Configurações > Som.",
   2198: "Feitiços do companheiro ({0}), com metade da potência:",
   2199: "nenhum aprendido (aprenda-os jogando com este herói)",
+  2200: "Melodia das zonas {0}",
+  2201: "Ouvir a melodia anterior (45 s)",
+  2202: "Ouvir a próxima melodia (45 s)",
 };
