@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 510, revue générale) : balance 12 h des 20 héros contre b422d71 (avant les paliers de recharge) :
+  +0,1 zone (bruit) ; fuzz 1200 parties, 0 bloquée ; crawl fr 313 et pl 318 clics sans erreur ; russe : aucun mot
+  latin suspect ; save-fuzz ok ; perf (copie neuve) : bande 19,2 %, panneau 20,7 %, mini 6,1 %, icône 0,4 % ;
+  mémoire stable (≈ 795 Mo sur 6 min).
 - 2026-11-10 (it. 509) : thème clair, captures des ajouts récents : les icônes blanches (sorts du guerrier) se perdaient
   sur le crème ; jeton --iconsh (contour sombre en clair, aucun en sombre) sur les icônes de sorts (carte du héros,
   cartes de l'onglet Héros, page des sorts). 124/124.
