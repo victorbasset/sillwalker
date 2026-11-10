@@ -59,6 +59,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
+  `IDLE=1` : joueur totalement absent (repère it. 371 : guerrier record 12 → 15 en 12 h, le jeu avance sans action).
   `SEED=<n>` devant la commande change la trajectoire aléatoire (graine 7 par défaut) : utile pour savoir si un
   écart vu sur une seule simulation est du hasard (lancer 5 graines).
 - Une seule simulation suit une trajectoire aléatoire fixe : pour juger un changement d'équilibrage,

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 371, « vraiment idle », étude des concurrents b) : simulate.js accepte IDLE=1 (joueur totalement
+  absent : ni équipement, ni talents, ni quêtes, ni achats). Guerrier 12 h : record 12 → 15, niveau 28 → 46 (joueur
+  actif : 56-57). Le jeu avance sans aucune action ; l'interaction est nettement récompensée. Pas d'automatisme
+  ajouté (règle : toute automatisation passe par un déblocage).
 - 2026-11-10 (it. 370, revue générale) : simulations 12 h : paladin 60, moine 60, cryomancienne 57 ; crawl 302 clics
   sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; fuzz 1200 parties, 0 bloquée ; perf : bande 19,1 %,
   panneau 19,9 %, mini 6,4 %, icône 2,9 % d'un cœur (stables).
@@ -1375,7 +1379,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   a. EN PARTIE (it. 298 : réglage « Économie d'énergie », 15 images/s ; reste : mesurer sous Windows).
      P1 Bon voisin : consommation en fond (le reproche n° 1 des jeux de bande). Mesurer sous Windows ; envisager un
      réglage « économie » (images/s plafonnées) visible dans Réglages ; vérifier que la bande cachée ne dessine rien.
-  b. EN PARTIE (it. 299 : réglage « Cinématiques de l'histoire »). P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
+  b. FAIT (it. 299 : réglage « Cinématiques de l'histoire » ; it. 371 : IDLE=1, le jeu avance sans aucune action). P1 Ne pas interrompre : cinématiques et bulles jamais bloquantes pendant le travail ; réglage pour les couper
      (ou les rendre discrètes) ; vérifier qu'aucune action n'est exigée pour progresser (vraiment idle).
   c. FAIT (it. 302 : 9 libellés d'effets réécrits ; it. 303 : partie neuve vérifiée, geste « équiper » expliqué).
      P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),

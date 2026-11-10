@@ -38,6 +38,8 @@ let lastBest = 1, lastBestT = 0, minute = 0, runStart = 0;
 const runs = [];
 const rows = [], unlockLog = [];
 function playerTurn() {
+  // IDLE=1 : joueur totalement absent (vérifie que le jeu progresse sans aucune action, « vraiment idle »).
+  if (process.env.IDLE) { if (g.S.best > lastBest) { lastBest = g.S.best; lastBestT = minute; } return; }
   // Déblocages : le joueur achète le suivant dès qu’il a trois fois son prix.
   for (let u = nextUnlock(g.S); u && g.S.gold >= u.price * 3 && unlockAvailable(g.S, u); u = nextUnlock(g.S)) if (g.buyUnlock(u.id)) unlockLog.push(`${u.id} à ${Math.round(g.S.stats.playTime / 60 || 0)} min (zone ${g.S.zone})`);
   g.autoEquip();
