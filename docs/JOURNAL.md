@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 594) : performance : halo des objets légendaires sur le héros (filtre CSS, recalculé à chaque
+  image) : sans lui 19,0 %, avec deux ombres 19,85 %, une seule ombre 19,45 % (3 mesures chacune) : une seule ombre
+  (−0,4 point, halo toujours visible en capture). Recherche d'autres animations CSS infinies sur la bande : aucune.
+  Vérifié : après une ascension, la course repart au plus en zone 21 : chaque course repasse les boss majeurs (les
+  parties avancées gagneront leurs reliques) ; l'absence n'avance pas de zone. 133/133.
 - 2026-11-11 (it. 593) : essai d'un flottement CSS du drone sur le héros : bande 20,8 → 29,8 % d'un cœur (2 mesures
   chacune, copies neuves avec le drone) : annulé ; retiré aussi de la relique flottant à côté du boss majeur (un
   combat contre un mur peut durer). Piège noté dans CLAUDE.md (aucune animation CSS permanente sur la bande).
