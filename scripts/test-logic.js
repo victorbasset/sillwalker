@@ -1804,6 +1804,21 @@ test("musique de fond (demande 24) : un air par zone, toujours le même pour une
   const L = new Set(), B = new Set(), D = new Set(); for (let z = 1; z <= 200; z++) { const t = songFor(z); L.add(t.lead); B.add(t.bassInst); D.add(t.drums); }
   assert.ok(L.size >= 8 && B.size >= 3 && D.size >= 4, [L.size, B.size, D.size].join(" "));
   assert.equal(songFor(77).lead, songFor(77).lead, "même zone = mêmes instruments");
+  // Passages (demande C : moins répétitif) : le 0 est l'air d'avant ; les suivants gardent le motif A et varient le reste ;
+  // intermède calme au 3e, silence au 7e ; toujours les mêmes pour une zone (reconnaissable en y revenant).
+  assert.deepEqual(songFor(12, 0), songFor(12), "passage 0 = air d'origine");
+  const motif = (t) => t.notes.filter((n) => n.step < 16).map((n) => n.step + ":" + (n.midi % 12)).join();
+  let varied = 0;
+  for (let z = 1; z <= 40; z++) {
+    const p0 = songFor(z, 0), p1 = songFor(z, 1);
+    assert.equal(motif(p1), motif(p0), "zone " + z + " : le motif A reste");
+    if (JSON.stringify(p1.notes) !== JSON.stringify(p0.notes)) varied++;
+    assert.equal(songFor(z, 7).notes.length, 0, "silence au 8e passage");
+    assert.ok(songFor(z, 3).calm && songFor(z, 3).drums === "none", "intermède calme");
+    assert.deepEqual(songFor(z, 5), songFor(z, 5), "même passage = même musique");
+    assert.equal(songFor(z, 2).bpm, p0.bpm, "même tempo d'un passage à l'autre");
+  }
+  assert.ok(varied >= 38, "les passages varient : " + varied + " / 40");
 });
 
 test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi ; changement à l'ascension", () => {

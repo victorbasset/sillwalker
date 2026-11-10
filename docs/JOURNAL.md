@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 435, demande C, étape 4/4 : musique moins répétitive) : avant, l'air d'une zone (8 mesures, ≈ 20 s)
+  bouclait sans fin. songFor(zone, passage) : le passage 0 est l'air d'avant (identique) ; les suivants gardent le
+  motif A (on reconnaît la zone) et tirent un nouveau pont, une nouvelle fin, parfois un autre instrument du décor,
+  d'autres percussions, une octave plus haut, la tierce ajoutée ou retirée ; intermède calme au 4e passage (basse et
+  cloche sur les temps forts, sans percussions) ; un passage de silence tous les 8 (≈ 20 s pour respirer). Graine
+  zone + passage : toujours la même suite pour une zone. Music.pump change de passage à chaque début de boucle (même
+  tempo). Test logique (40 zones : motif gardé, 40 / 40 varient, intermède, silence) ; essai dans le jeu en forçant
+  les passages : enchaînement sans erreur. À écouter par Victor. 120/120. Demande C : les 4 étapes sont faites.
 - 2026-11-10 (it. 434, demande C, étape 3/4 : ambiance des zones) : zoneAmbience (sound.js), 4 tirages par seconde,
   selon la météo de la zone (WEATHER, exporté de juice.js) : bulles en grappe (récifs, lagon, cité engloutie), gouttes
   avec écho (égouts, grotte), vent froid (neige), vent sec (désert, steppe), braises qui crépitent et grondement
@@ -1483,7 +1491,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - DEMANDES DE VICTOR (2026-11-10, sur Mac), à traiter en premier, dans cet ordre :
   A. FAIT (it. 431, à vérifier sur le Mac). Mac : icône Electron dans le Dock au lancement (npm start) : la cacher (app.dock.hide()).
   B. FAIT (it. 431). Mode mini : la petite ampoule (astuces) est sur l'icône du son.
-  C. Son : ambiance sonore par zone (bulles sous l'eau, etc.) ; bruitages des pièces (satisfaction) ; sons des
+  C. FAIT (it. 432-435, à écouter par Victor). Son : ambiance sonore par zone (bulles sous l'eau, etc.) ; bruitages des pièces (satisfaction) ; sons des
      événements (pluie d'or, vent, étoile filante) ; coups moins répétitifs ; musiques moins répétitives.
 
 - DEMANDES DE VICTOR (2026-11-09), à traiter en premier, dans cet ordre :

@@ -20,9 +20,9 @@ function light(hex) { const n = parseInt(String(hex).slice(1), 16); return ((n >
  * Forme A A B A sur 8 mesures (motif de 2 mesures repris, pont, retour du motif) : un air qu'on reconnaît en
  * revenant dans la zone (demande de Victor). Même zone = même air, toujours.
  */
-export function songFor(zone) {
+export function songFor(zone, pass = 0) {
   const z = Math.max(1, zone | 0), def = ZONES[(z - 1) % ZONES.length], loop = Math.floor((z - 1) / ZONES.length);
-  const r = rng(z * 7919 + 13);
+  const r = rng(z * 7919 + 13), rBase = r;
   const minor = light(def.sky[0]) < 0.4 || /crypt|abyss|néant|volcan|ossuaire|bastion|maudit|corrompu/i.test(def.name);
   const scale = minor ? MINOR : MAJOR;
   const progA = (minor ? PROG_MINOR : PROG_MAJOR)[Math.floor(r() * 4)], progB = (minor ? PROG_MINOR : PROG_MAJOR)[Math.floor(r() * 4)];
@@ -30,7 +30,7 @@ export function songFor(zone) {
   const bpm = Math.round((minor ? 84 : 100) + r() * 26 + loop * 2);
   const deg = (d) => root + 12 * Math.floor(d / 7) + scale[((d % 7) + 7) % 7];
   // Un motif de 2 mesures (16 croches) : note de l'accord sur les temps forts, petits pas entre les deux.
-  const phrase = (prog, start) => {
+  const phrase = (prog, start, r = rBase) => {
     const out = [];
     let d = 7 + prog[0];
     for (let s = 0; s < 16; s++) {
@@ -63,7 +63,23 @@ export function songFor(zone) {
   const extra = r(), arp = extra < 0.4 ? pickOf(["pluck", "bell", "pulse12", "marimba"]) : null, harm = extra >= 0.4 && extra < 0.7;
   const arps = [];
   if (arp) prog8.forEach((c, bar) => { for (let k = 0; k < 4; k++) arps.push({ step: bar * 8 + k * 2, midi: deg(c + [0, 2, 4, 7][k]) + 12, len: 1 }); });
-  return { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm };
+  const song = { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm };
+  if (!(pass > 0)) return song;
+  // Passages suivants (demande C de Victor : « moins répétitives ») : le motif A reste (on reconnaît la zone), le
+  // reste varie à chaque passage ; un intermède calme tous les 4 passages, un silence tous les 8 pour respirer.
+  // Tirage à part (graine zone + passage) : le passage 0 reste exactement l'air d'avant.
+  const r2 = rng(z * 7919 + 13 + pass * 104729), pick2 = (list) => list[Math.floor(r2() * list.length)];
+  if (pass % 8 === 7) return { ...song, notes: [], bass: [], arps: [], arp: null, drums: "none", hat: false, harm: false, rest: true };
+  if (pass % 4 === 3) { // intermède : basse tenue et quelques notes de cloche sur les temps forts, sans percussions
+    const calm = notes.filter((nt) => nt.step % 8 === 0).map((nt) => ({ ...nt, len: 4 }));
+    return { ...song, notes: calm, lead: pick2(["bell", "marimba", "flute"]), drums: "none", hat: false, harm: false, arp: null, arps: [], calm: true };
+  }
+  const B2 = phrase(progB, 0, r2), A3 = phrase(progA, 2, r2), A4 = phrase(progA, 0, r2);
+  let vnotes = [...at(A, 0), ...at(r2() < 0.5 ? A : A4, 16), ...at(B2, 32), ...at(A3, 48)];
+  const lead2 = r2() < 0.5 ? lead : pick2(LEADS[mood]);
+  if (r2() < 0.3 && lead2 !== "whistle") vnotes = vnotes.map((nt) => ({ ...nt, midi: nt.midi + 12 })); // une octave plus haut
+  const drums2 = r2() < 0.6 ? drums : pick2(minor ? ["march", "heavy", "soft", "none"] : ["shuffle", "march", "soft", "shaker", "none"]);
+  return { ...song, notes: vnotes, lead: lead2, drums: drums2, hat: drums2 !== "none", harm: r2() < 0.3 ? !harm : harm };
 }
 
 // Formes d'onde « pulse » (rapport cyclique 12,5 / 25 / 50 %) façon Game Boy, par séries de Fourier.
@@ -115,9 +131,12 @@ export class Music {
     const ctx = this.sound.ctx;
     if (!ctx || !this.voice) return;
     if (this.old && ctx.currentTime > this.old.dying) { try { this.old.gain.disconnect(); } catch { /* */ } this.old = null; }
-    const v = this.voice, song = v.song, stepDur = 60 / song.bpm / 2;
+    const v = this.voice, stepDur = 60 / v.song.bpm / 2;
     while (v.next < ctx.currentTime + 0.4) {
       const s = v.step % STEPS, t = v.next;
+      // Nouveau passage : variation de l'air (même tempo), intermède ou silence (songFor, demande C).
+      if (s === 0 && v.step > 0) v.song = songFor(this.zone, Math.floor(v.step / STEPS));
+      const song = v.song;
       for (const n of song.notes) if (n.step === s) {
         this.play(v.gain, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1);
         if (song.harm) this.play(v.gain, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5); // tierce dessous
