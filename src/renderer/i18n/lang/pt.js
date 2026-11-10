@@ -952,4 +952,5 @@ export default {
   2076: "Automático (macOS)",
   2077: "Iniciar ao entrar no Mac",
   2078: "Estas configurações também estão no menu do ícone do Sillwalker na barra de menus, no topo da tela, com a escolha da tela.",
+  2079: "Reduzir a ícone (barra de menus)",
 };

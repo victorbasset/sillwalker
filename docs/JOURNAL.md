@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 444, Mac) : menu de l'icône : la case « Se cacher devant les jeux et vidéos en plein écran »
+  n'apparaît que sous Windows (la détection, fullscreen-watch.js, n'existe que là : ailleurs elle ne faisait rien).
+  Infobulle du bouton « Réduire en icône » du mode mini : « (barre des menus) » sur Mac. Traduit. 120/120.
 - 2026-11-10 (it. 443, Mac) : les textes qui nommaient Windows ont leur version Mac (détection navigator.platform) :
   thème « Automatique (macOS) », « Lancer à l'ouverture de session du Mac » (Réglages et menu de l'icône,
   loginMac dans main/i18n.js), note « … l'icône Sillwalker de la barre des menus, en haut de l'écran ». Traduits.

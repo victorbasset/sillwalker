@@ -952,4 +952,5 @@ export default {
   2076: "Automático (macOS)",
   2077: "Iniciar al abrir sesión en el Mac",
   2078: "Estos ajustes también están en el menú del icono de Sillwalker en la barra de menús, arriba de la pantalla, junto con la elección de pantalla.",
+  2079: "Reducir a icono (barra de menús)",
 };

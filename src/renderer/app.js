@@ -84,7 +84,7 @@ async function boot() {
     ["#mini-btn", "title", "Réduire en mode mini"], ["#mini-btn", "aria-label", "Réduire en mode mini"],
     ["#menu-btn", "title", "Ouvrir le panneau (héros, sac, zone)"], ["#menu-btn", "aria-label", "Ouvrir le panneau de gestion"],
     ["#hud-tab", "title", "Ouvrir le panneau (héros, sac, zone)"], ["#hud-tab", "aria-label", "Ouvrir le panneau de gestion"],
-    ["#mini", "title", "Cliquer pour agrandir"], ["#mini-icon", "title", "Réduire en icône (zone de notification)"], ["#mini-icon", "aria-label", "Réduire en icône"],
+    ["#mini", "title", "Cliquer pour agrandir"], ["#mini-icon", "title", /Mac/i.test(navigator.platform || "") ? "Réduire en icône (barre des menus)" : "Réduire en icône (zone de notification)"], ["#mini-icon", "aria-label", "Réduire en icône"],
     ["#mini-expand", "title", "Agrandir en bande"], ["#mini-expand", "aria-label", "Agrandir en bande"],
   ]) { const e = document.querySelector(sel); if (e) e.setAttribute(attr, tx(src)); }
   api.setLang?.(wanted);
