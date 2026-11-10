@@ -519,6 +519,14 @@ async function runSelfTest(strip) {
   check("zone : la Malédiction indique sa parade", /Talisman/.test(par), par);
   // Menu de l'icône : « Économie d'énergie » envoyé comme une commande, sans ouvrir le panneau.
   const ecoBefore = await js("String(!!window.__game.S.settings.eco)");
+  // Menu de l'icône (it. 546) : case « Musique » (commande music:off / music:on).
+  const musBefore = await js("String(window.__game.S.settings.music !== false)");
+  strip.win.webContents.send("command", "music:off"); await sleep(300);
+  const musOff = await js("String(window.__game.S.settings.music)");
+  strip.win.webContents.send("command", "music:on"); await sleep(300);
+  const musOn = await js("String(window.__game.S.settings.music)");
+  if (musBefore !== "true") strip.win.webContents.send("command", "music:off");
+  check("menu de l'icône : case Musique", musOff === "false" && musOn === "true", musOff + " " + musOn);
   strip.win.webContents.send("command", "eco:on"); await sleep(300);
   const ecoOn = await js("String(window.__game.S.settings.eco)");
   strip.win.webContents.send("command", ecoBefore === "true" ? "eco:on" : "eco:off"); await sleep(300);

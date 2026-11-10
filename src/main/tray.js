@@ -112,6 +112,9 @@ function createTray({ strip, isDev, steam }) {
         click: () => { strip.setOpacity(v); build(); },
       })) },
       { type: "separator" },
+      // Musique de fond (it. 546) : comme la touche B du panneau, sans ouvrir le panneau.
+      { label: L("music"), type: "checkbox", checked: status.music !== false,
+        click: (item) => { status = { ...status, music: item.checked }; strip.send("command", item.checked ? "music:on" : "music:off"); build(); } },
       { label: L("eco"), type: "checkbox", checked: !!status.eco,
         click: (item) => { status = { ...status, eco: item.checked }; strip.send("command", item.checked ? "eco:on" : "eco:off"); build(); } },
       // Plein écran : détecté seulement sous Windows (fullscreen-watch.js) ; ailleurs la case n'aurait aucun effet.

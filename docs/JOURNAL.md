@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 546) : menu de l'icône (clic droit) : case « Musique » (commandes music:on / music:off ; l'état
+  suit la touche B et les Réglages). Traduit (main/i18n.js) ; autotest « menu de l'icône : case Musique ». 130/130.
 - 2026-11-10 (it. 545) : capture du sort maîtrisé (« ★ maîtrisé », recharge 3 s) : bonne. Touche B du panneau : couper /
   rallumer la musique seule (C coupe tout) ; dans « Raccourcis clavier ». Traduit ; autotest « touche B ». 129/129.
 - 2026-11-10 (it. 544) : sort au rang maximal (50) : la carte affiche « ★ maîtrisé » (or des ornements) au lieu de
@@ -1901,8 +1903,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- DEMANDES DE VICTOR (2026-11-10, après-midi) :
+- DEMANDES DE VICTOR (2026-11-10, après-midi et soir) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
+  Q. Sorts uniques pour chaque héros (pas de copies d'un héros à l'autre).
+  R. Perçage : appliqué dès l'impact (sans attendre que le héros arrive au monstre) ; traverse plusieurs ennemis selon
+     le rang du sort.
   P. FAIT (it. 536). Garder cochées les ventes automatiques à l'ascension.
   O. FAIT (it. 521). Changer de musique toutes les 5 zones seulement.
   N. FAIT (it. 520, à écouter). Musique lofi façon Terraria, différente de zone en zone.

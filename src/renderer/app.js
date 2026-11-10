@@ -242,7 +242,7 @@ async function boot() {
   $("#sound-btn").addEventListener("click", toggleSound);
   panel.onMute = () => toggleSound(); // touche C du panneau : comme le bouton haut-parleur
   // Touche B (it. 545) : la musique seule, coupée ou rallumée (les effets restent).
-  panel.onMusicToggle = () => { const P = game.S.settings; P.music = P.music === false; applySettings(); syncSoundBtns(); panel.dirty = true; saveNow(); };
+  panel.onMusicToggle = () => { const P = game.S.settings; P.music = P.music === false; applySettings(); syncSoundBtns(); panel.dirty = true; saveNow(); sendStatus(true); };
   $("#mini-sound").addEventListener("click", toggleSound);
   syncSoundBtns();
   game.on("change", syncSoundBtns);
@@ -353,7 +353,7 @@ async function boot() {
   let lastStatus = null, statusT = 0;
   game.on("loot", ({ item }) => { if (item.r >= 2) api.sendStatus({ loot: item.r }); });
   function sendStatus(force) {
-    const S = game.S, st = { state: game.R.mode, lvl: S.lvl, zone: S.zone, best: recordZone(S), kills: Math.min(S.kills, 10), gold: fmt(S.gold), cls: game.classDef().name, eco: !!S.settings.eco };
+    const S = game.S, st = { state: game.R.mode, lvl: S.lvl, zone: S.zone, best: recordZone(S), kills: Math.min(S.kills, 10), gold: fmt(S.gold), cls: game.classDef().name, eco: !!S.settings.eco, music: S.settings.music !== false && !S.settings.muted };
     const now = Date.now();
     const same = lastStatus && Object.keys(st).every((k) => st[k] === lastStatus[k]);
     // Changement d'état (combat, K.O.) : tout de suite ; le reste : 1 fois/s max.
@@ -444,6 +444,7 @@ async function boot() {
     if (cmd === "open-panel") openPanel();
     if (cmd.startsWith("tab:")) { openPanel(); panel.setTab(cmd.slice(4)); }
     // Menu de l'icône (clic droit) : « Économie d'énergie » sans ouvrir le panneau.
+    if (cmd === "music:on" || cmd === "music:off") { const P = game.S.settings; P.music = cmd === "music:on"; if (P.music) P.muted = false; applySettings(); syncSoundBtns(); panel.dirty = true; sendStatus(true); return; }
     if (cmd === "eco:on" || cmd === "eco:off") { game.S.settings.eco = cmd === "eco:on"; applySettings(); panel.dirty = true; sendStatus(true); }
   });
 
