@@ -926,4 +926,6 @@ export default {
   2050: "Tasche sortieren",
   2051: "Tastenkürzel anzeigen",
   2052: "{n} kritischen Treffer landen|{n} kritische Treffer landen",
+  2053: "Geschärfte Klinge (10.000 kritische Treffer)",
+  2054: "Kritische Treffer",
 };

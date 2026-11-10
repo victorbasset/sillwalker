@@ -926,4 +926,6 @@ export default {
   2050: "Uporządkuj torbę",
   2051: "Pokaż skróty",
   2052: "Zadaj {n} cios krytyczny|Zadaj {n} ciosy krytyczne|Zadaj {n} ciosów krytycznych",
+  2053: "Naostrzone ostrze (10 000 ciosów krytycznych)",
+  2054: "Ciosy krytyczne",
 };

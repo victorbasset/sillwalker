@@ -926,4 +926,6 @@ export default {
   2050: "Organizar a bolsa",
   2051: "Ver os atalhos",
   2052: "Acertar {n} golpe crítico|Acertar {n} golpes críticos",
+  2053: "Lâmina afiada (10 000 golpes críticos)",
+  2054: "Golpes críticos",
 };

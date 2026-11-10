@@ -2053,6 +2053,9 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const mc = gc.makeMonster(false); mc.hp = mc.max = 1e12; gc.R.events.hawkeye = 5;
     const hsc = heroStats(gc.S); gc.heroStrike(mc, hsc, false, false); gc.heroStrike(mc, hsc, false, false);
     assert.equal(gc.S.quests.slots[0].progress, 2, "2 critiques comptés");
+    assert.equal(gc.S.stats.crits, 2, "statistique des coups critiques");
+    gc.S.stats.crits = 9999; gc.heroStrike(mc, hsc, false, false);
+    assert.ok(M_achievements_js.reachedAchievements(gc.S).includes("CRITS_10000"), "succès Lame affûtée");
     assert.match(M_quests_js.QUEST_TEMPLATES.crit.text({ goal: 40 }), /40/);
     // Sac rangé : rareté décroissante (sans amélioration en jeu ici)
     const gb = new Game(freshState()); gb.S.bag = [0, 3, 1, 4, 2].map((r) => { const it = gb.newItem(r); it.r = r; return it; });

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 424) : compteur des coups critiques (stats.crits, lu avec +x || 0 : sauvegarde abîmée tolérée),
+  ligne « Coups critiques » dans Statistiques et succès « Lame affûtée (10 000 coups critiques) » avec sa progression.
+  Traduits (i18n-check 0), test logique, save-fuzz ok, lang-overflow de / ru / pl à 1366 et 1280 : aucun défilement. 119/119.
 - 2026-11-10 (it. 423) : nouvelle quête « Porter {n} coups critiques » (40 à 80 × étoiles ; or, potion, parfois un œuf),
   proposée seulement si le héros a au moins 8 % de critique hors élixirs (5 % de base pour la plupart : il faut
   l'équipement ou les talents), icône de dague. Traduite (9 langues, i18n-check 0), test logique ; simulation 12 h

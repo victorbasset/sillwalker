@@ -926,4 +926,6 @@ export default {
   2050: "Ordenar la bolsa",
   2051: "Ver los atajos",
   2052: "Asestar {n} golpe crítico|Asestar {n} golpes críticos",
+  2053: "Hoja afilada (10 000 golpes críticos)",
+  2054: "Golpes críticos",
 };

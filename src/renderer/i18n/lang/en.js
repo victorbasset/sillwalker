@@ -926,4 +926,6 @@ export default {
   2050: "Sort the bag",
   2051: "Show shortcuts",
   2052: "Land {n} critical hit|Land {n} critical hits",
+  2053: "Honed Blade (10,000 critical hits)",
+  2054: "Critical hits",
 };

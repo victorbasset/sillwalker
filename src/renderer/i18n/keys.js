@@ -2054,5 +2054,7 @@ export const KEYS = [
   "Ranger le sac : améliorations, puis rareté, puis niveau",
   "Ranger le sac",
   "Voir les raccourcis",
-  "Porter {n} coup critique|Porter {n} coups critiques"
+  "Porter {n} coup critique|Porter {n} coups critiques",
+  "Lame affûtée (10 000 coups critiques)",
+  "Coups critiques"
 ];
