@@ -2046,6 +2046,8 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     for (let i = 0; i < 3; i++) { gt.tapMonster(); gt.R.time += 1; }
     assert.equal(gt.S.quests.slots[0].progress, 3, "3 coups au clic comptés");
     assert.match(M_quests_js.QUEST_TEMPLATES.tap.text({ goal: 20 }), /20/);
+    assert.ok(!M_quests_js.QUEST_TEMPLATES.tap.ok(freshState()), "pas proposée à qui n'a jamais cliqué");
+    assert.ok(M_quests_js.QUEST_TEMPLATES.tap.ok(gt.S), "proposée après des coups au clic");
     // Zèle : progression des quêtes doublée pendant l'événement
     const gz = new Game(freshState()); gz.S.quests.slots = [{ uid: 1, kind: "kill", goal: 100, progress: 0, stars: 1, reward: { gold: 1 } }];
     gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 1);

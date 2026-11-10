@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 404) : la quête « Frapper au clic » n'est proposée qu'aux joueurs qui ont déjà frappé au clic
+  (stats.taps > 0) : un joueur 100 % inactif n'a pas de quête qui traîne (sinon : « Changer » contre de l'or). Test.
+  115/115.
 - 2026-11-10 (it. 403) : 12e type de quête « Frapper N fois au clic » (quests.js > tap, 20 à 40 coups, poids 1,
   récompense or + 2 potions) : la seule quête qui récompense le jeu actif, jamais obligatoire. Comptée dans
   game.js > tapMonster. Test, 1 texte × 9 langues (pluriels), save-fuzz ok, 115/115.

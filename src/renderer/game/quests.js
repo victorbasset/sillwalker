@@ -69,6 +69,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: randInt(1, 2), reward: { chest: 2, gold: Math.round(goldScale(S) * 100) } }),
   },
   tap: { // jeu actif : coups au clic sur le monstre combattu (jamais obligatoire, rare)
+    ok: (S) => (S.stats.taps || 0) > 0, // seulement pour qui a déjà frappé au clic (sinon elle traînerait)
     text: (q) => txn(q.goal, "Frapper {n} fois au clic|Frapper {n} fois au clic"),
     make: (S) => ({ goal: randInt(4, 8) * 5, reward: { gold: Math.round(goldScale(S) * 70), potions: 2 } }),
   },
