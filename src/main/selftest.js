@@ -528,6 +528,9 @@ async function runSelfTest(strip) {
   // Touche S : même rangement (bag mélangé d'abord, puis événement clavier dans la page).
   const srtK = await js("(() => { const g = window.__game, P = window.__panel; g.S.bag.reverse(); const ok = P.onKey({ key: 's', target: document.body }); const up = new Set(g.S.bag.filter((it) => g.isUpgrade(it)).map((it) => it.id)); const rest = g.S.bag.filter((it) => !up.has(it.id)).map((it) => it.r); return ok + ' ' + rest.every((r, i) => i === 0 || rest[i - 1] >= r); })()");
   check("sac : la touche S range aussi", srtK === "true true", srtK);
+  // Sections repliables de l'Aventure : un clic sur le titre ouvre la fenêtre large (pas de défilement de l'onglet).
+  const dets = await js("(() => { const P = window.__panel, out = []; P.kept.clear(); P.setTab('adventure'); P.renderAll(); for (const k of ['hero-todo','hero-chron','hero-stats','rates']) { const d = document.querySelector('[data-keep=' + k + ']'); if (!d) continue; d.querySelector('summary').click(); const m = document.getElementById('modal'), b = m.querySelector('.panel'), o = b.scrollHeight - b.clientHeight; if (m.hidden || d.open || o > 2) out.push(k + ':' + (m.hidden ? 'fermée' : o) + (d.open ? ':dépliée' : '')); m.hidden = true; } return out.join(' ') || 'ok'; })()");
+  check("aventure : sections repliables en fenêtre, sans défilement", dets === "ok", dets);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);

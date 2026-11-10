@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 417) : autotest : chaque section repliable de l'Aventure s'ouvre en fenêtre, sans défilement et sans se
+  déplier sur place. Il a trouvé « Toutes les statistiques » à 13 px de trop : en fenêtre, la liste (dl.stats) passe
+  à deux paires libellé / valeur par ligne (moitié moins haute). Capture, 118/118.
 - 2026-11-10 (it. 416) : les sections repliables de l'Aventure (À faire, Chroniques, Toutes les statistiques, Chances de
   butin) faisaient défiler l'onglet une fois dépliées (92 à 465 px) : un clic sur leur titre les ouvre maintenant dans
   la fenêtre large, listes sur deux colonnes (panel.showDetails, MODAL_DETAILS) ; leurs boutons et liens restent actifs
