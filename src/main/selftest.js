@@ -436,6 +436,14 @@ async function runSelfTest(strip) {
   await sleep(400);
   const hk = await js("String(!!document.querySelector('.actor.hawkeye'))");
   check("bande : halo du héros pendant l'Œil du faucon", hk === "true", hk);
+  // Malédiction (capacité de boss) : halo violet sur le héros maudit, en combat.
+  let ck = "pas de combat";
+  for (let i = 0; i < 20 && ck !== "true"; i++) {
+    const mode = await js("(() => { const R = window.__game.R; if (R.mode === 'fight') R.cursed = 5; return R.mode; })()");
+    await sleep(300);
+    if (mode === "fight") ck = await js("String(!!document.querySelector('.actor.cursed'))");
+  }
+  check("bande : halo violet du héros maudit (Malédiction)", ck === "true", ck);
   // Quête réclamée d'un clic même sac plein (avant : le clic ne faisait rien).
   const qf = await js("(() => { const g = window.__game, S = g.S; while (!g.bagFull()) S.bag.push(g.newItem(0)); S.quests.slots = [{ uid: 4242, kind: 'kill', goal: 1, progress: 1, stars: 1, reward: { gold: 10, chest: 3 } }, ...S.quests.slots.filter((q) => q.uid !== 4242)]; window.__panel.setTab('quests'); window.__panel.renderAll(); const b = document.querySelector('[data-action=q-claim][data-id=\"4242\"]'); if (!b) return 'pas de bouton'; b.click(); return String(!S.quests.slots.some((q) => q.uid === 4242)); })()");
   check("quêtes : « Réclamer » marche même sac plein", qf === "true", qf);

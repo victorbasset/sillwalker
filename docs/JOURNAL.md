@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 337) : autotest : contrôle du halo violet du héros maudit en combat (Malédiction). 108/108.
 - 2026-11-10 (it. 336) : héros maudit visible (halo violet .actor.cursed pendant la Malédiction, juice.js) ;
   « Quoi de neuf » édition 1 : ligne Nichée + Malédiction (7 nouveautés). 1 texte × 9 langues, 107/107.
 - 2026-11-10 (it. 335, étude des concurrents d : mécaniques de boss) : 11e capacité de boss « Malédiction »
