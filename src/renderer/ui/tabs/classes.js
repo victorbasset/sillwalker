@@ -23,6 +23,8 @@ export class ClassesTab {
   render(el) {
     const S = this.game.S, next = S.nextCls || S.cls;
     const freed = CLASS_KEYS.filter((k) => isClassUnlocked(S, k)).length;
+    // Ses trois sorts (it. 505) : icônes dans l'en-tête, grisées tant qu'ils ne sont pas appris ; nom et rang en infobulle.
+    const cspells = (cls) => `<span class="cspells">${classSpells(cls).map((x) => { const r = spellRank(S, x.id); return `<img class="${r ? "on" : ""}" src="${spellIconURL(x.tpl, x.color, 2)}" alt="" title="${esc(tr(x.name) + " · " + (r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : tx("pas encore appris (zone {0})", { 0: x.zone })))}">`; }).join("")}</span>`;
     const cards = CLASS_KEYS_BY_UNLOCK().map((k) => { // ordre de libération (demande de Victor)
       const c = CLASSES[k], cur = S.cls === k, open = isClassUnlocked(S, k);
       if (!open) {
@@ -68,7 +70,7 @@ export class ClassesTab {
             ? `<button class="synergy linkbtn" data-action="c-partner" data-id="${mate}" title="${esc(tx("Prendre comme compagnon"))}">${body}</button>`
             : `<p class="synergy${on || S.nextPartner === mate && k === next ? " on" : ""}" title="${esc(describeEffects(d.eff))}">${body}</p>`; })()}
         ${spent ? `<p class="note">${txn(spent, "{n} point de talent réparti.|{n} points de talent répartis.")}</p>` : ""}
-        <div class="row">${action}${duo}</div>
+        <div class="row">${action}${duo}${cspells(k)}</div>
       </article>`;
     }).join("");
     const tier = attackTier(S), nextT = ATTACK_TIERS[tier + 1];

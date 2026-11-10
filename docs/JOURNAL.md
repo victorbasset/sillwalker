@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 505) : Héros > Libérés et Prisonniers : chaque carte montre les icônes des trois sorts du héros, à
+  droite des boutons (grisées tant qu'ils ne sont pas appris ; infobulle : nom, rang ou « pas encore appris (zone X) »).
+  Aide à choisir le prochain héros. Aucun défilement (fr / de / ru / pl, 3 largeurs). Traduit. 124/124.
 - 2026-11-10 (it. 504) : contrôle instable « infobulle : pièce de panoplie gardée » (échec « 1 false false » une fois à
   l'it. 501) : cause non trouvée (le sac de dev n'a aucune pièce « hunter ») ; le sac est vidé de ses pièces de panoplie
   avant le contrôle, et un échec affichera désormais l'emplacement, la panoplie portée et l'état « faite ». 4 passages

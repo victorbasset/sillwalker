@@ -1059,4 +1059,5 @@ export default {
   2183: "Przebijający promień leci do następnego potwora i trafia go na twoich oczach.",
   2184: "Poznane zaklęcia widać na karcie bohatera; „Do zrobienia teraz” wskazuje zaklęcie do nauki.",
   2185: "Ikony zakładek zostają widoczne na małych ekranach; nowe osiągnięcie „Pełny grimuar”.",
+  2186: "jeszcze nie poznane (strefa {0})",
 };

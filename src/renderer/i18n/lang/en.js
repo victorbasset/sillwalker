@@ -1059,4 +1059,5 @@ export default {
   2183: "The piercing streak flies to the next monster and strikes it before your eyes.",
   2184: "Learned spells show on the hero card; “Things to do now” points out a spell to learn.",
   2185: "Tab icons stay visible on small screens; new achievement “Full grimoire”.",
+  2186: "not learned yet (zone {0})",
 };

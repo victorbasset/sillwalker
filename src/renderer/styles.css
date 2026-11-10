@@ -1200,3 +1200,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .duoline .duotag > img { order: -2; }
 .duoline .duotag .syn { order: -1; }
 .duoline .spellmini { flex-shrink: 0; padding-left: 6px; }
+/* Carte d'un héros : ses trois sorts, à droite du nom (grisés tant qu'ils ne sont pas appris). */
+.classcard .cspells { margin-left: auto; display: inline-flex; gap: 3px; align-self: center; flex-shrink: 0; }
+.classcard .cspells img { width: 18px; height: 18px; image-rendering: pixelated; filter: grayscale(1); opacity: .45; border: 0; padding: 0; background: none; }
+.classcard .cspells img.on { filter: none; opacity: 1; }

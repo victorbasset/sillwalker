@@ -2187,5 +2187,6 @@ export const KEYS = [
   "Sorts : la recharge raccourcit de 10 % tous les 10 rangs ; un nouveau sort est fêté dans la bande.",
   "Le trait perçant file jusqu’au monstre suivant et le frappe sous tes yeux.",
   "Les sorts appris s’affichent sur la carte du héros ; « À faire maintenant » signale un sort à apprendre.",
-  "Les icônes des onglets restent visibles sur les petits écrans ; nouveau succès « Grimoire complet »."
+  "Les icônes des onglets restent visibles sur les petits écrans ; nouveau succès « Grimoire complet ».",
+  "pas encore appris (zone {0})"
 ];

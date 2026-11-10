@@ -1059,4 +1059,5 @@ export default {
   2183: "Der durchbohrende Strahl fliegt zum nächsten Monster und trifft es vor deinen Augen.",
   2184: "Gelernte Zauber erscheinen auf der Heldenkarte; „Jetzt zu tun“ zeigt einen Zauber zum Lernen an.",
   2185: "Die Tab-Symbole bleiben auf kleinen Bildschirmen sichtbar; neuer Erfolg „Volles Grimoire“.",
+  2186: "noch nicht gelernt (Zone {0})",
 };
