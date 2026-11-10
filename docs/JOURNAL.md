@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 467) : nouveau contrôle scripts/i18n-quotes.mjs (lancé par npm test) : un texte qui cite « un
+  libellé » du jeu doit le citer tel qu'il est traduit (erreur faite 3 fois : « Écouter », « Ascension », « Tri du
+  marchand »). Un seul cas trouvé dans tout le jeu, en 8 langues : l'aide des Talents citait « max » au lieu du
+  libellé du bouton (« máx. », « макс. », « 最大 »…) : corrigé. CLAUDE.md : consigne ajoutée. 122/122.
 - 2026-11-10 (it. 466) : astuce (ampoule) « sound » : après 300 victoires, son allumé, elle signale Réglages > Son
   (volumes séparés, « Écouter », touche C) ; un clic ouvre les Réglages. Traduite. Au passage, « Écouter » était mal
   repris en ru / ja / zh / ko dans l'édition 4 du Quoi de neuf (it. 461) : corrigé avec le libellé réel du bouton
@@ -1618,6 +1622,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- DEMANDES DE VICTOR (2026-11-10, fin de matinée), à traiter en premier, dans cet ordre :
+  E. Aventure : le texte « clique un objet » (titre de la carte Équipement) ne veut rien dire.
+  F. Aventure : on voit mal le compagnon à côté du héros dans la première carte.
+  D. Style de combat : des sorts à apprendre pour ses héros, qui s'ajoutent à l'attaque de base, avec une animation.
 
 - DEMANDES DE VICTOR (2026-11-10, sur Mac), à traiter en premier, dans cet ordre :
   A. FAIT (it. 431, à vérifier sur le Mac). Mac : icône Electron dans le Dock au lancement (npm start) : la cacher (app.dock.hide()).

@@ -8,7 +8,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev-tools",
-    "test": "node scripts/check-syntax.mjs && node scripts/check-imports.mjs && node scripts/check-comments.mjs && node --experimental-default-type=module scripts/test-logic.js",
+    "test": "node scripts/check-syntax.mjs && node scripts/check-imports.mjs && node scripts/check-comments.mjs && node --experimental-default-type=module scripts/i18n-quotes.mjs && node --experimental-default-type=module scripts/test-logic.js",
     "perf": "electron . --perf --ghost --user-data=./dev-data",
     "icons": "node --experimental-default-type=module scripts/make-icons.js",
     "dist": "electron-builder --win dir",
