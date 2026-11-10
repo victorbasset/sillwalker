@@ -4,7 +4,7 @@ import { Game } from "../src/renderer/game/game.js";
 import { freshState } from "../src/renderer/game/state.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { TREES } from "../src/renderer/game/talents.js";
-import { CLASS_KEYS_BY_UNLOCK, canPartner } from "../src/renderer/game/classes.js";
+import { CLASS_KEYS_BY_UNLOCK, canPartner, DUO_SYNERGIES } from "../src/renderer/game/classes.js";
 import { SKILL_TREE, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { CONSTELLATIONS, constellationCost } from "../src/renderer/game/prestige.js";
 import { CONSUMABLES, consumablePrice } from "../src/renderer/game/shop.js";
@@ -49,7 +49,12 @@ function playerTurn() {
   }
   for (const b of TREES[g.S.cls]) for (const t of b.talents) g.learnTalent(t.id, 99);
   // Duo (demande 17) : le joueur prend comme compagnon le premier héros libéré de l'autre portée.
-  if (!g.S.partner && g.choosePartner) for (const c of CLASS_KEYS_BY_UNLOCK()) if (canPartner(g.S, g.S.cls, c)) { g.choosePartner(c); break; }
+  // Compagnon : le duo idéal (synergie) s'il est libre, sinon le premier héros possible (comme un vrai joueur).
+  if (!g.S.partner && g.choosePartner) {
+    const syn = DUO_SYNERGIES.find((d) => d.a === g.S.cls || d.b === g.S.cls), mate = syn && (syn.a === g.S.cls ? syn.b : syn.a);
+    if (mate && canPartner(g.S, g.S.cls, mate)) g.choosePartner(mate);
+    else for (const c of CLASS_KEYS_BY_UNLOCK()) if (canPartner(g.S, g.S.cls, c)) { g.choosePartner(c); break; }
+  }
   takeSkills();
   for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid);
   while (g.S.pets.eggs > 0 && g.hatchEgg()); // (sans Ménagerie, rien n’éclot)
