@@ -134,6 +134,7 @@ export class Game {
           return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
       R.lineupZone = this.S.zone;
+      R.bossPierced = 0; // nouvelle série : le boss de la zone n'a encore rien reçu
     }
     return R.lineup;
   }
@@ -235,6 +236,7 @@ export class Game {
           // Sort perçant (demandes H et R) : ce monstre a déjà été frappé dans la file ; il arrive blessé (jamais tué).
           const slot = !R.mon.boss && this.lineup()[this.S.kills];
           if (slot && slot.pierced > 0) { R.mon.hp -= Math.min(slot.pierced, R.mon.hp - 1); slot.pierced = 0; }
+          if (R.mon.boss && R.bossPierced > 0) { R.mon.hp -= Math.min(R.bossPierced, R.mon.max * 0.25); R.bossPierced = 0; }
           this.emit("spawn", R.mon);
           if (R.mon.boss) this.charmSwap(R.mon);
         }
@@ -512,6 +514,11 @@ export class Game {
 
   /** Part de vie restante d'un monstre de la file (barre de la bande après un perçage ; estimation : PV de base). */
   slotHealth(i) {
+    if (i === this.lineup().length) { // le boss (estimation : PV de base, plafond d'un quart)
+      if (!(this.R.bossPierced > 0)) return 1;
+      const Z = zoneDef(this.S.zone), max = monsterBase(this.S.zone, true, Z.boss, false, false).hp;
+      return max > 0 ? Math.max(0.75, 1 - this.R.bossPierced / max) : 1;
+    }
     const s = this.lineup()[i]; if (!s || !(s.pierced > 0)) return 1;
     const max = monsterBase(this.S.zone, false, s.type, s.elite, !!s.champion).hp;
     return max > 0 ? Math.max(0.02, 1 - s.pierced / max) : 1;
@@ -523,7 +530,9 @@ export class Game {
     const line = this.lineup(), n = pierceTargets(r);
     for (let k = 1; k <= n; k++) {
       const i = this.S.kills + k;
-      if (i >= line.length || dmg <= 0) break; // jamais le boss (il n'est pas dans la file)
+      if (i > line.length || dmg <= 0) break;
+      // Le boss, au bout de la file (it. 556) : touché aussi, mais il n'en gardera qu'un quart de sa vie au plus.
+      if (i === line.length) { this.R.bossPierced = (this.R.bossPierced || 0) + dmg; this.emit("pierced", { id: sp.id, dmg, slot: i, k }); break; }
       line[i].pierced = (line[i].pierced || 0) + dmg;
       this.emit("pierced", { id: sp.id, dmg, slot: i, k });
       dmg *= PIERCE_FALLOFF;

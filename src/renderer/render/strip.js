@@ -603,7 +603,7 @@ export class StripRenderer {
       const bob = fighting && a.fly ? Math.sin(R.time * 5) * 3 : 0;
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0), this.monY(a, bob));
       // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).
-      const pierced = !fighting && (line[k]?.pierced > 0);
+      const pierced = !fighting && (k === line.length ? R.bossPierced > 0 : line[k]?.pierced > 0);
       a.bar.visible(!!fighting || pierced);
       if (fighting) a.bar.set(R.mon.hp / R.mon.max); else if (pierced) a.bar.set(game.slotHealth(k));
       const burning = !!(fighting && R.mon.burnT > 0);

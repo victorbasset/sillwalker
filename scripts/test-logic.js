@@ -2463,6 +2463,12 @@ test("Sort perçant (demandes L et R) : la file est frappée tout de suite, plus
   assert.ok(g.R.mon && g.R.mon.hp >= 1 && g.R.mon.hp < g.R.mon.max, "arrive blessé, vivant");
   assert.equal(line[1].pierced, 0, "réserve vidée");
   assert.ok(g.slotHealth(2) < 1, "barre de la file entamée");
+  // Le boss au bout de la file (it. 556) : touché, mais au plus un quart de sa vie
+  const L = g.lineup().length; g.S.kills = L - 1; g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e30; g.R.mode = "fight";
+  g.S.spells["paladin.0"] = 50; g.R.bossPierced = 0; seen.length = 0; g.R.spellT = { "paladin.0": 0 }; g.castSpells(g.R.mon, g.stats(), 0.1);
+  assert.ok(seen.some((e) => e.slot === L) && g.R.bossPierced > 0, "le boss est touché");
+  g.R.bossPierced = 1e40; g.S.kills = L; g.R.mode = "walk"; g.R.mon = null; g.R.spawnT = 0.01; g.advance(0.05);
+  assert.ok(g.R.mon && g.R.mon.boss && g.R.mon.hp >= g.R.mon.max * 0.75 - 1, "au plus un quart de sa vie");
 });
 
 test("Duo : le compagnon lance les sorts appris pour sa classe, à moitié de leur puissance", () => {

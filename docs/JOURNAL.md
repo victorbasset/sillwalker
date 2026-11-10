@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 556) : perçage : le boss, au bout de la file, est touché aussi (R.bossPierced, appliqué à son arrivée,
+  plafonné à un quart de sa vie, remis à zéro à chaque nouvelle série) ; sa barre entamée s'affiche. Test logique ;
+  balance -0,2 ; fuzz 800 ok. 130/130.
 - 2026-11-10 (it. 555) : cartes de l'onglet Héros : l'infobulle de chaque icône de sort donne aussi ses effets propres
   (« Fracas du titan · rang 1 / 50 · étourdit 2 s »), pour choisir son prochain héros. 130/130.
 - 2026-11-10 (it. 554) : test : chaque effet de sort appartient à la liste connue et a une valeur positive (une faute
