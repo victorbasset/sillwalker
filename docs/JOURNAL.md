@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 418) : --overflow-report mesure aussi les quatre sections de l'Aventure ouvertes en fenêtre ;
+  lang-overflow fr / de / ru / pt / pl à 1920 et 1366 : aucun défilement. 118/118.
 - 2026-11-10 (it. 417) : autotest : chaque section repliable de l'Aventure s'ouvre en fenêtre, sans défilement et sans se
   déplier sur place. Il a trouvé « Toutes les statistiques » à 13 px de trop : en fenêtre, la liste (dl.stats) passe
   à deux paires libellé / valeur par ligne (moitié moins haute). Capture, 118/118.

@@ -167,6 +167,11 @@ function start() {
             P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
+          P.kept.clear(); P.setTab("adventure"); P.renderAll();
+          for (const k of ["hero-todo", "hero-chron", "hero-stats", "rates"]) {
+            const d = document.querySelector("[data-keep=" + k + "]"); if (!d) continue; d.querySelector("summary").click();
+            const m = document.getElementById("modal"), mb = m.querySelector(".panel"), mo = mb.scrollHeight - mb.clientHeight;
+            if (mo > 2) out.push(k + "=" + mo); m.hidden = true; }
           return innerWidth + " " + (out.join(" ") || "aucun"); })()`).catch((e) => "erreur " + e.message);
         console.log("[overflow] " + r);
         app.quit();
