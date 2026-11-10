@@ -51,6 +51,36 @@ export function outlinedFrames(frames, color, dpr = 1) {
   });
 }
 
+/**
+ * Halo des objets légendaires dessiné dans l'image (it. 597 ; avant : filtre CSS drop-shadow recalculé à chaque image,
+ * ≈ 0,4-0,9 point d'un cœur en permanence en fin de partie). Halo de 2 pixels, à gauche, à droite et en haut (comme
+ * outlinedFrames : Actor.reframe garde le personnage en place), plus pâle au bord.
+ */
+const glowCache = new WeakMap();
+export function glowFrames(frames, color, dpr = 1) {
+  return frames.map((f) => {
+    let m = glowCache.get(f);
+    if (!m) glowCache.set(f, (m = new Map()));
+    if (!m.has(color)) {
+      const p = Math.max(1, Math.round(dpr)), c = document.createElement("canvas");
+      c.width = f.width + 4 * p; c.height = f.height + 2 * p;
+      const ctx = c.getContext("2d"), layer = (offs, alpha) => {
+        const t = document.createElement("canvas"); t.width = c.width; t.height = c.height;
+        const tc = t.getContext("2d");
+        for (const [x, y] of offs) tc.drawImage(f, 2 * p + x * p, 2 * p + y * p);
+        tc.globalCompositeOperation = "source-in"; tc.fillStyle = color; tc.fillRect(0, 0, t.width, t.height);
+        ctx.globalAlpha = alpha; ctx.drawImage(t, 0, 0); ctx.globalAlpha = 1;
+      };
+      layer([[-2, 0], [2, 0], [0, -2], [-1, -1], [1, -1]], 0.35);
+      layer([[-1, 0], [1, 0], [0, -1]], 0.75);
+      ctx.drawImage(f, 2 * p, 2 * p);
+      c.cw = c.width / dpr; c.ch = c.height / dpr;
+      m.set(color, c);
+    }
+    return m.get(color);
+  });
+}
+
 const spriteSets = new Map();
 /** Jeu de sprites pour une échelle d'affichage (partagé par la bande et l'encart mini). */
 export function buildSpriteSet(dpr) {

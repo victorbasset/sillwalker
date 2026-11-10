@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 597) : performance : halo des objets légendaires du héros dessiné dans l'image (sprites.js
+  glowFrames, 2 pixels, gauche / droite / haut) au lieu du filtre CSS ; se combine au contour du bouclier. Bande
+  19,05 % (3 mesures ; sans halo 18,95 % à l'it. 594) : le halo ne coûte plus rien ; it. 594 → 597 : 19,85 → 19,05 %.
+  (Le mode mini garde le filtre : petit encart.) Vérifié en capture. 133/133.
 - 2026-11-11 (it. 596) : performance (suite de l'it. 595) : bouclier du héros et carapace des boss : contour bleu
   dessiné dans l'image (Actor.reframe, dom.js : images de mêmes poses, décalées pour ne pas bouger) au lieu d'un
   filtre de 4 ombres (paladin, gardien, prêtresse : bouclier presque à chaque combat). Vérifié en capture. Bande

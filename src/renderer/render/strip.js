@@ -13,7 +13,7 @@ import { t as tx, fsp, tr } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
-import { buildSpriteSet, outlinedFrames } from "./sprites.js";
+import { buildSpriteSet, outlinedFrames, glowFrames } from "./sprites.js";
 import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
@@ -50,6 +50,8 @@ const GROUND = 96, CONTACT = 44;
 const eliteColor = (m) => (m.champion ? "#c08cff" : "#ffd34d");
 /** Contour du bouclier du héros et de la carapace des boss. */
 const SHIELD_BLUE = "#9fd8ff";
+/** Halo des objets légendaires sur le héros. */
+const LEGEND_GOLD = "#ffc23d";
 /** Combat de boss : les barres de vie sous les pieds, à cette distance du sol (it. 580). */
 const BOSS_BAR_DY = 5;
 const LEFT = 24;            // position de départ du héros
@@ -486,7 +488,9 @@ export class StripRenderer {
     const h = buildHeroSprites(cls, vis, this.dpr); // habillé selon l'équipement
     this.hero = new Actor(this.stage, [h.walk1, h.walk2, h.attack], "hero");
     this.heroCls = key;
-    this.hero.el.classList.toggle("legend", vis.aura); // halo des objets légendaires
+    // halo des objets légendaires : dessiné dans l'image (it. 597), plus de filtre CSS sur la bande
+    this.hero.aura = vis.aura;
+    if (vis.aura) this.hero.reframe(glowFrames(this.hero.base, LEGEND_GOLD, this.dpr));
     // Reliques (demande S) : le drone vole près du héros, la couronne se pose sur sa tête, cœur et lame au-dessus.
     for (const id of relics) {
       if (id === "drone") { const im = el("img", "relic-drone", this.hero.el); im.src = relicIconURL("drone", 3); im.alt = ""; }
@@ -725,7 +729,8 @@ export class StripRenderer {
     const shielded = R.mode === "fight" && R.shield > 0;
     if (this.hero.el.classList.contains("shielded") !== shielded) {
       // contour bleu dessiné dans l'image (it. 596) : le filtre CSS de 4 ombres coûtait à chaque image
-      this.hero.el.classList.toggle("shielded", shielded); this.hero.reframe(shielded ? outlinedFrames(this.hero.base, SHIELD_BLUE, this.dpr) : null); mark("shield");
+      this.hero.el.classList.toggle("shielded", shielded); const own = this.hero.aura ? glowFrames(this.hero.base, LEGEND_GOLD, this.dpr) : this.hero.base;
+      this.hero.reframe(shielded ? outlinedFrames(own, SHIELD_BLUE, this.dpr) : own); mark("shield");
     }
     const frozen = R.mode === "fight" && R.frozen > 0;
     if (this.hero.el.classList.contains("frozen") !== frozen) { this.hero.el.classList.toggle("frozen", frozen); mark("frost"); }
