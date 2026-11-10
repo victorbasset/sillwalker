@@ -2183,5 +2183,9 @@ export const KEYS = [
   "Nouveau sort : {0} !",
   "Sort à apprendre : {0}",
   "Grimoire complet (les trois sorts d’un héros)",
-  "recharge : {0} s"
+  "recharge : {0} s",
+  "Sorts : la recharge raccourcit de 10 % tous les 10 rangs ; un nouveau sort est fêté dans la bande.",
+  "Le trait perçant file jusqu’au monstre suivant et le frappe sous tes yeux.",
+  "Les sorts appris s’affichent sur la carte du héros ; « À faire maintenant » signale un sort à apprendre.",
+  "Les icônes des onglets restent visibles sur les petits écrans ; nouveau succès « Grimoire complet »."
 ];

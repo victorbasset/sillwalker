@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 502) : « Quoi de neuf », édition 6 (4 nouveautés : paliers de recharge et fête des sorts, trait
+  perçant, sorts sur la carte du héros et dans « À faire maintenant », icônes des onglets et succès « Grimoire
+  complet »). Traduit (libellés cités vérifiés par i18n-quotes) ; aucun défilement à 1280 en ru / de / pl. 124/124.
 - 2026-11-10 (it. 501) : paliers des sorts : recharge -10 % tous les 10 rangs (rang 50 : moitié ; spellCd, spells.js) ;
   la carte montre la recharge réelle, l'infobulle « Améliorer » annonce la nouvelle au passage d'un palier. Balance 12 h
   -0,3 zone (bruit) ; semaine mage 179 (repère 179-182). Traduit ; test logique. 124/124 (un premier passage à 123 :

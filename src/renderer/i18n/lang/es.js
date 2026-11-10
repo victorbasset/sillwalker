@@ -1055,4 +1055,8 @@ export default {
   2179: "Hechizo por aprender: {0}",
   2180: "Grimorio completo (los tres hechizos de un héroe)",
   2181: "recarga: {0} s",
+  2182: "Hechizos: la recarga baja un 10 % cada 10 rangos; un hechizo nuevo se celebra en la franja.",
+  2183: "El rayo perforante vuela hasta el siguiente monstruo y lo golpea ante tus ojos.",
+  2184: "Los hechizos aprendidos aparecen en la tarjeta del héroe; «Qué hacer ahora» señala un hechizo por aprender.",
+  2185: "Los iconos de las pestañas siguen visibles en pantallas pequeñas; nuevo logro «Grimorio completo».",
 };

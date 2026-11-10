@@ -1055,4 +1055,8 @@ export default {
   2179: "Feitiço para aprender: {0}",
   2180: "Grimório completo (os três feitiços de um herói)",
   2181: "recarga: {0} s",
+  2182: "Feitiços: a recarga cai 10% a cada 10 níveis; um feitiço novo é celebrado na faixa.",
+  2183: "O raio perfurante voa até o próximo monstro e o atinge diante dos seus olhos.",
+  2184: "Os feitiços aprendidos aparecem no cartão do herói; «O que fazer agora» indica um feitiço para aprender.",
+  2185: "Os ícones das abas continuam visíveis em telas pequenas; nova conquista «Grimório completo».",
 };

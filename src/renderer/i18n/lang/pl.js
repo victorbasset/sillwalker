@@ -1055,4 +1055,8 @@ export default {
   2179: "Zaklęcie do nauki: {0}",
   2180: "Pełny grimuar (trzy zaklęcia jednego bohatera)",
   2181: "odnowienie: {0} s",
+  2182: "Zaklęcia: odnowienie skraca się o 10% co 10 rang; nowe zaklęcie jest świętowane na pasku.",
+  2183: "Przebijający promień leci do następnego potwora i trafia go na twoich oczach.",
+  2184: "Poznane zaklęcia widać na karcie bohatera; „Do zrobienia teraz” wskazuje zaklęcie do nauki.",
+  2185: "Ikony zakładek zostają widoczne na małych ekranach; nowe osiągnięcie „Pełny grimuar”.",
 };

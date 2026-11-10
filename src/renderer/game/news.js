@@ -39,7 +39,13 @@ const EDITION_5 = [
   "Le bouclier se voit sur la barre de vie ; le compagnon a sa ligne dans la carte du héros.",
   "Déblocage Carte du ciel : les éclats d’étoile se placent tout seuls dans les constellations.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5];
+const EDITION_6 = [
+  "Sorts : la recharge raccourcit de 10 % tous les 10 rangs ; un nouveau sort est fêté dans la bande.",
+  "Le trait perçant file jusqu’au monstre suivant et le frappe sous tes yeux.",
+  "Les sorts appris s’affichent sur la carte du héros ; « À faire maintenant » signale un sort à apprendre.",
+  "Les icônes des onglets restent visibles sur les petits écrans ; nouveau succès « Grimoire complet ».",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

@@ -1055,4 +1055,8 @@ export default {
   2179: "Zauber zu lernen: {0}",
   2180: "Volles Grimoire (alle drei Zauber eines Helden)",
   2181: "Abklingzeit: {0} s",
+  2182: "Zauber: Die Abklingzeit sinkt alle 10 Ränge um 10 %; ein neuer Zauber wird in der Leiste gefeiert.",
+  2183: "Der durchbohrende Strahl fliegt zum nächsten Monster und trifft es vor deinen Augen.",
+  2184: "Gelernte Zauber erscheinen auf der Heldenkarte; „Jetzt zu tun“ zeigt einen Zauber zum Lernen an.",
+  2185: "Die Tab-Symbole bleiben auf kleinen Bildschirmen sichtbar; neuer Erfolg „Volles Grimoire“.",
 };

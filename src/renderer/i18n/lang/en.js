@@ -1055,4 +1055,8 @@ export default {
   2179: "Spell to learn: {0}",
   2180: "Full grimoire (all three spells of a hero)",
   2181: "cooldown: {0} s",
+  2182: "Spells: cooldown drops by 10% every 10 ranks; a new spell is celebrated in the strip.",
+  2183: "The piercing streak flies to the next monster and strikes it before your eyes.",
+  2184: "Learned spells show on the hero card; “Things to do now” points out a spell to learn.",
+  2185: "Tab icons stay visible on small screens; new achievement “Full grimoire”.",
 };
