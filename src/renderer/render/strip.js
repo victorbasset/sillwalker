@@ -48,6 +48,8 @@ export const STRIP_H = 120;
 const GROUND = 96, CONTACT = 44;
 /** Couleur du contour d'un monstre élite (doré) ou champion (violet). */
 const eliteColor = (m) => (m.champion ? "#c08cff" : "#ffd34d");
+/** Contour du bouclier du héros et de la carapace des boss. */
+const SHIELD_BLUE = "#9fd8ff";
 /** Combat de boss : les barres de vie sous les pieds, à cette distance du sol (it. 580). */
 const BOSS_BAR_DY = 5;
 const LEFT = 24;            // position de départ du héros
@@ -650,7 +652,8 @@ export class StripRenderer {
       if (a.flame.hidden === burning) { a.flame.hidden = !burning; mark("flame"); }
       const enraged = !!(fighting && R.mon.enraged), shelled = !!(fighting && R.mon.shell > 0);
       if (a.el.classList.contains("enraged") !== enraged) { a.el.classList.toggle("enraged", enraged); mark("boss"); }
-      if (a.el.classList.contains("shelled") !== shelled) { a.el.classList.toggle("shelled", shelled); mark("boss"); }
+      // carapace : contour bleu dessiné dans l'image (it. 596), plus de filtre CSS
+      if (a.el.classList.contains("shelled") !== shelled) { a.el.classList.toggle("shelled", shelled); a.reframe(shelled ? outlinedFrames(a.base, SHIELD_BLUE, this.dpr) : null); mark("boss"); }
       const poisoned = !!(fighting && (R.mon.poisonT > 0 || R.mon.venomT > 0));
       if (a.el.classList.contains("poisoned") !== poisoned) { a.el.classList.toggle("poisoned", poisoned); mark("poison"); }
       // Effets des sorts sur le monstre (demande Q) : étourdi, ralenti, affaibli.
@@ -720,7 +723,10 @@ export class StripRenderer {
     }
     // Bouclier sacré (paladin) : halo autour du héros tant qu'il tient.
     const shielded = R.mode === "fight" && R.shield > 0;
-    if (this.hero.el.classList.contains("shielded") !== shielded) { this.hero.el.classList.toggle("shielded", shielded); mark("shield"); }
+    if (this.hero.el.classList.contains("shielded") !== shielded) {
+      // contour bleu dessiné dans l'image (it. 596) : le filtre CSS de 4 ombres coûtait à chaque image
+      this.hero.el.classList.toggle("shielded", shielded); this.hero.reframe(shielded ? outlinedFrames(this.hero.base, SHIELD_BLUE, this.dpr) : null); mark("shield");
+    }
     const frozen = R.mode === "fight" && R.frozen > 0;
     if (this.hero.el.classList.contains("frozen") !== frozen) { this.hero.el.classList.toggle("frozen", frozen); mark("frost"); }
     if (this.pet) {

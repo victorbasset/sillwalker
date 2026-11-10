@@ -165,7 +165,7 @@ function spriteImg(sprite, parent) {
 export class Actor {
   constructor(parent, frames, cls = "") {
     this.el = el("div", "actor " + cls, parent);
-    this.frames = frames;
+    this.frames = frames; this.base = frames;
     this.imgs = frames.map((f) => spriteImg(f, this.el));
     this.w = frames[0].cw; this.h = frames[0].ch;
     this.cur = -1; this.tx = null; this.alphaV = null; this.shown = true;
@@ -187,6 +187,23 @@ export class Actor {
   }
   visible(v) {
     if (v !== this.shown) { this.shown = v; this.el.hidden = !v; mark("vis"); }
+  }
+  /**
+   * Autres images de mêmes poses (contour dessiné : sprites.js outlinedFrames, it. 596) ; plus grandes que les images
+   * de base (contour à gauche, à droite et en haut) : décalées pour que le personnage ne bouge pas. Sans argent : la base.
+   */
+  reframe(frames) {
+    frames = frames || this.base;
+    if (frames === this.frames) return;
+    this.frames = frames;
+    frames.forEach((f, i) => {
+      const img = this.imgs[i], b = this.base[i];
+      let url = urlCache.get(f);
+      if (!url) { url = f.toDataURL(); urlCache.set(f, url); }
+      img.src = url; img.width = f.cw; img.height = f.ch;
+      img.style.left = -(f.cw - b.cw) / 2 + "px"; img.style.top = -(f.ch - b.ch) + "px";
+    });
+    mark("frame");
   }
   addCrown() {
     const crown = el("div", "crown", this.el);
