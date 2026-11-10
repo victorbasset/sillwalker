@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 449) : semaine simulée (mage) avec la voie désormais prise par simulate.js : 76 courses, records
+  38 → 57 → 71 → 83 → 111 → 132 → 155 → 179, progression régulière sans plafond (repère précédent 38 → 175) ; 20
+  déblocages, le dernier (steward) à 8 493 min. CLAUDE.md : repère mis à jour (it. 449).
 - 2026-11-10 (it. 448) : simulate.js prend une voie de talents dès qu'elle est permise (VOIE=0 par défaut, 1, ou none
   pour l'ancien comportement), pour mesurer les voies mêlées de l'it. 429. 20 héros × 3 réglages (12 h, graine 7) :
   moyenne sans voie 61,0, voie 0 60,4, voie 1 60,9 ; héros ajoutés 60,9 contre leurs modèles 60,6 : équilibré. Vérifié

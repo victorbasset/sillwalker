@@ -53,7 +53,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Ouverture des onglets : `node --experimental-default-type=module scripts/tab-pace.mjs` (minute d'ouverture de chaque
   onglet, 3 graines) ; à relancer si on touche aux seuils de game/tabs.js ou au rythme du début.
 - Fin de partie : `node --experimental-default-type=module scripts/simulate.js 168 <classe>` (une semaine, ~80 s) :
-  les records des dernières courses doivent progresser régulièrement (repère it. 407, Atelier acheté : mage 38 → 175,
+  les records des dernières courses doivent progresser régulièrement (repère it. 449, Atelier acheté, voie prise : mage 38 → 179,
   sans saut ni plafond). À relancer après tout changement de zoneMight (rules.js) ou des zones de déblocage.
 - Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
