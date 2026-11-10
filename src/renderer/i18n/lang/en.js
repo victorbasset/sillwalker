@@ -893,4 +893,6 @@ export default {
   2017: "Every 9 s, curses the hero for 3 s: they take 15% more damage and their life steal no longer heals.",
   2018: "Cursed!",
   2019: "New Nesting event (eggs from victories) and a new boss ability: Curse.",
+  2020: "boss of your zone",
+  2021: "next boss: zone {0}",
 };

@@ -893,4 +893,6 @@ export default {
   2017: "Co 9 s przeklina bohatera na 3 s: otrzymuje on o 15% więcej obrażeń, a kradzież życia przestaje go leczyć.",
   2018: "Przeklęty!",
   2019: "Nowe wydarzenie Wylęg (jaja za zwycięstwa) i nowa umiejętność bossa: Klątwa.",
+  2020: "boss twojej strefy",
+  2021: "następny boss: strefa {0}",
 };

@@ -9,7 +9,7 @@ import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONU
 import { POWERS } from "../../game/powers.js";
 import { SETS, SET_KEYS, setCounts } from "../../game/sets.js";
 import { RARITIES, SLOTS, ELITE_AFFIXES } from "../../game/data.js";
-import { BOSS_MECHANICS } from "../../game/bosses.js";
+import { BOSS_MECHANICS, bossMechanics } from "../../game/bosses.js";
 
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
@@ -66,7 +66,9 @@ export class BestiaryTab {
           <div class="${n >= 2 ? "on" : ""}">${n >= 2 ? "✓ " : ""}${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
           <div class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>` : ""}
       <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle")}</small></h2>
-      <div class="setgrid">${Object.values(BOSS_MECHANICS).map((b) => `<div class="setcard" style="--c:#ff9a7a"><b>${esc(b.name)}</b><div>${esc(b.desc)}</div></div>`).join("")}</div>
+      <div class="setgrid">${Object.entries(BOSS_MECHANICS).map(([id, b]) => { // prochaine zone (à partir de la zone actuelle) dont le boss a cette capacité
+        let nz = 0; for (let z = S.zone; z < S.zone + 60; z++) if (bossMechanics(z).includes(id)) { nz = z; break; }
+        return `<div class="setcard" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
       ${show.elites ? `<h2 class="codexh" id="bj-elites">${tx("Élites")} <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
       <div class="setgrid">${Object.values(ELITE_AFFIXES).map((a) => `<div class="setcard" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b><div>${esc(a.desc || "")}</div></div>`).join("")}</div>` : ""}`;
   }

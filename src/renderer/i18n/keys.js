@@ -2021,5 +2021,7 @@ export const KEYS = [
   "Chaque victoire peut laisser un œuf !",
   "Toutes les 9 s, maudit le héros pendant 3 s : il subit 15 % de dégâts en plus et son vol de vie ne le soigne plus.",
   "Maudit !",
-  "Nouvel événement Nichée (des œufs à chaque victoire) et nouvelle capacité de boss : Malédiction."
+  "Nouvel événement Nichée (des œufs à chaque victoire) et nouvelle capacité de boss : Malédiction.",
+  "boss de ta zone",
+  "prochain boss : zone {0}"
 ];

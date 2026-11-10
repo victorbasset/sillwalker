@@ -893,4 +893,6 @@ export default {
   2017: "Cada 9 s, maldice al héroe durante 3 s: recibe un 15 % más de daño y su robo de vida ya no lo cura.",
   2018: "¡Maldito!",
   2019: "Nuevo evento Nidada (huevos con cada victoria) y nueva habilidad de jefe: Maldición.",
+  2020: "jefe de tu zona",
+  2021: "próximo jefe: zona {0}",
 };
