@@ -65,6 +65,9 @@ export const HINTS = [
     when: (g) => hasUnlock(g.S, "starAnvil") },
   { id: "tap", tab: null, text: tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"),
     when: (g) => g.S.stats.kills >= 40 && !(g.S.stats.taps > 0) },
+  // Son (refonte it. 432-454) : les réglages fins existent, encore faut-il le savoir. Une fois, son allumé, après un peu de jeu.
+  { id: "sound", tab: "settings", text: tx("Le son te plaît à moitié ? Réglages > Son : volumes séparés de la musique et de l’ambiance, « Écouter » pour essayer, touche C pour tout couper. Clique ici."),
+    when: (g) => g.S.stats.kills >= 300 && g.S.settings.sound !== false && !g.S.settings.muted },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
     when: (g) => (g.S.speed || 0) > 0 },
 ];

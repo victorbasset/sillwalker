@@ -966,4 +966,5 @@ export default {
   2090: "Automatically spends star shards on the cheapest constellation after each ascension (option).",
   2091: "Sky Chart: automatically spend shards on the cheapest constellation",
   2092: "Sky Chart: {n} constellation rank placed.|Sky Chart: {n} constellation ranks placed.",
+  2093: "Not quite happy with the sound? Settings > Sound: separate music and ambience volumes, “Listen” to try, C key to mute everything. Click here.",
 };

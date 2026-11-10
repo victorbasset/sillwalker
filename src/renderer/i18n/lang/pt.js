@@ -966,4 +966,5 @@ export default {
   2090: "Aplica sozinho os fragmentos de estrela na constelação mais barata, após cada ascensão (opção).",
   2091: "Carta celeste: aplicar sozinho os fragmentos na constelação mais barata",
   2092: "Carta celeste: {n} nível de constelação aplicado.|Carta celeste: {n} níveis de constelação aplicados.",
+  2093: "O som não te agrada totalmente? Configurações > Som: volumes separados de música e ambiente, «Ouvir» para testar, tecla C para silenciar tudo. Clique aqui.",
 };

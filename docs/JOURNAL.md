@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 466) : astuce (ampoule) « sound » : après 300 victoires, son allumé, elle signale Réglages > Son
+  (volumes séparés, « Écouter », touche C) ; un clic ouvre les Réglages. Traduite. Au passage, « Écouter » était mal
+  repris en ru / ja / zh / ko dans l'édition 4 du Quoi de neuf (it. 461) : corrigé avec le libellé réel du bouton
+  (« Слушай », 「聞いて」, 「聆听」, « 들어 봐 »). 122/122.
 - 2026-11-10 (it. 465) : nouveau déblocage « Carte du ciel » (zone 185, 6e21 or, entre le Grand intendant et le
   Creuset perpétuel) : place tout seul les éclats d'étoile dans la constellation la moins chère, rang par rang, après
   chaque ascension et à chaque éclat ramassé (autoConstellations, la règle de la simulation : équilibrage inchangé) ;
