@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 582) : reliques portées par le héros, lisibles : la couronne était hors de la tête (cadre de
+  l'acteur sans largeur : « left: 50 % » ne centrait pas ; et au-dessus, cachée par les nombres de dégâts) :
+  placée en pixels d'après le sprite, posée sur la tête ; cœur et lame en colonne contre son dos (ils se
+  mêlaient au drone). Vérifié en capture (4 reliques). 132/132.
 - 2026-11-10 (it. 581) : autotest : contrôle de la demande T (combat de boss forcé : barres de vie du héros et du
   boss présentes, dans la bande, sous les pieds). 132/132.
 - 2026-11-10 (it. 580, revue générale + demande T) : DEMANDE T de Victor : « on voit pas la barre de vie des bosses

@@ -486,10 +486,14 @@ export class StripRenderer {
     // Reliques (demande S) : le drone vole près du héros, la couronne se pose sur sa tête, cœur et lame au-dessus.
     for (const id of relics) {
       if (id === "drone") { const im = el("img", "relic-drone", this.hero.el); im.src = relicIconURL("drone", 3); im.alt = ""; }
-      else if (id === "crown") { const im = el("img", "relic-crown", this.hero.el); im.src = relicIconURL("crown", 2); im.alt = ""; }
+      // (it. 582) placées en pixels d'après le sprite : le cadre de l'acteur n'a pas de largeur propre
+      else if (id === "crown") { const im = el("img", "relic-crown", this.hero.el); im.src = relicIconURL("crown", 2); im.alt = ""; im.style.left = Math.round(this.hero.w / 2 - 9) + "px"; }
     }
     const minis = relics.filter((id) => id === "heart" || id === "blade");
-    if (minis.length) { const row = el("div", "relic-mini", this.hero.el); for (const id of minis) { const im = el("img", "", row); im.src = relicIconURL(id, 1); im.alt = ""; } }
+    if (minis.length) {
+      const row = el("div", "relic-mini", this.hero.el); row.style.top = Math.round(this.hero.h * 0.42) + "px";
+      for (const id of minis) { const im = el("img", "", row); im.src = relicIconURL(id, 1); im.alt = ""; }
+    }
     this.heroBarX = null;
   }
 
