@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 470, revue générale) : simulations 12 h (sorts achetés) : mage 59, barde 62, druide 59 ; crawl en
+  français (313 clics) et en russe (320 clics), copie riche en or pour qu'il achète aussi les sorts : aucune erreur ;
+  russe : aucun mot latin suspect ; save-fuzz ok. (Fuzz et équilibrage refaits à l'it. 469 ; perf à l'it. 450.)
 - 2026-11-10 (it. 469, demande D : sorts, « différents pour chaque héros ») : game/spells.js : 6 mécaniques (éclair,
   double lame, soin, boule de feu, bouclier, météore) et 3 sorts propres à chacun des 20 héros (60 noms : Tourbillon,
   Cri de ralliement, Fracas du titan pour le guerrier…), débloqués aux zones record 6, 22, 50, appris puis améliorés
