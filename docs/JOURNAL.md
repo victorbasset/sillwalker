@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 464) : gardienne des étoiles, voie 1 (63,8 contre 61,2 sans voie, it. 448) : essai arcane → ombre
+  dans son mélange : 63,25 sur les mêmes 4 graines (60-66) : presque rien ne change, l'écart reste dans le bruit.
+  Laissée telle quelle (pas de modification sans preuve) ; classée « à surveiller si Victor la trouve trop forte ».
 - 2026-11-10 (it. 463) : crawl en russe et en polonais (langues à trois pluriels, Quoi de neuf non lu, tri du marchand
   acheté) : 320 clics chacun, aucune erreur ; pluriels de la nouvelle ligne « … et N nouveautés plus anciennes »
   vérifiés pour 1, 3, 7 et 22 (ru, pl, de, ja) : corrects. CLAUDE.md : crawl dans une langue à trois pluriels de temps
