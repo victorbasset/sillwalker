@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 564) : journal : liste « À vérifier par Victor » remise en ordre (ligne orpheline de l'ancien point 7
+  supprimée ; point 5 : édition 10).
 - 2026-11-10 (it. 563) : carte du héros (Aventure) : l'infobulle des icônes de sorts donne aussi leurs effets (comme
   l'onglet Héros ; spellFxText partagé). Journal : liste « À vérifier par Victor » à jour (sorts, musique). 130/130.
 - 2026-11-10 (it. 562) : documentation : repère de la semaine simulée dans CLAUDE.md (it. 561 : mage 186, guerrier 189) ;
@@ -1956,9 +1958,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      Grimoire) ; trop chargé ou pas assez ?
   8. Musique lofi (it. 520-536) : un air par tranche de 5 zones, couleur du décor, désert oriental ; Réglages > Son ◀ ▶
      pour écouter les autres airs ; touche B / menu de l'icône pour la couper seule. Volumes et goût à juger.
-     sorts perçants, bouclier bleu-blanc sur la barre de vie, Grimoire des sorts ; trop chargé ou pas assez ?
   6. Sur le Mac : la bande ne doit pas apparaître devant un jeu / une vidéo en plein écran (it. 445) ; textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
-  5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.
+  5. « Quoi de neuf » au lancement (édition 10, avec au plus 3 éditions non lues) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
