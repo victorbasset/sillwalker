@@ -525,6 +525,9 @@ async function runSelfTest(strip) {
   // Sac : le bouton ⇅ range les objets (rareté décroissante hors améliorations).
   const srt = await js("(() => { const g = window.__game, P = window.__panel; P.setTab('adventure'); P.renderAll(); const b = document.querySelector('#p-bag [data-action=bagsort]'); if (!b) return 'pas de bouton'; b.click(); const up = new Set(g.S.bag.filter((it) => g.isUpgrade(it)).map((it) => it.id)); const rest = g.S.bag.filter((it) => !up.has(it.id)).map((it) => it.r); return String(rest.every((r, i) => i === 0 || rest[i - 1] >= r)); })()");
   check("sac : le bouton ⇅ range les objets", srt === "true", srt);
+  // Touche S : même rangement (bag mélangé d'abord, puis événement clavier dans la page).
+  const srtK = await js("(() => { const g = window.__game, P = window.__panel; g.S.bag.reverse(); const ok = P.onKey({ key: 's', target: document.body }); const up = new Set(g.S.bag.filter((it) => g.isUpgrade(it)).map((it) => it.id)); const rest = g.S.bag.filter((it) => !up.has(it.id)).map((it) => it.r); return ok + ' ' + rest.every((r, i) => i === 0 || rest[i - 1] >= r); })()");
+  check("sac : la touche S range aussi", srtK === "true true", srtK);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);

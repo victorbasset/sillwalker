@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 414) : autotest : la touche S range le sac (sac mélangé puis panel.onKey). 117/117.
 - 2026-11-10 (it. 413) : raccourci clavier S (panneau ouvert) : ranger le sac, comme le bouton ⇅ ; ajouté à la liste
   des raccourcis (Réglages). Touche libre vérifiée. 1 texte × 9 langues, 116/116.
 - 2026-11-10 (it. 412, inventaire, étude des concurrents) : bouton ⇅ dans le titre du sac (un clic) : range les objets,
