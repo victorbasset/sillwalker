@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 499, demande M de Victor) : onglets trop larges : plus de palier « sans icônes » (fitTabs) ; à la
+  place, police plus petite puis icônes collées au nom (14 px) ; en dernier recours, icônes seules sauf l'onglet ouvert.
+  Mesuré fr / de / ru / pl à 1920, 1366, 1280 : icônes toujours présentes. 124/124.
 - 2026-11-10 (it. 498, demande de Victor « que les attaques transpercées atteignent directement la cible ») : à
   l'arrivée du monstre suivant, le trait perçant (couleur du sort) file du héros jusqu'à lui ; à l'impact : anneau,
   étincelles et « -X · transpercé » sur le monstre (avant : le nombre apparaissait seul). Fuzz 600 parties ok. 124/124.
@@ -1747,7 +1750,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
-  M. Les icônes des onglets (barre du haut) disparaissent quand il y en a trop : les garder.
+  M. FAIT (it. 499). Les icônes des onglets (barre du haut) disparaissent quand il y en a trop : les garder.
 
 - DEMANDES DE VICTOR (2026-11-10, midi), à traiter en premier, dans cet ordre :
   J. FAIT (it. 471). Bouclier visible sur la barre de vie (blanc ou bleu).

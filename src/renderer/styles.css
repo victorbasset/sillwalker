@@ -721,7 +721,9 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 /* Onglets trop larges : paliers avant de n'afficher que les icônes (fitTabs) */
 .tabs.tight { gap: 2px; }
 .tabs.tight button { padding: 4px 6px; }
-.tabs.noicon button .ticon { display: none; }
+.tabs.slim { gap: 1px; }
+.tabs.slim button { padding: 4px 4px; }
+.tabs.slim button .ticon { height: 14px; margin-right: 2px; vertical-align: -2px; }
 .tabs.small button { font-size: 12px; padding: 4px 5px; }
 .tabs.tight .tbadge, .tabs.small .tbadge { top: -12px; right: -4px; min-width: 15px; padding: 0 3px; font-size: 11px; line-height: 15px; } /* boutons resserrés : la pastille ne mord plus sur le nom */
 .setprog { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
