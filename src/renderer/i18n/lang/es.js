@@ -931,4 +931,7 @@ export default {
   2055: "Tenaz",
   2056: "Una vez por combate, se levanta con el 25 % de sus PV cuando debería caer.",
   2057: "¡Se levanta!",
+  2058: "Aventura: «Pendiente», «Crónicas», estadísticas y probabilidades de botín se abren en una ventana grande.",
+  2059: "Nueva misión «Asestar golpes críticos» y nuevo logro «Hoja afilada».",
+  2060: "Nueva habilidad de jefe: Tenaz, se levanta una vez con el 25 % de sus PV.",
 };

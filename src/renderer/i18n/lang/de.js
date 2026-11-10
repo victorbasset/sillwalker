@@ -931,4 +931,7 @@ export default {
   2055: "Zäh",
   2056: "Einmal pro Kampf steht er mit 25 % seiner LP wieder auf, wenn er fallen müsste.",
   2057: "Er steht wieder auf!",
+  2058: "Abenteuer: „Zu tun“, „Chroniken“, Statistiken und Beutechancen öffnen sich in einem großen Fenster.",
+  2059: "Neue Quest „Kritische Treffer landen“ und neuer Erfolg „Geschärfte Klinge“.",
+  2060: "Neue Boss-Fähigkeit: Zäh, er steht einmal mit 25 % seiner LP wieder auf.",
 };

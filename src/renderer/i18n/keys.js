@@ -2059,5 +2059,8 @@ export const KEYS = [
   "Coups critiques",
   "Tenace",
   "Une fois par combat, se relève avec 25 % de ses PV quand il devrait tomber.",
-  "Il se relève !"
+  "Il se relève !",
+  "Aventure : « À faire », « Chroniques », statistiques et chances de butin s’ouvrent dans une grande fenêtre.",
+  "Nouvelle quête « Porter des coups critiques » et nouveau succès « Lame affûtée ».",
+  "Nouvelle capacité de boss : Tenace, il se relève une fois avec 25 % de ses PV."
 ];

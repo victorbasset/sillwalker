@@ -661,6 +661,14 @@ test("Quoi de neuf : rien pour une partie neuve, une fois pour une ancienne sauv
   assert.equal(newsDue(S), true, "ancienne sauvegarde : à annoncer");
   markNews(S);
   assert.equal(newsDue(S), false, "une seule fois");
+  // Éditions : seulement celles qui n'ont pas été lues, la plus récente d'abord
+  const { NEWS_EDITIONS, NEWS_ID, newsItems } = M_news_js;
+  assert.equal(NEWS_ID, NEWS_EDITIONS.length);
+  const last = NEWS_EDITIONS[NEWS_ID - 1];
+  assert.deepEqual(newsItems(NEWS_ID - 1), last, "dernière édition seule");
+  assert.equal(newsItems(0).length, NEWS_EDITIONS.flat().length, "toutes si aucune lue");
+  assert.equal(newsItems(0)[0], last[0], "la plus récente d'abord");
+  assert.equal(newsItems(NEWS_ID).length, 0);
 });
 
 test("synergies de duo : un partenaire attitré par héros, bonus appliqué au duo formé", () => {

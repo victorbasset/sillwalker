@@ -486,8 +486,9 @@ async function boot() {
   setInterval(checkDaily, 60000);
   // Après une mise à jour : une bulle « Quoi de neuf » (un clic ouvre la liste), une seule fois.
   if (newsDue(game.S)) {
+    const seen = game.S.settings.newsSeen || 0; // éditions déjà lues : on montre seulement les suivantes
     markNews(game.S);
-    setTimeout(() => showToast(`✨ ${tx("Du nouveau dans Sillwalker ! Clique pour voir.")}`, () => { openPanel(); panel.showNews(); }, 15000), 6000);
+    setTimeout(() => showToast(`✨ ${tx("Du nouveau dans Sillwalker ! Clique pour voir.")}`, () => { openPanel(); panel.showNews(seen); }, 15000), 6000);
   }
 
   /* ---------- Héros libéré ---------- */

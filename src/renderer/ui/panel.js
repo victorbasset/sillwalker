@@ -3,7 +3,7 @@
 // Chaque onglet hors Aventure est un module de ui/tabs/ avec render(el),
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
-import { NEWS_ITEMS } from "../game/news.js";
+import { newsItems } from "../game/news.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, txn, lc, fsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
@@ -634,10 +634,11 @@ export class Panel {
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }
 
-  showNews() {
+  /** `seen` : dernière édition déjà lue (0 : toutes les éditions). */
+  showNews(seen = 0) {
     // Même gabarit que les autres fenêtres (titre #mt, contenu #mbody) : elles restent utilisables ensuite.
     $(this.root, "#mt").textContent = tx("Quoi de neuf");
-    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist">${NEWS_ITEMS.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`;
+    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist">${newsItems(seen).map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`;
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }

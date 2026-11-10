@@ -931,4 +931,7 @@ export default {
   2055: "Tenacious",
   2056: "Once per fight, gets back up with 25% of its HP when it should fall.",
   2057: "It gets back up!",
+  2058: "Adventure: “To do”, “Chronicles”, statistics and loot chances open in a large window.",
+  2059: "New quest “Land critical hits” and new achievement “Honed Blade”.",
+  2060: "New boss ability: Tenacious, it gets back up once with 25% of its HP.",
 };

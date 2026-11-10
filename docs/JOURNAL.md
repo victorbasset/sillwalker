@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 426) : « Quoi de neuf » par éditions (NEWS_EDITIONS ; NEWS_ID = leur nombre) : le joueur voit toutes
+  celles qu'il n'a pas lues, la plus récente d'abord (newsItems(seen)) ; rien ne se perd s'il en a sauté une. Édition 2
+  publiée (3 nouveautés : fenêtres de l'Aventure, quête des critiques et Lame affûtée, Tenace), traduite avec les noms
+  de section déjà affichés. Pire cas (15 nouveautés réunies) : sans défilement (autotest, lang-overflow de / ru / pt à
+  1366 et 1280). Captures : « Il se relève ! » au-dessus du boss, carte Tenace du Bestiaire à 1366. Test logique. 119/119.
 - 2026-11-10 (it. 425) : 12e capacité de boss, « Tenace » : une fois par combat, le boss se relève avec 25 % de ses PV
   quand il devrait tomber (brûlure et poison s'éteignent) ; libellé « Il se relève ! », secousse, étincelles et son
   (grondement qui remonte). Interceptée au début de killMonster (tous les chemins de mort). ORDER passe à 12 : les
@@ -1418,7 +1423,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   3. Consommation réelle de la bande (Gestionnaire des tâches) : sur le serveur ≈ 19 % d'un cœur en rendu logiciel,
      sans doute bien moins avec la carte graphique (it. 361, 378).
   4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
-  5. « Quoi de neuf » au lancement (10 nouveautés) ; la bulle disparaît une fois lue.
+  5. « Quoi de neuf » au lancement (édition 2 : 3 nouveautés, ou 15 si l'édition 1 n'a pas été lue) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 

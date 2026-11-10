@@ -931,4 +931,7 @@ export default {
   2055: "Tenaz",
   2056: "Uma vez por combate, levanta-se com 25% dos PV quando deveria cair.",
   2057: "Ele se levanta!",
+  2058: "Aventura: «A fazer», «Crônicas», estatísticas e chances de saque abrem numa janela grande.",
+  2059: "Nova missão «Acertar golpes críticos» e nova conquista «Lâmina afiada».",
+  2060: "Nova habilidade de chefe: Tenaz, levanta-se uma vez com 25% dos PV.",
 };
