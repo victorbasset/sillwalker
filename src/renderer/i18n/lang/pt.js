@@ -1129,4 +1129,9 @@ export default {
   2253: "A cada 1,5 s, um míssil: 1,5% dos PV do monstro (0,4% para um chefe) + 300% do seu ataque.",
   2254: "Relíquia obtida: {0}!",
   2255: "Guarda uma relíquia: {0}",
+  2256: "Relíquias ({0} / {1})",
+  2257: "{0}, zona {1}",
+  2258: "Três chefes maiores guardam o Parapeito, nas zonas 50, 100 e 150: cada um carrega uma relíquia.",
+  2259: "Quatro relíquias muito poderosas para ganhar para sempre (o Quebra-Estrelas guarda a última), cada uma com sua história.",
+  2260: "As relíquias no mapa e no seu herói: o Drone estelar dispara seus mísseis ao seu lado.",
 };

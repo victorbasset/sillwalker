@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 575, demande S, 5e partie) : en-tête de la carte : les quatre reliques (grisées tant qu'elles ne
+  sont pas gagnées ; survol : effet, puis histoire ou boss et zone qui la garde). « Quoi de neuf » édition 12
+  (boss majeurs, reliques, drone). Traduit ; lang-overflow de/pl/ru/pt à 1280 et 1366 : aucun défilement. 131/131.
+  Demande S terminée (moteur, bande, carte, cinématiques, panneau, nouveautés).
 - 2026-11-10 (it. 574, demande S, 4e partie : histoire) : cinématique « relique » (juice.js) : la relique, son nom et
   son effet, puis son histoire phrase par phrase (scène dorée) ; en arrivant chez un boss majeur, la scène
   d'arrivée du Briseur reprise avec son nom et « Il garde une relique : … » (en plus de la bannière dorée du palier).
@@ -2010,7 +2014,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
   S. (soir) Trois boss majeurs aux zones 50, 100, 150 (sur la carte, comme le boss final de la zone 200) ; chacun
      garde une relique unique, visible sur lui, puis obtenue : très puissante (les 10 zones suivantes faciles), par ex.
-     un drone lance-missiles ; 4 reliques en tout (avec la zone 200), avec leur histoire.
+     un drone lance-missiles ; 4 reliques en tout (avec la zone 200), avec leur histoire. FAIT (it. 571-575).
   Q. FAIT (it. 548). Sorts uniques pour chaque héros (pas de copies d'un héros à l'autre).
   R. FAIT (it. 547). Perçage : appliqué dès l'impact (sans attendre que le héros arrive au monstre) ; traverse plusieurs ennemis selon
      le rang du sort.

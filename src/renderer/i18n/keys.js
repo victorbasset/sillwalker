@@ -2257,5 +2257,10 @@ export const KEYS = [
   "Attaque et PV doublés ; or gagné +50 %.",
   "Toutes les 1,5 s, un missile : 1,5 % des PV du monstre (0,4 % pour un boss) + 300 % de ton attaque.",
   "Relique obtenue : {0} !",
-  "Il garde une relique : {0}"
+  "Il garde une relique : {0}",
+  "Reliques ({0} / {1})",
+  "{0}, zone {1}",
+  "Trois boss majeurs gardent le Rebord, en zones 50, 100 et 150 : chacun porte une relique.",
+  "Quatre reliques très puissantes à gagner pour toujours (le Briseur garde la dernière), chacune avec son histoire.",
+  "Les reliques sur la carte et sur ton héros : le Drone stellaire tire ses missiles à tes côtés."
 ];

@@ -12,7 +12,7 @@ import { CLASSES, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game/story.js";
 import { classPortraitURL, dressedPortraitURL, starbreakerURL } from "../../render/sprites.js";
 import { relicIconURL } from "../../render/shopart.js";
-import { MAJOR_BOSSES, RELICS, hasRelic } from "../../game/relics.js";
+import { MAJOR_BOSSES, RELICS, RELIC_IDS, hasRelic } from "../../game/relics.js";
 import { heroVisual } from "../../render/equipvis.js";
 
 // 4 rangées de 50 zones : la carte entière tient dans le panneau, large et peu haut (demande 18, sans défilement).
@@ -96,6 +96,13 @@ export class MapTab {
     parts.push(`<g class="mfinal${won ? " won" : ""}" title="${esc(ftip)}"><image href="${starbreakerURL()}" x="${fx}" y="${f.y - 30}" width="42" height="39"/>`
       + `<text class="mfname" x="${fcx}" y="${f.y + BAND_H + 12}">${esc(won ? "★ " + tx("Le ciel rallumé") : tx("Le Briseur d’Étoiles"))}</text></g>`);
     // Record (drapeau) et héros (portrait habillé) ; au-delà de la zone 200, une flèche « au-delà du Rebord ».
+    // Reliques (demande S) : les quatre, grisées tant qu'elles ne sont pas gagnées ; survol : effet et histoire.
+    const nRel = RELIC_IDS.filter((id) => hasRelic(S, id)).length;
+    const relicRow = `<span class="relicrow" title="${esc(tx("Reliques ({0} / {1})", { 0: nRel, 1: RELIC_IDS.length }))}">` + RELIC_IDS.map((id) => {
+      const r = RELICS[id], have = hasRelic(S, id);
+      const tip = `${tx(r.name)}${fsp()}: ${tx(r.effect)}\n` + (have ? tx(r.story) : tx("{0}, zone {1}", { 0: tx(r.from), 1: r.zone }));
+      return `<img src="${relicIconURL(id, 2)}" alt="" class="${have ? "on" : ""}" title="${esc(tip)}">`;
+    }).join("") + `</span>`;
     const recZ = Math.min(recordZone(S), FINAL_ZONE), rp = mapPos(recZ);
     if (recordZone(S) !== S.zone) parts.push(`<g class="mflag" title="${esc(tx("Record : zone {0}", { 0: recordZone(S) }))}"><rect x="${rp.x - 1}" y="${rp.y - 14}" width="2" height="14"/><rect class="cloth" x="${rp.x + 1}" y="${rp.y - 14}" width="7" height="5"/></g>`);
     if (S.zone <= FINAL_ZONE) {
@@ -108,7 +115,7 @@ export class MapTab {
     // Tient dans le panneau sans défilement (demande 18) : titre et résumé sur une ligne, explication en infobulle,
     // la carte prend la hauteur restante (elle se réduit pour rentrer en entier ; le détail est dans les infobulles).
     el.innerHTML = `<article class="panel mappanel"><h2 title="${esc(tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."))}">${tx("Carte du Rebord")}
-      <small class="mapsum">${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE} · ${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })} · 📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })}</small></h2>
+      <small class="mapsum">${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE} · ${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })} · 📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })} · ${relicRow}</small></h2>
       ${travel ? `<p class="note tight">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : `<p class="note tight">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
       <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div></article>`;
   }

@@ -1129,4 +1129,9 @@ export default {
   2253: "Every 1.5 s, a missile: 1.5% of the monster's HP (0.4% for a boss) + 300% of your attack.",
   2254: "Relic obtained: {0}!",
   2255: "It guards a relic: {0}",
+  2256: "Relics ({0} / {1})",
+  2257: "{0}, zone {1}",
+  2258: "Three major bosses guard the Sill, in zones 50, 100 and 150: each one carries a relic.",
+  2259: "Four very powerful relics to win forever (the Starbreaker guards the last one), each with its own story.",
+  2260: "Relics on the map and on your hero: the Star Drone fires its missiles at your side.",
 };

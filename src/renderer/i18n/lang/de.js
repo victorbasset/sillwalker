@@ -1129,4 +1129,9 @@ export default {
   2253: "Alle 1,5 s eine Rakete: 1,5 % der LP des Monsters (0,4 % bei einem Boss) + 300 % deines Angriffs.",
   2254: "Relikt erhalten: {0}!",
   2255: "Er bewacht ein Relikt: {0}",
+  2256: "Relikte ({0} / {1})",
+  2257: "{0}, Zone {1}",
+  2258: "Drei große Bosse bewachen den Saum, in den Zonen 50, 100 und 150: Jeder trägt ein Relikt.",
+  2259: "Vier sehr mächtige Relikte, die man für immer gewinnt (der Sternenbrecher bewacht das letzte), jedes mit seiner Geschichte.",
+  2260: "Relikte auf der Karte und an deinem Helden: Die Sternendrohne feuert ihre Raketen an deiner Seite.",
 };

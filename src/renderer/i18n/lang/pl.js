@@ -1129,4 +1129,9 @@ export default {
   2253: "Co 1,5 s pocisk: 1,5% PŻ potwora (0,4% dla bossa) + 300% twojego ataku.",
   2254: "Zdobyto relikwię: {0}!",
   2255: "Strzeże relikwii: {0}",
+  2256: "Relikwie ({0} / {1})",
+  2257: "{0}, strefa {1}",
+  2258: "Trzech wielkich bossów strzeże Krawędzi, w strefach 50, 100 i 150: każdy nosi relikwię.",
+  2259: "Cztery bardzo potężne relikwie do zdobycia na zawsze (Łamacz Gwiazd strzeże ostatniej), każda z własną historią.",
+  2260: "Relikwie na mapie i przy twoim bohaterze: Gwiezdny dron strzela pociskami u twojego boku.",
 };

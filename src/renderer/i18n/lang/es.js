@@ -1129,4 +1129,9 @@ export default {
   2253: "Cada 1,5 s, un misil: 1,5 % de los PV del monstruo (0,4 % para un jefe) + 300 % de tu ataque.",
   2254: "¡Reliquia obtenida: {0}!",
   2255: "Custodia una reliquia: {0}",
+  2256: "Reliquias ({0} / {1})",
+  2257: "{0}, zona {1}",
+  2258: "Tres jefes mayores custodian el Alféizar, en las zonas 50, 100 y 150: cada uno lleva una reliquia.",
+  2259: "Cuatro reliquias muy poderosas que ganar para siempre (el Rompeestrellas guarda la última), cada una con su historia.",
+  2260: "Las reliquias en el mapa y en tu héroe: el Dron estelar dispara sus misiles a tu lado.",
 };
