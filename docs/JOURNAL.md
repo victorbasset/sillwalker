@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 408) : partie neuve vérifiée en capture (8 s et 45 s) après les derniers ajouts : bande sobre, ni
+  « Quoi de neuf », ni bulle ni bannière en trop ; le premier boss attend en bout de zone. Rien à corriger.
 - 2026-11-10 (it. 407, simulation réaliste) : simulate.js n'achetait jamais l'Atelier (records sous-estimés) ; il achète
   maintenant le niveau le moins cher tant qu'il coûte moins de 10 % de l'or, après les déblocages. balance.mjs 12 h :
   59,3 → 61,6 (+2,3) ; semaine (mage) : 38 → 62 → 99 → 131 → 175 (repère précédent ≈ 164), régulière. Nouveaux repères
