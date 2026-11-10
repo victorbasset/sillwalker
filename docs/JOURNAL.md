@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 360, revue générale) : simulations 12 h : rôdeur 58, nécromancien 53 (bruit : 60 dans balance.mjs),
+  gardien des étoiles 57 ; balance.mjs 12 h contre it. 350 : −1,0 zone (bruit) ; crawl 302 clics sans erreur ; russe :
+  aucun mot latin suspect ; save-fuzz ok ; perf : bande 19,8 %, panneau 21,9 %, mini 6,5 %, icône 3,0 % (stables).
 - 2026-11-10 (it. 359, variété) : 9e événement « Zèle » (events.js > zeal, chance 0,002, 30 s) : progression des quêtes
   doublée, une fois l'onglet Quêtes ouvert. Test ; l'ancien test de quête de butin ne compte plus que les objets
   tombés d'un monstre (il échouait selon les tirages). Nom réutilisé (talent « Zèle »), 1 texte × 9 langues, fuzz
