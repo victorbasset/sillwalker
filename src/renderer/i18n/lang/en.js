@@ -1102,4 +1102,5 @@ export default {
   2226: "Piercing spells hit the waiting monsters right away, one more every 10 ranks.",
   2227: "Effects show in combat; B key or the icon menu: mute the music only.",
   2228: "+{n} spell rank|+{n} spell ranks",
+  2229: "Automatically upgrades the cheapest spell of your hero or their companion, as long as it costs less than a tenth of your gold (option).",
 };

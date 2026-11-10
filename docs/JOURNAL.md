@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 561) : Grimoire des sorts : améliore aussi les sorts du compagnon (même règle : le rang le moins cher
+  sous 10 % de l'or, une fois par minute de jeu) ; description mise à jour (9 langues). Balance 12 h +0,1 ; semaine mage
+  186 (était 178), guerrier 189 : progression régulière. 130/130.
 - 2026-11-10 (it. 560, revue générale) : balance 12 h -0,2 (bruit) ; semaine mage 178 ; fuzz 1200, 0 bloquée ; crawl de
   et zh 320 clics sans erreur ; russe ok ; save-fuzz ok ; perf : bande 20,1 %, panneau 21,4 %, mini 6,7 %, icône 0,8 % ;
   mémoire stable (≈ 800 Mo).

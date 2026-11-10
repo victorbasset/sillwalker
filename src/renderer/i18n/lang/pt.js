@@ -1102,4 +1102,5 @@ export default {
   2226: "Os feitiços perfurantes atingem na hora os monstros que esperam, um a mais a cada 10 níveis.",
   2227: "Os efeitos aparecem em combate; tecla B ou menu do ícone: silenciar só a música.",
   2228: "+{n} nível de feitiço|+{n} níveis de feitiços",
+  2229: "Melhora sozinho o feitiço mais barato do seu herói ou do companheiro dele, enquanto custar menos de um décimo do seu ouro (opção).",
 };

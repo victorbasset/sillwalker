@@ -1102,4 +1102,5 @@ export default {
   2226: "Los hechizos perforantes golpean al instante a los monstruos en espera, uno más cada 10 rangos.",
   2227: "Los efectos se ven en combate; tecla B o menú del icono: silenciar solo la música.",
   2228: "+{n} rango de hechizo|+{n} rangos de hechizos",
+  2229: "Mejora solo el hechizo más barato de tu héroe o de su compañero, mientras cueste menos de una décima parte de tu oro (opción).",
 };

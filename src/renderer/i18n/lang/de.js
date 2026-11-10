@@ -1102,4 +1102,5 @@ export default {
   2226: "Durchbohrende Zauber treffen wartende Monster sofort, alle 10 Ränge eines mehr.",
   2227: "Effekte sind im Kampf sichtbar; Taste B oder Symbolmenü: nur die Musik stummschalten.",
   2228: "+{n} Zauberrang|+{n} Zauberränge",
+  2229: "Verbessert automatisch den günstigsten Zauber deines Helden oder seines Begleiters, solange er weniger als ein Zehntel deines Goldes kostet (Option).",
 };

@@ -1102,4 +1102,5 @@ export default {
   2226: "Przebijające zaklęcia od razu trafiają czekające potwory, o jednego więcej co 10 rang.",
   2227: "Efekty widać w walce; klawisz B lub menu ikony: wycisz tylko muzykę.",
   2228: "+{n} ranga zaklęcia|+{n} rangi zaklęć|+{n} rang zaklęć",
+  2229: "Samo ulepsza najtańsze zaklęcie twojego bohatera lub jego towarzysza, dopóki kosztuje mniej niż jedną dziesiątą twojego złota (opcja).",
 };

@@ -565,7 +565,8 @@ export class Game {
     let n = 0;
     for (; n < 3; n++) {
       let best = null, bp = Infinity;
-      for (const sp of classSpells(S.cls)) { const r = spellRank(S, sp.id); if (rec >= sp.zone && r < SPELL_MAX) { const p = spellPrice(sp, r); if (p < bp) { bp = p; best = sp; } } }
+      // (it. 561) les sorts du compagnon aussi (il les lance à moitié de leur puissance)
+      for (const sp of [...classSpells(S.cls), ...(S.partner ? classSpells(S.partner) : [])]) { const r = spellRank(S, sp.id); if (rec >= sp.zone && r < SPELL_MAX) { const p = spellPrice(sp, r); if (p < bp) { bp = p; best = sp; } } }
       if (!best || bp > S.gold * 0.1 || !this.learnSpell(best.id, { quiet: true })) break;
     }
     return n;
