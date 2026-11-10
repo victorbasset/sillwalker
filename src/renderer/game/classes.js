@@ -170,8 +170,8 @@ export const CLASSES = {
   bard: {
     name: "Barde", role: "Chants et fortune, à distance", desc: "Ses chansons pressent le pas et remplissent la bourse.",
     mul: { hp: 0.95, atk: 1.0, def: 0.95 }, add: { spd: 20 },
-    passive: { gold: 25, xp: 25 },
-    passiveText: "Ballade : +25 % d’or et +25 % d’expérience.",
+    passive: { gold: 20, xp: 20 },
+    passiveText: "Ballade : +20 % d’or et +20 % d’expérience.",
     contact: 110, projectile: "note", tree: "monk", treePrefix: "ba_",
   },
   starwarden: {

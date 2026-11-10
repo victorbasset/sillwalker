@@ -1137,4 +1137,5 @@ export default {
   2261: "Obrażenia drona na sekundę",
   2262: "Pierwsza relikwia",
   2263: "Cztery relikwie",
+  2264: "Ballada: +20% złota i +20% doświadczenia.",
 };

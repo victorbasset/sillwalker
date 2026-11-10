@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 586) : équilibrage : le Barde (68 zones en 12 h) : passif or et expérience +25 % → +20 % : 62
+  (à +15 % : 61). Texte du passif mis à jour (nouvelle clé, traductions reprises en changeant le nombre). Les 20 héros
+  sont maintenant entre 60 et 65 (HEROES=all). 132/132.
 - 2026-11-10 (it. 585) : équilibrage : le Gardien des étoiles (À SURVEILLER depuis l'it. 570) faisait 69 zones en
   12 h contre ≈ 62 (HEROES=all) : multiplicateurs 1,25 / 1,2 / 1,2 → 1,15 / 1,1 / 1,12 : 62. Le Barde reste à 68
   (+25 % or et expérience, vitesse +20) : À SURVEILLER (changer son passif = texte à retraduire). 132/132.

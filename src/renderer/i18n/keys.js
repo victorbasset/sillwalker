@@ -2265,5 +2265,6 @@ export const KEYS = [
   "Les reliques sur la carte et sur ton héros : le Drone stellaire tire ses missiles à tes côtés.",
   "Dégâts du drone par seconde",
   "Première relique",
-  "Les quatre reliques"
+  "Les quatre reliques",
+  "Ballade : +20 % d’or et +20 % d’expérience."
 ];

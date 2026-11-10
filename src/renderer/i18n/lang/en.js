@@ -1137,4 +1137,5 @@ export default {
   2261: "Drone damage per second",
   2262: "First relic",
   2263: "All four relics",
+  2264: "Ballad: +20% gold and +20% experience.",
 };

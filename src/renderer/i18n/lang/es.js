@@ -1137,4 +1137,5 @@ export default {
   2261: "Daño del dron por segundo",
   2262: "Primera reliquia",
   2263: "Las cuatro reliquias",
+  2264: "Balada: +20 % de oro y +20 % de experiencia.",
 };

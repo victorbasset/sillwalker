@@ -1137,4 +1137,5 @@ export default {
   2261: "Drohnenschaden pro Sekunde",
   2262: "Erstes Relikt",
   2263: "Alle vier Relikte",
+  2264: "Ballade: +20 % Gold und +20 % Erfahrung.",
 };
