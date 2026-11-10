@@ -81,6 +81,13 @@ export const ACHIEVEMENTS = [
 
 /** Identifiants des succès dont la condition est remplie. */
 export const reachedAchievements = (S) => ACHIEVEMENTS.filter((a) => a.test(S)).map((a) => a.id);
+/** Succès obtenus : atteints maintenant ou déjà obtenus un jour (S.achievements) ; une nouveauté (un 10e événement,
+ *  de nouveaux objets…) ne retire jamais une étoile. Les identifiants inconnus (autre version) sont ignorés. */
+export function earnedAchievements(S) {
+  const out = new Set(reachedAchievements(S)), known = new Set(ACHIEVEMENTS.map((a) => a.id));
+  for (const id of Array.isArray(S.achievements) ? S.achievements : []) if (known.has(id)) out.add(id);
+  return out;
+}
 
 /**
  * Progression des succès chiffrés : [actuel, objectif] (affichée dans l'onglet Statistiques tant qu'ils

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 428) : les succès étaient recalculés en direct : le 10e événement (Voile protecteur) retirait
+  « Chasseur d'événements » à qui l'avait (de même pour les collections quand des objets s'ajoutent). L'onglet
+  Statistiques compte maintenant aussi les succès déjà obtenus (S.achievements, identifiants inconnus ignorés) :
+  earnedAchievements. Test logique. 119/119.
 - 2026-11-10 (it. 427) : 10e événement rare, « Voile protecteur » (30 s, dégâts subis divisés par deux, chance 0,002) :
   le premier défensif, utile contre un boss coriace ; halo bleu pâle sur le héros (.actor.ward). « Égide » était déjà
   un talent : nom distinct. Ajouté en fin de liste (ordre du tirage inchangé pour les autres). Traduit, test logique

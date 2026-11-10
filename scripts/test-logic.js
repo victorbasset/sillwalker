@@ -2047,6 +2047,10 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     // Chasseur d'événements : chaque événement vu est retenu ; tous vus = succès
     const ge = new Game(freshState()); for (const id of Object.keys(M_events_js.EVENTS)) { ge.startEvent(id); ge.R.events[id] = 0; }
     assert.ok(M_achievements_js.reachedAchievements(ge.S).includes("EVENTS_ALL"), "succès Chasseur d’événements");
+    // Succès déjà obtenu : gardé même si un nouvel événement le rend incomplet ; identifiant inconnu ignoré
+    const gk = new Game(freshState()); gk.S.achievements = ["EVENTS_ALL", "ACH_D_UNE_AUTRE_VERSION"];
+    const earned = M_achievements_js.earnedAchievements(gk.S);
+    assert.ok(earned.has("EVENTS_ALL") && !earned.has("ACH_D_UNE_AUTRE_VERSION"), "succès obtenus gardés");
     const bad = JSON.parse(JSON.stringify(ge.S)); bad.stats.eventsSeen = "x"; assert.deepEqual(migrate(bad).stats.eventsSeen, {}, "eventsSeen abîmé");
     // Quête « Frapper au clic » : chaque coup au clic compte
     const gt = new Game(freshState()); gt.S.quests.slots = [{ uid: 9, kind: "tap", goal: 3, progress: 0, stars: 1, reward: { gold: 1 } }];
