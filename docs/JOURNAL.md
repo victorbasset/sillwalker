@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 490, revue générale) : simulations 12 h (graine 7) : rôdeur 54, nécromancien 60, gardienne des
+  étoiles 71 ; vérifiés sur 4 graines : rôdeur 60-62, gardienne 60-65, comme avant les sorts (5ed1c8d) : bruit. Fuzz
+  1200 parties, 0 bloquée ; crawl fr 313 et pl 318 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ;
+  perf (copie neuve, sans sorts) : bande 19,3 %, panneau 21,3 %, mini 6,1 %, icône 0,5 %.
 - 2026-11-10 (it. 489) : autotest « sorts : animations des six mécaniques sans erreur » (signal spell pour une
   mécanique de chaque sorte, plus pierced). 124/124.
 - 2026-11-10 (it. 488) : sorts : infobulle du bouton Apprendre / Améliorer : l'effet au rang suivant (« Rang 4 : 2 coups
