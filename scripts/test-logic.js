@@ -2501,6 +2501,29 @@ test("Événement Marée arcanique : seulement avec un sort appris ; recharges d
   assert.equal(normal, 4, "1 s : -1"); assert.equal(g.R.spellT["warrior.0"], 3, "Marée arcanique : -2");
 });
 
+test("Sorts uniques (demande Q) : 60 combinaisons différentes ; étourdi, poison, vol de vie, accélération, achèvement", () => {
+  const keys = new Set(M_spells_js.SPELLS.map((x) => x.tpl + JSON.stringify(Object.fromEntries(x.fx.map((f) => [f, x[f]])))));
+  assert.equal(keys.size, M_spells_js.SPELLS.length, "aucun sort n'en copie un autre");
+  assert.ok(M_spells_js.SPELLS.every((x) => x.fx.length >= 1), "chaque sort a au moins un effet propre");
+  const g = new Game(freshState()); g.setClass("warrior"); const hs = g.stats();
+  const fight = () => { g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = hs.hp * 0.5; return g.R.mon; };
+  // Fracas du titan : étourdit 2 s (le monstre n'attaque plus)
+  let m = fight(); g.S.spells = { "warrior.2": 1 }; g.R.spellT = { "warrior.2": 0 }; g.castSpells(m, hs, 0.01);
+  assert.ok(m.stunT >= 1.9, "étourdi"); const t0 = m.t; g.step(0.5); assert.ok(m.t === t0, "étourdi : son minuteur d'attaque ne bouge pas");
+  // Cri de ralliement : attaque +50 % (accélération)
+  g.S.spells = { "warrior.1": 1 }; g.R.spellT = { "warrior.1": 0 }; g.castSpells(fight(), hs, 0.01); assert.ok(g.R.hasteT > 4, "accélération");
+  // poison cumulable (Lames jumelles de l'assassin) et vol de vie (Colère divine du paladin) : sorts d'autres héros
+  const a = new Game(freshState()); a.setClass("assassin"); const ha = a.stats(); a.R.mon = a.makeMonster(false); a.R.mon.hp = a.R.mon.max = 1e15; a.R.mode = "fight";
+  a.S.spells = { "assassin.0": 1 }; a.R.spellT = { "assassin.0": 0 }; a.castSpells(a.R.mon, ha, 0.01); const v1 = a.R.mon.venomDps;
+  a.R.spellT = { "assassin.0": 0 }; a.castSpells(a.R.mon, ha, 0.01); assert.ok(v1 > 0 && a.R.mon.venomDps > v1 * 1.9, "poison cumulable");
+  const p = new Game(freshState()); p.setClass("paladin"); const hp = p.stats(); p.R.mon = p.makeMonster(false); p.R.mon.hp = p.R.mon.max = 1e15; p.R.mode = "fight"; p.R.hp = 1;
+  p.S.spells = { "paladin.2": 1 }; p.R.spellT = { "paladin.2": 0 }; p.castSpells(p.R.mon, hp, 0.01); assert.ok(p.R.hp > 1, "vol de vie");
+  // achèvement (Exécution de l'assassin) : dégâts ×2 sous 40 % de vie
+  const e = new Game(freshState()); e.setClass("assassin"); const he = e.stats(); e.S.spells = { "assassin.2": 1 };
+  const hit = (frac) => { e.R.mon = e.makeMonster(false); e.R.mon.max = 1e15; e.R.mon.hp = 1e15 * frac; e.R.mode = "fight"; e.R.spellT = { "assassin.2": 0 }; const h0 = e.R.mon.hp; e.castSpells(e.R.mon, he, 0.01); return h0 - e.R.mon.hp; };
+  const full = hit(1), low = hit(0.3); assert.ok(Math.abs(low / full - 2) < 0.01, "×2 sous 40 % de vie");
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));

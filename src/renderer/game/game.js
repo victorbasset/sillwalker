@@ -45,7 +45,7 @@ import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS } fr
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
-import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, PARTNER_SPELL, pierceTargets, PIERCE_FALLOFF } from "./spells.js";
+import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, spellScale, PARTNER_SPELL, pierceTargets, PIERCE_FALLOFF } from "./spells.js";
 import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock, recordZone } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
@@ -258,7 +258,10 @@ export class Game {
       // Attaques du héros
       if (R.frozen > 0) R.frozen -= dt;
       if (R.cursed > 0) R.cursed -= dt;
-      R.atkT -= dt * ((R.events.frenzy || 0) > 0 ? 2 : 1) * (R.frozen > 0 ? 0.6 : 1);
+      // (sorts, demande Q : accélération du héros et soin continu)
+      if (R.hasteT > 0) R.hasteT -= dt;
+      if (R.regenT > 0) { R.regenT -= dt; R.hp = Math.min(hs.hp, R.hp + hs.hp * (R.regenPct || 0) / 100 * dt); }
+      R.atkT -= dt * ((R.events.frenzy || 0) > 0 ? 2 : 1) * (R.frozen > 0 ? 0.6 : 1) * (R.hasteT > 0 ? 1.5 : 1);
       if (R.atkT <= 0) {
         R.atkT = 1 / (1 + hs.spd / 100);
         this.heroStrike(m, hs, R.firstHit, false);
@@ -285,6 +288,14 @@ export class Game {
         if (m.poisonT <= 0) m.poisonStacks = 0;
         if (m.hp <= 0) { this.killMonster(); return; }
       }
+      // Poison des sorts (cumulable, demande Q)
+      if (m.venomT > 0) {
+        const t = Math.min(dt, m.venomT);
+        m.venomT -= dt;
+        m.hp -= (m.venomDps || 0) * t;
+        if (m.venomT <= 0) m.venomDps = 0;
+        if (m.hp <= 0) { this.killMonster(); return; }
+      }
       // Compagnon du duo (demande 17) : frappe en continu ; un signal par seconde pour l'animation et le son.
       if (hs.duo > 0) {
         m.hp -= hs.atk * hs.duo / 100 * dt;
@@ -306,8 +317,11 @@ export class Game {
       }
       // Capacités spéciales des boss
       if (m.boss && this.bossTick(m, hs, dt)) return;
-      // Attaques du monstre
-      m.t -= dt;
+      // Attaques du monstre (sorts, demande Q : étourdi, il n'attaque plus ; ralenti, deux fois moins vite)
+      if (m.weakT > 0) m.weakT -= dt;
+      if (m.slowT > 0) m.slowT -= dt;
+      if (m.stunT > 0) m.stunT -= dt;
+      else m.t -= dt * (m.slowT > 0 ? 0.5 : 1);
       if (m.t <= 0) {
         m.t = m.interval;
         if (this.monsterAttack(m, hs, 1)) return;
@@ -322,7 +336,7 @@ export class Game {
   monsterAttack(m, hs, mult) {
     const R = this.R;
     if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
-    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1); // Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
+    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1); // Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
     if (hs.thorns > 0) {
       m.hp -= dmg * hs.thorns / 100;
       if (m.hp <= 0) { this.killMonster(); return true; }
@@ -458,22 +472,42 @@ export class Game {
       S.stats.spells = (+S.stats.spells || 0) + 1; // statistique et succès « Mage de bataille »
       this.questProgress("spell", 1); // quête « Lancer N sorts »
       const v = spellValue(sp, r) * pow;
+      // Effets propres du sort (demande Q) : ceux qui touchent le monstre ou le héros, quel que soit le type de sort.
+      this.spellEffects(sp, r, m, hs, pow);
       if (sp.kind === "heal") { const a = Math.min(hs.hp - R.hp, hs.hp * v / 100); if (a > 0) R.hp += a; this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: Math.max(0, a), partner }); continue; }
       if (sp.kind === "shield") { const a = hs.hp * v / 100; R.shield = Math.max(R.shield || 0, a); this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: a, partner }); continue; }
-      let total = 0;
-      for (let h = 0; h < sp.hits; h++) {
+      let total = 0, crit = false;
+      const casts = sp.echo && rand() < sp.echo ? 2 : 1; // écho : se relance aussitôt
+      for (let c = 0; c < casts; c++) for (let h = 0; h < sp.hits; h++) {
         let dmg = hs.atk * v * (m.boss ? 1 + hs.bossDmg / 100 : 1) * this.bulwarkFactor(m);
+        if (sp.execute && m.hp < m.max * sp.execute / 100) dmg *= 2; // achève les blessés
+        if (sp.crit && rand() < hs.crit / 100) { dmg *= hs.critDmg; crit = true; } // peut être critique
         if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; }
         m.hp -= dmg; total += dmg;
       }
+      if (sp.leech && total > 0) R.hp = Math.min(hs.hp, R.hp + total * sp.leech / 100); // vol de vie
       // Record du plus gros sort (Statistiques)
       if (total > (+S.stats.bestSpell || 0)) S.stats.bestSpell = total;
       // Transperce (demande R) : les monstres suivants de la file sont frappés tout de suite.
       if (sp.pierce) this.pierceAhead(sp, r, total * sp.pierce);
-      this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce, partner });
+      this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce, partner, crit, echo: casts > 1 });
       if (m.hp <= 0) { this.killMonster(); return true; }
     }
     return false;
+  }
+
+  /** Effets durables d'un sort (demande Q) : sur le monstre (étourdi, ralenti, affaibli, brûlure, poison) ou le héros
+   *  (accélération, soin continu, recharge des autres sorts). Durées en secondes ; dégâts en multiple de l'attaque. */
+  spellEffects(sp, r, m, hs, pow = 1) {
+    const R = this.R, k = spellScale(r) * pow;
+    if (sp.stun) m.stunT = Math.max(m.stunT || 0, sp.stun * (m.boss ? 0.5 : 1)); // un boss se reprend deux fois plus vite
+    if (sp.slow) m.slowT = Math.max(m.slowT || 0, sp.slow);
+    if (sp.weaken) m.weakT = Math.max(m.weakT || 0, sp.weaken);
+    if (sp.burn) { m.burnT = Math.max(m.burnT || 0, 3); m.burnDps = Math.max(m.burnDps || 0, hs.atk * sp.burn * k); }
+    if (sp.venom) { m.venomT = 5; m.venomDps = (m.venomT > 0 && m.venomDps || 0) + hs.atk * sp.venom * k; }
+    if (sp.haste) R.hasteT = Math.max(R.hasteT || 0, sp.haste);
+    if (sp.regen) { R.regenT = 5; R.regenPct = Math.max(R.regenPct || 0, sp.regen); }
+    if (sp.cdr && R.spellT) for (const key in R.spellT) if (key !== sp.id && !key.endsWith(":" + sp.id)) R.spellT[key] -= sp.cdr;
   }
 
   /** Part de vie restante d'un monstre de la file (barre de la bande après un perçage ; estimation : PV de base). */

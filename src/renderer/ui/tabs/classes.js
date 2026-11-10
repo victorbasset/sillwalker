@@ -7,13 +7,32 @@ import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUn
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
 import { esc, unit, fmt, dec } from "../../game/format.js";
-import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, pierceTargets } from "../../game/spells.js";
+import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, spellScale, pierceTargets } from "../../game/spells.js";
 import { recordZone, hasUnlock } from "../../game/unlocks.js";
 import { lockLink } from "../locks.js";
 import { spellIconURL } from "../../render/shopart.js";
 import { classPortraitURL } from "../../render/sprites.js";
 
 const pct = (m) => (m === 1 ? "" : `${m > 1 ? "+" : "−"}${Math.round(Math.abs(m - 1) * 100)}${unit("%")}`);
+
+/** Effets propres d'un sort (demande Q), en phrases courtes pour sa carte. */
+function spellFxText(sp, r) {
+  const k = spellScale(Math.max(1, r)), out = [];
+  if (sp.pierce) out.push(txn(pierceTargets(Math.max(1, r)), "transperce {n} ennemi : {0} %|transperce {n} ennemis : {0} %, puis moins", { 0: Math.round(sp.pierce * 100) }));
+  if (sp.stun) out.push(tx("étourdit {0} s", { 0: dec(String(sp.stun)) }));
+  if (sp.slow) out.push(tx("ralentit l’ennemi {0} s", { 0: sp.slow }));
+  if (sp.weaken) out.push(tx("affaiblit l’ennemi {0} s (−30 % de dégâts)", { 0: sp.weaken }));
+  if (sp.burn) out.push(tx("brûlure : {0} % de l’attaque/s (3 s)", { 0: Math.round(sp.burn * k * 100) }));
+  if (sp.venom) out.push(tx("poison cumulable : {0} % de l’attaque/s (5 s)", { 0: Math.round(sp.venom * k * 100) }));
+  if (sp.leech) out.push(tx("vol de vie {0} %", { 0: sp.leech }));
+  if (sp.execute) out.push(tx("dégâts ×2 sous {0} % de vie", { 0: sp.execute }));
+  if (sp.crit) out.push(tx("peut être critique"));
+  if (sp.echo) out.push(tx("{0} % de chance de se relancer", { 0: Math.round(sp.echo * 100) }));
+  if (sp.haste) out.push(tx("attaque +50 % pendant {0} s", { 0: sp.haste }));
+  if (sp.cdr) out.push(tx("recharge des autres sorts −{0} s", { 0: sp.cdr }));
+  if (sp.regen) out.push(tx("soin continu : {0} % des PV/s (5 s)", { 0: sp.regen }));
+  return out;
+}
 
 export class ClassesTab {
   constructor(game) { this.game = game; this.sec = "freed"; } // sous-onglet : héros libérés ou prisonniers (demande 18)
@@ -102,7 +121,7 @@ export class ClassesTab {
           // « max » (Manuel du stratège, comme les talents) : autant de rangs que l'or le permet, dès que deux sont abordables.
           + (hasUnlock(S, "bulkPoints") && r + 1 < SPELL_MAX && S.gold >= price * 3.5 ? ` <button data-action="c-spellmax" data-id="${sp.id}" class="quiet" title="${esc(tx("Acheter autant de niveaux que possible"))}">${tx("max")}</button>` : "");
       return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3)}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
-        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: dec(String(spellCd(sp, Math.max(1, r)))), 1: eff })}${sp.pierce ? ` · <b class="tint">${txn(pierceTargets(Math.max(1, r)), "transperce {n} ennemi : {0} %|transperce {n} ennemis : {0} %, puis moins", { 0: Math.round(sp.pierce * 100) })}</b>` : ""}</p>${btn}</div>`;
+        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: dec(String(spellCd(sp, Math.max(1, r)))), 1: eff })}${spellFxText(sp, r).map((t) => ` · <b class="tint">${t}</b>`).join("")}</p>${btn}</div>`;
     }).join("");
     // Grimoire des sorts (case ou lien vers le déblocage) dans le titre : une ligne de moins (sinon l'onglet défilait).
     const book = hasUnlock(S, "spellBook") ? `<label class="toggle" title="${esc(tx("Grimoire des sorts : améliorer tout seul le sort le moins cher"))}"><input type="checkbox" data-action="c-autospells"${S.settings.autoSpells !== false ? " checked" : ""}> ${tx("Grimoire des sorts")}</label>` : lockLink(S, "spellBook");

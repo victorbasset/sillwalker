@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 548, demande Q de Victor) : sorts uniques : 6 bases (animation, son, icône) + effets propres à chaque
+  sort, 60 combinaisons toutes différentes (test) ; 13 effets : pierce, hits, stun (le monstre n'attaque plus ; boss
+  deux fois moins longtemps), slow, weaken (−30 % de dégâts), burn, venom (cumulable), leech, execute (×2 sous X %),
+  crit, echo (se relance), haste (attaque ×1,5), cdr, regen (game.spellEffects + boucle de combat). Cartes : effets
+  décrits (12 textes, 9 langues). Balance 12 h des 20 héros +0,4 (bruit) ; semaine mage 178 ; fuzz 1200 ok ; aucun
+  défilement (10 langues). README. 130/130 ; 178 tests.
 - 2026-11-10 (it. 547, demande R de Victor) : perçage refait : au lancer, les monstres suivants de la FILE (visibles sur
   la bande) sont frappés tout de suite (game.pierceAhead : dégâts gardés sur leur place, appliqués à leur arrivée, jamais
   mortels) ; nombre de cibles = 1 + rang/10 (6 au rang 50), ×0,7 de dégâts d'une cible à la suivante ; jamais le boss.
@@ -1911,7 +1917,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
-  Q. Sorts uniques pour chaque héros (pas de copies d'un héros à l'autre).
+  Q. FAIT (it. 548). Sorts uniques pour chaque héros (pas de copies d'un héros à l'autre).
   R. FAIT (it. 547). Perçage : appliqué dès l'impact (sans attendre que le héros arrive au monstre) ; traverse plusieurs ennemis selon
      le rang du sort.
   P. FAIT (it. 536). Garder cochées les ventes automatiques à l'ascension.

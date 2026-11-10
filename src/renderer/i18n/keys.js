@@ -2211,5 +2211,17 @@ export const KEYS = [
   "Musique : les déserts ont leur couleur orientale ; chaque décor garde la sienne dans toutes les langues.",
   "maîtrisé",
   "Couper / rallumer la musique",
-  "transperce {n} ennemi : {0} %|transperce {n} ennemis : {0} %, puis moins"
+  "transperce {n} ennemi : {0} %|transperce {n} ennemis : {0} %, puis moins",
+  "étourdit {0} s",
+  "ralentit l’ennemi {0} s",
+  "affaiblit l’ennemi {0} s (−30 % de dégâts)",
+  "brûlure : {0} % de l’attaque/s (3 s)",
+  "poison cumulable : {0} % de l’attaque/s (5 s)",
+  "vol de vie {0} %",
+  "dégâts ×2 sous {0} % de vie",
+  "peut être critique",
+  "{0} % de chance de se relancer",
+  "attaque +50 % pendant {0} s",
+  "recharge des autres sorts −{0} s",
+  "soin continu : {0} % des PV/s (5 s)"
 ];

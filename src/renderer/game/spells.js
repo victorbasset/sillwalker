@@ -8,43 +8,51 @@ import { CLASS_FX } from "./classes.js";
 export const SPELL_MAX = 50;
 export const SPELL_ZONES = [10, 22, 50]; // 10 : l'onglet Héros s'ouvre en zone 10 (tabs.js)
 
-/** Mécaniques communes (tpl) : dmg = mult × attaque par coup (hits coups), heal / shield = % des PV max. */
+/** Bases communes (tpl) : animation, son, icône ; dmg = mult × attaque par coup (hits coups), heal / shield = % des PV max. */
 export const SPELL_TEMPLATES = {
-  // pierce (demande H) : part des dégâts qui traverse et frappe le monstre suivant dès son apparition.
-  bolt:   { cd: 8,  kind: "dmg",    mult: 1.5, hits: 1, pierce: 0.6, color: "#fff27a" },
-  gust:   { cd: 6,  kind: "dmg",    mult: 0.6, hits: 2, pierce: 0.5, color: "#bfefff" },
+  bolt:   { cd: 8,  kind: "dmg",    mult: 1.5, hits: 1, color: "#fff27a" },
+  gust:   { cd: 6,  kind: "dmg",    mult: 0.6, hits: 2, color: "#bfefff" },
   mend:   { cd: 12, kind: "heal",   pct: 8,             color: "#7dff9a" },
   fire:   { cd: 10, kind: "dmg",    mult: 2.2, hits: 1, color: "#ff9a3a" },
   aegis:  { cd: 15, kind: "shield", pct: 8,             color: "#ffe9a8" },
   meteor: { cd: 20, kind: "dmg",    mult: 5,   hits: 1, color: "#ff5a3a" },
 };
 
-/** Les trois sorts de chaque héros : [mécanique, nom] (zones 6, 22, 50 ; le troisième est toujours le plus fort). */
+/**
+ * Effets propres (demande Q de Victor, it. 548 : « chaque héros devrait avoir des sorts uniques ») : chaque sort a sa
+ * base ET ses effets, aucune combinaison n'est partagée (test). Effets :
+ *   pierce p : transperce la file (p = part des dégâts) · hits n : nombre de coups · stun s : étourdit (le monstre
+ *   n'attaque plus) · slow s : ralentit ses attaques (×0,5) · weaken s : il frappe 30 % moins fort · burn k : brûlure
+ *   (k × attaque / s, 3 s) · venom k : poison cumulable (k × attaque / s, 5 s) · leech p : soigne p % des dégâts ·
+ *   execute p : dégâts ×2 sous p % de vie · crit : peut être critique · echo p : p chance de se relancer aussitôt ·
+ *   haste s : attaque du héros ×1,5 pendant s · cdr s : recharge des autres sorts −s · regen p : soin p % PV / s (5 s).
+ */
 const CLASS_SPELLS = {
-  warrior:     [["gust", "Tourbillon"], ["aegis", "Cri de ralliement"], ["meteor", "Fracas du titan"]],
-  ranger:      [["gust", "Volée de flèches"], ["mend", "Herbes médicinales"], ["meteor", "Pluie de flèches"]],
-  mage:        [["fire", "Boule de feu"], ["aegis", "Bouclier arcanique"], ["meteor", "Météore"]],
-  paladin:     [["bolt", "Jugement"], ["mend", "Imposition des mains"], ["meteor", "Colère divine"]],
-  assassin:    [["gust", "Lames jumelles"], ["aegis", "Voile d’ombre"], ["meteor", "Exécution"]],
-  necro:       [["bolt", "Trait d’ombre"], ["mend", "Siphon de vie"], ["meteor", "Nuée d’os"]],
-  monk:        [["gust", "Rafale de poings"], ["mend", "Méditation"], ["meteor", "Paume du dragon"]],
-  druid:       [["bolt", "Épines"], ["mend", "Régénération"], ["meteor", "Colère de la forêt"]],
-  samurai:     [["gust", "Double tranchant"], ["aegis", "Garde parfaite"], ["meteor", "Lame céleste"]],
-  berserker:   [["gust", "Frénésie de lames"], ["mend", "Soif de sang"], ["meteor", "Coup de massue"]],
-  arbalest:    [["bolt", "Carreau perforant"], ["aegis", "Pavois"], ["meteor", "Salve d’artillerie"]],
-  lancer:      [["gust", "Estocade"], ["aegis", "Mur de piques"], ["meteor", "Charge héroïque"]],
-  priestess:   [["bolt", "Rayon sacré"], ["mend", "Prière"], ["meteor", "Lumière de l’aube"]],
-  gladiator:   [["gust", "Enchaînement"], ["aegis", "Bouclier du champion"], ["meteor", "Ovation"]],
-  shaman:      [["bolt", "Foudre des ancêtres"], ["mend", "Esprit guérisseur"], ["meteor", "Tempête"]],
-  bladedancer: [["gust", "Danse des lames"], ["aegis", "Pas de l’ombre"], ["meteor", "Valse mortelle"]],
-  cryomancer:  [["bolt", "Javelot de glace"], ["aegis", "Armure de givre"], ["meteor", "Blizzard"]],
-  bard:        [["gust", "Accord dissonant"], ["mend", "Chant apaisant"], ["meteor", "Crescendo final"]],
-  starwarden:  [["bolt", "Étoile filante"], ["aegis", "Égide stellaire"], ["meteor", "Chute d’étoile"]],
-  artificer:   [["fire", "Grenade"], ["aegis", "Bouclier mécanique"], ["meteor", "Bombe à fragmentation"]],
+  warrior:     [["gust", "Tourbillon", { pierce: 0.5 }], ["aegis", "Cri de ralliement", { haste: 5 }], ["meteor", "Fracas du titan", { stun: 2 }]],
+  ranger:      [["gust", "Volée de flèches", { pierce: 0.5, crit: 1 }], ["mend", "Herbes médicinales", { regen: 2 }], ["meteor", "Pluie de flèches", { hits: 3, slow: 4 }]],
+  mage:        [["fire", "Boule de feu", { burn: 0.6 }], ["aegis", "Bouclier arcanique", { cdr: 2 }], ["meteor", "Météore", { burn: 1, stun: 1 }]],
+  paladin:     [["bolt", "Jugement", { pierce: 0.6, execute: 30 }], ["mend", "Imposition des mains", { weaken: 5 }], ["meteor", "Colère divine", { leech: 20 }]],
+  assassin:    [["gust", "Lames jumelles", { crit: 1, venom: 0.3 }], ["aegis", "Voile d’ombre", { slow: 4 }], ["meteor", "Exécution", { execute: 40 }]],
+  necro:       [["bolt", "Trait d’ombre", { pierce: 0.6, leech: 25 }], ["mend", "Siphon de vie", { venom: 0.4 }], ["meteor", "Nuée d’os", { hits: 3, weaken: 4 }]],
+  monk:        [["gust", "Rafale de poings", { hits: 4, stun: 0.5 }], ["mend", "Méditation", { cdr: 3 }], ["meteor", "Paume du dragon", { burn: 0.8 }]],
+  druid:       [["bolt", "Épines", { pierce: 0.6, venom: 0.3 }], ["mend", "Régénération", { regen: 3 }], ["meteor", "Colère de la forêt", { slow: 5, stun: 1 }]],
+  samurai:     [["gust", "Double tranchant", { execute: 25 }], ["aegis", "Garde parfaite", { weaken: 4 }], ["meteor", "Lame céleste", { crit: 1 }]],
+  berserker:   [["gust", "Frénésie de lames", { haste: 4, leech: 10 }], ["mend", "Soif de sang", { haste: 3 }], ["meteor", "Coup de massue", { stun: 2.5 }]],
+  arbalest:    [["bolt", "Carreau perforant", { pierce: 0.8 }], ["aegis", "Pavois", { slow: 3, weaken: 3 }], ["meteor", "Salve d’artillerie", { echo: 0.35 }]],
+  lancer:      [["gust", "Estocade", { pierce: 0.5, execute: 30 }], ["aegis", "Mur de piques", { stun: 1 }], ["meteor", "Charge héroïque", { haste: 5 }]],
+  priestess:   [["bolt", "Rayon sacré", { pierce: 0.5, crit: 1 }], ["mend", "Prière", { regen: 2, weaken: 3 }], ["meteor", "Lumière de l’aube", { leech: 30, weaken: 4 }]],
+  gladiator:   [["gust", "Enchaînement", { echo: 0.3 }], ["aegis", "Bouclier du champion", { haste: 4, weaken: 2 }], ["meteor", "Ovation", { crit: 1, haste: 3 }]],
+  shaman:      [["bolt", "Foudre des ancêtres", { pierce: 0.6, stun: 0.8 }], ["mend", "Esprit guérisseur", { cdr: 2 }], ["meteor", "Tempête", { echo: 0.5, slow: 3 }]],
+  bladedancer: [["gust", "Danse des lames", { hits: 5 }], ["aegis", "Pas de l’ombre", { cdr: 2, haste: 2 }], ["meteor", "Valse mortelle", { execute: 35, haste: 3 }]],
+  cryomancer:  [["bolt", "Javelot de glace", { pierce: 0.6, slow: 4 }], ["aegis", "Armure de givre", { slow: 5 }], ["meteor", "Blizzard", { stun: 2, slow: 4 }]],
+  bard:        [["gust", "Accord dissonant", { weaken: 4 }], ["mend", "Chant apaisant", { regen: 2, haste: 3 }], ["meteor", "Crescendo final", { echo: 0.4 }]],
+  starwarden:  [["bolt", "Étoile filante", { pierce: 0.7, crit: 1 }], ["aegis", "Égide stellaire", { cdr: 3 }], ["meteor", "Chute d’étoile", { burn: 1, crit: 1 }]],
+  artificer:   [["fire", "Grenade", { burn: 0.5, slow: 2 }], ["aegis", "Bouclier mécanique", { weaken: 5 }], ["meteor", "Bombe à fragmentation", { hits: 3, pierce: 0.4 }]],
 };
 
-export const SPELLS = Object.entries(CLASS_SPELLS).flatMap(([cls, list]) => list.map(([tpl, name], i) =>
-  ({ id: `${cls}.${i}`, cls, tpl, name, zone: SPELL_ZONES[i], ...SPELL_TEMPLATES[tpl], color: CLASS_FX[cls] || SPELL_TEMPLATES[tpl].color })));
+export const SPELLS = Object.entries(CLASS_SPELLS).flatMap(([cls, list]) => list.map(([tpl, name, fx = {}], i) =>
+  ({ id: `${cls}.${i}`, cls, tpl, name, zone: SPELL_ZONES[i], ...SPELL_TEMPLATES[tpl], ...fx, fx: Object.keys(fx),
+    color: CLASS_FX[cls] || SPELL_TEMPLATES[tpl].color })));
 export const SPELL_INDEX = Object.fromEntries(SPELLS.map((s) => [s.id, s]));
 /** Sorts d'un héros (liste vide pour un héros inconnu). */
 export const classSpells = (cls) => SPELLS.filter((s) => s.cls === cls);
