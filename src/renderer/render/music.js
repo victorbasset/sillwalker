@@ -85,6 +85,7 @@ export function songFor(zone, pass = 0) {
 // Formes d'onde « pulse » (rapport cyclique 12,5 / 25 / 50 %) façon Game Boy, par séries de Fourier.
 const PULSES = { pulse12: 0.125, pulse25: 0.25, pulse50: 0.5 };
 
+const MUSIC_GAIN = 0.32; // niveau d'origine de la musique (multiplié par le réglage « Musique »)
 const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
 
 export class Music {
@@ -103,6 +104,13 @@ export class Music {
     else if (this.zone) { const z = this.zone; this.zone = 0; this.setZone(z); }
   }
 
+  /** Volume propre de la musique (Réglages, 0 à 2 ; 1 = niveau d'origine) : appliqué tout de suite à l'air en cours. */
+  setLevel(level) {
+    this.level = Math.max(0, Math.min(2, +level || 0));
+    const ctx = this.sound.ctx, v = this.voice;
+    if (ctx && v && !v.dying) { const t = ctx.currentTime; v.gain.gain.cancelScheduledValues(t); v.gain.gain.setTargetAtTime(MUSIC_GAIN * this.level, t, 0.15); }
+  }
+
   /** Change d'air (fondu enchaîné de 2,5 s). */
   setZone(zone) {
     if (zone === this.zone) return;
@@ -113,7 +121,7 @@ export class Music {
     const t = ctx.currentTime, old = this.voice;
     if (old) { old.gain.gain.cancelScheduledValues(t); old.gain.gain.setValueAtTime(old.gain.gain.value, t); old.gain.gain.linearRampToValueAtTime(0, t + 2.5); old.dying = t + 2.6; }
     const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0, t); gain.gain.linearRampToValueAtTime(0.32, t + 2.5); // bas : ne pas déranger
+    gain.gain.setValueAtTime(0, t); gain.gain.linearRampToValueAtTime(MUSIC_GAIN * (this.level ?? 1), t + 2.5); // bas : ne pas déranger
     gain.connect(this.sound.master);
     this.voice = { gain, song: songFor(zone), step: 0, next: t + 0.1 };
     this.old = old;

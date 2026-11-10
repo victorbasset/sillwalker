@@ -135,8 +135,18 @@ export class Sound {
   /** Ambiance de la zone (demande C : « dans une zone d'eau des petits bruits de bulle… ») : quelques sons épars,
    *  tirés au hasard (4 tirages par seconde), selon le décor (météo de juice.js) ; prairies : oiseaux le jour,
    *  grillons la nuit. Bien plus bas que les effets : un fond, pas un bruit. */
+  /** Volume propre de l'ambiance des zones (Réglages, 0 à 2 ; 1 = niveau d'origine). */
+  setAmbience(level) { this.ambLevel = Math.max(0, Math.min(2, +level || 0)); if (this.ambBus) this.ambBus.gain.value = this.ambLevel; }
+
   zoneAmbience(kind, night) {
-    if (!this.enabled || !this.ensure()) return;
+    if (!this.enabled || !this.ensure() || this.ambLevel === 0) return;
+    // Tous les sons de l'ambiance passent par un bus à part (son curseur de volume) : on détourne « master » le temps du tirage.
+    if (!this.ambBus || this.ambBus.context !== this.ctx) { this.ambBus = this.ctx.createGain(); this.ambBus.gain.value = this.ambLevel ?? 1; this.ambBus.connect(this.master); }
+    const master = this.master; this.master = this.ambBus;
+    try { this.zoneSounds(kind, night); } finally { this.master = master; }
+  }
+
+  zoneSounds(kind, night) {
     const r = Math.random(), j = () => 0.9 + Math.random() * 0.2;
     switch (kind) {
       case "bubble": // bulles qui remontent : petits « blop » montants, souvent en grappe

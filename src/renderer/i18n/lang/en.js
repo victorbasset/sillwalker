@@ -946,4 +946,7 @@ export default {
   2070: "Zone soundscapes (bubbles, embers, wind, birds, crickets…) and music that evolves from one pass to the next.",
   2071: "New event Protective Veil (damage taken halved); unique paths for the ten added heroes.",
   2072: "Settings: strip information in the middle on any screen; zone ambience.",
+  2073: "Ambience",
+  2074: "Music",
+  2075: "Master volume",
 };

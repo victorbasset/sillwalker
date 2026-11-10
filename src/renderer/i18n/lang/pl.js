@@ -946,4 +946,7 @@ export default {
   2070: "Dźwiękowy klimat stref (bąbelki, żar, wiatr, ptaki, świerszcze…) i muzyka, która zmienia się z każdym przejściem.",
   2071: "Nowe wydarzenie Ochronny welon (otrzymywane obrażenia o połowę mniejsze); własne ścieżki dziesięciu dodanych bohaterów.",
   2072: "Ustawienia: informacje na pasku na środku na każdym ekranie; klimat stref.",
+  2073: "Klimat",
+  2074: "Muzyka",
+  2075: "Głośność ogólna",
 };

@@ -946,4 +946,7 @@ export default {
   2070: "Klangkulisse der Zonen (Blasen, Glut, Wind, Vögel, Grillen …) und Musik, die sich von Durchgang zu Durchgang entwickelt.",
   2071: "Neues Ereignis Schützender Schleier (erlittener Schaden halbiert); eigene Wege für die zehn neuen Helden.",
   2072: "Einstellungen: Infos im Streifen auf jedem Bildschirm in der Mitte; Zonen-Atmosphäre.",
+  2073: "Atmosphäre",
+  2074: "Musik",
+  2075: "Gesamtlautstärke",
 };

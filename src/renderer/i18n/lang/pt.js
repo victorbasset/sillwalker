@@ -946,4 +946,7 @@ export default {
   2070: "Ambiente sonoro das zonas (bolhas, brasas, vento, pássaros, grilos…) e música que evolui a cada passagem.",
   2071: "Novo evento Véu protetor (dano sofrido reduzido pela metade); vias próprias para os dez heróis adicionados.",
   2072: "Configurações: informações da faixa no meio em qualquer tela; ambiente das zonas.",
+  2073: "Ambiente",
+  2074: "Música",
+  2075: "Volume geral",
 };

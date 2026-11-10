@@ -133,6 +133,8 @@ async function boot() {
     const P = game.S.settings;
     sound.muted = !!P.muted;
     sound.set(P.sound && !P.muted, P.volume);
+    sound.setAmbience(P.ambVol ?? 1);
+    music.setLevel(P.musicVol ?? 1);
     music.set(P.music !== false);
     window.dispatchEvent(new Event("sillwalker-framerate")); // « Économie d'énergie » a pu changer : cadence à revoir
   };

@@ -38,8 +38,10 @@ export class SettingsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">${tx("Son")}</span></h2>
         ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande coupe tout (effets et musique) et rend l’état d’avant au clic suivant."))}
         ${check("zoneAmbience", tx("Ambiance des zones"), tx("Bulles sous l’eau, braises qui crépitent, oiseaux le jour et grillons la nuit… Très discrète, avec les effets sonores."))}
+        <label class="range">${tx("Ambiance")} <input type="range" min="0" max="200" step="10" value="${Math.round((P.ambVol ?? 1) * 100)}" data-action="se-ambvol"${P.sound && P.zoneAmbience ? "" : " disabled"}> <span>${Math.round((P.ambVol ?? 1) * 100)}${unit("%")}</span></label>
         ${check("music", tx("Musique de fond"), tx("Un petit air par zone, discret, avec un fondu quand on change de zone."))}
-        <label class="range">${tx("Volume")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound || P.music !== false ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
+        <label class="range">${tx("Musique")} <input type="range" min="0" max="200" step="10" value="${Math.round((P.musicVol ?? 1) * 100)}" data-action="se-musicvol"${P.music !== false ? "" : " disabled"}> <span>${Math.round((P.musicVol ?? 1) * 100)}${unit("%")}</span></label>
+        <label class="range">${tx("Volume général")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound || P.music !== false ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button></div>
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">${tx("Affichage")}</span></h2>
@@ -80,6 +82,7 @@ export class SettingsTab {
     const P = this.game.S.settings;
     if (a === "se-toggle") { P[b.dataset.key] = b.checked; this.onChange?.(); }
     else if (a === "se-volume") { P.volume = +b.value / 100; this.onChange?.(); b.blur(); }
+    else if (a === "se-musicvol" || a === "se-ambvol") { P[a === "se-musicvol" ? "musicVol" : "ambVol"] = +b.value / 100; this.onChange?.(); b.blur(); }
     else if (a === "se-testsound") this.sound?.play("legendary");
     else if (a === "se-lang") {
       if (b.dataset.v === getLang()) return;

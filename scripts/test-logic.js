@@ -2066,6 +2066,8 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const gk = new Game(freshState()); gk.S.achievements = ["EVENTS_ALL", "ACH_D_UNE_AUTRE_VERSION"];
     const earned = M_achievements_js.earnedAchievements(gk.S);
     assert.ok(earned.has("EVENTS_ALL") && !earned.has("ACH_D_UNE_AUTRE_VERSION"), "succès obtenus gardés");
+    const badVol = JSON.parse(JSON.stringify(ge.S)); badVol.settings.musicVol = "x"; badVol.settings.ambVol = 9;
+    const mv = migrate(badVol).settings; assert.ok(mv.musicVol === 1 && mv.ambVol === 2, "volumes abîmés : " + mv.musicVol + " " + mv.ambVol);
     const badHud = JSON.parse(JSON.stringify(ge.S)); badHud.settings.hudPos = 42; assert.equal(migrate(badHud).settings.hudPos, "auto", "hudPos abîmé");
     const bad = JSON.parse(JSON.stringify(ge.S)); bad.stats.eventsSeen = "x"; assert.deepEqual(migrate(bad).stats.eventsSeen, {}, "eventsSeen abîmé");
     // Quête « Frapper au clic » : chaque coup au clic compte

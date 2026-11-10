@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 441) : volumes séparés pour régler la refonte du son à l'oreille (Victor écoute en ce moment) :
+  curseurs « Ambiance » (sous la case Ambiance des zones) et « Musique » (sous Musique de fond), 0 à 200 % du niveau
+  d'origine ; « Volume » devient « Volume général ». settings.musicVol / ambVol (migrate : borné 0-2, illisible → 1) ;
+  Sound.setAmbience (bus de gain dédié, l'ambiance et les oiseaux y passent), Music.setLevel (appliqué tout de suite).
+  Essai en jeu : ambiance ×2 = pic ×2, 0 % = silence. Traduit ; aucun défilement (5 langues × 3 largeurs) ; save-fuzz
+  ok ; capture. 120/120.
 - 2026-11-10 (it. 440, revue générale) : simulations 12 h : guerrier 60, barde 59, gardienne des étoiles 62 ; fuzz
   1200 parties, 0 bloquée ; crawl 310 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; perf et
   mémoire mesurées à l'it. 436 (inchangées).

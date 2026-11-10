@@ -946,4 +946,7 @@ export default {
   2070: "Ambiente sonoro de las zonas (burbujas, brasas, viento, pájaros, grillos…) y música que evoluciona en cada pasada.",
   2071: "Nuevo evento Velo protector (daño recibido reducido a la mitad); vías propias para los diez héroes añadidos.",
   2072: "Ajustes: información de la franja en el centro en cualquier pantalla; ambiente de las zonas.",
+  2073: "Ambiente",
+  2074: "Música",
+  2075: "Volumen general",
 };
