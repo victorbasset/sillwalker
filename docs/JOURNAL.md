@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 504) : contrôle instable « infobulle : pièce de panoplie gardée » (échec « 1 false false » une fois à
+  l'it. 501) : cause non trouvée (le sac de dev n'a aucune pièce « hunter ») ; le sac est vidé de ses pièces de panoplie
+  avant le contrôle, et un échec affichera désormais l'emplacement, la panoplie portée et l'état « faite ». 4 passages
+  à 124/124. Si l'échec revient, lire ce détail.
 - 2026-11-10 (it. 503) : mesure des 10 langues à 3 largeurs (lang-overflow, « Quoi de neuf » au pire cas compris) :
   un seul défilement, Statistiques > Succès en polonais à 1920 (3 px, depuis « Grimoire complet ») ; rangées de la
   liste des succès resserrées (écart 4 → 2 px). Plus aucun défilement. 124/124.
