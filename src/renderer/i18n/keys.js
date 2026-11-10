@@ -2036,5 +2036,7 @@ export const KEYS = [
   "Face à un boss qui maudit, équipe tout seul le Talisman de pureté du sac, puis remet l’objet d’avant.",
   "Porte-talisman : ",
   "Le serment maudit",
-  "Les plus vieux lieutenants du Briseur ont juré de ne jamais laisser revenir la lumière. Ce serment est devenu une malédiction qui ronge ceux qui les affrontent. Mais un talisman taillé dans un éclat pur la repousse : le ciel n’a pas tout oublié."
+  "Les plus vieux lieutenants du Briseur ont juré de ne jamais laisser revenir la lumière. Ce serment est devenu une malédiction qui ronge ceux qui les affrontent. Mais un talisman taillé dans un éclat pur la repousse : le ciel n’a pas tout oublié.",
+  "Événement Zèle, déblocage Porte-talisman et une 12e chronique : « Le serment maudit ».",
+  "Chaque déblocage a sa propre icône ; les capacités des boss ont leur son."
 ];

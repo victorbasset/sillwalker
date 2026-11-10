@@ -908,4 +908,6 @@ export default {
   2032: "Talismanträger: ",
   2033: "Der verfluchte Schwur",
   2034: "Die ältesten Statthalter des Sternenbrechers schworen, das Licht nie zurückkehren zu lassen. Dieser Schwur wurde zu einem Fluch, der an denen nagt, die sich ihnen stellen. Doch ein Talisman aus einem reinen Splitter hält ihn fern: Der Himmel hat nicht alles vergessen.",
+  2035: "Ereignis Eifer, Freischaltung Talismanträger und eine 12. Chronik: „Der verfluchte Schwur“.",
+  2036: "Jede Freischaltung hat ihr eigenes Symbol; die Bossfähigkeiten haben ihren Klang.",
 };

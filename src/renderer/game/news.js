@@ -11,6 +11,8 @@ export const NEWS_ITEMS = [
   "Synergies de duo : chaque héros a un partenaire idéal, et ce duo reçoit un petit bonus.",
   "Nouvel événement Nichée (des œufs à chaque victoire) ; nouvelle capacité de boss, la Malédiction, et sa parade : le Talisman de pureté.",
   "Écrans de portable (1366 px) : plus aucun onglet ne défile, les longues listes glissent sur le côté.",
+  "Événement Zèle, déblocage Porte-talisman et une 12e chronique : « Le serment maudit ».",
+  "Chaque déblocage a sa propre icône ; les capacités des boss ont leur son.",
 ];
 
 /** Nouveautés à annoncer ? (pas pour une partie neuve : l'intro passe avant tout) */

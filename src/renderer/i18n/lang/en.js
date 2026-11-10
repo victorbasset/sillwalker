@@ -908,4 +908,6 @@ export default {
   2032: "Charm Bearer: ",
   2033: "The Cursed Oath",
   2034: "The Starbreaker’s oldest lieutenants swore never to let the light return. That oath became a curse that gnaws at those who face them. But a talisman cut from a pure shard holds it back: the sky has not forgotten everything.",
+  2035: "Zeal event, Charm Bearer unlock and a 12th chronicle: “The Cursed Oath”.",
+  2036: "Every unlock has its own icon; boss abilities have their own sound.",
 };

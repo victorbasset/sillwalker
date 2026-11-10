@@ -908,4 +908,6 @@ export default {
   2032: "Portador de talismãs: ",
   2033: "O juramento maldito",
   2034: "Os tenentes mais antigos do Quebra-Estrelas juraram nunca deixar a luz voltar. Esse juramento virou uma maldição que corrói quem os enfrenta. Mas um talismã talhado num fragmento puro a repele: o céu não esqueceu tudo.",
+  2035: "Evento Zelo, desbloqueio Portador de talismãs e uma 12ª crônica: “O juramento maldito”.",
+  2036: "Cada desbloqueio tem seu próprio ícone; as habilidades dos chefes têm seu som.",
 };

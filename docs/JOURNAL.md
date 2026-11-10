@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 374) : « Quoi de neuf » (édition 1, pas encore vue) : 2 lignes de plus (Zèle, Porte-talisman,
+  chronique « Le serment maudit » ; icônes uniques des déblocages, sons des boss) : 10 nouveautés, sans défilement en
+  français et en allemand (1920 et 1366 px). 2 textes × 9 langues, 113/113.
 - 2026-11-10 (it. 373) : vérifié en capture (record 180) : la carte du Rebord place la chronique « Le serment maudit »
   en zone 170 (compteur 9 / 12) et sa cinématique se joue d'elle-même quand elle est méritée. Rien à corriger.
 - 2026-11-10 (it. 372, histoire) : 12e chronique « Le serment maudit » (zone 170, entre 150 et 190) : la Malédiction des
