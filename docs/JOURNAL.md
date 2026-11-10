@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 511) : autotest « onglets serrés : toutes les icônes restent (1900 → 700 px) » : la barre d'onglets
+  est resserrée de 40 en 40 px, chaque palier de fitTabs est traversé (tight, small, slim, compact), aucune icône ne
+  doit manquer (garde la demande M). 125/125.
 - 2026-11-10 (it. 510, revue générale) : balance 12 h des 20 héros contre b422d71 (avant les paliers de recharge) :
   +0,1 zone (bruit) ; fuzz 1200 parties, 0 bloquée ; crawl fr 313 et pl 318 clics sans erreur ; russe : aucun mot
   latin suspect ; save-fuzz ok ; perf (copie neuve) : bande 19,2 %, panneau 20,7 %, mini 6,1 %, icône 0,4 % ;
