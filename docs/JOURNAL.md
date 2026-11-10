@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 530, revue générale) : balance 12 h identique à be4df35 (60,4) ; fuzz 1200, 0 bloquée ; crawl fr et ja
+  313 clics sans erreur ; russe ok ; save-fuzz ok ; perf (copie neuve, musique lofi active) : bande 19,5 %, panneau
+  20,9 %, mini 7,0 %, icône 0,5 % ; mémoire stable (≈ 799 Mo).
 - 2026-11-10 (it. 529) : musique légère en économie d'énergie ou sur batterie (music.lite : accords sans la septième,
   pas de craquements de vinyle) ; état batterie gardé sur l'objet musique (applySettings est défini avant onBattery
   dans app.js : y lire onBattery aurait levé une erreur au démarrage). Perf --battery : bande 15,3 %. 126/126.
