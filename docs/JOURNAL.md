@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 445) : rythme du début vérifié après les nouveautés (quête des critiques, Voile protecteur dès la
+  zone 1, sons) : early-pace à 60 min : zone 23, 109 objets, niveau 39, 6 déblocages (repère 23 / 107 / 39 / 6) ;
+  first-minutes : premier objet 41-77 s, premier boss 77-86 s ; tab-pace : talents 1, quêtes 5, boutique 8-9,
+  héros 10, carte 11-12, bestiaire 14-15 min (inchangé). Mac et plein écran : rien à coder a priori (une application
+  en plein écran a son propre espace macOS, où la bande « toujours au premier plan » n'apparaît pas sans
+  visibleOnFullScreen) : à confirmer par Victor.
 - 2026-11-10 (it. 444, Mac) : menu de l'icône : la case « Se cacher devant les jeux et vidéos en plein écran »
   n'apparaît que sous Windows (la détection, fullscreen-watch.js, n'existe que là : ailleurs elle ne faisait rien).
   Infobulle du bouton « Réduire en icône » du mode mini : « (barre des menus) » sur Mac. Traduit. 120/120.
@@ -1525,7 +1531,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
      Refonte du son (it. 432-435) : pièces en gamme, coups variés, sons des 10 événements et de l'étoile filante,
      ambiance de chaque zone (Réglages > Son > Ambiance des zones), musique qui varie (intermède, silence) : volumes ?
-  6. Sur le Mac : textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
+  6. Sur le Mac : la bande ne doit pas apparaître devant un jeu / une vidéo en plein écran (it. 445) ; textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
   5. « Quoi de neuf » au lancement (édition 2 : 3 nouveautés, ou 15 si l'édition 1 n'a pas été lue) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
