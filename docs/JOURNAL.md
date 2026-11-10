@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 439, demande de Victor : « un son pour chaque pièce qui rentre dans notre inventaire ») : chaque pièce
+  animée qui atteint le compteur d'or émet coinIn (juice.js) ; Sound.coinIn : tintement bref et clair, un demi-ton plus
+  haut à chaque pièce d'une même rafale (jusqu'à 14), plus rond pour une grosse pièce ; au plus un toutes les 28 ms.
+  Le tintement de la victoire s'efface quand des pièces volent (il reste en mode mini, effets réduits, bande cachée).
+  Essai en jeu : 3 victoires = 102 pièces rentrées, aucune erreur ; rendu hors ligne sans NaN. À écouter. 120/120.
 - 2026-11-10 (it. 438) : « Quoi de neuf », édition 3 (4 nouveautés : son des pièces / coups / événements, ambiance des
   zones et musique qui évolue, Voile protecteur et voies des héros ajoutés, réglages de la bande et de l'ambiance).
   Pire cas (aucune édition lue : 19 nouveautés) : 16 px de trop ; au-delà de 14 nouveautés, liste « dense » (fenêtre

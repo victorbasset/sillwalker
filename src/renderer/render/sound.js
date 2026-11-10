@@ -186,6 +186,20 @@ export class Sound {
     }
   }
 
+  /** Pièce qui rentre dans la bourse (demande de Victor : « un son pour chaque pièce qui rentre ») : petit tintement
+   *  bref et clair, un cran plus haut à chaque pièce d'une même rafale (la rafale « monte »), plus rond pour une
+   *  grosse pièce. Volume bas : il y en a beaucoup. */
+  coinIn(big) {
+    if (!this.enabled || !this.ensure() || !this.throttle("coinIn", 28)) return;
+    const now = performance.now();
+    this.inStep = now - (this.inT || 0) < 450 ? Math.min((this.inStep || 0) + 1, 14) : 0;
+    this.inT = now;
+    const f = 1975.5 * Math.pow(2, this.inStep / 12) * (0.995 + Math.random() * 0.01), g = big ? 0.075 : 0.05;
+    this.tone(f, 0, 0.07, "sine", g);
+    this.tone(f * 2.76, 0, 0.035, "sine", g * 0.3);
+    if (big) this.tone(f / 2, 0, 0.12, "triangle", g * 0.6);
+  }
+
   /** Pièce (demande C de Victor : satisfaction) : un tintement métallique (fondamentale + harmonique non entière,
    *  comme une vraie pièce), qui monte d'un cran à chaque victoire enchaînée (gamme pentatonique, retombe après une
    *  pause) ; `n` pièces = petite cascade (élites, boss). */
@@ -338,7 +352,10 @@ export class Sound {
     game.on("heroAttack", ({ crit, iai }) => { const m = game.R.mon; this.hit(game.S.cls, m && m.type, crit || iai); });
     game.on("tap", () => this.play("hit"));
     game.on("partnerHit", () => { const m = game.R.mon; if (game.S.partner) this.hit(game.S.partner, m && m.type, false); }); // compagnon du duo
-    game.on("kill", ({ mon }) => { this.coin(mon.boss ? 5 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); });
+    // Victoire : le tintement de la victoire s'efface si les pièces volent vers la bourse (chacune sonne en rentrant) ;
+    // il reste quand aucune pièce n'est animée (mode mini, effets réduits, bande cachée).
+    game.on("kill", ({ mon }) => { if (performance.now() - (this.inT || 0) > 3000) this.coin(mon.boss ? 5 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); });
+    game.on("coinIn", ({ big }) => this.coinIn(big));
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
     game.on("levelUp", () => this.play("level"));
     game.on("unlock", () => this.play("chest"));

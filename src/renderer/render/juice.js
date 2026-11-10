@@ -161,7 +161,7 @@ export class Juice {
         if (!st.hx) { st.hx = st.x; st.hy = st.y; st.ht = p.t; }
         const k = Math.min(1, (p.t - st.ht) / 0.55), tg = this.goldTarget();
         this.place(node, st.hx + (tg.x - st.hx) * easeIn(k), st.hy + (tg.y - st.hy) * easeIn(k) - Math.sin(k * Math.PI) * 30);
-        if (k >= 1) { this.pulse = 0.3; return false; }
+        if (k >= 1) { this.pulse = 0.3; this.s.game.emit("coinIn", { big: big && i % 4 === 0 }); return false; } // son de la pièce qui rentre
         return true;
       });
     }
