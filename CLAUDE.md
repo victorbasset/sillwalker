@@ -93,6 +93,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de
   render/sound.js et signale erreur, NaN ou saturation (pic > 0,2 ; les effets font ≈ 0,02) : ajouter tout nouveau son
   à sa liste (selftest.js, « son : tous les sons ») ; pour comparer des volumes, même méthode dans une injection TEMP.
+  Musique (lofi, un air par tranche de 5 zones) : l'autotest rend un passage complet de 8 airs (`Music.schedulePass`) et
+  vérifie saturation et équilibre des volumes. Pour faire ÉCOUTER à Victor : rendre des passages en WAV dans une injection
+  TEMP (OfflineAudioContext + schedulePass, base64 par morceaux dans la console), puis les lui envoyer (it. 520).
 
 ## Traductions (10 langues, anglais par défaut)
 

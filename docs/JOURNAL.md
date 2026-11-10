@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 524) : santé du début de partie après les sorts, quêtes et événements récents : first-minutes
+  (premier objet 41-77 s, boss 77-86 s, onglet Héros ≈ 12 min) et tab-pace (talents 1, quêtes 5, boutique 8-9, Héros
+  10, carte 11-12, bestiaire 14-15, ascension 20-43 min ; zone 22) inchangés. CLAUDE.md : contrôle et écoute de la
+  musique. 126/126.
 - 2026-11-10 (it. 523) : Music.schedulePass (un passage complet hors ligne, même chaîne passe-bas + écho) ; autotest
   « musique : 8 airs sans saturation, volumes équilibrés » (un air par décor, rapport des volumes moyens < 2,2 ;
   mesuré 1,74). 126/126.
