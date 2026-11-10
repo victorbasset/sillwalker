@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 460, revue générale) : simulations 12 h : paladin 60, lancier 62, gladiatrice 60 ; fuzz 1200
+  parties, 0 bloquée ; crawl 319 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; mem-watch 6 min
+  à ×10, son et musique actifs : 799-806 Mo, stable (it. 436 : ≈ 790).
 - 2026-11-10 (it. 459, son) : la musique s'intensifie pendant un combat de boss (music.boss, posé par spawn, retiré à
   sa chute ou au K.O.) : percussions lourdes même pendant un intermède ou un silence, basse doublée une octave plus
   bas. Essai en jeu : boss → 10 pas joués sans erreur → retour à la normale. À écouter. 122/122.
