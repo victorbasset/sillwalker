@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 402) : quand la pureté annule une Malédiction, la bande l'affiche (« Malédiction repoussée ! », bleu
+  pâle) avec un tintement clair (game.js émet bossSkill « curseBlocked »). Test, 1 texte × 9 langues, 115/115.
 - 2026-11-10 (it. 401) : le mage revenait à 56 dans les revues (graine 7 par défaut) : sur 5 graines (SEED=1..5,
   balance.mjs 12 h) il fait 61 / 60 / 58 / 59 / 60, moyenne 59,6, dans la norme. Paladin ≈ 62 (un peu fort, acceptable).
   Rien changé. Leçon : juger un héros isolé sur plusieurs graines (SEED est transmis à balance.mjs).

@@ -915,4 +915,5 @@ export default {
   2039: "Sus alas de luz alejan las maldiciones.",
   2040: "Compañero de la próxima aventura:",
   2041: "Mascota Polilla pálida; los jefes anuncian sus habilidades al llegar; una ayuda si su Maldición te bloquea.",
+  2042: "¡Maldición repelida!",
 };

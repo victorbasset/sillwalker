@@ -1999,8 +1999,9 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const gp = new Game(freshState()); gp.R.mon = gp.makeMonster(true); gp.R.mon.mech = ["curse"]; gp.R.mon.curseT = 0; gp.R.mode = "fight";
     const w = gp.newItem(0); w.power = "p_pure"; gp.S.equip[w.slot] = w; gp.invalidateStats();
     assert.equal(gp.stats().purity, 100, "pureté 100 %");
-    gp.R.cursed = 0; gp.bossTick(gp.R.mon, gp.stats(), 0.1);
+    gp.R.cursed = 0; let blocked = 0; gp.on("bossSkill", ({ id }) => { if (id === "curseBlocked") blocked++; }); gp.bossTick(gp.R.mon, gp.stats(), 0.1);
     assert.ok(!(gp.R.cursed > 0), "Talisman de pureté : pas maudit");
+    assert.equal(blocked, 1, "parade signalée (Malédiction repoussée)");
     const gq = new Game(freshState()); gq.R.mon = gq.makeMonster(true); gq.R.mon.mech = ["curse"]; gq.R.mon.curseT = 0;
     gq.bossTick(gq.R.mon, gq.stats(), 0.1);
     assert.ok(gq.R.cursed > 0, "sans talisman : maudit");

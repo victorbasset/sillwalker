@@ -372,6 +372,7 @@ export class Game {
         // Pureté (pouvoir « Talisman de pureté ») : malédiction raccourcie, voire évitée
         const d = CURSE.s * (1 - (hs.purity || 0) / 100);
         if (d > 0.05) { this.R.cursed = d; this.emit("bossSkill", { id: "curse" }); }
+        else this.emit("bossSkill", { id: "curseBlocked" }); // le Talisman de pureté a joué : le montrer
       }
     }
     if (mech.includes("fury") && (m.fury || 0) < FURY.max) {

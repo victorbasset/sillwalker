@@ -915,4 +915,5 @@ export default {
   2039: "Jej świetliste skrzydła odpędzają klątwy.",
   2040: "Towarzysz następnej przygody:",
   2041: "Pupil Blada ćma; bossowie zapowiadają swoje umiejętności; pomoc, gdy blokuje cię ich Klątwa.",
+  2042: "Klątwa odparta!",
 };
