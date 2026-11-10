@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 394) : fuzz élargi après les ajouts de combat (Malédiction, Talisman, Porte-talisman, coup de pouce,
+  Nichée, Zèle, Phalène) : 300 graines, 6 000 parties neuves, 0 bloquée.
 - 2026-11-10 (it. 393, anti-frustration) : bloqué (3 défaites ou plus) par un boss qui maudit et sans Talisman de pureté
   en main, le prochain objet légendaire porte ce pouvoir une fois sur deux (game.js > decorate) ; sinon tirage normal
   (1 / 17). Test (≥ 30 % bloqué, < 20 % sinon). 115/115.
