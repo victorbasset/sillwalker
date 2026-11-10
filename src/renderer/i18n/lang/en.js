@@ -866,4 +866,5 @@ export default {
   1990: "Keeps watch while you are away: time spent away counts for more.",
   1991: "Starling",
   1992: "A living star shard that chose to follow you. Rare.",
+  1993: "Chronicle: {0}",
 };

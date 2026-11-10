@@ -1994,5 +1994,6 @@ export const KEYS = [
   "Luciole",
   "Veille pendant ton absence : le temps passé loin compte davantage.",
   "Étoilon",
-  "Un éclat d’étoile vivant qui a choisi de te suivre. Rare."
+  "Un éclat d’étoile vivant qui a choisi de te suivre. Rare.",
+  "Chronique : {0}"
 ];

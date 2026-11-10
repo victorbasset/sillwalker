@@ -1,4 +1,5 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
+import { CHRONICLES } from "../../game/story.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, getLang } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
@@ -29,6 +30,7 @@ export function journeyText(e) {
   if (e.k === "asc") return tx("Ascension n° {0}", { 0: e.v });
   if (e.k === "set") return tx("Panoplie complétée : {0}", { 0: (SETS[e.v] || {}).name || "?" });
   if (e.k === "final") return tx("Le Briseur d’Étoiles est vaincu");
+  if (e.k === "chron") { const c = CHRONICLES.find((x) => x.id === e.v); return tx("Chronique : {0}", { 0: c ? tx(c.title) : "?" }); }
   if (e.k === "start") return tx("Début du carnet : niveau {0}, record zone {1}", { 0: fmt(e.l || 1), 1: e.v });
   return "";
 }

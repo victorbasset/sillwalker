@@ -866,4 +866,5 @@ export default {
   1990: "Czuwa pod twoją nieobecność: czas z dala liczy się bardziej.",
   1991: "Gwiazdek",
   1992: "Żywy odłamek gwiazdy, który postanowił za tobą podążać. Rzadki.",
+  1993: "Kronika: {0}",
 };

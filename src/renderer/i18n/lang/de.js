@@ -866,4 +866,5 @@ export default {
   1990: "Wacht, während du fort bist: Abwesenheit zählt mehr.",
   1991: "Sternling",
   1992: "Ein lebender Sternensplitter, der dir folgen wollte. Selten.",
+  1993: "Chronik: {0}",
 };

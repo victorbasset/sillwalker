@@ -210,7 +210,8 @@ export class Game {
     R.time += dt;
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
     if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh });
-      const chron = takeNewChronicles(this.S, recordZone(this.S)); if (chron.length) this.emit("chronicle", { ids: chron.map((c) => c.id) }); }
+      const chron = takeNewChronicles(this.S, recordZone(this.S));
+      if (chron.length) { for (const c of chron) this.milestone("chron", c.id); this.emit("chronicle", { ids: chron.map((c) => c.id) }); } }
     this.S.stats.playTime = (this.S.stats.playTime || 0) + dt;
     this.tickBuffs(dt);
     if (R.potionCd > 0) R.potionCd -= dt;

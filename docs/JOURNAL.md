@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 325) : Carnet de route : chaque chronique découverte y est notée (« Chronique : La forge des
+  cages ») ; titre inconnu (autre version) : « ? ». save-fuzz : cas journeyChron. 1 texte × 9 langues, 107/107.
 - 2026-11-10 (it. 324, variété) : deux familiers de plus (16) : Luciole (vol ; +2 % expérience, +3 % efficacité hors
   ligne) et Étoilon (rare, poids 0,4 ; vol ; vitesse de déplacement, chances de critique), dessins pixel art (art.js).
   Le succès « tous les familiers » redevient à compléter pour qui ne l'avait pas. 4 textes × 9 langues, save-fuzz,

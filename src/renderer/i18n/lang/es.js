@@ -866,4 +866,5 @@ export default {
   1990: "Vigila durante tu ausencia: el tiempo fuera cuenta más.",
   1991: "Estrellín",
   1992: "Un fragmento de estrella vivo que eligió seguirte. Raro.",
+  1993: "Crónica: {0}",
 };
