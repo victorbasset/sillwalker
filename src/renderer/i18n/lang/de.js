@@ -1098,4 +1098,7 @@ export default {
   2222: "Betäubt!",
   2223: "Echo!",
   2224: "Kritisch!",
+  2225: "Jeder Held hat einzigartige Zauber: betäuben, vergiften, Lebensraub, Verwundete erledigen, erneut wirken…",
+  2226: "Durchbohrende Zauber treffen wartende Monster sofort, alle 10 Ränge eines mehr.",
+  2227: "Effekte sind im Kampf sichtbar; Taste B oder Symbolmenü: nur die Musik stummschalten.",
 };

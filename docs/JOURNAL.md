@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 550, revue générale) : fuzz 1200, 0 bloquée ; crawl fr 315 et ru 321 sans erreur ; russe ok ;
+  save-fuzz ok ; perf : bande 19,6 %, panneau 21,5 %, mini 6,9 %, icône 0,5 % ; mémoire stable (≈ 794 Mo) ; balance
+  vue à l'it. 548. « Quoi de neuf », édition 10 (sorts uniques, perçage immédiat sur plusieurs ennemis, effets visibles,
+  touche B / menu : musique). Traduit ; aucun défilement. 130/130.
 - 2026-11-10 (it. 549) : effets des sorts visibles en combat : monstre étourdi (pâle, ✦ ✦ au-dessus), ralenti (halo
   bleu), affaibli (terne), empoisonné aussi par le poison des sorts ; héros accéléré (halo orangé) ; mots « Étourdi ! »,
   « Écho ! », « Critique ! » au lancer. Correction : la barre de vie d'un monstre de la file blessé par un perçage était

@@ -1098,4 +1098,7 @@ export default {
   2222: "Ogłuszony!",
   2223: "Echo!",
   2224: "Krytyk!",
+  2225: "Każdy bohater ma unikalne zaklęcia: ogłuszanie, trucizna, kradzież życia, dobijanie rannych, ponowne rzucenie…",
+  2226: "Przebijające zaklęcia od razu trafiają czekające potwory, o jednego więcej co 10 rang.",
+  2227: "Efekty widać w walce; klawisz B lub menu ikony: wycisz tylko muzykę.",
 };

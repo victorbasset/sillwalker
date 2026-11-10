@@ -2226,5 +2226,8 @@ export const KEYS = [
   "soin continu : {0} % des PV/s (5 s)",
   "Étourdi !",
   "Écho !",
-  "Critique !"
+  "Critique !",
+  "Chaque héros a des sorts uniques : étourdir, empoisonner, voler la vie, achever les blessés, se relancer…",
+  "Les sorts perçants frappent tout de suite les monstres qui attendent, et un de plus tous les 10 rangs.",
+  "Les effets se voient en combat ; touche B ou menu de l’icône : couper la musique seule."
 ];

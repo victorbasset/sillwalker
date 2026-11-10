@@ -1098,4 +1098,7 @@ export default {
   2222: "Stunned!",
   2223: "Echo!",
   2224: "Critical!",
+  2225: "Every hero has unique spells: stun, poison, life steal, finish off the wounded, recast…",
+  2226: "Piercing spells hit the waiting monsters right away, one more every 10 ranks.",
+  2227: "Effects show in combat; B key or the icon menu: mute the music only.",
 };
