@@ -1063,3 +1063,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 }
 .petbar.hscroll { scrollbar-width: none; }
 .petbar.hscroll::-webkit-scrollbar { display: none; }
+/* Duo idéal cliquable (carte du héros) : un lien qui choisit le partenaire. */
+.classcard button.synergy { display: block; width: 100%; text-align: left; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline dotted; }
+.classcard button.synergy, .classcard button.synergy:hover { border-image: none; box-shadow: none; background: none; font-size: 12px; margin: 2px 0 4px; min-height: 0; }
+.classcard button.synergy::before, .classcard button.synergy::after { display: none; }

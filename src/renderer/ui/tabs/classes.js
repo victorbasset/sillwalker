@@ -57,7 +57,12 @@ export class ClassesTab {
         ${(() => { // duo idéal (synergie, classes.js) : surligné quand ce duo est formé
           const d = DUO_SYNERGIES.find((x) => x.a === k || x.b === k); if (!d) return "";
           const mate = d.a === k ? d.b : d.a, on = (S.cls === k && S.partner === mate) || (S.partner === k && S.cls === mate);
-          return `<p class="synergy${on ? " on" : ""}" title="${esc(describeEffects(d.eff))}">✦ ${tx("Duo idéal : {0}", { 0: esc(CLASSES[mate].name) })} · <b>${esc(tx(d.name))}</b> (${esc(describeEffects(d.eff))})</p>`; })()}
+          // Carte du héros (actuel ou choisi) : un clic prend directement le partenaire idéal comme compagnon.
+          const pickable = k === next && !on && S.partner !== mate && S.nextPartner !== mate && canPartner(S, next, mate);
+          const body = `✦ ${tx("Duo idéal : {0}", { 0: esc(CLASSES[mate].name) })} · <b>${esc(tx(d.name))}</b> (${esc(describeEffects(d.eff))})`;
+          return pickable
+            ? `<button class="synergy linkbtn" data-action="c-partner" data-id="${mate}" title="${esc(tx("Prendre comme compagnon"))}">${body}</button>`
+            : `<p class="synergy${on || S.nextPartner === mate && k === next ? " on" : ""}" title="${esc(describeEffects(d.eff))}">${body}</p>`; })()}
         ${spent ? `<p class="note">${txn(spent, "{n} point de talent réparti.|{n} points de talent répartis.")}</p>` : ""}
         <div class="row">${action}${duo}</div>
       </article>`;

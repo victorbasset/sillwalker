@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 348, moins de clics) : onglet Héros : sur la carte du héros (actuel ou choisi), « Duo idéal » devient
+  un lien qui prend directement le partenaire de synergie comme compagnon (ou pour la prochaine ascension).
+  Autotest : nouveau contrôle (clic → nextPartner = ranger). Capture, 110/110.
 - 2026-11-10 (it. 347) : mémoire dans la durée après les ajouts récents (Nichée, Malédiction, rangées latérales,
   cinématiques) : mem-watch 7 min à ×10 : 772 → 791 → 787 Mo, stable (repère ≈ 780 Mo) : pas de fuite.
 - 2026-11-10 (it. 346) : « Quoi de neuf » : ligne écrans de portable (8 nouveautés dans l'édition 1) ; thème clair
