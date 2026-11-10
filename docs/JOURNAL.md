@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 590, revue générale) : balance 12 h vs 8c7008a +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl es 317 / pl 316 clics sans erreur (avec reliques) ; vidage russe (4 reliques, 3 éditions non lues) : rien
+  de nouveau (« attributs » = repère du vidage) ; perf bande 20,0 %, panneau 21,2 %, mini 7,5 %, icône 0,6 % ;
+  mémoire 796 Mo stable.
 - 2026-11-10 (it. 589) : vérifications sans changement de code : (1) piste d « héros ajoutés trop semblables » :
   déjà traitée (noms propres, greffes de branches, voies mêlées : talents.js) ; (2) cinématique de relique en
   allemand à 1366 px : titre et phrases de l'histoire tiennent dans la bande, l'icône ne chevauche pas le texte.
