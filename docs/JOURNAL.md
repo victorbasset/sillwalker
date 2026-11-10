@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 378, consommation, suite de 361) : perf:linux détaillé par processus (bande seule, ≈ 19,5 %) :
+  GPU (composition logicielle) 10 %, page (mise en page + peinture) 8,3 %, navigateur 0,6 %, utilitaire 0,8 %.
+  screenUpdatesPerSec = 30,2 : chaque image change quelque chose (le décor défile en continu), le décor fixe n'est
+  redessiné qu'au changement de zone (strip.js) et les changements sont déjà suivis (mark). Pas de gain facile hors
+  cadence : le réglage « Économie d'énergie » (15 images/s, ≈ 13 %) reste le levier. Rien changé.
 - 2026-11-10 (it. 377) : Bestiaire > Capacités des boss : les cartes du boss de la zone actuelle sont entourées de
   --accent (.setcard.here) ; vérifié dans les deux thèmes (lisibles). 113/113.
 - 2026-11-10 (it. 376) : thème clair vérifié pour les ajouts récents de l'onglet Héros (lien « Duo idéal » en --accent,
