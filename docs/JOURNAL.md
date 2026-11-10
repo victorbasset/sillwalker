@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 436) : contrôle après la refonte du son (nœuds audio créés plusieurs fois par seconde pour
+  l'ambiance) : mem-watch 8 min à ×10, son et musique actifs : 788-796 Mo, stable (repère ≈ 780) ; perf : bande 18,7 %,
+  panneau 21,5 %, mini 5,9 %, icône 3,1 % (inchangé). Liste « À vérifier par Victor » complétée (son, Mac).
 - 2026-11-10 (it. 435, demande C, étape 4/4 : musique moins répétitive) : avant, l'air d'une zone (8 mesures, ≈ 20 s)
   bouclait sans fin. songFor(zone, passage) : le passage 0 est l'air d'avant (identique) ; les suivants gardent le
   motif A (on reconnaît la zone) et tirent un nouveau pont, une nouvelle fin, parfois un autre instrument du décor,
@@ -1484,6 +1487,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   3. Consommation réelle de la bande (Gestionnaire des tâches) : sur le serveur ≈ 19 % d'un cœur en rendu logiciel,
      sans doute bien moins avec la carte graphique (it. 361, 378).
   4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
+     Refonte du son (it. 432-435) : pièces en gamme, coups variés, sons des 10 événements et de l'étoile filante,
+     ambiance de chaque zone (Réglages > Son > Ambiance des zones), musique qui varie (intermède, silence) : volumes ?
+  6. Sur le Mac : plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
   5. « Quoi de neuf » au lancement (édition 2 : 3 nouveautés, ou 15 si l'édition 1 n'a pas été lue) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
