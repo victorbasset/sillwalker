@@ -126,6 +126,12 @@ export class Sound {
     }
   }
 
+  /** Trait perçant (it. 506) : sifflement qui file, puis impact sec sur le monstre suivant (le trait vole ≈ 0,2 s). */
+  pierceSound() {
+    this.whoosh(0, 0.2, 1800, 4200, 0.25, 2.5);
+    this.noise(0.18, 0.06, 0.25, 2600, 1.2); this.tone(NOTES.E6, 0.18, 0.1, "square", 0.04, 0.5);
+  }
+
   /** Événement rare (demande C) : chacun a sa signature au moment où il commence. */
   eventSound(id) {
     const N = NOTES;
@@ -428,6 +434,7 @@ export class Sound {
     on("learned", 90, ({ skill }) => { const f = skill ? NOTES.A5 : NOTES.E5; this.tone(f, 0, 0.06, "triangle", 0.1); this.tone(f * 1.5, 0.05, 0.1, "triangle", 0.08); });
     // Sorts (demande D) : chacun sa signature (limités : 150 ms entre deux sorts identiques).
     on("spell", 150, ({ tpl }) => this.spellSound(tpl));
+    on("pierced", 300, () => this.pierceSound());
     on("spellLearned", 500, () => [NOTES.E5, NOTES.A5, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.07, 0.25, "triangle", 0.1)));
     on("flee", 1000, () => [N.G5, N.E5, N.C5].forEach((f, i) => this.tone(f * 1.2, i * 0.07, 0.1, "square", 0.05))); // le gobelin s'échappe : petite moquerie qui descend
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 506) : crawl ja 320 et de 315 clics sans erreur. Son du trait perçant (pierceSound) : sifflement qui
+  file puis impact sec ≈ 0,18 s plus tard (le trait vole ≈ 0,2 s) ; ajouté au rendu de tous les sons de l'autotest
+  (pas de saturation ; volume voisin de « Tourbillon », à juger à l'oreille). 124/124.
 - 2026-11-10 (it. 505) : Héros > Libérés et Prisonniers : chaque carte montre les icônes des trois sorts du héros, à
   droite des boutons (grisées tant qu'ils ne sont pas appris ; infobulle : nom, rang ou « pas encore appris (zone X) »).
   Aide à choisir le prochain héros. Aucun défilement (fr / de / ru / pl, 3 largeurs). Traduit. 124/124.
@@ -1761,7 +1764,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
      Refonte du son (it. 432-435) : pièces en gamme, coups variés, sons des 10 événements et de l'étoile filante,
      ambiance de chaque zone (Réglages > Son > Ambiance des zones), musique qui varie (intermède, silence) : volumes ?
-  7. Sorts (it. 469-485) : animations dans la bande (éclair, lames, boule de feu, météore, soin, bouclier), sons, icônes,
+  7. Sorts (it. 469-485, son du trait perçant it. 506) : animations dans la bande (éclair, lames, boule de feu, météore, soin, bouclier), sons, icônes,
      sorts perçants, bouclier bleu-blanc sur la barre de vie, Grimoire des sorts ; trop chargé ou pas assez ?
   6. Sur le Mac : la bande ne doit pas apparaître devant un jeu / une vidéo en plein écran (it. 445) ; textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
   5. « Quoi de neuf » au lancement (édition 4 : 4 nouveautés, plus les éditions non lues) ; la bulle disparaît une fois lue.

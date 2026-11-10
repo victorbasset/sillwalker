@@ -556,6 +556,7 @@ async function runSelfTest(strip) {
     for (const id of ["wind", "goldrain", "frenzy", "bounty", "wisdom", "hawkeye", "shardfall", "zeal", "nest", "ward", "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));
     for (const k of ["bubble", "drip", "snow", "dust", "ember", "spore", "mote", "ash", "feather", "leaf", null]) await render("zone-" + k, (s) => { s.zoneSounds(k, false, true); s.zoneSounds(k, true, true); });
     await render("oiseau", (s) => s.birdCall());
+    await render("perçant", (s) => s.pierceSound());
     for (const id of ["bolt", "gust", "mend", "fire", "aegis", "meteor"]) await render("sort-" + id, (s) => s.spellSound(id));
     await render("gestion", (s) => { const h = {}; s.bind({ on: (e, fn) => { h[e] = fn; }, R: { events: {} }, S: window.__game.S, zoneDef: () => null }); clearInterval(s.ambT); h.equipped({ r: 4 }); h.soldOne({}); h.sold({ n: 9 }); h.spent({}); h.learned({ skill: true }); });
     await render("ambiance-évén", (s) => s.eventAmbience({ goldrain: 5, wind: 5, shardfall: 5, nest: 5 }));
