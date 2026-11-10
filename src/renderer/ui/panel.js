@@ -524,6 +524,7 @@ export class Panel {
       <div class="morerow">${this.todoBox()}${this.chronicleBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
+      ${this.game.spellDps(hs) > 0 ? `<dt>${tx("Dégâts des sorts par seconde")}</dt><dd>${fmt(Math.round(this.game.spellDps(hs)))}</dd>` : ""}
       <dt>${tx("Potions de soin")}</dt><dd>${S.potions}</dd><dt>${tx("Or")}</dt><dd id="goldtxt"></dd>
       ${S.prestige.count ? `<dt>${tx("Ascensions")}</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl></details></div>`;
     this.tick();

@@ -1107,4 +1107,5 @@ export default {
   2231: "Zaklęcia towarzysza można poznać przez bohatera („+”), a Grimuar też je ulepsza.",
   2232: "Przebicie sięga też bossa na końcu kolejki (najwyżej ćwierć jego życia).",
   2233: "Każda ikona zaklęcia ma odznakę swojego efektu; podpowiedzi opisują efekty.",
+  2234: "Obrażenia zaklęć na sekundę",
 };

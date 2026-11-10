@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 569) : recherche des autres estimations sans les sorts : heroDps n'est plus utilisé que par power
+  (comparaison d'objets, relative : sans effet). « Toutes les statistiques » du héros : « Dégâts des sorts par seconde »
+  (spellDps) quand des sorts de dégâts sont appris. Traduit ; aucun défilement (fenêtre ouverte, ru/de/pl). 130/130.
 - 2026-11-10 (it. 568) : BOGUE : le temps hors ligne (applyOffline, formule et non simulation) ignorait les sorts ; un
   joueur qui y avait investi progressait moins hors ligne qu'en jeu. game.spellDps : dégâts moyens des sorts de dégâts
   appris (héros + compagnon à moitié, écho compté, recharge réelle ; sans les autres effets), ajoutés aux dégâts du

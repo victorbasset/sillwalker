@@ -1107,4 +1107,5 @@ export default {
   2231: "Companion spells can be learned from your hero (“+”) and the Grimoire upgrades them too.",
   2232: "Piercing also reaches the boss at the end of the line (a quarter of its life at most).",
   2233: "Every spell icon bears its effect's badge; tooltips describe the effects.",
+  2234: "Spell damage per second",
 };

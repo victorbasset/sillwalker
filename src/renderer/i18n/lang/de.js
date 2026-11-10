@@ -1107,4 +1107,5 @@ export default {
   2231: "Begleiterzauber lassen sich mit deinem Helden lernen („+“), und das Grimoire verbessert sie auch.",
   2232: "Durchbohren trifft auch den Boss am Ende der Reihe (höchstens ein Viertel seines Lebens).",
   2233: "Jedes Zaubersymbol trägt das Abzeichen seines Effekts; Tooltips beschreiben die Effekte.",
+  2234: "Zauberschaden pro Sekunde",
 };

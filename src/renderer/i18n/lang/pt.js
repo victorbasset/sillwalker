@@ -1107,4 +1107,5 @@ export default {
   2231: "Os feitiços do companheiro são aprendidos pelo seu herói («+») e o Grimório também os melhora.",
   2232: "A perfuração também atinge o chefe no fim da fila (no máximo um quarto da vida dele).",
   2233: "Cada ícone de feitiço traz o selo do seu efeito; as dicas descrevem os efeitos.",
+  2234: "Dano de feitiços por segundo",
 };

@@ -1107,4 +1107,5 @@ export default {
   2231: "Los hechizos del compañero se aprenden desde tu héroe («+») y el Grimorio también los mejora.",
   2232: "La perforación también alcanza al jefe al final de la fila (un cuarto de su vida como máximo).",
   2233: "Cada icono de hechizo lleva la insignia de su efecto; los textos emergentes describen los efectos.",
+  2234: "Daño de hechizos por segundo",
 };

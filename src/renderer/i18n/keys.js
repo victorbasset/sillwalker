@@ -2235,5 +2235,6 @@ export const KEYS = [
   "Sort du compagnon à apprendre : {0}",
   "Les sorts du compagnon s’apprennent depuis ton héros (« + ») et le Grimoire les améliore aussi.",
   "Le perçage atteint aussi le boss au bout de la file (un quart de sa vie au plus).",
-  "Chaque icône de sort porte le badge de son effet ; les infobulles décrivent les effets."
+  "Chaque icône de sort porte le badge de son effet ; les infobulles décrivent les effets.",
+  "Dégâts des sorts par seconde"
 ];
