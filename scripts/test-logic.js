@@ -2436,6 +2436,17 @@ test("journal : repart à zéro quand la langue change, jamais pour une ancienne
   assert.equal(m.logLang, "en", "langue du journal conservée dans la sauvegarde");
 });
 
+test("Sort perçant (demande L) : le monstre suivant est frappé à son arrivée, l'événement porte le sort", () => {
+  const g = new Game(freshState()); g.setClass("paladin");
+  g.R.mode = "walk"; g.R.mon = null; g.R.spawnT = 0.01; g.R.pierce = 50; g.R.pierceId = "paladin.0";
+  let ev = null; g.on("pierced", (e) => { ev = e; });
+  g.advance(0.05);
+  assert.ok(g.R.mon, "monstre suivant apparu");
+  assert.ok(ev && ev.id === "paladin.0" && ev.dmg > 0 && ev.mon === g.R.mon, "événement pierced avec le sort et les dégâts");
+  assert.ok(g.R.mon.hp >= 1 && g.R.mon.hp < g.R.mon.max, "monstre blessé mais vivant");
+  assert.equal(g.R.pierce, 0, "réserve perçante vidée");
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));

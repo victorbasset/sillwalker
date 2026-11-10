@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 512) : test logique du sort perçant (demande L) : à l'arrivée du monstre suivant, il est blessé mais
+  vivant, l'événement « pierced » porte le sort (pour le trait coloré de la bande) et les dégâts, la réserve est vidée.
+  174 tests ; 125/125.
 - 2026-11-10 (it. 511) : autotest « onglets serrés : toutes les icônes restent (1900 → 700 px) » : la barre d'onglets
   est resserrée de 40 en 40 px, chaque palier de fitTabs est traversé (tight, small, slim, compact), aucune icône ne
   doit manquer (garde la demande M). 125/125.
