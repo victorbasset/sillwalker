@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 482) : sorts dans les Statistiques : compteur stats.spells (ligne « Sorts lancés ») et succès
+  « Mage de bataille (1 000 sorts lancés) » avec sa progression. Le 57e succès faisait défiler Statistiques > Succès
+  (autotest : 12 px à 1366 ; mesuré : ru 61 px, de 7 px à 1280) : liste resserrée à ≤ 1499 px (colonnes 200 px,
+  13 px, interligne 1,2) et ≤ 1365 px (180 px, 12 px) ; --overflow-report mesure désormais ce sous-onglet : 7 langues
+  × 1366 / 1280 : aucun défilement. Traduit ; test logique ; save-fuzz ok. 123/123.
 - 2026-11-10 (it. 481) : contrôles des sorts : autotest « sorts : trois cartes, « Apprendre » donne le rang 1 »
   (sous-onglet Sorts et attaque, état rétabli après) ; --overflow-report mesure aussi Héros > Sorts et attaque :
   lang-overflow fr / de / ru / pl / pt / es à 1366 et 1280 : aucun défilement. 123/123.

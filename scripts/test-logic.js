@@ -706,7 +706,7 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   let cast = 0; g.on("spell", ({ id }) => { if (id === "warrior.0") cast++; });
   g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = 1e9; g.R.spellT = { "warrior.0": 0 };
   const hp0 = g.R.mon.hp; g.castSpells(g.R.mon, g.stats(), 0.1);
-  assert.equal(cast, 1, "sort lancé"); assert.ok(g.R.mon.hp < hp0, "dégâts du sort"); assert.ok(g.R.spellT["warrior.0"] > 5, "recharge relancée");
+  assert.equal(cast, 1, "sort lancé"); assert.equal(g.S.stats.spells, 1, "statistique des sorts lancés"); assert.ok(g.R.mon.hp < hp0, "dégâts du sort"); assert.ok(g.R.spellT["warrior.0"] > 5, "recharge relancée");
   // Perçant (demande H) : le Tourbillon (lames) met de côté 50 % de ses dégâts pour le monstre suivant
   assert.ok(g.R.pierce > 0, "dégâts perçants en réserve");
   const reserve = g.R.pierce; g.R.mon = null; g.R.mode = "walk"; g.R.spawnT = 0; g.step(0.05);

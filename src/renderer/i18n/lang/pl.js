@@ -1044,4 +1044,6 @@ export default {
   2168: "Tarczę widać na pasku zdrowia; towarzysz ma własny wiersz na karcie bohatera.",
   2169: "Odblokowanie Mapa nieba: odłamki gwiazd same trafiają do konstelacji.",
   2170: "Nowe zaklęcie do nauki: {0} ({1} złota). Kliknij tutaj.",
+  2171: "Mag bitewny (1000 rzuconych zaklęć)",
+  2172: "Rzucone zaklęcia",
 };

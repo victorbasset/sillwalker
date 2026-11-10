@@ -2172,5 +2172,7 @@ export const KEYS = [
   "Certains sorts transpercent : une part des dégâts frappe le monstre suivant dès son arrivée.",
   "Le bouclier se voit sur la barre de vie ; le compagnon a sa ligne dans la carte du héros.",
   "Déblocage Carte du ciel : les éclats d’étoile se placent tout seuls dans les constellations.",
-  "Nouveau sort à apprendre : {0} ({1} or). Clique ici."
+  "Nouveau sort à apprendre : {0} ({1} or). Clique ici.",
+  "Mage de bataille (1 000 sorts lancés)",
+  "Sorts lancés"
 ];

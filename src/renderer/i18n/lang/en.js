@@ -1044,4 +1044,6 @@ export default {
   2168: "The shield shows on the health bar; the companion has its own line in the hero card.",
   2169: "Sky Chart unlock: star shards are placed into constellations automatically.",
   2170: "New spell to learn: {0} ({1} gold). Click here.",
+  2171: "Battle Mage (1,000 spells cast)",
+  2172: "Spells cast",
 };

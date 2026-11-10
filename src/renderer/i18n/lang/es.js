@@ -1044,4 +1044,6 @@ export default {
   2168: "El escudo se ve en la barra de vida; el compañero tiene su propia línea en la tarjeta del héroe.",
   2169: "Desbloqueo Carta celeste: los fragmentos de estrella se colocan solos en las constelaciones.",
   2170: "Nuevo hechizo para aprender: {0} ({1} de oro). Haz clic aquí.",
+  2171: "Mago de batalla (1000 hechizos lanzados)",
+  2172: "Hechizos lanzados",
 };

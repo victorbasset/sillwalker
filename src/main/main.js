@@ -172,6 +172,8 @@ function start() {
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)
           { P.setTab("class"); P.tabs.class.sec = "style"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("sorts=" + o); P.tabs.class.sec = "freed"; }
+          // Statistiques > Succès (la liste grandit avec chaque succès ; les noms longs du russe passent sur deux lignes)
+          if (P.tabs.stats) { P.setTab("stats"); P.tabs.stats.sec = "ach"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("succès=" + o); P.tabs.stats.sec = "numbers"; }
           P.kept.clear(); P.setTab("adventure"); P.renderAll();
           for (const k of ["hero-todo", "hero-chron", "hero-stats", "rates"]) {
             const d = document.querySelector("[data-keep=" + k + "]"); if (!d) continue; d.querySelector("summary").click();

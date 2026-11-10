@@ -1044,4 +1044,6 @@ export default {
   2168: "Der Schild ist auf der Lebensleiste zu sehen; der Begleiter hat eine eigene Zeile in der Heldenkarte.",
   2169: "Freischaltung Himmelskarte: Sternensplitter werden automatisch in Sternbilder gesetzt.",
   2170: "Neuer Zauber zum Lernen: {0} ({1} Gold). Hier klicken.",
+  2171: "Kampfmagier (1.000 gewirkte Zauber)",
+  2172: "Gewirkte Zauber",
 };

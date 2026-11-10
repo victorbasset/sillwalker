@@ -445,6 +445,7 @@ export class Game {
       R.spellT[sp.id] = (R.spellT[sp.id] ?? sp.cd * 0.5) - dt;
       if (R.spellT[sp.id] > 0) continue;
       R.spellT[sp.id] = sp.cd;
+      S.stats.spells = (+S.stats.spells || 0) + 1; // statistique et succès « Mage de bataille »
       const v = spellValue(sp, r);
       if (sp.kind === "heal") { const a = Math.min(hs.hp - R.hp, hs.hp * v / 100); if (a > 0) R.hp += a; this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: Math.max(0, a) }); continue; }
       if (sp.kind === "shield") { const a = hs.hp * v / 100; R.shield = Math.max(R.shield || 0, a); this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: a }); continue; }

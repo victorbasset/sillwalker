@@ -76,6 +76,7 @@ export class StatsTab {
         ${line("K.O.", fmt(st.deaths))}
         ${line(tx("Coups au clic"), fmt(st.taps || 0))}
         ${line(tx("Coups critiques"), fmt(+st.crits || 0))}
+        ${line(tx("Sorts lancés"), fmt(+st.spells || 0))}
       </ul></article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("ws_gold", 3)}" alt="">${tx("Richesse et butin")}</span></h2><ul class="lines">
         ${line(tx("Or gagné au total"), fmt(st.goldTotal || 0))}
