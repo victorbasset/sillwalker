@@ -9,7 +9,7 @@
 // Ce module lit l'état de la simulation sans jamais le modifier.
 import { CLASSES, CLASS_UNLOCK_ZONE, isRanged } from "../game/classes.js";
 import { EVENTS } from "../game/events.js";
-import { t as tx, fsp } from "../i18n/index.js";
+import { t as tx, fsp, tr } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
@@ -23,6 +23,7 @@ import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
+import { SPELL_INDEX } from "../game/spells.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
 // Répliques du héros, par circonstance.
@@ -133,6 +134,20 @@ export class StripRenderer {
       if (id === "tenacious") { this.shake(0.25); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 20, this.ground - 30, "#ff9a4a", 10); }
       if (id === "frost") { this.float(this.heroX + 10, 30, tx("Gelé !"), "#bfe8ff", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#bfe8ff", 8); return; }
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
+    });
+    // Sorts (demande D) : chacun son animation ; dégâts en chiffres de la couleur du sort.
+    g.on("spell", ({ id, dmg, amount }) => {
+      if (!this.active) return;
+      const sp = SPELL_INDEX[id]; if (!sp) return;
+      const tpl = sp.tpl;
+      const mx = this.monX() + 14, hx = this.heroX + 16, c = sp.color, full = this.juice.full;
+      if (tpl === "bolt") { const b = el("div", "spellfx bolt", this.fxLayer); b.style.setProperty("--c", c); this.addFx(b, mx, 2, 0.3, 0); this.flash = Math.max(this.flash, 0.1); if (full) this.juice.sparkles(mx + 4, this.ground - 24, c, 8); }
+      else if (tpl === "gust") { this.projectile("bolt", hx + 8, mx, 56, 2, c); this.projectile("bolt", hx + 8, mx, 66, 2, c); }
+      else if (tpl === "fire") { this.projectile("fire", hx + 8, mx, 58, 3, c); if (full) this.juice.sparkles(mx + 6, this.ground - 26, c, 10); }
+      else if (tpl === "meteor") { const m = el("div", "spellfx meteor", this.fxLayer); m.style.setProperty("--c", c); this.addFx(m, mx - 50, -10, 0.35, -60, 50); this.shake(0.4); if (full) this.juice.sparkles(mx + 6, this.ground - 18, c, 14); }
+      else if (tpl === "mend") { if (full) this.juice.sparkles(hx, this.ground - 30, c, 10); if (amount > 0) this.float(hx, 40, "+" + fmt(Math.round(amount)), c, false, true); }
+      else if (tpl === "aegis") { if (full) this.juice.sparkles(hx, this.ground - 30, c, 12); this.float(hx, 30, tr(sp.name), c, false); }
+      if (dmg > 0 && this.game.S.settings.damageNumbers !== false) this.float(mx, 30, "-" + fmt(Math.round(dmg)), c, true, true);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });

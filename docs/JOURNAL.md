@@ -5,6 +5,18 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 469, demande D : sorts, « différents pour chaque héros ») : game/spells.js : 6 mécaniques (éclair,
+  double lame, soin, boule de feu, bouclier, météore) et 3 sorts propres à chacun des 20 héros (60 noms : Tourbillon,
+  Cri de ralliement, Fracas du titan pour le guerrier…), débloqués aux zones record 6, 22, 50, appris puis améliorés
+  avec de l'or (rangs 1 à 10, +25 % par rang), gardés à l'ascension (S.spells, migrate : inconnus et illisibles
+  retirés). En combat, les sorts du héros actuel se lancent tout seuls quand ils sont rechargés (castSpells), en plus
+  de l'attaque de base. Animation dans la bande par mécanique (colonne d'éclair, lames, boule de feu, météore qui
+  tombe avec secousse, étincelles de soin et de bouclier, dégâts de la couleur du héros) ; son par mécanique (contrôle
+  du son de l'autotest). Onglet Héros > Style de combat : carte « Sorts de <héros> » (effet, recharge, rang, Apprendre
+  / Améliorer). Simulation : achète les rangs comme l'Atelier ; balance 12 h : +0,0 (puissance modeste, surtout du
+  spectacle) ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok. check-comments : nouvelle règle (« clé: valeur, » dans
+  un commentaire), après un 4e code avalé pendant cette itération. Traduit (43 clés ; settr.mjs traduit par texte de
+  clé). 172 tests, 122/122. À voir en jeu par Victor : animations et sons.
 - 2026-11-10 (it. 468, demandes E et F) : E. carte Équipement : « clique un objet » devient « clic sur un objet :
   détails » (« … : détails et forge » avec l'Enclume). F. carte du héros : le compagnon n'est plus une petite
   étiquette coupée dans le titre (« Rang… » même à 1920) mais une ligne à lui sous le titre : portrait 28 px,
@@ -1631,7 +1643,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - DEMANDES DE VICTOR (2026-11-10, fin de matinée), à traiter en premier, dans cet ordre :
   E. FAIT (it. 468). Aventure : le texte « clique un objet » (titre de la carte Équipement) ne veut rien dire.
   F. FAIT (it. 468). Aventure : on voit mal le compagnon à côté du héros dans la première carte.
-  D. Style de combat : des sorts à apprendre pour ses héros, qui s'ajoutent à l'attaque de base, avec une animation.
+  D. FAIT (it. 469, à voir en jeu). Style de combat : des sorts à apprendre pour ses héros, qui s'ajoutent à l'attaque de base, avec une animation.
 
 - DEMANDES DE VICTOR (2026-11-10, sur Mac), à traiter en premier, dans cet ordre :
   A. FAIT (it. 431, à vérifier sur le Mac). Mac : icône Electron dans le Dock au lancement (npm start) : la cacher (app.dock.hide()).

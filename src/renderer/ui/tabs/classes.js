@@ -2,11 +2,13 @@
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
 import { describeEffects } from "../../game/talents.js";
 import { subtabsHTML } from "../subtabs.js";
-import { t as tx, txn, fsp } from "../../i18n/index.js";
+import { t as tx, txn, fsp, tr } from "../../i18n/index.js";
 import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner, DUO_SYNERGIES } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
-import { esc, unit } from "../../game/format.js";
+import { esc, unit, fmt } from "../../game/format.js";
+import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue } from "../../game/spells.js";
+import { recordZone } from "../../game/unlocks.js";
 import { classPortraitURL } from "../../render/sprites.js";
 
 const pct = (m) => (m === 1 ? "" : `${m > 1 ? "+" : "−"}${Math.round(Math.abs(m - 1) * 100)}${unit("%")}`);
@@ -77,10 +79,29 @@ export class ClassesTab {
     // Style de combat : son propre sous-onglet (demande 18) ; les autres montrent les cartes des héros.
     el.innerHTML = `${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
       ${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Style de combat"), `${tier + 1} / ${ATTACK_TIERS.length}`]], this.sec, "c-sec")}
-      ${this.sec === "style" ? style : `<div class="classgrid hscroll sec-${this.sec}" data-hs="heroes-${this.sec}">${cards}</div>`}`;
+      ${this.sec === "style" ? style + this.spellsHTML(S) : `<div class="classgrid hscroll sec-${this.sec}" data-hs="heroes-${this.sec}">${cards}</div>`}`;
+  }
+
+  /** Sorts (demande D) : appris pour tous les héros, ils s'ajoutent à l'attaque de base en combat. */
+  spellsHTML(S) {
+    const rec = recordZone(S);
+    const cards = classSpells(S.cls).map((sp) => {
+      const r = spellRank(S, sp.id), open = rec >= sp.zone, price = spellPrice(sp, r), v = spellValue(sp, Math.max(1, r));
+      const eff = sp.kind === "dmg" ? (sp.hits > 1 ? txn(sp.hits, "{n} coup de {0} % de l’attaque|{n} coups de {0} % de l’attaque", { 0: Math.round(v * 100) }) : tx("{0} % de l’attaque", { 0: Math.round(v * 100) }))
+        : sp.kind === "heal" ? tx("soigne {0} % des PV", { 0: Math.round(v) }) : tx("bouclier de {0} % des PV", { 0: Math.round(v) });
+      const btn = !open ? `<span class="note">${tx("zone {0} requise", { 0: sp.zone })}</span>`
+        : r >= SPELL_MAX ? `<span class="note">${tx("rang maximal")}</span>`
+        : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""}>${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`;
+      return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
+        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: sp.cd, 1: eff })}</p>${btn}</div>`;
+    }).join("");
+    return `<article class="panel spellbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.cls] ? CLASSES[S.cls].name : "") })} <small>${tx("propres à chaque héros, gardés à l’ascension")}</small></h2>
+      <p class="note tight">${tx("Ils se lancent tout seuls en combat dès qu’ils sont rechargés, en plus de l’attaque de base.")}</p>
+      <div class="spellgrid">${cards}</div></article>`;
   }
 
   onAction(a, b) {
+    if (a === "c-spell") { this.game.learnSpell(b.dataset.id); return; }
     if (a === "c-sec") this.sec = b.dataset.to;
     else if (a === "c-pick") this.game.chooseNextClass(b.dataset.id);
     else if (a === "c-partner") this.game.choosePartner(b.dataset.id);

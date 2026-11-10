@@ -8,11 +8,12 @@ import { CLASS_KEYS_BY_UNLOCK, canPartner, DUO_SYNERGIES } from "../src/renderer
 import { SKILL_TREE, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { CONSTELLATIONS, constellationCost } from "../src/renderer/game/prestige.js";
 import { CONSUMABLES, consumablePrice, WORKSHOP, workshopPrice } from "../src/renderer/game/shop.js";
+import { SPELL_MAX, classSpells, spellPrice, spellRank } from "../src/renderer/game/spells.js";
 import { questDone } from "../src/renderer/game/quests.js";
 import { forgeCost } from "../src/renderer/game/rules.js";
 import { MAX_PLUS } from "../src/renderer/game/data.js";
 import { fmt } from "../src/renderer/game/format.js";
-import { nextUnlock, unlockAvailable } from "../src/renderer/game/unlocks.js";
+import { nextUnlock, unlockAvailable, recordZone } from "../src/renderer/game/unlocks.js";
 
 const HOURS = +process.argv[2] || 12, CLS = process.argv[3] || "warrior";
 setRandom(seeded(+process.env.SEED || 7)); // SEED=… pour une autre trajectoire
@@ -47,6 +48,11 @@ function playerTurn() {
   for (let k = 0; k < 20; k++) {
     const ws = WORKSHOP.filter((w) => !(w.max && ((g.S.workshop || {})[w.id] || 0) >= w.max)).sort((a, b) => workshopPrice(a, g.S) - workshopPrice(b, g.S))[0];
     if (!ws || workshopPrice(ws, g.S) > g.S.gold * 0.1 || !g.buyWorkshop(ws.id)) break;
+  }
+  // Sorts (it. 469) : même prudence que l'Atelier (le rang le moins cher sous 10 % de l'or).
+  for (let k = 0; k < 10; k++) {
+    const sp = classSpells(g.S.cls).filter((x) => recordZone(g.S) >= x.zone && spellRank(g.S, x.id) < SPELL_MAX).sort((a, b) => spellPrice(a, spellRank(g.S, a.id)) - spellPrice(b, spellRank(g.S, b.id)))[0];
+    if (!sp || spellPrice(sp, spellRank(g.S, sp.id)) > g.S.gold * 0.1 || !g.learnSpell(sp.id)) break;
   }
   g.autoEquip();
   g.sellUseless();

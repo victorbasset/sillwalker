@@ -113,6 +113,19 @@ export class Sound {
     s.start(t);
   }
 
+  /** Sort lancé (demande D). */
+  spellSound(id) {
+    const N = NOTES;
+    switch (id) {
+      case "bolt": this.noise(0, 0.12, 0.3, 3000, 0.7); this.tone(1800, 0, 0.12, "square", 0.04, 0.4); this.tone(60, 0.02, 0.2, "sine", 0.18, 0.7); break; // grésillement, puis tonnerre sourd
+      case "gust": this.whoosh(0, 0.3, 700, 3000, 0.35, 2); this.whoosh(0.08, 0.3, 900, 3400, 0.25, 2); break; // deux lames d'air
+      case "mend": [N.C6, N.E6, N.G6].forEach((f, i) => this.tone(f, i * 0.06, 0.3, "sine", 0.07)); break; // soin cristallin
+      case "fire": this.whoosh(0, 0.35, 300, 900, 0.35, 1); this.noise(0.25, 0.15, 0.2, 700, 0.8); break; // souffle de feu, puis impact
+      case "aegis": this.tone(N.G5, 0, 0.4, "triangle", 0.07); this.tone(N.G5 * 1.5, 0.05, 0.4, "sine", 0.05); break; // bouclier qui se lève
+      case "meteor": this.whoosh(0, 0.35, 2500, 400, 0.3, 1.5); this.tone(70, 0.3, 0.5, "sawtooth", 0.2, 0.5); this.noise(0.3, 0.3, 0.3, 500, 0.7); break; // chute, puis fracas
+    }
+  }
+
   /** Événement rare (demande C) : chacun a sa signature au moment où il commence. */
   eventSound(id) {
     const N = NOTES;
@@ -413,6 +426,9 @@ export class Sound {
     // compétence : petit déclic qui monte. Limités : les achats et points automatiques ne crépitent pas.
     on("spent", 250, () => { this.noise(0, 0.03, 0.1, 3500, 2); this.tone(NOTES.G6, 0.02, 0.08, "sine", 0.07); this.tone(NOTES.D6, 0.08, 0.12, "sine", 0.06); });
     on("learned", 90, ({ skill }) => { const f = skill ? NOTES.A5 : NOTES.E5; this.tone(f, 0, 0.06, "triangle", 0.1); this.tone(f * 1.5, 0.05, 0.1, "triangle", 0.08); });
+    // Sorts (demande D) : chacun sa signature (limités : 150 ms entre deux sorts identiques).
+    on("spell", 150, ({ tpl }) => this.spellSound(tpl));
+    on("spellLearned", 500, () => [NOTES.E5, NOTES.A5, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.07, 0.25, "triangle", 0.1)));
     on("flee", 1000, () => [N.G5, N.E5, N.C5].forEach((f, i) => this.tone(f * 1.2, i * 0.07, 0.1, "square", 0.05))); // le gobelin s'échappe : petite moquerie qui descend
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
     game.on("levelUp", () => this.play("level"));

@@ -45,6 +45,7 @@ import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS } fr
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
+import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue } from "./spells.js";
 import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock, recordZone } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
@@ -240,6 +241,8 @@ export class Game {
         if (R.mon.dist <= 0) {
           R.mon.dist = 0; R.mode = "fight"; R.atkT = 0.25;
           R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0;
+          R.spellT = {}; // sorts : premier lancer après une demi-recharge (pas tous d'un coup à l'arrivée)
+          for (const sp of classSpells(this.S.cls)) if (spellRank(this.S, sp.id)) R.spellT[sp.id] = sp.cd * 0.5;
           R.shield = hs.shield > 0 ? hs.hp * hs.shield / 100 : 0;
           if (R.shield > 0) this.emit("shield", { amount: R.shield });
         }
@@ -261,6 +264,8 @@ export class Game {
           if (m.hp <= 0) { this.killMonster(); return; }
         }
       }
+      // Sorts (demande D) : chacun se lance tout seul quand il est rechargé, en plus de l'attaque de base.
+      if (this.castSpells(m, hs, dt)) return;
       // Brûlure, poison, serviteur
       if (m.burnT > 0) {
         const t = Math.min(dt, m.burnT);
@@ -425,6 +430,45 @@ export class Game {
     if (m.hp > m.max * BULWARK.above) return 1 - BULWARK.cut;
     if (!m.bulwarkBroken) { m.bulwarkBroken = true; this.emit("bossSkill", { id: "bulwark" }); }
     return 1;
+  }
+
+  /** Sorts appris : recharge et lancer. Renvoie true si le monstre est tombé (le combat s'arrête là). */
+  castSpells(m, hs, dt) {
+    const S = this.S, R = this.R;
+    if (!S.spells) return false;
+    R.spellT ||= {};
+    for (const sp of classSpells(S.cls)) {
+      const r = spellRank(S, sp.id);
+      if (!r) continue;
+      R.spellT[sp.id] = (R.spellT[sp.id] ?? sp.cd * 0.5) - dt;
+      if (R.spellT[sp.id] > 0) continue;
+      R.spellT[sp.id] = sp.cd;
+      const v = spellValue(sp, r);
+      if (sp.kind === "heal") { const a = Math.min(hs.hp - R.hp, hs.hp * v / 100); if (a > 0) R.hp += a; this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: Math.max(0, a) }); continue; }
+      if (sp.kind === "shield") { const a = hs.hp * v / 100; R.shield = Math.max(R.shield || 0, a); this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: a }); continue; }
+      let total = 0;
+      for (let h = 0; h < sp.hits; h++) {
+        let dmg = hs.atk * v * (m.boss ? 1 + hs.bossDmg / 100 : 1) * this.bulwarkFactor(m);
+        if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; }
+        m.hp -= dmg; total += dmg;
+      }
+      this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m });
+      if (m.hp <= 0) { this.killMonster(); return true; }
+    }
+    return false;
+  }
+
+  /** Sort : apprendre (rang 1) ou améliorer, si la zone record le permet et qu'il y a l'or. */
+  learnSpell(id) {
+    const sp = SPELL_INDEX[id], S = this.S;
+    if (!sp || sp.cls !== S.cls || recordZone(S) < sp.zone) return false; // les sorts du héros actuel
+    const r = spellRank(S, id);
+    if (r >= SPELL_MAX || !this.pay(spellPrice(sp, r))) return false;
+    (S.spells ||= {})[id] = r + 1;
+    this.log(r ? tx("Sort {0} : rang {1}.", { 0: tr(sp.name), 1: r + 1 }) : tx("Nouveau sort appris : {0} !", { 0: tr(sp.name) }));
+    this.emit("spellLearned", { id, rank: r + 1 });
+    this.changed();
+    return true;
   }
 
   heroStrike(m, hs, first, extra) {
@@ -1814,6 +1858,8 @@ export class Game {
     Object.assign(f, {
       prestige: P, pets: old.pets, bestiary: old.bestiary, achievements: old.achievements, cls: old.nextCls && isClassUnlocked(old, old.nextCls) ? old.nextCls : old.cls,
       classesUnlocked: old.classesUnlocked,
+      // Sorts (demande D) : gardés à l'ascension.
+      spells: old.spells || {},
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize,
       // Ascension (demande de Victor) : le tri du marchand repart décoché ; au début d'une course, les objets
       // communs ou rares sont de vrais progrès qu'il serait dommage de vendre d'office.

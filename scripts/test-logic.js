@@ -6,6 +6,7 @@ import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
 import * as M_news_js from "../src/renderer/game/news.js";
+import * as M_spells_js from "../src/renderer/game/spells.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_events_js from "../src/renderer/game/events.js";
@@ -687,6 +688,38 @@ test("Quoi de neuf : rien pour une partie neuve, une fois pour une ancienne sauv
   assert.equal(sh.items.length + sh.older, NEWS_EDITIONS.flat().length, "rien ne se perd dans le compte");
   assert.ok(sh.items.length === NEWS_EDITIONS.slice(-NEWS_MAX_EDITIONS).flat().length, "les 3 dernières éditions");
   assert.equal(newsShown(NEWS_ID - 1).older, 0);
+});
+
+test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés à l'ascension, sauvegarde abîmée", () => {
+  const { SPELLS, SPELL_INDEX, classSpells, spellPrice, SPELL_MAX } = M_spells_js;
+  for (const c of CLASS_KEYS) assert.equal(classSpells(c).length, 3, c + " : trois sorts");
+  assert.equal(new Set(SPELLS.map((x) => x.name)).size, SPELLS.length, "60 noms tous différents");
+  const g = new Game(freshState()); g.S.cls = "warrior"; g.S.best = g.S.zone = 10; g.S.gold = 1e12;
+  assert.ok(!g.learnSpell("warrior.1"), "2e sort : zone 22 pas atteinte");
+  assert.ok(!g.learnSpell("mage.0"), "pas les sorts d'un autre héros");
+  const before = g.S.gold; assert.ok(g.learnSpell("warrior.0"), "Tourbillon appris"); assert.equal(g.S.spells["warrior.0"], 1);
+  assert.equal(before - g.S.gold, spellPrice(SPELL_INDEX["warrior.0"], 0), "prix du rang 1");
+  for (let i = 0; i < 20; i++) g.learnSpell("warrior.0"); assert.equal(g.S.spells["warrior.0"], SPELL_MAX, "rang maximal");
+  // En combat : le sort part tout seul et blesse le monstre
+  let cast = 0; g.on("spell", ({ id }) => { if (id === "warrior.0") cast++; });
+  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = 1e9; g.R.spellT = { "warrior.0": 0 };
+  const hp0 = g.R.mon.hp; g.castSpells(g.R.mon, g.stats(), 0.1);
+  assert.equal(cast, 1, "sort lancé"); assert.ok(g.R.mon.hp < hp0, "dégâts du sort"); assert.ok(g.R.spellT["warrior.0"] > 5, "recharge relancée");
+  // Soin (rôdeur) et bouclier (guerrier)
+  const h = new Game(freshState()); h.S.cls = "ranger"; h.S.best = h.S.zone = 60; h.S.spells = { "ranger.1": 1 }; const hs = h.stats();
+  h.R.mon = h.makeMonster(false); h.R.mon.hp = 1e15; h.R.hp = hs.hp * 0.5; h.R.spellT = { "ranger.1": 0 };
+  h.castSpells(h.R.mon, hs, 0.1); assert.ok(h.R.hp > hs.hp * 0.5, "soin");
+  const k = new Game(freshState()); k.S.cls = "warrior"; k.S.spells = { "warrior.1": 1 }; k.R.mon = k.makeMonster(false); k.R.mon.hp = 1e15; k.R.shield = 0; k.R.spellT = { "warrior.1": 0 };
+  k.castSpells(k.R.mon, k.stats(), 0.1); assert.ok(k.R.shield > 0, "bouclier");
+  // Les sorts d'un autre héros ne partent pas
+  const o = new Game(freshState()); o.S.cls = "warrior"; o.S.spells = { "mage.0": 5 }; o.R.mon = o.makeMonster(false); o.R.mon.hp = o.R.mon.max = 1e15; o.R.spellT = { "mage.0": 0 };
+  const hp1 = o.R.mon.hp; o.castSpells(o.R.mon, o.stats(), 0.1); assert.equal(o.R.mon.hp, hp1, "sort d'un autre héros : rien");
+  // Ascension : gardés
+  g.S.best = g.S.zone = 30; assert.ok(g.ascend()); assert.equal(g.S.spells["warrior.0"], SPELL_MAX, "sorts gardés à l'ascension");
+  // Sauvegarde abîmée : sort inconnu et rang illisible retirés, rang trop grand borné
+  const bad = JSON.parse(JSON.stringify(g.S)); bad.spells = { "warrior.0": 99, inconnu: 3, "mage.1": "x", "mage.2": 2.7 };
+  assert.deepEqual(migrate(bad).spells, { "warrior.0": SPELL_MAX, "mage.2": 2 });
+  const bad2 = JSON.parse(JSON.stringify(g.S)); bad2.spells = "x"; assert.deepEqual(migrate(bad2).spells, {});
 });
 
 test("synergies de duo : un partenaire attitré par héros, bonus appliqué au duo formé", () => {

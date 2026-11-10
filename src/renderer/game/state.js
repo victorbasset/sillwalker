@@ -8,6 +8,7 @@ import { PET_INDEX } from "./pets.js";
 import { SKILL_TREE } from "./skilltree.js";
 import { LANGS } from "../i18n/index.js";
 import { seedTabs } from "./tabs.js";
+import { SPELL_INDEX, SPELL_MAX } from "./spells.js";
 import { chroniclesUnlocked } from "./story.js";
 
 export const SAVE_VERSION = 8;
@@ -21,6 +22,7 @@ export function freshState(now = Date.now()) {
     bag: [],
     autoAdvance: true,
     autoSell: { common: false, uncommon: false, rare: false },
+    spells: {},         // sorts appris (game/spells.js) : id -> rang, gardés à l'ascension
     autoPotions: false, // rachète des potions automatiquement sous AUTO_POTIONS
     last: now,
     nextId: 1,
@@ -214,6 +216,8 @@ export function migrate(raw) {
   // Réglages oui / non : une valeur abîmée (texte, null…) reprend le défaut (sinon « oui » activerait l'économie).
   s.settings.eco = s.settings.eco === true;
   s.settings.zoneAmbience = s.settings.zoneAmbience !== false;
+  // Sorts : rangs entiers de 1 à SPELL_MAX ; un sort inconnu (autre version) ou un rang illisible est retiré.
+  s.spells = Object.fromEntries(Object.entries(isObj(s.spells) ? s.spells : {}).filter(([k, v]) => SPELL_INDEX[k] && Number.isFinite(+v) && +v >= 1).map(([k, v]) => [k, Math.min(SPELL_MAX, Math.floor(+v))]));
   s.settings.autoStars = s.settings.autoStars !== false; // Carte du ciel : active une fois achetée, sauf refus
   // Volumes propres de la musique et de l'ambiance (0 à 200 % du réglage d'origine)
   for (const k of ["musicVol", "ambVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite

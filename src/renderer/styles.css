@@ -1149,3 +1149,14 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .duoline .duotag .syn { color: var(--accent); font-size: 12px; }
 .duoline .duotag { white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
 @media (max-width: 1499px) { .duoline .duotag .synname { display: none; } }
+/* Sorts (demande D) : cartes dans « Style de combat », couleur du sort en bordure. */
+.spellgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.spellcard { border: 2px solid var(--edge); border-left: 4px solid var(--c); padding: 6px 8px; background: var(--card, transparent); }
+.spellcard.locked { opacity: 0.55; }
+.spellcard.on { box-shadow: inset 0 0 0 1px var(--c); }
+.spellcard button { margin-top: 4px; font-size: 12px; padding: 2px 8px; }
+@media (max-width: 1100px) { .spellgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Sorts dans la bande : colonne d'éclair et météore (la couleur du sort dans --c). */
+.spellfx { position: absolute; pointer-events: none; }
+.spellfx.bolt { width: 5px; height: 78px; background: linear-gradient(#fff, var(--c)); box-shadow: 0 0 6px var(--c), 0 0 12px var(--c); clip-path: polygon(40% 0, 100% 35%, 55% 40%, 100% 75%, 30% 100%, 50% 60%, 0 55%, 45% 30%); width: 14px; }
+.spellfx.meteor { width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(#fff6c8, var(--c)); box-shadow: 0 0 8px var(--c), -6px -6px 10px var(--c); }

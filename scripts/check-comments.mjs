@@ -1,6 +1,6 @@
 // Commentaire « // » qui avale du code : ajouté au milieu d'une ligne (objet littéral, liste de déclarations, appel),
-// il transforme la fin de la ligne en commentaire sans erreur de syntaxe (arrivé trois fois : `kept`, son des records,
-// `by` de la cinématique). Heuristique : le code avant « // » ne finit pas une instruction ou un élément (; { } ( [ , =>)
+// il transforme la fin de la ligne en commentaire sans erreur de syntaxe (arrivé quatre fois : `kept`, son des records,
+// `by` de la cinématique, sorts gardés à l'ascension). Heuristique : le code avant « // » ne finit pas une instruction ou un élément (; { } ( [ , =>)
 // et le commentaire, lui, finit comme du code (« ; » ou « , »). Mettre le commentaire sur sa propre ligne, au-dessus.
 import fs from "node:fs";
 import path from "node:path";
@@ -29,6 +29,10 @@ for (const f of files) fs.readFileSync(f, "utf8").split("\n").forEach((l, i) => 
   if (at <= 0) return;
   const code = l.slice(0, at).trimEnd(), com = l.slice(at + 2).trimEnd();
   if (!code.trim()) return;
+  // Propriétés d'objet dans le commentaire (« clé: valeur, ») : un objet littéral avalé (it. 469, liste de ce que
+  // l'ascension garde), quelle que soit la fin du code.
+  // (Un exemple de format entre accolades, « { clé: valeur, … } », est une documentation : ignoré.)
+  if (/\b[a-zA-Z_$][\w$]*: [a-zA-Z_$][\w$.]*(\([^)]*\))?,/.test(com.replace(/\{[^}]*\}?/g, ""))) { bad.push(`${path.relative(ROOT, f)}:${i + 1}: ${l.trim().slice(0, 150)}`); return; }
   // « ); » en fin de commentaire : presque toujours un appel avalé, quelle que soit la fin du code.
   const callTail = /\)\s*;$/.test(com);
   if (!callTail && /[;{}(\[,]$|=>$/.test(code)) return;
