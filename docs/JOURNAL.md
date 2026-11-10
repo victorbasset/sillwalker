@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 332) : astuce « synergy » (hints.js) : quand le partenaire idéal du héros est libéré mais qu'un
+  autre compagnon est en place (et pas déjà choisi pour la prochaine ascension), une astuce le propose avec le nom
+  du duo (une fois par course). 1 texte × 9 langues, test, 107/107.
 - 2026-11-10 (it. 331) : succès DUO_SYNERGY « Duo parfait » (former un duo idéal) ; README : à déclarer dans
   Steamworks. 1 texte × 9 langues, test, 107/107.
 - 2026-11-10 (it. 330, revue générale) : simulations 12 h : guerrier 60, lancier 59, artificière 60 (stables) ; crawl

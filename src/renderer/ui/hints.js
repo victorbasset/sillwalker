@@ -7,7 +7,13 @@ import { skillPointsFree } from "../game/skilltree.js";
 import { nextUnlock, hasUnlock, unlockAvailable } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
 import { tabOpen } from "../game/tabs.js";
-import { CLASS_KEYS, canPartner } from "../game/classes.js";
+import { CLASS_KEYS, CLASSES, canPartner, DUO_SYNERGIES } from "../game/classes.js";
+
+/** Partenaire idéal (synergie) du héros, libre et pas encore choisi ; null sinon. */
+const idealMate = (S) => {
+  const d = DUO_SYNERGIES.find((x) => x.a === S.cls || x.b === S.cls), m = d && (d.a === S.cls ? d.b : d.a);
+  return m && S.partner && S.partner !== m && S.nextPartner !== m && canPartner(S, S.cls, m) ? { mate: m, d } : null;
+};
 
 /** { id, text, tab, when(game) } — dans l'ordre de priorité. */
 export const HINTS = [
@@ -39,6 +45,9 @@ export const HINTS = [
     when: (g) => g.S.best >= 2 && (g.S.classesUnlocked || []).length <= 1 },
   { id: "duo", tab: "class", text: tx("Un héros de l’autre portée est libre : forme un duo ! Il combattra aux côtés de ton héros. Clique ici."),
     when: (g) => !g.S.partner && CLASS_KEYS.some((c) => canPartner(g.S, g.S.cls, c)) },
+  { id: "synergy", tab: "class", text: null, perRun: true,
+    textFn: (g) => { const x = idealMate(g.S); return tx("Le duo idéal de ton héros est libre : {0} ({1}). Choisis-le comme compagnon pour la prochaine ascension. Clique ici.", { 0: CLASSES[x.mate].name, 1: tx(x.d.name) }); },
+    when: (g) => !!idealMate(g.S) },
   { id: "stuck", tab: "ascension", text: null, perRun: true,
     textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),
     when: (g) => g.canAscend() && g.S.prestige.count > 0 && (g.R.wallDeaths || []).filter((t) => g.R.time - t < 900).length >= 4 },

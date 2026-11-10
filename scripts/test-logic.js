@@ -674,6 +674,11 @@ test("synergies de duo : un partenaire attitré par héros, bonus appliqué au d
   g.S.partner = "ranger"; g.invalidateStats(); const a1 = g.stats().atk;
   assert.ok(a1 > a0, "Frères d’armes : plus d’attaque qu’un duo sans synergie");
   assert.ok(M_achievements_js.reachedAchievements(g.S).includes("DUO_SYNERGY"), "succès « Duo parfait »");
+  g.S.partner = "mage"; g.S.nextPartner = null; g.S.tabsOpen = { ...(g.S.tabsOpen || {}), class: true };
+  const nh = (gg) => { for (let i = 0; i < 40; i++) { const h = M_hints_js.nextHint(gg); if (!h || h.id === "synergy") return h; gg.S.settings.hints[h.key] = true; } return null; };
+  const h = nh(g);
+  assert.ok(h && h.id === "synergy" && h.text.includes("Rôdeur"), "astuce : duo idéal libre proposé");
+  g.S.nextPartner = "ranger"; assert.ok(!M_hints_js.nextHint(g) || M_hints_js.nextHint(g).id !== "synergy", "plus d’astuce une fois choisi");
 });
 
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {

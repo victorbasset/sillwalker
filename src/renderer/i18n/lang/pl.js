@@ -887,4 +887,5 @@ export default {
   2011: "Gwiazda i proch",
   2012: "Synergie duetów: każdy bohater ma idealnego partnera, a taki duet dostaje niewielką premię.",
   2013: "Idealny duet",
+  2014: "Idealny partner twojego bohatera jest wolny: {0} ({1}). Wybierz go jako towarzysza na następne wniebowstąpienie. Kliknij tutaj.",
 };

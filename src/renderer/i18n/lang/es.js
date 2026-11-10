@@ -887,4 +887,5 @@ export default {
   2011: "Estrella y pólvora",
   2012: "Sinergias de dúo: cada héroe tiene un compañero ideal, y ese dúo recibe una pequeña bonificación.",
   2013: "Dúo perfecto",
+  2014: "El dúo ideal de tu héroe está libre: {0} ({1}). Elígelo como compañero para la próxima ascensión. Haz clic aquí.",
 };

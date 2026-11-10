@@ -887,4 +887,5 @@ export default {
   2011: "Stern und Pulver",
   2012: "Duo-Synergien: Jeder Held hat einen idealen Partner, und dieses Duo erhält einen kleinen Bonus.",
   2013: "Perfektes Duo",
+  2014: "Das ideale Duo deines Helden ist frei: {0} ({1}). Wähle ihn als Begleiter für den nächsten Aufstieg. Hier klicken.",
 };

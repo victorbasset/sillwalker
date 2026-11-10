@@ -2015,5 +2015,6 @@ export const KEYS = [
   "Danse des flammes",
   "Étoile et poudre",
   "Synergies de duo : chaque héros a un partenaire idéal, et ce duo reçoit un petit bonus.",
-  "Duo parfait"
+  "Duo parfait",
+  "Le duo idéal de ton héros est libre : {0} ({1}). Choisis-le comme compagnon pour la prochaine ascension. Clique ici."
 ];
