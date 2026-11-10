@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 391, langues aux mots longs) : défilement mesuré en allemand, russe et japonais (1920 / 1366 / 1280) :
+  1920 et le japonais sans défilement ; corrigé : russe Aventure 47 (notes de la carte Zone resserrées jusqu'à 1499 px)
+  et Statistiques 31 (lignes de chiffres en 12 px sous 1500 px), russe Talents 20 à 1280 (sous-titre des Maîtrises sur
+  une ligne), allemand Statistiques 11 / Réglages 8 (Réglages en 13 px sous 1500 px). Tout à 0. 115/115.
 - 2026-11-10 (it. 390, revue générale) : simulations 12 h : druide 55, chaman 59, artificière 59 ; crawl 302 clics sans
   erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; fuzz 1200 parties, 0 bloquée ; perf : bande 20,3 %,
   panneau 22,6 %, mini 6,3 %, icône 2,9 % d'un cœur (dans la fourchette habituelle 19-22 %).
