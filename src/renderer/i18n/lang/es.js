@@ -910,4 +910,5 @@ export default {
   2034: "Los lugartenientes más antiguos del Rompeestrellas juraron no dejar volver jamás la luz. Ese juramento se volvió una maldición que corroe a quienes los enfrentan. Pero un talismán tallado en un fragmento puro la repele: el cielo no lo ha olvidado todo.",
   2035: "Evento Celo, desbloqueo Portador de talismanes y una 12.ª crónica: «El juramento maldito».",
   2036: "Cada desbloqueo tiene su propio icono; las habilidades de los jefes tienen su sonido.",
+  2037: "Cazador de eventos",
 };

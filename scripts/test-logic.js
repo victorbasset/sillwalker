@@ -2029,6 +2029,10 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.ok(M_bosses_js.BOSS_MECHANICS.curse && M_bosses_js.bossMechanics(11).includes("curse"), "zone 11 : Malédiction");
   }
   {
+    // Chasseur d'événements : chaque événement vu est retenu ; tous vus = succès
+    const ge = new Game(freshState()); for (const id of Object.keys(M_events_js.EVENTS)) { ge.startEvent(id); ge.R.events[id] = 0; }
+    assert.ok(M_achievements_js.reachedAchievements(ge.S).includes("EVENTS_ALL"), "succès Chasseur d’événements");
+    const bad = JSON.parse(JSON.stringify(ge.S)); bad.stats.eventsSeen = "x"; assert.deepEqual(migrate(bad).stats.eventsSeen, {}, "eventsSeen abîmé");
     // Zèle : progression des quêtes doublée pendant l'événement
     const gz = new Game(freshState()); gz.S.quests.slots = [{ uid: 1, kind: "kill", goal: 100, progress: 0, stars: 1, reward: { gold: 1 } }];
     gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 1);

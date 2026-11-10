@@ -28,6 +28,7 @@ const cases = {
   journeyBad: (o) => { o.journey = [null, 5, { t: "x" }, { t: 1, k: "zone", v: 5 }, { t: 2, k: "nope" }]; },
   journeyChron: (o) => { o.journey = [{ t: 1, k: "chron", v: "nope" }, { t: 2, k: "chron" }, { t: 3, k: "chron", v: "forge" }]; },
   themeBad: (o) => { o.settings.theme = 42; },
+  eventsSeenBad: (o) => { o.stats.eventsSeen = "tout"; },
   newsBad: (o) => { o.settings.newsSeen = "x"; o.settings.eco = "oui"; o.settings.cinematics = null; },
   // Duo, héros libérés et histoire (it. 278)
   partnerBad: (o) => { o.partner = "nope"; o.nextPartner = 42; },

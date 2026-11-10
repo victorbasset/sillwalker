@@ -910,4 +910,5 @@ export default {
   2034: "Najstarsi namiestnicy Łamacza Gwiazd przysięgli, że nigdy nie pozwolą wrócić światłu. Ta przysięga stała się klątwą, która toczy tych, którzy się z nimi mierzą. Lecz talizman wycięty z czystego odłamka ją odpędza: niebo nie zapomniało wszystkiego.",
   2035: "Wydarzenie Zapał, odblokowanie Nosiciel talizmanów i 12. kronika: „Przeklęta przysięga”.",
   2036: "Każde odblokowanie ma własną ikonę; umiejętności bossów mają swój dźwięk.",
+  2037: "Łowca wydarzeń",
 };

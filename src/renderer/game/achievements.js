@@ -1,5 +1,6 @@
 // Succès. `id` doit correspondre exactement à l'« API Name » déclaré dans
 // Steamworks (Stats & Achievements). Ajouter un succès = une ligne ici.
+import { EVENTS } from "./events.js";
 import { TREES } from "./talents.js";
 import { PETS } from "./pets.js";
 import { MONSTERS, ZONES } from "./data.js";
@@ -10,6 +11,8 @@ import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 import { CHRONICLES } from "./story.js";
+/** Événements rares déjà vus (succès « Chasseur d’événements »), parmi ceux qui existent encore. */
+const eventsSeenCount = (S) => Object.keys((S.stats && S.stats.eventsSeen) || {}).filter((id) => EVENTS[id]).length;
 
 /** Chroniques lues (annoncées), sans « Le ciel rallumé » qui suit la victoire finale. */
 const chronRead = (S) => CHRONICLES.filter((c) => c.id !== "dawn" && S.story && S.story.read && S.story.read[c.id]).length;
@@ -44,6 +47,7 @@ export const ACHIEVEMENTS = [
   // Duo et héros (demande 17)
   { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
   { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
+  { id: "EVENTS_ALL",      name: "Chasseur d’événements", test: (S) => eventsSeenCount(S) >= Object.keys(EVENTS).length },
   { id: "PURE_HEART",      name: "Cœur pur",           test: (S) => (S.stats.pureBoss || 0) > 0 },
   { id: "DUO_SYNERGY",     name: "Duo parfait",        test: (S) => !!duoSynergy(S.cls, S.partner) },
   { id: "CHRONICLER",      name: "Chroniqueur",        test: (S) => chronRead(S) >= CHRONICLES.length - 1 },
@@ -83,6 +87,7 @@ export const reachedAchievements = (S) => ACHIEVEMENTS.filter((a) => a.test(S)).
  */
 const rec = (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0);
 export const ACH_PROGRESS = {
+  EVENTS_ALL: (S) => [eventsSeenCount(S), Object.keys(EVENTS).length],
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
   CHRONICLER: (S) => [chronRead(S), CHRONICLES.length - 1],
   HEROES_ALL: (S) => [new Set(["warrior", ...(S.classesUnlocked || [])]).size, CLASS_KEYS.length],

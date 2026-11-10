@@ -127,6 +127,7 @@ export function migrate(raw) {
     else if (it) fixItem(it);
   }
   s.stats = Object.assign(def.stats, isObj(o.stats) ? o.stats : {});
+  if (s.stats.eventsSeen !== undefined && !isObj(s.stats.eventsSeen)) s.stats.eventsSeen = {}; // abîmé : on repart de zéro
   s.autoSell = Object.assign(def.autoSell, isObj(o.autoSell) ? o.autoSell : {});
   s.bag = Array.isArray(s.bag) ? s.bag.filter(okItem).map(fixItem) : [];
   // Stock du marchand illisible : renouvelé (null) ; objets illisibles retirés.

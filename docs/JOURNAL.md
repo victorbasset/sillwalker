@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 379) : succès EVENTS_ALL « Chasseur d'événements » : avoir vu chacun des 9 événements rares, avec
+  progression affichée (ACH_PROGRESS). Donnée sauvegardée S.stats.eventsSeen { id: true } (startEvent) ; valeur
+  abîmée → {} (migrate) ; save-fuzz : cas eventsSeenBad ; test ; README (Steamworks). 1 texte × 9 langues, 113/113.
 - 2026-11-10 (it. 378, consommation, suite de 361) : perf:linux détaillé par processus (bande seule, ≈ 19,5 %) :
   GPU (composition logicielle) 10 %, page (mise en page + peinture) 8,3 %, navigateur 0,6 %, utilitaire 0,8 %.
   screenUpdatesPerSec = 30,2 : chaque image change quelque chose (le décor défile en continu), le décor fixe n'est
