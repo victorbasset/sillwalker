@@ -890,4 +890,6 @@ export default {
   2014: "Das ideale Duo deines Helden ist frei: {0} ({1}). Wähle ihn als Begleiter für den nächsten Aufstieg. Hier klicken.",
   2015: "Brutzeit",
   2016: "Jeder Sieg kann ein Ei hinterlassen!",
+  2017: "Alle 9 s verflucht er den Helden für 3 s: Er erleidet 15 % mehr Schaden und sein Lebensraub heilt ihn nicht mehr.",
+  2018: "Verflucht!",
 };

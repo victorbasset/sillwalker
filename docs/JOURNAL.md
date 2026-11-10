@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 335, étude des concurrents d : mécaniques de boss) : 11e capacité de boss « Malédiction »
+  (bosses.js > curse, CURSE) : toutes les 9 s, le héros est maudit 3 s (+15 % de dégâts subis, vol de vie coupé) ;
+  libellé « Maudit ! » dans la bande. ORDER passe à 11 (les capacités par zone sont redistribuées). balance.mjs 12 h :
+  −0,1 zone ; fuzz 1200 parties, 0 bloquée ; test ; 2 textes × 9 langues (nom réutilisé : talent « Malédiction »). 107/107.
 - 2026-11-10 (it. 334) : Nichée visible dans la bande : plumes de duvet crème qui descendent en se balançant autour
   du héros (juice.js, .spark.nestdown), comme les pièces de la Pluie d'or. Capture, 107/107.
 - 2026-11-10 (it. 333, étude des concurrents d : variété) : nouvel événement « Nichée » (events.js > nest) : 30 s
@@ -1277,7 +1281,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   c. FAIT (it. 302 : 9 libellés d'effets réécrits ; it. 303 : partie neuve vérifiée, geste « équiper » expliqué).
      P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
      premier lancement guidé (bulles d'astuces) : vérifier sur une partie neuve que chaque mécanique est expliquée.
-  d. EN PARTIE (it. 301 : greffes de branches, héros distincts ; reste : événements et mécaniques de boss).
+  d. EN PARTIE (it. 301 : greffes de branches, héros distincts ; it. 333 : Nichée ; it. 335 : Malédiction).
      P2 Profondeur et variété (répétitif = reproche n° 1 de Rusty's) : les 10 nouveaux héros ont des arbres de
      talents aux mêmes effets que leurs modèles (seuls les noms changent) : leur donner des effets propres ; plus
      d'événements de zone et de mécaniques de boss.

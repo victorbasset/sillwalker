@@ -890,4 +890,6 @@ export default {
   2014: "El dúo ideal de tu héroe está libre: {0} ({1}). Elígelo como compañero para la próxima ascensión. Haz clic aquí.",
   2015: "Nidada",
   2016: "¡Cada victoria puede dejar un huevo!",
+  2017: "Cada 9 s, maldice al héroe durante 3 s: recibe un 15 % más de daño y su robo de vida ya no lo cura.",
+  2018: "¡Maldito!",
 };

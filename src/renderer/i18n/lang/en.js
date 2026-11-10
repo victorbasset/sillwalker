@@ -890,4 +890,6 @@ export default {
   2014: "Your hero’s ideal duo is free: {0} ({1}). Choose them as companion for the next ascension. Click here.",
   2015: "Nesting",
   2016: "Every victory may leave an egg!",
+  2017: "Every 9 s, curses the hero for 3 s: they take 15% more damage and their life steal no longer heals.",
+  2018: "Cursed!",
 };

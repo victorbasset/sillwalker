@@ -890,4 +890,6 @@ export default {
   2014: "Idealny partner twojego bohatera jest wolny: {0} ({1}). Wybierz go jako towarzysza na następne wniebowstąpienie. Kliknij tutaj.",
   2015: "Wylęg",
   2016: "Każde zwycięstwo może zostawić jajo!",
+  2017: "Co 9 s przeklina bohatera na 3 s: otrzymuje on o 15% więcej obrażeń, a kradzież życia przestaje go leczyć.",
+  2018: "Przeklęty!",
 };

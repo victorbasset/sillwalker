@@ -2018,5 +2018,7 @@ export const KEYS = [
   "Duo parfait",
   "Le duo idéal de ton héros est libre : {0} ({1}). Choisis-le comme compagnon pour la prochaine ascension. Clique ici.",
   "Nichée",
-  "Chaque victoire peut laisser un œuf !"
+  "Chaque victoire peut laisser un œuf !",
+  "Toutes les 9 s, maudit le héros pendant 3 s : il subit 15 % de dégâts en plus et son vol de vie ne le soigne plus.",
+  "Maudit !"
 ];

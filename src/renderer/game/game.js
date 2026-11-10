@@ -41,7 +41,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE } from "./events.js";
-import { bossMechanics, bossName, FURY, bossWear, BULWARK } from "./bosses.js";
+import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -238,7 +238,7 @@ export class Game {
         R.mon.dist -= (WALK_SPEED + MONSTER_SPEED) * dt * this.moveMul();
         if (R.mon.dist <= 0) {
           R.mon.dist = 0; R.mode = "fight"; R.atkT = 0.25;
-          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0;
+          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0;
           R.shield = hs.shield > 0 ? hs.hp * hs.shield / 100 : 0;
           if (R.shield > 0) this.emit("shield", { amount: R.shield });
         }
@@ -248,6 +248,7 @@ export class Game {
       m.age += dt;
       // Attaques du héros
       if (R.frozen > 0) R.frozen -= dt;
+      if (R.cursed > 0) R.cursed -= dt;
       R.atkT -= dt * ((R.events.frenzy || 0) > 0 ? 2 : 1) * (R.frozen > 0 ? 0.6 : 1);
       if (R.atkT <= 0) {
         R.atkT = 1 / (1 + hs.spd / 100);
@@ -310,7 +311,7 @@ export class Game {
   monsterAttack(m, hs, mult) {
     const R = this.R;
     if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
-    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def);
+    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1); // Malédiction : plus de dégâts subis
     if (hs.thorns > 0) {
       m.hp -= dmg * hs.thorns / 100;
       if (m.hp <= 0) { this.killMonster(); return true; }
@@ -362,6 +363,10 @@ export class Game {
     if (mech.includes("frost")) {
       m.frostT = (m.frostT ?? 5) - dt;
       if (m.frostT <= 0) { m.frostT = 7; this.R.frozen = 3; this.emit("bossSkill", { id: "frost" }); }
+    }
+    if (mech.includes("curse")) {
+      m.curseT = (m.curseT ?? CURSE.first) - dt;
+      if (m.curseT <= 0) { m.curseT = CURSE.every; this.R.cursed = CURSE.s; this.emit("bossSkill", { id: "curse" }); }
     }
     if (mech.includes("fury") && (m.fury || 0) < FURY.max) {
       m.furyT = (m.furyT ?? FURY.every) - dt;
@@ -439,7 +444,7 @@ export class Game {
     }
     if (dmg > (this.S.stats.maxHit || 0)) this.S.stats.maxHit = Math.round(dmg);
     if (hs.poison > 0) { m.poisonStacks = Math.min(5, (m.poisonStacks || 0) + 1); m.poisonT = 4; }
-    if (hs.lifesteal > 0) this.R.hp = Math.min(hs.hp, this.R.hp + dmg * hs.lifesteal / 100);
+    if (hs.lifesteal > 0 && !(this.R.cursed > 0)) this.R.hp = Math.min(hs.hp, this.R.hp + dmg * hs.lifesteal / 100);
     if (hs.burn > 0) { m.burnDps = hs.atk * hs.burn / 100; m.burnT = BURN_TIME; }
     this.emit("heroAttack", { dmg, crit, mon: m, extra, iai, first: first && hs.firstStrike > 0 });
   }
