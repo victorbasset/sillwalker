@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 350, revue générale) : simulations 12 h : guerrier 62, samouraï 64, barde 60 ; crawl 302 clics sans
+  erreur ; russe : aucun mot latin suspect ; save-fuzz : tout ok ; perf : bande 19,9 %, panneau 22,0 %, mini 6,3 %,
+  icône 2,8 % d'un cœur (stables).
 - 2026-11-10 (it. 349) : parade à la Malédiction : nouvel effet « pureté » (talents.js EFFECTS.purity, plafonné à
   100 %, raccourcit la malédiction) et pouvoir légendaire « Talisman de pureté » (p_pure : pureté 100 %, +10 % PV).
   Le succès « Tous les pouvoirs » demande désormais 17 pouvoirs. Test (immunisé / maudit sans), fuzz 600, 2 textes ×
