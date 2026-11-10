@@ -949,4 +949,7 @@ export default {
   2073: "Atmosphäre",
   2074: "Musik",
   2075: "Gesamtlautstärke",
+  2076: "Automatisch (macOS)",
+  2077: "Bei der Mac-Anmeldung starten",
+  2078: "Diese Einstellungen findest du auch im Menü des Sillwalker-Symbols in der Menüleiste oben am Bildschirm, zusammen mit der Bildschirmauswahl.",
 };

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 443, Mac) : les textes qui nommaient Windows ont leur version Mac (détection navigator.platform) :
+  thème « Automatique (macOS) », « Lancer à l'ouverture de session du Mac » (Réglages et menu de l'icône,
+  loginMac dans main/i18n.js), note « … l'icône Sillwalker de la barre des menus, en haut de l'écran ». Traduits.
+  Non vérifiable sur le serveur (Linux) : à voir par Victor sur son Mac. 120/120.
 - 2026-11-10 (it. 442, suite de la demande C) : 13 moments muets ont un son, limités dans le temps : esquive (souffle
   qui monte), esquive du boss (qui descend), riposte (clac métallique), coup annoncé du boss (deux bips), potion
   (glouglou), second souffle (cœur qui bat, puis élan), retour au combat, œuf (coquille, puis surprise), éclat
@@ -1518,7 +1522,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
      Refonte du son (it. 432-435) : pièces en gamme, coups variés, sons des 10 événements et de l'étoile filante,
      ambiance de chaque zone (Réglages > Son > Ambiance des zones), musique qui varie (intermède, silence) : volumes ?
-  6. Sur le Mac : plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
+  6. Sur le Mac : textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
   5. « Quoi de neuf » au lancement (édition 2 : 3 nouveautés, ou 15 si l'édition 1 n'a pas été lue) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).

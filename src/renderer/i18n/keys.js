@@ -2077,5 +2077,8 @@ export const KEYS = [
   "Réglages : informations de la bande au milieu sur tout écran ; ambiance des zones.",
   "Ambiance",
   "Musique",
-  "Volume général"
+  "Volume général",
+  "Automatique (macOS)",
+  "Lancer à l’ouverture de session du Mac",
+  "Ces réglages sont aussi dans le menu de l’icône Sillwalker de la barre des menus, en haut de l’écran, avec le choix de l’écran."
 ];

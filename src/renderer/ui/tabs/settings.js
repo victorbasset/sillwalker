@@ -3,6 +3,8 @@
 import { t as tx, LANGS, getLang, setLang } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { applyUiScale, applyTheme, themeOf } from "../../render/dom.js";
+// Mac (Victor y joue aussi) : les textes qui nomment Windows ont leur version macOS.
+const IS_MAC = /Mac/i.test(navigator.platform || navigator.userAgent || "");
 import { esc, unit } from "../../game/format.js";
 
 
@@ -50,7 +52,7 @@ export class SettingsTab {
         ${check("fullEffects", tx("Effets complets"), tx("Pièces, faisceaux de butin, flashs. Décoche pour une bande plus sobre."))}
         ${check("weather", tx("Météo des zones"), tx("Neige, braises, feuilles, bulles… (un peu plus de calcul)."))}
         <p class="note tight">${tx("Thème du panneau")}</p>
-        <div class="row seg">${[["dark", tx("Sombre")], ["light", tx("Clair")], ["auto", tx("Automatique (Windows)")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v}" aria-pressed="${themeOf(P.theme) === v}">${esc(label)}</button>`).join("")}</div>
+        <div class="row seg">${[["dark", tx("Sombre")], ["light", tx("Clair")], ["auto", IS_MAC ? tx("Automatique (macOS)") : tx("Automatique (Windows)")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v}" aria-pressed="${themeOf(P.theme) === v}">${esc(label)}</button>`).join("")}</div>
         <p class="note tight">${tx("Taille du panneau")}</p>
         <div class="row seg">${[1, 1.15, 1.3].map((z) => `<button data-action="se-scale" data-v="${z}" aria-pressed="${Math.abs((P.uiScale || 1) - z) < 0.01}">${Math.round(z * 100)}${unit("%")}</button>`).join("")}</div>
         <p class="note">${tx("Agrandit tout le panneau : texte, boutons et icônes.")}</p>
@@ -63,8 +65,8 @@ export class SettingsTab {
         <p class="note tight">${tx("Informations de la bande")}</p>
         <div class="row seg">${[["edges", tx("Aux bords")], ["center", tx("Au milieu")], ["auto", tx("Automatique (très grands écrans)")]].map(([v, label]) => `<button data-action="se-hudpos" data-v="${v}" aria-pressed="${(P.hudPos || "auto") === v}">${esc(label)}</button>`).join("")}</div>
         <label class="range">${tx("Opacité")} <input type="range" min="5" max="100" step="5" value="${Math.round(opacity * 100)}" data-action="se-opacity-range"> <span>${Math.round(opacity * 100)}${unit("%")}</span></label>
-        <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${tx("Lancer au démarrage de Windows")}</label>
-        <p class="note">${tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
+        <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${IS_MAC ? tx("Lancer à l’ouverture de session du Mac") : tx("Lancer au démarrage de Windows")}</label>
+        <p class="note">${IS_MAC ? tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la barre des menus, en haut de l’écran, avec le choix de l’écran.") : tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
       </article>
       <div class="stack">
       <article class="panel danger-zone"><h2><span class="hicon"><img src="${shopIconURL("skull", 3)}" alt="">${tx("Zone de danger")}</span></h2>

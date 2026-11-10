@@ -949,4 +949,7 @@ export default {
   2073: "Klimat",
   2074: "Muzyka",
   2075: "Głośność ogólna",
+  2076: "Automatyczny (macOS)",
+  2077: "Uruchamiaj po zalogowaniu na Macu",
+  2078: "Te ustawienia są też w menu ikony Sillwalker na pasku menu u góry ekranu, razem z wyborem ekranu.",
 };

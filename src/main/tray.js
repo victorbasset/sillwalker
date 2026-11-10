@@ -116,7 +116,7 @@ function createTray({ strip, isDev, steam }) {
         click: (item) => { status = { ...status, eco: item.checked }; strip.send("command", item.checked ? "eco:on" : "eco:off"); build(); } },
       { label: L("fullscreen"), type: "checkbox", checked: settings.get("hideOnFullscreen") !== false,
         click: (item) => { settings.set("hideOnFullscreen", item.checked); if (!item.checked) strip.setFullscreenApp(false); build(); } },
-      { label: L("login") + (isDev ? " (dev)" : ""), type: "checkbox", checked: openAtLogin,
+      { label: L(process.platform === "darwin" ? "loginMac" : "login") + (isDev ? " (dev)" : ""), type: "checkbox", checked: openAtLogin,
         click: (item) => { app.setLoginItemSettings({ openAtLogin: item.checked, ...loginItemOptions() }); build(); } },
       ...(isDev ? [{ label: "Steam : " + steam.status, enabled: false }] : []),
       { type: "separator" },
