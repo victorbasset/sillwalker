@@ -1077,3 +1077,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 }
 /* Zèle (événement) : petites étincelles bleues qui montent du héros. */
 .spark.zealup { width: 3px; height: 3px; }
+/* « Quoi de neuf » : fenêtre plus large et liste sur deux colonnes (8 nouveautés sans défilement, même en allemand). */
+#modal .panel:has(.newslist) { max-width: 860px; }
+.newslist { columns: 2; column-gap: 24px; }
+.newslist li { break-inside: avoid; }
+@media (max-width: 900px) { .newslist { columns: 1; } }

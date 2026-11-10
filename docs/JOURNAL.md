@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 363) : « Quoi de neuf » : en allemand, la 8e nouveauté était coupée (la fenêtre défilait) ; fenêtre
+  élargie (860 px, #modal .panel:has(.newslist)) et liste sur deux colonnes (une sous 900 px) : plus de défilement.
+  Capture en allemand, 111/111.
 - 2026-11-10 (it. 362) : Zèle visible dans la bande : petites étincelles bleues qui montent du héros (juice.js,
   .spark.zealup). Capture, 111/111.
 - 2026-11-10 (it. 361, consommation) : où passent les ~20 % d'un cœur de la bande (perf:linux) ? Mesuré dans le jeu :
