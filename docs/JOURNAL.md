@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 355) : rythme du début vérifié après les ajouts (Nichée, Malédiction, Talisman, synergies) :
+  early-pace à 60 min : zone 23, 107 objets, niveau 39, 6 déblocages (repère : zone 22, 105 objets) ; first-minutes :
+  premier objet 20-41 s, onglet Héros vers 12 min (inchangé). Rien à corriger.
 - 2026-11-10 (it. 354) : test : la pureté à 100 % vaut +4 à +6 % de puissance de combat (protège le Talisman de pureté
   contre le Valet d'armes). 110/110.
 - 2026-11-10 (it. 353) : la pureté compte dans la puissance de combat (rules.js > power, ≈ +5 % à 100 %) : le Valet
