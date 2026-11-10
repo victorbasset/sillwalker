@@ -1069,4 +1069,6 @@ export default {
   2193: "Novo evento raro «Maré arcana»: os feitiços recarregam duas vezes mais rápido.",
   2194: "Nova missão: lançar feitiços; cada cartão de herói mostra seus três feitiços.",
   2195: "O raio perfurante tem seu som; uma faixa anuncia cada patamar de recarga.",
+  2196: "Nova música, suave e tranquila (lofi): uma melodia a cada 5 zonas, com a cor de cada cenário.",
+  2197: "Piano elétrico, ritmo suave, leve chiado de vinil; o volume se ajusta em Configurações > Som.",
 };

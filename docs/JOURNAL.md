@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 525) : « Quoi de neuf », édition 8 (la nouvelle musique lofi, un air toutes les 5 zones ; piano
+  électrique, vinyle ; volume dans Réglages > Son, cité tel que traduit). Aucun défilement (ru, de, pl ; 3 largeurs).
+  126/126.
 - 2026-11-10 (it. 524) : santé du début de partie après les sorts, quêtes et événements récents : first-minutes
   (premier objet 41-77 s, boss 77-86 s, onglet Héros ≈ 12 min) et tab-pace (talents 1, quêtes 5, boutique 8-9, Héros
   10, carte 11-12, bestiaire 14-15, ascension 20-43 min ; zone 22) inchangés. CLAUDE.md : contrôle et écoute de la

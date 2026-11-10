@@ -1069,4 +1069,6 @@ export default {
   2193: "Neues seltenes Ereignis „Arkane Flut“: Zauber laden doppelt so schnell auf.",
   2194: "Neue Quest: Zauber wirken; jede Heldenkarte zeigt ihre drei Zauber.",
   2195: "Der durchbohrende Strahl hat seinen Klang; ein Banner kündigt jede Abklingzeit-Stufe an.",
+  2196: "Neue Musik, sanft und entspannt (Lofi): eine Melodie alle 5 Zonen, mit der Farbe jeder Kulisse.",
+  2197: "E-Piano, gedämpfter Beat, leises Vinylknistern; die Lautstärke stellst du unter Einstellungen > Ton ein.",
 };

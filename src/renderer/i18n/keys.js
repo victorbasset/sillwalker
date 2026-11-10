@@ -2197,5 +2197,7 @@ export const KEYS = [
   "Ton compagnon lance aussi les sorts appris pour sa classe, à moitié de leur puissance.",
   "Nouvel événement rare « Marée arcanique » : les sorts se rechargent deux fois plus vite.",
   "Nouvelle quête : lancer des sorts ; chaque carte de héros montre ses trois sorts.",
-  "Le trait perçant a son son ; un bandeau annonce chaque palier de recharge."
+  "Le trait perçant a son son ; un bandeau annonce chaque palier de recharge.",
+  "Nouvelle musique, douce et posée (lofi) : un air toutes les 5 zones, avec la couleur de chaque décor.",
+  "Piano électrique, rythme feutré, léger craquement de vinyle ; le volume se règle dans Réglages > Son."
 ];

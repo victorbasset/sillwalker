@@ -1069,4 +1069,6 @@ export default {
   2193: "New rare event “Arcane Tide”: spells recharge twice as fast.",
   2194: "New quest: cast spells; every hero card shows its three spells.",
   2195: "The piercing streak has its own sound; a banner announces each cooldown milestone.",
+  2196: "New music, soft and laid-back (lofi): one tune every 5 zones, with the colour of each setting.",
+  2197: "Electric piano, mellow beat, a light vinyl crackle; adjust the volume in Settings > Sound.",
 };

@@ -1069,4 +1069,6 @@ export default {
   2193: "Nowe rzadkie wydarzenie „Arkaniczny przypływ”: zaklęcia odnawiają się dwa razy szybciej.",
   2194: "Nowe zadanie: rzucanie zaklęć; każda karta bohatera pokazuje jego trzy zaklęcia.",
   2195: "Przebijający promień ma swój dźwięk; baner ogłasza każdy próg odnowienia.",
+  2196: "Nowa muzyka, łagodna i spokojna (lofi): jedna melodia co 5 stref, z kolorytem każdej scenerii.",
+  2197: "Pianino elektryczne, stłumiony rytm, lekkie trzaski winylu; głośność ustawisz w Ustawienia > Dźwięk.",
 };

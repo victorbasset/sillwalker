@@ -1069,4 +1069,6 @@ export default {
   2193: "Nuevo evento raro «Marea arcana»: los hechizos se recargan el doble de rápido.",
   2194: "Nueva misión: lanzar hechizos; cada tarjeta de héroe muestra sus tres hechizos.",
   2195: "El rayo perforante tiene su sonido; un cartel anuncia cada umbral de recarga.",
+  2196: "Nueva música, suave y tranquila (lofi): una melodía cada 5 zonas, con el color de cada escenario.",
+  2197: "Piano eléctrico, ritmo suave, leve crujido de vinilo; el volumen se ajusta en Ajustes > Sonido.",
 };
