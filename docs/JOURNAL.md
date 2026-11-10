@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 347) : mémoire dans la durée après les ajouts récents (Nichée, Malédiction, rangées latérales,
+  cinématiques) : mem-watch 7 min à ×10 : 772 → 791 → 787 Mo, stable (repère ≈ 780 Mo) : pas de fuite.
 - 2026-11-10 (it. 346) : « Quoi de neuf » : ligne écrans de portable (8 nouveautés dans l'édition 1) ; thème clair
   vérifié à 1366 px (Boutique en rangées latérales). 1 texte × 9 langues, 109/109.
 - 2026-11-10 (it. 345) : autotest : le contrôle « aucun onglet ne défile » est refait à 1366 px (fenêtre rétrécie le
