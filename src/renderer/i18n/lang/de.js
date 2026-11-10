@@ -928,4 +928,7 @@ export default {
   2052: "{n} kritischen Treffer landen|{n} kritische Treffer landen",
   2053: "Geschärfte Klinge (10.000 kritische Treffer)",
   2054: "Kritische Treffer",
+  2055: "Zäh",
+  2056: "Einmal pro Kampf steht er mit 25 % seiner LP wieder auf, wenn er fallen müsste.",
+  2057: "Er steht wieder auf!",
 };

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 425) : 12e capacité de boss, « Tenace » : une fois par combat, le boss se relève avec 25 % de ses PV
+  quand il devrait tomber (brûlure et poison s'éteignent) ; libellé « Il se relève ! », secousse, étincelles et son
+  (grondement qui remonte). Interceptée au début de killMonster (tous les chemins de mort). ORDER passe à 12 : les
+  capacités changent de zone (zone 12 : Tenace). Traduite, test logique ; fuzz 1200 parties, 0 bloquée ; balance 12 h
+  -0,9 zone (bruit). 119/119. « Quoi de neuf » : édition 2 à publier quand les nouveautés seront assez nombreuses
+  (fenêtres de l'Aventure, quête des critiques, Lame affûtée, Tenace), sans retirer l'édition 1 à qui ne l'a pas vue.
 - 2026-11-10 (it. 424) : compteur des coups critiques (stats.crits, lu avec +x || 0 : sauvegarde abîmée tolérée),
   ligne « Coups critiques » dans Statistiques et succès « Lame affûtée (10 000 coups critiques) » avec sa progression.
   Traduits (i18n-check 0), test logique, save-fuzz ok, lang-overflow de / ru / pl à 1366 et 1280 : aucun défilement. 119/119.

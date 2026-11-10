@@ -928,4 +928,7 @@ export default {
   2052: "Acertar {n} golpe crítico|Acertar {n} golpes críticos",
   2053: "Lâmina afiada (10 000 golpes críticos)",
   2054: "Golpes críticos",
+  2055: "Tenaz",
+  2056: "Uma vez por combate, levanta-se com 25% dos PV quando deveria cair.",
+  2057: "Ele se levanta!",
 };

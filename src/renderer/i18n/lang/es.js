@@ -928,4 +928,7 @@ export default {
   2052: "Asestar {n} golpe crítico|Asestar {n} golpes críticos",
   2053: "Hoja afilada (10 000 golpes críticos)",
   2054: "Golpes críticos",
+  2055: "Tenaz",
+  2056: "Una vez por combate, se levanta con el 25 % de sus PV cuando debería caer.",
+  2057: "¡Se levanta!",
 };

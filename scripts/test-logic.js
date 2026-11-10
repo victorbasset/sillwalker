@@ -2057,6 +2057,13 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     gc.S.stats.crits = 9999; gc.heroStrike(mc, hsc, false, false);
     assert.ok(M_achievements_js.reachedAchievements(gc.S).includes("CRITS_10000"), "succès Lame affûtée");
     assert.match(M_quests_js.QUEST_TEMPLATES.crit.text({ goal: 40 }), /40/);
+    // Tenace : le boss se relève une fois avec 25 % de ses PV, puis tombe pour de bon
+    const gn = new Game(freshState()); gn.R.mon = gn.makeMonster(true); gn.R.mon.mech = ["tenacious"]; gn.R.mode = "fight";
+    const kills0 = gn.S.stats.kills || 0; gn.R.mon.hp = 0; gn.killMonster();
+    assert.ok(gn.R.mon && gn.R.mon.risen && Math.abs(gn.R.mon.hp - gn.R.mon.max * 0.25) < 1e-6, "Tenace : se relève");
+    assert.equal(gn.S.stats.kills || 0, kills0, "pas encore vaincu");
+    gn.R.mon.hp = 0; gn.killMonster(); assert.equal(gn.S.stats.kills, kills0 + 1, "Tenace : tombe la seconde fois");
+    assert.ok(M_bosses_js.bossMechanics(12).includes("tenacious"), "zone 12 : Tenace");
     // Sac rangé : rareté décroissante (sans amélioration en jeu ici)
     const gb = new Game(freshState()); gb.S.bag = [0, 3, 1, 4, 2].map((r) => { const it = gb.newItem(r); it.r = r; return it; });
     gb.isUpgrade = () => false; gb.sortBag();

@@ -19,12 +19,15 @@ export const BOSS_MECHANICS = {
   // Étude des concurrents (variété) : une 10e capacité.
   // Variété : contre les héros qui se soignent en continu (régénération, vol de vie).
   curse: { name: "Malédiction", desc: "Toutes les 9 s, maudit le héros pendant 3 s : il subit 15 % de dégâts en plus et son vol de vie ne le soigne plus." },
+  // Variété : contre les héros qui comptent sur un dernier coup ; une seconde charge à prévoir.
+  tenacious: { name: "Tenace", desc: "Une fois par combat, se relève avec 25 % de ses PV quand il devrait tomber." },
   bulwark: { name: "Peau de pierre", desc: "Subit 30 % de dégâts en moins tant qu’il lui reste plus de 70 % de ses PV : la première charge est la plus dure." },
 };
 /** Cuirasse : réduction des dégâts au-dessus du seuil de PV. */
 export const BULWARK = { above: 0.7, cut: 0.3 };
 export const FURY = { every: 5, speed: 0.9, max: 6 };
-const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark", "curse"];
+const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark", "curse", "tenacious"];
+export const TENACIOUS = { back: 0.25 };
 export const CURSE = { every: 9, first: 6, s: 3, hurt: 0.15 };
 
 /** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */

@@ -41,7 +41,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE } from "./events.js";
-import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK } from "./bosses.js";
+import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -604,7 +604,14 @@ export class Game {
   }
 
   killMonster() {
-    const S = this.S, R = this.R, m = R.mon, hs = this.stats();
+    const S = this.S, R = this.R, m = R.mon;
+    // Tenace : une fois par combat, le boss se relève au lieu de tomber (brûlure et poison s'éteignent).
+    if (m && m.mech && m.mech.includes("tenacious") && !m.risen) {
+      m.risen = true; m.hp = m.max * TENACIOUS.back; m.burnT = 0; m.poisonT = 0; m.poisonStacks = 0;
+      this.emit("bossSkill", { id: "tenacious" });
+      return;
+    }
+    const hs = this.stats();
     const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
     S.gold += gold;
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;

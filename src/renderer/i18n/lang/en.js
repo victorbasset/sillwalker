@@ -928,4 +928,7 @@ export default {
   2052: "Land {n} critical hit|Land {n} critical hits",
   2053: "Honed Blade (10,000 critical hits)",
   2054: "Critical hits",
+  2055: "Tenacious",
+  2056: "Once per fight, gets back up with 25% of its HP when it should fall.",
+  2057: "It gets back up!",
 };

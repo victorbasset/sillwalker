@@ -928,4 +928,7 @@ export default {
   2052: "Zadaj {n} cios krytyczny|Zadaj {n} ciosy krytyczne|Zadaj {n} ciosów krytycznych",
   2053: "Naostrzone ostrze (10 000 ciosów krytycznych)",
   2054: "Ciosy krytyczne",
+  2055: "Nieustępliwy",
+  2056: "Raz na walkę podnosi się z 25% PŻ, gdy powinien paść.",
+  2057: "Podnosi się!",
 };

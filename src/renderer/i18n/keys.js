@@ -2056,5 +2056,8 @@ export const KEYS = [
   "Voir les raccourcis",
   "Porter {n} coup critique|Porter {n} coups critiques",
   "Lame affûtée (10 000 coups critiques)",
-  "Coups critiques"
+  "Coups critiques",
+  "Tenace",
+  "Une fois par combat, se relève avec 25 % de ses PV quand il devrait tomber.",
+  "Il se relève !"
 ];
