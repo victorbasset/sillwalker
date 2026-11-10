@@ -1135,4 +1135,6 @@ export default {
   2259: "Quatro relíquias muito poderosas para ganhar para sempre (o Quebra-Estrelas guarda a última), cada uma com sua história.",
   2260: "As relíquias no mapa e no seu herói: o Drone estelar dispara seus mísseis ao seu lado.",
   2261: "Dano do drone por segundo",
+  2262: "Primeira relíquia",
+  2263: "As quatro relíquias",
 };

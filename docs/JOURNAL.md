@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 583) : couronne vérifiée en capture sur 6 classes (mage, nécromancien, samouraï, moine, druide,
+  paladin) : bien sur la tête. Deux succès : RELIC_FIRST « Première relique », RELICS_ALL « Les quatre reliques »
+  (README : liste Steam à jour ; à créer aussi sur Steamworks). Traduits ; test logique ; lang-overflow pl, de, ru,
+  es, pt à 1920, 1366, 1280 : aucun défilement. 132/132.
 - 2026-11-10 (it. 582) : reliques portées par le héros, lisibles : la couronne était hors de la tête (cadre de
   l'acteur sans largeur : « left: 50 % » ne centrait pas ; et au-dessus, cachée par les nombres de dégâts) :
   placée en pixels d'après le sprite, posée sur la tête ; cœur et lame en colonne contre son dos (ils se

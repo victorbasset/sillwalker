@@ -2567,6 +2567,7 @@ test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagné
   g.R.mon = m; m.hp = 0; g.R.mode = "fight"; g.killMonster();
   const hp0 = g.stats().hp, atk0 = g.stats().atk; // (après la victoire : elle fait gagner des niveaux)
   assert.ok(hasRelic_T(g.S, "drone"), "relique gagnée");
+  assert.ok(M_achievements_js.reachedAchievements(g.S).includes("RELIC_FIRST"), "succès « Première relique »");
   // Drone : un missile toutes les 1,5 s, 4 % des PV max d'un monstre ordinaire
   g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e6; g.R.mode = "fight"; g.R.droneT = 0.01; g.R.hp = 1e12;
   let shots = 0; g.on("droneShot", () => shots++); g.step(0.05);

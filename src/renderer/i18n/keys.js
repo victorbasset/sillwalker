@@ -2263,5 +2263,7 @@ export const KEYS = [
   "Trois boss majeurs gardent le Rebord, en zones 50, 100 et 150 : chacun porte une relique.",
   "Quatre reliques très puissantes à gagner pour toujours (le Briseur garde la dernière), chacune avec son histoire.",
   "Les reliques sur la carte et sur ton héros : le Drone stellaire tire ses missiles à tes côtés.",
-  "Dégâts du drone par seconde"
+  "Dégâts du drone par seconde",
+  "Première relique",
+  "Les quatre reliques"
 ];

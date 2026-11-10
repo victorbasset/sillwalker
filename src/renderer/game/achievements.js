@@ -11,6 +11,7 @@ import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 import { CHRONICLES } from "./story.js";
+import { RELIC_IDS, hasRelic } from "./relics.js";
 import { classSpells, spellRank } from "./spells.js";
 
 /** Le plus de sorts appris par un même héros (0 à 3). */
@@ -83,6 +84,9 @@ export const ACHIEVEMENTS = [
   { id: "UNLOCK_ALL",      name: "Tout débloqué", test: (S) => UNLOCKS.every((u) => S.unlocks && S.unlocks[u.id]) },
   { id: "TAPS_1000",       name: "Mille clics (coups bonus)", test: (S) => (S.stats.taps || 0) >= 1000 },
   { id: "WORLD_TOUR",      name: "Tour du monde (toutes les zones)", test: (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0) >= ZONES.length },
+  // Reliques des boss majeurs (demande S, it. 583)
+  { id: "RELIC_FIRST",     name: "Première relique",   test: (S) => RELIC_IDS.some((id) => hasRelic(S, id)) },
+  { id: "RELICS_ALL",      name: "Les quatre reliques", test: (S) => RELIC_IDS.every((id) => hasRelic(S, id)) },
 ];
 
 /** Identifiants des succès dont la condition est remplie. */
