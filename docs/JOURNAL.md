@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 584) : journal : « À vérifier par Victor » complété (9 : boss majeurs et reliques, sons, puissance,
+  succès Steamworks ; 10 : barres de vie en combat de boss) ; demande T inscrite (FAIT).
 - 2026-11-10 (it. 583) : couronne vérifiée en capture sur 6 classes (mage, nécromancien, samouraï, moine, druide,
   paladin) : bien sur la tête. Deux succès : RELIC_FIRST « Première relique », RELICS_ALL « Les quatre reliques »
   (README : liste Steam à jour ; à créer aussi sur Steamworks). Traduits ; test logique ; lang-overflow pl, de, ru,
@@ -2034,10 +2036,17 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      pour écouter les autres airs ; touche B / menu de l'icône pour la couper seule. Volumes et goût à juger.
   6. Sur le Mac : la bande ne doit pas apparaître devant un jeu / une vidéo en plein écran (it. 445) ; textes « macOS / barre des menus » dans Réglages et le menu de l'icône (it. 443) ; plus d'icône dans le Dock (it. 431) ; réglage « Informations de la bande : Au milieu » (it. 429).
   5. « Quoi de neuf » au lancement (édition 10, avec au plus 3 éditions non lues) ; la bulle disparaît une fois lue.
+  9. Boss majeurs et reliques (it. 571-583) : zone 50 (Geôlier mécanique, Drone stellaire), 100, 150 ; relique qui
+     flotte à droite du boss, scène d'arrivée, scène de la relique gagnée (histoire), drone qui tire à côté du héros,
+     couronne sur la tête, cœur et lame dans le dos ; sons du drone et de la relique (volumes ?) ; puissance réglée
+     ≈ 15-20 zones par relique : trop, pas assez ? Succès RELIC_FIRST et RELICS_ALL à créer sur Steamworks.
+  10. Combat de boss : barres de vie du héros et du boss sous les pieds (it. 580) : bien lisibles ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir) :
+  T. FAIT (it. 580, contrôle d'autotest it. 581). En combat de boss, on ne voit pas la barre de vie du boss ni la
+     sienne (sous le nom du boss / sous les nombres de dégâts) : passées sous les pieds.
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
   S. (soir) Trois boss majeurs aux zones 50, 100, 150 (sur la carte, comme le boss final de la zone 200) ; chacun
      garde une relique unique, visible sur lui, puis obtenue : très puissante (les 10 zones suivantes faciles), par ex.
