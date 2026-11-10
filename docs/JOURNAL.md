@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 387) : liste « À vérifier par Victor sous Windows » en tête des Idées (plein écran, case du menu,
+  consommation réelle, sons nouveaux, « Quoi de neuf »).
 - 2026-11-10 (it. 386) : menu de l'icône : la case « Économie d'énergie » suit aussi un changement fait dans le panneau
   (tray.js > setStatus reconstruit le menu quand status.eco change ; avant, la case restait périmée). 114/114.
 - 2026-11-10 (it. 385, moins de clics) : « Économie d'énergie (15 images/s) » cochable dans le menu de l'icône de
@@ -1293,6 +1295,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
+
+- À VÉRIFIER PAR VICTOR SOUS WINDOWS (impossible sur le serveur : ni Windows, ni son, ni carte graphique) :
+  1. Bande cachée devant un jeu ou une vidéo en plein écran, puis revenue (it. 321) ; mémoire du petit processus
+     PowerShell (Gestionnaire des tâches).
+  2. Menu de l'icône (clic droit) : case « Économie d'énergie (15 images/s) » (it. 385-386), cochée / décochée, et
+     qu'elle suit le réglage du panneau.
+  3. Consommation réelle de la bande (Gestionnaire des tâches) : sur le serveur ≈ 19 % d'un cœur en rendu logiciel,
+     sans doute bien moins avec la carte graphique (it. 361, 378).
+  4. Sons nouveaux, à l'oreille : capacités des boss (it. 365), motif de la chronique « Le serment maudit » (it. 372).
+  5. « Quoi de neuf » au lancement (10 nouveautés) ; la bulle disparaît une fois lue.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
