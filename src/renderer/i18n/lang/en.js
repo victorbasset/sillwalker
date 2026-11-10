@@ -1065,4 +1065,8 @@ export default {
   2189: "Cast {n} spell|Cast {n} spells",
   2190: "Arcane Tide",
   2191: "Spells recharge twice as fast!",
+  2192: "Your companion also casts the spells learned for their class, at half power.",
+  2193: "New rare event “Arcane Tide”: spells recharge twice as fast.",
+  2194: "New quest: cast spells; every hero card shows its three spells.",
+  2195: "The piercing streak has its own sound; a banner announces each cooldown milestone.",
 };

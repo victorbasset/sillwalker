@@ -45,7 +45,13 @@ const EDITION_6 = [
   "Les sorts appris s’affichent sur la carte du héros ; « À faire maintenant » signale un sort à apprendre.",
   "Les icônes des onglets restent visibles sur les petits écrans ; nouveau succès « Grimoire complet ».",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6];
+const EDITION_7 = [
+  "Ton compagnon lance aussi les sorts appris pour sa classe, à moitié de leur puissance.",
+  "Nouvel événement rare « Marée arcanique » : les sorts se rechargent deux fois plus vite.",
+  "Nouvelle quête : lancer des sorts ; chaque carte de héros montre ses trois sorts.",
+  "Le trait perçant a son son ; un bandeau annonce chaque palier de recharge.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

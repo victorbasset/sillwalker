@@ -1065,4 +1065,8 @@ export default {
   2189: "Lançar {n} feitiço|Lançar {n} feitiços",
   2190: "Maré arcana",
   2191: "Os feitiços recarregam duas vezes mais rápido!",
+  2192: "Seu companheiro também lança os feitiços aprendidos para a classe dele, com metade da potência.",
+  2193: "Novo evento raro «Maré arcana»: os feitiços recarregam duas vezes mais rápido.",
+  2194: "Nova missão: lançar feitiços; cada cartão de herói mostra seus três feitiços.",
+  2195: "O raio perfurante tem seu som; uma faixa anuncia cada patamar de recarga.",
 };

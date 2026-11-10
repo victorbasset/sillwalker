@@ -1065,4 +1065,8 @@ export default {
   2189: "{n} Zauber wirken|{n} Zauber wirken",
   2190: "Arkane Flut",
   2191: "Zauber laden doppelt so schnell auf!",
+  2192: "Dein Begleiter wirkt auch die für seine Klasse gelernten Zauber, mit halber Stärke.",
+  2193: "Neues seltenes Ereignis „Arkane Flut“: Zauber laden doppelt so schnell auf.",
+  2194: "Neue Quest: Zauber wirken; jede Heldenkarte zeigt ihre drei Zauber.",
+  2195: "Der durchbohrende Strahl hat seinen Klang; ein Banner kündigt jede Abklingzeit-Stufe an.",
 };

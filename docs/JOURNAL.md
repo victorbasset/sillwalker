@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 518) : vérifié : les succès obtenus restent (S.achievements, earnedAchievements) même quand un ajout
+  de contenu relève la barre (« Chasseur d'événements » et la Marée arcanique). « Quoi de neuf », édition 7 (sorts du
+  compagnon, Marée arcanique, quête des sorts et cartes de héros, son du trait perçant et bandeau des paliers).
+  Traduit ; aucun défilement (ru, de, pl, fr, pt ; 3 largeurs, « Quoi de neuf » au pire cas). 125/125.
 - 2026-11-10 (it. 517) : 11e événement rare « Marée arcanique » (30 s, chance 0,002 par victoire, seulement si le héros
   a un sort appris) : recharges des sorts (héros et compagnon) deux fois plus rapides ; son (arpège qui monte), halo
   violet du héros, bandeau. Traduit ; test logique ; son rendu par l'autotest ; fuzz et save-fuzz ok. 177 tests ; 125/125.

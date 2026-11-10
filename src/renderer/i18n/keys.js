@@ -2193,5 +2193,9 @@ export const KEYS = [
   "Ton compagnon lance aussi les siens, à moitié de leur puissance.",
   "Lancer {n} sort|Lancer {n} sorts",
   "Marée arcanique",
-  "Les sorts se rechargent deux fois plus vite !"
+  "Les sorts se rechargent deux fois plus vite !",
+  "Ton compagnon lance aussi les sorts appris pour sa classe, à moitié de leur puissance.",
+  "Nouvel événement rare « Marée arcanique » : les sorts se rechargent deux fois plus vite.",
+  "Nouvelle quête : lancer des sorts ; chaque carte de héros montre ses trois sorts.",
+  "Le trait perçant a son son ; un bandeau annonce chaque palier de recharge."
 ];

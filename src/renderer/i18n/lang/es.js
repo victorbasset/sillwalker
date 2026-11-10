@@ -1065,4 +1065,8 @@ export default {
   2189: "Lanzar {n} hechizo|Lanzar {n} hechizos",
   2190: "Marea arcana",
   2191: "¡Los hechizos se recargan el doble de rápido!",
+  2192: "Tu compañero también lanza los hechizos aprendidos para su clase, a la mitad de potencia.",
+  2193: "Nuevo evento raro «Marea arcana»: los hechizos se recargan el doble de rápido.",
+  2194: "Nueva misión: lanzar hechizos; cada tarjeta de héroe muestra sus tres hechizos.",
+  2195: "El rayo perforante tiene su sonido; un cartel anuncia cada umbral de recarga.",
 };

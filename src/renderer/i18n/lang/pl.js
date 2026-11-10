@@ -1065,4 +1065,8 @@ export default {
   2189: "Rzuć {n} zaklęcie|Rzuć {n} zaklęcia|Rzuć {n} zaklęć",
   2190: "Arkaniczny przypływ",
   2191: "Zaklęcia odnawiają się dwa razy szybciej!",
+  2192: "Twój towarzysz też rzuca zaklęcia poznane dla swojej klasy, z połową mocy.",
+  2193: "Nowe rzadkie wydarzenie „Arkaniczny przypływ”: zaklęcia odnawiają się dwa razy szybciej.",
+  2194: "Nowe zadanie: rzucanie zaklęć; każda karta bohatera pokazuje jego trzy zaklęcia.",
+  2195: "Przebijający promień ma swój dźwięk; baner ogłasza każdy próg odnowienia.",
 };
