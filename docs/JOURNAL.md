@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 345) : autotest : le contrôle « aucun onglet ne défile » est refait à 1366 px (fenêtre rétrécie le
+  temps de la mesure). Il a trouvé deux cas : Aventure (résumé d'absence sur plusieurs lignes : une ligne sous
+  1500 px, texte complet au survol) et Familiers (barre sur deux lignes quand « envoyer tout » / « récupérer »
+  s'ajoutent : rangée latérale sans barre visible). 109/109.
 - 2026-11-10 (it. 344, écrans de portable) : Aventure entre 1200 et 1499 px : 5 colonnes (Journal en colonne
   étroite, 1.15 / 1.4 / 0.9 / 1.1 / 0.75 fr) au lieu de 4 + Journal dessous : défilement 368 → 0 à 1366 et 1440
   (12 px à 1280 ; noms d'équipement plus courts, le clic ouvre le détail). Les écrans de portable 1366 / 1600 ne

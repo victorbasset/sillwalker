@@ -57,7 +57,7 @@ export class PetsTab {
         ${lockLink(S, "menagerie")}</div>`;
       return;
     }
-    el.innerHTML = `<div class="petbar panel">
+    el.innerHTML = `<div class="petbar panel hscroll" data-hs="petbar">
         <div><b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} ${txn(P.eggs, "{n} œuf en attente|{n} œufs en attente", { n: `<b>${P.eggs}</b>` })}</div>
         ${P.eggs > 0 && (hasUnlock(S, "petBulk") || P.eggs <= 1) ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : P.eggs > 1 ? `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>` : ""}
         ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}

@@ -1054,3 +1054,12 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 @media (min-width: 1200px) and (max-width: 1499px) {
   [data-pane="adventure"] .grid { grid-template-columns: 1.15fr 1.4fr 0.9fr 1.1fr 0.75fr; }
 }
+/* Écran de portable : barre des Familiers sur une ligne (rangée latérale si elle déborde) ; résumé d'absence de la
+   carte du héros sur une ligne (texte complet au survol). */
+.petbar.hscroll { align-items: center; gap: 12px; }
+.petbar.hscroll > * { white-space: nowrap; }
+@media (max-width: 1499px) {
+  .visit { display: block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
+}
+.petbar.hscroll { scrollbar-width: none; }
+.petbar.hscroll::-webkit-scrollbar { display: none; }
