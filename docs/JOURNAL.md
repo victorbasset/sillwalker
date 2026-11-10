@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 401) : le mage revenait à 56 dans les revues (graine 7 par défaut) : sur 5 graines (SEED=1..5,
+  balance.mjs 12 h) il fait 61 / 60 / 58 / 59 / 60, moyenne 59,6, dans la norme. Paladin ≈ 62 (un peu fort, acceptable).
+  Rien changé. Leçon : juger un héros isolé sur plusieurs graines (SEED est transmis à balance.mjs).
 - 2026-11-10 (it. 400, revue générale) : équilibrage des 20 héros en 12 h (HEROES=all) : moyenne 59,4, de 56 (mage) à
   63 (paladin, gardien des étoiles) ; crawl 302 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ;
   perf : bande 20,7 %, panneau 21,7 %, mini 6,4 %, icône 3,2 % d'un cœur (fourchette habituelle).
