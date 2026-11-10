@@ -17,6 +17,14 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   musical ; désactivables dans les Réglages). **But final** : le Briseur d'Étoiles, boss unique de la
   zone 200 (sprite propre, 3 capacités, PV ×2,5) ; sa défaite rallume le ciel (cinématique, générique personnalisé,
   succès STARBREAKER), puis le jeu continue « au-delà du Rebord ». Libérer un héros a aussi sa cinématique.
+- **Boss majeurs et reliques** (`game/relics.js`, demande de Victor) : trois lieutenants du Briseur gardent une
+  relique en zones 50 (Geôlier mécanique), 100 (Reine des cendres) et 150 (Chevalier de l'éclipse) : boss plus
+  coriaces (PV ×2 à ×2,4, capacités propres), annoncés par une scène et dans le panneau de la zone (à 10 zones).
+  La relique flotte à côté du boss ; vaincu, il la laisse au héros pour toujours (ascensions comprises), avec une
+  scène qui raconte son histoire. Le Briseur donne la 4e. Drone stellaire (missiles toutes les 1,5 s, visible à
+  côté du héros), Cœur de l'aube (dégâts subis −45 %, régénération), Lame du crépuscule (attaque ×2,5), Couronne
+  d'étoiles (attaque et PV ×2, or +50 %, portée sur la tête). Réglage : ≈ 15-20 zones par relique (semaine
+  simulée). Sur la carte, au bout des rangées ; en-tête de la carte : les quatre ; succès RELIC_FIRST, RELICS_ALL.
 - **Carte du Rebord** (onglet Carte, zone 12) : les 200 zones en serpentin aux couleurs de leur décor, héros
   prisonniers, chroniques, record, Briseur au bout, brouillard au-delà du record ; avec la **Carte du voyageur**
   (déblocage, zone 22), un clic sur une zone déjà atteinte y emmène le héros.

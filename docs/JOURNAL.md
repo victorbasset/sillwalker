@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 592) : README : section « Boss majeurs et reliques » (zones, effets, réglage, carte, succès).
+  Autotest : contrôle de l'annonce du prochain boss majeur dans le panneau de la zone (présente à la zone 45,
+  absente une fois la relique gagnée). 133/133.
 - 2026-11-10 (it. 591) : panneau de la zone : « Zone 50 : Le Geôlier mécanique garde une relique, Drone stellaire. »
   quand un boss majeur est à 10 zones au plus et sa relique pas encore gagnée (icône ; survol : effet). Pire cas
   (zone 145, Chevalier de l'éclipse) en de, pl, ru à 1280 et 1366 : aucun défilement. Perf du mode mini remesurée

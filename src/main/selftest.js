@@ -497,6 +497,9 @@ async function runSelfTest(strip) {
   await sleep(700);
   const bb = await js("(() => { const st = window.__strip, H = window.innerHeight; const hb = st.heroBar.el.getBoundingClientRect(), b = document.querySelector('.hpbar.bossbar'); if (!b || b.hidden || st.heroBar.el.hidden) return 'barre absente'; const br = b.getBoundingClientRect(), hr = st.hero.el.getBoundingClientRect(); const r = [hb.top >= hr.bottom - 2, br.bottom <= H, hb.bottom <= H, br.top > 30].join(' '); window.__game.S.kills = window.__bbKeep; return r; })()");
   check("combat de boss : barres de vie du héros et du boss visibles sous les pieds", bb0 === "ok" && bb === "true true true true", bb);
+  // Panneau de la zone (it. 591) : un boss majeur à 10 zones au plus est annoncé avec sa relique (pas une fois gagnée).
+  const ra = await js("(() => { const G = window.__game, P = window.__panel, z0 = G.S.zone, rel = G.S.relics; G.S.zone = 45; G.S.relics = {}; P.renderZone(); const a = !!document.querySelector('#p-zone .relicahead'); G.S.relics = { drone: 1 }; P.renderZone(); const b = !document.querySelector('#p-zone .relicahead'); G.S.zone = z0; G.S.relics = rel; P.renderZone(); return a + ' ' + b; })()");
+  check("zone : prochain boss majeur et sa relique annoncés", ra === "true true", ra);
   // Relique gagnée (demande S) : scène avec la relique et son nom ; une scène encore ouverte (boss majeur de la
   // zone 50, contrôle du grand palier) est fermée d'abord.
   const rc = await js("(() => { const J = window.__strip.juice; J.cineQueue = []; J.cine = null; document.querySelectorAll('.cine').forEach((n) => n.remove()); J.cinematic('relic', { id: 'drone' }); const n = document.querySelector('.cine.relic'); const ok = !!n && !!n.querySelector('.cine-relic') && n.querySelector('.cine-title').textContent.length > 2; n && n.click(); return String(ok); })()");
