@@ -25,7 +25,7 @@ function light(hex) { const n = parseInt(String(hex).slice(1), 16); return ((n >
 export function songFor(zone, pass = 0) {
   const z = Math.max(1, zone | 0), def = ZONES[(z - 1) % ZONES.length], loop = Math.floor((z - 1) / ZONES.length);
   const r = rng(z * 7919 + 13), rBase = r;
-  const minor = light(def.sky[0]) < 0.4 || /crypt|abyss|néant|volcan|ossuaire|bastion|maudit|corrompu/i.test(def.name);
+  const minor = light(def.sky[0]) < 0.4 || /crypt|abyss|néant|volcan|ossuaire|bastion|maudit|corrompu/i.test(def.src || def.name);
   const scale = minor ? MINOR : MAJOR;
   const PR = minor ? PROG_MINOR : PROG_MAJOR;
   const progA = PR[Math.floor(r() * PR.length)], progB = PR[Math.floor(r() * PR.length)];
@@ -53,7 +53,9 @@ export function songFor(zone, pass = 0) {
   const prog8 = [progA[0], progA[1], progA[0], progA[1], progB[0], progB[1], progA[2], progA[3]];
   prog8.forEach((c, bar) => { const b = deg(c) - 12; bass.push({ step: bar * 8, midi: b, len: 3 }, { step: bar * 8 + 4, midi: b + 7, len: 3 }); });
   // Orchestration (demande de Victor : bien plus de diversité d'instruments) : selon le décor, puis la graine.
-  const n = def.name.toLowerCase(), pickOf = (list) => list[Math.floor(r() * list.length)];
+  // Nom français d'origine (def.src) : hors français, translateData remplace def.name par sa traduction et les mots-clés
+  // ne correspondaient plus (it. 531 : tous les décors tombaient sur « any » en anglais, etc.).
+  const n = (def.src || def.name).toLowerCase(), pickOf = (list) => list[Math.floor(r() * list.length)];
   const mood = /forêt|jungle|verger|bois|champignon/.test(n) ? "wood" : /toundra|glac|neige|cristal|givr/.test(n) ? "ice"
     : /volcan|lave|forge|abysses ardents|cœur/.test(n) ? "fire" : /crypt|ossuaire|égout|grotte|maudit|néant|bastion|mines/.test(n) ? "dark"
     : /récif|lagon|cité engloutie|côte|marais/.test(n) ? "sea" : /ruines célestes|nid|tempête|pic/.test(n) ? "sky" : "any";
@@ -64,7 +66,8 @@ export function songFor(zone, pass = 0) {
   const lead = r() < 0.75 ? pickOf(LEADS[mood]) : pickOf(LEADS.any);
   const bassInst = pickOf(mood === "dark" || mood === "fire" ? ["sub", "sub", "triangle", "pulsebass"] : ["sub", "triangle", "pluckbass"]);
   // Percussions lofi (boom-bap feutré) le plus souvent ; parfois juste un shaker ou rien.
-  const drums = pickOf(["lofi", "lofi", "lofi2", "lofi2", "shaker", "soft", "none"]);
+  // (it. 531 : sans percussions seulement dans les décors sombres ; avant, une tranche sur cinq, dont la toute première)
+  const drums = pickOf(mood === "dark" ? ["lofi", "lofi2", "soft", "none"] : ["lofi", "lofi", "lofi2", "lofi2", "shaker", "lofi"]);
   // Accords de septième au piano électrique, une fois par mesure, parfois relancés à contretemps.
   const resync = r() < 0.5, chords = [];
   prog8.forEach((c, bar) => { const ch = [0, 2, 4, 6].map((k) => deg(c + k)); chords.push({ step: bar * 8, notes: ch, len: resync ? 5 : 7 }); if (resync) chords.push({ step: bar * 8 + 5, notes: ch, len: 3 }); });

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 531) : BOGUE musique : hors français, translateData traduit ZONES[].name et la couleur du décor (et le
+  mode mineur) se lisait dans ce nom : tous les décors tombaient sur « any ». Lu dans le nom d'origine (def.src) ; test
+  « même air dans toutes les langues ». Percussions : plus de tranche sans rythme hors décors sombres (la 1re tranche
+  n'en avait pas). Volumes : rapport 1,49. Nouveaux extraits envoyés à Victor (zones 1-5, 16-20, 21-25, 26-30). 126/126.
 - 2026-11-10 (it. 530, revue générale) : balance 12 h identique à be4df35 (60,4) ; fuzz 1200, 0 bloquée ; crawl fr et ja
   313 clics sans erreur ; russe ok ; save-fuzz ok ; perf (copie neuve, musique lofi active) : bande 19,5 %, panneau
   20,9 %, mini 7,0 %, icône 0,5 % ; mémoire stable (≈ 799 Mo).
