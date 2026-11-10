@@ -570,6 +570,8 @@ async function runSelfTest(strip) {
     for (const k of ["bubble", "drip", "snow", "dust", "ember", "spore", "mote", "ash", "feather", "leaf", null]) await render("zone-" + k, (s) => { s.zoneSounds(k, false, true); s.zoneSounds(k, true, true); });
     await render("oiseau", (s) => s.birdCall());
     await render("perçant", (s) => s.pierceSound());
+    await render("drone", (s) => s.droneSound());
+    await render("relique", (s) => s.relicSound());
     // Musique lofi (it. 520) : chaque timbre (accord de 4 notes pour le piano électrique) et les deux rythmes boom-bap.
     const MusicK = window.__music.constructor;
     // (it. 536) comme en jeu : timbres et rythmes passent par le volume de la musique (MUSIC_GAIN 0,32)

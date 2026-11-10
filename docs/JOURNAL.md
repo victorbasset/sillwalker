@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 576) : sons des reliques (sound.js) : tir du Drone stellaire (petit lancement discret, 400 ms
+  au moins entre deux) et relique gagnée (carillon qui monte, accord tenu, étoiles qui tintent). Ajoutés au
+  rendu hors ligne de l'autotest (« son : tous les sons ») : pas de saturation. 131/131.
 - 2026-11-10 (it. 575, demande S, 5e partie) : en-tête de la carte : les quatre reliques (grisées tant qu'elles ne
   sont pas gagnées ; survol : effet, puis histoire ou boss et zone qui la garde). « Quoi de neuf » édition 12
   (boss majeurs, reliques, drone). Traduit ; lang-overflow de/pl/ru/pt à 1280 et 1366 : aucun défilement. 131/131.
