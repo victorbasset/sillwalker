@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 538) : Réglages, captures (de 1280, fr clair) : la valeur des curseurs de volume (« 100 % ») passait
+  à la ligne et débordait de la colonne Son en allemand à 1280 ; valeur sans retour à la ligne, curseur qui rétrécit
+  (min-width 0). Ligne d'écoute des airs lisible. Aucun défilement (de, ru, pl, fr). 127/127.
 - 2026-11-10 (it. 537) : « Quoi de neuf », édition 9 : ventes automatiques gardées à l'ascension (corrige l'annonce de
   l'édition 5), écoute des airs dans Réglages > Son, couleur des déserts et musique juste dans toutes les langues.
   Traduit ; aucun défilement (ru, de, pl, fr). 127/127.

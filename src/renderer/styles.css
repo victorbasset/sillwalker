@@ -442,7 +442,9 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 /* Réglages */
 .setgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: stretch; }
 .range { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 6px 0; }
-.range input { flex: 1; accent-color: var(--accent); }
+.range input { flex: 1; min-width: 0; accent-color: var(--accent); }
+/* (it. 538) la valeur (« 100 % ») ne passe plus à la ligne ni ne déborde de la colonne (allemand à 1280 px) */
+.range > span { white-space: nowrap; flex-shrink: 0; }
 .seg { gap: 4px; margin-top: 2px; }
 .seg button { padding: 3px 8px; font-size: 14px; }
 #toast .hint { font-size: 13px; margin-right: 2px; }
