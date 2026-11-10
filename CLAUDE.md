@@ -138,7 +138,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Pas de défilement vertical à 1920 px (demandes 18 et 32), ni à 1366 / 1280 px (écrans de portable) : l'autotest contrôle les trois (en français) ; `node scripts/lang-overflow.mjs [langues] [largeurs]` mesure les 10 langues (≈ 4 min) ;
   une liste qui grandit (nouvel événement, nouvelle capacité…) peut le casser. Remède habituel : une rangée latérale
   (`class="hscroll" data-hs="clé"`, ui/hscroll.js : molette, glisser, position gardée) ou un détail au survol (ⓘ).
-  `--overflow-report` mesure aussi « Quoi de neuf » au pire cas, Héros > Sorts et Statistiques > Succès (la liste des succès
+  `--overflow-report` (donc lang-overflow) signale aussi « onglet-large=N » : lignes de liste plus larges que leur colonne
+  (débordement horizontal, it. 541-543). Il mesure aussi « Quoi de neuf » au pire cas, Héros > Sorts et Statistiques > Succès (la liste des succès
   grandit à chaque ajout : relancer lang-overflow après un nouveau succès ; it. 503, polonais à 1920).
   Les contrôles mesurent les sections REPLIÉES : une section repliable (<details>) qui grandit fait défiler l'onglet
   une fois dépliée sans qu'aucun contrôle ne le voie. Remède : l'ouvrir dans la fenêtre large (panel.js > MODAL_DETAILS

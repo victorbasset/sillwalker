@@ -167,7 +167,9 @@ function start() {
         const r = await strip.win.webContents.executeJavaScript(`(() => { const p = document.getElementById("panel"), P = window.__panel, out = []; P.kept.clear();
           for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) {
             const b = document.querySelector("[data-tab=" + id + "]"); if (!b || !b.getClientRects().length) continue;
-            P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o); }
+            P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o);
+            // (it. 543) ligne de liste plus large que sa colonne (débordement horizontal)
+            let w = 0; for (const li of document.querySelectorAll(".lines li")) if (li.getClientRects().length && li.scrollWidth > li.clientWidth + 1) w++; if (w) out.push(id + "-large=" + w); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)

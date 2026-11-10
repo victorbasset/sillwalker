@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 543) : --overflow-report (et lang-overflow) compte aussi les lignes de liste plus larges que leur
+  colonne (« onglet-large=N ») : 10 langues × 3 largeurs : aucune. CLAUDE.md à jour.
 - 2026-11-10 (it. 542) : autotest « listes : aucune ligne plus large que sa colonne » (11 onglets ; garde la valeur
   sans retour à la ligne de l'it. 541 : une valeur trop longue déborderait sans que le défilement vertical le voie).
   128/128.
