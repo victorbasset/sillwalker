@@ -140,6 +140,10 @@ async function boot() {
   };
   applySettings();
   music.setZone(game.S.zone);
+  // Combat de boss : la musique s'intensifie (music.boss), jusqu'à sa chute ou au K.O. du héros.
+  game.on("spawn", (m) => { music.boss = !!(m && m.boss); });
+  game.on("kill", ({ mon }) => { if (mon && mon.boss) music.boss = false; });
+  game.on("heroDown", () => { music.boss = false; });
   // Changement de zone : fondu vers l'air de la nouvelle, une fois le héros installé depuis 6 s (un recul passager
   // après une défaite ne fait plus changer la musique ; demande de Victor : un air fixe par zone, reconnaissable).
   let musicZone = game.S.zone, musicSince = Date.now();

@@ -149,9 +149,13 @@ export class Music {
         this.play(v.gain, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1);
         if (song.harm) this.play(v.gain, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5); // tierce dessous
       }
-      for (const n of song.bass) if (n.step === s) this.play(v.gain, song.bassInst || "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 1);
+      for (const n of song.bass) if (n.step === s) {
+        this.play(v.gain, song.bassInst || "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 1);
+        if (this.boss) this.play(v.gain, "sub", hz(n.midi - 12), t, n.len * stepDur * 0.9, 0.6); // combat de boss : basse doublée plus grave
+      }
       if (song.arp) for (const n of song.arps) if (n.step === s) this.play(v.gain, song.arp, hz(n.midi), t, stepDur * 1.6, 0.45);
-      this.drum(v.gain, song.drums || (song.hat ? "soft" : "none"), s, t);
+      // Combat de boss : percussions lourdes, même pendant un intermède ou un silence (la tension monte).
+      this.drum(v.gain, this.boss ? "heavy" : song.drums || (song.hat ? "soft" : "none"), s, t);
       v.step++; v.next += stepDur;
     }
   }
