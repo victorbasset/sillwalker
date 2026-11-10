@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 581) : autotest : contrôle de la demande T (combat de boss forcé : barres de vie du héros et du
+  boss présentes, dans la bande, sous les pieds). 132/132.
 - 2026-11-10 (it. 580, revue générale + demande T) : DEMANDE T de Victor : « on voit pas la barre de vie des bosses
   et la mienne quand j'affronte un boss ». Vérifié en capture : la barre du boss (au-dessus de son grand sprite)
   tombait sous la ligne de son nom en haut de la bande ; celle du héros sous les nombres de dégâts. Contre un boss,

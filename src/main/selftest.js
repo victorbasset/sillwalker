@@ -491,6 +491,12 @@ async function runSelfTest(strip) {
   await new Promise((r) => setTimeout(r, 400));
   const gone = await js("!document.querySelector('.cine')");
   // File : une cinématique lancée pendant une autre attend la fin de la première (héros libéré puis chronique).
+  // Demande T (it. 580) : en combat de boss, les barres de vie du héros et du boss sont visibles, dans la bande,
+  // sous les pieds (au-dessus, celle du boss tombait sous son nom et celle du héros sous les nombres de dégâts).
+  const bb0 = await js("(() => { const G = window.__game; window.__bbKeep = G.S.kills; G.S.kills = 10; G.R.mon = G.makeMonster(true); G.R.mode = 'fight'; G.R.hp = G.stats().hp; return 'ok'; })()");
+  await sleep(700);
+  const bb = await js("(() => { const st = window.__strip, H = window.innerHeight; const hb = st.heroBar.el.getBoundingClientRect(), b = document.querySelector('.hpbar.bossbar'); if (!b || b.hidden || st.heroBar.el.hidden) return 'barre absente'; const br = b.getBoundingClientRect(), hr = st.hero.el.getBoundingClientRect(); const r = [hb.top >= hr.bottom - 2, br.bottom <= H, hb.bottom <= H, br.top > 30].join(' '); window.__game.S.kills = window.__bbKeep; return r; })()");
+  check("combat de boss : barres de vie du héros et du boss visibles sous les pieds", bb0 === "ok" && bb === "true true true true", bb);
   // Relique gagnée (demande S) : scène avec la relique et son nom ; une scène encore ouverte (boss majeur de la
   // zone 50, contrôle du grand palier) est fermée d'abord.
   const rc = await js("(() => { const J = window.__strip.juice; J.cineQueue = []; J.cine = null; document.querySelectorAll('.cine').forEach((n) => n.remove()); J.cinematic('relic', { id: 'drone' }); const n = document.querySelector('.cine.relic'); const ok = !!n && !!n.querySelector('.cine-relic') && n.querySelector('.cine-title').textContent.length > 2; n && n.click(); return String(ok); })()");
