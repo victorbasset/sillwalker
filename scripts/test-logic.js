@@ -636,6 +636,18 @@ test("astuce duo : proposée quand un héros de l'autre portée est libre, plus 
   assert.ok(!duo(), "duo formé : plus d'astuce");
 });
 
+test("plein écran (bon voisin) : états Windows lus, rien hors de Windows", () => {
+  const fw = createRequire(import.meta.url)("../src/main/fullscreen-watch.js");
+  assert.equal(fw.parseState("3\r"), true, "jeu D3D en plein écran");
+  assert.equal(fw.parseState("2"), true); assert.equal(fw.parseState("4"), true);
+  assert.equal(fw.parseState("5"), false, "état normal");
+  assert.equal(fw.parseState("Exception"), null, "ligne illisible ignorée");
+  let calls = 0;
+  const w = fw.watchFullscreen({ onChange: () => calls++, platform: "linux" });
+  w.stop();
+  assert.equal(calls, 0, "Linux : aucun processus, aucun changement");
+});
+
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {
   const { SKILL_TREE } = M_skilltree_js, keys = new Set(M_skillicons_js.SKILL_ICON_KEYS);
   for (const n of Object.values(SKILL_TREE.nodes)) assert.ok(keys.has(M_skillicons_js.skillIconKey(n)), "icône manquante : " + n.id + " " + M_skillicons_js.skillIconKey(n));

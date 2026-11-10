@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 321, P1 bon voisin) : la bande se cache devant une application en plein écran (jeu, vidéo,
+  présentation) puis revient : main/fullscreen-watch.js lance une fois un PowerShell caché qui appelle
+  SHQueryUserNotificationState toutes les 2 s (états 2, 3, 4 = plein écran) ; StripWindow.setFullscreenApp masque /
+  rend la fenêtre (reveal attend la fin du plein écran). Réglage dans le menu de l'icône « Se cacher devant les jeux
+  et vidéos en plein écran » (actif par défaut, 10 langues). Hors Windows ou si PowerShell échoue : aucun effet.
+  Test (lecture des états, Linux sans effet). NON VÉRIFIÉ SOUS WINDOWS : à essayer avec un jeu / une vidéo plein écran.
 - 2026-11-10 (it. 320, revue générale) : simulations 12 h : guerrier 60, barde 58, garde-étoile 59 (stables) ;
   crawl 300 clics sans erreur ; texte russe : aucun mot latin suspect ; perf : bande 19,1 %, panneau 20,5 %, mini
   5,8 %, icône 2,6 % d'un cœur (stables).
@@ -1241,7 +1247,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
      silencieuse (toute baisse annoncée dans les notes de version).
 
 
-- P1 Bon voisin, À TESTER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
+- P1 Bon voisin, CODÉ (it. 321), À VÉRIFIER SOUS WINDOWS : la bande est « toujours au premier plan » et ne détecte pas les
   applications en plein écran (jeu, vidéo, présentation) : elle peut recouvrir le bas d'un jeu en plein écran
   sans bordure. Piste : un petit processus PowerShell persistant (lancé une fois) qui appelle
   SHQueryUserNotificationState toutes les 2 s (QUNS_BUSY, QUNS_RUNNING_D3D_FULL_SCREEN,

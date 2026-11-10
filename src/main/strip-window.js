@@ -171,6 +171,7 @@ class StripWindow {
   }
 
   reveal() {
+    if (this.fsHidden) return; // une application est en plein écran : on reviendra après
     if (this.ghost) this.win.setOpacity(0.02);
     this.win.showInactive(); // n'arrache pas le focus à l'appli en cours
     this.win.setAlwaysOnTop(true, "pop-up-menu");
@@ -180,7 +181,15 @@ class StripWindow {
   /** Clic sur l'icône de notification : icône seule <-> dernier mode affiché. */
   toggle() { return this.setMode(this.mode() === "icon" ? this.settings.get("lastShownMode") : "icon"); }
   isShown() { return this.mode() !== "icon"; }
-  renderVisible() { return this.isShown() && !this.locked; }
+  renderVisible() { return this.isShown() && !this.locked && !this.fsHidden; }
+
+  /** Application en plein écran (fullscreen-watch.js) : la bande se cache, puis revient comme elle était. */
+  setFullscreenApp(on) {
+    if (on === !!this.fsHidden) return;
+    this.fsHidden = on;
+    if (on) { if (this.isShown() && this.win.isVisible()) this.win.hide(); this.send("visibility", false); }
+    else if (this.isShown()) this.reveal();
+  }
 
   /* ---------- Souris ---------- */
   /** Rectangles cliquables déclarés par la page (coordonnées de la fenêtre). */

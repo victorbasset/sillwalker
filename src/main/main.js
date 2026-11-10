@@ -185,6 +185,10 @@ function start() {
     powerMonitor.on("on-battery", sendPower);
     powerMonitor.on("on-ac", sendPower);
     setInterval(sendPower, 5000);
+    // Bon voisin : cachée devant une application en plein écran (Windows ; réglage dans le menu de l'icône).
+    const { watchFullscreen } = require("./fullscreen-watch");
+    const fsWatch = watchFullscreen({ onChange: (on) => strip.setFullscreenApp(on), enabled: () => strip.settings.get("hideOnFullscreen") !== false });
+    app.on("before-quit", () => fsWatch.stop());
     powerMonitor.on("lock-screen", () => strip.setLocked(true));
     powerMonitor.on("unlock-screen", () => strip.setLocked(false));
   });
