@@ -1138,4 +1138,7 @@ export default {
   2262: "Primeira relíquia",
   2263: "As quatro relíquias",
   2264: "Balada: +20% de ouro e +20% de experiência.",
+  2265: "Lutas contra chefes: a sua barra de vida e a do chefe ficam sob os pés, bem visíveis.",
+  2266: "Duas conquistas: “Primeira relíquia” e “As quatro relíquias”.",
+  2267: "Equilíbrio: Bardo +20% de ouro e experiência (em vez de +25%); Guardião das estrelas um pouco menos resistente.",
 };

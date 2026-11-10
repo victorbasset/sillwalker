@@ -1138,4 +1138,7 @@ export default {
   2262: "First relic",
   2263: "All four relics",
   2264: "Ballad: +20% gold and +20% experience.",
+  2265: "Boss fights: your health bar and the boss's are under your feet, easy to see.",
+  2266: "Two achievements: “First relic” and “All four relics”.",
+  2267: "Balance: Bard +20% gold and experience (instead of +25%); Star Warden slightly less sturdy.",
 };

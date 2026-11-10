@@ -1138,4 +1138,7 @@ export default {
   2262: "Pierwsza relikwia",
   2263: "Cztery relikwie",
   2264: "Ballada: +20% złota i +20% doświadczenia.",
+  2265: "Walki z bossami: twój pasek życia i pasek bossa są pod waszymi stopami, dobrze widoczne.",
+  2266: "Dwa osiągnięcia: „Pierwsza relikwia” i „Cztery relikwie”.",
+  2267: "Balans: Bard +20% złota i doświadczenia (zamiast +25%); Strażnik gwiazd nieco mniej wytrzymały.",
 };

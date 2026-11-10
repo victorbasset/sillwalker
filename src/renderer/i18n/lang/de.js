@@ -1138,4 +1138,7 @@ export default {
   2262: "Erstes Relikt",
   2263: "Alle vier Relikte",
   2264: "Ballade: +20 % Gold und +20 % Erfahrung.",
+  2265: "Bosskämpfe: Deine Lebensleiste und die des Bosses sind unter euren Füßen, gut sichtbar.",
+  2266: "Zwei Erfolge: „Erstes Relikt“ und „Alle vier Relikte“.",
+  2267: "Balance: Barde +20 % Gold und Erfahrung (statt +25 %); Sternenwächter etwas weniger robust.",
 };

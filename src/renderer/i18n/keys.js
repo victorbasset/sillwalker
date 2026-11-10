@@ -2266,5 +2266,8 @@ export const KEYS = [
   "Dégâts du drone par seconde",
   "Première relique",
   "Les quatre reliques",
-  "Ballade : +20 % d’or et +20 % d’expérience."
+  "Ballade : +20 % d’or et +20 % d’expérience.",
+  "Combat de boss : ta barre de vie et celle du boss sont sous vos pieds, bien visibles.",
+  "Deux succès : « Première relique » et « Les quatre reliques ».",
+  "Équilibrage : Barde +20 % d’or et d’expérience (au lieu de +25 %) ; Gardien des étoiles un peu moins robuste."
 ];

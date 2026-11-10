@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 587) : « Quoi de neuf » édition 13 (principe h : aucune baisse silencieuse) : barres de vie en
+  combat de boss, succès des reliques, baisses du Barde et du Gardien des étoiles. Traduite ; i18n-quotes ok ;
+  lang-overflow de, ru, pl, es à 1366 et 1280 : aucun défilement. 132/132.
 - 2026-11-10 (it. 586) : équilibrage : le Barde (68 zones en 12 h) : passif or et expérience +25 % → +20 % : 62
   (à +15 % : 61). Texte du passif mis à jour (nouvelle clé, traductions reprises en changeant le nombre). Les 20 héros
   sont maintenant entre 60 et 65 (HEROES=all). 132/132.
