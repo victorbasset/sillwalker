@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 549) : effets des sorts visibles en combat : monstre étourdi (pâle, ✦ ✦ au-dessus), ralenti (halo
+  bleu), affaibli (terne), empoisonné aussi par le poison des sorts ; héros accéléré (halo orangé) ; mots « Étourdi ! »,
+  « Écho ! », « Critique ! » au lancer. Correction : la barre de vie d'un monstre de la file blessé par un perçage était
+  cachée à chaque image ; elle reste visible jusqu'à son tour. Traduit. Perf bande 19,8 %. 130/130.
 - 2026-11-10 (it. 548, demande Q de Victor) : sorts uniques : 6 bases (animation, son, icône) + effets propres à chaque
   sort, 60 combinaisons toutes différentes (test) ; 13 effets : pierce, hits, stun (le monstre n'attaque plus ; boss
   deux fois moins longtemps), slow, weaken (−30 % de dégâts), burn, venom (cumulable), leech, execute (×2 sous X %),

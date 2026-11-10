@@ -1095,4 +1095,7 @@ export default {
   2219: "attack +50% for {0} s",
   2220: "other spells' cooldown −{0} s",
   2221: "healing over time: {0}% HP/s (5 s)",
+  2222: "Stunned!",
+  2223: "Echo!",
+  2224: "Critical!",
 };

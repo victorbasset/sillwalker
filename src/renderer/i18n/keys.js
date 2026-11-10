@@ -2223,5 +2223,8 @@ export const KEYS = [
   "{0} % de chance de se relancer",
   "attaque +50 % pendant {0} s",
   "recharge des autres sorts −{0} s",
-  "soin continu : {0} % des PV/s (5 s)"
+  "soin continu : {0} % des PV/s (5 s)",
+  "Étourdi !",
+  "Écho !",
+  "Critique !"
 ];

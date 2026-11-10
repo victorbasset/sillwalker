@@ -1095,4 +1095,7 @@ export default {
   2219: "atak +50% przez {0} s",
   2220: "odnowienie innych zaklęć −{0} s",
   2221: "leczenie w czasie: {0}% PŻ/s (5 s)",
+  2222: "Ogłuszony!",
+  2223: "Echo!",
+  2224: "Krytyk!",
 };

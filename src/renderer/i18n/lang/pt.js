@@ -1095,4 +1095,7 @@ export default {
   2219: "ataque +50% por {0} s",
   2220: "recarga dos outros feitiços −{0} s",
   2221: "cura contínua: {0}% de PV/s (5 s)",
+  2222: "Atordoado!",
+  2223: "Eco!",
+  2224: "Crítico!",
 };

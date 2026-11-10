@@ -1095,4 +1095,7 @@ export default {
   2219: "ataque +50 % durante {0} s",
   2220: "recarga de los demás hechizos −{0} s",
   2221: "curación continua: {0} % de PV/s (5 s)",
+  2222: "¡Aturdido!",
+  2223: "¡Eco!",
+  2224: "¡Crítico!",
 };

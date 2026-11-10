@@ -140,10 +140,14 @@ export class StripRenderer {
     // Sorts (demandes D et I : « spectaculaires et bien visibles ») : nom du sort en grand, puis l'effet de sa
     // mécanique (éclair zébré pleine hauteur, croissants de lame, boule de feu qui explose, météore avec traînée,
     // colonne de soin, dôme de bouclier) ; dégâts en gros chiffres de la couleur du héros.
-    g.on("spell", ({ id, dmg, amount, partner }) => {
+    g.on("spell", ({ id, dmg, amount, partner, echo, crit }) => {
       if (!this.active) return;
       const sp = SPELL_INDEX[id]; if (!sp) return;
       this.spellFx(sp, dmg, amount, partner);
+      // Effets marquants (demande Q) : un mot au-dessus du monstre
+      if (sp.stun) this.float(this.monX() + 14, 14, tx("Étourdi !"), "#fff6a8", true);
+      if (echo) this.float(this.monX() + 14, 20, tx("Écho !"), sp.color, true);
+      else if (crit) this.float(this.monX() + 14, 20, tx("Critique !"), "#ffd34d", true);
     });
     // Nouveau sort appris (rang 1) : un bandeau de fête dans la bande, avec l'icône du sort.
     g.on("spellLearned", ({ id, rank }) => {
@@ -587,7 +591,7 @@ export class StripRenderer {
     this.syncSlots();
 
     // Monstres en attente / combat en cours
-    const cur = Math.min(S.kills, FIGHTS - 1);
+    const cur = Math.min(S.kills, FIGHTS - 1), line = game.lineup();
     const idle = Math.floor(R.time * 2) % 2, busy = Math.floor(R.time * 4) % 2;
     for (let k = 0; k < FIGHTS; k++) {
       const a = this.slots[k];
@@ -598,15 +602,20 @@ export class StripRenderer {
       a.show(fighting ? busy : idle);
       const bob = fighting && a.fly ? Math.sin(R.time * 5) * 3 : 0;
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0), this.monY(a, bob));
-      a.bar.visible(!!fighting);
-      if (fighting) a.bar.set(R.mon.hp / R.mon.max);
+      // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).
+      const pierced = !fighting && (line[k]?.pierced > 0);
+      a.bar.visible(!!fighting || pierced);
+      if (fighting) a.bar.set(R.mon.hp / R.mon.max); else if (pierced) a.bar.set(game.slotHealth(k));
       const burning = !!(fighting && R.mon.burnT > 0);
       if (a.flame.hidden === burning) { a.flame.hidden = !burning; mark("flame"); }
       const enraged = !!(fighting && R.mon.enraged), shelled = !!(fighting && R.mon.shell > 0);
       if (a.el.classList.contains("enraged") !== enraged) { a.el.classList.toggle("enraged", enraged); mark("boss"); }
       if (a.el.classList.contains("shelled") !== shelled) { a.el.classList.toggle("shelled", shelled); mark("boss"); }
-      const poisoned = !!(fighting && R.mon.poisonT > 0);
+      const poisoned = !!(fighting && (R.mon.poisonT > 0 || R.mon.venomT > 0));
       if (a.el.classList.contains("poisoned") !== poisoned) { a.el.classList.toggle("poisoned", poisoned); mark("poison"); }
+      // Effets des sorts sur le monstre (demande Q) : étourdi, ralenti, affaibli.
+      for (const [cls, on] of [["stunned", fighting && R.mon.stunT > 0], ["slowed", fighting && R.mon.slowT > 0], ["weakened", fighting && R.mon.weakT > 0]])
+        if (a.el.classList.contains(cls) !== !!on) { a.el.classList.toggle(cls, !!on); mark("spellfx"); }
     }
     // Zone de clic calée sur le monstre combattu
     const tapOn = R.mode === "fight" && !!R.mon && !!this.slots[cur] && this.slots[cur].shown;

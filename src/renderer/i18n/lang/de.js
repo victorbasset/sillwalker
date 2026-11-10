@@ -1095,4 +1095,7 @@ export default {
   2219: "Angriff +50 % für {0} s",
   2220: "Abklingzeit der anderen Zauber −{0} s",
   2221: "Heilung über Zeit: {0} % LP/s (5 s)",
+  2222: "Betäubt!",
+  2223: "Echo!",
+  2224: "Kritisch!",
 };
