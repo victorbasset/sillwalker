@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 422) : autotest : la bulle « Nouvelle chronique » (événement chronicle émis) ouvre au clic la fenêtre
+  Chroniques, sans déplier la section. 119/119.
 - 2026-11-10 (it. 421) : bulle « Nouvelle chronique » : son clic dépliait encore la section Chroniques sur place (défilement
   de l'onglet) ; il ouvre maintenant la fenêtre Chroniques (panel.showDetails). 118/118.
 - 2026-11-10 (it. 420, revue générale) : simulations 12 h : guerrier 60, nécromancien 63, prêtresse 59 ; crawl 306 clics

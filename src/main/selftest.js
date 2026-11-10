@@ -531,6 +531,13 @@ async function runSelfTest(strip) {
   // Sections repliables de l'Aventure : un clic sur le titre ouvre la fenêtre large (pas de défilement de l'onglet).
   const dets = await js("(() => { const P = window.__panel, out = []; P.kept.clear(); P.setTab('adventure'); P.renderAll(); for (const k of ['hero-todo','hero-chron','hero-stats','rates']) { const d = document.querySelector('[data-keep=' + k + ']'); if (!d) continue; d.querySelector('summary').click(); const m = document.getElementById('modal'), b = m.querySelector('.panel'), o = b.scrollHeight - b.clientHeight; if (m.hidden || d.open || o > 2) out.push(k + ':' + (m.hidden ? 'fermée' : o) + (d.open ? ':dépliée' : '')); m.hidden = true; } return out.join(' ') || 'ok'; })()");
   check("aventure : sections repliables en fenêtre, sans défilement", dets === "ok", dets);
+  // Bulle « Nouvelle chronique » : son clic ouvre la fenêtre Chroniques (sans déplier la section sur place).
+  await js("(() => { document.getElementById('toast').hidden = true; window.__game.emit('chronicle', { ids: ['captive'] }); })()");
+  await sleep(500);
+  const chT = await js("(() => { const t = document.getElementById('toast'); if (t.hidden) return 'pas de bulle'; t.click(); return 'ok'; })()");
+  await sleep(500);
+  const chM = await js("(() => { const m = document.getElementById('modal'), d = document.querySelector('[data-keep=hero-chron]'); const r = (m.hidden ? 'fermée' : 'ouverte') + ' ' + (d ? d.open : '?'); m.hidden = true; document.querySelectorAll('.cine').forEach((c) => c.click()); return r; })()");
+  check("bulle de chronique : ouvre la fenêtre Chroniques", chT === "ok" && chM === "ouverte false", chT + " / " + chM);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);
