@@ -23,7 +23,7 @@ import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
-import { SPELL_INDEX } from "../game/spells.js";
+import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { spellIconURL } from "./shopart.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
@@ -264,6 +264,8 @@ export class StripRenderer {
     const ring = (x, y, big) => (full ? fx("ring" + (big ? " big" : ""), x, y, 0.6) : null);
     const later = (ms, f) => setTimeout(() => { if (this.active) f(); }, ms);
     this.float(hx, 2, tr(sp.name), c, true); // le nom du sort, en grand
+    // Sort maîtrisé (rang maximal, it. 544) : un éclat d'étoiles dorées autour du lanceur.
+    if (full && spellRank(this.game.S, sp.id) >= SPELL_MAX) this.juice.sparkles(hx, this.ground - 34, "#ffd34d", 8);
     { const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(tpl, c, 3); this.addFx(ic, hx - 14, 6, 0.9, 18); } // son icône, qui monte
     if (tpl === "bolt") {
       fx("bolt", mx - 4, 0, 0.45); this.flash = Math.max(this.flash, 0.22);

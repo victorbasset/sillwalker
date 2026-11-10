@@ -1080,4 +1080,5 @@ export default {
   2204: "Ascensión: las ventas automáticas marcadas siguen marcadas.",
   2205: "Ajustes > Sonido: ◀ ▶ para escuchar la melodía de otras zonas (45 s).",
   2206: "Música: los desiertos tienen su color oriental; cada escenario conserva el suyo en todos los idiomas.",
+  2207: "dominado",
 };

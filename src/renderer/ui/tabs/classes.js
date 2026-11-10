@@ -97,7 +97,7 @@ export class ClassesTab {
       const eff = sp.kind === "dmg" ? (sp.hits > 1 ? txn(sp.hits, "{n} coup de {0} % de l’attaque|{n} coups de {0} % de l’attaque", { 0: Math.round(v * 100) }) : tx("{0} % de l’attaque", { 0: Math.round(v * 100) }))
         : sp.kind === "heal" ? tx("soigne {0} % des PV", { 0: Math.round(v) }) : tx("bouclier de {0} % des PV", { 0: Math.round(v) });
       const btn = !open ? `<span class="note">${tx("zone {0} requise", { 0: sp.zone })}</span>`
-        : r >= SPELL_MAX ? `<span class="note">${tx("rang maximal")}</span>`
+        : r >= SPELL_MAX ? `<span class="note mastered">★ ${tx("maîtrisé")}</span>`
         : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""} title="${esc(tx("Rang {0} : {1}", { 0: r + 1, 1: effAt(r + 1) }) + (spellCd(sp, r + 1) < spellCd(sp, Math.max(1, r)) ? " · " + tx("recharge : {0} s", { 0: dec(String(spellCd(sp, r + 1))) }) : ""))}">${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`
           // « max » (Manuel du stratège, comme les talents) : autant de rangs que l'or le permet, dès que deux sont abordables.
           + (hasUnlock(S, "bulkPoints") && r + 1 < SPELL_MAX && S.gold >= price * 3.5 ? ` <button data-action="c-spellmax" data-id="${sp.id}" class="quiet" title="${esc(tx("Acheter autant de niveaux que possible"))}">${tx("max")}</button>` : "");

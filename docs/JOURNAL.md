@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 544) : sort au rang maximal (50) : la carte affiche « ★ maîtrisé » (or des ornements) au lieu de
+  « rang maximal » ; en combat, un éclat d'étoiles dorées autour du lanceur (Effets complets). Traduit. 128/128.
 - 2026-11-10 (it. 543) : --overflow-report (et lang-overflow) compte aussi les lignes de liste plus larges que leur
   colonne (« onglet-large=N ») : 10 langues × 3 largeurs : aucune. CLAUDE.md à jour.
 - 2026-11-10 (it. 542) : autotest « listes : aucune ligne plus large que sa colonne » (11 onglets ; garde la valeur

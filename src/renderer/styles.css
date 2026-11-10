@@ -1221,3 +1221,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 541) Statistiques : la valeur ne se coupe pas (« 63,97 / Mrd ») ; c'est le libellé qui passe à la ligne. */
 .lines li > span { min-width: 0; }
 .lines li > b { white-space: nowrap; text-align: right; }
+/* Sort au rang maximal (it. 544) */
+.spellcard .mastered { color: var(--star); font-weight: 600; }

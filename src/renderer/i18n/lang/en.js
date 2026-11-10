@@ -1080,4 +1080,5 @@ export default {
   2204: "Ascension: checked automatic sales stay checked.",
   2205: "Settings > Sound: ◀ ▶ to listen to the tune of other zones (45 s).",
   2206: "Music: deserts get their eastern colour; every setting keeps its own in all languages.",
+  2207: "mastered",
 };

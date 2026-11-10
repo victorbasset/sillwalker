@@ -1080,4 +1080,5 @@ export default {
   2204: "Wniebowstąpienie: zaznaczona automatyczna sprzedaż zostaje zaznaczona.",
   2205: "Ustawienia > Dźwięk: ◀ ▶, by posłuchać melodii innych stref (45 s).",
   2206: "Muzyka: pustynie mają orientalny koloryt; każda sceneria zachowuje swój we wszystkich językach.",
+  2207: "opanowane",
 };

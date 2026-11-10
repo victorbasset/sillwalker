@@ -1080,4 +1080,5 @@ export default {
   2204: "Aufstieg: angehakte automatische Verkäufe bleiben angehakt.",
   2205: "Einstellungen > Ton: ◀ ▶, um die Melodie anderer Zonen zu hören (45 s).",
   2206: "Musik: Wüsten klingen orientalisch; jede Kulisse behält ihre Farbe in allen Sprachen.",
+  2207: "gemeistert",
 };
