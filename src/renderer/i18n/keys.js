@@ -2199,5 +2199,7 @@ export const KEYS = [
   "Nouvelle quête : lancer des sorts ; chaque carte de héros montre ses trois sorts.",
   "Le trait perçant a son son ; un bandeau annonce chaque palier de recharge.",
   "Nouvelle musique, douce et posée (lofi) : un air toutes les 5 zones, avec la couleur de chaque décor.",
-  "Piano électrique, rythme feutré, léger craquement de vinyle ; le volume se règle dans Réglages > Son."
+  "Piano électrique, rythme feutré, léger craquement de vinyle ; le volume se règle dans Réglages > Son.",
+  "Sorts du compagnon ({0}), à moitié de leur puissance :",
+  "aucun appris (apprends-les en jouant ce héros)"
 ];

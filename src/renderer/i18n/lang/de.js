@@ -1071,4 +1071,6 @@ export default {
   2195: "Der durchbohrende Strahl hat seinen Klang; ein Banner kündigt jede Abklingzeit-Stufe an.",
   2196: "Neue Musik, sanft und entspannt (Lofi): eine Melodie alle 5 Zonen, mit der Farbe jeder Kulisse.",
   2197: "E-Piano, gedämpfter Beat, leises Vinylknistern; die Lautstärke stellst du unter Einstellungen > Ton ein.",
+  2198: "Zauber des Begleiters ({0}), mit halber Stärke:",
+  2199: "keine gelernt (lerne sie, während du diesen Helden spielst)",
 };

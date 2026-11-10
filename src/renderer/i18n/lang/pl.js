@@ -1071,4 +1071,6 @@ export default {
   2195: "Przebijający promień ma swój dźwięk; baner ogłasza każdy próg odnowienia.",
   2196: "Nowa muzyka, łagodna i spokojna (lofi): jedna melodia co 5 stref, z kolorytem każdej scenerii.",
   2197: "Pianino elektryczne, stłumiony rytm, lekkie trzaski winylu; głośność ustawisz w Ustawienia > Dźwięk.",
+  2198: "Zaklęcia towarzysza ({0}), z połową mocy:",
+  2199: "żadne nie poznane (poznaj je, grając tym bohaterem)",
 };

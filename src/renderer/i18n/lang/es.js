@@ -1071,4 +1071,6 @@ export default {
   2195: "El rayo perforante tiene su sonido; un cartel anuncia cada umbral de recarga.",
   2196: "Nueva música, suave y tranquila (lofi): una melodía cada 5 zonas, con el color de cada escenario.",
   2197: "Piano eléctrico, ritmo suave, leve crujido de vinilo; el volumen se ajusta en Ajustes > Sonido.",
+  2198: "Hechizos del compañero ({0}), a la mitad de potencia:",
+  2199: "ninguno aprendido (apréndelos jugando con este héroe)",
 };

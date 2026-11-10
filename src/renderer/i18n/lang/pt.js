@@ -1071,4 +1071,6 @@ export default {
   2195: "O raio perfurante tem seu som; uma faixa anuncia cada patamar de recarga.",
   2196: "Nova música, suave e tranquila (lofi): uma melodia a cada 5 zonas, com a cor de cada cenário.",
   2197: "Piano elétrico, ritmo suave, leve chiado de vinil; o volume se ajusta em Configurações > Som.",
+  2198: "Feitiços do companheiro ({0}), com metade da potência:",
+  2199: "nenhum aprendido (aprenda-os jogando com este herói)",
 };

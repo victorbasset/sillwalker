@@ -108,7 +108,15 @@ export class ClassesTab {
     const book = hasUnlock(S, "spellBook") ? `<label class="toggle" title="${esc(tx("Grimoire des sorts : améliorer tout seul le sort le moins cher"))}"><input type="checkbox" data-action="c-autospells"${S.settings.autoSpells !== false ? " checked" : ""}> ${tx("Grimoire des sorts")}</label>` : lockLink(S, "spellBook");
     return `<article class="panel spellbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.cls] ? CLASSES[S.cls].name : "") })} <small class="spellbook">${book}</small></h2>
       <p class="note tight">${tx("Ils se lancent tout seuls en combat dès qu’ils sont rechargés, en plus de l’attaque de base.")} ${tx("Propres à chaque héros, gardés à l’ascension.")} <span class="help" title="${esc(tx("Ton compagnon lance aussi les siens, à moitié de leur puissance."))}">ⓘ</span></p>
-      <div class="spellgrid">${cards}</div></article>`;
+      <div class="spellgrid">${cards}</div>${this.partnerSpells(S)}</article>`;
+  }
+
+  /** Sorts du compagnon (it. 527) : une ligne, icônes et rangs, lancés à moitié de leur puissance. */
+  partnerSpells(S) {
+    if (!S.partner || !CLASSES[S.partner]) return "";
+    const list = classSpells(S.partner).filter((x) => spellRank(S, x.id) > 0);
+    const icons = list.map((x) => `<span class="pspell" title="${esc(tr(x.name))}"><img src="${spellIconURL(x.tpl, x.color, 2)}" alt="">${spellRank(S, x.id)}</span>`).join("");
+    return `<p class="note tight pspells">${tx("Sorts du compagnon ({0}), à moitié de leur puissance :", { 0: esc(CLASSES[S.partner].name) })} ${icons || tx("aucun appris (apprends-les en jouant ce héros)")}</p>`;
   }
 
   onAction(a, b) {

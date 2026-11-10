@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 527) : Héros > Sorts et attaque : ligne « Sorts du compagnon (Rôdeur), à moitié de leur puissance : »
+  avec icônes et rangs des sorts appris pour sa classe (ou « aucun appris (apprends-les en jouant ce héros) »). Traduit ;
+  aucun défilement (10 langues, 3 largeurs) ; capture. 126/126.
 - 2026-11-10 (it. 526) : music.js : Music.scheduleStep, un pas d'air programmé, commun au jeu (pump) et au rendu hors
   ligne (schedulePass) : l'autotest mesure exactement ce que le joueur entend ; le contrôle de la musique rend aussi un
   combat de boss (basse doublée, percussions lourdes) : pas de saturation. Mêmes volumes (rapport 1,74). 126/126.

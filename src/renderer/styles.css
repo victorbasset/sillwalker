@@ -1207,3 +1207,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .classcard .cspells img.on { filter: var(--iconsh); opacity: 1; }
 /* Thème clair : contour sombre des icônes de sorts (les sorts blancs du guerrier disparaissaient sur le crème, it. 509). */
 .duoline .spellmini img, .spellcard .spellico { filter: var(--iconsh); }
+/* Sorts et attaque : sorts du compagnon (icône + rang), sur une ligne. */
+.pspells { margin-top: 4px; }
+.pspells .pspell { display: inline-flex; align-items: center; gap: 2px; margin-right: 8px; color: var(--muted); }
+.pspells .pspell img { width: 16px; height: 16px; image-rendering: pixelated; filter: var(--iconsh); vertical-align: middle; }

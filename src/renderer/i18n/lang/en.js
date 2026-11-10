@@ -1071,4 +1071,6 @@ export default {
   2195: "The piercing streak has its own sound; a banner announces each cooldown milestone.",
   2196: "New music, soft and laid-back (lofi): one tune every 5 zones, with the colour of each setting.",
   2197: "Electric piano, mellow beat, a light vinyl crackle; adjust the volume in Settings > Sound.",
+  2198: "Companion spells ({0}), at half power:",
+  2199: "none learned (learn them while playing this hero)",
 };
