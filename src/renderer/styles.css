@@ -1225,7 +1225,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellcard .mastered { color: var(--star); font-weight: 600; }
 /* Effets des sorts sur le monstre et le héros (demande Q, it. 549) : simples filtres, sans animation (coût). */
 .actor.stunned { filter: brightness(1.35) saturate(.4) drop-shadow(0 0 2px #fff6a8); }
-.actor.stunned::before { content: "✦ ✦"; position: absolute; left: 50%; top: -14px; translate: -50% 0; font-size: 9px; color: #fff6a8; white-space: nowrap; pointer-events: none; }
+.actor.stunned::before { content: "✦ ✦ ✦"; position: absolute; left: 50%; top: -24px; translate: -50% 0; font-size: 12px; color: #fff6a8; white-space: nowrap; pointer-events: none;
+  -webkit-text-stroke: 3px #14121f; paint-order: stroke fill; z-index: 3; } /* (it. 551) plus haut et cerclé : le monstre est souvent derrière le héros */
 .actor.slowed { filter: drop-shadow(0 0 2px #8fd0ff) saturate(.7); }
 .actor.weakened { filter: grayscale(.6) brightness(.85); }
 .actor.hasted { filter: drop-shadow(0 0 2px #ffb347) drop-shadow(0 0 1px #ff7a3a); }

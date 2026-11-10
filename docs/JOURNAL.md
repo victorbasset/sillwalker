@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 551) : vérification en capture des marques d'état sur un monstre normal : classes bien posées, halo du
+  héros accéléré visible ; étoiles d'étourdissement peu visibles (monstre derrière le héros) : plus haut (-24 px), plus
+  grandes, cerclées de sombre. 130/130.
 - 2026-11-10 (it. 550, revue générale) : fuzz 1200, 0 bloquée ; crawl fr 315 et ru 321 sans erreur ; russe ok ;
   save-fuzz ok ; perf : bande 19,6 %, panneau 21,5 %, mini 6,9 %, icône 0,5 % ; mémoire stable (≈ 794 Mo) ; balance
   vue à l'it. 548. « Quoi de neuf », édition 10 (sorts uniques, perçage immédiat sur plusieurs ennemis, effets visibles,
