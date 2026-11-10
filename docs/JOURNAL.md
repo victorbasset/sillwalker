@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 370, revue générale) : simulations 12 h : paladin 60, moine 60, cryomancienne 57 ; crawl 302 clics
+  sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; fuzz 1200 parties, 0 bloquée ; perf : bande 19,1 %,
+  panneau 19,9 %, mini 6,4 %, icône 2,9 % d'un cœur (stables).
 - 2026-11-10 (it. 369, icônes uniques) : chaque déblocage a sa propre icône (6 nouvelles dans shopart.js : contrat
   du Bureau des contrats, marteau du Maître de forge, enclume étoilée, astrolabe, cloche du Grand intendant, chaudron
   sur le feu du Creuset perpétuel). Test : aucune icône partagée, toutes dessinées. Capture, 171 tests, 113/113.
