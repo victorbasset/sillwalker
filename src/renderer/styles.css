@@ -1218,3 +1218,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Réglages > Son : écoute des airs (◀ ▶). */
 .mpreview { display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; color: var(--muted); font-size: 13px; }
 .mpreview button { padding: 2px 8px; }
+/* (it. 541) Statistiques : la valeur ne se coupe pas (« 63,97 / Mrd ») ; c'est le libellé qui passe à la ligne. */
+.lines li > span { min-width: 0; }
+.lines li > b { white-space: nowrap; text-align: right; }

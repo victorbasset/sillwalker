@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 541) : revue en capture (de 1280) de Talents, Ascension, Statistiques, Bestiaire : propre, sauf les
+  valeurs des listes « .lines » coupées en deux (« 63,97 / Mrd », « 44 / / 44 ») ; valeur sans retour à la ligne, le
+  libellé passe à la ligne. Mesuré : aucune ligne qui déborde (11 onglets, de et ru, 1280 et 1920) ; aucun défilement
+  (10 langues). 127/127.
 - 2026-11-10 (it. 540, revue générale) : balance 12 h identique (60,4) ; semaine mage 191 ; fuzz 1200, 0 bloquée ;
   crawl pl 315 et ko 320 sans erreur ; russe ok ; save-fuzz ok ; perf (musique active) : bande 20,1 %, panneau 21,3 %,
   mini 6,7 %, icône 0,6 % ; mémoire stable (≈ 795 Mo).
