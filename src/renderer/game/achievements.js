@@ -44,6 +44,7 @@ export const ACHIEVEMENTS = [
   // Duo et héros (demande 17)
   { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
   { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
+  { id: "PURE_HEART",      name: "Cœur pur",           test: (S) => (S.stats.pureBoss || 0) > 0 },
   { id: "DUO_SYNERGY",     name: "Duo parfait",        test: (S) => !!duoSynergy(S.cls, S.partner) },
   { id: "CHRONICLER",      name: "Chroniqueur",        test: (S) => chronRead(S) >= CHRONICLES.length - 1 },
   { id: "HEROES_ALL",      name: "Tous les héros libérés", test: (S) => CLASS_KEYS.every((c) => c === "warrior" || (S.classesUnlocked || []).includes(c)) },

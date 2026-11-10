@@ -601,6 +601,8 @@ export class Game {
     // Pluie d'éclats : un éclat d'étoile de temps en temps (compte aussi dans la lueur stellaire).
     if ((R.events.shardfall || 0) > 0 && rand() < SHARDFALL_CHANCE) { S.prestige.shards++; S.prestige.total++; this.emit("shardDrop"); }
     if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
+    // Boss à Malédiction vaincu sous la protection du Talisman de pureté (succès « Cœur pur »)
+    if (m.boss && m.mech && m.mech.includes("curse") && hs.purity >= 100) S.stats.pureBoss = (S.stats.pureBoss || 0) + 1;
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }

@@ -900,4 +900,5 @@ export default {
   2024: "odporności na Klątwę bossów (krótszy czas)",
   2025: "Boss tej strefy przeklina twojego bohatera: Talizman czystości leżący w twojej torbie by go ochronił. Kliknij tutaj.",
   2026: "Nowe wydarzenie Wylęg (jaja za zwycięstwa); nowa umiejętność bossa, Klątwa, i ochrona przed nią: Talizman czystości.",
+  2027: "Czyste serce",
 };

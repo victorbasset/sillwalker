@@ -1996,6 +1996,9 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const gq = new Game(freshState()); gq.R.mon = gq.makeMonster(true); gq.R.mon.mech = ["curse"]; gq.R.mon.curseT = 0;
     gq.bossTick(gq.R.mon, gq.stats(), 0.1);
     assert.ok(gq.R.cursed > 0, "sans talisman : maudit");
+    // Succès « Cœur pur » : boss à Malédiction vaincu avec le talisman
+    gp.R.mon.hp = 0; gp.killMonster();
+    assert.ok(M_achievements_js.reachedAchievements(gp.S).includes("PURE_HEART"), "succès Cœur pur");
     // Astuce : talisman dans le sac face à un boss qui maudit
     const gh = new Game(freshState()); gh.S.zone = 11; const it2 = gh.newItem(0); it2.power = "p_pure"; gh.S.bag.push(it2);
     gh.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((h) => h.id !== "purity").map((h) => [h.id, true]));

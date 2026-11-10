@@ -900,4 +900,5 @@ export default {
   2024: "Widerstand gegen den Fluch der Bosse (kürzere Dauer)",
   2025: "Der Boss dieser Zone verflucht deinen Helden: Der Talisman der Reinheit in deiner Tasche würde ihn schützen. Hier klicken.",
   2026: "Neues Ereignis Brutzeit (Eier bei Siegen); neue Bossfähigkeit Fluch und ihr Gegenmittel: der Talisman der Reinheit.",
+  2027: "Reines Herz",
 };

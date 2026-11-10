@@ -2028,5 +2028,6 @@ export const KEYS = [
   "Talisman de pureté",
   "de résistance à la Malédiction des boss (durée réduite)",
   "Le boss de cette zone maudit ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici.",
-  "Nouvel événement Nichée (des œufs à chaque victoire) ; nouvelle capacité de boss, la Malédiction, et sa parade : le Talisman de pureté."
+  "Nouvel événement Nichée (des œufs à chaque victoire) ; nouvelle capacité de boss, la Malédiction, et sa parade : le Talisman de pureté.",
+  "Cœur pur"
 ];

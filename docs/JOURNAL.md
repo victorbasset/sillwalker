@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 356) : succès PURE_HEART « Cœur pur » : vaincre un boss à Malédiction avec la pureté à 100 % (Talisman
+  de pureté ; S.stats.pureBoss compté dans killMonster). README : à déclarer dans Steamworks. Test, 1 texte × 9
+  langues, 110/110.
 - 2026-11-10 (it. 355) : rythme du début vérifié après les ajouts (Nichée, Malédiction, Talisman, synergies) :
   early-pace à 60 min : zone 23, 107 objets, niveau 39, 6 déblocages (repère : zone 22, 105 objets) ; first-minutes :
   premier objet 20-41 s, onglet Héros vers 12 min (inchangé). Rien à corriger.
