@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 487) : CLAUDE.md : semaine simulée à relancer après tout déblocage qui dépense de l'or tout seul
+  (leçon du Grimoire, it. 486) ; repère mis à jour (avec les sorts : 38 → 182).
 - 2026-11-10 (it. 486) : le Grimoire des sorts (it. 485) freinait la fin de partie : à chaque victoire, jusqu'à 5 rangs
   à 10 % de l'or chacun : l'or ne s'accumulait plus (semaine mage : plafond 155 au lieu de 176-179). Désormais au plus
   une fois par minute de jeu et 3 rangs (le rythme de la simulation) : semaine 38 → 182, régulière ; balance 12 h
