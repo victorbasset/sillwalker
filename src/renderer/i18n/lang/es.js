@@ -1134,4 +1134,5 @@ export default {
   2258: "Tres jefes mayores custodian el Alféizar, en las zonas 50, 100 y 150: cada uno lleva una reliquia.",
   2259: "Cuatro reliquias muy poderosas que ganar para siempre (el Rompeestrellas guarda la última), cada una con su historia.",
   2260: "Las reliquias en el mapa y en tu héroe: el Dron estelar dispara sus misiles a tu lado.",
+  2261: "Daño del dron por segundo",
 };

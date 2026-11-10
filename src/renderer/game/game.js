@@ -545,6 +545,12 @@ export class Game {
     return d;
   }
 
+  /** Dégâts par seconde du Drone stellaire (relique) sur un monstre ordinaire de la zone ; 0 sans lui. */
+  droneDps(hs) {
+    if (!hasRelic(this.S, "drone")) return 0;
+    return (hs.atk * DRONE.atk + monsterBase(this.S.zone, false).hp * DRONE.pct) / DRONE.every;
+  }
+
   /** Part de vie restante d'un monstre de la file (barre de la bande après un perçage ; estimation : PV de base). */
   slotHealth(i) {
     if (i === this.lineup().length) { // le boss (estimation : PV de base, plafond d'un quart)
@@ -937,7 +943,7 @@ export class Game {
     const atkBoost = 1 + 0.25 * share("elixir");
     // (it. 568) + les sorts de dégâts appris (héros, compagnon à moitié) : avant, l'absence les ignorait
     // (it. 577) + le Drone stellaire et le Cœur de l'aube (reliques) : l'absence les ignorait
-    const drone = hasRelic(S, "drone") ? (hs.atk * DRONE.atk + b.hp * DRONE.pct) / DRONE.every : 0;
+    const drone = this.droneDps(hs);
     const dps = (heroDps(hs) + this.spellDps(hs)) * atkBoost * (1 + hs.burn / 100 * 1.5) + drone;
     const perKill = b.hp / dps + approachTime() / (1 + (hs.moveSpd || 0) / 100);
     const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100) * (hasRelic(S, "heart") ? RELIC_POWER.heartGuard : 1);

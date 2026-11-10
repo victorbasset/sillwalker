@@ -1134,4 +1134,5 @@ export default {
   2258: "Drei große Bosse bewachen den Saum, in den Zonen 50, 100 und 150: Jeder trägt ein Relikt.",
   2259: "Vier sehr mächtige Relikte, die man für immer gewinnt (der Sternenbrecher bewacht das letzte), jedes mit seiner Geschichte.",
   2260: "Relikte auf der Karte und an deinem Helden: Die Sternendrohne feuert ihre Raketen an deiner Seite.",
+  2261: "Drohnenschaden pro Sekunde",
 };

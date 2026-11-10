@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 578) : « Toutes les statistiques » : « Dégâts du drone par seconde » (Drone stellaire gagné ;
+  game.droneDps, partagé avec l'estimation hors ligne ; survol : effet de la relique). Traduit. 131/131.
 - 2026-11-10 (it. 577) : hors ligne : le Drone stellaire (missiles) et le Cœur de l'aube (dégâts subis) comptent
   dans la progression estimée (applyOffline ; la Lame et la Couronne passaient déjà par heroStats). Test logique. 
 - 2026-11-10 (it. 576) : sons des reliques (sound.js) : tir du Drone stellaire (petit lancement discret, 400 ms

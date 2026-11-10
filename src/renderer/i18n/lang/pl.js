@@ -1134,4 +1134,5 @@ export default {
   2258: "Trzech wielkich bossów strzeże Krawędzi, w strefach 50, 100 i 150: każdy nosi relikwię.",
   2259: "Cztery bardzo potężne relikwie do zdobycia na zawsze (Łamacz Gwiazd strzeże ostatniej), każda z własną historią.",
   2260: "Relikwie na mapie i przy twoim bohaterze: Gwiezdny dron strzela pociskami u twojego boku.",
+  2261: "Obrażenia drona na sekundę",
 };

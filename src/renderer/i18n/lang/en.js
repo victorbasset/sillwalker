@@ -1134,4 +1134,5 @@ export default {
   2258: "Three major bosses guard the Sill, in zones 50, 100 and 150: each one carries a relic.",
   2259: "Four very powerful relics to win forever (the Starbreaker guards the last one), each with its own story.",
   2260: "Relics on the map and on your hero: the Star Drone fires its missiles at your side.",
+  2261: "Drone damage per second",
 };
