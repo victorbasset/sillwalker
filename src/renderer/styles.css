@@ -249,9 +249,8 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 .proj { position: absolute; will-change: transform; }
 .proj.arrow { width: 18px; height: 3px; background: linear-gradient(90deg, #a0713c 0 12px, #e3ebf3 12px); box-shadow: 0 0 0 1px #14121f; }
 .proj.fire { width: 12px; height: 12px; border-radius: 3px; background: #ffb733; box-shadow: 0 0 0 3px #e2552b, 0 0 0 4px #14121f; translate: 0 -4px; }
-.actor.champion { filter: drop-shadow(0 0 0 #c08cff) drop-shadow(1px 0 0 #c08cff) drop-shadow(-1px 0 0 #c08cff) drop-shadow(0 -1px 0 #c08cff) drop-shadow(0 0 4px rgba(192, 140, 255, .8)); }
+/* .actor.champion / .actor.elite : contour dessiné dans l'image (sprites.js outlinedFrames, it. 595), plus de filtre */
 .affix.champ { color: #e0c8ff; border-color: #c08cff; }
-.actor.elite { filter: drop-shadow(0 0 0 #ffd34d) drop-shadow(1px 0 0 #ffd34d) drop-shadow(-1px 0 0 #ffd34d) drop-shadow(0 -1px 0 #ffd34d); }
 .flame { position: absolute; top: -6px; width: 12px; height: 9px; background:
   linear-gradient(#ffd34d, #ffd34d) 3px 0 / 3px 3px no-repeat, linear-gradient(#ff8a2b, #ff8a2b) 0 3px / 12px 3px no-repeat,
   linear-gradient(#e2552b, #e2552b) 3px 6px / 6px 3px no-repeat; }

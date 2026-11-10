@@ -13,7 +13,7 @@ import { t as tx, fsp, tr } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
-import { buildSpriteSet } from "./sprites.js";
+import { buildSpriteSet, outlinedFrames } from "./sprites.js";
 import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
@@ -46,6 +46,8 @@ const SPEECH = {
 
 export const STRIP_H = 120;
 const GROUND = 96, CONTACT = 44;
+/** Couleur du contour d'un monstre élite (doré) ou champion (violet). */
+const eliteColor = (m) => (m.champion ? "#c08cff" : "#ffd34d");
 /** Combat de boss : les barres de vie sous les pieds, à cette distance du sol (it. 580). */
 const BOSS_BAR_DY = 5;
 const LEFT = 24;            // position de départ du héros
@@ -497,9 +499,11 @@ export class StripRenderer {
     this.heroBarX = null;
   }
 
-  monsterActor(type, boss, final) {
+  /** outline : couleur du contour dessiné dans l'image (élite, champion), ou rien. */
+  monsterActor(type, boss, final, outline) {
     const set = final ? this.sprites.starbreaker : this.sprites.monsters[type];
-    const a = new Actor(this.stage, boss ? set.boss : set.normal, boss ? "boss" + (final ? " final" : "") : "");
+    const frames = boss ? set.boss : set.normal;
+    const a = new Actor(this.stage, outline ? outlinedFrames(frames, outline, this.dpr) : frames, boss ? "boss" + (final ? " final" : "") : "");
     a.fly = set.fly; a.boss = boss;
     if (boss && !final) a.addCrown(); // le Briseur porte sa propre couronne d'éclats
     return a;
@@ -519,7 +523,8 @@ export class StripRenderer {
     this.slots = [];
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
-      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone)); // final : le Briseur d'Étoiles
+      // final : le Briseur d'Étoiles ; élite / champion : contour doré / violet dans l'image
+      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), !boss && line[k].elite ? eliteColor(line[k]) : null);
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
       const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
       if (carried && !hasRelic(g.S, carried)) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); im.style.left = (a.w + 3) + "px"; }
@@ -558,7 +563,7 @@ export class StripRenderer {
 
   makeCorpse(mon, x) {
     if (this.corpse) this.corpse.remove();
-    const a = this.monsterActor(mon.type, mon.boss, !!mon.final);
+    const a = this.monsterActor(mon.type, mon.boss, !!mon.final, mon.elite ? eliteColor(mon) : null);
     if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));

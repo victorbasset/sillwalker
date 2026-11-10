@@ -27,6 +27,30 @@ export function buildSprite(rows, pal, scale, flip, dpr = 1) {
   return c;
 }
 
+/**
+ * Contour coloré dessiné une fois dans l'image (élites, champions : it. 595). Avant, un filtre CSS de 4 ombres, recalculé
+ * à chaque image : ≈ +0,5 point d'un cœur par monstre contouré (5,6 points sur une file entière). Côtés gauche, droit et
+ * haut, comme l'ancien filtre (pas sous les pieds) ; l'image grandit d'un pixel CSS à gauche, à droite et en haut.
+ */
+const outlineCache = new WeakMap();
+export function outlinedFrames(frames, color, dpr = 1) {
+  return frames.map((f) => {
+    let m = outlineCache.get(f);
+    if (!m) outlineCache.set(f, (m = new Map()));
+    if (!m.has(color)) {
+      const p = Math.max(1, Math.round(dpr)), c = document.createElement("canvas");
+      c.width = f.width + 2 * p; c.height = f.height + p;
+      const ctx = c.getContext("2d");
+      for (const [x, y] of [[0, p], [2 * p, p], [p, 0]]) ctx.drawImage(f, x, y);
+      ctx.globalCompositeOperation = "source-in"; ctx.fillStyle = color; ctx.fillRect(0, 0, c.width, c.height);
+      ctx.globalCompositeOperation = "source-over"; ctx.drawImage(f, p, p);
+      c.cw = c.width / dpr; c.ch = c.height / dpr;
+      m.set(color, c);
+    }
+    return m.get(color);
+  });
+}
+
 const spriteSets = new Map();
 /** Jeu de sprites pour une échelle d'affichage (partagé par la bande et l'encart mini). */
 export function buildSpriteSet(dpr) {

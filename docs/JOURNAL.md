@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 595) : performance : contour des élites et champions dessiné une fois dans l'image (sprites.js
+  outlinedFrames, cache par image et couleur) au lieu d'un filtre CSS de 4-5 ombres recalculé à chaque image.
+  Mesure (filtre forcé sur tous les monstres) : 4 ombres +5,6 points, 1 ombre +2 ; donc ≈ 0,5 point par élite
+  visible, gagné. Bande (copie neuve, peu d'élites) 19,4 % ; mini 6,65 % (élite du mode mini aussi dessiné).
+  Vérifié en capture (contour doré / violet). Chroniques 50/100/150 relues : cohérentes avec les boss majeurs. 133/133.
 - 2026-11-11 (it. 594) : performance : halo des objets légendaires sur le héros (filtre CSS, recalculé à chaque
   image) : sans lui 19,0 %, avec deux ombres 19,85 %, une seule ombre 19,45 % (3 mesures chacune) : une seule ombre
   (−0,4 point, halo toujours visible en capture). Recherche d'autres animations CSS infinies sur la bande : aucune.
