@@ -1103,3 +1103,4 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
   #p-detail > h2 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 }
 .synergy-on { color: var(--good); }
+.newslist li { padding: 2px 0; font-size: 13px; line-height: 1.3; }

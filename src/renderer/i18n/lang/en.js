@@ -914,4 +914,5 @@ export default {
   2038: "Pale Moth",
   2039: "Its wings of light keep curses at bay.",
   2040: "Companion for the next adventure:",
+  2041: "Pale Moth pet; bosses announce their abilities as they arrive; a helping hand if their Curse blocks you.",
 };

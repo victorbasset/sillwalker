@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 397) : « Quoi de neuf » : 11e ligne (Phalène pâle, capacités annoncées à l'arrivée d'un boss, coup de
+  pouce contre la Malédiction) ; liste resserrée (13 px) : sans défilement en allemand et russe à 1920 / 1366 px.
+  1 texte × 9 langues, 115/115.
 - 2026-11-10 (it. 396) : onglet Ascension : sous « Héros de la prochaine aventure », le compagnon gardé à l'ascension
   (nextPartner, sinon l'actuel, s'il reste compatible) et « ✦ duo idéal » quand c'est le cas. Capture, défilement
   vérifié en allemand et russe, 1 texte × 9 langues, 115/115.

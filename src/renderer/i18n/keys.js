@@ -2042,5 +2042,6 @@ export const KEYS = [
   "Chasseur d’événements",
   "Phalène pâle",
   "Ses ailes de lumière éloignent les malédictions.",
-  "Compagnon de la prochaine aventure :"
+  "Compagnon de la prochaine aventure :",
+  "Familier Phalène pâle ; un boss annonce ses capacités en arrivant ; un coup de pouce si sa Malédiction te bloque."
 ];

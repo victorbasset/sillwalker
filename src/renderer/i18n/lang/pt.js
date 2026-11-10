@@ -914,4 +914,5 @@ export default {
   2038: "Mariposa pálida",
   2039: "Suas asas de luz afastam as maldições.",
   2040: "Companheiro da próxima aventura:",
+  2041: "Mascote Mariposa pálida; os chefes anunciam suas habilidades ao chegar; uma ajuda se a Maldição te bloquear.",
 };

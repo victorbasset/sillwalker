@@ -914,4 +914,5 @@ export default {
   2038: "Bleicher Falter",
   2039: "Seine Lichtflügel halten Flüche fern.",
   2040: "Begleiter des nächsten Abenteuers:",
+  2041: "Begleiter Bleicher Falter; Bosse kündigen ihre Fähigkeiten beim Auftauchen an; Hilfe, wenn dich ihr Fluch aufhält.",
 };
