@@ -10,6 +10,7 @@ import { shopIconURL, spellIconURL } from "../../render/shopart.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
+import { classSpells, spellRank } from "../../game/spells.js";
 
 /** Icône de chaque type de quête (réutilise les dessins de la boutique et des objets). */
 const KIND_ICON = {
@@ -20,7 +21,8 @@ const KIND_ICON = {
   loot: () => itemIconURL({ icon: "ring", slot: "ring", r: 2 }), // butin rare ou mieux
   event: () => shopIconURL("star", 4), // événements rares
   tap: () => itemIconURL({ icon: "gauntlet", slot: "gloves", r: 2 }), // coups au clic : la main du joueur
-  spell: () => spellIconURL("bolt", "#8fd0ff", 2), // sorts lancés : l'éclair
+  // sorts lancés : l'icône du premier sort appris par le héros (sa forme, sa couleur), sinon un éclair
+  spell: (S) => { const sp = S && classSpells(S.cls).find((x) => spellRank(S, x.id) > 0); return sp ? spellIconURL(sp.tpl, sp.color, 2) : spellIconURL("bolt", "#8fd0ff", 2); },
   crit: () => itemIconURL({ icon: "dagger", slot: "weapon", r: 3 }), // coups critiques : la lame qui frappe juste
 };
 
@@ -61,7 +63,7 @@ export class QuestsTab {
       const done = questDone(q), pct = Math.min(100, (100 * q.progress) / q.goal), stars = q.stars || 1;
       const prog = q.kind === "gold" ? `${fmt(q.progress)} / ${fmt(q.goal)}` : `${Math.min(q.progress, q.goal)} / ${q.goal}`;
       return `<article class="panel questcard s${stars}${done ? " done" : ""}">
-        <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)()}" alt=""><div>
+        <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)(S)}" alt=""><div>
           <div class="stars">${"★".repeat(stars)}<span>${"★".repeat(3 - stars)}</span></div>
           <h2>${esc(questText(q, fmt))}</h2></div></div>
         <div class="kv"><span>${tx("Progression")}</span><span>${prog}</span></div>

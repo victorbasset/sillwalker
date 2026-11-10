@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 516) : quête « Lancer N sorts » vérifiée en russe (« Применить 25 заклинаний ») ; son icône prend la
+  forme et la couleur du premier sort appris du héros (Tourbillon blanc du guerrier…). Crawl ru 320 clics sans
+  erreur. 125/125.
 - 2026-11-10 (it. 515) : quête « Lancer N sorts » (15 à 30, or + potion, parfois un œuf), proposée seulement si le
   héros a appris un sort ; icône d'éclair ; chaque sort lancé (héros ou compagnon) compte. Traduit (3 pluriels ru/pl) ;
   test logique ; save-fuzz et fuzz ok. 176 tests ; 125/125.
