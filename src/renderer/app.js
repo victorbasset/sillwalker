@@ -507,7 +507,7 @@ async function boot() {
       if (!c) continue;
       // Petite cinématique d'abord (une seule à la fois ; pas pour « Le ciel rallumé », que la victoire met déjà en scène).
       if (id !== "dawn" && ids.indexOf(id) === ids.length - 1) strip.juice.cinematic("chronicle", { id, title: tx(c.title), text: tx(c.text), n: chroniclesUnlocked(game.S, recordZone(game.S)).length, total: CHRONICLES.length });
-      showToast(`<span class="story">📜</span> ${tx("Nouvelle chronique : {0}", { 0: `<b>${esc(tx(c.title))}</b>` })}`, () => { panel.kept.add("hero-chron"); openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 12000);
+      showToast(`<span class="story">📜</span> ${tx("Nouvelle chronique : {0}", { 0: `<b>${esc(tx(c.title))}</b>` })}`, () => { openPanel(); panel.setTab("adventure"); panel.renderAll(); const d = document.querySelector("[data-keep=hero-chron]"); if (d) panel.showDetails(d); }, 12000);
     }
   });
   game.on("tabOpen", ({ ids }) => {
