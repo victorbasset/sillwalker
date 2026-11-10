@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 500, revue générale) : balance 12 h (10 classes) identique à 39107ec (61,0 de moyenne) ; fuzz 1200
+  parties, 0 bloquée ; crawl fr 317 et ru 313 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ;
+  perf (copie neuve) : bande 18,9 %, panneau 21,6 %, mini 6,0 %, icône 0,5 % ; mémoire stable (≈ 795 Mo sur 6 min).
 - 2026-11-10 (it. 499, demande M de Victor) : onglets trop larges : plus de palier « sans icônes » (fitTabs) ; à la
   place, police plus petite puis icônes collées au nom (14 px) ; en dernier recours, icônes seules sauf l'onglet ouvert.
   Mesuré fr / de / ru / pl à 1920, 1366, 1280 : icônes toujours présentes. 124/124.
