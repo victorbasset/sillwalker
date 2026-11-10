@@ -953,4 +953,5 @@ export default {
   2077: "Bei der Mac-Anmeldung starten",
   2078: "Diese Einstellungen findest du auch im Menü des Sillwalker-Symbols in der Menüleiste oben am Bildschirm, zusammen mit der Bildschirmauswahl.",
   2079: "Als Symbol verkleinern (Menüleiste)",
+  2080: "Ton aus / an",
 };

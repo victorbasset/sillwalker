@@ -953,4 +953,5 @@ export default {
   2077: "Launch at Mac login",
   2078: "These settings are also in the Sillwalker icon menu in the menu bar, at the top of the screen, along with the screen choice.",
   2079: "Minimize to icon (menu bar)",
+  2080: "Mute / unmute sound",
 };

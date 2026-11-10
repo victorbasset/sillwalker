@@ -626,7 +626,7 @@ export class Panel {
   showKeys() {
     const K = [[tx("Changer d’onglet"), "1 … 9, 0, -, ="], [tx("Équiper le meilleur"), "E"], [tx("Vendre ce qui n’améliore pas"), "V"],
       [tx("Ranger le sac"), "S"], [tx("Transmuter les objets inutiles"), "T"], [tx("Réclamer une quête terminée (toutes avec le Bureau des contrats)"), "R"],
-      [tx("Confirmer une fenêtre"), tx("Entrée")], [tx("Fermer le panneau"), tx("Échap")], [tx("Réduire en mode mini"), "M"]];
+      [tx("Confirmer une fenêtre"), tx("Entrée")], [tx("Fermer le panneau"), tx("Échap")], [tx("Réduire en mode mini"), "M"], [tx("Couper / rallumer le son"), "C"]];
     $(this.root, "#mt").textContent = tx("Raccourcis clavier");
     $(this.root, "#mbody").innerHTML = `<ul class="lines keylist">${K.map(([l, k]) => `<li><span>${esc(l)}</span><b>${esc(k)}</b></li>`).join("")}</ul>
       <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>`;
@@ -848,6 +848,7 @@ export class Panel {
     if (i >= 0 && TABS[i] && tabOpen(this.game.S, TABS[i].id)) { this.setTab(TABS[i].id); return true; }
     const k = e.key.toLowerCase();
     if (k === "m") { this.onMini?.(); return true; } // réduire en mode mini sans chercher le bouton
+    if (k === "c") { this.onMute?.(); return true; } // couper / rallumer le son (comme le haut-parleur de la bande)
     if (k === "r") { // réclamer les quêtes terminées : une par appui, toutes avec le Bureau des contrats
       const done = this.game.S.quests.slots.filter((q) => questDone(q));
       if (!done.length) return false;

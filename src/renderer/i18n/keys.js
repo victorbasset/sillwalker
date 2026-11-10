@@ -2081,5 +2081,6 @@ export const KEYS = [
   "Automatique (macOS)",
   "Lancer à l’ouverture de session du Mac",
   "Ces réglages sont aussi dans le menu de l’icône Sillwalker de la barre des menus, en haut de l’écran, avec le choix de l’écran.",
-  "Réduire en icône (barre des menus)"
+  "Réduire en icône (barre des menus)",
+  "Couper / rallumer le son"
 ];

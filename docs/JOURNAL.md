@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 452) : touche C du panneau : couper / rallumer le son (comme le haut-parleur de la bande ; M était
+  pris par le mode mini) ; ajoutée à la fenêtre des raccourcis. Contrôle d'autotest ; lang-overflow fr / de / ru / pl à
+  1366 et 1280 : aucun défilement. Traduit. 122/122.
 - 2026-11-10 (it. 451, bon voisin) : quand la bande est cachée (jeu ou vidéo en plein écran, mode icône seule, session
   verrouillée : signal visibility false), musique et effets continuaient. Sound.setPaused : contexte audio suspendu,
   aucun nouveau son ; reprise quand la bande revient (setVisible). Essai en jeu : suspended puis running. 121/121.

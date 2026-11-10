@@ -222,7 +222,7 @@ async function boot() {
     for (const b of document.querySelectorAll(".sbtn.snd")) { b.classList.toggle("muted", !on); b.title = label; b.setAttribute("aria-label", label); b.setAttribute("aria-pressed", String(!on)); }
   }
   function toggleSound(e) {
-    e.stopPropagation();
+    e?.stopPropagation();
     const P = game.S.settings;
     if (P.muted) P.muted = false; // rallume : effets et musique reviennent comme avant
     else if (!P.sound && P.music === false) { P.sound = true; P.music = true; } // tout était coupé dans les Réglages
@@ -231,6 +231,7 @@ async function boot() {
     if (!P.muted && P.sound) sound.play("coin");
   }
   $("#sound-btn").addEventListener("click", toggleSound);
+  panel.onMute = () => toggleSound(); // touche C du panneau : comme le bouton haut-parleur
   $("#mini-sound").addEventListener("click", toggleSound);
   syncSoundBtns();
   game.on("change", syncSoundBtns);
