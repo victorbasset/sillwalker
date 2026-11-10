@@ -1053,4 +1053,5 @@ export default {
   2177: "Rang {0}: {1}",
   2178: "Neuer Zauber: {0}!",
   2179: "Zauber zu lernen: {0}",
+  2180: "Volles Grimoire (alle drei Zauber eines Helden)",
 };

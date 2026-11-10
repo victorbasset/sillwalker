@@ -1053,4 +1053,5 @@ export default {
   2177: "Rank {0}: {1}",
   2178: "New spell: {0}!",
   2179: "Spell to learn: {0}",
+  2180: "Full grimoire (all three spells of a hero)",
 };

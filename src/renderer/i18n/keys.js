@@ -2181,5 +2181,6 @@ export const KEYS = [
   "Propres à chaque héros, gardés à l’ascension.",
   "Rang {0} : {1}",
   "Nouveau sort : {0} !",
-  "Sort à apprendre : {0}"
+  "Sort à apprendre : {0}",
+  "Grimoire complet (les trois sorts d’un héros)"
 ];

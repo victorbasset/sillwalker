@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 496) : succès « Grimoire complet (les trois sorts d'un héros) », avec progression (0 à 3, le meilleur
+  héros). Traduit ; test logique ; aucun défilement à 1280 en de / ru / pl. 124/124.
 - 2026-11-10 (it. 495) : Statistiques : record du plus gros sort (stats.bestSpell, dégâts d'un lancer) sur la ligne
   « Sorts lancés » (« 6 · record 1,23 T », pas de ligne en plus). Vérifié en russe ; save-fuzz ok. 124/124.
 - 2026-11-10 (it. 494) : ligne du compagnon avec les icônes des sorts : le nom de la synergie se réduit à ✦ (infobulle),

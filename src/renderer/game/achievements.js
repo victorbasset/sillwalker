@@ -11,6 +11,10 @@ import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 import { CHRONICLES } from "./story.js";
+import { classSpells, spellRank } from "./spells.js";
+
+/** Le plus de sorts appris par un même héros (0 à 3). */
+const spellsBest = (S) => Math.max(0, ...CLASS_KEYS.map((c) => classSpells(c).filter((x) => spellRank(S, x.id) > 0).length));
 /** Événements rares déjà vus (succès « Chasseur d’événements »), parmi ceux qui existent encore. */
 const eventsSeenCount = (S) => Object.keys((S.stats && S.stats.eventsSeen) || {}).filter((id) => EVENTS[id]).length;
 
@@ -60,6 +64,7 @@ export const ACHIEVEMENTS = [
   { id: "BOSSES_100",      name: "Tueur de boss (100)", test: (S) => (S.stats.bosses || 0) >= 100 },
   { id: "GOLD_MILLION",    name: "Millionnaire (1 M d’or gagnés)", test: (S) => (S.stats.goldTotal || 0) >= 1e6 },
   { id: "SPELLS_1000",     name: "Mage de bataille (1 000 sorts lancés)", test: (S) => (+S.stats.spells || 0) >= 1000 },
+  { id: "SPELLS_ALL3",     name: "Grimoire complet (les trois sorts d’un héros)", test: (S) => spellsBest(S) >= 3 },
   { id: "CRITS_10000",     name: "Lame affûtée (10 000 coups critiques)", test: (S) => (+S.stats.crits || 0) >= 10000 },
   { id: "BIG_HIT",         name: "Coup monstrueux (10 000 dégâts)", test: (S) => (S.stats.maxHit || 0) >= 10000 },
   { id: "PHOENIX",         name: "Renaissance (obtenir le phénix)", test: (S) => !!S.pets?.owned?.phoenix },
@@ -115,6 +120,7 @@ export const ACH_PROGRESS = {
   BOSSES_100: (S) => [S.stats.bosses || 0, 100],
   GOLD_MILLION: (S) => [Math.floor(S.stats.goldTotal || 0), 1e6],
   SPELLS_1000: (S) => [Math.floor(+S.stats.spells || 0), 1000],
+  SPELLS_ALL3: (S) => [spellsBest(S), 3],
   CRITS_10000: (S) => [Math.floor(+S.stats.crits || 0), 10000],
   BIG_HIT: (S) => [Math.floor(S.stats.maxHit || 0), 10000],
   DAILY_7: (S) => [(S.daily && S.daily.streak) || 0, 7],

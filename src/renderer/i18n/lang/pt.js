@@ -1053,4 +1053,5 @@ export default {
   2177: "Nível {0}: {1}",
   2178: "Novo feitiço: {0}!",
   2179: "Feitiço para aprender: {0}",
+  2180: "Grimório completo (os três feitiços de um herói)",
 };
