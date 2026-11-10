@@ -4,7 +4,8 @@
 // améliorés avec de l'or (rangs 1 à SPELL_MAX) ; chaque héros garde les siens à l'ascension.
 import { CLASS_FX } from "./classes.js";
 
-export const SPELL_MAX = 10;
+// it. 477 : plus de plafond à 10 (en fin de partie, tout se maximisait d'un coup) : le prix ×2,5 par rang fait la limite.
+export const SPELL_MAX = 50;
 export const SPELL_ZONES = [10, 22, 50]; // 10 : l'onglet Héros s'ouvre en zone 10 (tabs.js)
 
 /** Mécaniques communes (tpl) : dmg = mult × attaque par coup (hits coups), heal / shield = % des PV max. */

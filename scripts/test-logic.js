@@ -699,7 +699,7 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   assert.ok(!g.learnSpell("mage.0"), "pas les sorts d'un autre héros");
   const before = g.S.gold; assert.ok(g.learnSpell("warrior.0"), "Tourbillon appris"); assert.equal(g.S.spells["warrior.0"], 1);
   assert.equal(before - g.S.gold, spellPrice(SPELL_INDEX["warrior.0"], 0), "prix du rang 1");
-  for (let i = 0; i < 20; i++) g.learnSpell("warrior.0"); assert.equal(g.S.spells["warrior.0"], SPELL_MAX, "rang maximal");
+  g.S.gold = 1e40; for (let i = 0; i < 60; i++) g.learnSpell("warrior.0"); assert.equal(g.S.spells["warrior.0"], SPELL_MAX, "rang maximal");
   // En combat : le sort part tout seul et blesse le monstre
   let cast = 0; g.on("spell", ({ id }) => { if (id === "warrior.0") cast++; });
   g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = 1e9; g.R.spellT = { "warrior.0": 0 };

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 477) : sorts : le prix suivait la zone de déblocage et les rangs plafonnaient à 10 : à la zone 54 de
+  Victor (≈ 2e11 or), tout se maximisait d'un coup, sans progression. SPELL_MAX 10 → 50 (prix ×2,5 par rang, +25 %
+  de puissance par rang) : ≈ rang 15 avec cet or, puis chaque rang demande de progresser, comme l'Atelier. balance
+  12 h : +0,5 (bruit) ; semaine (mage) : 38 → 176 en 71 courses, régulier (repère 179). 122/122.
 - 2026-11-10 (it. 476) : découverte des sorts : le premier sort se débloquait en zone 6 alors que l'onglet Héros
   s'ouvre en zone 10 : SPELL_ZONES = [10, 22, 50]. Astuce « spell » (une fois par sort) : un sort du héros actuel
   abordable et pas encore appris ; un clic ouvre Héros > Sorts et attaque (les astuces acceptent maintenant un
