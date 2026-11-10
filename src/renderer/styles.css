@@ -1191,3 +1191,10 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .duoline .spellmini { margin-left: auto; display: inline-flex; gap: 3px; width: auto; border: 0; border-image: none; box-shadow: none; background: none; padding: 0; min-height: 0; }
 .duoline .spellmini::before, .duoline .spellmini::after { display: none; }
 .duoline .spellmini img { width: 18px; height: 18px; image-rendering: pixelated; }
+/* Avec les icônes des sorts, le nom de la synergie se réduit à ✦ (le nom reste dans l'infobulle du compagnon). */
+.duoline:has(.spellmini) .duotag .synname { display: none; }
+.duoline .duotag { flex: 0 1 auto; min-width: 0; }
+/* ✦ de synergie juste après le portrait (jamais rogné) ; les icônes des sorts gardent leur place. */
+.duoline .duotag > img { order: -2; }
+.duoline .duotag .syn { order: -1; }
+.duoline .spellmini { flex-shrink: 0; padding-left: 6px; }

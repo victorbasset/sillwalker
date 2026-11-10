@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 494) : ligne du compagnon avec les icônes des sorts : le nom de la synergie se réduit à ✦ (infobulle),
+  placé juste après le portrait (jamais rogné ; c'est le nom du compagnon qui s'efface au besoin, en de / ru à 1280).
+  Captures fr / de / ru. 124/124.
 - 2026-11-10 (it. 493) : carte du héros (Aventure) : icônes des sorts appris à droite de la ligne du compagnon (rang et
   nom en infobulle) ; un clic ouvre Héros > Sorts et attaque. (Correction d'un résumé de l'it. 492 : le mode mini ne
   montre « À faire » qu'en infobulle, sans lien ; rien à y faire.) Captures 1920 / 1280. 124/124.
