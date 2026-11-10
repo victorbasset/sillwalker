@@ -434,7 +434,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 /* Statistiques */
 .statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; align-items: stretch; }
 .statgrid .achievements { grid-column: 1 / -1; }
-.achlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 4px 12px; font-size: 14px; }
+.achlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 12px; font-size: 14px; } /* rangées serrées : la liste grandit à chaque succès (it. 503, pl 1920) */
 .ach { color: var(--muted); }
 .ach.on { color: var(--ink); }
 .ach .aico { display: inline-block; width: 18px; color: var(--muted); }

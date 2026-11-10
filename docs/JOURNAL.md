@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 503) : mesure des 10 langues à 3 largeurs (lang-overflow, « Quoi de neuf » au pire cas compris) :
+  un seul défilement, Statistiques > Succès en polonais à 1920 (3 px, depuis « Grimoire complet ») ; rangées de la
+  liste des succès resserrées (écart 4 → 2 px). Plus aucun défilement. 124/124.
 - 2026-11-10 (it. 502) : « Quoi de neuf », édition 6 (4 nouveautés : paliers de recharge et fête des sorts, trait
   perçant, sorts sur la carte du héros et dans « À faire maintenant », icônes des onglets et succès « Grimoire
   complet »). Traduit (libellés cités vérifiés par i18n-quotes) ; aucun défilement à 1280 en ru / de / pl. 124/124.
