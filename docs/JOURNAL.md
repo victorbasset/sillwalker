@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 463) : crawl en russe et en polonais (langues à trois pluriels, Quoi de neuf non lu, tri du marchand
+  acheté) : 320 clics chacun, aucune erreur ; pluriels de la nouvelle ligne « … et N nouveautés plus anciennes »
+  vérifiés pour 1, 3, 7 et 22 (ru, pl, de, ja) : corrects. CLAUDE.md : crawl dans une langue à trois pluriels de temps
+  en temps.
 - 2026-11-10 (it. 462) : « Quoi de neuf » borné pour de bon : au plus 3 éditions non lues affichées (newsShown,
   NEWS_MAX_EDITIONS), les plus anciennes comptées dans une ligne « … et N nouveautés plus anciennes. » (pluriels
   traduits, 3 formes ru / pl) ; le pire cas ne grandit plus avec les éditions (11 nouveautés aujourd'hui, au lieu de 23).
