@@ -68,12 +68,16 @@ export const QUEST_TEMPLATES = {
     text: (q) => txn(q.goal, "Vivre {n} événement rare|Vivre {n} événements rares"),
     make: (S) => ({ goal: randInt(1, 2), reward: { chest: 2, gold: Math.round(goldScale(S) * 100) } }),
   },
+  tap: { // jeu actif : coups au clic sur le monstre combattu (jamais obligatoire, rare)
+    text: (q) => txn(q.goal, "Frapper {n} fois au clic|Frapper {n} fois au clic"),
+    make: (S) => ({ goal: randInt(4, 8) * 5, reward: { gold: Math.round(goldScale(S) * 70), potions: 2 } }),
+  },
   zone: {
     text: (q) => `${tx("Atteindre la zone {0}", { 0: q.goal })}`,
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

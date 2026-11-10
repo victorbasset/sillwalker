@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 403) : 12e type de quête « Frapper N fois au clic » (quests.js > tap, 20 à 40 coups, poids 1,
+  récompense or + 2 potions) : la seule quête qui récompense le jeu actif, jamais obligatoire. Comptée dans
+  game.js > tapMonster. Test, 1 texte × 9 langues (pluriels), save-fuzz ok, 115/115.
 - 2026-11-10 (it. 402) : quand la pureté annule une Malédiction, la bande l'affiche (« Malédiction repoussée ! », bleu
   pâle) avec un tintement clair (game.js émet bossSkill « curseBlocked »). Test, 1 texte × 9 langues, 115/115.
 - 2026-11-10 (it. 401) : le mage revenait à 56 dans les revues (graine 7 par défaut) : sur 5 graines (SEED=1..5,

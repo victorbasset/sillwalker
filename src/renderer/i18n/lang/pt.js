@@ -916,4 +916,5 @@ export default {
   2040: "Companheiro da próxima aventura:",
   2041: "Mascote Mariposa pálida; os chefes anunciam suas habilidades ao chegar; uma ajuda se a Maldição te bloquear.",
   2042: "Maldição repelida!",
+  2043: "Golpear {n} vez com clique|Golpear {n} vezes com clique",
 };

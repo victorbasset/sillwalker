@@ -916,4 +916,5 @@ export default {
   2040: "Towarzysz następnej przygody:",
   2041: "Pupil Blada ćma; bossowie zapowiadają swoje umiejętności; pomoc, gdy blokuje cię ich Klątwa.",
   2042: "Klątwa odparta!",
+  2043: "Uderz {n} raz kliknięciem|Uderz {n} razy kliknięciem|Uderz {n} razy kliknięciem",
 };

@@ -916,4 +916,5 @@ export default {
   2040: "Compañero de la próxima aventura:",
   2041: "Mascota Polilla pálida; los jefes anuncian sus habilidades al llegar; una ayuda si su Maldición te bloquea.",
   2042: "¡Maldición repelida!",
+  2043: "Golpear {n} vez con clic|Golpear {n} veces con clic",
 };

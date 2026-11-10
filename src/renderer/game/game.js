@@ -413,6 +413,7 @@ export class Game {
     if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; this.emit("bossShieldHit", { amount: a }); }
     m.hp -= dmg;
     this.S.stats.taps = (this.S.stats.taps || 0) + 1;
+    this.questProgress("tap", 1); // quête « Frapper au clic »
     this.emit("tap", { dmg, mon: m });
     if (m.hp <= 0) this.killMonster();
     return true;

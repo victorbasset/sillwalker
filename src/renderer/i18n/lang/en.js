@@ -916,4 +916,5 @@ export default {
   2040: "Companion for the next adventure:",
   2041: "Pale Moth pet; bosses announce their abilities as they arrive; a helping hand if their Curse blocks you.",
   2042: "Curse repelled!",
+  2043: "Strike {n} time by clicking|Strike {n} times by clicking",
 };

@@ -916,4 +916,5 @@ export default {
   2040: "Begleiter des nächsten Abenteuers:",
   2041: "Begleiter Bleicher Falter; Bosse kündigen ihre Fähigkeiten beim Auftauchen an; Hilfe, wenn dich ihr Fluch aufhält.",
   2042: "Fluch abgewehrt!",
+  2043: "{n}-mal per Klick zuschlagen|{n}-mal per Klick zuschlagen",
 };

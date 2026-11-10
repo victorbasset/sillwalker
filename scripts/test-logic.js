@@ -2040,6 +2040,12 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const ge = new Game(freshState()); for (const id of Object.keys(M_events_js.EVENTS)) { ge.startEvent(id); ge.R.events[id] = 0; }
     assert.ok(M_achievements_js.reachedAchievements(ge.S).includes("EVENTS_ALL"), "succès Chasseur d’événements");
     const bad = JSON.parse(JSON.stringify(ge.S)); bad.stats.eventsSeen = "x"; assert.deepEqual(migrate(bad).stats.eventsSeen, {}, "eventsSeen abîmé");
+    // Quête « Frapper au clic » : chaque coup au clic compte
+    const gt = new Game(freshState()); gt.S.quests.slots = [{ uid: 9, kind: "tap", goal: 3, progress: 0, stars: 1, reward: { gold: 1 } }];
+    gt.R.mon = gt.makeMonster(false); gt.R.mon.hp = gt.R.mon.max = 1e12; gt.R.mode = "fight";
+    for (let i = 0; i < 3; i++) { gt.tapMonster(); gt.R.time += 1; }
+    assert.equal(gt.S.quests.slots[0].progress, 3, "3 coups au clic comptés");
+    assert.match(M_quests_js.QUEST_TEMPLATES.tap.text({ goal: 20 }), /20/);
     // Zèle : progression des quêtes doublée pendant l'événement
     const gz = new Game(freshState()); gz.S.quests.slots = [{ uid: 1, kind: "kill", goal: 100, progress: 0, stars: 1, reward: { gold: 1 } }];
     gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 1);
