@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 554) : test : chaque effet de sort appartient à la liste connue et a une valeur positive (une faute
+  de frappe serait sinon ignorée sans bruit) ; CLAUDE.md : mesure des sorts des 20 héros. 130/130.
 - 2026-11-10 (it. 553) : --overflow-report mesure la page des sorts des 20 héros (pire cas signalé « sorts=N(héros) ») :
   le gladiateur défilait de 6 px en français à 1280 ; cartes de sorts resserrées sous 1366 px (marges, interligne,
   icône 22 px). 10 langues × 3 largeurs × 20 héros : aucun défilement. 130/130.

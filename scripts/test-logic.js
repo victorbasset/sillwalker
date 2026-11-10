@@ -2505,6 +2505,10 @@ test("Sorts uniques (demande Q) : 60 combinaisons différentes ; étourdi, poiso
   const keys = new Set(M_spells_js.SPELLS.map((x) => x.tpl + JSON.stringify(Object.fromEntries(x.fx.map((f) => [f, x[f]])))));
   assert.equal(keys.size, M_spells_js.SPELLS.length, "aucun sort n'en copie un autre");
   assert.ok(M_spells_js.SPELLS.every((x) => x.fx.length >= 1), "chaque sort a au moins un effet propre");
+  // Garde-fou (it. 554) : un effet mal écrit serait ignoré sans bruit ; chaque clé doit être connue (game.spellEffects,
+  // castSpells, cartes) et sa valeur positive.
+  const KNOWN = new Set(["pierce", "hits", "stun", "slow", "weaken", "burn", "venom", "leech", "execute", "crit", "echo", "haste", "cdr", "regen"]);
+  for (const x of M_spells_js.SPELLS) for (const f of x.fx) assert.ok(KNOWN.has(f) && +x[f] > 0, x.id + " : effet inconnu ou nul « " + f + " »");
   const g = new Game(freshState()); g.setClass("warrior"); const hs = g.stats();
   const fight = () => { g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = hs.hp * 0.5; return g.R.mon; };
   // Fracas du titan : étourdit 2 s (le monstre n'attaque plus)
