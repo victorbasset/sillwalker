@@ -500,12 +500,14 @@ async function runSelfTest(strip) {
   check("aucun onglet ne défile verticalement (1920 px)", ovf === "aucun" || ovf === "fenêtre étroite", ovf);
   // Écran de portable (1366 px) : la fenêtre est rétrécie le temps de la mesure (seuil de largeur abaissé).
   const bLap = bounds();
-  strip.win.setBounds({ ...bLap, width: 1366 });
-  await sleep(900);
-  const ovf2 = await js(OVF_JS.replace("window.innerWidth < 1800", "window.innerWidth < 1300"));
+  for (const w of [1366, 1280]) {
+    strip.win.setBounds({ ...bLap, width: w });
+    await sleep(900);
+    const ovf2 = await js(OVF_JS.replace("window.innerWidth < 1800", "window.innerWidth < 1200"));
+    check(`aucun onglet ne défile verticalement (${w} px, écran de portable)`, ovf2 === "aucun", ovf2);
+  }
   strip.win.setBounds(bLap);
   await sleep(600);
-  check("aucun onglet ne défile verticalement (1366 px, écran de portable)", ovf2 === "aucun", ovf2);
   // Duo idéal cliquable (carte du héros) : un clic choisit le partenaire de synergie.
   const syn = await js("(() => { const g = window.__game, S = g.S, P = window.__panel; const keep = { cls: S.cls, nextCls: S.nextCls, partner: S.partner, nextPartner: S.nextPartner, un: (S.classesUnlocked || []).slice() }; S.cls = 'warrior'; S.nextCls = null; S.partner = 'mage'; S.nextPartner = null; for (const c of ['warrior','ranger','mage']) if (!S.classesUnlocked.includes(c)) S.classesUnlocked.push(c); g.invalidateStats(); P.setTab('class'); P.renderAll(); const b = document.querySelector('button.synergy[data-action=c-partner]'); const r = b ? (b.click(), String(S.nextPartner)) : 'pas de lien'; Object.assign(S, { cls: keep.cls, nextCls: keep.nextCls, partner: keep.partner, nextPartner: keep.nextPartner, classesUnlocked: keep.un }); g.invalidateStats(); P.setTab('adventure'); P.renderAll(); return r; })()");
   check("héros : « Duo idéal » cliquable choisit le partenaire", syn === "ranger", syn);

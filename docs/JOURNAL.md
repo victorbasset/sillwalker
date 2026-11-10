@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 358) : autotest : contrôle « aucun onglet ne défile » aussi à 1280 px (1920, 1366, 1280). 111/111.
 - 2026-11-10 (it. 357, écran de 1280 px) : Aventure (notes de la carte Zone resserrées sous 1366 px : 12 → 0) et
   Réglages (5 colonnes dès 1200 px : 202 → 0). Aucun onglet ne défile à 1280, 1366 et 1920 px. Captures, 110/110.
 - 2026-11-10 (it. 356) : succès PURE_HEART « Cœur pur » : vaincre un boss à Malédiction avec la pureté à 100 % (Talisman
