@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 407, simulation réaliste) : simulate.js n'achetait jamais l'Atelier (records sous-estimés) ; il achète
+  maintenant le niveau le moins cher tant qu'il coûte moins de 10 % de l'or, après les déblocages. balance.mjs 12 h :
+  59,3 → 61,6 (+2,3) ; semaine (mage) : 38 → 62 → 99 → 131 → 175 (repère précédent ≈ 164), régulière. Nouveaux repères
+  notés dans CLAUDE.md. Le jeu lui-même n'a pas changé.
 - 2026-11-10 (it. 406) : 5e amélioration de l'Atelier « Bibliothèque » (shop.js > ws_xp : +4 % d'expérience par niveau,
   400 or, ×1,5 par niveau ; icône livre bleu ws_xp). Description de l'Atelier (boutique, déblocage) complétée
   (« …or, expérience, vitesse »). Sous-onglet Atelier sans défilement à 1366 / 1280 en français et russe. 3 textes ×

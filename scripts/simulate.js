@@ -7,7 +7,7 @@ import { TREES } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS_BY_UNLOCK, canPartner, DUO_SYNERGIES } from "../src/renderer/game/classes.js";
 import { SKILL_TREE, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { CONSTELLATIONS, constellationCost } from "../src/renderer/game/prestige.js";
-import { CONSUMABLES, consumablePrice } from "../src/renderer/game/shop.js";
+import { CONSUMABLES, consumablePrice, WORKSHOP, workshopPrice } from "../src/renderer/game/shop.js";
 import { questDone } from "../src/renderer/game/quests.js";
 import { forgeCost } from "../src/renderer/game/rules.js";
 import { MAX_PLUS } from "../src/renderer/game/data.js";
@@ -42,6 +42,12 @@ function playerTurn() {
   if (process.env.IDLE) { if (g.S.best > lastBest) { lastBest = g.S.best; lastBestT = minute; } return; }
   // Déblocages : le joueur achète le suivant dès qu’il a trois fois son prix.
   for (let u = nextUnlock(g.S); u && g.S.gold >= u.price * 3 && unlockAvailable(g.S, u); u = nextUnlock(g.S)) if (g.buyUnlock(u.id)) unlockLog.push(`${u.id} à ${Math.round(g.S.stats.playTime / 60 || 0)} min (zone ${g.S.zone})`);
+  // Atelier (comme un joueur prudent) : le niveau le moins cher tant qu'il coûte moins de 10 % de l'or, après les
+  // déblocages (sans cela la simulation ignorait l'Atelier : records sous-estimés).
+  for (let k = 0; k < 20; k++) {
+    const ws = WORKSHOP.filter((w) => !(w.max && ((g.S.workshop || {})[w.id] || 0) >= w.max)).sort((a, b) => workshopPrice(a, g.S) - workshopPrice(b, g.S))[0];
+    if (!ws || workshopPrice(ws, g.S) > g.S.gold * 0.1 || !g.buyWorkshop(ws.id)) break;
+  }
   g.autoEquip();
   g.sellUseless();
   // Forge à la main (comme un joueur, dès l'Enclume) toutes les 10 min : sans cela, le Maître de forge faisait un bond
