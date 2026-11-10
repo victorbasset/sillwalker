@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 458) : nuance de l'it. 455 : une ascension faite par l'Astrolabe (joueur souvent absent) garde le tri
+  du marchand (ascend({ auto: true })), sinon personne ne le recocherait et le sac se remplirait d'inutiles ; à la
+  main, il repart décoché comme demandé. Test logique. 122/122.
 - 2026-11-10 (it. 457) : onglet Ascension, listes Gardé / Perdu à jour : « déblocages et atelier » (gardés, n'y
   figuraient pas) et, si le tri du marchand est acheté, « ventes automatiques (à recocher) » côté perdu (it. 455).
   Traduit ; capture ; lang-overflow fr / de / ru / pl à 1366 et 1280 : aucun défilement. 122/122.

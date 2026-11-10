@@ -1778,12 +1778,13 @@ export class Game {
     if (S.best < recordZone(S) - 2) return false; // course encore loin du record : elle peut progresser
     if ((R.wallDeaths || []).filter((t) => R.time - t < 900).length < 4) return false;
     const gain = this.ascendShards(), best = S.best;
-    if (!this.ascend()) return false;
+    if (!this.ascend({ auto: true })) return false;
     this.log(tx("Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{1} éclats d’étoile).", { 0: best, 1: gain }));
     return true;
   }
 
-  ascend() {
+  /** `auto` : ascension faite par l'Astrolabe (joueur sans doute absent) : le tri du marchand est alors gardé. */
+  ascend({ auto = false } = {}) {
     if (!this.canAscend()) return false;
     const old = this.S, gain = this.ascendShards(), f = freshState();
     const P = old.prestige, skillGain = ascensionSkillPoints(old.best);
@@ -1797,7 +1798,8 @@ export class Game {
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize,
       // Ascension (demande de Victor) : le tri du marchand repart décoché ; au début d'une course, les objets
       // communs ou rares sont de vrais progrès qu'il serait dommage de vendre d'office.
-      autoSell: Object.fromEntries(Object.keys(old.autoSell || {}).map((k) => [k, false])), autoAdvance: old.autoAdvance,
+      // Par l'Astrolabe (souvent en l'absence du joueur), on le garde : personne ne serait là pour le recocher.
+      autoSell: auto ? { ...old.autoSell } : Object.fromEntries(Object.keys(old.autoSell || {}).map((k) => [k, false])), autoAdvance: old.autoAdvance,
       // Commodités sans risque, gardées (sinon à recocher à chaque course) : rachat des potions.
       autoPotions: !!old.autoPotions,
       stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, journey: old.journey || [], story: old.story || { intro: true, read: {} }, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
@@ -1812,7 +1814,7 @@ export class Game {
     if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
     this.log(`${tx("Ascension n° {0} : +{1} éclats d’étoile et +{2} points de compétence permanents. Une nouvelle aventure commence{3} !", { 0: P.count, 1: gain, 2: skillGain, 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
-    if (Object.values(old.autoSell || {}).some(Boolean) && hasUnlock(f, "autoSell")) this.log(tx("Tri du marchand : ventes automatiques décochées pour la nouvelle aventure."));
+    if (!auto && Object.values(old.autoSell || {}).some(Boolean) && hasUnlock(f, "autoSell")) this.log(tx("Tri du marchand : ventes automatiques décochées pour la nouvelle aventure."));
     this.milestone("asc", P.count);
     this.emit("ascend", { count: P.count, gain });
     this.changed();

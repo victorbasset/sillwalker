@@ -340,6 +340,9 @@ test("ascension : éclats, conservation, constellations", () => {
   assert.deepEqual(g.S.autoSell, { common: false, uncommon: false, rare: false }, "tri du marchand décoché à l'ascension (demande de Victor)");
   assert.ok(g.S.unlocks.autoSell, "le déblocage, lui, est gardé");
   assert.ok(g.S.autoPotions && g.S.quests.auto, "rachat des potions et réclamation des quêtes gardés");
+  // Ascension par l'Astrolabe (joueur absent) : le tri du marchand est gardé, personne ne le recocherait
+  const ga = new Game(freshState()); ga.S.best = ga.S.zone = ASCEND_MIN_ZONE + 6; ga.S.unlocks.autoSell = true; ga.S.autoSell = { common: true, uncommon: false, rare: false };
+  assert.ok(ga.ascend({ auto: true })); assert.equal(ga.S.autoSell.common, true, "Astrolabe : tri du marchand gardé");
   assert.equal(g.S.lvl, 1);
   assert.equal(g.S.gold, 0);
   assert.equal(g.S.prestige.shards, shards);
