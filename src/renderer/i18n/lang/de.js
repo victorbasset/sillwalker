@@ -902,4 +902,5 @@ export default {
   2026: "Neues Ereignis Brutzeit (Eier bei Siegen); neue Bossfähigkeit Fluch und ihr Gegenmittel: der Talisman der Reinheit.",
   2027: "Reines Herz",
   2028: "Quests kommen doppelt so schnell voran!",
+  2029: "Gegenmittel: {0}",
 };

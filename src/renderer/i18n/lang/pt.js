@@ -902,4 +902,5 @@ export default {
   2026: "Novo evento Ninhada (ovos a cada vitória); nova habilidade de chefe, a Maldição, e seu antídoto: o Talismã da pureza.",
   2027: "Coração puro",
   2028: "As missões avançam duas vezes mais rápido!",
+  2029: "Antídoto: {0}",
 };

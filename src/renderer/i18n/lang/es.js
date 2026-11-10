@@ -902,4 +902,5 @@ export default {
   2026: "Nuevo evento Nidada (huevos con cada victoria); nueva habilidad de jefe, la Maldición, y su remedio: el Talismán de pureza.",
   2027: "Corazón puro",
   2028: "¡Las misiones avanzan el doble de rápido!",
+  2029: "Remedio: {0}",
 };

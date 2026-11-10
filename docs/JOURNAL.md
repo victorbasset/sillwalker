@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 366) : carte Zone : l'infobulle de la Malédiction ajoute « Parade : Talisman de pureté » une fois ce
+  pouvoir découvert (powersSeen). Contrôle d'autotest, 1 texte × 9 langues, 113/113.
 - 2026-11-10 (it. 365, son) : les capacités de boss ont leur son (sound.js > bossSkill) : grondement (Enragé), carapace,
   cristaux (Souffle glacé), reflet (Miroir), montée (Fureur), pierre fendue (Peau de pierre), accord dissonant qui
   descend (Malédiction) ; une fois par seconde au plus, rien si le son est coupé. 112/112 (non écouté : serveur).

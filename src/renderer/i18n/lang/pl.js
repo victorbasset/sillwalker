@@ -902,4 +902,5 @@ export default {
   2026: "Nowe wydarzenie Wylęg (jaja za zwycięstwa); nowa umiejętność bossa, Klątwa, i ochrona przed nią: Talizman czystości.",
   2027: "Czyste serce",
   2028: "Zadania postępują dwa razy szybciej!",
+  2029: "Ochrona: {0}",
 };
