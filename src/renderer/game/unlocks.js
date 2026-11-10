@@ -25,7 +25,7 @@ export const UNLOCKS = [
   { id: "autoLevel",   price: 3.4e11, zone: 85,  icon: "keys",     name: "Grimoire de l’éveil",      desc: "À chaque niveau, les points se dépensent tout seuls (option)." },
   { id: "armsValet",   price: 1.1e13, zone: 100, icon: "ws_atk",   name: "Valet d’armes",            desc: "Équipe tout seul un objet plus puissant dès qu’il tombe (option)." },
   { id: "masterForge", price: 3.5e14, zone: 115, icon: "anvil",   name: "Maître de forge",          desc: "Forge tout seul l’équipement porté avec l’or en trop (option)." },
-  { id: "charmKeeper", price: 2e15, zone: 122, icon: "star",    name: "Porte-talisman",           desc: "Face à un boss qui maudit, équipe tout seul le Talisman de pureté du sac, puis remet l’objet d’avant." },
+  { id: "charmKeeper", price: 2e15, zone: 122, icon: "talisman",    name: "Porte-talisman",           desc: "Face à un boss qui maudit, équipe tout seul le Talisman de pureté du sac, puis remet l’objet d’avant." },
   { id: "starNet",     price: 1.1e16, zone: 130, icon: "star",    name: "Filet à étoiles",          desc: "Attrape tout seul les étoiles filantes que tu n’as pas cliquées à temps." },
   { id: "starAnvil",   price: 1e17, zone: 140, icon: "anvil",   name: "Enclume stellaire",        desc: "Remonte un objet au niveau de ton record de zone (statistiques, rareté, forge, pouvoir et panoplie conservés). Très cher." },
   { id: "astrolabe",   price: 1.1e18, zone: 150, icon: "map",   name: "Astrolabe",                desc: "Fait l’ascension tout seul quand le héros bloque près de son record (option, à activer)." },

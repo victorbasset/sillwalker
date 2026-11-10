@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 368) : icône propre pour le Porte-talisman (shopart.js > TALISMAN : cordon, monture dorée, gemme
+  claire) au lieu de l'étoile du Filet à étoiles. Capture, 113/113.
 - 2026-11-10 (it. 367, automatisation par déblocage) : déblocage « Porte-talisman » (charmKeeper, zone 122, 2e15 or) :
   à l'apparition d'un boss à Malédiction, équipe le Talisman de pureté du sac (game.js > charmSwap) et remet l'objet
   d'avant quand le boss tombe ou au boss suivant sans Malédiction (charmRestore ; R.charmBack, non sauvegardé).

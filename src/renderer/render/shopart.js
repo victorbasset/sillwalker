@@ -27,6 +27,8 @@ const CLOCK = ["..WWWWW..", ".W.....W.", "W...K...W", "W...K...W", "W...KKK.W", 
 const KENNEL = ["....KK....", "...KRRK...", "..KRRRRK..", ".KRRRRRRK.", "KRRRRRRRRK", ".KBBBBBBK.", ".KBBKKBBK.", ".KBKWWKBK.", ".KBKWWKBK.", ".KKKKKKKK."];
 const CAULDRON = ["..G..G.G..", "...G.G....", ".KKKKKKKK.", "KGGGGGGGGK", "KMMMMMMMMK", "KMMMMMMMMK", ".KMMMMMMK.", "..KMMMMK..", ".K.KKKK.K."];
 const ANVIL = [".........", "KKKKKKKK.", "KMMMMMMMK", ".KMMMMMK.", "..KMMMK..", "..KMMMK..", ".KKKKKKK.", "KBBBBBBBK"];
+// Talisman de pureté (Porte-talisman) : cordon, monture dorée, gemme claire.
+const TALISMAN = ["..C...C..", "...C.C...", "....C....", "...GGG...", "..GWBWG..", ".GBBWBBG.", "..GBBBG..", "...GBG...", "....G...."];
 const MAP = ["PPP.PPP..", "PPLPPPLP.", "PLPPPLPPP", "PPPRPPPLP", "PLPPPPPPP", "PPPPLPPRP", ".PPP.PPPP"];
 
 const OUT = "#14121f";
@@ -63,6 +65,7 @@ export const SHOP_ICON_DEFS = {
   anvil:   [ANVIL, { M: "#8a93a0", B: "#6b4a2b" }],
   kennel2: [EGG, { W: "#f4ecd8", S: "#c0392b" }],
   map:     [MAP, { P: "#e8d8b0", L: "#a8884a", R: "#e2394a" }],
+  talisman: [TALISMAN, { C: "#a8884a", G: "#ffd34d", B: "#9fe0ff", W: "#ffffff" }],
 };
 
 /** Icône d'un effet (clé de talents.js > EFFECTS). */
