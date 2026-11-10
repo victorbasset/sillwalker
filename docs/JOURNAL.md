@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 521, demande O de Victor « ça change trop régulièrement : changer de musique toutes les 5 zones ») :
+  un air par tranche de 5 zones (musicZone, MUSIC_BLOCK = 5 : celui de la 1re zone de la tranche). Couleur du décor :
+  passe-bas (1,7 kHz sombre … 3,6 kHz ciel) et écho doux en croche pointée (fort en mer, au ciel, dans la glace),
+  débranché avec l'air (boucle retard-réinjection). Piège du commentaire « // » en milieu de ligne attrapé par
+  check-syntax. Test logique ; mémoire stable (≈ 800 Mo). 125/125.
 - 2026-11-10 (it. 520, revue générale + demande N de Victor) : revue : balance 12 h -0,3 (bruit) ; semaine mage 191
   (repère 182 : la Marée arcanique et les paliers aident un peu ; progression régulière) ; fuzz 1200, 0 bloquée ; crawl
   fr 313 et ko 318 sans erreur ; russe ok ; save-fuzz ok ; perf : bande 19,3 %, panneau 21,0 %, mini 6,1 %, icône 0,5 %.
@@ -1823,6 +1828,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
+  O. FAIT (it. 521). Changer de musique toutes les 5 zones seulement.
   N. FAIT (it. 520, à écouter). Musique lofi façon Terraria, différente de zone en zone.
   M. FAIT (it. 499). Les icônes des onglets (barre du haut) disparaissent quand il y en a trop : les garder.
 

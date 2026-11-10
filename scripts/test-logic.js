@@ -49,7 +49,7 @@ import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY } from "../src/renderer/game
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
-import { songFor } from "../src/renderer/render/music.js";
+import { songFor, musicZone } from "../src/renderer/render/music.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -1893,6 +1893,8 @@ test("musique de fond (demande 24) : un air par zone, toujours le même pour une
     assert.equal(songFor(z, 2).bpm, p0.bpm, "même tempo d'un passage à l'autre");
   }
   assert.ok(varied >= 38, "les passages varient : " + varied + " / 40");
+  // Un air par tranche de 5 zones (it. 521, demande de Victor).
+  assert.deepEqual([1, 3, 5, 6, 10, 11, 0, 203].map(musicZone), [1, 1, 1, 6, 6, 11, 1, 201], "tranches de 5 zones");
 });
 
 test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi ; changement à l'ascension", () => {

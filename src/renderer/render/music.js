@@ -73,7 +73,10 @@ export function songFor(zone, pass = 0) {
   const extra = r(), arp = extra < 0.3 ? pickOf(["pluck", "bell", "marimba"]) : null, harm = extra >= 0.3 && extra < 0.45;
   const arps = [];
   if (arp) prog8.forEach((c, bar) => { for (let k = 0; k < 4; k++) arps.push({ step: bar * 8 + k * 2, midi: deg(c + [0, 2, 4, 7][k]) + 12, len: 1 }); });
-  const song = { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm, chords, swing, vinyl: true };
+  // Couleur du décor (it. 521) : passe-bas plus ou moins ouvert, écho plus ou moins présent.
+  const COLOR = { wood: [2600, 0.18], ice: [3400, 0.3], fire: [2200, 0.12], dark: [1700, 0.22], sea: [2400, 0.34], sky: [3600, 0.3], any: [2600, 0.18] };
+  const [cutoff, echo] = COLOR[mood];
+  const song = { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm, chords, swing, vinyl: true, cutoff, echo, mood };
   if (!(pass > 0)) return song;
   // Passages suivants (demande C de Victor : « moins répétitives ») : le motif A reste (on reconnaît la zone), le
   // reste varie à chaque passage ; un intermède calme tous les 4 passages, un silence tous les 8 pour respirer.
@@ -91,6 +94,11 @@ export function songFor(zone, pass = 0) {
   const drums2 = r2() < 0.6 ? drums : pick2(["lofi", "lofi2", "shaker", "soft"]);
   return { ...song, notes: vnotes, lead: lead2, drums: drums2, hat: drums2 !== "none", harm: r2() < 0.3 ? !harm : harm };
 }
+
+/** Demande de Victor (it. 521, « ça change trop régulièrement ») : un même air pour 5 zones de suite (1-5, 6-10…),
+ *  celui de la première zone de la tranche. */
+export const MUSIC_BLOCK = 5;
+export const musicZone = (zone) => Math.floor((Math.max(1, zone | 0) - 1) / MUSIC_BLOCK) * MUSIC_BLOCK + 1;
 
 // Formes d'onde « pulse » (rapport cyclique 12,5 / 25 / 50 %) façon Game Boy, par séries de Fourier.
 const PULSES = { pulse12: 0.125, pulse25: 0.25, pulse50: 0.5 };
@@ -121,8 +129,9 @@ export class Music {
     if (ctx && v && !v.dying) { const t = ctx.currentTime; v.gain.gain.cancelScheduledValues(t); v.gain.gain.setTargetAtTime(MUSIC_GAIN * this.level, t, 0.15); }
   }
 
-  /** Change d'air (fondu enchaîné de 2,5 s). */
+  /** Change d'air (fondu enchaîné de 2,5 s) : un air par tranche de MUSIC_BLOCK zones (demande de Victor). */
   setZone(zone) {
+    zone = musicZone(zone);
     if (zone === this.zone) return;
     this.zone = zone;
     if (!this.enabled) return;
@@ -133,16 +142,21 @@ export class Music {
     const gain = ctx.createGain();
     gain.gain.setValueAtTime(0, t); gain.gain.linearRampToValueAtTime(MUSIC_GAIN * (this.level ?? 1), t + 2.5); // bas : ne pas déranger
     // Son chaud et feutré (lofi) : un passe-bas sur toute la musique.
-    const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = 2600; flt.Q.value = 0.5;
+    const song = songFor(zone);
+    const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = song.cutoff || 2600; flt.Q.value = 0.5;
     gain.connect(flt); flt.connect(this.sound.master);
-    this.voice = { gain, flt, song: songFor(zone), step: 0, next: t + 0.1 };
+    // Écho doux (couleur du décor) : une croche pointée, quelques répétitions qui s'éteignent.
+    const dl = ctx.createDelay(1), fb = ctx.createGain(), wet = ctx.createGain();
+    dl.delayTime.value = Math.min(0.9, 60 / song.bpm * 0.75); fb.gain.value = 0.32; wet.gain.value = song.echo || 0;
+    flt.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(this.sound.master);
+    this.voice = { gain, flt, wet, dl, fb, song, step: 0, next: t + 0.1 };
     this.old = old;
     if (!this.timer) this.timer = setInterval(() => this.pump(), 120);
   }
 
   stop() {
     if (this.timer) { clearInterval(this.timer); this.timer = null; }
-    for (const v of [this.voice, this.old]) if (v) try { v.gain.disconnect(); v.flt?.disconnect(); } catch { /* déjà débranché */ }
+    for (const v of [this.voice, this.old]) if (v) try { v.gain.disconnect(); v.flt?.disconnect(); v.wet?.disconnect(); v.dl?.disconnect(); v.fb?.disconnect(); } catch { /* déjà débranché */ }
     this.voice = this.old = null;
   }
 
@@ -150,7 +164,8 @@ export class Music {
   pump() {
     const ctx = this.sound.ctx;
     if (!ctx || !this.voice) return;
-    if (this.old && ctx.currentTime > this.old.dying) { try { this.old.gain.disconnect(); this.old.flt?.disconnect(); } catch { /* */ } this.old = null; }
+    // Ancien air éteint (écho compris : la boucle retard-réinjection doit être débranchée, sinon elle reste en mémoire).
+    if (this.old && ctx.currentTime > this.old.dying + 3) { try { this.old.gain.disconnect(); this.old.flt?.disconnect(); this.old.wet?.disconnect(); this.old.dl?.disconnect(); this.old.fb?.disconnect(); } catch { /* */ } this.old = null; }
     const v = this.voice, stepDur = 60 / v.song.bpm / 2;
     while (v.next < ctx.currentTime + 0.4) {
       const s = v.step % STEPS;
