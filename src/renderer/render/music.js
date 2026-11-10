@@ -171,44 +171,44 @@ export class Music {
       const s = v.step % STEPS;
       // Nouveau passage : variation de l'air (même tempo), intermède ou silence (songFor, demande C).
       if (s === 0 && v.step > 0) v.song = songFor(this.zone, Math.floor(v.step / STEPS));
-      const song = v.song;
-      // Swing : les croches à contretemps arrivent un peu en retard.
-      const t = v.next + (s % 2 ? (song.swing || 0) * stepDur : 0);
-      if (song.chords) for (const c of song.chords) if (c.step === s) for (const m of c.notes) this.play(v.gain, "epiano", hz(m), t, c.len * stepDur * 0.95, 0.55);
-      // Craquements de vinyle : quelques petits clics très bas.
-      if (song.vinyl && Math.random() < 0.18) this.noiseHit(v.gain, v.next + Math.random() * stepDur, 0.006, 0.01 + Math.random() * 0.012, 3000);
-      for (const n of song.notes) if (n.step === s) {
-        this.play(v.gain, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1);
-        if (song.harm) this.play(v.gain, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5); // tierce dessous
-      }
-      for (const n of song.bass) if (n.step === s) {
-        this.play(v.gain, song.bassInst || "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 1);
-        if (this.boss) this.play(v.gain, "sub", hz(n.midi - 12), t, n.len * stepDur * 0.9, 0.6); // combat de boss : basse doublée plus grave
-      }
-      if (song.arp) for (const n of song.arps) if (n.step === s) this.play(v.gain, song.arp, hz(n.midi), t, stepDur * 1.6, 0.45);
-      // Combat de boss : percussions lourdes, même pendant un intermède ou un silence (la tension monte).
-      this.drum(v.gain, this.boss ? "heavy" : song.drums || (song.hat ? "soft" : "none"), s, t);
+      this.scheduleStep(v.gain, v.song, s, v.next, stepDur, this.boss);
       v.step++; v.next += stepDur;
     }
   }
 
+  /** Un pas (croche) d'un air, programmé à l'instant base : le jeu (pump) et le rendu hors ligne (schedulePass, autotest)
+   *  passent par ici, l'autotest mesure donc exactement ce que le joueur entend. boss : combat de boss (plus intense). */
+  scheduleStep(dest, song, s, base, stepDur, boss = false) {
+    // Swing : les croches à contretemps arrivent un peu en retard.
+    const t = base + (s % 2 ? (song.swing || 0) * stepDur : 0);
+    if (song.chords) for (const c of song.chords) if (c.step === s) for (const m of c.notes) this.play(dest, "epiano", hz(m), t, c.len * stepDur * 0.95, 0.55);
+    // Craquements de vinyle : quelques petits clics très bas.
+    if (song.vinyl && Math.random() < 0.18) this.noiseHit(dest, base + Math.random() * stepDur, 0.006, 0.01 + Math.random() * 0.012, 3000);
+    for (const n of song.notes) if (n.step === s) {
+      this.play(dest, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1);
+      // tierce dessous
+      if (song.harm) this.play(dest, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5);
+    }
+    for (const n of song.bass) if (n.step === s) {
+      this.play(dest, song.bassInst || "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 1);
+      // combat de boss : basse doublée plus grave
+      if (boss) this.play(dest, "sub", hz(n.midi - 12), t, n.len * stepDur * 0.9, 0.6);
+    }
+    if (song.arp) for (const n of song.arps) if (n.step === s) this.play(dest, song.arp, hz(n.midi), t, stepDur * 1.6, 0.45);
+    // Combat de boss : percussions lourdes, même pendant un intermède ou un silence (la tension monte).
+    this.drum(dest, boss ? "heavy" : song.drums || (song.hat ? "soft" : "none"), s, t);
+  }
+
   /** Rendu hors ligne d'un passage complet (autotest, extraits) : même chaîne que setZone (passe-bas, écho), notes
    *  programmées d'un coup à partir de t0. Renvoie la durée du passage. */
-  schedulePass(song, t0 = 0.05) {
+  schedulePass(song, t0 = 0.05, boss = false) {
     const ctx = this.sound.ctx, gain = ctx.createGain(); gain.gain.value = MUSIC_GAIN;
     const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = song.cutoff || 2600; flt.Q.value = 0.5;
     const dl = ctx.createDelay(1), fb = ctx.createGain(), wet = ctx.createGain();
     dl.delayTime.value = Math.min(0.9, 60 / song.bpm * 0.75); fb.gain.value = 0.32; wet.gain.value = song.echo || 0;
     gain.connect(flt); flt.connect(this.sound.master); flt.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(this.sound.master);
     const stepDur = 60 / song.bpm / 2;
-    for (let s = 0; s < STEPS; s++) {
-      const t = t0 + s * stepDur + (s % 2 ? (song.swing || 0) * stepDur : 0);
-      for (const c of song.chords || []) if (c.step === s) for (const m of c.notes) this.play(gain, "epiano", hz(m), t, c.len * stepDur * 0.95, 0.55);
-      for (const n of song.notes) if (n.step === s) { this.play(gain, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1); if (song.harm) this.play(gain, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5); }
-      for (const n of song.bass) if (n.step === s) this.play(gain, song.bassInst || "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 1);
-      if (song.arp) for (const n of song.arps) if (n.step === s) this.play(gain, song.arp, hz(n.midi), t, stepDur * 1.6, 0.45);
-      this.drum(gain, song.drums || "none", s, t);
-    }
+    for (let s = 0; s < STEPS; s++) this.scheduleStep(gain, song, s, t0 + s * stepDur, stepDur, boss);
     return STEPS * stepDur;
   }
 

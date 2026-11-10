@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 526) : music.js : Music.scheduleStep, un pas d'air programmé, commun au jeu (pump) et au rendu hors
+  ligne (schedulePass) : l'autotest mesure exactement ce que le joueur entend ; le contrôle de la musique rend aussi un
+  combat de boss (basse doublée, percussions lourdes) : pas de saturation. Mêmes volumes (rapport 1,74). 126/126.
 - 2026-11-10 (it. 525) : « Quoi de neuf », édition 8 (la nouvelle musique lofi, un air toutes les 5 zones ; piano
   électrique, vinyle ; volume dans Réglages > Son, cité tel que traduit). Aucun défilement (ru, de, pl ; 3 largeurs).
   126/126.
