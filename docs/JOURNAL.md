@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 351) : astuce « purity » (hints.js) : le boss de la zone a la Malédiction et un Talisman de pureté
+  attend dans le sac (pas porté) : l'astuce propose de l'équiper (une fois par course, ouvre l'Aventure). Test,
+  1 texte × 9 langues, 110/110.
 - 2026-11-10 (it. 350, revue générale) : simulations 12 h : guerrier 62, samouraï 64, barde 60 ; crawl 302 clics sans
   erreur ; russe : aucun mot latin suspect ; save-fuzz : tout ok ; perf : bande 19,9 %, panneau 22,0 %, mini 6,3 %,
   icône 2,8 % d'un cœur (stables).

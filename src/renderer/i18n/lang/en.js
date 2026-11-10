@@ -898,4 +898,5 @@ export default {
   2022: "Laptop screens (1366 px): no tab scrolls anymore; long lists slide sideways.",
   2023: "Talisman of Purity",
   2024: "resistance to boss Curse (shorter duration)",
+  2025: "This zone’s boss curses your hero: the Talisman of Purity sleeping in your bag would protect them. Click here.",
 };

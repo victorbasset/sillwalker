@@ -1996,6 +1996,11 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const gq = new Game(freshState()); gq.R.mon = gq.makeMonster(true); gq.R.mon.mech = ["curse"]; gq.R.mon.curseT = 0;
     gq.bossTick(gq.R.mon, gq.stats(), 0.1);
     assert.ok(gq.R.cursed > 0, "sans talisman : maudit");
+    // Astuce : talisman dans le sac face à un boss qui maudit
+    const gh = new Game(freshState()); gh.S.zone = 11; const it2 = gh.newItem(0); it2.power = "p_pure"; gh.S.bag.push(it2);
+    gh.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((h) => h.id !== "purity").map((h) => [h.id, true]));
+    const hp = M_hints_js.nextHint(gh);
+    assert.ok(hp && hp.id === "purity", "astuce Talisman de pureté");
 
     assert.ok(M_bosses_js.BOSS_MECHANICS.curse && M_bosses_js.bossMechanics(11).includes("curse"), "zone 11 : Malédiction");
   }

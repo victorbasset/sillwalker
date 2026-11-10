@@ -2026,5 +2026,6 @@ export const KEYS = [
   "prochain boss : zone {0}",
   "Écrans de portable (1366 px) : plus aucun onglet ne défile, les longues listes glissent sur le côté.",
   "Talisman de pureté",
-  "de résistance à la Malédiction des boss (durée réduite)"
+  "de résistance à la Malédiction des boss (durée réduite)",
+  "Le boss de cette zone maudit ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici."
 ];

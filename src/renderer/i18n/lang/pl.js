@@ -898,4 +898,5 @@ export default {
   2022: "Ekrany laptopów (1366 px): żadna karta już się nie przewija, długie listy przesuwają się w bok.",
   2023: "Talizman czystości",
   2024: "odporności na Klątwę bossów (krótszy czas)",
+  2025: "Boss tej strefy przeklina twojego bohatera: Talizman czystości leżący w twojej torbie by go ochronił. Kliknij tutaj.",
 };

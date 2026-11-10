@@ -1,3 +1,4 @@
+import { bossMechanics } from "../game/bosses.js";
 // Conseils contextuels : chacun s'affiche une seule fois, au moment où il
 // devient utile, dans la bulle de la bande. Un clic ouvre l'onglet concerné.
 // Les conseils déjà vus sont retenus dans S.settings.hints.
@@ -48,6 +49,10 @@ export const HINTS = [
   { id: "synergy", tab: "class", text: null, perRun: true,
     textFn: (g) => { const x = idealMate(g.S); return tx("Le duo idéal de ton héros est libre : {0} ({1}). Choisis-le comme compagnon pour la prochaine ascension. Clique ici.", { 0: CLASSES[x.mate].name, 1: tx(x.d.name) }); },
     when: (g) => !!idealMate(g.S) },
+  // Le boss de la zone maudit et un Talisman de pureté attend dans le sac : le proposer (parade à la Malédiction).
+  { id: "purity", tab: "adventure", text: null, perRun: true,
+    textFn: () => tx("Le boss de cette zone maudit ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici."),
+    when: (g) => bossMechanics(g.S.zone).includes("curse") && !Object.values(g.S.equip).some((it) => it && it.power === "p_pure") && g.S.bag.some((it) => it && it.power === "p_pure") },
   { id: "stuck", tab: "ascension", text: null, perRun: true,
     textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),
     when: (g) => g.canAscend() && g.S.prestige.count > 0 && (g.R.wallDeaths || []).filter((t) => g.R.time - t < 900).length >= 4 },

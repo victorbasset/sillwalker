@@ -898,4 +898,5 @@ export default {
   2022: "Laptop-Bildschirme (1366 px): Kein Reiter scrollt mehr, lange Listen gleiten seitlich.",
   2023: "Talisman der Reinheit",
   2024: "Widerstand gegen den Fluch der Bosse (kürzere Dauer)",
+  2025: "Der Boss dieser Zone verflucht deinen Helden: Der Talisman der Reinheit in deiner Tasche würde ihn schützen. Hier klicken.",
 };
