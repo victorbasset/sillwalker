@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 432, demande C, étape 1/4 : pièces et coups) : pièces : tintement métallique (fondamentale + partiel
+  inharmonique ×2,76) qui monte d'un cran à chaque victoire enchaînée (gamme pentatonique qui monte puis redescend,
+  repart du bas après 4 s de pause) ; cascade de 3 pièces pour une élite, 5 pour un boss. Coups : bruit filtré
+  (passe-bande de couleur tirée à chaque coup), volume et durée variables, l'un de trois gestes par arme (simple,
+  appuyé avec souffle d'élan, bref) jamais deux fois de suite ; critique : « shing » clair qui monte. Vérifié par rendu
+  hors ligne (OfflineAudioContext, 8 tirages par son) : aucun NaN, pics au niveau d'avant (coups 0,015-0,041 ;
+  pièce baissée à 0,020 car jouée à chaque victoire). À écouter par Victor. 120/120. Suite : événements, ambiance des
+  zones, musique.
 - 2026-11-10 (it. 431, demandes A et B) : A. macOS : app.dock.hide() avant le démarrage (plus d'icône dans le Dock,
   aussi avec npm start ; le jeu se pilote par la bande, le panneau et l'icône de la barre des menus) ; à vérifier par
   Victor sur son Mac. B. Mode mini : l'ampoule des astuces était sous le bouton son (3 boutons depuis le son) : elle

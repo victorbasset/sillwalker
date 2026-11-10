@@ -2,6 +2,8 @@
 // Sillwalker vit en bas de l'écran pendant qu'on fait autre chose.
 // Chaque son est limité en fréquence pour ne jamais devenir agaçant.
 
+// Gamme des pièces enchaînées (pentatonique, deux octaves) : chaque victoire rapprochée sonne un cran plus haut.
+const COIN_SCALE = [1318.5, 1480, 1661, 1975.5, 2217.5, 2637, 2217.5, 1975.5]; // monte puis redescend (boucle)
 const NOTES = { C5: 523.25, D5: 587.33, E5: 659.25, G5: 783.99, A5: 880, C6: 1046.5, E6: 1318.5, G6: 1568, D6: 1174.66 };
 
 // Sons de coup variés (demande 25 de Victor) : un timbre par arme (donc par héros) et un « modificateur » par
@@ -75,14 +77,33 @@ export class Sound {
     o.start(t); o.stop(t + dur + 0.02);
   }
 
-  noise(start, dur, gain = 0.3) {
-    const ctx = this.ctx, t = ctx.currentTime + start, n = Math.floor(ctx.sampleRate * dur);
+  /** Bruit qui s'éteint. `freq` : filtre passe-bande (couleur du bruit : sourd, sec, sifflant) ; 0 = bruit blanc. */
+  noise(start, dur, gain = 0.3, freq = 0, q = 1) {
+    const ctx = this.ctx, t = ctx.currentTime + start, n = Math.max(1, Math.floor(ctx.sampleRate * dur));
     const buf = ctx.createBuffer(1, n, ctx.sampleRate), d = buf.getChannelData(0);
     for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / n);
     const s = ctx.createBufferSource(), g = ctx.createGain();
     s.buffer = buf; g.gain.value = gain;
-    s.connect(g); g.connect(this.master);
+    if (freq > 0) { const f = ctx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = freq; f.Q.value = q; s.connect(f); f.connect(g); }
+    else s.connect(g);
+    g.connect(this.master);
     s.start(t);
+  }
+
+  /** Pièce (demande C de Victor : satisfaction) : un tintement métallique (fondamentale + harmonique non entière,
+   *  comme une vraie pièce), qui monte d'un cran à chaque victoire enchaînée (gamme pentatonique, retombe après une
+   *  pause) ; `n` pièces = petite cascade (élites, boss). */
+  coin(n = 1) {
+    if (!this.enabled || !this.ensure()) return;
+    const now = performance.now();
+    this.coinStep = now - (this.coinT || 0) < 4000 ? ((this.coinStep || 0) + 1) % COIN_SCALE.length : 0;
+    this.coinT = now;
+    for (let i = 0; i < Math.min(n, 6); i++) {
+      const f = COIN_SCALE[(this.coinStep + i) % COIN_SCALE.length] * (0.995 + Math.random() * 0.01), t = i * 0.055;
+      this.tone(f, t, 0.16, "sine", 0.11);
+      this.tone(f * 2.76, t, 0.09, "sine", 0.035); // partiel inharmonique : le « ting » du métal
+      this.tone(f * 5.4, t + 0.004, 0.04, "triangle", 0.025);
+    }
   }
 
   /** Coup du héros : timbre de son arme, modifié par la matière de l'ennemi ; plus fort et plus clair en critique. */
@@ -90,19 +111,25 @@ export class Sound {
     if (!this.enabled || !this.ensure() || !this.throttle("hit", 140)) return;
     const w = weaponOf(cls), mat = materialOf(monType);
     const p = (mat === "soft" ? 0.72 : mat === "hard" ? 1.25 : mat === "air" ? 1.12 : 1) * (0.94 + Math.random() * 0.12) * (crit ? 1.15 : 1);
-    const g = crit ? 1.35 : 1;
+    // Variété (demande C : « très répétitif ») : volume, couleur du bruit et durée tirés à chaque coup, et l'un de trois
+    // gestes par arme (coup simple, coup appuyé avec souffle, coup bref), jamais deux fois de suite le même.
+    const g = (crit ? 1.35 : 1) * (0.82 + Math.random() * 0.3), c = 0.7 + Math.random() * 0.7, dl = 0.85 + Math.random() * 0.35;
+    let v = Math.floor(Math.random() * 3); if (v === this.lastHitV) v = (v + 1) % 3; this.lastHitV = v;
+    if (v === 1) this.noise(0, 0.05, 0.05 * g, 2600 * c, 0.8); // souffle de l'élan, avant l'impact
+    const s = v === 1 ? 0.025 : 0;
     switch (w) {
-      case "blade": this.noise(0, 0.045, 0.16 * g); this.tone(1400 * p, 0, 0.06, "square", 0.05 * g, 0.5); break;
-      case "blunt": this.noise(0, 0.07, 0.2 * g); this.tone(150 * p, 0, 0.1, "triangle", 0.3 * g, 0.55); break;
-      case "spear": this.noise(0, 0.035, 0.15 * g); this.tone(900 * p, 0, 0.05, "triangle", 0.12 * g, 0.7); break;
-      case "bow": this.tone(720 * p, 0, 0.09, "triangle", 0.16 * g, 0.5); this.noise(0.02, 0.02, 0.06 * g); break;
-      case "fire": this.noise(0, 0.12, 0.1 * g); this.tone(220 * p, 0, 0.12, "square", 0.06 * g, 0.5); break;
+      case "blade": this.noise(s, 0.045 * dl, 0.16 * g, 3200 * c, 0.9); this.tone(1400 * p * (v === 2 ? 1.2 : 1), s, 0.06 * dl, "square", 0.05 * g, 0.5); break;
+      case "blunt": this.noise(s, 0.07 * dl, 0.2 * g, 700 * c, 0.8); this.tone(150 * p * (v === 2 ? 0.85 : 1), s, 0.1 * dl, "triangle", 0.3 * g, 0.55); break;
+      case "spear": this.noise(s, 0.035 * dl, 0.15 * g, 2200 * c, 1); this.tone(900 * p, s, 0.05 * dl, "triangle", 0.12 * g, v === 2 ? 0.9 : 0.7); break;
+      case "bow": this.tone(720 * p * (v === 2 ? 1.1 : 1), s, 0.09 * dl, "triangle", 0.16 * g, 0.5); this.noise(s + 0.02, 0.02, 0.06 * g, 4000 * c, 1.2); break;
+      case "fire": this.noise(s, 0.12 * dl, 0.1 * g, 900 * c, 0.6); this.tone(220 * p, s, 0.12 * dl, "square", 0.06 * g, v === 2 ? 0.35 : 0.5); break;
       case "ice": this.tone(1800 * p, 0, 0.07, "triangle", 0.1 * g, 1.4); this.tone(2600 * p, 0.03, 0.05, "triangle", 0.06 * g); break;
       case "shadow": this.tone(320 * p, 0, 0.11, "triangle", 0.14 * g, 1.4); break;
       case "holy": this.tone(880 * p, 0, 0.1, "triangle", 0.11 * g); this.tone(1320 * p, 0.02, 0.1, "triangle", 0.07 * g); break;
       case "note": this.tone([523, 587, 659, 784][Math.floor(Math.random() * 4)] * p, 0, 0.12, "triangle", 0.13 * g); break;
     }
     // Impact selon la matière : « splotch » mou, clac sec, souffle léger.
+    if (crit) this.tone(2400 * c, 0.01, 0.12, "triangle", 0.05, 1.3); // critique : un « shing » clair qui monte
     if (mat === "soft") this.tone(110 * p, 0.02, 0.08, "triangle", 0.12 * g, 0.6);
     else if (mat === "hard") this.tone(2200 * p, 0.015, 0.03, "square", 0.04 * g);
   }
@@ -175,7 +202,7 @@ export class Sound {
         this.tone(NOTES.G6, 1.2, 1.8, "triangle", 0.1); this.tone(NOTES.C5, 0.5, 2.2, "triangle", 0.12); break;
       case "hit": if (this.throttle(id, 140)) this.noise(0, 0.05, 0.18); break;
       case "crit": if (this.throttle(id, 200)) { this.noise(0, 0.06, 0.25); this.tone(NOTES.A5, 0, 0.08, "square", 0.15, 0.6); } break;
-      case "coin": if (this.throttle(id, 90)) { this.tone(NOTES.E6, 0, 0.06, "square", 0.12); this.tone(NOTES.G6, 0.05, 0.1, "square", 0.12); } break;
+      case "coin": if (this.throttle(id, 90)) this.coin(1); break;
       case "loot": this.tone(NOTES.C6, 0, 0.08, "triangle", 0.3); this.tone(NOTES.E6, 0.07, 0.12, "triangle", 0.3); break;
       case "legendary":
         [NOTES.C5, NOTES.E5, NOTES.G5, NOTES.C6, NOTES.E6, NOTES.G6].forEach((f, i) => this.tone(f, i * 0.08, 0.25, "square", 0.22));
@@ -215,7 +242,7 @@ export class Sound {
     game.on("heroAttack", ({ crit, iai }) => { const m = game.R.mon; this.hit(game.S.cls, m && m.type, crit || iai); });
     game.on("tap", () => this.play("hit"));
     game.on("partnerHit", () => { const m = game.R.mon; if (game.S.partner) this.hit(game.S.partner, m && m.type, false); }); // compagnon du duo
-    game.on("kill", ({ mon }) => { this.play("coin"); if (mon.boss) this.play("boss"); });
+    game.on("kill", ({ mon }) => { this.coin(mon.boss ? 5 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); });
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
     game.on("levelUp", () => this.play("level"));
     game.on("unlock", () => this.play("chest"));
