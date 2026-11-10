@@ -1128,4 +1128,5 @@ export default {
   2252: "Atak i PŻ podwojone; zdobyte złoto +50%.",
   2253: "Co 1,5 s pocisk: 1,5% PŻ potwora (0,4% dla bossa) + 300% twojego ataku.",
   2254: "Zdobyto relikwię: {0}!",
+  2255: "Strzeże relikwii: {0}",
 };

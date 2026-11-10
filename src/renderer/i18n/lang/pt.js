@@ -1128,4 +1128,5 @@ export default {
   2252: "Ataque e PV dobrados; ouro ganho +50%.",
   2253: "A cada 1,5 s, um míssil: 1,5% dos PV do monstro (0,4% para um chefe) + 300% do seu ataque.",
   2254: "Relíquia obtida: {0}!",
+  2255: "Guarda uma relíquia: {0}",
 };

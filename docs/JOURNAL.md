@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 574, demande S, 4e partie : histoire) : cinématique « relique » (juice.js) : la relique, son nom et
+  son effet, puis son histoire phrase par phrase (scène dorée) ; en arrivant chez un boss majeur, la scène
+  d'arrivée du Briseur reprise avec son nom et « Il garde une relique : … » (en plus de la bannière dorée du palier).
+  Piège : les pages de toutes les scènes sont construites à chaque appel (une chronique a un data.id) : garde
+  RELICS[data.id]. Autotest : contrôle de la scène « relique » ; les contrôles des cinématiques retirent d'abord
+  les scènes ouvertes (le palier de zone 100 lance maintenant celle de la Reine). 131/131.
 - 2026-11-10 (it. 573, demande S, 3e partie : carte) : les trois boss majeurs sur la carte du Rebord, au bout
   des rangées 1 à 3 (zones 50, 100, 150, comme la forteresse du Briseur en 200) : la relique gardée avec son nom,
   halo violet, puis dorée et « ★ » une fois gagnée ; survol : boss, zone, effet, et l'histoire une fois gagnée.

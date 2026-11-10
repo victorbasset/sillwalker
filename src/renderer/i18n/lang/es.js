@@ -1128,4 +1128,5 @@ export default {
   2252: "Ataque y PV duplicados; oro ganado +50 %.",
   2253: "Cada 1,5 s, un misil: 1,5 % de los PV del monstruo (0,4 % para un jefe) + 300 % de tu ataque.",
   2254: "¡Reliquia obtenida: {0}!",
+  2255: "Custodia una reliquia: {0}",
 };

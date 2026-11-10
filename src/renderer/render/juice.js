@@ -6,6 +6,8 @@
 // Tout est animé par la boucle à 30 FPS (aucune animation CSS, qui tournerait
 // à la fréquence de l'écran) et n'existe que le temps de l'effet.
 import { isFinalZone } from "../game/story.js";
+import { RELICS, majorBoss, hasRelic } from "../game/relics.js";
+import { relicIconURL } from "./shopart.js";
 import { SETS } from "../game/sets.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, fsp } from "../i18n/index.js";
@@ -83,8 +85,13 @@ export class Juice {
       if (isFinalZone(zone)) this.cinematic("arrive");
       else if (zone % 50 === 0) this.banner(`✦ ${tx("Cap franchi : zone {0} !", { 0: zone })}`, "#ffd34d", this.s.heroX + 120, true);
       else this.banner(`${tx("Nouveau record : zone {0} !", { 0: zone })}`, "#9fe0a8", this.s.heroX + 120);
+      // Boss majeur (demande S) : scène d'arrivée, avec la relique qu'il garde (tant qu'elle n'est pas gagnée).
+      const mb = majorBoss(zone);
+      if (mb && !hasRelic(g.S, mb.relic)) this.cinematic("arrive", { major: mb });
     });
     g.on("starbreaker", ({ first }) => { if (first) this.cinematic("dawn"); });
+    // Relique gagnée (demande S) : son nom et son effet, puis son histoire phrase par phrase.
+    g.on("relic", ({ id }) => { if (RELICS[id]) this.cinematic("relic", { id }); });
     g.on("setBonus", ({ id, n }) => { // panoplie : palier de 2 ou 4 pièces atteint
       const st = SETS[id]; if (!st) return;
       this.banner(`◆ ${tx("{0} : bonus {1} pièces !", { 0: st.name, 1: n })}`, st.color, this.s.heroX + 60, n >= 4);
@@ -267,7 +274,11 @@ export class Juice {
     // Pages : [titre, sous-titre], à partir de `start`, chacune `step` secondes (la dernière tient jusqu'à la fin).
     const PAGES = {
       intro: { start: 3, step: 9, pages: [["Sillwalker", tx("Le Rebord, il y a mille ans…")]] },
-      arrive: { start: 0.6, step: 9, pages: [[tx("Le Briseur d’Étoiles"), tx("Le Briseur d’Étoiles t’attend !")]] },
+      arrive: { start: 0.6, step: 9, pages: [data.major ? [tx(data.major.name), tx("Il garde une relique : {0}", { 0: tx(RELICS[data.major.relic].name) })]
+        : [tx("Le Briseur d’Étoiles"), tx("Le Briseur d’Étoiles t’attend !")]] },
+      // (pages construites pour toutes les scènes : une chronique a aussi un data.id, qui n'est pas une relique)
+      relic: { start: 1, step: 5.5, pages: kind === "relic" && RELICS[data.id] ? [[`✦ ${tx(RELICS[data.id].name)}`, tx(RELICS[data.id].effect)],
+        ...sentences(tx(RELICS[data.id].story)).map((s) => [tx(RELICS[data.id].name), s])] : [["", ""]] },
       dawn: { start: 3, step: 20, pages: [[tx("Le ciel se rallume"), tx("Les héros sont libres.")]] },
       freed: { start: 1.4, step: 9, pages: [[tx("{0} est libre !", { 0: (CLASSES[data.cls] || {}).name || "" }), tx("Un héros de plus marche sur le Rebord.")]] },
       // Demande 31 : le titre, puis la première phrase de la chronique, sur une scène propre à chacune.
@@ -286,6 +297,10 @@ export class Juice {
       const img = el("img", "cine-hero", node);
       img.src = classPortraitURL(data.cls);
       img.style.left = cageX + "px"; img.style.top = cageY + "px";
+    }
+    if ((kind === "relic" && RELICS[data.id]) || (kind === "arrive" && data.major)) { // la relique, au-dessus du titre
+      const img = el("img", "cine-relic", node);
+      img.src = relicIconURL(data.id || data.major.relic, 4); img.alt = "";
     }
     if (kind === "chronicle" && data.id) node.classList.add("chr-" + data.id); // ambiance de couleur (styles.css)
     const life = { intro: 7, arrive: 5, dawn: 12, chronicle: data.text ? 10 : 5, freed: 5 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
@@ -573,6 +588,11 @@ export class Juice {
 }
 
 /** Première phrase d'un texte (sous-titre court d'une cinématique). */
+/** Phrases d'un texte (histoire d'une relique : une page par phrase). */
+function sentences(text) {
+  return (String(text).match(/[^.!?…。！？]+[.!?…。！？]*/g) || [String(text)]).map((s) => s.trim()).filter((s) => s.length > 1);
+}
+
 function firstSentence(text) {
   const m = String(text).match(/^.{20,}?[.!?…。！？](?=\s|$)/s);
   const s = (m ? m[0] : String(text)).replace(/\s+/g, " ").trim();
