@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 340, revue générale) : simulations 12 h : mage 59, gladiateur 63, prêtresse 62 ; semaine (mage) :
+  record ≈ 164 (repère 160, la Malédiction ne freine pas la fin de partie) ; crawl 309 clics sans erreur ; russe :
+  aucun mot latin suspect ; perf : bande 18,7 %, panneau 20,1 %, mini 6,3 %, icône 2,9 % d'un cœur (stables).
 - 2026-11-10 (it. 339, écrans de portable) : mesure du défilement à 1366 / 1600 px : aventure 368 / 0, boutique
   80 / 80, bestiaire 142 / 54, statistiques 168 / 168, réglages 69 / 35 (1920 : 0 partout). Statistiques corrigées :
   grille à 6 colonnes dès 1280 px (les 5 cartes sur une rangée) → 0 aux trois largeurs. Reste : aventure (1366),
