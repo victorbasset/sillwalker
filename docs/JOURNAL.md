@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 513) : le compagnon du duo lance aussi les sorts appris pour sa classe, à moitié de leur puissance
+  (PARTNER_SPELL, spells.js ; recharges à part « p:id », premier lancer après 3/4 de recharge), l'animation part de
+  sa position. Expliqué par un ⓘ dans Sorts et attaque (une phrase de plus faisait défiler de 6 px à 1280). Balance
+  12 h +0,0 (la simulation ne joue qu'un héros, donc pas de sorts au compagnon : effet réel à juger en jeu) ; fuzz
+  600 ok ; test logique. 175 tests ; 125/125.
 - 2026-11-10 (it. 512) : test logique du sort perçant (demande L) : à l'arrivée du monstre suivant, il est blessé mais
   vivant, l'événement « pierced » porte le sort (pour le trait coloré de la bande) et les dégâts, la réserve est vidée.
   174 tests ; 125/125.

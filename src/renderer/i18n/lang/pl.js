@@ -1061,4 +1061,5 @@ export default {
   2185: "Ikony zakładek zostają widoczne na małych ekranach; nowe osiągnięcie „Pełny grimuar”.",
   2186: "jeszcze nie poznane (strefa {0})",
   2187: "{0}: odnowienie −10%!",
+  2188: "Twój towarzysz też rzuca swoje, z połową mocy.",
 };

@@ -49,6 +49,9 @@ export const SPELL_INDEX = Object.fromEntries(SPELLS.map((s) => [s.id, s]));
 /** Sorts d'un héros (liste vide pour un héros inconnu). */
 export const classSpells = (cls) => SPELLS.filter((s) => s.cls === cls);
 
+/** Puissance des sorts lancés par le compagnon du duo (it. 513) : la moitié. */
+export const PARTNER_SPELL = 0.5;
+
 /** Puissance d'un sort au rang r (1 à SPELL_MAX) : +25 % par rang au-delà du premier. */
 export const spellScale = (r) => 1 + 0.25 * Math.max(0, r - 1);
 /** Prix du rang suivant (rang actuel r, 0 = pas encore appris) : suit l'or de la zone de déblocage. */

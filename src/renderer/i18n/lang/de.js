@@ -1061,4 +1061,5 @@ export default {
   2185: "Die Tab-Symbole bleiben auf kleinen Bildschirmen sichtbar; neuer Erfolg „Volles Grimoire“.",
   2186: "noch nicht gelernt (Zone {0})",
   2187: "{0}: Abklingzeit −10 %!",
+  2188: "Dein Begleiter wirkt auch seine, mit halber Stärke.",
 };

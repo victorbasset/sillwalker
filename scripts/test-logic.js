@@ -2447,6 +2447,21 @@ test("Sort perçant (demande L) : le monstre suivant est frappé à son arrivée
   assert.equal(g.R.pierce, 0, "réserve perçante vidée");
 });
 
+test("Duo : le compagnon lance les sorts appris pour sa classe, à moitié de leur puissance", () => {
+  const g = new Game(freshState()); g.setClass("warrior"); g.S.partner = "ranger"; g.invalidateStats();
+  const hs = g.stats(); assert.ok(hs.duo > 0, "duo actif");
+  g.S.spells = { "ranger.0": 1 };
+  const seen = []; g.on("spell", (e) => seen.push(e));
+  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.spellT = { "p:ranger.0": 0 };
+  g.castSpells(g.R.mon, hs, 0.1);
+  const e = seen.find((x) => x.id === "ranger.0");
+  assert.ok(e && e.partner === true, "sort du compagnon lancé, marqué partner");
+  const full = hs.atk * SPELL_INDEX_T["ranger.0"].mult * SPELL_INDEX_T["ranger.0"].hits;
+  assert.ok(Math.abs(e.dmg - full * 0.5) / full < 0.01, "moitié de la puissance");
+  g.S.partner = null; g.invalidateStats(); seen.length = 0; g.R.spellT = { "p:ranger.0": 0 }; g.castSpells(g.R.mon, g.stats(), 0.1);
+  assert.ok(!seen.some((x) => x.id === "ranger.0"), "sans compagnon : rien");
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));

@@ -1061,4 +1061,5 @@ export default {
   2185: "Tab icons stay visible on small screens; new achievement “Full grimoire”.",
   2186: "not learned yet (zone {0})",
   2187: "{0}: cooldown −10%!",
+  2188: "Your companion casts theirs too, at half power.",
 };

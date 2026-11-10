@@ -1061,4 +1061,5 @@ export default {
   2185: "Los iconos de las pestañas siguen visibles en pantallas pequeñas; nuevo logro «Grimorio completo».",
   2186: "aún no aprendido (zona {0})",
   2187: "{0}: ¡recarga −10 %!",
+  2188: "Tu compañero también lanza los suyos, a la mitad de potencia.",
 };

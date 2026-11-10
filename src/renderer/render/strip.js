@@ -140,10 +140,10 @@ export class StripRenderer {
     // Sorts (demandes D et I : « spectaculaires et bien visibles ») : nom du sort en grand, puis l'effet de sa
     // mécanique (éclair zébré pleine hauteur, croissants de lame, boule de feu qui explose, météore avec traînée,
     // colonne de soin, dôme de bouclier) ; dégâts en gros chiffres de la couleur du héros.
-    g.on("spell", ({ id, dmg, amount }) => {
+    g.on("spell", ({ id, dmg, amount, partner }) => {
       if (!this.active) return;
       const sp = SPELL_INDEX[id]; if (!sp) return;
-      this.spellFx(sp, dmg, amount);
+      this.spellFx(sp, dmg, amount, partner);
     });
     // Nouveau sort appris (rang 1) : un bandeau de fête dans la bande, avec l'icône du sort.
     g.on("spellLearned", ({ id, rank }) => {
@@ -255,9 +255,10 @@ export class StripRenderer {
 
   /** Flèche ou boule de feu, du héros jusqu'au monstre. */
   /** Effet visuel d'un sort (voir g.on("spell")). */
-  spellFx(sp, dmg, amount) {
+  spellFx(sp, dmg, amount, partner = false) {
     const tpl = sp.tpl, c = sp.color, full = this.juice.full, G = this.ground;
-    const mx = this.monX() + 14, hx = this.heroX + 16;
+    // Sort du compagnon (it. 513) : part de sa position.
+    const mx = this.monX() + 14, hx = (partner && this.partnerX ? this.partnerX : this.heroX) + 16;
     const fx = (cls, x, y, life, rise = 0, dx = 0) => { const n = el("div", "spellfx " + cls, this.fxLayer); n.style.setProperty("--c", c); el("i", "", n); this.addFx(n, x, y, life, rise, dx); return n; };
     // « Effets complets » décoché (Réglages) : sorts sobres, sans anneaux ni dôme (moins de calcul).
     const ring = (x, y, big) => (full ? fx("ring" + (big ? " big" : ""), x, y, 0.6) : null);

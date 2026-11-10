@@ -45,7 +45,7 @@ import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS } fr
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
-import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd } from "./spells.js";
+import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, PARTNER_SPELL } from "./spells.js";
 import { UNLOCK_INDEX, hasUnlock, unlockAvailable, nextUnlock, recordZone } from "./unlocks.js";
 
 const TAP_DMG = 0.25, TAP_INTERVAL = 0.25; // coup bonus au clic sur le monstre
@@ -245,6 +245,8 @@ export class Game {
           R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0;
           R.spellT = {}; // sorts : premier lancer après une demi-recharge (pas tous d'un coup à l'arrivée)
           for (const sp of classSpells(this.S.cls)) if (spellRank(this.S, sp.id)) R.spellT[sp.id] = spellCd(sp, spellRank(this.S, sp.id)) * 0.5;
+          // (le compagnon : ses recharges repartent aussi, décalées de 3/4)
+          if (this.S.partner) for (const sp of classSpells(this.S.partner)) if (spellRank(this.S, sp.id)) R.spellT["p:" + sp.id] = spellCd(sp, spellRank(this.S, sp.id)) * 0.75;
           R.shield = hs.shield > 0 ? hs.hp * hs.shield / 100 : 0;
           if (R.shield > 0) this.emit("shield", { amount: R.shield });
         }
@@ -439,16 +441,21 @@ export class Game {
     const S = this.S, R = this.R;
     if (!S.spells) return false;
     R.spellT ||= {};
-    for (const sp of classSpells(S.cls)) {
-      const r = spellRank(S, sp.id);
+    // Le compagnon du duo (it. 513) lance aussi les sorts appris pour sa classe, à moitié de leur puissance (et ses
+    // propres recharges) : apprendre les sorts d'un autre héros sert aussi quand il accompagne.
+    const casters = [[S.cls, 1, ""]];
+    if (S.partner && hs.duo > 0) casters.push([S.partner, PARTNER_SPELL, "p:"]);
+    for (const [cls, pow, pre] of casters) for (const sp of classSpells(cls)) {
+      const r = spellRank(S, sp.id), key = pre + sp.id;
       if (!r) continue;
-      R.spellT[sp.id] = (R.spellT[sp.id] ?? spellCd(sp, r) * 0.5) - dt;
-      if (R.spellT[sp.id] > 0) continue;
-      R.spellT[sp.id] = spellCd(sp, r);
+      R.spellT[key] = (R.spellT[key] ?? spellCd(sp, r) * (pre ? 0.75 : 0.5)) - dt;
+      if (R.spellT[key] > 0) continue;
+      R.spellT[key] = spellCd(sp, r);
+      const partner = !!pre;
       S.stats.spells = (+S.stats.spells || 0) + 1; // statistique et succès « Mage de bataille »
-      const v = spellValue(sp, r);
-      if (sp.kind === "heal") { const a = Math.min(hs.hp - R.hp, hs.hp * v / 100); if (a > 0) R.hp += a; this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: Math.max(0, a) }); continue; }
-      if (sp.kind === "shield") { const a = hs.hp * v / 100; R.shield = Math.max(R.shield || 0, a); this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: a }); continue; }
+      const v = spellValue(sp, r) * pow;
+      if (sp.kind === "heal") { const a = Math.min(hs.hp - R.hp, hs.hp * v / 100); if (a > 0) R.hp += a; this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: Math.max(0, a), partner }); continue; }
+      if (sp.kind === "shield") { const a = hs.hp * v / 100; R.shield = Math.max(R.shield || 0, a); this.emit("spell", { id: sp.id, tpl: sp.tpl, amount: a, partner }); continue; }
       let total = 0;
       for (let h = 0; h < sp.hits; h++) {
         let dmg = hs.atk * v * (m.boss ? 1 + hs.bossDmg / 100 : 1) * this.bulwarkFactor(m);
@@ -458,7 +465,7 @@ export class Game {
       // Record du plus gros sort (Statistiques)
       if (total > (+S.stats.bestSpell || 0)) S.stats.bestSpell = total;
       if (sp.pierce) { R.pierce = (R.pierce || 0) + total * sp.pierce; R.pierceId = sp.id; } // transperce : le suivant prendra sa part
-      this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce });
+      this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce, partner });
       if (m.hp <= 0) { this.killMonster(); return true; }
     }
     return false;
