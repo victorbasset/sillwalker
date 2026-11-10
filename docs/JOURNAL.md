@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 376) : thème clair vérifié pour les ajouts récents de l'onglet Héros (lien « Duo idéal » en --accent,
+  lignes de synergie en --muted) : lisibles. Rien à corriger.
 - 2026-11-10 (it. 375) : semaine simulée (mage, 168 h) après les ajouts de fin de partie (Malédiction, Talisman,
   Porte-talisman, chronique 170) : 82 courses, records 35 → 62 → 98 → 132 → 143-164, progression régulière, sans saut
   ni plafond (repère ≈ 160). Rien à corriger.
