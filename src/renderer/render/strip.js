@@ -237,29 +237,30 @@ export class StripRenderer {
     const tpl = sp.tpl, c = sp.color, full = this.juice.full, G = this.ground;
     const mx = this.monX() + 14, hx = this.heroX + 16;
     const fx = (cls, x, y, life, rise = 0, dx = 0) => { const n = el("div", "spellfx " + cls, this.fxLayer); n.style.setProperty("--c", c); el("i", "", n); this.addFx(n, x, y, life, rise, dx); return n; };
-    const ring = (x, y, big) => fx("ring" + (big ? " big" : ""), x, y, 0.6);
+    // « Effets complets » décoché (Réglages) : sorts sobres, sans anneaux ni dôme (moins de calcul).
+    const ring = (x, y, big) => (full ? fx("ring" + (big ? " big" : ""), x, y, 0.6) : null);
     const later = (ms, f) => setTimeout(() => { if (this.active) f(); }, ms);
     this.float(hx, 2, tr(sp.name), c, true); // le nom du sort, en grand
     { const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(tpl, c, 3); this.addFx(ic, hx - 14, 6, 0.9, 18); } // son icône, qui monte
     if (tpl === "bolt") {
-      fx("bolt", mx - 4, 0, 0.45); this.flash = Math.max(this.flash, 0.22); this.shake(0.2);
+      fx("bolt", mx - 4, 0, 0.45); this.flash = Math.max(this.flash, 0.22);
       later(60, () => fx("bolt", mx + 6, 0, 0.35)); ring(mx + 6, G - 20);
-      if (full) this.juice.sparkles(mx + 6, G - 22, c, 16);
+      if (full) this.juice.sparkles(mx + 6, G - 22, c, 8);
     } else if (tpl === "gust") {
       for (let k = 0; k < 3; k++) later(k * 70, () => fx("slash", hx + 10, 44 + k * 10, 0.3, 0, mx - hx - 6));
-      later(260, () => { ring(mx + 6, G - 26); if (full) this.juice.sparkles(mx + 6, G - 26, c, 12); });
+      later(260, () => { ring(mx + 6, G - 26); if (full) this.juice.sparkles(mx + 6, G - 26, c, 6); });
     } else if (tpl === "fire") {
       fx("fireball", hx + 10, 48, 0.28, 0, mx - hx - 6);
-      later(270, () => { ring(mx + 6, G - 26, true); this.shake(0.3); this.flash = Math.max(this.flash, 0.15); if (full) this.juice.sparkles(mx + 6, G - 26, c, 20); });
+      later(270, () => { ring(mx + 6, G - 26, true); this.flash = Math.max(this.flash, 0.15); if (full) this.juice.sparkles(mx + 6, G - 26, c, 10); });
     } else if (tpl === "meteor") {
       fx("meteor", mx - 90, -20, 0.4, -(G - 20), 90);
-      later(380, () => { ring(mx + 6, G - 16, true); later(80, () => ring(mx + 6, G - 16, true)); this.shake(0.6); this.flash = Math.max(this.flash, 0.3); if (full) this.juice.sparkles(mx + 6, G - 18, c, 26); });
+      later(380, () => { ring(mx + 6, G - 16, true); later(80, () => ring(mx + 6, G - 16, true)); this.shake(0.4); this.flash = Math.max(this.flash, 0.3); if (full) this.juice.sparkles(mx + 6, G - 18, c, 13); });
     } else if (tpl === "mend") {
-      fx("column", hx - 10, G - 90, 0.7, 20); ring(hx, G - 26);
-      if (full) this.juice.sparkles(hx, G - 30, c, 14);
+      if (full) fx("column", hx - 10, G - 90, 0.7, 20); ring(hx, G - 26);
+      if (full) this.juice.sparkles(hx, G - 30, c, 7);
       if (amount > 0) this.float(hx, 40, "+" + fmt(Math.round(amount)), "#7dff9a", true, true);
     } else if (tpl === "aegis") {
-      fx("dome", hx - 30, G - 66, 0.9); if (full) this.juice.sparkles(hx, G - 30, "#bfefff", 14);
+      if (full) fx("dome", hx - 30, G - 66, 0.9); if (full) this.juice.sparkles(hx, G - 30, "#bfefff", 7);
     }
     // Perçant : le trait continue sa course au-delà du monstre, vers le suivant.
     if (sp.pierce) later(tpl === "bolt" ? 80 : 240, () => fx(tpl === "bolt" ? "slash pierce" : "slash", mx + 10, 48, 0.35, 0, 200));

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 479, perf des sorts) : mesure sur copies neuves de dev-data (sorts du héros au rang 20 / sans) :
+  bande 19,0-19,4 % sans sorts, 22,0-22,2 % avec (première version : 24,1 %). Allégé : plus de drop-shadow (bolt,
+  lames, icône), plus d'animations infinies (rotation, pulsation), anneaux à ombre simple, dôme sans dégradé,
+  secousse réservée au météore, étincelles divisées par deux. Décomposition : combat + son des sorts ≈ +0,8, nom et
+  icône ≈ +0,4, anneaux et formes ≈ +1,5 (rendu logiciel du serveur ; bien moins avec une carte graphique).
+  « Effets complets » décoché : sorts sobres (sans anneaux, colonne ni dôme). Leçon : mesurer sur une copie NEUVE à
+  chaque essai (une copie réutilisée avance et fausse la comparaison). 122/122.
 - 2026-11-10 (it. 478) : sorts : bouton « max » (avec le Manuel du stratège, comme les talents ; affiché dès que deux
   rangs sont abordables) : learnSpellMax achète autant de rangs que l'or permet, une seule ligne au journal (avant,
   ≈ 15 clics pour rattraper un joueur avancé). Libellés repris de l'Atelier (déjà traduits). Test logique ; capture.
