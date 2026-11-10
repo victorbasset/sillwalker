@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 560, revue générale) : balance 12 h -0,2 (bruit) ; semaine mage 178 ; fuzz 1200, 0 bloquée ; crawl de
+  et zh 320 clics sans erreur ; russe ok ; save-fuzz ok ; perf : bande 20,1 %, panneau 21,4 %, mini 6,7 %, icône 0,8 % ;
+  mémoire stable (≈ 800 Mo).
 - 2026-11-10 (it. 559) : capture de la ligne des sorts du compagnon (1920 et 1280) : lisible ; « + » abordable en
   couleur d'accent. 130/130.
 - 2026-11-10 (it. 558) : Sorts et attaque : les sorts du compagnon (débloqués par la zone record) s'apprennent et
