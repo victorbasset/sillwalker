@@ -133,6 +133,9 @@ export class Sound {
       case "crack": // le ciel se fissure : craquement, puis tintement cristallin
         this.noise(0.6, 0.9, 0.25); T(1760, 1.6, 1.6, "triangle", 0.1); T(2349, 1.9, 1.4, "triangle", 0.07);
         [523, 784, 1175].forEach((f, i) => T(f, 2.6 + i * 0.3, 2.2, "triangle", 0.12)); break;
+      case "oath": // serment maudit : notes dissonantes qui descendent, puis un accord pur (le talisman)
+        [880, 830, 784, 740].forEach((f, i) => T(f * 0.5, i * 0.45, 0.6, "sine", 0.1));
+        [523, 659, 784].forEach((f) => T(f, 2.8, 2.4, "triangle", 0.1)); T(1568, 3.2, 1.6, "triangle", 0.06); break;
       case "threshold": // silence pesant, battement grave, deux notes sombres
         for (let i = 0; i < 5; i++) T(55, 0.5 + i * 1.1, 0.4, "sine", 0.3, 0.6);
         T(233, 2.4, 2.5, "sawtooth", 0.07); T(220, 4.2, 2.5, "sawtooth", 0.08); break;

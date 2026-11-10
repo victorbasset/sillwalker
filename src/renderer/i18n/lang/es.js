@@ -906,4 +906,6 @@ export default {
   2030: "Portador de talismanes",
   2031: "Ante un jefe que maldice, equipa solo el Talismán de pureza de la bolsa y luego vuelve a poner el objeto anterior.",
   2032: "Portador de talismanes: ",
+  2033: "El juramento maldito",
+  2034: "Los lugartenientes más antiguos del Rompeestrellas juraron no dejar volver jamás la luz. Ese juramento se volvió una maldición que corroe a quienes los enfrentan. Pero un talismán tallado en un fragmento puro la repele: el cielo no lo ha olvidado todo.",
 };

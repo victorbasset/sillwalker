@@ -906,4 +906,6 @@ export default {
   2030: "Portador de talismãs",
   2031: "Diante de um chefe que amaldiçoa, equipa sozinho o Talismã da pureza da bolsa e depois recoloca o item anterior.",
   2032: "Portador de talismãs: ",
+  2033: "O juramento maldito",
+  2034: "Os tenentes mais antigos do Quebra-Estrelas juraram nunca deixar a luz voltar. Esse juramento virou uma maldição que corrói quem os enfrenta. Mas um talismã talhado num fragmento puro a repele: o céu não esqueceu tudo.",
 };

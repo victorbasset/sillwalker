@@ -675,6 +675,20 @@ function chronicleScene(ctx, id, t, W, H, gy) {
       ctx.globalAlpha = 1 - k; ctx.fillStyle = "#bdefff"; R(x0, cyb + k * (gy - cyb), 2, 2);
     }
     ctx.globalAlpha = 1;
+  } else if (id === "oath") { // des runes violettes tournent autour d'un point, puis une lumière claire les dissipe
+    const cx = L + 40, cy = gy - 30, clear = Math.min(1, Math.max(0, (t - 3.2) / 1.6));
+    for (let i = 0; i < 12; i++) {
+      const a = t * 1.6 + (i / 12) * Math.PI * 2, r = 26 + clear * 60;
+      ctx.globalAlpha = (1 - clear) * (0.6 + 0.4 * Math.sin(t * 5 + i)); ctx.fillStyle = i % 3 ? "#8a4cd8" : "#c08cff";
+      R(cx + Math.cos(a) * r * 1.6 - 2, cy + Math.sin(a) * r * 0.6 - 2, 4, 4);
+    }
+    if (t > 2.6) { // la gemme du talisman s'allume, puis sa lumière s'étend
+      const k = Math.min(1, (t - 2.6) / 0.8);
+      ctx.globalAlpha = k; ctx.fillStyle = "#ffd34d"; R(cx - 4, cy - 6, 8, 2); R(cx - 6, cy - 4, 12, 8); R(cx - 4, cy + 4, 8, 2);
+      ctx.fillStyle = "#9fe0ff"; R(cx - 3, cy - 3, 6, 6); ctx.fillStyle = "#ffffff"; R(cx - 2, cy - 2, 2, 2);
+      for (let s = 0; s < 4; s++) { ctx.globalAlpha = 0.18 * clear * (1 - s / 4); ctx.fillStyle = "#e8fbff"; const w = 30 + s * 30 + clear * 60; R(cx - w, cy - 2 - s * 3, w * 2, 4 + s * 6); }
+    }
+    ctx.globalAlpha = 1;
   } else if (id === "threshold") { // au loin, la silhouette immense du Briseur, ses yeux s'allument
     const cx = Rx, pulse = 0.5 + 0.5 * Math.sin(t * 2);
     ctx.fillStyle = "#8a3cff"; // halo doux : bandes de plus en plus larges et pâles

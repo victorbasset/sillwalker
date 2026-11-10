@@ -48,6 +48,8 @@ export const CHRONICLES = [
     text: "Les éclats que tu portes se mettent à murmurer. Ce sont les voix des étoiles éteintes : elles se souviennent du vrai nom du Briseur, celui qu’il portait avant de haïr le ciel." },
   { id: "crack", zone: 150, title: "Le ciel se fissure", when: (S, rec) => rec >= 150,
     text: "Au-dessus de toi, une lueur traverse la nuit pour la première fois depuis mille ans. Le ciel se souvient. Le Briseur, lui, t’attend au bout du Rebord." },
+  { id: "oath", zone: 170, title: "Le serment maudit", when: (S, rec) => rec >= 170,
+    text: "Les plus vieux lieutenants du Briseur ont juré de ne jamais laisser revenir la lumière. Ce serment est devenu une malédiction qui ronge ceux qui les affrontent. Mais un talisman taillé dans un éclat pur la repousse : le ciel n’a pas tout oublié." },
   { id: "threshold", zone: 190, title: "Le seuil", when: (S, rec) => rec >= 190,
     text: "Le vent ne souffle plus. Les monstres fuient. Encore quelques pas, et tu feras face au Briseur d’Étoiles, en zone 200." },
   { id: "dawn", zone: 200, title: "Le ciel rallumé", when: (S) => storyWon(S),

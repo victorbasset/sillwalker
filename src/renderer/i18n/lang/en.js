@@ -906,4 +906,6 @@ export default {
   2030: "Charm Bearer",
   2031: "Against a boss that curses, automatically equips the Talisman of Purity from your bag, then puts the previous item back.",
   2032: "Charm Bearer: ",
+  2033: "The Cursed Oath",
+  2034: "The Starbreaker’s oldest lieutenants swore never to let the light return. That oath became a curse that gnaws at those who face them. But a talisman cut from a pure shard holds it back: the sky has not forgotten everything.",
 };

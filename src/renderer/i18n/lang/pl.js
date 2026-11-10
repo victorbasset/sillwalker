@@ -906,4 +906,6 @@ export default {
   2030: "Nosiciel talizmanów",
   2031: "Przeciw bossowi, który przeklina, sam zakłada Talizman czystości z torby, a potem przywraca poprzedni przedmiot.",
   2032: "Nosiciel talizmanów: ",
+  2033: "Przeklęta przysięga",
+  2034: "Najstarsi namiestnicy Łamacza Gwiazd przysięgli, że nigdy nie pozwolą wrócić światłu. Ta przysięga stała się klątwą, która toczy tych, którzy się z nimi mierzą. Lecz talizman wycięty z czystego odłamka ją odpędza: niebo nie zapomniało wszystkiego.",
 };

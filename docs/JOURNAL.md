@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 372, histoire) : 12e chronique « Le serment maudit » (zone 170, entre 150 et 190) : la Malédiction des
+  boss entre dans l'histoire, et le talisman d'éclat pur la repousse. Cinématique (juice.js : anneau de runes violettes,
+  puis gemme dorée dont la lumière les dissipe) et motif sonore (dissonance qui descend, puis accord pur). 2 textes ×
+  9 langues (noms du Briseur alignés), captures, 113/113. Le succès « Chroniqueur » demande désormais 12 chroniques.
 - 2026-11-10 (it. 371, « vraiment idle », étude des concurrents b) : simulate.js accepte IDLE=1 (joueur totalement
   absent : ni équipement, ni talents, ni quêtes, ni achats). Guerrier 12 h : record 12 → 15, niveau 28 → 46 (joueur
   actif : 56-57). Le jeu avance sans aucune action ; l'interaction est nettement récompensée. Pas d'automatisme
