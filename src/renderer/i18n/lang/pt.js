@@ -1039,4 +1039,8 @@ export default {
   2163: "Ataque básico: {0}!",
   2164: "atravessa: {0}% no próximo inimigo",
   2165: "atravessado",
+  2166: "Feitiços: três por herói (Herói > Feitiços e ataque), lançados sozinhos em combate com animação, som e ícone próprios.",
+  2167: "Alguns feitiços atravessam: parte do dano atinge o próximo monstro assim que ele chega.",
+  2168: "O escudo aparece na barra de vida; o companheiro tem sua própria linha no cartão do herói.",
+  2169: "Desbloqueio Carta celeste: os fragmentos de estrela são aplicados sozinhos nas constelações.",
 };

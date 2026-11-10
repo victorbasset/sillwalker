@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 475) : « Quoi de neuf », édition 5 (sorts par héros, sorts perçants, bouclier sur la barre et ligne
+  du compagnon, Carte du ciel) ; pire cas : 3 dernières éditions = 12 nouveautés, 0 px ; noms cités repris des
+  libellés traduits (i18n-quotes : 0). Traduit. 122/122.
 - 2026-11-10 (it. 474, demande H : sorts qui transpercent) : mécaniques « éclair » (60 %) et « lames » (50 %)
   perçantes (pierce, spells.js) : une part de leurs dégâts est mise de côté (R.pierce) et frappe le monstre suivant
   dès son apparition (jamais tué d'office : il garde au moins 1 PV ; réserve perdue si le héros tombe) ; le trait

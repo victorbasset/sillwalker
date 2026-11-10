@@ -1039,4 +1039,8 @@ export default {
   2163: "Zwykły atak: {0}!",
   2164: "przebija: {0}% w następnego wroga",
   2165: "przebity",
+  2166: "Zaklęcia: trzy na bohatera (Bohater > Zaklęcia i atak), rzucane same w walce, z własną animacją, dźwiękiem i ikoną.",
+  2167: "Niektóre zaklęcia przebijają: część obrażeń trafia następnego potwora, gdy tylko się pojawi.",
+  2168: "Tarczę widać na pasku zdrowia; towarzysz ma własny wiersz na karcie bohatera.",
+  2169: "Odblokowanie Mapa nieba: odłamki gwiazd same trafiają do konstelacji.",
 };

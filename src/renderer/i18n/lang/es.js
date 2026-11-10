@@ -1039,4 +1039,8 @@ export default {
   2163: "¡Ataque básico: {0}!",
   2164: "atraviesa: {0} % al siguiente enemigo",
   2165: "atravesado",
+  2166: "Hechizos: tres por héroe (Héroe > Hechizos y ataque), lanzados solos en combate con su animación, su sonido y su icono.",
+  2167: "Algunos hechizos atraviesan: parte del daño golpea al siguiente monstruo en cuanto llega.",
+  2168: "El escudo se ve en la barra de vida; el compañero tiene su propia línea en la tarjeta del héroe.",
+  2169: "Desbloqueo Carta celeste: los fragmentos de estrella se colocan solos en las constelaciones.",
 };

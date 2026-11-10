@@ -33,7 +33,13 @@ const EDITION_4 = [
   "Réglages > Son : volumes de la musique et de l’ambiance, « Écouter » joue un échantillon ; touche C : couper le son.",
   "Ascension : le tri du marchand repart décoché ; rachat des potions et réclamation des quêtes restent cochés.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4];
+const EDITION_5 = [
+  "Sorts : trois par héros (Héros > Sorts et attaque), lancés tout seuls en combat avec leur animation, leur son et leur icône.",
+  "Certains sorts transpercent : une part des dégâts frappe le monstre suivant dès son arrivée.",
+  "Le bouclier se voit sur la barre de vie ; le compagnon a sa ligne dans la carte du héros.",
+  "Déblocage Carte du ciel : les éclats d’étoile se placent tout seuls dans les constellations.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

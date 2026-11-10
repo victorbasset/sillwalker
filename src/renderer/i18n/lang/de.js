@@ -1039,4 +1039,8 @@ export default {
   2163: "Grundangriff: {0}!",
   2164: "durchbohrt: {0} % beim nächsten Gegner",
   2165: "durchbohrt",
+  2166: "Zauber: drei pro Held (Held > Zauber & Angriff), im Kampf automatisch gewirkt, mit eigener Animation, eigenem Klang und Symbol.",
+  2167: "Manche Zauber durchbohren: Ein Teil des Schadens trifft das nächste Monster, sobald es erscheint.",
+  2168: "Der Schild ist auf der Lebensleiste zu sehen; der Begleiter hat eine eigene Zeile in der Heldenkarte.",
+  2169: "Freischaltung Himmelskarte: Sternensplitter werden automatisch in Sternbilder gesetzt.",
 };

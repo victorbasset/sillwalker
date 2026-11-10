@@ -1039,4 +1039,8 @@ export default {
   2163: "Basic attack: {0}!",
   2164: "pierces: {0}% to the next enemy",
   2165: "pierced",
+  2166: "Spells: three per hero (Hero > Spells & attack), cast automatically in combat with their own animation, sound and icon.",
+  2167: "Some spells pierce: part of the damage hits the next monster as soon as it arrives.",
+  2168: "The shield shows on the health bar; the companion has its own line in the hero card.",
+  2169: "Sky Chart unlock: star shards are placed into constellations automatically.",
 };
