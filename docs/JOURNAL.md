@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 517) : 11e événement rare « Marée arcanique » (30 s, chance 0,002 par victoire, seulement si le héros
+  a un sort appris) : recharges des sorts (héros et compagnon) deux fois plus rapides ; son (arpège qui monte), halo
+  violet du héros, bandeau. Traduit ; test logique ; son rendu par l'autotest ; fuzz et save-fuzz ok. 177 tests ; 125/125.
 - 2026-11-10 (it. 516) : quête « Lancer N sorts » vérifiée en russe (« Применить 25 заклинаний ») ; son icône prend la
   forme et la couleur du premier sort appris du héros (Tourbillon blanc du guerrier…). Crawl ru 320 clics sans
   erreur. 125/125.

@@ -2191,5 +2191,7 @@ export const KEYS = [
   "pas encore appris (zone {0})",
   "{0} : recharge −10 % !",
   "Ton compagnon lance aussi les siens, à moitié de leur puissance.",
-  "Lancer {n} sort|Lancer {n} sorts"
+  "Lancer {n} sort|Lancer {n} sorts",
+  "Marée arcanique",
+  "Les sorts se rechargent deux fois plus vite !"
 ];

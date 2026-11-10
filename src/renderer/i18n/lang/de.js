@@ -1063,4 +1063,6 @@ export default {
   2187: "{0}: Abklingzeit −10 %!",
   2188: "Dein Begleiter wirkt auch seine, mit halber Stärke.",
   2189: "{n} Zauber wirken|{n} Zauber wirken",
+  2190: "Arkane Flut",
+  2191: "Zauber laden doppelt so schnell auf!",
 };

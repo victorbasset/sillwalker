@@ -1063,4 +1063,6 @@ export default {
   2187: "{0}: odnowienie −10%!",
   2188: "Twój towarzysz też rzuca swoje, z połową mocy.",
   2189: "Rzuć {n} zaklęcie|Rzuć {n} zaklęcia|Rzuć {n} zaklęć",
+  2190: "Arkaniczny przypływ",
+  2191: "Zaklęcia odnawiają się dwa razy szybciej!",
 };

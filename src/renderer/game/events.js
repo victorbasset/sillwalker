@@ -1,4 +1,5 @@
 import { eggsAllowed, tabReady } from "./tabs.js";
+import { classSpells, spellRank } from "./spells.js";
 // Événements rares et vitesse.
 //
 // La vitesse de déplacement accélère tout le trajet entre deux combats
@@ -35,4 +36,7 @@ export const EVENTS = {
     req: (S) => eggsAllowed(S) },
   // Variété : un événement défensif (tous les autres aident à frapper ou à gagner) ; utile contre un boss coriace.
   ward: { name: "Voile protecteur", chance: 0.002, duration: 30, text: "Dégâts subis divisés par deux !", color: "#bfefff" },
+  // Sorts (it. 517) : recharges deux fois plus rapides ; seulement si le héros a appris un sort.
+  arcane: { name: "Marée arcanique", chance: 0.002, duration: 30, text: "Les sorts se rechargent deux fois plus vite !", color: "#b48cff",
+    req: (S) => classSpells(S.cls).some((x) => spellRank(S, x.id) > 0) },
 };

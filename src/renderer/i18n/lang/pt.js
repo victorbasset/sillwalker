@@ -1063,4 +1063,6 @@ export default {
   2187: "{0}: recarga −10%!",
   2188: "Seu companheiro também lança os dele, com metade da potência.",
   2189: "Lançar {n} feitiço|Lançar {n} feitiços",
+  2190: "Maré arcana",
+  2191: "Os feitiços recarregam duas vezes mais rápido!",
 };

@@ -8,6 +8,7 @@ import { createRequire } from "node:module";
 import * as M_news_js from "../src/renderer/game/news.js";
 import * as M_spells_js from "../src/renderer/game/spells.js";
 import { SPELL_INDEX as SPELL_INDEX_T, spellCd } from "../src/renderer/game/spells.js";
+import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_events_js from "../src/renderer/game/events.js";
@@ -2471,6 +2472,16 @@ test("Quête « Lancer N sorts » : seulement avec un sort appris ; chaque sort 
   g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.spellT = { "warrior.0": 0 };
   g.castSpells(g.R.mon, g.stats(), 0.1);
   assert.equal(g.S.quests.slots[0].progress, 1, "un sort lancé : +1");
+});
+
+test("Événement Marée arcanique : seulement avec un sort appris ; recharges deux fois plus rapides", () => {
+  const g = new Game(freshState()); g.setClass("warrior");
+  assert.ok(!EVENTS_T.arcane.req(g.S), "sans sort : pas d'événement");
+  g.S.spells = { "warrior.0": 1 }; assert.ok(EVENTS_T.arcane.req(g.S), "un sort appris : possible");
+  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight";
+  g.R.spellT = { "warrior.0": 5 }; g.castSpells(g.R.mon, g.stats(), 1); const normal = g.R.spellT["warrior.0"];
+  g.R.events.arcane = 10; g.R.spellT = { "warrior.0": 5 }; g.castSpells(g.R.mon, g.stats(), 1);
+  assert.equal(normal, 4, "1 s : -1"); assert.equal(g.R.spellT["warrior.0"], 3, "Marée arcanique : -2");
 });
 
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {

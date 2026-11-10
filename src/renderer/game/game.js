@@ -444,11 +444,13 @@ export class Game {
     // Le compagnon du duo (it. 513) lance aussi les sorts appris pour sa classe, à moitié de leur puissance (et ses
     // propres recharges) : apprendre les sorts d'un autre héros sert aussi quand il accompagne.
     const casters = [[S.cls, 1, ""]];
+    // Marée arcanique (événement) : les recharges filent deux fois plus vite.
+    const cdt = (R.events.arcane || 0) > 0 ? dt * 2 : dt;
     if (S.partner && hs.duo > 0) casters.push([S.partner, PARTNER_SPELL, "p:"]);
     for (const [cls, pow, pre] of casters) for (const sp of classSpells(cls)) {
       const r = spellRank(S, sp.id), key = pre + sp.id;
       if (!r) continue;
-      R.spellT[key] = (R.spellT[key] ?? spellCd(sp, r) * (pre ? 0.75 : 0.5)) - dt;
+      R.spellT[key] = (R.spellT[key] ?? spellCd(sp, r) * (pre ? 0.75 : 0.5)) - cdt;
       if (R.spellT[key] > 0) continue;
       R.spellT[key] = spellCd(sp, r);
       const partner = !!pre;

@@ -1063,4 +1063,6 @@ export default {
   2187: "{0}: cooldown −10%!",
   2188: "Your companion casts theirs too, at half power.",
   2189: "Cast {n} spell|Cast {n} spells",
+  2190: "Arcane Tide",
+  2191: "Spells recharge twice as fast!",
 };

@@ -145,6 +145,7 @@ export class Sound {
       case "shardfall": [N.G6, N.E6, N.C6, N.G5 * 2, N.E6].forEach((f, i) => this.tone(f * 1.5, i * 0.09, 0.3, "sine", 0.13)); break; // éclats cristallins
       case "zeal": [N.C5, N.E5, N.G5, N.C6].forEach((f, i) => this.tone(f, i * 0.06, 0.1, "square", 0.16)); this.tone(N.C6, 0.26, 0.3, "square", 0.14); break; // petite fanfare
       case "nest": for (let i = 0; i < 3; i++) this.tone(2000 + i * 300, i * 0.13, 0.08, "sine", 0.17, 1.4); break; // pépiements
+      case "arcane": [N.C5, N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, i * 0.06, 0.4, "sine", 0.06, 1.2)); this.whoosh(0.1, 0.5, 600, 2400, 0.06, 4); break; // marée arcanique : arpège qui monte, souffle
       case "ward": this.tone(N.E5, 0, 0.8, "sine", 0.08, 1.5); this.tone(N.E5 * 1.01, 0, 0.8, "sine", 0.06, 1.5); this.whoosh(0, 0.6, 2000, 4000, 0.05, 3); break; // voile qui se lève
       default: [N.G5, N.C6, N.G6].forEach((f, i) => this.tone(f, i * 0.06, 0.18, "triangle", 0.25)); break;
     }

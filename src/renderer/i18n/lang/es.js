@@ -1063,4 +1063,6 @@ export default {
   2187: "{0}: ¡recarga −10 %!",
   2188: "Tu compañero también lanza los suyos, a la mitad de potencia.",
   2189: "Lanzar {n} hechizo|Lanzar {n} hechizos",
+  2190: "Marea arcana",
+  2191: "¡Los hechizos se recargan el doble de rápido!",
 };

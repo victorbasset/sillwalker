@@ -553,7 +553,7 @@ async function runSelfTest(strip) {
       if (pk > 0.2) out.push(name + ":" + pk.toFixed(2)); };
     for (const c of ["warrior", "paladin", "lancer", "ranger", "mage", "cryomancer", "necro", "priestess", "bard"]) await render("coup-" + c, (s) => { s.hit(c, "skel", true); s.last = {}; s.hit(c, "slime", false); });
     await render("pièces", (s) => { s.coin(5); s.coinIn(true); });
-    for (const id of ["wind", "goldrain", "frenzy", "bounty", "wisdom", "hawkeye", "shardfall", "zeal", "nest", "ward", "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));
+    for (const id of ["wind", "goldrain", "frenzy", "bounty", "wisdom", "hawkeye", "shardfall", "zeal", "nest", "ward", "arcane", "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));
     for (const k of ["bubble", "drip", "snow", "dust", "ember", "spore", "mote", "ash", "feather", "leaf", null]) await render("zone-" + k, (s) => { s.zoneSounds(k, false, true); s.zoneSounds(k, true, true); });
     await render("oiseau", (s) => s.birdCall());
     await render("perçant", (s) => s.pierceSound());
