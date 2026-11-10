@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { SPELLS } from "./game/spells.js";
 import { Music } from "./render/music.js";
 import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
@@ -458,6 +459,7 @@ async function boot() {
 
   /* ---------- Démo des effets (dev) : --demo ---------- */
   if (init.isDev) window.__panel = panel; // auto-test (dev)
+  if (init.isDev) window.__spellsAll = SPELLS; // mesures de dev (--overflow-report : page des sorts des 20 héros)
   if (init.isDev) window.__music = music; // auto-test (dev) : rendu hors ligne de la musique lofi
   if (init.isDev) window.__sound = sound; // auto-test (dev) : rendu hors ligne de tous les sons
   if (init.isDev) window.__strip = strip; // auto-test (dev) : cinématiques

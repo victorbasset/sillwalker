@@ -173,7 +173,10 @@ function start() {
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)
-          { P.setTab("class"); P.tabs.class.sec = "style"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("sorts=" + o); P.tabs.class.sec = "freed"; }
+          // (it. 553) pour les 20 héros : les cartes à deux effets passent sur deux lignes ; le pire est signalé
+          { P.setTab("class"); P.tabs.class.sec = "style"; const G = window.__game, keep = G.S.cls; let worst = 0, who = "";
+            for (const c of [...new Set((window.__spellsAll || []).map((x) => x.cls))].concat(keep)) { G.S.cls = c; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > worst) { worst = o; who = c; } }
+            G.S.cls = keep; P.renderAll(); if (worst > 2) out.push("sorts=" + worst + "(" + who + ")"); P.tabs.class.sec = "freed"; }
           // Statistiques > Succès (la liste grandit avec chaque succès ; les noms longs du russe passent sur deux lignes)
           if (P.tabs.stats) { P.setTab("stats"); P.tabs.stats.sec = "ach"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("succès=" + o); P.tabs.stats.sec = "numbers"; }
           P.kept.clear(); P.setTab("adventure"); P.renderAll();

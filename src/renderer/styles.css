@@ -1230,3 +1230,10 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .actor.slowed { filter: drop-shadow(0 0 2px #8fd0ff) saturate(.7); }
 .actor.weakened { filter: grayscale(.6) brightness(.85); }
 .actor.hasted { filter: drop-shadow(0 0 2px #ffb347) drop-shadow(0 0 1px #ff7a3a); }
+/* (it. 553) écrans ≤ 1365 px : cartes de sorts un peu plus serrées (deux effets sur deux lignes : la page défilait) */
+@media (max-width: 1365px) {
+  .spellcard { padding: 4px 6px; }
+  .spellcard .note.tight { line-height: 1.25; margin: 2px 0; }
+  .spellcard button { margin-top: 2px; }
+  .spellcard .spellico { width: 22px; height: 22px; }
+}

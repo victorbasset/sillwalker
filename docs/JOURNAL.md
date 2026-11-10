@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 553) : --overflow-report mesure la page des sorts des 20 héros (pire cas signalé « sorts=N(héros) ») :
+  le gladiateur défilait de 6 px en français à 1280 ; cartes de sorts resserrées sous 1366 px (marges, interligne,
+  icône 22 px). 10 langues × 3 largeurs × 20 héros : aucun défilement. 130/130.
 - 2026-11-10 (it. 552) : icônes des sorts : badge 4×4 du premier effet propre (étoile étourdit, goutte poison, cœur vol
   de vie, flamme brûlure, flèche perçage…) en bas à droite, partout (cartes, carte du héros, bande, mini, quêtes).
   Capture guerrier / assassin. Aucun défilement (10 langues, héros de dev-data ; une carte à deux effets passe sur deux
