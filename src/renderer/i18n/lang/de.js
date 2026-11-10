@@ -867,4 +867,11 @@ export default {
   1991: "Sternling",
   1992: "Ein lebender Sternensplitter, der dir folgen wollte. Selten.",
   1993: "Chronik: {0}",
+  1994: "Neuigkeiten",
+  1995: "Neues in Sillwalker! Klicke, um es zu sehen.",
+  1996: "Neues Design „Pixelgravur“: Rahmen, Palette aus Violettnacht und Messing, goldene Nieten.",
+  1997: "Illustrierter Fertigkeitsbaum: ein Symbol für jeden Knoten, ein eigenes Bild für die großen.",
+  1998: "Elf Chroniken, jede mit eigener Zwischensequenz (▶ zum erneuten Ansehen in der Heldenkarte).",
+  1999: "Sternenamboss, zwei Begleiter, das Ereignis Splitterregen und die Fähigkeit Steinhaut.",
+  2000: "Einstellungen: Energiesparen, Zwischensequenzen; die Leiste versteckt sich bei Vollbild (Windows).",
 };

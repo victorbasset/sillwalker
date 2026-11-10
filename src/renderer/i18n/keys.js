@@ -1995,5 +1995,12 @@ export const KEYS = [
   "Veille pendant ton absence : le temps passé loin compte davantage.",
   "Étoilon",
   "Un éclat d’étoile vivant qui a choisi de te suivre. Rare.",
-  "Chronique : {0}"
+  "Chronique : {0}",
+  "Quoi de neuf",
+  "Du nouveau dans Sillwalker ! Clique pour voir.",
+  "Nouveau design « gravure pixel » : cadres, palette nuit violine et laiton, rivets dorés.",
+  "Arbre des compétences illustré : une icône pour chaque nœud, un dessin unique pour les grands.",
+  "Onze chroniques, chacune avec sa cinématique (▶ pour la revoir dans la carte du héros).",
+  "Enclume stellaire, deux familiers, l’événement Pluie d’éclats et la capacité Peau de pierre.",
+  "Réglages : économie d’énergie, cinématiques ; la bande se cache devant le plein écran (Windows)."
 ];

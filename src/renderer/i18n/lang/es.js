@@ -867,4 +867,11 @@ export default {
   1991: "Estrellín",
   1992: "Un fragmento de estrella vivo que eligió seguirte. Raro.",
   1993: "Crónica: {0}",
+  1994: "Novedades",
+  1995: "¡Hay novedades en Sillwalker! Haz clic para verlas.",
+  1996: "Nuevo diseño «grabado pixel»: marcos, paleta noche violeta y latón, remaches dorados.",
+  1997: "Árbol de competencias ilustrado: un icono para cada nodo, un dibujo único para los grandes.",
+  1998: "Once crónicas, cada una con su cinemática (▶ para volver a verla en la ficha del héroe).",
+  1999: "Yunque estelar, dos mascotas, el evento Lluvia de fragmentos y la capacidad Piel de piedra.",
+  2000: "Ajustes: ahorro de energía, cinemáticas; la franja se oculta ante la pantalla completa (Windows).",
 };

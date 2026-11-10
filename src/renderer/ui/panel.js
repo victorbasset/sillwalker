@@ -3,6 +3,7 @@
 // Chaque onglet hors Aventure est un module de ui/tabs/ avec render(el),
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
+import { NEWS_ITEMS } from "../game/news.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, txn, lc, fsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
@@ -595,6 +596,15 @@ export class Panel {
         ${!hasUnlock(S, "forge") ? lockLink(S, "forge") : ""}${hasUnlock(S, "forge") && RARITIES[it.r].affixes ? `<button data-action="reforge"${S.gold >= reforgeCost(it) ? "" : " disabled"} title="${esc(tx("Tire au hasard de nouveaux bonus secondaires. Rareté, forge, pouvoir et panoplie sont conservés."))}">${tx("Réforger ({0} or)", { 0: fmt(reforgeCost(it)) })}</button>` : ""}
         ${hasUnlock(S, "forge") ? `<button data-action="forge"${canForge ? "" : " disabled"} title="${esc(tx("Chaque niveau de forge ajoute 10{0}% à toutes les statistiques de l’objet. La forge ne peut pas échouer.", { 0: NB }))}">${it.plus >= MAX_PLUS ? tx("Amélioration maximale") : `${tx("Forger +{0} ({1} or)", { 0: it.plus + 1, 1: fmt(fc) })}`}</button>` : ""}</div>
       <ul class="lines tight">${lines}</ul>${power(it, S.equip)}</div>`;
+  }
+
+  /** « Quoi de neuf » (game/news.js) : la liste des nouveautés dans la fenêtre modale. */
+  showNews() {
+    // Même gabarit que les autres fenêtres (titre #mt, contenu #mbody) : elles restent utilisables ensuite.
+    $(this.root, "#mt").textContent = tx("Quoi de neuf");
+    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist">${NEWS_ITEMS.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`;
+    $(this.root, "#modal").hidden = false;
+    $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }
 
   /** Prochain déblocage : objectif visible en permanence (zone record, puis or). */

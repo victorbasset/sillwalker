@@ -5,6 +5,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import * as M_news_js from "../src/renderer/game/news.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_events_js from "../src/renderer/game/events.js";
@@ -646,6 +647,16 @@ test("plein écran (bon voisin) : états Windows lus, rien hors de Windows", () 
   const w = fw.watchFullscreen({ onChange: () => calls++, platform: "linux" });
   w.stop();
   assert.equal(calls, 0, "Linux : aucun processus, aucun changement");
+});
+
+test("Quoi de neuf : rien pour une partie neuve, une fois pour une ancienne sauvegarde", () => {
+  const { newsDue, markNews } = M_news_js;
+  assert.equal(newsDue(freshState()), false, "partie neuve");
+  const old = freshState(); old.stats.kills = 50; old.story.intro = true; delete old.settings.newsSeen;
+  const S = migrate(JSON.parse(JSON.stringify(old)));
+  assert.equal(newsDue(S), true, "ancienne sauvegarde : à annoncer");
+  markNews(S);
+  assert.equal(newsDue(S), false, "une seule fois");
 });
 
 test("compétences : chaque effet de l'arbre a son icône (demande 34)", () => {

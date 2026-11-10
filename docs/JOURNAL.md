@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 326) : « Quoi de neuf » (game/news.js : NEWS_ID, NEWS_ITEMS) : au premier lancement après une
+  mise à jour, une bulle « Du nouveau dans Sillwalker ! » (6 s après le démarrage, non bloquante) ; un clic ouvre la
+  liste dans la fenêtre modale (#mt / #mbody). Une seule fois (settings.newsSeen) ; jamais pour une partie neuve ;
+  migration : une ancienne sauvegarde la voit. Édition 1 : design, icônes des compétences, 11 chroniques, Enclume /
+  familiers / Pluie d'éclats / Peau de pierre, réglages. Pour une nouvelle édition : NEWS_ID + 1 et nouveaux textes.
+  7 textes × 9 langues, test, capture, 107/107.
 - 2026-11-10 (it. 325) : Carnet de route : chaque chronique découverte y est notée (« Chronique : La forge des
   cages ») ; titre inconnu (autre version) : « ? ». save-fuzz : cas journeyChron. 1 texte × 9 langues, 107/107.
 - 2026-11-10 (it. 324, variété) : deux familiers de plus (16) : Luciole (vol ; +2 % expérience, +3 % efficacité hors

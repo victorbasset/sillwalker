@@ -867,4 +867,11 @@ export default {
   1991: "Starling",
   1992: "A living star shard that chose to follow you. Rare.",
   1993: "Chronicle: {0}",
+  1994: "What’s new",
+  1995: "Something new in Sillwalker! Click to see.",
+  1996: "New “pixel engraving” design: frames, violet-night and brass palette, golden rivets.",
+  1997: "Illustrated skill tree: an icon for every node, a unique drawing for the big ones.",
+  1998: "Eleven chronicles, each with its own cutscene (▶ to replay it in the hero card).",
+  1999: "Star Anvil, two pets, the Shardfall event and the Stoneskin ability.",
+  2000: "Settings: power saving, cutscenes; the strip hides behind full-screen apps (Windows).",
 };

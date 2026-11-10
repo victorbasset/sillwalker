@@ -867,4 +867,11 @@ export default {
   1991: "Gwiazdek",
   1992: "Żywy odłamek gwiazdy, który postanowił za tobą podążać. Rzadki.",
   1993: "Kronika: {0}",
+  1994: "Co nowego",
+  1995: "Nowości w Sillwalker! Kliknij, aby zobaczyć.",
+  1996: "Nowy wygląd „pikselowy grawerunek”: ramki, paleta fioletowej nocy i mosiądzu, złote nity.",
+  1997: "Ilustrowane drzewo umiejętności: ikona dla każdego węzła, unikatowy rysunek dla dużych.",
+  1998: "Jedenaście kronik, każda z własnym przerywnikiem (▶, by obejrzeć ją ponownie w karcie bohatera).",
+  1999: "Gwiezdne kowadło, dwa chowańce, wydarzenie Deszcz odłamków i zdolność Kamienna skóra.",
+  2000: "Ustawienia: oszczędzanie energii, przerywniki; pasek chowa się przy pełnym ekranie (Windows).",
 };

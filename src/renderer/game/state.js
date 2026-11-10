@@ -52,7 +52,7 @@ export function freshState(now = Date.now()) {
     skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
-    settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
+    settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
     daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
@@ -208,6 +208,8 @@ export function migrate(raw) {
   if (typeof s.story.wonAt !== "number") delete s.story.wonAt;
   // Son activé par défaut (demande de Victor, 2026-11-09) : une seule fois pour les parties d'avant, où il était coupé
   // d'office ; ensuite le choix du joueur (bouton haut-parleur, Réglages) est respecté.
+  // « Quoi de neuf » (news.js) : une sauvegarde d'avant ce réglage n'a encore rien vu (0) ; partie neuve : à jour.
+  if (!isObj(o.settings) || typeof o.settings.newsSeen !== "number") s.settings.newsSeen = 0;
   if (!isObj(o.settings) || o.settings.soundOn2 !== true) { s.settings.sound = true; s.settings.soundOn2 = true; }
   // Carnet apparu après coup, partie déjà entamée : une première entrée situe le point de départ.
   if (!Array.isArray(o.journey) && (s.best > 1 || s.lvl > 1)) s.journey.push({ t: Date.now(), k: "start", v: s.best, l: s.lvl });

@@ -9,6 +9,7 @@
 import { Music } from "./render/music.js";
 import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
+import { newsDue, markNews } from "./game/news.js";
 import { journeyText } from "./ui/tabs/stats.js";
 import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
@@ -481,6 +482,11 @@ async function boot() {
     setTimeout(() => INTRO.forEach((line) => showToast(`<span class="story">📜</span> ${esc(tx(line))}`, null, 14000)), 8200);
   }
   setInterval(checkDaily, 60000);
+  // Après une mise à jour : une bulle « Quoi de neuf » (un clic ouvre la liste), une seule fois.
+  if (newsDue(game.S)) {
+    markNews(game.S);
+    setTimeout(() => showToast(`✨ ${tx("Du nouveau dans Sillwalker ! Clique pour voir.")}`, () => { openPanel(); panel.showNews(); }, 15000), 6000);
+  }
 
   /* ---------- Héros libéré ---------- */
   /* ---------- Onglet débloqué (tabs.js) : annonce sobre, un clic l'ouvre ---------- */
