@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 473, demande G : une icône par sort) : shopart.spellIconURL : six dessins pixel (éclair, tourbillon,
+  croix de soin, flamme, écu, météore) teintés de la couleur du héros (couleur, sa teinte sombre, éclat blanc) : chaque
+  héros a ses trois icônes. Sur les cartes de « Sorts et attaque » et, au lancer, une icône qui monte au-dessus du
+  héros avec le nom du sort. Captures. 122/122.
 - 2026-11-10 (it. 472, demande I : animations des sorts spectaculaires) : strip.spellFx : nom du sort en grand au-dessus
   du héros, puis par mécanique : éclair zébré pleine hauteur doublé avec flash, secousse et anneau d'impact ; trois
   croissants de lame qui filent ; grosse boule de feu puis explosion (grand anneau, flash, secousse) ; météore avec
@@ -1658,7 +1662,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   J. FAIT (it. 471). Bouclier visible sur la barre de vie (blanc ou bleu).
   K. FAIT (it. 471). Renommer « Style de combat » ; le bloc du bas : « style de l'auto-attaque » ou équivalent.
   I. FAIT (it. 472, à voir en jeu). Animations des sorts spectaculaires et bien visibles.
-  G. Une icône pour chaque sort.
+  G. FAIT (it. 473). Une icône pour chaque sort.
   H. Des sorts qui transpercent l'ennemi et touchent le suivant.
 
 - DEMANDES DE VICTOR (2026-11-10, fin de matinée), à traiter en premier, dans cet ordre :

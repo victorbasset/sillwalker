@@ -1175,3 +1175,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 @keyframes sfxspin { to { transform: rotate(360deg); } }
 @keyframes sfxpulse { from { opacity: .55; } to { opacity: 1; } }
 @keyframes sfxdome { 0% { transform: scale(.3); opacity: 0; } 25% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(1); opacity: .2; } }
+/* Icônes des sorts (demande G) : cartes de l'onglet Héros et icône qui monte au-dessus du héros au lancer. */
+.spellcard .spellico { width: 27px; height: 27px; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
+.spellfx.icon img { width: 27px; height: 27px; image-rendering: pixelated; filter: drop-shadow(0 0 4px #fff); }

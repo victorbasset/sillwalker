@@ -133,6 +133,25 @@ const CONST_ICONS = {
 Object.assign(SHOP_ICON_DEFS, CONST_ICONS);
 CREST_METALS.forEach((m, i) => { SHOP_ICON_DEFS["crest" + i] = [CREST, { L: "#3a6ea5", R: "#b8322a", W: "#e3ebf3", G: "#8a5a2b", ...m }]; });
 
+// Icônes des sorts (demande G de Victor) : une forme par mécanique, teintée de la couleur du héros (C = couleur,
+// D = sa teinte sombre, W = éclat) ; chaque héros a donc trois icônes à lui, et la même mécanique change de couleur
+// d'un héros à l'autre.
+const SPELL_ART = {
+  bolt:   ["....WCC..", "...WCC...", "..WCC....", ".WCCCCC..", "....CCD..", "...CCD...", "..CD.....", ".CD......", "D........"],
+  gust:   ["..CCCC...", ".C....C..", "C..WW..C.", "..W..W.C.", ".W.CC.W..", ".W.C..C..", "..W...C..", "...WCC...", "........."],
+  mend:   ["...CCC...", "...CWC...", "...CWC...", "CCCCWCCCC", "CWWWWWWWC", "CCCCWCCCC", "...CWC...", "...CWC...", "...CCC..."],
+  fire:   ["....W....", "...WC....", "..WCC.W..", "..CCCWC..", ".CCDCCC..", ".CDDDCCC.", ".CDWDDC..", "..CDDC...", "...CC...."],
+  aegis:  [".CCCCCCC.", "CWWWWWWWC", "CWCCCCCWC", "CWCWWWCWC", "CWCWCWCWC", ".CWCCCWC.", "..CWWWC..", "...CWC...", "....C...."],
+  meteor: ["W........", ".W.......", "..WC.....", "...CC....", "....CCC..", "...CDDDC.", "...CDWDC.", "...CDDDC.", "....CCC.."],
+};
+const darker = (hex) => { const n = parseInt(hex.slice(1), 16), f = (v) => Math.round(v * 0.55).toString(16).padStart(2, "0"); return "#" + f(n >> 16 & 255) + f(n >> 8 & 255) + f(n & 255); };
+/** Icône d'un sort : forme de sa mécanique, couleur de son héros. */
+export function spellIconURL(tpl, color, scale = 3) {
+  const k = "spell:" + tpl + color + "@" + scale;
+  if (!cache[k]) cache[k] = buildSprite(SPELL_ART[tpl] || SPELL_ART.bolt, { K: OUT, C: color, D: darker(color), W: "#ffffff" }, scale, false, 1).toDataURL();
+  return cache[k];
+}
+
 export function shopIconURL(id, scale = 5) {
   const k = id + "@" + scale;
   if (!cache[k]) {

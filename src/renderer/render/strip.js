@@ -24,6 +24,7 @@ import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
+import { spellIconURL } from "./shopart.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
 // Répliques du héros, par circonstance.
@@ -237,6 +238,7 @@ export class StripRenderer {
     const ring = (x, y, big) => fx("ring" + (big ? " big" : ""), x, y, 0.6);
     const later = (ms, f) => setTimeout(() => { if (this.active) f(); }, ms);
     this.float(hx, 2, tr(sp.name), c, true); // le nom du sort, en grand
+    { const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(tpl, c, 3); this.addFx(ic, hx - 14, 6, 0.9, 18); } // son icône, qui monte
     if (tpl === "bolt") {
       fx("bolt", mx - 4, 0, 0.45); this.flash = Math.max(this.flash, 0.22); this.shake(0.2);
       later(60, () => fx("bolt", mx + 6, 0, 0.35)); ring(mx + 6, G - 20);
