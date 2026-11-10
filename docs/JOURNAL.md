@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 552) : icônes des sorts : badge 4×4 du premier effet propre (étoile étourdit, goutte poison, cœur vol
+  de vie, flamme brûlure, flèche perçage…) en bas à droite, partout (cartes, carte du héros, bande, mini, quêtes).
+  Capture guerrier / assassin. Aucun défilement (10 langues, héros de dev-data ; une carte à deux effets passe sur deux
+  lignes : à surveiller pour les autres héros). 130/130.
 - 2026-11-10 (it. 551) : vérification en capture des marques d'état sur un monstre normal : classes bien posées, halo du
   héros accéléré visible ; étoiles d'étourdissement peu visibles (monstre derrière le héros) : plus haut (-24 px), plus
   grandes, cerclées de sombre. 130/130.

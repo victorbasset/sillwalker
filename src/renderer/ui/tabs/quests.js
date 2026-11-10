@@ -22,7 +22,7 @@ const KIND_ICON = {
   event: () => shopIconURL("star", 4), // événements rares
   tap: () => itemIconURL({ icon: "gauntlet", slot: "gloves", r: 2 }), // coups au clic : la main du joueur
   // sorts lancés : l'icône du premier sort appris par le héros (sa forme, sa couleur), sinon un éclair
-  spell: (S) => { const sp = S && classSpells(S.cls).find((x) => spellRank(S, x.id) > 0); return sp ? spellIconURL(sp.tpl, sp.color, 2) : spellIconURL("bolt", "#8fd0ff", 2); },
+  spell: (S) => { const sp = S && classSpells(S.cls).find((x) => spellRank(S, x.id) > 0); return sp ? spellIconURL(sp.tpl, sp.color, 2, sp.fx?.[0]) : spellIconURL("bolt", "#8fd0ff", 2); },
   crit: () => itemIconURL({ icon: "dagger", slot: "weapon", r: 3 }), // coups critiques : la lame qui frappe juste
 };
 

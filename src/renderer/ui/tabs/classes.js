@@ -43,7 +43,7 @@ export class ClassesTab {
     const S = this.game.S, next = S.nextCls || S.cls;
     const freed = CLASS_KEYS.filter((k) => isClassUnlocked(S, k)).length;
     // Ses trois sorts (it. 505) : icônes dans l'en-tête, grisées tant qu'ils ne sont pas appris ; nom et rang en infobulle.
-    const cspells = (cls) => `<span class="cspells">${classSpells(cls).map((x) => { const r = spellRank(S, x.id); return `<img class="${r ? "on" : ""}" src="${spellIconURL(x.tpl, x.color, 2)}" alt="" title="${esc(tr(x.name) + " · " + (r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : tx("pas encore appris (zone {0})", { 0: x.zone })))}">`; }).join("")}</span>`;
+    const cspells = (cls) => `<span class="cspells">${classSpells(cls).map((x) => { const r = spellRank(S, x.id); return `<img class="${r ? "on" : ""}" src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="" title="${esc(tr(x.name) + " · " + (r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : tx("pas encore appris (zone {0})", { 0: x.zone })))}">`; }).join("")}</span>`;
     const cards = CLASS_KEYS_BY_UNLOCK().map((k) => { // ordre de libération (demande de Victor)
       const c = CLASSES[k], cur = S.cls === k, open = isClassUnlocked(S, k);
       if (!open) {
@@ -120,7 +120,7 @@ export class ClassesTab {
         : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""} title="${esc(tx("Rang {0} : {1}", { 0: r + 1, 1: effAt(r + 1) }) + (spellCd(sp, r + 1) < spellCd(sp, Math.max(1, r)) ? " · " + tx("recharge : {0} s", { 0: dec(String(spellCd(sp, r + 1))) }) : ""))}">${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`
           // « max » (Manuel du stratège, comme les talents) : autant de rangs que l'or le permet, dès que deux sont abordables.
           + (hasUnlock(S, "bulkPoints") && r + 1 < SPELL_MAX && S.gold >= price * 3.5 ? ` <button data-action="c-spellmax" data-id="${sp.id}" class="quiet" title="${esc(tx("Acheter autant de niveaux que possible"))}">${tx("max")}</button>` : "");
-      return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3)}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
+      return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3, sp.fx?.[0])}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
         <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: dec(String(spellCd(sp, Math.max(1, r)))), 1: eff })}${spellFxText(sp, r).map((t) => ` · <b class="tint">${t}</b>`).join("")}</p>${btn}</div>`;
     }).join("");
     // Grimoire des sorts (case ou lien vers le déblocage) dans le titre : une ligne de moins (sinon l'onglet défilait).
@@ -134,7 +134,7 @@ export class ClassesTab {
   partnerSpells(S) {
     if (!S.partner || !CLASSES[S.partner]) return "";
     const list = classSpells(S.partner).filter((x) => spellRank(S, x.id) > 0);
-    const icons = list.map((x) => `<span class="pspell" title="${esc(tr(x.name))}"><img src="${spellIconURL(x.tpl, x.color, 2)}" alt="">${spellRank(S, x.id)}</span>`).join("");
+    const icons = list.map((x) => `<span class="pspell" title="${esc(tr(x.name))}"><img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="">${spellRank(S, x.id)}</span>`).join("");
     return `<p class="note tight pspells">${tx("Sorts du compagnon ({0}), à moitié de leur puissance :", { 0: esc(CLASSES[S.partner].name) })} ${icons || tx("aucun appris (apprends-les en jouant ce héros)")}</p>`;
   }
 

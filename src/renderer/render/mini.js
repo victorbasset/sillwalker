@@ -47,7 +47,7 @@ export class MiniRenderer {
     // Sort (demande D) : son icône apparaît brièvement au-dessus du héros (effet léger, le mode mini est petit).
     game.on("spell", ({ id }) => {
       const sp = SPELL_INDEX[id]; if (!sp || !this.stage || !this.stage.isConnected) return;
-      const im = el("img", "minispell", this.stage); im.src = spellIconURL(sp.tpl, sp.color, 2);
+      const im = el("img", "minispell", this.stage); im.src = spellIconURL(sp.tpl, sp.color, 2, sp.fx?.[0]);
       im.style.transform = `translate3d(${HERO_X + 22}px,14px,0)`;
       setTimeout(() => im.remove(), 700);
     });

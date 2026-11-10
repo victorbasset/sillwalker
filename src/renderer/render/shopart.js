@@ -146,10 +146,31 @@ const SPELL_ART = {
   meteor: ["W........", ".W.......", "..WC.....", "...CC....", "....CCC..", "...CDDDC.", "...CDWDC.", "...CDDDC.", "....CCC.."],
 };
 const darker = (hex) => { const n = parseInt(hex.slice(1), 16), f = (v) => Math.round(v * 0.55).toString(16).padStart(2, "0"); return "#" + f(n >> 16 & 255) + f(n >> 8 & 255) + f(n & 255); };
-/** Icône d'un sort : forme de sa mécanique, couleur de son héros. */
-export function spellIconURL(tpl, color, scale = 3) {
-  const k = "spell:" + tpl + color + "@" + scale;
-  if (!cache[k]) cache[k] = buildSprite(SPELL_ART[tpl] || SPELL_ART.bolt, { K: OUT, C: color, D: darker(color), W: "#ffffff" }, scale, false, 1).toDataURL();
+/** Badge d'effet (demande Q, it. 552) : 4×4 pixels dans le coin bas droit de l'icône, le premier effet propre du sort. */
+const SPELL_BADGE = {
+  stun:    [["Y.Y.", ".Y..", "Y.Y.", "...."], "#fff27a"], slow:  [["B.B.", ".B..", "B.B.", "...."], "#8fd0ff"],
+  weaken:  [["GGG.", ".G..", "....", "...."], "#9aa0a8"], burn:  [[".R..", "RRR.", "RYR.", ".R.."], "#ff7a2a"],
+  venom:   [[".V..", "VVV.", "VVV.", ".V.."], "#7ddc4a"], leech: [["H.H.", "HHH.", ".H..", "...."], "#ff4a5a"],
+  execute: [["WWW.", "W.W.", ".W..", "...."], "#ffffff"], crit:  [[".Y..", ".Y..", "....", ".Y.."], "#ffd34d"],
+  echo:    [["P.P.", "P.P.", "P.P.", "...."], "#c08cff"], haste: [["O.O.", ".O.O", "O.O.", "...."], "#ffb347"],
+  cdr:     [["CCC.", "C.C.", "CCC.", "...."], "#7fe0ff"], regen: [[".G..", "GGG.", ".G..", "...."], "#7dff9a"],
+  pierce:  [["..W.", "WWWW", "..W.", "...."], "#ffffff"], hits:  [["W.W.", ".W..", "W.W.", "...."], "#ffffff"],
+};
+/** Icône d'un sort : forme de sa mécanique, couleur de son héros, badge de son premier effet propre. */
+export function spellIconURL(tpl, color, scale = 3, badge = null) {
+  const k = "spell:" + tpl + color + "@" + scale + ":" + (badge || "");
+  if (!cache[k]) {
+    const c = buildSprite(SPELL_ART[tpl] || SPELL_ART.bolt, { K: OUT, C: color, D: darker(color), W: "#ffffff" }, scale, false, 1);
+    const b = SPELL_BADGE[badge];
+    if (b) { // contour sombre puis pixels, en bas à droite (cellules 7 à 10 de la grille 11×11 avec le cadre)
+      const ctx = c.getContext("2d"), x0 = 7, y0 = 7;
+      ctx.fillStyle = OUT;
+      for (let y = -1; y <= 4; y++) for (let x = -1; x <= 4; x++) ctx.fillRect((x0 + x) * scale, (y0 + y) * scale, scale, scale);
+      ctx.fillStyle = b[1];
+      b[0].forEach((row, y) => [...row].forEach((ch, x) => { if (ch !== ".") ctx.fillRect((x0 + x) * scale, (y0 + y) * scale, scale, scale); }));
+    }
+    cache[k] = c.toDataURL();
+  }
   return cache[k];
 }
 
