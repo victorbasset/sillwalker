@@ -505,6 +505,10 @@ async function runSelfTest(strip) {
     await sleep(900);
     const ovf2 = await js(OVF_JS.replace("window.innerWidth < 1800", "window.innerWidth < 1200"));
     check(`aucun onglet ne défile verticalement (${w} px, écran de portable)`, ovf2 === "aucun", ovf2);
+    if (w === 1366) { // sous-onglets des Statistiques (la liste des succès grandit à chaque ajout)
+      const subs = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), cur = P.tab, sec = P.tabs.stats.sec, out = []; P.setTab('stats'); for (const s of ['ach', 'journey']) { P.tabs.stats.sec = s; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(s + '=' + o); } P.tabs.stats.sec = sec; P.setTab(cur); P.renderAll(); return out.join(' ') || 'aucun'; })()");
+      check("statistiques : succès et carnet de route sans défilement (1366 px)", subs === "aucun", subs);
+    }
   }
   strip.win.setBounds(bLap);
   await sleep(600);

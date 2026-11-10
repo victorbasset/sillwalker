@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 389) : 55 succès : le sous-onglet Succès (et le Carnet de route) tient sans défilement à 1920 et
+  1366 px ; autotest : nouveau contrôle de ces sous-onglets à 1366 px (la liste grandit à chaque succès). 115/115.
 - 2026-11-10 (it. 388) : 17e familier « Phalène pâle » (pets.js > moth, sprite volant art.js) : pureté 5 % et PV 1 %
   par niveau (50 % de pureté au niveau 10 : la Malédiction dure moitié moins, le Talisman reste la vraie parade ;
   25 % par niveau aurait donné l'immunité dès le niveau 4). Capture, 2 textes × 9 langues, save-fuzz ok, 114/114.
