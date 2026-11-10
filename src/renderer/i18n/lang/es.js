@@ -911,4 +911,6 @@ export default {
   2035: "Evento Celo, desbloqueo Portador de talismanes y una 12.ª crónica: «El juramento maldito».",
   2036: "Cada desbloqueo tiene su propio icono; las habilidades de los jefes tienen su sonido.",
   2037: "Cazador de eventos",
+  2038: "Polilla pálida",
+  2039: "Sus alas de luz alejan las maldiciones.",
 };

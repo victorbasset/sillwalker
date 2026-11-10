@@ -911,4 +911,6 @@ export default {
   2035: "Wydarzenie Zapał, odblokowanie Nosiciel talizmanów i 12. kronika: „Przeklęta przysięga”.",
   2036: "Każde odblokowanie ma własną ikonę; umiejętności bossów mają swój dźwięk.",
   2037: "Łowca wydarzeń",
+  2038: "Blada ćma",
+  2039: "Jej świetliste skrzydła odpędzają klątwy.",
 };

@@ -911,4 +911,6 @@ export default {
   2035: "Zeal event, Charm Bearer unlock and a 12th chronicle: “The Cursed Oath”.",
   2036: "Every unlock has its own icon; boss abilities have their own sound.",
   2037: "Event Hunter",
+  2038: "Pale Moth",
+  2039: "Its wings of light keep curses at bay.",
 };

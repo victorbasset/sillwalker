@@ -911,4 +911,6 @@ export default {
   2035: "Ereignis Eifer, Freischaltung Talismanträger und eine 12. Chronik: „Der verfluchte Schwur“.",
   2036: "Jede Freischaltung hat ihr eigenes Symbol; die Bossfähigkeiten haben ihren Klang.",
   2037: "Ereignisjäger",
+  2038: "Bleicher Falter",
+  2039: "Seine Lichtflügel halten Flüche fern.",
 };

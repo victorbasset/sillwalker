@@ -314,6 +314,9 @@ export const PET_ART = {
   starling: { pal: { Y: "#ffe27a", W: "#fff6c8", E: "#1a1a1a" }, fly: true, frames: [
     ["...Y...", "...Y...", "YYYWYYY", ".YEWEY.", "..YYY..", ".Y...Y."],
     ["...W...", "..YYY..", "YYWWWYY", ".YEWEY.", "..YYY..", "Y.....Y"]] },
+  moth: { pal: { W: "#f4f0ff", L: "#c9d4ff", B: "#8a7a5a", E: "#1a1a1a" }, fly: true, frames: [
+    ["W.....W", "WW...WW", "WLWBWLW", "WWLELWW", ".W.B.W.", "...B..."],
+    [".......", "WW...WW", "WWWBWWW", ".WLELW.", "..WBW..", "...B..."]] },
   fairy: { pal: { P: "#ff9ad8", W: "#dff3ff", S: "#f1c7a0", Y: "#ffe27a" }, fly: true, frames: [
     ["W.....W", "WW.Y.WW", "WWSSSWW", ".WPPPW.", "..PPP..", "..P.P.."],
     [".......", ".W.Y.W.", "WWSSSWW", "WWPPPWW", "..PPP..", "..P.P.."]] },

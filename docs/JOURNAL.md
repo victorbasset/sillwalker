@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 388) : 17e familier « Phalène pâle » (pets.js > moth, sprite volant art.js) : pureté 5 % et PV 1 %
+  par niveau (50 % de pureté au niveau 10 : la Malédiction dure moitié moins, le Talisman reste la vraie parade ;
+  25 % par niveau aurait donné l'immunité dès le niveau 4). Capture, 2 textes × 9 langues, save-fuzz ok, 114/114.
 - 2026-11-10 (it. 387) : liste « À vérifier par Victor sous Windows » en tête des Idées (plein écran, case du menu,
   consommation réelle, sons nouveaux, « Quoi de neuf »).
 - 2026-11-10 (it. 386) : menu de l'icône : la case « Économie d'énergie » suit aussi un changement fait dans le panneau

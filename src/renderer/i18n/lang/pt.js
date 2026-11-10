@@ -911,4 +911,6 @@ export default {
   2035: "Evento Zelo, desbloqueio Portador de talismãs e uma 12ª crônica: “O juramento maldito”.",
   2036: "Cada desbloqueio tem seu próprio ícone; as habilidades dos chefes têm seu som.",
   2037: "Caçador de eventos",
+  2038: "Mariposa pálida",
+  2039: "Suas asas de luz afastam as maldições.",
 };

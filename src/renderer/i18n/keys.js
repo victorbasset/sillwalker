@@ -2039,5 +2039,7 @@ export const KEYS = [
   "Les plus vieux lieutenants du Briseur ont juré de ne jamais laisser revenir la lumière. Ce serment est devenu une malédiction qui ronge ceux qui les affrontent. Mais un talisman taillé dans un éclat pur la repousse : le ciel n’a pas tout oublié.",
   "Événement Zèle, déblocage Porte-talisman et une 12e chronique : « Le serment maudit ».",
   "Chaque déblocage a sa propre icône ; les capacités des boss ont leur son.",
-  "Chasseur d’événements"
+  "Chasseur d’événements",
+  "Phalène pâle",
+  "Ses ailes de lumière éloignent les malédictions."
 ];

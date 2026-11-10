@@ -24,6 +24,8 @@ export const PETS = [
   { id: "phoenix", name: "Phénix",     desc: "Un oiseau de légende. Très rare.",       eff: { atkPct: 2, hpPct: 2, regen: 0.5 }, weight: 0.25 },
   // Étude des concurrents (variété) : deux familiers de plus.
   { id: "firefly", name: "Luciole",     desc: "Veille pendant ton absence : le temps passé loin compte davantage.", eff: { xp: 2, offline: 3 } },
+  // Contre la Malédiction des boss : un peu de pureté (durée réduite), sans valoir le Talisman de pureté.
+  { id: "moth", name: "Phalène pâle", desc: "Ses ailes de lumière éloignent les malédictions.", eff: { purity: 5, hpPct: 1 } }, // ×niveau : 50 % de pureté au niveau 10
   { id: "starling", name: "Étoilon",    desc: "Un éclat d’étoile vivant qui a choisi de te suivre. Rare.", eff: { moveSpd: 1, crit: 0.5 }, weight: 0.4 },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
