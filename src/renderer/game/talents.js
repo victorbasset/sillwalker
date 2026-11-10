@@ -334,6 +334,28 @@ const GRAFTS = {
   starwarden: [1, "paladin", 1],   // Bushido → Bastion : boucliers d'étoile
   artificer: [2, "berserker", 2],  // Savoir → Frénésie : cadence des machines (Arcanes gardées : sa puissance)
 };
+// Voies mêlées (idée d de l'étude des concurrents : « héros trop semblables ») : chaque voie d'un héros ajouté est la
+// moitié de deux voies existantes, choisies pour son thème (valeurs déjà équilibrées : la somme garde le même poids).
+// Identifiants inchangés : les sauvegardes gardent la voie choisie.
+const VOIE_BLENDS = {
+  arbalest:    [["v_ra_sniper", "v_pa_crusader"], ["v_ra_rain", "v_sa_kenjutsu"]],
+  lancer:      [["v_wa_wall", "v_pa_bastion"], ["v_wa_carnage", "v_ra_sniper"]],
+  priestess:   [["v_pa_bastion", "v_mo_serene"], ["v_pa_crusader", "v_ma_pyro"]],
+  gladiator:   [["v_wa_wall", "v_be_blood"], ["v_wa_carnage", "v_be_rage"]],
+  shaman:      [["v_dr_thorns", "v_ne_drain"], ["v_dr_pack", "v_ne_lord"]],
+  bladedancer: [["v_as_venom", "v_mo_fists"], ["v_as_shadow", "v_sa_kenjutsu"]],
+  cryomancer:  [["v_ma_pyro", "v_mo_serene"], ["v_ma_arcane", "v_sa_iaido"]],
+  bard:        [["v_mo_fists", "v_ra_rain"], ["v_mo_serene", "v_pa_bastion"]],
+  starwarden:  [["v_sa_iaido", "v_pa_crusader"], ["v_sa_kenjutsu", "v_ma_arcane"]],
+  artificer:   [["v_ma_pyro", "v_wa_carnage"], ["v_ma_arcane", "v_ra_sniper"]],
+};
+const BASE_VOIES = Object.fromEntries(Object.values(VOIES).flat().map((v) => [v.id, v]));
+function blendEff(a, b) {
+  const out = {};
+  for (const src of [BASE_VOIES[a], BASE_VOIES[b]]) for (const k in (src && src.eff) || {}) out[k] = (out[k] || 0) + src.eff[k] / 2;
+  for (const k in out) out[k] = Math.round(out[k] * 2) / 2;
+  return out;
+}
 for (const [cls, def] of Object.entries(CLASSES)) {
   if (!def.tree || TREES[cls]) continue;
   const p = def.treePrefix, names = TREE_NAMES[cls];
@@ -344,7 +366,8 @@ for (const [cls, def] of Object.entries(CLASSES)) {
     const src = TREES[g[1]][g[2]].talents;
     TREES[cls][g[0]].talents = TREES[cls][g[0]].talents.map((t, ti) => (src[ti] ? { ...t, eff: { ...src[ti].eff }, max: src[ti].max } : t));
   }
-  if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v, vi) => ({ ...v, id: p + v.id, ...(VOIE_NAMES[cls] ? { name: VOIE_NAMES[cls][vi][0], text: VOIE_NAMES[cls][vi][1] } : {}) }));
+  if (VOIES[def.tree]) VOIES[cls] = VOIES[def.tree].map((v, vi) => ({ ...v, id: p + v.id, ...(VOIE_NAMES[cls] ? { name: VOIE_NAMES[cls][vi][0], text: VOIE_NAMES[cls][vi][1] } : {}),
+    ...(VOIE_BLENDS[cls] && VOIE_BLENDS[cls][vi] ? { eff: blendEff(...VOIE_BLENDS[cls][vi]) } : {}) }));
 }
 
 /** Index id -> { talent, branch, cls } pour toutes les classes (branch : n° de branche, "voie" ou "mastery"). */

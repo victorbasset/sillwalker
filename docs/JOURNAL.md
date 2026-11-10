@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 429) : idée d (héros trop semblables) : les voies des 10 héros ajoutés ne sont plus des copies de
+  leurs modèles : chacune mêle à parts égales deux voies existantes choisies pour le thème (VOIE_BLENDS, talents.js :
+  cryomancienne cristal = critiques + frappe tous les 4 coups ; barde ballade = esquive + bouclier…). Identifiants
+  inchangés (sauvegardes intactes). La simulation n'apprend pas les voies (simulate.js ne prend que les branches) :
+  balance HEROES=all identique (+0,0), ce changement n'y est pas mesurable ; valeurs reprises de voies déjà
+  équilibrées. Thème clair des fenêtres de l'Aventure vérifié en capture. 119/119.
 - 2026-11-10 (it. 428) : les succès étaient recalculés en direct : le 10e événement (Voile protecteur) retirait
   « Chasseur d'événements » à qui l'avait (de même pour les collections quand des objets s'ajoutent). L'onglet
   Statistiques compte maintenant aussi les succès déjà obtenus (S.achievements, identifiants inconnus ignorés) :
@@ -1565,7 +1571,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   c. FAIT (it. 302 : 9 libellés d'effets réécrits ; it. 303 : partie neuve vérifiée, geste « équiper » expliqué).
      P2 Clarté : descriptions de talents / compétences avec les vrais nombres (pas de multiplicateur obscur),
      premier lancement guidé (bulles d'astuces) : vérifier sur une partie neuve que chaque mécanique est expliquée.
-  d. EN PARTIE (it. 301 : greffes de branches, héros distincts ; it. 333 : Nichée ; it. 335 : Malédiction).
+  d. FAIT (it. 301 : greffes de branches ; it. 333 : Nichée ; it. 335 : Malédiction ; it. 425 : Tenace ; it. 427 : Voile protecteur ; it. 429 : voies mêlées).
      P2 Profondeur et variété (répétitif = reproche n° 1 de Rusty's) : les 10 nouveaux héros ont des arbres de
      talents aux mêmes effets que leurs modèles (seuls les noms changent) : leur donner des effets propres ; plus
      d'événements de zone et de mécaniques de boss.
