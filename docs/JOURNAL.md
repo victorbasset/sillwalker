@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 514) : simulate.js PARTNER_SPELLS=1 (le compagnon a les rangs de sorts du héros : pire cas des
+  sorts du compagnon). 12 h, 3 graines : guerrier 59,3 → 60,3 ; mage 60 → 58,7 ; nécromancien 55 → 60 ; barde 60,3 →
+  60,7 (≈ +1,2 zone en moyenne) : effet modeste, moitié de puissance gardée. Noté dans CLAUDE.md. 125/125.
 - 2026-11-10 (it. 513) : le compagnon du duo lance aussi les sorts appris pour sa classe, à moitié de leur puissance
   (PARTNER_SPELL, spells.js ; recharges à part « p:id », premier lancer après 3/4 de recharge), l'animation part de
   sa position. Expliqué par un ⓘ dans Sorts et attaque (une phrase de plus faisait défiler de 6 px à 1280). Balance

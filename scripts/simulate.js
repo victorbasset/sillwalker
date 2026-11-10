@@ -54,6 +54,9 @@ function playerTurn() {
     const sp = classSpells(g.S.cls).filter((x) => recordZone(g.S) >= x.zone && spellRank(g.S, x.id) < SPELL_MAX).sort((a, b) => spellPrice(a, spellRank(g.S, a.id)) - spellPrice(b, spellRank(g.S, b.id)))[0];
     if (!sp || spellPrice(sp, spellRank(g.S, sp.id)) > g.S.gold * 0.1 || !g.learnSpell(sp.id)) break;
   }
+  // PARTNER_SPELLS=1 (it. 514) : le compagnon a les mêmes rangs de sorts que le héros (pire cas : un joueur qui a déjà
+  // monté les sorts de cet autre héros) ; mesure l'effet des sorts du compagnon (PARTNER_SPELL, spells.js).
+  if (process.env.PARTNER_SPELLS && g.S.partner) classSpells(g.S.partner).forEach((sp, i) => { const own = classSpells(g.S.cls)[i]; if (own) g.S.spells[sp.id] = spellRank(g.S, own.id); });
   g.autoEquip();
   g.sellUseless();
   // Forge à la main (comme un joueur, dès l'Enclume) toutes les 10 min : sans cela, le Maître de forge faisait un bond

@@ -63,6 +63,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
   `IDLE=1` : joueur totalement absent (repère it. 371 : guerrier record 12 → 15 en 12 h, le jeu avance sans action).
   `VOIE=0|1|none` : voie de talents prise dès qu'elle est permise (0 par défaut depuis l'it. 448 ; none = l'ancien comportement).
+  `PARTNER_SPELLS=1` : le compagnon a les mêmes rangs de sorts que le héros (pire cas des sorts du compagnon ; repère it. 514 :
+  ≈ +1 zone en 12 h, nécromancien +5).
   `SEED=<n>` devant la commande change la trajectoire aléatoire (graine 7 par défaut) : utile pour savoir si un
   écart vu sur une seule simulation est du hasard (lancer 5 graines).
 - Une seule simulation suit une trajectoire aléatoire fixe : pour juger un changement d'équilibrage,
