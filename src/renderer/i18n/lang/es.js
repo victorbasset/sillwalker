@@ -923,4 +923,5 @@ export default {
   2047: "El Rayo",
   2048: "Taller: Biblioteca (experiencia); constelación El Rayo (velocidad de ataque); misión «Golpear con clic».",
   2049: "Ordenar la bolsa: mejoras, luego rareza, luego nivel",
+  2050: "Ordenar la bolsa",
 };

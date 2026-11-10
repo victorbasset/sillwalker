@@ -821,6 +821,7 @@ export class Panel {
     }
     if ((k === "e" || k === "v" || k === "t") && !hasUnlock(this.game.S, k === "t" ? "transmute" : "bulkEquip")) return false;
     if (k === "e") { this.game.autoEquip(); this.selected = null; this.renderAll(); return true; }
+    if (k === "s") { this.game.sortBag(); this.renderAll(); return true; } // ranger le sac (comme le bouton ⇅)
     if (k === "t") { if (this.tab !== "adventure") this.setTab("adventure"); const b = $(this.root, '[data-action="transmute"]'); if (b && !b.disabled) this.onClick({ target: b }); return true; }
     if (k === "v") { const b = $(this.root, '[data-action="sellless"]'); if (this.tab !== "adventure") this.setTab("adventure"); this.onClick({ target: $(this.root, '[data-action="sellless"]') || b }); return true; }
     return false;

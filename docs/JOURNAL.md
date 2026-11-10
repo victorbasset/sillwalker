@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 413) : raccourci clavier S (panneau ouvert) : ranger le sac, comme le bouton ⇅ ; ajouté à la liste
+  des raccourcis (Réglages). Touche libre vérifiée. 1 texte × 9 langues, 116/116.
 - 2026-11-10 (it. 412, inventaire, étude des concurrents) : bouton ⇅ dans le titre du sac (un clic) : range les objets,
   améliorations (▲) d'abord, puis rareté et niveau décroissants (game.js > sortBag). Test, contrôle d'autotest, capture,
   sans défilement (fr / ru / de, 1366 / 1280), 1 texte × 9 langues. 116/116.

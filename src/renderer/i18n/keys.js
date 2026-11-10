@@ -2051,5 +2051,6 @@ export const KEYS = [
   "Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse).",
   "L’Éclair",
   "Atelier : Bibliothèque (expérience) ; constellation L’Éclair (vitesse d’attaque) ; quête « Frapper au clic ».",
-  "Ranger le sac : améliorations, puis rareté, puis niveau"
+  "Ranger le sac : améliorations, puis rareté, puis niveau",
+  "Ranger le sac"
 ];
