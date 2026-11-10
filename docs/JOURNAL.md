@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 589) : vérifications sans changement de code : (1) piste d « héros ajoutés trop semblables » :
+  déjà traitée (noms propres, greffes de branches, voies mêlées : talents.js) ; (2) cinématique de relique en
+  allemand à 1366 px : titre et phrases de l'histoire tiennent dans la bande, l'icône ne chevauche pas le texte.
 - 2026-11-10 (it. 588) : mode mini : la Couronne d'étoiles aussi sur le héros (le drone n'y tient pas : encart de
   64 px). Semaine simulée après les baisses du Barde et du Gardien : mage 251, guerrier 263, barde 251 (inchangé).
   132/132.
