@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 559) : capture de la ligne des sorts du compagnon (1920 et 1280) : lisible ; « + » abordable en
+  couleur d'accent. 130/130.
 - 2026-11-10 (it. 558) : Sorts et attaque : les sorts du compagnon (débloqués par la zone record) s'apprennent et
   s'améliorent depuis le héros actuel (« + » à côté de chaque icône, prix et effets en infobulle ; learnSpell accepte la
   classe du compagnon). Le Grimoire, lui, ne s'occupe que des sorts du héros. Test logique ; aucun défilement. 130/130.

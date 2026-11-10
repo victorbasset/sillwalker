@@ -1240,3 +1240,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Sorts du compagnon : « + » pour apprendre / améliorer (it. 558) */
 .pspells .pspell.off img { filter: grayscale(1); opacity: .5; }
 .pspells .pplus { padding: 0 5px; margin-left: 3px; font-size: 11px; line-height: 1.2; min-height: 0; }
+/* (it. 559) « + » abordable : couleur d'accent (on voit d'un coup d'œil ce qu'on peut acheter) */
+.pspells .pplus:not(:disabled) { color: var(--accent); border-color: var(--accent); }
