@@ -339,7 +339,7 @@ async function boot() {
   let lastStatus = null, statusT = 0;
   game.on("loot", ({ item }) => { if (item.r >= 2) api.sendStatus({ loot: item.r }); });
   function sendStatus(force) {
-    const S = game.S, st = { state: game.R.mode, lvl: S.lvl, zone: S.zone, best: recordZone(S), kills: Math.min(S.kills, 10), gold: fmt(S.gold), cls: game.classDef().name };
+    const S = game.S, st = { state: game.R.mode, lvl: S.lvl, zone: S.zone, best: recordZone(S), kills: Math.min(S.kills, 10), gold: fmt(S.gold), cls: game.classDef().name, eco: !!S.settings.eco };
     const now = Date.now();
     const same = lastStatus && Object.keys(st).every((k) => st[k] === lastStatus[k]);
     // Changement d'état (combat, K.O.) : tout de suite ; le reste : 1 fois/s max.
@@ -428,6 +428,8 @@ async function boot() {
     if (cmd === "toggle-panel") togglePanel();
     if (cmd === "open-panel") openPanel();
     if (cmd.startsWith("tab:")) { openPanel(); panel.setTab(cmd.slice(4)); }
+    // Menu de l'icône (clic droit) : « Économie d'énergie » sans ouvrir le panneau.
+    if (cmd === "eco:on" || cmd === "eco:off") { game.S.settings.eco = cmd === "eco:on"; applySettings(); panel.dirty = true; sendStatus(true); }
   });
 
   window.addEventListener("resize", () => {

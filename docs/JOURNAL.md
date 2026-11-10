@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 385, moins de clics) : « Économie d'énergie (15 images/s) » cochable dans le menu de l'icône de
+  notification (tray.js, case suivant status.eco envoyé par le jeu ; commande « eco:on / eco:off » → app.js). Libellé
+  en 10 langues (main/i18n.js, aligné sur le panneau). Contrôle d'autotest (commande puis retour). 114/114.
 - 2026-11-10 (it. 384) : consommation du mode mini avec le compagnon du duo (copie avec Guerrier + Rôdeur) : 6,2 % d'un
   cœur, identique à avant (perf:linux utilise dev-data, sans compagnon : la mesure standard ne le couvre pas).
 - 2026-11-10 (it. 383) : mode mini : le compagnon du duo y apparaît (petite échelle, au bord de l'encart, il marche

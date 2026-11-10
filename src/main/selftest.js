@@ -511,6 +511,13 @@ async function runSelfTest(strip) {
   // Carte Zone : la Malédiction indique sa parade (Talisman de pureté) une fois le pouvoir découvert.
   const par = await js("(() => { const g = window.__game, S = g.S, P = window.__panel, z = S.zone, seen = Object.assign({}, S.powersSeen); S.zone = 11; S.powersSeen = Object.assign({}, seen, { p_pure: true }); P.setTab('adventure'); P.renderAll(); const t = [...document.querySelectorAll('.bossmech b[title]')].map((b) => b.title).join(' | '); S.zone = z; S.powersSeen = seen; P.renderAll(); return t; })()");
   check("zone : la Malédiction indique sa parade", /Talisman/.test(par), par);
+  // Menu de l'icône : « Économie d'énergie » envoyé comme une commande, sans ouvrir le panneau.
+  const ecoBefore = await js("String(!!window.__game.S.settings.eco)");
+  strip.win.webContents.send("command", "eco:on"); await sleep(300);
+  const ecoOn = await js("String(window.__game.S.settings.eco)");
+  strip.win.webContents.send("command", ecoBefore === "true" ? "eco:on" : "eco:off"); await sleep(300);
+  const ecoBack = await js("String(!!window.__game.S.settings.eco)");
+  check("menu de l'icône : économie d'énergie activée par commande, puis rétablie", ecoOn === "true" && ecoBack === ecoBefore, ecoOn + " / " + ecoBack);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);

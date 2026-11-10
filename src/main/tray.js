@@ -111,6 +111,8 @@ function createTray({ strip, isDev, steam }) {
         click: () => { strip.setOpacity(v); build(); },
       })) },
       { type: "separator" },
+      { label: L("eco"), type: "checkbox", checked: !!status.eco,
+        click: (item) => { status = { ...status, eco: item.checked }; strip.send("command", item.checked ? "eco:on" : "eco:off"); build(); } },
       { label: L("fullscreen"), type: "checkbox", checked: settings.get("hideOnFullscreen") !== false,
         click: (item) => { settings.set("hideOnFullscreen", item.checked); if (!item.checked) strip.setFullscreenApp(false); build(); } },
       { label: L("login") + (isDev ? " (dev)" : ""), type: "checkbox", checked: openAtLogin,
