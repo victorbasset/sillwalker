@@ -225,6 +225,7 @@ export class Panel {
     if (v.asc) parts.push(`<b>${txn(v.asc, "{n} ascension|{n} ascensions")}</b>`);
     if (v.best) parts.push(`<b>${tx("record : zone {0}", { 0: v.best })}</b>`);
     if (v.leg) parts.push(`<b class="rc4">${txn(v.leg, "{n} légendaire|{n} légendaires")}</b>`);
+    if (v.spells) parts.push(txn(v.spells, "+{n} rang de sort|+{n} rangs de sorts")); // le Grimoire a travaillé
     return `<button class="visit" data-action="visit-ok" title="${esc(parts.join(" · ").replace(/<[^>]*>/g, "") + "\n" + tx("Cliquer pour masquer"))}"><small>${tx("Depuis ta dernière visite ({0})", { 0: dur })}</small> ${parts.join(" · ")}</button>`;
   }
 

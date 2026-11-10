@@ -2534,6 +2534,12 @@ test("Sorts uniques (demande Q) : 60 combinaisons différentes ; étourdi, poiso
   const full = hit(1), low = hit(0.3); assert.ok(Math.abs(low / full - 2) < 0.01, "×2 sous 40 % de vie");
 });
 
+test("depuis ta dernière visite : rangs de sorts gagnés (le Grimoire a travaillé)", () => {
+  const g = new Game(freshState()), t0 = 1e12; g.S.spells = { "warrior.0": 2 };
+  const snap = g.visitSnapshot(t0); g.S.spells["warrior.0"] = 5; g.S.stats.kills += 10;
+  assert.equal(g.visitSummary(snap, t0 + 10 * 60000).spells, 3);
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));

@@ -1813,7 +1813,8 @@ export class Game {
   /** Photo des compteurs à la fermeture du panneau (pour « Depuis ta dernière visite »). */
   visitSnapshot(now = Date.now()) {
     const st = this.S.stats;
-    return { t: now, gold: st.goldTotal || 0, kills: st.kills || 0, lvl: this.S.lvl, asc: this.S.prestige.count, leg: st.legendaries || 0, best: recordZone(this.S) };
+    return { t: now, gold: st.goldTotal || 0, kills: st.kills || 0, lvl: this.S.lvl, asc: this.S.prestige.count, leg: st.legendaries || 0, best: recordZone(this.S),
+      spells: Object.values(this.S.spells || {}).reduce((a, r) => a + (+r || 0), 0) }; // rangs de sorts (Grimoire, it. 557)
   }
 
   /**
@@ -1830,6 +1831,7 @@ export class Game {
       min, kills, gold: Math.max(0, now0.gold - snap.gold), leg: Math.max(0, now0.leg - snap.leg),
       lvl0: sameRun && now0.lvl > snap.lvl ? snap.lvl : 0, lvl1: now0.lvl,
       best: now0.best > snap.best ? now0.best : 0, asc: Math.max(0, now0.asc - snap.asc),
+      spells: Math.max(0, (now0.spells || 0) - (snap.spells || 0)),
     };
   }
 

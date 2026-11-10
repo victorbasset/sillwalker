@@ -1101,4 +1101,5 @@ export default {
   2225: "Cada héroe tiene hechizos únicos: aturdir, envenenar, robar vida, rematar a los heridos, relanzarse…",
   2226: "Los hechizos perforantes golpean al instante a los monstruos en espera, uno más cada 10 rangos.",
   2227: "Los efectos se ven en combate; tecla B o menú del icono: silenciar solo la música.",
+  2228: "+{n} rango de hechizo|+{n} rangos de hechizos",
 };

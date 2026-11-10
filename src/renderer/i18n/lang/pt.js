@@ -1101,4 +1101,5 @@ export default {
   2225: "Cada herói tem feitiços únicos: atordoar, envenenar, roubar vida, finalizar os feridos, relançar…",
   2226: "Os feitiços perfurantes atingem na hora os monstros que esperam, um a mais a cada 10 níveis.",
   2227: "Os efeitos aparecem em combate; tecla B ou menu do ícone: silenciar só a música.",
+  2228: "+{n} nível de feitiço|+{n} níveis de feitiços",
 };

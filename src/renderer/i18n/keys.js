@@ -2229,5 +2229,6 @@ export const KEYS = [
   "Critique !",
   "Chaque héros a des sorts uniques : étourdir, empoisonner, voler la vie, achever les blessés, se relancer…",
   "Les sorts perçants frappent tout de suite les monstres qui attendent, et un de plus tous les 10 rangs.",
-  "Les effets se voient en combat ; touche B ou menu de l’icône : couper la musique seule."
+  "Les effets se voient en combat ; touche B ou menu de l’icône : couper la musique seule.",
+  "+{n} rang de sort|+{n} rangs de sorts"
 ];

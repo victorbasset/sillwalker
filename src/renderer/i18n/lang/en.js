@@ -1101,4 +1101,5 @@ export default {
   2225: "Every hero has unique spells: stun, poison, life steal, finish off the wounded, recast…",
   2226: "Piercing spells hit the waiting monsters right away, one more every 10 ranks.",
   2227: "Effects show in combat; B key or the icon menu: mute the music only.",
+  2228: "+{n} spell rank|+{n} spell ranks",
 };

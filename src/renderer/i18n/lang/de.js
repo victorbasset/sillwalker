@@ -1101,4 +1101,5 @@ export default {
   2225: "Jeder Held hat einzigartige Zauber: betäuben, vergiften, Lebensraub, Verwundete erledigen, erneut wirken…",
   2226: "Durchbohrende Zauber treffen wartende Monster sofort, alle 10 Ränge eines mehr.",
   2227: "Effekte sind im Kampf sichtbar; Taste B oder Symbolmenü: nur die Musik stummschalten.",
+  2228: "+{n} Zauberrang|+{n} Zauberränge",
 };

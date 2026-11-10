@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 557) : capture : barre du boss percé (75 %, plafond) et d'un monstre de la file : visibles. « Depuis ta
+  dernière visite » : « +N rangs de sorts » quand le Grimoire a travaillé pendant l'absence. Traduit (3 pluriels) ; test
+  logique. 130/130.
 - 2026-11-10 (it. 556) : perçage : le boss, au bout de la file, est touché aussi (R.bossPierced, appliqué à son arrivée,
   plafonné à un quart de sa vie, remis à zéro à chaque nouvelle série) ; sa barre entamée s'affiche. Test logique ;
   balance -0,2 ; fuzz 800 ok. 130/130.
