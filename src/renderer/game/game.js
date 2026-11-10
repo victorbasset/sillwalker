@@ -1798,9 +1798,12 @@ export class Game {
       // Ascension (demande de Victor) : le tri du marchand repart décoché ; au début d'une course, les objets
       // communs ou rares sont de vrais progrès qu'il serait dommage de vendre d'office.
       autoSell: Object.fromEntries(Object.keys(old.autoSell || {}).map((k) => [k, false])), autoAdvance: old.autoAdvance,
+      // Commodités sans risque, gardées (sinon à recocher à chaque course) : rachat des potions.
+      autoPotions: !!old.autoPotions,
       stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, journey: old.journey || [], story: old.story || { intro: true, read: {} }, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
     });
     // Duo : le compagnon prévu (ou l'actuel) suit, s'il reste de l'autre portée que le héros principal.
+    f.quests.auto = !!(old.quests && old.quests.auto); // Bureau des contrats : la réclamation automatique reste cochée
     const pick = old.nextPartner || old.partner;
     f.partner = pick && canPartner(f, f.cls, pick) ? pick : null;
     const eff = prestigeEffects(f);

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 456, suite de la demande sur l'ascension) : revue de ce que l'ascension garde : à l'inverse du tri du
+  marchand, deux commodités sans risque repartaient décochées à chaque course alors que leurs déblocages sont gardés :
+  rachat automatique des potions (S.autoPotions) et réclamation automatique des quêtes (quests.auto, Bureau des
+  contrats). Gardées. Le creuset (settings.autoTransmute) l'était déjà. Test logique ; la simulation ne les utilise
+  pas. 122/122.
 - 2026-11-10 (it. 455, demande de Victor : « quand on fait une ascension il faudrait que ça décoche les vendre dès qu'ils
   tombent ») : à l'ascension, le tri du marchand (S.autoSell) repart avec toutes les raretés décochées (le déblocage
   reste acheté) ; une ligne au journal le dit s'il y avait des cases cochées. Traduit ; test logique ; la simulation

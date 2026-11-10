@@ -333,12 +333,13 @@ test("ascension : éclats, conservation, constellations", () => {
   g.S.best = g.S.zone = ASCEND_MIN_ZONE + 6; g.S.lvl = 45; g.S.gold = 1e6;
   g.gainEgg(); g.hatchEgg();
   g.S.bestiary.slime = 500;
-  g.S.unlocks.autoSell = true; g.S.autoSell = { common: true, uncommon: true, rare: false };
+  g.S.unlocks.autoSell = true; g.S.autoSell = { common: true, uncommon: true, rare: false }; g.S.autoPotions = true; g.S.quests.auto = true;
   const shards = g.ascendShards();
   assert.ok(shards > 0);
   assert.ok(g.ascend());
   assert.deepEqual(g.S.autoSell, { common: false, uncommon: false, rare: false }, "tri du marchand décoché à l'ascension (demande de Victor)");
   assert.ok(g.S.unlocks.autoSell, "le déblocage, lui, est gardé");
+  assert.ok(g.S.autoPotions && g.S.quests.auto, "rachat des potions et réclamation des quêtes gardés");
   assert.equal(g.S.lvl, 1);
   assert.equal(g.S.gold, 0);
   assert.equal(g.S.prestige.shards, shards);
