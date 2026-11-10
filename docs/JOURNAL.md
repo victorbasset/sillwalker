@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 381) : Statistiques > Probabilités : « Événements rares (vus / total) » et infobulle avec ✓ devant
+  les événements déjà vus (S.stats.eventsSeen) : on sait lesquels manquent au « Chasseur d'événements ». 113/113.
 - 2026-11-10 (it. 380, revue générale) : simulations 12 h : berserker 62, lancier 61, assassin 52 (bruit : 59 dans
   balance.mjs) ; balance.mjs contre it. 370 : +0,0 zone ; crawl 302 clics sans erreur ; russe : aucun mot latin
   suspect ; save-fuzz ok ; perf : bande 19,4 %, panneau 21,9 %, mini 6,2 %, icône 3,0 % (stables).

@@ -100,8 +100,10 @@ export class StatsTab {
         ${line(tx("Étoile filante (+2 % de vitesse)"), `${tx("toutes les {0}–{1} min", { 0: STAR.minS / 60, 1: STAR.maxS / 60 })}`)}
         ${line(tx("Coffre au trésor"), `${pct(CHEST.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(CHEST.elite), 1: pct(CHEST.boss) })}`)}
         ${(() => { // les événements en une ligne (sinon la liste fait défiler l'onglet) : le détail au survol
-          const ev = Object.values(EVENTS), cs = ev.map((e) => e.chance);
-          return `<li title="${esc(ev.map((e) => `${e.name} : ${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${esc(tx("Événements rares"))} (${ev.length}) <span class="note help">ⓘ</span></span><b>${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}</b></li>`; })()}
+          // ✓ : déjà vu (succès « Chasseur d'événements ») ; (vus / total)
+          const ent = Object.entries(EVENTS), ev = ent.map(([, e]) => e), cs = ev.map((e) => e.chance), seen = st.eventsSeen || {};
+          const nSeen = ent.filter(([id]) => seen[id]).length;
+          return `<li title="${esc(ent.map(([id, e]) => `${seen[id] ? "✓" : "·"} ${e.name} : ${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span></span><b>${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}</b></li>`; })()}
         ${line(tx("Gobelin doré"), pct(GOBLIN.chance) + tx(" par monstre"))}
         ${line(tx("Élite"), pct(ELITE.chance) + tx(" par monstre"))}
         ${line(tx("Champion (butin épique, dès la zone {0})", { 0: CHAMPION.minZone }), pct(CHAMPION.chance) + tx(" par monstre"))}
