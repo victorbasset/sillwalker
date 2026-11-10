@@ -1,4 +1,5 @@
 // Formules d'équilibrage. Fonctions pures : (état, paramètres) -> valeurs.
+import { RELIC_POWER } from "./relics.js";
 import {
   RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, ITEM_BASES, ITEM_SUFFIXES, ZONES, MONSTERS, ELITE, DYES, materialFor,
   WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, CHAMPION,
@@ -150,6 +151,11 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
     iai: v("iai"), elites: v("elites"), purity: Math.min(100, v("purity")), moveSpd: v("moveSpd") + (S.speed || 0),
     duo: pd ? DUO.atk * (pd.mul.atk || 1) : 0, // dégâts du compagnon (% de l'attaque par seconde)
   });
+  // Reliques (demande S, relics.js) : Lame du crépuscule ×4 attaque ; Couronne d'étoiles ×3 attaque et PV, or ×2.
+  const rel = S.relics || {};
+  // (it. 571 : réglées pour ≈ 10-15 zones faciles chacune ; à ×4 / ×3 la semaine simulée bondissait de 186 à 290)
+  if (rel.blade) s.atk *= RELIC_POWER.blade;
+  if (rel.crown) { s.atk *= RELIC_POWER.crown; s.hp *= RELIC_POWER.crown; s.gold = (s.gold + 100) * RELIC_POWER.crownGold - 100; }
   return s;
 }
 

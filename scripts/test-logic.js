@@ -8,6 +8,7 @@ import { createRequire } from "node:module";
 import * as M_news_js from "../src/renderer/game/news.js";
 import * as M_spells_js from "../src/renderer/game/spells.js";
 import { SPELL_INDEX as SPELL_INDEX_T, spellCd, pierceTargets } from "../src/renderer/game/spells.js";
+import { hasRelic as hasRelic_T } from "../src/renderer/game/relics.js";
 import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
@@ -2555,6 +2556,27 @@ test("Hors ligne (it. 568) : les sorts de dégâts appris comptent dans l'estima
   assert.equal(a.spellDps(a.stats()), 0); assert.ok(b.spellDps(b.stats()) > 0, "Fracas du titan : des dégâts par seconde");
   const ka = a.applyOffline(3600), kb = b.applyOffline(3600);
   assert.ok(ka && kb && kb.kills > ka.kills, "plus de victoires hors ligne avec un sort puissant");
+});
+
+test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagnée, effets, gardée à l'ascension", () => {
+  const g = new Game(freshState()); g.setClass("warrior"); g.S.best = g.S.zone = 50; g.S.kills = 10;
+  const m = g.makeMonster(true);
+  assert.equal(m.relic, "drone", "le boss de la zone 50 porte le Drone stellaire");
+  const plain = (() => { const h = new Game(freshState()); h.S.zone = 49; return h.makeMonster(true); })();
+  assert.ok(!plain.relic, "zone 49 : boss ordinaire");
+  g.R.mon = m; m.hp = 0; g.R.mode = "fight"; g.killMonster();
+  const hp0 = g.stats().hp, atk0 = g.stats().atk; // (après la victoire : elle fait gagner des niveaux)
+  assert.ok(hasRelic_T(g.S, "drone"), "relique gagnée");
+  // Drone : un missile toutes les 1,5 s, 4 % des PV max d'un monstre ordinaire
+  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e6; g.R.mode = "fight"; g.R.droneT = 0.01; g.R.hp = 1e12;
+  let shots = 0; g.on("droneShot", () => shots++); g.step(0.05);
+  assert.ok(shots === 1 && g.R.mon.hp < 1e6 * 0.99, "missile du drone (1,5 % des PV max)");
+  // Lame du crépuscule ×4 attaque ; Couronne ×3 attaque et PV
+  g.S.relics.blade = 1; g.invalidateStats(); assert.ok(Math.abs(g.stats().atk / atk0 - 2.5) < 1e-6, "attaque ×2,5");
+  g.S.relics.crown = 1; g.invalidateStats(); assert.ok(Math.abs(g.stats().hp / hp0 - 2) < 1e-6, "PV ×2");
+  // gardées à l'ascension ; une relique inconnue d'une autre version est retirée
+  g.S.best = g.S.zone = 60; assert.ok(g.ascend()); assert.ok(hasRelic_T(g.S, "drone") && hasRelic_T(g.S, "crown"), "gardées à l'ascension");
+  const sv = JSON.parse(JSON.stringify(g.S)); sv.relics.inconnue = 1; assert.ok(!migrate(sv).relics.inconnue, "relique inconnue retirée");
 });
 
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {

@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 571, demande S, 1re partie : moteur) : game/relics.js : boss majeurs (zone 50 Le Geôlier mécanique,
+  100 La Reine des cendres, 150 Le Chevalier de l'éclipse ; PV ×2 à ×2,4, attaque ×1,15-1,2, capacités propres) et
+  quatre reliques gagnées en les battant (le Briseur d'Étoiles donne la 4e), gardées pour toujours (S.relics, migrate
+  filtre les ids inconnus, gardées à l'ascension) : Drone stellaire (missile toutes les 1,5 s : 1,5 % des PV, 0,4 %
+  boss, + 300 % de l'attaque), Cœur de l'aube (dégâts subis −45 %, 1 % PV/s), Lame du crépuscule (attaque ×2,5),
+  Couronne d'étoiles (attaque et PV ×2, or +50 %). Histoire de chaque relique. Réglage : à 4 % / ×4 / ×3 la semaine
+  simulée bondissait de 186 à ≈ 290 ; réglée : mage 251, guerrier 263 (≈ 15-20 zones par relique). Traduit (19
+  textes, noms du Briseur et du Rebord alignés). Test logique ; fuzz 600 ok ; save-fuzz ok. 130/130.
+  RESTE (prochaines itérations) : relique visible sur le boss, drone qui suit le héros et tire, effets des autres
+  reliques, carte (boss majeurs comme le Briseur), chroniques, fenêtre de relique obtenue, « Quoi de neuf ».
 - 2026-11-10 (it. 570, revue générale) : balance 12 h des 20 héros +0,4 ; gardienne des étoiles ≈ 66 sur 4 graines (était
   62,5 à l'it. 490) : Étoile filante perçage 0,6 + ralentissement (au lieu du critique), Chute d'étoile brûlure 0,6 ;
   toujours ≈ 66 (63-69) : écart dû au cumul (compagnon, Grimoire…), À SURVEILLER. Fuzz 1200 ok ; crawl fr / es 321 sans

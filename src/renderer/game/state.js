@@ -1,5 +1,6 @@
 // Format de la sauvegarde + migrations. Toute nouvelle donnée persistante
 // doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
+import { RELICS } from "./relics.js";
 import { SLOT_KEYS, LEGENDARY, BAG_SIZE, RARITIES } from "./data.js";
 import { CLASSES, CLASS_UNLOCK_ZONE, canPartner } from "./classes.js";
 import { codexRecord } from "./codex.js";
@@ -23,6 +24,7 @@ export function freshState(now = Date.now()) {
     autoAdvance: true,
     autoSell: { common: false, uncommon: false, rare: false },
     spells: {},         // sorts appris (game/spells.js) : id -> rang, gardés à l'ascension
+    relics: {},         // reliques des boss majeurs (game/relics.js) : id -> date d'obtention, gardées pour toujours
     autoPotions: false, // rachète des potions automatiquement sous AUTO_POTIONS
     last: now,
     nextId: 1,
@@ -218,6 +220,8 @@ export function migrate(raw) {
   s.settings.zoneAmbience = s.settings.zoneAmbience !== false;
   // Sorts : rangs entiers de 1 à SPELL_MAX ; un sort inconnu (autre version) ou un rang illisible est retiré.
   s.spells = Object.fromEntries(Object.entries(isObj(s.spells) ? s.spells : {}).filter(([k, v]) => SPELL_INDEX[k] && Number.isFinite(+v) && +v >= 1).map(([k, v]) => [k, Math.min(SPELL_MAX, Math.floor(+v))]));
+  // Reliques (relics.js) : ids connus seulement (une autre version peut en avoir d'autres)
+  s.relics = Object.fromEntries(Object.entries(isObj(s.relics) ? s.relics : {}).filter(([k, v]) => RELICS[k] && v));
   s.settings.autoStars = s.settings.autoStars !== false;
   s.settings.autoSpells = s.settings.autoSpells !== false; // Grimoire des sorts : actif une fois acheté, sauf refus // Carte du ciel : active une fois achetée, sauf refus
   // Volumes propres de la musique et de l'ambiance (0 à 200 % du réglage d'origine)
