@@ -62,7 +62,7 @@ export class Sound {
   /** Limite : au plus un son de ce type toutes les `ms` millisecondes. */
   throttle(id, ms) {
     const now = performance.now();
-    if (now - (this.last[id] || 0) < ms) return false;
+    if (id in this.last && now - this.last[id] < ms) return false; // jamais joué : toujours permis (même juste après le lancement)
     this.last[id] = now;
     return true;
   }
@@ -366,6 +366,22 @@ export class Sound {
     // il reste quand aucune pièce n'est animée (mode mini, effets réduits, bande cachée).
     game.on("kill", ({ mon }) => { if (performance.now() - (this.inT || 0) > 3000) this.coin(mon.boss ? 5 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); });
     game.on("coinIn", ({ big }) => this.coinIn(big));
+    // Moments qui n'avaient pas de son (suite de la demande C) ; les plus fréquents sont limités dans le temps.
+    const on = (ev, ms, fn) => game.on(ev, (p) => { if (this.enabled && this.ensure() && this.throttle("ev-" + ev, ms)) fn(p); });
+    const N = NOTES;
+    on("dodge", 400, () => this.whoosh(0, 0.18, 900, 2600, 0.25, 1.5)); // esquive : souffle bref qui monte
+    on("bossDodge", 400, () => this.whoosh(0, 0.18, 2200, 800, 0.2, 1.5)); // le boss esquive : souffle qui descend
+    on("riposte", 300, () => { this.tone(2900, 0, 0.05, "square", 0.04); this.tone(1900, 0.02, 0.12, "triangle", 0.08, 0.9); }); // parade : clac métallique
+    on("telegraph", 500, () => { this.tone(N.A5, 0, 0.07, "square", 0.07); this.tone(N.A5, 0.12, 0.07, "square", 0.07); }); // le boss prépare un coup : deux bips
+    on("potion", 800, () => { for (let i = 0; i < 3; i++) this.tone(320 + i * 90, i * 0.08, 0.07, "sine", 0.12, 1.8); }); // potion : glouglou qui monte
+    on("secondWind", 1000, () => { this.tone(60, 0, 0.12, "sine", 0.3); this.tone(60, 0.22, 0.12, "sine", 0.3); [N.C5, N.G5, N.C6].forEach((f, i) => this.tone(f, 0.45 + i * 0.07, 0.25, "triangle", 0.1)); }); // cœur qui bat, puis élan
+    on("respawn", 1000, () => [N.C5, N.E5, N.G5].forEach((f, i) => this.tone(f, i * 0.09, 0.2, "sine", 0.09))); // le héros se relève
+    on("egg", 1000, () => { this.noise(0, 0.03, 0.12, 3000, 2); this.noise(0.08, 0.03, 0.1, 3400, 2); [N.E6, N.G6].forEach((f, i) => this.tone(f, 0.18 + i * 0.08, 0.18, "sine", 0.1)); }); // coquille, puis surprise
+    on("shardDrop", 300, () => { this.tone(N.E6 * 1.5, 0, 0.35, "sine", 0.07); this.tone(N.E6 * 2.25, 0.05, 0.3, "sine", 0.03); }); // éclat d'étoile
+    on("petLevel", 1000, () => [N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, i * 0.06, 0.12, "triangle", 0.12))); // le familier grandit
+    on("transmute", 600, () => { this.whoosh(0, 0.5, 600, 3000, 0.15, 3); [N.C6, N.E6, N.G6].forEach((f, i) => this.tone(f, 0.35 + i * 0.05, 0.2, "sine", 0.07)); }); // tourbillon magique
+    on("daily", 3000, () => [N.C5, N.E5, N.G5, N.C6, N.G5, N.C6].forEach((f, i) => this.tone(f, i * 0.08, 0.16, "triangle", 0.12))); // récompense du jour
+    on("flee", 1000, () => [N.G5, N.E5, N.C5].forEach((f, i) => this.tone(f * 1.2, i * 0.07, 0.1, "square", 0.05))); // le gobelin s'échappe : petite moquerie qui descend
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
     game.on("levelUp", () => this.play("level"));
     game.on("unlock", () => this.play("chest"));

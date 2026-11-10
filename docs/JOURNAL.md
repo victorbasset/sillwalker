@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 442, suite de la demande C) : 13 moments muets ont un son, limités dans le temps : esquive (souffle
+  qui monte), esquive du boss (qui descend), riposte (clac métallique), coup annoncé du boss (deux bips), potion
+  (glouglou), second souffle (cœur qui bat, puis élan), retour au combat, œuf (coquille, puis surprise), éclat
+  d'étoile, familier qui grandit, transmutation (tourbillon), récompense du jour, gobelin qui s'enfuit. Laissés muets
+  (trop fréquents) : bouclier, vente, serviteur. Correctif : throttle bloquait un son jamais joué pendant les premières
+  secondes après le lancement (comparaison au temps 0). Rendu hors ligne : 0,005-0,029, aucun NaN. 120/120.
 - 2026-11-10 (it. 441) : volumes séparés pour régler la refonte du son à l'oreille (Victor écoute en ce moment) :
   curseurs « Ambiance » (sous la case Ambiance des zones) et « Musique » (sous Musique de fond), 0 à 200 % du niveau
   d'origine ; « Volume » devient « Volume général ». settings.musicVol / ambVol (migrate : borné 0-2, illisible → 1) ;
