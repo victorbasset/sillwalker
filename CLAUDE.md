@@ -90,6 +90,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   là s'il le faut, et le tester à part.
 - Performance (`--perf`) : toujours mesurer sur une copie NEUVE de dev-data à chaque essai (une copie réutilisée a avancé :
   autre zone, autre combat, la comparaison ne vaut rien). Les sorts coûtent ≈ +3 points d'un cœur en rendu logiciel (it. 479).
+  Répartition de la bande (it. 567, 20,2 %) : son + musique + ambiance ≈ 3,5 points (le moteur audio actif et la musique ≈ 1,7 ;
+  ambiance seule et effets sonores seuls : dans le bruit), « Effets complets » ≈ 2,8, météo + jour/nuit ≈ 1,1.
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de
   render/sound.js et signale erreur, NaN ou saturation (pic > 0,2 ; les effets font ≈ 0,02) : ajouter tout nouveau son
   à sa liste (selftest.js, « son : tous les sons ») ; pour comparer des volumes, même méthode dans une injection TEMP.

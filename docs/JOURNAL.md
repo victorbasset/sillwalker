@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 567) : répartition du coût de la bande (copies neuves) : base 20,2 % ; sans son/musique/ambiance 16,8 ;
+  sans Effets complets 17,5 ; sans météo et jour/nuit 19,1 ; sans ambiance seule 20,2 ; sans effets sonores seuls 19,7.
+  Pas de gain facile sans retirer une fonction (les plus gros postes sont déjà des options). Noté dans CLAUDE.md.
 - 2026-11-10 (it. 566) : « Quoi de neuf », édition 11 (sorts du compagnon et Grimoire, perçage du boss, badges et
   infobulles des sorts). Traduit ; aucun défilement (ru, de, pl). 130/130.
 - 2026-11-10 (it. 565) : « À faire » : « Sort du compagnon à apprendre : X » (débloqué, abordable, pas encore appris ;
