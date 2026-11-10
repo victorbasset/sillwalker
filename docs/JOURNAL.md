@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 540, revue générale) : balance 12 h identique (60,4) ; semaine mage 191 ; fuzz 1200, 0 bloquée ;
+  crawl pl 315 et ko 320 sans erreur ; russe ok ; save-fuzz ok ; perf (musique active) : bande 20,1 %, panneau 21,3 %,
+  mini 6,7 %, icône 0,6 % ; mémoire stable (≈ 795 Mo).
 - 2026-11-10 (it. 539) : revue en capture en allemand à 1280 (Boutique, Familiers, Quêtes) : seul défaut, « Eisenbeschlagene
   Truhe » plus large que sa carte ; cartes de boutique : coupure des mots longs (overflow-wrap, hyphens). La barre des
   Familiers déborde à dessein (rangée défilante, fondu au bord : vérifié actif). Aucun défilement. 127/127.
