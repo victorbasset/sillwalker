@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 520, revue générale + demande N de Victor) : revue : balance 12 h -0,3 (bruit) ; semaine mage 191
+  (repère 182 : la Marée arcanique et les paliers aident un peu ; progression régulière) ; fuzz 1200, 0 bloquée ; crawl
+  fr 313 et ko 318 sans erreur ; russe ok ; save-fuzz ok ; perf : bande 19,3 %, panneau 21,0 %, mini 6,1 %, icône 0,5 %.
+  Musique (demande N : « un mélange de Terraria et de Lofi Girl, qui change de zone en zone ») : tempo 68-90, swing des
+  contretemps, accords de septième au piano électrique (epiano, façon Rhodes, trémolo lent), grilles jazzy (ii-V-I…),
+  percussions boom-bap feutrées (lofi, lofi2), passe-bas 2,6 kHz sur toute la musique, craquements de vinyle ; la
+  mélodie garde un timbre par décor (flûte en forêt, cloche dans la glace…), plus aérée. Intermèdes et silences gardés.
+  Autotest : rendu hors ligne de chaque timbre et des rythmes (pas de saturation). Mémoire stable (≈ 795 Mo, musique
+  active). À ÉCOUTER par Victor.
 - 2026-11-10 (it. 519) : README à jour : liste des quêtes (coups au clic, critiques, sorts lancés), Marée arcanique
   parmi les événements, sorts du compagnon dans la description du duo. 125/125.
 - 2026-11-10 (it. 518) : vérifié : les succès obtenus restent (S.achievements, earnedAchievements) même quand un ajout
@@ -1814,6 +1823,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi) :
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
+  N. FAIT (it. 520, à écouter). Musique lofi façon Terraria, différente de zone en zone.
   M. FAIT (it. 499). Les icônes des onglets (barre du haut) disparaissent quand il y en a trop : les garder.
 
 - DEMANDES DE VICTOR (2026-11-10, midi), à traiter en premier, dans cet ordre :

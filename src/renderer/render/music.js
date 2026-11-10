@@ -5,8 +5,10 @@
 import { ZONES } from "../game/data.js";
 
 const MAJOR = [0, 2, 4, 5, 7, 9, 11], MINOR = [0, 2, 3, 5, 7, 8, 10];
-const PROG_MAJOR = [[0, 5, 3, 4], [0, 3, 4, 0], [0, 4, 5, 3], [3, 4, 0, 0]];   // I-vi-IV-V…
-const PROG_MINOR = [[0, 5, 2, 6], [0, 3, 4, 0], [0, 6, 5, 4], [0, 5, 6, 4]];   // i-VI-III-VII…
+// Grilles (it. 520, demande de Victor : « un mélange de Terraria et de Lofi Girl ») : enchaînements jazzy (ii-V-I,
+// I-vi-ii-V…) joués en accords de septième par un piano électrique doux.
+const PROG_MAJOR = [[0, 5, 3, 4], [1, 4, 0, 0], [0, 5, 1, 4], [3, 2, 1, 0], [0, 3, 2, 5], [3, 4, 2, 5]];
+const PROG_MINOR = [[0, 5, 2, 6], [0, 3, 6, 2], [0, 6, 5, 4], [3, 6, 2, 5], [0, 3, 4, 0], [5, 4, 0, 0]];
 const STEPS = 64; // 8 mesures de 8 croches (forme A A B A)
 
 /** Générateur pseudo-aléatoire à graine (même zone = même air). */
@@ -25,9 +27,11 @@ export function songFor(zone, pass = 0) {
   const r = rng(z * 7919 + 13), rBase = r;
   const minor = light(def.sky[0]) < 0.4 || /crypt|abyss|néant|volcan|ossuaire|bastion|maudit|corrompu/i.test(def.name);
   const scale = minor ? MINOR : MAJOR;
-  const progA = (minor ? PROG_MINOR : PROG_MAJOR)[Math.floor(r() * 4)], progB = (minor ? PROG_MINOR : PROG_MAJOR)[Math.floor(r() * 4)];
+  const PR = minor ? PROG_MINOR : PROG_MAJOR;
+  const progA = PR[Math.floor(r() * PR.length)], progB = PR[Math.floor(r() * PR.length)];
   const root = 57 + Math.floor(r() * 7) + (loop % 3) - 1; // un peu plus aigu d'une boucle des décors à l'autre
-  const bpm = Math.round((minor ? 84 : 100) + r() * 26 + loop * 2);
+  // Lofi : tempo posé (68 à 90), un peu plus lent dans les zones sombres.
+  const bpm = Math.min(92, Math.round((minor ? 68 : 74) + r() * 14 + loop));
   const deg = (d) => root + 12 * Math.floor(d / 7) + scale[((d % 7) + 7) % 7];
   // Un motif de 2 mesures (16 croches) : note de l'accord sur les temps forts, petits pas entre les deux.
   const phrase = (prog, start, r = rBase) => {
@@ -35,7 +39,7 @@ export function songFor(zone, pass = 0) {
     let d = 7 + prog[0];
     for (let s = 0; s < 16; s++) {
       if (s % 8 === 0) { d = Math.min(13, 7 + prog[Math.floor(s / 8) + start] + [0, 2, 4][Math.floor(r() * 3)]); out.push({ step: s, midi: deg(d), len: 2 }); s++; continue; }
-      if (r() < 0.35) continue; // silence
+      if (r() < 0.5) continue; // silence : une mélodie qui respire (lofi)
       d = Math.max(5, Math.min(13, d + [-2, -1, -1, 1, 1, 2, 0][Math.floor(r() * 7)]));
       out.push({ step: s, midi: deg(d), len: r() < 0.25 ? 2 : 1 });
     }
@@ -53,32 +57,38 @@ export function songFor(zone, pass = 0) {
   const mood = /forêt|jungle|verger|bois|champignon/.test(n) ? "wood" : /toundra|glac|neige|cristal|givr/.test(n) ? "ice"
     : /volcan|lave|forge|abysses ardents|cœur/.test(n) ? "fire" : /crypt|ossuaire|égout|grotte|maudit|néant|bastion|mines/.test(n) ? "dark"
     : /récif|lagon|cité engloutie|côte|marais/.test(n) ? "sea" : /ruines célestes|nid|tempête|pic/.test(n) ? "sky" : "any";
-  const LEADS = { wood: ["flute", "pluck", "pulse25", "whistle"], ice: ["bell", "marimba", "flute", "pulse12"], fire: ["brass", "strings", "pulse50", "pulse25"],
-    dark: ["organ", "bell", "strings", "pulse12"], sea: ["marimba", "flute", "pluck", "bell"], sky: ["whistle", "bell", "pulse25", "flute"],
-    any: ["pulse12", "pulse25", "pulse50", "flute", "pluck", "bell", "organ", "brass", "marimba", "strings", "whistle"] };
+  // Timbre de la mélodie selon le décor (la couleur « Terraria » de chaque zone) ; les ondes carrées restent rares et douces.
+  const LEADS = { wood: ["flute", "pluck", "marimba", "whistle"], ice: ["bell", "marimba", "flute", "epiano"], fire: ["strings", "pluck", "pulse25", "epiano"],
+    dark: ["bell", "strings", "epiano", "pulse12"], sea: ["marimba", "flute", "pluck", "bell"], sky: ["whistle", "bell", "flute", "pulse12"],
+    any: ["pulse12", "pulse25", "flute", "pluck", "bell", "marimba", "strings", "whistle", "epiano"] };
   const lead = r() < 0.75 ? pickOf(LEADS[mood]) : pickOf(LEADS.any);
-  const bassInst = pickOf(mood === "dark" || mood === "fire" ? ["pulsebass", "sub", "triangle"] : ["triangle", "sub", "pluckbass", "pulsebass"]);
-  const drums = pickOf(minor ? ["march", "heavy", "soft", "none"] : ["shuffle", "march", "soft", "shaker", "none"]);
+  const bassInst = pickOf(mood === "dark" || mood === "fire" ? ["sub", "sub", "triangle", "pulsebass"] : ["sub", "triangle", "pluckbass"]);
+  // Percussions lofi (boom-bap feutré) le plus souvent ; parfois juste un shaker ou rien.
+  const drums = pickOf(["lofi", "lofi", "lofi2", "lofi2", "shaker", "soft", "none"]);
+  // Accords de septième au piano électrique, une fois par mesure, parfois relancés à contretemps.
+  const resync = r() < 0.5, chords = [];
+  prog8.forEach((c, bar) => { const ch = [0, 2, 4, 6].map((k) => deg(c + k)); chords.push({ step: bar * 8, notes: ch, len: resync ? 5 : 7 }); if (resync) chords.push({ step: bar * 8 + 5, notes: ch, len: 3 }); });
+  const swing = 0.16 + r() * 0.12; // retard des croches à contretemps (balancement lofi)
   // Voix d'accompagnement : arpège des accords ou tierce sous la mélodie (pas les deux).
-  const extra = r(), arp = extra < 0.4 ? pickOf(["pluck", "bell", "pulse12", "marimba"]) : null, harm = extra >= 0.4 && extra < 0.7;
+  const extra = r(), arp = extra < 0.3 ? pickOf(["pluck", "bell", "marimba"]) : null, harm = extra >= 0.3 && extra < 0.45;
   const arps = [];
   if (arp) prog8.forEach((c, bar) => { for (let k = 0; k < 4; k++) arps.push({ step: bar * 8 + k * 2, midi: deg(c + [0, 2, 4, 7][k]) + 12, len: 1 }); });
-  const song = { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm };
+  const song = { bpm, notes, bass, hat: drums !== "none", lead, bassInst, drums, arp, arps, harm, chords, swing, vinyl: true };
   if (!(pass > 0)) return song;
   // Passages suivants (demande C de Victor : « moins répétitives ») : le motif A reste (on reconnaît la zone), le
   // reste varie à chaque passage ; un intermède calme tous les 4 passages, un silence tous les 8 pour respirer.
   // Tirage à part (graine zone + passage) : le passage 0 reste exactement l'air d'avant.
   const r2 = rng(z * 7919 + 13 + pass * 104729), pick2 = (list) => list[Math.floor(r2() * list.length)];
-  if (pass % 8 === 7) return { ...song, notes: [], bass: [], arps: [], arp: null, drums: "none", hat: false, harm: false, rest: true };
+  if (pass % 8 === 7) return { ...song, notes: [], bass: [], arps: [], chords: [], arp: null, drums: "none", hat: false, harm: false, rest: true };
   if (pass % 4 === 3) { // intermède : basse tenue et quelques notes de cloche sur les temps forts, sans percussions
     const calm = notes.filter((nt) => nt.step % 8 === 0).map((nt) => ({ ...nt, len: 4 }));
-    return { ...song, notes: calm, lead: pick2(["bell", "marimba", "flute"]), drums: "none", hat: false, harm: false, arp: null, arps: [], calm: true };
+    return { ...song, notes: calm, lead: pick2(["bell", "marimba", "flute", "epiano"]), drums: "none", hat: false, harm: false, arp: null, arps: [], calm: true };
   }
   const B2 = phrase(progB, 0, r2), A3 = phrase(progA, 2, r2), A4 = phrase(progA, 0, r2);
   let vnotes = [...at(A, 0), ...at(r2() < 0.5 ? A : A4, 16), ...at(B2, 32), ...at(A3, 48)];
   const lead2 = r2() < 0.5 ? lead : pick2(LEADS[mood]);
   if (r2() < 0.3 && lead2 !== "whistle") vnotes = vnotes.map((nt) => ({ ...nt, midi: nt.midi + 12 })); // une octave plus haut
-  const drums2 = r2() < 0.6 ? drums : pick2(minor ? ["march", "heavy", "soft", "none"] : ["shuffle", "march", "soft", "shaker", "none"]);
+  const drums2 = r2() < 0.6 ? drums : pick2(["lofi", "lofi2", "shaker", "soft"]);
   return { ...song, notes: vnotes, lead: lead2, drums: drums2, hat: drums2 !== "none", harm: r2() < 0.3 ? !harm : harm };
 }
 
@@ -122,15 +132,17 @@ export class Music {
     if (old) { old.gain.gain.cancelScheduledValues(t); old.gain.gain.setValueAtTime(old.gain.gain.value, t); old.gain.gain.linearRampToValueAtTime(0, t + 2.5); old.dying = t + 2.6; }
     const gain = ctx.createGain();
     gain.gain.setValueAtTime(0, t); gain.gain.linearRampToValueAtTime(MUSIC_GAIN * (this.level ?? 1), t + 2.5); // bas : ne pas déranger
-    gain.connect(this.sound.master);
-    this.voice = { gain, song: songFor(zone), step: 0, next: t + 0.1 };
+    // Son chaud et feutré (lofi) : un passe-bas sur toute la musique.
+    const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = 2600; flt.Q.value = 0.5;
+    gain.connect(flt); flt.connect(this.sound.master);
+    this.voice = { gain, flt, song: songFor(zone), step: 0, next: t + 0.1 };
     this.old = old;
     if (!this.timer) this.timer = setInterval(() => this.pump(), 120);
   }
 
   stop() {
     if (this.timer) { clearInterval(this.timer); this.timer = null; }
-    for (const v of [this.voice, this.old]) if (v) try { v.gain.disconnect(); } catch { /* déjà débranché */ }
+    for (const v of [this.voice, this.old]) if (v) try { v.gain.disconnect(); v.flt?.disconnect(); } catch { /* déjà débranché */ }
     this.voice = this.old = null;
   }
 
@@ -138,13 +150,18 @@ export class Music {
   pump() {
     const ctx = this.sound.ctx;
     if (!ctx || !this.voice) return;
-    if (this.old && ctx.currentTime > this.old.dying) { try { this.old.gain.disconnect(); } catch { /* */ } this.old = null; }
+    if (this.old && ctx.currentTime > this.old.dying) { try { this.old.gain.disconnect(); this.old.flt?.disconnect(); } catch { /* */ } this.old = null; }
     const v = this.voice, stepDur = 60 / v.song.bpm / 2;
     while (v.next < ctx.currentTime + 0.4) {
-      const s = v.step % STEPS, t = v.next;
+      const s = v.step % STEPS;
       // Nouveau passage : variation de l'air (même tempo), intermède ou silence (songFor, demande C).
       if (s === 0 && v.step > 0) v.song = songFor(this.zone, Math.floor(v.step / STEPS));
       const song = v.song;
+      // Swing : les croches à contretemps arrivent un peu en retard.
+      const t = v.next + (s % 2 ? (song.swing || 0) * stepDur : 0);
+      if (song.chords) for (const c of song.chords) if (c.step === s) for (const m of c.notes) this.play(v.gain, "epiano", hz(m), t, c.len * stepDur * 0.95, 0.55);
+      // Craquements de vinyle : quelques petits clics très bas.
+      if (song.vinyl && Math.random() < 0.18) this.noiseHit(v.gain, v.next + Math.random() * stepDur, 0.006, 0.01 + Math.random() * 0.012, 3000);
       for (const n of song.notes) if (n.step === s) {
         this.play(v.gain, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1);
         if (song.harm) this.play(v.gain, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5); // tierce dessous
@@ -186,6 +203,11 @@ export class Music {
         const g0 = ctx.createGain(); g0.connect(flt); env(g0, 1, inst === "brass" ? 0.03 : 0.12, dur);
         osc("sawtooth", f, g0); if (inst === "strings") osc("sawtooth", f, g0, 9); g.gain.value = v; break;
       }
+      case "epiano": { // piano électrique doux (façon Rhodes) : sinus + harmonique légère, attaque ronde, tremolo lent
+        const [g, v] = out(0.07); env(g, v, 0.012, dur + 0.3); osc("sine", f, g, -4); osc("sine", f, g, 4);
+        const [g2, v2] = out(0.018); env(g2, v2, 0.005, Math.min(dur, 0.5)); osc("sine", f * 2, g2);
+        const lfo = ctx.createOscillator(), lg = ctx.createGain(); lfo.frequency.value = 4.2; lg.gain.value = v * 0.25; lfo.connect(lg); lg.connect(g.gain); lfo.start(t); lfo.stop(t + dur + 0.6); break;
+      }
       case "sub": { const [g, v] = out(0.3); env(g, v, 0.01, dur); osc("sine", f, g); break; }
       case "pulsebass": { const [g, v] = out(0.08); env(g, v, 0.01, dur); osc("pulse25", f, g); break; }
       case "pluckbass": { const [g, v] = out(0.25); env(g, v, 0.004, Math.min(dur, 0.3)); osc("triangle", f, g); break; }
@@ -207,6 +229,12 @@ export class Music {
   drum(dest, kit, s, t) {
     if (kit === "none") return;
     const beat = s % 8;
+    if (kit === "lofi" || kit === "lofi2") { // boom-bap feutré : grosse caisse ronde, caisse claire étouffée sur 2 et 4, charleston doux
+      if (beat === 0 || (kit === "lofi" ? beat === 5 : beat === 3 || beat === 7 && s % 16 === 15)) this.kick(dest, t, 0.26);
+      if (beat === 2 || beat === 6) { this.noiseHit(dest, t, 0.11, 0.035, 1400); this.noiseHit(dest, t, 0.03, 0.02, 4000); }
+      this.noiseHit(dest, t, 0.02, s % 2 ? 0.014 : 0.009, 8000);
+      return;
+    }
     if (kit === "soft") { if (s % 2 === 1) this.noiseHit(dest, t, 0.03, 0.022, 7000); return; }
     if (kit === "shaker") { this.noiseHit(dest, t, 0.04, s % 2 ? 0.02 : 0.012, 9000); if (beat === 0) this.kick(dest, t, 0.25); return; }
     if (beat === 0 || (kit === "heavy" && beat === 3)) this.kick(dest, t, kit === "heavy" ? 0.4 : 0.3);

@@ -557,6 +557,11 @@ async function runSelfTest(strip) {
     for (const k of ["bubble", "drip", "snow", "dust", "ember", "spore", "mote", "ash", "feather", "leaf", null]) await render("zone-" + k, (s) => { s.zoneSounds(k, false, true); s.zoneSounds(k, true, true); });
     await render("oiseau", (s) => s.birdCall());
     await render("perçant", (s) => s.pierceSound());
+    // Musique lofi (it. 520) : chaque timbre (accord de 4 notes pour le piano électrique) et les deux rythmes boom-bap.
+    const MusicK = window.__music.constructor;
+    for (const inst of ["epiano", "flute", "bell", "marimba", "pluck", "strings", "whistle", "pulse12", "pulse25", "sub", "triangle", "pluckbass", "pulsebass"])
+      await render("musique-" + inst, (s) => { const m = new MusicK(s); for (const f of inst === "epiano" ? [220, 261.6, 329.6, 392] : [330]) m.play(s.master, inst, f, 0.05, 0.8, inst === "epiano" ? 0.55 : 1); });
+    for (const kit of ["lofi", "lofi2", "shaker", "soft"]) await render("rythme-" + kit, (s) => { const m = new MusicK(s); for (let k = 0; k < 16; k++) m.drum(s.master, kit, k, 0.05 + k * 0.11); });
     for (const id of ["bolt", "gust", "mend", "fire", "aegis", "meteor"]) await render("sort-" + id, (s) => s.spellSound(id));
     await render("gestion", (s) => { const h = {}; s.bind({ on: (e, fn) => { h[e] = fn; }, R: { events: {} }, S: window.__game.S, zoneDef: () => null }); clearInterval(s.ambT); h.equipped({ r: 4 }); h.soldOne({}); h.sold({ n: 9 }); h.spent({}); h.learned({ skill: true }); });
     await render("ambiance-évén", (s) => s.eventAmbience({ goldrain: 5, wind: 5, shardfall: 5, nest: 5 }));
