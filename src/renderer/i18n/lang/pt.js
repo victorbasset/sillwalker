@@ -1037,4 +1037,6 @@ export default {
   2161: "Estilo do ataque básico",
   2162: "Feitiços e ataque",
   2163: "Ataque básico: {0}!",
+  2164: "atravessa: {0}% no próximo inimigo",
+  2165: "atravessado",
 };

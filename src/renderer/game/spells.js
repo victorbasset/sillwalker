@@ -9,8 +9,9 @@ export const SPELL_ZONES = [6, 22, 50];
 
 /** Mécaniques communes (tpl) : dmg = mult × attaque par coup (hits coups), heal / shield = % des PV max. */
 export const SPELL_TEMPLATES = {
-  bolt:   { cd: 8,  kind: "dmg",    mult: 1.5, hits: 1, color: "#fff27a" },
-  gust:   { cd: 6,  kind: "dmg",    mult: 0.6, hits: 2, color: "#bfefff" },
+  // pierce (demande H) : part des dégâts qui traverse et frappe le monstre suivant dès son apparition.
+  bolt:   { cd: 8,  kind: "dmg",    mult: 1.5, hits: 1, pierce: 0.6, color: "#fff27a" },
+  gust:   { cd: 6,  kind: "dmg",    mult: 0.6, hits: 2, pierce: 0.5, color: "#bfefff" },
   mend:   { cd: 12, kind: "heal",   pct: 8,             color: "#7dff9a" },
   fire:   { cd: 10, kind: "dmg",    mult: 2.2, hits: 1, color: "#ff9a3a" },
   aegis:  { cd: 15, kind: "shield", pct: 8,             color: "#ffe9a8" },

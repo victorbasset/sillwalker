@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 474, demande H : sorts qui transpercent) : mécaniques « éclair » (60 %) et « lames » (50 %)
+  perçantes (pierce, spells.js) : une part de leurs dégâts est mise de côté (R.pierce) et frappe le monstre suivant
+  dès son apparition (jamais tué d'office : il garde au moins 1 PV ; réserve perdue si le héros tombe) ; le trait
+  continue sa course au-delà du monstre et « -N · transpercé » s'affiche à l'arrivée du suivant. Carte du sort :
+  « transperce : N % sur l'ennemi suivant ». Test logique ; fuzz 1200 parties, 0 bloquée ; capture. Traduit. 122/122.
 - 2026-11-10 (it. 473, demande G : une icône par sort) : shopart.spellIconURL : six dessins pixel (éclair, tourbillon,
   croix de soin, flamme, écu, météore) teintés de la couleur du héros (couleur, sa teinte sombre, éclat blanc) : chaque
   héros a ses trois icônes. Sur les cartes de « Sorts et attaque » et, au lancer, une icône qui monte au-dessus du
@@ -1663,7 +1668,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   K. FAIT (it. 471). Renommer « Style de combat » ; le bloc du bas : « style de l'auto-attaque » ou équivalent.
   I. FAIT (it. 472, à voir en jeu). Animations des sorts spectaculaires et bien visibles.
   G. FAIT (it. 473). Une icône pour chaque sort.
-  H. Des sorts qui transpercent l'ennemi et touchent le suivant.
+  H. FAIT (it. 474). Des sorts qui transpercent l'ennemi et touchent le suivant.
 
 - DEMANDES DE VICTOR (2026-11-10, fin de matinée), à traiter en premier, dans cet ordre :
   E. FAIT (it. 468). Aventure : le texte « clique un objet » (titre de la carte Équipement) ne veut rien dire.

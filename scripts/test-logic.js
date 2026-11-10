@@ -705,6 +705,11 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = 1e9; g.R.spellT = { "warrior.0": 0 };
   const hp0 = g.R.mon.hp; g.castSpells(g.R.mon, g.stats(), 0.1);
   assert.equal(cast, 1, "sort lancé"); assert.ok(g.R.mon.hp < hp0, "dégâts du sort"); assert.ok(g.R.spellT["warrior.0"] > 5, "recharge relancée");
+  // Perçant (demande H) : le Tourbillon (lames) met de côté 50 % de ses dégâts pour le monstre suivant
+  assert.ok(g.R.pierce > 0, "dégâts perçants en réserve");
+  const reserve = g.R.pierce; g.R.mon = null; g.R.mode = "walk"; g.R.spawnT = 0; g.step(0.05);
+  assert.ok(g.R.mon && g.R.mon.hp < g.R.mon.max && g.R.mon.hp >= 1, "le suivant arrive blessé, jamais mort d'office");
+  assert.ok(g.R.mon.max - g.R.mon.hp <= reserve + 1e-6 && g.R.pierce === 0, "réserve consommée");
   // Soin (rôdeur) et bouclier (guerrier)
   const h = new Game(freshState()); h.S.cls = "ranger"; h.S.best = h.S.zone = 60; h.S.spells = { "ranger.1": 1 }; const hs = h.stats();
   h.R.mon = h.makeMonster(false); h.R.mon.hp = 1e15; h.R.hp = hs.hp * 0.5; h.R.spellT = { "ranger.1": 0 };

@@ -94,7 +94,7 @@ export class ClassesTab {
         : r >= SPELL_MAX ? `<span class="note">${tx("rang maximal")}</span>`
         : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""}>${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`;
       return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3)}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
-        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: sp.cd, 1: eff })}</p>${btn}</div>`;
+        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: sp.cd, 1: eff })}${sp.pierce ? ` · <b class="tint">${tx("transperce : {0} % sur l’ennemi suivant", { 0: Math.round(sp.pierce * 100) })}</b>` : ""}</p>${btn}</div>`;
     }).join("");
     return `<article class="panel spellbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.cls] ? CLASSES[S.cls].name : "") })} <small>${tx("propres à chaque héros, gardés à l’ascension")}</small></h2>
       <p class="note tight">${tx("Ils se lancent tout seuls en combat dès qu’ils sont rechargés, en plus de l’attaque de base.")}</p>

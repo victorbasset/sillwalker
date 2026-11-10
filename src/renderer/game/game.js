@@ -232,6 +232,8 @@ export class Game {
         R.spawnT -= dt * this.moveMul();
         if (R.spawnT <= 0) {
           R.mon = this.makeMonster(this.S.kills >= KILLS_PER_ZONE);
+          // Sort perçant (demande H) : les dégâts qui ont traversé le monstre précédent frappent celui-ci en arrivant.
+          if (R.pierce > 0) { const d = Math.min(R.pierce, R.mon.hp - 1); R.mon.hp -= d; R.pierce = 0; if (d > 0) this.emit("pierced", { mon: R.mon, dmg: d }); }
           this.emit("spawn", R.mon);
           if (R.mon.boss) this.charmSwap(R.mon);
         }
@@ -452,7 +454,8 @@ export class Game {
         if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; }
         m.hp -= dmg; total += dmg;
       }
-      this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m });
+      if (sp.pierce) R.pierce = (R.pierce || 0) + total * sp.pierce; // transperce : le suivant prendra sa part
+      this.emit("spell", { id: sp.id, tpl: sp.tpl, dmg: total, mon: m, pierce: !!sp.pierce });
       if (m.hp <= 0) { this.killMonster(); return true; }
     }
     return false;
@@ -752,6 +755,7 @@ export class Game {
     S.stats.deaths++; R.deaths++;
     // Défaites près du record : sert à suggérer une ascension quand le héros bloque.
     if (S.zone >= S.best - 1) (R.wallDeaths ||= []).push(R.time);
+    this.R.pierce = 0; // héros à terre : les dégâts perçants en réserve se perdent
     this.emit("heroDown");
     // Bloqué depuis peu : prévenir une fois par record (l'interface affiche aussi un repère tant que ça dure).
     const st = this.stuckInfo();

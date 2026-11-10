@@ -2165,5 +2165,7 @@ export const KEYS = [
   "propres à chaque héros, gardés à l’ascension",
   "Style de l’attaque de base",
   "Sorts et attaque",
-  "Attaque de base : {0} !"
+  "Attaque de base : {0} !",
+  "transperce : {0} % sur l’ennemi suivant",
+  "transpercé"
 ];

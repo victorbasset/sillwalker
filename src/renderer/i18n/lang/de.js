@@ -1037,4 +1037,6 @@ export default {
   2161: "Stil des Grundangriffs",
   2162: "Zauber & Angriff",
   2163: "Grundangriff: {0}!",
+  2164: "durchbohrt: {0} % beim nächsten Gegner",
+  2165: "durchbohrt",
 };

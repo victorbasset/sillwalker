@@ -1037,4 +1037,6 @@ export default {
   2161: "Basic attack style",
   2162: "Spells & attack",
   2163: "Basic attack: {0}!",
+  2164: "pierces: {0}% to the next enemy",
+  2165: "pierced",
 };

@@ -145,6 +145,8 @@ export class StripRenderer {
       const sp = SPELL_INDEX[id]; if (!sp) return;
       this.spellFx(sp, dmg, amount);
     });
+    // Sort perçant (demande H) : le monstre suivant arrive déjà blessé.
+    g.on("pierced", ({ dmg }) => { if (this.active) this.float(this.monX() + 14, 30, "-" + fmt(Math.round(dmg)) + " · " + tx("transpercé"), "#bfefff", true, true); });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });
     g.on("bossShieldHit", () => { this.monHit = 0.06; });
@@ -259,6 +261,8 @@ export class StripRenderer {
     } else if (tpl === "aegis") {
       fx("dome", hx - 30, G - 66, 0.9); if (full) this.juice.sparkles(hx, G - 30, "#bfefff", 14);
     }
+    // Perçant : le trait continue sa course au-delà du monstre, vers le suivant.
+    if (sp.pierce) later(tpl === "bolt" ? 80 : 240, () => fx(tpl === "bolt" ? "slash pierce" : "slash", mx + 10, 48, 0.35, 0, 200));
     if (dmg > 0 && this.game.S.settings.damageNumbers !== false) later(tpl === "meteor" ? 380 : tpl === "fire" ? 270 : 0, () => this.float(mx, 26, "-" + fmt(Math.round(dmg)), c, true, true));
   }
 

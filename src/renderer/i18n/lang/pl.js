@@ -1037,4 +1037,6 @@ export default {
   2161: "Styl zwykłego ataku",
   2162: "Zaklęcia i atak",
   2163: "Zwykły atak: {0}!",
+  2164: "przebija: {0}% w następnego wroga",
+  2165: "przebity",
 };
