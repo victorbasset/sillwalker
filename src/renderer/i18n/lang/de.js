@@ -924,4 +924,5 @@ export default {
   2048: "Werkstatt: Bibliothek (Erfahrung); Sternbild Der Blitz (Angriffstempo); Quest „Per Klick zuschlagen“.",
   2049: "Tasche sortieren: Verbesserungen, dann Seltenheit, dann Stufe",
   2050: "Tasche sortieren",
+  2051: "Tastenkürzel anzeigen",
 };

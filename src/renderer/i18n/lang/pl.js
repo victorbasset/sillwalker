@@ -924,4 +924,5 @@ export default {
   2048: "Warsztat: Biblioteka (doświadczenie); konstelacja Błyskawica (szybkość ataku); zadanie „Uderzaj kliknięciem”.",
   2049: "Uporządkuj torbę: ulepszenia, potem rzadkość, potem poziom",
   2050: "Uporządkuj torbę",
+  2051: "Pokaż skróty",
 };

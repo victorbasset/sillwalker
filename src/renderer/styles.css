@@ -1108,3 +1108,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 #p-bag h2 .bagsort { font-size: 14px; padding: 0 4px; text-decoration: none; }
 #p-bag h2 .bagsort, #p-bag h2 .bagsort:hover { flex: none; width: auto; min-width: 0; border: 0; border-image: none; box-shadow: none; background: none; color: var(--accent); margin: 0 2px; cursor: pointer; }
 #p-bag h2 .bagsort::before, #p-bag h2 .bagsort::after { display: none; }
+/* Raccourcis clavier : fenêtre large, liste sur deux colonnes. */
+#modal .panel:has(.keylist) { max-width: 860px; }
+.keylist { columns: 2; column-gap: 28px; }
+.keylist li { break-inside: avoid; }
+@media (max-width: 900px) { .keylist { columns: 1; } }

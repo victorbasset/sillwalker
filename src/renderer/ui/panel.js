@@ -600,6 +600,18 @@ export class Panel {
   }
 
   /** « Quoi de neuf » (game/news.js) : la liste des nouveautés dans la fenêtre modale. */
+  /** Raccourcis clavier : fenêtre large sur deux colonnes (dépliée dans les Réglages, la liste faisait défiler l'onglet). */
+  showKeys() {
+    const K = [[tx("Changer d’onglet"), "1 … 9, 0, -, ="], [tx("Équiper le meilleur"), "E"], [tx("Vendre ce qui n’améliore pas"), "V"],
+      [tx("Ranger le sac"), "S"], [tx("Transmuter les objets inutiles"), "T"], [tx("Réclamer une quête terminée (toutes avec le Bureau des contrats)"), "R"],
+      [tx("Confirmer une fenêtre"), tx("Entrée")], [tx("Fermer le panneau"), tx("Échap")], [tx("Réduire en mode mini"), "M"]];
+    $(this.root, "#mt").textContent = tx("Raccourcis clavier");
+    $(this.root, "#mbody").innerHTML = `<ul class="lines keylist">${K.map(([l, k]) => `<li><span>${esc(l)}</span><b>${esc(k)}</b></li>`).join("")}</ul>
+      <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>`;
+    $(this.root, "#modal").hidden = false;
+    $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
+  }
+
   showNews() {
     // Même gabarit que les autres fenêtres (titre #mt, contenu #mbody) : elles restent utilisables ensuite.
     $(this.root, "#mt").textContent = tx("Quoi de neuf");
@@ -725,6 +737,7 @@ export class Panel {
       case "reforge": if (it) g.reforge(it); break;
       case "itemlevel": if (it) g.levelItem(it); break;
       case "bagsort": g.sortBag(); break;
+      case "showkeys": this.showKeys(); return;
       case "sellless": {
         const n = g.uselessItems().length;
         this.confirm(tx("Vendre les objets inutiles ?"), txn(n, "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés."), tx("Vendre"), () => {

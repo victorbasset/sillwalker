@@ -2052,5 +2052,6 @@ export const KEYS = [
   "L’Éclair",
   "Atelier : Bibliothèque (expérience) ; constellation L’Éclair (vitesse d’attaque) ; quête « Frapper au clic ».",
   "Ranger le sac : améliorations, puis rareté, puis niveau",
-  "Ranger le sac"
+  "Ranger le sac",
+  "Voir les raccourcis"
 ];

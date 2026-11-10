@@ -66,19 +66,8 @@ export class SettingsTab {
         <p class="note tight">${tx("Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.")}</p>
         <div class="row"><button data-action="reset" class="quiet">${tx("Effacer la partie et recommencer")}</button></div>
       </article>
-      <article class="panel"><details class="more" data-keep="se-keys"><summary><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Raccourcis clavier")}</span></summary>
-        <ul class="lines">
-          <li><span>${tx("Changer d’onglet")}</span><b>1 … 9, 0, -, =</b></li>
-          <li><span>${tx("Équiper le meilleur")}</span><b>E</b></li>
-          <li><span>${tx("Vendre ce qui n’améliore pas")}</span><b>V</b></li>
-          <li><span>${tx("Ranger le sac")}</span><b>S</b></li>
-          <li><span>${tx("Transmuter les objets inutiles")}</span><b>T</b></li>
-          <li><span>${tx("Réclamer une quête terminée (toutes avec le Bureau des contrats)")}</span><b>R</b></li>
-          <li><span>${tx("Confirmer une fenêtre")}</span><b>${tx("Entrée")}</b></li>
-          <li><span>${tx("Fermer le panneau")}</span><b>${tx("Échap")}</b></li>
-          <li><span>${tx("Réduire en mode mini")}</span><b>M</b></li>
-        </ul>
-        <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p></details>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Raccourcis clavier")}</span></h2>
+        <div class="row"><button data-action="showkeys" class="quiet">${tx("Voir les raccourcis")}</button></div>
       </article>
       </div>
     </div>`;

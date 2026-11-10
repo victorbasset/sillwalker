@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 415) : la liste des raccourcis clavier, dépliée dans les Réglages, faisait défiler l'onglet (93 px à
+  1920, 190 en russe à 1366). Remplacée par un bouton « Voir les raccourcis » qui ouvre une fenêtre large sur deux
+  colonnes (panel.showKeys, comme « Quoi de neuf ») : sans défilement en russe à 1366. Traduction russe corrigée :
+  « Changer d'onglet » = « Смена вкладки » (était « Смена карты »). 1 texte × 9 langues, 117/117.
 - 2026-11-10 (it. 414) : autotest : la touche S range le sac (sac mélangé puis panel.onKey). 117/117.
 - 2026-11-10 (it. 413) : raccourci clavier S (panneau ouvert) : ranger le sac, comme le bouton ⇅ ; ajouté à la liste
   des raccourcis (Réglages). Touche libre vérifiée. 1 texte × 9 langues, 116/116.
