@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 395) : arrivée d'un boss dans la bande : sous la bannière « … approche ! », une petite bannière liste
+  ses capacités (« Peau de pierre · Coup dévastateur »), noms traduits (BOSS_MECHANICS). Capture, 115/115.
 - 2026-11-10 (it. 394) : fuzz élargi après les ajouts de combat (Malédiction, Talisman, Porte-talisman, coup de pouce,
   Nichée, Zèle, Phalène) : 300 graines, 6 000 parties neuves, 0 bloquée.
 - 2026-11-10 (it. 393, anti-frustration) : bloqué (3 défaites ou plus) par un boss qui maudit et sans Talisman de pureté

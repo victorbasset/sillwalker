@@ -12,6 +12,7 @@ import { t as tx, fsp } from "../i18n/index.js";
 import { CLASSES, duoSynergy } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
+import { BOSS_MECHANICS } from "../game/bosses.js";
 import { UNLOCK_INDEX } from "../game/unlocks.js";
 import { fmt, durText } from "../game/format.js";
 import { itemIconURL, classPortraitURL } from "./sprites.js";
@@ -113,6 +114,9 @@ export class Juice {
     g.on("spawn", (m) => {
       if (!m.boss) return;
       this.banner(`${tx("⚔ {0} approche !", { 0: m.name || tx("Boss") })}`, "#ff7a6b", this.s.monX() - 120, true);
+      // Ses capacités, en petit dessous : le joueur sait ce qui l'attend sans ouvrir le panneau.
+      const mech = (m.mech || []).map((id) => BOSS_MECHANICS[id] && BOSS_MECHANICS[id].name).filter(Boolean);
+      if (mech.length) this.banner(mech.join(" · "), "#ffb0a0", this.s.monX() - 120, false);
       if (this.full) this.flash("#ff4a4a", 0.15);
     });
     g.on("starMissed", () => this.removeStar());
