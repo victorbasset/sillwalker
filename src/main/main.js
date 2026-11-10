@@ -165,6 +165,8 @@ function start() {
           for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) {
             const b = document.querySelector("[data-tab=" + id + "]"); if (!b || !b.getClientRects().length) continue;
             P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o); }
+          P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
+          if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           return innerWidth + " " + (out.join(" ") || "aucun"); })()`).catch((e) => "erreur " + e.message);
         console.log("[overflow] " + r);
         app.quit();
