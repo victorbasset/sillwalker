@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 440, revue générale) : simulations 12 h : guerrier 60, barde 59, gardienne des étoiles 62 ; fuzz
+  1200 parties, 0 bloquée ; crawl 310 clics sans erreur ; russe : aucun mot latin suspect ; save-fuzz ok ; perf et
+  mémoire mesurées à l'it. 436 (inchangées).
 - 2026-11-10 (it. 439, demande de Victor : « un son pour chaque pièce qui rentre dans notre inventaire ») : chaque pièce
   animée qui atteint le compteur d'or émet coinIn (juice.js) ; Sound.coinIn : tintement bref et clair, un demi-ton plus
   haut à chaque pièce d'une même rafale (jusqu'à 14), plus rond pour une grosse pièce ; au plus un toutes les 28 ms.
