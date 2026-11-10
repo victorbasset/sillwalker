@@ -962,4 +962,8 @@ export default {
   2086: "Settings > Sound: music and ambience volumes, “Listen” plays a sample; C key: mute.",
   2087: "Ascension: Merchant's Sorting starts unchecked; potion restocking and quest claiming stay checked.",
   2088: "… and {n} older update.|… and {n} older updates.",
+  2089: "Sky Chart",
+  2090: "Automatically spends star shards on the cheapest constellation after each ascension (option).",
+  2091: "Sky Chart: automatically spend shards on the cheapest constellation",
+  2092: "Sky Chart: {n} constellation rank placed.|Sky Chart: {n} constellation ranks placed.",
 };

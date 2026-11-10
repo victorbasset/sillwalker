@@ -30,6 +30,7 @@ export const UNLOCKS = [
   { id: "starAnvil",   price: 1e17, zone: 140, icon: "staranvil",   name: "Enclume stellaire",        desc: "Remonte un objet au niveau de ton record de zone (statistiques, rareté, forge, pouvoir et panoplie conservés). Très cher." },
   { id: "astrolabe",   price: 1.1e18, zone: 150, icon: "astro",   name: "Astrolabe",                desc: "Fait l’ascension tout seul quand le héros bloque près de son record (option, à activer)." },
   { id: "steward",     price: 1.1e20, zone: 170, icon: "bell", name: "Grand intendant",         desc: "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option)." },
+  { id: "skyChart",    price: 6e21, zone: 185, icon: "c_north", name: "Carte du ciel",           desc: "Place tout seul les éclats d’étoile dans la constellation la moins chère, après chaque ascension (option)." },
   { id: "crucible",    price: 1e23, zone: 200, icon: "everfire", name: "Creuset perpétuel",      desc: "Transmute tout seul les objets inutiles quand le sac se remplit (option)." },
 ];
 export const UNLOCK_INDEX = Object.fromEntries(UNLOCKS.map((u) => [u.id, u]));

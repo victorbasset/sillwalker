@@ -31,7 +31,7 @@ import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
-const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet").map((u) => [u.id, true])),
+const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet" && u.id !== "skyChart").map((u) => [u.id, true])),
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
@@ -252,7 +252,7 @@ test("sérialisation aller-retour", () => {
 /* ---------- Contenu v4 ---------- */
 import { POWERS } from "../src/renderer/game/powers.js";
 import { PETS } from "../src/renderer/game/pets.js";
-import { CONSTELLATIONS, ASCEND_MIN_ZONE } from "../src/renderer/game/prestige.js";
+import { CONSTELLATIONS, ASCEND_MIN_ZONE, constellationCost } from "../src/renderer/game/prestige.js";
 import { bestiaryEffects } from "../src/renderer/game/bestiary.js";
 
 test("migration v3 -> v4", () => {
@@ -333,13 +333,19 @@ test("ascension : éclats, conservation, constellations", () => {
   g.S.best = g.S.zone = ASCEND_MIN_ZONE + 6; g.S.lvl = 45; g.S.gold = 1e6;
   g.gainEgg(); g.hatchEgg();
   g.S.bestiary.slime = 500;
-  g.S.unlocks.autoSell = true; g.S.autoSell = { common: true, uncommon: true, rare: false }; g.S.autoPotions = true; g.S.quests.auto = true;
+  delete g.S.unlocks.skyChart; g.S.unlocks.autoSell = true; g.S.autoSell = { common: true, uncommon: true, rare: false }; g.S.autoPotions = true; g.S.quests.auto = true;
   const shards = g.ascendShards();
   assert.ok(shards > 0);
   assert.ok(g.ascend());
   assert.deepEqual(g.S.autoSell, { common: false, uncommon: false, rare: false }, "tri du marchand décoché à l'ascension (demande de Victor)");
   assert.ok(g.S.unlocks.autoSell, "le déblocage, lui, est gardé");
   assert.ok(g.S.autoPotions && g.S.quests.auto, "rachat des potions et réclamation des quêtes gardés");
+  // Carte du ciel : éclats placés tout seuls dans la constellation la moins chère, sauf refus (settings.autoStars)
+  const gs = new Game(freshState()); gs.S.unlocks.skyChart = true; gs.S.prestige.shards = 100;
+  assert.ok(gs.autoConstellations() > 0, "rangs placés"); assert.ok(gs.S.prestige.shards < 100, "éclats dépensés");
+  const left = gs.S.prestige.shards; assert.ok(CONSTELLATIONS.every((c) => (gs.S.prestige.ranks[c.id] || 0) >= c.max || constellationCost(c, gs.S.prestige.ranks[c.id] || 0) > left), "plus rien d'abordable");
+  const gn2 = new Game(freshState()); gn2.S.unlocks.skyChart = true; gn2.S.prestige.shards = 100; gn2.S.settings.autoStars = false;
+  assert.equal(gn2.autoConstellations(), 0, "option coupée : rien");
   // Ascension par l'Astrolabe (joueur absent) : le tri du marchand est gardé, personne ne le recocherait
   const ga = new Game(freshState()); ga.S.best = ga.S.zone = ASCEND_MIN_ZONE + 6; ga.S.unlocks.autoSell = true; ga.S.autoSell = { common: true, uncommon: false, rare: false };
   assert.ok(ga.ascend({ auto: true })); assert.equal(ga.S.autoSell.common, true, "Astrolabe : tri du marchand gardé");

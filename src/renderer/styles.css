@@ -1139,3 +1139,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* « Quoi de neuf » avec plusieurs éditions non lues (plus de 14 nouveautés) : fenêtre plus large, texte resserré. */
 #modal .panel:has(.newslist.dense) { max-width: 1000px; }
 .newslist.dense li { font-size: 12px; line-height: 1.18; padding: 0; }
+/* Ascension : cases des déblocages (Carte du ciel, Astrolabe) sur une ligne, explication en infobulle. */
+.autorow { display: inline-flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-left: 12px; }

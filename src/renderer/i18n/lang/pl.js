@@ -962,4 +962,8 @@ export default {
   2086: "Ustawienia > Dźwięk: głośność muzyki i klimatu, „Posłuchaj” odtwarza próbkę; klawisz C: wycisz.",
   2087: "Wniebowstąpienie: Sortowanie kupca wraca odznaczone; dokupowanie mikstur i odbieranie zadań zostają zaznaczone.",
   2088: "… i {n} starsza nowość.|… i {n} starsze nowości.|… i {n} starszych nowości.",
+  2089: "Mapa nieba",
+  2090: "Sama umieszcza odłamki gwiazd w najtańszej konstelacji po każdym wniebowstąpieniu (opcja).",
+  2091: "Mapa nieba: samodzielnie umieszczaj odłamki w najtańszej konstelacji",
+  2092: "Mapa nieba: umieszczono {n} poziom konstelacji.|Mapa nieba: umieszczono {n} poziomy konstelacji.|Mapa nieba: umieszczono {n} poziomów konstelacji.",
 };

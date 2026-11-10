@@ -28,6 +28,8 @@ export class AscensionTab {
   render(el) {
     const g = this.game, S = g.S, P = S.prestige, can = g.canAscend(), gain = g.ascendShards();
     const nextZone = Math.max(ASCEND_MIN_ZONE, S.best + 1);
+    // Cases des déblocages (Carte du ciel, Astrolabe) : à côté du bouton d'ascension (place comptée à 1280 px).
+    const autos = `${hasUnlock(S, "skyChart") ? `<label class="toggle" title="${esc(tx("Carte du ciel : placer tout seul les éclats dans la constellation la moins chère"))}" aria-label="${esc(tx("Carte du ciel"))}"><input type="checkbox" data-action="a-stars"${S.settings.autoStars !== false ? " checked" : ""}> ${ico("c_north")}</label>` : ""}${hasUnlock(S, "astrolabe") ? `<label class="toggle" title="${esc(tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record"))}" aria-label="${esc(tx("Astrolabe"))}"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${ico("astro")}</label>` : ""}`;
     const intro = `<article class="panel ascend">
       <h2>${tx("Ascension")} <small>${txn(P.count, "{n} ascension|{n} ascensions")}</small></h2>
       <p class="shards">${ico("star")} ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${P.shards}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
@@ -46,9 +48,8 @@ export class AscensionTab {
           return `<br>${tx("Compagnon de la prochaine aventure :")} <b>${esc(CLASSES[pick].name)}</b>${syn ? ` <span class="synergy-on">✦ ${esc(tx(syn.name))}</span>` : ""}`; })()}</p>
       ${can
         ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: gain })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: shardsFor(nextZone + 4) })}</p>
-           <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : ico("star") + " " + tx("Monter vers les étoiles")}</button></div>`
-        : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>`}
-      ${hasUnlock(S, "astrolabe") ? `<label class="toggle"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record")}</label>` : ""}
+           <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : ico("star") + " " + tx("Monter vers les étoiles")}</button>${autos ? `<span class="autorow">${autos}</span>` : ""}</div>`
+        : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>${autos ? `<div class="row autorow">${autos}</div>` : ""}`}
     </article>`;
     // Constellations au maximum : regroupées en une ligne de pastilles (effet au survol) ; la liste ne garde que
     // celles qu'on peut encore améliorer (demande 18 : moins chargé).
@@ -67,6 +68,7 @@ export class AscensionTab {
 
   onAction(a, b) {
     if (a === "a-buy") this.game.buyConstellation(b.dataset.id);
+    else if (a === "a-stars") { this.game.S.settings.autoStars = b.checked; if (b.checked) this.game.autoConstellations(); this.game.changed(); }
     else if (a === "a-auto") { this.game.S.settings.autoAscend = b.checked; this.game.changed(); }
     else if (a === "a-ascend") {
       if (!this.armed) { this.armed = true; setTimeout(() => { this.armed = false; }, 5000); return; }

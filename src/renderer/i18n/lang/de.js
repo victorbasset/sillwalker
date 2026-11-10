@@ -962,4 +962,8 @@ export default {
   2086: "Einstellungen > Ton: Lautstärke von Musik und Atmosphäre, „Anhören“ spielt eine Probe; Taste C: stumm.",
   2087: "Aufstieg: Händlersortierung startet abgewählt; Tränke nachkaufen und Quests einlösen bleiben aktiviert.",
   2088: "… und {n} ältere Neuerung.|… und {n} ältere Neuerungen.",
+  2089: "Himmelskarte",
+  2090: "Setzt Sternensplitter nach jedem Aufstieg automatisch in das günstigste Sternbild (Option).",
+  2091: "Himmelskarte: Splitter automatisch ins günstigste Sternbild setzen",
+  2092: "Himmelskarte: {n} Sternbild-Rang gesetzt.|Himmelskarte: {n} Sternbild-Ränge gesetzt.",
 };

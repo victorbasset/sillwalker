@@ -616,7 +616,7 @@ export class Game {
     S.gold += gold;
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     // Pluie d'éclats : un éclat d'étoile de temps en temps (compte aussi dans la lueur stellaire).
-    if ((R.events.shardfall || 0) > 0 && rand() < SHARDFALL_CHANCE) { S.prestige.shards++; S.prestige.total++; this.emit("shardDrop"); }
+    if ((R.events.shardfall || 0) > 0 && rand() < SHARDFALL_CHANCE) { S.prestige.shards++; S.prestige.total++; this.emit("shardDrop"); this.autoConstellations(); }
     if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
     if (m.boss) this.charmRestore(); // Porte-talisman : l'objet d'avant revient
     // Boss à Malédiction vaincu sous la protection du Talisman de pureté (succès « Cœur pur »)
@@ -1772,6 +1772,25 @@ export class Game {
    * Astrolabe (déblocage, option décochée par défaut) : ascension automatique quand le héros bloque
    * près de son record de toutes les courses (4 défaites près du record en 15 min, comme le conseil « stuck »).
    */
+  /** Carte du ciel (déblocage, actif sauf refus) : éclats placés dans la constellation la moins chère, rang par rang
+   *  (la même règle que la simulation). Renvoie le nombre de rangs achetés. */
+  autoConstellations() {
+    const S = this.S, P = S.prestige;
+    if (!hasUnlock(S, "skyChart") || S.settings.autoStars === false) return 0;
+    let n = 0;
+    for (let guard = 0; guard < 500; guard++) {
+      let best = null, bestCost = Infinity;
+      for (const c of CONSTELLATIONS) {
+        const r = P.ranks[c.id] || 0, cost = constellationCost(c, r);
+        if (r < c.max && cost <= P.shards && cost < bestCost) { best = c; bestCost = cost; }
+      }
+      if (!best || !this.buyConstellation(best.id, { quiet: true })) break;
+      n++;
+    }
+    if (n) this.log(txn(n, "Carte du ciel : {n} rang de constellation placé.|Carte du ciel : {n} rangs de constellations placés."));
+    return n;
+  }
+
   autoAscend() {
     const S = this.S, R = this.R;
     if (!hasUnlock(S, "astrolabe") || S.settings.autoAscend !== true || !this.canAscend()) return false;
@@ -1816,12 +1835,13 @@ export class Game {
     this.log(`${tx("Ascension n° {0} : +{1} éclats d’étoile et +{2} points de compétence permanents. Une nouvelle aventure commence{3} !", { 0: P.count, 1: gain, 2: skillGain, 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
     if (!auto && Object.values(old.autoSell || {}).some(Boolean) && hasUnlock(f, "autoSell")) this.log(tx("Tri du marchand : ventes automatiques décochées pour la nouvelle aventure."));
     this.milestone("asc", P.count);
+    this.autoConstellations(); // Carte du ciel : les nouveaux éclats sont placés tout de suite
     this.emit("ascend", { count: P.count, gain });
     this.changed();
     return true;
   }
 
-  buyConstellation(id) {
+  buyConstellation(id, { quiet = false } = {}) {
     const c = CONSTELLATIONS.find((x) => x.id === id), P = this.S.prestige;
     if (!c) return false;
     const rank = P.ranks[id] || 0, cost = constellationCost(c, rank);
@@ -1831,7 +1851,7 @@ export class Game {
     if (c.eff.potions) this.S.potions = Math.min(20, this.S.potions + c.eff.potions);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(`${tx("Constellation {0} : rang {1}.", { 0: c.name, 1: rank + 1 })}`);
+    if (!quiet) this.log(`${tx("Constellation {0} : rang {1}.", { 0: c.name, 1: rank + 1 })}`);
     this.changed();
     return true;
   }

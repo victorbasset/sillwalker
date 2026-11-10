@@ -214,6 +214,7 @@ export function migrate(raw) {
   // Réglages oui / non : une valeur abîmée (texte, null…) reprend le défaut (sinon « oui » activerait l'économie).
   s.settings.eco = s.settings.eco === true;
   s.settings.zoneAmbience = s.settings.zoneAmbience !== false;
+  s.settings.autoStars = s.settings.autoStars !== false; // Carte du ciel : active une fois achetée, sauf refus
   // Volumes propres de la musique et de l'ambiance (0 à 200 % du réglage d'origine)
   for (const k of ["musicVol", "ambVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite
   // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)

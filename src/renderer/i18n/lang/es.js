@@ -962,4 +962,8 @@ export default {
   2086: "Ajustes > Sonido: volúmenes de la música y del ambiente, «Escuchar» reproduce una muestra; tecla C: silenciar.",
   2087: "Ascensión: la Clasificación del mercader vuelve desmarcada; la recompra de pociones y el cobro de misiones siguen marcados.",
   2088: "… y {n} novedad más antigua.|… y {n} novedades más antiguas.",
+  2089: "Carta celeste",
+  2090: "Coloca solo los fragmentos de estrella en la constelación más barata, tras cada ascensión (opción).",
+  2091: "Carta celeste: colocar solo los fragmentos en la constelación más barata",
+  2092: "Carta celeste: {n} rango de constelación colocado.|Carta celeste: {n} rangos de constelación colocados.",
 };

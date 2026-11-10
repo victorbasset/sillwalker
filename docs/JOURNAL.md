@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 465) : nouveau déblocage « Carte du ciel » (zone 185, 6e21 or, entre le Grand intendant et le
+  Creuset perpétuel) : place tout seul les éclats d'étoile dans la constellation la moins chère, rang par rang, après
+  chaque ascension et à chaque éclat ramassé (autoConstellations, la règle de la simulation : équilibrage inchangé) ;
+  actif dès l'achat, case pour le couper (settings.autoStars, migrate). Une ligne au journal résume les rangs placés.
+  Onglet Ascension : les cases Carte du ciel et Astrolabe deviennent case + icône à côté du bouton d'ascension
+  (explication en infobulle) : en allemand à 1280 px, la case de l'Astrolabe sortait de la carte. Tests : le
+  freshState des tests exclut skyChart (comme armsValet : il change les comptes d'éclats) ; test dédié. Traduit
+  (« Sternensplitter », nom déjà employé). save-fuzz ok ; lang-overflow 4 langues : aucun défilement. 122/122.
 - 2026-11-10 (it. 464) : gardienne des étoiles, voie 1 (63,8 contre 61,2 sans voie, it. 448) : essai arcane → ombre
   dans son mélange : 63,25 sur les mêmes 4 graines (60-66) : presque rien ne change, l'écart reste dans le bruit.
   Laissée telle quelle (pas de modification sans preuve) ; classée « à surveiller si Victor la trouve trop forte ».

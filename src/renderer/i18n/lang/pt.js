@@ -962,4 +962,8 @@ export default {
   2086: "Configurações > Som: volumes da música e do ambiente, «Ouvir» toca uma amostra; tecla C: silenciar.",
   2087: "Ascensão: a Triagem do mercador volta desmarcada; recompra de poções e coleta de missões continuam marcadas.",
   2088: "… e {n} novidade mais antiga.|… e {n} novidades mais antigas.",
+  2089: "Carta celeste",
+  2090: "Aplica sozinho os fragmentos de estrela na constelação mais barata, após cada ascensão (opção).",
+  2091: "Carta celeste: aplicar sozinho os fragmentos na constelação mais barata",
+  2092: "Carta celeste: {n} nível de constelação aplicado.|Carta celeste: {n} níveis de constelação aplicados.",
 };
