@@ -2048,6 +2048,10 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.match(M_quests_js.QUEST_TEMPLATES.tap.text({ goal: 20 }), /20/);
     assert.ok(!M_quests_js.QUEST_TEMPLATES.tap.ok(freshState()), "pas proposée à qui n'a jamais cliqué");
     assert.ok(M_quests_js.QUEST_TEMPLATES.tap.ok(gt.S), "proposée après des coups au clic");
+    // Sac rangé : rareté décroissante (sans amélioration en jeu ici)
+    const gb = new Game(freshState()); gb.S.bag = [0, 3, 1, 4, 2].map((r) => { const it = gb.newItem(r); it.r = r; return it; });
+    gb.isUpgrade = () => false; gb.sortBag();
+    assert.deepEqual(gb.S.bag.map((it) => it.r), [4, 3, 2, 1, 0], "sac rangé par rareté");
     // Zèle : progression des quêtes doublée pendant l'événement
     const gz = new Game(freshState()); gz.S.quests.slots = [{ uid: 1, kind: "kill", goal: 100, progress: 0, stars: 1, reward: { gold: 1 } }];
     gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 1);

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 412, inventaire, étude des concurrents) : bouton ⇅ dans le titre du sac (un clic) : range les objets,
+  améliorations (▲) d'abord, puis rareté et niveau décroissants (game.js > sortBag). Test, contrôle d'autotest, capture,
+  sans défilement (fr / ru / de, 1366 / 1280), 1 texte × 9 langues. 116/116.
 - 2026-11-10 (it. 411) : « Quoi de neuf » : 12e ligne (Bibliothèque de l'Atelier, constellation L'Éclair, quête
   « Frapper au clic ») ; lang-overflow : aucune fenêtre ni onglet ne défile dans les 10 langues à 1366 px. 1 texte ×
   9 langues, 115/115.

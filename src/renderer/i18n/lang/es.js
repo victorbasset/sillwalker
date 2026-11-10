@@ -922,4 +922,5 @@ export default {
   2046: "Mejoras permanentes de la tienda (ataque, PV, oro, experiencia, velocidad).",
   2047: "El Rayo",
   2048: "Taller: Biblioteca (experiencia); constelación El Rayo (velocidad de ataque); misión «Golpear con clic».",
+  2049: "Ordenar la bolsa: mejoras, luego rareza, luego nivel",
 };

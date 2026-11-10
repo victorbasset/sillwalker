@@ -922,4 +922,5 @@ export default {
   2046: "Permanent shop upgrades (attack, HP, gold, experience, speed).",
   2047: "The Bolt",
   2048: "Workshop: Library (experience); The Bolt constellation (attack speed); “Strike by clicking” quest.",
+  2049: "Sort the bag: upgrades, then rarity, then level",
 };

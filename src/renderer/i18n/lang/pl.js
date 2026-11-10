@@ -922,4 +922,5 @@ export default {
   2046: "Stałe ulepszenia w sklepie (atak, PŻ, złoto, doświadczenie, szybkość).",
   2047: "Błyskawica",
   2048: "Warsztat: Biblioteka (doświadczenie); konstelacja Błyskawica (szybkość ataku); zadanie „Uderzaj kliknięciem”.",
+  2049: "Uporządkuj torbę: ulepszenia, potem rzadkość, potem poziom",
 };

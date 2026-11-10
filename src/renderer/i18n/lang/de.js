@@ -922,4 +922,5 @@ export default {
   2046: "Dauerhafte Verbesserungen im Laden (Angriff, LP, Gold, Erfahrung, Tempo).",
   2047: "Der Blitz",
   2048: "Werkstatt: Bibliothek (Erfahrung); Sternbild Der Blitz (Angriffstempo); Quest „Per Klick zuschlagen“.",
+  2049: "Tasche sortieren: Verbesserungen, dann Seltenheit, dann Stufe",
 };

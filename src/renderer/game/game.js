@@ -1550,6 +1550,13 @@ export class Game {
     return true;
   }
 
+  /** Range le sac : améliorations (▲) d'abord, puis rareté décroissante, puis niveau d'objet décroissant. */
+  sortBag() {
+    const up = new Set(this.S.bag.filter((it) => this.isUpgrade(it)).map((it) => it.id));
+    this.S.bag.sort((a, b) => (up.has(b.id) - up.has(a.id)) || (b.r - a.r) || ((b.il || 0) - (a.il || 0)));
+    this.changed();
+  }
+
   rerollQuest(uid) {
     const Q = this.S.quests, i = Q.slots.findIndex((q) => q.uid === uid);
     if (i < 0 || questDone(Q.slots[i]) || !this.pay(questRerollPrice(this.S))) return false;

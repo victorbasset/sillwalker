@@ -522,6 +522,9 @@ async function runSelfTest(strip) {
   strip.win.webContents.send("command", ecoBefore === "true" ? "eco:on" : "eco:off"); await sleep(300);
   const ecoBack = await js("String(!!window.__game.S.settings.eco)");
   check("menu de l'icône : économie d'énergie activée par commande, puis rétablie", ecoOn === "true" && ecoBack === ecoBefore, ecoOn + " / " + ecoBack);
+  // Sac : le bouton ⇅ range les objets (rareté décroissante hors améliorations).
+  const srt = await js("(() => { const g = window.__game, P = window.__panel; P.setTab('adventure'); P.renderAll(); const b = document.querySelector('#p-bag [data-action=bagsort]'); if (!b) return 'pas de bouton'; b.click(); const up = new Set(g.S.bag.filter((it) => g.isUpgrade(it)).map((it) => it.id)); const rest = g.S.bag.filter((it) => !up.has(it.id)).map((it) => it.r); return String(rest.every((r, i) => i === 0 || rest[i - 1] >= r)); })()");
+  check("sac : le bouton ⇅ range les objets", srt === "true", srt);
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);
