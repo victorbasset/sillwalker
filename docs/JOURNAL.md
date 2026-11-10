@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 457) : onglet Ascension, listes Gardé / Perdu à jour : « déblocages et atelier » (gardés, n'y
+  figuraient pas) et, si le tri du marchand est acheté, « ventes automatiques (à recocher) » côté perdu (it. 455).
+  Traduit ; capture ; lang-overflow fr / de / ru / pl à 1366 et 1280 : aucun défilement. 122/122.
 - 2026-11-10 (it. 456, suite de la demande sur l'ascension) : revue de ce que l'ascension garde : à l'inverse du tri du
   marchand, deux commodités sans risque repartaient décochées à chaque course alors que leurs déblocages sont gardés :
   rachat automatique des potions (S.autoPotions) et réclamation automatique des quêtes (quests.auto, Bureau des

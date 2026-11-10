@@ -955,4 +955,6 @@ export default {
   2079: "Zmniejsz do ikony (pasek menu)",
   2080: "Wycisz / włącz dźwięk",
   2081: "Sortowanie kupca: automatyczna sprzedaż odznaczona na nową przygodę.",
+  2082: "odblokowania i warsztat",
+  2083: "automatyczna sprzedaż (do ponownego zaznaczenia)",
 };

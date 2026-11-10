@@ -2083,5 +2083,7 @@ export const KEYS = [
   "Ces réglages sont aussi dans le menu de l’icône Sillwalker de la barre des menus, en haut de l’écran, avec le choix de l’écran.",
   "Réduire en icône (barre des menus)",
   "Couper / rallumer le son",
-  "Tri du marchand : ventes automatiques décochées pour la nouvelle aventure."
+  "Tri du marchand : ventes automatiques décochées pour la nouvelle aventure.",
+  "déblocages et atelier",
+  "ventes automatiques (à recocher)"
 ];

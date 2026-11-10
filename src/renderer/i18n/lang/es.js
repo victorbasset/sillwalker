@@ -955,4 +955,6 @@ export default {
   2079: "Reducir a icono (barra de menús)",
   2080: "Silenciar / activar el sonido",
   2081: "Clasificación del mercader: ventas automáticas desmarcadas para la nueva aventura.",
+  2082: "desbloqueos y taller",
+  2083: "ventas automáticas (a volver a marcar)",
 };

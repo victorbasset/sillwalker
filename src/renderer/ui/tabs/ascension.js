@@ -10,7 +10,7 @@ import { shopIconURL } from "../../render/shopart.js";
 // Demande 27 : des icônes dans l'onglet Ascension (gardé / perdu, constellations, éclats).
 const ico = (id) => `<img class="eicon" src="${shopIconURL(id, 3)}" alt="">`;
 // Mêmes icônes que les onglets (panel.js > TABS) : talents = étoile, compétences = cible, quêtes = parchemin…
-const KEEP = [["wisdom", "constellations, lueur"], ["egg", "familiers, bestiaire"], ["book", "collection, pouvoirs"], ["ws_speed", "vitesse permanente"], ["target", "compétences, héros libérés"], ["bag", "taille du sac"]];
+const KEEP = [["wisdom", "constellations, lueur"], ["egg", "familiers, bestiaire"], ["book", "collection, pouvoirs"], ["ws_speed", "vitesse permanente"], ["target", "compétences, héros libérés"], ["bag", "taille du sac"], ["hammer", "déblocages et atelier"]];
 const LOSE = [["ws_gold", "niveau et or"], ["ws_atk", "équipement et sac"], ["star", "talents"], ["fortune", "quêtes en cours"]];
 
 /** Effet de `n` rangs. Pour « Rang suivant », la zone de départ s'affiche au total du rang suivant (un écart « zone 3 » trompait). */
@@ -35,7 +35,7 @@ export class AscensionTab {
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone {0}.", { 0: g.nextStartZone() })}</p>
       <div class="keeplose">
         <div><b class="delta-p">${tx("Gardé")}</b><ul>${KEEP.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}</ul></div>
-        <div><b class="delta-n">${tx("Perdu")}</b><ul>${LOSE.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}</ul></div>
+        <div><b class="delta-n">${tx("Perdu")}</b><ul>${LOSE.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}${hasUnlock(S, "autoSell") ? `<li>${ico("contract")}${tx("ventes automatiques (à recocher)")}</li>` : ""}</ul></div>
       </div>
       <p>${tx("Héros de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
         <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button>

@@ -955,4 +955,6 @@ export default {
   2079: "Als Symbol verkleinern (Menüleiste)",
   2080: "Ton aus / an",
   2081: "Händlersortierung: automatische Verkäufe für das neue Abenteuer abgewählt.",
+  2082: "Freischaltungen und Werkstatt",
+  2083: "automatische Verkäufe (neu ankreuzen)",
 };

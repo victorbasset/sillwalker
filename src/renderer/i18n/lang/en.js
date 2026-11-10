@@ -955,4 +955,6 @@ export default {
   2079: "Minimize to icon (menu bar)",
   2080: "Mute / unmute sound",
   2081: "Merchant's Sorting: automatic sales unchecked for the new adventure.",
+  2082: "unlocks and workshop",
+  2083: "automatic sales (to re-tick)",
 };

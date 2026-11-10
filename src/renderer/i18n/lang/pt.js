@@ -955,4 +955,6 @@ export default {
   2079: "Reduzir a ícone (barra de menus)",
   2080: "Silenciar / ativar o som",
   2081: "Triagem do mercador: vendas automáticas desmarcadas para a nova aventura.",
+  2082: "desbloqueios e oficina",
+  2083: "vendas automáticas (a marcar de novo)",
 };
