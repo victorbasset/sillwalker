@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 330, revue générale) : simulations 12 h : guerrier 60, lancier 59, artificière 60 (stables) ; crawl
+  308 clics sans erreur ; texte russe : aucun mot latin suspect ; perf : bande 18,4 %, panneau 20,2 %, mini 5,6 %,
+  icône 2,6 % d'un cœur (stables).
 - 2026-11-10 (it. 329) : simulate.js choisit le duo idéal (synergie) quand il est libre, sinon le premier héros
   possible, comme un vrai joueur. balance.mjs 12 h, 10 héros : +0,0 zone (en 12 h, le duo idéal est rarement libre).
 - 2026-11-10 (it. 328, étude des concurrents : bonus d'équipe) : synergies de duo (classes.js > DUO_SYNERGIES) : chaque
