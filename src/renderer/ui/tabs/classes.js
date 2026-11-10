@@ -9,6 +9,7 @@ import { zoneName } from "../../game/rules.js";
 import { esc, unit, fmt } from "../../game/format.js";
 import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue } from "../../game/spells.js";
 import { recordZone, hasUnlock } from "../../game/unlocks.js";
+import { lockLink } from "../locks.js";
 import { spellIconURL } from "../../render/shopart.js";
 import { classPortraitURL } from "../../render/sprites.js";
 
@@ -98,12 +99,15 @@ export class ClassesTab {
       return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3)}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
         <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: sp.cd, 1: eff })}${sp.pierce ? ` · <b class="tint">${tx("transperce : {0} % sur l’ennemi suivant", { 0: Math.round(sp.pierce * 100) })}</b>` : ""}</p>${btn}</div>`;
     }).join("");
-    return `<article class="panel spellbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.cls] ? CLASSES[S.cls].name : "") })} <small>${tx("propres à chaque héros, gardés à l’ascension")}</small></h2>
-      <p class="note tight">${tx("Ils se lancent tout seuls en combat dès qu’ils sont rechargés, en plus de l’attaque de base.")}</p>
+    // Grimoire des sorts (case ou lien vers le déblocage) dans le titre : une ligne de moins (sinon l'onglet défilait).
+    const book = hasUnlock(S, "spellBook") ? `<label class="toggle" title="${esc(tx("Grimoire des sorts : améliorer tout seul le sort le moins cher"))}"><input type="checkbox" data-action="c-autospells"${S.settings.autoSpells !== false ? " checked" : ""}> ${tx("Grimoire des sorts")}</label>` : lockLink(S, "spellBook");
+    return `<article class="panel spellbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.cls] ? CLASSES[S.cls].name : "") })} <small class="spellbook">${book}</small></h2>
+      <p class="note tight">${tx("Ils se lancent tout seuls en combat dès qu’ils sont rechargés, en plus de l’attaque de base.")} ${tx("Propres à chaque héros, gardés à l’ascension.")}</p>
       <div class="spellgrid">${cards}</div></article>`;
   }
 
   onAction(a, b) {
+    if (a === "c-autospells") { this.game.S.settings.autoSpells = b.checked; if (b.checked) this.game.autoSpells(); this.game.changed(); return; }
     if (a === "c-spell") { this.game.learnSpell(b.dataset.id); return; }
     if (a === "c-spellmax") { this.game.learnSpellMax(b.dataset.id); return; }
     if (a === "c-sec") this.sec = b.dataset.to;

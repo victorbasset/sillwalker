@@ -32,7 +32,7 @@ import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
-const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet" && u.id !== "skyChart").map((u) => [u.id, true])),
+const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet" && u.id !== "skyChart" && u.id !== "spellBook").map((u) => [u.id, true])),
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
@@ -726,6 +726,11 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   t.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((x) => x.id !== "spell").map((x) => [x.id, true]));
   const ht = nextHint(t); assert.ok(ht && ht.id === "spell" && ht.tab === "class" && ht.sec === "style", "astuce du sort : " + (ht && ht.id));
   t.learnSpell("warrior.0"); const ht2 = nextHint(t); assert.ok(!ht2 || ht2.id !== "spell", "sort appris : plus d'astuce");
+  // Grimoire des sorts : améliore tout seul le moins cher, sous un dixième de l'or ; coupé = rien
+  const gb = new Game(freshState()); gb.S.cls = "warrior"; gb.S.best = gb.S.zone = 60; gb.S.unlocks.spellBook = true; gb.S.gold = 1e15;
+  assert.ok(gb.autoSpells() > 0 && Object.keys(gb.S.spells).length > 0, "Grimoire : rangs achetés");
+  const gb2 = new Game(freshState()); gb2.S.cls = "warrior"; gb2.S.best = gb2.S.zone = 60; gb2.S.unlocks.spellBook = true; gb2.S.gold = 1e15; gb2.S.settings.autoSpells = false;
+  assert.equal(gb2.autoSpells(), 0, "Grimoire coupé : rien");
   // Ascension : gardés
   g.S.best = g.S.zone = 30; assert.ok(g.ascend()); assert.equal(g.S.spells["warrior.0"], SPELL_MAX, "sorts gardés à l'ascension");
   // Sauvegarde abîmée : sort inconnu et rang illisible retirés, rang trop grand borné

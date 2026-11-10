@@ -218,7 +218,8 @@ export function migrate(raw) {
   s.settings.zoneAmbience = s.settings.zoneAmbience !== false;
   // Sorts : rangs entiers de 1 à SPELL_MAX ; un sort inconnu (autre version) ou un rang illisible est retiré.
   s.spells = Object.fromEntries(Object.entries(isObj(s.spells) ? s.spells : {}).filter(([k, v]) => SPELL_INDEX[k] && Number.isFinite(+v) && +v >= 1).map(([k, v]) => [k, Math.min(SPELL_MAX, Math.floor(+v))]));
-  s.settings.autoStars = s.settings.autoStars !== false; // Carte du ciel : active une fois achetée, sauf refus
+  s.settings.autoStars = s.settings.autoStars !== false;
+  s.settings.autoSpells = s.settings.autoSpells !== false; // Grimoire des sorts : actif une fois acheté, sauf refus // Carte du ciel : active une fois achetée, sauf refus
   // Volumes propres de la musique et de l'ambiance (0 à 200 % du réglage d'origine)
   for (const k of ["musicVol", "ambVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite
   // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)

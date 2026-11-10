@@ -19,6 +19,7 @@ export const UNLOCKS = [
   { id: "menagerie",   price: 200000, zone: 25,     icon: "kennel2",  name: "Ménagerie",                desc: "Fait éclore les œufs de familiers : un compagnon suit ton héros et le renforce." },
   { id: "bulkPoints",  price: 1.1e6, zone: 32,   icon: "book",     name: "Manuel du stratège",       desc: "Dépense en un clic tous les points de talent et de compétence." },
   { id: "questDesk",   price: 7.8e6, zone: 40,   icon: "contract",      name: "Bureau des contrats",      desc: "Réclame toutes les quêtes d’un coup, ou automatiquement." },
+  { id: "spellBook",   price: 3e7, zone: 45,   icon: "grimoire", name: "Grimoire des sorts",       desc: "Améliore tout seul le sort le moins cher de ton héros, tant qu’il coûte moins d’un dixième de ton or (option)." },
   { id: "expeditions", price: 8.7e7, zone: 50,   icon: "kennel",   name: "Chenil des explorateurs",  desc: "Tes familiers libres partent en expédition (même jeu fermé)." },
   { id: "petBulk",     price: 9.4e8, zone: 60,  icon: "egg",      name: "Nid douillet",             desc: "Fait éclore tous les œufs et gère toutes les expéditions en un clic." },
   { id: "transmute",   price: 1.6e10, zone: 72,  icon: "cauldron", name: "Creuset du transmutateur", desc: "Transforme 3 objets inutiles en 1 objet de la rareté au-dessus." },

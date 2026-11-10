@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 485) : déblocage « Grimoire des sorts » (zone 45, 3e7 or, icône grimoire violette) : améliore tout
+  seul le sort le moins cher du héros tant qu'il coûte moins d'un dixième de l'or (règle de la simulation : balance 12 h
+  -0,7, bruit), au plus 5 rangs par victoire ; actif dès l'achat, case pour le couper (settings.autoSpells). Case (ou
+  lien vers la boutique) dans le titre de la carte des sorts : la ligne en plus faisait défiler l'onglet (17-20 px en
+  de / ru / pl) ; lang-overflow 4 langues : aucun défilement. freshState des tests : spellBook exclu (CLAUDE.md).
+  Traduit ; test logique ; save-fuzz ok ; captures. 123/123.
 - 2026-11-10 (it. 484) : documentation : README (contenu : les sorts ; organisation : spells.js ; « Ajouter un sort ») ;
   CLAUDE.md : freshState des tests (tous les déblocages sauf armsValet et skyChart), mesure de performance sur une copie
   neuve, coût des sorts.

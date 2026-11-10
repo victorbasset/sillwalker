@@ -1046,4 +1046,8 @@ export default {
   2170: "Neuer Zauber zum Lernen: {0} ({1} Gold). Hier klicken.",
   2171: "Kampfmagier (1.000 gewirkte Zauber)",
   2172: "Gewirkte Zauber",
+  2173: "Zaubergrimoire",
+  2174: "Verbessert automatisch den günstigsten Zauber deines Helden, solange er weniger als ein Zehntel deines Goldes kostet (Option).",
+  2175: "Zaubergrimoire: günstigsten Zauber automatisch verbessern",
+  2176: "Eigen für jeden Helden, bleiben beim Aufstieg erhalten.",
 };

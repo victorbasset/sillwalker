@@ -1046,4 +1046,8 @@ export default {
   2170: "Nowe zaklęcie do nauki: {0} ({1} złota). Kliknij tutaj.",
   2171: "Mag bitewny (1000 rzuconych zaklęć)",
   2172: "Rzucone zaklęcia",
+  2173: "Grimuar zaklęć",
+  2174: "Sam ulepsza najtańsze zaklęcie bohatera, dopóki kosztuje mniej niż jedną dziesiątą twojego złota (opcja).",
+  2175: "Grimuar zaklęć: samodzielnie ulepszaj najtańsze zaklęcie",
+  2176: "Własne dla każdego bohatera, zachowane po wniebowstąpieniu.",
 };

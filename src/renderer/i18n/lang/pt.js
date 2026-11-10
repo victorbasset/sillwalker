@@ -1046,4 +1046,8 @@ export default {
   2170: "Novo feitiço para aprender: {0} ({1} de ouro). Clique aqui.",
   2171: "Mago de batalha (1000 feitiços lançados)",
   2172: "Feitiços lançados",
+  2173: "Grimório de feitiços",
+  2174: "Melhora sozinho o feitiço mais barato do seu herói, enquanto custar menos de um décimo do seu ouro (opção).",
+  2175: "Grimório de feitiços: melhorar sozinho o feitiço mais barato",
+  2176: "Próprios de cada herói, mantidos na ascensão.",
 };

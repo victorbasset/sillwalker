@@ -1046,4 +1046,8 @@ export default {
   2170: "New spell to learn: {0} ({1} gold). Click here.",
   2171: "Battle Mage (1,000 spells cast)",
   2172: "Spells cast",
+  2173: "Spell Grimoire",
+  2174: "Automatically upgrades your hero's cheapest spell, as long as it costs less than a tenth of your gold (option).",
+  2175: "Spell Grimoire: automatically upgrade the cheapest spell",
+  2176: "Unique to each hero, kept on ascension.",
 };

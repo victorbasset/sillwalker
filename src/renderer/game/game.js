@@ -475,6 +475,21 @@ export class Game {
     return true;
   }
 
+  /** Grimoire des sorts (déblocage, actif sauf refus) : le rang le moins cher du héros, tant qu'il coûte moins d'un
+   *  dixième de l'or (la règle prudente de la simulation) ; au plus 5 rangs par appel. */
+  autoSpells() {
+    const S = this.S;
+    if (!hasUnlock(S, "spellBook") || S.settings.autoSpells === false) return 0;
+    const rec = recordZone(S);
+    let n = 0;
+    for (; n < 5; n++) {
+      let best = null, bp = Infinity;
+      for (const sp of classSpells(S.cls)) { const r = spellRank(S, sp.id); if (rec >= sp.zone && r < SPELL_MAX) { const p = spellPrice(sp, r); if (p < bp) { bp = p; best = sp; } } }
+      if (!best || bp > S.gold * 0.1 || !this.learnSpell(best.id, { quiet: true })) break;
+    }
+    return n;
+  }
+
   /** « max » : autant de rangs que l'or le permet, une seule ligne au journal. Renvoie le nombre de rangs achetés. */
   learnSpellMax(id) {
     let n = 0;
@@ -693,6 +708,7 @@ export class Game {
     this.emit("kill", { mon: m, gold });
     this.rollRareThings(m);
     this.autoBuyPotions();
+    this.autoSpells();
     this.autoForge();
     this.autoPets();
     this.autoTransmute();

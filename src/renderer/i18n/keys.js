@@ -2174,5 +2174,9 @@ export const KEYS = [
   "Déblocage Carte du ciel : les éclats d’étoile se placent tout seuls dans les constellations.",
   "Nouveau sort à apprendre : {0} ({1} or). Clique ici.",
   "Mage de bataille (1 000 sorts lancés)",
-  "Sorts lancés"
+  "Sorts lancés",
+  "Grimoire des sorts",
+  "Améliore tout seul le sort le moins cher de ton héros, tant qu’il coûte moins d’un dixième de ton or (option).",
+  "Grimoire des sorts : améliorer tout seul le sort le moins cher",
+  "Propres à chaque héros, gardés à l’ascension."
 ];

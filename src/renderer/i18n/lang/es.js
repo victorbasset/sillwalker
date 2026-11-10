@@ -1046,4 +1046,8 @@ export default {
   2170: "Nuevo hechizo para aprender: {0} ({1} de oro). Haz clic aquí.",
   2171: "Mago de batalla (1000 hechizos lanzados)",
   2172: "Hechizos lanzados",
+  2173: "Grimorio de hechizos",
+  2174: "Mejora solo el hechizo más barato de tu héroe, mientras cueste menos de una décima parte de tu oro (opción).",
+  2175: "Grimorio de hechizos: mejorar solo el hechizo más barato",
+  2176: "Propios de cada héroe, se conservan al ascender.",
 };

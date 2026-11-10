@@ -67,6 +67,7 @@ export const SHOP_ICON_DEFS = {
   eye:     [EYE, { W: "#f4f0e8", B: "#5a8ad8" }],
   trophy:  [TROPHY, { Y: "#ffd34d", D: "#8a5a2b" }],
   book:    [BOOK, { B: "#8a3a2a", W: "#f0dca8", L: "#8a5a2b", D: "#5a2018" }],
+  grimoire: [BOOK, { B: "#5a3a8a", W: "#e0d8ff", L: "#9a7ad8", D: "#2a1848" }],
   keys:    [KEYS, { W: "#c9ced6" }],
   clock:   [CLOCK, { W: "#c9ced6" }],
   kennel:  [KENNEL, { R: "#c0392b", B: "#a8703a", W: "#3a2a1a" }],
