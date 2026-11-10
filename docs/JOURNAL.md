@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 593) : essai d'un flottement CSS du drone sur le héros : bande 20,8 → 29,8 % d'un cœur (2 mesures
+  chacune, copies neuves avec le drone) : annulé ; retiré aussi de la relique flottant à côté du boss majeur (un
+  combat contre un mur peut durer). Piège noté dans CLAUDE.md (aucune animation CSS permanente sur la bande).
 - 2026-11-10 (it. 592) : README : section « Boss majeurs et reliques » (zones, effets, réglage, carte, succès).
   Autotest : contrôle de l'annonce du prochain boss majeur dans le panneau de la zone (présente à la zone 45,
   absente une fois la relique gagnée). 133/133.
