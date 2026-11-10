@@ -192,6 +192,26 @@ export class Music {
     }
   }
 
+  /** Rendu hors ligne d'un passage complet (autotest, extraits) : même chaîne que setZone (passe-bas, écho), notes
+   *  programmées d'un coup à partir de t0. Renvoie la durée du passage. */
+  schedulePass(song, t0 = 0.05) {
+    const ctx = this.sound.ctx, gain = ctx.createGain(); gain.gain.value = MUSIC_GAIN;
+    const flt = ctx.createBiquadFilter(); flt.type = "lowpass"; flt.frequency.value = song.cutoff || 2600; flt.Q.value = 0.5;
+    const dl = ctx.createDelay(1), fb = ctx.createGain(), wet = ctx.createGain();
+    dl.delayTime.value = Math.min(0.9, 60 / song.bpm * 0.75); fb.gain.value = 0.32; wet.gain.value = song.echo || 0;
+    gain.connect(flt); flt.connect(this.sound.master); flt.connect(dl); dl.connect(fb); fb.connect(dl); dl.connect(wet); wet.connect(this.sound.master);
+    const stepDur = 60 / song.bpm / 2;
+    for (let s = 0; s < STEPS; s++) {
+      const t = t0 + s * stepDur + (s % 2 ? (song.swing || 0) * stepDur : 0);
+      for (const c of song.chords || []) if (c.step === s) for (const m of c.notes) this.play(gain, "epiano", hz(m), t, c.len * stepDur * 0.95, 0.55);
+      for (const n of song.notes) if (n.step === s) { this.play(gain, song.lead || "pulse50", hz(n.midi), t, n.len * stepDur * 0.9, 1); if (song.harm) this.play(gain, song.lead || "pulse50", hz(n.midi - 4), t, n.len * stepDur * 0.9, 0.5); }
+      for (const n of song.bass) if (n.step === s) this.play(gain, song.bassInst || "triangle", hz(n.midi), t, n.len * stepDur * 0.9, 1);
+      if (song.arp) for (const n of song.arps) if (n.step === s) this.play(gain, song.arp, hz(n.midi), t, stepDur * 1.6, 0.45);
+      this.drum(gain, song.drums || "none", s, t);
+    }
+    return STEPS * stepDur;
+  }
+
   /** Une note d'un instrument : oscillateur(s), enveloppe et filtre propres à chaque timbre. */
   play(dest, inst, f, t, dur, k) {
     const ctx = this.sound.ctx;

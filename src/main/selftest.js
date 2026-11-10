@@ -568,6 +568,21 @@ async function runSelfTest(strip) {
     for (const id of ["coin", "loot", "legendary", "level", "boss", "chest", "star", "quest", "ascend"]) await render("play-" + id, (s) => s.play(id));
     return out.join(" ") || "ok";
   } catch (e) { return "erreur " + e.message; } })()`);
+  // Musique (it. 523) : un passage complet de 8 airs (un par décor), même chaîne que le jeu : aucun ne sature, et leurs
+  // volumes moyens restent proches (rapport max / min < 2,2) : aucun air nettement plus fort qu'un autre.
+  const mix = await js(`(async () => { try {
+    const S0 = window.__sound, MusicK = window.__music.constructor, { songFor } = await import("./render/music.js"), rms = [], bad = [];
+    for (const z of [1, 6, 11, 16, 21, 26, 31, 36]) {
+      const song = songFor(z), ctx = new OfflineAudioContext(1, 22050 * Math.ceil(64 * 30 / song.bpm + 3), 22050), s = new S0.constructor();
+      s.ctx = ctx; s.master = ctx.createGain(); s.master.gain.value = 0.6; s.master.connect(ctx.destination); s.enabled = true; s.ensure = () => ctx; s.audio = () => ctx;
+      new MusicK(s).schedulePass(song); const d = (await ctx.startRendering()).getChannelData(0);
+      let pk = 0, sq = 0; for (const x of d) { if (Number.isNaN(x)) return "NaN zone " + z; pk = Math.max(pk, Math.abs(x)); sq += x * x; }
+      if (pk > 0.5) bad.push(z + ":pic " + pk.toFixed(2)); rms.push(Math.sqrt(sq / d.length));
+    }
+    const k = Math.max(...rms) / Math.min(...rms);
+    return (bad.join(" ") || "ok") + " rapport " + k.toFixed(2) + " [" + rms.map((r) => r.toFixed(3)).join(" ") + "]";
+  } catch (e) { return "erreur " + e.message; } })()`);
+  check("musique : 8 airs sans saturation, volumes équilibrés", /^ok rapport /.test(mix) && +mix.split(" ")[2] < 2.2, mix);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
   // Touche C du panneau : coupe puis rallume le son (comme le haut-parleur).
   const keyC = await js("(() => { const P = window.__game.S.settings, keep = { s: P.sound, m: P.music, mu: P.muted }; P.sound = true; P.muted = false; window.__panel.onKey({ key: 'c', target: document.body }); const a = P.muted; window.__panel.onKey({ key: 'c', target: document.body }); const b = P.muted; Object.assign(P, { sound: keep.s, music: keep.m, muted: keep.mu }); return a + ' ' + b; })()");

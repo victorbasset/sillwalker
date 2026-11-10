@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 523) : Music.schedulePass (un passage complet hors ligne, même chaîne passe-bas + écho) ; autotest
+  « musique : 8 airs sans saturation, volumes équilibrés » (un air par décor, rapport des volumes moyens < 2,2 ;
+  mesuré 1,74). 126/126.
 - 2026-11-10 (it. 522) : documentation de la nouvelle musique : README (section « Son » : effets, ambiance, musique lofi
   par tranche de 5 zones) et en-tête de music.js (plus de « chiptune », « 200 airs »). Aucun texte du jeu à reprendre.
   125/125.
