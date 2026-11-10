@@ -74,7 +74,7 @@ export class MiniRenderer {
       this.dpr = spriteDpr;
       this.sprites = buildSpriteSet(spriteDpr);
       this.stage.replaceChildren();
-      this.hero = null; this.heroCls = null;
+      this.hero = null; this.heroCls = null; this.partner = null; this.partnerCls = undefined; this.heroOff = 0;
       this.heroBar = new Bar(this.stage, "#6fd17f");
       this.heroBar.el.style.transform = `translate3d(${HERO_X + 3}px,4px,0)`;
       this.monActor = null; this.monRef = null;
@@ -166,9 +166,24 @@ export class MiniRenderer {
     let frame = 0, bob = 0;
     if (R.mode === "walk") { frame = walkF; bob = walkF ? -P : 0; }
     if (R.mode === "fight" && this.lunge > 0) frame = 2;
+    // Compagnon du duo : à la place du héros au bord de l'encart, le héros avance d'un pas (même petite échelle).
+    const pcls = S.partner || null;
+    if (pcls !== this.partnerCls) {
+      if (this.partner) this.partner.remove();
+      this.partner = null; this.partnerCls = pcls;
+      if (pcls) { const ps = buildHeroSprites(pcls, {}, this.dpr, 2); this.partner = new Actor(this.stage, [ps.walk1, ps.walk2, ps.attack]); }
+    }
+    const off = this.partner ? 14 : 0;
+    if (this.partner) {
+      const pf = R.mode === "walk" ? 1 - walkF : 0, pfr = this.partner.frames[pf];
+      this.partner.show(pf);
+      this.partner.move(HERO_X - 4, GROUND - pfr.ch + P + (R.mode === "walk" && !walkF ? -P : 0));
+      this.partner.alpha(R.mode === "dead" ? 0.35 : 1);
+    }
+    if (off !== this.heroOff) { this.heroOff = off; this.heroBar.el.style.transform = `translate3d(${HERO_X + 3 + off}px,4px,0)`; }
     this.hero.show(frame);
     const fr = this.hero.frames[frame];
-    this.hero.move(HERO_X + (this.lunge > 0 ? 6 : 0) + (this.flash > 0 ? -3 : 0), GROUND - fr.ch + P + bob);
+    this.hero.move(HERO_X + off + (this.lunge > 0 ? 6 : 0) + (this.flash > 0 ? -3 : 0), GROUND - fr.ch + P + bob);
     this.hero.alpha(R.mode === "dead" ? 0.35 : 1);
     this.heroBar.set(R.hp / game.stats().hp);
 

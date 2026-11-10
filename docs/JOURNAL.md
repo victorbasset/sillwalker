@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 383) : mode mini : le compagnon du duo y apparaît (petite échelle, au bord de l'encart, il marche
+  en décalé) et le héros avance de 14 px (barre de vie comprise) ; avant, seul le héros était dessiné. Captures, 113/113.
 - 2026-11-10 (it. 382) : duo idéal visible dans la bande : quand la synergie est formée, une étincelle dorée file de
   temps en temps du compagnon au héros (juice.js > ambient, .spark.duolink, ≈ 0,6 par seconde). Mesuré dans le jeu
   (Guerrier + Rôdeur : jusqu'à 2 étincelles à la fois). 113/113.
