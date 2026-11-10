@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 322) : fullscreen-watch.js bien embarqué dans la version Windows (build.files : src/**). README à jour :
+  11 chroniques et leurs cinématiques, greffes de talents, icônes de l'arbre, 20 déblocages dont l'Enclume stellaire,
+  plume et cape, « bon voisin » (économie, plein écran, cinématiques), design « gravure pixel ». Note : le PowerShell
+  de veille reste en mémoire (quelques dizaines de Mo) ; à mesurer sous Windows avec le reste.
 - 2026-11-10 (it. 321, P1 bon voisin) : la bande se cache devant une application en plein écran (jeu, vidéo,
   présentation) puis revient : main/fullscreen-watch.js lance une fois un PowerShell caché qui appelle
   SHQueryUserNotificationState toutes les 2 s (états 2, 3, 4 = plein écran) ; StripWindow.setFullscreenApp masque /
