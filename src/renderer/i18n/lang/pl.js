@@ -967,4 +967,7 @@ export default {
   2091: "Mapa nieba: samodzielnie umieszczaj odłamki w najtańszej konstelacji",
   2092: "Mapa nieba: umieszczono {n} poziom konstelacji.|Mapa nieba: umieszczono {n} poziomy konstelacji.|Mapa nieba: umieszczono {n} poziomów konstelacji.",
   2093: "Dźwięk nie do końca ci odpowiada? Ustawienia > Dźwięk: osobna głośność muzyki i klimatu, „Posłuchaj”, by spróbować, klawisz C wycisza wszystko. Kliknij tutaj.",
+  2094: "kliknij przedmiot: szczegóły i kuźnia",
+  2095: "kliknij przedmiot: szczegóły",
+  2096: "Towarzysz: {0}",
 };

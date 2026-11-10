@@ -504,8 +504,9 @@ export class Panel {
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);
-    const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + " : " + describeEffects(syn.eff) : ""))}">${syn ? "✦ " : ""}+ <img src="${classPortraitURL(S.partner)}" alt="">${esc(pd.name)}</button>` : "";
-    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}${duo}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>
+    // Demande F de Victor (on le voyait mal) : le compagnon a sa propre ligne sous le titre, portrait de la même taille.
+    const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + " : " + describeEffects(syn.eff) : ""))}"><img src="${classPortraitURL(S.partner)}" alt="">${esc(tx("Compagnon : {0}", { 0: pd.name }))}${syn ? ` <span class="syn">✦ <span class="synname">${esc(tx(syn.name))}</span></span>` : ""}</button>` : "";
+    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>${duo ? `<div class="duoline">${duo}</div>` : ""}
       <div class="kv"><span>${tx("Expérience")}</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">
         <div class="tile"><img src="${shopIconURL("heart", 3)}" alt=""><span>${tx("Points de vie")}</span><b>${fmtStat("hp", hs.hp)}</b></div>
@@ -567,7 +568,8 @@ export class Panel {
           ? `<div class="nm rc${e.r}">${esc(itemName(e))}${e.plus ? " +" + e.plus : ""}</div><div class="sub">${SLOTS[k].name}${tx(", niveau {0}{1}", { 0: e.il, 1: e.power && POWER_INDEX[e.power] ? ` · ★ ${esc(POWER_INDEX[e.power].name)}` : "" })}</div>`
           : `<div class="nm empty">${SLOTS[k].name} ${tx(": vide")}</div>`}</div></li>`;
       }).join("");
-      el.innerHTML = `<h2>${tx("Équipement")} <small>${tx("clique un objet")}</small></h2>
+      // Demande E de Victor : « clique un objet » ne disait pas pourquoi : on dit ce que fait le clic.
+      el.innerHTML = `<h2>${tx("Équipement")} <small>${hasUnlock(S, "forge") ? tx("clic sur un objet : détails et forge") : tx("clic sur un objet : détails")}</small></h2>
         <div class="eqview"><img class="heroport${v.aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, v)}" alt="${esc(tx("Ton héros et son équipement"))}">
         <ul class="eqlist">${rows}</ul></div>`;
     }

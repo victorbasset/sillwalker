@@ -967,4 +967,7 @@ export default {
   2091: "Sky Chart: automatically spend shards on the cheapest constellation",
   2092: "Sky Chart: {n} constellation rank placed.|Sky Chart: {n} constellation ranks placed.",
   2093: "Not quite happy with the sound? Settings > Sound: separate music and ambience volumes, “Listen” to try, C key to mute everything. Click here.",
+  2094: "click an item: details and forge",
+  2095: "click an item: details",
+  2096: "Companion: {0}",
 };

@@ -2095,5 +2095,8 @@ export const KEYS = [
   "Place tout seul les éclats d’étoile dans la constellation la moins chère, après chaque ascension (option).",
   "Carte du ciel : placer tout seul les éclats dans la constellation la moins chère",
   "Carte du ciel : {n} rang de constellation placé.|Carte du ciel : {n} rangs de constellations placés.",
-  "Le son te plaît à moitié ? Réglages > Son : volumes séparés de la musique et de l’ambiance, « Écouter » pour essayer, touche C pour tout couper. Clique ici."
+  "Le son te plaît à moitié ? Réglages > Son : volumes séparés de la musique et de l’ambiance, « Écouter » pour essayer, touche C pour tout couper. Clique ici.",
+  "clic sur un objet : détails et forge",
+  "clic sur un objet : détails",
+  "Compagnon : {0}"
 ];

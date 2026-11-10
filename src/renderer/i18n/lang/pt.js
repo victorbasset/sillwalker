@@ -967,4 +967,7 @@ export default {
   2091: "Carta celeste: aplicar sozinho os fragmentos na constelação mais barata",
   2092: "Carta celeste: {n} nível de constelação aplicado.|Carta celeste: {n} níveis de constelação aplicados.",
   2093: "O som não te agrada totalmente? Configurações > Som: volumes separados de música e ambiente, «Ouvir» para testar, tecla C para silenciar tudo. Clique aqui.",
+  2094: "clique num item: detalhes e forja",
+  2095: "clique num item: detalhes",
+  2096: "Companheiro: {0}",
 };

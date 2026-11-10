@@ -967,4 +967,7 @@ export default {
   2091: "Himmelskarte: Splitter automatisch ins günstigste Sternbild setzen",
   2092: "Himmelskarte: {n} Sternbild-Rang gesetzt.|Himmelskarte: {n} Sternbild-Ränge gesetzt.",
   2093: "Der Ton gefällt dir nur halb? Einstellungen > Ton: getrennte Lautstärke für Musik und Atmosphäre, „Anhören“ zum Testen, Taste C schaltet alles stumm. Hier klicken.",
+  2094: "Klick auf Gegenstand: Details und Schmiede",
+  2095: "Klick auf Gegenstand: Details",
+  2096: "Begleiter: {0}",
 };

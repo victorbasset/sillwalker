@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 468, demandes E et F) : E. carte Équipement : « clique un objet » devient « clic sur un objet :
+  détails » (« … : détails et forge » avec l'Enclume). F. carte du héros : le compagnon n'est plus une petite
+  étiquette coupée dans le titre (« Rang… » même à 1920) mais une ligne à lui sous le titre : portrait 28 px,
+  « Compagnon : Rôdeur », et ✦ synergie (son nom à partir de 1500 px, sinon en infobulle) ; un clic mène à l'onglet
+  Héros. Traduit ; captures 1920 / 1366 ; lang-overflow 5 langues × 3 largeurs : aucun défilement. 122/122.
 - 2026-11-10 (it. 467) : nouveau contrôle scripts/i18n-quotes.mjs (lancé par npm test) : un texte qui cite « un
   libellé » du jeu doit le citer tel qu'il est traduit (erreur faite 3 fois : « Écouter », « Ascension », « Tri du
   marchand »). Un seul cas trouvé dans tout le jeu, en 8 langues : l'aide des Talents citait « max » au lieu du
@@ -1624,8 +1629,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
 - DEMANDES DE VICTOR (2026-11-10, fin de matinée), à traiter en premier, dans cet ordre :
-  E. Aventure : le texte « clique un objet » (titre de la carte Équipement) ne veut rien dire.
-  F. Aventure : on voit mal le compagnon à côté du héros dans la première carte.
+  E. FAIT (it. 468). Aventure : le texte « clique un objet » (titre de la carte Équipement) ne veut rien dire.
+  F. FAIT (it. 468). Aventure : on voit mal le compagnon à côté du héros dans la première carte.
   D. Style de combat : des sorts à apprendre pour ses héros, qui s'ajoutent à l'attaque de base, avec une animation.
 
 - DEMANDES DE VICTOR (2026-11-10, sur Mac), à traiter en premier, dans cet ordre :

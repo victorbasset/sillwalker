@@ -967,4 +967,7 @@ export default {
   2091: "Carta celeste: colocar solo los fragmentos en la constelación más barata",
   2092: "Carta celeste: {n} rango de constelación colocado.|Carta celeste: {n} rangos de constelación colocados.",
   2093: "¿El sonido no te convence del todo? Ajustes > Sonido: volúmenes separados de música y ambiente, «Escuchar» para probar, tecla C para silenciarlo todo. Haz clic aquí.",
+  2094: "clic en un objeto: detalles y forja",
+  2095: "clic en un objeto: detalles",
+  2096: "Compañero: {0}",
 };
