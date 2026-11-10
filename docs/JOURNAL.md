@@ -8,7 +8,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - 2026-11-10 (it. 324, variété) : deux familiers de plus (16) : Luciole (vol ; +2 % expérience, +3 % efficacité hors
   ligne) et Étoilon (rare, poids 0,4 ; vol ; vitesse de déplacement, chances de critique), dessins pixel art (art.js).
   Le succès « tous les familiers » redevient à compléter pour qui ne l'avait pas. 4 textes × 9 langues, save-fuzz,
-  capture, autotest vert.
+  capture. Correctif aussitôt : l'onglet Familiers défilait de 30 px (les sous-onglets « Trouvés / À découvrir »
+  réapparaissaient sur une ligne à eux) : placés dans la barre du haut. Autotest 107/107 (commit précédent poussé trop
+  tôt, en même temps que l'autotest : attendre son verdict).
 - 2026-11-10 (it. 323) : thème clair des ajouts récents (rivets, infobulle élargie, fondus des rangées, rappel du
   sac, onglet Héros) : lisibles, rien à corriger.
 - 2026-11-10 (it. 322) : fullscreen-watch.js bien embarqué dans la version Windows (build.files : src/**). README à jour :

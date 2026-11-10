@@ -65,9 +65,9 @@ export class PetsTab {
         ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
           ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
         ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${tx("Récupérer {0} expéditions", { 0: this.readyN })}</button>` : ""}
+        ${owned < PETS.length ? subtabsHTML([["found", tx("Trouvés"), owned], ["unknown", tx("À découvrir"), PETS.length - owned]], this.sec, "p-sec") : ""}
         <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
       </div>
-      ${owned < PETS.length ? subtabsHTML([["found", tx("Trouvés"), owned], ["unknown", tx("À découvrir"), PETS.length - owned]], this.sec, "p-sec") : ""}
       <div class="petgrid hscroll sec-${owned < PETS.length ? this.sec : "found"}" data-hs="pets-${this.sec}">${cards}</div>`;
   }
 
