@@ -895,4 +895,5 @@ export default {
   2019: "Nuevo evento Nidada (huevos con cada victoria) y nueva habilidad de jefe: Maldición.",
   2020: "jefe de tu zona",
   2021: "próximo jefe: zona {0}",
+  2022: "Pantallas de portátil (1366 px): ya ninguna pestaña se desplaza; las listas largas se deslizan de lado.",
 };

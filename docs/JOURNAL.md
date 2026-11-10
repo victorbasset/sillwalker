@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 346) : « Quoi de neuf » : ligne écrans de portable (8 nouveautés dans l'édition 1) ; thème clair
+  vérifié à 1366 px (Boutique en rangées latérales). 1 texte × 9 langues, 109/109.
 - 2026-11-10 (it. 345) : autotest : le contrôle « aucun onglet ne défile » est refait à 1366 px (fenêtre rétrécie le
   temps de la mesure). Il a trouvé deux cas : Aventure (résumé d'absence sur plusieurs lignes : une ligne sous
   1500 px, texte complet au survol) et Familiers (barre sur deux lignes quand « envoyer tout » / « récupérer »

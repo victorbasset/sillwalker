@@ -10,6 +10,7 @@ export const NEWS_ITEMS = [
   "Réglages : économie d’énergie, cinématiques ; la bande se cache devant le plein écran (Windows).",
   "Synergies de duo : chaque héros a un partenaire idéal, et ce duo reçoit un petit bonus.",
   "Nouvel événement Nichée (des œufs à chaque victoire) et nouvelle capacité de boss : Malédiction.",
+  "Écrans de portable (1366 px) : plus aucun onglet ne défile, les longues listes glissent sur le côté.",
 ];
 
 /** Nouveautés à annoncer ? (pas pour une partie neuve : l'intro passe avant tout) */

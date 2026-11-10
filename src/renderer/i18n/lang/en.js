@@ -895,4 +895,5 @@ export default {
   2019: "New Nesting event (eggs from victories) and a new boss ability: Curse.",
   2020: "boss of your zone",
   2021: "next boss: zone {0}",
+  2022: "Laptop screens (1366 px): no tab scrolls anymore; long lists slide sideways.",
 };

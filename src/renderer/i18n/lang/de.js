@@ -895,4 +895,5 @@ export default {
   2019: "Neues Ereignis Brutzeit (Eier bei Siegen) und neue Bossfähigkeit: Fluch.",
   2020: "Boss deiner Zone",
   2021: "nächster Boss: Zone {0}",
+  2022: "Laptop-Bildschirme (1366 px): Kein Reiter scrollt mehr, lange Listen gleiten seitlich.",
 };

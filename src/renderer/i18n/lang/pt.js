@@ -895,4 +895,5 @@ export default {
   2019: "Novo evento Ninhada (ovos a cada vitória) e nova habilidade de chefe: Maldição.",
   2020: "chefe da sua zona",
   2021: "próximo chefe: zona {0}",
+  2022: "Telas de notebook (1366 px): nenhuma aba rola mais; as listas longas deslizam para o lado.",
 };

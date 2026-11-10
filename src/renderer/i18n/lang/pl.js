@@ -895,4 +895,5 @@ export default {
   2019: "Nowe wydarzenie Wylęg (jaja za zwycięstwa) i nowa umiejętność bossa: Klątwa.",
   2020: "boss twojej strefy",
   2021: "następny boss: strefa {0}",
+  2022: "Ekrany laptopów (1366 px): żadna karta już się nie przewija, długie listy przesuwają się w bok.",
 };

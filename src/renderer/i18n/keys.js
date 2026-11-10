@@ -2023,5 +2023,6 @@ export const KEYS = [
   "Maudit !",
   "Nouvel événement Nichée (des œufs à chaque victoire) et nouvelle capacité de boss : Malédiction.",
   "boss de ta zone",
-  "prochain boss : zone {0}"
+  "prochain boss : zone {0}",
+  "Écrans de portable (1366 px) : plus aucun onglet ne défile, les longues listes glissent sur le côté."
 ];
