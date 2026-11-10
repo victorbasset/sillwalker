@@ -1067,3 +1067,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .classcard button.synergy { display: block; width: 100%; text-align: left; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline dotted; }
 .classcard button.synergy, .classcard button.synergy:hover { border-image: none; box-shadow: none; background: none; font-size: 12px; margin: 2px 0 4px; min-height: 0; }
 .classcard button.synergy::before, .classcard button.synergy::after { display: none; }
+/* Écran de 1280 px : la carte Zone (la plus haute) resserre ses notes pour que l'Aventure ne défile pas. */
+@media (min-width: 1200px) and (max-width: 1365px) {
+  #p-zone .note { font-size: 11px; line-height: 1.3; margin-top: 2px; margin-bottom: 2px; }
+}
+/* Réglages : 5 colonnes dès 1200 px (à 1280, la grille passait à 4 colonnes et la Zone de danger sur une 2e rangée). */
+@media (min-width: 1200px) {
+  [data-pane="settings"] > .setgrid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
