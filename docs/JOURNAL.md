@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 558) : Sorts et attaque : les sorts du compagnon (débloqués par la zone record) s'apprennent et
+  s'améliorent depuis le héros actuel (« + » à côté de chaque icône, prix et effets en infobulle ; learnSpell accepte la
+  classe du compagnon). Le Grimoire, lui, ne s'occupe que des sorts du héros. Test logique ; aucun défilement. 130/130.
 - 2026-11-10 (it. 557) : capture : barre du boss percé (75 %, plafond) et d'un monstre de la file : visibles. « Depuis ta
   dernière visite » : « +N rangs de sorts » quand le Grimoire a travaillé pendant l'absence. Traduit (3 pluriels) ; test
   logique. 130/130.

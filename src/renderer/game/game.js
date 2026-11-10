@@ -542,7 +542,8 @@ export class Game {
   /** Sort : apprendre (rang 1) ou améliorer, si la zone record le permet et qu'il y a l'or. */
   learnSpell(id, { quiet = false } = {}) {
     const sp = SPELL_INDEX[id], S = this.S;
-    if (!sp || sp.cls !== S.cls || recordZone(S) < sp.zone) return false; // les sorts du héros actuel
+    // les sorts du héros actuel, ou ceux de son compagnon (it. 558 : il les lance à moitié de leur puissance)
+    if (!sp || (sp.cls !== S.cls && sp.cls !== S.partner) || recordZone(S) < sp.zone) return false;
     const r = spellRank(S, id);
     if (r >= SPELL_MAX || !this.pay(spellPrice(sp, r))) return false;
     (S.spells ||= {})[id] = r + 1;

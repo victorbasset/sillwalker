@@ -2540,6 +2540,12 @@ test("depuis ta dernière visite : rangs de sorts gagnés (le Grimoire a travail
   assert.equal(g.visitSummary(snap, t0 + 10 * 60000).spells, 3);
 });
 
+test("Sorts du compagnon (it. 558) : appris depuis le héros actuel ; pas ceux d'un autre héros", () => {
+  const g = new Game(freshState()); g.setClass("warrior"); g.S.partner = "ranger"; g.S.best = g.S.zone = 30; g.S.gold = 1e12;
+  assert.ok(g.learnSpell("ranger.0") && g.S.spells["ranger.0"] === 1, "sort du compagnon appris");
+  assert.ok(!g.learnSpell("mage.0"), "ni héros joué ni compagnon : refusé");
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));

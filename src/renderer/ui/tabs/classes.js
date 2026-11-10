@@ -133,8 +133,11 @@ export class ClassesTab {
   /** Sorts du compagnon (it. 527) : une ligne, icônes et rangs, lancés à moitié de leur puissance. */
   partnerSpells(S) {
     if (!S.partner || !CLASSES[S.partner]) return "";
-    const list = classSpells(S.partner).filter((x) => spellRank(S, x.id) > 0);
-    const icons = list.map((x) => `<span class="pspell" title="${esc(tr(x.name))}"><img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="">${spellRank(S, x.id)}</span>`).join("");
+    // (it. 558) tous ses sorts débloqués, appris ou non ; « + » apprend / améliore (prix en infobulle)
+    const rec = recordZone(S), list = classSpells(S.partner).filter((x) => rec >= x.zone);
+    const icons = list.map((x) => { const r = spellRank(S, x.id), price = spellPrice(x, r);
+      const plus = r < SPELL_MAX ? `<button class="quiet pplus" data-action="c-spell" data-id="${x.id}"${S.gold < price ? " disabled" : ""} title="${esc((r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })) + " · " + [tr(x.name), ...spellFxText(x, r + 1)].join(" · "))}">+</button>` : "";
+      return `<span class="pspell${r ? "" : " off"}" title="${esc([tr(x.name), ...spellFxText(x, r)].join(" · "))}"><img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="">${r}${plus}</span>`; }).join("");
     return `<p class="note tight pspells">${tx("Sorts du compagnon ({0}), à moitié de leur puissance :", { 0: esc(CLASSES[S.partner].name) })} ${icons || tx("aucun appris (apprends-les en jouant ce héros)")}</p>`;
   }
 
