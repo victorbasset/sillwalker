@@ -1060,4 +1060,5 @@ export default {
   2184: "Gelernte Zauber erscheinen auf der Heldenkarte; „Jetzt zu tun“ zeigt einen Zauber zum Lernen an.",
   2185: "Die Tab-Symbole bleiben auf kleinen Bildschirmen sichtbar; neuer Erfolg „Volles Grimoire“.",
   2186: "noch nicht gelernt (Zone {0})",
+  2187: "{0}: Abklingzeit −10 %!",
 };

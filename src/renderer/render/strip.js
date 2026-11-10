@@ -147,7 +147,10 @@ export class StripRenderer {
     });
     // Nouveau sort appris (rang 1) : un bandeau de fête dans la bande, avec l'icône du sort.
     g.on("spellLearned", ({ id, rank }) => {
-      const sp = SPELL_INDEX[id]; if (!sp || rank !== 1 || !this.active) return;
+      const sp = SPELL_INDEX[id]; if (!sp || !this.active) return;
+      // Palier (tous les 10 rangs, it. 507) : la recharge raccourcit, un bandeau le dit.
+      if (rank > 1 && rank % 10 === 0) { this.juice.banner(tx("{0} : recharge −10 % !", { 0: tr(sp.name) }), sp.color, this.heroX + 80, false); return; }
+      if (rank !== 1) return;
       this.juice.banner(tx("Nouveau sort : {0} !", { 0: tr(sp.name) }), sp.color, this.heroX + 80, true);
       const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(sp.tpl, sp.color, 3); this.addFx(ic, this.heroX + 2, 4, 1.4, 26);
       if (this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, sp.color, 10);

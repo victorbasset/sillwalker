@@ -1060,4 +1060,5 @@ export default {
   2184: "Learned spells show on the hero card; “Things to do now” points out a spell to learn.",
   2185: "Tab icons stay visible on small screens; new achievement “Full grimoire”.",
   2186: "not learned yet (zone {0})",
+  2187: "{0}: cooldown −10%!",
 };

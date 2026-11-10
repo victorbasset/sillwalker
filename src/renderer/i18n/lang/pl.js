@@ -1060,4 +1060,5 @@ export default {
   2184: "Poznane zaklęcia widać na karcie bohatera; „Do zrobienia teraz” wskazuje zaklęcie do nauki.",
   2185: "Ikony zakładek zostają widoczne na małych ekranach; nowe osiągnięcie „Pełny grimuar”.",
   2186: "jeszcze nie poznane (strefa {0})",
+  2187: "{0}: odnowienie −10%!",
 };

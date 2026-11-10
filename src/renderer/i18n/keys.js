@@ -2188,5 +2188,6 @@ export const KEYS = [
   "Le trait perçant file jusqu’au monstre suivant et le frappe sous tes yeux.",
   "Les sorts appris s’affichent sur la carte du héros ; « À faire maintenant » signale un sort à apprendre.",
   "Les icônes des onglets restent visibles sur les petits écrans ; nouveau succès « Grimoire complet ».",
-  "pas encore appris (zone {0})"
+  "pas encore appris (zone {0})",
+  "{0} : recharge −10 % !"
 ];

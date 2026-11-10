@@ -1060,4 +1060,5 @@ export default {
   2184: "Los hechizos aprendidos aparecen en la tarjeta del héroe; «Qué hacer ahora» señala un hechizo por aprender.",
   2185: "Los iconos de las pestañas siguen visibles en pantallas pequeñas; nuevo logro «Grimorio completo».",
   2186: "aún no aprendido (zona {0})",
+  2187: "{0}: ¡recarga −10 %!",
 };

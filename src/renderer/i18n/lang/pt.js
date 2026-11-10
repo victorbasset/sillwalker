@@ -1060,4 +1060,5 @@ export default {
   2184: "Os feitiços aprendidos aparecem no cartão do herói; «O que fazer agora» indica um feitiço para aprender.",
   2185: "Os ícones das abas continuam visíveis em telas pequenas; nova conquista «Grimório completo».",
   2186: "ainda não aprendido (zona {0})",
+  2187: "{0}: recarga −10%!",
 };

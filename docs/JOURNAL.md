@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-10 (it. 507) : palier de sort franchi (rangs 10, 20… ; aussi par le Grimoire) : bandeau dans la bande
+  « Météore : recharge −10 % ! » (couleur du héros). Traduit ; capture. 124/124.
 - 2026-11-10 (it. 506) : crawl ja 320 et de 315 clics sans erreur. Son du trait perçant (pierceSound) : sifflement qui
   file puis impact sec ≈ 0,18 s plus tard (le trait vole ≈ 0,2 s) ; ajouté au rendu de tous les sons de l'autotest
   (pas de saturation ; volume voisin de « Tourbillon », à juger à l'oreille). 124/124.
