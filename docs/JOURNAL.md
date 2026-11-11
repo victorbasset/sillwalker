@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 611) : panneau de la zone : un gardien de relique déjà gagnée (pas au niveau 5) est aussi annoncé :
+  « Zone 50 : Le Geôlier mécanique renforcera Drone stellaire (niveau 3 → 4). » ; rien au niveau 5. Autotest
+  complété ; pire cas (zone 145, de / pl / ru, 1280 et 1366) : aucun défilement. 133/133.
 - 2026-11-11 (it. 610, revue générale) : balance 12 h vs d1126bb −0,2 (bruit) ; fuzz 1200 parties, 0 bloquée ;
   save-fuzz ok ; crawl pt 317 / ko 316 clics sans erreur (reliques et niveaux) ; vidage russe (4 reliques, niveaux,
   éditions 12-14) : rien de nouveau ; perf bande 19,5 %, panneau 20,3 %, mini 6,7 %, icône 0,6 % ; mémoire réelle

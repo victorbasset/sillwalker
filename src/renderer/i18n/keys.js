@@ -2276,5 +2276,6 @@ export const KEYS = [
   "Niveau {0} / {1} : effet +{2} % (un niveau par nouvelle victoire contre son gardien).",
   "Reliques : chaque nouvelle victoire contre leur gardien les renforce (niveau 5 au plus, +10 % d’effet par niveau).",
   "Les reliques gagnées s’affichent en tête des pastilles de ton héros ; le prochain boss majeur est annoncé dans la zone.",
-  "La bande consomme moins : contours et halos dessinés une fois pour toutes."
+  "La bande consomme moins : contours et halos dessinés une fois pour toutes.",
+  "Zone {0} : {1} renforcera {2} (niveau {3} → {4})."
 ];

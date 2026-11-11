@@ -1148,4 +1148,5 @@ export default {
   2272: "Reliquias: cada nueva victoria contra su guardián las refuerza (hasta nivel 5, +10 % de efecto por nivel).",
   2273: "Las reliquias ganadas aparecen al principio de las insignias de tu héroe; el próximo jefe mayor se anuncia en la zona.",
   2274: "La franja consume menos: contornos y halos dibujados de una vez por todas.",
+  2275: "Zona {0}: {1} reforzará {2} (nivel {3} → {4}).",
 };
