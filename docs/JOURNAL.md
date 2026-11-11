@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 721, revue générale décalée) : balance 12 h vs f926735 +0,0 ; fuzz 1200 parties, 0 bloquée ;
+  save-fuzz ok ; crawl de 318 / zh 325 clics sans erreur ; perf bande 19,1 %, panneau 19,7 %, mini 6,6 % (z-index du
+  héros sans effet) ; mémoire réelle 519 Mo stable.
 - 2026-11-11 (it. 720) : DEMANDE V de Victor : « les boules visuelles d'un pétale de compétence complet passent
   derrière le personnage et reviennent devant ». drawCores (strip.js) donnait déjà aux feux follets z-index 1 (derrière)
   ou 3 (devant), mais le héros n'avait pas de z-index : les deux passaient devant. Héros z-index 2 (styles.css), nombres
