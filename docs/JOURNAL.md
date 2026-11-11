@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 638) : relecture indépendante (agent) du code des reliques (01a4dfd..HEAD) : règles des niveaux,
+  ascension, migrate, effets uniques : sans faute. Corrigé : (1) les missiles du Drone ignoraient le rempart et la
+  carapace des boss (coups, clics et sorts les respectent) : bulwarkFactor + carapace, test logique ; (2) la zone
+  n'annonçait pas que le Briseur (zone 200) renforcera la Couronne : ajouté (aucun défilement de / ru à 1280).
+  Laissés : soin du Cœur seulement en combat ; l'infobulle du niveau ne cite pas les échos. 135/135.
 - 2026-11-11 (it. 637) : test logique des échos : zones 250, 300, 350 seulement (pas en 200, 249, 251, 400), nom
   « Écho : … » (« Echo: » en anglais, langue des tests), relique portée. 184 tests.
 - 2026-11-11 (it. 636) : pire cas de l'annonce d'un écho (zone 345, Lame niveau 4, de / pl / ru à 1280 et 1366) :

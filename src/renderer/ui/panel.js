@@ -39,7 +39,7 @@ import { BOSS_MECHANICS, bossMechanics, bossName, bossWear } from "../game/bosse
 import { lockLink } from "./locks.js";
 import { tabOpen, TAB_GATES } from "../game/tabs.js";
 import { journeyText } from "./tabs/stats.js";
-import { CHRONICLES, chroniclesUnlocked } from "../game/story.js";
+import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, FINAL_BOSS } from "../game/story.js";
 import { hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 
 const $ = (root, s) => root.querySelector(s);
@@ -692,7 +692,9 @@ export class Panel {
   /** Prochain boss majeur à 10 zones au plus, relique pas encore gagnée (demande S) : une ligne dans la zone. */
   relicAheadHTML(S) {
     // (it. 611) relique déjà gagnée mais pas au niveau maximal : le gardien la renforcera
-    const mb = [...MAJOR_BOSSES, ...ECHO_BOSSES].find((b) => b.zone >= S.zone && b.zone - S.zone <= 10 && relicUpgradable(S, b.relic, !!b.echo));
+    // (it. 638) le Briseur d'Étoiles (zone 200) garde la Couronne : annoncé comme les lieutenants
+    const briseur = { zone: FINAL_ZONE, name: FINAL_BOSS.name, relic: "crown" };
+    const mb = [...MAJOR_BOSSES, briseur, ...ECHO_BOSSES].find((b) => b.zone >= S.zone && b.zone - S.zone <= 10 && relicUpgradable(S, b.relic, !!b.echo));
     if (!mb) return "";
     const r = RELICS[mb.relic], lv = relicLevel(S, mb.relic);
     const txt = lv ? tx("Zone {0} : {1} renforcera {2} (niveau {3} → {4}).", { 0: mb.zone, 1: majorName(mb), 2: tx(r.name), 3: lv, 4: lv + 1 })

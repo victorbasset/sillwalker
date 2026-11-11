@@ -289,7 +289,9 @@ export class Game {
         R.droneT = (R.droneT ?? DRONE.every) - dt;
         if (R.droneT <= 0) {
           R.droneT += DRONE.every;
-          const dmg = (m.max * (m.boss ? DRONE.bossPct : DRONE.pct) + hs.atk * DRONE.atk) * relicPow(this.S, "drone");
+          // (it. 638, relecture) rempart et carapace des boss retiennent aussi les missiles, comme coups et sorts
+          let dmg = (m.max * (m.boss ? DRONE.bossPct : DRONE.pct) + hs.atk * DRONE.atk) * relicPow(this.S, "drone") * this.bulwarkFactor(m);
+          if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; }
           m.hp -= dmg; this.emit("droneShot", { dmg, mon: m });
           if (m.hp <= 0) { this.killMonster(); return; }
         }

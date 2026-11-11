@@ -2572,6 +2572,10 @@ test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagné
   g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e6; g.R.mode = "fight"; g.R.droneT = 0.01; g.R.hp = 1e12;
   let shots = 0; g.on("droneShot", () => shots++); g.step(0.05);
   assert.ok(shots === 1 && g.R.mon.hp < 1e6 * 0.99, "missile du drone (1,5 % des PV max)");
+  // (it. 638) la carapace d'un boss retient le missile
+  const hpS = g.R.mon.hp; g.R.mon.shell = 1e12; g.R.droneT = 0.01; g.step(0.05);
+  assert.ok(g.R.mon.hp === hpS && g.R.mon.shell < 1e12, "carapace : le missile l'entame, pas les PV");
+  g.R.mon.shell = 0;
   // Lame du crépuscule ×4 attaque ; Couronne ×3 attaque et PV
   g.S.relics.blade = 1; g.invalidateStats(); assert.ok(Math.abs(g.stats().atk / atk0 - 2.5) < 1e-6, "attaque ×2,5");
   g.S.relics.crown = 1; g.invalidateStats(); assert.ok(Math.abs(g.stats().hp / hp0 - 2) < 1e-6, "PV ×2");
