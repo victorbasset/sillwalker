@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 847) : Boutique : le prix de l'Œuf de familier se coupait sur deux lignes (« 256,59 / M ») et
+  les tuiles étroites (potions, coffres, œuf) n'avaient pas la place pour les grands prix (« mil M » en espagnol). Ces
+  tuiles affichent le prix court à 3 chiffres (« 257 M », « 25,7 M »), jamais coupé ; le prix exact reste dans la
+  bulle. Contrôle d'autotest (160/160) ; vu en capture (français et espagnol, 1920 et 1366 px). Au passage : texte
+  chinois sans mot non traduit, crawl en coréen sans erreur (329 clics).
 - 2026-11-12 (it. 846) : bande en fin de partie : coups, critiques et dégâts reçus tombaient au même endroit au même
   instant et se lisaient « -18Crit104k-21 » au-dessus du héros. Chaque nombre flottant cherche maintenant une place
   libre parmi les nombres encore jeunes (au-dessus, au-dessous, puis de côté ; face à un boss, sans monter sur son

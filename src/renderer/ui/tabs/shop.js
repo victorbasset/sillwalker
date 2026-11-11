@@ -11,7 +11,7 @@ import {
   consumablePrice, chestPrice, upgradePrice, rerollPrice, workshopPrice, eggPrice,
 } from "../../game/shop.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, esc, NB, unit , uH, uMin } from "../../game/format.js";
+import { fmt, fmtShort, esc, NB, unit, uH, uMin } from "../../game/format.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { POWER_INDEX } from "../../game/powers.js";
@@ -31,9 +31,11 @@ export class ShopTab {
   render(el) {
     this.root = el;
     const g = this.game, S = g.S, stock = g.shopStock(), full = g.bagFull();
-    const buy = (action, id, price, block = "", cls = "") =>
+    // (it. 847) tuiles étroites (potions, coffres, œuf) : prix court à 3 chiffres (« 257 M » et non « 256,59 / M »
+    // coupé sur deux lignes) ; le prix exact reste dans la bulle quand l'achat est possible.
+    const buy = (action, id, price, block = "", cls = "", short = false) =>
       block ? `<button disabled class="buy">${esc(block)}</button>`
-        : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` ${tx("disabled title=\"Pas assez d’or\"")}` : ""}><i class="coin"></i>${fmt(price)}</button>`;
+        : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` ${tx("disabled title=\"Pas assez d’or\"")}` : short && fmtShort(price) !== fmt(price) ? ` title="${fmt(price)}"` : ""}><i class="coin"></i>${short ? fmtShort(price) : fmt(price)}</button>`;
 
     // --- Marchand ---
     const merchant = stock.items.length ? stock.items.map((it) => {
@@ -67,7 +69,7 @@ export class ShopTab {
         <div class="nm">${esc(c.name)}</div>
         <div class="eff">${esc(SHORT[c.id] || "")}</div>
         <div class="sub">${owned}</div>
-        ${buy("s-cons", c.id, price, block)}
+        ${buy("s-cons", c.id, price, block, "", true)}
         ${c.id === "potion" && !hasUnlock(S, "autoPotion") ? `<span class="note lockmini">🔒 ${tx("auto")}</span>` : ""}${c.id === "potion" && hasUnlock(S, "autoPotion") ? `<label class="toggle mini"><input type="checkbox" data-action="s-autopot"${S.autoPotions ? " checked" : ""}> ${tx("auto")}</label>` : ""}
       </div>`;
     }).join("");
@@ -78,13 +80,13 @@ export class ShopTab {
         <div class="nm rc${c.minRarity}">${esc(c.name)}</div>
         <div class="eff">${esc(RARITIES[c.minRarity].name)} ${tx("ou mieux")}</div>
         <div class="sub">${tx("niveau {0}", { 0: S.best })}</div>
-        ${buy("s-chest", c.id, chestPrice(c, S), full ? tx("Sac plein") : "")}
+        ${buy("s-chest", c.id, chestPrice(c, S), full ? tx("Sac plein") : "", "", true)}
       </div>`).join("") + (!eggsAllowed(S) ? "" : `<div class="ctile chesttile">
         <img src="${shopIconURL("egg", 6)}" alt="">
         <div class="nm">${tx("Œuf de familier")}</div>
         <div class="eff">${tx("Un familier au hasard")}</div>
         <div class="sub">${tx("1 par étal")}</div>
-        ${buy("s-egg", "egg", eggPrice(S), stock.eggSold ? tx("Vendu") : "")}
+        ${buy("s-egg", "egg", eggPrice(S), stock.eggSold ? tx("Vendu") : "", "", true)}
       </div>`); // œuf de familier : seulement une fois l'onglet Familiers là (demande 19)
 
     // --- Atelier (permanent) ---
