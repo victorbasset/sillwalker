@@ -1177,4 +1177,9 @@ export default {
   2301: "{0} champion",
   2302: "The lieutenants' echoes (zones 250, 300, 350) stand out with a pale blue spectral outline.",
   2303: "Translations: the champion label follows each language's word order; Japanese and Chinese commas everywhere.",
+  2304: "Star Smith",
+  2305: "Raises your worn equipment to your record level on its own, with spare gold (option).",
+  2306: "Star Smith: raise worn equipment to the record level",
+  2307: "Star Smith: {0} raised to level {1}.",
+  2308: "Star Smith: {n} item raised while you were away.|Star Smith: {n} items raised while you were away.",
 };

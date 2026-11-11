@@ -1177,4 +1177,9 @@ export default {
   2301: "Campeão {0}",
   2302: "Os ecos dos tenentes (zonas 250, 300, 350) são reconhecidos pelo contorno espectral azul-claro.",
   2303: "Traduções: o rótulo dos campeões segue a ordem de cada idioma; vírgulas japonesas e chinesas em todo lugar.",
+  2304: "Ferreiro dos astros",
+  2305: "Eleva sozinho o equipamento usado ao nível do seu recorde, com o ouro de sobra (opção).",
+  2306: "Ferreiro dos astros: elevar o equipamento usado ao nível do recorde",
+  2307: "Ferreiro dos astros: {0} elevado ao nível {1}.",
+  2308: "Ferreiro dos astros: {n} item elevado durante sua ausência.|Ferreiro dos astros: {n} itens elevados durante sua ausência.",
 };

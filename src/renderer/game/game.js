@@ -861,6 +861,7 @@ export class Game {
     this.autoBuyPotions();
     this.autoSpells();
     this.autoForge();
+    this.autoAnvil();
     this.autoPets();
     this.autoTransmute();
     const pace = earlyPace(this.S); // tout début de partie : plus tranquille (rules.js)
@@ -1021,6 +1022,10 @@ export class Game {
     this._quiet = true;
     try { while (forged < 200 && this.autoForge()) forged++; } finally { this._quiet = false; }
     if (forged) this.log(txn(forged, "Maître de forge : {n} amélioration pendant ton absence.|Maître de forge : {n} améliorations pendant ton absence."));
+    let anviled = 0;
+    this._quiet = true;
+    try { while (anviled < 50 && this.autoAnvil()) anviled++; } finally { this._quiet = false; }
+    if (anviled) this.log(txn(anviled, "Forgeron des astres : {n} objet remonté pendant ton absence.|Forgeron des astres : {n} objets remontés pendant ton absence."));
     const transmuted = this.autoTransmute().length;
     this._petT = 0;
     const petWork = this.autoPets();
@@ -1442,6 +1447,29 @@ export class Game {
     this.invalidateStats();
     this.questProgress("forge", 1);
     if (!this._quiet) this.log(tx("Maître de forge : {0} passe à +{1}.", { 0: itemName(best), 1: best.plus }));
+    this.changed();
+    return best;
+  }
+
+  /**
+   * Forgeron des astres (déblocage, it. 712, option) : remonte au niveau du record l'objet porté le moins cher à
+   * remonter, une fois par victoire au plus, avec l'or en trop seulement (il garde 3 fois le prix de côté).
+   */
+  autoAnvil() {
+    const S = this.S;
+    if (!hasUnlock(S, "starSmith") || S.settings.autoAnvil === false) return null;
+    let best = null, cost = Infinity;
+    for (const it of Object.values(S.equip)) {
+      if (!it || !(it.il < S.best)) continue;
+      const c = levelUpCost(it, S);
+      if (c < cost) { best = it; cost = c; }
+    }
+    if (!best || S.gold < cost * 3) return null;
+    S.gold -= cost;
+    levelUpItem(best, S.best);
+    this.invalidateStats();
+    S.stats.itemLevels = (S.stats.itemLevels || 0) + 1;
+    if (!this._quiet) this.log(tx("Forgeron des astres : {0} remonté au niveau {1}.", { 0: itemName(best), 1: S.best }));
     this.changed();
     return best;
   }

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 712) : nouveau déblocage au-delà du Rebord (aucun après la zone 200 jusqu'ici) : « Forgeron des astres »
+  (zone 230, 3e25 or, icône propre) : l'Enclume stellaire sans clic, remonte au niveau du record l'objet porté le
+  moins cher, avec l'or en trop (garde 3 fois le prix), aussi pendant l'absence (une ligne de journal) ; option
+  (Héros > Équipement). Traduit (9 langues), test logique (191). Semaine : mage 268-285 → 283-302 (3 graines),
+  guerrier 301, acheté vers 107 h ; 136/136 ; de, pl, ru sans défilement ; crawl au-delà de 230 : 338 clics.
 - 2026-11-11 (it. 711) : « Quoi de neuf » édition 20 : contour spectral des échos (it. 701-702), étiquette des champions
   et virgules (it. 693, 708) ; traduite en 9 langues avec les termes du jeu (Statthalter, наместники, 配下, 残響…).
   136/136 ; de, pl à 1920 / 1366 / 1280 : aucun défilement.

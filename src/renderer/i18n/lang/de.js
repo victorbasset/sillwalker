@@ -1177,4 +1177,9 @@ export default {
   2301: "{0}er Champion",
   2302: "Die Echos der Statthalter (Zonen 250, 300, 350) erkennt man an ihrem blassblauen Geisterumriss.",
   2303: "Übersetzungen: Die Champion-Beschriftung folgt der Wortstellung jeder Sprache; japanische und chinesische Kommas überall.",
+  2304: "Sternenschmied",
+  2305: "Hebt getragene Ausrüstung selbstständig auf die Stufe deines Rekords, mit überschüssigem Gold (Option).",
+  2306: "Sternenschmied: getragene Ausrüstung auf Rekordstufe heben",
+  2307: "Sternenschmied: {0} auf Stufe {1} gehoben.",
+  2308: "Sternenschmied: {n} Gegenstand während deiner Abwesenheit gehoben.|Sternenschmied: {n} Gegenstände während deiner Abwesenheit gehoben.",
 };

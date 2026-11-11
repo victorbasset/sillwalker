@@ -1177,4 +1177,9 @@ export default {
   2301: "Campeón {0}",
   2302: "Los ecos de los lugartenientes (zonas 250, 300, 350) se reconocen por su contorno espectral azul pálido.",
   2303: "Traducciones: la etiqueta de los campeones sigue el orden de cada idioma; comas japonesas y chinas en todas partes.",
+  2304: "Herrero de los astros",
+  2305: "Sube solo el equipo que llevas al nivel de tu récord, con el oro sobrante (opción).",
+  2306: "Herrero de los astros: subir el equipo que llevas al nivel del récord",
+  2307: "Herrero de los astros: {0} subido al nivel {1}.",
+  2308: "Herrero de los astros: {n} objeto subido durante tu ausencia.|Herrero de los astros: {n} objetos subidos durante tu ausencia.",
 };

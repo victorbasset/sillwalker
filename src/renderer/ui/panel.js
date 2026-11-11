@@ -564,6 +564,7 @@ export class Panel {
       ${hasUnlock(S, "armsValet") ? `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>` : ""}
       ${hasUnlock(S, "crucible") ? `<label class="toggle"><input type="checkbox" data-action="crucible"${S.settings.autoTransmute !== false ? " checked" : ""}> ${tx("Creuset perpétuel : transmuter quand le sac se remplit")}</label>` : ""}
       ${hasUnlock(S, "masterForge") ? `<label class="toggle"><input type="checkbox" data-action="mforge"${S.settings.autoForge !== false ? " checked" : ""}> ${tx("Maître de forge : forger l’équipement porté avec l’or en trop")}</label>` : ""}
+      ${hasUnlock(S, "starSmith") ? `<label class="toggle"><input type="checkbox" data-action="sanvil"${S.settings.autoAnvil !== false ? " checked" : ""}> ${tx("Forgeron des astres : remonter l’équipement porté au niveau du record")}</label>` : ""}
 `;
   }
 
@@ -863,6 +864,7 @@ export class Panel {
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
     if (b.dataset.action === "valet") { this.game.S.settings.autoEquipDrops = b.checked; this.game.changed(); }
     if (b.dataset.action === "mforge") { this.game.S.settings.autoForge = b.checked; this.game.changed(); }
+    if (b.dataset.action === "sanvil") { this.game.S.settings.autoAnvil = b.checked; this.game.changed(); }
     if (b.dataset.action === "crucible") { this.game.S.settings.autoTransmute = b.checked; this.game.changed(); }
     if (b.dataset.action === "steward") { this.game.S.settings.autoPets = b.checked; this.game.changed(); }
   }

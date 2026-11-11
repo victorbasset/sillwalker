@@ -1177,4 +1177,9 @@ export default {
   2301: "{0} czempion",
   2302: "Echa namiestników (strefy 250, 300, 350) rozpoznasz po bladoniebieskim, widmowym konturze.",
   2303: "Tłumaczenia: etykieta czempionów zgodna z szykiem każdego języka; japońskie i chińskie przecinki wszędzie.",
+  2304: "Kowal gwiazd",
+  2305: "Sam podnosi noszony ekwipunek do poziomu twojego rekordu za nadmiar złota (opcja).",
+  2306: "Kowal gwiazd: podnoś noszony ekwipunek do poziomu rekordu",
+  2307: "Kowal gwiazd: {0} podniesiony do poziomu {1}.",
+  2308: "Kowal gwiazd: {n} przedmiot podniesiony podczas twojej nieobecności.|Kowal gwiazd: {n} przedmioty podniesione podczas twojej nieobecności.|Kowal gwiazd: {n} przedmiotów podniesionych podczas twojej nieobecności.",
 };

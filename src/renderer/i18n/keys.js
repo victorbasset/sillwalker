@@ -2305,5 +2305,10 @@ export const KEYS = [
   "Traductions : noms d’objets et titres des boss accordés au genre (russe, polonais, allemand, espagnol, portugais) ; ponctuation japonaise et chinoise dans le journal.",
   "Champion {0}",
   "Les échos des lieutenants (zones 250, 300, 350) se reconnaissent à leur contour spectral bleu pâle.",
-  "Traductions : l’étiquette des champions suit l’ordre de chaque langue ; virgules japonaises et chinoises partout."
+  "Traductions : l’étiquette des champions suit l’ordre de chaque langue ; virgules japonaises et chinoises partout.",
+  "Forgeron des astres",
+  "Remonte tout seul l’équipement porté au niveau de ton record, avec l’or en trop (option).",
+  "Forgeron des astres : remonter l’équipement porté au niveau du record",
+  "Forgeron des astres : {0} remonté au niveau {1}.",
+  "Forgeron des astres : {n} objet remonté pendant ton absence.|Forgeron des astres : {n} objets remontés pendant ton absence."
 ];

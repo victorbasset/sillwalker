@@ -2702,4 +2702,22 @@ test("noms d'objets tous traduits (anglais : sans accent français ; russe : san
   } finally { setLang(before); }
 });
 
+test("Forgeron des astres : remonte l'objet porté le moins cher, avec l'or en trop seulement (it. 712)", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.starSmith = true; g.S.settings.autoAnvil = true; g.S.best = 60;
+  for (const slot of ["weapon", "helm"]) { const it = g.newItem(2); it.slot = slot; it.il = 10; g.S.equip[slot] = it; }
+  g.invalidateStats();
+  g.S.gold = 0;
+  assert.equal(g.autoAnvil(), null, "sans or : rien");
+  // un peu plus de 3 fois le prix du moins cher : il en garde 3 fois de côté
+  g.S.gold = 4 * Math.min(...Object.values(g.S.equip).filter((x) => x && x.il < 60).map((x) => M_rules_js.levelUpCost(x, g.S)));
+  const gold0 = g.S.gold, it = g.autoAnvil();
+  assert.ok(it && it.il === 60, "objet remonté au record");
+  assert.ok(g.S.gold < gold0, "or dépensé");
+  g.S.gold = 1e30; g.S.settings.autoAnvil = false;
+  assert.equal(g.autoAnvil(), null, "option coupée : rien");
+  const g2 = new Game(freshLocked()); g2.S.gold = 1e40; g2.S.best = 60;
+  assert.equal(g2.autoAnvil(), null, "sans déblocage : rien");
+});
+
 console.log(`\n${pass} tests réussis`);
