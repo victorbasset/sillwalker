@@ -25,7 +25,8 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - 🟡 Page du magasin : descriptions courte et longue, 10 langues → `steam/store-page.md`.
 - 🟡 Captures 1920×1080 (anglais, français) → `steam/screenshots/`.
 - 🟡 Visuels (capsules, bibliothèque, logo) : première version → `steam/capsules/` (à juger, un graphiste ferait mieux).
-- 🟡 Succès : créer les 61 « API Name » de `steam/achievements.md`, icônes 64×64 (⬜ à dessiner), publier.
+- 🟡 Succès : créer les 61 « API Name » de `steam/achievements.md`, icônes 64×64 dans `steam/achievement-icons/`
+  (`<ID>.png` obtenu, `<ID>_gray.png` verrouillé ; refaites par `scripts/steam-capsules/achicons.js`), publier.
 - 🟡 Steam Cloud : activer, 1 fichier, quota de 1 Mo largement suffisant.
 - 🟡 Présence enrichie : téléverser `steam/richpresence.vdf`.
 - ⬜ Dépôt Windows : options de lancement → exécutable `Sillwalker.exe`, système Windows 64 bits.

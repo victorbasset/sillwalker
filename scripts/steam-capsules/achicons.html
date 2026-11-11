@@ -1,0 +1,58 @@
+<!doctype html><meta charset="utf-8"><body></body>
+<script type="module">
+// (it. 786) Icônes des succès Steam (64×64, en couleur et grisée), tirées des dessins du jeu (achicons.js).
+import { buildSprite } from "../../src/renderer/render/sprites.js";
+import { shopIconURL, relicIconURL } from "../../src/renderer/render/shopart.js";
+import { CLASS_ART, MONSTER_ART } from "../../src/renderer/render/art.js";
+import { STARBREAKER_ART } from "../../src/renderer/render/art-monsters2.js";
+import { ACHIEVEMENTS } from "../../src/renderer/game/achievements.js";
+const ART = {
+  FIRST_BOSS: "m:drake", LEVEL_10: "s:ws_xp", FIRST_LEGENDARY: "s:crest4", ZONE_10: "s:map", ZONE_25: "s:c_shield",
+  LEVEL_50: "s:ws_hp", ELITE_HUNTER: "s:target", FIRST_PURCHASE: "s:trader", TALENT_ULTIMATE: "s:crest3",
+  ASCENSION: "s:c_comet", ASCENSION_5: "s:c_north", PET_FIRST: "s:egg", PETS_ALL: "s:kennel", QUESTS_25: "s:contract",
+  GOBLIN: "m:goblin", BESTIARY_ALL: "s:book", SKILL_KEYSTONE: "s:keys", SKILL_100: "s:c_tree", FEATHER: "s:c_wing",
+  SHOOTING_STAR: "s:star", SPEED_25: "s:ws_speed", FULL_SET: "s:iron", MASTER_OF_ALL: "s:c_crown", ALL_CLASSES: "c:ranger",
+  DUO_FIRST: "c:mage", HEROES_10: "c:paladin", EVENTS_ALL: "s:bell", PURE_HEART: "s:heart", DUO_SYNERGY: "s:c_chalice",
+  CHRONICLER: "s:note", HEROES_ALL: "c:starwarden", STARBREAKER: "sb", ZONE_50: "s:c_tower", LEVEL_100: "s:wisdom",
+  KILLS_1000: "s:skull", KILLS_10000: "m:skel", BOSSES_100: "m:golem", GOLD_MILLION: "s:ws_gold", SPELLS_1000: "s:grimoire",
+  SPELLS_ALL3: "s:c_owl", CRITS_10000: "s:ws_atk", BIG_HIT: "s:hammer", PHOENIX: "s:everfire", DAILY_7: "s:clock",
+  PLAY_10H: "s:c_moon", REFORGE_10: "s:anvil", EVENTS_10: "s:c_bolt", CHEST: "s:chest_royal", CODEX_HALF: "s:eye",
+  CODEX_ALL: "s:astro", EXPEDITIONS_10: "s:kennel2", CHAMPION: "m:darkknight", POWERS_ALL: "s:c_flask", POTIONS_50: "s:potion",
+  UNLOCK_FIRST: "s:gear", UNLOCK_ALL: "s:staranvil", TAPS_1000: "s:c_hunter", WORLD_TOUR: "s:c_road",
+  RELIC_FIRST: "r:drone", RELICS_ALL: "r:crown", RELIC_MAX: "r:blade",
+};
+const load = (src) => new Promise((ok, ko) => { const i = new Image(); i.onload = () => ok(i); i.onerror = ko; i.src = src; });
+async function art(spec) {
+  const [k, id] = spec.split(":");
+  if (k === "s") return load(shopIconURL(id, 4));
+  if (k === "r") return load(relicIconURL(id, 4));
+  if (k === "c") return buildSprite(CLASS_ART[id].walk1, CLASS_ART[id].pal, 3, false, 1);
+  if (k === "m") return buildSprite(MONSTER_ART[id].frames[0], MONSTER_ART[id].pal, 3, true, 1);
+  return buildSprite(STARBREAKER_ART.frames[0], STARBREAKER_ART.pal, 2, true, 1);
+}
+function tile(img, gray) {
+  const c = document.createElement("canvas"); c.width = c.height = 64;
+  const x = c.getContext("2d"); x.imageSmoothingEnabled = false;
+  const g = x.createLinearGradient(0, 0, 0, 64); g.addColorStop(0, "#2b2445"); g.addColorStop(1, "#14121f");
+  x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+  x.fillStyle = "#e0a23a"; x.fillRect(0, 0, 64, 3); x.fillRect(0, 61, 64, 3); x.fillRect(0, 0, 3, 64); x.fillRect(61, 0, 3, 64);
+  x.fillStyle = "#14121f"; x.fillRect(3, 3, 58, 1); x.fillRect(3, 60, 58, 1); x.fillRect(3, 3, 1, 58); x.fillRect(60, 3, 1, 58);
+  const w = img.width, h = img.height, f = Math.max(1, Math.floor(Math.min(50 / w, 50 / h))) || 1;
+  const s = Math.min(1, 52 / Math.max(w * f, h * f)) * f, dw = Math.round(w * s), dh = Math.round(h * s);
+  x.drawImage(img, Math.round((64 - dw) / 2), Math.round((64 - dh) / 2), dw, dh);
+  if (gray) {
+    const d = x.getImageData(0, 0, 64, 64), p = d.data;
+    for (let i = 0; i < p.length; i += 4) { const v = (p[i] * 0.3 + p[i + 1] * 0.59 + p[i + 2] * 0.11) * 0.55; p[i] = p[i + 1] = p[i + 2] = v; }
+    x.putImageData(d, 0, 0);
+  }
+  return c.toDataURL("image/png");
+}
+const out = {}, missing = [];
+for (const a of ACHIEVEMENTS) {
+  const spec = ART[a.id];
+  if (!spec) { missing.push(a.id); continue; }
+  try { const img = await art(spec); out[a.id] = [tile(img, false), tile(img, true)]; } catch (e) { missing.push(a.id + " (" + e.message + ")"); }
+}
+window.__icons = out; window.__missing = missing;
+document.title = "READY";
+</script>

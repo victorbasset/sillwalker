@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 786) : Steam : icônes des 61 succès (64×64, couleur et grisée : steam/achievement-icons/), tirées
+  des dessins du jeu (icônes de boutique, héros, monstres, reliques, Briseur) sur une tuile au cadre doré ;
+  scripts/steam-capsules/achicons.js (+ achicons.html, table ART succès → dessin). Victor remplit ses coordonnées
+  bancaires Steamworks (Shine).
 - 2026-11-11 (it. 785) : steam/checklist.md : liste de contrôle de la sortie (démarches de Victor, jeu, Steamworks),
   configuration requise proposée (fr / en). Reste côté jeu : App ID, icônes 64×64 des 61 succès.
 - 2026-11-11 (it. 784) : Steam : npm run steam:build (scripts/steam-upload.mjs) : fichiers SteamPipe app_build.vdf et
