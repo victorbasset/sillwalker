@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 845) : onglet Familiers sur écran de portable (allemand, 1366 px) : la barre du haut débordait et
+  cachait à droite le sous-onglet « À découvrir » (barre de défilement invisible : impossible à deviner) et le choix
+  « Grande expédition » du Grand intendant. Les sous-onglets passent en tête de la barre, et leurs compteurs remplacent
+  « 15 / 17 familiers trouvés » (redondant) : tout tient sur une ligne. Contrôle d'autotest à 1280 px (158/158) ; vu en
+  capture (allemand). Revue des onglets Quêtes, Bestiaire, Carte et Statistiques en allemand à 1366 px : rien d'autre.
 - 2026-11-12 (it. 844) : au retour d'une nuit (absence au plafond), le journal et le résumé disaient « Pendant 8 h 0 min :
   … 0 objet gardé. » : les durées rondes s'écrivent maintenant « 8 h » (partout : absence, statistiques, temps de jeu)
   et le journal ne cite les objets gardés que s'il y en a. Crawl en polonais et texte russe vérifiés au passage : rien

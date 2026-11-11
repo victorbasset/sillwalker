@@ -626,6 +626,10 @@ async function runSelfTest(strip) {
       const subs = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), cur = P.tab, sec = P.tabs.stats.sec, out = []; P.setTab('stats'); for (const s of ['ach', 'journey']) { P.tabs.stats.sec = s; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(s + '=' + o); } P.tabs.stats.sec = sec; P.setTab(cur); P.renderAll(); return out.join(' ') || 'aucun'; })()");
       check("statistiques : succès et carnet de route sans défilement (1366 px)", subs === "aucun", subs);
     }
+    if (w === 1280) { // Familiers (it. 845) : « Trouvés / À découvrir » en tête de la barre, jamais caché à droite
+      const psub = await js("(() => { const P = window.__panel, cur = P.tab, S = window.__game.S, st = S.unlocks.steward; S.unlocks.steward = true; P.setTab('pets'); P.renderAll(); const bar = document.querySelector('[data-pane=pets]:not([hidden]) .petbar'), sub = bar && bar.querySelector('.subtabs'); let r = 'absent'; if (sub) { bar.scrollLeft = 0; const a = bar.getBoundingClientRect(), b = sub.getBoundingClientRect(); r = b.right <= a.right + 1 ? 'ok' : 'caché de ' + Math.round(b.right - a.right) + ' px'; } if (!st) delete S.unlocks.steward; P.setTab(cur); P.renderAll(); return r; })()");
+      check("familiers : sous-onglets visibles dans la barre (1280 px)", psub === "ok" || psub === "absent", psub);
+    }
   }
   strip.win.setBounds(bLap);
   await sleep(600);
