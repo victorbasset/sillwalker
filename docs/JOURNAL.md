@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 689) : le test des noms d'objets (it. 688) signale bien une pièce non traduite (« Аметистовая seal … »
+  sans « Sceau » en russe) ; le premier essai semblait passer car `grep -m1 "→"` tombait sur le titre d'un autre test.
 - 2026-11-11 (it. 688) : test logique (190) : 4000 objets tirés en anglais (aucun accent français) et en russe (aucune
   lettre latine) ; vérifié qu'il échoue si une matière n'est pas traduite (« Наручи Iron … »). 135/135.
 - 2026-11-11 (it. 686-687) : code mort aussi cherché dans ui/tabs, main, shared : rien. itemName renvoie le nom
