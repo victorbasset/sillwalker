@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 641) : Cœur de l'aube : la régénération agit aussi pendant la marche (le texte promet « chaque
+  seconde » ; relecture it. 638) ; le « +X » vert reste réservé au combat. 135/135.
 - 2026-11-11 (it. 640, revue générale) : balance 12 h vs 50a39b7 +0,6 (bruit) ; fuzz 1200 parties, 0 bloquée ;
   save-fuzz ok ; crawl pl 318 / ko 325 clics sans erreur ; perf bande 19,5 %, panneau 20,7 %, mini 6,6 % ; mémoire
   réelle 515 Mo stable ; vidage russe (reliques, échos, éditions 15-17) : seuls « Oc » / « Sp » nouveaux = suffixes des

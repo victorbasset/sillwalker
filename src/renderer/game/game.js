@@ -232,6 +232,8 @@ export class Game {
       R.scroll += WALK_SPEED * dt * mv;
       R.legT += dt * mv;
       R.hp = Math.min(hs.hp, R.hp + hs.hp * hs.regen / 100 * dt);
+      // Cœur de l'aube : soigne aussi en marchant (relecture it. 638 : le texte promet « chaque seconde »)
+      if (hasRelic(this.S, "heart")) R.hp = Math.min(hs.hp, R.hp + hs.hp * RELIC_POWER.heartRegen * relicPow(this.S, "heart") * dt);
       if (!R.mon) {
         R.spawnT -= dt * this.moveMul();
         if (R.spawnT <= 0) {
