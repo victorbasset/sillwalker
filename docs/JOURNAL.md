@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 766) : autotest (144) : onglets préparés d'avance : 12 construits, un seul affiché, aucun resté en
+  préparation (.warming). En attente des lignes « [lent] » de Victor si les blocages persistent sous Windows.
 - 2026-11-11 (it. 765) : Victor signale encore de gros blocages sous Windows à la première ouverture du panneau et
   d'un onglet jamais vu. Le préchauffage (it. 750) construisait les onglets cachés (display: none) sans mise en page :
   polices de secours (symboles, emoji, CJK) et tailles d'images restaient à faire au premier clic. Chaque onglet
