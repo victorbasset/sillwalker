@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 795) : taille de police fractionnaire 10,8333px (compteurs des sous-onglets, <small> sans taille dans un
+  bouton de 13px) remplacée par 11px : une combinaison police × taille de moins à créer au premier affichage
+  (sous Windows, chacune coûtait cher avant la police allégée). Plus aucune taille fractionnaire dans le panneau.
 - 2026-11-11 (it. 794) : ouverture du panneau : si l'onglet courant est déjà construit (préparé d'avance), le panneau
   glisse tout de suite avec ce contenu et se met à jour à l'image suivante (rAF, minuteur de 50 ms en secours) ; chez
   Victor, la reconstruction (≈ 170 ms) retardait le début de l'ouverture. Autotest 145, crawl 316 clics sans erreur.

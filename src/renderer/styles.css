@@ -186,6 +186,9 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 button[aria-pressed="true"] { background: var(--accent); color: var(--panel); border-color: var(--accent); }
 button.quiet { font-size: 14px; }
+/* (it. 795) compteur des sous-onglets : 11px fixes (le « smaller » par défaut donnait 10,8333px, une taille de police de
+   plus à créer sous Windows ; voir CLAUDE.md, polices) */
+button.quiet small { font-size: 11px; }
 button.danger { border-color: var(--bad); color: var(--bad); }
 button.close { padding: 2px 9px; font-weight: 700; }
 
