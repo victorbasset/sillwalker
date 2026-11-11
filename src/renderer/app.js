@@ -27,6 +27,7 @@ import { reachedAchievements, ACHIEVEMENTS } from "./game/achievements.js";
 import { fmt, esc } from "./game/format.js";
 import { StripRenderer } from "./render/strip.js";
 import { MiniRenderer } from "./render/mini.js";
+import { makeWindowDraggable } from "./ui/windrag.js";
 import { changes, applyUiScale, applyTheme } from "./render/dom.js";
 import { makeTrayIcons } from "./render/trayicons.js";
 import { Sound } from "./render/sound.js";
@@ -84,11 +85,11 @@ async function boot() {
   for (const [sel, attr, src] of [
     ["#panel", "aria-label", "Panneau de gestion"], ["#strip", "aria-label", "Le héros traverse la zone et combat"],
     ["#mini-btn", "title", "Réduire en mode mini"], ["#mini-btn", "aria-label", "Réduire en mode mini"],
-    ["#menu-btn", "title", "Ouvrir le panneau (héros, sac, zone)"], ["#menu-btn", "aria-label", "Ouvrir le panneau de gestion"],
-    ["#hud-tab", "title", "Ouvrir le panneau (héros, sac, zone)"], ["#hud-tab", "aria-label", "Ouvrir le panneau de gestion"],
-    ["#mini", "title", "Cliquer pour agrandir"], ["#mini-icon", "title", /Mac/i.test(navigator.platform || "") ? "Réduire en icône (barre des menus)" : "Réduire en icône (zone de notification)"], ["#mini-icon", "aria-label", "Réduire en icône"],
+    ["#menu-btn", "title", ["Ouvrir le panneau (héros, sac, zone)", "Glisser : changer d’écran, ou passer en haut ou en bas"]], ["#menu-btn", "aria-label", "Ouvrir le panneau de gestion"],
+    ["#hud-tab", "title", ["Ouvrir le panneau (héros, sac, zone)", "Glisser : changer d’écran, ou passer en haut ou en bas"]], ["#hud-tab", "aria-label", "Ouvrir le panneau de gestion"],
+    ["#mini", "title", ["Cliquer pour agrandir", "Glisser pour déplacer"]], ["#mini-icon", "title", /Mac/i.test(navigator.platform || "") ? "Réduire en icône (barre des menus)" : "Réduire en icône (zone de notification)"], ["#mini-icon", "aria-label", "Réduire en icône"],
     ["#mini-expand", "title", "Agrandir en bande"], ["#mini-expand", "aria-label", "Agrandir en bande"],
-  ]) { const e = document.querySelector(sel); if (e) e.setAttribute(attr, tx(src)); }
+  ]) { const e = document.querySelector(sel); if (e) e.setAttribute(attr, Array.isArray(src) ? src.map((s) => tx(s)).join("\n") : tx(src)); }
   api.setLang?.(wanted);
   if (init.isDev) window.__game = game; // inspection par l'auto-test (dev uniquement)
   // Messages de récupération (envoyés en français par le processus principal) : traduits, et aussi en bulle.
@@ -252,6 +253,9 @@ async function boot() {
   game.on("change", syncSoundBtns);
   $("#mini-icon").addEventListener("click", (e) => { e.stopPropagation(); api.setMode("icon"); });
   $("#mini").addEventListener("click", () => api.setMode("strip"));
+  // (it. 835) glisser la bande (par le bouton ⌃ ou, sur écran ultra-large, la languette) ou l'encart mini pour les déplacer
+  for (const h of [$("#menu-btn"), $("#hud-tab"), $("#strip")]) makeWindowDraggable(h, api, { onStart: () => closePanel(true) });
+  makeWindowDraggable($("#mini"), api);
 
   /* ---------- Mise en page imposée par le processus principal ---------- */
   function applyLayout(l) {
@@ -263,6 +267,10 @@ async function boot() {
     root.setProperty("--panel-h", l.panelHeight + "px");
     root.setProperty("--strip", l.stripHeight + "px");
     root.setProperty("--strip-opacity", String(l.opacity));
+    // (it. 835, demande d'une joueuse) bande opaque (100 %) : elle cache ce qui est derrière, donc elle arrête les clics
+    // (et s'attrape n'importe où pour la déplacer) ; transparente, les clics la traversent comme avant.
+    const solid = !(Number(l.opacity) < 1);
+    if ($("#strip").classList.contains("hit") !== solid) { $("#strip").classList.toggle("hit", solid); clickThrough.refresh(); }
     if (l.mode !== mode) {
       if (mode === "strip" && panelOpen) closePanel(true);
       mode = l.mode;
@@ -403,7 +411,7 @@ async function boot() {
     if (achDirty) checkAchievements(false);
     // Pastille du bouton du panneau : une action attend (quêtes, sac, points, déblocage…) ; recalculée toutes les 2 s.
     if (perf.sims % 60 === 1) {
-      const todo = game.todoNow(), title = tx("Ouvrir le panneau (héros, sac, zone)") + (todo.length ? "\n" + todo.map((t) => "• " + todoLabel(t)).join("\n") : "");
+      const todo = game.todoNow(), title = tx("Ouvrir le panneau (héros, sac, zone)") + "\n" + tx("Glisser : changer d’écran, ou passer en haut ou en bas") + (todo.length ? "\n" + todo.map((t) => "• " + todoLabel(t)).join("\n") : "");
       if (!todo.length !== badge.hidden) badge.hidden = !todo.length;
       if (menuBtn.title !== title) menuBtn.title = title;
     }

@@ -1210,4 +1210,12 @@ export default {
   2334: "Novo botão “Sua opinião” no topo do painel: uma ideia, um bug? Conte na página do jogo.",
   2335: "As cenas da história não se perdem mais em combates intensos (podiam bloquear as seguintes).",
   2336: "+{n} item elevado|+{n} itens elevados",
+  2337: "Arrastar: mudar de ecrã, ou passar para cima ou para baixo",
+  2338: "Arrastar para mover",
+  2339: "A 100 %, a faixa bloqueia os cliques e pode ser agarrada em qualquer ponto para a mover; abaixo disso, os cliques atravessam-na.",
+  2340: "Desbloqueia ao chegar à zona {0}.",
+  2341: "Arrasta o botão ⌃ da faixa para outro ecrã, ou para cima ou para baixo; o modo mini fica onde quiseres.",
+  2342: "Arrasta um objeto do saco para a linha de equipamento que se ilumina para o equipar (ou um objeto equipado para o saco para o retirar).",
+  2343: "Os separadores ainda bloqueados aparecem a cinzento: a dica diz em que zona abrem.",
+  2344: "Faixa a 100 % de opacidade: bloqueia os cliques e pode ser agarrada em qualquer ponto para a mover.",
 };

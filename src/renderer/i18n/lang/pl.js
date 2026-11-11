@@ -1210,4 +1210,12 @@ export default {
   2334: "Nowy przycisk „Twoja opinia” u góry panelu: pomysł, błąd? Napisz na stronie gry.",
   2335: "Przerywniki fabularne nie giną już podczas intensywnych walk (mogły blokować kolejne).",
   2336: "+{n} przedmiot podniesiony|+{n} przedmioty podniesione|+{n} przedmiotów podniesionych",
+  2337: "Przeciągnij: na inny ekran albo na górę lub dół",
+  2338: "Przeciągnij, aby przesunąć",
+  2339: "Przy 100% pasek blokuje kliknięcia i można go chwycić w dowolnym miejscu, by go przesunąć; poniżej kliknięcia przez niego przechodzą.",
+  2340: "Odblokowuje się po dotarciu do strefy {0}.",
+  2341: "Przeciągnij przycisk ⌃ paska na inny ekran albo na górę lub dół; tryb mini postawisz, gdzie chcesz.",
+  2342: "Przeciągnij przedmiot z torby na podświetloną linię ekwipunku, by go założyć (albo noszony przedmiot do torby, by go zdjąć).",
+  2343: "Jeszcze zablokowane karty są widoczne, wyszarzone: podpowiedź mówi, w której strefie się otworzą.",
+  2344: "Pasek przy 100% krycia: blokuje kliknięcia i można go chwycić w dowolnym miejscu, by go przesunąć.",
 };

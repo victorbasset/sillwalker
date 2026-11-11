@@ -1210,4 +1210,12 @@ export default {
   2334: "New “Your feedback” button at the top of the panel: an idea, a bug? Tell us on the game's page.",
   2335: "Story cutscenes are no longer lost during busy fights (they could block the following ones).",
   2336: "+{n} item raised|+{n} items raised",
+  2337: "Drag: move to another screen, or to the top or bottom",
+  2338: "Drag to move",
+  2339: "At 100%, the strip blocks clicks and can be grabbed anywhere to move it; below that, clicks go through it.",
+  2340: "Unlocks when you reach zone {0}.",
+  2341: "Drag the strip's ⌃ button to another screen, or to the top or bottom; the mini mode can be placed anywhere you like.",
+  2342: "Drag an item from the bag onto the equipment line that lights up to equip it (or drag a worn item to the bag to remove it).",
+  2343: "Tabs not yet unlocked are now visible, greyed out: their tooltip tells you at which zone they open.",
+  2344: "Strip at 100% opacity: it blocks clicks and can be grabbed anywhere to move it.",
 };

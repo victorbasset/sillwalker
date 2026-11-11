@@ -71,7 +71,7 @@ export class SettingsTab {
         <div class="row seg">${["bottom", "top"].map((e) => `<button data-action="se-edge" data-v="${e}" aria-pressed="${(L.edge || "bottom") === e}">${e === "bottom" ? tx("En bas") : tx("En haut")}</button>`).join("")}</div>
         <p class="note tight">${tx("Informations de la bande")}</p>
         <div class="row seg">${[["edges", tx("Aux bords")], ["center", tx("Au milieu")], ["auto", tx("Automatique (très grands écrans)")]].map(([v, label]) => `<button data-action="se-hudpos" data-v="${v}" aria-pressed="${(P.hudPos || "auto") === v}">${esc(label)}</button>`).join("")}</div>
-        <label class="range">${tx("Opacité")} <input type="range" min="5" max="100" step="5" value="${Math.round(opacity * 100)}" data-action="se-opacity-range"> <span>${Math.round(opacity * 100)}${unit("%")}</span></label>
+        <label class="range" title="${esc(tx("À 100 %, la bande arrête les clics et s’attrape n’importe où pour la déplacer ; en dessous, les clics la traversent."))}">${tx("Opacité")} <input type="range" min="5" max="100" step="5" value="${Math.round(opacity * 100)}" data-action="se-opacity-range"> <span>${Math.round(opacity * 100)}${unit("%")}</span></label>
         <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${IS_MAC ? tx("Lancer à l’ouverture de session du Mac") : tx("Lancer au démarrage de Windows")}</label>
         <p class="note">${IS_MAC ? tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la barre des menus, en haut de l’écran, avec le choix de l’écran.") : tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
       </article>

@@ -1210,4 +1210,12 @@ export default {
   2334: "Neuer Knopf „Deine Meinung“ oben im Panel: eine Idee, ein Fehler? Sag es auf der Seite des Spiels.",
   2335: "Story-Zwischensequenzen gehen in hektischen Kämpfen nicht mehr verloren (sie konnten die folgenden blockieren).",
   2336: "+{n} Gegenstand gehoben|+{n} Gegenstände gehoben",
+  2337: "Ziehen: auf einen anderen Bildschirm, oder nach oben oder unten",
+  2338: "Ziehen zum Verschieben",
+  2339: "Bei 100 % fängt die Leiste Klicks ab und lässt sich überall greifen, um sie zu verschieben; darunter gehen Klicks hindurch.",
+  2340: "Wird freigeschaltet, sobald du Zone {0} erreichst.",
+  2341: "Zieh den ⌃-Knopf der Leiste auf einen anderen Bildschirm oder nach oben oder unten; der Mini-Modus lässt sich frei platzieren.",
+  2342: "Zieh einen Gegenstand aus der Tasche auf die aufleuchtende Ausrüstungszeile, um ihn anzulegen (oder einen getragenen in die Tasche, um ihn abzulegen).",
+  2343: "Noch gesperrte Reiter sind jetzt ausgegraut sichtbar: ihr Tooltip verrät, ab welcher Zone sie sich öffnen.",
+  2344: "Leiste bei 100 % Deckkraft: Sie fängt Klicks ab und lässt sich überall greifen, um sie zu verschieben.",
 };

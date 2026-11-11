@@ -2338,5 +2338,13 @@ export const KEYS = [
   "Donner mon avis",
   "Nouveau bouton « Ton avis » en haut du panneau : une idée, un bug ? Dis-le sur la page du jeu.",
   "Les cinématiques de l’histoire ne se perdent plus pendant les combats chargés (elles pouvaient bloquer les suivantes).",
-  "+{n} objet remonté|+{n} objets remontés"
+  "+{n} objet remonté|+{n} objets remontés",
+  "Glisser : changer d’écran, ou passer en haut ou en bas",
+  "Glisser pour déplacer",
+  "À 100 %, la bande arrête les clics et s’attrape n’importe où pour la déplacer ; en dessous, les clics la traversent.",
+  "Se débloque en atteignant la zone {0}.",
+  "Fais glisser le bouton ⌃ de la bande vers un autre écran, ou vers le haut ou le bas ; le mode mini se pose où tu veux.",
+  "Glisse un objet du sac sur la ligne d’équipement qui s’illumine pour l’équiper (ou un objet porté vers le sac pour le retirer).",
+  "Les onglets pas encore débloqués sont visibles, grisés : leur infobulle dit à quelle zone ils s’ouvrent.",
+  "Bande à 100 % d’opacité : elle arrête les clics et s’attrape n’importe où pour la déplacer."
 ];

@@ -127,6 +127,7 @@ function start() {
       } catch { /* sans importance */ }
     });
     ipcMain.on("mouse:rects", (_e, rects) => strip.setHitRects(rects));
+    ipcMain.on("win:drag", (_e, phase) => (phase === "start" ? strip.dragStart() : strip.dragEnd()));
     ipcMain.on("achievements:unlock", (_e, ids) => { if (Array.isArray(ids)) steam.unlock(ids.map(String)); });
 
     ipcMain.once("app:ready", () => {

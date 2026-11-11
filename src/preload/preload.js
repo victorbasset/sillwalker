@@ -23,6 +23,7 @@ contextBridge.exposeInMainWorld("sillwalker", {
   sendStatus: (st) => ipcRenderer.send("hero:status", st),     // pour l'icône de notification
   setTrayIcons: (set) => ipcRenderer.send("tray:icons", set),  // têtes du héros (data URL 16 et 32 px)
   getWindowSettings: () => ipcRenderer.invoke("win:get"),       // { openAtLogin }
+  dragWindow: (phase) => ipcRenderer.send("win:drag", phase === "start" ? "start" : "end"), // (it. 835) déplacer la fenêtre
   setWindowSettings: (s) => ipcRenderer.send("win:set", s),    // { edge?, opacity?, openAtLogin? }
   layoutApplied: () => ipcRenderer.send("layout:applied"),
 

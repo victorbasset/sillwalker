@@ -1210,4 +1210,12 @@ export default {
   2334: "Nuevo botón «Tu opinión» en la parte superior del panel: ¿una idea, un error? Cuéntalo en la página del juego.",
   2335: "Las cinemáticas de la historia ya no se pierden en los combates intensos (podían bloquear las siguientes).",
   2336: "+{n} objeto subido|+{n} objetos subidos",
+  2337: "Arrastrar: cambiar de pantalla, o pasar arriba o abajo",
+  2338: "Arrastrar para mover",
+  2339: "Al 100 %, la franja detiene los clics y se puede agarrar por cualquier parte para moverla; por debajo, los clics la atraviesan.",
+  2340: "Se desbloquea al llegar a la zona {0}.",
+  2341: "Arrastra el botón ⌃ de la franja a otra pantalla, o arriba o abajo; el modo mini se coloca donde quieras.",
+  2342: "Arrastra un objeto de la bolsa a la línea de equipo que se ilumina para equiparlo (o un objeto puesto a la bolsa para quitártelo).",
+  2343: "Las pestañas aún bloqueadas se ven en gris: su descripción emergente dice en qué zona se abren.",
+  2344: "Franja al 100 % de opacidad: detiene los clics y se puede agarrar por cualquier parte para moverla.",
 };

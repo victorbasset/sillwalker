@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 835) : retours d'une première joueuse (itch.io), quatre demandes :
+  1. Déplacer la fenêtre à la souris : glisser le bouton ⌃ (ou la languette sur écran ultra-large, ou la bande entière
+     si elle est opaque) l'emmène sur l'écran sous le curseur, en haut ou en bas selon la moitié où on la lâche ; le
+     mode mini se pose où on veut (settings.miniPos, ramené dans l'écran si la résolution change). Un simple clic garde
+     son effet ; le clic qui suit un glissement est ignoré. Choisir un écran au menu de l'icône ramène le mini au coin.
+  2. Glisser-déposer des objets : du sac vers la ligne d'équipement (en surbrillance pointillée, verte au survol), ou
+     d'un objet porté vers le sac pour le retirer. Rendus du sac suspendus pendant le glissement.
+  3. Onglets pas encore débloqués : visibles, grisés, infobulle « Se débloque en atteignant la zone N » + contenu.
+  4. Opacité 100 % : la bande arrête les clics (et s'attrape n'importe où) ; en dessous, ils la traversent.
+  Édition 32 de « Quoi de neuf ». Autotest 154/154 (5 contrôles ajoutés ou adaptés).
 - 2026-11-11 (it. 834) : textes de promotion à jour (version Mac Apple Silicon disponible, « free keys » dans le titre
   du forum itch, comme posté par Victor).
 - 2026-11-11 (it. 834) : le résumé « Pendant ton absence » montre aussi le travail du Forgeron des astres

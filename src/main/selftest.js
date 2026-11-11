@@ -56,12 +56,44 @@ async function runSelfTest(strip) {
   // il passe parfois au milieu : un point fixe faisait échouer le test une fois sur trois).
   const emptyX = await js(`(() => {
     const y = innerHeight - 40, R = [...document.querySelectorAll(".hit")]
-      .filter((e) => { if (e.closest("[hidden]")) return false; const cs = getComputedStyle(e); return cs.visibility !== "hidden" && cs.display !== "none"; })
+      .filter((e) => { if (e.id === "strip" || e.closest("[hidden]")) return false; const cs = getComputedStyle(e); return cs.visibility !== "hidden" && cs.display !== "none"; })
       .map((e) => e.getBoundingClientRect()).filter((r) => r.width && r.height);
     for (let x = 100; x < innerWidth - 100; x += 50) if (!R.some((r) => x > r.left - 80 && x < r.right + 80 && y > r.top - 20 && y < r.bottom + 20)) return x;
     return -1;
   })()`);
-  check("zone vide de la bande : clics traversants", emptyX > 0 && !strip.hitTest(b0.x + emptyX, b0.y + b0.height - 40), `x = ${emptyX}`);
+  // (it. 835) opacité 100 % : la bande opaque arrête les clics ; en dessous, ils la traversent
+  const opa0 = strip.settings.get("opacity");
+  strip.setOpacity(0.6); await sleep(400);
+  check("zone vide de la bande (opacité 60 %) : clics traversants", emptyX > 0 && !strip.hitTest(b0.x + emptyX, b0.y + b0.height - 40), `x = ${emptyX}`);
+  strip.setOpacity(1); await sleep(400);
+  const solidHit = strip.hitTest(b0.x + emptyX, b0.y + b0.height - 40);
+  strip.setOpacity(0.6); await sleep(400);
+  const thinHit = strip.hitTest(b0.x + emptyX, b0.y + b0.height - 40);
+  strip.setOpacity(opa0); await sleep(400);
+  check("bande opaque (100 %) : arrête les clics ; à 60 % : traversée", solidHit && !thinHit, `100 % : ${solidHit}, 60 % : ${thinHit}`);
+  // (it. 835) glisser le bouton ⌃ : la fenêtre suit la souris (le processus principal prend la main) et le clic qui
+  // suit le relâchement n'ouvre pas le panneau
+  {
+    const m = await rectOf("#menu-btn");
+    await move(m.x, m.y);
+    wc.sendInputEvent({ type: "mouseDown", x: m.x, y: m.y, button: "left", clickCount: 1 });
+    for (let i = 1; i <= 4; i++) { wc.sendInputEvent({ type: "mouseMove", x: m.x - 6 * i, y: m.y - 4 * i, button: "left", modifiers: ["leftButtonDown"] }); await sleep(40); }
+    await sleep(100);
+    const during = !!strip.drag;
+    wc.sendInputEvent({ type: "mouseUp", x: m.x - 24, y: m.y - 16, button: "left", clickCount: 1 });
+    await sleep(500);
+    const after = !strip.drag, opened = await js("document.body.classList.contains('panel-open')");
+    check("glisser le bouton ⌃ : la fenêtre suit, le panneau ne s'ouvre pas", during && after && !opened, `pendant ${during}, fini ${after}, panneau ${opened}`);
+    // dépôt : moitié haute de l'écran -> bande en haut ; moitié basse -> en bas (sur l'écran sous le curseur)
+    const wa = strip.display().workArea, edge0 = strip.settings.get("edge");
+    strip.dragStart(); strip.dragEnd({ x: wa.x + 200, y: wa.y + 20 });
+    const top = strip.settings.get("edge");
+    strip.dragStart(); strip.dragEnd({ x: wa.x + 200, y: wa.y + wa.height - 20 });
+    const bottom = strip.settings.get("edge");
+    if (edge0 !== bottom) strip.setEdge(edge0);
+    await sleep(300);
+    check("bande lâchée en haut puis en bas de l'écran : bord suivi", top === "top" && bottom === "bottom", `${top} / ${bottom}`);
+  }
 
   // Panneau : la fenêtre ne doit pas changer de taille (cause du clignotement).
   await click("#menu-btn");
@@ -251,6 +283,27 @@ async function runSelfTest(strip) {
   wc.sendInputEvent({ type: "mouseUp", x: ds.x, y: ds.y, button: "left", clickCount: 2 });
   await sleep(250);
   check("double-clic sur un objet du sac : équipé", await js(`Object.values(window.__game.S.equip).some((it) => it && it.id === ${dblId})`));
+  // (it. 835) glisser-déposer : objet du sac -> sa ligne d'équipement, en surbrillance pendant le trajet
+  await js("(() => { const g = window.__game; if (g.bagFull()) g.S.bag.pop(); g.addToBag(g.newItem(4, g.S.best + 25)); g.changed() })()");
+  await click('[data-tab="adventure"]');
+  await sleep(300);
+  const dnd = await js(`(() => {
+    const g = window.__game, it = g.S.bag[g.S.bag.length - 1], src = document.querySelector('#p-bag .slot[data-from="bag"][data-id="' + it.id + '"]');
+    if (!src) return "objet absent du sac";
+    const dt = new DataTransfer(), ev = (type, el) => el.dispatchEvent(new DragEvent(type, { bubbles: true, cancelable: true, dataTransfer: dt }));
+    ev("dragstart", src);
+    const lit = [...document.querySelectorAll("#p-detail .eqline.dropok")];
+    if (lit.length !== 1 || lit[0].querySelector(".slot").dataset.slot !== it.slot) return "surbrillance : " + lit.length;
+    const other = document.querySelector("#p-detail .eqline:not(.dropok)");
+    ev("dragover", other);
+    if (other.classList.contains("dropover")) return "autre emplacement accepté";
+    ev("dragover", lit[0]);
+    if (!lit[0].classList.contains("dropover")) return "survol non signalé";
+    ev("drop", lit[0]); ev("dragend", src);
+    if (g.S.equip[it.slot]?.id !== it.id) return "pas équipé";
+    return document.querySelectorAll(".dropok, .dropover").length ? "surbrillance restée" : "ok";
+  })()`);
+  check("glisser un objet du sac sur l'équipement : surbrillance puis équipé", dnd === "ok", dnd);
   // Vendre ce qui n'améliore pas (avec confirmation)
   await js("(() => { const g = window.__game; for (let n = 0; n < 200 && Object.keys(g.S.equip).some((k) => !g.S.equip[k] || g.S.equip[k].r < 3); n++) { const it = g.newItem(3, g.S.best + 10); if (!g.S.equip[it.slot] || g.S.equip[it.slot].r < 3) g.S.equip[it.slot] = it; } g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed() })()");
   await click('[data-tab="adventure"]');
@@ -463,8 +516,8 @@ async function runSelfTest(strip) {
   // Compétences sans le Manuel du stratège : « Dépenser automatiquement » et « À chaque niveau » réellement invisibles.
   const kv = await js("(() => { const S = window.__game.S; const had = S.unlocks.bulkPoints, al = S.unlocks.autoLevel; delete S.unlocks.bulkPoints; delete S.unlocks.autoLevel; window.__panel.setTab('skills'); window.__panel.renderAll(); const vis = (sel) => { const e = document.querySelector(sel); return e ? e.getClientRects().length > 0 : 'absent'; }; const r = vis('.k-autorow') + ' ' + vis('.k-autolevel'); if (had) S.unlocks.bulkPoints = had; if (al) S.unlocks.autoLevel = al; window.__panel.setTab('adventure'); return r; })()");
   check("compétences : boutons automatiques cachés sans le Manuel du stratège", kv === "false false", kv);
-  // Onglets progressifs : Talents fermé = bouton caché ; seuil atteint = annonce, bouton visible avec ✦ ; visite = ✦ retiré.
-  const tb = await js("(() => { window.__clearToasts(); const g = window.__game, S = g.S, P = window.__panel; delete (S.settings.hints || {}).talent; S.tabsOpen.talents = undefined; delete S.tabsOpen.talents; P.renderAll(); const btn = document.querySelector('[data-tab=talents]'); const hid = btn.getClientRects().length === 0; g.step(1.1); P.renderAll(); const toast = document.getElementById('toast').textContent; const vis = btn.getClientRects().length > 0; const badge = document.querySelector('[data-badge=talents]').textContent; P.setTab('talents'); P.renderAll(); const badge2 = document.querySelector('[data-badge=talents]').textContent; P.setTab('adventure'); return [hid, vis, /Talents/.test(toast), badge, badge2 || '-', !!(S.settings.hints || {}).talent].join(' '); })()");
+  // Onglets progressifs : Talents fermé = bouton grisé, infobulle avec sa zone (it. 835) ; seuil atteint = annonce, bouton visible avec ✦ ; visite = ✦ retiré.
+  const tb = await js("(() => { window.__clearToasts(); const g = window.__game, S = g.S, P = window.__panel; delete (S.settings.hints || {}).talent; S.tabsOpen.talents = undefined; delete S.tabsOpen.talents; P.renderAll(); const btn = document.querySelector('[data-tab=talents]'); const hid = btn.classList.contains('locked') && btn.getAttribute('aria-disabled') === 'true' && (btn.dataset.title || btn.title).includes('2'); g.step(1.1); P.renderAll(); const toast = document.getElementById('toast').textContent; const vis = btn.getClientRects().length > 0 && !btn.classList.contains('locked'); const badge = document.querySelector('[data-badge=talents]').textContent; P.setTab('talents'); P.renderAll(); const badge2 = document.querySelector('[data-badge=talents]').textContent; P.setTab('adventure'); return [hid, vis, /Talents/.test(toast), badge, badge2 || '-', !!(S.settings.hints || {}).talent].join(' '); })()");
   await js("document.getElementById('toast').click(); window.__panel.setTab('adventure')"); // le clic ouvre l'onglet annoncé : retour à l'aventure
   // Onglet Talents fermé : pas de lien « points de talent à dépenser » dans la carte du héros (signalé par Victor).
   const tl = await js("(() => { const g = window.__game, S = g.S; const t = S.tabsOpen.talents, tal = S.talents[S.cls]; S.talents[S.cls] = {}; g.invalidateStats(); delete S.tabsOpen.talents; window.__panel.setTab('adventure'); window.__panel.renderAll(); const free = g.talentPointsFree(); const vis = [...document.querySelectorAll('#p-hero [data-tab=talents]')].filter((e) => e.getClientRects().length).length; S.tabsOpen.talents = t || true; S.talents[S.cls] = tal; g.invalidateStats(); window.__panel.renderAll(); return free > 0 ? String(vis) : 'pas de point libre'; })()");

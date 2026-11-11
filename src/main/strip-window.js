@@ -4,7 +4,7 @@
 //           panneau est transparente et traversée par les clics tant qu'il est
 //           fermé. Ouvrir le panneau ne redimensionne donc jamais la fenêtre
 //           (c'était la cause du clignotement).
-//   mini  : petit encart près de l'horloge.
+//   mini  : petit encart près de l'horloge (ou là où le joueur l'a fait glisser, it. 835).
 //   icon  : fenêtre masquée, seule l'icône de notification reste.
 const { BrowserWindow, screen, ipcMain } = require("electron");
 const config = require("../shared/config");
@@ -100,11 +100,24 @@ class StripWindow {
     const top = this.settings.get("edge") === "top";
     if (this.mode() === "mini") {
       const m = config.MINI_MARGIN, w = config.MINI_WIDTH, h = config.MINI_HEIGHT;
+      const p = this.miniPos();
+      if (p) { // posé à la main : gardé dans la zone de travail de son écran (résolution changée, écran retiré…)
+        const a = p.display.workArea;
+        return { x: a.x + Math.max(0, Math.min(a.width - w, Math.round(p.x))), y: a.y + Math.max(0, Math.min(a.height - h, Math.round(p.y))), width: w, height: h };
+      }
       return { x: wa.x + wa.width - w - m, y: top ? wa.y + m : wa.y + wa.height - h - m, width: w, height: h };
     }
     const h = config.STRIP_HEIGHT + this.panelHeight(wa);
     const width = this.testWidth ? Math.min(wa.width, this.testWidth) : wa.width; // --width (dev)
     return { x: wa.x, y: top ? wa.y : wa.y + wa.height - h, width, height: h };
+  }
+
+  /** Position du mode mini choisie à la souris : { display, x, y } (relative à la zone de travail), ou null. */
+  miniPos() {
+    const p = this.settings.get("miniPos");
+    if (!p || typeof p !== "object" || !Number.isFinite(p.x) || !Number.isFinite(p.y)) return null;
+    const display = screen.getAllDisplays().find((d) => d.id === p.id);
+    return display ? { display, x: p.x, y: p.y } : null; // écran débranché : coin par défaut de l'écran choisi
   }
 
   place() {
@@ -135,7 +148,8 @@ class StripWindow {
   }
 
   setEdge(edge) { this.settings.set("edge", edge); this.place(); }
-  setDisplay(id) { this.settings.set("displayId", id); this.place(); }
+  // choix d'écran au menu de l'icône : le mode mini y retourne aussi, dans son coin habituel
+  setDisplay(id) { this.settings.set("displayId", id); this.settings.set("miniPos", null); this.place(); }
   setOpacity(v) { this.settings.set("opacity", v); this.send("layout", this.layout()); }
 
   /* ---------- Modes ---------- */
@@ -191,6 +205,45 @@ class StripWindow {
     else if (this.isShown()) this.reveal();
   }
 
+  /* ---------- Déplacement à la souris (it. 835, demande d'un joueur) ----------
+   * La page signale le début et la fin du glissement ; entre les deux, la fenêtre suit le curseur (60 fois/s).
+   * Lâchée : bande -> sur l'écran sous le curseur, en haut ou en bas selon la moitié ; mini -> exactement là. */
+  dragStart() {
+    if (this.win.isDestroyed() || this.drag || this.switching || !this.isShown()) return;
+    const p = screen.getCursorScreenPoint(), b = this.win.getBounds();
+    if (this.ghost) b.x += GHOST_OFFSET; // tests : position « vraie » (sans le décalage hors écran)
+    this.drag = { dx: p.x - b.x, dy: p.y - b.y, w: b.width, h: b.height, t0: Date.now() };
+    this.setInteractive(true);
+    this.dragTimer = setInterval(() => this.dragMove(), 16);
+  }
+
+  dragMove() {
+    if (!this.drag || this.win.isDestroyed()) return;
+    if (Date.now() - this.drag.t0 > 30000) { this.dragEnd(); return; } // relâchement jamais reçu : on lâche quand même
+    if (this.ghost) return; // tests : la fenêtre reste hors écran
+    const p = screen.getCursorScreenPoint(), d = this.drag;
+    // taille fixée : un écran d'une autre échelle ne la change pas pendant le trajet
+    this.win.setBounds({ x: p.x - d.dx, y: p.y - d.dy, width: d.w, height: d.h });
+  }
+
+  /** Fin du glissement ; `pt` (coordonnées écran) : point de dépôt imposé (autotest), sinon le curseur. */
+  dragEnd(pt) {
+    if (!this.drag) return;
+    clearInterval(this.dragTimer);
+    const d = this.drag;
+    this.drag = null;
+    const p = pt && Number.isFinite(pt.x) && Number.isFinite(pt.y) ? pt : screen.getCursorScreenPoint();
+    const disp = screen.getDisplayNearestPoint(p), wa = disp.workArea;
+    if (this.mode() === "mini") {
+      this.settings.set("miniPos", { id: disp.id, x: p.x - d.dx - wa.x, y: p.y - d.dy - wa.y });
+    } else {
+      this.settings.set("displayId", disp.id);
+      this.settings.set("edge", p.y < wa.y + wa.height / 2 ? "top" : "bottom");
+    }
+    this.place();
+    this.notify(); // menu de l'icône : écran et bord cochés
+  }
+
   /* ---------- Souris ---------- */
   /** Rectangles cliquables déclarés par la page (coordonnées de la fenêtre). */
   setHitRects(rects) {
@@ -207,7 +260,7 @@ class StripWindow {
 
   /** 20 fois/s : rend la fenêtre cliquable seulement sous un élément `.hit`. */
   pollCursor() {
-    if (this.win.isDestroyed() || !this.win.isVisible() || this.testing) return;
+    if (this.win.isDestroyed() || !this.win.isVisible() || this.testing || this.drag) return;
     const p = screen.getCursorScreenPoint();
     this.setInteractive(this.hitTest(p.x, p.y));
   }

@@ -245,6 +245,64 @@ export class Panel {
     this.root.appendChild(this.tip);
     this.root.addEventListener("mouseover", (e) => this.onHover(e));
     this.root.addEventListener("mouseleave", () => { this.tip.hidden = true; });
+    // (it. 835, demande d'une joueuse) glisser-déposer : objet du sac -> sa ligne d'équipement (en surbrillance
+    // pendant le trajet) ; objet porté -> le sac (le retirer). Le double-clic marche toujours.
+    this.root.addEventListener("dragstart", (e) => this.onDragStart(e));
+    this.root.addEventListener("dragover", (e) => this.onDragOver(e));
+    this.root.addEventListener("drop", (e) => this.onDrop(e));
+    document.addEventListener("dragend", () => this.endDrag()); // l'objet source a pu être retiré de la page
+  }
+
+  /** Cible de dépôt sous le pointeur pour l'objet glissé, ou null. */
+  dropTarget(e) {
+    const d = this.dnd, t = e.target;
+    if (!d || !t || !t.closest) return null;
+    if (d.from === "bag") {
+      const li = t.closest("#p-detail .eqline"), s = li && li.querySelector('.slot[data-from="equip"]');
+      return s && s.dataset.slot === d.slot ? li : null;
+    }
+    return this.game.bagFull() ? null : t.closest("#p-bag .bag");
+  }
+
+  onDragStart(e) {
+    const b = e.target.closest && e.target.closest(".slot[data-from]");
+    const g = this.game, it = b && (b.dataset.from === "bag" ? g.findBagItem(+b.dataset.id) : g.S.equip[b.dataset.slot]);
+    if (!it) { if (b) e.preventDefault(); return; }
+    this.dnd = { from: b.dataset.from, id: it.id, slot: it.slot };
+    this.dndOver = null;
+    if (e.dataTransfer) { e.dataTransfer.effectAllowed = "move"; e.dataTransfer.setData("text/plain", String(it.id)); }
+    this.tip.hidden = true;
+    const targets = this.dnd.from === "bag"
+      ? [...this.root.querySelectorAll(`#p-detail .slot[data-from="equip"][data-slot="${it.slot}"]`)].map((s) => s.closest(".eqline"))
+      : g.bagFull() ? [] : [...this.root.querySelectorAll("#p-bag .bag")];
+    for (const t of targets) if (t) t.classList.add("dropok");
+  }
+
+  onDragOver(e) {
+    const t = this.dropTarget(e);
+    if (this.dndOver && this.dndOver !== t) { this.dndOver.classList.remove("dropover"); this.dndOver = null; }
+    if (!t) return;
+    e.preventDefault(); // dépôt permis ici
+    if (e.dataTransfer) e.dataTransfer.dropEffect = "move";
+    if (!this.dndOver) { t.classList.add("dropover"); this.dndOver = t; }
+  }
+
+  onDrop(e) {
+    const t = this.dropTarget(e), d = this.dnd, g = this.game;
+    if (!t || !d) { this.endDrag(); return; }
+    e.preventDefault();
+    if (d.from === "bag") { const it = g.findBagItem(d.id); if (it) g.equip(it); }
+    else if (g.S.equip[d.slot] && !g.bagFull()) g.unequip(d.slot);
+    this.selected = null;
+    this.endDrag();
+    this.renderAll();
+  }
+
+  endDrag() {
+    if (!this.dnd) return;
+    this.dnd = null; this.dndOver = null;
+    for (const el of this.root.querySelectorAll(".dropok, .dropover")) el.classList.remove("dropok", "dropover");
+    this.dirty = true; // les rendus du sac et de l'équipement, suspendus pendant le glissement, reprennent
   }
 
   /** Double-clic sur un objet : l'équiper (sac) ou le retirer (héros). Renvoie true si traité. */
@@ -558,9 +616,17 @@ export class Panel {
   renderBadges() {
     const S = this.game.S;
     for (const t of TABS) {
-      // Onglet pas encore débloqué (tabs.js) : bouton caché ; tout juste débloqué : pastille ✦ jusqu'à la visite.
+      // Onglet pas encore débloqué (tabs.js) : grisé, avec au survol la zone qui l'ouvre et ce qu'il contient (it. 835,
+      // demande d'une joueuse : voir ce qui arrive plutôt que des onglets invisibles) ; tout juste débloqué : pastille ✦.
       const btn = $(this.root, `[data-tab="${t.id}"]`), open = tabOpen(S, t.id);
-      if (btn && btn.hidden === open) btn.hidden = !open;
+      if (btn && btn.classList.contains("locked") === open) {
+        btn.classList.toggle("locked", !open);
+        btn.setAttribute("aria-disabled", String(!open));
+        if (btn.dataset.otitle == null) btn.dataset.otitle = btn.title || btn.dataset.title || "";
+        const g = TAB_GATES[t.id];
+        const title = open || !g ? btn.dataset.otitle : `${t.label}\n${tx("Se débloque en atteignant la zone {0}.", { 0: g.zone })}\n${tx(g.desc)}`;
+        btn.title = title; btn.dataset.title = title;
+      }
       // Liens internes vers un onglet encore fermé (cartes, conseils…) : cachés, ils ne mèneraient nulle part.
       if (!open) for (const l of this.root.querySelectorAll(`.linkbtn[data-tab="${t.id}"], .goal[data-tab="${t.id}"]`)) l.hidden = true;
       const isNew = open && S.tabsOpen && S.tabsOpen[t.id] === "new";
@@ -579,7 +645,7 @@ export class Panel {
     const sel = this.selected && ((this.selected.from === "equip" && this.selected.slot === slotKey && from === "equip") ||
       (this.selected.from === "bag" && this.selected.id === it.id && from === "bag"));
     const up = from === "bag" && this.game.isUpgrade(it);
-    return `<button class="slot rb${it.r}${sel ? " sel" : ""}" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
+    return `<button class="slot rb${it.r}${sel ? " sel" : ""}" draggable="true" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
       aria-label="${esc(itemName(it))}${csep()}${RARITIES[it.r].name}${up ? tx(", amélioration") : ""}">
       <img src="${itemIconURL(it)}" alt="">${RARITY_PIP[it.r] ? `<span class="rpip" aria-hidden="true">${RARITY_PIP[it.r]}</span>` : ""}${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark tint" style="--c:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
   }
@@ -670,6 +736,7 @@ export class Panel {
   }
 
   renderBag() {
+    if (this.dnd) return; // glissement en cours : ne pas remplacer l'objet tenu ni les surbrillances
     const S = this.game.S, cells = [];
     const useless = this.game.uselessItems(), uselessGold = useless.reduce((a, it) => a + sellValue(it), 0), tr = this.game.transmutePlan();
     // Affichage trié (le sac lui-même garde l'ordre d'arrivée) : améliorations ▲, puis rareté, puis emplacement.
@@ -725,6 +792,7 @@ export class Panel {
   }
 
   renderDetail() {
+    if (this.dnd) return;
     const el = $(this.root, "#p-detail"), S = this.game.S;
     { // Panneau Équipement toujours visible ; le détail d'un objet s'ouvre sous le sac (demande de Victor).
       const v = heroVisual(S);
