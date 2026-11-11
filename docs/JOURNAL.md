@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 803) : deux succès pour les échos des lieutenants (au-delà du Rebord) : ECHO_FIRST « Écho dissipé »
+  (record au-delà de la zone 250) et ECHOES_ALL « Les trois échos » (au-delà de 350, progression 0/3 → 3/3) ; traduits,
+  steam/achievements.md (63), README, icônes (fantôme, blason). Test (197) ; lang-overflow pl/de/ru 1920/1280 sans
+  défilement. À créer aussi dans Steamworks.
 - 2026-11-11 (it. 802) : CLAUDE.md : repères de performance mis à jour (it. 800 ; mesure Windows de Victor, it. 763) et
   plage de mémoire 485-530 Mo. L'état de Steam n'est affiché qu'en dev (menu de l'icône) : rien à traduire pour la
   version hors Steam.

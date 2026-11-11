@@ -1201,4 +1201,6 @@ export default {
   2325: "On Windows, the panel and tabs open without freezing from the very first time (lighter text font).",
   2326: "Panel tabs with the keyboard: left and right arrows, Home and End.",
   2327: "The panel opens without waiting: its content updates right after.",
+  2328: "Echo Dispelled",
+  2329: "The Three Echoes",
 };

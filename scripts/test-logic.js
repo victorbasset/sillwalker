@@ -2789,4 +2789,13 @@ test("version hors Steam (npm run dist:itch) : Steam entièrement coupé, pas de
   }
 });
 
+test("succès des échos : obtenus seulement après avoir battu l'écho (record au-delà de sa zone ; it. 803)", () => {
+  const A = Object.fromEntries(ACH_T.map((a) => [a.id, a]));
+  const S = freshState(); S.best = 250;
+  assert.equal(A.ECHO_FIRST.test(S), false);
+  S.best = 251; assert.equal(A.ECHO_FIRST.test(S), true); assert.equal(A.ECHOES_ALL.test(S), false);
+  assert.deepEqual(ACH_PROGRESS.ECHOES_ALL(S), [1, 3]);
+  S.best = 351; assert.equal(A.ECHOES_ALL.test(S), true);
+});
+
 console.log(`\n${pass} tests réussis`);

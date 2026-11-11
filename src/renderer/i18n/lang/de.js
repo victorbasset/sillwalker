@@ -1201,4 +1201,6 @@ export default {
   2325: "Unter Windows öffnen sich das Panel und die Reiter schon beim ersten Mal ohne Ruckeln (leichtere Textschrift).",
   2326: "Panel-Reiter per Tastatur: Pfeiltasten links und rechts, Pos1 und Ende.",
   2327: "Das Panel öffnet sich ohne Wartezeit: Der Inhalt aktualisiert sich gleich danach.",
+  2328: "Echo vertrieben",
+  2329: "Die drei Echos",
 };

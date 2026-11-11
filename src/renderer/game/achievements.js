@@ -11,7 +11,7 @@ import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 import { CHRONICLES } from "./story.js";
-import { RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel } from "./relics.js";
+import { RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel, ECHO_BOSSES } from "./relics.js";
 import { classSpells, spellRank } from "./spells.js";
 
 /** Le plus de sorts appris par un même héros (0 à 3). */
@@ -88,6 +88,9 @@ export const ACHIEVEMENTS = [
   { id: "RELIC_FIRST",     name: "Première relique",   test: (S) => RELIC_IDS.some((id) => hasRelic(S, id)) },
   { id: "RELICS_ALL",      name: "Les quatre reliques", test: (S) => RELIC_IDS.every((id) => hasRelic(S, id)) },
   { id: "RELIC_MAX",       name: "Relique parfaite (niveau 5)", test: (S) => RELIC_IDS.some((id) => relicLevel(S, id) >= RELIC_MAX_LV) },
+  // (it. 803) échos des lieutenants au-delà du Rebord (zones 250, 300, 350) : battu = record au-delà de sa zone
+  { id: "ECHO_FIRST",      name: "Écho dissipé",       test: (S) => rec(S) > ECHO_BOSSES[0].zone },
+  { id: "ECHOES_ALL",      name: "Les trois échos",    test: (S) => rec(S) > ECHO_BOSSES[ECHO_BOSSES.length - 1].zone },
 ];
 
 /** Identifiants des succès dont la condition est remplie. */
@@ -139,4 +142,5 @@ export const ACH_PROGRESS = {
   POTIONS_50: (S) => [S.stats.potionsUsed || 0, 50],
   UNLOCK_ALL: (S) => [UNLOCKS.filter((u) => S.unlocks && S.unlocks[u.id]).length, UNLOCKS.length],
   TAPS_1000: (S) => [S.stats.taps || 0, 1000],
+  ECHOES_ALL: (S) => [ECHO_BOSSES.filter((b) => rec(S) > b.zone).length, ECHO_BOSSES.length],
 };

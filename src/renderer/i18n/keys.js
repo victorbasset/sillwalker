@@ -2329,5 +2329,7 @@ export const KEYS = [
   "Son coupé : le moteur audio se met en pause et économise du processeur.",
   "Sous Windows, le panneau et les onglets s’ouvrent sans blocage dès la première fois (police du texte allégée).",
   "Onglets du panneau au clavier : flèches gauche et droite, Début et Fin.",
-  "Le panneau s’ouvre sans attendre : son contenu se met à jour juste après."
+  "Le panneau s’ouvre sans attendre : son contenu se met à jour juste après.",
+  "Écho dissipé",
+  "Les trois échos"
 ];

@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (61 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (63 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -65,3 +65,5 @@ Généré par `scripts/steam-achievements.mjs` (61 succès). À recopier dans St
 | `RELIC_FIRST` | Première relique | First relic | Primera reliquia | Primeira relíquia | Erstes Relikt | Pierwsza relikwia | Первая реликвия | 第一件圣物 | 最初の遺物 | 첫 번째 유물 |
 | `RELICS_ALL` | Les quatre reliques | All four relics | Las cuatro reliquias | As quatro relíquias | Alle vier Relikte | Cztery relikwie | Все четыре реликвии | 四件圣物 | 四つの遺物 | 네 개의 유물 |
 | `RELIC_MAX` | Relique parfaite (niveau 5) | Perfect relic (level 5) | Reliquia perfecta (nivel 5) | Relíquia perfeita (nível 5) | Perfektes Relikt (Stufe 5) | Doskonała relikwia (poziom 5) | Совершенная реликвия (уровень 5) | 完美圣物（5 级） | 完璧な遺物（レベル5） | 완벽한 유물 (레벨 5) |
+| `ECHO_FIRST` | Écho dissipé | Echo Dispelled | Eco disipado | Eco dissipado | Echo vertrieben | Rozproszone echo | Эхо развеяно | 回响消散 | 消えた残響 | 흩어진 메아리 |
+| `ECHOES_ALL` | Les trois échos | The Three Echoes | Los tres ecos | Os três ecos | Die drei Echos | Trzy echa | Три эха | 三重回响 | 三つの残響 | 세 개의 메아리 |

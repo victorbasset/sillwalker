@@ -1201,4 +1201,6 @@ export default {
   2325: "En Windows, el panel y las pestañas se abren sin bloqueos desde la primera vez (fuente del texto aligerada).",
   2326: "Pestañas del panel con el teclado: flechas izquierda y derecha, Inicio y Fin.",
   2327: "El panel se abre sin esperar: su contenido se actualiza justo después.",
+  2328: "Eco disipado",
+  2329: "Los tres ecos",
 };
