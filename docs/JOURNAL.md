@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 730, revue générale) : balance 12 h vs d6479f7 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl ja 323 / pt 319 clics sans erreur ; perf bande 19,3 %, panneau 20,1 %, mini 6,3 % ; mémoire réelle 525-531 Mo
+  (it. 691 : 12 min sans pente ; à revoir à la revue 740).
 - 2026-11-11 (it. 729) : README : 24 déblocages (zones 8 à 230), Forgeron des astres ajouté à la liste.
 - 2026-11-11 (it. 728) : capture Boutique > Déblocages (copie, record 240) : carte du Forgeron des astres en dernier,
   icône propre (enclume, marteau, étoiles), description complète, prix « 30,00 Sp ». Conforme.
