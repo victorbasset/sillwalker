@@ -6,7 +6,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 ## Fait
 
 - 2026-11-11 (it. 763) : essai Tauri mesuré par Victor sous Windows : pas mieux en mémoire (400 Mo contre 382 Mo),
-  plus cher en processeur (30,7 % contre 19,8 % d'un cœur) : abandonné (demande X). proto-tauri/ gardé pour mémoire.
+  plus cher en processeur (30,7 % contre 19,8 % d'un cœur) : abandonné (demande X). Dossier proto-tauri/ supprimé à la demande de
+  Victor (it. 764 ; toujours lisible dans l'historique git, commit 53e134a).
 - 2026-11-11 (it. 762) : traductions des infobulles et libellés d'accessibilité (title, aria-label, placeholder) des
   12 onglets : en russe, seuls « Sillwalker » et « Esc » restent latins ; en japonais (--dump-text), seuls HP, Lv, BGM,
   pt (usages japonais), les noms des langues et DEV (commandes de dev). Rien à corriger.
