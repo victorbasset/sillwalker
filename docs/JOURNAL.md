@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 838) : écrans de portable (1200-1499 px) : la colonne Équipement de l'Aventure était si étroite que
+  les objets portés se lisaient « Star… », « Casq… », « Bott… » (même « Handschuhe : … » sur une partie neuve). Colonne
+  élargie (pris sur le sac et le journal), portrait du héros aux trois quarts (net) : « Starwood Bow… », « Helm : leer ».
+  « Avant le boss » et son état ne se collent plus (écart minimal). Captures 1280 / 1366 (allemand, partie neuve et
+  dev-data) ; lang-overflow 10 langues × 1366 / 1280 sans défilement ; autotest 155/155.
 - 2026-11-11 (it. 837) : deux bulles corrigées hors français : la récompense du jour (vue chaque jour) écrivait
   « 4/7 : +82 » avec l'espace française et une virgule en dur avant l'objet offert (« , » en japonais et chinois) ; la
   bulle des succès rattrapés au lancement disait « 3 новые достижения » sans accord russe ou polonais, avec « : » et
