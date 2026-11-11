@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 697) : tab-pace inchangé (talents 1, quêtes 5, boutique 8-9, Héros 10, carte 11-12, bestiaire 14-15,
+  ascension 20-43 min ; zone 22).
 - 2026-11-11 (it. 696) : début de partie inchangé : early-pace à 60 min : 109 objets, niv. 39, zone 23, 6 déblocages
   (identique au repère) ; first-minutes : premier objet 41-77 s, premier boss 77-86 s.
 - 2026-11-11 (it. 694-695) : plus aucune « , » collée entre deux variables d'un gabarit. Texte coréen extrait : aucune
