@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 793) : steam/store-page.md : 20 tags proposés (Idle, RPG, Pixel Graphics, Casual…), genres et
+  catégories Steamworks.
 - 2026-11-11 (it. 792) : Steam : scripts/steam-set-appid.mjs <App ID> (STEAM_APP_ID + STEAM_RELAUNCH_IF_NEEDED, retour à
   480 = relance désactivée), essayé sur une copie ; test (195) : jamais de relance par Steam avec l'App ID 480.
   Victor a supprimé le SDK Steamworks copié (inutile avec steamworks.js).

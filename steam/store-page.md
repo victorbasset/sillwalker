@@ -3,6 +3,14 @@
 Rédigés à l'it. 781. Description courte : 300 caractères au plus (limite de Steam). Description longue : à coller dans
 « À propos de ce jeu » (le format BBCode de Steam accepte [h2], [list], [*]). Chiffres tirés du jeu actuel (README).
 
+## Tags proposés (Steamworks → page du magasin → tags, 20 au plus, les plus importants d'abord)
+
+Idle · RPG · Pixel Graphics · Casual · Singleplayer · Incremental · Fantasy · 2D · Relaxing · Loot · Clicker ·
+Character Customization · Cute · Colorful · Indie · Story Rich · Dungeon Crawler · Strategy · Collectathon · Replay Value
+
+Genres : Indie, RPG, Casual (pas « Simulation » : rien n'est simulé au sens Steam). Catégories Steamworks : Solo,
+Succès Steam, Steam Cloud, Prise en charge partielle de la manette : non (souris seulement).
+
 ---
 
 ## Français
