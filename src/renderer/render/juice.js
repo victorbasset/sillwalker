@@ -479,6 +479,9 @@ export class Juice {
     if (this.s.hero && this.s.hero.el.classList.contains("arcane") !== arc) this.s.hero.el.classList.toggle("arcane", arc);
     const ward = (E.ward || 0) > 0; // Voile protecteur : halo bleu pâle (dégâts subis divisés par deux)
     if (this.s.hero && this.s.hero.el.classList.contains("ward") !== ward) this.s.hero.el.classList.toggle("ward", ward);
+    // Silence (échos, it. 647) : héros terni tant qu'il ne peut plus lancer de sorts (4 s)
+    const sil = this.s.game.R.mode === "fight" && (this.s.game.R.silenced || 0) > 0;
+    if (this.s.hero && this.s.hero.el.classList.contains("silenced") !== sil) this.s.hero.el.classList.toggle("silenced", sil);
     const curse = this.s.game.R.mode === "fight" && (this.s.game.R.cursed || 0) > 0; // Malédiction (boss) : halo violet
     if (this.s.hero && this.s.hero.el.classList.contains("cursed") !== curse) this.s.hero.el.classList.toggle("cursed", curse);
   }
