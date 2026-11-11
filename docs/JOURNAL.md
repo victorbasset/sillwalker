@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 794) : ouverture du panneau : si l'onglet courant est déjà construit (préparé d'avance), le panneau
+  glisse tout de suite avec ce contenu et se met à jour à l'image suivante (rAF, minuteur de 50 ms en secours) ; chez
+  Victor, la reconstruction (≈ 170 ms) retardait le début de l'ouverture. Autotest 145, crawl 316 clics sans erreur.
 - 2026-11-11 (it. 793) : steam/store-page.md : 20 tags proposés (Idle, RPG, Pixel Graphics, Casual…), genres et
   catégories Steamworks.
 - 2026-11-11 (it. 792) : Steam : scripts/steam-set-appid.mjs <App ID> (STEAM_APP_ID + STEAM_RELAUNCH_IF_NEEDED, retour à

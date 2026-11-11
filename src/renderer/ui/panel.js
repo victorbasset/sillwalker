@@ -265,7 +265,14 @@ export class Panel {
       const t0 = performance.now();
       // (it. 774) l'onglet courant a pu être caché par la préparation (warmTabs) : il se montre
       for (const p of this.root.querySelectorAll("[data-pane]")) p.hidden = p.dataset.pane !== this.tab;
-      this.dirty = true; this.update(1);
+      const pane = this.root.querySelector(`[data-pane="${this.tab}"]`);
+      if (pane && pane.childElementCount) {
+        // (it. 794) onglet déjà construit (préparé d'avance) : le panneau glisse tout de suite avec son contenu, mis à
+        // jour à l'image suivante (≈ 170 ms de reconstruction chez Victor retardaient le début de l'ouverture)
+        let done = false;
+        const refresh = () => { if (done || !this.isOpen) return; done = true; this.dirty = true; this.update(1); };
+        requestAnimationFrame(refresh); setTimeout(refresh, 50); // minuteur : fenêtre hors écran (tests), sans images
+      } else { this.dirty = true; this.update(1); }
       this.slowProbe("ouverture du panneau", t0);
     } else { this.visitSnap = this.game.visitSnapshot(); this.sinceVisit = null; }
   }
