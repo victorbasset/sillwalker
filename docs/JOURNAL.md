@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 656) : lang-overflow complet (10 langues × 1920 / 1366 / 1280, pire cas des reliques) après les ajouts
+  de la nuit : aucun défilement, aucune ligne trop large.
 - 2026-11-11 (it. 655) : carte : niveau de la Couronne (« ★ n/5 ») au-dessus du Briseur (accolé au nom, il sortait de la
   carte à 1280 px en allemand et en russe ; vérifié en capture). 135/135.
 - 2026-11-11 (it. 654) : Statistiques : « Boss majeurs et échos vaincus » (S.stats.majors, affiché dès le premier).
