@@ -1195,4 +1195,5 @@ export default {
   2319: "Nuevo desbloqueo más allá del Alféizar (zona 300): el «Mercader de confianza» compra y equipa solo el objeto del mercader que más refuerza a tu héroe.",
   2320: "Corrección: el siguiente desbloqueo propuesto vuelve a seguir el orden de las zonas.",
   2321: "Automatismos ({0} / {1})",
+  2322: "Las casillas de los automatismos comprados (ayudante, crisol, forja, mercader…) se agrupan bajo la bolsa, en «Automatismos (activos / total)»: un clic las abre.",
 };

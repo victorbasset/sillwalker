@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 748) : « Quoi de neuf » édition 25 : automatismes regroupés sous le sac (it. 744). Traduite.
 - 2026-11-11 (it. 747) : lang-overflow (pire cas de l'it. 746) passé sur le code d'avant la correction (662d0f1) :
   « de 1280 : adventure=186 » : il aurait vu le défaut de l'it. 744.
 - 2026-11-11 (it. 746) : lang-overflow mesure le pire cas avec TOUS les déblocages achetés (record 310) : l'it. 744 était

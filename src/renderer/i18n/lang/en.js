@@ -1195,4 +1195,5 @@ export default {
   2319: "New unlock beyond the Sill (zone 300): the “Personal Merchant” buys and equips on its own the merchant's item that strengthens your hero most.",
   2320: "Fix: the next suggested unlock follows the zone order again.",
   2321: "Automations ({0} / {1})",
+  2322: "The checkboxes of bought automations (valet, crucible, forge, merchant…) are grouped under the bag, in “Automations (active / total)”: one click opens them.",
 };

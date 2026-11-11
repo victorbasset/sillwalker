@@ -1195,4 +1195,5 @@ export default {
   2319: "Nowe odblokowanie za Krawędzią (strefa 300): „Nadworny kupiec” sam kupuje i zakłada przedmiot kupca, który najbardziej wzmacnia bohatera.",
   2320: "Poprawka: następne proponowane odblokowanie znów jest zgodne z kolejnością stref.",
   2321: "Automaty ({0} / {1})",
+  2322: "Pola kupionych automatów (giermek, tygiel, kuźnia, kupiec…) są zebrane pod torbą, w „Automaty (aktywne / razem)”: jedno kliknięcie je otwiera.",
 };

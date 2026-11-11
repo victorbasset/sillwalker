@@ -2323,5 +2323,6 @@ export const KEYS = [
   "Marchand attitré : acheter et équiper les objets qui renforcent le héros",
   "Nouveau déblocage au-delà du Rebord (zone 300) : le « Marchand attitré » achète et équipe tout seul l’objet du marchand qui renforce le plus ton héros.",
   "Correction : le prochain déblocage proposé suit de nouveau l’ordre des zones.",
-  "Automatismes ({0} / {1})"
+  "Automatismes ({0} / {1})",
+  "Les cases des automatismes achetés (valet, creuset, forge, marchand…) sont regroupées sous le sac, dans « Automatismes (actifs / total) » : un clic les ouvre."
 ];
