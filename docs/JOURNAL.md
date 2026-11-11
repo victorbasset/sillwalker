@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 796) : autotest (146) : polices des 12 onglets et de la bande : aucune taille fractionnaire, au plus
+  40 combinaisons police × graisse × taille (28 aujourd'hui), pour garder des premiers affichages rapides sous Windows.
 - 2026-11-11 (it. 795) : taille de police fractionnaire 10,8333px (compteurs des sous-onglets, <small> sans taille dans un
   bouton de 13px) remplacée par 11px : une combinaison police × taille de moins à créer au premier affichage
   (sous Windows, chacune coûtait cher avant la police allégée). Plus aucune taille fractionnaire dans le panneau.
