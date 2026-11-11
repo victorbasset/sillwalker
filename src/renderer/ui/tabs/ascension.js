@@ -1,5 +1,5 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
-import { t as tx, txn, fsp } from "../../i18n/index.js";
+import { t as tx, txn, fsp, csep } from "../../i18n/index.js";
 import { CLASSES, canPartner, duoSynergy } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
@@ -17,7 +17,7 @@ const LOSE = [["ws_gold", "niveau et or"], ["ws_atk", "équipement et sac"], ["s
 function effText(eff, n) {
   const normal = {}, special = [];
   for (const k in eff) { if (SPECIAL_EFFECTS[k]) special.push(SPECIAL_EFFECTS[k](eff[k] * n)); else normal[k] = eff[k]; }
-  return [describeEffects(normal, n), ...special].filter(Boolean).join(", ");
+  return [describeEffects(normal, n), ...special].filter(Boolean).join(csep());
 }
 
 export class AscensionTab {

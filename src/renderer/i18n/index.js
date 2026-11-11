@@ -54,6 +54,8 @@ export function t(src, vars) {
 export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src);
 /** Espace insécable française avant « : », « ! », « ? » (vide dans les autres langues). */
 export const fsp = () => (lang === "fr" ? " " : "");
+// (it. 668) séparateur de liste de la langue : « , » ; « 、 » en japonais, « ， » en chinois
+export const csep = () => t(", ");
 /**
  * Phrase au pluriel selon n, dans toutes les langues. La source française donne
  * « singulier|pluriel » ; chaque traduction donne ses formes séparées par « | » :

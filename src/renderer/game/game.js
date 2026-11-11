@@ -17,7 +17,7 @@ import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
 export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
-import { t as tx, txn, tr, fsp, lc } from "../i18n/index.js";
+import { t as tx, txn, tr, fsp, lc, csep } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -1469,7 +1469,7 @@ export class Game {
     if (back) parts.push(txn(back, "{n} expédition récupérée|{n} expéditions récupérées") + ` (+${tx("{0} or", { 0: fmt(gold) })}${items ? ", " + txn(items, "{n} objet trouvé|{n} objets trouvés") : ""})`);
     if (hatched) parts.push(txn(hatched, "{n} œuf éclos|{n} œufs éclos"));
     if (sent) parts.push(txn(sent, "{n} familier reparti|{n} familiers repartis"));
-    if (parts.length) this.log(tx("Grand intendant : {0}.", { 0: parts.join(", ") }));
+    if (parts.length) this.log(tx("Grand intendant : {0}.", { 0: parts.join(csep()) }));
     return hatched + back + sent;
   }
 
@@ -1786,7 +1786,7 @@ export class Game {
       this.log(`${tx("Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", { 0: guildRankName(after), 1: gift ? tx(", et un coffre : ") + itemName(gift) : "" })}`);
       this.emit("guildRank", { rank: after });
     }
-    this.log(tx("Récompense de quête : ") + parts.join(", ") + ".");
+    this.log(tx("Récompense de quête : ") + parts.join(csep()) + ".");
     this.ensureQuests();
     this.changed();
     return true;

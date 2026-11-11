@@ -5,7 +5,7 @@
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { newsShown } from "../game/news.js";
 import { itemName } from "../i18n/data.js";
-import { t as tx, txn, lc, fsp, tr } from "../i18n/index.js";
+import { t as tx, txn, lc, fsp, tr, csep } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";
@@ -712,7 +712,7 @@ export class Panel {
       <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(lc(MONSTERS[Z.boss].name)), 2: fmt(bb.hp * (1 - bossWear(S, S.zone))) })}</p>
       <p class="note tight bossmech">${tx("Boss :")} <b class="bname">${esc(bossName(S.zone))}</b>. ${tx("Capacités du boss :")} ${bossMechanics(S.zone).map((id) => { // Malédiction : la parade, si le joueur a déjà vu le Talisman de pureté
           const parry = id === "curse" && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
-          return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(", ")}.</p>
+          return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(csep())}.</p>
       ${this.relicAheadHTML(S)}
       ${bossWear(S, S.zone) ? `<p class="note tight">${tx("Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.", { 0: Math.round(bossWear(S, S.zone) * 100) })}</p>` : ""}
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>

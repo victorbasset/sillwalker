@@ -1,5 +1,5 @@
 // Onglet Bestiaire : monstres rencontrés, victoires et paliers.
-import { t as tx, tr } from "../../i18n/index.js";
+import { t as tx, tr, csep } from "../../i18n/index.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
@@ -14,7 +14,7 @@ import { BOSS_MECHANICS, bossMechanics } from "../../game/bosses.js";
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
   const z = ZONES.filter((x) => x.monsters.includes(type) || x.boss === type).map((x) => x.name);
-  return z.join(", ");
+  return z.join(csep());
 };
 
 export class BestiaryTab {
@@ -36,7 +36,7 @@ export class BestiaryTab {
       </article>`;
     }).join("");
     const eff = bestiaryEffects(S);
-    const beasts = `<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(", "), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>.</p>
+    const beasts = `<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(csep()), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>.</p>
       <div class="beastgrid hscroll" data-hs="beasts">${cards}</div>`;
     // Une seule section à la fois (sous-onglets) : découpée aux titres <h2 class="codexh" id="bj-…">.
     const parts = {};

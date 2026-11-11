@@ -2,7 +2,7 @@
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { TAB_GATES, tabOpen } from "../game/tabs.js";
 import { CHRONICLES } from "../game/story.js";
-import { t as tx, fsp } from "../i18n/index.js";
+import { t as tx, fsp, csep } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
 import { SETS } from "../game/sets.js";
@@ -62,7 +62,7 @@ export class MiniRenderer {
     game.on("starbreaker", ({ first }) => { if (first) this.showMoment("✦ " + tx("Le Briseur d’Étoiles est vaincu")); });
     game.on("chronicle", ({ ids }) => { const c = CHRONICLES.find((x) => x.id === ids[0]); if (c) this.showMoment("📜 " + tx(c.title)); });
     // Onglet débloqué : la bulle de la bande n'est pas visible en mode mini, l'annonce passe par la scène.
-    game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(", ") })));
+    game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(csep()) })));
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(zone % 50 === 0 ? "✦ " + tx("Cap franchi : zone {0} !", { 0: zone }) : tx("Nouveau record : zone {0} !", { 0: zone })); });
     game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })));
     // Clic sur le monstre combattu : coup bonus (sans agrandir l'encart).

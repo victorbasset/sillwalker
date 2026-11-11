@@ -1,7 +1,7 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
 import { CHRONICLES } from "../../game/story.js";
 import { subtabsHTML } from "../subtabs.js";
-import { t as tx, getLang } from "../../i18n/index.js";
+import { t as tx, getLang, csep } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { ACHIEVEMENTS, earnedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
@@ -92,7 +92,7 @@ export class StatsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("star", 3)}" alt="">${tx("Moments rares")}</span></h2><ul class="lines">
         ${line(tx("Plumes du vent"), fmt(st.feathers || 0))}
         ${line(tx("Étoiles filantes attrapées"), fmt(st.stars || 0))}
-        <li title="${esc(Object.values(EVENTS).map((e) => e.name).join(", "))}"><span>${esc(tx("Événements rares"))}</span><b>${fmt(st.events || 0)}</b></li>
+        <li title="${esc(Object.values(EVENTS).map((e) => e.name).join(csep()))}"><span>${esc(tx("Événements rares"))}</span><b>${fmt(st.events || 0)}</b></li>
         ${line(tx("Coffres au trésor"), fmt(st.chests || 0))}
         ${line(tx("Expéditions de familiers"), fmt(st.expeditions || 0))}
         ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
