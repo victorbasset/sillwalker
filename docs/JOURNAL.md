@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 609) : niveaux des reliques visibles : petit chiffre sur les pastilles du héros, « ★ n/5 » sous
+  l'icône sur la carte (le nom, coupé au bord de la carte à 1280 en allemand et en russe, passe dans l'infobulle),
+  court carillon quand une relique monte de niveau. Vérifié en capture. 133/133.
 - 2026-11-11 (it. 608) : niveaux des reliques : chaque nouvelle victoire contre leur gardien (une par course ; le
   Briseur pour la Couronne) renforce la relique, jusqu'au niveau 5 : la part qu'elle ajoute grandit de 10 % par
   niveau (relicPow : drone, protection et régénération du Cœur, Lame, Couronne). S.relicLv (gardé à l'ascension,

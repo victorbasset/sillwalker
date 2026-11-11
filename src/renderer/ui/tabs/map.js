@@ -12,7 +12,7 @@ import { CLASSES, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game/story.js";
 import { classPortraitURL, dressedPortraitURL, starbreakerURL } from "../../render/sprites.js";
 import { relicIconURL } from "../../render/shopart.js";
-import { MAJOR_BOSSES, RELICS, RELIC_IDS, hasRelic, relicLevelText } from "../../game/relics.js";
+import { MAJOR_BOSSES, RELICS, RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel, relicLevelText } from "../../game/relics.js";
 import { heroVisual } from "../../render/equipvis.js";
 
 // 4 rangées de 50 zones : la carte entière tient dans le panneau, large et peu haut (demande 18, sans défilement).
@@ -86,7 +86,7 @@ export class MapTab {
       const dir = p.r % 2 ? -1 : 1, ix = dir > 0 ? p.x + 16 : p.x - 43;
       const tip = `${tx(mb.name)}${fsp()}: ${tx("zone {0}", { 0: mb.zone })}\n${have ? "★ " : ""}${tx(r.name)}${fsp()}: ${tx(r.effect)}` + (have ? `\n${tx(r.story)}` : "");
       parts.push(`<g class="mmajor${have ? " won" : ""}" title="${esc(tip)}"><image href="${relicIconURL(mb.relic, 3)}" x="${ix}" y="${p.y - 22}" width="27" height="27"/>`
-        + `<text class="mfname" x="${dir > 0 ? ix : ix + 27}" y="${p.y + BAND_H + 12}" style="text-anchor:${dir > 0 ? "start" : "end"}">${esc((have ? "★ " : "") + tx(r.name))}</text></g>`);
+        + `<text class="mfname" x="${ix + 13}" y="${p.y + BAND_H + 2}" style="text-anchor:middle">${have ? `★ ${relicLevel(S, mb.relic)}/${RELIC_MAX_LV}` : ""}</text></g>`);
     }
     // La forteresse du Briseur d'Étoiles, au bout du Rebord (zone 200).
     const f = mapPos(FINAL_ZONE);

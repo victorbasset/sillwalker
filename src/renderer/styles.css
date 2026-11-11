@@ -1265,3 +1265,4 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .hpbar.bossbar { transform: scaleX(1.7); }
 .relicahead img { width: 11px; height: 11px; image-rendering: pixelated; vertical-align: -1px; }
 .chip.relic img { width: 11px; height: 11px; image-rendering: pixelated; vertical-align: -1px; }
+.chip.relic sup { font-size: 9px; color: var(--accent); margin-left: 1px; }

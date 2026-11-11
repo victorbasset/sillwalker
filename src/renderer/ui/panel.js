@@ -13,7 +13,7 @@ import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
-import { RELICS, RELIC_IDS, MAJOR_BOSSES, hasRelic, relicLevelText } from "../game/relics.js";
+import { RELICS, RELIC_IDS, MAJOR_BOSSES, hasRelic, relicLevel, relicLevelText } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -505,7 +505,7 @@ export class Panel {
     const dm = activeDayMod(S);
     // Reliques gagnées (demande S, it. 605) : une pastille chacune ; survol : effet et histoire.
     const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).map((id) => { const r = RELICS[id];
-      return `<span class="chip relic" title="${esc(`${tx(r.name)}${fsp()}: ${tx(r.effect)}\n${relicLevelText(S, id)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}"></span>`; }).join("");
+      return `<span class="chip relic" title="${esc(`${tx(r.name)}${fsp()}: ${tx(r.effect)}\n${relicLevelText(S, id)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}">${relicLevel(S, id) > 1 ? `<sup>${relicLevel(S, id)}</sup>` : ""}</span>`; }).join("");
     const day = dm ? `<span class="chip daymod" title="${esc(tx("Bénédiction du jour : change chaque jour à minuit."))}">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];

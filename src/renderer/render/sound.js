@@ -453,6 +453,8 @@ export class Sound {
     on("pierced", 300, () => this.pierceSound());
     on("droneShot", 400, () => this.droneSound());
     on("relic", 1000, () => this.relicSound());
+    // relique renforcée (it. 609) : court carillon montant
+    on("relicUp", 1000, () => [440, NOTES.E5, NOTES.A5, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.12, 0.35, "triangle", 0.18)));
     on("spellLearned", 500, () => [NOTES.E5, NOTES.A5, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.07, 0.25, "triangle", 0.1)));
     on("flee", 1000, () => [N.G5, N.E5, N.C5].forEach((f, i) => this.tone(f * 1.2, i * 0.07, 0.1, "square", 0.05))); // le gobelin s'échappe : petite moquerie qui descend
     game.on("loot", ({ item }) => { if (item.r >= 4) this.play("legendary"); else if (item.r >= 2) this.play("loot"); });
