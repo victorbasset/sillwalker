@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 621) : Cœur de l'aube visible : la vie regagnée est cumulée et affichée toutes les 3 s de combat
+  (« +X » rose au-dessus du héros, seulement s'il a été blessé ; réglage des nombres de dégâts respecté). Pas encore
+  vu en capture. 133/133.
 - 2026-11-11 (it. 620, revue générale) : balance 12 h vs 6648cc4 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl es / ja 317 clics sans erreur ; perf bande 19,1 %, panneau 19,9 %, mini 6,5 %, icône 0,5 % ; mémoire réelle
   523 Mo stable. npm test lance maintenant i18n-check sur les 9 langues (scripts/i18n-check-all.mjs) : à l'it. 619,

@@ -278,7 +278,13 @@ export class Game {
         }
       }
       // Reliques (demande S) : le Drone stellaire tire ses missiles ; le Cœur de l'aube régénère.
-      if (hasRelic(this.S, "heart")) R.hp = Math.min(hs.hp, R.hp + hs.hp * RELIC_POWER.heartRegen * relicPow(this.S, "heart") * dt);
+      if (hasRelic(this.S, "heart")) {
+        const before = R.hp;
+        R.hp = Math.min(hs.hp, R.hp + hs.hp * RELIC_POWER.heartRegen * relicPow(this.S, "heart") * dt);
+        // (it. 621) soin visible : cumulé, annoncé toutes les 3 s (la bande l'affiche en vert au-dessus du héros)
+        R.heartAcc = (R.heartAcc || 0) + (R.hp - before); R.heartT = (R.heartT || 0) + dt;
+        if (R.heartT >= 3) { if (R.heartAcc >= 1) this.emit("relicHeal", { amount: R.heartAcc }); R.heartAcc = 0; R.heartT = 0; }
+      }
       if (hasRelic(this.S, "drone")) {
         R.droneT = (R.droneT ?? DRONE.every) - dt;
         if (R.droneT <= 0) {
