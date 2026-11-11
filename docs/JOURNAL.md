@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 659) : semaine du mage sur 3 graines (3, 11, 21) : palier vers la zone 250 entre 120 h et 144 h.
+  Même mesure sur l'état d'avant les échos (7354b5d, it. 633) : même palier (242-254) et même record final (269-275) :
+  c'est la difficulté générale vers 250, pas les échos. Essai d'échos sans surplus (PV ×1,2, attaque ×1,1) : rien de
+  mieux, annulé. Records actuels 268-285.
 - 2026-11-11 (it. 658) : vérifié : « réduire les animations » du système couvre aussi les ajouts de la nuit (règle
   globale styles.css : toutes les animations coupées, dont le flottement de la relique ; effets complets coupés).
 - 2026-11-11 (it. 657) : crawl en russe sur une partie au-delà du Rebord (zone 255, écho du Geôlier, quatre reliques
