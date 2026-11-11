@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 739) : nouveaux réglages sauvegardés (autoAnvil, autoBuffs, autoTrade) : save-fuzz 27/27 ok ;
+  fuzz 1200 parties, 0 bloquée.
 - 2026-11-11 (it. 738) : Marchand attitré essayé en vrai (copie dev-data) : rien acheté, à juste titre (étal moins bon
   que l'équipement porté) mais surtout sac plein, fréquent en fin de partie : il n'aurait presque jamais servi.
   Désormais, sac plein : achat direct, l'objet porté remplacé est vendu (jamais un légendaire : alors pas d'achat).
