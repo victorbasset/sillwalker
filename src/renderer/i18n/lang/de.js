@@ -1159,4 +1159,5 @@ export default {
   2283: "Das Herz der Morgenröte zeigt seine Heilung (grün); mit der Zwielichtklinge werden kritische Treffer violett.",
   2284: "Taste U: die nächste Freischaltung kaufen, sobald sie bereit ist.",
   2285: "Balance: Der Samurai verliert seinen Bonus von +5 % kritischen Treffern (sein Iaijutsu bleibt gleich).",
+  2286: "Echo: {0}",
 };

@@ -1159,4 +1159,5 @@ export default {
   2283: "O Coração da aurora mostra suas curas (em verde); com a Lâmina do crepúsculo, os golpes críticos ficam roxos.",
   2284: "Tecla U: comprar o próximo desbloqueio assim que estiver pronto.",
   2285: "Equilíbrio: o Samurai perde o bônus de +5% de golpes críticos (o Iaijutsu não muda).",
+  2286: "Eco: {0}",
 };

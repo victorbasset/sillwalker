@@ -5,7 +5,7 @@ import { t as tx } from "../i18n/index.js";
 import { ZONES } from "./data.js";
 import { loopMark } from "./rules.js";
 import { FINAL_BOSS, isFinalZone } from "./story.js";
-import { majorBoss } from "./relics.js";
+import { majorBoss, majorName } from "./relics.js";
 
 export const BOSS_MECHANICS = {
   enrage: { name: "Enragé", desc: "Sous 30 % de vie, frappe 40 % plus vite et 20 % plus fort." },
@@ -44,7 +44,7 @@ export const BOSS_NAMES = [
 /** Nom du boss de la zone z (titre « l'Éveillé » à partir de la 2e boucle). */
 export function bossName(z) {
   if (isFinalZone(z)) return tx(FINAL_BOSS.name); // le Briseur d'Étoiles (story.js)
-  const mb = majorBoss(z); if (mb) return tx(mb.name); // boss majeur, gardien d'une relique (relics.js)
+  const mb = majorBoss(z); if (mb) return majorName(mb); // boss majeur (ou écho), gardien d'une relique (relics.js)
   const i = (z - 1) % ZONES.length, loop = Math.floor((z - 1) / ZONES.length);
   return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? tx(" l’Éveillé") : loop >= 2 ? tx(" l’Ancestral") + " " + loopMark(loop - 1) : "");
 }

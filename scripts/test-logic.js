@@ -2580,6 +2580,9 @@ test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagné
   assert.equal(g.S.relicLv.blade, 2, "Lame : niveau 2");
   g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.R.mode = "fight"; g.killMonster();
   assert.equal(g.S.relicLv.blade, 2, "même course : pas de second niveau (zone 50 en boucle)");
+  // (it. 634) l'écho du Chevalier (zone 350) donne son propre niveau dans la même course
+  g.S.zone = 350; g.R.mon = g.makeMonster(true); assert.ok(g.R.mon.echo && g.R.mon.relic === "blade", "zone 350 : écho du Chevalier");
+  g.R.mon.hp = 0; g.R.mode = "fight"; g.killMonster(); assert.equal(g.S.relicLv.blade, 3, "écho : un niveau de plus");
   for (let i = 0; i < 6; i++) { g.S.prestige.count++; g.gainRelic("blade"); }
   g.S.relicLv.blade = 4; const snapR2 = g.visitSnapshot(Date.now() - 10 * 60000);
   g.S.relicLv.blade = 5; g.S.stats.kills++; assert.equal(g.visitSummary(snapR2).relics, 1, "résumé de visite : +1 niveau de relique");

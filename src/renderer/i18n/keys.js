@@ -2287,5 +2287,6 @@ export const KEYS = [
   "Acheter le prochain déblocage (s’il est prêt)",
   "Le Cœur de l’aube montre ses soins (en vert) ; avec la Lame du crépuscule, les coups critiques deviennent violets.",
   "Touche U : acheter le prochain déblocage dès qu’il est prêt.",
-  "Équilibrage : le Samouraï perd son bonus de +5 % de coups critiques (son Iaijutsu ne change pas)."
+  "Équilibrage : le Samouraï perd son bonus de +5 % de coups critiques (son Iaijutsu ne change pas).",
+  "Écho : {0}"
 ];

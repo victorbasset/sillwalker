@@ -11,8 +11,15 @@ export const MAJOR_BOSSES = [
   { zone: 100, id: "queen", name: "La Reine des cendres", hp: 2.2, atk: 1.2, mech: ["drain", "fury"], relic: "heart" },
   { zone: 150, id: "eclipse", name: "Le Chevalier de l’éclipse", hp: 2.4, atk: 1.2, mech: ["frost", "mirror", "smash"], relic: "blade" },
 ];
-/** Boss majeur de la zone z (première traversée du Rebord seulement), ou null. */
-export const majorBoss = (z) => MAJOR_BOSSES.find((b) => b.zone === z) || null;
+/**
+ * Échos (it. 634 : objectifs au-delà de la zone 200) : les trois lieutenants reviennent, plus coriaces, en zones 250,
+ * 300 et 350 ; battre un écho renforce aussi sa relique (un niveau par course, compté à part : S.relicRunEcho).
+ */
+export const ECHO_BOSSES = MAJOR_BOSSES.map((b, i) => ({ ...b, zone: 250 + 50 * i, id: b.id + "_echo", echo: true, hp: b.hp * 1.2, atk: b.atk * 1.1 }));
+/** Boss majeur (ou écho) de la zone z, ou null. */
+export const majorBoss = (z) => MAJOR_BOSSES.find((b) => b.zone === z) || ECHO_BOSSES.find((b) => b.zone === z) || null;
+/** Nom affiché d'un boss majeur (« Écho : … » pour un écho). */
+export const majorName = (mb) => (mb.echo ? tx("Écho : {0}", { 0: tx(mb.name) }) : tx(mb.name));
 
 /** Les quatre reliques : zone où elles tombent, effet (texte), histoire. */
 export const RELICS = {
@@ -38,8 +45,8 @@ export const hasRelic = (S, id) => !!(S.relics && S.relics[id]);
 export const RELIC_MAX_LV = 5, RELIC_LV_STEP = 0.1;
 export const relicLevel = (S, id) => (hasRelic(S, id) ? Math.min(RELIC_MAX_LV, Math.max(1, (S.relicLv && S.relicLv[id]) || 1)) : 0);
 /** Le gardien peut-il encore donner quelque chose cette course ? (pas gagnée, ou un niveau pas encore pris : it. 617) */
-export const relicUpgradable = (S, id) => !hasRelic(S, id)
-  || (relicLevel(S, id) < RELIC_MAX_LV && (S.relicRun || {})[id] !== ((S.prestige && S.prestige.count) || 0));
+export const relicUpgradable = (S, id, echo = false) => !hasRelic(S, id)
+  || (relicLevel(S, id) < RELIC_MAX_LV && (S[echo ? "relicRunEcho" : "relicRun"] || {})[id] !== ((S.prestige && S.prestige.count) || 0));
 /** Ligne d'infobulle : niveau, bonus, comment monter (texte traduit). */
 export const relicLevelText = (S, id) => tx("Niveau {0} / {1} : effet +{2} % (un niveau par course, en battant de nouveau son gardien).", { 0: relicLevel(S, id), 1: RELIC_MAX_LV, 2: Math.round((relicPow(S, id) - 1) * 100) });
 /** Facteur de puissance de la part « relique » de l'effet : 1 au niveau 1, +10 % par niveau. */

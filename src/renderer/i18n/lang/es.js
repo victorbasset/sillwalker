@@ -1159,4 +1159,5 @@ export default {
   2283: "El Corazón del alba muestra sus curaciones (en verde); con la Hoja del crepúsculo, los golpes críticos se vuelven violetas.",
   2284: "Tecla U: comprar el próximo desbloqueo en cuanto esté listo.",
   2285: "Equilibrio: el Samurái pierde su bonificación de +5 % de golpes críticos (su Iaijutsu no cambia).",
+  2286: "Eco: {0}",
 };

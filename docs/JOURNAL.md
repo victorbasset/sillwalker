@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 634) : objectifs au-delà de la zone 200 (piste ouverte, version mesurée) : échos des trois lieutenants
+  en zones 250, 300, 350 (« Écho : … », PV ×1,2 et attaque ×1,1 de plus, mêmes capacités) ; battre un écho renforce
+  sa relique, un niveau par course compté à part (S.relicRunEcho ; migrate ; gardé à l'ascension). Annonce dans la
+  zone, relique pâle sur l'écho. Test logique ; save-fuzz ok ; fuzz 600 ok ; semaine mage 274, guerrier 286 (pas de
+  mur à 250). README. À annoncer dans la prochaine édition. 135/135.
 - 2026-11-11 (it. 633) : journal, Idées : chiffres de performance et de progression lointaine mis à jour ; la piste
   « objectifs au-delà de la zone 200 » est désormais atteinte en une semaine simulée : à proposer à Victor.
 - 2026-11-11 (it. 632) : ▶ d'une relique dans les Chroniques : la scène revue joue aussi son carillon. 135/135.

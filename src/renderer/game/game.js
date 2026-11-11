@@ -533,14 +533,14 @@ export class Game {
   }
 
   /** Relique gagnée (boss majeur ou Briseur vaincu) : gardée pour toujours ; annonce la première fois seulement. */
-  gainRelic(id) {
-    const S = this.S, r = RELICS[id];
+  gainRelic(id, echo = false) {
+    const S = this.S, r = RELICS[id], track = echo ? "relicRunEcho" : "relicRun"; // (it. 634) un écho compte à part
     if (!r) return false;
     if (hasRelic(S, id)) { // (it. 608) déjà gagnée : nouvelle victoire contre son gardien, la relique se renforce
       const lv = relicLevel(S, id), run = (S.prestige && S.prestige.count) || 0;
       // (it. 617) une fois par course : rester en zone 50 pour battre le gardien en boucle ne renforce plus rien
-      if (lv >= RELIC_MAX_LV || (S.relicRun || {})[id] === run) return false;
-      (S.relicLv ||= {})[id] = lv + 1; (S.relicRun ||= {})[id] = run;
+      if (lv >= RELIC_MAX_LV || (S[track] || {})[id] === run) return false;
+      (S.relicLv ||= {})[id] = lv + 1; (S[track] ||= {})[id] = run;
       this.invalidateStats();
       this.log(tx("Relique renforcée : {0}, niveau {1} / {2} (effet +{3} %).", { 0: tx(r.name), 1: lv + 1, 2: RELIC_MAX_LV, 3: Math.round((relicPow(S, id) - 1) * 100) }));
       this.emit("relicUp", { id, lv: lv + 1 });
@@ -695,7 +695,7 @@ export class Game {
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }
     const mb = boss && majorBoss(this.S.zone); // boss majeur (relics.js) : plus coriace, porte sa relique
-    if (mb) { mon.hp = mon.max = Math.round(mon.hp * mb.hp); mon.atk *= mb.atk; mon.major = mb.id; mon.relic = mb.relic; }
+    if (mb) { mon.hp = mon.max = Math.round(mon.hp * mb.hp); mon.atk *= mb.atk; mon.major = mb.id; mon.relic = mb.relic; mon.echo = !!mb.echo; }
     const wear = boss ? bossWear(this.S, this.S.zone) : 0;
     if (wear) { mon.hp *= 1 - wear; mon.max = mon.hp; mon.worn = wear; } // usure : défaites précédentes contre ce boss
     this.applyAffix(mon);
@@ -881,7 +881,7 @@ export class Game {
         this.emit("starbreaker", { first });
         this.gainRelic("crown");
       }
-      if (m.relic) this.gainRelic(m.relic); // boss majeur vaincu : sa relique
+      if (m.relic) this.gainRelic(m.relic, !!m.echo); // boss majeur (ou écho) vaincu : sa relique
       if (S.autoAdvance) {
         // Vrai record : au-delà de la meilleure zone de TOUTES les courses (pas seulement de celle-ci,
         // sinon chaque boss d'une course après ascension annonçait « Nouveau record ! »).
@@ -2048,7 +2048,7 @@ export class Game {
       // Sorts (demande D) : gardés à l'ascension.
       spells: old.spells || {},
       // Reliques (demande S) : gardées pour toujours.
-      relics: old.relics || {}, relicLv: old.relicLv || {}, relicRun: old.relicRun || {},
+      relics: old.relics || {}, relicLv: old.relicLv || {}, relicRun: old.relicRun || {}, relicRunEcho: old.relicRunEcho || {},
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize,
       // Tri du marchand gardé à l'ascension (demande de Victor du 2026-11-10 au soir : « tu peux laisser cocher
       // commun, peu commun et rare » ; il était décoché depuis l'it. 437).

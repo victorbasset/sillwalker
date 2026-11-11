@@ -25,6 +25,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   côté du héros), Cœur de l'aube (dégâts subis −45 %, régénération), Lame du crépuscule (attaque ×2,5), Couronne
   d'étoiles (attaque et PV ×2, or +50 %, portée sur la tête). Réglage : ≈ 15-20 zones par relique (semaine
   simulée). Sur la carte, au bout des rangées ; en-tête de la carte : les quatre ; succès RELIC_FIRST, RELICS_ALL.
+  Niveaux (1 à 5, +10 % chacun) : un par course en battant de nouveau le gardien ; au-delà du Rebord, ses **échos**
+  (zones 250, 300, 350, plus coriaces) en donnent un de plus par course.
 - **Carte du Rebord** (onglet Carte, zone 12) : les 200 zones en serpentin aux couleurs de leur décor, héros
   prisonniers, chroniques, record, Briseur au bout, brouillard au-delà du record ; avec la **Carte du voyageur**
   (déblocage, zone 22), un clic sur une zone déjà atteinte y emmène le héros.
