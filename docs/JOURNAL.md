@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 610, revue générale) : balance 12 h vs d1126bb −0,2 (bruit) ; fuzz 1200 parties, 0 bloquée ;
+  save-fuzz ok ; crawl pt 317 / ko 316 clics sans erreur (reliques et niveaux) ; vidage russe (4 reliques, niveaux,
+  éditions 12-14) : rien de nouveau ; perf bande 19,5 %, panneau 20,3 %, mini 6,7 %, icône 0,6 % ; mémoire réelle
+  517 Mo stable (RSS 800).
 - 2026-11-11 (it. 609) : niveaux des reliques visibles : petit chiffre sur les pastilles du héros, « ★ n/5 » sous
   l'icône sur la carte (le nom, coupé au bord de la carte à 1280 en allemand et en russe, passe dans l'infobulle),
   court carillon quand une relique monte de niveau. Vérifié en capture. 133/133.
