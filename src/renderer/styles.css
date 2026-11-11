@@ -418,8 +418,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .tapzone:hover, .tapzone:focus-visible { background: radial-gradient(closest-side, rgba(159, 216, 255, 0.18), transparent); outline: none; }
 .star { pointer-events: auto; width: 26px; height: 26px; padding: 0; border: 0; background: none; box-shadow: none; cursor: pointer; }
 .star i { position: absolute; left: 7px; top: 7px; width: 12px; height: 12px; background: #fff6c8; box-shadow: 0 0 0 2px #ffd34d, 0 0 14px 6px rgba(255, 246, 200, .8), 22px -10px 0 -3px rgba(255, 246, 200, .6), 40px -18px 0 -4px rgba(255, 246, 200, .35); transform: rotate(45deg); }
-.actor.frenzy { filter: drop-shadow(0 0 2px #ff4a4a) drop-shadow(0 0 1px #ff7a6b); }
-.actor.hawkeye { filter: drop-shadow(0 0 2px #ff9f43) drop-shadow(0 0 1px #ffd08a); }
+.actor.frenzy { filter: drop-shadow(0 0 2px #ff4a4a); }
+.actor.hawkeye { filter: drop-shadow(0 0 2px #ff9f43); }
 .actor.frenzy.hawkeye { filter: drop-shadow(0 0 2px #ff4a4a) drop-shadow(0 0 2px #ff9f43); }
 .layer.hud { transform-origin: 80% 50%; }
 .chip.event { border-color: var(--c); color: var(--c); }
@@ -427,7 +427,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .tint, .sub.tint, .chip.event, .chip.set { color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
 .chip.set { border-color: var(--c); }
 .chip.daymod { --c: #ffe9a8; border-color: #ffd34d; color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); background: rgba(255, 211, 77, 0.08); }
-.actor.enraged { filter: drop-shadow(0 0 2px #ff2a2a) drop-shadow(1px 0 0 #ff4a4a); }
+.actor.enraged { filter: drop-shadow(0 0 2px #ff2a2a); }
 
 .bossmech b { color: var(--bad); cursor: help; }
 /* Statistiques */
@@ -1025,7 +1025,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Nichée (événement) : plumes de duvet plus larges que hautes. */
 .spark.nestdown { width: 5px; height: 3px; }
 /* Malédiction (capacité de boss) : halo violet sur le héros maudit. */
-.actor.cursed { filter: drop-shadow(0 0 2px #b07cff) drop-shadow(0 0 1px #6a3fb0); }
+.actor.cursed { filter: drop-shadow(0 0 2px #b07cff); }
 /* Statistiques > Chiffres : les 5 cartes (dont Probabilités, double) sur une seule rangée dès 1280 px, sans défilement
    sur les écrans de portable (1366, 1600) ; les libellés longs passent à la ligne. */
 @media (min-width: 1280px) {
@@ -1135,8 +1135,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .modalwide dl.stats { display: grid; grid-template-columns: 1fr auto 1fr auto; column-gap: 18px; row-gap: 2px; }
 @media (max-width: 900px) { .modalwide dl.stats { grid-template-columns: 1fr auto; } }
 /* Voile protecteur (événement) : halo bleu pâle autour du héros. */
-.actor.arcane { filter: drop-shadow(0 0 2px #b48cff) drop-shadow(0 0 1px #7a4fd0); }
-.actor.ward { filter: drop-shadow(0 0 2px #bfefff) drop-shadow(0 0 1px #7fc8e8); }
+.actor.arcane { filter: drop-shadow(0 0 2px #b48cff); }
+.actor.ward { filter: drop-shadow(0 0 2px #bfefff); }
 .actor.ward.cursed { filter: drop-shadow(0 0 2px #b07cff) drop-shadow(0 0 2px #bfefff); }
 /* Mode mini : trois boutons (son, réduire, agrandir) en haut à droite : l'ampoule descend sur la ligne de l'or (demande B). */
 #mini .minihint { right: 8px; top: 23px; }
@@ -1228,7 +1228,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
   -webkit-text-stroke: 3px #14121f; paint-order: stroke fill; z-index: 3; } /* (it. 551) plus haut et cerclé : le monstre est souvent derrière le héros */
 .actor.slowed { filter: drop-shadow(0 0 2px #8fd0ff) saturate(.7); }
 .actor.weakened { filter: grayscale(.6) brightness(.85); }
-.actor.hasted { filter: drop-shadow(0 0 2px #ffb347) drop-shadow(0 0 1px #ff7a3a); }
+.actor.hasted { filter: drop-shadow(0 0 2px #ffb347); } /* une ombre (it. 603 : ≈ 0,4 point chacune) */
 /* (it. 553) écrans ≤ 1365 px : cartes de sorts un peu plus serrées (deux effets sur deux lignes : la page défilait) */
 @media (max-width: 1365px) {
   .spellcard { padding: 4px 6px; }

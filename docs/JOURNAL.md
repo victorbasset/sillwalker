@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 603) : performance : halos d'état du héros et des boss (hâte, frénésie, œil du faucon, vague
+  arcanique, voile protecteur, malédiction, rage) : une ombre au lieu de deux (≈ −0,4 point chacun tant qu'il est
+  actif ; la hâte des berserkers, gladiateurs, danseuses de lames… l'est souvent). Teinte principale gardée. 133/133.
 - 2026-11-11 (it. 602) : README, Organisation : relics.js, story.js, music.js, sprites.js (contours et halo dessinés
   une fois ; pas de filtre CSS permanent sur la bande).
 - 2026-11-11 (it. 601) : mesure de la mémoire corrigée : mem-watch additionnait les RSS (mémoire partagée comptée
