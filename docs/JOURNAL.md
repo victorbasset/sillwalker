@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 692) : lang-overflow complet après les changements de textes (it. 665-682 : édition 19, noms russes,
+  épithètes, particules coréennes) : 10 langues × 1920 / 1366 / 1280 : aucun défilement (30/30).
 - 2026-11-11 (it. 691) : mémoire (530 Mo à la revue 690) : mem-watch 12 min : 517-523 Mo, sans pente (30 s : 518,
   660 s : 521) : écart de lancement à lancement, pas de fuite.
 - 2026-11-11 (it. 690, revue générale) : balance 12 h vs ba2874f +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
