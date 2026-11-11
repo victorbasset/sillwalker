@@ -17,7 +17,7 @@ import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
 export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
-import { t as tx, txn, tr, fsp, lc, csep } from "../i18n/index.js";
+import { t as tx, txn, tr, fsp, lc, csep, cend } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -942,7 +942,7 @@ export class Game {
     if (this.autoAscend()) return;
     if (R.deaths >= 2 && S.zone > 1) {
       S.zone--; R.deaths = 0; S.kills = 0;
-      this.logRepeat(tx("Trop dur : ton héros recule vers ") + zoneName(S.zone) + ".");
+      this.logRepeat(tx("Trop dur : ton héros recule vers ") + zoneName(S.zone) + cend());
     } else {
       S.kills = 0;
       // Impossible de reculer (zone 1) : nouvelle série de monstres, sinon un monstre trop fort en tête bloquerait tout.
@@ -1073,7 +1073,7 @@ export class Game {
     if (old) S.bag.push(old);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(tx("Équipé : ") + itemName(it) + ".");
+    this.log(tx("Équipé : ") + itemName(it) + cend());
     this.emit("equipped", { r: it.r }); // son : cliquetis d'équipement
     // Palier de panoplie atteint (2 ou 4 pièces) : un moment à marquer.
     const after = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
@@ -1118,7 +1118,7 @@ export class Game {
     it.plus++;
     this.invalidateStats();
     this.questProgress("forge", 1);
-    this.log(tx("Forge : ") + itemName(it) + tx(" passe à +") + it.plus + ".");
+    this.log(tx("Forge : ") + itemName(it) + tx(" passe à +") + it.plus + cend());
     this.changed();
     return true;
   }
@@ -1336,7 +1336,7 @@ export class Game {
     if (!played.includes(cls)) played.push(cls);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(tx("Ton héros devient ") + lc(CLASSES[cls].name) + ".");
+    this.log(tx("Ton héros devient ") + lc(CLASSES[cls].name) + cend());
     this.emit("classChange");
     this.changed();
     return true;
@@ -1418,7 +1418,7 @@ export class Game {
     if (!this.pay(consumablePrice(c, S))) return false;
     if (c.kind === "stock") S.potions++;
     else { S.buffs[id] = (S.buffs[id] || 0) + c.duration; this.invalidateStats(); }
-    this.log(tx("Acheté : ") + c.name + ".");
+    this.log(tx("Acheté : ") + c.name + cend());
     this.changed();
     return true;
   }
@@ -1524,7 +1524,7 @@ export class Game {
     if (!u || have >= u.max || !this.pay(upgradePrice(u, S))) return false;
     S.upgrades[id] = have + 1;
     if (id === "bag") S.bagSize = Math.min(BAG_MAX, S.bagSize + 6);
-    this.log(tx("Amélioration : ") + u.name + ".");
+    this.log(tx("Amélioration : ") + u.name + cend());
     this.changed();
     return true;
   }
@@ -1590,7 +1590,7 @@ export class Game {
     delete it.price; delete it.deal;
     if (it.r === LEGENDARY && ++S.stats.legendaries === 1) this.milestone("leg");
     S.bag.push(it);
-    this.log(tx("Acheté au marchand : ") + itemName(it) + ".");
+    this.log(tx("Acheté au marchand : ") + itemName(it) + cend());
     this.changed();
     return true;
   }
@@ -1786,7 +1786,7 @@ export class Game {
       this.log(`${tx("Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", { 0: guildRankName(after), 1: gift ? tx(", et un coffre : ") + itemName(gift) : "" })}`);
       this.emit("guildRank", { rank: after });
     }
-    this.log(tx("Récompense de quête : ") + parts.join(csep()) + ".");
+    this.log(tx("Récompense de quête : ") + parts.join(csep()) + cend());
     this.ensureQuests();
     this.changed();
     return true;

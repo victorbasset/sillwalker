@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 671) : suite des it. 667-668 : cend() (clé « . ») pour les 8 lignes du journal qui finissaient par un
+  « . » en dur (Équipé, Forge, Acheté, recul, récompense de quête…) : « 。 » en japonais et en chinois. 135/135.
 - 2026-11-11 (it. 670, revue générale) : balance 12 h vs 52f8811 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl pl 323 / zh 318 clics sans erreur (listes en « ， ») ; perf bande 19,3 %, panneau 21,0 %, mini 6,6 % ;
   mémoire réelle 512-518 Mo stable.

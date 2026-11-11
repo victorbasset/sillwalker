@@ -1171,4 +1171,5 @@ export default {
   2295: "Correção: os mísseis do Drone estelar são contidos pela carapaça e pela pele de pedra dos chefes, como seus golpes.",
   2296: "Chefes maiores e ecos derrotados",
   2297: ", ",
+  2298: ".",
 };

@@ -2299,5 +2299,6 @@ export const KEYS = [
   "Le Cœur de l’aube soigne aussi entre les combats.",
   "Correction : les missiles du Drone stellaire sont retenus par la carapace et la peau de pierre des boss, comme tes coups.",
   "Boss majeurs et échos vaincus",
-  ", "
+  ", ",
+  "."
 ];

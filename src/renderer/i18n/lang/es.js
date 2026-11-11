@@ -1171,4 +1171,5 @@ export default {
   2295: "Corrección: los misiles del Dron estelar los frenan el caparazón y la piel de piedra de los jefes, como tus golpes.",
   2296: "Jefes mayores y ecos derrotados",
   2297: ", ",
+  2298: ".",
 };

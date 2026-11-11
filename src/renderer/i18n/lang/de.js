@@ -1171,4 +1171,5 @@ export default {
   2295: "Korrektur: Die Raketen der Sternendrohne werden wie deine Treffer von Panzer und Steinhaut der Bosse aufgehalten.",
   2296: "Große Bosse und Echos besiegt",
   2297: ", ",
+  2298: ".",
 };

@@ -56,6 +56,8 @@ export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != nu
 export const fsp = () => (lang === "fr" ? " " : "");
 // (it. 668) séparateur de liste de la langue : « , » ; « 、 » en japonais, « ， » en chinois
 export const csep = () => t(", ");
+// (it. 671) point final de la langue : « 。 » en japonais et en chinois
+export const cend = () => t(".");
 /**
  * Phrase au pluriel selon n, dans toutes les langues. La source française donne
  * « singulier|pluriel » ; chaque traduction donne ses formes séparées par « | » :

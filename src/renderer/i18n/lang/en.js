@@ -1171,4 +1171,5 @@ export default {
   2295: "Fix: Star Drone missiles are now stopped by bosses' shell and stoneskin, like your hits.",
   2296: "Major bosses and echoes defeated",
   2297: ", ",
+  2298: ".",
 };
