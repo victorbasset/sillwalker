@@ -183,6 +183,11 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Onglets préparés d'avance (Panel.warmTabs, it. 750) : 4 s après le lancement, les onglets jamais affichés sont construits
   CACHÉS. Un contrôle (autotest, sonde) qui compte des éléments dans toute la page les trouve donc avant l'ouverture de
   l'onglet : compter dans l'onglet visible (`[data-pane=…]:not([hidden]) …`).
+- Polices (it. 776) : sous Windows, chaque nouvelle taille × graisse d'une police coûte d'autant plus que ses lettres
+  ont de points. Geist Pixel dessinait chaque pixel en carré de 26 points (1 771 points par lettre) : 75-150 ms par
+  taille chez Victor, panneau et onglets bloqués à la première ouverture. Fusionnée par scripts/simplify-pixel-font.py
+  (38 points par lettre, contours resserrés de 7 unités pour garder la même encre). Toute nouvelle police pixel :
+  compter ses points (fontTools) et la passer par ce script ; ne pas multiplier les tailles et graisses.
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.
 - Un commentaire `//` ajouté au milieu d'une ligne (objet littéral, liste d'arguments) avale la fin du code de la

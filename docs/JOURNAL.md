@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 776) : CAUSE des blocages sous Windows trouvée : chez Victor, chaque taille de Geist Pixel coûte
+  75-150 ms rien que pour les lettres (symboles ≈ 20 ms). Geist Pixel dessine chaque pixel comme un carré de 26
+  points (courbes plates) : 68 contours et 1 771 points par lettre (Pixelify Sans : 2 et 22). Nouveau
+  scripts/simplify-pixel-font.py (fontTools + skia-pathops + pyclipper) : carrés de chaque lettre fusionnés en
+  polygones droits, 272 792 → 5 882 points (latin) et 115 154 → 2 128 (latin étendu), fichiers 16,7 → 6,5 Ko et
+  9,2 → 4,5 Ko ; largeurs inchangées (mise en page identique). Fusionnés, les pixels se dessinaient plus pleins (les
+  joints entre carrés éclaircissaient le texte) : contours resserrés de 7 unités, même encre à 11-12 px (rapport
+  1,05 / 0,99), un peu plus net au-delà. CLAUDE.md : piège des polices pixel. À confirmer par Victor (npm start).
 - 2026-11-11 (it. 775) : lignes de Victor après it. 774 : confirmé, CHAQUE police (taille × graisse) coûte 75-170 ms à
   créer sous Windows (presque rien ici), même sur un échantillon de 40 caractères. Clics traversants : seulement après
   npm run fontbench (outil de dev), pas en jeu normal. Diagnostic suivant : warmFont mesure à part les lettres et les
