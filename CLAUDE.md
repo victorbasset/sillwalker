@@ -49,8 +49,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   tout changement des monstres, élites, champions ou de la mort du héros.
 - Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (20 corruptions de la
   sauvegarde de dev : null, valeurs inconnues… ; chacune doit afficher « ok »). À relancer après tout ajout de donnée sauvegardée.
-- Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 515 Mo stables
-  attendus, son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
+- Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 485-530 Mo stables
+  attendus (bruit d'une mesure à l'autre), son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
   zone, déblocages à 2, 5, 10, 15, 30, 60 min). Le début est volontairement calme (`earlyPace`, rules.js).
 - Ouverture des onglets : `node --experimental-default-type=module scripts/tab-pace.mjs` (minute d'ouverture de chaque
@@ -105,8 +105,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (sprites.js outlinedFrames), comme les élites et champions.
   Répartition de la bande (it. 567, 20,2 %) : son + musique + ambiance ≈ 3,5 points (le moteur audio actif et la musique ≈ 1,7 ;
   ambiance seule et effets sonores seuls : dans le bruit), « Effets complets » ≈ 2,8, météo + jour/nuit ≈ 1,1.
-  Repère actuel (it. 597, copie neuve de dev-data) : bande ≈ 19,0 %, panneau ≈ 21 %, mini ≈ 6,6 %, icône ≈ 0,6 %
-  (halo légendaire, contours d'élites, de bouclier et de carapace dessinés dans les images : it. 594-598).
+  Repère actuel (it. 800, copie neuve de dev-data) : bande ≈ 19,5 %, panneau ≈ 20-21 %, mini ≈ 6,6 %, icône ≈ 0,5 %
+  (stable depuis l'it. 597). Sous Windows chez Victor (Gestionnaire des tâches, it. 763) : ≈ 19,8 % d'un cœur et
+  ≈ 380 Mo de mémoire privée.
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de
   render/sound.js et signale erreur, NaN ou saturation (pic > 0,2 ; les effets font ≈ 0,02) : ajouter tout nouveau son
   à sa liste (selftest.js, « son : tous les sons ») ; pour comparer des volumes, même méthode dans une injection TEMP.

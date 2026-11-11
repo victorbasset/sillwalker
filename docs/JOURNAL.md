@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 802) : CLAUDE.md : repères de performance mis à jour (it. 800 ; mesure Windows de Victor, it. 763) et
+  plage de mémoire 485-530 Mo. L'état de Steam n'est affiché qu'en dev (menu de l'icône) : rien à traduire pour la
+  version hors Steam.
 - 2026-11-11 (it. 801) : version hors Steam : npm run dist:itch (electron-builder, extraMetadata.distribution=itch,
   sortie dist-itch/) ; steam.js lit « distribution » dans le package.json embarqué et coupe Steam si ce n'est pas
   « steam » (sinon, avec le vrai App ID, la relance par Steam fermerait le jeu chez un joueur itch.io). Vérifié par
