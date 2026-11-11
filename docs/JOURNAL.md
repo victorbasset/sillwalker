@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 740, revue générale) : balance 12 h vs e3ecc92 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl ko 318 / pl 319 clics sans erreur ; perf bande 19,1 %, panneau 20,1 %, mini 6,6 % ; mémoire réelle 515-517 Mo.
 - 2026-11-11 (it. 739) : nouveaux réglages sauvegardés (autoAnvil, autoBuffs, autoTrade) : save-fuzz 27/27 ok ;
   fuzz 1200 parties, 0 bloquée.
 - 2026-11-11 (it. 738) : Marchand attitré essayé en vrai (copie dev-data) : rien acheté, à juste titre (étal moins bon
