@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 841) : revue générale (contre 66e052c, it. 830) : équilibrage 12 h +0,0 (61,9) ; 1200 parties,
+  0 bloquée ; npm test 199/199, autotest 156/156 ; bande 18,8 %, panneau 19,4 %, mini 6,4 %, icône 0,7 % (une
+  première mesure à 25 % était faussée par l'équilibrage lancé en parallèle : toujours mesurer machine au repos) ;
+  captures fr / en / ja (Aventure, Héros, Talents, Boutique, Ascension, mini) sans débordement ; texte russe sans mot
+  latin suspect. Rien à corriger.
 - 2026-11-11 (it. 837, demande de Victor) : lancé à la main, le jeu se voit toujours tout de suite (sinon un nouveau
   joueur croit qu'il ne marche pas) : premier lancement en bande ; mode icône resté d'une session précédente -> dernier
   mode affiché ; détection du plein écran (Windows) démarrée après 20 s seulement. Démarrage automatique avec la
