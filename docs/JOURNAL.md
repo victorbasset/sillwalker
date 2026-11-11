@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 778) : processeur sur le serveur après la police allégée : bande 19,4 %, panneau 20,6 %, mini 6,6 %,
+  icône 0,5 % (inchangé : rendu logiciel). « [lent] démarrage » n'est plus écrit que si le jeu met plus de 0,6 s à
+  être prêt. À vérifier par Victor : processeur de la bande dans le Gestionnaire des tâches (19,8 % avant la police).
 - 2026-11-11 (it. 777) : CONFIRMÉ par Victor (« c'est bien mieux niveau ressenti ») : démarrage 450-860 → 217 ms,
   plus aucune image longue ni préparation lente signalée. Autres polices vérifiées (Tiny5 16 points par lettre,
   DotGothic16 61-76) : rien à faire. « Quoi de neuf » édition 27 (traduite).

@@ -611,4 +611,4 @@ async function boot() {
 
 const bootT0 = performance.now();
 // (it. 767) Dev : durée du démarrage (modules chargés à bootT0 ; lecture de la sauvegarde et construction du jeu ensuite)
-boot().then(() => { if (window.__devSlow) console.warn(`[lent] démarrage : modules ${Math.round(bootT0)} ms, puis ${Math.round(performance.now() - bootT0)} ms jusqu'au jeu prêt`); }).catch((e) => { console.error(e); document.body.textContent = tx("Erreur au démarrage : ") + e.message; });
+boot().then(() => { if (window.__devSlow && performance.now() > 600) console.warn(`[lent] démarrage : modules ${Math.round(bootT0)} ms, puis ${Math.round(performance.now() - bootT0)} ms jusqu'au jeu prêt`); }).catch((e) => { console.error(e); document.body.textContent = tx("Erreur au démarrage : ") + e.message; });
