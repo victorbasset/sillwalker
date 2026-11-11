@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 754) : où part le processeur de la bande (19 % d'un cœur en rendu logiciel) : la bande tourne à
+  30 images/s et strip.draw ne prend que 0,18 ms par image (0,5 %) : presque tout le coût est la composition et la
+  peinture du navigateur (sans carte graphique ici). Optimiser le JavaScript n'apporterait rien ; le seul levier est un
+  dessin sur un seul canevas (WebGL) ; sur Windows avec carte graphique le coût réel doit être bien plus bas
+  (« À vérifier » 3). Workflow de l'essai Tauri toujours pas ajouté.
 - 2026-11-11 (it. 753) : processeur : le son coupé en cours de partie (bouton haut-parleur, ou effets et musique
   désactivés) laissait le contexte audio calculer du silence ; Sound.setIdle le suspend (repris dès qu'un son ou la
   musique revient). Écart attendu ≈ 3 points sur la bande (lancement son coupé : 16,1 % contre 19,1 %). Autotest (141) :
