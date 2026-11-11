@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 691) : mémoire (530 Mo à la revue 690) : mem-watch 12 min : 517-523 Mo, sans pente (30 s : 518,
+  660 s : 521) : écart de lancement à lancement, pas de fuite.
 - 2026-11-11 (it. 690, revue générale) : balance 12 h vs ba2874f +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl ru 319 / ja 318 clics sans erreur ; perf bande 19,2 %, panneau 20,5 %, mini 6,8 % ; mémoire réelle 529-530 Mo,
   stable pendant la mesure (revues précédentes 512-523 : à surveiller à la revue 700).
