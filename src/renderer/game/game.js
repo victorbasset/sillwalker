@@ -8,7 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
-import { RELICS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
+import { RELICS, RELIC_IDS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
 /** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
 const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
 import { itemName } from "../i18n/data.js";
@@ -1877,7 +1877,8 @@ export class Game {
   visitSnapshot(now = Date.now()) {
     const st = this.S.stats;
     return { t: now, gold: st.goldTotal || 0, kills: st.kills || 0, lvl: this.S.lvl, asc: this.S.prestige.count, leg: st.legendaries || 0, best: recordZone(this.S),
-      spells: Object.values(this.S.spells || {}).reduce((a, r) => a + (+r || 0), 0) }; // rangs de sorts (Grimoire, it. 557)
+      spells: Object.values(this.S.spells || {}).reduce((a, r) => a + (+r || 0), 0), // rangs de sorts (Grimoire, it. 557)
+      relics: RELIC_IDS.reduce((a, id) => a + relicLevel(this.S, id), 0) }; // reliques gagnées + niveaux (it. 615)
   }
 
   /**
@@ -1895,6 +1896,7 @@ export class Game {
       lvl0: sameRun && now0.lvl > snap.lvl ? snap.lvl : 0, lvl1: now0.lvl,
       best: now0.best > snap.best ? now0.best : 0, asc: Math.max(0, now0.asc - snap.asc),
       spells: Math.max(0, (now0.spells || 0) - (snap.spells || 0)),
+      relics: Math.max(0, (now0.relics || 0) - (snap.relics || 0)),
     };
   }
 

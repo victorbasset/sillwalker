@@ -1150,4 +1150,5 @@ export default {
   2274: "La franja consume menos: contornos y halos dibujados de una vez por todas.",
   2275: "Zona {0}: {1} reforzará {2} (nivel {3} → {4}).",
   2276: "Reliquia perfecta (nivel 5)",
+  2277: "+{n} nivel de reliquia|+{n} niveles de reliquia",
 };

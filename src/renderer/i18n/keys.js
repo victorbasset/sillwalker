@@ -2278,5 +2278,6 @@ export const KEYS = [
   "Les reliques gagnées s’affichent en tête des pastilles de ton héros ; le prochain boss majeur est annoncé dans la zone.",
   "La bande consomme moins : contours et halos dessinés une fois pour toutes.",
   "Zone {0} : {1} renforcera {2} (niveau {3} → {4}).",
-  "Relique parfaite (niveau 5)"
+  "Relique parfaite (niveau 5)",
+  "+{n} niveau de relique|+{n} niveaux de relique"
 ];

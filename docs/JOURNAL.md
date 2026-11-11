@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 615) : « Depuis ta dernière visite » : « +n niveaux de relique » (relique gagnée ou renforcée
+  pendant que le panneau était fermé). Pluriels à 3 formes (pl, ru). Test logique. 133/133.
 - 2026-11-11 (it. 614) : vérifié en capture (zone 50, drone niveau 2) : le drone du héros à sa gauche, la relique à
   renforcer plus pâle à droite du Geôlier ; barres de vie sous les pieds.
 - 2026-11-11 (it. 613) : la relique flotte à côté de son gardien tant qu'elle peut encore monter de niveau (déjà

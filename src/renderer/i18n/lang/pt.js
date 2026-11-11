@@ -1150,4 +1150,5 @@ export default {
   2274: "A faixa consome menos: contornos e halos desenhados de uma vez por todas.",
   2275: "Zona {0}: {1} reforçará {2} (nível {3} → {4}).",
   2276: "Relíquia perfeita (nível 5)",
+  2277: "+{n} nível de relíquia|+{n} níveis de relíquia",
 };

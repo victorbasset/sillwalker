@@ -1150,4 +1150,5 @@ export default {
   2274: "Der Streifen braucht weniger: Umrisse und Leuchten werden ein für alle Mal gezeichnet.",
   2275: "Zone {0}: {1} verstärkt {2} (Stufe {3} → {4}).",
   2276: "Perfektes Relikt (Stufe 5)",
+  2277: "+{n} Reliktstufe|+{n} Reliktstufen",
 };
