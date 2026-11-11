@@ -450,7 +450,7 @@ export class Panel {
       (this.selected.from === "bag" && this.selected.id === it.id && from === "bag"));
     const up = from === "bag" && this.game.isUpgrade(it);
     return `<button class="slot rb${it.r}${sel ? " sel" : ""}" data-action="sel" data-from="${from}" ${from === "bag" ? `data-id="${it.id}"` : `data-slot="${slotKey}"`}
-      aria-label="${esc(itemName(it))}, ${RARITIES[it.r].name}${up ? tx(", amélioration") : ""}">
+      aria-label="${esc(itemName(it))}${csep()}${RARITIES[it.r].name}${up ? tx(", amélioration") : ""}">
       <img src="${itemIconURL(it)}" alt="">${RARITY_PIP[it.r] ? `<span class="rpip" aria-hidden="true">${RARITY_PIP[it.r]}</span>` : ""}${it.plus ? `<span class="plus">+${it.plus}</span>` : ""}${up ? `<span class="up" aria-hidden="true">▲</span>` : ""}${it.set && SETS[it.set] ? `<span class="setmark tint" style="--c:${SETS[it.set].color}" aria-hidden="true">◆</span>` : ""}</button>`;
   }
 

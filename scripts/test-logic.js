@@ -2656,7 +2656,7 @@ test("listes affichées : séparateur csep(), pas de « , » en dur (it. 668)", 
   const walk = (d) => { for (const f of fs.readdirSync(d, { withFileTypes: true })) {
     const p = d + "/" + f.name;
     if (f.isDirectory()) { if (f.name !== "lang") walk(p); }
-    else if (p.endsWith(".js") && !p.endsWith("/keys.js") && !p.endsWith("/format.js") && /\.join\(", "\)|this\.log\(.*\+ "\."\);/.test(fs.readFileSync(p, "utf8"))) bad.push(p.slice(root.length));
+    else if (p.endsWith(".js") && !p.endsWith("/keys.js") && !p.endsWith("/format.js") && /\.join\(", "\)|", " \+|this\.log\(.*\+ "\."\);/.test(fs.readFileSync(p, "utf8"))) bad.push(p.slice(root.length));
   } };
   walk(root.replace(/\/$/, ""));
   assert.deepEqual(bad, [], "utiliser .join(csep()) et cend() (i18n/index.js) : « 、 » et « 。 » en japonais, « ， » et « 。 » en chinois");

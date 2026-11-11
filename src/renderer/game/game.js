@@ -1466,7 +1466,7 @@ export class Game {
       for (const id of this.idlePets()) if (this.sendExpedition(id, kind, now)) sent++;
     } finally { this._quiet = false; }
     const parts = [];
-    if (back) parts.push(txn(back, "{n} expédition récupérée|{n} expéditions récupérées") + ` (+${tx("{0} or", { 0: fmt(gold) })}${items ? ", " + txn(items, "{n} objet trouvé|{n} objets trouvés") : ""})`);
+    if (back) parts.push(txn(back, "{n} expédition récupérée|{n} expéditions récupérées") + ` (+${tx("{0} or", { 0: fmt(gold) })}${items ? csep() + txn(items, "{n} objet trouvé|{n} objets trouvés") : ""})`);
     if (hatched) parts.push(txn(hatched, "{n} œuf éclos|{n} œufs éclos"));
     if (sent) parts.push(txn(sent, "{n} familier reparti|{n} familiers repartis"));
     if (parts.length) this.log(tx("Grand intendant : {0}.", { 0: parts.join(csep()) }));
@@ -1703,7 +1703,7 @@ export class Game {
     const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null, mod: D.mod, broken };
     if (reward.potions) this.S.potions = Math.min(20, this.S.potions + reward.potions);
     if (day === 7 && !this.bagFull()) { reward.item = this.newItem(3, this.S.best); this.S.bag.push(reward.item); }
-    this.log(`${tx("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: day, 1: fmt(gold), 2: reward.potions ? tx(", 2 potions") : "", 3: reward.item ? ", " + itemName(reward.item) : "" })}`);
+    this.log(`${tx("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: day, 1: fmt(gold), 2: reward.potions ? tx(", 2 potions") : "", 3: reward.item ? csep() + itemName(reward.item) : "" })}`);
     this.emit("daily", reward);
     this.changed();
     return reward;
@@ -1939,7 +1939,7 @@ export class Game {
     const out = { gold, xp: ex.xp, egg: false, item: null, pet: PET_INDEX[id] };
     if (rand() < ex.egg) { out.egg = true; this.gainEgg(); }
     if (rand() < ex.item && !this.bagFull()) { out.item = this.newItem(ex.minRarity, this.S.best); this.addToBag(out.item, true); }
-    if (!this._quiet) this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: lc(ex.name), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? ", " + itemName(out.item) : "" })}`);
+    if (!this._quiet) this.log(`${out.pet.name} ${tx("revient de {0} : +{1} or{2}{3} !", { 0: lc(ex.name), 1: fmt(gold), 2: out.egg ? tx(", un œuf") : "", 3: out.item ? csep() + itemName(out.item) : "" })}`);
     this.emit("expedition", out);
     this.changed();
     return out;

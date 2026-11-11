@@ -12,7 +12,7 @@ import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
 import { newsDue, markNews } from "./game/news.js";
 import { journeyText } from "./ui/tabs/stats.js";
-import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang } from "./i18n/index.js";
+import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang, csep } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
@@ -310,7 +310,7 @@ async function boot() {
       return;
     }
     strip.welcomeBack();
-    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: sum.chests ? ", " + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "" })}${stepLine(sum)}`,
+    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: sum.chests ? csep() + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "" })}${stepLine(sum)}`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {

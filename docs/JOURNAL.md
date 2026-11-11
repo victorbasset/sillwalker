@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 693) : texte chinois extrait : aucun mot latin suspect, mais des « , » occidentales collées au chinois :
+  libellé lu des objets (aria-label « nom, rareté », panel.js), récompense du jour et retour d'expédition avec objet
+  (game.js), résumé d'absence (coffres, app.js) : csep(). Le test des séparateurs signale aussi `", " +`. 135/135,
+  crawl zh 322 clics sans erreur.
 - 2026-11-11 (it. 692) : lang-overflow complet après les changements de textes (it. 665-682 : édition 19, noms russes,
   épithètes, particules coréennes) : 10 langues × 1920 / 1366 / 1280 : aucun défilement (30/30).
 - 2026-11-11 (it. 691) : mémoire (530 Mo à la revue 690) : mem-watch 12 min : 517-523 Mo, sans pente (30 s : 518,
