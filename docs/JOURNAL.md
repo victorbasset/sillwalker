@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 681) : mage et nécromancien bas dans chaque revue (59-60, graine 7) : graines 3 / 11 / 21 : mage
+  62 / 62 / 60, nécro 62 / 62 / 60 ; moyenne sur 4 graines 60,8 et 61,0 pour 62,1 : à peine plus que le bruit, rien changé.
 - 2026-11-11 (it. 680, revue générale) : balance 12 h vs 3e2eb6f +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl de 324 / ko 323 clics sans erreur ; perf bande 19,4 %, panneau 21,1 %, mini 6,7 % ; mémoire réelle 522 Mo stable.
 - 2026-11-11 (it. 679) : i18n-quotes (npm test) contrôle aussi les noms de héros cités dans « Quoi de neuf » : chaque
