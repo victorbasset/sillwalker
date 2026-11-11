@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 674) : polonais : mêmes épithètes de boss accordées (plAgree, i18n/index.js ; BOSS_GENDER par
+  langue dans bosses.js) : « Królowa Szlamu Przebudzona », « Otchłanne Szczypce Pradawne ». Oubli russe corrigé :
+  « Зелёная Пасть » est féminin. 135/135.
 - 2026-11-11 (it. 673) : russe : épithètes des boss de 2e et 3e boucle (« Пробуждённый », « Древний ») accordées au
   genre du boss (RU_BOSS_GENDER, bosses.js ; BOSS_SRC garde les noms français car translateData remplace BOSS_NAMES) :
   « Королева Слизи Пробуждённая », « Клешни Бездны Древние ». ruAgree (i18n/index.js) partagé avec les matières

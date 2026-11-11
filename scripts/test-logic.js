@@ -39,7 +39,7 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
-import { systemLang } from "../src/renderer/i18n/index.js";
+import { systemLang, plAgree } from "../src/renderer/i18n/index.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
 import { approachTime, heroStats, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
@@ -2643,6 +2643,11 @@ test("russe : adjectif de matière accordé au genre de la pièce (it. 665)", ()
   // (it. 673) adjectifs mous en -ий (épithète « Древний » des boss)
   assert.equal(ruAdjective("древний", "f"), "Древняя");
   assert.equal(ruAdjective("древний", "p"), "Древние");
+  // (it. 674) polonais : épithètes des boss
+  assert.equal(plAgree("Przebudzony", "f"), "Przebudzona");
+  assert.equal(plAgree("Pradawny", "n"), "Pradawne");
+  assert.equal(plAgree("Wielki", "p"), "Wielkie");
+  assert.equal(plAgree("z żelaza", "f"), null);
 });
 
 test("listes affichées : séparateur csep(), pas de « , » en dur (it. 668)", () => {

@@ -67,6 +67,14 @@ export function ruAgree(adj, g) {
   if (g === "m" || !RU_HARD[g]) return adj;
   return m[1] + (m[2] === "ий" ? RU_SOFT[g] : RU_HARD[g]);
 }
+// (it. 674) polonais : même chose pour un adjectif masculin en -y / -i (pluriel non viril : -e / -ie)
+export function plAgree(adj, g) {
+  const m = /^([a-ząćęłńóśźż]+)(y|i)$/i.exec(adj);
+  if (!m) return null;
+  if (g === "m") return adj;
+  if (g === "f") return m[1] + "a";
+  return m[1] + (m[2] === "i" ? "ie" : "e");
+}
 /**
  * Phrase au pluriel selon n, dans toutes les langues. La source française donne
  * « singulier|pluriel » ; chaque traduction donne ses formes séparées par « | » :

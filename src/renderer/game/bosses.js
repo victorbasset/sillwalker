@@ -1,19 +1,28 @@
 // Capacités spéciales des boss. Chaque boss de zone en reçoit une (deux à
 // partir de la 2e boucle des zones), choisie selon la zone : on sait donc à
 // l'avance ce qui attend le héros (affiché dans le panneau Zone).
-import { t as tx, getLang, ruAgree } from "../i18n/index.js";
-// (it. 673) russe : genre des noms de boss traduits (clé : nom français ; absent = masculin), pour accorder
-// « Пробуждённый / Древний » (« Королева Слизи Пробуждённая »)
-const RU_BOSS_GENDER = {
-  "Bave-Reine": "f", "La Veuve des Égouts": "f", "Mère des Harpies": "f", "Ignivore, mère des wyvernes": "f",
-  "Chapeau-Pourpre": "f", "Reine de Verre": "f",
-  "Dard-de-Sable": "n", "Cœur-de-Lave": "n", "L’Œil des Profondeurs": "n",
-  "Pince-Abysse": "p",
+import { t as tx, getLang, ruAgree, plAgree } from "../i18n/index.js";
+// (it. 673-674) russe et polonais : genre des noms de boss traduits (clé : nom français ; absent = masculin), pour
+// accorder l'épithète (« Королева Слизи Пробуждённая », « Królowa Szlamu Przebudzona »)
+const BOSS_GENDER = {
+  ru: {
+    "Bave-Reine": "f", "Mâchoire Verte": "f", "La Veuve des Égouts": "f", "Mère des Harpies": "f", "Ignivore, mère des wyvernes": "f",
+    "Chapeau-Pourpre": "f", "Reine de Verre": "f",
+    "Dard-de-Sable": "n", "Cœur-de-Lave": "n", "L’Œil des Profondeurs": "n",
+    "Pince-Abysse": "p",
+  },
+  pl: {
+    "Bave-Reine": "f", "Mâchoire Verte": "f", "La Veuve des Égouts": "f", "Mère des Harpies": "f", "Ignivore, mère des wyvernes": "f",
+    "Reine de Verre": "f",
+    "Dard-de-Sable": "n", "Cœur-de-Lave": "n", "L’Œil qui ne dort pas": "n", "L’Œil des Profondeurs": "n",
+    "Pince-Abysse": "p",
+  },
 };
+const AGREE = { ru: ruAgree, pl: plAgree };
 function epithet(src, key) {
-  const e = tx(key);
-  if (getLang() !== "ru") return e;
-  const w = ruAgree(e.trim(), RU_BOSS_GENDER[src] || "m");
+  const e = tx(key), lang = getLang();
+  if (!AGREE[lang]) return e;
+  const w = AGREE[lang](e.trim(), BOSS_GENDER[lang][src] || "m");
   return w ? " " + w : e;
 }
 import { ZONES } from "./data.js";
