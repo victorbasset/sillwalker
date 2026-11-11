@@ -134,7 +134,7 @@ export const CLASSES = {
   },
   priestess: {
     name: "Prêtresse", role: "Lumière et soins, à distance", desc: "Une lumière douce la protège et referme ses plaies.",
-    mul: { hp: 1.05, atk: 1.05, def: 1.1 }, add: {},
+    mul: { hp: 1.05, atk: 1.12, def: 1.1 }, add: {}, // (it. 663 : attaque 1,05 → 1,12 : 60 zones en 12 h sur 4 graines, la plus basse)
     passive: { shield: 15, regen: 5 },
     passiveText: "Grâce : chaque combat commence avec un bouclier de 15 % des PV max. Régénération +5 % des PV max par seconde en marchant.",
     contact: 110, projectile: "holy", tree: "paladin", treePrefix: "pr_",
