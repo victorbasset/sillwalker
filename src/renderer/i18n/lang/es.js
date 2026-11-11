@@ -1172,4 +1172,6 @@ export default {
   2296: "Jefes mayores y ecos derrotados",
   2297: ", ",
   2298: ".",
+  2299: "La Sacerdotisa golpea un poco más fuerte.",
+  2300: "Traducciones: nombres de objetos y títulos de jefes concuerdan en género (ruso, polaco, alemán, español, portugués); puntuación japonesa y china en el registro.",
 };

@@ -1172,4 +1172,6 @@ export default {
   2296: "Pokonani wielcy bossowie i echa",
   2297: ", ",
   2298: ".",
+  2299: "Kapłanka uderza nieco mocniej.",
+  2300: "Tłumaczenia: nazwy przedmiotów i tytuły bossów uzgodnione z rodzajem (rosyjski, polski, niemiecki, hiszpański, portugalski); japońska i chińska interpunkcja w dzienniku.",
 };

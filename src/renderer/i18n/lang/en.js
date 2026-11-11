@@ -1172,4 +1172,6 @@ export default {
   2296: "Major bosses and echoes defeated",
   2297: ", ",
   2298: ".",
+  2299: "The Priestess hits a little harder.",
+  2300: "Translations: item names and boss titles now agree in gender (Russian, Polish, German, Spanish, Portuguese); Japanese and Chinese punctuation in the log.",
 };

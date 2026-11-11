@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 677) : « Quoi de neuf » édition 19 : Prêtresse renforcée (it. 663), accords et ponctuation
+  (it. 665-675), traduite en 9 langues (nom de classe repris tel qu'il est traduit : 司祭 en japonais).
+  135/135 ; lang-overflow de, pl à 1920 / 1366 / 1280 : aucun défilement.
 - 2026-11-11 (it. 676) : test logique (188) des épithètes de boss accordées en de, es, pt, ru, pl (zones 35, 36, 81).
 - 2026-11-11 (it. 675) : allemand, espagnol, portugais : article de l'épithète des boss accordé (FORMS + BOSS_GENDER,
   bosses.js) : « Schleimkönigin die Erwachte », « Reina Babosa la Despertada », « Rainha Gosma a Desperta »,

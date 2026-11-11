@@ -2300,5 +2300,7 @@ export const KEYS = [
   "Correction : les missiles du Drone stellaire sont retenus par la carapace et la peau de pierre des boss, comme tes coups.",
   "Boss majeurs et échos vaincus",
   ", ",
-  "."
+  ".",
+  "La Prêtresse frappe un peu plus fort.",
+  "Traductions : noms d’objets et titres des boss accordés au genre (russe, polonais, allemand, espagnol, portugais) ; ponctuation japonaise et chinoise dans le journal."
 ];
