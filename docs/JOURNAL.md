@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 718) : autotest (138) : aucun bouton ne sort de sa carte ou de son panneau sur les 12 onglets (sonde
+  des it. 716-717 rendue permanente ; une rangée défilante n'est ignorée que si elle est dans la carte : les cartes
+  elles-mêmes dans une rangée défilante, comme les familiers, restent contrôlées). Placée en fin d'autotest (elle
+  change d'onglet).
 - 2026-11-11 (it. 717) : même sonde (boutons hors carte, hors rangées défilantes) en allemand et en russe, 1366 et 1280,
   12 onglets, copie réelle avec expéditions finies : rien.
 - 2026-11-11 (it. 716) : suite de la demande U : sonde TEMP sur une copie réelle (expéditions finies) : boutons qui
