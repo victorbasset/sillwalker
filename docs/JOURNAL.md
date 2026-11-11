@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 742) : test-logic : freshState exclut aussi starSmith, herbalist et trader (ils dépensent l'or tout
+  seuls ; leurs tests les activent explicitement) ; CLAUDE.md à jour. 194 tests.
 - 2026-11-11 (it. 741) : succès « Tout débloqué » (UNLOCK_ALL) : suit la liste (n / 26 affiché), aucun nombre en dur
   (jeu, steam/achievements.md, README). Il demande désormais d'aller jusqu'à la zone 300 (Marchand attitré) ; un succès
   Steam déjà obtenu reste acquis.

@@ -35,7 +35,7 @@ import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
-const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => u.id !== "armsValet" && u.id !== "skyChart" && u.id !== "spellBook").map((u) => [u.id, true])),
+const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => !["armsValet", "skyChart", "spellBook", "starSmith", "herbalist", "trader"].includes(u.id)).map((u) => [u.id, true])),
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
