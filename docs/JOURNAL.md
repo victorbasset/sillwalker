@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 831) : regard « nouveau joueur » (partie neuve en anglais, --release-ui) : la pastille or / niveau
+  semblait passer sous le bouton du son sur une capture agrandie ; mesuré au pixel : 14 px d'écart, rien à corriger.
+  Écran à 125 % (--force-device-scale-factor=1.25) : bande nette et bien placée.
 - 2026-11-11 (it. 830) : revue générale (contre dc8d5e9, it. 810) : équilibrage +0,0 (61,9) ; 1200 parties, 0 bloquée ;
   sauvegardes abîmées tolérées ; clics japonais et coréen (330 chacun, bouton « Ton avis » compris) sans erreur ;
   bande 19,5 %, panneau 20,4 %, mini 6,6 %, icône 0,5 % ; mémoire 494 Mo stable. Rien à corriger.
