@@ -203,7 +203,7 @@ export class StripRenderer {
     // Cœur de l'aube (it. 621) : la vie regagnée, en vert, toutes les 3 s de combat.
     g.on("relicHeal", ({ amount }) => {
       if (!this.active || this.game.S.settings.damageNumbers === false) return;
-      this.float(this.heroX + 14, 30, "+" + fmt(Math.round(amount)), "#ff8fa0");
+      this.float(this.heroX - 6, 58, "+" + fmt(Math.round(amount)), "#7dff9a"); // à gauche, près du cœur : loin des nombres de dégâts
     });
     // Relique renforcée (it. 608) : nouvelle victoire contre son gardien.
     g.on("relicUp", ({ id, lv }) => {

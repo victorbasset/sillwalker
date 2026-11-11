@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 622) : soin du Cœur de l'aube vérifié en capture (événement toutes les 3 s : ok) ; le « +X » partait
+  au milieu des nombres de coups critiques et en rose, comme les dégâts subis : déplacé à gauche du héros, en vert.
+  133/133.
 - 2026-11-11 (it. 621) : Cœur de l'aube visible : la vie regagnée est cumulée et affichée toutes les 3 s de combat
   (« +X » rose au-dessus du héros, seulement s'il a été blessé ; réglage des nombres de dégâts respecté). Pas encore
   vu en capture. 133/133.
