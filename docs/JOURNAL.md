@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 741) : succès « Tout débloqué » (UNLOCK_ALL) : suit la liste (n / 26 affiché), aucun nombre en dur
+  (jeu, steam/achievements.md, README). Il demande désormais d'aller jusqu'à la zone 300 (Marchand attitré) ; un succès
+  Steam déjà obtenu reste acquis.
 - 2026-11-11 (it. 740, revue générale) : balance 12 h vs e3ecc92 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl ko 318 / pl 319 clics sans erreur ; perf bande 19,1 %, panneau 20,1 %, mini 6,6 % ; mémoire réelle 515-517 Mo.
 - 2026-11-11 (it. 739) : nouveaux réglages sauvegardés (autoAnvil, autoBuffs, autoTrade) : save-fuzz 27/27 ok ;
