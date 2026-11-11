@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 759) : « À vérifier » 15 : marche à suivre de l'essai Tauri sous Windows (workflow, exe, comparaison,
+  passage des clics).
 - 2026-11-11 (it. 758) : crawl en russe avec tous les déblocages (groupe « Automatismes », fenêtre large, cases) :
   334 clics sans erreur. Workflow de l'essai Tauri toujours pas ajouté.
 - 2026-11-11 (it. 757) : CLAUDE.md (pièges) : onglets préparés d'avance = éléments présents dans les onglets cachés ;
@@ -2518,6 +2520,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   13. Feux follets des pétales complets (demande V, it. 720) : passent derrière puis devant le héros ?
   12. Familiers (demande U, it. 714) : bouton « Récupérer le butin » et boutons d'envoi (30 min / 2 h / 8 h, nom au
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
+  15. Essai Tauri (demande X, it. 751-752) : ajouter `.github/workflows/proto-tauri.yml` (copie de
+      proto-tauri/workflow-a-ajouter.yml, voir proto-tauri/README.md), télécharger l'exe de l'onglet Actions, le
+      lancer à la place de la version Electron (fermée pendant l’essai, puis relancée pour comparer) ; comparer mémoire et processeur dans le Gestionnaire des tâches ;
+      vérifier que les clics traversent la bande hors des boutons. Sauvegarde à part (la vraie n'est que lue).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
