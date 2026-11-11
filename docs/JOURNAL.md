@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 617) : faille corrigée : sans « passer à la zone suivante », battre le gardien en boucle (zone 50)
+  montait sa relique au niveau 5 en quelques minutes. Un niveau par course au plus (S.relicRun : n° d'ascension du
+  dernier renforcement ; migrate ; gardé à l'ascension) ; relicUpgradable() pour l'annonce de la zone et la relique
+  pâle sur le boss. Test logique ; save-fuzz ok ; semaine mage 278, guerrier 287 (inchangé). 133/133.
 - 2026-11-11 (it. 616) : santé de la progression après les reliques : IDLE guerrier 12 h → zone 16 (repère 15) ;
   early-pace inchangé (60 min : 109 objets, niv. 39, zone 23, 6 déblocages) ; first-minutes : premier objet ≈ 41-77 s,
   boss ≈ 77-86 s, onglet Talents ≈ 80 s (3 graines).

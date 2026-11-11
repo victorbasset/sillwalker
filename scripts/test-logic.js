@@ -2578,7 +2578,9 @@ test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagné
   // (it. 608) nouvelle victoire contre le gardien : la relique monte de niveau (+10 % de sa part), 5 au plus
   const atkB = g.stats().atk; g.R.mon = g.makeMonster(true); g.S.zone = 150; g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.R.mode = "fight"; g.killMonster();
   assert.equal(g.S.relicLv.blade, 2, "Lame : niveau 2");
-  for (let i = 0; i < 6; i++) g.gainRelic("blade");
+  g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.R.mode = "fight"; g.killMonster();
+  assert.equal(g.S.relicLv.blade, 2, "même course : pas de second niveau (zone 50 en boucle)");
+  for (let i = 0; i < 6; i++) { g.S.prestige.count++; g.gainRelic("blade"); }
   g.S.relicLv.blade = 4; const snapR2 = g.visitSnapshot(Date.now() - 10 * 60000);
   g.S.relicLv.blade = 5; g.S.stats.kills++; assert.equal(g.visitSummary(snapR2).relics, 1, "résumé de visite : +1 niveau de relique");
   assert.equal(g.S.relicLv.blade, 5, "niveau 5 au plus");

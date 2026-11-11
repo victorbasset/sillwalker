@@ -13,7 +13,7 @@ import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
-import { RELICS, RELIC_IDS, RELIC_MAX_LV, MAJOR_BOSSES, hasRelic, relicLevel, relicLevelText } from "../game/relics.js";
+import { RELICS, RELIC_IDS, MAJOR_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -688,7 +688,7 @@ export class Panel {
   /** Prochain boss majeur à 10 zones au plus, relique pas encore gagnée (demande S) : une ligne dans la zone. */
   relicAheadHTML(S) {
     // (it. 611) relique déjà gagnée mais pas au niveau maximal : le gardien la renforcera
-    const mb = MAJOR_BOSSES.find((b) => b.zone >= S.zone && b.zone - S.zone <= 10 && relicLevel(S, b.relic) < RELIC_MAX_LV);
+    const mb = MAJOR_BOSSES.find((b) => b.zone >= S.zone && b.zone - S.zone <= 10 && relicUpgradable(S, b.relic));
     if (!mb) return "";
     const r = RELICS[mb.relic], lv = relicLevel(S, mb.relic);
     const txt = lv ? tx("Zone {0} : {1} renforcera {2} (niveau {3} → {4}).", { 0: mb.zone, 1: tx(mb.name), 2: tx(r.name), 3: lv, 4: lv + 1 })

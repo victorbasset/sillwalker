@@ -531,16 +531,17 @@ export class Game {
     const S = this.S, r = RELICS[id];
     if (!r) return false;
     if (hasRelic(S, id)) { // (it. 608) déjà gagnée : nouvelle victoire contre son gardien, la relique se renforce
-      const lv = relicLevel(S, id);
-      if (lv >= RELIC_MAX_LV) return false;
-      (S.relicLv ||= {})[id] = lv + 1;
+      const lv = relicLevel(S, id), run = (S.prestige && S.prestige.count) || 0;
+      // (it. 617) une fois par course : rester en zone 50 pour battre le gardien en boucle ne renforce plus rien
+      if (lv >= RELIC_MAX_LV || (S.relicRun || {})[id] === run) return false;
+      (S.relicLv ||= {})[id] = lv + 1; (S.relicRun ||= {})[id] = run;
       this.invalidateStats();
       this.log(tx("Relique renforcée : {0}, niveau {1} / {2} (effet +{3} %).", { 0: tx(r.name), 1: lv + 1, 2: RELIC_MAX_LV, 3: Math.round((relicPow(S, id) - 1) * 100) }));
       this.emit("relicUp", { id, lv: lv + 1 });
       this.changed();
       return true;
     }
-    (S.relics ||= {})[id] = Date.now();
+    (S.relics ||= {})[id] = Date.now(); (S.relicRun ||= {})[id] = (S.prestige && S.prestige.count) || 0;
     this.invalidateStats();
     this.log(tx("Relique obtenue : {0} ! {1}", { 0: tx(r.name), 1: tx(r.effect) }));
     this.emit("relic", { id });
@@ -2041,7 +2042,7 @@ export class Game {
       // Sorts (demande D) : gardés à l'ascension.
       spells: old.spells || {},
       // Reliques (demande S) : gardées pour toujours.
-      relics: old.relics || {}, relicLv: old.relicLv || {},
+      relics: old.relics || {}, relicLv: old.relicLv || {}, relicRun: old.relicRun || {},
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize,
       // Tri du marchand gardé à l'ascension (demande de Victor du 2026-11-10 au soir : « tu peux laisser cocher
       // commun, peu commun et rare » ; il était décoché depuis l'it. 437).

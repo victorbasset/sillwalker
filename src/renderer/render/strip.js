@@ -24,7 +24,7 @@ import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
-import { RELICS, RELIC_MAX_LV, majorBoss, hasRelic, relicLevel } from "../game/relics.js";
+import { RELICS, majorBoss, hasRelic, relicUpgradable } from "../game/relics.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
@@ -539,7 +539,7 @@ export class StripRenderer {
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
       const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
       // (it. 613) aussi tant qu'elle peut encore monter de niveau (déjà gagnée : un peu plus pâle)
-      if (carried && relicLevel(g.S, carried) < RELIC_MAX_LV) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); im.style.left = (a.w + 3) + "px"; if (hasRelic(g.S, carried)) im.classList.add("owned"); }
+      if (carried && relicUpgradable(g.S, carried)) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); im.style.left = (a.w + 3) + "px"; if (hasRelic(g.S, carried)) im.classList.add("owned"); }
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
