@@ -746,6 +746,9 @@ async function runSelfTest(strip) {
   // (it. 716-718) Aucun bouton ne sort de sa carte ou de son panneau, sur aucun onglet (hors rangées défilantes .hscroll).
   const outBtn = await js("(() => { const P = window.__panel, cur = P.tab, out = []; for (const t of ['adventure','talents','skills','quests','shop','pets','class','ascension','bestiary','stats','map','settings']) { try { P.setTab(t); P.renderAll(); } catch (e) { out.push(t + ' ERR'); continue; } document.querySelectorAll('#panel button').forEach((b) => { if (!b.offsetParent) return; const box = b.closest('article, .panel'); if (!box) return; const hs = b.closest('.hscroll'); if (hs && box.contains(hs)) return; const r = box.getBoundingClientRect(), q = b.getBoundingClientRect(); if (q.width && (q.right > r.right + 1 || q.left < r.left - 1)) out.push(t + ':' + (b.textContent || '').trim().slice(0, 20)); }); } P.setTab(cur); P.renderAll(); return out.slice(0, 8).join(' | ') || 'ok'; })()");
   check("aucun bouton hors de sa carte (12 onglets, hors rangées défilantes)", outBtn === "ok", outBtn);
+  // (it. 723, demande V) feux follets des pétales : le héros est entre eux (z-index 1 derrière, 3 devant)
+  const hz = await js("getComputedStyle(window.__strip.hero.el).zIndex");
+  check("feux follets : le héros entre ceux de derrière (1) et ceux de devant (3)", hz === "2", hz);
   if (process.env.SELFTEST_SHOT3) require("fs").writeFileSync(process.env.SELFTEST_SHOT3, (await wc.capturePage()).toPNG());
   await click("#menu-btn");
   await sleep(400);
