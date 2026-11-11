@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 781) : Steam (Victor s'inscrit sur Steamworks) : steam/store-page.md, descriptions courte (85-268
+  caractères, limite 300) et longue (BBCode) dans les 10 langues, noms du Briseur repris des traductions du jeu.
+  README (section Steam) : renvoi. À faire ensuite : captures 1920×1080 pour le magasin, visuels de capsule, App ID.
 - 2026-11-11 (it. 780) : revue générale (contre 4b767d3, it. 760) : équilibrage 12 h +0,0 (61,9) ; 1200 parties,
   0 bloquée ; 20 sauvegardes abîmées tolérées ; clics en japonais (323) et portugais (324) sans erreur ; bande 19,6 %,
   panneau 19,9 %, mini 6,8 %, icône 0,5 % ; mémoire réelle 485 Mo (515-527 avant : la police allégée y est sans
