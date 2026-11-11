@@ -34,7 +34,8 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - ⬜ Questionnaire de classification par âge (violence pixel art légère, pas de sang, pas d'achats en jeu).
 - 🟡 Extrait animé de la bande (20 s, 1920×120) pour « À propos de ce jeu » : `steam/media/strip-en.mp4` / `.webm`
   (`scripts/steam-video.sh`).
-- ⬜ Bande-annonce (conseillée) : 30-60 s de bande et de panneau (montage à faire).
+- 🟡 Bande-annonce, première version (42 s, 1920×1080, anglais, sans son) : `steam/media/trailer-en.mp4`
+  (`scripts/steam-trailer.sh`, parcours `--tour`). Sans musique : à ajouter au montage si possible.
 
 ## Configuration requise (proposition)
 

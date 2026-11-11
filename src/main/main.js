@@ -190,6 +190,9 @@ function start() {
         console.log("[overflow] " + r);
         app.quit();
       }, 3000);
+      // (it. 789) --tour : la bande seule 12 s, puis le panneau et cinq onglets (4 s chacun), puis la bande de nouveau
+      if (flags.tour) [[12, "tab:adventure"], [16, "tab:skills"], [20, "tab:map"], [24, "tab:class"], [28, "tab:pets"], [32, "toggle-panel"]]
+        .forEach(([t, c]) => setTimeout(() => strip.send("command", c), t * 1000));
       if (flags.demo) setTimeout(() => strip.win.webContents.executeJavaScript("window.__demo && window.__demo()"), 800);
       // (it. 767) Dev : accélération graphique (lenteurs signalées par Victor sous Windows)
       if (flags.isDev) setTimeout(() => { try { const g = app.getGPUFeatureStatus(); console.log(`[dev] carte graphique : dessin ${g.gpu_compositing}, rendu ${g.rasterization}, canevas ${g["2d_canvas"]}, WebGL ${g.webgl}`); } catch { /* sans importance */ } }, 3000);

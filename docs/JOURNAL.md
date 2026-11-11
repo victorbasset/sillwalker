@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 789) : Steam : bande-annonce, première version (steam/media/trailer-en.mp4, 42 s, 1920×1080, 2,5 Mo,
+  sans son) : titre, bande seule, panneau (Aventure, Compétences, Carte, Héros, Familiers), bande, titre. Option de dev
+  --tour (main.js : onglets ouverts à 12, 16… 32 s) ; scripts/steam-trailer.sh : Xvfb :77, fenêtre filmée et posée sur
+  le bureau des captures (le noir pur de la zone transparente rendu transparent par colorkey : le jeu n'utilise pas
+  #000). La bulle « Quoi de neuf » se coupe par settings.newsSeen (pas S.newsSeen).
 - 2026-11-11 (it. 788) : Steam : extrait animé de la bande (20 s, 1920×120, 30 images/s) : steam/media/strip-en.mp4
   (H.264, 979 Ko) et .webm (VP9, 659 Ko), partie simulée de 12 h en anglais. scripts/steam-video.sh : jeu sur un
   écran virtuel à part (Xvfb :77, fenêtre visible), capture x11grab, ffmpeg de pip imageio-ffmpeg (absent du
