@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 686-687) : code mort aussi cherché dans ui/tabs, main, shared : rien. itemName renvoie le nom
+  français si la pièce n'est pas reconnue : 200 000 objets tirés (rollItem, zones 1-400, raretés 0-4) en anglais :
+  aucun nom resté en français.
 - 2026-11-11 (it. 685) : code mort : recherche des exports jamais utilisés (game, i18n, render, ui) : plS (ancien
   pluriel, plus aucun appel) et MINI_W (340, périmé : la largeur vient de config.MINI_WIDTH = 370) retirés ; CLAUDE.md
   à jour. 135/135.
