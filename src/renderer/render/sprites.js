@@ -3,6 +3,10 @@ import { STARBREAKER_ART } from "./art-monsters2.js";
 import { OUTLINE, PIXEL, CLASS_ART, MONSTER_ART, ICON_ART, PET_ART, SLOT_ICON } from "./art.js";
 import { RARITIES, MONSTERS } from "../game/data.js";
 import { dressPalette, visualKey, gearRows } from "./equipvis.js";
+// (it. 769) Canevas des images (icônes, portraits, monstres) : jamais affichés, seulement convertis en image (toDataURL).
+// Dessinés par le processeur : sous Windows avec la carte graphique, chaque conversion d'un canevas accéléré relisait
+// l'image depuis la carte, de façon bloquante (premières ouvertures du panneau et des onglets lentes chez Victor).
+export const SOFT = { willReadFrequently: true };
 
 export function buildSprite(rows, pal, scale, flip, dpr = 1) {
   const h = rows.length, w = Math.max(...rows.map((r) => r.length)), g = [];
@@ -15,7 +19,7 @@ export function buildSprite(rows, pal, scale, flip, dpr = 1) {
   }
   const s = scale * dpr, c = document.createElement("canvas");
   c.width = (w + 2) * s; c.height = (h + 2) * s;
-  const ctx = c.getContext("2d");
+  const ctx = c.getContext("2d", SOFT);
   ctx.fillStyle = OUTLINE;
   for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (g[y][x])
     for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) ctx.fillRect((x + 1 + dx) * s, (y + 1 + dy) * s, s, s);
@@ -40,7 +44,7 @@ export function outlinedFrames(frames, color, dpr = 1) {
     if (!m.has(color)) {
       const p = Math.max(1, Math.round(dpr)), c = document.createElement("canvas");
       c.width = f.width + 2 * p; c.height = f.height + p;
-      const ctx = c.getContext("2d");
+      const ctx = c.getContext("2d", SOFT);
       for (const [x, y] of [[0, p], [2 * p, p], [p, 0]]) ctx.drawImage(f, x, y);
       ctx.globalCompositeOperation = "source-in"; ctx.fillStyle = color; ctx.fillRect(0, 0, c.width, c.height);
       ctx.globalCompositeOperation = "source-over"; ctx.drawImage(f, p, p);
@@ -64,9 +68,9 @@ export function glowFrames(frames, color, dpr = 1) {
     if (!m.has(color)) {
       const p = Math.max(1, Math.round(dpr)), c = document.createElement("canvas");
       c.width = f.width + 4 * p; c.height = f.height + 2 * p;
-      const ctx = c.getContext("2d"), layer = (offs, alpha) => {
+      const ctx = c.getContext("2d", SOFT), layer = (offs, alpha) => {
         const t = document.createElement("canvas"); t.width = c.width; t.height = c.height;
-        const tc = t.getContext("2d");
+        const tc = t.getContext("2d", SOFT);
         for (const [x, y] of offs) tc.drawImage(f, 2 * p + x * p, 2 * p + y * p);
         tc.globalCompositeOperation = "source-in"; tc.fillStyle = color; tc.fillRect(0, 0, t.width, t.height);
         ctx.globalAlpha = alpha; ctx.drawImage(t, 0, 0); ctx.globalAlpha = 1;
@@ -204,7 +208,7 @@ function squareURL(c, scale) {
   const side = Math.max(c.width, c.height), q = document.createElement("canvas");
   q.width = q.height = side;
   const snap = (v) => Math.floor(v / scale) * scale;
-  const cx = q.getContext("2d");
+  const cx = q.getContext("2d", SOFT);
   cx.imageSmoothingEnabled = false;
   cx.drawImage(c, snap((side - c.width) / 2), snap((side - c.height) / 2));
   return q.toDataURL();

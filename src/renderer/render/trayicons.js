@@ -24,7 +24,7 @@ function draw(g, size, { dx = 0, dy = 0, dead = false, overlay = [] } = {}) {
   const h = g.length + 2, w = g[0].length + 2;
   const art = document.createElement("canvas");
   art.width = w; art.height = h;
-  const actx = art.getContext("2d");
+  const actx = art.getContext("2d", { willReadFrequently: true });
   const cell = (x, y, col) => { actx.fillStyle = col; actx.fillRect(x, y, 1, 1); };
   g.forEach((row, y) => row.forEach((col, x) => {
     if (col) for (const [ax, ay] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) if (!(g[y + ay] && g[y + ay][x + ax])) cell(x + 1 + ax, y + 1 + ay, OUTLINE);
@@ -33,7 +33,7 @@ function draw(g, size, { dx = 0, dy = 0, dead = false, overlay = [] } = {}) {
   // 2) Agrandie pour remplir toute l'icône (sans lissage : reste en pixels nets).
   const c = document.createElement("canvas");
   c.width = c.height = size;
-  const ctx = c.getContext("2d");
+  const ctx = c.getContext("2d", { willReadFrequently: true });
   ctx.imageSmoothingEnabled = false;
   const k = size / Math.max(w, h), W = Math.round(w * k), H = Math.round(h * k), step = Math.max(1, Math.round(k / 2));
   ctx.drawImage(art, Math.floor((size - W) / 2) + dx * step, Math.floor((size - H) / 2) + dy * step, W, H);

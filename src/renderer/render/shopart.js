@@ -185,7 +185,7 @@ export function spellIconURL(tpl, color, scale = 3, badge = null) {
     const c = buildSprite(SPELL_ART[tpl] || SPELL_ART.bolt, { K: OUT, C: color, D: darker(color), W: "#ffffff" }, scale, false, 1);
     const b = SPELL_BADGE[badge];
     if (b) { // contour sombre puis pixels, en bas à droite (cellules 7 à 10 de la grille 11×11 avec le cadre)
-      const ctx = c.getContext("2d"), x0 = 7, y0 = 7;
+      const ctx = c.getContext("2d", { willReadFrequently: true }), x0 = 7, y0 = 7;
       ctx.fillStyle = OUT;
       for (let y = -1; y <= 4; y++) for (let x = -1; x <= 4; x++) ctx.fillRect((x0 + x) * scale, (y0 + y) * scale, scale, scale);
       ctx.fillStyle = b[1];

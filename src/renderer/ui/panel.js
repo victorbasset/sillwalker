@@ -283,11 +283,15 @@ export class Panel {
             const pane = $(this.root, `[data-pane="${id}"]`);
             // déjà affiché une fois : rien à préparer (et surtout ne pas le redessiner sous les yeux du joueur)
             if (!pane.childElementCount) {
+              const t0 = performance.now();
               this.tabs[id].render(pane);
+              const t1 = performance.now();
               for (const img of pane.querySelectorAll("img")) img.decode?.().catch(() => {});
               // (it. 765, freezes encore signalés sous Windows) une mise en page invisible : polices de secours (symboles,
               // emoji, CJK) chargées et images mesurées maintenant, pas au premier clic
               pane.classList.add("warming"); pane.hidden = false; void pane.offsetHeight; pane.hidden = true; pane.classList.remove("warming");
+              const t2 = performance.now();
+              if (window.__devSlow && t2 - t0 > 100) console.warn(`[lent] préparation de l'onglet ${id} : construction ${Math.round(t1 - t0)} ms, mise en page ${Math.round(t2 - t1)} ms`);
             }
           }
         } catch { /* préchauffage seulement : l'onglet sera rendu normalement à l'ouverture */ }

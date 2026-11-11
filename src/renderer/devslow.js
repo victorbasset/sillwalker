@@ -4,14 +4,22 @@
 // (window.__devSlow, posé par app.js pour npm start) : « [lent] … » dans le terminal au-delà de 100 ms.
 // Hors dev, les enveloppes ne coûtent que deux lectures d'horloge par rappel.
 const LIMIT = 100;
+// (it. 769) temps passé à convertir des canevas en images, compté pendant chaque rappel lent
+const conv = { ms: 0, n: 0 };
+const toURL = HTMLCanvasElement.prototype.toDataURL;
+HTMLCanvasElement.prototype.toDataURL = function (...a) {
+  if (!window.__devSlow) return toURL.apply(this, a);
+  const t = performance.now();
+  try { return toURL.apply(this, a); } finally { conv.ms += performance.now() - t; conv.n++; }
+};
 const label = (fn) => fn.name || String(fn).replace(/\s+/g, " ").slice(0, 80);
 const timed = (kind, fn) => function (...args) {
   if (!window.__devSlow) return fn.apply(this, args);
-  const t = performance.now();
+  const t = performance.now(), c0 = conv.ms, n0 = conv.n;
   try { return fn.apply(this, args); }
   finally {
     const ms = performance.now() - t;
-    if (ms > LIMIT) console.warn(`[lent] ${kind} « ${label(fn)} » : ${Math.round(ms)} ms (à ${(t / 1000).toFixed(1)} s)`);
+    if (ms > LIMIT) console.warn(`[lent] ${kind} « ${label(fn).slice(0, 50)} » : ${Math.round(ms)} ms (à ${(t / 1000).toFixed(1)} s), dont images de canevas ${Math.round(conv.ms - c0)} ms (${conv.n - n0})`);
   }
 };
 

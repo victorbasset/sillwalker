@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 769) : polices CJK retirées (it. 768) : aucun effet chez Victor (panneau 859 ms, onglets 156-551 ms) ;
+  laissées (sans risque). Nouvelle piste : les icônes, portraits et monstres sont dessinés sur des canevas puis
+  convertis en images (toDataURL) au premier affichage ; chez Victor le canevas est accéléré par la carte graphique,
+  et chaque conversion relit l'image depuis la carte (bloquant) ; ici tout est logiciel, donc gratuit. Ces canevas
+  (jamais affichés) sont maintenant logiciels (willReadFrequently : sprites.js SOFT, shopart, trayicons). Dev : temps
+  des conversions dans chaque « [lent] », et construction / mise en page de chaque onglet préparé.
 - 2026-11-11 (it. 768) : nouvelles lignes de Victor (Windows, npm start) : ouverture du panneau 838 ms de JavaScript,
   préparation de chaque onglet 165-546 ms (temps libre, donc saccades 4-6 s après le lancement), démarrage 814 ms ;
   carte graphique active. Ici 10-40 ms par onglet, même avec une partie d'une semaine (simulate.js DUMP=fichier :
