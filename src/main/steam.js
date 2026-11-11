@@ -4,6 +4,13 @@ const config = require("../shared/config");
 
 const CLOUD_FILE = "save.json";
 
+/** (it. 801) Version distribuée hors Steam (itch.io…) : `npm run dist:itch` écrit « distribution: "itch" » dans le
+ *  package.json embarqué. Steam y est entièrement coupé : sinon, avec le vrai App ID, la relance par Steam fermerait
+ *  le jeu au lancement chez un joueur qui ne l'a pas acheté sur Steam. */
+function distribution() {
+  try { return require("../../package.json").distribution || "steam"; } catch { return "steam"; }
+}
+
 class Steam {
   constructor() {
     this.client = null;
@@ -14,6 +21,11 @@ class Steam {
 
   /** @returns {"ok"|"relaunch"|"unavailable"} */
   init({ isDev }) {
+    if (distribution() !== "steam") {
+      this.status = "version hors Steam (" + distribution() + ")";
+      console.log("[steam]", this.status);
+      return "unavailable";
+    }
     let sw;
     try {
       sw = require("steamworks.js");

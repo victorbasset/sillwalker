@@ -2772,4 +2772,21 @@ test("Steam : jamais de relance par Steam avec l'App ID de test 480 (le jeu se f
   assert.ok(!(id === 480 && relaunch === "true"), "STEAM_RELAUNCH_IF_NEEDED doit rester false avec l'App ID 480");
 });
 
+test("version hors Steam (npm run dist:itch) : Steam entièrement coupé, pas de relance (it. 801)", () => {
+  const req = createRequire(import.meta.url);
+  const pkg = req.resolve("../package.json"), steamPath = req.resolve("../src/main/steam.js");
+  const saved = req.cache[pkg];
+  try {
+    delete req.cache[steamPath];
+    req.cache[pkg] = { id: pkg, filename: pkg, loaded: true, exports: { distribution: "itch" } };
+    const { Steam } = req(steamPath);
+    const s = new Steam();
+    assert.equal(s.init({ isDev: false }), "unavailable");
+    assert.match(s.status, /hors Steam/);
+  } finally {
+    if (saved) req.cache[pkg] = saved; else delete req.cache[pkg];
+    delete req.cache[steamPath];
+  }
+});
+
 console.log(`\n${pass} tests réussis`);

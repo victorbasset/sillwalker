@@ -7,3 +7,4 @@ steam/build/
 sdk/
 steamworks_sdk*/
 steamworks*.zip
+dist-itch/

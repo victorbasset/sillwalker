@@ -38,6 +38,11 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - 🟡 Bande-annonce, première version (42 s, 1920×1080, anglais, sans son) : `steam/media/trailer-en.mp4` (et `trailer-fr.mp4`)
   (`scripts/steam-trailer.sh`, parcours `--tour`). Sans musique : à ajouter au montage si possible.
 
+## Hors Steam (itch.io, démo…)
+
+- ✅ `npm run dist:itch` : version Windows sans Steam (dans `dist-itch/`) ; Steam y est entièrement coupé (pas de
+  relance, pas de succès ni de cloud Steam), la partie se sauvegarde normalement sur le PC.
+
 ## Configuration requise (proposition)
 
 | | Minimum | Recommandé |
