@@ -673,6 +673,10 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .skillsvg .corepct { fill: var(--muted); }
 /* Feux follets des cœurs, autour du héros */
 .wisp { position: absolute; left: 0; top: 0; width: 6px; height: 6px; background: var(--c); box-shadow: 0 0 6px 2px var(--c); pointer-events: none; }
+/* (it. 720, demande V) le héros entre les feux follets : z-index 1 derrière lui, 3 devant (strip.js drawCores) ;
+   sans z-index, il passait sous les deux. Les nombres flottants restent au-dessus de tout. */
+.actor.hero { z-index: 2; }
+.float { z-index: 4; }
 .actor.cored { filter: drop-shadow(0 0 2px var(--aura)) drop-shadow(0 0 4px var(--aura)); }
 
 /* Projectiles selon le palier d'attaque */

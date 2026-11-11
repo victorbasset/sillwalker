@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 720) : DEMANDE V de Victor : « les boules visuelles d'un pétale de compétence complet passent
+  derrière le personnage et reviennent devant ». drawCores (strip.js) donnait déjà aux feux follets z-index 1 (derrière)
+  ou 3 (devant), mais le héros n'avait pas de z-index : les deux passaient devant. Héros z-index 2 (styles.css), nombres
+  flottants z-index 4 (restent au-dessus du héros). Captures (copie, 3 pétales complets) : un feu follet devant le torse,
+  un autre derrière les jambes. 138/138. (Revue générale 720 décalée à 721.)
 - 2026-11-11 (it. 719) : journal : demande U notée FAITE ; point 12 « À vérifier » (familiers à la résolution de Victor).
 - 2026-11-11 (it. 718) : autotest (138) : aucun bouton ne sort de sa carte ou de son panneau sur les 12 onglets (sonde
   des it. 716-717 rendue permanente ; une rangée défilante n'est ignorée que si elle est dans la carte : les cartes
@@ -2394,12 +2399,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   11. Niveaux des reliques (it. 608-617 : un par course, +10 %) et échos des lieutenants au-delà du Rebord (it. 634 :
       zones 250, 300, 350, un niveau de plus par course) : rythme et difficulté des échos à juger en jeu. Contour
       spectral bleu pâle des échos (it. 701-702, bande et mode mini) : assez visible, pas trop ?
+  13. Feux follets des pétales complets (demande V, it. 720) : passent derrière puis devant le héros ?
   12. Familiers (demande U, it. 714) : bouton « Récupérer le butin » et boutons d'envoi (30 min / 2 h / 8 h, nom au
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir ; 2026-11-11) :
+  V. FAIT (it. 720). « Les boules visuelles d'un pétale de compétence complet passent derrière le personnage et
+     reviennent devant » : le code le prévoyait (z-index 1 / 3) mais le héros n'avait pas de z-index : z-index 2.
   U. FAIT (it. 714, contrôles it. 715 et 718). « Les boutons pour récupérer une expédition sortent de l'écran et les
      autres font un scroll aussi » : bouton « Récupérer le butin » seul, pleine largeur ; boutons d'envoi sur une ligne.
   T. FAIT (it. 580, contrôle d'autotest it. 581). En combat de boss, on ne voit pas la barre de vie du boss ni la
