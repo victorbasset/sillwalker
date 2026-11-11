@@ -749,6 +749,9 @@ async function runSelfTest(strip) {
   // (it. 723, demande V) feux follets des pétales : le héros est entre eux (z-index 1 derrière, 3 devant)
   const hz = await js("getComputedStyle(window.__strip.hero.el).zIndex");
   check("feux follets : le héros entre ceux de derrière (1) et ceux de devant (3)", hz === "2", hz);
+  // (it. 744-745) tous les déblocages : automatismes regroupés sous le sac, fenêtre large, titre à jour après une case
+  const au = await js("(() => { const G = window.__game, P = window.__panel, keep = { ...G.S.unlocks }, ks = { ...G.S.settings }; for (const u of ['armsValet','crucible','masterForge','trader','herbalist','starSmith']) G.S.unlocks[u] = true; G.S.settings.autoTrade = true; P.setTab('adventure'); P.renderAll(); const sum = document.querySelector('.autosbox summary'); const inline = document.querySelectorAll('#p-bag > label.toggle input[data-action=trader]').length; if (!sum) return 'pas de groupe'; sum.click(); const cb = document.querySelector('#modal [data-action=trader]'); if (!cb) return 'pas de fenêtre'; cb.click(); const t = document.querySelector('#mt').textContent, open = !document.querySelector('#modal').hidden; document.querySelector('#modal').hidden = true; G.S.unlocks = keep; G.S.settings = ks; P.renderAll(); return [inline, open, /5/.test(t)].join(' '); })()");
+  check("automatismes regroupés (fenêtre large, case sans fermer, titre à jour)", au === "0 true true", au);
   if (process.env.SELFTEST_SHOT3) require("fs").writeFileSync(process.env.SELFTEST_SHOT3, (await wc.capturePage()).toPNG());
   await click("#menu-btn");
   await sleep(400);

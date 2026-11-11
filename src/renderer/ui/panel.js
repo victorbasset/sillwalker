@@ -568,6 +568,12 @@ export class Panel {
   /** (it. 744) Automatismes achetés (valet, creuset, forge, marchand, herboriste, forgeron des astres) : avec les
    *  textes longs (allemand, 1280 px) les 6 cases sous le sac faisaient défiler l'onglet ; au-delà de 2, elles passent
    *  dans « Automatismes (actifs / total) », ouvert dans la fenêtre large (MODAL_DETAILS ; rien ne grandit). */
+  autosCount(S) {
+    const l = [["armsValet", "autoEquipDrops"], ["crucible", "autoTransmute"], ["masterForge", "autoForge"], ["trader", "autoTrade"], ["herbalist", "autoBuffs"], ["starSmith", "autoAnvil"]]
+      .filter(([u]) => hasUnlock(S, u));
+    return [l.filter(([, k]) => S.settings[k] !== false).length, l.length];
+  }
+
   autosHTML(S) {
     const list = [
       [hasUnlock(S, "armsValet"), "autoEquipDrops", `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>`],
@@ -578,7 +584,7 @@ export class Panel {
       [hasUnlock(S, "starSmith"), "autoAnvil", `<label class="toggle"><input type="checkbox" data-action="sanvil"${S.settings.autoAnvil !== false ? " checked" : ""}> ${tx("Forgeron des astres : remonter l’équipement porté au niveau du record")}</label>`],
     ].filter((x) => x[0]);
     if (list.length <= 2) return list.map((x) => x[2]).join("");
-    const on = list.filter((x) => S.settings[x[1]] !== false).length;
+    const [on] = this.autosCount(S);
     return `<details class="autosbox" data-keep="autos"${this.kept.has("autos") ? " open" : ""}><summary>${tx("Automatismes ({0} / {1})", { 0: on, 1: list.length })}</summary><div class="autos-body">${list.map((x) => x[2]).join("")}</div></details>`;
   }
 
@@ -884,6 +890,11 @@ export class Panel {
     if (b.dataset.action === "sanvil") { this.game.S.settings.autoAnvil = b.checked; this.game.changed(); }
     if (b.dataset.action === "crucible") { this.game.S.settings.autoTransmute = b.checked; this.game.changed(); }
     if (b.dataset.action === "steward") { this.game.S.settings.autoPets = b.checked; this.game.changed(); }
+    // (it. 745) fenêtre « Automatismes » ouverte : son titre suit les cases cochées
+    if (["valet", "mforge", "trader", "herbs", "sanvil", "crucible"].includes(b.dataset.action) && b.closest("#modal")) {
+      const [on, n] = this.autosCount(this.game.S);
+      $(this.root, "#mt").textContent = tx("Automatismes ({0} / {1})", { 0: on, 1: n });
+    }
   }
 
   /**

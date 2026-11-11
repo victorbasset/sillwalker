@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 745) : « Automatismes » : le titre de la fenêtre suit les cases cochées (autosCount) ; autotest (140) :
+  tous les déblocages, plus de case sous le sac, fenêtre large, case changée sans fermer, titre « 5 / 6 ».
 - 2026-11-11 (it. 744) : BOGUE d'affichage : avec tous les déblocages (6 cases d'automatismes sous le sac : valet,
   creuset, maître de forge + les 3 nouveaux), Aventure défilait de 186 px en allemand à 1280 (les contrôles mesurent un
   état sans ces déblocages). Au-delà de 2 automatismes, ils passent dans « Automatismes (actifs / total) », ouvert dans
