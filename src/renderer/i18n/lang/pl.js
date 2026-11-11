@@ -1160,4 +1160,6 @@ export default {
   2284: "Klawisz U: kup następne odblokowanie, gdy tylko będzie gotowe.",
   2285: "Balans: Samuraj traci premię +5% do trafień krytycznych (jego Iaijutsu się nie zmienia).",
   2286: "Echo: {0}",
+  2287: "Za Krawędzią: echa trzech namiestników czekają w strefach 250, 300 i 350; każde wzmacnia też swoją relikwię.",
+  2288: "Kroniki opowiadają historię twoich relikwii; ▶, by znów zobaczyć ich scenę.",
 };

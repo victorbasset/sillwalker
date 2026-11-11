@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 635) : écho vérifié en capture (zone 250 : « Écho : Le Geôlier mécanique », drone pâle à côté) ;
+  « Quoi de neuf » édition 17 (échos, histoires des reliques dans les Chroniques). 135/135.
 - 2026-11-11 (it. 634) : objectifs au-delà de la zone 200 (piste ouverte, version mesurée) : échos des trois lieutenants
   en zones 250, 300, 350 (« Écho : … », PV ×1,2 et attaque ×1,1 de plus, mêmes capacités) ; battre un écho renforce
   sa relique, un niveau par course compté à part (S.relicRunEcho ; migrate ; gardé à l'ascension). Annonce dans la

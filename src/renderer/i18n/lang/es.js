@@ -1160,4 +1160,6 @@ export default {
   2284: "Tecla U: comprar el próximo desbloqueo en cuanto esté listo.",
   2285: "Equilibrio: el Samurái pierde su bonificación de +5 % de golpes críticos (su Iaijutsu no cambia).",
   2286: "Eco: {0}",
+  2287: "Más allá del Alféizar: los ecos de los tres lugartenientes esperan en las zonas 250, 300 y 350; cada uno refuerza también su reliquia.",
+  2288: "Las Crónicas cuentan la historia de tus reliquias; ▶ para volver a ver su escena.",
 };

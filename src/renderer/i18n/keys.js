@@ -2288,5 +2288,7 @@ export const KEYS = [
   "Le Cœur de l’aube montre ses soins (en vert) ; avec la Lame du crépuscule, les coups critiques deviennent violets.",
   "Touche U : acheter le prochain déblocage dès qu’il est prêt.",
   "Équilibrage : le Samouraï perd son bonus de +5 % de coups critiques (son Iaijutsu ne change pas).",
-  "Écho : {0}"
+  "Écho : {0}",
+  "Au-delà du Rebord : les échos des trois lieutenants attendent en zones 250, 300 et 350 ; chacun renforce aussi sa relique.",
+  "Les Chroniques racontent l’histoire de tes reliques ; ▶ pour revoir leur scène."
 ];

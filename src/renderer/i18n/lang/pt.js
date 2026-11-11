@@ -1160,4 +1160,6 @@ export default {
   2284: "Tecla U: comprar o próximo desbloqueio assim que estiver pronto.",
   2285: "Equilíbrio: o Samurai perde o bônus de +5% de golpes críticos (o Iaijutsu não muda).",
   2286: "Eco: {0}",
+  2287: "Além do Parapeito: os ecos dos três tenentes esperam nas zonas 250, 300 e 350; cada um também reforça sua relíquia.",
+  2288: "As Crônicas contam a história das suas relíquias; ▶ para rever a cena.",
 };

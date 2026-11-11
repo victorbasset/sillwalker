@@ -1160,4 +1160,6 @@ export default {
   2284: "Taste U: die nächste Freischaltung kaufen, sobald sie bereit ist.",
   2285: "Balance: Der Samurai verliert seinen Bonus von +5 % kritischen Treffern (sein Iaijutsu bleibt gleich).",
   2286: "Echo: {0}",
+  2287: "Jenseits des Saums: Echos der drei Statthalter warten in den Zonen 250, 300 und 350; jedes verstärkt auch sein Relikt.",
+  2288: "Die Chroniken erzählen die Geschichte deiner Relikte; ▶ zeigt ihre Szene erneut.",
 };

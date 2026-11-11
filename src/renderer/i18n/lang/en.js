@@ -1160,4 +1160,6 @@ export default {
   2284: "U key: buy the next unlock as soon as it is ready.",
   2285: "Balance: the Samurai loses its +5% critical hit bonus (its Iaijutsu is unchanged).",
   2286: "Echo: {0}",
+  2287: "Beyond the Sill: echoes of the three lieutenants await in zones 250, 300 and 350; each one also strengthens its relic.",
+  2288: "The Chronicles tell the story of your relics; ▶ to watch their scene again.",
 };
