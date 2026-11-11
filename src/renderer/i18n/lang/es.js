@@ -1185,4 +1185,7 @@ export default {
   2309: "Nuevo desbloqueo más allá del Alféizar (zona 230): el «Herrero de los astros» sube solo tu equipo al nivel de tu récord, con el oro sobrante.",
   2310: "Mascotas: el botón para recoger una expedición y los botones de envío caben en la tarjeta (sin desplazamiento).",
   2311: "Los fuegos fatuos de los pétalos de habilidades completos pasan detrás de tu héroe y luego vuelven delante.",
+  2312: "Herbolario perpetuo",
+  2313: "Vuelve a comprar solo los elixires y pergaminos cuando se acaba su efecto, con el oro sobrante (opción).",
+  2314: "Herbolario perpetuo: volver a comprar elixires y pergaminos",
 };

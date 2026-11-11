@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 732) : nouveau déblocage au-delà du Rebord : « Herboriste perpétuel » (zone 260, 1e28 or, icône
+  propre) : rachète chaque élixir / parchemin dont l'effet tombe sous 1 min, avec l'or en trop (garde 4 fois le prix),
+  sans journal ni son ; option (Héros > Équipement). Traduit, test logique (192). Semaine : mage 282-287 (3 graines),
+  guerrier 300, acheté vers 116-146 h : confort, sans effet notable sur la progression. 139/139 ; crawl 332 clics.
+  README : 25 déblocages (8 à 260).
 - 2026-11-11 (it. 731) : mémoire (531 Mo à la revue 730) : mem-watch 15 min : 511-522 Mo, sans pente (30 s : 516,
   840 s : 516) : pas de fuite.
 - 2026-11-11 (it. 730, revue générale) : balance 12 h vs d6479f7 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;

@@ -1185,4 +1185,7 @@ export default {
   2309: "Novo desbloqueio além do Parapeito (zona 230): o «Ferreiro dos astros» eleva sozinho seu equipamento ao nível do seu recorde, com o ouro de sobra.",
   2310: "Mascotes: o botão para coletar uma expedição e os botões de envio cabem no cartão (sem rolagem).",
   2311: "Os fogos-fátuos das pétalas de habilidades completas passam atrás do seu herói e depois voltam à frente.",
+  2312: "Herbalista perpétuo",
+  2313: "Recompra sozinho os elixires e pergaminhos quando o efeito acaba, com o ouro de sobra (opção).",
+  2314: "Herbalista perpétuo: recomprar elixires e pergaminhos",
 };

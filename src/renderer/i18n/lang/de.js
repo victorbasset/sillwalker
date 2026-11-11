@@ -1185,4 +1185,7 @@ export default {
   2309: "Neue Freischaltung jenseits des Saums (Zone 230): Der „Sternenschmied“ hebt deine Ausrüstung selbstständig auf die Stufe deines Rekords, mit überschüssigem Gold.",
   2310: "Begleiter: Der Knopf zum Abholen einer Expedition und die Sende-Knöpfe passen in die Karte (kein Scrollen mehr).",
   2311: "Die Irrlichter vollständiger Fähigkeiten-Blütenblätter ziehen hinter deinem Helden vorbei und kommen wieder nach vorn.",
+  2312: "Ewiger Kräuterkundler",
+  2313: "Kauft Elixiere und Schriftrollen selbstständig nach, wenn ihre Wirkung endet, mit überschüssigem Gold (Option).",
+  2314: "Ewiger Kräuterkundler: Elixiere und Schriftrollen nachkaufen",
 };

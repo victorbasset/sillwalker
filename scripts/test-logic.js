@@ -2720,4 +2720,20 @@ test("Forgeron des astres : remonte l'objet porté le moins cher, avec l'or en t
   assert.equal(g2.autoAnvil(), null, "sans déblocage : rien");
 });
 
+test("Herboriste perpétuel : rachète les élixirs dont l'effet s'achève, avec l'or en trop (it. 732)", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.herbalist = true; g.S.settings.autoBuffs = true; g.S.buffs = {};
+  g.S.gold = 0;
+  assert.equal(g.autoBuffs(), 0, "sans or : rien");
+  g.S.gold = 1e30;
+  const n = g.autoBuffs();
+  assert.ok(n >= 6, "élixirs et parchemins rachetés : " + n);
+  assert.ok(g.S.buffs.elixir >= 600, "élixir actif");
+  assert.equal(g.autoBuffs(), 0, "effet encore long : rien de plus");
+  g.S.buffs = {}; g.S.settings.autoBuffs = false;
+  assert.equal(g.autoBuffs(), 0, "option coupée : rien");
+  const g2 = new Game(freshLocked()); g2.S.gold = 1e30; g2.S.buffs = {};
+  assert.equal(g2.autoBuffs(), 0, "sans déblocage : rien");
+});
+
 console.log(`\n${pass} tests réussis`);

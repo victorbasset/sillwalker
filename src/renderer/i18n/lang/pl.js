@@ -1185,4 +1185,7 @@ export default {
   2309: "Nowe odblokowanie za Krawędzią (strefa 230): „Kowal gwiazd” sam podnosi twój ekwipunek do poziomu rekordu za nadmiar złota.",
   2310: "Pupile: przycisk odbioru wyprawy i przyciski wysyłania mieszczą się w karcie (bez przewijania).",
   2311: "Błędne ogniki ukończonych płatków umiejętności przelatują za bohaterem, a potem wracają przed niego.",
+  2312: "Wieczny zielarz",
+  2313: "Sam odkupuje eliksiry i zwoje, gdy ich działanie się kończy, za nadmiar złota (opcja).",
+  2314: "Wieczny zielarz: odkupuj eliksiry i zwoje",
 };

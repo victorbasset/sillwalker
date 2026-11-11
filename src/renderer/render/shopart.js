@@ -33,6 +33,8 @@ const TALISMAN = ["..C...C..", "...C.C...", "....C....", "...GGG...", "..GWBWG..
 // marteau du Maître de forge, enclume étoilée, parchemin de contrat, astrolabe, cloche du Grand intendant.
 const HAMMER = ["..MMMMM..", "..MMMMM..", "..MMMMM..", "....B....", "....B....", "....B....", "....B....", "...BBB..."];
 const STARANVIL = ["....Y....", "...YYY...", "KKKKKKKK.", "KMMMMMMMK", ".KMMMMMK.", "..KMMMK..", ".KKKKKKK.", "KBBBBBBBK"];
+// (it. 732) Herboriste perpétuel : fiole verte et feuille, étincelle dorée
+const HERBALIST = ["....Y....", "...GG.Y..", "..GGG....", "...KK....", "..KLLK...", ".KLLLLK..", ".KLLLLK..", "..KKKK..."];
 // (it. 712) Forgeron des astres : marteau au-dessus d'une enclume bleu pâle, étoiles autour
 const STARSMITH = ["Y...H..Y.", "...HHH...", ".Y..H....", "KKKKKKKK.", "KMMMMMMMK", ".KMMMMMK.", "..KMMMK.Y", "KBBBBBBBK"];
 const CONTRACT = [".PPPPPPP.", "PPLLLLLPP", ".PPPPPPP.", ".PLLLLLP.", ".PPPPPPP.", ".PLLLRRP.", "PPPPPRRPP", ".PPPPPPP."];
@@ -79,6 +81,7 @@ export const SHOP_ICON_DEFS = {
   map:     [MAP, { P: "#e8d8b0", L: "#a8884a", R: "#e2394a" }],
   hammer:  [HAMMER, { M: "#8a93a0", B: "#6b4a2b" }],
   staranvil: [STARANVIL, { M: "#6a7fb0", B: "#4a3a6b", Y: "#ffd34d" }],
+  herbalist: [HERBALIST, { G: "#5fd36f", L: "#7dff9a", Y: "#ffe9a8" }],
   starsmith: [STARSMITH, { M: "#9fdcff", B: "#4a3a6b", Y: "#ffe9a8", H: "#c9ced6" }],
   contract: [CONTRACT, { P: "#f0dca8", L: "#a8884a", R: "#c0392b" }],
   astro:   [ASTRO, { G: "#c9a24a", Y: "#ffe9a8" }],

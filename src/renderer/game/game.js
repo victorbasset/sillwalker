@@ -859,6 +859,7 @@ export class Game {
     this.emit("kill", { mon: m, gold });
     this.rollRareThings(m);
     this.autoBuyPotions();
+    this.autoBuffs();
     this.autoSpells();
     this.autoForge();
     this.autoAnvil();
@@ -1502,6 +1503,26 @@ export class Game {
   }
 
   /** Achat automatique de potions (option de la boutique) : complète le stock jusqu'à AUTO_POTIONS. */
+  /**
+   * Herboriste perpétuel (déblocage, it. 732, option) : rachète chaque élixir / parchemin dont l'effet tombe sous une
+   * minute, avec l'or en trop (garde 4 fois le prix), sans ligne de journal ni son (une fois par victoire au plus).
+   */
+  autoBuffs() {
+    const S = this.S;
+    if (!hasUnlock(S, "herbalist") || S.settings.autoBuffs === false) return 0;
+    let n = 0;
+    for (const c of CONSUMABLES) {
+      if (c.kind !== "buff" || (S.buffs[c.id] || 0) >= 60) continue;
+      const price = consumablePrice(c, S);
+      if (S.gold < price * 4 || (S.buffs[c.id] || 0) + c.duration > BUFF_CAP_S) continue;
+      S.gold -= price; S.stats.purchases++;
+      S.buffs[c.id] = (S.buffs[c.id] || 0) + c.duration;
+      n++;
+    }
+    if (n) { this.invalidateStats(); this.changed(); }
+    return n;
+  }
+
   autoBuyPotions() {
     const S = this.S;
     if (!S.autoPotions || !hasUnlock(S, "autoPotion") || S.potions >= AUTO_POTIONS) return 0;

@@ -1185,4 +1185,7 @@ export default {
   2309: "New unlock beyond the Sill (zone 230): the “Star Smith” raises your equipment to your record level on its own, with spare gold.",
   2310: "Pets: the button to collect an expedition and the send buttons now fit in the card (no more scrolling).",
   2311: "The wisps of completed skill petals now pass behind your hero, then come back in front.",
+  2312: "Everlasting Herbalist",
+  2313: "Rebuys elixirs and scrolls on its own when their effect runs out, with spare gold (option).",
+  2314: "Everlasting Herbalist: rebuy elixirs and scrolls",
 };
