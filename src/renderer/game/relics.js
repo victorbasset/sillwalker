@@ -15,6 +15,8 @@ export const MAJOR_BOSSES = [
  * Échos (it. 634 : objectifs au-delà de la zone 200) : les trois lieutenants reviennent, plus coriaces, en zones 250,
  * 300 et 350 ; battre un écho renforce aussi sa relique (un niveau par course, compté à part : S.relicRunEcho).
  */
+/** (it. 701-702) Contour spectral des échos sur la bande et en mode mini (même sprite que l'original). */
+export const ECHO_OUTLINE = "#9fdcff";
 export const ECHO_BOSSES = MAJOR_BOSSES.map((b, i) => ({ ...b, zone: 250 + 50 * i, id: b.id + "_echo", echo: true, hp: b.hp * 1.2, atk: b.atk * 1.1, mech: [...b.mech, "silence"] }));
 /** Boss majeur (ou écho) de la zone z, ou null. */
 export const majorBoss = (z) => MAJOR_BOSSES.find((b) => b.zone === z) || ECHO_BOSSES.find((b) => b.zone === z) || null;

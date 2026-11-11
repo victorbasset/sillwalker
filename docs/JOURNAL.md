@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 702) : mode mini : même contour spectral pour l'écho en combat ; couleur partagée (ECHO_OUTLINE,
+  relics.js). Capture vérifiée. 135/135.
 - 2026-11-11 (it. 701) : échos des lieutenants (zones 250, 300, 350) : même sprite que l'original ; contour spectral bleu
   pâle dessiné dans l'image (outlinedFrames, echoOutline() dans strip.js), en attente et en combat : on les reconnaît
   d'un coup d'œil. Capture vérifiée (écho du Geôlier). 135/135.

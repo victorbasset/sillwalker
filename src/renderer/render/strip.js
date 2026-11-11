@@ -24,7 +24,7 @@ import { Juice } from "./juice.js";
 import { fmt } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
-import { RELICS, majorBoss, hasRelic, relicUpgradable } from "../game/relics.js";
+import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
@@ -529,7 +529,7 @@ export class StripRenderer {
 
   /** (it. 701) Écho d'un lieutenant (zones 250, 300, 350) : contour spectral bleu pâle dessiné dans l'image, pour le
    *  distinguer de l'original (même sprite). */
-  echoOutline() { return majorBoss(this.game.S.zone)?.echo ? "#9fdcff" : null; }
+  echoOutline() { return majorBoss(this.game.S.zone)?.echo ? ECHO_OUTLINE : null; }
 
   monY(a, bob) {
     let y = GROUND - a.h + (a.boss ? P * 2 : P);

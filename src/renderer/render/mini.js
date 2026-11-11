@@ -8,6 +8,7 @@ import { todoLabel } from "../ui/todo.js";
 import { SETS } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
 import { PIXEL as P } from "./art.js";
+import { majorBoss, ECHO_OUTLINE } from "../game/relics.js";
 import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { fmt, fmtShort } from "../game/format.js";
@@ -133,7 +134,10 @@ export class MiniRenderer {
       if (m) {
         const set = m.final ? this.sprites.starbreaker : this.sprites.monsters[m.type]; // final : le Briseur d'Étoiles
         // le boss garde la taille normale ici ; élite / champion : contour dessiné dans l'image (it. 595)
-        const a = new Actor(this.stage, m.elite ? outlinedFrames(set.normal, m.champion ? "#c08cff" : "#ffd34d", this.dpr) : set.normal);
+        // (it. 702) écho d'un lieutenant : contour spectral, comme sur la bande
+        const echo = m.boss && majorBoss(this.game.S.zone)?.echo;
+        const a = new Actor(this.stage, m.elite ? outlinedFrames(set.normal, m.champion ? "#c08cff" : "#ffd34d", this.dpr)
+          : echo ? outlinedFrames(set.normal, ECHO_OUTLINE, this.dpr) : set.normal);
         a.fly = set.fly;
         if (m.boss && !m.final) a.addCrown();
         if (m.final) a.el.classList.add("final");
