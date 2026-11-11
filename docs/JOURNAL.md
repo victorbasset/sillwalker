@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 728) : capture Boutique > Déblocages (copie, record 240) : carte du Forgeron des astres en dernier,
+  icône propre (enclume, marteau, étoiles), description complète, prix « 30,00 Sp ». Conforme.
 - 2026-11-11 (it. 727) : perf des feux follets (z-index + taille, it. 720-725) : même copie (3 pétales, niv. 20000),
   avant (8a93844) 21,8 % / après 22,1 % : bruit (cette copie coûte plus que dev-data par elle-même).
 - 2026-11-11 (it. 726) : capture effets complets coupés (copie, 3 pétales) : feux follets immobiles autour du héros
