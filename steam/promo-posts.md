@@ -1,65 +1,60 @@
-# Publications pour faire connaître le jeu (it. 819)
+# Publications pour faire connaître le jeu (it. 819, réécrites it. 820 : ton plus naturel)
 
 Lien du jeu : https://victor-basset.itch.io/sillwalker
 Visuels : `steam/media/reveal.gif` (dézoom du héros au bureau, 7 s, 2 Mo), `steam/media/strip-en.mp4` (20 s de bande),
 `steam/media/trailer-story-en.mp4` (bande-annonce). Toujours lire les règles d'un forum avant d'y poster.
+Conseil : retoucher chaque texte avec ses propres mots avant de poster, et répondre soi-même aux commentaires.
 
 ## Reddit — r/incremental_games
 
-**Titre** : I made an idle RPG that lives in a thin strip above your taskbar — early access, looking for feedback
+**Titre** : My idle RPG lives above the taskbar so I can keep it running while I work
 
 **Texte** :
 
-Hi! I've been working on **Sillwalker**, an idle RPG that doesn't take over your screen: it lives in a 120-pixel strip
-at the edge of your desktop. Your hero (and a companion) walk, fight and loot while you work or play something else,
-and clicks go right through the strip.
+Idle games tend to end up buried behind other windows, so this one just sits in a thin strip at the bottom of the
+screen. The hero walks along, fights, picks up loot, and clicks go straight through to whatever's behind.
 
-When you want to dig in, a panel opens with the usual idle depth:
-- 20 heroes to free, fighting in pairs, each with unique spells and talents
-- a 144-node skill tree, gear sets, a forge, pets and expeditions
-- ascensions, 26 automations to unlock over time, bosses guarding relics
-- offline progress (up to 8 hours), 10 languages
+When I want to actually play, I click the strip and a panel opens: heroes to unlock (they fight in pairs), a big skill
+tree, gear and a forge, pets you send on expeditions, ascensions, and a bunch of automations you buy as you go.
 
-It's in early access on itch.io (Windows and Linux) for $1. I'm mostly looking for feedback on the pacing and the
-mid/late game — what feels slow, what feels too generous, what you'd automate first.
+It's early access on itch for $1 (Windows/Linux). Honestly I'm mostly after feedback at this point, especially on
+pacing: where it drags, where it's too generous, what you'd want automated sooner.
 
 https://victor-basset.itch.io/sillwalker
 
-(GIF : reveal.gif)
-
 ## Forum itch.io — Release Announcements
 
-**Titre** : Sillwalker — an idle RPG that lives on the edge of your screen (early access)
+**Titre** : Sillwalker — a tiny idle RPG that lives on the edge of your screen
 
 **Texte** :
 
-Sillwalker is an idle RPG in a thin pixel-art strip above your taskbar. Your hero fights and loots while you work;
-open the panel whenever you like to free heroes, grow a 144-node skill tree, forge gear and send pets on expeditions.
-A short story told through tiny cutscenes leads all the way to the Starbreaker.
+Sillwalker just went up in early access. It's an idle RPG squeezed into a strip above your taskbar: your hero keeps
+fighting while you do other stuff, and you open the panel whenever you feel like tinkering. There's a small story
+too, told in little cutscenes right in the strip.
 
-Early access, Windows and Linux. Feedback very welcome in the comments!
+Windows and Linux for now. If you try it, I'd love to hear what you think in the comments.
 
 https://victor-basset.itch.io/sillwalker
 
 ## Reddit — r/pixelart / r/IndieDev (montrer, pas vendre)
 
-**Titre** : My idle RPG lives in a 120-pixel strip at the bottom of the screen
+**Titre** : Made a pixel hero that walks along the bottom of my screen while I work
 
-**Texte** : A little pixel-art hero walks above the taskbar while you work. Clicks pass through it. Early access on
-itch.io if you're curious: https://victor-basset.itch.io/sillwalker
+**Texte** : Clicks pass right through it, so it never gets in the way. It turned into a whole idle RPG, now in early
+access: https://victor-basset.itch.io/sillwalker
 
 ## Premier devlog itch.io
 
-**Titre** : Early access is live — what's next
+**Titre** : It's out!
 
 **Texte** :
 
-Sillwalker is out in early access! Thank you for trying it.
+Sillwalker is now in early access. Thanks a lot for giving it a try!
 
-What you get today: the full journey from zone 1 to the Starbreaker and beyond the Sill, 20 heroes, relics, pets,
-ascensions and 26 automations, in 10 languages.
+Everything's in there already: the whole road from zone 1 to the Starbreaker (and what comes after), all the heroes,
+relics, pets and automations, in 10 languages.
 
-What's next: balancing from your feedback (the **Your feedback** button at the top of the panel opens this page),
-then the Steam release with achievements and cloud saves.
+Next up is balancing based on what you tell me. The little feedback button at the top of the panel brings you right
+back to this page. After that: the Steam release, with achievements and cloud saves.
 
-Tell me in the comments what you enjoyed, what felt slow, and what you'd like to see!
+If something felt slow, confusing or just fun, drop a comment, I read everything.
