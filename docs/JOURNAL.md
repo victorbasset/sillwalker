@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 731) : mémoire (531 Mo à la revue 730) : mem-watch 15 min : 511-522 Mo, sans pente (30 s : 516,
+  840 s : 516) : pas de fuite.
 - 2026-11-11 (it. 730, revue générale) : balance 12 h vs d6479f7 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl ja 323 / pt 319 clics sans erreur ; perf bande 19,3 %, panneau 20,1 %, mini 6,3 % ; mémoire réelle 525-531 Mo
   (it. 691 : 12 min sans pente ; à revoir à la revue 740).
