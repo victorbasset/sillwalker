@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 683) : coréen, suite de l'it. 682 : aucune traduction ne commence par une particule (simple ou double)
+  après un nom collé par concaténation : koJosa (textes à variables) suffit.
 - 2026-11-11 (it. 682) : coréen : koJosa (i18n/index.js, appelé par fill en coréen) remplace « X이(가) », « X을(를) »,
   « X은(는) », « X과(와) » par la particule juste selon la fin de X (syllabe à consonne finale, chiffre selon sa
   lecture ; lettre latine : double forme gardée). Deux traductions à particule fixe fausse corrigées (1247 « {0}와 »,
