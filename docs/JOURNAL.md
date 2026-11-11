@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 650, revue générale) : balance 12 h vs 95e0634 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl en / es 318 clics sans erreur ; perf bande 19,1 %, panneau 20,2 %, mini 6,6 % ; mémoire réelle 515 Mo stable.
 - 2026-11-11 (it. 649) : test logique du Silence : aucun sort pendant 2 s de silence, ils reprennent ensuite. 185 tests.
 - 2026-11-11 (it. 648) : README, boss : liste des capacités complétée (peau de pierre, malédiction, tenace) et Silence
   des échos.
