@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 773) : fontbench de Victor : les polices aussi rapides que sur le serveur (2-16 ms)… mais l'essai
+  répétait 15 mots : Chromium garde la forme des mots déjà vus, l'essai ne mesurait que ce cache. Corrigé (mots
+  aléatoires) ; en plus, mise en page des VRAIS onglets (copies invisibles) : premier passage, puis variantes de
+  style (Arial partout, Geist seule, graisse 400, une seule taille, sans espacement ni ombres, sans emoji). Ici :
+  premier passage 8-23 ms par onglet, ensuite 6-15 ms. Essayé aussi ici sans effet : zoom du panneau 1,25, écran à
+  150 % (ShapeText 93 / 120 / 43 ms).
 - 2026-11-11 (it. 772) : trace de Victor (npm run trace, Windows) : en 10 s, 3 041 ms de temps propre dans
   InlineNode::ShapeTextIncludingFirstLine (mise en forme du texte : 0,82 ms par appel), contre 97 ms ici
   (0,05 ms par appel) ; le reste est normal. Une police se met en forme très lentement sous Windows. Fontations
