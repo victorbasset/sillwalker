@@ -54,6 +54,10 @@ function scene(ground, k, opts = {}) {
   mons.forEach((m, i) => { const a = MONSTER_ART[m]; sprite(a.frames[0], 0, a.pal, k, W * (0.5 + i * 0.11), feet - (a.fly ? k * 10 : 0), true); });
 }
 function title(size, cx, cy, align = "center") {
+  // (it. 811) jamais plus large que 88 % de l'image (le logo de bibliothèque coupait le S et le r)
+  x.font = `700 ${size}px Title`;
+  const fit = (W * 0.88) / (x.measureText("Sillwalker").width + size / 3.5);
+  if (fit < 1) size = Math.floor(size * fit);
   x.font = `700 ${size}px Title`; x.textAlign = align; x.textBaseline = "middle";
   x.lineJoin = "round"; x.lineWidth = Math.max(4, size / 7); x.strokeStyle = "#14121f"; x.strokeText("Sillwalker", cx, cy);
   const g = x.createLinearGradient(0, cy - size / 2, 0, cy + size / 2); g.addColorStop(0, "#ffe9a8"); g.addColorStop(1, "#e0a23a");

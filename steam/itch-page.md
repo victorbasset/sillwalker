@@ -54,3 +54,30 @@ traversent la bande ; un coup d'œil suffit, et le panneau s'ouvre quand tu veux
 
 **Version en cours de développement.** Le jeu est complet et jouable du début à la fin, mais il évolue encore : tes
 avis dans les commentaires décident de la suite. Windows 10/11, 64 bits.
+
+## Download & install instructions (champ itch.io ; bouton HTML de l'éditeur, it. 810)
+
+```html
+<p><strong>Windows</strong> — Unzip the archive anywhere, then run <strong>Sillwalker.exe</strong>. Windows may show a SmartScreen warning because the game is not code-signed yet: click <strong>More info → Run anyway</strong>.</p>
+<p><strong>macOS</strong> — Unzip the archive and move <strong>Sillwalker.app</strong> to your Applications folder. The game is not notarized by Apple yet, so the first launch is blocked:</p>
+<ol>
+<li>Double-click Sillwalker, then close the warning.</li>
+<li>Open <strong>System Settings → Privacy &amp; Security</strong>, scroll down and click <strong>Open Anyway</strong> next to Sillwalker.</li>
+<li>If macOS says the app is "damaged", open <strong>Terminal</strong> and run: <code>xattr -cr /Applications/Sillwalker.app</code>, then launch it again.</li>
+</ol>
+<p><strong>Linux</strong> — Make the file executable, then run it: <code>chmod +x Sillwalker-0.1.0-linux.AppImage</code> then <code>./Sillwalker-0.1.0-linux.AppImage</code></p>
+<p>Your progress is saved automatically. The game lives in a strip at the edge of your screen: click it to open the panel.</p>
+<hr>
+<p><strong>Windows</strong> — Décompresse l'archive où tu veux, puis lance <strong>Sillwalker.exe</strong>. Windows peut afficher un avertissement SmartScreen car le jeu n'est pas encore signé : clique sur <strong>Informations complémentaires → Exécuter quand même</strong>.</p>
+<p><strong>macOS</strong> — Décompresse l'archive et place <strong>Sillwalker.app</strong> dans le dossier Applications. Le jeu n'est pas encore notarisé par Apple, donc le premier lancement est bloqué :</p>
+<ol>
+<li>Double-clique sur Sillwalker, puis ferme l'avertissement.</li>
+<li>Ouvre <strong>Réglages Système → Confidentialité et sécurité</strong>, descends et clique sur <strong>Ouvrir quand même</strong> à côté de Sillwalker.</li>
+<li>Si macOS dit que l'app est « endommagée », ouvre le <strong>Terminal</strong> et tape : <code>xattr -cr /Applications/Sillwalker.app</code>, puis relance-la.</li>
+</ol>
+<p><strong>Linux</strong> — Rends le fichier exécutable, puis lance-le : <code>chmod +x Sillwalker-0.1.0-linux.AppImage</code> puis <code>./Sillwalker-0.1.0-linux.AppImage</code></p>
+<p>La partie est sauvegardée automatiquement. Le jeu vit dans une bande au bord de l'écran : clique dessus pour ouvrir le panneau.</p>
+```
+
+Version Mac : à construire sur un Mac (`npm run dist:itch:mac` → `dist-itch/Sillwalker-<version>-mac-arm64.zip` pour
+Apple Silicon et `Sillwalker-<version>-mac.zip` pour Intel), non vérifiée sans Mac (étape « Ouvrir quand même »).

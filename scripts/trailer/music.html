@@ -4,10 +4,14 @@
 import { Sound } from "../../src/renderer/render/sound.js";
 import { Music, songFor } from "../../src/renderer/render/music.js";
 const RATE = 44100;
-async function render(zone, boss) {
-  const song = songFor(zone), len = Math.ceil(64 * 30 / song.bpm + 3), ctx = new OfflineAudioContext(2, RATE * len, RATE), s = new Sound();
+// (it. 811) Plusieurs passages du MÊME air, bout à bout dans un seul rendu : tempo continu (Victor : « le rythme
+// n'est pas bon » quand trois airs différents étaient fondus l'un dans l'autre). `bosses` : « 0,0,1 » = deux passages
+// normaux puis la version combat de boss, qui commence pile au début d'un passage.
+async function render(zone, bosses) {
+  const song = songFor(zone), pass = 64 * 30 / song.bpm, len = Math.ceil(pass * bosses.length + 3);
+  const ctx = new OfflineAudioContext(2, RATE * len, RATE), s = new Sound();
   s.ctx = ctx; s.master = ctx.createGain(); s.master.gain.value = 0.9; s.master.connect(ctx.destination); s.enabled = true; s.ensure = () => ctx; s.audio = () => ctx;
-  new Music(s).schedulePass(song, 0.05, boss);
+  bosses.forEach((b, i) => new Music(s).schedulePass(song, 0.05 + i * pass, b));
   return ctx.startRendering();
 }
 function wav(buf) {
@@ -22,6 +26,6 @@ function wav(buf) {
   return btoa(bin);
 }
 const q = new URLSearchParams(location.search);
-window.__wav = wav(await render(+q.get("zone"), q.get("boss") === "1"));
+window.__wav = wav(await render(+q.get("zone"), q.get("passes").split(",").map((b) => b === "1")));
 document.title = "READY";
 </script>

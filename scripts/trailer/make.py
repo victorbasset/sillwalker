@@ -1,6 +1,6 @@
 # (it. 807) Bande-annonce « histoire » (≈ 66 s, 1920×1080, anglais) montée avec ffmpeg à partir de :
 #   raw.mp4    : la fenêtre du jeu filmée (1920×620) avec l'option de dev --trailer (minutage fixe, main.js)
-#   calm/mid/boss.wav : musique du jeu rendue hors ligne (scripts/trailer/music.js)
+#   track.wav : musique du jeu rendue hors ligne, un air en passages continus (scripts/trailer/music.js)
 #   title.ttf / body.ttf : Pixelify Sans 700 et Geist Pixel converties (fontTools)
 #   steam/capsules/library-hero.png, library-logo.png ; steam-compose.py (bureau)
 # Cartons de l'histoire, gros plans agrandis au pixel près (bandeau de cinéma), dézoom qui révèle la bande au bord
@@ -128,9 +128,13 @@ import re
 probe = subprocess.run([FF, "-hide_banner", "-i", video], capture_output=True, text=True).stderr
 h, m, sec = re.search(r"Duration: (\d+):(\d+):([\d.]+)", probe).groups()
 total = int(h) * 3600 + int(m) * 60 + float(sec)
-af = ("[1:a][2:a]acrossfade=d=2[a12];[a12][3:a]acrossfade=d=2,"
-      f"atrim=0:{total},loudnorm=I=-16:TP=-1.5,afade=t=in:st=0:d=1,afade=t=out:st={total - 3}:d=3[a]")
-run(["-i", video, "-i", os.path.join(WORK, "calm.wav"), "-i", os.path.join(WORK, "mid.wav"), "-i", os.path.join(WORK, "boss.wav"),
+# (it. 811) une seule piste continue (même air, même tempo : scripts/trailer/music.js) ; gain fixe pour amener la crête
+# à -1 dB, +8 dB tenus par un limiteur (assez fort pour YouTube ; loudnorm faisait « pomper » le volume), fondus
+track = os.path.join(WORK, "track.wav")
+vd = subprocess.run([FF, "-hide_banner", "-i", track, "-af", "volumedetect", "-f", "null", "-"], capture_output=True, text=True).stderr
+peak = float(re.search(r"max_volume: (-?[\d.]+) dB", vd).group(1))
+af = f"[1:a]atrim=0:{total},volume={7 - peak:.1f}dB,alimiter=limit=0.84:attack=5:release=80:level=0,afade=t=in:st=0:d=1.5,afade=t=out:st={total - 3}:d=3[a]"
+run(["-i", video, "-i", track,
      "-filter_complex", af, "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-crf", "17", "-preset", "slow",
      "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", "-shortest", OUT])
 print(f"{OUT} : {total:.1f} s, {len(segs)} plans")

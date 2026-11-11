@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 810-811) : revue générale (contre f1fe3da, it. 800) : équilibrage +0,0 (61,9) ; 1200 parties, 0 bloquée ;
+  sauvegardes abîmées tolérées ; clics chinois (323) et allemand (318) sans erreur ; processeur refait seul (la première
+  mesure tournait pendant un encodage vidéo : 26 %) : bande 19,4 %, panneau 20,3 %, mini 6,5 % ; mémoire 527-532 Mo.
+  Retours de Victor sur la bande-annonce : « le rythme n'est pas bon » (trois airs de tempos différents fondus l'un
+  dans l'autre) → une seule piste, le même air en trois passages continus dans un même rendu (le dernier en combat de
+  boss), gain fixe + limiteur (sans « level » automatique : crête -1,2 dB, moyenne -18 dB) ; « le S de Sillwalker est
+  coupé » → le titre des visuels tient toujours dans 88 % de la largeur (logo de bibliothèque, capsules verticales,
+  couverture itch refaits). steam/itch-page.md : instructions d'installation Windows / macOS / Linux (HTML).
 - 2026-11-11 (it. 809) : sous Windows, l'AppImage échoue (EPERM : liens symboliques interdits hors mode développeur).
   dist:itch:linux produit maintenant un tar.gz (construisible sous Windows, essayé ici) ; dist:itch:appimage garde
   l'AppImage. AppImage construite sur le serveur et envoyée à Victor en 5 morceaux de 25 Mo (limite d'envoi 30 Mo).
