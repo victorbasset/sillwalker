@@ -17,7 +17,7 @@ Xvfb :77 -screen 0 1920x1080x24 -nolisten tcp >/dev/null 2>&1 & XPID=$!
 sleep 1
 DISPLAY=:77 timeout 70 ./node_modules/.bin/electron . --no-sandbox --user-data="$DATA" --release-ui --tour --exit-after=55 >/dev/null 2>&1 &
 sleep 4
-"$FF" -hide_banner -loglevel error -y -f x11grab -framerate 30 -video_size 1920x620 -i :77+0,460 -t 40 -c:v libx264 -crf 12 -preset fast -pix_fmt yuv444p "$TMP/win.mp4"
+"$FF" -hide_banner -loglevel error -y -f x11grab -draw_mouse 0 -framerate 30 -video_size 1920x620 -i :77+0,460 -t 40 -c:v libx264 -crf 12 -preset fast -pix_fmt yuv444p "$TMP/win.mp4"
 kill "$XPID" 2>/dev/null || true
 # fenêtre (sans les 2 premières secondes de chargement) posée sur le bureau, titre au début et à la fin
 "$FF" -hide_banner -loglevel error -y \

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 798) : Steam : bande-annonce et extrait de la bande en français (steam/media/trailer-fr.mp4,
+  strip-fr.mp4/.webm) ; curseur de la souris retiré des vidéos (x11grab -draw_mouse 0), versions anglaises refaites.
 - 2026-11-11 (it. 797) : « Quoi de neuf » édition 28 : onglets au clavier (it. 779), panneau ouvert sans attendre
   (it. 794). Traduite.
 - 2026-11-11 (it. 796) : autotest (146) : polices des 12 onglets et de la bande : aucune taille fractionnaire, au plus
