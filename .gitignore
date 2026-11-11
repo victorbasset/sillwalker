@@ -3,3 +3,4 @@ dist/
 dev-data/
 perf-report.json
 dist-next/
+steam/build/

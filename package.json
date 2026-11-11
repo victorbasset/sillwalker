@@ -14,6 +14,7 @@
     "perf": "electron . --perf --ghost --user-data=./dev-data",
     "icons": "node --experimental-default-type=module scripts/make-icons.js",
     "dist": "electron-builder --win dir",
+    "steam:build": "node scripts/steam-upload.mjs",
     "dist:zip": "electron-builder --win zip",
     "selftest": "node scripts/selftest.mjs",
     "selftest:linux": "node scripts/selftest.mjs --linux",

@@ -262,7 +262,9 @@ après une mise en veille du PC.
    `node --experimental-default-type=module scripts/steam-richpresence.mjs`). Le jeu renseigne `zone`, `level`,
    `classid` ; la classe s'affiche dans la langue de chaque ami (`{#Class_%classid%}`).
 5. Option : `STEAM_RELAUNCH_IF_NEEDED: true` pour que Steam relance le jeu s'il est ouvert hors Steam.
-6. Dépôt : envoyer le contenu de `dist/win-unpacked/`, exécutable `Sillwalker.exe`.
+6. Dépôt : envoyer le contenu de `dist/win-unpacked/`, exécutable `Sillwalker.exe`. `npm run dist` puis
+   `npm run steam:build` (scripts/steam-upload.mjs) écrit les fichiers SteamPipe (`steam/build/`, hors git) et affiche la
+   commande SteamCMD ; `-- --branch=beta` met la version en ligne sur une branche bêta (jamais sur la branche publique).
 10. Visuels du magasin (première version, à juger) : `steam/capsules/` (en-tête, petite, principale, verticale,
    bibliothèque, héros 3840×1240 sans texte, logo transparent), dessinés avec les sprites et la police du jeu :
    `node_modules/.bin/electron scripts/steam-capsules/make.js steam/capsules`.

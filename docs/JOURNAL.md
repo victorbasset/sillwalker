@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 784) : Steam : npm run steam:build (scripts/steam-upload.mjs) : fichiers SteamPipe app_build.vdf et
+  depot_build_<dépôt>.vdf pour dist/win-unpacked (App ID de config.js, dépôt = App ID + 1 par défaut, --depot, --branch
+  bêta seulement, --desc), commande SteamCMD affichée. Refuse l'App ID de test 480 et une version absente. Chemins
+  écrits avec « / » (Windows), guillemets retirés de la description. Essayé sur une copie avec un faux App ID.
 - 2026-11-11 (it. 783) : Steam : visuels du magasin, première version (steam/capsules/, 8 formats : en-tête 920×430,
   petite 462×174, principale 1232×706, verticale 748×896, bibliothèque 600×900 et 920×430, héros 3840×1240 sans
   texte, logo 1280×720 transparent). Dessinés dans un canevas sans lissage avec les sprites du jeu (guerrier et mage,
