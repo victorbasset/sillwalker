@@ -220,6 +220,17 @@ function start() {
 
     /* ---------- Robustesse ---------- */
     // Dev : erreurs et avertissements de l'interface recopiés dans la console.
+    // (it. 828) Journal des erreurs pour les joueurs (userData/errors.log, 200 Ko au plus, l'ancien gardé en .old) : un
+    // joueur qui signale un bug peut le joindre à son avis. Seulement les erreurs, avec la version du jeu.
+    const errLog = path.join(app.getPath("userData"), "errors.log");
+    strip.win.webContents.on("console-message", (e) => {
+      const level = e.level ?? e.params?.level;
+      if (level !== "error" && level !== 3) return;
+      try {
+        if (fs.existsSync(errLog) && fs.statSync(errLog).size > 200 * 1024) fs.renameSync(errLog, errLog + ".old");
+        fs.appendFileSync(errLog, `${new Date().toISOString()} v${app.getVersion()} ${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})\n`);
+      } catch { /* journal facultatif */ }
+    });
     if (flags.isDev) strip.win.webContents.on("console-message", (e) => {
       const level = e.level ?? e.params?.level;
       if (level === "warning" || level === "error" || level === 2 || level === 3) console.log(`[renderer ${level}] ${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})`);

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 828) : journal des erreurs pour les joueurs : chaque erreur de l'interface est ajoutée à
+  userData/errors.log (date, version, message, fichier:ligne ; 200 Ko au plus, l'ancien en .old). Essayé (erreur
+  provoquée dans une copie). Instructions itch.io : où le trouver (Windows, Linux, macOS) pour le joindre à un avis.
 - 2026-11-11 (it. 827) : version 0.1.1 (correction des cinématiques perdues) : package.json, « Quoi de neuf » édition 31
   (traduite) ; instructions itch.io avec un nom d'AppImage générique (Sillwalker-*-linux.AppImage). AppImage 0.1.1
   construite ici et envoyée à Victor en 5 morceaux (sha256 57897ac4…b804a) ; ZIP Windows à refaire chez lui
