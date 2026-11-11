@@ -2539,7 +2539,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   X. FAIT, ABANDONNÉ (it. 751-763). Essai Tauri (la bande seule, compilée pour Windows) mesuré par Victor : 400 Mo de
      mémoire privée et 30,7 % d'un cœur, contre 382 Mo et 19,8 % pour Electron (hors PowerShell) : WebView2 est un
      Chromium comme Electron, et son rendu coûte plus cher. Pas de portage (on perdrait aussi Steam, le mode mini,
-     l'icône). Retombée : le PowerShell permanent de la détection du plein écran (63 Mo) est remplacé (it. 763).
+     l'icône). Le PowerShell compté dans la mesure était le terminal de Victor (npm start), pas celui du jeu.
   V. FAIT (it. 720). « Les boules visuelles d'un pétale de compétence complet passent derrière le personnage et
      reviennent devant » : le code le prévoyait (z-index 1 / 3) mais le héros n'avait pas de z-index : z-index 2.
   U. FAIT (it. 714, contrôles it. 715 et 718). « Les boutons pour récupérer une expédition sortent de l'écran et les
