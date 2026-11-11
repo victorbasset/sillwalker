@@ -101,7 +101,7 @@ const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); retur
 const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible sans les couleurs (daltonisme) : peu commun → légendaire
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
-const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates"]);
+const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates", "autos"]);
 
 export class Panel {
   constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
@@ -561,13 +561,25 @@ export class Panel {
       ${hasUnlock(S, "transmute") ? `<button data-action="transmute"${tr.made ? "" : " disabled"} title="${esc(tx("3 objets inutiles d’une même rareté → 1 objet de la rareté au-dessus (jusqu’à légendaire)."))}">${tx("Transmuter{0}", { 0: tr.made ? ` ${tx("({0} nouveau{1})", { 0: tr.made, 1: tr.made > 1 ? "x" : "" })}` : " (3 → 1)" })}</button>` : lockLink(S, "transmute")}</div>
       ${hasUnlock(S, "autoSell") ? `<div class="sellrow"><span>${tx("Vendre dès qu’ils tombent :")}</span>${[["common", "Vendre les communs dès qu’ils tombent"], ["uncommon", "Vendre les peu communs dès qu’ils tombent"], ["rare", "Vendre les rares dès qu’ils tombent"]]
         .map(([r, label]) => `<label class="toggle" title="${esc(tx(label))}"><input type="checkbox" data-action="as" data-r="${r}"${S.autoSell[r] ? " checked" : ""}> ${esc(lc(RARITIES.find((x) => x.id === r).name))}</label>`).join("")}</div>` : lockLink(S, "autoSell")}
-      ${hasUnlock(S, "armsValet") ? `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>` : ""}
-      ${hasUnlock(S, "crucible") ? `<label class="toggle"><input type="checkbox" data-action="crucible"${S.settings.autoTransmute !== false ? " checked" : ""}> ${tx("Creuset perpétuel : transmuter quand le sac se remplit")}</label>` : ""}
-      ${hasUnlock(S, "masterForge") ? `<label class="toggle"><input type="checkbox" data-action="mforge"${S.settings.autoForge !== false ? " checked" : ""}> ${tx("Maître de forge : forger l’équipement porté avec l’or en trop")}</label>` : ""}
-      ${hasUnlock(S, "trader") ? `<label class="toggle"><input type="checkbox" data-action="trader"${S.settings.autoTrade !== false ? " checked" : ""}> ${tx("Marchand attitré : acheter et équiper les objets qui renforcent le héros")}</label>` : ""}
-      ${hasUnlock(S, "herbalist") ? `<label class="toggle"><input type="checkbox" data-action="herbs"${S.settings.autoBuffs !== false ? " checked" : ""}> ${tx("Herboriste perpétuel : racheter les élixirs et parchemins")}</label>` : ""}
-      ${hasUnlock(S, "starSmith") ? `<label class="toggle"><input type="checkbox" data-action="sanvil"${S.settings.autoAnvil !== false ? " checked" : ""}> ${tx("Forgeron des astres : remonter l’équipement porté au niveau du record")}</label>` : ""}
+      ${this.autosHTML(S)}
 `;
+  }
+
+  /** (it. 744) Automatismes achetés (valet, creuset, forge, marchand, herboriste, forgeron des astres) : avec les
+   *  textes longs (allemand, 1280 px) les 6 cases sous le sac faisaient défiler l'onglet ; au-delà de 2, elles passent
+   *  dans « Automatismes (actifs / total) », ouvert dans la fenêtre large (MODAL_DETAILS ; rien ne grandit). */
+  autosHTML(S) {
+    const list = [
+      [hasUnlock(S, "armsValet"), "autoEquipDrops", `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>`],
+      [hasUnlock(S, "crucible"), "autoTransmute", `<label class="toggle"><input type="checkbox" data-action="crucible"${S.settings.autoTransmute !== false ? " checked" : ""}> ${tx("Creuset perpétuel : transmuter quand le sac se remplit")}</label>`],
+      [hasUnlock(S, "masterForge"), "autoForge", `<label class="toggle"><input type="checkbox" data-action="mforge"${S.settings.autoForge !== false ? " checked" : ""}> ${tx("Maître de forge : forger l’équipement porté avec l’or en trop")}</label>`],
+      [hasUnlock(S, "trader"), "autoTrade", `<label class="toggle"><input type="checkbox" data-action="trader"${S.settings.autoTrade !== false ? " checked" : ""}> ${tx("Marchand attitré : acheter et équiper les objets qui renforcent le héros")}</label>`],
+      [hasUnlock(S, "herbalist"), "autoBuffs", `<label class="toggle"><input type="checkbox" data-action="herbs"${S.settings.autoBuffs !== false ? " checked" : ""}> ${tx("Herboriste perpétuel : racheter les élixirs et parchemins")}</label>`],
+      [hasUnlock(S, "starSmith"), "autoAnvil", `<label class="toggle"><input type="checkbox" data-action="sanvil"${S.settings.autoAnvil !== false ? " checked" : ""}> ${tx("Forgeron des astres : remonter l’équipement porté au niveau du record")}</label>`],
+    ].filter((x) => x[0]);
+    if (list.length <= 2) return list.map((x) => x[2]).join("");
+    const on = list.filter((x) => S.settings[x[1]] !== false).length;
+    return `<details class="autosbox" data-keep="autos"${this.kept.has("autos") ? " open" : ""}><summary>${tx("Automatismes ({0} / {1})", { 0: on, 1: list.length })}</summary><div class="autos-body">${list.map((x) => x[2]).join("")}</div></details>`;
   }
 
   getSel() {
@@ -638,7 +650,8 @@ export class Panel {
     $(this.root, "#mt").textContent = d.querySelector("summary").textContent.trim();
     const mb = $(this.root, "#mbody");
     mb.innerHTML = `<div class="modalwide">${body.innerHTML}</div>`;
-    mb.firstElementChild.addEventListener("click", (e) => { if (e.target.closest("[data-tab], [data-action]")) $(this.root, "#modal").hidden = true; });
+    // (it. 744) une case à cocher (Automatismes) ne ferme pas la fenêtre : on peut en changer plusieurs
+    mb.firstElementChild.addEventListener("click", (e) => { if (e.target.closest("[data-tab], [data-action]") && !e.target.closest("label.toggle")) $(this.root, "#modal").hidden = true; });
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }

@@ -1194,4 +1194,5 @@ export default {
   2318: "Mercader de confianza: comprar y equipar los objetos que refuerzan al héroe",
   2319: "Nuevo desbloqueo más allá del Alféizar (zona 300): el «Mercader de confianza» compra y equipa solo el objeto del mercader que más refuerza a tu héroe.",
   2320: "Corrección: el siguiente desbloqueo propuesto vuelve a seguir el orden de las zonas.",
+  2321: "Automatismos ({0} / {1})",
 };

@@ -1194,4 +1194,5 @@ export default {
   2318: "Mercador de confiança: comprar e equipar os itens que fortalecem o herói",
   2319: "Novo desbloqueio além do Parapeito (zona 300): o «Mercador de confiança» compra e equipa sozinho o item do mercador que mais fortalece seu herói.",
   2320: "Correção: o próximo desbloqueio sugerido volta a seguir a ordem das zonas.",
+  2321: "Automatismos ({0} / {1})",
 };

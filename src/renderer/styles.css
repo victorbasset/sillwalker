@@ -1277,3 +1277,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .actor .relic-carried.owned { opacity: 0.6; }
 .relicchron img { width: 11px; height: 11px; image-rendering: pixelated; vertical-align: -1px; }
 .actor.silenced { filter: grayscale(.5) drop-shadow(0 0 2px #c9b8f0); } /* Silence (échos, it. 647) : 4 s au plus */
+/* (it. 744) Automatismes achetés regroupés sous le sac (liste ouverte dans la fenêtre large, MODAL_DETAILS) */
+.autosbox { margin-top: 6px; }
+.autosbox > summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+.modalwide .autos-body { display: flex; flex-direction: column; gap: 6px; }

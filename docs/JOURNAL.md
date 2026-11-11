@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 744) : BOGUE d'affichage : avec tous les déblocages (6 cases d'automatismes sous le sac : valet,
+  creuset, maître de forge + les 3 nouveaux), Aventure défilait de 186 px en allemand à 1280 (les contrôles mesurent un
+  état sans ces déblocages). Au-delà de 2 automatismes, ils passent dans « Automatismes (actifs / total) », ouvert dans
+  la fenêtre large (MODAL_DETAILS) ; une case cochée là ne ferme plus la fenêtre. Captures (repliée, ouverte, case
+  changée) ; overflow-report 1280 de : aucun ; 139/139 ; de, pl, ru sans défilement. Reste : le titre (6 / 6) ne se
+  met à jour qu'au rendu suivant.
 - 2026-11-11 (it. 743) : « À vérifier » point 14 : les trois déblocages au-delà du Rebord.
 - 2026-11-11 (it. 742) : test-logic : freshState exclut aussi starSmith, herbalist et trader (ils dépensent l'or tout
   seuls ; leurs tests les activent explicitement) ; CLAUDE.md à jour. 194 tests.

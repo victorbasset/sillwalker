@@ -1194,4 +1194,5 @@ export default {
   2318: "Nadworny kupiec: kupuj i zakładaj przedmioty wzmacniające bohatera",
   2319: "Nowe odblokowanie za Krawędzią (strefa 300): „Nadworny kupiec” sam kupuje i zakłada przedmiot kupca, który najbardziej wzmacnia bohatera.",
   2320: "Poprawka: następne proponowane odblokowanie znów jest zgodne z kolejnością stref.",
+  2321: "Automaty ({0} / {1})",
 };

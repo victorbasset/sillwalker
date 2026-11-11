@@ -1194,4 +1194,5 @@ export default {
   2318: "Leibhändler: Gegenstände kaufen und anlegen, die den Helden stärken",
   2319: "Neue Freischaltung jenseits des Saums (Zone 300): „Leibhändler“ – kauft und legt selbstständig den Gegenstand des Händlers an, der deinen Helden am meisten stärkt.",
   2320: "Korrektur: Die nächste vorgeschlagene Freischaltung folgt wieder der Reihenfolge der Zonen.",
+  2321: "Automatiken ({0} / {1})",
 };

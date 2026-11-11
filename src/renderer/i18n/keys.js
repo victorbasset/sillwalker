@@ -2322,5 +2322,6 @@ export const KEYS = [
   "Achète et équipe tout seul l’objet du marchand qui renforce le plus ton héros, avec l’or en trop (option).",
   "Marchand attitré : acheter et équiper les objets qui renforcent le héros",
   "Nouveau déblocage au-delà du Rebord (zone 300) : le « Marchand attitré » achète et équipe tout seul l’objet du marchand qui renforce le plus ton héros.",
-  "Correction : le prochain déblocage proposé suit de nouveau l’ordre des zones."
+  "Correction : le prochain déblocage proposé suit de nouveau l’ordre des zones.",
+  "Automatismes ({0} / {1})"
 ];
