@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 782) : Steam : 12 captures 1920×1080 (anglais, français) dans steam/screenshots/ : bande seule,
+  Aventure, Compétences, Carte, Héros, mode mini. Partie simulée de 12 h (mage + guerrier, zone 27, niveau 46 : la
+  sauvegarde de dev a des chiffres incohérents, niveau 1313 en zone 55), onglets marqués vus (pas de pastilles
+  « nouveau »), --release-ui ; fenêtre posée sur un bureau neutre flouté + barre des tâches générique sans marque
+  (scripts/steam-compose.py, Pillow).
 - 2026-11-11 (it. 781) : Steam (Victor s'inscrit sur Steamworks) : steam/store-page.md, descriptions courte (85-268
   caractères, limite 300) et longue (BBCode) dans les 10 langues, noms du Briseur repris des traductions du jeu.
   README (section Steam) : renvoi. À faire ensuite : captures 1920×1080 pour le magasin, visuels de capsule, App ID.

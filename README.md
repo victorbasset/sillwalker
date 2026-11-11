@@ -263,6 +263,8 @@ après une mise en veille du PC.
    `classid` ; la classe s'affiche dans la langue de chaque ami (`{#Class_%classid%}`).
 5. Option : `STEAM_RELAUNCH_IF_NEEDED: true` pour que Steam relance le jeu s'il est ouvert hors Steam.
 6. Dépôt : envoyer le contenu de `dist/win-unpacked/`, exécutable `Sillwalker.exe`.
+9. Captures du magasin (1920×1080, anglais et français) : `steam/screenshots/` ; partie simulée de 12 h
+   (`DUMP=… simulate.js 12 mage`), captures `--release-ui --shot`, posées sur un bureau par `scripts/steam-compose.py`.
 8. Page du magasin : descriptions courte et longue dans les 10 langues dans `steam/store-page.md` (BBCode Steam).
 7. Signature de code : non configurée (facultative pour Steam, réduit les alertes SmartScreen hors Steam).
 
