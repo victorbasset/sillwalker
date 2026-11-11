@@ -4,3 +4,6 @@ dev-data/
 perf-report.json
 dist-next/
 steam/build/
+sdk/
+steamworks_sdk*/
+steamworks*.zip

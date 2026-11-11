@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 791) : captures et vidéos Steam refaites sans bulles parasites : scripts/steam-prep-save.mjs prépare
+  la sauvegarde (récompense du jour déjà prise, succès déjà annoncés, « Quoi de neuf » lu, absence nulle, onglets vus).
+  La bande-annonce garde l'introduction de l'histoire (vrai contenu). .gitignore : dossiers du SDK Steamworks (Victor
+  l'a copié dans le dossier du jeu ; inutile : steamworks.js fournit déjà steam_api64.dll).
 - 2026-11-11 (it. 790) : revue générale (contre efdcf54, it. 780) : équilibrage 12 h +0,0 (61,9) ; 1200 parties,
   0 bloquée ; 20 sauvegardes abîmées tolérées ; clics en coréen et espagnol (318 chacun) sans erreur ; bande 19,4 %,
   panneau 21,4 %, mini 6,8 %, icône 0,7 % ; mémoire réelle 512 Mo stable (485 à la revue 780 : bruit habituel
