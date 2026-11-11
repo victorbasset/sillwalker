@@ -1198,4 +1198,5 @@ export default {
   2322: "Die Kästchen gekaufter Automatiken (Knecht, Tiegel, Schmiede, Händler …) sind unter der Tasche gruppiert, in „Automatiken (aktiv / gesamt)“: ein Klick öffnet sie.",
   2323: "Die Reiter des Panels werden vorbereitet: Sie öffnen sich schon beim ersten Klick schnell.",
   2324: "Ton aus: Die Audio-Engine pausiert und spart Prozessorleistung.",
+  2325: "Unter Windows öffnen sich das Panel und die Reiter schon beim ersten Mal ohne Ruckeln (leichtere Textschrift).",
 };

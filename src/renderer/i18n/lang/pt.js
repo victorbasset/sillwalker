@@ -1198,4 +1198,5 @@ export default {
   2322: "As caixas dos automatismos comprados (valete, cadinho, forja, mercador…) ficam agrupadas sob a bolsa, em «Automatismos (ativos / total)»: um clique as abre.",
   2323: "As abas do painel são preparadas com antecedência: abrem rápido desde o primeiro clique.",
   2324: "Som desligado: o motor de áudio pausa e economiza processador.",
+  2325: "No Windows, o painel e as abas abrem sem travar desde a primeira vez (fonte do texto mais leve).",
 };

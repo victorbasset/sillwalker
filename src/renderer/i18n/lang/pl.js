@@ -1198,4 +1198,5 @@ export default {
   2322: "Pola kupionych automatów (giermek, tygiel, kuźnia, kupiec…) są zebrane pod torbą, w „Automaty (aktywne / razem)”: jedno kliknięcie je otwiera.",
   2323: "Karty panelu są przygotowywane z wyprzedzeniem: otwierają się szybko od pierwszego kliknięcia.",
   2324: "Dźwięk wyciszony: silnik dźwięku się zatrzymuje i oszczędza procesor.",
+  2325: "W systemie Windows panel i karty otwierają się bez zacięć już za pierwszym razem (lżejsza czcionka tekstu).",
 };

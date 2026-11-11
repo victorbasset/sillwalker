@@ -1198,4 +1198,5 @@ export default {
   2322: "Las casillas de los automatismos comprados (ayudante, crisol, forja, mercader…) se agrupan bajo la bolsa, en «Automatismos (activos / total)»: un clic las abre.",
   2323: "Las pestañas del panel se preparan de antemano: se abren rápido desde el primer clic.",
   2324: "Sonido silenciado: el motor de audio se pausa y ahorra procesador.",
+  2325: "En Windows, el panel y las pestañas se abren sin bloqueos desde la primera vez (fuente del texto aligerada).",
 };

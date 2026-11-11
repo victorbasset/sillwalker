@@ -1198,4 +1198,5 @@ export default {
   2322: "The checkboxes of bought automations (valet, crucible, forge, merchant…) are grouped under the bag, in “Automations (active / total)”: one click opens them.",
   2323: "Panel tabs are prepared in advance: they open quickly from the very first click.",
   2324: "Sound muted: the audio engine pauses and saves processor time.",
+  2325: "On Windows, the panel and tabs open without freezing from the very first time (lighter text font).",
 };

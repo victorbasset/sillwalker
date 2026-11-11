@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 777) : CONFIRMÉ par Victor (« c'est bien mieux niveau ressenti ») : démarrage 450-860 → 217 ms,
+  plus aucune image longue ni préparation lente signalée. Autres polices vérifiées (Tiny5 16 points par lettre,
+  DotGothic16 61-76) : rien à faire. « Quoi de neuf » édition 27 (traduite).
 - 2026-11-11 (it. 776) : CAUSE des blocages sous Windows trouvée : chez Victor, chaque taille de Geist Pixel coûte
   75-150 ms rien que pour les lettres (symboles ≈ 20 ms). Geist Pixel dessine chaque pixel comme un carré de 26
   points (courbes plates) : 68 contours et 1 771 points par lettre (Pixelify Sans : 2 et 22). Nouveau
