@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 834) : textes de promotion à jour (version Mac Apple Silicon disponible, « free keys » dans le titre
+  du forum itch, comme posté par Victor).
 - 2026-11-11 (it. 833) : version Mac Apple Silicon construite sur le serveur (Victor l'annonçait sans l'avoir) :
   electron-builder --mac zip --arm64 (sans signature hors macOS), signature ad hoc avec rcodesign 0.29 (binaire Linux,
   dossier temporaire ; ADHOC sur l'exécutable et les frameworks), ZIP refait avec les liens symboliques (14).

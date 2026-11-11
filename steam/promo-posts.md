@@ -18,7 +18,7 @@ It's an idle RPG that sits in a thin strip right above your taskbar. Your hero j
 loot while you work, and your clicks go straight through it. Whenever you feel like it, click the strip and the full
 game opens up: heroes, a skill tree, pets, ascensions.
 
-Early access, Windows/Linux. I have 100 free keys: comment and I'll DM you one, I'd love your feedback on the pacing.
+Early access, Windows/Linux/Mac. I have 100 free keys: comment and I'll DM you one, I'd love your feedback on the pacing.
 
 https://victor-basset.itch.io/sillwalker
 
@@ -32,7 +32,7 @@ pixel grids and synthesized audio), not by image or audio generation models.
 
 ## Forum itch.io — Release Announcements
 
-**Titre** : Sillwalker — a tiny idle RPG that lives on the edge of your screen
+**Titre** : Sillwalker, an idle RPG above your taskbar (free keys inside)
 
 **Texte** :
 
@@ -40,8 +40,9 @@ Sillwalker just went up in early access. It's an idle RPG squeezed into a strip 
 fighting while you do other stuff, and you open the panel whenever you feel like tinkering. There's a small story
 too, told in little cutscenes right in the strip.
 
-Windows and Linux for now. I have free keys for people who'd like to try it and share some feedback: reply here and
-I'll send you one.
+Windows, Linux and Mac (Apple Silicon) for now.
+
+**Some free keys:** I have a few for anyone who'd like to try it and share feedback. Just reply here and I'll send you one!
 
 https://victor-basset.itch.io/sillwalker
 
