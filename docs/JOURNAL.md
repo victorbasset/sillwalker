@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 768) : nouvelles lignes de Victor (Windows, npm start) : ouverture du panneau 838 ms de JavaScript,
+  préparation de chaque onglet 165-546 ms (temps libre, donc saccades 4-6 s après le lancement), démarrage 814 ms ;
+  carte graphique active. Ici 10-40 ms par onglet, même avec une partie d'une semaine (simulate.js DUMP=fichier :
+  état final écrit comme sauvegarde, nouveau) : ni la taille de la partie ni le code. Cause probable : la liste de
+  polices citait Microsoft YaHei, Malgun Gothic et Yu Gothic dans TOUTES les langues ; sous Windows, chaque symbole
+  absent des polices du jeu fait ouvrir ces énormes polices pour vérifier qu'il y est. Elles ne sont plus citées
+  qu'en chinois, japonais et coréen (:root:lang). À confirmer par Victor (lignes « [lent] »).
 - 2026-11-11 (it. 767) : lignes « [lent] » de Victor (npm start, Windows) : au lancement, images de 200 à 980 ms,
   « script 0, mise en page 0 ». Vérifié ici : sous app://, Chromium n'attribue AUCUN script aux images longues (une
   boucle de 300 ms donne « scripts : aucun ») : le temps peut donc être dans notre code. Rien de tel sur le serveur

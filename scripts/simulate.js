@@ -110,3 +110,5 @@ console.table(rows);
 console.log("Courses (une ascension à la fin de chacune) :");
 console.table(runs);
 console.log("Déblocages :\n  " + unlockLog.join("\n  "));
+// (it. 768) DUMP=fichier : état final écrit comme une sauvegarde (partie très avancée pour mesurer l'interface)
+if (process.env.DUMP) (await import("node:fs")).writeFileSync(process.env.DUMP, JSON.stringify(g.S));
