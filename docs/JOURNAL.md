@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 607) : thème clair : annonce du prochain boss majeur dans le panneau de la zone lisible (capture).
 - 2026-11-11 (it. 606) : thème clair vérifié en capture pour les ajouts des reliques : pastilles de la carte du
   héros, en-tête de la carte (icônes), marqueurs des boss majeurs (fond de carte toujours sombre) : lisibles.
 - 2026-11-11 (it. 605) : carte du héros (Aventure) : les reliques gagnées en pastilles-icônes en tête de la rangée de
