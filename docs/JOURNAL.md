@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 648) : README, boss : liste des capacités complétée (peau de pierre, malédiction, tenace) et Silence
+  des échos.
 - 2026-11-11 (it. 647) : Silence visible sur le héros (terni, halo pâle) pendant les 4 s ; filtre CSS acceptable :
   passager. Vérifié en capture. 135/135.
 - 2026-11-11 (it. 646) : « Quoi de neuf » édition 18 : Silence des échos, soin du Cœur entre les combats, correction

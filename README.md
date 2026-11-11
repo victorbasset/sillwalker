@@ -97,7 +97,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie, corne d'abondance (un objet à chaque victoire), souffle de sagesse (expérience ×3), œil du faucon (tous les coups critiques), marée arcanique (recharges des sorts ×2, si un sort est appris),
   **coffre au trésor** (or, potion, objet rare ou mieux).
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération, miroir, vampirisme, souffle glacé,
-  insaisissable, fureur croissante), deux à partir de la 2e boucle. Un boss qui bat le héros s'use : −5 % de PV par défaite
+  insaisissable, fureur croissante, peau de pierre, malédiction, tenace), deux à partir de la 2e boucle ; Silence (plus de
+  sorts pendant 4 s, toutes les 15 s) réservé aux échos des lieutenants (zones 250, 300, 350). Un boss qui bat le héros s'use : −5 % de PV par défaite
   (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu.
 - **Élites à affixes** : rapide, blindé, vampirique, furieux ou givré (ses coups peuvent geler le héros).
 - **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
