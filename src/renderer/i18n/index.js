@@ -58,6 +58,15 @@ export const fsp = () => (lang === "fr" ? " " : "");
 export const csep = () => t(", ");
 // (it. 671) point final de la langue : « 。 » en japonais et en chinois
 export const cend = () => t(".");
+// (it. 665, 673) russe : accorde un adjectif masculin (-ый, -ой, -ий) au genre g : "m", "f", "n" ou "p" (pluriel) ;
+// renvoie null si ce n'est pas un adjectif d'un seul mot (« из драконьей кости »)
+const RU_HARD = { f: "ая", n: "ое", p: "ые" }, RU_SOFT = { f: "яя", n: "ее", p: "ие" };
+export function ruAgree(adj, g) {
+  const m = /^([а-яё]+)(ый|ой|ий)$/i.exec(adj);
+  if (!m) return null;
+  if (g === "m" || !RU_HARD[g]) return adj;
+  return m[1] + (m[2] === "ий" ? RU_SOFT[g] : RU_HARD[g]);
+}
 /**
  * Phrase au pluriel selon n, dans toutes les langues. La source française donne
  * « singulier|pluriel » ; chaque traduction donne ses formes séparées par « | » :

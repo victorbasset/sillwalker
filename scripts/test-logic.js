@@ -2640,6 +2640,9 @@ test("russe : adjectif de matière accordé au genre de la pièce (it. 665)", ()
   assert.equal(ruAdjective("кожаный", "p"), "Кожаные");
   assert.equal(ruAdjective("железный", "m"), "Железный");
   assert.equal(ruAdjective("из драконьей кости", "f"), null);
+  // (it. 673) adjectifs mous en -ий (épithète « Древний » des boss)
+  assert.equal(ruAdjective("древний", "f"), "Древняя");
+  assert.equal(ruAdjective("древний", "p"), "Древние");
 });
 
 test("listes affichées : séparateur csep(), pas de « , » en dur (it. 668)", () => {

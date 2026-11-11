@@ -1,7 +1,21 @@
 // Capacités spéciales des boss. Chaque boss de zone en reçoit une (deux à
 // partir de la 2e boucle des zones), choisie selon la zone : on sait donc à
 // l'avance ce qui attend le héros (affiché dans le panneau Zone).
-import { t as tx } from "../i18n/index.js";
+import { t as tx, getLang, ruAgree } from "../i18n/index.js";
+// (it. 673) russe : genre des noms de boss traduits (clé : nom français ; absent = masculin), pour accorder
+// « Пробуждённый / Древний » (« Королева Слизи Пробуждённая »)
+const RU_BOSS_GENDER = {
+  "Bave-Reine": "f", "La Veuve des Égouts": "f", "Mère des Harpies": "f", "Ignivore, mère des wyvernes": "f",
+  "Chapeau-Pourpre": "f", "Reine de Verre": "f",
+  "Dard-de-Sable": "n", "Cœur-de-Lave": "n", "L’Œil des Profondeurs": "n",
+  "Pince-Abysse": "p",
+};
+function epithet(src, key) {
+  const e = tx(key);
+  if (getLang() !== "ru") return e;
+  const w = ruAgree(e.trim(), RU_BOSS_GENDER[src] || "m");
+  return w ? " " + w : e;
+}
 import { ZONES } from "./data.js";
 import { loopMark } from "./rules.js";
 import { FINAL_BOSS, isFinalZone } from "./story.js";
@@ -43,12 +57,14 @@ export const BOSS_NAMES = [
   "Chapeau-Pourpre", "Le Roi Sans-Chair", "Croc-de-Lune", "Serpent des Coraux", "Hurle-Givre",
   "L’Œil des Profondeurs", "Roc-Barbu", "Grand-Père Saule", "Reine de Verre", "Le Seigneur des Orages",
 ];
+// noms français d'origine (translateData remplace BOSS_NAMES par la traduction : ne jamais déduire de logique du nom affiché)
+const BOSS_SRC = [...BOSS_NAMES];
 /** Nom du boss de la zone z (titre « l'Éveillé » à partir de la 2e boucle). */
 export function bossName(z) {
   if (isFinalZone(z)) return tx(FINAL_BOSS.name); // le Briseur d'Étoiles (story.js)
   const mb = majorBoss(z); if (mb) return majorName(mb); // boss majeur (ou écho), gardien d'une relique (relics.js)
   const i = (z - 1) % ZONES.length, loop = Math.floor((z - 1) / ZONES.length);
-  return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? tx(" l’Éveillé") : loop >= 2 ? tx(" l’Ancestral") + " " + loopMark(loop - 1) : "");
+  return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? epithet(BOSS_SRC[i], " l’Éveillé") : loop >= 2 ? epithet(BOSS_SRC[i], " l’Ancestral") + " " + loopMark(loop - 1) : "");
 }
 
 /**

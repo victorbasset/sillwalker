@@ -3,7 +3,7 @@
 //  - types d'objets, matières et suffixes (clés de la collection, noms sauvegardés) :
 //    traduits à l'affichage par itemName() ;
 //  - zones : le nom source est gardé dans `src` (météo par zone).
-import { getLang, tr } from "./index.js";
+import { getLang, tr, ruAgree } from "./index.js";
 import { DICTS } from "./dicts.js";
 import { RARITIES, SLOTS, STAT_NAMES, MONSTERS, ZONES, ELITE_AFFIXES, ITEM_BASES, MATERIALS, ITEM_SUFFIXES } from "../game/data.js";
 import { CLASSES, ATTACK_TIERS } from "../game/classes.js";
@@ -95,12 +95,10 @@ const RU_GENDER = {
   Lance: "n", Anneau: "n",
   Gants: "p", Gantelets: "p", Mitaines: "p", Brassards: "p", Bottes: "p", Sandales: "p", "Grèves": "p", "Jambières": "p", Souliers: "p",
 };
-const RU_END = { f: "ая", n: "ое", p: "ые" };
 export function ruAdjective(adj, g) {
-  // un seul mot en -ый / -ой (« из драконьей кости » reste tel quel : null)
-  if (!/^[а-яё]+(ый|ой)$/i.test(adj)) return null;
-  const w = g === "m" ? adj : adj.slice(0, -2) + RU_END[g];
-  return w[0].toUpperCase() + w.slice(1);
+  // un seul mot en -ый / -ой / -ий (« из драконьей кости » reste tel quel : null)
+  const w = ruAgree(adj, g);
+  return w ? w[0].toUpperCase() + w.slice(1) : null;
 }
 const lowerFirst = (w) => w[0].toLowerCase() + w.slice(1);
 export function itemName(it) {

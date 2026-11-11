@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 673) : russe : épithètes des boss de 2e et 3e boucle (« Пробуждённый », « Древний ») accordées au
+  genre du boss (RU_BOSS_GENDER, bosses.js ; BOSS_SRC garde les noms français car translateData remplace BOSS_NAMES) :
+  « Королева Слизи Пробуждённая », « Клешни Бездны Древние ». ruAgree (i18n/index.js) partagé avec les matières
+  (it. 665), adjectifs mous en -ий compris. 135/135.
 - 2026-11-11 (it. 672) : le test des séparateurs (it. 669) signale aussi un `this.log(… + ".")` en dur ; csep() et cend()
   notés dans CLAUDE.md (Traductions).
 - 2026-11-11 (it. 671) : suite des it. 667-668 : cend() (clé « . ») pour les 8 lignes du journal qui finissaient par un
