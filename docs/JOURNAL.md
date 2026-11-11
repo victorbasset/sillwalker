@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 824) : demande de Victor : GIF de promotion avec un héros au corps à corps devant. Partie simulée
+  de 12 h guerrier (+ rôdeur), même parcours --trailer filmé ; steam/media/reveal.gif refait (2,3 Mo). La bande-annonce
+  refaite avec cette partie était ratée (cinématiques d'arrivée, de relique et d'aube non déclenchées en zone 62,
+  gros plan sans le héros) : ancienne version gardée.
 - 2026-11-11 (it. 819) : Victor a publié sur itch.io (https://victor-basset.itch.io/sillwalker, 1 $, pas encore
   d'acheteur). Pour faire venir des joueurs : steam/media/reveal.gif (dézoom du héros au bureau, 800 px, 15 images/s,
   2 Mo) et steam/promo-posts.md (Reddit r/incremental_games, forum itch.io, r/pixelart, premier devlog ; anglais).
