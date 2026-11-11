@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 716) : suite de la demande U : sonde TEMP sur une copie réelle (expéditions finies) : boutons qui
+  dépassent de leur carte, 12 onglets, 1920 et 1280. 1920 : rien. 1280 : seulement des rangées défilantes voulues
+  (Boutique : marchand, potions, coffres ; Familiers : barre du haut), capture vérifiée. Rien à corriger.
 - 2026-11-11 (it. 715) : autotest (137) : boutons d'expédition dans la carte (envoi sur une ligne, « Récupérer le
   butin » dans la carte) ; vérifié qu'il échoue sur l'ancien code (« 2 lignes »). Les contrôles de défilement
   mesuraient un état de démonstration sans expéditions et ne voyaient pas un bouton qui sort d'une carte.
