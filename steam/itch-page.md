@@ -81,5 +81,6 @@ avis dans les commentaires décident de la suite. Windows 10/11, 64 bits.
 <p>Un bug ? Signale-le dans les commentaires, et joins le fichier <code>errors.log</code> s'il existe : <code>%APPDATA%\Sillwalker</code> sous Windows, <code>~/.config/Sillwalker</code> sous Linux, <code>~/Library/Application Support/Sillwalker</code> sur macOS.</p>
 ```
 
-Version Mac : à construire sur un Mac (`npm run dist:itch:mac` → `dist-itch/Sillwalker-<version>-mac-arm64.zip` pour
-Apple Silicon et `Sillwalker-<version>-mac.zip` pour Intel), non vérifiée sans Mac (étape « Ouvrir quand même »).
+Version Mac Apple Silicon : `scripts/mac-from-linux.sh` la construit sur le serveur (signature ad hoc, it. 833) ;
+uploader `Sillwalker-<version>-mac-arm64.zip` coché **macOS**. Pas de version Intel (Mac d'avant 2020) : sur un Mac,
+`npm run dist:itch:mac` produit aussi `Sillwalker-<version>-mac.zip`. Non essayée sur un vrai Mac.
