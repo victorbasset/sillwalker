@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 657) : crawl en russe sur une partie au-delà du Rebord (zone 255, écho du Geôlier, quatre reliques
+  à divers niveaux) : 334 clics sans erreur.
 - 2026-11-11 (it. 656) : lang-overflow complet (10 langues × 1920 / 1366 / 1280, pire cas des reliques) après les ajouts
   de la nuit : aucun défilement, aucune ligne trop large.
 - 2026-11-11 (it. 655) : carte : niveau de la Couronne (« ★ n/5 ») au-dessus du Briseur (accolé au nom, il sortait de la
