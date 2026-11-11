@@ -94,7 +94,9 @@ export class MapTab {
     // Au bout du chemin, dans le sens de la marche (rangée impaire : vers la gauche).
     const fdir = f.r % 2 ? -1 : 1, fx = fdir > 0 ? f.x + 14 : f.x - 56, fcx = fx + 21;
     parts.push(`<g class="mfinal${won ? " won" : ""}" title="${esc(ftip)}"><image href="${starbreakerURL()}" x="${fx}" y="${f.y - 30}" width="42" height="39"/>`
-      + `<text class="mfname" x="${fcx}" y="${f.y + BAND_H + 12}">${esc(won ? "★ " + tx("Le ciel rallumé") : tx("Le Briseur d’Étoiles"))}</text></g>`);
+      + `<text class="mfname" x="${fcx}" y="${f.y + BAND_H + 12}">${esc(won ? "★ " + tx("Le ciel rallumé") : tx("Le Briseur d’Étoiles"))}</text>`
+      // (it. 655) niveau de la Couronne au-dessus du Briseur (accolé au nom, il sortait de la carte à 1280 px)
+      + (hasRelic(S, "crown") ? `<text class="mfname" x="${fcx}" y="${f.y - 33}">★ ${relicLevel(S, "crown")}/${RELIC_MAX_LV}</text>` : "") + `</g>`);
     // Record (drapeau) et héros (portrait habillé) ; au-delà de la zone 200, une flèche « au-delà du Rebord ».
     // Reliques (demande S) : les quatre, grisées tant qu'elles ne sont pas gagnées ; survol : effet et histoire.
     const nRel = RELIC_IDS.filter((id) => hasRelic(S, id)).length;
