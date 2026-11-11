@@ -1,0 +1,69 @@
+<!doctype html><meta charset="utf-8"><style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<canvas id="c"></canvas>
+<script type="module">
+// (it. 783) Visuels du magasin Steam, dessinés avec les sprites et la police du jeu (scripts/steam-capsules/make.js).
+import { buildSprite } from "../../src/renderer/render/sprites.js";
+import { CLASS_ART, MONSTER_ART } from "../../src/renderer/render/art.js";
+import { STARBREAKER_ART } from "../../src/renderer/render/art-monsters2.js";
+const q = new URLSearchParams(location.search), W = +q.get("w"), H = +q.get("h"), kind = q.get("kind");
+const font = new FontFace("Title", "url(../../src/renderer/assets/fonts/pixelify-sans-latin-700-normal.woff2)");
+await font.load(); document.fonts.add(font);
+const c = document.getElementById("c"); c.width = W; c.height = H;
+const x = c.getContext("2d"); x.imageSmoothingEnabled = false;
+let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const U = Math.max(2, Math.round(Math.min(W / 230, H / 120))); // taille d'un « pixel » du décor
+
+function sky() {
+  const g = x.createLinearGradient(0, 0, 0, H);
+  g.addColorStop(0, "#0d0b1f"); g.addColorStop(0.55, "#2a1f4d"); g.addColorStop(1, "#5a3a6e");
+  x.fillStyle = g; x.fillRect(0, 0, W, H);
+  for (let i = 0; i < W * H / 2600; i++) {
+    const s = rnd() < 0.08 ? U : Math.max(1, U >> 1);
+    x.fillStyle = rnd() < 0.15 ? "#ffd98a" : "#cfd6ff"; x.globalAlpha = 0.35 + rnd() * 0.65;
+    x.fillRect(Math.floor(rnd() * W / s) * s, Math.floor(rnd() * H * 0.7 / s) * s, s, s);
+  }
+  x.globalAlpha = 1;
+  // fêlure du ciel (le Briseur d'Étoiles a fracassé le ciel)
+  x.strokeStyle = "rgba(255,217,138,0.55)"; x.lineWidth = Math.max(2, U >> 1); x.beginPath();
+  let px = W * 0.62, py = 0; x.moveTo(px, py);
+  while (py < H * 0.45) { px += (rnd() - 0.5) * U * 14; py += U * (4 + rnd() * 6); x.lineTo(Math.round(px / U) * U, Math.round(py / U) * U); }
+  x.stroke();
+}
+function hills(y0, color, amp, step) {
+  x.fillStyle = color; let y = y0;
+  for (let px = 0; px < W; px += step) { y = Math.max(y0 - amp, Math.min(y0 + amp, y + (rnd() - 0.5) * amp)); x.fillRect(px, Math.round(y / U) * U, step, H); }
+}
+function sprite(art, frame, pal, scale, px, py, flip = false, alpha = 1) {
+  const s = buildSprite(art, pal, scale, flip, 1); x.globalAlpha = alpha; x.drawImage(s, Math.round(px), Math.round(py - s.height)); x.globalAlpha = 1; return s;
+}
+function scene(ground, k, opts = {}) {
+  sky();
+  // le Briseur, immense et sombre, au fond
+  const sb = STARBREAKER_ART, sbScale = Math.round(k * 2.2);
+  const dark = Object.fromEntries(Object.keys(sb.pal).map((c) => [c, "#1b1535"]));
+  sprite(sb.frames[0], 0, dark, sbScale, W * (opts.sbx ?? 0.66), ground - U * 6, true, 0.9);
+  hills(ground - U * 10, "#241a40", U * 5, U * 6);
+  hills(ground - U * 4, "#2e3f5c", U * 3, U * 4);
+  x.fillStyle = "#3d5a3c"; x.fillRect(0, ground, W, H); x.fillStyle = "#6b5a3a"; x.fillRect(0, ground + U * 2, W, U * 3);
+  x.fillStyle = "#4e7a46"; for (let px = 0; px < W; px += U * 3) if (rnd() < 0.5) x.fillRect(px, ground - U, U, U);
+  // les héros (duo) à gauche, les monstres qui arrivent à droite
+  const hx = W * (opts.hx ?? 0.18), feet = ground + U * 2;
+  sprite(CLASS_ART.warrior.walk1, 0, CLASS_ART.warrior.pal, k, hx, feet);
+  sprite(CLASS_ART.mage.walk1, 0, CLASS_ART.mage.pal, k, hx + k * 14, feet);
+  const mons = opts.mons ?? ["slime", "skel", "wolf", "drake"];
+  mons.forEach((m, i) => { const a = MONSTER_ART[m]; sprite(a.frames[0], 0, a.pal, k, W * (0.5 + i * 0.11), feet - (a.fly ? k * 10 : 0), true); });
+}
+function title(size, cx, cy, align = "center") {
+  x.font = `700 ${size}px Title`; x.textAlign = align; x.textBaseline = "middle";
+  x.lineJoin = "round"; x.lineWidth = Math.max(4, size / 7); x.strokeStyle = "#14121f"; x.strokeText("Sillwalker", cx, cy);
+  const g = x.createLinearGradient(0, cy - size / 2, 0, cy + size / 2); g.addColorStop(0, "#ffe9a8"); g.addColorStop(1, "#e0a23a");
+  x.fillStyle = g; x.fillText("Sillwalker", cx, cy);
+}
+const k = (n) => Math.max(2, Math.round(n));
+if (kind === "logo") { title(H * 0.42, W / 2, H / 2); }
+else if (kind === "hero") { scene(H * 0.78, k(H / 75), { sbx: 0.55, hx: 0.12, mons: ["slime", "skel", "wolf", "golem", "drake"] }); }
+else if (kind === "small") { scene(H * 0.86, k(H / 40)); x.fillStyle = "rgba(13,11,31,0.35)"; x.fillRect(0, 0, W, H); title(H * 0.42, W / 2, H * 0.4); }
+else if (H > W) { scene(H * 0.82, k(W / 70), { hx: 0.1, mons: ["slime", "drake"] }); title(W * 0.2, W / 2, H * 0.17); }
+else { scene(H * 0.8, k(H / 60)); title(H * 0.24, W / 2, H * 0.25); }
+document.title = "READY";
+</script>

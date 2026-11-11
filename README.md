@@ -263,6 +263,9 @@ après une mise en veille du PC.
    `classid` ; la classe s'affiche dans la langue de chaque ami (`{#Class_%classid%}`).
 5. Option : `STEAM_RELAUNCH_IF_NEEDED: true` pour que Steam relance le jeu s'il est ouvert hors Steam.
 6. Dépôt : envoyer le contenu de `dist/win-unpacked/`, exécutable `Sillwalker.exe`.
+10. Visuels du magasin (première version, à juger) : `steam/capsules/` (en-tête, petite, principale, verticale,
+   bibliothèque, héros 3840×1240 sans texte, logo transparent), dessinés avec les sprites et la police du jeu :
+   `node_modules/.bin/electron scripts/steam-capsules/make.js steam/capsules`.
 9. Captures du magasin (1920×1080, anglais et français) : `steam/screenshots/` ; partie simulée de 12 h
    (`DUMP=… simulate.js 12 mage`), captures `--release-ui --shot`, posées sur un bureau par `scripts/steam-compose.py`.
 8. Page du magasin : descriptions courte et longue dans les 10 langues dans `steam/store-page.md` (BBCode Steam).
