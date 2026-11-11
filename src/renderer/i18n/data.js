@@ -87,6 +87,22 @@ export function repairItemNames(S) {
  */
 const ORDER = { en: "{mat} {base} {suf}", de: "{base} {mat} {suf}", es: "{base} {mat} {suf}", pt: "{base} {mat} {suf}", pl: "{base} {mat} {suf}", ru: "{base} {mat} {suf}", zh: "{suf}{mat}{base}", ja: "{suf}{mat}{base}", ko: "{suf} {mat} {base}" };
 let suffixes = null;
+// (it. 665) Russe : les matières « железный, стальной… » sont des adjectifs au masculin ; accordés au genre de la pièce
+// (« Печать алмазный » → « Алмазная печать ») et placés devant le nom. Clé : nom français de la pièce ; absent = masculin.
+const RU_GENDER = {
+  Masse: "f", Sabre: "f", Faux: "f", Hallebarde: "f", Bandeau: "f", Couronne: "f", Chapeau: "f", Masque: "f",
+  Cuirasse: "f", "Cotte de mailles": "f", Tunique: "f", Robe: "f", Brigandine: "f", "Chevalière": "f", Sceau: "f", Pendentif: "f",
+  Lance: "n", Anneau: "n",
+  Gants: "p", Gantelets: "p", Mitaines: "p", Brassards: "p", Bottes: "p", Sandales: "p", "Grèves": "p", "Jambières": "p", Souliers: "p",
+};
+const RU_END = { f: "ая", n: "ое", p: "ые" };
+export function ruAdjective(adj, g) {
+  // un seul mot en -ый / -ой (« из драконьей кости » reste tel quel : null)
+  if (!/^[а-яё]+(ый|ой)$/i.test(adj)) return null;
+  const w = g === "m" ? adj : adj.slice(0, -2) + RU_END[g];
+  return w[0].toUpperCase() + w.slice(1);
+}
+const lowerFirst = (w) => w[0].toLowerCase() + w.slice(1);
 export function itemName(it) {
   if (!it || !it.name) return "";
   const lang = getLang();
@@ -102,6 +118,10 @@ export function itemName(it) {
   if (rest) {
     suffixes ||= [...new Set([...ITEM_SUFFIXES.flat(), ...Object.values(SETS).map((s) => s.srcSuffix || s.suffix)])];
     suf = suffixes.includes(rest) ? rest : rest;
+  }
+  if (lang === "ru" && mat) {
+    const adj = ruAdjective(tr(mat), RU_GENDER[base.n] || "m");
+    if (adj) return [adj, lowerFirst(tr(base.n)), suf ? tr(suf) : ""].join(" ").replace(/\s+/g, " ").trim();
   }
   return (ORDER[lang] || ORDER.en).replace("{base}", tr(base.n)).replace("{mat}", mat ? tr(mat) : "").replace("{suf}", suf ? tr(suf) : "")
     .replace(/\s+/g, " ").trim();

@@ -373,6 +373,7 @@ test("ascension : éclats, conservation, constellations", () => {
 
 /* ---------- Classes v5 et arbre de compétences ---------- */
 import { SKILL_TREE, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill } from "../src/renderer/game/skilltree.js";
+import { ruAdjective } from "../src/renderer/i18n/data.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -2631,6 +2632,14 @@ test("README : liste Steam des succès complète (mêmes API Name que game/achie
   const listed = new Set([...block.matchAll(/`([A-Z0-9_]+)`/g)].map((m) => m[1]));
   const missing = ACH_T.map((a) => a.id).filter((id) => !listed.has(id));
   assert.deepEqual(missing, [], "succès absents de la liste Steam du README");
+});
+
+test("russe : adjectif de matière accordé au genre de la pièce (it. 665)", () => {
+  assert.equal(ruAdjective("алмазный", "f"), "Алмазная");
+  assert.equal(ruAdjective("стальной", "n"), "Стальное");
+  assert.equal(ruAdjective("кожаный", "p"), "Кожаные");
+  assert.equal(ruAdjective("железный", "m"), "Железный");
+  assert.equal(ruAdjective("из драконьей кости", "f"), null);
 });
 
 console.log(`\n${pass} tests réussis`);

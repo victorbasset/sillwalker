@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 665) : russe : les matières-adjectifs (железный, стальной, алмазный…) restaient au masculin
+  (« Печать алмазный », « Сабля стальной ») ; itemName (i18n/data.js) les accorde au genre de la pièce (RU_GENDER,
+  ruAdjective) et les place devant le nom (« Алмазная печать », « Кожаные сапоги »). Matières en « из … » inchangées ;
+  polonais et allemand non concernés (préposition). Test logique ajouté (186). 135/135.
 - 2026-11-11 (it. 664) : CLAUDE.md : fuzz.mjs couvre les 20 héros (60 graines = 1200 parties), pas « 10 classes ».
 - 2026-11-11 (it. 663) : équilibrage : la Prêtresse (60 zones en 12 h sur 4 graines, la plus basse) : attaque ×1,05 →
   ×1,12 ; graines 3 / 11 / 21 : 59 / 62 / 59 → 60 / 62 / 61. Hausse (pas à annoncer). 135/135.
