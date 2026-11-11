@@ -48,7 +48,9 @@ export const relicLevel = (S, id) => (hasRelic(S, id) ? Math.min(RELIC_MAX_LV, M
 export const relicUpgradable = (S, id, echo = false) => !hasRelic(S, id)
   || (relicLevel(S, id) < RELIC_MAX_LV && (S[echo ? "relicRunEcho" : "relicRun"] || {})[id] !== ((S.prestige && S.prestige.count) || 0));
 /** Ligne d'infobulle : niveau, bonus, comment monter (texte traduit). */
-export const relicLevelText = (S, id) => tx("Niveau {0} / {1} : effet +{2} % (un niveau par course, en battant de nouveau son gardien).", { 0: relicLevel(S, id), 1: RELIC_MAX_LV, 2: Math.round((relicPow(S, id) - 1) * 100) });
+export const relicLevelText = (S, id) => tx("Niveau {0} / {1} : effet +{2} % (un niveau par course, en battant de nouveau son gardien).", { 0: relicLevel(S, id), 1: RELIC_MAX_LV, 2: Math.round((relicPow(S, id) - 1) * 100) })
+  // (it. 642) les reliques des lieutenants ont un écho au-delà du Rebord, qui en donne un de plus par course
+  + (ECHO_BOSSES.some((b) => b.relic === id) ? "\n" + tx("Au-delà du Rebord, son écho (zone {0}) en donne un de plus par course.", { 0: ECHO_BOSSES.find((b) => b.relic === id).zone }) : "");
 /** Facteur de puissance de la part « relique » de l'effet : 1 au niveau 1, +10 % par niveau. */
 export const relicPow = (S, id) => 1 + RELIC_LV_STEP * (Math.max(1, relicLevel(S, id)) - 1);
 

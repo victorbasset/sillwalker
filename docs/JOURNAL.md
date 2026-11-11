@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 642) : infobulle du niveau des reliques des lieutenants : « Au-delà du Rebord, son écho (zone N) en
+  donne un de plus par course. » (dernier point de la relecture it. 638). Traduit. 135/135.
 - 2026-11-11 (it. 641) : Cœur de l'aube : la régénération agit aussi pendant la marche (le texte promet « chaque
   seconde » ; relecture it. 638) ; le « +X » vert reste réservé au combat. 135/135.
 - 2026-11-11 (it. 640, revue générale) : balance 12 h vs 50a39b7 +0,6 (bruit) ; fuzz 1200 parties, 0 bloquée ;

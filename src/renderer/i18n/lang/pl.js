@@ -1162,4 +1162,5 @@ export default {
   2286: "Echo: {0}",
   2287: "Za Krawędzią: echa trzech namiestników czekają w strefach 250, 300 i 350; każde wzmacnia też swoją relikwię.",
   2288: "Kroniki opowiadają historię twoich relikwii; ▶, by znów zobaczyć ich scenę.",
+  2289: "Za Krawędzią jego echo (strefa {0}) daje jeszcze jeden na wyprawę.",
 };

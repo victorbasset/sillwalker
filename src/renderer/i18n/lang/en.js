@@ -1162,4 +1162,5 @@ export default {
   2286: "Echo: {0}",
   2287: "Beyond the Sill: echoes of the three lieutenants await in zones 250, 300 and 350; each one also strengthens its relic.",
   2288: "The Chronicles tell the story of your relics; ▶ to watch their scene again.",
+  2289: "Beyond the Sill, its echo (zone {0}) gives one more per run.",
 };

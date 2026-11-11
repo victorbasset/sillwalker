@@ -1162,4 +1162,5 @@ export default {
   2286: "Eco: {0}",
   2287: "Más allá del Alféizar: los ecos de los tres lugartenientes esperan en las zonas 250, 300 y 350; cada uno refuerza también su reliquia.",
   2288: "Las Crónicas cuentan la historia de tus reliquias; ▶ para volver a ver su escena.",
+  2289: "Más allá del Alféizar, su eco (zona {0}) da uno más por partida.",
 };

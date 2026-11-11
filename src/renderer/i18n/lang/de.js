@@ -1162,4 +1162,5 @@ export default {
   2286: "Echo: {0}",
   2287: "Jenseits des Saums: Echos der drei Statthalter warten in den Zonen 250, 300 und 350; jedes verstärkt auch sein Relikt.",
   2288: "Die Chroniken erzählen die Geschichte deiner Relikte; ▶ zeigt ihre Szene erneut.",
+  2289: "Jenseits des Saums gibt sein Echo (Zone {0}) eine weitere pro Lauf.",
 };
