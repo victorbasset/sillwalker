@@ -285,11 +285,35 @@ export class StripRenderer {
     if (isDamage && this.game.S.settings.damageNumbers === false) return;
     // Face à un boss, les nombres partent plus bas : en montant, ils ne recouvrent plus son nom (en haut de la bande).
     const m = this.game.R.mon;
-    if (m && m.boss && Math.abs(x - this.monX()) < 90) y = Math.max(y, 46);
+    const nearBoss = m && m.boss && Math.abs(x - this.monX()) < 90;
+    if (nearBoss) y = Math.max(y, 46);
+    // Nombres qui tombent au même endroit au même instant (fin de partie : coup, critique et dégâts reçus) : chacun
+    // cherche une place libre parmi les nombres encore jeunes, au-dessus puis au-dessous, sinon de côté (it. 846).
+    const w = String(txt).length * (big ? 8 : 7) + 4, h = big ? 19 : 17;
+    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss ? y - (big ? 14 : 12) : -6);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
-    this.addFx(f, x, y - (big ? 14 : 12), 1, 22);
+    this.addFx(f, at.x, at.y, 1, 22);
+    const e = this.fx[this.fx.length - 1];
+    e.box = { x: at.x, y: at.y, w, h };
+  }
+
+  /** Place la plus proche de (x, y) où un texte w × h (centré sur x) ne recouvre aucun nombre flottant récent. */
+  freeSpot(x, y, w, h, minY = -6) {
+    const live = this.fx.filter((f) => f.box && f.t < 0.7);
+    if (!live.length) return { x, y };
+    const hits = (cx, cy) => live.some((f) => {
+      const b = f.box, bx = b.x + (f.x || 0), by = b.y + (f.y || 0);
+      return Math.abs(cx - bx) * 2 < w + b.w && cy < by + b.h && by < cy + h;
+    });
+    // D'abord empilés (au-dessus, au-dessous), puis de côté (face à un boss, il n'y a de place que pour 2 ou 3 rangées).
+    const rows = [0, -h, h, -2 * h, 2 * h, 3 * h], side = Math.round(w * 0.5) + 16;
+    for (const dx of [0, side, -side, 2 * side, -2 * side]) for (const dy of rows) {
+      const cx = x + dx, cy = Math.max(minY, Math.min(GROUND - h - 4, y + dy));
+      if (!hits(cx, cy)) return { x: cx, y: cy };
+    }
+    return { x, y };
   }
 
   loot(x, y, color) {

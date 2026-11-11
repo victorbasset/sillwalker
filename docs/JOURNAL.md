@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 846) : bande en fin de partie : coups, critiques et dégâts reçus tombaient au même endroit au même
+  instant et se lisaient « -18Crit104k-21 » au-dessus du héros. Chaque nombre flottant cherche maintenant une place
+  libre parmi les nombres encore jeunes (au-dessus, au-dessous, puis de côté ; face à un boss, sans monter sur son
+  nom). Contrôle d'autotest : 5 nombres lancés au même point, aucun chevauchement (159/159) ; vu en capture (zone 55,
+  boss). Calcul négligeable (au plus 30 effets comparés, seulement à la création d'un nombre).
 - 2026-11-12 (it. 845) : onglet Familiers sur écran de portable (allemand, 1366 px) : la barre du haut débordait et
   cachait à droite le sous-onglet « À découvrir » (barre de défilement invisible : impossible à deviner) et le choix
   « Grande expédition » du Grand intendant. Les sous-onglets passent en tête de la barre, et leurs compteurs remplacent
