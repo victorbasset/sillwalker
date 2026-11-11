@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 753) : processeur : le son coupé en cours de partie (bouton haut-parleur, ou effets et musique
+  désactivés) laissait le contexte audio calculer du silence ; Sound.setIdle le suspend (repris dès qu'un son ou la
+  musique revient). Écart attendu ≈ 3 points sur la bande (lancement son coupé : 16,1 % contre 19,1 %). Autotest (141) :
+  suspendu puis repris au second clic. Workflow de l'essai Tauri : pas encore ajouté sur GitHub.
 - 2026-11-11 (it. 752) : essai Tauri vérifié sur le serveur : Rust installé dans le dossier personnel (rustup, cible
   x86_64-pc-windows-msvc) ; `cargo check` pour Windows passe (faux llvm-rc temporaire pour la ressource d'icône,
   outil absent ici ; l'édition des liens ne se fait que sur Windows). README de l'essai à jour.

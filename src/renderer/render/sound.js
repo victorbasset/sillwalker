@@ -64,7 +64,15 @@ export class Sound {
   setPaused(paused) {
     this.paused = !!paused;
     if (!this.ctx) return;
-    if (this.paused) this.ctx.suspend(); else if (!this.muted) this.ctx.resume();
+    if (this.paused || this.idle) this.ctx.suspend(); else if (!this.muted) this.ctx.resume();
+  }
+
+  /** (it. 753) Rien à jouer (son coupé, ou effets et musique désactivés) : contexte audio suspendu, il ne calcule plus
+   *  de silence pour rien (≈ 3 points de processeur sur la bande) ; repris quand un son ou la musique revient. */
+  setIdle(idle) {
+    this.idle = !!idle;
+    if (!this.ctx) return;
+    if (this.idle || this.paused) this.ctx.suspend(); else if (!this.muted) this.ctx.resume();
   }
 
   /** Limite : au plus un son de ce type toutes les `ms` millisecondes. */
