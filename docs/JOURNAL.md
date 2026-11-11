@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 630, revue générale) : balance 12 h vs 43c902e −0,4 (bruit ; Samouraï 66 → 62) ; fuzz 1200 parties,
+  0 bloquée ; save-fuzz ok ; crawl de 316 / zh 321 clics sans erreur ; perf bande 19,1 %, panneau 20,7 %, mini 6,5 % ;
+  mémoire réelle 515 Mo stable.
 - 2026-11-11 (it. 629) : « Quoi de neuf » édition 16 : soins du Cœur et critiques violets de la Lame, touche U, et la
   baisse du Samouraï (critique +5 % retiré, annoncée : principe h). Noms repris des traductions existantes ; aucun
   défilement de / ru / pl à 1366 et 1280. 134/134.
