@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 737) : « Quoi de neuf » édition 24 : Marchand attitré (it. 736) et correction de l'ordre des
+  déblocages. Traduite (9 langues). 139/139 ; de, pl sans défilement.
 - 2026-11-11 (it. 736) : nouveau déblocage « Marchand attitré » (zone 300, 2e31 or, icône propre) : achète et équipe
   l'objet de l'étal qui renforce le plus le héros (> 1 %), avec l'or en trop (4 fois le prix) et de la place dans le
   sac ; calcul refait seulement quand l'étal ou l'équipement change ; option. Traduit, test (194).

@@ -1192,4 +1192,6 @@ export default {
   2316: "Personal Merchant",
   2317: "Buys and equips on its own the merchant's item that strengthens your hero most, with spare gold (option).",
   2318: "Personal Merchant: buy and equip items that strengthen the hero",
+  2319: "New unlock beyond the Sill (zone 300): the “Personal Merchant” buys and equips on its own the merchant's item that strengthens your hero most.",
+  2320: "Fix: the next suggested unlock follows the zone order again.",
 };
