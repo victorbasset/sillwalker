@@ -20,12 +20,18 @@ export class PetsTab {
     const e = (this.game.S.pets.exp || {})[p.id];
     if (e) {
       const ex = EXPEDITIONS[e.kind], done = e.end <= Date.now();
+      // (it. 714, signalé par Victor) de retour : le bouton seul, sur toute la largeur de la carte (la phrase et le
+      // bouton côte à côte sortaient de la carte) ; « De retour de … ! » en infobulle
+      if (done) return `<div class="expe done"><button class="primary" data-action="p-claim" data-id="${p.id}" title="${esc(tx("De retour de {0} !", { 0: lc(ex.name) }))}">${tx("Récupérer le butin")}</button></div>`;
       // Une ligne (demande 18) : « Voyage · 2 h 10 », la phrase complète en infobulle.
       return `<div class="expe${done ? " done" : ""}" title="${esc(tx("En {0} · retour dans", { 0: lc(ex.name) }))}…"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `${esc(ex.name)} · <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
         ${done ? `<button class="primary" data-action="p-claim" data-id="${p.id}">${tx("Récupérer le butin")}</button>` : ""}</div>`;
     }
     if (active || !hasUnlock(this.game.S, "expeditions")) return "";
-    return `<div class="row expe-btns">${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-exp" data-id="${p.id}" data-kind="${k}" title="${esc(tx("{0} : or, expérience, parfois un œuf ({1} %) ou un objet ({2} %)", { 0: esc(ex.name), 1: Math.round(ex.egg * 100), 2: Math.round(ex.item * 100) }))}">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("")}</div>`;
+    // (it. 714, signalé par Victor) une seule ligne : la durée sur le bouton, le nom en infobulle (« Balade · 30 min »,
+    // « Voyage · 2 h », « Grande expédition · 8 h » passaient sur deux lignes et faisaient défiler l'onglet)
+    return `<div class="row expe-btns">${Object.entries(EXPEDITIONS).map(([k, ex]) => { const tip = tx("{0} : or, expérience, parfois un œuf ({1} %) ou un objet ({2} %)", { 0: ex.name, 1: Math.round(ex.egg * 100), 2: Math.round(ex.item * 100) }) + " · " + dur(ex.min);
+      return `<button class="quiet" data-action="p-exp" data-id="${p.id}" data-kind="${k}" title="${esc(tip)}" aria-label="${esc(ex.name + " · " + dur(ex.min))}">${dur(ex.min)}</button>`; }).join("")}</div>`;
   }
 
   render(el) {

@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 714) : DEMANDE U de Victor : « les boutons pour récupérer une expédition sortent de l'écran et les
+  autres font un scroll aussi ». Familiers : expédition finie = phrase + bouton côte à côte, plus larges que la carte
+  (« Récupérer le butin » coupé) ; familier libre = 3 boutons « Balade · 30 min / Voyage · 2 h / Grande expédition ·
+  8 h » sur deux lignes à 1366 / 1280 (cartes plus hautes, onglet qui défile). Corrigé : bouton de récupération seul,
+  pleine largeur (phrase en infobulle) ; boutons d'envoi sur une ligne, durée seule (nom en infobulle et pour le
+  lecteur d'écran). Captures 1920 / 1366 / 1280 vérifiées ; 136/136 ; de, pl, ru sans défilement.
+  Aussi : Forgeron des astres vu en vrai (copie, record 240, objets niv. 50 → 240 : « 7 objets remontés pendant ton
+  absence »).
 - 2026-11-11 (it. 713) : « Quoi de neuf » édition 21 : le Forgeron des astres (it. 712), nom et Rebord cités tels
   qu'ils sont traduits (Sill, Alféizar, Saum, Krawędź, Кромка, 縁…). 136/136 ; de, pl sans défilement.
 - 2026-11-11 (it. 712) : nouveau déblocage au-delà du Rebord (aucun après la zone 200 jusqu'ici) : « Forgeron des astres »

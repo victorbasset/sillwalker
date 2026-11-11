@@ -500,6 +500,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .expe { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; padding: 6px 8px; border: 1px dashed var(--muted); border-radius: 4px; font-size: 12px; }
 .expe.done { border: 1px solid #ffd34d; --c: #ffe9a8; color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
 .expe-btns { flex-wrap: wrap; margin-top: 6px; }
+.petcard .expe-btns { flex-wrap: nowrap; }
+.petcard .expe-btns button { flex: 1 1 0; min-width: 0; }
 .expe-btns button { font-size: 11px; padding: 3px 6px; }
 
 /* Météo des zones */
@@ -858,6 +860,8 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Familiers (demande 18) : cartes plus basses. */
 .petcard .lines { font-size: 12px; }
 .petcard .expe { padding: 3px 8px; white-space: nowrap; }
+.petcard .expe.done { padding: 0; border: 0; }
+.petcard .expe.done button { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 #p-bag h2 .help { font-size: 13px; margin-left: 4px; font-weight: normal; }
 #p-bag > .row button { font-size: 13px; padding: 4px 8px; }
 /* Talents (demande 18) : lignes plus basses, notes des cadres en ⓘ. */
