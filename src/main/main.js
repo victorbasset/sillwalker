@@ -2,6 +2,7 @@
 // sauvegarde, Steam. Le jeu lui-même tourne dans le renderer.
 const path = require("path");
 const fs = require("fs");
+const os = require("os");
 const { app, ipcMain, powerMonitor } = require("electron");
 const config = require("../shared/config");
 const flags = require("./flags");
@@ -41,6 +42,12 @@ function start() {
     if (steam.init({ isDev: flags.isDev }) === "relaunch") { app.quit(); return; }
 
     const settings = new Settings();
+    // (it. 837, demande de Victor) Lancé à la main, le jeu doit se voir tout de suite, sinon le joueur croit qu'il ne
+    // marche pas : premier lancement -> bande ; mode icône resté d'une session précédente -> dernier mode affiché.
+    // Démarrage avec la session (lancement automatique : machine allumée depuis moins de 3 min) : réglage respecté.
+    const atLogin = !!app.getLoginItemSettings().wasOpenedAtLogin || os.uptime() < 180;
+    if (settings.isNew) settings.set("mode", "strip");
+    else if (!atLogin && settings.get("mode") === "icon") settings.set("mode", settings.get("lastShownMode") === "mini" ? "mini" : "strip");
     require("./i18n").setLang(settings.get("lang") || "en");
     const store = new SaveStore(app.getPath("userData"), { backupIntervalMs: config.BACKUP_INTERVAL_MS });
     const url = serveDirectory(path.join(__dirname, "..", "renderer"));
@@ -261,7 +268,10 @@ function start() {
     setInterval(sendPower, 5000);
     // Bon voisin : cachée devant une application en plein écran (Windows ; réglage dans le menu de l'icône).
     const { watchFullscreen } = require("./fullscreen-watch");
-    const fsWatch = watchFullscreen({ onChange: (on) => strip.setFullscreenApp(on), enabled: () => strip.settings.get("hideOnFullscreen") !== false });
+    // lancé à la main : surveillance après 20 s, le temps que le joueur voie la bande (une fausse détection de plein
+    // écran au démarrage la cacherait aussitôt : « le jeu ne marche pas »)
+    let fsWatch = { stop() {} };
+    setTimeout(() => { if (!quitting) fsWatch = watchFullscreen({ onChange: (on) => strip.setFullscreenApp(on), enabled: () => strip.settings.get("hideOnFullscreen") !== false }); }, atLogin ? 0 : 20000);
     app.on("before-quit", () => fsWatch.stop());
     powerMonitor.on("lock-screen", () => strip.setLocked(true));
     powerMonitor.on("unlock-screen", () => strip.setLocked(false));

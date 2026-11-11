@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 840) : barre des onglets à 1920 px : les pastilles vertes (« 99+ », « 2 », « ! ») mordaient de
+  4 px sur le haut des noms (« Skılls », « Ascensıon » : points des i et haut des lettres cachés). Pastille un peu
+  plus petite, posée au-dessus du bouton (comme déjà sur les écrans étroits). Vu en capture agrandie ; contrôle
+  d'autotest qui mesure l'écart pastille / nom (156/156).
 - 2026-11-11 (it. 839) : l'Herboriste perpétuel (zone 260) travaille aussi pendant l'absence : avant, élixirs et
   parchemins s'épuisaient hors ligne et le retour se faisait sans leur effet (or, expérience, dégâts). Il achète d'avance
   les doses qui couvrent toute l'absence s'il peut les payer (même réserve de 4 fois le prix qu'en jeu) ; le résumé

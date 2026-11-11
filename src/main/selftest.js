@@ -561,8 +561,9 @@ async function runSelfTest(strip) {
   check("infobulle de la bande au survol d'un bouton (au-dessus)", st === "true", st);
   check("onglets progressifs : caché, annoncé, ✦ jusqu'à la visite, conseil en doublon marqué vu", /^true true true ✦ - true$/.test(tb), tb);
   // Pastille d'onglet plafonnée à « 99+ ».
-  const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts; S.prestige.skillPts = 5000; window.__panel.renderAll(); const t = document.querySelector('[data-badge=skills]').textContent; S.prestige.skillPts = v; window.__panel.renderAll(); return t; })()");
-  check("onglets : pastille plafonnée à 99+", bg === "99+", bg);
+  const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts; S.prestige.skillPts = 5000; window.__panel.renderAll(); const el = document.querySelector('[data-badge=skills]'), t = el.textContent; const br = el.getBoundingClientRect(), lr = el.parentNode.querySelector('.tlabel').getBoundingClientRect(); const ov = br.height > 0 && lr.height > 0 ? Math.round(br.bottom - lr.top) : 'caché'; S.prestige.skillPts = v; window.__panel.renderAll(); return t + ' ' + ov; })()");
+  // (it. 840) la pastille restait 4 px sur le haut des lettres (« Skılls ») : elle doit finir au-dessus du nom.
+  check("onglets : pastille plafonnée à 99+, sans mordre sur le nom", /^99\+ (-?\d+|caché)$/.test(bg) && !(Number(bg.split(" ")[1]) > 1), bg);
   // Accessibilité : les blocs repliables (summary) ont un focus clavier visible (règle présente dans la feuille chargée).
   const sf = await js("[...document.styleSheets].some((sh) => { try { return [...sh.cssRules].some((r) => /summary:focus-visible/.test(r.selectorText || '') && /outline/.test(r.cssText)); } catch { return false; } })");
   check("accessibilité : focus clavier visible sur un bloc repliable", sf === true, String(sf));

@@ -9,6 +9,7 @@ class Settings {
   constructor() {
     this.file = path.join(app.getPath("userData"), "settings.json");
     const r = readJson(this.file);
+    this.isNew = !!r.missing; // premier lancement (pas encore de settings.json)
     this.data = Object.assign({}, DEFAULTS, r.ok && r.data && typeof r.data === "object" ? r.data : {});
     if (!["top", "bottom"].includes(this.data.edge)) this.data.edge = "bottom";
     this.data.opacity = Math.min(1, Math.max(0.05, Number(this.data.opacity) || 1));

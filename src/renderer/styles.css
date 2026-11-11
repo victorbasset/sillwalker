@@ -272,7 +272,7 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 .tabs { display: flex; gap: 4px; margin-right: auto; margin-left: 12px; }
 .tabs button { position: relative; padding: 4px 14px; box-shadow: none; border-bottom-width: 3px; }
 .tabs button[aria-selected="true"] { background: var(--panel); border-color: var(--accent); color: var(--ink); }
-.tbadge { position: absolute; top: -8px; right: -6px; min-width: 18px; padding: 0 4px; border-radius: 9px; background: var(--good); color: #fff; font-size: 12px; line-height: 18px; }
+.tbadge { position: absolute; top: -12px; right: -6px; min-width: 15px; padding: 0 3px; border-radius: 9px; background: var(--good); color: #fff; font-size: 11px; line-height: 15px; } /* au-dessus du bouton : ne mord plus sur le nom (it. 840) */
 .tbadge[hidden] { display: none; }
 .tabpane[hidden] { display: none; }
 .tabpane { max-width: 1840px; margin: 0 auto; }
@@ -745,7 +745,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .tabs.slim button { padding: 4px 4px; }
 .tabs.slim button .ticon { height: 14px; margin-right: 2px; vertical-align: -2px; }
 .tabs.small button { font-size: 12px; padding: 4px 5px; }
-.tabs.tight .tbadge, .tabs.small .tbadge { top: -12px; right: -4px; min-width: 15px; padding: 0 3px; font-size: 11px; line-height: 15px; } /* boutons resserrés : la pastille ne mord plus sur le nom */
+.tabs.tight .tbadge, .tabs.small .tbadge { right: -4px; }
 .setprog { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
 /* Familiers : choix de l'expédition du Grand intendant */
 .stewrow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; }
