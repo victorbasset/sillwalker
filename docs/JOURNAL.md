@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 809) : sous Windows, l'AppImage échoue (EPERM : liens symboliques interdits hors mode développeur).
+  dist:itch:linux produit maintenant un tar.gz (construisible sous Windows, essayé ici) ; dist:itch:appimage garde
+  l'AppImage. AppImage construite sur le serveur et envoyée à Victor en 5 morceaux de 25 Mo (limite d'envoi 30 Mo).
 - 2026-11-11 (it. 808) : Linux et Mac pour itch.io : npm run dist:itch:linux (AppImage 126 Mo) et dist:itch:mac (zip
   arm64 + x64, à construire sur un Mac) ; build.linux / build.mac dans package.json. AppImage construite et lancée sur
   le serveur avec XDG_CONFIG_HOME dans le dossier temporaire (jamais la vraie sauvegarde) : partie neuve, intro,

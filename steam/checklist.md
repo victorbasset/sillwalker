@@ -42,7 +42,9 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 
 - ✅ `npm run dist:itch` : version Windows sans Steam (dans `dist-itch/`) ; Steam y est entièrement coupé (pas de
   relance, pas de succès ni de cloud Steam), la partie se sauvegarde normalement sur le PC.
-- ✅ Linux : `npm run dist:itch:linux` (AppImage, construite et lancée sur le serveur : partie neuve, Steam coupé).
+- ✅ Linux : `npm run dist:itch:linux` (archive tar.gz, construisible sous Windows) ; `npm run dist:itch:appimage`
+  (AppImage : seulement sous Linux, ou Windows en mode développeur : liens symboliques). AppImage construite et
+  lancée sur le serveur (partie neuve, Steam coupé), envoyée à Victor en 5 morceaux.
 - 🟡 Mac : `npm run dist:itch:mac` (zip Apple Silicon + Intel) à construire SUR UN MAC ; sans compte Apple Developer
   (99 $/an) l'appli n'est pas notarisée : premier lancement par clic droit → Ouvrir.
 - 🟡 itch.io : couverture 630×500 → `steam/capsules/itch-cover.png` ; captures et textes : ceux de Steam.
