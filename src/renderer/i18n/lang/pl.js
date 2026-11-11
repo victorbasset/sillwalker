@@ -1149,4 +1149,5 @@ export default {
   2273: "Zdobyte relikwie pojawiają się na początku plakietek bohatera; następny wielki boss jest zapowiadany w strefie.",
   2274: "Pasek zużywa mniej: kontury i poświaty rysowane raz na zawsze.",
   2275: "Strefa {0}: {1} wzmocni: {2} (poziom {3} → {4}).",
+  2276: "Doskonała relikwia (poziom 5)",
 };

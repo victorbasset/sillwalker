@@ -1149,4 +1149,5 @@ export default {
   2273: "As relíquias conquistadas aparecem no início dos selos do seu herói; o próximo chefe maior é anunciado na zona.",
   2274: "A faixa consome menos: contornos e halos desenhados de uma vez por todas.",
   2275: "Zona {0}: {1} reforçará {2} (nível {3} → {4}).",
+  2276: "Relíquia perfeita (nível 5)",
 };

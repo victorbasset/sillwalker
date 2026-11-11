@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 612) : succès RELIC_MAX « Relique parfaite (niveau 5) » (README : liste Steam ; à créer aussi sur
+  Steamworks). Traduit ; test logique ; lang-overflow pl, de, ru à 1920 et 1280 : aucun défilement. 133/133.
 - 2026-11-11 (it. 611) : panneau de la zone : un gardien de relique déjà gagnée (pas au niveau 5) est aussi annoncé :
   « Zone 50 : Le Geôlier mécanique renforcera Drone stellaire (niveau 3 → 4). » ; rien au niveau 5. Autotest
   complété ; pire cas (zone 145, de / pl / ru, 1280 et 1366) : aucun défilement. 133/133.
@@ -2126,7 +2128,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   9. Boss majeurs et reliques (it. 571-583) : zone 50 (Geôlier mécanique, Drone stellaire), 100, 150 ; relique qui
      flotte à droite du boss, scène d'arrivée, scène de la relique gagnée (histoire), drone qui tire à côté du héros,
      couronne sur la tête, cœur et lame dans le dos ; sons du drone et de la relique (volumes ?) ; puissance réglée
-     ≈ 15-20 zones par relique : trop, pas assez ? Succès RELIC_FIRST et RELICS_ALL à créer sur Steamworks.
+     ≈ 15-20 zones par relique : trop, pas assez ? Succès RELIC_FIRST, RELICS_ALL et RELIC_MAX à créer sur Steamworks.
   10. Combat de boss : barres de vie du héros et du boss sous les pieds (it. 580) : bien lisibles ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).

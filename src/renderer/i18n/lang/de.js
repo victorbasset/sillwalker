@@ -1149,4 +1149,5 @@ export default {
   2273: "Gewonnene Relikte erscheinen vorne bei den Abzeichen deines Helden; der nächste große Boss wird in der Zone angekündigt.",
   2274: "Der Streifen braucht weniger: Umrisse und Leuchten werden ein für alle Mal gezeichnet.",
   2275: "Zone {0}: {1} verstärkt {2} (Stufe {3} → {4}).",
+  2276: "Perfektes Relikt (Stufe 5)",
 };

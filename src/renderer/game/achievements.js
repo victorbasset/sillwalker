@@ -11,7 +11,7 @@ import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
 import { CHRONICLES } from "./story.js";
-import { RELIC_IDS, hasRelic } from "./relics.js";
+import { RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel } from "./relics.js";
 import { classSpells, spellRank } from "./spells.js";
 
 /** Le plus de sorts appris par un même héros (0 à 3). */
@@ -87,6 +87,7 @@ export const ACHIEVEMENTS = [
   // Reliques des boss majeurs (demande S, it. 583)
   { id: "RELIC_FIRST",     name: "Première relique",   test: (S) => RELIC_IDS.some((id) => hasRelic(S, id)) },
   { id: "RELICS_ALL",      name: "Les quatre reliques", test: (S) => RELIC_IDS.every((id) => hasRelic(S, id)) },
+  { id: "RELIC_MAX",       name: "Relique parfaite (niveau 5)", test: (S) => RELIC_IDS.some((id) => relicLevel(S, id) >= RELIC_MAX_LV) },
 ];
 
 /** Identifiants des succès dont la condition est remplie. */

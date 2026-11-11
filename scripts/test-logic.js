@@ -2580,6 +2580,7 @@ test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagné
   assert.equal(g.S.relicLv.blade, 2, "Lame : niveau 2");
   for (let i = 0; i < 6; i++) g.gainRelic("blade");
   assert.equal(g.S.relicLv.blade, 5, "niveau 5 au plus");
+  assert.ok(M_achievements_js.reachedAchievements(g.S).includes("RELIC_MAX"), "succès « Relique parfaite »");
   // gardées à l'ascension ; une relique inconnue d'une autre version est retirée
   g.S.best = g.S.zone = 160; assert.ok(g.ascend()); assert.ok(hasRelic_T(g.S, "drone") && hasRelic_T(g.S, "crown"), "gardées à l'ascension");
   assert.equal(g.S.relicLv.blade, 5, "niveaux gardés à l'ascension");

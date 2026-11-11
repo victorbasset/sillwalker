@@ -1149,4 +1149,5 @@ export default {
   2273: "Relics you have won appear first among your hero's badges; the next major boss is announced in the zone panel.",
   2274: "The strip uses less CPU: outlines and glows are drawn once and for all.",
   2275: "Zone {0}: {1} will strengthen {2} (level {3} → {4}).",
+  2276: "Perfect relic (level 5)",
 };
