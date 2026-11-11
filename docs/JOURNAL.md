@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 762) : traductions des infobulles et libellés d'accessibilité (title, aria-label, placeholder) des
+  12 onglets : en russe, seuls « Sillwalker » et « Esc » restent latins ; en japonais (--dump-text), seuls HP, Lv, BGM,
+  pt (usages japonais), les noms des langues et DEV (commandes de dev). Rien à corriger.
 - 2026-11-11 (it. 761) : accessibilité : deux contrôles d'autotest (143) : chaque bouton visible des 12 onglets du
   panneau, et de la bande, a un nom pour les lecteurs d'écran (texte, aria-label ou title). Tous passent déjà ; ils
   garderont les futurs boutons-icônes nommés.
