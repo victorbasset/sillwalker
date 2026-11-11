@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 717) : même sonde (boutons hors carte, hors rangées défilantes) en allemand et en russe, 1366 et 1280,
+  12 onglets, copie réelle avec expéditions finies : rien.
 - 2026-11-11 (it. 716) : suite de la demande U : sonde TEMP sur une copie réelle (expéditions finies) : boutons qui
   dépassent de leur carte, 12 onglets, 1920 et 1280. 1920 : rien. 1280 : seulement des rangées défilantes voulues
   (Boutique : marchand, potions, coffres ; Familiers : barre du haut), capture vérifiée. Rien à corriger.
