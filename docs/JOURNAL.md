@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 761) : accessibilité : deux contrôles d'autotest (143) : chaque bouton visible des 12 onglets du
+  panneau, et de la bande, a un nom pour les lecteurs d'écran (texte, aria-label ou title). Tous passent déjà ; ils
+  garderont les futurs boutons-icônes nommés.
 - 2026-11-11 (it. 760) : revue générale (contre 5a1ec23, it. 750) : équilibrage 12 h +0,0 zone (moyenne 61,9) ; 1200
   parties, 0 bloquée ; 20 sauvegardes abîmées tolérées ; clics en chinois (318) et en allemand (319) sans erreur ;
   bande 19,5 %, panneau 21,2 %, mini 6,6 %, icône 0,5 % ; mémoire réelle 527 Mo stable sur 5 min (bruit déjà vu :
