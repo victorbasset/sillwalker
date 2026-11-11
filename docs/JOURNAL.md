@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 601) : mesure de la mémoire corrigée : mem-watch additionnait les RSS (mémoire partagée comptée
+  plusieurs fois, écran virtuel Xvfb compris) : ≈ 800 Mo. Il affiche maintenant aussi le « réel » (PSS de l'arbre
+  Electron) : ≈ 515 Mo stables (rendu ≈ 190, principal ≈ 90, GPU ≈ 75, son + réseau ≈ 50). CLAUDE.md à jour.
 - 2026-11-11 (it. 600, revue générale) : balance 12 h vs d9e1cb2 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl de / ru 322 clics sans erreur (avec reliques) ; perf bande 19,5 %, panneau 20,5 %, mini 6,5 %, icône 0,6 % ;
   mémoire 802 Mo stable. Pas de nouveau texte depuis la revue 590 (vidage russe non refait).
