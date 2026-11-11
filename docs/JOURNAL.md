@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 600, revue générale) : balance 12 h vs d9e1cb2 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl de / ru 322 clics sans erreur (avec reliques) ; perf bande 19,5 %, panneau 20,5 %, mini 6,5 %, icône 0,6 % ;
+  mémoire 802 Mo stable. Pas de nouveau texte depuis la revue 590 (vidage russe non refait).
 - 2026-11-11 (it. 599) : CLAUDE.md : repère de performance mis à jour (bande ≈ 19,0 %, panneau ≈ 21 %, mini ≈ 6,6 %,
   icône ≈ 0,6 % ; images dessinées des it. 594-598).
 - 2026-11-11 (it. 598) : mode mini : halo légendaire dessiné aussi dans l'image (glowFrames) ; la règle CSS
