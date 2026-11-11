@@ -103,6 +103,31 @@ const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
 const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates", "autos"]);
 
+/** (it. 774) Polices (forme courte CSS : style, graisse, taille, familles) des textes d'un onglet, même caché. */
+function fontsOf(root) {
+  const out = new Set();
+  for (const e of root.querySelectorAll("*")) {
+    let txt = false;
+    for (const n of e.childNodes) if (n.nodeType === 3 && n.data.trim()) { txt = true; break; }
+    if (!txt) continue;
+    const c = getComputedStyle(e);
+    out.add(`${c.fontStyle} ${c.fontWeight} ${c.fontSize} ${c.fontFamily}`);
+  }
+  return out;
+}
+
+/** Crée une police d'avance (invisible) : lettres, chiffres et symboles courants du jeu, polices de secours comprises. */
+const FONT_SAMPLE = "AaBbÉéèêàçùô 0123456789 %+−×→←★☆✦✓⚔•…·:«»’";
+function warmFont(font) {
+  const s = document.createElement("span");
+  s.style.cssText = "position:absolute;left:-9999px;top:0;visibility:hidden;white-space:nowrap;";
+  s.style.font = font;
+  s.textContent = FONT_SAMPLE;
+  document.body.appendChild(s);
+  void s.offsetWidth;
+  s.remove();
+}
+
 export class Panel {
   constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
     this.root = root;
@@ -214,6 +239,8 @@ export class Panel {
     if (open) {
       this.sinceVisit = this.game.visitSummary(this.visitSnap); // « Depuis ta dernière visite » (panneau resté fermé ≥ 5 min)
       const t0 = performance.now();
+      // (it. 774) l'onglet courant a pu être caché par la préparation (warmTabs) : il se montre
+      for (const p of this.root.querySelectorAll("[data-pane]")) p.hidden = p.dataset.pane !== this.tab;
       this.dirty = true; this.update(1);
       this.slowProbe("ouverture du panneau", t0);
     } else { this.visitSnap = this.game.visitSnapshot(); this.sinceVisit = null; }
@@ -271,34 +298,51 @@ export class Panel {
    */
   warmTabs() {
     const idle = window.requestIdleCallback || ((f) => setTimeout(f, 200));
-    const ids = TABS.map((t) => t.id).filter((id) => id !== "adventure" && this.tabs[id]);
-    // l'onglet courant (Aventure en général) d'abord : le premier clic sur la bande ouvre le panneau dessus
-    idle(() => { try { this.renderAll(); for (const img of this.root.querySelectorAll("img")) img.decode?.().catch(() => {}); } catch { /* idem */ } }, { timeout: 3000 });
-    const next = () => {
-      const id = ids.shift();
-      if (!id) return;
+    // (it. 774) Sous Windows chez Victor, la première mise en page d'un onglet coûtait 150 à 580 ms (8 à 23 ms ici) :
+    // le temps part dans la première création de chaque combinaison police × taille × graisse (34 dans le panneau),
+    // pas dans le texte (400 lignes de mots jamais vus : 2 ms). Le travail est donc découpé en petites tâches, une par
+    // moment libre : construire chaque onglet, relever ses polices, créer chaque police à part, puis mettre en page.
+    const queue = [], dev = !!window.__devSlow;
+    const run = () => {
+      const task = queue.shift();
+      if (!task) return;
       idle(() => {
-        try {
-          if (tabOpen(this.game.S, id) && id !== this.tab) {
-            const pane = $(this.root, `[data-pane="${id}"]`);
-            // déjà affiché une fois : rien à préparer (et surtout ne pas le redessiner sous les yeux du joueur)
-            if (!pane.childElementCount) {
-              const t0 = performance.now();
-              this.tabs[id].render(pane);
-              const t1 = performance.now();
-              for (const img of pane.querySelectorAll("img")) img.decode?.().catch(() => {});
-              // (it. 765, freezes encore signalés sous Windows) une mise en page invisible : polices de secours (symboles,
-              // emoji, CJK) chargées et images mesurées maintenant, pas au premier clic
-              pane.classList.add("warming"); pane.hidden = false; void pane.offsetHeight; pane.hidden = true; pane.classList.remove("warming");
-              const t2 = performance.now();
-              if (window.__devSlow && t2 - t0 > 100) console.warn(`[lent] préparation de l'onglet ${id} : construction ${Math.round(t1 - t0)} ms, mise en page ${Math.round(t2 - t1)} ms`);
-            }
-          }
-        } catch { /* préchauffage seulement : l'onglet sera rendu normalement à l'ouverture */ }
-        next();
+        const t0 = performance.now();
+        try { task.fn(); } catch { /* préchauffage seulement : l'onglet sera rendu normalement à l'ouverture */ }
+        const ms = performance.now() - t0;
+        if (dev && ms > 50) console.warn(`[lent] préparation (${task.what}) : ${Math.round(ms)} ms`);
+        run();
       }, { timeout: 3000 });
     };
-    next();
+    const ids = TABS.map((t) => t.id).filter((id) => this.tabs[id] && tabOpen(this.game.S, id));
+    const pane = (id) => $(this.root, `[data-pane="${id}"]`);
+    const built = [];
+    for (const id of ids) {
+      queue.push({ what: "construction " + id, fn: () => {
+        const p = pane(id);
+        // déjà affiché une fois : rien à reconstruire (et surtout ne pas le redessiner sous les yeux du joueur)
+        if (!p.childElementCount) {
+          // l'onglet courant aussi, caché le temps de créer ses polices (panneau fermé ; setOpen le montre au besoin)
+          if (id === this.tab) { if (this.isOpen) return; p.hidden = true; this.renderAll(); }
+          else this.tabs[id].render(p);
+          built.push(id);
+        }
+        for (const img of p.querySelectorAll("img")) img.decode?.().catch(() => {});
+      } });
+    }
+    const fonts = new Set();
+    for (const id of ids) queue.push({ what: "polices " + id, fn: () => { for (const f of fontsOf(pane(id))) fonts.add(f); } });
+    queue.push({ what: "liste des polices", fn: () => {
+      for (const f of fonts) queue.push({ what: "police " + f, fn: () => warmFont(f) });
+      // enfin la mise en page invisible des onglets construits (images mesurées, texte mis en forme)
+      for (const id of built) queue.push({ what: "mise en page " + id, fn: () => {
+        const p = pane(id);
+        if (id === this.tab) { p.hidden = false; void p.offsetHeight; return; }
+        if (!p.hidden) return;
+        p.classList.add("warming"); p.hidden = false; void p.offsetHeight; p.hidden = true; p.classList.remove("warming");
+      } });
+    } });
+    run();
   }
 
   /** Onglets trop larges pour une ligne (langues aux mots longs, petit écran), par paliers :

@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 774) : fontbench de Victor (Windows) : mots jamais vus rapides (400 lignes : 2 ms), vrais onglets
+  150-580 ms au premier passage puis 9-11 ms ; « une seule taille (14px) » 89 ms même mots connus. Le coût semble être
+  la première création de chaque police × taille × graisse (34 combinaisons dans le panneau). warmTabs découpé en
+  petites tâches (une par moment libre) : construire chaque onglet (le courant aussi, caché tant que le panneau est
+  fermé), relever ses polices (fontsOf), créer chaque police à part sur un échantillon de texte (warmFont), puis mettre
+  en page. Dev : « [lent] préparation (…) » pour toute tâche de plus de 50 ms, pour voir chez Victor laquelle coûte.
+  Victor signale aussi des clics sur les onglets qui traversent jusqu'à sa vidéo : non reproduit ici (zones cliquables
+  du panneau et des onglets justes, zoom 1 et 1,25).
 - 2026-11-11 (it. 773 bis) : le commit 6a06abd était parti avec npm test en échec (relevé juste après) : « FE0F » dans
   une expression de fontbench.js pris pour une constante non importée, et un .join(", ") (dev seulement). Corrigé.
 - 2026-11-11 (it. 773) : fontbench de Victor : les polices aussi rapides que sur le serveur (2-16 ms)… mais l'essai
