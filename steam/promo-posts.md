@@ -14,17 +14,10 @@ Conseil : retoucher chaque texte avec ses propres mots avant de poster, et répo
 
 **Texte** :
 
-Idle games tend to end up buried behind other windows, so this one just sits in a thin strip at the bottom of the
-screen. The hero walks along, fights, picks up loot, and clicks go straight through to whatever's behind.
+An idle RPG in a thin strip above your taskbar: the hero fights and loots while you work, clicks pass through. Click
+it to open the panel (heroes, skill tree, pets, ascensions…).
 
-When I want to actually play, I click the strip and a panel opens: heroes to unlock (they fight in pairs), a big skill
-tree, gear and a forge, pets you send on expeditions, ascensions, and a bunch of automations you buy as you go.
-
-It's early access on itch (Windows/Linux). Honestly I'm mostly after feedback at this point, especially on pacing:
-where it drags, where it's too generous, what you'd want automated sooner.
-
-I've got 100 free keys for anyone who wants to try it and tell me what they think. Just leave a comment and I'll DM you
-one.
+Early access, Windows/Linux. I have 100 free keys: comment and I'll DM you one, I'd love your feedback on the pacing.
 
 https://victor-basset.itch.io/sillwalker
 
