@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 746) : lang-overflow mesure le pire cas avec TOUS les déblocages achetés (record 310) : l'it. 744 était
+  passée inaperçue faute de ce cas. 10 langues × 1920 / 1366 / 1280 : aucun défilement. CLAUDE.md à jour.
 - 2026-11-11 (it. 745) : « Automatismes » : le titre de la fenêtre suit les cases cochées (autosCount) ; autotest (140) :
   tous les déblocages, plus de case sous le sac, fenêtre large, case changée sans fermer, titre « 5 / 6 ».
 - 2026-11-11 (it. 744) : BOGUE d'affichage : avec tous les déblocages (6 cases d'automatismes sous le sac : valet,

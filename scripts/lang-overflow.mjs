@@ -10,12 +10,16 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const langs = (process.argv[2] || "fr,en,es,pt,de,pl,ru,zh,ja,ko").split(",");
 const widths = (process.argv[3] || "1920,1366,1280").split(",").map(Number);
 const base = JSON.parse(fs.readFileSync(path.join(root, "dev-data", "save.json"), "utf8"));
+// (it. 746) pire cas aussi : TOUS les déblocages achetés (leurs options et rangées s'affichent ; it. 744 : les 6 cases
+// d'automatismes faisaient défiler Aventure en allemand à 1280 sans qu'aucun contrôle le voie)
+const { UNLOCKS } = await import(path.join(root, "src/renderer/game/unlocks.js"));
+const allUnlocks = Object.fromEntries(UNLOCKS.map((u) => [u.id, true]));
 let bad = 0;
 for (const lang of langs) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "sw-ovf-"));
   try {
     // (it. 579) pire cas : les quatre reliques gagnées (ligne du drone dans les statistiques, en-tête de la carte)
-    fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...base, relics: { drone: 1, heart: 1, blade: 1, crown: 1 }, settings: { ...base.settings, lang } }));
+    fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...base, unlocks: allUnlocks, best: Math.max(base.best || 1, 310), relics: { drone: 1, heart: 1, blade: 1, crown: 1 }, settings: { ...base.settings, lang } }));
     for (const w of widths) {
       let out = "";
       try {
