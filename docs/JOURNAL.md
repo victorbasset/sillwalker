@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 599) : CLAUDE.md : repère de performance mis à jour (bande ≈ 19,0 %, panneau ≈ 21 %, mini ≈ 6,6 %,
+  icône ≈ 0,6 % ; images dessinées des it. 594-598).
 - 2026-11-11 (it. 598) : mode mini : halo légendaire dessiné aussi dans l'image (glowFrames) ; la règle CSS
   .actor.legend n'existe plus. Mini 6,6 % (inchangé : petit encart). Autres filtres du héros (frénésie, œil du
   faucon, vague arcanique, protection, malédiction, hâte) : temporaires (événements, sorts), laissés. 133/133.
