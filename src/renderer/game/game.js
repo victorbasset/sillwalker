@@ -970,7 +970,10 @@ export class Game {
     const S = this.S;
     // Statistiques sans élixirs : leur effet est compté au prorata de leur durée restante.
     const hs = heroStats(S, S.equip, { buffs: false }), b = monsterBase(S.zone, false);
-    const share = (id) => Math.min(S.buffs[id] || 0, sec) / sec;
+    // (it. 839) Herboriste perpétuel : il rachète les élixirs pendant l'absence comme en jeu (avant, leur effet
+    // s'épuisait hors ligne). Chaque élixir qu'il peut payer (même réserve de 4 fois le prix) couvre toute l'absence.
+    const herbs = this.offlineBuffs(sec);
+    const share =(id) => Math.min(S.buffs[id] || 0, sec) / sec;
     const atkBoost = 1 + 0.25 * share("elixir");
     // (it. 568) + les sorts de dégâts appris (héros, compagnon à moitié) : avant, l'absence les ignorait
     // (it. 577) + le Drone stellaire et le Cœur de l'aube (reliques) : l'absence les ignorait
@@ -1039,7 +1042,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));
@@ -1556,6 +1559,29 @@ export class Game {
       n++;
     }
     if (n) { this.invalidateStats(); this.changed(); }
+    return n;
+  }
+
+  /**
+   * Herboriste perpétuel pendant une absence de `sec` secondes (it. 839) : pour chaque élixir / parchemin, achète
+   * d'avance les doses qui couvrent toute l'absence s'il peut les payer en gardant 4 fois le prix (règle d'autoBuffs).
+   * Renvoie le nombre de doses achetées (résumé d'absence).
+   */
+  offlineBuffs(sec) {
+    const S = this.S;
+    if (!hasUnlock(S, "herbalist") || S.settings.autoBuffs === false || !(sec > 0)) return 0;
+    let n = 0;
+    for (const c of CONSUMABLES) {
+      if (c.kind !== "buff") continue;
+      const left = S.buffs[c.id] || 0;
+      if (left >= sec + 60) continue;
+      const k = Math.ceil((sec + 60 - left) / c.duration), price = consumablePrice(c, S);
+      if (!(S.gold >= price * (k + 4))) continue;
+      S.gold -= price * k; S.stats.purchases = (S.stats.purchases || 0) + k;
+      S.buffs[c.id] = left + k * c.duration;
+      n += k;
+    }
+    if (n) this.invalidateStats();
     return n;
   }
 

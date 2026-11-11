@@ -1219,4 +1219,5 @@ export default {
   2343: "Os separadores ainda bloqueados aparecem a cinzento: a dica diz em que zona abrem.",
   2344: "Faixa a 100 % de opacidade: bloqueia os cliques e pode ser agarrada em qualquer ponto para a mover.",
   2345: "{n} nova conquista|{n} novas conquistas",
+  2346: "{n} elixir recomprado|{n} elixires recomprados",
 };

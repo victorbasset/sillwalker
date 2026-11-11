@@ -1219,4 +1219,5 @@ export default {
   2343: "Las pestañas aún bloqueadas se ven en gris: su descripción emergente dice en qué zona se abren.",
   2344: "Franja al 100 % de opacidad: detiene los clics y se puede agarrar por cualquier parte para moverla.",
   2345: "{n} nuevo logro|{n} nuevos logros",
+  2346: "{n} elixir recomprado|{n} elixires recomprados",
 };

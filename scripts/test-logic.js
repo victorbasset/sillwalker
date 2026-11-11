@@ -2748,6 +2748,26 @@ test("Herboriste perpétuel : rachète les élixirs dont l'effet s'achève, avec
   assert.equal(g2.autoBuffs(), 0, "sans déblocage : rien");
 });
 
+test("absence : l'Herboriste perpétuel garde les élixirs actifs pendant toute l'absence (it. 839)", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.herbalist = true; g.S.settings.autoBuffs = true; g.S.buffs = {};
+  g.S.gold = 1e9;
+  const gold0 = g.S.gold, sum = g.applyOffline(3 * 3600);
+  assert.ok(sum, "résumé d'absence");
+  assert.ok(sum.herbs >= 6 * 18, "doses couvrant 3 h pour chaque élixir : " + sum.herbs);
+  assert.ok(g.S.buffs.elixir >= 60 && g.S.buffs.fortune >= 60, "effets encore actifs au retour");
+  assert.ok(g.S.buffs.elixir <= M_shop_js.BUFF_CAP_S, "durée sous le plafond");
+  assert.ok(g.S.gold < gold0 + sum.gold, "or dépensé");
+  // sans assez d'or (réserve de 4 fois le prix) : rien, et l'effet s'épuise comme avant
+  const g2 = new Game(freshState()); g2.S.unlocks.herbalist = true; g2.S.buffs = {}; g2.S.gold = 0;
+  const s2 = g2.applyOffline(3 * 3600);
+  assert.ok(!s2 || !s2.herbs, "sans or : rien");
+  const g3 = new Game(freshState()); g3.S.buffs = {}; g3.S.gold = 1e30;
+  assert.equal(g3.offlineBuffs(3600), 0, "sans déblocage : rien");
+  g.S.settings.autoBuffs = false; g.S.buffs = {};
+  assert.equal(g.offlineBuffs(3600), 0, "option coupée : rien");
+});
+
 test("Marchand attitré : achète et équipe l'objet de l'étal qui renforce le héros (it. 736)", () => {
   const g = new Game(freshState());
   g.S.unlocks.trader = true; g.S.settings.autoTrade = true; g.S.best = 80;

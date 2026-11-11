@@ -1219,4 +1219,5 @@ export default {
   2343: "Tabs not yet unlocked are now visible, greyed out: their tooltip tells you at which zone they open.",
   2344: "Strip at 100% opacity: it blocks clicks and can be grabbed anywhere to move it.",
   2345: "{n} new achievement|{n} new achievements",
+  2346: "{n} elixir rebought|{n} elixirs rebought",
 };

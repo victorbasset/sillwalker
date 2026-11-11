@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 839) : l'Herboriste perpétuel (zone 260) travaille aussi pendant l'absence : avant, élixirs et
+  parchemins s'épuisaient hors ligne et le retour se faisait sans leur effet (or, expérience, dégâts). Il achète d'avance
+  les doses qui couvrent toute l'absence s'il peut les payer (même réserve de 4 fois le prix qu'en jeu) ; le résumé
+  « Pendant ton absence » affiche « Herboriste perpétuel : N élixirs rachetés » (10 langues). Test logique et contrôle
+  d'autotest (156/156) ; vu en capture. Reste : le Marchand attitré ne travaille pas hors ligne (l'étal ne se renouvelle
+  pas pendant l'absence, moins gênant).
 - 2026-11-11 (it. 838) : écrans de portable (1200-1499 px) : la colonne Équipement de l'Aventure était si étroite que
   les objets portés se lisaient « Star… », « Casq… », « Bott… » (même « Handschuhe : … » sur une partie neuve). Colonne
   élargie (pris sur le sac et le journal), portrait du héros aux trois quarts (net) : « Starwood Bow… », « Helm : leer ».

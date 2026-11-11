@@ -1219,4 +1219,5 @@ export default {
   2343: "Jeszcze zablokowane karty są widoczne, wyszarzone: podpowiedź mówi, w której strefie się otworzą.",
   2344: "Pasek przy 100% krycia: blokuje kliknięcia i można go chwycić w dowolnym miejscu, by go przesunąć.",
   2345: "{n} nowe osiągnięcie|{n} nowe osiągnięcia|{n} nowych osiągnięć",
+  2346: "{n} eliksir dokupiony|{n} eliksiry dokupione|{n} eliksirów dokupionych",
 };

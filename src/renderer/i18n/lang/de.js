@@ -1219,4 +1219,5 @@ export default {
   2343: "Noch gesperrte Reiter sind jetzt ausgegraut sichtbar: ihr Tooltip verrät, ab welcher Zone sie sich öffnen.",
   2344: "Leiste bei 100 % Deckkraft: Sie fängt Klicks ab und lässt sich überall greifen, um sie zu verschieben.",
   2345: "{n} neuer Erfolg|{n} neue Erfolge",
+  2346: "{n} Elixier nachgekauft|{n} Elixiere nachgekauft",
 };
