@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 658) : vérifié : « réduire les animations » du système couvre aussi les ajouts de la nuit (règle
+  globale styles.css : toutes les animations coupées, dont le flottement de la relique ; effets complets coupés).
 - 2026-11-11 (it. 657) : crawl en russe sur une partie au-delà du Rebord (zone 255, écho du Geôlier, quatre reliques
   à divers niveaux) : 334 clics sans erreur.
 - 2026-11-11 (it. 656) : lang-overflow complet (10 langues × 1920 / 1366 / 1280, pire cas des reliques) après les ajouts
