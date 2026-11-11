@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 800) : revue générale (contre 8eadb9a, it. 790) : équilibrage 12 h +0,0 (61,9) ; 1200 parties,
+  0 bloquée ; 20 sauvegardes abîmées tolérées ; clics en russe et polonais (318 chacun) sans erreur ; bande 19,6 %,
+  panneau 20,0 %, mini 6,6 %, icône 0,5 % ; mémoire réelle 486 Mo stable. Victor demande où publier hors Steam
+  (itch.io conseillé pour une démo ; une version « hors Steam » sans relance par Steam sera nécessaire).
 - 2026-11-11 (it. 799) : CLAUDE.md : section « Sortie sur Steam » (fichiers, scripts, outils, poids des régénérations
   dans l'historique git).
 - 2026-11-11 (it. 798) : Steam : bande-annonce et extrait de la bande en français (steam/media/trailer-fr.mp4,
