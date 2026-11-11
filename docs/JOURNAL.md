@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 680, revue générale) : balance 12 h vs 3e2eb6f +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl de 324 / ko 323 clics sans erreur ; perf bande 19,4 %, panneau 21,1 %, mini 6,7 % ; mémoire réelle 522 Mo stable.
 - 2026-11-11 (it. 679) : i18n-quotes (npm test) contrôle aussi les noms de héros cités dans « Quoi de neuf » : chaque
   langue doit reprendre le nom traduit du héros (it. 677 : « プリーステス » au lieu de « 司祭 ») ; vérifié qu'il le signale.
 - 2026-11-11 (it. 678) : vérifié : les affixes d'élite (Быстрый, Бешеный…) s'affichent seuls en étiquette, jamais
