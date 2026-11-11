@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 734) : Herboriste perpétuel vu en vrai (copie, zone 30, record 270) : 6 achats, les 6 effets actifs
+  (≈ 9 min restantes). Premier essai en zone 60 sans effet : héros K.O. puis recul, aucune victoire en direct ;
+  l'Herboriste agit à chaque victoire, pas pendant l'absence (rachat dès la première victoire au retour).
 - 2026-11-11 (it. 733) : « Quoi de neuf » édition 23 : l'Herboriste perpétuel (it. 732), nom cité tel qu'il est traduit
   (allemand reformulé pour garder « Ewiger Kräuterkundler » sans article). 139/139 ; de, pl sans défilement.
 - 2026-11-11 (it. 732) : nouveau déblocage au-delà du Rebord : « Herboriste perpétuel » (zone 260, 1e28 or, icône
