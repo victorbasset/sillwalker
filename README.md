@@ -250,6 +250,9 @@ après une mise en veille du PC.
 
 ## Steam : à faire avant la mise en ligne
 
+État d'avancement complet : `steam/checklist.md`.
+
+
 1. Mettre le vrai App ID dans `src/shared/config.js` (`STEAM_APP_ID`, actuellement 480 = Spacewar).
 2. Steamworks → Stats & Achievements (noms dans les 10 langues : `steam/achievements.md`, généré par
    `scripts/steam-achievements.mjs`) : créer `FIRST_BOSS`, `LEVEL_10`, `FIRST_LEGENDARY`, `ZONE_10`, `ZONE_25`,

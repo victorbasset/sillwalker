@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 785) : steam/checklist.md : liste de contrôle de la sortie (démarches de Victor, jeu, Steamworks),
+  configuration requise proposée (fr / en). Reste côté jeu : App ID, icônes 64×64 des 61 succès.
 - 2026-11-11 (it. 784) : Steam : npm run steam:build (scripts/steam-upload.mjs) : fichiers SteamPipe app_build.vdf et
   depot_build_<dépôt>.vdf pour dist/win-unpacked (App ID de config.js, dépôt = App ID + 1 par défaut, --depot, --branch
   bêta seulement, --desc), commande SteamCMD affichée. Refuse l'App ID de test 480 et une version absente. Chemins
