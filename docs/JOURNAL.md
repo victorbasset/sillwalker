@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 724) : demande V, suite : perspective des feux follets (×0,75 derrière le héros, ×1,2 devant), dans la
+  transformation déjà recalculée à chaque image. Captures vérifiées. 139/139.
 - 2026-11-11 (it. 723) : autotest (139) : z-index du héros = 2, entre les feux follets (1 derrière, 3 devant) (demande V).
 - 2026-11-11 (it. 722) : « Quoi de neuf » édition 22 : demandes U (boutons d'expédition) et V (feux follets derrière
   puis devant le héros), traduite en 9 langues avec les termes du jeu (wisp, Irrlicht, блуждающий огонёк, 鬼火…).

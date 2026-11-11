@@ -617,7 +617,8 @@ export class StripRenderer {
     const cx = x + this.hero.w / 2, cy = GROUND - this.hero.h / 2 - 4, n = this.wisps.length;
     this.wisps.forEach((w, i) => {
       const a = R.time * 1.6 + (i * Math.PI * 2) / n;
-      const t = `translate3d(${q(cx + Math.cos(a) * 26 - 3)}px,${q(cy + Math.sin(a) * 12 - 3)}px,0)`;
+      // (it. 724, demande V) perspective : plus petit derrière le héros, plus grand devant (2 tailles, pas de flou)
+      const t = `translate3d(${q(cx + Math.cos(a) * 26 - 3)}px,${q(cy + Math.sin(a) * 12 - 3)}px,0) scale(${Math.sin(a) > 0 ? 1.2 : 0.75})`;
       if (w._t !== t) { w._t = t; w.style.transform = t; w.style.zIndex = Math.sin(a) > 0 ? 3 : 1; mark("wisp"); }
     });
   }
