@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 678) : vérifié : les affixes d'élite (Быстрый, Бешеный…) s'affichent seuls en étiquette, jamais
+  accolés au nom du monstre ; « Чемпион быстрый » s'accorde avec Чемпион (masculin) : pas d'accord à faire.
 - 2026-11-11 (it. 677) : « Quoi de neuf » édition 19 : Prêtresse renforcée (it. 663), accords et ponctuation
   (it. 665-675), traduite en 9 langues (nom de classe repris tel qu'il est traduit : 司祭 en japonais).
   135/135 ; lang-overflow de, pl à 1920 / 1366 / 1280 : aucun défilement.
