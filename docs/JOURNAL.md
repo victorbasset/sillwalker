@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 726) : capture effets complets coupés (copie, 3 pétales) : feux follets immobiles autour du héros
+  (vert à gauche, orange à droite, le troisième derrière lui) : conforme à l'it. 725.
 - 2026-11-11 (it. 725) : accessibilité : effets complets coupés (dont « réduire les animations » du système, it. 658) :
   les feux follets ne tournent plus (immobiles autour du héros, un devant, les autres derrière). 139/139.
 - 2026-11-11 (it. 724) : demande V, suite : perspective des feux follets (×0,75 derrière le héros, ×1,2 devant), dans la
