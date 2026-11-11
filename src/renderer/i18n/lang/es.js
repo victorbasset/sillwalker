@@ -1163,4 +1163,7 @@ export default {
   2287: "Más allá del Alféizar: los ecos de los tres lugartenientes esperan en las zonas 250, 300 y 350; cada uno refuerza también su reliquia.",
   2288: "Las Crónicas cuentan la historia de tus reliquias; ▶ para volver a ver su escena.",
   2289: "Más allá del Alféizar, su eco (zona {0}) da uno más por partida.",
+  2290: "Silencio",
+  2291: "Cada 15 s, silencia al héroe durante 4 s: ningún hechizo.",
+  2292: "¡Silenciado!",
 };

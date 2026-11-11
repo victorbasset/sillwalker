@@ -2291,5 +2291,8 @@ export const KEYS = [
   "Écho : {0}",
   "Au-delà du Rebord : les échos des trois lieutenants attendent en zones 250, 300 et 350 ; chacun renforce aussi sa relique.",
   "Les Chroniques racontent l’histoire de tes reliques ; ▶ pour revoir leur scène.",
-  "Au-delà du Rebord, son écho (zone {0}) en donne un de plus par course."
+  "Au-delà du Rebord, son écho (zone {0}) en donne un de plus par course.",
+  "Silence",
+  "Toutes les 15 s, réduit le héros au silence pendant 4 s : plus aucun sort.",
+  "Silence !"
 ];

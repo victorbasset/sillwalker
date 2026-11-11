@@ -1163,4 +1163,7 @@ export default {
   2287: "Beyond the Sill: echoes of the three lieutenants await in zones 250, 300 and 350; each one also strengthens its relic.",
   2288: "The Chronicles tell the story of your relics; ▶ to watch their scene again.",
   2289: "Beyond the Sill, its echo (zone {0}) gives one more per run.",
+  2290: "Silence",
+  2291: "Every 15 s, silences the hero for 4 s: no spells at all.",
+  2292: "Silenced!",
 };

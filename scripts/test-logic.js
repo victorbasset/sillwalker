@@ -2610,6 +2610,7 @@ test("Échos des lieutenants (it. 634) : zones 250, 300, 350 seulement, nom « �
     const g = new Game(freshState()); g.S.zone = z; const m = g.makeMonster(true);
     assert.ok(m.echo && m.relic === relic, `zone ${z} : écho portant ${relic}`);
   }
+  assert.ok(M_bosses_js.bossMechanics(300).includes("silence") && !M_bosses_js.bossMechanics(100).includes("silence"), "Silence : échos seulement");
   for (const z of [200, 249, 251, 400]) { const g = new Game(freshState()); g.S.zone = z; assert.ok(!g.makeMonster(true).echo, `zone ${z} : pas d'écho`); }
 });
 

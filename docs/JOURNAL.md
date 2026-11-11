@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 644) : nouvelle capacité de boss « Silence » (piste « plus de mécaniques de boss »), réservée aux
+  échos des lieutenants : toutes les 15 s, plus aucun sort pendant 4 s (recharges en pause ; « Silence ! » sur la
+  bande). Hors de l'ordre des capacités ordinaires (rien ne change pour les boss existants). Test logique ; fuzz 600
+  ok ; semaine mage 268 (278 : le mage dépend des sorts), guerrier 287. À annoncer dans la prochaine édition. 135/135.
 - 2026-11-11 (it. 643) : partie neuve vérifiée en capture (20 s, français) : deux onglets, objectif « Prochaine
   découverte », zone 1 et son boss ; rien des reliques n'encombre le début.
 - 2026-11-11 (it. 642) : infobulle du niveau des reliques des lieutenants : « Au-delà du Rebord, son écho (zone N) en

@@ -1163,4 +1163,7 @@ export default {
   2287: "Jenseits des Saums: Echos der drei Statthalter warten in den Zonen 250, 300 und 350; jedes verstärkt auch sein Relikt.",
   2288: "Die Chroniken erzählen die Geschichte deiner Relikte; ▶ zeigt ihre Szene erneut.",
   2289: "Jenseits des Saums gibt sein Echo (Zone {0}) eine weitere pro Lauf.",
+  2290: "Schweigen",
+  2291: "Alle 15 s bringt er den Helden 4 s lang zum Schweigen: keine Zauber.",
+  2292: "Verstummt!",
 };

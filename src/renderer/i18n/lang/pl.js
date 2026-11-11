@@ -1163,4 +1163,7 @@ export default {
   2287: "Za Krawędzią: echa trzech namiestników czekają w strefach 250, 300 i 350; każde wzmacnia też swoją relikwię.",
   2288: "Kroniki opowiadają historię twoich relikwii; ▶, by znów zobaczyć ich scenę.",
   2289: "Za Krawędzią jego echo (strefa {0}) daje jeszcze jeden na wyprawę.",
+  2290: "Cisza",
+  2291: "Co 15 s ucisza bohatera na 4 s: żadnych zaklęć.",
+  2292: "Uciszony!",
 };

@@ -1163,4 +1163,7 @@ export default {
   2287: "Além do Parapeito: os ecos dos três tenentes esperam nas zonas 250, 300 e 350; cada um também reforça sua relíquia.",
   2288: "As Crônicas contam a história das suas relíquias; ▶ para rever a cena.",
   2289: "Além do Parapeito, seu eco (zona {0}) dá mais um por corrida.",
+  2290: "Silêncio",
+  2291: "A cada 15 s, silencia o herói por 4 s: nenhum feitiço.",
+  2292: "Silenciado!",
 };

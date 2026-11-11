@@ -250,7 +250,7 @@ export class Game {
         R.mon.dist -= (WALK_SPEED + MONSTER_SPEED) * dt * this.moveMul();
         if (R.mon.dist <= 0) {
           R.mon.dist = 0; R.mode = "fight"; R.atkT = 0.25;
-          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0;
+          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0; R.silenced = 0;
           R.spellT = {}; // sorts : premier lancer après une demi-recharge (pas tous d'un coup à l'arrivée)
           for (const sp of classSpells(this.S.cls)) if (spellRank(this.S, sp.id)) R.spellT[sp.id] = spellCd(sp, spellRank(this.S, sp.id)) * 0.5;
           // (le compagnon : ses recharges repartent aussi, décalées de 3/4)
@@ -299,7 +299,8 @@ export class Game {
         }
       }
       // Sorts (demande D) : chacun se lance tout seul quand il est rechargé, en plus de l'attaque de base.
-      if (this.castSpells(m, hs, dt)) return;
+      if (R.silenced > 0) R.silenced -= dt; // Silence (échos) : les sorts attendent
+      else if (this.castSpells(m, hs, dt)) return;
       // Brûlure, poison, serviteur
       if (m.burnT > 0) {
         const t = Math.min(dt, m.burnT);
@@ -410,6 +411,10 @@ export class Game {
     }
     if (mech.includes("regen") && !(m.burnT > 0) && !(m.poisonT > 0) && m.hp < m.max) {
       m.hp = Math.min(m.max, m.hp + m.max * 0.02 * dt);
+    }
+    if (mech.includes("silence")) { // (it. 644) échos : plus de sorts pendant 4 s, toutes les 15 s
+      m.silT = (m.silT ?? 6) - dt;
+      if (m.silT <= 0) { m.silT = 15; this.R.silenced = 4; this.emit("bossSkill", { id: "silence" }); }
     }
     if (mech.includes("frost")) {
       m.frostT = (m.frostT ?? 5) - dt;
