@@ -2765,4 +2765,11 @@ test("déblocages rangés par zone croissante (nextUnlock suit l'ordre du tablea
   assert.deepEqual(z, [...z].sort((a, b) => a - b), z.join(" "));
 });
 
+test("Steam : jamais de relance par Steam avec l'App ID de test 480 (le jeu se fermerait au lancement ; it. 792)", () => {
+  const cfg = fs.readFileSync(new URL("../src/shared/config.js", import.meta.url), "utf8");
+  const id = +(/STEAM_APP_ID: (\d+),/.exec(cfg) || [])[1], relaunch = (/STEAM_RELAUNCH_IF_NEEDED: (true|false),/.exec(cfg) || [])[1];
+  assert.ok(id > 0 && relaunch, "réglages Steam introuvables dans config.js");
+  assert.ok(!(id === 480 && relaunch === "true"), "STEAM_RELAUNCH_IF_NEEDED doit rester false avec l'App ID 480");
+});
+
 console.log(`\n${pass} tests réussis`);

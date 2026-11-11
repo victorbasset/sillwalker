@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 792) : Steam : scripts/steam-set-appid.mjs <App ID> (STEAM_APP_ID + STEAM_RELAUNCH_IF_NEEDED, retour à
+  480 = relance désactivée), essayé sur une copie ; test (195) : jamais de relance par Steam avec l'App ID 480.
+  Victor a supprimé le SDK Steamworks copié (inutile avec steamworks.js).
 - 2026-11-11 (it. 791) : captures et vidéos Steam refaites sans bulles parasites : scripts/steam-prep-save.mjs prépare
   la sauvegarde (récompense du jour déjà prise, succès déjà annoncés, « Quoi de neuf » lu, absence nulle, onglets vus).
   La bande-annonce garde l'introduction de l'histoire (vrai contenu). .gitignore : dossiers du SDK Steamworks (Victor
