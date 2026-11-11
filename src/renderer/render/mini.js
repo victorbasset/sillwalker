@@ -17,7 +17,7 @@ import { SPELL_INDEX } from "../game/spells.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 
-export const MINI_W = 340, MINI_H = 64;
+export const MINI_H = 64;
 const SCENE_W = 212, GROUND = 58, HERO_X = 8, CONTACT = 44;
 
 export class MiniRenderer {

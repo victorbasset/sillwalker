@@ -108,7 +108,5 @@ export function txn(n, src, vars) {
   if (forms.length === 2) return forms[cat === "one" ? 0 : 1];
   return forms[cat === "one" ? 0 : cat === "few" ? 1 : 2];
 }
-/** Marque du pluriel « s » : au-delà de 1 en français, sauf pour 1 en anglais (« 0 quests »). */
-export const plS = (n) => ((lang === "fr" ? n > 1 : n !== 1) ? "s" : "");
 /** Nom commun en minuscules dans une phrase, sauf en allemand (les noms y prennent une majuscule). */
 export const lc = (s) => (s == null || lang === "de" ? s : s.toLowerCase());

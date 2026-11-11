@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 685) : code mort : recherche des exports jamais utilisés (game, i18n, render, ui) : plS (ancien
+  pluriel, plus aucun appel) et MINI_W (340, périmé : la largeur vient de config.MINI_WIDTH = 370) retirés ; CLAUDE.md
+  à jour. 135/135.
 - 2026-11-11 (it. 684) : CLAUDE.md (Traductions) : outils d'accord (RU_GENDER, BOSS_GENDER / FORMS, koJosa) et quand
   les compléter (nouveau boss ou nouvelle pièce au nom non masculin ; double particule coréenne après une variable).
 - 2026-11-11 (it. 683) : coréen, suite de l'it. 682 : aucune traduction ne commence par une particule (simple ou double)

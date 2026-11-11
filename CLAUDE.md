@@ -122,8 +122,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   et vérifier avec `scripts/i18n-check.mjs <langue>` (0 problème attendu).
   Un texte qui cite « un libellé » du jeu doit le citer tel qu'il est traduit : `scripts/i18n-quotes.mjs` (lancé par `npm test`) le vérifie dans les 9 langues.
 - Pluriels : `txn(n, "{n} objet|{n} objets")` (i18n/index.js) ; chaque traduction donne ses formes séparées
-  par « | » : 1 (zh, ja, ko), 3 (ru, pl : one|few|many), 2 sinon (vérifié par i18n-check). `plS(n)` est l'ancienne
-  méthode (ne marche qu'en français/anglais), à éviter dans les nouveaux textes.
+  par « | » : 1 (zh, ja, ko), 3 (ru, pl : one|few|many), 2 sinon (vérifié par i18n-check). (L'ancienne méthode `plS(n)`,
+  qui ne marchait qu'en français et en anglais, est retirée depuis l'it. 685.)
   Nombres : `fmt`, `fmtShort`, `unit("%")`, `dec()` de `game/format.js` (format de la langue).
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
   Listes : `.join(csep())`, point final ajouté à un texte : `cend()` (« 、 » / « ， » / « 。 » en japonais et chinois ;
