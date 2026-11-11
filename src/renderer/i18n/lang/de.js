@@ -1152,4 +1152,7 @@ export default {
   2276: "Perfektes Relikt (Stufe 5)",
   2277: "+{n} Reliktstufe|+{n} Reliktstufen",
   2278: "Stufe {0} / {1}: Wirkung +{2} % (eine Stufe pro Lauf, wenn du seinen Wächter erneut besiegst).",
+  2279: "Relikte: höchstens eine Stufe pro Lauf; solange es steigen kann, schwebt das Relikt (blasser) neben seinem Wächter.",
+  2280: "Neuer Erfolg: „Perfektes Relikt (Stufe 5)“.",
+  2281: "„Seit deinem letzten Besuch“ zählt auch gewonnene Reliktstufen.",
 };

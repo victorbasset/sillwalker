@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 619) : « Quoi de neuf » édition 15 : un niveau de relique par course (précise l'édition 14), relique
+  pâle sur son gardien, succès Relique parfaite, niveaux de relique dans « Depuis ta dernière visite ». Traduite
+  (« ({0}) » retiré du libellé cité, sinon affiché tel quel) ; i18n-quotes ok ; aucun défilement de / ru / pl à 1366
+  et 1280. 133/133.
 - 2026-11-11 (it. 618) : infobulle du niveau des reliques à jour de la règle de l'it. 617 : « un niveau par course,
   en battant de nouveau son gardien » (l'édition 14 de « Quoi de neuf », publiée, n'est pas modifiée : à préciser dans
   la prochaine). Traduit. 133/133.

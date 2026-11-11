@@ -1152,4 +1152,7 @@ export default {
   2276: "Reliquia perfecta (nivel 5)",
   2277: "+{n} nivel de reliquia|+{n} niveles de reliquia",
   2278: "Nivel {0} / {1}: efecto +{2} % (un nivel por partida, al derrotar de nuevo a su guardián).",
+  2279: "Reliquias: como mucho un nivel por partida; mientras pueda subir, la reliquia flota (más pálida) junto a su guardián.",
+  2280: "Nuevo logro: «Reliquia perfecta (nivel 5)».",
+  2281: "«Desde tu última visita» también cuenta los niveles de reliquia ganados.",
 };

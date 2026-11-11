@@ -2280,5 +2280,8 @@ export const KEYS = [
   "Zone {0} : {1} renforcera {2} (niveau {3} → {4}).",
   "Relique parfaite (niveau 5)",
   "+{n} niveau de relique|+{n} niveaux de relique",
-  "Niveau {0} / {1} : effet +{2} % (un niveau par course, en battant de nouveau son gardien)."
+  "Niveau {0} / {1} : effet +{2} % (un niveau par course, en battant de nouveau son gardien).",
+  "Reliques : un niveau par course au plus ; tant qu’elle peut monter, la relique flotte (plus pâle) à côté de son gardien.",
+  "Nouveau succès : « Relique parfaite (niveau 5) ».",
+  "« Depuis ta dernière visite » compte aussi les niveaux de relique gagnés."
 ];

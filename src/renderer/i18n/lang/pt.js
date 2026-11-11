@@ -1152,4 +1152,7 @@ export default {
   2276: "Relíquia perfeita (nível 5)",
   2277: "+{n} nível de relíquia|+{n} níveis de relíquia",
   2278: "Nível {0} / {1}: efeito +{2}% (um nível por corrida, ao derrotar de novo o seu guardião).",
+  2279: "Relíquias: no máximo um nível por corrida; enquanto puder subir, a relíquia flutua (mais pálida) ao lado do guardião.",
+  2280: "Nova conquista: “Relíquia perfeita (nível 5)”.",
+  2281: "“Desde sua última visita” também conta os níveis de relíquia ganhos.",
 };
