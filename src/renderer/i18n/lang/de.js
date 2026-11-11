@@ -1166,4 +1166,7 @@ export default {
   2290: "Schweigen",
   2291: "Alle 15 s bringt er den Helden 4 s lang zum Schweigen: keine Zauber.",
   2292: "Verstummt!",
+  2293: "Die Echos der Statthalter haben eine eigene Fähigkeit: Schweigen (4 s lang keine Zauber).",
+  2294: "Das Herz der Morgenröte heilt auch zwischen den Kämpfen.",
+  2295: "Korrektur: Die Raketen der Sternendrohne werden wie deine Treffer von Panzer und Steinhaut der Bosse aufgehalten.",
 };

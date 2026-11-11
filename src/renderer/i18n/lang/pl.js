@@ -1166,4 +1166,7 @@ export default {
   2290: "Cisza",
   2291: "Co 15 s ucisza bohatera na 4 s: żadnych zaklęć.",
   2292: "Uciszony!",
+  2293: "Echa namiestników mają własną zdolność: Cisza (żadnych zaklęć przez 4 s).",
+  2294: "Serce Świtu leczy też między walkami.",
+  2295: "Poprawka: pociski Gwiezdnego drona są zatrzymywane przez pancerz i kamienną skórę bossów, jak twoje ciosy.",
 };

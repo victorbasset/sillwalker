@@ -1166,4 +1166,7 @@ export default {
   2290: "Silêncio",
   2291: "A cada 15 s, silencia o herói por 4 s: nenhum feitiço.",
   2292: "Silenciado!",
+  2293: "Os ecos dos tenentes têm uma habilidade própria: Silêncio (nenhum feitiço por 4 s).",
+  2294: "O Coração da aurora também cura entre os combates.",
+  2295: "Correção: os mísseis do Drone estelar são contidos pela carapaça e pela pele de pedra dos chefes, como seus golpes.",
 };

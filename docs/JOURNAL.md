@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 646) : « Quoi de neuf » édition 18 : Silence des échos, soin du Cœur entre les combats, correction
+  du Drone (carapace et peau de pierre : baisse annoncée, principe h). Noms repris des traductions existantes ;
+  aucun défilement de / ru / pl. 135/135.
 - 2026-11-11 (it. 645) : son du Silence (souffle qui s'éteint) ; l'autotest rend maintenant hors ligne les sons des
   10 capacités de boss (ils n'y étaient pas) : ni erreur, ni saturation. 135/135.
 - 2026-11-11 (it. 644) : nouvelle capacité de boss « Silence » (piste « plus de mécaniques de boss »), réservée aux

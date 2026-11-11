@@ -2294,5 +2294,8 @@ export const KEYS = [
   "Au-delà du Rebord, son écho (zone {0}) en donne un de plus par course.",
   "Silence",
   "Toutes les 15 s, réduit le héros au silence pendant 4 s : plus aucun sort.",
-  "Silence !"
+  "Silence !",
+  "Les échos des lieutenants ont une capacité à eux : Silence (plus aucun sort pendant 4 s).",
+  "Le Cœur de l’aube soigne aussi entre les combats.",
+  "Correction : les missiles du Drone stellaire sont retenus par la carapace et la peau de pierre des boss, comme tes coups."
 ];
