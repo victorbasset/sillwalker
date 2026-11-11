@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 819) : Victor a publié sur itch.io (https://victor-basset.itch.io/sillwalker, 1 $, pas encore
+  d'acheteur). Pour faire venir des joueurs : steam/media/reveal.gif (dézoom du héros au bureau, 800 px, 15 images/s,
+  2 Mo) et steam/promo-posts.md (Reddit r/incremental_games, forum itch.io, r/pixelart, premier devlog ; anglais).
 - 2026-11-11 (it. 818) : scripts/devlog.mjs : éditions de « Quoi de neuf » en liste Markdown (anglais, français…) pour
   les devlogs itch.io et annonces Steam. CLAUDE.md : piège des info-bulles (title → data-title).
 - 2026-11-11 (it. 817) : numéro de version (init.version) au survol du titre « Sillwalker » du panneau et dans
