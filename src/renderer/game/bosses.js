@@ -17,12 +17,35 @@ const BOSS_GENDER = {
     "Dard-de-Sable": "n", "Cœur-de-Lave": "n", "L’Œil qui ne dort pas": "n", "L’Œil des Profondeurs": "n",
     "Pince-Abysse": "p",
   },
+  // (it. 675) allemand, espagnol, portugais : l'article de l'épithète suit le genre (« Schleimkönigin die Erwachte »)
+  de: {
+    "Bave-Reine": "f", "La Veuve des Égouts": "f", "Mère des Harpies": "f", "Ignivore, mère des wyvernes": "f",
+    "Reine de Verre": "f", "Pince-Abysse": "f",
+    "Cœur-de-Lave": "n", "L’Œil qui ne dort pas": "n", "L’Œil des Profondeurs": "n",
+  },
+  es: {
+    "Morille la Ronde": "f", "Bave-Reine": "f", "Gluant des tourbières": "f", "Mâchoire Verte": "f", "La Veuve des Égouts": "f",
+    "Mère des Harpies": "f", "Pince-Abysse": "f", "Aile-de-Tempête": "f", "Ignivore, mère des wyvernes": "f",
+    "Serpent des Coraux": "f", "Reine de Verre": "f", "Roc-Barbu": "f",
+  },
+  pt: {
+    "Morille la Ronde": "f", "Bave-Reine": "f", "Gluant des tourbières": "f", "Mâchoire Verte": "f", "La Veuve des Égouts": "f",
+    "Mère des Harpies": "f", "Pince-Abysse": "f", "Aile-de-Tempête": "f", "Carapace-des-Abysses": "f",
+    "Ignivore, mère des wyvernes": "f", "Croc-de-Lune": "f", "Serpent des Coraux": "f", "Reine de Verre": "f", "Roc-Barbu": "f",
+  },
 };
 const AGREE = { ru: ruAgree, pl: plAgree };
+// formes complètes (article compris) quand l'accord n'est pas une simple terminaison
+const FORMS = {
+  de: { " l’Éveillé": { f: " die Erwachte", n: " das Erwachte" }, " l’Ancestral": { f: " die Uralte", n: " das Uralte" } },
+  es: { " l’Éveillé": { f: " la Despertada" }, " l’Ancestral": { f: " la Ancestral" } },
+  pt: { " l’Éveillé": { f: " a Desperta" }, " l’Ancestral": { f: " a Ancestral" } },
+};
 function epithet(src, key) {
-  const e = tx(key), lang = getLang();
+  const e = tx(key), lang = getLang(), g = BOSS_GENDER[lang]?.[src] || "m";
+  if (FORMS[lang]) return FORMS[lang][key]?.[g] || e;
   if (!AGREE[lang]) return e;
-  const w = AGREE[lang](e.trim(), BOSS_GENDER[lang][src] || "m");
+  const w = AGREE[lang](e.trim(), g);
   return w ? " " + w : e;
 }
 import { ZONES } from "./data.js";

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 675) : allemand, espagnol, portugais : article de l'épithète des boss accordé (FORMS + BOSS_GENDER,
+  bosses.js) : « Schleimkönigin die Erwachte », « Reina Babosa la Despertada », « Rainha Gosma a Desperta »,
+  « Das Auge … das Uralte ». Anglais inchangé. 135/135.
 - 2026-11-11 (it. 674) : polonais : mêmes épithètes de boss accordées (plAgree, i18n/index.js ; BOSS_GENDER par
   langue dans bosses.js) : « Królowa Szlamu Przebudzona », « Otchłanne Szczypce Pradawne ». Oubli russe corrigé :
   « Зелёная Пасть » est féminin. 135/135.
