@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 806) : DÉCISION DE VICTOR : la version actuelle sur itch.io à 1 $ pour récupérer les premiers avis.
+  npm run dist:itch produit aussi le ZIP (electron-builder --win dir zip ; essayé en zip Linux) ; steam/itch-page.md :
+  réglages de la page (« In development », prix 1 $ avec « payer plus », commentaires activés…) et description
+  anglais / français présentée comme accès anticipé.
 - 2026-11-11 (it. 805) : itch.io : couverture 630×500 (steam/capsules/itch-cover.png, même scène que la capsule
   principale) ; steam/checklist.md : étapes itch.io et commande PowerShell du ZIP.
 - 2026-11-11 (it. 804) : « Quoi de neuf » édition 29 : les deux succès des échos. Traduite ; le nom du Rebord repris

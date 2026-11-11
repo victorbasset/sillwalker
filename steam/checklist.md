@@ -43,8 +43,8 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - ✅ `npm run dist:itch` : version Windows sans Steam (dans `dist-itch/`) ; Steam y est entièrement coupé (pas de
   relance, pas de succès ni de cloud Steam), la partie se sauvegarde normalement sur le PC.
 - 🟡 itch.io : couverture 630×500 → `steam/capsules/itch-cover.png` ; captures et textes : ceux de Steam.
-  ZIP à téléverser (PowerShell, après `npm run dist:itch`) :
-  `Compress-Archive -Path dist-itch\win-unpacked\* -DestinationPath Sillwalker-windows.zip -Force`
+  ZIP à téléverser : `npm run dist:itch` le crée directement dans `dist-itch/` (Sillwalker-<version>-win.zip) ;
+  texte de la page : `steam/itch-page.md`.
   Page : Dashboard → Create new project → « Downloadable », ZIP coché « Windows », prix libre ou fixe.
 
 ## Configuration requise (proposition)

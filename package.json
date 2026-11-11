@@ -15,7 +15,7 @@
     "icons": "node --experimental-default-type=module scripts/make-icons.js",
     "dist": "electron-builder --win dir",
     "steam:build": "node scripts/steam-upload.mjs",
-    "dist:itch": "electron-builder --win dir -c.extraMetadata.distribution=itch -c.directories.output=dist-itch",
+    "dist:itch": "electron-builder --win dir zip -c.extraMetadata.distribution=itch -c.directories.output=dist-itch",
     "dist:zip": "electron-builder --win zip",
     "selftest": "node scripts/selftest.mjs",
     "selftest:linux": "node scripts/selftest.mjs --linux",
