@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 772) : trace de Victor (npm run trace, Windows) : en 10 s, 3 041 ms de temps propre dans
+  InlineNode::ShapeTextIncludingFirstLine (mise en forme du texte : 0,82 ms par appel), contre 97 ms ici
+  (0,05 ms par appel) ; le reste est normal. Une police se met en forme très lentement sous Windows. Fontations
+  activé ici : aucun effet (non reproduit). `npm run fontbench` (dev/fontbench.js) : 400 lignes mises en page dans
+  chaque police du jeu, texte simple et avec symboles ; ici Geist 3/5 ms, Pixelify 2/4, DotGothic16 18/24,
+  system-ui 4/7, liste du jeu 3/10.
 - 2026-11-11 (it. 771) : sous PowerShell, `npm start -- --trace=10` perd le « -- » (npm garde --trace pour lui) :
   commande `npm run trace` ajoutée (package.json).
 - 2026-11-11 (it. 770) : lignes de Victor après it. 769 : conversions de canevas négligeables (0-12 ms), construction

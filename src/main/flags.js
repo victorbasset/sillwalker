@@ -26,6 +26,7 @@ module.exports = {
   selftest: isDev && !!getArg("selftest"),
   ghost: isDev && !!getArg("ghost"),
   demo: isDev && !!getArg("demo"),
+  fontBench: isDev && !!getArg("font-bench"),            // --font-bench : coût de mise en forme du texte par police (dev/fontbench.js)
   // --trace=10 : trace Chromium de 10 s dès le lancement, résumée dans le terminal (src/main/trace.js)
   trace: isDev ? Number(getArg("trace")) || 0 : 0,
   width: isDev ? Number(getArg("width")) || 0 : 0,       // --width=1366 : simule un écran plus étroit                       // --demo : déclenche les effets spéciaux                     // --ghost : tests invisibles (hors écran, sans focus ni icône)               // --selftest : parcours automatique de l'interface          // --mode=strip|mini|icon

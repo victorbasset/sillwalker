@@ -62,6 +62,7 @@ function start() {
       isDev: flags.isDev,
       devControls: flags.isDev && !flags.releaseUi,
       crawl: flags.crawl,
+      fontBench: flags.fontBench,
       devSpeed: flags.devSpeed,
       layout: strip.layout(),
       visible: strip.renderVisible(),
