@@ -98,7 +98,7 @@ export const CLASSES = {
     role: "Maître du sabre, au corps à corps",
     desc: "Patient et précis : sa lame frappe comme l’éclair au bon moment.",
     mul: { hp: 1.05, atk: 1, def: 1.1 },
-    add: { crit: 5 },
+    add: {}, // (it. 626 : crit +5 retiré : 65-66 zones en 12 h contre ≈ 62)
     passive: { iai: 50 },
     passiveText: "Iaijutsu : chaque 4e coup d’un combat est un coup critique garanti qui inflige +50 % de dégâts.",
     contact: 44,
