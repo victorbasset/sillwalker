@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 787) : version distribuée : outils de dev exclus du paquet (src/main/trace.js, src/renderer/dev/ :
+  crawl, fontbench ; tous chargés à la demande sous une option de dev). Vérifié par une construction Linux
+  (electron-builder --linux dir, dans le dossier temporaire) : absents de app.asar, devslow.js présent (importé par
+  app.js) ; 272 Mo en tout (configuration requise : 400 Mo, marge suffisante). Version non lancée (hors dev elle
+  utiliserait la vraie sauvegarde du serveur).
 - 2026-11-11 (it. 786) : Steam : icônes des 61 succès (64×64, couleur et grisée : steam/achievement-icons/), tirées
   des dessins du jeu (icônes de boutique, héros, monstres, reliques, Briseur) sur une tuile au cadre doré ;
   scripts/steam-capsules/achicons.js (+ achicons.html, table ART succès → dessin). Victor remplit ses coordonnées

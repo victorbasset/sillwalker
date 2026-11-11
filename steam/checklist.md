@@ -43,6 +43,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 | Mémoire | 4 Go | 8 Go |
 | Graphismes | compatible DirectX 11 | carte graphique dédiée ou intégrée récente |
 | Espace disque | 400 Mo | 400 Mo |
+| | (version empaquetée : 272 Mo, mesurée sous Linux à l'it. 787 ; Windows du même ordre) | |
 | Notes | Le jeu vit dans une bande au bord de l'écran ; ≈ 500 Mo de mémoire et ≈ 20 % d'un cœur en jeu. | |
 
 English: Windows 10 64-bit (min) / Windows 11 64-bit (rec.), dual-core 2 GHz / quad-core, 4 GB / 8 GB RAM,

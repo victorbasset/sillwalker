@@ -47,7 +47,9 @@
       "!node_modules/@types/**",
       "!node_modules/undici-types/**",
       "!src/main/selftest.js",
-      "!src/main/perf.js"
+      "!src/main/perf.js",
+      "!src/main/trace.js",
+      "!src/renderer/dev/**"
     ],
     "asar": true,
     "asarUnpack": [
