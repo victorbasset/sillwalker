@@ -1182,4 +1182,5 @@ export default {
   2306: "Kowal gwiazd: podnoś noszony ekwipunek do poziomu rekordu",
   2307: "Kowal gwiazd: {0} podniesiony do poziomu {1}.",
   2308: "Kowal gwiazd: {n} przedmiot podniesiony podczas twojej nieobecności.|Kowal gwiazd: {n} przedmioty podniesione podczas twojej nieobecności.|Kowal gwiazd: {n} przedmiotów podniesionych podczas twojej nieobecności.",
+  2309: "Nowe odblokowanie za Krawędzią (strefa 230): „Kowal gwiazd” sam podnosi twój ekwipunek do poziomu rekordu za nadmiar złota.",
 };

@@ -1182,4 +1182,5 @@ export default {
   2306: "Sternenschmied: getragene Ausrüstung auf Rekordstufe heben",
   2307: "Sternenschmied: {0} auf Stufe {1} gehoben.",
   2308: "Sternenschmied: {n} Gegenstand während deiner Abwesenheit gehoben.|Sternenschmied: {n} Gegenstände während deiner Abwesenheit gehoben.",
+  2309: "Neue Freischaltung jenseits des Saums (Zone 230): Der „Sternenschmied“ hebt deine Ausrüstung selbstständig auf die Stufe deines Rekords, mit überschüssigem Gold.",
 };

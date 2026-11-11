@@ -2310,5 +2310,6 @@ export const KEYS = [
   "Remonte tout seul l’équipement porté au niveau de ton record, avec l’or en trop (option).",
   "Forgeron des astres : remonter l’équipement porté au niveau du record",
   "Forgeron des astres : {0} remonté au niveau {1}.",
-  "Forgeron des astres : {n} objet remonté pendant ton absence.|Forgeron des astres : {n} objets remontés pendant ton absence."
+  "Forgeron des astres : {n} objet remonté pendant ton absence.|Forgeron des astres : {n} objets remontés pendant ton absence.",
+  "Nouveau déblocage au-delà du Rebord (zone 230) : le « Forgeron des astres » remonte tout seul ton équipement au niveau de ton record, avec l’or en trop."
 ];

@@ -1182,4 +1182,5 @@ export default {
   2306: "Ferreiro dos astros: elevar o equipamento usado ao nível do recorde",
   2307: "Ferreiro dos astros: {0} elevado ao nível {1}.",
   2308: "Ferreiro dos astros: {n} item elevado durante sua ausência.|Ferreiro dos astros: {n} itens elevados durante sua ausência.",
+  2309: "Novo desbloqueio além do Parapeito (zona 230): o «Ferreiro dos astros» eleva sozinho seu equipamento ao nível do seu recorde, com o ouro de sobra.",
 };

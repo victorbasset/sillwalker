@@ -1182,4 +1182,5 @@ export default {
   2306: "Star Smith: raise worn equipment to the record level",
   2307: "Star Smith: {0} raised to level {1}.",
   2308: "Star Smith: {n} item raised while you were away.|Star Smith: {n} items raised while you were away.",
+  2309: "New unlock beyond the Sill (zone 230): the “Star Smith” raises your equipment to your record level on its own, with spare gold.",
 };
