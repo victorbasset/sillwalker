@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 616) : santé de la progression après les reliques : IDLE guerrier 12 h → zone 16 (repère 15) ;
+  early-pace inchangé (60 min : 109 objets, niv. 39, zone 23, 6 déblocages) ; first-minutes : premier objet ≈ 41-77 s,
+  boss ≈ 77-86 s, onglet Talents ≈ 80 s (3 graines).
 - 2026-11-11 (it. 615) : « Depuis ta dernière visite » : « +n niveaux de relique » (relique gagnée ou renforcée
   pendant que le panneau était fermé). Pluriels à 3 formes (pl, ru). Test logique. 133/133.
 - 2026-11-11 (it. 614) : vérifié en capture (zone 50, drone niveau 2) : le drone du héros à sa gauche, la relique à
