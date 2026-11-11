@@ -1208,4 +1208,5 @@ export default {
   2332: "Eine Idee, ein Fehler, ein Wunsch? Hinterlasse einen Kommentar auf der Seite des Spiels: Jede Meinung zählt.",
   2333: "Meinung abgeben",
   2334: "Neuer Knopf „Deine Meinung“ oben im Panel: eine Idee, ein Fehler? Sag es auf der Seite des Spiels.",
+  2335: "Story-Zwischensequenzen gehen in hektischen Kämpfen nicht mehr verloren (sie konnten die folgenden blockieren).",
 };

@@ -1208,4 +1208,5 @@ export default {
   2332: "Pomysł, błąd, życzenie? Zostaw komentarz na stronie gry: każda opinia się liczy.",
   2333: "Wyraź opinię",
   2334: "Nowy przycisk „Twoja opinia” u góry panelu: pomysł, błąd? Napisz na stronie gry.",
+  2335: "Przerywniki fabularne nie giną już podczas intensywnych walk (mogły blokować kolejne).",
 };

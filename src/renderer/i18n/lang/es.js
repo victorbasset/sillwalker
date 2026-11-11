@@ -1208,4 +1208,5 @@ export default {
   2332: "¿Una idea, un error, un deseo? Deja un comentario en la página del juego: cada opinión cuenta.",
   2333: "Dar mi opinión",
   2334: "Nuevo botón «Tu opinión» en la parte superior del panel: ¿una idea, un error? Cuéntalo en la página del juego.",
+  2335: "Las cinemáticas de la historia ya no se pierden en los combates intensos (podían bloquear las siguientes).",
 };

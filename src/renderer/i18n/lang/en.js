@@ -1208,4 +1208,5 @@ export default {
   2332: "An idea, a bug, a wish? Leave a comment on the game's page: every opinion counts.",
   2333: "Give feedback",
   2334: "New “Your feedback” button at the top of the panel: an idea, a bug? Tell us on the game's page.",
+  2335: "Story cutscenes are no longer lost during busy fights (they could block the following ones).",
 };

@@ -65,7 +65,7 @@ avis dans les commentaires décident de la suite. Windows 10/11, 64 bits.
 <li>Open <strong>System Settings → Privacy &amp; Security</strong>, scroll down and click <strong>Open Anyway</strong> next to Sillwalker.</li>
 <li>If macOS says the app is "damaged", open <strong>Terminal</strong> and run: <code>xattr -cr /Applications/Sillwalker.app</code>, then launch it again.</li>
 </ol>
-<p><strong>Linux</strong> — Make the file executable, then run it: <code>chmod +x Sillwalker-0.1.0-linux.AppImage</code> then <code>./Sillwalker-0.1.0-linux.AppImage</code></p>
+<p><strong>Linux</strong> — Make the file executable, then run it: <code>chmod +x Sillwalker-*-linux.AppImage</code> then <code>./Sillwalker-*-linux.AppImage</code></p>
 <p>Your progress is saved automatically. The game lives in a strip at the edge of your screen: click it to open the panel.</p>
 <hr>
 <p><strong>Windows</strong> — Décompresse l'archive où tu veux, puis lance <strong>Sillwalker.exe</strong>. Windows peut afficher un avertissement SmartScreen car le jeu n'est pas encore signé : clique sur <strong>Informations complémentaires → Exécuter quand même</strong>.</p>
@@ -75,7 +75,7 @@ avis dans les commentaires décident de la suite. Windows 10/11, 64 bits.
 <li>Ouvre <strong>Réglages Système → Confidentialité et sécurité</strong>, descends et clique sur <strong>Ouvrir quand même</strong> à côté de Sillwalker.</li>
 <li>Si macOS dit que l'app est « endommagée », ouvre le <strong>Terminal</strong> et tape : <code>xattr -cr /Applications/Sillwalker.app</code>, puis relance-la.</li>
 </ol>
-<p><strong>Linux</strong> — Rends le fichier exécutable, puis lance-le : <code>chmod +x Sillwalker-0.1.0-linux.AppImage</code> puis <code>./Sillwalker-0.1.0-linux.AppImage</code></p>
+<p><strong>Linux</strong> — Rends le fichier exécutable, puis lance-le : <code>chmod +x Sillwalker-*-linux.AppImage</code> puis <code>./Sillwalker-*-linux.AppImage</code></p>
 <p>La partie est sauvegardée automatiquement. Le jeu vit dans une bande au bord de l'écran : clique dessus pour ouvrir le panneau.</p>
 ```
 

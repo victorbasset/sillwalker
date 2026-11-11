@@ -2336,5 +2336,6 @@ export const KEYS = [
   "Ton avis",
   "Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte.",
   "Donner mon avis",
-  "Nouveau bouton « Ton avis » en haut du panneau : une idée, un bug ? Dis-le sur la page du jeu."
+  "Nouveau bouton « Ton avis » en haut du panneau : une idée, un bug ? Dis-le sur la page du jeu.",
+  "Les cinématiques de l’histoire ne se perdent plus pendant les combats chargés (elles pouvaient bloquer les suivantes)."
 ];

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 827) : version 0.1.1 (correction des cinématiques perdues) : package.json, « Quoi de neuf » édition 31
+  (traduite) ; instructions itch.io avec un nom d'AppImage générique (Sillwalker-*-linux.AppImage). AppImage 0.1.1
+  construite ici et envoyée à Victor en 5 morceaux (sha256 57897ac4…b804a) ; ZIP Windows à refaire chez lui
+  (npm run dist:itch).
 - 2026-11-11 (it. 826) : BUG trouvé grâce à la bande-annonce du guerrier : en combat chargé (zone 62 : chiffres de
   dégâts, pièces), juice.add retirait le plus ancien effet quand il y en avait trop (MAX_PARTS)… y compris la
   cinématique en cours, qui ne finissait jamais : this.cine restait « en cours » et TOUTES les cinématiques suivantes
