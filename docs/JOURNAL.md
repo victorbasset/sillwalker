@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 679) : i18n-quotes (npm test) contrôle aussi les noms de héros cités dans « Quoi de neuf » : chaque
+  langue doit reprendre le nom traduit du héros (it. 677 : « プリーステス » au lieu de « 司祭 ») ; vérifié qu'il le signale.
 - 2026-11-11 (it. 678) : vérifié : les affixes d'élite (Быстрый, Бешеный…) s'affichent seuls en étiquette, jamais
   accolés au nom du monstre ; « Чемпион быстрый » s'accorde avec Чемпион (masculin) : pas d'accord à faire.
 - 2026-11-11 (it. 677) : « Quoi de neuf » édition 19 : Prêtresse renforcée (it. 663), accords et ponctuation
