@@ -54,6 +54,7 @@ function start() {
       ghost: flags.ghost,
       testWidth: flags.width,
     });
+    if (flags.trace) require("./trace").startTrace(strip.win.webContents, flags.trace, app.getPath("temp"));
     if (!flags.ghost) trayCtl = createTray({ strip, isDev: flags.isDev, steam }); // tests : pas d'icône de notification
 
     /* ---------- IPC ---------- */

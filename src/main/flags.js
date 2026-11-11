@@ -26,6 +26,8 @@ module.exports = {
   selftest: isDev && !!getArg("selftest"),
   ghost: isDev && !!getArg("ghost"),
   demo: isDev && !!getArg("demo"),
+  // --trace=10 : trace Chromium de 10 s dès le lancement, résumée dans le terminal (src/main/trace.js)
+  trace: isDev ? Number(getArg("trace")) || 0 : 0,
   width: isDev ? Number(getArg("width")) || 0 : 0,       // --width=1366 : simule un écran plus étroit                       // --demo : déclenche les effets spéciaux                     // --ghost : tests invisibles (hors écran, sans focus ni icône)               // --selftest : parcours automatique de l'interface          // --mode=strip|mini|icon
   // --overflow-report : onglets qui défilent verticalement (scripts/lang-overflow.mjs), puis quitte
   overflowReport: isDev && !!getArg("overflow-report"),

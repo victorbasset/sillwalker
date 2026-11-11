@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 770) : lignes de Victor après it. 769 : conversions de canevas négligeables (0-12 ms), construction
+  2-29 ms, mais MISE EN PAGE 85-538 ms par onglet (ici 10-30 ms) : c'est elle. Pour voir quoi dedans sous Windows :
+  `npm start -- --trace=10` (src/main/trace.js) enregistre une trace Chromium de 10 s et affiche le temps propre de
+  chaque étape du fil principal (style, mise en page, mise en forme du texte, polices…) ; trace complète dans le
+  dossier temporaire. Sur le serveur, en tête : mise en forme du texte (ShapeText) 99 ms, mise en page 67 ms.
 - 2026-11-11 (it. 769) : polices CJK retirées (it. 768) : aucun effet chez Victor (panneau 859 ms, onglets 156-551 ms) ;
   laissées (sans risque). Nouvelle piste : les icônes, portraits et monstres sont dessinés sur des canevas puis
   convertis en images (toDataURL) au premier affichage ; chez Victor le canevas est accéléré par la carte graphique,
