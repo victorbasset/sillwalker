@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 808) : Linux et Mac pour itch.io : npm run dist:itch:linux (AppImage 126 Mo) et dist:itch:mac (zip
+  arm64 + x64, à construire sur un Mac) ; build.linux / build.mac dans package.json. AppImage construite et lancée sur
+  le serveur avec XDG_CONFIG_HOME dans le dossier temporaire (jamais la vraie sauvegarde) : partie neuve, intro,
+  « [steam] version hors Steam (itch) ».
 - 2026-11-11 (it. 807) : DEMANDE DE VICTOR : bande-annonce « histoire » pour YouTube (steam/media/trailer-story-en.mp4,
   65 s, 1920×1080, son AAC 48 kHz). Cartons de l'intro sur le ciel des capsules (Pixelify Sans), vraies cinématiques
   du jeu agrandies au pixel près en bandeau (intro, Geôlier mécanique, Drone stellaire, aube), dézoom du héros au

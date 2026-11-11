@@ -16,6 +16,8 @@
     "dist": "electron-builder --win dir",
     "steam:build": "node scripts/steam-upload.mjs",
     "dist:itch": "electron-builder --win dir zip -c.extraMetadata.distribution=itch -c.directories.output=dist-itch",
+    "dist:itch:linux": "electron-builder --linux AppImage -c.extraMetadata.distribution=itch -c.directories.output=dist-itch",
+    "dist:itch:mac": "electron-builder --mac zip -c.extraMetadata.distribution=itch -c.directories.output=dist-itch",
     "dist:zip": "electron-builder --win zip",
     "selftest": "node scripts/selftest.mjs",
     "selftest:linux": "node scripts/selftest.mjs --linux",
@@ -78,6 +80,25 @@
       "enableNodeOptionsEnvironmentVariable": false,
       "enableNodeCliInspectArguments": false,
       "onlyLoadAppFromAsar": true
+    },
+    "linux": {
+      "category": "Game",
+      "icon": "build/icon.png",
+      "artifactName": "Sillwalker-${version}-linux.${ext}"
+    },
+    "mac": {
+      "category": "public.app-category.role-playing-games",
+      "icon": "build/icon.png",
+      "artifactName": "Sillwalker-${version}-mac.${ext}",
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ]
     }
   }
 }
