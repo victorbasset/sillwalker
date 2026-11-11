@@ -20,5 +20,12 @@ for (const [l, steam] of Object.entries(STEAM)) {
   out += `\t\t}\n\t}\n`;
 }
 out += `}\n`;
-fs.writeFileSync(path.join(root, "steam", "richpresence.vdf"), out);
+// --check (npm test, it. 653) : échoue si le fichier n'est plus à jour (classe ajoutée, traduction changée)
+const file = path.join(root, "steam", "richpresence.vdf");
+if (process.argv.includes("--check")) {
+  const ok = fs.existsSync(file) && fs.readFileSync(file, "utf8") === out;
+  console.log(ok ? "steam/richpresence.vdf : à jour" : "steam/richpresence.vdf : PAS À JOUR, relancer scripts/steam-richpresence.mjs");
+  process.exit(ok ? 0 : 1);
+}
+fs.writeFileSync(file, out);
 console.log("steam/richpresence.vdf :", Object.keys(STEAM).length, "langues,", Object.keys(CLASSES).length, "classes");

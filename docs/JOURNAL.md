@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 653) : npm test vérifie que les fichiers Steam générés (succès, statut des amis) sont à jour
+  (--check) ; CLAUDE.md dit comment les régénérer.
 - 2026-11-11 (it. 652) : Steam : steam/achievements.md, les 61 succès avec leur nom dans les 10 langues (généré par
   scripts/steam-achievements.mjs depuis les traductions du jeu ; aucun nom manquant), à recopier dans Steamworks.
 - 2026-11-11 (it. 651) : Steam, statut vu par les amis : fichier steam/richpresence.vdf prêt à téléverser (10 langues,
