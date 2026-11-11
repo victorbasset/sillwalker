@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 751) : mémoire après le préchauffage des onglets : 520 Mo stables (5 min) : les 420 Mo de la revue 750
+  étaient faussés par les essais menés en même temps.
+  DEMANDE X de Victor : essai Tauri limité à la bande (dossier proto-tauri/, indépendant du jeu Electron) : mêmes pages
+  (src/renderer copié par build-web.mjs), pont remplacé (bridge.js -> commandes Rust), fenêtre bande + panneau en bas
+  de la zone de travail, transparente, au premier plan, clics traversants (position de la souris 20 fois/s, comme
+  Electron), sauvegarde à part (copie lue de la partie Electron au premier lancement, jamais réécrite). Pas de Rust ni
+  de droits d'installation sur le serveur : compilé pour Windows par GitHub Actions ; le jeton du serveur n'a pas le droit
+  de créer un workflow : Victor doit ajouter proto-tauri/workflow-a-ajouter.yml en .github/workflows/ (README), artefact
+  « sillwalker-tauri-essai ». Mode d'emploi et comparaison : proto-tauri/README.md.
 - 2026-11-11 (it. 750, revue générale) : balance 12 h vs fe555b7 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl ru 318 / es 319 clics sans erreur ; perf bande 19,1 %, panneau 20,5 %, mini 6,5 % ; mémoire réelle 420 Mo
   (plus bas que d'habitude, mesuré pendant d'autres essais : à confirmer à la revue 760).

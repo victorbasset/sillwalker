@@ -1,0 +1,6 @@
+{
+  "identifier": "default",
+  "description": "Essai : événements (layout, visibility) et commandes de l'application",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}
