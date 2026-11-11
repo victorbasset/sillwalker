@@ -1169,4 +1169,5 @@ export default {
   2293: "Los ecos de los lugartenientes tienen una habilidad propia: Silencio (ningún hechizo durante 4 s).",
   2294: "El Corazón del alba también cura entre combates.",
   2295: "Corrección: los misiles del Dron estelar los frenan el caparazón y la piel de piedra de los jefes, como tus golpes.",
+  2296: "Jefes mayores y ecos derrotados",
 };

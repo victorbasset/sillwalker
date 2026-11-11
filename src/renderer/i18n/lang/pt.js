@@ -1169,4 +1169,5 @@ export default {
   2293: "Os ecos dos tenentes têm uma habilidade própria: Silêncio (nenhum feitiço por 4 s).",
   2294: "O Coração da aurora também cura entre os combates.",
   2295: "Correção: os mísseis do Drone estelar são contidos pela carapaça e pela pele de pedra dos chefes, como seus golpes.",
+  2296: "Chefes maiores e ecos derrotados",
 };

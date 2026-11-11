@@ -2297,5 +2297,6 @@ export const KEYS = [
   "Silence !",
   "Les échos des lieutenants ont une capacité à eux : Silence (plus aucun sort pendant 4 s).",
   "Le Cœur de l’aube soigne aussi entre les combats.",
-  "Correction : les missiles du Drone stellaire sont retenus par la carapace et la peau de pierre des boss, comme tes coups."
+  "Correction : les missiles du Drone stellaire sont retenus par la carapace et la peau de pierre des boss, comme tes coups.",
+  "Boss majeurs et échos vaincus"
 ];

@@ -70,6 +70,7 @@ export class StatsTab {
         ${line(tx("Temps hors ligne compté"), dur(st.offlineTime))}
         ${line(tx("Monstres vaincus"), fmt(st.kills))}
         ${line(tx("Boss vaincus"), fmt(st.bosses))}
+        ${st.majors ? line(tx("Boss majeurs et échos vaincus"), fmt(st.majors)) : ""}
         ${line(tx("Élites vaincus"), fmt(st.elites || 0))}
         ${line(tx("Champions vaincus"), fmt(st.champions || 0))}
         ${line(tx("Gobelins dorés attrapés"), fmt(st.goblins || 0))}

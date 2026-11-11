@@ -1169,4 +1169,5 @@ export default {
   2293: "Die Echos der Statthalter haben eine eigene Fähigkeit: Schweigen (4 s lang keine Zauber).",
   2294: "Das Herz der Morgenröte heilt auch zwischen den Kämpfen.",
   2295: "Korrektur: Die Raketen der Sternendrohne werden wie deine Treffer von Panzer und Steinhaut der Bosse aufgehalten.",
+  2296: "Große Bosse und Echos besiegt",
 };

@@ -890,7 +890,7 @@ export class Game {
         this.emit("starbreaker", { first });
         this.gainRelic("crown");
       }
-      if (m.relic) this.gainRelic(m.relic, !!m.echo); // boss majeur (ou écho) vaincu : sa relique
+      if (m.relic) { S.stats.majors = (+S.stats.majors || 0) + 1; this.gainRelic(m.relic, !!m.echo); } // boss majeur (ou écho) vaincu : sa relique
       if (S.autoAdvance) {
         // Vrai record : au-delà de la meilleure zone de TOUTES les courses (pas seulement de celle-ci,
         // sinon chaque boss d'une course après ascension annonçait « Nouveau record ! »).

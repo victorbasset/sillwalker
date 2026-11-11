@@ -1169,4 +1169,5 @@ export default {
   2293: "The lieutenants' echoes have an ability of their own: Silence (no spells at all for 4 s).",
   2294: "The Heart of Dawn also heals between fights.",
   2295: "Fix: Star Drone missiles are now stopped by bosses' shell and stoneskin, like your hits.",
+  2296: "Major bosses and echoes defeated",
 };

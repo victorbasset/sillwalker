@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 654) : Statistiques : « Boss majeurs et échos vaincus » (S.stats.majors, affiché dès le premier).
+  Traduit ; save-fuzz ok ; aucun défilement pl / de / ru à 1920 et 1280. 135/135.
 - 2026-11-11 (it. 653) : npm test vérifie que les fichiers Steam générés (succès, statut des amis) sont à jour
   (--check) ; CLAUDE.md dit comment les régénérer.
 - 2026-11-11 (it. 652) : Steam : steam/achievements.md, les 61 succès avec leur nom dans les 10 langues (généré par
