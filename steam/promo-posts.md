@@ -14,8 +14,9 @@ Conseil : retoucher chaque texte avec ses propres mots avant de poster, et répo
 
 **Texte** :
 
-An idle RPG in a thin strip above your taskbar: the hero fights and loots while you work, clicks pass through. Click
-it to open the panel (heroes, skill tree, pets, ascensions…).
+It's an idle RPG that sits in a thin strip right above your taskbar. Your hero just keeps fighting and picking up
+loot while you work, and your clicks go straight through it. Whenever you feel like it, click the strip and the full
+game opens up: heroes, a skill tree, pets, ascensions.
 
 Early access, Windows/Linux. I have 100 free keys: comment and I'll DM you one, I'd love your feedback on the pacing.
 
