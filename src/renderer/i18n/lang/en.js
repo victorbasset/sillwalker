@@ -1204,4 +1204,7 @@ export default {
   2328: "Echo Dispelled",
   2329: "The Three Echoes",
   2330: "Two new achievements beyond the Sill: “Echo Dispelled” and “The Three Echoes”.",
+  2331: "Your feedback",
+  2332: "An idea, a bug, a wish? Leave a comment on the game's page: every opinion counts.",
+  2333: "Give feedback",
 };

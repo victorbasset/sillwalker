@@ -1204,4 +1204,7 @@ export default {
   2328: "Eco disipado",
   2329: "Los tres ecos",
   2330: "Dos nuevos logros más allá del Alféizar: «Eco disipado» y «Los tres ecos».",
+  2331: "Tu opinión",
+  2332: "¿Una idea, un error, un deseo? Deja un comentario en la página del juego: cada opinión cuenta.",
+  2333: "Dar mi opinión",
 };

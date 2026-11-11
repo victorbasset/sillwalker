@@ -2332,5 +2332,8 @@ export const KEYS = [
   "Le panneau s’ouvre sans attendre : son contenu se met à jour juste après.",
   "Écho dissipé",
   "Les trois échos",
-  "Deux nouveaux succès au-delà du Rebord : « Écho dissipé » et « Les trois échos »."
+  "Deux nouveaux succès au-delà du Rebord : « Écho dissipé » et « Les trois échos ».",
+  "Ton avis",
+  "Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte.",
+  "Donner mon avis"
 ];

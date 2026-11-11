@@ -7,6 +7,9 @@ module.exports = {
   // de le relancer (recommandé par Valve). Laisser false tant que l'App ID
   // définitif n'est pas configuré, sinon le jeu se fermerait au lancement.
   STEAM_RELAUNCH_IF_NEEDED: false,
+  // (it. 815) Réglages > « Donner mon avis » : page du jeu où les joueurs laissent leurs commentaires (seule adresse
+  // que le jeu ouvre dans le navigateur).
+  FEEDBACK_URL: "https://victor-basset.itch.io/sillwalker",
 
   STRIP_HEIGHT: 120,          // hauteur de la bande (px logiques)
   PANEL_MAX_HEIGHT: 500,      // hauteur max du panneau de gestion

@@ -1204,4 +1204,7 @@ export default {
   2328: "Eco dissipado",
   2329: "Os três ecos",
   2330: "Duas novas conquistas além do Parapeito: “Eco dissipado” e “Os três ecos”.",
+  2331: "Sua opinião",
+  2332: "Uma ideia, um bug, um desejo? Deixe um comentário na página do jogo: cada opinião conta.",
+  2333: "Dar minha opinião",
 };

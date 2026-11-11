@@ -93,6 +93,11 @@ function start() {
     ipcMain.handle("panel:set", (_e, open) => strip.setPanelOpen(open));
     ipcMain.on("mode:set", (_e, mode) => strip.setMode(String(mode)));
     ipcMain.on("app:quit", () => app.quit());
+    // (it. 815) page des avis (adresse fixe de config.js, jamais une adresse venue de la page) ; pas pendant les tests
+    ipcMain.on("app:feedback", () => {
+      if (flags.ghost || flags.crawl || flags.selftest) { console.log("[feedback] (test) " + config.FEEDBACK_URL); return; }
+      require("electron").shell.openExternal(config.FEEDBACK_URL).catch(() => {});
+    });
     // Langue de la page : traduit aussi le menu de l'icône (et s'en souvient pour le prochain lancement).
     ipcMain.on("lang:set", (_e, id) => {
       const i18n = require("./i18n");

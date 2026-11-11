@@ -1204,4 +1204,7 @@ export default {
   2328: "Echo vertrieben",
   2329: "Die drei Echos",
   2330: "Zwei neue Errungenschaften jenseits des Saums: „Echo vertrieben“ und „Die drei Echos“.",
+  2331: "Deine Meinung",
+  2332: "Eine Idee, ein Fehler, ein Wunsch? Hinterlasse einen Kommentar auf der Seite des Spiels: Jede Meinung zählt.",
+  2333: "Meinung abgeben",
 };

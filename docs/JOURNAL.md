@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 815) : pour récolter les avis des premiers joueurs (itch.io) : bouton « Ton avis » (icône de contrat,
+  info-bulle) dans la barre du panneau ; ouvre config.FEEDBACK_URL (https://victor-basset.itch.io/sillwalker, adresse
+  fixe ; jamais pendant les tests : --ghost/--crawl/--selftest) via app:feedback. Essayé d'abord comme cadre des
+  Réglages : défilement (7 à 64 px à 1280-1366) ; dans la barre, une icône de 30 px fait passer les onglets anglais
+  à 1280 px de « small slim » à « compact » (icônes seules sauf l'onglet ouvert ; français et allemand l'étaient déjà).
+  Traduit ; autotest (147) ; lang-overflow 10 langues sans défilement. À confirmer : l'adresse de la page itch.io.
 - 2026-11-11 (it. 813-814) : miniature YouTube 1280×720 (steam/capsules/youtube-thumbnail.png) et photo de profil
   itch.io 512×512 (avatar.png : le guerrier en grand sur le ciel fêlé), générées par scripts/steam-capsules/make.js.
 - 2026-11-11 (it. 812) : Victor : la musique du montage « sonne pas au bon moment ». Le rendu hors ligne est identique au

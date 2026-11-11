@@ -1290,3 +1290,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .autosbox { margin-top: 6px; }
 .autosbox > summary { cursor: pointer; color: var(--muted); font-size: 13px; }
 .modalwide .autos-body { display: flex; flex-direction: column; gap: 6px; }
+/* (it. 815) bouton « Ton avis » de la barre du panneau : icône seule, marges réduites (ne pas tasser les onglets) */
+.ptop .feedback { padding: 2px 5px; min-width: 0; line-height: 0; }
+.ptop .feedback img { width: 16px; height: 16px; image-rendering: pixelated; }

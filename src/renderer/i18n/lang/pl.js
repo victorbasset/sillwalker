@@ -1204,4 +1204,7 @@ export default {
   2328: "Rozproszone echo",
   2329: "Trzy echa",
   2330: "Dwa nowe osiągnięcia za Krawędzią: „Rozproszone echo” i „Trzy echa”.",
+  2331: "Twoja opinia",
+  2332: "Pomysł, błąd, życzenie? Zostaw komentarz na stronie gry: każda opinia się liczy.",
+  2333: "Wyraź opinię",
 };
