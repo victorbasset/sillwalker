@@ -612,6 +612,9 @@ async function runSelfTest(strip) {
   } catch (e) { return "erreur " + e.message; } })()`);
   check("musique : 8 airs et un combat de boss sans saturation, volumes équilibrés", /^ok rapport /.test(mix) && +mix.split(" ")[2] < 2.2, mix);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
+  // Touche U (it. 628) : achète le prochain déblocage s'il est prêt, ne fait rien sinon.
+  const keyU = await js("(() => { const G = window.__game, P = window.__panel, S = G.S, keep = JSON.stringify({ g: S.gold, u: S.unlocks }); const n0 = Object.keys(S.unlocks || {}).length; S.gold = 0; const a = P.onKey({ key: 'u', target: document.body }); S.gold = 1e300; const b = P.onKey({ key: 'u', target: document.body }); const n1 = Object.keys(S.unlocks || {}).length; const k = JSON.parse(keep); S.gold = k.g; S.unlocks = k.u; P.renderAll(); return a + ' ' + (b === (n1 > n0)); })()");
+  check("touche U : achète le prochain déblocage prêt, rien sans l’or", keyU === "false true", keyU);
   // Touche C du panneau : coupe puis rallume le son (comme le haut-parleur).
   const keyC = await js("(() => { const P = window.__game.S.settings, keep = { s: P.sound, m: P.music, mu: P.muted }; P.sound = true; P.muted = false; window.__panel.onKey({ key: 'c', target: document.body }); const a = P.muted; window.__panel.onKey({ key: 'c', target: document.body }); const b = P.muted; Object.assign(P, { sound: keep.s, music: keep.m, muted: keep.mu }); return a + ' ' + b; })()");
   check("touche C : coupe puis rallume le son", keyC === "true false", keyC);

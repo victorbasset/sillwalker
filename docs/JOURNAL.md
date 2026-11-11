@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 628) : touche U : achète le prochain déblocage s'il est prêt (zone atteinte et or suffisant), comme
+  un clic sur l'objectif ; rien sinon. Dans la liste des raccourcis ; traduit ; contrôle d'autotest. 134/134.
 - 2026-11-11 (it. 627) : équilibrage par héros sur 4 graines (HEROES=all, graines 7, 11, 3, 21) : le bruit d'une
   graine va jusqu'à ±4 zones par héros (lancier 67 / 62, gardien 65 / 69). Moyennes : gardien 65,3, danseuse 64,3,
   barde 63,8, artificière 63,5, lancier 63,3, chaman 62,8, prêtresse 60, autres 61-62 (moyenne 62,3) : tous dans

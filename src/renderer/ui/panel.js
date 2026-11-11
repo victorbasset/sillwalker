@@ -640,7 +640,8 @@ export class Panel {
   showKeys() {
     const K = [[tx("Changer d’onglet"), "1 … 9, 0, -, ="], [tx("Équiper le meilleur"), "E"], [tx("Vendre ce qui n’améliore pas"), "V"],
       [tx("Ranger le sac"), "S"], [tx("Transmuter les objets inutiles"), "T"], [tx("Réclamer une quête terminée (toutes avec le Bureau des contrats)"), "R"],
-      [tx("Confirmer une fenêtre"), tx("Entrée")], [tx("Fermer le panneau"), tx("Échap")], [tx("Réduire en mode mini"), "M"], [tx("Couper / rallumer le son"), "C"], [tx("Couper / rallumer la musique"), "B"]];
+      [tx("Confirmer une fenêtre"), tx("Entrée")], [tx("Fermer le panneau"), tx("Échap")], [tx("Réduire en mode mini"), "M"], [tx("Couper / rallumer le son"), "C"], [tx("Couper / rallumer la musique"), "B"],
+      [tx("Acheter le prochain déblocage (s’il est prêt)"), "U"]];
     $(this.root, "#mt").textContent = tx("Raccourcis clavier");
     $(this.root, "#mbody").innerHTML = `<ul class="lines keylist">${K.map(([l, k]) => `<li><span>${esc(l)}</span><b>${esc(k)}</b></li>`).join("")}</ul>
       <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>`;
@@ -884,6 +885,11 @@ export class Panel {
       for (const q of hasUnlock(this.game.S, "questDesk") ? done : done.slice(0, 1)) this.game.claimQuest(q.uid);
       this.renderAll();
       return true;
+    }
+    if (k === "u") { // (it. 628) acheter le prochain déblocage s'il est prêt (comme un clic sur l'objectif)
+      const u = nextUnlock(this.game.S);
+      if (!u || !unlockAvailable(this.game.S, u) || this.game.S.gold < u.price) return false;
+      this.game.buyUnlock(u.id); this.renderAll(); return true;
     }
     if ((k === "e" || k === "v" || k === "t") && !hasUnlock(this.game.S, k === "t" ? "transmute" : "bulkEquip")) return false;
     if (k === "e") { this.game.autoEquip(); this.selected = null; this.renderAll(); return true; }

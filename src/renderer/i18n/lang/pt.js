@@ -1155,4 +1155,5 @@ export default {
   2279: "Relíquias: no máximo um nível por corrida; enquanto puder subir, a relíquia flutua (mais pálida) ao lado do guardião.",
   2280: "Nova conquista: “Relíquia perfeita (nível 5)”.",
   2281: "“Desde sua última visita” também conta os níveis de relíquia ganhos.",
+  2282: "Comprar o próximo desbloqueio (se estiver pronto)",
 };

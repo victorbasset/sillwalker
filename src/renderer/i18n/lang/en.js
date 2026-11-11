@@ -1155,4 +1155,5 @@ export default {
   2279: "Relics: at most one level per run; while it can still rise, the relic floats (paler) next to its guardian.",
   2280: "New achievement: “Perfect relic (level 5)”.",
   2281: "“Since your last visit” also counts relic levels gained.",
+  2282: "Buy the next unlock (if ready)",
 };

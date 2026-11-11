@@ -1155,4 +1155,5 @@ export default {
   2279: "Relikwie: najwyżej jeden poziom na wyprawę; dopóki może rosnąć, relikwia unosi się (bledsza) obok strażnika.",
   2280: "Nowe osiągnięcie: „Doskonała relikwia (poziom 5)”.",
   2281: "„Od twojej ostatniej wizyty” liczy też zdobyte poziomy relikwii.",
+  2282: "Kup następne odblokowanie (jeśli gotowe)",
 };
