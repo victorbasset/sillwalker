@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 631) : Chroniques (carte du héros) : les reliques gagnées en tête, avec leur histoire et ▶ pour revoir
+  leur scène (relicReplay → cinématique forcée). Fenêtre large (hero-chron, mesurée ouverte) : aucun défilement fr,
+  de, pl, ru à 1920, 1366, 1280. Contrôle d'autotest. 135/135.
 - 2026-11-11 (it. 630, revue générale) : balance 12 h vs 43c902e −0,4 (bruit ; Samouraï 66 → 62) ; fuzz 1200 parties,
   0 bloquée ; save-fuzz ok ; crawl de 316 / zh 321 clics sans erreur ; perf bande 19,1 %, panneau 20,7 %, mini 6,5 % ;
   mémoire réelle 515 Mo stable.

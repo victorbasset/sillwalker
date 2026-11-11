@@ -92,6 +92,7 @@ export class Juice {
     g.on("starbreaker", ({ first }) => { if (first) this.cinematic("dawn"); });
     // Relique gagnée (demande S) : son nom et son effet, puis son histoire phrase par phrase.
     g.on("relic", ({ id }) => { if (RELICS[id]) this.cinematic("relic", { id }); });
+    g.on("relicReplay", ({ id }) => { if (RELICS[id]) this.cinematic("relic", { id, force: true }); }); // ▶ des chroniques
     g.on("setBonus", ({ id, n }) => { // panoplie : palier de 2 ou 4 pièces atteint
       const st = SETS[id]; if (!st) return;
       this.banner(`◆ ${tx("{0} : bonus {1} pièces !", { 0: st.name, 1: n })}`, st.color, this.s.heroX + 60, n >= 4);

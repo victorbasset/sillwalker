@@ -335,7 +335,10 @@ export class Panel {
     const S = this.game.S, got = chroniclesUnlocked(S, recordZone(S));
     // ▶ : revoir la cinématique de la chronique (demande 31) ; « Le ciel brisé » rejoue l'intro, la victoire n'en a pas ici.
     const play = (c) => c.id === "dawn" ? "" : ` <button class="linkbtn inline chronplay" data-action="chron-play" data-id="${c.id}" title="${esc(tx("Revoir la cinématique"))}">▶</button>`;
-    const items = [...got].reverse().map((c) => `<li class="chron"><b>${esc(tx(c.title))}</b>${play(c)}<p>${esc(tx(c.text))}</p></li>`).join("");
+    // (it. 631) les reliques gagnées : leur histoire, relisible, et ▶ pour revoir leur scène
+    const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).reverse().map((id) => { const r = RELICS[id];
+      return `<li class="chron relicchron"><b><img src="${relicIconURL(id, 1)}" alt=""> ${esc(tx(r.name))}</b> <button class="linkbtn inline chronplay" data-action="relic-play" data-id="${id}" title="${esc(tx("Revoir la cinématique"))}">▶</button><p>${esc(tx(r.story))}</p></li>`; }).join("");
+    const items = relics + [...got].reverse().map((c) => `<li class="chron"><b>${esc(tx(c.title))}</b>${play(c)}<p>${esc(tx(c.text))}</p></li>`).join("");
     return `<details class="more chronbox" data-keep="hero-chron"${this.kept.has("hero-chron") ? " open" : ""}><summary>📜 ${tx("Chroniques ({0} / {1})", { 0: got.length, 1: CHRONICLES.length })}</summary><ul class="chronlist">${items}</ul></details>`;
   }
 
@@ -770,6 +773,7 @@ export class Panel {
       return;
     }
     if (a === "chron-play") { this.game.emit("chronicleReplay", { id: b.dataset.id }); return; }
+    if (a === "relic-play") { this.game.emit("relicReplay", { id: b.dataset.id }); return; } // (it. 631) revoir la scène d'une relique
     if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); return; }
     if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }
