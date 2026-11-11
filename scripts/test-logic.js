@@ -2792,6 +2792,33 @@ test("Marchand attitré : achète et équipe l'objet de l'étal qui renforce le 
   assert.equal(g3.S.bag.length, n3, "ancien objet vendu, pas mis dans le sac");
 });
 
+test("absence : le Marchand attitré achète à chaque renouvellement de l'étal (it. 842)", () => {
+  const mk = () => {
+    const g = new Game(freshState());
+    g.S.unlocks.trader = true; g.S.settings.autoTrade = true; g.S.best = 80; g.S.zone = 80;
+    for (const k in g.S.equip) g.S.equip[k] = null;
+    g.S.bag = []; g.S.gold = 1e15; g.invalidateStats();
+    return g;
+  };
+  const g = mk(), n = g.offlineTrade(3 * 3600);
+  assert.ok(n >= 1, "objets achetés : " + n);
+  assert.ok(Object.values(g.S.equip).some(Boolean), "objets équipés");
+  assert.ok(g.S.gold < 1e15, "or dépensé");
+  assert.ok(!g.S.log.some((l) => /marchand/i.test(l)), "pas une ligne de journal par achat");
+  assert.ok(g.S.shop && g.S.shop.next > Date.now(), "étal frais au retour");
+  assert.equal(mk().offlineTrade(10 * 60), 0, "moins de 15 min : l'étal ne s'est pas renouvelé");
+  const g2 = mk(); g2.S.settings.autoTrade = false;
+  assert.equal(g2.offlineTrade(3 * 3600), 0, "option coupée : rien");
+  const g3 = mk(); g3.S.gold = 0;
+  assert.equal(g3.offlineTrade(3 * 3600), 0, "sans or : rien");
+  const g4 = new Game(freshState()); g4.S.gold = 1e30;
+  assert.equal(g4.offlineTrade(3 * 3600), 0, "sans déblocage : rien");
+  // (zone 1 : sans équipement, le héros doit tout de même vaincre des monstres pour qu'il y ait un résumé)
+  const g5 = mk(); g5.S.zone = 1;
+  const sum = g5.applyOffline(3 * 3600);
+  assert.ok(sum && sum.traded >= 1, "résumé d'absence : " + (sum && sum.traded));
+});
+
 test("déblocages rangés par zone croissante (nextUnlock suit l'ordre du tableau ; it. 736)", () => {
   const z = UNLOCKS.map((u) => u.zone);
   assert.deepEqual(z, [...z].sort((a, b) => a - b), z.join(" "));

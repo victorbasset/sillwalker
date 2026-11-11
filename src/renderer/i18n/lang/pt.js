@@ -1220,4 +1220,5 @@ export default {
   2344: "Faixa a 100 % de opacidade: bloqueia os cliques e pode ser agarrada em qualquer ponto para a mover.",
   2345: "{n} nova conquista|{n} novas conquistas",
   2346: "{n} elixir recomprado|{n} elixires recomprados",
+  2347: "Mercador de confiança: {n} item comprado durante sua ausência.|Mercador de confiança: {n} itens comprados durante sua ausência.", 2348: "{n} item comprado|{n} itens comprados",
 };

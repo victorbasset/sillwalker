@@ -1220,4 +1220,5 @@ export default {
   2344: "Leiste bei 100 % Deckkraft: Sie fängt Klicks ab und lässt sich überall greifen, um sie zu verschieben.",
   2345: "{n} neuer Erfolg|{n} neue Erfolge",
   2346: "{n} Elixier nachgekauft|{n} Elixiere nachgekauft",
+  2347: "Leibhändler: {n} Gegenstand während deiner Abwesenheit gekauft.|Leibhändler: {n} Gegenstände während deiner Abwesenheit gekauft.", 2348: "{n} Gegenstand gekauft|{n} Gegenstände gekauft",
 };

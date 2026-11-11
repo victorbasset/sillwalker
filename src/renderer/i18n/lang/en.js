@@ -1220,4 +1220,5 @@ export default {
   2344: "Strip at 100% opacity: it blocks clicks and can be grabbed anywhere to move it.",
   2345: "{n} new achievement|{n} new achievements",
   2346: "{n} elixir rebought|{n} elixirs rebought",
+  2347: "Personal Merchant: {n} item bought while you were away.|Personal Merchant: {n} items bought while you were away.", 2348: "{n} item bought|{n} items bought",
 };

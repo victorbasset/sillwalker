@@ -2348,5 +2348,7 @@ export const KEYS = [
   "Les onglets pas encore débloqués sont visibles, grisés : leur infobulle dit à quelle zone ils s’ouvrent.",
   "Bande à 100 % d’opacité : elle arrête les clics et s’attrape n’importe où pour la déplacer.",
   "{n} nouveau succès|{n} nouveaux succès",
-  "{n} élixir racheté|{n} élixirs rachetés"
+  "{n} élixir racheté|{n} élixirs rachetés",
+  "Marchand attitré : {n} objet acheté pendant ton absence.|Marchand attitré : {n} objets achetés pendant ton absence.",
+  "{n} objet acheté|{n} objets achetés"
 ];

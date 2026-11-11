@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 842) : le Marchand attitré (zone 300) travaille aussi pendant l'absence : avant, l'étal restait figé
+  hors ligne et le marchand n'achetait rien. L'étal se renouvelle toutes les 15 min d'absence (32 fois au plus) et le
+  marchand y achète ce qu'il aurait acheté en jeu (mêmes règles : gain > 1 %, réserve de 4 fois le prix, sac plein
+  géré) ; une seule ligne de journal, et « Marchand attitré : N objets achetés » dans le résumé « Pendant ton absence »
+  (10 langues). Test logique (200/200) et ligne rendue par l'autotest (156/156).
 - 2026-11-11 (it. 841) : revue générale (contre 66e052c, it. 830) : équilibrage 12 h +0,0 (61,9) ; 1200 parties,
   0 bloquée ; npm test 199/199, autotest 156/156 ; bande 18,8 %, panneau 19,4 %, mini 6,4 %, icône 0,7 % (une
   première mesure à 25 % était faussée par l'équilibrage lancé en parallèle : toujours mesurer machine au repos) ;
@@ -23,8 +28,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   parchemins s'épuisaient hors ligne et le retour se faisait sans leur effet (or, expérience, dégâts). Il achète d'avance
   les doses qui couvrent toute l'absence s'il peut les payer (même réserve de 4 fois le prix qu'en jeu) ; le résumé
   « Pendant ton absence » affiche « Herboriste perpétuel : N élixirs rachetés » (10 langues). Test logique et contrôle
-  d'autotest (156/156) ; vu en capture. Reste : le Marchand attitré ne travaille pas hors ligne (l'étal ne se renouvelle
-  pas pendant l'absence, moins gênant).
+  d'autotest (156/156) ; vu en capture. Le Marchand attitré : fait à l'it. 842.
 - 2026-11-11 (it. 838) : écrans de portable (1200-1499 px) : la colonne Équipement de l'Aventure était si étroite que
   les objets portés se lisaient « Star… », « Casq… », « Bott… » (même « Handschuhe : … » sur une partie neuve). Colonne
   élargie (pris sur le sac et le journal), portrait du héros aux trois quarts (net) : « Starwood Bow… », « Helm : leer ».

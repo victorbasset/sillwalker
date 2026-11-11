@@ -1023,6 +1023,8 @@ export class Game {
     if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     for (let i = 0; i < chests; i++) this.openChest();
     // Automatismes achetés : ils ont « travaillé » pendant l'absence (une seule ligne de journal chacun).
+    const traded = this.offlineTrade(sec);
+    if (traded) this.log(txn(traded, "Marchand attitré : {n} objet acheté pendant ton absence.|Marchand attitré : {n} objets achetés pendant ton absence."));
     let forged = 0;
     this._quiet = true;
     try { while (forged < 200 && this.autoForge()) forged++; } finally { this._quiet = false; }
@@ -1042,7 +1044,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));
@@ -1536,7 +1538,7 @@ export class Game {
     if (!this.pay(best.price)) return null;
     shop.items = shop.items.filter((i) => i !== best);
     delete best.price; delete best.deal;
-    this.log(tx("Acheté au marchand : ") + itemName(best) + cend());
+    if (!this._quiet) this.log(tx("Acheté au marchand : ") + itemName(best) + cend());
     this.equip(best);
     if (old) { S.bag = S.bag.filter((i) => i !== old); S.gold += sellValue(old); }
     return best;
@@ -1583,6 +1585,27 @@ export class Game {
     }
     if (n) this.invalidateStats();
     return n;
+  }
+
+  /**
+   * Marchand attitré pendant une absence de `sec` secondes (it. 842) : l'étal s'est renouvelé toutes les 15 min
+   * (au plus 32 fois) et le marchand a acheté à chaque fois ce qu'il aurait acheté en jeu (autoTrade, mêmes règles).
+   * Avant, l'étal restait figé hors ligne. Renvoie le nombre d'objets achetés (résumé d'absence).
+   */
+  offlineTrade(sec, now = Date.now()) {
+    const S = this.S;
+    if (!hasUnlock(S, "trader") || S.settings.autoTrade === false || !(sec >= SHOP_REFRESH_S)) return 0;
+    const n = Math.min(32, Math.floor(sec / SHOP_REFRESH_S));
+    let bought = 0;
+    this._quiet = true;
+    try {
+      for (let i = 0; i < n; i++) {
+        this.restockShop(now);
+        this._tradeKey = null;
+        for (let k = 0; k < SHOP_SLOTS && this.autoTrade(); k++) bought++;
+      }
+    } finally { this._quiet = false; }
+    return bought;
   }
 
   autoBuyPotions() {
@@ -1701,7 +1724,7 @@ export class Game {
     delete it.price; delete it.deal;
     if (it.r === LEGENDARY && ++S.stats.legendaries === 1) this.milestone("leg");
     S.bag.push(it);
-    this.log(tx("Acheté au marchand : ") + itemName(it) + cend());
+    if (!this._quiet) this.log(tx("Acheté au marchand : ") + itemName(it) + cend());
     this.changed();
     return true;
   }

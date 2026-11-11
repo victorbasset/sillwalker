@@ -1220,4 +1220,5 @@ export default {
   2344: "Franja al 100 % de opacidad: detiene los clics y se puede agarrar por cualquier parte para moverla.",
   2345: "{n} nuevo logro|{n} nuevos logros",
   2346: "{n} elixir recomprado|{n} elixires recomprados",
+  2347: "Mercader de confianza: {n} objeto comprado durante tu ausencia.|Mercader de confianza: {n} objetos comprados durante tu ausencia.", 2348: "{n} objeto comprado|{n} objetos comprados",
 };
