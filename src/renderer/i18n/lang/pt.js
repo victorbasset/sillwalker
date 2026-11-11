@@ -1218,4 +1218,5 @@ export default {
   2342: "Arrasta um objeto do saco para a linha de equipamento que se ilumina para o equipar (ou um objeto equipado para o saco para o retirar).",
   2343: "Os separadores ainda bloqueados aparecem a cinzento: a dica diz em que zona abrem.",
   2344: "Faixa a 100 % de opacidade: bloqueia os cliques e pode ser agarrada em qualquer ponto para a mover.",
+  2345: "{n} nova conquista|{n} novas conquistas",
 };

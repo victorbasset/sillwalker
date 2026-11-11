@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 837) : deux bulles corrigées hors français : la récompense du jour (vue chaque jour) écrivait
+  « 4/7 : +82 » avec l'espace française et une virgule en dur avant l'objet offert (« , » en japonais et chinois) ; la
+  bulle des succès rattrapés au lancement disait « 3 новые достижения » sans accord russe ou polonais, avec « : » et
+  virgules en dur. Désormais fsp(), csep() et txn() (« {n} nouveau succès|{n} nouveaux succès », 10 langues). Vu en
+  capture russe (« 4/7: », « 3 новых достижения: ») ; autotest 155/155.
 - 2026-11-11 (it. 836) : glisser-déposer plus tolérant : un objet du sac lâché n'importe où sur le panneau Équipement
   (portrait du héros, autre ligne, titre) va à son emplacement, la bonne ligne s'allumant dès le survol du panneau ;
   un objet porté lâché n'importe où sur le panneau Sac est retiré. Avant, il fallait viser la ligne exacte. Contrôle

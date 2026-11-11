@@ -1218,4 +1218,5 @@ export default {
   2342: "Arrastra un objeto de la bolsa a la línea de equipo que se ilumina para equiparlo (o un objeto puesto a la bolsa para quitártelo).",
   2343: "Las pestañas aún bloqueadas se ven en gris: su descripción emergente dice en qué zona se abren.",
   2344: "Franja al 100 % de opacidad: detiene los clics y se puede agarrar por cualquier parte para moverla.",
+  2345: "{n} nuevo logro|{n} nuevos logros",
 };

@@ -1218,4 +1218,5 @@ export default {
   2342: "Drag an item from the bag onto the equipment line that lights up to equip it (or drag a worn item to the bag to remove it).",
   2343: "Tabs not yet unlocked are now visible, greyed out: their tooltip tells you at which zone they open.",
   2344: "Strip at 100% opacity: it blocks clicks and can be grabbed anywhere to move it.",
+  2345: "{n} new achievement|{n} new achievements",
 };

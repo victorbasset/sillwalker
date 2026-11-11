@@ -2346,5 +2346,6 @@ export const KEYS = [
   "Fais glisser le bouton ⌃ de la bande vers un autre écran, ou vers le haut ou le bas ; le mode mini se pose où tu veux.",
   "Glisse un objet du sac sur la ligne d’équipement qui s’illumine pour l’équiper (ou un objet porté vers le sac pour le retirer).",
   "Les onglets pas encore débloqués sont visibles, grisés : leur infobulle dit à quelle zone ils s’ouvrent.",
-  "Bande à 100 % d’opacité : elle arrête les clics et s’attrape n’importe où pour la déplacer."
+  "Bande à 100 % d’opacité : elle arrête les clics et s’attrape n’importe où pour la déplacer.",
+  "{n} nouveau succès|{n} nouveaux succès"
 ];
