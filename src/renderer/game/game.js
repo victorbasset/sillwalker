@@ -1039,7 +1039,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, transmuted, petWork,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));

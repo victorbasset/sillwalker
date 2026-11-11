@@ -1594,7 +1594,7 @@ test("absence : les automatismes achetés travaillent et le résumé le dit", ()
   assert.ok(g.S.log.filter((l) => /forge|Smith/i.test(l)).length <= 2, "une ligne de journal, pas une par amélioration");
   const g2 = new Game(freshLocked());
   const sum2 = g2.applyOffline(3600);
-  assert.ok(!sum2 || (!sum2.forged && !sum2.transmuted && !sum2.petWork), "sans déblocage : rien");
+  assert.ok(!sum2 || (!sum2.forged && !sum2.anviled && !sum2.transmuted && !sum2.petWork), "sans déblocage : rien");
 });
 
 test("absence : le Grimoire de l'éveil dépense les points gagnés", () => {
@@ -2718,6 +2718,18 @@ test("Forgeron des astres : remonte l'objet porté le moins cher, avec l'or en t
   assert.equal(g.autoAnvil(), null, "option coupée : rien");
   const g2 = new Game(freshLocked()); g2.S.gold = 1e40; g2.S.best = 60;
   assert.equal(g2.autoAnvil(), null, "sans déblocage : rien");
+});
+
+test("absence : le Forgeron des astres figure dans le résumé (it. 834)", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.starSmith = true; g.S.settings.autoAnvil = true; g.S.best = 60;
+  for (const slot of ["weapon", "helm"]) { const it = g.newItem(2); it.slot = slot; it.il = 10; g.S.equip[slot] = it; }
+  g.invalidateStats();
+  g.S.gold = 1e30;
+  const sum = g.applyOffline(3 * 3600);
+  assert.ok(sum, "résumé d'absence");
+  assert.equal(sum.anviled, 2, "deux objets remontés, comptés dans le résumé");
+  assert.ok(Object.values(g.S.equip).filter((x) => x && x.il === 60).length === 2, "objets au niveau du record");
 });
 
 test("Herboriste perpétuel : rachète les élixirs dont l'effet s'achève, avec l'or en trop (it. 732)", () => {

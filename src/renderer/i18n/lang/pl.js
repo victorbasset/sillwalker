@@ -1209,4 +1209,5 @@ export default {
   2333: "Wyraź opinię",
   2334: "Nowy przycisk „Twoja opinia” u góry panelu: pomysł, błąd? Napisz na stronie gry.",
   2335: "Przerywniki fabularne nie giną już podczas intensywnych walk (mogły blokować kolejne).",
+  2336: "+{n} przedmiot podniesiony|+{n} przedmioty podniesione|+{n} przedmiotów podniesionych",
 };

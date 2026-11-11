@@ -1209,4 +1209,5 @@ export default {
   2333: "Dar mi opinión",
   2334: "Nuevo botón «Tu opinión» en la parte superior del panel: ¿una idea, un error? Cuéntalo en la página del juego.",
   2335: "Las cinemáticas de la historia ya no se pierden en los combates intensos (podían bloquear las siguientes).",
+  2336: "+{n} objeto subido|+{n} objetos subidos",
 };

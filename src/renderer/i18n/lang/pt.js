@@ -1209,4 +1209,5 @@ export default {
   2333: "Dar minha opinião",
   2334: "Novo botão “Sua opinião” no topo do painel: uma ideia, um bug? Conte na página do jogo.",
   2335: "As cenas da história não se perdem mais em combates intensos (podiam bloquear as seguintes).",
+  2336: "+{n} item elevado|+{n} itens elevados",
 };

@@ -1209,4 +1209,5 @@ export default {
   2333: "Meinung abgeben",
   2334: "Neuer Knopf „Deine Meinung“ oben im Panel: eine Idee, ein Fehler? Sag es auf der Seite des Spiels.",
   2335: "Story-Zwischensequenzen gehen in hektischen Kämpfen nicht mehr verloren (sie konnten die folgenden blockieren).",
+  2336: "+{n} Gegenstand gehoben|+{n} Gegenstände gehoben",
 };

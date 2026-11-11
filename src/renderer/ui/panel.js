@@ -430,6 +430,7 @@ export class Panel {
         ${sum.feathers ? `<li><span>${tx("Plumes du vent")}</span><b>${tx("+{0} % de vitesse", { 0: sum.feathers })}</b></li>` : ""}
         ${sum.chests ? `<li><span>${tx("Coffres au trésor")}</span><b>${sum.chests}</b></li>` : ""}
         ${sum.forged ? `<li><span>${tx("Maître de forge")}</span><b>${txn(sum.forged, "+{n} amélioration|+{n} améliorations")}</b></li>` : ""}
+        ${sum.anviled ? `<li><span>${tx("Forgeron des astres")}</span><b>${txn(sum.anviled, "+{n} objet remonté|+{n} objets remontés")}</b></li>` : ""}
         ${sum.transmuted ? `<li><span>${tx("Creuset perpétuel")}</span><b>${txn(sum.transmuted, "{n} objet transmuté|{n} objets transmutés")}</b></li>` : ""}
         ${sum.petWork ? `<li><span>${tx("Grand intendant")}</span><b>${txn(sum.petWork, "{n} tâche de familier|{n} tâches de familiers")}</b></li>` : ""}
       </ul>
