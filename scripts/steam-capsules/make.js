@@ -6,6 +6,7 @@ const SIZES = [
   ["header-capsule", 920, 430, "header"], ["small-capsule", 462, 174, "small"], ["main-capsule", 1232, 706, "main"],
   ["vertical-capsule", 748, 896, "vertical"], ["library-capsule", 600, 900, "vertical"], ["library-header", 920, 430, "header"],
   ["library-hero", 3840, 1240, "hero"], ["library-logo", 1280, 720, "logo"],
+  ["itch-cover", 630, 500, "main"], // (it. 805) couverture de la page itch.io
 ];
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });

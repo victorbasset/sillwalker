@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 805) : itch.io : couverture 630×500 (steam/capsules/itch-cover.png, même scène que la capsule
+  principale) ; steam/checklist.md : étapes itch.io et commande PowerShell du ZIP.
 - 2026-11-11 (it. 804) : « Quoi de neuf » édition 29 : les deux succès des échos. Traduite ; le nom du Rebord repris
   des traductions du jeu (Parapeito, Saum, Krawędź, Кромка, 가장자리 : i18n-quotes ne vérifie que les « libellés »
   cités, pas les noms de lieux).
