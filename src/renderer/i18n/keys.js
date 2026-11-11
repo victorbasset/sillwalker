@@ -2303,5 +2303,7 @@ export const KEYS = [
   ".",
   "La Prêtresse frappe un peu plus fort.",
   "Traductions : noms d’objets et titres des boss accordés au genre (russe, polonais, allemand, espagnol, portugais) ; ponctuation japonaise et chinoise dans le journal.",
-  "Champion {0}"
+  "Champion {0}",
+  "Les échos des lieutenants (zones 250, 300, 350) se reconnaissent à leur contour spectral bleu pâle.",
+  "Traductions : l’étiquette des champions suit l’ordre de chaque langue ; virgules japonaises et chinoises partout."
 ];

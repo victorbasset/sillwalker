@@ -1175,4 +1175,6 @@ export default {
   2299: "La Sacerdotisa golpea un poco más fuerte.",
   2300: "Traducciones: nombres de objetos y títulos de jefes concuerdan en género (ruso, polaco, alemán, español, portugués); puntuación japonesa y china en el registro.",
   2301: "Campeón {0}",
+  2302: "Los ecos de los lugartenientes (zonas 250, 300, 350) se reconocen por su contorno espectral azul pálido.",
+  2303: "Traducciones: la etiqueta de los campeones sigue el orden de cada idioma; comas japonesas y chinas en todas partes.",
 };

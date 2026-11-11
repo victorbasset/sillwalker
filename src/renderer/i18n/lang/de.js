@@ -1175,4 +1175,6 @@ export default {
   2299: "Die Priesterin schlägt etwas stärker zu.",
   2300: "Übersetzungen: Gegenstandsnamen und Boss-Titel passen sich dem Geschlecht an (Russisch, Polnisch, Deutsch, Spanisch, Portugiesisch); japanische und chinesische Satzzeichen im Protokoll.",
   2301: "{0}er Champion",
+  2302: "Die Echos der Statthalter (Zonen 250, 300, 350) erkennt man an ihrem blassblauen Geisterumriss.",
+  2303: "Übersetzungen: Die Champion-Beschriftung folgt der Wortstellung jeder Sprache; japanische und chinesische Kommas überall.",
 };

@@ -1175,4 +1175,6 @@ export default {
   2299: "The Priestess hits a little harder.",
   2300: "Translations: item names and boss titles now agree in gender (Russian, Polish, German, Spanish, Portuguese); Japanese and Chinese punctuation in the log.",
   2301: "{0} champion",
+  2302: "The lieutenants' echoes (zones 250, 300, 350) stand out with a pale blue spectral outline.",
+  2303: "Translations: the champion label follows each language's word order; Japanese and Chinese commas everywhere.",
 };

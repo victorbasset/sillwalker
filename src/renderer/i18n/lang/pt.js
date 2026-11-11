@@ -1175,4 +1175,6 @@ export default {
   2299: "A Sacerdotisa bate um pouco mais forte.",
   2300: "Traduções: nomes de itens e títulos dos chefes concordam em gênero (russo, polonês, alemão, espanhol, português); pontuação japonesa e chinesa no registro.",
   2301: "Campeão {0}",
+  2302: "Os ecos dos tenentes (zonas 250, 300, 350) são reconhecidos pelo contorno espectral azul-claro.",
+  2303: "Traduções: o rótulo dos campeões segue a ordem de cada idioma; vírgulas japonesas e chinesas em todo lugar.",
 };
