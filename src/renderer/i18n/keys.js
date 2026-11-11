@@ -2316,5 +2316,6 @@ export const KEYS = [
   "Les feux follets des pétales de compétences complets passent derrière ton héros, puis reviennent devant.",
   "Herboriste perpétuel",
   "Rachète tout seul les élixirs et parchemins quand leur effet s’achève, avec l’or en trop (option).",
-  "Herboriste perpétuel : racheter les élixirs et parchemins"
+  "Herboriste perpétuel : racheter les élixirs et parchemins",
+  "Nouveau déblocage au-delà du Rebord (zone 260) : l’« Herboriste perpétuel » rachète tout seul tes élixirs et parchemins quand leur effet s’achève."
 ];

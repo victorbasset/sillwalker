@@ -1188,4 +1188,5 @@ export default {
   2312: "Ewiger Kräuterkundler",
   2313: "Kauft Elixiere und Schriftrollen selbstständig nach, wenn ihre Wirkung endet, mit überschüssigem Gold (Option).",
   2314: "Ewiger Kräuterkundler: Elixiere und Schriftrollen nachkaufen",
+  2315: "Neue Freischaltung jenseits des Saums (Zone 260): „Ewiger Kräuterkundler“ – kauft deine Elixiere und Schriftrollen selbstständig nach, wenn ihre Wirkung endet.",
 };

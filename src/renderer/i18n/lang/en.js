@@ -1188,4 +1188,5 @@ export default {
   2312: "Everlasting Herbalist",
   2313: "Rebuys elixirs and scrolls on its own when their effect runs out, with spare gold (option).",
   2314: "Everlasting Herbalist: rebuy elixirs and scrolls",
+  2315: "New unlock beyond the Sill (zone 260): the “Everlasting Herbalist” rebuys your elixirs and scrolls on its own when their effect runs out.",
 };

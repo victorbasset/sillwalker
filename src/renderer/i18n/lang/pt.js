@@ -1188,4 +1188,5 @@ export default {
   2312: "Herbalista perpétuo",
   2313: "Recompra sozinho os elixires e pergaminhos quando o efeito acaba, com o ouro de sobra (opção).",
   2314: "Herbalista perpétuo: recomprar elixires e pergaminhos",
+  2315: "Novo desbloqueio além do Parapeito (zona 260): o «Herbalista perpétuo» recompra sozinho seus elixires e pergaminhos quando o efeito acaba.",
 };

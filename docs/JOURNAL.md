@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 733) : « Quoi de neuf » édition 23 : l'Herboriste perpétuel (it. 732), nom cité tel qu'il est traduit
+  (allemand reformulé pour garder « Ewiger Kräuterkundler » sans article). 139/139 ; de, pl sans défilement.
 - 2026-11-11 (it. 732) : nouveau déblocage au-delà du Rebord : « Herboriste perpétuel » (zone 260, 1e28 or, icône
   propre) : rachète chaque élixir / parchemin dont l'effet tombe sous 1 min, avec l'or en trop (garde 4 fois le prix),
   sans journal ni son ; option (Héros > Équipement). Traduit, test logique (192). Semaine : mage 282-287 (3 graines),

@@ -1188,4 +1188,5 @@ export default {
   2312: "Herbolario perpetuo",
   2313: "Vuelve a comprar solo los elixires y pergaminos cuando se acaba su efecto, con el oro sobrante (opción).",
   2314: "Herbolario perpetuo: volver a comprar elixires y pergaminos",
+  2315: "Nuevo desbloqueo más allá del Alféizar (zona 260): el «Herbolario perpetuo» vuelve a comprar solo tus elixires y pergaminos cuando se acaba su efecto.",
 };
