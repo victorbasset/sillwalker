@@ -453,6 +453,7 @@ export class Sound {
     on("pierced", 300, () => this.pierceSound());
     on("droneShot", 400, () => this.droneSound());
     on("relic", 1000, () => this.relicSound());
+    on("relicReplay", 1000, () => this.relicSound()); // ▶ des chroniques : la scène revue garde son carillon (it. 632)
     // relique renforcée (it. 609) : court carillon montant
     on("relicUp", 1000, () => [440, NOTES.E5, NOTES.A5, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.12, 0.35, "triangle", 0.18)));
     on("spellLearned", 500, () => [NOTES.E5, NOTES.A5, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.07, 0.25, "triangle", 0.1)));

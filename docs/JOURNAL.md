@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 632) : ▶ d'une relique dans les Chroniques : la scène revue joue aussi son carillon. 135/135.
 - 2026-11-11 (it. 631) : Chroniques (carte du héros) : les reliques gagnées en tête, avec leur histoire et ▶ pour revoir
   leur scène (relicReplay → cinématique forcée). Fenêtre large (hero-chron, mesurée ouverte) : aucun défilement fr,
   de, pl, ru à 1920, 1366, 1280. Contrôle d'autotest. 135/135.
