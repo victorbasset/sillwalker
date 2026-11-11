@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 701) : échos des lieutenants (zones 250, 300, 350) : même sprite que l'original ; contour spectral bleu
+  pâle dessiné dans l'image (outlinedFrames, echoOutline() dans strip.js), en attente et en combat : on les reconnaît
+  d'un coup d'œil. Capture vérifiée (écho du Geôlier). 135/135.
 - 2026-11-11 (it. 700, revue générale) : balance 12 h vs f4c6343 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl es 319 / pt 324 clics sans erreur ; perf bande 19,4 %, panneau 20,4 %, mini 6,6 % ; mémoire réelle 521 Mo
   (530 à la revue 690 : bruit de lancement, confirmé).

@@ -527,6 +527,10 @@ export class StripRenderer {
     return a;
   }
 
+  /** (it. 701) Écho d'un lieutenant (zones 250, 300, 350) : contour spectral bleu pâle dessiné dans l'image, pour le
+   *  distinguer de l'original (même sprite). */
+  echoOutline() { return majorBoss(this.game.S.zone)?.echo ? "#9fdcff" : null; }
+
   monY(a, bob) {
     let y = GROUND - a.h + (a.boss ? P * 2 : P);
     if (a.fly) y -= (a.boss ? 18 : 26) + bob;
@@ -542,7 +546,7 @@ export class StripRenderer {
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       // final : le Briseur d'Étoiles ; élite / champion : contour doré / violet dans l'image
-      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), !boss && line[k].elite ? eliteColor(line[k]) : null);
+      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), boss ? this.echoOutline() : line[k].elite ? eliteColor(line[k]) : null);
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
       const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
       // (it. 613) aussi tant qu'elle peut encore monter de niveau (déjà gagnée : un peu plus pâle)
@@ -582,7 +586,7 @@ export class StripRenderer {
 
   makeCorpse(mon, x) {
     if (this.corpse) this.corpse.remove();
-    const a = this.monsterActor(mon.type, mon.boss, !!mon.final, mon.elite ? eliteColor(mon) : null);
+    const a = this.monsterActor(mon.type, mon.boss, !!mon.final, mon.elite ? eliteColor(mon) : mon.boss ? this.echoOutline() : null);
     if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));
