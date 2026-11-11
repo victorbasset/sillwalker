@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 676) : test logique (188) des épithètes de boss accordées en de, es, pt, ru, pl (zones 35, 36, 81).
 - 2026-11-11 (it. 675) : allemand, espagnol, portugais : article de l'épithète des boss accordé (FORMS + BOSS_GENDER,
   bosses.js) : « Schleimkönigin die Erwachte », « Reina Babosa la Despertada », « Rainha Gosma a Desperta »,
   « Das Auge … das Uralte ». Anglais inchangé. 135/135.

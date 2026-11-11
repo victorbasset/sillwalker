@@ -2661,4 +2661,22 @@ test("listes affichées : séparateur csep(), pas de « , » en dur (it. 668)", 
   assert.deepEqual(bad, [], "utiliser .join(csep()) et cend() (i18n/index.js) : « 、 » et « 。 » en japonais, « ， » et « 。 » en chinois");
 });
 
+test("épithètes des boss accordées au genre (de, es, pt, ru, pl ; it. 673-675)", () => {
+  const before = getLang(), { bossName } = M_bosses_js;
+  // zone 35 : Bave-Reine (féminin) en 2e boucle ; zone 36 : Os-le-Roi (masculin) ; zone 81 : Cœur-de-Lave en 3e boucle
+  const cases = {
+    de: [[35, "die Erwachte"], [36, "der Erwachte"], [81, "das Uralte"]],
+    es: [[35, "la Despertada"], [36, "el Despertado"]],
+    pt: [[35, "a Desperta"], [36, "o Desperto"]],
+    ru: [[35, "Пробуждённая"], [36, "Пробуждённый"], [81, "Древнее"]],
+    pl: [[35, "Przebudzona"], [36, "Przebudzony"], [81, "Pradawne"]],
+  };
+  try {
+    for (const [lang, list] of Object.entries(cases)) {
+      setLang(lang);
+      for (const [z, want] of list) assert.ok(bossName(z).includes(want), `${lang} zone ${z} : « ${bossName(z)} » sans « ${want} »`);
+    }
+  } finally { setLang(before); }
+});
+
 console.log(`\n${pass} tests réussis`);
