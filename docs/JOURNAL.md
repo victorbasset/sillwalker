@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 627) : équilibrage par héros sur 4 graines (HEROES=all, graines 7, 11, 3, 21) : le bruit d'une
+  graine va jusqu'à ±4 zones par héros (lancier 67 / 62, gardien 65 / 69). Moyennes : gardien 65,3, danseuse 64,3,
+  barde 63,8, artificière 63,5, lancier 63,3, chaman 62,8, prêtresse 60, autres 61-62 (moyenne 62,3) : tous dans
+  ±3 zones, rien retouché. Les réglages des it. 585, 586, 626 (une seule graine) ont pu suivre du bruit ; règle
+  ajoutée à CLAUDE.md (au moins 3 graines avant de régler un héros).
 - 2026-11-11 (it. 626) : équilibrage : le Samouraï, à 65-66 zones en 12 h à chaque revue (≈ 62 pour les autres) :
   baisser vie / défense n'y changeait rien (65) ; son bonus de critique +5 % retiré : 62. À ANNONCER dans la
   prochaine édition de « Quoi de neuf » (principe h : aucune baisse silencieuse). 133/133.
