@@ -7,7 +7,8 @@ const SIZES = [
   ["vertical-capsule", 748, 896, "vertical"], ["library-capsule", 600, 900, "vertical"], ["library-header", 920, 430, "header"],
   ["library-hero", 3840, 1240, "hero"], ["library-logo", 1280, 720, "logo"],
   ["itch-cover", 630, 500, "main"], // (it. 805) couverture de la page itch.io
-  ["youtube-thumbnail", 1280, 720, "main"], // (it. 813) miniature de la bande-annonce YouTube
+  ["youtube-thumbnail", 1280, 720, "main"],
+  ["avatar", 512, 512, "avatar"], // (it. 814) photo de profil itch.io // (it. 813) miniature de la bande-annonce YouTube
 ];
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });

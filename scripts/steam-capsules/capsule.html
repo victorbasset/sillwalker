@@ -65,6 +65,13 @@ function title(size, cx, cy, align = "center") {
 }
 const k = (n) => Math.max(2, Math.round(n));
 if (kind === "logo") { title(H * 0.42, W / 2, H / 2); }
+else if (kind === "avatar") {
+  // (it. 814) photo de profil (itch.io…) : le héros en grand sur le ciel fêlé, sol en bas
+  sky();
+  const k2 = Math.round(W / 26), a = CLASS_ART.warrior, sp = buildSprite(a.walk1, a.pal, k2, false, 1);
+  x.fillStyle = "#3d5a3c"; x.fillRect(0, H * 0.86, W, H); x.fillStyle = "#6b5a3a"; x.fillRect(0, H * 0.86 + U * 2, W, U * 3);
+  x.drawImage(sp, Math.round((W - sp.width) / 2), Math.round(H * 0.86 + U * 2 - sp.height));
+}
 else if (kind === "hero") { scene(H * 0.78, k(H / 75), { sbx: 0.55, hx: 0.12, mons: ["slime", "skel", "wolf", "golem", "drake"] }); }
 else if (kind === "small") { scene(H * 0.86, k(H / 40)); x.fillStyle = "rgba(13,11,31,0.35)"; x.fillRect(0, 0, W, H); title(H * 0.42, W / 2, H * 0.4); }
 else if (H > W) { scene(H * 0.82, k(W / 70), { hx: 0.1, mons: ["slime", "drake"] }); title(W * 0.2, W / 2, H * 0.17); }

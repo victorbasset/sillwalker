@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 813-814) : miniature YouTube 1280×720 (steam/capsules/youtube-thumbnail.png) et photo de profil
+  itch.io 512×512 (avatar.png : le guerrier en grand sur le ciel fêlé), générées par scripts/steam-capsules/make.js.
 - 2026-11-11 (it. 812) : Victor : la musique du montage « sonne pas au bon moment ». Le rendu hors ligne est identique au
   jeu (même scheduleStep) ; en cause, les réglages des airs : swing 0,18-0,28 d'un pas (une croche sur deux en retard),
   écho à 3/4 de temps, variante boss avec grosse caisse sur une croche décalée. Bande-annonce : air de la zone 36
