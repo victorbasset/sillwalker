@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 818) : scripts/devlog.mjs : éditions de « Quoi de neuf » en liste Markdown (anglais, français…) pour
+  les devlogs itch.io et annonces Steam. CLAUDE.md : piège des info-bulles (title → data-title).
 - 2026-11-11 (it. 817) : numéro de version (init.version) au survol du titre « Sillwalker » du panneau et dans
   l'info-bulle du bouton « Ton avis » (les joueurs le citent dans leurs avis), sans place prise à l'écran. Autotest
   (148). Piège : les info-bulles du jeu déplacent « title » dans data-title : un contrôle lit l'un ou l'autre.

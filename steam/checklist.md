@@ -52,6 +52,11 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
   texte de la page : `steam/itch-page.md`.
   Page : Dashboard → Create new project → « Downloadable », ZIP coché « Windows », prix libre ou fixe.
 
+## Après la mise en ligne
+
+- Devlog itch.io / annonce Steam à chaque mise à jour : `node --experimental-default-type=module scripts/devlog.mjs
+  <première édition> [dernière] [langue]` exporte les éditions de « Quoi de neuf » en liste prête à coller.
+
 ## Configuration requise (proposition)
 
 | | Minimum | Recommandé |

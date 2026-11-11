@@ -201,6 +201,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   taille chez Victor, panneau et onglets bloqués à la première ouverture. Fusionnée par scripts/simplify-pixel-font.py
   (38 points par lettre, contours resserrés de 7 unités pour garder la même encre). Toute nouvelle police pixel :
   compter ses points (fontTools) et la passer par ce script ; ne pas multiplier les tailles et graisses.
+- Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
+  contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.
 - Un commentaire `//` ajouté au milieu d'une ligne (objet littéral, liste d'arguments) avale la fin du code de la
