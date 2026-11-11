@@ -1221,4 +1221,5 @@ export default {
   2345: "{n} nuevo logro|{n} nuevos logros",
   2346: "{n} elixir recomprado|{n} elixires recomprados",
   2347: "Mercader de confianza: {n} objeto comprado durante tu ausencia.|Mercader de confianza: {n} objetos comprados durante tu ausencia.", 2348: "{n} objeto comprado|{n} objetos comprados",
+  2349: "Grimorio de hechizos: {n} rango aprendido durante tu ausencia.|Grimorio de hechizos: {n} rangos aprendidos durante tu ausencia.",
 };

@@ -1221,4 +1221,5 @@ export default {
   2345: "{n} new achievement|{n} new achievements",
   2346: "{n} elixir rebought|{n} elixirs rebought",
   2347: "Personal Merchant: {n} item bought while you were away.|Personal Merchant: {n} items bought while you were away.", 2348: "{n} item bought|{n} items bought",
+  2349: "Spell Grimoire: {n} rank learned while you were away.|Spell Grimoire: {n} ranks learned while you were away.",
 };

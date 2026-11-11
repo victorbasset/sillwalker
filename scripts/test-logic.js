@@ -1597,6 +1597,18 @@ test("absence : les automatismes achetés travaillent et le résumé le dit", ()
   assert.ok(!sum2 || (!sum2.forged && !sum2.anviled && !sum2.transmuted && !sum2.petWork), "sans déblocage : rien");
 });
 
+test("absence : le Grimoire des sorts apprend des rangs (it. 843)", () => {
+  const g = new Game(freshState()); g.S.cls = "warrior"; g.S.best = 60; g.S.zone = 1; g.S.unlocks.spellBook = true; g.S.gold = 1e15;
+  const sum = g.applyOffline(3600);
+  assert.ok(sum && sum.spells > 3 && sum.spells <= 180, "rangs appris hors ligne : " + (sum && sum.spells));
+  assert.equal(Object.values(g.S.spells).reduce((a, b) => a + b, 0), sum.spells, "les rangs comptés sont bien appris");
+  { const L = g.S.log.filter((l) => /Grimoire des sorts|Spell Grimoire|Spell .* rank|New spell/.test(l)); assert.ok(L.length === 1, "une seule ligne de journal : " + JSON.stringify(L)); }
+  const g2 = new Game(freshState()); g2.S.cls = "warrior"; g2.S.best = 60; g2.S.zone = 1; g2.S.unlocks.spellBook = true; g2.S.gold = 1e15; g2.S.settings.autoSpells = false;
+  assert.ok(!g2.applyOffline(3600).spells, "Grimoire coupé : rien");
+  const g3 = new Game(freshState()); g3.S.cls = "warrior"; g3.S.best = 60; g3.S.zone = 1; g3.S.gold = 1e15;
+  assert.ok(!g3.applyOffline(3600).spells, "sans déblocage : rien");
+});
+
 test("absence : le Grimoire de l'éveil dépense les points gagnés", () => {
   const g = new Game(freshState());
   g.S.unlocks.autoLevel = true; g.S.settings.autoTalents = true;

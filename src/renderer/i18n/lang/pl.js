@@ -1221,4 +1221,5 @@ export default {
   2345: "{n} nowe osiągnięcie|{n} nowe osiągnięcia|{n} nowych osiągnięć",
   2346: "{n} eliksir dokupiony|{n} eliksiry dokupione|{n} eliksirów dokupionych",
   2347: "Nadworny kupiec: {n} przedmiot kupiony podczas twojej nieobecności.|Nadworny kupiec: {n} przedmioty kupione podczas twojej nieobecności.|Nadworny kupiec: {n} przedmiotów kupionych podczas twojej nieobecności.", 2348: "{n} przedmiot kupiony|{n} przedmioty kupione|{n} przedmiotów kupionych",
+  2349: "Grimuar zaklęć: {n} poziom zdobyty podczas twojej nieobecności.|Grimuar zaklęć: {n} poziomy zdobyte podczas twojej nieobecności.|Grimuar zaklęć: {n} poziomów zdobytych podczas twojej nieobecności.",
 };

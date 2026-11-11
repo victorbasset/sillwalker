@@ -1221,4 +1221,5 @@ export default {
   2345: "{n} nova conquista|{n} novas conquistas",
   2346: "{n} elixir recomprado|{n} elixires recomprados",
   2347: "Mercador de confiança: {n} item comprado durante sua ausência.|Mercador de confiança: {n} itens comprados durante sua ausência.", 2348: "{n} item comprado|{n} itens comprados",
+  2349: "Grimório de feitiços: {n} nível aprendido durante sua ausência.|Grimório de feitiços: {n} níveis aprendidos durante sua ausência.",
 };

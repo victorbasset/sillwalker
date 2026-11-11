@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 843) : le Grimoire des sorts (zone 45) travaille aussi pendant l'absence : avant, l'or gagné hors
+  ligne attendait le retour et aucun sort ne progressait. Mêmes règles qu'en jeu (au plus 3 rangs par minute d'absence,
+  300 au plus, chacun à moins d'un dixième de l'or, option respectée) ; une seule ligne de journal et « Grimoire des
+  sorts : +N rangs de sorts » dans le résumé « Pendant ton absence » (10 langues). Test logique (201/201) et ligne
+  rendue par l'autotest (157/157). Les automatismes achetés agissent désormais tous hors ligne.
 - 2026-11-11 (it. 842) : le Marchand attitré (zone 300) travaille aussi pendant l'absence : avant, l'étal restait figé
   hors ligne et le marchand n'achetait rien. L'étal se renouvelle toutes les 15 min d'absence (32 fois au plus) et le
   marchand y achète ce qu'il aurait acheté en jeu (mêmes règles : gain > 1 %, réserve de 4 fois le prix, sac plein

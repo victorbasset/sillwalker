@@ -1023,6 +1023,15 @@ export class Game {
     if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     for (let i = 0; i < chests; i++) this.openChest();
     // Automatismes achetés : ils ont « travaillé » pendant l'absence (une seule ligne de journal chacun).
+    // (it. 843) Grimoire des sorts : comme en jeu, au plus 3 rangs par minute d'absence, chacun à moins d'un dixième de
+    // l'or (avant, il ne faisait rien hors ligne et l'or de la nuit attendait le retour).
+    let spells = 0;
+    for (const max = Math.min(300, 3 * Math.floor(sec / 60)); spells < max;) {
+      const n = this.autoSpells({ force: true });
+      spells += n;
+      if (n < 3) break;
+    }
+    if (spells) this.log(txn(spells, "Grimoire des sorts : {n} rang appris pendant ton absence.|Grimoire des sorts : {n} rangs appris pendant ton absence."));
     const traded = this.offlineTrade(sec);
     if (traded) this.log(txn(traded, "Marchand attitré : {n} objet acheté pendant ton absence.|Marchand attitré : {n} objets achetés pendant ton absence."));
     let forged = 0;
@@ -1044,7 +1053,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") + tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));
