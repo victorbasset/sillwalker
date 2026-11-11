@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 694-695) : plus aucune « , » collée entre deux variables d'un gabarit. Texte coréen extrait : aucune
+  double particule restée (koJosa) ; mots latins : Lv, pt (usage coréen), noms de langues.
 - 2026-11-11 (it. 693) : texte chinois extrait : aucun mot latin suspect, mais des « , » occidentales collées au chinois :
   libellé lu des objets (aria-label « nom, rareté », panel.js), récompense du jour et retour d'expédition avec objet
   (game.js), résumé d'absence (coffres, app.js) : csep(). Le test des séparateurs signale aussi `", " +`. 135/135,
