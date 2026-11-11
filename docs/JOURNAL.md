@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 613) : la relique flotte à côté de son gardien tant qu'elle peut encore monter de niveau (déjà
+  gagnée : plus pâle) ; plus rien au niveau 5. 133/133.
 - 2026-11-11 (it. 612) : succès RELIC_MAX « Relique parfaite (niveau 5) » (README : liste Steam ; à créer aussi sur
   Steamworks). Traduit ; test logique ; lang-overflow pl, de, ru à 1920 et 1280 : aucun défilement. 133/133.
 - 2026-11-11 (it. 611) : panneau de la zone : un gardien de relique déjà gagnée (pas au niveau 5) est aussi annoncé :
