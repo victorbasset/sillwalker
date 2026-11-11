@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 747) : lang-overflow (pire cas de l'it. 746) passé sur le code d'avant la correction (662d0f1) :
+  « de 1280 : adventure=186 » : il aurait vu le défaut de l'it. 744.
 - 2026-11-11 (it. 746) : lang-overflow mesure le pire cas avec TOUS les déblocages achetés (record 310) : l'it. 744 était
   passée inaperçue faute de ce cas. 10 langues × 1920 / 1366 / 1280 : aucun défilement. CLAUDE.md à jour.
 - 2026-11-11 (it. 745) : « Automatismes » : le titre de la fenêtre suit les cases cochées (autosCount) ; autotest (140) :
