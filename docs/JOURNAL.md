@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 684) : CLAUDE.md (Traductions) : outils d'accord (RU_GENDER, BOSS_GENDER / FORMS, koJosa) et quand
+  les compléter (nouveau boss ou nouvelle pièce au nom non masculin ; double particule coréenne après une variable).
 - 2026-11-11 (it. 683) : coréen, suite de l'it. 682 : aucune traduction ne commence par une particule (simple ou double)
   après un nom collé par concaténation : koJosa (textes à variables) suffit.
 - 2026-11-11 (it. 682) : coréen : koJosa (i18n/index.js, appelé par fill en coréen) remplace « X이(가) », « X을(를) »,

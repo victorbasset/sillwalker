@@ -128,6 +128,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
   Listes : `.join(csep())`, point final ajouté à un texte : `cend()` (« 、 » / « ， » / « 。 » en japonais et chinois ;
   un `.join(", ")` ou un `this.log(… + ".")` en dur fait échouer npm test, it. 667-672).
+  Accords (it. 665-682) : un adjectif collé à un nom traduit ne s'accorde pas tout seul. Matières des objets en russe :
+  `RU_GENDER` + `ruAdjective` (i18n/data.js) ; épithètes des boss : `BOSS_GENDER` / `FORMS` (bosses.js, ru, pl, de, es, pt) :
+  un nouveau boss ou une nouvelle pièce d'équipement au nom féminin, neutre ou pluriel s'y ajoute. Coréen : écrire la
+  double particule après une variable (`{0}이(가)`, `{0}을(를)`…) ; `koJosa` (appelé par `t()`) garde la bonne.
 - `i18n-check` ne voit pas les textes écrits en dur hors `tx()` : extraire le texte affiché en russe
   (`--open-panel --dump-text=<fichier>`, sans `--exit-after`) et y chercher les mots latins
   (`grep -oP "(?<![A-Za-z])[A-Za-zÀ-ÿ']{2,}"`, mots courts compris : « pts », « min », « oui » y ont échappé) ; ce qui n'est pas un repère `=== onglet` est suspect.
