@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 639) : semaine simulée après la correction du Drone (carapace, rempart) : mage 278, guerrier 301
+  (286 à l'it. 634 : bruit d'une graine) : pas de frein. Repère CLAUDE.md à jour.
 - 2026-11-11 (it. 638) : relecture indépendante (agent) du code des reliques (01a4dfd..HEAD) : règles des niveaux,
   ascension, migrate, effets uniques : sans faute. Corrigé : (1) les missiles du Drone ignoraient le rempart et la
   carapace des boss (coups, clics et sorts les respectent) : bulwarkFactor + carapace, test logique ; (2) la zone
