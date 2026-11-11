@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 636) : pire cas de l'annonce d'un écho (zone 345, Lame niveau 4, de / pl / ru à 1280 et 1366) :
+  aucun défilement. « À vérifier par Victor » : point 11 (niveaux des reliques, échos).
 - 2026-11-11 (it. 635) : écho vérifié en capture (zone 250 : « Écho : Le Geôlier mécanique », drone pâle à côté) ;
   « Quoi de neuf » édition 17 (échos, histoires des reliques dans les Chroniques). 135/135.
 - 2026-11-11 (it. 634) : objectifs au-delà de la zone 200 (piste ouverte, version mesurée) : échos des trois lieutenants
@@ -2194,6 +2196,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      couronne sur la tête, cœur et lame dans le dos ; sons du drone et de la relique (volumes ?) ; puissance réglée
      ≈ 15-20 zones par relique : trop, pas assez ? Succès RELIC_FIRST, RELICS_ALL et RELIC_MAX à créer sur Steamworks.
   10. Combat de boss : barres de vie du héros et du boss sous les pieds (it. 580) : bien lisibles ?
+  11. Niveaux des reliques (it. 608-617 : un par course, +10 %) et échos des lieutenants au-delà du Rebord (it. 634 :
+      zones 250, 300, 350, un niveau de plus par course) : rythme et difficulté des échos à juger en jeu.
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
