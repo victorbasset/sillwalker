@@ -126,6 +126,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   méthode (ne marche qu'en français/anglais), à éviter dans les nouveaux textes.
   Nombres : `fmt`, `fmtShort`, `unit("%")`, `dec()` de `game/format.js` (format de la langue).
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
+  Listes : `.join(csep())`, point final ajouté à un texte : `cend()` (« 、 » / « ， » / « 。 » en japonais et chinois ;
+  un `.join(", ")` ou un `this.log(… + ".")` en dur fait échouer npm test, it. 667-672).
 - `i18n-check` ne voit pas les textes écrits en dur hors `tx()` : extraire le texte affiché en russe
   (`--open-panel --dump-text=<fichier>`, sans `--exit-after`) et y chercher les mots latins
   (`grep -oP "(?<![A-Za-z])[A-Za-zÀ-ÿ']{2,}"`, mots courts compris : « pts », « min », « oui » y ont échappé) ; ce qui n'est pas un repère `=== onglet` est suspect.
