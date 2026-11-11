@@ -2600,6 +2600,15 @@ test("Hors ligne : le Drone stellaire compte dans la progression estimée (it. 5
   assert.ok(b > a, `avec le drone : ${b} victoires, sans : ${a}`);
 });
 
+test("Échos des lieutenants (it. 634) : zones 250, 300, 350 seulement, nom « Écho : … », mêmes reliques", () => {
+  for (const [z, relic] of [[250, "drone"], [300, "heart"], [350, "blade"]]) {
+    assert.ok(/Écho|Echo/.test(M_bosses_js.bossName(z)), `zone ${z} : ${M_bosses_js.bossName(z)}`);
+    const g = new Game(freshState()); g.S.zone = z; const m = g.makeMonster(true);
+    assert.ok(m.echo && m.relic === relic, `zone ${z} : écho portant ${relic}`);
+  }
+  for (const z of [200, 249, 251, 400]) { const g = new Game(freshState()); g.S.zone = z; assert.ok(!g.makeMonster(true).echo, `zone ${z} : pas d'écho`); }
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));

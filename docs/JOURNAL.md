@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 637) : test logique des échos : zones 250, 300, 350 seulement (pas en 200, 249, 251, 400), nom
+  « Écho : … » (« Echo: » en anglais, langue des tests), relique portée. 184 tests.
 - 2026-11-11 (it. 636) : pire cas de l'annonce d'un écho (zone 345, Lame niveau 4, de / pl / ru à 1280 et 1366) :
   aucun défilement. « À vérifier par Victor » : point 11 (niveaux des reliques, échos).
 - 2026-11-11 (it. 635) : écho vérifié en capture (zone 250 : « Écho : Le Geôlier mécanique », drone pâle à côté) ;
