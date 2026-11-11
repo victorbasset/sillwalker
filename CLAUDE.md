@@ -35,7 +35,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 
 ## Tests (toujours invisibles)
 
-- `npm test` : syntaxe de tous les fichiers + tests de logique (Node seul, rapide). `scripts/check-imports.mjs` (lancé par
+- `npm test` : syntaxe de tous les fichiers + i18n-check des 9 langues (it. 620) + tests de logique (Node seul, rapide). `scripts/check-imports.mjs` (lancé par
   `npm test`) signale les constantes EN_MAJUSCULES utilisées sans import ; les autres oublis (noms en minuscules) ne se
   voient qu'à l'exécution : tout nouveau code d'interface passe aussi par un contrôle d'autotest ou `--crawl`.
 - `npm run selftest` (Windows) / `npm run selftest:linux` (Ubuntu, écran virtuel ; tous deux via scripts/selftest.mjs,
