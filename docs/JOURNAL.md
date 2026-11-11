@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 760) : revue générale (contre 5a1ec23, it. 750) : équilibrage 12 h +0,0 zone (moyenne 61,9) ; 1200
+  parties, 0 bloquée ; 20 sauvegardes abîmées tolérées ; clics en chinois (318) et en allemand (319) sans erreur ;
+  bande 19,5 %, panneau 21,2 %, mini 6,6 %, icône 0,5 % ; mémoire réelle 527 Mo stable sur 5 min (bruit déjà vu :
+  511-530 Mo). Rien à corriger.
 - 2026-11-11 (it. 759) : « À vérifier » 15 : marche à suivre de l'essai Tauri sous Windows (workflow, exe, comparaison,
   passage des clics).
 - 2026-11-11 (it. 758) : crawl en russe avec tous les déblocages (groupe « Automatismes », fenêtre large, cases) :
