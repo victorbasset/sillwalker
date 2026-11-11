@@ -139,10 +139,16 @@ export class Juice {
   }
 
   /* ---------- Particules ---------- */
-  add(node, update) {
+  add(node, update, keep = false) {
     if (!this.active) { node.remove(); return; }
-    if (this.parts.length >= MAX_PARTS) this.parts.shift().node.remove();
-    const part = { node, update, t: 0 };
+    // (it. 826) trop d'effets : le plus ancien qui n'est pas une cinématique part (avant, en combat chargé, la
+    // cinématique en cours pouvait être retirée sans finir : this.cine restait « en cours » et toutes les suivantes
+    // attendaient jusqu'au prochain lancement)
+    if (this.parts.length >= MAX_PARTS) {
+      const i = this.parts.findIndex((p) => !p.keep);
+      if (i >= 0) this.parts.splice(i, 1)[0].node.remove();
+    }
+    const part = { node, update, t: 0, keep };
     this.parts.push(part);
     update(part, 0); // position initiale (et ligne de bannière réservée) dès la création
   }
@@ -259,6 +265,8 @@ export class Juice {
     if (this.s.game.S.settings.cinematics === false && kind !== "intro" && !data.force) return;
     // Une cinématique en cours : la suivante attend son tour (zone 10 : héros libéré puis chronique, l'une
     // remplaçait l'autre). File courte : au-delà de 3, les plus anciennes en attente sont oubliées.
+    // une cinématique disparue de l'écran (retirée, couche vidée) ne bloque plus la file
+    if (this.cine && this.cine.node && !this.cine.node.isConnected) this.cine = null;
     if (this.cine && !this.cine.done) {
       const Q = (this.cineQueue ||= []);
       Q.push([kind, data]);
@@ -316,7 +324,7 @@ export class Juice {
       tx: 20 + Math.random() * (W - 40), ty: 6 + Math.random() * (H * 0.6), d: 1.2 + Math.random() * 2.2,
       start: kind === "dawn" ? 0.8 + i * 0.03 + Math.random() * 0.6 : -10, ph: Math.random() * 6, big: Math.random() < 0.15,
       fall: 1.8 + Math.random() * 0.8, fx: (Math.random() - 0.5) * 120, gy: this.ground() - 2 - Math.random() * 6 }));
-    const state = { done: false };
+    const state = { done: false, node };
     this.cine = state;
     node.addEventListener("click", () => { state.done = true; });
     this.s.game.emit("cinematic", { kind, id: data.id });
@@ -401,7 +409,7 @@ export class Juice {
       }
       ctx.globalAlpha = 1;
       return true;
-    });
+    }, true); // cinématique : jamais retirée pour faire de la place (it. 826)
   }
 
   flash(color, strength) {
@@ -588,7 +596,7 @@ export class Juice {
     if (this.wxc) { this.wxc.c.remove(); this.wxc = null; }
   }
 
-  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.star = null; this.wx.length = 0; this.wxKind = null; this.wxc = null; this.wxKey = ""; }
+  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.cine = null; this.star = null; this.wx.length = 0; this.wxKind = null; this.wxc = null; this.wxKey = ""; }
 }
 
 /** Première phrase d'un texte (sous-titre court d'une cinématique). */

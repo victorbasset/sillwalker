@@ -768,6 +768,10 @@ async function runSelfTest(strip) {
   // (les info-bulles du jeu déplacent « title » dans data-title : panel.js, app.js)
   const ver = await js("(() => { const h = document.querySelector('#panel .ptop h1'); return h.title || h.dataset.title || ''; })()");
   check("titre du panneau : version au survol", /^Sillwalker \d+\.\d+\.\d+/.test(ver), ver);
+  // (it. 826) une cinématique survit à un combat chargé : 300 effets ajoutés ne la retirent pas (avant, elle partait
+  // sans finir et bloquait toutes les suivantes jusqu'au prochain lancement)
+  const cineKeep = await js("(() => { const j = window.__strip.juice; j.clear(); j.cinematic('freed', { cls: 'mage', force: true }); const st = j.cine; for (let i = 0; i < 300; i++) { const d = document.createElement('div'); j.layer.appendChild(d); j.add(d, () => true); } const ok = !!st && j.cine === st && st.node.isConnected; j.clear(); return ok; })()");
+  check("cinématique gardée malgré 300 effets (combat chargé)", cineKeep === true, String(cineKeep));
   // (it. 761) accessibilité : chaque bouton visible des 12 onglets a un nom (texte, aria-label ou title) pour les lecteurs d'écran
   const noName = await js("(() => { const P = window.__panel, cur = P.tab, out = []; for (const t of ['adventure','talents','skills','quests','shop','pets','class','ascension','bestiary','stats','map','settings']) { try { P.setTab(t); P.renderAll(); } catch (e) { continue; } document.querySelectorAll('#panel button').forEach((b) => { if (!b.offsetParent) return; const n = (b.getAttribute('aria-label') || b.title || b.textContent || '').trim(); const lb = b.getAttribute('aria-labelledby'); if (!n && !lb) out.push(t + ':' + (b.dataset.action || b.className || b.outerHTML.slice(0, 40))); }); } P.setTab(cur); P.renderAll(); return out.slice(0, 10).join(' | ') || 'ok'; })()");
   check("accessibilité : tous les boutons ont un nom (12 onglets)", noName === "ok", noName);

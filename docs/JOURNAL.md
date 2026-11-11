@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 826) : BUG trouvé grâce à la bande-annonce du guerrier : en combat chargé (zone 62 : chiffres de
+  dégâts, pièces), juice.add retirait le plus ancien effet quand il y en avait trop (MAX_PARTS)… y compris la
+  cinématique en cours, qui ne finissait jamais : this.cine restait « en cours » et TOUTES les cinématiques suivantes
+  (relique, héros libéré, chroniques, boss) attendaient jusqu'au prochain lancement. Corrigé : une cinématique n'est
+  jamais retirée (part.keep), une cinématique disparue de l'écran ne bloque plus la file, clear() l'oublie. Vérifié
+  sur la partie du guerrier (intro, arrivée à 26 s, relique à 38 s) ; autotest (149) : cinématique gardée malgré
+  300 effets. steam/promo-posts.md : flair et déclaration d'IA demandées par r/incremental_games (règle 5).
 - 2026-11-11 (it. 824) : demande de Victor : GIF de promotion avec un héros au corps à corps devant. Partie simulée
   de 12 h guerrier (+ rôdeur), même parcours --trailer filmé ; steam/media/reveal.gif refait (2,3 Mo). La bande-annonce
   refaite avec cette partie était ratée (cinématiques d'arrivée, de relique et d'aube non déclenchées en zone 62,
