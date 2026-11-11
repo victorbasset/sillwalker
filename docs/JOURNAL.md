@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 708) : étiquette des champions sur la bande : « Champion » + affixe collés dans l'ordre français
+  (« Champion fast », « Champion schnell ») ; clé « Champion {0} » traduite dans l'ordre de chaque langue (« Fast
+  champion », « Gepanzerter Champion », « Быстрый чемпион »), première lettre en capitale. 136/136.
 - 2026-11-11 (it. 706-707) : la carte s'arrête à 200 (échos hors carte ; zone indiquée dans l'infobulle des reliques).
   Perf en zone 250 (écho au contour spectral) : bande 18,9 %, panneau 21,9 % : rien de mesurable (contour dans l'image).
 - 2026-11-11 (it. 705) : autotest (136) : contour spectral des échos aux zones 250, 300, 350, absent pour l'original

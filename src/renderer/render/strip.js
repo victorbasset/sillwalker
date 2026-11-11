@@ -60,6 +60,9 @@ const FIGHTS = KILLS_PER_ZONE + 1;
 const HUD_L_W = 520, HUD_R_W = 260, HUD_H = 24;
 const CENTER_HUD_W = 2400; // au-delà : informations au milieu de la bande (écrans ultra-larges)
 
+// (it. 708) « Champion rapide » / « Fast champion » / « Schneller Champion » : ordre de la langue (clé « Champion {0} »)
+const upFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
 export class StripRenderer {
   constructor(container, game, { rightReserve = 0 } = {}) {
     this.root = container;
@@ -565,7 +568,7 @@ export class StripRenderer {
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");
         const af = ELITE_AFFIXES[line[k].affix];
-        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = tx("Champion") + (af ? " " + af.name.toLowerCase() : ""); }
+        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = af ? upFirst(tx("Champion {0}", { 0: af.name.toLowerCase() })) : tx("Champion"); }
         else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name; tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");

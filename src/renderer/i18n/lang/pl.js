@@ -1174,4 +1174,5 @@ export default {
   2298: ".",
   2299: "Kapłanka uderza nieco mocniej.",
   2300: "Tłumaczenia: nazwy przedmiotów i tytuły bossów uzgodnione z rodzajem (rosyjski, polski, niemiecki, hiszpański, portugalski); japońska i chińska interpunkcja w dzienniku.",
+  2301: "{0} czempion",
 };

@@ -2302,5 +2302,6 @@ export const KEYS = [
   ", ",
   ".",
   "La Prêtresse frappe un peu plus fort.",
-  "Traductions : noms d’objets et titres des boss accordés au genre (russe, polonais, allemand, espagnol, portugais) ; ponctuation japonaise et chinoise dans le journal."
+  "Traductions : noms d’objets et titres des boss accordés au genre (russe, polonais, allemand, espagnol, portugais) ; ponctuation japonaise et chinoise dans le journal.",
+  "Champion {0}"
 ];
