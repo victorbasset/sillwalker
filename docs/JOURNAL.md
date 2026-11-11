@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 705) : autotest (136) : contour spectral des échos aux zones 250, 300, 350, absent pour l'original
+  (zone 50) et ailleurs.
 - 2026-11-11 (it. 704) : crawl en polonais au-delà du Rebord (zone 255, quatre reliques de niveaux variés) : 330 clics
   sans erreur (contour des échos, épithètes accordées).
 - 2026-11-11 (it. 703) : « À vérifier » (point 11) : contour des échos ajouté.
