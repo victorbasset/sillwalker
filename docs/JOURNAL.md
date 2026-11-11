@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 735) : nouveaux déblocages : l'astuce « déblocage payable » est générique (rien à ajouter). Texte russe
+  extrait avec Herboriste et Forgeron achetés : noms traduits (Вечный травник, Звёздный кузнец) ; mots latins : suffixes
+  des grands nombres (Oc, No) et noms de langues seulement.
 - 2026-11-11 (it. 734) : Herboriste perpétuel vu en vrai (copie, zone 30, record 270) : 6 achats, les 6 effets actifs
   (≈ 9 min restantes). Premier essai en zone 60 sans effet : héros K.O. puis recul, aucune victoire en direct ;
   l'Herboriste agit à chaque victoire, pas pendant l'absence (rachat dès la première victoire au retour).
