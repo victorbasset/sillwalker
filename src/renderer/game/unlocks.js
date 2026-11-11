@@ -33,10 +33,12 @@ export const UNLOCKS = [
   { id: "steward",     price: 1.1e20, zone: 170, icon: "bell", name: "Grand intendant",         desc: "Fait éclore les œufs et renvoie tout seul les familiers en expédition (option)." },
   { id: "skyChart",    price: 6e21, zone: 185, icon: "c_north", name: "Carte du ciel",           desc: "Place tout seul les éclats d’étoile dans la constellation la moins chère, après chaque ascension (option)." },
   { id: "crucible",    price: 1e23, zone: 200, icon: "everfire", name: "Creuset perpétuel",      desc: "Transmute tout seul les objets inutiles quand le sac se remplit (option)." },
-  // (it. 712) au-delà du Rebord : l'Enclume stellaire sans clic
+  { id: "starSmith",   price: 3e25, zone: 230, icon: "starsmith", name: "Forgeron des astres",    desc: "Remonte tout seul l’équipement porté au niveau de ton record, avec l’or en trop (option)." },
   // (it. 732) au-delà du Rebord : élixirs et parchemins rachetés quand leur effet s'achève
   { id: "herbalist",   price: 1e28, zone: 260, icon: "herbalist", name: "Herboriste perpétuel",   desc: "Rachète tout seul les élixirs et parchemins quand leur effet s’achève, avec l’or en trop (option)." },
-  { id: "starSmith",   price: 3e25, zone: 230, icon: "starsmith", name: "Forgeron des astres",    desc: "Remonte tout seul l’équipement porté au niveau de ton record, avec l’or en trop (option)." },
+  // (it. 736) au-delà du Rebord : le marchand sert le héros tout seul
+  { id: "trader",      price: 2e31, zone: 300, icon: "trader",    name: "Marchand attitré",       desc: "Achète et équipe tout seul l’objet du marchand qui renforce le plus ton héros, avec l’or en trop (option)." },
+  // (it. 712) au-delà du Rebord : l'Enclume stellaire sans clic
 ];
 export const UNLOCK_INDEX = Object.fromEntries(UNLOCKS.map((u) => [u.id, u]));
 

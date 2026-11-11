@@ -2317,5 +2317,8 @@ export const KEYS = [
   "Herboriste perpétuel",
   "Rachète tout seul les élixirs et parchemins quand leur effet s’achève, avec l’or en trop (option).",
   "Herboriste perpétuel : racheter les élixirs et parchemins",
-  "Nouveau déblocage au-delà du Rebord (zone 260) : l’« Herboriste perpétuel » rachète tout seul tes élixirs et parchemins quand leur effet s’achève."
+  "Nouveau déblocage au-delà du Rebord (zone 260) : l’« Herboriste perpétuel » rachète tout seul tes élixirs et parchemins quand leur effet s’achève.",
+  "Marchand attitré",
+  "Achète et équipe tout seul l’objet du marchand qui renforce le plus ton héros, avec l’or en trop (option).",
+  "Marchand attitré : acheter et équiper les objets qui renforcent le héros"
 ];

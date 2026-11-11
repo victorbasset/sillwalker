@@ -1189,4 +1189,7 @@ export default {
   2313: "Kauft Elixiere und Schriftrollen selbstständig nach, wenn ihre Wirkung endet, mit überschüssigem Gold (Option).",
   2314: "Ewiger Kräuterkundler: Elixiere und Schriftrollen nachkaufen",
   2315: "Neue Freischaltung jenseits des Saums (Zone 260): „Ewiger Kräuterkundler“ – kauft deine Elixiere und Schriftrollen selbstständig nach, wenn ihre Wirkung endet.",
+  2316: "Leibhändler",
+  2317: "Kauft und legt selbstständig den Gegenstand des Händlers an, der deinen Helden am meisten stärkt, mit überschüssigem Gold (Option).",
+  2318: "Leibhändler: Gegenstände kaufen und anlegen, die den Helden stärken",
 };

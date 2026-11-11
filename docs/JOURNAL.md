@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 736) : nouveau déblocage « Marchand attitré » (zone 300, 2e31 or, icône propre) : achète et équipe
+  l'objet de l'étal qui renforce le plus le héros (> 1 %), avec l'or en trop (4 fois le prix) et de la place dans le
+  sac ; calcul refait seulement quand l'étal ou l'équipement change ; option. Traduit, test (194).
+  BOGUE trouvé en route (depuis l'it. 732) : nextUnlock suit l'ordre du tableau et l'Herboriste (260) était rangé avant
+  le Forgeron (230) : le « prochain déblocage » visait l'Herboriste à partir de 230 (carte du héros, astuce, achat d'un
+  clic, simulateur). Déblocages remis dans l'ordre des zones + test (tableau trié). Semaine : mage 286-287, guerrier
+  302 (Marchand acheté vers 152 h). 139/139 ; crawl 328 clics. README : 26 déblocages (8 à 300).
 - 2026-11-11 (it. 735) : nouveaux déblocages : l'astuce « déblocage payable » est générique (rien à ajouter). Texte russe
   extrait avec Herboriste et Forgeron achetés : noms traduits (Вечный травник, Звёздный кузнец) ; mots latins : suffixes
   des grands nombres (Oc, No) et noms de langues seulement.

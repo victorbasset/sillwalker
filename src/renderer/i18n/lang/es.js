@@ -1189,4 +1189,7 @@ export default {
   2313: "Vuelve a comprar solo los elixires y pergaminos cuando se acaba su efecto, con el oro sobrante (opción).",
   2314: "Herbolario perpetuo: volver a comprar elixires y pergaminos",
   2315: "Nuevo desbloqueo más allá del Alféizar (zona 260): el «Herbolario perpetuo» vuelve a comprar solo tus elixires y pergaminos cuando se acaba su efecto.",
+  2316: "Mercader de confianza",
+  2317: "Compra y equipa solo el objeto del mercader que más refuerza a tu héroe, con el oro sobrante (opción).",
+  2318: "Mercader de confianza: comprar y equipar los objetos que refuerzan al héroe",
 };

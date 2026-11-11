@@ -42,12 +42,12 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux. Chaque nœud porte
   une icône pixel art (une par effet ; un dessin unique pour les remarquables et les clés : `render/skillicons.js`).
 - **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout, une Voie au choix et des Maîtrises sans limite (aucun point perdu). 1 point par niveau, un clic par rang.
-- **Déblocages** (boutique, permanents, tous visibles dans une rangée latérale) : 25 automatismes et fonctionnalités à acheter, chacun demandant une zone record
-  (étalées de la zone 8 à la zone 260) et de l’or : boutons groupés, carte du voyageur, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
+- **Déblocages** (boutique, permanents, tous visibles dans une rangée latérale) : 26 automatismes et fonctionnalités à acheter, chacun demandant une zone record
+  (étalées de la zone 8 à la zone 300) et de l’or : boutons groupés, carte du voyageur, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
   quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes, maître de forge
   (forge l’équipement porté avec l’or en trop), filet à étoiles (attrape les étoiles filantes manquées),
   Enclume stellaire (zone 140 : remettre un objet au niveau du record, très cher), astrolabe (ascension automatique quand
-  le héros bloque près de son record, option à activer), grand intendant (zone 170 : œufs et expéditions tout seuls, expédition choisie d'un clic), creuset perpétuel (zone 200 : transmutation quand le sac se remplit), Forgeron des astres (zone 230, au-delà du Rebord : l'Enclume stellaire sans clic, avec l'or en trop, option), Herboriste perpétuel (zone 260 : élixirs et parchemins rachetés quand leur effet s'achève, option). Liste dans `game/unlocks.js`.
+  le héros bloque près de son record, option à activer), grand intendant (zone 170 : œufs et expéditions tout seuls, expédition choisie d'un clic), creuset perpétuel (zone 200 : transmutation quand le sac se remplit), Forgeron des astres (zone 230, au-delà du Rebord : l'Enclume stellaire sans clic, avec l'or en trop, option), Herboriste perpétuel (zone 260 : élixirs et parchemins rachetés quand leur effet s'achève, option), Marchand attitré (zone 300 : achète et équipe l'objet de l'étal qui renforce le héros, option). Liste dans `game/unlocks.js`.
 - **Fin de partie** : jusqu'à la zone 60, les monstres gagnent ×1,28 par zone ; ensuite la croissance ralentit en
   douceur jusqu'à ×1,04 (`zoneMight`, rules.js), pour que la progression continue jusqu'à la zone 200 et au-delà
   (semaine simulée : record 161).

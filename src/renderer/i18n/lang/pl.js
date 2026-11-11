@@ -1189,4 +1189,7 @@ export default {
   2313: "Sam odkupuje eliksiry i zwoje, gdy ich działanie się kończy, za nadmiar złota (opcja).",
   2314: "Wieczny zielarz: odkupuj eliksiry i zwoje",
   2315: "Nowe odblokowanie za Krawędzią (strefa 260): „Wieczny zielarz” sam odkupuje twoje eliksiry i zwoje, gdy ich działanie się kończy.",
+  2316: "Nadworny kupiec",
+  2317: "Sam kupuje i zakłada przedmiot kupca, który najbardziej wzmacnia bohatera, za nadmiar złota (opcja).",
+  2318: "Nadworny kupiec: kupuj i zakładaj przedmioty wzmacniające bohatera",
 };

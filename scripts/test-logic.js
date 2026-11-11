@@ -2736,4 +2736,25 @@ test("Herboriste perpétuel : rachète les élixirs dont l'effet s'achève, avec
   assert.equal(g2.autoBuffs(), 0, "sans déblocage : rien");
 });
 
+test("Marchand attitré : achète et équipe l'objet de l'étal qui renforce le héros (it. 736)", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.trader = true; g.S.settings.autoTrade = true; g.S.best = 80;
+  const weak = g.newItem(0); weak.slot = "weapon"; weak.il = 1; g.S.equip.weapon = weak; g.invalidateStats();
+  const good = g.newItem(3); good.slot = "weapon"; good.il = 80; good.price = 100;
+  g.S.shop = { items: [good], t: Date.now() };
+  g.S.gold = 0;
+  assert.equal(g.autoTrade(), null, "sans or : rien");
+  g.S.gold = 1e9; g._tradeKey = null;
+  const it = g.autoTrade();
+  assert.ok(it && g.S.equip.weapon === it, "acheté et équipé");
+  assert.equal(g.S.shop.items.length, 0, "retiré de l'étal");
+  const g2 = new Game(freshLocked()); g2.S.gold = 1e9; g2.S.shop = { items: [good] };
+  assert.equal(g2.autoTrade(), null, "sans déblocage : rien");
+});
+
+test("déblocages rangés par zone croissante (nextUnlock suit l'ordre du tableau ; it. 736)", () => {
+  const z = UNLOCKS.map((u) => u.zone);
+  assert.deepEqual(z, [...z].sort((a, b) => a - b), z.join(" "));
+});
+
 console.log(`\n${pass} tests réussis`);

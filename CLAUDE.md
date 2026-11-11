@@ -60,7 +60,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   majeurs (relics.js, RELIC_POWER / DRONE) : mage 251, guerrier 263 ; it. 608, niveaux des reliques (+10 % par victoire,
   5 au plus) : mage 275, guerrier 286 ; it. 639, échos (250-350) et Drone soumis à la carapace : mage 278, guerrier
   286-301 (une graine) ;
-  it. 712, Forgeron des astres (zone 230) : mage 283-302 (3 graines), guerrier 301 ; sans saut ni plafond). À relancer après tout changement de zoneMight (rules.js) ou des zones de déblocage, et après
+  it. 712, Forgeron des astres (zone 230) : mage 283-302 (3 graines), guerrier 301 ; it. 736, Herboriste (260) et Marchand
+  attitré (300), déblocages remis dans l'ordre des zones : mage 286-287, guerrier 302 ; sans saut ni plafond). À relancer après tout changement de zoneMight (rules.js) ou des zones de déblocage, et après
   tout déblocage qui dépense de l'or tout seul (it. 486 : le Grimoire des sorts, appelé à chaque victoire, vidait l'or et
   plafonnait la semaine à 155 ; balance 12 h ne le voyait pas).
 - Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première

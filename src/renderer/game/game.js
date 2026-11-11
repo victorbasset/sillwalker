@@ -863,6 +863,7 @@ export class Game {
     this.autoSpells();
     this.autoForge();
     this.autoAnvil();
+    this.autoTrade();
     this.autoPets();
     this.autoTransmute();
     const pace = earlyPace(this.S); // tout début de partie : plus tranquille (rules.js)
@@ -1503,6 +1504,28 @@ export class Game {
   }
 
   /** Achat automatique de potions (option de la boutique) : complète le stock jusqu'à AUTO_POTIONS. */
+  /**
+   * Marchand attitré (déblocage, it. 736, option) : achète et équipe l'objet de l'étal qui renforce le plus le héros
+   * (> 1 %), avec l'or en trop (garde 4 fois le prix) et de la place dans le sac. Calcul refait seulement quand l'étal
+   * ou l'équipement porté a changé.
+   */
+  autoTrade() {
+    const S = this.S, shop = S.shop;
+    if (!hasUnlock(S, "trader") || S.settings.autoTrade === false || !shop || !shop.items || !shop.items.length || this.bagFull()) return null;
+    const key = shop.items.map((i) => i.id).join(",") + "|" + Object.values(S.equip).map((i) => (i ? i.id + ":" + i.il + ":" + i.plus : "-")).join(",") + "|" + Math.floor(Math.log10(Math.max(1, S.gold)));
+    if (key === this._tradeKey) return null;
+    this._tradeKey = key;
+    let best = null, gain = 0.01;
+    for (const it of shop.items) {
+      if (!it.slot || S.gold < (it.price || 0) * 4) continue;
+      const d = upgradeDelta(S, it);
+      if (d > gain) { best = it; gain = d; }
+    }
+    if (!best || !this.buyShopItem(best.id)) return null;
+    this.equip(best);
+    return best;
+  }
+
   /**
    * Herboriste perpétuel (déblocage, it. 732, option) : rachète chaque élixir / parchemin dont l'effet tombe sous une
    * minute, avec l'or en trop (garde 4 fois le prix), sans ligne de journal ni son (une fois par victoire au plus).

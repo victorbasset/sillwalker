@@ -564,6 +564,7 @@ export class Panel {
       ${hasUnlock(S, "armsValet") ? `<label class="toggle"><input type="checkbox" data-action="valet"${S.settings.autoEquipDrops !== false ? " checked" : ""}> ${tx("Valet d’armes : équiper tout seul les objets plus puissants")}</label>` : ""}
       ${hasUnlock(S, "crucible") ? `<label class="toggle"><input type="checkbox" data-action="crucible"${S.settings.autoTransmute !== false ? " checked" : ""}> ${tx("Creuset perpétuel : transmuter quand le sac se remplit")}</label>` : ""}
       ${hasUnlock(S, "masterForge") ? `<label class="toggle"><input type="checkbox" data-action="mforge"${S.settings.autoForge !== false ? " checked" : ""}> ${tx("Maître de forge : forger l’équipement porté avec l’or en trop")}</label>` : ""}
+      ${hasUnlock(S, "trader") ? `<label class="toggle"><input type="checkbox" data-action="trader"${S.settings.autoTrade !== false ? " checked" : ""}> ${tx("Marchand attitré : acheter et équiper les objets qui renforcent le héros")}</label>` : ""}
       ${hasUnlock(S, "herbalist") ? `<label class="toggle"><input type="checkbox" data-action="herbs"${S.settings.autoBuffs !== false ? " checked" : ""}> ${tx("Herboriste perpétuel : racheter les élixirs et parchemins")}</label>` : ""}
       ${hasUnlock(S, "starSmith") ? `<label class="toggle"><input type="checkbox" data-action="sanvil"${S.settings.autoAnvil !== false ? " checked" : ""}> ${tx("Forgeron des astres : remonter l’équipement porté au niveau du record")}</label>` : ""}
 `;
@@ -865,6 +866,7 @@ export class Panel {
     if (b.dataset.action === "adv") this.game.setAutoAdvance(b.checked);
     if (b.dataset.action === "valet") { this.game.S.settings.autoEquipDrops = b.checked; this.game.changed(); }
     if (b.dataset.action === "mforge") { this.game.S.settings.autoForge = b.checked; this.game.changed(); }
+    if (b.dataset.action === "trader") { this.game.S.settings.autoTrade = b.checked; this.game.changed(); }
     if (b.dataset.action === "herbs") { this.game.S.settings.autoBuffs = b.checked; this.game.changed(); }
     if (b.dataset.action === "sanvil") { this.game.S.settings.autoAnvil = b.checked; this.game.changed(); }
     if (b.dataset.action === "crucible") { this.game.S.settings.autoTransmute = b.checked; this.game.changed(); }

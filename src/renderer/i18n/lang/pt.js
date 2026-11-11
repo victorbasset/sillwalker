@@ -1189,4 +1189,7 @@ export default {
   2313: "Recompra sozinho os elixires e pergaminhos quando o efeito acaba, com o ouro de sobra (opção).",
   2314: "Herbalista perpétuo: recomprar elixires e pergaminhos",
   2315: "Novo desbloqueio além do Parapeito (zona 260): o «Herbalista perpétuo» recompra sozinho seus elixires e pergaminhos quando o efeito acaba.",
+  2316: "Mercador de confiança",
+  2317: "Compra e equipa sozinho o item do mercador que mais fortalece seu herói, com o ouro de sobra (opção).",
+  2318: "Mercador de confiança: comprar e equipar os itens que fortalecem o herói",
 };
