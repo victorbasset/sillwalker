@@ -114,6 +114,18 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   vérifie saturation et équilibre des volumes. Pour faire ÉCOUTER à Victor : rendre des passages en WAV dans une injection
   TEMP (OfflineAudioContext + schedulePass, base64 par morceaux dans la console), puis les lui envoyer (it. 520).
 
+## Sortie sur Steam (it. 781-799)
+
+- État et reste à faire : `steam/checklist.md`. Textes du magasin (10 langues, tags) : `steam/store-page.md`.
+- App ID : `node scripts/steam-set-appid.mjs <id>` (npm test refuse la relance par Steam avec l'App ID de test 480).
+  Envoi : `npm run dist` puis `npm run steam:build` (fichiers SteamPipe dans `steam/build/`, hors git).
+- Images et vidéos (`steam/screenshots`, `capsules`, `achievement-icons`, `media`) : régénérables par
+  `scripts/steam-prep-save.mjs` (sauvegarde sans bulles, à partir d'une partie `simulate.js` avec `DUMP=`),
+  `steam-compose.py` (captures sur un bureau), `steam-capsules/make.js` et `achicons.js`, `steam-video.sh`,
+  `steam-trailer.sh` (option de dev `--tour`). Outils Python (Pillow, fontTools, ffmpeg de pip imageio-ffmpeg) :
+  dans un environnement virtuel du dossier temporaire, jamais dans le dépôt. Chaque nouvelle génération ajoute
+  plusieurs Mo à l'historique git : ne régénérer que si le rendu change vraiment.
+
 ## Traductions (10 langues, anglais par défaut)
 
 - Texte affiché : l'écrire en français dans `tx("…")` (ou `tr()` pour les noms de données).
