@@ -394,7 +394,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .classgrid { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
 .classcard .lines li { padding: 0; font-size: 14px; }
 .classcard .passive, .classcard .cdesc { font-size: 13px; }
-.actor.legend { filter: drop-shadow(0 0 2px #ffc23d); } /* une seule ombre : −0,4 point de la bande (it. 594) */
+/* .actor.legend : halo dessiné dans l'image (sprites.js glowFrames, it. 597-598), plus de filtre */
 .equip { grid-template-columns: repeat(7, 1fr) !important; gap: 4px; }
 .equip .slot .lab { font-size: 9px; }
 

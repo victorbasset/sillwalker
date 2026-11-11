@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 598) : mode mini : halo légendaire dessiné aussi dans l'image (glowFrames) ; la règle CSS
+  .actor.legend n'existe plus. Mini 6,6 % (inchangé : petit encart). Autres filtres du héros (frénésie, œil du
+  faucon, vague arcanique, protection, malédiction, hâte) : temporaires (événements, sorts), laissés. 133/133.
 - 2026-11-11 (it. 597) : performance : halo des objets légendaires du héros dessiné dans l'image (sprites.js
   glowFrames, 2 pixels, gauche / droite / haut) au lieu du filtre CSS ; se combine au contour du bouclier. Bande
   19,05 % (3 mesures ; sans halo 18,95 % à l'it. 594) : le halo ne coûte plus rien ; it. 594 → 597 : 19,85 → 19,05 %.

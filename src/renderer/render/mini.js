@@ -8,7 +8,7 @@ import { todoLabel } from "../ui/todo.js";
 import { SETS } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
 import { PIXEL as P } from "./art.js";
-import { buildSpriteSet, buildHeroSprites, outlinedFrames } from "./sprites.js";
+import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { fmt, fmtShort } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
@@ -171,7 +171,8 @@ export class MiniRenderer {
       const h = buildHeroSprites(S.cls, vis, this.dpr, 2); // plus petit : l'encart ne fait que 64 px
       this.hero = new Actor(this.stage, [h.walk1, h.walk2, h.attack]);
       this.heroCls = heroKey;
-      this.hero.el.classList.toggle("legend", vis.aura);
+      // halo des objets légendaires dessiné dans l'image (it. 598), comme sur la bande
+      if (vis.aura) this.hero.reframe(glowFrames(this.hero.base, "#ffc23d", this.dpr));
       if (crown) { const im = el("img", "relic-crown", this.hero.el); im.src = relicIconURL("crown", 1); im.alt = ""; im.style.left = Math.round(this.hero.w / 2 - 4) + "px"; im.style.width = "9px"; im.style.top = "0px"; }
     }
     const walkF = Math.floor(R.time * 6) % 2;
