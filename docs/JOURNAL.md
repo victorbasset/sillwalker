@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 749) : « À vérifier » point 14 : emplacement des options corrigé (Aventure, sous le sac, « Automatismes »,
+  it. 744 ; ce n'était pas Héros > Équipement).
 - 2026-11-11 (it. 748) : « Quoi de neuf » édition 25 : automatismes regroupés sous le sac (it. 744). Traduite.
 - 2026-11-11 (it. 747) : lang-overflow (pire cas de l'it. 746) passé sur le code d'avant la correction (662d0f1) :
   « de 1280 : adventure=186 » : il aurait vu le défaut de l'it. 744.
@@ -2472,7 +2474,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       zones 250, 300, 350, un niveau de plus par course) : rythme et difficulté des échos à juger en jeu. Contour
       spectral bleu pâle des échos (it. 701-702, bande et mode mini) : assez visible, pas trop ?
   14. Déblocages au-delà du Rebord (it. 712-738) : Forgeron des astres (230), Herboriste perpétuel (260), Marchand
-      attitré (300) : prix et moment d'arrivée justes ? Options dans Héros > Équipement.
+      attitré (300) : prix et moment d'arrivée justes ? Options : Aventure, sous le sac, « Automatismes (actifs / total) ».
   13. Feux follets des pétales complets (demande V, it. 720) : passent derrière puis devant le héros ?
   12. Familiers (demande U, it. 714) : bouton « Récupérer le butin » et boutons d'envoi (30 min / 2 h / 8 h, nom au
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
