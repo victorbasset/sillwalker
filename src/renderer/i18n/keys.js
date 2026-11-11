@@ -2335,5 +2335,6 @@ export const KEYS = [
   "Deux nouveaux succès au-delà du Rebord : « Écho dissipé » et « Les trois échos ».",
   "Ton avis",
   "Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte.",
-  "Donner mon avis"
+  "Donner mon avis",
+  "Nouveau bouton « Ton avis » en haut du panneau : une idée, un bug ? Dis-le sur la page du jeu."
 ];

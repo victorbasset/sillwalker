@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 816) : « Quoi de neuf » édition 30 : le bouton « Ton avis ». Traduite (libellé cité vérifié par
+  i18n-quotes dans les 9 langues).
 - 2026-11-11 (it. 815) : pour récolter les avis des premiers joueurs (itch.io) : bouton « Ton avis » (icône de contrat,
   info-bulle) dans la barre du panneau ; ouvre config.FEEDBACK_URL (https://victor-basset.itch.io/sillwalker, adresse
   fixe ; jamais pendant les tests : --ghost/--crawl/--selftest) via app:feedback. Essayé d'abord comme cadre des

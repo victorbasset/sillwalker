@@ -1207,4 +1207,5 @@ export default {
   2331: "Sua opinião",
   2332: "Uma ideia, um bug, um desejo? Deixe um comentário na página do jogo: cada opinião conta.",
   2333: "Dar minha opinião",
+  2334: "Novo botão “Sua opinião” no topo do painel: uma ideia, um bug? Conte na página do jogo.",
 };

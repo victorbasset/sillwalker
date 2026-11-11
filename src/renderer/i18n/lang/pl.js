@@ -1207,4 +1207,5 @@ export default {
   2331: "Twoja opinia",
   2332: "Pomysł, błąd, życzenie? Zostaw komentarz na stronie gry: każda opinia się liczy.",
   2333: "Wyraź opinię",
+  2334: "Nowy przycisk „Twoja opinia” u góry panelu: pomysł, błąd? Napisz na stronie gry.",
 };
