@@ -2311,5 +2311,7 @@ export const KEYS = [
   "Forgeron des astres : remonter l’équipement porté au niveau du record",
   "Forgeron des astres : {0} remonté au niveau {1}.",
   "Forgeron des astres : {n} objet remonté pendant ton absence.|Forgeron des astres : {n} objets remontés pendant ton absence.",
-  "Nouveau déblocage au-delà du Rebord (zone 230) : le « Forgeron des astres » remonte tout seul ton équipement au niveau de ton record, avec l’or en trop."
+  "Nouveau déblocage au-delà du Rebord (zone 230) : le « Forgeron des astres » remonte tout seul ton équipement au niveau de ton record, avec l’or en trop.",
+  "Familiers : le bouton pour récupérer une expédition et les boutons d’envoi tiennent dans la carte (plus de défilement).",
+  "Les feux follets des pétales de compétences complets passent derrière ton héros, puis reviennent devant."
 ];

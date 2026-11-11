@@ -1183,4 +1183,6 @@ export default {
   2307: "Herrero de los astros: {0} subido al nivel {1}.",
   2308: "Herrero de los astros: {n} objeto subido durante tu ausencia.|Herrero de los astros: {n} objetos subidos durante tu ausencia.",
   2309: "Nuevo desbloqueo más allá del Alféizar (zona 230): el «Herrero de los astros» sube solo tu equipo al nivel de tu récord, con el oro sobrante.",
+  2310: "Mascotas: el botón para recoger una expedición y los botones de envío caben en la tarjeta (sin desplazamiento).",
+  2311: "Los fuegos fatuos de los pétalos de habilidades completos pasan detrás de tu héroe y luego vuelven delante.",
 };

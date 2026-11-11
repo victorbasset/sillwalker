@@ -1183,4 +1183,6 @@ export default {
   2307: "Kowal gwiazd: {0} podniesiony do poziomu {1}.",
   2308: "Kowal gwiazd: {n} przedmiot podniesiony podczas twojej nieobecności.|Kowal gwiazd: {n} przedmioty podniesione podczas twojej nieobecności.|Kowal gwiazd: {n} przedmiotów podniesionych podczas twojej nieobecności.",
   2309: "Nowe odblokowanie za Krawędzią (strefa 230): „Kowal gwiazd” sam podnosi twój ekwipunek do poziomu rekordu za nadmiar złota.",
+  2310: "Pupile: przycisk odbioru wyprawy i przyciski wysyłania mieszczą się w karcie (bez przewijania).",
+  2311: "Błędne ogniki ukończonych płatków umiejętności przelatują za bohaterem, a potem wracają przed niego.",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 722) : « Quoi de neuf » édition 22 : demandes U (boutons d'expédition) et V (feux follets derrière
+  puis devant le héros), traduite en 9 langues avec les termes du jeu (wisp, Irrlicht, блуждающий огонёк, 鬼火…).
+  138/138 ; de, pl sans défilement.
 - 2026-11-11 (it. 721, revue générale décalée) : balance 12 h vs f926735 +0,0 ; fuzz 1200 parties, 0 bloquée ;
   save-fuzz ok ; crawl de 318 / zh 325 clics sans erreur ; perf bande 19,1 %, panneau 19,7 %, mini 6,6 % (z-index du
   héros sans effet) ; mémoire réelle 519 Mo stable.

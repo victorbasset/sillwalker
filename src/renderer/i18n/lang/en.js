@@ -1183,4 +1183,6 @@ export default {
   2307: "Star Smith: {0} raised to level {1}.",
   2308: "Star Smith: {n} item raised while you were away.|Star Smith: {n} items raised while you were away.",
   2309: "New unlock beyond the Sill (zone 230): the “Star Smith” raises your equipment to your record level on its own, with spare gold.",
+  2310: "Pets: the button to collect an expedition and the send buttons now fit in the card (no more scrolling).",
+  2311: "The wisps of completed skill petals now pass behind your hero, then come back in front.",
 };

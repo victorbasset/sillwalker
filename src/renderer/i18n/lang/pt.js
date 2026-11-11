@@ -1183,4 +1183,6 @@ export default {
   2307: "Ferreiro dos astros: {0} elevado ao nível {1}.",
   2308: "Ferreiro dos astros: {n} item elevado durante sua ausência.|Ferreiro dos astros: {n} itens elevados durante sua ausência.",
   2309: "Novo desbloqueio além do Parapeito (zona 230): o «Ferreiro dos astros» eleva sozinho seu equipamento ao nível do seu recorde, com o ouro de sobra.",
+  2310: "Mascotes: o botão para coletar uma expedição e os botões de envio cabem no cartão (sem rolagem).",
+  2311: "Os fogos-fátuos das pétalas de habilidades completas passam atrás do seu herói e depois voltam à frente.",
 };

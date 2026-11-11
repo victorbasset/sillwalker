@@ -1183,4 +1183,6 @@ export default {
   2307: "Sternenschmied: {0} auf Stufe {1} gehoben.",
   2308: "Sternenschmied: {n} Gegenstand während deiner Abwesenheit gehoben.|Sternenschmied: {n} Gegenstände während deiner Abwesenheit gehoben.",
   2309: "Neue Freischaltung jenseits des Saums (Zone 230): Der „Sternenschmied“ hebt deine Ausrüstung selbstständig auf die Stufe deines Rekords, mit überschüssigem Gold.",
+  2310: "Begleiter: Der Knopf zum Abholen einer Expedition und die Sende-Knöpfe passen in die Karte (kein Scrollen mehr).",
+  2311: "Die Irrlichter vollständiger Fähigkeiten-Blütenblätter ziehen hinter deinem Helden vorbei und kommen wieder nach vorn.",
 };
