@@ -13,7 +13,7 @@ import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
-import { RELICS, MAJOR_BOSSES, hasRelic } from "../game/relics.js";
+import { RELICS, RELIC_IDS, MAJOR_BOSSES, hasRelic } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -503,6 +503,9 @@ export class Panel {
     const events = Object.entries(g.R.events).filter(([, t]) => t > 0)
       .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}" title="${esc(EVENTS[id].text)}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
     const dm = activeDayMod(S);
+    // Reliques gagnées (demande S, it. 605) : une pastille chacune ; survol : effet et histoire.
+    const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).map((id) => { const r = RELICS[id];
+      return `<span class="chip relic" title="${esc(`${tx(r.name)}${fsp()}: ${tx(r.effect)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}"></span>`; }).join("");
     const day = dm ? `<span class="chip daymod" title="${esc(tx("Bénédiction du jour : change chaque jour à minuit."))}">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
@@ -521,7 +524,7 @@ export class Panel {
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
       </div>
       ${this.visitHTML()}${this.goalHTML(S)}
-      ${day || buffs || events || sets ? `<div class="chips hscroll" data-hs="hero-chips">${day}${sets}${events}${buffs}</div>` : ""}
+      ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${relics}${day}${sets}${events}${buffs}</div>` : ""}
       <div class="morerow">${this.todoBox()}${this.chronicleBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}

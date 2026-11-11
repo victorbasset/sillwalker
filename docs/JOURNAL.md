@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 605) : carte du héros (Aventure) : les reliques gagnées en pastilles-icônes en tête de la rangée de
+  pastilles (survol : nom, effet, histoire). Rangée défilante : lang-overflow fr, de, pl, ru à 1920, 1366, 1280 :
+  aucun défilement. Vérifié en capture. 133/133.
 - 2026-11-11 (it. 604) : vérifié en capture : halo de hâte à une ombre (it. 603) bien visible, orangé par-dessus le
   halo doré dessiné des objets légendaires (proches de teinte, comme avant).
 - 2026-11-11 (it. 603) : performance : halos d'état du héros et des boss (hâte, frénésie, œil du faucon, vague
