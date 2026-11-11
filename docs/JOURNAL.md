@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 704) : crawl en polonais au-delà du Rebord (zone 255, quatre reliques de niveaux variés) : 330 clics
+  sans erreur (contour des échos, épithètes accordées).
 - 2026-11-11 (it. 703) : « À vérifier » (point 11) : contour des échos ajouté.
 - 2026-11-11 (it. 702) : mode mini : même contour spectral pour l'écho en combat ; couleur partagée (ECHO_OUTLINE,
   relics.js). Capture vérifiée. 135/135.
