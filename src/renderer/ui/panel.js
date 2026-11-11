@@ -185,6 +185,7 @@ export class Panel {
     this.root.addEventListener("click", (e) => { if (!(e.detail === 2 && this.onDouble(e))) this.onClick(e); });
     this.watchDetails();
     this.watchTitles();
+    setTimeout(() => this.warmTabs(), 4000);
     this.root.addEventListener("change", (e) => this.onChange(e));
     // Infobulle de comparaison au survol d'un objet (sac ou équipement)
     this.tip = document.createElement("div");
@@ -247,6 +248,36 @@ export class Panel {
     this.root.scrollTop = 0;
     this.renderAll();
     this.fitTabs();
+  }
+
+  /**
+   * (it. 750, signalé par Victor : « un onglet met du temps à s'ouvrir la première fois, ensuite ça va vite »)
+   * Au premier affichage, un onglet fabrique ses icônes (canevas → image, puis cache) et décode ses images. On fait ce
+   * travail d'avance, un onglet à la fois, quand l'ordinateur est inoccupé : construit caché, images décodées.
+   */
+  warmTabs() {
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 200));
+    const ids = TABS.map((t) => t.id).filter((id) => id !== "adventure" && this.tabs[id]);
+    // l'onglet courant (Aventure en général) d'abord : le premier clic sur la bande ouvre le panneau dessus
+    idle(() => { try { this.renderAll(); for (const img of this.root.querySelectorAll("img")) img.decode?.().catch(() => {}); } catch { /* idem */ } }, { timeout: 3000 });
+    const next = () => {
+      const id = ids.shift();
+      if (!id) return;
+      idle(() => {
+        try {
+          if (tabOpen(this.game.S, id) && id !== this.tab) {
+            const pane = $(this.root, `[data-pane="${id}"]`);
+            // déjà affiché une fois : rien à préparer (et surtout ne pas le redessiner sous les yeux du joueur)
+            if (!pane.childElementCount) {
+              this.tabs[id].render(pane);
+              for (const img of pane.querySelectorAll("img")) img.decode?.().catch(() => {});
+            }
+          }
+        } catch { /* préchauffage seulement : l'onglet sera rendu normalement à l'ouverture */ }
+        next();
+      }, { timeout: 3000 });
+    };
+    next();
   }
 
   /** Onglets trop larges pour une ligne (langues aux mots longs, petit écran), par paliers :

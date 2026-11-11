@@ -5,6 +5,17 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 750, revue générale) : balance 12 h vs fe555b7 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl ru 318 / es 319 clics sans erreur ; perf bande 19,1 %, panneau 20,5 %, mini 6,5 % ; mémoire réelle 420 Mo
+  (plus bas que d'habitude, mesuré pendant d'autres essais : à confirmer à la revue 760).
+- 2026-11-11 (it. 750) : DEMANDE W de Victor : « sur Windows, un onglet met du temps à s'ouvrir la première fois, ensuite
+  ça va vite ». Mesuré (rendu + 2 images + décodage) : 1re ouverture 35-226 ms (Aventure 226, Compétences 100,
+  Bestiaire 75), ensuite 26-42 ms : au premier affichage, icônes fabriquées (canevas → image) et images décodées.
+  Panel.warmTabs : 4 s après le lancement, quand l'ordinateur est inoccupé (requestIdleCallback), l'onglet courant puis
+  chaque onglet jamais affiché est construit caché et ses images décodées. 1re ouverture ensuite 26-49 ms (Compétences
+  100 → 28, Bestiaire 75 → 40). Autotest : le Bestiaire comptait des fiches cachées (préchauffées) et ne cliquait plus
+  l'onglet : il compte désormais l'onglet visible. 140/140 ; crawl 322 clics. Questions de Victor sur Tauri / moteurs
+  natifs : répondu (Tauri gagne surtout en mémoire, pas en processeur ; voir la conversation).
 - 2026-11-11 (it. 749) : « À vérifier » point 14 : emplacement des options corrigé (Aventure, sous le sac, « Automatismes »,
   it. 744 ; ce n'était pas Héros > Équipement).
 - 2026-11-11 (it. 748) : « Quoi de neuf » édition 25 : automatismes regroupés sous le sac (it. 744). Traduite.

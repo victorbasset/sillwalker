@@ -343,15 +343,15 @@ async function runSelfTest(strip) {
   check("retour à la bande : panneau rouvert", await js("document.body.classList.contains('panel-shown')"),
     await js("[document.body.className, !!document.querySelector('.cine'), document.getElementById('toast').hidden].join(' / ')") + " / mode " + strip.mode() + " / " + JSON.stringify(bounds()));
   await sleep(600); // fin de l'animation d'ouverture : les onglets ne bougent plus
-  for (let k = 0; k < 3 && (await js("document.querySelectorAll('.beast').length")) < 11; k++) {
+  for (let k = 0; k < 3 && (await js("document.querySelectorAll('[data-pane=bestiary]:not([hidden]) .beast').length")) < 11; k++) {
     await click('[data-tab="bestiary"]');
-    await until(async () => (await js("document.querySelectorAll('.beast').length")) >= 11, 1500);
+    await until(async () => (await js("document.querySelectorAll('[data-pane=bestiary]:not([hidden]) .beast').length")) >= 11, 1500);
   }
-  check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('.beast').length")) >= 11);
+  check("onglet Bestiaire : affiché", (await js("document.querySelectorAll('[data-pane=bestiary]:not([hidden]) .beast').length")) >= 11);
   // Sous-onglets du Bestiaire (demande 18) : un clic n'affiche que la section choisie (ici « Élites »).
   await click('.bjump [data-to="elites"]');
   await sleep(300);
-  const sub = await js("(() => [!!document.getElementById('bj-elites'), document.querySelectorAll('.beast').length, !!document.querySelector('.bjump .on[data-to=elites]')].join(' '))()");
+  const sub = await js("(() => [!!document.getElementById('bj-elites'), document.querySelectorAll('[data-pane=bestiary]:not([hidden]) .beast').length, !!document.querySelector('.bjump .on[data-to=elites]')].join(' '))()");
   check("Bestiaire : un sous-onglet n'affiche que sa section", sub === "true 0 true", sub);
   await click('.bjump [data-to="beasts"]');
   await sleep(200);
