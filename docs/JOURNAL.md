@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 752) : essai Tauri vérifié sur le serveur : Rust installé dans le dossier personnel (rustup, cible
+  x86_64-pc-windows-msvc) ; `cargo check` pour Windows passe (faux llvm-rc temporaire pour la ressource d'icône,
+  outil absent ici ; l'édition des liens ne se fait que sur Windows). README de l'essai à jour.
 - 2026-11-11 (it. 751) : mémoire après le préchauffage des onglets : 520 Mo stables (5 min) : les 420 Mo de la revue 750
   étaient faussés par les essais menés en même temps.
   DEMANDE X de Victor : essai Tauri limité à la bande (dossier proto-tauri/, indépendant du jeu Electron) : mêmes pages

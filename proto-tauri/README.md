@@ -33,6 +33,11 @@ artefact **sillwalker-tauri-essai** (un zip contenant `sillwalker-proto.exe`, ri
 2. Quitter l'essai, relancer Sillwalker (Electron), mêmes mesures (tous les processus « Sillwalker »).
 3. Vérifier que les clics traversent bien la bande hors des boutons.
 
+## Vérification sur le serveur
+
+`cargo check --target x86_64-pc-windows-msvc` passe (code Rust et API Tauri vérifiés ; l'édition des liens et la
+ressource d'icône ne se font que sur Windows, dans GitHub Actions).
+
 ## Fichiers
 
 - `bridge.js` : remplace le pont d'Electron (`src/preload/preload.js`) par des commandes Tauri.
