@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 743) : « À vérifier » point 14 : les trois déblocages au-delà du Rebord.
 - 2026-11-11 (it. 742) : test-logic : freshState exclut aussi starSmith, herbalist et trader (ils dépensent l'or tout
   seuls ; leurs tests les activent explicitement) ; CLAUDE.md à jour. 194 tests.
 - 2026-11-11 (it. 741) : succès « Tout débloqué » (UNLOCK_ALL) : suit la liste (n / 26 affiché), aucun nombre en dur
@@ -2457,6 +2458,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   11. Niveaux des reliques (it. 608-617 : un par course, +10 %) et échos des lieutenants au-delà du Rebord (it. 634 :
       zones 250, 300, 350, un niveau de plus par course) : rythme et difficulté des échos à juger en jeu. Contour
       spectral bleu pâle des échos (it. 701-702, bande et mode mini) : assez visible, pas trop ?
+  14. Déblocages au-delà du Rebord (it. 712-738) : Forgeron des astres (230), Herboriste perpétuel (260), Marchand
+      attitré (300) : prix et moment d'arrivée justes ? Options dans Héros > Équipement.
   13. Feux follets des pétales complets (demande V, it. 720) : passent derrière puis devant le héros ?
   12. Familiers (demande U, it. 714) : bouton « Récupérer le butin » et boutons d'envoi (30 min / 2 h / 8 h, nom au
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
