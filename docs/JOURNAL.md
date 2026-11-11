@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 837, demande de Victor) : lancé à la main, le jeu se voit toujours tout de suite (sinon un nouveau
+  joueur croit qu'il ne marche pas) : premier lancement en bande ; mode icône resté d'une session précédente -> dernier
+  mode affiché ; détection du plein écran (Windows) démarrée après 20 s seulement. Démarrage automatique avec la
+  session (machine allumée depuis moins de 3 min, ou wasOpenedAtLogin sur Mac) : réglage respecté. Essayé : partie
+  neuve, settings.json en mode icône (-> bande), en mode mini (-> mini).
 - 2026-11-11 (it. 840) : barre des onglets à 1920 px : les pastilles vertes (« 99+ », « 2 », « ! ») mordaient de
   4 px sur le haut des noms (« Skılls », « Ascensıon » : points des i et haut des lettres cachés). Pastille un peu
   plus petite, posée au-dessus du bouton (comme déjà sur les écrans étroits). Vu en capture agrandie ; contrôle
