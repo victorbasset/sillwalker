@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 719) : journal : demande U notée FAITE ; point 12 « À vérifier » (familiers à la résolution de Victor).
 - 2026-11-11 (it. 718) : autotest (138) : aucun bouton ne sort de sa carte ou de son panneau sur les 12 onglets (sonde
   des it. 716-717 rendue permanente ; une rangée défilante n'est ignorée que si elle est dans la carte : les cartes
   elles-mêmes dans une rangée défilante, comme les familiers, restent contrôlées). Placée en fin d'autotest (elle
@@ -2393,10 +2394,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   11. Niveaux des reliques (it. 608-617 : un par course, +10 %) et échos des lieutenants au-delà du Rebord (it. 634 :
       zones 250, 300, 350, un niveau de plus par course) : rythme et difficulté des échos à juger en jeu. Contour
       spectral bleu pâle des échos (it. 701-702, bande et mode mini) : assez visible, pas trop ?
+  12. Familiers (demande U, it. 714) : bouton « Récupérer le butin » et boutons d'envoi (30 min / 2 h / 8 h, nom au
+      survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- DEMANDES DE VICTOR (2026-11-10, après-midi et soir) :
+- DEMANDES DE VICTOR (2026-11-10, après-midi et soir ; 2026-11-11) :
+  U. FAIT (it. 714, contrôles it. 715 et 718). « Les boutons pour récupérer une expédition sortent de l'écran et les
+     autres font un scroll aussi » : bouton « Récupérer le butin » seul, pleine largeur ; boutons d'envoi sur une ligne.
   T. FAIT (it. 580, contrôle d'autotest it. 581). En combat de boss, on ne voit pas la barre de vie du boss ni la
      sienne (sous le nom du boss / sous les nombres de dégâts) : passées sous les pieds.
   L. FAIT (it. 498, à voir en jeu). Les attaques transpercées doivent atteindre directement la cible.
