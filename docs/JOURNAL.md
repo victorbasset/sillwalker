@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 829) : errors.log reçoit aussi les exceptions du processus principal (uncaughtException,
+  unhandledRejection, avec la pile ; plus de boîte d'erreur Electron intrusive au-dessus du bureau) et les plantages
+  de la page (« [page arrêtée] crashed (code 2) »). Essayé : plantage forcé de la page + exception provoquée.
 - 2026-11-11 (it. 828) : journal des erreurs pour les joueurs : chaque erreur de l'interface est ajoutée à
   userData/errors.log (date, version, message, fichier:ligne ; 200 Ko au plus, l'ancien en .old). Essayé (erreur
   provoquée dans une copie). Instructions itch.io : où le trouver (Windows, Linux, macOS) pour le joindre à un avis.

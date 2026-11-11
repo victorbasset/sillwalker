@@ -223,20 +223,27 @@ function start() {
     // (it. 828) Journal des erreurs pour les joueurs (userData/errors.log, 200 Ko au plus, l'ancien gardé en .old) : un
     // joueur qui signale un bug peut le joindre à son avis. Seulement les erreurs, avec la version du jeu.
     const errLog = path.join(app.getPath("userData"), "errors.log");
+    const logError = (text) => {
+      try {
+        if (fs.existsSync(errLog) && fs.statSync(errLog).size > 200 * 1024) fs.renameSync(errLog, errLog + ".old");
+        fs.appendFileSync(errLog, `${new Date().toISOString()} v${app.getVersion()} ${text}\n`);
+      } catch { /* journal facultatif */ }
+    };
     strip.win.webContents.on("console-message", (e) => {
       const level = e.level ?? e.params?.level;
       if (level !== "error" && level !== 3) return;
-      try {
-        if (fs.existsSync(errLog) && fs.statSync(errLog).size > 200 * 1024) fs.renameSync(errLog, errLog + ".old");
-        fs.appendFileSync(errLog, `${new Date().toISOString()} v${app.getVersion()} ${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})\n`);
-      } catch { /* journal facultatif */ }
+      logError(`${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})`);
     });
+    // (it. 829) aussi les erreurs du processus principal et les plantages de la page (« le jeu s'est fermé »)
+    process.on("uncaughtException", (err) => { logError("[principal] " + (err && err.stack || err)); console.error(err); });
+    process.on("unhandledRejection", (err) => { logError("[principal, promesse] " + (err && err.stack || err)); });
     if (flags.isDev) strip.win.webContents.on("console-message", (e) => {
       const level = e.level ?? e.params?.level;
       if (level === "warning" || level === "error" || level === 2 || level === 3) console.log(`[renderer ${level}] ${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})`);
     });
     strip.win.webContents.on("render-process-gone", (_e, d) => {
       console.error("[main] renderer arrêté :", d.reason);
+      if (d.reason !== "clean-exit") logError("[page arrêtée] " + d.reason + (d.exitCode != null ? " (code " + d.exitCode + ")" : ""));
       if (!quitting && d.reason !== "clean-exit") strip.win.reload();
     });
     // Arrêt / déconnexion de Windows : dernière sauvegarde.
