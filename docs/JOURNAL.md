@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 667) : extraction du texte japonais (--dump-text) : aucun mot latin suspect (HP, Lv, pt, BGM :
+  usage japonais ; Sp, Oc : suffixes des grands nombres). Seul défaut : le résumé d'absence mettait une virgule « , »
+  en dur avant « objets gardés » ; nouvelle clé « , » (ja 、, zh ，). 135/135.
 - 2026-11-11 (it. 666) : après l'accord russe des matières (it. 665) : lang-overflow ru à 1920 / 1366 / 1280 : aucun défilement.
 - 2026-11-11 (it. 665) : russe : les matières-adjectifs (железный, стальной, алмазный…) restaient au masculin
   (« Печать алмазный », « Сабля стальной ») ; itemName (i18n/data.js) les accorde au genre de la pièce (RU_GENDER,

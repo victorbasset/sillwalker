@@ -1170,4 +1170,5 @@ export default {
   2294: "Serce Świtu leczy też między walkami.",
   2295: "Poprawka: pociski Gwiezdnego drona są zatrzymywane przez pancerz i kamienną skórę bossów, jak twoje ciosy.",
   2296: "Pokonani wielcy bossowie i echa",
+  2297: ", ",
 };
