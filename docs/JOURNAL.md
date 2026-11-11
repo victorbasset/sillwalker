@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 767) : lignes « [lent] » de Victor (npm start, Windows) : au lancement, images de 200 à 980 ms,
+  « script 0, mise en page 0 ». Vérifié ici : sous app://, Chromium n'attribue AUCUN script aux images longues (une
+  boucle de 300 ms donne « scripts : aucun ») : le temps peut donc être dans notre code. Rien de tel sur le serveur
+  (démarrage 166 + 215 ms, aucune image longue). Diagnostic plus fin (dev) : devslow.js chronomètre tous les rappels
+  (minuteries, images, temps libre, événements) et nomme ceux de plus de 100 ms ; durée du démarrage ; état de
+  l'accélération graphique au lancement ([dev] carte graphique : …). En attente des nouvelles lignes de Victor.
 - 2026-11-11 (it. 766) : autotest (144) : onglets préparés d'avance : 12 construits, un seul affiché, aucun resté en
   préparation (.warming). En attente des lignes « [lent] » de Victor si les blocages persistent sous Windows.
 - 2026-11-11 (it. 765) : Victor signale encore de gros blocages sous Windows à la première ouverture du panneau et

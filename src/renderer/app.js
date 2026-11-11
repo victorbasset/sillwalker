@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import "./devslow.js"; // en premier : chronomètre les rappels (lenteurs, dev)
 import { SPELLS } from "./game/spells.js";
 import { Music } from "./render/music.js";
 import { TAB_GATES } from "./game/tabs.js";
@@ -468,9 +469,10 @@ async function boot() {
       new PerformanceObserver((list) => {
         for (const e of list.getEntries()) {
           if (e.duration < 200) continue;
-          const script = Math.round((e.scripts || []).reduce((a, s) => a + s.duration, 0));
-          const layout = e.styleAndLayoutStart ? Math.round(e.startTime + e.duration - e.styleAndLayoutStart) : 0;
-          console.warn(`[lent] image de ${Math.round(e.duration)} ms : script ${script}, style et mise en page ${layout}`);
+          // (it. 767) détail : moment depuis le lancement, scripts (déclencheur, source), début du rendu, du style
+          const r = (v) => Math.round(v), at = (v) => (v ? r(v - e.startTime) : "-");
+          const scr = (e.scripts || []).map((s) => `${s.invokerType}:${s.invoker} ${r(s.duration)} ms (style forcé ${r(s.forcedStyleAndLayoutDuration || 0)}) ${String(s.sourceURL || "").split("/").pop()}:${s.sourceFunctionName || ""}`).join(" ; ") || "aucun";
+          console.warn(`[lent] à ${(e.startTime / 1000).toFixed(1)} s : image de ${r(e.duration)} ms (bloquante ${r(e.blockingDuration || 0)}), rendu à +${at(e.renderStart)}, style à +${at(e.styleAndLayoutStart)} ; scripts : ${scr}`);
         }
       }).observe({ type: "long-animation-frame", buffered: false });
     } catch { /* navigateur sans cette mesure */ }
@@ -606,4 +608,6 @@ async function boot() {
   api.ready();
 }
 
-boot().catch((e) => { console.error(e); document.body.textContent = tx("Erreur au démarrage : ") + e.message; });
+const bootT0 = performance.now();
+// (it. 767) Dev : durée du démarrage (modules chargés à bootT0 ; lecture de la sauvegarde et construction du jeu ensuite)
+boot().then(() => { if (window.__devSlow) console.warn(`[lent] démarrage : modules ${Math.round(bootT0)} ms, puis ${Math.round(performance.now() - bootT0)} ms jusqu'au jeu prêt`); }).catch((e) => { console.error(e); document.body.textContent = tx("Erreur au démarrage : ") + e.message; });

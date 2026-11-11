@@ -189,6 +189,8 @@ function start() {
         app.quit();
       }, 3000);
       if (flags.demo) setTimeout(() => strip.win.webContents.executeJavaScript("window.__demo && window.__demo()"), 800);
+      // (it. 767) Dev : accélération graphique (lenteurs signalées par Victor sous Windows)
+      if (flags.isDev) setTimeout(() => { try { const g = app.getGPUFeatureStatus(); console.log(`[dev] carte graphique : dessin ${g.gpu_compositing}, rendu ${g.rasterization}, canevas ${g["2d_canvas"]}, WebGL ${g.webgl}`); } catch { /* sans importance */ } }, 3000);
       if (flags.perf) require("./perf").runPerf(strip, typeof flags.perf === "string" ? { phase: +flags.perf } : {});
     });
 
