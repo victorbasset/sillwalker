@@ -2279,5 +2279,6 @@ export const KEYS = [
   "La bande consomme moins : contours et halos dessinés une fois pour toutes.",
   "Zone {0} : {1} renforcera {2} (niveau {3} → {4}).",
   "Relique parfaite (niveau 5)",
-  "+{n} niveau de relique|+{n} niveaux de relique"
+  "+{n} niveau de relique|+{n} niveaux de relique",
+  "Niveau {0} / {1} : effet +{2} % (un niveau par course, en battant de nouveau son gardien)."
 ];

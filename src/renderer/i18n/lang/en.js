@@ -1151,4 +1151,5 @@ export default {
   2275: "Zone {0}: {1} will strengthen {2} (level {3} → {4}).",
   2276: "Perfect relic (level 5)",
   2277: "+{n} relic level|+{n} relic levels",
+  2278: "Level {0} / {1}: effect +{2}% (one level per run, by defeating its guardian again).",
 };

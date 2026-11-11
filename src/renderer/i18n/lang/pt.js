@@ -1151,4 +1151,5 @@ export default {
   2275: "Zona {0}: {1} reforçará {2} (nível {3} → {4}).",
   2276: "Relíquia perfeita (nível 5)",
   2277: "+{n} nível de relíquia|+{n} níveis de relíquia",
+  2278: "Nível {0} / {1}: efeito +{2}% (um nível por corrida, ao derrotar de novo o seu guardião).",
 };

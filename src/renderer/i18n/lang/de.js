@@ -1151,4 +1151,5 @@ export default {
   2275: "Zone {0}: {1} verstärkt {2} (Stufe {3} → {4}).",
   2276: "Perfektes Relikt (Stufe 5)",
   2277: "+{n} Reliktstufe|+{n} Reliktstufen",
+  2278: "Stufe {0} / {1}: Wirkung +{2} % (eine Stufe pro Lauf, wenn du seinen Wächter erneut besiegst).",
 };

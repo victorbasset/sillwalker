@@ -1151,4 +1151,5 @@ export default {
   2275: "Strefa {0}: {1} wzmocni: {2} (poziom {3} → {4}).",
   2276: "Doskonała relikwia (poziom 5)",
   2277: "+{n} poziom relikwii|+{n} poziomy relikwii|+{n} poziomów relikwii",
+  2278: "Poziom {0} / {1}: efekt +{2}% (jeden poziom na wyprawę, gdy znów pokonasz jej strażnika).",
 };
