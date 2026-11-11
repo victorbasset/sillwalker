@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 670, revue générale) : balance 12 h vs 52f8811 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl pl 323 / zh 318 clics sans erreur (listes en « ， ») ; perf bande 19,3 %, panneau 21,0 %, mini 6,6 % ;
+  mémoire réelle 512-518 Mo stable.
 - 2026-11-11 (it. 669) : test logique (187) : aucun `.join(", ")` dans src/renderer hors format.js (fallback de
   listJoin) ; vérifié qu'il échoue sur un ajout. 135/135.
 - 2026-11-11 (it. 668) : suite de l'it. 667 : csep() (i18n/index.js, clé « , ») remplace les 9 `.join(", ")` des
