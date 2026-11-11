@@ -30,7 +30,7 @@ import * as M_quests_js from "../src/renderer/game/quests.js";
 import { makeQuest } from "../src/renderer/game/quests.js";
 import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
-import { fmt as fmtN, fmtShort as fmtS } from "../src/renderer/game/format.js";
+import { fmt as fmtN, fmtShort as fmtS, durText } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -2867,6 +2867,13 @@ test("succès des échos : obtenus seulement après avoir battu l'écho (record 
   S.best = 251; assert.equal(A.ECHO_FIRST.test(S), true); assert.equal(A.ECHOES_ALL.test(S), false);
   assert.deepEqual(ACH_PROGRESS.ECHOES_ALL(S), [1, 3]);
   S.best = 351; assert.equal(A.ECHOES_ALL.test(S), true);
+});
+
+test("durées : « 8 h » sans « 0 min », « 3 h 5 min », « 12 min », « 40 s » (it. 844)", () => {
+  assert.equal(durText(8 * 3600), "8 h");
+  assert.equal(durText(3 * 3600 + 5 * 60), "3 h 5 min");
+  assert.equal(durText(12 * 60), "12 min");
+  assert.equal(durText(40), "40 s");
 });
 
 console.log(`\n${pass} tests réussis`);

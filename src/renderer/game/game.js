@@ -1056,7 +1056,9 @@ export class Game {
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells,
     };
     this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
-      (summary.newLevel ? tx(", niveau ") + S.lvl : "") + tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés."));
+      (summary.newLevel ? tx(", niveau ") + S.lvl : "") +
+      // (it. 844) rien gardé : pas de « 0 objet gardé » dans le journal
+      (summary.kept ? tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés.") : cend()));
     this.changed();
     return summary;
   }

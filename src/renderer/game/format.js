@@ -51,7 +51,8 @@ export const durText = (sec) => {
   sec = Math.max(0, Math.round(sec || 0));
   if (sec < 60) return uS(sec);
   const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
-  return h ? uH(h) + " " + uMin(m) : uMin(m);
+  // (it. 844) « 8 h » plutôt que « 8 h 0 min » (absence au plafond, chaque matin)
+  return h ? (m ? uH(h) + " " + uMin(m) : uH(h)) : uMin(m);
 };
 export const pct = (v) => dec(String(Math.round(v * 10) / 10)) + unit("%");
 

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 844) : au retour d'une nuit (absence au plafond), le journal et le résumé disaient « Pendant 8 h 0 min :
+  … 0 objet gardé. » : les durées rondes s'écrivent maintenant « 8 h » (partout : absence, statistiques, temps de jeu)
+  et le journal ne cite les objets gardés que s'il y en a. Crawl en polonais et texte russe vérifiés au passage : rien
+  de non traduit. Test logique (202/202), autotest 157/157, vu en capture (allemand : « Während 9 Std.: »).
 - 2026-11-11 (it. 843) : le Grimoire des sorts (zone 45) travaille aussi pendant l'absence : avant, l'or gagné hors
   ligne attendait le retour et aucun sort ne progressait. Mêmes règles qu'en jeu (au plus 3 rangs par minute d'absence,
   300 au plus, chacun à moins d'un dixième de l'or, option respectée) ; une seule ligne de journal et « Grimoire des
