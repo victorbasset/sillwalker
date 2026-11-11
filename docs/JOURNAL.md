@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 832) : premières heures des nouveaux joueurs (itch.io) : astuces de début bien couvertes (bienvenue,
+  héros tombé, objet ▲, talents, quêtes, boutique…) ; early-pace inchangé (60 min : 109 objets, niv. 39, zone 23,
+  6 déblocages).
 - 2026-11-11 (it. 831) : regard « nouveau joueur » (partie neuve en anglais, --release-ui) : la pastille or / niveau
   semblait passer sous le bouton du son sur une capture agrandie ; mesuré au pixel : 14 px d'écart, rien à corriger.
   Écran à 125 % (--force-device-scale-factor=1.25) : bande nette et bien placée.
