@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 669) : test logique (187) : aucun `.join(", ")` dans src/renderer hors format.js (fallback de
+  listJoin) ; vérifié qu'il échoue sur un ajout. 135/135.
 - 2026-11-11 (it. 668) : suite de l'it. 667 : csep() (i18n/index.js, clé « , ») remplace les 9 `.join(", ")` des
   textes affichés (talents, journal, mécaniques des boss, ascension, bestiaire, statistiques, mode mini) : listes en
   « 、 » (ja) et « ， » (zh). 135/135, crawl ja 317 clics sans erreur.

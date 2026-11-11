@@ -2642,4 +2642,15 @@ test("russe : adjectif de matière accordé au genre de la pièce (it. 665)", ()
   assert.equal(ruAdjective("из драконьей кости", "f"), null);
 });
 
+test("listes affichées : séparateur csep(), pas de « , » en dur (it. 668)", () => {
+  const root = new URL("../src/renderer/", import.meta.url).pathname, bad = [];
+  const walk = (d) => { for (const f of fs.readdirSync(d, { withFileTypes: true })) {
+    const p = d + "/" + f.name;
+    if (f.isDirectory()) { if (f.name !== "lang") walk(p); }
+    else if (p.endsWith(".js") && !p.endsWith("/keys.js") && !p.endsWith("/format.js") && fs.readFileSync(p, "utf8").includes('.join(", ")')) bad.push(p.slice(root.length));
+  } };
+  walk(root.replace(/\/$/, ""));
+  assert.deepEqual(bad, [], "utiliser .join(csep()) (i18n/index.js) : « 、 » en japonais, « ， » en chinois");
+});
+
 console.log(`\n${pass} tests réussis`);
