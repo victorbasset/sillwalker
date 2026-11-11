@@ -221,6 +221,21 @@ export class Panel {
     this.watchTitles();
     setTimeout(() => this.warmTabs(), 4000);
     this.root.addEventListener("change", (e) => this.onChange(e));
+    // (it. 779) Barre d'onglets au clavier (rôle ARIA tablist) : ← → passent à l'onglet voisin ouvert, Début / Fin au
+    // premier / dernier ; l'onglet choisi s'affiche et garde le focus.
+    this.root.addEventListener("keydown", (e) => {
+      const b = e.target.closest && e.target.closest('[role="tab"]');
+      if (!b || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
+      const tabs = [...this.root.querySelectorAll('[role="tab"]')].filter((t) => !t.hidden && t.offsetParent && tabOpen(this.game.S, t.dataset.tab));
+      const i = tabs.indexOf(b);
+      if (i < 0 || !tabs.length) return;
+      const j = e.key === "Home" ? 0 : e.key === "End" ? tabs.length - 1 : (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+      e.preventDefault();
+      const id = tabs[j].dataset.tab;
+      this.setTab(id);
+      // la barre peut avoir été redessinée : focus sur le bouton tel qu'il est maintenant
+      this.root.querySelector(`[role="tab"][data-tab="${id}"]`)?.focus();
+    });
     // Infobulle de comparaison au survol d'un objet (sac ou équipement)
     this.tip = document.createElement("div");
     this.tip.className = "itemtip";

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 779) : accessibilité : barre d'onglets au clavier (rôle tablist) : ← → onglet voisin ouvert,
+  Début / Fin premier / dernier, focus suivi (la barre est redessinée par setTab : focus redonné au nouveau bouton).
+  Autotest (145) ; focus vérifié à part, panneau ouvert (→ : talents, Fin : réglages).
 - 2026-11-11 (it. 778) : processeur sur le serveur après la police allégée : bande 19,4 %, panneau 20,6 %, mini 6,6 %,
   icône 0,5 % (inchangé : rendu logiciel). « [lent] démarrage » n'est plus écrit que si le jeu met plus de 0,6 s à
   être prêt. À vérifier par Victor : processeur de la bande dans le Gestionnaire des tâches (19,8 % avant la police).
