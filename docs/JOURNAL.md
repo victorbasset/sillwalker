@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 715) : autotest (137) : boutons d'expédition dans la carte (envoi sur une ligne, « Récupérer le
+  butin » dans la carte) ; vérifié qu'il échoue sur l'ancien code (« 2 lignes »). Les contrôles de défilement
+  mesuraient un état de démonstration sans expéditions et ne voyaient pas un bouton qui sort d'une carte.
 - 2026-11-11 (it. 714) : DEMANDE U de Victor : « les boutons pour récupérer une expédition sortent de l'écran et les
   autres font un scroll aussi ». Familiers : expédition finie = phrase + bouton côte à côte, plus larges que la carte
   (« Récupérer le butin » coupé) ; familier libre = 3 boutons « Balade · 30 min / Voyage · 2 h / Grande expédition ·

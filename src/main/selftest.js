@@ -278,6 +278,14 @@ async function runSelfTest(strip) {
   await click('[data-action="p-exp"][data-id="fox"][data-kind="short"]');
   await sleep(150);
   check("familiers : départ en expédition", (await js("!!(window.__game.S.pets.exp || {}).fox")));
+  // (it. 715, demande U) dans la carte : le bouton « Récupérer le butin » (expédition finie) et les 3 boutons d'envoi
+  // (familier libre) tiennent dans la carte, ces derniers sur une seule ligne (ils sortaient de la carte / faisaient défiler).
+  const inCard = "(() => { const out = []; document.querySelectorAll('.petcard').forEach((c) => { const r = c.getBoundingClientRect(); c.querySelectorAll('.expe button, .expe-btns button').forEach((b) => { const q = b.getBoundingClientRect(); if (q.right > r.right + 1 || q.left < r.left - 1) out.push('large'); }); const t = [...c.querySelectorAll('.expe-btns button')].map((b) => Math.round(b.getBoundingClientRect().top)); if (new Set(t).size > 1) out.push('2 lignes'); }); return out.join(' ') || 'ok'; })()";
+  const idleFit = await js(inCard);
+  await js("(() => { const G = window.__game, now = Date.now(); G.S.pets.exp = { fox: { kind: 'long', start: now - 9e6, end: now - 1000 } }; G.changed(); })()");
+  await sleep(200);
+  const doneFit = await js(inCard), claimN = await js("document.querySelectorAll('.petcard [data-action=p-claim]').length");
+  check("familiers : boutons d'expédition dans la carte (envoi sur une ligne, « Récupérer le butin »)", idleFit === "ok" && doneFit === "ok" && claimN >= 1, `${idleFit} / ${doneFit} / ${claimN}`);
   await js("window.__game.S.pets.exp = {}; window.__game.changed()");
   // Réglages : son, cycle jour/nuit, opacité (via le processus principal)
   await click('[data-tab="settings"]');
