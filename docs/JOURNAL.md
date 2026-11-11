@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 682) : coréen : koJosa (i18n/index.js, appelé par fill en coréen) remplace « X이(가) », « X을(를) »,
+  « X은(는) », « X과(와) » par la particule juste selon la fin de X (syllabe à consonne finale, chiffre selon sa
+  lecture ; lettre latine : double forme gardée). Deux traductions à particule fixe fausse corrigées (1247 « {0}와 »,
+  1484 « +{1}이 »). Test logique (189). 135/135, crawl ko 316 clics sans erreur.
 - 2026-11-11 (it. 681) : mage et nécromancien bas dans chaque revue (59-60, graine 7) : graines 3 / 11 / 21 : mage
   62 / 62 / 60, nécro 62 / 62 / 60 ; moyenne sur 4 graines 60,8 et 61,0 pour 62,1 : à peine plus que le bruit, rien changé.
 - 2026-11-11 (it. 680, revue générale) : balance 12 h vs 3e2eb6f +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;

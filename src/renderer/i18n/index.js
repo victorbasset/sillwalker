@@ -43,7 +43,25 @@ export function systemLang(list = (typeof navigator !== "undefined" && (navigato
 }
 setLang(valid(stored()) ? stored() : DEFAULT_LANG);
 
-const fill = (s, vars) => (vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : s);
+// (it. 682) coréen : « X이(가) », « X을(를) », « X은(는) », « X과(와) » → la bonne particule selon la fin de X (consonne
+// finale ou non) ; chiffre : selon sa lecture ; autre caractère (lettre latine, ponctuation) : double forme gardée
+const KO_PAIRS = { "이(가)": ["이", "가"], "가(이)": ["이", "가"], "을(를)": ["을", "를"], "를(을)": ["을", "를"],
+  "은(는)": ["은", "는"], "는(은)": ["은", "는"], "과(와)": ["과", "와"], "와(과)": ["과", "와"] };
+const KO_DIGIT_FINAL = { 0: true, 1: true, 2: false, 3: true, 4: false, 5: false, 6: true, 7: true, 8: true, 9: false };
+function koFinal(ch) {
+  const c = ch.charCodeAt(0);
+  if (c >= 0xac00 && c <= 0xd7a3) return (c - 0xac00) % 28 !== 0;
+  if (ch in KO_DIGIT_FINAL) return KO_DIGIT_FINAL[ch];
+  return null;
+}
+export function koJosa(s) {
+  return s.replace(/(.)(이\(가\)|가\(이\)|을\(를\)|를\(을\)|은\(는\)|는\(은\)|과\(와\)|와\(과\))/gu, (m, ch, pair) => {
+    const f = koFinal(ch);
+    return f == null ? m : ch + KO_PAIRS[pair][f ? 0 : 1];
+  });
+}
+const fill0 = (s, vars) => (vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : s);
+const fill = (s, vars) => (lang === "ko" && vars ? koJosa(fill0(s, vars)) : fill0(s, vars));
 /** Texte traduit (source française en clé), avec remplacement des {variables}. */
 export function t(src, vars) {
   if (src == null) return src;

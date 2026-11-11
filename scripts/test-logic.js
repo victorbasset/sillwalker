@@ -39,7 +39,7 @@ const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
-import { systemLang, plAgree } from "../src/renderer/i18n/index.js";
+import { systemLang, plAgree, koJosa } from "../src/renderer/i18n/index.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
 import { approachTime, heroStats, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
@@ -2677,6 +2677,15 @@ test("épithètes des boss accordées au genre (de, es, pt, ru, pl ; it. 673-675
       for (const [z, want] of list) assert.ok(bossName(z).includes(want), `${lang} zone ${z} : « ${bossName(z)} » sans « ${want} »`);
     }
   } finally { setLang(before); }
+});
+
+test("coréen : particule choisie selon la fin du mot (it. 682)", () => {
+  assert.equal(koJosa("검이(가) 떨어졌다"), "검이 떨어졌다");
+  assert.equal(koJosa("도끼이(가) 떨어졌다"), "도끼가 떨어졌다");
+  assert.equal(koJosa("반지을(를)"), "반지를");
+  assert.equal(koJosa("+5이(가)"), "+5가");
+  assert.equal(koJosa("+3이(가)"), "+3이");
+  assert.equal(koJosa("Lv이(가)"), "Lv이(가)");
 });
 
 console.log(`\n${pass} tests réussis`);
