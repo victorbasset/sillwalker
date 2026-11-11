@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 690, revue générale) : balance 12 h vs ba2874f +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl ru 319 / ja 318 clics sans erreur ; perf bande 19,2 %, panneau 20,5 %, mini 6,8 % ; mémoire réelle 529-530 Mo,
+  stable pendant la mesure (revues précédentes 512-523 : à surveiller à la revue 700).
 - 2026-11-11 (it. 689) : le test des noms d'objets (it. 688) signale bien une pièce non traduite (« Аметистовая seal … »
   sans « Sceau » en russe) ; le premier essai semblait passer car `grep -m1 "→"` tombait sur le titre d'un autre test.
 - 2026-11-11 (it. 688) : test logique (190) : 4000 objets tirés en anglais (aucun accent français) et en russe (aucune
