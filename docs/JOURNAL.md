@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 633) : journal, Idées : chiffres de performance et de progression lointaine mis à jour ; la piste
+  « objectifs au-delà de la zone 200 » est désormais atteinte en une semaine simulée : à proposer à Victor.
 - 2026-11-11 (it. 632) : ▶ d'une relique dans les Chroniques : la scène revue joue aussi son carillon. 135/135.
 - 2026-11-11 (it. 631) : Chroniques (carte du héros) : les reliques gagnées en tête, avec leur histoire et ▶ pour revoir
   leur scène (relicReplay → cinématique forcée). Fenêtre large (hero-chron, mesurée ouverte) : aucun défilement fr,
@@ -2372,11 +2374,13 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - P3 Anciennes clés « (s) » devenues inutilisées dans keys.js (objet(s)…) : sans effet, à laisser
   (l'ordre des clés ne doit pas bouger).
-- P2 Performance (revues it. 11 à 200) : bande ~17-19 % d'un cœur, panneau ~18-21 %, mini ~4 %, icône ~0,5 % (sous
-  xvfb, depuis l'it. 163) ; mémoire ~700 Mo stable dans la durée (scripts/mem-watch.sh, it. 194).
+- P2 Performance (revues it. 11 à 630) : bande ≈ 19 % d'un cœur, panneau ≈ 20-21 %, mini ≈ 6,5 %, icône ≈ 0,5 % (sous
+  xvfb ; it. 594-598 : contours et halos dessinés dans les images) ; mémoire réelle ≈ 515 Mo stable (PSS, it. 601 ;
+  l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois).
   Le décor est déjà en cache et le rendu ne se fait que sur changement. Sous xvfb, le GPU est émulé
   (rendu logiciel) : chiffres peu représentatifs. À mesurer sous Windows avant d'optimiser.
 - P2 Progression lointaine : RÉSOLU (it. 196-205). Avant : plus aucun déblocage après ~6 h et mur vers la zone 71.
   Maintenant : onglets étalés jusqu'à la zone 40, déblocages jusqu'à la zone 200, monstres adoucis après la zone 60
-  (zoneMight) ; semaine simulée : guerrier 161, mage ~150. Piste suivante possible : de nouveaux objectifs au-delà
-  de la zone 200 (constellations, panoplies), quand un joueur s'en approchera.
+  (zoneMight) ; semaine simulée : guerrier 161, mage ~150 (it. 205) ; avec sorts et reliques : mage ≈ 278, guerrier
+  ≈ 287 (it. 617). PISTE OUVERTE (le joueur y arrive maintenant en une semaine) : de nouveaux objectifs au-delà de la
+  zone 200 (boss, constellations, panoplies) ; à proposer à Victor plutôt qu'à lancer seul (gros contenu).
