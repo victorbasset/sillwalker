@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 696) : début de partie inchangé : early-pace à 60 min : 109 objets, niv. 39, zone 23, 6 déblocages
+  (identique au repère) ; first-minutes : premier objet 41-77 s, premier boss 77-86 s.
 - 2026-11-11 (it. 694-695) : plus aucune « , » collée entre deux variables d'un gabarit. Texte coréen extrait : aucune
   double particule restée (koJosa) ; mots latins : Lv, pt (usage coréen), noms de langues.
 - 2026-11-11 (it. 693) : texte chinois extrait : aucun mot latin suspect, mais des « , » occidentales collées au chinois :
