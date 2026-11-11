@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 727) : perf des feux follets (z-index + taille, it. 720-725) : même copie (3 pétales, niv. 20000),
+  avant (8a93844) 21,8 % / après 22,1 % : bruit (cette copie coûte plus que dev-data par elle-même).
 - 2026-11-11 (it. 726) : capture effets complets coupés (copie, 3 pétales) : feux follets immobiles autour du héros
   (vert à gauche, orange à droite, le troisième derrière lui) : conforme à l'it. 725.
 - 2026-11-11 (it. 725) : accessibilité : effets complets coupés (dont « réduire les animations » du système, it. 658) :
