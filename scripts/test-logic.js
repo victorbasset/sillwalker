@@ -373,7 +373,8 @@ test("ascension : éclats, conservation, constellations", () => {
 
 /* ---------- Classes v5 et arbre de compétences ---------- */
 import { SKILL_TREE, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill } from "../src/renderer/game/skilltree.js";
-import { ruAdjective } from "../src/renderer/i18n/data.js";
+import { ruAdjective, itemName } from "../src/renderer/i18n/data.js";
+import { rollItem } from "../src/renderer/game/rules.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -2686,6 +2687,19 @@ test("coréen : particule choisie selon la fin du mot (it. 682)", () => {
   assert.equal(koJosa("+5이(가)"), "+5가");
   assert.equal(koJosa("+3이(가)"), "+3이");
   assert.equal(koJosa("Lv이(가)"), "Lv이(가)");
+});
+
+test("noms d'objets tous traduits (anglais : sans accent français ; russe : sans lettre latine) (it. 688)", () => {
+  const before = getLang();
+  try {
+    for (const [lang, bad] of [["en", /[éèêàâçôûùœ’]/], ["ru", /[A-Za-zÀ-ÿ]/]]) {
+      setLang(lang);
+      for (let k = 0; k < 4000; k++) {
+        const it = rollItem(k, 1 + (k % 400), k % 5), n = itemName(it);
+        assert.ok(!bad.test(n), `${lang} : « ${it.name} » → « ${n} »`);
+      }
+    }
+  } finally { setLang(before); }
 });
 
 console.log(`\n${pass} tests réussis`);
