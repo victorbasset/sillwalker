@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 757) : CLAUDE.md (pièges) : onglets préparés d'avance = éléments présents dans les onglets cachés ;
+  compter dans l'onglet visible. Workflow de l'essai Tauri toujours pas ajouté.
 - 2026-11-11 (it. 756) : « Quoi de neuf » édition 26 : onglets préparés d'avance (it. 750), son coupé = moteur audio en
   pause (it. 753). Traduite.
 - 2026-11-11 (it. 755) : essai sans `will-change` sur les acteurs (moins de couches à composer) : bande 19,55 / 19,75 %

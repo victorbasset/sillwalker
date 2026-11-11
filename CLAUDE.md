@@ -180,6 +180,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Bande : la fenêtre laisse traverser les clics sauf au-dessus des éléments `.hit` (ui/clickthrough.js, recalculé par
   `clickThrough.refresh()`). Tout nouvel élément cliquable de la bande doit porter `.hit` ; `element.click()` dans
   l'autotest ne passe pas par ce filtre (un « clic : passer » marchait en test et pas en vrai).
+- Onglets préparés d'avance (Panel.warmTabs, it. 750) : 4 s après le lancement, les onglets jamais affichés sont construits
+  CACHÉS. Un contrôle (autotest, sonde) qui compte des éléments dans toute la page les trouve donc avant l'ouverture de
+  l'onglet : compter dans l'onglet visible (`[data-pane=…]:not([hidden]) …`).
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
   un fichier, ou utiliser l'outil d'édition.
 - Un commentaire `//` ajouté au milieu d'une ligne (objet littéral, liste d'arguments) avale la fin du code de la
