@@ -1,0 +1,27 @@
+<!doctype html><meta charset="utf-8">
+<script type="module">
+// (it. 807) Musique de la bande-annonce : passages des airs du jeu rendus hors ligne (même chaîne que le jeu), en WAV.
+import { Sound } from "../../src/renderer/render/sound.js";
+import { Music, songFor } from "../../src/renderer/render/music.js";
+const RATE = 44100;
+async function render(zone, boss) {
+  const song = songFor(zone), len = Math.ceil(64 * 30 / song.bpm + 3), ctx = new OfflineAudioContext(2, RATE * len, RATE), s = new Sound();
+  s.ctx = ctx; s.master = ctx.createGain(); s.master.gain.value = 0.9; s.master.connect(ctx.destination); s.enabled = true; s.ensure = () => ctx; s.audio = () => ctx;
+  new Music(s).schedulePass(song, 0.05, boss);
+  return ctx.startRendering();
+}
+function wav(buf) {
+  const n = buf.length, ch = buf.numberOfChannels, out = new DataView(new ArrayBuffer(44 + n * ch * 2));
+  const w = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  w(0, "RIFF"); out.setUint32(4, 36 + n * ch * 2, true); w(8, "WAVEfmt "); out.setUint32(16, 16, true); out.setUint16(20, 1, true);
+  out.setUint16(22, ch, true); out.setUint32(24, RATE, true); out.setUint32(28, RATE * ch * 2, true); out.setUint16(32, ch * 2, true);
+  out.setUint16(34, 16, true); w(36, "data"); out.setUint32(40, n * ch * 2, true);
+  const data = [...Array(ch)].map((_, c) => buf.getChannelData(c));
+  for (let i = 0, o = 44; i < n; i++) for (let c = 0; c < ch; c++, o += 2) out.setInt16(o, Math.max(-1, Math.min(1, data[c][i])) * 32767, true);
+  let bin = ""; const u = new Uint8Array(out.buffer); for (let i = 0; i < u.length; i += 0x8000) bin += String.fromCharCode(...u.subarray(i, i + 0x8000));
+  return btoa(bin);
+}
+const q = new URLSearchParams(location.search);
+window.__wav = wav(await render(+q.get("zone"), q.get("boss") === "1"));
+document.title = "READY";
+</script>

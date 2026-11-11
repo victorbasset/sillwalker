@@ -193,6 +193,20 @@ function start() {
       // (it. 789) --tour : la bande seule 12 s, puis le panneau et cinq onglets (4 s chacun), puis la bande de nouveau
       if (flags.tour) [[12, "tab:adventure"], [16, "tab:skills"], [20, "tab:map"], [24, "tab:class"], [28, "tab:pets"], [32, "toggle-panel"]]
         .forEach(([t, c]) => setTimeout(() => strip.send("command", c), t * 1000));
+      // (it. 807) --trailer : minutage fixe des scènes filmées pour la bande-annonce (scripts/trailer/make.sh coupe aux
+      // mêmes secondes). Cinématiques forcées (réglage ignoré), panneau ouvert sur quelques onglets à la fin.
+      if (flags.trailer) {
+        const run = (code) => strip.win.webContents.executeJavaScript(code).catch((e) => console.log("[trailer]", e.message));
+        const cine = (kind, data = "{}") => `window.__strip.juice.cinematic("${kind}", Object.assign(${data}, { force: true }))`;
+        [[2, cine("intro")],
+          [26, `import("./game/relics.js").then((m) => ${cine("arrive", "{ major: m.MAJOR_BOSSES[0] }")})`],
+          [38, cine("relic", '{ id: "drone" }')],
+          [56, cine("freed", '{ cls: "mage" }')],
+          [96, cine("dawn")],
+        ].forEach(([t, code]) => setTimeout(() => run(code), t * 1000));
+        [[66, "tab:skills"], [71, "tab:map"], [76, "tab:class"], [81, "tab:pets"], [86, "toggle-panel"]]
+          .forEach(([t, c]) => setTimeout(() => strip.send("command", c), t * 1000));
+      }
       if (flags.demo) setTimeout(() => strip.win.webContents.executeJavaScript("window.__demo && window.__demo()"), 800);
       // (it. 767) Dev : accélération graphique (lenteurs signalées par Victor sous Windows)
       if (flags.isDev) setTimeout(() => { try { const g = app.getGPUFeatureStatus(); console.log(`[dev] carte graphique : dessin ${g.gpu_compositing}, rendu ${g.rasterization}, canevas ${g["2d_canvas"]}, WebGL ${g.webgl}`); } catch { /* sans importance */ } }, 3000);

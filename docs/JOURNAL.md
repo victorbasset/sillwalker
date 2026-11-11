@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 807) : DEMANDE DE VICTOR : bande-annonce « histoire » pour YouTube (steam/media/trailer-story-en.mp4,
+  65 s, 1920×1080, son AAC 48 kHz). Cartons de l'intro sur le ciel des capsules (Pixelify Sans), vraies cinématiques
+  du jeu agrandies au pixel près en bandeau (intro, Geôlier mécanique, Drone stellaire, aube), dézoom du héros au
+  bureau entier, gros plan combat ×3, panneau légendé (compétences, carte, héros, familiers), logo et appel « Wishlist
+  on Steam · Play now on itch.io » ; musique du jeu rendue hors ligne (air calme → milieu → combat de boss, loudnorm).
+  Outils : option de dev --trailer (main.js, scènes minutées), scripts/trailer/music.js (+ music.html : WAV),
+  scripts/trailer/make.py (montage ffmpeg).
 - 2026-11-11 (it. 806) : DÉCISION DE VICTOR : la version actuelle sur itch.io à 1 $ pour récupérer les premiers avis.
   npm run dist:itch produit aussi le ZIP (electron-builder --win dir zip ; essayé en zip Linux) ; steam/itch-page.md :
   réglages de la page (« In development », prix 1 $ avec « payer plus », commentaires activés…) et description

@@ -26,7 +26,8 @@ module.exports = {
   selftest: isDev && !!getArg("selftest"),
   ghost: isDev && !!getArg("ghost"),
   demo: isDev && !!getArg("demo"),
-  tour: isDev && !!getArg("tour"),                       // --tour : visite scriptée bande → panneau → onglets (bande-annonce, scripts/steam-trailer.sh)
+  tour: isDev && !!getArg("tour"),
+  trailer: isDev && !!getArg("trailer"),                 // --trailer : cinématiques et panneau minutés (bande-annonce, scripts/trailer/)                       // --tour : visite scriptée bande → panneau → onglets (bande-annonce, scripts/steam-trailer.sh)
   fontBench: isDev && !!getArg("font-bench"),            // --font-bench : coût de mise en forme du texte par police (dev/fontbench.js)
   // --trace=10 : trace Chromium de 10 s dès le lancement, résumée dans le terminal (src/main/trace.js)
   trace: isDev ? Number(getArg("trace")) || 0 : 0,
