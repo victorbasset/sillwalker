@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 651) : Steam, statut vu par les amis : fichier steam/richpresence.vdf prêt à téléverser (10 langues,
+  20 classes), généré par scripts/steam-richpresence.mjs depuis les traductions du jeu ; le jeu envoie aussi
+  « classid » (la classe s'affiche dans la langue de chaque ami, jeton {#Class_%classid%}). README (Steam, point 4).
 - 2026-11-11 (it. 650, revue générale) : balance 12 h vs 95e0634 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
   crawl en / es 318 clics sans erreur ; perf bande 19,1 %, panneau 20,2 %, mini 6,6 % ; mémoire réelle 515 Mo stable.
 - 2026-11-11 (it. 649) : test logique du Silence : aucun sort pendant 2 s de silence, ils reprennent ensuite. 185 tests.

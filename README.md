@@ -257,8 +257,9 @@ après une mise en veille du PC.
    `ZONE_50`, `LEVEL_100`, `KILLS_1000`, `KILLS_10000`, `BOSSES_100`, `GOLD_MILLION`, `SPELLS_1000`, `SPELLS_ALL3`, `CRITS_10000`, `BIG_HIT`, `PHOENIX`, `DAILY_7`, `PLAY_10H`, `REFORGE_10`, `EVENTS_10`, `POTIONS_50`, `CHEST`, `CODEX_HALF`, `CODEX_ALL`, `EXPEDITIONS_10`, `CHAMPION`, `POWERS_ALL`, `TAPS_1000`, `WORLD_TOUR`, `UNLOCK_FIRST`, `UNLOCK_ALL`, `STARBREAKER`, `DUO_FIRST`, `HEROES_10`, `HEROES_ALL`, `CHRONICLER`, `DUO_SYNERGY`, `PURE_HEART`, `EVENTS_ALL`, `RELIC_FIRST`, `RELICS_ALL`, `RELIC_MAX` (liste dans `game/achievements.js`), puis publier.
 3. Steamworks → Steam Cloud : activer, quota (1 fichier, quelques dizaines de Ko suffisent).
    Le jeu écrit `save.json` via l'API Cloud (toutes les 5 min et à la fermeture) et prend la plus récente au lancement.
-4. Rich presence : dans Steamworks → Rich Presence, ajouter un fichier de localisation (français) avec
-   `"#Status" "Zone %zone% · Niveau %level% · %class%"`. Le jeu renseigne `zone`, `level`, `class`.
+4. Rich presence : dans Steamworks → Rich Presence, téléverser `steam/richpresence.vdf` (10 langues, généré par
+   `node --experimental-default-type=module scripts/steam-richpresence.mjs`). Le jeu renseigne `zone`, `level`,
+   `classid` ; la classe s'affiche dans la langue de chaque ami (`{#Class_%classid%}`).
 5. Option : `STEAM_RELAUNCH_IF_NEEDED: true` pour que Steam relance le jeu s'il est ouvert hors Steam.
 6. Dépôt : envoyer le contenu de `dist/win-unpacked/`, exécutable `Sillwalker.exe`.
 7. Signature de code : non configurée (facultative pour Steam, réduit les alertes SmartScreen hors Steam).

@@ -59,9 +59,10 @@ class Steam {
   /**
    * Statut Steam (« rich presence ») vu par les amis, au plus toutes les 30 s.
    * Steamworks : déclarer le jeton #Status dans le fichier de localisation de
-   * la rich presence, par exemple :  "#Status"  "Zone %zone% · Niveau %level% · %class%"
+   * la rich presence : fichier steam/richpresence.vdf, généré par scripts/steam-richpresence.mjs dans les 10 langues
+   * (it. 651 : la classe passe par un jeton #Class_<id>, traduit dans la langue de chaque ami).
    */
-  setPresence({ zone, lvl, cls }) {
+  setPresence({ zone, lvl, cls, clsId }) {
     if (!this.client) return;
     const now = Date.now();
     if (now - (this.presenceT || 0) < 30000) return;
@@ -71,6 +72,7 @@ class Steam {
       lp.setRichPresence("zone", String(zone));
       lp.setRichPresence("level", String(lvl));
       lp.setRichPresence("class", String(cls || ""));
+      lp.setRichPresence("classid", String(clsId || "warrior"));
       lp.setRichPresence("steam_display", "#Status");
     } catch (e) { console.warn("[steam] statut", e.message); }
   }
