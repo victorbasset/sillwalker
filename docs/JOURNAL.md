@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 608) : niveaux des reliques : chaque nouvelle victoire contre leur gardien (une par course ; le
+  Briseur pour la Couronne) renforce la relique, jusqu'au niveau 5 : la part qu'elle ajoute grandit de 10 % par
+  niveau (relicPow : drone, protection et régénération du Cœur, Lame, Couronne). S.relicLv (gardé à l'ascension,
+  migrate : entiers 1-5, ids connus). Bandeau « X : niveau n ! », journal, niveau dans les infobulles (carte, héros).
+  Test logique (niveau 2, plafond 5, ascension) ; save-fuzz ok ; fuzz 600 ok ; balance 12 h −0,2 (bruit) ; semaine :
+  mage 251 → 275, guerrier 263 → 286, progression régulière (CLAUDE.md à jour). « Quoi de neuf » édition 14. 133/133.
 - 2026-11-11 (it. 607) : thème clair : annonce du prochain boss majeur dans le panneau de la zone lisible (capture).
 - 2026-11-11 (it. 606) : thème clair vérifié en capture pour les ajouts des reliques : pastilles de la carte du
   héros, en-tête de la carte (icônes), marqueurs des boss majeurs (fond de carte toujours sombre) : lisibles.

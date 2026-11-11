@@ -2270,5 +2270,11 @@ export const KEYS = [
   "Combat de boss : ta barre de vie et celle du boss sont sous vos pieds, bien visibles.",
   "Deux succès : « Première relique » et « Les quatre reliques ».",
   "Équilibrage : Barde +20 % d’or et d’expérience (au lieu de +25 %) ; Gardien des étoiles un peu moins robuste.",
-  "Zone {0} : {1} garde une relique, {2}."
+  "Zone {0} : {1} garde une relique, {2}.",
+  "Relique renforcée : {0}, niveau {1} / {2} (effet +{3} %).",
+  "{0} : niveau {1} !",
+  "Niveau {0} / {1} : effet +{2} % (un niveau par nouvelle victoire contre son gardien).",
+  "Reliques : chaque nouvelle victoire contre leur gardien les renforce (niveau 5 au plus, +10 % d’effet par niveau).",
+  "Les reliques gagnées s’affichent en tête des pastilles de ton héros ; le prochain boss majeur est annoncé dans la zone.",
+  "La bande consomme moins : contours et halos dessinés une fois pour toutes."
 ];

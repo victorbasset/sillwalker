@@ -3,6 +3,7 @@
 // La quatrième relique tombe du Briseur lui-même (zone 200, story.js). Chaque relique est très puissante (les dix
 // zones suivantes doivent devenir faciles) et se garde pour toujours, ascensions comprises.
 // Textes en français (clés de traduction), affichés avec tx().
+import { t as tx } from "../i18n/index.js";
 
 /** Les trois lieutenants : boss de leur zone, plus coriaces qu'un boss ordinaire, avec leurs capacités. */
 export const MAJOR_BOSSES = [
@@ -30,6 +31,16 @@ export const RELICS = {
 };
 export const RELIC_IDS = Object.keys(RELICS);
 export const hasRelic = (S, id) => !!(S.relics && S.relics[id]);
+/**
+ * Niveau d'une relique (it. 608) : chaque nouvelle victoire contre son gardien (une par course) la renforce, jusqu'au
+ * niveau RELIC_MAX_LV ; S.relicLv (absent = niveau 1, gardé à l'ascension).
+ */
+export const RELIC_MAX_LV = 5, RELIC_LV_STEP = 0.1;
+export const relicLevel = (S, id) => (hasRelic(S, id) ? Math.min(RELIC_MAX_LV, Math.max(1, (S.relicLv && S.relicLv[id]) || 1)) : 0);
+/** Ligne d'infobulle : niveau, bonus, comment monter (texte traduit). */
+export const relicLevelText = (S, id) => tx("Niveau {0} / {1} : effet +{2} % (un niveau par nouvelle victoire contre son gardien).", { 0: relicLevel(S, id), 1: RELIC_MAX_LV, 2: Math.round((relicPow(S, id) - 1) * 100) });
+/** Facteur de puissance de la part « relique » de l'effet : 1 au niveau 1, +10 % par niveau. */
+export const relicPow = (S, id) => 1 + RELIC_LV_STEP * (Math.max(1, relicLevel(S, id)) - 1);
 
 /** Drone stellaire : intervalle des missiles et dégâts (part des PV max, plus fort contre les monstres ordinaires). */
 // (it. 571 : à 4 % des PV, il écrasait toutes les zones suivantes pour toujours : semaine simulée 186 → 290)

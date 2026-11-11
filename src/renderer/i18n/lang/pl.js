@@ -1142,4 +1142,10 @@ export default {
   2266: "Dwa osiągnięcia: „Pierwsza relikwia” i „Cztery relikwie”.",
   2267: "Balans: Bard +20% złota i doświadczenia (zamiast +25%); Strażnik gwiazd nieco mniej wytrzymały.",
   2268: "Strefa {0}: {1} strzeże relikwii: {2}.",
+  2269: "Relikwia wzmocniona: {0}, poziom {1} / {2} (efekt +{3}%).",
+  2270: "{0}: poziom {1}!",
+  2271: "Poziom {0} / {1}: efekt +{2}% (jeden poziom za każde nowe zwycięstwo nad jej strażnikiem).",
+  2272: "Relikwie: każde nowe zwycięstwo nad ich strażnikiem je wzmacnia (do poziomu 5, +10% efektu na poziom).",
+  2273: "Zdobyte relikwie pojawiają się na początku plakietek bohatera; następny wielki boss jest zapowiadany w strefie.",
+  2274: "Pasek zużywa mniej: kontury i poświaty rysowane raz na zawsze.",
 };

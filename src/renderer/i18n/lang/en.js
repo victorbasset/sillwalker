@@ -1142,4 +1142,10 @@ export default {
   2266: "Two achievements: “First relic” and “All four relics”.",
   2267: "Balance: Bard +20% gold and experience (instead of +25%); Star Warden slightly less sturdy.",
   2268: "Zone {0}: {1} guards a relic, {2}.",
+  2269: "Relic strengthened: {0}, level {1} / {2} (effect +{3}%).",
+  2270: "{0}: level {1}!",
+  2271: "Level {0} / {1}: effect +{2}% (one level per new victory over its guardian).",
+  2272: "Relics: each new victory over their guardian strengthens them (up to level 5, +10% effect per level).",
+  2273: "Relics you have won appear first among your hero's badges; the next major boss is announced in the zone panel.",
+  2274: "The strip uses less CPU: outlines and glows are drawn once and for all.",
 };

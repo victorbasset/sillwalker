@@ -1,5 +1,5 @@
 // Formules d'équilibrage. Fonctions pures : (état, paramètres) -> valeurs.
-import { RELIC_POWER } from "./relics.js";
+import { RELIC_POWER, relicPow } from "./relics.js";
 import {
   RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, ITEM_BASES, ITEM_SUFFIXES, ZONES, MONSTERS, ELITE, DYES, materialFor,
   WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, CHAMPION,
@@ -154,8 +154,9 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // Reliques (demande S, relics.js) : Lame du crépuscule ×4 attaque ; Couronne d'étoiles ×3 attaque et PV, or ×2.
   const rel = S.relics || {};
   // (it. 571 : réglées pour ≈ 10-15 zones faciles chacune ; à ×4 / ×3 la semaine simulée bondissait de 186 à 290)
-  if (rel.blade) s.atk *= RELIC_POWER.blade;
-  if (rel.crown) { s.atk *= RELIC_POWER.crown; s.hp *= RELIC_POWER.crown; s.gold = (s.gold + 100) * RELIC_POWER.crownGold - 100; }
+  // (it. 608) niveau de la relique : la part qu'elle ajoute grandit de 10 % par niveau (relicPow)
+  if (rel.blade) s.atk *= 1 + (RELIC_POWER.blade - 1) * relicPow(S, "blade");
+  if (rel.crown) { const f = relicPow(S, "crown"), m = 1 + (RELIC_POWER.crown - 1) * f; s.atk *= m; s.hp *= m; s.gold = (s.gold + 100) * (1 + (RELIC_POWER.crownGold - 1) * f) - 100; }
   return s;
 }
 

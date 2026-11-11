@@ -8,7 +8,9 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
-import { RELICS, DRONE, RELIC_POWER, hasRelic, majorBoss } from "./relics.js";
+import { RELICS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
+/** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
+const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
 import { itemName } from "../i18n/data.js";
 import { openTabs, tabReady, eggsAllowed, fixQuestEgg } from "./tabs.js";
 import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js";
@@ -276,12 +278,12 @@ export class Game {
         }
       }
       // Reliques (demande S) : le Drone stellaire tire ses missiles ; le Cœur de l'aube régénère.
-      if (hasRelic(this.S, "heart")) R.hp = Math.min(hs.hp, R.hp + hs.hp * RELIC_POWER.heartRegen * dt);
+      if (hasRelic(this.S, "heart")) R.hp = Math.min(hs.hp, R.hp + hs.hp * RELIC_POWER.heartRegen * relicPow(this.S, "heart") * dt);
       if (hasRelic(this.S, "drone")) {
         R.droneT = (R.droneT ?? DRONE.every) - dt;
         if (R.droneT <= 0) {
           R.droneT += DRONE.every;
-          const dmg = m.max * (m.boss ? DRONE.bossPct : DRONE.pct) + hs.atk * DRONE.atk;
+          const dmg = (m.max * (m.boss ? DRONE.bossPct : DRONE.pct) + hs.atk * DRONE.atk) * relicPow(this.S, "drone");
           m.hp -= dmg; this.emit("droneShot", { dmg, mon: m });
           if (m.hp <= 0) { this.killMonster(); return; }
         }
@@ -350,7 +352,7 @@ export class Game {
   monsterAttack(m, hs, mult) {
     const R = this.R;
     if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
-    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * (hasRelic(this.S, "heart") ? RELIC_POWER.heartGuard : 1); // Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
+    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * heartGuard(this.S); // Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
     if (hs.thorns > 0) {
       m.hp -= dmg * hs.thorns / 100;
       if (m.hp <= 0) { this.killMonster(); return true; }
@@ -527,7 +529,17 @@ export class Game {
   /** Relique gagnée (boss majeur ou Briseur vaincu) : gardée pour toujours ; annonce la première fois seulement. */
   gainRelic(id) {
     const S = this.S, r = RELICS[id];
-    if (!r || hasRelic(S, id)) return false;
+    if (!r) return false;
+    if (hasRelic(S, id)) { // (it. 608) déjà gagnée : nouvelle victoire contre son gardien, la relique se renforce
+      const lv = relicLevel(S, id);
+      if (lv >= RELIC_MAX_LV) return false;
+      (S.relicLv ||= {})[id] = lv + 1;
+      this.invalidateStats();
+      this.log(tx("Relique renforcée : {0}, niveau {1} / {2} (effet +{3} %).", { 0: tx(r.name), 1: lv + 1, 2: RELIC_MAX_LV, 3: Math.round((relicPow(S, id) - 1) * 100) }));
+      this.emit("relicUp", { id, lv: lv + 1 });
+      this.changed();
+      return true;
+    }
     (S.relics ||= {})[id] = Date.now();
     this.invalidateStats();
     this.log(tx("Relique obtenue : {0} ! {1}", { 0: tx(r.name), 1: tx(r.effect) }));
@@ -548,7 +560,7 @@ export class Game {
   /** Dégâts par seconde du Drone stellaire (relique) sur un monstre ordinaire de la zone ; 0 sans lui. */
   droneDps(hs) {
     if (!hasRelic(this.S, "drone")) return 0;
-    return (hs.atk * DRONE.atk + monsterBase(this.S.zone, false).hp * DRONE.pct) / DRONE.every;
+    return (hs.atk * DRONE.atk + monsterBase(this.S.zone, false).hp * DRONE.pct) / DRONE.every * relicPow(this.S, "drone");
   }
 
   /** Part de vie restante d'un monstre de la file (barre de la bande après un perçage ; estimation : PV de base). */
@@ -946,7 +958,7 @@ export class Game {
     const drone = this.droneDps(hs);
     const dps = (heroDps(hs) + this.spellDps(hs)) * atkBoost * (1 + hs.burn / 100 * 1.5) + drone;
     const perKill = b.hp / dps + approachTime() / (1 + (hs.moveSpd || 0) / 100);
-    const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100) * (hasRelic(S, "heart") ? RELIC_POWER.heartGuard : 1);
+    const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100) * heartGuard(S);
     const eff = Math.min(0.9, (taken > hs.hp * 0.8 ? 0.25 : 0.6) * (1 + hs.offline / 100));
     const kills = Math.floor(sec / perKill * eff);
     for (const id in S.buffs) S.buffs[id] = Math.max(0, (S.buffs[id] || 0) - sec);
@@ -2027,7 +2039,7 @@ export class Game {
       // Sorts (demande D) : gardés à l'ascension.
       spells: old.spells || {},
       // Reliques (demande S) : gardées pour toujours.
-      relics: old.relics || {},
+      relics: old.relics || {}, relicLv: old.relicLv || {},
       upgrades: old.upgrades, workshop: old.workshop, unlocks: old.unlocks, bagSize: old.bagSize,
       // Tri du marchand gardé à l'ascension (demande de Victor du 2026-11-10 au soir : « tu peux laisser cocher
       // commun, peu commun et rare » ; il était décoché depuis l'it. 437).

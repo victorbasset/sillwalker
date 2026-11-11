@@ -1142,4 +1142,10 @@ export default {
   2266: "Dos logros: «Primera reliquia» y «Las cuatro reliquias».",
   2267: "Equilibrio: Bardo +20 % de oro y experiencia (en lugar de +25 %); Guardián de las estrellas algo menos resistente.",
   2268: "Zona {0}: {1} custodia una reliquia, {2}.",
+  2269: "Reliquia reforzada: {0}, nivel {1} / {2} (efecto +{3} %).",
+  2270: "¡{0}: nivel {1}!",
+  2271: "Nivel {0} / {1}: efecto +{2} % (un nivel por cada nueva victoria contra su guardián).",
+  2272: "Reliquias: cada nueva victoria contra su guardián las refuerza (hasta nivel 5, +10 % de efecto por nivel).",
+  2273: "Las reliquias ganadas aparecen al principio de las insignias de tu héroe; el próximo jefe mayor se anuncia en la zona.",
+  2274: "La franja consume menos: contornos y halos dibujados de una vez por todas.",
 };

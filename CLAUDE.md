@@ -55,7 +55,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   onglet, 3 graines) ; à relancer si on touche aux seuils de game/tabs.js ou au rythme du début.
 - Fin de partie : `node --experimental-default-type=module scripts/simulate.js 168 <classe>` (une semaine, ~80 s) :
   les records des dernières courses doivent progresser régulièrement (repère it. 449, Atelier acheté, voie prise : mage 38 → 179 ; it. 486 avec les sorts : 38 → 182 ; it. 561, sorts uniques et Grimoire étendu au compagnon : mage 186, guerrier 189 ; it. 571, reliques des boss
-  majeurs (relics.js, RELIC_POWER / DRONE) : mage 251, guerrier 263,
+  majeurs (relics.js, RELIC_POWER / DRONE) : mage 251, guerrier 263 ; it. 608, niveaux des reliques (+10 % par victoire,
+  5 au plus) : mage 275, guerrier 286,
   sans saut ni plafond). À relancer après tout changement de zoneMight (rules.js) ou des zones de déblocage, et après
   tout déblocage qui dépense de l'or tout seul (it. 486 : le Grimoire des sorts, appelé à chaque victoire, vidait l'or et
   plafonnait la semaine à 155 ; balance 12 h ne le voyait pas).

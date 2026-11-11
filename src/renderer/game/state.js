@@ -24,6 +24,7 @@ export function freshState(now = Date.now()) {
     autoAdvance: true,
     autoSell: { common: false, uncommon: false, rare: false },
     spells: {},         // sorts appris (game/spells.js) : id -> rang, gardés à l'ascension
+    relicLv: {},        // niveau des reliques (it. 608) : id -> 1..5, gardé à l'ascension
     relics: {},         // reliques des boss majeurs (game/relics.js) : id -> date d'obtention, gardées pour toujours
     autoPotions: false, // rachète des potions automatiquement sous AUTO_POTIONS
     last: now,
@@ -222,6 +223,8 @@ export function migrate(raw) {
   s.spells = Object.fromEntries(Object.entries(isObj(s.spells) ? s.spells : {}).filter(([k, v]) => SPELL_INDEX[k] && Number.isFinite(+v) && +v >= 1).map(([k, v]) => [k, Math.min(SPELL_MAX, Math.floor(+v))]));
   // Reliques (relics.js) : ids connus seulement (une autre version peut en avoir d'autres)
   s.relics = Object.fromEntries(Object.entries(isObj(s.relics) ? s.relics : {}).filter(([k, v]) => RELICS[k] && v));
+  // (it. 608) niveaux des reliques : entiers de 1 à 5, ids connus seulement
+  s.relicLv = Object.fromEntries(Object.entries(isObj(s.relicLv) ? s.relicLv : {}).filter(([k, v]) => RELICS[k] && Number.isFinite(+v)).map(([k, v]) => [k, Math.min(5, Math.max(1, Math.floor(+v)))]));
   s.settings.autoStars = s.settings.autoStars !== false;
   s.settings.autoSpells = s.settings.autoSpells !== false; // Grimoire des sorts : actif une fois acheté, sauf refus // Carte du ciel : active une fois achetée, sauf refus
   // Volumes propres de la musique et de l'ambiance (0 à 200 % du réglage d'origine)

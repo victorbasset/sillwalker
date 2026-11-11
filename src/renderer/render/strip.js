@@ -200,6 +200,11 @@ export class StripRenderer {
       if (this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, "#ffd34d", 14);
       this.shake(0.3);
     });
+    // Relique renforcée (it. 608) : nouvelle victoire contre son gardien.
+    g.on("relicUp", ({ id, lv }) => {
+      if (!this.active || !RELICS[id]) return;
+      this.juice.banner(`✦ ${tx("{0} : niveau {1} !", { 0: tx(RELICS[id].name), 1: lv })}`, "#ffd34d", this.heroX + 80, true);
+    });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
     g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });
     g.on("bossShieldHit", () => { this.monHit = 0.06; });

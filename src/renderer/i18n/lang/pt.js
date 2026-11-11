@@ -1142,4 +1142,10 @@ export default {
   2266: "Duas conquistas: “Primeira relíquia” e “As quatro relíquias”.",
   2267: "Equilíbrio: Bardo +20% de ouro e experiência (em vez de +25%); Guardião das estrelas um pouco menos resistente.",
   2268: "Zona {0}: {1} guarda uma relíquia, {2}.",
+  2269: "Relíquia reforçada: {0}, nível {1} / {2} (efeito +{3}%).",
+  2270: "{0}: nível {1}!",
+  2271: "Nível {0} / {1}: efeito +{2}% (um nível por nova vitória contra seu guardião).",
+  2272: "Relíquias: cada nova vitória contra o guardião as reforça (até o nível 5, +10% de efeito por nível).",
+  2273: "As relíquias conquistadas aparecem no início dos selos do seu herói; o próximo chefe maior é anunciado na zona.",
+  2274: "A faixa consome menos: contornos e halos desenhados de uma vez por todas.",
 };

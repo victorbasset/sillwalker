@@ -12,7 +12,7 @@ import { CLASSES, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game/story.js";
 import { classPortraitURL, dressedPortraitURL, starbreakerURL } from "../../render/sprites.js";
 import { relicIconURL } from "../../render/shopart.js";
-import { MAJOR_BOSSES, RELICS, RELIC_IDS, hasRelic } from "../../game/relics.js";
+import { MAJOR_BOSSES, RELICS, RELIC_IDS, hasRelic, relicLevelText } from "../../game/relics.js";
 import { heroVisual } from "../../render/equipvis.js";
 
 // 4 rangées de 50 zones : la carte entière tient dans le panneau, large et peu haut (demande 18, sans défilement).
@@ -100,7 +100,7 @@ export class MapTab {
     const nRel = RELIC_IDS.filter((id) => hasRelic(S, id)).length;
     const relicRow = `<span class="relicrow" title="${esc(tx("Reliques ({0} / {1})", { 0: nRel, 1: RELIC_IDS.length }))}">` + RELIC_IDS.map((id) => {
       const r = RELICS[id], have = hasRelic(S, id);
-      const tip = `${tx(r.name)}${fsp()}: ${tx(r.effect)}\n` + (have ? tx(r.story) : tx("{0}, zone {1}", { 0: tx(r.from), 1: r.zone }));
+      const tip = `${tx(r.name)}${fsp()}: ${tx(r.effect)}\n` + (have ? relicLevelText(S, id) + "\n" + tx(r.story) : tx("{0}, zone {1}", { 0: tx(r.from), 1: r.zone }));
       return `<img src="${relicIconURL(id, 2)}" alt="" class="${have ? "on" : ""}" title="${esc(tip)}">`;
     }).join("") + `</span>`;
     const recZ = Math.min(recordZone(S), FINAL_ZONE), rp = mapPos(recZ);
