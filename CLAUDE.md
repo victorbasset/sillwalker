@@ -67,7 +67,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
-  `IDLE=1` : joueur totalement absent (repère it. 371 : guerrier record 12 → 15 en 12 h, le jeu avance sans action).
+  `IDLE=1` : joueur totalement absent (repère it. 371 : guerrier record 12 → 15 en 12 h ; it. 698 : 15 à 9 h, 16 à 12 h ; le jeu avance sans action).
   `VOIE=0|1|none` : voie de talents prise dès qu'elle est permise (0 par défaut depuis l'it. 448 ; none = l'ancien comportement).
   `PARTNER_SPELLS=1` : le compagnon a les mêmes rangs de sorts que le héros (pire cas des sorts du compagnon ; repère it. 514 :
   ≈ +1 zone en 12 h, nécromancien +5).

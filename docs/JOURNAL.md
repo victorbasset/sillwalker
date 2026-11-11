@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 699) : CLAUDE.md : repère IDLE mis à jour (it. 698 : 15 à 9 h, 16 à 12 h).
 - 2026-11-11 (it. 698) : joueur absent (IDLE=1, guerrier, 12 h) : record 15 à 9 h puis 16 à 12 h (repère it. 371 : 12 → 15) :
   le jeu avance toujours seul.
 - 2026-11-11 (it. 697) : tab-pace inchangé (talents 1, quêtes 5, boutique 8-9, Héros 10, carte 11-12, bestiaire 14-15,
