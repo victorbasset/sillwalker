@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 830) : revue générale (contre dc8d5e9, it. 810) : équilibrage +0,0 (61,9) ; 1200 parties, 0 bloquée ;
+  sauvegardes abîmées tolérées ; clics japonais et coréen (330 chacun, bouton « Ton avis » compris) sans erreur ;
+  bande 19,5 %, panneau 20,4 %, mini 6,6 %, icône 0,5 % ; mémoire 494 Mo stable. Rien à corriger.
 - 2026-11-11 (it. 829) : errors.log reçoit aussi les exceptions du processus principal (uncaughtException,
   unhandledRejection, avec la pile ; plus de boîte d'erreur Electron intrusive au-dessus du bureau) et les plantages
   de la page (« [page arrêtée] crashed (code 2) »). Essayé : plantage forcé de la page + exception provoquée.
