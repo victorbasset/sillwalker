@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 703) : « À vérifier » (point 11) : contour des échos ajouté.
 - 2026-11-11 (it. 702) : mode mini : même contour spectral pour l'écho en combat ; couleur partagée (ECHO_OUTLINE,
   relics.js). Capture vérifiée. 135/135.
 - 2026-11-11 (it. 701) : échos des lieutenants (zones 250, 300, 350) : même sprite que l'original ; contour spectral bleu
@@ -2349,7 +2350,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      ≈ 15-20 zones par relique : trop, pas assez ? Succès RELIC_FIRST, RELICS_ALL et RELIC_MAX à créer sur Steamworks.
   10. Combat de boss : barres de vie du héros et du boss sous les pieds (it. 580) : bien lisibles ?
   11. Niveaux des reliques (it. 608-617 : un par course, +10 %) et échos des lieutenants au-delà du Rebord (it. 634 :
-      zones 250, 300, 350, un niveau de plus par course) : rythme et difficulté des échos à juger en jeu.
+      zones 250, 300, 350, un niveau de plus par course) : rythme et difficulté des échos à juger en jeu. Contour
+      spectral bleu pâle des échos (it. 701-702, bande et mode mini) : assez visible, pas trop ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
