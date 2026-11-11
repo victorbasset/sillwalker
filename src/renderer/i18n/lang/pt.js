@@ -1156,4 +1156,7 @@ export default {
   2280: "Nova conquista: “Relíquia perfeita (nível 5)”.",
   2281: "“Desde sua última visita” também conta os níveis de relíquia ganhos.",
   2282: "Comprar o próximo desbloqueio (se estiver pronto)",
+  2283: "O Coração da aurora mostra suas curas (em verde); com a Lâmina do crepúsculo, os golpes críticos ficam roxos.",
+  2284: "Tecla U: comprar o próximo desbloqueio assim que estiver pronto.",
+  2285: "Equilíbrio: o Samurai perde o bônus de +5% de golpes críticos (o Iaijutsu não muda).",
 };

@@ -2284,5 +2284,8 @@ export const KEYS = [
   "Reliques : un niveau par course au plus ; tant qu’elle peut monter, la relique flotte (plus pâle) à côté de son gardien.",
   "Nouveau succès : « Relique parfaite (niveau 5) ».",
   "« Depuis ta dernière visite » compte aussi les niveaux de relique gagnés.",
-  "Acheter le prochain déblocage (s’il est prêt)"
+  "Acheter le prochain déblocage (s’il est prêt)",
+  "Le Cœur de l’aube montre ses soins (en vert) ; avec la Lame du crépuscule, les coups critiques deviennent violets.",
+  "Touche U : acheter le prochain déblocage dès qu’il est prêt.",
+  "Équilibrage : le Samouraï perd son bonus de +5 % de coups critiques (son Iaijutsu ne change pas)."
 ];

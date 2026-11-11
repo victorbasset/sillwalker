@@ -1156,4 +1156,7 @@ export default {
   2280: "Nuevo logro: «Reliquia perfecta (nivel 5)».",
   2281: "«Desde tu última visita» también cuenta los niveles de reliquia ganados.",
   2282: "Comprar el próximo desbloqueo (si está listo)",
+  2283: "El Corazón del alba muestra sus curaciones (en verde); con la Hoja del crepúsculo, los golpes críticos se vuelven violetas.",
+  2284: "Tecla U: comprar el próximo desbloqueo en cuanto esté listo.",
+  2285: "Equilibrio: el Samurái pierde su bonificación de +5 % de golpes críticos (su Iaijutsu no cambia).",
 };

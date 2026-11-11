@@ -1156,4 +1156,7 @@ export default {
   2280: "New achievement: “Perfect relic (level 5)”.",
   2281: "“Since your last visit” also counts relic levels gained.",
   2282: "Buy the next unlock (if ready)",
+  2283: "The Heart of Dawn shows its healing (in green); with the Twilight Blade, critical hits turn purple.",
+  2284: "U key: buy the next unlock as soon as it is ready.",
+  2285: "Balance: the Samurai loses its +5% critical hit bonus (its Iaijutsu is unchanged).",
 };

@@ -1156,4 +1156,7 @@ export default {
   2280: "Nowe osiągnięcie: „Doskonała relikwia (poziom 5)”.",
   2281: "„Od twojej ostatniej wizyty” liczy też zdobyte poziomy relikwii.",
   2282: "Kup następne odblokowanie (jeśli gotowe)",
+  2283: "Serce Świtu pokazuje leczenie (na zielono); z Ostrzem zmierzchu trafienia krytyczne stają się fioletowe.",
+  2284: "Klawisz U: kup następne odblokowanie, gdy tylko będzie gotowe.",
+  2285: "Balans: Samuraj traci premię +5% do trafień krytycznych (jego Iaijutsu się nie zmienia).",
 };
