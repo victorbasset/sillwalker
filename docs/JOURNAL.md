@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 652) : Steam : steam/achievements.md, les 61 succès avec leur nom dans les 10 langues (généré par
+  scripts/steam-achievements.mjs depuis les traductions du jeu ; aucun nom manquant), à recopier dans Steamworks.
 - 2026-11-11 (it. 651) : Steam, statut vu par les amis : fichier steam/richpresence.vdf prêt à téléverser (10 langues,
   20 classes), généré par scripts/steam-richpresence.mjs depuis les traductions du jeu ; le jeu envoie aussi
   « classid » (la classe s'affiche dans la langue de chaque ami, jeton {#Class_%classid%}). README (Steam, point 4).

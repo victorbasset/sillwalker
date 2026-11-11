@@ -251,7 +251,8 @@ après une mise en veille du PC.
 ## Steam : à faire avant la mise en ligne
 
 1. Mettre le vrai App ID dans `src/shared/config.js` (`STEAM_APP_ID`, actuellement 480 = Spacewar).
-2. Steamworks → Stats & Achievements : créer `FIRST_BOSS`, `LEVEL_10`, `FIRST_LEGENDARY`, `ZONE_10`, `ZONE_25`,
+2. Steamworks → Stats & Achievements (noms dans les 10 langues : `steam/achievements.md`, généré par
+   `scripts/steam-achievements.mjs`) : créer `FIRST_BOSS`, `LEVEL_10`, `FIRST_LEGENDARY`, `ZONE_10`, `ZONE_25`,
    `LEVEL_50`, `ELITE_HUNTER`, `FIRST_PURCHASE`, `TALENT_ULTIMATE`, `ASCENSION`, `ASCENSION_5`, `PET_FIRST`, `PETS_ALL`,
    `QUESTS_25`, `GOBLIN`, `BESTIARY_ALL`, `FULL_SET`, `FEATHER`, `SHOOTING_STAR`, `SPEED_25`, `SKILL_KEYSTONE`, `SKILL_100`, `MASTER_OF_ALL`, `ALL_CLASSES`,
    `ZONE_50`, `LEVEL_100`, `KILLS_1000`, `KILLS_10000`, `BOSSES_100`, `GOLD_MILLION`, `SPELLS_1000`, `SPELLS_ALL3`, `CRITS_10000`, `BIG_HIT`, `PHOENIX`, `DAILY_7`, `PLAY_10H`, `REFORGE_10`, `EVENTS_10`, `POTIONS_50`, `CHEST`, `CODEX_HALF`, `CODEX_ALL`, `EXPEDITIONS_10`, `CHAMPION`, `POWERS_ALL`, `TAPS_1000`, `WORLD_TOUR`, `UNLOCK_FIRST`, `UNLOCK_ALL`, `STARBREAKER`, `DUO_FIRST`, `HEROES_10`, `HEROES_ALL`, `CHRONICLER`, `DUO_SYNERGY`, `PURE_HEART`, `EVENTS_ALL`, `RELIC_FIRST`, `RELICS_ALL`, `RELIC_MAX` (liste dans `game/achievements.js`), puis publier.
