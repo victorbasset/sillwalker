@@ -1196,4 +1196,6 @@ export default {
   2320: "Korrektur: Die nächste vorgeschlagene Freischaltung folgt wieder der Reihenfolge der Zonen.",
   2321: "Automatiken ({0} / {1})",
   2322: "Die Kästchen gekaufter Automatiken (Knecht, Tiegel, Schmiede, Händler …) sind unter der Tasche gruppiert, in „Automatiken (aktiv / gesamt)“: ein Klick öffnet sie.",
+  2323: "Die Reiter des Panels werden vorbereitet: Sie öffnen sich schon beim ersten Klick schnell.",
+  2324: "Ton aus: Die Audio-Engine pausiert und spart Prozessorleistung.",
 };

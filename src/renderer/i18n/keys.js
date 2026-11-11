@@ -2324,5 +2324,7 @@ export const KEYS = [
   "Nouveau déblocage au-delà du Rebord (zone 300) : le « Marchand attitré » achète et équipe tout seul l’objet du marchand qui renforce le plus ton héros.",
   "Correction : le prochain déblocage proposé suit de nouveau l’ordre des zones.",
   "Automatismes ({0} / {1})",
-  "Les cases des automatismes achetés (valet, creuset, forge, marchand…) sont regroupées sous le sac, dans « Automatismes (actifs / total) » : un clic les ouvre."
+  "Les cases des automatismes achetés (valet, creuset, forge, marchand…) sont regroupées sous le sac, dans « Automatismes (actifs / total) » : un clic les ouvre.",
+  "Les onglets du panneau sont préparés d’avance : ils s’ouvrent vite dès le premier clic.",
+  "Son coupé : le moteur audio se met en pause et économise du processeur."
 ];

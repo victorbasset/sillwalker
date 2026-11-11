@@ -1196,4 +1196,6 @@ export default {
   2320: "Correção: o próximo desbloqueio sugerido volta a seguir a ordem das zonas.",
   2321: "Automatismos ({0} / {1})",
   2322: "As caixas dos automatismos comprados (valete, cadinho, forja, mercador…) ficam agrupadas sob a bolsa, em «Automatismos (ativos / total)»: um clique as abre.",
+  2323: "As abas do painel são preparadas com antecedência: abrem rápido desde o primeiro clique.",
+  2324: "Som desligado: o motor de áudio pausa e economiza processador.",
 };

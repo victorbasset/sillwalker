@@ -1196,4 +1196,6 @@ export default {
   2320: "Poprawka: następne proponowane odblokowanie znów jest zgodne z kolejnością stref.",
   2321: "Automaty ({0} / {1})",
   2322: "Pola kupionych automatów (giermek, tygiel, kuźnia, kupiec…) są zebrane pod torbą, w „Automaty (aktywne / razem)”: jedno kliknięcie je otwiera.",
+  2323: "Karty panelu są przygotowywane z wyprzedzeniem: otwierają się szybko od pierwszego kliknięcia.",
+  2324: "Dźwięk wyciszony: silnik dźwięku się zatrzymuje i oszczędza procesor.",
 };

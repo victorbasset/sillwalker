@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 756) : « Quoi de neuf » édition 26 : onglets préparés d'avance (it. 750), son coupé = moteur audio en
+  pause (it. 753). Traduite.
 - 2026-11-11 (it. 755) : essai sans `will-change` sur les acteurs (moins de couches à composer) : bande 19,55 / 19,75 %
   avant, 19,65 / 19,75 % après (copies neuves) : aucun effet, annulé.
 - 2026-11-11 (it. 754) : où part le processeur de la bande (19 % d'un cœur en rendu logiciel) : la bande tourne à

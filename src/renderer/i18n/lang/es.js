@@ -1196,4 +1196,6 @@ export default {
   2320: "Corrección: el siguiente desbloqueo propuesto vuelve a seguir el orden de las zonas.",
   2321: "Automatismos ({0} / {1})",
   2322: "Las casillas de los automatismos comprados (ayudante, crisol, forja, mercader…) se agrupan bajo la bolsa, en «Automatismos (activos / total)»: un clic las abre.",
+  2323: "Las pestañas del panel se preparan de antemano: se abren rápido desde el primer clic.",
+  2324: "Sonido silenciado: el motor de audio se pausa y ahorra procesador.",
 };

@@ -1196,4 +1196,6 @@ export default {
   2320: "Fix: the next suggested unlock follows the zone order again.",
   2321: "Automations ({0} / {1})",
   2322: "The checkboxes of bought automations (valet, crucible, forge, merchant…) are grouped under the bag, in “Automations (active / total)”: one click opens them.",
+  2323: "Panel tabs are prepared in advance: they open quickly from the very first click.",
+  2324: "Sound muted: the audio engine pauses and saves processor time.",
 };
