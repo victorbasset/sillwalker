@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 833) : version Mac Apple Silicon construite sur le serveur (Victor l'annonçait sans l'avoir) :
+  electron-builder --mac zip --arm64 (sans signature hors macOS), signature ad hoc avec rcodesign 0.29 (binaire Linux,
+  dossier temporaire ; ADHOC sur l'exécutable et les frameworks), ZIP refait avec les liens symboliques (14).
+  scripts/mac-from-linux.sh. Envoyée à Victor en 5 morceaux (sha256 37d576e0…4bde). NON essayée sur un vrai Mac.
 - 2026-11-11 (it. 832) : premières heures des nouveaux joueurs (itch.io) : astuces de début bien couvertes (bienvenue,
   héros tombé, objet ▲, talents, quêtes, boutique…) ; early-pace inchangé (60 min : 109 objets, niv. 39, zone 23,
   6 déblocages).

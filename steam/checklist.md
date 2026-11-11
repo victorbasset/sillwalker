@@ -45,7 +45,8 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - ✅ Linux : `npm run dist:itch:linux` (archive tar.gz, construisible sous Windows) ; `npm run dist:itch:appimage`
   (AppImage : seulement sous Linux, ou Windows en mode développeur : liens symboliques). AppImage construite et
   lancée sur le serveur (partie neuve, Steam coupé), envoyée à Victor en 5 morceaux.
-- 🟡 Mac : `npm run dist:itch:mac` (zip Apple Silicon + Intel) à construire SUR UN MAC ; sans compte Apple Developer
+- 🟡 Mac Apple Silicon : `scripts/mac-from-linux.sh <rcodesign> <dossier>` la construit sur le serveur (signature ad
+  hoc, it. 833 ; NON ESSAYÉE sur un vrai Mac). Sinon `npm run dist:itch:mac` (zip Apple Silicon + Intel) SUR UN MAC ; sans compte Apple Developer
   (99 $/an) l'appli n'est pas notarisée : premier lancement par clic droit → Ouvrir.
 - 🟡 itch.io : couverture 630×500 → `steam/capsules/itch-cover.png` ; captures et textes : ceux de Steam.
   ZIP à téléverser : `npm run dist:itch` le crée directement dans `dist-itch/` (Sillwalker-<version>-win.zip) ;
