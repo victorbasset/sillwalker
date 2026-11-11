@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 780) : revue générale (contre 4b767d3, it. 760) : équilibrage 12 h +0,0 (61,9) ; 1200 parties,
+  0 bloquée ; 20 sauvegardes abîmées tolérées ; clics en japonais (323) et portugais (324) sans erreur ; bande 19,6 %,
+  panneau 19,9 %, mini 6,8 %, icône 0,5 % ; mémoire réelle 485 Mo (515-527 avant : la police allégée y est sans
+  doute pour quelque chose). Rien à corriger. Victor commence l'inscription Steamworks.
 - 2026-11-11 (it. 779) : accessibilité : barre d'onglets au clavier (rôle tablist) : ← → onglet voisin ouvert,
   Début / Fin premier / dernier, focus suivi (la barre est redessinée par setTab : focus redonné au nouveau bouton).
   Autotest (145) ; focus vérifié à part, panneau ouvert (→ : talents, Fin : réglages).
