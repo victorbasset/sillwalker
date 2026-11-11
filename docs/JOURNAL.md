@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 773 bis) : le commit 6a06abd était parti avec npm test en échec (relevé juste après) : « FE0F » dans
+  une expression de fontbench.js pris pour une constante non importée, et un .join(", ") (dev seulement). Corrigé.
 - 2026-11-11 (it. 773) : fontbench de Victor : les polices aussi rapides que sur le serveur (2-16 ms)… mais l'essai
   répétait 15 mots : Chromium garde la forme des mots déjà vus, l'essai ne mesurait que ce cache. Corrigé (mots
   aléatoires) ; en plus, mise en page des VRAIS onglets (copies invisibles) : premier passage, puis variantes de

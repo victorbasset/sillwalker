@@ -56,7 +56,7 @@ const VARIANTS = [
   ["une seule taille (14px)", "font-size: 14px !important;"],
   ["sans espacement de lettres ni ombres", "letter-spacing: normal !important; text-shadow: none !important;"],
 ];
-const NO_EMOJI = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{2605}\u{2606}]/gu;
+const NO_EMOJI = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{fe0f}\u{2605}\u{2606}]/gu;
 
 function layoutClone(pane, css, stripEmoji) {
   const host = document.getElementById("panel") || document.body;
@@ -82,7 +82,7 @@ export function paneBench() {
   const rows = [...VARIANTS.map(([n, css]) => [n, css, false]), ["sans emoji ni étoiles", "", true]];
   const res = rows.map(() => 0);
   // premier passage : formes des mots pas encore en cache (ce que paie le joueur au premier affichage)
-  const first = ids.map((id) => `${id} ${Math.round(layoutClone(P.root.querySelector(`[data-pane="${id}"]`), "", false))} ms`).join(", ");
+  const first = ids.map((id) => `${id} ${Math.round(layoutClone(P.root.querySelector(`[data-pane="${id}"]`), "", false))} ms`).join(" / ");
   for (let r = 0; r < 3; r++) rows.forEach(([, css, se], i) => { for (const id of ids) res[i] += layoutClone(P.root.querySelector(`[data-pane="${id}"]`), css, se); });
   document.getElementById("fb-style").textContent = "";
   console.warn(`[fontbench] vrais onglets, premier passage : ${first}\n[fontbench] ensuite (cache rempli), moyenne de 3 :\n` + rows.map(([n], i) => `${n.padEnd(38)} ${Math.round(res[i] / 3)} ms`).join("\n"));
