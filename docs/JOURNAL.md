@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 602) : README, Organisation : relics.js, story.js, music.js, sprites.js (contours et halo dessinés
+  une fois ; pas de filtre CSS permanent sur la bande).
 - 2026-11-11 (it. 601) : mesure de la mémoire corrigée : mem-watch additionnait les RSS (mémoire partagée comptée
   plusieurs fois, écran virtuel Xvfb compris) : ≈ 800 Mo. Il affiche maintenant aussi le « réel » (PSS de l'arbre
   Electron) : ≈ 515 Mo stables (rendu ≈ 190, principal ≈ 90, GPU ≈ 75, son + réseau ≈ 50). CLAUDE.md à jour.

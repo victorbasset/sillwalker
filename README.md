@@ -195,6 +195,8 @@ src/
       skilltree.js        arbre de compétences (graphe généré à partir de SECTORS)
       events.js           vitesse permanente et événements rares
       bosses.js           capacités spéciales des boss
+      relics.js           boss majeurs (zones 50, 100, 150) et les quatre reliques (effets, histoires)
+      story.js            histoire : introduction, chroniques, Briseur d'Étoiles (zone 200)
       spells.js           sorts : mécaniques communes et trois sorts par héros
       sets.js             panoplies
       rules.js            formules d'équilibrage
@@ -204,7 +206,9 @@ src/
     render/               art.js = pixel art, dom.js = briques communes,
                           strip.js = bande (parcours de zone), mini.js = encart mini, heroart.js = héros
                           assemblés à partir de pièces, equipvis.js = équipement visible, juice.js = effets,
-                          sound.js = sons, trayicons.js = icônes de la zone de notification
+                          sound.js = sons, music.js = musique lofi, trayicons.js = icônes de la zone de notification ;
+                          sprites.js = images des personnages (contours et halo dessinés une fois : outlinedFrames,
+                          glowFrames ; jamais de filtre CSS permanent sur la bande, voir CLAUDE.md)
     i18n/                 traductions : index.js (t(), langue), keys.js (textes source, ordre fixe),
                           lang/xx.js (traductions par indice), data.js (noms des données, noms d'objets)
     ui/                   panneau de gestion (panel.js + un module par onglet dans ui/tabs/), clics traversants,
