@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 643) : partie neuve vérifiée en capture (20 s, français) : deux onglets, objectif « Prochaine
+  découverte », zone 1 et son boss ; rien des reliques n'encombre le début.
 - 2026-11-11 (it. 642) : infobulle du niveau des reliques des lieutenants : « Au-delà du Rebord, son écho (zone N) en
   donne un de plus par course. » (dernier point de la relecture it. 638). Traduit. 135/135.
 - 2026-11-11 (it. 641) : Cœur de l'aube : la régénération agit aussi pendant la marche (le texte promet « chaque
