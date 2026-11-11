@@ -1203,4 +1203,5 @@ export default {
   2327: "O painel abre sem esperar: o conteúdo se atualiza logo em seguida.",
   2328: "Eco dissipado",
   2329: "Os três ecos",
+  2330: "Duas novas conquistas além do Parapeito: “Eco dissipado” e “Os três ecos”.",
 };

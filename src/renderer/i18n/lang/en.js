@@ -1203,4 +1203,5 @@ export default {
   2327: "The panel opens without waiting: its content updates right after.",
   2328: "Echo Dispelled",
   2329: "The Three Echoes",
+  2330: "Two new achievements beyond the Sill: “Echo Dispelled” and “The Three Echoes”.",
 };

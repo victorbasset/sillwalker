@@ -1203,4 +1203,5 @@ export default {
   2327: "El panel se abre sin esperar: su contenido se actualiza justo después.",
   2328: "Eco disipado",
   2329: "Los tres ecos",
+  2330: "Dos nuevos logros más allá del Alféizar: «Eco disipado» y «Los tres ecos».",
 };

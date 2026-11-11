@@ -1203,4 +1203,5 @@ export default {
   2327: "Panel otwiera się bez czekania: jego zawartość odświeża się zaraz potem.",
   2328: "Rozproszone echo",
   2329: "Trzy echa",
+  2330: "Dwa nowe osiągnięcia za Krawędzią: „Rozproszone echo” i „Trzy echa”.",
 };

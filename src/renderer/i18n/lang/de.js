@@ -1203,4 +1203,5 @@ export default {
   2327: "Das Panel öffnet sich ohne Wartezeit: Der Inhalt aktualisiert sich gleich danach.",
   2328: "Echo vertrieben",
   2329: "Die drei Echos",
+  2330: "Zwei neue Errungenschaften jenseits des Saums: „Echo vertrieben“ und „Die drei Echos“.",
 };

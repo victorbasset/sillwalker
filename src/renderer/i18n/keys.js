@@ -2331,5 +2331,6 @@ export const KEYS = [
   "Onglets du panneau au clavier : flèches gauche et droite, Début et Fin.",
   "Le panneau s’ouvre sans attendre : son contenu se met à jour juste après.",
   "Écho dissipé",
-  "Les trois échos"
+  "Les trois échos",
+  "Deux nouveaux succès au-delà du Rebord : « Écho dissipé » et « Les trois échos »."
 ];
