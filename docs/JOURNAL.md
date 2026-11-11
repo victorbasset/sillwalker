@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 797) : « Quoi de neuf » édition 28 : onglets au clavier (it. 779), panneau ouvert sans attendre
+  (it. 794). Traduite.
 - 2026-11-11 (it. 796) : autotest (146) : polices des 12 onglets et de la bande : aucune taille fractionnaire, au plus
   40 combinaisons police × graisse × taille (28 aujourd'hui), pour garder des premiers affichages rapides sous Windows.
 - 2026-11-11 (it. 795) : taille de police fractionnaire 10,8333px (compteurs des sous-onglets, <small> sans taille dans un

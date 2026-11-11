@@ -1199,4 +1199,6 @@ export default {
   2323: "As abas do painel são preparadas com antecedência: abrem rápido desde o primeiro clique.",
   2324: "Som desligado: o motor de áudio pausa e economiza processador.",
   2325: "No Windows, o painel e as abas abrem sem travar desde a primeira vez (fonte do texto mais leve).",
+  2326: "Abas do painel pelo teclado: setas esquerda e direita, Home e End.",
+  2327: "O painel abre sem esperar: o conteúdo se atualiza logo em seguida.",
 };

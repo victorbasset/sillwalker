@@ -1199,4 +1199,6 @@ export default {
   2323: "Die Reiter des Panels werden vorbereitet: Sie öffnen sich schon beim ersten Klick schnell.",
   2324: "Ton aus: Die Audio-Engine pausiert und spart Prozessorleistung.",
   2325: "Unter Windows öffnen sich das Panel und die Reiter schon beim ersten Mal ohne Ruckeln (leichtere Textschrift).",
+  2326: "Panel-Reiter per Tastatur: Pfeiltasten links und rechts, Pos1 und Ende.",
+  2327: "Das Panel öffnet sich ohne Wartezeit: Der Inhalt aktualisiert sich gleich danach.",
 };

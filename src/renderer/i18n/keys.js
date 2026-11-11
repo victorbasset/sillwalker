@@ -2327,5 +2327,7 @@ export const KEYS = [
   "Les cases des automatismes achetés (valet, creuset, forge, marchand…) sont regroupées sous le sac, dans « Automatismes (actifs / total) » : un clic les ouvre.",
   "Les onglets du panneau sont préparés d’avance : ils s’ouvrent vite dès le premier clic.",
   "Son coupé : le moteur audio se met en pause et économise du processeur.",
-  "Sous Windows, le panneau et les onglets s’ouvrent sans blocage dès la première fois (police du texte allégée)."
+  "Sous Windows, le panneau et les onglets s’ouvrent sans blocage dès la première fois (police du texte allégée).",
+  "Onglets du panneau au clavier : flèches gauche et droite, Début et Fin.",
+  "Le panneau s’ouvre sans attendre : son contenu se met à jour juste après."
 ];

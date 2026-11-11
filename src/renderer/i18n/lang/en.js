@@ -1199,4 +1199,6 @@ export default {
   2323: "Panel tabs are prepared in advance: they open quickly from the very first click.",
   2324: "Sound muted: the audio engine pauses and saves processor time.",
   2325: "On Windows, the panel and tabs open without freezing from the very first time (lighter text font).",
+  2326: "Panel tabs with the keyboard: left and right arrows, Home and End.",
+  2327: "The panel opens without waiting: its content updates right after.",
 };

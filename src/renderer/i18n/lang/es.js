@@ -1199,4 +1199,6 @@ export default {
   2323: "Las pestañas del panel se preparan de antemano: se abren rápido desde el primer clic.",
   2324: "Sonido silenciado: el motor de audio se pausa y ahorra procesador.",
   2325: "En Windows, el panel y las pestañas se abren sin bloqueos desde la primera vez (fuente del texto aligerada).",
+  2326: "Pestañas del panel con el teclado: flechas izquierda y derecha, Inicio y Fin.",
+  2327: "El panel se abre sin esperar: su contenido se actualiza justo después.",
 };

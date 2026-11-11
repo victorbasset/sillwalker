@@ -1199,4 +1199,6 @@ export default {
   2323: "Karty panelu są przygotowywane z wyprzedzeniem: otwierają się szybko od pierwszego kliknięcia.",
   2324: "Dźwięk wyciszony: silnik dźwięku się zatrzymuje i oszczędza procesor.",
   2325: "W systemie Windows panel i karty otwierają się bez zacięć już za pierwszym razem (lżejsza czcionka tekstu).",
+  2326: "Karty panelu z klawiatury: strzałki w lewo i w prawo, Home i End.",
+  2327: "Panel otwiera się bez czekania: jego zawartość odświeża się zaraz potem.",
 };
