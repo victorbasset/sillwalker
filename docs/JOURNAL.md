@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 624) : Lame du crépuscule visible en combat : les coups critiques (et l'iai) du héros prennent sa
+  teinte violette (projectiles, étincelles, éclair) ; les coups ordinaires gardent la couleur de la classe. 133/133.
 - 2026-11-11 (it. 623) : vérifié en capture : le soin du Cœur de l'aube, vert à gauche du héros, se distingue des
   dégâts subis (rouges).
 - 2026-11-11 (it. 622) : soin du Cœur de l'aube vérifié en capture (événement toutes les 3 s : ok) ; le « +X » partait

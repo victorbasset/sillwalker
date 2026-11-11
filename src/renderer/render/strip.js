@@ -99,7 +99,8 @@ export class StripRenderer {
     const g = this.game;
     g.on("heroAttack", ({ dmg, crit, mon, extra, first, iai }) => {
       this.lunge = 0.15; this.monHit = 0.12;
-      const S = this.game.S, tier = attackTier(S), color = CLASS_FX[S.cls] || "#ffffff";
+      // Lame du crépuscule (relique, it. 624) : les coups critiques prennent sa teinte violette
+      const S = this.game.S, tier = attackTier(S), color = (crit || iai) && hasRelic(S, "blade") ? "#b48cff" : CLASS_FX[S.cls] || "#ffffff";
       const proj = this.game.classDef().projectile, py = mon.boss ? 40 : 66;
       if (proj) {
         this.projectile(proj, this.heroX + 30, this.monX() + 6, py, tier, color);
