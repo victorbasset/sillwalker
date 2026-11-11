@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 710, revue générale) : balance 12 h vs d097834 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl en 318 / ru 318 clics sans erreur ; perf bande 19,2 %, panneau 20,3 %, mini 6,6 % ; mémoire réelle 519 Mo stable.
 - 2026-11-11 (it. 708) : étiquette des champions sur la bande : « Champion » + affixe collés dans l'ordre français
   (« Champion fast », « Champion schnell ») ; clé « Champion {0} » traduite dans l'ordre de chaque langue (« Fast
   champion », « Gepanzerter Champion », « Быстрый чемпион »), première lettre en capitale. 136/136.
