@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 763) : essai Tauri mesuré par Victor sous Windows : pas mieux en mémoire (400 Mo contre 382 Mo),
+  plus cher en processeur (30,7 % contre 19,8 % d'un cœur) : abandonné (demande X). proto-tauri/ gardé pour mémoire.
 - 2026-11-11 (it. 762) : traductions des infobulles et libellés d'accessibilité (title, aria-label, placeholder) des
   12 onglets : en russe, seuls « Sillwalker » et « Esc » restent latins ; en japonais (--dump-text), seuls HP, Lv, BGM,
   pt (usages japonais), les noms des langues et DEV (commandes de dev). Rien à corriger.
@@ -2530,14 +2532,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   13. Feux follets des pétales complets (demande V, it. 720) : passent derrière puis devant le héros ?
   12. Familiers (demande U, it. 714) : bouton « Récupérer le butin » et boutons d'envoi (30 min / 2 h / 8 h, nom au
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
-  15. Essai Tauri (demande X, it. 751-752) : ajouter `.github/workflows/proto-tauri.yml` (copie de
-      proto-tauri/workflow-a-ajouter.yml, voir proto-tauri/README.md), télécharger l'exe de l'onglet Actions, le
-      lancer à la place de la version Electron (fermée pendant l’essai, puis relancée pour comparer) ; comparer mémoire et processeur dans le Gestionnaire des tâches ;
-      vérifier que les clics traversent la bande hors des boutons. Sauvegarde à part (la vraie n'est que lue).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir ; 2026-11-11) :
+  X. FAIT, ABANDONNÉ (it. 751-763). Essai Tauri (la bande seule, compilée pour Windows) mesuré par Victor : 400 Mo de
+     mémoire privée et 30,7 % d'un cœur, contre 382 Mo et 19,8 % pour Electron (hors PowerShell) : WebView2 est un
+     Chromium comme Electron, et son rendu coûte plus cher. Pas de portage (on perdrait aussi Steam, le mode mini,
+     l'icône). Retombée : le PowerShell permanent de la détection du plein écran (63 Mo) est remplacé (it. 763).
   V. FAIT (it. 720). « Les boules visuelles d'un pétale de compétence complet passent derrière le personnage et
      reviennent devant » : le code le prévoyait (z-index 1 / 3) mais le héros n'avait pas de z-index : z-index 2.
   U. FAIT (it. 714, contrôles it. 715 et 718). « Les boutons pour récupérer une expédition sortent de l'écran et les

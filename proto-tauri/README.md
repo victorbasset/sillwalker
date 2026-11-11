@@ -1,5 +1,8 @@
 # Essai : la bande de Sillwalker sous Tauri
 
+**Résultat (2026-11-11, mesuré par Victor sous Windows) : abandonné.** Tauri : 400 Mo de mémoire privée, 30,7 % d'un
+cœur ; Electron : 382 Mo, 19,8 % (hors PowerShell). WebView2 est un Chromium lui aussi, et son rendu coûte plus cher.
+
 Demande de Victor (2026-11-11) : comparer **mémoire et processeur** entre la version Electron et une version Tauri,
 avant de décider d'un éventuel portage. L'essai ne contient que **la bande** (le panneau s'ouvre aussi, mêmes pages),
 avec le passage des clics à travers la bande.
