@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 640, revue générale) : balance 12 h vs 50a39b7 +0,6 (bruit) ; fuzz 1200 parties, 0 bloquée ;
+  save-fuzz ok ; crawl pl 318 / ko 325 clics sans erreur ; perf bande 19,5 %, panneau 20,7 %, mini 6,6 % ; mémoire
+  réelle 515 Mo stable ; vidage russe (reliques, échos, éditions 15-17) : seuls « Oc » / « Sp » nouveaux = suffixes des
+  très grands nombres (format.js HUGE, communs à toutes les langues, voulu).
 - 2026-11-11 (it. 639) : semaine simulée après la correction du Drone (carapace, rempart) : mage 278, guerrier 301
   (286 à l'it. 634 : bruit d'une graine) : pas de frein. Repère CLAUDE.md à jour.
 - 2026-11-11 (it. 638) : relecture indépendante (agent) du code des reliques (01a4dfd..HEAD) : règles des niveaux,
