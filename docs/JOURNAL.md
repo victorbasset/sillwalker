@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 771) : sous PowerShell, `npm start -- --trace=10` perd le « -- » (npm garde --trace pour lui) :
+  commande `npm run trace` ajoutée (package.json).
 - 2026-11-11 (it. 770) : lignes de Victor après it. 769 : conversions de canevas négligeables (0-12 ms), construction
   2-29 ms, mais MISE EN PAGE 85-538 ms par onglet (ici 10-30 ms) : c'est elle. Pour voir quoi dedans sous Windows :
   `npm start -- --trace=10` (src/main/trace.js) enregistre une trace Chromium de 10 s et affiche le temps propre de

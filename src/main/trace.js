@@ -1,4 +1,4 @@
-// (it. 770) Dev : `npm start -- --trace=10` enregistre une trace Chromium de la page pendant 10 s dès le lancement (ouvrir
+// (it. 770) Dev : `npm run trace` (= electron . --trace=10 ; sous PowerShell, `npm start -- --trace` perd le --) enregistre une trace Chromium de la page pendant 10 s dès le lancement (ouvrir
 // le panneau et quelques onglets pendant ce temps), puis affiche dans le terminal où part le temps du fil principal de
 // la page : temps PROPRE de chaque étape (style, mise en page, polices, images…), sans compter ses sous-étapes.
 // Né des lenteurs de Victor sous Windows : mise en page de 100 à 540 ms par onglet, contre 10 à 30 ms sur le serveur.
