@@ -2750,6 +2750,14 @@ test("Marchand attitré : achète et équipe l'objet de l'étal qui renforce le 
   assert.equal(g.S.shop.items.length, 0, "retiré de l'étal");
   const g2 = new Game(freshLocked()); g2.S.gold = 1e9; g2.S.shop = { items: [good] };
   assert.equal(g2.autoTrade(), null, "sans déblocage : rien");
+  // (it. 738) sac plein : l'objet porté est remplacé et vendu, le sac ne déborde pas
+  const g3 = new Game(freshState()); g3.S.unlocks.trader = true; g3.S.best = 80;
+  const w3 = g3.newItem(0); w3.slot = "weapon"; w3.il = 1; g3.S.equip.weapon = w3; g3.invalidateStats();
+  while (!g3.bagFull()) g3.S.bag.push(g3.newItem(0));
+  const n3 = g3.S.bag.length, good3 = g3.newItem(3); good3.slot = "weapon"; good3.il = 80; good3.price = 100;
+  g3.S.shop = { items: [good3] }; g3.S.gold = 1e9;
+  assert.ok(g3.autoTrade() === good3 && g3.S.equip.weapon === good3, "acheté et équipé, sac plein");
+  assert.equal(g3.S.bag.length, n3, "ancien objet vendu, pas mis dans le sac");
 });
 
 test("déblocages rangés par zone croissante (nextUnlock suit l'ordre du tableau ; it. 736)", () => {

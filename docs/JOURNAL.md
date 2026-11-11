@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 738) : Marchand attitré essayé en vrai (copie dev-data) : rien acheté, à juste titre (étal moins bon
+  que l'équipement porté) mais surtout sac plein, fréquent en fin de partie : il n'aurait presque jamais servi.
+  Désormais, sac plein : achat direct, l'objet porté remplacé est vendu (jamais un légendaire : alors pas d'achat).
+  Test (sac plein, le sac ne déborde pas). Semaine guerrier : graine 7 302 (inchangé), graine 3 287. 139/139.
 - 2026-11-11 (it. 737) : « Quoi de neuf » édition 24 : Marchand attitré (it. 736) et correction de l'ordre des
   déblocages. Traduite (9 langues). 139/139 ; de, pl sans défilement.
 - 2026-11-11 (it. 736) : nouveau déblocage « Marchand attitré » (zone 300, 2e31 or, icône propre) : achète et équipe

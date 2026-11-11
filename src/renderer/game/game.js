@@ -1511,7 +1511,7 @@ export class Game {
    */
   autoTrade() {
     const S = this.S, shop = S.shop;
-    if (!hasUnlock(S, "trader") || S.settings.autoTrade === false || !shop || !shop.items || !shop.items.length || this.bagFull()) return null;
+    if (!hasUnlock(S, "trader") || S.settings.autoTrade === false || !shop || !shop.items || !shop.items.length) return null;
     const key = shop.items.map((i) => i.id).join(",") + "|" + Object.values(S.equip).map((i) => (i ? i.id + ":" + i.il + ":" + i.plus : "-")).join(",") + "|" + Math.floor(Math.log10(Math.max(1, S.gold)));
     if (key === this._tradeKey) return null;
     this._tradeKey = key;
@@ -1521,8 +1521,21 @@ export class Game {
       const d = upgradeDelta(S, it);
       if (d > gain) { best = it; gain = d; }
     }
-    if (!best || !this.buyShopItem(best.id)) return null;
+    if (!best) return null;
+    if (!this.bagFull()) {
+      if (!this.buyShopItem(best.id)) return null;
+      this.equip(best);
+      return best;
+    }
+    // (it. 738) sac plein (fréquent en fin de partie) : achat direct, l'ancien objet est vendu (jamais un légendaire)
+    const old = S.equip[best.slot];
+    if (old && old.r === LEGENDARY) return null;
+    if (!this.pay(best.price)) return null;
+    shop.items = shop.items.filter((i) => i !== best);
+    delete best.price; delete best.deal;
+    this.log(tx("Acheté au marchand : ") + itemName(best) + cend());
     this.equip(best);
+    if (old) { S.bag = S.bag.filter((i) => i !== old); S.gold += sellValue(old); }
     return best;
   }
 
