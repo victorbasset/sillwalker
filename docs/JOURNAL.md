@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 836) : glisser-déposer plus tolérant : un objet du sac lâché n'importe où sur le panneau Équipement
+  (portrait du héros, autre ligne, titre) va à son emplacement, la bonne ligne s'allumant dès le survol du panneau ;
+  un objet porté lâché n'importe où sur le panneau Sac est retiré. Avant, il fallait viser la ligne exacte. Contrôle
+  d'autotest étendu (dépôt sur le portrait, retrait par le titre du sac, sac refusé pour un objet du sac) : 154/154.
+  Vérification des nouveautés de l'it. 835 : clics en russe (329) sans erreur.
 - 2026-11-11 (it. 835) : retours d'une première joueuse (itch.io), quatre demandes :
   1. Déplacer la fenêtre à la souris : glisser le bouton ⌃ (ou la languette sur écran ultra-large, ou la bande entière
      si elle est opaque) l'emmène sur l'écran sous le curseur, en haut ou en bas selon la moitié où on la lâche ; le

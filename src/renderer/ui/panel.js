@@ -253,15 +253,17 @@ export class Panel {
     document.addEventListener("dragend", () => this.endDrag()); // l'objet source a pu être retiré de la page
   }
 
-  /** Cible de dépôt sous le pointeur pour l'objet glissé, ou null. */
+  /** Cible de dépôt sous le pointeur pour l'objet glissé, ou null. (it. 836) N'importe où sur le panneau visé
+   *  (portrait, autre ligne, titre) compte : l'objet va de lui-même à son emplacement, inutile de viser la ligne. */
   dropTarget(e) {
     const d = this.dnd, t = e.target;
     if (!d || !t || !t.closest) return null;
     if (d.from === "bag") {
-      const li = t.closest("#p-detail .eqline"), s = li && li.querySelector('.slot[data-from="equip"]');
-      return s && s.dataset.slot === d.slot ? li : null;
+      if (!t.closest("#p-detail")) return null;
+      const s = this.root.querySelector(`#p-detail .slot[data-from="equip"][data-slot="${d.slot}"]`);
+      return s ? s.closest(".eqline") : null;
     }
-    return this.game.bagFull() ? null : t.closest("#p-bag .bag");
+    return this.game.bagFull() || !t.closest("#p-bag") ? null : this.root.querySelector("#p-bag .bag");
   }
 
   onDragStart(e) {

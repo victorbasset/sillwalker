@@ -130,6 +130,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   position, opacité, démarrage de Windows.
 - **Clavier** (panneau ouvert) : 1 … 9, 0, - pour les onglets ; E équiper le meilleur ; V vendre l'inutile ; T transmuter ; R réclamer une quête (toutes avec le Bureau des contrats) ;
   M mode mini ; Entrée confirmer ; Échap fermer.
+- **Souris** : double-clic sur un objet pour l'équiper ou le retirer ; ou le glisser du sac vers le panneau Équipement
+  (n'importe où : il va à son emplacement), et inversement ; glisser le bouton ⌃ déplace la bande (autre écran, haut ou bas).
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
 - **Onglets** : quand ils ne tiennent pas sur une ligne (langue aux mots longs, petit écran), marges resserrées, puis
   sans icônes, puis police réduite ; les icônes seules en dernier recours.

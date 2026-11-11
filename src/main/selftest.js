@@ -84,6 +84,19 @@ async function runSelfTest(strip) {
     await sleep(500);
     const after = !strip.drag, opened = await js("document.body.classList.contains('panel-open')");
     check("glisser le bouton ⌃ : la fenêtre suit, le panneau ne s'ouvre pas", during && after && !opened, `pendant ${during}, fini ${after}, panneau ${opened}`);
+    // (it. 836) bande opaque : elle s'attrape aussi par un point vide (ciel, sol), pas seulement par ⌃
+    strip.setOpacity(1); await sleep(400);
+    const ey = b0.height - 40, edge1 = strip.settings.get("edge");
+    await move(emptyX, ey);
+    wc.sendInputEvent({ type: "mouseDown", x: emptyX, y: ey, button: "left", clickCount: 1 });
+    for (let i = 1; i <= 4; i++) { wc.sendInputEvent({ type: "mouseMove", x: emptyX + 6 * i, y: ey - 4 * i, button: "left", modifiers: ["leftButtonDown"] }); await sleep(40); }
+    await sleep(100);
+    const grabbed = !!strip.drag;
+    wc.sendInputEvent({ type: "mouseUp", x: emptyX + 24, y: ey - 16, button: "left", clickCount: 1 });
+    await sleep(500);
+    if (strip.settings.get("edge") !== edge1) strip.setEdge(edge1); // relâché où se trouve la vraie souris : on remet le bord
+    strip.setOpacity(opa0); await sleep(300);
+    check("bande opaque : s'attrape par un point vide", grabbed && !strip.drag, `pendant ${grabbed}`);
     // dépôt : moitié haute de l'écran -> bande en haut ; moitié basse -> en bas (sur l'écran sous le curseur)
     const wa = strip.display().workArea, edge0 = strip.settings.get("edge");
     strip.dragStart(); strip.dragEnd({ x: wa.x + 200, y: wa.y + 20 });
@@ -294,16 +307,30 @@ async function runSelfTest(strip) {
     ev("dragstart", src);
     const lit = [...document.querySelectorAll("#p-detail .eqline.dropok")];
     if (lit.length !== 1 || lit[0].querySelector(".slot").dataset.slot !== it.slot) return "surbrillance : " + lit.length;
+    // (it. 836) survoler une autre ligne ou le portrait allume la BONNE ligne ; le dépôt sur le portrait équipe
     const other = document.querySelector("#p-detail .eqline:not(.dropok)");
     ev("dragover", other);
-    if (other.classList.contains("dropover")) return "autre emplacement accepté";
-    ev("dragover", lit[0]);
-    if (!lit[0].classList.contains("dropover")) return "survol non signalé";
-    ev("drop", lit[0]); ev("dragend", src);
+    if (other.classList.contains("dropover") || !lit[0].classList.contains("dropover")) return "survol d'une autre ligne : mauvaise ligne";
+    ev("dragover", document.querySelector("#p-bag"));
+    if (document.querySelector(".dropover")) return "sac accepté pour un objet du sac";
+    const port = document.querySelector("#p-detail .heroport");
+    ev("dragover", port);
+    if (!lit[0].classList.contains("dropover")) return "survol du portrait non signalé";
+    ev("drop", port); ev("dragend", src);
     if (g.S.equip[it.slot]?.id !== it.id) return "pas équipé";
-    return document.querySelectorAll(".dropok, .dropover").length ? "surbrillance restée" : "ok";
+    if (document.querySelectorAll(".dropok, .dropover").length) return "surbrillance restée";
+    // l'inverse : objet porté lâché sur le titre du panneau Sac -> retiré
+    const eq = document.querySelector('#p-detail .slot[data-from="equip"][data-slot="' + it.slot + '"]'), dt2 = new DataTransfer();
+    const ev2 = (type, el) => el.dispatchEvent(new DragEvent(type, { bubbles: true, cancelable: true, dataTransfer: dt2 }));
+    ev2("dragstart", eq);
+    const h = document.querySelector("#p-bag h2") || document.querySelector("#p-bag");
+    ev2("dragover", h);
+    if (!document.querySelector("#p-bag .bag.dropover")) return "survol du sac non signalé";
+    ev2("drop", h); ev2("dragend", eq);
+    if (g.S.equip[it.slot]?.id === it.id || !g.findBagItem(it.id)) return "pas retiré";
+    return "ok";
   })()`);
-  check("glisser un objet du sac sur l'équipement : surbrillance puis équipé", dnd === "ok", dnd);
+  check("glisser un objet sur le panneau Équipement (portrait) puis le rendre au sac", dnd === "ok", dnd);
   // Vendre ce qui n'améliore pas (avec confirmation)
   await js("(() => { const g = window.__game; for (let n = 0; n < 200 && Object.keys(g.S.equip).some((k) => !g.S.equip[k] || g.S.equip[k].r < 3); n++) { const it = g.newItem(3, g.S.best + 10); if (!g.S.equip[it.slot] || g.S.equip[it.slot].r < 3) g.S.equip[it.slot] = it; } g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed() })()");
   await click('[data-tab="adventure"]');
