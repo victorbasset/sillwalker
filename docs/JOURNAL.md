@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 775) : lignes de Victor après it. 774 : confirmé, CHAQUE police (taille × graisse) coûte 75-170 ms à
+  créer sous Windows (presque rien ici), même sur un échantillon de 40 caractères. Clics traversants : seulement après
+  npm run fontbench (outil de dev), pas en jeu normal. Diagnostic suivant : warmFont mesure à part les lettres et les
+  symboles (★ ✦ ⚔ ✓ → : absents des polices du jeu, Windows les cherche dans ses polices, Segoe UI Emoji comprise).
 - 2026-11-11 (it. 774) : fontbench de Victor (Windows) : mots jamais vus rapides (400 lignes : 2 ms), vrais onglets
   150-580 ms au premier passage puis 9-11 ms ; « une seule taille (14px) » 89 ms même mots connus. Le coût semble être
   la première création de chaque police × taille × graisse (34 combinaisons dans le panneau). warmTabs découpé en

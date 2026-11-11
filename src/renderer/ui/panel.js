@@ -117,15 +117,24 @@ function fontsOf(root) {
 }
 
 /** Crée une police d'avance (invisible) : lettres, chiffres et symboles courants du jeu, polices de secours comprises. */
-const FONT_SAMPLE = "AaBbÉéèêàçùô 0123456789 %+−×→←★☆✦✓⚔•…·:«»’";
+// (it. 775) en deux temps, chronométrés à part en dev : chez Victor chaque police coûte 75-170 ms ; lettres seules ou
+// symboles (cherchés par Windows dans ses polices, Segoe UI Emoji comprise) ?
+const FONT_LETTERS = "AaBbÉéèêàçùô 0123456789 %+-:«»’";
+const FONT_SYMBOLS = "−×→←★☆✦✓⚔•…·";
 function warmFont(font) {
   const s = document.createElement("span");
   s.style.cssText = "position:absolute;left:-9999px;top:0;visibility:hidden;white-space:nowrap;";
   s.style.font = font;
-  s.textContent = FONT_SAMPLE;
+  s.textContent = FONT_LETTERS;
   document.body.appendChild(s);
+  const t0 = performance.now();
   void s.offsetWidth;
+  const t1 = performance.now();
+  s.textContent = FONT_LETTERS + FONT_SYMBOLS;
+  void s.offsetWidth;
+  const t2 = performance.now();
   s.remove();
+  if (window.__devSlow && t2 - t0 > 30) console.warn(`[lent] police ${font.split(",")[0]} : lettres ${Math.round(t1 - t0)} ms, symboles ${Math.round(t2 - t1)} ms`);
 }
 
 export class Panel {
