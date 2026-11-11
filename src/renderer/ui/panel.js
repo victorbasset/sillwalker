@@ -213,7 +213,9 @@ export class Panel {
     this.isOpen = open;
     if (open) {
       this.sinceVisit = this.game.visitSummary(this.visitSnap); // « Depuis ta dernière visite » (panneau resté fermé ≥ 5 min)
+      const t0 = performance.now();
       this.dirty = true; this.update(1);
+      this.slowProbe("ouverture du panneau", t0);
     } else { this.visitSnap = this.game.visitSnapshot(); this.sinceVisit = null; }
   }
 
@@ -246,8 +248,20 @@ export class Panel {
     for (const b of this.root.querySelectorAll("[data-tab]")) b.setAttribute("aria-selected", String(b.dataset.tab === id));
     for (const p of this.root.querySelectorAll("[data-pane]")) p.hidden = p.dataset.pane !== id;
     this.root.scrollTop = 0;
+    const t0 = performance.now();
     this.renderAll();
     this.fitTabs();
+    this.slowProbe("onglet " + id, t0);
+  }
+
+  /** (it. 765) Dev : signale dans la console (terminal de npm start) un affichage lent, du clic à l'image suivante. */
+  slowProbe(what, t0) {
+    if (!window.__devSlow) return;
+    const js = performance.now() - t0;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const ms = performance.now() - t0;
+      if (ms > 150) console.warn(`[lent] ${what} : ${Math.round(ms)} ms jusqu'à l'image (JavaScript ${Math.round(js)} ms)`);
+    }));
   }
 
   /**
@@ -271,6 +285,9 @@ export class Panel {
             if (!pane.childElementCount) {
               this.tabs[id].render(pane);
               for (const img of pane.querySelectorAll("img")) img.decode?.().catch(() => {});
+              // (it. 765, freezes encore signalés sous Windows) une mise en page invisible : polices de secours (symboles,
+              // emoji, CJK) chargées et images mesurées maintenant, pas au premier clic
+              pane.classList.add("warming"); pane.hidden = false; void pane.offsetHeight; pane.hidden = true; pane.classList.remove("warming");
             }
           }
         } catch { /* préchauffage seulement : l'onglet sera rendu normalement à l'ouverture */ }

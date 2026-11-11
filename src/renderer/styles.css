@@ -57,6 +57,8 @@ body.edge-top #root { flex-direction: column-reverse; justify-content: flex-end;
 /* L'attribut hidden l'emporte toujours : sans cela, .row ou .toggle (display: flex) gardaient visibles des éléments
    cachés par le code (boutons « Dépenser automatiquement » des compétences avant le Manuel du stratège…). */
 [hidden] { display: none !important; }
+/* (it. 765) onglet préparé d'avance : mis en page une fois, invisible (panel.js warmTabs) */
+.warming { position: absolute !important; left: 0; top: 0; width: 100%; visibility: hidden !important; pointer-events: none; }
 #strip[hidden], #mini[hidden] { display: none; }
 body.mode-mini #root { display: none; }
 .layer { position: absolute; top: 0; left: 0; display: block; }

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 765) : Victor signale encore de gros blocages sous Windows à la première ouverture du panneau et
+  d'un onglet jamais vu. Le préchauffage (it. 750) construisait les onglets cachés (display: none) sans mise en page :
+  polices de secours (symboles, emoji, CJK) et tailles d'images restaient à faire au premier clic. Chaque onglet
+  préparé est maintenant mis en page une fois, invisible (classe .warming). Sur le serveur, premières visites :
+  33-83 ms avant, 29-50 ms après (compétences 83 → 34, familiers 50 → 37). Dev (npm start) : « [lent] … » dans le
+  terminal si un onglet ou le panneau met plus de 150 ms à s'afficher, ou si une image dure plus de 200 ms (détail
+  script / mise en page), pour trouver la cause sous Windows si ça persiste.
 - 2026-11-11 (it. 763) : essai Tauri mesuré par Victor sous Windows : pas mieux en mémoire (400 Mo contre 382 Mo),
   plus cher en processeur (30,7 % contre 19,8 % d'un cœur) : abandonné (demande X). Dossier proto-tauri/ supprimé à la demande de
   Victor (it. 764 ; toujours lisible dans l'historique git, commit 53e134a).

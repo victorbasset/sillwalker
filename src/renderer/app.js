@@ -460,6 +460,21 @@ async function boot() {
 
   /* ---------- Démo des effets (dev) : --demo ---------- */
   if (init.isDev) window.__panel = panel; // auto-test (dev)
+  // (it. 765) Dev (npm start) : affichages lents signalés dans le terminal (panel.slowProbe), avec le détail des images
+  // longues (script / style et mise en page) quand le navigateur le fournit.
+  if (init.isDev && !init.crawl) {
+    window.__devSlow = true;
+    try {
+      new PerformanceObserver((list) => {
+        for (const e of list.getEntries()) {
+          if (e.duration < 200) continue;
+          const script = Math.round((e.scripts || []).reduce((a, s) => a + s.duration, 0));
+          const layout = e.styleAndLayoutStart ? Math.round(e.startTime + e.duration - e.styleAndLayoutStart) : 0;
+          console.warn(`[lent] image de ${Math.round(e.duration)} ms : script ${script}, style et mise en page ${layout}`);
+        }
+      }).observe({ type: "long-animation-frame", buffered: false });
+    } catch { /* navigateur sans cette mesure */ }
+  }
   if (init.isDev) window.__spellsAll = SPELLS; // mesures de dev (--overflow-report : page des sorts des 20 héros)
   if (init.isDev) window.__music = music; // auto-test (dev) : rendu hors ligne de la musique lofi
   if (init.isDev) window.__sound = sound; // auto-test (dev) : rendu hors ligne de tous les sons
