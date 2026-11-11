@@ -32,7 +32,9 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - ⬜ Dépôt Windows : options de lancement → exécutable `Sillwalker.exe`, système Windows 64 bits.
 - ⬜ Prix, date de sortie, langues (interface + sous-titres pour les 10 langues ; pas de voix).
 - ⬜ Questionnaire de classification par âge (violence pixel art légère, pas de sang, pas d'achats en jeu).
-- ⬜ Bande-annonce (conseillée) : 30-60 s de bande et de panneau.
+- 🟡 Extrait animé de la bande (20 s, 1920×120) pour « À propos de ce jeu » : `steam/media/strip-en.mp4` / `.webm`
+  (`scripts/steam-video.sh`).
+- ⬜ Bande-annonce (conseillée) : 30-60 s de bande et de panneau (montage à faire).
 
 ## Configuration requise (proposition)
 

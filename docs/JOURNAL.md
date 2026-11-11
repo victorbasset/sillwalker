@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 788) : Steam : extrait animé de la bande (20 s, 1920×120, 30 images/s) : steam/media/strip-en.mp4
+  (H.264, 979 Ko) et .webm (VP9, 659 Ko), partie simulée de 12 h en anglais. scripts/steam-video.sh : jeu sur un
+  écran virtuel à part (Xvfb :77, fenêtre visible), capture x11grab, ffmpeg de pip imageio-ffmpeg (absent du
+  système). Piège : « pkill -f 'Xvfb :77' » dans une commande tue aussi le shell qui la contient (motif présent
+  dans sa ligne) : garder le PID.
 - 2026-11-11 (it. 787) : version distribuée : outils de dev exclus du paquet (src/main/trace.js, src/renderer/dev/ :
   crawl, fontbench ; tous chargés à la demande sous une option de dev). Vérifié par une construction Linux
   (electron-builder --linux dir, dans le dossier temporaire) : absents de app.asar, devslow.js présent (importé par
