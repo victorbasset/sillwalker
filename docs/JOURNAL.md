@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 660, revue générale) : balance 12 h vs 911d578 +0,0 ; fuzz 1200 parties, 0 bloquée ; save-fuzz ok ;
+  crawl pt 323 / ja 317 clics sans erreur ; perf bande 19,3 %, panneau 20,5 %, mini 6,6 % ; mémoire réelle 517 Mo stable.
 - 2026-11-11 (it. 659) : semaine du mage sur 3 graines (3, 11, 21) : palier vers la zone 250 entre 120 h et 144 h.
   Même mesure sur l'état d'avant les échos (7354b5d, it. 633) : même palier (242-254) et même record final (269-275) :
   c'est la difficulté générale vers 250, pas les échos. Essai d'échos sans surplus (PV ×1,2, attaque ×1,1) : rien de
