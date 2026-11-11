@@ -581,6 +581,8 @@ async function runSelfTest(strip) {
     for (const id of ["wind", "goldrain", "frenzy", "bounty", "wisdom", "hawkeye", "shardfall", "zeal", "nest", "ward", "arcane", "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));
     for (const k of ["bubble", "drip", "snow", "dust", "ember", "spore", "mote", "ash", "feather", "leaf", null]) await render("zone-" + k, (s) => { s.zoneSounds(k, false, true); s.zoneSounds(k, true, true); });
     await render("oiseau", (s) => s.birdCall());
+    // capacités des boss (it. 645 : Silence des échos ajouté)
+    for (const id of ["enrage", "shell", "frost", "mirror", "fury", "bulwark", "curse", "curseBlocked", "tenacious", "silence"]) await render("boss-" + id, (s) => s.play("bossSkill", id));
     await render("perçant", (s) => s.pierceSound());
     await render("drone", (s) => s.droneSound());
     await render("relique", (s) => s.relicSound());

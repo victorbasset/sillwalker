@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 645) : son du Silence (souffle qui s'éteint) ; l'autotest rend maintenant hors ligne les sons des
+  10 capacités de boss (ils n'y étaient pas) : ni erreur, ni saturation. 135/135.
 - 2026-11-11 (it. 644) : nouvelle capacité de boss « Silence » (piste « plus de mécaniques de boss »), réservée aux
   échos des lieutenants : toutes les 15 s, plus aucun sort pendant 4 s (recharges en pause ; « Silence ! » sur la
   bande). Hors de l'ordre des capacités ordinaires (rien ne change pour les boss existants). Test logique ; fuzz 600
