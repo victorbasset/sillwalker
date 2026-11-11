@@ -138,7 +138,8 @@ function warmFont(font) {
 }
 
 export class Panel {
-  constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings } = {}) {
+  constructor(root, game, { isDev = false, speed = 1, onSpeed, onClose, onReset, onMini, onQuit, settings, version = "" } = {}) {
+    this.version = version;
     this.root = root;
     this.game = game;
     this.isDev = isDev;
@@ -171,11 +172,11 @@ export class Panel {
       </div>` : "";
     this.root.innerHTML = `
       <header class="ptop">
-        <h1>Sillwalker</h1>
+        <h1 title="${esc("Sillwalker " + (this.version || ""))}">Sillwalker</h1>
         <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(t.label + " · " + tx("Raccourci : {0}", { 0: "1234567890-="[i] }))}" aria-label="${esc(t.label)}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt=""><span class="tlabel">${t.label}</span><span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
         <div class="controls">
           ${dev}
-          <button data-action="feedback" class="quiet feedback" aria-label="${esc(tx("Ton avis"))}" title="${esc(tx("Ton avis") + " — " + tx("Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte."))}"><img src="${shopIconURL("contract", 2)}" alt=""></button>
+          <button data-action="feedback" class="quiet feedback" aria-label="${esc(tx("Ton avis"))}" title="${esc(tx("Ton avis") + " — " + tx("Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte.") + (this.version ? " (Sillwalker " + this.version + ")" : ""))}"><img src="${shopIconURL("contract", 2)}" alt=""></button>
           <button data-action="mini" class="quiet" title="${esc(tx("Réduire en petit encart près de l’horloge"))}">${tx("Mode mini")}</button>
           <button data-action="quit" class="quiet quit" title="${esc(tx("Quitter Sillwalker (la partie est sauvegardée)"))}">${tx("Quitter")}</button>
           <button data-action="close" class="close" aria-label="${esc(tx("Fermer le panneau"))}" title="${esc(tx("Fermer (Échap)"))}">✕</button>

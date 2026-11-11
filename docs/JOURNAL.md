@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 817) : numéro de version (init.version) au survol du titre « Sillwalker » du panneau et dans
+  l'info-bulle du bouton « Ton avis » (les joueurs le citent dans leurs avis), sans place prise à l'écran. Autotest
+  (148). Piège : les info-bulles du jeu déplacent « title » dans data-title : un contrôle lit l'un ou l'autre.
 - 2026-11-11 (it. 816) : « Quoi de neuf » édition 30 : le bouton « Ton avis ». Traduite (libellé cité vérifié par
   i18n-quotes dans les 9 langues).
 - 2026-11-11 (it. 815) : pour récolter les avis des premiers joueurs (itch.io) : bouton « Ton avis » (icône de contrat,

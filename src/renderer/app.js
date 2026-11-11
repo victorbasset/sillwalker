@@ -167,6 +167,7 @@ async function boot() {
   let panelOpen = false, panelTimer = 0;
   const panel = new Panel($("#panel"), game, {
     isDev: init.devControls ?? init.isDev, // commandes de vitesse : cachées avec --release-ui
+    version: init.version, // (it. 817) affichée au survol du titre et du bouton « Ton avis »
     speed,
     onSpeed: (v) => { speed = v; },
     onClose: () => closePanel(),

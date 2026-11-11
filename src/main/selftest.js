@@ -762,8 +762,12 @@ async function runSelfTest(strip) {
   check("polices : pas de taille fractionnaire, au plus 40 combinaisons", !fontFrac && +fontN <= 40, `${fontN} combinaisons${fontFrac ? " ; fractionnaires : " + fontFrac : ""}`);
   // (it. 815) barre du panneau > « Ton avis » : le bouton existe et passe par le processus principal (adresse fixe ;
   // en test, rien ne s'ouvre)
-  const fb = await js("(() => { const b = document.querySelector('#panel .ptop [data-action=feedback]'); const ok = !!b && !!b.title && typeof window.sillwalker.openFeedback === 'function'; if (b) b.click(); return ok; })()");
+  const fb = await js("(() => { const b = document.querySelector('#panel .ptop [data-action=feedback]'); const ok = !!b && !!(b.title || b.dataset.title) && typeof window.sillwalker.openFeedback === 'function'; if (b) b.click(); return ok; })()");
   check("barre du panneau : bouton « Ton avis »", fb === true, String(fb));
+  // (it. 817) numéro de version au survol du titre (les joueurs le citent dans leurs avis)
+  // (les info-bulles du jeu déplacent « title » dans data-title : panel.js, app.js)
+  const ver = await js("(() => { const h = document.querySelector('#panel .ptop h1'); return h.title || h.dataset.title || ''; })()");
+  check("titre du panneau : version au survol", /^Sillwalker \d+\.\d+\.\d+/.test(ver), ver);
   // (it. 761) accessibilité : chaque bouton visible des 12 onglets a un nom (texte, aria-label ou title) pour les lecteurs d'écran
   const noName = await js("(() => { const P = window.__panel, cur = P.tab, out = []; for (const t of ['adventure','talents','skills','quests','shop','pets','class','ascension','bestiary','stats','map','settings']) { try { P.setTab(t); P.renderAll(); } catch (e) { continue; } document.querySelectorAll('#panel button').forEach((b) => { if (!b.offsetParent) return; const n = (b.getAttribute('aria-label') || b.title || b.textContent || '').trim(); const lb = b.getAttribute('aria-labelledby'); if (!n && !lb) out.push(t + ':' + (b.dataset.action || b.className || b.outerHTML.slice(0, 40))); }); } P.setTab(cur); P.renderAll(); return out.slice(0, 10).join(' | ') || 'ok'; })()");
   check("accessibilité : tous les boutons ont un nom (12 onglets)", noName === "ok", noName);
