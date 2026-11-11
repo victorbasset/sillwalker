@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-11 (it. 649) : test logique du Silence : aucun sort pendant 2 s de silence, ils reprennent ensuite. 185 tests.
 - 2026-11-11 (it. 648) : README, boss : liste des capacités complétée (peau de pierre, malédiction, tenace) et Silence
   des échos.
 - 2026-11-11 (it. 647) : Silence visible sur le héros (terni, halo pâle) pendant les 4 s ; filtre CSS acceptable :

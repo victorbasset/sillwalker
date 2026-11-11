@@ -2614,6 +2614,17 @@ test("Échos des lieutenants (it. 634) : zones 250, 300, 350 seulement, nom « �
   for (const z of [200, 249, 251, 400]) { const g = new Game(freshState()); g.S.zone = z; assert.ok(!g.makeMonster(true).echo, `zone ${z} : pas d'écho`); }
 });
 
+test("Silence (it. 644) : aucun sort tant que le héros est réduit au silence, puis ils reprennent", () => {
+  const g = new Game(freshState()); g.setClass("mage");
+  const sp = M_spells_js.classSpells("mage").find((x) => x.kind === "dmg"); g.S.spells = { [sp.id]: 1 };
+  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e15; g.R.mode = "fight"; g.R.hp = 1e15; g.R.spellT = { [sp.id]: 0.01 };
+  let casts = 0; g.on("spell", () => casts++);
+  g.R.silenced = 4; for (let i = 0; i < 20; i++) g.step(0.1); // 2 s de silence
+  assert.equal(casts, 0, "pas de sort pendant le silence");
+  for (let i = 0; i < 40; i++) g.step(0.1); // le silence finit
+  assert.ok(casts > 0, "les sorts reprennent");
+});
+
 test("README : liste Steam des succès complète (mêmes API Name que game/achievements.js)", () => {
   const md = fs.readFileSync(new URL("../README.md", import.meta.url), "utf8");
   const block = md.slice(md.indexOf("Stats & Achievements"), md.indexOf("Steam Cloud : activer"));
