@@ -1256,6 +1256,18 @@ test("Grand intendant : œufs éclos, expéditions récupérées et relancées (
   // le journal n'invite plus à faire éclore soi-même
   g.gainEgg();
   assert.ok(!/Familiers|Pets/.test(g.S.log[0]), g.S.log[0]);
+  // (it. 909) expéditions finies : récupérées par l'intendant, pas « à faire » ; quêtes réclamées seules : pareil
+  g.S.pets.exp = { [Object.keys(g.S.pets.owned)[1] || "x"]: { kind: "short", end: 0 } };
+  assert.ok(!g.todoNow().some((t) => t.id === "expeditions"), "expédition finie : l'intendant s'en charge");
+  g.S.settings.autoPets = false;
+  assert.ok(g.todoNow().some((t) => t.id === "expeditions"), "sans lui : à récupérer");
+  g.S.settings.autoPets = true; g.S.pets.exp = {};
+  g.S.quests.slots = [{ uid: 9, kind: "kill", goal: 1, progress: 1, stars: 1, reward: { gold: 1 } }];
+  g.S.tabsOpen = { ...(g.S.tabsOpen || {}), quests: true }; g.S.unlocks.questDesk = true;
+  g.S.quests.auto = true;
+  assert.ok(!g.todoNow().some((t) => t.id === "quests"), "réclamée seule : rien à faire");
+  g.S.quests.auto = false;
+  assert.ok(g.todoNow().some((t) => t.id === "quests"), "sans réclamation automatique : à réclamer");
   // (it. 908) l'œuf n'entre pas dans « À faire » et éclot dès la seconde suivante
   assert.ok(!g.todoNow().some((t) => t.id === "eggs"), "pas d'œuf à faire éclore soi-même");
   g._petT = Date.now(); g.gainEgg(); g.step(1.01);

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 909) : « À faire maintenant » ne signale plus ce qu'un automatisme acheté fait déjà tout seul :
+  les expéditions finies avec le Grand intendant (il les récupère), et les quêtes terminées quand le Bureau des
+  contrats les réclame automatiquement (restent seulement celles qui attendent de la place dans le sac pour leur
+  coffre). Passés en revue aussi : éclats d'étoile (la Carte du ciel dépense tout ce qui est abordable, rien à
+  signaler) ; points de talent et de compétence (laissés : il peut en rester que l'automatisme ne place pas). Test
+  logique ; autotest 183/183.
 - 2026-11-12 (it. 908) : avec le Grand intendant, les œufs gagnés n'apparaissent plus dans « À faire maintenant »
   (résumé de retour, carte du héros, mode mini) : il les fait éclore lui-même, comme il envoie les familiers libres en
   expédition (it. 876). Et il passe dès la seconde qui suit l'arrivée d'un œuf, au lieu d'attendre jusqu'à 5 s

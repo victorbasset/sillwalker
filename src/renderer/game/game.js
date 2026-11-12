@@ -2115,7 +2115,9 @@ export class Game {
    */
   todoNow(now = Date.now()) {
     const S = this.S, out = [];
-    const q = this.questsReady();
+    // (it. 909) réclamation automatique (Bureau des contrats) : seules restent celles qui attendent de la place (coffre)
+    const autoQ = S.quests.auto && hasUnlock(S, "questDesk");
+    const q = autoQ ? S.quests.slots.filter((x) => questDone(x) && x.reward && x.reward.chest && this.bagFull()).length : this.questsReady();
     if (q) out.push({ id: "quests", n: q, tab: "quests" });
     if (this.hasUpgradeCached()) out.push({ id: "upgrade", n: 1, tab: "adventure" });
     const tp = this.talentPointsFree();
@@ -2137,7 +2139,8 @@ export class Game {
     if (this.bagFull()) out.push({ id: "bagFull", n: this.uselessItems().length, tab: "adventure" }); // le butin suivant serait vendu d'office
     const fin = this.setFinisher();
     if (fin) out.push({ id: "setFinish", n: 1, tab: "adventure", name: SETS[fin.set].name, itemId: fin.id });
-    const ex = this.expeditionsReady(now).length;
+    const stewardOn = hasUnlock(S, "steward") && S.settings.autoPets !== false; // (it. 909) il récupère les expéditions seul
+    const ex = stewardOn ? 0 : this.expeditionsReady(now).length;
     if (ex) out.push({ id: "expeditions", n: ex, tab: "pets" });
     // (it. 876) familiers libres qui pourraient partir en expédition (sans Grand intendant actif, qui les renvoie seul)
     const idle = hasUnlock(S, "expeditions") && !(hasUnlock(S, "steward") && S.settings.autoPets !== false) ? this.idlePets().length : 0;
