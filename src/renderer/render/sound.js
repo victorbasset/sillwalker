@@ -408,6 +408,7 @@ export class Sound {
           case "curseBlocked": this.tone(NOTES.E6, 0, 0.1, "triangle", 0.12); this.tone(NOTES.G6, 0.08, 0.16, "triangle", 0.1); break; // parade : tintement clair
           case "tenacious": this.tone(70, 0, 0.3, "sawtooth", 0.28, 2.2); this.noise(0.05, 0.15, 0.2); break; // grondement qui remonte : il se relève
           case "silence": this.whoosh(0, 0.4, 3000, 300, 0.1, 2); this.tone(NOTES.E5, 0.05, 0.3, "sine", 0.08, 0.5); break; // (it. 645) le son s'éteint
+          case "venom": this.noise(0, 0.18, 0.12); [NOTES.E5, NOTES.C5].forEach((f, i) => this.tone(f * 1.03, 0.04 + i * 0.09, 0.16, "triangle", 0.1, 0.85)); break; // (it. 878) crachat, puis deux notes aigres
           case "curse": [NOTES.A5, NOTES.E5, NOTES.A5 / 2].forEach((f, i) => this.tone(f * 0.94, i * 0.08, 0.22, "sine", 0.14, 0.92)); break; // accord dissonant qui descend
         }
         break;

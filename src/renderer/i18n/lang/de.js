@@ -1240,4 +1240,7 @@ export default {
   2365: "„Jetzt zu tun“ erinnert an Sternensplitter, die du in die Sternbilder setzen kannst.",
   2366: "Leiste besser lesbar (schwebende Zahlen ohne Überlappung, Bossname frei) und Texte in allen 10 Sprachen korrigiert.",
   2367: "{n} freier Begleiter für eine Expedition|{n} freie Begleiter für eine Expedition",
+  2368: "Giftspucke",
+  2369: "Alle 8 s vergiftet er den Helden für 4 s: Er verliert 3 % seiner max. LP pro Sekunde, trotz Verteidigung und Schild (kann ihn aber nicht töten).",
+  2370: "Vergiftet!",
 };

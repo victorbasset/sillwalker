@@ -1078,6 +1078,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spark.nestdown { width: 5px; height: 3px; }
 /* Malédiction (capacité de boss) : halo violet sur le héros maudit. */
 .actor.cursed { filter: drop-shadow(0 0 2px #b07cff); }
+.actor.venom { filter: drop-shadow(0 0 2px #8fe36a); }
 /* Statistiques > Chiffres : les 5 cartes (dont Probabilités, double) sur une seule rangée dès 1280 px, sans défilement
    sur les écrans de portable (1366, 1600) ; les libellés longs passent à la ligne. */
 @media (min-width: 1280px) {

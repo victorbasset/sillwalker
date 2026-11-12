@@ -490,6 +490,8 @@ export class Juice {
     // Silence (échos, it. 647) : héros terni tant qu'il ne peut plus lancer de sorts (4 s)
     const sil = this.s.game.R.mode === "fight" && (this.s.game.R.silenced || 0) > 0;
     if (this.s.hero && this.s.hero.el.classList.contains("silenced") !== sil) this.s.hero.el.classList.toggle("silenced", sil);
+    const ven = this.s.game.R.mode === "fight" && (this.s.game.R.venomT || 0) > 0; // Venin (boss, it. 878) : halo vert
+    if (this.s.hero && this.s.hero.el.classList.contains("venom") !== ven) this.s.hero.el.classList.toggle("venom", ven);
     const curse = this.s.game.R.mode === "fight" && (this.s.game.R.cursed || 0) > 0; // Malédiction (boss) : halo violet
     if (this.s.hero && this.s.hero.el.classList.contains("cursed") !== curse) this.s.hero.el.classList.toggle("cursed", curse);
   }

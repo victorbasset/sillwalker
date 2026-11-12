@@ -1425,7 +1425,7 @@ test("usure des boss : -5 % de PV par défaite (30 % au plus), gardée à l'asce
   assert.equal(g.S.bossDefeats[25], 50, "une défaite contre un monstre ordinaire ne compte pas");
   g.S.best = 25; g.ascend();
   assert.equal(g.S.bossDefeats[25], 50, "gardée à l'ascension : le mur s'use d'une course à l'autre");
-  g.S.zone = 25; g.S.kills = 10; g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.killMonster();
+  g.S.zone = 25; g.S.kills = 10; g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
   assert.ok(!g.S.bossDefeats[25], "boss vaincu : il retrouve toute sa force");
 });
 
@@ -2239,6 +2239,19 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.equal(gn.S.stats.kills || 0, kills0, "pas encore vaincu");
     gn.R.mon.hp = 0; gn.killMonster(); assert.equal(gn.S.stats.kills, kills0 + 1, "Tenace : tombe la seconde fois");
     assert.ok(M_bosses_js.bossMechanics(12).includes("tenacious"), "zone 12 : Tenace");
+    // Crachat venimeux (it. 878) : poison toutes les 8 s, 3 % des PV max par seconde, malgré le bouclier, sans achever
+    const gv = new Game(freshState()); gv.R.mon = gv.makeMonster(true); gv.R.mon.mech = ["venom"]; gv.R.mode = "fight";
+    gv.S.potions = 0; const hsv = gv.stats(); gv.R.hp = hsv.hp; gv.R.shield = 1e9;
+    let venoms = 0; gv.on("bossSkill", ({ id }) => { if (id === "venom") venoms++; });
+    for (let i = 0; i < 48; i++) gv.bossTick(gv.R.mon, hsv, 0.1);
+    assert.equal(venoms, 0, "Venin : rien avant 5 s");
+    gv.bossTick(gv.R.mon, hsv, 0.25); assert.equal(venoms, 1, "Venin : à 5 s");
+    for (let i = 0; i < 10; i++) gv.bossTick(gv.R.mon, hsv, 0.1);
+    assert.ok(Math.abs((hsv.hp - gv.R.hp) / hsv.hp - 0.0375) < 0.002, "Venin : ≈ 3 % des PV max par seconde (1,25 s), bouclier traversé (" + (hsv.hp - gv.R.hp) / hsv.hp + ")");
+    gv.R.hp = 2; for (let i = 0; i < 40; i++) gv.bossTick(gv.R.mon, hsv, 0.1);
+    assert.ok(gv.R.hp >= 1 && gv.R.mode === "fight", "Venin : n'achève pas le héros");
+    const zv = [...Array(40)].map((_, i) => i + 1).find((z) => M_bosses_js.bossMechanics(z).includes("venom"));
+    assert.ok(zv && zv <= 33, "un boss de la première boucle crache du venin (zone " + zv + ")");
     // Voile protecteur : dégâts subis divisés par deux pendant l'événement
     const gw = new Game(freshState()), mw = gw.makeMonster(false), hsw = { ...heroStats(gw.S), dodge: 0, thorns: 0, riposte: 0 };
     mw.hp = mw.max = 1e12; gw.R.hp = 1e9; gw.R.shield = 0;

@@ -2369,5 +2369,8 @@ export const KEYS = [
   "La Carte du Rebord, l’arbre de Compétences et les Talents se jouent au clavier (Maj + Entrée : un talent au maximum).",
   "« À faire maintenant » rappelle les éclats d’étoile à placer dans les constellations.",
   "Bande plus lisible (nombres flottants sans chevauchement, nom du boss dégagé) et textes corrigés dans les 10 langues.",
-  "{n} familier libre à envoyer en expédition|{n} familiers libres à envoyer en expédition"
+  "{n} familier libre à envoyer en expédition|{n} familiers libres à envoyer en expédition",
+  "Crachat venimeux",
+  "Toutes les 8 s, empoisonne le héros pendant 4 s : il perd 3 % de ses PV max par seconde, malgré sa défense et son bouclier (sans pouvoir l’achever).",
+  "Empoisonné !"
 ];

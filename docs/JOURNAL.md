@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 878) : une 13e capacité de boss, « Crachat venimeux » : toutes les 8 s, le boss empoisonne le héros
+  pendant 4 s (3 % de ses PV max par seconde, malgré sa défense et son bouclier, sans pouvoir l'achever ; une potion
+  peut le sauver). Elle met à l'épreuve les héros qui comptent sur leur armure, comme la Malédiction le fait pour le
+  vol de vie. On la voit (« Empoisonné ! » au-dessus du héros, halo vert, étincelles) et on l'entend (crachat puis deux
+  notes aigres) ; elle a sa carte dans Bestiaire > Capacités des boss (prochain boss qui l'a). Premier boss venimeux :
+  zone 13 ; la rotation des capacités change au-delà. Équilibrage : +1,2 zone en 12 h sur 10 classes (bruit), fuzz
+  1200 parties sans blocage ; traduit dans les 10 langues, son rendu par l'autotest (178/178), test logique.
 - 2026-11-12 (it. 877) : thème clair du panneau, des couleurs pensées pour le fond sombre restaient en dur. Les
   étoiles des quêtes (jaune pâle sur crème, contraste 1,4) et les bordures des quêtes 2 et 3 étoiles se voyaient à
   peine ; une voie de talents armée et le survol d'un talent achetable posaient un fond olive ou vert foncé sous un

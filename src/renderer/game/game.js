@@ -44,7 +44,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE } from "./events.js";
-import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS } from "./bosses.js";
+import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -262,7 +262,7 @@ export class Game {
         R.mon.dist -= (WALK_SPEED + MONSTER_SPEED) * dt * this.moveMul();
         if (R.mon.dist <= 0) {
           R.mon.dist = 0; R.mode = "fight"; R.atkT = 0.25;
-          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0; R.silenced = 0;
+          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0; R.silenced = 0; R.venomT = 0;
           R.spellT = {}; // sorts : premier lancer après une demi-recharge (pas tous d'un coup à l'arrivée)
           for (const sp of classSpells(this.S.cls)) if (spellRank(this.S, sp.id)) R.spellT[sp.id] = spellCd(sp, spellRank(this.S, sp.id)) * 0.5;
           // (le compagnon : ses recharges repartent aussi, décalées de 3/4)
@@ -431,6 +431,15 @@ export class Game {
     if (mech.includes("frost")) {
       m.frostT = (m.frostT ?? 5) - dt;
       if (m.frostT <= 0) { m.frostT = 7; this.R.frozen = 3; this.emit("bossSkill", { id: "frost" }); }
+    }
+    if (mech.includes("venom")) { // (it. 878) Venin : traverse défense et bouclier, n'achève jamais le héros
+      m.venomT = (m.venomT ?? VENOM.first) - dt;
+      if (m.venomT <= 0) { m.venomT = VENOM.every; this.R.venomT = VENOM.s; this.emit("bossSkill", { id: "venom" }); }
+      if (this.R.venomT > 0) {
+        this.R.venomT -= dt;
+        if (this.R.hp > 1) this.R.hp = Math.max(1, this.R.hp - hs.hp * VENOM.pct * dt);
+        if (this.R.hp < hs.hp * POTION_THRESHOLD) this.drinkPotion(hs);
+      }
     }
     if (mech.includes("curse")) {
       m.curseT = (m.curseT ?? CURSE.first) - dt;

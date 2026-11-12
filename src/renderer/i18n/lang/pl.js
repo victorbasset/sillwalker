@@ -1240,4 +1240,7 @@ export default {
   2365: "„Do zrobienia teraz” przypomina o odłamkach gwiazd do umieszczenia w gwiazdozbiorach.",
   2366: "Czytelniejszy pasek (latające liczby nie nachodzą na siebie, nazwa bossa odsłonięta) i poprawione teksty we wszystkich 10 językach.",
   2367: "{n} wolny chowaniec do wysłania na wyprawę|{n} wolne chowańce do wysłania na wyprawę|{n} wolnych chowańców do wysłania na wyprawę",
+  2368: "Jadowita plwocina",
+  2369: "Co 8 s zatruwa bohatera na 4 s: traci on 3% maks. PŻ na sekundę mimo obrony i tarczy (ale nie może go dobić).",
+  2370: "Zatruty!",
 };

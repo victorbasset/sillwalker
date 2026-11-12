@@ -1240,4 +1240,7 @@ export default {
   2365: "“Things to do now” reminds you of star shards to place in the constellations.",
   2366: "Clearer strip (floating numbers no longer overlap, boss name kept clear) and texts fixed in all 10 languages.",
   2367: "{n} idle pet to send on an expedition|{n} idle pets to send on an expedition",
+  2368: "Venomous Spit",
+  2369: "Every 8 s, poisons the hero for 4 s: they lose 3% of their max HP per second, despite their defense and shield (but it cannot finish them off).",
+  2370: "Poisoned!",
 };

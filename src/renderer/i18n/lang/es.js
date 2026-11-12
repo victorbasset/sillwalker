@@ -1240,4 +1240,7 @@ export default {
   2365: "«Qué hacer ahora» recuerda los fragmentos de estrella que puedes colocar en las constelaciones.",
   2366: "Franja más legible (números flotantes sin solaparse, nombre del jefe despejado) y textos corregidos en los 10 idiomas.",
   2367: "{n} mascota libre para enviar de expedición|{n} mascotas libres para enviar de expedición",
+  2368: "Escupitajo venenoso",
+  2369: "Cada 8 s, envenena al héroe durante 4 s: pierde un 3 % de sus PV máx. por segundo, pese a su defensa y su escudo (sin poder rematarlo).",
+  2370: "¡Envenenado!",
 };

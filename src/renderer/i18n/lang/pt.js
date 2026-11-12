@@ -1240,4 +1240,7 @@ export default {
   2365: "“O que fazer agora” lembra os fragmentos de estrela a colocar nas constelações.",
   2366: "Faixa mais legível (números flutuantes sem sobreposição, nome do chefe desimpedido) e textos corrigidos nos 10 idiomas.",
   2367: "{n} mascote livre para enviar em expedição|{n} mascotes livres para enviar em expedição",
+  2368: "Cuspe venenoso",
+  2369: "A cada 8 s, envenena o herói por 4 s: ele perde 3% de seus PV máx. por segundo, apesar da defesa e do escudo (sem poder acabar com ele).",
+  2370: "Envenenado!",
 };
