@@ -124,7 +124,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 
 - État et reste à faire : `steam/checklist.md`. Textes du magasin (10 langues, tags) : `steam/store-page.md`.
   Elle cite des nombres (héros, compétences, régions, monstres, automatismes, événements rares, capacités de boss,
-  élites, quêtes) : les mettre à jour dans les 10 langues après un ajout de ce genre (it. 913).
+  élites, quêtes) : les mettre à jour dans les 10 langues après un ajout de ce genre (it. 913) ; `npm test` le vérifie
+  (scripts/steam-store-check.mjs, it. 914 : nombres de la liste « vraie progression », dans l'ordre, sans autre chiffre).
 - App ID : `node scripts/steam-set-appid.mjs <id>` (npm test refuse la relance par Steam avec l'App ID de test 480).
   Envoi : `npm run dist` puis `npm run steam:build` (fichiers SteamPipe dans `steam/build/`, hors git).
 - Images et vidéos (`steam/screenshots`, `capsules`, `achievement-icons`, `media`) : régénérables par

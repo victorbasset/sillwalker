@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 914) : npm test vérifie les nombres de la page du magasin Steam (scripts/steam-store-check.mjs) :
+  héros, compétences, régions, monstres, automatismes, événements rares, capacités de boss, élites et sortes de
+  quêtes, dans les 10 langues, comparés au code ; un ajout de contenu qui rend la page fausse fait échouer les tests
+  (vérifié en changeant un nombre). Au passage, la version japonaise écrit « 二人一組 » et « 同じ一時間 » en kanji
+  (seuls les nombres utiles en chiffres). CLAUDE.md mis à jour.
 - 2026-11-12 (it. 913) : page du magasin Steam (steam/store-page.md, 10 langues) : une ligne sur la variété, réponse
   au premier reproche fait aux jeux de bande (« répétitif ») : « Jamais deux heures pareilles : 13 événements rares,
   14 capacités de boss, 6 sortes d'élites, une bénédiction différente chaque jour et 15 sortes de quêtes ». Nombres
