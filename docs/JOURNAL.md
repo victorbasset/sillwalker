@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1000) : un succès obtenu en jeu laisse aussi une ligne dans le journal (« 🏆 Succès : Premier boss. »,
+  texte déjà traduit du bandeau) : en mode mini ou en regardant ailleurs, le bandeau de la bande passait inaperçu.
+  Focus clavier vérifié (contour visible sur boutons, champs, sections, nœuds des Compétences et de la Carte).
+  Contrôle d'autotest (window.__checkAchievements en dev) ; 202/202.
 - 2026-11-13 (it. 999) : contrôles avec la partie de fin de partie : lang-overflow complet (10 langues, dev-data et fin
   de partie) sans défaut ; mode mini en français et en russe : propre. save-fuzz peut partir de cette partie
   (FUZZ_BASE=fin) : 1120 corruptions, toutes ok (sans expédition en cours dans cette sauvegarde, pets.exp n'est pas

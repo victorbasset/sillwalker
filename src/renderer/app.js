@@ -13,7 +13,7 @@ import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
 import { newsDue, markNews } from "./game/news.js";
 import { journeyText } from "./ui/tabs/stats.js";
-import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang, csep, fsp, colon } from "./i18n/index.js";
+import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang, csep, fsp, colon, cend } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
@@ -355,11 +355,14 @@ async function boot() {
       const names = fresh.map((id) => ACHIEVEMENTS.find((x) => x.id === id)?.name || id);
       if (resync) setTimeout(() => showToast(`🏆 ${fresh.length > 1 ? txn(fresh.length, "{n} nouveau succès|{n} nouveaux succès") : tx("Nouveau succès")}${colon()}<b>${names.map(esc).join(`</b>${csep()}<b>`)}</b>`, () => { openPanel(); panel.setTab("stats"); }, 12000), 4000);
       else for (const n of names) { strip.juice.banner(`${tx("🏆 Succès : {0}", { 0: n })}`, "#ffd34d", strip.heroX + 80, true); sound.play("level"); }
+      // (it. 1000) une trace dans le journal : en mode mini ou en regardant ailleurs, le bandeau passait inaperçu
+      if (!resync) for (const n of names) game.log(tx("🏆 Succès : {0}", { 0: n }) + cend());
     }
     // Au démarrage on renvoie tout : rattrape les succès débloqués sans Steam.
     const send = resync ? reached : fresh;
     if (send.length) api.unlockAchievements(send);
   }
+  if (init.isDev) window.__checkAchievements = () => checkAchievements(false); // autotest (it. 1000)
 
   /* ---------- État pour l'icône de notification ---------- */
   let lastStatus = null, statusT = 0;
