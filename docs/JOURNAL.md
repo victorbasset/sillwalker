@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 917) : pendant la Nuée d'étoiles, le ciel de la bande s'assombrit et se constelle (toutes les
+  étoiles, même de jour et même avant que l'histoire les ait rallumées), avec un fondu ; les étoiles filantes s'y
+  détachent mieux. Même principe que la Lune de sang (it. 916) : dessiné une fois dans le décor en cache, aucun coût
+  par image. Contrôle d'autotest (186/186) ; vu en capture.
 - 2026-11-12 (it. 916) : pendant la Lune de sang, le ciel de la bande rougit et une lune rouge en pixels se lève, avec
   un fondu à l'arrivée et au départ. Dessiné une seule fois dans le décor déjà en cache (aucun coût par image, pas
   d'animation CSS). Rythme de la première heure vérifié (early-pace : inchangé). Contrôle d'autotest (185/185) ; vu

@@ -452,12 +452,12 @@ export class StripRenderer {
 
   /** Étoiles fixes (même tirage à chaque fois, les nouvelles s'ajoutent sans déplacer les autres), d'autant plus
    *  visibles qu'il fait nuit ; leur nombre suit l'histoire (starShare). */
-  drawStars(ctx, alpha) {
+  drawStars(ctx, alpha, share = this.starShare()) {
     if (alpha <= 0) return;
     ctx.globalAlpha = alpha;
     let seed = 7;
     const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647), won = storyWon(this.game.S);
-    for (let i = 0; i < Math.round(this.W / 18 * this.starShare()); i++) {
+    for (let i = 0; i < Math.round(this.W / 18 * share); i++) {
       const x = Math.floor(rnd() * this.W), y = 4 + Math.floor(rnd() * 36), big = rnd() < 0.15;
       ctx.fillStyle = big ? (won ? "#ffe27a" : "#fff6c8") : "#dfe7ff";
       ctx.fillRect(x, y, big ? 2 : 1, big ? 2 : 1);
@@ -488,6 +488,10 @@ export class StripRenderer {
       for (let y = -r; y <= r; y++) for (let x = -r; x <= r; x++) if (x * x + y * y <= r * r + 1) {
         ctx.fillStyle = x + y < -1 ? "#ff8a8a" : "#d8303e"; ctx.fillRect(cx + x * P, cy + y * P, P, P);
       }
+    }
+    if (this.starSky) { // (it. 917) Nuée d'étoiles : ciel assombri et constellé (toutes les étoiles, même de jour)
+      ctx.fillStyle = "#0b1030"; ctx.globalAlpha = 0.3; ctx.fillRect(0, 0, this.W, GROUND); ctx.globalAlpha = 1;
+      this.drawStars(ctx, 0.85, 1);
     }
     if (night > 0) {
       ctx.fillStyle = dusk ? "#3a1f4a" : "#0b1030";
@@ -711,6 +715,8 @@ export class StripRenderer {
     // (it. 916) Lune de sang : ciel rougi et lune rouge, cuits une fois dans le décor (rien à chaque image), avec un fondu
     const blood = (R.events.bloodmoon || 0) > 0;
     if (blood !== !!this.bloodSky) { this.bloodSky = blood; this.drawBase(); this.fadeT = 0.5; }
+    const starry = (R.events.starfall || 0) > 0; // (it. 917) Nuée d'étoiles, même principe
+    if (starry !== !!this.starSky) { this.starSky = starry; this.drawBase(); this.fadeT = 0.5; }
     this.updateFx(dt);
     this.juice.update(dt);
     // Tremblement de la scène (boss vaincu, coup dévastateur, légendaire, coffre) : par pas de 3 px.

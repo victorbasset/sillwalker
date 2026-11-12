@@ -910,6 +910,14 @@ async function runSelfTest(strip) {
   await sleep(400);
   const bsOff = await js("!!window.__strip.bloodSky");
   check("Lune de sang : ciel rouge pendant l’événement, normal ensuite", bsOn === true && bsOff === false, bsOn + " " + bsOff);
+  // (it. 917) Nuée d'étoiles : ciel assombri et constellé, même principe.
+  await js("window.__game.R.events.starfall = 20");
+  await sleep(400);
+  const ssOn = await js("!!window.__strip.starSky");
+  await js("window.__game.R.events.starfall = 0; window.__game.R.star = null");
+  await sleep(400);
+  const ssOff = await js("!!window.__strip.starSky");
+  check("Nuée d’étoiles : ciel étoilé pendant l’événement, normal ensuite", ssOn === true && ssOff === false, ssOn + " " + ssOff);
   // (it. 900) Touche F : attrape l'étoile filante qui passe ; rien sans étoile.
   const keyF = await js("(() => { const G = window.__game, R = G.R, keep = R.star, n0 = G.S.stats.stars || 0; R.star = null; const a = window.__panel.onKey({ key: 'f', target: document.body }); R.star = { t: 10, life: 12 }; const b = window.__panel.onKey({ key: 'f', target: document.body }); const ok = !R.star && (G.S.stats.stars || 0) === n0 + 1; R.star = keep; return a + ' ' + b + ' ' + ok; })()");
   check("touche F : attrape l’étoile filante, rien sans étoile", keyF === "false true true", keyF);
