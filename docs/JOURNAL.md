@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 880) : un 12e événement rare, la « Lune de sang » : pendant 30 s, chaque monstre qui arrive est une
+  élite avec son affixe (Rapide, Blindé, Vampirique…), plus coriace mais avec butin garanti, or ×4 et expérience ×3 ;
+  le gobelin doré et le boss restent eux-mêmes. Elle n'arrive que là où les élites existent déjà (pas dans les deux
+  premières zones de la première course), a sa couleur rouge sur la bande, sa bannière et son son (gong grave, souffle
+  lointain), et compte pour le succès « Chasseur d'événements ». Parcours --crawl en japonais et en allemand
+  (329 clics chacun, aucune erreur ; aucun mot latin suspect dans l'interface japonaise). Équilibrage 12 h −0,5 zone
+  (bruit) ; 1200 parties, 0 bloquée ; traduit dans les 10 langues ; test logique ; son rendu par l'autotest (178/178) ;
+  vu en capture (allemand).
 - 2026-11-12 (it. 879) : le « Crachat venimeux » (it. 878) a désormais sa parade, comme la Malédiction : le Talisman de
   pureté (pouvoir légendaire) repousse le venin (« Venin repoussé ! », tintement clair), et toute pureté partielle
   (Phalène pâle, talent) en raccourcit la durée. Tout ce qui accompagnait la parade à la Malédiction vaut aussi face au

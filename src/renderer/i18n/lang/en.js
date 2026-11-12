@@ -1247,4 +1247,6 @@ export default {
   2372: "resistance to boss Curse and venom (shorter duration)",
   2373: "Against a boss that curses or poisons, automatically equips the Talisman of Purity from your bag, then puts the previous item back.",
   2374: "This zone’s boss poisons your hero: the Talisman of Purity sleeping in your bag would protect them. Click here.",
+  2375: "Blood Moon",
+  2376: "Every monster is an elite!",
 };

@@ -46,7 +46,7 @@ import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
-import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY } from "../src/renderer/game/data.js";
+import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
@@ -2287,6 +2287,17 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     const gz = new Game(freshState()); gz.S.quests.slots = [{ uid: 1, kind: "kill", goal: 100, progress: 0, stars: 1, reward: { gold: 1 } }];
     gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 1);
     gz.startEvent("zeal"); gz.questProgress("kill", 1); assert.equal(gz.S.quests.slots[0].progress, 3, "Zèle : ×2");
+    // Lune de sang (it. 880) : chaque monstre qui arrive est une élite avec un affixe ; ni le gobelin ni le boss
+    const gm = new Game(freshState()); gm.S.zone = 10; gm.S.kills = 0;
+    gm.R.lineup = Array.from({ length: KILLS_PER_ZONE }, (_, i) => i === 1 ? { type: "goblin", elite: false, goblin: true } : { type: "slime", elite: false });
+    gm.R.lineupZone = 10;
+    assert.ok(!gm.makeMonster(false).elite, "sans l'événement : monstre ordinaire");
+    assert.ok(EVENTS_T.bloodmoon.req(gm.S) && !EVENTS_T.bloodmoon.req({ zone: 1, prestige: { count: 0 } }), "pas avant les premières élites");
+    gm.startEvent("bloodmoon");
+    const em = gm.makeMonster(false);
+    assert.ok(em.elite && ELITE_AFFIXES[em.affix] && gm.R.lineup[0].elite, "Lune de sang : élite avec affixe, gardée dans la série");
+    gm.S.kills = 1; assert.ok(!gm.makeMonster(false).elite, "le gobelin reste un gobelin");
+    assert.ok(!gm.makeMonster(true).elite, "le boss reste un boss");
   }
   g.startEvent("hawkeye");
   assert.ok(g.R.events.hawkeye > 0);

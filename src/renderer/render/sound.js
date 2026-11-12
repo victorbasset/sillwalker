@@ -170,6 +170,7 @@ export class Sound {
       case "nest": for (let i = 0; i < 3; i++) this.tone(2000 + i * 300, i * 0.13, 0.08, "sine", 0.17, 1.4); break; // pépiements
       case "arcane": [N.C5, N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, i * 0.06, 0.4, "sine", 0.06, 1.2)); this.whoosh(0.1, 0.5, 600, 2400, 0.06, 4); break; // marée arcanique : arpège qui monte, souffle
       case "ward": this.tone(N.E5, 0, 0.8, "sine", 0.08, 1.5); this.tone(N.E5 * 1.01, 0, 0.8, "sine", 0.06, 1.5); this.whoosh(0, 0.6, 2000, 4000, 0.05, 3); break; // voile qui se lève
+      case "bloodmoon": this.tone(N.A5 / 4, 0, 1.4, "triangle", 0.2, 0.9); this.tone(N.A5 / 4 * 1.5, 0.05, 1.2, "sine", 0.08, 0.9); this.whoosh(0.3, 1.1, 500, 900, 0.08, 1.2); break; // gong grave et hurlement lointain
       default: [N.G5, N.C6, N.G6].forEach((f, i) => this.tone(f, i * 0.06, 0.18, "triangle", 0.25)); break;
     }
   }

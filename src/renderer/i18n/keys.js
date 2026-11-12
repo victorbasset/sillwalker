@@ -2376,5 +2376,7 @@ export const KEYS = [
   "Venin repoussé !",
   "de résistance à la Malédiction et au venin des boss (durée réduite)",
   "Face à un boss qui maudit ou empoisonne, équipe tout seul le Talisman de pureté du sac, puis remet l’objet d’avant.",
-  "Le boss de cette zone empoisonne ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici."
+  "Le boss de cette zone empoisonne ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici.",
+  "Lune de sang",
+  "Chaque monstre est une élite !"
 ];

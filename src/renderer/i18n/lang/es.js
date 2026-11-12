@@ -1247,4 +1247,6 @@ export default {
   2372: "de resistencia a la Maldición y al veneno de los jefes (duración reducida)",
   2373: "Ante un jefe que maldice o envenena, equipa solo el Talismán de pureza de la bolsa y luego vuelve a poner el objeto anterior.",
   2374: "El jefe de esta zona envenena a tu héroe: el Talismán de pureza que duerme en tu bolsa lo protegería. Haz clic aquí.",
+  2375: "Luna de sangre",
+  2376: "¡Cada monstruo es de élite!",
 };

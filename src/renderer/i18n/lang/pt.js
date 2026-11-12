@@ -1247,4 +1247,6 @@ export default {
   2372: "de resistência à Maldição e ao veneno dos chefes (duração reduzida)",
   2373: "Diante de um chefe que amaldiçoa ou envenena, equipa sozinho o Talismã da pureza da bolsa e depois recoloca o item anterior.",
   2374: "O chefe desta zona envenena seu herói: o Talismã da pureza parado na sua bolsa o protegeria. Clique aqui.",
+  2375: "Lua de sangue",
+  2376: "Todo monstro é de elite!",
 };

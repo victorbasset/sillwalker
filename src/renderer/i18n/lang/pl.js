@@ -1247,4 +1247,6 @@ export default {
   2372: "odporności na Klątwę i jad bossów (krótszy czas)",
   2373: "Przeciw bossowi, który przeklina lub zatruwa, sam zakłada Talizman czystości z torby, a potem przywraca poprzedni przedmiot.",
   2374: "Boss tej strefy zatruwa twojego bohatera: Talizman czystości leżący w twojej torbie by go ochronił. Kliknij tutaj.",
+  2375: "Krwawy księżyc",
+  2376: "Każdy potwór jest elitą!",
 };

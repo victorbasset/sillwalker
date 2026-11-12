@@ -1,5 +1,6 @@
 import { eggsAllowed, tabReady } from "./tabs.js";
 import { classSpells, spellRank } from "./spells.js";
+import { ELITE } from "./data.js";
 // Événements rares et vitesse.
 //
 // La vitesse de déplacement accélère tout le trajet entre deux combats
@@ -39,4 +40,8 @@ export const EVENTS = {
   // Sorts (it. 517) : recharges deux fois plus rapides ; seulement si le héros a appris un sort.
   arcane: { name: "Marée arcanique", chance: 0.002, duration: 30, text: "Les sorts se rechargent deux fois plus vite !", color: "#b48cff",
     req: (S) => classSpells(S.cls).some((x) => spellRank(S, x.id) > 0) },
+  // Variété (it. 880) : chaque monstre qui arrive est une élite (plus coriace, butin garanti) ; seulement là où
+  // les élites existent déjà (pas dans les toutes premières zones de la première course).
+  bloodmoon: { name: "Lune de sang", chance: 0.0015, duration: 30, text: "Chaque monstre est une élite !", color: "#ff5a6e",
+    req: (S) => S.zone >= ELITE.minZone || (S.prestige && S.prestige.count) > 0 },
 };

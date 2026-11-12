@@ -722,6 +722,8 @@ export class Game {
   makeMonster(boss) {
     const Z = zoneDef(this.S.zone);
     const slot = boss ? { type: Z.boss, elite: false } : this.lineup()[Math.min(this.S.kills, KILLS_PER_ZONE - 1)];
+    // Lune de sang (events.js) : le monstre qui arrive devient une élite (la série le garde, aperçu compris).
+    if (!boss && !slot.goblin && !slot.elite && (this.R.events.bloodmoon || 0) > 0) { slot.elite = true; slot.affix = pick(Object.keys(ELITE_AFFIXES)); }
     const b = monsterBase(this.S.zone, boss, slot.type, slot.elite, !boss && slot.champion);
     const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, champion: !boss && !!slot.champion, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,

@@ -1247,4 +1247,6 @@ export default {
   2372: "Widerstand gegen Fluch und Gift der Bosse (kürzere Dauer)",
   2373: "Gegen einen Boss, der verflucht oder vergiftet, legt er den Talisman der Reinheit aus der Tasche selbst an und danach den vorherigen Gegenstand wieder.",
   2374: "Der Boss dieser Zone vergiftet deinen Helden: Der Talisman der Reinheit in deiner Tasche würde ihn schützen. Hier klicken.",
+  2375: "Blutmond",
+  2376: "Jedes Monster ist eine Elite!",
 };
