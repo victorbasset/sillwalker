@@ -28,7 +28,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - 🟡 Visuels (capsules, bibliothèque, logo) : première version → `steam/capsules/` (à juger, un graphiste ferait mieux).
 - 🟡 Succès : créer les 64 « API Name » de `steam/achievements.md`, icônes 64×64 dans `steam/achievement-icons/`
   (`<ID>.png` obtenu, `<ID>_gray.png` verrouillé ; refaites par `scripts/steam-capsules/achicons.js`), publier.
-- 🟡 Steam Cloud : activer, 1 fichier, quota de 1 Mo largement suffisant.
+- 🟡 Steam Cloud : activer, 1 fichier, quota de 1 Mo largement suffisant (sauvegarde ≈ 17 Ko, ≈ 21 Ko après 48 h simulées, it. 963).
 - 🟡 Présence enrichie : téléverser `steam/richpresence.vdf`.
 - ⬜ Dépôt Windows : options de lancement → exécutable `Sillwalker.exe`, système Windows 64 bits.
 - ⬜ Prix, date de sortie, langues (interface + sous-titres pour les 10 langues ; pas de voix).

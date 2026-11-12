@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 963) : contrôles de fond après la série de nouveautés (it. 934-962). Mémoire dans la durée
+  (mem-watch 8 min ×10) : « réel » 514-527 Mo, stable (repère 485-530) ; aucun Electron orphelin. Taille de la
+  sauvegarde : 17 Ko (dev-data), 21 Ko après 48 h simulées (journey, bag, skills en tête) : très loin du quota Steam
+  Cloud de 1 Mo (checklist mise à jour). Aucun changement de code.
 - 2026-11-12 (it. 962) : « Quoi de neuf », édition 41 : Ruée des gobelins, victoires comptées par sorte d'élite et
   réplique du héros, journal plus léger (nouveau type annoncé sur la ligne du butin). 10 langues, libellés cités
   vérifiés ; 10 langues × 3 largeurs sans défaut ; autotest 199/199.
