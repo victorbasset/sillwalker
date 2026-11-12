@@ -224,7 +224,7 @@ function start() {
             for (const t of ["adventure", "stats"]) { if (!P.tabs[t]) continue; P.setTab(t); if (t === "stats") P.tabs.stats.sec = "numbers";
               for (const m of window.__dayMods || []) { D.mod = m; window.__game.invalidateStats(); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(t + "-" + m + "=" + o);
                 let c = 0; for (const sp of document.querySelectorAll("[data-pane=" + t + "]:not([hidden]) .lines li > span:first-child")) if (sp.getClientRects().length && sp.scrollWidth > sp.clientWidth + 1) c++; if (c) out.push(t + "-" + m + "-chevauche=" + c);
-                for (const e of document.querySelectorAll("[data-pane=" + t + "]:not([hidden]) .chip")) if (e.getClientRects().length && e.scrollWidth > e.clientWidth + 1) out.push(t + "-" + m + "-puce-coupée"); } }
+                for (const e of document.querySelectorAll("[data-pane=" + t + "]:not([hidden]) .chip:not(.daymod)")) if (e.getClientRects().length && e.scrollWidth > e.clientWidth + 1) out.push(t + "-" + m + "-puce-coupée"); } }
             D.mod = km; window.__game.invalidateStats(); }
           P.kept.clear(); P.setTab("adventure"); P.renderAll();
           for (const k of ["hero-todo", "hero-chron", "hero-stats", "rates"]) {

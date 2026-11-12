@@ -749,8 +749,10 @@ export class Panel {
       return `<span class="chip relic" title="${esc(`${tx(r.name)}${colon()}${tx(r.effect)}\n${relicLevelText(S, id)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}">${relicLevel(S, id) > 1 ? `<sup>${relicLevel(S, id)}</sup>` : ""}</span>`; }).join("");
     // (it. 888) l'effet se lit sans survol (le nom passe dans la bulle) : à 1280 px, « nom · effet » sortait de la carte
     // (it. 924) la bénédiction de demain, connue d'avance (tirée de la date) : une raison de revenir
+    // (it. 942) la rangée commence par ce qui est passager (événement, potions) ; la bénédiction, longue, est bornée
+    // aux trois quarts de la rangée quand d'autres puces la suivent (texte entier dans la bulle)
     const tm = new Date(Date.now() + 864e5), dmNext = DAY_MODS[dayModFor(`${tm.getFullYear()}-${String(tm.getMonth() + 1).padStart(2, "0")}-${String(tm.getDate()).padStart(2, "0")}`)];
-    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.name}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
+    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.icon} ${dm.name} · ${dm.desc}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);
@@ -768,7 +770,7 @@ export class Panel {
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span>${tilePower(heroPower(hs))}</div>
       </div>
       ${this.visitHTML()}${this.goalHTML(S)}
-      ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${relics}${day}${sets}${events}${buffs}</div>` : ""}
+      ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${events}${buffs}${relics}${day}${sets}</div>` : ""}
       <div class="morerow">${this.todoBox()}${this.chronicleBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}

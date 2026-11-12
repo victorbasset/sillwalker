@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 942) : Aventure, rangée de puces (idée P3 de la revue 941) : elle commence par ce qui est passager
+  (événement rare en cours, potions actives), qui se retrouvait jusque-là derrière la longue bénédiction ; puis les
+  reliques, la bénédiction et les panoplies. La bénédiction, quand d'autres puces la suivent, est bornée aux trois
+  quarts de la rangée (points de suspension, effet entier dans sa bulle, qui le donne désormais) : la puce suivante
+  se lit (« ◆ Plumag… » au lieu de « ◆ Plu »). --overflow-report ne compte plus cette coupure voulue. Vu en capture
+  (français, russe) ; 10 langues × 3 largeurs sans défaut ; autotest 195/195.
 - 2026-11-12 (it. 941, revue générale) : simulation 12 h, records des courses : guerrier 38 → 64, mage 43 → 59,
   nécromancien 41 → 60 (progression régulière, sans mur). Performance (copie neuve de dev-data) : bande 19,5 %, panneau
   20,7 %, mini 6,9 %, icône 0,7 % d'un cœur (stable). Captures Aventure, Quêtes, Statistiques et mini en français,
@@ -3366,7 +3372,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 Vu it. 941 : Aventure, rangée de puces sous « Prochain déblocage » (hscroll) : la bénédiction du jour, avec son
+- FAIT (it. 942) P3 Vu it. 941 : Aventure, rangée de puces sous « Prochain déblocage » (hscroll) : la bénédiction du jour, avec son
   effet en clair (« ⚔ Élites ×3, +25 % de chances de butin. »), prend toute la largeur à 1920 px ; la puce suivante
   (panoplie « ◆ Plumes… ») n'en montre que trois lettres. Piste : bénédiction réduite à l'icône quand la rangée
   déborde, ou les puces sur deux lignes si la place le permet (mesurer le défilement vertical).
