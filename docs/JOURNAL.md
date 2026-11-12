@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 848) : journal d'aventure au retour : les expéditions ramenées par le Grand intendant le noyaient
+  sous « Luciole passe au niveau 2 », « … 3 », « … 4 », « … 5 » et une ligne « Un œuf ! » par œuf. Chaque familier
+  n'écrit plus qu'une ligne (son dernier niveau, en tête du journal, tant que l'ancienne est parmi les 10 dernières) et
+  les œufs se cumulent (« Un œuf ! … (×9) ») : le journal montre enfin le reste. Test logique (203/203), autotest
+  160/160, vu en capture. Au passage : crawl en japonais sans erreur (329 clics), lang-overflow des 10 langues à 1920,
+  1366 et 1280 px : aucun défilement.
 - 2026-11-12 (it. 847) : Boutique : le prix de l'Œuf de familier se coupait sur deux lignes (« 256,59 / M ») et
   les tuiles étroites (potions, coffres, œuf) n'avaient pas la place pour les grands prix (« mil M » en espagnol). Ces
   tuiles affichent le prix court à 3 chiffres (« 257 M », « 25,7 M »), jamais coupé ; le prix exact reste dans la

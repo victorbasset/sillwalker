@@ -2876,4 +2876,23 @@ test("durées : « 8 h » sans « 0 min », « 3 h 5 min », « 12 min », « 40
   assert.equal(durText(40), "40 s");
 });
 
+test("journal : un familier qui gagne plusieurs niveaux n'écrit qu'une ligne ; œufs cumulés (it. 848)", () => {
+  const g = new Game(freshState());
+  g.gainEgg();
+  const r = g.hatchEgg(), id = r.pet.id, name = M_pets_js.PET_INDEX[id].name, need = M_pets_js.petXpNeed;
+  g.S.log = [];
+  g.gainEgg(); g.log("autre"); g.gainEgg();
+  assert.equal(g.S.log.length, 2, "œufs : une seule ligne : " + g.S.log.join(" / "));
+  assert.ok(/\(×2\)$/.test(g.S.log[1]), "œufs : (×2)");
+  g.S.log = [];
+  g.petAddXp(id, need(1) + need(2) + need(3));
+  g.log("autre");
+  g.petAddXp(id, need(4) + need(5));
+  assert.equal(g.S.pets.owned[id].lvl, 6);
+  const lines = g.S.log.filter((l) => l.startsWith(name));
+  assert.equal(lines.length, 1, "une seule ligne de niveau : " + lines.join(" / "));
+  assert.ok(lines[0].includes(String(g.S.pets.owned[id].lvl)), "le dernier niveau atteint");
+  assert.ok(g.S.log[0].startsWith(name), "en tête du journal");
+});
+
 console.log(`\n${pass} tests réussis`);

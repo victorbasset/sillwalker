@@ -177,6 +177,18 @@ export class Game {
     this.log(msg);
   }
 
+  /**
+   * Message qui remplace sa version précédente (même `key`) si elle est encore parmi les LOG_MERGE dernières
+   * lignes : un familier qui gagne quatre niveaux d'un coup (expéditions ramenées au retour) n'écrit plus
+   * « niveau 2 », « niveau 3 »… mais une seule ligne, la plus récente, en tête du journal.
+   */
+  logReplace(key, msg) {
+    const L = this.S.log, last = (this.R.replLines ||= {}), at = last[key] != null ? L.indexOf(last[key]) : -1;
+    if (at >= 0 && at < LOG_MERGE) L.splice(at, 1);
+    last[key] = msg;
+    this.log(msg);
+  }
+
   log(msg) {
     const L = this.S.log;
     L.unshift(msg);
@@ -1956,7 +1968,7 @@ export class Game {
   gainEgg() {
     this.S.pets.eggs++;
     this.emit("egg");
-    this.log(tx("Un œuf ! Fais-le éclore dans l’onglet Familiers."));
+    this.logRepeat(tx("Un œuf ! Fais-le éclore dans l’onglet Familiers."));
     this.changed();
   }
 
@@ -2124,7 +2136,7 @@ export class Game {
       own.lvl++;
       this.invalidateStats();
       this.emit("petLevel", { pet: PET_INDEX[id] });
-      this.log(`${PET_INDEX[id].name} ${tx("passe au niveau {0}.", { 0: own.lvl })}`);
+      this.logReplace("pet:" + id, `${PET_INDEX[id].name} ${tx("passe au niveau {0}.", { 0: own.lvl })}`);
     }
     if (own.lvl >= PET_MAX_LVL) own.xp = 0;
   }
