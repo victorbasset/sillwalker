@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 961, revue générale) : simulation 12 h, records des courses : assassin 46 → 60, druide 41 → 64,
+  samouraï 44 → 64 (régulier ; l'assassin redescend une fois, 61 → 58, bruit d'une graine). Performance (copie neuve) :
+  bande 19,9 %, panneau 20,5 %, mini 6,8 %, icône 0,8 % (stable). Captures Familiers, Héros, Quêtes et mini en français,
+  anglais et coréen : rien de cassé (« Carapace-des-Abysses l'Éveillée » dans la bande). Texte de l'interface en
+  coréen : aucun mot non traduit. Rien de nouveau noté.
 - 2026-11-12 (it. 960) : suite de l'it. 959, la bannière et le moment du mode mini quand un boss qui avait mis le héros
   K.O. tombe enfin : « Morille la Ronde enfin vaincue ! » (« por fin derrotada », « наконец повержена »…), selon le
   genre du nom dans la langue affichée (fem porté par le monstre et l'événement bossNemesis). Recherche des autres
