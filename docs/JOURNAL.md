@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 932) : la collection des événements rares (Bestiaire > Événements rares) rapporte : chaque
+  événement déjà vécu donne +1 % d'or trouvé pour toujours (13 % au plus), comme les paliers du bestiaire et la
+  collection d'objets ; la règle et le bonus actuel sont écrits en tête du sous-onglet. Les « ??? » deviennent un
+  objectif. Statistiques recalculées au premier passage de chaque événement. Équilibrage 12 h −0,1 zone (bruit) ;
+  traduit dans les 10 langues ; test logique ; autotest 193/193 ; vu en capture (allemand, 1280 px).
 - 2026-11-12 (it. 931, revue générale + correction) : simulations de 12 h régulières (paladin 43 → 64, nécromancien
   38 → 60, samouraï 40 → 62) ; performance : bande 19,5 %, panneau 20,7 %, mini 7,0 %, icône 0,7 % d'un cœur ;
   captures fr/en/es (Aventure, Quêtes, Héros, Familiers, mini) sans débordement. Vu en espagnol : les intitulés de

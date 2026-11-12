@@ -2411,5 +2411,6 @@ export const KEYS = [
   "« Bestiaire » : nouveau sous-onglet « Événements rares », ceux déjà vus et ceux qui restent à découvrir.",
   "« Statistiques » : un clic sur « Événements rares » y mène directement.",
   "Demain : {0}",
-  "≈ {0}"
+  "≈ {0}",
+  "Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}."
 ];

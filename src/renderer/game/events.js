@@ -50,3 +50,11 @@ export const EVENTS = {
 };
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;
+
+/** (it. 932) Collection des événements rares : chaque événement déjà vécu donne un bonus permanent (Bestiaire). */
+export const EVENT_SEEN_BONUS = { gold: 1 };
+export function eventsSeenEffects(S) {
+  const seen = (S && S.stats && S.stats.eventsSeen) || {}, n = Object.keys(EVENTS).filter((id) => seen[id]).length, out = {};
+  if (n) for (const k in EVENT_SEEN_BONUS) out[k] = EVENT_SEEN_BONUS[k] * n;
+  return out;
+}

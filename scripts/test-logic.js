@@ -1659,6 +1659,16 @@ test("quêtes : temps restant estimé au rythme des combats (it. 926)", () => {
   assert.equal(g.goldEta(0), null);
 });
 
+test("collection des événements : +1 % d'or par événement vécu, stats recalculées (it. 932)", () => {
+  const g = new Game(freshState()); g.S.stats.eventsSeen = {};
+  const g0 = g.stats().gold;
+  g.startEvent("wind"); g.tickEvents(60); g.startEvent("goldrain");
+  assert.equal(g.stats().gold - g0, 2, "deux événements vus : +2 %");
+  g.tickEvents(60); g.startEvent("wind");
+  assert.equal(g.stats().gold - g0, 2, "déjà vu : rien de plus");
+  assert.deepEqual(M_events_js.eventsSeenEffects({ stats: { eventsSeen: { inconnu: true } } }), {}, "un événement inconnu ne compte pas");
+});
+
 test("événement rare : bilan dans le journal à la fin (it. 894)", () => {
   const g = new Game(freshState()); g.S.zone = 10;
   assert.ok(g.startEvent("bloodmoon"));

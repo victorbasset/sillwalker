@@ -4,7 +4,7 @@ import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
 import { fmt, esc, dec, unit } from "../../game/format.js";
-import { EVENTS } from "../../game/events.js";
+import { EVENTS, EVENT_SEEN_BONUS, eventsSeenEffects } from "../../game/events.js";
 import { monsterURL, itemIconURL } from "../../render/sprites.js";
 import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound, SET_CODEX_BONUS } from "../../game/codex.js";
 import { POWERS } from "../../game/powers.js";
@@ -79,7 +79,9 @@ export class BestiaryTab {
   eventsHTML(S) {
     const seen = (S.stats && S.stats.eventsSeen) || {}, ent = Object.entries(EVENTS), n = ent.filter(([id]) => seen[id]).length;
     const pct = (p) => dec(String(Math.round(p * 10000) / 100)) + unit("%");
+    const cur = describeEffects(eventsSeenEffects(S)) || "—"; // (it. 932) bonus de la collection
     return `<h2 class="codexh" id="bj-events">${tx("Événements rares")} (${n} / ${ent.length})</h2>
+      <p class="note tabintro">${tx("Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(EVENT_SEEN_BONUS)), 1: esc(cur) })}</p>
       <div class="setgrid">${ent.map(([id, e]) => seen[id]
         ? `<div class="setcard" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${pct(e.chance)}${tx(" par victoire")}</small><div>${esc(e.text)}</div></div>`
         : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`).join("")}</div>`;

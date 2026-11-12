@@ -1282,4 +1282,5 @@ export default {
   2407: "“Statistics”: one click on “Rare events” takes you straight there.",
   2408: "Tomorrow: {0}",
   2409: "≈ {0}",
+  2410: "Each event you live through gives {0} forever. Current bonus: {1}.",
 };

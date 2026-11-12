@@ -1282,4 +1282,5 @@ export default {
   2407: "„Statystyki”: kliknięcie w „Rzadkie zdarzenia” prowadzi prosto tam.",
   2408: "Jutro: {0}",
   2409: "≈ {0}",
+  2410: "Każde przeżyte wydarzenie daje na zawsze {0}. Obecny bonus: {1}.",
 };

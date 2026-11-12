@@ -88,7 +88,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   qui évoluent avec le niveau (bronze → étoile, lin → tissu céleste…), 32 icônes. L'armure, le casque, l'arme et
   les bottes portés changent l'apparence du héros ; plume (casque épique+) et cape (armure épique+) ; halo doré avec un légendaire.
 - **Bestiaire** : 83 monstres (dont des variantes recolorées) ; l'onglet présente aussi les panoplies et leurs bonus,
-  les capacités des boss, les affixes d'élite et les événements rares (ceux jamais vus restent « ??? »).
+  les capacités des boss, les affixes d'élite et les événements rares (ceux jamais vus restent « ??? » ; chacun vécu donne +1 % d'or pour toujours).
 - **Collection d'objets** : chaque type d'objet trouvé (44) donne un bonus permanent, plus encore en épique et en légendaire.
 - **Transmutation** : 3 objets inutiles d'une rareté → 1 objet de la rareté au-dessus.
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.

@@ -1282,4 +1282,5 @@ export default {
   2407: "„Statistiken“: ein Klick auf „Seltene Ereignisse“ führt direkt dorthin.",
   2408: "Morgen: {0}",
   2409: "≈ {0}",
+  2410: "Jedes erlebte Ereignis gibt {0} für immer. Aktueller Bonus: {1}.",
 };

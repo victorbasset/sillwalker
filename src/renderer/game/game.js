@@ -1883,7 +1883,9 @@ export class Game {
       this.bloodMoon(R.lineup, from);
     }
     this.S.stats.events = (this.S.stats.events || 0) + 1;
+    const firstTime = !(this.S.stats.eventsSeen || {})[id];
     (this.S.stats.eventsSeen ||= {})[id] = true; // succès « Chasseur d'événements »
+    if (firstTime) this.invalidateStats(); // (it. 932) collection des événements : +1 % d'or par événement vécu
     this.questProgress("event", 1);
     this.log(`${ev.name}${fsp()}! ${ev.text} (${ev.duration} s)`);
     this.emit("event", { id });

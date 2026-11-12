@@ -1282,4 +1282,5 @@ export default {
   2407: "«Estadísticas»: un clic en «Eventos raros» te lleva directamente.",
   2408: "Mañana: {0}",
   2409: "≈ {0}",
+  2410: "Cada evento vivido da {0} para siempre. Bonificación actual: {1}.",
 };
