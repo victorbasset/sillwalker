@@ -43,7 +43,7 @@ import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, roll
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS } from "./events.js";
 import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
@@ -1885,7 +1885,11 @@ export class Game {
     this.S.stats.events = (this.S.stats.events || 0) + 1;
     const firstTime = !(this.S.stats.eventsSeen || {})[id];
     (this.S.stats.eventsSeen ||= {})[id] = true; // succès « Chasseur d'événements »
-    if (firstTime) this.invalidateStats(); // (it. 932) collection des événements : +1 % d'or par événement vécu
+    if (firstTime) { // (it. 932) collection des événements : +1 % d'or par événement vécu ; (it. 933) on le dit
+      this.invalidateStats();
+      const seen = Object.keys(EVENTS).filter((k) => this.S.stats.eventsSeen[k]).length;
+      this.log(tx("Événement découvert : {0} pour toujours ({1} / {2}).", { 0: describeEffects(EVENT_SEEN_BONUS), 1: seen, 2: Object.keys(EVENTS).length }));
+    }
     this.questProgress("event", 1);
     this.log(`${ev.name}${fsp()}! ${ev.text} (${ev.duration} s)`);
     this.emit("event", { id });

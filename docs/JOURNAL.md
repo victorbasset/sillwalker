@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 933) : la première fois qu'un événement rare arrive, le journal le dit : « Événement découvert :
+  +1 % d'or trouvé pour toujours (6 / 13). » (bonus de la collection, it. 932), comme pour une première panoplie
+  complétée. Traduit dans les 10 langues ; test logique ; autotest 193/193.
 - 2026-11-12 (it. 932) : la collection des événements rares (Bestiaire > Événements rares) rapporte : chaque
   événement déjà vécu donne +1 % d'or trouvé pour toujours (13 % au plus), comme les paliers du bestiaire et la
   collection d'objets ; la règle et le bonus actuel sont écrits en tête du sous-onglet. Les « ??? » deviennent un

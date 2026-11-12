@@ -2412,5 +2412,6 @@ export const KEYS = [
   "« Statistiques » : un clic sur « Événements rares » y mène directement.",
   "Demain : {0}",
   "≈ {0}",
-  "Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}."
+  "Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}.",
+  "Événement découvert : {0} pour toujours ({1} / {2})."
 ];

@@ -1664,6 +1664,7 @@ test("collection des événements : +1 % d'or par événement vécu, stats recal
   const g0 = g.stats().gold;
   g.startEvent("wind"); g.tickEvents(60); g.startEvent("goldrain");
   assert.equal(g.stats().gold - g0, 2, "deux événements vus : +2 %");
+  assert.ok(g.S.log.some((l) => /(Événement découvert|Event discovered).*2 \/ /.test(l)), "annoncé dans le journal (it. 933)");
   g.tickEvents(60); g.startEvent("wind");
   assert.equal(g.stats().gold - g0, 2, "déjà vu : rien de plus");
   assert.deepEqual(M_events_js.eventsSeenEffects({ stats: { eventsSeen: { inconnu: true } } }), {}, "un événement inconnu ne compte pas");
