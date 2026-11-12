@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 950) : suite de l'it. 949, « % » seul en début de ligne : ≈ 200 textes par langue européenne écrivent
+  « {0} % » avec une espace ordinaire (keys.js 205, de 205, es 205, ru 64…), et les descriptions des données (potions,
+  bénédictions, talents…) aussi. Sans retoucher les traductions : t() rend insécable l'espace entre un chiffre et
+  « % », et translateData fait de même pour les descriptions (desc, text, passiveText ; il passe maintenant aussi en
+  français, où tr() rend le texte tel quel). fsp() (espace française avant « : ! ? ») était elle aussi une espace
+  ordinaire : U+00A0. Test logique (fr, de, fsp) ; --crawl en français sans erreur (328 clics) ; 10 langues × 3
+  largeurs sans défaut ; autotest 198/198 ; CLAUDE.md (pièges).
 - 2026-11-12 (it. 949) : taille de l'interface, suite de l'it. 948, trois défauts trouvés en capture :
   1) au LANCEMENT, la fenêtre grandissait mais le panneau gardait 500 px (bande blanche de 150 px en haut) : la
   taille partait avant que le jeu écoute la réponse de la fenêtre ; elle part maintenant après (uiScaleWindowReady,

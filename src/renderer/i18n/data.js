@@ -22,7 +22,10 @@ import { UNLOCKS } from "../game/unlocks.js";
 
 const FIELDS = ["name", "desc", "text", "label", "role", "passiveText"];
 function each(obj, fn) { for (const k in obj) fn(obj[k], k); }
-function fields(o) { if (o) for (const f of FIELDS) if (typeof o[f] === "string") o[f] = tr(o[f]); }
+// (it. 950) descriptions : « 40 % » avec une espace insécable (sinon « % » passait seul en début de ligne), en français aussi
+const NB_FIELDS = new Set(["desc", "text", "passiveText"]);
+const nbPct = (x) => (x.includes(" %") ? x.replace(/(\d) %/g, "$1\u00a0%") : x);
+function fields(o) { if (o) for (const f of FIELDS) if (typeof o[f] === "string") o[f] = NB_FIELDS.has(f) ? nbPct(tr(o[f])) : tr(o[f]); }
 
 let done = false;
 /** Traduit toutes les données affichées (à appeler avant le premier rendu). */
@@ -31,7 +34,7 @@ export function translateData() {
   done = true;
   for (const z of ZONES) z.src ||= z.name;
   for (const k in SETS) SETS[k].srcSuffix ||= SETS[k].suffix;
-  if (getLang() === "fr") return;
+  // (it. 950) en français aussi : tr() y rend le texte tel quel, seules les espaces des « % » changent
   RARITIES.forEach(fields);
   each(SLOTS, fields);
   each(STAT_NAMES, (v, k) => { STAT_NAMES[k] = tr(v); });

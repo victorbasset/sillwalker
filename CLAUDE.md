@@ -148,6 +148,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   qui ne marchait qu'en français et en anglais, est retirée depuis l'it. 685.)
   Nombres : `fmt`, `fmtShort`, `unit("%")`, `dec()` de `game/format.js` (format de la langue).
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
+  Espaces insécables (it. 949-950) : `NB` (format.js) et `fsp()` sont de vraies U+00A0 (U+202F manque aux polices pixel) ;
+  `t()` et les descriptions des données (translateData, français compris) rendent insécable l'espace de « 40 % ».
   Libellé + valeur : `colon()` (« : » français, « ： » japonais / chinois, « : » ailleurs ; it. 869), espace entre deux phrases : `wsp()`.
   Listes : `.join(csep())`, point final ajouté à un texte : `cend()` (« 、 » / « ， » / « 。 » en japonais et chinois ;
   un `.join(", ")` ou un `this.log(… + ".")` en dur fait échouer npm test, it. 667-672).

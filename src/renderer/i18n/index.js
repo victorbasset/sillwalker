@@ -66,12 +66,15 @@ const fill = (s, vars) => (lang === "ko" && vars ? koJosa(fill0(s, vars)) : fill
 export function t(src, vars) {
   if (src == null) return src;
   const s = lang === "fr" ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src;
-  return fill(s, vars);
+  const out = fill(s, vars);
+  // (it. 950) « 40 % » : l'espace des textes traduits (« {0} % », ≈ 200 par langue) devient insécable, sinon le
+  // signe passait seul en début de ligne
+  return typeof out === "string" && out.includes(" %") ? out.replace(/(\d) %/g, "$1\u00a0%") : out;
 }
 /** Traduction d'un nom de donnée (sans variables). */
 export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src);
 /** Espace insécable française avant « : », « ! », « ? » (vide dans les autres langues). */
-export const fsp = () => (lang === "fr" ? " " : "");
+export const fsp = () => (lang === "fr" ? "\u00a0" : ""); // (it. 950) vraie insécable (c'était une espace ordinaire)
 // (it. 668) séparateur de liste de la langue : « , » ; « 、 » en japonais, « ， » en chinois
 export const csep = () => t(", ");
 // (it. 671) point final de la langue : « 。 » en japonais et en chinois

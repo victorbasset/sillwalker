@@ -55,7 +55,7 @@ import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
 import { repairItemNames } from "../src/renderer/i18n/data.js";
-import { setLang, getLang, txn } from "../src/renderer/i18n/index.js";
+import { setLang, getLang, txn, t as tT, fsp } from "../src/renderer/i18n/index.js";
 
 setRandom(seeded(42));
 let pass = 0;
@@ -926,6 +926,11 @@ test("quête « proie » : seule la bonne sorte d'élite compte, en jeu et penda
 test("unité « % » collée au nombre par une espace insécable (it. 949 : « 107 / % » coupé en fin de ligne)", () => {
   const before = getLang();
   try { setLang("fr"); assert.equal(unitF("%"), "\u00a0%"); setLang("en"); assert.equal(unitF("%"), "%"); } finally { setLang(before); }
+  // (it. 950) textes traduits « {0} % » et espace française avant « : »
+  try {
+    setLang("fr"); assert.equal(tT("+{0} % de vitesse", { 0: 20 }), "+20\u00a0% de vitesse"); assert.equal(fsp(), "\u00a0");
+    setLang("de"); assert.ok(!/\d %/.test(tT("+{0} % de vitesse", { 0: 20 })), tT("+{0} % de vitesse", { 0: 20 }));
+  } finally { setLang(before); }
 });
 
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
