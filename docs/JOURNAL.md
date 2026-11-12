@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 990) : récompense en or des quêtes : retenue avec l'échelle de l'or au tirage (q.gs), puis remontée en
+  proportion si le record a progressé depuis (questGold ; jamais plus bas ; anciennes quêtes sans gs inchangées ; valeur
+  absurde → or d'origine). Vu sur la partie de fin de partie : une chasse tirée en début de course rapportait 31 k d'or à
+  côté de 102 T. Affiché tel quel dans l'onglet Quêtes, versé à la réclamation. Test logique ; sauvegardes abîmées ok ;
+  12 h 62,9 → 62,6 (bruit) ; semaine mage : la « dernière course » varie avec la graine (293/279, 282/279, 296/279),
+  mais le plafond des dernières courses est le même (graine 11 : 296 contre 292) : bruit. Autotest 201/201.
 - 2026-11-12 (it. 989) : partie de fin de partie, Talents, Familiers, Quêtes, Statistiques revus en français. Faute
   trouvée : « Chasser 30 cultiste du néants » (le « s » collé à la fin du nom). frPlural (quests.js) : le nom et ses
   adjectifs prennent la marque, rien après « de / des / du / d' », -al → -aux, -eu → -eux, et quatre cas à part

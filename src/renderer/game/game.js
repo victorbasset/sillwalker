@@ -41,7 +41,7 @@ import { POWERS, POWER_INDEX } from "./powers.js";
 import { SETS, setCounts } from "./sets.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
-import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
+import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
@@ -2118,7 +2118,7 @@ export class Game {
       const worst = this.uselessItems().sort((a, b) => sellValue(a) - sellValue(b))[0];
       if (worst) this.sell(worst);
     }
-    if (rw.gold) { S.gold += rw.gold; parts.push(tx("{0} or", { 0: fmt(rw.gold) })); }
+    if (rw.gold) { const gq = questGold(S, Q.slots[i]); S.gold += gq; parts.push(tx("{0} or", { 0: fmt(gq) })); } // (it. 990)
     if (rw.chest) {
       const it = this.newItem(rw.chest, S.best);
       if (this.bagFull()) { const v = sellValue(it); S.gold += v; parts.push(tx("{0} (sac plein : vendu {1} or)", { 0: itemName(it), 1: fmt(v) })); }

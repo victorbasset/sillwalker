@@ -123,6 +123,15 @@ const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 
 export const STARS = [null, { w: 60, goal: 1, reward: 1 }, { w: 30, goal: 1.8, reward: 2.4 }, { w: 10, goal: 3, reward: 4.5 }];
 const SPECIALS = ["speed", "chest", "egg", "shards"];
 
+/** (it. 990) Or d'une récompense de quête au moment de la réclamer : remonté en proportion si le record a progressé
+ *  depuis le tirage (une quête tirée en début de course rapportait 31 k d'or en zone 136, à côté de 102 T). */
+export function questGold(S, q) {
+  const g = (q && q.reward && +q.reward.gold) || 0;
+  if (!g || !(q.gs > 0)) return g;
+  const v = Math.round(g * Math.max(1, goldScale(S) / q.gs));
+  return Number.isFinite(v) ? v : g; // sauvegarde abîmée (gs minuscule) : l'or d'origine
+}
+
 export function makeQuest(S, uid, exclude = []) {
   const kinds = Object.keys(WEIGHTS).filter((k) => !exclude.includes(k) && (!QUEST_TEMPLATES[k].ok || QUEST_TEMPLATES[k].ok(S)));
   let total = kinds.reduce((a, k) => a + WEIGHTS[k], 0), x = rand() * total, kind = kinds[0];
@@ -132,6 +141,7 @@ export function makeQuest(S, uid, exclude = []) {
   let y = rand() * 100, stars = 1;
   for (let s = 3; s >= 1; s--) { if (y < STARS[s].w) { stars = s; break; } y -= STARS[s].w; }
   q.stars = stars;
+  q.gs = goldScale(S); // (it. 990) échelle de l'or au tirage : la récompense suit la progression (questGold)
   const st = STARS[stars];
   if (kind === "zone") q.goal += stars - 1;
   else q.goal = Math.max(1, Math.round(q.goal * st.goal));

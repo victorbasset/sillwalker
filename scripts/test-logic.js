@@ -1047,6 +1047,18 @@ test("quête de chasse en français : pluriel des noms composés (it. 989)", () 
   assert.equal(P("Ours brun"), "ours bruns");
 });
 
+test("récompense en or d'une quête : suit le record depuis son tirage (it. 990)", () => {
+  const g = new Game(freshState()); g.S.best = 10;
+  const q = M_quests_js.makeQuest(g.S, 777); q.reward.gold = 1000; q.progress = q.goal;
+  g.S.quests.slots = [q];
+  assert.equal(M_quests_js.questGold(g.S, q), 1000);
+  g.S.best = 30; const expected = Math.round(1000 * M_quests_js.goldScale(g.S) / q.gs);
+  assert.equal(M_quests_js.questGold(g.S, q), expected);
+  const before = g.S.gold; g.claimQuest(777); assert.ok(Math.abs(g.S.gold - before - expected) < 1e-6 * expected + 1, (g.S.gold - before) + " / " + expected);
+  assert.equal(M_quests_js.questGold(g.S, { reward: { gold: 50 } }), 50, "ancienne quête sans gs : inchangée");
+  assert.equal(M_quests_js.questGold(g.S, { reward: { gold: 50 }, gs: 1e-320 }), 50, "gs absurde");
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

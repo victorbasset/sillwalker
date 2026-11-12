@@ -1,7 +1,7 @@
 // Onglet Quêtes : guilde (rang, réputation, bonus permanents) et trois
 // contrats de 1 à 3 étoiles. Option de réclamation automatique.
 import { t as tx, txn } from "../../i18n/index.js";
-import { questText, questDone, questRerollPrice, guildRank, guildRankName, GUILD_BONUS, STARS } from "../../game/quests.js";
+import { questText, questDone, questGold, questRerollPrice, guildRank, guildRankName, GUILD_BONUS, STARS } from "../../game/quests.js";
 import { CONSUMABLES } from "../../game/shop.js";
 import { RARITIES } from "../../game/data.js";
 import { describeEffects } from "../../game/talents.js";
@@ -72,7 +72,7 @@ export class QuestsTab {
           <h2>${esc(questText(q, fmt))}</h2></div></div>
         <div class="kv"><span>${tx("Progression")}</span><span>${prog}${etaTxt}</span></div>
         <div class="bar"><i style="width:${pct}%"></i></div>
-        <div class="rewards">${rewardHTML(q.reward)}</div>
+        <div class="rewards">${rewardHTML(q.reward.gold ? { ...q.reward, gold: questGold(S, q) } : q.reward)}</div>
         <div class="row">${done
           ? `<button data-action="q-claim" data-id="${q.uid}" class="primary">${tx("Réclamer · +{0} réputation", { 0: stars })}</button>`
           : `<button data-action="q-reroll" data-id="${q.uid}" class="quiet"${S.gold < reroll ? " disabled" : ""}>${tx("Changer ({0} or)", { 0: fmt(reroll) })}</button>`}</div>
