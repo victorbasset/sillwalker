@@ -943,6 +943,15 @@ test("unité « % » collée au nombre par une espace insécable (it. 949 : « 1
   } finally { setLang(before); }
 });
 
+test("Ruée des gobelins : la suite de la file se peuple de gobelins, bilan des gobelins attrapés (it. 954)", () => {
+  const g = new Game(freshState()); g.S.zone = 5; g.R.lineup = null; g.lineup();
+  const L0 = g.R.lineup.length; g.S.kills = 0; g.R.mon = null;
+  let n = 0; for (let i = 0; i < 50; i++) { g.R.events.goblinrush = 0; g.R.lineup = g.R.lineup.map((sl) => ({ ...sl, goblin: false, type: sl.goblin ? "slime" : sl.type })); g.startEvent("goblinrush"); n += g.R.lineup.filter((sl) => sl.goblin).length; }
+  assert.ok(n > 50 * L0 * 0.2 && n < 50 * L0 * 0.5, "gobelins : " + n + " sur " + 50 * L0);
+  const h = new Game(freshState()); h.R.events.goblinrush = 0; h.startEvent("goblinrush"); h.S.stats.kills += 3; h.S.stats.goblins = (h.S.stats.goblins || 0) + 2;
+  const line = h.eventReport("goblinrush"); assert.ok(/2\sgobelins attrapés|2\sgoblins caught/.test(line), line);
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;
@@ -3177,7 +3186,8 @@ test("Marchand attitré : achète et équipe l'objet de l'étal qui renforce le 
   const g = new Game(freshState());
   g.S.unlocks.trader = true; g.S.settings.autoTrade = true; g.S.best = 80;
   const weak = g.newItem(0); weak.slot = "weapon"; weak.il = 1; g.S.equip.weapon = weak; g.invalidateStats();
-  const good = g.newItem(3); good.slot = "weapon"; good.il = 80; good.price = 100;
+  // (it. 954) une vraie arme : une armure tirée au hasard puis mise en « weapon » n'a pas d'attaque (test dépendant du tirage)
+  let good; do good = g.newItem(3); while (good.slot !== "weapon"); good.il = 80; good.price = 100;
   g.S.shop = { items: [good], t: Date.now() };
   g.S.gold = 0;
   assert.equal(g.autoTrade(), null, "sans or : rien");

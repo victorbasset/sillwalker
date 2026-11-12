@@ -906,7 +906,7 @@ async function runSelfTest(strip) {
       if (pk > 0.2) out.push(name + ":" + pk.toFixed(2)); };
     for (const c of ["warrior", "paladin", "lancer", "ranger", "mage", "cryomancer", "necro", "priestess", "bard"]) await render("coup-" + c, (s) => { s.hit(c, "skel", true); s.last = {}; s.hit(c, "slime", false); });
     await render("pièces", (s) => { s.coin(5); s.coinIn(true); });
-    for (const id of ["wind", "goldrain", "frenzy", "bounty", "wisdom", "hawkeye", "shardfall", "zeal", "nest", "ward", "arcane", "bloodmoon", "starfall", "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));
+    for (const id of ["wind", "goldrain", "frenzy", "bounty", "wisdom", "hawkeye", "shardfall", "zeal", "nest", "ward", "arcane", "bloodmoon", "goblinrush", "starfall", "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));
     for (const k of ["bubble", "drip", "snow", "dust", "ember", "spore", "mote", "ash", "feather", "leaf", null]) await render("zone-" + k, (s) => { s.zoneSounds(k, false, true); s.zoneSounds(k, true, true); });
     await render("oiseau", (s) => s.birdCall());
     // capacités des boss (it. 645 : Silence des échos ajouté)
@@ -972,7 +972,8 @@ async function runSelfTest(strip) {
   check("Nuée d’étoiles : ciel étoilé pendant l’événement, normal ensuite", ssOn === true && ssOff === false, ssOn + " " + ssOff);
   // (it. 920) Bestiaire > Événements rares : une carte par événement, les jamais vus en « ??? ».
   const evc = await js("(() => { const P = window.__panel, S = window.__game.S, keep = S.stats.eventsSeen, kt = P.tab, ks = P.tabs.bestiary.sec; S.stats.events = Math.max(1, S.stats.events || 0); S.stats.eventsSeen = { wind: true }; P.tabs.bestiary.sec = 'events'; P.setTab('bestiary'); P.renderAll(); const cards = [...document.querySelectorAll('[data-pane=bestiary]:not([hidden]) .setgrid .setcard')]; const r = cards.length + ' ' + cards.filter((c) => c.classList.contains('unknown')).length; S.stats.eventsSeen = keep; P.tabs.bestiary.sec = ks; P.setTab(kt); P.renderAll(); return r; })()");
-  check("Bestiaire > Événements rares : 13 cartes, les jamais vus en « ??? »", evc === "13 12", evc);
+  // (it. 954) autant de cartes que d'événements (14 avec la Ruée des gobelins), toutes « ??? » sauf celle déjà vue
+  check("Bestiaire > Événements rares : une carte par événement, les jamais vus en « ??? »", (([a, b]) => +a >= 14 && +b === +a - 1)(String(evc).split(" ")), evc);
   // (it. 936) l'événement en cours a sa carte encadrée, avec ses secondes restantes
   const evh = await js("(() => { const P = window.__panel, G = window.__game, S = G.S, keep = S.stats.eventsSeen, kt = P.tab, ks = P.tabs.bestiary.sec; S.stats.events = Math.max(1, S.stats.events || 0); S.stats.eventsSeen = { wind: true }; G.R.events.wind = 17.2; P.tabs.bestiary.sec = 'events'; P.setTab('bestiary'); P.renderAll(); const c = document.querySelector('[data-pane=bestiary]:not([hidden]) .setcard.here'); const r = c ? (/18/.test(c.textContent) ? 'ok' : c.textContent) : 'pas encadrée'; G.R.events.wind = 0; S.stats.eventsSeen = keep; P.tabs.bestiary.sec = ks; P.setTab(kt); P.renderAll(); return r; })()");
   check("Bestiaire > Événements rares : l’événement en cours encadré, secondes restantes", evh === "ok", evh);

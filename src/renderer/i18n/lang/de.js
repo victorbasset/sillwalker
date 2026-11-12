@@ -1307,4 +1307,8 @@ export default {
   2432: "Neue Questart, die Beute: besiege eine bestimmte Elite-Art (sie läuft auch weiter, während du weg bist).",
   2433: "In der Leiste trägt eine Elite einer noch nie besiegten Art „✦“: sie zählt für deine Sammlung.",
   2434: "Einstellungen > „Fenstergröße“: bei 115 % oder 130 % wächst das Fenster mit, statt zu scrollen.",
+  2435: "Koboldansturm",
+  2436: "Überall goldene Kobolde: fang sie!",
+  2437: "{n} Kobold gefangen|{n} Kobolde gefangen",
+  2438: "Gib mir das Gold zurück!",
 };

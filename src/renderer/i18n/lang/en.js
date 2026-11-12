@@ -1307,4 +1307,8 @@ export default {
   2432: "New quest type, the prey: defeat one specific kind of elite (it also progresses while you're away).",
   2433: "In the strip, an elite of a kind you've never defeated shows “✦”: it counts for your collection.",
   2434: "Settings > “Panel size”: at 115% or 130%, the panel grows to match instead of scrolling.",
+  2435: "Goblin Rush",
+  2436: "Golden goblins everywhere: catch them!",
+  2437: "{n} goblin caught|{n} goblins caught",
+  2438: "Give me back that gold!",
 };

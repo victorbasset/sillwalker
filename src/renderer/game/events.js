@@ -46,10 +46,15 @@ export const EVENTS = {
     req: (S) => S.zone >= ELITE.minZone || (S.prestige && S.prestige.count) > 0 },
   // Variété (it. 898) : les étoiles filantes (+2 % de vitesse pour toujours chacune) se suivent pendant 30 s au lieu
   // d'une toutes les 40-90 min : récompense le joueur présent (ou le Filet à étoiles).
+  // Variété (it. 954) : un monstre sur trois environ, dans la suite de la file, devient un gobelin doré (or volé à
+  // rattraper avant qu'il s'enfuie)
+  goblinrush: { name: "Ruée des gobelins", chance: 0.0015, duration: 30, text: "Des gobelins dorés partout : attrape-les !", color: "#ffcf3f" },
   starfall: { name: "Nuée d’étoiles", chance: 0.001, duration: 30, text: "Les étoiles filantes se suivent : attrape-les !", color: "#ffe28a" },
 };
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;
+/** (it. 954) Ruée des gobelins : part des monstres simples à venir changés en gobelins dorés. */
+export const GOBLIN_RUSH = 0.35;
 
 /** (it. 932) Collection des événements rares : chaque événement déjà vécu donne un bonus permanent (Bestiaire). */
 export const EVENT_SEEN_BONUS = { gold: 1 };

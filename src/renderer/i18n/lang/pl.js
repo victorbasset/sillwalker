@@ -1307,4 +1307,8 @@ export default {
   2432: "Nowy rodzaj zadania, zdobycz: pokonaj określony rodzaj elity (postępuje też podczas nieobecności).",
   2433: "Na pasku elita rodzaju, którego jeszcze nie pokonano, ma „✦”: liczy się do twojej kolekcji.",
   2434: "Ustawienia > „Rozmiar panelu”: przy 115 % lub 130 % panel rośnie proporcjonalnie zamiast się przewijać.",
+  2435: "Najazd goblinów",
+  2436: "Wszędzie złote gobliny: łap je!",
+  2437: "złapano {n} goblina|złapano {n} gobliny|złapano {n} goblinów",
+  2438: "Oddawaj to złoto!",
 };

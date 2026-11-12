@@ -2436,5 +2436,9 @@ export const KEYS = [
   "Limité à {0} par la largeur de l’écran.",
   "Nouvelle sorte de quête, la proie : vaincre une sorte d’élite précise (elle avance aussi pendant l’absence).",
   "Dans la bande, une élite d’une sorte jamais vaincue porte « ✦ » : elle compte pour ta collection.",
-  "Réglages > « Taille du panneau » : à 115 % ou 130 %, le panneau grandit d’autant au lieu de défiler."
+  "Réglages > « Taille du panneau » : à 115 % ou 130 %, le panneau grandit d’autant au lieu de défiler.",
+  "Ruée des gobelins",
+  "Des gobelins dorés partout : attrape-les !",
+  "{n} gobelin attrapé|{n} gobelins attrapés",
+  "Rendez-moi cet or !"
 ];

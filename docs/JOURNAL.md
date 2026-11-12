@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 954) : 14e événement rare, « Ruée des gobelins » (0,15 % par victoire, 30 s) : environ un monstre
+  simple sur trois de la suite de la file devient un gobelin doré (or volé à rattraper), y compris dans les nouvelles
+  séries pendant l'événement (comme la Lune de sang). Bilan de fin (« 2 gobelins attrapés, +… or »), réplique du héros
+  (« Rendez-moi cet or ! »), son (ajouté au rendu hors ligne de l'autotest), carte du Bestiaire, +1 % d'or à la
+  collection. Page du magasin : 14 événements rares dans les 10 langues ; README. Le contrôle des cartes du Bestiaire
+  ne compte plus 13 en dur. Deux tests dépendaient des tirages (décalés par le nouveau test) : le Marchand attitré
+  (une armure tirée au hasard puis mise en arme, sans attaque) tire maintenant une vraie arme. Fuzz 1200 parties,
+  0 bloquée ; 225 tests ; autotest 198/198 ; vu dans la bande.
 - 2026-11-12 (it. 953) : « Quoi de neuf », édition 40 : quête « proie », « ✦ » des élites jamais vaincues, panneau
   qui grandit avec la taille de l'interface. 10 langues, libellés cités vérifiés ; 10 langues × 3 largeurs sans défaut ;
   autotest 198/198. Coût de la règle des espaces insécables de t() (it. 952) : ≈ 0,8 µs par appel (mesuré sur

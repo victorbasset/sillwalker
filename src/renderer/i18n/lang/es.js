@@ -1307,4 +1307,8 @@ export default {
   2432: "Nuevo tipo de misión, la presa: vence un tipo de élite concreto (también avanza mientras no estás).",
   2433: "En la banda, una élite de un tipo nunca vencido muestra «✦»: cuenta para tu colección.",
   2434: "Ajustes > «Tamaño del panel»: al 115 % o 130 %, el panel crece en proporción en lugar de desplazarse.",
+  2435: "Estampida de goblins",
+  2436: "¡Goblins dorados por todas partes: atrápalos!",
+  2437: "{n} goblin atrapado|{n} goblins atrapados",
+  2438: "¡Devuélveme ese oro!",
 };

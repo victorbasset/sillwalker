@@ -46,6 +46,7 @@ const SPEECH = {
   ev_wind: [tx("J’ai des ailes !")],
   ev_hawkeye: [tx("Je ne peux plus rater !")],
   ev_nest: [tx("Des œufs partout !")],
+  ev_goblinrush: [tx("Rendez-moi cet or !")],
   bag: [tx("Mon sac déborde !"), tx("Plus de place dans le sac…"), tx("Il faudrait vider le sac !")],
   back: [tx("Te revoilà !"), tx("Tu m’as manqué !"), tx("J’ai bien avancé, tu as vu ?")],
   nemesis: [tx("Enfin !"), tx("Cette fois, c’est la bonne !"), tx("Je savais que j’y arriverais.")],

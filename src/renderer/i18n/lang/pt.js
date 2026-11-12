@@ -1307,4 +1307,8 @@ export default {
   2432: "Novo tipo de missão, a presa: derrote um tipo específico de elite (também avança enquanto você está fora).",
   2433: "Na faixa, uma elite de um tipo nunca derrotado mostra «✦»: ela conta para a sua coleção.",
   2434: "Configurações > «Tamanho do painel»: a 115 % ou 130 %, o painel cresce na mesma proporção em vez de rolar.",
+  2435: "Corrida dos goblins",
+  2436: "Goblins dourados por toda parte: pegue-os!",
+  2437: "{n} goblin pego|{n} goblins pegos",
+  2438: "Devolva esse ouro!",
 };

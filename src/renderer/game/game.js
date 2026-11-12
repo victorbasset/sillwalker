@@ -43,7 +43,7 @@ import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, roll
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH } from "./events.js";
 import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
@@ -137,6 +137,7 @@ export class Game {
           return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
       if ((R.events.bloodmoon || 0) > 0) this.bloodMoon(R.lineup, 0); // Lune de sang : la nouvelle série naît élite
+      if ((R.events.goblinrush || 0) > 0) this.goblinRush(R.lineup, 0); // (it. 954) Ruée des gobelins
       R.lineupZone = this.S.zone;
       R.bossPierced = 0; // nouvelle série : le boss de la zone n'a encore rien reçu
     }
@@ -1845,6 +1846,14 @@ export class Game {
    * dans la file (contour doré, affixe), recréée seulement quand la série change (it. 890 : avant, l'élite de la Lune
    * se battait sans contour ni étiquette).
    */
+  /** (it. 954) Ruée des gobelins : une partie des monstres simples à venir deviennent des gobelins dorés. */
+  goblinRush(line, from) {
+    for (let k = from; k < line.length; k++) {
+      const sl = line[k];
+      if (sl && !sl.goblin && !sl.elite && !sl.champion && rand() < GOBLIN_RUSH) line[k] = { type: "goblin", elite: false, goblin: true };
+    }
+  }
+
   bloodMoon(line, from) {
     for (let k = from; k < line.length; k++) {
       const sl = line[k];
@@ -1856,7 +1865,7 @@ export class Game {
   eventSnap() {
     const st = this.S.stats;
     return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
-      spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0 };
+      spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0 };
   }
 
   /**
@@ -1876,7 +1885,8 @@ export class Game {
     if (id === "arcane" && d("spells")) parts.push(txn(d("spells"), "{n} sort lancé|{n} sorts lancés", { n: fmt(d("spells")) }));
     if (id === "shardfall" && d("shards")) parts.push(txn(d("shards"), "{n} éclat d’étoile|{n} éclats d’étoile", { n: fmt(d("shards")) }));
     if (id === "starfall" && d("stars")) parts.push(txn(d("stars"), "{n} étoile filante attrapée|{n} étoiles filantes attrapées", { n: fmt(d("stars")) }));
-    if ((id === "goldrain" || id === "bloodmoon") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));
+    if (id === "goblinrush" && d("goblins")) parts.push(txn(d("goblins"), "{n} gobelin attrapé|{n} gobelins attrapés", { n: fmt(d("goblins")) }));
+    if ((id === "goldrain" || id === "bloodmoon" || id === "goblinrush") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));
     const line = tx("{0} · bilan : {1}", { 0: ev.name, 1: parts.join(csep()) }) + cend();
     this.log(line);
     return line;
@@ -1887,11 +1897,11 @@ export class Game {
     if (!ev || (this.R.events[id] || 0) > 0) return false;
     this.R.events[id] = ev.duration;
     (this.R.evSnap ||= {})[id] = this.eventSnap(); // bilan à la fin (eventReport)
-    if (id === "bloodmoon" && this.R.lineup && this.R.lineupZone === this.S.zone) {
-      // le monstre déjà en combat reste tel quel ; la suite de la file devient élite, redessinée (nouvelle série)
+    if ((id === "bloodmoon" || id === "goblinrush") && this.R.lineup && this.R.lineupZone === this.S.zone) {
+      // le monstre déjà en combat reste tel quel ; la suite de la file change, redessinée (nouvelle série)
       const R = this.R, from = this.S.kills + (R.mon && !R.mon.boss ? 1 : 0);
       R.lineup = R.lineup.map((sl) => ({ ...sl }));
-      this.bloodMoon(R.lineup, from);
+      if (id === "bloodmoon") this.bloodMoon(R.lineup, from); else this.goblinRush(R.lineup, from);
     }
     this.S.stats.events = (this.S.stats.events || 0) + 1;
     const firstTime = !(this.S.stats.eventsSeen || {})[id];
