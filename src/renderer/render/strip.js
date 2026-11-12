@@ -82,6 +82,7 @@ const WIDE_CHARS = /[\u1100-\u11ff\u2e80-\u9fff\uac00-\ud7af\uf900-\ufaff\ufe30-
 // (it. 708) « Champion rapide » / « Fast champion » / « Schneller Champion » : ordre de la langue (clé « Champion {0} »)
 const upFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
+const MAX_DMG_FLOATS = 6;
 export class StripRenderer {
   constructor(container, game, { rightReserve = 0 } = {}) {
     this.root = container;
@@ -314,6 +315,9 @@ export class StripRenderer {
   float(x, y, txt, col, big, isDamage) {
     if (!this.active) return;
     if (isDamage && this.game.S.settings.damageNumbers === false) return;
+    // (it. 997) en fin de partie (coups, sorts, compagnon, drone), une douzaine de nombres montaient en même temps : les
+    // petits nombres de dégâts ordinaires s'arrêtent à MAX_DMG_FLOATS visibles ; les grands (critiques, mots) passent
+    if (isDamage && !big && this.fx.reduce((a, e) => a + (e.box ? 1 : 0), 0) >= MAX_DMG_FLOATS) return;
     // Face à un boss, les nombres partent plus bas : en montant, ils ne recouvrent plus son nom (en haut de la bande).
     const m = this.game.R.mon;
     const nearBoss = m && m.boss && Math.abs(x - this.monX()) < 90;

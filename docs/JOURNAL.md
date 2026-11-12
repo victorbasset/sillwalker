@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 997) : nombres de dégâts plafonnés : au plus 6 petits nombres ordinaires visibles à la fois (les
+  grands — critiques, « Gelé ! », « Écho ! »… — passent toujours) ; en fin de partie, une douzaine montaient en même
+  temps. Bande en fin de partie 38,4 → 36,4 % (depuis l'it. 992 : 42,5 → 36,4). Autotest 201/201 (placements des
+  nombres contrôlés).
 - 2026-11-13 (it. 996) : chaîne de perçage plus sobre : le mot « transpercé », l'anneau et les étincelles sur le premier
   monstre traversé seulement ; un simple nombre plus discret sur les suivants (en fin de partie, « −3,02 M ·
   transpercé » couvrait toute la file). Bande en fin de partie 39,5 → 38,4 %. Vu en capture ; autotest 201/201.
@@ -3652,7 +3656,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- EN PARTIE (it. 993 : 42,5 → 38,6 % ; it. 994 : projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
   (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium
