@@ -17,17 +17,30 @@ export const unit = (u) => (SPACED.has(getLang()) ? NB : "") + u;
 const HUGE = [[1e33, "Dc"], [1e30, "No"], [1e27, "Oc"], [1e24, "Sp"], [1e21, "Sx"], [1e18, "Qi"], [1e15, "Qa"], [1e12, "T"]];
 const sci = (n) => { const e = Math.floor(Math.log10(n)); return dec((n / 10 ** e).toFixed(2)) + "e" + e; };
 
+/** (it. 872) Paliers d'abréviation, du plus grand au plus petit (k compris). */
+const steps = (L) => [...HUGE, [1e9, BIG[L] || "B"], [1e6, "M"], [1e3, "k"]];
+/** (it. 872) Un arrondi qui atteint 1000 passe au palier supérieur : « 1,00 M » et non « 1000 k » (999 999 d'or),
+    « 1,00 Md » et non « 1000,00 M ». Au-delà du dernier palier : notation scientifique. */
+const bump = (L, i) => (i > 0 ? dec("1.00") + unit(steps(L)[i - 1][1]) : sci(1e36));
+
 export function fmt(n) {
   n = Math.floor(n);
   const L = getLang();
   if (!Number.isFinite(n)) return "∞";
   if (n >= 1e36) return sci(n);
-  for (const [v, u] of HUGE) if (n >= v) return dec((n / v).toFixed(2)) + unit(u);
-  if (n >= 1e9) return dec((n / 1e9).toFixed(2)) + unit(BIG[L] || "B");
-  if (n >= 1e6) return dec((n / 1e6).toFixed(2)) + unit("M");
-  if (n >= 1e4) return Math.round(n / 1e3) + unit("k");
+  const st = steps(L);
+  for (let i = 0; i < st.length - 1; i++) {
+    const [v, u] = st[i];
+    if (n < v) continue;
+    const s = (n / v).toFixed(2);
+    return Number(s) >= 1000 ? bump(L, i) : dec(s) + unit(u);
+  }
+  if (n >= 1e4) { const r = Math.round(n / 1e3); return r >= 1000 ? bump(L, st.length - 1) : r + unit("k"); }
   return n.toLocaleString(LOCALE[L] || "en-US");
 }
+
+/** (it. 872) Entier complet avec le séparateur des milliers de la langue (« 24 191 », « 24,191 »). */
+export const fmtFull = (n) => Math.round(n).toLocaleString(LOCALE[getLang()] || "en-US");
 
 /** Format court à 3 chiffres significatifs (mode mini) : 228 M, 1,23 Md, 45,6 k. */
 export function fmtShort(n) {
@@ -35,8 +48,14 @@ export function fmtShort(n) {
   const L = getLang();
   if (!Number.isFinite(n)) return "∞";
   if (n >= 1e36) return sci(n);
-  const steps = [...HUGE, [1e9, BIG[L] || "B"], [1e6, "M"], [1e3, "k"]];
-  for (const [v, u] of steps) if (n >= v) { const x = n / v; return dec(x >= 99.95 ? String(Math.round(x)) : x.toFixed(x >= 9.995 ? 1 : 2)) + unit(u); }
+  const st = steps(L);
+  for (let i = 0; i < st.length; i++) {
+    const [v, u] = st[i];
+    if (n < v) continue;
+    const x = n / v;
+    if (x >= 99.95 && Math.round(x) >= 1000) return bump(L, i);
+    return dec(x >= 99.95 ? String(Math.round(x)) : x.toFixed(x >= 9.995 ? 1 : 2)) + unit(u);
+  }
   return String(n);
 }
 

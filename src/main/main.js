@@ -188,7 +188,7 @@ function start() {
             // (it. 849) libellé d'un seul mot trop long qui passe sous sa valeur (« Gegenstandssammlung44 / 44 »)
             let c = 0; for (const sp of document.querySelectorAll(".lines li > span:first-child")) if (sp.getClientRects().length && sp.scrollWidth > sp.clientWidth + 1) c++; if (c) out.push(id + "-chevauche=" + c);
             // (it. 864) tuiles du héros (Points de vie, Attaque…) : libellé ou valeur coupé (« Punkty ży… »)
-            let tl = 0; for (const e of document.querySelectorAll("[data-pane=" + id + "]:not([hidden]) .tile > span, [data-pane=" + id + "]:not([hidden]) .tile > b")) if (e.getClientRects().length && e.scrollWidth > e.clientWidth + 1) tl++; if (tl) out.push(id + "-tuile=" + tl);
+            const tl = []; for (const e of document.querySelectorAll("[data-pane=" + id + "]:not([hidden]) .tile > span, [data-pane=" + id + "]:not([hidden]) .tile > b")) if (e.getClientRects().length && e.scrollWidth > e.clientWidth + 1) tl.push(e.textContent.trim().slice(0, 24) + "/" + e.clientWidth + "<" + e.scrollWidth); if (tl.length) out.push(id + "-tuile=" + tl.length + "(" + tl.join(" ; ") + ")");
             // (it. 865) mot coupé en plein milieu sur deux lignes, sans trait d'union (« Восстанавлив / ает ») ; les écritures
             // sans espaces (chinois, japonais) se coupent normalement entre deux caractères : ignorées ; le coréen
             // (it. 866 : word-break keep-all, mots entiers) est contrôlé comme les autres

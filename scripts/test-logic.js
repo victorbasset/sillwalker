@@ -2986,4 +2986,22 @@ test("pluriels : txn sépare les milliers de {n} selon la langue (it. 871 : « 1
   } finally { setLang(before); }
 });
 
+test("nombres : un arrondi qui atteint 1000 passe au palier supérieur (it. 872 : « 1000 k » d'or)", () => {
+  const before = getLang(), sp = (x) => x.replace(/\s/g, " ");
+  try {
+    setLang("fr");
+    assert.equal(sp(fmtN(999999)), "1,00 M");
+    assert.equal(sp(fmtN(999499)), "999 k");
+    assert.equal(sp(fmtN(999_999_999)), "1,00 Md");
+    assert.equal(sp(fmtN(1_234_567)), "1,23 M");
+    assert.equal(sp(fmtS(999_600)), "1,00 M");
+    assert.equal(sp(fmtS(999_400)), "999 k");
+    assert.equal(sp(fmtS(999_700_000_000)), "1,00 T");
+    setLang("en");
+    assert.equal(fmtN(999999), "1.00M");
+    assert.equal(fmtS(123456), "123k");
+    assert.equal(fmtN(1e36 - 1e30).slice(-3), "e36");
+  } finally { setLang(before); }
+});
+
 console.log(`\n${pass} tests réussis`);

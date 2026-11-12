@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 872) : tuiles du héros (Aventure) : à 1280 px, des points de vie à six chiffres (« 863392 ») dépassaient
+  d'un pixel leur case et s'affichaient coupés (« 86339… »), au hasard des valeurs du combat (vu en polonais) : abrégés
+  dès 100 000 (« 863 k », valeur complète au survol) et, en dessous, avec le séparateur des milliers de la langue
+  (« 28 815 »). Partout dans le jeu, un nombre juste sous un palier ne s'écrit plus « 1000 k » (999 999 d'or) ni
+  « 1000,00 M » : il passe à « 1,00 M », « 1,00 Md ». --overflow-report nomme désormais la tuile coupée et ses
+  largeurs. Un test logique (210), 175/175, aucun débordement (fr, de, pl, ru, ja à 1280 et 1366 px), vu en capture.
 - 2026-11-12 (it. 871) : revue générale (contre ca7e9f9, it. 861) : équilibrage 12 h +0,0 (61,9) ; 1200 parties, 0 bloquée ;
   npm test vert ; bande 19,5 %, panneau 20,0 %, mini 6,3 %, icône 0,5 % (copie neuve, rien d'autre en cours : une
   première mesure prise pendant l'équilibrage donnait 25 %) ; captures fr / en / ja (Aventure, Héros, Talents, Boutique,
@@ -3011,7 +3017,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Vu it. 870 : lang-overflow, polonais à 1280 px, « adventure-tuile=1 » une fois sur quatre passages (sans lien avec le
+- FAIT (it. 872) P3 Vu it. 870 : lang-overflow, polonais à 1280 px, « adventure-tuile=1 » une fois sur quatre passages (sans lien avec le
   changement : dépend d'une valeur du combat du moment, comme celle de l'it. 864) : trouver quelle tuile de l'Aventure se
   coupe (instrumenter --overflow-report pour nommer la tuile) et lui donner une valeur abrégée.
 

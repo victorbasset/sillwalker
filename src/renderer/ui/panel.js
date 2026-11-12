@@ -12,7 +12,7 @@ import { classSpells, spellRank } from "../game/spells.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
-import { fmt, fmtShort, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
+import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
 import { RELICS, RELIC_IDS, MAJOR_BOSSES, ECHO_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable, majorName } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
@@ -104,8 +104,10 @@ const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible
  *  sa colonne (une grande valeur élargissait la colonne, le libellé voisin passait sur deux lignes et l'Aventure
  *  défilait, polonais à 1280 px). */
 function tileStat(label, k, v) {
-  const full = fmtStat(k, v), short = v >= 1e6 ? fmtShort(v) : full;
-  return `<span>${esc(label)}</span><b${short !== full ? ` title="${esc(fmt(Math.round(v)))}"` : ""}>${short}</b>`;
+  // (it. 872) abrégée dès 100 000 : à 1280 px, six chiffres (« 863392 » PV) dépassaient d'un pixel la case et se
+  // coupaient en « 86339… » ; en dessous, séparateur des milliers de la langue ; valeur complète au survol
+  const pc = fmtStat(k, v), short = /%/.test(pc) ? pc : v >= 1e5 ? fmtShort(v) : fmtFull(v);
+  return `<span>${esc(label)}</span><b${v >= 1e5 && short !== pc ? ` title="${esc(fmtFull(v))}"` : ""}>${short}</b>`;
 }
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
