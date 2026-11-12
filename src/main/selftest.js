@@ -199,6 +199,12 @@ async function runSelfTest(strip) {
     mSky.push(await js("window.__mini.sceneKey.split(':').slice(-2).join(':')"));
   }
   check("mode mini : ciel de la Lune de sang et de la Nuée d’étoiles", mSky.join(" ") === "true:false false:true false:false", mSky.join(" "));
+  // (it. 930) Bulle du mode mini : le prochain déblocage donne aussi le temps estimé au rythme actuel.
+  const mEta = await js(`(async () => { const { UNLOCKS } = await import("./game/unlocks.js"); const G = window.__game, S = G.S, M = window.__mini, keepU = S.unlocks, keepG = S.gold, keepB = S.best, keepP = G.R.pace;
+    const u = UNLOCKS[UNLOCKS.length - 1]; S.best = Math.max(S.best, u.zone); S.unlocks = Object.fromEntries(UNLOCKS.slice(0, -1).map((x) => [x.id, true])); S.gold = u.price / 2;
+    G.R.pace = Array.from({ length: 21 }, (_, i) => [i * 10, u.price / 2 / 3600 * 10]); M.infoKey = ""; await new Promise((r) => setTimeout(r, 300));
+    const t = document.querySelector("#mini .mini-info").title; S.unlocks = keepU; S.gold = keepG; S.best = keepB; G.R.pace = keepP; G.invalidateStats(); M.infoKey = ""; return /≈/.test(t) ? "ok" : t; })()`);
+  check("mode mini : temps estimé du prochain déblocage dans la bulle", mEta === "ok", mEta);
   // Mode mini : un onglet débloqué s'annonce sur la scène (la bulle de la bande n'y est pas visible).
   const mtab = await js("(() => { const S = window.__game.S, was = S.tabsOpen.stats; delete S.tabsOpen.stats; window.__game.step(1.1); S.tabsOpen.stats = was || true; const m = [...document.querySelectorAll('#mini *')].find((e) => /✦/.test(e.textContent) && !e.hidden && e.children.length === 0); return m ? m.textContent : 'rien'; })()");
   check("mode mini : onglet débloqué annoncé sur la scène", /✦/.test(mtab), mtab);

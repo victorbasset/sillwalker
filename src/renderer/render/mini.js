@@ -11,7 +11,7 @@ import { PIXEL as P } from "./art.js";
 import { majorBoss, ECHO_OUTLINE } from "../game/relics.js";
 import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
-import { fmt, fmtShort, uS } from "../game/format.js";
+import { fmt, fmtShort, uS, durText } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
 import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
@@ -258,7 +258,9 @@ export class MiniRenderer {
         const ok = unlockAvailable(S, u), k = ok ? Math.min(1, S.gold / u.price) : Math.min(1, rec / u.zone);
         this.goal.style.width = Math.round(k * 100) + "%";
         this.goalWrap.classList.toggle("ready", ok && S.gold >= u.price);
-        tip.push(tx("Prochain déblocage") + colon() + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}` : tx("Zone record {0}", { 0: u.zone })));
+        // (it. 930) temps estimé au rythme actuel, comme sur la carte du héros (it. 928)
+        const eta = ok && S.gold < u.price ? game.goldEta(u.price - S.gold) : null, etaTxt = eta != null && eta < 48 * 3600 ? " · " + tx("≈ {0}", { 0: durText(Math.max(60, eta)) }) : "";
+        tip.push(tx("Prochain déblocage") + colon() + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}${etaTxt}` : tx("Zone record {0}", { 0: u.zone })));
       }
       // Actions qui attendent le joueur (quêtes, sac, déblocage…) : un point doré près du niveau, détail au survol.
       const todo = game.todoNow();

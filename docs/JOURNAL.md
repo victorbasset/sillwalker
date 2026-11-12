@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 930) : la bulle du mode mini donne aussi le temps estimé du prochain déblocage (« … · 12,3 Md /
+  20,0 Md or · ≈ 1 h 10 min »), comme la carte du héros (it. 928). Mesure des 10 langues avec le nouvel état « tous
+  les déblocages sauf le dernier » (it. 929) : aucun défilement ni mot coupé. Contrôle d'autotest (193/193 ; il rend
+  ensuite les statistiques recalculées, sinon un contrôle suivant lisait un taux faussé).
 - 2026-11-12 (it. 929) : lang-overflow (mesure des 10 langues) mesure aussi l'Aventure avec tous les déblocages sauf
   le dernier, la carte « Prochain déblocage » prête puis pas prête (« adventure-avant-dernier-…=N ») ; avant, il ne
   mesurait que « tous les déblocages », où cette carte disparaît (défaut de l'it. 928 passé inaperçu). Vérifié : sans
