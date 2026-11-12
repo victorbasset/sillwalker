@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 931, revue générale + correction) : simulations de 12 h régulières (paladin 43 → 64, nécromancien
+  38 → 60, samouraï 40 → 62) ; performance : bande 19,5 %, panneau 20,7 %, mini 7,0 %, icône 0,7 % d'un cœur ;
+  captures fr/en/es (Aventure, Quêtes, Héros, Familiers, mini) sans débordement. Vu en espagnol : les intitulés de
+  quêtes mêlaient infinitif et impératif (« Derrotar 70 monstruos », « Derrota a 2 élites », « Crea 12 objetos »).
+  Harmonisés : infinitif en espagnol, portugais et allemand (comme le français et l'anglais ; 4 intitulés chacun),
+  impératif en russe (comme le polonais ; 7 intitulés : « Найди », « Верни », « Примени »…). Mesure à 1280 px sans
+  débordement ; autotest 193/193.
 - 2026-11-12 (it. 930) : la bulle du mode mini donne aussi le temps estimé du prochain déblocage (« … · 12,3 Md /
   20,0 Md or · ≈ 1 h 10 min »), comme la carte du héros (it. 928). Mesure des 10 langues avec le nouvel état « tous
   les déblocages sauf le dernier » (it. 929) : aucun défilement ni mot coupé. Contrôle d'autotest (193/193 ; il rend
