@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 899, contrôle) : fin de partie après la série d'ajouts des it. 878-898 (Crachat venimeux, Lune de sang,
+  Épineux, Jour des trésors, quête des coffres, Nuée d'étoiles) : semaine simulée, records des courses en hausse
+  régulière jusqu'à 298 (mage) et 311 (guerrier), un peu au-dessus des repères de l'it. 736 (287 et 302), sans saut
+  ni plafond ; repères mis à jour dans CLAUDE.md. Bestiaire > Élites vu en capture à 1280 px (allemand, japonais) :
+  les six cartes, dont « Épineux », tiennent sans débordement. Rien à corriger.
 - 2026-11-12 (it. 898) : un 13e événement rare, la « Nuée d'étoiles » (0,1 % par victoire) : pendant 30 s, les
   étoiles filantes (+2 % de vitesse pour toujours chacune, plus de l'or) se suivent toutes les 1,5 s au lieu d'une
   toutes les 40 à 90 min ; un joueur présent peut en attraper une dizaine, le Filet à étoiles en prend quelques-unes
