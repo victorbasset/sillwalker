@@ -1269,4 +1269,7 @@ export default {
   2394: "Ao fim de um evento raro, o «Diário» faz o balanço; o «Modo mini» mostra o evento em curso e seus segundos.",
   2395: "«Lua de sangue»: toda a fila vira elite, com contorno e rótulo; as «Probabilidades» também dão a taxa do dia.",
   2396: "O cartão do herói mostra o efeito da bênção do dia; o resumo de retorno também conta baús e eventos.",
+  2397: "Revoada de estrelas",
+  2398: "As estrelas cadentes se sucedem: pegue-as!",
+  2399: "{n} estrela cadente pega|{n} estrelas cadentes pegas",
 };

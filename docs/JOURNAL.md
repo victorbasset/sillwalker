@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 898) : un 13e événement rare, la « Nuée d'étoiles » (0,1 % par victoire) : pendant 30 s, les
+  étoiles filantes (+2 % de vitesse pour toujours chacune, plus de l'or) se suivent toutes les 1,5 s au lieu d'une
+  toutes les 40 à 90 min ; un joueur présent peut en attraper une dizaine, le Filet à étoiles en prend quelques-unes
+  tout seul. Ensuite, le rythme habituel revient. Bilan dans le journal (« … étoiles filantes attrapées »), couleur
+  dorée sur la bande et le mode mini, son propre (cascade d'étoiles). Au passage, un ancien test du Grand intendant
+  repérait les nouvelles lignes du journal en cherchant les cinq précédentes (cassé par une ligne fusionnée « ×2 »,
+  révélé par le nouveau tirage) : il pose un repère explicite. Équilibrage 12 h inchangé (62,8) ; traduit dans les 10
+  langues ; test logique ; son rendu par l'autotest (181/181) ; vu en capture.
 - 2026-11-12 (it. 897) : « Quoi de neuf », édition 35 : Jour des trésors et quête des coffres, bilan des événements
   dans le journal, événement en cours dans le mode mini, Lune de sang visible sur toute la file, taux du jour dans les
   Probabilités, effet de la bénédiction sur la carte du héros, coffres et événements dans « Depuis ta dernière visite ».

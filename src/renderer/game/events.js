@@ -44,4 +44,9 @@ export const EVENTS = {
   // les élites existent déjà (pas dans les toutes premières zones de la première course).
   bloodmoon: { name: "Lune de sang", chance: 0.0015, duration: 30, text: "Chaque monstre est une élite !", color: "#ff5a6e",
     req: (S) => S.zone >= ELITE.minZone || (S.prestige && S.prestige.count) > 0 },
+  // Variété (it. 898) : les étoiles filantes (+2 % de vitesse pour toujours chacune) se suivent pendant 30 s au lieu
+  // d'une toutes les 40-90 min : récompense le joueur présent (ou le Filet à étoiles).
+  starfall: { name: "Nuée d’étoiles", chance: 0.001, duration: 30, text: "Les étoiles filantes se suivent : attrape-les !", color: "#ffe28a" },
 };
+/** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
+export const STARFALL_GAP = 1.5;

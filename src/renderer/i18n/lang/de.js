@@ -1269,4 +1269,7 @@ export default {
   2394: "Endet ein seltenes Ereignis, zieht das „Protokoll“ Bilanz; der „Mini-Modus“ zeigt das laufende Ereignis und seine Sekunden.",
   2395: "„Blutmond“: die ganze Reihe wird zu Eliten, mit Umriss und Schild; die „Wahrscheinlichkeiten“ nennen auch die Rate des Tages.",
   2396: "Die Heldenkarte zeigt die Wirkung des Tagessegens; die Rückkehr-Übersicht zählt auch Truhen und Ereignisse.",
+  2397: "Sternenschwarm",
+  2398: "Sternschnuppen folgen aufeinander: fang sie!",
+  2399: "{n} Sternschnuppe gefangen|{n} Sternschnuppen gefangen",
 };

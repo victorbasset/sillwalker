@@ -1269,4 +1269,7 @@ export default {
   2394: "When a rare event ends, the “Log” sums up what it brought; “Mini mode” shows the current event and its seconds.",
   2395: "“Blood Moon”: the whole queue turns elite, with outline and label; “Probabilities” also give today’s rate.",
   2396: "The hero card shows the effect of the daily blessing; the welcome-back summary also counts chests and events.",
+  2397: "Star Swarm",
+  2398: "Shooting stars come one after another: catch them!",
+  2399: "{n} shooting star caught|{n} shooting stars caught",
 };

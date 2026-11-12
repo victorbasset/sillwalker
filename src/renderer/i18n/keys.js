@@ -2398,5 +2398,8 @@ export const KEYS = [
   "Nouvelle bénédiction du jour, le « Jour des trésors » (coffres ×3), et une nouvelle quête : trouver des coffres au trésor.",
   "À la fin d’un événement rare, le « Journal » en fait le bilan ; le « Mode mini » affiche l’événement en cours et ses secondes.",
   "« Lune de sang » : toute la file devient élite, avec contour et étiquette ; les « Probabilités » donnent aussi le taux du jour.",
-  "La carte du héros montre l’effet de la bénédiction du jour ; le résumé de retour compte aussi coffres et événements."
+  "La carte du héros montre l’effet de la bénédiction du jour ; le résumé de retour compte aussi coffres et événements.",
+  "Nuée d’étoiles",
+  "Les étoiles filantes se suivent : attrape-les !",
+  "{n} étoile filante attrapée|{n} étoiles filantes attrapées"
 ];

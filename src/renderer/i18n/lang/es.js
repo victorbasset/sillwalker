@@ -1269,4 +1269,7 @@ export default {
   2394: "Al terminar un evento raro, el «Diario» hace balance; el «Modo mini» muestra el evento en curso y sus segundos.",
   2395: "«Luna de sangre»: toda la fila se vuelve de élite, con contorno y etiqueta; las «Probabilidades» dan también la tasa del día.",
   2396: "La tarjeta del héroe muestra el efecto de la bendición del día; el resumen de regreso cuenta también cofres y eventos.",
+  2397: "Enjambre de estrellas",
+  2398: "Las estrellas fugaces se suceden: ¡atrápalas!",
+  2399: "{n} estrella fugaz atrapada|{n} estrellas fugaces atrapadas",
 };

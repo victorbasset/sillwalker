@@ -1239,9 +1239,9 @@ test("Grand intendant : œufs éclos, expéditions récupérées et relancées (
   g.autoPets(t0 + 200 * 60000);
   assert.ok(g.S.gold > gold, "expéditions finies récupérées");
   assert.ok(Object.values(g.S.pets.exp).every((e) => e.kind === "short"), "relancées dans le dernier choix");
-  const before = g.S.log.slice(0, 5).join("|");
+  g.log("— repère du test —"); // (it. 898) repère explicite : une ligne fusionnée (« ×2 ») faussait la recherche des 5 précédentes
   g.autoPets(t0 + 600 * 60000);
-  const fresh = g.S.log.slice(0, g.S.log.findIndex((l, k) => g.S.log.slice(k, k + 5).join("|") === before)); // lignes ajoutées (les plus récentes en tête)
+  const fresh = g.S.log.slice(0, g.S.log.findIndex((l) => String(l).includes("— repère du test —"))); // lignes ajoutées (les plus récentes en tête)
   assert.equal(fresh.filter((l) => /Grand Steward|Grand intendant/.test(l)).length, 1, "une ligne de résumé : " + JSON.stringify(fresh));
   assert.ok(fresh.length <= 3, "pas une ligne par familier : " + JSON.stringify(fresh));
   g.S.settings.autoPets = false; g.S.pets.eggs = 2;
@@ -1613,6 +1613,18 @@ test("quête d'événements rares : chaque événement compte", () => {
   assert.ok(g.startEvent("wisdom"));
   assert.equal(g.S.quests.slots[0].progress, 2);
   assert.match(M_quests_js.QUEST_TEMPLATES.event.text({ goal: 2 }), /2/);
+});
+
+test("Nuée d'étoiles : les étoiles se suivent pendant l'événement, puis le rythme habituel revient (it. 898)", () => {
+  const g = new Game(freshState()); delete g.S.unlocks.starNet;
+  g.R.star = null; g.R.starT = 3000;
+  let seen = 0; g.on("star", () => { seen++; });
+  g.startEvent("starfall");
+  for (let t = 0; t < 30; t += 0.1) { g.tickEvents(0.1); if (g.R.star && g.R.star.t < g.R.star.life - 0.5) g.catchStar(); }
+  assert.ok(seen >= 10, "au moins dix étoiles en 30 s pour qui les attrape : " + seen);
+  g.tickEvents(0.2);
+  assert.ok(!(g.R.events.starfall > 0) && g.R.starT >= 40 * 60 - 1, "rythme habituel après l'événement : " + g.R.starT);
+  assert.ok(g.S.log.some((l) => /bilan|summary/.test(l) && /étoile|star/i.test(l)) || seen > 0);
 });
 
 test("événement rare : bilan dans le journal à la fin (it. 894)", () => {

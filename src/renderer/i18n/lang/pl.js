@@ -1269,4 +1269,7 @@ export default {
   2394: "Gdy rzadkie wydarzenie się kończy, „Dziennik” podsumowuje jego bilans; „Tryb mini” pokazuje trwające wydarzenie i jego sekundy.",
   2395: "„Krwawy księżyc”: cała kolejka staje się elitą, z obrysem i etykietą; „Prawdopodobieństwa” podają też dzisiejszą szansę.",
   2396: "Karta bohatera pokazuje efekt błogosławieństwa dnia; podsumowanie powrotu liczy też skrzynie i wydarzenia.",
+  2397: "Rój gwiazd",
+  2398: "Spadające gwiazdy lecą jedna po drugiej: łap je!",
+  2399: "{n} złapana spadająca gwiazda|{n} złapane spadające gwiazdy|{n} złapanych spadających gwiazd",
 };
