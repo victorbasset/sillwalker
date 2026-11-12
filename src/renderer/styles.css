@@ -750,6 +750,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 /* Bestiaire : liste des panoplies */
 .setgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; margin-bottom: 6px; }
 .setcard { border: 1px solid var(--line); border-left: 3px solid var(--c); border-radius: 3px; padding: 4px 8px; font-size: 12px; color: var(--muted); background: var(--panel); }
+.setcard.unknown { border-left-style: dashed; border-left-color: var(--line); } /* (it. 920) événement jamais vu */
 .setcard b { font-size: 13px; }
 .setcard .on { color: var(--good); }
 /* Bestiaire : sommaire en tête d'onglet */

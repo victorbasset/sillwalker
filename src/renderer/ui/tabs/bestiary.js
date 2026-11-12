@@ -3,7 +3,8 @@ import { t as tx, tr, csep, cend } from "../../i18n/index.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, esc } from "../../game/format.js";
+import { fmt, esc, dec, unit } from "../../game/format.js";
+import { EVENTS } from "../../game/events.js";
 import { monsterURL, itemIconURL } from "../../render/sprites.js";
 import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound, SET_CODEX_BONUS } from "../../game/codex.js";
 import { POWERS } from "../../game/powers.js";
@@ -70,19 +71,31 @@ export class BestiaryTab {
         let nz = 0; for (let z = S.zone; z < S.zone + 60; z++) if (bossMechanics(z).includes(id)) { nz = z; break; }
         return `<div class="setcard${nz === S.zone ? " here" : ""}" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
       ${show.elites ? `<h2 class="codexh" id="bj-elites">${tx("Élites")} <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
-      <div class="setgrid">${Object.values(ELITE_AFFIXES).map((a) => `<div class="setcard" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b><div>${esc(a.desc || "")}</div></div>`).join("")}</div>` : ""}`;
+      <div class="setgrid">${Object.values(ELITE_AFFIXES).map((a) => `<div class="setcard" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b><div>${esc(a.desc || "")}</div></div>`).join("")}</div>` : ""}
+      ${show.events ? this.eventsHTML(S) : ""}`;
+  }
+
+  /** (it. 920) Les événements rares : vus (nom, effet, chance) ou encore mystérieux (« ??? ») ; succès « Chasseur d'événements ». */
+  eventsHTML(S) {
+    const seen = (S.stats && S.stats.eventsSeen) || {}, ent = Object.entries(EVENTS), n = ent.filter(([id]) => seen[id]).length;
+    const pct = (p) => dec(String(Math.round(p * 10000) / 100)) + unit("%");
+    return `<h2 class="codexh" id="bj-events">${tx("Événements rares")} (${n} / ${ent.length})</h2>
+      <div class="setgrid">${ent.map(([id, e]) => seen[id]
+        ? `<div class="setcard" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${pct(e.chance)}${tx(" par victoire")}</small><div>${esc(e.text)}</div></div>`
+        : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`).join("")}</div>`;
   }
 
   /** Sections affichées : seulement ce que le joueur a déjà rencontré (moins d'informations d'un coup). */
   shown(S) {
-    return { powers: powersFound(S) > 0, sets: codexCounts(S).epic > 0 || Object.keys(S.setsDone || {}).length > 0, elites: (S.stats.elites || 0) > 0 };
+    return { powers: powersFound(S) > 0, sets: codexCounts(S).epic > 0 || Object.keys(S.setsDone || {}).length > 0, elites: (S.stats.elites || 0) > 0,
+      events: (S.stats.events || 0) > 0 }; // (it. 920)
   }
 
   /** Sous-onglets : un clic affiche la section (les autres restent cachées). */
   jumpHTML() {
     const show = this.shown(this.game.S);
     const L = [["codex", tx("Collection d’objets")], ["powers", tx("Pouvoirs légendaires")], ["sets", tx("Panoplies")],
-      ["bosses", tx("Capacités des boss")], ["elites", tx("Élites")], ["beasts", tx("Bestiaire")]].filter(([k]) => show[k] !== false);
+      ["bosses", tx("Capacités des boss")], ["elites", tx("Élites")], ["events", tx("Événements rares")], ["beasts", tx("Bestiaire")]].filter(([k]) => show[k] !== false);
     // Les monstres en premier : c'est le cœur du bestiaire.
     L.unshift(...L.splice(L.findIndex(([k]) => k === "beasts"), 1));
     return `<nav class="bjump subtabs" role="tablist" aria-label="${esc(tx("Aller à"))}">${L.map(([k, n]) => `<button class="quiet${this.sec === k ? " on" : ""}" role="tab" aria-selected="${this.sec === k}" data-action="b-jump" data-to="${k}">${esc(n)}</button>`).join("")}</nav>`;

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 920) : nouveau sous-onglet Bestiaire > Événements rares (« 5 / 13 ») : une carte par événement, à sa
+  couleur, avec son effet et sa chance par victoire ; ceux jamais vus restent « ??? » (avec leur chance). Un objectif
+  à collectionner, lié au succès « Chasseur d'événements » ; avant, les événements n'étaient décrits que dans une
+  bulle de survol des Statistiques. Apparaît après le premier événement vécu. Contrôle d'autotest (188/188) ; vu en
+  capture (allemand, 1280 px) ; mesure des 10 langues : sous-onglets sans débordement.
 - 2026-11-12 (it. 919) : contrôle d'autotest du ciel des événements en mode mini (Lune de sang, Nuée d'étoiles, retour
   au ciel normal ; 187/187). Performance après les it. 916-918 (copie neuve) : bande 19,8 %, panneau 20,6 %, mini
   7,0 %, icône 0,5 % d'un cœur, inchangée.
@@ -3286,6 +3291,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Vu it. 920 : lang-overflow, russe à 1280 px, « stats-chevauche=1 » une fois (un libellé de Statistiques plus large que
+  sa colonne, sans doute « Засчитанное офлайн-время » à côté d'une valeur longue), pas reproduit en quatre passages ; si
+  ça revient, main.js (--overflow-report) peut citer le texte du libellé.
 
 - EN ATTENTE (it. 906 : sortie gardée dans logs/selftest-last-fail.log) P3 Vu it. 904 : un autotest à 181/182 une fois (contrôle non noté), puis trois passages à 182/182 : contrôle instable
   à identifier si ça revient (garder la ligne « ÉCHEC » la prochaine fois).

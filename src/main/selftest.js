@@ -926,6 +926,9 @@ async function runSelfTest(strip) {
   await sleep(400);
   const ssOff = await js("!!window.__strip.starSky");
   check("Nuée d’étoiles : ciel étoilé pendant l’événement, normal ensuite", ssOn === true && ssOff === false, ssOn + " " + ssOff);
+  // (it. 920) Bestiaire > Événements rares : une carte par événement, les jamais vus en « ??? ».
+  const evc = await js("(() => { const P = window.__panel, S = window.__game.S, keep = S.stats.eventsSeen, kt = P.tab, ks = P.tabs.bestiary.sec; S.stats.events = Math.max(1, S.stats.events || 0); S.stats.eventsSeen = { wind: true }; P.tabs.bestiary.sec = 'events'; P.setTab('bestiary'); P.renderAll(); const cards = [...document.querySelectorAll('[data-pane=bestiary]:not([hidden]) .setgrid .setcard')]; const r = cards.length + ' ' + cards.filter((c) => c.classList.contains('unknown')).length; S.stats.eventsSeen = keep; P.tabs.bestiary.sec = ks; P.setTab(kt); P.renderAll(); return r; })()");
+  check("Bestiaire > Événements rares : 13 cartes, les jamais vus en « ??? »", evc === "13 12", evc);
   // (it. 900) Touche F : attrape l'étoile filante qui passe ; rien sans étoile.
   const keyF = await js("(() => { const G = window.__game, R = G.R, keep = R.star, n0 = G.S.stats.stars || 0; R.star = null; const a = window.__panel.onKey({ key: 'f', target: document.body }); R.star = { t: 10, life: 12 }; const b = window.__panel.onKey({ key: 'f', target: document.body }); const ok = !R.star && (G.S.stats.stars || 0) === n0 + 1; R.star = keep; return a + ' ' + b + ' ' + ok; })()");
   check("touche F : attrape l’étoile filante, rien sans étoile", keyF === "false true true", keyF);
