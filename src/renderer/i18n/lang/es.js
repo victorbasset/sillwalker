@@ -1329,4 +1329,11 @@ export default {
   2454: "Las misiones de élites y de presa también muestran su tiempo restante estimado.",
   2455: "La banda usa menos procesador (halos del héroe dibujados de otro modo), sobre todo al final de la partida.",
   2456: "Estampida de goblins: haz clic en la banda para golpear más rápido y atrapar a los goblins dorados antes de que huyan.",
+  2457: "¡Más rápido, más fuerte!",
+  2458: "¡Un tesoro en cada golpe!",
+  2459: "Siento que aprendo rápido…",
+  2460: "¡Fragmentos de estrella por todas partes!",
+  2461: "¡Misiones a toda prisa!",
+  2462: "¡Nada puede alcanzarme!",
+  2463: "¡La magia fluye a raudales!",
 };

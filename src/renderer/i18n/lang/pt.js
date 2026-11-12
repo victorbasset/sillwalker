@@ -1329,4 +1329,11 @@ export default {
   2454: "As missões de elites e de presa também mostram o tempo restante estimado.",
   2455: "A faixa usa menos processador (auras do herói desenhadas de outro jeito), sobretudo no fim do jogo.",
   2456: "Corrida dos goblins: clique na faixa para golpear mais rápido e pegar os goblins dourados antes que fujam!",
+  2457: "Mais rápido, mais forte!",
+  2458: "Um tesouro a cada golpe!",
+  2459: "Sinto que estou aprendendo rápido…",
+  2460: "Fragmentos de estrela por toda parte!",
+  2461: "Missões a toda velocidade!",
+  2462: "Nada pode me atingir!",
+  2463: "A magia está fluindo!",
 };

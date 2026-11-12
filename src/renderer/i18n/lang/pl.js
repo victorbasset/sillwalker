@@ -1329,4 +1329,11 @@ export default {
   2454: "Zadania na elity i zdobycz też pokazują szacowany pozostały czas.",
   2455: "Pasek zużywa mniej procesora (aury bohatera rysowane inaczej), zwłaszcza w późnej grze.",
   2456: "Najazd goblinów: klikaj w pasek, aby uderzać szybciej i złapać złote gobliny, zanim uciekną!",
+  2457: "Szybciej, mocniej!",
+  2458: "Skarb przy każdym ciosie!",
+  2459: "Czuję, że szybko się uczę…",
+  2460: "Wszędzie odłamki gwiazd!",
+  2461: "Zadania w biegu!",
+  2462: "Nic mnie nie dosięgnie!",
+  2463: "Magia płynie strumieniami!",
 };

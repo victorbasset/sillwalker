@@ -1016,6 +1016,12 @@ test("temps restant des quêtes d'élites et de proie (it. 976)", () => {
   g.S.zone = 1; g.S.prestige.count = 0; assert.equal(g.questEta(el), null, "pas d'élites avant la zone 3");
 });
 
+test("chaque événement rare a sa réplique du héros (it. 982)", () => {
+  const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
+  const missing = Object.keys(EVENTS_T).filter((id) => !src.includes("ev_" + id + ":"));
+  assert.deepEqual(missing, [], "sans réplique : " + missing.join(", "));
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

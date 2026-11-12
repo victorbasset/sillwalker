@@ -1329,4 +1329,11 @@ export default {
   2454: "Elite and prey quests now show their estimated time left too.",
   2455: "The strip uses less CPU (hero glows drawn differently), especially late in the game.",
   2456: "Goblin Rush: click the strip to strike faster and catch the golden goblins before they run away!",
+  2457: "Faster, stronger!",
+  2458: "Treasure with every blow!",
+  2459: "I can feel myself learning fast…",
+  2460: "Star shards everywhere!",
+  2461: "Quests at full speed!",
+  2462: "Nothing can touch me!",
+  2463: "Magic is flowing!",
 };

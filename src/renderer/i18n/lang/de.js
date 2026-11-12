@@ -1329,4 +1329,11 @@ export default {
   2454: "Elite- und Beute-Quests zeigen jetzt ebenfalls die geschätzte Restzeit.",
   2455: "Die Leiste braucht weniger Prozessorleistung (Heldenauren anders gezeichnet), vor allem im späten Spiel.",
   2456: "Koboldansturm: Klicke auf die Leiste, um schneller zuzuschlagen und die Goldkobolde zu fangen, bevor sie fliehen!",
+  2457: "Schneller, stärker!",
+  2458: "Ein Schatz bei jedem Schlag!",
+  2459: "Ich spüre, wie schnell ich lerne …",
+  2460: "Überall Sternsplitter!",
+  2461: "Quests im Eiltempo!",
+  2462: "Nichts kann mich treffen!",
+  2463: "Die Magie sprudelt!",
 };

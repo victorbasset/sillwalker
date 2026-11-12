@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 982) : les sept événements rares qui n'avaient que les répliques communes ont la leur (Frénésie « Plus
+  vite, plus fort ! », Corne d'abondance, Souffle de sagesse, Pluie d'éclats, Zèle, Voile protecteur, Marée arcanique) :
+  les 14 en ont une. Test logique : tout nouvel événement sans réplique fait échouer npm test. Mode mini revu : aucun
+  effet coûteux (une ombre sur une icône immobile). 10 langues ; 231 tests ; autotest 201/201.
 - 2026-11-12 (it. 981, revue générale) : simulation 12 h, records des courses : guerrier 41 → 66, mage 39 → 60, rôdeur
   38 → 62 (régulier). Performance (copie neuve) : bande 19,7 % (de retour au niveau d'avant les Écailles grâce aux
   it. 973-974), panneau 20,3 %, mini 7,0 %, icône 0,8 %. Captures Aventure, Talents, Quêtes et mini à 1366 px en
