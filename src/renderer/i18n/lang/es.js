@@ -1265,4 +1265,8 @@ export default {
   2390: "{n} golpe crítico|{n} golpes críticos",
   2391: "{n} hechizo lanzado|{n} hechizos lanzados",
   2392: "{n} evento raro|{n} eventos raros",
+  2393: "Nueva bendición del día, el «Día de tesoros» (cofres ×3), y una nueva misión: encontrar cofres del tesoro.",
+  2394: "Al terminar un evento raro, el «Diario» hace balance; el «Modo mini» muestra el evento en curso y sus segundos.",
+  2395: "«Luna de sangre»: toda la fila se vuelve de élite, con contorno y etiqueta; las «Probabilidades» dan también la tasa del día.",
+  2396: "La tarjeta del héroe muestra el efecto de la bendición del día; el resumen de regreso cuenta también cofres y eventos.",
 };

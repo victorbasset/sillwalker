@@ -1265,4 +1265,8 @@ export default {
   2390: "{n} critical hit|{n} critical hits",
   2391: "{n} spell cast|{n} spells cast",
   2392: "{n} rare event|{n} rare events",
+  2393: "New daily blessing, the “Day of Treasures” (chests ×3), and a new quest: find treasure chests.",
+  2394: "When a rare event ends, the “Log” sums up what it brought; “Mini mode” shows the current event and its seconds.",
+  2395: "“Blood Moon”: the whole queue turns elite, with outline and label; “Probabilities” also give today’s rate.",
+  2396: "The hero card shows the effect of the daily blessing; the welcome-back summary also counts chests and events.",
 };

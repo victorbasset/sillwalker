@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 897) : « Quoi de neuf », édition 35 : Jour des trésors et quête des coffres, bilan des événements
+  dans le journal, événement en cours dans le mode mini, Lune de sang visible sur toute la file, taux du jour dans les
+  Probabilités, effet de la bénédiction sur la carte du héros, coffres et événements dans « Depuis ta dernière visite ».
+  Traduite dans les 10 langues, libellés cités vérifiés. Vérifié aussi : la taille de panneau 130 % fait défiler le
+  panneau, ce qui est attendu (zoom choisi par le joueur). Mesure des 10 langues aux trois largeurs : aucun
+  défilement ni mot coupé ; autotest 181/181.
 - 2026-11-12 (it. 896) : « Depuis ta dernière visite » (carte du héros, panneau resté fermé 5 min ou plus) compte
   aussi les coffres au trésor trouvés et les événements rares vécus. Au passage, son pire cas (tous les gains,
   nombres longs) faisait défiler l'Aventure à 1920 px (3 px avant l'ajout, 18 px avec) : la ligne tient maintenant

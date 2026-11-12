@@ -1265,4 +1265,8 @@ export default {
   2390: "{n} trafienie krytyczne|{n} trafienia krytyczne|{n} trafień krytycznych",
   2391: "{n} rzucone zaklęcie|{n} rzucone zaklęcia|{n} rzuconych zaklęć",
   2392: "{n} rzadkie zdarzenie|{n} rzadkie zdarzenia|{n} rzadkich zdarzeń",
+  2393: "Nowe błogosławieństwo dnia, „Dzień skarbów” (skrzynie ×3), i nowe zadanie: znajdź skrzynie ze skarbami.",
+  2394: "Gdy rzadkie wydarzenie się kończy, „Dziennik” podsumowuje jego bilans; „Tryb mini” pokazuje trwające wydarzenie i jego sekundy.",
+  2395: "„Krwawy księżyc”: cała kolejka staje się elitą, z obrysem i etykietą; „Prawdopodobieństwa” podają też dzisiejszą szansę.",
+  2396: "Karta bohatera pokazuje efekt błogosławieństwa dnia; podsumowanie powrotu liczy też skrzynie i wydarzenia.",
 };

@@ -1265,4 +1265,8 @@ export default {
   2390: "{n} kritischer Treffer|{n} kritische Treffer",
   2391: "{n} Zauber gewirkt|{n} Zauber gewirkt",
   2392: "{n} seltenes Ereignis|{n} seltene Ereignisse",
+  2393: "Neuer Tagessegen, der „Tag der Schätze“ (Truhen ×3), und eine neue Quest: Schatztruhen finden.",
+  2394: "Endet ein seltenes Ereignis, zieht das „Protokoll“ Bilanz; der „Mini-Modus“ zeigt das laufende Ereignis und seine Sekunden.",
+  2395: "„Blutmond“: die ganze Reihe wird zu Eliten, mit Umriss und Schild; die „Wahrscheinlichkeiten“ nennen auch die Rate des Tages.",
+  2396: "Die Heldenkarte zeigt die Wirkung des Tagessegens; die Rückkehr-Übersicht zählt auch Truhen und Ereignisse.",
 };

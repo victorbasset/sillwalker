@@ -1265,4 +1265,8 @@ export default {
   2390: "{n} golpe crítico|{n} golpes críticos",
   2391: "{n} feitiço lançado|{n} feitiços lançados",
   2392: "{n} evento raro|{n} eventos raros",
+  2393: "Nova bênção do dia, o «Dia dos tesouros» (baús ×3), e uma nova missão: encontrar baús do tesouro.",
+  2394: "Ao fim de um evento raro, o «Diário» faz o balanço; o «Modo mini» mostra o evento em curso e seus segundos.",
+  2395: "«Lua de sangue»: toda a fila vira elite, com contorno e rótulo; as «Probabilidades» também dão a taxa do dia.",
+  2396: "O cartão do herói mostra o efeito da bênção do dia; o resumo de retorno também conta baús e eventos.",
 };

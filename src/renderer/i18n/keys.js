@@ -2394,5 +2394,9 @@ export const KEYS = [
   "{n} élite vaincue|{n} élites vaincues",
   "{n} coup critique|{n} coups critiques",
   "{n} sort lancé|{n} sorts lancés",
-  "{n} événement rare|{n} événements rares"
+  "{n} événement rare|{n} événements rares",
+  "Nouvelle bénédiction du jour, le « Jour des trésors » (coffres ×3), et une nouvelle quête : trouver des coffres au trésor.",
+  "À la fin d’un événement rare, le « Journal » en fait le bilan ; le « Mode mini » affiche l’événement en cours et ses secondes.",
+  "« Lune de sang » : toute la file devient élite, avec contour et étiquette ; les « Probabilités » donnent aussi le taux du jour.",
+  "La carte du héros montre l’effet de la bénédiction du jour ; le résumé de retour compte aussi coffres et événements."
 ];
