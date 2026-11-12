@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 987) : partie de fin de partie (scripts/fixtures) : --crawl en français sans erreur (355 clics) ;
+  captures Aventure, Compétences, Boutique, Héros à 1920 px : rien de cassé. Noté en Idées (P3) : l'étal du Marchand
+  devient inutile en fin de partie (objets plus faibles que l'équipement +10 porté, prix dérisoires).
 - 2026-11-12 (it. 986) : lang-overflow mesure aussi une partie de FIN de partie à 1280 px dans chaque langue
   (scripts/fixtures/endgame-save.json, 19 Ko, produite par simulate.js 48 h guerrier ; « ru fin 1280 : … »). Vérifié :
   sans le remède de l'it. 985, « ru fin 1280 : ascension=80 » ressort (la mesure habituelle disait « aucun »).
@@ -3599,6 +3602,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 Vu it. 987 (partie de fin de partie, zone 136, 395 Qa d'or) : l'étal du Marchand propose des objets de niveau 136
+  tous PLUS FAIBLES que l'équipement porté (+10, panoplies : −3 à −34 % de puissance) pour 3 827 à 24 k d'or. L'étal ne
+  sert plus en fin de partie. Pistes : objets au niveau du record + amélioration (+n) proportionnelle, ou prix et
+  qualité qui suivent la zone ; à mesurer avec simulate.js (le Marchand attitré achète tout seul).
 - FAIT (it. 986) P2 Vu it. 985 : lang-overflow ne mesure que dev-data (zone 55, 1 ascension) ; une partie très avancée (simulate.js 48 h,
   DUMP=…) montrait des défauts invisibles autrement (Ascension, Aventure). Intégrer une seconde sauvegarde « fin de
   partie » (générée par simulate.js, gardée dans le dépôt ou régénérée) à lang-overflow, au moins à 1280 px.
