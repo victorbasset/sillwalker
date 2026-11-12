@@ -1299,4 +1299,7 @@ export default {
   2424: "Eventos raros ×2.",
   2425: "Matador de elites",
   2426: "Novo tipo de elite derrotado: {0} ({1} / {2}).",
+  2427: "Nova bênção do dia, «Dia dos prodígios»: eventos raros duas vezes mais frequentes.",
+  2428: "Cada tipo de elite derrotado fica registrado (✓ no Bestiário); derrote todos para a conquista «Matador de elites».",
+  2429: "O herói reage a alguns eventos raros («Está chovendo ouro!»); o evento em curso fica destacado no Bestiário.",
 };

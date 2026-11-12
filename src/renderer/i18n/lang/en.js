@@ -1299,4 +1299,7 @@ export default {
   2424: "Rare events ×2.",
   2425: "Elite Slayer",
   2426: "New kind of elite defeated: {0} ({1} / {2}).",
+  2427: "New daily blessing, “Day of Marvels”: rare events twice as often.",
+  2428: "Each kind of elite you defeat is remembered (✓ in the Bestiary); defeat them all for the “Elite Slayer” achievement.",
+  2429: "The hero reacts to some rare events (“It's raining gold!”); the ongoing event is highlighted in the Bestiary.",
 };

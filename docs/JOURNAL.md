@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 945) : « Quoi de neuf », édition 39 : Jour des prodiges, collection des élites et succès « Tueur
+  d'élites », répliques du héros aux événements et événement en cours encadré. 10 langues, libellés cités vérifiés ;
+  10 langues × 3 largeurs sans défaut (pire cas de « Quoi de neuf » compris) ; autotest 196/196.
 - 2026-11-12 (it. 944) : la première victoire sur une sorte d'élite s'annonce dans le journal (« Nouvelle sorte
   d'élite vaincue : Fuyant (3 / 7). »), une seule fois par sorte, comme les événements découverts. Test logique
   (annonce, pas de redite), contrôle d'autotest en anglais (« Evasive (1 / 7) », nom traduit) ; 10 langues ;

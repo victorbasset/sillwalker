@@ -1299,4 +1299,7 @@ export default {
   2424: "Eventos raros ×2.",
   2425: "Cazaélites",
   2426: "Nuevo tipo de élite vencido: {0} ({1} / {2}).",
+  2427: "Nueva bendición del día, «Día de prodigios»: eventos raros el doble de frecuentes.",
+  2428: "Cada tipo de élite vencido se recuerda (✓ en el Bestiario); véncelos todos para el logro «Cazaélites».",
+  2429: "El héroe reacciona a algunos eventos raros («¡Llueve oro!»); el evento en curso aparece destacado en el Bestiario.",
 };
