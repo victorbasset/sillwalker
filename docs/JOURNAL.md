@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 991, revue générale) : simulation 12 h, records des courses : paladin 38 → 65, assassin 45 → 61,
+  druide 44 → 61 (régulier). Performance (copies neuves) : bande 19,9 %, panneau 21,8 puis 19,9 % (bruit), mini 6,9 %,
+  icône 0,8 %. Captures Carte, Ascension, Familiers et mini en français, anglais et chinois : rien de cassé. Texte de
+  l'interface en chinois : aucun mot non traduit.
 - 2026-11-12 (it. 990) : récompense en or des quêtes : retenue avec l'échelle de l'or au tirage (q.gs), puis remontée en
   proportion si le record a progressé depuis (questGold ; jamais plus bas ; anciennes quêtes sans gs inchangées ; valeur
   absurde → or d'origine). Vu sur la partie de fin de partie : une chasse tirée en début de course rapportait 31 k d'or à
