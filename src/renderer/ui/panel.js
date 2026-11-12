@@ -905,7 +905,7 @@ export class Panel {
     const K = [[tx("Changer d’onglet"), "1 … 9, 0, -, ="], [tx("Équiper le meilleur"), "E"], [tx("Vendre ce qui n’améliore pas"), "V"],
       [tx("Ranger le sac"), "S"], [tx("Transmuter les objets inutiles"), "T"], [tx("Réclamer une quête terminée (toutes avec le Bureau des contrats)"), "R"],
       [tx("Confirmer une fenêtre"), tx("Entrée")], [tx("Fermer le panneau"), tx("Échap")], [tx("Réduire en mode mini"), "M"], [tx("Couper / rallumer le son"), "C"], [tx("Couper / rallumer la musique"), "B"],
-      [tx("Acheter le prochain déblocage (s’il est prêt)"), "U"], [tx("Compétences : aller au nœud suivant, l’apprendre"), `Tab · ${tx("Entrée")}`], [tx("Carte : parcourir les zones atteintes, y aller"), `← → ↑ ↓ · ${tx("Entrée")}`],
+      [tx("Acheter le prochain déblocage (s’il est prêt)"), "U"], [tx("Attraper l’étoile filante"), "F"], [tx("Compétences : aller au nœud suivant, l’apprendre"), `Tab · ${tx("Entrée")}`], [tx("Carte : parcourir les zones atteintes, y aller"), `← → ↑ ↓ · ${tx("Entrée")}`],
       [tx("Talents : monter au maximum possible"), `${tx("Maj")} + ${tx("Entrée")} / ${tx("clic")}`]];
     $(this.root, "#mt").textContent = tx("Raccourcis clavier");
     $(this.root, "#mbody").innerHTML = `<ul class="lines keylist">${K.map(([l, k]) => `<li><span>${esc(l)}</span><b>${esc(k)}</b></li>`).join("")}</ul>
@@ -1157,6 +1157,7 @@ export class Panel {
     if (k === "m") { this.onMini?.(); return true; } // réduire en mode mini sans chercher le bouton
     if (k === "b") { this.onMusicToggle?.(); return true; } // musique seule (bande-son)
     if (k === "c") { this.onMute?.(); return true; } // couper / rallumer le son (comme le haut-parleur de la bande)
+    if (k === "f") return this.game.catchStar(); // (it. 900) attraper l'étoile filante sans viser (Nuée d'étoiles)
     if (k === "r") { // réclamer les quêtes terminées : une par appui, toutes avec le Bureau des contrats
       const done = this.game.S.quests.slots.filter((q) => questDone(q));
       if (!done.length) return false;

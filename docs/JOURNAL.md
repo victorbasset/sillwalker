@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 900) : touche F du panneau, attraper l'étoile filante qui passe, sans viser sur la bande (utile
+  pendant la Nuée d'étoiles, et au clavier) ; listée dans les raccourcis clavier (libellé déjà traduit). Contrôle
+  d'autotest (182/182) ; fenêtre des raccourcis mesurée dans les 10 langues : aucun défilement ni mot coupé.
 - 2026-11-12 (it. 899, contrôle) : fin de partie après la série d'ajouts des it. 878-898 (Crachat venimeux, Lune de sang,
   Épineux, Jour des trésors, quête des coffres, Nuée d'étoiles) : semaine simulée, records des courses en hausse
   régulière jusqu'à 298 (mage) et 311 (guerrier), un peu au-dessus des repères de l'it. 736 (287 et 302), sans saut
