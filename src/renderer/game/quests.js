@@ -138,7 +138,13 @@ export function makeQuest(S, uid, exclude = []) {
 export const GUILD_RANKS = [tx("Recrue"), tx("Apprenti"), tx("Aventurier"), tx("Vétéran"), tx("Expert"), tx("Champion"), tx("Héros"), tx("Légende"), tx("Mythe"), tx("Immortel")];
 export const GUILD_BONUS = { gold: 3, xp: 3 }; // par rang
 export const guildNeed = (rank) => Math.round(5 * Math.pow(rank + 1, 1.6)); // réputation pour passer au rang suivant
-export function guildRank(rep) { let r = 0, need = 0; while (true) { need += guildNeed(r); if (rep < need) return { rank: r, into: rep - (need - guildNeed(r)), need: guildNeed(r) }; r++; } }
+// (it. 905) réputation illisible (texte, NaN, infini) : 0 ; rang plafonné (avant, « 103x » bouclait sans fin)
+export function guildRank(rep) {
+  rep = Number.isFinite(rep) ? Math.max(0, rep) : 0;
+  let r = 0, need = 0;
+  while (r < 1e5) { need += guildNeed(r); if (rep < need) return { rank: r, into: rep - (need - guildNeed(r)), need: guildNeed(r) }; r++; }
+  return { rank: r, into: 0, need: guildNeed(r) };
+}
 export const guildRankName = (r) => GUILD_RANKS[Math.min(r, GUILD_RANKS.length - 1)] + (r >= GUILD_RANKS.length ? " " + (r - GUILD_RANKS.length + 2) : "");
 export function guildEffects(S) {
   const r = guildRank((S.guild && S.guild.rep) || 0).rank, out = {};

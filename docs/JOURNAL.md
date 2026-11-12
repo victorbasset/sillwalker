@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 905) : save-fuzz corrompt aussi les champs d'un objet du sac et d'un objet porté, d'une quête (et
+  de sa récompense), d'un familier et d'une expédition (1176 cas au lieu de 910). Il a trouvé un blocage complet :
+  une quête aux étoiles illisibles changeait la réputation de guilde en texte (« 103x ») et le calcul du rang de
+  guilde tournait alors sans fin (jeu figé). Corrigé à trois endroits : étoiles vérifiées au chargement, réputation
+  ajoutée seulement de 1 à 3, rang de guilde qui ne peut plus boucler (valeur illisible : 0 ; rang plafonné). Et un
+  plantage : un objet au nom illisible faisait planter son affichage ; il prend le nom de son emplacement. Test
+  logique ; save-fuzz 1176 « ok » en 31 s ; autotest 182/182. FUZZ_TRACE=1 (cas affiché avant d'être joué) pour
+  trouver un blocage ; noté dans CLAUDE.md.
 - 2026-11-12 (it. 904) : save-fuzz joue aussi, pour chaque sauvegarde abîmée, les actions du joueur : ranger, forger,
   réforger, équiper, retirer, transmuter, vendre, acheter (consommables, coffres, œuf, marchand, améliorations,
   atelier), boire une potion, faire éclore, changer de familier et l'envoyer en expédition, apprendre un sort et un

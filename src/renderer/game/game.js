@@ -2028,7 +2028,7 @@ export class Game {
     if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(rw.shards + tx(" éclats d’étoile")); }
     if (rw.egg) { this.gainEgg(); parts.push(tx("un œuf")); }
     if (rw.speed) { this.gainSpeed(rw.speed, tx("Quête héroïque")); parts.push(`${tx("+{0} % de vitesse pour toujours", { 0: rw.speed })}`); }
-    const stars = Q.slots[i].stars || 1;
+    const stars = [1, 2, 3].includes(Q.slots[i].stars) ? Q.slots[i].stars : 1; // (it. 905) illisible : 1
     Q.slots.splice(i, 1);
     Q.completed++;
     // Réputation de guilde

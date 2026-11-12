@@ -114,6 +114,19 @@ for (const k of NESTED) {
     sweep.push([k + "." + f + " = " + JSON.stringify(v), (o) => { if (o[k] && typeof o[k] === "object") o[k][f] = structuredClone(v); else o[k] = { [f]: structuredClone(v) }; }]);
   }
 }
+// (it. 905) champs d'un objet du sac et d'un objet porté, d'une quête, d'un familier possédé et d'une expédition
+const deep = [
+  ["bag[0]", (o) => o.bag && o.bag[0]], ["equip.weapon", (o) => o.equip && o.equip.weapon],
+  ["quests.slots[0]", (o) => o.quests && o.quests.slots && o.quests.slots[0]],
+  ["quests.slots[0].reward", (o) => o.quests && o.quests.slots && o.quests.slots[0] && o.quests.slots[0].reward],
+  ["pets.owned[0]", (o) => o.pets && o.pets.owned && Object.values(o.pets.owned)[0]],
+  ["pets.exp[0]", (o) => o.pets && o.pets.exp && Object.values(o.pets.exp)[0]],
+];
+for (const [label, get] of deep) {
+  const t = get(base);
+  if (!t || typeof t !== "object") { console.log("(absent de la sauvegarde de dev : " + label + ")"); continue; }
+  for (const f of Object.keys(t)) for (const v of VALS) sweep.push([label + "." + f + " = " + JSON.stringify(v), (o) => { const x = get(o); if (x) x[f] = structuredClone(v); }]);
+}
 let fails = 0;
-for (const [name, f] of sweep) { const r = check(f, 1000); if (r) { fails++; console.log(r, name); } }
+for (const [name, f] of sweep) { if (process.env.FUZZ_TRACE) console.log("…", name); const r = check(f, 1000); if (r) { fails++; console.log(r, name); } }
 console.log(fails ? "ÉCHECS du balayage : " + fails + " / " + sweep.length : "ok balayage (" + sweep.length + " corruptions)");

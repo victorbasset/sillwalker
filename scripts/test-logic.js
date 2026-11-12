@@ -1654,6 +1654,16 @@ test("sauvegarde : bossDefeats et unlocks abîmés (un nombre) ne font plus plan
     g2.ascend();
     assert.ok(Array.isArray(g2.S.stats.classes), JSON.stringify(bad));
   }
+  // (it. 905) réputation de guilde illisible : plus de boucle sans fin ; étoiles d'une quête et nom d'objet illisibles
+  for (const bad of ["103x", NaN, Infinity, -5, null]) assert.equal(M_quests_js.guildRank(bad).rank, 0, String(bad));
+  assert.ok(M_quests_js.guildRank(1e300).rank > 0, "très grande réputation : rang plafonné, sans bloquer");
+  const r3 = JSON.parse(JSON.stringify(new Game(freshState()).S)); r3.v = SAVE_VERSION;
+  r3.quests.slots = [{ uid: 1, kind: "kill", goal: 1, progress: 1, stars: "x", reward: { gold: 1 } }];
+  const it = new Game(freshState()).newItem(2); it.name = 42; r3.bag = [it];
+  const g3 = new Game(migrate(r3)), rep0 = g3.S.guild.rep;
+  assert.equal(g3.S.quests.slots[0].stars, 1);
+  assert.ok(g3.claimQuest(1) && g3.S.guild.rep === rep0 + 1, "réputation +1, restée un nombre");
+  assert.equal(typeof g3.S.bag[0].name, "string");
 });
 
 test("quête « Trouver N coffres au trésor » : chaque coffre compte, en jeu et pendant l'absence (it. 889)", () => {

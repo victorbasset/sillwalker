@@ -1,7 +1,7 @@
 // Format de la sauvegarde + migrations. Toute nouvelle donnée persistante
 // doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
 import { RELICS } from "./relics.js";
-import { SLOT_KEYS, LEGENDARY, BAG_SIZE, RARITIES } from "./data.js";
+import { SLOT_KEYS, SLOTS, LEGENDARY, BAG_SIZE, RARITIES } from "./data.js";
 import { CLASSES, CLASS_UNLOCK_ZONE, canPartner } from "./classes.js";
 import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
@@ -125,6 +125,7 @@ export function migrate(raw) {
   const fixItem = (it) => {
     if (!isObj(it.st)) it.st = {};
     for (const k in it.st) if (!Number.isFinite(it.st[k])) delete it.st[k];
+    if (typeof it.name !== "string" || !it.name) it.name = SLOTS[it.slot].name; // (it. 905) nom illisible : celui de l'emplacement
     return it;
   };
   for (const k of Object.keys(s.equip)) {
@@ -181,6 +182,7 @@ export function migrate(raw) {
   s.quests = Object.assign(def.quests, isObj(o.quests) ? o.quests : {});
   // Quêtes illisibles retirées (ensureQuests en propose de nouvelles) ; leur sorte inconnue est traitée là-bas.
   s.quests.slots = Array.isArray(s.quests.slots) ? s.quests.slots.filter((q) => isObj(q) && isObj(q.reward)) : [];
+  for (const q of s.quests.slots) if (![1, 2, 3].includes(q.stars)) q.stars = 1; // (it. 905) étoiles illisibles
   for (const q of s.quests.slots) if (!q.stars) q.stars = 1;
   s.guild = Object.assign(def.guild, isObj(o.guild) ? o.guild : {});
   s.pets = Object.assign(def.pets, isObj(o.pets) ? o.pets : {});
