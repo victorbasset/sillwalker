@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 951, revue générale) : simulation 12 h, records des courses : rôdeur 44 → 62, paladin 44 → 64,
+  moine 47 → 62 (régulier). Performance (copie neuve) : bande 19,5 %, panneau 20,9 %, mini 7,2 %, icône 0,5 %
+  (stable). Captures Aventure, Talents, Boutique et mini en français, anglais et chinois : rien de cassé. Texte de
+  l'interface en chinois : aucun mot non traduit. Noté en Idées (P3) : « +20,53 M / or. » coupé en fin de ligne dans
+  le journal (nombre abrégé + unité, même famille que les « % » des it. 949-950).
 - 2026-11-12 (it. 950) : suite de l'it. 949, « % » seul en début de ligne : ≈ 200 textes par langue européenne écrivent
   « {0} % » avec une espace ordinaire (keys.js 205, de 205, es 205, ru 64…), et les descriptions des données (potions,
   bénédictions, talents…) aussi. Sans retoucher les traductions : t() rend insécable l'espace entre un chiffre et
@@ -3425,6 +3430,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 Vu it. 951 : journal, « Récompense du jour 1/7 : +20,53 M » puis « or. » seul sur la ligne suivante : l'espace
+  entre un nombre (abrégé ou non) et « or » / « gold » / « PV »… est ordinaire. Piste : comme pour « % » (it. 950),
+  rendre insécable dans t() l'espace entre un chiffre ou un suffixe (k, M, Md, T…) et le mot d'unité qui suit, ou
+  faire porter l'espace par fmt() quand une unité suit.
 - FAIT (it. 949) P3 Vu it. 948 : à 130 % (taille de l'interface), Carte (≈ 140 px) et Compétences (≈ 125 px) défilent encore, même avec
   le panneau agrandi : leur dessin suit la hauteur du panneau sans tenir compte du zoom ; à mettre à l'échelle 1/zoom.
 - FAIT (it. 942) P3 Vu it. 941 : Aventure, rangée de puces sous « Prochain déblocage » (hscroll) : la bénédiction du jour, avec son
