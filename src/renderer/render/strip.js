@@ -59,6 +59,8 @@ const RIGHT_MARGIN = 300;   // le boss (2× plus large) s'arrête avant l'or, le
 const FIGHTS = KILLS_PER_ZONE + 1;
 const HUD_L_W = 520, HUD_R_W = 260, HUD_H = 24;
 const CENTER_HUD_W = 2400; // au-delà : informations au milieu de la bande (écrans ultra-larges)
+// Caractères pleine chasse (chinois, japonais, coréen, ponctuation « ！ ») : deux fois la largeur d'un chiffre.
+const WIDE_CHARS = /[\u1100-\u11ff\u2e80-\u9fff\uac00-\ud7af\uf900-\ufaff\ufe30-\ufe4f\uff00-\uff60\uffe0-\uffe6]/g;
 
 // (it. 708) « Champion rapide » / « Fast champion » / « Schneller Champion » : ordre de la langue (clé « Champion {0} »)
 const upFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -294,7 +296,11 @@ export class StripRenderer {
     if (nearBoss) y = Math.max(y, 46);
     // Nombres qui tombent au même endroit au même instant (fin de partie : coup, critique et dégâts reçus) : chacun
     // cherche une place libre parmi les nombres encore jeunes, au-dessus puis au-dessous, sinon de côté (it. 846).
-    const w = String(txt).length * (big ? 8 : 7) + 4, h = big ? 19 : 17;
+    // Largeur estimée sans mesure de mise en page : les caractères chinois, japonais et coréens sont deux fois plus larges
+    // (it. 862 : « 会心 116k » et « 凍結！ » se recouvraient au-dessus du héros, comptés comme des chiffres).
+    const str = String(txt), wide = (str.match(WIDE_CHARS) || []).length;
+    // (la police de secours de ces écritures est aussi un peu plus haute : 21 px au lieu de 19 en grand).
+    const w = (str.length + wide) * (big ? 8 : 7) + 4, h = (big ? 19 : 17) + (wide ? 2 : 0);
     // (it. 860) …ni, décalés de côté ou en montant, sur la fin de son nom ou la relique qu'il garde.
     const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss ? y - (big ? 14 : 12) : -6, nearBoss ? this.bossObstacles() : null);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);

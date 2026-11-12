@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 862) : bande, en japonais, chinois et coréen : les nombres et mots flottants (« 会心 116k », « 凍結！ »)
+  se recouvraient encore au-dessus du héros en combat de boss : leur place libre était calculée comme si chaque caractère
+  avait la largeur d'un chiffre. Les caractères pleine chasse comptent maintenant double (et leur ligne un peu plus haute),
+  sans aucune mesure de mise en page en plus. Contrôle d'autotest (il échoue sans le correctif ; 172/172), vu en capture
+  japonaise (zone 55, boss).
 - 2026-11-12 (it. 861) : revue générale (contre d4a73d0, it. 851) : équilibrage 12 h +0,0 (61,9) ; 1200 parties, 0 bloquée ;
   npm test 204/204 ; bande 18,8 %, mini 6,0 %, icône 0,8 %, panneau 22,3 % (mesuré pendant un autotest : à reprendre
   seul) ; captures fr / en / ja (Aventure, Héros, Talents, Boutique, Ascension, Familiers, Compétences, Statistiques,
@@ -2945,7 +2950,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
 - P3 Revue it. 861 : (a) refaire la mesure du panneau seul (22,3 % pris pendant un autotest ; repère 20-21 %) ;
-  (b) bande, combat de boss en japonais : « 会心 116k » et « 凍結 » se superposent encore au-dessus du héros (texte large).
+  (b) FAIT (it. 862) bande, combat de boss en japonais : « 会心 116k » et « 凍結 » se superposent encore au-dessus du héros (texte large).
 - P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
   au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) FAIT (it. 860) nombres flottants
   de la bande face à un boss : encore vus sur sa couronne et sur la fin de son nom en montant (it. 846) ;
