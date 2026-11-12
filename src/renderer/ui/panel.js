@@ -4,7 +4,7 @@
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { newsShown } from "../game/news.js";
-import { itemName } from "../i18n/data.js";
+import { itemName, itemKindLine } from "../i18n/data.js";
 import { t as tx, txn, lc, fsp, tr, csep } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
@@ -462,7 +462,7 @@ export class Panel {
         <img class="rchest" src="${shopIconURL(chestId, 8)}" alt="">
         <div class="ritem"><span class="rays"></span><img src="${itemIconURL(it)}" alt=""></div>
         <div class="rname rc${it.r}">${esc(itemName(it))}</div>
-        <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: r.name.toLowerCase(), 1: it.il, 2: it.power && POWER_INDEX[it.power] ? ` · ★ ${esc(POWER_INDEX[it.power].name)}` : "" })}</div>
+        <div class="sub">${itemKindLine(it)}${it.power && POWER_INDEX[it.power] ? ` · ★ ${esc(POWER_INDEX[it.power].name)}` : ""}</div>
         ${up ? `<div class="delta-p">${tx("▲ Plus puissant que ton équipement actuel")}</div>` : ""}
       </div>${up ? `<div class="row"><button class="primary" data-action="reveal-equip" data-id="${it.id}">${tx("Équiper maintenant")}</button></div>` : ""}`;
     $(this.root, "#modal").hidden = false;
@@ -698,7 +698,7 @@ export class Panel {
       verdict = `<p class="verdict ${dd > 0.005 ? "delta-p" : dd < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance : ") + (dd >= 0 ? "+" : "−") + Math.abs(Math.round(dd * 100)) + unit("%") : tx("Emplacement vide : à équiper !")}</p>`;
     }
     this.tip.innerHTML = `<div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
-      <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div>
+      <div class="sub">${itemKindLine(it)}${fromBag ? "" : tx(", équipé")}</div>
       <ul class="lines">${lines}</ul>${power(it, S.equip)}${this.setProgress(it, cur, fromBag)}${verdict}
       <p class="note tight tiphelp">${fromBag ? tx("Double-clic : équiper") : tx("Double-clic : retirer")}</p>`;
     this.tip.hidden = false;
@@ -852,7 +852,7 @@ export class Panel {
     return `<div class="bagdetail">
       <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div class="dh-main">
         <div class="nm rc${it.r}">${esc(itemName(it))}${it.plus ? " +" + it.plus : ""}</div>
-        <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niveau {1}{2}", { 0: r.name.toLowerCase(), 1: it.il, 2: fromBag ? "" : tx(", équipé") })}</div></div>
+        <div class="sub">${itemKindLine(it)}${fromBag ? "" : tx(", équipé")}</div></div>
         <button class="linkbtn back" data-action="desel">${tx("← sac")}</button></div>
       ${verdict}
       <div class="row">${fromBag

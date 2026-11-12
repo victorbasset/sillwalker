@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 856) : la ligne sous le nom d'un objet (marchand, sac, équipement, coffre ouvert) collait la rareté à
+  l'emplacement : ordre français dans les autres langues (« Weapon uncommon », « 武器 优秀 ») et accord faux, même en
+  français (« Armure peu commun », « Оружие необычный »). Elle devient « Armure · Peu commun · niveau 55 » (rareté en
+  étiquette, point jamais en début de ligne). En anglais, « Kitten lv. 10 » prend la majuscule de la bande (« Lv. »).
+  Parcours --crawl en polonais : 329 clics, aucune erreur. Test logique (204), autotest 166/166, vu en allemand et anglais.
 - 2026-11-12 (it. 855) : Talents au clavier : Maj + Entrée (ou Maj + clic) sur un talent fait comme son petit bouton
   « max » / « tout », jusque-là réservé à la souris ; et le talent garde le focus après chaque Entrée (avant, le
   redessin le renvoyait au début du panneau). Ligne ajoutée aux Raccourcis clavier (10 langues, vue en allemand).
@@ -2914,7 +2919,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
   au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) nombres flottants
   de la bande face à un boss : encore vus sur sa couronne et sur la fin de son nom en montant (it. 846) ;
-  (c) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) sauvegarde de dev au niveau 1313 :
+  (c) FAIT (it. 856) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) sauvegarde de dev au niveau 1313 :
   « 1,54e105 » d'expérience à atteindre (écriture scientifique ; seulement avec un niveau irréaliste, à confirmer).
 
 - FAIT (it. 854) P1 Bande en allemand à 1920 px (vu it. 853, zone 55, boss) : « Abgrundpanzer der Erwachte · −10 % LP » passe sous

@@ -373,7 +373,7 @@ test("ascension : éclats, conservation, constellations", () => {
 
 /* ---------- Classes v5 et arbre de compétences ---------- */
 import { SKILL_TREE, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill } from "../src/renderer/game/skilltree.js";
-import { ruAdjective, itemName } from "../src/renderer/i18n/data.js";
+import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 
 test("migration v4 -> v5", () => {
@@ -2893,6 +2893,19 @@ test("journal : un familier qui gagne plusieurs niveaux n'écrit qu'une ligne ; 
   assert.equal(lines.length, 1, "une seule ligne de niveau : " + lines.join(" / "));
   assert.ok(lines[0].includes(String(g.S.pets.owned[id].lvl)), "le dernier niveau atteint");
   assert.ok(g.S.log[0].startsWith(name), "en tête du journal");
+});
+
+test("objets : ligne « Arme · Peu commun · niveau 55 », sans accord ni ordre français (it. 856)", () => {
+  const before = getLang(), it = { slot: "armor", r: 1, il: 55 }, itemKindLine = (x, sh) => itemKindLineNb(x, sh).replace(/\u00a0/g, " ");
+  try {
+    setLang("fr");
+    assert.equal(itemKindLine(it), "Armure · Peu commun · niveau 55");
+    assert.equal(itemKindLine(it, true), "Armure · Peu commun · niv. 55");
+    setLang("en");
+    assert.ok(/ · level 55$/.test(itemKindLine(it)), itemKindLine(it));
+    assert.ok(/ · Lv\. 55$/.test(itemKindLine(it, true)), itemKindLine(it, true));
+    assert.equal(itemKindLine({ slot: "inconnu", r: 9, il: 3 }).includes("undefined"), false);
+  } finally { setLang(before); }
 });
 
 console.log(`\n${pass} tests réussis`);

@@ -3,7 +3,7 @@
 // atelier (améliorations permanentes illimitées). Tout est illustré.
 import { subtabsHTML } from "../subtabs.js";
 import { eggsAllowed } from "../../game/tabs.js";
-import { itemName } from "../../i18n/data.js";
+import { itemName, itemKindLine } from "../../i18n/data.js";
 import { t as tx, txn } from "../../i18n/index.js";
 import { RARITIES, SLOTS } from "../../game/data.js";
 import {
@@ -45,7 +45,7 @@ export class ShopTab {
         ${it.deal ? `<span class="ribbon">−${Math.round(DEAL_DISCOUNT * 100)}${unit("%")}</span>` : ""}
         <img src="${itemIconURL(it)}" alt="">
         <div class="nm rc${it.r}">${esc(itemName(it))}</div>
-        <div class="sub">${SLOTS[it.slot].name} ${tx("{0}, niv. {1}", { 0: RARITIES[it.r].name.toLowerCase(), 1: it.il })}</div>
+        <div class="sub">${itemKindLine(it, true)}</div>
         ${it.power && POWER_INDEX[it.power] ? `<div class="sub power-mini">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
         ${it.set && SETS[it.set] ? `<div class="sub tint" style="--c:${SETS[it.set].color}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
         <div class="verdict ${d > 0.005 || !cur ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${up ? "▲ " : ""}${verdict}</div>

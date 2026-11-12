@@ -3,7 +3,7 @@
 //  - types d'objets, matières et suffixes (clés de la collection, noms sauvegardés) :
 //    traduits à l'affichage par itemName() ;
 //  - zones : le nom source est gardé dans `src` (météo par zone).
-import { getLang, tr, ruAgree } from "./index.js";
+import { getLang, tr, ruAgree, t as tx } from "./index.js";
 import { DICTS } from "./dicts.js";
 import { RARITIES, SLOTS, STAT_NAMES, MONSTERS, ZONES, ELITE_AFFIXES, ITEM_BASES, MATERIALS, ITEM_SUFFIXES } from "../game/data.js";
 import { CLASSES, ATTACK_TIERS } from "../game/classes.js";
@@ -101,6 +101,14 @@ export function ruAdjective(adj, g) {
   return w ? w[0].toUpperCase() + w.slice(1) : null;
 }
 const lowerFirst = (w) => w[0].toLowerCase() + w.slice(1);
+/** Ligne « Arme · Peu commun · niveau 55 » sous le nom d'un objet (it. 856). La rareté est une étiquette à part :
+ *  collée au nom de l'emplacement, elle demandait un accord (« Armure peu commun », « Оружие необычный ») et
+ *  l'ordre français (« Weapon uncommon »). `short` : « niv. 55 » (cartes étroites du marchand). */
+export function itemKindLine(it, short = false) {
+  // espace insécable avant chaque point : il ne commence jamais une ligne
+  return [SLOTS[it.slot]?.name || "", RARITIES[it.r]?.name || "", short ? tx("niv. {0}", { 0: it.il }) : tx("niveau {0}", { 0: it.il })]
+    .filter(Boolean).join("\u00a0· ");
+}
 export function itemName(it) {
   if (!it || !it.name) return "";
   const lang = getLang();
