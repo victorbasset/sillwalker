@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 979) : contrôles de robustesse après les it. 954-978 : sauvegardes abîmées ok (1176 corruptions),
+  fuzz 1200 parties sans blocage, rythme de la première heure inchangé (60 min : zone 23, 107 objets, niveau 40,
+  6 déblocages). Aucun changement de code.
 - 2026-11-12 (it. 978) : Statistiques : line() fait passer elle-même toute valeur texte contenant « · » par segs() (retour
   à la ligne entre les segments, it. 939) : un oubli comme « Sorts lancés » (it. 976, chevauchement en russe) ne peut
   plus se reproduire. 10 langues × 3 largeurs sans défaut ; autotest 200/200.
