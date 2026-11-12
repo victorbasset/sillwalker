@@ -580,6 +580,7 @@ export class StripRenderer {
       if (carried && relicUpgradable(g.S, carried, !!majorBoss(g.S.zone)?.echo)) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); im.style.left = (a.w + 3) + "px"; if (hasRelic(g.S, carried)) im.classList.add("owned"); }
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
+        this.bossTag = tag; this.bossW = a.w;
         const wear = bossWear(this.game.S, this.game.S.zone); // usé par les défaites du héros : on le montre
         // Boss qui retient un héros pas encore libéré : on le dit (sinon il fallait ouvrir l'onglet Classe).
         const S = this.game.S, captive = Object.keys(CLASS_UNLOCK_ZONE).find((c) => CLASS_UNLOCK_ZONE[c] === S.zone && !(S.classesUnlocked || []).includes(c));
@@ -588,6 +589,7 @@ export class StripRenderer {
         // Boss très grand (ou volant) : le nom ne doit pas sortir par le haut de la bande.
         const y0 = this.monY(a, 4);
         if (y0 - 40 < 2) tag.style.top = (2 - y0) + "px";
+        this.placeBossName();
       }
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");
@@ -863,6 +865,17 @@ export class StripRenderer {
     if (this.onTab) this.onTab();
   }
 
+  /** Nom du boss (it. 854) : il s'étend vers la gauche depuis le boss ; un nom long (allemand : « Abgrundpanzer der
+   *  Erwachte · −10 % LP ») passait sous la pastille or / niveau. On le décale vers la gauche juste ce qu'il faut. */
+  placeBossName() {
+    const t = this.bossTag;
+    if (!t || !t.isConnected) return;
+    let off = 40;
+    if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(FIGHTS) + this.bossW / 2 + off - (this.hudRLeft - 8));
+    const v = `calc(-100% + ${Math.round(off)}px) 0`;
+    if (t.style.translate !== v) t.style.translate = v;
+  }
+
   drawHudRight() {
     const S = this.game.S, gt = fmt(S.gold).replace(/[  ]/g, " "), // espaces fines : absentes de la police pixel du canevas
       lvlTxt = tx("Niv. ") + S.lvl, key = gt + "|" + lvlTxt;
@@ -881,6 +894,7 @@ export class StripRenderer {
       this.hudRLeft = x + pillL;
       this.placeTab();
     }
+    this.placeBossName();
     drawPill(ctx, pillL, HUD_R_W - 3, HUD_H);
     drawText(ctx, lvlTxt, right, 17, "#ffffff", "right");
     drawText(ctx, gt, right - 14 - lw, 17, "#ffd34d", "right");

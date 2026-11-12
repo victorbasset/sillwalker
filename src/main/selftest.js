@@ -71,6 +71,14 @@ async function runSelfTest(strip) {
   const thinHit = strip.hitTest(b0.x + emptyX, b0.y + b0.height - 40);
   strip.setOpacity(opa0); await sleep(400);
   check("bande opaque (100 %) : arrête les clics ; à 60 % : traversée", solidHit && !thinHit, `100 % : ${solidHit}, 60 % : ${thinHit}`);
+  // (it. 854) nom de boss très long (allemand) : il ne passe pas sous la pastille or / niveau
+  {
+    const r = await js(`(() => { const s = window.__strip, t = s.bossTag; if (!t || !t.isConnected || s.centerHud) return { skip: true };
+      const old = t.textContent; t.textContent = "Abgrundpanzer der Erwachte · −10 % LP · Gefangener: Nekromant"; s.placeBossName();
+      const right = t.getBoundingClientRect().right - s.root.getBoundingClientRect().left; t.textContent = old; s.placeBossName();
+      return { right: Math.round(right), pill: Math.round(s.hudRLeft) }; })()`);
+    check("bande : un long nom de boss s'arrête avant la pastille d'or", r.skip || r.right <= r.pill, JSON.stringify(r));
+  }
   // (it. 835) glisser le bouton ⌃ : la fenêtre suit la souris (le processus principal prend la main) et le clic qui
   // suit le relâchement n'ouvre pas le panneau
   {

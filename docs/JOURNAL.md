@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 854) : bande en allemand, combat de boss : le nom long « Abgrundpanzer der Erwachte · −10 % LP »
+  passait sous la pastille d'or et de niveau. Le nom se décale maintenant vers la gauche juste ce qu'il faut pour
+  finir avant la pastille (recalculé quand l'or change de largeur ; rien ne bouge pour un nom court ou l'affichage au
+  milieu). Vu en capture à 1920 px. Contrôle d'autotest (165/165).
 - 2026-11-12 (it. 853) : la Carte du Rebord se joue au clavier : ses 200 zones ne se prenaient qu'à la souris. Un
   seul arrêt de tabulation (la zone du héros) ; les flèches suivent le chemin tel qu'il est dessiné (← → dans la
   rangée, ↑ ↓ vers la rangée voisine), Début / Fin vont à la première / dernière zone atteinte ; Entrée ou Espace y
@@ -2908,7 +2912,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   (c) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) sauvegarde de dev au niveau 1313 :
   « 1,54e105 » d'expérience à atteindre (écriture scientifique ; seulement avec un niveau irréaliste, à confirmer).
 
-- P1 Bande en allemand à 1920 px (vu it. 853, zone 55, boss) : « Abgrundpanzer der Erwachte · −10 % LP » passe sous
+- FAIT (it. 854) P1 Bande en allemand à 1920 px (vu it. 853, zone 55, boss) : « Abgrundpanzer der Erwachte · −10 % LP » passe sous
   la pastille d'or (le nom s'étend vers la gauche depuis le boss, au bout de la bande) : le décaler / le couper avant.
 - P3 Clavier (vu it. 850) : FAIT pour la carte (it. 853). Reste le petit « max » / « tout » dans les boutons de
   Talents, atteignable seulement à la souris.
