@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 881, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses guerrier
+  41 → 64, mage 37 → 61, nécromancien 39 → 60, sans saut ni plafond. Performance (copie neuve de dev-data) : bande
+  19,5 %, panneau 21,7 %, mini 6,9 %, icône 0,6 % d'un cœur (repères tenus, panneau un peu au-dessus de 20-21 %).
+  Captures en français, anglais et japonais (Aventure, Talents, Héros, Boutique, mode mini) : ni débordement ni texte
+  coupé ; le texte anglais extrait ne contient aucun français oublié (le japonais avait été vérifié à l'it. 880).
 - 2026-11-12 (it. 880) : un 12e événement rare, la « Lune de sang » : pendant 30 s, chaque monstre qui arrive est une
   élite avec son affixe (Rapide, Blindé, Vampirique…), plus coriace mais avec butin garanti, or ×4 et expérience ×3 ;
   le gobelin doré et le boss restent eux-mêmes. Elle n'arrive que là où les élites existent déjà (pas dans les deux
@@ -3073,6 +3078,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Revue it. 881 : panneau mesuré à 21,7 % d'un cœur (repère 20-21 %, bande et mini dans leurs repères) : refaire une
+  mesure sur une copie neuve à la prochaine revue ; si l'écart tient, chercher ce qui a grossi depuis l'it. 863.
 
 - FAIT (it. 875) P3 Vu it. 874 : la météo passe encore sur le nom du boss (« Abyssal Carapace the Awakened », étiquette DOM au-dessus de
   lui) ; l'éviter demanderait sa position (mesurée une fois par série de monstres, comme placeBossName) : à faire si gênant.
