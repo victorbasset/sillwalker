@@ -1324,4 +1324,5 @@ export default {
   2449: "Critical hits deal only half their bonus to it.",
   2450: "New boss ability, “Scales”: critical hits deal only half their bonus to it.",
   2451: "Boss names now get proper grammatical agreement in every language that needs it.",
+  2452: "{n} quest completed|{n} quests completed",
 };

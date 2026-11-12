@@ -1067,6 +1067,7 @@ export class Game {
     this.invalidateStats();
     if (kills < 1) return null;
     const bagBefore = new Set(S.bag.map((i) => i.id)), lvl0 = S.lvl, journey0 = (S.journey || []).length;
+    const qDone0 = S.quests.slots.filter(questDone).length; // (it. 970) quêtes accomplies pendant l'absence
     const gold = Math.round(kills * b.gold * earlyPace(S) * (1 + hs.gold / 100 + 0.5 * share("fortune")));
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
@@ -1146,7 +1147,7 @@ export class Game {
     // de taille du sac affichait « 0 » dès qu'il était plein).
     const summary = {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
-      kills, gold, petGold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
+      kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells, elites,
     };

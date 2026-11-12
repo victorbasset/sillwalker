@@ -2453,5 +2453,6 @@ export const KEYS = [
   "Écailles",
   "Les coups critiques ne lui infligent que la moitié de leur bonus.",
   "Nouvelle capacité de boss, « Écailles » : les coups critiques ne lui infligent que la moitié de leur bonus.",
-  "Les boss aux noms féminins sont enfin accordés : « Carapace-des-Abysses l’Éveillée », « … vaincue ! »."
+  "Les boss aux noms féminins sont enfin accordés : « Carapace-des-Abysses l’Éveillée », « … vaincue ! ».",
+  "{n} quête accomplie|{n} quêtes accomplies"
 ];

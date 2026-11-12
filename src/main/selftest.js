@@ -756,8 +756,8 @@ async function runSelfTest(strip) {
     check("taille de l’interface 130 % : panneau agrandi, puis rendu", h1 > h0 + 50 && Math.abs(h2 - h0) < 2, h0 + " → " + h1 + " → " + h2);
   }
   // (it. 969) détail du retour : « Or gagné » = combats + expéditions du Grand intendant (le même total que la bulle)
-  const offD = await js("(() => { const P = window.__panel; P.showOfflineSummary({ seconds: 28800, duration: '8 h', zone: 'Z', kills: 10, gold: 1000, petGold: 500, xp: 1, kept: 0, best: -1, steps: [], petWork: 3, capH: 8 }); const t = document.getElementById('mbody').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return t; })()");
-  check("retour d’absence : or gagné total, expéditions du Grand intendant détaillées", /1[,.\s\u00a0\u202f]?500/.test(offD) && /\+500/.test(offD), offD.slice(0, 300));
+  const offD = await js("(() => { const P = window.__panel; P.showOfflineSummary({ seconds: 28800, duration: '8 h', zone: 'Z', kills: 10, gold: 1000, petGold: 500, xp: 1, kept: 0, best: -1, steps: [], petWork: 3, capH: 8, questsDone: 2 }); const t = document.getElementById('mbody').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return t; })()");
+  check("retour d’absence : or gagné total, expéditions du Grand intendant détaillées", /1[,.\s\u00a0\u202f]?500/.test(offD) && /\+500/.test(offD) && /Quests completed\s*2/.test(offD), offD.slice(0, 300));
   // (it. 947) étiquette d'une élite jamais vaincue : « ✦ » ; plus d'étoile une fois la sorte vaincue
   {
     const r = await js(`(() => { const st = window.__strip, G = window.__game, S = G.S; if (!st.active) return 'bande inactive';

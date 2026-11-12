@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 970) : retour d'absence : les quêtes accomplies pendant l'absence sont annoncées (bulle :
+  « …, 2 quêtes accomplies. » ; détail : « Quêtes accomplies »), seules celles devenues complètes hors ligne
+  (summary.questsDone). Pluriels dans les 10 langues ; test logique (une quête « kill » accomplie en 8 h) ; contrôle
+  d'autotest étendu ; 200/200.
 - 2026-11-12 (it. 969) : suite de l'it. 968 : le détail du retour (« Pendant ton absence », un clic sur la bulle)
   affichait encore « Or gagné » sans l'or des expéditions (6,91 Md contre 18,49 dans la bulle) : même total maintenant,
   et la ligne du Grand intendant précise « 14 tâches de familiers · +11,59 Md or ». Contrôle d'autotest (résumé

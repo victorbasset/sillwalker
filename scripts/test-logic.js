@@ -1002,6 +1002,9 @@ test("absence : l'or des expéditions récupérées par le Grand intendant compt
   g.S.pets.exp = { [id]: { kind: "long", start: Date.now() - 9e6, end: Date.now() - 1000 } };
   const sum = g.applyOffline(8 * 3600);
   assert.ok(sum && sum.petGold > 0, "or des expéditions : " + (sum && sum.petGold));
+  // (it. 970) quêtes accomplies pendant l'absence
+  const q = new Game(freshState()); q.S.zone = 10; q.S.quests.slots = [{ uid: 990, kind: "kill", goal: 5, progress: 0, reward: { gold: 1 } }];
+  const qs = q.applyOffline(8 * 3600); assert.equal(qs.questsDone, 1);
 });
 
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {

@@ -1324,4 +1324,5 @@ export default {
   2449: "Os golpes críticos só lhe causam metade do bônus.",
   2450: "Nova habilidade de chefe, «Escamas»: os golpes críticos só lhe causam metade do bônus.",
   2451: "Os nomes femininos dos chefes enfim concordam: «… derrotada».",
+  2452: "{n} missão concluída|{n} missões concluídas",
 };

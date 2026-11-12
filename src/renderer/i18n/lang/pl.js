@@ -1324,4 +1324,5 @@ export default {
   2449: "Trafienia krytyczne zadają mu tylko połowę swojej premii.",
   2450: "Nowa umiejętność bossa, „Łuski”: trafienia krytyczne zadają mu tylko połowę swojej premii.",
   2451: "Nazwy bossów są wreszcie poprawnie odmieniane: „… pokonana”, „… pokonane”.",
+  2452: "{n} zadanie wykonane|{n} zadania wykonane|{n} zadań wykonanych",
 };
