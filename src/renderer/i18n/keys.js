@@ -2380,5 +2380,9 @@ export const KEYS = [
   "Lune de sang",
   "Chaque monstre est une élite !",
   "Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
-  "Renvoie 15 % des dégâts qu’il reçoit au héros, sans jamais l’achever."
+  "Renvoie 15 % des dégâts qu’il reçoit au héros, sans jamais l’achever.",
+  "Nouveaux défis : le « Crachat venimeux » de certains boss (le « Talisman de pureté » le repousse) et l’élite « Épineux », qui renvoie une part des coups reçus.",
+  "Nouvel événement rare, la « Lune de sang » : pendant 30 s, chaque monstre est une élite (butin garanti).",
+  "Pendant ton absence, les élites, la chasse, le butin rare et les coups critiques font aussi avancer les quêtes.",
+  "Le « Grand intendant » s’occupe des familiers même pendant un long combat de boss ; « À faire maintenant » signale les familiers libres ; thème clair plus lisible."
 ];

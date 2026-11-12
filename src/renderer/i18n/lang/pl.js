@@ -1251,4 +1251,8 @@ export default {
   2376: "Każdy potwór jest elitą!",
   2377: "Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
   2378: "Odbija na bohatera 15 % otrzymanych obrażeń, nigdy go nie dobijając.",
+  2379: "Nowe wyzwania: „Jadowita plwocina” niektórych bossów („Talizman czystości” ją odpiera) oraz elita „Kolczasty”, która odbija część otrzymanych obrażeń.",
+  2380: "Nowe rzadkie wydarzenie, „Krwawy księżyc”: przez 30 s każdy potwór jest elitą (gwarantowany łup).",
+  2381: "Podczas twojej nieobecności elity, polowania, rzadki łup i trafienia krytyczne też posuwają zadania naprzód.",
+  2382: "„Wielki zarządca” zajmuje się chowańcami nawet podczas długiej walki z bossem; „Do zrobienia teraz” wskazuje wolne chowańce; jasny motyw czytelniejszy.",
 };

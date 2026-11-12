@@ -1251,4 +1251,8 @@ export default {
   2376: "¡Cada monstruo es de élite!",
   2377: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, eventos raros y hechizos). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, eventos raros y hechizos). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
   2378: "Devuelve al héroe el 15 % del daño que recibe, sin rematarlo nunca.",
+  2379: "Nuevos desafíos: el «Escupitajo venenoso» de algunos jefes (el «Talismán de pureza» lo repele) y la élite «Espinoso», que devuelve parte del daño recibido.",
+  2380: "Nuevo evento raro, la «Luna de sangre»: durante 30 s, cada monstruo es de élite (botín garantizado).",
+  2381: "Mientras estás ausente, las élites, las cacerías, el botín raro y los golpes críticos también hacen avanzar las misiones.",
+  2382: "El «Gran intendente» se ocupa de las mascotas incluso durante un largo combate contra un jefe; «Qué hacer ahora» señala las mascotas libres; tema claro más legible.",
 };

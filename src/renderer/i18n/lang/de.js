@@ -1251,4 +1251,8 @@ export default {
   2376: "Jedes Monster ist eine Elite!",
   2377: "Quests laufen von selbst weiter, sogar offline (außer Bosse, seltene Ereignisse und Zauber). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, seltene Ereignisse und Zauber). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
   2378: "Wirft 15 % des erlittenen Schadens auf den Helden zurück, ohne ihn je zu erledigen.",
+  2379: "Neue Herausforderungen: die „Giftspucke“ mancher Bosse (der „Talisman der Reinheit“ wehrt sie ab) und die Elite „Dornig“, die einen Teil des erlittenen Schadens zurückwirft.",
+  2380: "Neues seltenes Ereignis, der „Blutmond“: 30 s lang ist jedes Monster eine Elite (garantierte Beute).",
+  2381: "Während deiner Abwesenheit bringen auch Eliten, Jagden, seltene Beute und kritische Treffer die Quests voran.",
+  2382: "„Großer Verwalter“ kümmert sich auch während eines langen Bosskampfs um die Begleiter; „Jetzt zu tun“ zeigt freie Begleiter; helles Design besser lesbar.",
 };

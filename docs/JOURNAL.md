@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 886) : « Quoi de neuf », édition 34 (vue une fois au prochain lancement) : Crachat venimeux et
+  Talisman de pureté, élite Épineux, Lune de sang, quêtes qui avancent pendant l'absence, Grand intendant pendant les
+  combats de boss, familiers libres dans « À faire maintenant », thème clair plus lisible ; traduite dans les 10
+  langues, libellés cités tels qu'ils sont traduits (i18n-quotes). Mesure des 10 langues à 1920, 1366 et 1280 px
+  (pire cas de « Quoi de neuf » et nouvelle carte d'élite du Bestiaire compris) : aucun défilement ni mot coupé ;
+  autotest 178/178.
 - 2026-11-12 (it. 885) : un 6e affixe d'élite, « Épineux » : il renvoie au héros 15 % des dégâts qu'il reçoit
   (seulement ce qu'il encaisse vraiment, pas l'excédent du coup fatal), sans jamais l'achever, comme le Miroir des
   boss (nombre affiché au-dessus du héros). Les héros à gros coups paient leur force, les tanks et le vol de vie s'en

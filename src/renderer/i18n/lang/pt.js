@@ -1251,4 +1251,8 @@ export default {
   2376: "Todo monstro é de elite!",
   2377: "As missões avançam sozinhas, mesmo offline (exceto chefes, eventos raros e feitiços). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, eventos raros e feitiços). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
   2378: "Devolve ao herói 15 % do dano que recebe, sem nunca finalizá-lo.",
+  2379: "Novos desafios: o «Cuspe venenoso» de alguns chefes (o «Talismã da pureza» o repele) e a elite «Espinhoso», que devolve parte do dano recebido.",
+  2380: "Novo evento raro, a «Lua de sangue»: durante 30 s, todo monstro é de elite (saque garantido).",
+  2381: "Enquanto você está ausente, elites, caçadas, saque raro e golpes críticos também fazem as missões avançarem.",
+  2382: "O «Grande intendente» cuida dos mascotes mesmo durante um longo combate contra chefe; «O que fazer agora» aponta os mascotes livres; tema claro mais legível.",
 };

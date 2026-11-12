@@ -1251,4 +1251,8 @@ export default {
   2376: "Every monster is an elite!",
   2377: "Quests progress on their own, even offline (except bosses, rare events and spells). {n} quest completed in total. {3} % of quests have 3 stars and a rare reward.|Quests progress on their own, even offline (except bosses, rare events and spells). {n} quests completed in total. {3} % of quests have 3 stars and a rare reward.",
   2378: "Reflects 15% of the damage it takes back to the hero, without ever finishing them off.",
+  2379: "New challenges: the “Venomous Spit” of some bosses (the “Talisman of Purity” repels it) and the “Thorny” elite, which reflects part of the damage it takes.",
+  2380: "New rare event, the “Blood Moon”: for 30 s, every monster is an elite (guaranteed loot).",
+  2381: "While you are away, elites, hunts, rare loot and critical hits also advance quests.",
+  2382: "The “Grand Steward” looks after pets even during a long boss fight; “Things to do now” points out idle pets; the light theme is easier to read.",
 };
