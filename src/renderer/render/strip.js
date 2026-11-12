@@ -209,8 +209,10 @@ export class StripRenderer {
         const n = el("div", "spellfx slash pierce", this.fxLayer); n.style.setProperty("--c", c); el("i", "", n); this.addFx(n, hx, 48, fly, 0, Math.max(10, tx0 - hx));
         setTimeout(() => {
           if (!this.active) return;
-          if (this.juice.full) { const r = el("div", "spellfx ring", this.fxLayer); r.style.setProperty("--c", c); el("i", "", r); this.addFx(r, tx0 - 8, this.ground - 26, 0.5, 0); this.juice.sparkles(tx0, this.ground - 26, c, 5); }
-          if (this.game.S.settings.damageNumbers !== false) this.float(tx0, 30, "-" + fmt(Math.round(dmg)) + " · " + tx("transpercé"), "#bfefff", true, true);
+          // (it. 996) chaîne de perçage : anneau, étincelles et mot « transpercé » sur le premier monstre seulement, un simple
+          // nombre plus discret sur les suivants (en fin de partie, « −3 M · transpercé » couvrait toute la file)
+          if (this.juice.full && k === 1) { const r = el("div", "spellfx ring", this.fxLayer); r.style.setProperty("--c", c); el("i", "", r); this.addFx(r, tx0 - 8, this.ground - 26, 0.5, 0); this.juice.sparkles(tx0, this.ground - 26, c, 5); }
+          if (this.game.S.settings.damageNumbers !== false) this.float(tx0, 30, "-" + fmt(Math.round(dmg)) + (k === 1 ? " · " + tx("transpercé") : ""), "#bfefff", k === 1, true);
           const a = this.slots[slot]; if (a && a.bar) { a.bar.visible(true); a.bar.set(this.game.slotHealth(slot)); }
         }, fly * 1000);
       }, delay);
