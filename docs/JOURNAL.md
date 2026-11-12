@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 911, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses assassin
+  39 → 62, berserker 47 → 62, rôdeur 38 → 62, sans saut ni plafond. Performance (copie neuve) : bande 19,7 %,
+  panneau 21,2 %, mini 7,1 %, icône 0,5 % d'un cœur. Captures en français, anglais et russe (Aventure, Quêtes,
+  Ascension, Carte, mode mini) : ni débordement ni texte coupé ; l'interface russe extraite ne contient aucun mot
+  latin suspect.
 - 2026-11-12 (it. 910) : une astuce pour la première Nuée d'étoiles, sans Filet à étoiles : « clique sur les étoiles
   filantes qui passent (ou touche F, panneau ouvert) : +2 % de vitesse pour toujours chacune ! ». Elle passe avant
   les autres astuces (l'événement ne dure que 30 s) et fait découvrir la touche F (it. 900). Tour de « À faire »
