@@ -576,7 +576,10 @@ export class Juice {
     const ctx = cv.ctx;
     ctx.clearRect(0, 0, W, G + 4);
     ctx.globalAlpha = k.ring || k.tall ? 0.6 : 0.9;
+    // (it. 874) rien sur les pastilles d'informations : une particule qui les touche n'est pas dessinée
+    const hud = this.s.hudBands ? this.s.hudBands() : null, onHud = (p) => hud && p.y < hud.h && hud.bands.some(([a, b]) => p.x + 6 > a && p.x < b);
     for (const p of this.wx) {
+      if (onHud(p)) continue;
       ctx.fillStyle = p.c;
       if (k.ring) { ctx.fillRect(p.x + 1, p.y, 4, 1); ctx.fillRect(p.x + 1, p.y + 5, 4, 1); ctx.fillRect(p.x, p.y + 1, 1, 4); ctx.fillRect(p.x + 5, p.y + 1, 1, 4); }
       else if (k.tall) ctx.fillRect(p.x, p.y, 2, 6);

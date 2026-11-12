@@ -881,6 +881,17 @@ export class StripRenderer {
     if (recTxt) drawText(ctx, recTxt, px + 20, 17, recCol);
   }
 
+  /** (it. 874) Bandes horizontales [début, fin] occupées par les pastilles d'informations (hauteur HUD_H, en haut) :
+   *  la météo (bulles, flocons, feuilles…) n'y est pas dessinée, elle passait par-dessus « Zone 55 · Récif… ». */
+  hudBands() {
+    const H = HUD_H + 2;
+    if (this.centerHud && this.hudSpan) return { h: H, bands: [this.hudSpan] };
+    const bands = [];
+    if (this.hudLRight) bands.push([0, this.hudLRight + 2]);
+    if (this.hudRLeft) bands.push([this.hudRLeft - 2, this.W]);
+    return { h: H, bands };
+  }
+
   /** Mode centré : boutons après la pastille or / niveau ; languette cliquable sur les deux pastilles. */
   placeTab() {
     const L = (this.hudLX || 0) + 3, Rr = this.hudRRight || this.W / 2;

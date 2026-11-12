@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 874) : bande : la météo des zones (bulles, flocons, feuilles, cendres, pluie…) passait par-dessus les
+  pastilles d'informations et brouillait « Zone 55 · Récif abyssal » ou l'or et le niveau. Elle n'y est plus dessinée
+  (les particules qui touchent une pastille sont sautées au dessin, aucun coût en plus), en mode bord comme au milieu.
+  Contrôle d'autotest (il échoue sans le correctif : 3654 pixels sur la pastille de zone ; 176/176), vu en capture à
+  1366 et 1920 px.
 - 2026-11-12 (it. 873) : sauvegardes abîmées : deux réglages n'étaient pas contrôlés au chargement. Un volume
   illisible (texte, null) s'affichait « NaN % » dans Réglages > Son et une taille de panneau aberrante (50) agrandissait
   le panneau d'autant : volume ramené entre 0 et 100 % (40 % par défaut), taille hors 100-130 % oubliée. save-fuzz
@@ -3023,6 +3028,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Vu it. 874 : la météo passe encore sur le nom du boss (« Abyssal Carapace the Awakened », étiquette DOM au-dessus de
+  lui) ; l'éviter demanderait sa position (mesurée une fois par série de monstres, comme placeBossName) : à faire si gênant.
 
 - FAIT (it. 872) P3 Vu it. 870 : lang-overflow, polonais à 1280 px, « adventure-tuile=1 » une fois sur quatre passages (sans lien avec le
   changement : dépend d'une valeur du combat du moment, comme celle de l'it. 864) : trouver quelle tuile de l'Aventure se

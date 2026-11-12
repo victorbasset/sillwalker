@@ -1011,6 +1011,20 @@ async function runSelfTest(strip) {
   // (it. 761) accessibilité : chaque bouton visible des 12 onglets a un nom (texte, aria-label ou title) pour les lecteurs d'écran
   const noName = await js("(() => { const P = window.__panel, cur = P.tab, out = []; for (const t of ['adventure','talents','skills','quests','shop','pets','class','ascension','bestiary','stats','map','settings']) { try { P.setTab(t); P.renderAll(); } catch (e) { continue; } document.querySelectorAll('#panel button').forEach((b) => { if (!b.offsetParent) return; const n = (b.getAttribute('aria-label') || b.title || b.textContent || '').trim(); const lb = b.getAttribute('aria-labelledby'); if (!n && !lb) out.push(t + ':' + (b.dataset.action || b.className || b.outerHTML.slice(0, 40))); }); } P.setTab(cur); P.renderAll(); return out.slice(0, 10).join(' | ') || 'ok'; })()");
   check("accessibilité : tous les boutons ont un nom (12 onglets)", noName === "ok", noName);
+  // (it. 874) Météo (bulles, flocons…) : plus dessinée sur les pastilles « Zone · nom » et « or · niveau » de la bande.
+  {
+    const wxr = await js(`(() => { const st = window.__strip, J = st.juice, G = window.__game; if (!st.active) return 'bande inactive';
+      const fe = G.S.settings.fullEffects, we = G.S.settings.weather; G.S.settings.fullEffects = true; G.S.settings.weather = true;
+      G.zoneDef = () => ({ src: 'Cité engloutie', name: 'Cité engloutie' });
+      try { J.weather(0); if (J.wxKind !== 'bubble') return 'météo absente ' + J.wxKind; J.wx.length = 0;
+        for (let x = 0; x < st.W; x += 5) for (const y of [2, 9, 16, 40]) J.wx.push({ c: '#ffffff', x0: x, y0: y, sp: 0, ph: 0, t: 0 });
+        J.wxClock = 1; J.wxKey = ''; J.weather(1e-6);
+        const d = st.cssDpr || 1, ctx = J.wxc.ctx, ink = (x0, x1, y0, y1) => { if (x1 - x0 < 1) return -1; const im = ctx.getImageData(Math.round(x0 * d), Math.round(y0 * d), Math.round((x1 - x0) * d), Math.round((y1 - y0) * d)).data; let n = 0; for (let i = 3; i < im.length; i += 4) if (im[i]) n++; return n; };
+        const L0 = (st.centerHud ? st.hudLX || 0 : 0) + 3, L1 = (st.centerHud ? st.hudLX || 0 : 0) + st.hudLRight, R0 = st.hudRLeft;
+        return [ink(L0, L1, 0, 24), ink(R0, Math.min(st.W, R0 + 60), 0, 24), ink(0, st.W, 36, 48) > 0].join(' ');
+      } finally { delete G.zoneDef; G.S.settings.fullEffects = fe; G.S.settings.weather = we; J.clearWeather(); J.wxKind = null; } })()`);
+    check("bande : la météo ne passe pas sur les pastilles d'informations", wxr === "0 0 true", wxr);
+  }
   const noNameStrip = await js("(() => [...document.querySelectorAll('button, [role=button]')].filter((b) => !b.closest('#panel') && b.offsetParent && !(b.getAttribute('aria-label') || b.title || b.textContent || '').trim()).map((b) => b.id || b.className).slice(0, 10).join(' | ') || 'ok')()");
   check("accessibilité : boutons de la bande nommés", noNameStrip === "ok", noNameStrip);
   // (it. 723, demande V) feux follets des pétales : le héros est entre eux (z-index 1 derrière, 3 devant)
