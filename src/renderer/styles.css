@@ -640,6 +640,11 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 .ctile img { height: 52px; image-rendering: pixelated; margin-bottom: 2px; }
 /* (it. 539) mots longs (« Eisenbeschlagene ») : coupés avec un trait d'union plutôt que de sortir de la carte */
 .ctile, .mcard { hyphens: auto; overflow-wrap: anywhere; min-width: 0; }
+/* (it. 852) lignes équilibrées : en japonais / chinois (sans espaces), « ポーショ / ン » ou « バッグが満 / 杯 »
+   laissaient un caractère seul sur la deuxième ligne */
+.ctile, .mcard { text-wrap: balance; }
+/* japonais : coupure entre groupes de mots (BudouX de Chromium), pas au milieu de « アンコモン » */
+:lang(ja) .ctile, :lang(ja) .mcard { word-break: auto-phrase; }
 .ctile.chesttile img { height: 58px; }
 .ctile .nm { font-size: 13px; line-height: 1.15; }
 .ctile .eff { font-size: 12px; color: var(--good); }

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 852) : Boutique en japonais : les tuiles étroites laissaient un caractère seul sur la deuxième
+  ligne (« 俊足のポーショ / ン », « ペットのタマ / ゴ », « バッグが満 / 杯 », « アンコモン 以 / 上 »). Lignes équilibrées
+  (text-wrap: balance) dans les tuiles et cartes du marchand, et en japonais coupure entre groupes de mots
+  (word-break: auto-phrase) : « 俊足の / ポーション », « バッグが / 満杯 ». Allemand et français inchangés (vus en
+  capture à 1366 px). Contrôle d'autotest (163/163 ; il échoue sans le correctif).
 - 2026-11-12 (it. 851) : revue générale (contre 9c41c17, it. 841) : équilibrage 12 h +0,0 (61,9) ; npm test 203/203 ;
   bande 19,1 %, panneau 20,1 %, mini 6,3 %, icône 0,4 % ; captures fr / en / ja (Aventure, Héros, Talents, Boutique,
   Ascension, Familiers, mini) ; texte russe sans mot latin suspect. Corrigé : Familiers, le choix sélectionné du Grand
@@ -2890,7 +2895,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Revue it. 851 : (a) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
+- P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
   au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) nombres flottants
   de la bande face à un boss : encore vus sur sa couronne et sur la fin de son nom en montant (it. 846) ;
   (c) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) sauvegarde de dev au niveau 1313 :
