@@ -498,12 +498,13 @@ export class Panel {
     const best = bi ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${bi.r}">${esc(itemName(bi))}</b></li>${this.game.isUpgrade(bi) ? `<li class="row"><button class="primary" data-action="reveal-equip" data-id="${bi.id}">${tx("Équiper maintenant")}</button></li>` : ""}`
       : worn ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${worn.r}">${esc(tx("{0} (équipé)", { 0: itemName(worn) }))}</b></li>` // déjà porté (Valet d'armes)
       : sum.best >= 0 ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${sum.best}">${RARITIES[sum.best].name}</b></li>` : "";
+    // (it. 969) « Or gagné » : le même total que la bulle (combats + expéditions du Grand intendant, it. 968)
     $(this.root, "#mbody").innerHTML =
       `<p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone), 1: esc(sum.duration) })}</p>
       <ul class="lines">
         <li><span>${tx("Monstres vaincus")}</span><b>${fmt(sum.kills)}</b></li>
         ${sum.elites ? `<li><span>${tx("Élites vaincues")}</span><b>${fmt(sum.elites)}</b></li>` : ""}
-        <li><span>${tx("Or gagné")}</span><b>+${fmt(sum.gold)}</b></li>
+        <li><span>${tx("Or gagné")}</span><b>+${fmt(sum.gold + (sum.petGold || 0))}</b></li>
         <li><span>${tx("Expérience")}</span><b>+${fmt(sum.xp)}</b></li>
         ${sum.newLevel ? `<li><span>${tx("Nouveau niveau")}</span><b>${sum.newLevel}</b></li>` : ""}
         ${(sum.steps || []).map((e) => journeyText(e)).filter(Boolean).map((t) => `<li class="step"><span>✦ ${esc(t)}</span></li>`).join("")}
@@ -516,7 +517,7 @@ export class Panel {
         ${sum.herbs ? `<li><span>${tx("Herboriste perpétuel")}</span><b>${txn(sum.herbs, "{n} élixir racheté|{n} élixirs rachetés")}</b></li>` : ""}
         ${sum.traded ? `<li><span>${tx("Marchand attitré")}</span><b>${txn(sum.traded, "{n} objet acheté|{n} objets achetés")}</b></li>` : ""}
         ${sum.transmuted ? `<li><span>${tx("Creuset perpétuel")}</span><b>${txn(sum.transmuted, "{n} objet transmuté|{n} objets transmutés")}</b></li>` : ""}
-        ${sum.petWork ? `<li><span>${tx("Grand intendant")}</span><b>${txn(sum.petWork, "{n} tâche de familier|{n} tâches de familiers")}</b></li>` : ""}
+        ${sum.petWork ? `<li><span>${tx("Grand intendant")}</span><b>${txn(sum.petWork, "{n} tâche de familier|{n} tâches de familiers")}${sum.petGold ? " · +" + tx("{0} or", { 0: fmt(sum.petGold) }) : ""}</b></li>` : ""}
       </ul>
       ${this.todoHtml()}
       <p class="note">${sum.capped

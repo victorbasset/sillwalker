@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 969) : suite de l'it. 968 : le détail du retour (« Pendant ton absence », un clic sur la bulle)
+  affichait encore « Or gagné » sans l'or des expéditions (6,91 Md contre 18,49 dans la bulle) : même total maintenant,
+  et la ligne du Grand intendant précise « 14 tâches de familiers · +11,59 Md or ». Contrôle d'autotest (résumé
+  fictif) ; 200/200.
 - 2026-11-12 (it. 968) : joueur absent : simulation IDLE=1 12 h inchangée (guerrier 15 à 9 h, 16 à 12 h). Retour
   après 8 h (copie, « last » reculé) : la bulle disait « +6,91 Md or » alors que l'or avait gagné ≈ 19 Md : l'or des
   expéditions récupérées au retour par le Grand intendant (11,59 Md, la plus grosse part) n'y entrait pas. Il compte
