@@ -1640,6 +1640,15 @@ test("événement rare : bilan dans le journal à la fin (it. 894)", () => {
   assert.equal(g2.eventReport("wind"), null, "un seul bilan");
 });
 
+test("sauvegarde : bossDefeats et unlocks abîmés (un nombre) ne font plus planter (it. 902)", () => {
+  const raw = JSON.parse(JSON.stringify(new Game(freshState()).S)); raw.v = SAVE_VERSION; raw.bossDefeats = -1; raw.unlocks = -1;
+  const S = migrate(raw);
+  assert.ok(S && typeof S.bossDefeats === "object" && typeof S.unlocks === "object");
+  const g = new Game(S); g.S.zone = 10; g.R.mon = g.makeMonster(true);
+  g.heroDown();
+  assert.equal(g.S.bossDefeats[10], 1);
+});
+
 test("quête « Trouver N coffres au trésor » : chaque coffre compte, en jeu et pendant l'absence (it. 889)", () => {
   const g = new Game(freshState()); g.S.zone = 10;
   g.S.quests.slots = [{ uid: 1, kind: "chest", goal: 1000, progress: 0, stars: 1, reward: { gold: 10 } }];

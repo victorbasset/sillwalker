@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 902) : sauvegardes abîmées, deux plantages évités. Avec un compteur de défaites des boss illisible
+  (un nombre au lieu d'une liste), la mort du héros face à un boss plantait le jeu ; avec une liste des déblocages
+  illisible, l'achat d'un déblocage aurait planté aussi (vu par save-fuzz, une fois sur deux : le cas dépend du
+  combat). Les deux sont remis à zéro au chargement s'ils sont illisibles, comme les autres données. Test logique ;
+  save-fuzz relancé deux fois (910 corruptions, toutes « ok ») ; autotest 182/182 ; note dans CLAUDE.md (relancer
+  save-fuzz plusieurs fois).
 - 2026-11-12 (it. 901, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses moine
   41 → 64, samouraï 40 → 62, nécromancien 38 → 60, sans saut ni plafond. Performance (copie neuve) : bande 19,8 %,
   panneau 20,8 %, mini 7,2 %, icône 0,6 % d'un cœur. Captures en français, anglais et chinois (Aventure, Talents,

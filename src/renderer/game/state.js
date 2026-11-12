@@ -156,7 +156,9 @@ export function migrate(raw) {
   // Duo : compagnon inconnu, pas encore libéré ou de même portée que le héros : retiré.
   if (s.partner != null && !canPartner(s, s.cls, s.partner)) s.partner = null;
   if (s.nextPartner != null && !CLASSES[s.nextPartner]) s.nextPartner = null;
-  for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop"]) if (!isObj(s[k])) s[k] = {};
+  // (it. 902) + bossDefeats et unlocks : abîmés (un nombre), la mort du héros face à un boss ou l'achat d'un déblocage
+  // plantait (« Cannot create property '55' on number », vu par save-fuzz une fois sur deux)
+  for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop", "bossDefeats", "unlocks"]) if (!isObj(s[k])) s[k] = {};
   // Talents par classe ({ classe: { talent: rang } }) : entrées illisibles retirées (elles faisaient échouer le démarrage).
   for (const c of Object.keys(s.talents)) {
     if (!isObj(s.talents[c])) { delete s.talents[c]; continue; }

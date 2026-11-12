@@ -58,7 +58,8 @@ export const nextUnlock = (S) => UNLOCKS.find((u) => !hasUnlock(S, u.id)) || nul
  * (rien ne doit cesser de marcher), le reste s'achète.
  */
 export function grandfatherUnlocks(S) {
-  const u = (S.unlocks ||= {});
+  if (!S.unlocks || typeof S.unlocks !== "object" || Array.isArray(S.unlocks)) S.unlocks = {}; // abîmé (it. 902)
+  const u = S.unlocks;
   const st = S.stats || {};
   if ((st.kills || 0) > 0) u.bulkEquip = true;
   if (S.pets && Object.keys(S.pets.owned || {}).length) u.menagerie = true;
