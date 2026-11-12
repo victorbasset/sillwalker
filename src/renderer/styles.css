@@ -653,6 +653,9 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 /* (it. 861) même chose pour les boutons étroits (cartes des héros : « 昇天後にプレ / イ », « デュオに加え / る ») */
 :lang(ja) button, :lang(zh) button, :lang(ko) button { text-wrap: balance; }
 :lang(ja) button { word-break: auto-phrase; }
+/* (it. 866) coréen : les mots (séparés par des espaces) ne se coupent plus entre deux syllabes (« 가장자리 / 에는 ») ;
+   un mot trop long pour sa case se coupe encore (overflow-wrap des tuiles) plutôt que de déborder */
+:root:lang(ko) { word-break: keep-all; }
 .ctile.chesttile img { height: 58px; }
 .ctile .nm { font-size: 13px; line-height: 1.15; }
 .ctile .eff { font-size: 12px; color: var(--good); }

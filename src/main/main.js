@@ -190,12 +190,12 @@ function start() {
             // (it. 864) tuiles du héros (Points de vie, Attaque…) : libellé ou valeur coupé (« Punkty ży… »)
             let tl = 0; for (const e of document.querySelectorAll("[data-pane=" + id + "]:not([hidden]) .tile > span, [data-pane=" + id + "]:not([hidden]) .tile > b")) if (e.getClientRects().length && e.scrollWidth > e.clientWidth + 1) tl++; if (tl) out.push(id + "-tuile=" + tl);
             // (it. 865) mot coupé en plein milieu sur deux lignes, sans trait d'union (« Восстанавлив / ает ») ; les écritures
-            // sans espaces (chinois, japonais) se coupent normalement entre deux caractères, le coréen entre deux syllabes
-            // (règle par défaut du navigateur, courante en coréen) : ignorées
+            // sans espaces (chinois, japonais) se coupent normalement entre deux caractères : ignorées ; le coréen
+            // (it. 866 : word-break keep-all, mots entiers) est contrôlé comme les autres
             const cut = new Set(), pane = document.querySelector("[data-pane=" + id + "]:not([hidden])");
             if (pane) { const tw = document.createTreeWalker(pane, NodeFilter.SHOW_TEXT), rg = document.createRange();
               for (let n; (n = tw.nextNode());) { if (!n.parentElement.getClientRects().length) continue;
-                for (const m of n.data.matchAll(/[\\p{L}\\p{M}]{4,}/gu)) { if (/[\\p{Script=Han}\\p{Script=Hiragana}\\p{Script=Katakana}\\p{Script=Hangul}]/u.test(m[0])) continue;
+                for (const m of n.data.matchAll(/[\\p{L}\\p{M}]{4,}/gu)) { if (/[\\p{Script=Han}\\p{Script=Hiragana}\\p{Script=Katakana}]/u.test(m[0])) continue;
                   rg.setStart(n, m.index); rg.setEnd(n, m.index + m[0].length); const rs = [...rg.getClientRects()].filter((x) => x.width > 0);
                   if (rs.length > 1 && Math.abs(rs[rs.length - 1].top - rs[0].top) > 2) cut.add(m[0]); } } }
             if (cut.size) out.push(id + "-coupé=" + [...cut].slice(0, 4).join("/")); }

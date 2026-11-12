@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 866) : coréen : les mots se coupaient entre deux syllabes en fin de ligne (« 가장자리 / 에는 »,
+  « 데려가기 », « 처음부터 » : Aventure, Compétences, Héros, Talents, Réglages), comme si le coréen s'écrivait sans
+  espaces. Ils restent maintenant entiers (un mot trop long pour sa case se coupe encore plutôt que de déborder).
+  lang-overflow contrôle désormais le coréen comme les langues à alphabet : avant, 4 à 5 onglets en défaut à chaque
+  largeur ; après, aucun mot coupé ni défilement à 1920 / 1366 / 1280 px. Vu en capture (Aventure, Héros, 1280 px). 174/174.
 - 2026-11-12 (it. 865) : Boutique en russe et en allemand : quatre noms ou effets trop longs pour leur tuile se coupaient
   en plein mot, sans trait d'union (« Восстанавлив / ает 50% ОЗ », « Четырёхлистный », « Королевский », « Eisenbeschlage /
   ne Truhe »). Traductions plus courtes et naturelles : « Лечит 50% ОЗ », « Клевер удачи », « Царский сундук »,
@@ -2970,7 +2975,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Coréen (vu it. 865) : les mots se coupent entre deux syllabes (« 가장자리 / 에는 », Aventure, Héros, Réglages), règle
+- FAIT (it. 866) P3 Coréen (vu it. 865) : les mots se coupent entre deux syllabes (« 가장자리 / 에는 », Aventure, Héros, Réglages), règle
   par défaut du navigateur ; `word-break: keep-all` en coréen serait plus soigné, mais à mesurer (débordements à 1280 px).
 - FAIT (it. 865) P3 Vu it. 864 : russe, Boutique à 1280 px, « Восстанавлив / ает » (potion de soin) coupé en plein mot sans trait
   d'union (overflow-wrap: anywhere ; Chromium n'a pas de césure russe sous Linux) : petite taille de texte ou mot à part ?
