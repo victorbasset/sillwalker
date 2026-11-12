@@ -1280,4 +1280,5 @@ export default {
   2405: "Niebo zmienia się z wydarzeniami: czerwone podczas „Krwawy księżyc”, gwiaździste podczas „Rój gwiazd” (pasek i tryb mini).",
   2406: "„Bestiariusz”: nowa podkarta „Rzadkie zdarzenia” – te już widziane i te jeszcze do odkrycia.",
   2407: "„Statystyki”: kliknięcie w „Rzadkie zdarzenia” prowadzi prosto tam.",
+  2408: "Jutro: {0}",
 };

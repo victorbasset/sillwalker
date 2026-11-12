@@ -932,6 +932,9 @@ async function runSelfTest(strip) {
   // (it. 922) Statistiques : un clic sur « Événements rares (n / 13) » ouvre Bestiaire > Événements rares.
   const evl = await js("(() => { const P = window.__panel, S = window.__game.S, kt = P.tab, ks = P.tabs.bestiary.sec; S.stats.events = Math.max(1, S.stats.events || 0); P.tabs.stats.sec = 'numbers'; P.setTab('stats'); P.renderAll(); const b = document.querySelector('[data-pane=stats]:not([hidden]) button[data-sec=events]'); if (!b) return 'pas de lien'; b.click(); const r = P.tab + ' ' + P.tabs.bestiary.sec; P.tabs.bestiary.sec = ks; P.setTab(kt); P.renderAll(); return r; })()");
   check("Statistiques : « Événements rares » mène au Bestiaire", evl === "bestiary events", evl);
+  // (it. 924) Bénédiction du jour : la bulle annonce aussi celle de demain.
+  const dmTip = await js("(() => { const P = window.__panel; P.setTab('adventure'); P.renderAll(); const c = document.querySelector('#p-hero .chip.daymod'); return c ? (c.title || c.dataset.title || '') : 'pas de pastille'; })()");
+  check("bénédiction du jour : celle de demain dans la bulle", dmTip.split("\n").length >= 3, JSON.stringify(dmTip));
   // (it. 900) Touche F : attrape l'étoile filante qui passe ; rien sans étoile.
   const keyF = await js("(() => { const G = window.__game, R = G.R, keep = R.star, n0 = G.S.stats.stars || 0; R.star = null; const a = window.__panel.onKey({ key: 'f', target: document.body }); R.star = { t: 10, life: 12 }; const b = window.__panel.onKey({ key: 'f', target: document.body }); const ok = !R.star && (G.S.stats.stars || 0) === n0 + 1; R.star = keep; return a + ' ' + b + ' ' + ok; })()");
   check("touche F : attrape l’étoile filante, rien sans étoile", keyF === "false true true", keyF);

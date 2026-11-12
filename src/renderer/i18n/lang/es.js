@@ -1280,4 +1280,5 @@ export default {
   2405: "El cielo cambia con los eventos: rojo bajo la «Luna de sangre», estrellado durante el «Enjambre de estrellas» (franja y modo mini).",
   2406: "«Bestiario»: nueva subpestaña «Eventos raros», con los ya vistos y los que quedan por descubrir.",
   2407: "«Estadísticas»: un clic en «Eventos raros» te lleva directamente.",
+  2408: "Mañana: {0}",
 };

@@ -1280,4 +1280,5 @@ export default {
   2405: "The sky changes with events: red under the “Blood Moon”, starry during the “Star Swarm” (strip and mini mode).",
   2406: "“Bestiary”: new “Rare events” sub-tab, with the ones you have seen and those still to discover.",
   2407: "“Statistics”: one click on “Rare events” takes you straight there.",
+  2408: "Tomorrow: {0}",
 };

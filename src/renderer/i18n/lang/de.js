@@ -1280,4 +1280,5 @@ export default {
   2405: "Der Himmel ändert sich mit den Ereignissen: rot beim „Blutmond“, voller Sterne beim „Sternenschwarm“ (Leiste und Mini-Modus).",
   2406: "„Bestiarium“: neuer Reiter „Seltene Ereignisse“, mit den schon gesehenen und den noch unbekannten.",
   2407: "„Statistiken“: ein Klick auf „Seltene Ereignisse“ führt direkt dorthin.",
+  2408: "Morgen: {0}",
 };

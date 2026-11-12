@@ -1280,4 +1280,5 @@ export default {
   2405: "O céu muda com os eventos: vermelho sob a «Lua de sangue», estrelado durante a «Revoada de estrelas» (faixa e modo mini).",
   2406: "«Bestiário»: nova subaba «Eventos raros», com os já vistos e os que ainda faltam descobrir.",
   2407: "«Estatísticas»: um clique em «Eventos raros» leva direto até lá.",
+  2408: "Amanhã: {0}",
 };

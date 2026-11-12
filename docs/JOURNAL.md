@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 924) : la bulle de la bénédiction du jour (carte du héros) annonce aussi celle de demain (« Demain :
+  🍃 Jour du vent · +20 % de vitesse de déplacement. ») : elle est tirée de la date, donc connue d'avance ; de quoi
+  prévoir un retour (Jour des trésors, Grande chasse…). Traduit dans les 10 langues ; contrôle d'autotest (190/190).
 - 2026-11-12 (it. 923) : « Quoi de neuf », édition 37 : ciels de la Lune de sang et de la Nuée d'étoiles (bande et
   mode mini), sous-onglet Bestiaire > Événements rares et son lien depuis les Statistiques. Traduite dans les 10
   langues, libellés cités vérifiés ; mesure des 10 langues : aucun défilement ni mot coupé ; autotest 189/189.

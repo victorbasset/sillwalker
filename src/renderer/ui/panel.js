@@ -35,7 +35,7 @@ import { POWER_INDEX } from "../game/powers.js";
 import { describeEffects } from "../game/talents.js";
 import { SETS, setCounts } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
-import { activeDayMod } from "../game/daymods.js";
+import { activeDayMod, dayModFor, DAY_MODS } from "../game/daymods.js";
 import { BOSS_MECHANICS, bossMechanics, bossName, bossWear, PURE_PARRIES } from "../game/bosses.js";
 import { lockLink } from "./locks.js";
 import { tabOpen, TAB_GATES } from "../game/tabs.js";
@@ -748,7 +748,9 @@ export class Panel {
     const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).map((id) => { const r = RELICS[id];
       return `<span class="chip relic" title="${esc(`${tx(r.name)}${colon()}${tx(r.effect)}\n${relicLevelText(S, id)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}">${relicLevel(S, id) > 1 ? `<sup>${relicLevel(S, id)}</sup>` : ""}</span>`; }).join("");
     // (it. 888) l'effet se lit sans survol (le nom passe dans la bulle) : à 1280 px, « nom · effet » sortait de la carte
-    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.name}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
+    // (it. 924) la bénédiction de demain, connue d'avance (tirée de la date) : une raison de revenir
+    const tm = new Date(Date.now() + 864e5), dmNext = DAY_MODS[dayModFor(`${tm.getFullYear()}-${String(tm.getMonth() + 1).padStart(2, "0")}-${String(tm.getDate()).padStart(2, "0")}`)];
+    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.name}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);
