@@ -6,6 +6,22 @@ const ROOT = new URL("..", import.meta.url).pathname;
 const R = ROOT + "src/renderer/game/";
 const { migrate, freshState } = await import(R + "state.js");
 const { Game } = await import(R + "game.js");
+const { KILLS_PER_ZONE } = await import(R + "data.js");
+const { nextUnlock } = await import(R + "unlocks.js");
+/**
+ * (it. 903) Moments à risque joués à coup sûr pour chaque corruption : avant, seul le hasard du combat les amenait
+ * (la mort face à un boss avec bossDefeats abîmé ne plantait qu'une fois sur deux, it. 902).
+ */
+function exercise(g) {
+  const S = g.S, R = g.R;
+  R.mon = g.makeMonster(true); g.heroDown();                                    // mort face à un boss
+  R.mode = "walk"; R.mon = g.makeMonster(true); R.mon.hp = 0; S.kills = KILLS_PER_ZONE; g.killMonster(); // boss vaincu
+  g.startEvent("bloodmoon"); g.tickEvents(31);                                  // événement rare et son bilan
+  g.openChest(); R.star = { t: 5, life: 12 }; g.catchStar();                    // coffre, étoile filante
+  S.gold = 1e30; const u = nextUnlock(S); if (u) g.buyUnlock(u.id);             // achat d'un déblocage
+  for (const q of [...(S.quests.slots || [])]) if (q) g.claimQuest(q.uid);      // quêtes réclamées
+  g.visitSummary(g.visitSnapshot(0));
+}
 const base = JSON.parse(fs.readFileSync(ROOT + "dev-data/save.json", "utf8"));
 const cases = {
   questsNull: (o) => { o.quests.slots = [null, { kind: "kill" }]; },
@@ -56,6 +72,7 @@ function check(f, steps) {
   try {
     const s = migrate(o); const g = new Game(s);
     for (let i = 0; i < steps; i++) g.step(0.1);
+    exercise(g);
     g.todoNow(); g.uselessItems(); g.stats(); g.autoEquip(); g.applyOffline(3600);
     for (const m of ["hatchAll", "claimAllExpeditions", "autoSpendTalents", "autoSpendSkills"]) g[m]?.();
     const bad = ["gold", "xp", "lvl", "zone"].filter((k) => !Number.isFinite(g.S[k]));

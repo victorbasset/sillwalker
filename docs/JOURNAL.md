@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 903) : save-fuzz (sauvegardes abîmées) joue maintenant à coup sûr, pour chacune des 910
+  corruptions, les moments à risque : mort du héros face à un boss, boss vaincu, événement rare et son bilan, coffre,
+  étoile filante, achat d'un déblocage, quêtes réclamées. Avant, seul le hasard du combat les amenait : le plantage
+  de l'it. 902 n'apparaissait qu'une fois sur deux. Vérifié : sans le correctif de l'it. 902, le balayage échoue à
+  chaque passage (8 cas) ; avec, 910 « ok ». Note de CLAUDE.md mise à jour.
 - 2026-11-12 (it. 902) : sauvegardes abîmées, deux plantages évités. Avec un compteur de défaites des boss illisible
   (un nombre au lieu d'une liste), la mort du héros face à un boss plantait le jeu ; avec une liste des déblocages
   illisible, l'achat d'un déblocage aurait planté aussi (vu par save-fuzz, une fois sur deux : le cas dépend du
