@@ -820,6 +820,9 @@ svg.rebord { width: 100%; height: calc(var(--panel-h) - 160px); margin: 0 auto; 
 .bagdetail .detail-head img { width: 40px; height: 40px; }
 .bagdetail .verdict { margin: 4px 0; }
 .rebord .mz.go { cursor: pointer; } .rebord .mz.go:hover rect { stroke: #9fe0a8; stroke-width: 2; }
+/* (it. 853) zone sous le focus clavier : contour blanc épais (la carte est toujours sombre) */
+.rebord .mz:focus { outline: none; }
+.rebord .mz:focus-visible rect { stroke: #fff; stroke-width: 3; }
 /* Projectiles des héros de la demande 17 */
 .proj.bolt { width: 14px; height: 3px; background: linear-gradient(90deg, #7a5233 0 9px, #c9ced6 9px); box-shadow: 0 0 0 1px #14121f; }
 .proj.holy { width: 10px; height: 10px; border-radius: 50%; background: #fff6c8; box-shadow: 0 0 0 2px #ffd34d, 0 0 0 3px #14121f; translate: 0 -3px; }

@@ -807,6 +807,22 @@ async function runSelfTest(strip) {
   // Carte du voyageur (déblocage) : un clic sur une zone déjà atteinte y emmène le héros.
   const tv = await js("(() => { const g = window.__game, S = g.S, P = window.__panel; const z0 = S.zone, had = S.unlocks.travelMap; S.unlocks.travelMap = true; P.setTab('map'); P.renderAll(); const t = document.querySelector('svg.rebord .mz.go[data-z=\"' + Math.max(1, z0 - 2) + '\"]'); if (!t) return 'pas de zone cliquable'; t.dispatchEvent(new MouseEvent('click', { bubbles: true })); const r = S.zone === Math.max(1, z0 - 2); g.setZone(z0); if (!had) delete S.unlocks.travelMap; P.setTab('adventure'); return String(r); })()");
   check("carte du voyageur : clic sur une zone atteinte = voyage", tv === "true", tv);
+  // (it. 853) carte au clavier : un seul arrêt de tabulation (la zone actuelle), une flèche passe à la voisine dessinée,
+  // Entrée y emmène le héros (Carte du voyageur) et le focus reste sur la zone redessinée.
+  const mk0 = await js(`(() => { const S = window.__game.S, P = window.__panel; window.__mkKeep = { z: S.zone, had: S.unlocks.travelMap }; S.unlocks.travelMap = true; P.setTab('map'); P.renderAll();
+    const st = [...document.querySelectorAll('[data-pane="map"] svg.rebord [data-mz][tabindex="0"]')]; st[0]?.focus();
+    return { n: st.length, z: +st[0]?.dataset.mz, zone: S.zone, lab: !!st[0]?.getAttribute("aria-label") }; })()`);
+  wc.sendInputEvent({ type: "keyDown", keyCode: "Right" });
+  wc.sendInputEvent({ type: "keyUp", keyCode: "Right" });
+  await sleep(150);
+  const mk1 = await js(`(() => { const a = document.activeElement; return { z: +a?.dataset?.mz, tab: a?.getAttribute?.("tabindex"), stops: document.querySelectorAll('[data-pane="map"] svg.rebord [data-mz][tabindex="0"]').length }; })()`);
+  wc.sendInputEvent({ type: "keyDown", keyCode: "Enter" });
+  wc.sendInputEvent({ type: "keyUp", keyCode: "Enter" });
+  await sleep(250);
+  const mk2 = await js(`(() => { const g = window.__game, S = g.S, P = window.__panel, k = window.__mkKeep, r = { zone: S.zone, focus: +document.activeElement?.dataset?.mz };
+    g.setZone(k.z); if (!k.had) delete S.unlocks.travelMap; P.setTab('adventure'); return r; })()`);
+  check("carte au clavier : zone actuelle focalisable, flèche, Entrée = voyage, focus gardé", mk0.n === 1 && mk0.z === mk0.zone && mk0.lab
+    && Math.abs(mk1.z - mk0.z) === 1 && mk1.tab === "0" && mk1.stops === 1 && mk2.zone === mk1.z && mk2.focus === mk1.z, JSON.stringify({ mk0, mk1, mk2 }));
   // Ciel de nuit de la bande : il s'étoile avec l'histoire (plus de chroniques = plus d'étoiles ; victoire = plein).
   const sky = await js("(() => { const st = window.__strip, S = window.__game.S, keep = { b: S.best, w: S.story.won, pb: S.prestige.bestRun }; S.story.won = false; S.best = 1; S.prestige.bestRun = 1; const a = st.starShare(); S.best = 200; S.prestige.bestRun = 200; const b = st.starShare(); S.story.won = true; const c = st.starShare(); S.best = keep.b; S.story.won = keep.w; S.prestige.bestRun = keep.pb; return a < b && b < c ? 'ok' : [a, b, c].join(' '); })()");
   check("ciel de nuit : les étoiles suivent l'histoire", sky === "ok", sky);

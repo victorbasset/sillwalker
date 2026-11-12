@@ -1223,4 +1223,5 @@ export default {
   2347: "Mercader de confianza: {n} objeto comprado durante tu ausencia.|Mercader de confianza: {n} objetos comprados durante tu ausencia.", 2348: "{n} objeto comprado|{n} objetos comprados",
   2349: "Grimorio de hechizos: {n} rango aprendido durante tu ausencia.|Grimorio de hechizos: {n} rangos aprendidos durante tu ausencia.",
   2350: "Habilidades: ir al siguiente nodo, aprenderlo",
+  2351: "Mapa: recorrer las zonas alcanzadas, ir allí",
 };

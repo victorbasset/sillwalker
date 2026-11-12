@@ -1223,4 +1223,5 @@ export default {
   2347: "Leibhändler: {n} Gegenstand während deiner Abwesenheit gekauft.|Leibhändler: {n} Gegenstände während deiner Abwesenheit gekauft.", 2348: "{n} Gegenstand gekauft|{n} Gegenstände gekauft",
   2349: "Zaubergrimoire: {n} Rang während deiner Abwesenheit gelernt.|Zaubergrimoire: {n} Ränge während deiner Abwesenheit gelernt.",
   2350: "Fertigkeiten: zum nächsten Knoten, ihn erlernen",
+  2351: "Karte: erreichte Zonen durchgehen, dorthin reisen",
 };

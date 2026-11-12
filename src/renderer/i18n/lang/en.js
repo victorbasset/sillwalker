@@ -1223,4 +1223,5 @@ export default {
   2347: "Personal Merchant: {n} item bought while you were away.|Personal Merchant: {n} items bought while you were away.", 2348: "{n} item bought|{n} items bought",
   2349: "Spell Grimoire: {n} rank learned while you were away.|Spell Grimoire: {n} ranks learned while you were away.",
   2350: "Skills: go to the next node, learn it",
+  2351: "Map: browse the zones you reached, go there",
 };

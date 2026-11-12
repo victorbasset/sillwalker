@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 853) : la Carte du Rebord se joue au clavier : ses 200 zones ne se prenaient qu'à la souris. Un
+  seul arrêt de tabulation (la zone du héros) ; les flèches suivent le chemin tel qu'il est dessiné (← → dans la
+  rangée, ↑ ↓ vers la rangée voisine), Début / Fin vont à la première / dernière zone atteinte ; Entrée ou Espace y
+  emmène le héros avec la Carte du voyageur, et le focus reste sur la zone. Contour blanc au focus. Plus généralement,
+  un élément du panneau qui prend le focus au clavier montre maintenant sa bulle (sous lui), comme au survol. Ligne
+  ajoutée aux Raccourcis clavier (10 langues). Contrôle d'autotest (164/164). Vu en capture : les nombres flottants
+  face au boss (idée b de la revue 851) ne recouvrent plus son nom, seulement parfois le bord de sa couronne : laissé.
 - 2026-11-12 (it. 852) : Boutique en japonais : les tuiles étroites laissaient un caractère seul sur la deuxième
   ligne (« 俊足のポーショ / ン », « ペットのタマ / ゴ », « バッグが満 / 杯 », « アンコモン 以 / 上 »). Lignes équilibrées
   (text-wrap: balance) dans les tuiles et cartes du marchand, et en japonais coupure entre groupes de mots
@@ -2901,9 +2908,10 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   (c) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) sauvegarde de dev au niveau 1313 :
   « 1,54e105 » d'expérience à atteindre (écriture scientifique ; seulement avec un niveau irréaliste, à confirmer).
 
-- P3 Clavier (vu it. 850) : la Carte du voyageur (clic sur une zone de la carte pour y aller) et le petit « max » / « tout »
-  dans les boutons de Talents ne s'atteignent qu'à la souris ; même méthode que l'arbre de Compétences (tabindex sur
-  les zones accessibles, Entrée).
+- P1 Bande en allemand à 1920 px (vu it. 853, zone 55, boss) : « Abgrundpanzer der Erwachte · −10 % LP » passe sous
+  la pastille d'or (le nom s'étend vers la gauche depuis le boss, au bout de la bande) : le décaler / le couper avant.
+- P3 Clavier (vu it. 850) : FAIT pour la carte (it. 853). Reste le petit « max » / « tout » dans les boutons de
+  Talents, atteignable seulement à la souris.
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir ; 2026-11-11) :
   X. FAIT, ABANDONNÉ (it. 751-763). Essai Tauri (la bande seule, compilée pour Windows) mesuré par Victor : 400 Mo de

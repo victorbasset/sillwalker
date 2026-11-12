@@ -42,6 +42,9 @@ export class MapTab {
     // Carte du voyageur (déblocage) : un clic sur une zone déjà atteinte dans cette course y emmène le héros.
     const travel = hasUnlock(S, "travelMap");
     const rows = Math.floor((FINAL_ZONE - 1) / L) + 1, H = Y0 + (rows - 1) * ROW_H + 50;
+    // Clavier : zones atteintes (1 à min(record, 200)) ; la zone sous le focus est gardée d'un dessin à l'autre.
+    const navMax = Math.min(rec, FINAL_ZONE), act = el.contains(document.activeElement) ? +document.activeElement.dataset?.mz || 0 : 0;
+    const cursor = Math.max(1, Math.min(navMax, act || this.cursor || S.zone));
     const got = new Set(chroniclesUnlocked(S, recordZone(S)).map((c) => c.id));
     const parts = [];
     // Ciel : une étoile par chronique découverte (le ciel se rallume au fil de l'histoire).
@@ -58,7 +61,10 @@ export class MapTab {
       const { x, y } = mapPos(z), d = zoneDef(z), seen = z <= rec, near = !seen && z <= rec + 3;
       const go = travel && z <= S.best && z !== S.zone;
       const tip = (seen || near ? `${tx("Zone {0}", { 0: z })}${fsp()}: ${zoneName(z)}\n${tx("Boss :")} ${bossName(z)}` : `${tx("Zone {0}", { 0: z })}${fsp()}: ???`) + (go ? `\n${tx("Clic : y aller")}` : "");
-      parts.push(`<g class="mz${seen ? "" : near ? " near" : " fog"}${z === S.zone ? " here" : ""}${go ? " go" : ""}" title="${esc(tip)}"${go ? ` data-action="m-go" data-z="${z}"` : ""}>`
+      // (it. 853) zones atteintes jouables au clavier : un seul arrêt de tabulation (la zone choisie), flèches pour
+      // passer aux voisines, Entrée pour y aller (avec la Carte du voyageur).
+      const kb = z <= navMax ? ` data-mz="${z}" tabindex="${z === cursor ? 0 : -1}" role="${go ? "button" : "img"}" aria-label="${esc(tip.replace(/\n/g, " · "))}"` : "";
+      parts.push(`<g class="mz${seen ? "" : near ? " near" : " fog"}${z === S.zone ? " here" : ""}${go ? " go" : ""}" title="${esc(tip)}"${go ? ` data-action="m-go" data-z="${z}"` : ""}${kb}>`
         + `<rect x="${x - BAND_W / 2}" y="${y}" width="${BAND_W}" height="${BAND_H / 2}" fill="${d.sky[0]}"/>`
         + `<rect x="${x - BAND_W / 2}" y="${y + BAND_H / 2}" width="${BAND_W}" height="${BAND_H / 2}" fill="${d.g1}"/>`
         + (z % 10 === 0 && !CHRON_ZONES.has(z) ? `<text class="mnum" x="${x}" y="${y + BAND_H + 9}">${z}</text>` : "") + `</g>`);
@@ -119,7 +125,31 @@ export class MapTab {
     el.innerHTML = `<article class="panel mappanel"><h2 title="${esc(tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."))}">${tx("Carte du Rebord")}
       <small class="mapsum">${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE} · ${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })} · 📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })} · ${relicRow}</small></h2>
       ${travel ? `<p class="note tight">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : `<p class="note tight">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
-      <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div></article>`;
+      <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W} ${H}" role="group" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div></article>`;
+    if (act) el.querySelector(`[data-mz="${cursor}"]`)?.focus({ preventScroll: true });
+    if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e, el)); el.addEventListener("focusin", (e) => { const z = +e.target.dataset?.mz; if (z) this.cursor = z; }); }
+  }
+
+  /** (it. 853) Carte au clavier : ← → suivent la rangée telle qu'elle est dessinée (serpentin), ↑ ↓ passent à la
+   *  rangée voisine au même endroit, Début / Fin à la première / dernière zone atteinte ; Entrée ou Espace : y aller. */
+  onKey(e, el) {
+    const g = e.target.closest && e.target.closest("[data-mz]");
+    if (!g) return;
+    const z = +g.dataset.mz, S = this.game.S, navMax = Math.min(Math.max(recordZone(S), S.zone), FINAL_ZONE);
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      if (g.dataset.action) g.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      return;
+    }
+    const { r } = mapPos(z), i = (z - 1) % L, rev = r % 2 ? -1 : 1;
+    const row = (rr) => rr * L + (rr % 2 === r % 2 ? i : L - 1 - i) + 1;
+    const to = { ArrowRight: z + rev, ArrowLeft: z - rev, ArrowDown: row(r + 1), ArrowUp: row(r - 1), Home: 1, End: navMax }[e.key];
+    if (to == null) return;
+    e.preventDefault();
+    const n = el.querySelector(`[data-mz="${Math.max(1, Math.min(navMax, to))}"]`);
+    if (!n) return;
+    g.setAttribute("tabindex", "-1"); n.setAttribute("tabindex", "0");
+    n.focus({ preventScroll: true });
   }
 
   onAction(a, b) {
