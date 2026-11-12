@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 995) : l'introduction de l'histoire respecte « Cinématiques de l'histoire » : décoché, pas de
+  cinématique (le ciel qui se brise), seulement les trois bulles (avant, elle jouait quand même ; le réglage promet de
+  ne jamais être interrompu). Vu en capture. Bestiaire et Carte de la partie de fin de partie revus : rien à corriger.
+  Son : les coups sont déjà limités à ≈ 7 par seconde ; rien changé (impossible à écouter ici). Introduction exclue des
+  mesures de performance de fin de partie : 39,5 % avec ou sans elle. Autotest 201/201.
 - 2026-11-13 (it. 994) : enquête de performance en fin de partie, suite : projectiles neutralisés (TEMP) : 39,9 % contre
   38,6 % (aucun gain : écartés). Le reste est réparti (personnages animés en couches propres : héros, compagnon,
   familier, serviteur, drone ; nombres de dégâts ≈ 3 ; son ≈ 4,5) et mesuré en rendu LOGICIEL (xvfb, GPU émulé) : peu

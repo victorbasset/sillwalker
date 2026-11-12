@@ -532,9 +532,11 @@ async function boot() {
   if (introDue(game.S)) {
     markIntro(game.S);
     // Petite cinématique d'abord (le ciel se brise), puis les trois bulles de l'histoire.
-    hintHold = Date.now() + 9000;
-    setTimeout(() => strip.juice.cinematic("intro"), 800);
-    setTimeout(() => INTRO.forEach((line) => showToast(`<span class="story">📜</span> ${esc(tx(line))}`, null, 14000)), 8200);
+    // (it. 995) « Cinématiques de l'histoire » décoché : pas de cinématique, les bulles de l'histoire seulement
+    const cine = game.S.settings.cinematics !== false;
+    hintHold = Date.now() + (cine ? 9000 : 1500);
+    if (cine) setTimeout(() => strip.juice.cinematic("intro"), 800);
+    setTimeout(() => INTRO.forEach((line) => showToast(`<span class="story">📜</span> ${esc(tx(line))}`, null, 14000)), cine ? 8200 : 1000);
   }
   setInterval(checkDaily, 60000);
   // Après une mise à jour : une bulle « Quoi de neuf » (un clic ouvre la liste), une seule fois.
