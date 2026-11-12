@@ -14,6 +14,20 @@ export const questRerollPrice = (S) => Math.round(goldScale(S) * 25);
 
 const randInt = (a, b) => a + Math.floor(rand() * (b - a + 1));
 const plural = (n, s, p = s + "s") => (n > 1 ? p : s);
+/** (it. 989) Pluriel français d'un nom de monstre : le nom et ses adjectifs (« rats géants », « crabes abyssaux »), rien
+ *  après « de / des / du / d’ » (« loups des neiges ») ; avant : un « s » collé à la fin (« cultiste du néants »). */
+const FR_PLURAL_SPECIAL = { "œil des profondeurs": "yeux des profondeurs", "chauve-souris": "chauves-souris", "feu follet": "feux follets", "chef de guerre orc": "chefs de guerre orcs" };
+export function frPlural(name) {
+  const low = name.toLowerCase();
+  if (FR_PLURAL_SPECIAL[low]) return FR_PLURAL_SPECIAL[low];
+  const words = low.split(" "), out = [];
+  let stop = false;
+  for (const w of words) {
+    if (stop || /^(de|des|du|d’|d')/.test(w)) { stop = true; out.push(w); continue; }
+    out.push(/[sxz]$/.test(w) ? w : /al$/.test(w) ? w.slice(0, -2) + "aux" : /(eu|au)$/.test(w) ? w + "x" : w + "s");
+  }
+  return out.join(" ");
+}
 const fr = () => getLang() === "fr";
 
 /**
@@ -26,7 +40,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => { const goal = randInt(4, 8) * 10; return { goal, reward: { gold: Math.round(goal * goldScale(S) * 2.5) } }; },
   },
   hunt: {
-    text: (q) => (fr() ? tx("Chasser {0} {1}{2}", { 0: q.goal, 1: MONSTERS[q.type].name.toLowerCase(), 2: q.goal > 1 && !/s$/.test(MONSTERS[q.type].name) ? "s" : "" })
+    text: (q) => (fr() ? tx("Chasser {0} {1}{2}", { 0: q.goal, 1: q.goal > 1 ? frPlural(MONSTERS[q.type].name) : MONSTERS[q.type].name.toLowerCase(), 2: "" })
       : tx("Chasser : {1} ×{0}", { 0: q.goal, 1: MONSTERS[q.type].name })),
     make: (S) => {
       const type = pick(zoneDef(S.zone).monsters), goal = randInt(3, 6) * 5;

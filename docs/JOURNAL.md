@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 989) : partie de fin de partie, Talents, Familiers, Quêtes, Statistiques revus en français. Faute
+  trouvée : « Chasser 30 cultiste du néants » (le « s » collé à la fin du nom). frPlural (quests.js) : le nom et ses
+  adjectifs prennent la marque, rien après « de / des / du / d' », -al → -aux, -eu → -eux, et quatre cas à part
+  (« yeux des profondeurs », « chauves-souris », « feux follets », « chefs de guerre orcs ») : « rats géants »,
+  « loups des neiges », « crabes abyssaux »… (vérifié sur les 85 monstres). Test logique ; 234 tests ; autotest
+  201/201.
 - 2026-11-12 (it. 988) : étal du Marchand en fin de partie (idée de l'it. 987) : ses objets sont maintenant déjà forgés
   au niveau moyen de l'équipement porté (somme des +n ÷ 7 emplacements, arrondi bas ; rien de forgé = +0 comme avant).
   Partie de fin de partie : 14 objets sur 80 (20 étals) améliorent le héros, contre aucun avant. Prix : sellValue × 6,

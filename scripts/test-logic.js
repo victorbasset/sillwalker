@@ -1037,6 +1037,16 @@ test("étal du Marchand : objets déjà forgés au niveau moyen de l'équipement
   g.restockShop(); assert.ok(g.S.shop.items.every((it) => it.plus === 6), g.S.shop.items.map((it) => it.plus).join(","));
 });
 
+test("quête de chasse en français : pluriel des noms composés (it. 989)", () => {
+  const P = M_quests_js.frPlural;
+  assert.equal(P("Cultiste du néant"), "cultistes du néant");
+  assert.equal(P("Rat géant"), "rats géants");
+  assert.equal(P("Loup des neiges"), "loups des neiges");
+  assert.equal(P("Crabe abyssal"), "crabes abyssaux");
+  assert.equal(P("Œil des profondeurs"), "yeux des profondeurs");
+  assert.equal(P("Ours brun"), "ours bruns");
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;
