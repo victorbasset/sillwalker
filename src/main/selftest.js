@@ -510,6 +510,29 @@ async function runSelfTest(strip) {
   await js("document.querySelector('[data-action=p-stewkind][data-kind=epic]')?.click()");
   await sleep(150);
   check("Grand intendant : choix de l'expédition", (await state("S.pets.lastKind")) === "epic" && (await js("document.querySelector('[data-action=p-stewkind][data-kind=epic]')?.getAttribute('aria-pressed')")) === "true");
+  // Bouton enfoncé lisible (it. 851 : le choix du Grand intendant écrivait en clair sur fond or) : contraste
+  // texte / fond d'au moins 3 pour chaque bouton enfoncé visible à fond opaque, en thème sombre puis clair
+  // (le défaut n'existait qu'en sombre ; l'autotest est en clair à cet endroit).
+  const pressedLow = await js(`(() => {
+    const t0 = window.__game.S.settings.theme, out = [];
+    for (const th of ["dark", "light"]) {
+    window.__applyTheme(th);
+    const rgb = s => (s.match(/[\\d.]+/g) || []).map(Number);
+    const lum = c => { const v = c.slice(0, 3).map(x => { x /= 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
+    const bad = [];
+    for (const b of document.querySelectorAll('button[aria-pressed="true"]')) {
+      if (!b.offsetParent) continue;
+      const cs = getComputedStyle(b), bg = rgb(cs.backgroundColor), fg = rgb(cs.color);
+      if (bg.length < 3 || (bg.length > 3 && bg[3] < 1)) continue;
+      const a = lum(fg), c = lum(bg), r = (Math.max(a, c) + 0.05) / (Math.min(a, c) + 0.05);
+      if (r < 3) bad.push(th + " " + (b.textContent.trim() || b.dataset.action) + " " + r.toFixed(1));
+    }
+    out.push(...bad);
+    }
+    window.__applyTheme(t0);
+    return out.join(" | ");
+  })()`);
+  check("boutons enfoncés lisibles (contraste)" + (pressedLow ? " : " + pressedLow : ""), !pressedLow);
   await click('[data-tab="adventure"]');
   await sleep(150);
   // « À faire » : la pièce qui complète une panoplie s'équipe d'un clic depuis le résumé de retour.

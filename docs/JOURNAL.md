@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 851) : revue générale (contre 9c41c17, it. 841) : équilibrage 12 h +0,0 (61,9) ; npm test 203/203 ;
+  bande 19,1 %, panneau 20,1 %, mini 6,3 %, icône 0,4 % ; captures fr / en / ja (Aventure, Héros, Talents, Boutique,
+  Ascension, Familiers, mini) ; texte russe sans mot latin suspect. Corrigé : Familiers, le choix sélectionné du Grand
+  intendant (« Grande expédition ») était écrit en clair sur fond or en thème sombre (contraste 1,6), presque
+  illisible : il prend le texte sombre des autres boutons enfoncés. Nouveau contrôle d'autotest : tout bouton enfoncé
+  visible a un contraste texte / fond d'au moins 3, en thème sombre ET clair (l'autotest est en clair à cet endroit ;
+  vérifié : il échoue avec l'ancien style). Autotest 162/162, vu en capture (allemand).
 - 2026-11-12 (it. 850) : l'arbre de Compétences se joue au clavier : il ne se prenait qu'à la souris (cercles SVG
   impossibles à atteindre avec Tab), et « Dépenser automatiquement » n'arrive qu'avec un déblocage. Tab passe d'un
   nœud apprenable à l'autre (les seuls dans l'ordre de tabulation), la vue se recadre sur lui s'il sort du cadre et sa
@@ -2882,6 +2889,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Revue it. 851 : (a) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
+  au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) nombres flottants
+  de la bande face à un boss : encore vus sur sa couronne et sur la fin de son nom en montant (it. 846) ;
+  (c) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) sauvegarde de dev au niveau 1313 :
+  « 1,54e105 » d'expérience à atteindre (écriture scientifique ; seulement avec un niveau irréaliste, à confirmer).
 
 - P3 Clavier (vu it. 850) : la Carte du voyageur (clic sur une zone de la carte pour y aller) et le petit « max » / « tout »
   dans les boutons de Talents ne s'atteignent qu'à la souris ; même méthode que l'arbre de Compétences (tabindex sur
