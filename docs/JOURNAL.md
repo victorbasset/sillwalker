@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 965) : fin de partie vérifiée après les Écailles (la rotation des capacités de boss change dès la
+  zone 14) : simulation d'une semaine, mage 293 (repère 298), guerrier 293 ; comparé à l'état d'avant (61eef2d, dossier
+  de travail git séparé) avec deux graines : 298 → 293 (graine 7), 298 → 307 (graine 3) : bruit, pas de mur. Repères de
+  CLAUDE.md mis à jour. Aucun changement de code.
 - 2026-11-12 (it. 964) : 15e capacité de boss, « Écailles » : les coups critiques (attaques et sorts) ne lui infligent
   que la moitié de leur bonus (critMul, SCALES.keep = 0,5) ; contre les héros qui misent tout sur le critique.
   Ajoutée à la fin de la rotation (ORDER) : les zones 1 à 13 gardent leurs capacités, la suite est décalée. Page du
