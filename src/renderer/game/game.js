@@ -17,7 +17,7 @@ import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
 export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
-import { t as tx, txn, tr, fsp, colon, lc, csep, cend } from "../i18n/index.js";
+import { t as tx, txn, tr, fsp, colon, lc, csep, cend, wsp } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -780,14 +780,23 @@ export class Game {
   }
 
   /** Nouvel objet obtenu (combat, hors ligne, coffre). */
-  newItem(minRarity, zone = this.S.zone) {
+  newItem(minRarity, zone = this.S.zone, deferCodex = false) {
     const it = this.decorate(rollItem(this.S.nextId++, zone, minRarity));
     this.S.stats.items = (this.S.stats.items || 0) + 1;
     if (it.r === LEGENDARY && ++this.S.stats.legendaries === 1) this.milestone("leg");
     const newPower = it.power && !(this.S.powersSeen || {})[it.power];
     const fresh = codexRecord(this.S, it);
     if (newPower) this.log(`${tx("Nouveau pouvoir légendaire découvert : {0} !", { 0: POWER_INDEX[it.power]?.name || it.power })}`);
-    if (fresh) { this.invalidateStats(); if (fresh === "new") { this.log(`${tx("Nouveau type d’objet pour la collection : {0} !", { 0: tr((it.base || "").split(":")[1]) || itemName(it) })}`); this.emit("codex", { item: it }); } }
+    if (fresh) {
+      this.invalidateStats();
+      if (fresh === "new") {
+        const nm = tr((it.base || "").split(":")[1]) || itemName(it);
+        // (it. 958) butin d'une victoire : l'annonce rejoint la ligne « Butin rare : … ! » (addToBag) au lieu d'en
+        // ajouter une (début de partie : un nouveau type presque à chaque objet, le journal en débordait)
+        if (deferCodex) this._codexNext = { id: it.id, nm }; else this.log(`${tx("Nouveau type d’objet pour la collection : {0} !", { 0: nm })}`);
+        this.emit("codex", { item: it });
+      }
+    }
     return it;
   }
 
@@ -831,9 +840,14 @@ export class Game {
 
   addToBag(it, quiet) {
     const S = this.S, r = RARITIES[it.r];
+    // (it. 958) nouveau type pour la collection, annoncé avec le butin (newItem, deferCodex) ; sinon une ligne à part
+    const cx = this._codexNext && this._codexNext.id === it.id ? this._codexNext.nm : null;
+    if (cx) this._codexNext = null;
+    const codexLine = () => { if (cx) this.log(tx("Nouveau type d’objet pour la collection : {0} !", { 0: cx })); };
     if (S.autoSell[r.id] && hasUnlock(S, "autoSell")) {
       const v = sellValue(it); S.gold += v;
       if (!quiet) this.logSale("auto", tx("Vendus automatiquement"), v);
+      codexLine();
       return false;
     }
     if (this.bagFull()) {
@@ -844,10 +858,12 @@ export class Game {
         S.bag.push(it); this.equip(it);
         if (old) S.bag = S.bag.filter((b) => b.id !== old.id);
         if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé."));
+        codexLine();
         this.changed();
         return true;
       }
       this.R.grounded = it.id;
+      codexLine();
       if (!quiet) {
         const up = this.isUpgrade(it);
         if (it.r >= LEGENDARY || up) this.log(tx("Sac plein : {0} est resté au sol !", { 0: itemName(it) }));
@@ -859,8 +875,9 @@ export class Game {
       return false;
     }
     S.bag.push(it);
-    if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) { this.equip(it); if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé.")); return true; }
-    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + colon() + itemName(it) + fsp() + "!");
+    if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) { this.equip(it); if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé.")); codexLine(); return true; }
+    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + colon() + itemName(it) + fsp() + "!" + (cx ? wsp() + tx("Nouveau type pour la collection.") : ""));
+    else codexLine();
     this.changed();
     return true;
   }
@@ -922,7 +939,7 @@ export class Game {
     const pace = earlyPace(this.S); // tout début de partie : plus tranquille (rules.js)
     this.gainXp(Math.max(1, Math.round(m.xp * pace * (1 + hs.xp / 100) * ((R.events.wisdom || 0) > 0 ? 3 : 1)))); // Souffle de sagesse : ×3
     if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * pace * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
-      const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0);
+      const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0, this.S.zone, true);
       if (it.r >= 2) this.questProgress("loot", 1);
       this.addToBag(it);
       this.emit("loot", { item: it, mon: m, ground: this.R.grounded === it.id }); // ground : resté au sol (sac plein)

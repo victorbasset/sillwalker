@@ -958,6 +958,15 @@ test("Ruée des gobelins : la suite de la file se peuple de gobelins, bilan des 
   const line = h.eventReport("goblinrush"); assert.ok(/2\sgobelins attrapés|2\sgoblins caught/.test(line), line);
 });
 
+test("butin d'une victoire : le nouveau type pour la collection rejoint la ligne du butin (it. 958)", () => {
+  const g = new Game(freshState()); g.S.codex = {}; g.S.log = [];
+  // champion : butin épique ou mieux, donc toujours une ligne « Butin … ! » (indépendant du tirage)
+  g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, champion: true, affix: "fast" }); g.killMonster();
+  const merged = g.S.log.filter((l) => /Nouveau type pour la collection|New type for the collection/.test(String(l)));
+  const alone = g.S.log.filter((l) => /Nouveau type d’objet pour la collection|New item type for the collection/.test(String(l)));
+  assert.ok(merged.length === 1 && alone.length === 0, JSON.stringify(g.S.log));
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

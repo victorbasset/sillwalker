@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 958) : partie neuve revue à 3 et 5 min (français, 1280 px) : rien de cassé ; le journal, étroit à
+  1280 px, se remplissait de lignes de collection : « Butin rare : Gantelets de fer de l'aube ! » puis « Nouveau type
+  d'objet pour la collection : Gantelets ! » (sept lignes à l'écran pour deux nouvelles). Le butin d'une victoire porte
+  maintenant l'annonce sur sa propre ligne (« … ! Nouveau type pour la collection. ») ; ligne à part seulement quand il
+  n'y a pas de ligne de butin (objet commun, vendu, laissé au sol, équipé par le Valet d'armes) et pour les autres
+  sources (coffres, boutique, quêtes). Test logique (champion : butin épique) ; 10 langues ; autotest 199/199.
 - 2026-11-12 (it. 957) : partie neuve revue (anglais, 1366 px, à 20 s et 60 s) : rien de bloquant ; deux détails.
   1) L'en-tête Équipement disait « click an item: de… » (coupé) alors qu'aucun objet n'est encore porté : l'aide
   n'apparaît qu'une fois un objet équipé. 2) La bénédiction « Grande chasse » promettait « Élites ×3 » en zone 1, où les

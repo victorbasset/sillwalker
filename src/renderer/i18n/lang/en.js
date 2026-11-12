@@ -1314,4 +1314,5 @@ export default {
   2439: "One more for my collection!",
   2440: "Never beaten one of those before!",
   2441: "Elites appear from zone {0} onward.",
+  2442: "New type for the collection.",
 };
