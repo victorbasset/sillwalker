@@ -1295,4 +1295,6 @@ export default {
   2420: "Ganhei asas!",
   2421: "Agora não erro mais!",
   2422: "Ovos por toda parte!",
+  2423: "Dia dos prodígios",
+  2424: "Eventos raros ×2.",
 };

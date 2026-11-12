@@ -880,6 +880,16 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     for (let i = 0; i < 8; i++) { sa += off("gold"); sb += off("treasure"); }
     assert.ok(sb > sa, "hors ligne aussi : " + sa + " → " + sb);
   });
+  test("Jour des prodiges : événements rares ×2 (it. 938)", () => {
+    const count = (mod) => {
+      const g = new Game(freshState()); g.S.daily.mod = mod; let n = 0;
+      g.startEvent = () => { n++; }; g.openChest = () => {};
+      for (let i = 0; i < 40000; i++) g.rollRareThings({ boss: false, elite: false });
+      return n;
+    };
+    const a = count("gold"), b = count("marvels");
+    assert.ok(b > a * 1.5 && b < a * 2.6, "événements : " + a + " → " + b);
+  });
 }
 
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {

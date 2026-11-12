@@ -1295,4 +1295,6 @@ export default {
   2420: "Ich habe Flügel!",
   2421: "Jetzt treffe ich immer!",
   2422: "Überall Eier!",
+  2423: "Tag der Wunder",
+  2424: "Seltene Ereignisse ×2.",
 };

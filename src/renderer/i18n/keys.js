@@ -2424,5 +2424,7 @@ export const KEYS = [
   "La lune saigne… ils arrivent.",
   "J’ai des ailes !",
   "Je ne peux plus rater !",
-  "Des œufs partout !"
+  "Des œufs partout !",
+  "Jour des prodiges",
+  "Événements rares ×2."
 ];

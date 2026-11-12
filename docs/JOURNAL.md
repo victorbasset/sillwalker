@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 938) : 9e bénédiction du jour, « 🌠 Jour des prodiges » : événements rares deux fois plus
+  fréquents (la collection des événements, +1 % d'or chacun, avance plus vite ce jour-là). Répartition sur un an :
+  35 à 49 jours par bénédiction. Le choix du jour passe de 8 à 9 bénédictions : celle d'aujourd'hui peut changer à la
+  mise à jour (sans conséquence). Test logique (×1,5 à ×2,6 sur 40 000 victoires), 10 langues, autotest 195/195.
 - 2026-11-12 (it. 937) : le héros a une réplique propre à six événements rares (« Il pleut de l'or ! », « Fais un
   vœu ! », « La lune saigne… ils arrivent. », « J'ai des ailes ! », « Je ne peux plus rater ! », « Des œufs
   partout ! ») ; les autres gardent les répliques communes. Chasse aux bugs : 4000 parties (200 graines), 0 bloquée ;

@@ -2,7 +2,7 @@
 // s'applique à toute la partie. Le même pour tous les joueurs ce jour-là
 // (choisi à partir de la date), ce qui donne une raison de revenir.
 // `eff` : mêmes clés que les talents (talents.js > EFFECTS) ;
-// `elite` / `goblin` : multiplicateurs des chances d'apparition ; `chest` : des coffres au trésor.
+// `elite` / `goblin` : multiplicateurs des chances d'apparition ; `chest` : des coffres au trésor ; `events` : des événements rares.
 export const DAY_MODS = {
   gold:    { icon: "💰", name: "Jour de fortune",   desc: "+50 % d’or.",                         eff: { gold: 50 } },
   wisdom:  { icon: "📜", name: "Jour du savoir",    desc: "+50 % d’expérience.",                  eff: { xp: 50 } },
@@ -13,6 +13,8 @@ export const DAY_MODS = {
   goblins: { icon: "👺", name: "Fête des gobelins", desc: "Gobelins voleurs ×4.",                  eff: { gold: 15 }, goblin: 4 },
   // (it. 887) une journée de trouvailles : coffres sur le chemin, en jeu comme pendant l'absence
   treasure: { icon: "💎", name: "Jour des trésors", desc: "Coffres au trésor ×3 sur le chemin.",   eff: {}, chest: 3 },
+  // (it. 938) une journée de prodiges : événements rares deux fois plus fréquents (collection plus rapide)
+  marvels: { icon: "🌠", name: "Jour des prodiges", desc: "Événements rares ×2.",                   eff: {}, events: 2 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

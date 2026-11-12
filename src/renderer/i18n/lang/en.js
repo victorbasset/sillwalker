@@ -1295,4 +1295,6 @@ export default {
   2420: "I've got wings!",
   2421: "I can't miss now!",
   2422: "Eggs everywhere!",
+  2423: "Day of Marvels",
+  2424: "Rare events ×2.",
 };

@@ -1912,7 +1912,8 @@ export class Game {
   rollRareThings(m) {
     const chance = m.boss ? FEATHER.boss : m.elite ? FEATHER.elite : FEATHER.normal;
     if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, tx("Plume du vent")); }
-    for (const id in EVENTS) if ((!EVENTS[id].req || EVENTS[id].req(this.S)) && rand() < EVENTS[id].chance) { this.startEvent(id); break; }
+    const evMul = activeDayMod(this.S)?.events || 1; // Jour des prodiges (it. 938)
+    for (const id in EVENTS) if ((!EVENTS[id].req || EVENTS[id].req(this.S)) && rand() < EVENTS[id].chance * evMul) { this.startEvent(id); break; }
     if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal) * (activeDayMod(this.S)?.chest || 1)) this.openChest(); // Jour des trésors
   }
 

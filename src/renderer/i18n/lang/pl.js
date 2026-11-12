@@ -1295,4 +1295,6 @@ export default {
   2420: "Mam skrzydła!",
   2421: "Teraz nie chybię!",
   2422: "Wszędzie jaja!",
+  2423: "Dzień cudów",
+  2424: "Rzadkie zdarzenia ×2.",
 };
