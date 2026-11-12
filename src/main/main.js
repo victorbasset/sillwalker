@@ -211,6 +211,12 @@ function start() {
             G.S.cls = keep; P.renderAll(); if (worst > 2) out.push("sorts=" + worst + "(" + who + ")"); P.tabs.class.sec = "freed"; }
           // Statistiques > Succès (la liste grandit avec chaque succès ; les noms longs du russe passent sur deux lignes)
           if (P.tabs.stats) { P.setTab("stats"); P.tabs.stats.sec = "ach"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("succès=" + o); P.tabs.stats.sec = "numbers"; }
+          // (it. 929) tous les déblocages SAUF le dernier : la carte « Prochain déblocage » réapparaît (avec tous, elle
+          // disparaît : l'it. 928 a trouvé 11 px de défilement en russe à 1280 sans qu'aucune mesure le voie) ; prêt et pas prêt
+          { const G = window.__game, S = G.S, ks = Object.keys(S.unlocks || {}), last = ks[ks.length - 1], keepG = S.gold;
+            if (last) { delete S.unlocks[last]; P.setTab("adventure");
+              for (const [gold, tag] of [[1e300, "prêt"], [1, "pas-prêt"]]) { S.gold = gold; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("adventure-avant-dernier-" + tag + "=" + o); }
+              S.unlocks[last] = true; S.gold = keepG; } }
           P.kept.clear(); P.setTab("adventure"); P.renderAll();
           for (const k of ["hero-todo", "hero-chron", "hero-stats", "rates"]) {
             const d = document.querySelector("[data-keep=" + k + "]"); if (!d) continue; d.querySelector("summary").click();

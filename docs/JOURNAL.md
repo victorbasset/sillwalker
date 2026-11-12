@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 929) : lang-overflow (mesure des 10 langues) mesure aussi l'Aventure avec tous les déblocages sauf
+  le dernier, la carte « Prochain déblocage » prête puis pas prête (« adventure-avant-dernier-…=N ») ; avant, il ne
+  mesurait que « tous les déblocages », où cette carte disparaît (défaut de l'it. 928 passé inaperçu). Vérifié : sans
+  la correction de l'it. 928, il signale 11 px en russe à 1280 ; avec, rien (russe, allemand, polonais, français à
+  1280 et 1366 px). Note de CLAUDE.md mise à jour.
 - 2026-11-12 (it. 928) : carte « Prochain déblocage » du héros : quand il ne manque que de l'or, le temps estimé au
   rythme actuel des victoires (« 15,00 No / 20,00 No or · ≈ 47 h ») ; rien au-delà de 48 h. En mesurant son pire cas,
   trouvé un défaut plus ancien : avec tous les déblocages sauf le dernier (zones 260-300), la carte prenait quatre
