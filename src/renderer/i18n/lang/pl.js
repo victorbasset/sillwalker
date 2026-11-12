@@ -1322,4 +1322,6 @@ export default {
   2447: "Lżejszy dziennik: nowy typ do kolekcji jest ogłaszany w linii łupu.",
   2448: "Łuski",
   2449: "Trafienia krytyczne zadają mu tylko połowę swojej premii.",
+  2450: "Nowa umiejętność bossa, „Łuski”: trafienia krytyczne zadają mu tylko połowę swojej premii.",
+  2451: "Nazwy bossów są wreszcie poprawnie odmieniane: „… pokonana”, „… pokonane”.",
 };

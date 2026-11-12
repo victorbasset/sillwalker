@@ -2451,5 +2451,7 @@ export const KEYS = [
   "Le Bestiaire compte tes victoires sur chaque sorte d’élite ; le héros salue chaque sorte vaincue pour la première fois.",
   "Journal plus léger : un nouveau type pour la collection s’annonce sur la ligne du butin.",
   "Écailles",
-  "Les coups critiques ne lui infligent que la moitié de leur bonus."
+  "Les coups critiques ne lui infligent que la moitié de leur bonus.",
+  "Nouvelle capacité de boss, « Écailles » : les coups critiques ne lui infligent que la moitié de leur bonus.",
+  "Les boss aux noms féminins sont enfin accordés : « Carapace-des-Abysses l’Éveillée », « … vaincue ! »."
 ];

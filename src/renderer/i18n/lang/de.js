@@ -1322,4 +1322,6 @@ export default {
   2447: "Schlankeres Protokoll: ein neuer Typ für die Sammlung wird in der Beutezeile gemeldet.",
   2448: "Schuppen",
   2449: "Kritische Treffer richten nur die Hälfte ihres Bonus an.",
+  2450: "Neue Bossfähigkeit „Schuppen“: kritische Treffer richten nur die Hälfte ihres Bonus an.",
+  2451: "Weibliche Bossnamen erhalten jetzt den richtigen Artikel: „… die Erwachte“.",
 };

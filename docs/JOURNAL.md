@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 967) : --crawl en polonais (trois pluriels) : 330 clics sans erreur. « Quoi de neuf », édition 42 :
+  capacité de boss « Écailles », noms de boss accordés (chaque langue cite son propre exemple). 10 langues, libellés
+  cités vérifiés ; 10 langues × 3 largeurs sans défaut ; autotest 199/199. (Les capacités du boss sont déjà annoncées à
+  son arrivée dans la bande : rien à ajouter pour signaler les Écailles en combat.)
 - 2026-11-12 (it. 966) : accord du « vaincu » complété pour le russe et le polonais (limite laissée à l'it. 959) :
   boss au nom neutre (« Сердце Лавы », « L'Œil… ») ou pluriel (« Pince-Abysse » en russe) : « повержено », « повержены »,
   « pokonane », dans le journal, la bannière et le mode mini (agreeDefeated, bosses.js : remplace le participe de la

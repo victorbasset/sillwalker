@@ -1322,4 +1322,6 @@ export default {
   2447: "Diário mais leve: um novo tipo para a coleção é anunciado na linha do saque.",
   2448: "Escamas",
   2449: "Os golpes críticos só lhe causam metade do bônus.",
+  2450: "Nova habilidade de chefe, «Escamas»: os golpes críticos só lhe causam metade do bônus.",
+  2451: "Os nomes femininos dos chefes enfim concordam: «… derrotada».",
 };

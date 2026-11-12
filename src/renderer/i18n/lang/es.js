@@ -1322,4 +1322,6 @@ export default {
   2447: "Diario más ligero: un nuevo tipo para la colección se anuncia en la línea del botín.",
   2448: "Escamas",
   2449: "Los golpes críticos solo le infligen la mitad de su bonificación.",
+  2450: "Nueva habilidad de jefe, «Escamas»: los golpes críticos solo le infligen la mitad de su bonificación.",
+  2451: "Los nombres femeninos de los jefes por fin concuerdan: «… derrotada».",
 };

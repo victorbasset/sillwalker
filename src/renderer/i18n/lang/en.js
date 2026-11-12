@@ -1322,4 +1322,6 @@ export default {
   2447: "Lighter log: a new type for the collection is announced on the loot line.",
   2448: "Scales",
   2449: "Critical hits deal only half their bonus to it.",
+  2450: "New boss ability, “Scales”: critical hits deal only half their bonus to it.",
+  2451: "Boss names now get proper grammatical agreement in every language that needs it.",
 };
