@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 988) : étal du Marchand en fin de partie (idée de l'it. 987) : ses objets sont maintenant déjà forgés
+  au niveau moyen de l'équipement porté (somme des +n ÷ 7 emplacements, arrondi bas ; rien de forgé = +0 comme avant).
+  Partie de fin de partie : 14 objets sur 80 (20 étals) améliorent le héros, contre aucun avant. Prix : sellValue × 6,
+  qui compte déjà le +n. Équilibrage : 12 h identique (62,9, rien de forgé si tôt) ; semaine mage 293, guerrier 293
+  (inchangés). Test logique ; autotest 201/201. Idée P3 fermée.
 - 2026-11-12 (it. 987) : partie de fin de partie (scripts/fixtures) : --crawl en français sans erreur (355 clics) ;
   captures Aventure, Compétences, Boutique, Héros à 1920 px : rien de cassé. Noté en Idées (P3) : l'étal du Marchand
   devient inutile en fin de partie (objets plus faibles que l'équipement +10 porté, prix dérisoires).
@@ -3602,7 +3607,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 Vu it. 987 (partie de fin de partie, zone 136, 395 Qa d'or) : l'étal du Marchand propose des objets de niveau 136
+- FAIT (it. 988) P3 Vu it. 987 (partie de fin de partie, zone 136, 395 Qa d'or) : l'étal du Marchand propose des objets de niveau 136
   tous PLUS FAIBLES que l'équipement porté (+10, panoplies : −3 à −34 % de puissance) pour 3 827 à 24 k d'or. L'étal ne
   sert plus en fin de partie. Pistes : objets au niveau du record + amélioration (+n) proportionnelle, ou prix et
   qualité qui suivent la zone ; à mesurer avec simulate.js (le Marchand attitré achète tout seul).

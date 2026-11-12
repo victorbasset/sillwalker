@@ -1030,6 +1030,13 @@ test("collection des élites : +1 % de chances de butin par sorte vaincue (it. 9
   assert.ok(Math.abs(heroStats(g.S).drop - d0 - 2) < 1e-9, d0 + " → " + heroStats(g.S).drop);
 });
 
+test("étal du Marchand : objets déjà forgés au niveau moyen de l'équipement porté (it. 988)", () => {
+  const g = new Game(freshState());
+  g.restockShop(); assert.ok(g.S.shop.items.every((it) => (it.plus || 0) === 0), "rien de forgé : objets à +0");
+  for (const k of Object.keys(g.S.equip)) { const it = g.newItem(1); it.slot = k; it.plus = 6; g.S.equip[k] = it; }
+  g.restockShop(); assert.ok(g.S.shop.items.every((it) => it.plus === 6), g.S.shop.items.map((it) => it.plus).join(","));
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

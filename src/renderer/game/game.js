@@ -1787,6 +1787,8 @@ export class Game {
     const S = this.S, items = [];
     // Le premier objet vise l'emplacement le plus faible du héros (vide, ou le moins puissant).
     const weak = SLOT_KEYS.find((k) => !S.equip[k]) || SLOT_KEYS.slice().sort((a, b) => itemScore(S.equip[a]) - itemScore(S.equip[b]))[0];
+    const worn = SLOT_KEYS.map((k) => S.equip[k]).filter(Boolean);
+    const eqPlus = worn.length ? Math.min(MAX_PLUS, Math.floor(worn.reduce((a, e) => a + (+e.plus || 0), 0) / SLOT_KEYS.length)) : 0;
     for (let i = 0; i < SHOP_SLOTS; i++) {
       let it = null;
       for (let t = 0; t < (i === 0 ? 40 : 1); t++) {
@@ -1795,6 +1797,9 @@ export class Game {
       }
       S.nextId++;
       it = this.decorate(it);
+      // (it. 988) déjà forgé au niveau moyen de l'équipement porté : en fin de partie (tout à +10), l'étal ne proposait que
+      // des objets plus faibles que ceux portés et ne servait plus à rien ; en début de partie (rien de forgé), inchangé
+      if (eqPlus > (it.plus || 0)) it.plus = eqPlus;
       it.price = Math.round(sellValue(it) * 6);
       items.push(it);
     }
