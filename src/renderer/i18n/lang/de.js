@@ -1224,4 +1224,8 @@ export default {
   2349: "Zaubergrimoire: {n} Rang während deiner Abwesenheit gelernt.|Zaubergrimoire: {n} Ränge während deiner Abwesenheit gelernt.",
   2350: "Fertigkeiten: zum nächsten Knoten, ihn erlernen",
   2351: "Karte: erreichte Zonen durchgehen, dorthin reisen",
+  2352: "(kostenlos)",
+  2353: "Talente: so weit wie möglich steigern",
+  2354: "Umschalt",
+  2355: "Klick",
 };

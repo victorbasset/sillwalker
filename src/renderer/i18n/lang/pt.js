@@ -1224,4 +1224,8 @@ export default {
   2349: "Grimório de feitiços: {n} nível aprendido durante sua ausência.|Grimório de feitiços: {n} níveis aprendidos durante sua ausência.",
   2350: "Habilidades: ir para o próximo nó, aprendê-lo",
   2351: "Mapa: percorrer as zonas alcançadas, ir até lá",
+  2352: "(grátis)",
+  2353: "Talentos: subir ao máximo possível",
+  2354: "Shift",
+  2355: "clique",
 };

@@ -2353,5 +2353,9 @@ export const KEYS = [
   "{n} objet acheté|{n} objets achetés",
   "Grimoire des sorts : {n} rang appris pendant ton absence.|Grimoire des sorts : {n} rangs appris pendant ton absence.",
   "Compétences : aller au nœud suivant, l’apprendre",
-  "Carte : parcourir les zones atteintes, y aller"
+  "Carte : parcourir les zones atteintes, y aller",
+  "(gratuit)",
+  "Talents : monter au maximum possible",
+  "Maj",
+  "clic"
 ];

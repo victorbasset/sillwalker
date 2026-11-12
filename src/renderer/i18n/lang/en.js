@@ -1224,4 +1224,8 @@ export default {
   2349: "Spell Grimoire: {n} rank learned while you were away.|Spell Grimoire: {n} ranks learned while you were away.",
   2350: "Skills: go to the next node, learn it",
   2351: "Map: browse the zones you reached, go there",
+  2352: "(free)",
+  2353: "Talents: raise to the maximum possible",
+  2354: "Shift",
+  2355: "click",
 };

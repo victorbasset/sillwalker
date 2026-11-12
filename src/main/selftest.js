@@ -208,6 +208,17 @@ async function runSelfTest(strip) {
   if (learnable) { await click(`.talent[data-tid="${learnable}"] .tn`); await sleep(200); }
   const spent1 = await state("Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0)");
   check("onglet Talents : un clic sur un talent dépense un point", spent1 === spent0 + 1, `${spent0} -> ${spent1}`);
+  // (it. 855) Maj + Entrée sur un talent : autant de rangs que « max » ; le focus reste sur ce talent après le redessin.
+  const shiftMax = await js(`(async () => { const g = window.__game, S = g.S, P = window.__panel;
+    const pick = () => document.querySelector('[data-pane="talents"]:not([hidden]) .talent .tmax')?.closest('.talent');
+    if (!pick()) { S.lvl += 6; g.invalidateStats(); g.changed(); P.renderAll(); }
+    const b = pick(); if (!b) return 'aucun talent avec max';
+    const id = b.dataset.tid, r0 = (S.talents[S.cls] || {})[id] || 0;
+    b.focus(); b.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', shiftKey: true, bubbles: true, cancelable: true }));
+    P.renderAll(); await new Promise((ok) => setTimeout(ok, 120)); P.renderAll();
+    const r1 = (S.talents[S.cls] || {})[id] || 0, f = document.activeElement;
+    return [r1 - r0 > 1 ? 'max' : 'rangs ' + r0 + '->' + r1, f && f.dataset.tid === id ? 'focus' : 'focus perdu ' + (f && f.tagName)].join(' '); })()`);
+  check("onglet Talents : Maj + Entrée monte au max, le focus reste sur le talent", shiftMax === "max focus", shiftMax);
   await click('[data-action="t-auto"]');
   await sleep(200);
   check("onglet Talents : dépenser automatiquement", (await js("window.__game.talentPointsFree()")) === 0 || (await js("window.__game.nextAutoTalent()")) === null);

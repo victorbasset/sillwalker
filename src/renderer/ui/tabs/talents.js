@@ -71,10 +71,32 @@ export class TalentsTab {
       <p class="note">${tx("Clic sur un talent : +1 rang · « max » : autant que possible. Survole un talent pour voir son effet.")}</p>
       <div id="tsel">${this.detailHTML()}</div>
       <div class="row tfoot">
-        <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : " (gratuit)" })}</button>
+        <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
       </div>
     </article>`;
+    // (it. 855) Au clavier, le talent qui avait le focus le garde après le redessin (sinon chaque Entrée renvoyait le
+    // focus au début du panneau).
+    const act = el.contains(document.activeElement) ? document.activeElement.dataset?.tid : null;
     el.innerHTML = `<div class="tgrid">${head}${branches}${extra}</div>`;
+    if (act) el.querySelector(`[data-tid="${act}"]`)?.focus({ preventScroll: true });
+    if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e)); }
+  }
+
+  /** (it. 855) Maj + Entrée (ou Espace) sur un talent : comme son petit bouton « max » / « tout », jusque-là réservé à la souris. */
+  onKey(e) {
+    if (!e.shiftKey || (e.key !== "Enter" && e.key !== " ")) return;
+    const b = e.target.closest && e.target.closest('.talent[data-action="t-learn"]');
+    if (!b) return;
+    e.preventDefault();
+    this.learnFrom(b, true);
+  }
+
+  /** Apprend le talent du bouton : +1 rang, ou autant que le petit bouton « max » / « tout » quand `all` (Maj). */
+  learnFrom(b, all) {
+    const max = all && b.querySelector(".tmax");
+    const n = max ? +max.dataset.n : +b.dataset.n || 1;
+    this.sel = b.dataset.id;
+    this.game.learnTalent(b.dataset.id, n);
   }
 
   /** Détail du talent survolé (sans reconstruire tout l'onglet). */
@@ -107,10 +129,11 @@ export class TalentsTab {
 
   }
 
-  onAction(a, b) {
+  onAction(a, b, e) {
     const g = this.game;
     if (a === "t-sel") this.sel = b.dataset.id;
-    else if (a === "t-learn") { this.sel = b.dataset.id; g.learnTalent(b.dataset.id, +b.dataset.n || 1); }
+    // Maj + clic : comme « max » / « tout »
+    else if (a === "t-learn") this.learnFrom(b, !!e?.shiftKey);
     else if (a === "t-voie") {
       this.sel = b.dataset.id;
       if (cannotLearn(g.S, b.dataset.id)) return;

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 855) : Talents au clavier : Maj + Entrée (ou Maj + clic) sur un talent fait comme son petit bouton
+  « max » / « tout », jusque-là réservé à la souris ; et le talent garde le focus après chaque Entrée (avant, le
+  redessin le renvoyait au début du panneau). Ligne ajoutée aux Raccourcis clavier (10 langues, vue en allemand).
+  Corrigé au passage : « Réinitialiser (gratuit) » s'affichait en français dans toutes les langues avant le niveau 10.
+  Contrôle d'autotest (166/166).
 - 2026-11-12 (it. 854) : bande en allemand, combat de boss : le nom long « Abgrundpanzer der Erwachte · −10 % LP »
   passait sous la pastille d'or et de niveau. Le nom se décale maintenant vers la gauche juste ce qu'il faut pour
   finir avant la pastille (recalculé quand l'or change de largeur ; rien ne bouge pour un nom court ou l'affichage au
@@ -2914,8 +2919,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 
 - FAIT (it. 854) P1 Bande en allemand à 1920 px (vu it. 853, zone 55, boss) : « Abgrundpanzer der Erwachte · −10 % LP » passe sous
   la pastille d'or (le nom s'étend vers la gauche depuis le boss, au bout de la bande) : le décaler / le couper avant.
-- P3 Clavier (vu it. 850) : FAIT pour la carte (it. 853). Reste le petit « max » / « tout » dans les boutons de
-  Talents, atteignable seulement à la souris.
+- P3 Clavier (vu it. 850) : FAIT pour la carte (it. 853) et le « max » / « tout » des Talents (it. 855, Maj + Entrée).
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir ; 2026-11-11) :
   X. FAIT, ABANDONNÉ (it. 751-763). Essai Tauri (la bande seule, compilée pour Windows) mesuré par Victor : 400 Mo de

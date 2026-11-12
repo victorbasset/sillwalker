@@ -1224,4 +1224,8 @@ export default {
   2349: "Grimuar zaklęć: {n} poziom zdobyty podczas twojej nieobecności.|Grimuar zaklęć: {n} poziomy zdobyte podczas twojej nieobecności.|Grimuar zaklęć: {n} poziomów zdobytych podczas twojej nieobecności.",
   2350: "Umiejętności: przejdź do następnego węzła, naucz się go",
   2351: "Mapa: przeglądaj osiągnięte strefy, przejdź do nich",
+  2352: "(za darmo)",
+  2353: "Talenty: podnieś do maksimum",
+  2354: "Shift",
+  2355: "klik",
 };
