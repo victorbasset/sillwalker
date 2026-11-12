@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 882) : pendant une absence, le héros rencontre aussi des élites, aux mêmes chances qu'en jeu
+  (bénédiction « Grande chasse » et Appât des champions compris, aucune avant les premières élites de la première
+  course) : une quête « vaincre des élites » avance enfin pendant la nuit (avant, elle restait à 0 malgré des
+  milliers de victoires), le compteur des statistiques et les succès suivent, et le résumé de retour ajoute la ligne
+  « Élites vaincues ». L'or et le butin hors ligne ne changent pas. Parcours --crawl sur des parties neuves en chinois
+  et en espagnol (aucune erreur). Test logique ; autotest 178/178 (pire cas du résumé avec la nouvelle ligne) ; vu en
+  capture (allemand).
 - 2026-11-12 (it. 881, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses guerrier
   41 → 64, mage 37 → 61, nécromancien 39 → 60, sans saut ni plafond. Performance (copie neuve de dev-data) : bande
   19,5 %, panneau 21,7 %, mini 6,9 %, icône 0,6 % d'un cœur (repères tenus, panneau un peu au-dessus de 20-21 %).

@@ -990,6 +990,15 @@ export class Game {
   /** Zone de départ de la prochaine course (constellation La Route, au plus 5 zones sous le record de la course). */
   nextStartZone() { return ascendStartZone(prestigeEffects(this.S), this.S.best); }
 
+  /** Élites parmi `kills` victoires hors ligne (mêmes règles que la série de monstres, lineup()). */
+  offlineElites(kills, hs) {
+    const S = this.S;
+    if (S.zone < ELITE.minZone && !(S.prestige.count > 0)) return 0;
+    const dm = activeDayMod(S);
+    const x = kills * Math.min(1, ELITE.chance * (dm?.elite || 1) * (1 + (hs.elites || 0) / 100));
+    return Math.floor(x) + (rand() < x % 1 ? 1 : 0);
+  }
+
   offlineCapS() { return OFFLINE_CAP_S + (prestigeEffects(this.S).offlineH || 0) * 3600; }
 
   applyOffline(sec) {
@@ -1026,6 +1035,10 @@ export class Game {
     types.forEach((t, i) => { S.bestiary[t] = (S.bestiary[t] || 0) + Math.floor(kills / types.length) + (i < kills % types.length ? 1 : 0); });
     this.questProgress("kill", kills);
     this.questProgress("gold", gold);
+    // (it. 882) Élites rencontrées pendant l'absence, aux mêmes chances qu'en jeu (bénédiction du jour, Appât des
+    // champions) : avant, une quête « élites » restait à 0 toute la nuit malgré des milliers de victoires.
+    const elites = this.offlineElites(kills, hs);
+    if (elites) { S.stats.elites += elites; this.questProgress("elite", elites); }
     this.petGainXp(Math.floor(kills / 2));
     S.xp += xp;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; }
@@ -1082,7 +1095,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells, elites,
     };
     this.log(tx("Pendant ") + summary.duration + colon() + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") +

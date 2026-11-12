@@ -228,6 +228,18 @@ test("hors ligne : plafonné, élixirs consommés", () => {
   assert.equal(g2.applyOffline(48 * 3600).seconds, 8 * 3600);
 });
 
+test("hors ligne : les élites comptent (quête, statistiques, résumé ; it. 882)", () => {
+  const g = new Game(freshState()); g.S.zone = 10;
+  g.S.quests.slots = [{ uid: 1, kind: "elite", goal: 1e6, progress: 0, stars: 1, reward: { gold: 1 } }];
+  const e0 = g.S.stats.elites, sum = g.applyOffline(8 * 3600);
+  assert.ok(sum.elites > 0 && sum.elites < sum.kills * 0.5, "des élites parmi " + sum.kills + " victoires : " + sum.elites);
+  assert.equal(g.S.stats.elites - e0, sum.elites);
+  assert.equal(g.S.quests.slots[0].progress, sum.elites, "la quête « élites » avance");
+  // première course, avant les premières élites : aucune
+  const g0 = new Game(freshState()); g0.S.zone = 1; g0.S.prestige.count = 0;
+  assert.equal(g0.offlineElites(1000, g0.stats()), 0);
+});
+
 test("équiper, forger, vendre", () => {
   const g = new Game(freshState());
   g.S.gold = 1e6;

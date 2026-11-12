@@ -499,6 +499,7 @@ export class Panel {
       `<p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone), 1: esc(sum.duration) })}</p>
       <ul class="lines">
         <li><span>${tx("Monstres vaincus")}</span><b>${fmt(sum.kills)}</b></li>
+        ${sum.elites ? `<li><span>${tx("Élites vaincues")}</span><b>${fmt(sum.elites)}</b></li>` : ""}
         <li><span>${tx("Or gagné")}</span><b>+${fmt(sum.gold)}</b></li>
         <li><span>${tx("Expérience")}</span><b>+${fmt(sum.xp)}</b></li>
         ${sum.newLevel ? `<li><span>${tx("Nouveau niveau")}</span><b>${sum.newLevel}</b></li>` : ""}
