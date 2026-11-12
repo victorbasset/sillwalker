@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 993) : suite de l'enquête de performance en fin de partie (it. 992). Compté les effets vivants
+  (TEMP) : ≈ 62 étincelles en permanence en fin de partie contre 21 avec dev-data. Deux remèdes : au plus 24
+  étincelles vivantes (juice.js, MAX_SPARKS : −1 point) ; surtout, le flash plein écran et la secousse de chaque coup
+  critique à haut palier (strip.js) au plus toutes les 1,5 s (en fin de partie, la bande clignotait et tremblait sans
+  arrêt) : −3 points. Bande en fin de partie 42,5 → 38,6 % ; dev-data 19,4 % (inchangé). Essayé sans effet : 12
+  étincelles au lieu de 24. Reste à chercher (Idée P1) : projectiles (3 par attaque au palier 3), nombres de dégâts,
+  son, compagnon. 235 tests ; autotest 201/201.
 - 2026-11-12 (it. 992) : enquête de performance sur la partie de FIN de partie (scripts/fixtures, guerrier niv. 167,
   zone 136, compagnon rôdeur, sorts rangs 24-33) : bande ≈ 42-43 % d'un cœur contre ≈ 20 % avec dev-data ; panneau et
   mini aussi plus chers (41-43 %, 9-9,5 %). Mesures (copies neuves, cinématiques coupées), une variante à la fois :
@@ -3632,7 +3639,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+- EN PARTIE (it. 993 : 42,5 → 38,6 %) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
   (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium

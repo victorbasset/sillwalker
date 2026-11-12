@@ -131,7 +131,10 @@ export class StripRenderer {
       // Impact : étincelles à partir du palier 3, onde de choc au palier 5.
       if (this.active && this.juice.full && tier >= 2) {
         this.juice.sparkles(this.monX() + 12, py - 4, color, 3 + tier * 2);
-        if (tier >= 4 && (crit || iai)) { this.juice.flash(color, 0.12); this.shake(0.12); }
+        // (it. 993) flash et secousse des critiques au plus toutes les 1,5 s : en fin de partie (attaques rapides, beaucoup
+        // de critiques), toute la bande clignotait et tremblait sans arrêt (voile plein écran recomposé à chaque image)
+        const t = this.game.R.time;
+        if (tier >= 4 && (crit || iai) && !(t - (this._critFxT ?? -9) < 1.5)) { this._critFxT = t; this.juice.flash(color, 0.12); this.shake(0.12); }
       }
       const label = (iai ? tx("Iai ! ") : first ? tx("Ouverture ") : crit ? tx("Crit ") : "") + fmt(dmg);
       this.float(this.monX() + 14 + (extra ? 12 : 0), (mon.boss ? 20 : 46) - (extra ? 10 : 0), label, crit || first ? "#ffe27a" : "#ffffff", crit || first, true);

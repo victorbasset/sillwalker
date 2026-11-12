@@ -21,6 +21,7 @@ import { itemIconURL, classPortraitURL } from "./sprites.js";
 import { q, el, mark, makeCanvas, sizeCanvas } from "./dom.js";
 
 const MAX_PARTS = 90;
+const MAX_SPARKS = 24;
 
 // Météo de chaque zone : quelques particules qui flottent (désactivées avec
 // « Effets complets »). vx / vy en px/s, sway : balancement, rate : par seconde et par 1000 px.
@@ -425,6 +426,9 @@ export class Juice {
 
   sparkles(x, y, color, n) {
     if (!this.active) return;
+    // (it. 993) au plus MAX_SPARKS étincelles vivantes : en fin de partie (combats denses, sorts de haut rang), ≈ 60
+    // bougeaient en permanence et coûtaient au GPU ; une nouvelle salve en crée moins quand l'écran en est plein
+    n = Math.min(n, MAX_SPARKS - this.layer.getElementsByClassName("spark").length);
     for (let i = 0; i < n; i++) {
       const node = el("div", "spark", this.layer);
       node.style.background = color;
