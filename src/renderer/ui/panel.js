@@ -118,7 +118,7 @@ function tilePower(v) {
 }
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
-const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates", "autos"]);
+const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates", "autos", "asc-keep"]);
 
 /** (it. 774) Polices (forme courte CSS : style, graisse, taille, familles) des textes d'un onglet, même caché. */
 function fontsOf(root) {
@@ -813,7 +813,7 @@ export class Panel {
   }
 
   /** (it. 744) Automatismes achetés (valet, creuset, forge, marchand, herboriste, forgeron des astres) : avec les
-   *  textes longs (allemand, 1280 px) les 6 cases sous le sac faisaient défiler l'onglet ; au-delà de 2, elles passent
+   *  textes longs (allemand, 1280 px) les 6 cases sous le sac faisaient défiler l'onglet ; au-delà d'une (it. 985 ; 2 avant), elles passent
    *  dans « Automatismes (actifs / total) », ouvert dans la fenêtre large (MODAL_DETAILS ; rien ne grandit). */
   autosCount(S) {
     const l = [["armsValet", "autoEquipDrops"], ["crucible", "autoTransmute"], ["masterForge", "autoForge"], ["trader", "autoTrade"], ["herbalist", "autoBuffs"], ["starSmith", "autoAnvil"]]
@@ -830,7 +830,8 @@ export class Panel {
       [hasUnlock(S, "herbalist"), "autoBuffs", `<label class="toggle"><input type="checkbox" data-action="herbs"${S.settings.autoBuffs !== false ? " checked" : ""}> ${tx("Herboriste perpétuel : racheter les élixirs et parchemins")}</label>`],
       [hasUnlock(S, "starSmith"), "autoAnvil", `<label class="toggle"><input type="checkbox" data-action="sanvil"${S.settings.autoAnvil !== false ? " checked" : ""}> ${tx("Forgeron des astres : remonter l’équipement porté au niveau du record")}</label>`],
     ].filter((x) => x[0]);
-    if (list.length <= 2) return list.map((x) => x[2]).join("");
+    // (it. 985) dès 2 : deux cases longues (russe, 1280 px, Valet d'armes + Maître de forge) faisaient défiler l'onglet de 35 px
+    if (list.length <= 1) return list.map((x) => x[2]).join("");
     const [on] = this.autosCount(S);
     return `<details class="autosbox" data-keep="autos"${this.kept.has("autos") ? " open" : ""}><summary>${tx("Automatismes ({0} / {1})", { 0: on, 1: list.length })}</summary><div class="autos-body">${list.map((x) => x[2]).join("")}</div></details>`;
   }

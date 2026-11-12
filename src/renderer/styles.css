@@ -980,7 +980,7 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
    faisait défiler l'Aventure à 1920 px. */
 .visit { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 /* Carte du héros : « À faire », « Chroniques », « Toutes les statistiques » fermés sur une même ligne. */
-#p-hero .morerow { display: flex; flex-wrap: wrap; column-gap: 14px; }
+#p-hero .morerow { display: flex; flex-wrap: wrap; column-gap: 10px; } /* (it. 985) 10 px et 13 px : « Сделать » et « Хроники » tiennent sur une ligne (russe, 1280 px) */
 #p-hero .morerow > details[open] { flex-basis: 100%; }
 #p-hero .tiles { margin: 6px 0; gap: 5px; }
 #p-hero .tile { padding-top: 2px; padding-bottom: 2px; padding-left: 30px; padding-right: 4px; }
@@ -991,7 +991,7 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 #p-hero .tiles { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 #p-hero .tile > b { overflow: hidden; text-overflow: ellipsis; }
 #p-hero .goal { margin-bottom: 6px; padding: 3px 8px; }
-#p-hero .morerow summary { font-size: 14px; margin: 4px 0 2px; }
+#p-hero .morerow summary { font-size: 13px; margin: 4px 0 2px; }
 /* Icônes des nœuds de compétences (demande 34). */
 .skillsvg .nico { pointer-events: none; image-rendering: pixelated; }
 .skillsvg .nico.locked { opacity: .5; }

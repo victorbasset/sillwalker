@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 985) : --crawl en japonais sans erreur (328 clics). Angle mort trouvé : mesure des langues avec une
+  partie TRÈS avancée (sauvegarde de simulate.js 48 h, DUMP) au lieu de dev-data : Ascension 17-80 px de défilement (de,
+  pl, ru ; 1280 et 1366), Aventure 35 px (ru 1280). Remèdes : Ascension, après 3 ascensions, la liste « Gardé / Perdu »
+  se replie (« Ce qui est gardé ou perdu », ouverte dans la fenêtre large) ; Aventure, les automatismes passent dans
+  « Automatismes (n / m) » dès 2 (au lieu de 3 : Valet d'armes + Maître de forge prenaient 5 lignes en russe) ; la
+  rangée « À faire · Chroniques · Toutes les statistiques » de la carte du héros resserrée (13 px, écart 10 px) pour
+  tenir sur deux lignes en russe. Partie avancée : 10 langues à 1280 px sans défaut ; dev-data : 10 langues × 3
+  largeurs sans défaut ; autotest 201/201. Noté en Idées : intégrer cette partie avancée à lang-overflow.
 - 2026-11-12 (it. 984) : l'annonce d'une nouvelle sorte d'élite dit son bonus (« … (3 / 7), +1 % de chances de butin pour
   toujours. »), comme celle d'un événement découvert. « Quoi de neuf », édition 44 : bonus de la collection des élites,
   une réplique pour chacun des 14 événements. 10 langues, libellés cités vérifiés ; 10 langues × 3 largeurs sans
@@ -3587,6 +3595,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 Vu it. 985 : lang-overflow ne mesure que dev-data (zone 55, 1 ascension) ; une partie très avancée (simulate.js 48 h,
+  DUMP=…) montrait des défauts invisibles autrement (Ascension, Aventure). Intégrer une seconde sauvegarde « fin de
+  partie » (générée par simulate.js, gardée dans le dépôt ou régénérée) à lang-overflow, au moins à 1280 px.
 - FAIT (it. 972 : le scénario de mesure a changé, voir « Fait ») P2 Vu it. 971 : bande ≈ 20,5-20,9 % d'un cœur (deux mesures, copies neuves) contre 19,5-19,9 % aux revues 941-961 :
   ≈ +1 point. Suspects : t() et sa règle d'espaces insécables (it. 952 : expression régulière à chaque texte traduit,
   appelée pour chaque nombre de dégâts flottant ?), étiquettes « ✦ » (it. 947), Ruée des gobelins (sans effet hors

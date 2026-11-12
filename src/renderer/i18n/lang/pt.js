@@ -1340,4 +1340,5 @@ export default {
   2465: "Novo tipo de elite derrotado: {0} ({1} / {2}), {3} para sempre.",
   2466: "Cada tipo de elite derrotado agora dá +1 % de chance de saque para sempre (Bestiário > Elites).",
   2467: "O herói tem uma fala para cada um dos 14 eventos raros.",
+  2468: "O que é mantido ou perdido",
 };

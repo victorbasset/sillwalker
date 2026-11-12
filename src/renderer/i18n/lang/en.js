@@ -1340,4 +1340,5 @@ export default {
   2465: "New kind of elite defeated: {0} ({1} / {2}), {3} forever.",
   2466: "Each kind of elite defeated now gives +1% loot chance forever (Bestiary > Elites).",
   2467: "The hero now has a line for each of the 14 rare events.",
+  2468: "What is kept or lost",
 };

@@ -1340,4 +1340,5 @@ export default {
   2465: "Nowy rodzaj elity pokonany: {0} ({1} / {2}), na zawsze {3}.",
   2466: "Każdy pokonany rodzaj elity daje teraz na zawsze +1 % szansy na łup (Bestiariusz > Elity).",
   2467: "Bohater ma kwestię na każde z 14 rzadkich zdarzeń.",
+  2468: "Co zostaje, a co przepada",
 };

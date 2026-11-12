@@ -36,10 +36,13 @@ export class AscensionTab {
       <p class="shards">${ico("star")} ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${P.shards}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
       <p><b>${tx("Lueur stellaire")}</b>${fsp()}${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone {0}.", { 0: g.nextStartZone() })}</p>
+      ${(P.count || 0) >= 3 ? `<details data-keep="asc-keep"><summary>${tx("Ce qui est gardé ou perdu")}</summary>` : ""}
       <div class="keeplose">
         <div><b class="delta-p">${tx("Gardé")}</b><ul>${KEEP.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}${hasUnlock(S, "autoSell") ? `<li>${ico("contract")}${tx("ventes automatiques")}</li>` : ""}</ul></div>
         <div><b class="delta-n">${tx("Perdu")}</b><ul>${LOSE.map(([i, t]) => `<li>${ico(i)}${tx(t)}</li>`).join("")}</ul></div>
-      </div>
+      </div>${(P.count || 0) >= 3 ? "</details>" : ""}
+      <!-- (it. 985) après 3 ascensions, la liste est connue : repliée (ouverte dans la fenêtre large), elle laisse la place
+           aux lignes de fin de partie (meilleure course, compagnon) qui faisaient défiler l'onglet jusqu'à 80 px -->
       <p>${tx("Héros de la prochaine aventure :")} <b>${esc(CLASSES[S.nextCls || S.cls].name)}</b>
         <button class="linkbtn inline" data-tab="class">${tx("changer →")}</button>
         ${(() => { // compagnon gardé à l'ascension (game.js : nextPartner, sinon le compagnon actuel) et synergie éventuelle

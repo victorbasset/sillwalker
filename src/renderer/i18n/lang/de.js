@@ -1340,4 +1340,5 @@ export default {
   2465: "Neue Elite-Art besiegt: {0} ({1} / {2}), {3} für immer.",
   2466: "Jede besiegte Elite-Art gibt jetzt für immer +1 % Beutechance (Bestiarium > Elite-Gegner).",
   2467: "Der Held hat für jedes der 14 seltenen Ereignisse einen eigenen Spruch.",
+  2468: "Was bleibt und was verloren geht",
 };
