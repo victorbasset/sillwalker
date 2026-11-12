@@ -183,7 +183,12 @@ const EDITION_37 = [
   "« Bestiaire » : nouveau sous-onglet « Événements rares », ceux déjà vus et ceux qui restent à découvrir.",
   "« Statistiques » : un clic sur « Événements rares » y mène directement.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37];
+const EDITION_38 = [
+  "Les quêtes et le « Prochain déblocage » donnent le temps restant estimé (« ≈ 1 h 10 min ») ; la bulle de la bénédiction annonce celle de demain.",
+  "« Événements rares » : chaque événement vécu donne +1 % d’or pour toujours ; une nouvelle découverte est annoncée dans le journal.",
+  "Nouvelle élite « Fuyant » : elle esquive 20 % des coups (les coups au clic touchent toujours).",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 935) : « Quoi de neuf », édition 38 : temps restant des quêtes et du prochain déblocage,
+  bénédiction de demain, bonus de la collection des événements rares, élite Fuyant. Traduite dans les 10 langues,
+  libellés cités vérifiés ; autotest 193/193. La mesure des 10 langues a de nouveau signalé une fois
+  « stats-chevauche=1 » en russe à 1280 px (non reproduit en cinq passages isolés : il dépend d'une valeur qui change
+  avec le temps de jeu) ; le rapport de --overflow-report cite maintenant le libellé et la valeur en cause.
 - 2026-11-12 (it. 934) : un 7e affixe d'élite, « Fuyant » : il esquive 20 % des coups du héros (« Raté ! », les coups au
   clic touchent toujours), comme les boss insaisissables ; les héros à gros coups lents en souffrent, les rapides
   moins. Nom propre à l'affixe (traduit en adjectif : « Ausweichender Champion »), description reprise de la capacité
@@ -3360,7 +3365,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- FAIT (it. 925 : durées sans minutes au-delà d'un jour) P3 Vu it. 920 : lang-overflow, russe à 1280 px, « stats-chevauche=1 » une fois (un libellé de Statistiques plus large que
+- EN PARTIE (it. 925 : durées raccourcies ; revu à l'it. 935, le rapport cite désormais le libellé) P3 Vu it. 920 : lang-overflow, russe à 1280 px, « stats-chevauche=1 » une fois (un libellé de Statistiques plus large que
   sa colonne, sans doute « Засчитанное офлайн-время » à côté d'une valeur longue), pas reproduit en quatre passages ; si
   ça revient, main.js (--overflow-report) peut citer le texte du libellé.
 

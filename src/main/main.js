@@ -186,7 +186,7 @@ function start() {
             // (it. 543) ligne de liste plus large que sa colonne (débordement horizontal)
             let w = 0; for (const li of document.querySelectorAll(".lines li")) if (li.getClientRects().length && li.scrollWidth > li.clientWidth + 1) w++; if (w) out.push(id + "-large=" + w);
             // (it. 849) libellé d'un seul mot trop long qui passe sous sa valeur (« Gegenstandssammlung44 / 44 »)
-            let c = 0; for (const sp of document.querySelectorAll(".lines li > span:first-child")) if (sp.getClientRects().length && sp.scrollWidth > sp.clientWidth + 1) c++; if (c) out.push(id + "-chevauche=" + c);
+            let c = 0, cw = []; for (const sp of document.querySelectorAll(".lines li > span:first-child")) if (sp.getClientRects().length && sp.scrollWidth > sp.clientWidth + 1) { c++; cw.push(sp.textContent.trim().slice(0, 30) + " (" + ((sp.nextElementSibling || {}).textContent || "").trim().slice(0, 20) + ")"); } if (c) out.push(id + "-chevauche=" + c + "[" + cw.join(" / ") + "]"); // (it. 935) libellé et valeur cités
             // (it. 864) tuiles du héros (Points de vie, Attaque…) : libellé ou valeur coupé (« Punkty ży… »)
             const tl = []; for (const e of document.querySelectorAll("[data-pane=" + id + "]:not([hidden]) .tile > span, [data-pane=" + id + "]:not([hidden]) .tile > b")) if (e.getClientRects().length && e.scrollWidth > e.clientWidth + 1) tl.push(e.textContent.trim().slice(0, 24) + "/" + e.clientWidth + "<" + e.scrollWidth); if (tl.length) out.push(id + "-tuile=" + tl.length + "(" + tl.join(" ; ") + ")");
             // (it. 865) mot coupé en plein milieu sur deux lignes, sans trait d'union (« Восстанавлив / ает ») ; les écritures

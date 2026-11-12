@@ -1285,4 +1285,7 @@ export default {
   2410: "Cada evento vivido da {0} para siempre. Bonificación actual: {1}.",
   2411: "Evento descubierto: {0} para siempre ({1} / {2}).",
   2412: "Esquivo",
+  2413: "Las misiones y el «Próximo desbloqueo» muestran el tiempo restante estimado («≈ 1 h 10 min»); la burbuja de la bendición anuncia la de mañana.",
+  2414: "«Eventos raros»: cada evento vivido da +1 % de oro para siempre; un nuevo descubrimiento se anuncia en el diario.",
+  2415: "Nueva élite «Esquivo»: esquiva el 20 % de los golpes (los golpes con clic siempre aciertan).",
 };

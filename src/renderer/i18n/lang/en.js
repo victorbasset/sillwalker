@@ -1285,4 +1285,7 @@ export default {
   2410: "Each event you live through gives {0} forever. Current bonus: {1}.",
   2411: "Event discovered: {0} forever ({1} / {2}).",
   2412: "Evasive",
+  2413: "Quests and the “Next unlock” show the estimated time left (“≈ 1 h 10 min”); the blessing tooltip also tells tomorrow’s.",
+  2414: "“Rare events”: each event you live through gives +1% gold forever; a new discovery is announced in the log.",
+  2415: "New “Evasive” elite: it dodges 20% of hits (click strikes always land).",
 };

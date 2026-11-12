@@ -1285,4 +1285,7 @@ export default {
   2410: "Każde przeżyte wydarzenie daje na zawsze {0}. Obecny bonus: {1}.",
   2411: "Odkryto wydarzenie: {0} na zawsze ({1} / {2}).",
   2412: "Zwinny",
+  2413: "Zadania i „Następne odblokowanie” pokazują szacowany pozostały czas („≈ 1 godz. 10 min”); dymek błogosławieństwa zapowiada też jutrzejsze.",
+  2414: "„Rzadkie zdarzenia”: każde przeżyte wydarzenie daje na zawsze +1 % złota; nowe odkrycie ogłasza dziennik.",
+  2415: "Nowa elita „Zwinny”: unika 20 % ciosów (ciosy kliknięciem zawsze trafiają).",
 };

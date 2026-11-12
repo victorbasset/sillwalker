@@ -2414,5 +2414,8 @@ export const KEYS = [
   "≈ {0}",
   "Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}.",
   "Événement découvert : {0} pour toujours ({1} / {2}).",
-  "Fuyant"
+  "Fuyant",
+  "Les quêtes et le « Prochain déblocage » donnent le temps restant estimé (« ≈ 1 h 10 min ») ; la bulle de la bénédiction annonce celle de demain.",
+  "« Événements rares » : chaque événement vécu donne +1 % d’or pour toujours ; une nouvelle découverte est annoncée dans le journal.",
+  "Nouvelle élite « Fuyant » : elle esquive 20 % des coups (les coups au clic touchent toujours)."
 ];
