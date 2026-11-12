@@ -2444,5 +2444,6 @@ export const KEYS = [
   "Une de plus pour ma collection !",
   "Celle-là, je ne l’avais jamais battue !",
   "Les élites apparaissent à partir de la zone {0}.",
-  "Nouveau type pour la collection."
+  "Nouveau type pour la collection.",
+  "vaincue ! En route vers : {0}."
 ];

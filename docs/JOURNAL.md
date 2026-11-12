@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 959) : vérifié en partie neuve (3 min) que l'annonce du nouveau type rejoint la ligne du butin
+  (it. 958) : oui. Le même journal montrait « Morille la Ronde vaincu ! » : le français n'avait pas de table de genre
+  des boss. Ajoutée (dix noms féminins : Morille la Ronde, Bave-Reine, Carapace-des-Abysses, Reine de Verre…) :
+  épithète accordée (« Carapace-des-Abysses l'Éveillée », « … l'Ancestrale ») et « vaincue ! En route vers … » ; la
+  forme féminine du message sert aussi aux langues qui ont déjà une table (es, pt : « derrotada » ; ru « повержена » ;
+  pl « pokonana »), selon le genre du nom DANS chaque langue (bossGender, bosses.js). Test logique (fr) ; autotest
+  199/199 ; fr, pt, es sans défaut.
 - 2026-11-12 (it. 958) : partie neuve revue à 3 et 5 min (français, 1280 px) : rien de cassé ; le journal, étroit à
   1280 px, se remplissait de lignes de collection : « Butin rare : Gantelets de fer de l'aube ! » puis « Nouveau type
   d'objet pour la collection : Gantelets ! » (sept lignes à l'écran pour deux nouvelles). Le butin d'une victoire porte

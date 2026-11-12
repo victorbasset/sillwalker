@@ -1315,4 +1315,5 @@ export default {
   2440: "¡Nunca había vencido a una así!",
   2441: "Las élites aparecen a partir de la zona {0}.",
   2442: "Nuevo tipo para la colección.",
+  2443: "¡derrotada! Rumbo a: {0}.",
 };

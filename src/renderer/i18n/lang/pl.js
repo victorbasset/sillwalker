@@ -1315,4 +1315,5 @@ export default {
   2440: "Takiej jeszcze nie pokonałem!",
   2441: "Elity pojawiają się od strefy {0}.",
   2442: "Nowy typ do kolekcji.",
+  2443: "pokonana! Kierunek: {0}.",
 };

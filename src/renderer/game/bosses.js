@@ -5,6 +5,11 @@ import { t as tx, getLang, ruAgree, plAgree } from "../i18n/index.js";
 // (it. 673-674) russe et polonais : genre des noms de boss traduits (clé : nom français ; absent = masculin), pour
 // accorder l'épithète (« Королева Слизи Пробуждённая », « Królowa Szlamu Przebudzona »)
 const BOSS_GENDER = {
+  // (it. 959) français : épithète (« Carapace-des-Abysses l’Éveillée ») et « vaincue ! »
+  fr: {
+    "Morille la Ronde": "f", "Bave-Reine": "f", "Mâchoire Verte": "f", "La Veuve des Égouts": "f", "Mère des Harpies": "f",
+    "Pince-Abysse": "f", "Aile-de-Tempête": "f", "Carapace-des-Abysses": "f", "Ignivore, mère des wyvernes": "f", "Reine de Verre": "f",
+  },
   ru: {
     "Bave-Reine": "f", "Mâchoire Verte": "f", "La Veuve des Égouts": "f", "Mère des Harpies": "f", "Ignivore, mère des wyvernes": "f",
     "Chapeau-Pourpre": "f", "Reine de Verre": "f",
@@ -37,6 +42,7 @@ const BOSS_GENDER = {
 const AGREE = { ru: ruAgree, pl: plAgree };
 // formes complètes (article compris) quand l'accord n'est pas une simple terminaison
 const FORMS = {
+  fr: { " l’Éveillé": { f: " l’Éveillée" }, " l’Ancestral": { f: " l’Ancestrale" } },
   de: { " l’Éveillé": { f: " die Erwachte", n: " das Erwachte" }, " l’Ancestral": { f: " die Uralte", n: " das Uralte" } },
   es: { " l’Éveillé": { f: " la Despertada" }, " l’Ancestral": { f: " la Ancestral" } },
   pt: { " l’Éveillé": { f: " a Desperta" }, " l’Ancestral": { f: " a Ancestral" } },
@@ -86,6 +92,11 @@ export const TENACIOUS = { back: 0.25 };
 export const CURSE = { every: 9, first: 6, s: 3, hurt: 0.15 };
 
 /** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */
+/** (it. 959) Genre du nom du boss de la zone z dans la langue affichée (« m » par défaut, boss majeurs et final compris). */
+export function bossGender(z) {
+  if (isFinalZone(z) || majorBoss(z)) return "m";
+  return BOSS_GENDER[getLang()]?.[BOSS_SRC[(z - 1) % ZONES.length]] || "m";
+}
 export const BOSS_NAMES = [
   "Morille la Ronde", "Bave-Reine", "Os-le-Roi", "Gluant des tourbières", "Le Forgeron d’Os",
   "Dard-de-Sable", "Croc-Blanc l’Ancien", "Mâchoire Verte", "Gardien des Nuées", "Seigneur Cornu",

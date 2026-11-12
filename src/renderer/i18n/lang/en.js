@@ -1315,4 +1315,5 @@ export default {
   2440: "Never beaten one of those before!",
   2441: "Elites appear from zone {0} onward.",
   2442: "New type for the collection.",
+  2443: "defeated! Heading to: {0}.",
 };

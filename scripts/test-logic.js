@@ -967,6 +967,19 @@ test("butin d'une victoire : le nouveau type pour la collection rejoint la ligne
   assert.ok(merged.length === 1 && alone.length === 0, JSON.stringify(g.S.log));
 });
 
+test("boss au nom féminin : « l’Éveillée », « vaincue » en français (it. 959)", () => {
+  const before = getLang();
+  try {
+    setLang("fr");
+    const i = M_bosses_js.BOSS_NAMES.indexOf("Carapace-des-Abysses"), z = ZONES.length + i + 1;
+    assert.ok(M_bosses_js.bossName(z).endsWith("l’Éveillée"), M_bosses_js.bossName(z));
+    assert.equal(M_bosses_js.bossGender(1), "f"); assert.equal(M_bosses_js.bossGender(3), "m");
+    const g = new Game(freshState()); g.S.zone = 1; g.S.kills = KILLS_PER_ZONE; g.S.log = [];
+    g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
+    assert.ok(g.S.log.some((l) => /Morille la Ronde vaincue !/.test(l)), JSON.stringify(g.S.log));
+  } finally { setLang(before); }
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;
