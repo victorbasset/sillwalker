@@ -744,6 +744,18 @@ async function runSelfTest(strip) {
       G.S.zone = z0; G.S.kills = k0; G.R.mon = m0; st.slotKey = null; st.syncSlots(); return all.length ? all.length + ' boss : ' + all.join(' // ') : 'ok'; })()`);
     check("combat de boss : nombres flottants hors du nom et de la relique", r === "ok", r);
   }
+  // (it. 947) étiquette d'une élite jamais vaincue : « ✦ » ; plus d'étoile une fois la sorte vaincue
+  {
+    const r = await js(`(() => { const st = window.__strip, G = window.__game, S = G.S; if (!st.active) return 'bande inactive';
+      const k0 = S.kills, m0 = G.R.mon, l0 = G.R.lineup, lz0 = G.R.lineupZone, keep = S.stats.affixesSeen, out = [];
+      for (const seen of [{}, { elusive: true }]) { S.stats.affixesSeen = seen; S.kills = 0; G.R.mon = null;
+        G.R.lineup = Array.from({ length: 10 }, () => ({ type: G.zoneDef().monsters[0], elite: true, affix: 'elusive' })); G.R.lineupZone = S.zone;
+        st.slotKey = null; st.syncSlots();
+        const t = [...document.querySelectorAll('.affix:not(.bossname)')].find((x) => x.isConnected); out.push(t ? t.textContent : 'aucune'); }
+      S.stats.affixesSeen = keep; S.kills = k0; G.R.mon = m0; G.R.lineup = l0; G.R.lineupZone = lz0; st.slotKey = null; st.syncSlots();
+      return out.join(' | '); })()`);
+    check("bande : élite d’une sorte jamais vaincue marquée ✦", /✦/.test(r.split(" | ")[0]) && !/✦/.test(r.split(" | ")[1] || "✦"), r);
+  }
   // (it. 892) File d'élites (Lune de sang) : aucune étiquette d'affixe ne passe sous le nom du boss, sur les 200 zones
   // (un monstre volant, plus haut, la mettait sur le nom : « Furieux » sur « Carapace-des-Abysses »).
   {

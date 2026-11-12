@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 947) : dans la bande, l'étiquette d'une élite (ou d'un champion) d'une sorte jamais vaincue porte
+  « ✦ » (« Givré ✦ ») : on voit d'un coup d'œil qu'elle compte pour la collection du Bestiaire ; l'étoile disparaît
+  une fois la sorte vaincue. Vu en capture (Lune de sang, file d'élites) ; contrôle d'autotest (avec et sans la sorte
+  vaincue ; le contrôle des étiquettes sous le nom du boss passe avec les étiquettes allongées) ; 197/197.
 - 2026-11-12 (it. 946) : 16e sorte de quête, « proie » : « Vaincre 2 élites « Fuyant » » (une sorte d'élite précise,
   nom entre guillemets pour éviter l'accord dans les langues à genres ; pluriels à 3 formes en russe et polonais).
   Récompense : coffre rare et or. Elle avance aussi pendant l'absence (chaque élite hors ligne a 1 chance sur 7 d'être

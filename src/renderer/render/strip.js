@@ -639,8 +639,10 @@ export class StripRenderer {
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");
         const af = ELITE_AFFIXES[line[k].affix];
-        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = af ? upFirst(tx("Champion {0}", { 0: af.name.toLowerCase() })) : tx("Champion"); }
-        else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name; tag.style.color = af.color; }
+        // (it. 947) ✦ : sorte jamais vaincue (elle compte pour la collection du Bestiaire et le succès « Tueur d'élites »)
+        const fresh = af && !((this.game.S.stats && this.game.S.stats.affixesSeen) || {})[line[k].affix] ? " ✦" : "";
+        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = (af ? upFirst(tx("Champion {0}", { 0: af.name.toLowerCase() })) : tx("Champion")) + fresh; }
+        else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name + fresh; tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
       a.flame = el("div", "flame", a.el);
