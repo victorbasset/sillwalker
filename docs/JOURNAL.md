@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 994) : enquête de performance en fin de partie, suite : projectiles neutralisés (TEMP) : 39,9 % contre
+  38,6 % (aucun gain : écartés). Le reste est réparti (personnages animés en couches propres : héros, compagnon,
+  familier, serviteur, drone ; nombres de dégâts ≈ 3 ; son ≈ 4,5) et mesuré en rendu LOGICIEL (xvfb, GPU émulé) : peu
+  représentatif d'un vrai PC (CLAUDE.md). Piste arrêtée ici ; à revoir avec une mesure sous Windows (Victor) sur une
+  partie avancée. Aucun changement de code.
 - 2026-11-13 (it. 993) : suite de l'enquête de performance en fin de partie (it. 992). Compté les effets vivants
   (TEMP) : ≈ 62 étincelles en permanence en fin de partie contre 21 avec dev-data. Deux remèdes : au plus 24
   étincelles vivantes (juice.js, MAX_SPARKS : −1 point) ; surtout, le flash plein écran et la secousse de chaque coup
@@ -3639,7 +3644,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- EN PARTIE (it. 993 : 42,5 → 38,6 %) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+- EN PARTIE (it. 993 : 42,5 → 38,6 % ; it. 994 : projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
   (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium
