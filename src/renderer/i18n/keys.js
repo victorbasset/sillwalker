@@ -2470,5 +2470,8 @@ export const KEYS = [
   "Nouvelle sorte d’élite vaincue : {0} ({1} / {2}), {3} pour toujours.",
   "Chaque sorte d’élite vaincue donne maintenant +1 % de chances de butin pour toujours (Bestiaire > Élites).",
   "Le héros a une réplique pour chacun des 14 événements rares.",
-  "Ce qui est gardé ou perdu"
+  "Ce qui est gardé ou perdu",
+  "L’étal du marchand propose des objets déjà forgés au niveau de ton équipement : il redevient utile en fin de partie.",
+  "La récompense en or d’une quête suit ta progression depuis qu’elle a été tirée.",
+  "En fin de partie, la bande est plus lisible et plus légère (moins de nombres et d’effets à la fois)."
 ];

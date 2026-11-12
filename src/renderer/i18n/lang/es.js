@@ -1341,4 +1341,7 @@ export default {
   2466: "Cada tipo de élite vencido da ahora +1 % de probabilidad de botín para siempre (Bestiario > Élites).",
   2467: "El héroe tiene una frase para cada uno de los 14 eventos raros.",
   2468: "Lo que se conserva o se pierde",
+  2469: "El puesto del mercader ofrece objetos ya forjados al nivel de tu equipo: vuelve a ser útil al final de la partida.",
+  2470: "La recompensa en oro de una misión sigue tu progreso desde que salió.",
+  2471: "Al final de la partida, la banda es más legible y más ligera (menos números y efectos a la vez).",
 };

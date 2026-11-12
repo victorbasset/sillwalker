@@ -1017,7 +1017,8 @@ export class Panel {
     const xb = $(r, "#xpbar");
     if (xb) {
       xb.style.width = (100 * S.xp / this.game.xpNeed()) + "%";
-      $(r, "#xptxt").textContent = fmt(S.xp) + " / " + fmt(this.game.xpNeed());
+      // (it. 998) format court (3 chiffres) : « 183,42 T / 278,69 T » passait sur deux lignes en polonais à 1280 px
+      $(r, "#xptxt").textContent = fmtShort(S.xp) + " / " + fmtShort(this.game.xpNeed());
       $(r, "#goldtxt").textContent = fmt(S.gold);
     }
     const kb = $(r, "#killbar");

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 998) : « Quoi de neuf », édition 45 : étal du Marchand forgé, or des quêtes qui suit la progression,
+  bande plus lisible en fin de partie. La mesure des langues (partie de fin de partie) a trouvé 5 px de défilement en
+  polonais à 1280 px : la valeur de l'expérience du héros (« 183,42 T / 278,69 T ») passait sur deux lignes ; elle
+  utilise le format court (« 183 T / 279 T »). Bande dev-data remesurée : 19,7 et 19,2 % (le 21,0 de l'it. 997 était
+  du bruit). pl, ru, de sans défaut ; autotest 201/201.
 - 2026-11-13 (it. 997) : nombres de dégâts plafonnés : au plus 6 petits nombres ordinaires visibles à la fois (les
   grands — critiques, « Gelé ! », « Écho ! »… — passent toujours) ; en fin de partie, une douzaine montaient en même
   temps. Bande en fin de partie 38,4 → 36,4 % (depuis l'it. 992 : 42,5 → 36,4). Autotest 201/201 (placements des

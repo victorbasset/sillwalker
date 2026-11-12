@@ -1341,4 +1341,7 @@ export default {
   2466: "Cada tipo de elite derrotado agora dá +1 % de chance de saque para sempre (Bestiário > Elites).",
   2467: "O herói tem uma fala para cada um dos 14 eventos raros.",
   2468: "O que é mantido ou perdido",
+  2469: "A banca do mercador oferece itens já forjados no nível do seu equipamento: volta a ser útil no fim do jogo.",
+  2470: "A recompensa em ouro de uma missão acompanha seu progresso desde que foi sorteada.",
+  2471: "No fim do jogo, a faixa fica mais legível e mais leve (menos números e efeitos ao mesmo tempo).",
 };

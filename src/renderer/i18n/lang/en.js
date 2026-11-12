@@ -1341,4 +1341,7 @@ export default {
   2466: "Each kind of elite defeated now gives +1% loot chance forever (Bestiary > Elites).",
   2467: "The hero now has a line for each of the 14 rare events.",
   2468: "What is kept or lost",
+  2469: "The merchant's stall offers items already forged to your gear's level: useful again late in the game.",
+  2470: "A quest's gold reward now follows your progress since it was drawn.",
+  2471: "Late in the game, the strip is easier to read and lighter (fewer numbers and effects at once).",
 };

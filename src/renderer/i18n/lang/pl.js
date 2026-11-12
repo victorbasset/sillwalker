@@ -1341,4 +1341,7 @@ export default {
   2466: "Każdy pokonany rodzaj elity daje teraz na zawsze +1 % szansy na łup (Bestiariusz > Elity).",
   2467: "Bohater ma kwestię na każde z 14 rzadkich zdarzeń.",
   2468: "Co zostaje, a co przepada",
+  2469: "Stragan kupca oferuje przedmioty już wykute na poziomie twojego wyposażenia: znów przydatny w późnej grze.",
+  2470: "Nagroda w złocie za zadanie rośnie wraz z twoimi postępami od chwili jego wylosowania.",
+  2471: "W późnej grze pasek jest czytelniejszy i lżejszy (mniej liczb i efektów naraz).",
 };

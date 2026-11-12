@@ -1341,4 +1341,7 @@ export default {
   2466: "Jede besiegte Elite-Art gibt jetzt für immer +1 % Beutechance (Bestiarium > Elite-Gegner).",
   2467: "Der Held hat für jedes der 14 seltenen Ereignisse einen eigenen Spruch.",
   2468: "Was bleibt und was verloren geht",
+  2469: "Der Händler bietet Gegenstände an, die bereits auf das Niveau deiner Ausrüstung geschmiedet sind: im späten Spiel wieder nützlich.",
+  2470: "Die Goldbelohnung einer Quest wächst mit deinem Fortschritt seit ihrer Ziehung.",
+  2471: "Im späten Spiel ist die Leiste übersichtlicher und leichter (weniger Zahlen und Effekte gleichzeitig).",
 };
