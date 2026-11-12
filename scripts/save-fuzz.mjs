@@ -43,7 +43,9 @@ function exercise(g) {
   g.claimDaily("2030-01-01");
   S.best = Math.max(S.best, 40); g.ascend();
 }
-const base = JSON.parse(fs.readFileSync(ROOT + "dev-data/save.json", "utf8"));
+// (it. 999) FUZZ_BASE=fin : la partie de fin de partie (scripts/fixtures/endgame-save.json : 20 ascensions, reliques,
+// automatismes, compagnon) au lieu de dev-data ; des champs absents de dev-data y sont abîmés à leur tour
+const base = JSON.parse(fs.readFileSync(ROOT + (process.env.FUZZ_BASE === "fin" ? "scripts/fixtures/endgame-save.json" : "dev-data/save.json"), "utf8"));
 const cases = {
   questsNull: (o) => { o.quests.slots = [null, { kind: "kill" }]; },
   talentsBad: (o) => { o.talents = { nope: 3, w_str: null }; },

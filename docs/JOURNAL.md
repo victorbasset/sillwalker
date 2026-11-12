@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 999) : contrôles avec la partie de fin de partie : lang-overflow complet (10 langues, dev-data et fin
+  de partie) sans défaut ; mode mini en français et en russe : propre. save-fuzz peut partir de cette partie
+  (FUZZ_BASE=fin) : 1120 corruptions, toutes ok (sans expédition en cours dans cette sauvegarde, pets.exp n'est pas
+  balayé : dev-data le couvre). CLAUDE.md.
 - 2026-11-13 (it. 998) : « Quoi de neuf », édition 45 : étal du Marchand forgé, or des quêtes qui suit la progression,
   bande plus lisible en fin de partie. La mesure des langues (partie de fin de partie) a trouvé 5 px de défilement en
   polonais à 1280 px : la valeur de l'expérience du héros (« 183,42 T / 278,69 T ») passait sur deux lignes ; elle
