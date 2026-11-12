@@ -84,7 +84,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (Windows, menu de l'icône), cinématiques désactivables, ralenti automatique sur batterie et en absence.
 - **Design « gravure pixel »** : cadres pixel art à coins entaillés et rivets dorés, fond étoilé, palette nuit violine
   et laiton (sombre) ou parchemin et encre (clair), aucun onglet qui défile à 1920 px (rangées latérales : molette ou glisser).
-- **Objets** : 7 emplacements (arme, casque, armure, gants, bottes, anneau, amulette), 46 types, des matériaux
+- **Objets** : 7 emplacements (arme, casque, armure, gants, bottes, anneau, amulette), 44 types, des matériaux
   qui évoluent avec le niveau (bronze → étoile, lin → tissu céleste…), 32 icônes. L'armure, le casque, l'arme et
   les bottes portés changent l'apparence du héros ; plume (casque épique+) et cape (armure épique+) ; halo doré avec un légendaire.
 - **Bestiaire** : 83 monstres (dont des variantes recolorées) ; l'onglet présente aussi les panoplies et leurs bonus,

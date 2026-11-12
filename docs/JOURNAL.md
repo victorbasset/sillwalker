@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 915, contrôle) : nombres du README comparés au code : « 46 types » d'objets corrigé en 44 (comme la
+  collection) ; le reste est juste (20 héros, 26 automatismes, 33 zones, 83 monstres, 3 capacités du Briseur
+  d'Étoiles, liste des 14 capacités de boss).
 - 2026-11-12 (it. 914) : npm test vérifie les nombres de la page du magasin Steam (scripts/steam-store-check.mjs) :
   héros, compétences, régions, monstres, automatismes, événements rares, capacités de boss, élites et sortes de
   quêtes, dans les 10 langues, comparés au code ; un ajout de contenu qui rend la page fausse fait échouer les tests
