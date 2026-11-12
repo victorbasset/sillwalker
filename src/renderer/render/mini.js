@@ -11,7 +11,7 @@ import { PIXEL as P } from "./art.js";
 import { majorBoss, ECHO_OUTLINE } from "../game/relics.js";
 import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
-import { fmt, fmtShort } from "../game/format.js";
+import { fmt, fmtShort, uS } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
 import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
@@ -221,14 +221,19 @@ export class MiniRenderer {
     if (xw !== this.xpW) { this.xpW = xw; this.xp.style.width = xw + "%"; mark("hud"); }
 
     // Infos (texte DOM, mis à jour seulement s'il change)
-    const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills;
+    // (it. 895) événement rare en cours : son nom et ses secondes à la place de la zone, comme sur la bande (avant, le
+    // mode mini ne l'annonçait qu'à son début)
+    const ev = Object.entries(R.events || {}).find(([id, t]) => t > 0 && EVENTS[id]);
+    const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills + "|" + (ev ? ev[0] + Math.ceil(ev[1]) : "");
     if (info !== this.infoKey) {
       this.infoKey = info; mark("hud");
       this.lvl.textContent = tx("Niv. ") + S.lvl;
       this.gold.textContent = fmtShort(S.gold);
-      this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
+      this.zone.textContent = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
+      this.zone.style.color = ev ? EVENTS[ev[0]].color : "";
       const u = tabOpen(S, "shop") ? nextUnlock(S) : null, rec = recordZone(S), tip = []; // pas de déblocage avant la boutique
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
+      if (ev) tip.push(EVENTS[ev[0]].name + colon() + EVENTS[ev[0]].text, tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10");
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + colon() + rec);
       this.goalWrap.hidden = false;
       if (!u) { // tout est débloqué : la barre suit le record de toutes les courses

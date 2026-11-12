@@ -21,7 +21,7 @@ import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/s
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
-import { fmt } from "../game/format.js";
+import { fmt, uS } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
@@ -861,7 +861,7 @@ export class StripRenderer {
     const ev = Object.entries(this.game.R.events || {}).find(([id, t]) => t > 0 && EVENTS[id]);
     // Héros bloqué (demande 22) : « ⚠ bloqué » en rouge, visible d'un coup d'œil sans ouvrir le panneau.
     const stuck = this.game.stuckInfo();
-    const rec = recordZone(S), recTxt = ev ? `${EVENTS[ev[0]].name} ${Math.ceil(ev[1])} s` : stuck ? "⚠ " + tx("bloqué") : S.zone < rec ? tx("record {0}", { 0: rec }) : "";
+    const rec = recordZone(S), recTxt = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : stuck ? "⚠ " + tx("bloqué") : S.zone < rec ? tx("record {0}", { 0: rec }) : "";
     const recCol = ev ? EVENTS[ev[0]].color : stuck ? "#ff6b5a" : "#a29ec2";
     const key = label + "|" + S.kills + "|" + recTxt;
     if (key === this.hudLKey) return;

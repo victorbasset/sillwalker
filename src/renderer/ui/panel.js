@@ -13,7 +13,7 @@ import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { EXPEDITIONS } from "../game/pets.js";
-import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
+import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin, uS } from "../game/format.js";
 import { RELICS, RELIC_IDS, MAJOR_BOSSES, ECHO_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable, majorName } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
@@ -738,7 +738,7 @@ export class Panel {
     const sets = Object.entries(setCounts(S.equip)).filter(([id, n]) => SETS[id] && n >= 2)
       .map(([id, n]) => `<span class="chip set" style="--c:${SETS[id].color}" title="${esc(`${n >= 2 ? "✓" : "·"} ${tx("2 pièces : {0}", { 0: describeEffects(SETS[id].two) })}\n${n >= 4 ? "✓" : "·"} ${tx("4 pièces : {0}", { 0: describeEffects(SETS[id].four) })}`)}">◆ ${esc(SETS[id].name)} ${n}/4</span>`).join("");
     const events = Object.entries(g.R.events).filter(([, t]) => t > 0)
-      .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}" title="${esc(EVENTS[id].text)}">${esc(EVENTS[id].name)} · ${Math.ceil(t)} s</span>`).join("");
+      .map(([id, t]) => `<span class="chip event" style="--c:${EVENTS[id].color}" title="${esc(EVENTS[id].text)}">${esc(EVENTS[id].name)} · ${uS(Math.ceil(t))}</span>`).join("");
     const dm = activeDayMod(S);
     // Reliques gagnées (demande S, it. 605) : une pastille chacune ; survol : effet et histoire.
     const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).map((id) => { const r = RELICS[id];

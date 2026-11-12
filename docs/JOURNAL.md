@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 895) : mode mini, un événement rare en cours s'affiche à la place de la ligne de zone, à sa couleur,
+  avec ses secondes (« Corne d'abondance 23 s » ; zone et effet dans la bulle) : avant, le mini ne l'annonçait qu'à son
+  début, la bande le montrait pendant toute sa durée. Au passage, le « s » des secondes restait en dur sur la bande,
+  dans le mode mini et sur la pastille du panneau : « 23 с » en russe, « 23 秒 » en japonais et chinois, « 23초 » en
+  coréen. Parcours --crawl en russe (328 clics, aucune erreur). Autotest 180/180 ; vu en capture (allemand, russe,
+  japonais).
 - 2026-11-12 (it. 894) : quand un événement rare se termine, le journal en fait le bilan, en une ligne : « Lune de
   sang · bilan : 7 élites vaincues, +1,2 M or. », « Corne d'abondance · bilan : 9 monstres vaincus, 9 objets
   trouvés. », « Œil du faucon · bilan : … coups critiques », « Marée arcanique : … sorts lancés », « Pluie d'éclats :
