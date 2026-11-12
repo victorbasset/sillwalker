@@ -21,7 +21,7 @@ import { t as tx, txn, tr, fsp, colon, lc, csep, cend, wsp } from "../i18n/index
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
-  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, GOBLIN, MONSTERS, BAG_SIZE,
+  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
   CHAMPION,
 } from "./data.js";
@@ -911,7 +911,8 @@ export class Game {
       A[m.affix] = was + 1;
       if (!was) { // (it. 944) la première victoire sur une sorte est annoncée ; (it. 956) le héros s'en réjouit
         const won = Object.keys(ELITE_AFFIXES).filter((k) => A[k]).length;
-        this.log(tx("Nouvelle sorte d’élite vaincue : {0} ({1} / {2}).", { 0: ELITE_AFFIXES[m.affix].name, 1: won, 2: Object.keys(ELITE_AFFIXES).length }));
+        // (it. 984) avec son bonus, comme « Événement découvert » (it. 933)
+        this.log(tx("Nouvelle sorte d’élite vaincue : {0} ({1} / {2}), {3} pour toujours.", { 0: ELITE_AFFIXES[m.affix].name, 1: won, 2: Object.keys(ELITE_AFFIXES).length, 3: describeEffects(AFFIX_SEEN_BONUS) }));
         this.emit("eliteNew", { affix: m.affix });
         this.invalidateStats(); // (it. 983) bonus de la collection des élites
       }

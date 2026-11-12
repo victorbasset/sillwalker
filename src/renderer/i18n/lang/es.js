@@ -1337,4 +1337,7 @@ export default {
   2462: "¡Nada puede alcanzarme!",
   2463: "¡La magia fluye a raudales!",
   2464: "Cada tipo de élite vencido da {0} para siempre. Bonificación actual: {1}.",
+  2465: "Nuevo tipo de élite vencido: {0} ({1} / {2}), {3} para siempre.",
+  2466: "Cada tipo de élite vencido da ahora +1 % de probabilidad de botín para siempre (Bestiario > Élites).",
+  2467: "El héroe tiene una frase para cada uno de los 14 eventos raros.",
 };

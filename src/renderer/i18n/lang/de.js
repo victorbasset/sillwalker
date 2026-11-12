@@ -1337,4 +1337,7 @@ export default {
   2462: "Nichts kann mich treffen!",
   2463: "Die Magie sprudelt!",
   2464: "Jede besiegte Elite-Art gibt {0} für immer. Aktueller Bonus: {1}.",
+  2465: "Neue Elite-Art besiegt: {0} ({1} / {2}), {3} für immer.",
+  2466: "Jede besiegte Elite-Art gibt jetzt für immer +1 % Beutechance (Bestiarium > Elite-Gegner).",
+  2467: "Der Held hat für jedes der 14 seltenen Ereignisse einen eigenen Spruch.",
 };

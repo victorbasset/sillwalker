@@ -2466,5 +2466,8 @@ export const KEYS = [
   "Les quêtes, au pas de course !",
   "Rien ne peut m’atteindre !",
   "La magie coule à flots !",
-  "Chaque sorte d’élite vaincue donne {0} pour toujours. Bonus actuel : {1}."
+  "Chaque sorte d’élite vaincue donne {0} pour toujours. Bonus actuel : {1}.",
+  "Nouvelle sorte d’élite vaincue : {0} ({1} / {2}), {3} pour toujours.",
+  "Chaque sorte d’élite vaincue donne maintenant +1 % de chances de butin pour toujours (Bestiaire > Élites).",
+  "Le héros a une réplique pour chacun des 14 événements rares."
 ];

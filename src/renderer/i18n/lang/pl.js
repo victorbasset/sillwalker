@@ -1337,4 +1337,7 @@ export default {
   2462: "Nic mnie nie dosięgnie!",
   2463: "Magia płynie strumieniami!",
   2464: "Każdy pokonany rodzaj elity daje na zawsze {0}. Obecny bonus: {1}.",
+  2465: "Nowy rodzaj elity pokonany: {0} ({1} / {2}), na zawsze {3}.",
+  2466: "Każdy pokonany rodzaj elity daje teraz na zawsze +1 % szansy na łup (Bestiariusz > Elity).",
+  2467: "Bohater ma kwestię na każde z 14 rzadkich zdarzeń.",
 };

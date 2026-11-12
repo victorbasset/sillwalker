@@ -1337,4 +1337,7 @@ export default {
   2462: "Nada pode me atingir!",
   2463: "A magia está fluindo!",
   2464: "Cada tipo de elite derrotado dá {0} para sempre. Bônus atual: {1}.",
+  2465: "Novo tipo de elite derrotado: {0} ({1} / {2}), {3} para sempre.",
+  2466: "Cada tipo de elite derrotado agora dá +1 % de chance de saque para sempre (Bestiário > Elites).",
+  2467: "O herói tem uma fala para cada um dos 14 eventos raros.",
 };

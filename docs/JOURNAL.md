@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 984) : l'annonce d'une nouvelle sorte d'élite dit son bonus (« … (3 / 7), +1 % de chances de butin pour
+  toujours. »), comme celle d'un événement découvert. « Quoi de neuf », édition 44 : bonus de la collection des élites,
+  une réplique pour chacun des 14 événements. 10 langues, libellés cités vérifiés ; 10 langues × 3 largeurs sans
+  défaut ; autotest 201/201.
 - 2026-11-12 (it. 983) : la collection des élites a son bonus permanent, comme celle des événements (it. 932) : +1 % de
   chances de butin par sorte vaincue (7 % au plus ; affixesSeenEffects, data.js ; compté dans heroStats). Bestiaire >
   Élites : « Chaque sorte d'élite vaincue donne +1 % de chances de butin pour toujours. Bonus actuel : +3 %… ».
