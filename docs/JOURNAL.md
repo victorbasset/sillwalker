@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 975) : fin de la chasse aux filtres de la bande (it. 972-974). Restent en drop-shadow : états rares ou
+  brefs (gel, étourdi, ralenti, affaibli, silence), boss final, relique portée par un boss majeur : laissés. Feux
+  follets des secteurs complets (box-shadow, déplacés à chaque image) : mesurés avec six feux follets forcés (TEMP),
+  box-shadow 19,8 % contre dégradé 19,8 % : aucun coût, rien changé. Aucun changement de code.
 - 2026-11-12 (it. 974) : suite de l'it. 973, les autres halos fréquents passent du filtre drop-shadow à une lueur
   peinte derrière le personnage : « cored » (double drop-shadow PERMANENT sur le héros dès qu'un secteur de l'arbre de
   compétences est complet, donc chez tous les joueurs avancés), serviteur du nécromancien (permanent), gobelins (Ruée
