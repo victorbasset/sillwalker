@@ -49,8 +49,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (les 20 héros) et signale celles qui ne progressent pas (60 graines = 1200 parties, ≈ 1 min). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
-- Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (20 corruptions de la
-  sauvegarde de dev : null, valeurs inconnues… ; chacune doit afficher « ok »). À relancer après tout ajout de donnée sauvegardée.
+- Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (27 corruptions écrites à la main
+  de la sauvegarde de dev, chacune « ok », puis un balayage de chaque donnée et de chaque champ des sous-objets avec sept
+  valeurs absurdes : « ok balayage (N corruptions) » attendu, ≈ 35 s ; it. 873). À relancer après tout ajout de donnée sauvegardée.
 - Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 485-530 Mo stables
   attendus (bruit d'une mesure à l'autre), son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,

@@ -234,6 +234,10 @@ export function migrate(raw) {
   s.settings.autoStars = s.settings.autoStars !== false;
   s.settings.autoSpells = s.settings.autoSpells !== false; // Grimoire des sorts : actif une fois acheté, sauf refus // Carte du ciel : active une fois achetée, sauf refus
   // Volumes propres de la musique et de l'ambiance (0 à 200 % du réglage d'origine)
+  // Volume général (0 à 100 %) : une valeur illisible affichait « NaN % » dans Réglages.
+  { const v = +s.settings.volume; s.settings.volume = s.settings.volume != null && Number.isFinite(v) ? Math.max(0, Math.min(1, v)) : 0.4; }
+  // Taille du panneau (100, 115 ou 130 %) : une valeur aberrante (50) agrandissait le panneau d'autant (zoom CSS).
+  { const z = +s.settings.uiScale; if (s.settings.uiScale != null && !(Number.isFinite(z) && z >= 1 && z <= 1.3)) delete s.settings.uiScale; }
   for (const k of ["musicVol", "ambVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite
   // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)
   if (!["auto", "center", "edges"].includes(s.settings.hudPos)) s.settings.hudPos = "auto";

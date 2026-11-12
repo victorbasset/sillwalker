@@ -96,6 +96,18 @@ test("réglage Économie d'énergie : désactivé par défaut, gardé à la migr
   assert.equal(m.settings.cinematics, true, "valeur abîmée : cinématiques actives (défaut)");
 });
 
+test("réglages abîmés : volume et taille du panneau reprennent une valeur sûre (it. 873)", () => {
+  const cases = [["x", 0.4], [null, 0.4], [7, 1], [-2, 0], [0.25, 0.25], ["0.6", 0.6]];
+  for (const [v, want] of cases) {
+    const o = freshState(); o.settings.volume = v;
+    assert.equal(migrate(JSON.parse(JSON.stringify(o))).settings.volume, want, "volume " + JSON.stringify(v));
+  }
+  for (const [z, want] of [[50, undefined], ["x", undefined], [0.1, undefined], [1.15, 1.15], [1.3, 1.3], [undefined, undefined]]) {
+    const o = freshState(); if (z !== undefined) o.settings.uiScale = z;
+    assert.equal(migrate(JSON.parse(JSON.stringify(o))).settings.uiScale, want, "taille " + JSON.stringify(z));
+  }
+});
+
 test("migration v1 (prototype) -> v4", () => {
   const v1 = { v: 1, lvl: 7, xp: 3, gold: 99, zone: 4, best: 5, kills: 2, equip: { weapon: { id: 1, slot: "weapon", r: 4, il: 3, plus: 0, st: { atk: 9 }, name: "x" } }, bag: [], stats: { kills: 10, deaths: 1, bosses: 3 }, log: [], last: 1 };
   const s = migrate(v1);

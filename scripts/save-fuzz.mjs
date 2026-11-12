@@ -4,7 +4,7 @@
 import fs from "node:fs";
 const ROOT = new URL("..", import.meta.url).pathname;
 const R = ROOT + "src/renderer/game/";
-const { migrate } = await import(R + "state.js");
+const { migrate, freshState } = await import(R + "state.js");
 const { Game } = await import(R + "game.js");
 const base = JSON.parse(fs.readFileSync(ROOT + "dev-data/save.json", "utf8"));
 const cases = {
@@ -50,14 +50,32 @@ if (wa > 0) {
   console.log("sauvegarde abîmée écrite :", Object.keys(cases).length, "corruptions");
   process.exit(0);
 }
-for (const [name, f] of Object.entries(cases)) {
+/** Une corruption : migrate() + jeu + absence + actions groupées ; renvoie "" si tout va bien, sinon la raison. */
+function check(f, steps) {
   const o = JSON.parse(JSON.stringify(base)); f(o);
   try {
     const s = migrate(o); const g = new Game(s);
-    for (let i = 0; i < 2000; i++) g.step(0.1);
+    for (let i = 0; i < steps; i++) g.step(0.1);
     g.todoNow(); g.uselessItems(); g.stats(); g.autoEquip(); g.applyOffline(3600);
     for (const m of ["hatchAll", "claimAllExpeditions", "autoSpendTalents", "autoSpendSkills"]) g[m]?.();
     const bad = ["gold", "xp", "lvl", "zone"].filter((k) => !Number.isFinite(g.S[k]));
-    console.log(bad.length ? "NaN " + bad : "ok", name);
-  } catch (e) { console.log("ERREUR", name, e.message, (e.stack.split("\n")[1] || "").trim()); }
+    // Réglages affichés en nombre (Réglages > Son) : un NaN s'y voyait (« NaN % », it. 873).
+    for (const k of ["volume", "musicVol", "ambVol"]) if (!Number.isFinite(g.S.settings[k])) bad.push("settings." + k);
+    return bad.length ? "NaN " + bad : "";
+  } catch (e) { return "ERREUR " + e.message + " " + (e.stack.split("\n")[1] || "").trim(); }
 }
+for (const [name, f] of Object.entries(cases)) { const r = check(f, 2000); console.log(r || "ok", name); }
+// Balayage (it. 873) : chaque donnée de la partie (premier niveau, puis champs des sous-objets) reçoit tour à tour
+// une valeur absurde ; une donnée sauvegardée ajoutée plus tard y passe d'office, sans écrire de cas (≈ 900 cas, 40 s).
+const VALS = [null, "x", 42, [], {}, -1, true];
+const NESTED = ["prestige", "quests", "guild", "pets", "skills", "settings", "daily", "stats", "story", "shop", "autoSell", "equip"];
+const fresh = freshState(), sweep = [];
+for (const k of Object.keys(fresh)) for (const v of VALS) sweep.push([k + " = " + JSON.stringify(v), (o) => { o[k] = structuredClone(v); }]);
+for (const k of NESTED) {
+  for (const f of Object.keys({ ...(fresh[k] || {}), ...(base[k] || {}) })) for (const v of VALS) {
+    sweep.push([k + "." + f + " = " + JSON.stringify(v), (o) => { if (o[k] && typeof o[k] === "object") o[k][f] = structuredClone(v); else o[k] = { [f]: structuredClone(v) }; }]);
+  }
+}
+let fails = 0;
+for (const [name, f] of sweep) { const r = check(f, 1000); if (r) { fails++; console.log(r, name); } }
+console.log(fails ? "ÉCHECS du balayage : " + fails + " / " + sweep.length : "ok balayage (" + sweep.length + " corruptions)");

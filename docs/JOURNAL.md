@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 873) : sauvegardes abîmées : deux réglages n'étaient pas contrôlés au chargement. Un volume
+  illisible (texte, null) s'affichait « NaN % » dans Réglages > Son et une taille de panneau aberrante (50) agrandissait
+  le panneau d'autant : volume ramené entre 0 et 100 % (40 % par défaut), taille hors 100-130 % oubliée. save-fuzz
+  balaie désormais d'office chaque donnée de la partie et chaque champ de ses sous-objets avec sept valeurs absurdes
+  (910 corruptions, ≈ 35 s, 0 échec) : une donnée ajoutée plus tard y passe sans écrire de cas. Au passage : parcours
+  --crawl d'une partie neuve (fr, de : 76 clics) et d'une sauvegarde cumulant toutes les corruptions (305 clics), aucune
+  erreur ; dix premières minutes inchangées. Un test logique (211), 175/175.
 - 2026-11-12 (it. 872) : tuiles du héros (Aventure) : à 1280 px, des points de vie à six chiffres (« 863392 ») dépassaient
   d'un pixel leur case et s'affichaient coupés (« 86339… »), au hasard des valeurs du combat (vu en polonais) : abrégés
   dès 100 000 (« 863 k », valeur complète au survol) et, en dessous, avec le séparateur des milliers de la langue
