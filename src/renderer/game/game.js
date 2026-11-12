@@ -2151,7 +2151,8 @@ export class Game {
     const st = this.S.stats;
     return { t: now, gold: st.goldTotal || 0, kills: st.kills || 0, lvl: this.S.lvl, asc: this.S.prestige.count, leg: st.legendaries || 0, best: recordZone(this.S),
       spells: Object.values(this.S.spells || {}).reduce((a, r) => a + (+r || 0), 0), // rangs de sorts (Grimoire, it. 557)
-      relics: RELIC_IDS.reduce((a, id) => a + relicLevel(this.S, id), 0) }; // reliques gagnées + niveaux (it. 615)
+      relics: RELIC_IDS.reduce((a, id) => a + relicLevel(this.S, id), 0), // reliques gagnées + niveaux (it. 615)
+      chests: st.chests || 0, events: st.events || 0 }; // coffres trouvés, événements rares vécus (it. 896)
   }
 
   /**
@@ -2170,6 +2171,7 @@ export class Game {
       best: now0.best > snap.best ? now0.best : 0, asc: Math.max(0, now0.asc - snap.asc),
       spells: Math.max(0, (now0.spells || 0) - (snap.spells || 0)),
       relics: Math.max(0, (now0.relics || 0) - (snap.relics || 0)),
+      chests: Math.max(0, now0.chests - (snap.chests ?? now0.chests)), events: Math.max(0, now0.events - (snap.events ?? now0.events)),
     };
   }
 

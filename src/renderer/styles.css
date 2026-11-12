@@ -968,6 +968,9 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .chips.hscroll::-webkit-scrollbar { display: none; }
 .visit { font-size: 12px; padding: 3px 8px; margin-bottom: 6px; }
 .visit small { display: inline; margin-right: 6px; }
+/* (it. 896) au plus deux lignes (gains les plus importants d'abord, tout au survol) : au pire cas, la carte du héros
+   faisait défiler l'Aventure à 1920 px. */
+.visit { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 /* Carte du héros : « À faire », « Chroniques », « Toutes les statistiques » fermés sur une même ligne. */
 #p-hero .morerow { display: flex; flex-wrap: wrap; column-gap: 14px; }
 #p-hero .morerow > details[open] { flex-basis: 100%; }

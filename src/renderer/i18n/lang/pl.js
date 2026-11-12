@@ -1264,4 +1264,5 @@ export default {
   2389: "{n} pokonana elita|{n} pokonane elity|{n} pokonanych elit",
   2390: "{n} trafienie krytyczne|{n} trafienia krytyczne|{n} trafień krytycznych",
   2391: "{n} rzucone zaklęcie|{n} rzucone zaklęcia|{n} rzuconych zaklęć",
+  2392: "{n} rzadkie zdarzenie|{n} rzadkie zdarzenia|{n} rzadkich zdarzeń",
 };

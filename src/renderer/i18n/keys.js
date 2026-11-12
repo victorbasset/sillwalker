@@ -2393,5 +2393,6 @@ export const KEYS = [
   "{n} monstre vaincu|{n} monstres vaincus",
   "{n} élite vaincue|{n} élites vaincues",
   "{n} coup critique|{n} coups critiques",
-  "{n} sort lancé|{n} sorts lancés"
+  "{n} sort lancé|{n} sorts lancés",
+  "{n} événement rare|{n} événements rares"
 ];

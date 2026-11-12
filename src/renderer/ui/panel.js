@@ -368,6 +368,9 @@ export class Panel {
     if (v.leg) parts.push(`<b class="rc4">${txn(v.leg, "{n} légendaire|{n} légendaires")}</b>`);
     if (v.spells) parts.push(txn(v.spells, "+{n} rang de sort|+{n} rangs de sorts")); // le Grimoire a travaillé
     if (v.relics) parts.push(`<b>${txn(v.relics, "+{n} niveau de relique|+{n} niveaux de relique")}</b>`); // relique gagnée ou renforcée
+    // (it. 896) coffres trouvés et événements rares vécus pendant que le panneau était fermé
+    if (v.chests) parts.push(txn(v.chests, "{n} coffre|{n} coffres"));
+    if (v.events) parts.push(txn(v.events, "{n} événement rare|{n} événements rares"));
     return `<button class="visit" data-action="visit-ok" title="${esc(parts.join(" · ").replace(/<[^>]*>/g, "") + "\n" + tx("Cliquer pour masquer"))}"><small>${tx("Depuis ta dernière visite ({0})", { 0: dur })}</small> ${parts.join(" · ")}</button>`;
   }
 

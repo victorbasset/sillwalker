@@ -1264,4 +1264,5 @@ export default {
   2389: "{n} Elitegegner besiegt|{n} Elitegegner besiegt",
   2390: "{n} kritischer Treffer|{n} kritische Treffer",
   2391: "{n} Zauber gewirkt|{n} Zauber gewirkt",
+  2392: "{n} seltenes Ereignis|{n} seltene Ereignisse",
 };

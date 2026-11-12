@@ -1264,4 +1264,5 @@ export default {
   2389: "{n} elite derrotada|{n} elites derrotadas",
   2390: "{n} golpe crítico|{n} golpes críticos",
   2391: "{n} feitiço lançado|{n} feitiços lançados",
+  2392: "{n} evento raro|{n} eventos raros",
 };

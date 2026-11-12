@@ -2501,6 +2501,13 @@ test("depuis ta dernière visite : gains affichés après 5 min, pas avant", () 
   assert.equal(g.visitSummary(snap, t0 + 42 * 60000).lvl0, 0);
   assert.equal(g.visitSummary(snap, t0 + 42 * 60000).asc, 1, "ascension comptée");
   assert.equal(g.visitSummary(null), null);
+  // (it. 896) coffres trouvés et événements vécus ; une ancienne photo sans ces compteurs ne compte rien
+  g.S.stats.chests = (g.S.stats.chests || 0) + 2; g.S.stats.events = (g.S.stats.events || 0) + 3;
+  const v2 = g.visitSummary(snap, t0 + 42 * 60000);
+  assert.ok(v2.chests === 2 && v2.events === 3, JSON.stringify(v2));
+  const old = { ...snap }; delete old.chests; delete old.events;
+  const v3 = g.visitSummary(old, t0 + 42 * 60000);
+  assert.ok(v3.chests === 0 && v3.events === 0);
 });
 
 test("record de zone : annoncé seulement au-delà du record de toutes les courses", () => {

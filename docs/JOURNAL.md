@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 896) : « Depuis ta dernière visite » (carte du héros, panneau resté fermé 5 min ou plus) compte
+  aussi les coffres au trésor trouvés et les événements rares vécus. Au passage, son pire cas (tous les gains,
+  nombres longs) faisait défiler l'Aventure à 1920 px (3 px avant l'ajout, 18 px avec) : la ligne tient maintenant
+  en deux lignes au plus, les gains les plus importants d'abord, tout au survol (sous 1500 px, une seule ligne comme
+  avant). Recherche d'unités écrites en dur après l'it. 895 : aucune autre. Test logique ; contrôle d'autotest du pire
+  cas (181/181) ; traduit dans les 10 langues ; vu en capture (allemand, 1920 px).
 - 2026-11-12 (it. 895) : mode mini, un événement rare en cours s'affiche à la place de la ligne de zone, à sa couleur,
   avec ses secondes (« Corne d'abondance 23 s » ; zone et effet dans la bulle) : avant, le mini ne l'annonçait qu'à son
   début, la bande le montrait pendant toute sa durée. Au passage, le « s » des secondes restait en dur sur la bande,

@@ -1264,4 +1264,5 @@ export default {
   2389: "{n} elite defeated|{n} elites defeated",
   2390: "{n} critical hit|{n} critical hits",
   2391: "{n} spell cast|{n} spells cast",
+  2392: "{n} rare event|{n} rare events",
 };
