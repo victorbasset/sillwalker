@@ -490,6 +490,7 @@ async function boot() {
   if (init.isDev) window.__music = music; // auto-test (dev) : rendu hors ligne de la musique lofi
   if (init.isDev) window.__sound = sound; // auto-test (dev) : rendu hors ligne de tous les sons
   if (init.isDev) window.__strip = strip; // auto-test (dev) : cinématiques
+  if (init.isDev) window.__mini = mini; // auto-test (dev) : ciel des événements en mode mini (it. 919)
   if (init.isDev && init.fontBench) setTimeout(() => import("./dev/fontbench.js").then(async (m) => { await m.fontBench(); m.paneBench(); }), 3000); // --font-bench
   if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
   if (init.isDev) window.__showToast = showToast; // auto-test (dev) : file des bulles

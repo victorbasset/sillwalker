@@ -191,6 +191,14 @@ async function runSelfTest(strip) {
   if (miniTap) await click("#mini .minitap");
   await sleep(300);
   check("mode mini : clic sur le monstre = coup bonus", miniTap && (await state("S.stats.taps || 0")) > mt0 && strip.mode() === "mini");
+  // (it. 919) Ciel des événements en mode mini (it. 918) : Lune de sang puis Nuée d'étoiles, puis retour au ciel normal.
+  const mSky = [];
+  for (const ev of ["bloodmoon", "starfall", null]) {
+    await js(`(() => { const E = window.__game.R.events; E.bloodmoon = ${ev === "bloodmoon" ? 20 : 0}; E.starfall = ${ev === "starfall" ? 20 : 0}; })()`);
+    await sleep(400);
+    mSky.push(await js("window.__mini.sceneKey.split(':').slice(-2).join(':')"));
+  }
+  check("mode mini : ciel de la Lune de sang et de la Nuée d’étoiles", mSky.join(" ") === "true:false false:true false:false", mSky.join(" "));
   // Mode mini : un onglet débloqué s'annonce sur la scène (la bulle de la bande n'y est pas visible).
   const mtab = await js("(() => { const S = window.__game.S, was = S.tabsOpen.stats; delete S.tabsOpen.stats; window.__game.step(1.1); S.tabsOpen.stats = was || true; const m = [...document.querySelectorAll('#mini *')].find((e) => /✦/.test(e.textContent) && !e.hidden && e.children.length === 0); return m ? m.textContent : 'rien'; })()");
   check("mode mini : onglet débloqué annoncé sur la scène", /✦/.test(mtab), mtab);

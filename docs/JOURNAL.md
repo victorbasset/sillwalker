@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 919) : contrôle d'autotest du ciel des événements en mode mini (Lune de sang, Nuée d'étoiles, retour
+  au ciel normal ; 187/187). Performance après les it. 916-918 (copie neuve) : bande 19,8 %, panneau 20,6 %, mini
+  7,0 %, icône 0,5 % d'un cœur, inchangée.
 - 2026-11-12 (it. 918) : le mode mini montre aussi le ciel des événements, comme la bande (it. 916-917) : rouge avec
   une lune rouge pendant la Lune de sang, assombri et constellé pendant la Nuée d'étoiles. Cuit dans le décor du
   mini, redessiné seulement quand l'événement commence ou finit. Autotest 186/186 ; vu en capture.
