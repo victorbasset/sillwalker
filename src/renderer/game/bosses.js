@@ -96,8 +96,14 @@ export function bossName(z) {
   if (isFinalZone(z)) return tx(FINAL_BOSS.name); // le Briseur d'Étoiles (story.js)
   const mb = majorBoss(z); if (mb) return majorName(mb); // boss majeur (ou écho), gardien d'une relique (relics.js)
   const i = (z - 1) % ZONES.length, loop = Math.floor((z - 1) / ZONES.length);
-  return (BOSS_NAMES[i] || "Boss") + (loop === 1 ? epithet(BOSS_SRC[i], " l’Éveillé") : loop >= 2 ? epithet(BOSS_SRC[i], " l’Ancestral") + " " + loopMark(loop - 1) : "");
+  const name = BOSS_NAMES[i] || "Boss";
+  if (!loop) return name;
+  const ep = epithet(BOSS_SRC[i], loop === 1 ? " l’Éveillé" : " l’Ancestral"), mark = loop >= 2 ? " " + loopMark(loop - 1) : "";
+  // (it. 869) chinois, japonais, coréen : l'épithète se place devant le nom (« 覚醒した深淵の甲羅 », pas « 深淵の甲羅覚醒した »)
+  const pre = EPITHET_BEFORE[getLang()];
+  return (pre != null ? ep.trim() + pre + name : name + ep) + mark;
 }
+const EPITHET_BEFORE = { ja: "", zh: "", ko: " " };
 
 /**
  * Usure des boss (anti-mur) : chaque défaite du héros contre le boss d'une zone lui retire 5 % de ses PV

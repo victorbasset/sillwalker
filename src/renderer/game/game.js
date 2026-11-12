@@ -17,7 +17,7 @@ import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
 export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
-import { t as tx, txn, tr, fsp, lc, csep, cend } from "../i18n/index.js";
+import { t as tx, txn, tr, fsp, colon, lc, csep, cend } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
@@ -833,7 +833,7 @@ export class Game {
     }
     S.bag.push(it);
     if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) { this.equip(it); if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé.")); return true; }
-    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + fsp() + ": " + itemName(it) + fsp() + "!");
+    if (!quiet && it.r >= 2) this.log(tx("Butin ") + r.name.toLowerCase() + colon() + itemName(it) + fsp() + "!");
     this.changed();
     return true;
   }
@@ -1067,7 +1067,7 @@ export class Game {
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells,
     };
-    this.log(tx("Pendant ") + summary.duration + fsp() + ": " + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
+    this.log(tx("Pendant ") + summary.duration + colon() + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") +
       // (it. 844) rien gardé : pas de « 0 objet gardé » dans le journal
       (summary.kept ? tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés.") : cend()));

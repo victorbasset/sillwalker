@@ -2,7 +2,7 @@
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { TAB_GATES, tabOpen } from "../game/tabs.js";
 import { CHRONICLES } from "../game/story.js";
-import { t as tx, fsp, csep } from "../i18n/index.js";
+import { t as tx, fsp, colon, csep } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
 import { SETS } from "../game/sets.js";
@@ -229,7 +229,7 @@ export class MiniRenderer {
       this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
       const u = tabOpen(S, "shop") ? nextUnlock(S) : null, rec = recordZone(S), tip = []; // pas de déblocage avant la boutique
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
-      if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + fsp() + ": " + rec);
+      if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + colon() + rec);
       this.goalWrap.hidden = false;
       if (!u) { // tout est débloqué : la barre suit le record de toutes les courses
         this.goal.style.width = Math.round(Math.min(1, S.zone / rec) * 100) + "%";
@@ -239,11 +239,11 @@ export class MiniRenderer {
         const ok = unlockAvailable(S, u), k = ok ? Math.min(1, S.gold / u.price) : Math.min(1, rec / u.zone);
         this.goal.style.width = Math.round(k * 100) + "%";
         this.goalWrap.classList.toggle("ready", ok && S.gold >= u.price);
-        tip.push(tx("Prochain déblocage") + fsp() + ": " + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}` : tx("Zone record {0}", { 0: u.zone })));
+        tip.push(tx("Prochain déblocage") + colon() + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}` : tx("Zone record {0}", { 0: u.zone })));
       }
       // Actions qui attendent le joueur (quêtes, sac, déblocage…) : un point doré près du niveau, détail au survol.
       const todo = game.todoNow();
-      if (todo.length) tip.push(tx("À faire maintenant") + fsp() + ":\n  • " + todo.map(todoLabel).join("\n  • "));
+      if (todo.length) tip.push(tx("À faire maintenant") + colon().trimEnd() + "\n  • " + todo.map(todoLabel).join("\n  • "));
       this.info.classList.toggle("todo", todo.length > 0);
       this.info.classList.toggle("stuck", !!this.game.stuckInfo()); // héros bloqué : liseré rouge (demande 22)
       tip.push(tx("Cliquer pour agrandir"));

@@ -2680,15 +2680,15 @@ test("russe : adjectif de matière accordé au genre de la pièce (it. 665)", ()
   assert.equal(plAgree("z żelaza", "f"), null);
 });
 
-test("listes affichées : séparateur csep(), pas de « , » en dur (it. 668)", () => {
+test("listes affichées : séparateur csep(), pas de « , », « . » ni « : » en dur (it. 668, 869)", () => {
   const root = new URL("../src/renderer/", import.meta.url).pathname, bad = [];
   const walk = (d) => { for (const f of fs.readdirSync(d, { withFileTypes: true })) {
     const p = d + "/" + f.name;
     if (f.isDirectory()) { if (f.name !== "lang") walk(p); }
-    else if (p.endsWith(".js") && !p.endsWith("/keys.js") && !p.endsWith("/format.js") && /\.join\(", "\)|", " \+|this\.log\(.*\+ "\."\);/.test(fs.readFileSync(p, "utf8"))) bad.push(p.slice(root.length));
+    else if (p.endsWith(".js") && !p.endsWith("/keys.js") && !p.endsWith("/format.js") && !p.endsWith("/i18n/index.js") && /\.join\(", "\)|", " \+|this\.log\(.*\+ "\."\);|fsp\(\)\}: |fsp\(\) \+ ":|<\/b>\.(?: \$\{|<\/)/.test(fs.readFileSync(p, "utf8"))) bad.push(p.slice(root.length));
   } };
   walk(root.replace(/\/$/, ""));
-  assert.deepEqual(bad, [], "utiliser .join(csep()) et cend() (i18n/index.js) : « 、 » et « 。 » en japonais, « ， » et « 。 » en chinois");
+  assert.deepEqual(bad, [], "utiliser .join(csep()), cend() et colon() (i18n/index.js) : « 、 », « 。 » et « ： » en japonais, « ， », « 。 » et « ： » en chinois");
 });
 
 test("talents : la raison d'un talent verrouillé est traduite (it. 867)", () => {
@@ -2735,6 +2735,21 @@ test("épithètes des boss accordées au genre (de, es, pt, ru, pl ; it. 673-675
     for (const [lang, list] of Object.entries(cases)) {
       setLang(lang);
       for (const [z, want] of list) assert.ok(bossName(z).includes(want), `${lang} zone ${z} : « ${bossName(z)} » sans « ${want} »`);
+    }
+  } finally { setLang(before); }
+});
+
+test("chinois, japonais, coréen : épithète des boss devant le nom (it. 869)", () => {
+  const before = getLang(), { bossName } = M_bosses_js;
+  try {
+    setLang("en");
+    assert.ok(/ the Awakened$/.test(bossName(35)), bossName(35));
+    for (const [lang, woke, old] of [["ja", "覚醒した", "古代の"], ["zh", "觉醒的", "远古的"], ["ko", "각성한 ", "고대의 "]]) {
+      setLang(lang);
+      assert.ok(bossName(35).startsWith(woke) && !bossName(35).endsWith(woke.trim()), `${lang} : « ${bossName(35)} »`);
+      // 3e boucle : épithète devant, repère de boucle à la fin
+      assert.ok(bossName(81).startsWith(old) && / \+$/.test(bossName(81)), `${lang} : « ${bossName(81)} »`);
+      assert.ok(!/^\s|\s\s/.test(bossName(35)), `${lang} : espaces « ${bossName(35)} »`);
     }
   } finally { setLang(before); }
 });

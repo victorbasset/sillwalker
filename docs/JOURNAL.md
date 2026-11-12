@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 869) : chinois, japonais et coréen : les boss éveillés et ancestraux (2e boucle et au-delà) avaient
+  leur épithète collée APRÈS le nom (« 深淵の甲羅覚醒した ») sur la bande, la carte, le journal et l'Aventure ; elle
+  passe devant (« 覚醒した深淵の甲羅 », « 각성한 … », « 觉醒的… »). En japonais et en chinois, une quinzaine de textes
+  mettaient un « : » ou un « . » latin au milieu de la phrase (ligne du boss dans Aventure, bulles de la Carte et des
+  reliques, résumé d'absence, bulle du mode mini, succès, récompense du jour, Bestiaire, Talents, événements rares,
+  synergie du duo) : ponctuation de la langue (« ： », « 。 »), sans espace parasite ; en anglais, « Firefly : 0.2% »
+  devient « Firefly: 0.2% ». Nouvel utilitaire `colon()` (i18n/index.js) ; npm test refuse désormais « fsp()} : » et
+  « </b>. » écrits en dur. Au passage : parcours --crawl en polonais (329 clics, aucune erreur). Un test logique (208).
 - 2026-11-12 (it. 868) : les éclats d'étoile gagnés en cours de route (quêtes, pluie d'éclats) ne restent plus oubliés
   quand on n'a pas la Carte du ciel : dès qu'un rang de constellation est payable, « À faire maintenant » (résumé de
   retour, carte du héros, bulle du mode mini) affiche « N éclats d'étoile à placer dans les constellations » avec un

@@ -76,6 +76,10 @@ export const fsp = () => (lang === "fr" ? " " : "");
 export const csep = () => t(", ");
 // (it. 671) point final de la langue : « 。 » en japonais et en chinois
 export const cend = () => t(".");
+// (it. 869) espace entre deux phrases ou après « : » : aucune en japonais et en chinois (« ボス：…。ボスの能力：… »)
+export const wsp = () => (lang === "ja" || lang === "zh" ? "" : " ");
+// (it. 869) « : » entre un libellé et sa valeur : « Zone 3 : » en français, « エリア 3： » en japonais et chinois, « Zone 3: » ailleurs
+export const colon = () => (lang === "ja" || lang === "zh" ? "：" : fsp() + ": ");
 // (it. 665, 673) russe : accorde un adjectif masculin (-ый, -ой, -ий) au genre g : "m", "f", "n" ou "p" (pluriel) ;
 // renvoie null si ce n'est pas un adjectif d'un seul mot (« из драконьей кости »)
 const RU_HARD = { f: "ая", n: "ое", p: "ые" }, RU_SOFT = { f: "яя", n: "ее", p: "ие" };

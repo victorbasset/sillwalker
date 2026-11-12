@@ -13,7 +13,7 @@ import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
 import { newsDue, markNews } from "./game/news.js";
 import { journeyText } from "./ui/tabs/stats.js";
-import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang, csep, fsp } from "./i18n/index.js";
+import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang, csep, fsp, colon } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
@@ -353,7 +353,7 @@ async function boot() {
     if (fresh.length) {
       game.S.achievements.push(...fresh);
       const names = fresh.map((id) => ACHIEVEMENTS.find((x) => x.id === id)?.name || id);
-      if (resync) setTimeout(() => showToast(`🏆 ${fresh.length > 1 ? txn(fresh.length, "{n} nouveau succès|{n} nouveaux succès") : tx("Nouveau succès")}${fsp()}: <b>${names.map(esc).join(`</b>${csep()}<b>`)}</b>`, () => { openPanel(); panel.setTab("stats"); }, 12000), 4000);
+      if (resync) setTimeout(() => showToast(`🏆 ${fresh.length > 1 ? txn(fresh.length, "{n} nouveau succès|{n} nouveaux succès") : tx("Nouveau succès")}${colon()}<b>${names.map(esc).join(`</b>${csep()}<b>`)}</b>`, () => { openPanel(); panel.setTab("stats"); }, 12000), 4000);
       else for (const n of names) { strip.juice.banner(`${tx("🏆 Succès : {0}", { 0: n })}`, "#ffd34d", strip.heroX + 80, true); sound.play("level"); }
     }
     // Au démarrage on renvoie tout : rattrape les succès débloqués sans Steam.
@@ -520,7 +520,7 @@ async function boot() {
       if (dm && before && before !== game.S.daily.mod) setTimeout(() => showToast(`${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}`, () => openPanel(), 12000), 2500);
       return;
     }
-    setTimeout(() => showToast(`${tx("🎁 Récompense du jour")} <b>${r.day}/7</b>${fsp()}: <b>+${fmt(r.gold)}</b> ${tx("or{0}{1}. Reviens demain pour continuer la série !{2}", { 0: r.potions ? tx(", 2 potions") : "", 1: r.item ? `${csep()}<b>${esc(itemName(r.item))}</b>` : "", 2: dm ? `<br>${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : "" })}${r.broken ? `<br><span class="note">${txn(r.broken, "(série d’{n} jour interrompue : elle recommence)|(série de {n} jours interrompue : elle recommence)")}</span>` : ""}`,
+    setTimeout(() => showToast(`${tx("🎁 Récompense du jour")} <b>${r.day}/7</b>${colon()}<b>+${fmt(r.gold)}</b> ${tx("or{0}{1}. Reviens demain pour continuer la série !{2}", { 0: r.potions ? tx(", 2 potions") : "", 1: r.item ? `${csep()}<b>${esc(itemName(r.item))}</b>` : "", 2: dm ? `<br>${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}` : "" })}${r.broken ? `<br><span class="note">${txn(r.broken, "(série d’{n} jour interrompue : elle recommence)|(série de {n} jours interrompue : elle recommence)")}</span>` : ""}`,
       () => openPanel(), 15000), firstVisit ? 18000 : 2500);
   }
   // Tout premier lancement : la bulle de bienvenue (comment ouvrir le panneau) passe avant la récompense du jour.

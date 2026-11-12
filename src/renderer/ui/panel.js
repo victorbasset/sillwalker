@@ -5,7 +5,7 @@
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { newsShown } from "../game/news.js";
 import { itemName, itemKindLine } from "../i18n/data.js";
-import { t as tx, txn, lc, fsp, tr, csep } from "../i18n/index.js";
+import { t as tx, txn, lc, fsp, colon, tr, csep, cend, wsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";
@@ -46,7 +46,7 @@ const $ = (root, s) => root.querySelector(s);
 /** Lignes « pouvoir légendaire » et « panoplie » d'un objet (ou rien). */
 export const power = (it, equip) => {
   const p = it.power && POWER_INDEX[it.power];
-  let out = p ? `<p class="power"><b>★ ${esc(p.name)}</b>${fsp()}: ${esc(describeEffects(p.eff))}</p>` : "";
+  let out = p ? `<p class="power"><b>★ ${esc(p.name)}</b>${colon()}${esc(describeEffects(p.eff))}</p>` : "";
   const st = it.set && SETS[it.set];
   if (st) {
     const n = equip ? setCounts(equip)[it.set] || 0 : 0;
@@ -731,13 +731,13 @@ export class Panel {
     const dm = activeDayMod(S);
     // Reliques gagnées (demande S, it. 605) : une pastille chacune ; survol : effet et histoire.
     const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).map((id) => { const r = RELICS[id];
-      return `<span class="chip relic" title="${esc(`${tx(r.name)}${fsp()}: ${tx(r.effect)}\n${relicLevelText(S, id)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}">${relicLevel(S, id) > 1 ? `<sup>${relicLevel(S, id)}</sup>` : ""}</span>`; }).join("");
+      return `<span class="chip relic" title="${esc(`${tx(r.name)}${colon()}${tx(r.effect)}\n${relicLevelText(S, id)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}">${relicLevel(S, id) > 1 ? `<sup>${relicLevel(S, id)}</sup>` : ""}</span>`; }).join("");
     const day = dm ? `<span class="chip daymod" title="${esc(tx("Bénédiction du jour : change chaque jour à minuit."))}">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);
     // Demande F de Victor (on le voyait mal) : le compagnon a sa propre ligne sous le titre, portrait de la même taille.
-    const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + " : " + describeEffects(syn.eff) : ""))}"><img src="${classPortraitURL(S.partner)}" alt="">${esc(tx("Compagnon : {0}", { 0: pd.name }))}${syn ? ` <span class="syn">✦ <span class="synname">${esc(tx(syn.name))}</span></span>` : ""}</button>` : "";
+    const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + colon() + describeEffects(syn.eff) : ""))}"><img src="${classPortraitURL(S.partner)}" alt="">${esc(tx("Compagnon : {0}", { 0: pd.name }))}${syn ? ` <span class="syn">✦ <span class="synname">${esc(tx(syn.name))}</span></span>` : ""}</button>` : "";
     // Sorts appris du héros : icônes à droite de la ligne du compagnon (rang en infobulle) ; un clic mène aux sorts.
     const learned = classSpells(S.cls).filter((x) => spellRank(S, x.id) > 0);
     const spl = learned.length ? `<button class="linkbtn spellmini" data-tab="class" data-sec="style">${learned.map((x) => `<img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="" title="${esc([tx("Rang {0} : {1}", { 0: spellRank(S, x.id), 1: tr(x.name) }), ...spellFxText(x, spellRank(S, x.id))].join(" · "))}">`).join("")}</button>` : "";
@@ -957,9 +957,10 @@ export class Panel {
     $(this.root, "#p-zone").innerHTML = `<h2>${tx("Zone {0}", { 0: S.zone })} <small>${tx("record : {0}", { 0: S.best })}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
       <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(lc(MONSTERS[Z.boss].name)), 2: fmt(bb.hp * (1 - bossWear(S, S.zone))) })}</p>
-      <p class="note tight bossmech">${tx("Boss :")} <b class="bname">${esc(bossName(S.zone))}</b>. ${tx("Capacités du boss :")} ${bossMechanics(S.zone).map((id) => { // Malédiction : la parade, si le joueur a déjà vu le Talisman de pureté
+      <p class="note tight bossmech">${tx("Boss :")}${wsp()}<b class="bname">${esc(bossName(S.zone))}</b>${cend()}${wsp()}${tx("Capacités du boss :")}${wsp()}${bossMechanics(S.zone).map((id) => {
+          // Malédiction : la parade, si le joueur a déjà vu le Talisman de pureté
           const parry = id === "curse" && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
-          return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(csep())}.</p>
+          return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(csep())}${cend()}</p>
       ${this.relicAheadHTML(S)}
       ${bossWear(S, S.zone) ? `<p class="note tight">${tx("Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.", { 0: Math.round(bossWear(S, S.zone) * 100) })}</p>` : ""}
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>

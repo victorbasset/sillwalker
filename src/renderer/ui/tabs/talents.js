@@ -1,5 +1,5 @@
 // Onglet Talents : arbre de la classe active (3 branches × 4 paliers).
-import { t as tx, txn } from "../../i18n/index.js";
+import { t as tx, txn, cend } from "../../i18n/index.js";
 import { effectIconURL } from "../../render/shopart.js";
 import { TREES, TIER_REQ, TALENT_INDEX, cannotLearn, branchSpent, talentPointsFree, talentPointsTotal, talentPointsSpent, describeEffects,
   VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie } from "../../game/talents.js";
@@ -114,7 +114,7 @@ export class TalentsTab {
         ${t.text ? `<p class="ttext">${esc(t.text)}</p>` : ""}
         <ul class="lines"><li><span>${tx("Effet actuel")}</span><span>${esc(now)}</span></li>
         ${next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}</ul>
-        ${why && r < t.max ? `<p class="note">${esc(why)}.</p>` : ""}
+        ${why && r < t.max ? `<p class="note">${esc(why)}${cend()}</p>` : ""}
       </div>`;
   }
 

@@ -1,7 +1,7 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
 import { CHRONICLES } from "../../game/story.js";
 import { subtabsHTML } from "../subtabs.js";
-import { t as tx, getLang, csep } from "../../i18n/index.js";
+import { t as tx, getLang, csep, colon } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { ACHIEVEMENTS, earnedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
@@ -108,7 +108,7 @@ export class StatsTab {
           // ✓ : déjà vu (succès « Chasseur d'événements ») ; (vus / total)
           const ent = Object.entries(EVENTS), ev = ent.map(([, e]) => e), cs = ev.map((e) => e.chance), seen = st.eventsSeen || {};
           const nSeen = ent.filter(([id]) => seen[id]).length;
-          return `<li title="${esc(ent.map(([id, e]) => `${seen[id] ? "✓" : "·"} ${e.name} : ${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span></span><b>${segs(`${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}`)}</b></li>`; })()}
+          return `<li title="${esc(ent.map(([id, e]) => `${seen[id] ? "✓" : "·"} ${e.name}${colon()}${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span></span><b>${segs(`${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}`)}</b></li>`; })()}
         ${line(tx("Gobelin doré"), segs(pct(GOBLIN.chance) + tx(" par monstre")))}
         ${line(tx("Élite"), segs(pct(ELITE.chance) + tx(" par monstre")))}
         ${line(tx("Champion (butin épique, dès la zone {0})", { 0: CHAMPION.minZone }), segs(pct(CHAMPION.chance) + tx(" par monstre")))}

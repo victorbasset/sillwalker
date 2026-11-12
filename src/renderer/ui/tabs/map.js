@@ -3,7 +3,7 @@
 // aux couleurs de son décor (ciel + sol, comme la bande). Repères : héros prisonniers (zone de leur boss), chroniques,
 // le héros (zone actuelle), le record, et la forteresse du Briseur d'Étoiles en zone 200. Brouillard au-delà du
 // record. Survol : infobulle (zone, boss, chronique, héros). Toujours sombre : c'est une image, comme la bande.
-import { t as tx, fsp } from "../../i18n/index.js";
+import { t as tx, fsp, colon, wsp } from "../../i18n/index.js";
 import { esc, fmt } from "../../game/format.js";
 import { zoneName, zoneDef } from "../../game/rules.js";
 import { bossName } from "../../game/bosses.js";
@@ -60,7 +60,7 @@ export class MapTab {
     for (let z = 1; z <= FINAL_ZONE; z++) {
       const { x, y } = mapPos(z), d = zoneDef(z), seen = z <= rec, near = !seen && z <= rec + 3;
       const go = travel && z <= S.best && z !== S.zone;
-      const tip = (seen || near ? `${tx("Zone {0}", { 0: z })}${fsp()}: ${zoneName(z)}\n${tx("Boss :")} ${bossName(z)}` : `${tx("Zone {0}", { 0: z })}${fsp()}: ???`) + (go ? `\n${tx("Clic : y aller")}` : "");
+      const tip = (seen || near ? `${tx("Zone {0}", { 0: z })}${colon()}${zoneName(z)}\n${tx("Boss :")}${wsp()}${bossName(z)}` : `${tx("Zone {0}", { 0: z })}${colon()}???`) + (go ? `\n${tx("Clic : y aller")}` : "");
       // (it. 853) zones atteintes jouables au clavier : un seul arrêt de tabulation (la zone choisie), flèches pour
       // passer aux voisines, Entrée pour y aller (avec la Carte du voyageur).
       const kb = z <= navMax ? ` data-mz="${z}" tabindex="${z === cursor ? 0 : -1}" role="${go ? "button" : "img"}" aria-label="${esc(tip.replace(/\n/g, " · "))}"` : "";
@@ -90,13 +90,13 @@ export class MapTab {
     for (const mb of MAJOR_BOSSES) {
       const p = mapPos(mb.zone), r = RELICS[mb.relic], have = hasRelic(S, mb.relic);
       const dir = p.r % 2 ? -1 : 1, ix = dir > 0 ? p.x + 16 : p.x - 43;
-      const tip = `${tx(mb.name)}${fsp()}: ${tx("zone {0}", { 0: mb.zone })}\n${have ? "★ " : ""}${tx(r.name)}${fsp()}: ${tx(r.effect)}` + (have ? `\n${tx(r.story)}` : "");
+      const tip = `${tx(mb.name)}${colon()}${tx("zone {0}", { 0: mb.zone })}\n${have ? "★ " : ""}${tx(r.name)}${colon()}${tx(r.effect)}` + (have ? `\n${tx(r.story)}` : "");
       parts.push(`<g class="mmajor${have ? " won" : ""}" title="${esc(tip)}"><image href="${relicIconURL(mb.relic, 3)}" x="${ix}" y="${p.y - 22}" width="27" height="27"/>`
         + `<text class="mfname" x="${ix + 13}" y="${p.y + BAND_H + 2}" style="text-anchor:middle">${have ? `★ ${relicLevel(S, mb.relic)}/${RELIC_MAX_LV}` : ""}</text></g>`);
     }
     // La forteresse du Briseur d'Étoiles, au bout du Rebord (zone 200).
     const f = mapPos(FINAL_ZONE);
-    const ftip = won ? `${tx("Le Briseur d’Étoiles est vaincu")}\n${tx(CHRONICLES.find((c) => c.id === "dawn").text)}` : `${tx("Le Briseur d’Étoiles")}${fsp()}: ${tx("zone {0}", { 0: FINAL_ZONE })}\n${tx("Atteins la zone 200 et terrasse le Briseur d’Étoiles pour rallumer le ciel. Chaque renaissance te rendra plus fort.")}`;
+    const ftip = won ? `${tx("Le Briseur d’Étoiles est vaincu")}\n${tx(CHRONICLES.find((c) => c.id === "dawn").text)}` : `${tx("Le Briseur d’Étoiles")}${colon()}${tx("zone {0}", { 0: FINAL_ZONE })}\n${tx("Atteins la zone 200 et terrasse le Briseur d’Étoiles pour rallumer le ciel. Chaque renaissance te rendra plus fort.")}`;
     // Au bout du chemin, dans le sens de la marche (rangée impaire : vers la gauche).
     const fdir = f.r % 2 ? -1 : 1, fx = fdir > 0 ? f.x + 14 : f.x - 56, fcx = fx + 21;
     parts.push(`<g class="mfinal${won ? " won" : ""}" title="${esc(ftip)}"><image href="${starbreakerURL()}" x="${fx}" y="${f.y - 30}" width="42" height="39"/>`
@@ -108,7 +108,7 @@ export class MapTab {
     const nRel = RELIC_IDS.filter((id) => hasRelic(S, id)).length;
     const relicRow = `<span class="relicrow" title="${esc(tx("Reliques ({0} / {1})", { 0: nRel, 1: RELIC_IDS.length }))}">` + RELIC_IDS.map((id) => {
       const r = RELICS[id], have = hasRelic(S, id);
-      const tip = `${tx(r.name)}${fsp()}: ${tx(r.effect)}\n` + (have ? relicLevelText(S, id) + "\n" + tx(r.story) : tx("{0}, zone {1}", { 0: tx(r.from), 1: r.zone }));
+      const tip = `${tx(r.name)}${colon()}${tx(r.effect)}\n` + (have ? relicLevelText(S, id) + "\n" + tx(r.story) : tx("{0}, zone {1}", { 0: tx(r.from), 1: r.zone }));
       return `<img src="${relicIconURL(id, 2)}" alt="" class="${have ? "on" : ""}" title="${esc(tip)}">`;
     }).join("") + `</span>`;
     const recZ = Math.min(recordZone(S), FINAL_ZONE), rp = mapPos(recZ);

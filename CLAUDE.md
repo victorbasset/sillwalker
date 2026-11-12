@@ -142,6 +142,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   qui ne marchait qu'en français et en anglais, est retirée depuis l'it. 685.)
   Nombres : `fmt`, `fmtShort`, `unit("%")`, `dec()` de `game/format.js` (format de la langue).
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
+  Libellé + valeur : `colon()` (« : » français, « ： » japonais / chinois, « : » ailleurs ; it. 869), espace entre deux phrases : `wsp()`.
   Listes : `.join(csep())`, point final ajouté à un texte : `cend()` (« 、 » / « ， » / « 。 » en japonais et chinois ;
   un `.join(", ")` ou un `this.log(… + ".")` en dur fait échouer npm test, it. 667-672).
   Accords (it. 665-682) : un adjectif collé à un nom traduit ne s'accorde pas tout seul. Matières des objets en russe :

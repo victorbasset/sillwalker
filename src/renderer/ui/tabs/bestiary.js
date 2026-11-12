@@ -1,5 +1,5 @@
 // Onglet Bestiaire : monstres rencontrés, victoires et paliers.
-import { t as tx, tr, csep } from "../../i18n/index.js";
+import { t as tx, tr, csep, cend } from "../../i18n/index.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
@@ -36,7 +36,7 @@ export class BestiaryTab {
       </article>`;
     }).join("");
     const eff = bestiaryEffects(S);
-    const beasts = `<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(csep()), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>.</p>
+    const beasts = `<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(csep()), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>${cend()}</p>
       <div class="beastgrid hscroll" data-hs="beasts">${cards}</div>`;
     // Une seule section à la fois (sous-onglets) : découpée aux titres <h2 class="codexh" id="bj-…">.
     const parts = {};
@@ -54,7 +54,7 @@ export class BestiaryTab {
         <img src="${itemIconURL({ icon: e.icon, slot: e.slot, r: known ? r : 0, color: known ? null : "#3a3650" })}" alt=""></div>`;
     }).join("");
     return `<h2 class="codexh first" id="bj-codex">${tx("Collection d’objets")} <small>${c.found} ${tx("/ {0} types · {1} en épique · {2} en légendaire", { 0: c.total, 1: c.epic, 2: c.leg })}</small></h2>
-      <p class="note tabintro">${tx("Chaque type d’objet trouvé donne {0} ; trouvé en épique {1} ;\n      en légendaire {2}. Conservé à l’ascension.\n      Bonus actuel :", { 0: esc(describeEffects(CODEX_BONUS.found)), 1: esc(describeEffects(CODEX_BONUS.epic)), 2: esc(describeEffects(CODEX_BONUS.legendary)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>.</p>
+      <p class="note tabintro">${tx("Chaque type d’objet trouvé donne {0} ; trouvé en épique {1} ;\n      en légendaire {2}. Conservé à l’ascension.\n      Bonus actuel :", { 0: esc(describeEffects(CODEX_BONUS.found)), 1: esc(describeEffects(CODEX_BONUS.epic)), 2: esc(describeEffects(CODEX_BONUS.legendary)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>${cend()}</p>
       <div class="codexgrid">${cells}</div>
       ${show.powers ? `<h2 class="codexh" id="bj-powers">${tx("Pouvoirs légendaires")} <small>${powersFound(S)} ${tx("/ {0} découverts · chacun donne {1}", { 0: POWERS.length, 1: esc(describeEffects(POWER_CODEX_BONUS)) })}</small></h2>
       <div class="powergrid">${POWERS.map((p) => (S.powersSeen || {})[p.id]
