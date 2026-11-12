@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 992) : enquête de performance sur la partie de FIN de partie (scripts/fixtures, guerrier niv. 167,
+  zone 136, compagnon rôdeur, sorts rangs 24-33) : bande ≈ 42-43 % d'un cœur contre ≈ 20 % avec dev-data ; panneau et
+  mini aussi plus chers (41-43 %, 9-9,5 %). Mesures (copies neuves, cinématiques coupées), une variante à la fois :
+  effets complets coupés 28,5 ; sans sorts 30,9 ; zone 55 au lieu de 136 : 24,9 ; zone 103 ou 135 : 41-42 (le rang de
+  la zone, pas le décor) ; sans compagnon 38,3 ; sans nombres de dégâts 40,0 ; sans son 38,7 ; sans météo ni jour/nuit
+  41,7 ; sans reliques 43,2 (rien) ; sans aucune animation de sort (TEMP) 40,0 ; sans le perçage (TEMP) 40,4. Le
+  processus GPU passe de 17 à 25 points avec les sorts. Pas de coupable unique : le rythme des combats (coups, sorts,
+  effets) à haut niveau. Noté en Idées (P1). Aucun changement de code (essais TEMP retirés ; budget de 3 effets de sort
+  par seconde essayé : sans effet, retiré).
 - 2026-11-12 (it. 991, revue générale) : simulation 12 h, records des courses : paladin 38 → 65, assassin 45 → 61,
   druide 44 → 61 (régulier). Performance (copies neuves) : bande 19,9 %, panneau 21,8 puis 19,9 % (bruit), mini 6,9 %,
   icône 0,8 %. Captures Carte, Ascension, Familiers et mini en français, anglais et chinois : rien de cassé. Texte de
@@ -3623,6 +3632,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+  (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
+  2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
+  (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium
+  --enable-gpu-rasterization ? --show-paint-rects en capture), plafonner les effets par seconde de TOUTES les sources
+  (pas seulement les sorts), regrouper les nombres de dégâts ; mesurer avec scripts/fixtures (pfvar dans le journal).
 - FAIT (it. 988) P3 Vu it. 987 (partie de fin de partie, zone 136, 395 Qa d'or) : l'étal du Marchand propose des objets de niveau 136
   tous PLUS FAIBLES que l'équipement porté (+10, panoplies : −3 à −34 % de puissance) pour 3 827 à 24 k d'or. L'étal ne
   sert plus en fin de partie. Pistes : objets au niveau du record + amélioration (+n) proportionnelle, ou prix et
