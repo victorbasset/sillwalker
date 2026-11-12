@@ -1235,4 +1235,8 @@ export default {
   2360: "Requiere {n} punto gastado en talentos|Requiere {n} puntos gastados en talentos",
   2361: "Requiere {n} punto en la rama {0}|Requiere {n} puntos en la rama {0}",
   2362: "{n} fragmento de estrella para colocar en las constelaciones|{n} fragmentos de estrella para colocar en las constelaciones",
+  2363: "Mientras estás fuera, el Herbolario perpetuo, el Mercader de confianza y el Grimorio de hechizos siguen trabajando.",
+  2364: "El Mapa del Alféizar, el árbol de Habilidades y los Talentos se manejan con el teclado (Mayús + Intro: un talento al máximo).",
+  2365: "«Qué hacer ahora» recuerda los fragmentos de estrella que puedes colocar en las constelaciones.",
+  2366: "Franja más legible (números flotantes sin solaparse, nombre del jefe despejado) y textos corregidos en los 10 idiomas.",
 };

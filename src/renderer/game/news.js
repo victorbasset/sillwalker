@@ -155,7 +155,13 @@ const EDITION_32 = [
   "Les onglets pas encore débloqués sont visibles, grisés : leur infobulle dit à quelle zone ils s’ouvrent.",
   "Bande à 100 % d’opacité : elle arrête les clics et s’attrape n’importe où pour la déplacer.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32];
+const EDITION_33 = [
+  "Pendant ton absence, l’Herboriste perpétuel, le Marchand attitré et le Grimoire des sorts continuent leur travail.",
+  "La Carte du Rebord, l’arbre de Compétences et les Talents se jouent au clavier (Maj + Entrée : un talent au maximum).",
+  "« À faire maintenant » rappelle les éclats d’étoile à placer dans les constellations.",
+  "Bande plus lisible (nombres flottants sans chevauchement, nom du boss dégagé) et textes corrigés dans les 10 langues.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

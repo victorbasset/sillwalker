@@ -1235,4 +1235,8 @@ export default {
   2360: "Wymaga {n} punktu wydanego na talenty|Wymaga {n} punktów wydanych na talenty|Wymaga {n} punktów wydanych na talenty",
   2361: "Wymaga {n} punktu w gałęzi {0}|Wymaga {n} punktów w gałęzi {0}|Wymaga {n} punktów w gałęzi {0}",
   2362: "{n} odłamek gwiazd do umieszczenia w gwiazdozbiorach|{n} odłamki gwiazd do umieszczenia w gwiazdozbiorach|{n} odłamków gwiazd do umieszczenia w gwiazdozbiorach",
+  2363: "Podczas twojej nieobecności Wieczny zielarz, Nadworny kupiec i Grimuar zaklęć dalej pracują.",
+  2364: "Mapa Krawędzi, drzewo Umiejętności i Talenty działają z klawiatury (Shift + Enter: talent do maksimum).",
+  2365: "„Do zrobienia teraz” przypomina o odłamkach gwiazd do umieszczenia w gwiazdozbiorach.",
+  2366: "Czytelniejszy pasek (latające liczby nie nachodzą na siebie, nazwa bossa odsłonięta) i poprawione teksty we wszystkich 10 językach.",
 };

@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 870) : « Quoi de neuf » édition 33 : les nouveautés des it. 836-869 n'avaient jamais été annoncées
+  aux joueurs (itch.io) : travail pendant l'absence de l'Herboriste perpétuel, du Marchand attitré et du Grimoire des
+  sorts ; Carte du Rebord, Compétences et Talents au clavier (Maj + Entrée) ; rappel des éclats d'étoile dans « À faire
+  maintenant » ; bande plus lisible et textes corrigés dans les 10 langues. Traduite (libellés cités vérifiés), aucun
+  défilement de la fenêtre au pire cas (3 éditions non lues) en allemand, polonais, russe, japonais et portugais à 1280
+  et 1920 px. Au passage : parcours --crawl en coréen (329 clics, aucune erreur), texte anglais sans mot français oublié,
+  dix premières minutes inchangées (3 graines). 175/175.
+
 - 2026-11-12 (it. 869) : chinois, japonais et coréen : les boss éveillés et ancestraux (2e boucle et au-delà) avaient
   leur épithète collée APRÈS le nom (« 深淵の甲羅覚醒した ») sur la bande, la carte, le journal et l'Aventure ; elle
   passe devant (« 覚醒した深淵の甲羅 », « 각성한 … », « 觉醒的… »). En japonais et en chinois, une quinzaine de textes
@@ -2995,6 +3003,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Vu it. 870 : lang-overflow, polonais à 1280 px, « adventure-tuile=1 » une fois sur quatre passages (sans lien avec le
+  changement : dépend d'une valeur du combat du moment, comme celle de l'it. 864) : trouver quelle tuile de l'Aventure se
+  coupe (instrumenter --overflow-report pour nommer la tuile) et lui donner une valeur abrégée.
 
 - FAIT (it. 866) P3 Coréen (vu it. 865) : les mots se coupent entre deux syllabes (« 가장자리 / 에는 », Aventure, Héros, Réglages), règle
   par défaut du navigateur ; `word-break: keep-all` en coréen serait plus soigné, mais à mesurer (débordements à 1280 px).

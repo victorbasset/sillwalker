@@ -1235,4 +1235,8 @@ export default {
   2360: "Requires {n} point spent in talents|Requires {n} points spent in talents",
   2361: "Requires {n} point in the {0} branch|Requires {n} points in the {0} branch",
   2362: "{n} star shard to place in the constellations|{n} star shards to place in the constellations",
+  2363: "While you are away, the Everlasting Herbalist, the Personal Merchant and the Spell Grimoire keep working.",
+  2364: "The Map of the Sill, the Skills tree and the Talents can be played with the keyboard (Shift + Enter: a talent to its maximum).",
+  2365: "“Things to do now” reminds you of star shards to place in the constellations.",
+  2366: "Clearer strip (floating numbers no longer overlap, boss name kept clear) and texts fixed in all 10 languages.",
 };

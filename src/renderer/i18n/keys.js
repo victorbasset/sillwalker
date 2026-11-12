@@ -2364,5 +2364,9 @@ export const KEYS = [
   "Voie déjà choisie : {0} (réinitialise les talents pour changer)",
   "Demande {n} point dépensé dans les talents|Demande {n} points dépensés dans les talents",
   "Demande {n} point dans la branche {0}|Demande {n} points dans la branche {0}",
-  "{n} éclat d’étoile à placer dans les constellations|{n} éclats d’étoile à placer dans les constellations"
+  "{n} éclat d’étoile à placer dans les constellations|{n} éclats d’étoile à placer dans les constellations",
+  "Pendant ton absence, l’Herboriste perpétuel, le Marchand attitré et le Grimoire des sorts continuent leur travail.",
+  "La Carte du Rebord, l’arbre de Compétences et les Talents se jouent au clavier (Maj + Entrée : un talent au maximum).",
+  "« À faire maintenant » rappelle les éclats d’étoile à placer dans les constellations.",
+  "Bande plus lisible (nombres flottants sans chevauchement, nom du boss dégagé) et textes corrigés dans les 10 langues."
 ];

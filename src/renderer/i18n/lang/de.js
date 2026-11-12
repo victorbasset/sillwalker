@@ -1235,4 +1235,8 @@ export default {
   2360: "Erfordert {n} ausgegebenen Talentpunkt|Erfordert {n} ausgegebene Talentpunkte",
   2361: "Erfordert {n} Punkt im Zweig {0}|Erfordert {n} Punkte im Zweig {0}",
   2362: "{n} Sternensplitter für die Sternbilder verfügbar|{n} Sternensplitter für die Sternbilder verfügbar",
+  2363: "Während deiner Abwesenheit arbeiten der Ewige Kräuterkundler, der Leibhändler und das Zaubergrimoire weiter.",
+  2364: "Die Karte des Saums, der Fertigkeitenbaum und die Talente lassen sich mit der Tastatur bedienen (Umschalt + Eingabe: ein Talent aufs Maximum).",
+  2365: "„Jetzt zu tun“ erinnert an Sternensplitter, die du in die Sternbilder setzen kannst.",
+  2366: "Leiste besser lesbar (schwebende Zahlen ohne Überlappung, Bossname frei) und Texte in allen 10 Sprachen korrigiert.",
 };
