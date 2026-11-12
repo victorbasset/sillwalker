@@ -1234,4 +1234,5 @@ export default {
   2359: "Weg bereits gewählt: {0} (setze die Talente zurück, um ihn zu ändern)",
   2360: "Erfordert {n} ausgegebenen Talentpunkt|Erfordert {n} ausgegebene Talentpunkte",
   2361: "Erfordert {n} Punkt im Zweig {0}|Erfordert {n} Punkte im Zweig {0}",
+  2362: "{n} Sternensplitter für die Sternbilder verfügbar|{n} Sternensplitter für die Sternbilder verfügbar",
 };

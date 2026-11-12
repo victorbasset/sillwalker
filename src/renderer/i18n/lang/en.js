@@ -1234,4 +1234,5 @@ export default {
   2359: "Way already chosen: {0} (reset your talents to change it)",
   2360: "Requires {n} point spent in talents|Requires {n} points spent in talents",
   2361: "Requires {n} point in the {0} branch|Requires {n} points in the {0} branch",
+  2362: "{n} star shard to place in the constellations|{n} star shards to place in the constellations",
 };

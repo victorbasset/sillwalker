@@ -23,7 +23,8 @@ function effText(eff, n) {
 export class AscensionTab {
   constructor(game) { this.game = game; this.armed = false; }
 
-  badge() { return this.game.canAscend() && this.game.S.prestige.count === 0 ? "!" : ""; }
+  // « ! » : première ascension possible, ou éclats d'étoile à placer dans une constellation (it. 868)
+  badge() { return (this.game.canAscend() && this.game.S.prestige.count === 0) || this.game.constellationAffordable() ? "!" : ""; }
 
   render(el) {
     const g = this.game, S = g.S, P = S.prestige, can = g.canAscend(), gain = g.ascendShards();

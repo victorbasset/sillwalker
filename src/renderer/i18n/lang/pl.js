@@ -1234,4 +1234,5 @@ export default {
   2359: "Droga już wybrana: {0} (zresetuj talenty, aby ją zmienić)",
   2360: "Wymaga {n} punktu wydanego na talenty|Wymaga {n} punktów wydanych na talenty|Wymaga {n} punktów wydanych na talenty",
   2361: "Wymaga {n} punktu w gałęzi {0}|Wymaga {n} punktów w gałęzi {0}|Wymaga {n} punktów w gałęzi {0}",
+  2362: "{n} odłamek gwiazd do umieszczenia w gwiazdozbiorach|{n} odłamki gwiazd do umieszczenia w gwiazdozbiorach|{n} odłamków gwiazd do umieszczenia w gwiazdozbiorach",
 };

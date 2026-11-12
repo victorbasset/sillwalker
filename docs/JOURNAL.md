@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 868) : les éclats d'étoile gagnés en cours de route (quêtes, pluie d'éclats) ne restent plus oubliés
+  quand on n'a pas la Carte du ciel : dès qu'un rang de constellation est payable, « À faire maintenant » (résumé de
+  retour, carte du héros, bulle du mode mini) affiche « N éclats d'étoile à placer dans les constellations » avec un
+  lien vers l'onglet Ascension, qui porte aussi une pastille « ! ». Traduit dans les 10 langues. Au passage : parcours
+  --crawl en russe (329 clics, aucune erreur), texte russe sans mot français oublié. Un test logique (207), un contrôle
+  d'autotest (175/175), vu en capture (pastille, français et allemand).
 - 2026-11-12 (it. 867) : deux textes faux hors du français. Talents : la raison pour laquelle un talent ne peut pas
   être appris (« Demande 5 points dans la branche … », « Aucun point disponible », « Voie déjà choisie… ») s'affichait
   en français dans toutes les langues ; elle est traduite dans les 10 langues, pluriels compris (russe, polonais).

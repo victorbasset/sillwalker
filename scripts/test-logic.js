@@ -1681,6 +1681,23 @@ test("« À faire maintenant » : une pièce du sac qui complète une panoplie",
   assert.ok(!g.todoNow().some((x) => x.id === "setFinish"));
 });
 
+test("« À faire maintenant » : éclats d'étoile à placer (it. 868)", () => {
+  const g = new Game(freshLocked());
+  g.S.tabsOpen = { ...(g.S.tabsOpen || {}), ascension: true };
+  const P = g.S.prestige; P.shards = 0; P.ranks = {};
+  assert.ok(!g.constellationAffordable() && !g.todoNow().some((t) => t.id === "stars"), "aucun éclat : rien");
+  P.shards = 1; // la constellation la moins chère (La Fiole) coûte 2
+  assert.ok(!g.todoNow().some((t) => t.id === "stars"), "pas assez d'éclats : rien");
+  P.shards = 2;
+  const t = g.todoNow().find((x) => x.id === "stars");
+  assert.ok(t && t.n === 2 && t.tab === "ascension", "2 éclats : un rang abordable");
+  for (const c of CONSTELLATIONS) P.ranks[c.id] = c.max;
+  P.shards = 999;
+  assert.ok(!g.constellationAffordable(), "tout au maximum : rien à placer");
+  g.S.tabsOpen.ascension = false; P.ranks = {}; g.S.best = 1;
+  assert.ok(!g.todoNow().some((x) => x.id === "stars"), "onglet fermé : pas de lien");
+});
+
 test("« À faire maintenant » : sac plein signalé", () => {
   const g = new Game(freshLocked());
   g.S.bag.length = 0;

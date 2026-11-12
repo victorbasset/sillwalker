@@ -1234,4 +1234,5 @@ export default {
   2359: "Vía ya elegida: {0} (reinicia los talentos para cambiarla)",
   2360: "Requiere {n} punto gastado en talentos|Requiere {n} puntos gastados en talentos",
   2361: "Requiere {n} punto en la rama {0}|Requiere {n} puntos en la rama {0}",
+  2362: "{n} fragmento de estrella para colocar en las constelaciones|{n} fragmentos de estrella para colocar en las constelaciones",
 };

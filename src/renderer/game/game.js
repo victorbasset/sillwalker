@@ -2028,6 +2028,8 @@ export class Game {
     // (it. 565) sort du compagnon débloqué, abordable, pas encore appris
     const sp2 = !sp1 && S.partner && classSpells(S.partner).find((x) => rec >= x.zone && !spellRank(S, x.id) && S.gold >= spellPrice(x, 0));
     if (sp2) out.push({ id: "partnerSpell", n: 1, tab: "class", sec: "style", name: sp2.name });
+    // (it. 868) éclats d'étoile gagnés hors ascension (quêtes, pluie d'éclats) ou laissés : un rang de constellation abordable
+    if (this.constellationAffordable()) out.push({ id: "stars", n: S.prestige.shards, tab: "ascension" });
     if (S.pets.eggs > 0 && hasUnlock(S, "menagerie")) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
     if (this.bagFull()) out.push({ id: "bagFull", n: this.uselessItems().length, tab: "adventure" }); // le butin suivant serait vendu d'office
     const fin = this.setFinisher();
@@ -2186,6 +2188,12 @@ export class Game {
     }
     if (n) this.log(txn(n, "Carte du ciel : {n} rang de constellation placé.|Carte du ciel : {n} rangs de constellations placés."));
     return n;
+  }
+
+  /** Un rang de constellation au moins est payable avec les éclats en réserve (« À faire maintenant », pastille). */
+  constellationAffordable() {
+    const P = this.S.prestige;
+    return P.shards > 0 && CONSTELLATIONS.some((c) => { const r = P.ranks[c.id] || 0; return r < c.max && constellationCost(c, r) <= P.shards; });
   }
 
   autoAscend() {
