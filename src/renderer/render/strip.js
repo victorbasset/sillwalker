@@ -132,7 +132,7 @@ export class StripRenderer {
     g.on("bossNemesis", () => this.say(SPEECH.nemesis, true));
     g.on("bossDodge", () => this.float(this.monX() + 14, 40, tx("Raté !"), "#c8c8d8"));
     g.on("dodge", () => this.float(this.heroX + 16, 44, tx("Esquive"), "#9fd8ff"));
-    g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + Math.round(dmg), "#ffb07a"));
+    g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + fmt(Math.round(dmg)), "#ffb07a"));
     g.on("potion", () => this.float(this.heroX + 16, 36, tx("Potion !"), "#ff8ad8", true));
     g.on("secondWind", () => this.float(this.heroX + 10, 36, tx("Second souffle !"), "#ffe27a", true));
     g.on("classChange", () => { this.heroCls = null; this.minionKey = null; });
@@ -216,9 +216,9 @@ export class StripRenderer {
       this.juice.banner(`✦ ${tx("{0} : niveau {1} !", { 0: tx(RELICS[id].name), 1: lv })}`, "#ffd34d", this.heroX + 80, true);
     });
     g.on("telegraph", () => this.float(this.monX() + 20, 6, "!", "#ffe27a", true));
-    g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + Math.round(dmg) + fsp() + "!", "#ff4a4a", true); });
+    g.on("smash", ({ dmg }) => { this.shake(0.3); this.flash = 0.25; this.float(this.heroX + 16, 36, "-" + fmt(Math.round(dmg)) + fsp() + "!", "#ff4a4a", true); });
     g.on("bossShieldHit", () => { this.monHit = 0.06; });
-    g.on("mirrorHit", ({ dmg }) => { this.flash = Math.max(this.flash, 0.08); this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#e0d8ff", false, true); });
+    g.on("mirrorHit", ({ dmg }) => { this.flash = Math.max(this.flash, 0.08); this.float(this.heroX + 16, 44, "-" + fmt(Math.round(dmg)), "#e0d8ff", false, true); });
     g.on("flee", ({ mon }) => {
       this.float(this.monX() + 14, 40, tx("Il s’enfuit !"), "#ffd34d", true);
       if (this.active) this.makeCorpse(mon, this.monX());
@@ -228,7 +228,7 @@ export class StripRenderer {
     g.on("questDone", () => this.float(this.heroX + 16, 30, tx("Quête accomplie !"), "#9fd8ff", true));
     g.on("loot", ({ item }) => { if (item.r >= 4) this.shake(0.3); });
     g.on("chest", () => this.shake(0.2));
-    g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + Math.round(dmg), "#ff7a6b", false, true); });
+    g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + fmt(Math.round(dmg)), "#ff7a6b", false, true); });
     g.on("kill", ({ mon, gold }) => {
       if (mon.boss || mon.champion) this.shake(0.35);
       this.float(this.monX() + 10, 50, "+" + tx("{0} or", { 0: fmt(gold) }), "#ffd34d");

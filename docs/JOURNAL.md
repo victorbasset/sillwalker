@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 857) : bande, nombres flottants : les dégâts reçus, coups écrasants, reflets du miroir et ripostes
+  s'écrivaient en chiffres bruts (« -22050 », plus tard « -1234567 ») à côté des coups portés abrégés (« 29 k ») : tous
+  passent maintenant par le même format (« -22 k », séparateurs et unités de la langue), plus courts et moins
+  enchevêtrés au-dessus du héros. Au passage : texte allemand et espagnol sans mot français oublié ; aucun
+  débordement en portugais, polonais, coréen et chinois à 1280 / 1366 px. Contrôle d'autotest (167/167).
 - 2026-11-12 (it. 856) : la ligne sous le nom d'un objet (marchand, sac, équipement, coffre ouvert) collait la rareté à
   l'emplacement : ordre français dans les autres langues (« Weapon uncommon », « 武器 优秀 ») et accord faux, même en
   français (« Armure peu commun », « Оружие необычный »). Elle devient « Armure · Peu commun · niveau 55 » (rareté en
@@ -2919,8 +2924,8 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
 - P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
   au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) nombres flottants
   de la bande face à un boss : encore vus sur sa couronne et sur la fin de son nom en montant (it. 846) ;
-  (c) FAIT (it. 856) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) sauvegarde de dev au niveau 1313 :
-  « 1,54e105 » d'expérience à atteindre (écriture scientifique ; seulement avec un niveau irréaliste, à confirmer).
+  (c) FAIT (it. 856) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) VU (it. 857) sauvegarde de dev au niveau 1313 :
+  « 1,54e105 » d'expérience : notation scientifique voulue au-delà de 1e36 (fmt), niveau irréaliste : laissé.
 
 - FAIT (it. 854) P1 Bande en allemand à 1920 px (vu it. 853, zone 55, boss) : « Abgrundpanzer der Erwachte · −10 % LP » passe sous
   la pastille d'or (le nom s'étend vers la gauche depuis le boss, au bout de la bande) : le décaler / le couper avant.
