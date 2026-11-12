@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 927) : contrôle d'autotest du temps restant des quêtes (it. 926) au pire cas, à 1280 px : grands
+  nombres (« 1,50 Qa / 1,70 Qa »), estimations de dizaines d'heures, trois quêtes 3 étoiles : chaque ligne de
+  progression tient sur une ligne, sans déborder de sa carte (191/191).
 - 2026-11-12 (it. 926) : les quêtes qui avancent au rythme des combats (victoires, chasse, or) donnent le temps
   restant estimé à côté de la progression (« 4442 / 9000 · ≈ 13 h 18 min »), d'après les 60 dernières victoires
   (chasse : une victoire sur le nombre de types de la zone) ; rien tant que le rythme n'est pas connu, ni au-delà de
