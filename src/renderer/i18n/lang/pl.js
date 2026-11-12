@@ -1297,4 +1297,5 @@ export default {
   2422: "Wszędzie jaja!",
   2423: "Dzień cudów",
   2424: "Rzadkie zdarzenia ×2.",
+  2425: "Pogromca elit",
 };

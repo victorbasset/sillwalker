@@ -136,6 +136,7 @@ export function migrate(raw) {
   }
   s.stats = Object.assign(def.stats, isObj(o.stats) ? o.stats : {});
   if (s.stats.eventsSeen !== undefined && !isObj(s.stats.eventsSeen)) s.stats.eventsSeen = {}; // abîmé : on repart de zéro
+  if (s.stats.affixesSeen !== undefined && !isObj(s.stats.affixesSeen)) s.stats.affixesSeen = {}; // (it. 943) idem
   // (it. 904) héros joués (succès) : abîmé, l'ascension plantait (« classes.includes is not a function »)
   s.stats.classes = Array.isArray(s.stats.classes) ? s.stats.classes.filter((c) => typeof c === "string") : ["warrior"];
   s.autoSell = Object.assign(def.autoSell, isObj(o.autoSell) ? o.autoSell : {});

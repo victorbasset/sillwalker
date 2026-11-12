@@ -1297,4 +1297,5 @@ export default {
   2422: "Eggs everywhere!",
   2423: "Day of Marvels",
   2424: "Rare events ×2.",
+  2425: "Elite Slayer",
 };

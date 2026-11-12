@@ -886,6 +886,8 @@ export class Game {
     if (m.boss && m.mech && m.mech.includes("curse") && hs.purity >= 100) S.stats.pureBoss = (S.stats.pureBoss || 0) + 1;
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
+    // (it. 943) sortes d'élites vaincues (Bestiaire > Élites, succès « Tueur d'élites »)
+    if (m.elite && m.affix && ELITE_AFFIXES[m.affix]) (S.stats.affixesSeen ||= {})[m.affix] = true;
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
     S.bestiary[m.type] = (S.bestiary[m.type] || 0) + 1;
     this.questProgress("kill", 1);

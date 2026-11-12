@@ -1297,4 +1297,5 @@ export default {
   2422: "Überall Eier!",
   2423: "Tag der Wunder",
   2424: "Seltene Ereignisse ×2.",
+  2425: "Elitenbezwinger",
 };

@@ -1297,4 +1297,5 @@ export default {
   2422: "Ovos por toda parte!",
   2423: "Dia dos prodígios",
   2424: "Eventos raros ×2.",
+  2425: "Matador de elites",
 };

@@ -3,7 +3,7 @@
 import { EVENTS } from "./events.js";
 import { TREES } from "./talents.js";
 import { PETS } from "./pets.js";
-import { MONSTERS, ZONES } from "./data.js";
+import { MONSTERS, ZONES, ELITE_AFFIXES } from "./data.js";
 import { UNLOCKS } from "./unlocks.js";
 import { CLASS_KEYS, duoSynergy } from "./classes.js";
 import { setCounts } from "./sets.js";
@@ -18,6 +18,9 @@ import { classSpells, spellRank } from "./spells.js";
 const spellsBest = (S) => Math.max(0, ...CLASS_KEYS.map((c) => classSpells(c).filter((x) => spellRank(S, x.id) > 0).length));
 /** Événements rares déjà vus (succès « Chasseur d’événements »), parmi ceux qui existent encore. */
 const eventsSeenCount = (S) => Object.keys((S.stats && S.stats.eventsSeen) || {}).filter((id) => EVENTS[id]).length;
+
+/** (it. 943) Sortes d'élites vaincues (succès « Tueur d'élites »), parmi celles qui existent encore. */
+const affixesSeenCount = (S) => Object.keys((S.stats && S.stats.affixesSeen) || {}).filter((id) => ELITE_AFFIXES[id]).length;
 
 /** Chroniques lues (annoncées), sans « Le ciel rallumé » qui suit la victoire finale. */
 const chronRead = (S) => CHRONICLES.filter((c) => c.id !== "dawn" && S.story && S.story.read && S.story.read[c.id]).length;
@@ -53,6 +56,7 @@ export const ACHIEVEMENTS = [
   { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
   { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
   { id: "EVENTS_ALL",      name: "Chasseur d’événements", test: (S) => eventsSeenCount(S) >= Object.keys(EVENTS).length },
+  { id: "ELITES_ALL",      name: "Tueur d’élites",     test: (S) => affixesSeenCount(S) >= Object.keys(ELITE_AFFIXES).length },
   { id: "PURE_HEART",      name: "Cœur pur",           test: (S) => (S.stats.pureBoss || 0) > 0 },
   { id: "DUO_SYNERGY",     name: "Duo parfait",        test: (S) => !!duoSynergy(S.cls, S.partner) },
   { id: "CHRONICLER",      name: "Chroniqueur",        test: (S) => chronRead(S) >= CHRONICLES.length - 1 },
@@ -110,6 +114,7 @@ export function earnedAchievements(S) {
 const rec = (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0);
 export const ACH_PROGRESS = {
   EVENTS_ALL: (S) => [eventsSeenCount(S), Object.keys(EVENTS).length],
+  ELITES_ALL: (S) => [affixesSeenCount(S), Object.keys(ELITE_AFFIXES).length],
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
   CHRONICLER: (S) => [chronRead(S), CHRONICLES.length - 1],
   HEROES_ALL: (S) => [new Set(["warrior", ...(S.classesUnlocked || [])]).size, CLASS_KEYS.length],

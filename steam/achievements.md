@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (63 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (64 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -31,6 +31,7 @@ Généré par `scripts/steam-achievements.mjs` (63 succès). À recopier dans St
 | `DUO_FIRST` | Premier duo | First Duo | Primer dúo | Primeira dupla | Erstes Duo | Pierwszy duet | Первый дуэт | 首个双人组 | 初めてのデュオ | 첫 듀오 |
 | `HEROES_10` | Dix héros libérés | Ten Heroes Freed | Diez héroes liberados | Dez heróis libertados | Zehn Helden befreit | Dziesięciu bohaterów uwolnionych | Десять героев освобождено | 解救十位英雄 | 10人の英雄を解放 | 영웅 10명 해방 |
 | `EVENTS_ALL` | Chasseur d’événements | Event Hunter | Cazador de eventos | Caçador de eventos | Ereignisjäger | Łowca wydarzeń | Охотник за событиями | 事件猎人 | イベントハンター | 이벤트 사냥꾼 |
+| `ELITES_ALL` | Tueur d’élites | Elite Slayer | Cazaélites | Matador de elites | Elitenbezwinger | Pogromca elit | Истребитель элит | 精英杀手 | エリートスレイヤー | 정예 학살자 |
 | `PURE_HEART` | Cœur pur | Pure Heart | Corazón puro | Coração puro | Reines Herz | Czyste serce | Чистое сердце | 纯净之心 | 清らかな心 | 순수한 마음 |
 | `DUO_SYNERGY` | Duo parfait | Perfect Duo | Dúo perfecto | Dupla perfeita | Perfektes Duo | Idealny duet | Идеальный дуэт | 完美双人组 | 完璧なデュオ | 완벽한 듀오 |
 | `CHRONICLER` | Chroniqueur | Chronicler | Cronista | Cronista | Chronist | Kronikarz | Летописец | 编年史家 | 年代記作者 | 연대기 작가 |

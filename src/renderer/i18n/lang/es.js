@@ -1297,4 +1297,5 @@ export default {
   2422: "¡Huevos por todas partes!",
   2423: "Día de prodigios",
   2424: "Eventos raros ×2.",
+  2425: "Cazaélites",
 };

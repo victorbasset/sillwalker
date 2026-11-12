@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 943) : collection des élites. Chaque sorte d'élite vaincue est retenue (stats.affixesSeen, réparé
+  s'il est abîmé) : Bestiaire > Élites affiche « (n / 7) », un ✓ sur les sortes vaincues, bordure en pointillés pour
+  les autres ; nouveau succès « Tueur d'élites » (ELITES_ALL, avec sa progression, 64 succès), icône Steam (orc,
+  achicons.js : seules les deux nouvelles images ajoutées, les 126 autres identiques), steam/achievements.md, README,
+  checklist. Liste des succès : 13 px (le 64e faisait défiler Statistiques > Succès de 9 px en polonais à 1920).
+  Test logique (victoire réelle d'une élite fuyante). Un ancien test (Grand intendant, « pas une ligne par familier »)
+  dépendait des tirages : décalés par le nouveau test, ils donnaient un familier NOUVEAU et deux nouveaux types
+  d'objets, lignes légitimes ; il ne compte plus que les lignes de routine. Sauvegardes abîmées : 1176 corruptions ok
+  (avant et après) ; 10 langues sans défaut ; autotest 195/195.
 - 2026-11-12 (it. 942) : Aventure, rangée de puces (idée P3 de la revue 941) : elle commence par ce qui est passager
   (événement rare en cours, potions actives), qui se retrouvait jusque-là derrière la longue bénédiction ; puis les
   reliques, la bénédiction et les panoplies. La bénédiction, quand d'autres puces la suivent, est bornée aux trois

@@ -892,6 +892,20 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
   });
 }
 
+test("sortes d'élites vaincues : retenues, succès « Tueur d'élites » (it. 943)", () => {
+  const g = new Game(freshState()), ids = Object.keys(ELITE_AFFIXES);
+  assert.equal(ACH_PROGRESS.ELITES_ALL(g.S)[0], 0);
+  // une élite fuyante vaincue (vraie victoire) : retenue
+  g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
+  assert.equal(g.S.stats.affixesSeen.elusive, true);
+  for (const a of ids.slice(0, -1)) g.S.stats.affixesSeen[a] = true;
+  assert.ok(!reachedAchievements(g.S).includes("ELITES_ALL"), "pas encore toutes");
+  g.S.stats.affixesSeen[ids[ids.length - 1]] = true; g.S.stats.affixesSeen.affixe_inconnu = true;
+  assert.deepEqual(ACH_PROGRESS.ELITES_ALL(g.S), [ids.length, ids.length]);
+  assert.ok(reachedAchievements(g.S).includes("ELITES_ALL"));
+  const t = freshState(); t.stats.affixesSeen = "abîmé"; assert.deepEqual(migrate(JSON.parse(JSON.stringify(t))).stats.affixesSeen, {});
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;
@@ -1258,7 +1272,10 @@ test("Grand intendant : œufs éclos, expéditions récupérées et relancées (
   g.autoPets(t0 + 600 * 60000);
   const fresh = g.S.log.slice(0, g.S.log.findIndex((l) => String(l).includes("— repère du test —"))); // lignes ajoutées (les plus récentes en tête)
   assert.equal(fresh.filter((l) => /Grand Steward|Grand intendant/.test(l)).length, 1, "une ligne de résumé : " + JSON.stringify(fresh));
-  assert.ok(fresh.length <= 3, "pas une ligne par familier : " + JSON.stringify(fresh));
+  // (it. 943) un familier NOUVEAU et un nouveau type d'objet ont leur propre ligne (vraies nouvelles) : seules les
+  // lignes répétées pour chaque familier sont refusées (le test dépendait des tirages : un nouveau test plus haut l'a cassé)
+  const routine = fresh.filter((l) => !/collection|^(The egg hatches|L’œuf éclot) : ?[^!]*!$/.test(String(l)));
+  assert.ok(routine.length <= 3, "pas une ligne par familier : " + JSON.stringify(fresh));
   g.S.settings.autoPets = false; g.S.pets.eggs = 2;
   g.autoPets(t0 + 400 * 60000);
   assert.equal(g.S.pets.eggs, 2, "option coupée");
