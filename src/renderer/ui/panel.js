@@ -13,7 +13,7 @@ import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { EXPEDITIONS } from "../game/pets.js";
-import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin, uS } from "../game/format.js";
+import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin, uS, durText } from "../game/format.js";
 import { RELICS, RELIC_IDS, MAJOR_BOSSES, ECHO_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable, majorName } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
@@ -947,9 +947,11 @@ export class Panel {
     const zoneOk = unlockAvailable(S, u);
     const k = zoneOk ? Math.min(1, S.gold / u.price) : Math.min(1, recordZone(S) / u.zone);
     const ready = zoneOk && S.gold >= u.price;
-    const what = zoneOk ? (ready ? tx("cliquer pour l’acheter ({0} or)", { 0: fmt(u.price) }) : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
+    // (it. 928) il ne manque que de l'or : temps estimé au rythme actuel des victoires (moins de 48 h)
+    const eta = zoneOk && !ready ? this.game.goldEta(u.price - S.gold) : null, etaTxt = eta != null && eta < 48 * 3600 ? " · " + tx("≈ {0}", { 0: durText(Math.max(60, eta)) }) : "";
+    const what = zoneOk ? (ready ? tx("cliquer pour l’acheter ({0} or)", { 0: fmt(u.price) }) : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}${etaTxt}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
     // Prêt : un clic l'achète tout de suite (au lieu d'ouvrir la boutique puis d'y cliquer).
-    return `<button class="goal${ready ? " ready" : ""}" ${ready ? `data-action="goal-buy" data-id="${u.id}"` : `data-tab="shop" data-sec="unlocks"`} title="${esc(u.desc)}">
+    return `<button class="goal${ready ? " ready" : ""}" ${ready ? `data-action="goal-buy" data-id="${u.id}"` : `data-tab="shop" data-sec="unlocks"`} title="${esc(`${u.name} · ${what}\n${u.desc}`)}">
       <img src="${shopIconURL(u.icon, 2)}" alt=""><span class="gtxt"><small>${tx("Prochain déblocage")}</small> ${esc(u.name)} · ${what}</span>
       <span class="gbar"><i style="width:${Math.round(k * 100)}%"></i></span></button>`;
   }

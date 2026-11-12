@@ -1997,6 +1997,14 @@ export class Game {
    * (it. 926) Temps restant estimé (secondes) d'une quête qui avance au rythme des combats (victoires, chasse, or),
    * d'après les 60 dernières victoires ; null si inconnu (trop peu de victoires, autre sorte de quête, finie).
    */
+  /** (it. 928) Secondes estimées pour gagner `amount` or au rythme des 60 dernières victoires (null si inconnu). */
+  goldEta(amount) {
+    const P = this.R.pace || [];
+    if (!(amount > 0) || P.length < 6) return null;
+    const dt = P[P.length - 1][0] - P[0][0], g = P.slice(1).reduce((a, x) => a + x[1], 0) / dt;
+    return dt > 0 && g > 0 ? amount / g : null;
+  }
+
   questEta(q) {
     const P = this.R.pace || [];
     if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold"].includes(q.kind)) return null;

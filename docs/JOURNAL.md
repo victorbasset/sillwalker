@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 928) : carte « Prochain déblocage » du héros : quand il ne manque que de l'or, le temps estimé au
+  rythme actuel des victoires (« 15,00 No / 20,00 No or · ≈ 47 h ») ; rien au-delà de 48 h. En mesurant son pire cas,
+  trouvé un défaut plus ancien : avec tous les déblocages sauf le dernier (zones 260-300), la carte prenait quatre
+  lignes en russe à 1280 px (« Личный торговец · нажми, чтобы купить (20,00 No золота) ») et l'Aventure défilait de
+  11 px ; les mesures habituelles prennent « tous les déblocages », où la carte disparaît. La carte tient maintenant en
+  trois lignes au plus, texte complet au survol. Test logique ; contrôle d'autotest du pire cas à 1280 px (192/192) ;
+  mesure des 10 langues sans débordement ; vu en capture (russe). Note dans CLAUDE.md.
 - 2026-11-12 (it. 927) : contrôle d'autotest du temps restant des quêtes (it. 926) au pire cas, à 1280 px : grands
   nombres (« 1,50 Qa / 1,70 Qa »), estimations de dizaines d'heures, trois quêtes 3 étoiles : chaque ligne de
   progression tient sur une ligne, sans déborder de sa carte (191/191).

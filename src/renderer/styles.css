@@ -574,6 +574,9 @@ details.more summary:hover { color: var(--accent); }
 .goal img { grid-row: span 2; width: 22px; image-rendering: pixelated; }
 /* « Prochain déblocage » sur sa propre ligne, lisible (il faisait ~9 px en ligne avec le nom) */
 .goal small { display: block; color: var(--muted); font-size: 11px; line-height: 1.2; }
+/* (it. 928) au plus trois lignes (libellé compris), texte complet au survol : en russe à 1280 px, « Личный торговец ·
+   нажми, чтобы купить (20,00 No золота) » en prenait quatre et faisait défiler l'Aventure de 11 px */
+.goal .gtxt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
 .goal .gbar { height: 4px; background: var(--bar); border-radius: 2px; overflow: hidden; }
 .goal .gbar i { display: block; height: 100%; background: var(--accent); }
 .goal.ready { border-style: solid; border-color: var(--accent); }

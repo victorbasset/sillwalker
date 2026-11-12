@@ -1654,6 +1654,9 @@ test("quêtes : temps restant estimé au rythme des combats (it. 926)", () => {
   assert.ok(Math.abs(g.questEta({ ...q, kind: "hunt", type: t[0], goal: 10, progress: 0 }) - 30 * t.length) < 1e-6, "chasse : une victoire sur " + t.length);
   assert.equal(g.questEta({ ...q, kind: "boss" }), null);
   assert.equal(g.questEta({ ...q, progress: 100 }), null, "finie");
+  // (it. 928) or à gagner : même rythme
+  assert.ok(Math.abs(g.goldEta(500) - 30) < 1e-6, "500 or à 50 or / 3 s : 30 s");
+  assert.equal(g.goldEta(0), null);
 });
 
 test("événement rare : bilan dans le journal à la fin (it. 894)", () => {
