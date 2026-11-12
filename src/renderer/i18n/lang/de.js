@@ -1274,4 +1274,7 @@ export default {
   2399: "{n} Sternschnuppe gefangen|{n} Sternschnuppen gefangen",
   2400: "Klick: der beste Gegenstand aus der Tasche für diesen Platz",
   2401: "Sternenschwarm: Klick auf die vorbeiziehenden Sternschnuppen (oder Taste F bei offenem Fenster): je +2 % Tempo für immer!",
+  2402: "Neues seltenes Ereignis, der „Sternenschwarm“: 30 s lang folgen Sternschnuppen aufeinander. Klick sie an oder drück F bei offenem Fenster.",
+  2403: "„Ausrüstung“: Ein leerer, grün umrandeter Platz führt mit einem Klick zum besten Gegenstand der Tasche dafür.",
+  2404: "„Jetzt zu tun“ listet nicht mehr, was deine Automatiken selbst erledigen (Eier, Expeditionen, automatisch abgeholte Quests).",
 };

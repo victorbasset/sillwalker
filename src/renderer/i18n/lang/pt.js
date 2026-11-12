@@ -1274,4 +1274,7 @@ export default {
   2399: "{n} estrela cadente pega|{n} estrelas cadentes pegas",
   2400: "Clique: o melhor item da bolsa para este espaço",
   2401: "Revoada de estrelas: clique nas estrelas cadentes que passam (ou tecla F com o painel aberto): +2 % de velocidade para sempre cada uma!",
+  2402: "Novo evento raro, a «Revoada de estrelas»: durante 30 s, as estrelas cadentes se sucedem. Clique nelas, ou tecla F com o painel aberto.",
+  2403: "«Equipamento»: um espaço vazio com contorno verde leva com um clique ao melhor item da bolsa para ele.",
+  2404: "«O que fazer agora» não lista mais o que suas automações fazem sozinhas (ovos, expedições, missões resgatadas automaticamente).",
 };

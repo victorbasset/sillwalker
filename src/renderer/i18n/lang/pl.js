@@ -1274,4 +1274,7 @@ export default {
   2399: "{n} złapana spadająca gwiazda|{n} złapane spadające gwiazdy|{n} złapanych spadających gwiazd",
   2400: "Kliknij: najlepszy przedmiot z torby na to miejsce",
   2401: "Rój gwiazd: klikaj przelatujące spadające gwiazdy (lub klawisz F przy otwartym panelu): każda to +2 % szybkości na zawsze!",
+  2402: "Nowe rzadkie wydarzenie, „Rój gwiazd”: przez 30 s spadające gwiazdy lecą jedna po drugiej. Klikaj je albo naciśnij F przy otwartym panelu.",
+  2403: "„Ekwipunek”: puste miejsce z zielonym obrysem prowadzi jednym kliknięciem do najlepszego przedmiotu z torby.",
+  2404: "„Do zrobienia teraz” nie pokazuje już tego, co twoje automaty robią same (jaja, wyprawy, zadania odbierane automatycznie).",
 };

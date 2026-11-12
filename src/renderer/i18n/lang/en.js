@@ -1274,4 +1274,7 @@ export default {
   2399: "{n} shooting star caught|{n} shooting stars caught",
   2400: "Click: the best item in your bag for this slot",
   2401: "Star Swarm: click the shooting stars as they pass (or press F with the panel open): +2% speed forever each!",
+  2402: "New rare event, the “Star Swarm”: for 30 s, shooting stars come one after another. Click them, or press F with the panel open.",
+  2403: "“Equipment”: an empty slot outlined in green leads in one click to the best item in your bag for it.",
+  2404: "“Things to do now” no longer lists what your automations do on their own (eggs, expeditions, auto-claimed quests).",
 };

@@ -1274,4 +1274,7 @@ export default {
   2399: "{n} estrella fugaz atrapada|{n} estrellas fugaces atrapadas",
   2400: "Clic: el mejor objeto de la bolsa para esta ranura",
   2401: "Enjambre de estrellas: haz clic en las estrellas fugaces que pasan (o tecla F con el panel abierto): ¡+2 % de velocidad para siempre cada una!",
+  2402: "Nuevo evento raro, el «Enjambre de estrellas»: durante 30 s, las estrellas fugaces se suceden. Haz clic en ellas, o tecla F con el panel abierto.",
+  2403: "«Equipo»: una ranura vacía con borde verde lleva con un clic al mejor objeto de la bolsa para ella.",
+  2404: "«Qué hacer ahora» ya no muestra lo que tus automatismos hacen solos (huevos, expediciones, misiones reclamadas automáticamente).",
 };

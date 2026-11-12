@@ -2403,5 +2403,8 @@ export const KEYS = [
   "Les étoiles filantes se suivent : attrape-les !",
   "{n} étoile filante attrapée|{n} étoiles filantes attrapées",
   "Clic : le meilleur objet du sac pour cet emplacement",
-  "Nuée d’étoiles : clique sur les étoiles filantes qui passent (ou touche F, panneau ouvert) : +2 % de vitesse pour toujours chacune !"
+  "Nuée d’étoiles : clique sur les étoiles filantes qui passent (ou touche F, panneau ouvert) : +2 % de vitesse pour toujours chacune !",
+  "Nouvel événement rare, la « Nuée d’étoiles » : pendant 30 s, les étoiles filantes se suivent. Clique-les, ou touche F panneau ouvert.",
+  "« Équipement » : un emplacement vide en pointillés verts mène d’un clic au meilleur objet du sac pour lui.",
+  "« À faire maintenant » ne liste plus ce que tes automatismes font seuls (œufs, expéditions, quêtes réclamées automatiquement)."
 ];

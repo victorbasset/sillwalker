@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 912) : « Quoi de neuf », édition 36 : Nuée d'étoiles (et touche F), emplacement vide de
+  l'Équipement qui mène au meilleur objet du sac, « À faire maintenant » allégé de ce que font les automatismes.
+  Traduite dans les 10 langues, libellés cités vérifiés ; mesure des 10 langues : aucun défilement ni mot coupé ;
+  autotest 184/184.
 - 2026-11-12 (it. 911, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses assassin
   39 → 62, berserker 47 → 62, rôdeur 38 → 62, sans saut ni plafond. Performance (copie neuve) : bande 19,7 %,
   panneau 21,2 %, mini 7,1 %, icône 0,5 % d'un cœur. Captures en français, anglais et russe (Aventure, Quêtes,
