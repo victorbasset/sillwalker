@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 901, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses moine
+  41 → 64, samouraï 40 → 62, nécromancien 38 → 60, sans saut ni plafond. Performance (copie neuve) : bande 19,8 %,
+  panneau 20,8 %, mini 7,2 %, icône 0,6 % d'un cœur. Captures en français, anglais et chinois (Aventure, Talents,
+  Familiers, Statistiques, mode mini) : ni débordement ni texte coupé ; l'interface chinoise extraite ne contient
+  aucun mot latin suspect. (Vu : « 6 œufs en attente » cinq secondes après le lancement, le Grand intendant passant
+  toutes les 5 s : normal.)
 - 2026-11-12 (it. 900) : touche F du panneau, attraper l'étoile filante qui passe, sans viser sur la bande (utile
   pendant la Nuée d'étoiles, et au clavier) ; listée dans les raccourcis clavier (libellé déjà traduit). Contrôle
   d'autotest (182/182) ; fenêtre des raccourcis mesurée dans les 10 langues : aucun défilement ni mot coupé.
