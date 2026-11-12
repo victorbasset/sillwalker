@@ -975,8 +975,10 @@ test("boss au nom féminin : « l’Éveillée », « vaincue » en français (i
     assert.ok(M_bosses_js.bossName(z).endsWith("l’Éveillée"), M_bosses_js.bossName(z));
     assert.equal(M_bosses_js.bossGender(1), "f"); assert.equal(M_bosses_js.bossGender(3), "m");
     const g = new Game(freshState()); g.S.zone = 1; g.S.kills = KILLS_PER_ZONE; g.S.log = [];
+    g.S.bossDefeats = { 1: 2 }; let nem = null; g.on("bossNemesis", (e) => { nem = e; }); // (it. 960) bannière « enfin vaincue »
     g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
     assert.ok(g.S.log.some((l) => /Morille la Ronde vaincue !/.test(l)), JSON.stringify(g.S.log));
+    assert.ok(nem && nem.fem === true, JSON.stringify(nem));
   } finally { setLang(before); }
 });
 

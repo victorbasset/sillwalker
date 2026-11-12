@@ -951,7 +951,7 @@ export class Game {
       const tries = (S.bossDefeats && S.bossDefeats[S.zone]) || 0;
       if (tries) { // boss qui avait mis le héros K.O. : enfin vaincu (un moment à marquer)
         delete S.bossDefeats[S.zone]; // il retrouve toute sa force
-        this.emit("bossNemesis", { name: m.name || tx("Boss"), tries });
+        this.emit("bossNemesis", { name: m.name || tx("Boss"), tries, fem: !!m.fem }); // (it. 960) accord du message
       }
       this.freeHero(S.zone);
       R.deaths = 0;

@@ -1316,4 +1316,5 @@ export default {
   2441: "Elite-Gegner erscheinen ab Zone {0}.",
   2442: "Neuer Typ für die Sammlung.",
   2443: "besiegt! Weiter nach: {0}.",
+  2444: "{0} endlich besiegt!",
 };

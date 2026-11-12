@@ -76,7 +76,7 @@ export class Juice {
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
-    g.on("bossNemesis", ({ name }) => this.banner(tx("{0} enfin vaincu !", { 0: name }), "#ffb733", this.s.monX() - 40));
+    g.on("bossNemesis", ({ name, fem }) => this.banner(tx(fem ? "{0} enfin vaincue !" : "{0} enfin vaincu !", { 0: name }), "#ffb733", this.s.monX() - 40)); // (it. 960)
     g.on("loot", ({ item, mon, chest, ground }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10, ground));
     g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });
     g.on("zoneUp", ({ zone, record }) => {

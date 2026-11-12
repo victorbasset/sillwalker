@@ -1316,4 +1316,5 @@ export default {
   2441: "Elity pojawiają się od strefy {0}.",
   2442: "Nowy typ do kolekcji.",
   2443: "pokonana! Kierunek: {0}.",
+  2444: "{0} wreszcie pokonana!",
 };

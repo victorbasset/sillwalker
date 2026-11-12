@@ -1316,4 +1316,5 @@ export default {
   2441: "Elites appear from zone {0} onward.",
   2442: "New type for the collection.",
   2443: "defeated! Heading to: {0}.",
+  2444: "{0} finally defeated!",
 };

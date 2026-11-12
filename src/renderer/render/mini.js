@@ -58,7 +58,7 @@ export class MiniRenderer {
     this.moment.hidden = true;
     game.on("loot", ({ item }) => { if (item && item.r >= 4) this.showMoment("★ " + tx("Légendaire") + fsp() + "!", itemName(item)); });
     game.on("setBonus", ({ id, n }) => { if (SETS[id]) this.showMoment("◆ " + tx("{0} : bonus {1} pièces !", { 0: SETS[id].name, 1: n })); });
-    game.on("bossNemesis", ({ name }) => this.showMoment(tx("{0} enfin vaincu !", { 0: name })));
+    game.on("bossNemesis", ({ name, fem }) => this.showMoment(tx(fem ? "{0} enfin vaincue !" : "{0} enfin vaincu !", { 0: name })));
     game.on("event", ({ id }) => { const ev = EVENTS[id]; if (ev) this.showMoment(ev.name + fsp() + "!", ev.text); });
     game.on("starbreaker", ({ first }) => { if (first) this.showMoment("✦ " + tx("Le Briseur d’Étoiles est vaincu")); });
     game.on("chronicle", ({ ids }) => { const c = CHRONICLES.find((x) => x.id === ids[0]); if (c) this.showMoment("📜 " + tx(c.title)); });

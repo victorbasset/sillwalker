@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 960) : suite de l'it. 959, la bannière et le moment du mode mini quand un boss qui avait mis le héros
+  K.O. tombe enfin : « Morille la Ronde enfin vaincue ! » (« por fin derrotada », « наконец повержена »…), selon le
+  genre du nom dans la langue affichée (fem porté par le monstre et l'événement bossNemesis). Recherche des autres
+  phrases accordées au nom d'un boss : aucune autre. Test logique (événement) ; 10 langues ; autotest 199/199.
 - 2026-11-12 (it. 959) : vérifié en partie neuve (3 min) que l'annonce du nouveau type rejoint la ligne du butin
   (it. 958) : oui. Le même journal montrait « Morille la Ronde vaincu ! » : le français n'avait pas de table de genre
   des boss. Ajoutée (dix noms féminins : Morille la Ronde, Bave-Reine, Carapace-des-Abysses, Reine de Verre…) :
