@@ -1277,4 +1277,7 @@ export default {
   2402: "Neues seltenes Ereignis, der „Sternenschwarm“: 30 s lang folgen Sternschnuppen aufeinander. Klick sie an oder drück F bei offenem Fenster.",
   2403: "„Ausrüstung“: Ein leerer, grün umrandeter Platz führt mit einem Klick zum besten Gegenstand der Tasche dafür.",
   2404: "„Jetzt zu tun“ listet nicht mehr, was deine Automatiken selbst erledigen (Eier, Expeditionen, automatisch abgeholte Quests).",
+  2405: "Der Himmel ändert sich mit den Ereignissen: rot beim „Blutmond“, voller Sterne beim „Sternenschwarm“ (Leiste und Mini-Modus).",
+  2406: "„Bestiarium“: neuer Reiter „Seltene Ereignisse“, mit den schon gesehenen und den noch unbekannten.",
+  2407: "„Statistiken“: ein Klick auf „Seltene Ereignisse“ führt direkt dorthin.",
 };

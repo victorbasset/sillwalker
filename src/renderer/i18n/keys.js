@@ -2406,5 +2406,8 @@ export const KEYS = [
   "Nuée d’étoiles : clique sur les étoiles filantes qui passent (ou touche F, panneau ouvert) : +2 % de vitesse pour toujours chacune !",
   "Nouvel événement rare, la « Nuée d’étoiles » : pendant 30 s, les étoiles filantes se suivent. Clique-les, ou touche F panneau ouvert.",
   "« Équipement » : un emplacement vide en pointillés verts mène d’un clic au meilleur objet du sac pour lui.",
-  "« À faire maintenant » ne liste plus ce que tes automatismes font seuls (œufs, expéditions, quêtes réclamées automatiquement)."
+  "« À faire maintenant » ne liste plus ce que tes automatismes font seuls (œufs, expéditions, quêtes réclamées automatiquement).",
+  "Le ciel change avec les événements : rouge sous la « Lune de sang », constellé pendant la « Nuée d’étoiles » (bande et mode mini).",
+  "« Bestiaire » : nouveau sous-onglet « Événements rares », ceux déjà vus et ceux qui restent à découvrir.",
+  "« Statistiques » : un clic sur « Événements rares » y mène directement."
 ];

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 923) : « Quoi de neuf », édition 37 : ciels de la Lune de sang et de la Nuée d'étoiles (bande et
+  mode mini), sous-onglet Bestiaire > Événements rares et son lien depuis les Statistiques. Traduite dans les 10
+  langues, libellés cités vérifiés ; mesure des 10 langues : aucun défilement ni mot coupé ; autotest 189/189.
 - 2026-11-12 (it. 922) : Statistiques > Probabilités, « Événements rares (n / 13) » est un lien (vert, souligné en
   pointillés) qui ouvre d'un clic Bestiaire > Événements rares (it. 920) ; le détail reste au survol de la ligne.
   Nouvelle variante de style « lien dans le texte » (.linkbtn.textlink), le bouton encadré cassait la ligne. Contrôle

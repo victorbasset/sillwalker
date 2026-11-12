@@ -1277,4 +1277,7 @@ export default {
   2402: "Nowe rzadkie wydarzenie, „Rój gwiazd”: przez 30 s spadające gwiazdy lecą jedna po drugiej. Klikaj je albo naciśnij F przy otwartym panelu.",
   2403: "„Ekwipunek”: puste miejsce z zielonym obrysem prowadzi jednym kliknięciem do najlepszego przedmiotu z torby.",
   2404: "„Do zrobienia teraz” nie pokazuje już tego, co twoje automaty robią same (jaja, wyprawy, zadania odbierane automatycznie).",
+  2405: "Niebo zmienia się z wydarzeniami: czerwone podczas „Krwawy księżyc”, gwiaździste podczas „Rój gwiazd” (pasek i tryb mini).",
+  2406: "„Bestiariusz”: nowa podkarta „Rzadkie zdarzenia” – te już widziane i te jeszcze do odkrycia.",
+  2407: "„Statystyki”: kliknięcie w „Rzadkie zdarzenia” prowadzi prosto tam.",
 };

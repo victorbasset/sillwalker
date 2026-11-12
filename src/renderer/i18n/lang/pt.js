@@ -1277,4 +1277,7 @@ export default {
   2402: "Novo evento raro, a «Revoada de estrelas»: durante 30 s, as estrelas cadentes se sucedem. Clique nelas, ou tecla F com o painel aberto.",
   2403: "«Equipamento»: um espaço vazio com contorno verde leva com um clique ao melhor item da bolsa para ele.",
   2404: "«O que fazer agora» não lista mais o que suas automações fazem sozinhas (ovos, expedições, missões resgatadas automaticamente).",
+  2405: "O céu muda com os eventos: vermelho sob a «Lua de sangue», estrelado durante a «Revoada de estrelas» (faixa e modo mini).",
+  2406: "«Bestiário»: nova subaba «Eventos raros», com os já vistos e os que ainda faltam descobrir.",
+  2407: "«Estatísticas»: um clique em «Eventos raros» leva direto até lá.",
 };

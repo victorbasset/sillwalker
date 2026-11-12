@@ -1277,4 +1277,7 @@ export default {
   2402: "New rare event, the “Star Swarm”: for 30 s, shooting stars come one after another. Click them, or press F with the panel open.",
   2403: "“Equipment”: an empty slot outlined in green leads in one click to the best item in your bag for it.",
   2404: "“Things to do now” no longer lists what your automations do on their own (eggs, expeditions, auto-claimed quests).",
+  2405: "The sky changes with events: red under the “Blood Moon”, starry during the “Star Swarm” (strip and mini mode).",
+  2406: "“Bestiary”: new “Rare events” sub-tab, with the ones you have seen and those still to discover.",
+  2407: "“Statistics”: one click on “Rare events” takes you straight there.",
 };

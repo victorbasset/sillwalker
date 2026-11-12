@@ -1277,4 +1277,7 @@ export default {
   2402: "Nuevo evento raro, el «Enjambre de estrellas»: durante 30 s, las estrellas fugaces se suceden. Haz clic en ellas, o tecla F con el panel abierto.",
   2403: "«Equipo»: una ranura vacía con borde verde lleva con un clic al mejor objeto de la bolsa para ella.",
   2404: "«Qué hacer ahora» ya no muestra lo que tus automatismos hacen solos (huevos, expediciones, misiones reclamadas automáticamente).",
+  2405: "El cielo cambia con los eventos: rojo bajo la «Luna de sangre», estrellado durante el «Enjambre de estrellas» (franja y modo mini).",
+  2406: "«Bestiario»: nueva subpestaña «Eventos raros», con los ya vistos y los que quedan por descubrir.",
+  2407: "«Estadísticas»: un clic en «Eventos raros» te lleva directamente.",
 };
