@@ -719,6 +719,24 @@ async function runSelfTest(strip) {
       G.S.zone = z0; G.S.kills = k0; G.R.mon = m0; st.slotKey = null; st.syncSlots(); return all.length ? all.length + ' boss : ' + all.join(' // ') : 'ok'; })()`);
     check("combat de boss : nombres flottants hors du nom et de la relique", r === "ok", r);
   }
+  // (it. 892) File d'élites (Lune de sang) : aucune étiquette d'affixe ne passe sous le nom du boss, sur les 200 zones
+  // (un monstre volant, plus haut, la mettait sur le nom : « Furieux » sur « Carapace-des-Abysses »).
+  {
+    const r = await js(`(() => { const st = window.__strip, G = window.__game; if (!st.active) return 'bande inactive';
+      const k0 = G.S.kills, z0 = G.S.zone, m0 = G.R.mon, l0 = G.R.lineup, lz0 = G.R.lineupZone, all = [];
+      for (let z = 1; z <= 200; z++) { G.S.zone = z; G.S.kills = 0; G.R.mon = null; const ms = G.zoneDef().monsters;
+        G.R.lineup = Array.from({ length: 10 }, (_, i) => ({ type: ms[i % ms.length], elite: true, affix: 'vampiric' })); G.R.lineupZone = z;
+        st.slotKey = null; st.syncSlots();
+        const tag = [...document.querySelectorAll('.affix.bossname')].find((t) => t.isConnected && t.getBoundingClientRect().width);
+        if (!tag) continue;
+        const b = tag.getBoundingClientRect();
+        const n = [...document.querySelectorAll('.affix:not(.bossname)')].filter((t) => t.isConnected).map((t) => t.getBoundingClientRect())
+          .filter((r) => r.width && r.left < b.right - 1 && b.left < r.right - 1 && r.top < b.bottom - 1 && b.top < r.bottom - 1).length;
+        if (n) all.push(z + ':' + n); }
+      G.S.zone = z0; G.S.kills = k0; G.R.mon = m0; G.R.lineup = l0; G.R.lineupZone = lz0; st.slotKey = null; st.syncSlots();
+      return all.length ? all.length + ' zones : ' + all.join(' ') : 'ok'; })()`);
+    check("file d'élites : étiquettes d'affixe hors du nom du boss (200 zones)", r === "ok", r);
+  }
   // (it. 701-705) Écho d'un lieutenant (zones 250, 300, 350) : contour spectral ; pas pour l'original (zone 50) ni ailleurs.
   const eo = await js("(() => { const G = window.__game, st = window.__strip, z0 = G.S.zone, r = [250, 300, 350, 50, 249].map((z) => { G.S.zone = z; return st.echoOutline() || '-'; }); G.S.zone = z0; return r.join(' '); })()");
   check("échos des lieutenants : contour spectral (250, 300, 350), pas l'original ni une autre zone", /^(#\w+) \1 \1 - -$/.test(eo), eo);

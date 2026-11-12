@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 892) : bande, l'étiquette d'affixe d'une élite de la file (souvent un monstre volant, plus haut)
+  ne passe plus sous le nom du boss, qui s'étend vers la gauche (« Furieux » sur « Carapace-des-Abysses ») : elle se
+  place alors sous son monstre. Mesuré seulement quand la série ou la place du nom change, jamais à chaque image.
+  (Essai écarté : décaler l'étiquette vers la gauche l'éloignait de son monstre et la posait sur la voisine.)
+  Contrôle d'autotest sur les 200 zones avec une file entièrement élite : 34 zones en défaut sans le correctif,
+  aucune avec (179/179) ; vu en capture.
 - 2026-11-12 (it. 891, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses rôdeur
   40 → 60, paladin 44 → 64, druide 39 → 63, sans saut ni plafond (avec la Lune de sang, l'élite Épineux, le Jour des
   trésors et la quête des coffres). Performance (copie neuve) : bande 19,7 %, panneau 20,6 %, mini 7,1 %, icône
@@ -3140,7 +3146,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Vu it. 890 (bande, zone 55) : l'étiquette d'affixe du dernier monstre de la file (« Furieux ») touche le début du nom
+- FAIT (it. 892) P3 Vu it. 890 (bande, zone 55) : l'étiquette d'affixe du dernier monstre de la file (« Furieux ») touche le début du nom
   du boss, qui s'étend vers la gauche ; décaler l'étiquette ou couper le nom quand ils se chevauchent (placeBossName).
 
 - FAIT (it. 885 : 20,5 %, bruit) P3 Revue it. 881 : panneau mesuré à 21,7 % d'un cœur (repère 20-21 %, bande et mini dans leurs repères) : refaire une

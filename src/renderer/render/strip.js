@@ -638,6 +638,7 @@ export class StripRenderer {
       this.slots.push(a);
     }
     this.slotKey = line;
+    this.placeBossName(); // étiquettes de la file dégagées du nom du boss (it. 892)
   }
 
   makeCorpse(mon, x) {
@@ -911,7 +912,26 @@ export class StripRenderer {
     let off = 40;
     if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(FIGHTS) + this.bossW / 2 + off - (this.hudRLeft - 8));
     const v = `calc(-100% + ${Math.round(off)}px) 0`;
-    if (t.style.translate !== v) { t.style.translate = v; this.bossObs = null; }
+    if (t.style.translate !== v || this.tagsFor !== this.slotKey) { t.style.translate = v; this.bossObs = null; this.tagsFor = this.slotKey; this.clearQueueTags(); }
+  }
+
+  /**
+   * (it. 892) Le nom du boss s'étend vers la gauche au-dessus de la file : l'étiquette d'affixe d'une élite (souvent
+   * un monstre volant, plus haut) pouvait passer dessous (« Furieux » sur « Carapace-des-Abysses »). Elle passe alors
+   * sous le monstre (décalée à gauche, elle s'éloignait de lui et se chevauchait avec la voisine). Mesuré seulement
+   * quand la série ou la place du nom change (jamais à chaque image).
+   */
+  clearQueueTags() {
+    const t = this.bossTag;
+    if (!t || !t.isConnected) return;
+    const b = t.getBoundingClientRect();
+    for (const a of this.slots.slice(0, -1)) {
+      const tag = a.el.querySelector(".affix");
+      if (!tag) continue;
+      tag.style.top = "";
+      const r = tag.getBoundingClientRect();
+      if (r.right > b.left - 4 && r.left < b.right && r.bottom > b.top - 2 && r.top < b.bottom + 2) tag.style.top = (a.h + 1) + "px";
+    }
   }
 
   drawHudRight() {
