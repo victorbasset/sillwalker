@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 953) : « Quoi de neuf », édition 40 : quête « proie », « ✦ » des élites jamais vaincues, panneau
+  qui grandit avec la taille de l'interface. 10 langues, libellés cités vérifiés ; 10 langues × 3 largeurs sans défaut ;
+  autotest 198/198. Coût de la règle des espaces insécables de t() (it. 952) : ≈ 0,8 µs par appel (mesuré sur
+  1 million d'appels), négligeable ; mesure --perf : bande 19,9 %, panneau 21,4 % (bruit habituel).
 - 2026-11-12 (it. 952) : « +20,53 M / or. » coupé dans le journal (idée de la revue 951) : t() rend désormais
   insécable l'espace qui suit un nombre, abrégé ou non (« 20,53 M », « 8 h », « 14 familiers », « 40 % »), quand un
   mot ou « % » suit (règle générale qui remplace celle de l'it. 950). Les tests logiques comparent le texte avec des

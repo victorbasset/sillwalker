@@ -1304,4 +1304,7 @@ export default {
   2429: "O herói reage a alguns eventos raros («Está chovendo ouro!»); o evento em curso fica destacado no Bestiário.",
   2430: "Derrotar {n} elite «{0}»|Derrotar {n} elites «{0}»",
   2431: "Limitado a {0} pela largura da tela.",
+  2432: "Novo tipo de missão, a presa: derrote um tipo específico de elite (também avança enquanto você está fora).",
+  2433: "Na faixa, uma elite de um tipo nunca derrotado mostra «✦»: ela conta para a sua coleção.",
+  2434: "Configurações > «Tamanho do painel»: a 115 % ou 130 %, o painel cresce na mesma proporção em vez de rolar.",
 };

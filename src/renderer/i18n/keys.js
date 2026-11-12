@@ -2433,5 +2433,8 @@ export const KEYS = [
   "Chaque sorte d’élite vaincue est retenue (✓ dans le Bestiaire) ; les vaincre toutes donne le succès « Tueur d’élites ».",
   "Le héros réagit à certains événements rares (« Il pleut de l’or ! ») ; l’événement en cours est encadré dans le Bestiaire.",
   "Vaincre {n} élite « {0} »|Vaincre {n} élites « {0} »",
-  "Limité à {0} par la largeur de l’écran."
+  "Limité à {0} par la largeur de l’écran.",
+  "Nouvelle sorte de quête, la proie : vaincre une sorte d’élite précise (elle avance aussi pendant l’absence).",
+  "Dans la bande, une élite d’une sorte jamais vaincue porte « ✦ » : elle compte pour ta collection.",
+  "Réglages > « Taille du panneau » : à 115 % ou 130 %, le panneau grandit d’autant au lieu de défiler."
 ];

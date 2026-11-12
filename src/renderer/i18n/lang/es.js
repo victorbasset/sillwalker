@@ -1304,4 +1304,7 @@ export default {
   2429: "El héroe reacciona a algunos eventos raros («¡Llueve oro!»); el evento en curso aparece destacado en el Bestiario.",
   2430: "Vencer {n} élite «{0}»|Vencer {n} élites «{0}»",
   2431: "Limitado a {0} por el ancho de la pantalla.",
+  2432: "Nuevo tipo de misión, la presa: vence un tipo de élite concreto (también avanza mientras no estás).",
+  2433: "En la banda, una élite de un tipo nunca vencido muestra «✦»: cuenta para tu colección.",
+  2434: "Ajustes > «Tamaño del panel»: al 115 % o 130 %, el panel crece en proporción en lugar de desplazarse.",
 };

@@ -1304,4 +1304,7 @@ export default {
   2429: "Bohater reaguje na niektóre rzadkie zdarzenia („Pada złoto!”); trwające zdarzenie jest wyróżnione w bestiariuszu.",
   2430: "Pokonaj {n} elitę „{0}”|Pokonaj {n} elity „{0}”|Pokonaj {n} elit „{0}”",
   2431: "Ograniczone do {0} przez szerokość ekranu.",
+  2432: "Nowy rodzaj zadania, zdobycz: pokonaj określony rodzaj elity (postępuje też podczas nieobecności).",
+  2433: "Na pasku elita rodzaju, którego jeszcze nie pokonano, ma „✦”: liczy się do twojej kolekcji.",
+  2434: "Ustawienia > „Rozmiar panelu”: przy 115 % lub 130 % panel rośnie proporcjonalnie zamiast się przewijać.",
 };

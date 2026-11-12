@@ -1304,4 +1304,7 @@ export default {
   2429: "The hero reacts to some rare events (“It's raining gold!”); the ongoing event is highlighted in the Bestiary.",
   2430: "Defeat {n} “{0}” elite|Defeat {n} “{0}” elites",
   2431: "Limited to {0} by the screen width.",
+  2432: "New quest type, the prey: defeat one specific kind of elite (it also progresses while you're away).",
+  2433: "In the strip, an elite of a kind you've never defeated shows “✦”: it counts for your collection.",
+  2434: "Settings > “Panel size”: at 115% or 130%, the panel grows to match instead of scrolling.",
 };

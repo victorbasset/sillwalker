@@ -1304,4 +1304,7 @@ export default {
   2429: "Der Held reagiert auf manche seltenen Ereignisse („Es regnet Gold!“); das laufende Ereignis ist im Bestiarium hervorgehoben.",
   2430: "{n} Elite „{0}“ besiegen|{n} Eliten „{0}“ besiegen",
   2431: "Durch die Bildschirmbreite auf {0} begrenzt.",
+  2432: "Neue Questart, die Beute: besiege eine bestimmte Elite-Art (sie läuft auch weiter, während du weg bist).",
+  2433: "In der Leiste trägt eine Elite einer noch nie besiegten Art „✦“: sie zählt für deine Sammlung.",
+  2434: "Einstellungen > „Fenstergröße“: bei 115 % oder 130 % wächst das Fenster mit, statt zu scrollen.",
 };
