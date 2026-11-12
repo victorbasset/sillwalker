@@ -44,6 +44,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   sur une COPIE temporaire de dev-data : la sauvegarde de dev n'est plus modifiée par les contrôles ; code de sortie 1
   si une vérification échoue) : parcours
   automatique de l'interface, doit afficher « N/N vérifications réussies ».
+  Délai maximal 10 min (≈ 70 s d'habitude ; `SELFTEST_MAX_MIN`) : au-delà, échec citant la dernière vérification (it. 863).
+  Avant une mesure `--perf`, vérifier qu'aucun Electron de test orphelin ne tourne (`ps -ef | grep electron`).
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (les 20 héros) et signale celles qui ne progressent pas (60 graines = 1200 parties, ≈ 1 min). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.

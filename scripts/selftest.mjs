@@ -18,10 +18,18 @@ const linux = process.argv.includes("--linux");
 // Sortie recopiée au fil de l'eau (un blocage reste lisible), et gardée pour le bilan.
 const cmd = linux ? "xvfb-run" : electron;
 const cargs = linux ? ["-a", "-s", "-screen 0 1920x1080x24", electron, ...args, "--no-sandbox"] : args;
-const child = spawn(cmd, cargs, { cwd: ROOT, shell: !linux && process.platform === "win32" });
+// Groupe de processus à part (hors Windows) : si ce lanceur est interrompu (Ctrl+C, itération arrêtée par son délai),
+// tout l'arbre xvfb-run / Electron est arrêté avec lui au lieu de tourner orphelin (it. 863 : 3 h 20 vu sur le serveur).
+const group = process.platform !== "win32";
+const child = spawn(cmd, cargs, { cwd: ROOT, shell: !linux && process.platform === "win32", detached: group });
+const stop = () => { try { if (group) process.kill(-child.pid, "SIGTERM"); else child.kill(); } catch {} };
+for (const sig of ["SIGINT", "SIGTERM", "SIGHUP"]) process.on(sig, () => { stop(); fs.rmSync(tmp, { recursive: true, force: true }); process.exit(1); });
+// Dernier recours, au cas où l'application ne quitterait pas d'elle-même (son propre garde-fou est à 10 min).
+const hard = setTimeout(() => { console.error("[selftest] ÉCHEC : l'application ne quitte pas, arrêtée"); stop(); }, 15 * 60 * 1000);
 let out = "";
 for (const s of [child.stdout, child.stderr]) s.on("data", (d) => { out += d; process.stdout.write(d); });
 child.on("close", () => {
+  clearTimeout(hard);
   fs.rmSync(tmp, { recursive: true, force: true });
   // Code de sortie fiable (l'application quitte toujours normalement) : échec si une vérification échoue
   // ou si le bilan « N/N vérifications réussies » manque ou n'est pas complet.

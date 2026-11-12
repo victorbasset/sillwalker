@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 863) : outils, bon voisin : un autotest lancé par une itération précédente tournait encore, orphelin,
+  depuis 3 h 20 (≈ 25 % d'un cœur sur le serveur, et des mesures de performance faussées : le panneau à 22,3 % de la
+  revue 861 venait de là). L'autotest a maintenant un délai maximal (10 min ; un passage normal prend ≈ 70 s) : il
+  échoue en citant la dernière vérification faite, puis quitte ; son lanceur arrête tout l'arbre xvfb-run / Electron
+  s'il est interrompu (essayé : plus aucun processus ni dossier temporaire). Mesure refaite seule : bande 19,0 %,
+  panneau 20,1 %, mini 6,2 %, icône 0,8 % (repères tenus). Au passage : parcours --crawl en polonais (329 clics, aucune
+  erreur), texte polonais sans mot français oublié. 172/172.
 - 2026-11-12 (it. 862) : bande, en japonais, chinois et coréen : les nombres et mots flottants (« 会心 116k », « 凍結！ »)
   se recouvraient encore au-dessus du héros en combat de boss : leur place libre était calculée comme si chaque caractère
   avait la largeur d'un chiffre. Les caractères pleine chasse comptent maintenant double (et leur ligne un peu plus haute),
@@ -2949,7 +2956,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Revue it. 861 : (a) refaire la mesure du panneau seul (22,3 % pris pendant un autotest ; repère 20-21 %) ;
+- P3 Revue it. 861 : (a) FAIT (it. 863 : 20,1 %, l'écart venait d'un autotest orphelin) refaire la mesure du panneau seul (22,3 % pris pendant un autotest ; repère 20-21 %) ;
   (b) FAIT (it. 862) bande, combat de boss en japonais : « 会心 116k » et « 凍結 » se superposent encore au-dessus du héros (texte large).
 - P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
   au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) FAIT (it. 860) nombres flottants

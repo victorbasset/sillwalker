@@ -4,6 +4,8 @@
 const { app } = require("electron");
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/** Durée maximale d'un autotest (un passage normal prend quelques minutes). */
+const SELFTEST_MAX_MS = (+process.env.SELFTEST_MAX_MIN || 10) * 60 * 1000; // SELFTEST_MAX_MIN=0.5 : essai du garde-fou
 
 async function runSelfTest(strip) {
   const wc = strip.win.webContents;
@@ -32,7 +34,16 @@ async function runSelfTest(strip) {
     await sleep(100);
   };
   const results = [];
-  const check = (name, ok, extra = "") => { results.push(ok); console.log(`[selftest] ${ok ? "OK  " : "ÉCHEC"} ${name}${extra ? " — " + extra : ""}`); };
+  // Garde-fou (it. 863) : une étape qui attend une promesse jamais tenue laissait Electron tourner sans fin (vu : un
+  // autotest orphelin pendant 3 h 20 à ≈ 25 % d'un cœur, qui faussait aussi les mesures de performance). Passé
+  // ce délai, l'autotest échoue en citant la dernière vérification faite, puis quitte.
+  let lastCheck = "(aucune)";
+  const watchdog = setTimeout(() => {
+    console.log(`[selftest] ÉCHEC délai dépassé (${Math.round(SELFTEST_MAX_MS / 60000)} min) après ${results.length} vérifications ; dernière : ${lastCheck}`);
+    app.exit(1);
+  }, SELFTEST_MAX_MS);
+  watchdog.unref?.();
+  const check = (name, ok, extra = "") => { results.push(ok); lastCheck = name; console.log(`[selftest] ${ok ? "OK  " : "ÉCHEC"} ${name}${extra ? " — " + extra : ""}`); };
   const bounds = () => strip.win.getBounds();
 
   await sleep(1500);
