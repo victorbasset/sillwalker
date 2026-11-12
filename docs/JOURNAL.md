@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 859) : bande, arrivée d'un boss : la réplique du héros dite juste avant (« Je me sens plus fort ! » au
+  passage de niveau sur le dernier monstre) restait 3 s par-dessus le nom du boss, dès le premier boss d'une partie
+  neuve. Elle s'efface maintenant quand le boss arrive (les répliques importantes, K.-O. ou légendaire, restent). Vu en
+  capture à 1366 px au même instant (nom lisible). Au passage : parcours --crawl en japonais (328 clics, aucune erreur)
+  et texte coréen sans mot français oublié. Contrôle d'autotest (169/169).
 - 2026-11-12 (it. 858) : Sac d'une partie neuve sur écran de portable (1280 px) : le compteur se cassait en deux lignes
   (« Sac 1 / » puis « 24 ») et le rappel « ▲ double-clic : équiper » en trois (« double- / clic : / équiper »), même en
   français. Le compteur reste entier et le rappel passe sous le titre, sur une seule ligne (à 1920 px aussi) ; les

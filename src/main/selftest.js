@@ -79,6 +79,15 @@ async function runSelfTest(strip) {
       return { right: Math.round(right), pill: Math.round(s.hudRLeft) }; })()`);
     check("bande : un long nom de boss s'arrête avant la pastille d'or", r.skip || r.right <= r.pill, JSON.stringify(r));
   }
+  // (it. 859) une réplique ordinaire du héros s'efface quand un boss arrive (elle cachait son nom) ; une urgente reste
+  {
+    const r = await js(`(() => { const s = window.__strip, R = window.__game.R, m0 = R.mon, out = [];
+      const run = (boss, urgent) => { s.bubble.textContent = "x"; s.bubble.hidden = false; s.bubbleT = 3; s.bubbleUrgent = urgent;
+        R.mon = { ...(m0 || {}), boss }; s.updateSpeech(0.01, s.heroX || 0); R.mon = m0; out.push(s.bubble.hidden ? "cachée" : "visible"); };
+      run(false, false); run(true, false); run(true, true);
+      s.bubbleT = 0; s.bubble.hidden = true; return out.join(" "); })()`);
+    check("bande : une réplique ordinaire s'efface à l'arrivée d'un boss", r === "visible cachée visible", r);
+  }
   // (it. 835) glisser le bouton ⌃ : la fenêtre suit la souris (le processus principal prend la main) et le clic qui
   // suit le relâchement n'ouvre pas le panneau
   {

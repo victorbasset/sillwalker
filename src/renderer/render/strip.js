@@ -254,6 +254,7 @@ export class StripRenderer {
     this.bubble.textContent = list[Math.floor(Math.random() * list.length)];
     this.bubble.hidden = false;
     this.bubbleT = 3.5;
+    this.bubbleUrgent = urgent;
     this.bubbleX = null;
     this.bubbleW = this.bubble.offsetWidth || 0; // mesurée une fois par réplique
     mark("speech");
@@ -261,6 +262,10 @@ export class StripRenderer {
   updateSpeech(dt, x) {
     if (this.bubbleT > 0) {
       this.bubbleT -= dt;
+      // Réplique ordinaire dite juste avant l'arrivée d'un boss (passage de niveau au dernier monstre) : elle cachait
+      // son nom pendant 3 s (vu it. 859, premier boss d'une partie neuve) ; elle s'efface dès qu'il est là.
+      const bm = this.game.R.mon;
+      if (!this.bubbleUrgent && bm && bm.boss) this.bubbleT = 0;
       if (this.bubbleT <= 0) { this.bubble.hidden = true; mark("speech"); return; }
       let bx = q(x + this.hero.w / 2);
       if (this.centerHud && this.hudSpan && this.bubbleW) { // informations au milieu : la bulle passe à côté du bloc
