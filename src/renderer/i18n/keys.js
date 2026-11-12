@@ -2357,5 +2357,11 @@ export const KEYS = [
   "(gratuit)",
   "Talents : monter au maximum possible",
   "Maj",
-  "clic"
+  "clic",
+  "Talent d’un autre héros",
+  "Rang maximal atteint",
+  "Aucun point disponible (1 point par niveau)",
+  "Voie déjà choisie : {0} (réinitialise les talents pour changer)",
+  "Demande {n} point dépensé dans les talents|Demande {n} points dépensés dans les talents",
+  "Demande {n} point dans la branche {0}|Demande {n} points dans la branche {0}"
 ];

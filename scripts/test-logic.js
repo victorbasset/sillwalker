@@ -2674,6 +2674,36 @@ test("listes affichées : séparateur csep(), pas de « , » en dur (it. 668)", 
   assert.deepEqual(bad, [], "utiliser .join(csep()) et cend() (i18n/index.js) : « 、 » et « 。 » en japonais, « ， » et « 。 » en chinois");
 });
 
+test("talents : la raison d'un talent verrouillé est traduite (it. 867)", () => {
+  // Elle s'affichait en français dans toutes les langues (« Demande 5 points dans la branche … »).
+  const before = getLang();
+  try {
+    const g = new Game(freshState());
+    g.S.lvl = 30; g.invalidateStats();
+    const [b0] = TREES.warrior, voie = M_talents_js.VOIES.warrior[0];
+    setLang("en");
+    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Requires 5 points in the .+ branch$/);
+    assert.equal(cannotLearn(g.S, voie.id), "Requires 30 points spent in talents");
+    setLang("ru");
+    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Нужно 5 очков в ветке «.+»$/);
+    setLang("fr");
+    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Demande 5 points dans la branche .+$/);
+  } finally { setLang(before); }
+});
+
+test("ponctuation : pas d'espace en dur devant une clé qui commence par « : » (it. 867)", () => {
+  // « Arme : vide » s'affichait « Weapon : empty » en anglais : l'espace venait du code, pas de la traduction.
+  // Écrire « {0} : … » dans la clé, ou coller ${fsp()} devant (espace seulement dans les langues qui en mettent une).
+  const root = new URL("../src/renderer/", import.meta.url).pathname, bad = [];
+  const walk = (d) => { for (const f of fs.readdirSync(d, { withFileTypes: true })) {
+    const p = d + "/" + f.name;
+    if (f.isDirectory()) { if (f.name !== "lang") walk(p); }
+    else if (p.endsWith(".js") && /(\} |" \+ |["'`] )\$?\{?tx\(["'`][:;!?]/.test(fs.readFileSync(p, "utf8"))) bad.push(p.slice(root.length));
+  } };
+  walk(root.replace(/\/$/, ""));
+  assert.deepEqual(bad, []);
+});
+
 test("épithètes des boss accordées au genre (de, es, pt, ru, pl ; it. 673-675)", () => {
   const before = getLang(), { bossName } = M_bosses_js;
   // zone 35 : Bave-Reine (féminin) en 2e boucle ; zone 36 : Os-le-Roi (masculin) ; zone 81 : Cœur-de-Lave en 3e boucle

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 867) : deux textes faux hors du français. Talents : la raison pour laquelle un talent ne peut pas
+  être appris (« Demande 5 points dans la branche … », « Aucun point disponible », « Voie déjà choisie… ») s'affichait
+  en français dans toutes les langues ; elle est traduite dans les 10 langues, pluriels compris (russe, polonais).
+  Équipement vide : « Weapon : empty » (espace à la française) devient « Weapon: empty » en anglais (et de même dans
+  les autres langues). npm test refuse désormais toute espace en dur collée devant une clé qui commence par « : ».
+  Au passage : parcours --crawl en chinois (329 clics, aucune erreur), texte allemand sans mot français, sauvegardes
+  abîmées toutes « ok ». Deux tests logiques (206), autotest 174/174, vu en capture (anglais, 1366 px).
 - 2026-11-12 (it. 866) : coréen : les mots se coupaient entre deux syllabes en fin de ligne (« 가장자리 / 에는 »,
   « 데려가기 », « 처음부터 » : Aventure, Compétences, Héros, Talents, Réglages), comme si le coréen s'écrivait sans
   espaces. Ils restent maintenant entiers (un mot trop long pour sa case se coupe encore plutôt que de déborder).

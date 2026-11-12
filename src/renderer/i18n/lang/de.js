@@ -1228,4 +1228,10 @@ export default {
   2353: "Talente: so weit wie möglich steigern",
   2354: "Umschalt",
   2355: "Klick",
+  2356: "Talent eines anderen Helden",
+  2357: "Höchster Rang erreicht",
+  2358: "Kein Punkt verfügbar (1 Punkt pro Stufe)",
+  2359: "Weg bereits gewählt: {0} (setze die Talente zurück, um ihn zu ändern)",
+  2360: "Erfordert {n} ausgegebenen Talentpunkt|Erfordert {n} ausgegebene Talentpunkte",
+  2361: "Erfordert {n} Punkt im Zweig {0}|Erfordert {n} Punkte im Zweig {0}",
 };

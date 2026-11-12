@@ -826,7 +826,7 @@ export class Panel {
         const e = S.equip[k];
         return `<li class="eqline">${this.slotBtn(e, k, "equip")}<div class="si">${e
           ? `<div class="nm rc${e.r}">${esc(itemName(e))}${e.plus ? " +" + e.plus : ""}</div><div class="sub">${SLOTS[k].name}${tx(", niveau {0}{1}", { 0: e.il, 1: e.power && POWER_INDEX[e.power] ? ` · ★ ${esc(POWER_INDEX[e.power].name)}` : "" })}</div>`
-          : `<div class="nm empty">${SLOTS[k].name} ${tx(": vide")}</div>`}</div></li>`;
+          : `<div class="nm empty">${tx("{0} : vide", { 0: SLOTS[k].name })}</div>`}</div></li>`;
       }).join("");
       // Demande E de Victor : « clique un objet » ne disait pas pourquoi : on dit ce que fait le clic.
       el.innerHTML = `<h2>${tx("Équipement")} <small>${hasUnlock(S, "forge") ? tx("clic sur un objet : détails et forge") : tx("clic sur un objet : détails")}</small></h2>

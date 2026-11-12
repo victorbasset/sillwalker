@@ -395,24 +395,24 @@ export function branchSpent(S, branch, cls = S.cls) {
 /** Raison pour laquelle on ne peut pas monter ce talent (ou null si possible). */
 export function cannotLearn(S, id) {
   const ix = TALENT_INDEX[id];
-  if (!ix || (ix.cls !== S.cls && ix.cls !== "*")) return "Talent d’une autre classe";
+  if (!ix || (ix.cls !== S.cls && ix.cls !== "*")) return tx("Talent d’un autre héros");
   const rank = classTalents(S)[id] || 0;
-  if (rank >= ix.talent.max) return "Rang maximal atteint";
+  if (rank >= ix.talent.max) return tx("Rang maximal atteint");
   if (ix.branch === "voie") {
     const cur = chosenVoie(S);
-    if (cur && cur.id !== id) return `Voie déjà choisie : ${cur.name} (réinitialise les talents pour changer)`;
-    if (talentPointsSpent(S) < VOIE_REQ) return `Demande ${VOIE_REQ} points dépensés dans les talents`;
-    if (talentPointsFree(S) <= 0) return "Aucun point disponible (1 point par niveau)";
+    if (cur && cur.id !== id) return tx("Voie déjà choisie : {0} (réinitialise les talents pour changer)", { 0: cur.name });
+    if (talentPointsSpent(S) < VOIE_REQ) return txn(VOIE_REQ, "Demande {n} point dépensé dans les talents|Demande {n} points dépensés dans les talents");
+    if (talentPointsFree(S) <= 0) return tx("Aucun point disponible (1 point par niveau)");
     return null;
   }
   if (ix.branch === "mastery") {
-    if (talentPointsSpent(S) < MASTERY_REQ) return `Demande ${MASTERY_REQ} points dépensés dans les talents`;
-    if (talentPointsFree(S) <= 0) return "Aucun point disponible (1 point par niveau)";
+    if (talentPointsSpent(S) < MASTERY_REQ) return txn(MASTERY_REQ, "Demande {n} point dépensé dans les talents|Demande {n} points dépensés dans les talents");
+    if (talentPointsFree(S) <= 0) return tx("Aucun point disponible (1 point par niveau)");
     return null;
   }
   const need = TIER_REQ[ix.talent.tier];
-  if (branchSpent(S, ix.branch) < need) return `Demande ${need} points dans la branche ${TREES[S.cls][ix.branch].name}`;
-  if (talentPointsFree(S) <= 0) return "Aucun point disponible (1 point par niveau)";
+  if (branchSpent(S, ix.branch) < need) return txn(need, "Demande {n} point dans la branche {0}|Demande {n} points dans la branche {0}", { 0: TREES[S.cls][ix.branch].name });
+  if (talentPointsFree(S) <= 0) return tx("Aucun point disponible (1 point par niveau)");
   return null;
 }
 

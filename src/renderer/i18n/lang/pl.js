@@ -1228,4 +1228,10 @@ export default {
   2353: "Talenty: podnieś do maksimum",
   2354: "Shift",
   2355: "klik",
+  2356: "Talent innego bohatera",
+  2357: "Osiągnięto maksymalną rangę",
+  2358: "Brak wolnych punktów (1 punkt na poziom)",
+  2359: "Droga już wybrana: {0} (zresetuj talenty, aby ją zmienić)",
+  2360: "Wymaga {n} punktu wydanego na talenty|Wymaga {n} punktów wydanych na talenty|Wymaga {n} punktów wydanych na talenty",
+  2361: "Wymaga {n} punktu w gałęzi {0}|Wymaga {n} punktów w gałęzi {0}|Wymaga {n} punktów w gałęzi {0}",
 };

@@ -1228,4 +1228,10 @@ export default {
   2353: "Talents: raise to the maximum possible",
   2354: "Shift",
   2355: "click",
+  2356: "Talent of another hero",
+  2357: "Maximum rank reached",
+  2358: "No point available (1 point per level)",
+  2359: "Way already chosen: {0} (reset your talents to change it)",
+  2360: "Requires {n} point spent in talents|Requires {n} points spent in talents",
+  2361: "Requires {n} point in the {0} branch|Requires {n} points in the {0} branch",
 };

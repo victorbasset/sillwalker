@@ -1228,4 +1228,10 @@ export default {
   2353: "Talentos: subir al máximo posible",
   2354: "Mayús",
   2355: "clic",
+  2356: "Talento de otro héroe",
+  2357: "Rango máximo alcanzado",
+  2358: "Ningún punto disponible (1 punto por nivel)",
+  2359: "Vía ya elegida: {0} (reinicia los talentos para cambiarla)",
+  2360: "Requiere {n} punto gastado en talentos|Requiere {n} puntos gastados en talentos",
+  2361: "Requiere {n} punto en la rama {0}|Requiere {n} puntos en la rama {0}",
 };
