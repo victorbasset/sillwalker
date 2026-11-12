@@ -1273,4 +1273,5 @@ export default {
   2398: "As estrelas cadentes se sucedem: pegue-as!",
   2399: "{n} estrela cadente pega|{n} estrelas cadentes pegas",
   2400: "Clique: o melhor item da bolsa para este espaço",
+  2401: "Revoada de estrelas: clique nas estrelas cadentes que passam (ou tecla F com o painel aberto): +2 % de velocidade para sempre cada uma!",
 };

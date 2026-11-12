@@ -1273,4 +1273,5 @@ export default {
   2398: "Las estrellas fugaces se suceden: ¡atrápalas!",
   2399: "{n} estrella fugaz atrapada|{n} estrellas fugaces atrapadas",
   2400: "Clic: el mejor objeto de la bolsa para esta ranura",
+  2401: "Enjambre de estrellas: haz clic en las estrellas fugaces que pasan (o tecla F con el panel abierto): ¡+2 % de velocidad para siempre cada una!",
 };

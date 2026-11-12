@@ -1273,4 +1273,5 @@ export default {
   2398: "Shooting stars come one after another: catch them!",
   2399: "{n} shooting star caught|{n} shooting stars caught",
   2400: "Click: the best item in your bag for this slot",
+  2401: "Star Swarm: click the shooting stars as they pass (or press F with the panel open): +2% speed forever each!",
 };

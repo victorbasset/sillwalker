@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 910) : une astuce pour la première Nuée d'étoiles, sans Filet à étoiles : « clique sur les étoiles
+  filantes qui passent (ou touche F, panneau ouvert) : +2 % de vitesse pour toujours chacune ! ». Elle passe avant
+  les autres astuces (l'événement ne dure que 30 s) et fait découvrir la touche F (it. 900). Tour de « À faire »
+  terminé : un objet plus puissant reste à juste titre « à faire » avec le Valet d'armes (il n'équipe qu'à
+  l'arrivée). Traduit dans les 10 langues ; contrôle d'autotest (184/184).
 - 2026-11-12 (it. 909) : « À faire maintenant » ne signale plus ce qu'un automatisme acheté fait déjà tout seul :
   les expéditions finies avec le Grand intendant (il les récupère), et les quêtes terminées quand le Bureau des
   contrats les réclame automatiquement (restent seulement celles qui attendent de la place dans le sac pour leur

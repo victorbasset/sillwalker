@@ -2402,5 +2402,6 @@ export const KEYS = [
   "Nuée d’étoiles",
   "Les étoiles filantes se suivent : attrape-les !",
   "{n} étoile filante attrapée|{n} étoiles filantes attrapées",
-  "Clic : le meilleur objet du sac pour cet emplacement"
+  "Clic : le meilleur objet du sac pour cet emplacement",
+  "Nuée d’étoiles : clique sur les étoiles filantes qui passent (ou touche F, panneau ouvert) : +2 % de vitesse pour toujours chacune !"
 ];
