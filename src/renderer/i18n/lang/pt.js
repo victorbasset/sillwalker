@@ -1320,4 +1320,6 @@ export default {
   2445: "Novo evento raro, «Corrida dos goblins»: por 30 s, um em cada três monstros vira um goblin dourado.",
   2446: "O Bestiário conta suas vitórias sobre cada tipo de elite; o herói comemora cada tipo derrotado pela primeira vez.",
   2447: "Diário mais leve: um novo tipo para a coleção é anunciado na linha do saque.",
+  2448: "Escamas",
+  2449: "Os golpes críticos só lhe causam metade do bônus.",
 };

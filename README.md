@@ -97,7 +97,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie, corne d'abondance (un objet à chaque victoire), souffle de sagesse (expérience ×3), œil du faucon (tous les coups critiques), marée arcanique (recharges des sorts ×2, si un sort est appris), lune de sang (chaque monstre qui arrive est une élite), ruée des gobelins (un monstre sur trois devient un gobelin doré), nuée d'étoiles (les étoiles filantes se suivent pendant 30 s),
   **coffre au trésor** (or, potion, objet rare ou mieux).
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération, miroir, vampirisme, souffle glacé,
-  insaisissable, fureur croissante, peau de pierre, malédiction, tenace, crachat venimeux), deux à partir de la 2e boucle ; Silence (plus de
+  insaisissable, fureur croissante, peau de pierre, malédiction, tenace, crachat venimeux, écailles : la moitié du bonus des critiques), deux à partir de la 2e boucle ; Silence (plus de
   sorts pendant 4 s, toutes les 15 s) réservé aux échos des lieutenants (zones 250, 300, 350). Un boss qui bat le héros s'use : −5 % de PV par défaite
   (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu. Parade : le Talisman de pureté (pouvoir légendaire) repousse
   la malédiction et le venin.

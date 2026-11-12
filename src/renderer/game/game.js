@@ -44,7 +44,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH } from "./events.js";
-import { bossMechanics, bossName, bossGender, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
+import { bossMechanics, bossName, bossGender, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -544,7 +544,7 @@ export class Game {
       for (let c = 0; c < casts; c++) for (let h = 0; h < sp.hits; h++) {
         let dmg = hs.atk * v * (m.boss ? 1 + hs.bossDmg / 100 : 1) * this.bulwarkFactor(m);
         if (sp.execute && m.hp < m.max * sp.execute / 100) dmg *= 2; // achève les blessés
-        if (sp.crit && rand() < hs.crit / 100) { dmg *= hs.critDmg; crit = true; } // peut être critique
+        if (sp.crit && rand() < hs.crit / 100) { dmg *= this.critMul(m, hs); crit = true; } // peut être critique
         if (m.shell > 0) { const a = Math.min(m.shell, dmg); m.shell -= a; dmg -= a; }
         m.hp -= dmg; total += dmg;
       }
@@ -686,7 +686,7 @@ export class Game {
     // Iaijutsu (samouraï) : chaque 4e coup est un critique garanti renforcé.
     const iai = !extra && hs.iai > 0 && (this.R.hits = (this.R.hits || 0) + 1) % 4 === 0;
     const crit = iai || (this.R.events.hawkeye || 0) > 0 || rand() < hs.crit / 100; // Œil du faucon : critiques garantis
-    let dmg = hs.atk * rnd(0.9, 1.1) * (crit ? hs.critDmg : 1);
+    let dmg = hs.atk * rnd(0.9, 1.1) * (crit ? this.critMul(m, hs) : 1);
     if (iai) dmg *= 1 + hs.iai / 100;
     if (m.boss) dmg *= 1 + hs.bossDmg / 100;
     if (hs.execute > 0 && m.hp < m.max * 0.3) dmg *= 1 + hs.execute / 100;
@@ -1875,6 +1875,9 @@ export class Game {
       if (sl && !sl.goblin && !sl.elite && !sl.champion && rand() < GOBLIN_RUSH) line[k] = { type: "goblin", elite: false, goblin: true };
     }
   }
+
+  /** (it. 964) Multiplicateur d'un coup critique contre m (Écailles : la moitié du bonus seulement). */
+  critMul(m, hs) { return m && m.mech && m.mech.includes("scales") ? 1 + (hs.critDmg - 1) * SCALES.keep : hs.critDmg; }
 
   bloodMoon(line, from) {
     for (let k = from; k < line.length; k++) {

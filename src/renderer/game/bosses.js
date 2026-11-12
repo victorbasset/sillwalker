@@ -78,12 +78,16 @@ export const BOSS_MECHANICS = {
   silence: { name: "Silence", desc: "Toutes les 15 s, réduit le héros au silence pendant 4 s : plus aucun sort." },
   // (it. 878) Variété : contre les héros qui comptent sur leur défense (le venin la traverse).
   venom: { name: "Crachat venimeux", desc: "Toutes les 8 s, empoisonne le héros pendant 4 s : il perd 3 % de ses PV max par seconde, malgré sa défense et son bouclier (sans pouvoir l’achever)." },
+  // (it. 964) Variété : contre les héros qui misent tout sur les coups critiques.
+  scales: { name: "Écailles", desc: "Les coups critiques ne lui infligent que la moitié de leur bonus." },
   bulwark: { name: "Peau de pierre", desc: "Subit 30 % de dégâts en moins tant qu’il lui reste plus de 70 % de ses PV : la première charge est la plus dure." },
 };
 /** Cuirasse : réduction des dégâts au-dessus du seuil de PV. */
 export const BULWARK = { above: 0.7, cut: 0.3 };
 export const FURY = { every: 5, speed: 0.9, max: 6 };
-const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark", "curse", "tenacious", "venom"];
+const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark", "curse", "tenacious", "venom", "scales"];
+/** (it. 964) Écailles : part du bonus des coups critiques qui passe. */
+export const SCALES = { keep: 0.5 };
 /** Venin (it. 878) : toutes les `every` s (la première après `first`), `s` s de poison à `pct` des PV max par seconde. */
 export const VENOM = { every: 8, first: 5, s: 4, pct: 0.03 };
 /** Capacités que la pureté (Talisman de pureté…) repousse : Malédiction, et le venin depuis l'it. 879. */

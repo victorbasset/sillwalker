@@ -1320,4 +1320,6 @@ export default {
   2445: "Neues seltenes Ereignis, „Koboldansturm“: 30 s lang wird jedes dritte Monster zu einem Goldkobold.",
   2446: "Das Bestiarium zählt deine Siege über jede Elite-Art; der Held jubelt über jede zum ersten Mal besiegte Art.",
   2447: "Schlankeres Protokoll: ein neuer Typ für die Sammlung wird in der Beutezeile gemeldet.",
+  2448: "Schuppen",
+  2449: "Kritische Treffer richten nur die Hälfte ihres Bonus an.",
 };

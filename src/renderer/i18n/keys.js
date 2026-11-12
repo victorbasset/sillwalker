@@ -2449,5 +2449,7 @@ export const KEYS = [
   "{0} enfin vaincue !",
   "Nouvel événement rare, « Ruée des gobelins » : pendant 30 s, un monstre sur trois devient un gobelin doré.",
   "Le Bestiaire compte tes victoires sur chaque sorte d’élite ; le héros salue chaque sorte vaincue pour la première fois.",
-  "Journal plus léger : un nouveau type pour la collection s’annonce sur la ligne du butin."
+  "Journal plus léger : un nouveau type pour la collection s’annonce sur la ligne du butin.",
+  "Écailles",
+  "Les coups critiques ne lui infligent que la moitié de leur bonus."
 ];

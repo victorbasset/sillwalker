@@ -982,6 +982,15 @@ test("boss au nom féminin : « l’Éveillée », « vaincue » en français (i
   } finally { setLang(before); }
 });
 
+test("Écailles : les critiques ne font que la moitié de leur bonus (it. 964)", () => {
+  const g = new Game(freshState()), hs = { critDmg: 3 };
+  assert.equal(g.critMul({ mech: [] }, hs), 3);
+  assert.equal(g.critMul({ mech: ["scales"] }, hs), 2);
+  assert.ok(Object.values(M_bosses_js.BOSS_MECHANICS).length >= 15);
+  let z = 0; for (let k = 1; k <= 60 && !z; k++) if (M_bosses_js.bossMechanics(k).includes("scales")) z = k;
+  assert.ok(z > 0, "un boss des 60 premières zones a les Écailles");
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

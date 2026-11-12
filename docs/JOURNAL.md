@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 964) : 15e capacité de boss, « Écailles » : les coups critiques (attaques et sorts) ne lui infligent
+  que la moitié de leur bonus (critMul, SCALES.keep = 0,5) ; contre les héros qui misent tout sur le critique.
+  Ajoutée à la fin de la rotation (ORDER) : les zones 1 à 13 gardent leurs capacités, la suite est décalée. Page du
+  magasin : 15 capacités de boss (10 langues) ; README. Test logique ; fuzz 1200 parties, 0 bloquée ; équilibrage 12 h
+  62,8 → 63,1 (bruit ; samouraï 64 → 65) ; 10 langues × 3 largeurs sans défaut ; autotest 199/199.
 - 2026-11-12 (it. 963) : contrôles de fond après la série de nouveautés (it. 934-962). Mémoire dans la durée
   (mem-watch 8 min ×10) : « réel » 514-527 Mo, stable (repère 485-530) ; aucun Electron orphelin. Taille de la
   sauvegarde : 17 Ko (dev-data), 21 Ko après 48 h simulées (journey, bag, skills en tête) : très loin du quota Steam

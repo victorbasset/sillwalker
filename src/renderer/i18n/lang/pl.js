@@ -1320,4 +1320,6 @@ export default {
   2445: "Nowe rzadkie zdarzenie, „Najazd goblinów”: przez 30 s co trzeci potwór staje się złotym goblinem.",
   2446: "Bestiariusz liczy twoje zwycięstwa nad każdym rodzajem elity; bohater cieszy się z każdego rodzaju pokonanego po raz pierwszy.",
   2447: "Lżejszy dziennik: nowy typ do kolekcji jest ogłaszany w linii łupu.",
+  2448: "Łuski",
+  2449: "Trafienia krytyczne zadają mu tylko połowę swojej premii.",
 };

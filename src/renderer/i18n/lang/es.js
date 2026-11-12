@@ -1320,4 +1320,6 @@ export default {
   2445: "Nuevo evento raro, «Estampida de goblins»: durante 30 s, uno de cada tres monstruos se vuelve un goblin dorado.",
   2446: "El Bestiario cuenta tus victorias sobre cada tipo de élite; el héroe celebra cada tipo vencido por primera vez.",
   2447: "Diario más ligero: un nuevo tipo para la colección se anuncia en la línea del botín.",
+  2448: "Escamas",
+  2449: "Los golpes críticos solo le infligen la mitad de su bonificación.",
 };

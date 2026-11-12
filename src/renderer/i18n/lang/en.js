@@ -1320,4 +1320,6 @@ export default {
   2445: "New rare event, “Goblin Rush”: for 30 s, one monster in three becomes a golden goblin.",
   2446: "The Bestiary counts your victories over each kind of elite; the hero cheers each kind beaten for the first time.",
   2447: "Lighter log: a new type for the collection is announced on the loot line.",
+  2448: "Scales",
+  2449: "Critical hits deal only half their bonus to it.",
 };
