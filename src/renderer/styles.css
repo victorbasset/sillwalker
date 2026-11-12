@@ -583,6 +583,8 @@ details.more summary:hover { color: var(--accent); }
 .statgrid .panel.wide { grid-column: span 2; }
 .statgrid .panel.wide .lines b { white-space: nowrap; }
 .linkbtn.inline { display: inline-block; width: auto; margin: 0 0 0 6px; padding: 0 8px; }
+/* (it. 922) lien dans le texte d'une ligne (Statistiques) : pas de cadre, la police de la ligne, souligné en pointillés */
+.linkbtn.textlink { display: inline; width: auto; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; font: inherit; text-align: left; color: var(--good); text-decoration: underline dotted; text-underline-offset: 2px; cursor: pointer; }
 .keeplose { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 4px 0 8px; }
 .keeplose ul { margin: 2px 0 0; padding-left: 16px; font-size: 13px; color: var(--muted); }
 .petcard .lines li { flex-direction: column; align-items: flex-start; gap: 0; }

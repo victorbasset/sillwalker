@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 922) : Statistiques > Probabilités, « Événements rares (n / 13) » est un lien (vert, souligné en
+  pointillés) qui ouvre d'un clic Bestiaire > Événements rares (it. 920) ; le détail reste au survol de la ligne.
+  Nouvelle variante de style « lien dans le texte » (.linkbtn.textlink), le bouton encadré cassait la ligne. Contrôle
+  d'autotest (189/189) ; vu en capture ; langues longues à 1280 et 1366 px sans débordement.
 - 2026-11-12 (it. 921, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses druide
   41 → 64, mage 40 → 60, guerrier 48 → 64, sans saut ni plafond. Performance (copie neuve) : bande 19,5 %, panneau
   20,4 %, mini 7,0 %, icône 0,6 % d'un cœur. Captures en français, anglais et polonais (Aventure, Bestiaire, Boutique,
