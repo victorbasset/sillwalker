@@ -1,6 +1,15 @@
 // Tests rapides de la logique de jeu (sans Electron) :
 //   npm test
-import assert from "node:assert/strict";
+import assertStrict from "node:assert/strict";
+// (it. 952) t() rend insécable l'espace après un nombre (« 8 h », « 20,53 M or ») : les tests comparent le texte
+// avec des espaces ordinaires (les tests des espaces insécables eux-mêmes utilisent assertStrict)
+const nsp = (x) => (typeof x === "string" ? x.replace(/\u00a0/g, " ") : x);
+const assert = Object.assign((v, m) => assertStrict(v, m), assertStrict, {
+  equal: (a, b, m) => assertStrict.equal(nsp(a), nsp(b), m),
+  notEqual: (a, b, m) => assertStrict.notEqual(nsp(a), nsp(b), m),
+  match: (a, re, m) => assertStrict.match(nsp(a), re, m),
+  doesNotMatch: (a, re, m) => assertStrict.doesNotMatch(nsp(a), re, m),
+});
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -925,10 +934,11 @@ test("quête « proie » : seule la bonne sorte d'élite compte, en jeu et penda
 
 test("unité « % » collée au nombre par une espace insécable (it. 949 : « 107 / % » coupé en fin de ligne)", () => {
   const before = getLang();
-  try { setLang("fr"); assert.equal(unitF("%"), "\u00a0%"); setLang("en"); assert.equal(unitF("%"), "%"); } finally { setLang(before); }
+  try { setLang("fr"); assertStrict.equal(unitF("%"), "\u00a0%"); setLang("en"); assertStrict.equal(unitF("%"), "%"); } finally { setLang(before); }
   // (it. 950) textes traduits « {0} % » et espace française avant « : »
   try {
-    setLang("fr"); assert.equal(tT("+{0} % de vitesse", { 0: 20 }), "+20\u00a0% de vitesse"); assert.equal(fsp(), "\u00a0");
+    setLang("fr"); assertStrict.equal(tT("+{0} % de vitesse", { 0: 20 }), "+20\u00a0% de vitesse"); assertStrict.equal(fsp(), "\u00a0");
+    assertStrict.equal(tT("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: 1, 1: "20,53\u00a0M", 2: "", 3: "" }).slice(-11), "20,53\u00a0M\u00a0or."); // (it. 952)
     setLang("de"); assert.ok(!/\d %/.test(tT("+{0} % de vitesse", { 0: 20 })), tT("+{0} % de vitesse", { 0: 20 }));
   } finally { setLang(before); }
 });
@@ -2694,25 +2704,26 @@ test("boss : fureur croissante, plafonnée à 6 accélérations", () => {
 });
 
 test("pluriels : txn choisit la bonne forme dans chaque langue", () => {
+  const sp = (x) => x.replace(/\u00a0/g, " "); // (it. 952) t() rend insécable l'espace après un nombre
   const before = getLang(), K = "{n} objet gardé.|{n} objets gardés.";
   try {
     setLang("fr");
-    assert.equal(txn(0, K), "0 objet gardé.");
-    assert.equal(txn(1, K), "1 objet gardé.");
-    assert.equal(txn(2, K), "2 objets gardés.");
+    assert.equal(sp(txn(0, K)), "0 objet gardé.");
+    assert.equal(sp(txn(1, K)), "1 objet gardé.");
+    assert.equal(sp(txn(2, K)), "2 objets gardés.");
     setLang("en");
-    assert.equal(txn(1, K), "1 item kept.");
-    assert.equal(txn(0, K), "0 items kept.");
+    assert.equal(sp(txn(1, K)), "1 item kept.");
+    assert.equal(sp(txn(0, K)), "0 items kept.");
     setLang("ru");
-    assert.equal(txn(1, K), "сохранён 1 предмет.");
-    assert.equal(txn(3, K), "сохранено 3 предмета.");
-    assert.equal(txn(5, K), "сохранено 5 предметов.");
-    assert.equal(txn(21, K), "сохранён 21 предмет.");
+    assert.equal(sp(txn(1, K)), "сохранён 1 предмет.");
+    assert.equal(sp(txn(3, K)), "сохранено 3 предмета.");
+    assert.equal(sp(txn(5, K)), "сохранено 5 предметов.");
+    assert.equal(sp(txn(21, K)), "сохранён 21 предмет.");
     setLang("pl");
-    assert.equal(txn(22, K), "zachowano 22 przedmioty.");
-    assert.equal(txn(12, K), "zachowano 12 przedmiotów.");
+    assert.equal(sp(txn(22, K)), "zachowano 22 przedmioty.");
+    assert.equal(sp(txn(12, K)), "zachowano 12 przedmiotów.");
     setLang("ja");
-    assert.equal(txn(4, K), "4 個のアイテムを保持しました。");
+    assert.equal(sp(txn(4, K)), "4 個のアイテムを保持しました。");
   } finally { setLang(before); }
 });
 
@@ -3019,12 +3030,12 @@ test("talents : la raison d'un talent verrouillé est traduite (it. 867)", () =>
     g.S.lvl = 30; g.invalidateStats();
     const [b0] = TREES.warrior, voie = M_talents_js.VOIES.warrior[0];
     setLang("en");
-    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Requires 5 points in the .+ branch$/);
-    assert.equal(cannotLearn(g.S, voie.id), "Requires 30 points spent in talents");
+    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Requires 5\spoints in the .+ branch$/);
+    assert.equal(cannotLearn(g.S, voie.id), "Requires 30\u00a0points spent in talents");
     setLang("ru");
-    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Нужно 5 очков в ветке «.+»$/);
+    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Нужно 5\sочков в ветке «.+»$/);
     setLang("fr");
-    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Demande 5 points dans la branche .+$/);
+    assert.match(cannotLearn(g.S, b0.talents[1].id), /^Demande 5\spoints dans la branche .+$/);
   } finally { setLang(before); }
 });
 

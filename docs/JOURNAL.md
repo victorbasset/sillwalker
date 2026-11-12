@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 952) : « +20,53 M / or. » coupé dans le journal (idée de la revue 951) : t() rend désormais
+  insécable l'espace qui suit un nombre, abrégé ou non (« 20,53 M », « 8 h », « 14 familiers », « 40 % »), quand un
+  mot ou « % » suit (règle générale qui remplace celle de l'it. 950). Les tests logiques comparent le texte avec des
+  espaces ordinaires (assert enveloppé ; les tests des insécables eux-mêmes restent stricts, assertStrict) ; un test
+  de la ligne du journal. Vu en capture (journal en français) ; 10 langues × 3 largeurs sans défaut ; autotest
+  198/198. Les lignes déjà écrites dans le journal d'une sauvegarde gardent leur ancienne espace.
 - 2026-11-12 (it. 951, revue générale) : simulation 12 h, records des courses : rôdeur 44 → 62, paladin 44 → 64,
   moine 47 → 62 (régulier). Performance (copie neuve) : bande 19,5 %, panneau 20,9 %, mini 7,2 %, icône 0,5 %
   (stable). Captures Aventure, Talents, Boutique et mini en français, anglais et chinois : rien de cassé. Texte de
@@ -3430,7 +3436,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 Vu it. 951 : journal, « Récompense du jour 1/7 : +20,53 M » puis « or. » seul sur la ligne suivante : l'espace
+- FAIT (it. 952) P3 Vu it. 951 : journal, « Récompense du jour 1/7 : +20,53 M » puis « or. » seul sur la ligne suivante : l'espace
   entre un nombre (abrégé ou non) et « or » / « gold » / « PV »… est ordinaire. Piste : comme pour « % » (it. 950),
   rendre insécable dans t() l'espace entre un chiffre ou un suffixe (k, M, Md, T…) et le mot d'unité qui suit, ou
   faire porter l'espace par fmt() quand une unité suit.

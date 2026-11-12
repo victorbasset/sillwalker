@@ -62,14 +62,17 @@ export function koJosa(s) {
 }
 const fill0 = (s, vars) => (vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : s);
 const fill = (s, vars) => (lang === "ko" && vars ? koJosa(fill0(s, vars)) : fill0(s, vars));
+// (it. 952) espace après un nombre (« 20,53 M »), devant un mot ou « % » : rendue insécable par t()
+const NUM_SP = /(\d(?:\u00a0[\p{L}.]{1,4})?) (?=[\p{L}%])/gu;
 /** Texte traduit (source française en clé), avec remplacement des {variables}. */
 export function t(src, vars) {
   if (src == null) return src;
   const s = lang === "fr" ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src;
   const out = fill(s, vars);
   // (it. 950) « 40 % » : l'espace des textes traduits (« {0} % », ≈ 200 par langue) devient insécable, sinon le
-  // signe passait seul en début de ligne
-  return typeof out === "string" && out.includes(" %") ? out.replace(/(\d) %/g, "$1\u00a0%") : out;
+  // signe passait seul en début de ligne ; (it. 952) de même entre un nombre (abrégé ou non : « 20,53 M ») et le mot
+  // qui le suit (« +20,53 M / or. » se coupait dans le journal)
+  return typeof out === "string" && out.includes(" ") ? out.replace(NUM_SP, "$1\u00a0") : out;
 }
 /** Traduction d'un nom de donnée (sans variables). */
 export const tr = (src) => (lang === "fr" || src == null ? src : dict[src] != null ? dict[src] : fallback[src] != null ? fallback[src] : src);
