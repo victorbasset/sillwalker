@@ -578,8 +578,10 @@ export class Juice {
     ctx.globalAlpha = k.ring || k.tall ? 0.6 : 0.9;
     // (it. 874) rien sur les pastilles d'informations : une particule qui les touche n'est pas dessinée
     const hud = this.s.hudBands ? this.s.hudBands() : null, onHud = (p) => hud && p.y < hud.h && hud.bands.some(([a, b]) => p.x + 6 > a && p.x < b);
+    // (it. 875) ni sur le nom du boss et la relique qu'il garde (rectangles mis en cache par la bande, mesurés une fois par série)
+    const obs = this.s.bossObstacles ? this.s.bossObstacles() : [], onObs = (p) => obs.some((o) => p.x + 6 > o.l && p.x < o.r && p.y + 6 > o.t && p.y < o.b);
     for (const p of this.wx) {
-      if (onHud(p)) continue;
+      if (onHud(p) || onObs(p)) continue;
       ctx.fillStyle = p.c;
       if (k.ring) { ctx.fillRect(p.x + 1, p.y, 4, 1); ctx.fillRect(p.x + 1, p.y + 5, 4, 1); ctx.fillRect(p.x, p.y + 1, 1, 4); ctx.fillRect(p.x + 5, p.y + 1, 1, 4); }
       else if (k.tall) ctx.fillRect(p.x, p.y, 2, 6);

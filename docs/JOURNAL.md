@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 875) : bande : la météo (bulles, flocons, feuilles, cendres…) ne passe plus non plus sur le nom du
+  boss (« Carapace abyssale l'Éveillée · −10 % PV ») ni sur la relique qu'il garde : les particules qui les touchent
+  sont sautées au dessin, d'après leur position déjà mesurée une fois par série pour les nombres flottants (aucune
+  mesure de plus). Le contrôle d'autotest de l'it. 874 couvre aussi le nom (il échoue sans le correctif : 3499
+  pixels ; 176/176), vu en capture à 1366 px.
 - 2026-11-12 (it. 874) : bande : la météo des zones (bulles, flocons, feuilles, cendres, pluie…) passait par-dessus les
   pastilles d'informations et brouillait « Zone 55 · Récif abyssal » ou l'or et le niveau. Elle n'y est plus dessinée
   (les particules qui touchent une pastille sont sautées au dessin, aucun coût en plus), en mode bord comme au milieu.
@@ -3029,7 +3034,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Vu it. 874 : la météo passe encore sur le nom du boss (« Abyssal Carapace the Awakened », étiquette DOM au-dessus de
+- FAIT (it. 875) P3 Vu it. 874 : la météo passe encore sur le nom du boss (« Abyssal Carapace the Awakened », étiquette DOM au-dessus de
   lui) ; l'éviter demanderait sa position (mesurée une fois par série de monstres, comme placeBossName) : à faire si gênant.
 
 - FAIT (it. 872) P3 Vu it. 870 : lang-overflow, polonais à 1280 px, « adventure-tuile=1 » une fois sur quatre passages (sans lien avec le

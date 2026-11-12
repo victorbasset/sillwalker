@@ -1018,12 +1018,14 @@ async function runSelfTest(strip) {
       G.zoneDef = () => ({ src: 'Cité engloutie', name: 'Cité engloutie' });
       try { J.weather(0); if (J.wxKind !== 'bubble') return 'météo absente ' + J.wxKind; J.wx.length = 0;
         for (let x = 0; x < st.W; x += 5) for (const y of [2, 9, 16, 40]) J.wx.push({ c: '#ffffff', x0: x, y0: y, sp: 0, ph: 0, t: 0 });
+        st.bossObs = null; const ob = st.bossObstacles()[0]; if (!ob) return 'nom du boss absent';
+        for (let x = ob.l - 4; x < ob.r; x += 3) for (let y = ob.t - 4; y < ob.b; y += 3) J.wx.push({ c: '#ffffff', x0: x, y0: y, sp: 0, ph: 0, t: 0 });
         J.wxClock = 1; J.wxKey = ''; J.weather(1e-6);
         const d = st.cssDpr || 1, ctx = J.wxc.ctx, ink = (x0, x1, y0, y1) => { if (x1 - x0 < 1) return -1; const im = ctx.getImageData(Math.round(x0 * d), Math.round(y0 * d), Math.round((x1 - x0) * d), Math.round((y1 - y0) * d)).data; let n = 0; for (let i = 3; i < im.length; i += 4) if (im[i]) n++; return n; };
         const L0 = (st.centerHud ? st.hudLX || 0 : 0) + 3, L1 = (st.centerHud ? st.hudLX || 0 : 0) + st.hudLRight, R0 = st.hudRLeft;
-        return [ink(L0, L1, 0, 24), ink(R0, Math.min(st.W, R0 + 60), 0, 24), ink(0, st.W, 36, 48) > 0].join(' ');
+        return [ink(L0, L1, 0, 24), ink(R0, Math.min(st.W, R0 + 60), 0, 24), ink(0, st.W, 36, 48) > 0, ink(Math.max(0, ob.l + 2), Math.min(st.W, ob.r - 2), Math.max(0, ob.t + 2), ob.b - 2)].join(' ');
       } finally { delete G.zoneDef; G.S.settings.fullEffects = fe; G.S.settings.weather = we; J.clearWeather(); J.wxKind = null; } })()`);
-    check("bande : la météo ne passe pas sur les pastilles d'informations", wxr === "0 0 true", wxr);
+    check("bande : la météo ne passe pas sur les pastilles d'informations ni sur le nom du boss", wxr === "0 0 true 0", wxr);
   }
   const noNameStrip = await js("(() => [...document.querySelectorAll('button, [role=button]')].filter((b) => !b.closest('#panel') && b.offsetParent && !(b.getAttribute('aria-label') || b.title || b.textContent || '').trim()).map((b) => b.id || b.className).slice(0, 10).join(' | ') || 'ok')()");
   check("accessibilité : boutons de la bande nommés", noNameStrip === "ok", noNameStrip);
