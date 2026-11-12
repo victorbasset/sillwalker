@@ -36,5 +36,12 @@ child.on("close", () => {
   const m = out.match(/\[selftest\] (\d+)\/(\d+) vérifications réussies/);
   const ok = m && m[1] === m[2] && !/\[selftest\] ÉCHEC/.test(out);
   if (!ok) console.error("[selftest] BILAN : échec (code de sortie 1)");
+  // (it. 906) sortie complète gardée (logs/, hors git) : un échec isolé, introuvable ensuite, se relit après coup
+  // (logs/selftest-last.log, et logs/selftest-last-fail.log pour le dernier passage en échec).
+  try {
+    fs.mkdirSync(path.join(ROOT, "logs"), { recursive: true });
+    fs.writeFileSync(path.join(ROOT, "logs", "selftest-last.log"), out);
+    if (!ok) fs.writeFileSync(path.join(ROOT, "logs", "selftest-last-fail.log"), out);
+  } catch {}
   process.exit(ok ? 0 : 1);
 });

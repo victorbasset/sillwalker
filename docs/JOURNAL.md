@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 906, fiabilité) : boucles « while » du jeu passées en revue après le blocage de l'it. 905 : toutes
+  bornées (nombre maximal, prix croissant, pas de temps plafonné) ou nettoyées au chargement ; rien à corriger.
+  L'échec isolé de l'autotest (it. 904) ne s'est pas reproduit en sept passages ; pour ne plus le perdre, le lanceur
+  de l'autotest garde sa sortie complète dans logs/selftest-last.log et le dernier échec dans
+  logs/selftest-last-fail.log (logs/ ajouté à .gitignore, il n'était exclu que sur le serveur). Autotest 182/182.
 - 2026-11-12 (it. 905) : save-fuzz corrompt aussi les champs d'un objet du sac et d'un objet porté, d'une quête (et
   de sa récompense), d'un familier et d'une expédition (1176 cas au lieu de 910). Il a trouvé un blocage complet :
   une quête aux étoiles illisibles changeait la réputation de guilde en texte (« 103x ») et le calcul du rang de
@@ -3224,7 +3229,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Vu it. 904 : un autotest à 181/182 une fois (contrôle non noté), puis trois passages à 182/182 : contrôle instable
+- EN ATTENTE (it. 906 : sortie gardée dans logs/selftest-last-fail.log) P3 Vu it. 904 : un autotest à 181/182 une fois (contrôle non noté), puis trois passages à 182/182 : contrôle instable
   à identifier si ça revient (garder la ligne « ÉCHEC » la prochaine fois).
 
 - FAIT (it. 892) P3 Vu it. 890 (bande, zone 55) : l'étiquette d'affixe du dernier monstre de la file (« Furieux ») touche le début du nom
