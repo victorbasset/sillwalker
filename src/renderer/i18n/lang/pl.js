@@ -1249,4 +1249,5 @@ export default {
   2374: "Boss tej strefy zatruwa twojego bohatera: Talizman czystości leżący w twojej torbie by go ochronił. Kliknij tutaj.",
   2375: "Krwawy księżyc",
   2376: "Każdy potwór jest elitą!",
+  2377: "Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
 };

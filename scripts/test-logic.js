@@ -1219,6 +1219,15 @@ test("Grand intendant : œufs éclos, expéditions récupérées et relancées (
   g.S.settings.autoPets = false; g.S.pets.eggs = 2;
   g.autoPets(t0 + 400 * 60000);
   assert.equal(g.S.pets.eggs, 2, "option coupée");
+  // (it. 884) il travaille aussi sans victoire (long combat de boss) : passe chaque seconde de jeu
+  g.S.settings.autoPets = true; g._petT = 0; g.R.mode = "fight";
+  const kills = g.S.stats.kills;
+  g.step(1.01);
+  assert.equal(g.S.pets.eggs, 0, "œufs éclos sans attendre une victoire");
+  assert.equal(g.S.stats.kills, kills);
+  // le journal n'invite plus à faire éclore soi-même
+  g.gainEgg();
+  assert.ok(!/Familiers|Pets/.test(g.S.log[0]), g.S.log[0]);
 });
 
 test("conseil panoplie : à la première pièce trouvée", () => {

@@ -1249,4 +1249,5 @@ export default {
   2374: "O chefe desta zona envenena seu herói: o Talismã da pureza parado na sua bolsa o protegeria. Clique aqui.",
   2375: "Lua de sangue",
   2376: "Todo monstro é de elite!",
+  2377: "As missões avançam sozinhas, mesmo offline (exceto chefes, eventos raros e feitiços). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, eventos raros e feitiços). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
 };

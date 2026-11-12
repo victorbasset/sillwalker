@@ -1249,4 +1249,5 @@ export default {
   2374: "This zone’s boss poisons your hero: the Talisman of Purity sleeping in your bag would protect them. Click here.",
   2375: "Blood Moon",
   2376: "Every monster is an elite!",
+  2377: "Quests progress on their own, even offline (except bosses, rare events and spells). {n} quest completed in total. {3} % of quests have 3 stars and a rare reward.|Quests progress on their own, even offline (except bosses, rare events and spells). {n} quests completed in total. {3} % of quests have 3 stars and a rare reward.",
 };

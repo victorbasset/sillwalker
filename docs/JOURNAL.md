@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 884) : le Grand intendant (familiers) ne travaillait qu'après une victoire : pendant un long combat
+  de boss (héros bloqué devant un mur, situation fréquente), les œufs gagnés et les expéditions finies attendaient
+  (vu en capture : « 4 œufs en attente » avec l'intendant coché). Il passe maintenant chaque seconde de jeu (toujours
+  au plus une fois toutes les 5 s). Avec lui, le journal dit simplement « Un œuf ! » au lieu d'inviter à le faire
+  éclore soi-même. La note de l'onglet Quêtes, devenue fausse depuis les it. 882-883, dit maintenant que les quêtes
+  avancent aussi hors ligne « sauf boss, événements rares et sorts » (10 langues). Test logique ; autotest 178/178 ;
+  vu en capture (allemand, 1280 px).
 - 2026-11-12 (it. 883) : suite de l'it. 882, trois autres quêtes ne restent plus figées pendant une absence :
   « Chasser N … » avance avec les victoires sur ce type de monstre (déjà comptées pour le bestiaire), « Trouver N
   objets rares ou mieux » avec le butin rare tiré hors ligne (gardé ou non, comme en jeu), et « Porter N coups

@@ -228,7 +228,10 @@ export class Game {
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
     if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh });
       const chron = takeNewChronicles(this.S, recordZone(this.S));
-      if (chron.length) { for (const c of chron) this.milestone("chron", c.id); this.emit("chronicle", { ids: chron.map((c) => c.id) }); } }
+      if (chron.length) { for (const c of chron) this.milestone("chron", c.id); this.emit("chronicle", { ids: chron.map((c) => c.id) }); }
+      // (it. 884) Grand intendant : aussi pendant un long combat de boss (avant, seulement après une victoire : œufs et
+      // expéditions finies attendaient tant que le héros restait bloqué) ; il garde son propre délai de 5 s.
+      this.autoPets(); }
     this.S.stats.playTime = (this.S.stats.playTime || 0) + dt;
     this.tickBuffs(dt);
     if (R.potionCd > 0) R.potionCd -= dt;
@@ -2003,7 +2006,9 @@ export class Game {
   gainEgg() {
     this.S.pets.eggs++;
     this.emit("egg");
-    this.logRepeat(tx("Un œuf ! Fais-le éclore dans l’onglet Familiers."));
+    // (it. 884) le Grand intendant le fera éclore : pas d'invitation à le faire soi-même
+    const steward = hasUnlock(this.S, "steward") && this.S.settings.autoPets !== false;
+    this.logRepeat(steward ? tx("Un œuf !") : tx("Un œuf ! Fais-le éclore dans l’onglet Familiers."));
     this.changed();
   }
 
