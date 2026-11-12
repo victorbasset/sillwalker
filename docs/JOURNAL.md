@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 883) : suite de l'it. 882, trois autres quêtes ne restent plus figées pendant une absence :
+  « Chasser N … » avance avec les victoires sur ce type de monstre (déjà comptées pour le bestiaire), « Trouver N
+  objets rares ou mieux » avec le butin rare tiré hors ligne (gardé ou non, comme en jeu), et « Porter N coups
+  critiques » avec une estimation basse (un coup par victoire, aux chances de critique du héros ; le compteur des
+  statistiques suit). Restent volontairement figées hors ligne : « Vivre un événement rare » et « Lancer N sorts »
+  (rien de tel n'est simulé pendant l'absence) et « Vaincre N boss » (le héros farme sa zone). Test logique ;
+  autotest 178/178 ; simulations 8 h et 12 h sans joueur inchangées (elles n'utilisent pas l'absence).
 - 2026-11-12 (it. 882) : pendant une absence, le héros rencontre aussi des élites, aux mêmes chances qu'en jeu
   (bénédiction « Grande chasse » et Appât des champions compris, aucune avant les premières élites de la première
   course) : une quête « vaincre des élites » avance enfin pendant la nuit (avant, elle restait à 0 malgré des

@@ -228,13 +228,25 @@ test("hors ligne : plafonné, élixirs consommés", () => {
   assert.equal(g2.applyOffline(48 * 3600).seconds, 8 * 3600);
 });
 
-test("hors ligne : les élites comptent (quête, statistiques, résumé ; it. 882)", () => {
+test("hors ligne : élites, chasse, butin rare et critiques comptent (quêtes, statistiques ; it. 882-883)", () => {
   const g = new Game(freshState()); g.S.zone = 10;
   g.S.quests.slots = [{ uid: 1, kind: "elite", goal: 1e6, progress: 0, stars: 1, reward: { gold: 1 } }];
   const e0 = g.S.stats.elites, sum = g.applyOffline(8 * 3600);
   assert.ok(sum.elites > 0 && sum.elites < sum.kills * 0.5, "des élites parmi " + sum.kills + " victoires : " + sum.elites);
   assert.equal(g.S.stats.elites - e0, sum.elites);
   assert.equal(g.S.quests.slots[0].progress, sum.elites, "la quête « élites » avance");
+  // (it. 883) « Chasser », « butin rare » et « critiques » avancent aussi pendant l'absence
+  const gh = new Game(freshState()); gh.S.zone = 10;
+  const type = ZONES[9].monsters[0];
+  gh.S.quests.slots = [{ uid: 1, kind: "hunt", type, goal: 1e6, progress: 0, stars: 1, reward: { gold: 1 } },
+    { uid: 2, kind: "crit", goal: 1e6, progress: 0, stars: 1, reward: { gold: 1 } }, { uid: 3, kind: "loot", goal: 1e6, progress: 0, stars: 1, reward: { gold: 1 } }];
+  gh.S.bag = [];
+  const b0 = gh.S.bestiary[type] || 0, c0 = +gh.S.stats.crits || 0, sh = gh.applyOffline(8 * 3600);
+  assert.equal(gh.S.quests.slots[0].progress, gh.S.bestiary[type] - b0, "Chasser : autant que de victoires sur ce type");
+  assert.ok(gh.S.quests.slots[0].progress > 0);
+  assert.equal(gh.S.quests.slots[1].progress, gh.S.stats.crits - c0, "critiques comptés dans la quête et les statistiques");
+  assert.ok(gh.S.quests.slots[2].progress >= 0 && gh.S.quests.slots[2].progress <= 30, "butin rare : au plus les 30 objets tirés");
+  assert.ok(sh.kills > 0);
   // première course, avant les premières élites : aucune
   const g0 = new Game(freshState()); g0.S.zone = 1; g0.S.prestige.count = 0;
   assert.equal(g0.offlineElites(1000, g0.stats()), 0);

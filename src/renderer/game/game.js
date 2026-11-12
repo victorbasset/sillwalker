@@ -1032,13 +1032,17 @@ export class Game {
     S.gold += gold;
     S.stats.kills += kills;
     const types = zoneDef(S.zone).monsters;
-    types.forEach((t, i) => { S.bestiary[t] = (S.bestiary[t] || 0) + Math.floor(kills / types.length) + (i < kills % types.length ? 1 : 0); });
+    // (it. 883) la quête « Chasser N … » avance avec les victoires du bon type (avant : figée pendant l'absence)
+    types.forEach((t, i) => { const n = Math.floor(kills / types.length) + (i < kills % types.length ? 1 : 0); S.bestiary[t] = (S.bestiary[t] || 0) + n; if (n) this.questProgress("hunt", n, t); });
     this.questProgress("kill", kills);
     this.questProgress("gold", gold);
     // (it. 882) Élites rencontrées pendant l'absence, aux mêmes chances qu'en jeu (bénédiction du jour, Appât des
     // champions) : avant, une quête « élites » restait à 0 toute la nuit malgré des milliers de victoires.
     const elites = this.offlineElites(kills, hs);
     if (elites) { S.stats.elites += elites; this.questProgress("elite", elites); }
+    // (it. 883) coups critiques : au moins un coup par victoire, aux chances de critique du héros (estimation basse)
+    const crits = Math.floor(kills * Math.min(1, Math.max(0, hs.crit) / 100));
+    if (crits) { S.stats.crits = (+S.stats.crits || 0) + crits; this.questProgress("crit", crits); }
     this.petGainXp(Math.floor(kills / 2));
     S.xp += xp;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; }
@@ -1056,6 +1060,7 @@ export class Game {
       const it = this.newItem(0);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
+      if (it.r >= 2) this.questProgress("loot", 1); // (it. 883) butin rare ou mieux, gardé ou non (comme en jeu)
       const kept = this.addToBag(it, true);
       if (kept && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
