@@ -1336,4 +1336,5 @@ export default {
   2461: "Quests im Eiltempo!",
   2462: "Nichts kann mich treffen!",
   2463: "Die Magie sprudelt!",
+  2464: "Jede besiegte Elite-Art gibt {0} für immer. Aktueller Bonus: {1}.",
 };

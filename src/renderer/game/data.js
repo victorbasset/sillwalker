@@ -198,6 +198,13 @@ export const CHAMPION = { minZone: 5, chance: 0.005, // pas de champion en tout 
   hp: 2.5, atk: 1.3, gold: 5, xp: 4, minRarity: 3 };
 /** Affixes des élites : chaque élite en reçoit un (nom affiché au-dessus de lui). */
 /** (it. 956) Victoires sur une sorte d'élite (stats.affixesSeen) : un nombre ; « true » des versions précédentes = 1. */
+/** (it. 983) Collection des élites : chaque sorte vaincue donne un bonus permanent (comme les événements, it. 932). */
+export const AFFIX_SEEN_BONUS = { drop: 1 };
+export function affixesSeenEffects(S) {
+  const won = (S && S.stats && S.stats.affixesSeen) || {}, n = Object.keys(ELITE_AFFIXES).filter((id) => won[id]).length, out = {};
+  if (n) for (const k in AFFIX_SEEN_BONUS) out[k] = AFFIX_SEEN_BONUS[k] * n;
+  return out;
+}
 export const affixWins = (v) => (typeof v === "number" && Number.isFinite(v) && v > 0 ? Math.floor(v) : v ? 1 : 0);
 export const ELITE_AFFIXES = {
   fast:     { name: "Rapide",     color: "#9fd8ff", interval: 0.6, desc: "Frappe beaucoup plus vite." },

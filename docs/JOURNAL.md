@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 983) : la collection des élites a son bonus permanent, comme celle des événements (it. 932) : +1 % de
+  chances de butin par sorte vaincue (7 % au plus ; affixesSeenEffects, data.js ; compté dans heroStats). Bestiaire >
+  Élites : « Chaque sorte d'élite vaincue donne +1 % de chances de butin pour toujours. Bonus actuel : +3 %… ».
+  Chaque événement a déjà son son propre (vérifié). Test logique ; README ; vu en russe à 1280 px ; 10 langues sans
+  défaut ; 232 tests ; autotest 201/201.
 - 2026-11-12 (it. 982) : les sept événements rares qui n'avaient que les répliques communes ont la leur (Frénésie « Plus
   vite, plus fort ! », Corne d'abondance, Souffle de sagesse, Pluie d'éclats, Zèle, Voile protecteur, Marée arcanique) :
   les 14 en ont une. Test logique : tout nouvel événement sans réplique fait échouer npm test. Mode mini revu : aucun

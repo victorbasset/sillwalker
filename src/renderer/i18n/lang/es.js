@@ -1336,4 +1336,5 @@ export default {
   2461: "¡Misiones a toda prisa!",
   2462: "¡Nada puede alcanzarme!",
   2463: "¡La magia fluye a raudales!",
+  2464: "Cada tipo de élite vencido da {0} para siempre. Bonificación actual: {1}.",
 };

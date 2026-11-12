@@ -1336,4 +1336,5 @@ export default {
   2461: "Quests at full speed!",
   2462: "Nothing can touch me!",
   2463: "Magic is flowing!",
+  2464: "Each kind of elite defeated gives {0} forever. Current bonus: {1}.",
 };

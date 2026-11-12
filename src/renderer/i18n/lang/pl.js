@@ -1336,4 +1336,5 @@ export default {
   2461: "Zadania w biegu!",
   2462: "Nic mnie nie dosięgnie!",
   2463: "Magia płynie strumieniami!",
+  2464: "Każdy pokonany rodzaj elity daje na zawsze {0}. Obecny bonus: {1}.",
 };

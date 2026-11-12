@@ -1336,4 +1336,5 @@ export default {
   2461: "Missões a toda velocidade!",
   2462: "Nada pode me atingir!",
   2463: "A magia está fluindo!",
+  2464: "Cada tipo de elite derrotado dá {0} para sempre. Bônus atual: {1}.",
 };

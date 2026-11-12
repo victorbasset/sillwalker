@@ -913,6 +913,7 @@ export class Game {
         const won = Object.keys(ELITE_AFFIXES).filter((k) => A[k]).length;
         this.log(tx("Nouvelle sorte d’élite vaincue : {0} ({1} / {2}).", { 0: ELITE_AFFIXES[m.affix].name, 1: won, 2: Object.keys(ELITE_AFFIXES).length }));
         this.emit("eliteNew", { affix: m.affix });
+        this.invalidateStats(); // (it. 983) bonus de la collection des élites
       }
     }
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }

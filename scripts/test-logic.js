@@ -51,6 +51,7 @@ import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { systemLang, plAgree, koJosa } from "../src/renderer/i18n/index.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
 import { approachTime, heroStats, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
+import { affixesSeenEffects as affixesSeenEffectsT } from "../src/renderer/game/data.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
@@ -1020,6 +1021,13 @@ test("chaque événement rare a sa réplique du héros (it. 982)", () => {
   const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
   const missing = Object.keys(EVENTS_T).filter((id) => !src.includes("ev_" + id + ":"));
   assert.deepEqual(missing, [], "sans réplique : " + missing.join(", "));
+});
+
+test("collection des élites : +1 % de chances de butin par sorte vaincue (it. 983)", () => {
+  const g = new Game(freshState()), d0 = heroStats(g.S).drop;
+  g.S.stats.affixesSeen = { fast: 3, frosty: true, inconnu: 9 };
+  assert.deepEqual(affixesSeenEffectsT(g.S), { drop: 2 });
+  assert.ok(Math.abs(heroStats(g.S).drop - d0 - 2) < 1e-9, d0 + " → " + heroStats(g.S).drop);
 });
 
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {

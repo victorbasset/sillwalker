@@ -2465,5 +2465,6 @@ export const KEYS = [
   "Des éclats d’étoile, partout !",
   "Les quêtes, au pas de course !",
   "Rien ne peut m’atteindre !",
-  "La magie coule à flots !"
+  "La magie coule à flots !",
+  "Chaque sorte d’élite vaincue donne {0} pour toujours. Bonus actuel : {1}."
 ];
