@@ -28,10 +28,12 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 
 ## Relais automatique (serveur Ubuntu)
 
-- `crontab` lance `scripts/auto-iteration.sh` toutes les 10 minutes : une itération de développement
-  en mode non interactif (`claude -p`, consignes dans `scripts/auto-iteration.md`). Il ne fait rien si une
-  itération tourne déjà ou si une session interactive a touché au dépôt ces 15 dernières minutes.
-  Journal : `logs/auto-iteration.log` (exclu de git). Arrêter : `crontab -r` (ou `crontab -e`).
+- Depuis le 2026-11-12 : `scripts/relais-rc.sh` lance dans tmux (`sillwalker-relais`) une session Claude Code
+  interactive avec Remote Control (« Sillwalker relais », visible sur claude.ai/code et l'appli mobile) qui enchaîne
+  les itérations par `/loop` (consignes dans `scripts/auto-iteration.md`). Regarder : `tmux attach -t sillwalker-relais` ;
+  arrêter : `tmux kill-session -t sillwalker-relais`. Elle garde le verrou `logs/auto-iteration.lock`.
+- L'ancien relais (cron toutes les 10 min, `scripts/auto-iteration.sh`, `claude -p`, journal `logs/auto-iteration.log`)
+  est commenté dans `crontab -l` : à réactiver seulement si la session tmux est arrêtée.
 
 ## Tests (toujours invisibles)
 
