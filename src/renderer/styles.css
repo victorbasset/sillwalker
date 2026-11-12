@@ -327,7 +327,7 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 .passive { font-size: 14px; margin: 8px 0 0; }
 
 /* Familier, gobelin doré, nuit */
-.actor.goblin { filter: drop-shadow(0 0 2px #ffe27a); }
+.actor.goblin { background: radial-gradient(farthest-side, color-mix(in srgb, #ffe27a 50%, transparent) 55%, transparent); }
 
 /* Quêtes, familiers, ascension, bestiaire */
 .tabs { flex-wrap: wrap; }
@@ -370,7 +370,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.frozen { filter: saturate(.4) brightness(1.15) hue-rotate(160deg) drop-shadow(0 0 2px #bfe8ff); }
 .actor.poisoned::after { content: ""; position: absolute; left: 50%; top: -8px; width: 9px; height: 6px;
   background: linear-gradient(#7dff4a, #7dff4a) 0 0 / 3px 3px no-repeat, linear-gradient(#5fae4a, #5fae4a) 6px 3px / 3px 3px no-repeat; }
-.actor.minion { filter: drop-shadow(0 0 1px #7dff9a); }
+.actor.minion { background: radial-gradient(farthest-side, color-mix(in srgb, #7dff9a 35%, transparent) 55%, transparent); }
 
 /* Arbre de compétences */
 .skillwrap { display: grid; grid-template-columns: 300px 1fr; gap: 12px; height: calc(var(--panel-h) / var(--ui-zoom, 1) - 78px); min-height: 300px; } /* (it. 949) / zoom : hauteur réelle du panneau agrandi */
@@ -439,7 +439,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .tint, .sub.tint, .chip.event, .chip.set { color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
 .chip.set { border-color: var(--c); }
 .chip.daymod { --c: #ffe9a8; border-color: #ffd34d; color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); background: rgba(255, 211, 77, 0.08); }
-.actor.enraged { filter: drop-shadow(0 0 2px #ff2a2a); }
+.actor.enraged { background: radial-gradient(farthest-side, color-mix(in srgb, #ff2a2a 50%, transparent) 55%, transparent); }
 
 .bossmech b { color: var(--bad); cursor: help; }
 /* Statistiques */
@@ -714,7 +714,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
    sans z-index, il passait sous les deux. Les nombres flottants restent au-dessus de tout. */
 .actor.hero { z-index: 2; }
 .float { z-index: 4; }
-.actor.cored { filter: drop-shadow(0 0 2px var(--aura)) drop-shadow(0 0 4px var(--aura)); }
+.actor.cored { background: radial-gradient(farthest-side, color-mix(in srgb, var(--aura) 60%, transparent) 60%, transparent); } /* (it. 974) permanent dès un secteur complet : lueur peinte, plus de double drop-shadow */
 
 /* Projectiles selon le palier d'attaque */
 .proj.t1 { filter: drop-shadow(0 0 3px var(--c)); }

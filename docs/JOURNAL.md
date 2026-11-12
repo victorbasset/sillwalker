@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 974) : suite de l'it. 973, les autres halos fréquents passent du filtre drop-shadow à une lueur
+  peinte derrière le personnage : « cored » (double drop-shadow PERMANENT sur le héros dès qu'un secteur de l'arbre de
+  compétences est complet, donc chez tous les joueurs avancés), serviteur du nécromancien (permanent), gobelins (Ruée
+  des gobelins : plusieurs à la fois), boss enragé. Mesure, « cored » forcé sur le héros (TEMP), copies neuves :
+  21,6 % → 20,2 % (−1,4 point en permanence). Vu en capture (lueur bleue discrète). 229 tests ; autotest 200/200.
 - 2026-11-12 (it. 973) : bon voisin, suite de l'it. 972 : pendant l'empoisonnement (boss venimeux, 4 s sur 8), le héros
   portait un filtre drop-shadow, refait à chaque image de son animation. Les halos d'état fréquents en combat (venin,
   malédiction, voile protecteur, marée arcanique, frénésie, œil du faucon, hâte, et leurs combinaisons) sont maintenant
