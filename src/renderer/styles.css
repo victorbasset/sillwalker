@@ -645,6 +645,9 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 .ctile, .mcard { text-wrap: balance; }
 /* japonais : coupure entre groupes de mots (BudouX de Chromium), pas au milieu de « アンコモン » */
 :lang(ja) .ctile, :lang(ja) .mcard { word-break: auto-phrase; }
+/* (it. 861) même chose pour les boutons étroits (cartes des héros : « 昇天後にプレ / イ », « デュオに加え / る ») */
+:lang(ja) button, :lang(zh) button, :lang(ko) button { text-wrap: balance; }
+:lang(ja) button { word-break: auto-phrase; }
 .ctile.chesttile img { height: 58px; }
 .ctile .nm { font-size: 13px; line-height: 1.15; }
 .ctile .eff { font-size: 12px; color: var(--good); }

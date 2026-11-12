@@ -40,7 +40,7 @@ export class ShopTab {
     // --- Marchand ---
     const merchant = stock.items.length ? stock.items.map((it) => {
       const d = g.upgradeDelta(it), cur = S.equip[it.slot], up = !cur || d > 0.005;
-      const verdict = cur ? `${d >= 0 ? "+" : "−"}${Math.abs(Math.round(d * 100))}${NB}${tx("% de puissance")}` : tx("emplacement vide");
+      const verdict = cur ? `${d >= 0 ? "+" : "−"}${Math.abs(Math.round(d * 100))}${unit("")}${tx("% de puissance")}` : tx("emplacement vide");
       return `<div class="mcard rb${it.r}${it.deal ? " deal" : ""}${up ? " up" : ""}">
         ${it.deal ? `<span class="ribbon">−${Math.round(DEAL_DISCOUNT * 100)}${unit("%")}</span>` : ""}
         <img src="${itemIconURL(it)}" alt="">

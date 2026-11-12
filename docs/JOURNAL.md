@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 861) : revue générale (contre d4a73d0, it. 851) : équilibrage 12 h +0,0 (61,9) ; 1200 parties, 0 bloquée ;
+  npm test 204/204 ; bande 18,8 %, mini 6,0 %, icône 0,8 %, panneau 22,3 % (mesuré pendant un autotest : à reprendre
+  seul) ; captures fr / en / ja (Aventure, Héros, Talents, Boutique, Ascension, Familiers, Compétences, Statistiques,
+  mini) ; texte russe sans mot latin suspect. Corrigé : en japonais, les boutons des cartes de héros laissaient un
+  caractère seul (« 昇天後にプレ / イ », « デュオに加え / る ») : tous les boutons japonais se coupent entre groupes de
+  mots, lignes équilibrées en chinois, japonais et coréen (« 昇天後に / プレイ »). Marchand en anglais : « -8 % power »
+  devient « -8% power » (espace avant « % » seulement dans les langues qui l'écrivent). Contrôle d'autotest (il échoue
+  sans le correctif ; 171/171), vu en capture (japonais à 1366 px, anglais).
 - 2026-11-12 (it. 860) : bande, combat de boss : les nombres flottants poussés de côté (quand plusieurs tombent en même
   temps) montaient encore dans la fin du nom du boss, et ceux des boss majeurs (zones 50, 100, 150, 200) recouvraient
   la relique qu'ils gardent. Chaque nombre évite maintenant le nom et la relique sur toute la partie bien visible de sa
@@ -2936,6 +2944,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
+- P3 Revue it. 861 : (a) refaire la mesure du panneau seul (22,3 % pris pendant un autotest ; repère 20-21 %) ;
+  (b) bande, combat de boss en japonais : « 会心 116k » et « 凍結 » se superposent encore au-dessus du héros (texte large).
 - P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
   au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) FAIT (it. 860) nombres flottants
   de la bande face à un boss : encore vus sur sa couronne et sur la fin de son nom en montant (it. 846) ;
