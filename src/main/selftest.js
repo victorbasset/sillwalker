@@ -572,6 +572,33 @@ async function runSelfTest(strip) {
     return out.join(" | ");
   })()`);
   check("boutons enfoncés lisibles (contraste)" + (pressedLow ? " : " + pressedLow : ""), !pressedLow);
+  // (it. 877) Thème clair : étoiles des quêtes jaune pâle, voie de talents armée et ligne épique du journal en
+  // couleurs du thème sombre (fond olive foncé sous un texte sombre). Contraste mesuré sur des éléments témoins.
+  const tintLow = await js(`(() => {
+    const t0 = window.__game.S.settings.theme, out = [];
+    // color-mix() donne des couleurs oklab(…) : conversion en sRGB par un canevas 1 × 1.
+    const cx = document.createElement("canvas").getContext("2d", { willReadFrequently: true });
+    const rgb = s => { cx.clearRect(0, 0, 1, 1); cx.fillStyle = "#000"; cx.fillStyle = s; cx.fillRect(0, 0, 1, 1); const d = cx.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2], d[3] / 255]; };
+    const lum = c => { const v = c.slice(0, 3).map(x => { x /= 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
+    const bgOf = el => { for (let e = el; e; e = e.parentElement) { const b = rgb(getComputedStyle(e).backgroundColor); if (b[3] >= 1) return b; } return [255, 255, 255]; };
+    const box = document.createElement("div");
+    box.style.cssText = "position:fixed;left:0;top:0;z-index:-1;opacity:1";
+    box.innerHTML = '<article class="panel questcard s3"><div class="stars">★</div></article><article class="panel"><div class="talent voie armed"><span>Voie</span></div><ul id="log"><li class="lg-epic">épique</li></ul></article>';
+    (document.querySelector(".tabpane:not([hidden])") || document.body).appendChild(box);
+    const probes = [[".stars", 2.5], [".talent.voie.armed span", 4.5], ["li.lg-epic", 3]];
+    for (const th of ["dark", "light"]) {
+      window.__applyTheme(th);
+      for (const [sel, min] of probes) {
+        const el = box.querySelector(sel), a = lum(rgb(getComputedStyle(el).color)), c = lum(bgOf(el));
+        const r = (Math.max(a, c) + 0.05) / (Math.min(a, c) + 0.05);
+        if (r < min) out.push(th + " " + sel + " " + r.toFixed(1));
+      }
+    }
+    box.remove();
+    window.__applyTheme(t0);
+    return out.join(" | ");
+  })()`);
+  check("couleurs vives lisibles dans les deux thèmes (quêtes, talents, journal)" + (tintLow ? " : " + tintLow : ""), !tintLow);
   await click('[data-tab="adventure"]');
   await sleep(150);
   // « À faire » : la pièce qui complète une panoplie s'équipe d'un clic depuis le résumé de retour.

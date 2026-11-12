@@ -318,7 +318,7 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 .classcard > .row:last-child, .petcard > .row:last-of-type, .petcard > .expe, .petcard > .expe-btns, .questcard > .row:last-child { margin-top: auto; }
 .petcard > .row:last-of-type + .expe, .petcard > .row:last-of-type + .expe-btns { margin-top: 6px; }
 .classcard.current { border-color: var(--accent); box-shadow: 0 4px 0 var(--accent); }
-.classcard.chosen { border-color: #9fe0a8; box-shadow: 0 4px 0 #9fe0a8; }
+.classcard.chosen { border-color: color-mix(in oklab, #9fe0a8 var(--tintk), var(--good)); box-shadow: 0 4px 0 color-mix(in oklab, #9fe0a8 var(--tintk), var(--good)); }
 .classcard.locked { opacity: .75; }
 .classcard.locked .nm { color: var(--muted); }
 .classcard img.silhouette { background: none; border-color: transparent; filter: brightness(0) drop-shadow(1px 0 0 #6b6790) drop-shadow(-1px 0 0 #6b6790) drop-shadow(0 1px 0 #6b6790) drop-shadow(0 -1px 0 #6b6790); }
@@ -526,16 +526,16 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 /* Journal : lignes importantes en couleur */
 #log li.lg-leg { color: var(--r4); }
 #log li.lg-rare { color: var(--r2); }
-#log li.lg-epic { color: #c08cff; }
+#log li.lg-epic { color: var(--r3); }
 #log li.lg-good { color: var(--good); }
 #log li.lg-bad { color: var(--bad); }
 
 /* Talents : voie (spécialisation exclusive) et maîtrises (rangs illimités) */
 .talent.voie { flex-wrap: wrap; height: auto; }
 .talent.voie .vt { flex-basis: 100%; font-size: 12px; color: var(--muted); text-align: left; white-space: normal; }
-.talent.voie.has { border-color: #9fe0a8; }
+.talent.voie.has { border-color: color-mix(in oklab, #9fe0a8 var(--tintk), var(--good)); }
 .talent.voie.closed { opacity: .45; }
-.tmastery .talent.has { border-color: #ffd34d; }
+.tmastery .talent.has { border-color: color-mix(in oklab, #ffd34d var(--tintk), var(--accent)); }
 
 /* Revue UX */
 .tabsep { width: 2px; align-self: stretch; margin: 4px 6px; background: var(--line); }
@@ -589,11 +589,11 @@ details.more summary:hover { color: var(--accent); }
 /* Talents : un clic = +1 rang */
 .talent { position: relative; cursor: pointer; }
 .talent.can { border-color: var(--good); }
-.talent.can:hover { background: #2a3a30; }
+.talent.can:hover { background: color-mix(in oklab, var(--good) 14%, var(--panel)); }
 .talent.locked, .talent.maxed { cursor: default; }
 .talent .tmax { margin-left: 6px; align-self: center; font-size: 11px; padding: 0 5px; line-height: 16px; background: var(--good); color: #14121f; border-radius: 3px; cursor: pointer; }
 .talent .tmax:hover { filter: brightness(1.2); }
-.talent.voie.armed { border-color: #ffd34d; background: #3a3420; }
+.talent.voie.armed { border-color: color-mix(in oklab, #ffd34d var(--tintk), var(--accent)); background: color-mix(in oklab, #ffd34d 14%, var(--panel)); }
 .warnline { color: var(--good); }
 .talent .tr { margin-left: auto; }
 .sendall { display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
@@ -659,7 +659,7 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 .ctile.chesttile img { height: 58px; }
 .ctile .nm { font-size: 13px; line-height: 1.15; }
 .ctile .eff { font-size: 12px; color: var(--good); }
-.ctile.active { border-color: #9fe0a8; }
+.ctile.active { border-color: color-mix(in oklab, #9fe0a8 var(--tintk), var(--good)); }
 .ctile .toggle.mini { font-size: 11px; margin-top: 2px; }
 button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13px; }
 /* (it. 847) le prix ne se coupe jamais (les tuiles héritent de overflow-wrap: anywhere) */
@@ -688,10 +688,10 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .qhead { display: flex; gap: 10px; align-items: center; margin-bottom: 6px; }
 .qhead img { width: 40px; image-rendering: pixelated; flex: none; }
 .qhead h2 { margin: 0; }
-.stars { color: #ffd34d; font-size: 14px; letter-spacing: 1px; }
+.stars { color: color-mix(in oklab, #ffd34d var(--tintk), var(--accent)); font-size: 14px; letter-spacing: 1px; }
 .stars span { color: var(--line); }
-.questcard.s2 { border-color: #9fd8ff; }
-.questcard.s3 { border-color: #ffd34d; box-shadow: 0 4px 0 #c99a1a; }
+.questcard.s2 { border-color: color-mix(in oklab, #9fd8ff var(--tintk), var(--r2)); }
+.questcard.s3 { border-color: color-mix(in oklab, #ffd34d var(--tintk), var(--accent)); box-shadow: 0 4px 0 #c99a1a; }
 .rewards { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
 .rwd { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; padding: 1px 8px 1px 2px; border: 1px solid var(--line); border-radius: 3px; background: var(--chip); }
 .rwd img { height: 22px; image-rendering: pixelated; }

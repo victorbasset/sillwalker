@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 877) : thème clair du panneau, des couleurs pensées pour le fond sombre restaient en dur. Les
+  étoiles des quêtes (jaune pâle sur crème, contraste 1,4) et les bordures des quêtes 2 et 3 étoiles se voyaient à
+  peine ; une voie de talents armée et le survol d'un talent achetable posaient un fond olive ou vert foncé sous un
+  texte sombre (illisible, contraste 1,2) ; les lignes épiques du journal étaient violet pâle. Tout passe par les
+  jetons du thème (assombris en clair, inchangés en sombre), comme les bordures du héros choisi, des voies prises et
+  des maîtrises. Contrôle d'autotest sur des éléments témoins, dans les deux thèmes (il échoue sans le correctif ;
+  178/178), vu en capture. Au passage, l'interface russe extraite ne contient plus aucun mot latin suspect.
 - 2026-11-12 (it. 876) : « À faire maintenant » (résumé de retour, carte du héros, mode mini) signale les familiers
   libres qui pourraient partir en expédition (« 2 familiers libres à envoyer en expédition »), une fois le Chenil des
   explorateurs acheté et tant que le Grand intendant ne s'en charge pas : avant, ils restaient au repos sans que rien
