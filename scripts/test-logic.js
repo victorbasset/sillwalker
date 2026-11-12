@@ -909,6 +909,20 @@ test("sortes d'élites vaincues : retenues, succès « Tueur d'élites » (it. 9
   const t = freshState(); t.stats.affixesSeen = "abîmé"; assert.deepEqual(migrate(JSON.parse(JSON.stringify(t))).stats.affixesSeen, {});
 });
 
+test("quête « proie » : seule la bonne sorte d'élite compte, en jeu et pendant l'absence (it. 946)", () => {
+  const g = new Game(freshState());
+  g.S.quests.slots = [{ uid: 900, kind: "prey", type: "elusive", goal: 2, progress: 0, reward: { gold: 1 } }];
+  g.questProgress("prey", 1, "thorny"); assert.equal(g.S.quests.slots[0].progress, 0, "autre sorte : rien");
+  g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
+  assert.equal(g.S.quests.slots[0].progress, 1, "élite fuyante vaincue");
+  assert.ok(/Fuyant|Evasive/.test(M_quests_js.questText(g.S.quests.slots[0])), M_quests_js.questText(g.S.quests.slots[0]));
+  const h = new Game(freshState()); h.S.zone = 10;
+  h.S.quests.slots = [{ uid: 901, kind: "prey", type: "fast", goal: 1e9, progress: 0, reward: { gold: 1 } }];
+  h.applyOffline(8 * 3600); assert.ok(h.S.quests.slots[0].progress > 0, "hors ligne : " + h.S.quests.slots[0].progress);
+  const k = new Game(freshState()); k.S.quests.slots = [{ uid: 902, kind: "prey", type: "affixe_disparu", goal: 1, progress: 0, reward: { gold: 1 } }];
+  k.ensureQuests(); assert.ok(k.S.quests.slots.every((q) => q.kind !== "prey" || ELITE_AFFIXES[q.type]), "sorte inconnue remplacée");
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

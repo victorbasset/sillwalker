@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 946) : 16e sorte de quête, « proie » : « Vaincre 2 élites « Fuyant » » (une sorte d'élite précise,
+  nom entre guillemets pour éviter l'accord dans les langues à genres ; pluriels à 3 formes en russe et polonais).
+  Récompense : coffre rare et or. Elle avance aussi pendant l'absence (chaque élite hors ligne a 1 chance sur 7 d'être
+  la bonne sorte) ; une sorte inconnue (autre version) est remplacée par ensureQuests. Page du magasin : 16 sortes de
+  quêtes dans les 10 langues ; README. Chasse aux erreurs : --crawl en russe, 327 clics sans erreur. Test logique
+  (bonne sorte seulement, hors ligne, sorte inconnue) ; sauvegardes abîmées ok ; vu en russe à 1280 px (deux
+  quêtes « proie ») ; 10 langues × 3 largeurs sans défaut ; autotest 196/196.
 - 2026-11-12 (it. 945) : « Quoi de neuf », édition 39 : Jour des prodiges, collection des élites et succès « Tueur
   d'élites », répliques du héros aux événements et événement en cours encadré. 10 langues, libellés cités vérifiés ;
   10 langues × 3 largeurs sans défaut (pire cas de « Quoi de neuf » compris) ; autotest 196/196.

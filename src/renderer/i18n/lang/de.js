@@ -1302,4 +1302,5 @@ export default {
   2427: "Neuer Tagessegen, „Tag der Wunder“: seltene Ereignisse doppelt so häufig.",
   2428: "Jede besiegte Elite-Art wird festgehalten (✓ im Bestiarium); besiege alle für den Erfolg „Elitenbezwinger“.",
   2429: "Der Held reagiert auf manche seltenen Ereignisse („Es regnet Gold!“); das laufende Ereignis ist im Bestiarium hervorgehoben.",
+  2430: "{n} Elite „{0}“ besiegen|{n} Eliten „{0}“ besiegen",
 };

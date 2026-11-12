@@ -897,6 +897,7 @@ export class Game {
     this.questProgress("kill", 1);
     this.questProgress("hunt", 1, m.type);
     if (m.elite) this.questProgress("elite", 1);
+    if (m.elite && m.affix) this.questProgress("prey", 1, m.affix); // (it. 946) proie : la bonne sorte d'élite
     if (m.boss) this.questProgress("boss", 1);
     this.questProgress("gold", gold);
     this.petGainXp(m.boss ? 10 : m.elite ? 5 : 1);
@@ -1056,7 +1057,10 @@ export class Game {
     // (it. 882) Élites rencontrées pendant l'absence, aux mêmes chances qu'en jeu (bénédiction du jour, Appât des
     // champions) : avant, une quête « élites » restait à 0 toute la nuit malgré des milliers de victoires.
     const elites = this.offlineElites(kills, hs);
-    if (elites) { S.stats.elites += elites; this.questProgress("elite", elites); }
+    if (elites) { S.stats.elites += elites; this.questProgress("elite", elites);
+      // (it. 946) proies pendant l'absence : chaque élite a une sorte au hasard (1 chance sur 7 d'être la bonne)
+      const na = Object.keys(ELITE_AFFIXES).length;
+      for (const q of S.quests.slots) if (q.kind === "prey") { const x = elites / na, n = Math.floor(x) + (rand() < x % 1 ? 1 : 0); if (n) this.questProgress("prey", n, q.type); } }
     // (it. 883) coups critiques : au moins un coup par victoire, aux chances de critique du héros (estimation basse)
     const crits = Math.floor(kills * Math.min(1, Math.max(0, hs.crit) / 100));
     if (crits) { S.stats.crits = (+S.stats.crits || 0) + crits; this.questProgress("crit", crits); }
@@ -1988,7 +1992,7 @@ export class Game {
     let added = false;
     // Quête illisible (type inconnu : sauvegarde d'une autre version ; chasse d'un monstre disparu) :
     // remplacée au lieu de casser l'onglet Quêtes.
-    const ok = Q.slots.filter((q) => q && QUEST_TEMPLATES[q.kind] && (q.kind !== "hunt" || MONSTERS[q.type]));
+    const ok = Q.slots.filter((q) => q && QUEST_TEMPLATES[q.kind] && (q.kind !== "hunt" || MONSTERS[q.type]) && (q.kind !== "prey" || ELITE_AFFIXES[q.type]));
     if (ok.length !== Q.slots.length) { Q.slots = ok; added = true; }
     // Quêtes tirées avant la demande 19 : un œuf promis avant l'onglet Familiers devient un coffre (affichage compris).
     for (const q of Q.slots) if (q.reward && q.reward.egg && !eggsAllowed(this.S)) { fixQuestEgg(this.S, q.reward); added = true; }
@@ -2034,7 +2038,7 @@ export class Game {
   questProgress(kind, n, type) {
     for (const q of this.S.quests.slots) {
       if (q.kind !== kind || questDone(q)) continue;
-      if (kind === "hunt" && q.type !== type) continue;
+      if ((kind === "hunt" || kind === "prey") && q.type !== type) continue;
       // Zèle (événement) : les quêtes avancent deux fois plus vite
       q.progress = kind === "zone" ? this.S.best : q.progress + n * ((this.R.events.zeal || 0) > 0 ? 2 : 1);
       if (questDone(q)) {

@@ -1302,4 +1302,5 @@ export default {
   2427: "Nowe błogosławieństwo dnia, „Dzień cudów”: rzadkie zdarzenia dwa razy częściej.",
   2428: "Każdy pokonany rodzaj elity jest zapamiętywany (✓ w bestiariuszu); pokonaj wszystkie, by zdobyć osiągnięcie „Pogromca elit”.",
   2429: "Bohater reaguje na niektóre rzadkie zdarzenia („Pada złoto!”); trwające zdarzenie jest wyróżnione w bestiariuszu.",
+  2430: "Pokonaj {n} elitę „{0}”|Pokonaj {n} elity „{0}”|Pokonaj {n} elit „{0}”",
 };

@@ -2431,5 +2431,6 @@ export const KEYS = [
   "Nouvelle sorte d’élite vaincue : {0} ({1} / {2}).",
   "Nouvelle bénédiction du jour, « Jour des prodiges » : les événements rares deux fois plus fréquents.",
   "Chaque sorte d’élite vaincue est retenue (✓ dans le Bestiaire) ; les vaincre toutes donne le succès « Tueur d’élites ».",
-  "Le héros réagit à certains événements rares (« Il pleut de l’or ! ») ; l’événement en cours est encadré dans le Bestiaire."
+  "Le héros réagit à certains événements rares (« Il pleut de l’or ! ») ; l’événement en cours est encadré dans le Bestiaire.",
+  "Vaincre {n} élite « {0} »|Vaincre {n} élites « {0} »"
 ];
