@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 921, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses druide
+  41 → 64, mage 40 → 60, guerrier 48 → 64, sans saut ni plafond. Performance (copie neuve) : bande 19,5 %, panneau
+  20,4 %, mini 7,0 %, icône 0,6 % d'un cœur. Captures en français, anglais et polonais (Aventure, Bestiaire, Boutique,
+  Réglages, mode mini) : ni débordement ni texte coupé ; l'interface japonaise extraite ne contient aucun mot latin
+  suspect.
 - 2026-11-12 (it. 920) : nouveau sous-onglet Bestiaire > Événements rares (« 5 / 13 ») : une carte par événement, à sa
   couleur, avec son effet et sa chance par victoire ; ceux jamais vus restent « ??? » (avec leur chance). Un objectif
   à collectionner, lié au succès « Chasseur d'événements » ; avant, les événements n'étaient décrits que dans une
