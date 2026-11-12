@@ -8,6 +8,10 @@ const { migrate, freshState } = await import(R + "state.js");
 const { Game } = await import(R + "game.js");
 const { KILLS_PER_ZONE } = await import(R + "data.js");
 const { nextUnlock } = await import(R + "unlocks.js");
+const { CONSUMABLES, CHESTS, UPGRADES, WORKSHOP } = await import(R + "shop.js");
+const { CONSTELLATIONS } = await import(R + "prestige.js");
+const { TREES } = await import(R + "talents.js");
+const { classSpells } = await import(R + "spells.js");
 /**
  * (it. 903) Moments à risque joués à coup sûr pour chaque corruption : avant, seul le hasard du combat les amenait
  * (la mort face à un boss avec bossDefeats abîmé ne plantait qu'une fois sur deux, it. 902).
@@ -21,6 +25,23 @@ function exercise(g) {
   S.gold = 1e30; const u = nextUnlock(S); if (u) g.buyUnlock(u.id);             // achat d'un déblocage
   for (const q of [...(S.quests.slots || [])]) if (q) g.claimQuest(q.uid);      // quêtes réclamées
   g.visitSummary(g.visitSnapshot(0));
+  // (it. 904) actions du joueur : sac, forge, boutique, potion, familiers, points, zone, quête, récompense, ascension
+  g.sortBag(); const it = S.bag[0];
+  if (it) { g.forge(it); g.reforge(it); g.equip(it); }
+  g.unequip("weapon"); g.transmute(); g.sellUseless(); if (S.bag[0]) g.sell(S.bag[0]);
+  for (const c of CONSUMABLES) g.buyConsumable(c.id);
+  for (const c of CHESTS) g.buyChest(c.id);
+  g.buyEgg(); g.restockShop(); if (S.shop && S.shop.items && S.shop.items[0]) g.buyShopItem(S.shop.items[0].id);
+  for (const x of UPGRADES) g.buyUpgrade(x.id);
+  for (const x of WORKSHOP) g.buyWorkshop(x.id);
+  R.hp = 1; R.potionCd = 0; g.drinkPotion(g.stats());
+  g.hatchEgg(); const pet = Object.keys(S.pets.owned || {})[0]; if (pet) { g.setPet(pet); g.sendExpedition(pet, "short"); }
+  const sp = classSpells(S.cls)[0]; if (sp) g.learnSpell(sp.id);
+  const tr = TREES[S.cls]; if (tr) g.learnTalent(tr[0].talents[0].id);
+  for (const c of CONSTELLATIONS) g.buyConstellation(c.id, { quiet: true });
+  g.setZone(1); const q = (S.quests.slots || [])[0]; if (q) g.rerollQuest(q.uid);
+  g.claimDaily("2030-01-01");
+  S.best = Math.max(S.best, 40); g.ascend();
 }
 const base = JSON.parse(fs.readFileSync(ROOT + "dev-data/save.json", "utf8"));
 const cases = {

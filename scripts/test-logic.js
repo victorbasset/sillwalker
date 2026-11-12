@@ -1647,6 +1647,13 @@ test("sauvegarde : bossDefeats et unlocks abîmés (un nombre) ne font plus plan
   const g = new Game(S); g.S.zone = 10; g.R.mon = g.makeMonster(true);
   g.heroDown();
   assert.equal(g.S.bossDefeats[10], 1);
+  // (it. 904) héros joués abîmés : l'ascension plantait
+  for (const bad of [42, "x", {}, true]) {
+    const r2 = JSON.parse(JSON.stringify(new Game(freshState()).S)); r2.v = SAVE_VERSION; r2.stats.classes = bad;
+    const g2 = new Game(migrate(r2)); g2.S.best = 40;
+    g2.ascend();
+    assert.ok(Array.isArray(g2.S.stats.classes), JSON.stringify(bad));
+  }
 });
 
 test("quête « Trouver N coffres au trésor » : chaque coffre compte, en jeu et pendant l'absence (it. 889)", () => {

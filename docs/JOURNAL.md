@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 904) : save-fuzz joue aussi, pour chaque sauvegarde abîmée, les actions du joueur : ranger, forger,
+  réforger, équiper, retirer, transmuter, vendre, acheter (consommables, coffres, œuf, marchand, améliorations,
+  atelier), boire une potion, faire éclore, changer de familier et l'envoyer en expédition, apprendre un sort et un
+  talent, acheter les constellations, changer de zone et de quête, réclamer la récompense du jour, faire l'ascension.
+  Il a trouvé un plantage : avec la liste des héros joués abîmée, l'ascension plantait ; elle est remise en état au
+  chargement. Test logique ; save-fuzz 910 « ok » ; autotest 182/182.
 - 2026-11-12 (it. 903) : save-fuzz (sauvegardes abîmées) joue maintenant à coup sûr, pour chacune des 910
   corruptions, les moments à risque : mort du héros face à un boss, boss vaincu, événement rare et son bilan, coffre,
   étoile filante, achat d'un déblocage, quêtes réclamées. Avant, seul le hasard du combat les amenait : le plantage
@@ -3209,6 +3215,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Vu it. 904 : un autotest à 181/182 une fois (contrôle non noté), puis trois passages à 182/182 : contrôle instable
+  à identifier si ça revient (garder la ligne « ÉCHEC » la prochaine fois).
 
 - FAIT (it. 892) P3 Vu it. 890 (bande, zone 55) : l'étiquette d'affixe du dernier monstre de la file (« Furieux ») touche le début du nom
   du boss, qui s'étend vers la gauche ; décaler l'étiquette ou couper le nom quand ils se chevauchent (placeBossName).
