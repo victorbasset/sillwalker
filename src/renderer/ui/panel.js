@@ -743,7 +743,8 @@ export class Panel {
     // Reliques gagnées (demande S, it. 605) : une pastille chacune ; survol : effet et histoire.
     const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).map((id) => { const r = RELICS[id];
       return `<span class="chip relic" title="${esc(`${tx(r.name)}${colon()}${tx(r.effect)}\n${relicLevelText(S, id)}\n${tx(r.story)}`)}"><img src="${relicIconURL(id, 1)}" alt="${esc(tx(r.name))}">${relicLevel(S, id) > 1 ? `<sup>${relicLevel(S, id)}</sup>` : ""}</span>`; }).join("");
-    const day = dm ? `<span class="chip daymod" title="${esc(tx("Bénédiction du jour : change chaque jour à minuit."))}">${dm.icon} ${esc(dm.name)} · ${esc(dm.desc)}</span>` : "";
+    // (it. 888) l'effet se lit sans survol (le nom passe dans la bulle) : à 1280 px, « nom · effet » sortait de la carte
+    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.name}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 888) : carte du héros, la pastille de la bénédiction du jour montre l'icône et l'effet
+  (« 🛡 +25 % de PV et de défense. ») ; le nom du jour passe dans la bulle de survol, avec l'explication. Avant, « nom ·
+  effet » partait hors de la carte à 1280 px (allemand : « Tag des Walls · +25 % LP und Verteidig… ») : on ne
+  lisait pas l'effet sans survol. Essayé d'abord : laisser la pastille se replier sur deux lignes ; au pire cas
+  (Jour de furie, Grande chasse), l'Aventure défilait de 11 à 14 px à 1280 px en polonais, espagnol, portugais et
+  russe : abandonné. Autotest 178/178 ; vu en capture (allemand et espagnol, 1280 px).
 - 2026-11-12 (it. 887) : une 8e bénédiction du jour, le « Jour des trésors » : les coffres au trésor trouvés sur le
   chemin sont trois fois plus fréquents, en jeu comme pendant l'absence (plafond hors ligne triplé aussi). Utile à
   tous les joueurs, débutants compris. Les jours sont redistribués entre les 8 bénédictions (prochains jours des
