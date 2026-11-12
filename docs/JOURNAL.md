@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 939) : trouvé le défaut intermittent des Statistiques (it. 920, 935, 936) : il dépendait du JOUR.
+  Les jours de bénédiction qui touchent aux coffres, élites ou gobelins, la valeur gagne « · aujourd'hui … » ; elle ne
+  passait jamais à la ligne (b en nowrap) et écrasait son libellé (« Schatztruhe » sous « 0,2 % · Elite 1,5 % · Boss
+  3 % · heute 0,6 % », en allemand à 1280 et 1366 px, Jour des trésors). Remède : une valeur en segments (« · ») passe
+  à la ligne entre ses segments, et son libellé garde au moins la largeur de son plus long mot. Mesure : marge de chaque
+  libellé (longueur du plus long mot) dans une injection TEMP, puis Jour des trésors forcé. --overflow-report (donc
+  lang-overflow) mesure maintenant les Statistiques sous les Jours des trésors, Grande chasse, Fête des gobelins et
+  Jour des prodiges (« stats-treasure-chevauche=1 » sans le remède : vérifié). 10 langues × 3 largeurs : aucun défaut ;
+  autotest 195/195.
 - 2026-11-12 (it. 938) : 9e bénédiction du jour, « 🌠 Jour des prodiges » : événements rares deux fois plus
   fréquents (la collection des événements, +1 % d'or chacun, avance plus vite ce jour-là). Répartition sur un an :
   35 à 49 jours par bénédiction. Le choix du jour passe de 8 à 9 bénédictions : celle d'aujourd'hui peut changer à la
@@ -3379,7 +3388,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- EN PARTIE (it. 925 : durées raccourcies ; revu à l'it. 935, le rapport cite désormais le libellé) P3 Vu it. 920 : lang-overflow, russe à 1280 px, « stats-chevauche=1 » une fois (un libellé de Statistiques plus large que
+- FAIT (it. 939 : dépendait de la bénédiction du jour, voir « Fait ») P3 Vu it. 920 : lang-overflow, russe à 1280 px, « stats-chevauche=1 » une fois (un libellé de Statistiques plus large que
   sa colonne, sans doute « Засчитанное офлайн-время » à côté d'une valeur longue), pas reproduit en quatre passages ; si
   ça revient, main.js (--overflow-report) peut citer le texte du libellé.
 

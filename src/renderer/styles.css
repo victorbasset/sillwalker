@@ -1358,3 +1358,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .tabs button.locked .tlabel { opacity: 0.45; }
 .tabs button.locked:hover:not([aria-selected="true"]) { box-shadow: none; }
 .lines b .nw { white-space: nowrap; }
+/* (it. 939) valeur en segments (« · ») : elle passe à la ligne entre ses segments plutôt que d'écraser le libellé
+   (Coffre au trésor un Jour des trésors, en allemand : « Schatztruhe » passait sous sa valeur) */
+.lines li:has(> b > .nw) > b { white-space: normal; }
+.lines li:has(> b > .nw) > span { min-width: min-content; }

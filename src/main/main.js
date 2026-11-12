@@ -217,6 +217,12 @@ function start() {
             if (last) { delete S.unlocks[last]; P.setTab("adventure");
               for (const [gold, tag] of [[1e300, "prêt"], [1, "pas-prêt"]]) { S.gold = gold; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("adventure-avant-dernier-" + tag + "=" + o); }
               S.unlocks[last] = true; S.gold = keepG; } }
+          // (it. 939) Statistiques sous chaque bénédiction du jour : « aujourd'hui … » allonge certaines valeurs (coffre,
+          // élite, gobelin) ; « Schatztruhe » passait sous sa valeur les Jours des trésors seulement (défaut intermittent)
+          if (P.tabs.stats) { const D = window.__game.S.daily, km = D.mod; P.setTab("stats"); P.tabs.stats.sec = "numbers";
+            for (const m of ["treasure", "hunt", "goblins", "marvels"]) { D.mod = m; window.__game.invalidateStats(); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("stats-" + m + "=" + o);
+              let c = 0; for (const sp of document.querySelectorAll("[data-pane=stats]:not([hidden]) .lines li > span:first-child")) if (sp.getClientRects().length && sp.scrollWidth > sp.clientWidth + 1) c++; if (c) out.push("stats-" + m + "-chevauche=" + c); }
+            D.mod = km; window.__game.invalidateStats(); }
           P.kept.clear(); P.setTab("adventure"); P.renderAll();
           for (const k of ["hero-todo", "hero-chron", "hero-stats", "rates"]) {
             const d = document.querySelector("[data-keep=" + k + "]"); if (!d) continue; d.querySelector("summary").click();
