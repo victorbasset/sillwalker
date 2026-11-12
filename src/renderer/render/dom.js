@@ -168,6 +168,8 @@ export class Actor {
     this.frames = frames; this.base = frames;
     this.imgs = frames.map((f) => spriteImg(f, this.el));
     this.w = frames[0].cw; this.h = frames[0].ch;
+    // (it. 973) taille de l'élément : les halos d'état sont un fond dégradé peint derrière le personnage (sans filtre)
+    this.el.style.width = this.w + "px"; this.el.style.height = this.h + "px";
     this.cur = -1; this.tx = null; this.alphaV = null; this.shown = true;
   }
   show(i) {

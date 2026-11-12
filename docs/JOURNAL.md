@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 973) : bon voisin, suite de l'it. 972 : pendant l'empoisonnement (boss venimeux, 4 s sur 8), le héros
+  portait un filtre drop-shadow, refait à chaque image de son animation. Les halos d'état fréquents en combat (venin,
+  malédiction, voile protecteur, marée arcanique, frénésie, œil du faucon, hâte, et leurs combinaisons) sont maintenant
+  un fond dégradé radial peint derrière le personnage (l'élément Actor reçoit la taille de son image). Bande, copies
+  neuves de dev-data (boss venimeux de zone 55) : 20,45-21,2 % → 19,7-19,8 %. Vu en capture (lueur rouge discrète de la
+  Frénésie). Restent en filtre les états rares ou courts (gel, étourdi, ralenti, affaibli, silence, enragé, gobelin,
+  serviteur, noyau). 229 tests ; autotest 200/200 ; CLAUDE.md (performance).
 - 2026-11-12 (it. 972) : enquête sur la bande (+1 point vu à la revue 971), par dichotomie : chaque commit mesuré deux
   fois dans un dossier de travail git, sur une copie neuve de dev-data. it. 933 : 19,55 ; 947 : 19,8 ; 950 : 19,55 ;
   952 (règle des espaces insécables de t()) : 19,55 ; 956 : 19,85 ; 959 : 19,85 ; 960 : 19,75-20,2 ; 962 : 19,6-19,85 ;

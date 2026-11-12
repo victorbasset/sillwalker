@@ -108,6 +108,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   drone : 20,8 → 29,8 %) : jamais d'animation CSS permanente sur la bande ; animer dans la boucle d'images existante. Filtre CSS
   (drop-shadow) sur un monstre : ≈ 0,5 point par ombre empilée sur une file (it. 595) : dessiner le contour dans l'image
   (sprites.js outlinedFrames), comme les élites et champions.
+  Halos d'état du héros (venin, malédiction, frénésie…) : un fond dégradé radial derrière le personnage, pas un
+  drop-shadow (refait à chaque image de l'animation : −0,7 point pendant un combat contre un boss venimeux, it. 973).
   Répartition de la bande (it. 567, 20,2 %) : son + musique + ambiance ≈ 3,5 points (le moteur audio actif et la musique ≈ 1,7 ;
   ambiance seule et effets sonores seuls : dans le bruit), « Effets complets » ≈ 2,8, météo + jour/nuit ≈ 1,1.
   Repère actuel (it. 800, copie neuve de dev-data) : bande ≈ 19,5 %, panneau ≈ 20-21 %, mini ≈ 6,6 %, icône ≈ 0,5 % ;
