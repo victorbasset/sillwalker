@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 925) : Statistiques, temps de jeu et temps hors ligne sans les minutes dès qu'il y a des jours
+  (« 1 j 23 h » au lieu de « 1 j 23 h 10 min ») : la valeur reste courte même après des semaines ; en russe à 1280 px,
+  « Засчитанное офлайн-время » pouvait passer sous elle (vu une fois à l'it. 920). Pire cas mesuré (12 jours hors
+  ligne, 123 jours de jeu) en russe, allemand et polonais à 1280 px : aucun débordement. Chasse aux bugs : 1200
+  parties sans blocage ; parcours --crawl d'une partie neuve en coréen sans erreur. Autotest 190/190.
 - 2026-11-12 (it. 924) : la bulle de la bénédiction du jour (carte du héros) annonce aussi celle de demain (« Demain :
   🍃 Jour du vent · +20 % de vitesse de déplacement. ») : elle est tirée de la date, donc connue d'avance ; de quoi
   prévoir un retour (Jour des trésors, Grande chasse…). Traduit dans les 10 langues ; contrôle d'autotest (190/190).
@@ -3307,7 +3312,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Vu it. 920 : lang-overflow, russe à 1280 px, « stats-chevauche=1 » une fois (un libellé de Statistiques plus large que
+- FAIT (it. 925 : durées sans minutes au-delà d'un jour) P3 Vu it. 920 : lang-overflow, russe à 1280 px, « stats-chevauche=1 » une fois (un libellé de Statistiques plus large que
   sa colonne, sans doute « Засчитанное офлайн-время » à côté d'une valeur longue), pas reproduit en quatre passages ; si
   ça revient, main.js (--overflow-report) peut citer le texte du libellé.
 

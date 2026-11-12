@@ -19,7 +19,9 @@ const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String
 const dur = (s) => {
   s = Math.floor(s || 0);
   const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
-  return (d ? tx("{0} j", { 0: d }) + " " : "") + (d || h ? uH(h) + " " : "") + uMin(m);
+  // (it. 925) avec des jours, sans les minutes : la valeur reste courte (en russe à 1280 px, le libellé passait dessous)
+  if (d) return tx("{0} j", { 0: d }) + " " + uH(h);
+  return (h ? uH(h) + " " : "") + uMin(m);
 };
 
 // Carnet de route : grandes étapes datées de la partie (game.milestone), les plus récentes d'abord.
