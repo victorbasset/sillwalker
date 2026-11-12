@@ -1313,4 +1313,5 @@ export default {
   2438: "¡Devuélveme ese oro!",
   2439: "¡Una más para mi colección!",
   2440: "¡Nunca había vencido a una así!",
+  2441: "Las élites aparecen a partir de la zona {0}.",
 };

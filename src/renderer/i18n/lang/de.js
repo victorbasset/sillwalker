@@ -1313,4 +1313,5 @@ export default {
   2438: "Gib mir das Gold zurück!",
   2439: "Noch eine für meine Sammlung!",
   2440: "So eine habe ich noch nie besiegt!",
+  2441: "Elite-Gegner erscheinen ab Zone {0}.",
 };

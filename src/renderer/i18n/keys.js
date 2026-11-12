@@ -2442,5 +2442,6 @@ export const KEYS = [
   "{n} gobelin attrapé|{n} gobelins attrapés",
   "Rendez-moi cet or !",
   "Une de plus pour ma collection !",
-  "Celle-là, je ne l’avais jamais battue !"
+  "Celle-là, je ne l’avais jamais battue !",
+  "Les élites apparaissent à partir de la zone {0}."
 ];

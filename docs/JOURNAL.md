@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 957) : partie neuve revue (anglais, 1366 px, à 20 s et 60 s) : rien de bloquant ; deux détails.
+  1) L'en-tête Équipement disait « click an item: de… » (coupé) alors qu'aucun objet n'est encore porté : l'aide
+  n'apparaît qu'une fois un objet équipé. 2) La bénédiction « Grande chasse » promettait « Élites ×3 » en zone 1, où les
+  élites n'existent pas encore : sa bulle ajoute « Les élites apparaissent à partir de la zone 3. » (première course,
+  avant la zone 3 ; 10 langues). Vu en capture ; 10 langues × 3 largeurs sans défaut ; autotest 199/199.
 - 2026-11-12 (it. 956) : collection des élites, suite : chaque sorte compte ses victoires (stats.affixesSeen : un nombre
   ; « true » des versions précédentes vaut 1, affixWins dans data.js) ; Bestiaire > Élites : « ✓ ×42 ». À la première
   victoire sur une sorte, le héros s'en réjouit (« Une de plus pour ma collection ! », « Celle-là, je ne l'avais jamais

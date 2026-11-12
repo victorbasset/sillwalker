@@ -752,7 +752,9 @@ export class Panel {
     // (it. 942) la rangée commence par ce qui est passager (événement, potions) ; la bénédiction, longue, est bornée
     // aux trois quarts de la rangée quand d'autres puces la suivent (texte entier dans la bulle)
     const tm = new Date(Date.now() + 864e5), dmNext = DAY_MODS[dayModFor(`${tm.getFullYear()}-${String(tm.getMonth() + 1).padStart(2, "0")}-${String(tm.getDate()).padStart(2, "0")}`)];
-    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.icon} ${dm.name} · ${dm.desc}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
+    // (it. 957) Grande chasse avant la zone des premières élites (première course) : on dit quand elles arrivent
+    const dmLater = dm && dm.elite && S.zone < ELITE.minZone && !((S.prestige && S.prestige.count) > 0) ? "\n" + tx("Les élites apparaissent à partir de la zone {0}.", { 0: ELITE.minZone }) : "";
+    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.icon} ${dm.name} · ${dm.desc}${dmLater}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);
@@ -849,7 +851,9 @@ export class Panel {
           : `<div class="nm empty">${tx("{0} : vide", { 0: SLOTS[k].name })}</div>`}</div></li>`;
       }).join("");
       // Demande E de Victor : « clique un objet » ne disait pas pourquoi : on dit ce que fait le clic.
-      el.innerHTML = `<h2>${tx("Équipement")} <small>${hasUnlock(S, "forge") ? tx("clic sur un objet : détails et forge") : tx("clic sur un objet : détails")}</small></h2>
+      // (it. 957) l'aide « clic sur un objet » n'a de sens qu'une fois un objet porté (partie neuve : rien à cliquer)
+      const anyEq = Object.values(S.equip || {}).some(Boolean);
+      el.innerHTML = `<h2>${tx("Équipement")}${anyEq ? ` <small>${hasUnlock(S, "forge") ? tx("clic sur un objet : détails et forge") : tx("clic sur un objet : détails")}</small>` : ""}</h2>
         <div class="eqview"><img class="heroport${v.aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, v)}" alt="${esc(tx("Ton héros et son équipement"))}">
         <ul class="eqlist">${rows}</ul></div>`;
     }

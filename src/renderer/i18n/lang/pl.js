@@ -1313,4 +1313,5 @@ export default {
   2438: "Oddawaj to złoto!",
   2439: "Jeszcze jedna do kolekcji!",
   2440: "Takiej jeszcze nie pokonałem!",
+  2441: "Elity pojawiają się od strefy {0}.",
 };

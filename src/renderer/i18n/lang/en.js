@@ -1313,4 +1313,5 @@ export default {
   2438: "Give me back that gold!",
   2439: "One more for my collection!",
   2440: "Never beaten one of those before!",
+  2441: "Elites appear from zone {0} onward.",
 };
