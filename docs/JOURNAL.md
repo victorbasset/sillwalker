@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 849) : Statistiques > Chiffres sur écran de portable : en allemand (1280 px) « Gegenstandssammlung »
+  passait sous sa valeur (« …sammlung44 / 44 »), en russe (1366 et 1280 px) deux libellés aussi, et la carte
+  Probabilités coupait « Boss 5 » de son « % ». Les quatre cartes étroites prennent la place que Probabilités avait en
+  trop, et ses valeurs ne se coupent plus qu'aux « · ». Nouveau contrôle de --overflow-report (donc lang-overflow) :
+  « onglet-chevauche=N », libellé de ligne plus large que sa place ; il ne trouvait que ces cas, et 0 après la
+  correction dans les 10 langues aux 3 largeurs. Autotest 160/160, vu en capture (allemand, russe).
 - 2026-11-12 (it. 848) : journal d'aventure au retour : les expéditions ramenées par le Grand intendant le noyaient
   sous « Luciole passe au niveau 2 », « … 3 », « … 4 », « … 5 » et une ligne « Un œuf ! » par œuf. Chaque familier
   n'écrit plus qu'une ligne (son dernier niveau, en tête du journal, tant que l'ancienne est parmi les 10 dernières) et

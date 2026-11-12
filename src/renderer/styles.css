@@ -1050,7 +1050,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Statistiques > Chiffres : les 5 cartes (dont Probabilités, double) sur une seule rangée dès 1280 px, sans défilement
    sur les écrans de portable (1366, 1600) ; les libellés longs passent à la ligne. */
 @media (min-width: 1280px) {
-  .statgrid.sec-numbers { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  /* (it. 849) Probabilités (2 colonnes) prend moins : ses valeurs passent à la ligne, alors qu'un libellé d'un seul mot
+     (« Gegenstandssammlung », russe) passait sous sa valeur dans les quatre cartes étroites. */
+  .statgrid.sec-numbers { grid-template-columns: repeat(4, minmax(0, 1fr)) repeat(2, minmax(0, 0.7fr)); }
   .statgrid.sec-numbers .panel.wide .lines b { white-space: normal; text-align: right; }
 }
 /* Réglages : Zone de danger et Raccourcis clavier empilés dans une colonne (pas de 2e rangée sur écran de portable). */
@@ -1312,3 +1314,4 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .tabs button.locked .ticon { filter: grayscale(1); opacity: 0.45; }
 .tabs button.locked .tlabel { opacity: 0.45; }
 .tabs button.locked:hover:not([aria-selected="true"]) { box-shadow: none; }
+.lines b .nw { white-space: nowrap; }
