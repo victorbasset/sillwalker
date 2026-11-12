@@ -317,11 +317,11 @@ async function boot() {
     if (sum.seconds < OFFLINE_TOAST_MIN_S) return;
     if (mode === "mini") {
       pendingOffline = sum;
-      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold) })}${stepText(sum) ? " · ✦ " + stepText(sum) : ""}`);
+      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold + (sum.petGold || 0)) })}${stepText(sum) ? " · ✦ " + stepText(sum) : ""}`);
       return;
     }
     strip.welcomeBack();
-    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold)}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: sum.chests ? csep() + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "" })}${stepLine(sum)}`,
+    showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold + (sum.petGold || 0))}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: sum.chests ? csep() + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "" })}${stepLine(sum)}`,
       () => { openPanel(); panel.showOfflineSummary(sum); });
   }
   toast.addEventListener("click", () => {

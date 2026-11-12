@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 968) : joueur absent : simulation IDLE=1 12 h inchangée (guerrier 15 à 9 h, 16 à 12 h). Retour
+  après 8 h (copie, « last » reculé) : la bulle disait « +6,91 Md or » alors que l'or avait gagné ≈ 19 Md : l'or des
+  expéditions récupérées au retour par le Grand intendant (11,59 Md, la plus grosse part) n'y entrait pas. Il compte
+  maintenant (summary.petGold) : « +18,49 Md or » dans la bulle et le mode mini ; le détail du panneau est inchangé
+  (la ligne du Grand intendant y figure déjà). Test logique ; vu en capture ; autotest 199/199.
 - 2026-11-12 (it. 967) : --crawl en polonais (trois pluriels) : 330 clics sans erreur. « Quoi de neuf », édition 42 :
   capacité de boss « Écailles », noms de boss accordés (chaque langue cite son propre exemple). 10 langues, libellés
   cités vérifiés ; 10 langues × 3 largeurs sans défaut ; autotest 199/199. (Les capacités du boss sont déjà annoncées à

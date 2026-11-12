@@ -995,6 +995,15 @@ test("Écailles : les critiques ne font que la moitié de leur bonus (it. 964)",
   assert.ok(z > 0, "un boss des 60 premières zones a les Écailles");
 });
 
+test("absence : l'or des expéditions récupérées par le Grand intendant compte dans le résumé (it. 968)", () => {
+  const g = new Game(freshState()); g.S.zone = 10;
+  g.S.unlocks.menagerie = true; g.S.unlocks.expeditions = true; g.S.unlocks.steward = true;
+  const id = Object.keys(g.S.pets.owned)[0] || (g.S.pets.owned.cat = { lvl: 1, xp: 0 }, "cat");
+  g.S.pets.exp = { [id]: { kind: "long", start: Date.now() - 9e6, end: Date.now() - 1000 } };
+  const sum = g.applyOffline(8 * 3600);
+  assert.ok(sum && sum.petGold > 0, "or des expéditions : " + (sum && sum.petGold));
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

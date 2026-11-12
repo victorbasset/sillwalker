@@ -1136,14 +1136,17 @@ export class Game {
     if (anviled) this.log(txn(anviled, "Forgeron des astres : {n} objet remonté pendant ton absence.|Forgeron des astres : {n} objets remontés pendant ton absence."));
     const transmuted = this.autoTransmute().length;
     this._petT = 0;
-    const petWork = this.autoPets();
+    const goldPet0 = S.gold, petWork = this.autoPets();
+    // (it. 968) or des expéditions récupérées au retour par le Grand intendant : souvent la plus grosse part (la bulle
+    // n'annonçait que l'or des combats : « +6,91 Md » pour +18,5 Md en tout)
+    const petGold = Math.max(0, S.gold - goldPet0);
     this.R.hp = this.stats().hp;
     const h = Math.floor(sec / 3600), mn = Math.floor(sec % 3600 / 60);
     // kept : objets nouveaux dans le sac (remplacements quand il est plein et coffres compris ; avant, la différence
     // de taille du sac affichait « 0 » dès qu'il était plein).
     const summary = {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
-      kills, gold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
+      kills, gold, petGold, xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells, elites,
     };
