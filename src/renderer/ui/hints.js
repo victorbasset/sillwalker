@@ -22,6 +22,9 @@ export const HINTS = [
   // (it. 910) première Nuée d'étoiles sans Filet à étoiles : passe avant les autres (elle ne dure que 30 s)
   { id: "starfall", tab: null, text: tx("Nuée d’étoiles : clique sur les étoiles filantes qui passent (ou touche F, panneau ouvert) : +2 % de vitesse pour toujours chacune !"),
     when: (g) => (g.R.events.starfall || 0) > 0 && !hasUnlock(g.S, "starNet") },
+  // (it. 980) première Ruée des gobelins : les coups au clic aident à les rattraper avant qu'ils s'enfuient
+  { id: "goblinrush", tab: null, text: tx("Ruée des gobelins : clique dans la bande pour frapper plus vite et rattraper les gobelins dorés avant qu’ils s’enfuient !"),
+    when: (g) => (g.R.events.goblinrush || 0) > 0 },
   { id: "welcome", tab: "adventure", text: tx("Bienvenue dans Sillwalker ! Ton héros avance et se bat tout seul. Clique ici (ou sur ⌃ à droite) pour ouvrir le panneau."),
     when: (g) => g.S.stats.kills < 30 },
   { id: "death", tab: "adventure", text: tx("Ton héros est tombé ? Pas de panique : il recule un peu, puis repart tout seul. Un meilleur équipement (▲ dans le sac) l’aidera à passer. Clique ici."),

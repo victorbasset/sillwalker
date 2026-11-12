@@ -1328,4 +1328,5 @@ export default {
   2453: "Po powrocie podsumowanie liczy złoto z wypraw Wielkiego zarządcy i zadania wykonane podczas nieobecności.",
   2454: "Zadania na elity i zdobycz też pokazują szacowany pozostały czas.",
   2455: "Pasek zużywa mniej procesora (aury bohatera rysowane inaczej), zwłaszcza w późnej grze.",
+  2456: "Najazd goblinów: klikaj w pasek, aby uderzać szybciej i złapać złote gobliny, zanim uciekną!",
 };

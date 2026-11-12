@@ -2457,5 +2457,6 @@ export const KEYS = [
   "{n} quête accomplie|{n} quêtes accomplies",
   "Au retour, le bilan compte l’or des expéditions du Grand intendant et les quêtes accomplies pendant l’absence.",
   "Les quêtes d’élites et de proie donnent aussi leur temps restant estimé.",
-  "La bande consomme moins de processeur (halos du héros dessinés autrement), surtout en fin de partie."
+  "La bande consomme moins de processeur (halos du héros dessinés autrement), surtout en fin de partie.",
+  "Ruée des gobelins : clique dans la bande pour frapper plus vite et rattraper les gobelins dorés avant qu’ils s’enfuient !"
 ];

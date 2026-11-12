@@ -1328,4 +1328,5 @@ export default {
   2453: "Na volta, o resumo conta o ouro das expedições do Grande intendente e as missões concluídas durante a ausência.",
   2454: "As missões de elites e de presa também mostram o tempo restante estimado.",
   2455: "A faixa usa menos processador (auras do herói desenhadas de outro jeito), sobretudo no fim do jogo.",
+  2456: "Corrida dos goblins: clique na faixa para golpear mais rápido e pegar os goblins dourados antes que fujam!",
 };

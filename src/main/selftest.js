@@ -708,6 +708,9 @@ async function runSelfTest(strip) {
   // (it. 910) Première Nuée d'étoiles sans Filet à étoiles : l'astuce (clic ou touche F) passe en premier.
   const sfHint = await js("(() => { const G = window.__game, S = G.S, keepNet = S.unlocks.starNet, keepH = S.settings.hints; delete S.unlocks.starNet; G.R.events.starfall = 20; window.__noHints = false; S.settings.hints = {}; window.__checkHints(); window.__noHints = true; const t = document.getElementById('toast'); const r = !t.hidden && /💡/.test(t.textContent) && /\\bF\\b/.test(t.textContent); t.click(); G.R.events.starfall = 0; if (keepNet) S.unlocks.starNet = keepNet; S.settings.hints = keepH; return String(r); })()");
   check("astuce : première Nuée d’étoiles, clic ou touche F", sfHint === "true", sfHint);
+  // (it. 980) première Ruée des gobelins : astuce des coups au clic
+  const grHint = await js("(() => { const G = window.__game, S = G.S, keepH = S.settings.hints; G.R.events.goblinrush = 20; window.__noHints = false; S.settings.hints = {}; window.__checkHints(); window.__noHints = true; const t = document.getElementById('toast'); const r = !t.hidden && /💡/.test(t.textContent) && /goblin/i.test(t.textContent) ? 'ok' : t.textContent; t.click(); G.R.events.goblinrush = 0; S.settings.hints = keepH; return r; })()");
+  check("astuce : première Ruée des gobelins, coups au clic", grHint === "ok", grHint);
   await js("window.__panel.setTab('adventure')");
   // Grand palier de zone (50, 100…) : bannière dorée « Cap franchi ».
   const cap = await js("(() => { window.__game.emit('zoneUp', { zone: 100, record: true }); const b = [...document.querySelectorAll('.banner.big')].pop(); return b ? b.textContent : 'aucune'; })()");

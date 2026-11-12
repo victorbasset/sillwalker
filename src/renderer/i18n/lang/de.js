@@ -1328,4 +1328,5 @@ export default {
   2453: "Bei der Rückkehr zählt die Übersicht das Gold der Expeditionen des Großen Verwalters und die während der Abwesenheit erfüllten Quests.",
   2454: "Elite- und Beute-Quests zeigen jetzt ebenfalls die geschätzte Restzeit.",
   2455: "Die Leiste braucht weniger Prozessorleistung (Heldenauren anders gezeichnet), vor allem im späten Spiel.",
+  2456: "Koboldansturm: Klicke auf die Leiste, um schneller zuzuschlagen und die Goldkobolde zu fangen, bevor sie fliehen!",
 };

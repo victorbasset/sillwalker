@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 980) : astuce à la première Ruée des gobelins (comme la Nuée d'étoiles, it. 910) : « clique dans la
+  bande pour frapper plus vite et rattraper les gobelins dorés avant qu'ils s'enfuient ! » (une fois, 10 langues, noms
+  repris des traductions du jeu). Contrôle d'autotest ; 201/201.
 - 2026-11-12 (it. 979) : contrôles de robustesse après les it. 954-978 : sauvegardes abîmées ok (1176 corruptions),
   fuzz 1200 parties sans blocage, rythme de la première heure inchangé (60 min : zone 23, 107 objets, niveau 40,
   6 déblocages). Aucun changement de code.

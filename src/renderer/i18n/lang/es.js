@@ -1328,4 +1328,5 @@ export default {
   2453: "Al volver, el resumen cuenta el oro de las expediciones del Gran intendente y las misiones cumplidas durante la ausencia.",
   2454: "Las misiones de élites y de presa también muestran su tiempo restante estimado.",
   2455: "La banda usa menos procesador (halos del héroe dibujados de otro modo), sobre todo al final de la partida.",
+  2456: "Estampida de goblins: haz clic en la banda para golpear más rápido y atrapar a los goblins dorados antes de que huyan.",
 };
