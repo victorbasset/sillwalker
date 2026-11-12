@@ -1024,6 +1024,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .lines li.step { background: linear-gradient(var(--accent), var(--accent)) bottom left / 100% 1px no-repeat; }
 /* Partie neuve (étude des concurrents : « pas de tutoriel ») : rappel du geste pour équiper, les premières zones. */
 #p-bag h2 .baghint { font-size: 12px; font-weight: 400; color: var(--good); margin-left: 6px; }
+/* Écran de portable (1280 px) : le compteur « 1 / 24 » se cassait en deux lignes et le rappel en trois
+   (« double- / clic : / équiper ») : le compteur reste entier, le rappel passe sous le titre, sur une ligne. */
+#p-bag h2 { flex-wrap: wrap; row-gap: 2px; }
+#p-bag h2 > small { white-space: nowrap; flex: none; }
+#p-bag h2 .baghint { order: 1; flex: 1 0 100%; margin-left: 0; line-height: 1.15; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* Étape 6 (demande 35) : rivets dorés aux quatre coins des grands cadres (couverture de grimoire). */
 .panel:not(.classcard):not(.petcard):not(.questcard):not(.beast) { position: relative; }
 .panel:not(.classcard):not(.petcard):not(.questcard):not(.beast)::after { content: ""; position: absolute; inset: -2px; pointer-events: none;

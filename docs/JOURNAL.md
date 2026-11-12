@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 858) : Sac d'une partie neuve sur écran de portable (1280 px) : le compteur se cassait en deux lignes
+  (« Sac 1 / » puis « 24 ») et le rappel « ▲ double-clic : équiper » en trois (« double- / clic : / équiper »), même en
+  français. Le compteur reste entier et le rappel passe sous le titre, sur une seule ligne (à 1920 px aussi) ; les
+  9 traductions y tiennent. Parcours --crawl en russe : 329 clics, aucune erreur. Contrôle d'autotest à 1280 px
+  (168/168 ; il échoue sans le correctif), vu en capture en français et en allemand (1280 et 1920 px).
 - 2026-11-12 (it. 857) : bande, nombres flottants : les dégâts reçus, coups écrasants, reflets du miroir et ripostes
   s'écrivaient en chiffres bruts (« -22050 », plus tard « -1234567 ») à côté des coups portés abrégés (« 29 k ») : tous
   passent maintenant par le même format (« -22 k », séparateurs et unités de la langue), plus courts et moins

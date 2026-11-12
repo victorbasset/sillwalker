@@ -692,6 +692,9 @@ async function runSelfTest(strip) {
     if (w === 1280) { // Familiers (it. 845) : « Trouvés / À découvrir » en tête de la barre, jamais caché à droite
       const psub = await js("(() => { const P = window.__panel, cur = P.tab, S = window.__game.S, st = S.unlocks.steward; S.unlocks.steward = true; P.setTab('pets'); P.renderAll(); const bar = document.querySelector('[data-pane=pets]:not([hidden]) .petbar'), sub = bar && bar.querySelector('.subtabs'); let r = 'absent'; if (sub) { bar.scrollLeft = 0; const a = bar.getBoundingClientRect(), b = sub.getBoundingClientRect(); r = b.right <= a.right + 1 ? 'ok' : 'caché de ' + Math.round(b.right - a.right) + ' px'; } if (!st) delete S.unlocks.steward; P.setTab(cur); P.renderAll(); return r; })()");
       check("familiers : sous-onglets visibles dans la barre (1280 px)", psub === "ok" || psub === "absent", psub);
+      // Sac d'une partie neuve (it. 858) : « 1 / 24 » se cassait en deux lignes, le rappel « double-clic » en trois.
+      const bagh = await js("(() => { const g = window.__game, S = g.S, P = window.__panel, cur = P.tab, best = S.best, pc = S.prestige.count, own = Object.prototype.hasOwnProperty.call(g, 'hasUpgrade'), hu = g.hasUpgrade; S.best = 5; S.prestige.count = 0; g.hasUpgrade = () => true; P.setTab('adventure'); P.renderAll(); const sm = document.querySelector('#p-bag h2 > small'), h = document.querySelector('#p-bag h2 .baghint'); let r = !sm ? 'pas de compteur' : !h ? 'pas de rappel' : ''; if (!r) { const lh = parseFloat(getComputedStyle(sm).fontSize) * 1.6; r = sm.getBoundingClientRect().height > lh ? 'compteur sur plusieurs lignes' : h.scrollWidth > h.clientWidth + 1 ? 'rappel coupé' : 'ok'; } S.best = best; S.prestige.count = pc; if (own) g.hasUpgrade = hu; else delete g.hasUpgrade; P.setTab(cur); P.renderAll(); return r; })()");
+      check("sac : compteur et rappel « double-clic » chacun sur une ligne (1280 px)", bagh === "ok", bagh);
     }
   }
   strip.win.setBounds(bLap);
