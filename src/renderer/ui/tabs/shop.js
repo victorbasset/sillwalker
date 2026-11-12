@@ -44,10 +44,10 @@ export class ShopTab {
       return `<div class="mcard rb${it.r}${it.deal ? " deal" : ""}${up ? " up" : ""}">
         ${it.deal ? `<span class="ribbon">−${Math.round(DEAL_DISCOUNT * 100)}${unit("%")}</span>` : ""}
         <img src="${itemIconURL(it)}" alt="">
-        <div class="nm rc${it.r}">${esc(itemName(it))}</div>
+        <div class="nm rc${it.r}" title="${esc(itemName(it))}">${esc(itemName(it))}</div>
         <div class="sub">${itemKindLine(it, true)}</div>
-        ${it.power && POWER_INDEX[it.power] ? `<div class="sub power-mini">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
-        ${it.set && SETS[it.set] ? `<div class="sub tint" style="--c:${SETS[it.set].color}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
+        ${it.power && POWER_INDEX[it.power] ? `<div class="sub power-mini one" title="${esc(POWER_INDEX[it.power].name)}">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
+        ${it.set && SETS[it.set] ? `<div class="sub tint one" style="--c:${SETS[it.set].color}" title="${esc(SETS[it.set].name)}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
         <div class="verdict ${d > 0.005 || !cur ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${up ? "▲ " : ""}${verdict}</div>
         ${buy("s-item", it.id, it.price, full ? tx("Sac plein") : "", up ? "primary" : "")}
       </div>`;

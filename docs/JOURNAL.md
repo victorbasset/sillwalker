@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 864) : écrans de portable (1280 px), deux défilements qui n'apparaissaient qu'avec certaines valeurs.
+  Aventure en polonais : une grande valeur de Points de vie élargissait sa colonne, « Punkty życia » passait sur deux
+  lignes et l'onglet défilait de 14 px ; les quatre tuiles du héros ont maintenant des colonnes égales, une icône un peu
+  plus petite (plus de place pour le texte) et une valeur abrégée au-delà du million (exacte au survol). Boutique en
+  russe : un nom légendaire sur 4 lignes, plus son pouvoir et sa panoplie, poussait le bouton d'achat hors de la carte
+  du Marchand : nom sur 3 lignes au plus, pouvoir et panoplie sur une ligne (texte complet au survol). lang-overflow :
+  30 mesures sans défilement, et il signale aussi les tuiles coupées. Deux contrôles d'autotest (celui du Marchand échoue
+  sans le correctif ; 174/174), vu en capture (polonais, russe, allemand, français).
 - 2026-11-12 (it. 863) : outils, bon voisin : un autotest lancé par une itération précédente tournait encore, orphelin,
   depuis 3 h 20 (≈ 25 % d'un cœur sur le serveur, et des mesures de performance faussées : le panneau à 22,3 % de la
   revue 861 venait de là). L'autotest a maintenant un délai maximal (10 min ; un passage normal prend ≈ 70 s) : il
@@ -2956,6 +2964,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
+- P3 Vu it. 864 : russe, Boutique à 1280 px, « Восстанавлив / ает » (potion de soin) coupé en plein mot sans trait
+  d'union (overflow-wrap: anywhere ; Chromium n'a pas de césure russe sous Linux) : petite taille de texte ou mot à part ?
 - P3 Revue it. 861 : (a) FAIT (it. 863 : 20,1 %, l'écart venait d'un autotest orphelin) refaire la mesure du panneau seul (22,3 % pris pendant un autotest ; repère 20-21 %) ;
   (b) FAIT (it. 862) bande, combat de boss en japonais : « 会心 116k » et « 凍結 » se superposent encore au-dessus du héros (texte large).
 - P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés

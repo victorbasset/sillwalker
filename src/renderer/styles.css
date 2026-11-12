@@ -630,6 +630,11 @@ i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; bo
 /* Bouton de prix en bas de la tuile : aligné d'une tuile à l'autre quelle que soit la longueur du texte. */
 .mcard > .buy, .ctile > .buy { margin-top: auto; order: 2; } /* la case « auto » de la potion passe au-dessus */
 .mcard .nm { font-size: 13px; line-height: 1.2; }
+/* (it. 864) russe à 1280 px : un nom légendaire sur 4 lignes, plus son pouvoir et sa panoplie sur deux lignes chacun,
+   poussaient le bouton d'achat hors de la carte (la Boutique défilait) : nom sur 3 lignes au plus, pouvoir et panoplie
+   sur une ligne ; texte complet au survol */
+.mcard .nm { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.mcard .sub.one { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mcard .sub, .ctile .sub { font-size: 11px; color: var(--muted); }
 .mcard .verdict { font-size: 12px; margin: 2px 0 4px; }
 .mcard.up { border-color: var(--good); }
@@ -964,7 +969,13 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 #p-hero .morerow { display: flex; flex-wrap: wrap; column-gap: 14px; }
 #p-hero .morerow > details[open] { flex-basis: 100%; }
 #p-hero .tiles { margin: 6px 0; gap: 5px; }
-#p-hero .tile { padding-top: 2px; padding-bottom: 2px; }
+#p-hero .tile { padding-top: 2px; padding-bottom: 2px; padding-left: 30px; padding-right: 4px; }
+#p-hero .tile img { left: 4px; height: 22px; }
+/* (it. 864) colonnes égales quelle que soit la valeur : une grande valeur élargissait sa colonne, le libellé voisin
+   passait sur deux lignes et l'Aventure défilait (polonais à 1280 px) ; icône un peu plus petite pour laisser la place
+   au texte ; la valeur reste sur une ligne (abrégée au-delà du million, panel.js tileStat) */
+#p-hero .tiles { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+#p-hero .tile > b { overflow: hidden; text-overflow: ellipsis; }
 #p-hero .goal { margin-bottom: 6px; padding: 3px 8px; }
 #p-hero .morerow summary { font-size: 14px; margin: 4px 0 2px; }
 /* Icônes des nœuds de compétences (demande 34). */

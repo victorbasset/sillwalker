@@ -12,7 +12,7 @@ import { classSpells, spellRank } from "../game/spells.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
-import { fmt, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
+import { fmt, fmtShort, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
 import { RELICS, RELIC_IDS, MAJOR_BOSSES, ECHO_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable, majorName } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
@@ -99,6 +99,14 @@ const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); retur
 
 // Repère de rareté en forme (pas seulement en couleur) : lisible pour les daltoniens.
 const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible sans les couleurs (daltonisme) : peu commun → légendaire
+
+/** (it. 864) Tuile de statistique du héros : au-delà du million, valeur abrégée (exacte au survol) pour tenir dans
+ *  sa colonne (une grande valeur élargissait la colonne, le libellé voisin passait sur deux lignes et l'Aventure
+ *  défilait, polonais à 1280 px). */
+function tileStat(label, k, v) {
+  const full = fmtStat(k, v), short = v >= 1e6 ? fmtShort(v) : full;
+  return `<span>${esc(label)}</span><b${short !== full ? ` title="${esc(fmt(Math.round(v)))}"` : ""}>${short}</b>`;
+}
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
 const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates", "autos"]);
@@ -736,9 +744,9 @@ export class Panel {
     $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>${duo || spl ? `<div class="duoline">${duo}${spl}</div>` : ""}
       <div class="kv"><span>${tx("Expérience")}</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">
-        <div class="tile"><img src="${shopIconURL("heart", 3)}" alt=""><span>${tx("Points de vie")}</span><b>${fmtStat("hp", hs.hp)}</b></div>
-        <div class="tile"><img src="${shopIconURL("ws_atk", 3)}" alt=""><span>${tx("Attaque")}</span><b>${fmtStat("atk", hs.atk)}</b></div>
-        <div class="tile"><img src="${shopIconURL("ws_hp", 3)}" alt=""><span>${tx("Défense")}</span><b>${fmtStat("def", hs.def)}</b></div>
+        <div class="tile"><img src="${shopIconURL("heart", 3)}" alt="">${tileStat(tx("Points de vie"), "hp", hs.hp)}</div>
+        <div class="tile"><img src="${shopIconURL("ws_atk", 3)}" alt="">${tileStat(tx("Attaque"), "atk", hs.atk)}</div>
+        <div class="tile"><img src="${shopIconURL("ws_hp", 3)}" alt="">${tileStat(tx("Défense"), "def", hs.def)}</div>
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
       </div>
       ${this.visitHTML()}${this.goalHTML(S)}
