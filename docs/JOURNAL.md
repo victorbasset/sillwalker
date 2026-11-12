@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 955) : tests logiques indépendants les uns des autres : chaque test reçoit sa propre graine
+  aléatoire, tirée de son nom (avant : une seule graine pour toute la suite, si bien qu'ajouter un test décalait les
+  tirages de tous les suivants ; deux tests sans rapport ont échoué ainsi aux it. 943 et 954). Deux tests ne passaient
+  que grâce à leur tirage : l'étal d'une partie neuve (tous les emplacements sont vides : le premier objet vise UN
+  emplacement vide, pas forcément l'arme) et le Marchand attitré sac plein (une armure tirée puis mise en arme, sans
+  attaque) ; corrigés. Équilibrage de la Ruée des gobelins (it. 954) : 12 h, moyenne 61,9 → 62,8 (bruit). 225 tests ;
+  CLAUDE.md.
 - 2026-11-12 (it. 954) : 14e événement rare, « Ruée des gobelins » (0,15 % par victoire, 30 s) : environ un monstre
   simple sur trois de la suite de la file devient un gobelin doré (or volé à rattraper), y compris dans les nouvelles
   séries pendant l'événement (comme la Lune de sang). Bilan de fin (« 2 gobelins attrapés, +… or »), réplique du héros

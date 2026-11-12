@@ -68,7 +68,10 @@ import { setLang, getLang, txn, t as tT, fsp } from "../src/renderer/i18n/index.
 
 setRandom(seeded(42));
 let pass = 0;
-const test = (name, fn) => { fn(); pass++; console.log("ok -", name); };
+// (it. 955) chaque test a sa propre graine, tirée de son nom : ajouter ou retirer un test ne décale plus les tirages
+// des suivants (deux tests sans rapport ont échoué ainsi aux it. 943 et 954)
+const seedOf = (name) => { let h = 2166136261; for (const c of name) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
+const test = (name, fn) => { setRandom(seeded(seedOf(name))); fn(); pass++; console.log("ok -", name); };
 
 /** Joue `minutes` minutes comme un joueur attentif (équipe, vend, dépense ses talents). */
 function play(g, minutes) {
@@ -1192,7 +1195,7 @@ test("boutique : atelier permanent, œuf, objet pour le point faible, bonne affa
   assert.equal(g2.S.pets.eggs, eggs + 1);
   const stock = g2.shopStock();
   assert.equal(stock.items.filter((it) => it.deal).length, 1, "une bonne affaire");
-  assert.equal(stock.items[0].slot, "weapon", "premier objet pour un emplacement vide");
+  assert.ok(!g2.S.equip[stock.items[0].slot], "premier objet pour un emplacement vide : " + stock.items[0].slot); // (it. 955) tous sont vides au départ
 });
 
 test("quêtes : étoiles, réputation de guilde, réclamation automatique", () => {
@@ -3201,7 +3204,7 @@ test("Marchand attitré : achète et équipe l'objet de l'étal qui renforce le 
   const g3 = new Game(freshState()); g3.S.unlocks.trader = true; g3.S.best = 80;
   const w3 = g3.newItem(0); w3.slot = "weapon"; w3.il = 1; g3.S.equip.weapon = w3; g3.invalidateStats();
   while (!g3.bagFull()) g3.S.bag.push(g3.newItem(0));
-  const n3 = g3.S.bag.length, good3 = g3.newItem(3); good3.slot = "weapon"; good3.il = 80; good3.price = 100;
+  const n3 = g3.S.bag.length; let good3; do good3 = g3.newItem(3); while (good3.slot !== "weapon"); good3.il = 80; good3.price = 100;
   g3.S.shop = { items: [good3] }; g3.S.gold = 1e9;
   assert.ok(g3.autoTrade() === good3 && g3.S.equip.weapon === good3, "acheté et équipé, sac plein");
   assert.equal(g3.S.bag.length, n3, "ancien objet vendu, pas mis dans le sac");

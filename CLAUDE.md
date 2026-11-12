@@ -171,6 +171,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (`save.newer-v*.json`) ; ne jamais retirer cette protection. Le lanceur `test()` de test-logic est synchrone :
   un test `async` serait compté réussi tout de suite (échec signalé seulement après le total) :
   tous les tests sont synchrones, avec des imports statiques en tête de fichier ; garder cette règle.
+  Chaque test a sa propre graine aléatoire, tirée de son nom (it. 955) : un test qui ne passe qu'avec un tirage précis
+  casse si on le renomme ; le rendre indépendant du tirage (ex. tirer jusqu'à obtenir une vraie arme).
   Ajouter un type de quête, un familier, une panoplie… sans changer SAVE_VERSION est permis, mais le code doit tolérer
   une valeur inconnue venue d'une autre version (ensureQuests remplace les quêtes illisibles ; migrate() retire les
   familiers inconnus ; ailleurs, tester l'existence avant de lire un nom : `POWER_INDEX[id]?.name`).
