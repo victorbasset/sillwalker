@@ -2418,5 +2418,11 @@ export const KEYS = [
   "Les quêtes et le « Prochain déblocage » donnent le temps restant estimé (« ≈ 1 h 10 min ») ; la bulle de la bénédiction annonce celle de demain.",
   "« Événements rares » : chaque événement vécu donne +1 % d’or pour toujours ; une nouvelle découverte est annoncée dans le journal.",
   "Nouvelle élite « Fuyant » : elle esquive 20 % des coups (les coups au clic touchent toujours).",
-  "en cours · {0}"
+  "en cours · {0}",
+  "Il pleut de l’or !",
+  "Fais un vœu !",
+  "La lune saigne… ils arrivent.",
+  "J’ai des ailes !",
+  "Je ne peux plus rater !",
+  "Des œufs partout !"
 ];

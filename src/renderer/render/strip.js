@@ -39,6 +39,13 @@ const SPEECH = {
   record: [tx("Jamais allé aussi loin !"), tx("Terre inconnue !")],
   level: [tx("Je me sens plus fort !"), tx("Encore un niveau !")],
   event: [tx("Tu as vu ça ?"), tx("C’est le moment !"), tx("Profitons-en !")],
+  // (it. 937) répliques propres à certains événements (les autres gardent les répliques communes ci-dessus)
+  ev_goldrain: [tx("Il pleut de l’or !")],
+  ev_starfall: [tx("Fais un vœu !")],
+  ev_bloodmoon: [tx("La lune saigne… ils arrivent.")],
+  ev_wind: [tx("J’ai des ailes !")],
+  ev_hawkeye: [tx("Je ne peux plus rater !")],
+  ev_nest: [tx("Des œufs partout !")],
   bag: [tx("Mon sac déborde !"), tx("Plus de place dans le sac…"), tx("Il faudrait vider le sac !")],
   back: [tx("Te revoilà !"), tx("Tu m’as manqué !"), tx("J’ai bien avancé, tu as vu ?")],
   nemesis: [tx("Enfin !"), tx("Cette fois, c’est la bonne !"), tx("Je savais que j’y arriverais.")],
@@ -129,7 +136,7 @@ export class StripRenderer {
     g.on("heroDown", () => this.say(SPEECH.ko, true));
     g.on("zoneUp", ({ record }) => { if (record) this.say(SPEECH.record); });
     g.on("levelUp", () => this.say(SPEECH.level));
-    g.on("event", () => this.say(SPEECH.event));
+    g.on("event", ({ id } = {}) => this.say(SPEECH["ev_" + id] || SPEECH.event));
     g.on("bagFull", () => this.say(SPEECH.bag)); // ordinaire : au plus une réplique toutes les 45 s // ordinaire : pas de bulle sur le nom d'un boss
     g.on("bossNemesis", () => this.say(SPEECH.nemesis, true));
     g.on("bossDodge", () => this.float(this.monX() + 14, 40, tx("Raté !"), "#c8c8d8"));

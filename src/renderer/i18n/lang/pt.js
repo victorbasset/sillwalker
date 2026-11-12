@@ -1289,4 +1289,10 @@ export default {
   2414: "«Eventos raros»: cada evento vivido dá +1 % de ouro para sempre; uma nova descoberta é anunciada no diário.",
   2415: "Nova elite «Esquivo»: esquiva 20 % dos golpes (golpes com clique sempre acertam).",
   2416: "em curso · {0}",
+  2417: "Está chovendo ouro!",
+  2418: "Faça um pedido!",
+  2419: "A lua sangra… eles estão vindo.",
+  2420: "Ganhei asas!",
+  2421: "Agora não erro mais!",
+  2422: "Ovos por toda parte!",
 };

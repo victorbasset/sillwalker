@@ -925,6 +925,9 @@ async function runSelfTest(strip) {
   // Touche U (it. 628) : achète le prochain déblocage s'il est prêt, ne fait rien sinon.
   const keyU = await js("(() => { const G = window.__game, P = window.__panel, S = G.S, keep = JSON.stringify({ g: S.gold, u: S.unlocks }); const n0 = Object.keys(S.unlocks || {}).length; S.gold = 0; const a = P.onKey({ key: 'u', target: document.body }); S.gold = 1e300; const b = P.onKey({ key: 'u', target: document.body }); const n1 = Object.keys(S.unlocks || {}).length; const k = JSON.parse(keep); S.gold = k.g; S.unlocks = k.u; P.renderAll(); return a + ' ' + (b === (n1 > n0)); })()");
   check("touche U : achète le prochain déblocage prêt, rien sans l’or", keyU === "false true", keyU);
+  // (it. 937) Réplique propre à l'événement (Pluie d'or), hors combat de boss (pas de bulle sur le nom du boss)
+  const evSay = await js("(() => { const G = window.__game, st = window.__strip, k0 = G.S.kills, m0 = G.R.mon, e0 = G.R.events.goldrain; G.S.kills = 0; G.R.mon = null; st.saidAt = -1e9; G.R.events.goldrain = 0; G.startEvent('goldrain'); const t = st.bubble.hidden ? 'pas de bulle' : st.bubble.textContent; G.S.kills = k0; G.R.mon = m0; G.R.events.goldrain = e0 || 0; st.bubble.hidden = true; return t; })()");
+  check("événement rare : réplique propre du héros (Pluie d’or)", /gold|or|Gold/i.test(evSay) && !/Tu as vu|did you see/i.test(evSay), evSay);
   // (it. 916) Lune de sang : ciel rouge cuit dans le décor pendant l'événement, puis retour au ciel normal.
   await js("window.__game.R.events.bloodmoon = 20");
   await sleep(400);

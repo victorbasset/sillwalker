@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 937) : le héros a une réplique propre à six événements rares (« Il pleut de l'or ! », « Fais un
+  vœu ! », « La lune saigne… ils arrivent. », « J'ai des ailes ! », « Je ne peux plus rater ! », « Des œufs
+  partout ! ») ; les autres gardent les répliques communes. Chasse aux bugs : 4000 parties (200 graines), 0 bloquée ;
+  Talents, Compétences et Carte revus en russe et en allemand à 1280 px, rien à corriger. Traduit dans les 10
+  langues ; contrôle d'autotest (195/195).
 - 2026-11-12 (it. 936) : Bestiaire > Événements rares, l'événement en cours a sa carte encadrée et ses secondes
   restantes à la place de sa chance (« en cours · 18 s »), qui s'égrènent. Le défaut intermittent des Statistiques en
   russe (it. 920, 935) n'a pas été reproduit, même avec toutes les valeurs gonflées en russe, allemand et polonais à

@@ -1289,4 +1289,10 @@ export default {
   2414: "“Rare events”: each event you live through gives +1% gold forever; a new discovery is announced in the log.",
   2415: "New “Evasive” elite: it dodges 20% of hits (click strikes always land).",
   2416: "active · {0}",
+  2417: "It's raining gold!",
+  2418: "Make a wish!",
+  2419: "The moon bleeds… here they come.",
+  2420: "I've got wings!",
+  2421: "I can't miss now!",
+  2422: "Eggs everywhere!",
 };

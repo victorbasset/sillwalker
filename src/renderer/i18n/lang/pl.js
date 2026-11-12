@@ -1289,4 +1289,10 @@ export default {
   2414: "„Rzadkie zdarzenia”: każde przeżyte wydarzenie daje na zawsze +1 % złota; nowe odkrycie ogłasza dziennik.",
   2415: "Nowa elita „Zwinny”: unika 20 % ciosów (ciosy kliknięciem zawsze trafiają).",
   2416: "trwa · {0}",
+  2417: "Pada złoto!",
+  2418: "Pomyśl życzenie!",
+  2419: "Księżyc krwawi… nadchodzą.",
+  2420: "Mam skrzydła!",
+  2421: "Teraz nie chybię!",
+  2422: "Wszędzie jaja!",
 };

@@ -1289,4 +1289,10 @@ export default {
   2414: "„Seltene Ereignisse“: Jedes erlebte Ereignis gibt +1 % Gold für immer; eine neue Entdeckung wird im Protokoll gemeldet.",
   2415: "Neue Elite „Ausweichend“: sie weicht 20 % der Schläge aus (Klick-Schläge treffen immer).",
   2416: "läuft · {0}",
+  2417: "Es regnet Gold!",
+  2418: "Wünsch dir was!",
+  2419: "Der Mond blutet … sie kommen.",
+  2420: "Ich habe Flügel!",
+  2421: "Jetzt treffe ich immer!",
+  2422: "Überall Eier!",
 };
