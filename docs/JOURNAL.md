@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 885) : un 6e affixe d'élite, « Épineux » : il renvoie au héros 15 % des dégâts qu'il reçoit
+  (seulement ce qu'il encaisse vraiment, pas l'excédent du coup fatal), sans jamais l'achever, comme le Miroir des
+  boss (nombre affiché au-dessus du héros). Les héros à gros coups paient leur force, les tanks et le vol de vie s'en
+  moquent. Étiquette verte dans la file, carte dans Bestiaire > Élites ; il peut aussi être champion ou venir avec la
+  Lune de sang. Panneau remesuré (copie neuve) : 20,5 % d'un cœur, dans le repère (les 21,7 % de la revue 881 étaient
+  du bruit). Équilibrage 12 h +0,6 zone (bruit) ; 1200 parties, 0 bloquée ; traduit dans les 10 langues (le nom
+  reprend la clé « Épineux » d'un talent) ; test logique ; autotest 178/178 ; vu en capture.
 - 2026-11-12 (it. 884) : le Grand intendant (familiers) ne travaillait qu'après une victoire : pendant un long combat
   de boss (héros bloqué devant un mur, situation fréquente), les œufs gagnés et les expéditions finies attendaient
   (vu en capture : « 4 œufs en attente » avec l'intendant coché). Il passe maintenant chaque seconde de jeu (toujours
@@ -3100,7 +3107,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
-- P3 Revue it. 881 : panneau mesuré à 21,7 % d'un cœur (repère 20-21 %, bande et mini dans leurs repères) : refaire une
+- FAIT (it. 885 : 20,5 %, bruit) P3 Revue it. 881 : panneau mesuré à 21,7 % d'un cœur (repère 20-21 %, bande et mini dans leurs repères) : refaire une
   mesure sur une copie neuve à la prochaine revue ; si l'écart tient, chercher ce qui a grossi depuis l'it. 863.
 
 - FAIT (it. 875) P3 Vu it. 874 : la météo passe encore sur le nom du boss (« Abyssal Carapace the Awakened », étiquette DOM au-dessus de

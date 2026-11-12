@@ -2379,5 +2379,6 @@ export const KEYS = [
   "Le boss de cette zone empoisonne ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici.",
   "Lune de sang",
   "Chaque monstre est une élite !",
-  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare."
+  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
+  "Renvoie 15 % des dégâts qu’il reçoit au héros, sans jamais l’achever."
 ];

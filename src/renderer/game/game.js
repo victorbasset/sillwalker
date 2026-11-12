@@ -696,7 +696,13 @@ export class Game {
       m.shell -= a; dmg -= a;
       this.emit("bossShieldHit", { amount: a });
     }
+    const hpBefore = m.hp;
     m.hp -= dmg;
+    // Élite épineuse (data.js) : renvoie une part des dégâts vraiment reçus (pas l'excédent du coup fatal), sans achever
+    if (m.affix === "thorny" && dmg > 0) {
+      const back = Math.min(Math.min(dmg, Math.max(0, hpBefore)) * ELITE_AFFIXES.thorny.thorns, Math.max(0, this.R.hp - 1));
+      if (back > 0) { this.R.hp -= back; this.emit("mirrorHit", { dmg: back }); }
+    }
     if (m.mirror > 0 && dmg > 0) { // miroir du boss : renvoie une partie des dégâts, sans achever le héros
       const back = Math.min(dmg * 0.4, Math.max(0, this.R.hp - 1));
       if (back > 0) { this.R.hp -= back; this.emit("mirrorHit", { dmg: back }); }

@@ -1250,4 +1250,5 @@ export default {
   2375: "Blutmond",
   2376: "Jedes Monster ist eine Elite!",
   2377: "Quests laufen von selbst weiter, sogar offline (außer Bosse, seltene Ereignisse und Zauber). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, seltene Ereignisse und Zauber). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
+  2378: "Wirft 15 % des erlittenen Schadens auf den Helden zurück, ohne ihn je zu erledigen.",
 };

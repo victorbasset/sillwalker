@@ -584,6 +584,20 @@ test("élites : affixes appliqués", () => {
     if (m.affix === "armored") assert.ok(m.max > 20);
   }
   assert.equal(seen.size, 4);
+  // (it. 885) Épineux : renvoie 15 % des dégâts vraiment reçus, sans jamais achever le héros
+  const gt = new Game(freshState()), hs = { ...gt.stats(), crit: 0, lifesteal: 0, poison: 0, burn: 0, combo: 0, firstStrike: 0 };
+  const mt = { hp: 1e9, max: 1e9, def: 0, mech: [], affix: "thorny" };
+  gt.R.hp = 1e6;
+  gt.heroStrike(mt, hs, false);
+  const dealt = 1e9 - mt.hp, lost = 1e6 - gt.R.hp;
+  assert.ok(dealt > 0 && Math.abs(lost - dealt * ELITE_AFFIXES.thorny.thorns) < 1e-6 * dealt + 1e-9, "renvoi de 15 % : " + dealt + " → " + lost);
+  gt.R.hp = 5; mt.hp = mt.max = 1e12;
+  for (let i = 0; i < 20; i++) gt.heroStrike(mt, hs, false);
+  assert.equal(gt.R.hp, 1, "jamais achevé");
+  // coup fatal : seul ce qui restait au monstre compte
+  gt.R.hp = 1e6; const mk = { hp: 1, max: 100, def: 0, mech: [], affix: "thorny" };
+  gt.heroStrike(mk, hs, false);
+  assert.ok(1e6 - gt.R.hp <= 0.15 + 1e-9, "excédent du coup fatal non renvoyé");
 });
 
 test("panoplies : pièces, bonus à 2 et 4 pièces", () => {

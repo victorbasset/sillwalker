@@ -1250,4 +1250,5 @@ export default {
   2375: "Luna de sangre",
   2376: "¡Cada monstruo es de élite!",
   2377: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, eventos raros y hechizos). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, eventos raros y hechizos). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
+  2378: "Devuelve al héroe el 15 % del daño que recibe, sin rematarlo nunca.",
 };

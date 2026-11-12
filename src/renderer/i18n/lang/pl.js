@@ -1250,4 +1250,5 @@ export default {
   2375: "Krwawy księżyc",
   2376: "Każdy potwór jest elitą!",
   2377: "Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
+  2378: "Odbija na bohatera 15 % otrzymanych obrażeń, nigdy go nie dobijając.",
 };

@@ -1250,4 +1250,5 @@ export default {
   2375: "Lua de sangue",
   2376: "Todo monstro é de elite!",
   2377: "As missões avançam sozinhas, mesmo offline (exceto chefes, eventos raros e feitiços). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, eventos raros e feitiços). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
+  2378: "Devolve ao herói 15 % do dano que recebe, sem nunca finalizá-lo.",
 };

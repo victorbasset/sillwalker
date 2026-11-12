@@ -203,6 +203,8 @@ export const ELITE_AFFIXES = {
   vampiric: { name: "Vampirique", color: "#ff4a6a", lifesteal: 0.5, desc: "Se soigne de la moitié des dégâts qu’il inflige." },
   furious:  { name: "Furieux",    color: "#ff9a3a", atk: 1.4, desc: "Frappe 40 % plus fort." },
   frosty:   { name: "Givré",      color: "#bfe8ff", freeze: { chance: 0.15, s: 1.5 }, desc: "Ses coups peuvent geler le héros (attaques ralenties un instant)." }, // ses coups peuvent geler le héros
+  // (it. 885) renvoie une part des coups du héros (comme le Miroir des boss) : les gros coups se paient, sans jamais achever
+  thorny:   { name: "Épineux",    color: "#9ad35a", thorns: 0.15, desc: "Renvoie 15 % des dégâts qu’il reçoit au héros, sans jamais l’achever." },
 };
 
 // Les zones bouclent : après la dernière, on repart de la première avec des
