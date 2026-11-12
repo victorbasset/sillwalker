@@ -405,7 +405,7 @@ export class Sound {
           case "mirror": this.tone(1600, 0, 0.15, "sine", 0.12); this.tone(1650, 0, 0.15, "sine", 0.1); break; // reflet qui vibre
           case "fury": this.tone(180, 0, 0.12, "sawtooth", 0.18, 1.5); break; // montée
           case "bulwark": this.noise(0, 0.12, 0.25); this.tone(140, 0, 0.18, "triangle", 0.2, 0.5); break; // pierre qui se fend
-          case "curseBlocked": this.tone(NOTES.E6, 0, 0.1, "triangle", 0.12); this.tone(NOTES.G6, 0.08, 0.16, "triangle", 0.1); break; // parade : tintement clair
+          case "curseBlocked": case "venomBlocked": this.tone(NOTES.E6, 0, 0.1, "triangle", 0.12); this.tone(NOTES.G6, 0.08, 0.16, "triangle", 0.1); break; // parade : tintement clair
           case "tenacious": this.tone(70, 0, 0.3, "sawtooth", 0.28, 2.2); this.noise(0.05, 0.15, 0.2); break; // grondement qui remonte : il se relève
           case "silence": this.whoosh(0, 0.4, 3000, 300, 0.1, 2); this.tone(NOTES.E5, 0.05, 0.3, "sine", 0.08, 0.5); break; // (it. 645) le son s'éteint
           case "venom": this.noise(0, 0.18, 0.12); [NOTES.E5, NOTES.C5].forEach((f, i) => this.tone(f * 1.03, 0.04 + i * 0.09, 0.16, "triangle", 0.1, 0.85)); break; // (it. 878) crachat, puis deux notes aigres

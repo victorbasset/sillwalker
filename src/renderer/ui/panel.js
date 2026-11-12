@@ -36,7 +36,7 @@ import { describeEffects } from "../game/talents.js";
 import { SETS, setCounts } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
 import { activeDayMod } from "../game/daymods.js";
-import { BOSS_MECHANICS, bossMechanics, bossName, bossWear } from "../game/bosses.js";
+import { BOSS_MECHANICS, bossMechanics, bossName, bossWear, PURE_PARRIES } from "../game/bosses.js";
 import { lockLink } from "./locks.js";
 import { tabOpen, TAB_GATES } from "../game/tabs.js";
 import { journeyText } from "./tabs/stats.js";
@@ -968,8 +968,8 @@ export class Panel {
       <p class="zname">${esc(this.game.zoneName())}</p>
       <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(lc(MONSTERS[Z.boss].name)), 2: fmt(bb.hp * (1 - bossWear(S, S.zone))) })}</p>
       <p class="note tight bossmech">${tx("Boss :")}${wsp()}<b class="bname">${esc(bossName(S.zone))}</b>${cend()}${wsp()}${tx("Capacités du boss :")}${wsp()}${bossMechanics(S.zone).map((id) => {
-          // Malédiction : la parade, si le joueur a déjà vu le Talisman de pureté
-          const parry = id === "curse" && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
+          // Malédiction, venin : la parade, si le joueur a déjà vu le Talisman de pureté
+          const parry = PURE_PARRIES.includes(id) && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
           return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(csep())}${cend()}</p>
       ${this.relicAheadHTML(S)}
       ${bossWear(S, S.zone) ? `<p class="note tight">${tx("Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.", { 0: Math.round(bossWear(S, S.zone) * 100) })}</p>` : ""}

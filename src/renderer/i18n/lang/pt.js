@@ -1243,4 +1243,8 @@ export default {
   2368: "Cuspe venenoso",
   2369: "A cada 8 s, envenena o herói por 4 s: ele perde 3% de seus PV máx. por segundo, apesar da defesa e do escudo (sem poder acabar com ele).",
   2370: "Envenenado!",
+  2371: "Veneno repelido!",
+  2372: "de resistência à Maldição e ao veneno dos chefes (duração reduzida)",
+  2373: "Diante de um chefe que amaldiçoa ou envenena, equipa sozinho o Talismã da pureza da bolsa e depois recoloca o item anterior.",
+  2374: "O chefe desta zona envenena seu herói: o Talismã da pureza parado na sua bolsa o protegeria. Clique aqui.",
 };

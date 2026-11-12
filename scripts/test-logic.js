@@ -2252,6 +2252,26 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     assert.ok(gv.R.hp >= 1 && gv.R.mode === "fight", "Venin : n'achève pas le héros");
     const zv = [...Array(40)].map((_, i) => i + 1).find((z) => M_bosses_js.bossMechanics(z).includes("venom"));
     assert.ok(zv && zv <= 33, "un boss de la première boucle crache du venin (zone " + zv + ")");
+    // (it. 879) Pureté : le Talisman de pureté repousse le venin ; une pureté partielle le raccourcit
+    const gvp = new Game(freshState()); gvp.R.mon = gvp.makeMonster(true); gvp.R.mon.mech = ["venom"]; gvp.R.mon.venomT = 0; gvp.R.mode = "fight";
+    let vBlocked = 0; gvp.on("bossSkill", ({ id }) => { if (id === "venomBlocked") vBlocked++; });
+    const hsp = { ...gvp.stats(), purity: 100 }; gvp.R.hp = hsp.hp; gvp.bossTick(gvp.R.mon, hsp, 0.1);
+    assert.ok(!(gvp.R.venomT > 0) && gvp.R.hp === hsp.hp && vBlocked === 1, "Talisman de pureté : venin repoussé");
+    gvp.R.mon.venomT = 0; gvp.bossTick(gvp.R.mon, { ...hsp, purity: 50 }, 0.01);
+    assert.ok(Math.abs(gvp.R.venomT - 2) < 0.02, "pureté 50 % : venin deux fois plus court (" + gvp.R.venomT + ")");
+    // Porte-talisman et coup de pouce du butin : aussi face au venin
+    const gkv = new Game(freshState()); gkv.S.unlocks.charmKeeper = true;
+    const talv = gkv.newItem(0); talv.power = "p_pure"; gkv.S.bag.push(talv);
+    const bv = gkv.makeMonster(true); bv.mech = ["venom"]; gkv.R.mon = bv; gkv.charmSwap(bv);
+    assert.equal(gkv.S.equip[talv.slot].id, talv.id, "talisman équipé face au venin");
+    const gsv = new Game(freshState()); gsv.S.zone = zv; gsv.S.bossDefeats = { [zv]: 3 };
+    let pv = 0; for (let i = 0; i < 200; i++) if (gsv.decorate({ r: LEGENDARY }).power === "p_pure") pv++;
+    assert.ok(pv > 60, "bloqué par le venin : Talisman fréquent (" + pv + " / 200)");
+    // Astuce : talisman dans le sac face à un boss venimeux
+    const ghv = new Game(freshState()); ghv.S.zone = zv; const itv = ghv.newItem(0); itv.power = "p_pure"; ghv.S.bag.push(itv);
+    ghv.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((h) => h.id !== "purity").map((h) => [h.id, true]));
+    const hv = M_hints_js.nextHint(ghv);
+    assert.ok(hv && hv.id === "purity" && /poisons/.test(hv.textFn(ghv)), "astuce Talisman de pureté face au venin (zone " + zv + ", " + (hv && hv.id) + ", " + (hv && hv.textFn && hv.textFn(ghv)) + ")");
     // Voile protecteur : dégâts subis divisés par deux pendant l'événement
     const gw = new Game(freshState()), mw = gw.makeMonster(false), hsw = { ...heroStats(gw.S), dodge: 0, thorns: 0, riposte: 0 };
     mw.hp = mw.max = 1e12; gw.R.hp = 1e9; gw.R.shield = 0;

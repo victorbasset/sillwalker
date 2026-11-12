@@ -44,7 +44,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE } from "./events.js";
-import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM } from "./bosses.js";
+import { bossMechanics, bossName, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -434,7 +434,13 @@ export class Game {
     }
     if (mech.includes("venom")) { // (it. 878) Venin : traverse défense et bouclier, n'achève jamais le héros
       m.venomT = (m.venomT ?? VENOM.first) - dt;
-      if (m.venomT <= 0) { m.venomT = VENOM.every; this.R.venomT = VENOM.s; this.emit("bossSkill", { id: "venom" }); }
+      if (m.venomT <= 0) {
+        m.venomT = VENOM.every;
+        // (it. 879) Pureté (Talisman de pureté, Phalène pâle, talent) : venin raccourci, voire repoussé
+        const d = VENOM.s * (1 - (hs.purity || 0) / 100);
+        if (d > 0.05) { this.R.venomT = d; this.emit("bossSkill", { id: "venom" }); }
+        else this.emit("bossSkill", { id: "venomBlocked" });
+      }
       if (this.R.venomT > 0) {
         this.R.venomT -= dt;
         if (this.R.hp > 1) this.R.hp = Math.max(1, this.R.hp - hs.hp * VENOM.pct * dt);
@@ -778,7 +784,7 @@ export class Game {
     if (it.r === LEGENDARY && !it.power) {
       // Coup de pouce : bloqué (3 défaites ou plus) par un boss qui maudit, sans Talisman de pureté en main, le
       // prochain légendaire a une chance sur deux de le porter.
-      const S = this.S, stuck = ((S.bossDefeats && S.bossDefeats[S.zone]) || 0) >= 3 && bossMechanics(S.zone).includes("curse");
+      const S = this.S, stuck = ((S.bossDefeats && S.bossDefeats[S.zone]) || 0) >= 3 && bossMechanics(S.zone).some((id) => PURE_PARRIES.includes(id));
       const has = [...S.bag, ...Object.values(S.equip)].some((x) => x && x.power === "p_pure");
       it.power = stuck && !has && rand() < 0.5 ? "p_pure" : pick(POWERS).id;
     }
@@ -1092,7 +1098,7 @@ export class Game {
   charmSwap(m) {
     const S = this.S, R = this.R;
     if (!hasUnlock(S, "charmKeeper")) return;
-    const curse = !!(m && m.boss && m.mech && m.mech.includes("curse"));
+    const curse = !!(m && m.boss && m.mech && m.mech.some((id) => PURE_PARRIES.includes(id)));
     if (curse && !R.charmBack && !Object.values(S.equip).some((it) => it && it.power === "p_pure")) {
       const charm = S.bag.find((it) => it && it.power === "p_pure");
       if (!charm) return;

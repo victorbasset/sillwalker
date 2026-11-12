@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 879) : le « Crachat venimeux » (it. 878) a désormais sa parade, comme la Malédiction : le Talisman de
+  pureté (pouvoir légendaire) repousse le venin (« Venin repoussé ! », tintement clair), et toute pureté partielle
+  (Phalène pâle, talent) en raccourcit la durée. Tout ce qui accompagnait la parade à la Malédiction vaut aussi face au
+  venin : le Porte-talisman équipe le talisman tout seul, une astuce le propose s'il dort dans le sac, les légendaires le
+  portent plus souvent quand le héros bloque sur ce boss, et la bulle des capacités du boss (Aventure) cite la parade.
+  Au passage (vu par lang-overflow) : en allemand, « Panzerhandschuhe » se coupait en plein mot dans les cartes du
+  marchand ; « Panzer-/handschuhe », « Drachen-/knochen », « Drachen-/schuppen » se coupent maintenant au bon endroit,
+  avec un trait d'union (et le contrôle des mots coupés ne prend plus ce trait d'union pour une faute). Parcours --crawl
+  en russe (329 clics, aucune erreur) ; équilibrage 12 h −0,1 zone (bruit) ; 1200 parties, 0 bloquée ; aucun mot coupé
+  ni défilement (10 langues) ; traduit dans les 10 langues ; test logique ; 178/178, vu en capture.
 - 2026-11-12 (it. 878) : une 13e capacité de boss, « Crachat venimeux » : toutes les 8 s, le boss empoisonne le héros
   pendant 4 s (3 % de ses PV max par seconde, malgré sa défense et son bouclier, sans pouvoir l'achever ; une potion
   peut le sauver). Elle met à l'épreuve les héros qui comptent sur leur armure, comme la Malédiction le fait pour le

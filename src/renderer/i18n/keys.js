@@ -2372,5 +2372,9 @@ export const KEYS = [
   "{n} familier libre à envoyer en expédition|{n} familiers libres à envoyer en expédition",
   "Crachat venimeux",
   "Toutes les 8 s, empoisonne le héros pendant 4 s : il perd 3 % de ses PV max par seconde, malgré sa défense et son bouclier (sans pouvoir l’achever).",
-  "Empoisonné !"
+  "Empoisonné !",
+  "Venin repoussé !",
+  "de résistance à la Malédiction et au venin des boss (durée réduite)",
+  "Face à un boss qui maudit ou empoisonne, équipe tout seul le Talisman de pureté du sac, puis remet l’objet d’avant.",
+  "Le boss de cette zone empoisonne ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici."
 ];

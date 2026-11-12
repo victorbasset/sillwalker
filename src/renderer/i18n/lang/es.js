@@ -1243,4 +1243,8 @@ export default {
   2368: "Escupitajo venenoso",
   2369: "Cada 8 s, envenena al héroe durante 4 s: pierde un 3 % de sus PV máx. por segundo, pese a su defensa y su escudo (sin poder rematarlo).",
   2370: "¡Envenenado!",
+  2371: "¡Veneno repelido!",
+  2372: "de resistencia a la Maldición y al veneno de los jefes (duración reducida)",
+  2373: "Ante un jefe que maldice o envenena, equipa solo el Talismán de pureza de la bolsa y luego vuelve a poner el objeto anterior.",
+  2374: "El jefe de esta zona envenena a tu héroe: el Talismán de pureza que duerme en tu bolsa lo protegería. Haz clic aquí.",
 };

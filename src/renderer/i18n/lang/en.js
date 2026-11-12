@@ -1243,4 +1243,8 @@ export default {
   2368: "Venomous Spit",
   2369: "Every 8 s, poisons the hero for 4 s: they lose 3% of their max HP per second, despite their defense and shield (but it cannot finish them off).",
   2370: "Poisoned!",
+  2371: "Venom repelled!",
+  2372: "resistance to boss Curse and venom (shorter duration)",
+  2373: "Against a boss that curses or poisons, automatically equips the Talisman of Purity from your bag, then puts the previous item back.",
+  2374: "This zone’s boss poisons your hero: the Talisman of Purity sleeping in your bag would protect them. Click here.",
 };

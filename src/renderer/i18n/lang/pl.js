@@ -1243,4 +1243,8 @@ export default {
   2368: "Jadowita plwocina",
   2369: "Co 8 s zatruwa bohatera na 4 s: traci on 3% maks. PŻ na sekundę mimo obrony i tarczy (ale nie może go dobić).",
   2370: "Zatruty!",
+  2371: "Jad odparty!",
+  2372: "odporności na Klątwę i jad bossów (krótszy czas)",
+  2373: "Przeciw bossowi, który przeklina lub zatruwa, sam zakłada Talizman czystości z torby, a potem przywraca poprzedni przedmiot.",
+  2374: "Boss tej strefy zatruwa twojego bohatera: Talizman czystości leżący w twojej torbie by go ochronił. Kliknij tutaj.",
 };

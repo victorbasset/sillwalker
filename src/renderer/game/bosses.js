@@ -80,6 +80,8 @@ export const FURY = { every: 5, speed: 0.9, max: 6 };
 const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark", "curse", "tenacious", "venom"];
 /** Venin (it. 878) : toutes les `every` s (la première après `first`), `s` s de poison à `pct` des PV max par seconde. */
 export const VENOM = { every: 8, first: 5, s: 4, pct: 0.03 };
+/** Capacités que la pureté (Talisman de pureté…) repousse : Malédiction, et le venin depuis l'it. 879. */
+export const PURE_PARRIES = ["curse", "venom"];
 export const TENACIOUS = { back: 0.25 };
 export const CURSE = { every: 9, first: 6, s: 3, hurt: 0.15 };
 

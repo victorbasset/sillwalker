@@ -146,7 +146,7 @@ export class StripRenderer {
       if (pd && pd.projectile && this.partner && g.R.mon) this.projectile(pd.projectile, (this.partnerX || this.heroX) + 24, this.monX() + 6, g.R.mon.boss ? 46 : 70, 0, "#fff");
     });
     g.on("bossSkill", ({ id }) => {
-      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"], bulwark: [tx("Peau de pierre brisée !"), "#c9ced6"], curse: [tx("Maudit !"), "#b07cff"], curseBlocked: [tx("Malédiction repoussée !"), "#bfefff"], tenacious: [tx("Il se relève !"), "#ff9a4a"] }[id];
+      const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"], bulwark: [tx("Peau de pierre brisée !"), "#c9ced6"], curse: [tx("Maudit !"), "#b07cff"], curseBlocked: [tx("Malédiction repoussée !"), "#bfefff"], venomBlocked: [tx("Venin repoussé !"), "#bfefff"], tenacious: [tx("Il se relève !"), "#ff9a4a"] }[id];
       if (id === "tenacious") { this.shake(0.25); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 20, this.ground - 30, "#ff9a4a", 10); }
       if (id === "venom") { this.float(this.heroX + 10, 30, tx("Empoisonné !"), "#8fe36a", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#8fe36a", 8); return; }
       if (id === "silence") { this.float(this.heroX + 10, 30, tx("Silence !"), "#c9b8f0", true); return; }

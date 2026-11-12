@@ -197,6 +197,9 @@ function start() {
               for (let n; (n = tw.nextNode());) { if (!n.parentElement.getClientRects().length) continue;
                 for (const m of n.data.matchAll(/[\\p{L}\\p{M}]{4,}/gu)) { if (/[\\p{Script=Han}\\p{Script=Hiragana}\\p{Script=Katakana}]/u.test(m[0])) continue;
                   rg.setStart(n, m.index); rg.setEnd(n, m.index + m[0].length); const rs = [...rg.getClientRects()].filter((x) => x.width > 0);
+                  // (it. 879) après un trait d'union conditionnel (\u00AD, « Panzer-/handschuhe ») : le tiret dessiné en fin de ligne
+                  // est compté avec la suite du mot ; coupure voulue, pas un mot coupé
+                  if (n.data[m.index - 1] === "\u00AD") rs.shift();
                   if (rs.length > 1 && Math.abs(rs[rs.length - 1].top - rs[0].top) > 2) cut.add(m[0]); } } }
             if (cut.size) out.push(id + "-coupé=" + [...cut].slice(0, 4).join("/")); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
