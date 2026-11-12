@@ -1259,4 +1259,9 @@ export default {
   2384: "Schatztruhen ×3 am Wegesrand.",
   2385: "{n} Schatztruhe finden|{n} Schatztruhen finden",
   2386: "heute {0}",
+  2387: "{0} · Bilanz: {1}",
+  2388: "{n} Monster besiegt|{n} Monster besiegt",
+  2389: "{n} Elitegegner besiegt|{n} Elitegegner besiegt",
+  2390: "{n} kritischer Treffer|{n} kritische Treffer",
+  2391: "{n} Zauber gewirkt|{n} Zauber gewirkt",
 };

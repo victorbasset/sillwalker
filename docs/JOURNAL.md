@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 894) : quand un événement rare se termine, le journal en fait le bilan, en une ligne : « Lune de
+  sang · bilan : 7 élites vaincues, +1,2 M or. », « Corne d'abondance · bilan : 9 monstres vaincus, 9 objets
+  trouvés. », « Œil du faucon · bilan : … coups critiques », « Marée arcanique : … sorts lancés », « Pluie d'éclats :
+  … éclats d'étoile » ; les autres donnent le nombre de monstres vaincus. Rien si aucune victoire pendant l'événement.
+  Avant, il s'arrêtait sans rien dire de ce qu'il avait rapporté. Thème clair vérifié au passage sur les ajouts
+  récents (Aventure, Bestiaire, Statistiques, Quêtes) : rien à corriger. Traduit dans les 10 langues (pluriels
+  russes et polonais) ; test logique ; autotest 180/180 ; vu en capture.
 - 2026-11-12 (it. 893) : Statistiques > Probabilités, les taux d'élite, de gobelin doré et de coffre au trésor
   donnent aussi le taux du jour quand il diffère (« Élite : 6 % par monstre · aujourd'hui 18 % » un jour de Grande
   chasse ; Appât des champions compris ; Fête des gobelins ; Jour des trésors) : avant, la page affichait la base,

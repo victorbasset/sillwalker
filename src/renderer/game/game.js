@@ -1806,7 +1806,7 @@ export class Game {
     for (const id in R.events) {
       if (R.events[id] <= 0) continue;
       R.events[id] -= dt;
-      if (R.events[id] <= 0) { R.events[id] = 0; this.emit("eventEnd", { id }); this.changed(); }
+      if (R.events[id] <= 0) { R.events[id] = 0; this.eventReport(id); this.emit("eventEnd", { id }); this.changed(); }
     }
     // Étoile filante : passe de temps en temps, il faut cliquer dessus avant qu'elle disparaisse.
     if (R.star) {
@@ -1834,10 +1834,40 @@ export class Game {
     }
   }
 
+  /** Compteurs relevés au début d'un événement, pour son bilan (eventReport). */
+  eventSnap() {
+    const st = this.S.stats;
+    return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
+      spells: +st.spells || 0, shards: this.S.prestige.total || 0 };
+  }
+
+  /**
+   * (it. 894) Bilan d'un événement rare qui se termine, une ligne de journal : ce qu'il a rapporté (« Lune de sang ·
+   * bilan : 7 élites vaincues, +1,2 M or. »). Les monstres vaincus, plus ce qui fait le sel de l'événement.
+   */
+  eventReport(id) {
+    const ev = EVENTS[id], s0 = this.R.evSnap?.[id];
+    if (!ev || !s0) return null;
+    delete this.R.evSnap[id];
+    const s1 = this.eventSnap(), d = (k) => Math.max(0, s1[k] - s0[k]);
+    if (!d("kills")) return null;
+    const parts = [txn(d("kills"), "{n} monstre vaincu|{n} monstres vaincus", { n: fmt(d("kills")) })];
+    if (id === "bloodmoon" && d("elites")) parts.push(txn(d("elites"), "{n} élite vaincue|{n} élites vaincues", { n: fmt(d("elites")) }));
+    if (id === "bounty" && d("items")) parts.push(txn(d("items"), "{n} objet trouvé|{n} objets trouvés", { n: fmt(d("items")) }));
+    if (id === "hawkeye" && d("crits")) parts.push(txn(d("crits"), "{n} coup critique|{n} coups critiques", { n: fmt(d("crits")) }));
+    if (id === "arcane" && d("spells")) parts.push(txn(d("spells"), "{n} sort lancé|{n} sorts lancés", { n: fmt(d("spells")) }));
+    if (id === "shardfall" && d("shards")) parts.push(txn(d("shards"), "{n} éclat d’étoile|{n} éclats d’étoile", { n: fmt(d("shards")) }));
+    if ((id === "goldrain" || id === "bloodmoon") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));
+    const line = tx("{0} · bilan : {1}", { 0: ev.name, 1: parts.join(csep()) }) + cend();
+    this.log(line);
+    return line;
+  }
+
   startEvent(id) {
     const ev = EVENTS[id];
     if (!ev || (this.R.events[id] || 0) > 0) return false;
     this.R.events[id] = ev.duration;
+    (this.R.evSnap ||= {})[id] = this.eventSnap(); // bilan à la fin (eventReport)
     if (id === "bloodmoon" && this.R.lineup && this.R.lineupZone === this.S.zone) {
       // le monstre déjà en combat reste tel quel ; la suite de la file devient élite, redessinée (nouvelle série)
       const R = this.R, from = this.S.kills + (R.mon && !R.mon.boss ? 1 : 0);

@@ -1259,4 +1259,9 @@ export default {
   2384: "Skrzynie ze skarbami ×3 na drodze.",
   2385: "Znajdź {n} skrzynię ze skarbami|Znajdź {n} skrzynie ze skarbami|Znajdź {n} skrzyń ze skarbami",
   2386: "dziś {0}",
+  2387: "{0} · bilans: {1}",
+  2388: "{n} pokonany potwór|{n} pokonane potwory|{n} pokonanych potworów",
+  2389: "{n} pokonana elita|{n} pokonane elity|{n} pokonanych elit",
+  2390: "{n} trafienie krytyczne|{n} trafienia krytyczne|{n} trafień krytycznych",
+  2391: "{n} rzucone zaklęcie|{n} rzucone zaklęcia|{n} rzuconych zaklęć",
 };

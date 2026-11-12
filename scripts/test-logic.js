@@ -1615,6 +1615,19 @@ test("quête d'événements rares : chaque événement compte", () => {
   assert.match(M_quests_js.QUEST_TEMPLATES.event.text({ goal: 2 }), /2/);
 });
 
+test("événement rare : bilan dans le journal à la fin (it. 894)", () => {
+  const g = new Game(freshState()); g.S.zone = 10;
+  assert.ok(g.startEvent("bloodmoon"));
+  g.S.stats.kills += 7; g.S.stats.elites += 5; g.S.stats.goldTotal = (g.S.stats.goldTotal || 0) + 1234;
+  g.tickEvents(31);
+  const line = g.S.log.find((l) => /bilan|summary/.test(l)) || "";
+  assert.ok(/7/.test(line) && /5/.test(line) && /1[ .,\u202f\u00a0]?234/.test(line), line);
+  // sans victoire pendant l'événement : rien
+  const g2 = new Game(freshState()); g2.startEvent("wind"); const n = g2.S.log.length; g2.tickEvents(60);
+  assert.equal(g2.S.log.length, n);
+  assert.equal(g2.eventReport("wind"), null, "un seul bilan");
+});
+
 test("quête « Trouver N coffres au trésor » : chaque coffre compte, en jeu et pendant l'absence (it. 889)", () => {
   const g = new Game(freshState()); g.S.zone = 10;
   g.S.quests.slots = [{ uid: 1, kind: "chest", goal: 1000, progress: 0, stars: 1, reward: { gold: 10 } }];

@@ -1259,4 +1259,9 @@ export default {
   2384: "Treasure chests ×3 along the way.",
   2385: "Find {n} treasure chest|Find {n} treasure chests",
   2386: "today {0}",
+  2387: "{0} · summary: {1}",
+  2388: "{n} monster defeated|{n} monsters defeated",
+  2389: "{n} elite defeated|{n} elites defeated",
+  2390: "{n} critical hit|{n} critical hits",
+  2391: "{n} spell cast|{n} spells cast",
 };

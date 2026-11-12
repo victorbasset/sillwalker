@@ -2388,5 +2388,10 @@ export const KEYS = [
   "Jour des trésors",
   "Coffres au trésor ×3 sur le chemin.",
   "Trouver {n} coffre au trésor|Trouver {n} coffres au trésor",
-  "aujourd’hui {0}"
+  "aujourd’hui {0}",
+  "{0} · bilan : {1}",
+  "{n} monstre vaincu|{n} monstres vaincus",
+  "{n} élite vaincue|{n} élites vaincues",
+  "{n} coup critique|{n} coups critiques",
+  "{n} sort lancé|{n} sorts lancés"
 ];

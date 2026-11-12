@@ -1259,4 +1259,9 @@ export default {
   2384: "Baús do tesouro ×3 pelo caminho.",
   2385: "Encontrar {n} baú do tesouro|Encontrar {n} baús do tesouro",
   2386: "hoje {0}",
+  2387: "{0} · balanço: {1}",
+  2388: "{n} monstro derrotado|{n} monstros derrotados",
+  2389: "{n} elite derrotada|{n} elites derrotadas",
+  2390: "{n} golpe crítico|{n} golpes críticos",
+  2391: "{n} feitiço lançado|{n} feitiços lançados",
 };

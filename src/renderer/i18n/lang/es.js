@@ -1259,4 +1259,9 @@ export default {
   2384: "Cofres del tesoro ×3 en el camino.",
   2385: "Encontrar {n} cofre del tesoro|Encontrar {n} cofres del tesoro",
   2386: "hoy {0}",
+  2387: "{0} · balance: {1}",
+  2388: "{n} monstruo derrotado|{n} monstruos derrotados",
+  2389: "{n} élite derrotada|{n} élites derrotadas",
+  2390: "{n} golpe crítico|{n} golpes críticos",
+  2391: "{n} hechizo lanzado|{n} hechizos lanzados",
 };
