@@ -20,7 +20,7 @@ import { t as tx } from "./i18n/index.js";
 import { todoLabel } from "./ui/todo.js";
 import { CLASSES } from "./game/classes.js";
 import { PET_INDEX } from "./game/pets.js";
-import { activeDayMod } from "./game/daymods.js";
+import { activeDayMod, DAY_MODS } from "./game/daymods.js";
 import { Game } from "./game/game.js";
 import { freshState, migrate, SAVE_VERSION } from "./game/state.js";
 import { reachedAchievements, ACHIEVEMENTS } from "./game/achievements.js";
@@ -470,6 +470,8 @@ async function boot() {
 
   /* ---------- Démo des effets (dev) : --demo ---------- */
   if (init.isDev) window.__panel = panel; // auto-test (dev)
+  // (it. 940) --overflow-report mesure le panneau sous chaque bénédiction du jour
+  if (init.isDev) window.__dayMods = Object.keys(DAY_MODS);
   // (it. 765) Dev (npm start) : affichages lents signalés dans le terminal (panel.slowProbe), avec le détail des images
   // longues (script / style et mise en page) quand le navigateur le fournit.
   if (init.isDev && !init.crawl) {

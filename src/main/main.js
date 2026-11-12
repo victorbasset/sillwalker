@@ -219,9 +219,12 @@ function start() {
               S.unlocks[last] = true; S.gold = keepG; } }
           // (it. 939) Statistiques sous chaque bénédiction du jour : « aujourd'hui … » allonge certaines valeurs (coffre,
           // élite, gobelin) ; « Schatztruhe » passait sous sa valeur les Jours des trésors seulement (défaut intermittent)
-          if (P.tabs.stats) { const D = window.__game.S.daily, km = D.mod; P.setTab("stats"); P.tabs.stats.sec = "numbers";
-            for (const m of ["treasure", "hunt", "goblins", "marvels"]) { D.mod = m; window.__game.invalidateStats(); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("stats-" + m + "=" + o);
-              let c = 0; for (const sp of document.querySelectorAll("[data-pane=stats]:not([hidden]) .lines li > span:first-child")) if (sp.getClientRects().length && sp.scrollWidth > sp.clientWidth + 1) c++; if (c) out.push("stats-" + m + "-chevauche=" + c); }
+          // (it. 940) toutes les bénédictions, Aventure (puce de la bénédiction) comprise
+          { const D = window.__game.S.daily, km = D.mod;
+            for (const t of ["adventure", "stats"]) { if (!P.tabs[t]) continue; P.setTab(t); if (t === "stats") P.tabs.stats.sec = "numbers";
+              for (const m of window.__dayMods || []) { D.mod = m; window.__game.invalidateStats(); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(t + "-" + m + "=" + o);
+                let c = 0; for (const sp of document.querySelectorAll("[data-pane=" + t + "]:not([hidden]) .lines li > span:first-child")) if (sp.getClientRects().length && sp.scrollWidth > sp.clientWidth + 1) c++; if (c) out.push(t + "-" + m + "-chevauche=" + c);
+                for (const e of document.querySelectorAll("[data-pane=" + t + "]:not([hidden]) .chip")) if (e.getClientRects().length && e.scrollWidth > e.clientWidth + 1) out.push(t + "-" + m + "-puce-coupée"); } }
             D.mod = km; window.__game.invalidateStats(); }
           P.kept.clear(); P.setTab("adventure"); P.renderAll();
           for (const k of ["hero-todo", "hero-chron", "hero-stats", "rates"]) {

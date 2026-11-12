@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 940) : suite de l'it. 939, chasse aux défauts qui ne se voient que certains jours. --overflow-report
+  (donc lang-overflow) rend maintenant l'Aventure (puce de la bénédiction, desc. de 12 à 38 caractères) et les
+  Statistiques sous CHACUNE des 9 bénédictions (liste exposée en dev : window.__dayMods), et signale aussi une puce
+  coupée. 10 langues × 3 largeurs : aucun défaut ; sans le remède de l'it. 939, seul « stats-treasure-chevauche=1 »
+  ressort (la boucle passe bien par tous les jours). Autotest 195/195.
 - 2026-11-12 (it. 939) : trouvé le défaut intermittent des Statistiques (it. 920, 935, 936) : il dépendait du JOUR.
   Les jours de bénédiction qui touchent aux coffres, élites ou gobelins, la valeur gagne « · aujourd'hui … » ; elle ne
   passait jamais à la ligne (b en nowrap) et écrasait son libellé (« Schatztruhe » sous « 0,2 % · Elite 1,5 % · Boss
