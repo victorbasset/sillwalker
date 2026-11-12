@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 978) : Statistiques : line() fait passer elle-même toute valeur texte contenant « · » par segs() (retour
+  à la ligne entre les segments, it. 939) : un oubli comme « Sorts lancés » (it. 976, chevauchement en russe) ne peut
+  plus se reproduire. 10 langues × 3 largeurs sans défaut ; autotest 200/200.
 - 2026-11-12 (it. 977) : « Quoi de neuf », édition 43 : bilan du retour (or des expéditions, quêtes accomplies),
   temps restant des quêtes d'élites et de proie, bande plus légère (halos). Le nom du Grand intendant repris tel que
   chaque langue le traduit (es « Gran intendente », ru « Великий управитель »). 10 langues ; aucun défilement ;

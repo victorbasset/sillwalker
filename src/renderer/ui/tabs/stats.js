@@ -54,9 +54,10 @@ export class StatsTab {
 
   render(el) {
     const S = this.game.S, st = S.stats, P = S.prestige;
-    const line = (label, value) => `<li><span>${esc(label)}</span><b>${value}</b></li>`;
     // (it. 849) Probabilités : la valeur ne se coupe qu'aux « · » (en allemand, « Boss 5 » et « % » se séparaient)
     const segs = (v) => v.split(" · ").map((x) => `<span class="nw">${x}</span>`).join(" · ");
+    // (it. 978) toute valeur texte à « · » passe par segs() (« Sorts lancés » avait été oublié : chevauchement en russe)
+    const line = (label, value) => `<li><span>${esc(label)}</span><b>${typeof value === "string" && value.includes(" · ") && !value.includes("<") ? segs(value) : value}</b></li>`;
     // (it. 893) taux du jour quand il diffère de la base (bénédiction du jour, Appât des champions) : « 6 % · aujourd'hui 18 % »
     const dm = activeDayMod(S), today = (base, mul) => (mul !== 1 ? " · " + tx("aujourd’hui {0}", { 0: pct(base * mul) }) : "");
     const eliteMul = (dm?.elite || 1) * (1 + (this.game.stats().elites || 0) / 100);
