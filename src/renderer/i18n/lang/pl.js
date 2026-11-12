@@ -1258,4 +1258,5 @@ export default {
   2383: "Dzień skarbów",
   2384: "Skrzynie ze skarbami ×3 na drodze.",
   2385: "Znajdź {n} skrzynię ze skarbami|Znajdź {n} skrzynie ze skarbami|Znajdź {n} skrzyń ze skarbami",
+  2386: "dziś {0}",
 };

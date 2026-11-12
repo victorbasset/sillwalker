@@ -1258,4 +1258,5 @@ export default {
   2383: "Day of Treasures",
   2384: "Treasure chests ×3 along the way.",
   2385: "Find {n} treasure chest|Find {n} treasure chests",
+  2386: "today {0}",
 };

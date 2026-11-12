@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 893) : Statistiques > Probabilités, les taux d'élite, de gobelin doré et de coffre au trésor
+  donnent aussi le taux du jour quand il diffère (« Élite : 6 % par monstre · aujourd'hui 18 % » un jour de Grande
+  chasse ; Appât des champions compris ; Fête des gobelins ; Jour des trésors) : avant, la page affichait la base,
+  fausse ces jours-là. Mémoire dans la durée (mem-watch 12 min à ×10, première mesure depuis l'it. 731) : 535 → 519 Mo
+  réels, sans pente. Traduit dans les 10 langues ; contrôle d'autotest (taux du jour, sans défilement à 1280 px ;
+  180/180) ; vu en capture (allemand, 1280 px).
 - 2026-11-12 (it. 892) : bande, l'étiquette d'affixe d'une élite de la file (souvent un monstre volant, plus haut)
   ne passe plus sous le nom du boss, qui s'étend vers la gauche (« Furieux » sur « Carapace-des-Abysses ») : elle se
   place alors sous son monstre. Mesuré seulement quand la série ou la place du nom change, jamais à chaque image.

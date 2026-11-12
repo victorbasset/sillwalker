@@ -2387,5 +2387,6 @@ export const KEYS = [
   "Le « Grand intendant » s’occupe des familiers même pendant un long combat de boss ; « À faire maintenant » signale les familiers libres ; thème clair plus lisible.",
   "Jour des trésors",
   "Coffres au trésor ×3 sur le chemin.",
-  "Trouver {n} coffre au trésor|Trouver {n} coffres au trésor"
+  "Trouver {n} coffre au trésor|Trouver {n} coffres au trésor",
+  "aujourd’hui {0}"
 ];

@@ -10,6 +10,7 @@ import { SET_KEYS, SETS } from "../../game/sets.js";
 import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
 import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
+import { activeDayMod } from "../../game/daymods.js";
 
 import { fmt, fmtShort, esc, dec, unit, uH, uMin } from "../../game/format.js";
 const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)) + unit("%");
@@ -53,6 +54,9 @@ export class StatsTab {
     const line = (label, value) => `<li><span>${esc(label)}</span><b>${value}</b></li>`;
     // (it. 849) Probabilités : la valeur ne se coupe qu'aux « · » (en allemand, « Boss 5 » et « % » se séparaient)
     const segs = (v) => v.split(" · ").map((x) => `<span class="nw">${x}</span>`).join(" · ");
+    // (it. 893) taux du jour quand il diffère de la base (bénédiction du jour, Appât des champions) : « 6 % · aujourd'hui 18 % »
+    const dm = activeDayMod(S), today = (base, mul) => (mul !== 1 ? " · " + tx("aujourd’hui {0}", { 0: pct(base * mul) }) : "");
+    const eliteMul = (dm?.elite || 1) * (1 + (this.game.stats().elites || 0) / 100);
     const reached = earnedAchievements(S); // déjà obtenus compris : un ajout de contenu ne retire pas d'étoile
     const ach = ACHIEVEMENTS.map((a) => {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
@@ -103,14 +107,14 @@ export class StatsTab {
       <article class="panel wide"><h2><span class="hicon"><img src="${shopIconURL("luck", 3)}" alt="">${tx("Probabilités")}</span></h2><ul class="lines">
         ${line(tx("Plume du vent (+1 % de vitesse)"), segs(`${pct(FEATHER.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(FEATHER.elite), 1: pct(FEATHER.boss) })}`))}
         ${line(tx("Étoile filante (+2 % de vitesse)"), segs(`${tx("toutes les {0}–{1} min", { 0: STAR.minS / 60, 1: STAR.maxS / 60 })}`))}
-        ${line(tx("Coffre au trésor"), segs(`${pct(CHEST.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(CHEST.elite), 1: pct(CHEST.boss) })}`))}
+        ${line(tx("Coffre au trésor"), segs(`${pct(CHEST.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(CHEST.elite), 1: pct(CHEST.boss) })}${today(CHEST.normal, dm?.chest || 1)}`))}
         ${(() => { // les événements en une ligne (sinon la liste fait défiler l'onglet) : le détail au survol
           // ✓ : déjà vu (succès « Chasseur d'événements ») ; (vus / total)
           const ent = Object.entries(EVENTS), ev = ent.map(([, e]) => e), cs = ev.map((e) => e.chance), seen = st.eventsSeen || {};
           const nSeen = ent.filter(([id]) => seen[id]).length;
           return `<li title="${esc(ent.map(([id, e]) => `${seen[id] ? "✓" : "·"} ${e.name}${colon()}${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span></span><b>${segs(`${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}`)}</b></li>`; })()}
-        ${line(tx("Gobelin doré"), segs(pct(GOBLIN.chance) + tx(" par monstre")))}
-        ${line(tx("Élite"), segs(pct(ELITE.chance) + tx(" par monstre")))}
+        ${line(tx("Gobelin doré"), segs(pct(GOBLIN.chance) + tx(" par monstre") + today(GOBLIN.chance, dm?.goblin || 1)))}
+        ${line(tx("Élite"), segs(pct(ELITE.chance) + tx(" par monstre") + today(ELITE.chance, eliteMul)))}
         ${line(tx("Champion (butin épique, dès la zone {0})", { 0: CHAMPION.minZone }), segs(pct(CHAMPION.chance) + tx(" par monstre")))}
         ${line(tx("Œuf"), segs(`${tx("boss {0} · élite {1}", { 0: pct(EGG_CHANCE.boss), 1: pct(EGG_CHANCE.elite) })}`))}
       </ul></article>

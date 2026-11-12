@@ -1258,4 +1258,5 @@ export default {
   2383: "Dia dos tesouros",
   2384: "Baús do tesouro ×3 pelo caminho.",
   2385: "Encontrar {n} baú do tesouro|Encontrar {n} baús do tesouro",
+  2386: "hoje {0}",
 };

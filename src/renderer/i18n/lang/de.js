@@ -1258,4 +1258,5 @@ export default {
   2383: "Tag der Schätze",
   2384: "Schatztruhen ×3 am Wegesrand.",
   2385: "{n} Schatztruhe finden|{n} Schatztruhen finden",
+  2386: "heute {0}",
 };
