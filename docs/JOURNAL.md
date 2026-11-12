@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 907) : panneau Équipement, un emplacement vide pour lequel le sac contient un objet est en
+  pointillés verts, et un clic dessus ouvre la fiche du meilleur objet du sac pour cet emplacement (« Emplacement
+  vide : à équiper ! », bouton Équiper). Vu sur une partie neuve à 2 minutes : une hache rare dans le sac, rien
+  d'équipé, le héros à mains nues tant que le double-clic n'est pas découvert. Reste une action manuelle (« Équiper
+  le meilleur » reste un déblocage). Traduit dans les 10 langues ; contrôle d'autotest (183/183) ; vu en capture.
 - 2026-11-12 (it. 906, fiabilité) : boucles « while » du jeu passées en revue après le blocage de l'it. 905 : toutes
   bornées (nombre maximal, prix croissant, pas de temps plafonné) ou nettoyées au chargement ; rien à corriger.
   L'échec isolé de l'autotest (it. 904) ne s'est pas reproduit en sept passages ; pour ne plus le perdre, le lanceur

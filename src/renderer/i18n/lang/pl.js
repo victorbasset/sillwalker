@@ -1272,4 +1272,5 @@ export default {
   2397: "Rój gwiazd",
   2398: "Spadające gwiazdy lecą jedna po drugiej: łap je!",
   2399: "{n} złapana spadająca gwiazda|{n} złapane spadające gwiazdy|{n} złapanych spadających gwiazd",
+  2400: "Kliknij: najlepszy przedmiot z torby na to miejsce",
 };

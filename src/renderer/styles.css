@@ -563,6 +563,8 @@ details.more summary:hover { color: var(--accent); }
 .eqline .slot { flex: none; width: 44px; }
 .slot img.ghost { filter: grayscale(1); opacity: .28; }
 .slot.emptyslot { background: transparent; box-shadow: none; }
+/* (it. 907) emplacement vide avec un objet possible dans le sac : pointillés verts (un clic ouvre sa fiche) */
+.slot.emptyslot.cand { border-color: var(--good); cursor: pointer; }
 .eqline .si { min-width: 0; }
 .eqline .nm { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
 .eqline .nm.empty { color: var(--muted); }

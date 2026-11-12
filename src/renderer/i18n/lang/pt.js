@@ -1272,4 +1272,5 @@ export default {
   2397: "Revoada de estrelas",
   2398: "As estrelas cadentes se sucedem: pegue-as!",
   2399: "{n} estrela cadente pega|{n} estrelas cadentes pegas",
+  2400: "Clique: o melhor item da bolsa para este espaço",
 };

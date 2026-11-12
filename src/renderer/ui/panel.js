@@ -681,7 +681,8 @@ export class Panel {
 
   slotBtn(it, slotKey, from) {
     // Emplacement vide : silhouette grisée de l'objet attendu (même taille qu'un objet), plutôt qu'un mot tassé.
-    if (!it) return `<button class="slot emptyslot" data-action="sel" data-from="equip" data-slot="${slotKey}" aria-label="${esc(tx("{0} : vide", { 0: SLOTS[slotKey].name }))}" title="${esc(tx("{0} : vide", { 0: SLOTS[slotKey].name }))}"><img class="ghost" src="${itemIconURL({ slot: slotKey, r: 0 })}" alt=""></button>`;
+    if (!it) { const has = this.game.S.bag.some((x) => x && x.slot === slotKey), tip = tx("{0} : vide", { 0: SLOTS[slotKey].name }) + (has ? "\n" + tx("Clic : le meilleur objet du sac pour cet emplacement") : "");
+      return `<button class="slot emptyslot${has ? " cand" : ""}" data-action="sel" data-from="equip" data-slot="${slotKey}" aria-label="${esc(tip)}" title="${esc(tip)}"><img class="ghost" src="${itemIconURL({ slot: slotKey, r: 0 })}" alt=""></button>`; }
     const sel = this.selected && ((this.selected.from === "equip" && this.selected.slot === slotKey && from === "equip") ||
       (this.selected.from === "bag" && this.selected.id === it.id && from === "bag"));
     const up = from === "bag" && this.game.isUpgrade(it);
@@ -1048,7 +1049,12 @@ export class Panel {
     switch (a) {
       case "sel":
         this.selected = b.dataset.from === "bag" ? { from: "bag", id: +b.dataset.id } : { from: "equip", slot: b.dataset.slot };
-        if (b.dataset.from === "equip" && !g.S.equip[b.dataset.slot]) this.selected = null;
+        if (b.dataset.from === "equip" && !g.S.equip[b.dataset.slot]) {
+          // (it. 907) emplacement vide : la fiche du meilleur objet du sac pour cet emplacement (bouton « Équiper »)
+          const cands = g.S.bag.filter((x) => x && x.slot === b.dataset.slot);
+          const best = cands.sort((x, y) => g.upgradeDelta(y) - g.upgradeDelta(x))[0];
+          this.selected = best ? { from: "bag", id: best.id } : null;
+        }
         break;
       case "desel": this.selected = null; break;
       case "equip": if (it) { g.equip(it); this.selected = { from: "equip", slot: it.slot }; } break;

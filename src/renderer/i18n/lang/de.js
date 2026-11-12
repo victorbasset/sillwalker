@@ -1272,4 +1272,5 @@ export default {
   2397: "Sternenschwarm",
   2398: "Sternschnuppen folgen aufeinander: fang sie!",
   2399: "{n} Sternschnuppe gefangen|{n} Sternschnuppen gefangen",
+  2400: "Klick: der beste Gegenstand aus der Tasche für diesen Platz",
 };

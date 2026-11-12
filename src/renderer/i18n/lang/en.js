@@ -1272,4 +1272,5 @@ export default {
   2397: "Star Swarm",
   2398: "Shooting stars come one after another: catch them!",
   2399: "{n} shooting star caught|{n} shooting stars caught",
+  2400: "Click: the best item in your bag for this slot",
 };

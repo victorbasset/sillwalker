@@ -2401,5 +2401,6 @@ export const KEYS = [
   "La carte du héros montre l’effet de la bénédiction du jour ; le résumé de retour compte aussi coffres et événements.",
   "Nuée d’étoiles",
   "Les étoiles filantes se suivent : attrape-les !",
-  "{n} étoile filante attrapée|{n} étoiles filantes attrapées"
+  "{n} étoile filante attrapée|{n} étoiles filantes attrapées",
+  "Clic : le meilleur objet du sac pour cet emplacement"
 ];

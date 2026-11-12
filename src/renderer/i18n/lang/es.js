@@ -1272,4 +1272,5 @@ export default {
   2397: "Enjambre de estrellas",
   2398: "Las estrellas fugaces se suceden: ¡atrápalas!",
   2399: "{n} estrella fugaz atrapada|{n} estrellas fugaces atrapadas",
+  2400: "Clic: el mejor objeto de la bolsa para esta ranura",
 };
