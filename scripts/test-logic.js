@@ -1643,6 +1643,19 @@ test("Nuée d'étoiles : les étoiles se suivent pendant l'événement, puis le 
   assert.ok(g.S.log.some((l) => /bilan|summary/.test(l) && /étoile|star/i.test(l)) || seen > 0);
 });
 
+test("quêtes : temps restant estimé au rythme des combats (it. 926)", () => {
+  const g = new Game(freshState()); g.S.zone = 10;
+  const q = { uid: 1, kind: "kill", goal: 100, progress: 40, stars: 1, reward: { gold: 1 } };
+  assert.equal(g.questEta(q), null, "trop peu de victoires : inconnu");
+  g.R.pace = Array.from({ length: 21 }, (_, i) => [i * 3, 50]); // une victoire toutes les 3 s, 50 or chacune
+  assert.ok(Math.abs(g.questEta(q) - 180) < 1e-6, "60 victoires restantes à 3 s : 180 s");
+  assert.ok(Math.abs(g.questEta({ ...q, kind: "gold", goal: 1000, progress: 0 }) - 60) < 1e-6, "1000 or à 50 or / 3 s");
+  const t = g.zoneDef().monsters;
+  assert.ok(Math.abs(g.questEta({ ...q, kind: "hunt", type: t[0], goal: 10, progress: 0 }) - 30 * t.length) < 1e-6, "chasse : une victoire sur " + t.length);
+  assert.equal(g.questEta({ ...q, kind: "boss" }), null);
+  assert.equal(g.questEta({ ...q, progress: 100 }), null, "finie");
+});
+
 test("événement rare : bilan dans le journal à la fin (it. 894)", () => {
   const g = new Game(freshState()); g.S.zone = 10;
   assert.ok(g.startEvent("bloodmoon"));

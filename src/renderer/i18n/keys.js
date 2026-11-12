@@ -2410,5 +2410,6 @@ export const KEYS = [
   "Le ciel change avec les événements : rouge sous la « Lune de sang », constellé pendant la « Nuée d’étoiles » (bande et mode mini).",
   "« Bestiaire » : nouveau sous-onglet « Événements rares », ceux déjà vus et ceux qui restent à découvrir.",
   "« Statistiques » : un clic sur « Événements rares » y mène directement.",
-  "Demain : {0}"
+  "Demain : {0}",
+  "≈ {0}"
 ];

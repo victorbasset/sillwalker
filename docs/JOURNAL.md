@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 926) : les quêtes qui avancent au rythme des combats (victoires, chasse, or) donnent le temps
+  restant estimé à côté de la progression (« 4442 / 9000 · ≈ 13 h 18 min »), d'après les 60 dernières victoires
+  (chasse : une victoire sur le nombre de types de la zone) ; rien tant que le rythme n'est pas connu, ni au-delà de
+  48 h. Un objectif proche qui se chiffre. Traduit dans les 10 langues ; test logique ; autotest 190/190 ; vu en
+  capture (allemand, 1280 px).
 - 2026-11-12 (it. 925) : Statistiques, temps de jeu et temps hors ligne sans les minutes dès qu'il y a des jours
   (« 1 j 23 h » au lieu de « 1 j 23 h 10 min ») : la valeur reste courte même après des semaines ; en russe à 1280 px,
   « Засчитанное офлайн-время » pouvait passer sous elle (vu une fois à l'it. 920). Pire cas mesuré (12 jours hors

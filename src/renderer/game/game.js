@@ -875,6 +875,8 @@ export class Game {
     const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
     S.gold += gold;
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
+    // (it. 926) rythme récent (60 dernières victoires) : estimation du temps restant des quêtes (questEta)
+    (R.pace ||= []).push([R.time, gold]); if (R.pace.length > 60) R.pace.shift();
     // Pluie d'éclats : un éclat d'étoile de temps en temps (compte aussi dans la lueur stellaire).
     if ((R.events.shardfall || 0) > 0 && rand() < SHARDFALL_CHANCE) { S.prestige.shards++; S.prestige.total++; this.emit("shardDrop"); this.autoConstellations(); }
     if (m.boss) S.stats.biggestBoss = Math.max(S.stats.biggestBoss || 0, S.zone);
@@ -1989,6 +1991,22 @@ export class Game {
     if (!this.R.autoClaim || !hasUnlock(this.S, "questDesk")) return;
     this.R.autoClaim = false;
     for (const q of [...this.S.quests.slots]) if (questDone(q)) this.claimQuest(q.uid);
+  }
+
+  /**
+   * (it. 926) Temps restant estimé (secondes) d'une quête qui avance au rythme des combats (victoires, chasse, or),
+   * d'après les 60 dernières victoires ; null si inconnu (trop peu de victoires, autre sorte de quête, finie).
+   */
+  questEta(q) {
+    const P = this.R.pace || [];
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold"].includes(q.kind)) return null;
+    const dt = P[P.length - 1][0] - P[0][0];
+    if (!(dt > 0)) return null;
+    const left = q.goal - q.progress;
+    if (q.kind === "gold") { const g = P.slice(1).reduce((a, x) => a + x[1], 0) / dt; return g > 0 ? left / g : null; }
+    let rate = (P.length - 1) / dt; // victoires par seconde
+    if (q.kind === "hunt") { const types = this.zoneDef().monsters; if (!types.includes(q.type)) return null; rate /= types.length; }
+    return left / rate;
   }
 
   questProgress(kind, n, type) {

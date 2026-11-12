@@ -1281,4 +1281,5 @@ export default {
   2406: "„Bestiariusz”: nowa podkarta „Rzadkie zdarzenia” – te już widziane i te jeszcze do odkrycia.",
   2407: "„Statystyki”: kliknięcie w „Rzadkie zdarzenia” prowadzi prosto tam.",
   2408: "Jutro: {0}",
+  2409: "≈ {0}",
 };

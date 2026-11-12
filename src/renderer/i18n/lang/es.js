@@ -1281,4 +1281,5 @@ export default {
   2406: "«Bestiario»: nueva subpestaña «Eventos raros», con los ya vistos y los que quedan por descubrir.",
   2407: "«Estadísticas»: un clic en «Eventos raros» te lleva directamente.",
   2408: "Mañana: {0}",
+  2409: "≈ {0}",
 };

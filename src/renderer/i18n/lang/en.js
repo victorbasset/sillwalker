@@ -1281,4 +1281,5 @@ export default {
   2406: "“Bestiary”: new “Rare events” sub-tab, with the ones you have seen and those still to discover.",
   2407: "“Statistics”: one click on “Rare events” takes you straight there.",
   2408: "Tomorrow: {0}",
+  2409: "≈ {0}",
 };

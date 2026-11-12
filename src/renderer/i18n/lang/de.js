@@ -1281,4 +1281,5 @@ export default {
   2406: "„Bestiarium“: neuer Reiter „Seltene Ereignisse“, mit den schon gesehenen und den noch unbekannten.",
   2407: "„Statistiken“: ein Klick auf „Seltene Ereignisse“ führt direkt dorthin.",
   2408: "Morgen: {0}",
+  2409: "≈ {0}",
 };

@@ -5,7 +5,7 @@ import { questText, questDone, questRerollPrice, guildRank, guildRankName, GUILD
 import { CONSUMABLES } from "../../game/shop.js";
 import { RARITIES } from "../../game/data.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, esc } from "../../game/format.js";
+import { fmt, esc, durText } from "../../game/format.js";
 import { shopIconURL, spellIconURL } from "../../render/shopart.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { lockLink } from "../locks.js";
@@ -63,11 +63,13 @@ export class QuestsTab {
     const cards = slots.map((q) => {
       const done = questDone(q), pct = Math.min(100, (100 * q.progress) / q.goal), stars = q.stars || 1;
       const prog = q.kind === "gold" ? `${fmt(q.progress)} / ${fmt(q.goal)}` : `${Math.min(q.progress, q.goal)} / ${q.goal}`;
+      const eta = g.questEta(q); // (it. 926) au rythme actuel des combats
+      const etaTxt = eta != null && eta < 48 * 3600 ? ` <small class="eta">· ${esc(tx("≈ {0}", { 0: durText(Math.max(60, eta)) }))}</small>` : "";
       return `<article class="panel questcard s${stars}${done ? " done" : ""}">
         <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)(S)}" alt=""><div>
           <div class="stars">${"★".repeat(stars)}<span>${"★".repeat(3 - stars)}</span></div>
           <h2>${esc(questText(q, fmt))}</h2></div></div>
-        <div class="kv"><span>${tx("Progression")}</span><span>${prog}</span></div>
+        <div class="kv"><span>${tx("Progression")}</span><span>${prog}${etaTxt}</span></div>
         <div class="bar"><i style="width:${pct}%"></i></div>
         <div class="rewards">${rewardHTML(q.reward)}</div>
         <div class="row">${done

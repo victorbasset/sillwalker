@@ -1281,4 +1281,5 @@ export default {
   2406: "«Bestiário»: nova subaba «Eventos raros», com os já vistos e os que ainda faltam descobrir.",
   2407: "«Estatísticas»: um clique em «Eventos raros» leva direto até lá.",
   2408: "Amanhã: {0}",
+  2409: "≈ {0}",
 };
