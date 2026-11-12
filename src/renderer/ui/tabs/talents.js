@@ -64,7 +64,7 @@ export class TalentsTab {
 
     const canVoie = !voie && spentAll >= VOIE_REQ;
     const head = `<article class="panel tdetail">
-      <h2>${esc(g.classDef().name)} <small>${txn(free, "{n} point libre · {0} au total|{n} points libres · {0} au total", { 0: total })}</small></h2>
+      <h2>${esc(g.classDef().name)} <small>${txn(free, "{n} point libre · {0} au total|{n} points libres · {0} au total", { 0: fmt(total) })}</small></h2>
       ${hasUnlock(g.S, "bulkPoints") ? `<div class="row"><button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button></div>` : `<div class="row">${lockLink(g.S, "bulkPoints")}</div>`}
       ${hasUnlock(g.S, "autoLevel") ? `<label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>` : ""}
       ${canVoie ? `<p class="note warnline">${tx("✦ Une voie est disponible : choisis-la dans le cadre « Voie ».")}</p>` : ""}

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 871) : revue générale (contre ca7e9f9, it. 861) : équilibrage 12 h +0,0 (61,9) ; 1200 parties, 0 bloquée ;
+  npm test vert ; bande 19,5 %, panneau 20,0 %, mini 6,3 %, icône 0,5 % (copie neuve, rien d'autre en cours : une
+  première mesure prise pendant l'équilibrage donnait 25 %) ; captures fr / en / ja (Aventure, Héros, Talents, Boutique,
+  Ascension, Compétences, Statistiques, mini) ; texte russe sans mot latin suspect. Corrigé : les nombres des phrases au
+  pluriel n'avaient pas de séparateur des milliers (« 1322 au total » dans Talents, « 1322 talent points spent » dans
+  Héros) : « 1 322 », « 1,322 », selon la langue, partout où txn() reçoit un nombre brut. Un test logique (209),
+  175/175, vu en capture (français, anglais).
 - 2026-11-12 (it. 870) : « Quoi de neuf » édition 33 : les nouveautés des it. 836-869 n'avaient jamais été annoncées
   aux joueurs (itch.io) : travail pendant l'absence de l'Herboriste perpétuel, du Marchand attitré et du Grimoire des
   sorts ; Carte du Rebord, Compétences et Talents au clavier (Maj + Entrée) ; rappel des éclats d'étoile dans « À faire

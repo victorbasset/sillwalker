@@ -2970,4 +2970,20 @@ test("objets : ligne « Arme · Peu commun · niveau 55 », sans accord ni ordre
   } finally { setLang(before); }
 });
 
+test("pluriels : txn sépare les milliers de {n} selon la langue (it. 871 : « 1322 points » sur Talents et Héros)", () => {
+  const before = getLang(), K = "{n} objet gardé.|{n} objets gardés.";
+  try {
+    setLang("fr");
+    assert.equal(txn(1322, K).replace(/\s/g, " "), "1 322 objets gardés.");
+    assert.equal(txn(999, K), "999 objets gardés.");
+    setLang("en");
+    assert.equal(txn(1322, K), "1,322 items kept.");
+    setLang("ru");
+    assert.equal(txn(1321, K).replace(/\s/g, " "), "сохранён 1 321 предмет.");
+    // une valeur {n} déjà fournie (mise en forme par l'appelant) reste telle quelle
+    setLang("fr");
+    assert.equal(txn(1322, K, { n: "<b>1322</b>" }), "<b>1322</b> objets gardés.");
+  } finally { setLang(before); }
+});
+
 console.log(`\n${pass} tests réussis`);
