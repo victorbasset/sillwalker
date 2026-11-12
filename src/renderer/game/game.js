@@ -2069,6 +2069,7 @@ export class Game {
     this.emit("egg");
     // (it. 884) le Grand intendant le fera éclore : pas d'invitation à le faire soi-même
     const steward = hasUnlock(this.S, "steward") && this.S.settings.autoPets !== false;
+    if (steward) this._petT = 0; // (it. 908) il passe dès la seconde suivante (sinon jusqu'à 5 s d'œufs « en attente »)
     this.logRepeat(steward ? tx("Un œuf !") : tx("Un œuf ! Fais-le éclore dans l’onglet Familiers."));
     this.changed();
   }
@@ -2131,7 +2132,8 @@ export class Game {
     if (sp2) out.push({ id: "partnerSpell", n: 1, tab: "class", sec: "style", name: sp2.name });
     // (it. 868) éclats d'étoile gagnés hors ascension (quêtes, pluie d'éclats) ou laissés : un rang de constellation abordable
     if (this.constellationAffordable()) out.push({ id: "stars", n: S.prestige.shards, tab: "ascension" });
-    if (S.pets.eggs > 0 && hasUnlock(S, "menagerie")) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
+    // (it. 908) pas quand le Grand intendant les fait éclore lui-même (comme les familiers libres, it. 876)
+    if (S.pets.eggs > 0 && hasUnlock(S, "menagerie") && !(hasUnlock(S, "steward") && S.settings.autoPets !== false)) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
     if (this.bagFull()) out.push({ id: "bagFull", n: this.uselessItems().length, tab: "adventure" }); // le butin suivant serait vendu d'office
     const fin = this.setFinisher();
     if (fin) out.push({ id: "setFinish", n: 1, tab: "adventure", name: SETS[fin.set].name, itemId: fin.id });

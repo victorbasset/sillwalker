@@ -1256,6 +1256,10 @@ test("Grand intendant : œufs éclos, expéditions récupérées et relancées (
   // le journal n'invite plus à faire éclore soi-même
   g.gainEgg();
   assert.ok(!/Familiers|Pets/.test(g.S.log[0]), g.S.log[0]);
+  // (it. 908) l'œuf n'entre pas dans « À faire » et éclot dès la seconde suivante
+  assert.ok(!g.todoNow().some((t) => t.id === "eggs"), "pas d'œuf à faire éclore soi-même");
+  g._petT = Date.now(); g.gainEgg(); g.step(1.01);
+  assert.equal(g.S.pets.eggs, 0, "éclos à la seconde suivante");
 });
 
 test("conseil panoplie : à la première pièce trouvée", () => {
@@ -2273,7 +2277,7 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
   const g = new Game(freshLocked());
   {
     // Nichée : des œufs pendant l'événement, seulement onglet Familiers ouvert
-    const gn = new Game(freshState()); gn.S.pets.owned = {}; gn.S.tabsOpen = {}; gn.S.best = 1;
+    const gn = new Game(freshState()); gn.S.pets.owned = {}; gn.S.tabsOpen = {}; gn.S.best = 1; gn.S.settings.autoPets = false; // (it. 908) sinon le Grand intendant les fait éclore aussitôt
     assert.ok(!M_events_js.EVENTS.nest.req(gn.S), "pas de Nichée avant les familiers");
     gn.S.tabsOpen = { ...(gn.S.tabsOpen || {}), pets: true }; gn.S.best = 60; gn.S.level = 60;
     if (M_events_js.EVENTS.nest.req(gn.S)) {

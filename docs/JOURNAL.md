@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 908) : avec le Grand intendant, les œufs gagnés n'apparaissent plus dans « À faire maintenant »
+  (résumé de retour, carte du héros, mode mini) : il les fait éclore lui-même, comme il envoie les familiers libres en
+  expédition (it. 876). Et il passe dès la seconde qui suit l'arrivée d'un œuf, au lieu d'attendre jusqu'à 5 s
+  (« 6 œufs en attente » vus à la revue 901). Tests logiques adaptés (Nichée sans l'intendant) ; contrôle d'autotest
+  du résumé de retour lancé sans l'intendant (183/183).
 - 2026-11-12 (it. 907) : panneau Équipement, un emplacement vide pour lequel le sac contient un objet est en
   pointillés verts, et un clic dessus ouvre la fiche du meilleur objet du sac pour cet emplacement (« Emplacement
   vide : à équiper ! », bouton Équiper). Vu sur une partie neuve à 2 minutes : une hache rare dans le sac, rien

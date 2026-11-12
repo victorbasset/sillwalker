@@ -489,7 +489,7 @@ async function runSelfTest(strip) {
   await click('.bjump [data-to="beasts"]');
   await sleep(200);
   // Résumé d'absence : « À faire maintenant » mène droit à l'onglet (ici les œufs → Familiers).
-  await js("delete window.__game.S.unlocks.bulkPoints; delete window.__game.S.unlocks.armsValet; window.__game.S.gold = Math.max(window.__game.S.gold, 1e9); window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, forged: 12, anviled: 2, transmuted: 3, petWork: 7, herbs: 114, traded: 5, spells: 37, elites: 87, steps: [{ t: Date.now(), k: 'lvl', v: 100 }], bestItemId: (window.__game.S.bag[0] || {}).id })");
+  await js("window.__keepAutoPets = window.__game.S.settings.autoPets; window.__game.S.settings.autoPets = false; delete window.__game.S.unlocks.bulkPoints; delete window.__game.S.unlocks.armsValet; window.__game.S.gold = Math.max(window.__game.S.gold, 1e9); window.__game.S.pets.eggs = Math.max(1, window.__game.S.pets.eggs); window.__showOffline({ duration: '2 h 5 min', zone: 'Zone', kills: 1234, gold: 56789, xp: 4321, newLevel: 0, kept: 3, best: 3, feathers: 1, chests: 1, capped: true, capH: 10, forged: 12, anviled: 2, transmuted: 3, petWork: 7, herbs: 114, traded: 5, spells: 37, elites: 87, steps: [{ t: Date.now(), k: 'lvl', v: 100 }], bestItemId: (window.__game.S.bag[0] || {}).id })");
   check("retour d'absence : étape du carnet franchie (résumé et bulle)", await js("!!document.querySelector('#mbody .step') && /✦/.test(window.__stepLine({ steps: [{ t: 1, k: 'lvl', v: 100 }] }))"));
   await sleep(300);
   const todo = await js("[...document.querySelectorAll('#modal:not([hidden]) .linkbtn[data-tab]')].map((b) => b.dataset.tab)");
@@ -500,6 +500,8 @@ async function runSelfTest(strip) {
   await js("document.querySelector('#modal .linkbtn[data-action=todo-do][data-what=eggs]')?.click()");
   await sleep(150);
   check("retour d'absence : œufs éclos d'un clic, résumé ouvert", eggsBefore > 0 && (await state("S.pets.eggs")) === 0 && !(await js("document.querySelector('#modal').hidden")), `${eggsBefore} -> ${await state("S.pets.eggs")}`);
+  // (it. 908) le Grand intendant a été coupé pour ce contrôle (avec lui, les œufs ne sont plus « à faire »)
+  await js("window.__game.S.settings.autoPets = window.__keepAutoPets");
   check("retour d'absence : travail des automatismes affiché", (await js("document.querySelectorAll('#modal:not([hidden]) li').length")) >= 10);
   // (it. 834) le Forgeron des astres a sa ligne (avant : seulement dans le journal)
   check("retour d'absence : objets remontés par le Forgeron des astres", await js("[...document.querySelectorAll('#modal:not([hidden]) .lines li')].some((li) => /^\\+2\\s/.test(li.querySelector('b')?.textContent || ''))"));
