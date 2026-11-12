@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 913) : page du magasin Steam (steam/store-page.md, 10 langues) : une ligne sur la variété, réponse
+  au premier reproche fait aux jeux de bande (« répétitif ») : « Jamais deux heures pareilles : 13 événements rares,
+  14 capacités de boss, 6 sortes d'élites, une bénédiction différente chaque jour et 15 sortes de quêtes ». Nombres
+  vérifiés dans le code (14 capacités : le Silence des échos compte) ; les autres nombres de la page sont justes
+  (20 héros, 144 compétences, 33 régions, 83 monstres, 26 automatismes). Rappel dans CLAUDE.md. Parcours --crawl en
+  thème clair, allemand et japonais (326 et 327 clics, aucune erreur).
 - 2026-11-12 (it. 912) : « Quoi de neuf », édition 36 : Nuée d'étoiles (et touche F), emplacement vide de
   l'Équipement qui mène au meilleur objet du sac, « À faire maintenant » allégé de ce que font les automatismes.
   Traduite dans les 10 langues, libellés cités vérifiés ; mesure des 10 langues : aucun défilement ni mot coupé ;
