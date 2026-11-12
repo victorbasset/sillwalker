@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 941, revue générale) : simulation 12 h, records des courses : guerrier 38 → 64, mage 43 → 59,
+  nécromancien 41 → 60 (progression régulière, sans mur). Performance (copie neuve de dev-data) : bande 19,5 %, panneau
+  20,7 %, mini 6,9 %, icône 0,7 % d'un cœur (stable). Captures Aventure, Quêtes, Statistiques et mini en français,
+  anglais et japonais : rien de cassé. Texte de l'interface en japonais : aucun mot non traduit (seulement HP, Lv, Esc,
+  noms des langues, « pt » des talents). Noté en Idées (P3) : la puce de la bénédiction, longue, cache presque toute
+  la puce suivante de la rangée latérale de l'Aventure.
 - 2026-11-12 (it. 940) : suite de l'it. 939, chasse aux défauts qui ne se voient que certains jours. --overflow-report
   (donc lang-overflow) rend maintenant l'Aventure (puce de la bénédiction, desc. de 12 à 38 caractères) et les
   Statistiques sous CHACUNE des 9 bénédictions (liste exposée en dev : window.__dayMods), et signale aussi une puce
@@ -3360,6 +3366,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 Vu it. 941 : Aventure, rangée de puces sous « Prochain déblocage » (hscroll) : la bénédiction du jour, avec son
+  effet en clair (« ⚔ Élites ×3, +25 % de chances de butin. »), prend toute la largeur à 1920 px ; la puce suivante
+  (panoplie « ◆ Plumes… ») n'en montre que trois lettres. Piste : bénédiction réduite à l'icône quand la rangée
+  déborde, ou les puces sur deux lignes si la place le permet (mesurer le défilement vertical).
 - À VÉRIFIER PAR VICTOR SOUS WINDOWS (impossible sur le serveur : ni Windows, ni son, ni carte graphique) :
   1. Bande cachée devant un jeu ou une vidéo en plein écran, puis revenue (it. 321) ; mémoire du petit processus
      PowerShell (Gestionnaire des tâches).
