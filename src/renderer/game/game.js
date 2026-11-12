@@ -44,7 +44,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH } from "./events.js";
-import { bossMechanics, bossName, bossGender, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
+import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -738,7 +738,7 @@ export class Game {
     const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, champion: !boss && !!slot.champion, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
       mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null,
-      name: boss ? bossName(this.S.zone) : null, fem: boss && bossGender(this.S.zone) === "f" });
+      name: boss ? bossName(this.S.zone) : null, fem: boss && bossGender(this.S.zone) === "f", gender: boss ? bossGender(this.S.zone) : null });
     if (boss && isFinalZone(this.S.zone)) { // le Briseur d'Étoiles (story.js) : but final de l'histoire
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }
@@ -951,7 +951,7 @@ export class Game {
       const tries = (S.bossDefeats && S.bossDefeats[S.zone]) || 0;
       if (tries) { // boss qui avait mis le héros K.O. : enfin vaincu (un moment à marquer)
         delete S.bossDefeats[S.zone]; // il retrouve toute sa force
-        this.emit("bossNemesis", { name: m.name || tx("Boss"), tries, fem: !!m.fem }); // (it. 960) accord du message
+        this.emit("bossNemesis", { name: m.name || tx("Boss"), tries, fem: !!m.fem, gender: m.gender }); // (it. 960) accord du message
       }
       this.freeHero(S.zone);
       R.deaths = 0;
@@ -975,7 +975,8 @@ export class Game {
         // Carnet : record tous les 5 zones jusqu'à 50, puis tous les 10 (sinon 40 entrées d'ici la zone 200).
         if (record && journeyZoneStep(S.zone)) this.milestone("zone", S.zone);
         this.questProgress("zone", 0);
-        this.log(`${m.name || tx("Boss")} ${tx(m.fem ? "vaincue ! En route vers : {0}." : "vaincu ! En route vers : {0}.", { 0: zoneName(S.zone) })}`); // (it. 959) accord
+        // (it. 959) accord ; (it. 966) neutre et pluriel (russe, polonais)
+        this.log(`${m.name || tx("Boss")} ${agreeDefeated(tx(m.fem ? "vaincue ! En route vers : {0}." : "vaincu ! En route vers : {0}.", { 0: zoneName(S.zone) }), m.gender)}`);
       } else this.log(tx("Boss vaincu ! Ton héros reste farmer ici."));
       S.kills = 0;
       R.lineupZone = 0; // nouvelle série de monstres

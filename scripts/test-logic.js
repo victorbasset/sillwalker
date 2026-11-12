@@ -979,6 +979,10 @@ test("boss au nom féminin : « l’Éveillée », « vaincue » en français (i
     g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
     assert.ok(g.S.log.some((l) => /Morille la Ronde vaincue !/.test(l)), JSON.stringify(g.S.log));
     assert.ok(nem && nem.fem === true, JSON.stringify(nem));
+    // (it. 966) russe et polonais : neutre et pluriel
+    setLang("ru"); assert.equal(M_bosses_js.agreeDefeated("{0} наконец повержен!", "n"), "{0} наконец повержено!"); assert.equal(M_bosses_js.agreeDefeated("повержен! Направление: X.", "p"), "повержены! Направление: X.");
+    setLang("pl"); assert.equal(M_bosses_js.agreeDefeated("pokonany! Kierunek: X.", "n"), "pokonane! Kierunek: X.");
+    setLang("de"); assert.equal(M_bosses_js.agreeDefeated("besiegt!", "n"), "besiegt!");
   } finally { setLang(before); }
 });
 

@@ -17,6 +17,7 @@ import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
+import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
 
 export const MINI_H = 64;
 const SCENE_W = 212, GROUND = 58, HERO_X = 8, CONTACT = 44;
@@ -58,7 +59,7 @@ export class MiniRenderer {
     this.moment.hidden = true;
     game.on("loot", ({ item }) => { if (item && item.r >= 4) this.showMoment("★ " + tx("Légendaire") + fsp() + "!", itemName(item)); });
     game.on("setBonus", ({ id, n }) => { if (SETS[id]) this.showMoment("◆ " + tx("{0} : bonus {1} pièces !", { 0: SETS[id].name, 1: n })); });
-    game.on("bossNemesis", ({ name, fem }) => this.showMoment(tx(fem ? "{0} enfin vaincue !" : "{0} enfin vaincu !", { 0: name })));
+    game.on("bossNemesis", ({ name, fem, gender }) => this.showMoment(agreeDefeated(tx(fem ? "{0} enfin vaincue !" : "{0} enfin vaincu !", { 0: name }), gender)));
     game.on("event", ({ id }) => { const ev = EVENTS[id]; if (ev) this.showMoment(ev.name + fsp() + "!", ev.text); });
     game.on("starbreaker", ({ first }) => { if (first) this.showMoment("✦ " + tx("Le Briseur d’Étoiles est vaincu")); });
     game.on("chronicle", ({ ids }) => { const c = CHRONICLES.find((x) => x.id === ids[0]); if (c) this.showMoment("📜 " + tx(c.title)); });

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 966) : accord du « vaincu » complété pour le russe et le polonais (limite laissée à l'it. 959) :
+  boss au nom neutre (« Сердце Лавы », « L'Œil… ») ou pluriel (« Pince-Abysse » en russe) : « повержено », « повержены »,
+  « pokonane », dans le journal, la bannière et le mode mini (agreeDefeated, bosses.js : remplace le participe de la
+  phrase traduite selon le genre du nom dans la langue affichée). Test logique ; autotest 199/199.
 - 2026-11-12 (it. 965) : fin de partie vérifiée après les Écailles (la rotation des capacités de boss change dès la
   zone 14) : simulation d'une semaine, mage 293 (repère 298), guerrier 293 ; comparé à l'état d'avant (61eef2d, dossier
   de travail git séparé) avec deux graines : 298 → 293 (graine 7), 298 → 307 (graine 3) : bruit, pas de mur. Repères de

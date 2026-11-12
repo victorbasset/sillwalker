@@ -96,6 +96,13 @@ export const TENACIOUS = { back: 0.25 };
 export const CURSE = { every: 9, first: 6, s: 3, hurt: 0.15 };
 
 /** Nom propre du boss de chaque zone (dans l'ordre de ZONES). */
+/** (it. 966) « vaincu » accordé aux genres neutre et pluriel du russe et du polonais (le masculin et le féminin passent
+ *  par les clés « vaincu » / « vaincue ») : on remplace le participe de la phrase déjà traduite. */
+const DEFEATED = { ru: { from: /повержен(?![а-яё])/, n: "повержено", p: "повержены" }, pl: { from: /pokonany/, n: "pokonane", p: "pokonane" } };
+export function agreeDefeated(text, g) {
+  const D = DEFEATED[getLang()];
+  return D && D[g] ? text.replace(D.from, D[g]) : text;
+}
 /** (it. 959) Genre du nom du boss de la zone z dans la langue affichée (« m » par défaut, boss majeurs et final compris). */
 export function bossGender(z) {
   if (isFinalZone(z) || majorBoss(z)) return "m";
