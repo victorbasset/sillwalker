@@ -1298,4 +1298,5 @@ export default {
   2423: "Dzień cudów",
   2424: "Rzadkie zdarzenia ×2.",
   2425: "Pogromca elit",
+  2426: "Nowy rodzaj elity pokonany: {0} ({1} / {2}).",
 };

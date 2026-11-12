@@ -898,6 +898,9 @@ test("sortes d'élites vaincues : retenues, succès « Tueur d'élites » (it. 9
   // une élite fuyante vaincue (vraie victoire) : retenue
   g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
   assert.equal(g.S.stats.affixesSeen.elusive, true);
+  assert.ok(g.S.log.some((l) => /Fuyant|Evasive/.test(l) && /1 \/ 7/.test(l)), "annoncée (it. 944)");
+  const n = g.S.log.length; g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
+  assert.ok(!g.S.log.slice(0, 3).some((l) => /1 \/ 7|2 \/ 7/.test(l)), "pas deux fois : " + n);
   for (const a of ids.slice(0, -1)) g.S.stats.affixesSeen[a] = true;
   assert.ok(!reachedAchievements(g.S).includes("ELITES_ALL"), "pas encore toutes");
   g.S.stats.affixesSeen[ids[ids.length - 1]] = true; g.S.stats.affixesSeen.affixe_inconnu = true;

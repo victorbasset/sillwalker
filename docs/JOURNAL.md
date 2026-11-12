@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 944) : la première victoire sur une sorte d'élite s'annonce dans le journal (« Nouvelle sorte
+  d'élite vaincue : Fuyant (3 / 7). »), une seule fois par sorte, comme les événements découverts. Test logique
+  (annonce, pas de redite), contrôle d'autotest en anglais (« Evasive (1 / 7) », nom traduit) ; 10 langues ;
+  autotest 196/196.
 - 2026-11-12 (it. 943) : collection des élites. Chaque sorte d'élite vaincue est retenue (stats.affixesSeen, réparé
   s'il est abîmé) : Bestiaire > Élites affiche « (n / 7) », un ✓ sur les sortes vaincues, bordure en pointillés pour
   les autres ; nouveau succès « Tueur d'élites » (ELITES_ALL, avec sa progression, 64 succès), icône Steam (orc,

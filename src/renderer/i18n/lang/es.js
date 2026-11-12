@@ -1298,4 +1298,5 @@ export default {
   2423: "Día de prodigios",
   2424: "Eventos raros ×2.",
   2425: "Cazaélites",
+  2426: "Nuevo tipo de élite vencido: {0} ({1} / {2}).",
 };

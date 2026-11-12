@@ -1298,4 +1298,5 @@ export default {
   2423: "Day of Marvels",
   2424: "Rare events ×2.",
   2425: "Elite Slayer",
+  2426: "New kind of elite defeated: {0} ({1} / {2}).",
 };

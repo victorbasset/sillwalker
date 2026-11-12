@@ -1298,4 +1298,5 @@ export default {
   2423: "Dia dos prodígios",
   2424: "Eventos raros ×2.",
   2425: "Matador de elites",
+  2426: "Novo tipo de elite derrotado: {0} ({1} / {2}).",
 };

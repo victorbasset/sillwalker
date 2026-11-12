@@ -2427,5 +2427,6 @@ export const KEYS = [
   "Des œufs partout !",
   "Jour des prodiges",
   "Événements rares ×2.",
-  "Tueur d’élites"
+  "Tueur d’élites",
+  "Nouvelle sorte d’élite vaincue : {0} ({1} / {2})."
 ];

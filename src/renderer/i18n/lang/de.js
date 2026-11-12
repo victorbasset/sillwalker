@@ -1298,4 +1298,5 @@ export default {
   2423: "Tag der Wunder",
   2424: "Seltene Ereignisse ×2.",
   2425: "Elitenbezwinger",
+  2426: "Neue Elite-Art besiegt: {0} ({1} / {2}).",
 };

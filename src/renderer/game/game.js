@@ -887,7 +887,11 @@ export class Game {
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
     // (it. 943) sortes d'élites vaincues (Bestiaire > Élites, succès « Tueur d'élites »)
-    if (m.elite && m.affix && ELITE_AFFIXES[m.affix]) (S.stats.affixesSeen ||= {})[m.affix] = true;
+    if (m.elite && m.affix && ELITE_AFFIXES[m.affix] && !(S.stats.affixesSeen || {})[m.affix]) {
+      (S.stats.affixesSeen ||= {})[m.affix] = true; // (it. 944) la première victoire sur une sorte est annoncée
+      const won = Object.keys(ELITE_AFFIXES).filter((k) => S.stats.affixesSeen[k]).length;
+      this.log(tx("Nouvelle sorte d’élite vaincue : {0} ({1} / {2}).", { 0: ELITE_AFFIXES[m.affix].name, 1: won, 2: Object.keys(ELITE_AFFIXES).length }));
+    }
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
     S.bestiary[m.type] = (S.bestiary[m.type] || 0) + 1;
     this.questProgress("kill", 1);
