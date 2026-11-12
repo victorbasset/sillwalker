@@ -34,5 +34,5 @@ for (const lang of langs) {
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 }
-console.log(bad ? `${bad} mesure(s) avec défilement` : "aucun défilement");
+console.log(bad ? `${bad} mesure(s) en défaut (défilement, débordement ou mot coupé)` : "aucun défilement ni mot coupé");
 process.exitCode = bad ? 1 : 0;
