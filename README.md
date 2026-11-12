@@ -56,7 +56,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
   chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
-- **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, butin rare, événements rares, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés), récompenses variées ;
+- **Quêtes** : 3 contrats à la fois (chasse, élites, boss, or, forge, butin rare, événements rares, coffres au trésor, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés), récompenses variées ;
   jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
 - **Familiers** : 14 compagnons (dont le lapin et le phénix, rares) qui suivent le héros, sortent d'œufs (boss, élites, quêtes)

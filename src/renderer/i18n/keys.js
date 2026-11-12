@@ -2386,5 +2386,6 @@ export const KEYS = [
   "Pendant ton absence, les élites, la chasse, le butin rare et les coups critiques font aussi avancer les quêtes.",
   "Le « Grand intendant » s’occupe des familiers même pendant un long combat de boss ; « À faire maintenant » signale les familiers libres ; thème clair plus lisible.",
   "Jour des trésors",
-  "Coffres au trésor ×3 sur le chemin."
+  "Coffres au trésor ×3 sur le chemin.",
+  "Trouver {n} coffre au trésor|Trouver {n} coffres au trésor"
 ];

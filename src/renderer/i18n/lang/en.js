@@ -1257,4 +1257,5 @@ export default {
   2382: "The “Grand Steward” looks after pets even during a long boss fight; “Things to do now” points out idle pets; the light theme is easier to read.",
   2383: "Day of Treasures",
   2384: "Treasure chests ×3 along the way.",
+  2385: "Find {n} treasure chest|Find {n} treasure chests",
 };

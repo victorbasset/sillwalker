@@ -69,6 +69,10 @@ export const QUEST_TEMPLATES = {
     text: (q) => txn(q.goal, "Vivre {n} événement rare|Vivre {n} événements rares"),
     make: (S) => ({ goal: randInt(1, 2), reward: { chest: 2, gold: Math.round(goldScale(S) * 100) } }),
   },
+  chest: { // (it. 887-889) coffres au trésor trouvés sur le chemin (×3 le Jour des trésors) : un objectif de patience
+    text: (q) => txn(q.goal, "Trouver {n} coffre au trésor|Trouver {n} coffres au trésor"),
+    make: (S) => ({ goal: 1, reward: { gold: Math.round(goldScale(S) * 100), potions: 2, egg: rand() < 0.2 } }),
+  },
   tap: { // jeu actif : coups au clic sur le monstre combattu (jamais obligatoire, rare)
     ok: (S) => (S.stats.taps || 0) > 0, // seulement pour qui a déjà frappé au clic (sinon elle traînerait)
     text: (q) => txn(q.goal, "Frapper {n} fois au clic|Frapper {n} fois au clic"),
@@ -89,7 +93,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

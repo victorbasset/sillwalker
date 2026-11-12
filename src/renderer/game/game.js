@@ -1860,6 +1860,7 @@ export class Game {
     S.gold += gold;
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.chests = (S.stats.chests || 0) + 1;
+    this.questProgress("chest", 1); // quête « Trouver N coffres au trésor » (aussi pendant l'absence)
     const x = rand(), item = this.newItem(x < CHEST.legendary ? 4 : x < CHEST.epic ? 3 : 2);
     S.potions = Math.min(20, S.potions + 1);
     this.log(`${tx("Coffre au trésor ! +{0} or, une potion et {1}.", { 0: fmt(gold), 1: itemName(item) })}`);

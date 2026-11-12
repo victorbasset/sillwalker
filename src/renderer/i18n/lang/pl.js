@@ -1257,4 +1257,5 @@ export default {
   2382: "„Wielki zarządca” zajmuje się chowańcami nawet podczas długiej walki z bossem; „Do zrobienia teraz” wskazuje wolne chowańce; jasny motyw czytelniejszy.",
   2383: "Dzień skarbów",
   2384: "Skrzynie ze skarbami ×3 na drodze.",
+  2385: "Znajdź {n} skrzynię ze skarbami|Znajdź {n} skrzynie ze skarbami|Znajdź {n} skrzyń ze skarbami",
 };

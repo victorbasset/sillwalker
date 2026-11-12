@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 889) : une 15e sorte de quête, « Trouver N coffres au trésor » (1 coffre, 2 ou 3 selon les
+  étoiles ; or, 2 potions, parfois un œuf) : un objectif de patience qui avance aussi pendant l'absence et va vite le
+  Jour des trésors (it. 887). Icône du coffre en bois. Une ancienne version qui ne la connaît pas la remplace au
+  chargement (ensureQuests). Équilibrage 12 h −0,7 zone (bruit) ; traduit dans les 10 langues (pluriels russes et
+  polonais) ; test logique ; autotest 178/178 ; vu en capture (allemand, 1280 px).
 - 2026-11-12 (it. 888) : carte du héros, la pastille de la bénédiction du jour montre l'icône et l'effet
   (« 🛡 +25 % de PV et de défense. ») ; le nom du jour passe dans la bulle de survol, avec l'explication. Avant, « nom ·
   effet » partait hors de la carte à 1280 px (allemand : « Tag des Walls · +25 % LP und Verteidig… ») : on ne

@@ -1615,6 +1615,19 @@ test("quête d'événements rares : chaque événement compte", () => {
   assert.match(M_quests_js.QUEST_TEMPLATES.event.text({ goal: 2 }), /2/);
 });
 
+test("quête « Trouver N coffres au trésor » : chaque coffre compte, en jeu et pendant l'absence (it. 889)", () => {
+  const g = new Game(freshState()); g.S.zone = 10;
+  g.S.quests.slots = [{ uid: 1, kind: "chest", goal: 1000, progress: 0, stars: 1, reward: { gold: 10 } }];
+  g.openChest();
+  assert.equal(g.S.quests.slots[0].progress, 1);
+  g.S.daily.mod = "treasure";
+  const sum = g.applyOffline(8 * 3600);
+  assert.equal(g.S.quests.slots[0].progress, 1 + sum.chests);
+  assert.match(M_quests_js.QUEST_TEMPLATES.chest.text({ goal: 3 }), /3/);
+  const q = M_quests_js.QUEST_TEMPLATES.chest.make(g.S);
+  assert.ok(q.goal === 1 && q.reward.gold > 0);
+});
+
 test("quêtes : un type inconnu (autre version) est remplacé au chargement, sans plantage", () => {
   const S = freshLocked();
   S.quests.slots = [{ uid: 1, kind: "voyage_temporel", goal: 3, progress: 0, stars: 1, reward: { gold: 1 } },

@@ -1257,4 +1257,5 @@ export default {
   2382: "O «Grande intendente» cuida dos mascotes mesmo durante um longo combate contra chefe; «O que fazer agora» aponta os mascotes livres; tema claro mais legível.",
   2383: "Dia dos tesouros",
   2384: "Baús do tesouro ×3 pelo caminho.",
+  2385: "Encontrar {n} baú do tesouro|Encontrar {n} baús do tesouro",
 };

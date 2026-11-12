@@ -1257,4 +1257,5 @@ export default {
   2382: "„Großer Verwalter“ kümmert sich auch während eines langen Bosskampfs um die Begleiter; „Jetzt zu tun“ zeigt freie Begleiter; helles Design besser lesbar.",
   2383: "Tag der Schätze",
   2384: "Schatztruhen ×3 am Wegesrand.",
+  2385: "{n} Schatztruhe finden|{n} Schatztruhen finden",
 };
