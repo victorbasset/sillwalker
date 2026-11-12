@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 962) : « Quoi de neuf », édition 41 : Ruée des gobelins, victoires comptées par sorte d'élite et
+  réplique du héros, journal plus léger (nouveau type annoncé sur la ligne du butin). 10 langues, libellés cités
+  vérifiés ; 10 langues × 3 largeurs sans défaut ; autotest 199/199.
 - 2026-11-12 (it. 961, revue générale) : simulation 12 h, records des courses : assassin 46 → 60, druide 41 → 64,
   samouraï 44 → 64 (régulier ; l'assassin redescend une fois, 61 → 58, bruit d'une graine). Performance (copie neuve) :
   bande 19,9 %, panneau 20,5 %, mini 6,8 %, icône 0,8 % (stable). Captures Familiers, Héros, Quêtes et mini en français,

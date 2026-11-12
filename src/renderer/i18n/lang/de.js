@@ -1317,4 +1317,7 @@ export default {
   2442: "Neuer Typ für die Sammlung.",
   2443: "besiegt! Weiter nach: {0}.",
   2444: "{0} endlich besiegt!",
+  2445: "Neues seltenes Ereignis, „Koboldansturm“: 30 s lang wird jedes dritte Monster zu einem Goldkobold.",
+  2446: "Das Bestiarium zählt deine Siege über jede Elite-Art; der Held jubelt über jede zum ersten Mal besiegte Art.",
+  2447: "Schlankeres Protokoll: ein neuer Typ für die Sammlung wird in der Beutezeile gemeldet.",
 };

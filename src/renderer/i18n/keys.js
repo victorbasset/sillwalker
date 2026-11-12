@@ -2446,5 +2446,8 @@ export const KEYS = [
   "Les élites apparaissent à partir de la zone {0}.",
   "Nouveau type pour la collection.",
   "vaincue ! En route vers : {0}.",
-  "{0} enfin vaincue !"
+  "{0} enfin vaincue !",
+  "Nouvel événement rare, « Ruée des gobelins » : pendant 30 s, un monstre sur trois devient un gobelin doré.",
+  "Le Bestiaire compte tes victoires sur chaque sorte d’élite ; le héros salue chaque sorte vaincue pour la première fois.",
+  "Journal plus léger : un nouveau type pour la collection s’annonce sur la ligne du butin."
 ];

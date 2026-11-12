@@ -1317,4 +1317,7 @@ export default {
   2442: "Nowy typ do kolekcji.",
   2443: "pokonana! Kierunek: {0}.",
   2444: "{0} wreszcie pokonana!",
+  2445: "Nowe rzadkie zdarzenie, „Najazd goblinów”: przez 30 s co trzeci potwór staje się złotym goblinem.",
+  2446: "Bestiariusz liczy twoje zwycięstwa nad każdym rodzajem elity; bohater cieszy się z każdego rodzaju pokonanego po raz pierwszy.",
+  2447: "Lżejszy dziennik: nowy typ do kolekcji jest ogłaszany w linii łupu.",
 };

@@ -1317,4 +1317,7 @@ export default {
   2442: "Nuevo tipo para la colección.",
   2443: "¡derrotada! Rumbo a: {0}.",
   2444: "¡{0} por fin derrotada!",
+  2445: "Nuevo evento raro, «Estampida de goblins»: durante 30 s, uno de cada tres monstruos se vuelve un goblin dorado.",
+  2446: "El Bestiario cuenta tus victorias sobre cada tipo de élite; el héroe celebra cada tipo vencido por primera vez.",
+  2447: "Diario más ligero: un nuevo tipo para la colección se anuncia en la línea del botín.",
 };
