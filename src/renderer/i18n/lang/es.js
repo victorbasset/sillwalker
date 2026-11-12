@@ -1284,4 +1284,5 @@ export default {
   2409: "≈ {0}",
   2410: "Cada evento vivido da {0} para siempre. Bonificación actual: {1}.",
   2411: "Evento descubierto: {0} para siempre ({1} / {2}).",
+  2412: "Esquivo",
 };

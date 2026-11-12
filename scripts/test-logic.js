@@ -594,6 +594,11 @@ test("élites : affixes appliqués", () => {
   gt.R.hp = 5; mt.hp = mt.max = 1e12;
   for (let i = 0; i < 20; i++) gt.heroStrike(mt, hs, false);
   assert.equal(gt.R.hp, 1, "jamais achevé");
+  // (it. 934) Fuyant : esquive environ 20 % des coups (« Raté ! »), aucun dégât sur ces coups
+  const ge = new Game(freshState()), me = { hp: 1e12, max: 1e12, def: 0, mech: [], affix: "elusive" };
+  let miss = 0; ge.on("bossDodge", () => miss++);
+  for (let i = 0; i < 2000; i++) ge.heroStrike(me, hs, false);
+  assert.ok(miss > 300 && miss < 500, "esquives : " + miss + " / 2000");
   // coup fatal : seul ce qui restait au monstre compte
   gt.R.hp = 1e6; const mk = { hp: 1, max: 100, def: 0, mech: [], affix: "thorny" };
   gt.heroStrike(mk, hs, false);

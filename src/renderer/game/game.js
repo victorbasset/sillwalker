@@ -681,6 +681,7 @@ export class Game {
 
   heroStrike(m, hs, first, extra) {
     if (m.mech && m.mech.includes("evasive") && rand() < 0.2) { this.emit("bossDodge"); return; }
+    if (m.affix === "elusive" && rand() < ELITE_AFFIXES.elusive.dodge) { this.emit("bossDodge"); return; } // élite fuyante (it. 934)
     // Iaijutsu (samouraï) : chaque 4e coup est un critique garanti renforcé.
     const iai = !extra && hs.iai > 0 && (this.R.hits = (this.R.hits || 0) + 1) % 4 === 0;
     const crit = iai || (this.R.events.hawkeye || 0) > 0 || rand() < hs.crit / 100; // Œil du faucon : critiques garantis

@@ -204,6 +204,8 @@ export const ELITE_AFFIXES = {
   furious:  { name: "Furieux",    color: "#ff9a3a", atk: 1.4, desc: "Frappe 40 % plus fort." },
   frosty:   { name: "Givré",      color: "#bfe8ff", freeze: { chance: 0.15, s: 1.5 }, desc: "Ses coups peuvent geler le héros (attaques ralenties un instant)." }, // ses coups peuvent geler le héros
   // (it. 885) renvoie une part des coups du héros (comme le Miroir des boss) : les gros coups se paient, sans jamais achever
+  // (it. 934) esquive 20 % des coups, comme les boss insaisissables : les gros coups uniques ratent parfois
+  elusive:  { name: "Fuyant",     color: "#c8b6ff", dodge: 0.2, desc: "Esquive 20 % des coups du héros (les coups au clic touchent toujours)." },
   thorny:   { name: "Épineux",    color: "#9ad35a", thorns: 0.15, desc: "Renvoie 15 % des dégâts qu’il reçoit au héros, sans jamais l’achever." },
 };
 

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 934) : un 7e affixe d'élite, « Fuyant » : il esquive 20 % des coups du héros (« Raté ! », les coups au
+  clic touchent toujours), comme les boss insaisissables ; les héros à gros coups lents en souffrent, les rapides
+  moins. Nom propre à l'affixe (traduit en adjectif : « Ausweichender Champion »), description reprise de la capacité
+  de boss. La page du magasin Steam passe à « 7 sortes d'élites » dans les 10 langues (signalé par la vérification de
+  l'it. 914). Fuzz 1200 parties, 0 bloquée ; équilibrage 12 h −0,8 zone (bruit) ; test logique ; autotest 193/193 ;
+  vu en capture (allemand, Bestiaire > Élites).
 - 2026-11-12 (it. 933) : la première fois qu'un événement rare arrive, le journal le dit : « Événement découvert :
   +1 % d'or trouvé pour toujours (6 / 13). » (bonus de la collection, it. 932), comme pour une première panoplie
   complétée. Traduit dans les 10 langues ; test logique. Erreur de méthode : ce commit est parti avec un autotest à
