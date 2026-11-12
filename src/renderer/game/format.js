@@ -2,7 +2,7 @@
 import { PCT_STATS } from "./data.js";
 import { getLang, t as tx } from "../i18n/index.js";
 
-export const NB = " "; // espace fine insécable
+export const NB = "\u00a0"; // espace insécable (it. 949 : c'était une espace ordinaire, « 107 % » se coupait ; U+202F absente des polices pixel)
 
 // Séparateurs propres à chaque langue : décimale, et espace avant k / M / %.
 const LOCALE = { fr: "fr-FR", en: "en-US", es: "es-ES", pt: "pt-BR", de: "de-DE", pl: "pl-PL", ru: "ru-RU", zh: "zh-CN", ja: "ja-JP", ko: "ko-KR" };

@@ -373,7 +373,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.minion { filter: drop-shadow(0 0 1px #7dff9a); }
 
 /* Arbre de compétences */
-.skillwrap { display: grid; grid-template-columns: 300px 1fr; gap: 12px; height: calc(var(--panel-h) - 78px); min-height: 300px; }
+.skillwrap { display: grid; grid-template-columns: 300px 1fr; gap: 12px; height: calc(var(--panel-h) / var(--ui-zoom, 1) - 78px); min-height: 300px; } /* (it. 949) / zoom : hauteur réelle du panneau agrandi */
 .skillside { overflow: auto; }
 .skillside h3 { margin-top: 10px; }
 .skpts { margin: 0 0 6px; }
@@ -805,7 +805,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .cine.intro .cine-title { font-size: 28px; letter-spacing: 4px; text-transform: uppercase; color: #ffe27a; }
 /* Carte du Rebord (ui/tabs/map.js) : toujours sombre, comme la bande (c'est une image) */
 .mapwrap { overflow: hidden; border-radius: 6px; background: linear-gradient(#070414, #140b30 70%, #1d1240); border: 1px solid var(--line); padding: 6px; }
-svg.rebord { width: 100%; height: calc(var(--panel-h) - 160px); margin: 0 auto; display: block; font-family: "Pixelify Sans", monospace; }
+svg.rebord { width: 100%; height: calc(var(--panel-h) / var(--ui-zoom, 1) - 160px); margin: 0 auto; display: block; font-family: "Pixelify Sans", monospace; }
 .rebord .mstar { fill: #ffe27a; opacity: 0.8; }
 .rebord .mlink { fill: #3a3358; } .rebord .mlink.lit { fill: #c9a03a; }
 .rebord .mz rect { stroke: #0d0a1c; stroke-width: 1; }

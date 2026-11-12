@@ -1303,4 +1303,5 @@ export default {
   2428: "Each kind of elite you defeat is remembered (✓ in the Bestiary); defeat them all for the “Elite Slayer” achievement.",
   2429: "The hero reacts to some rare events (“It's raining gold!”); the ongoing event is highlighted in the Bestiary.",
   2430: "Defeat {n} “{0}” elite|Defeat {n} “{0}” elites",
+  2431: "Limited to {0} by the screen width.",
 };

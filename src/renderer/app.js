@@ -28,7 +28,7 @@ import { fmt, esc } from "./game/format.js";
 import { StripRenderer } from "./render/strip.js";
 import { MiniRenderer } from "./render/mini.js";
 import { makeWindowDraggable } from "./ui/windrag.js";
-import { changes, applyUiScale, applyTheme } from "./render/dom.js";
+import { changes, applyUiScale, applyTheme, uiScaleWindowReady } from "./render/dom.js";
 import { makeTrayIcons } from "./render/trayicons.js";
 import { Sound } from "./render/sound.js";
 import { nextHint, markHint } from "./ui/hints.js";
@@ -614,6 +614,7 @@ async function boot() {
   await Promise.all([document.fonts.load("13px 'Geist Pixel'"), document.fonts.load("600 13px 'Pixelify Sans'")]).catch(() => {});
   await document.fonts.ready;
   applyLayout(init.layout);
+  uiScaleWindowReady(); // (it. 949) la fenêtre suit la taille du panneau, maintenant que sa réponse est écoutée
   setVisible(init.visible !== false);
   sendStatus(true);
   syncTrayIcons();

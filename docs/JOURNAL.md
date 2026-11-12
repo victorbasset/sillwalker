@@ -5,6 +5,18 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 949) : taille de l'interface, suite de l'it. 948, trois défauts trouvés en capture :
+  1) au LANCEMENT, la fenêtre grandissait mais le panneau gardait 500 px (bande blanche de 150 px en haut) : la
+  taille partait avant que le jeu écoute la réponse de la fenêtre ; elle part maintenant après (uiScaleWindowReady,
+  app.js) ; l'autotest ne testait que le changement en cours de partie. 2) Carte et Compétences prenaient la hauteur
+  du panneau sans tenir compte du zoom (--ui-zoom, hauteur / zoom) : plus de défilement. 3) À 130 % sur un écran de
+  1366 px, la largeur utile tombait à 1050 px (colonnes trop étroites, « Guerri… », « 263… ») : le zoom appliqué est
+  borné pour garder 1280 px (effectiveUiScale), avec une note dans les Réglages (« Limité à 107 % par la largeur de
+  l'écran. », 10 langues). Mesures à 115 et 130 % : 1366 et 1280 px sans défilement ; 1920 px : Aventure 23, Boutique
+  57, Bestiaire 83 (acceptés). Au passage : NB (format.js), « espace fine insécable » d'après son commentaire, était
+  une espace ordinaire depuis le premier commit : « 107 % », « 40 % »… pouvaient se couper en fin de ligne partout ;
+  c'est maintenant U+00A0 (U+202F est absente des polices pixel, vérifié avec fontTools), même largeur. Test logique ;
+  10 langues × 3 largeurs sans défaut ; autotest 198/198.
 - 2026-11-12 (it. 948) : accessibilité, taille de l'interface (Réglages, 115 % et 130 %) : le texte agrandi faisait
   défiler presque tous les onglets (130 % à 1920 px : Aventure 139 px, Bestiaire 199, Boutique 173). Le panneau
   grandit maintenant d'autant (500 → 575 → 650 px), dans la limite de l'écran (réglage de fenêtre panelZoom, envoyé
@@ -3406,7 +3418,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 Vu it. 948 : à 130 % (taille de l'interface), Carte (≈ 140 px) et Compétences (≈ 125 px) défilent encore, même avec
+- FAIT (it. 949) P3 Vu it. 948 : à 130 % (taille de l'interface), Carte (≈ 140 px) et Compétences (≈ 125 px) défilent encore, même avec
   le panneau agrandi : leur dessin suit la hauteur du panneau sans tenir compte du zoom ; à mettre à l'échelle 1/zoom.
 - FAIT (it. 942) P3 Vu it. 941 : Aventure, rangée de puces sous « Prochain déblocage » (hscroll) : la bénédiction du jour, avec son
   effet en clair (« ⚔ Élites ×3, +25 % de chances de butin. »), prend toute la largeur à 1920 px ; la puce suivante

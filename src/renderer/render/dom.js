@@ -247,8 +247,23 @@ export function applyTheme(t) {
   const r = document.documentElement, v = themeOf(t);
   if (v === "auto") delete r.dataset.theme; else r.dataset.theme = v;
 }
+let uiScaleWanted = 1, uiScaleHooked = false, uiScaleWinReady = false;
+/** (it. 949) À appeler une fois l'écoute de la mise en page en place (app.js) : avant, la réponse de la fenêtre agrandie
+ *  se perdait au lancement (panneau de 500 px dans une fenêtre de 650 px, bande blanche en haut). */
+export function uiScaleWindowReady() { uiScaleWinReady = true; applyUiScaleNow(); }
+/** Zoom réellement appliqué : le choix du joueur, borné pour que le panneau garde au moins 1280 px CSS de large
+ *  (la plus petite largeur prévue) : à 130 % sur un écran de 1366 px, colonnes trop étroites et valeurs coupées (it. 949). */
+export const effectiveUiScale = (z, width = window.innerWidth) => Math.max(1, Math.min(+z || 1, (width || 1280) / 1280));
 export function applyUiScale(z) {
-  const p = document.getElementById("panel"); if (p) p.style.zoom = z && z !== 1 ? String(z) : "";
+  uiScaleWanted = +z || 1;
+  if (!uiScaleHooked) { uiScaleHooked = true; window.addEventListener("resize", () => applyUiScaleNow()); }
+  applyUiScaleNow();
+}
+function applyUiScaleNow() {
+  const z = effectiveUiScale(uiScaleWanted);
+  const p = document.getElementById("panel"); if (p) p.style.zoom = z !== 1 ? String(z) : "";
+  // (it. 949) les onglets dessinés à la hauteur du panneau (Carte, Compétences) la divisent par le zoom
+  document.documentElement.style.setProperty("--ui-zoom", String(z));
   // (it. 948) la fenêtre agrandit le panneau d'autant (processus principal : strip-window.js > panelHeight)
-  try { window.sillwalker?.setWindowSettings?.({ panelZoom: Math.min(1.5, Math.max(1, +z || 1)) }); } catch { /* hors Electron */ }
+  if (uiScaleWinReady) try { window.sillwalker?.setWindowSettings?.({ panelZoom: Math.min(1.5, z) }); } catch { /* hors Electron */ }
 }

@@ -1,8 +1,8 @@
 // Onglet Réglages : préférences du jeu (sauvegardées avec la partie) et de la
 // fenêtre (position, opacité, démarrage : réglées par le processus principal).
-import { t as tx, LANGS, getLang, setLang } from "../../i18n/index.js";
+import { t as tx, LANGS, getLang, setLang, wsp } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
-import { applyUiScale, applyTheme, themeOf } from "../../render/dom.js";
+import { applyUiScale, applyTheme, themeOf, effectiveUiScale } from "../../render/dom.js";
 // Mac (Victor y joue aussi) : les textes qui nomment Windows ont leur version macOS.
 const IS_MAC = /Mac/i.test(navigator.platform || navigator.userAgent || "");
 import { WEATHER } from "../../render/juice.js";
@@ -62,7 +62,7 @@ export class SettingsTab {
         <div class="row seg">${[["dark", tx("Sombre")], ["light", tx("Clair")], ["auto", IS_MAC ? tx("Automatique (macOS)") : tx("Automatique (Windows)")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v}" aria-pressed="${themeOf(P.theme) === v}">${esc(label)}</button>`).join("")}</div>
         <p class="note tight">${tx("Taille du panneau")}</p>
         <div class="row seg">${[1, 1.15, 1.3].map((z) => `<button data-action="se-scale" data-v="${z}" aria-pressed="${Math.abs((P.uiScale || 1) - z) < 0.01}">${Math.round(z * 100)}${unit("%")}</button>`).join("")}</div>
-        <p class="note">${tx("Agrandit tout le panneau : texte, boutons et icônes.")}</p>
+        <p class="note">${tx("Agrandit tout le panneau : texte, boutons et icônes.")}${effectiveUiScale(P.uiScale || 1) < (P.uiScale || 1) - 0.005 ? wsp() + esc(tx("Limité à {0} par la largeur de l’écran.", { 0: Math.round(effectiveUiScale(P.uiScale || 1) * 100) + unit("%") })) : ""}</p>
         ${check("cinematics", tx("Cinématiques de l’histoire"), tx("Courtes scènes dans la bande (chroniques, héros libérés, Briseur d’Étoiles). Décoche pour ne jamais être interrompu : tu peux les revoir avec ▶ dans la liste des chroniques."))}
         ${check("eco", tx("Économie d’énergie"), tx("Animation à 15 images par seconde en permanence : moins de calcul, de chaleur et de bruit de ventilateur. Le jeu, lui, continue normalement. (Elle ralentit déjà toute seule sur batterie et quand tu t’absentes.)"))}
       </article>
