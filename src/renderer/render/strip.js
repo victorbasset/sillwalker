@@ -482,6 +482,13 @@ export class StripRenderer {
   drawBase() {
     const { night, dusk } = this.nightLevel(), ctx = this.base.ctx;
     drawBackdrop(ctx, this.W, STRIP_H, GROUND, this.game.zoneDef(), this.game.S.zone);
+    if (this.bloodSky) { // Lune de sang : voile rouge sur le ciel et lune rouge en pixels
+      ctx.fillStyle = "rgba(170, 20, 40, 0.28)"; ctx.fillRect(0, 0, this.W, GROUND);
+      const cx = Math.round(this.W * 0.62 / P) * P, cy = 3 * P, r = 3;
+      for (let y = -r; y <= r; y++) for (let x = -r; x <= r; x++) if (x * x + y * y <= r * r + 1) {
+        ctx.fillStyle = x + y < -1 ? "#ff8a8a" : "#d8303e"; ctx.fillRect(cx + x * P, cy + y * P, P, P);
+      }
+    }
     if (night > 0) {
       ctx.fillStyle = dusk ? "#3a1f4a" : "#0b1030";
       ctx.globalAlpha = night * 0.45;
@@ -701,6 +708,9 @@ export class StripRenderer {
       const k = JSON.stringify(this.nightLevel()) + this.starShare().toFixed(3);
       if (k !== this.skyKey) { this.skyKey = k; this.drawBase(); }
     }
+    // (it. 916) Lune de sang : ciel rougi et lune rouge, cuits une fois dans le décor (rien à chaque image), avec un fondu
+    const blood = (R.events.bloodmoon || 0) > 0;
+    if (blood !== !!this.bloodSky) { this.bloodSky = blood; this.drawBase(); this.fadeT = 0.5; }
     this.updateFx(dt);
     this.juice.update(dt);
     // Tremblement de la scène (boss vaincu, coup dévastateur, légendaire, coffre) : par pas de 3 px.

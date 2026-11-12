@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 916) : pendant la Lune de sang, le ciel de la bande rougit et une lune rouge en pixels se lève, avec
+  un fondu à l'arrivée et au départ. Dessiné une seule fois dans le décor déjà en cache (aucun coût par image, pas
+  d'animation CSS). Rythme de la première heure vérifié (early-pace : inchangé). Contrôle d'autotest (185/185) ; vu
+  en capture.
 - 2026-11-12 (it. 915, contrôle) : nombres du README comparés au code : « 46 types » d'objets corrigé en 44 (comme la
   collection) ; le reste est juste (20 héros, 26 automatismes, 33 zones, 83 monstres, 3 capacités du Briseur
   d'Étoiles, liste des 14 capacités de boss).

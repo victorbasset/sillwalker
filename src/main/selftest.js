@@ -902,6 +902,14 @@ async function runSelfTest(strip) {
   // Touche U (it. 628) : achète le prochain déblocage s'il est prêt, ne fait rien sinon.
   const keyU = await js("(() => { const G = window.__game, P = window.__panel, S = G.S, keep = JSON.stringify({ g: S.gold, u: S.unlocks }); const n0 = Object.keys(S.unlocks || {}).length; S.gold = 0; const a = P.onKey({ key: 'u', target: document.body }); S.gold = 1e300; const b = P.onKey({ key: 'u', target: document.body }); const n1 = Object.keys(S.unlocks || {}).length; const k = JSON.parse(keep); S.gold = k.g; S.unlocks = k.u; P.renderAll(); return a + ' ' + (b === (n1 > n0)); })()");
   check("touche U : achète le prochain déblocage prêt, rien sans l’or", keyU === "false true", keyU);
+  // (it. 916) Lune de sang : ciel rouge cuit dans le décor pendant l'événement, puis retour au ciel normal.
+  await js("window.__game.R.events.bloodmoon = 20");
+  await sleep(400);
+  const bsOn = await js("!!window.__strip.bloodSky");
+  await js("window.__game.R.events.bloodmoon = 0");
+  await sleep(400);
+  const bsOff = await js("!!window.__strip.bloodSky");
+  check("Lune de sang : ciel rouge pendant l’événement, normal ensuite", bsOn === true && bsOff === false, bsOn + " " + bsOff);
   // (it. 900) Touche F : attrape l'étoile filante qui passe ; rien sans étoile.
   const keyF = await js("(() => { const G = window.__game, R = G.R, keep = R.star, n0 = G.S.stats.stars || 0; R.star = null; const a = window.__panel.onKey({ key: 'f', target: document.body }); R.star = { t: 10, life: 12 }; const b = window.__panel.onKey({ key: 'f', target: document.body }); const ok = !R.star && (G.S.stats.stars || 0) === n0 + 1; R.star = keep; return a + ' ' + b + ' ' + ok; })()");
   check("touche F : attrape l’étoile filante, rien sans étoile", keyF === "false true true", keyF);
