@@ -1,6 +1,6 @@
 // Défilement des onglets dans chaque langue et à plusieurs largeurs (Linux, écran virtuel) : les langues aux mots
 // longs (allemand, russe…) peuvent faire déborder un onglet qui tient en français. Travaille sur des COPIES de
-// dev-data. Usage : node scripts/lang-overflow.mjs [langues=de,ru,…] [largeurs=1920,1366,1280]
+// dev-data, et une partie de fin de partie à 1280 px (it. 986). Usage : node scripts/lang-overflow.mjs [langues=de,ru,…] [largeurs=1920,1366,1280]
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
@@ -31,6 +31,24 @@ for (const lang of langs) {
       const res = m ? m[2].trim() : "pas de mesure";
       if (res !== "aucun") bad++;
       console.log(`${lang.padEnd(3)} ${String(w).padStart(4)} : ${res}`);
+    }
+    // (it. 986) partie de FIN de partie (simulate.js 48 h, scripts/fixtures/endgame-save.json) à 1280 px : 20 ascensions,
+    // automatismes, constellations au maximum… L'it. 985 y a trouvé Ascension (80 px) et Aventure (35 px), invisibles
+    // avec dev-data. Régénérer : DUMP=scripts/fixtures/endgame-save.json node … scripts/simulate.js 48 warrior
+    const endFile = path.join(root, "scripts", "fixtures", "endgame-save.json");
+    if (fs.existsSync(endFile) && widths.includes(1280)) {
+      const end = JSON.parse(fs.readFileSync(endFile, "utf8"));
+      fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...end, last: Date.now(), settings: { ...(end.settings || {}), lang } }));
+      let out = "";
+      try {
+        out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
+          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, "--width=1280", "--overflow-report", "--exit-after=20"],
+          { encoding: "utf8", timeout: 60000, stdio: ["ignore", "pipe", "pipe"] });
+      } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
+      const m = out.match(/\[overflow\] (\d+) (.*)/);
+      const res = m ? m[2].trim() : "pas de mesure";
+      if (res !== "aucun") bad++;
+      console.log(`${lang.padEnd(3)} fin 1280 : ${res}`);
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 }

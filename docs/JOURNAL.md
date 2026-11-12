@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 986) : lang-overflow mesure aussi une partie de FIN de partie à 1280 px dans chaque langue
+  (scripts/fixtures/endgame-save.json, 19 Ko, produite par simulate.js 48 h guerrier ; « ru fin 1280 : … »). Vérifié :
+  sans le remède de l'it. 985, « ru fin 1280 : ascension=80 » ressort (la mesure habituelle disait « aucun »).
+  CLAUDE.md. Idée P2 fermée.
 - 2026-11-12 (it. 985) : --crawl en japonais sans erreur (328 clics). Angle mort trouvé : mesure des langues avec une
   partie TRÈS avancée (sauvegarde de simulate.js 48 h, DUMP) au lieu de dev-data : Ascension 17-80 px de défilement (de,
   pl, ru ; 1280 et 1366), Aventure 35 px (ru 1280). Remèdes : Ascension, après 3 ascensions, la liste « Gardé / Perdu »
@@ -3595,7 +3599,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 Vu it. 985 : lang-overflow ne mesure que dev-data (zone 55, 1 ascension) ; une partie très avancée (simulate.js 48 h,
+- FAIT (it. 986) P2 Vu it. 985 : lang-overflow ne mesure que dev-data (zone 55, 1 ascension) ; une partie très avancée (simulate.js 48 h,
   DUMP=…) montrait des défauts invisibles autrement (Ascension, Aventure). Intégrer une seconde sauvegarde « fin de
   partie » (générée par simulate.js, gardée dans le dépôt ou régénérée) à lang-overflow, au moins à 1280 px.
 - FAIT (it. 972 : le scénario de mesure a changé, voir « Fait ») P2 Vu it. 971 : bande ≈ 20,5-20,9 % d'un cœur (deux mesures, copies neuves) contre 19,5-19,9 % aux revues 941-961 :
