@@ -119,10 +119,24 @@ export class MiniRenderer {
     this.lunge = Math.max(0, this.lunge - dt); this.flash = Math.max(0, this.flash - dt); this.monHit = Math.max(0, this.monHit - dt);
     const game = this.game, S = game.S, R = game.R;
 
-    const key = S.zone + ":" + this.cssDpr;
+    // (it. 918) ciel des événements, comme sur la bande (it. 916-917) : Lune de sang rouge, Nuée d'étoiles constellée
+    const blood = (R.events.bloodmoon || 0) > 0, starry = (R.events.starfall || 0) > 0;
+    const key = S.zone + ":" + this.cssDpr + ":" + blood + ":" + starry;
     if (key !== this.sceneKey) {
       this.sceneKey = key;
-      drawBackdrop(this.base.ctx, SCENE_W, MINI_H, GROUND, game.zoneDef(), S.zone);
+      const ctx = this.base.ctx;
+      drawBackdrop(ctx, SCENE_W, MINI_H, GROUND, game.zoneDef(), S.zone);
+      if (blood) {
+        ctx.fillStyle = "rgba(170, 20, 40, 0.28)"; ctx.fillRect(0, 0, SCENE_W, GROUND);
+        const cx = Math.round(SCENE_W * 0.7 / P) * P, cy = 3 * P;
+        for (let y = -2; y <= 2; y++) for (let x = -2; x <= 2; x++) if (x * x + y * y <= 5) { ctx.fillStyle = x + y < -1 ? "#ff8a8a" : "#d8303e"; ctx.fillRect(cx + x * P, cy + y * P, P, P); }
+      }
+      if (starry) {
+        ctx.fillStyle = "rgba(11, 16, 48, 0.3)"; ctx.fillRect(0, 0, SCENE_W, GROUND);
+        let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+        ctx.fillStyle = "#e8ecff";
+        for (let i = 0; i < 14; i++) ctx.fillRect(Math.floor(rnd() * SCENE_W), 2 + Math.floor(rnd() * (GROUND * 0.55)), 1, 1);
+      }
       mark("backdrop");
     }
 

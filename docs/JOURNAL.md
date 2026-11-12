@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 918) : le mode mini montre aussi le ciel des événements, comme la bande (it. 916-917) : rouge avec
+  une lune rouge pendant la Lune de sang, assombri et constellé pendant la Nuée d'étoiles. Cuit dans le décor du
+  mini, redessiné seulement quand l'événement commence ou finit. Autotest 186/186 ; vu en capture.
 - 2026-11-12 (it. 917) : pendant la Nuée d'étoiles, le ciel de la bande s'assombrit et se constelle (toutes les
   étoiles, même de jour et même avant que l'histoire les ait rallumées), avec un fondu ; les étoiles filantes s'y
   détachent mieux. Même principe que la Lune de sang (it. 916) : dessiné une fois dans le décor en cache, aucun coût
