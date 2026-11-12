@@ -247,4 +247,8 @@ export function applyTheme(t) {
   const r = document.documentElement, v = themeOf(t);
   if (v === "auto") delete r.dataset.theme; else r.dataset.theme = v;
 }
-export function applyUiScale(z) { const p = document.getElementById("panel"); if (p) p.style.zoom = z && z !== 1 ? String(z) : ""; }
+export function applyUiScale(z) {
+  const p = document.getElementById("panel"); if (p) p.style.zoom = z && z !== 1 ? String(z) : "";
+  // (it. 948) la fenêtre agrandit le panneau d'autant (processus principal : strip-window.js > panelHeight)
+  try { window.sillwalker?.setWindowSettings?.({ panelZoom: Math.min(1.5, Math.max(1, +z || 1)) }); } catch { /* hors Electron */ }
+}

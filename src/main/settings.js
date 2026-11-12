@@ -3,7 +3,7 @@ const path = require("path");
 const { app } = require("electron");
 const { readJson, writeJsonAtomic } = require("./json-file");
 
-const DEFAULTS = { mode: "strip", lastShownMode: "strip", edge: "bottom", displayId: null, opacity: 1, hideOnFullscreen: true };
+const DEFAULTS = { mode: "strip", lastShownMode: "strip", edge: "bottom", displayId: null, opacity: 1, hideOnFullscreen: true, panelZoom: 1 };
 
 class Settings {
   constructor() {

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 948) : accessibilité, taille de l'interface (Réglages, 115 % et 130 %) : le texte agrandi faisait
+  défiler presque tous les onglets (130 % à 1920 px : Aventure 139 px, Bestiaire 199, Boutique 173). Le panneau
+  grandit maintenant d'autant (500 → 575 → 650 px), dans la limite de l'écran (réglage de fenêtre panelZoom, envoyé
+  par applyUiScale, gardé dans settings.json ; strip-window.js > panelHeight). À 130 % et 1920 px : Aventure 139 → 23,
+  Bestiaire 199 → 83, onze onglets sur quatorze sans défilement ; à 1366 px : la plupart des onglets à 0. Restent
+  Carte et Compétences, qui se dessinent à la hauteur du panneau (le défilement y reste possible). Contrôle d'autotest
+  (500 → 650 → 500 en changeant la taille) ; 198/198.
 - 2026-11-12 (it. 947) : dans la bande, l'étiquette d'une élite (ou d'un champion) d'une sorte jamais vaincue porte
   « ✦ » (« Givré ✦ ») : on voit d'un coup d'œil qu'elle compte pour la collection du Bestiaire ; l'étoile disparaît
   une fois la sorte vaincue. Vu en capture (Lune de sang, file d'élites) ; contrôle d'autotest (avec et sans la sorte
@@ -3399,6 +3406,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 Vu it. 948 : à 130 % (taille de l'interface), Carte (≈ 140 px) et Compétences (≈ 125 px) défilent encore, même avec
+  le panneau agrandi : leur dessin suit la hauteur du panneau sans tenir compte du zoom ; à mettre à l'échelle 1/zoom.
 - FAIT (it. 942) P3 Vu it. 941 : Aventure, rangée de puces sous « Prochain déblocage » (hscroll) : la bénédiction du jour, avec son
   effet en clair (« ⚔ Élites ×3, +25 % de chances de butin. »), prend toute la largeur à 1920 px ; la puce suivante
   (panoplie « ◆ Plumes… ») n'en montre que trois lettres. Piste : bénédiction réduite à l'icône quand la rangée

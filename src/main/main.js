@@ -123,6 +123,7 @@ function start() {
       if (!s || typeof s !== "object") return;
       if (s.edge === "top" || s.edge === "bottom") strip.setEdge(s.edge);
       if (typeof s.opacity === "number" && s.opacity >= 0.05 && s.opacity <= 1) strip.setOpacity(s.opacity);
+      if (typeof s.panelZoom === "number" && s.panelZoom >= 1 && s.panelZoom <= 1.5) strip.setPanelZoom(s.panelZoom); // (it. 948)
       if (typeof s.openAtLogin === "boolean") app.setLoginItemSettings({ openAtLogin: s.openAtLogin, ...loginItemOptions() });
       if (trayCtl) trayCtl.rebuild();
     });

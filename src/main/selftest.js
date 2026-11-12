@@ -744,6 +744,17 @@ async function runSelfTest(strip) {
       G.S.zone = z0; G.S.kills = k0; G.R.mon = m0; st.slotKey = null; st.syncSlots(); return all.length ? all.length + ' boss : ' + all.join(' // ') : 'ok'; })()`);
     check("combat de boss : nombres flottants hors du nom et de la relique", r === "ok", r);
   }
+  // (it. 948) taille de l'interface 130 % : le panneau grandit (fenêtre plus haute), puis revient à 100 %
+  {
+    const h0 = await js("document.getElementById('panel-wrap').getBoundingClientRect().height");
+    await js("(() => { const P = window.__panel; P.setTab('settings'); P.renderAll(); document.querySelector('[data-pane=settings]:not([hidden]) [data-action=se-scale][data-v=\"1.3\"]').click(); })()");
+    await until(async () => (await js("document.getElementById('panel-wrap').getBoundingClientRect().height")) > h0 + 50);
+    const h1 = await js("document.getElementById('panel-wrap').getBoundingClientRect().height");
+    await js("document.querySelector('[data-pane=settings]:not([hidden]) [data-action=se-scale][data-v=\"1\"]').click()");
+    await until(async () => Math.abs((await js("document.getElementById('panel-wrap').getBoundingClientRect().height")) - h0) < 2);
+    const h2 = await js("document.getElementById('panel-wrap').getBoundingClientRect().height");
+    check("taille de l’interface 130 % : panneau agrandi, puis rendu", h1 > h0 + 50 && Math.abs(h2 - h0) < 2, h0 + " → " + h1 + " → " + h2);
+  }
   // (it. 947) étiquette d'une élite jamais vaincue : « ✦ » ; plus d'étoile une fois la sorte vaincue
   {
     const r = await js(`(() => { const st = window.__strip, G = window.__game, S = G.S; if (!st.active) return 'bande inactive';

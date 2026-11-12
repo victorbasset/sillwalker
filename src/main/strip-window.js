@@ -91,8 +91,11 @@ class StripWindow {
     return screen.getAllDisplays().find((d) => d.id === id) || screen.getPrimaryDisplay();
   }
 
+  // (it. 948) taille de l'interface agrandie (115 %, 130 %) : le panneau grandit d'autant, dans la limite de l'écran,
+  // pour que le texte agrandi ne fasse pas défiler tous les onglets
   panelHeight(wa) {
-    return Math.max(200, Math.min(config.PANEL_MAX_HEIGHT, wa.height - config.STRIP_HEIGHT - config.PANEL_MIN_GAP));
+    const z = Math.min(1.5, Math.max(1, +this.settings.get("panelZoom") || 1));
+    return Math.max(200, Math.min(Math.round(config.PANEL_MAX_HEIGHT * z), wa.height - config.STRIP_HEIGHT - config.PANEL_MIN_GAP));
   }
 
   bounds() {
@@ -150,6 +153,7 @@ class StripWindow {
   setEdge(edge) { this.settings.set("edge", edge); this.place(); }
   // choix d'écran au menu de l'icône : le mode mini y retourne aussi, dans son coin habituel
   setDisplay(id) { this.settings.set("displayId", id); this.settings.set("miniPos", null); this.place(); }
+  setPanelZoom(z) { if (Math.abs((+this.settings.get("panelZoom") || 1) - z) < 0.001) return; this.settings.set("panelZoom", z); if (this.mode() !== "mini") this.place(); }
   setOpacity(v) { this.settings.set("opacity", v); this.send("layout", this.layout()); }
 
   /* ---------- Modes ---------- */
