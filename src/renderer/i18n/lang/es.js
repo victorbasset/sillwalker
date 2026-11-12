@@ -1325,4 +1325,7 @@ export default {
   2450: "Nueva habilidad de jefe, «Escamas»: los golpes críticos solo le infligen la mitad de su bonificación.",
   2451: "Los nombres femeninos de los jefes por fin concuerdan: «… derrotada».",
   2452: "{n} misión cumplida|{n} misiones cumplidas",
+  2453: "Al volver, el resumen cuenta el oro de las expediciones del Gran intendente y las misiones cumplidas durante la ausencia.",
+  2454: "Las misiones de élites y de presa también muestran su tiempo restante estimado.",
+  2455: "La banda usa menos procesador (halos del héroe dibujados de otro modo), sobre todo al final de la partida.",
 };

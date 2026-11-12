@@ -1325,4 +1325,7 @@ export default {
   2450: "Nova habilidade de chefe, «Escamas»: os golpes críticos só lhe causam metade do bônus.",
   2451: "Os nomes femininos dos chefes enfim concordam: «… derrotada».",
   2452: "{n} missão concluída|{n} missões concluídas",
+  2453: "Na volta, o resumo conta o ouro das expedições do Grande intendente e as missões concluídas durante a ausência.",
+  2454: "As missões de elites e de presa também mostram o tempo restante estimado.",
+  2455: "A faixa usa menos processador (auras do herói desenhadas de outro jeito), sobretudo no fim do jogo.",
 };

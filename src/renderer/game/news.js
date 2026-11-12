@@ -207,7 +207,12 @@ const EDITION_42 = [
   "Nouvelle capacité de boss, « Écailles » : les coups critiques ne lui infligent que la moitié de leur bonus.",
   "Les boss aux noms féminins sont enfin accordés : « Carapace-des-Abysses l’Éveillée », « … vaincue ! ».",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42];
+const EDITION_43 = [
+  "Au retour, le bilan compte l’or des expéditions du Grand intendant et les quêtes accomplies pendant l’absence.",
+  "Les quêtes d’élites et de proie donnent aussi leur temps restant estimé.",
+  "La bande consomme moins de processeur (halos du héros dessinés autrement), surtout en fin de partie.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42, EDITION_43];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

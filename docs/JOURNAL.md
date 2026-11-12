@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 977) : « Quoi de neuf », édition 43 : bilan du retour (or des expéditions, quêtes accomplies),
+  temps restant des quêtes d'élites et de proie, bande plus légère (halos). Le nom du Grand intendant repris tel que
+  chaque langue le traduit (es « Gran intendente », ru « Великий управитель »). 10 langues ; aucun défilement ;
+  autotest 200/200.
 - 2026-11-12 (it. 976) : temps restant estimé (« ≈ 25 min ») aussi pour les quêtes « Vaincre N élites » et « proie »
   (rythme des victoires × chance d'élite par victoire, bénédiction et Appât des champions compris ; ÷ 7 pour une
   sorte précise ; rien avant la zone 3). La chance est calculée sans tirage (eliteChancePerKill, partagée avec

@@ -2454,5 +2454,8 @@ export const KEYS = [
   "Les coups critiques ne lui infligent que la moitié de leur bonus.",
   "Nouvelle capacité de boss, « Écailles » : les coups critiques ne lui infligent que la moitié de leur bonus.",
   "Les boss aux noms féminins sont enfin accordés : « Carapace-des-Abysses l’Éveillée », « … vaincue ! ».",
-  "{n} quête accomplie|{n} quêtes accomplies"
+  "{n} quête accomplie|{n} quêtes accomplies",
+  "Au retour, le bilan compte l’or des expéditions du Grand intendant et les quêtes accomplies pendant l’absence.",
+  "Les quêtes d’élites et de proie donnent aussi leur temps restant estimé.",
+  "La bande consomme moins de processeur (halos du héros dessinés autrement), surtout en fin de partie."
 ];

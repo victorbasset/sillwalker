@@ -1325,4 +1325,7 @@ export default {
   2450: "New boss ability, “Scales”: critical hits deal only half their bonus to it.",
   2451: "Boss names now get proper grammatical agreement in every language that needs it.",
   2452: "{n} quest completed|{n} quests completed",
+  2453: "On your return, the summary counts the Grand Steward's expedition gold and the quests completed while you were away.",
+  2454: "Elite and prey quests now show their estimated time left too.",
+  2455: "The strip uses less CPU (hero glows drawn differently), especially late in the game.",
 };

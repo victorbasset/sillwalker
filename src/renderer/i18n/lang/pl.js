@@ -1325,4 +1325,7 @@ export default {
   2450: "Nowa umiejętność bossa, „Łuski”: trafienia krytyczne zadają mu tylko połowę swojej premii.",
   2451: "Nazwy bossów są wreszcie poprawnie odmieniane: „… pokonana”, „… pokonane”.",
   2452: "{n} zadanie wykonane|{n} zadania wykonane|{n} zadań wykonanych",
+  2453: "Po powrocie podsumowanie liczy złoto z wypraw Wielkiego zarządcy i zadania wykonane podczas nieobecności.",
+  2454: "Zadania na elity i zdobycz też pokazują szacowany pozostały czas.",
+  2455: "Pasek zużywa mniej procesora (aury bohatera rysowane inaczej), zwłaszcza w późnej grze.",
 };

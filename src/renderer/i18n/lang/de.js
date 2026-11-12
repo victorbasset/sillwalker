@@ -1325,4 +1325,7 @@ export default {
   2450: "Neue Bossfähigkeit „Schuppen“: kritische Treffer richten nur die Hälfte ihres Bonus an.",
   2451: "Weibliche Bossnamen erhalten jetzt den richtigen Artikel: „… die Erwachte“.",
   2452: "{n} Quest erfüllt|{n} Quests erfüllt",
+  2453: "Bei der Rückkehr zählt die Übersicht das Gold der Expeditionen des Großen Verwalters und die während der Abwesenheit erfüllten Quests.",
+  2454: "Elite- und Beute-Quests zeigen jetzt ebenfalls die geschätzte Restzeit.",
+  2455: "Die Leiste braucht weniger Prozessorleistung (Heldenauren anders gezeichnet), vor allem im späten Spiel.",
 };
