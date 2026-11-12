@@ -1007,6 +1007,15 @@ test("absence : l'or des expéditions récupérées par le Grand intendant compt
   const qs = q.applyOffline(8 * 3600); assert.equal(qs.questsDone, 1);
 });
 
+test("temps restant des quêtes d'élites et de proie (it. 976)", () => {
+  const g = new Game(freshState()); g.S.zone = 10;
+  g.R.pace = Array.from({ length: 21 }, (_, i) => [i * 2, 100]); // une victoire toutes les 2 s
+  const el = { kind: "elite", goal: 3, progress: 0 }, pr = { kind: "prey", type: "fast", goal: 1, progress: 0 }, k = { kind: "kill", goal: 3, progress: 0 };
+  const te = g.questEta(el), tp = g.questEta(pr), tk = g.questEta(k);
+  assert.ok(te > tk * 5 && tp > te / 3 * 5, te + " " + tp + " " + tk);
+  g.S.zone = 1; g.S.prestige.count = 0; assert.equal(g.questEta(el), null, "pas d'élites avant la zone 3");
+});
+
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   const g = new Game(freshState());
   const gold0 = g.S.gold, bag0 = g.S.bag.length, pot0 = g.S.potions;

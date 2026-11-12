@@ -1033,11 +1033,15 @@ export class Game {
   nextStartZone() { return ascendStartZone(prestigeEffects(this.S), this.S.best); }
 
   /** Élites parmi `kills` victoires hors ligne (mêmes règles que la série de monstres, lineup()). */
-  offlineElites(kills, hs) {
+  /** (it. 976) Chance qu'une victoire soit une élite (bénédiction, Appât des champions), sans tirage. */
+  eliteChancePerKill(hs) {
     const S = this.S;
     if (S.zone < ELITE.minZone && !(S.prestige.count > 0)) return 0;
-    const dm = activeDayMod(S);
-    const x = kills * Math.min(1, ELITE.chance * (dm?.elite || 1) * (1 + (hs.elites || 0) / 100));
+    return Math.min(1, ELITE.chance * (activeDayMod(S)?.elite || 1) * (1 + (hs.elites || 0) / 100));
+  }
+
+  offlineElites(kills, hs) {
+    const x = kills * this.eliteChancePerKill(hs);
     return Math.floor(x) + (rand() < x % 1 ? 1 : 0);
   }
 
@@ -2065,13 +2069,19 @@ export class Game {
 
   questEta(q) {
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
     if (q.kind === "gold") { const g = P.slice(1).reduce((a, x) => a + x[1], 0) / dt; return g > 0 ? left / g : null; }
     let rate = (P.length - 1) / dt; // victoires par seconde
     if (q.kind === "hunt") { const types = this.zoneDef().monsters; if (!types.includes(q.type)) return null; rate /= types.length; }
+    // (it. 976) élites : chance d'élite par victoire (mêmes règles que pendant l'absence) ; proie : une sorte sur toutes
+    if (q.kind === "elite" || q.kind === "prey") {
+      const p = this.eliteChancePerKill(this.stats());
+      if (!(p > 0)) return null;
+      rate *= p / (q.kind === "prey" ? Object.keys(ELITE_AFFIXES).length : 1);
+    }
     return left / rate;
   }
 

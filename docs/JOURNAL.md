@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 976) : temps restant estimé (« ≈ 25 min ») aussi pour les quêtes « Vaincre N élites » et « proie »
+  (rythme des victoires × chance d'élite par victoire, bénédiction et Appât des champions compris ; ÷ 7 pour une
+  sorte précise ; rien avant la zone 3). La chance est calculée sans tirage (eliteChancePerKill, partagée avec
+  l'absence : afficher l'onglet ne consomme plus de hasard). Mesure des langues : « Заклинаний применено » passait sous
+  sa valeur (« 2 · рекорд 8,99 M ») en russe à 1280 px : la valeur passe par segs() comme les autres. Panneau : aucune
+  animation infinie permanente. Test logique ; 10 langues × 3 largeurs sans défaut ; autotest 200/200.
 - 2026-11-12 (it. 975) : fin de la chasse aux filtres de la bande (it. 972-974). Restent en drop-shadow : états rares ou
   brefs (gel, étourdi, ralenti, affaibli, silence), boss final, relique portée par un boss majeur : laissés. Feux
   follets des secteurs complets (box-shadow, déplacés à chaque image) : mesurés avec six feux follets forcés (TEMP),
