@@ -2351,5 +2351,6 @@ export const KEYS = [
   "{n} élixir racheté|{n} élixirs rachetés",
   "Marchand attitré : {n} objet acheté pendant ton absence.|Marchand attitré : {n} objets achetés pendant ton absence.",
   "{n} objet acheté|{n} objets achetés",
-  "Grimoire des sorts : {n} rang appris pendant ton absence.|Grimoire des sorts : {n} rangs appris pendant ton absence."
+  "Grimoire des sorts : {n} rang appris pendant ton absence.|Grimoire des sorts : {n} rangs appris pendant ton absence.",
+  "Compétences : aller au nœud suivant, l’apprendre"
 ];

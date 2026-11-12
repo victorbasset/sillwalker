@@ -125,16 +125,57 @@ export class SkillsTab {
       this.view.k = k;
       this.applyView();
     }, { passive: false });
-    box.addEventListener("mouseover", (e) => {
-      const id = e.target.dataset && e.target.dataset.id, core = e.target.dataset && e.target.dataset.core;
+    const showTip = (target) => {
+      const id = target.dataset && target.dataset.id, core = target.dataset && target.dataset.core;
       if (!id && !core) { tip.hidden = true; return; }
       tip.innerHTML = core ? this.coreTip(core) : this.tipHtml(id);
       tip.hidden = false;
-      const r = box.getBoundingClientRect(), t = e.target.getBoundingClientRect();
+      const r = box.getBoundingClientRect(), t = target.getBoundingClientRect();
       tip.style.left = Math.min(r.width - 260, Math.max(4, t.left - r.left + 16)) + "px";
       tip.style.top = Math.max(4, t.top - r.top - 10) + "px";
-    });
+    };
+    box.addEventListener("mouseover", (e) => showTip(e.target));
     box.addEventListener("mouseleave", () => { tip.hidden = true; });
+    // (it. 850) Au clavier : Tab passe d'un nœud apprenable à l'autre (les seuls focalisables), la vue se recadre
+    // sur lui s'il sort du cadre, sa bulle s'affiche ; Entrée ou Espace l'apprend.
+    box.addEventListener("focusin", (e) => {
+      const n = e.target.dataset && e.target.dataset.id;
+      if (!n) return;
+      box.scrollTop = 0; box.scrollLeft = 0; // le navigateur fait défiler le cadre vers l'élément : la vue s'en charge
+      this.reveal(n);
+      showTip(e.target);
+    });
+    box.addEventListener("focusout", () => { tip.hidden = true; });
+    box.addEventListener("keydown", (e) => {
+      const id = e.target.dataset && e.target.dataset.id;
+      if (!id || (e.key !== "Enter" && e.key !== " ")) return;
+      e.preventDefault(); e.stopPropagation();
+      this.takeByKey(id);
+    });
+  }
+
+  /** Recadre la vue si le nœud est hors du cadre (ou trop près du bord). */
+  reveal(id) {
+    const box = this.el.querySelector(".skillview"), n = SKILL_TREE.nodes[id], w = box.clientWidth, h = box.clientHeight;
+    const x = this.view.x + n.x * this.view.k, y = this.view.y + n.y * this.view.k, m = 40;
+    if (x >= m && x <= w - m && y >= m && y <= h - m) return;
+    this.view.x = w / 2 - n.x * this.view.k; this.view.y = h / 2 - n.y * this.view.k;
+    this.applyView();
+  }
+
+  /** Apprend le nœud au clavier puis donne le focus au nœud apprenable le plus proche (le cercle appris ne
+   *  l'est plus : sans cela, le focus retomberait au début de la page). */
+  takeByKey(id) {
+    if (!this.game.takeSkill(id)) return;
+    this.update();
+    const N = SKILL_TREE.nodes, a = N[id];
+    let best = null, bd = Infinity;
+    for (const k in this.nodeEls) {
+      if (this.nodeEls[k].getAttribute("tabindex") !== "0") continue;
+      const d = (N[k].x - a.x) ** 2 + (N[k].y - a.y) ** 2;
+      if (d < bd) { bd = d; best = k; }
+    }
+    if (best) this.nodeEls[best].focus({ preventScroll: true });
   }
 
   coreTip(sec) {
@@ -170,7 +211,15 @@ export class SkillsTab {
       const st = active.has(id) ? "on" : planned.has(id) ? "planned" : canTakeSkill(S, id) ? "avail" : "locked";
       const n = SKILL_TREE.nodes[id];
       const cls = `node ${n.kind} ${st}`;
-      if (this.nodeEls[id].getAttribute("class") !== cls) this.nodeEls[id].setAttribute("class", cls);
+      if (this.nodeEls[id].getAttribute("class") !== cls) {
+        this.nodeEls[id].setAttribute("class", cls);
+        // (it. 850) seuls les nœuds apprenables entrent dans l'ordre de tabulation
+        if (st === "avail") {
+          this.nodeEls[id].setAttribute("tabindex", "0");
+          this.nodeEls[id].setAttribute("role", "button");
+          this.nodeEls[id].setAttribute("aria-label", (n.name ? n.name + " · " : "") + describeEffects(n.eff || {}));
+        } else { this.nodeEls[id].removeAttribute("tabindex"); this.nodeEls[id].removeAttribute("role"); }
+      }
       const icls = "nico " + st;
       if (this.iconEls && this.iconEls[id] && this.iconEls[id].getAttribute("class") !== icls) this.iconEls[id].setAttribute("class", icls);
     }

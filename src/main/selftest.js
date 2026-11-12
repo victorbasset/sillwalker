@@ -276,6 +276,20 @@ async function runSelfTest(strip) {
   await click('[data-action="k-undo"]');
   await sleep(150);
   check("onglet Compétences : annuler le dernier", (await state("S.skills.order.length")) === sk0);
+  // (it. 850) au clavier : seuls les nœuds apprenables sont focalisables ; focus = bulle ; Entrée l'apprend et passe au suivant
+  const skKb = await js(`(() => { const all = [...document.querySelectorAll('[data-pane="skills"] .skillsvg .node')];
+    const f = all.filter((c) => c.getAttribute("tabindex") === "0"), bad = f.filter((c) => !c.classList.contains("avail")).length;
+    // fenêtre fantôme sans focus système : Chromium ne déclenche pas focusin pour un focus() scripté (Tab, en vrai, si)
+    if (f[0]) { f[0].focus(); if (!document.hasFocus()) f[0].dispatchEvent(new FocusEvent("focusin", { bubbles: true })); } return { n: f.length, bad, id: f[0]?.dataset.id, tip: !document.querySelector('[data-pane="skills"] .skilltip').hidden }; })()`);
+  wc.sendInputEvent({ type: "keyDown", keyCode: "Enter" });
+  wc.sendInputEvent({ type: "keyUp", keyCode: "Enter" });
+  await sleep(200);
+  const skKb2 = await js(`(() => { const a = document.activeElement; return { id: a?.dataset?.id, tab: a?.getAttribute?.("tabindex") }; })()`);
+  check("onglet Compétences : au clavier (focus, bulle, Entrée, nœud suivant)", skKb.n > 0 && skKb.bad === 0 && skKb.tip
+    && (await state("S.skills.order.length")) === sk0 + 1 && (await state(`S.skills.order.includes("${skKb.id}")`)) && skKb2.tab === "0" && skKb2.id !== skKb.id,
+    JSON.stringify({ skKb, skKb2 }));
+  await click('[data-action="k-undo"]');
+  await sleep(150);
   // Infobulle au survol d'un objet du sac
   await js("(() => { const g = window.__game; if (g.bagFull()) g.S.bag.pop(); g.addToBag(g.newItem(0)); g.changed() })()");
   await click('[data-tab="adventure"]');

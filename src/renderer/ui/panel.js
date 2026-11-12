@@ -869,7 +869,7 @@ export class Panel {
     const K = [[tx("Changer d’onglet"), "1 … 9, 0, -, ="], [tx("Équiper le meilleur"), "E"], [tx("Vendre ce qui n’améliore pas"), "V"],
       [tx("Ranger le sac"), "S"], [tx("Transmuter les objets inutiles"), "T"], [tx("Réclamer une quête terminée (toutes avec le Bureau des contrats)"), "R"],
       [tx("Confirmer une fenêtre"), tx("Entrée")], [tx("Fermer le panneau"), tx("Échap")], [tx("Réduire en mode mini"), "M"], [tx("Couper / rallumer le son"), "C"], [tx("Couper / rallumer la musique"), "B"],
-      [tx("Acheter le prochain déblocage (s’il est prêt)"), "U"]];
+      [tx("Acheter le prochain déblocage (s’il est prêt)"), "U"], [tx("Compétences : aller au nœud suivant, l’apprendre"), `Tab · ${tx("Entrée")}`]];
     $(this.root, "#mt").textContent = tx("Raccourcis clavier");
     $(this.root, "#mbody").innerHTML = `<ul class="lines keylist">${K.map(([l, k]) => `<li><span>${esc(l)}</span><b>${esc(k)}</b></li>`).join("")}</ul>
       <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>`;

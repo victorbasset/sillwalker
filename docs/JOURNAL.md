@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 850) : l'arbre de Compétences se joue au clavier : il ne se prenait qu'à la souris (cercles SVG
+  impossibles à atteindre avec Tab), et « Dépenser automatiquement » n'arrive qu'avec un déblocage. Tab passe d'un
+  nœud apprenable à l'autre (les seuls dans l'ordre de tabulation), la vue se recadre sur lui s'il sort du cadre et sa
+  bulle s'affiche ; Entrée ou Espace l'apprend, et le focus saute au nœud apprenable le plus proche. Contour doré au
+  focus ; ligne ajoutée aux Raccourcis clavier (10 langues). Contrôle d’autotest (161/161). Au passage : fuzz 1200 parties,
+  0 bloquée ; save-fuzz : tout « ok ».
 - 2026-11-12 (it. 849) : Statistiques > Chiffres sur écran de portable : en allemand (1280 px) « Gegenstandssammlung »
   passait sous sa valeur (« …sammlung44 / 44 »), en russe (1366 et 1280 px) deux libellés aussi, et la carte
   Probabilités coupait « Boss 5 » de son « % ». Les quatre cartes étroites prennent la place que Probabilités avait en
@@ -2876,6 +2882,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Clavier (vu it. 850) : la Carte du voyageur (clic sur une zone de la carte pour y aller) et le petit « max » / « tout »
+  dans les boutons de Talents ne s'atteignent qu'à la souris ; même méthode que l'arbre de Compétences (tabindex sur
+  les zones accessibles, Entrée).
 
 - DEMANDES DE VICTOR (2026-11-10, après-midi et soir ; 2026-11-11) :
   X. FAIT, ABANDONNÉ (it. 751-763). Essai Tauri (la bande seule, compilée pour Windows) mesuré par Victor : 400 Mo de
