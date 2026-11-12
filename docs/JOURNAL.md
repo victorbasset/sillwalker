@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 971, revue générale) : simulation 12 h, records des courses : berserker 41 → 64, nécromancien
+  39 → 62, moine 40 → 62 (régulier). Captures Bestiaire, Carte, Réglages et mini en français, anglais et chinois : rien
+  de cassé. Texte de l'interface en russe : aucun mot non traduit. Performance (copies neuves) : panneau 21,0 %, mini
+  7,1 %, icône 0,8 % ; bande 20,5 puis 20,9 % : ≈ +1 point depuis les revues 941-961 (19,5-19,9) : noté en Idées (P2).
 - 2026-11-12 (it. 970) : retour d'absence : les quêtes accomplies pendant l'absence sont annoncées (bulle :
   « …, 2 quêtes accomplies. » ; détail : « Quêtes accomplies »), seules celles devenues complètes hors ligne
   (summary.questsDone). Pluriels dans les 10 langues ; test logique (une quête « kill » accomplie en 8 h) ; contrôle
@@ -3524,6 +3528,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 Vu it. 971 : bande ≈ 20,5-20,9 % d'un cœur (deux mesures, copies neuves) contre 19,5-19,9 % aux revues 941-961 :
+  ≈ +1 point. Suspects : t() et sa règle d'espaces insécables (it. 952 : expression régulière à chaque texte traduit,
+  appelée pour chaque nombre de dégâts flottant ?), étiquettes « ✦ » (it. 947), Ruée des gobelins (sans effet hors
+  événement). Mesurer avec chaque suspect retiré (injection TEMP), sur copies neuves, 2 mesures par variante.
 - FAIT (it. 952) P3 Vu it. 951 : journal, « Récompense du jour 1/7 : +20,53 M » puis « or. » seul sur la ligne suivante : l'espace
   entre un nombre (abrégé ou non) et « or » / « gold » / « PV »… est ordinaire. Piste : comme pour « % » (it. 950),
   rendre insécable dans t() l'espace entre un chiffre ou un suffixe (k, M, Md, T…) et le mot d'unité qui suit, ou
