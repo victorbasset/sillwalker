@@ -1311,4 +1311,6 @@ export default {
   2436: "Wszędzie złote gobliny: łap je!",
   2437: "złapano {n} goblina|złapano {n} gobliny|złapano {n} goblinów",
   2438: "Oddawaj to złoto!",
+  2439: "Jeszcze jedna do kolekcji!",
+  2440: "Takiej jeszcze nie pokonałem!",
 };

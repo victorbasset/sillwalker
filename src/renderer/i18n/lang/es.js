@@ -1311,4 +1311,6 @@ export default {
   2436: "¡Goblins dorados por todas partes: atrápalos!",
   2437: "{n} goblin atrapado|{n} goblins atrapados",
   2438: "¡Devuélveme ese oro!",
+  2439: "¡Una más para mi colección!",
+  2440: "¡Nunca había vencido a una así!",
 };

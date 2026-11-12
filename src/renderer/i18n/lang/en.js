@@ -1311,4 +1311,6 @@ export default {
   2436: "Golden goblins everywhere: catch them!",
   2437: "{n} goblin caught|{n} goblins caught",
   2438: "Give me back that gold!",
+  2439: "One more for my collection!",
+  2440: "Never beaten one of those before!",
 };

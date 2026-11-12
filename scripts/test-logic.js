@@ -909,9 +909,12 @@ test("sortes d'élites vaincues : retenues, succès « Tueur d'élites » (it. 9
   assert.equal(ACH_PROGRESS.ELITES_ALL(g.S)[0], 0);
   // une élite fuyante vaincue (vraie victoire) : retenue
   g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
-  assert.equal(g.S.stats.affixesSeen.elusive, true);
+  assert.equal(g.S.stats.affixesSeen.elusive, 1); // (it. 956) un compteur par sorte
   assert.ok(g.S.log.some((l) => /Fuyant|Evasive/.test(l) && /1 \/ 7/.test(l)), "annoncée (it. 944)");
   const n = g.S.log.length; g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
+  assert.equal(g.S.stats.affixesSeen.elusive, 2, "deuxième victoire comptée");
+  g.S.stats.affixesSeen.fast = true; g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "fast" }); g.killMonster();
+  assert.equal(g.S.stats.affixesSeen.fast, 2, "ancienne valeur « true » = 1, puis 2");
   assert.ok(!g.S.log.slice(0, 3).some((l) => /1 \/ 7|2 \/ 7/.test(l)), "pas deux fois : " + n);
   for (const a of ids.slice(0, -1)) g.S.stats.affixesSeen[a] = true;
   assert.ok(!reachedAchievements(g.S).includes("ELITES_ALL"), "pas encore toutes");

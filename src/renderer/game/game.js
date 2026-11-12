@@ -21,7 +21,7 @@ import { t as tx, txn, tr, fsp, colon, lc, csep, cend } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor } from "./daymods.js";
 import {
-  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, GOBLIN, MONSTERS, BAG_SIZE,
+  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
   CHAMPION,
 } from "./data.js";
@@ -888,10 +888,15 @@ export class Game {
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
     // (it. 943) sortes d'élites vaincues (Bestiaire > Élites, succès « Tueur d'élites »)
-    if (m.elite && m.affix && ELITE_AFFIXES[m.affix] && !(S.stats.affixesSeen || {})[m.affix]) {
-      (S.stats.affixesSeen ||= {})[m.affix] = true; // (it. 944) la première victoire sur une sorte est annoncée
-      const won = Object.keys(ELITE_AFFIXES).filter((k) => S.stats.affixesSeen[k]).length;
-      this.log(tx("Nouvelle sorte d’élite vaincue : {0} ({1} / {2}).", { 0: ELITE_AFFIXES[m.affix].name, 1: won, 2: Object.keys(ELITE_AFFIXES).length }));
+    // (it. 956) un compteur par sorte (true des versions précédentes = 1)
+    if (m.elite && m.affix && ELITE_AFFIXES[m.affix]) {
+      const A = (S.stats.affixesSeen ||= {}), was = affixWins(A[m.affix]);
+      A[m.affix] = was + 1;
+      if (!was) { // (it. 944) la première victoire sur une sorte est annoncée ; (it. 956) le héros s'en réjouit
+        const won = Object.keys(ELITE_AFFIXES).filter((k) => A[k]).length;
+        this.log(tx("Nouvelle sorte d’élite vaincue : {0} ({1} / {2}).", { 0: ELITE_AFFIXES[m.affix].name, 1: won, 2: Object.keys(ELITE_AFFIXES).length }));
+        this.emit("eliteNew", { affix: m.affix });
+      }
     }
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
     S.bestiary[m.type] = (S.bestiary[m.type] || 0) + 1;

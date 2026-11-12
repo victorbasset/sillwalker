@@ -2440,5 +2440,7 @@ export const KEYS = [
   "Ruée des gobelins",
   "Des gobelins dorés partout : attrape-les !",
   "{n} gobelin attrapé|{n} gobelins attrapés",
-  "Rendez-moi cet or !"
+  "Rendez-moi cet or !",
+  "Une de plus pour ma collection !",
+  "Celle-là, je ne l’avais jamais battue !"
 ];

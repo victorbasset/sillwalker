@@ -47,6 +47,7 @@ const SPEECH = {
   ev_hawkeye: [tx("Je ne peux plus rater !")],
   ev_nest: [tx("Des œufs partout !")],
   ev_goblinrush: [tx("Rendez-moi cet or !")],
+  eliteNew: [tx("Une de plus pour ma collection !"), tx("Celle-là, je ne l’avais jamais battue !")],
   bag: [tx("Mon sac déborde !"), tx("Plus de place dans le sac…"), tx("Il faudrait vider le sac !")],
   back: [tx("Te revoilà !"), tx("Tu m’as manqué !"), tx("J’ai bien avancé, tu as vu ?")],
   nemesis: [tx("Enfin !"), tx("Cette fois, c’est la bonne !"), tx("Je savais que j’y arriverais.")],
@@ -138,6 +139,7 @@ export class StripRenderer {
     g.on("zoneUp", ({ record }) => { if (record) this.say(SPEECH.record); });
     g.on("levelUp", () => this.say(SPEECH.level));
     g.on("event", ({ id } = {}) => this.say(SPEECH["ev_" + id] || SPEECH.event));
+    g.on("eliteNew", () => this.say(SPEECH.eliteNew)); // (it. 956)
     g.on("bagFull", () => this.say(SPEECH.bag)); // ordinaire : au plus une réplique toutes les 45 s // ordinaire : pas de bulle sur le nom d'un boss
     g.on("bossNemesis", () => this.say(SPEECH.nemesis, true));
     g.on("bossDodge", () => this.float(this.monX() + 14, 40, tx("Raté !"), "#c8c8d8"));

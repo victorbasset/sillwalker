@@ -9,7 +9,7 @@ import { monsterURL, itemIconURL } from "../../render/sprites.js";
 import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound, SET_CODEX_BONUS } from "../../game/codex.js";
 import { POWERS } from "../../game/powers.js";
 import { SETS, SET_KEYS, setCounts } from "../../game/sets.js";
-import { RARITIES, SLOTS, ELITE_AFFIXES } from "../../game/data.js";
+import { RARITIES, SLOTS, ELITE_AFFIXES, affixWins } from "../../game/data.js";
 import { BOSS_MECHANICS, bossMechanics } from "../../game/bosses.js";
 
 const where = (type) => {
@@ -72,7 +72,7 @@ export class BestiaryTab {
         return `<div class="setcard${nz === S.zone ? " here" : ""}" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
       ${show.elites ? (() => { const won = (S.stats && S.stats.affixesSeen) || {}, ae = Object.entries(ELITE_AFFIXES); // (it. 943) sortes vaincues : ✓
         return `<h2 class="codexh" id="bj-elites">${tx("Élites")} (${ae.filter(([id]) => won[id]).length} / ${ae.length}) <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
-      <div class="setgrid">${ae.map(([id, a]) => `<div class="setcard${won[id] ? "" : " unknown"}" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b>${won[id] ? " <small>✓</small>" : ""}<div>${esc(a.desc || "")}</div></div>`).join("")}</div>`; })() : ""}
+      <div class="setgrid">${ae.map(([id, a]) => `<div class="setcard${won[id] ? "" : " unknown"}" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b>${won[id] ? ` <small>✓ ×${fmt(affixWins(won[id]))}</small>` : ""}<div>${esc(a.desc || "")}</div></div>`).join("")}</div>`; })() : ""}
       ${show.events ? this.eventsHTML(S) : ""}`;
   }
 

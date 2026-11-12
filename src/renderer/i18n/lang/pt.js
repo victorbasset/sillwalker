@@ -1311,4 +1311,6 @@ export default {
   2436: "Goblins dourados por toda parte: pegue-os!",
   2437: "{n} goblin pego|{n} goblins pegos",
   2438: "Devolva esse ouro!",
+  2439: "Mais uma para a minha coleção!",
+  2440: "Nunca tinha derrotado uma dessas!",
 };

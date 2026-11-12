@@ -1311,4 +1311,6 @@ export default {
   2436: "Überall goldene Kobolde: fang sie!",
   2437: "{n} Kobold gefangen|{n} Kobolde gefangen",
   2438: "Gib mir das Gold zurück!",
+  2439: "Noch eine für meine Sammlung!",
+  2440: "So eine habe ich noch nie besiegt!",
 };

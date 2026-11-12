@@ -197,6 +197,8 @@ export const ELITE = { chance: 0.06, hp: 3, atk: 1.5, gold: 4, xp: 3, minRarity:
 export const CHAMPION = { minZone: 5, chance: 0.005, // pas de champion en tout début de partie (zone < 5)
   hp: 2.5, atk: 1.3, gold: 5, xp: 4, minRarity: 3 };
 /** Affixes des élites : chaque élite en reçoit un (nom affiché au-dessus de lui). */
+/** (it. 956) Victoires sur une sorte d'élite (stats.affixesSeen) : un nombre ; « true » des versions précédentes = 1. */
+export const affixWins = (v) => (typeof v === "number" && Number.isFinite(v) && v > 0 ? Math.floor(v) : v ? 1 : 0);
 export const ELITE_AFFIXES = {
   fast:     { name: "Rapide",     color: "#9fd8ff", interval: 0.6, desc: "Frappe beaucoup plus vite." },
   armored:  { name: "Blindé",     color: "#c9ced6", hp: 1.6, desc: "60 % de points de vie en plus." },

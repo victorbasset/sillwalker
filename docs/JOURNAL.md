@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 956) : collection des élites, suite : chaque sorte compte ses victoires (stats.affixesSeen : un nombre
+  ; « true » des versions précédentes vaut 1, affixWins dans data.js) ; Bestiaire > Élites : « ✓ ×42 ». À la première
+  victoire sur une sorte, le héros s'en réjouit (« Une de plus pour ma collection ! », « Celle-là, je ne l'avais jamais
+  battue ! »). Test logique (compteur, ancienne valeur), contrôle d'autotest (bulle, en anglais) ; sauvegardes abîmées
+  ok ; vu en allemand à 1280 px ; 10 langues ; autotest 199/199.
 - 2026-11-12 (it. 955) : tests logiques indépendants les uns des autres : chaque test reçoit sa propre graine
   aléatoire, tirée de son nom (avant : une seule graine pour toute la suite, si bien qu'ajouter un test décalait les
   tirages de tous les suivants ; deux tests sans rapport ont échoué ainsi aux it. 943 et 954). Deux tests ne passaient
