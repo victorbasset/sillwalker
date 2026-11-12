@@ -295,7 +295,8 @@ export class StripRenderer {
     // Nombres qui tombent au même endroit au même instant (fin de partie : coup, critique et dégâts reçus) : chacun
     // cherche une place libre parmi les nombres encore jeunes, au-dessus puis au-dessous, sinon de côté (it. 846).
     const w = String(txt).length * (big ? 8 : 7) + 4, h = big ? 19 : 17;
-    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss ? y - (big ? 14 : 12) : -6);
+    // (it. 860) …ni, décalés de côté ou en montant, sur la fin de son nom ou la relique qu'il garde.
+    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss ? y - (big ? 14 : 12) : -6, nearBoss ? this.bossObstacles() : null);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
@@ -305,20 +306,33 @@ export class StripRenderer {
   }
 
   /** Place la plus proche de (x, y) où un texte w × h (centré sur x) ne recouvre aucun nombre flottant récent. */
-  freeSpot(x, y, w, h, minY = -6) {
+  freeSpot(x, y, w, h, minY = -6, obs = null) {
     const live = this.fx.filter((f) => f.box && f.t < 0.7);
-    if (!live.length) return { x, y };
+    if (!live.length && !obs?.length) return { x, y };
+    // Obstacles fixes (nom du boss, relique) : le texte ne doit pas les toucher tant qu'il est bien visible, c'est-à-dire
+    // jusqu'aux deux tiers de sa montée (22 px ; ensuite il est presque effacé).
+    const lift = 15;
     const hits = (cx, cy) => live.some((f) => {
       const b = f.box, bx = b.x + (f.x || 0), by = b.y + (f.y || 0);
       return Math.abs(cx - bx) * 2 < w + b.w && cy < by + b.h && by < cy + h;
-    });
+    }) || (obs && obs.some((o) => cx - w / 2 < o.r && o.l < cx + w / 2 && cy - lift < o.b && o.t < cy + h));
     // D'abord empilés (au-dessus, au-dessous), puis de côté (face à un boss, il n'y a de place que pour 2 ou 3 rangées).
     const rows = [0, -h, h, -2 * h, 2 * h, 3 * h], side = Math.round(w * 0.5) + 16;
-    for (const dx of [0, side, -side, 2 * side, -2 * side]) for (const dy of rows) {
+    for (const dx of [0, side, -side, 2 * side, -2 * side, 3 * side]) for (const dy of rows) {
       const cx = x + dx, cy = Math.max(minY, Math.min(GROUND - h - 4, y + dy));
       if (!hits(cx, cy)) return { x: cx, y: cy };
     }
     return { x, y };
+  }
+
+  /** Nom du boss et relique qu'il garde, en coordonnées de la couche des effets (mesurés une fois par série de monstres
+   *  ou après un déplacement du nom : pas de mesure de mise en page à chaque nombre). */
+  bossObstacles() {
+    if (this.bossObs) return this.bossObs;
+    const base = this.fxLayer.getBoundingClientRect();
+    this.bossObs = [this.bossTag, this.bossRelic].filter((e) => e && e.isConnected).map((e) => e.getBoundingClientRect())
+      .filter((r) => r.width).map((r) => ({ l: r.left - base.left - 2, r: r.right - base.left + 2, t: r.top - base.top - 2, b: r.bottom - base.top + 2 }));
+    return this.bossObs;
   }
 
   loot(x, y, color) {
@@ -402,7 +416,7 @@ export class StripRenderer {
   resize() {
     const dpr = window.devicePixelRatio || 1;
     this.cssDpr = dpr;
-    this.W = this.root.clientWidth || 800;
+    this.W = this.root.clientWidth || 800; this.bossObs = null; // positions du nom et de la relique à remesurer
     const spriteDpr = Math.max(1, Math.round(dpr));
     if (spriteDpr !== this.dpr) { this.dpr = spriteDpr; this.sprites = buildSpriteSet(spriteDpr); this.buildHero(); }
     sizeCanvas(this.base, this.W, STRIP_H, dpr);
@@ -582,7 +596,8 @@ export class StripRenderer {
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
       const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
       // (it. 613) aussi tant qu'elle peut encore monter de niveau (déjà gagnée : un peu plus pâle)
-      if (carried && relicUpgradable(g.S, carried, !!majorBoss(g.S.zone)?.echo)) { const im = el("img", "relic-carried", a.el); im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); im.style.left = (a.w + 3) + "px"; if (hasRelic(g.S, carried)) im.classList.add("owned"); }
+      if (boss) { this.bossRelic = null; this.bossObs = null; }
+      if (carried && relicUpgradable(g.S, carried, !!majorBoss(g.S.zone)?.echo)) { const im = el("img", "relic-carried", a.el); this.bossRelic = im; im.onload = () => { this.bossObs = null; }; im.src = relicIconURL(carried, 3); im.alt = ""; im.title = tx(RELICS[carried].name); im.style.left = (a.w + 3) + "px"; if (hasRelic(g.S, carried)) im.classList.add("owned"); }
       if (boss) {
         const tag = el("div", "affix bossname", a.el);
         this.bossTag = tag; this.bossW = a.w;
@@ -878,7 +893,7 @@ export class StripRenderer {
     let off = 40;
     if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(FIGHTS) + this.bossW / 2 + off - (this.hudRLeft - 8));
     const v = `calc(-100% + ${Math.round(off)}px) 0`;
-    if (t.style.translate !== v) t.style.translate = v;
+    if (t.style.translate !== v) { t.style.translate = v; this.bossObs = null; }
   }
 
   drawHudRight() {

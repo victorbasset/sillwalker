@@ -657,6 +657,24 @@ async function runSelfTest(strip) {
   await sleep(700);
   const bb = await js("(() => { const st = window.__strip, H = window.innerHeight; const hb = st.heroBar.el.getBoundingClientRect(), b = document.querySelector('.hpbar.bossbar'); if (!b || b.hidden || st.heroBar.el.hidden) return 'barre absente'; const br = b.getBoundingClientRect(), hr = st.hero.el.getBoundingClientRect(); const r = [hb.top >= hr.bottom - 2, br.bottom <= H, hb.bottom <= H, br.top > 30].join(' '); window.__game.S.kills = window.__bbKeep; return r; })()");
   check("combat de boss : barres de vie du héros et du boss visibles sous les pieds", bb0 === "ok" && bb === "true true true true", bb);
+  // (it. 860) Face à un boss, les nombres flottants (coups, critiques, sorts, « ! ») ne passent ni sur son nom ni sur la
+  // relique qu'il garde, même en montant (à mi-course, encore bien visibles) : les 200 boss et les échos (16 en défaut avant).
+  {
+    const r = await js(`(() => { const st = window.__strip, G = window.__game; if (!st.active) return 'bande inactive';
+      const k0 = G.S.kills, z0 = G.S.zone, m0 = G.R.mon, all = []; for (const z of [...Array(200).keys()].map((i) => i + 1).concat([250, 300, 350])) { G.S.zone = z; G.S.kills = 10; G.R.mon = G.makeMonster(true); st.slotKey = null; st.syncSlots(); st.placeBossName();
+      const tag = [...document.querySelectorAll('.affix.bossname')].find((t) => t.isConnected && t.getBoundingClientRect().width);
+      if (!tag) { all.push(z + ' nom absent'); continue; }
+      const obs = [tag, ...document.querySelectorAll('.relic-carried')].map((e) => e.getBoundingClientRect()).filter((b) => b.width);
+      st.fx.forEach((f) => f.node.remove()); st.fx.length = 0;
+      const mx = st.monX(), calls = [[14, 20, '-18 k', 0], [14, 20, 'Critique !', 1], [20, 14, 'Étourdi !', 1], [20, 6, '!', 1], [8, 26, '-104 k', 1], [14, 34, 'Riposte 3 k', 0], [14, 20, '-21 k', 0], [26, 30, '-7 k', 0]];
+      const bad = [];
+      for (const [dx, y, t, big] of calls) { st.float(mx + dx, y, t, '#fff', !!big, true); const f = st.fx[st.fx.length - 1], b = f.node.getBoundingClientRect();
+        for (const k of [0, 0.5]) { const top = b.top - f.rise * k, bot = b.bottom - f.rise * k;
+          if (obs.some((o) => b.left < o.right - 1 && o.left < b.right - 1 && top < o.bottom - 1 && o.top < bot - 1)) { bad.push(t + '@' + k + ' ' + Math.round(b.left) + ',' + Math.round(top)); break; } } }
+      st.fx.forEach((f) => f.node.remove()); st.fx.length = 0; if (bad.length) all.push(z + ': ' + bad.join(' | ') + ' ; obs ' + obs.map((o) => Math.round(o.left) + '-' + Math.round(o.right) + ' × ' + Math.round(o.top) + '-' + Math.round(o.bottom)).join(' ')); }
+      G.S.zone = z0; G.S.kills = k0; G.R.mon = m0; st.slotKey = null; st.syncSlots(); return all.length ? all.length + ' boss : ' + all.join(' // ') : 'ok'; })()`);
+    check("combat de boss : nombres flottants hors du nom et de la relique", r === "ok", r);
+  }
   // (it. 701-705) Écho d'un lieutenant (zones 250, 300, 350) : contour spectral ; pas pour l'original (zone 50) ni ailleurs.
   const eo = await js("(() => { const G = window.__game, st = window.__strip, z0 = G.S.zone, r = [250, 300, 350, 50, 249].map((z) => { G.S.zone = z; return st.echoOutline() || '-'; }); G.S.zone = z0; return r.join(' '); })()");
   check("échos des lieutenants : contour spectral (250, 300, 350), pas l'original ni une autre zone", /^(#\w+) \1 \1 - -$/.test(eo), eo);

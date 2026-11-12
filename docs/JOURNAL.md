@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 860) : bande, combat de boss : les nombres flottants poussés de côté (quand plusieurs tombent en même
+  temps) montaient encore dans la fin du nom du boss, et ceux des boss majeurs (zones 50, 100, 150, 200) recouvraient
+  la relique qu'ils gardent. Chaque nombre évite maintenant le nom et la relique sur toute la partie bien visible de sa
+  montée (positions mesurées une fois par série de monstres : aucun coût par image). Contrôle d'autotest sur les
+  200 boss et les échos (16 en défaut avant, 0 après ; 170/170), vu en capture (zone 55).
 - 2026-11-12 (it. 859) : bande, arrivée d'un boss : la réplique du héros dite juste avant (« Je me sens plus fort ! » au
   passage de niveau sur le dernier monstre) restait 3 s par-dessus le nom du boss, dès le premier boss d'une partie
   neuve. Elle s'efface maintenant quand le boss arrive (les répliques importantes, K.-O. ou légendaire, restent). Vu en
@@ -2932,7 +2937,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
 
 - P3 Revue it. 851 : (a) FAIT (it. 852) japonais, tuiles étroites de la Boutique : « バッグが満 / 杯 », « ポーショ / ン », « タマ / ゴ » coupés
-  au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) nombres flottants
+  au dernier caractère (essayer line-break: strict / un mot par ligne, sans faire déborder) ; (b) FAIT (it. 860) nombres flottants
   de la bande face à un boss : encore vus sur sa couronne et sur la fin de son nom en montant (it. 846) ;
   (c) FAIT (it. 856) « Kitten lv. 10 » (Familiers, minuscule) mais « Lv. 1313 » sur la bande ; (d) VU (it. 857) sauvegarde de dev au niveau 1313 :
   « 1,54e105 » d'expérience : notation scientifique voulue au-delà de 1e36 (fmt), niveau irréaliste : laissé.
