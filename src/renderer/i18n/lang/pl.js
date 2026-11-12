@@ -1255,4 +1255,6 @@ export default {
   2380: "Nowe rzadkie wydarzenie, „Krwawy księżyc”: przez 30 s każdy potwór jest elitą (gwarantowany łup).",
   2381: "Podczas twojej nieobecności elity, polowania, rzadki łup i trafienia krytyczne też posuwają zadania naprzód.",
   2382: "„Wielki zarządca” zajmuje się chowańcami nawet podczas długiej walki z bossem; „Do zrobienia teraz” wskazuje wolne chowańce; jasny motyw czytelniejszy.",
+  2383: "Dzień skarbów",
+  2384: "Skrzynie ze skarbami ×3 na drodze.",
 };

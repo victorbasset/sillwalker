@@ -1255,4 +1255,6 @@ export default {
   2380: "Novo evento raro, a «Lua de sangue»: durante 30 s, todo monstro é de elite (saque garantido).",
   2381: "Enquanto você está ausente, elites, caçadas, saque raro e golpes críticos também fazem as missões avançarem.",
   2382: "O «Grande intendente» cuida dos mascotes mesmo durante um longo combate contra chefe; «O que fazer agora» aponta os mascotes livres; tema claro mais legível.",
+  2383: "Dia dos tesouros",
+  2384: "Baús do tesouro ×3 pelo caminho.",
 };

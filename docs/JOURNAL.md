@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 887) : une 8e bénédiction du jour, le « Jour des trésors » : les coffres au trésor trouvés sur le
+  chemin sont trois fois plus fréquents, en jeu comme pendant l'absence (plafond hors ligne triplé aussi). Utile à
+  tous les joueurs, débutants compris. Les jours sont redistribués entre les 8 bénédictions (prochains jours des
+  trésors : 17 et 22 novembre). Sauvegardes abîmées : 910 corruptions, toutes « ok ». Équilibrage 12 h inchangé
+  (63,1) ; traduit dans les 10 langues ; test logique ; autotest 178/178 ; vu en capture (allemand, 1280 px).
 - 2026-11-12 (it. 886) : « Quoi de neuf », édition 34 (vue une fois au prochain lancement) : Crachat venimeux et
   Talisman de pureté, élite Épineux, Lune de sang, quêtes qui avancent pendant l'absence, Grand intendant pendant les
   combats de boss, familiers libres dans « À faire maintenant », thème clair plus lisible ; traduite dans les 10

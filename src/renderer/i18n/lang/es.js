@@ -1255,4 +1255,6 @@ export default {
   2380: "Nuevo evento raro, la «Luna de sangre»: durante 30 s, cada monstruo es de élite (botín garantizado).",
   2381: "Mientras estás ausente, las élites, las cacerías, el botín raro y los golpes críticos también hacen avanzar las misiones.",
   2382: "El «Gran intendente» se ocupa de las mascotas incluso durante un largo combate contra un jefe; «Qué hacer ahora» señala las mascotas libres; tema claro más legible.",
+  2383: "Día de tesoros",
+  2384: "Cofres del tesoro ×3 en el camino.",
 };

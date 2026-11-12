@@ -861,6 +861,20 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     assert.ok(heroStats(g.S).atk > before.atk);
     for (const k of DAY_MOD_KEYS) assert.ok(DAY_MODS[k].name && DAY_MODS[k].desc);
   });
+  test("Jour des trésors : coffres ×3 en jeu et pendant l'absence (it. 887)", () => {
+    const count = (mod) => {
+      const g = new Game(freshState()); g.S.daily.mod = mod; let n = 0;
+      g.openChest = () => { n++; };
+      for (let i = 0; i < 20000; i++) g.rollRareThings({ boss: false, elite: false });
+      return n;
+    };
+    const a = count("gold"), b = count("treasure");
+    assert.ok(b > a * 2 && b < a * 4.5, "coffres : " + a + " → " + b);
+    const off = (mod) => { const g = new Game(freshState()); g.S.zone = 10; g.S.daily.mod = mod; return g.applyOffline(8 * 3600).chests; };
+    let sa = 0, sb = 0;
+    for (let i = 0; i < 8; i++) { sa += off("gold"); sb += off("treasure"); }
+    assert.ok(sb > sa, "hors ligne aussi : " + sa + " → " + sb);
+  });
 }
 
 test("coffre au trésor : or, potion et objet rare ou mieux", () => {

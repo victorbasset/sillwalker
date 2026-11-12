@@ -1075,7 +1075,7 @@ export class Game {
     }
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
     const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
-    const feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal, 3);
+    const dmc = activeDayMod(S)?.chest || 1, feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal * dmc, 3 * dmc);
     if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     for (let i = 0; i < chests; i++) this.openChest();
     // Automatismes achetés : ils ont « travaillé » pendant l'absence (une seule ligne de journal chacun).
@@ -1850,7 +1850,7 @@ export class Game {
     const chance = m.boss ? FEATHER.boss : m.elite ? FEATHER.elite : FEATHER.normal;
     if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, tx("Plume du vent")); }
     for (const id in EVENTS) if ((!EVENTS[id].req || EVENTS[id].req(this.S)) && rand() < EVENTS[id].chance) { this.startEvent(id); break; }
-    if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal)) this.openChest();
+    if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal) * (activeDayMod(this.S)?.chest || 1)) this.openChest(); // Jour des trésors
   }
 
   /** Coffre au trésor trouvé sur le chemin. */

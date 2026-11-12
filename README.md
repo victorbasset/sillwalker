@@ -110,7 +110,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   par la vente de l'inutile et la transmutation.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
-- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins).
+- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3).
 - **Statistiques** : records, compteurs de l'aventure (dont la collection de panoplies) et liste des succès.
 - **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.

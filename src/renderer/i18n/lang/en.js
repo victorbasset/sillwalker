@@ -1255,4 +1255,6 @@ export default {
   2380: "New rare event, the “Blood Moon”: for 30 s, every monster is an elite (guaranteed loot).",
   2381: "While you are away, elites, hunts, rare loot and critical hits also advance quests.",
   2382: "The “Grand Steward” looks after pets even during a long boss fight; “Things to do now” points out idle pets; the light theme is easier to read.",
+  2383: "Day of Treasures",
+  2384: "Treasure chests ×3 along the way.",
 };
