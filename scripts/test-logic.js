@@ -2367,11 +2367,21 @@ test("événement Œil du faucon : tous les coups sont critiques", () => {
     gm.R.lineupZone = 10;
     assert.ok(!gm.makeMonster(false).elite, "sans l'événement : monstre ordinaire");
     assert.ok(EVENTS_T.bloodmoon.req(gm.S) && !EVENTS_T.bloodmoon.req({ zone: 1, prestige: { count: 0 } }), "pas avant les premières élites");
+    const line0 = gm.R.lineup;
     gm.startEvent("bloodmoon");
+    assert.notEqual(gm.R.lineup, line0, "nouvelle série : la bande redessine la file (contour, affixe) (it. 890)");
     const em = gm.makeMonster(false);
     assert.ok(em.elite && ELITE_AFFIXES[em.affix] && gm.R.lineup[0].elite, "Lune de sang : élite avec affixe, gardée dans la série");
     gm.S.kills = 1; assert.ok(!gm.makeMonster(false).elite, "le gobelin reste un gobelin");
     assert.ok(!gm.makeMonster(true).elite, "le boss reste un boss");
+    // (it. 890) le monstre déjà en combat reste ordinaire ; une série tirée pendant l'événement naît élite
+    const gf = new Game(freshState()); gf.S.zone = 10; gf.S.kills = 2;
+    gf.R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => ({ type: "slime", elite: false })); gf.R.lineupZone = 10;
+    gf.R.mon = gf.makeMonster(false);
+    gf.startEvent("bloodmoon");
+    assert.ok(!gf.R.lineup[2].elite && gf.R.lineup[3].elite && !gf.R.lineup[1].elite, "seulement la suite de la file");
+    gf.R.lineup = null; gf.S.zone = 11;
+    assert.ok(gf.lineup().every((sl) => sl.goblin || sl.elite), "nouvelle série pendant la Lune : toute élite");
   }
   g.startEvent("hawkeye");
   assert.ok(g.R.events.hawkeye > 0);

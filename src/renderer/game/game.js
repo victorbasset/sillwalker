@@ -136,6 +136,7 @@ export class Game {
           const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * eliteMul;
           return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
+      if ((R.events.bloodmoon || 0) > 0) this.bloodMoon(R.lineup, 0); // Lune de sang : la nouvelle série naît élite
       R.lineupZone = this.S.zone;
       R.bossPierced = 0; // nouvelle série : le boss de la zone n'a encore rien reçu
     }
@@ -731,8 +732,6 @@ export class Game {
   makeMonster(boss) {
     const Z = zoneDef(this.S.zone);
     const slot = boss ? { type: Z.boss, elite: false } : this.lineup()[Math.min(this.S.kills, KILLS_PER_ZONE - 1)];
-    // Lune de sang (events.js) : le monstre qui arrive devient une élite (la série le garde, aperçu compris).
-    if (!boss && !slot.goblin && !slot.elite && (this.R.events.bloodmoon || 0) > 0) { slot.elite = true; slot.affix = pick(Object.keys(ELITE_AFFIXES)); }
     const b = monsterBase(this.S.zone, boss, slot.type, slot.elite, !boss && slot.champion);
     const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, champion: !boss && !!slot.champion, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
@@ -1822,10 +1821,29 @@ export class Game {
     }
   }
 
+  /**
+   * Lune de sang (events.js) : les monstres de la série à partir de `from` deviennent des élites (gobelins exceptés).
+   * Fait sur la série elle-même, pas à l'apparition : la bande dessine le monstre combattu avec l'image de sa place
+   * dans la file (contour doré, affixe), recréée seulement quand la série change (it. 890 : avant, l'élite de la Lune
+   * se battait sans contour ni étiquette).
+   */
+  bloodMoon(line, from) {
+    for (let k = from; k < line.length; k++) {
+      const sl = line[k];
+      if (sl && !sl.goblin && !sl.elite) { sl.elite = true; sl.affix = pick(Object.keys(ELITE_AFFIXES)); }
+    }
+  }
+
   startEvent(id) {
     const ev = EVENTS[id];
     if (!ev || (this.R.events[id] || 0) > 0) return false;
     this.R.events[id] = ev.duration;
+    if (id === "bloodmoon" && this.R.lineup && this.R.lineupZone === this.S.zone) {
+      // le monstre déjà en combat reste tel quel ; la suite de la file devient élite, redessinée (nouvelle série)
+      const R = this.R, from = this.S.kills + (R.mon && !R.mon.boss ? 1 : 0);
+      R.lineup = R.lineup.map((sl) => ({ ...sl }));
+      this.bloodMoon(R.lineup, from);
+    }
     this.S.stats.events = (this.S.stats.events || 0) + 1;
     (this.S.stats.eventsSeen ||= {})[id] = true; // succès « Chasseur d'événements »
     this.questProgress("event", 1);

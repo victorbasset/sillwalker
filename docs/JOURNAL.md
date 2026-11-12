@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 890) : Lune de sang (it. 880), les élites se voient enfin sur la bande. La bande dessine le monstre
+  combattu avec l'image de sa place dans la file, recréée seulement quand la série change : une élite créée à
+  l'apparition se battait sans contour doré ni étiquette d'affixe. Maintenant, dès le début de l'événement, toute la
+  suite de la file devient élite (le monstre déjà en combat reste tel quel) et la file est redessinée ; une série
+  tirée pendant l'événement naît élite. On voit d'un coup d'œil la vague qui arrive. Fuzz 1200 parties, 0 bloquée ;
+  test logique ; autotest 178/178 ; vu en capture.
 - 2026-11-12 (it. 889) : une 15e sorte de quête, « Trouver N coffres au trésor » (1 coffre, 2 ou 3 selon les
   étoiles ; or, 2 potions, parfois un œuf) : un objectif de patience qui avance aussi pendant l'absence et va vite le
   Jour des trésors (it. 887). Icône du coffre en bois. Une ancienne version qui ne la connaît pas la remplace au
@@ -3128,6 +3134,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
       survol) à ta résolution : plus rien ne sort de la carte ni ne fait défiler ?
 
 Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confort, contenu).
+
+- P3 Vu it. 890 (bande, zone 55) : l'étiquette d'affixe du dernier monstre de la file (« Furieux ») touche le début du nom
+  du boss, qui s'étend vers la gauche ; décaler l'étiquette ou couper le nom quand ils se chevauchent (placeBossName).
 
 - FAIT (it. 885 : 20,5 %, bruit) P3 Revue it. 881 : panneau mesuré à 21,7 % d'un cœur (repère 20-21 %, bande et mini dans leurs repères) : refaire une
   mesure sur une copie neuve à la prochaine revue ; si l'écart tient, chercher ce qui a grossi depuis l'it. 863.
