@@ -1239,4 +1239,5 @@ export default {
   2364: "Mapa Krawędzi, drzewo Umiejętności i Talenty działają z klawiatury (Shift + Enter: talent do maksimum).",
   2365: "„Do zrobienia teraz” przypomina o odłamkach gwiazd do umieszczenia w gwiazdozbiorach.",
   2366: "Czytelniejszy pasek (latające liczby nie nachodzą na siebie, nazwa bossa odsłonięta) i poprawione teksty we wszystkich 10 językach.",
+  2367: "{n} wolny chowaniec do wysłania na wyprawę|{n} wolne chowańce do wysłania na wyprawę|{n} wolnych chowańców do wysłania na wyprawę",
 };

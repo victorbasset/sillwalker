@@ -1710,6 +1710,26 @@ test("« À faire maintenant » : éclats d'étoile à placer (it. 868)", () => 
   assert.ok(!g.todoNow().some((x) => x.id === "stars"), "onglet fermé : pas de lien");
 });
 
+test("« À faire maintenant » : familiers libres à envoyer en expédition (it. 876)", () => {
+  const g = new Game(freshLocked());
+  g.S.tabsOpen = { ...(g.S.tabsOpen || {}), pets: true };
+  const P = g.S.pets; P.owned = {}; P.exp = {};
+  const [a, b, c] = PETS.map((p) => p.id);
+  P.owned[a] = { lvl: 1, xp: 0 }; P.owned[b] = { lvl: 1, xp: 0 }; P.owned[c] = { lvl: 1, xp: 0 }; P.active = a;
+  assert.ok(!g.todoNow().some((t) => t.id === "idlePets"), "sans le Chenil : rien");
+  g.S.unlocks = { ...(g.S.unlocks || {}), menagerie: true, expeditions: true };
+  const t = g.todoNow().find((x) => x.id === "idlePets");
+  assert.ok(t && t.n === 2 && t.tab === "pets", "deux familiers libres (le compagnon actif ne compte pas)");
+  g.sendExpedition(b, "short");
+  assert.strictEqual(g.todoNow().find((x) => x.id === "idlePets").n, 1, "un parti : un seul libre");
+  g.S.unlocks.steward = true;
+  assert.ok(!g.todoNow().some((x) => x.id === "idlePets"), "Grand intendant actif : il s'en charge");
+  g.S.settings.autoPets = false;
+  assert.ok(g.todoNow().some((x) => x.id === "idlePets"), "Grand intendant coupé : rappel de nouveau");
+  g.sendExpedition(c, "short");
+  assert.ok(!g.todoNow().some((x) => x.id === "idlePets"), "tous partis : rien");
+});
+
 test("« À faire maintenant » : sac plein signalé", () => {
   const g = new Game(freshLocked());
   g.S.bag.length = 0;

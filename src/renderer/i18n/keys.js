@@ -2368,5 +2368,6 @@ export const KEYS = [
   "Pendant ton absence, l’Herboriste perpétuel, le Marchand attitré et le Grimoire des sorts continuent leur travail.",
   "La Carte du Rebord, l’arbre de Compétences et les Talents se jouent au clavier (Maj + Entrée : un talent au maximum).",
   "« À faire maintenant » rappelle les éclats d’étoile à placer dans les constellations.",
-  "Bande plus lisible (nombres flottants sans chevauchement, nom du boss dégagé) et textes corrigés dans les 10 langues."
+  "Bande plus lisible (nombres flottants sans chevauchement, nom du boss dégagé) et textes corrigés dans les 10 langues.",
+  "{n} familier libre à envoyer en expédition|{n} familiers libres à envoyer en expédition"
 ];

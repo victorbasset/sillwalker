@@ -13,6 +13,7 @@ const LABELS = {
   stars: (t) => txn(t.n, "{n} éclat d’étoile à placer dans les constellations|{n} éclats d’étoile à placer dans les constellations"),
   eggs: (t) => txn(t.n, "{n} œuf à faire éclore|{n} œufs à faire éclore"),
   expeditions: (t) => txn(t.n, "{n} expédition terminée|{n} expéditions terminées"),
+  idlePets: (t) => txn(t.n, "{n} familier libre à envoyer en expédition|{n} familiers libres à envoyer en expédition"),
   merchant: () => tx("Le marchand propose une amélioration"),
   bagFull: (t) => t.n ? txn(t.n, "Sac plein : {n} objet inutile à vendre|Sac plein : {n} objets inutiles à vendre") : tx("Sac plein : le butin suivant restera au sol"),
   setFinish: (t) => tx("Une pièce du sac complète la panoplie {0}", { 0: t.name }),

@@ -1239,4 +1239,5 @@ export default {
   2364: "El Mapa del Alféizar, el árbol de Habilidades y los Talentos se manejan con el teclado (Mayús + Intro: un talento al máximo).",
   2365: "«Qué hacer ahora» recuerda los fragmentos de estrella que puedes colocar en las constelaciones.",
   2366: "Franja más legible (números flotantes sin solaparse, nombre del jefe despejado) y textos corregidos en los 10 idiomas.",
+  2367: "{n} mascota libre para enviar de expedición|{n} mascotas libres para enviar de expedición",
 };

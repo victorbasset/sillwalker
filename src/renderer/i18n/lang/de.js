@@ -1239,4 +1239,5 @@ export default {
   2364: "Die Karte des Saums, der Fertigkeitenbaum und die Talente lassen sich mit der Tastatur bedienen (Umschalt + Eingabe: ein Talent aufs Maximum).",
   2365: "„Jetzt zu tun“ erinnert an Sternensplitter, die du in die Sternbilder setzen kannst.",
   2366: "Leiste besser lesbar (schwebende Zahlen ohne Überlappung, Bossname frei) und Texte in allen 10 Sprachen korrigiert.",
+  2367: "{n} freier Begleiter für eine Expedition|{n} freie Begleiter für eine Expedition",
 };

@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 876) : « À faire maintenant » (résumé de retour, carte du héros, mode mini) signale les familiers
+  libres qui pourraient partir en expédition (« 2 familiers libres à envoyer en expédition »), une fois le Chenil des
+  explorateurs acheté et tant que le Grand intendant ne s'en charge pas : avant, ils restaient au repos sans que rien
+  ne le dise. Avec le déblocage « tout d'un coup », un clic les envoie tous dans la dernière expédition choisie, comme
+  le Grand intendant. Au passage (vu à l'autotest, 1280 px) : la tuile « Puissance » de l'Aventure écrivait « 224.92T »
+  et se coupait ; elle s'abrège comme les trois autres (« 225T », valeur complète au survol). Parcours --crawl en
+  polonais et en coréen (329 clics chacun), aucune erreur. Traduit dans les 10 langues, un test logique (212), un
+  contrôle d'autotest.
 - 2026-11-12 (it. 875) : bande : la météo (bulles, flocons, feuilles, cendres…) ne passe plus non plus sur le nom du
   boss (« Carapace abyssale l'Éveillée · −10 % PV ») ni sur la relique qu'il garde : les particules qui les touchent
   sont sautées au dessin, d'après leur position déjà mesurée une fois par série pour les nombres flottants (aucune

@@ -12,6 +12,7 @@ import { classSpells, spellRank } from "../game/spells.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
+import { EXPEDITIONS } from "../game/pets.js";
 import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin } from "../game/format.js";
 import { RELICS, RELIC_IDS, MAJOR_BOSSES, ECHO_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable, majorName } from "../game/relics.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
@@ -108,6 +109,12 @@ function tileStat(label, k, v) {
   // coupaient en « 86339… » ; en dessous, séparateur des milliers de la langue ; valeur complète au survol
   const pc = fmtStat(k, v), short = /%/.test(pc) ? pc : v >= 1e5 ? fmtShort(v) : fmtFull(v);
   return `<span>${esc(label)}</span><b${v >= 1e5 && short !== pc ? ` title="${esc(fmtFull(v))}"` : ""}>${short}</b>`;
+}
+
+/** (it. 876) Tuile « Puissance » : même abréviation que les autres tuiles (« 224.92T » se coupait à 1280 px). */
+function tilePower(v) {
+  v = Math.round(v);
+  return v >= 1e5 ? `<b title="${esc(fmtFull(v))}">${fmtShort(v)}</b>` : `<b>${fmtFull(v)}</b>`;
 }
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
@@ -555,7 +562,7 @@ export class Panel {
   /** Les actions de « À faire maintenant » que le joueur pourrait déjà faire d'un clic dans leur onglet. */
   todoDirect(t) {
     const S = this.game.S;
-    return (t.id === "quests" && hasUnlock(S, "questDesk")) || ((t.id === "eggs" || t.id === "expeditions") && hasUnlock(S, "petBulk"))
+    return (t.id === "quests" && hasUnlock(S, "questDesk")) || ((t.id === "eggs" || t.id === "expeditions" || t.id === "idlePets") && hasUnlock(S, "petBulk"))
       || (t.id === "upgrade" && hasUnlock(S, "bulkEquip")) || t.id === "setFinish" || (t.id === "bagFull" && t.n > 0 && hasUnlock(S, "bulkEquip"))
       || ((t.id === "talents" || t.id === "skills") && hasUnlock(S, "bulkPoints")); // Manuel du stratège : tout dépenser d'un clic
   }
@@ -566,6 +573,7 @@ export class Panel {
     if (what === "quests") { for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid); }
     else if (what === "eggs") g.hatchAll();
     else if (what === "expeditions") g.claimAllExpeditions();
+    else if (what === "idlePets") g.sendAllExpeditions(EXPEDITIONS[g.S.pets.lastKind] ? g.S.pets.lastKind : "long"); // même choix que le Grand intendant
     else if (what === "upgrade") g.autoEquip();
     else if (what === "bagFull") g.sellUseless();
     else if (what === "merchant") { const it = g.merchantUpgrade(); if (it) g.buyAndEquip(it.id); }
@@ -749,7 +757,7 @@ export class Panel {
         <div class="tile"><img src="${shopIconURL("heart", 3)}" alt="">${tileStat(tx("Points de vie"), "hp", hs.hp)}</div>
         <div class="tile"><img src="${shopIconURL("ws_atk", 3)}" alt="">${tileStat(tx("Attaque"), "atk", hs.atk)}</div>
         <div class="tile"><img src="${shopIconURL("ws_hp", 3)}" alt="">${tileStat(tx("Défense"), "def", hs.def)}</div>
-        <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span><b>${fmt(Math.round(heroPower(hs)))}</b></div>
+        <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span>${tilePower(heroPower(hs))}</div>
       </div>
       ${this.visitHTML()}${this.goalHTML(S)}
       ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${relics}${day}${sets}${events}${buffs}</div>` : ""}

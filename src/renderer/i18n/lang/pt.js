@@ -1239,4 +1239,5 @@ export default {
   2364: "O Mapa do Parapeito, a árvore de Habilidades e os Talentos jogam-se com o teclado (Shift + Enter: um talento ao máximo).",
   2365: "“O que fazer agora” lembra os fragmentos de estrela a colocar nas constelações.",
   2366: "Faixa mais legível (números flutuantes sem sobreposição, nome do chefe desimpedido) e textos corrigidos nos 10 idiomas.",
+  2367: "{n} mascote livre para enviar em expedição|{n} mascotes livres para enviar em expedição",
 };

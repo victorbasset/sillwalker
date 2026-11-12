@@ -2036,6 +2036,9 @@ export class Game {
     if (fin) out.push({ id: "setFinish", n: 1, tab: "adventure", name: SETS[fin.set].name, itemId: fin.id });
     const ex = this.expeditionsReady(now).length;
     if (ex) out.push({ id: "expeditions", n: ex, tab: "pets" });
+    // (it. 876) familiers libres qui pourraient partir en expédition (sans Grand intendant actif, qui les renvoie seul)
+    const idle = hasUnlock(S, "expeditions") && !(hasUnlock(S, "steward") && S.settings.autoPets !== false) ? this.idlePets().length : 0;
+    if (idle) out.push({ id: "idlePets", n: idle, tab: "pets" });
     // Marchand : une amélioration abordable (sans renouveler le stock ici)
     const offer = this.merchantUpgrade(now);
     if (offer) out.push({ id: "merchant", n: 1, tab: "shop", name: itemName(offer), price: offer.price });

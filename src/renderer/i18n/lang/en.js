@@ -1239,4 +1239,5 @@ export default {
   2364: "The Map of the Sill, the Skills tree and the Talents can be played with the keyboard (Shift + Enter: a talent to its maximum).",
   2365: "“Things to do now” reminds you of star shards to place in the constellations.",
   2366: "Clearer strip (floating numbers no longer overlap, boss name kept clear) and texts fixed in all 10 languages.",
+  2367: "{n} idle pet to send on an expedition|{n} idle pets to send on an expedition",
 };
