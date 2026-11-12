@@ -3,7 +3,7 @@ import { t as tx, tr, csep, cend } from "../../i18n/index.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, esc, dec, unit } from "../../game/format.js";
+import { fmt, esc, dec, unit, uS } from "../../game/format.js";
 import { EVENTS, EVENT_SEEN_BONUS, eventsSeenEffects } from "../../game/events.js";
 import { monsterURL, itemIconURL } from "../../render/sprites.js";
 import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound, SET_CODEX_BONUS } from "../../game/codex.js";
@@ -82,9 +82,10 @@ export class BestiaryTab {
     const cur = describeEffects(eventsSeenEffects(S)) || "—"; // (it. 932) bonus de la collection
     return `<h2 class="codexh" id="bj-events">${tx("Événements rares")} (${n} / ${ent.length})</h2>
       <p class="note tabintro">${tx("Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(EVENT_SEEN_BONUS)), 1: esc(cur) })}</p>
-      <div class="setgrid">${ent.map(([id, e]) => seen[id]
-        ? `<div class="setcard" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${pct(e.chance)}${tx(" par victoire")}</small><div>${esc(e.text)}</div></div>`
-        : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`).join("")}</div>`;
+      <div class="setgrid">${ent.map(([id, e]) => { const t = this.game.R.events[id] || 0; // (it. 936) en cours : encadré, secondes restantes
+        return seen[id]
+        ? `<div class="setcard${t > 0 ? " here" : ""}" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${t > 0 ? esc(tx("en cours · {0}", { 0: uS(Math.ceil(t)) })) : pct(e.chance) + tx(" par victoire")}</small><div>${esc(e.text)}</div></div>`
+        : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`; }).join("")}</div>`;
   }
 
   /** Sections affichées : seulement ce que le joueur a déjà rencontré (moins d'informations d'un coup). */
@@ -106,5 +107,6 @@ export class BestiaryTab {
   onAction(a, b) {
     if (a === "b-jump") this.sec = b.dataset.to.replace(/^bj-/, ""); // le panneau se redessine ensuite
   }
-  tick() { return false; }
+  // (it. 936) un événement en cours : le compte à rebours de sa carte avance (sous-onglet des événements seulement)
+  tick() { return this.sec === "events" && Object.values(this.game.R.events || {}).some((t) => t > 0); }
 }

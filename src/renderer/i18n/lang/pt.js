@@ -1288,4 +1288,5 @@ export default {
   2413: "As missões e o «Próximo desbloqueio» mostram o tempo restante estimado («≈ 1 h 10 min»); o balão da bênção anuncia a de amanhã.",
   2414: "«Eventos raros»: cada evento vivido dá +1 % de ouro para sempre; uma nova descoberta é anunciada no diário.",
   2415: "Nova elite «Esquivo»: esquiva 20 % dos golpes (golpes com clique sempre acertam).",
+  2416: "em curso · {0}",
 };

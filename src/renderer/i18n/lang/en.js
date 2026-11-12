@@ -1288,4 +1288,5 @@ export default {
   2413: "Quests and the “Next unlock” show the estimated time left (“≈ 1 h 10 min”); the blessing tooltip also tells tomorrow’s.",
   2414: "“Rare events”: each event you live through gives +1% gold forever; a new discovery is announced in the log.",
   2415: "New “Evasive” elite: it dodges 20% of hits (click strikes always land).",
+  2416: "active · {0}",
 };

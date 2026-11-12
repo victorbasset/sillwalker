@@ -1288,4 +1288,5 @@ export default {
   2413: "Quests und die „Nächste Freischaltung“ zeigen die geschätzte Restzeit („≈ 1 Std. 10 Min.“); die Segens-Blase nennt auch den von morgen.",
   2414: "„Seltene Ereignisse“: Jedes erlebte Ereignis gibt +1 % Gold für immer; eine neue Entdeckung wird im Protokoll gemeldet.",
   2415: "Neue Elite „Ausweichend“: sie weicht 20 % der Schläge aus (Klick-Schläge treffen immer).",
+  2416: "läuft · {0}",
 };

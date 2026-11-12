@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 936) : Bestiaire > Événements rares, l'événement en cours a sa carte encadrée et ses secondes
+  restantes à la place de sa chance (« en cours · 18 s »), qui s'égrènent. Le défaut intermittent des Statistiques en
+  russe (it. 920, 935) n'a pas été reproduit, même avec toutes les valeurs gonflées en russe, allemand et polonais à
+  1280 et 1366 px : on attend que le rapport, qui cite maintenant le libellé, le prenne sur le fait. Traduit dans les
+  10 langues ; contrôle d'autotest (194/194).
 - 2026-11-12 (it. 935) : « Quoi de neuf », édition 38 : temps restant des quêtes et du prochain déblocage,
   bénédiction de demain, bonus de la collection des événements rares, élite Fuyant. Traduite dans les 10 langues,
   libellés cités vérifiés ; autotest 193/193. La mesure des 10 langues a de nouveau signalé une fois
