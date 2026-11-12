@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 891, revue générale) : rien de cassé trouvé. Simulations de 12 h : records des courses rôdeur
+  40 → 60, paladin 44 → 64, druide 39 → 63, sans saut ni plafond (avec la Lune de sang, l'élite Épineux, le Jour des
+  trésors et la quête des coffres). Performance (copie neuve) : bande 19,7 %, panneau 20,6 %, mini 7,1 %, icône
+  0,5 % d'un cœur (repères tenus). Captures en français, anglais et coréen (Aventure, Héros, Boutique, Quêtes, mode
+  mini) : ni débordement ni texte coupé ; l'interface coréenne extraite ne contient aucun mot latin suspect.
 - 2026-11-12 (it. 890) : Lune de sang (it. 880), les élites se voient enfin sur la bande. La bande dessine le monstre
   combattu avec l'image de sa place dans la file, recréée seulement quand la série change : une élite créée à
   l'apparition se battait sans contour doré ni étiquette d'affixe. Maintenant, dès le début de l'événement, toute la
