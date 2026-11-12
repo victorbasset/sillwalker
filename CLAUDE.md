@@ -110,7 +110,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (sprites.js outlinedFrames), comme les élites et champions.
   Répartition de la bande (it. 567, 20,2 %) : son + musique + ambiance ≈ 3,5 points (le moteur audio actif et la musique ≈ 1,7 ;
   ambiance seule et effets sonores seuls : dans le bruit), « Effets complets » ≈ 2,8, météo + jour/nuit ≈ 1,1.
-  Repère actuel (it. 800, copie neuve de dev-data) : bande ≈ 19,5 %, panneau ≈ 20-21 %, mini ≈ 6,6 %, icône ≈ 0,5 %
+  Repère actuel (it. 800, copie neuve de dev-data) : bande ≈ 19,5 %, panneau ≈ 20-21 %, mini ≈ 6,6 %, icône ≈ 0,5 % ;
+  depuis l'it. 964, bande ≈ 20,5 % : le boss de zone 55 de dev-data a changé de capacités (venin + coup dévastateur,
+  plus d'effets à l'écran ; it. 972, dichotomie par commits). Le repère dépend de ce combat : comparer deux commits
+  sur la même copie, jamais un chiffre à un repère d'une autre époque (scripts de l'it. 972 : dossier de travail git)
   (stable depuis l'it. 597). Sous Windows chez Victor (Gestionnaire des tâches, it. 763) : ≈ 19,8 % d'un cœur et
   ≈ 380 Mo de mémoire privée.
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de

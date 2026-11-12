@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-12 (it. 972) : enquête sur la bande (+1 point vu à la revue 971), par dichotomie : chaque commit mesuré deux
+  fois dans un dossier de travail git, sur une copie neuve de dev-data. it. 933 : 19,55 ; 947 : 19,8 ; 950 : 19,55 ;
+  952 (règle des espaces insécables de t()) : 19,55 ; 956 : 19,85 ; 959 : 19,85 ; 960 : 19,75-20,2 ; 962 : 19,6-19,85 ;
+  964 : 20,45-20,6. La marche vient de l'it. 964 : en ajoutant les Écailles à la rotation, le boss de zone 55 (celui que
+  combat dev-data pendant la mesure) est passé de Carapace + Vampirisme à Crachat venimeux + Coup dévastateur, plus
+  d'effets à l'écran. Vérifié : version actuelle sans les Écailles dans la rotation (TEMP) : 20,1-20,25. Pas de
+  régression du code : le scénario de mesure a changé. Repère de CLAUDE.md mis à jour ; idée P2 fermée.
 - 2026-11-12 (it. 971, revue générale) : simulation 12 h, records des courses : berserker 41 → 64, nécromancien
   39 → 62, moine 40 → 62 (régulier). Captures Bestiaire, Carte, Réglages et mini en français, anglais et chinois : rien
   de cassé. Texte de l'interface en russe : aucun mot non traduit. Performance (copies neuves) : panneau 21,0 %, mini
@@ -3528,7 +3535,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 Vu it. 971 : bande ≈ 20,5-20,9 % d'un cœur (deux mesures, copies neuves) contre 19,5-19,9 % aux revues 941-961 :
+- FAIT (it. 972 : le scénario de mesure a changé, voir « Fait ») P2 Vu it. 971 : bande ≈ 20,5-20,9 % d'un cœur (deux mesures, copies neuves) contre 19,5-19,9 % aux revues 941-961 :
   ≈ +1 point. Suspects : t() et sa règle d'espaces insécables (it. 952 : expression régulière à chaque texte traduit,
   appelée pour chaque nombre de dégâts flottant ?), étiquettes « ✦ » (it. 947), Ruée des gobelins (sans effet hors
   événement). Mesurer avec chaque suspect retiré (injection TEMP), sur copies neuves, 2 mesures par variante.
