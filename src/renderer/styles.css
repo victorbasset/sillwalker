@@ -1270,6 +1270,10 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .modalwide ul { columns: 2; column-gap: 28px; }
 .modalwide ul li { break-inside: avoid; }
 @media (max-width: 900px) { .modalwide ul { columns: 1; } }
+/* (it. 1083) Chroniques en fenêtre : la liste (hauteur limitée) en colonnes CSS débordait DE CÔTÉ au-delà de 4 entrées
+   (Victor : pas de défilement horizontal) ; grille de deux colonnes, lue 1 2 / 3 4…, qui défile verticalement. */
+.modalwide .chronlist { columns: auto; display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; max-height: min(55vh, 340px); overflow: hidden auto; }
+@media (max-width: 900px) { .modalwide .chronlist { grid-template-columns: 1fr; } }
 /* Étiquette du compagnon dans le titre de la carte du héros : un lien discret, pas un bouton encadré. */
 .hname .duotag, .hname .duotag:hover { border: 0; border-image: none; box-shadow: none; background: none; padding: 0 2px; min-height: 0; width: auto; flex: none; white-space: nowrap; }
 .hname .duotag::before, .hname .duotag::after { display: none; }

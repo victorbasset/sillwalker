@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1083, défaut G noté à l'it. 1074) : Chroniques dans la grande fenêtre sans défilement de côté. La
+  liste (hauteur limitée) mise en colonnes CSS par la fenêtre débordait de côté au-delà de 4 entrées. Grille de deux
+  colonnes (lue 1 2 / 3 4…, dans l'ordre de l'histoire), qui défile verticalement ; hauteur bornée pour que la fenêtre
+  elle-même ne défile pas (deux barres sinon). Mesure (fin de partie, allemand, 1366 et 1280 px) : liste 857/857 de
+  large, fenêtre 435/435 de haut. Contrôle d'autotest ajouté ; 10 langues sans défaut.
 - 2026-11-13 (it. 1082, demande E, étape E4) : deuxième PNJ, suggéré par Victor : Orbo, l'astronome à la fusée, tient
   l'Ascension (casque de verre, combinaison orange ; 5 répliques : « Trois… deux… un… Bon, demain peut-être. »).
   Pastille compacte dans le titre de la carte Ascension (portrait, bulle sur une ligne, texte entier au survol ; rien
@@ -4141,7 +4146,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      cinématique de rencontre sur la bande ; E4 les autres onglets ; E5 traductions, « Quoi de neuf ».
   Ordre prévu : A, B (rapides), puis E1-E2, D1-D3, E3, C, D4-D6.
   F. FAIT (it. 1074). Chroniques triées dans l'ordre de l'histoire, numérotées dans l'ordre du déblocage.
-  G. P3 (vu it. 1074) Chroniques dans la grande fenêtre : colonnes qui défilent de côté au-delà de 4 entrées ; Victor
+  G. FAIT (it. 1083). P3 (vu it. 1074) Chroniques dans la grande fenêtre : colonnes qui défilent de côté au-delà de 4 entrées ; Victor
      ne veut pas de défilement horizontal (demande B) : à revoir (liste verticale, ou plus de colonnes plus étroites).
 
 - FAIT (it. 1047) P2 Vu it. 1046 : en russe, la partie de fin de partie défile à 100 % sur des écrans de 1600 et 1680 px (Aventure 19,
