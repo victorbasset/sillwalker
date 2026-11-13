@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1148) : l'essai de mise à jour de l'it. 1147 devient un test permanent : scripts/fixtures/
+  save-0.1.2.json (partie fabriquée par le code de la 0.1.2 ; story.intro mis à true, la simulation ne jouant pas
+  l'intro) se charge sans rien perdre (niveau, record, or, classe, talents, compétences, sac, équipement, onglets),
+  ses statistiques se calculent, et elle reçoit la fenêtre de la 0.1.3. 258 tests ; autotest 226/226.
 - 2026-11-13 (it. 1147) : essai de MISE À JOUR 0.1.2 → 0.1.3. Partie fabriquée avec le code exact de la 0.1.2
   (git worktree du commit 4e6fc19, simulate.js 8 h mage, DUMP : niveau 80, zone 56, 10 onglets, sauvegarde v8),
   ouverte avec la 0.1.3 : aucune erreur, rien de perdu (niveau, record, or, sac, équipement, 64 rangs de talents,

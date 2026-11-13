@@ -3690,6 +3690,25 @@ test("notes de version : un joueur de la 0.1.2 voit celles de la 0.1.3, pas un l
   assert(releaseFor(32).items.length >= 6 && releaseFor(32).items.length <= 12, "une liste courte et choisie");
 });
 
+test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148)", () => {
+  // scripts/fixtures/save-0.1.2.json : fabriquée par le code exact de la 0.1.2 (commit 4e6fc19, simulate.js 8 h mage) ;
+  // story.intro mis à true à la main (la simulation ne joue pas l intro, un vrai joueur l a vue)
+  const raw = JSON.parse(fs.readFileSync(new URL("./fixtures/save-0.1.2.json", import.meta.url), "utf8"));
+  const S = migrate(JSON.parse(JSON.stringify(raw)));
+  assert(S, "chargée (pas de partie neuve)");
+  for (const k of ["lvl", "best", "gold", "cls"]) assert.equal(S[k], raw[k], k);
+  assert.deepEqual(S.talents, raw.talents, "talents");
+  assert.deepEqual(S.skills.order, raw.skills.order, "compétences");
+  assert.equal(S.bag.length, raw.bag.length, "sac");
+  assert.deepEqual(Object.keys(S.equip).filter((k) => S.equip[k]), Object.keys(raw.equip).filter((k) => raw.equip[k]), "équipement");
+  assert.deepEqual(S.tabsOpen, raw.tabsOpen, "onglets ouverts");
+  const g = new Game(S);
+  assert(g.stats().atk > 0 && isFinite(power(g.stats())), "statistiques calculables");
+  const { newsDue, releaseFor } = M_news_js;
+  assert(newsDue(S), "nouveautés à annoncer");
+  assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.3", "fenêtre de la 0.1.3");
+});
+
 test("version de package.json : ses notes de version existent (it. 1146)", () => {
   // Une nouvelle version (itch.io) sans notes : les joueurs de la précédente ne verraient que les 3 dernières éditions.
   // Ajouter { version, after: NEWS_ID de la version précédente, items } à la fin de NEWS_RELEASES (news.js, CLAUDE.md).
