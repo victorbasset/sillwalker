@@ -173,7 +173,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   double particule après une variable (`{0}이(가)`, `{0}을(를)`…) ; `koJosa` (appelé par `t()`) garde la bonne.
 - `i18n-check` ne voit pas les textes écrits en dur hors `tx()` : extraire le texte affiché en russe
   (`--open-panel --dump-text=<fichier>`, sans `--exit-after`) et y chercher les mots latins
-  (`grep -oP "(?<![A-Za-z])[A-Za-zÀ-ÿ']{2,}"`, mots courts compris : « pts », « min », « oui » y ont échappé) ; ce qui n'est pas un repère `=== onglet` est suspect.
+  (`grep -oP "(?<![A-Za-z])[A-Za-zÀ-ÿ']{2,}"`, mots courts compris : « pts », « min », « oui » y ont échappé) ; ce qui n'est pas un repère `=== onglet` est suspect. Le faire aussi sur la partie de fin de partie (scripts/fixtures/endgame-save.json, `s.log = []` dans la copie : le journal garde la langue de la simulation) : reliques, boss majeurs, chroniques et panoplies n'apparaissent pas dans dev-data (it. 1018 : ru, ja, pl propres).
 - Les noms d'objets sont enregistrés **en français** et traduits à l'affichage (`itemName`).
 
 ## Pièges connus

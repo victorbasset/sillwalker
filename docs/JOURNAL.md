@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1018) : textes de fin de partie : --dump-text sur la partie de fin de partie (journal vidé) en
+  russe, japonais et polonais : aucun texte resté en français ou en anglais (seulement Qa, Qi, et HP / Lv / pt / BGM
+  en japonais, usuels). Vérifiés aussi : onglet Quêtes de fin de partie propre ; repère de rareté en forme pour les
+  daltoniens (•, ••, •••, ★) et mode mini à 15 images/s déjà en place. Idée notée pour Victor : points de compétence en
+  surplus. CLAUDE.md.
 - 2026-11-13 (it. 1017) : le joueur simulé dépense aussi ses points de talent restants dans les Maîtrises (rangs
   illimités ; répartition du jeu, autoSpendTalents), comme un joueur attentif : la partie de fin de partie gardait
   128 points dormants. hero-table 12 h : moyenne 63,3 → 63,7, écart 5,7 → 5,0 zones (61,3 artificier → 66,3 paladin) ;
@@ -3782,6 +3787,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- À PROPOSER À VICTOR (it. 1018) P3 Points de compétence en surplus : une fois l'arbre entièrement appris (partie de fin
+  de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
+  1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
+  (ex. +0,1 % d'attaque et de PV), affiché « Points en surplus : +36 % » ; à mesurer avec simulate.js (semaine).
 - EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
