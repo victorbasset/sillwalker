@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1045) : mode mini, « moments » (panoplie, ascension, boss juré, chronique…) : le texte, centré sur une
+  seule ligne sans largeur maximale, sortait des deux côtés de la petite scène dans toutes les langues (« …raqueur de
+  champions : bonus 4 pièc… » en français). Désormais dans la largeur de la scène, sur plusieurs lignes au besoin,
+  centré. Captures ru, de, fr ; autotest 205/205.
 - 2026-11-13 (it. 1044) : essai abandonné : liste « Gardé / Perdu » de l'Ascension en grille (colonnes régulières de
   170 px au moins) pour qu'un mot de plus ne repousse pas les éléments suivants : pire (russe 1280 px : 32 px de
   défilement, 1366 : 14 ; les éléments longs passent sur deux lignes dans leur colonne). Annulé, mesure revenue à

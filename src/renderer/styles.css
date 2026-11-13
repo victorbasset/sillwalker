@@ -748,7 +748,10 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .visit { display: block; width: 100%; margin: 0 0 8px; padding: 4px 8px; text-align: left; font-size: 13px; line-height: 1.3; border-color: var(--good); }
 .visit small { display: block; color: var(--muted); font-size: 11px; }
 /* Mode mini : moment marquant (légendaire, record, ascension) — un mot et un liseré doré, 4 s, une fois */
-#mini .minimoment { position: absolute; left: 50%; top: 14px; translate: -50% 0; white-space: nowrap; z-index: 6; pointer-events: none;
+/* (it. 1045) dans la largeur de la scène, sur plusieurs lignes au besoin : en une ligne, « ◆ Traqueur de champions :
+   bonus 4 pièces ! » (ou une ascension, un boss juré, une chronique) sortait des deux côtés de la petite fenêtre */
+#mini .minimoment { position: absolute; left: 50%; top: 14px; translate: -50% 0; z-index: 6; pointer-events: none;
+  white-space: normal; width: max-content; max-width: calc(100% - 8px); text-align: center; line-height: 1.15;
   font: 400 12px var(--font-text); color: #ffd34d; -webkit-text-stroke: 3px #14121f; paint-order: stroke fill; }
 #mini.moment { box-shadow: inset 0 0 0 2px #ffd34d; border-color: #ffd34d; }
 .achp { color: var(--muted); font-size: 12px; }
