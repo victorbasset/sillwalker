@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1161, revue générale) : --perf (copie neuve de dev-data, seul) : bande 20,9 %, panneau 21,2 %,
+  mini 7,1 %, icône 0,8 % (fourchette habituelle 19,2-20,9 selon le combat) ; première heure inchangée (114 objets,
+  zone 23, 6 déblocages à 60 min) ; 10 langues sans défaut. Rien à corriger.
 - 2026-11-13 (it. 1160) : instructions d'installation itch.io (steam/itch-page.md, anglais et français) : un
   paragraphe « Mise à jour » (remplacer l'ancienne version ; la partie est conservée, sauvegardée hors du dossier du
   jeu ; une fenêtre présente les nouveautés au premier lancement). Le reste couvrait déjà Windows, macOS et Linux.
