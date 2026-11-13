@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1127) : bulles des nœuds (fleur et grand graphe) gardées dans la vue. Allongées par les it.
+  1112-1114 (synergies, voie entière), celle d'un nœud près du bas sortait de 55 px (fin de partie, russe) : le
+  placement ne bornait que la gauche, la droite (largeur fixe 260) et le haut ; il borne aussi le bas, utilise la
+  vraie largeur de la bulle et ramène les mesures au zoom de l'interface (zf). Vérifié à 100 % et 130 %. Contrôle
+  d'autotest (nœud le plus bas, le plus à droite). Autotest 222/222.
 - 2026-11-13 (it. 1126) : la fenêtre « Choisir les bonus des paliers » n'était mesurée par aucun contrôle (elle
   n'existe qu'une maîtrise sélectionnée). Mesurée dans les 10 langues à 1280 px, pire cas (6 paliers) : ni
   défilement ni bouton hors de sa ligne ; mais « rang 100 » / « ранг 100 » se coupait sur deux lignes (colonne de

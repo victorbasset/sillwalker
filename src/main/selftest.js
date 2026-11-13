@@ -274,6 +274,16 @@ async function runSelfTest(strip) {
       return "choix " + ((S.masteryPicks || {})["ms_power:10"] || "aucun");
     } finally { S.masteryPicks = keep.picks; if (keep.r == null) delete S.talents[S.cls].ms_power; else S.talents[S.cls].ms_power = keep.r; T.sel = null; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
   check("onglet Talents : un bonus de palier de maîtrise se choisit", mPick === "choix b", mPick);
+  // (it. 1127) Compétences : la bulle d'un nœud près du bas ou du bord droit reste dans la vue (elle sortait de 55 px)
+  const skTip = await js(`(async () => { const P = window.__panel; P.setTab("skills"); P.renderAll(); await new Promise((r) => setTimeout(r, 300));
+    const box = document.querySelector('[data-pane="skills"]:not([hidden]) .skillview'), B = box.getBoundingClientRect(), tip = box.querySelector(".skilltip");
+    const ns = [...box.querySelectorAll("[data-gid], [data-id]")].map((e) => ({ e, r: e.getBoundingClientRect() })).filter((o) => o.r.width && o.r.top > B.top && o.r.bottom < B.bottom && o.r.left > B.left && o.r.right < B.right);
+    if (!ns.length) return "aucun nœud visible";
+    const out = [];
+    for (const f of [(a, b) => b.r.bottom - a.r.bottom, (a, b) => b.r.right - a.r.right]) { const o = ns.sort(f)[0]; o.e.dispatchEvent(new MouseEvent("mouseover", { bubbles: true })); const T = tip.getBoundingClientRect();
+      if (tip.hidden || T.bottom > B.bottom + 1 || T.right > B.right + 1 || T.top < B.top - 1 || T.left < B.left - 1) out.push(Math.round(T.bottom - B.bottom) + "/" + Math.round(T.right - B.right)); }
+    tip.hidden = true; P.setTab("adventure"); P.renderAll(); return out.length ? "dehors " + out.join(" ") : "dedans"; })()`);
+  check("Compétences : bulle d'un nœud du bord dans la vue", skTip === "dedans", skTip);
   // (it. 1119) grand graphe rempli (it. 1115, 1117) : annonce une fois, ligne « points en surplus » dans Compétences
   const gFull = await js(`(async () => { const P = window.__panel, G = window.__game, S = G.S; const keep = { lvl: S.lvl, skills: JSON.parse(JSON.stringify(S.skills)), auto: S.settings.autoSkills };
     try { let n = 0; G.on("graphFull", () => n++);

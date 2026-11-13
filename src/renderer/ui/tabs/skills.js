@@ -160,9 +160,11 @@ export class SkillsTab {
       if (!id && !core && !gid) { tip.hidden = true; return; }
       tip.innerHTML = gid ? (flowerComplete(this.game.S) ? this.graphNodeTip(gid) : this.graphTip()) : core ? this.coreTip(core) : this.tipHtml(id);
       tip.hidden = false;
-      const r = box.getBoundingClientRect(), t = target.getBoundingClientRect();
-      tip.style.left = Math.min(r.width - 260, Math.max(4, t.left - r.left + 16)) + "px";
-      tip.style.top = Math.max(4, t.top - r.top - 10) + "px";
+      // (it. 1127) bulles plus longues (synergies, voie entière) : un nœud près du bas la faisait sortir de la vue ; les
+      // mesures de l'écran sont ramenées au zoom de l'interface (zf) avant de placer la bulle en px CSS
+      const r = box.getBoundingClientRect(), t = target.getBoundingClientRect(), z = zf();
+      tip.style.left = Math.min(r.width / z - tip.offsetWidth - 4, Math.max(4, (t.left - r.left) / z + 16)) + "px";
+      tip.style.top = Math.max(4, Math.min(r.height / z - tip.offsetHeight - 4, (t.top - r.top) / z - 10)) + "px";
     };
     box.addEventListener("mouseover", (e) => showTip(e.target));
     box.addEventListener("mouseleave", () => { tip.hidden = true; });
