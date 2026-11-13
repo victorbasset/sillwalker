@@ -1601,4 +1601,6 @@ export default {
   2726: "Oberflächengröße 130 %: Die Infos zu Gegenständen und Fertigkeitsknoten bleiben beim Gezeigten und im Panel.",
   2727: "Jenseits der Blume",
   2728: "Der große Graph vollendet",
+  2729: "Zwei neue Erfolge rund um die Blume: „Jenseits der Blume“ und „Der große Graph vollendet“.",
+  2730: "Weniger Klicks: Die Fenster der Meisterschaftsstufen und von „Zu tun“ bleiben von einer Aktion zur nächsten offen.",
 };

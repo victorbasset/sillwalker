@@ -1601,4 +1601,6 @@ export default {
   2726: "Interface size at 130%: item and skill node tooltips stay next to what you hover and inside the panel.",
   2727: "Beyond the flower",
   2728: "The great graph fulfilled",
+  2729: "Two new achievements around the flower: “Beyond the flower” and “The great graph fulfilled”.",
+  2730: "Fewer clicks: the mastery milestone and “To do” windows stay open from one action to the next.",
 };

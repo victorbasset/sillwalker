@@ -1601,4 +1601,6 @@ export default {
   2726: "Tamanho da interface a 130%: os balões de itens e nós de habilidade ficam junto do que se aponta e dentro do painel.",
   2727: "Além da flor",
   2728: "O grande grafo completo",
+  2729: "Duas novas conquistas em volta da flor: «Além da flor» e «O grande grafo completo».",
+  2730: "Menos cliques: as janelas dos marcos de maestria e de «A fazer» ficam abertas de uma ação para outra.",
 };

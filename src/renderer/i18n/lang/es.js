@@ -1601,4 +1601,6 @@ export default {
   2726: "Tamaño de la interfaz al 130 %: los globos de objetos y nodos de habilidad quedan junto a lo que se señala y dentro del panel.",
   2727: "Más allá de la flor",
   2728: "El gran grafo completado",
+  2729: "Dos logros nuevos alrededor de la flor: «Más allá de la flor» y «El gran grafo completado».",
+  2730: "Menos clics: las ventanas de hitos de maestría y de «Por hacer» siguen abiertas de una acción a otra.",
 };

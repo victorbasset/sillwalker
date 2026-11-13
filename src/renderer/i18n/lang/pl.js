@@ -1601,4 +1601,6 @@ export default {
   2726: "Rozmiar interfejsu 130%: dymki przedmiotów i węzłów umiejętności zostają przy wskazanym elemencie i w panelu.",
   2727: "Poza kwiatem",
   2728: "Wielki graf ukończony",
+  2729: "Dwa nowe osiągnięcia wokół kwiatu: „Poza kwiatem” i „Wielki graf ukończony”.",
+  2730: "Mniej kliknięć: okna progów mistrzostwa i „Do zrobienia” zostają otwarte między kolejnymi akcjami.",
 };

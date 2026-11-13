@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1138) : « Quoi de neuf », édition 58 : deux succès du grand graphe ; fenêtres des paliers de
+  maîtrise et de « À faire » ouvertes d'une action à l'autre. 9 langues (libellés cités vérifiés) ; pire cas sans
+  défilement ; autotest 224/224 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1137) : scripts/max-save.mjs (état « tout au maximum ») ignorait les nouveautés des it. 1075-1136 :
   il remplit désormais le grand graphe (258 nœuds, points en surplus), met les maîtrises au rang 420 avec l'option
   « b » à chaque palier (annonces vues). Partie obtenue, en russe : textes extraits sans mot non traduit (noms de

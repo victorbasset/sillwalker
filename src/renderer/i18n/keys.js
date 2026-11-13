@@ -2730,5 +2730,7 @@ export const KEYS = [
   "Maîtrises : un palier atteint dans une course précédente se règle d’avance (⏳), sans attendre de l’atteindre à nouveau.",
   "Taille de l’interface à 130 % : les bulles des objets et des nœuds de compétence restent près de ce qu’on survole et dans le panneau.",
   "Au-delà de la fleur",
-  "Le grand graphe accompli"
+  "Le grand graphe accompli",
+  "Deux nouveaux succès autour de la fleur : « Au-delà de la fleur » et « Le grand graphe accompli ».",
+  "Moins de clics : les fenêtres des paliers de maîtrise et de « À faire » restent ouvertes d’une action à l’autre."
 ];
