@@ -338,13 +338,14 @@ export class Juice {
     // lancement et celles demandées exprès (▶ des chroniques : data.force).
     if (this.s.game.S.settings.cinematics === false && kind !== "intro" && !data.force) return;
     // Une cinématique en cours : la suivante attend son tour (zone 10 : héros libéré puis chronique, l'une
-    // remplaçait l'autre). File courte : au-delà de 3, les plus anciennes en attente sont oubliées.
+    // remplaçait l'autre). File courte : au-delà de 5, les plus anciennes en attente sont oubliées (3 jusqu'à l'it. 1092 ;
+    // la zone 10 en déclenche déjà 3 d'un coup : héros libéré, chronique, rencontre de Bram).
     // une cinématique disparue de l'écran (retirée, couche vidée) ne bloque plus la file
     if (this.cine && this.cine.node && !this.cine.node.isConnected) this.cine = null;
     if (this.cine && !this.cine.done) {
       const Q = (this.cineQueue ||= []);
       Q.push([kind, data]);
-      if (Q.length > 3) Q.shift();
+      if (Q.length > 5) Q.shift();
       return;
     }
     const W = this.s.W, H = this.layer.clientHeight || 120, S = this.s.game.S;
@@ -395,7 +396,9 @@ export class Juice {
     if (npc) {
       npcHero = el("img", "cine-npchero", node); npcHero.src = classPortraitURL(S.cls); npcHero.alt = "";
       npcImg = el("img", "cine-npc", node); npcImg.src = npcURL(npc.art); npcImg.alt = "";
-      npcImg.style.left = (homeX - 10) + "px"; npcImg.style.top = (homeY - 54) + "px"; npcImg.style.opacity = "0"; // sur le seuil
+      // sur le seuil de la porte ; sans porte (tente, nid : it. 1092), posé au sol
+      const onGround = npc.art === "natur" || npc.art === "keeper";
+      npcImg.style.left = (homeX - 10) + "px"; npcImg.style.top = (homeY - (onGround ? 42 : 54)) + "px"; npcImg.style.opacity = "0";
     }
     const life = { intro: 7, arrive: 5, dawn: 12, chronicle: data.text ? 10 : 5, freed: 5, npc: 10 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
     // bx : dawn, là où le Briseur tombe ; arrive, sa place au bout de la bande.

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1092) : rencontres de PNJ, deux réserves des it. 1089-1091. File d'attente des cinématiques portée
+  de 3 à 5 (la zone 10 en déclenche 3 d'un coup : héros libéré, chronique, Bram ; essai : 5 d'un coup, 1 jouée et
+  4 en attente, aucune perdue). Sans porte (tente de Fenouil, nid de Maman Brindille), le PNJ est posé au sol au lieu
+  de flotter à hauteur de seuil (capture). Autotest 216/216.
 - 2026-11-13 (it. 1091, revue générale) : simulation 12 h, records des courses : lancier 44 → 62, gladiateur 44 → 64,
   chaman 44 → 66 (réguliers). Performance (copie neuve de dev-data) : bande 19,4 %, panneau 20,6 %, mini 7,2 %,
   icône 0,5 %. Captures en japonais : Quêtes (Plume), Héros (Bram), Bestiaire (Fenouil), mini : propres. Texte
