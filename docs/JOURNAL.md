@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1038) : nouvelles répliques du héros (9 langues) : à l'ascension (« Un nouveau départ, et plus fort ! »,
+  1,5 s après le bandeau), à la libération d'un héros (« Un nouvel allié ! ») et quand un œuf tombe (« Un œuf ! Qu'est-ce
+  qui va en sortir ? », réplique ordinaire, au plus une toutes les 45 s). Autotest 204/204.
 - 2026-11-13 (it. 1037) : le héros fête une panoplie complète (palier de 4 pièces) par une bulle de paroles :
   « Panoplie au complet ! » ou « Tout est assorti, enfin ! » (SPEECH.setFull, 9 langues), comme pour les légendaires
   et les records ; les panoplies sont devenues un moment courant (it. 1004). Autotest 204/204.

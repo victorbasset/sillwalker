@@ -1366,4 +1366,10 @@ export default {
   2491: "Tipps werden vollständig angezeigt (über mehrere Zeilen), in allen Sprachen.",
   2492: "Set komplett!",
   2493: "Endlich passt alles zusammen!",
+  2494: "Ein Neuanfang, und stärker!",
+  2495: "Diesen Weg kenne ich auswendig.",
+  2496: "Ein neuer Verbündeter!",
+  2497: "Endlich frei! Danke!",
+  2498: "Ein Ei! Was wohl daraus schlüpft?",
+  2499: "Nanu, ein Ei…",
 };

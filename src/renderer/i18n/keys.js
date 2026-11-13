@@ -2495,5 +2495,11 @@ export const KEYS = [
   "« Vendre ce qui ne m’améliore pas » dit au survol combien de pièces de panoplie il garde.",
   "Les astuces s’affichent en entier (sur plusieurs lignes), dans toutes les langues.",
   "Panoplie au complet !",
-  "Tout est assorti, enfin !"
+  "Tout est assorti, enfin !",
+  "Un nouveau départ, et plus fort !",
+  "Je connais ce chemin par cœur.",
+  "Un nouvel allié !",
+  "Libre, enfin ! Merci !",
+  "Un œuf ! Qu’est-ce qui va en sortir ?",
+  "Tiens, un œuf…"
 ];

@@ -1366,4 +1366,10 @@ export default {
   2491: "As dicas aparecem por inteiro (em várias linhas), em todos os idiomas.",
   2492: "Conjunto completo!",
   2493: "Finalmente tudo combina!",
+  2494: "Um novo começo, e mais forte!",
+  2495: "Conheço este caminho de cor.",
+  2496: "Um novo aliado!",
+  2497: "Livre, enfim! Obrigado!",
+  2498: "Um ovo! O que vai sair dele?",
+  2499: "Olha, um ovo…",
 };

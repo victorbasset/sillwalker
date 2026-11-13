@@ -1366,4 +1366,10 @@ export default {
   2491: "Los consejos se muestran completos (en varias líneas), en todos los idiomas.",
   2492: "¡Conjunto completo!",
   2493: "¡Por fin todo combina!",
+  2494: "¡Un nuevo comienzo, y más fuerte!",
+  2495: "Me sé este camino de memoria.",
+  2496: "¡Un nuevo aliado!",
+  2497: "¡Libre, por fin! ¡Gracias!",
+  2498: "¡Un huevo! ¿Qué saldrá de él?",
+  2499: "Vaya, un huevo…",
 };

@@ -57,6 +57,10 @@ const SPEECH = {
   ev_arcane: [tx("La magie coule à flots !")],
   eliteNew: [tx("Une de plus pour ma collection !"), tx("Celle-là, je ne l’avais jamais battue !")],
   setFull: [tx("Panoplie au complet !"), tx("Tout est assorti, enfin !")], // (it. 1037) palier de 4 pièces
+  // (it. 1038) ascension, héros libéré, œuf trouvé
+  ascend: [tx("Un nouveau départ, et plus fort !"), tx("Je connais ce chemin par cœur.")],
+  freed: [tx("Un nouvel allié !"), tx("Libre, enfin ! Merci !")],
+  egg: [tx("Un œuf ! Qu’est-ce qui va en sortir ?"), tx("Tiens, un œuf…")],
   bag: [tx("Mon sac déborde !"), tx("Plus de place dans le sac…"), tx("Il faudrait vider le sac !")],
   back: [tx("Te revoilà !"), tx("Tu m’as manqué !"), tx("J’ai bien avancé, tu as vu ?")],
   nemesis: [tx("Enfin !"), tx("Cette fois, c’est la bonne !"), tx("Je savais que j’y arriverais.")],
@@ -156,6 +160,9 @@ export class StripRenderer {
     g.on("event", ({ id } = {}) => this.say(SPEECH["ev_" + id] || SPEECH.event));
     g.on("eliteNew", () => this.say(SPEECH.eliteNew)); // (it. 956)
     g.on("setBonus", ({ n }) => { if (n >= 4) this.say(SPEECH.setFull, true); }); // (it. 1037)
+    g.on("ascend", () => setTimeout(() => this.say(SPEECH.ascend, true), 1500)); // (it. 1038) après le bandeau
+    g.on("classUnlock", () => this.say(SPEECH.freed, true));
+    g.on("egg", () => this.say(SPEECH.egg));
     g.on("bagFull", () => this.say(SPEECH.bag)); // ordinaire : au plus une réplique toutes les 45 s // ordinaire : pas de bulle sur le nom d'un boss
     g.on("bossNemesis", () => this.say(SPEECH.nemesis, true));
     g.on("bossDodge", () => this.float(this.monX() + 14, 40, tx("Raté !"), "#c8c8d8"));

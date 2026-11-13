@@ -1366,4 +1366,10 @@ export default {
   2491: "Wskazówki wyświetlają się w całości (w kilku wierszach), we wszystkich językach.",
   2492: "Pełny zestaw!",
   2493: "Wreszcie wszystko pasuje!",
+  2494: "Nowy początek, i to silniejszy!",
+  2495: "Znam tę drogę na pamięć.",
+  2496: "Nowy sojusznik!",
+  2497: "Wreszcie wolny! Dzięki!",
+  2498: "Jajo! Co się z niego wykluje?",
+  2499: "O, jajo…",
 };

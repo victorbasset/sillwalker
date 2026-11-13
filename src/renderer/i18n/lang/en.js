@@ -1366,4 +1366,10 @@ export default {
   2491: "Tips are shown in full (on several lines), in every language.",
   2492: "Full set!",
   2493: "Everything matches at last!",
+  2494: "A fresh start, and stronger!",
+  2495: "I know this road by heart.",
+  2496: "A new ally!",
+  2497: "Free at last! Thank you!",
+  2498: "An egg! What will hatch from it?",
+  2499: "Oh, an egg…",
 };
