@@ -570,6 +570,12 @@ async function boot() {
       showToast(`<span class="story">📜</span> ${tx("Nouvelle chronique : {0}", { 0: `<b>${esc(tx(c.title))}</b>` })}`, () => { openPanel(); panel.setTab("adventure"); panel.renderAll(); const d = document.querySelector("[data-keep=hero-chron]"); if (d) panel.showDetails(d); }, 12000);
     }
   });
+  // (it. 1105) la fleur est complète : le grand graphe s'ouvre (une seule fois) ; un clic ouvre les Compétences
+  game.on("graphOpen", ({ points }) => {
+    sound.play("tab");
+    showToast(`✦ ${txn(points, "Le grand graphe s’ouvre autour de la fleur ! {n} point à y dépenser.|Le grand graphe s’ouvre autour de la fleur ! {n} points à y dépenser.")}`, () => { openPanel(); panel.setTab("skills"); }, 12000);
+    panel.dirty = true;
+  });
   game.on("tabOpen", ({ ids }) => {
     sound.play("tab");
     for (const id of ids) {

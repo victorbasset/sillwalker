@@ -8,7 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
-import { SKILL_GRAPH, takeGraphNode, nextGraphNode } from "./skillgraph.js";
+import { SKILL_GRAPH, takeGraphNode, nextGraphNode, graphSpendable, graphPointsFree, flowerComplete } from "./skillgraph.js";
 import { RELICS, RELIC_IDS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
 /** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
 const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
@@ -238,7 +238,8 @@ export class Game {
     const R = this.R, hs = this.stats();
     R.time += dt;
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
-    if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh });
+    if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh }); // (it. 1105) le grand graphe s'ouvre : annoncé une fois
+      if (!this.S.skills.graphSeen && flowerComplete(this.S)) { this.S.skills.graphSeen = true; this.emit("graphOpen", { points: graphPointsFree(this.S) }); }
       const chron = takeNewChronicles(this.S, recordZone(this.S));
       if (chron.length) { for (const c of chron) this.milestone("chron", c.id); this.emit("chronicle", { ids: chron.map((c) => c.id) }); }
       // (it. 884) Grand intendant : aussi pendant un long combat de boss (avant, seulement après une victoire : œufs et
@@ -2251,6 +2252,7 @@ export class Game {
     if (tp > 0) out.push({ id: "talents", n: tp, tab: "talents" });
     const sp = skillPointsFree(S);
     if (sp > 0 && skillSpendable(S)) out.push({ id: "skills", n: sp, tab: "skills" });
+    else if (graphSpendable(S)) out.push({ id: "skills", n: graphPointsFree(S), tab: "skills" }); // (it. 1105) le grand graphe
     const u = nextUnlock(S);
     if (u && unlockAvailable(S, u) && S.gold >= u.price) out.push({ id: "unlock", n: 1, tab: "shop", name: u.name, uid: u.id, price: u.price });
     // Sort abordable du héros, pas encore appris (Héros > Sorts et attaque)

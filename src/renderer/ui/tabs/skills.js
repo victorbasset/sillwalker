@@ -9,7 +9,7 @@ import { esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects } from "../../game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
@@ -31,7 +31,12 @@ export class SkillsTab {
     this.armedReset = false;
   }
 
-  badge() { const n = skillPointsFree(this.game.S); return n && skillSpendable(this.game.S) ? String(n) : ""; }
+  badge() {
+    const S = this.game.S, n = skillPointsFree(S);
+    if (n && skillSpendable(S)) return String(n);
+    // (it. 1105) fleur pleine : la pastille compte les points libres du grand graphe (elle s'éteignait)
+    return graphSpendable(S) ? String(graphPointsFree(S)) : "";
+  }
 
   render(el) {
     if (this.el !== el || !el.querySelector(".skillwrap")) this.build(el);

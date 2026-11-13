@@ -426,7 +426,7 @@ import { SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, active
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects } from "../src/renderer/game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects, graphSpendable } from "../src/renderer/game/skillgraph.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -3621,6 +3621,17 @@ test("grand graphe : la bulle d'un nœud montre ce qu'il donne vraiment (échell
   for (const id of S.skills.outer) { const e = graphNodeEffects(SKILL_GRAPH.nodes[id]); for (const k in e) shown[k] = (shown[k] || 0) + e[k]; }
   const real = skillGraphEffects(S);
   for (const k in real) assert(Math.abs(real[k] - shown[k]) < 0.01, k + " : affiché " + shown[k] + ", réel " + real[k]);
+});
+
+test("grand graphe : annoncé une seule fois à son ouverture ; des points à y dépenser (it. 1105)", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 600; g.S.skills.outer = []; delete g.S.skills.graphSeen;
+  g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
+  assert(graphSpendable(g.S), "fleur pleine : des points pour le graphe");
+  let n = 0; g.on("graphOpen", () => n++);
+  g.advance(3); g.advance(3);
+  assert.equal(n, 1, "une seule annonce");
+  assert.equal(g.S.skills.graphSeen, true);
 });
 
 test("grand graphe : nœuds inconnus ou en double retirés de la sauvegarde (it. 1075)", () => {

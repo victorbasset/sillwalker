@@ -1570,4 +1570,5 @@ export default {
   2695: "Keine verlorenen Szenen mehr: Kommen mehrere Begegnungen gleichzeitig, warten sie, bis sie dran sind.",
   2696: "Großen Graphen zurücksetzen",
   2697: "Großer Graph zurückgesetzt: Die Pfade sind wieder frei wählbar.",
+  2698: "Der große Graph öffnet sich rund um die Blume! {n} Punkt zu vergeben.|Der große Graph öffnet sich rund um die Blume! {n} Punkte zu vergeben.",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1105) : l'ouverture du grand graphe se voit. Une fois la fleur complète, la pastille de l'onglet
+  Compétences s'éteignait alors qu'il restait des centaines de points pour le graphe : elle compte maintenant les
+  points libres du graphe (graphSpendable, en cache), et « À faire » aussi. Annonce unique (S.skills.graphSeen) : bulle
+  « ✦ Le grand graphe s'ouvre autour de la fleur ! 362 points à y dépenser. », un clic ouvre les Compétences (capture
+  sur la partie de fin de partie). Test logique (249) ; save-fuzz ok ; autotest 219/219.
 - 2026-11-13 (it. 1104) : où passent les 12,7 points de la page en fin de partie ? Temps de script mesuré sur 10 s
   (fonctions enveloppées, injection TEMP) : dessin de la bande 77 ms, simulation (advance) 57 ms, écouteurs
   d'événements 43 ms, effets 26 ms, updateFx 13 ms, nombres flottants 3 ms : ≈ 140 ms / 10 s, soit ≈ 1,4 % d'un

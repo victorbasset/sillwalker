@@ -139,6 +139,17 @@ export function activeGraphSet(S) {
   return new Set(outer(S).slice(0, graphPointsTotal(S)));
 }
 
+/** (it. 1105) Des points libres ET au moins un nœud prenable (pastille de l'onglet, « À faire ») ; en cache tant que
+ *  le nombre de nœuds pris et de points ne change pas (la pastille est recalculée souvent). */
+let spendCache = { key: "", v: false };
+export function graphSpendable(S) {
+  const free = graphPointsFree(S);
+  if (free <= 0) return false;
+  const key = outer(S).length + ":" + free;
+  if (spendCache.key !== key || spendCache.S !== S) spendCache = { key, S, v: Object.keys(SKILL_GRAPH.nodes).some((id) => canTakeGraph(S, id)) };
+  return spendCache.v;
+}
+
 /** Voie déjà choisie dans une région (indice), ou -1. */
 export function chosenBranch(S, region) {
   for (const id of outer(S)) { const n = SKILL_GRAPH.nodes[id]; if (n && n.region === region && n.branch != null) return n.branch; }

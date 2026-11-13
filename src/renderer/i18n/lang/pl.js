@@ -1570,4 +1570,5 @@ export default {
   2695: "Żadnych zgubionych scen: gdy kilka spotkań przychodzi naraz, czekają na swoją kolej.",
   2696: "Zresetuj wielki graf",
   2697: "Wielki graf zresetowany: ścieżki znów są do wyboru.",
+  2698: "Wielki graf otwiera się wokół kwiatu! {n} punkt do wydania.|Wielki graf otwiera się wokół kwiatu! {n} punkty do wydania.|Wielki graf otwiera się wokół kwiatu! {n} punktów do wydania.",
 };

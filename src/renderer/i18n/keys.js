@@ -2699,5 +2699,6 @@ export const KEYS = [
   "« Vendre ce qui ne m’améliore pas » vend tout ce qui n’est pas une amélioration, légendaires et pièces de panoplie compris.",
   "Plus de scène perdue : quand plusieurs rencontres arrivent ensemble, elles attendent leur tour.",
   "Réinitialiser le grand graphe",
-  "Grand graphe réinitialisé : les voies sont de nouveau au choix."
+  "Grand graphe réinitialisé : les voies sont de nouveau au choix.",
+  "Le grand graphe s’ouvre autour de la fleur ! {n} point à y dépenser.|Le grand graphe s’ouvre autour de la fleur ! {n} points à y dépenser."
 ];

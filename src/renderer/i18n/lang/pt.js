@@ -1570,4 +1570,5 @@ export default {
   2695: "Nenhuma cena perdida: quando vários encontros chegam juntos, esperam a vez.",
   2696: "Reiniciar o grande grafo",
   2697: "Grande grafo reiniciado: os caminhos estão de novo à escolha.",
+  2698: "O grande grafo se abre ao redor da flor! {n} ponto para gastar.|O grande grafo se abre ao redor da flor! {n} pontos para gastar.",
 };
