@@ -2635,5 +2635,12 @@ export const KEYS = [
   "Des personnages sur la route : Mirette, la grenouille marchande, tient la Boutique ; Orbo, l’astronome à la fusée, l’Ascension. Chacun a sa scène de rencontre.",
   "Boutique sans défilement : le Marchand, les potions et les coffres tiennent à l’écran ; « Renouveler l’étal » est à côté des objets.",
   "Les nombres de dégâts restent au-dessus du monstre touché ; les chroniques sont numérotées dans l’ordre de l’histoire.",
-  "Talents : un clic monte un talent au maximum ; les maîtrises gagnent des paliers (critique, bouclier, butin…)."
+  "Talents : un clic monte un talent au maximum ; les maîtrises gagnent des paliers (critique, bouclier, butin…).",
+  "Plume, la chouette de la guilde",
+  "Un panneau d’affichage à un carrefour",
+  "Hou hou ! De nouveaux contrats sont affichés.",
+  "La guilde paie bien… quand le travail est fait.",
+  "J’apporte les contrats de jour comme de nuit. Surtout de nuit.",
+  "Plus tu remplis de quêtes, plus la guilde te respecte.",
+  "Un contrat t’ennuie ? Change-le, je ne dirai rien."
 ];

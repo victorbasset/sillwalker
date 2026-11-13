@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1086, demande E, étape E4) : troisième PNJ, Plume, la chouette de la guilde, tient les Quêtes
+  (plumes brunes, grands yeux, une lettre au bec ; 5 répliques : « Un contrat t'ennuie ? Change-le, je ne dirai
+  rien. »). Pastille dans le titre de la carte « Guilde des aventuriers » ; scène de rencontre : un poteau au
+  carrefour, le panneau couvert d'affiches, une lettre qui s'envole. Contrôle d'autotest généralisé à tous les PNJ en
+  pastille (212/212) ; capture en allemand à 1280 px et de la scène ; 10 langues sans défaut. 7 textes traduits.
 - 2026-11-13 (it. 1085, demande D, étape D6) : « Quoi de neuf », édition 52 (grand graphe et ses synergies ; Mirette
   et Orbo avec leurs scènes de rencontre ; Boutique sans défilement ; dégâts au-dessus du monstre et chroniques
   numérotées ; talents en un clic et paliers des maîtrises), traduite dans les 9 langues (« Renouveler l'étal » cité

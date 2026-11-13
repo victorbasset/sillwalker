@@ -66,6 +66,15 @@ function npcPlace(ctx, art, x, gy, t) {
     ctx.fillStyle = "#ffd34d"; ctx.fillRect(x + 32, gy - 50, 12, 10);                     // fenêtre allumée
     ctx.fillStyle = "#e2552b"; ctx.fillRect(x + 66, gy - 26, 3, 14); ctx.fillRect(x + 62, gy - 30, 11, 4); // fleur
   }
+  if (art === "owl") { // (it. 1086) Plume : un poteau au carrefour, le panneau des contrats couvert d'affiches
+    ctx.fillStyle = "#6b4226"; ctx.fillRect(x + 8, gy - 64, 6, 64);                                   // poteau
+    ctx.fillStyle = "#8a5a33"; ctx.fillRect(x + 26, gy - 70, 76, 46);                                 // panneau
+    ctx.fillStyle = "#5a3a20"; ctx.fillRect(x + 26, gy - 70, 76, 3); ctx.fillRect(x + 50, gy - 24, 5, 24); ctx.fillRect(x + 80, gy - 24, 5, 24);
+    const posters = ["#f4f0e8", "#ffd34d", "#f4f0e8", "#9fd8ff", "#f4f0e8"];
+    posters.forEach((c, i) => { ctx.fillStyle = c; ctx.fillRect(x + 31 + i * 14, gy - 62 + (i % 2) * 8, 10, 14); ctx.fillStyle = "#c0392b"; ctx.fillRect(x + 35 + i * 14, gy - 63 + (i % 2) * 8, 2, 2); });
+    ctx.fillStyle = "#c08a5a"; ctx.fillRect(x - 40, gy - 3, 160, 3);                                  // le carrefour
+    if (t > 1 && t < 3) { ctx.fillStyle = "#f4f0e8"; const k = (t - 1) / 2; ctx.fillRect(Math.round(x + 60 - k * 50), Math.round(gy - 80 + Math.sin(k * 6) * 6), 6, 4); } // une lettre qui vole
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble

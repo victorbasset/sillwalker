@@ -1506,4 +1506,11 @@ export default {
   2631: "Shop without scrolling: the Merchant, potions and chests fit on screen; “Restock” sits next to the items.",
   2632: "Damage numbers stay above the monster hit; chronicles are numbered in story order.",
   2633: "Talents: one click raises a talent to its maximum; masteries gain milestones (critical, shield, loot…).",
+  2634: "Plume, the guild owl",
+  2635: "A notice board at a crossroads",
+  2636: "Hoo hoo! New contracts are posted.",
+  2637: "The guild pays well… once the job is done.",
+  2638: "I deliver contracts by day and by night. Mostly by night.",
+  2639: "The more quests you complete, the more the guild respects you.",
+  2640: "A contract bores you? Swap it, I won’t tell.",
 };

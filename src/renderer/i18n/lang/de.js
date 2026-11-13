@@ -1506,4 +1506,11 @@ export default {
   2631: "Laden ohne Scrollen: Händler, Tränke und Truhen passen auf den Bildschirm; „Angebot erneuern“ steht neben den Waren.",
   2632: "Schadenszahlen bleiben über dem getroffenen Monster; die Chroniken sind in der Reihenfolge der Geschichte nummeriert.",
   2633: "Talente: Ein Klick hebt ein Talent aufs Maximum; Meisterschaften erhalten Stufen (kritisch, Schild, Beute …).",
+  2634: "Plume, die Gildeneule",
+  2635: "Ein Anschlagbrett an einer Wegkreuzung",
+  2636: "Schuhu! Neue Aufträge hängen aus.",
+  2637: "Die Gilde zahlt gut … wenn die Arbeit erledigt ist.",
+  2638: "Ich bringe Aufträge bei Tag und bei Nacht. Vor allem bei Nacht.",
+  2639: "Je mehr Aufträge du erfüllst, desto mehr respektiert dich die Gilde.",
+  2640: "Ein Auftrag langweilt dich? Tausch ihn, ich verrate nichts.",
 };

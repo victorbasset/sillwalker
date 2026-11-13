@@ -16,6 +16,19 @@ export const NPCS = {
       "Croâ ! Pardon. Ça m’échappe quand je fais une bonne affaire.",
     ],
   },
+  // (it. 1086) la chouette messagère du panneau des contrats
+  quests: {
+    name: "Plume, la chouette de la guilde",
+    place: "Un panneau d’affichage à un carrefour",
+    art: "owl",
+    lines: [
+      "Hou hou ! De nouveaux contrats sont affichés.",
+      "La guilde paie bien… quand le travail est fait.",
+      "J’apporte les contrats de jour comme de nuit. Surtout de nuit.",
+      "Plus tu remplis de quêtes, plus la guilde te respecte.",
+      "Un contrat t’ennuie ? Change-le, je ne dirai rien.",
+    ],
+  },
   // (it. 1082) suggestion de Victor : « un PNJ qui a une fusée, pour l'ascension »
   ascension: {
     name: "Orbo, l’astronome à la fusée",

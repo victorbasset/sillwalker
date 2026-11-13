@@ -1506,4 +1506,11 @@ export default {
   2631: "Sklep bez przewijania: Kupiec, mikstury i skrzynie mieszczą się na ekranie; „Odnów towar” jest obok przedmiotów.",
   2632: "Liczby obrażeń zostają nad trafionym potworem; kroniki są ponumerowane w kolejności historii.",
   2633: "Talenty: jedno kliknięcie podnosi talent do maksimum; mistrzostwa zyskują progi (krytyk, tarcza, łup…).",
+  2634: "Plume, sowa gildii",
+  2635: "Tablica ogłoszeń na rozstaju dróg",
+  2636: "Hu, hu! Wywieszono nowe zlecenia.",
+  2637: "Gildia dobrze płaci… gdy robota jest skończona.",
+  2638: "Przynoszę zlecenia dniem i nocą. Głównie nocą.",
+  2639: "Im więcej zadań wypełnisz, tym bardziej gildia cię szanuje.",
+  2640: "Zlecenie cię nudzi? Wymień je, nikomu nie powiem.",
 };

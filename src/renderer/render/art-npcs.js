@@ -34,4 +34,21 @@ export const NPC_ART = {
     "....SS..SS....",
     "....KK..KK....",
   ]] },
+  // Plume, la chouette de la guilde : plumes brunes, grands yeux, une lettre au bec (it. 1086).
+  owl: { pal: { B: "#8a6a4a", b: "#5a4430", L: "#d8c8a8", W: "#fff6c8", E: "#1a1a1a", O: "#e8873a", P: "#f4f0e8", R: "#c0392b" }, frames: [[
+    "..b........b..",
+    "..bB......Bb..",
+    "..BBBBBBBBBB..",
+    ".BBWWBBBBWWBB.",
+    ".BWEWBBBBWEWB.",
+    ".BBWWBOOBWWBB.",
+    ".BBBBBPPPPBBB.",
+    "BBBLLLPRPPLBBB",
+    "BbBLLLPPPPLBbB",
+    "BbBLLLLLLLLBbB",
+    ".bBLLLLLLLLBb.",
+    "..BBLLLLLLBB..",
+    "...BBBBBBBB...",
+    "....OO..OO....",
+  ]] },
 };

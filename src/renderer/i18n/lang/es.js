@@ -1506,4 +1506,11 @@ export default {
   2631: "Tienda sin desplazamiento: el Mercader, las pociones y los cofres caben en pantalla; «Renovar el puesto» está junto a los objetos.",
   2632: "Los números de daño se quedan sobre el monstruo golpeado; las crónicas se numeran en el orden de la historia.",
   2633: "Talentos: un clic sube un talento al máximo; las maestrías ganan hitos (crítico, escudo, botín…).",
+  2634: "Plume, la lechuza del gremio",
+  2635: "Un tablón de anuncios en un cruce",
+  2636: "¡Uh, uh! Hay nuevos contratos colgados.",
+  2637: "El gremio paga bien… cuando el trabajo está hecho.",
+  2638: "Traigo los contratos de día y de noche. Sobre todo de noche.",
+  2639: "Cuantas más misiones completes, más te respeta el gremio.",
+  2640: "¿Un contrato te aburre? Cámbialo, no diré nada.",
 };

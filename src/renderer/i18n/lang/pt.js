@@ -1506,4 +1506,11 @@ export default {
   2631: "Loja sem rolagem: o Mercador, as poções e os baús cabem na tela; «Renovar a banca» fica ao lado dos itens.",
   2632: "Os números de dano ficam acima do monstro atingido; as crônicas são numeradas na ordem da história.",
   2633: "Talentos: um clique sobe um talento ao máximo; as maestrias ganham marcos (crítico, escudo, saque…).",
+  2634: "Plume, a coruja da guilda",
+  2635: "Um quadro de avisos numa encruzilhada",
+  2636: "Uh, uh! Há novos contratos afixados.",
+  2637: "A guilda paga bem… quando o trabalho está feito.",
+  2638: "Trago os contratos de dia e de noite. Sobretudo de noite.",
+  2639: "Quanto mais missões você cumpre, mais a guilda te respeita.",
+  2640: "Um contrato te entedia? Troque-o, não conto a ninguém.",
 };

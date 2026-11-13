@@ -1,5 +1,6 @@
 // Onglet Quêtes : guilde (rang, réputation, bonus permanents) et trois
 // contrats de 1 à 3 étoiles. Option de réclamation automatique.
+import { npcHTML } from "../npc.js";
 import { t as tx, txn } from "../../i18n/index.js";
 import { questText, questDone, questGold, questRerollPrice, guildRank, guildRankName, GUILD_BONUS, STARS } from "../../game/quests.js";
 import { CONSUMABLES } from "../../game/shop.js";
@@ -52,7 +53,7 @@ export class QuestsTab {
     const bonus = gr.rank ? Object.fromEntries(Object.entries(GUILD_BONUS).map(([k, v]) => [k, v * gr.rank])) : null;
     const guild = `<article class="panel guild">
       <img class="crest" src="${shopIconURL("crest" + Math.min(4, Math.floor(gr.rank / 2)), 4)}" alt="${esc(tx("Blason de la guilde"))}">
-      <div class="si"><h2>${tx("Guilde des aventuriers")} <small>${tx("rang {0} · {1}", { 0: gr.rank + 1, 1: esc(guildRankName(gr.rank)) })}</small></h2>
+      <div class="si"><h2 class="npch">${tx("Guilde des aventuriers")} <small>${tx("rang {0} · {1}", { 0: gr.rank + 1, 1: esc(guildRankName(gr.rank)) })}</small>${npcHTML("quests", true)}</h2>
         <div class="kv"><span>${tx("Réputation (1 à 3 par quête selon les étoiles)")}</span><span>${gr.into} / ${gr.need}</span></div>
         <div class="bar"><i style="width:${(100 * gr.into) / gr.need}%"></i></div>
         <p class="note tight">${tx("Bonus permanent (gardé à l’ascension) :")} <b class="delta-p">${bonus ? esc(describeEffects(bonus)) : tx("aucun")}</b> ${tx("· rang suivant : {0} et un coffre.", { 0: esc(describeEffects(GUILD_BONUS)) })}</p></div>
