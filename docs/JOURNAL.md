@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1019) : boss lisibles sur décor sombre : la Carapace des Abysses (bleu nuit, Récif abyssal de nuit)
+  se confondait avec le fond (capture de la bande, dev-data en combat de boss). Tout boss a désormais un contour pâle
+  discret dessiné dans l'image (outlinedFrames, blanc bleuté à 55 % ; écho : son contour spectral, inchangé), sur la
+  bande et en mode mini (bossOutline remplace echoOutline). Performance, même combat de boss : bande 19,5 / 20,6 %
+  (repère 19,2-19,8 : bruit). Contrôle d'autotest des échos adapté ; 203/203. Contrôle instable de l'it. 904 : clos.
 - 2026-11-13 (it. 1018) : textes de fin de partie : --dump-text sur la partie de fin de partie (journal vidé) en
   russe, japonais et polonais : aucun texte resté en français ou en anglais (seulement Qa, Qi, et HP / Lv / pt / BGM
   en japonais, usuels). Vérifiés aussi : onglet Quêtes de fin de partie propre ; repère de rareté en forme pour les
@@ -3855,7 +3860,7 @@ Priorité : P1 (bug visible / bon voisin) > P2 (retour, progression) > P3 (confo
   sa colonne, sans doute « Засчитанное офлайн-время » à côté d'une valeur longue), pas reproduit en quatre passages ; si
   ça revient, main.js (--overflow-report) peut citer le texte du libellé.
 
-- EN ATTENTE (it. 906 : sortie gardée dans logs/selftest-last-fail.log) P3 Vu it. 904 : un autotest à 181/182 une fois (contrôle non noté), puis trois passages à 182/182 : contrôle instable
+- CLOS (it. 1019 : plus revu en 110 itérations ; trois passages de suite à 203/203) P3 Vu it. 904 : un autotest à 181/182 une fois (contrôle non noté), puis trois passages à 182/182 : contrôle instable
   à identifier si ça revient (garder la ligne « ÉCHEC » la prochaine fois).
 
 - FAIT (it. 892) P3 Vu it. 890 (bande, zone 55) : l'étiquette d'affixe du dernier monstre de la file (« Furieux ») touche le début du nom

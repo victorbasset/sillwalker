@@ -152,7 +152,9 @@ export class MiniRenderer {
         // (it. 702) écho d'un lieutenant : contour spectral, comme sur la bande
         const echo = m.boss && majorBoss(this.game.S.zone)?.echo;
         const a = new Actor(this.stage, m.elite ? outlinedFrames(set.normal, m.champion ? "#c08cff" : "#ffd34d", this.dpr)
-          : echo ? outlinedFrames(set.normal, ECHO_OUTLINE, this.dpr) : set.normal);
+          : echo ? outlinedFrames(set.normal, ECHO_OUTLINE, this.dpr)
+          // (it. 1019) boss : contour pâle, comme sur la bande (boss sombre sur décor sombre)
+          : m.boss ? outlinedFrames(set.normal, "rgba(232, 238, 255, 0.55)", this.dpr) : set.normal);
         a.fly = set.fly;
         if (m.boss && !m.final) a.addCrown();
         if (m.final) a.el.classList.add("final");

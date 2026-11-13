@@ -83,6 +83,7 @@ const WIDE_CHARS = /[\u1100-\u11ff\u2e80-\u9fff\uac00-\ud7af\uf900-\ufaff\ufe30-
 const upFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const MAX_DMG_FLOATS = 6;
+const BOSS_OUTLINE = "rgba(232, 238, 255, 0.55)"; // (it. 1019)
 export class StripRenderer {
   constructor(container, game, { rightReserve = 0 } = {}) {
     this.root = container;
@@ -620,7 +621,10 @@ export class StripRenderer {
 
   /** (it. 701) Écho d'un lieutenant (zones 250, 300, 350) : contour spectral bleu pâle dessiné dans l'image, pour le
    *  distinguer de l'original (même sprite). */
-  echoOutline() { return majorBoss(this.game.S.zone)?.echo ? ECHO_OUTLINE : null; }
+  // (it. 1019) tout boss a un contour : pâle et discret, sinon celui de l'écho. Sans lui, un boss sombre se perdait dans
+  // un décor sombre (Carapace des Abysses, bleu nuit, au Récif abyssal de nuit). Dessiné dans l'image (outlinedFrames),
+  // pas en filtre CSS (it. 595 : ≈ 0,5 point par ombre empilée)
+  bossOutline() { return majorBoss(this.game.S.zone)?.echo ? ECHO_OUTLINE : BOSS_OUTLINE; }
 
   monY(a, bob) {
     let y = GROUND - a.h + (a.boss ? P * 2 : P);
@@ -637,7 +641,7 @@ export class StripRenderer {
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       // final : le Briseur d'Étoiles ; élite / champion : contour doré / violet dans l'image
-      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), boss ? this.echoOutline() : line[k].elite ? eliteColor(line[k]) : null);
+      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), boss ? this.bossOutline() : line[k].elite ? eliteColor(line[k]) : null);
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
       const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
       // (it. 613) aussi tant qu'elle peut encore monter de niveau (déjà gagnée : un peu plus pâle)
@@ -683,7 +687,7 @@ export class StripRenderer {
 
   makeCorpse(mon, x) {
     if (this.corpse) this.corpse.remove();
-    const a = this.monsterActor(mon.type, mon.boss, !!mon.final, mon.elite ? eliteColor(mon) : mon.boss ? this.echoOutline() : null);
+    const a = this.monsterActor(mon.type, mon.boss, !!mon.final, mon.elite ? eliteColor(mon) : mon.boss ? this.bossOutline() : null);
     if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));

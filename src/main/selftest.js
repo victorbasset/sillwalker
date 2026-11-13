@@ -810,7 +810,8 @@ async function runSelfTest(strip) {
     check("file d'élites : étiquettes d'affixe hors du nom du boss (200 zones)", r === "ok", r);
   }
   // (it. 701-705) Écho d'un lieutenant (zones 250, 300, 350) : contour spectral ; pas pour l'original (zone 50) ni ailleurs.
-  const eo = await js("(() => { const G = window.__game, st = window.__strip, z0 = G.S.zone, r = [250, 300, 350, 50, 249].map((z) => { G.S.zone = z; return st.echoOutline() || '-'; }); G.S.zone = z0; return r.join(' '); })()");
+  const eo = await js("(() => { const G = window.__game, st = window.__strip, z0 = G.S.zone, r = [250, 300, 350, 50, 249].map((z) => { G.S.zone = z; return /^rgba/.test(st.bossOutline()) ? '-' : st.bossOutline(); }); G.S.zone = z0; return r.join(' '); })()");
+  // (it. 1019) les autres boss ont un contour pâle (rgba), noté « - » ici
   check("échos des lieutenants : contour spectral (250, 300, 350), pas l'original ni une autre zone", /^(#\w+) \1 \1 - -$/.test(eo), eo);
   // (it. 846) Nombres flottants lancés au même endroit au même instant : ils ne se recouvrent plus (fin de partie :
   // « -18Crit104k-21 » illisible au-dessus du héros).
