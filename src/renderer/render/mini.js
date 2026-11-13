@@ -9,7 +9,7 @@ import { SETS } from "../game/sets.js";
 import { EVENTS } from "../game/events.js";
 import { PIXEL as P } from "./art.js";
 import { majorBoss, ECHO_OUTLINE } from "../game/relics.js";
-import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames } from "./sprites.js";
+import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { fmt, fmtShort, uS, durText } from "../game/format.js";
 import { xpNeed } from "../game/rules.js";
@@ -154,7 +154,9 @@ export class MiniRenderer {
         const a = new Actor(this.stage, m.elite ? outlinedFrames(set.normal, m.champion ? "#c08cff" : "#ffd34d", this.dpr)
           : echo ? outlinedFrames(set.normal, ECHO_OUTLINE, this.dpr)
           // (it. 1019) boss : contour pâle, comme sur la bande (boss sombre sur décor sombre)
-          : m.boss ? outlinedFrames(set.normal, "rgba(232, 238, 255, 0.55)", this.dpr) : set.normal);
+          : m.boss ? outlinedFrames(set.normal, "rgba(232, 238, 255, 0.55)", this.dpr)
+          // (it. 1020) monstre sombre : contour très discret, comme sur la bande
+          : isDarkSprite(set.normal) ? outlinedFrames(set.normal, "rgba(220, 228, 245, 0.35)", this.dpr) : set.normal);
         a.fly = set.fly;
         if (m.boss && !m.final) a.addCrown();
         if (m.final) a.el.classList.add("final");

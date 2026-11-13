@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1020) : monstres sombres lisibles de nuit. Luminance moyenne des sprites mesurée en jeu (injection) :
+  veuve noire 28, araignée 37, chevalier noir 38, scorpion d'obsidienne 40, corbeau 41… (fond de nuit du même ordre).
+  isDarkSprite (sprites.js, moyenne des pixels opaques < 48, en cache) : contour très discret (blanc bleuté à 35 %,
+  plus pâle que celui des boss, sans rappeler l'or des élites), bande et mode mini. Capture avant / après aux Égouts
+  oubliés (zone 11) : l'araignée, presque invisible, se lit. Bande 19,5 % (repère) ; autotest 203/203.
 - 2026-11-13 (it. 1019) : boss lisibles sur décor sombre : la Carapace des Abysses (bleu nuit, Récif abyssal de nuit)
   se confondait avec le fond (capture de la bande, dev-data en combat de boss). Tout boss a désormais un contour pâle
   discret dessiné dans l'image (outlinedFrames, blanc bleuté à 55 % ; écho : son contour spectral, inchangé), sur la

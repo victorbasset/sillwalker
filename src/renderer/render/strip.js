@@ -13,7 +13,7 @@ import { t as tx, fsp, tr } from "../i18n/index.js";
 import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
-import { buildSpriteSet, outlinedFrames, glowFrames } from "./sprites.js";
+import { buildSpriteSet, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
 import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
@@ -84,6 +84,7 @@ const upFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const MAX_DMG_FLOATS = 6;
 const BOSS_OUTLINE = "rgba(232, 238, 255, 0.55)"; // (it. 1019)
+const DARK_OUTLINE = "rgba(220, 228, 245, 0.35)"; // (it. 1020)
 export class StripRenderer {
   constructor(container, game, { rightReserve = 0 } = {}) {
     this.root = container;
@@ -613,6 +614,8 @@ export class StripRenderer {
   monsterActor(type, boss, final, outline) {
     const set = final ? this.sprites.starbreaker : this.sprites.monsters[type];
     const frames = boss ? set.boss : set.normal;
+    // (it. 1020) monstre ordinaire sombre : contour très discret (plus pâle que celui des boss, sans rappeler l'or des élites)
+    if (!outline && isDarkSprite(frames)) outline = DARK_OUTLINE;
     const a = new Actor(this.stage, outline ? outlinedFrames(frames, outline, this.dpr) : frames, boss ? "boss" + (final ? " final" : "") : "");
     a.fly = set.fly; a.boss = boss;
     if (boss && !final) a.addCrown(); // le Briseur porte sa propre couronne d'éclats

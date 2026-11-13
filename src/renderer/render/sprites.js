@@ -37,6 +37,26 @@ export function buildSprite(rows, pal, scale, flip, dpr = 1) {
  * haut, comme l'ancien filtre (pas sous les pieds) ; l'image grandit d'un pixel CSS à gauche, à droite et en haut.
  */
 const outlineCache = new WeakMap();
+/** (it. 1020) Sprite sombre (luminance moyenne des pixels opaques < 48 / 255 : veuve noire 28, araignée 37,
+    chevalier noir 38…) : il se perdait dans les décors de nuit ; la bande lui donne un contour très discret. */
+const darkCache = new WeakMap();
+export function isDarkSprite(frames) {
+  const f = frames && frames[0];
+  if (!f) return false;
+  if (darkCache.has(f)) return darkCache.get(f);
+  let dark = false;
+  try {
+    const c = document.createElement("canvas"); c.width = f.width; c.height = f.height;
+    const x = c.getContext("2d", SOFT); x.drawImage(f, 0, 0);
+    const d = x.getImageData(0, 0, c.width, c.height).data;
+    let L = 0, n = 0;
+    for (let i = 0; i < d.length; i += 4) if (d[i + 3] > 128) { L += 0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]; n++; }
+    dark = n > 0 && L / n < 48;
+  } catch { dark = false; }
+  darkCache.set(f, dark);
+  return dark;
+}
+
 export function outlinedFrames(frames, color, dpr = 1) {
   return frames.map((f) => {
     let m = outlineCache.get(f);
