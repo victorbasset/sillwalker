@@ -1579,4 +1579,5 @@ export default {
   2704: "Os balões do grande grafo mostram o que cada nó realmente dá.",
   2705: "O que esta sinergia dá agora",
   2706: "Agora: ≈ {0}",
+  2707: "Caminho inteiro: {0}",
 };

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1114, demande D, « de vrais choix ») : tant qu'aucune voie n'est choisie dans une région du grand
+  graphe, la bulle de chacun de ses nœuds montre ce que donne la voie ENTIÈRE (« Toute la voie : +19,5 % or trouvé,
+  +3,3 % attaque, +0,6 % d'attaque par puissance de 10 de l'or possédé ») : les trois voies exclusives se comparent
+  avant de s'engager. Rien sur une voie fermée. Vérifié en français et en japonais ; 9 langues ; autotest 220/220.
 - 2026-11-13 (it. 1113, demande D, synergies) : la bulle d'un nœud de synergie du grand graphe dit ce qu'il donnerait
   avec les statistiques actuelles (« En ce moment : ≈ +4,9 % attaque » ; heroStats garde graphSynUnit, la valeur d'un
   point de chaque synergie) : comparer deux voies devient un calcul. Partie de fin de partie : les 6 synergies, en

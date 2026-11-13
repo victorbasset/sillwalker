@@ -1579,4 +1579,5 @@ export default {
   2704: "Dymki wielkiego grafu pokazują, co naprawdę daje każdy węzeł.",
   2705: "Co ta synergia daje w tej chwili",
   2706: "W tej chwili: ≈ {0}",
+  2707: "Cała ścieżka: {0}",
 };

@@ -232,7 +232,18 @@ export class SkillsTab {
     else if (graphPointsFree(S) <= 0) state = tx("Plus de point libre.");
     else state = tx("Doit être relié à un nœud acquis.");
     return `<b>${esc(n.name || (n.kind === "small" ? tx("Compétence") : ""))}</b><div class="sub">${esc(kind)}</div>
-      <p class="delta-p">${esc(describeEffects(graphNodeEffects(n)))}</p>${this.synNow(n)}<div class="note">${esc(state)}</div>`;
+      <p class="delta-p">${esc(describeEffects(graphNodeEffects(n)))}</p>${this.synNow(n)}${n.branch != null && chosen < 0 ? this.voieTotal(n) : ""}<div class="note">${esc(state)}</div>`;
+  }
+
+  /** (it. 1114) voie pas encore choisie : ce que donne la voie entière (choix exclusif dans la région). */
+  voieTotal(n) {
+    const key = n.region + ":" + n.branch;
+    if (!(this._voieEff ||= {})[key]) {
+      const e = {};
+      for (const m of Object.values(SKILL_GRAPH.nodes)) if (m.region === n.region && m.branch === n.branch) for (const [k, v] of Object.entries(graphNodeEffects(m))) e[k] = Math.round(((e[k] || 0) + v) * 100) / 100;
+      this._voieEff[key] = e;
+    }
+    return `<div class="sub">${esc(tx("Toute la voie : {0}", { 0: describeEffects(this._voieEff[key]) }))}</div>`;
   }
 
   /** (it. 1113) nœud de synergie : ce qu'il donne avec les statistiques actuelles (« ≈ +3,2 % d'attaque »). */

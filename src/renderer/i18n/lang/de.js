@@ -1579,4 +1579,5 @@ export default {
   2704: "Die Infos des großen Graphen zeigen, was jeder Knoten wirklich bringt.",
   2705: "Was diese Synergie gerade bringt",
   2706: "Gerade: ≈ {0}",
+  2707: "Ganzer Pfad: {0}",
 };

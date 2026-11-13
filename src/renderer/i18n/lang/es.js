@@ -1579,4 +1579,5 @@ export default {
   2704: "Los globos del gran grafo muestran lo que cada nodo da de verdad.",
   2705: "Lo que esta sinergia da ahora mismo",
   2706: "Ahora mismo: ≈ {0}",
+  2707: "Todo el camino: {0}",
 };

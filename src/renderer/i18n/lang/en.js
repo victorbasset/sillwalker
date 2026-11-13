@@ -1579,4 +1579,5 @@ export default {
   2704: "The great graph’s tooltips show what each node really gives.",
   2705: "What this synergy gives right now",
   2706: "Right now: ≈ {0}",
+  2707: "Whole path: {0}",
 };
