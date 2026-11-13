@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1151, revue générale) : 12 h simulées guerrier 61, rôdeur 62, mage 60 (repères) ; fuzz 1200
+  parties, 0 bloquée ; --crawl en japonais (dev-data) : 385 clics sans erreur. Rien à corriger.
 - 2026-11-13 (it. 1150) : notes de la dernière version relisibles : bouton « Version 0.1.3 » à côté de « Quoi de
   neuf » (Réglages, carte Aide ; « Quoi de neuf » ne montre que les 3 dernières éditions). 9 langues ; contrôle
   d'autotest ; 227/227 ; 10 langues sans défaut (rangée de trois boutons comprise).
