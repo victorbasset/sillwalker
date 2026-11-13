@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1126) : la fenêtre « Choisir les bonus des paliers » n'était mesurée par aucun contrôle (elle
+  n'existe qu'une maîtrise sélectionnée). Mesurée dans les 10 langues à 1280 px, pire cas (6 paliers) : ni
+  défilement ni bouton hors de sa ligne ; mais « rang 100 » / « ранг 100 » se coupait sur deux lignes (colonne de
+  droite) : étiquette insécable. Le contrôle d'autotest du choix mesure désormais la fenêtre au pire cas (rang 420) :
+  défilement, boutons hors de leur ligne, étiquettes coupées (lignes du texte comptées) ; vérifié qu'il voit le
+  défaut sans la correction. Autotest 221/221.
 - 2026-11-13 (it. 1125) : paliers de maîtrise réglables d'avance. Les talents repartent de zéro à chaque ascension
   mais les choix sont gardés (it. 1122) : tout palier déjà atteint dans une course précédente (noté dans masteryPicks)
   se règle sans attendre de l'atteindre à nouveau (marqué ⏳, bulle « Pas encore atteint dans cette course : réglé

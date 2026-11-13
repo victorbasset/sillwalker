@@ -259,10 +259,17 @@ async function runSelfTest(strip) {
   await sleep(200);
   // (it. 1107-1108) paliers de maîtrise : le choix d'un bonus (grande fenêtre), enregistré
   const mPick = await js(`(async () => { const P = window.__panel, G = window.__game, S = G.S, T = P.tabs.talents; const keep = { picks: { ...(S.masteryPicks || {}) }, r: (S.talents[S.cls] || {}).ms_power };
-    try { (S.talents[S.cls] ||= {}).ms_power = Math.max(30, keep.r || 0); delete (S.masteryPicks ||= {})["ms_power:10"]; G.invalidateStats();
+    try { (S.talents[S.cls] ||= {}).ms_power = Math.max(420, keep.r || 0); delete (S.masteryPicks ||= {})["ms_power:10"]; G.invalidateStats();
       P.setTab("talents"); T.sel = "ms_power"; P.renderAll();
       const d = document.querySelector('[data-pane="talents"]:not([hidden]) [data-keep="ms-picks"]'); if (!d) return "pas de bloc";
-      P.showDetails(d); const b = document.querySelector('#modal [data-action="t-mpick"][data-at="10"][data-opt="b"]'); if (!b) return "pas d'option b";
+      P.showDetails(d);
+      // (it. 1126) fenêtre mesurée : ni défilement, ni bouton hors de sa ligne, ni étiquette « rang N » sur deux lignes
+      const box = document.querySelector('#modal').firstElementChild, lis = [...document.querySelectorAll('#modal .mpicks li')];
+      if (box.scrollHeight > box.clientHeight + 1) return "fenêtre qui défile " + box.scrollHeight + "/" + box.clientHeight;
+      const out = lis.filter((li) => [...li.querySelectorAll('.mpick')].some((x) => x.getBoundingClientRect().right > li.getBoundingClientRect().right + 1)).length;
+      const cut = lis.filter((li) => { const rg = document.createRange(); rg.selectNodeContents(li.firstElementChild); return new Set([...rg.getClientRects()].map((r) => Math.round(r.top))).size > 1; }).length;
+      if (out || cut) return "boutons hors " + out + ", étiquettes coupées " + cut;
+      const b = document.querySelector('#modal [data-action="t-mpick"][data-at="10"][data-opt="b"]'); if (!b) return "pas d'option b";
       b.click(); await new Promise((r) => setTimeout(r, 100));
       return "choix " + ((S.masteryPicks || {})["ms_power:10"] || "aucun");
     } finally { S.masteryPicks = keep.picks; if (keep.r == null) delete S.talents[S.cls].ms_power; else S.talents[S.cls].ms_power = keep.r; T.sel = null; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
