@@ -1572,4 +1572,6 @@ export default {
   2697: "Great graph reset: the paths are open to choose again.",
   2698: "The great graph opens around the flower! {n} point to spend there.|The great graph opens around the flower! {n} points to spend there.",
   2699: "The great graph opens!",
+  2700: "or",
+  2701: "Choose milestone bonuses ({0})",
 };

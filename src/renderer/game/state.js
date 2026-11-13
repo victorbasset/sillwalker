@@ -43,6 +43,7 @@ export function freshState(now = Date.now()) {
     partner: null,      // héros compagnon du duo (demande 17) : autre portée que le héros principal
     nextPartner: null,  // compagnon choisi pour la prochaine ascension
     talents: {},        // { classe: { idTalent: rang } } : chaque classe garde ses talents
+    masteryPicks: {},   // (it. 1107) option choisie à chaque palier de maîtrise : { "ms_power:10": "b" } ("a" par défaut)
     buffs: {},          // { elixir: secondes restantes, ... }
     potions: 3,
     bagSize: BAG_SIZE,
@@ -165,6 +166,9 @@ export function migrate(raw) {
   // plantait (« Cannot create property '55' on number », vu par save-fuzz une fois sur deux)
   for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop", "bossDefeats", "unlocks"]) if (!isObj(s[k])) s[k] = {};
   // Talents par classe ({ classe: { talent: rang } }) : entrées illisibles retirées (elles faisaient échouer le démarrage).
+  // (it. 1107) paliers de maîtrise : seules les valeurs "a" / "b" sous une clé « id:rang » restent
+  if (!isObj(s.masteryPicks)) s.masteryPicks = {};
+  for (const k of Object.keys(s.masteryPicks)) if (!/^ms_\w+:\d+$/.test(k) || (s.masteryPicks[k] !== "a" && s.masteryPicks[k] !== "b")) delete s.masteryPicks[k];
   for (const c of Object.keys(s.talents)) {
     if (!isObj(s.talents[c])) { delete s.talents[c]; continue; }
     for (const id of Object.keys(s.talents[c])) if (!Number.isFinite(s.talents[c][id])) delete s.talents[c][id];

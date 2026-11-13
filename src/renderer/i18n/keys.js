@@ -2701,5 +2701,7 @@ export const KEYS = [
   "Réinitialiser le grand graphe",
   "Grand graphe réinitialisé : les voies sont de nouveau au choix.",
   "Le grand graphe s’ouvre autour de la fleur ! {n} point à y dépenser.|Le grand graphe s’ouvre autour de la fleur ! {n} points à y dépenser.",
-  "Le grand graphe s’ouvre !"
+  "Le grand graphe s’ouvre !",
+  "ou",
+  "Choisir les bonus des paliers ({0})"
 ];

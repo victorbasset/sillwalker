@@ -32,7 +32,7 @@ import {
   itemScore,
 } from "./rules.js";
 import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked, canPartner } from "./classes.js";
-import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects } from "./talents.js";
+import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects, masteryMilestones } from "./talents.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
@@ -2599,6 +2599,16 @@ export class Game {
     o.pop();
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
+    this.changed();
+    return true;
+  }
+
+  /** (it. 1107) Choisit l'option d'un palier de maîtrise atteint ("a" ou "b"). */
+  pickMastery(id, at, opt) {
+    const r = (classTalents(this.S)[id] || 0);
+    if ((opt !== "a" && opt !== "b") || !masteryMilestones(id, r, this.S).got.some((g) => g.at === at && g.b)) return false;
+    (this.S.masteryPicks ||= {})[id + ":" + at] = opt;
+    this.invalidateStats();
     this.changed();
     return true;
   }

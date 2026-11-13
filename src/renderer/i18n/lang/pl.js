@@ -1572,4 +1572,6 @@ export default {
   2697: "Wielki graf zresetowany: ścieżki znów są do wyboru.",
   2698: "Wielki graf otwiera się wokół kwiatu! {n} punkt do wydania.|Wielki graf otwiera się wokół kwiatu! {n} punkty do wydania.|Wielki graf otwiera się wokół kwiatu! {n} punktów do wydania.",
   2699: "Wielki graf się otwiera!",
+  2700: "lub",
+  2701: "Wybierz premie progów ({0})",
 };

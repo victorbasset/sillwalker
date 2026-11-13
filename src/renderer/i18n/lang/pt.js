@@ -1572,4 +1572,6 @@ export default {
   2697: "Grande grafo reiniciado: os caminhos estão de novo à escolha.",
   2698: "O grande grafo se abre ao redor da flor! {n} ponto para gastar.|O grande grafo se abre ao redor da flor! {n} pontos para gastar.",
   2699: "O grande grafo se abre!",
+  2700: "ou",
+  2701: "Escolher os bônus dos marcos ({0})",
 };

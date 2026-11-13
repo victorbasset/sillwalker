@@ -1572,4 +1572,6 @@ export default {
   2697: "Großer Graph zurückgesetzt: Die Pfade sind wieder frei wählbar.",
   2698: "Der große Graph öffnet sich rund um die Blume! {n} Punkt zu vergeben.|Der große Graph öffnet sich rund um die Blume! {n} Punkte zu vergeben.",
   2699: "Der große Graph öffnet sich!",
+  2700: "oder",
+  2701: "Stufenboni wählen ({0})",
 };

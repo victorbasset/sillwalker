@@ -3634,6 +3634,21 @@ test("grand graphe : annoncé une seule fois à son ouverture ; des points à y 
   assert.equal(g.S.skills.graphSeen, true);
 });
 
+test("maîtrises : un bonus au choix à chaque palier, « a » par défaut ; sauvegarde nettoyée (it. 1107)", () => {
+  const g = new Game(freshState()); (g.S.talents[g.S.cls] ||= {}).ms_power = 25;
+  const crit0 = talentEffects(g.S).crit || 0, spd0 = talentEffects(g.S).spd || 0;
+  assert(g.pickMastery("ms_power", 10, "b"), "palier 10 atteint : choix possible");
+  assert.equal((talentEffects(g.S).crit || 0), crit0 - 2, "l'option a (critique) remplacée");
+  assert.equal((talentEffects(g.S).spd || 0), spd0 + 4, "par l'option b (vitesse)");
+  assert(!g.pickMastery("ms_power", 50, "b"), "palier 50 pas encore atteint");
+  assert(!g.pickMastery("ms_power", 10, "z"), "option inconnue");
+  const raw = JSON.parse(JSON.stringify(freshLocked()));
+  raw.masteryPicks = { "ms_power:10": "b", "ms_body:25": "x", "bidon": "a", "ms_fortune:50": 3 };
+  assert.deepEqual(migrate(raw).masteryPicks, { "ms_power:10": "b" });
+  const raw2 = JSON.parse(JSON.stringify(freshLocked())); delete raw2.masteryPicks;
+  assert.deepEqual(migrate(raw2).masteryPicks, {});
+});
+
 test("grand graphe : nœuds inconnus ou en double retirés de la sauvegarde (it. 1075)", () => {
   const raw = JSON.parse(JSON.stringify(freshLocked()));
   raw.skills = { order: [], outer: ["force-gate", "force-gate", "inconnu", 5] };

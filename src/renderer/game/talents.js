@@ -306,12 +306,23 @@ export const MASTERY_MILESTONES = {
   ms_body:    { steps: [{ regen: 1 }, { shield: 5 }, { thorns: 10 }, { lifesteal: 1.5 }, { dodge: 3 }, { hpPct: 25 }], beyond: { hpPct: 15 } },
   ms_fortune: { steps: [{ xp: 5 }, { drop: 5 }, { offline: 10 }, { gold: 25 }, { xp: 15 }, { drop: 10 }], beyond: { gold: 20 } },
 };
+/** (it. 1107, demande C : « plus intéressant en termes de choix ») Deuxième bonus au choix pour chaque palier
+ *  (10 à 400) ; « a » (MASTERY_MILESTONES) par défaut. Choix : S.masteryPicks["ms_power:10"] = "b". */
+export const MASTERY_ALT = {
+  ms_power:   [{ spd: 4 }, { atkPct: 5 }, { firstStrike: 0.3 }, { combo: 1.5 }, { bossDmg: 20 }, { critDmg: 40 }],
+  ms_body:    [{ defPct: 5 }, { hpPct: 5 }, { riposte: 4 }, { regen: 2 }, { shield: 8 }, { defPct: 25 }],
+  ms_fortune: [{ gold: 5 }, { xp: 5 }, { drop: 5 }, { offline: 15 }, { gold: 25 }, { xp: 25 }],
+};
+/** Option choisie pour le palier `at` d'une maîtrise : "a" ou "b". */
+export const masteryPick = (S, id, at) => (S && S.masteryPicks && S.masteryPicks[id + ":" + at] === "b" ? "b" : "a");
 /** Paliers atteints d'une maîtrise au rang r : [{ at, eff }] dans l'ordre ; et le suivant. */
-export function masteryMilestones(id, r) {
+export function masteryMilestones(id, r, S = null) {
   const M = MASTERY_MILESTONES[id];
   if (!M) return { got: [], next: null };
-  const all = MASTERY_STEPS.map((at, i) => ({ at, eff: M.steps[i] }));
-  for (let at = 800; at <= Math.max(800, r * 2); at *= 2) all.push({ at, eff: M.beyond });
+  // (it. 1107) chaque palier : ses deux options (a, b) et celle choisie
+  const all = MASTERY_STEPS.map((at, i) => { const alt = MASTERY_ALT[id]?.[i], pick = alt ? masteryPick(S, id, at) : "a";
+    return { at, a: M.steps[i], b: alt || null, pick, eff: pick === "b" ? alt : M.steps[i] }; });
+  for (let at = 800; at <= Math.max(800, r * 2); at *= 2) all.push({ at, a: M.beyond, b: null, pick: "a", eff: M.beyond }); // sans choix
   return { got: all.filter((x) => r >= x.at), next: all.find((x) => r < x.at) || null };
 }
 
@@ -448,7 +459,7 @@ export function talentEffects(S) {
   add(classDef(S.cls).passive);
   const ranks = S.talents[S.cls] || {};
   for (const id in ranks) { const ix = TALENT_INDEX[id]; if (ix && (ix.cls === S.cls || ix.cls === "*")) add(ix.talent.eff, Math.min(ranks[id], ix.talent.max)); }
-  for (const m of MASTERIES) for (const g of masteryMilestones(m.id, ranks[m.id] || 0).got) add(g.eff); // (it. 1084) paliers
+  for (const m of MASTERIES) for (const g of masteryMilestones(m.id, ranks[m.id] || 0, S).got) add(g.eff); // (it. 1084) paliers ; (it. 1107) l'option choisie
   return out;
 }
 

@@ -21,7 +21,9 @@ export class TalentsTab {
   render(el) {
     this.root = el;
     const g = this.game, S = g.S, tree = TREES[S.cls], ranks = S.talents[S.cls] || {};
-    if (!this.sel || TALENT_INDEX[this.sel]?.cls !== S.cls) this.sel = tree[0].talents[0].id;
+    // (it. 1107) une maîtrise (commune à toutes les classes, cls « * ») reste sélectionnée : son détail et le choix des
+    // paliers disparaissaient au rendu suivant
+    if (!this.sel || (TALENT_INDEX[this.sel]?.cls !== S.cls && TALENT_INDEX[this.sel]?.cls !== "*")) this.sel = tree[0].talents[0].id;
     const free = talentPointsFree(S), total = talentPointsTotal(S), cost = g.talentResetCost();
 
     const branches = tree.map((b, bi) => {
@@ -117,12 +119,23 @@ export class TalentsTab {
         ${t.text ? `<p class="ttext">${esc(t.text)}</p>` : ""}
         <ul class="lines"><li><span>${tx("Effet actuel")}</span><span>${esc(now)}</span></li>
         ${next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}
-        ${ix.branch === "mastery" ? (() => { const ms = masteryMilestones(t.id, r); // (it. 1084) paliers atteints et prochain
+        ${ix.branch === "mastery" ? (() => { const ms = masteryMilestones(t.id, r, S); // (it. 1084) paliers atteints et prochain
           // le nombre seulement (la liste, longue, dans la bulle : en allemand, elle faisait défiler la carte)
           return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${ms.got.length ? ms.got.length + " ⓘ" : tx("aucun")}</span></li>`
-            + (ms.next ? `<li><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${esc(describeEffects(ms.next.eff))}</span></li>` : ""); })() : ""}</ul>
+            + (ms.next ? `<li><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${esc(describeEffects(ms.next.a) + (ms.next.b ? " " + tx("ou") + " " + describeEffects(ms.next.b) : ""))}</span></li>` : ""); })() : ""}</ul>
+        ${ix.branch === "mastery" ? this.picksHTML(t.id, r) : ""}
         ${why && r < t.max ? `<p class="note">${esc(why)}${cend()}</p>` : ""}
       </div>`;
+  }
+
+  /** (it. 1107, demande C : des choix) Paliers atteints d'une maîtrise et leurs deux bonus au choix, dans la grande
+   *  fenêtre (MODAL_DETAILS « ms-picks ») : la barre latérale est trop étroite pour six rangées de deux boutons. */
+  picksHTML(id, r) {
+    const S = this.game.S, got = masteryMilestones(id, r, S).got.filter((g) => g.b);
+    if (!got.length) return "";
+    const opt = (g, o) => `<button class="quiet mpick${g.pick === o ? " on" : ""}" data-action="t-mpick" data-id="${id}" data-at="${g.at}" data-opt="${o}" aria-pressed="${g.pick === o}">${esc(describeEffects(g[o]))}</button>`;
+    return `<details class="more" data-keep="ms-picks"><summary>${tx("Choisir les bonus des paliers ({0})", { 0: got.length })}</summary>
+      <ul class="lines mpicks">${got.map((g) => `<li><span>${tx("rang {0}", { 0: g.at })}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul></details>`;
   }
 
   hover(id) {
@@ -147,6 +160,7 @@ export class TalentsTab {
       if (this.armed === b.dataset.id) { this.armed = null; g.learnTalent(b.dataset.id, 1); }
       else { this.armed = b.dataset.id; setTimeout(() => { if (this.armed === b.dataset.id) { this.armed = null; g.changed(); } }, 4000); }
     }
+    else if (a === "t-mpick") g.pickMastery(b.dataset.id, +b.dataset.at, b.dataset.opt); // (it. 1107)
     else if (a === "t-auto") g.autoSpendTalents();
     else if (a === "t-autoon") { g.S.settings.autoTalents = b.checked; if (b.checked) g.autoSpendTalents(); g.changed(); }
     else if (a === "t-reset") g.resetTalents();

@@ -653,6 +653,9 @@ details.more summary:hover { color: var(--accent); }
 /* (it. 1084) prochain palier d'une maîtrise sur sa tuile (« rang 420 → 800 ») : taille entière, sur la même ligne */
 .talent .tr .mnext { font-size: 11px; color: var(--muted); white-space: nowrap; }
 .talent.mastery .tr { white-space: nowrap; }
+/* (it. 1107) bonus au choix des paliers de maîtrise (grande fenêtre) : l'option choisie en évidence */
+.mpicks .mpick { font-size: 12px; padding: 2px 6px; background: var(--chip); color: var(--ink); white-space: normal; text-align: left; }
+.mpicks .mpick.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, var(--panel)); color: var(--ink); }
 .talent.mastery:has(.tmax) .mnext { display: none; } /* avec la pastille « tout », la tuile débordait (polonais, 1280 px) : le palier reste dans le détail */
 /* (it. 1082) pastille compacte dans le titre d'une carte : poussée à droite, bulle sur une ligne (entière au survol) */
 h2.npch { display: flex; align-items: center; gap: 8px; min-width: 0; }

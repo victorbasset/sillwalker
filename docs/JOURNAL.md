@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1107, demande C : « plus intéressant en termes de choix ») : chaque palier de maîtrise (10 à 400)
+  propose deux bonus au choix (MASTERY_ALT ; « a », celui de l'it. 1084, par défaut : rien ne change pour une partie
+  existante). Ex. puissance, rang 10 : +2 pts de critique OU +4 % de vitesse d'attaque ; endurance, rang 400 : +25 %
+  de PV OU +25 % de défense. Détail d'une maîtrise : « Choisir les bonus des paliers (6) », ouvert dans la grande
+  fenêtre (MODAL_DETAILS), l'option choisie en évidence ; le prochain palier montre « A ou B ». Sauvegarde :
+  S.masteryPicks (« ms_power:10 » → « b »), validée. En route : les paliers au-delà de 400 n'avaient pas d'option A
+  (plantage relevé par l'autotest) ; une maîtrise sélectionnée l'était seulement jusqu'au rendu suivant (le choix
+  aurait été inaccessible) ; boutons illisibles dans la fenêtre (couleurs fixées). Test logique (250) ; save-fuzz ok ;
+  autotest 219/219 ; 10 langues sans défaut ; capture en allemand à 1280 px.
 - 2026-11-13 (it. 1106) : le mode mini annonce aussi l'ouverture du grand graphe (« ✦ Le grand graphe s'ouvre ! »,
   un de ses moments, comme un nouvel onglet ; capture en allemand sur la partie de fin de partie). L'astuce de la
   bande sur les compétences reste une présentation unique de l'arbre (la pastille et la bulle de l'it. 1105 suffisent).
@@ -4250,7 +4259,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   A. FAIT (it. 1070). Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
   B. FAIT (it. 1072). Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
      mettre près d'eux. Les 4 objets ne tiennent pas sur Mac sans défilement horizontal : icônes et cartes plus petites.
-  C. EN PARTIE (it. 1080 : moins de clics ; it. 1084 : paliers des maîtrises). Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
+  C. FAIT (it. 1080 : moins de clics ; it. 1084 : paliers des maîtrises ; it. 1107 : un bonus au choix à chaque palier). Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
      Rendre l'onglet plus riche en choix (à concevoir : clic = tous les rangs possibles, choix exclusifs, paliers…).
   D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à

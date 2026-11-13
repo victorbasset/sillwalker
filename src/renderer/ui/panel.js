@@ -120,7 +120,7 @@ function tilePower(v) {
 }
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */
-const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates", "autos", "asc-keep"]);
+const MODAL_DETAILS = new Set(["hero-todo", "hero-chron", "hero-stats", "rates", "autos", "asc-keep", "ms-picks"]);
 
 /** (it. 774) Polices (forme courte CSS : style, graisse, taille, familles) des textes d'un onglet, même caché. */
 function fontsOf(root) {
