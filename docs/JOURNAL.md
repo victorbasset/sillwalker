@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1041, revue générale) : simulation 12 h, records des courses : prêtresse 40 → 66, cryomancien 38 → 62,
+  gardien des astres 44 → 69 (réguliers). Performance (copie neuve) : bande 19,6 %, panneau 20,7 %, mini 7,1 %, icône
+  0,8 %. Captures Quêtes et Ascension à 1366 px en français, anglais et chinois, mini en chinois : propres
+  (« 0 gagnés au total » : éclats de dev-data ajoutés à la main). Texte chinois : aucun mot latin suspect. Rien à corriger.
 - 2026-11-13 (it. 1040) : textes de fin de partie en allemand et en espagnol (--dump-text, journal vidé ; recherche de
   mots français courants) : aucun texte non traduit (« des » et « du » de l'allemand sont des mots allemands). Avec
   l'it. 1018 (ru, ja, pl) : cinq langues vérifiées sur la partie de fin de partie.
