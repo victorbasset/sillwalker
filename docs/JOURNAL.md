@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1154) : voie choisie par « Dépenser automatiquement » dans le grand graphe (DEFAULT_BRANCH) :
+  puissance de chaque voie entière mesurée (fin de partie ; guerrier, mage, rôdeur : mêmes résultats) ; la voie par
+  défaut n'était pas la meilleure en Force (0 : ×1,276 ; 2, sang guerrier : ×1,463) ni en Arcanes (2 : ×1,207 ;
+  0 : ×1,280) : corrigé (les quatre autres l'étaient déjà). Semaine simulée : guerrier 350, mage 349, comme avant
+  (mur de l'écho de la zone 350) ; le joueur qui laisse dépenser y gagne une voie plus forte. Après la 0.1.3 (pas
+  dans les fichiers déposés). Autotest 227/227.
 - 2026-11-13 (it. 1153) : versions 0.1.3 reconstruites à l'état du commit 53830e5 (bouton « Version 0.1.3 » des
   Réglages, annoncé par le devlog) et redéposées dans Médias/dist-itch (remplacement d'un coup : copie sous un nom
   temporaire puis renommage). sha256 : linux fff890d0…, mac-arm64 6442a8de…, win e840b65e…. Version Linux construite

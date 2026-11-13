@@ -238,7 +238,9 @@ export function graphLayer(ge, t, gold) {
 export const GRAPH_LAYER_KEYS = new Set(["atkPct", "hpPct", "defPct", "synHpAtk", "synGoldAtk", "synAtkHp", "synSpdCrit", "synCritBurn", "synDodgeAtk"]);
 
 /** Voie suivie par défaut quand le joueur laisse le jeu dépenser (et dans simulate.js) : la plus utile au combat. */
-export const DEFAULT_BRANCH = { force: 0, agility: 2, arcane: 2, vitality: 2, fortune: 2, mastery: 2 };
+// (it. 1154) force 0 → 2 et arcanes 2 → 0 : la voie la plus puissante (power, voie entière, fin de partie) pour le
+// guerrier, le mage et le rôdeur (force : ×1,463 contre ×1,276 ; arcanes : ×1,280 contre ×1,207) ; les autres l'étaient déjà
+export const DEFAULT_BRANCH = { force: 2, agility: 2, arcane: 0, vitality: 2, fortune: 2, mastery: 2 };
 
 /** Prochain nœud à prendre automatiquement : dans la voie déjà choisie (sinon la voie par défaut), grands nœuds
  *  d'abord, puis le plus proche de la fleur. null s'il n'y en a plus. */
