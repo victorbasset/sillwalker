@@ -12,7 +12,7 @@ import { SPELLS } from "./game/spells.js";
 import { Music } from "./render/music.js";
 import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
-import { newsDue, markNews } from "./game/news.js";
+import { newsDue, markNews, releaseFor } from "./game/news.js";
 import { journeyText } from "./ui/tabs/stats.js";
 import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang, csep, fsp, colon, cend } from "./i18n/index.js";
 import { translateData, repairItemNames } from "./i18n/data.js";
@@ -551,7 +551,11 @@ async function boot() {
   if (newsDue(game.S)) {
     const seen = game.S.settings.newsSeen || 0; // éditions déjà lues : on montre seulement les suivantes
     markNews(game.S);
-    setTimeout(() => showToast(`✨ ${tx("Du nouveau dans Sillwalker ! Clique pour voir.")}`, () => { openPanel(); panel.showNews(seen); }, 15000), 6000);
+    // (it. 1144, demande de Victor) nouvelle VERSION distribuée (0.1.2 → 0.1.3) : sa fenêtre de nouveautés majeures
+    // s'ouvre d'elle-même ; une simple édition reste une bulle discrète à cliquer
+    const rel = releaseFor(seen);
+    if (rel) setTimeout(() => { openPanel(); panel.showRelease(rel); }, 6000);
+    else setTimeout(() => showToast(`✨ ${tx("Du nouveau dans Sillwalker ! Clique pour voir.")}`, () => { openPanel(); panel.showNews(seen); }, 15000), 6000);
   }
 
   /* ---------- Héros libéré ---------- */

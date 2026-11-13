@@ -1172,6 +1172,9 @@ async function runSelfTest(strip) {
   // « Quoi de neuf » : toute l'édition se lit sans faire défiler la fenêtre.
   const nw = await js("(() => { window.__panel.showNews(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o; })()");
   check("« Quoi de neuf » : toute l'édition visible sans défilement", /^\d+ [0-2]$/.test(nw) && +nw.split(" ")[0] > 0, nw);
+  // (it. 1144) notes de la dernière version distribuée (itch.io) : elles aussi sans défilement
+  const rl = await js("(() => { window.__panel.showRelease(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length, t = document.querySelector('#mt').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o + ' ' + t; })()");
+  check("notes de version : toutes visibles sans défilement", /^\d+ [0-2] /.test(rl) && +rl.split(" ")[0] >= 6, rl);
   // (it. 1068) relisible depuis les Réglages (bouton « Quoi de neuf » de la carte Aide)
   const nwBtn = await js(`(() => { const P = window.__panel, t = P.tab; P.setTab("settings"); const b = document.querySelector('[data-pane="settings"]:not([hidden]) [data-action="shownews"]'); if (!b) { P.setTab(t); return "pas de bouton"; } b.click(); const n = document.querySelectorAll('#modal:not([hidden]) .newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); P.setTab(t); return String(n); })()`);
   check("« Quoi de neuf » relisible depuis les Réglages", +nwBtn > 0, nwBtn);

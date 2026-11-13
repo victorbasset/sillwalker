@@ -298,3 +298,26 @@ export function newsShown(seen = 0) {
 /** Nouveautés à annoncer ? (pas pour une partie neuve : l'intro passe avant tout) */
 export const newsDue = (S) => (S.settings.newsSeen || 0) < NEWS_ID && !!(S.story && S.story.intro) && (S.stats.kills || 0) > 0;
 export const markNews = (S) => { S.settings.newsSeen = NEWS_ID; };
+
+/** (it. 1144, demande de Victor) Notes de VERSION distribuée (itch.io) : une liste choisie des nouveautés majeures
+ *  depuis la version précédente (pas les petites retouches). `after` = dernière édition parue avec la version
+ *  précédente (0.1.2 : édition 32). Un joueur qui n'a rien lu depuis voit, au lancement, la fenêtre de la version au
+ *  lieu des éditions (elles seraient trop nombreuses : 26 entre 0.1.2 et 0.1.3). Ajouter une version : à la FIN. */
+const RELEASE_013 = [
+  "Un grand graphe de compétences s’ouvre autour de la fleur une fois celle-ci complète : 618 nœuds, trois voies au choix par pétale et des synergies (plus tu as de points de vie, plus tu frappes fort…).",
+  "Des personnages sur la route : chaque onglet a son habitant (Mirette, la grenouille marchande, Orbo, l’astronome à la fusée…), avec sa scène de rencontre.",
+  "Talents : un clic monte un talent au maximum ; les maîtrises gagnent des paliers, avec deux bonus au choix à chacun.",
+  "Nouveaux événements rares (Lune de sang, Nuée d’étoiles, Ruée des gobelins), nouvelles élites (Épineux, Fuyant) et nouvelles capacités de boss (Crachat venimeux, Écailles).",
+  "Collection : chaque événement rare vécu et chaque sorte d’élite vaincue donnent un bonus permanent (or, butin), à suivre dans le Bestiaire.",
+  "Nouvelles bénédictions du jour (Jour des trésors, Jour des prodiges) et nouvelles quêtes (coffres, proie à abattre).",
+  "Panoplies : un clic complète une panoplie sans t’affaiblir ; vendre ce qui ne t’améliore pas vend tout le reste, légendaires compris.",
+  "Boutique sans défilement, et un étal du marchand utile jusqu’en fin de partie.",
+  "Le détail des statistiques montre d’où vient la puissance du héros ; quêtes et prochain déblocage donnent leur temps restant estimé.",
+  "En fin de partie, la bande consomme environ un tiers de processeur en moins ; le panneau peut grandir à 115 % ou 130 % (Réglages).",
+];
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }];
+/** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
+export function releaseFor(seen = 0) {
+  const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);
+  return r.length ? r[r.length - 1] : null;
+}

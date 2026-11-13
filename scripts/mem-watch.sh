@@ -8,8 +8,11 @@
 # Une croissance continue de l'un ou l'autre = fuite à chercher.
 MIN=${1:-6}; SPEED=${2:-10}
 cd "$(dirname "$0")/.."
+# (it. 1144) MEM_SAVE=<save.json> : une autre partie (ex. fin de partie au grand graphe rempli) ; MEM_ARGS="--open-panel" :
+# options en plus (le panneau ouvert fait travailler les onglets, bulles et caches de l'interface)
 D=$(mktemp -d /tmp/sillwalker-mem-XXXX); cp dev-data/save.json dev-data/settings.json "$D"/ 2>/dev/null
-xvfb-run -a -s "-screen 0 1920x1080x24" ./node_modules/.bin/electron . --ghost --no-sandbox --user-data="$D" --speed="$SPEED" --exit-after=$((MIN * 60)) > /dev/null 2>&1 &
+[ -n "$MEM_SAVE" ] && cp "$MEM_SAVE" "$D/save.json"
+xvfb-run -a -s "-screen 0 1920x1080x24" ./node_modules/.bin/electron . --ghost --no-sandbox --user-data="$D" --speed="$SPEED" --exit-after=$((MIN * 60)) $MEM_ARGS > /dev/null 2>&1 &
 sleep 20
 desc() { for c in $(pgrep -P "$1"); do echo "$c"; desc "$c"; done; }
 for i in $(seq 1 $((MIN * 2 - 1))); do

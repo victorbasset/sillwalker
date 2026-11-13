@@ -3681,6 +3681,15 @@ test("sources de puissance : chaque système mesuré en le retirant (it. 1130)",
   assert.equal(JSON.stringify(S), before, "la partie n'est pas modifiée par la mesure");
 });
 
+test("notes de version : un joueur de la 0.1.2 voit celles de la 0.1.3, pas un lecteur récent (it. 1144)", () => {
+  const { releaseFor, NEWS_ID } = M_news_js;
+  assert.equal(releaseFor(32)?.version, "0.1.3", "dernière édition lue = 32 (0.1.2)");
+  assert.equal(releaseFor(10)?.version, "0.1.3", "plus ancien encore : aussi");
+  assert.equal(releaseFor(40), null, "a déjà lu des éditions de la 0.1.3 : éditions normales");
+  assert.equal(releaseFor(NEWS_ID), null, "à jour");
+  assert(releaseFor(32).items.length >= 6 && releaseFor(32).items.length <= 12, "une liste courte et choisie");
+});
+
 test("ascension : seules les données de la course repartent de zéro (it. 1123)", () => {
   // (it. 1122) les choix des paliers de maîtrise étaient perdus à l'ascension (oubliés dans la liste de ascend()).
   // Partie de fin de partie + quelques données que la sauvegarde type n'a pas ; toute donnée remise à sa valeur de

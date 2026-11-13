@@ -5,6 +5,19 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1144, demande de Victor) : VERSION 0.1.3 (package.json). La 0.1.2 (itch.io) s'arrêtait à l'édition
+  32 de « Quoi de neuf » ; 26 éditions depuis, la fenêtre n'en montre que 3. Notes de version (news.js,
+  NEWS_RELEASES, releaseFor) : 10 nouveautés majeures choisies (grand graphe, personnages, talents et maîtrises,
+  événements / élites / capacités de boss, collection, bénédictions et quêtes, panoplies et vente, boutique,
+  sources de puissance et temps estimés, performance et taille du panneau), sans les petites retouches de valeurs.
+  Un joueur qui n'a rien lu depuis la 0.1.2 voit au lancement la fenêtre « Nouveautés de la version 0.1.3 »
+  s'ouvrir d'elle-même (panneau ouvert) ; les éditions ordinaires restent une bulle à cliquer. Noms repris tels que
+  traduits dans le jeu (événements, élites, bénédictions, PNJ, onglets) ; 10 langues sans défilement à 1280 px.
+  L'autotest règle la copie de dev-data sur l'édition 41 (sinon la fenêtre s'ouvrait seule et faussait 6 contrôles)
+  et contrôle la fenêtre de version. Test logique (256) ; autotest 226/226 ; 10 langues sans défaut.
+  À EXAMINER (vu en route, it. 1144) : mem-watch sur la fin de partie au grand graphe rempli, panneau ouvert
+  (MEM_SAVE / MEM_ARGS ajoutés) : « réel » 557 → 643 Mo en 6 min (dev-data panneau fermé : plat à ≈ 535) ; à
+  prolonger (12-20 min) pour savoir si ça plafonne, sinon chercher la fuite.
 - 2026-11-13 (it. 1143, demande D) : l'onglet Compétences s'ouvrait toujours sur la fleur ; une fois le grand graphe
   ouvert (5 fois plus grand, rayon 1242), on n'en voyait que les bords, à découvrir à la molette. Fleur pleine et
   graphe pas rempli : l'ouverture et « Recentrer » cadrent le front de la progression (dernier nœud pris, sinon le

@@ -12,6 +12,9 @@ for (const f of ["save.json", "settings.json"]) {
   const src = path.join(ROOT, "dev-data", f);
   if (fs.existsSync(src)) fs.copyFileSync(src, path.join(tmp, f));
 }
+// (it. 1144) la copie a tout lu jusqu'à la 0.1.3 : sinon la fenêtre de version s'ouvre seule au lancement et dérange les
+// contrôles (elle a son propre contrôle, « notes de version »)
+try { const f = path.join(tmp, "save.json"), s = JSON.parse(fs.readFileSync(f, "utf8")); if ((s.settings?.newsSeen || 0) <= 40) { s.settings.newsSeen = 41; fs.writeFileSync(f, JSON.stringify(s)); } } catch { /* sans sauvegarde : partie neuve */ }
 const electron = path.join(ROOT, "node_modules", ".bin", process.platform === "win32" ? "electron.cmd" : "electron");
 const args = [".", "--selftest", "--ghost", `--user-data=${tmp}`];
 const linux = process.argv.includes("--linux");

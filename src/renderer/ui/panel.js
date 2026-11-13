@@ -4,7 +4,7 @@
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
 import { npcTalk } from "./npc.js";
-import { newsShown } from "../game/news.js";
+import { newsShown, NEWS_RELEASES } from "../game/news.js";
 import { itemName, itemKindLine } from "../i18n/data.js";
 import { t as tx, txn, lc, fsp, colon, tr, csep, cend, wsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
@@ -967,6 +967,14 @@ export class Panel {
     const { items, older } = newsShown(seen);
     $(this.root, "#mbody").innerHTML = `<ul class="lines newslist${items.length > 14 ? " dense" : ""}">${items.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`
       + (older ? `<p class="note">${esc(txn(older, "… et {n} nouveauté plus ancienne.|… et {n} nouveautés plus anciennes."))}</p>` : "");
+    $(this.root, "#modal").hidden = false;
+    $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
+  }
+
+  /** (it. 1144) Notes d'une version distribuée (news.js, NEWS_RELEASES) : ses nouveautés majeures, même fenêtre. */
+  showRelease(rel = NEWS_RELEASES[NEWS_RELEASES.length - 1]) {
+    $(this.root, "#mt").textContent = tx("Nouveautés de la version {0}", { 0: rel.version });
+    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist">${rel.items.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`;
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }

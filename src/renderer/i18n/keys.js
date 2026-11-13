@@ -2733,5 +2733,16 @@ export const KEYS = [
   "Le grand graphe accompli",
   "Deux nouveaux succès autour de la fleur : « Au-delà de la fleur » et « Le grand graphe accompli ».",
   "Moins de clics : les fenêtres des paliers de maîtrise et de « À faire » restent ouvertes d’une action à l’autre.",
-  "Toute la voie, en ce moment : ≈ {0}"
+  "Toute la voie, en ce moment : ≈ {0}",
+  "Nouveautés de la version {0}",
+  "Un grand graphe de compétences s’ouvre autour de la fleur une fois celle-ci complète : 618 nœuds, trois voies au choix par pétale et des synergies (plus tu as de points de vie, plus tu frappes fort…).",
+  "Des personnages sur la route : chaque onglet a son habitant (Mirette, la grenouille marchande, Orbo, l’astronome à la fusée…), avec sa scène de rencontre.",
+  "Talents : un clic monte un talent au maximum ; les maîtrises gagnent des paliers, avec deux bonus au choix à chacun.",
+  "Nouveaux événements rares (Lune de sang, Nuée d’étoiles, Ruée des gobelins), nouvelles élites (Épineux, Fuyant) et nouvelles capacités de boss (Crachat venimeux, Écailles).",
+  "Collection : chaque événement rare vécu et chaque sorte d’élite vaincue donnent un bonus permanent (or, butin), à suivre dans le Bestiaire.",
+  "Nouvelles bénédictions du jour (Jour des trésors, Jour des prodiges) et nouvelles quêtes (coffres, proie à abattre).",
+  "Panoplies : un clic complète une panoplie sans t’affaiblir ; vendre ce qui ne t’améliore pas vend tout le reste, légendaires compris.",
+  "Boutique sans défilement, et un étal du marchand utile jusqu’en fin de partie.",
+  "Le détail des statistiques montre d’où vient la puissance du héros ; quêtes et prochain déblocage donnent leur temps restant estimé.",
+  "En fin de partie, la bande consomme environ un tiers de processeur en moins ; le panneau peut grandir à 115 % ou 130 % (Réglages)."
 ];
