@@ -61,6 +61,24 @@ def text_layer(lines):
     return lay
 
 
+def paste_title(img, title, i, sc):
+    """(it. 1173) Entrée animée du titre : glissé de 28 px vers le haut et fondu sur 8 images ; « punch » : le titre
+    arrive agrandi (×1,12) et se pose (titres d'événements). Sortie : fondu sur les 5 dernières images si fade=0."""
+    n = int(round(sc["dur"] * FPS)); k = ease(min(1.0, i / 8)) if sc.get("title_in", True) else 1.0
+    out = 1.0 if sc.get("fade", 8) else ease(min(1.0, (n - 1 - i) / 5))
+    a = k * out
+    lay = title
+    if sc.get("punch") and k < 1:
+        z = 1 + 0.12 * (1 - k)
+        big = title.resize((int(W * z), int(H * z)), Image.BILINEAR)
+        lay = big.crop(((big.width - W) // 2, (big.height - H) // 2, (big.width - W) // 2 + W, (big.height - H) // 2 + H))
+    if a < 1:
+        al = lay.getchannel("A").point(lambda v: int(v * a))
+        lay = lay.copy(); lay.putalpha(al)
+    dy = 0 if sc.get("punch") else int(28 * (1 - k))
+    img.paste(lay, (0, dy), lay)
+
+
 def frames(src, t0, dur):
     """Images du plan entre t0 et t0 + dur (ffmpeg → RGB brut)."""
     n = int(round(dur * FPS))
@@ -121,7 +139,7 @@ def render_scene(sc, enc, bgs):
             comp = desk_frame(next(it)).crop((int(cx), int(cy), int(cx + cw), int(cy + ch)))
             img = comp.resize((W, H), Image.NEAREST if W / cw >= 1 else Image.BOX)
             if title is not None:
-                img.paste(title, (0, 0), title)
+                paste_title(img, title, i, sc)
             if fade and (i < fade or i >= n - fade):
                 a = min(i, n - 1 - i) / fade
                 img = Image.blend(Image.new("RGB", (W, H), (0, 0, 0)), img, max(0.0, min(1.0, a)))
@@ -148,7 +166,8 @@ def render_scene(sc, enc, bgs):
             box = (int(cx), int(cy), int(cx + cw), int(cy + ch))
             part = src.crop(box)
             sc_f = tw / cw
-            part = part.resize((tw, th), Image.NEAREST if sc_f >= 1 else Image.BOX)
+            # pixel art : plus proche voisin (facteur entier conseillé) ; smooth : lissé (texte d'une cinématique)
+            part = part.resize((tw, th), Image.BICUBIC if sc.get("smooth") else Image.NEAREST if sc_f >= 1 else Image.BOX)
             # cadre : ombre portée sous la bande
             sh = Image.new("RGBA", (tw + 40, th + 40), (0, 0, 0, 0))
             ImageDraw.Draw(sh).rectangle([20, 26, tw + 20, th + 26], fill=(0, 0, 0, 140))
@@ -156,9 +175,7 @@ def render_scene(sc, enc, bgs):
             img.paste(sh, (tx - 20, ty - 20), sh)
             img.paste(part, (tx, ty))
         if title is not None:
-            a = min(1.0, i / 10) if sc.get("title_in", True) else 1.0
-            lay = title if a >= 1 else Image.blend(Image.new("RGBA", (W, H), (0, 0, 0, 0)), title, a)
-            img.paste(lay, (0, 0), lay)
+            paste_title(img, title, i, sc)
         # fondu au noir en entrée et en sortie
         if fade and (i < fade or i >= n - fade):
             a = min(i, n - 1 - i) / fade

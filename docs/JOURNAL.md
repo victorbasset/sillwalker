@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1173, bande-annonce 7) : version 2 : titres animés (glissé + fondu ; « punch » : zoom qui se pose
+  pour les événements), gros plans ×4 (480×200 → 1920×800), événements ×2 avec panoramique le long des élites, titres
+  agrandis (événements 120 px), combat de fin de partie recadré sur les héros (« Crit 5.62M »), relique en plan
+  rapproché lissé, paliers et Bestiaire cadrés en pleine largeur à 1:1. Reste : la caméra fixe perd le héros qui
+  avance (plan « Fights. Loots. ») : à suivre d'après sa position.
 - 2026-11-14 (it. 1172, bande-annonce 6) : version 1 complète (scripts/promo/trailer.py → edit.py, 64,7 s, 19 scènes
   calées sur les 24 mesures, musique mixée) : logo, bureau qui plonge sur le héros, gros plans ×3 (marche, combat,
   Mirette), quatre événements rares (titre coloré + sous-titre), relique, grand graphe, paliers, combat de fin de
