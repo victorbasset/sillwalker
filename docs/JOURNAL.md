@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1054) : performance du panneau. Les alertes « [lent] » de l'autotest montraient l'Aventure à 14-23 ms de
+  JavaScript par affichage (autres onglets : 2-5). Mesuré (fin de partie) : renderAll 27 ms, dont renderBag 7 ms :
+  chaque objet du sac appelait isUpgrade plusieurs fois par affichage (cases, objets inutiles, pièces gardées), et
+  chaque appel recalculait deux fois les statistiques complètes du héros. Game.upgradeDelta mémorisé par objet jusqu'au
+  prochain changement d'état (vidé par changed() et invalidateStats()), base = statistiques déjà en cache : renderBag
+  7,0 → 0,46 ms, renderAll après un changement 27 → 9,8 ms. Simulations 12 h (guerrier, rôdeur) identiques course
+  par course à celles d'avant (aucune décision changée), un peu plus rapides. Un test modifiait setsDone sans
+  invalidateStats (le jeu le fait toujours, equip()) : aligné. Autotest 206/206.
 - 2026-11-13 (it. 1053) : interface agrandie : la bulle d'info du panneau (placée dans #panel, zoomé) était positionnée
   en coordonnées d'écran : à 130 %, elle s'affichait jusqu'à 216 px de la souris (sonde : 13 px à 100 %). Coordonnées
   ramenées dans le panneau (division par le zoom), au survol et au clavier ; de même pour le glisser des rangées

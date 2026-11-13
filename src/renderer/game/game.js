@@ -74,7 +74,7 @@ export class Game {
   on(type, fn) { (this.listeners[type] ||= []).push(fn); return () => this.off(type, fn); }
   off(type, fn) { this.listeners[type] = (this.listeners[type] || []).filter((f) => f !== fn); }
   emit(type, payload) { for (const fn of this.listeners[type] || []) fn(payload); }
-  changed() { this._upgrade = null; this.emit("change"); }
+  changed() { this._upgrade = null; this._upd = null; this.emit("change"); }
 
   load(state) {
     this.S = state;
@@ -90,12 +90,21 @@ export class Game {
 
   /* ---------- Lecture ---------- */
   stats() { return (this._stats ||= heroStats(this.S)); }
-  invalidateStats() { this._stats = null; }
+  invalidateStats() { this._stats = null; this._upd = null; }
   classDef() { return classDef(this.S.cls); }
   zoneName(z = this.S.zone) { return zoneName(z); }
   zoneDef(z = this.S.zone) { return zoneDef(z); }
   xpNeed() { return xpNeed(this.S.lvl); }
-  upgradeDelta(it) { return upgradeDelta(this.S, it); }
+  /** (it. 1054) mémorisé par objet jusqu'au prochain changement d'état, base = statistiques déjà en cache : chaque
+      affichage du sac l'appelait plusieurs fois par objet (cases, objets inutiles, pièces gardées), et chaque appel
+      recalculait deux fois les statistiques complètes du héros (Aventure : 27 ms par affichage, sac 7 ms). */
+  upgradeDelta(it) {
+    const m = (this._upd ||= new Map());
+    if (m.has(it)) return m.get(it);
+    const v = power(heroStats(this.S, { ...this.S.equip, [it.slot]: it })) / power(this.stats()) - 1;
+    m.set(it, v);
+    return v;
+  }
   isUpgrade(it) { return this.upgradeDelta(it) > UPGRADE_EPS; }
   hasUpgrade() { return this.S.bag.some((it) => this.isUpgrade(it)); }
   /** Version mise en cache (recalculée après chaque changement d'état). */

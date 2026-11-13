@@ -2092,7 +2092,7 @@ test("pièces de panoplie pas encore complétée : gardées par « vendre l'inut
   assert.ok(!u.includes(a), "une pièce gardée par panoplie et emplacement");
   assert.ok(u.includes(b), "le doublon reste vendable");
   assert.ok(u.includes(c));
-  g.S.setsDone = { hunter: true };
+  g.S.setsDone = { hunter: true }; g.invalidateStats(); // (it. 1054) comme equip() : le bonus de collection change les statistiques
   assert.ok(g.uselessItems().includes(a), "panoplie déjà complétée : plus de protection");
 });
 
