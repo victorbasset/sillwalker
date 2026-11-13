@@ -278,6 +278,7 @@ function start() {
         [[66, "tab:skills"], [71, "tab:map"], [76, "tab:class"], [81, "tab:pets"], [86, "toggle-panel"]]
           .forEach(([t, c]) => setTimeout(() => strip.send("command", c), t * 1000));
       }
+      if (flags.stage) { try { const code = fs.readFileSync(flags.stage, "utf8"); setTimeout(() => strip.win.webContents.executeJavaScript(code).catch((e) => console.log("[stage]", e.message)), 600); } catch (e) { console.log("[stage] lecture : " + e.message); } }
       if (flags.demo) setTimeout(() => strip.win.webContents.executeJavaScript("window.__demo && window.__demo()"), 800);
       // (it. 767) Dev : accélération graphique (lenteurs signalées par Victor sous Windows)
       if (flags.isDev) setTimeout(() => { try { const g = app.getGPUFeatureStatus(); console.log(`[dev] carte graphique : dessin ${g.gpu_compositing}, rendu ${g.rasterization}, canevas ${g["2d_canvas"]}, WebGL ${g.webgl}`); } catch { /* sans importance */ } }, 3000);

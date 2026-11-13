@@ -27,6 +27,9 @@ module.exports = {
   ghost: isDev && !!getArg("ghost"),
   demo: isDev && !!getArg("demo"),
   tour: isDev && !!getArg("tour"),
+  // (it. 1167) --stage=<fichier.js> : mise en scène d'un plan de la bande-annonce ou d'une capture (scripts/promo/) ;
+  // le fichier est exécuté dans la fenêtre du jeu une fois chargée (accès à window.__game, __strip, __panel)
+  stage: isDev ? getArg("stage") : undefined,
   trailer: isDev && !!getArg("trailer"),                 // --trailer : cinématiques et panneau minutés (bande-annonce, scripts/trailer/)                       // --tour : visite scriptée bande → panneau → onglets (bande-annonce, scripts/steam-trailer.sh)
   fontBench: isDev && !!getArg("font-bench"),            // --font-bench : coût de mise en forme du texte par police (dev/fontbench.js)
   // --trace=10 : trace Chromium de 10 s dès le lancement, résumée dans le terminal (src/main/trace.js)

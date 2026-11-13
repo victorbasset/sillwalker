@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1167, bande-annonce 1) : base pour filmer net. Option de dev --stage=<fichier.js> (mise en scène
+  exécutée dans le jeu au chargement) ; scripts/promo/record.sh <save> <stage|-> <s> <sortie> : jeu VISIBLE sur un
+  écran virtuel 3840×2160, échelle ×2 (--force-device-scale-factor=2), fenêtre 3840×1240 filmée à 30 images/s
+  (essai : 166 images distinctes sur 180, ≈ 28/s ; pixels et textes nets en gros plan). Vu : les bulles d'annonce et
+  les nombres de dégâts de fin de partie encombrent l'image (mises en scène à nettoyer, partie de milieu de jeu).
 - 2026-11-13 (it. 1166) : butler connecté par Victor ; jeu trouvé par l'API d'itch.io (clé de butler) :
   victor-basset/sillwalker, publié, aucun canal butler encore (0.1.2 envoyée à la main). Question « j'envoie la
   0.1.3 ? » sans réponse claire : rien envoyé, en attente de son accord. Cible notée dans CLAUDE.md.
@@ -4536,6 +4541,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- EN COURS (demande de Victor, 2026-11-14 00 h 14 : « jusqu'à samedi 12 h, focus maximum sur la bande-annonce et les
+  captures d'écran, rendu d'agence de com ; prends ton temps ; ensuite reprends normalement »). Plan : 1) filmer net
+  (échelle ×2, scripts/promo/record.sh, --stage) ; 2) plans mis en scène (boss et relique, Lune de sang, Nuée
+  d'étoiles, Ruée des gobelins, rencontre de PNJ, légendaire, grand graphe, paliers, mode mini, bureau) ; 3) montage
+  Python + ffmpeg (caméra, gros plans au pixel, textes animés aux polices du jeu, coupes sur la musique, carton) ;
+  4) captures : série Steam (jeu seul) et série « agence » (accroches) pour itch / réseaux. Diagnostic de l'existant :
+  trailer-story-en (66 s) : bon principe mais image vide (bandes noires, bande minuscule), cartons ternes, rythme
+  lent, aucune nouveauté de la 0.1.3 ; captures : vues brutes sur un faux bureau, bande de 120 px sur 1080.
 - FAIT (it. 1156) P3 Vu it. 1155 : contrôle d'autotest « transmutation (après confirmation) » instable, une fois sur trois passages :
   « 164 -> 164 · sac 0+0+0+ plan {used:0, made:0} bouton inactif » : le sac n'avait rien à transmuter à cet instant
   (dépend de l'état de la partie) ; le contrôle doit fabriquer lui-même sa matière.
