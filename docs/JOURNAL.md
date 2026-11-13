@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1046) : « Taille de l'interface » à 130 % sur un écran de 1920 px : Boutique (57-75 px), Bestiaire
+  (83-86), Statistiques (22-46), Aventure en russe (36) défilaient. Cause : le zoom ne touche que #panel, et les règles
+  @media (max-width: 1499px…) voyaient la fenêtre (1920 px) quand le panneau zoomé n'a que 1467 px utiles (sonde :
+  1467 × 498, contenu 578). Les 19 règles d'adaptation du contenu du panneau deviennent des requêtes de conteneur
+  (@container panel, #panel en conteneur), seuils moins 32 px (marges intérieures) : à 100 %, rien ne change (10
+  langues sans défaut) ; à 130 % sur 1920 px : fr et ru sans défaut (115 % : fr sans défaut). Un premier essai (zoom
+  plafonné pour garder 1500 px) n'y changeait rien. Trouvé en passant : défilement ancien en russe à 1600-1680 px en fin
+  de partie (Idées). Autotest 205/205. CLAUDE.md.
 - 2026-11-13 (it. 1045) : mode mini, « moments » (panoplie, ascension, boss juré, chronique…) : le texte, centré sur une
   seule ligne sans largeur maximale, sortait des deux côtés de la petite scène dans toutes les langues (« …raqueur de
   champions : bonus 4 pièc… » en français). Désormais dans la largeur de la scène, sur plusieurs lignes au besoin,
@@ -3893,6 +3901,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 Vu it. 1046 : en russe, la partie de fin de partie défile à 100 % sur des écrans de 1600 et 1680 px (Aventure 19,
+  Statistiques 46 ; dev-data : rien) ; la mesure des langues ne passe que par 1280, 1366 et 1920. Corriger, puis
+  ajouter une largeur intermédiaire (1600) à lang-overflow.
 - À PROPOSER À VICTOR (it. 1029) P2 Fin de semaine : tous les héros finissent autour de la zone 293 (artificier,
   paladin, assassin, guerrier, mage : dernières courses 293, parfois 296 ou 308) ; artificier : 6 courses de suite à
   250 (écho), puis 11 sur 13 à 293. Pas la faute d'un boss : sans venin, ou avec un coup dévastateur ×1,5 au lieu de

@@ -161,6 +161,12 @@ body.panel-open #toast { display: none; }
 /* ---------- Panneau qui se déploie ---------- */
 /* Le panneau est toujours dans la page (invisible quand fermé) : l'ouvrir
    n'est qu'une translation, sans changement de taille de fenêtre ni de mise en page. */
+/* (it. 1046) les règles d'adaptation à la largeur du contenu du panneau sont des requêtes de conteneur (@container panel) :
+   le zoom « Taille de l'interface » ne touche que #panel, et une @media voyait la largeur de la fenêtre (1920 px) alors
+   que le panneau zoomé à 130 % n'en a que 1467 utiles (Boutique, Bestiaire, Statistiques défilaient). Restent en @media :
+   #panel lui-même (2000 px) et la fenêtre modale (900 px). Seuils = ceux des anciennes @media moins 32 px (marges intérieures de #panel : 16 px de chaque côté), pour qu'à 100 %
+   rien ne change. */
+#panel { container: panel / inline-size; }
 #panel-wrap { flex: 0 0 var(--panel-h); height: var(--panel-h); overflow: hidden; visibility: hidden; position: relative; z-index: 1; }
 body.panel-open #panel-wrap { visibility: visible; }
 /* Le fond du panneau ne prend que la largeur de son contenu (1840 px au plus, + marges) : sur un écran ultra-large
@@ -971,7 +977,7 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .bagdetail .lines.tight li { break-inside: avoid; }
 /* Écran large : colonne du sac plus large, sac en 2 rangées de 12 (le détail d'un objet tient dessous, sans
    défilement). Toujours, et pas seulement objet ouvert : les cases ne doivent pas bouger entre deux clics. */
-@media (min-width: 1500px) {
+@container panel (min-width: 1468px) {
   [data-pane="adventure"] .grid { grid-template-columns: 1fr 1.7fr 1fr 1fr 0.85fr; }
   [data-pane="adventure"] #p-bag .bag { grid-template-columns: repeat(12, 1fr); }
 }
@@ -1104,7 +1110,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .actor.venom { background: radial-gradient(farthest-side, color-mix(in srgb, #8fe36a 50%, transparent) 55%, transparent); }
 /* Statistiques > Chiffres : les 5 cartes (dont Probabilités, double) sur une seule rangée dès 1280 px, sans défilement
    sur les écrans de portable (1366, 1600) ; les libellés longs passent à la ligne. */
-@media (min-width: 1280px) {
+@container panel (min-width: 1248px) {
   /* (it. 849) Probabilités (2 colonnes) prend moins : ses valeurs passent à la ligne, alors qu'un libellé d'un seul mot
      (« Gegenstandssammlung », russe) passait sous sa valeur dans les quatre cartes étroites. */
   .statgrid.sec-numbers { grid-template-columns: repeat(4, minmax(0, 1fr)) repeat(2, minmax(0, 0.7fr)); }
@@ -1118,7 +1124,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .mgrid.hscroll > .mcard { width: 132px; }
 .cgrid.hscroll > .ctile { width: 104px; }
 .shopgrid2 > .panel { min-width: 0; }
-@media (min-width: 1800px) {
+@container panel (min-width: 1768px) {
   .mgrid.hscroll, .cgrid.hscroll { display: grid !important; overflow: visible; cursor: auto; padding-bottom: 0; }
   .mgrid.hscroll > .mcard, .cgrid.hscroll > .ctile { width: auto; }
 }
@@ -1126,15 +1132,15 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Bestiaire sur écran de portable (< 1800 px) : les monstres coulent en colonnes sur 7 rangées et la grille défile
    sur le côté (molette ou glisser) au lieu de faire défiler l'onglet ; à 1920 px, la grille habituelle. */
 .beastgrid.hscroll { display: grid !important; gap: 4px; }
-@media (max-width: 1799px) {
+@container panel (max-width: 1767px) {
   .beastgrid.hscroll { grid-auto-flow: column; grid-template-rows: repeat(7, auto); grid-template-columns: none; grid-auto-columns: 150px; }
 }
-@media (min-width: 1800px) {
+@container panel (min-width: 1768px) {
   .beastgrid.hscroll { overflow: visible; cursor: auto; padding-bottom: 0; }
 }
 /* Écran de portable (1200-1499 px) : le Journal reste en 5e colonne (étroite) au lieu de passer dessous et de
    faire défiler l'onglet ; le sac garde ses 8 colonnes. */
-@media (min-width: 1200px) and (max-width: 1499px) {
+@container panel (min-width: 1168px) and (max-width: 1467px) {
   [data-pane="adventure"] .grid { grid-template-columns: 1.15fr 1.2fr 1.1fr 1.1fr 0.7fr; }
   /* Équipement (it. 838) : à 0,9 fr, les noms des objets portés tenaient en 4 lettres (« Casq… », « Star… »).
      Colonne élargie et portrait aux trois quarts (3 pixels d'image par pixel du dessin : reste net). */
@@ -1145,7 +1151,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
    carte du héros sur une ligne (texte complet au survol). */
 .petbar.hscroll { align-items: center; gap: 12px; }
 .petbar.hscroll > * { white-space: nowrap; }
-@media (max-width: 1499px) {
+@container panel (max-width: 1467px) {
   .visit { display: block; width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
 }
 .petbar.hscroll { scrollbar-width: none; }
@@ -1155,11 +1161,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .classcard button.synergy, .classcard button.synergy:hover { border-image: none; box-shadow: none; background: none; font-size: 12px; margin: 2px 0 4px; min-height: 0; }
 .classcard button.synergy::before, .classcard button.synergy::after { display: none; }
 /* Écran de 1280 px : la carte Zone (la plus haute) resserre ses notes pour que l'Aventure ne défile pas. */
-@media (min-width: 1200px) and (max-width: 1499px) {
+@container panel (min-width: 1168px) and (max-width: 1467px) {
   #p-zone .note { font-size: 11px; line-height: 1.3; margin-top: 2px; margin-bottom: 2px; }
 }
 /* Réglages : 5 colonnes dès 1200 px (à 1280, la grille passait à 4 colonnes et la Zone de danger sur une 2e rangée). */
-@media (min-width: 1200px) {
+@container panel (min-width: 1168px) {
   [data-pane="settings"] > .setgrid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 /* Zèle (événement) : petites étincelles bleues qui montent du héros. */
@@ -1173,16 +1179,16 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .setcard.here { outline: 2px solid var(--accent); outline-offset: -2px; }
 /* (it. 1013) écran de portable : cartes du Bestiaire (panoplies, capacités, élites, événements) sur 5 colonnes au lieu
    de 4 à 1280 px ; les 10 panoplies tiennent sur deux rangées (russe et allemand défilaient de 9 à 26 px) */
-@media (max-width: 1499px) { [data-pane="bestiary"] .setgrid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); } }
+@container panel (max-width: 1467px) { [data-pane="bestiary"] .setgrid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); } }
 /* Duo idéal : étincelle dorée qui file entre les deux héros. */
 .spark.duolink { width: 3px; height: 3px; background: #ffd34d; box-shadow: 0 0 3px #ffd34d; }
 /* Statistiques > Chiffres sur écran de portable : lignes un peu plus petites (langues aux mots longs : russe, allemand). */
-@media (max-width: 1499px) {
+@container panel (max-width: 1467px) {
   .statgrid.sec-numbers .lines li { font-size: 12px; line-height: 1.25; padding-top: 2px; padding-bottom: 2px; }
 }
 /* Écran de portable, langues aux mots longs (allemand, russe) : Réglages un peu plus serrés ; sous-titre des Maîtrises
    sur une ligne (l'ⓘ garde l'explication). */
-@media (max-width: 1499px) {
+@container panel (max-width: 1467px) {
   [data-pane="settings"] .panel { font-size: 13px; }
   [data-pane="settings"] .toggle { margin-top: 2px; margin-bottom: 2px; }
   .tmastery > h2 { flex-wrap: nowrap; white-space: nowrap; }
@@ -1197,7 +1203,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 1003) carte Zone : « course : 136 · record : 142 » à côté du titre ; le titre ne se coupe pas (« 区域 / 136 »),
    le sous-titre passe à la ligne dans sa place */
 /* (it. 1010) nom de zone un peu plus petit sur un écran de portable : « Хрустальная Пещера / +4 » prenait deux lignes */
-@media (max-width: 1499px) { .zname { font-size: 16px; } }
+@container panel (max-width: 1467px) { .zname { font-size: 16px; } }
 #p-zone > h2 { white-space: nowrap; }
 /* (it. 1025) « Zone précédente / Zone suivante » sur une même ligne : en russe, empilés, ils faisaient défiler l'Aventure
    de fin de partie à 1920 px (colonne Zone : boss à trois capacités, relique) */
@@ -1251,14 +1257,14 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .duoline .duotag img { width: 28px; height: 28px; image-rendering: pixelated; }
 .duoline .duotag .syn { color: var(--accent); font-size: 12px; }
 .duoline .duotag { white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
-@media (max-width: 1499px) { .duoline .duotag .synname { display: none; } }
+@container panel (max-width: 1467px) { .duoline .duotag .synname { display: none; } }
 /* Sorts (demande D) : cartes dans « Style de combat », couleur du sort en bordure. */
 .spellgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .spellcard { border: 2px solid var(--edge); border-left: 4px solid var(--c); padding: 6px 8px; background: var(--card, transparent); }
 .spellcard.locked { opacity: 0.55; }
 .spellcard.on { box-shadow: inset 0 0 0 1px var(--c); }
 .spellcard button { margin-top: 4px; font-size: 12px; padding: 2px 8px; }
-@media (max-width: 1100px) { .spellgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container panel (max-width: 1068px) { .spellgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 /* Bouclier sur la barre de vie du héros (demande de Victor) : bleu-blanc, bien visible. */
 .hpbar > b.sh { position: absolute; top: 0; height: 4px; background: linear-gradient(#ffffff, #8fd8ff); box-shadow: 0 0 3px #bfefff; }
 .hpbar > b.sh[hidden] { display: none; }
@@ -1282,9 +1288,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellcard .spellico { width: 27px; height: 27px; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
 .spellfx.icon img { width: 27px; height: 27px; image-rendering: pixelated; }
 /* Succès (57 depuis l'it. 482) : à 1366 px et moins, colonnes un peu plus étroites et lignes plus serrées. */
-@media (max-width: 1499px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2px 10px; font-size: 13px; } }
-@media (max-width: 1499px) { .achlist { line-height: 1.2; } }
-@media (max-width: 1365px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); font-size: 12px; gap: 1px 8px; } }
+@container panel (max-width: 1467px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2px 10px; font-size: 13px; } }
+@container panel (max-width: 1467px) { .achlist { line-height: 1.2; } }
+@container panel (max-width: 1333px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); font-size: 12px; gap: 1px 8px; } }
 /* Mode mini : icône du sort lancé, au-dessus du héros. */
 #mini .minispell { position: absolute; left: 0; top: 0; width: 18px; height: 18px; image-rendering: pixelated; pointer-events: none; animation: minispell .7s ease-out forwards; }
 @keyframes minispell { from { opacity: 1; margin-top: 0; } to { opacity: 0; margin-top: -10px; } }
@@ -1327,7 +1333,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .actor.weakened { filter: grayscale(.6) brightness(.85); }
 .actor.hasted { background: radial-gradient(farthest-side, color-mix(in srgb, #ffb347 50%, transparent) 55%, transparent); } /* (it. 973) lueur peinte derrière, sans filtre (un drop-shadow ≈ 0,4 point, refait à chaque image du personnage) */
 /* (it. 553) écrans ≤ 1365 px : cartes de sorts un peu plus serrées (deux effets sur deux lignes : la page défilait) */
-@media (max-width: 1365px) {
+@container panel (max-width: 1333px) {
   .spellcard { padding: 4px 6px; }
   .spellcard .note.tight { line-height: 1.25; margin: 2px 0; }
   .spellcard button { margin-top: 2px; }
