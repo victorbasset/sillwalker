@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1120, contrôles) : partie de fin de partie au grand graphe rempli (104 points en surplus), en russe :
+  --crawl 500 clics sans erreur ; textes extraits : rien de non traduit (noms de langues et suffixes « Qa », voulus).
+  --perf de la fin de partie (copies neuves) : guerrier bande 24,3 % / panneau 26,9 % / mini 7,7 % ; rôdeur (à
+  distance) 22,8 / 24,9 / 7,1 : en ligne avec les it. 1065-1066 (24 et 24,5 %). Rien à corriger.
 - 2026-11-13 (it. 1119) : contrôle d'autotest du grand graphe rempli : « Dépenser automatiquement » sur une partie de
   haut niveau remplit la fleur puis le graphe (258 nœuds), l'annonce part une seule fois et la ligne « points en
   surplus » s'affiche dans Compétences (it. 1115, 1117 : seulement en test logique jusqu'ici). Autotest 221/221.
