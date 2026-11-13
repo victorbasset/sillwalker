@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1049) : bande en haut de l'écran (settings.json edge = top), russe, fin de partie après 8 h
+  d'absence : bulle du résumé sous la bande, panneau ouvert vers le bas : propres. Rien à corriger.
 - 2026-11-13 (it. 1048) : interface agrandie (115 / 130 %) à 1366 et 1600 px : les Réglages défilaient de 3 à 11 px, à
   cause de la phrase « Limité à 107 % par la largeur de l'écran » ajoutée sous les boutons de taille ; quand
   l'agrandissement est plafonné, elle remplace la phrase générale (passée en info-bulle). fr, ru, de à 1366 / 1600,
