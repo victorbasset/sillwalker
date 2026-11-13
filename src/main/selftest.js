@@ -404,7 +404,7 @@ async function runSelfTest(strip) {
   await js("(() => { const g = window.__game; for (let n = 0; n < 200 && Object.keys(g.S.equip).some((k) => !g.S.equip[k] || g.S.equip[k].r < 3); n++) { const it = g.newItem(3, g.S.best + 10); if (!g.S.equip[it.slot] || g.S.equip[it.slot].r < 3) g.S.equip[it.slot] = it; } g.S.bag.splice(0, 12); for (let i = 0; i < 6; i++) g.addToBag(g.newItem(0, 1)); g.changed() })()");
   await click('[data-tab="adventure"]');
   await sleep(200);
-  const bag0 = await state("S.bag.length"), useless = await js("window.__game.uselessItems().length");
+  const bag0 = await state("S.bag.length"), useless = await js("window.__game.nonUpgradeItems().length"); // (it. 1096) tout sauf les améliorations
   // (it. 1024) attentes sur l'état, comme la transmutation (it. 1023)
   await until(() => js("!!document.querySelector('[data-action=\"sellless\"]:not([disabled])')"));
   await click('[data-action="sellless"]');
@@ -799,30 +799,21 @@ async function runSelfTest(strip) {
       out.push(ev + ":" + (!st.bubble.hidden && st.bubble.textContent ? "ok" : "rien")); }
     G.S.settings.fullEffects = fe; st.bubble.hidden = true; return out.join(" "); })()`);
   check("répliques du héros : panoplie complète", spk === "setBonus:ok", spk);
-  // (it. 1022) « Vendre ce qui ne m'améliore pas » : au survol, les pièces de panoplie gardées
-  const keptT = await js(`(async () => { const G = window.__game, P = window.__panel, S = G.S;
-    // (it. 1064) panoplie que le héros ne porte pas : avec « dusk » déjà portée, les deux pièces activaient un bonus de
-    // panoplie, devenaient des améliorations et n'étaient plus « gardées » (échec une fois sur trois, selon l'équipement)
-    const worn = new Set(Object.values(S.equip).filter(Boolean).map((i) => i.set));
-    const sid = Object.keys((await import("./game/sets.js")).SETS).find((k) => !worn.has(k));
-    const keep = { bag: S.bag.slice(), done: { ...(S.setsDone || {}) }, size: S.bagSize, tab: P.tab };
+  // (it. 1096, demande de Victor) « Vendre ce qui ne m'améliore pas » vend tout ce qui n'est pas une amélioration,
+  // légendaires et pièces de panoplie compris (avant : les légendaires et les pièces à compléter étaient gardés)
+  const sellAll = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;
+    const keep = { bag: S.bag.slice(), gold: S.gold };
     try {
-      // (it. 1064) sac vide d'abord : avec d'autres pièces de panoplie tombées pendant les contrôles, la limite des
-      // pièces gardées (SET_KEEP_MAX) rendait parfois les deux pièces « inutiles » (205/206 une fois sur deux)
-      S.bag = []; S.bagSize = Math.max(S.bagSize, 4); delete (S.setsDone ||= {})[sid];
-      // (it. 1053) deux emplacements équipés : sur un emplacement vide, toute pièce serait une amélioration (pas « gardée »)
-      const slots = Object.keys(S.equip).filter((k) => S.equip[k]).slice(0, 2);
-      for (const sl of slots) { const it = G.newItem(3); it.r = 3; it.slot = sl; it.set = sid; it.st = {}; it.lvl = 1; S.bag.push(it); } // épique fixé : un légendaire tiré est gardé pour une autre raison
-      G.invalidateStats(); P.setTab("adventure"); P.renderAll();
-      const b = document.querySelector('[data-action="sellless"]');
-      // (it. 1069) nombre attendu calculé par le jeu (une pièce peut être une amélioration selon l'équipement laissé par
-      // les contrôles précédents : « 1 pièce gardée » au lieu de 2, une fois sur quatre)
-      const useless = G.uselessItems(), kept = S.bag.filter((it) => it.set && !useless.includes(it) && !G.isUpgrade(it)).length;
-      return kept + "\u0001" + S.bag.map((it) => (G.isUpgrade(it) ? "+" : "-")).join("") + "\u0001" + (b ? (b.title || b.dataset.title || "") : "pas de bouton");
-    } finally { S.bag = keep.bag; S.setsDone = keep.done; S.bagSize = keep.size; G.invalidateStats(); P.setTab(keep.tab); P.renderAll(); }
+      const sl = Object.keys(S.equip).find((k) => S.equip[k]);
+      const mk = (r, set) => { const it = G.newItem(r); it.r = r; it.slot = sl; it.st = {}; it.lvl = 1; it.set = set; delete it.power; return it; };
+      S.bag = [mk(4, null), mk(3, "dusk"), mk(3, "wind")];
+      G.invalidateStats();
+      const up = S.bag.filter((it) => G.isUpgrade(it)).length;
+      const r = G.sellUseless(true);
+      return "améliorations " + up + " · vendus " + r.n + " · reste " + S.bag.length;
+    } finally { S.bag = keep.bag; S.gold = keep.gold; G.invalidateStats(); P.renderAll(); }
   })()`);
-  const [keptN, keptUp, keptTip] = keptT.split("\u0001");
-  check("« Vendre ce qui ne m'améliore pas » : pièces de panoplie gardées dites au survol", +keptN >= 1 && +(((keptTip || "").split("\n")[1] || "").match(/\d+/) || [0])[0] === +keptN, `attendu ${keptN} (améliorations ${keptUp}) · ` + (keptTip || "").replace(/\n/g, " | ").slice(0, 200));
+  check("« Vendre ce qui ne m'améliore pas » : légendaires et pièces de panoplie vendus aussi", sellAll === "améliorations 0 · vendus 3 · reste 0", sellAll);
   // (it. 1013) Bestiaire > Panoplies : bouton « Compléter avec les pièces du sac » sur la carte, un clic la complète
   const setFin = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;
     const keep = { bag: S.bag.slice(), equip: { ...S.equip }, done: { ...(S.setsDone || {}) }, size: S.bagSize, tab: P.tab, sec: P.tabs.bestiary.sec };

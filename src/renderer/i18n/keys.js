@@ -2691,5 +2691,8 @@ export const KEYS = [
   "Tes records ? Je les garde bien au chaud dans mon carnet.",
   "Un succès de plus ! Je sors ma plus belle plume.",
   "Combien de noisettes vaut une pièce d’or ? Je cherche encore.",
-  "Ton carnet de route s’allonge. On en fera un livre."
+  "Ton carnet de route s’allonge. On en fera un livre.",
+  "{n} objet qui n’améliore pas ton héros sera vendu, légendaires et pièces de panoplie compris.|{n} objets qui n’améliorent pas ton héros seront vendus, légendaires et pièces de panoplie compris.",
+  "Vend tout ce qui n’est pas plus puissant que ton équipement actuel, légendaires et pièces de panoplie compris.",
+  "Gardée pour compléter la panoplie : la transmutation et la vente quand le sac est plein l’épargnent (pas le bouton « Vendre ce qui ne m’améliore pas »)."
 ];

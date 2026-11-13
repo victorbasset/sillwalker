@@ -1562,4 +1562,7 @@ export default {
   2687: "¡Un logro más! Saco mi mejor pluma.",
   2688: "¿Cuántas avellanas vale una moneda de oro? Aún lo estoy calculando.",
   2689: "Tu diario de viaje no para de crecer. Haremos un libro.",
+  2690: "Se venderá {n} objeto que no mejora a tu héroe, legendarios y piezas de conjunto incluidos.|Se venderán {n} objetos que no mejoran a tu héroe, legendarios y piezas de conjunto incluidos.",
+  2691: "Vende todo lo que no sea más poderoso que tu equipo actual, legendarios y piezas de conjunto incluidos.",
+  2692: "Guardada para completar el conjunto: la transmutación y la venta con la bolsa llena la respetan (no el botón «Vender lo que no me mejora»).",
 };

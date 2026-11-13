@@ -1562,4 +1562,7 @@ export default {
   2687: "Kolejne osiągnięcie! Wyciągam najładniejsze pióro.",
   2688: "Ile orzechów laskowych jest warta złota moneta? Wciąż liczę.",
   2689: "Twój dziennik podróży wciąż rośnie. Zrobimy z niego książkę.",
+  2690: "{n} przedmiot, który nie ulepsza bohatera, zostanie sprzedany, łącznie z legendarnymi i częściami zestawów.|{n} przedmioty, które nie ulepszają bohatera, zostaną sprzedane, łącznie z legendarnymi i częściami zestawów.|{n} przedmiotów, które nie ulepszają bohatera, zostanie sprzedanych, łącznie z legendarnymi i częściami zestawów.",
+  2691: "Sprzedaje wszystko, co nie jest mocniejsze od obecnego ekwipunku, łącznie z legendarnymi i częściami zestawów.",
+  2692: "Zachowana do skompletowania zestawu: transmutacja i sprzedaż przy pełnej torbie ją oszczędzają (nie przycisk „Sprzedaj to, co mnie nie ulepsza”).",
 };

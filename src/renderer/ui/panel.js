@@ -719,7 +719,7 @@ export class Panel {
     const unlocks = (now < 2 && after >= 2) || (now < 4 && after >= 4);
     const g = this.game, kept = it.r < LEGENDARY && !g.isUpgrade(it) && !g.uselessItems().includes(it); // protégée (game.uselessItems)
     return `<p class="setprog${unlocks ? " delta-p" : ""}">${unlocks ? "★ " : ""}${esc(tx("Panoplie {0} : {1} → {2} / 4", { 0: SETS[it.set].name, 1: now, 2: Math.min(4, after) }))}</p>`
-      + (kept ? `<p class="setprog">${esc(tx("Gardée pour compléter la panoplie : la vente de l’inutile et la transmutation l’épargnent."))}</p>` : "");
+      + (kept ? `<p class="setprog">${esc(tx("Gardée pour compléter la panoplie : la transmutation et la vente quand le sac est plein l’épargnent (pas le bouton « Vendre ce qui ne m’améliore pas »)."))}</p>` : "");
   }
 
   onHover(e) {
@@ -805,7 +805,7 @@ export class Panel {
   renderBag() {
     if (this.dnd) return; // glissement en cours : ne pas remplacer l'objet tenu ni les surbrillances
     const S = this.game.S, cells = [];
-    const useless = this.game.uselessItems(), uselessGold = useless.reduce((a, it) => a + sellValue(it), 0), tr = this.game.transmutePlan();
+    const useless = this.game.nonUpgradeItems(), uselessGold = useless.reduce((a, it) => a + sellValue(it), 0), tr = this.game.transmutePlan(); // (it. 1096) ce que vend le bouton
     // Affichage trié (le sac lui-même garde l'ordre d'arrivée) : améliorations ▲, puis rareté, puis emplacement.
     const slotOrder = Object.keys(SLOTS), up = new Map(S.bag.map((it) => [it.id, this.game.isUpgrade(it)]));
     const shown = [...S.bag].sort((a, b) => (up.get(b.id) - up.get(a.id)) || (b.r - a.r) || (slotOrder.indexOf(a.slot) - slotOrder.indexOf(b.slot)) || (b.il - a.il));
@@ -814,15 +814,13 @@ export class Panel {
       cells.push(it ? this.slotBtn(it, it.slot, "bag") : `<div class="slot emptyslot" aria-hidden="true"></div>`);
     }
     const full = S.bag.length >= S.bagSize;
-    // (it. 1022) pièces de panoplie que « Vendre ce qui ne m'améliore pas » garde (uselessItems, it. 1004) : dites au survol
-    const keptSet = S.bag.filter((it) => it.set && it.r < LEGENDARY && !useless.includes(it) && !this.game.isUpgrade(it)).length;
     const selIt = this.getSel();
     if (selIt) { // détail de l'objet sous la grille, à la place des commandes (elles reviennent avec « ← sac »)
       $(this.root, "#p-bag").innerHTML = `<h2>${tx("Sac")} <small>${S.bag.length} / ${S.bagSize}</small></h2><div class="bag">${cells.join("")}</div>${this.itemDetailHTML(selIt)}`;
       return;
     }
     $(this.root, "#p-bag").innerHTML = `<h2>${tx("Sac")} <small${full ? ` ${tx("class=\"warn\" title=\"Sac plein : les nouveaux objets restent au sol. Vends ou transmute pour faire de la place.\"")}` : ""}>${full ? tx("plein · ") : ""}${S.bag.length} / ${S.bagSize}</small>${S.best <= 10 && S.prestige.count === 0 && this.game.hasUpgrade() ? ` <span class="baghint">${tx("▲ double-clic : équiper")}</span>` : ""} <button class="linkbtn bagsort" data-action="bagsort" title="${esc(tx("Ranger le sac : améliorations, puis rareté, puis niveau"))}">⇅</button> <span class="note help" title="${esc(tx("▲ signale un objet plus puissant que ce que porte ton héros.") + " " + tx("Rareté : • peu commun, •• rare, ••• épique, ★ légendaire."))}">ⓘ</span></h2><div class="bag">${cells.join("")}</div>
-      <div class="row">${hasUnlock(S, "bulkEquip") ? `<button data-action="sellless"${useless.length ? "" : " disabled"} title="${esc(tx("Vend tout ce qui n’est pas plus puissant que ton équipement actuel. Les légendaires sont toujours gardés.") + (keptSet ? "\n" + txn(keptSet, "{n} pièce de panoplie gardée pour en compléter une.|{n} pièces de panoplie gardées pour en compléter une.") : ""))}">${tx("Vendre ce qui ne m’améliore pas{0}", { 0: useless.length ? ` ${tx("({0} · {1} or)", { 0: useless.length, 1: fmt(uselessGold) })}` : "" })}</button>
+      <div class="row">${hasUnlock(S, "bulkEquip") ? `<button data-action="sellless"${useless.length ? "" : " disabled"} title="${esc(tx("Vend tout ce qui n’est pas plus puissant que ton équipement actuel, légendaires et pièces de panoplie compris."))}">${tx("Vendre ce qui ne m’améliore pas{0}", { 0: useless.length ? ` ${tx("({0} · {1} or)", { 0: useless.length, 1: fmt(uselessGold) })}` : "" })}</button>
       <button data-action="autoequip"${this.game.hasUpgrade() ? ` class="primary"` : " disabled"}>${tx("Équiper le meilleur{0}", { 0: this.game.hasUpgrade() ? " ▲" : "" })}</button>` : lockLink(S, "bulkEquip")}
       ${hasUnlock(S, "transmute") ? `<button data-action="transmute"${tr.made ? "" : " disabled"} title="${esc(tx("3 objets inutiles d’une même rareté → 1 objet de la rareté au-dessus (jusqu’à légendaire)."))}">${tx("Transmuter{0}", { 0: tr.made ? ` ${tx("({0} nouveau{1})", { 0: tr.made, 1: tr.made > 1 ? "x" : "" })}` : " (3 → 1)" })}</button>` : lockLink(S, "transmute")}</div>
       ${hasUnlock(S, "autoSell") ? `<div class="sellrow"><span>${tx("Vendre dès qu’ils tombent :")}</span>${[["common", "Vendre les communs dès qu’ils tombent"], ["uncommon", "Vendre les peu communs dès qu’ils tombent"], ["rare", "Vendre les rares dès qu’ils tombent"]]
@@ -1106,9 +1104,10 @@ export class Panel {
       case "shownews": this.showNews(0); return;
       case "npc-talk": npcTalk(b.dataset.npc); this.renderAll(); return; // (it. 1082) PNJ de l'onglet : réplique suivante
       case "sellless": {
-        const n = g.uselessItems().length;
-        this.confirm(tx("Vendre les objets inutiles ?"), txn(n, "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés."), tx("Vendre"), () => {
-          g.sellUseless();
+        // (it. 1096, demande de Victor) tout ce qui n'est pas une amélioration, légendaires et pièces de panoplie compris
+        const n = g.nonUpgradeItems().length;
+        this.confirm(tx("Vendre les objets inutiles ?"), txn(n, "{n} objet qui n’améliore pas ton héros sera vendu, légendaires et pièces de panoplie compris.|{n} objets qui n’améliorent pas ton héros seront vendus, légendaires et pièces de panoplie compris."), tx("Vendre"), () => {
+          g.sellUseless(true);
           if (this.selected?.from === "bag" && !this.getSel()) this.selected = null;
           this.renderAll();
         });

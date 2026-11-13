@@ -1562,4 +1562,7 @@ export default {
   2687: "Noch ein Erfolg! Ich hole meine schönste Feder.",
   2688: "Wie viele Haselnüsse ist eine Goldmünze wert? Ich rechne noch.",
   2689: "Dein Reisetagebuch wird immer länger. Wir machen ein Buch daraus.",
+  2690: "{n} Gegenstand, der deinen Helden nicht verbessert, wird verkauft – legendäre und Set-Teile eingeschlossen.|{n} Gegenstände, die deinen Helden nicht verbessern, werden verkauft – legendäre und Set-Teile eingeschlossen.",
+  2691: "Verkauft alles, was nicht stärker ist als deine aktuelle Ausrüstung – legendäre und Set-Teile eingeschlossen.",
+  2692: "Aufbewahrt, um das Set zu vervollständigen: Transmutation und Verkauf bei voller Tasche verschonen es (nicht der Knopf „Verkaufen, was mich nicht verbessert“).",
 };

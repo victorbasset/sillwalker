@@ -1562,4 +1562,7 @@ export default {
   2687: "Another achievement! I’ll get my finest quill.",
   2688: "How many hazelnuts is a gold coin worth? Still working on it.",
   2689: "Your travel log keeps growing. We’ll make a book of it.",
+  2690: "{n} item that doesn’t improve your hero will be sold, legendaries and set pieces included.|{n} items that don’t improve your hero will be sold, legendaries and set pieces included.",
+  2691: "Sells everything that isn’t more powerful than your current gear, legendaries and set pieces included.",
+  2692: "Kept to complete the set: transmutation and the full-bag sale spare it (not the “Sell what doesn’t upgrade me” button).",
 };

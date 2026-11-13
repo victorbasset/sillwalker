@@ -1347,10 +1347,16 @@ export class Game {
     return this.transmute();
   }
 
-  /** Vend tout ce qui n'améliore pas le héros. Renvoie { n, gold }. */
-  sellUseless() {
+  /** (it. 1096, demande de Victor) Tout ce qui n'est pas une amélioration, légendaires et pièces de panoplie compris :
+   *  ce que vend le bouton « Vendre ce qui ne m'améliore pas ». */
+  nonUpgradeItems() { return this.S.bag.filter((it) => !this.isUpgrade(it)); }
+
+  /** Vend ce qui n'améliore pas le héros. all (le bouton, it. 1096) : tout ce qui n'est pas une amélioration ; sinon
+   *  (automatismes : sac plein, simulation) les objets inutiles d'uselessItems (légendaires et pièces de panoplie
+   *  à compléter gardés). Renvoie { n, gold }. */
+  sellUseless(all = false) {
     if (!hasUnlock(this.S, "bulkEquip")) return 0;
-    const sell = new Set(this.uselessItems());
+    const sell = new Set(all ? this.nonUpgradeItems() : this.uselessItems());
     let gold = 0;
     for (const it of sell) gold += sellValue(it);
     this.S.bag = this.S.bag.filter((it) => !sell.has(it));

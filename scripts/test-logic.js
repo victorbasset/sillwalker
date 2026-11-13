@@ -547,6 +547,21 @@ test("vente : uniquement ce qui n'améliore pas, jamais les légendaires", () =>
   assert.ok(g.S.bag.every((it) => it.r === 4 || g.isUpgrade(it)));
 });
 
+test("vente : le bouton vend tout ce qui n'améliore pas, légendaires et pièces de panoplie compris (it. 1096)", () => {
+  const g = new Game(freshState());
+  for (let i = 0; i < 20; i++) g.addToBag(g.newItem(i % 5 === 0 ? 4 : 0));
+  g.autoEquip();
+  const leg = g.newItem(4); leg.st = {}; const set = g.newItem(3); set.st = {}; set.set = "dusk"; delete (g.S.setsDone ||= {}).dusk;
+  g.addToBag(leg); g.addToBag(set); g.invalidateStats();
+  assert(!g.isUpgrade(leg) && !g.isUpgrade(set));
+  g.sellUseless(); // automatismes : le légendaire reste
+  assert(g.S.bag.includes(leg), "vente automatique : légendaire gardé");
+  const r = g.sellUseless(true);
+  assert(!g.S.bag.includes(leg) && !g.S.bag.includes(set), "le bouton vend aussi le légendaire et la pièce de panoplie");
+  assert(g.S.bag.every((it) => g.isUpgrade(it)), "il ne reste que des améliorations");
+  assert(r.n >= 2);
+});
+
 test("objets : 7 emplacements, types et matières variés", () => {
   const g = new Game(freshState());
   const names = new Set(), icons = new Set(), slots = new Set();

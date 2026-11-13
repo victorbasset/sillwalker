@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1096, demande H de Victor) : le bouton « Vendre ce qui ne m'améliore pas » (et la touche V) vend
+  tout ce qui n'est pas une amélioration, légendaires et pièces de panoplie compris (Game.nonUpgradeItems ;
+  sellUseless(true)). Les automatismes (vente quand le sac est plein, simulations, transmutation) gardent leur
+  prudence : légendaires et pièces à compléter épargnés. Bulle et confirmation réécrites (« … légendaires et pièces
+  de panoplie compris ») ; la fiche d'une pièce gardée précise que le bouton, lui, la vend. 3 textes traduits ; test
+  logique (247) ; contrôles d'autotest (le bouton vend légendaire et pièces ; l'ancien contrôle « pièces gardées dites
+  au survol » remplacé) : 219/219 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1095, demande E, étape E4 terminée) : dixième et dernier PNJ, Tico, l'écureuil scribe, tient les
   Statistiques (roux, queue en panache, lunettes, une plume ; 5 répliques : « Combien de noisettes vaut une pièce
   d'or ? Je cherche encore. »), au bout des sous-onglets. Scène : une souche creusée en bibliothèque, des livres,
@@ -4218,7 +4225,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      liste des PNJ (un par onglet : nom, lieu, répliques ; EN COURS : Boutique faite, it. 1073) ; E2 le PNJ dans son onglet (FAIT pour la Boutique, it. 1073) (portrait pixel + bulle) ; E3 (FAIT pour la Boutique, it. 1079)
      cinématique de rencontre sur la bande ; E4 les autres onglets ; E5 traductions, « Quoi de neuf ».
   Ordre prévu : A, B (rapides), puis E1-E2, D1-D3, E3, C, D4-D6.
-  H. (2026-11-13, après-midi) « Vendre ce qui ne m'améliore pas » doit tout vendre, légendaires et pièces de panoplie
+  H. FAIT (it. 1096). (2026-11-13, après-midi) « Vendre ce qui ne m'améliore pas » doit tout vendre, légendaires et pièces de panoplie
      comprises, tant que ce n'est pas une amélioration : à faire à l'it. 1096.
   F. FAIT (it. 1074). Chroniques triées dans l'ordre de l'histoire, numérotées dans l'ordre du déblocage.
   G. FAIT (it. 1083). P3 (vu it. 1074) Chroniques dans la grande fenêtre : colonnes qui défilent de côté au-delà de 4 entrées ; Victor

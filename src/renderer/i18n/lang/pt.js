@@ -1562,4 +1562,7 @@ export default {
   2687: "Mais uma conquista! Vou pegar minha melhor pena.",
   2688: "Quantas avelãs vale uma moeda de ouro? Ainda estou calculando.",
   2689: "Seu diário de viagem não para de crescer. Vamos fazer um livro.",
+  2690: "{n} item que não melhora seu herói será vendido, lendários e peças de conjunto incluídos.|{n} itens que não melhoram seu herói serão vendidos, lendários e peças de conjunto incluídos.",
+  2691: "Vende tudo o que não for mais poderoso que seu equipamento atual, lendários e peças de conjunto incluídos.",
+  2692: "Guardada para completar o conjunto: a transmutação e a venda com a bolsa cheia a poupam (não o botão «Vender o que não me melhora»).",
 };
