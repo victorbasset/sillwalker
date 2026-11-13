@@ -1580,4 +1580,5 @@ export default {
   2705: "Was diese Synergie gerade bringt",
   2706: "Gerade: ≈ {0}",
   2707: "Ganzer Pfad: {0}",
+  2708: "✓ Großer Graph vollständig · {n} überzähliger Punkt: +{2} Angriff und LP|✓ Großer Graph vollständig · {n} überzählige Punkte: +{2} Angriff und LP",
 };

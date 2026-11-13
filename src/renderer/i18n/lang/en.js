@@ -1580,4 +1580,5 @@ export default {
   2705: "What this synergy gives right now",
   2706: "Right now: ≈ {0}",
   2707: "Whole path: {0}",
+  2708: "✓ Great graph complete · {n} surplus point: +{2} attack and HP|✓ Great graph complete · {n} surplus points: +{2} attack and HP",
 };

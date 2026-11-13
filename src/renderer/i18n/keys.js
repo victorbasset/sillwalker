@@ -2709,5 +2709,6 @@ export const KEYS = [
   "Les bulles du grand graphe montrent ce que chaque nœud donne vraiment.",
   "Ce que cette synergie donne en ce moment",
   "En ce moment : ≈ {0}",
-  "Toute la voie : {0}"
+  "Toute la voie : {0}",
+  "✓ Grand graphe complet · {n} point en surplus : +{2} d’attaque et de PV|✓ Grand graphe complet · {n} points en surplus : +{2} d’attaque et de PV"
 ];

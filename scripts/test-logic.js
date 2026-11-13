@@ -426,7 +426,7 @@ import { SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, active
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects, graphSpendable } from "../src/renderer/game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects, graphSpendable, graphSurplus, GRAPH_MAX_TAKE, SURPLUS_BONUS } from "../src/renderer/game/skillgraph.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -3554,6 +3554,20 @@ test("grand graphe : fermé tant que la fleur n'est pas complète ; voies exclus
   S.lvl = 600;
   assert(graphPointsFree(S) === graphPointsTotal(S) - 2);
   assert(skillGraphEffects(S).synAtkHp > 0 || skillGraphEffects(S).hpPct > 0 || skillGraphEffects(S).atkPct > 0, "effets de la voie");
+});
+
+test("grand graphe : points en surplus une fois rempli (it. 1115)", () => {
+  const S = freshState(); S.lvl = 2 * SKILL_NODE_COUNT + 2 * (GRAPH_MAX_TAKE + 50) + 4; S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
+  S.skills.outer = [];
+  for (let id; (id = nextGraphNode(S)) && S.skills.outer.length < 2000;) S.skills.outer.push(id);
+  assert.equal(S.skills.outer.length, GRAPH_MAX_TAKE, "une voie par région : 258 nœuds au plus");
+  const sp = graphSurplus(S);
+  assert(sp >= 50, "points en surplus comptés");
+  const before = skillGraphEffects(S).atkPct;
+  S.lvl += 20; // 10 points de plus
+  assert(Math.abs(skillGraphEffects(S).atkPct - before - 10 * SURPLUS_BONUS) < 1e-9, "chaque point en surplus : +0,1 % d'attaque");
+  S.skills.outer.pop();
+  assert.equal(graphSurplus(S), 0, "graphe pas rempli : pas de surplus");
 });
 
 test("grand graphe : synergies (« si je suis tanky, je tape plus fort », « plus je suis riche… ») (it. 1075)", () => {

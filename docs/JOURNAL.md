@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1115) : points en surplus du grand graphe. Une voie par région : un chemin prend au plus 258 des 618
+  nœuds (GRAPH_MAX_TAKE) ; la partie de fin de partie (48 h, record 150) avait déjà 362 points, dont 104 inutiles (le
+  défaut « points en surplus » de l'it. 1018 revenait). Graphe rempli : chaque point de plus donne +0,1 % d'attaque et
+  de PV (SURPLUS_BONUS, dans l'étage multiplicatif du graphe) ; « ✓ Grand graphe complet · 104 points en surplus :
+  +10,4 % d'attaque et de PV ». Semaine simulée : guerrier 335 → 350, mage 324 → 349 (le mur suivant, écho de la
+  zone 350, est atteint au lieu d'une longue stagnation) ; 12 h inchangées (guerrier 61). Test logique (251) ;
+  9 langues (pluriels ru / pl vérifiés) ; autotest 220/220 ; 10 langues sans défaut. À DIRE À VICTOR : c'était sa
+  proposition en attente (it. 1018) ; facile à régler (SURPLUS_BONUS) ou à retirer.
 - 2026-11-13 (it. 1114, demande D, « de vrais choix ») : tant qu'aucune voie n'est choisie dans une région du grand
   graphe, la bulle de chacun de ses nœuds montre ce que donne la voie ENTIÈRE (« Toute la voie : +19,5 % or trouvé,
   +3,3 % attaque, +0,6 % d'attaque par puissance de 10 de l'or possédé ») : les trois voies exclusives se comparent
@@ -4332,7 +4340,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   mage 293 → 321 en 2e semaine : un fort ralentissement, pas un mur). Avec ×1,03 au-delà de 250 (dossier jetable) :
   guerrier 350-377, mage 338-350 en fin de 2e semaine (350 : écho suivant). Choix de Victor : garder ce rythme lent
   (records rares, la fin de partie « dure »), ou adoucir la courbe (≈ +30-40 zones en 2 semaines).
-- À PROPOSER À VICTOR (it. 1018) P3 Points de compétence en surplus : une fois l'arbre entièrement appris (partie de fin
+- FAIT (it. 1115, grand graphe rempli : +0,1 % d'attaque et de PV par point ; à confirmer par Victor) P3 Points de compétence en surplus : une fois l'arbre entièrement appris (partie de fin
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
   (ex. +0,1 % d'attaque et de PV), affiché « Points en surplus : +36 % » ; à mesurer avec simulate.js (semaine).

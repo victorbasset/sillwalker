@@ -1580,4 +1580,5 @@ export default {
   2705: "O que esta sinergia dá agora",
   2706: "Agora: ≈ {0}",
   2707: "Caminho inteiro: {0}",
+  2708: "✓ Grande grafo completo · {n} ponto excedente: +{2} de ataque e PV|✓ Grande grafo completo · {n} pontos excedentes: +{2} de ataque e PV",
 };

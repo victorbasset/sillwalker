@@ -9,7 +9,7 @@ import { esc, dec, unit } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable } from "../../game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
@@ -335,7 +335,9 @@ export class SkillsTab {
     const total = skillPointsTotal(S), free = skillPointsFree(S), used = active.size - 1;
     // (it. 1016) arbre entièrement appris : « 362 points libres · 144 / 144 » laissait croire qu'il restait à faire
     if (used >= SKILL_NODE_COUNT) this.el.querySelector(".skpts").innerHTML = `<span class="delta-p">${tx("✓ Arbre complet · {0} points au total", { 0: total })}</span><br>`
-      + txn(graphPointsFree(S), "Grand graphe : {n} point libre · {2} / {3} nœuds|Grand graphe : {n} points libres · {2} / {3} nœuds", { n: `<b class="gold">${graphPointsFree(S)}</b>`, 2: gActive.size, 3: SKILL_GRAPH_COUNT });
+      // (it. 1115) graphe rempli (une voie par région) : les points en plus deviennent un bonus d'attaque et de PV
+      + (graphSurplus(S) > 0 ? `<span class="delta-p">${txn(graphSurplus(S), "✓ Grand graphe complet · {n} point en surplus : +{2} d’attaque et de PV|✓ Grand graphe complet · {n} points en surplus : +{2} d’attaque et de PV", { n: graphSurplus(S), 2: dec(String(Math.round(graphSurplus(S) * SURPLUS_BONUS * 10) / 10)) + unit("%") })}</span>`
+        : txn(graphPointsFree(S), "Grand graphe : {n} point libre · {2} / {3} nœuds|Grand graphe : {n} points libres · {2} / {3} nœuds", { n: `<b class="gold">${graphPointsFree(S)}</b>`, 2: gActive.size, 3: SKILL_GRAPH_COUNT }));
     else this.el.querySelector(".skpts").innerHTML = `${txn(free, "{n} point libre · {2} / {3} nœuds actifs · {4} points au total|{n} points libres · {2} / {3} nœuds actifs · {4} points au total", { n: `<b class="gold">${free}</b>`, 2: used, 3: SKILL_NODE_COUNT, 4: total })}${S.skills.order.length > used ? `<br><span class="note">${txn(S.skills.order.length - used, "{n} nœud en attente de points.|{n} nœuds en attente de points.")}</span>` : ""}`;
     const eff = skillTreeEffects(S);
     for (const [k, v] of Object.entries(skillGraphEffects(S))) eff[k] = (eff[k] || 0) + v; // (it. 1077) grand graphe compris

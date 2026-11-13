@@ -1580,4 +1580,5 @@ export default {
   2705: "Co ta synergia daje w tej chwili",
   2706: "W tej chwili: ≈ {0}",
   2707: "Cała ścieżka: {0}",
+  2708: "✓ Wielki graf ukończony · {n} nadmiarowy punkt: +{2} ataku i PŻ|✓ Wielki graf ukończony · {n} nadmiarowe punkty: +{2} ataku i PŻ|✓ Wielki graf ukończony · {n} nadmiarowych punktów: +{2} ataku i PŻ",
 };

@@ -133,6 +133,12 @@ export const flowerComplete = (S) => flowerOrder(S).length >= SKILL_NODE_COUNT &
 /** Points disponibles pour le grand graphe : au-delà de la fleur entière. */
 export const graphPointsTotal = (S) => flowerComplete(S) ? Math.max(0, skillPointsTotal(S) - SKILL_NODE_COUNT) : 0;
 export const graphPointsFree = (S) => Math.max(0, graphPointsTotal(S) - outer(S).length);
+/** (it. 1115) Nœuds qu'un chemin peut prendre au plus (une voie par région : 258 sur 618). */
+export const GRAPH_MAX_TAKE = Object.values(SKILL_GRAPH.nodes).filter((n) => n.branch == null || n.branch === 0).length;
+/** (it. 1115) Points en surplus : graphe rempli, chaque point de plus donne SURPLUS_BONUS % d'attaque et de PV
+ *  (multiplicatif, dans l'étage du graphe). La partie de fin de partie (48 h) en avait déjà 104 qui ne servaient à rien. */
+export const SURPLUS_BONUS = 0.1;
+export const graphSurplus = (S) => (outer(S).length >= GRAPH_MAX_TAKE ? graphPointsFree(S) : 0);
 
 /** Nœuds actifs du grand graphe : les N premiers choisis (N = points disponibles), comme pour la fleur. */
 export function activeGraphSet(S) {
@@ -193,6 +199,8 @@ export function skillGraphEffects(S) {
     const eff = SKILL_GRAPH.nodes[id]?.eff || {};
     for (const k in eff) out[k] = (out[k] || 0) + eff[k] * GRAPH_SCALE;
   }
+  const sp = graphSurplus(S);
+  if (sp > 0) { out.atkPct = (out.atkPct || 0) + sp * SURPLUS_BONUS; out.hpPct = (out.hpPct || 0) + sp * SURPLUS_BONUS; }
   return out;
 }
 

@@ -45,7 +45,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   entière, puis ouvert aux points en surplus. 618 nœuds : une région par pétale (porte reliée à la clé de voûte),
   3 voies exclusives par région (on n'en suit qu'une), dont une de synergie (attaque selon les PV, selon l'or…), et un
   anneau de couronnes. Attaque, PV et défense du graphe multiplient le résultat (`GRAPH_SCALE`, graphe complet ≈
-  ×6 de puissance). « Dépenser automatiquement » continue dans le graphe une fois la fleur pleine ; son ouverture est
+  ×6 de puissance). Un chemin prend au plus 258 nœuds (une voie par région) ; ensuite chaque point en surplus donne
+  +0,1 % d'attaque et de PV (`SURPLUS_BONUS`). « Dépenser automatiquement » continue dans le graphe une fois la fleur pleine ; son ouverture est
   annoncée une fois (bulle, mode mini), la pastille de l'onglet compte ses points ; « Réinitialiser le grand graphe »
   le vide sans toucher à la fleur (changer de voie).
 - **PNJ de l'histoire** (`npcs.js`, `art-npcs.js`, `ui/npc.js`) : chaque onglet peut être tenu par un personnage
