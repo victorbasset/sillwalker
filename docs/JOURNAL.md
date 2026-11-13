@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1035) : première minute d'une partie neuve en russe (histoire d'introduction sur une ligne, file de
+  la zone 1 lisible) : propre. fuzz sur 120 graines (2400 parties) : 0 bloquée ; save-fuzz FUZZ_BASE=fin : tout ok.
 - 2026-11-13 (it. 1034) : thème clair, partie de fin de partie à 1366 px : Aventure (carte Zone, sous-titre de
   l'Équipement), Bestiaire > Panoplies (bouton « ◆ 4 dans le sac »), Statistiques > Carnet de route (colonnes),
   Compétences (« ✓ Arbre complet ») : tout lisible, couleurs du thème respectées. Rien à corriger.
