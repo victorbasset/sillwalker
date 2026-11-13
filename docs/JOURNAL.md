@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1121, revue générale) : première heure (early-pace) : 1 / 7 / 18 / 31 / 59 / 114 objets, zone 2 → 23,
+  6 déblocages à 60 min (inchangé) ; dix premières minutes (3 graines) : premier objet, boss et rare vers 77-84 s,
+  onglet Talents 77-84 s, Quêtes ≈ 305 s, Boutique ≈ 550 s ; save-fuzz à partir de la fin de partie : ok (1183
+  corruptions) ; mémoire sur 6 min (mem-watch) : réel 529-540 Mo, plat (pas de fuite ; un peu au-dessus du repère
+  485-530 de CLAUDE.md, au fil des ajouts). Rien à corriger.
 - 2026-11-13 (it. 1120, contrôles) : partie de fin de partie au grand graphe rempli (104 points en surplus), en russe :
   --crawl 500 clics sans erreur ; textes extraits : rien de non traduit (noms de langues et suffixes « Qa », voulus).
   --perf de la fin de partie (copies neuves) : guerrier bande 24,3 % / panneau 26,9 % / mini 7,7 % ; rôdeur (à
