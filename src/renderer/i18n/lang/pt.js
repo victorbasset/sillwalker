@@ -1616,4 +1616,5 @@ export default {
   2741: "O detalhe das estatísticas mostra de onde vem o poder do herói; as missões e o próximo desbloqueio dão o tempo restante estimado.",
   2742: "No fim do jogo, a faixa consome cerca de um terço a menos de processador; o painel pode crescer a 115% ou 130% (Configurações).",
   2743: "Versão {0}",
+  2744: "Caminho que «{0}» escolhe.",
 };

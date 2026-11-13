@@ -9,7 +9,7 @@ import { esc, dec, unit } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS, GRAPH_MAX_TAKE, nextGraphNode } from "../../game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS, GRAPH_MAX_TAKE, nextGraphNode, DEFAULT_BRANCH } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
@@ -250,7 +250,9 @@ export class SkillsTab {
       for (const m of Object.values(SKILL_GRAPH.nodes)) if (m.region === n.region && m.branch === n.branch) for (const [k, v] of Object.entries(graphNodeEffects(m))) e[k] = Math.round(((e[k] || 0) + v) * 100) / 100;
       this._voieEff[key] = e;
     }
-    return `<div class="sub">${esc(tx("Toute la voie : {0}", { 0: describeEffects(this._voieEff[key]) }))}</div>${this.synNowEff(this._voieEff[key], "Toute la voie, en ce moment : ≈ {0}")}`;
+    // (it. 1155) la voie que prendrait « Dépenser automatiquement » (la plus puissante, it. 1154) est signalée
+    const auto = DEFAULT_BRANCH[n.region] === n.branch ? `<div class="sub">${esc(tx("Voie que prend « {0} ».", { 0: tx("Dépenser automatiquement") }))}</div>` : "";
+    return `<div class="sub">${esc(tx("Toute la voie : {0}", { 0: describeEffects(this._voieEff[key]) }))}</div>${this.synNowEff(this._voieEff[key], "Toute la voie, en ce moment : ≈ {0}")}${auto}`;
   }
 
   /** (it. 1113) nœud de synergie : ce qu'il donne avec les statistiques actuelles (« ≈ +3,2 % d'attaque »). */

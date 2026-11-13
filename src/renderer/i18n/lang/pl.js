@@ -1616,4 +1616,5 @@ export default {
   2741: "Szczegóły statystyk pokazują, skąd bierze się moc bohatera; zadania i następne odblokowanie podają szacowany pozostały czas.",
   2742: "Pod koniec gry pasek zużywa około jednej trzeciej mniej procesora; panel może urosnąć do 115% lub 130% (Ustawienia).",
   2743: "Wersja {0}",
+  2744: "Ścieżka wybierana przez „{0}”.",
 };

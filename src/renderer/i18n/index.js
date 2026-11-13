@@ -55,9 +55,11 @@ function koFinal(ch) {
   return null;
 }
 export function koJosa(s) {
-  return s.replace(/(.)(이\(가\)|가\(이\)|을\(를\)|를\(을\)|은\(는\)|는\(은\)|과\(와\)|와\(과\))/gu, (m, ch, pair) => {
+  // (it. 1155) un guillemet ou une parenthèse fermante entre le mot et la particule (« 「{0}」을(를) ») : la particule
+  // suit la dernière lettre du mot (avant : laissée brute, « 이(가) » affiché tel quel)
+  return s.replace(/(.)([」』"'”’)\]]?)(이\(가\)|가\(이\)|을\(를\)|를\(을\)|은\(는\)|는\(은\)|과\(와\)|와\(과\))/gu, (m, ch, close, pair) => {
     const f = koFinal(ch);
-    return f == null ? m : ch + KO_PAIRS[pair][f ? 0 : 1];
+    return f == null ? m : ch + close + KO_PAIRS[pair][f ? 0 : 1];
   });
 }
 // (it. 1006) un entier ≥ 1000 passé tel quel ({ 0: gain }) prend le séparateur des milliers de la langue, comme {n} de

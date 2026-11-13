@@ -1616,4 +1616,5 @@ export default {
   2741: "Die Detailwerte zeigen, woher die Stärke des Helden kommt; Quests und die nächste Freischaltung zeigen ihre geschätzte Restzeit.",
   2742: "Im Endspiel braucht die Leiste etwa ein Drittel weniger Prozessor; das Panel kann auf 115 % oder 130 % wachsen (Einstellungen).",
   2743: "Version {0}",
+  2744: "Pfad, den „{0}“ nimmt.",
 };

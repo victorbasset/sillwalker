@@ -3709,6 +3709,12 @@ test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148
   assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.3", "fenêtre de la 0.1.3");
 });
 
+test("coréen : particule après un guillemet fermant (it. 1155)", () => {
+  assert.equal(koJosa("「자동 분배」이(가) 고르는 길"), "「자동 분배」가 고르는 길", "sans batchim : 가");
+  assert.equal(koJosa("「피의 길」을(를) 따르고"), "「피의 길」을 따르고", "avec batchim : 을");
+  assert.equal(koJosa("검을(를)"), "검을", "cas ordinaire inchangé");
+});
+
 test("version de package.json : ses notes de version existent (it. 1146)", () => {
   // Une nouvelle version (itch.io) sans notes : les joueurs de la précédente ne verraient que les 3 dernières éditions.
   // Ajouter { version, after: NEWS_ID de la version précédente, items } à la fin de NEWS_RELEASES (news.js, CLAUDE.md).

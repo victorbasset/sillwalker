@@ -1616,4 +1616,5 @@ export default {
   2741: "El detalle de las estadísticas muestra de dónde viene el poder del héroe; las misiones y el próximo desbloqueo dan su tiempo restante estimado.",
   2742: "Al final de la partida, la franja consume cerca de un tercio menos de procesador; el panel puede crecer al 115 % o al 130 % (Ajustes).",
   2743: "Versión {0}",
+  2744: "Camino que toma «{0}».",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1155) : la bulle d'une voie pas encore choisie dit si c'est celle que prend « Dépenser
+  automatiquement » (la plus puissante, it. 1154). En route, coréen : une particule après un guillemet fermant
+  (« 「{0}」을(를) ») restait brute ; koJosa saute désormais un guillemet ou une parenthèse fermante (la « Voie fermée »
+  était touchée). Test logique (259) ; 9 langues ; autotest 227/227 (deux fois ; un échec isolé de la transmutation,
+  noté dans les idées).
 - 2026-11-13 (it. 1154) : voie choisie par « Dépenser automatiquement » dans le grand graphe (DEFAULT_BRANCH) :
   puissance de chaque voie entière mesurée (fin de partie ; guerrier, mage, rôdeur : mêmes résultats) ; la voie par
   défaut n'était pas la meilleure en Force (0 : ×1,276 ; 2, sang guerrier : ×1,463) ni en Arcanes (2 : ×1,207 ;
@@ -4488,6 +4493,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 Vu it. 1155 : contrôle d'autotest « transmutation (après confirmation) » instable, une fois sur trois passages :
+  « 164 -> 164 · sac 0+0+0+ plan {used:0, made:0} bouton inactif » : le sac n'avait rien à transmuter à cet instant
+  (dépend de l'état de la partie) ; le contrôle doit fabriquer lui-même sa matière.
 - DEMANDES DE VICTOR (2026-11-13, midi), à traiter en premier, découpées en petites itérations :
   A. FAIT (it. 1070). Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
   B. FAIT (it. 1072). Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
