@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1131, revue générale) : 12 h simulées guerrier 61, rôdeur 62, mage 60 (repères) ; fuzz 1200
+  parties, 0 bloquée ; --crawl en anglais (dev-data) 384 clics sans erreur ; --perf (copies neuves, seul : une
+  première mesure prise pendant les simulations donnait 25 % pour la bande, à jeter) : bande 19,5 %, panneau 20,5 %,
+  mini 7,3 % ; sans les sources de puissance de l'it. 1130 (8 heroStats toutes les 2 s) : 19,5 / 20,6 / 7,1 : coût
+  nul. Rien à corriger.
 - 2026-11-13 (it. 1130, « ressentir une progression ») : « Toutes les statistiques » (Aventure) dit d'où vient la
   puissance du héros : « Sources de puissance : Équipement ×61,4 k, Compétences ×10, Constellations ×1,8, Talents
   ×1,5, Familiers ×1,03, Grand graphe ×1,03 » (powerSources, rules.js : puissance actuelle / puissance sans ce
