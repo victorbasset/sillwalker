@@ -2746,5 +2746,9 @@ export const KEYS = [
   "Le détail des statistiques montre d’où vient la puissance du héros ; quêtes et prochain déblocage donnent leur temps restant estimé.",
   "En fin de partie, la bande consomme environ un tiers de processeur en moins ; le panneau peut grandir à 115 % ou 130 % (Réglages).",
   "Version {0}",
-  "Voie que prend « {0} »."
+  "Voie que prend « {0} ».",
+  "Ma maîtrise s’affine.",
+  "Un nouveau palier !",
+  "Tout un monde autour de la fleur…",
+  "Plus un seul chemin à tracer !"
 ];

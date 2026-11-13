@@ -1617,4 +1617,8 @@ export default {
   2742: "Al final de la partida, la franja consume cerca de un tercio menos de procesador; el panel puede crecer al 115 % o al 130 % (Ajustes).",
   2743: "Versión {0}",
   2744: "Camino que toma «{0}».",
+  2745: "Mi maestría se afina.",
+  2746: "¡Un nuevo hito!",
+  2747: "Todo un mundo alrededor de la flor…",
+  2748: "¡No queda ni un camino por trazar!",
 };

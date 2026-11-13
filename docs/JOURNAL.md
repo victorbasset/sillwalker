@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1162) : le héros parle aussi au palier de maîtrise (« Ma maîtrise s'affine. » / « Un nouveau
+  palier ! », réplique de grand moment : rare), à l'ouverture du grand graphe (« Tout un monde autour de la
+  fleur… ») et quand il est rempli (« Plus un seul chemin à tracer ! »). 9 langues ; contrôle d'autotest des
+  répliques étendu ; 227/227. Après la 0.1.3.
 - 2026-11-13 (it. 1161, revue générale) : --perf (copie neuve de dev-data, seul) : bande 20,9 %, panneau 21,2 %,
   mini 7,1 %, icône 0,8 % (fourchette habituelle 19,2-20,9 selon le combat) ; première heure inchangée (114 objets,
   zone 23, 6 déblocages à 60 min) ; 10 langues sans défaut. Rien à corriger.

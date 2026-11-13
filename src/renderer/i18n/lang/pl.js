@@ -1617,4 +1617,8 @@ export default {
   2742: "Pod koniec gry pasek zużywa około jednej trzeciej mniej procesora; panel może urosnąć do 115% lub 130% (Ustawienia).",
   2743: "Wersja {0}",
   2744: "Ścieżka wybierana przez „{0}”.",
+  2745: "Moje mistrzostwo się wyostrza.",
+  2746: "Nowy próg!",
+  2747: "Cały świat wokół kwiatu…",
+  2748: "Nie została ani jedna ścieżka do wytyczenia!",
 };

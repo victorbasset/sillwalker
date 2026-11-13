@@ -1617,4 +1617,8 @@ export default {
   2742: "In the endgame, the strip uses about a third less CPU; the panel can grow to 115% or 130% (Settings).",
   2743: "Version {0}",
   2744: "Path taken by “{0}”.",
+  2745: "My mastery sharpens.",
+  2746: "A new milestone!",
+  2747: "A whole world around the flower…",
+  2748: "Not a single path left to draw!",
 };

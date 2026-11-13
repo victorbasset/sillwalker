@@ -1617,4 +1617,8 @@ export default {
   2742: "Im Endspiel braucht die Leiste etwa ein Drittel weniger Prozessor; das Panel kann auf 115 % oder 130 % wachsen (Einstellungen).",
   2743: "Version {0}",
   2744: "Pfad, den „{0}“ nimmt.",
+  2745: "Meine Meisterschaft schärft sich.",
+  2746: "Eine neue Stufe!",
+  2747: "Eine ganze Welt rund um die Blume …",
+  2748: "Kein einziger Pfad mehr zu ziehen!",
 };

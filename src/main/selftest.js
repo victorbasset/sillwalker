@@ -876,11 +876,11 @@ async function runSelfTest(strip) {
   const spk = await js(`(() => { const G = window.__game, st = window.__strip, out = [], fe = G.S.settings.fullEffects;
     G.S.settings.fullEffects = true;
     // (classUnlock n'est pas émis ici : il lancerait aussi la cinématique et la bulle d'info de la libération)
-    for (const [ev, p] of [["setBonus", { id: "wind", n: 4 }]]) {
+    for (const [ev, p] of [["setBonus", { id: "wind", n: 4 }], ["masteryStep", { id: "ms_power", at: 10, a: { crit: 2 }, b: { spd: 4 } }], ["graphFull", {}]]) { // (it. 1162) palier, graphe
       st.saidAt = -1e9; st.bubble.hidden = true; st.bubble.textContent = ""; G.emit(ev, p);
       out.push(ev + ":" + (!st.bubble.hidden && st.bubble.textContent ? "ok" : "rien")); }
     G.S.settings.fullEffects = fe; st.bubble.hidden = true; return out.join(" "); })()`);
-  check("répliques du héros : panoplie complète", spk === "setBonus:ok", spk);
+  check("répliques du héros : panoplie complète, palier de maîtrise, grand graphe rempli", spk === "setBonus:ok masteryStep:ok graphFull:ok", spk);
   // (it. 1096, demande de Victor) « Vendre ce qui ne m'améliore pas » vend tout ce qui n'est pas une amélioration,
   // légendaires et pièces de panoplie compris (avant : les légendaires et les pièces à compléter étaient gardés)
   const sellAll = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;

@@ -1617,4 +1617,8 @@ export default {
   2742: "No fim do jogo, a faixa consome cerca de um terço a menos de processador; o painel pode crescer a 115% ou 130% (Configurações).",
   2743: "Versão {0}",
   2744: "Caminho que «{0}» escolhe.",
+  2745: "Minha maestria se apura.",
+  2746: "Um novo marco!",
+  2747: "Todo um mundo em volta da flor…",
+  2748: "Nenhum caminho mais para traçar!",
 };

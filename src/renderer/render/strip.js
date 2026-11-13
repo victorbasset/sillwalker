@@ -59,6 +59,10 @@ const SPEECH = {
   setFull: [tx("Panoplie au complet !"), tx("Tout est assorti, enfin !")], // (it. 1037) palier de 4 pièces
   // (it. 1038) ascension, héros libéré, œuf trouvé
   ascend: [tx("Un nouveau départ, et plus fort !"), tx("Je connais ce chemin par cœur.")],
+  // (it. 1162) palier de maîtrise, grand graphe ouvert puis rempli
+  mastery: [tx("Ma maîtrise s’affine."), tx("Un nouveau palier !")],
+  graphOpen: [tx("Tout un monde autour de la fleur…")],
+  graphFull: [tx("Plus un seul chemin à tracer !")],
   freed: [tx("Un nouvel allié !"), tx("Libre, enfin ! Merci !")],
   egg: [tx("Un œuf ! Qu’est-ce qui va en sortir ?"), tx("Tiens, un œuf…")],
   bag: [tx("Mon sac déborde !"), tx("Plus de place dans le sac…"), tx("Il faudrait vider le sac !")],
@@ -186,6 +190,9 @@ export class StripRenderer {
     g.on("event", ({ id } = {}) => this.say(SPEECH["ev_" + id] || SPEECH.event));
     g.on("eliteNew", () => this.say(SPEECH.eliteNew)); // (it. 956)
     g.on("setBonus", ({ n }) => { if (n >= 4) this.say(SPEECH.setFull, true); }); // (it. 1037)
+    g.on("masteryStep", () => this.say(SPEECH.mastery, true)); // (it. 1162) rare (une fois par palier dans la partie) : comme un grand moment
+    g.on("graphOpen", () => this.say(SPEECH.graphOpen, true));
+    g.on("graphFull", () => this.say(SPEECH.graphFull, true));
     g.on("ascend", () => setTimeout(() => this.say(SPEECH.ascend, true), 1500)); // (it. 1038) après le bandeau
     g.on("classUnlock", () => this.say(SPEECH.freed, true));
     g.on("egg", () => this.say(SPEECH.egg));
