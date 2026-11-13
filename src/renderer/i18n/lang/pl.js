@@ -1489,4 +1489,6 @@ export default {
   2614: "Wielki graf: {n} wolny punkt · {2} / {3} węzłów|Wielki graf: {n} wolne punkty · {2} / {3} węzłów|Wielki graf: {n} wolnych punktów · {2} / {3} węzłów",
   2615: "ataku za każde podwojenie twojego zdrowia",
   2616: "zdrowia za każde podwojenie twojego ataku",
+  2617: "Kliknięcie talentu: tyle rang, ile się da · „+1”: jedna ranga. Najedź na talent, aby zobaczyć jego efekt.",
+  2618: "Jedna ranga",
 };

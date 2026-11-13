@@ -1489,4 +1489,6 @@ export default {
   2614: "Great graph: {n} free point · {2} / {3} nodes|Great graph: {n} free points · {2} / {3} nodes",
   2615: "attack per doubling of your health",
   2616: "health per doubling of your attack",
+  2617: "Click a talent: as many ranks as possible · “+1”: a single rank. Hover a talent to see its effect.",
+  2618: "A single rank",
 };

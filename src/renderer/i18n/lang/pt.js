@@ -1489,4 +1489,6 @@ export default {
   2614: "Grande grafo: {n} ponto livre · {2} / {3} nós|Grande grafo: {n} pontos livres · {2} / {3} nós",
   2615: "de ataque a cada vez que seus pontos de vida dobram",
   2616: "de pontos de vida a cada vez que seu ataque dobra",
+  2617: "Clique num talento: o máximo de níveis possível · «+1»: um só nível. Passe o mouse sobre um talento para ver o efeito.",
+  2618: "Um só nível",
 };

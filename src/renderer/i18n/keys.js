@@ -2618,5 +2618,7 @@ export const KEYS = [
   "Choisir cette voie ferme les deux autres de la région.",
   "Grand graphe : {n} point libre · {2} / {3} nœuds|Grand graphe : {n} points libres · {2} / {3} nœuds",
   "d’attaque par doublement de tes points de vie",
-  "de points de vie par doublement de ton attaque"
+  "de points de vie par doublement de ton attaque",
+  "Clic sur un talent : autant de rangs que possible · « +1 » : un seul rang. Survole un talent pour voir son effet.",
+  "Un seul rang"
 ];

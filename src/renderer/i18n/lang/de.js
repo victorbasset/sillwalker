@@ -1489,4 +1489,6 @@ export default {
   2614: "Großer Graph: {n} freier Punkt · {2} / {3} Knoten|Großer Graph: {n} freie Punkte · {2} / {3} Knoten",
   2615: "Angriff je Verdopplung deiner Lebenspunkte",
   2616: "Lebenspunkte je Verdopplung deines Angriffs",
+  2617: "Klick auf ein Talent: so viele Ränge wie möglich · „+1“: nur ein Rang. Fahre über ein Talent, um seine Wirkung zu sehen.",
+  2618: "Nur ein Rang",
 };

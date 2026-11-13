@@ -1489,4 +1489,6 @@ export default {
   2614: "Gran grafo: {n} punto libre · {2} / {3} nodos|Gran grafo: {n} puntos libres · {2} / {3} nodos",
   2615: "de ataque por cada vez que se duplican tus puntos de vida",
   2616: "de puntos de vida por cada vez que se duplica tu ataque",
+  2617: "Clic en un talento: tantos rangos como sea posible · «+1»: un solo rango. Pasa el ratón por un talento para ver su efecto.",
+  2618: "Un solo rango",
 };

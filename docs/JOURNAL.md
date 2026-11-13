@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1080, demande C de Victor, premier pas : « trop de clics ») : onglet Talents, un clic sur un talent le
+  monte au MAXIMUM possible (avant : +1 rang par clic, un petit « max » à viser) ; la petite pastille devient « +1 »
+  (un seul rang ; aussi Maj + clic / Maj + Entrée). Maîtrises inchangées (+1 au clic, « tout » sur la pastille : pas
+  de points vidés par surprise). Note de l'onglet réécrite et traduite. Contrôles d'autotest mis à jour (209/209) ;
+  10 langues sans défaut. Reste de la demande C : des Maîtrises plus riches que « des points à l'infini ».
 - 2026-11-13 (it. 1079, demande E, étape E3) : rencontre de Mirette sur la bande quand la Boutique s'ouvre (zone 8) :
   sa maisonnette violette sur un grand nénuphar, au bord de l'eau (dessinée sur le canevas de la cinématique) ; le
   héros marche jusqu'à la porte et entre, Mirette apparaît sur le seuil ; titre « Mirette, la grenouille marchande »
@@ -4104,7 +4109,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   A. FAIT (it. 1070). Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
   B. FAIT (it. 1072). Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
      mettre près d'eux. Les 4 objets ne tiennent pas sur Mac sans défilement horizontal : icônes et cartes plus petites.
-  C. Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
+  C. EN PARTIE (it. 1080 : moins de clics). Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
      Rendre l'onglet plus riche en choix (à concevoir : clic = tous les rangs possibles, choix exclusifs, paliers…).
   D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à

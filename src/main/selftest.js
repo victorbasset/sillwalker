@@ -238,22 +238,23 @@ async function runSelfTest(strip) {
   await sleep(150);
   const spent0 = await state("Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0)");
   // Choisit un talent encore améliorable (les tests précédents ont pu en remplir).
-  // Un seul clic sur un talent disponible = +1 rang.
+  // Un seul clic sur un talent disponible : au maximum possible (it. 1080 ; avant : +1 rang).
   const learnable = await js(`(() => { const b = document.querySelector('.talent.can[data-action="t-learn"]'); return b ? b.dataset.id : null; })()`);
   if (learnable) { await click(`.talent[data-tid="${learnable}"] .tn`); await sleep(200); }
   const spent1 = await state("Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0)");
-  check("onglet Talents : un clic sur un talent dépense un point", spent1 === spent0 + 1, `${spent0} -> ${spent1}`);
-  // (it. 855) Maj + Entrée sur un talent : autant de rangs que « max » ; le focus reste sur ce talent après le redessin.
+  check("onglet Talents : un clic sur un talent dépense ses points (au maximum possible)", spent1 > spent0, `${spent0} -> ${spent1}`);
+  // (it. 855, 1080) Maj + Entrée sur un talent : comme sa pastille « +1 » (un seul rang) ; le focus reste sur ce talent.
   const shiftMax = await js(`(async () => { const g = window.__game, S = g.S, P = window.__panel;
-    const pick = () => document.querySelector('[data-pane="talents"]:not([hidden]) .talent .tmax')?.closest('.talent');
-    if (!pick()) { S.lvl += 6; g.invalidateStats(); g.changed(); P.renderAll(); }
-    const b = pick(); if (!b) return 'aucun talent avec max';
+    const pick = () => document.querySelector('[data-pane="talents"]:not([hidden]) .talent:not(.mastery) .tmax')?.closest('.talent');
+    // (it. 1080) talents tous au maximum (dev-data, niveau 1313) : on en remet un à zéro, et des points libres
+    if (!pick()) { const ranks = S.talents[S.cls] ||= {}; const id = Object.keys(ranks).find((k) => ranks[k] > 2 && !k.startsWith("v_") && !k.startsWith("ms_")); if (id) ranks[id] = 0; S.lvl += 6; g.invalidateStats(); g.changed(); P.renderAll(); }
+    const b = pick(); if (!b) return 'aucun talent avec +1';
     const id = b.dataset.tid, r0 = (S.talents[S.cls] || {})[id] || 0;
     b.focus(); b.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', shiftKey: true, bubbles: true, cancelable: true }));
     P.renderAll(); await new Promise((ok) => setTimeout(ok, 120)); P.renderAll();
     const r1 = (S.talents[S.cls] || {})[id] || 0, f = document.activeElement;
-    return [r1 - r0 > 1 ? 'max' : 'rangs ' + r0 + '->' + r1, f && f.dataset.tid === id ? 'focus' : 'focus perdu ' + (f && f.tagName)].join(' '); })()`);
-  check("onglet Talents : Maj + Entrée monte au max, le focus reste sur le talent", shiftMax === "max focus", shiftMax);
+    return [r1 - r0 === 1 ? 'un' : 'rangs ' + r0 + '->' + r1, f && f.dataset.tid === id ? 'focus' : 'focus perdu ' + (f && f.tagName)].join(' '); })()`);
+  check("onglet Talents : Maj + Entrée ajoute un rang, le focus reste sur le talent", shiftMax === "un focus", shiftMax);
   await click('[data-action="t-auto"]');
   await sleep(200);
   check("onglet Talents : dépenser automatiquement", (await js("window.__game.talentPointsFree()")) === 0 || (await js("window.__game.nextAutoTalent()")) === null);

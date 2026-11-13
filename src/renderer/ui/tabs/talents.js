@@ -29,10 +29,12 @@ export class TalentsTab {
         const r = ranks[t.id] || 0, locked = spent < TIER_REQ[t.tier];
         const can = !cannotLearn(S, t.id);
         const cls = ["talent", "tier" + t.tier, locked ? "locked" : "", r >= t.max ? "maxed" : "", r > 0 ? "has" : "", can ? "can" : "", this.sel === t.id ? "sel" : ""].join(" ");
-        return `<button class="${cls}" data-action="t-learn" data-n="1" data-id="${t.id}" data-tid="${t.id}">
+        // (it. 1080, demande C de Victor : trop de clics) un clic monte le talent au maximum possible ; la petite
+        // pastille « +1 » (ou Maj + clic) n'ajoute qu'un rang
+        return `<button class="${cls}" data-action="t-learn" data-n="99" data-id="${t.id}" data-tid="${t.id}">
           <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
           <span class="tr">${locked ? "🔒 " + txn(TIER_REQ[t.tier], "{n} pt|{n} pts") : r + " / " + t.max}</span>
-          ${can && t.max - r > 1 ? `<span class="tmax" data-action="t-learn" data-n="99" data-id="${t.id}" title="${esc(tx("Monter au maximum possible"))}">${tx("max")}</span>` : ""}</button>`;
+          ${can && t.max - r > 1 && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="1" data-id="${t.id}" title="${esc(tx("Un seul rang"))}">+1</span>` : ""}</button>`;
       }).join("");
       return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${txn(spent, "{n} pt|{n} pts")}</small></h2>${rows}</article>`;
     }).join("");
@@ -68,7 +70,7 @@ export class TalentsTab {
       ${hasUnlock(g.S, "bulkPoints") ? `<div class="row"><button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button></div>` : `<div class="row">${lockLink(g.S, "bulkPoints")}</div>`}
       ${hasUnlock(g.S, "autoLevel") ? `<label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>` : ""}
       ${canVoie ? `<p class="note warnline">${tx("✦ Une voie est disponible : choisis-la dans le cadre « Voie ».")}</p>` : ""}
-      <p class="note">${tx("Clic sur un talent : +1 rang · « max » : autant que possible. Survole un talent pour voir son effet.")}</p>
+      <p class="note">${tx("Clic sur un talent : autant de rangs que possible · « +1 » : un seul rang. Survole un talent pour voir son effet.")}</p>
       <div id="tsel">${this.detailHTML()}</div>
       <div class="row tfoot">
         <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
@@ -82,7 +84,7 @@ export class TalentsTab {
     if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e)); }
   }
 
-  /** (it. 855) Maj + Entrée (ou Espace) sur un talent : comme son petit bouton « max » / « tout », jusque-là réservé à la souris. */
+  /** (it. 855) Maj + Entrée (ou Espace) sur un talent : comme son petit bouton (« +1 » depuis l'it. 1080, « tout » pour une maîtrise). */
   onKey(e) {
     if (!e.shiftKey || (e.key !== "Enter" && e.key !== " ")) return;
     const b = e.target.closest && e.target.closest('.talent[data-action="t-learn"]');
@@ -91,7 +93,7 @@ export class TalentsTab {
     this.learnFrom(b, true);
   }
 
-  /** Apprend le talent du bouton : +1 rang, ou autant que le petit bouton « max » / « tout » quand `all` (Maj). */
+  /** Apprend le talent du bouton (talent : au maximum possible ; maîtrise : +1), ou comme son petit bouton quand `all` (Maj). */
   learnFrom(b, all) {
     const max = all && b.querySelector(".tmax");
     const n = max ? +max.dataset.n : +b.dataset.n || 1;
@@ -132,7 +134,7 @@ export class TalentsTab {
   onAction(a, b, e) {
     const g = this.game;
     if (a === "t-sel") this.sel = b.dataset.id;
-    // Maj + clic : comme « max » / « tout »
+    // Maj + clic : comme le petit bouton (« +1 » sur un talent, « tout » sur une maîtrise)
     else if (a === "t-learn") this.learnFrom(b, !!e?.shiftKey);
     else if (a === "t-voie") {
       this.sel = b.dataset.id;
