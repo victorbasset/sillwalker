@@ -107,17 +107,19 @@ export class SkillsTab {
   bindView(box, tip) {
     let drag = null;
     this.dragged = false;
-    box.addEventListener("mousedown", (e) => { drag = { x: e.clientX, y: e.clientY, vx: this.view.x, vy: this.view.y }; this.dragged = false; });
+    // (it. 1053) facteur de zoom du panneau (« Taille de l'interface ») : les coordonnées d'écran y sont ramenées
+    const zf = () => { const w = box.offsetWidth; return w ? box.getBoundingClientRect().width / w : 1; };
+    box.addEventListener("mousedown", (e) => { drag = { x: e.clientX, y: e.clientY, vx: this.view.x, vy: this.view.y, z: zf() }; this.dragged = false; });
     window.addEventListener("mousemove", (e) => {
       if (!drag) return;
-      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      const dx = (e.clientX - drag.x) / drag.z, dy = (e.clientY - drag.y) / drag.z;
       if (Math.abs(dx) + Math.abs(dy) > 4) this.dragged = true;
       if (this.dragged) { this.view.x = drag.vx + dx; this.view.y = drag.vy + dy; this.applyView(); }
     });
     window.addEventListener("mouseup", () => { drag = null; });
     box.addEventListener("wheel", (e) => {
       e.preventDefault();
-      const r = box.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+      const r = box.getBoundingClientRect(), z = zf(), mx = (e.clientX - r.left) / z, my = (e.clientY - r.top) / z;
       const k = Math.max(0.25, Math.min(3, this.view.k * (e.deltaY < 0 ? 1.15 : 1 / 1.15)));
       // Zoom centré sur le curseur
       this.view.x = mx - (mx - this.view.x) * (k / this.view.k);

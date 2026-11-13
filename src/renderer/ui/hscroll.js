@@ -31,11 +31,13 @@ export function initHScroll(root) {
     if (e.button !== 0) return;
     const row = e.target.closest && e.target.closest(".hscroll");
     if (!row || row.scrollWidth <= row.clientWidth + 1) return;
-    drag = { row, x: e.clientX, left: row.scrollLeft, moved: false, id: e.pointerId };
+    // (it. 1053) zoom du panneau (« Taille de l'interface ») : la rangée suit la souris, pas 30 % plus vite
+    const z = row.offsetWidth ? row.getBoundingClientRect().width / row.offsetWidth : 1;
+    drag = { row, x: e.clientX, left: row.scrollLeft, moved: false, id: e.pointerId, z: z || 1 };
   });
   root.addEventListener("pointermove", (e) => {
     if (!drag || e.pointerId !== drag.id) return;
-    const dx = e.clientX - drag.x;
+    const dx = (e.clientX - drag.x) / drag.z;
     if (!drag.moved && Math.abs(dx) < DRAG_MIN) return;
     if (!drag.moved) { drag.moved = true; drag.row.classList.add("dragging"); try { drag.row.setPointerCapture(e.pointerId); } catch { /* déjà relâché */ } }
     drag.row.scrollLeft = drag.left - dx;

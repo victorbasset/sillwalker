@@ -622,10 +622,13 @@ export class Panel {
     });
     this.root.addEventListener("mousemove", (e) => {
       if (tip.hidden) return;
-      const r = this.root.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
-      let x = e.clientX - r.left + 14, y = e.clientY - r.top + 16;
-      if (x + w > r.width - 4) x = Math.max(4, e.clientX - r.left - w - 10);
-      if (y + h > r.height - 4) y = Math.max(4, e.clientY - r.top - h - 10);
+      // (it. 1053) coordonnées d'écran ramenées dans le panneau zoomé (« Taille de l'interface ») : à 130 %, la bulle
+      // s'affichait jusqu'à 216 px de la souris
+      const r = this.root.getBoundingClientRect(), z = r.width / (this.root.offsetWidth || r.width) || 1, w = tip.offsetWidth, h = tip.offsetHeight;
+      const W = r.width / z, H = r.height / z, mx = (e.clientX - r.left) / z, my = (e.clientY - r.top) / z;
+      let x = mx + 14, y = my + 16;
+      if (x + w > W - 4) x = Math.max(4, mx - w - 10);
+      if (y + h > H - 4) y = Math.max(4, my - h - 10);
       tip.style.left = x + "px"; tip.style.top = y + this.root.scrollTop + "px"; // panneau défilable
     });
     this.root.addEventListener("mouseleave", hide);
@@ -637,9 +640,10 @@ export class Panel {
       if (el.hasAttribute("title")) { el.dataset.title = el.getAttribute("title"); el.removeAttribute("title"); }
       cur = el; tip.textContent = el.dataset.title; tip.hidden = false;
       const r = this.root.getBoundingClientRect(), b = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
-      const x = Math.max(4, Math.min(r.width - w - 4, b.left - r.left));
-      let y = b.bottom - r.top + 6;
-      if (y + h > r.height - 4) y = Math.max(4, b.top - r.top - h - 6);
+      const z = r.width / (this.root.offsetWidth || r.width) || 1, W = r.width / z, H = r.height / z; // (it. 1053) zoom
+      const x = Math.max(4, Math.min(W - w - 4, (b.left - r.left) / z));
+      let y = (b.bottom - r.top) / z + 6;
+      if (y + h > H - 4) y = Math.max(4, (b.top - r.top) / z - h - 6);
       tip.style.left = x + "px"; tip.style.top = y + this.root.scrollTop + "px";
     });
     this.root.addEventListener("focusout", (e) => { if (e.target === cur) hide(); });

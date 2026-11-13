@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1053) : interface agrandie : la bulle d'info du panneau (placée dans #panel, zoomé) était positionnée
+  en coordonnées d'écran : à 130 %, elle s'affichait jusqu'à 216 px de la souris (sonde : 13 px à 100 %). Coordonnées
+  ramenées dans le panneau (division par le zoom), au survol et au clavier ; de même pour le glisser des rangées
+  (hscroll) et de l'arbre de compétences (glisser, zoom à la molette), qui allaient 30 % trop vite. Contrôle d'autotest
+  (zoom 1,3, bulle à 21 px ; 224 sans le correctif). Contrôle de l'it. 1022 rendu stable (deux emplacements équipés :
+  sur un emplacement vide, la pièce était une amélioration). Trois passages à 206/206.
 - 2026-11-13 (it. 1052) : « Quoi de neuf », édition 50 : moments du mode mini en entier ; panneau mieux disposé de 1500
   à 1800 px et avec l'interface à 115 / 130 %. 10 langues sans défaut (« Quoi de neuf » au pire cas, fin de partie à
   1600 px et à 130 % compris) ; autotest 205/205.

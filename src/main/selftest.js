@@ -766,6 +766,21 @@ async function runSelfTest(strip) {
   // (it. 969) détail du retour : « Or gagné » = combats + expéditions du Grand intendant (le même total que la bulle)
   const offD = await js("(() => { const P = window.__panel; P.showOfflineSummary({ seconds: 28800, duration: '8 h', zone: 'Z', kills: 10, gold: 1000, petGold: 500, xp: 1, kept: 0, best: -1, steps: [], petWork: 3, capH: 8, questsDone: 2 }); const t = document.getElementById('mbody').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return t; })()");
   check("retour d’absence : or gagné total, expéditions du Grand intendant détaillées", /1[,.\s\u00a0\u202f]?500/.test(offD) && /\+500/.test(offD) && /Quests completed\s*2/.test(offD), offD.slice(0, 300));
+  // (it. 1053) bulle d'info du panneau zoomé (« Taille de l'interface » 130 %) : près de la souris, pas 200 px plus loin
+  const tipZ = await js(`(() => { const P = window.__panel, root = document.getElementById("panel"), keep = root.style.zoom, tab = P.tab;
+    try {
+      P.setTab("adventure"); P.renderAll(); root.style.zoom = "1.3";
+      const els = [...root.querySelectorAll('[data-pane="adventure"]:not([hidden]) [title], [data-pane="adventure"]:not([hidden]) [data-title]')].filter((e) => e.getClientRects().length);
+      const el = els[Math.floor(els.length * 0.7)]; if (!el) return "pas d'élément";
+      const r = el.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+      el.dispatchEvent(new MouseEvent("mouseover", { bubbles: true, clientX: x, clientY: y }));
+      root.dispatchEvent(new MouseEvent("mousemove", { bubbles: true, clientX: x, clientY: y }));
+      const t = root.querySelector(".gtip").getBoundingClientRect();
+      root.dispatchEvent(new MouseEvent("mouseleave"));
+      // distance de la souris au rectangle de la bulle (elle bascule de l'autre côté près des bords : voulu)
+      return Math.round(Math.hypot(Math.max(t.left - x, 0, x - t.right), Math.max(t.top - y, 0, y - t.bottom)));
+    } finally { root.style.zoom = keep; P.setTab(tab); P.renderAll(); } })()`);
+  check("bulle d'info du panneau zoomé (130 %) près de la souris", typeof tipZ === "number" && tipZ < 40, String(tipZ));
   // (it. 1039) répliques du héros des it. 1037-1038 : une panoplie complète fait parler le héros
   const spk = await js(`(() => { const G = window.__game, st = window.__strip, out = [], fe = G.S.settings.fullEffects;
     G.S.settings.fullEffects = true;
@@ -780,7 +795,9 @@ async function runSelfTest(strip) {
     const keep = { bag: S.bag.slice(), done: { ...(S.setsDone || {}) }, size: S.bagSize, tab: P.tab };
     try {
       S.bagSize = Math.max(S.bagSize, S.bag.length + 2); delete (S.setsDone ||= {}).dusk;
-      for (const sl of ["helm", "boots"]) { const it = G.newItem(3); it.r = 3; it.slot = sl; it.set = "dusk"; it.st = {}; it.lvl = 1; S.bag.push(it); } // épique fixé : un légendaire tiré est gardé pour une autre raison
+      // (it. 1053) deux emplacements équipés : sur un emplacement vide, toute pièce serait une amélioration (pas « gardée »)
+      const slots = Object.keys(S.equip).filter((k) => S.equip[k] && S.equip[k].set !== "dusk").slice(0, 2);
+      for (const sl of slots) { const it = G.newItem(3); it.r = 3; it.slot = sl; it.set = "dusk"; it.st = {}; it.lvl = 1; S.bag.push(it); } // épique fixé : un légendaire tiré est gardé pour une autre raison
       G.invalidateStats(); P.setTab("adventure"); P.renderAll();
       const b = document.querySelector('[data-action="sellless"]');
       return b ? (b.title || b.dataset.title || "") : "pas de bouton";
