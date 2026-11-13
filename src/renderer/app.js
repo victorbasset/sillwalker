@@ -576,6 +576,12 @@ async function boot() {
     showToast(`✦ ${txn(points, "Le grand graphe s’ouvre autour de la fleur ! {n} point à y dépenser.|Le grand graphe s’ouvre autour de la fleur ! {n} points à y dépenser.")}`, () => { openPanel(); panel.setTab("skills"); }, 12000);
     panel.dirty = true;
   });
+  // (it. 1117) grand graphe rempli : annoncé une fois, avec ce que donnent désormais les points en plus
+  game.on("graphFull", () => {
+    sound.play("tab");
+    showToast(`✦ ${tx("Grand graphe complet ! Chaque point de compétence en plus donne désormais +0,1 % d’attaque et de PV.")}`, () => { openPanel(); panel.setTab("skills"); }, 12000);
+    panel.dirty = true;
+  });
   game.on("tabOpen", ({ ids }) => {
     sound.play("tab");
     for (const id of ids) {

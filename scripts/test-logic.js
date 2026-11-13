@@ -3656,6 +3656,19 @@ test("grand graphe : annoncé une seule fois à son ouverture ; des points à y 
   assert.equal(g.S.skills.graphSeen, true);
 });
 
+test("grand graphe : rempli, annoncé une seule fois (it. 1117)", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 2 * SKILL_NODE_COUNT + 2 * GRAPH_MAX_TAKE + 40; g.S.skills.graphSeen = true; delete g.S.skills.graphFullSeen;
+  g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];
+  for (let id; (id = nextGraphNode(g.S)) && g.S.skills.outer.length < GRAPH_MAX_TAKE - 1;) g.S.skills.outer.push(id);
+  let n = 0; g.on("graphFull", () => n++);
+  g.advance(3);
+  assert.equal(n, 0, "pas encore rempli");
+  g.S.skills.outer.push(nextGraphNode(g.S));
+  g.advance(3); g.advance(3);
+  assert.equal(n, 1, "une seule annonce");
+});
+
 test("maîtrises : un bonus au choix à chaque palier, « a » par défaut ; sauvegarde nettoyée (it. 1107)", () => {
   const g = new Game(freshState()); (g.S.talents[g.S.cls] ||= {}).ms_power = 25;
   const crit0 = talentEffects(g.S).crit || 0, spd0 = talentEffects(g.S).spd || 0;

@@ -8,7 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
-import { SKILL_GRAPH, takeGraphNode, nextGraphNode, graphSpendable, graphPointsFree, flowerComplete } from "./skillgraph.js";
+import { SKILL_GRAPH, takeGraphNode, nextGraphNode, graphSpendable, graphPointsFree, flowerComplete, GRAPH_MAX_TAKE } from "./skillgraph.js";
 import { RELICS, RELIC_IDS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
 /** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
 const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
@@ -239,7 +239,10 @@ export class Game {
     R.time += dt;
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
     if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh }); // (it. 1105) le grand graphe s'ouvre : annoncé une fois
-      if (!this.S.skills.graphSeen && flowerComplete(this.S)) { this.S.skills.graphSeen = true; this.emit("graphOpen", { points: graphPointsFree(this.S) }); }
+      // (it. 1117) déjà rempli (ancienne partie) : pas de « N points à y dépenser », l'annonce du graphe complet suit
+      if (!this.S.skills.graphSeen && flowerComplete(this.S)) { this.S.skills.graphSeen = true; if ((this.S.skills.outer || []).length < GRAPH_MAX_TAKE) this.emit("graphOpen", { points: graphPointsFree(this.S) }); }
+      // (it. 1117) grand graphe rempli (une voie par région) : annoncé une fois, les points suivants deviennent un bonus
+      if (!this.S.skills.graphFullSeen && (this.S.skills.outer || []).length >= GRAPH_MAX_TAKE) { this.S.skills.graphFullSeen = true; this.emit("graphFull", {}); }
       const chron = takeNewChronicles(this.S, recordZone(this.S));
       if (chron.length) { for (const c of chron) this.milestone("chron", c.id); this.emit("chronicle", { ids: chron.map((c) => c.id) }); }
       // (it. 884) Grand intendant : aussi pendant un long combat de boss (avant, seulement après une victoire : œufs et

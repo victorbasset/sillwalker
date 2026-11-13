@@ -2713,5 +2713,7 @@ export const KEYS = [
   "✓ Grand graphe complet · {n} point en surplus : +{2} d’attaque et de PV|✓ Grand graphe complet · {n} points en surplus : +{2} d’attaque et de PV",
   "Grand graphe : chaque synergie montre ce qu’elle donne en ce moment (« Bonus actifs », et dans la bulle d’un nœud pas encore pris).",
   "Avant de choisir une voie, la bulle de ses nœuds montre ce que donne la voie entière : les trois voies d’une région se comparent.",
-  "Grand graphe rempli : chaque point de compétence en surplus donne +0,1 % d’attaque et de PV."
+  "Grand graphe rempli : chaque point de compétence en surplus donne +0,1 % d’attaque et de PV.",
+  "Grand graphe complet ! Chaque point de compétence en plus donne désormais +0,1 % d’attaque et de PV.",
+  "Grand graphe complet !"
 ];

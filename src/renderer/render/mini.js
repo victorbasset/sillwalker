@@ -68,6 +68,7 @@ export class MiniRenderer {
     game.on("chronicle", ({ ids }) => { const c = CHRONICLES.find((x) => x.id === ids[0]); if (c) this.showMoment("📜 " + tx(c.title)); });
     // Onglet débloqué : la bulle de la bande n'est pas visible en mode mini, l'annonce passe par la scène.
     game.on("graphOpen", () => this.showMoment("✦ " + tx("Le grand graphe s’ouvre !"))); // (it. 1106)
+    game.on("graphFull", () => this.showMoment("✦ " + tx("Grand graphe complet !"))); // (it. 1117)
     game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(csep()) })));
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(zone % 50 === 0 ? "✦ " + tx("Cap franchi : zone {0} !", { 0: zone }) : tx("Nouveau record : zone {0} !", { 0: zone })); });
     game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })));

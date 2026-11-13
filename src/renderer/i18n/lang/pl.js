@@ -1584,4 +1584,6 @@ export default {
   2709: "Wielki graf: każda synergia pokazuje, co daje w tej chwili („Aktywne premie” i w dymku jeszcze niewziętego węzła).",
   2710: "Przed wyborem ścieżki dymek jej węzłów pokazuje, co daje cała ścieżka: trzy ścieżki regionu można porównać.",
   2711: "Wielki graf ukończony: każdy nadmiarowy punkt umiejętności daje +0,1% ataku i PŻ.",
+  2712: "Wielki graf ukończony! Każdy kolejny punkt umiejętności daje teraz +0,1% ataku i PŻ.",
+  2713: "Wielki graf ukończony!",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1117) : grand graphe rempli (258 nœuds) annoncé une fois : bulle « Grand graphe complet ! Chaque
+  point de compétence en plus donne désormais +0,1 % d'attaque et de PV » (clic : Compétences), moment du mode mini
+  (S.skills.graphFullSeen). Vu en capture : une partie dont le graphe était déjà plein recevait en même temps
+  « Le grand graphe s'ouvre… 104 points à y dépenser » (faux : rien à prendre) : l'ouverture n'est plus annoncée dans
+  ce cas. Test logique (252) ; save-fuzz ok ; 9 langues ; autotest 220/220.
 - 2026-11-13 (it. 1116) : « Quoi de neuf », édition 55 : valeur actuelle des synergies, voie entière dans la bulle,
   points en surplus du grand graphe rempli. 9 langues (i18n-quotes a relevé « Bonus actifs » mal cité en chinois :
   corrigé) ; pire cas sans défilement ; autotest 220/220 ; 10 langues sans défaut.
