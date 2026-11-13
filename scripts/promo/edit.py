@@ -77,12 +77,49 @@ def frames(src, t0, dur):
     p.stdout.close(); p.wait()
 
 
+DESK2 = None
+
+
+def desk_frame(src):
+    """(it. 1171) Bureau ×2 (3840×2160) avec la fenêtre du jeu posée au-dessus de la barre des tâches ; le noir pur de la
+    fenêtre (sa transparence : le jeu n'utilise pas #000) devient transparent."""
+    global DESK2
+    if DESK2 is None:
+        DESK2 = Image.open(sc_desk_path).convert("RGB").resize((W * 2, H * 2), Image.NEAREST)
+    import numpy as np
+    a = np.asarray(src)
+    mask = Image.fromarray(((a.max(axis=2) > 6) * 255).astype("uint8"), "L")
+    img = DESK2.copy()
+    img.paste(src, (0, (H - 48) * 2 - SRC_H), mask)
+    return img
+
+
+sc_desk_path = os.path.join(os.path.dirname(OUT), "desk.png")
+
+
 def render_scene(sc, enc, bgs):
     dur = sc["dur"]
     n = int(round(dur * FPS))
     bg = bgs.setdefault(sc.get("bg", "night"), background(sc.get("bg", "night")))
     title = text_layer(sc["title"]) if sc.get("title") else None
     fade = sc.get("fade", 8)
+    if sc["type"] == "desktop":  # caméra dans le bureau ×2 (3840×2160), image entière par défaut
+        it = frames(sc["src"], sc.get("t0", 0), dur)
+        cam = sc.get("cam", [[0, 0, 3840], [0, 0, 3840]])
+        for i in range(n):
+            f = i / max(1, n - 1); k = ease(f)
+            cx = cam[0][0] + (cam[1][0] - cam[0][0]) * k; cy = cam[0][1] + (cam[1][1] - cam[0][1]) * k
+            cw = cam[0][2] + (cam[1][2] - cam[0][2]) * k; ch = cw * H / W
+            cx = max(0, min(W * 2 - cw, cx)); cy = max(0, min(H * 2 - ch, cy))  # cadrage gardé dans le bureau
+            comp = desk_frame(next(it)).crop((int(cx), int(cy), int(cx + cw), int(cy + ch)))
+            img = comp.resize((W, H), Image.NEAREST if W / cw >= 1 else Image.BOX)
+            if title is not None:
+                img.paste(title, (0, 0), title)
+            if fade and (i < fade or i >= n - fade):
+                a = min(i, n - 1 - i) / fade
+                img = Image.blend(Image.new("RGB", (W, H), (0, 0, 0)), img, max(0.0, min(1.0, a)))
+            enc.stdin.write(img.tobytes())
+        return
     if sc["type"] == "card":
         it = iter([None] * n)
     else:

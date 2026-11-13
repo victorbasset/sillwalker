@@ -3,7 +3,8 @@ const { app, BrowserWindow } = require("electron");
 const fs = require("fs"), path = require("path");
 const OUT = path.resolve(process.argv[process.argv.length - 1]);
 // un air, trois passages bout à bout ; droit (sans swing ni écho marqué) et sans la variante boss (it. 812)
-const PASSES = [["track", 36, "0,0,0", "1"]];
+// (it. 1171) MUSIC_PASSES="nom:zone:passages:droit;…" (ex. "z141:141:0,0,0,0:1") pour d'autres airs
+const PASSES = process.env.MUSIC_PASSES ? process.env.MUSIC_PASSES.split(";").map((x) => x.split(":")) : [["track", 36, "0,0,0", "1"]];
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const win = new BrowserWindow({ show: false, webPreferences: { offscreen: true } });

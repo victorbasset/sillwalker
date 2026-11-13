@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1171, bande-annonce 5) : musique : scripts/trailer/music.js accepte MUSIC_PASSES (airs au choix) ;
+  quatre airs rendus (zones 141, 126, 86, 36) et analysés mesure par mesure (réguliers, mais pic à 0,21 : mixés en
+  fond dans le jeu) ; choisi : zone 126 (cloches, 89 bpm, mesure 2,70 s, 24 mesures = 68 s). Arc au mixage : deux
+  mesures d'ouverture étouffées (passe-bas 700 Hz) puis ouverture, fondus, loudnorm −14 LUFS. Monteur : scène
+  « desktop » (bureau ×2 3840×2160, fenêtre du jeu en taille réelle au-dessus de la barre des tâches, son noir rendu
+  transparent ; caméra du bureau entier jusqu'au héros, net ; cadrage borné au bureau).
 - 2026-11-14 (it. 1170, bande-annonce 4) : monteur scripts/promo/edit.py <edl.json> <plans> <polices> <sortie> <ffmpeg>
   [audio] : chaque image composée en Pillow (fond nuit étoilé à vignette, plan cadré par une caméra animée lissée,
   agrandi au plus proche voisin, ombre portée, titres Pixelify Sans / Geist Pixel à contour, fondus) puis encodée ;
