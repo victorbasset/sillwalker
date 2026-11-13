@@ -10,6 +10,7 @@ import { setCounts } from "./sets.js";
 import { codexCounts } from "./codex.js";
 import { POWERS } from "./powers.js";
 import { SKILL_TREE, activeSkillSet } from "./skilltree.js";
+import { activeGraphSet, GRAPH_MAX_TAKE } from "./skillgraph.js";
 import { CHRONICLES } from "./story.js";
 import { RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel, ECHO_BOSSES } from "./relics.js";
 import { classSpells, spellRank } from "./spells.js";
@@ -46,6 +47,9 @@ export const ACHIEVEMENTS = [
   { id: "BESTIARY_ALL",    name: "Bestiaire complet",  test: (S) => Object.keys(MONSTERS).every((k) => (S.bestiary?.[k] || 0) > 0) },
   { id: "SKILL_KEYSTONE",  name: "Clé de voûte",       test: (S) => [...activeSkillSet(S)].some((id) => SKILL_TREE.nodes[id].kind === "keystone") },
   { id: "SKILL_100",       name: "100 compétences",    test: (S) => activeSkillSet(S).size - 1 >= 100 },
+  // (it. 1136) grand graphe autour de la fleur : premier nœud, puis rempli (une voie par région, 258 nœuds)
+  { id: "GRAPH_FIRST",     name: "Au-delà de la fleur", test: (S) => activeGraphSet(S).size > 0 },
+  { id: "GRAPH_FULL",      name: "Le grand graphe accompli", test: (S) => activeGraphSet(S).size >= GRAPH_MAX_TAKE },
   { id: "FEATHER",         name: "Plume du vent",      test: (S) => (S.stats.feathers || 0) >= 1 },
   { id: "SHOOTING_STAR",   name: "Vœu exaucé (étoile filante)", test: (S) => (S.stats.stars || 0) >= 1 },
   { id: "SPEED_25",        name: "Rapide comme le vent (+25 % de vitesse)", test: (S) => (S.speed || 0) >= 25 },
@@ -128,6 +132,7 @@ export const ACH_PROGRESS = {
   QUESTS_25: (S) => [(S.quests && S.quests.completed) || 0, 25],
   BESTIARY_ALL: (S) => [Object.keys(MONSTERS).filter((k) => (S.bestiary && S.bestiary[k]) > 0).length, Object.keys(MONSTERS).length],
   SKILL_100: (S) => [Math.max(0, activeSkillSet(S).size - 1), 100],
+  GRAPH_FULL: (S) => [activeGraphSet(S).size, GRAPH_MAX_TAKE],
   SPEED_25: (S) => [Math.floor(S.speed || 0), 25],
   MASTER_OF_ALL: (S) => [CLASS_KEYS.filter((c) => (S.stats.classes || []).includes(c)).length, CLASS_KEYS.length],
   ALL_CLASSES: (S) => [(S.stats.classes || []).length, 3],

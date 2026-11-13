@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (64 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (66 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -22,6 +22,8 @@ Généré par `scripts/steam-achievements.mjs` (64 succès). À recopier dans St
 | `BESTIARY_ALL` | Bestiaire complet | Complete bestiary | Bestiario completo | Bestiário completo | Vollständiges Bestiarium | Pełny bestiariusz | Полный бестиарий | 完整图鉴 | 図鑑コンプリート | 도감 완성 |
 | `SKILL_KEYSTONE` | Clé de voûte | Keystone | Piedra angular | Pedra angular | Schlussstein | Zwornik | Замковый камень | 拱心石 | 要石 | 쐐기돌 |
 | `SKILL_100` | 100 compétences | 100 skills | 100 habilidades | 100 habilidades | 100 Fertigkeiten | 100 umiejętności | 100 навыков | 100 个技能 | スキル 100 | 스킬 100개 |
+| `GRAPH_FIRST` | Au-delà de la fleur | Beyond the flower | Más allá de la flor | Além da flor | Jenseits der Blume | Poza kwiatem | За пределами цветка | 花朵之外 | 花の向こうへ | 꽃 너머로 |
+| `GRAPH_FULL` | Le grand graphe accompli | The great graph fulfilled | El gran grafo completado | O grande grafo completo | Der große Graph vollendet | Wielki graf ukończony | Большой граф завершён | 大星图圆满 | 大きなグラフの完成 | 거대한 그래프 완성 |
 | `FEATHER` | Plume du vent | Wind Feather | Pluma del viento | Pena do vento | Windfeder | Pióro wiatru | Перо ветра | 风之羽毛 | 風の羽根 | 바람의 깃털 |
 | `SHOOTING_STAR` | Vœu exaucé (étoile filante) | Wish Granted (shooting star) | Deseo cumplido (estrella fugaz) | Desejo realizado (estrela cadente) | Wunsch erfüllt (Sternschnuppe) | Spełnione życzenie (spadająca gwiazda) | Желание исполнено (падающая звезда) | 愿望成真（流星） | 願いが叶った（流れ星） | 소원 성취 (별똥별) |
 | `SPEED_25` | Rapide comme le vent (+25 % de vitesse) | Swift as the Wind (+25% speed) | Rápido como el viento (+25 % de velocidad) | Rápido como o vento (+25% de velocidade) | Schnell wie der Wind (+25 % Tempo) | Szybki jak wiatr (+25% szybkości) | Быстрый как ветер (+25% скорости) | 疾如风（速度 +25%） | 風のように速い（速度 +25%） | 바람처럼 빠름 (속도 +25%) |

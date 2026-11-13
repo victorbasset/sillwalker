@@ -1599,4 +1599,6 @@ export default {
   2724: "„Wszystkie statystyki” pokazują, skąd bierze się moc bohatera: ile mnożą ją ekwipunek, umiejętności, talenty, konstelacje, wielki graf…",
   2725: "Mistrzostwa: próg osiągnięty w poprzednim biegu można ustawić z góry (⏳), bez ponownego osiągania.",
   2726: "Rozmiar interfejsu 130%: dymki przedmiotów i węzłów umiejętności zostają przy wskazanym elemencie i w panelu.",
+  2727: "Poza kwiatem",
+  2728: "Wielki graf ukończony",
 };

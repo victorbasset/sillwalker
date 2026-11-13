@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1136) : deux succès pour le grand graphe (66 succès) : « Au-delà de la fleur » (GRAPH_FIRST, un
+  premier nœud actif) et « Le grand graphe accompli » (GRAPH_FULL, 258 nœuds, avec sa progression « (N / 258) »).
+  Icônes Steam (trèfle et talisman, encore libres ; les 128 existantes régénérées à l'identique, seules les 4
+  nouvelles ajoutées), steam/achievements.md régénéré, liste du README. 9 langues ; 255 tests ; autotest 224/224 ;
+  10 langues sans défaut (liste des succès comprise).
 - 2026-11-13 (it. 1135, contrôles) : 1) fin de la revue de la grande fenêtre (it. 1133-1134) : Chroniques (le ▶ la
   ferme exprès : cinématique sur la bande), Statistiques, Probabilités et « Ce qui est gardé » (sans bouton),
   Automatismes (cases déjà exemptées) : rien d'autre. 2) Les choix des paliers de maîtrise sont-ils de vrais choix ?

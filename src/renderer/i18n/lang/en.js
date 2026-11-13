@@ -1599,4 +1599,6 @@ export default {
   2724: "“All statistics” shows where the hero’s power comes from: what equipment, skills, talents, constellations, the great graph… multiply it by.",
   2725: "Masteries: a milestone reached in a previous run can be set in advance (⏳), without reaching it again.",
   2726: "Interface size at 130%: item and skill node tooltips stay next to what you hover and inside the panel.",
+  2727: "Beyond the flower",
+  2728: "The great graph fulfilled",
 };

@@ -1599,4 +1599,6 @@ export default {
   2724: "«Todas las estadísticas» muestra de dónde viene el poder del héroe: por cuánto lo multiplican el equipo, las habilidades, los talentos, las constelaciones, el gran grafo…",
   2725: "Maestrías: un hito alcanzado en una partida anterior se elige por adelantado (⏳), sin volver a alcanzarlo.",
   2726: "Tamaño de la interfaz al 130 %: los globos de objetos y nodos de habilidad quedan junto a lo que se señala y dentro del panel.",
+  2727: "Más allá de la flor",
+  2728: "El gran grafo completado",
 };

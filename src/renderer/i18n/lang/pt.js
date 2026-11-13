@@ -1599,4 +1599,6 @@ export default {
   2724: "«Todas as estatísticas» mostra de onde vem o poder do herói: quanto o multiplicam o equipamento, as habilidades, os talentos, as constelações, o grande grafo…",
   2725: "Maestrias: um marco alcançado numa corrida anterior pode ser definido com antecedência (⏳), sem alcançá-lo de novo.",
   2726: "Tamanho da interface a 130%: os balões de itens e nós de habilidade ficam junto do que se aponta e dentro do painel.",
+  2727: "Além da flor",
+  2728: "O grande grafo completo",
 };
