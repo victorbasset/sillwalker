@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1029) : vérifié : la bulle d'astuce sur trois lignes est bien comptée dans la zone cliquable
+  (clickThrough.refresh mesure après l'insertion). Analyse de fin de semaine (voir Idées : mur doux vers 293, sans
+  cause unique ; à proposer à Victor). Aucun changement du jeu.
 - 2026-11-13 (it. 1028) : « Quoi de neuf », édition 48 : contours discrets des boss et des monstres sombres, pièces de
   panoplie gardées dites au survol de « Vendre ce qui ne m'améliore pas », astuces affichées en entier. Bulles de
   paroles du héros mesurées (49 répliques) : 283 px au plus (allemand), rien à corriger. 10 langues sans défaut
@@ -3834,6 +3837,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- À PROPOSER À VICTOR (it. 1029) P2 Fin de semaine : tous les héros finissent autour de la zone 293 (artificier,
+  paladin, assassin, guerrier, mage : dernières courses 293, parfois 296 ou 308) ; artificier : 6 courses de suite à
+  250 (écho), puis 11 sur 13 à 293. Pas la faute d'un boss : sans venin, ou avec un coup dévastateur ×1,5 au lieu de
+  ×2,5, mêmes records (essais dans des dossiers de travail). La puissance du héros rattrape mal la courbe des
+  monstres vers 300 (×1,04 par zone au-delà de 70, rules.js) ; ressenti possible : « je ne progresse plus » après ≈ 5
+  jours. Pistes : un palier de puissance permanent supplémentaire en fin de partie (points de compétence en surplus,
+  it. 1018 ; reliques des échos plus fortes), ou une courbe un peu plus douce au-delà de 250 ; à mesurer sur 2 semaines.
 - À PROPOSER À VICTOR (it. 1018) P3 Points de compétence en surplus : une fois l'arbre entièrement appris (partie de fin
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
