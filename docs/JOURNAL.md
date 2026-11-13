@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1033) : --crawl en coréen sur la partie de fin de partie : 384 clics, aucune erreur. Repère de la
+  semaine simulée mis à jour dans CLAUDE.md (it. 1017 : 293 / 293, déterministe ; 2e semaine 321-335, it. 1032).
+  Retour d'absence de 8 h en fin de partie : résumé sur une ligne (312 monstres, +29 Qi, niveau 190, 1 quête), propre.
 - 2026-11-13 (it. 1032) : deux semaines simulées pour la décision de Victor sur la fin de partie (voir Idées) : sans
   changement, 293 → 321-335 en 2e semaine ; courbe ×1,03 au-delà de 250 : 338-377. Aucun changement du jeu.
 - 2026-11-13 (it. 1031, revue générale) : simulation 12 h, records des courses : lancier 44 → 62, gladiateur 44 → 62,

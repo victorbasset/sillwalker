@@ -66,7 +66,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   5 au plus) : mage 275, guerrier 286 ; it. 639, échos (250-350) et Drone soumis à la carapace : mage 278, guerrier
   286-301 (une graine) ;
   it. 712, Forgeron des astres (zone 230) : mage 283-302 (3 graines), guerrier 301 ; it. 736, Herboriste (260) et Marchand
-  attitré (300), déblocages remis dans l'ordre des zones : mage 286-287, guerrier 302 ; it. 899, après les événements et élites des it. 878-898 : mage 298, guerrier 311 (une graine) ; it. 965, après la Ruée des gobelins et les Écailles (15e capacité de boss) : mage 293, guerrier 293 (graine 7) / 307 (graine 3), contre 298 / 298 juste avant : bruit ; sans saut ni plafond). À relancer après tout changement de zoneMight (rules.js) ou des zones de déblocage, et après
+  attitré (300), déblocages remis dans l'ordre des zones : mage 286-287, guerrier 302 ; it. 899, après les événements et élites des it. 878-898 : mage 298, guerrier 311 (une graine) ; it. 965, après la Ruée des gobelins et les Écailles (15e capacité de boss) : mage 293, guerrier 293 (graine 7) / 307 (graine 3), contre 298 / 298 juste avant : bruit ; it. 1017, horloge virtuelle (déterministe), panoplies, expéditions et Maîtrises du joueur simulé : guerrier 293, mage 293 ; une 2e semaine continue lentement, 321-335 (it. 1032) ; sans saut ni plafond). À relancer après tout changement de zoneMight (rules.js) ou des zones de déblocage, et après
   tout déblocage qui dépense de l'or tout seul (it. 486 : le Grimoire des sorts, appelé à chaque victoire, vidait l'or et
   plafonnait la semaine à 155 ; balance 12 h ne le voyait pas).
 - Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première
