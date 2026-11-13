@@ -9,7 +9,7 @@ Mise en ligne décidée par Victor (2026-11-11) : la version actuelle, **1 $**, 
 - **Classification** : Games · **Kind of project** : Downloadable
 - **Release status** : In development (montre que le jeu évolue et invite aux retours)
 - **Pricing** : Paid, 1 $ (case « Allow people to pay more » cochée : certains donneront plus)
-- **Uploads** : `dist-itch/Sillwalker-<version>-win.zip`, coché **Windows**
+- **Uploads** : par butler, `scripts/itch-push.sh victor-basset/sillwalker` (canaux windows, linux, mac ; 0.1.3 envoyée le 2026-11-14)
 - **Genre** : Role Playing · **Tags** : idle, incremental, pixel-art, rpg, fantasy, relaxing, loot, 2d, singleplayer, desktop
 - **Cover image** : `steam/capsules/itch-cover.png` (630×500)
 - **Screenshots** : `steam/screenshots/en-*.png` (et `fr-*.png`)
@@ -24,8 +24,8 @@ Mise en ligne décidée par Victor (2026-11-11) : la version actuelle, **1 $**, 
 **Sillwalker — early access**
 
 An idle RPG that lives on the edge of your screen. Your hero walks a thin pixel-art strip above the taskbar, fights,
-loots and grows stronger while you work, play or watch videos. Clicks go through the strip; a glance is enough, and
-the panel opens whenever you like.
+loots and grows stronger while you work, play or watch videos. A glance is enough, and the panel opens whenever you
+like. Drag the strip to any screen, or make it a little transparent and your clicks go right through it.
 
 - 20 heroes to free, fighting in pairs, each with their own talents and unique spells
 - A 144-node skill tree, then a great 618-node graph around it with paths to choose and synergies
@@ -43,8 +43,9 @@ the comments shapes what comes next. Windows 10/11 (64-bit), Linux (AppImage) an
 **Sillwalker — accès anticipé**
 
 Un RPG idle qui vit au bord de ton écran. Ton héros traverse une fine bande de pixel art au-dessus de la barre des
-tâches, combat, ramasse du butin et progresse pendant que tu travailles, joues ou regardes une vidéo. Les clics
-traversent la bande ; un coup d'œil suffit, et le panneau s'ouvre quand tu veux.
+tâches, combat, ramasse du butin et progresse pendant que tu travailles, joues ou regardes une vidéo. Un coup d'œil
+suffit, et le panneau s'ouvre quand tu veux. Glisse la bande sur l'écran de ton choix, ou rends-la un peu
+transparente pour que tes clics la traversent.
 
 - 20 héros à libérer, qui combattent en duo, chacun avec ses talents et ses sorts uniques
 - Un arbre de 144 compétences, puis un grand graphe de 618 nœuds autour, avec des voies à choisir et des synergies
