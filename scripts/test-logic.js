@@ -2263,6 +2263,9 @@ test("chroniques : débloquées aux paliers, annoncées une seule fois ; parties
   assert.deepEqual(takeNewChronicles(S, 25).map((c) => c.id), ["captive", "shards"]);
   assert.deepEqual(takeNewChronicles(S, 25), [], "une seule annonce");
   S.prestige.count = 1; assert.deepEqual(takeNewChronicles(S, 25).map((c) => c.id), ["rebirth"]);
+  // (it. 1074) chaque chronique garde le record de zone de son déblocage (classement de la frise, dans l'ordre vécu)
+  assert.equal(S.story.read.captive, 25); assert.equal(S.story.read.rebirth, 25);
+  takeNewChronicles(S, 52); assert.equal(S.story.read.bastion, 52); assert.equal(S.story.read.captive, 25, "déjà lue : inchangée");
   assert.equal(chroniclesUnlocked(S, 200).length, CHRONICLES.length - 1, "« dawn » attend la victoire finale");
   S.story.won = true; assert.equal(chroniclesUnlocked(S, 200).length, CHRONICLES.length);
   const old = JSON.parse(JSON.stringify(freshLocked())); delete old.story; old.best = 60;

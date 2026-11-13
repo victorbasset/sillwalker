@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1074, demande de Victor) : Chroniques dans l'ordre de l'histoire, numérotées (1. Le ciel brisé, 2. Le
+  premier captif…), les reliques gagnées à leur place (avant : les plus récentes d'abord, les reliques à part en tête).
+  Chaque chronique garde maintenant le record de zone de son déblocage (story.read[id], qui valait true) : il ne
+  redescend jamais, l'ordre est donc celui vécu par le joueur. Anciennes sauvegardes : la zone de la chronique sur la
+  carte (Renaissance : zone 20, l'ascension la plus précoce), reliques : la zone de leur boss. Test logique ; capture
+  (partie de fin de partie) : 11 entrées dans l'ordre.
 - 2026-11-13 (it. 1073, demande E de Victor, premières étapes) : les PNJ de l'histoire. game/npcs.js (un PNJ par onglet :
   nom, lieu, art, répliques) et render/art-npcs.js (même format que les monstres). Premier PNJ : Mirette, la grenouille
   marchande (chapeau violet, écharpe rouge), en haut de la Boutique à côté de la bourse, avec une bulle : une réplique
@@ -4070,6 +4076,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      liste des PNJ (un par onglet : nom, lieu, répliques ; EN COURS : Boutique faite, it. 1073) ; E2 le PNJ dans son onglet (FAIT pour la Boutique, it. 1073) (portrait pixel + bulle) ; E3
      cinématique de rencontre sur la bande ; E4 les autres onglets ; E5 traductions, « Quoi de neuf ».
   Ordre prévu : A, B (rapides), puis E1-E2, D1-D3, E3, C, D4-D6.
+  F. FAIT (it. 1074). Chroniques triées dans l'ordre de l'histoire, numérotées dans l'ordre du déblocage.
+  G. P3 (vu it. 1074) Chroniques dans la grande fenêtre : colonnes qui défilent de côté au-delà de 4 entrées ; Victor
+     ne veut pas de défilement horizontal (demande B) : à revoir (liste verticale, ou plus de colonnes plus étroites).
 
 - FAIT (it. 1047) P2 Vu it. 1046 : en russe, la partie de fin de partie défile à 100 % sur des écrans de 1600 et 1680 px (Aventure 19,
   Statistiques 46 ; dev-data : rien) ; la mesure des langues ne passe que par 1280, 1366 et 1920. Corriger, puis

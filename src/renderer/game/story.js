@@ -62,6 +62,8 @@ export const chroniclesUnlocked = (S, rec) => CHRONICLES.filter((c) => c.when(S,
 /** Nouvelles chroniques (débloquées, pas encore annoncées) : les marque lues et les renvoie (pour l'annonce). */
 export function takeNewChronicles(S, rec) {
   const st = (S.story ||= freshStory()), read = (st.read ||= {}), fresh = [];
-  for (const c of chroniclesUnlocked(S, rec)) if (!read[c.id]) { read[c.id] = true; fresh.push(c); }
+  // (it. 1074, demande de Victor) le record de zone au moment du déblocage (au lieu de true) : il ne redescend jamais,
+  // les chroniques se classent donc dans l'ordre où le joueur les a débloquées (chronicleBox, panel.js)
+  for (const c of chroniclesUnlocked(S, rec)) if (!read[c.id]) { read[c.id] = Math.max(1, Math.floor(rec) || 1); fresh.push(c); }
   return fresh;
 }

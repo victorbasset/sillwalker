@@ -41,6 +41,7 @@ import { lockLink } from "./locks.js";
 import { tabOpen, TAB_GATES } from "../game/tabs.js";
 import { journeyText } from "./tabs/stats.js";
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, FINAL_BOSS } from "../game/story.js";
+import { ASCEND_MIN_ZONE } from "../game/prestige.js";
 import { hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 
 const $ = (root, s) => root.querySelector(s);
@@ -546,15 +547,26 @@ export class Panel {
   }
 
   /** « À faire » dans la carte du héros (repliable) : les mêmes lignes et actions que le résumé de retour. */
-  /** Chroniques de l'histoire (story.js) : les plus récentes d'abord ; les suivantes restent cachées (« ??? »). */
+  /** Chroniques de l'histoire (story.js) et reliques gagnées, dans l'ordre où elles ont été débloquées, numérotées
+   *  (it. 1074, demande de Victor : « pour suivre l'histoire plus facilement » ; avant : les plus récentes d'abord,
+   *  les reliques à part en tête). Ordre = record de zone au déblocage (story.read[id], it. 1074) ; anciennes
+   *  sauvegardes (true) : la zone de la chronique sur la carte (Renaissance : l'ascension la plus précoce) ; reliques :
+   *  la zone de leur boss. */
   chronicleBox() {
-    const S = this.game.S, got = chroniclesUnlocked(S, recordZone(S));
+    const S = this.game.S, got = chroniclesUnlocked(S, recordZone(S)), read = (S.story && S.story.read) || {};
     // ▶ : revoir la cinématique de la chronique (demande 31) ; « Le ciel brisé » rejoue l'intro, la victoire n'en a pas ici.
     const play = (c) => c.id === "dawn" ? "" : ` <button class="linkbtn inline chronplay" data-action="chron-play" data-id="${c.id}" title="${esc(tx("Revoir la cinématique"))}">▶</button>`;
     // (it. 631) les reliques gagnées : leur histoire, relisible, et ▶ pour revoir leur scène
-    const relics = RELIC_IDS.filter((id) => hasRelic(S, id)).reverse().map((id) => { const r = RELICS[id];
-      return `<li class="chron relicchron"><b><img src="${relicIconURL(id, 1)}" alt=""> ${esc(tx(r.name))}</b> <button class="linkbtn inline chronplay" data-action="relic-play" data-id="${id}" title="${esc(tx("Revoir la cinématique"))}">▶</button><p>${esc(tx(r.story))}</p></li>`; }).join("");
-    const items = relics + [...got].reverse().map((c) => `<li class="chron"><b>${esc(tx(c.title))}</b>${play(c)}<p>${esc(tx(c.text))}</p></li>`).join("");
+    const chronZ = (c) => typeof read[c.id] === "number" ? read[c.id] : c.zone ?? (c.id === "rebirth" ? ASCEND_MIN_ZONE : 1);
+    const relicZ = (id) => MAJOR_BOSSES.find((b) => b.relic === id)?.zone ?? FINAL_ZONE;
+    const line = [...got.map((c, i) => ({ z: chronZ(c), k: 0, i, c })), ...RELIC_IDS.filter((id) => hasRelic(S, id)).map((id, i) => ({ z: relicZ(id), k: 1, i, id }))]
+      .sort((a, b) => a.z - b.z || a.k - b.k || a.i - b.i);
+    const num = (n) => `<span class="cnum">${n}.</span> `;
+    const items = line.map((e, n) => {
+      if (e.id) { const r = RELICS[e.id];
+        return `<li class="chron relicchron"><b>${num(n + 1)}<img src="${relicIconURL(e.id, 1)}" alt=""> ${esc(tx(r.name))}</b> <button class="linkbtn inline chronplay" data-action="relic-play" data-id="${e.id}" title="${esc(tx("Revoir la cinématique"))}">▶</button><p>${esc(tx(r.story))}</p></li>`; }
+      return `<li class="chron"><b>${num(n + 1)}${esc(tx(e.c.title))}</b>${play(e.c)}<p>${esc(tx(e.c.text))}</p></li>`;
+    }).join("");
     return `<details class="more chronbox" data-keep="hero-chron"${this.kept.has("hero-chron") ? " open" : ""}><summary>📜 ${tx("Chroniques ({0} / {1})", { 0: got.length, 1: CHRONICLES.length })}</summary><ul class="chronlist">${items}</ul></details>`;
   }
 
