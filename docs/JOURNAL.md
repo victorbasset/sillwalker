@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1006) : t() groupe par milliers tout entier ≥ 1000 passé en variable numérique (comme {n} de txn,
+  it. 871) : bandeau et moment mini d'ascension (« +1347 éclats d'étoile »), journal d'ascension et de l'Astrolabe,
+  astuce « ton héros bloque », et tous les cas semblables d'un coup ; les chaînes déjà formatées ne changent pas. Récompense
+  de quête en éclats : fmt(). Vu en lisant la fête des panoplies (it. 1004) : bandeau, étincelles, son et moment mini
+  déjà en place. Test logique ; 10 langues sans défaut ; autotest 202/202.
 - 2026-11-13 (it. 1005) : Bestiaire > Panoplies : chaque carte indique aussi les emplacements couverts par des pièces du
   sac (« 0/4 · 1 dans le sac », noms des pièces au survol) : le joueur voit où en est la panoplie que le sac lui garde
   (it. 1004). « Quoi de neuf », édition 46 : panoplies (garde et tâche à plusieurs pièces), « course · record » de la

@@ -60,7 +60,10 @@ export function koJosa(s) {
     return f == null ? m : ch + KO_PAIRS[pair][f ? 0 : 1];
   });
 }
-const fill0 = (s, vars) => (vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : s);
+// (it. 1006) un entier ≥ 1000 passé tel quel ({ 0: gain }) prend le séparateur des milliers de la langue, comme {n} de
+// txn (it. 871) : « +1347 éclats d'étoile » (bandeau et journal d'ascension, Astrolabe, astuce…) devient « +1 347 »
+const shownVar = (v) => (typeof v === "number" && Number.isInteger(v) && Math.abs(v) >= 1000 ? groupInt(v) : v);
+const fill0 = (s, vars) => (vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? shownVar(vars[k]) : m)) : s);
 const fill = (s, vars) => (lang === "ko" && vars ? koJosa(fill0(s, vars)) : fill0(s, vars));
 // (it. 952) espace après un nombre (« 20,53 M »), devant un mot ou « % » : rendue insécable par t()
 const NUM_SP = /(\d(?:\u00a0[\p{L}.]{1,4})?) (?=[\p{L}%])/gu;

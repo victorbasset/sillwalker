@@ -951,6 +951,16 @@ test("effets au-delà de 1000 : séparateur des milliers (it. 1002 : « +26571 %
   } finally { setLang(before); }
 });
 
+test("t() : entier ≥ 1000 en variable groupé par milliers (it. 1006 : « +1347 éclats d'étoile »)", () => {
+  const before = getLang();
+  try {
+    setLang("en"); assertStrict.equal(tT("Ascension n° {0} ! +{1} éclats d’étoile", { 0: 12, 1: 1347 }).includes("1,347"), true);
+    setLang("fr"); const f = tT("Ascension n° {0} ! +{1} éclats d’étoile", { 0: 12, 1: 1347 });
+    assertStrict.ok(f.includes("+1\u00a0347") && !/\u202f/.test(f), JSON.stringify(f));
+    assertStrict.equal(tT("Zone {0}", { 0: 999 }), "Zone 999"); assertStrict.equal(tT("Zone {0}", { 0: "1500" }), "Zone 1500"); // chaîne : telle quelle
+  } finally { setLang(before); }
+});
+
 test("unité « % » collée au nombre par une espace insécable (it. 949 : « 107 / % » coupé en fin de ligne)", () => {
   const before = getLang();
   try { setLang("fr"); assertStrict.equal(unitF("%"), "\u00a0%"); setLang("en"); assertStrict.equal(unitF("%"), "%"); } finally { setLang(before); }
