@@ -5,6 +5,17 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1075, demande D de Victor, étape D1) : données et règles du grand graphe autour de la fleur
+  (game/skillgraph.js), pas encore affiché. 618 nœuds (4,3 fois la fleur), tracés par le code : 6 régions, une par
+  pétale, chacune ouverte par une porte reliée à la clé de voûte du pétale ; 3 VOIES exclusives par région (le
+  premier nœud d'une voie ferme les deux autres), 30 nœuds chacune avec 3 remarquables et une clé de voie ; un anneau
+  extérieur (72 nœuds) relie le bout des voies, avec une couronne par région et un pont entre pétales voisins. La 3e
+  voie de chaque région est une voie de SYNERGIE (précision de Victor) : attaque selon les PV en plus (Colosse
+  furieux), attaque selon l'or possédé (Or tranchant), PV selon l'attaque, dégâts critiques selon la vitesse, brûlure
+  selon les critiques, attaque selon l'esquive ; calculées dans heroStats à partir des totaux avant synergie (pas de
+  boucle). Points : le surplus une fois la fleur entière payée ; choix gardés à l'ascension (S.skills.outer), actifs
+  dans la limite des points, comme la fleur. Sauvegarde : outer validé (inconnus, doublons). 3 tests logiques
+  (243) ; save-fuzz dev et fin : ok ; autotest 208/208. À suivre : D2 (affichage grisé autour de la fleur).
 - 2026-11-13 (it. 1074, demande de Victor) : Chroniques dans l'ordre de l'histoire, numérotées (1. Le ciel brisé, 2. Le
   premier captif…), les reliques gagnées à leur place (avant : les plus récentes d'abord, les reliques à part en tête).
   Chaque chronique garde maintenant le record de zone de son déblocage (story.read[id], qui valait true) : il ne
@@ -4063,7 +4074,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      Rendre l'onglet plus riche en choix (à concevoir : clic = tous les rangs possibles, choix exclusifs, paliers…).
   D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à
-     la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 données et règles (nœuds,
+     la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 (FAIT, it. 1075) données et règles (nœuds,
      liens, coûts, effets ; sauvegarde, migration, tests) ; D2 affichage grisé autour de la fleur ; D3 achat et
      effets ; D4 choix exclusifs, réinitialisation ; D5 équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
      « Quoi de neuf ».

@@ -422,10 +422,11 @@ test("ascension : éclats, conservation, constellations", () => {
 });
 
 /* ---------- Classes v5 et arbre de compétences ---------- */
-import { SKILL_TREE, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill } from "../src/renderer/game/skilltree.js";
+import { SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, synergyEffects } from "../src/renderer/game/skillgraph.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -3511,6 +3512,52 @@ test("PNJ : un onglet connu par PNJ, une réplique stable 30 s, la suivante à c
   assert(npcLine(n, t0) === npcLine(n, t0 + 29000), "stable 30 s");
   assert(npcLine(n, t0) !== npcLine(n, t0 + 30000), "change après 30 s");
   assert(npcLine(n, t0, 1) === npcLine(n, t0 + 30000), "un clic = la suivante");
+});
+
+test("grand graphe : fermé tant que la fleur n'est pas complète ; voies exclusives ; points du surplus (it. 1075)", () => {
+  const S = freshState();
+  assert(SKILL_GRAPH_COUNT > 4 * SKILL_NODE_COUNT, "≈ 4 fois la fleur et plus");
+  S.lvl = 600; S.skills.order = []; S.skills.outer = [];
+  assert(!flowerComplete(S) && graphPointsTotal(S) === 0, "fleur vide : graphe fermé");
+  assert(!canTakeGraph(S, "force-gate"), "porte fermée");
+  S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
+  assert(flowerComplete(S), "fleur entière");
+  assert.equal(graphPointsTotal(S), skillPointsTotal(S) - SKILL_NODE_COUNT, "points : le surplus");
+  assert(canTakeGraph(S, "force-gate"), "porte ouverte depuis la clé de voûte");
+  assert(!canTakeGraph(S, "force-v0-0"), "pas sans la porte");
+  S.skills.outer.push("force-gate");
+  assert(canTakeGraph(S, "force-v0-0") && canTakeGraph(S, "force-v2-0"), "trois voies au choix");
+  S.skills.outer.push("force-v2-0");
+  assert.equal(chosenBranch(S, "force"), 2);
+  assert(!canTakeGraph(S, "force-v0-0") && !canTakeGraph(S, "force-v1-0"), "les deux autres voies se ferment");
+  assert(canTakeGraph(S, "force-v2-1"), "la voie choisie continue");
+  assert(!canTakeGraph(S, "agility-v0-0"), "une autre région : par sa propre porte");
+  // les nœuds actifs suivent les points (niveau perdu à l'ascension : la fin du chemin s'éteint)
+  assert.equal(activeGraphSet(S).size, 2);
+  S.lvl = 2 * SKILL_NODE_COUNT + 2 - 2 * ((S.prestige && S.prestige.skillPts) || 0); // un seul point de surplus
+  if (graphPointsTotal(S) === 1) assert.equal(activeGraphSet(S).size, 1, "un point : un nœud actif");
+  S.lvl = 600;
+  assert(graphPointsFree(S) === graphPointsTotal(S) - 2);
+  assert(skillGraphEffects(S).synAtkHp > 0 || skillGraphEffects(S).hpPct > 0 || skillGraphEffects(S).atkPct > 0, "effets de la voie");
+});
+
+test("grand graphe : synergies (« si je suis tanky, je tape plus fort », « plus je suis riche… ») (it. 1075)", () => {
+  assert.equal(synergyEffects({ synHpAtk: 5, hpPct: 50 }, 0).atkPct, 25, "PV → attaque");
+  assert.equal(Math.round(synergyEffects({ synGoldAtk: 1 }, 1e9).atkPct), 9, "or → attaque (puissances de 10)");
+  assert.equal(synergyEffects({ synAtkHp: 2, atkPct: 50 }, 0).hpPct, 10, "attaque → PV, depuis l'attaque avant synergie");
+  assert.deepEqual(synergyEffects({ hpPct: 80 }, 1e20), {}, "rien sans nœud de synergie");
+  const S = freshState(); S.lvl = 600; S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
+  const before = heroStats(S).atk;
+  S.skills.outer = ["vitality-gate", ...Array.from({ length: 30 }, (_, k) => "vitality-v2-" + k)];
+  assert(heroStats(S).atk > before * 1.05, "la voie du colosse furieux fait taper plus fort");
+});
+
+test("grand graphe : nœuds inconnus ou en double retirés de la sauvegarde (it. 1075)", () => {
+  const raw = JSON.parse(JSON.stringify(freshLocked()));
+  raw.skills = { order: [], outer: ["force-gate", "force-gate", "inconnu", 5] };
+  assert.deepEqual(migrate(raw).skills.outer, ["force-gate"]);
+  const raw2 = JSON.parse(JSON.stringify(freshLocked())); raw2.skills = { order: [] };
+  assert.deepEqual(migrate(raw2).skills.outer, []);
 });
 
 test("nombres : un arrondi qui atteint 1000 passe au palier supérieur (it. 872 : « 1000 k » d'or)", () => {

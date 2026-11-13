@@ -11,6 +11,7 @@ import { petEffects } from "./pets.js";
 import { prestigeEffects } from "./prestige.js";
 import { bestiaryEffects } from "./bestiary.js";
 import { skillTreeEffects } from "./skilltree.js";
+import { skillGraphEffects, synergyEffects } from "./skillgraph.js";
 import { setEffects, SETS, SET_KEYS, SET_CHANCE } from "./sets.js";
 import { BUFF_EFFECTS, workshopEffects } from "./shop.js";
 import { dayModEffects } from "./daymods.js";
@@ -126,7 +127,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // Toutes les sources de bonus : classe + talents, pouvoirs légendaires,
   // familier actif, constellations, bestiaire (puis élixirs ci-dessous).
   const t = talentEffects(S);
-  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), dayModEffects(S), codexEffects(S), workshopEffects(S), guildEffects(S), eventsSeenEffects(S), affixesSeenEffects(S)]) {
+  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), skillGraphEffects(S), dayModEffects(S), codexEffects(S), workshopEffects(S), guildEffects(S), eventsSeenEffects(S), affixesSeenEffects(S)]) {
     for (const k in src) t[k] = (t[k] || 0) + src[k];
   }
   // Compagnon du duo : une part de sa capacité (demande 17).
@@ -137,6 +138,8 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   if (buffs) for (const id in S.buffs || {}) if (S.buffs[id] > 0 && BUFF_EFFECTS[id]) {
     for (const k in BUFF_EFFECTS[id]) t[k] = (t[k] || 0) + BUFF_EFFECTS[id][k];
   }
+  // (it. 1075) synergies du grand graphe (skillgraph.js) : un axe qui compte dans un autre, à partir des totaux ci-dessus
+  { const syn = synergyEffects(t, S.gold); for (const k in syn) t[k] = (t[k] || 0) + syn[k]; }
   const v = (k) => t[k] || 0;
   s.hp *= (cls.mul.hp || 1) * (1 + v("hpPct") / 100);
   s.atk *= (cls.mul.atk || 1) * (1 + v("atkPct") / 100);

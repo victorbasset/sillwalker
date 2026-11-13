@@ -7,6 +7,7 @@ import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
 import { PET_INDEX } from "./pets.js";
 import { SKILL_TREE } from "./skilltree.js";
+import { SKILL_GRAPH } from "./skillgraph.js";
 import { LANGS } from "../i18n/index.js";
 import { seedTabs } from "./tabs.js";
 import { SPELL_INDEX, SPELL_MAX } from "./spells.js";
@@ -56,7 +57,7 @@ export function freshState(now = Date.now()) {
     pets: { owned: {}, active: null, eggs: 0, exp: {} },     // owned : { id: { lvl, xp } } ; exp : expéditions en cours
     bestiary: {},                                            // { typeDeMonstre: victoires }
     // v5
-    skills: { order: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
+    skills: { order: [], outer: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
     settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 1, ambVol: 1, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
@@ -196,6 +197,8 @@ export function migrate(raw) {
   s.skills = Object.assign(def.skills, isObj(o.skills) ? o.skills : {});
   // Nœuds inconnus (autre version) ou doublons retirés : skillTreeEffects lit chaque nœud.
   s.skills.order = Array.isArray(s.skills.order) ? [...new Set(s.skills.order)].filter((id) => typeof id === "string" && SKILL_TREE.nodes[id]) : [];
+  // (it. 1075) grand graphe autour de la fleur : mêmes règles (nœuds inconnus ou doublons retirés)
+  s.skills.outer = Array.isArray(s.skills.outer) ? [...new Set(s.skills.outer)].filter((id) => typeof id === "string" && SKILL_GRAPH.nodes[id]) : [];
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
   s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});
