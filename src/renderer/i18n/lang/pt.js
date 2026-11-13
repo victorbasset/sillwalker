@@ -1603,4 +1603,5 @@ export default {
   2728: "O grande grafo completo",
   2729: "Duas novas conquistas em volta da flor: «Além da flor» e «O grande grafo completo».",
   2730: "Menos cliques: as janelas dos marcos de maestria e de «A fazer» ficam abertas de uma ação para outra.",
+  2731: "Caminho inteiro, agora: ≈ {0}",
 };

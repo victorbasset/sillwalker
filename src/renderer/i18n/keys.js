@@ -2732,5 +2732,6 @@ export const KEYS = [
   "Au-delà de la fleur",
   "Le grand graphe accompli",
   "Deux nouveaux succès autour de la fleur : « Au-delà de la fleur » et « Le grand graphe accompli ».",
-  "Moins de clics : les fenêtres des paliers de maîtrise et de « À faire » restent ouvertes d’une action à l’autre."
+  "Moins de clics : les fenêtres des paliers de maîtrise et de « À faire » restent ouvertes d’une action à l’autre.",
+  "Toute la voie, en ce moment : ≈ {0}"
 ];

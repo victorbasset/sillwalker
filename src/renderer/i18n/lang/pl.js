@@ -1603,4 +1603,5 @@ export default {
   2728: "Wielki graf ukończony",
   2729: "Dwa nowe osiągnięcia wokół kwiatu: „Poza kwiatem” i „Wielki graf ukończony”.",
   2730: "Mniej kliknięć: okna progów mistrzostwa i „Do zrobienia” zostają otwarte między kolejnymi akcjami.",
+  2731: "Cała ścieżka, w tej chwili: ≈ {0}",
 };

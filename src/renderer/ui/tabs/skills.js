@@ -245,15 +245,18 @@ export class SkillsTab {
       for (const m of Object.values(SKILL_GRAPH.nodes)) if (m.region === n.region && m.branch === n.branch) for (const [k, v] of Object.entries(graphNodeEffects(m))) e[k] = Math.round(((e[k] || 0) + v) * 100) / 100;
       this._voieEff[key] = e;
     }
-    return `<div class="sub">${esc(tx("Toute la voie : {0}", { 0: describeEffects(this._voieEff[key]) }))}</div>`;
+    return `<div class="sub">${esc(tx("Toute la voie : {0}", { 0: describeEffects(this._voieEff[key]) }))}</div>${this.synNowEff(this._voieEff[key], "Toute la voie, en ce moment : ≈ {0}")}`;
   }
 
   /** (it. 1113) nœud de synergie : ce qu'il donne avec les statistiques actuelles (« ≈ +3,2 % d'attaque »). */
-  synNow(n) {
-    const e = graphNodeEffects(n), unitK = this.game.stats().graphSynUnit || {}, TARGET = { synHpAtk: "atkPct", synGoldAtk: "atkPct", synDodgeAtk: "atkPct", synAtkHp: "hpPct", synSpdCrit: "critDmg", synCritBurn: "burn" };
+  synNow(n) { return this.synNowEff(graphNodeEffects(n)); }
+
+  /** (it. 1139) même chose pour des effets déjà calculés (la voie entière). */
+  synNowEff(e, label = "En ce moment : ≈ {0}") {
+    const unitK = this.game.stats().graphSynUnit || {}, TARGET = { synHpAtk: "atkPct", synGoldAtk: "atkPct", synDodgeAtk: "atkPct", synAtkHp: "hpPct", synSpdCrit: "critDmg", synCritBurn: "burn" };
     const out = {};
     for (const k in e) if (TARGET[k] && unitK[k] > 0) out[TARGET[k]] = (out[TARGET[k]] || 0) + Math.round(e[k] * unitK[k] * 10) / 10;
-    return Object.keys(out).length ? `<div class="sub">${esc(tx("En ce moment : ≈ {0}", { 0: describeEffects(out) }))}</div>` : "";
+    return Object.keys(out).length ? `<div class="sub">${esc(tx(label, { 0: describeEffects(out) }))}</div>` : "";
   }
 
   coreTip(sec) {

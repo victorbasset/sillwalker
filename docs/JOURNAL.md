@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1139, demande D) : la bulle « Toute la voie » (voie pas encore choisie, it. 1114) donne aussi la
+  valeur actuelle de ses synergies : « Toute la voie, en ce moment : ≈ +24,3 % attaque » (colosse furieux, fin de
+  partie), contre ≈ +11,3 % pour l'or tranchant et +18,9 % d'attaque fixe pour le bourreau : la comparaison des
+  trois voies devient chiffrée. Libellé distinct de la ligne du nœud. Vu en français et en allemand ; 9 langues ;
+  autotest 224/224.
 - 2026-11-13 (it. 1138) : « Quoi de neuf », édition 58 : deux succès du grand graphe ; fenêtres des paliers de
   maîtrise et de « À faire » ouvertes d'une action à l'autre. 9 langues (libellés cités vérifiés) ; pire cas sans
   défilement ; autotest 224/224 ; 10 langues sans défaut.
