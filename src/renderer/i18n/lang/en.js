@@ -1364,4 +1364,6 @@ export default {
   2489: "Bosses and dark monsters have a subtle outline: easier to see against night backgrounds.",
   2490: "“Sell what doesn't upgrade me” shows on hover how many set pieces it keeps.",
   2491: "Tips are shown in full (on several lines), in every language.",
+  2492: "Full set!",
+  2493: "Everything matches at last!",
 };

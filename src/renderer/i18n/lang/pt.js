@@ -1364,4 +1364,6 @@ export default {
   2489: "Chefes e monstros escuros têm um contorno discreto: ficam mais visíveis nos cenários noturnos.",
   2490: "“Vender o que não me melhora” mostra ao passar o mouse quantas peças de conjunto guarda.",
   2491: "As dicas aparecem por inteiro (em várias linhas), em todos os idiomas.",
+  2492: "Conjunto completo!",
+  2493: "Finalmente tudo combina!",
 };

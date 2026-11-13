@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1037) : le héros fête une panoplie complète (palier de 4 pièces) par une bulle de paroles :
+  « Panoplie au complet ! » ou « Tout est assorti, enfin ! » (SPEECH.setFull, 9 langues), comme pour les légendaires
+  et les records ; les panoplies sont devenues un moment courant (it. 1004). Autotest 204/204.
 - 2026-11-13 (it. 1036) : idée P1 (bande en fin de partie), part des sorts remesurée sur la nouvelle partie : avec 38-40 %,
   sans sorts 28,5 % (≈ 10 points). Effets visuels mis hors de cause : sans ombres ni filtres sur les effets de sort
   38,2 / 35,8 % (≈ 1-2 points), sans l'affichage du perçage 37,2 / 36,4 % (≈ 1,5-2) ; 10 s de jeu : 9 sorts, 20 perçages,

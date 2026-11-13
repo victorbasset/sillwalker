@@ -1364,4 +1364,6 @@ export default {
   2489: "Bossowie i ciemne potwory mają subtelny kontur: lepiej je widać na nocnym tle.",
   2490: "„Sprzedaj, co mnie nie ulepsza” po najechaniu pokazuje, ile części zestawów zachowuje.",
   2491: "Wskazówki wyświetlają się w całości (w kilku wierszach), we wszystkich językach.",
+  2492: "Pełny zestaw!",
+  2493: "Wreszcie wszystko pasuje!",
 };

@@ -1364,4 +1364,6 @@ export default {
   2489: "Bosse und dunkle Monster haben eine dezente Kontur: vor nächtlichem Hintergrund besser zu sehen.",
   2490: "„Verkaufen, was mich nicht verbessert“ zeigt beim Überfahren, wie viele Setteile behalten werden.",
   2491: "Tipps werden vollständig angezeigt (über mehrere Zeilen), in allen Sprachen.",
+  2492: "Set komplett!",
+  2493: "Endlich passt alles zusammen!",
 };
