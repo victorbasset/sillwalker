@@ -15,15 +15,7 @@
 // dans heroStats, rules.js). Affichage : ui/tabs/skills.js (étape D2) ; équilibrage : étape D5.
 import { SKILL_TREE, SKILL_NODE_COUNT, SECTORS, skillPointsTotal } from "./skilltree.js";
 
-/** Effets de synergie : clé → libellé (calcul : synergyEffects ci-dessous, appelé par heroStats dans rules.js). */
-export const SYNERGIES = {
-  synHpAtk:    "% d’attaque par tranche de 10 % de points de vie en plus",
-  synGoldAtk:  "% d’attaque par puissance de 10 de l’or possédé",
-  synAtkHp:    "% de points de vie par tranche de 10 % d’attaque en plus",
-  synSpdCrit:  "% de dégâts critiques par tranche de 10 % de vitesse d’attaque",
-  synCritBurn: "% de brûlure par point de chances de critique",
-  synDodgeAtk: "% d’attaque par point d’esquive",
-};
+// Effets de synergie (syn*) : libellés dans talents.js (EFFECTS), calcul dans synergyEffects ci-dessous.
 
 /** Les trois voies de chaque région (ordre de SECTORS). small : effets des petits nœuds (en boucle) ; notables : 3 ;
  *  end : clé de voie. La 3e voie de chaque région est celle de synergie. */
@@ -46,7 +38,7 @@ export const REGIONS = {
   vitality: [
     { name: "Voie du rempart", small: [{ hpPct: 2 }, { defPct: 2 }], notables: [{ name: "Muraille", eff: { defPct: 12 } }, { name: "Cœur solide", eff: { hpPct: 10 } }, { name: "Égide", eff: { shield: 8 } }], end: { name: "Forteresse", eff: { hpPct: 25, defPct: 20, shield: 10 } } },
     { name: "Voie de la sève", small: [{ regen: 0.6 }, { lifesteal: 0.3 }], notables: [{ name: "Sève vive", eff: { regen: 3 } }, { name: "Soif", eff: { lifesteal: 2 } }, { name: "Racines", eff: { regen: 4, thorns: 8 } }], end: { name: "Arbre-monde", eff: { regen: 8, lifesteal: 4 } } },
-    { name: "Voie du colosse furieux", small: [{ hpPct: 1.5 }, { atkPct: 1 }], notables: [{ name: "Masse", eff: { synHpAtk: 2 } }, { name: "Carrure", eff: { hpPct: 8 } }, { name: "Poids du monde", eff: { synHpAtk: 3 } }], end: { name: "Colosse furieux", eff: { synHpAtk: 5, hpPct: 10 } } },
+    { name: "Voie du colosse furieux", small: [{ hpPct: 1.5 }, { atkPct: 1 }], notables: [{ name: "Corpulence", eff: { synHpAtk: 2 } }, { name: "Carrure", eff: { hpPct: 8 } }, { name: "Poids du monde", eff: { synHpAtk: 3 } }], end: { name: "Colosse furieux", eff: { synHpAtk: 5, hpPct: 10 } } },
   ],
   fortune: [
     { name: "Voie du trésor", small: [{ gold: 4 }, { drop: 2 }], notables: [{ name: "Bourse pleine", eff: { gold: 20 } }, { name: "Flair", eff: { drop: 12 } }, { name: "Coffre-fort", eff: { gold: 25 } }], end: { name: "Roi de l’or", eff: { gold: 80, drop: 15 } } },
@@ -161,6 +153,13 @@ export function canTakeGraph(S, id) {
   if (n.branch != null) { const c = chosenBranch(S, n.region); if (c >= 0 && c !== n.branch) return false; }
   const chosen = new Set(outer(S));
   return n.links.some((l) => chosen.has(l) || (SKILL_TREE.nodes[l] && l.endsWith("-key")));
+}
+
+/** Prendre un nœud du grand graphe (Game.takeGraph). */
+export function takeGraphNode(S, id) {
+  if (!canTakeGraph(S, id)) return false;
+  (S.skills.outer ||= []).push(id);
+  return true;
 }
 
 /** Effets du grand graphe (effets ordinaires et syn*). */

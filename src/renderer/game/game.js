@@ -8,6 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
+import { SKILL_GRAPH, takeGraphNode } from "./skillgraph.js";
 import { RELICS, RELIC_IDS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
 /** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
 const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
@@ -2565,8 +2566,20 @@ export class Game {
   }
 
   /** Retire le dernier nœud choisi (seul un nœud « feuille » peut partir sans casser le chemin). */
+  /** (it. 1077) Prendre un nœud du grand graphe autour de la fleur (skillgraph.js). */
+  takeGraph(id) {
+    if (!takeGraphNode(this.S, id)) return false;
+    this.invalidateStats();
+    this.emit("learned", { n: 1, skill: true });
+    const n = SKILL_GRAPH.nodes[id];
+    if (n.kind === "voiekey" || n.kind === "crown") this.log(n.name + fsp() + "!");
+    this.changed();
+    return true;
+  }
+
   undoSkill() {
-    const o = this.S.skills.order;
+    // (it. 1077) le grand graphe d'abord (ses nœuds ont été pris après toute la fleur)
+    const o = this.S.skills.outer?.length ? this.S.skills.outer : this.S.skills.order;
     if (!o.length) return false;
     o.pop();
     this.invalidateStats();
@@ -2577,6 +2590,7 @@ export class Game {
 
   resetSkills() {
     this.S.skills.order = [];
+    this.S.skills.outer = []; // (it. 1077) le grand graphe aussi
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
     this.log(tx("Arbre de compétences réinitialisé."));

@@ -3552,6 +3552,18 @@ test("grand graphe : synergies (« si je suis tanky, je tape plus fort », « pl
   assert(heroStats(S).atk > before * 1.05, "la voie du colosse furieux fait taper plus fort");
 });
 
+test("grand graphe : prise, annulation (le graphe d'abord) et réinitialisation complète (it. 1077)", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 600; g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];
+  assert(g.takeGraph("fortune-gate") && g.takeGraph("fortune-v2-0"), "porte puis voie de l'or tranchant");
+  assert(!g.takeGraph("fortune-v0-0"), "voie fermée");
+  assert.equal(g.S.skills.outer.length, 2);
+  const nFlower = g.S.skills.order.length;
+  g.undoSkill(); assert.equal(g.S.skills.outer.length, 1, "annuler retire d'abord le dernier nœud du graphe");
+  assert.equal(g.S.skills.order.length, nFlower, "la fleur reste");
+  g.resetSkills(); assert.equal(g.S.skills.outer.length, 0); assert.equal(g.S.skills.order.length, 0);
+});
+
 test("grand graphe : nœuds inconnus ou en double retirés de la sauvegarde (it. 1075)", () => {
   const raw = JSON.parse(JSON.stringify(freshLocked()));
   raw.skills = { order: [], outer: ["force-gate", "force-gate", "inconnu", 5] };

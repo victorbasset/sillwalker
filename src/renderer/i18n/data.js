@@ -3,6 +3,7 @@
 //  - types d'objets, matières et suffixes (clés de la collection, noms sauvegardés) :
 //    traduits à l'affichage par itemName() ;
 //  - zones : le nom source est gardé dans `src` (météo par zone).
+import { SKILL_GRAPH, REGIONS } from "../game/skillgraph.js";
 import { getLang, tr, ruAgree, t as tx } from "./index.js";
 import { DICTS } from "./dicts.js";
 import { RARITIES, SLOTS, STAT_NAMES, MONSTERS, ZONES, ELITE_AFFIXES, ITEM_BASES, MATERIALS, ITEM_SUFFIXES } from "../game/data.js";
@@ -49,6 +50,8 @@ export function translateData() {
   MASTERIES.forEach(fields);
   SECTORS.forEach((s) => { fields(s); s.notables.forEach(fields); fields(s.keystone); });
   each(SKILL_TREE.nodes, fields);
+  each(SKILL_GRAPH.nodes, fields); // (it. 1077) grand graphe autour de la fleur
+  each(REGIONS, (list) => list.forEach(fields));
   each(SECTOR_CORES, fields);
   PETS.forEach(fields);
   each(EXPEDITIONS, fields);

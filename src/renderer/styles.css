@@ -405,8 +405,21 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .skillsvg .node.keystone { stroke-width: 3; }
 /* (it. 1076) grand graphe autour de la fleur, encore fermé : silhouette grisée (couleur du pétale à peine visible) */
 .skillsvg .gedge { stroke: var(--line); stroke-width: 2; opacity: .5; stroke-dasharray: 3 4; }
-.skillsvg .gnode { fill: var(--panel); stroke: color-mix(in srgb, var(--c) 30%, var(--line)); stroke-width: 2; opacity: .6; cursor: help; }
+.skillsvg .gnode { fill: var(--panel); stroke: var(--c); stroke-width: 2; cursor: pointer; }
+.skillsvg .gnode.sealed { stroke: color-mix(in srgb, var(--c) 30%, var(--line)); opacity: .6; cursor: help; }
 .skillsvg .gnode.notable, .skillsvg .gnode.voiekey, .skillsvg .gnode.crown { stroke-width: 3; }
+/* (it. 1077) grand graphe ouvert : mêmes états que la fleur, plus « voie fermée » (une autre voie choisie dans la région) */
+.skillsvg .gnode.on { fill: var(--c); stroke: #fff; }
+.skillsvg .gnode.planned { fill: var(--c); fill-opacity: .3; stroke-dasharray: 2 2; }
+.skillsvg .gnode.avail { stroke-width: 4; stroke: #fff; fill: color-mix(in srgb, var(--c) 35%, var(--panel)); }
+.skillsvg .gnode.locked { opacity: .55; }
+.skillsvg .gnode.closed { opacity: .2; cursor: help; }
+.skillsvg .gnode:not(.sealed):hover { stroke: #fff; stroke-width: 4; }
+.skillsvg .gnode:focus-visible { outline: none; stroke: var(--accent); stroke-width: 5; }
+.skillsvg .gico.sealed { display: none; }
+.skillsvg .gico.closed { opacity: .2; }
+.skillsvg .skouter:not(.open) .glbl { display: none; }
+.skillsvg .gedge.on { stroke: var(--accent); stroke-width: 3; opacity: 1; stroke-dasharray: none; }
 .skillsvg .node.root { fill: #ffd34d; stroke: #fff; }
 .skillsvg .node:hover { stroke: #fff; stroke-width: 4; }
 .skillsvg .node:focus-visible { outline: none; stroke: var(--accent); stroke-width: 5; }

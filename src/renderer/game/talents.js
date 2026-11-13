@@ -43,6 +43,13 @@ export const EFFECTS = {
   secondWind:  { label: "second souffle", unit: "" },
   elites:      { label: "élites rencontrées", unit: "%" },
   purity:      { label: "de résistance à la Malédiction et au venin des boss (durée réduite)", unit: "%" },
+  // (it. 1077) synergies du grand graphe (skillgraph.js) : un axe qui compte dans un autre
+  synHpAtk:    { label: "d’attaque par tranche de 10 % de points de vie en plus", unit: "%" },
+  synGoldAtk:  { label: "d’attaque par puissance de 10 de l’or possédé", unit: "%" },
+  synAtkHp:    { label: "de points de vie par tranche de 10 % d’attaque en plus", unit: "%" },
+  synSpdCrit:  { label: "de dégâts critiques par tranche de 10 % de vitesse d’attaque", unit: "%" },
+  synCritBurn: { label: "de brûlure par point de chances de critique", unit: "%" },
+  synDodgeAtk: { label: "d’attaque par point d’esquive", unit: "%" },
 };
 
 const T = (id, name, tier, max, eff, text) => ({ id, name, tier, max, eff, text });

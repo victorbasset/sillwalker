@@ -5,6 +5,17 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1077, demande D, étape D3) : le grand graphe s'ouvre quand toute la fleur est acquise. Clic (ou
+  Entrée au clavier) sur un nœud relié pour l'apprendre ; la porte de chaque région s'ouvre depuis la clé de voûte de
+  son pétale ; choisir le premier nœud d'une voie ferme les deux autres de la région (bulle : « Choisir cette voie
+  ferme les deux autres », puis « Voie fermée : dans cette région, tu suis « … » »). États comme la fleur (acquis,
+  prévu, apprenable, verrouillé) plus « fermé » ; icônes (synergies : celle de l'axe d'origine) et noms des grands
+  nœuds une fois ouvert. Barre latérale : « Grand graphe : N points libres · X / 618 nœuds » ; bonus actifs du graphe
+  compris. « Annuler le dernier » retire d'abord le dernier nœud du graphe ; « Tout réinitialiser » vide les deux.
+  Effets de synergie décrits en clair (EFFECTS). 96 nouveaux textes traduits dans les 9 langues (19 noms existants
+  réutilisés ; « Masse » existait au sens de l'arme : renommé « Corpulence »). Capture (partie de fin de partie) ;
+  texte russe de l'onglet sans mot français ; test logique (244) ; autotest 208/208 ; 10 langues sans défaut. Les
+  effets restent à régler (D5 : +0,007 % d'attaque pour 5 petits nœuds en fin de partie : bien trop faible).
 - 2026-11-13 (it. 1076, demande D, étape D2) : le grand graphe apparaît dans l'onglet Compétences, grisé, autour de
   la fleur (silhouette des 618 nœuds, des voies et de l'anneau, traits pointillés, couleur du pétale à peine visible ;
   dessiné sous la fleur). Au survol : « Grand graphe : 618 nœuds autour de la fleur… S'ouvre quand toute la fleur est
@@ -4082,7 +4093,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à
      la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 (FAIT, it. 1075) données et règles (nœuds,
-     liens, coûts, effets ; sauvegarde, migration, tests) ; D2 (FAIT, it. 1076) affichage grisé autour de la fleur ; D3 achat et
+     liens, coûts, effets ; sauvegarde, migration, tests) ; D2 (FAIT, it. 1076) affichage grisé autour de la fleur ; D3 (FAIT, it. 1077) achat et
      effets ; D4 choix exclusifs, réinitialisation ; D5 équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
      « Quoi de neuf ».
      Précision de Victor (même jour) : des nœuds de SYNERGIE, qui font compter un axe dans un autre, pour chacun des
