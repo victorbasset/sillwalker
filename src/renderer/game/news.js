@@ -264,7 +264,12 @@ const EDITION_54 = [
   "Grand graphe : son ouverture est annoncée, la pastille des Compétences compte ses points, et « Réinitialiser le grand graphe » permet de changer de voie sans perdre la fleur.",
   "Les bulles du grand graphe montrent ce que chaque nœud donne vraiment.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42, EDITION_43, EDITION_44, EDITION_45, EDITION_46, EDITION_47, EDITION_48, EDITION_49, EDITION_50, EDITION_51, EDITION_52, EDITION_53, EDITION_54];
+const EDITION_55 = [
+  "Grand graphe : chaque synergie montre ce qu’elle donne en ce moment (« Bonus actifs », et dans la bulle d’un nœud pas encore pris).",
+  "Avant de choisir une voie, la bulle de ses nœuds montre ce que donne la voie entière : les trois voies d’une région se comparent.",
+  "Grand graphe rempli : chaque point de compétence en surplus donne +0,1 % d’attaque et de PV.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42, EDITION_43, EDITION_44, EDITION_45, EDITION_46, EDITION_47, EDITION_48, EDITION_49, EDITION_50, EDITION_51, EDITION_52, EDITION_53, EDITION_54, EDITION_55];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

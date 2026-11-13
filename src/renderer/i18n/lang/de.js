@@ -1581,4 +1581,7 @@ export default {
   2706: "Gerade: ≈ {0}",
   2707: "Ganzer Pfad: {0}",
   2708: "✓ Großer Graph vollständig · {n} überzähliger Punkt: +{2} Angriff und LP|✓ Großer Graph vollständig · {n} überzählige Punkte: +{2} Angriff und LP",
+  2709: "Großer Graph: Jede Synergie zeigt, was sie gerade bringt („Aktive Boni“ und in der Info eines noch nicht genommenen Knotens).",
+  2710: "Vor der Wahl eines Pfads zeigt die Info seiner Knoten, was der ganze Pfad bringt: Die drei Pfade einer Region lassen sich vergleichen.",
+  2711: "Großer Graph vollständig: Jeder überzählige Fertigkeitspunkt gibt +0,1 % Angriff und LP.",
 };

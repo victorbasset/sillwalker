@@ -1581,4 +1581,7 @@ export default {
   2706: "Agora: ≈ {0}",
   2707: "Caminho inteiro: {0}",
   2708: "✓ Grande grafo completo · {n} ponto excedente: +{2} de ataque e PV|✓ Grande grafo completo · {n} pontos excedentes: +{2} de ataque e PV",
+  2709: "Grande grafo: cada sinergia mostra o que dá agora («Bônus ativos» e no balão de um nó ainda não pego).",
+  2710: "Antes de escolher um caminho, o balão dos seus nós mostra o que o caminho inteiro dá: os três caminhos de uma região se comparam.",
+  2711: "Grande grafo completo: cada ponto de habilidade excedente dá +0,1% de ataque e PV.",
 };

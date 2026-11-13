@@ -1581,4 +1581,7 @@ export default {
   2706: "Ahora mismo: ≈ {0}",
   2707: "Todo el camino: {0}",
   2708: "✓ Gran grafo completo · {n} punto sobrante: +{2} de ataque y PV|✓ Gran grafo completo · {n} puntos sobrantes: +{2} de ataque y PV",
+  2709: "Gran grafo: cada sinergia muestra lo que da ahora mismo («Bonificaciones activas» y en el globo de un nodo aún no tomado).",
+  2710: "Antes de elegir un camino, el globo de sus nodos muestra lo que da el camino entero: los tres caminos de una región se comparan.",
+  2711: "Gran grafo completo: cada punto de habilidad sobrante da +0,1 % de ataque y PV.",
 };

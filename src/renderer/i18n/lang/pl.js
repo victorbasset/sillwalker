@@ -1581,4 +1581,7 @@ export default {
   2706: "W tej chwili: ≈ {0}",
   2707: "Cała ścieżka: {0}",
   2708: "✓ Wielki graf ukończony · {n} nadmiarowy punkt: +{2} ataku i PŻ|✓ Wielki graf ukończony · {n} nadmiarowe punkty: +{2} ataku i PŻ|✓ Wielki graf ukończony · {n} nadmiarowych punktów: +{2} ataku i PŻ",
+  2709: "Wielki graf: każda synergia pokazuje, co daje w tej chwili („Aktywne premie” i w dymku jeszcze niewziętego węzła).",
+  2710: "Przed wyborem ścieżki dymek jej węzłów pokazuje, co daje cała ścieżka: trzy ścieżki regionu można porównać.",
+  2711: "Wielki graf ukończony: każdy nadmiarowy punkt umiejętności daje +0,1% ataku i PŻ.",
 };

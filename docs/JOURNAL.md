@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1116) : « Quoi de neuf », édition 55 : valeur actuelle des synergies, voie entière dans la bulle,
+  points en surplus du grand graphe rempli. 9 langues (i18n-quotes a relevé « Bonus actifs » mal cité en chinois :
+  corrigé) ; pire cas sans défilement ; autotest 220/220 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1115) : points en surplus du grand graphe. Une voie par région : un chemin prend au plus 258 des 618
   nœuds (GRAPH_MAX_TAKE) ; la partie de fin de partie (48 h, record 150) avait déjà 362 points, dont 104 inutiles (le
   défaut « points en surplus » de l'it. 1018 revenait). Graphe rempli : chaque point de plus donne +0,1 % d'attaque et

@@ -1581,4 +1581,7 @@ export default {
   2706: "Right now: ≈ {0}",
   2707: "Whole path: {0}",
   2708: "✓ Great graph complete · {n} surplus point: +{2} attack and HP|✓ Great graph complete · {n} surplus points: +{2} attack and HP",
+  2709: "Great graph: each synergy shows what it gives right now (“Active bonuses”, and in the tooltip of a node not yet taken).",
+  2710: "Before choosing a path, the tooltip of its nodes shows what the whole path gives: a region’s three paths can be compared.",
+  2711: "Great graph complete: each surplus skill point gives +0.1% attack and HP.",
 };
