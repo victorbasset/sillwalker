@@ -3669,6 +3669,19 @@ test("grand graphe : rempli, annoncé une seule fois (it. 1117)", () => {
   assert.equal(n, 1, "une seule annonce");
 });
 
+test("ascension : seules les données de la course repartent de zéro (it. 1123)", () => {
+  // (it. 1122) les choix des paliers de maîtrise étaient perdus à l'ascension (oubliés dans la liste de ascend()).
+  // Partie de fin de partie + quelques données que la sauvegarde type n'a pas ; toute donnée remise à sa valeur de
+  // départ doit figurer ici (donnée de COURSE) ; une donnée de la PARTIE se garde dans Game.ascend().
+  const RUN = new Set(["lvl", "xp", "gold", "kills", "equip", "bag", "last", "talents", "buffs", "potions", "shop", "zone", "best", "quests", "boss", "runStats"]);
+  const S = JSON.parse(fs.readFileSync(new URL("./fixtures/endgame-save.json", import.meta.url), "utf8"));
+  S.masteryPicks = { "ms_power:10": "b" };
+  const g = new Game(S), before = JSON.parse(JSON.stringify(g.S)), f = freshState();
+  assert(g.ascend(), "ascension faite");
+  const lost = Object.keys(before).filter((k) => !RUN.has(k) && JSON.stringify(before[k]) !== JSON.stringify(g.S[k]) && JSON.stringify(g.S[k]) === JSON.stringify(f[k]));
+  assert.deepEqual(lost, [], "données de la partie perdues à l'ascension : " + lost.join(", "));
+});
+
 test("maîtrises : un palier à choix franchi est annoncé, une fois (it. 1122)", () => {
   // (rang 48 : assez de points dépensés pour que la maîtrise s'apprenne, MASTERY_REQ)
   const g = new Game(freshState()); (g.S.talents[g.S.cls] ||= {}).ms_power = 48;

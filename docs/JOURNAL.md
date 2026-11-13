@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1123) : audit de l'ascension après le défaut de l'it. 1122 (choix des paliers perdus) : sur la partie
+  de fin de partie, seules les données de la course repartent de zéro (niveau, expérience, or, victimes, équipement,
+  sac, talents). Test logique permanent : toute donnée remise à sa valeur de départ par ascend() doit être déclarée
+  « donnée de course » (liste RUN) ; vérifié qu'il signale « masteryPicks » si la ligne de l'it. 1122 est retirée.
+  254 tests.
 - 2026-11-13 (it. 1122, demande C) : un palier de maîtrise à choix franchi est annoncé (« Maîtrise : puissance :
   palier du rang 400 atteint ! +25 % attaque, ou +40 % dégâts critiques au choix. » ; clic : Talents, la maîtrise
   sélectionnée ; paliers franchis d'un coup regroupés, « et N autres »). Une seule fois dans la partie : le palier vu
