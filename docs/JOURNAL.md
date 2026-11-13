@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1051, revue générale) : simulation 12 h, records des courses : danseuse de lames 42 → 65, berserker
+  44 → 64, arbalétrier 41 → 62 (réguliers). Performance (copie neuve) : bande 19,5 %, panneau 20,7 %, mini 6,9 %, icône
+  0,8 %. Captures Bestiaire et Talents à 1366 px en français, anglais et coréen (« 30점부터 », it. 1001), mini en
+  coréen : propres. Texte coréen : HP et Lv seulement. Rien à corriger.
 - 2026-11-13 (it. 1050) : mémoire dans la durée après les ajouts récents (répliques, bulles, contours en cache) :
   mem-watch 8 min à ×10 : « réel » 498-510 Mo, stable (repère 485-530). Rien à corriger.
 - 2026-11-13 (it. 1049) : bande en haut de l'écran (settings.json edge = top), russe, fin de partie après 8 h
