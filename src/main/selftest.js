@@ -268,7 +268,9 @@ async function runSelfTest(strip) {
       if (box.scrollHeight > box.clientHeight + 1) return "fenêtre qui défile " + box.scrollHeight + "/" + box.clientHeight;
       const out = lis.filter((li) => [...li.querySelectorAll('.mpick')].some((x) => x.getBoundingClientRect().right > li.getBoundingClientRect().right + 1)).length;
       const cut = lis.filter((li) => { const rg = document.createRange(); rg.selectNodeContents(li.firstElementChild); return new Set([...rg.getClientRects()].map((r) => Math.round(r.top))).size > 1; }).length;
-      if (out || cut) return "boutons hors " + out + ", étiquettes coupées " + cut;
+      // (it. 1141) étiquette « rang 100 » qui passe sous le premier bouton (insécable mais rétrécie)
+      const over = lis.filter((li) => { const rg = document.createRange(); rg.selectNodeContents(li.firstElementChild); const L = [...rg.getClientRects()].pop(), b0 = li.querySelector('.mpick'); return L && b0 && L.right > b0.getBoundingClientRect().left + 1 && L.bottom > b0.getBoundingClientRect().top + 1; }).length;
+      if (out || cut || over) return "boutons hors " + out + ", étiquettes coupées " + cut + ", sous un bouton " + over;
       const b = document.querySelector('#modal [data-action="t-mpick"][data-at="10"][data-opt="b"]'); if (!b) return "pas d'option b";
       b.click(); await new Promise((r) => setTimeout(r, 100));
       // (it. 1133) la fenêtre reste ouverte et l'option choisie s'y met en évidence (6 paliers d'affilée)

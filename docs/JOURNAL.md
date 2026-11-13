@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1141, revue générale) : save-fuzz ok sur dev-data (1190) et la fin de partie (1183) ; --crawl en
+  polonais sur l'état extrême (max-save) : 555 clics sans erreur ; thème clair des nouveautés (fenêtre des paliers,
+  Compétences, synergies) : lisible. DÉFAUT vu en capture : dans la colonne de droite de la fenêtre des paliers,
+  « rang 100 » / « rang 200 » passait SOUS le premier bouton (rendu insécable à l'it. 1126 mais toujours rétrécissable :
+  le contrôle comptait les lignes, pas le chevauchement) : flex-shrink 0 et une marge ; le contrôle d'autotest mesure
+  aussi le chevauchement (vérifié qu'il le voit sans le correctif : 2). Autotest 224/224 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1140) : relecture de la liste d'idées : demandes D (grand graphe) et E (PNJ) marquées FAIT ; le
   reste est fait, clos, ou attend Victor (plateau de fin de semaine) ou Windows (bande en plein écran, mesures).
   Partie neuve (dossier vide, français, capture à 75 s) : héros, « Prochaine découverte », boss de la zone 1 et sa
