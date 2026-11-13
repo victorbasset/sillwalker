@@ -3571,6 +3571,10 @@ test("grand graphe : synergies (« si je suis tanky, je tape plus fort », « pl
   const gs = heroStats(S).graphSyn;
   assert(gs && gs.synHpAtk > 0, "part de la synergie PV → attaque connue");
   assert.equal(graphLayer({ synHpAtk: 5, synGoldAtk: 1 }, { hpPct: 300 }, 1e9).syn.synHpAtk, 10, "la part est celle comptée dans l'attaque");
+  // (it. 1113) valeur d'un point de synergie avec les statistiques actuelles (bulle d'un nœud) : part / points
+  const hs = heroStats(S), pts = skillGraphEffects(S).synHpAtk;
+  assert(Math.abs(hs.graphSynUnit.synHpAtk * pts - hs.graphSyn.synHpAtk) < 1e-6, "un point vaut la part divisée par les points");
+  assert(heroStats(S).graphSynUnit.synGoldAtk >= 0, "synergie de l'or connue même sans nœud");
   // (it. 1078) même avec d'énormes bonus d'ailleurs, 5 nœuds d'attaque du graphe se sentent (multiplicatif)
   const S2 = freshState(); S2.lvl = 600; S2.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
   const b2 = heroStats(S2).atk; S2.skills.outer = ["force-gate", "force-v0-0", "force-v0-1", "force-v0-2", "force-v0-3"];

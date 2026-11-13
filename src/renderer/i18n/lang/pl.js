@@ -1578,4 +1578,5 @@ export default {
   2703: "Wielki graf: jego otwarcie jest ogłaszane, odznaka Umiejętności liczy jego punkty, a „Zresetuj wielki graf” pozwala zmienić ścieżkę bez utraty kwiatu.",
   2704: "Dymki wielkiego grafu pokazują, co naprawdę daje każdy węzeł.",
   2705: "Co ta synergia daje w tej chwili",
+  2706: "W tej chwili: ≈ {0}",
 };

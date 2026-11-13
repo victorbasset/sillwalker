@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1113, demande D, synergies) : la bulle d'un nœud de synergie du grand graphe dit ce qu'il donnerait
+  avec les statistiques actuelles (« En ce moment : ≈ +4,9 % attaque » ; heroStats garde graphSynUnit, la valeur d'un
+  point de chaque synergie) : comparer deux voies devient un calcul. Partie de fin de partie : les 6 synergies, en
+  français et en russe. Test logique (un point = part / points) ; 9 langues ; autotest 220/220.
 - 2026-11-13 (it. 1112, demande D, synergies) : « Bonus actifs » (Compétences) montre ce que chaque synergie du grand
   graphe donne EN CE MOMENT, à côté de sa règle : « +0,6 % d'attaque par doublement de tes points de vie = +4,9 % »
   (graphLayer renvoie la part de chaque synergie, heroStats la garde dans graphSyn). La liste défilait de côté

@@ -167,6 +167,8 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // (it. 571 : réglées pour ≈ 10-15 zones faciles chacune ; à ×4 / ×3 la semaine simulée bondissait de 186 à 290)
   // (it. 608) niveau de la relique : la part qu'elle ajoute grandit de 10 % par niveau (relicPow)
   s.graphSyn = gl.syn; // (it. 1112) part actuelle de chaque synergie du grand graphe
+  // (it. 1113) ce que donnerait 1 point de chaque synergie avec les statistiques actuelles (bulle d'un nœud)
+  s.graphSynUnit = graphLayer({ ...ge, synHpAtk: 1, synGoldAtk: 1, synDodgeAtk: 1, synAtkHp: 1, synSpdCrit: 1, synCritBurn: 1 }, t, S.gold).syn;
   if (rel.blade) s.atk *= 1 + (RELIC_POWER.blade - 1) * relicPow(S, "blade");
   if (rel.crown) { const f = relicPow(S, "crown"), m = 1 + (RELIC_POWER.crown - 1) * f; s.atk *= m; s.hp *= m; s.gold = (s.gold + 100) * (1 + (RELIC_POWER.crownGold - 1) * f) - 100; }
   return s;

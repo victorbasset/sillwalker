@@ -1578,4 +1578,5 @@ export default {
   2703: "Großer Graph: Seine Öffnung wird angekündigt, das Fertigkeiten-Abzeichen zählt seine Punkte, und „Großen Graphen zurücksetzen“ erlaubt einen Pfadwechsel, ohne die Blume zu verlieren.",
   2704: "Die Infos des großen Graphen zeigen, was jeder Knoten wirklich bringt.",
   2705: "Was diese Synergie gerade bringt",
+  2706: "Gerade: ≈ {0}",
 };

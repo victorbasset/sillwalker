@@ -1578,4 +1578,5 @@ export default {
   2703: "Great graph: its opening is announced, the Skills badge counts its points, and “Reset the great graph” lets you change path without losing the flower.",
   2704: "The great graph’s tooltips show what each node really gives.",
   2705: "What this synergy gives right now",
+  2706: "Right now: ≈ {0}",
 };

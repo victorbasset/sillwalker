@@ -1578,4 +1578,5 @@ export default {
   2703: "Gran grafo: su apertura se anuncia, la insignia de Habilidades cuenta sus puntos y «Reiniciar el gran grafo» permite cambiar de camino sin perder la flor.",
   2704: "Los globos del gran grafo muestran lo que cada nodo da de verdad.",
   2705: "Lo que esta sinergia da ahora mismo",
+  2706: "Ahora mismo: ≈ {0}",
 };
