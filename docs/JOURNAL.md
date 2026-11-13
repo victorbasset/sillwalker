@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1021, revue générale) : simulation 12 h, records des courses : druide 44 → 62, samouraï 41 → 64, barde
+  44 → 62 (réguliers). Performance (copie neuve) : bande 19,6 %, panneau 20,5 %, mini 7,0 %, icône 0,5 %. Captures
+  Familiers et Carte à 1366 px en français, anglais et coréen, mini en coréen (contour du boss visible) : propres.
+  Texte coréen extrait : seulement HP et Lv (usuels). Rien à corriger.
 - 2026-11-13 (it. 1020) : monstres sombres lisibles de nuit. Luminance moyenne des sprites mesurée en jeu (injection) :
   veuve noire 28, araignée 37, chevalier noir 38, scorpion d'obsidienne 40, corbeau 41… (fond de nuit du même ordre).
   isDarkSprite (sprites.js, moyenne des pixels opaques < 48, en cache) : contour très discret (blanc bleuté à 35 %,
