@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1023) : compléter une panoplie d'un clic (finishSet) n'annonce plus « bonus 2 pièces ! » puis aussitôt
+  « bonus 4 pièces ! » (deux bandeaux superposés, deux sons, deux lignes) : pièces équipées en lot (_setBatch), le palier
+  le plus haut annoncé une fois à la fin ; bonus de collection et jalon du carnet inchangés. Test logique (un seul
+  setBonus, n = 4). Autotest : « transmutation (après confirmation) » a échoué une fois (164 → 164), puis réussi deux
+  fois : attentes fixes de 150 ms remplacées par until() (bouton actif, fenêtre de confirmation, compteur) ; trois
+  passages à 204/204.
 - 2026-11-13 (it. 1022) : « Vendre ce qui ne m'améliore pas » dit au survol combien de pièces de panoplie il garde (« 2
   pièces de panoplie gardées pour en compléter une. », légendaires exclus : gardés de toute façon) : le joueur voyait des
   objets plus faibles rester dans le sac sans savoir pourquoi (garde de l'it. 1004). Contrôle d'autotest (rendu

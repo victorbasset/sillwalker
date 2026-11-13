@@ -1203,14 +1203,18 @@ export class Game {
     // Palier de panoplie atteint (2 ou 4 pièces) : un moment à marquer.
     const after = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
     for (const n of [2, 4]) if (before < n && after >= n && SETS[it.set]) {
-      this.log(tx("Panoplie {0} : bonus {1} pièces !", { 0: SETS[it.set].name, 1: n }));
+      // (it. 1023) pièces équipées en lot (finishSet) : le palier le plus haut est annoncé une fois, à la fin (sinon
+      // « bonus 2 pièces ! » puis « bonus 4 pièces ! » : deux bandeaux superposés, deux sons)
+      const batch = this._setBatch;
+      if (batch) batch[it.set] = Math.max(batch[it.set] || 0, n);
+      else this.log(tx("Panoplie {0} : bonus {1} pièces !", { 0: SETS[it.set].name, 1: n }));
       if (n === 4 && !(S.setsDone ||= {})[it.set]) { // première fois : bonus de collection permanent
         S.setsDone[it.set] = true;
         this.milestone("set", it.set);
         this.invalidateStats();
         this.log(tx("Panoplie complétée pour la première fois : {0} pour toujours.", { 0: describeEffects(SET_CODEX_BONUS) }));
       }
-      this.emit("setBonus", { id: it.set, n });
+      if (!batch) this.emit("setBonus", { id: it.set, n });
     }
     this.changed();
   }
@@ -2266,7 +2270,12 @@ export class Game {
     if (!f) return false;
     const S = this.S, wasDone = !!(S.setsDone || {})[f.set], before = power(heroStats(S));
     const old = f.items.map((it) => S.equip[it.slot]).filter(Boolean);
-    for (const it of f.items) this.equip(it, true);
+    const batch = (this._setBatch = {});
+    try { for (const it of f.items) this.equip(it, true); } finally { this._setBatch = null; }
+    for (const [id, n] of Object.entries(batch)) {
+      this.log(tx("Panoplie {0} : bonus {1} pièces !", { 0: SETS[id].name, 1: n }));
+      this.emit("setBonus", { id, n });
+    }
     if (!wasDone && (S.setsDone || {})[f.set] && power(heroStats(S)) < before) {
       for (const o of old) if (S.bag.some((b) => b.id === o.id)) this.equip(o, true);
       this.log(tx("Panoplie {0} complétée : l’équipement d’avant, plus fort, est remis.", { 0: SETS[f.set].name }));

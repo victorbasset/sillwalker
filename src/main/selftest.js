@@ -413,10 +413,12 @@ async function runSelfTest(strip) {
   await click('[data-tab="adventure"]');
   await sleep(200);
   const tr0 = await js("window.__game.S.stats.transmutes || 0");
+  // (it. 1023) attentes sur l'état (fenêtre de confirmation, puis compteur) et non plus 150 ms fixes : instable sous xvfb
+  await until(() => js("!!document.querySelector('[data-action=\"transmute\"]:not([disabled])')"));
   await click('[data-action="transmute"]');
-  await sleep(150);
+  await until(() => js("!!document.querySelector('[data-action=\"confirm-ok\"]')"));
   await click('[data-action="confirm-ok"]');
-  await sleep(150);
+  await until(async () => (await js("window.__game.S.stats.transmutes || 0")) > tr0);
   check("transmutation (après confirmation)", (await js("window.__game.S.stats.transmutes || 0")) > tr0, `${tr0} -> ${await js("window.__game.S.stats.transmutes || 0")}`);
   // Familiers : envoyer un familier en expédition
   await js("(() => { const P = window.__game.S.pets; P.owned.cat ||= { lvl: 1, xp: 0 }; P.owned.fox ||= { lvl: 1, xp: 0 }; P.active = 'cat'; P.exp = {}; window.__game.changed() })()");

@@ -2068,7 +2068,10 @@ test("panoplie jamais complétée : les pièces du sac qui couvrent les 4 emplac
   // (it. 1007) équipement porté plus fort : remis aussitôt après la complétion (le bonus reste)
   const strong = {}; for (const sl of ["helm", "boots", "gloves", "ring"]) { const it = g.newItem(4); it.slot = sl; it.set = null; it.st = { atk: 1e6, hp: 1e6 }; g.S.equip[sl] = it; strong[sl] = it.id; }
   g.invalidateStats();
+  // (it. 1023) un seul palier annoncé (le plus haut), pas « 2 pièces » puis « 4 pièces »
+  const tiers = []; g.on("setBonus", ({ n }) => tiers.push(n));
   assert.ok(g.finishSet());
+  assert.deepEqual(tiers, [4]);
   assert.ok(g.S.setsDone.wind, "complétée : bonus permanent");
   for (const sl in strong) assert.equal(g.S.equip[sl].id, strong[sl], "objet fort remis : " + sl);
   assert.ok(g.S.log.some((l) => /plus fort, est remis|stronger gear/.test(l)), g.S.log[0]);
