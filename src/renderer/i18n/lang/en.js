@@ -1574,4 +1574,7 @@ export default {
   2699: "The great graph opens!",
   2700: "or",
   2701: "Choose milestone bonuses ({0})",
+  2702: "Masteries: two bonuses to choose from at each milestone (“choose” in a mastery’s details).",
+  2703: "Great graph: its opening is announced, the Skills badge counts its points, and “Reset the great graph” lets you change path without losing the flower.",
+  2704: "The great graph’s tooltips show what each node really gives.",
 };

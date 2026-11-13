@@ -1574,4 +1574,7 @@ export default {
   2699: "O grande grafo se abre!",
   2700: "ou",
   2701: "Escolher os bônus dos marcos ({0})",
+  2702: "Maestrias: em cada marco, dois bônus à escolha («escolher» no detalhe de uma maestria).",
+  2703: "Grande grafo: sua abertura é anunciada, o selo de Habilidades conta seus pontos e «Reiniciar o grande grafo» permite mudar de caminho sem perder a flor.",
+  2704: "Os balões do grande grafo mostram o que cada nó realmente dá.",
 };

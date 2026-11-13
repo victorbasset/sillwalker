@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1109) : « Quoi de neuf », édition 54 : bonus au choix des paliers de maîtrise ; ouverture du grand
+  graphe annoncée, pastille de ses points, « Réinitialiser le grand graphe » ; bulles du graphe à leur vraie valeur.
+  Traduite dans les 9 langues ; pire cas (11 nouveautés) sans défilement ; 10 langues sans défaut ; autotest 220/220.
 - 2026-11-13 (it. 1108) : contrôle d'autotest du choix d'un bonus de palier (grande fenêtre, option b enregistrée).
   Il a montré qu'une maîtrise sélectionnée allongeait la barre latérale des Talents (onglet à 1280 px : +15 px) : le
   lien « choisir · 6 » prend la place de la valeur « Paliers atteints » (une ligne de moins), les deux options du

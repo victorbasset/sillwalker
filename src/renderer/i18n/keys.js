@@ -2703,5 +2703,8 @@ export const KEYS = [
   "Le grand graphe s’ouvre autour de la fleur ! {n} point à y dépenser.|Le grand graphe s’ouvre autour de la fleur ! {n} points à y dépenser.",
   "Le grand graphe s’ouvre !",
   "ou",
-  "Choisir les bonus des paliers ({0})"
+  "Choisir les bonus des paliers ({0})",
+  "Maîtrises : à chaque palier, deux bonus au choix (« choisir » dans le détail d’une maîtrise).",
+  "Grand graphe : son ouverture est annoncée, la pastille des Compétences compte ses points, et « Réinitialiser le grand graphe » permet de changer de voie sans perdre la fleur.",
+  "Les bulles du grand graphe montrent ce que chaque nœud donne vraiment."
 ];

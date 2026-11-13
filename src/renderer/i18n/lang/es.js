@@ -1574,4 +1574,7 @@ export default {
   2699: "¡Se abre el gran grafo!",
   2700: "o",
   2701: "Elegir las bonificaciones de los hitos ({0})",
+  2702: "Maestrías: en cada hito, dos bonificaciones a elegir («elegir» en el detalle de una maestría).",
+  2703: "Gran grafo: su apertura se anuncia, la insignia de Habilidades cuenta sus puntos y «Reiniciar el gran grafo» permite cambiar de camino sin perder la flor.",
+  2704: "Los globos del gran grafo muestran lo que cada nodo da de verdad.",
 };
