@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1104) : où passent les 12,7 points de la page en fin de partie ? Temps de script mesuré sur 10 s
+  (fonctions enveloppées, injection TEMP) : dessin de la bande 77 ms, simulation (advance) 57 ms, écouteurs
+  d'événements 43 ms, effets 26 ms, updateFx 13 ms, nombres flottants 3 ms : ≈ 140 ms / 10 s, soit ≈ 1,4 % d'un
+  cœur. Le reste est le travail du navigateur (styles, mise en page, peinture) ; piste suivante, si besoin : un
+  enregistrement Chromium (--trace) pour voir les recalculs de style. Rien à changer côté script.
 - 2026-11-13 (it. 1103) : nouvelle décomposition de la bande en fin de partie (éléments masqués un à un, copies
   neuves) : base 24,3 % (GPU 10,1, page 12,7) ; sans les nombres de dégâts 23,4, sans les effets de sorts 23,4, sans
   le héros 23,7, sans étincelles / pièces / feux follets 23,4, sans barres de vie et affixes 24,2. Plus aucun poste
