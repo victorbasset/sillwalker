@@ -1565,4 +1565,7 @@ export default {
   2690: "{n} item that doesn’t improve your hero will be sold, legendaries and set pieces included.|{n} items that don’t improve your hero will be sold, legendaries and set pieces included.",
   2691: "Sells everything that isn’t more powerful than your current gear, legendaries and set pieces included.",
   2692: "Kept to complete the set: transmutation and the full-bag sale spare it (not the “Sell what doesn’t upgrade me” button).",
+  2693: "Every tab now has its own character, met along the road: Corvin (Talents), Plume (Quests), Bram (Hero), Sola (Map), Fennel (Bestiary), Mother Twig (Pets), Iris (Skills) and Tico (Statistics). Click them to hear them.",
+  2694: "“Sell what doesn’t upgrade me” sells everything that isn’t an upgrade, legendaries and set pieces included.",
+  2695: "No more lost scenes: when several meetings happen at once, they wait their turn.",
 };

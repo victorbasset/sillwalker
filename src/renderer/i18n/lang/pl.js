@@ -1565,4 +1565,7 @@ export default {
   2690: "{n} przedmiot, który nie ulepsza bohatera, zostanie sprzedany, łącznie z legendarnymi i częściami zestawów.|{n} przedmioty, które nie ulepszają bohatera, zostaną sprzedane, łącznie z legendarnymi i częściami zestawów.|{n} przedmiotów, które nie ulepszają bohatera, zostanie sprzedanych, łącznie z legendarnymi i częściami zestawów.",
   2691: "Sprzedaje wszystko, co nie jest mocniejsze od obecnego ekwipunku, łącznie z legendarnymi i częściami zestawów.",
   2692: "Zachowana do skompletowania zestawu: transmutacja i sprzedaż przy pełnej torbie ją oszczędzają (nie przycisk „Sprzedaj to, co mnie nie ulepsza”).",
+  2693: "Każda zakładka ma teraz swoją postać, spotkaną na drodze: Corvin (Talenty), Plume (Zadania), Bram (Bohater), Sola (Mapa), Koper (Bestiariusz), Mama Gałązka (Chowańce), Iris (Umiejętności) i Tico (Statystyki). Kliknij, by ich usłyszeć.",
+  2694: "„Sprzedaj to, co mnie nie ulepsza” sprzedaje wszystko, co nie jest ulepszeniem, łącznie z legendarnymi i częściami zestawów.",
+  2695: "Żadnych zgubionych scen: gdy kilka spotkań przychodzi naraz, czekają na swoją kolej.",
 };

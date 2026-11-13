@@ -1565,4 +1565,7 @@ export default {
   2690: "{n} Gegenstand, der deinen Helden nicht verbessert, wird verkauft – legendäre und Set-Teile eingeschlossen.|{n} Gegenstände, die deinen Helden nicht verbessern, werden verkauft – legendäre und Set-Teile eingeschlossen.",
   2691: "Verkauft alles, was nicht stärker ist als deine aktuelle Ausrüstung – legendäre und Set-Teile eingeschlossen.",
   2692: "Aufbewahrt, um das Set zu vervollständigen: Transmutation und Verkauf bei voller Tasche verschonen es (nicht der Knopf „Verkaufen, was mich nicht verbessert“).",
+  2693: "Jeder Reiter hat jetzt seine eigene Figur, unterwegs getroffen: Corvin (Talente), Plume (Aufträge), Bram (Held), Sola (Karte), Fenchel (Bestiarium), Mutter Zweig (Begleiter), Iris (Fertigkeiten) und Tico (Statistiken). Klick sie an, um sie zu hören.",
+  2694: "„Verkaufen, was mich nicht verbessert“ verkauft alles, was keine Verbesserung ist – legendäre und Set-Teile eingeschlossen.",
+  2695: "Keine verlorenen Szenen mehr: Kommen mehrere Begegnungen gleichzeitig, warten sie, bis sie dran sind.",
 };

@@ -1565,4 +1565,7 @@ export default {
   2690: "{n} item que não melhora seu herói será vendido, lendários e peças de conjunto incluídos.|{n} itens que não melhoram seu herói serão vendidos, lendários e peças de conjunto incluídos.",
   2691: "Vende tudo o que não for mais poderoso que seu equipamento atual, lendários e peças de conjunto incluídos.",
   2692: "Guardada para completar o conjunto: a transmutação e a venda com a bolsa cheia a poupam (não o botão «Vender o que não me melhora»).",
+  2693: "Cada aba agora tem seu personagem, encontrado pelo caminho: Corvin (Talentos), Plume (Missões), Bram (Herói), Sola (Mapa), Funcho (Bestiário), Mamãe Graveto (Mascotes), Íris (Habilidades) e Tico (Estatísticas). Clique neles para ouvi-los.",
+  2694: "«Vender o que não me melhora» vende tudo o que não for uma melhoria, lendários e peças de conjunto incluídos.",
+  2695: "Nenhuma cena perdida: quando vários encontros chegam juntos, esperam a vez.",
 };

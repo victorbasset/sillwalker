@@ -2694,5 +2694,8 @@ export const KEYS = [
   "Ton carnet de route s’allonge. On en fera un livre.",
   "{n} objet qui n’améliore pas ton héros sera vendu, légendaires et pièces de panoplie compris.|{n} objets qui n’améliorent pas ton héros seront vendus, légendaires et pièces de panoplie compris.",
   "Vend tout ce qui n’est pas plus puissant que ton équipement actuel, légendaires et pièces de panoplie compris.",
-  "Gardée pour compléter la panoplie : la transmutation et la vente quand le sac est plein l’épargnent (pas le bouton « Vendre ce qui ne m’améliore pas »)."
+  "Gardée pour compléter la panoplie : la transmutation et la vente quand le sac est plein l’épargnent (pas le bouton « Vendre ce qui ne m’améliore pas »).",
+  "Chaque onglet a maintenant son personnage, rencontré sur la route : Corvin (Talents), Plume (Quêtes), Bram (Héros), Sola (Carte), Fenouil (Bestiaire), Maman Brindille (Familiers), Iris (Compétences) et Tico (Statistiques). Clique-les pour les entendre.",
+  "« Vendre ce qui ne m’améliore pas » vend tout ce qui n’est pas une amélioration, légendaires et pièces de panoplie compris.",
+  "Plus de scène perdue : quand plusieurs rencontres arrivent ensemble, elles attendent leur tour."
 ];

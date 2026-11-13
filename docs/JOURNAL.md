@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1097) : « Quoi de neuf », édition 53 : les huit nouveaux PNJ (Corvin, Plume, Bram, Sola, Fenouil,
+  Maman Brindille, Iris, Tico ; « clique-les pour les entendre »), « Vendre ce qui ne m'améliore pas » qui vend tout
+  ce qui n'est pas une amélioration, plus de scène de rencontre perdue. Traduite dans les 9 langues ; pire cas (10
+  nouveautés) sans défilement ; 10 langues sans défaut ; autotest 219/219.
 - 2026-11-13 (it. 1096, demande H de Victor) : le bouton « Vendre ce qui ne m'améliore pas » (et la touche V) vend
   tout ce qui n'est pas une amélioration, légendaires et pièces de panoplie compris (Game.nonUpgradeItems ;
   sellUseless(true)). Les automatismes (vente quand le sac est plein, simulations, transmutation) gardent leur

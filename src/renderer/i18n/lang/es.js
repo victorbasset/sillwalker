@@ -1565,4 +1565,7 @@ export default {
   2690: "Se venderá {n} objeto que no mejora a tu héroe, legendarios y piezas de conjunto incluidos.|Se venderán {n} objetos que no mejoran a tu héroe, legendarios y piezas de conjunto incluidos.",
   2691: "Vende todo lo que no sea más poderoso que tu equipo actual, legendarios y piezas de conjunto incluidos.",
   2692: "Guardada para completar el conjunto: la transmutación y la venta con la bolsa llena la respetan (no el botón «Vender lo que no me mejora»).",
+  2693: "Cada pestaña tiene ahora su personaje, encontrado en el camino: Corvin (Talentos), Plume (Misiones), Bram (Héroe), Sola (Mapa), Hinojo (Bestiario), Mamá Ramita (Mascotas), Iris (Habilidades) y Tico (Estadísticas). Haz clic en ellos para oírlos.",
+  2694: "«Vender lo que no me mejora» vende todo lo que no sea una mejora, legendarios y piezas de conjunto incluidos.",
+  2695: "Ninguna escena perdida: cuando llegan varios encuentros a la vez, esperan su turno.",
 };
