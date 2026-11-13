@@ -256,7 +256,7 @@ export class SkillsTab {
     const unitK = this.game.stats().graphSynUnit || {}, TARGET = { synHpAtk: "atkPct", synGoldAtk: "atkPct", synDodgeAtk: "atkPct", synAtkHp: "hpPct", synSpdCrit: "critDmg", synCritBurn: "burn" };
     const out = {};
     for (const k in e) if (TARGET[k] && unitK[k] > 0) out[TARGET[k]] = (out[TARGET[k]] || 0) + Math.round(e[k] * unitK[k] * 10) / 10;
-    return Object.keys(out).length ? `<div class="sub">${esc(tx(label, { 0: describeEffects(out) }))}</div>` : "";
+    return Object.keys(out).length ? `<div class="sub">${esc(tx(label, { 0: describeEffects(out) }).replace("≈ ", "≈\u00a0"))}</div>` : "";
   }
 
   coreTip(sec) {

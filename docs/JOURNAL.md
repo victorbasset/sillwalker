@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1142) : fin de la revue du thème clair (it. 1141) : onglet Compétences et bulle d'un nœud du grand
+  graphe (voie entière, synergie « en ce moment ») lisibles. Détail : « ≈ » restait seul en fin de ligne, sa valeur
+  passant à la ligne suivante : espace insécable après « ≈ » (toutes les langues). Autotest 224/224.
 - 2026-11-13 (it. 1141, revue générale) : save-fuzz ok sur dev-data (1190) et la fin de partie (1183) ; --crawl en
   polonais sur l'état extrême (max-save) : 555 clics sans erreur ; thème clair des nouveautés (fenêtre des paliers,
   Compétences, synergies) : lisible. DÉFAUT vu en capture : dans la colonne de droite de la fenêtre des paliers,
