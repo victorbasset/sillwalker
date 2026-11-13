@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1026) : fin de partie à 1366 et 1920 px en anglais, chinois, japonais et coréen : sans défaut (les 10
+  langues le sont désormais à toutes les largeurs). Astuce des panoplies complétée : « Ton sac garde les pièces : dès
+  qu'il peut en compléter une, « À faire » le fait d'un clic. » En la vérifiant en russe : la bulle d'astuce tenait sur
+  UNE ligne, coupée par « … » (la fin, « нажми здесь », perdue même à 1920 px) ; désormais trois lignes au plus, 1200 px
+  de large au plus, en grandissant vers le haut dans la zone transparente. Captures ru 1280 / 1920 ; autotest 204/204.
 - 2026-11-13 (it. 1025) : lang-overflow mesure la fin de partie à d'autres largeurs (FIN_WIDTHS=1280,1366,1920 ; 1280
   seulement par défaut). Défaut trouvé : en russe à 1920 px, l'Aventure de fin de partie défilait de 9 px ; colonne
   Zone la plus haute (439 px de contenu pour 445), « Предыдущая зона / Следующая зона » empilés. Boutons de zone en

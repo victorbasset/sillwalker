@@ -1360,4 +1360,5 @@ export default {
   2485: "Diário de viagem em colunas; cartão da zona mais curto (chefe exausto, relíquia do chefe da zona).",
   2486: "Sem lembrete de “pontos de habilidade” quando a árvore está completa.",
   2487: "{n} peça de conjunto guardada para completar um.|{n} peças de conjunto guardadas para completar um.",
+  2488: "Uma peça de conjunto! Use 2 e depois 4 peças do mesmo conjunto para ganhar bônus; cada conjunto completado pela primeira vez também deixa seu herói mais forte para sempre. Sua bolsa guarda as peças: assim que puder completar um, “A fazer” faz isso com um clique. Todos os conjuntos estão no Bestiário: clique aqui.",
 };

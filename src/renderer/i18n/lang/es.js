@@ -1360,4 +1360,5 @@ export default {
   2485: "Diario de ruta en columnas; tarjeta de zona más corta (jefe agotado, reliquia del jefe de la zona).",
   2486: "Se acabó el aviso de «puntos de habilidad» cuando el árbol está completo.",
   2487: "{n} pieza de conjunto guardada para completar uno.|{n} piezas de conjunto guardadas para completar uno.",
+  2488: "¡Una pieza de conjunto! Lleva 2 y luego 4 piezas del mismo conjunto para obtener bonificaciones; cada conjunto completado por primera vez también hace a tu héroe más fuerte para siempre. Tu bolsa guarda las piezas: en cuanto pueda completar uno, «Pendiente» lo hace con un clic. Todos los conjuntos están en el Bestiario: haz clic aquí.",
 };

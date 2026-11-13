@@ -120,8 +120,10 @@ body.edge-top #menu-btn[aria-expanded="true"] .chev { transform: translateY(2px)
 #menu-btn .badge[hidden] { display: none; }
 
 /* Bulle d'info : juste au-dessus de la bande (dans la zone transparente), pour ne rien cacher du jeu. */
-#toast { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; z-index: 5;
-  position: absolute; right: 12px; bottom: calc(var(--strip) + 6px); max-width: calc(100% - 24px); padding: 5px 12px;
+/* (it. 1026) trois lignes au plus (au lieu d’une) : en russe, la fin des astuces longues (« … нажми здесь ») était coupée,
+   même à 1920 px ; la bulle grandit vers le haut, dans la zone transparente */
+#toast { white-space: normal; overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; z-index: 5;
+  position: absolute; right: 12px; bottom: calc(var(--strip) + 6px); max-width: min(1200px, calc(100% - 24px)); padding: 5px 12px;
   box-shadow: 0 3px 0 rgba(0, 0, 0, .35);
   background: rgba(14, 13, 24, .88); color: #fff; border: 2px solid #e9b949; border-radius: 3px; font-size: 14px; cursor: pointer;
 }

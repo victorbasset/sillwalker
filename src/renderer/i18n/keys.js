@@ -2489,5 +2489,6 @@ export const KEYS = [
   "Panoplies : compléter une panoplie ne te laisse plus affaibli (l’équipement d’avant, plus fort, est remis ; le bonus reste), et Bestiaire > Panoplies propose de la compléter d’un clic.",
   "Carnet de route en colonnes ; carte Zone plus courte (boss épuisé, relique du boss de la zone).",
   "Plus de rappel « points de compétence » une fois l’arbre entièrement appris.",
-  "{n} pièce de panoplie gardée pour en compléter une.|{n} pièces de panoplie gardées pour en compléter une."
+  "{n} pièce de panoplie gardée pour en compléter une.|{n} pièces de panoplie gardées pour en compléter une.",
+  "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus ; chaque panoplie complétée une première fois rend aussi ton héros plus fort pour toujours. Ton sac garde les pièces : dès qu’il peut en compléter une, « À faire » le fait d’un clic. Toutes les panoplies sont dans le Bestiaire : clique ici."
 ];

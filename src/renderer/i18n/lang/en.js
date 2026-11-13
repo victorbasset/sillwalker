@@ -1360,4 +1360,5 @@ export default {
   2485: "Travel log in columns; shorter Zone card (worn-out boss, relic of the zone's boss).",
   2486: "No more “skill points” reminder once the whole tree is learned.",
   2487: "{n} set piece kept to complete a set.|{n} set pieces kept to complete a set.",
+  2488: "A set piece! Wear 2, then 4 pieces of the same set for bonuses; each set completed for the first time also makes your hero stronger forever. Your bag keeps the pieces: as soon as it can complete one, “To do” does it in one click. All sets are listed in the Bestiary: click here.",
 };
