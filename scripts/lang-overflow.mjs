@@ -16,6 +16,31 @@ const base = JSON.parse(fs.readFileSync(path.join(root, "dev-data", "save.json")
 const { UNLOCKS } = await import(path.join(root, "src/renderer/game/unlocks.js"));
 const allUnlocks = Object.fromEntries(UNLOCKS.map((u) => [u.id, true]));
 let bad = 0;
+// (it. 1059) plusieurs langues : le script se relance pour chacune, PAR à la fois (3 par défaut ; 5 min 15 → ≈ 2 min) ;
+// sorties remises dans l'ordre des langues, défauts additionnés. PAR=1 : à la suite, comme avant.
+const PAR = Math.max(1, +process.env.PAR || 3);
+if (langs.length > 1 && PAR > 1 && !process.env.OVF_CHILD) {
+  const { spawn } = await import("node:child_process");
+  const outs = new Array(langs.length).fill("");
+  const queue = langs.map((l, i) => i);
+  await Promise.all(Array.from({ length: Math.min(PAR, langs.length) }, async () => {
+    while (queue.length) {
+      const i = queue.shift();
+      await new Promise((done) => {
+        const p = spawn(process.execPath, [new URL(import.meta.url).pathname, langs[i], widths.join(",")], { env: { ...process.env, OVF_CHILD: "1" }, stdio: ["ignore", "pipe", "ignore"] });
+        p.stdout.on("data", (d) => (outs[i] += d));
+        p.on("close", done);
+      });
+    }
+  }));
+  for (const o of outs) {
+    for (const line of o.split("\n")) if (line && !/mesure\(s\) en défaut|aucun défilement ni mot coupé/.test(line)) console.log(line);
+    const m = o.match(/(\d+) mesure\(s\) en défaut/); if (m) bad += +m[1];
+    if (!/mesure\(s\) en défaut|aucun défilement ni mot coupé/.test(o)) { bad++; console.log("(langue sans résultat)"); }
+  }
+  console.log(bad ? `${bad} mesure(s) en défaut (défilement, débordement ou mot coupé)` : "aucun défilement ni mot coupé");
+  process.exit(bad ? 1 : 0);
+}
 for (const lang of langs) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "sw-ovf-"));
   try {

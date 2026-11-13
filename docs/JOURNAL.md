@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1059) : lang-overflow en parallèle : le script se relance pour chaque langue, 3 à la fois (PAR=n ;
+  PAR=1 : à la suite), sorties remises dans l'ordre, défauts additionnés : 5 min 15 → 2 min 32. Vérifié sur un défaut
+  volontaire (notes de la carte Zone en 20 px) : 4 mesures en défaut signalées, code de sortie 1. CLAUDE.md.
 - 2026-11-13 (it. 1058) : interface à 130 %, fin de partie, à 1366 et 1600 px dans les sept langues pas encore vues
   (en, es, pt, pl, zh, ja, ko) : sans défaut. Avec les it. 1046-1048 : le zoom 130 % est propre dans les 10 langues à
   1366, 1600 et 1920 px.
