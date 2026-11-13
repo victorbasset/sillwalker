@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1152) : docs/devlog-0.1.3.md : texte du devlog itch.io de la 0.1.3, prêt à coller, en anglais et
+  en français (nouveautés de la fenêtre de version, détails, « ta partie est conservée »), libellés cités tels
+  qu'affichés dans le jeu (« Sell what doesn't upgrade me »).
 - 2026-11-13 (it. 1151, revue générale) : 12 h simulées guerrier 61, rôdeur 62, mage 60 (repères) ; fuzz 1200
   parties, 0 bloquée ; --crawl en japonais (dev-data) : 385 clics sans erreur. Rien à corriger.
 - 2026-11-13 (it. 1150) : notes de la dernière version relisibles : bouton « Version 0.1.3 » à côté de « Quoi de
