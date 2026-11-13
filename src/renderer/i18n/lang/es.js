@@ -1344,4 +1344,6 @@ export default {
   2469: "El puesto del mercader ofrece objetos ya forjados al nivel de tu equipo: vuelve a ser útil al final de la partida.",
   2470: "La recompensa en oro de una misión sigue tu progreso desde que salió.",
   2471: "Al final de la partida, la banda es más legible y más ligera (menos números y efectos a la vez).",
+  2472: "partida: {0} · récord: {1}",
+  2473: "(zona {0} alcanzada en esta partida). En la zona {1}: +{2}.",
 };

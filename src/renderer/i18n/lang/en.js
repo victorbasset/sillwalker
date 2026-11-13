@@ -1344,4 +1344,6 @@ export default {
   2469: "The merchant's stall offers items already forged to your gear's level: useful again late in the game.",
   2470: "A quest's gold reward now follows your progress since it was drawn.",
   2471: "Late in the game, the strip is easier to read and lighter (fewer numbers and effects at once).",
+  2472: "run: {0} · record: {1}",
+  2473: "(zone {0} reached this run). At zone {1}: +{2}.",
 };

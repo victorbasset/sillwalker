@@ -1344,4 +1344,6 @@ export default {
   2469: "A banca do mercador oferece itens já forjados no nível do seu equipamento: volta a ser útil no fim do jogo.",
   2470: "A recompensa em ouro de uma missão acompanha seu progresso desde que foi sorteada.",
   2471: "No fim do jogo, a faixa fica mais legível e mais leve (menos números e efeitos ao mesmo tempo).",
+  2472: "corrida: {0} · recorde: {1}",
+  2473: "(zona {0} alcançada nesta corrida). Na zona {1}: +{2}.",
 };

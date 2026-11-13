@@ -1344,4 +1344,6 @@ export default {
   2469: "Der Händler bietet Gegenstände an, die bereits auf das Niveau deiner Ausrüstung geschmiedet sind: im späten Spiel wieder nützlich.",
   2470: "Die Goldbelohnung einer Quest wächst mit deinem Fortschritt seit ihrer Ziehung.",
   2471: "Im späten Spiel ist die Leiste übersichtlicher und leichter (weniger Zahlen und Effekte gleichzeitig).",
+  2472: "Lauf: {0} · Rekord: {1}",
+  2473: "(Zone {0} in diesem Lauf erreicht). In Zone {1}: +{2}.",
 };

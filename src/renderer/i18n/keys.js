@@ -2473,5 +2473,7 @@ export const KEYS = [
   "Ce qui est gardé ou perdu",
   "L’étal du marchand propose des objets déjà forgés au niveau de ton équipement : il redevient utile en fin de partie.",
   "La récompense en or d’une quête suit ta progression depuis qu’elle a été tirée.",
-  "En fin de partie, la bande est plus lisible et plus légère (moins de nombres et d’effets à la fois)."
+  "En fin de partie, la bande est plus lisible et plus légère (moins de nombres et d’effets à la fois).",
+  "course : {0} · record : {1}",
+  "(zone {0} atteinte pendant cette course). En zone {1} : +{2}."
 ];

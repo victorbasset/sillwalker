@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1003) : deux « records » différents. Partie de fin de partie : la bande dit « record 142 » (meilleure
+  de toutes les courses, le record à battre, it. 13), la carte Zone « record : 136 » et l'Ascension « (record zone
+  136) » (meilleure zone de la course en cours). Quand ils diffèrent : carte Zone « course : 136 · record : 142 »
+  (chaque moitié insécable : deux lignes nettes à 1280 px) et Ascension « (zone 136 atteinte pendant cette course) ».
+  Termes alignés sur « Meilleure course » (Lauf, забег, 本局, 周回, 회차…). La mesure « onglet-titre » de l'it. 1001 a vu
+  aussitôt « 区域 / 136 » coupé à 1280 px : titre de la carte Zone insécable. Revue des Statistiques, du Bestiaire et
+  de la Carte en fin de partie : propres. 10 langues sans défaut ; autotest 202/202.
 - 2026-11-13 (it. 1002) : nombres groupés par milliers. Onglet Ascension en fin de partie : « 1111 éclats », « 8857 gagnés
   au total », « +26571 % attaque » (Lueur stellaire), « +1347 éclats » sans séparateur : fmtFull partout dans
   l'onglet (coût des constellations compris) ; describeEffects groupe au-delà de 1000. Et en vérifiant le séparateur :

@@ -1181,6 +1181,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
   #p-detail > h2 { flex-wrap: nowrap; white-space: nowrap; }
   #p-detail > h2 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 }
+/* (it. 1003) carte Zone : « course : 136 · record : 142 » à côté du titre ; le titre ne se coupe pas (« 区域 / 136 »),
+   le sous-titre passe à la ligne dans sa place */
+#p-zone > h2 { white-space: nowrap; }
+#p-zone > h2 small { white-space: normal; text-align: right; }
+#p-zone > h2 small .nw { white-space: nowrap; }
 .synergy-on { color: var(--good); }
 .newslist li { padding: 2px 0; font-size: 13px; line-height: 1.3; }
 /* Sac : bouton « ranger » (⇅) dans le titre. */

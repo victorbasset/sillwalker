@@ -4,7 +4,7 @@ import { CLASSES, canPartner, duoSynergy } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc, fmtFull } from "../../game/format.js";
-import { hasUnlock } from "../../game/unlocks.js";
+import { hasUnlock, recordZone } from "../../game/unlocks.js";
 import { shopIconURL } from "../../render/shopart.js";
 
 // Demande 27 : des icônes dans l'onglet Ascension (gardé / perdu, constellations, éclats).
@@ -51,7 +51,7 @@ export class AscensionTab {
           const syn = duoSynergy(next, pick);
           return `<br>${tx("Compagnon de la prochaine aventure :")} <b>${esc(CLASSES[pick].name)}</b>${syn ? ` <span class="synergy-on">✦ ${esc(tx(syn.name))}</span>` : ""}`; })()}</p>
       ${can
-        ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: fmtFull(gain) })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: fmtFull(shardsFor(nextZone + 4)) })}</p>
+        ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: fmtFull(gain) })}</b> ${tx(recordZone(S) > S.best ? "(zone {0} atteinte pendant cette course). En zone {1} : +{2}." : "(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: fmtFull(shardsFor(nextZone + 4)) })}</p>
            <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : ico("star") + " " + tx("Monter vers les étoiles")}</button>${autos ? `<span class="autorow">${autos}</span>` : ""}</div>`
         : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>${autos ? `<div class="row autorow">${autos}</div>` : ""}`}
     </article>`;

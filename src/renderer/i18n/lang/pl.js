@@ -1344,4 +1344,6 @@ export default {
   2469: "Stragan kupca oferuje przedmioty już wykute na poziomie twojego wyposażenia: znów przydatny w późnej grze.",
   2470: "Nagroda w złocie za zadanie rośnie wraz z twoimi postępami od chwili jego wylosowania.",
   2471: "W późnej grze pasek jest czytelniejszy i lżejszy (mniej liczb i efektów naraz).",
+  2472: "bieg: {0} · rekord: {1}",
+  2473: "(strefa {0} osiągnięta w tym biegu). W strefie {1}: +{2}.",
 };
