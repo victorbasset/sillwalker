@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1044) : essai abandonné : liste « Gardé / Perdu » de l'Ascension en grille (colonnes régulières de
+  170 px au moins) pour qu'un mot de plus ne repousse pas les éléments suivants : pire (russe 1280 px : 32 px de
+  défilement, 1366 : 14 ; les éléments longs passent sur deux lignes dans leur colonne). Annulé, mesure revenue à
+  « aucun ». Pistes si la liste doit grandir : la replier plus tôt (≥ 3 ascensions depuis l'it. 985) ou raccourcir
+  certains libellés russes.
 - 2026-11-13 (it. 1043) : essai abandonné : « collection, pouvoirs, panoplies » dans la liste « Gardé » de l'Ascension
   (les panoplies complétées sont gardées, le libellé ne le disait pas) ; en russe à 1280 px (dev-data : liste dépliée
   sous 3 ascensions), le mot de plus repoussait un élément sur une nouvelle ligne : l'onglet défilait de 17 px. Annulé
