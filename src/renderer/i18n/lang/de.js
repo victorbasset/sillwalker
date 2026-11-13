@@ -1621,4 +1621,6 @@ export default {
   2746: "Eine neue Stufe!",
   2747: "Eine ganze Welt rund um die Blume …",
   2748: "Kein einziger Pfad mehr zu ziehen!",
+  2749: "Großer Graph: „Automatisch verteilen“ nimmt in jeder Region den stärksten Pfad, und die Info dieses Pfads sagt es.",
+  2750: "Dein Held reagiert auf Meisterschaftsstufen und auf den großen Graphen, von seiner Öffnung bis zu seiner Vollendung.",
 };

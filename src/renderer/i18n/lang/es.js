@@ -1621,4 +1621,6 @@ export default {
   2746: "¡Un nuevo hito!",
   2747: "Todo un mundo alrededor de la flor…",
   2748: "¡No queda ni un camino por trazar!",
+  2749: "Gran grafo: «Gastar automáticamente» toma en cada región el camino más poderoso, y el globo de ese camino lo indica.",
+  2750: "Tu héroe reacciona a los hitos de maestría y al gran grafo, desde su apertura hasta su finalización.",
 };

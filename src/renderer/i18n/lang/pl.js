@@ -1621,4 +1621,6 @@ export default {
   2746: "Nowy próg!",
   2747: "Cały świat wokół kwiatu…",
   2748: "Nie została ani jedna ścieżka do wytyczenia!",
+  2749: "Wielki graf: „Wydaj automatycznie” wybiera w każdym regionie najsilniejszą ścieżkę, a dymek tej ścieżki to pokazuje.",
+  2750: "Twój bohater reaguje na progi mistrzostwa i na wielki graf, od jego otwarcia po ukończenie.",
 };

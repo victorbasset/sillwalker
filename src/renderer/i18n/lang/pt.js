@@ -1621,4 +1621,6 @@ export default {
   2746: "Um novo marco!",
   2747: "Todo um mundo em volta da flor…",
   2748: "Nenhum caminho mais para traçar!",
+  2749: "Grande grafo: «Gastar automaticamente» escolhe em cada região o caminho mais poderoso, e o balão desse caminho indica isso.",
+  2750: "Seu herói reage aos marcos de maestria e ao grande grafo, da abertura à conclusão.",
 };

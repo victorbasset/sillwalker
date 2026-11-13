@@ -2750,5 +2750,7 @@ export const KEYS = [
   "Ma maîtrise s’affine.",
   "Un nouveau palier !",
   "Tout un monde autour de la fleur…",
-  "Plus un seul chemin à tracer !"
+  "Plus un seul chemin à tracer !",
+  "Grand graphe : « Dépenser automatiquement » prend dans chaque région la voie la plus puissante, et la bulle de cette voie le signale.",
+  "Ton héros réagit aux paliers de maîtrise et au grand graphe, de son ouverture à son achèvement."
 ];

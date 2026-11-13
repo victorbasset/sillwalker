@@ -1621,4 +1621,6 @@ export default {
   2746: "A new milestone!",
   2747: "A whole world around the flower…",
   2748: "Not a single path left to draw!",
+  2749: "Great graph: “Spend automatically” takes the most powerful path in each region, and that path’s tooltip says so.",
+  2750: "Your hero reacts to mastery milestones and to the great graph, from its opening to its completion.",
 };
