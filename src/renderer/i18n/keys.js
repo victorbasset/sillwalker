@@ -2627,5 +2627,8 @@ export const KEYS = [
   "Recommence au début, plus fort : les éclats t’attendent là-haut.",
   "Ma fusée marche aux éclats d’étoile. Toi aussi, en quelque sorte.",
   "À chaque ascension, je compte les étoiles rallumées. Il en manque encore.",
-  "Trois… deux… un… Bon, demain peut-être."
+  "Trois… deux… un… Bon, demain peut-être.",
+  "Prochain palier : rang {0}, {1}",
+  "Paliers atteints",
+  "Prochain palier : rang {0}"
 ];

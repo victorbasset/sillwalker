@@ -1,8 +1,8 @@
 // Onglet Talents : arbre de la classe active (3 branches × 4 paliers).
-import { t as tx, txn, cend } from "../../i18n/index.js";
+import { t as tx, txn, cend, colon } from "../../i18n/index.js";
 import { effectIconURL } from "../../render/shopart.js";
 import { TREES, TIER_REQ, TALENT_INDEX, cannotLearn, branchSpent, talentPointsFree, talentPointsTotal, talentPointsSpent, describeEffects,
-  VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie } from "../../game/talents.js";
+  VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie, masteryMilestones } from "../../game/talents.js";
 import { fmt, esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
@@ -52,7 +52,7 @@ export class TalentsTab {
       const r = ranks[m.id] || 0, locked = spentAll < MASTERY_REQ;
       const can = !cannotLearn(S, m.id);
       return `<button class="${["talent", "mastery", locked ? "locked" : "", r ? "has" : "", can ? "can" : "", this.sel === m.id ? "sel" : ""].join(" ")}" data-action="t-learn" data-n="1" data-id="${m.id}" data-tid="${m.id}">
-        <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace(tx("Maîtrise : "), "")))}</span><span class="tr">${locked ? "🔒 " + txn(MASTERY_REQ, "{n} pt|{n} pts") : tx("rang {0}", { 0: r })}</span>
+        <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace(tx("Maîtrise : "), "")))}</span><span class="tr">${locked ? "🔒 " + txn(MASTERY_REQ, "{n} pt|{n} pts") : tx("rang {0}", { 0: r }) + (masteryMilestones(m.id, r).next ? ` <small class="mnext" title="${esc(tx("Prochain palier : rang {0}, {1}", { 0: masteryMilestones(m.id, r).next.at, 1: describeEffects(masteryMilestones(m.id, r).next.eff) }))}">→ ${masteryMilestones(m.id, r).next.at}</small>` : "")}</span>
         ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">${tx("tout")}</span>` : ""}</button>`;
     }).join("");
     // Voie et maîtrises montrées à l'approche de leur seuil (10 points avant) : moins d'informations d'un coup au début,
@@ -115,7 +115,11 @@ export class TalentsTab {
         <div class="sub">${esc(where)}</div>
         ${t.text ? `<p class="ttext">${esc(t.text)}</p>` : ""}
         <ul class="lines"><li><span>${tx("Effet actuel")}</span><span>${esc(now)}</span></li>
-        ${next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}</ul>
+        ${next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}
+        ${ix.branch === "mastery" ? (() => { const ms = masteryMilestones(t.id, r); // (it. 1084) paliers atteints et prochain
+          // le nombre seulement (la liste, longue, dans la bulle : en allemand, elle faisait défiler la carte)
+          return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${ms.got.length ? ms.got.length + " ⓘ" : tx("aucun")}</span></li>`
+            + (ms.next ? `<li><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${esc(describeEffects(ms.next.eff))}</span></li>` : ""); })() : ""}</ul>
         ${why && r < t.max ? `<p class="note">${esc(why)}${cend()}</p>` : ""}
       </div>`;
   }

@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1084, demande C de Victor, suite : « on met juste des points à l'infini ») : paliers des maîtrises.
+  Chaque maîtrise donne, aux rangs 10, 25, 50, 100, 200 et 400, un bonus d'un AUTRE genre (puissance : critique,
+  dégâts critiques, dégâts aux boss, frappe double, exécution, +25 % d'attaque ; endurance : régénération, bouclier,
+  épines, vol de vie, esquive, +25 % de PV ; fortune : expérience, butin, hors ligne, or…), puis à chaque doublement
+  (800, 1600…). La tuile montre le prochain palier (« rang 420 → 800 ») ; le détail, le nombre de paliers atteints
+  (liste au survol) et le prochain. Équilibre en 12 h : 63,2 → 63,2 (les maîtrises arrivent plus tard). En route :
+  taille fractionnaire du « → 800 » (autotest des polices), tuiles trop chargées en polonais à 1280 px (le palier se
+  cache quand la pastille « tout » est là), contrôle de la transmutation rendu déterministe (sac entièrement vidé,
+  communs sans statistique). Test logique (246) ; autotest 211/211 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1083, défaut G noté à l'it. 1074) : Chroniques dans la grande fenêtre sans défilement de côté. La
   liste (hauteur limitée) mise en colonnes CSS par la fenêtre débordait de côté au-delà de 4 entrées. Grille de deux
   colonnes (lue 1 2 / 3 4…, dans l'ordre de l'histoire), qui défile verticalement ; hauteur bornée pour que la fenêtre
@@ -4128,7 +4137,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   A. FAIT (it. 1070). Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
   B. FAIT (it. 1072). Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
      mettre près d'eux. Les 4 objets ne tiennent pas sur Mac sans défilement horizontal : icônes et cartes plus petites.
-  C. EN PARTIE (it. 1080 : moins de clics). Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
+  C. EN PARTIE (it. 1080 : moins de clics ; it. 1084 : paliers des maîtrises). Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
      Rendre l'onglet plus riche en choix (à concevoir : clic = tous les rangs possibles, choix exclusifs, paliers…).
   D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à

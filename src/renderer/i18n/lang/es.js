@@ -1498,4 +1498,7 @@ export default {
   2623: "Mi cohete funciona con fragmentos de estrella. Tú también, en cierto modo.",
   2624: "En cada ascensión cuento las estrellas que se reencienden. Aún faltan algunas.",
   2625: "Tres… dos… uno… Bueno, quizá mañana.",
+  2626: "Próximo hito: rango {0}, {1}",
+  2627: "Hitos alcanzados",
+  2628: "Próximo hito: rango {0}",
 };

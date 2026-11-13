@@ -1498,4 +1498,7 @@ export default {
   2623: "Meine Rakete fliegt mit Sternensplittern. Du auch, gewissermaßen.",
   2624: "Bei jedem Aufstieg zähle ich die neu entzündeten Sterne. Es fehlen noch welche.",
   2625: "Drei … zwei … eins … Na gut, vielleicht morgen.",
+  2626: "Nächste Stufe: Rang {0}, {1}",
+  2627: "Erreichte Stufen",
+  2628: "Nächste Stufe: Rang {0}",
 };

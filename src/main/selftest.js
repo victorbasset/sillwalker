@@ -415,10 +415,11 @@ async function runSelfTest(strip) {
   await until(async () => (await state("S.bag.length")) === bag0 - useless);
   check("vendre ce qui n'améliore pas (après confirmation)", useless > 0 && (await state("S.bag.length")) === bag0 - useless, `${bag0} -> ${await state("S.bag.length")} (${useless} inutiles)`);
   // Transmutation (3 communs inutiles -> 1 peu commun), avec confirmation
+  // (it. 1084) sac entièrement vidé (splice(0, 12) laissait un 4e objet au-delà de 12) et communs SANS statistique : jamais une amélioration
   // (it. 1069) emplacement équipé imposé : un commun tiré pour un emplacement vide est une amélioration, pas un objet
   // inutile (diagnostic « sac 0+00 » : deux inutiles seulement, rien à transmuter ; deuxième cause, après la fenêtre
   // de confirmation encore cachée de l'it. 1066)
-  await js("(() => { const g = window.__game, sl = Object.keys(g.S.equip).find((k) => g.S.equip[k]); g.S.bag.splice(0, 12); for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.slot = sl; it.lvl = 1; g.S.bag.push(it); } g.changed() })()");
+  await js("(() => { const g = window.__game, sl = Object.keys(g.S.equip).find((k) => g.S.equip[k]); g.S.bag.length = 0; for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.slot = sl; it.lvl = 1; it.st = {}; delete it.power; g.S.bag.push(it); } g.changed() })()");
   await click('[data-tab="adventure"]');
   await sleep(200);
   const tr0 = await js("window.__game.S.stats.transmutes || 0");

@@ -52,7 +52,7 @@ import { systemLang, plAgree, koJosa } from "../src/renderer/i18n/index.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
 import { approachTime, heroStats, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { affixesSeenEffects as affixesSeenEffectsT } from "../src/renderer/game/data.js";
-import { TREES, cannotLearn, talentPointsFree, TIER_REQ } from "../src/renderer/game/talents.js";
+import { TREES, cannotLearn, talentPointsFree, TIER_REQ, masteryMilestones, talentEffects } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
@@ -3580,6 +3580,19 @@ test("grand graphe : dépense automatique dans une seule voie par région (it. 1
     assert.equal(br.size, 1, "une seule voie : " + reg);
   }
   assert.equal(nextGraphNode(g.S), null, "plus rien de prenable");
+});
+
+test("maîtrises : paliers aux rangs 10, 25, 50, 100, 200, 400 puis à chaque doublement (it. 1084)", () => {
+  assert.equal(masteryMilestones("ms_power", 0).got.length, 0);
+  assert.equal(masteryMilestones("ms_power", 0).next.at, 10);
+  assert.equal(masteryMilestones("ms_power", 10).got.length, 1);
+  assert.equal(masteryMilestones("ms_power", 399).got.length, 5);
+  assert.equal(masteryMilestones("ms_power", 400).next.at, 800, "après 400 : 800");
+  assert.equal(masteryMilestones("ms_power", 1700).got.length, 8, "6 paliers + 800 + 1600");
+  assert.equal(masteryMilestones("inconnu", 50).next, null);
+  // l'effet du palier s'ajoute bien : rang 10 de puissance → +2 pts de critique en plus de 10 × 1,5 % d'attaque
+  const S = freshState(); (S.talents[S.cls] ||= {}).ms_power = 9; const c9 = talentEffects(S).crit || 0;
+  S.talents[S.cls].ms_power = 10; assert.equal((talentEffects(S).crit || 0) - c9, 2);
 });
 
 test("grand graphe : nœuds inconnus ou en double retirés de la sauvegarde (it. 1075)", () => {

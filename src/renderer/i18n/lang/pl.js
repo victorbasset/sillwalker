@@ -1498,4 +1498,7 @@ export default {
   2623: "Moja rakieta działa na odłamki gwiazd. Ty też, w pewnym sensie.",
   2624: "Przy każdym wniebowstąpieniu liczę ponownie zapalone gwiazdy. Wciąż kilku brakuje.",
   2625: "Trzy… dwa… jeden… No cóż, może jutro.",
+  2626: "Następny próg: ranga {0}, {1}",
+  2627: "Osiągnięte progi",
+  2628: "Następny próg: ranga {0}",
 };

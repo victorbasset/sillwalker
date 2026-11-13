@@ -297,6 +297,24 @@ export const MASTERIES = [
   { id: "ms_fortune", name: "Maîtrise : fortune", eff: { gold: 2, drop: 0.5 }, max: Infinity, tier: 5, mastery: true },
 ];
 
+/** (it. 1084, demande C de Victor : « des points à l'infini, pas très enrichissant ») Paliers des maîtrises : aux rangs
+ *  10, 25, 50, 100, 200 et 400, un bonus d'un AUTRE genre ; ensuite, à chaque doublement (800, 1600…), `beyond`.
+ *  Toujours un prochain palier en vue (affiché sur la tuile). */
+export const MASTERY_STEPS = [10, 25, 50, 100, 200, 400];
+export const MASTERY_MILESTONES = {
+  ms_power:   { steps: [{ crit: 2 }, { critDmg: 15 }, { bossDmg: 15 }, { doubleShot: 5 }, { execute: 15 }, { atkPct: 25 }], beyond: { atkPct: 15 } },
+  ms_body:    { steps: [{ regen: 1 }, { shield: 5 }, { thorns: 10 }, { lifesteal: 1.5 }, { dodge: 3 }, { hpPct: 25 }], beyond: { hpPct: 15 } },
+  ms_fortune: { steps: [{ xp: 5 }, { drop: 5 }, { offline: 10 }, { gold: 25 }, { xp: 15 }, { drop: 10 }], beyond: { gold: 20 } },
+};
+/** Paliers atteints d'une maîtrise au rang r : [{ at, eff }] dans l'ordre ; et le suivant. */
+export function masteryMilestones(id, r) {
+  const M = MASTERY_MILESTONES[id];
+  if (!M) return { got: [], next: null };
+  const all = MASTERY_STEPS.map((at, i) => ({ at, eff: M.steps[i] }));
+  for (let at = 800; at <= Math.max(800, r * 2); at *= 2) all.push({ at, eff: M.beyond });
+  return { got: all.filter((x) => r >= x.at), next: all.find((x) => r < x.at) || null };
+}
+
 // Héros ajoutés par la demande 17 : arbre et voies copiés d'un héros proche (classes.js : tree, treePrefix), avec
 // des identifiants préfixés pour que chaque héros garde ses propres rangs. Les noms (déjà traduits) sont les mêmes.
 // Noms propres à chaque héros (branches, talents ultimes, puis les 9 autres talents par branche dans l'ordre) :
@@ -430,6 +448,7 @@ export function talentEffects(S) {
   add(classDef(S.cls).passive);
   const ranks = S.talents[S.cls] || {};
   for (const id in ranks) { const ix = TALENT_INDEX[id]; if (ix && (ix.cls === S.cls || ix.cls === "*")) add(ix.talent.eff, Math.min(ranks[id], ix.talent.max)); }
+  for (const m of MASTERIES) for (const g of masteryMilestones(m.id, ranks[m.id] || 0).got) add(g.eff); // (it. 1084) paliers
   return out;
 }
 

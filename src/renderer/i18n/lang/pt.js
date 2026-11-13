@@ -1498,4 +1498,7 @@ export default {
   2623: "Meu foguete funciona com fragmentos de estrela. Você também, de certo modo.",
   2624: "A cada ascensão, conto as estrelas reacesas. Ainda faltam algumas.",
   2625: "Três… dois… um… Bem, talvez amanhã.",
+  2626: "Próximo marco: nível {0}, {1}",
+  2627: "Marcos alcançados",
+  2628: "Próximo marco: nível {0}",
 };

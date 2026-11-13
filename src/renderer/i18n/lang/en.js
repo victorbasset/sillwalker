@@ -1498,4 +1498,7 @@ export default {
   2623: "My rocket runs on star shards. So do you, in a way.",
   2624: "With every ascension, I count the rekindled stars. Some are still missing.",
   2625: "Three… two… one… Well, maybe tomorrow.",
+  2626: "Next milestone: rank {0}, {1}",
+  2627: "Milestones reached",
+  2628: "Next milestone: rank {0}",
 };
