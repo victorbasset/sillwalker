@@ -1571,4 +1571,5 @@ export default {
   2696: "Zresetuj wielki graf",
   2697: "Wielki graf zresetowany: ścieżki znów są do wyboru.",
   2698: "Wielki graf otwiera się wokół kwiatu! {n} punkt do wydania.|Wielki graf otwiera się wokół kwiatu! {n} punkty do wydania.|Wielki graf otwiera się wokół kwiatu! {n} punktów do wydania.",
+  2699: "Wielki graf się otwiera!",
 };

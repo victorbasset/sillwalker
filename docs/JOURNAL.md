@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1106) : le mode mini annonce aussi l'ouverture du grand graphe (« ✦ Le grand graphe s'ouvre ! »,
+  un de ses moments, comme un nouvel onglet ; capture en allemand sur la partie de fin de partie). L'astuce de la
+  bande sur les compétences reste une présentation unique de l'arbre (la pastille et la bulle de l'it. 1105 suffisent).
+  Autotest 219/219.
 - 2026-11-13 (it. 1105) : l'ouverture du grand graphe se voit. Une fois la fleur complète, la pastille de l'onglet
   Compétences s'éteignait alors qu'il restait des centaines de points pour le graphe : elle compte maintenant les
   points libres du graphe (graphSpendable, en cache), et « À faire » aussi. Annonce unique (S.skills.graphSeen) : bulle
