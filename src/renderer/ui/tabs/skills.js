@@ -2,7 +2,7 @@
 // molette pour zoomer, clic sur un nœud relié pour le prendre.
 // Le SVG est construit une seule fois ; ensuite seuls les états changent.
 import { t as tx, txn } from "../../i18n/index.js";
-import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
+import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, skillSpendable, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
@@ -27,7 +27,7 @@ export class SkillsTab {
     this.armedReset = false;
   }
 
-  badge() { const n = skillPointsFree(this.game.S); return n ? String(n) : ""; }
+  badge() { const n = skillPointsFree(this.game.S); return n && skillSpendable(this.game.S) ? String(n) : ""; }
 
   render(el) {
     if (this.el !== el || !el.querySelector(".skillwrap")) this.build(el);

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1015) : « À faire » de la partie de fin de partie : « 362 points de compétence » alors que l'arbre est
+  entièrement pris (144 nœuds sur 144) ; la tâche, l'astuce et la pastille de l'onglet restaient pour toujours.
+  skillSpendable(S) (points libres et un nœud prenable) les conditionne. Les 128 points de talent restent signalés :
+  les Maîtrises (rangs illimités) les prennent toujours. Mesuré aussi : le compagnon en fin de partie (38,0 / 38,1 %
+  avec, 38,0 / 34,1 % sans) : dans le bruit, rien à en tirer. Test logique ; autotest 203/203.
 - 2026-11-13 (it. 1014) : --overflow-report mesure toutes les sous-sections (liste SUBS de main.js : Bestiaire, Boutique
   > Déblocages et Atelier, Statistiques > Carnet de route, Familiers > À découvrir, Héros > Prisonniers ; seule celle
   par défaut l'était, plus Succès et Sorts). Défaut trouvé : en fin de partie, Statistiques > Carnet de route (30

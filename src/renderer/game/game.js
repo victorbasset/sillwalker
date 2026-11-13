@@ -42,7 +42,7 @@ import { SETS, SET_KEYS, setCounts } from "./sets.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
-import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, activeSkillSet } from "./skilltree.js";
+import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
@@ -2230,7 +2230,7 @@ export class Game {
     const tp = this.talentPointsFree();
     if (tp > 0) out.push({ id: "talents", n: tp, tab: "talents" });
     const sp = skillPointsFree(S);
-    if (sp > 0) out.push({ id: "skills", n: sp, tab: "skills" });
+    if (sp > 0 && skillSpendable(S)) out.push({ id: "skills", n: sp, tab: "skills" });
     const u = nextUnlock(S);
     if (u && unlockAvailable(S, u) && S.gold >= u.price) out.push({ id: "unlock", n: 1, tab: "shop", name: u.name, uid: u.id, price: u.price });
     // Sort abordable du héros, pas encore appris (Héros > Sorts et attaque)

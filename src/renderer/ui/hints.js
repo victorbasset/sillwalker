@@ -4,7 +4,7 @@ import { bossMechanics, PURE_PARRIES } from "../game/bosses.js";
 // Les conseils déjà vus sont retenus dans S.settings.hints.
 import { t as tx, tr } from "../i18n/index.js";
 import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
-import { skillPointsFree } from "../game/skilltree.js";
+import { skillPointsFree, skillSpendable } from "../game/skilltree.js";
 import { nextUnlock, hasUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
 import { tabOpen } from "../game/tabs.js";
@@ -34,7 +34,7 @@ export const HINTS = [
   { id: "talent", tab: "talents", text: tx("Niveau supérieur : tu as un point de talent à dépenser. Clique ici !"),
     when: (g) => g.talentPointsFree() > 0 },
   { id: "skills", tab: "skills", text: tx("L’arbre de compétences s’ouvre : 1 point tous les 2 niveaux. Clique ici pour le découvrir."),
-    when: (g) => skillPointsFree(g.S) >= 2 },
+    when: (g) => skillPointsFree(g.S) >= 2 && skillSpendable(g.S) },
   { id: "quest", tab: "quests", text: tx("Quête accomplie ! Clique ici pour réclamer ta récompense."),
     when: (g) => g.questsReady() > 0 },
   { id: "egg", tab: "pets", text: tx("Tu as trouvé un œuf ! Clique ici pour le faire éclore."),

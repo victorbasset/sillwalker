@@ -129,6 +129,12 @@ export function activeSkillSet(S) {
 export const skillPointsFree = (S) => Math.max(0, skillPointsTotal(S) - order(S).length);
 
 /** Un nœud peut-il être ajouté au chemin ? (relié à un nœud déjà choisi) */
+/** (it. 1015) Points libres ET au moins un nœud prenable : l'arbre entièrement pris (fin de partie), les points qui
+    continuent d'arriver ne servent à rien ; la tâche « points de compétence », l'astuce et la pastille de l'onglet
+    restaient affichées pour toujours (partie de fin de partie : 362 points, 144 nœuds sur 144). */
+export function skillSpendable(S) {
+  return skillPointsFree(S) > 0 && Object.keys(SKILL_TREE.nodes).some((id) => canTakeSkill(S, id));
+}
 export function canTakeSkill(S, id) {
   const n = SKILL_TREE.nodes[id];
   if (!n || id === "root" || order(S).includes(id)) return false;

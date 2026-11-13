@@ -66,6 +66,7 @@ import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
 import { repairItemNames } from "../src/renderer/i18n/data.js";
 import { setLang, getLang, txn, t as tT, fsp } from "../src/renderer/i18n/index.js";
+import { SKILL_TREE as SKILL_TREE_T, canTakeSkill as canTakeSkillT, skillPointsFree as skillPointsFreeT, skillSpendable as skillSpendableT } from "../src/renderer/game/skilltree.js";
 
 setRandom(seeded(42));
 let pass = 0;
@@ -959,6 +960,15 @@ test("t() : entier ≥ 1000 en variable groupé par milliers (it. 1006 : « +134
     assertStrict.ok(f.includes("+1\u00a0347") && !/\u202f/.test(f), JSON.stringify(f));
     assertStrict.equal(tT("Zone {0}", { 0: 999 }), "Zone 999"); assertStrict.equal(tT("Zone {0}", { 0: "1500" }), "Zone 1500"); // chaîne : telle quelle
   } finally { setLang(before); }
+});
+
+test("arbre de compétences entièrement pris : plus de tâche « points de compétence » (it. 1015)", () => {
+  const g = new Game(freshLocked());
+  g.S.lvl = 2000; g.invalidateStats();
+  for (let guard = 0; guard < 400; guard++) { const id = Object.keys(SKILL_TREE_T.nodes).find((x) => canTakeSkillT(g.S, x)); if (!id || !g.takeSkill(id)) break; }
+  assert.ok(skillPointsFreeT(g.S) > 0, "des points restent");
+  assert.equal(skillSpendableT(g.S), false);
+  assert.ok(!g.todoNow().some((t) => t.id === "skills"), JSON.stringify(g.todoNow()));
 });
 
 test("unité « % » collée au nombre par une espace insécable (it. 949 : « 107 / % » coupé en fin de ligne)", () => {
