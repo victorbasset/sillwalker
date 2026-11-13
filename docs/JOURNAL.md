@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1172, bande-annonce 6) : version 1 complète (scripts/promo/trailer.py → edit.py, 64,7 s, 19 scènes
+  calées sur les 24 mesures, musique mixée) : logo, bureau qui plonge sur le héros, gros plans ×3 (marche, combat,
+  Mirette), quatre événements rares (titre coloré + sous-titre), relique, grand graphe, paliers, combat de fin de
+  partie, Bestiaire, quatre coupes d'une demi-mesure, carton final (Wishlist on Steam · Play now on itch.io ; Windows ·
+  macOS · Linux). Calcul : 2 min 24. Logo ajouté au monteur. Critique : événements en bande de 200 px (sans impact),
+  combat de fin de partie mal cadré (vide), relique trop petite, titres petits et statiques, vide autour des gros
+  plans (passer à ×4), fenêtre des paliers coupée.
 - 2026-11-14 (it. 1171, bande-annonce 5) : musique : scripts/trailer/music.js accepte MUSIC_PASSES (airs au choix) ;
   quatre airs rendus (zones 141, 126, 86, 36) et analysés mesure par mesure (réguliers, mais pic à 0,21 : mixés en
   fond dans le jeu) ; choisi : zone 126 (cloches, 89 bpm, mesure 2,70 s, 24 mesures = 68 s). Arc au mixage : deux

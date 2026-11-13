@@ -102,6 +102,13 @@ def render_scene(sc, enc, bgs):
     n = int(round(dur * FPS))
     bg = bgs.setdefault(sc.get("bg", "night"), background(sc.get("bg", "night")))
     title = text_layer(sc["title"]) if sc.get("title") else None
+    if sc.get("logo"):  # (it. 1172) logo du jeu (image), centré, à la largeur demandée, au plus proche voisin
+        lp, ly, lw = sc["logo"]
+        lg = Image.open(os.path.join(ROOT, lp)).convert("RGBA")
+        lg = lg.resize((lw, round(lg.height * lw / lg.width)), Image.NEAREST)
+        lay = title.copy() if title is not None else Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        lay.paste(lg, ((W - lw) // 2, ly), lg)
+        title = lay
     fade = sc.get("fade", 8)
     if sc["type"] == "desktop":  # caméra dans le bureau ×2 (3840×2160), image entière par défaut
         it = frames(sc["src"], sc.get("t0", 0), dur)
