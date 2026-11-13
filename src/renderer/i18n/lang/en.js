@@ -1615,4 +1615,5 @@ export default {
   2740: "Shop without scrolling, and a merchant stall that stays useful until the endgame.",
   2741: "Detailed stats show where the hero’s power comes from; quests and the next unlock show their estimated time left.",
   2742: "In the endgame, the strip uses about a third less CPU; the panel can grow to 115% or 130% (Settings).",
+  2743: "Version {0}",
 };

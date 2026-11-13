@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1150) : notes de la dernière version relisibles : bouton « Version 0.1.3 » à côté de « Quoi de
+  neuf » (Réglages, carte Aide ; « Quoi de neuf » ne montre que les 3 dernières éditions). 9 langues ; contrôle
+  d'autotest ; 227/227 ; 10 langues sans défaut (rangée de trois boutons comprise).
 - 2026-11-13 (it. 1149) : save-fuzz a une troisième base, FUZZ_BASE=0.1.2 (la partie fabriquée par la 0.1.2, qui
   passe aussi par migrate() avec des données d'une version plus ancienne) : ok balayage (1127 corruptions).
   CLAUDE.md mis à jour.

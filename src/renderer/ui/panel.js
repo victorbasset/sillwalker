@@ -1127,6 +1127,7 @@ export class Panel {
       case "bagsort": g.sortBag(); break;
       case "showkeys": this.showKeys(); return;
       case "shownews": this.showNews(0); return;
+      case "showrelease": this.showRelease(); return; // (it. 1150) notes de la dernière version, relisibles
       case "npc-talk": npcTalk(b.dataset.npc); this.renderAll(); return; // (it. 1082) PNJ de l'onglet : réplique suivante
       case "sellless": {
         // (it. 1096, demande de Victor) tout ce qui n'est pas une amélioration, légendaires et pièces de panoplie compris

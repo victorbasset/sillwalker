@@ -1175,6 +1175,9 @@ async function runSelfTest(strip) {
   // (it. 1144) notes de la dernière version distribuée (itch.io) : elles aussi sans défilement
   const rl = await js("(() => { window.__panel.showRelease(); const b = document.querySelector('#modal .panel'); const o = b.scrollHeight - b.clientHeight, n = document.querySelectorAll('.newslist li').length, t = document.querySelector('#mt').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return n + ' ' + o + ' ' + t; })()");
   check("notes de version : toutes visibles sans défilement", /^\d+ [0-2] /.test(rl) && +rl.split(" ")[0] >= 6, rl);
+  // (it. 1150) notes de la dernière version relisibles depuis les Réglages
+  const rlBtn = await js(`(() => { const P = window.__panel, t = P.tab; P.setTab("settings"); P.renderAll(); const b = document.querySelector('[data-pane="settings"]:not([hidden]) [data-action="showrelease"]'); if (!b) { P.setTab(t); return "pas de bouton"; } b.click(); const r = document.querySelector('#modal').hidden ? "fermée" : document.querySelectorAll('#modal .newslist li').length + " " + document.querySelector('#mt').textContent; document.querySelector('#modal [data-action=closemodal]').click(); P.setTab(t); return r; })()`);
+  check("notes de version relisibles depuis les Réglages", /^\d+ /.test(rlBtn) && +rlBtn.split(" ")[0] >= 6, rlBtn);
   // (it. 1068) relisible depuis les Réglages (bouton « Quoi de neuf » de la carte Aide)
   const nwBtn = await js(`(() => { const P = window.__panel, t = P.tab; P.setTab("settings"); const b = document.querySelector('[data-pane="settings"]:not([hidden]) [data-action="shownews"]'); if (!b) { P.setTab(t); return "pas de bouton"; } b.click(); const n = document.querySelectorAll('#modal:not([hidden]) .newslist li').length; document.querySelector('#modal [data-action=closemodal]').click(); P.setTab(t); return String(n); })()`);
   check("« Quoi de neuf » relisible depuis les Réglages", +nwBtn > 0, nwBtn);

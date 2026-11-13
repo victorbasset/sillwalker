@@ -1,5 +1,6 @@
 // Onglet Réglages : préférences du jeu (sauvegardées avec la partie) et de la
 // fenêtre (position, opacité, démarrage : réglées par le processus principal).
+import { NEWS_RELEASES } from "../../game/news.js"; // (it. 1150) notes de la dernière version
 import { t as tx, LANGS, getLang, setLang, wsp } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { applyUiScale, applyTheme, themeOf, effectiveUiScale } from "../../render/dom.js";
@@ -87,7 +88,7 @@ export class SettingsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Aide")}</span></h2>
         <!-- (it. 1068) « Quoi de neuf » relisible : la bulle du lancement ne dure que 15 s et les nouveautés étaient
              marquées lues dès le lancement : manquée, l'édition était perdue -->
-        <div class="row"><button data-action="showkeys" class="quiet">${tx("Voir les raccourcis")}</button><button data-action="shownews" class="quiet">${tx("Quoi de neuf")}</button></div>
+        <div class="row"><button data-action="showkeys" class="quiet">${tx("Voir les raccourcis")}</button><button data-action="shownews" class="quiet">${tx("Quoi de neuf")}</button><button data-action="showrelease" class="quiet">${tx("Version {0}", { 0: NEWS_RELEASES[NEWS_RELEASES.length - 1].version })}</button></div>
       </article>
       </div>
     </div>`;
