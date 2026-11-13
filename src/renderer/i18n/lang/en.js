@@ -1379,4 +1379,11 @@ export default {
   2504: "In the late game, the strip uses about a third less CPU during fights (lighter spell effects, blade and projectiles).",
   2505: "The Bestiary opens faster, and a monster at its last tier is shown as complete in every language.",
   2506: "Help",
+  2507: "Mirette, the merchant frog",
+  2508: "A little house under a big lily pad",
+  2509: "Welcome, traveler! I have a few things for you.",
+  2510: "All fresh, picked along the Sill!",
+  2511: "A chest? I never know what’s inside… me neither!",
+  2512: "Come back when the stock is renewed: I’ll have new things.",
+  2513: "Croak! Sorry. It slips out when I strike a good deal.",
 };

@@ -1379,4 +1379,11 @@ export default {
   2504: "W późnej grze pasek zużywa podczas walk około jednej trzeciej mniej procesora (lżejsze efekty zaklęć, ostrza i pocisków).",
   2505: "Bestiariusz otwiera się szybciej, a potwór na ostatnim progu jest oznaczony jako ukończony we wszystkich językach.",
   2506: "Pomoc",
+  2507: "Mirette, żaba kupcowa",
+  2508: "Domek pod wielkim liściem lilii wodnej",
+  2509: "Witaj, podróżniku! Mam dla ciebie kilka rzeczy.",
+  2510: "Wszystko świeże, zebrane na skraju Krawędzi!",
+  2511: "Skrzynia? Nigdy nie wiem, co jest w środku… ja też nie!",
+  2512: "Wróć, gdy towar się odnowi: będę mieć coś nowego.",
+  2513: "Kum! Przepraszam. Wyrywa mi się, gdy zrobię dobry interes.",
 };

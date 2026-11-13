@@ -1379,4 +1379,11 @@ export default {
   2504: "No final do jogo, a faixa consome cerca de um terço a menos de processador durante os combates (efeitos de feitiços, lâmina e projéteis mais leves).",
   2505: "O Bestiário abre mais rápido, e um monstro no último nível aparece como completo em todos os idiomas.",
   2506: "Ajuda",
+  2507: "Mirette, a rã comerciante",
+  2508: "Uma casinha sob uma grande vitória-régia",
+  2509: "Bem-vindo, viajante! Tenho alguns itens para você.",
+  2510: "Tudo fresquinho, colhido à beira do Parapeito!",
+  2511: "Um baú? Nunca sei o que tem dentro… nem eu!",
+  2512: "Volte quando a banca for renovada: terei novidades.",
+  2513: "Croac! Desculpe. Escapa quando faço um bom negócio.",
 };

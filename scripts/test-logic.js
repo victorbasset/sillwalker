@@ -425,6 +425,7 @@ test("ascension : éclats, conservation, constellations", () => {
 import { SKILL_TREE, skillPointsTotal, skillPointsFree, activeSkillSet, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
+import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -3496,6 +3497,17 @@ test("pluriels : txn sépare les milliers de {n} selon la langue (it. 871 : « 1
     setLang("fr");
     assert.equal(txn(1322, K, { n: "<b>1322</b>" }), "<b>1322</b> objets gardés.");
   } finally { setLang(before); }
+});
+
+test("PNJ : un onglet connu par PNJ, une réplique stable 30 s, la suivante à chaque clic (it. 1073)", () => {
+  for (const tab of Object.keys(NPCS)) assert(!!TAB_GATES[tab], "onglet inconnu " + tab);
+  const n = npcFor("shop");
+  assert(!!n && n.lines.length >= 3, "marchande");
+  assert(npcFor("aventure") === null, "pas de PNJ");
+  const t0 = 30000 * 7;
+  assert(npcLine(n, t0) === npcLine(n, t0 + 29000), "stable 30 s");
+  assert(npcLine(n, t0) !== npcLine(n, t0 + 30000), "change après 30 s");
+  assert(npcLine(n, t0, 1) === npcLine(n, t0 + 30000), "un clic = la suivante");
 });
 
 test("nombres : un arrondi qui atteint 1000 passe au palier supérieur (it. 872 : « 1000 k » d'or)", () => {

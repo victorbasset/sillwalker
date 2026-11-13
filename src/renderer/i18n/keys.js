@@ -2508,5 +2508,12 @@ export const KEYS = [
   "(complet)",
   "En fin de partie, la bande consomme environ un tiers de processeur en moins pendant les combats (effets des sorts, lame et projectiles allégés).",
   "Le Bestiaire s’affiche plus vite, et un monstre au dernier palier est dit complet dans toutes les langues.",
-  "Aide"
+  "Aide",
+  "Mirette, la grenouille marchande",
+  "Une maisonnette sous un grand nénuphar",
+  "Bienvenue, voyageur ! J’ai quelques objets pour toi.",
+  "Tout est frais, ramassé au bord du Rebord !",
+  "Un coffre ? Je ne sais jamais ce qu’il y a dedans… moi non plus !",
+  "Reviens quand l’étal sera renouvelé : j’aurai du neuf.",
+  "Croâ ! Pardon. Ça m’échappe quand je fais une bonne affaire."
 ];

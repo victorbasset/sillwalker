@@ -1379,4 +1379,11 @@ export default {
   2504: "Im späten Spiel braucht der Streifen in Kämpfen etwa ein Drittel weniger Prozessorzeit (leichtere Zaubereffekte, Klinge und Geschosse).",
   2505: "Das Bestiarium öffnet sich schneller, und ein Monster auf der letzten Stufe wird in allen Sprachen als vollständig angezeigt.",
   2506: "Hilfe",
+  2507: "Mirette, der Händlerfrosch",
+  2508: "Ein Häuschen unter einem großen Seerosenblatt",
+  2509: "Willkommen, Reisender! Ich habe ein paar Sachen für dich.",
+  2510: "Alles frisch, gesammelt am Rand des Saums!",
+  2511: "Eine Truhe? Ich weiß nie, was drin ist … ich auch nicht!",
+  2512: "Komm wieder, wenn das Angebot erneuert ist: Dann habe ich Neues.",
+  2513: "Quak! Verzeihung. Das rutscht mir raus, wenn ich ein gutes Geschäft mache.",
 };

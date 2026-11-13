@@ -1,5 +1,6 @@
 // Transforme le pixel art en canvas prêts à dessiner (mis en cache).
 import { STARBREAKER_ART } from "./art-monsters2.js";
+import { NPC_ART } from "./art-npcs.js";
 import { OUTLINE, PIXEL, CLASS_ART, MONSTER_ART, ICON_ART, PET_ART, SLOT_ICON } from "./art.js";
 import { RARITIES, MONSTERS } from "../game/data.js";
 import { dressPalette, visualKey, gearRows } from "./equipvis.js";
@@ -240,6 +241,12 @@ export function petURL(id) {
   const k = "pet:" + id;
   if (!artCache[k]) { const a = PET_ART[id]; artCache[k] = squareURL(buildSprite(a.frames[0], a.pal, 4, false, 1), 4); }
   return artCache[k];
+}
+/** Portrait d'un PNJ de l'histoire (game/npcs.js ; it. 1073). */
+export function npcURL(art) {
+  const k = "npc:" + art;
+  if (!artCache[k] && NPC_ART[art]) artCache[k] = buildSprite(NPC_ART[art].frames[0], NPC_ART[art].pal, 3, false, 1).toDataURL();
+  return artCache[k] || "";
 }
 /** Portrait d'un monstre (data URL), éventuellement en silhouette. */
 export function monsterURL(type, silhouette = false) {

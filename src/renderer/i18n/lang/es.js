@@ -1379,4 +1379,11 @@ export default {
   2504: "Al final de la partida, la franja consume alrededor de un tercio menos de procesador durante los combates (efectos de hechizos, hoja y proyectiles más ligeros).",
   2505: "El Bestiario se muestra más rápido, y un monstruo en su último nivel aparece como completo en todos los idiomas.",
   2506: "Ayuda",
+  2507: "Mirette, la rana comerciante",
+  2508: "Una casita bajo un gran nenúfar",
+  2509: "¡Bienvenido, viajero! Tengo algunas cosas para ti.",
+  2510: "¡Todo fresco, recogido a la orilla del Alféizar!",
+  2511: "¿Un cofre? Nunca sé lo que hay dentro… ¡yo tampoco!",
+  2512: "Vuelve cuando se renueve el puesto: tendré cosas nuevas.",
+  2513: "¡Croac! Perdón. Se me escapa cuando hago un buen negocio.",
 };

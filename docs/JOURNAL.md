@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1073, demande E de Victor, premières étapes) : les PNJ de l'histoire. game/npcs.js (un PNJ par onglet :
+  nom, lieu, art, répliques) et render/art-npcs.js (même format que les monstres). Premier PNJ : Mirette, la grenouille
+  marchande (chapeau violet, écharpe rouge), en haut de la Boutique à côté de la bourse, avec une bulle : une réplique
+  toutes les 30 s, une autre à chaque clic (5 répliques, traduites dans les 9 langues ; « le Rebord » nommé comme
+  ailleurs dans chaque langue). Dans la hauteur de la barre : rien ne grandit. Test logique (réplique stable 30 s,
+  la suivante au clic) et contrôle d'autotest (208/208) ; captures fr / de à 1280 px ; 10 langues sans défaut.
+  À suivre : les PNJ des autres onglets (E4), la rencontre animée sur la bande (E3).
 - 2026-11-13 (it. 1072, demande B de Victor, précisée : « aucun défilement horizontal, même sur les petits écrans ») :
   Boutique > Marchand sans aucune rangée latérale, à toute largeur. Marchand : 4 objets sur une rangée ; Potions et
   élixirs : 7 tuiles compactes sur deux rangées de 4 (icône, effet, état, prix ; le nom dans la bulle ; la case
@@ -4060,7 +4067,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   E. PNJ et histoire : chaque onglet qui se débloque = une rencontre sur la route (ex. la maison d'une petite grenouille
      → Boutique ; un PNJ et sa fusée → Ascension ; une cabane, un lac…). Animation de découverte (le héros entre, parle
      au PNJ), puis le PNJ stylisé dans l'onglet avec des répliques (« J'ai quelques objets pour vous ! »). Étapes : E1
-     liste des PNJ (un par onglet : nom, lieu, répliques) ; E2 le PNJ dans son onglet (portrait pixel + bulle) ; E3
+     liste des PNJ (un par onglet : nom, lieu, répliques ; EN COURS : Boutique faite, it. 1073) ; E2 le PNJ dans son onglet (FAIT pour la Boutique, it. 1073) (portrait pixel + bulle) ; E3
      cinématique de rencontre sur la bande ; E4 les autres onglets ; E5 traductions, « Quoi de neuf ».
   Ordre prévu : A, B (rapides), puis E1-E2, D1-D3, E3, C, D4-D6.
 
