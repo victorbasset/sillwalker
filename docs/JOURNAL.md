@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1001, revue générale) : simulation 12 h, records des courses : guerrier 39 → 65, mage 43 → 59, rôdeur
+  44 → 61 (comme à l'it. 981 : bruit). Performance (copie neuve) : bande 19,3 %, panneau 21,1 %, mini 7,0 %, icône
+  0,8 %. Captures Aventure et Quêtes à 1366 px en français, anglais et japonais : en japonais, le titre « 装備 » de la
+  colonne Équipement se coupait entre ses deux caractères (texte nu d'un titre flex, à côté du sous-titre) ; corrigé
+  (white-space sur les titres de l'Équipement et des Maîtrises sous 1500 px). --overflow-report le mesure désormais
+  (« onglet-titre=… », titres chinois et japonais ; la mesure des mots coupés ignore ces écritures) : vu sans le
+  correctif, propre avec. Texte coréen extrait : « pt » (points de talent et points de critique) traduit en « 점 » et
+  « %p » (usage coréen). 10 langues sans défaut ; autotest 202/202.
 - 2026-11-13 (it. 1000) : un succès obtenu en jeu laisse aussi une ligne dans le journal (« 🏆 Succès : Premier boss. »,
   texte déjà traduit du bandeau) : en mode mini ou en regardant ailleurs, le bandeau de la bande passait inaperçu.
   Focus clavier vérifié (contour visible sur boutons, champs, sections, nœuds des Compétences et de la Carte).

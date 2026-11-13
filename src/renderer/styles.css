@@ -1172,11 +1172,13 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 @media (max-width: 1499px) {
   [data-pane="settings"] .panel { font-size: 13px; }
   [data-pane="settings"] .toggle { margin-top: 2px; margin-bottom: 2px; }
-  .tmastery > h2 { flex-wrap: nowrap; }
+  .tmastery > h2 { flex-wrap: nowrap; white-space: nowrap; }
   .tmastery > h2 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 }
+/* (it. 1001) white-space sur le titre : en japonais, « 装備 » se coupait entre ses deux caractères (le texte nu d'un
+   flex rétrécit jusqu'au plus petit morceau : un seul caractère en chinois, japonais et coréen) */
 @media (max-width: 1499px) {
-  #p-detail > h2 { flex-wrap: nowrap; }
+  #p-detail > h2 { flex-wrap: nowrap; white-space: nowrap; }
   #p-detail > h2 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 }
 .synergy-on { color: var(--good); }

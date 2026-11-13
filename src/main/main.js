@@ -202,7 +202,14 @@ function start() {
                   // est compté avec la suite du mot ; coupure voulue, pas un mot coupé
                   if (n.data[m.index - 1] === "\u00AD") rs.shift();
                   if (rs.length > 1 && Math.abs(rs[rs.length - 1].top - rs[0].top) > 2) cut.add(m[0]); } } }
-            if (cut.size) out.push(id + "-coupé=" + [...cut].slice(0, 4).join("/")); }
+            if (cut.size) out.push(id + "-coupé=" + [...cut].slice(0, 4).join("/"));
+            // (it. 1001) titre de panneau en chinois ou en japonais coupé entre deux caractères (« 装 / 備 » à côté d'un
+            // sous-titre) : non vu par la mesure des mots coupés, qui ignore ces écritures
+            const th = []; if (pane) for (const h of pane.querySelectorAll(".panel > h2")) { const n = [...h.childNodes].find((x) => x.nodeType === 3 && x.data.trim());
+              if (!n || !h.getClientRects().length || !/[\\p{Script=Han}\\p{Script=Hiragana}\\p{Script=Katakana}]/u.test(n.data)) continue;
+              const rg = document.createRange(); rg.selectNodeContents(n); const rs = [...rg.getClientRects()].filter((x) => x.width > 0);
+              if (rs.length > 1 && Math.abs(rs[rs.length - 1].top - rs[0].top) > 2) th.push(n.data.trim()); }
+            if (th.length) out.push(id + "-titre=" + th.slice(0, 4).join("/")); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)
