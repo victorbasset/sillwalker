@@ -45,7 +45,10 @@ function exercise(g) {
 }
 // (it. 999) FUZZ_BASE=fin : la partie de fin de partie (scripts/fixtures/endgame-save.json : 20 ascensions, reliques,
 // automatismes, compagnon) au lieu de dev-data ; des champs absents de dev-data y sont abîmés à leur tour
-const base = JSON.parse(fs.readFileSync(ROOT + (process.env.FUZZ_BASE === "fin" ? "scripts/fixtures/endgame-save.json" : "dev-data/save.json"), "utf8"));
+// (it. 1149) FUZZ_BASE=0.1.2 : une partie de la version 0.1.2 (scripts/fixtures/save-0.1.2.json), qui passe aussi par
+// migrate() avec des données d'une version plus ancienne
+const BASES = { fin: "scripts/fixtures/endgame-save.json", "0.1.2": "scripts/fixtures/save-0.1.2.json" };
+const base = JSON.parse(fs.readFileSync(ROOT + (BASES[process.env.FUZZ_BASE] || "dev-data/save.json"), "utf8"));
 const cases = {
   questsNull: (o) => { o.quests.slots = [null, { kind: "kill" }]; },
   talentsBad: (o) => { o.talents = { nope: 3, w_str: null }; },

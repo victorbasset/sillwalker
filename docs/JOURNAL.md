@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1149) : save-fuzz a une troisième base, FUZZ_BASE=0.1.2 (la partie fabriquée par la 0.1.2, qui
+  passe aussi par migrate() avec des données d'une version plus ancienne) : ok balayage (1127 corruptions).
+  CLAUDE.md mis à jour.
 - 2026-11-13 (it. 1148) : l'essai de mise à jour de l'it. 1147 devient un test permanent : scripts/fixtures/
   save-0.1.2.json (partie fabriquée par le code de la 0.1.2 ; story.intro mis à true, la simulation ne jouant pas
   l'intro) se charge sans rien perdre (niveau, record, or, classe, talents, compétences, sac, équipement, onglets),
