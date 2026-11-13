@@ -277,6 +277,16 @@ async function runSelfTest(strip) {
       return "choix " + ((S.masteryPicks || {})["ms_power:10"] || "aucun");
     } finally { S.masteryPicks = keep.picks; if (keep.r == null) delete S.talents[S.cls].ms_power; else S.talents[S.cls].ms_power = keep.r; T.sel = null; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
   check("onglet Talents : un bonus de palier de maîtrise se choisit", mPick === "choix b", mPick);
+  // (it. 1134) « À faire » dans la grande fenêtre : une action d'un clic la laisse ouverte, la ligne passe à ✓
+  const todoKeep = await js(`(async () => { const P = window.__panel, G = window.__game, S = G.S; const keep = { lvl: S.lvl, bp: S.unlocks.bulkPoints, t: JSON.parse(JSON.stringify(S.talents)) };
+    try { S.unlocks.bulkPoints = true; S.lvl += 6; G.invalidateStats(); P.setTab("adventure"); P.renderAll();
+      const d = document.querySelector('[data-pane="adventure"]:not([hidden]) [data-keep="hero-todo"]'); if (!d) return "pas de bloc À faire";
+      P.showDetails(d); const b = document.querySelector('#modal [data-action="todo-do"][data-what="talents"]'); if (!b) return "pas d'action talents";
+      b.click(); await new Promise((r) => setTimeout(r, 100));
+      if (document.querySelector('#modal').hidden) return "fenêtre refermée";
+      return /^✓/.test(b.textContent.trim()) ? "ouverte ✓" : "ligne pas cochée : " + b.textContent.slice(0, 30);
+    } finally { S.lvl = keep.lvl; S.unlocks.bulkPoints = keep.bp; S.talents = keep.t; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
+  check("« À faire » (grande fenêtre) : une action la laisse ouverte, ligne cochée", todoKeep === "ouverte ✓", todoKeep);
   // (it. 1127) Compétences : la bulle d'un nœud près du bas ou du bord droit reste dans la vue (elle sortait de 55 px)
   const skTip = await js(`(async () => { const P = window.__panel; P.setTab("skills"); P.renderAll(); await new Promise((r) => setTimeout(r, 300));
     const box = document.querySelector('[data-pane="skills"]:not([hidden]) .skillview'), B = box.getBoundingClientRect(), tip = box.querySelector(".skilltip");

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1134, moins de clics, suite de l'it. 1133) : revue des sections ouvertes dans la grande fenêtre
+  (MODAL_DETAILS) : « À faire » avait le même défaut. Ses actions d'un clic (réclamer les quêtes, faire éclore,
+  dépenser les points…) sont faites pour passer à ✓ en laissant la liste ouverte, mais la fenêtre se refermait au
+  premier clic (une réouverture par tâche) : data-keepopen. Les liens vers un onglet la referment toujours (voulu).
+  Contrôle d'autotest (action « talents » : fenêtre ouverte, ligne ✓). Autotest 224/224.
 - 2026-11-13 (it. 1133, moins de clics) : la fenêtre « Choisir les bonus des paliers » se refermait à chaque choix
   (tout bouton d'action dans la grande fenêtre la ferme) : régler 6 paliers demandait de la rouvrir 6 fois. Les
   boutons des paliers portent data-keepopen (exception, comme les cases des Automatismes) et la mise en évidence suit
