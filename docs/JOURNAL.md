@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1040) : textes de fin de partie en allemand et en espagnol (--dump-text, journal vidé ; recherche de
+  mots français courants) : aucun texte non traduit (« des » et « du » de l'allemand sont des mots allemands). Avec
+  l'it. 1018 (ru, ja, pl) : cinq langues vérifiées sur la partie de fin de partie.
 - 2026-11-13 (it. 1039) : contrôle d'autotest des répliques du héros (panoplie complète : une bulle apparaît) ;
   classUnlock n'y est pas émis (un premier essai avec une donnée inventée a déclenché une erreur dans le gestionnaire
   de app.js, qui attend { cls } ; l'émettre pour de vrai lancerait la cinématique et la bulle d'info). 205/205.
