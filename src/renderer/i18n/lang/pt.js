@@ -1593,4 +1593,7 @@ export default {
   2718: "Os bônus escolhidos nos marcos de maestria agora são mantidos na ascensão (voltavam à opção padrão a cada corrida).",
   2719: "Grande grafo completo: sua conclusão é anunciada, com o que os pontos extras passam a dar.",
   2720: "Ainda não alcançado nesta corrida: definido com antecedência.",
+  2721: "Relíquias",
+  2722: "Fontes de poder",
+  2723: "Poder do herói dividido pelo que teria sem esta fonte.",
 };

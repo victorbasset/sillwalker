@@ -1593,4 +1593,7 @@ export default {
   2718: "Las bonificaciones elegidas en los hitos de maestría ahora se conservan al ascender (volvían a la opción por defecto en cada partida).",
   2719: "Gran grafo completo: se anuncia su finalización, con lo que dan ahora los puntos extra.",
   2720: "Aún no alcanzado en esta partida: elegido por adelantado.",
+  2721: "Reliquias",
+  2722: "Fuentes de poder",
+  2723: "Poder del héroe dividido por el que tendría sin esta fuente.",
 };

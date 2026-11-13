@@ -181,6 +181,23 @@ export const heroDps = (s) =>
   + s.atk * ((s.minion || 0) + (s.poison || 0) * 3 + (s.duo || 0)) / 100; // serviteur + poison (≈ 3 charges) + compagnon
 
 /** Puissance de combat (sert à comparer les objets) : dégâts × robustesse. */
+/** (it. 1130) D'où vient la puissance : pour chaque système, puissance actuelle / puissance sans lui (×). La fleur se
+ *  mesure sans le grand graphe (qui en dépend) ; les élixirs et l'événement du moment sont exclus. */
+export function powerSources(S) {
+  const p = (S2, eq) => power(heroStats(S2, eq === undefined ? S2.equip : eq, { buffs: false }));
+  const base = p(S), noGraph = p({ ...S, skills: { ...S.skills, outer: [] } });
+  const out = [
+    ["equip", base / p(S, {})],
+    ["talents", base / p({ ...S, talents: {} })],
+    ["flower", noGraph / p({ ...S, skills: { ...S.skills, order: ["root"], outer: [] } })],
+    ["graph", base / noGraph],
+    ["relics", base / p({ ...S, relics: {} })],
+    ["stars", base / p({ ...S, prestige: { ...S.prestige, ranks: {} } })],
+    ["pet", base / p({ ...S, pets: { ...S.pets, active: null } })],
+  ];
+  return out.filter(([, m]) => isFinite(m) && m > 1.005).sort((a, b) => b[1] - a[1]);
+}
+
 export const power = (s) =>
   heroDps(s) * (1 + s.burn / 100) * (1 + (s.execute || 0) * 0.003) *
   s.hp * (1 + s.def / 40) * (1 + (s.shield || 0) / 200) * (1 + (s.thorns || 0) / 300) *

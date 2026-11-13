@@ -1593,4 +1593,7 @@ export default {
   2718: "Bonuses chosen at mastery milestones are now kept on ascension (they reverted to the default option each run).",
   2719: "Great graph complete: its completion is announced, with what extra points now give.",
   2720: "Not yet reached this run: set in advance.",
+  2721: "Relics",
+  2722: "Power sources",
+  2723: "Hero power divided by what it would be without this source.",
 };

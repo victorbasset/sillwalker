@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1130, « ressentir une progression ») : « Toutes les statistiques » (Aventure) dit d'où vient la
+  puissance du héros : « Sources de puissance : Équipement ×61,4 k, Compétences ×10, Constellations ×1,8, Talents
+  ×1,5, Familiers ×1,03, Grand graphe ×1,03 » (powerSources, rules.js : puissance actuelle / puissance sans ce
+  système, sans élixirs ; la fleur mesurée sans le grand graphe, qui en dépend ; recalculé au plus toutes les 2 s).
+  Bulle : « Puissance du héros divisée par ce qu'elle serait sans cette source. » Deux décimales sous ×2 (×1,0
+  trompait). Termes repris tels que traduits (de « Stärke », ja « パワー »). Test logique (255 ; la mesure ne modifie
+  pas la partie) ; capture en russe ; autotest 223/223 ; 10 langues sans défaut (fenêtre mesurée ouverte).
 - 2026-11-13 (it. 1129, contrôles) : suite des it. 1127-1128, revue de tout ce qui se place d'après la souris ou
   l'écran dans le panneau zoomé : bulles (maison, objets, nœuds) corrigées ; glissement des rangées (hscroll, it.
   1053) et des vues (Compétences, zf) déjà ramenés au zoom ; déplacement de la fenêtre (windrag) : simple seuil.

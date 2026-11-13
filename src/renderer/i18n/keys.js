@@ -2722,5 +2722,8 @@ export const KEYS = [
   "Maîtrises : chaque palier à choix franchi est annoncé (une seule fois) ; un clic ouvre la maîtrise pour choisir son bonus.",
   "Les bonus choisis aux paliers des maîtrises sont désormais gardés à l’ascension (ils revenaient à l’option par défaut à chaque course).",
   "Grand graphe rempli : son achèvement est annoncé, avec ce que donnent désormais les points en plus.",
-  "Pas encore atteint dans cette course : réglé d’avance."
+  "Pas encore atteint dans cette course : réglé d’avance.",
+  "Reliques",
+  "Sources de puissance",
+  "Puissance du héros divisée par ce qu’elle serait sans cette source."
 ];

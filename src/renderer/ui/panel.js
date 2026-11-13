@@ -11,7 +11,7 @@ import { todoLabel } from "./todo.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE } from "../game/data.js";
-import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower } from "../game/rules.js";
+import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower, powerSources } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { EXPEDITIONS } from "../game/pets.js";
 import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin, uS, durText } from "../game/format.js";
@@ -801,8 +801,20 @@ export class Panel {
       ${this.game.spellDps(hs) > 0 ? `<dt>${tx("Dégâts des sorts par seconde")}</dt><dd>${fmt(Math.round(this.game.spellDps(hs)))}</dd>` : ""}
       ${this.game.droneDps(hs) > 0 ? `<dt>${tx("Dégâts du drone par seconde")}</dt><dd title="${esc(tx(RELICS.drone.effect))}">${fmt(Math.round(this.game.droneDps(hs)))}</dd>` : ""}
       <dt>${tx("Potions de soin")}</dt><dd>${S.potions}</dd><dt>${tx("Or")}</dt><dd id="goldtxt"></dd>
-      ${S.prestige.count ? `<dt>${tx("Ascensions")}</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl></details></div>`;
+      ${S.prestige.count ? `<dt>${tx("Ascensions")}</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl>${this.powerSourcesHTML()}</details></div>`;
     this.tick();
+  }
+
+  /** (it. 1130) « Sources de puissance » : ce que chaque système multiplie (recalculé au plus toutes les 2 s). */
+  powerSourcesHTML() {
+    const now = Date.now();
+    if (this._psrc && now - this._psrc.t < 2000) return this._psrc.html;
+    const NAMES = { equip: "Équipement", talents: "Talents", flower: "Compétences", graph: "Grand graphe", relics: "Reliques", stars: "Constellations", pet: "Familiers" };
+    const x = (m) => "×" + (m < 2 ? dec(m.toFixed(2)) : m < 10 ? dec(m.toFixed(1)) : fmtShort(m)); // ×1,03 et non ×1,0
+    const list = powerSources(this.game.S).map(([k, m]) => `<span>${esc(tx(NAMES[k]))} <b>${x(m)}</b></span>`).join(csep());
+    const html = list ? `<p class="note tight psrc" title="${esc(tx("Puissance du héros divisée par ce qu’elle serait sans cette source."))}">${tx("Sources de puissance")}${colon()}${list}</p>` : "";
+    this._psrc = { t: now, html };
+    return html;
   }
 
   renderBag() {

@@ -50,7 +50,7 @@ import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { systemLang, plAgree, koJosa } from "../src/renderer/i18n/index.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
-import { approachTime, heroStats, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
+import { approachTime, heroStats, powerSources, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
 import { affixesSeenEffects as affixesSeenEffectsT } from "../src/renderer/game/data.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ, masteryMilestones, talentEffects } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
@@ -3667,6 +3667,18 @@ test("grand graphe : rempli, annoncé une seule fois (it. 1117)", () => {
   g.S.skills.outer.push(nextGraphNode(g.S));
   g.advance(3); g.advance(3);
   assert.equal(n, 1, "une seule annonce");
+});
+
+test("sources de puissance : chaque système mesuré en le retirant (it. 1130)", () => {
+  const S = JSON.parse(fs.readFileSync(new URL("./fixtures/endgame-save.json", import.meta.url), "utf8"));
+  const src = Object.fromEntries(powerSources(S));
+  assert(src.equip > 100, "l'équipement compte beaucoup");
+  assert(src.flower > 1.5, "la fleur de compétences compte");
+  assert(!("graph" in src), "pas de grand graphe pris : absent");
+  S.skills.outer = ["force-gate", "force-v0-0", "force-v0-1"];
+  assert(Object.fromEntries(powerSources(S)).graph > 1, "grand graphe pris : présent");
+  const before = JSON.stringify(S); powerSources(S);
+  assert.equal(JSON.stringify(S), before, "la partie n'est pas modifiée par la mesure");
 });
 
 test("ascension : seules les données de la course repartent de zéro (it. 1123)", () => {

@@ -1593,4 +1593,7 @@ export default {
   2718: "Premie wybrane na progach mistrzostw są teraz zachowywane przy wniebowstąpieniu (wracały do opcji domyślnej w każdym biegu).",
   2719: "Wielki graf ukończony: jego ukończenie jest ogłaszane wraz z tym, co dają teraz dodatkowe punkty.",
   2720: "Jeszcze nieosiągnięty w tym biegu: ustawiony z góry.",
+  2721: "Relikwie",
+  2722: "Źródła mocy",
+  2723: "Moc bohatera podzielona przez moc bez tego źródła.",
 };
