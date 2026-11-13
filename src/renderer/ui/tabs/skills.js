@@ -9,7 +9,7 @@ import { esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects } from "../../game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
@@ -227,7 +227,7 @@ export class SkillsTab {
     else if (graphPointsFree(S) <= 0) state = tx("Plus de point libre.");
     else state = tx("Doit être relié à un nœud acquis.");
     return `<b>${esc(n.name || (n.kind === "small" ? tx("Compétence") : ""))}</b><div class="sub">${esc(kind)}</div>
-      <p class="delta-p">${esc(describeEffects(n.eff || {}))}</p><div class="note">${esc(state)}</div>`;
+      <p class="delta-p">${esc(describeEffects(graphNodeEffects(n)))}</p><div class="note">${esc(state)}</div>`;
   }
 
   coreTip(sec) {
@@ -296,7 +296,7 @@ export class SkillsTab {
       const cls = `gnode ${n.kind} ${st}`, el = this.gNodeEls[id];
       if (el.getAttribute("class") !== cls) {
         el.setAttribute("class", cls);
-        if (st === "avail") { el.setAttribute("tabindex", "0"); el.setAttribute("role", "button"); el.setAttribute("aria-label", (n.name ? n.name + " · " : "") + describeEffects(n.eff || {})); }
+        if (st === "avail") { el.setAttribute("tabindex", "0"); el.setAttribute("role", "button"); el.setAttribute("aria-label", (n.name ? n.name + " · " : "") + describeEffects(graphNodeEffects(n))); }
         else { el.removeAttribute("tabindex"); el.removeAttribute("role"); }
         this.gIconEls[id].setAttribute("class", "nico gico " + st);
       }

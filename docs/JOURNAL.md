@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1102) : valeur fausse dans le grand graphe : la bulle d'un nœud (et son libellé pour les lecteurs
+  d'écran) montrait la valeur écrite dans les données, alors que l'échelle GRAPH_SCALE (0,3, it. 1078) s'applique au
+  calcul : « +2 % d'attaque » pour 0,6 % réels. graphNodeEffects (valeur réelle, arrondie au centième) ; test logique :
+  la somme des bulles égale les effets réels (248). Autotest 219/219.
 - 2026-11-13 (it. 1101, revue générale) : simulation 12 h, records des courses : arbalétrier 41 → 62, danseur de lames
   42 → 65, berserker 44 → 64 (réguliers). Performance (copie neuve de dev-data) : bande 19,3 %, panneau 20,8 %, mini
   7,2 %, icône 0,5 %. Captures en coréen : Statistiques (Tico), Talents (Corvin), Familiers (Maman Brindille), mini :

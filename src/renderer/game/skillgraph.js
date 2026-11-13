@@ -167,6 +167,14 @@ export function takeGraphNode(S, id) {
  *  REGIONS restent lisibles ; l'échelle s'applique ici. */
 export const GRAPH_SCALE = 0.3;
 
+/** (it. 1102) Effets d'un nœud tels qu'ils comptent (échelle comprise) : c'est ce que la bulle affiche (avant : la valeur
+ *  écrite dans REGIONS, ×3,3 trop forte depuis l'échelle de l'it. 1078). */
+export function graphNodeEffects(n) {
+  const out = {};
+  for (const k in (n && n.eff) || {}) out[k] = Math.round(n.eff[k] * GRAPH_SCALE * 100) / 100;
+  return out;
+}
+
 /** Effets du grand graphe (effets ordinaires et syn*). */
 export function skillGraphEffects(S) {
   const out = {};

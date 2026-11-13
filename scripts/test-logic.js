@@ -426,7 +426,7 @@ import { SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, active
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode } from "../src/renderer/game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects } from "../src/renderer/game/skillgraph.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -3612,6 +3612,15 @@ test("maîtrises : paliers aux rangs 10, 25, 50, 100, 200, 400 puis à chaque do
   // l'effet du palier s'ajoute bien : rang 10 de puissance → +2 pts de critique en plus de 10 × 1,5 % d'attaque
   const S = freshState(); (S.talents[S.cls] ||= {}).ms_power = 9; const c9 = talentEffects(S).crit || 0;
   S.talents[S.cls].ms_power = 10; assert.equal((talentEffects(S).crit || 0) - c9, 2);
+});
+
+test("grand graphe : la bulle d'un nœud montre ce qu'il donne vraiment (échelle comprise) (it. 1102)", () => {
+  const S = freshState(); S.lvl = 2000; S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
+  S.skills.outer = ["force-gate", "force-v0-0"];
+  const shown = {};
+  for (const id of S.skills.outer) { const e = graphNodeEffects(SKILL_GRAPH.nodes[id]); for (const k in e) shown[k] = (shown[k] || 0) + e[k]; }
+  const real = skillGraphEffects(S);
+  for (const k in real) assert(Math.abs(real[k] - shown[k]) < 0.01, k + " : affiché " + shown[k] + ", réel " + real[k]);
 });
 
 test("grand graphe : nœuds inconnus ou en double retirés de la sauvegarde (it. 1075)", () => {
