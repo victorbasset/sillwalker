@@ -9,7 +9,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   entièrement pris (144 nœuds sur 144) ; la tâche, l'astuce et la pastille de l'onglet restaient pour toujours.
   skillSpendable(S) (points libres et un nœud prenable) les conditionne. Les 128 points de talent restent signalés :
   les Maîtrises (rangs illimités) les prennent toujours. Mesuré aussi : le compagnon en fin de partie (38,0 / 38,1 %
-  avec, 38,0 / 34,1 % sans) : dans le bruit, rien à en tirer. Test logique ; autotest 203/203.
+  avec, 38,0 / 34,1 % sans) : dans le bruit, rien à en tirer. Test logique. Erreur de procédure : commit fc0ad43
+  envoyé avant d'avoir lu l'autotest (202/203 : le contrôle « pastille plafonnée à 99+ » donnait 5000 points sur
+  l'arbre déjà complet de dev-data, pastille désormais cachée) ; contrôle corrigé (un nœud retiré le temps de la
+  mesure) dans le commit suivant, 203/203 lu avant de committer.
 - 2026-11-13 (it. 1014) : --overflow-report mesure toutes les sous-sections (liste SUBS de main.js : Bestiaire, Boutique
   > Déblocages et Atelier, Statistiques > Carnet de route, Familiers > À découvrir, Héros > Prisonniers ; seule celle
   par défaut l'était, plus Succès et Sorts). Défaut trouvé : en fin de partie, Statistiques > Carnet de route (30

@@ -694,7 +694,8 @@ async function runSelfTest(strip) {
   check("infobulle de la bande au survol d'un bouton (au-dessus)", st === "true", st);
   check("onglets progressifs : caché, annoncé, ✦ jusqu'à la visite, conseil en doublon marqué vu", /^true true true ✦ - true$/.test(tb), tb);
   // Pastille d'onglet plafonnée à « 99+ ».
-  const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts; S.prestige.skillPts = 5000; window.__panel.renderAll(); const el = document.querySelector('[data-badge=skills]'), t = el.textContent; const br = el.getBoundingClientRect(), lr = el.parentNode.querySelector('.tlabel').getBoundingClientRect(); const ov = br.height > 0 && lr.height > 0 ? Math.round(br.bottom - lr.top) : 'caché'; S.prestige.skillPts = v; window.__panel.renderAll(); return t + ' ' + ov; })()");
+  const bg = await js("(() => { const S = window.__game.S; const v = S.prestige.skillPts, ord = S.skills.order.slice(); S.prestige.skillPts = 5000; S.skills.order = ord.slice(0, Math.max(1, ord.length - 1)); window.__panel.renderAll(); const el = document.querySelector('[data-badge=skills]'), t = el.textContent; const br = el.getBoundingClientRect(), lr = el.parentNode.querySelector('.tlabel').getBoundingClientRect(); const ov = br.height > 0 && lr.height > 0 ? Math.round(br.bottom - lr.top) : 'caché'; S.prestige.skillPts = v; S.skills.order = ord; window.__panel.renderAll(); return t + ' ' + ov; })()");
+  // (it. 1015) un nœud retiré le temps du contrôle : la pastille ne s'affiche que s'il reste un nœud à prendre
   // (it. 840) la pastille restait 4 px sur le haut des lettres (« Skılls ») : elle doit finir au-dessus du nom.
   check("onglets : pastille plafonnée à 99+, sans mordre sur le nom", /^99\+ (-?\d+|caché)$/.test(bg) && !(Number(bg.split(" ")[1]) > 1), bg);
   // Accessibilité : les blocs repliables (summary) ont un focus clavier visible (règle présente dans la feuille chargée).
