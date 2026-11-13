@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1060) : Bestiaire : seule la section affichée est construite (avant : les 83 fiches et toutes les
+  autres sections à chaque mise à jour, pour n'en garder qu'une). Panoplies 11 → 2,0 ms, Capacités des boss → 1,6 ms ;
+  la section des monstres reste à ≈ 12 ms (83 fiches et images reconstruites : leurs compteurs changent à chaque
+  victoire ; une mise à jour en place serait le prochain pas, gain modeste). 10 langues sans défaut ; autotest 206/206.
 - 2026-11-13 (it. 1059) : lang-overflow en parallèle : le script se relance pour chaque langue, 3 à la fois (PAR=n ;
   PAR=1 : à la suite), sorties remises dans l'ordre, défauts additionnés : 5 min 15 → 2 min 32. Vérifié sur un défaut
   volontaire (notes de la carte Zone en 20 px) : 4 mesures en défaut signalées, code de sortie 1. CLAUDE.md.

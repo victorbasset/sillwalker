@@ -25,7 +25,19 @@ export class BestiaryTab {
   badge() { return ""; }
 
   render(el) {
-    const S = this.game.S, B = S.bestiary || {};
+    // (it. 1060) seule la section affichée est construite : avant, les 83 fiches et toutes les autres sections l'étaient
+    // à chaque mise à jour pour n'en garder qu'une (Bestiaire : 11 ms par affichage, le plus coûteux des onglets)
+    const S = this.game.S;
+    let html = null;
+    if (this.sec !== "beasts") {
+      for (const h of this.codexHTML(S).split(/(?=<h2 class="codexh)/)) { const m = h.match(/id="bj-(\w+)"/); if (m && m[1] === this.sec) html = h; }
+      if (!html) this.sec = "beasts";
+    }
+    el.innerHTML = this.jumpHTML() + (html || this.beastsHTML(S));
+  }
+
+  beastsHTML(S) {
+    const B = S.bestiary || {};
     const keys = Object.keys(MONSTERS), seen = keys.filter((k) => B[k] > 0).length;
     const cards = keys.map((k) => {
       const n = B[k] || 0, known = n > 0, tier = bestiaryTier(n), next = BESTIARY_TIERS[tier];
@@ -40,11 +52,7 @@ export class BestiaryTab {
     const eff = bestiaryEffects(S);
     const beasts = `<h2 class="codexh" id="bj-beasts">${tx("Bestiaire")}</h2><p class="note tabintro">${seen} ${tx("/ {0} monstres rencontrés · {1} paliers atteints.\n      Chaque palier ({2} victoires) d’un monstre donne {3}.\n      Bonus actuel :", { 0: keys.length, 1: bestiaryTiersTotal(S), 2: BESTIARY_TIERS.map(fmt).join(csep()), 3: esc(describeEffects(BESTIARY_BONUS)) })} <b class="delta-p">${Object.keys(eff).length ? esc(describeEffects(eff)) : tx("aucun")}</b>${cend()}</p>
       <div class="beastgrid hscroll" data-hs="beasts">${cards}</div>`;
-    // Une seule section à la fois (sous-onglets) : découpée aux titres <h2 class="codexh" id="bj-…">.
-    const parts = {};
-    for (const html of (this.codexHTML(S) + beasts).split(/(?=<h2 class="codexh)/)) { const m = html.match(/id="bj-(\w+)"/); if (m) parts[m[1]] = html; }
-    if (!parts[this.sec]) this.sec = "beasts";
-    el.innerHTML = this.jumpHTML() + parts[this.sec];
+    return beasts;
   }
 
   codexHTML(S) {
