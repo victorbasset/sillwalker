@@ -69,6 +69,7 @@ avis dans les commentaires décident de la suite. Windows 10/11 (64 bits), Linux
 </ol>
 <p><strong>Linux</strong> — Make the file executable, then run it: <code>chmod +x Sillwalker-*-linux.AppImage</code> then <code>./Sillwalker-*-linux.AppImage</code></p>
 <p>Your progress is saved automatically. The game lives in a strip at the edge of your screen: click it to open the panel.</p>
+<p><strong>Updating</strong> — Download the new version and replace the old one (or unzip it elsewhere). Your progress is kept: it is saved outside the game folder. On first launch, a window lists what's new.</p>
 <p>Found a bug? Please mention it in the comments, and attach the file <code>errors.log</code> if it exists: <code>%APPDATA%\Sillwalker</code> on Windows, <code>~/.config/Sillwalker</code> on Linux, <code>~/Library/Application Support/Sillwalker</code> on macOS.</p>
 <hr>
 <p><strong>Windows</strong> — Décompresse l'archive où tu veux, puis lance <strong>Sillwalker.exe</strong>. Windows peut afficher un avertissement SmartScreen car le jeu n'est pas encore signé : clique sur <strong>Informations complémentaires → Exécuter quand même</strong>.</p>
@@ -80,6 +81,7 @@ avis dans les commentaires décident de la suite. Windows 10/11 (64 bits), Linux
 </ol>
 <p><strong>Linux</strong> — Rends le fichier exécutable, puis lance-le : <code>chmod +x Sillwalker-*-linux.AppImage</code> puis <code>./Sillwalker-*-linux.AppImage</code></p>
 <p>La partie est sauvegardée automatiquement. Le jeu vit dans une bande au bord de l'écran : clique dessus pour ouvrir le panneau.</p>
+<p><strong>Mise à jour</strong> — Télécharge la nouvelle version et remplace l'ancienne (ou décompresse-la ailleurs). Ta partie est conservée : elle est sauvegardée hors du dossier du jeu. Au premier lancement, une fenêtre présente les nouveautés.</p>
 <p>Un bug ? Signale-le dans les commentaires, et joins le fichier <code>errors.log</code> s'il existe : <code>%APPDATA%\Sillwalker</code> sous Windows, <code>~/.config/Sillwalker</code> sous Linux, <code>~/Library/Application Support/Sillwalker</code> sur macOS.</p>
 ```
 

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1160) : instructions d'installation itch.io (steam/itch-page.md, anglais et français) : un
+  paragraphe « Mise à jour » (remplacer l'ancienne version ; la partie est conservée, sauvegardée hors du dossier du
+  jeu ; une fenêtre présente les nouveautés au premier lancement). Le reste couvrait déjà Windows, macOS et Linux.
 - 2026-11-13 (it. 1159) : page du magasin Steam (10 langues) : le grand graphe de 618 nœuds (voies à choisir,
   synergies) dans la liste « vraie progression » ; steam-store-check compte aussi les nœuds du grand graphe
   (SKILL_GRAPH_COUNT), dans l'ordre, après les compétences. npm test : page à jour dans les 10 langues.
