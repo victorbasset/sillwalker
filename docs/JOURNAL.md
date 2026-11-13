@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1147) : essai de MISE À JOUR 0.1.2 → 0.1.3. Partie fabriquée avec le code exact de la 0.1.2
+  (git worktree du commit 4e6fc19, simulate.js 8 h mage, DUMP : niveau 80, zone 56, 10 onglets, sauvegarde v8),
+  ouverte avec la 0.1.3 : aucune erreur, rien de perdu (niveau, record, or, sac, équipement, 64 rangs de talents,
+  110 compétences), fenêtre « Nouveautés de la version 0.1.3 » ouverte d'elle-même, newsSeen 1 → 58. Pas d'avalanche de
+  scènes de PNJ pour une partie aux onglets déjà ouverts (elles ne se jouent qu'à l'ouverture d'un onglet).
 - 2026-11-13 (it. 1146) : procédure de sortie d'une version écrite dans CLAUDE.md (version, notes NEWS_RELEASES avec
   after = NEWS_ID de la précédente : 0.1.2 = 32, 0.1.3 = 58 ; tests ; constructions ; essai avec HOME temporaire).
   Garde-fou : un test échoue si la version de package.json n'a pas ses notes de version. 257 tests ; autotest 226/226.
