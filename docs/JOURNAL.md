@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1034) : thème clair, partie de fin de partie à 1366 px : Aventure (carte Zone, sous-titre de
+  l'Équipement), Bestiaire > Panoplies (bouton « ◆ 4 dans le sac »), Statistiques > Carnet de route (colonnes),
+  Compétences (« ✓ Arbre complet ») : tout lisible, couleurs du thème respectées. Rien à corriger.
 - 2026-11-13 (it. 1033) : --crawl en coréen sur la partie de fin de partie : 384 clics, aucune erreur. Repère de la
   semaine simulée mis à jour dans CLAUDE.md (it. 1017 : 293 / 293, déterministe ; 2e semaine 321-335, it. 1032).
   Retour d'absence de 8 h en fin de partie : résumé sur une ligne (312 monstres, +29 Qi, niveau 190, 1 quête), propre.
