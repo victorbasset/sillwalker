@@ -1,4 +1,5 @@
 // Onglet Familiers : collection, œufs à faire éclore, familier actif.
+import { npcHTML } from "../npc.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, lc } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
@@ -66,6 +67,7 @@ export class PetsTab {
     // Sous-onglets en tête de la barre (it. 845) : la barre défile de côté sans barre visible, ils n'y sont jamais
     // cachés ; leurs compteurs remplacent alors « N / M familiers trouvés » (place gagnée sur les écrans étroits).
     el.innerHTML = `<div class="petbar panel hscroll" data-hs="petbar">
+        ${npcHTML("pets", "icon")}
         ${owned < PETS.length ? subtabsHTML([["found", tx("Trouvés"), owned], ["unknown", tx("À découvrir"), PETS.length - owned]], this.sec, "p-sec") : ""}
         <div>${owned < PETS.length ? "" : `<b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} `}${txn(P.eggs, "{n} œuf en attente|{n} œufs en attente", { n: `<b>${P.eggs}</b>` })}</div>
         ${P.eggs > 0 && (hasUnlock(S, "petBulk") || P.eggs <= 1) ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : P.eggs > 1 ? `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>` : ""}

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1090, demande E, étape E4) : septième PNJ, Maman Brindille, l'éleveuse, tient les Familiers
+  (chignon gris, tablier fleuri, un œuf dans les mains ; 5 répliques : « Chut… celui-là dort. Il a beaucoup couru
+  aujourd'hui. »). La barre des Familiers est déjà pleine (œufs, intendant, expéditions) : nouvelle variante
+  « portrait seul » de la pastille (réplique au survol, une autre au clic), en tête de la barre. Scène de rencontre :
+  un arbre, un grand nid de paille, trois œufs dont un qui tremble. Onglet Familiers : première image 153-217 ms,
+  comme avant (154-199). Autotest 216/216 ; capture en allemand à 1280 px ; 10 langues sans défaut. Restent :
+  Talents, Compétences, Statistiques. Détail : sans porte (tente, nid), le PNJ apparaît un peu au-dessus du sol.
 - 2026-11-13 (it. 1089, demande E, étape E4) : sixième PNJ, Fenouil, le naturaliste, tient le Bestiaire (chapeau
   d'explorateur, lunettes, une loupe ; 5 répliques : « Ne me rapporte pas de gobelin vivant. Plus jamais. ») : au bout
   de la rangée des sous-onglets (.subrow). Scène de rencontre : sa tente de toile, des bocaux qui luisent, un

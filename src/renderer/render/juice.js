@@ -103,6 +103,13 @@ function npcPlace(ctx, art, x, gy, t) {
     ctx.fillStyle = "#6b4226"; ctx.fillRect(x + 60, gy - 2, 54, 2);                                     // la table
     if (t > 1.2) { const k = t - 1.2, bx = x + 80 + k * 40, by = gy - 30 - k * 18 + Math.sin(k * 9) * 5; ctx.fillStyle = Math.floor(t * 8) % 2 ? "#ffb7d5" : "#ff8ad8"; ctx.fillRect(Math.round(bx), Math.round(by), 3, 2); ctx.fillRect(Math.round(bx) + 4, Math.round(by), 3, 2); } // un papillon
   }
+  if (art === "keeper") { // (it. 1090) Maman Brindille : un arbre, un grand nid de paille, des œufs, un œuf qui éclot
+    ctx.fillStyle = "#5a3a20"; ctx.fillRect(x + 70, gy - 70, 10, 70);                                    // tronc
+    ctx.fillStyle = "#3e7a30"; ctx.fillRect(x + 50, gy - 92, 50, 26); ctx.fillStyle = "#5fae4a"; ctx.fillRect(x + 56, gy - 98, 38, 10);
+    ctx.fillStyle = "#c8a86a"; ctx.fillRect(x - 24, gy - 10, 80, 10); ctx.fillStyle = "#a8884a"; for (let i = 0; i < 9; i++) ctx.fillRect(x - 22 + i * 9, gy - 12, 6, 2); // le nid
+    const eggs = ["#fff6c8", "#9fd8ff", "#ffb7d5"];
+    eggs.forEach((c, i) => { const crack = i === 1 && t > 2.4; ctx.fillStyle = c; ctx.fillRect(x + 28 + i * 9, gy - 18 - (crack ? Math.round(Math.sin(t * 20)) : 0), 7, 9); if (crack) { ctx.fillStyle = "#1a1a1a"; ctx.fillRect(x + 31 + i * 9, gy - 15, 1, 3); } });
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble

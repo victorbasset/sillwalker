@@ -1534,4 +1534,11 @@ export default {
   2659: "Zestawy? Zapisuję każdy element w notesie.",
   2660: "Nie przynoś mi żywego goblina. Nigdy więcej.",
   2661: "Pewnego dnia mój bestiariusz będzie kompletny. Dzięki tobie.",
+  2662: "Mama Gałązka, hodowczyni",
+  2663: "Wielkie słomiane gniazdo u stóp drzewa",
+  2664: "Jajo? Trzymaj je w cieple, wkrótce się wykluje.",
+  2665: "Każdy chowaniec ma swój charakter. Jak dzieci.",
+  2666: "Wysyłaj je na wyprawy: zawsze wracają z pełnymi kieszeniami.",
+  2667: "Najmniejszy chowaniec może uratować największego bohatera.",
+  2668: "Ćśś… ten śpi. Dużo dziś biegał.",
 };

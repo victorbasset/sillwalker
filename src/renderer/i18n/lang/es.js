@@ -1534,4 +1534,11 @@ export default {
   2659: "¿Conjuntos? Anoto cada pieza en mi cuaderno.",
   2660: "No me traigas un trasgo vivo. Nunca más.",
   2661: "Un día mi bestiario estará completo. Gracias a ti.",
+  2662: "Mamá Ramita, la criadora",
+  2663: "Un gran nido de paja al pie de un árbol",
+  2664: "¿Un huevo? Mantenlo caliente, pronto eclosionará.",
+  2665: "Cada mascota tiene su carácter. Como los niños.",
+  2666: "Mándalas de expedición: siempre vuelven con los bolsillos llenos.",
+  2667: "La mascota más pequeña puede salvar al héroe más grande.",
+  2668: "Chis… esa está dormida. Hoy ha corrido mucho.",
 };

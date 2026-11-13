@@ -2663,5 +2663,12 @@ export const KEYS = [
   "Chaque monstre étudié te rend un peu plus fort contre lui.",
   "Les panoplies ? J’en note chaque pièce dans mon carnet.",
   "Ne me rapporte pas de gobelin vivant. Plus jamais.",
-  "Un jour, mon bestiaire sera complet. Grâce à toi."
+  "Un jour, mon bestiaire sera complet. Grâce à toi.",
+  "Maman Brindille, l’éleveuse",
+  "Un grand nid de paille au pied d’un arbre",
+  "Un œuf ? Garde-le au chaud, il éclora bientôt.",
+  "Chaque familier a son caractère. Comme les enfants.",
+  "Envoie-les en expédition : ils reviennent toujours, les poches pleines.",
+  "Le plus petit des familiers peut sauver le plus grand des héros.",
+  "Chut… celui-là dort. Il a beaucoup couru aujourd’hui."
 ];

@@ -1534,4 +1534,11 @@ export default {
   2659: "Sets? Ich notiere jedes Teil in meinem Heft.",
   2660: "Bring mir keinen lebenden Kobold. Nie wieder.",
   2661: "Eines Tages wird mein Bestiarium vollständig sein. Dank dir.",
+  2662: "Mutter Zweig, die Tierpflegerin",
+  2663: "Ein großes Strohnest am Fuß eines Baumes",
+  2664: "Ein Ei? Halt es warm, es schlüpft bald.",
+  2665: "Jeder Begleiter hat seinen eigenen Charakter. Wie Kinder.",
+  2666: "Schick sie auf Expeditionen: Sie kommen immer mit vollen Taschen zurück.",
+  2667: "Der kleinste Begleiter kann den größten Helden retten.",
+  2668: "Pst … der da schläft. Er ist heute viel gerannt.",
 };

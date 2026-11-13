@@ -1534,4 +1534,11 @@ export default {
   2659: "Conjuntos? Anoto cada peça no meu caderno.",
   2660: "Não me traga um goblin vivo. Nunca mais.",
   2661: "Um dia meu bestiário estará completo. Graças a você.",
+  2662: "Mamãe Graveto, a criadora",
+  2663: "Um grande ninho de palha ao pé de uma árvore",
+  2664: "Um ovo? Mantenha-o aquecido, logo vai chocar.",
+  2665: "Cada mascote tem seu jeito. Como as crianças.",
+  2666: "Mande-os em expedição: sempre voltam com os bolsos cheios.",
+  2667: "O menor dos mascotes pode salvar o maior dos heróis.",
+  2668: "Psiu… esse está dormindo. Correu muito hoje.",
 };

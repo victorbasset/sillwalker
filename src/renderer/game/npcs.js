@@ -55,6 +55,19 @@ export const NPCS = {
       "Un jour, mon bestiaire sera complet. Grâce à toi.",
     ],
   },
+  // (it. 1090) l'éleveuse de familiers
+  pets: {
+    name: "Maman Brindille, l’éleveuse",
+    place: "Un grand nid de paille au pied d’un arbre",
+    art: "keeper",
+    lines: [
+      "Un œuf ? Garde-le au chaud, il éclora bientôt.",
+      "Chaque familier a son caractère. Comme les enfants.",
+      "Envoie-les en expédition : ils reviennent toujours, les poches pleines.",
+      "Le plus petit des familiers peut sauver le plus grand des héros.",
+      "Chut… celui-là dort. Il a beaucoup couru aujourd’hui.",
+    ],
+  },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
     name: "Plume, la chouette de la guilde",

@@ -1534,4 +1534,11 @@ export default {
   2659: "Sets? I note every piece in my notebook.",
   2660: "Don’t bring me a live goblin. Never again.",
   2661: "One day, my bestiary will be complete. Thanks to you.",
+  2662: "Mother Twig, the pet keeper",
+  2663: "A big straw nest at the foot of a tree",
+  2664: "An egg? Keep it warm, it will hatch soon.",
+  2665: "Every pet has its own temper. Just like children.",
+  2666: "Send them on expeditions: they always come back with full pockets.",
+  2667: "The smallest pet can save the greatest hero.",
+  2668: "Shh… that one is sleeping. It ran a lot today.",
 };

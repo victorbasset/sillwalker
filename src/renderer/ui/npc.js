@@ -9,10 +9,11 @@ import { esc } from "../game/format.js";
 const clicks = {};
 export const npcTalk = (tab) => { clicks[tab] = (clicks[tab] || 0) + 1; };
 
+/** compact : true (bulle sur une ligne) ou "icon" (portrait seul, réplique au survol : barre déjà pleine, Familiers). */
 export function npcHTML(tab, compact = false) {
   const npc = npcFor(tab);
   if (!npc) return "";
   const line = tx(npcLine(npc, Date.now(), clicks[tab] || 0));
-  return `<button class="npc hit${compact ? " compact" : ""}" data-action="npc-talk" data-npc="${tab}" title="${esc(tx(npc.name) + (compact ? "\n" + line : ""))}"><img src="${npcURL(npc.art)}" alt="">
+  return `<button class="npc hit${compact ? " compact" : ""}${compact === "icon" ? " icon" : ""}" data-action="npc-talk" data-npc="${tab}" title="${esc(tx(npc.name) + (compact ? "\n" + line : ""))}"><img src="${npcURL(npc.art)}" alt="">
     <span class="say">${esc(line)}</span></button>`;
 }

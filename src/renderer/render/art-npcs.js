@@ -102,4 +102,21 @@ export const NPC_ART = {
     "....SS..SS....",
     "....SS..SS....",
   ]] },
+  // Maman Brindille, l'éleveuse : chignon gris, tablier fleuri, un œuf dans les mains (it. 1090).
+  keeper: { pal: { H: "#c8c8d8", F: "#f0c08a", E: "#1a1a1a", R: "#e88a9a", D: "#7a4ab8", A: "#f4f0e8", P: "#ff8ad8", O: "#fff6c8", o: "#e8d8a8", K: "#5a3a20" }, frames: [[
+    ".....HHHH.....",
+    "....HHHHHH....",
+    "...HFFFFFFH...",
+    "...HFEFFEFH...",
+    "...HRFFFFRH...",
+    "....FFFFFF....",
+    "...DDDDDDDD...",
+    "..DDAAAAAADD..",
+    "..DDAPAAPADD..",
+    "..FDAAOOAADF..",
+    "...DAAooAAD...",
+    "...DDDDDDDD...",
+    "....KK..KK....",
+    "....KK..KK....",
+  ]] },
 };
