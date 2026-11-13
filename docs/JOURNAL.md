@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1143, demande D) : l'onglet Compétences s'ouvrait toujours sur la fleur ; une fois le grand graphe
+  ouvert (5 fois plus grand, rayon 1242), on n'en voyait que les bords, à découvrir à la molette. Fleur pleine et
+  graphe pas rempli : l'ouverture et « Recentrer » cadrent le front de la progression (dernier nœud pris, sinon le
+  prochain à prendre), même zoom lisible ; graphe rempli : le centre, comme avant. Un clic sur l'annonce d'ouverture
+  du graphe recadre aussi. Capture (fin de partie, voie du colosse) ; contrôle d'autotest (dernier nœud au centre de
+  la vue, à 20 px près). Autotest 225/225.
 - 2026-11-13 (it. 1142) : fin de la revue du thème clair (it. 1141) : onglet Compétences et bulle d'un nœud du grand
   graphe (voie entière, synergie « en ce moment ») lisibles. Détail : « ≈ » restait seul en fin de ligne, sa valeur
   passant à la ligne suivante : espace insécable après « ≈ » (toutes les langues). Autotest 224/224.

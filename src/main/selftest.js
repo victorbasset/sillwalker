@@ -289,6 +289,17 @@ async function runSelfTest(strip) {
       return /^✓/.test(b.textContent.trim()) ? "ouverte ✓" : "ligne pas cochée : " + b.textContent.slice(0, 30);
     } finally { S.lvl = keep.lvl; S.unlocks.bulkPoints = keep.bp; S.talents = keep.t; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
   check("« À faire » (grande fenêtre) : une action la laisse ouverte, ligne cochée", todoKeep === "ouverte ✓", todoKeep);
+  // (it. 1143) fleur pleine : « Recentrer » cadre le front du grand graphe (dernier nœud pris), pas la fleur
+  const front = await js(`(async () => { const P = window.__panel, G = window.__game, S = G.S, K = P.tabs.skills; const keep = { lvl: S.lvl, skills: JSON.parse(JSON.stringify(S.skills)), auto: S.settings.autoSkills };
+    try { S.lvl = 4000; S.settings.autoSkills = false; S.skills.order = ["root"]; S.skills.outer = []; S.skills.graphSeen = true; G.autoSpendSkills();
+      S.skills.outer = S.skills.outer.slice(0, 5); G.invalidateStats(); P.setTab("skills"); P.renderAll(); K.center();
+      const last = S.skills.outer[S.skills.outer.length - 1], el = document.querySelector('[data-pane="skills"]:not([hidden]) [data-gid="' + last + '"]');
+      if (!el) return "nœud " + last + " absent";
+      const B = document.querySelector('[data-pane="skills"]:not([hidden]) .skillview').getBoundingClientRect(), r = el.getBoundingClientRect();
+      const dx = Math.round(r.left + r.width / 2 - (B.left + B.width / 2)), dy = Math.round(r.top + r.height / 2 - (B.top + B.height / 2));
+      return Math.abs(dx) < 20 && Math.abs(dy) < 20 ? "centré" : "décalé " + dx + "," + dy;
+    } finally { S.lvl = keep.lvl; S.skills = keep.skills; S.settings.autoSkills = keep.auto; G.invalidateStats(); K.view.k = 0; P.setTab("adventure"); P.renderAll(); } })()`);
+  check("Compétences, fleur pleine : « Recentrer » cadre le front du grand graphe", front === "centré", front);
   // (it. 1127) Compétences : la bulle d'un nœud près du bas ou du bord droit reste dans la vue (elle sortait de 55 px)
   const skTip = await js(`(async () => { const P = window.__panel; P.setTab("skills"); P.renderAll(); await new Promise((r) => setTimeout(r, 300));
     const box = document.querySelector('[data-pane="skills"]:not([hidden]) .skillview'), B = box.getBoundingClientRect(), tip = box.querySelector(".skilltip");

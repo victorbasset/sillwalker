@@ -9,7 +9,7 @@ import { esc, dec, unit } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS } from "../../game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS, GRAPH_MAX_TAKE, nextGraphNode } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
@@ -125,10 +125,15 @@ export class SkillsTab {
   /* ---------- Navigation : glisser / molette ---------- */
   applyView() { this.g.setAttribute("transform", `translate(${this.view.x},${this.view.y}) scale(${this.view.k})`); }
 
-  /** Recentre sur l'origine, à un zoom lisible (molette pour voir tout l'arbre). */
+  /** Recentre sur l'origine, à un zoom lisible (molette pour voir tout l'arbre). (it. 1143) Fleur pleine et grand graphe
+   *  pas rempli : sur le front de la progression (dernier nœud pris, sinon le prochain à prendre) ; avant, l'onglet
+   *  s'ouvrait toujours sur la fleur, le grand graphe (5 fois plus grand) à peine visible sur les bords. */
   center() {
     const box = this.el.querySelector(".skillview"), w = box.clientWidth || 800, h = box.clientHeight || 400;
-    this.view = { x: w / 2, y: h / 2, k: Math.max(0.6, Math.min(1.2, h / 480)) };
+    const k = Math.max(0.6, Math.min(1.2, h / 480)), S = this.game.S, outer = S.skills.outer || [];
+    let f = null;
+    if (flowerComplete(S) && outer.length < GRAPH_MAX_TAKE) f = SKILL_GRAPH.nodes[outer[outer.length - 1]] || SKILL_GRAPH.nodes[nextGraphNode(S)] || null;
+    this.view = f ? { x: w / 2 - f.x * k, y: h / 2 - f.y * k, k } : { x: w / 2, y: h / 2, k };
     this.applyView();
   }
 
