@@ -1373,4 +1373,6 @@ export default {
   2498: "Um ovo! O que vai sair dele?",
   2499: "Olha, um ovo…",
   2500: "Seu herói tem novas falas: conjunto completo, ascensão, herói libertado, ovo encontrado.",
+  2501: "Modo mini: os grandes momentos (conjunto, ascensão…) cabem inteiros na janela pequena.",
+  2502: "Painel mais bem disposto em telas de 1500 a 1800 px de largura e com o tamanho da interface em 115 ou 130 %.",
 };

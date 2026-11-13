@@ -1373,4 +1373,6 @@ export default {
   2498: "An egg! What will hatch from it?",
   2499: "Oh, an egg…",
   2500: "Your hero has new lines: full set, ascension, hero freed, egg found.",
+  2501: "Mini mode: big moments (set, ascension…) now fit entirely in the small window.",
+  2502: "The panel is better laid out on screens 1500 to 1800 px wide, and with the interface size at 115 or 130%.",
 };

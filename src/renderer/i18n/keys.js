@@ -2502,5 +2502,7 @@ export const KEYS = [
   "Libre, enfin ! Merci !",
   "Un œuf ! Qu’est-ce qui va en sortir ?",
   "Tiens, un œuf…",
-  "Ton héros a de nouvelles répliques : panoplie complète, ascension, héros libéré, œuf trouvé."
+  "Ton héros a de nouvelles répliques : panoplie complète, ascension, héros libéré, œuf trouvé.",
+  "Mode mini : les grands moments (panoplie, ascension…) tiennent en entier dans la petite fenêtre.",
+  "Panneau mieux disposé sur les écrans de 1500 à 1800 px de large, et avec la taille de l’interface à 115 ou 130 %."
 ];

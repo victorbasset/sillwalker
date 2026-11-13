@@ -1373,4 +1373,6 @@ export default {
   2498: "Jajo! Co się z niego wykluje?",
   2499: "O, jajo…",
   2500: "Twój bohater ma nowe kwestie: pełny zestaw, wniebowstąpienie, uwolniony bohater, znalezione jajo.",
+  2501: "Tryb mini: ważne chwile (zestaw, wniebowstąpienie…) mieszczą się w całości w małym oknie.",
+  2502: "Lepszy układ panelu na ekranach o szerokości 1500–1800 px oraz przy rozmiarze interfejsu 115 lub 130 %.",
 };

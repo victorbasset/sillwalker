@@ -1373,4 +1373,6 @@ export default {
   2498: "¡Un huevo! ¿Qué saldrá de él?",
   2499: "Vaya, un huevo…",
   2500: "Tu héroe tiene nuevas frases: conjunto completo, ascensión, héroe liberado, huevo encontrado.",
+  2501: "Modo mini: los grandes momentos (conjunto, ascensión…) caben enteros en la ventana pequeña.",
+  2502: "Panel mejor distribuido en pantallas de 1500 a 1800 px de ancho y con el tamaño de interfaz al 115 o 130 %.",
 };

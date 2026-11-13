@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1052) : « Quoi de neuf », édition 50 : moments du mode mini en entier ; panneau mieux disposé de 1500
+  à 1800 px et avec l'interface à 115 / 130 %. 10 langues sans défaut (« Quoi de neuf » au pire cas, fin de partie à
+  1600 px et à 130 % compris) ; autotest 205/205.
 - 2026-11-13 (it. 1051, revue générale) : simulation 12 h, records des courses : danseuse de lames 42 → 65, berserker
   44 → 64, arbalétrier 41 → 62 (réguliers). Performance (copie neuve) : bande 19,5 %, panneau 20,7 %, mini 6,9 %, icône
   0,8 %. Captures Bestiaire et Talents à 1366 px en français, anglais et coréen (« 30점부터 », it. 1001), mini en

@@ -1373,4 +1373,6 @@ export default {
   2498: "Ein Ei! Was wohl daraus schlüpft?",
   2499: "Nanu, ein Ei…",
   2500: "Dein Held hat neue Sprüche: komplettes Set, Aufstieg, befreiter Held, gefundenes Ei.",
+  2501: "Mini-Modus: große Momente (Set, Aufstieg …) passen vollständig ins kleine Fenster.",
+  2502: "Das Panel ist auf Bildschirmen von 1500 bis 1800 px Breite und bei einer Oberflächengröße von 115 oder 130 % besser angeordnet.",
 };
