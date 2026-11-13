@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1013) : Bestiaire > Panoplies : quand le sac complète une panoplie, la mention « · 4 dans le sac »
+  de sa carte devient un bouton (« Compléter avec les pièces du sac » en info-bulle) : un clic sur place, comme la
+  tâche « À faire » (finishSet(id), setFinisher(id)). --overflow-report mesure désormais chaque sous-section du
+  Bestiaire (seule celle des monstres l'était) : défaut ancien trouvé, Panoplies défilait en russe (9 px ; 26 en fin de
+  partie) et en allemand (9 px) à 1280 px ; sous 1500 px, cartes du Bestiaire sur 5 colonnes (230 px). Pire cas mesuré
+  à la main (5 panoplies complétables, ru et de, 1280 px) : 0 px. Joueur absent (IDLE=1) : guerrier 15 à 9 h, 16 à 12 h,
+  au repère. Contrôle d'autotest (bouton → panoplie complétée) ; 10 langues sans défaut ; 203/203. CLAUDE.md.
 - 2026-11-13 (it. 1012) : bilan d'équilibrage des 20 héros (12 h, graines 7/3/11, horloge virtuelle) : de 61,0 (mage)
   à 66,7 (gladiateur), moyenne 63,3 ; plus forts : gladiateur +3,4, gardien des astres +2,7 ; plus faibles : mage −2,3,
   arbalétrier, assassin, nécromancien −1,6. Écart de 5,7 zones, proche du bruit (±2,3 sur trois graines) : aucune

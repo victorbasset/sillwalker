@@ -1354,4 +1354,5 @@ export default {
   2479: "Zestaw {0} skompletowany: poprzednie, silniejsze wyposażenie wraca na miejsce.",
   2480: "Ten boss strzeże relikwii: {0}.",
   2481: "Ten boss wzmocni: {0} (poziom {1} → {2}).",
+  2482: "Skompletuj częściami z torby",
 };

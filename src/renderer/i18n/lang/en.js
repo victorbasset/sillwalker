@@ -1354,4 +1354,5 @@ export default {
   2479: "{0} set completed: your previous, stronger gear is back on.",
   2480: "This boss guards a relic, {0}.",
   2481: "This boss will strengthen {0} (level {1} → {2}).",
+  2482: "Complete with pieces from the bag",
 };

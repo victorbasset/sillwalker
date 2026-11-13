@@ -66,7 +66,13 @@ export class BestiaryTab {
       <div class="setgrid">${SET_KEYS.map((id) => { const st = SETS[id], n = setCounts(S.equip)[id] || 0; // toutes les panoplies, et où en est le héros
         // (it. 1005) pièces gardées dans le sac (une par emplacement non porté) : le joueur voit où en est la panoplie
         const inBag = {}; for (const it of S.bag) if (it.set === id && !(S.equip[it.slot] && S.equip[it.slot].set === id)) inBag[it.slot] ||= it;
-        const bagN = Object.keys(inBag).length, bagTxt = bagN ? ` · <span title="${esc(Object.values(inBag).map(itemName).join(csep()))}">${tx("{n} dans le sac", { n: bagN })}</span>` : "";
+        const bagN = Object.keys(inBag).length, names = esc(Object.values(inBag).map(itemName).join(csep()));
+        // (it. 1013) le sac complète cette panoplie : « · 4 dans le sac » devient un bouton (un clic sur place, comme la
+        // tâche « À faire ») ; pas de ligne de plus (cinq boutons en propre ligne faisaient défiler à 1280 px)
+        const bagTxt = !bagN ? "" : this.game.setFinisher(id)
+          ? ` · <button class="linkbtn setfin" data-action="b-setfin" data-id="${id}" title="${esc(tx("Compléter avec les pièces du sac"))}
+${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
+          : ` · <span title="${names}">${tx("{n} dans le sac", { n: bagN })}</span>`;
         return `<div class="setcard" style="--c:${st.color}"><b class="tint">◆ ${esc(st.name)}</b> <small>${n}/4${bagTxt}${(S.setsDone || {})[id] ? " · ✓ " + tx("complétée") : ""}</small>
           <div class="${n >= 2 ? "on" : ""}">${n >= 2 ? "✓ " : ""}${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
           <div class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>` : ""}
@@ -112,6 +118,7 @@ export class BestiaryTab {
 
   onAction(a, b) {
     if (a === "b-jump") this.sec = b.dataset.to.replace(/^bj-/, ""); // le panneau se redessine ensuite
+    else if (a === "b-setfin") this.game.finishSet(b.dataset.id);
   }
   // (it. 936) un événement en cours : le compte à rebours de sa carte avance (sous-onglet des événements seulement)
   tick() { return this.sec === "events" && Object.values(this.game.R.events || {}).some((t) => t > 0); }

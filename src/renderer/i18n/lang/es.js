@@ -1354,4 +1354,5 @@ export default {
   2479: "Conjunto {0} completado: se vuelve a equipar el equipo anterior, más fuerte.",
   2480: "Este jefe guarda una reliquia: {0}.",
   2481: "Este jefe reforzará {0} (nivel {1} → {2}).",
+  2482: "Completar con piezas de la bolsa",
 };

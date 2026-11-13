@@ -2483,5 +2483,6 @@ export const KEYS = [
   "Grands nombres plus lisibles (séparateur des milliers) dans l’onglet Ascension.",
   "Panoplie {0} complétée : l’équipement d’avant, plus fort, est remis.",
   "Ce boss garde une relique, {0}.",
-  "Ce boss renforcera {0} (niveau {1} → {2})."
+  "Ce boss renforcera {0} (niveau {1} → {2}).",
+  "Compléter avec les pièces du sac"
 ];

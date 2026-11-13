@@ -761,6 +761,20 @@ async function runSelfTest(strip) {
   // (it. 969) détail du retour : « Or gagné » = combats + expéditions du Grand intendant (le même total que la bulle)
   const offD = await js("(() => { const P = window.__panel; P.showOfflineSummary({ seconds: 28800, duration: '8 h', zone: 'Z', kills: 10, gold: 1000, petGold: 500, xp: 1, kept: 0, best: -1, steps: [], petWork: 3, capH: 8, questsDone: 2 }); const t = document.getElementById('mbody').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return t; })()");
   check("retour d’absence : or gagné total, expéditions du Grand intendant détaillées", /1[,.\s\u00a0\u202f]?500/.test(offD) && /\+500/.test(offD) && /Quests completed\s*2/.test(offD), offD.slice(0, 300));
+  // (it. 1013) Bestiaire > Panoplies : bouton « Compléter avec les pièces du sac » sur la carte, un clic la complète
+  const setFin = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;
+    const keep = { bag: S.bag.slice(), equip: { ...S.equip }, done: { ...(S.setsDone || {}) }, size: S.bagSize, tab: P.tab, sec: P.tabs.bestiary.sec };
+    try {
+      S.bagSize = Math.max(S.bagSize, S.bag.length + 4); delete (S.setsDone ||= {}).wind;
+      for (const sl of ["helm", "boots", "gloves", "ring"]) { const it = G.newItem(3); it.slot = sl; it.set = "wind"; S.bag.push(it); }
+      P.setTab("bestiary"); P.tabs.bestiary.sec = "sets"; P.renderAll();
+      const btn = document.querySelector('[data-pane="bestiary"]:not([hidden]) [data-action="b-setfin"][data-id="wind"]');
+      if (!btn) return "pas de bouton";
+      btn.click();
+      return S.setsDone.wind ? "ok" : "pas complétée";
+    } finally { S.bag = keep.bag; S.equip = keep.equip; S.setsDone = keep.done; S.bagSize = keep.size; G.invalidateStats(); P.tabs.bestiary.sec = keep.sec; P.setTab(keep.tab); P.renderAll(); }
+  })()`);
+  check("panoplies : « Compléter avec les pièces du sac » sur la carte", setFin === "ok", setFin);
   // (it. 1000) un succès obtenu en jeu laisse une ligne dans le journal
   const achLog = await js("(() => { const G = window.__game, S = G.S, keep = S.achievements.slice(); S.achievements = S.achievements.filter((x) => x !== 'FIRST_BOSS'); window.__checkAchievements ? window.__checkAchievements() : null; const t = S.log.slice(0, 3).join(' | '); S.achievements = keep; return t; })()");
   check("succès obtenu : une ligne dans le journal", /🏆/.test(achLog), achLog.slice(0, 200));

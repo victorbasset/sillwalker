@@ -758,6 +758,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .setcard.unknown { border-left-style: dashed; border-left-color: var(--line); } /* (it. 920) événement jamais vu */
 .setcard b { font-size: 13px; }
 .setcard .on { color: var(--good); }
+.setcard .setfin { display: inline; width: auto; margin: 0; padding: 0 4px; font-size: 11px; line-height: 1.3; } /* (it. 1013) */
 /* Bestiaire : sommaire en tête d'onglet */
 .bjump { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 6px; }
 .bjump button { font-size: 12px; padding: 2px 8px; }
@@ -1161,6 +1162,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 @media (max-width: 900px) { .newslist { columns: 1; } }
 /* Bestiaire > Capacités des boss : celles du boss de la zone actuelle ressortent. */
 .setcard.here { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* (it. 1013) écran de portable : cartes du Bestiaire (panoplies, capacités, élites, événements) sur 5 colonnes au lieu
+   de 4 à 1280 px ; les 10 panoplies tiennent sur deux rangées (russe et allemand défilaient de 9 à 26 px) */
+@media (max-width: 1499px) { [data-pane="bestiary"] .setgrid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); } }
 /* Duo idéal : étincelle dorée qui file entre les deux héros. */
 .spark.duolink { width: 3px; height: 3px; background: #ffd34d; box-shadow: 0 0 3px #ffd34d; }
 /* Statistiques > Chiffres sur écran de portable : lignes un peu plus petites (langues aux mots longs : russe, allemand). */

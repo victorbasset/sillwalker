@@ -1354,4 +1354,5 @@ export default {
   2479: "Set {0} vervollständigt: die vorherige, stärkere Ausrüstung ist wieder angelegt.",
   2480: "Dieser Boss bewacht ein Relikt, {0}.",
   2481: "Dieser Boss verstärkt {0} (Stufe {1} → {2}).",
+  2482: "Mit Teilen aus der Tasche vervollständigen",
 };

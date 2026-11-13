@@ -2261,8 +2261,8 @@ export class Game {
   /** (it. 1007) Tâche « … complètent la panoplie » : équipe les pièces ; pour une panoplie jamais complétée, si
       l'équipement d'avant était plus fort, il est remis aussitôt (le bonus de collection reste acquis) : sans
       « Équiper le meilleur », le joueur devait rééquiper à la main jusqu'à quatre objets. Renvoie true si fait. */
-  finishSet() {
-    const f = this.setFinisher();
+  finishSet(only) {
+    const f = this.setFinisher(only);
     if (!f) return false;
     const S = this.S, wasDone = !!(S.setsDone || {})[f.set], before = power(heroStats(S));
     const old = f.items.map((it) => S.equip[it.slot]).filter(Boolean);
@@ -2277,10 +2277,10 @@ export class Game {
   /** Pièces du sac qui porteraient une panoplie à 4 pièces une fois équipées : { set, items } ou null. Une pièce si 3
       sont déjà portées (bonus de 4 pièces) ; (it. 1004) ou plusieurs pour une panoplie jamais complétée, quand le sac
       couvre les emplacements manquants (bonus de collection permanent : il reste acquis si l'on rééquipe ensuite mieux). */
-  setFinisher() {
+  setFinisher(only) {
     const S = this.S, worn = setCounts(S.equip), done = S.setsDone || {};
     let best = null;
-    for (const k of SET_KEYS) {
+    for (const k of only ? [only] : SET_KEYS) {
       const w = worn[k] || 0;
       if (w >= 4 || (w < 3 && done[k])) continue;
       const bySlot = {};

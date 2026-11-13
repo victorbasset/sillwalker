@@ -1354,4 +1354,5 @@ export default {
   2479: "Conjunto {0} completado: o equipamento anterior, mais forte, foi reequipado.",
   2480: "Este chefe guarda uma relíquia: {0}.",
   2481: "Este chefe vai fortalecer {0} (nível {1} → {2}).",
+  2482: "Completar com peças da bolsa",
 };
