@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1158) : page itch.io (steam/itch-page.md) mise à jour pour la 0.1.3 : grand graphe de 618 nœuds
+  (voies, synergies), personnages rencontrés en route, et les trois plateformes (Windows, Linux AppImage, macOS puce
+  Apple) au lieu de « Windows seulement » ; nombres vérifiés (20 héros, 33 régions, 83 monstres : « 80 » arrondi).
 - 2026-11-13 (it. 1157) : DÉFAUT DE LIVRAISON corrigé : le zip Mac 0.1.3 déposé (it. 1144, 1153) sortait
   d'electron-builder seul, SANS signature (hors macOS) : un binaire arm64 non signé est tué au lancement sur Mac (la
   0.1.2 passait par scripts/mac-from-linux.sh, signature ad hoc rcodesign, it. 833). Refait avec ce script (signature

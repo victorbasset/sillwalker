@@ -28,14 +28,15 @@ loots and grows stronger while you work, play or watch videos. Clicks go through
 the panel opens whenever you like.
 
 - 20 heroes to free, fighting in pairs, each with their own talents and unique spells
-- A 144-node skill tree, gear sets, a forge, pets and expeditions
+- A 144-node skill tree, then a great 618-node graph around it with paths to choose and synergies
+- Gear sets, a forge, pets and expeditions, and characters met along the road (one per tab)
 - 30+ regions, 80 monsters, golden elites, fleeing goblins and bosses guarding relics
 - A story told through tiny cutscenes, all the way to the Starbreaker… and beyond
 - Progress continues while the game is closed (up to 8 hours)
 - 10 languages, lofi music, power-saving mode
 
 **This is an early version.** It is complete and playable from start to finish, but still evolving: your feedback in
-the comments shapes what comes next. Windows 10/11, 64-bit.
+the comments shapes what comes next. Windows 10/11 (64-bit), Linux (AppImage) and macOS (Apple Silicon).
 
 ---
 
@@ -46,14 +47,15 @@ tâches, combat, ramasse du butin et progresse pendant que tu travailles, joues 
 traversent la bande ; un coup d'œil suffit, et le panneau s'ouvre quand tu veux.
 
 - 20 héros à libérer, qui combattent en duo, chacun avec ses talents et ses sorts uniques
-- Un arbre de 144 compétences, des panoplies, une forge, des familiers et leurs expéditions
+- Un arbre de 144 compétences, puis un grand graphe de 618 nœuds autour, avec des voies à choisir et des synergies
+- Des panoplies, une forge, des familiers et leurs expéditions, et des personnages rencontrés en route (un par onglet)
 - Plus de 30 régions, 80 monstres, élites dorés, gobelins fuyards et boss gardiens de reliques
 - Une histoire en petites cinématiques, jusqu'au Briseur d'Étoiles… et au-delà
 - Le jeu avance même fermé (jusqu'à 8 heures)
 - 10 langues, musique lofi, mode économie d'énergie
 
 **Version en cours de développement.** Le jeu est complet et jouable du début à la fin, mais il évolue encore : tes
-avis dans les commentaires décident de la suite. Windows 10/11, 64 bits.
+avis dans les commentaires décident de la suite. Windows 10/11 (64 bits), Linux (AppImage) et macOS (puce Apple).
 
 ## Download & install instructions (champ itch.io ; bouton HTML de l'éditeur, it. 810)
 
