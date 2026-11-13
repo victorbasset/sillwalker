@@ -17,4 +17,21 @@ export const NPC_ART = {
     "GG.LLLLLLLL.GG",
     "...gg....gg...",
   ]] },
+  // Orbo, l'astronome à la fusée : casque de verre, combinaison orange (it. 1082).
+  rocket: { pal: { H: "#e8eef8", B: "#9fd8ff", F: "#f0c08a", E: "#1a1a1a", g: "#c0392b", S: "#e8873a", s: "#a8551e", K: "#3a3550" }, frames: [[
+    "....HHHHHH....",
+    "...HBBBBBBH...",
+    "..HBBFFFFBBH..",
+    "..HBFEFFEFBH..",
+    "..HBFFFFFFBH..",
+    "..HBBFggFBBH..",
+    "...HBBBBBBH...",
+    "....HHHHHH....",
+    "...SSSSSSSS...",
+    "..SSsSSSSsSS..",
+    "..SS.SSSS.SS..",
+    "..F..SSSS..F..",
+    "....SS..SS....",
+    "....KK..KK....",
+  ]] },
 };

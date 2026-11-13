@@ -1491,4 +1491,11 @@ export default {
   2616: "de puntos de vida por cada vez que se duplica tu ataque",
   2617: "Clic en un talento: tantos rangos como sea posible · «+1»: un solo rango. Pasa el ratón por un talento para ver su efecto.",
   2618: "Un solo rango",
+  2619: "Orbo, el astrónomo del cohete",
+  2620: "Un cohete improvisado en lo alto de una colina",
+  2621: "¿Las estrellas? ¡Iré a buscarlas yo mismo!",
+  2622: "Vuelve a empezar, más fuerte: los fragmentos te esperan allá arriba.",
+  2623: "Mi cohete funciona con fragmentos de estrella. Tú también, en cierto modo.",
+  2624: "En cada ascensión cuento las estrellas que se reencienden. Aún faltan algunas.",
+  2625: "Tres… dos… uno… Bueno, quizá mañana.",
 };

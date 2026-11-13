@@ -1491,4 +1491,11 @@ export default {
   2616: "Lebenspunkte je Verdopplung deines Angriffs",
   2617: "Klick auf ein Talent: so viele Ränge wie möglich · „+1“: nur ein Rang. Fahre über ein Talent, um seine Wirkung zu sehen.",
   2618: "Nur ein Rang",
+  2619: "Orbo, der Raketenastronom",
+  2620: "Eine selbstgebaute Rakete auf einem Hügel",
+  2621: "Die Sterne? Die hole ich mir selbst!",
+  2622: "Fang von vorn an, stärker: Die Splitter warten dort oben auf dich.",
+  2623: "Meine Rakete fliegt mit Sternensplittern. Du auch, gewissermaßen.",
+  2624: "Bei jedem Aufstieg zähle ich die neu entzündeten Sterne. Es fehlen noch welche.",
+  2625: "Drei … zwei … eins … Na gut, vielleicht morgen.",
 };

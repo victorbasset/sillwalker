@@ -650,6 +650,11 @@ details.more summary:hover { color: var(--accent); }
 .npc .say { position: relative; font-size: 12px; line-height: 1.25; padding: 3px 8px; background: var(--chip); border: 2px solid var(--line); color: var(--text, inherit); max-width: 560px; }
 .npc .say::before { content: ""; position: absolute; left: -7px; top: 50%; margin-top: -4px; border: 4px solid transparent; border-right: 4px solid var(--line); }
 .npc:hover .say { border-color: var(--accent); }
+/* (it. 1082) pastille compacte dans le titre d'une carte : poussée à droite, bulle sur une ligne (entière au survol) */
+h2.npch { display: flex; align-items: center; gap: 8px; min-width: 0; }
+h2.npch > .npc.compact { margin-left: auto; min-width: 0; flex: 0 1 auto; }
+.npc.compact img { height: 24px; }
+.npc.compact .say { font-size: 11px; padding: 1px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 340px; }
 i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }
 .panel.unlocks { margin-bottom: 12px; }
 .ugrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; align-items: stretch; }

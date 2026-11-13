@@ -1491,4 +1491,11 @@ export default {
   2616: "de pontos de vida a cada vez que seu ataque dobra",
   2617: "Clique num talento: o máximo de níveis possível · «+1»: um só nível. Passe o mouse sobre um talento para ver o efeito.",
   2618: "Um só nível",
+  2619: "Orbo, o astrônomo do foguete",
+  2620: "Um foguete improvisado no alto de uma colina",
+  2621: "As estrelas? Eu mesmo vou buscá-las!",
+  2622: "Recomece do início, mais forte: os fragmentos esperam por você lá em cima.",
+  2623: "Meu foguete funciona com fragmentos de estrela. Você também, de certo modo.",
+  2624: "A cada ascensão, conto as estrelas reacesas. Ainda faltam algumas.",
+  2625: "Três… dois… um… Bem, talvez amanhã.",
 };

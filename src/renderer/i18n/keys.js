@@ -2620,5 +2620,12 @@ export const KEYS = [
   "d’attaque par doublement de tes points de vie",
   "de points de vie par doublement de ton attaque",
   "Clic sur un talent : autant de rangs que possible · « +1 » : un seul rang. Survole un talent pour voir son effet.",
-  "Un seul rang"
+  "Un seul rang",
+  "Orbo, l’astronome à la fusée",
+  "Une fusée bricolée en haut d’une colline",
+  "Les étoiles ? Je vais les chercher moi-même !",
+  "Recommence au début, plus fort : les éclats t’attendent là-haut.",
+  "Ma fusée marche aux éclats d’étoile. Toi aussi, en quelque sorte.",
+  "À chaque ascension, je compte les étoiles rallumées. Il en manque encore.",
+  "Trois… deux… un… Bon, demain peut-être."
 ];

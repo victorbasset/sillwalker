@@ -3,6 +3,7 @@
 // Chaque onglet hors Aventure est un module de ui/tabs/ avec render(el),
 // onAction(action, bouton) et tick(). Ajouter un onglet = un module + une
 // entrée dans TABS. Le panneau ne touche à l'état qu'à travers Game.
+import { npcTalk } from "./npc.js";
 import { newsShown } from "../game/news.js";
 import { itemName, itemKindLine } from "../i18n/data.js";
 import { t as tx, txn, lc, fsp, colon, tr, csep, cend, wsp } from "../i18n/index.js";
@@ -1103,6 +1104,7 @@ export class Panel {
       case "bagsort": g.sortBag(); break;
       case "showkeys": this.showKeys(); return;
       case "shownews": this.showNews(0); return;
+      case "npc-talk": npcTalk(b.dataset.npc); this.renderAll(); return; // (it. 1082) PNJ de l'onglet : réplique suivante
       case "sellless": {
         const n = g.uselessItems().length;
         this.confirm(tx("Vendre les objets inutiles ?"), txn(n, "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés."), tx("Vendre"), () => {

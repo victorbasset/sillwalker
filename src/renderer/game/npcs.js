@@ -1,7 +1,7 @@
 // PNJ de l'histoire (demande E de Victor, it. 1073) : chaque onglet qui se débloque est tenu par un personnage rencontré
 // sur la route (une maison, une cabane, un lac…). Il apparaît, stylisé, en haut de son onglet et parle au joueur.
-// Textes en français (traduits à l'affichage par tx()) ; art : render/art-npcs.js. Pour l'instant : la Boutique ;
-// les autres onglets suivront (étape E4), puis la rencontre animée sur la bande (étape E3).
+// Textes en français (traduits à l'affichage par tx()) ; art : render/art-npcs.js ; lieu dessiné dans la scène de
+// rencontre : juice.js, npcPlace. Pastille dans l'onglet : ui/npc.js.
 
 export const NPCS = {
   shop: {
@@ -14,6 +14,19 @@ export const NPCS = {
       "Un coffre ? Je ne sais jamais ce qu’il y a dedans… moi non plus !",
       "Reviens quand l’étal sera renouvelé : j’aurai du neuf.",
       "Croâ ! Pardon. Ça m’échappe quand je fais une bonne affaire.",
+    ],
+  },
+  // (it. 1082) suggestion de Victor : « un PNJ qui a une fusée, pour l'ascension »
+  ascension: {
+    name: "Orbo, l’astronome à la fusée",
+    place: "Une fusée bricolée en haut d’une colline",
+    art: "rocket",
+    lines: [
+      "Les étoiles ? Je vais les chercher moi-même !",
+      "Recommence au début, plus fort : les éclats t’attendent là-haut.",
+      "Ma fusée marche aux éclats d’étoile. Toi aussi, en quelque sorte.",
+      "À chaque ascension, je compte les étoiles rallumées. Il en manque encore.",
+      "Trois… deux… un… Bon, demain peut-être.",
     ],
   },
 };

@@ -1,4 +1,5 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
+import { npcHTML } from "../npc.js";
 import { t as tx, txn, fsp, csep } from "../../i18n/index.js";
 import { CLASSES, canPartner, duoSynergy } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
@@ -32,7 +33,7 @@ export class AscensionTab {
     // Cases des déblocages (Carte du ciel, Astrolabe) : à côté du bouton d'ascension (place comptée à 1280 px).
     const autos = `${hasUnlock(S, "skyChart") ? `<label class="toggle" title="${esc(tx("Carte du ciel : placer tout seul les éclats dans la constellation la moins chère"))}" aria-label="${esc(tx("Carte du ciel"))}"><input type="checkbox" data-action="a-stars"${S.settings.autoStars !== false ? " checked" : ""}> ${ico("c_north")}</label>` : ""}${hasUnlock(S, "astrolabe") ? `<label class="toggle" title="${esc(tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record"))}" aria-label="${esc(tx("Astrolabe"))}"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${ico("astro")}</label>` : ""}`;
     const intro = `<article class="panel ascend">
-      <h2>${tx("Ascension")} <small>${txn(P.count, "{n} ascension|{n} ascensions")}</small></h2>
+      <h2 class="npch">${tx("Ascension")} <small>${txn(P.count, "{n} ascension|{n} ascensions")}</small>${npcHTML("ascension", true)}</h2>
       <p class="shards">${ico("star")} ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${fmtFull(P.shards)}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: fmtFull(P.total) })}</span></p>
       <p><b>${tx("Lueur stellaire")}</b>${fsp()}${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone {0}.", { 0: g.nextStartZone() })}</p>

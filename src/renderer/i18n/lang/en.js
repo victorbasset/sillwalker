@@ -1491,4 +1491,11 @@ export default {
   2616: "health per doubling of your attack",
   2617: "Click a talent: as many ranks as possible · “+1”: a single rank. Hover a talent to see its effect.",
   2618: "A single rank",
+  2619: "Orbo, the rocket astronomer",
+  2620: "A makeshift rocket at the top of a hill",
+  2621: "The stars? I’ll go and get them myself!",
+  2622: "Start over, stronger: the shards are waiting for you up there.",
+  2623: "My rocket runs on star shards. So do you, in a way.",
+  2624: "With every ascension, I count the rekindled stars. Some are still missing.",
+  2625: "Three… two… one… Well, maybe tomorrow.",
 };

@@ -12,8 +12,8 @@ import {
 } from "../../game/shop.js";
 import { describeEffects } from "../../game/talents.js";
 import { fmt, fmtShort, esc, NB, unit, uH, uMin } from "../../game/format.js";
-import { itemIconURL, npcURL } from "../../render/sprites.js";
-import { npcFor, npcLine } from "../../game/npcs.js";
+import { itemIconURL } from "../../render/sprites.js";
+import { npcHTML } from "../npc.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { POWER_INDEX } from "../../game/powers.js";
 import { SETS } from "../../game/sets.js";
@@ -126,10 +126,8 @@ export class ShopTab {
     // objets qu'il renouvelle (avant : tout en haut à droite de l'onglet)
     // (it. 1073, demande E de Victor) la marchande de la Boutique, à côté de la bourse : une réplique toutes les 30 s,
     // une autre à chaque clic
-    const npc = npcFor("shop");
-    const npcHTML = npc ? `<button class="npc hit" data-action="s-npc" title="${esc(tx(npc.name))}"><img src="${npcURL(npc.art)}" alt="">
-        <span class="say">${esc(tx(npcLine(npc, Date.now(), this.npcClicks || 0)))}</span></button>` : "";
-    el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>${npcHTML}</div>
+    const npcBox = npcHTML("shop");
+    el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>${npcBox}</div>
       ${subtabsHTML([["shop", tx("Marchand")], ["unlocks", tx("Déblocages"), buyable || null], ["workshop", tx("Atelier")]], this.sec, "s-sec")}
       <div class="shoproot sec-${this.sec}">
       <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2><div class="ugrid hscroll" data-hs="unlocks">${unlocks}</div></article>
@@ -146,7 +144,6 @@ export class ShopTab {
 
   onAction(a, b) {
     if (a === "s-sec") { this.sec = b.dataset.to; return; }
-    if (a === "s-npc") { this.npcClicks = (this.npcClicks || 0) + 1; return; }
     const g = this.game, id = a === "s-item" ? +b.dataset.id : b.dataset.id;
     if (a === "s-item") g.buyShopItem(id);
     else if (a === "s-cons") g.buyConsumable(id);

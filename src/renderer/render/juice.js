@@ -66,6 +66,17 @@ function npcPlace(ctx, art, x, gy, t) {
     ctx.fillStyle = "#ffd34d"; ctx.fillRect(x + 32, gy - 50, 12, 10);                     // fenêtre allumée
     ctx.fillStyle = "#e2552b"; ctx.fillRect(x + 66, gy - 26, 3, 14); ctx.fillRect(x + 62, gy - 30, 11, 4); // fleur
   }
+  if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
+    ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
+    const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble
+    ctx.fillStyle = "#e8eef8"; ctx.fillRect(rx + shake, ry - 58, 18, 50);                            // corps
+    ctx.fillStyle = "#e2552b"; for (let r = 0; r < 10; r++) ctx.fillRect(rx + shake + r, ry - 68 + r, 18 - 2 * r, 1); // pointe
+    ctx.fillRect(rx + shake - 6, ry - 20, 6, 14); ctx.fillRect(rx + shake + 18, ry - 20, 6, 14);   // ailerons
+    ctx.fillStyle = "#9fd8ff"; ctx.fillRect(rx + shake + 5, ry - 46, 8, 8);                          // hublot
+    if (t > 2 && t < 2.6) { ctx.fillStyle = Math.floor(t * 20) % 2 ? "#ffd34d" : "#e8873a"; ctx.fillRect(rx + shake + 4, ry - 8, 10, 6); } // une flamme… qui s'éteint
+    ctx.fillStyle = "#6b4226"; ctx.fillRect(x, gy - 30, 22, 20);                                      // la cabane à outils (sa porte)
+    ctx.fillStyle = "#8a5ad0"; for (let r = 0; r < 6; r++) ctx.fillRect(x - 4 + r, gy - 36 + r, 30 - 2 * r, 1);
+  }
 }
 
 export class Juice {

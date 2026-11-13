@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1082, demande E, étape E4) : deuxième PNJ, suggéré par Victor : Orbo, l'astronome à la fusée, tient
+  l'Ascension (casque de verre, combinaison orange ; 5 répliques : « Trois… deux… un… Bon, demain peut-être. »).
+  Pastille compacte dans le titre de la carte Ascension (portrait, bulle sur une ligne, texte entier au survol ; rien
+  ne grandit), réplique suivante au clic. Scène de rencontre quand l'onglet s'ouvre : une colline, sa fusée bricolée
+  (qui tremble, crache une flamme… et s'éteint), sa cabane à outils. Pastille commune à tous les onglets (ui/npc.js,
+  action « npc-talk » ; la Boutique l'utilise aussi). Piège : un attribut data-tab sur un bouton du panneau l'ouvre
+  comme un lien d'onglet (le clic ne faisait rien d'autre) : data-npc. 7 textes traduits ; contrôle d'autotest
+  (210/210) ; captures de/ru à 1280 px et de la scène ; 10 langues sans défaut.
 - 2026-11-13 (it. 1081, revue générale) : simulation 12 h, records des courses : assassin 44 → 62, samouraï 41 → 65,
   prêtresse 40 → 62 (réguliers). Performance (copie neuve de dev-data) : bande 19,1 %, panneau 20,2 %, mini 7,2 %,
   icône 0,6 %. Captures : grand graphe en chinois (fin de partie, porte et voie de la Vitalité prises : « 大星图：358

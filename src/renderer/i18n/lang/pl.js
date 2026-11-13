@@ -1491,4 +1491,11 @@ export default {
   2616: "zdrowia za każde podwojenie twojego ataku",
   2617: "Kliknięcie talentu: tyle rang, ile się da · „+1”: jedna ranga. Najedź na talent, aby zobaczyć jego efekt.",
   2618: "Jedna ranga",
+  2619: "Orbo, astronom z rakietą",
+  2620: "Prowizoryczna rakieta na szczycie wzgórza",
+  2621: "Gwiazdy? Sam po nie polecę!",
+  2622: "Zacznij od nowa, silniejszy: odłamki czekają na ciebie tam w górze.",
+  2623: "Moja rakieta działa na odłamki gwiazd. Ty też, w pewnym sensie.",
+  2624: "Przy każdym wniebowstąpieniu liczę ponownie zapalone gwiazdy. Wciąż kilku brakuje.",
+  2625: "Trzy… dwa… jeden… No cóż, może jutro.",
 };
