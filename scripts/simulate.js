@@ -59,7 +59,7 @@ function playerTurn() {
   if (process.env.PARTNER_SPELLS && g.S.partner) classSpells(g.S.partner).forEach((sp, i) => { const own = classSpells(g.S.cls)[i]; if (own) g.S.spells[sp.id] = spellRank(g.S, own.id); });
   // (it. 1004) panoplie jamais complétée dont le sac couvre les 4 emplacements : le joueur clique la tâche (bonus de
   // collection permanent), puis « Équiper le meilleur » remet le plus fort
-  { const f = g.setFinisher(); if (f && !(g.S.setsDone || {})[f.set]) for (const it of f.items) g.equip(it); }
+  { const f = g.setFinisher(); if (f && !(g.S.setsDone || {})[f.set]) g.finishSet(); }
   g.autoEquip();
   g.sellUseless();
   // Forge à la main (comme un joueur, dès l'Enclume) toutes les 10 min : sans cela, le Maître de forge faisait un bond

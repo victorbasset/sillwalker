@@ -1351,4 +1351,5 @@ export default {
   2476: "Sets: Die Tasche behält Teile nie vervollständigter Sets, und ein Klick auf „Zu tun“ legt alle Teile an, die eines vervollständigen (dauerhafter Bonus). Bestiarium > Sets zeigt die Teile in der Tasche.",
   2477: "Die Zonenkarte unterscheidet die in diesem Lauf erreichte Zone und deinen Rekord.",
   2478: "Große Zahlen besser lesbar (Tausendertrennzeichen) im Tab Aufstieg.",
+  2479: "Set {0} vervollständigt: die vorherige, stärkere Ausrüstung ist wieder angelegt.",
 };

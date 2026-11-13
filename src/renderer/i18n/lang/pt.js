@@ -1351,4 +1351,5 @@ export default {
   2476: "Conjuntos: a bolsa guarda as peças de conjuntos nunca completados, e um clique em “A fazer” equipa de uma vez as que completam um (bônus permanente). Bestiário > Conjuntos mostra as peças da bolsa.",
   2477: "O cartão da zona distingue a zona alcançada nesta corrida e o seu recorde.",
   2478: "Números grandes mais legíveis (separador de milhares) na aba Ascensão.",
+  2479: "Conjunto {0} completado: o equipamento anterior, mais forte, foi reequipado.",
 };

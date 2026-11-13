@@ -585,7 +585,7 @@ export class Panel {
     else if (what === "merchant") { const it = g.merchantUpgrade(); if (it) g.buyAndEquip(it.id); }
     else if (what === "talents") g.autoSpendTalents();
     else if (what === "skills") g.autoSpendSkills();
-    else if (what === "setFinish") { const f = g.setFinisher(); if (f) for (const it of f.items) g.equip(it); }
+    else if (what === "setFinish") g.finishSet();
   }
 
 

@@ -1351,4 +1351,5 @@ export default {
   2476: "Sets: the bag keeps pieces of sets you have never completed, and one click on “To do” equips all the pieces that complete one (permanent bonus). Bestiary > Sets shows the pieces in your bag.",
   2477: "The Zone card tells apart the zone reached this run and your record.",
   2478: "Big numbers are easier to read (thousands separator) in the Ascension tab.",
+  2479: "{0} set completed: your previous, stronger gear is back on.",
 };

@@ -26,7 +26,7 @@ import {
   CHAMPION,
 } from "./data.js";
 import {
-  xpNeed, earlyPace, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, levelUpItem, levelUpCost, heroStats, heroDps, upgradeDelta,
+  power, xpNeed, earlyPace, rollItem, rollRarity, sellValue, forgeCost, reforgeCost, rerollAffixes, levelUpItem, levelUpCost, heroStats, heroDps, upgradeDelta,
   zoneDef, zoneName, monsterBase, approachTime,
   itemScore,
 } from "./rules.js";
@@ -1191,14 +1191,14 @@ export class Game {
     if (it) this.equip(it);
   }
 
-  equip(it) {
+  equip(it, quiet) {
     const S = this.S, old = S.equip[it.slot], before = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
     S.bag = S.bag.filter((i) => i.id !== it.id);
     S.equip[it.slot] = it;
     if (old) S.bag.push(old);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(tx("Équipé : ") + itemName(it) + cend());
+    if (!quiet) this.log(tx("Équipé : ") + itemName(it) + cend());
     this.emit("equipped", { r: it.r }); // son : cliquetis d'équipement
     // Palier de panoplie atteint (2 ou 4 pièces) : un moment à marquer.
     const after = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
@@ -2256,6 +2256,22 @@ export class Game {
     const offer = this.merchantUpgrade(now);
     if (offer) out.push({ id: "merchant", n: 1, tab: "shop", name: itemName(offer), price: offer.price });
     return out.filter((t) => !t.tab || tabReady(S, t.tab)); // pas de lien vers un onglet encore fermé
+  }
+
+  /** (it. 1007) Tâche « … complètent la panoplie » : équipe les pièces ; pour une panoplie jamais complétée, si
+      l'équipement d'avant était plus fort, il est remis aussitôt (le bonus de collection reste acquis) : sans
+      « Équiper le meilleur », le joueur devait rééquiper à la main jusqu'à quatre objets. Renvoie true si fait. */
+  finishSet() {
+    const f = this.setFinisher();
+    if (!f) return false;
+    const S = this.S, wasDone = !!(S.setsDone || {})[f.set], before = power(heroStats(S));
+    const old = f.items.map((it) => S.equip[it.slot]).filter(Boolean);
+    for (const it of f.items) this.equip(it, true);
+    if (!wasDone && (S.setsDone || {})[f.set] && power(heroStats(S)) < before) {
+      for (const o of old) if (S.bag.some((b) => b.id === o.id)) this.equip(o, true);
+      this.log(tx("Panoplie {0} complétée : l’équipement d’avant, plus fort, est remis.", { 0: SETS[f.set].name }));
+    }
+    return true;
   }
 
   /** Pièces du sac qui porteraient une panoplie à 4 pièces une fois équipées : { set, items } ou null. Une pièce si 3

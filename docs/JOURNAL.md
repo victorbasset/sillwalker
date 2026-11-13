@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1007) : la tâche « … pièces du sac complètent la panoplie » (it. 1004) ne laisse plus le héros
+  affaibli : pour une panoplie jamais complétée, si l'équipement d'avant était plus fort, il est remis aussitôt
+  (finishSet ; le bonus de collection reste acquis ; une ligne de journal au lieu de huit « Équipé : … » : equip(it,
+  quiet)). Sans « Équiper le meilleur », le joueur devait rééquiper jusqu'à quatre objets à la main. simulate.js passe
+  par finishSet (guerrier 24 h : 5 panoplies, comme avant). Santé : fuzz 1200 parties, 0 bloquée ; save-fuzz 1176
+  corruptions, toutes ok. Test logique ; autotest 202/202.
 - 2026-11-13 (it. 1006) : t() groupe par milliers tout entier ≥ 1000 passé en variable numérique (comme {n} de txn,
   it. 871) : bandeau et moment mini d'ascension (« +1347 éclats d'étoile »), journal d'ascension et de l'Astrolabe,
   astuce « ton héros bloque », et tous les cas semblables d'un coup ; les chaînes déjà formatées ne changent pas. Récompense

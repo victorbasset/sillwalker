@@ -1351,4 +1351,5 @@ export default {
   2476: "Zestawy: torba zachowuje części nigdy nieukończonych zestawów, a jedno kliknięcie w „Do zrobienia” zakłada naraz te, które go kompletują (stały bonus). Bestiariusz > Zestawy pokazuje części w torbie.",
   2477: "Karta strefy odróżnia strefę osiągniętą w tym biegu od twojego rekordu.",
   2478: "Duże liczby czytelniejsze (separator tysięcy) w zakładce Wniebowstąpienie.",
+  2479: "Zestaw {0} skompletowany: poprzednie, silniejsze wyposażenie wraca na miejsce.",
 };
