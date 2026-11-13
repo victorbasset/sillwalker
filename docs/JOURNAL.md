@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1050) : mémoire dans la durée après les ajouts récents (répliques, bulles, contours en cache) :
+  mem-watch 8 min à ×10 : « réel » 498-510 Mo, stable (repère 485-530). Rien à corriger.
 - 2026-11-13 (it. 1049) : bande en haut de l'écran (settings.json edge = top), russe, fin de partie après 8 h
   d'absence : bulle du résumé sous la bande, panneau ouvert vers le bas : propres. Rien à corriger.
 - 2026-11-13 (it. 1048) : interface agrandie (115 / 130 %) à 1366 et 1600 px : les Réglages défilaient de 3 à 11 px, à
