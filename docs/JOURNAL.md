@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1058) : interface à 130 %, fin de partie, à 1366 et 1600 px dans les sept langues pas encore vues
+  (en, es, pt, pl, zh, ja, ko) : sans défaut. Avec les it. 1046-1048 : le zoom 130 % est propre dans les 10 langues à
+  1366, 1600 et 1920 px.
 - 2026-11-13 (it. 1057) : README, tableau des scripts : hero-table (20 héros, horloge virtuelle) et lang-overflow
   (10 langues, 4 largeurs, fin de partie, zoom 130 %).
 - 2026-11-13 (it. 1056) : README à jour sur les panoplies (pièces gardées de toute panoplie jamais complétée, 6 au
