@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1140) : relecture de la liste d'idées : demandes D (grand graphe) et E (PNJ) marquées FAIT ; le
+  reste est fait, clos, ou attend Victor (plateau de fin de semaine) ou Windows (bande en plein écran, mesures).
+  Partie neuve (dossier vide, français, capture à 75 s) : héros, « Prochaine découverte », boss de la zone 1 et sa
+  capacité annoncés, onglets fermés discrets ; rien à corriger.
 - 2026-11-13 (it. 1139, demande D) : la bulle « Toute la voie » (voie pas encore choisie, it. 1114) donne aussi la
   valeur actuelle de ses synergies : « Toute la voie, en ce moment : ≈ +24,3 % attaque » (colosse furieux, fin de
   partie), contre ≈ +11,3 % pour l'or tranchant et +18,9 % d'attaque fixe pour le bourreau : la comparaison des
@@ -4419,7 +4423,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      mettre près d'eux. Les 4 objets ne tiennent pas sur Mac sans défilement horizontal : icônes et cartes plus petites.
   C. FAIT (it. 1080 : moins de clics ; it. 1084 : paliers des maîtrises ; it. 1107 : un bonus au choix à chaque palier). Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
      Rendre l'onglet plus riche en choix (à concevoir : clic = tous les rangs possibles, choix exclusifs, paliers…).
-  D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
+  D. FAIT (it. 1075-1139 ; synergies chiffrées it. 1112-1114 et 1139, points en surplus it. 1115). Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à
      la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 (FAIT, it. 1075) données et règles (nœuds,
      liens, coûts, effets ; sauvegarde, migration, tests) ; D2 (FAIT, it. 1076) affichage grisé autour de la fleur ; D3 (FAIT, it. 1077) achat et
@@ -4428,7 +4432,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      Précision de Victor (même jour) : des nœuds de SYNERGIE, qui font compter un axe dans un autre, pour chacun des
      6 pétales : « si je suis tanky, je tape plus fort » (attaque selon les PV), « plus je suis riche, plus je fais
      mal » (dégâts selon l'or), etc. Pas seulement « +PV » : des choix qui changent la façon de jouer.
-  E. PNJ et histoire : chaque onglet qui se débloque = une rencontre sur la route (ex. la maison d'une petite grenouille
+  E. FAIT (it. 1073-1095, les 10 onglets). PNJ et histoire : chaque onglet qui se débloque = une rencontre sur la route (ex. la maison d'une petite grenouille
      → Boutique ; un PNJ et sa fusée → Ascension ; une cabane, un lac…). Animation de découverte (le héros entre, parle
      au PNJ), puis le PNJ stylisé dans l'onglet avec des répliques (« J'ai quelques objets pour vous ! »). Étapes : E1
      liste des PNJ (un par onglet : nom, lieu, répliques ; EN COURS : Boutique faite, it. 1073) ; E2 le PNJ dans son onglet (FAIT pour la Boutique, it. 1073) (portrait pixel + bulle) ; E3 (FAIT pour la Boutique, it. 1079)
