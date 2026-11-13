@@ -1588,4 +1588,8 @@ export default {
   2713: "Wielki graf ukończony!",
   2714: "{0}: osiągnięto próg rangi {1}! {2} lub {3} do wyboru.",
   2715: "(i {n} kolejny próg)|(i {n} kolejne progi)|(i {n} kolejnych progów)",
+  2716: "Próg mistrzostwa: ranga {0}",
+  2717: "Mistrzostwa: każdy próg z wyborem jest ogłaszany (tylko raz); kliknięcie otwiera mistrzostwo, by wybrać premię.",
+  2718: "Premie wybrane na progach mistrzostw są teraz zachowywane przy wniebowstąpieniu (wracały do opcji domyślnej w każdym biegu).",
+  2719: "Wielki graf ukończony: jego ukończenie jest ogłaszane wraz z tym, co dają teraz dodatkowe punkty.",
 };

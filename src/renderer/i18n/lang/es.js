@@ -1588,4 +1588,8 @@ export default {
   2713: "¡Gran grafo completo!",
   2714: "{0}: ¡hito del rango {1} alcanzado! {2}, o {3} a elegir.",
   2715: "(y {n} hito más)|(y {n} hitos más)",
+  2716: "Hito de maestría: rango {0}",
+  2717: "Maestrías: cada hito con elección se anuncia (una sola vez); un clic abre la maestría para elegir su bonificación.",
+  2718: "Las bonificaciones elegidas en los hitos de maestría ahora se conservan al ascender (volvían a la opción por defecto en cada partida).",
+  2719: "Gran grafo completo: se anuncia su finalización, con lo que dan ahora los puntos extra.",
 };

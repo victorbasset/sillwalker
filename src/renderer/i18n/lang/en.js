@@ -1588,4 +1588,8 @@ export default {
   2713: "Great graph complete!",
   2714: "{0}: rank {1} milestone reached! {2}, or {3} if you prefer.",
   2715: "(and {n} other milestone)|(and {n} other milestones)",
+  2716: "Mastery milestone: rank {0}",
+  2717: "Masteries: each milestone with a choice is announced (only once); a click opens the mastery to pick its bonus.",
+  2718: "Bonuses chosen at mastery milestones are now kept on ascension (they reverted to the default option each run).",
+  2719: "Great graph complete: its completion is announced, with what extra points now give.",
 };

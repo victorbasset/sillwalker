@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1124) : mode mini : moment « Palier de maîtrise : rang N » (comme l'ouverture et le remplissage du
+  grand graphe). « Quoi de neuf », édition 56 : paliers de maîtrise annoncés, choix gardés à l'ascension, grand graphe
+  rempli annoncé. 9 langues (termes « Ascension » repris tels que traduits) ; pire cas sans défilement ; autotest
+  221/221 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1123) : audit de l'ascension après le défaut de l'it. 1122 (choix des paliers perdus) : sur la partie
   de fin de partie, seules les données de la course repartent de zéro (niveau, expérience, or, victimes, équipement,
   sac, talents). Test logique permanent : toute donnée remise à sa valeur de départ par ascend() doit être déclarée

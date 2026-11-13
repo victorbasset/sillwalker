@@ -1588,4 +1588,8 @@ export default {
   2713: "Großer Graph vollständig!",
   2714: "{0}: Stufe bei Rang {1} erreicht! {2} oder {3} zur Wahl.",
   2715: "(und {n} weitere Stufe)|(und {n} weitere Stufen)",
+  2716: "Meisterschaftsstufe: Rang {0}",
+  2717: "Meisterschaften: Jede Stufe mit Wahl wird angekündigt (nur einmal); ein Klick öffnet die Meisterschaft, um ihren Bonus zu wählen.",
+  2718: "Die an Meisterschaftsstufen gewählten Boni bleiben jetzt beim Aufstieg erhalten (sie fielen bei jedem Lauf auf die Standardoption zurück).",
+  2719: "Großer Graph vollständig: Seine Vollendung wird angekündigt, mit dem, was zusätzliche Punkte jetzt bringen.",
 };

@@ -2717,5 +2717,9 @@ export const KEYS = [
   "Grand graphe complet ! Chaque point de compétence en plus donne désormais +0,1 % d’attaque et de PV.",
   "Grand graphe complet !",
   "{0} : palier du rang {1} atteint ! {2}, ou {3} au choix.",
-  "(et {n} autre palier)|(et {n} autres paliers)"
+  "(et {n} autre palier)|(et {n} autres paliers)",
+  "Palier de maîtrise : rang {0}",
+  "Maîtrises : chaque palier à choix franchi est annoncé (une seule fois) ; un clic ouvre la maîtrise pour choisir son bonus.",
+  "Les bonus choisis aux paliers des maîtrises sont désormais gardés à l’ascension (ils revenaient à l’option par défaut à chaque course).",
+  "Grand graphe rempli : son achèvement est annoncé, avec ce que donnent désormais les points en plus."
 ];
