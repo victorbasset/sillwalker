@@ -106,8 +106,11 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Panoplies** : 10 ensembles (dont le Voyageur du vent, axé vitesse, le Traqueur de champions, qui attire les élites, et le Plumage du phénix, qui relève le héros une fois par combat), bonus à 2 et 4 pièces
   (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros) ; chaque panoplie
   complétée une première fois donne +1 % attaque et +1 % PV pour toujours (Bestiaire : « N / 10 complétées »).
-  L'infobulle d'une pièce montre sa progression (« 2 → 3 / 4 ») ; les pièces d'une panoplie commencée sont épargnées
-  par la vente de l'inutile et la transmutation.
+  L'infobulle d'une pièce montre sa progression (« 2 → 3 / 4 ») ; les pièces des panoplies jamais complétées sont
+  gardées par la vente de l'inutile et la transmutation (une par emplacement, 6 au plus, les plus avancées d'abord ;
+  dit au survol du bouton de vente). Quand le sac peut compléter une panoplie, « À faire » et sa carte du Bestiaire
+  (« ◆ N dans le sac ») l'équipent d'un clic ; l'équipement d'avant, s'il était plus fort, est remis aussitôt (le
+  bonus de collection reste). Le héros le fête d'une réplique.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
 - **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3, prodiges : événements rares ×2).

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1056) : README à jour sur les panoplies (pièces gardées de toute panoplie jamais complétée, 6 au
+  plus ; complétion d'un clic depuis « À faire » et le Bestiaire ; équipement d'avant remis ; réplique). Essai
+  d'instrumentation du rythme des rendus du panneau sans résultat (compteurs à 0 : autre chemin de rendu) : abandonné,
+  l'Aventure coûte ≈ 10 ms par mise à jour, raisonnable.
 - 2026-11-13 (it. 1055) : effet du cache de l'it. 1054 sur dev-data (copies neuves) : panneau ouvert 20,2 / 20,4 %
   (avant 20,4-20,7), bande 19,3 / 19,4. Repère par onglet (fin de partie, JavaScript d'un affichage complet après un
   changement d'état) : Aventure 10,1 ms, Bestiaire 11,0 (construit toutes ses sous-sections puis en garde une ; les
