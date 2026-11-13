@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1135, contrôles) : 1) fin de la revue de la grande fenêtre (it. 1133-1134) : Chroniques (le ▶ la
+  ferme exprès : cinématique sur la bande), Statistiques, Probabilités et « Ce qui est gardé » (sans bouton),
+  Automatismes (cases déjà exemptées) : rien d'autre. 2) Les choix des paliers de maîtrise sont-ils de vrais choix ?
+  Partie de fin de partie, maîtrises au rang 420, puissance (power) avec l'option b au lieu de a, palier par palier :
+  ×0,97 à ×1,08 (puissance 400 : +40 % critiques ×1,08 contre +25 % attaque ; puissance 25 : +5 % attaque ×0,97 contre
+  +15 % critiques) ; options de situation (boss, premier coup, or, expérience, butin) ×1,000 sur cette mesure, utiles
+  ailleurs. Aucun faux choix ; rien à régler.
 - 2026-11-13 (it. 1134, moins de clics, suite de l'it. 1133) : revue des sections ouvertes dans la grande fenêtre
   (MODAL_DETAILS) : « À faire » avait le même défaut. Ses actions d'un clic (réclamer les quêtes, faire éclore,
   dépenser les points…) sont faites pour passer à ✓ en laissant la liste ouverte, mais la fenêtre se refermait au
