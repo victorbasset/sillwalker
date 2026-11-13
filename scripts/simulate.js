@@ -58,6 +58,9 @@ function playerTurn() {
   // PARTNER_SPELLS=1 (it. 514) : le compagnon a les mêmes rangs de sorts que le héros (pire cas : un joueur qui a déjà
   // monté les sorts de cet autre héros) ; mesure l'effet des sorts du compagnon (PARTNER_SPELL, spells.js).
   if (process.env.PARTNER_SPELLS && g.S.partner) classSpells(g.S.partner).forEach((sp, i) => { const own = classSpells(g.S.cls)[i]; if (own) g.S.spells[sp.id] = spellRank(g.S, own.id); });
+  // (it. 1010) expéditions, comme un joueur attentif (passe toutes les 10 min) : récupère celles revenues et renvoie
+  // les familiers libres en « Voyage » (2 h). Sans cela, aucune expédition avant le Grand intendant (zone 170).
+  if (minute % 10 === 0) { for (const id of g.expeditionsReady()) g.claimExpedition(id); for (const id of g.idlePets()) g.sendExpedition(id, "long"); }
   // (it. 1004) panoplie jamais complétée dont le sac couvre les 4 emplacements : le joueur clique la tâche (bonus de
   // collection permanent), puis « Équiper le meilleur » remet le plus fort
   { const f = g.setFinisher(); if (f && !(g.S.setsDone || {})[f.set]) g.finishSet(); }

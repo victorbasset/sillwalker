@@ -1352,4 +1352,6 @@ export default {
   2477: "The Zone card tells apart the zone reached this run and your record.",
   2478: "Big numbers are easier to read (thousands separator) in the Ascension tab.",
   2479: "{0} set completed: your previous, stronger gear is back on.",
+  2480: "This boss guards a relic, {0}.",
+  2481: "This boss will strengthen {0} (level {1} → {2}).",
 };

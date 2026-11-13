@@ -1352,4 +1352,6 @@ export default {
   2477: "O cartão da zona distingue a zona alcançada nesta corrida e o seu recorde.",
   2478: "Números grandes mais legíveis (separador de milhares) na aba Ascensão.",
   2479: "Conjunto {0} completado: o equipamento anterior, mais forte, foi reequipado.",
+  2480: "Este chefe guarda uma relíquia: {0}.",
+  2481: "Este chefe vai fortalecer {0} (nível {1} → {2}).",
 };

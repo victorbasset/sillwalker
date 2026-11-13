@@ -1352,4 +1352,6 @@ export default {
   2477: "Die Zonenkarte unterscheidet die in diesem Lauf erreichte Zone und deinen Rekord.",
   2478: "Große Zahlen besser lesbar (Tausendertrennzeichen) im Tab Aufstieg.",
   2479: "Set {0} vervollständigt: die vorherige, stärkere Ausrüstung ist wieder angelegt.",
+  2480: "Dieser Boss bewacht ein Relikt, {0}.",
+  2481: "Dieser Boss verstärkt {0} (Stufe {1} → {2}).",
 };

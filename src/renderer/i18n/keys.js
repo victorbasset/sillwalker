@@ -2481,5 +2481,7 @@ export const KEYS = [
   "Panoplies : le sac garde les pièces des panoplies jamais complétées, et un clic sur « À faire » équipe d’un coup celles qui en complètent une (bonus permanent). Bestiaire > Panoplies montre les pièces du sac.",
   "La carte Zone distingue la zone atteinte pendant cette course et ton record.",
   "Grands nombres plus lisibles (séparateur des milliers) dans l’onglet Ascension.",
-  "Panoplie {0} complétée : l’équipement d’avant, plus fort, est remis."
+  "Panoplie {0} complétée : l’équipement d’avant, plus fort, est remis.",
+  "Ce boss garde une relique, {0}.",
+  "Ce boss renforcera {0} (niveau {1} → {2})."
 ];

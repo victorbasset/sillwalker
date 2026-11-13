@@ -973,7 +973,10 @@ export class Panel {
     const mb = [...MAJOR_BOSSES, briseur, ...ECHO_BOSSES].find((b) => b.zone >= S.zone && b.zone - S.zone <= 10 && relicUpgradable(S, b.relic, !!b.echo));
     if (!mb) return "";
     const r = RELICS[mb.relic], lv = relicLevel(S, mb.relic);
-    const txt = lv ? tx("Zone {0} : {1} renforcera {2} (niveau {3} → {4}).", { 0: mb.zone, 1: majorName(mb), 2: tx(r.name), 3: lv, 4: lv + 1 })
+    // (it. 1010) gardien = boss de la zone en cours : sans répéter la zone et son nom (déjà sur la ligne « Boss : … »)
+    const here = mb.zone === S.zone;
+    const txt = here ? (lv ? tx("Ce boss renforcera {0} (niveau {1} → {2}).", { 0: tx(r.name), 1: lv, 2: lv + 1 }) : tx("Ce boss garde une relique, {0}.", { 0: tx(r.name) }))
+      : lv ? tx("Zone {0} : {1} renforcera {2} (niveau {3} → {4}).", { 0: mb.zone, 1: majorName(mb), 2: tx(r.name), 3: lv, 4: lv + 1 })
       : tx("Zone {0} : {1} garde une relique, {2}.", { 0: mb.zone, 1: majorName(mb), 2: tx(r.name) });
     return `<p class="note tight relicahead" title="${esc(tx(r.effect))}"><img src="${relicIconURL(mb.relic, 1)}" alt=""> ${txt}</p>`;
   }
@@ -985,13 +988,15 @@ export class Panel {
     const list = listJoin(names);
     $(this.root, "#p-zone").innerHTML = `<h2>${tx("Zone {0}", { 0: S.zone })} <small>${recordZone(S) > S.best ? tx("course : {0} · record : {1}", { 0: S.best, 1: recordZone(S) }).split(" · ").map((x) => `<span class="nw">${esc(x)}</span>`).join(" · ") : tx("record : {0}", { 0: S.best })}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
-      <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(lc(MONSTERS[Z.boss].name)), 2: fmt(bb.hp * (1 - bossWear(S, S.zone))) })}</p>
+      <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(lc(MONSTERS[Z.boss].name)), 2: fmt(bb.hp * (1 - bossWear(S, S.zone))) })}${
+        // (it. 1010) boss épuisé : « (−5 %) » après ses PV, la phrase en info-bulle (une ligne de moins : en russe à
+        // 1280 px, avec les capacités et une relique annoncée, « Zone suivante » passait sous le bord)
+        bossWear(S, S.zone) ? ` <span class="wear" title="${esc(tx("Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.", { 0: Math.round(bossWear(S, S.zone) * 100) }))}">(−${Math.round(bossWear(S, S.zone) * 100)}${unit("%")})</span>` : ""}</p>
       <p class="note tight bossmech">${tx("Boss :")}${wsp()}<b class="bname">${esc(bossName(S.zone))}</b>${cend()}${wsp()}${tx("Capacités du boss :")}${wsp()}${bossMechanics(S.zone).map((id) => {
           // Malédiction, venin : la parade, si le joueur a déjà vu le Talisman de pureté
           const parry = PURE_PARRIES.includes(id) && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
           return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(csep())}${cend()}</p>
       ${this.relicAheadHTML(S)}
-      ${bossWear(S, S.zone) ? `<p class="note tight">${tx("Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.", { 0: Math.round(bossWear(S, S.zone) * 100) })}</p>` : ""}
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> ${tx("Passer à la zone suivante après le boss")}</label>
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>${tx("Zone précédente")}</button>

@@ -1183,6 +1183,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 }
 /* (it. 1003) carte Zone : « course : 136 · record : 142 » à côté du titre ; le titre ne se coupe pas (« 区域 / 136 »),
    le sous-titre passe à la ligne dans sa place */
+/* (it. 1010) nom de zone un peu plus petit sur un écran de portable : « Хрустальная Пещера / +4 » prenait deux lignes */
+@media (max-width: 1499px) { .zname { font-size: 16px; } }
 #p-zone > h2 { white-space: nowrap; }
 #p-zone > h2 small { white-space: normal; text-align: right; }
 #p-zone > h2 small .nw { white-space: nowrap; }

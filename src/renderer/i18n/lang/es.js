@@ -1352,4 +1352,6 @@ export default {
   2477: "La tarjeta de zona distingue la zona alcanzada en esta partida y tu récord.",
   2478: "Números grandes más legibles (separador de miles) en la pestaña Ascensión.",
   2479: "Conjunto {0} completado: se vuelve a equipar el equipo anterior, más fuerte.",
+  2480: "Este jefe guarda una reliquia: {0}.",
+  2481: "Este jefe reforzará {0} (nivel {1} → {2}).",
 };

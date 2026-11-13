@@ -1352,4 +1352,6 @@ export default {
   2477: "Karta strefy odróżnia strefę osiągniętą w tym biegu od twojego rekordu.",
   2478: "Duże liczby czytelniejsze (separator tysięcy) w zakładce Wniebowstąpienie.",
   2479: "Zestaw {0} skompletowany: poprzednie, silniejsze wyposażenie wraca na miejsce.",
+  2480: "Ten boss strzeże relikwii: {0}.",
+  2481: "Ten boss wzmocni: {0} (poziom {1} → {2}).",
 };

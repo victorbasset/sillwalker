@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1010) : partie de fin de partie régénérée avec l'horloge virtuelle (scripts/fixtures/endgame-save.json,
+  simulate.js 48 h guerrier : zone 150, niveau 183, 19 ascensions, 6 panoplies, 16 familiers en expédition, 331
+  expéditions accomplies) ; simulate.js envoie désormais les familiers libres en « Voyage » toutes les 10 min (joueur
+  attentif ; rien avant le Grand intendant, zone 170). 12 h : 61 / 61 / 65 ; semaine : guerrier 293, mage 291 (bruit).
+  save-fuzz FUZZ_BASE=fin : 1169 corruptions, toutes ok (expéditions en cours comprises). La nouvelle partie a montré
+  67 px de défilement de l'Aventure en russe à 1280 px (zone 150 : boss à trois capacités, gardien d'une relique, boss
+  épuisé) : « Boss épuisé par tes tentatives » devient « (−5 %) » après ses PV (phrase en info-bulle) ; gardien = boss
+  de la zone : « Ce boss garde une relique, … » sans répéter zone et nom ; nom de zone en 16 px sous 1500 px (« +4 »
+  seul sur sa ligne). 10 langues sans défaut ; autotest 202/202.
 - 2026-11-13 (it. 1009) : simulations déterministes (horloge virtuelle). Semaine simulée : guerrier 293 (repère) mais
   mage 182-198 au lieu de 293 ; avant les panoplies, 150-184. Dichotomie (git bisect, critère : dernière course ≥ 250)
   entre l'it. 965 (293, reproduit) et l'it. 1003 : coupable désigné, un commit d'affichage sans logique ; remesuré, il
