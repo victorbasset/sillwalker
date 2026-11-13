@@ -403,6 +403,10 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .skillsvg .node.avail { stroke-width: 4; stroke: #fff; fill: color-mix(in srgb, var(--c) 35%, var(--panel)); }
 .skillsvg .node.locked { opacity: .55; }
 .skillsvg .node.keystone { stroke-width: 3; }
+/* (it. 1076) grand graphe autour de la fleur, encore fermé : silhouette grisée (couleur du pétale à peine visible) */
+.skillsvg .gedge { stroke: var(--line); stroke-width: 2; opacity: .5; stroke-dasharray: 3 4; }
+.skillsvg .gnode { fill: var(--panel); stroke: color-mix(in srgb, var(--c) 30%, var(--line)); stroke-width: 2; opacity: .6; cursor: help; }
+.skillsvg .gnode.notable, .skillsvg .gnode.voiekey, .skillsvg .gnode.crown { stroke-width: 3; }
 .skillsvg .node.root { fill: #ffd34d; stroke: #fff; }
 .skillsvg .node:hover { stroke: #fff; stroke-width: 4; }
 .skillsvg .node:focus-visible { outline: none; stroke: var(--accent); stroke-width: 5; }

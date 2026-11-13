@@ -1386,4 +1386,9 @@ export default {
   2511: "Eine Truhe? Ich weiß nie, was drin ist … ich auch nicht!",
   2512: "Komm wieder, wenn das Angebot erneuert ist: Dann habe ich Neues.",
   2513: "Quak! Verzeihung. Das rutscht mir raus, wenn ich ein gutes Geschäft mache.",
+  2514: "Großer Graph",
+  2515: "{0} Knoten rund um die Blume",
+  2516: "Pfade zur Wahl (einer pro Blütenblatt), Synergien und ein Ring aus Kronen: bis ans Ende des Saums.",
+  2517: "Bald: Er öffnet sich mit einem kommenden Update.",
+  2518: "Öffnet sich, sobald die ganze Blume erlernt ist: {0} / {1} Knoten.",
 };

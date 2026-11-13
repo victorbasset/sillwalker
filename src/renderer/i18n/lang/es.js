@@ -1386,4 +1386,9 @@ export default {
   2511: "¿Un cofre? Nunca sé lo que hay dentro… ¡yo tampoco!",
   2512: "Vuelve cuando se renueve el puesto: tendré cosas nuevas.",
   2513: "¡Croac! Perdón. Se me escapa cuando hago un buen negocio.",
+  2514: "Gran grafo",
+  2515: "{0} nodos alrededor de la flor",
+  2516: "Caminos que elegir (uno por pétalo), sinergias y un anillo de coronas: para llegar al final del Alféizar.",
+  2517: "Pronto: se abrirá en una próxima actualización.",
+  2518: "Se abre cuando toda la flor está aprendida: {0} / {1} nodos.",
 };

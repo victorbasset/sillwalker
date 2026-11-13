@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1076, demande D, étape D2) : le grand graphe apparaît dans l'onglet Compétences, grisé, autour de
+  la fleur (silhouette des 618 nœuds, des voies et de l'anneau, traits pointillés, couleur du pétale à peine visible ;
+  dessiné sous la fleur). Au survol : « Grand graphe : 618 nœuds autour de la fleur… S'ouvre quand toute la fleur est
+  acquise : N / 144 » (fleur déjà complète : « Bientôt : il s'ouvrira dans une prochaine mise à jour »). Zoom arrière
+  jusqu'à 0,15 pour le voir en entier. Pas encore de noms (à traduire, étape D3) ni de prise. Mise à jour du panneau
+  sur l'onglet : 6,8 ms ; première image de l'onglet 158-200 ms, comme avant (160-274 ms). 5 textes traduits dans les
+  9 langues ; autotest 208/208 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1075, demande D de Victor, étape D1) : données et règles du grand graphe autour de la fleur
   (game/skillgraph.js), pas encore affiché. 618 nœuds (4,3 fois la fleur), tracés par le code : 6 régions, une par
   pétale, chacune ouverte par une porte reliée à la clé de voûte du pétale ; 3 VOIES exclusives par région (le
@@ -4075,7 +4082,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à
      la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 (FAIT, it. 1075) données et règles (nœuds,
-     liens, coûts, effets ; sauvegarde, migration, tests) ; D2 affichage grisé autour de la fleur ; D3 achat et
+     liens, coûts, effets ; sauvegarde, migration, tests) ; D2 (FAIT, it. 1076) affichage grisé autour de la fleur ; D3 achat et
      effets ; D4 choix exclusifs, réinitialisation ; D5 équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
      « Quoi de neuf ».
      Précision de Victor (même jour) : des nœuds de SYNERGIE, qui font compter un axe dans un autre, pour chacun des

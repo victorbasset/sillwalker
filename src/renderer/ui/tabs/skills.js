@@ -8,6 +8,7 @@ import { esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
@@ -62,6 +63,15 @@ export class SkillsTab {
     </div>`;
     const g = el.querySelector(".skg"), N = SKILL_TREE.nodes;
     this.g = g;
+    // (it. 1076, demande D de Victor) le grand graphe autour de la fleur (game/skillgraph.js), dessiné dessous, grisé
+    // tant qu'il n'est pas ouvert : silhouette des voies et de l'anneau, sans icônes ni noms (étape D3)
+    const G = SKILL_GRAPH.nodes, og = svg("g", { class: "skouter" }, g), GR = { gate: 11, small: 6, notable: 10, voiekey: 13, crown: 15 };
+    for (const [a, b] of SKILL_GRAPH.toFlower) svg("line", { x1: N[a].x, y1: N[a].y, x2: G[b].x, y2: G[b].y, class: "gedge" }, og);
+    for (const [a, b] of SKILL_GRAPH.edges) svg("line", { x1: G[a].x, y1: G[a].y, x2: G[b].x, y2: G[b].y, class: "gedge" }, og);
+    for (const id in G) {
+      const n = G[id], c = svg("circle", { cx: n.x, cy: n.y, r: GR[n.kind] || 6, class: "gnode " + n.kind, "data-gid": id }, og);
+      c.style.setProperty("--c", SECTOR[n.region]?.color || "#ffd34d");
+    }
     this.edgeEls = SKILL_TREE.edges.map(([a, b]) => ({ a, b, el: svg("line", { x1: N[a].x, y1: N[a].y, x2: N[b].x, y2: N[b].y }, g) }));
     this.nodeEls = {}; this.iconEls = {};
     for (const id in N) {
@@ -120,7 +130,7 @@ export class SkillsTab {
     box.addEventListener("wheel", (e) => {
       e.preventDefault();
       const r = box.getBoundingClientRect(), z = zf(), mx = (e.clientX - r.left) / z, my = (e.clientY - r.top) / z;
-      const k = Math.max(0.25, Math.min(3, this.view.k * (e.deltaY < 0 ? 1.15 : 1 / 1.15)));
+      const k = Math.max(0.15, Math.min(3, this.view.k * (e.deltaY < 0 ? 1.15 : 1 / 1.15))); // (it. 1076) 0,15 : tout le grand graphe
       // Zoom centré sur le curseur
       this.view.x = mx - (mx - this.view.x) * (k / this.view.k);
       this.view.y = my - (my - this.view.y) * (k / this.view.k);
@@ -128,9 +138,9 @@ export class SkillsTab {
       this.applyView();
     }, { passive: false });
     const showTip = (target) => {
-      const id = target.dataset && target.dataset.id, core = target.dataset && target.dataset.core;
-      if (!id && !core) { tip.hidden = true; return; }
-      tip.innerHTML = core ? this.coreTip(core) : this.tipHtml(id);
+      const id = target.dataset && target.dataset.id, core = target.dataset && target.dataset.core, gid = target.dataset && target.dataset.gid;
+      if (!id && !core && !gid) { tip.hidden = true; return; }
+      tip.innerHTML = gid ? this.graphTip() : core ? this.coreTip(core) : this.tipHtml(id);
       tip.hidden = false;
       const r = box.getBoundingClientRect(), t = target.getBoundingClientRect();
       tip.style.left = Math.min(r.width - 260, Math.max(4, t.left - r.left + 16)) + "px";
@@ -178,6 +188,14 @@ export class SkillsTab {
       if (d < bd) { bd = d; best = k; }
     }
     if (best) this.nodeEls[best].focus({ preventScroll: true });
+  }
+
+  /** Bulle du grand graphe encore fermé (it. 1076). */
+  graphTip() {
+    const S = this.game.S, done = activeSkillSet(S).size - 1;
+    return `<b>${tx("Grand graphe")}</b><div class="sub">${tx("{0} nœuds autour de la fleur", { 0: SKILL_GRAPH_COUNT })}</div>
+      <p>${tx("Des voies à choisir (une par pétale), des synergies et un anneau de couronnes : pour aller jusqu’au bout du Rebord.")}</p>
+      <div class="note">${flowerComplete(S) ? tx("Bientôt : il s’ouvrira dans une prochaine mise à jour.") : tx("S’ouvre quand toute la fleur est acquise : {0} / {1} nœuds.", { 0: done, 1: SKILL_NODE_COUNT })}</div>`;
   }
 
   coreTip(sec) {

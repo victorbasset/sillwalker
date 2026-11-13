@@ -2515,5 +2515,10 @@ export const KEYS = [
   "Tout est frais, ramassé au bord du Rebord !",
   "Un coffre ? Je ne sais jamais ce qu’il y a dedans… moi non plus !",
   "Reviens quand l’étal sera renouvelé : j’aurai du neuf.",
-  "Croâ ! Pardon. Ça m’échappe quand je fais une bonne affaire."
+  "Croâ ! Pardon. Ça m’échappe quand je fais une bonne affaire.",
+  "Grand graphe",
+  "{0} nœuds autour de la fleur",
+  "Des voies à choisir (une par pétale), des synergies et un anneau de couronnes : pour aller jusqu’au bout du Rebord.",
+  "Bientôt : il s’ouvrira dans une prochaine mise à jour.",
+  "S’ouvre quand toute la fleur est acquise : {0} / {1} nœuds."
 ];

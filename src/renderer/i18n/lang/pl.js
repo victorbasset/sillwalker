@@ -1386,4 +1386,9 @@ export default {
   2511: "Skrzynia? Nigdy nie wiem, co jest w środku… ja też nie!",
   2512: "Wróć, gdy towar się odnowi: będę mieć coś nowego.",
   2513: "Kum! Przepraszam. Wyrywa mi się, gdy zrobię dobry interes.",
+  2514: "Wielki graf",
+  2515: "{0} węzłów wokół kwiatu",
+  2516: "Ścieżki do wyboru (jedna na płatek), synergie i pierścień koron: aby dojść do końca Krawędzi.",
+  2517: "Wkrótce: otworzy się w jednej z następnych aktualizacji.",
+  2518: "Otwiera się, gdy cały kwiat jest opanowany: {0} / {1} węzłów.",
 };

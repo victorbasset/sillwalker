@@ -1386,4 +1386,9 @@ export default {
   2511: "Um baú? Nunca sei o que tem dentro… nem eu!",
   2512: "Volte quando a banca for renovada: terei novidades.",
   2513: "Croac! Desculpe. Escapa quando faço um bom negócio.",
+  2514: "Grande grafo",
+  2515: "{0} nós ao redor da flor",
+  2516: "Caminhos a escolher (um por pétala), sinergias e um anel de coroas: para chegar ao fim do Parapeito.",
+  2517: "Em breve: ele abrirá numa próxima atualização.",
+  2518: "Abre quando a flor inteira for aprendida: {0} / {1} nós.",
 };

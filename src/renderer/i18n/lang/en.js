@@ -1386,4 +1386,9 @@ export default {
   2511: "A chest? I never know what’s inside… me neither!",
   2512: "Come back when the stock is renewed: I’ll have new things.",
   2513: "Croak! Sorry. It slips out when I strike a good deal.",
+  2514: "Great graph",
+  2515: "{0} nodes around the flower",
+  2516: "Paths to choose (one per petal), synergies and a ring of crowns: to reach the end of the Sill.",
+  2517: "Coming soon: it will open in an upcoming update.",
+  2518: "Opens once the whole flower is learned: {0} / {1} nodes.",
 };
