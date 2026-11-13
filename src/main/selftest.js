@@ -414,7 +414,10 @@ async function runSelfTest(strip) {
   await until(async () => (await state("S.bag.length")) === bag0 - useless);
   check("vendre ce qui n'améliore pas (après confirmation)", useless > 0 && (await state("S.bag.length")) === bag0 - useless, `${bag0} -> ${await state("S.bag.length")} (${useless} inutiles)`);
   // Transmutation (3 communs inutiles -> 1 peu commun), avec confirmation
-  await js("(() => { const g = window.__game; g.S.bag.splice(0, 12); for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; it.set = null; g.S.bag.push(it); } g.changed() })()");
+  // (it. 1069) emplacement équipé imposé : un commun tiré pour un emplacement vide est une amélioration, pas un objet
+  // inutile (diagnostic « sac 0+00 » : deux inutiles seulement, rien à transmuter ; deuxième cause, après la fenêtre
+  // de confirmation encore cachée de l'it. 1066)
+  await js("(() => { const g = window.__game, sl = Object.keys(g.S.equip).find((k) => g.S.equip[k]); g.S.bag.splice(0, 12); for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.slot = sl; it.lvl = 1; g.S.bag.push(it); } g.changed() })()");
   await click('[data-tab="adventure"]');
   await sleep(200);
   const tr0 = await js("window.__game.S.stats.transmutes || 0");
@@ -810,10 +813,14 @@ async function runSelfTest(strip) {
       for (const sl of slots) { const it = G.newItem(3); it.r = 3; it.slot = sl; it.set = sid; it.st = {}; it.lvl = 1; S.bag.push(it); } // épique fixé : un légendaire tiré est gardé pour une autre raison
       G.invalidateStats(); P.setTab("adventure"); P.renderAll();
       const b = document.querySelector('[data-action="sellless"]');
-      return b ? (b.title || b.dataset.title || "") : "pas de bouton";
+      // (it. 1069) nombre attendu calculé par le jeu (une pièce peut être une amélioration selon l'équipement laissé par
+      // les contrôles précédents : « 1 pièce gardée » au lieu de 2, une fois sur quatre)
+      const useless = G.uselessItems(), kept = S.bag.filter((it) => it.set && !useless.includes(it) && !G.isUpgrade(it)).length;
+      return kept + "\u0001" + S.bag.map((it) => (G.isUpgrade(it) ? "+" : "-")).join("") + "\u0001" + (b ? (b.title || b.dataset.title || "") : "pas de bouton");
     } finally { S.bag = keep.bag; S.setsDone = keep.done; S.bagSize = keep.size; G.invalidateStats(); P.setTab(keep.tab); P.renderAll(); }
   })()`);
-  check("« Vendre ce qui ne m'améliore pas » : pièces de panoplie gardées dites au survol", +((keptT.split("\n")[1] || "").match(/\d+/) || [0])[0] >= 2, keptT.replace(/\n/g, " | ").slice(0, 240));
+  const [keptN, keptUp, keptTip] = keptT.split("\u0001");
+  check("« Vendre ce qui ne m'améliore pas » : pièces de panoplie gardées dites au survol", +keptN >= 1 && +(((keptTip || "").split("\n")[1] || "").match(/\d+/) || [0])[0] === +keptN, `attendu ${keptN} (améliorations ${keptUp}) · ` + (keptTip || "").replace(/\n/g, " | ").slice(0, 200));
   // (it. 1013) Bestiaire > Panoplies : bouton « Compléter avec les pièces du sac » sur la carte, un clic la complète
   const setFin = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;
     const keep = { bag: S.bag.slice(), equip: { ...S.equip }, done: { ...(S.setsDone || {}) }, size: S.bagSize, tab: P.tab, sec: P.tabs.bestiary.sec };

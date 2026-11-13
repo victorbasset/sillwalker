@@ -122,4 +122,6 @@ console.table(runs);
 console.log("Déblocages :\n  " + unlockLog.join("\n  "));
 console.log(`Panoplies complétées (it. 1004) : ${Object.keys(g.S.setsDone || {}).length} / 10`);
 // (it. 768) DUMP=fichier : état final écrit comme une sauvegarde (partie très avancée pour mesurer l'interface)
-if (process.env.DUMP) (await import("node:fs")).writeFileSync(process.env.DUMP, JSON.stringify(g.S));
+// (it. 1069) introduction marquée vue, comme chez tout vrai joueur : sinon chaque lancement de cette sauvegarde rejouait la
+// cinématique d'introduction (captures, mesures) et « Quoi de neuf » ne pouvait pas s'y afficher (newsDue l'attend)
+if (process.env.DUMP) { g.S.story = { ...(g.S.story || {}), intro: true }; (await import("node:fs")).writeFileSync(process.env.DUMP, JSON.stringify(g.S)); }

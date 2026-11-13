@@ -5,6 +5,18 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1069) : retour après 8 h d'absence en fin de partie (russe, allemand, 1280 px) : résumé du journal
+  propre (« За 8 ч : 312 монстров… », « Während 8 Std.: … »). Vu en passant : la partie de fin de partie
+  (scripts/fixtures/endgame-save.json, produite par simulate.js) avait story.intro = false (la simulation n'ouvre jamais
+  l'interface) : chaque capture ou mesure la lançait par la cinématique d'introduction, et « Quoi de neuf » ne pouvait
+  pas s'y afficher. Corrigé dans la sauvegarde et dans DUMP= de simulate.js (aucun vrai joueur n'est concerné). Les
+  mesures --perf faites sur cette sauvegarde avant l'it. 1069 incluaient peut-être la cinématique dans leurs premières
+  secondes : comparer avant / après sur le même état. FUZZ_BASE=fin : ok (1169 corruptions) ; 10 langues sans défaut.
+  Autotest : la transmutation a encore échoué une fois ; le diagnostic de l'it. 1066 montre « sac 0+00 » (un des trois
+  communs est une amélioration, tiré pour un emplacement vide) : l'emplacement équipé imposé (essayé à l'it. 1066 puis
+  retiré à tort) était une deuxième cause ; remis.
+  Pièces de panoplie gardées (info-bulle) : une pièce pouvait être une amélioration selon l'équipement laissé par les
+  contrôles précédents ; le nombre attendu est maintenant calculé par le jeu (4 × 207/207).
 - 2026-11-13 (it. 1068) : « Quoi de neuf » relisible : bouton dans Réglages > Aide (la carte « Raccourcis clavier »
   devient « Aide », mot traduit dans les 9 langues), les trois dernières éditions. Avant, la seule entrée était la bulle
   du lancement (15 s, après 6 s), et l'édition était marquée lue dès le lancement : manquée, elle était perdue.
@@ -4009,6 +4021,25 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
+
+- DEMANDES DE VICTOR (2026-11-13, midi), à traiter en premier, découpées en petites itérations :
+  A. Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
+  B. Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
+     mettre près d'eux. Les 4 objets ne tiennent pas sur Mac sans défilement horizontal : icônes et cartes plus petites.
+  C. Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
+     Rendre l'onglet plus riche en choix (à concevoir : clic = tous les rangs possibles, choix exclusifs, paliers…).
+  D. Grand graphe de compétences AUTOUR de la fleur (≈ 5 fois sa taille), grisé tant que la fleur n'est pas complète.
+     De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à
+     la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 données et règles (nœuds,
+     liens, coûts, effets ; sauvegarde, migration, tests) ; D2 affichage grisé autour de la fleur ; D3 achat et
+     effets ; D4 choix exclusifs, réinitialisation ; D5 équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
+     « Quoi de neuf ».
+  E. PNJ et histoire : chaque onglet qui se débloque = une rencontre sur la route (ex. la maison d'une petite grenouille
+     → Boutique ; un PNJ et sa fusée → Ascension ; une cabane, un lac…). Animation de découverte (le héros entre, parle
+     au PNJ), puis le PNJ stylisé dans l'onglet avec des répliques (« J'ai quelques objets pour vous ! »). Étapes : E1
+     liste des PNJ (un par onglet : nom, lieu, répliques) ; E2 le PNJ dans son onglet (portrait pixel + bulle) ; E3
+     cinématique de rencontre sur la bande ; E4 les autres onglets ; E5 traductions, « Quoi de neuf ».
+  Ordre prévu : A, B (rapides), puis E1-E2, D1-D3, E3, C, D4-D6.
 
 - FAIT (it. 1047) P2 Vu it. 1046 : en russe, la partie de fin de partie défile à 100 % sur des écrans de 1600 et 1680 px (Aventure 19,
   Statistiques 46 ; dev-data : rien) ; la mesure des langues ne passe que par 1280, 1366 et 1920. Corriger, puis
