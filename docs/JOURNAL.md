@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1145) : mémoire de la fin de partie au grand graphe rempli, 14 min (mem-watch, MEM_SAVE) : panneau
+  ouvert 475 → palier ≈ 565 Mo dès ≈ 5 min (559-572 ensuite) ; panneau fermé 473 → palier ≈ 530 Mo vers 10 min.
+  La hausse de l'it. 1144 (557 → 643 en 6 min, une seule mesure courte) était la mise en route, pas une fuite.
+  Rien à corriger.
 - 2026-11-13 (it. 1144, suite) : versions 0.1.3 construites et déposées dans Médias/dist-itch (Linux AppImage, Mac
   arm64, Windows zip, construit sur le serveur sans Wine : icône et version de l'exécutable vérifiées avec resedit).
   Essai de la version Linux construite, HOME temporaire, partie restée à la 0.1.2 : « version hors Steam (itch) »,
@@ -21,7 +25,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   traduits dans le jeu (événements, élites, bénédictions, PNJ, onglets) ; 10 langues sans défilement à 1280 px.
   L'autotest règle la copie de dev-data sur l'édition 41 (sinon la fenêtre s'ouvrait seule et faussait 6 contrôles)
   et contrôle la fenêtre de version. Test logique (256) ; autotest 226/226 ; 10 langues sans défaut.
-  À EXAMINER (vu en route, it. 1144) : mem-watch sur la fin de partie au grand graphe rempli, panneau ouvert
+  CLOS (it. 1145 : pas de fuite, palier) — vu en route, it. 1144 : mem-watch sur la fin de partie au grand graphe rempli, panneau ouvert
   (MEM_SAVE / MEM_ARGS ajoutés) : « réel » 557 → 643 Mo en 6 min (dev-data panneau fermé : plat à ≈ 535) ; à
   prolonger (12-20 min) pour savoir si ça plafonne, sinon chercher la fuite.
 - 2026-11-13 (it. 1143, demande D) : l'onglet Compétences s'ouvrait toujours sur la fleur ; une fois le grand graphe
