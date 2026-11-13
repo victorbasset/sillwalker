@@ -1513,4 +1513,11 @@ export default {
   2638: "Traigo los contratos de día y de noche. Sobre todo de noche.",
   2639: "Cuantas más misiones completes, más te respeta el gremio.",
   2640: "¿Un contrato te aburre? Cámbialo, no diré nada.",
+  2641: "Bram, el cerrajero de las jaulas",
+  2642: "Un taller de cerrajero junto al camino",
+  2643: "¿Una jaula? Dame un minuto y una buena lima.",
+  2644: "Cada héroe liberado es una cerradura menos para el Rompeestrellas.",
+  2645: "Los barrotes están hechos de fragmentos de estrella. Me tuercen las limas.",
+  2646: "Elige bien a tu compañero: nadie camina solo mucho tiempo.",
+  2647: "Guardo una llave para cada jaula. Solo falta encontrar la jaula.",
 };

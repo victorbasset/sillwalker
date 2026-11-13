@@ -1513,4 +1513,11 @@ export default {
   2638: "I deliver contracts by day and by night. Mostly by night.",
   2639: "The more quests you complete, the more the guild respects you.",
   2640: "A contract bores you? Swap it, I won’t tell.",
+  2641: "Bram, the cage locksmith",
+  2642: "A locksmith’s workshop by the road",
+  2643: "A cage? Give me a minute and a good file.",
+  2644: "Every hero freed is one less lock for the Starbreaker.",
+  2645: "The bars are made of star shards. They bend my files.",
+  2646: "Choose your companion well: no one walks alone for long.",
+  2647: "I keep a key for every cage. Now we just need to find the cage.",
 };

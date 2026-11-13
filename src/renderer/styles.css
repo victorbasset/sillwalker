@@ -657,6 +657,10 @@ details.more summary:hover { color: var(--accent); }
 /* (it. 1082) pastille compacte dans le titre d'une carte : poussée à droite, bulle sur une ligne (entière au survol) */
 h2.npch { display: flex; align-items: center; gap: 8px; min-width: 0; }
 h2.npch > .npc.compact { margin-left: auto; min-width: 0; flex: 0 1 auto; }
+/* (it. 1087) PNJ au bout d'une rangée de sous-onglets (Héros) */
+.subrow { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; min-width: 0; }
+.subrow > .bjump { margin: 0; flex: none; }
+.subrow > .npc.compact { margin-left: auto; min-width: 0; flex: 0 1 auto; }
 .npc.compact img { height: 24px; }
 .npc.compact .say { font-size: 11px; padding: 1px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 340px; }
 i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }

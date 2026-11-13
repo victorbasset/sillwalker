@@ -16,6 +16,19 @@ export const NPCS = {
       "Croâ ! Pardon. Ça m’échappe quand je fais une bonne affaire.",
     ],
   },
+  // (it. 1087) le serrurier qui ouvre les cages des héros captifs (onglet Héros)
+  class: {
+    name: "Bram, le serrurier des cages",
+    place: "Un atelier de serrurier au bord du chemin",
+    art: "smith",
+    lines: [
+      "Une cage ? Donne-moi une minute et une bonne lime.",
+      "Chaque héros libéré, c’est une serrure de moins au Briseur.",
+      "Les barreaux sont faits d’éclats d’étoile. Ça tord mes limes.",
+      "Choisis bien ton compagnon : on ne marche jamais seul longtemps.",
+      "Je garde une clé pour chaque cage. Encore faut-il trouver la cage.",
+    ],
+  },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
     name: "Plume, la chouette de la guilde",

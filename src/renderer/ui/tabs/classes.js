@@ -1,5 +1,6 @@
 // Onglet Classe : les héros libérés et ceux encore prisonniers. On change de
 // classe en faisant une ascension : on choisit ici la classe de la prochaine.
+import { npcHTML } from "../npc.js";
 import { describeEffects } from "../../game/talents.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, fsp, tr } from "../../i18n/index.js";
@@ -101,7 +102,7 @@ export class ClassesTab {
       : tx("Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension).")}</p>`;
     // Sorts et attaque (ancien « Style de combat ») : son propre sous-onglet (demande 18) ; les autres montrent les cartes des héros.
     el.innerHTML = `${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
-      ${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Sorts et attaque"), `${classSpells(S.cls).filter((x) => spellRank(S, x.id) > 0).length} / ${classSpells(S.cls).length}`]], this.sec, "c-sec")}
+      <div class="subrow">${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Sorts et attaque"), `${classSpells(S.cls).filter((x) => spellRank(S, x.id) > 0).length} / ${classSpells(S.cls).length}`]], this.sec, "c-sec")}${npcHTML("class", true)}</div>
       ${this.sec === "style" ? this.spellsHTML(S) + style : `<div class="classgrid hscroll sec-${this.sec}" data-hs="heroes-${this.sec}">${cards}</div>`}`;
   }
 

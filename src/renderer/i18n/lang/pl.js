@@ -1513,4 +1513,11 @@ export default {
   2638: "Przynoszę zlecenia dniem i nocą. Głównie nocą.",
   2639: "Im więcej zadań wypełnisz, tym bardziej gildia cię szanuje.",
   2640: "Zlecenie cię nudzi? Wymień je, nikomu nie powiem.",
+  2641: "Bram, ślusarz klatek",
+  2642: "Warsztat ślusarza przy drodze",
+  2643: "Klatka? Daj mi minutę i dobry pilnik.",
+  2644: "Każdy uwolniony bohater to o jeden zamek mniej dla Łamacza Gwiazd.",
+  2645: "Kraty są z odłamków gwiazd. Wyginają mi pilniki.",
+  2646: "Dobrze wybierz towarzysza: nikt długo nie wędruje sam.",
+  2647: "Mam klucz do każdej klatki. Trzeba tylko znaleźć klatkę.",
 };

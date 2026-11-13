@@ -1513,4 +1513,11 @@ export default {
   2638: "Trago os contratos de dia e de noite. Sobretudo de noite.",
   2639: "Quanto mais missões você cumpre, mais a guilda te respeita.",
   2640: "Um contrato te entedia? Troque-o, não conto a ninguém.",
+  2641: "Bram, o serralheiro das jaulas",
+  2642: "Uma oficina de serralheiro à beira do caminho",
+  2643: "Uma jaula? Me dê um minuto e uma boa lima.",
+  2644: "Cada herói libertado é uma fechadura a menos para o Quebra-Estrelas.",
+  2645: "As grades são feitas de fragmentos de estrela. Entortam minhas limas.",
+  2646: "Escolha bem seu companheiro: ninguém caminha sozinho por muito tempo.",
+  2647: "Guardo uma chave para cada jaula. Só falta achar a jaula.",
 };

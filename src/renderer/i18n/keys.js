@@ -2642,5 +2642,12 @@ export const KEYS = [
   "La guilde paie bien… quand le travail est fait.",
   "J’apporte les contrats de jour comme de nuit. Surtout de nuit.",
   "Plus tu remplis de quêtes, plus la guilde te respecte.",
-  "Un contrat t’ennuie ? Change-le, je ne dirai rien."
+  "Un contrat t’ennuie ? Change-le, je ne dirai rien.",
+  "Bram, le serrurier des cages",
+  "Un atelier de serrurier au bord du chemin",
+  "Une cage ? Donne-moi une minute et une bonne lime.",
+  "Chaque héros libéré, c’est une serrure de moins au Briseur.",
+  "Les barreaux sont faits d’éclats d’étoile. Ça tord mes limes.",
+  "Choisis bien ton compagnon : on ne marche jamais seul longtemps.",
+  "Je garde une clé pour chaque cage. Encore faut-il trouver la cage."
 ];

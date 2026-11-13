@@ -1513,4 +1513,11 @@ export default {
   2638: "Ich bringe Aufträge bei Tag und bei Nacht. Vor allem bei Nacht.",
   2639: "Je mehr Aufträge du erfüllst, desto mehr respektiert dich die Gilde.",
   2640: "Ein Auftrag langweilt dich? Tausch ihn, ich verrate nichts.",
+  2641: "Bram, der Käfigschlosser",
+  2642: "Eine Schlosserwerkstatt am Wegesrand",
+  2643: "Ein Käfig? Gib mir eine Minute und eine gute Feile.",
+  2644: "Jeder befreite Held ist ein Schloss weniger für den Sternenbrecher.",
+  2645: "Die Gitterstäbe sind aus Sternensplittern. Die verbiegen meine Feilen.",
+  2646: "Wähle deinen Begleiter gut: Niemand geht lange allein.",
+  2647: "Ich habe einen Schlüssel für jeden Käfig. Man muss nur den Käfig finden.",
 };

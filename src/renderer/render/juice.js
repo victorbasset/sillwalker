@@ -75,6 +75,17 @@ function npcPlace(ctx, art, x, gy, t) {
     ctx.fillStyle = "#c08a5a"; ctx.fillRect(x - 40, gy - 3, 160, 3);                                  // le carrefour
     if (t > 1 && t < 3) { ctx.fillStyle = "#f4f0e8"; const k = (t - 1) / 2; ctx.fillRect(Math.round(x + 60 - k * 50), Math.round(gy - 80 + Math.sin(k * 6) * 6), 6, 4); } // une lettre qui vole
   }
+  if (art === "smith") { // (it. 1087) Bram : un atelier de serrurier, une enclume, des clés pendues, une cage ouverte
+    ctx.fillStyle = "#6b6488"; ctx.fillRect(x - 16, gy - 62, 64, 62);                                   // l'atelier (pierre)
+    ctx.fillStyle = "#4a3a2a"; for (let r = 0; r < 10; r++) ctx.fillRect(x - 22 + r, gy - 72 + r, 76 - 2 * r, 1); // toit
+    ctx.fillStyle = "#3a2a1a"; ctx.fillRect(x, gy - 40, 22, 40);                                         // la porte
+    ctx.fillStyle = "#ffd34d"; for (let i = 0; i < 3; i++) ctx.fillRect(x + 30 + i * 5, gy - 52, 2, 6);  // clés pendues
+    ctx.fillStyle = "#3a3550"; ctx.fillRect(x + 60, gy - 14, 22, 6); ctx.fillRect(x + 66, gy - 8, 10, 8); // enclume
+    const open = Math.min(1, Math.max(0, (t - 2.6) / 0.6));                                                // une cage qui s'ouvre
+    ctx.fillStyle = "#9a96b8"; for (let i = 0; i < 4; i++) ctx.fillRect(x + 96 + i * 8, Math.round(gy - 34 - open * 20), 2, 30);
+    ctx.fillRect(x + 94, gy - 4, 30, 4);
+    if (t > 1 && t < 2.6 && Math.floor(t * 8) % 2) { ctx.fillStyle = "#ffe27a"; ctx.fillRect(x + 70, gy - 20, 2, 2); ctx.fillRect(x + 74, gy - 22, 2, 2); } // étincelles
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble

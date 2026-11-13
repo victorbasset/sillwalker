@@ -51,4 +51,21 @@ export const NPC_ART = {
     "...BBBBBBBB...",
     "....OO..OO....",
   ]] },
+  // Bram, le serrurier des cages : barbe rousse, tablier de cuir, une grosse clé (it. 1087).
+  smith: { pal: { H: "#4a3a2a", F: "#f0c08a", E: "#1a1a1a", R: "#c8642a", A: "#7a5233", a: "#5a3a20", S: "#9a96b8", Y: "#ffd34d", K: "#3a3550" }, frames: [[
+    "....HHHHHH....",
+    "...HHHHHHHH...",
+    "...FFFFFFFF...",
+    "...FEFFFFEF...",
+    "...FFFFFFFF...",
+    "...RRFFFFRR...",
+    "...RRRRRRRR...",
+    "..SSRRRRRRSS..",
+    ".FSAAAAAAAASF.",
+    ".F.AAaAAaAA.YY",
+    "...AAAAAAAA.Y.",
+    "...AAAAAAAA.YY",
+    "....KK..KK....",
+    "....KK..KK....",
+  ]] },
 };

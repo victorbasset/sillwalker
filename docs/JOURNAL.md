@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1087, demande E, étape E4) : quatrième PNJ, Bram, le serrurier des cages, tient l'onglet Héros
+  (barbe rousse, tablier de cuir, une grosse clé ; 5 répliques : « Les barreaux sont faits d'éclats d'étoile. Ça tord
+  mes limes. ») : au bout de la rangée des sous-onglets (nouvelle rangée commune .subrow : rien ne grandit). Scène de
+  rencontre : son atelier de pierre, des clés pendues, une enclume qui crache des étincelles, une cage qui s'ouvre.
+  « le Briseur » nommé comme le boss dans chaque langue (Starbreaker, Rompeestrellas, 星砕き…). Avant cela, mesure du
+  grand graphe : mise à jour de l'onglet Compétences 3,3 ms (graphe vide), 2,2 ms (258 nœuds pris) : rien à faire.
+  Contrôle d'autotest des PNJ étendu (213/213) ; capture en russe ; 10 langues sans défaut.
 - 2026-11-13 (it. 1086, demande E, étape E4) : troisième PNJ, Plume, la chouette de la guilde, tient les Quêtes
   (plumes brunes, grands yeux, une lettre au bec ; 5 répliques : « Un contrat t'ennuie ? Change-le, je ne dirai
   rien. »). Pastille dans le titre de la carte « Guilde des aventuriers » ; scène de rencontre : un poteau au
