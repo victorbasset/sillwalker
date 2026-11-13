@@ -53,6 +53,24 @@ for (const lang of langs) {
       if (res !== "aucun") bad++;
       console.log(`${lang.padEnd(3)} fin ${fw} : ${res}`);
     }
+    // (it. 1048) fin de partie, 1920 px, « Taille de l'interface » à 130 % (zoom du panneau seul : les @media voyaient la
+    // fenêtre ; Boutique, Bestiaire, Statistiques défilaient, it. 1046). NO_ZOOM=1 pour sauter cette mesure.
+    if (fs.existsSync(endFile) && !process.env.NO_ZOOM) {
+      const end = JSON.parse(fs.readFileSync(endFile, "utf8"));
+      fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...end, last: Date.now(), settings: { ...(end.settings || {}), lang, uiScale: 1.3 } }));
+      fs.writeFileSync(path.join(dir, "settings.json"), JSON.stringify({ panelZoom: 1.3 }));
+      let out = "";
+      try {
+        out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
+          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, "--width=1920", "--overflow-report", "--exit-after=20"],
+          { encoding: "utf8", timeout: 60000, stdio: ["ignore", "pipe", "pipe"] });
+      } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
+      fs.rmSync(path.join(dir, "settings.json"), { force: true });
+      const m = out.match(/\[overflow\] (\d+) (.*)/);
+      const res = m ? m[2].trim() : "pas de mesure";
+      if (res !== "aucun") bad++;
+      console.log(`${lang.padEnd(3)} fin 1920 × 130 % : ${res}`);
+    }
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 }
 console.log(bad ? `${bad} mesure(s) en défaut (défilement, débordement ou mot coupé)` : "aucun défilement ni mot coupé");

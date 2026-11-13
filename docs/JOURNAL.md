@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1048) : interface agrandie (115 / 130 %) à 1366 et 1600 px : les Réglages défilaient de 3 à 11 px, à
+  cause de la phrase « Limité à 107 % par la largeur de l'écran » ajoutée sous les boutons de taille ; quand
+  l'agrandissement est plafonné, elle remplace la phrase générale (passée en info-bulle). fr, ru, de à 1366 / 1600,
+  115 / 130 % : sans défaut. lang-overflow mesure aussi la fin de partie à 1920 px et 130 % (« fin 1920 × 130 % »,
+  NO_ZOOM=1 pour la sauter) : 10 langues sans défaut (5 min 15). Autotest 205/205. CLAUDE.md.
 - 2026-11-13 (it. 1047) : écrans de 1500 à 1799 px (1600 × 900, 1680 × 1050). La grille large de l'Aventure s'appliquait
   dès 1500 px et la colonne du héros tombait à 264 px (≈ 314 à 1499) ; la colonne Zone, étroite, faisait défiler la fin
   de partie en russe (19 px), les Statistiques aussi (46), un libellé de tuile allemand était coupé à 1500. Grille
