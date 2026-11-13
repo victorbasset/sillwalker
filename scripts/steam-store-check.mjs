@@ -6,6 +6,7 @@ import fs from "node:fs";
 const R = "../src/renderer/game/";
 const { CLASSES } = await import(R + "classes.js");
 const { SKILL_TREE } = await import(R + "skilltree.js");
+const { SKILL_GRAPH_COUNT } = await import(R + "skillgraph.js");
 const { ZONES, MONSTERS, ELITE_AFFIXES } = await import(R + "data.js");
 const { UNLOCKS } = await import(R + "unlocks.js");
 const { EVENTS } = await import(R + "events.js");
@@ -16,6 +17,7 @@ const n = (o) => Object.keys(o).length;
 const EXPECT = [
   ["héros", n(CLASSES), "="],
   ["compétences", Object.values(SKILL_TREE.nodes).filter((x) => x.kind !== "root").length, "="],
+  ["nœuds du grand graphe", SKILL_GRAPH_COUNT, "="], // (it. 1159)
   ["régions", ZONES.length, "≤"],
   ["monstres", n(MONSTERS), "≤"],
   ["automatismes", UNLOCKS.length, "="],

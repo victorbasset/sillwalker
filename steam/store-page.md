@@ -27,7 +27,7 @@ Sillwalker vit dans une fine bande au bord de l'écran, juste au-dessus de la ba
 [h2]Une vraie progression[/h2]
 [list]
 [*]20 héros à libérer, qui combattent en duo, chacun avec ses talents et ses sorts uniques
-[*]Un arbre de 144 compétences, des panoplies, une forge, des familiers et leurs expéditions
+[*]Un arbre de 144 compétences, entouré d'un grand graphe de 618 nœuds (voies à choisir, synergies), des panoplies, une forge, des familiers et leurs expéditions
 [*]Plus de 30 régions et 80 monstres, élites dorés, gobelins fuyards et boss qui gardent des reliques
 [*]Une histoire racontée en petites cinématiques, jusqu'au Briseur d'Étoiles… et au-delà
 [*]Des ascensions pour repartir plus fort, et 26 automatismes à débloquer au fil du jeu
@@ -58,7 +58,7 @@ Sillwalker lives in a thin strip at the edge of your screen, right above the tas
 [h2]Real progression[/h2]
 [list]
 [*]20 heroes to free, fighting in pairs, each with their own talents and unique spells
-[*]A 144-node skill tree, gear sets, a forge, pets and their expeditions
+[*]A 144-node skill tree, surrounded by a great 618-node graph (paths to choose, synergies), gear sets, a forge, pets and their expeditions
 [*]Over 30 regions and 80 monsters, golden elites, fleeing goblins and bosses guarding relics
 [*]A story told through tiny cutscenes, all the way to the Starbreaker… and beyond
 [*]Ascensions to start over stronger, and 26 automations to unlock along the way
@@ -89,7 +89,7 @@ Sillwalker vive en una franja fina en el borde de la pantalla, justo encima de l
 [h2]Una progresión de verdad[/h2]
 [list]
 [*]20 héroes que liberar, que luchan en pareja, cada uno con sus talentos y hechizos únicos
-[*]Un árbol de 144 habilidades, conjuntos, una forja, mascotas y sus expediciones
+[*]Un árbol de 144 habilidades, rodeado por un gran grafo de 618 nodos (caminos a elegir, sinergias), conjuntos, una forja, mascotas y sus expediciones
 [*]Más de 30 regiones y 80 monstruos, élites dorados, goblins huidizos y jefes que guardan reliquias
 [*]Una historia contada en pequeñas cinemáticas, hasta el Rompeestrellas… y más allá
 [*]Ascensiones para volver a empezar más fuerte, y 26 automatismos que desbloquear
@@ -120,7 +120,7 @@ Sillwalker vive em uma faixa fina na borda da tela, logo acima da barra de taref
 [h2]Uma progressão de verdade[/h2]
 [list]
 [*]20 heróis para libertar, que lutam em dupla, cada um com seus talentos e magias únicas
-[*]Uma árvore de 144 habilidades, conjuntos, uma forja, mascotes e suas expedições
+[*]Uma árvore de 144 habilidades, rodeada por um grande grafo de 618 nós (caminhos à escolha, sinergias), conjuntos, uma forja, mascotes e suas expedições
 [*]Mais de 30 regiões e 80 monstros, elites dourados, goblins fujões e chefes que guardam relíquias
 [*]Uma história contada em pequenas cenas, até o Quebra-Estrelas… e além
 [*]Ascensões para recomeçar mais forte, e 26 automatismos para desbloquear
@@ -151,7 +151,7 @@ Sillwalker lebt in einem schmalen Streifen am Bildschirmrand, direkt über der T
 [h2]Echter Fortschritt[/h2]
 [list]
 [*]20 Helden zum Befreien, die zu zweit kämpfen, jeder mit eigenen Talenten und einzigartigen Zaubern
-[*]Ein Fertigkeitenbaum mit 144 Knoten, Ausrüstungssets, eine Schmiede, Begleiter und ihre Expeditionen
+[*]Ein Fertigkeitenbaum mit 144 Knoten, umgeben von einem großen Graphen mit 618 Knoten (Pfade zur Wahl, Synergien), Ausrüstungssets, eine Schmiede, Begleiter und ihre Expeditionen
 [*]Über 30 Regionen und 80 Monster, goldene Eliten, flüchtende Kobolde und Bosse, die Relikte bewachen
 [*]Eine Geschichte in kleinen Zwischensequenzen, bis zum Sternenbrecher… und darüber hinaus
 [*]Aufstiege, um stärker neu zu beginnen, und 26 Automatiken zum Freischalten
@@ -182,7 +182,7 @@ Sillwalker żyje w wąskim pasku na krawędzi ekranu, tuż nad paskiem zadań. K
 [h2]Prawdziwy rozwój[/h2]
 [list]
 [*]20 bohaterów do uwolnienia, walczących w parach, każdy z własnymi talentami i unikalnymi zaklęciami
-[*]Drzewko 144 umiejętności, zestawy ekwipunku, kuźnia, pupile i ich wyprawy
+[*]Drzewko 144 umiejętności otoczone wielkim grafem 618 węzłów (ścieżki do wyboru, synergie), zestawy ekwipunku, kuźnia, pupile i ich wyprawy
 [*]Ponad 30 krain i 80 potworów, złote elity, uciekające gobliny i bossowie strzegący reliktów
 [*]Historia opowiedziana w krótkich przerywnikach, aż do Łamacza Gwiazd… i dalej
 [*]Wniebowstąpienia, by zacząć od nowa silniejszym, i 26 automatyzacji do odblokowania
@@ -213,7 +213,7 @@ Sillwalker живёт в узкой полосе у края экрана, пр�
 [h2]Настоящее развитие[/h2]
 [list]
 [*]20 героев, которых нужно освободить; они сражаются парами, у каждого свои таланты и уникальные заклинания
-[*]Дерево из 144 навыков, комплекты снаряжения, кузница, питомцы и их экспедиции
+[*]Дерево из 144 навыков в окружении большого графа из 618 узлов (пути на выбор, синергии), комплекты снаряжения, кузница, питомцы и их экспедиции
 [*]Более 30 регионов и 80 монстров, золотые элиты, убегающие гоблины и боссы, охраняющие реликвии
 [*]История в коротких роликах — вплоть до Сокрушителя Звёзд… и дальше
 [*]Вознесения, чтобы начать заново сильнее, и 26 автоматизаций, которые можно открыть
@@ -244,7 +244,7 @@ Sillwalker 住在屏幕边缘、任务栏正上方的一条细长条中。鼠标
 [h2]真正的成长[/h2]
 [list]
 [*]20 位待解救的英雄，两人一组作战，各有专属天赋与独特法术
-[*]144 个节点的技能树、套装、锻造、宠物及其远征
+[*]144 个节点的技能树，外围还有 618 个节点的大星图（可选道路、协同效应），以及套装、锻造、宠物及其远征
 [*]30 多个地区与 80 种怪物，金色精英、逃跑的哥布林以及守护圣物的首领
 [*]用小段过场动画讲述的故事，直到碎星者……乃至更远
 [*]飞升后变得更强重新出发，还有 26 项自动化功能等你解锁
@@ -275,7 +275,7 @@ Sillwalker は画面の端、タスクバーのすぐ上にある細い帯の中
 [h2]本物の成長[/h2]
 [list]
 [*]解放できる20人のヒーロー。二人一組で戦い、それぞれ固有の天賦と呪文を持つ
-[*]144ノードのスキルツリー、装備セット、鍛冶、ペットとその遠征
+[*]144ノードのスキルツリーと、それを囲む618ノードの大きなグラフ（選べる道、シナジー）、装備セット、鍛冶、ペットとその遠征
 [*]30以上の地域と80種のモンスター、金色のエリート、逃げるゴブリン、聖遺物を守るボス
 [*]小さなカットシーンで語られる物語。星砕きまで……そしてその先へ
 [*]昇天でより強くなって再出発、解放できる26の自動化
@@ -306,7 +306,7 @@ Sillwalker는 화면 가장자리, 작업 표시줄 바로 위의 얇은 띠에 
 [h2]진짜 성장[/h2]
 [list]
 [*]구출할 영웅 20명, 둘씩 짝지어 싸우며 각자 고유한 특성과 주문 보유
-[*]144개 노드의 스킬 트리, 장비 세트, 대장간, 펫과 원정
+[*]144개 노드의 스킬 트리와 이를 둘러싼 618개 노드의 거대한 그래프(고를 수 있는 길, 시너지), 장비 세트, 대장간, 펫과 원정
 [*]30곳이 넘는 지역과 80종의 몬스터, 황금 정예, 도망치는 고블린, 유물을 지키는 보스
 [*]짧은 컷신으로 펼쳐지는 이야기, 별파괴자까지… 그리고 그 너머로
 [*]승천으로 더 강해져 다시 출발, 해금할 수 있는 자동화 26가지

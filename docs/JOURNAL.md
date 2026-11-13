@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1159) : page du magasin Steam (10 langues) : le grand graphe de 618 nœuds (voies à choisir,
+  synergies) dans la liste « vraie progression » ; steam-store-check compte aussi les nœuds du grand graphe
+  (SKILL_GRAPH_COUNT), dans l'ordre, après les compétences. npm test : page à jour dans les 10 langues.
 - 2026-11-13 (it. 1158) : page itch.io (steam/itch-page.md) mise à jour pour la 0.1.3 : grand graphe de 618 nœuds
   (voies, synergies), personnages rencontrés en route, et les trois plateformes (Windows, Linux AppImage, macOS puce
   Apple) au lieu de « Windows seulement » ; nombres vérifiés (20 héros, 33 régions, 83 monstres : « 80 » arrondi).
