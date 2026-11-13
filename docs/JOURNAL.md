@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1118) : tableau des 20 héros (12 h, graines 7/3/11), le premier depuis l'it. 1017 (paliers et choix
+  des maîtrises, grand graphe, etc. depuis) : moyenne 63,7 (inchangée), de 61,0 (assassin : 62/62/59) à 66,7
+  (samouraï : 66/65/69) ; écart 5,7 zones, dans le bruit d'une graine (±4). Rien à rééquilibrer ; repères de
+  hero-table.mjs et de CLAUDE.md mis à jour.
 - 2026-11-13 (it. 1117) : grand graphe rempli (258 nœuds) annoncé une fois : bulle « Grand graphe complet ! Chaque
   point de compétence en plus donne désormais +0,1 % d'attaque et de PV » (clic : Compétences), moment du mode mini
   (S.skills.graphFullSeen). Vu en capture : une partie dont le graphe était déjà plein recevait en même temps
