@@ -977,7 +977,7 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .bagdetail .lines.tight li { break-inside: avoid; }
 /* Écran large : colonne du sac plus large, sac en 2 rangées de 12 (le détail d'un objet tient dessous, sans
    défilement). Toujours, et pas seulement objet ouvert : les cases ne doivent pas bouger entre deux clics. */
-@container panel (min-width: 1468px) {
+@container panel (min-width: 1768px) { /* (it. 1047) grille large dès 1800 px de fenêtre (à 1500, la colonne du héros tombait à 264 px) */
   [data-pane="adventure"] .grid { grid-template-columns: 1fr 1.7fr 1fr 1fr 0.85fr; }
   [data-pane="adventure"] #p-bag .bag { grid-template-columns: repeat(12, 1fr); }
 }
@@ -1140,7 +1140,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 }
 /* Écran de portable (1200-1499 px) : le Journal reste en 5e colonne (étroite) au lieu de passer dessous et de
    faire défiler l'onglet ; le sac garde ses 8 colonnes. */
-@container panel (min-width: 1168px) and (max-width: 1467px) {
+@container panel (min-width: 1168px) and (max-width: 1767px) {
   [data-pane="adventure"] .grid { grid-template-columns: 1.15fr 1.2fr 1.1fr 1.1fr 0.7fr; }
   /* Équipement (it. 838) : à 0,9 fr, les noms des objets portés tenaient en 4 lettres (« Casq… », « Star… »).
      Colonne élargie et portrait aux trois quarts (3 pixels d'image par pixel du dessin : reste net). */
@@ -1161,7 +1161,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .classcard button.synergy, .classcard button.synergy:hover { border-image: none; box-shadow: none; background: none; font-size: 12px; margin: 2px 0 4px; min-height: 0; }
 .classcard button.synergy::before, .classcard button.synergy::after { display: none; }
 /* Écran de 1280 px : la carte Zone (la plus haute) resserre ses notes pour que l'Aventure ne défile pas. */
-@container panel (min-width: 1168px) and (max-width: 1467px) {
+/* (it. 1047) jusqu'à 1800 px de fenêtre : de 1500 à 1799 px, la colonne Zone reste étroite (264 px, le Sac prend la place) :
+   en russe, la fin de partie défilait de 19 px à 1600 et 1680 px */
+@container panel (min-width: 1168px) and (max-width: 1767px) {
   #p-zone .note { font-size: 11px; line-height: 1.3; margin-top: 2px; margin-bottom: 2px; }
 }
 /* Réglages : 5 colonnes dès 1200 px (à 1280, la grille passait à 4 colonnes et la Zone de danger sur une 2e rangée). */
@@ -1183,12 +1185,12 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Duo idéal : étincelle dorée qui file entre les deux héros. */
 .spark.duolink { width: 3px; height: 3px; background: #ffd34d; box-shadow: 0 0 3px #ffd34d; }
 /* Statistiques > Chiffres sur écran de portable : lignes un peu plus petites (langues aux mots longs : russe, allemand). */
-@container panel (max-width: 1467px) {
+@container panel (max-width: 1767px) { /* (it. 1047) jusqu'à 1800 px de fenêtre (russe : Statistiques +46 px à 1600-1680) */
   .statgrid.sec-numbers .lines li { font-size: 12px; line-height: 1.25; padding-top: 2px; padding-bottom: 2px; }
 }
 /* Écran de portable, langues aux mots longs (allemand, russe) : Réglages un peu plus serrés ; sous-titre des Maîtrises
    sur une ligne (l'ⓘ garde l'explication). */
-@container panel (max-width: 1467px) {
+@container panel (max-width: 1767px) { /* (it. 1047) jusqu'à 1800 px de fenêtre (russe : Statistiques +46 px à 1600-1680) */
   [data-pane="settings"] .panel { font-size: 13px; }
   [data-pane="settings"] .toggle { margin-top: 2px; margin-bottom: 2px; }
   .tmastery > h2 { flex-wrap: nowrap; white-space: nowrap; }
@@ -1203,7 +1205,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 1003) carte Zone : « course : 136 · record : 142 » à côté du titre ; le titre ne se coupe pas (« 区域 / 136 »),
    le sous-titre passe à la ligne dans sa place */
 /* (it. 1010) nom de zone un peu plus petit sur un écran de portable : « Хрустальная Пещера / +4 » prenait deux lignes */
-@container panel (max-width: 1467px) { .zname { font-size: 16px; } }
+@container panel (max-width: 1767px) { .zname { font-size: 16px; } } /* (it. 1047) jusqu'à 1800 px de fenêtre */
 #p-zone > h2 { white-space: nowrap; }
 /* (it. 1025) « Zone précédente / Zone suivante » sur une même ligne : en russe, empilés, ils faisaient défiler l'Aventure
    de fin de partie à 1920 px (colonne Zone : boss à trois capacités, relique) */

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1047) : écrans de 1500 à 1799 px (1600 × 900, 1680 × 1050). La grille large de l'Aventure s'appliquait
+  dès 1500 px et la colonne du héros tombait à 264 px (≈ 314 à 1499) ; la colonne Zone, étroite, faisait défiler la fin
+  de partie en russe (19 px), les Statistiques aussi (46), un libellé de tuile allemand était coupé à 1500. Grille
+  large dès 1800 px ; Zone, Statistiques et Réglages compacts jusqu'à 1800 px. lang-overflow mesure aussi 1600 px
+  (dev-data et fin de partie) : 10 langues sans défaut à 1920, 1600, 1366 et 1280 ; 1500, 1680, 1760 essayés en
+  ru, de, pl, fr : propres ; 130 % sur 1920 px : propre. Capture fr 1600 ; autotest 205/205. CLAUDE.md.
 - 2026-11-13 (it. 1046) : « Taille de l'interface » à 130 % sur un écran de 1920 px : Boutique (57-75 px), Bestiaire
   (83-86), Statistiques (22-46), Aventure en russe (36) défilaient. Cause : le zoom ne touche que #panel, et les règles
   @media (max-width: 1499px…) voyaient la fenêtre (1920 px) quand le panneau zoomé n'a que 1467 px utiles (sonde :
@@ -3901,7 +3907,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 Vu it. 1046 : en russe, la partie de fin de partie défile à 100 % sur des écrans de 1600 et 1680 px (Aventure 19,
+- FAIT (it. 1047) P2 Vu it. 1046 : en russe, la partie de fin de partie défile à 100 % sur des écrans de 1600 et 1680 px (Aventure 19,
   Statistiques 46 ; dev-data : rien) ; la mesure des langues ne passe que par 1280, 1366 et 1920. Corriger, puis
   ajouter une largeur intermédiaire (1600) à lang-overflow.
 - À PROPOSER À VICTOR (it. 1029) P2 Fin de semaine : tous les héros finissent autour de la zone 293 (artificier,

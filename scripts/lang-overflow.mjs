@@ -1,6 +1,6 @@
 // Défilement des onglets dans chaque langue et à plusieurs largeurs (Linux, écran virtuel) : les langues aux mots
 // longs (allemand, russe…) peuvent faire déborder un onglet qui tient en français. Travaille sur des COPIES de
-// dev-data, et une partie de fin de partie à 1280 px (it. 986). Usage : node scripts/lang-overflow.mjs [langues=de,ru,…] [largeurs=1920,1366,1280]
+// dev-data, et une partie de fin de partie à 1280 px (it. 986). Usage : node scripts/lang-overflow.mjs [langues=de,ru,…] [largeurs=1920,1600,1366,1280]
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
@@ -8,7 +8,8 @@ import path from "node:path";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const langs = (process.argv[2] || "fr,en,es,pt,de,pl,ru,zh,ja,ko").split(",");
-const widths = (process.argv[3] || "1920,1366,1280").split(",").map(Number);
+// (it. 1047) 1600 px aussi : écrans 1600 × 900, 1680 × 1050 ; la fin de partie y défilait en russe sans qu'aucune mesure le voie
+const widths = (process.argv[3] || "1920,1600,1366,1280").split(",").map(Number);
 const base = JSON.parse(fs.readFileSync(path.join(root, "dev-data", "save.json"), "utf8"));
 // (it. 746) pire cas aussi : TOUS les déblocages achetés (leurs options et rangées s'affichent ; it. 744 : les 6 cases
 // d'automatismes faisaient défiler Aventure en allemand à 1280 sans qu'aucun contrôle le voie)
@@ -37,7 +38,7 @@ for (const lang of langs) {
     // avec dev-data. Régénérer : DUMP=scripts/fixtures/endgame-save.json node … scripts/simulate.js 48 warrior
     const endFile = path.join(root, "scripts", "fixtures", "endgame-save.json");
     // (it. 1025) FIN_WIDTHS=1280,1366,1920 : la fin de partie à d'autres largeurs (1280 seulement par défaut)
-    const finWidths = (process.env.FIN_WIDTHS || "1280").split(",").map(Number).filter((fw) => widths.includes(fw) || process.env.FIN_WIDTHS);
+    const finWidths = (process.env.FIN_WIDTHS || "1280,1600").split(",").map(Number).filter((fw) => widths.includes(fw) || process.env.FIN_WIDTHS);
     if (fs.existsSync(endFile)) for (const fw of finWidths) {
       const end = JSON.parse(fs.readFileSync(endFile, "utf8"));
       fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...end, last: Date.now(), settings: { ...(end.settings || {}), lang } }));
