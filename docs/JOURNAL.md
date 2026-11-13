@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1030) : mesures pour la décision de Victor sur le plafond de fin de semaine (voir Idées, it. 1029) :
+  bonus des points en surplus (+36 %, +100 %) et Écailles désactivées n'y changent presque rien ; la courbe ×1,04
+  par zone l'explique. Aucun changement du jeu.
 - 2026-11-13 (it. 1029) : vérifié : la bulle d'astuce sur trois lignes est bien comptée dans la zone cliquable
   (clickThrough.refresh mesure après l'insertion). Analyse de fin de semaine (voir Idées : mur doux vers 293, sans
   cause unique ; à proposer à Victor). Aucun changement du jeu.
@@ -3844,6 +3847,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   monstres vers 300 (×1,04 par zone au-delà de 70, rules.js) ; ressenti possible : « je ne progresse plus » après ≈ 5
   jours. Pistes : un palier de puissance permanent supplémentaire en fin de partie (points de compétence en surplus,
   it. 1018 ; reliques des échos plus fortes), ou une courbe un peu plus douce au-delà de 250 ; à mesurer sur 2 semaines.
+  Essais de l'it. 1030 (semaine, artificier et guerrier, dossiers de travail jetables) : points de compétence en
+  surplus à +0,1 % d'attaque et de PV chacun (≈ +36 %) : 293-307 ; à +0,3 % (≈ +100 %) : 279-307 ; sans Écailles :
+  293-300. Aucun ne lève le mur : chaque zone est ×1,04 plus dure au-delà de 70, doubler la puissance ne vaut que
+  ≈ 17 zones (1,04^17 ≈ 1,95). Le plafond n'est pas un défaut ponctuel mais le rapport entre la croissance du héros
+  en fin de partie et cette courbe : une vraie progression au-delà demande soit une courbe plus douce (MONSTER_LATE_GROWTH
+  1,04 → 1,03 au-delà de 250 ?), soit une source de puissance qui croît elle aussi d'environ ×1,04 par zone.
 - À PROPOSER À VICTOR (it. 1018) P3 Points de compétence en surplus : une fois l'arbre entièrement appris (partie de fin
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
