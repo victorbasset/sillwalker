@@ -95,6 +95,9 @@ body.mode-mini #root { display: none; }
 .slash.t4 { filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 18px var(--c)); }
 .slash.t2::after, .slash.t3::after, .slash.t4::after { content: ""; position: absolute; inset: 0; background: inherit; transform: scaleX(-1); }
 .slash.on { opacity: 1; }
+/* (it. 1065) rangs 2 à 4 : image avec la lueur (strip.js, bakedSlash) ; marge de 22 px, pied de la lame au même endroit */
+.slash.baked { filter: none; width: 56px; height: 68px; margin: -22px 0 0 -22px; transform-origin: 28px 46px; background-size: 56px 68px; background-repeat: no-repeat; background-position: 0 0; }
+.slash.baked::after { content: none; }
 .float { position: absolute; font: 400 13px var(--font-text); white-space: nowrap;
   -webkit-text-stroke: 3px #14121f; paint-order: stroke fill; translate: -50% 0; will-change: transform, opacity; }
 .float.big { font-size: 15px; }
@@ -1271,7 +1274,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .hpbar > b.sh { position: absolute; top: 0; height: 4px; background: linear-gradient(#ffffff, #8fd8ff); box-shadow: 0 0 3px #bfefff; }
 .hpbar > b.sh[hidden] { display: none; }
 /* Sorts dans la bande (demande I : spectaculaires) ; couleur du héros dans --c. L'élément extérieur est déplacé par
-   la bande (transform), l'intérieur (i) porte l'animation CSS. */
+   la bande (transform) ; anneaux et dôme : l'intérieur (i) grandit (scale), dans la boucle d'images (it. 1064). */
 .spellfx { position: absolute; pointer-events: none; z-index: 6; }
 .spellfx > i { display: block; }
 .spellfx.bolt > i { width: 18px; height: 96px; background: linear-gradient(#ffffff, var(--c) 60%, #ffffff); clip-path: polygon(45% 0, 100% 28%, 60% 34%, 100% 62%, 55% 66%, 75% 100%, 0 58%, 40% 54%, 5% 30%, 42% 26%); }
@@ -1282,8 +1285,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellfx.ring.big > i { width: 90px; height: 90px; margin: -45px 0 0 -45px; border-width: 4px; }
 .spellfx.column > i { width: 20px; height: 90px; background: linear-gradient(transparent, var(--c) 40%, transparent); opacity: .85; }
 .spellfx.dome > i { width: 60px; height: 60px; border-radius: 50% 50% 4px 4px; border: 3px solid #bfefff; background: rgba(191,239,255,.18); transform: scale(.3); }
-@keyframes sfxspin { to { transform: rotate(360deg); } }
-@keyframes sfxpulse { from { opacity: .55; } to { opacity: 1; } }
 /* Icônes des sorts (demande G) : cartes de l'onglet Héros et icône qui monte au-dessus du héros au lancer. */
 .spellcard .spellico { width: 27px; height: 27px; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
 .spellfx.icon img { width: 27px; height: 27px; image-rendering: pixelated; }

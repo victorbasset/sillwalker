@@ -90,6 +90,30 @@ const upFirst = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const MAX_DMG_FLOATS = 6;
 const BOSS_OUTLINE = "rgba(232, 238, 255, 0.55)"; // (it. 1019)
 const DARK_OUTLINE = "rgba(220, 228, 245, 0.35)"; // (it. 1020)
+/** Entaille des rangs 2 à 4 avec sa lueur, dessinée une fois (it. 1065) : lame de 12 × 24 (quatre blocs en diagonale) et
+ *  sa lame croisée, dans une marge de SLASH_M px pour la lueur ; mêmes ombres que les anciens filtres CSS. */
+const SLASH_M = 22, slashCache = new Map();
+function bakedSlash(t, c) {
+  const key = t + c;
+  if (slashCache.has(key)) return slashCache.get(key);
+  const K = 3, W = 12 + 2 * SLASH_M, H = 24 + 2 * SLASH_M;
+  const canvas = () => { const cv = document.createElement("canvas"); cv.width = W * K; cv.height = H * K; return cv; };
+  let cv = canvas();
+  const x = cv.getContext("2d");
+  x.fillStyle = c;
+  for (let i = 0; i < 4; i++) { x.fillRect((SLASH_M + i * 3) * K, (SLASH_M + i * 6) * K, 3 * K, 6 * K); x.fillRect((SLASH_M + 9 - i * 3) * K, (SLASH_M + i * 6) * K, 3 * K, 6 * K); }
+  // comme une suite de filtres CSS : chaque ombre s'applique à l'image déjà obtenue (lame + ombres précédentes)
+  const glows = t === 2 ? [[c, 3]] : t === 3 ? [[c, 3], [c, 8]] : [["#fff", 4], [c, 10], [c, 18]];
+  for (const [col, r] of glows) {
+    const next = canvas(), y = next.getContext("2d");
+    y.shadowColor = col; y.shadowBlur = r * K; y.drawImage(cv, 0, 0);
+    cv = next;
+  }
+  const url = cv.toDataURL();
+  slashCache.set(key, url);
+  return url;
+}
+
 export class StripRenderer {
   constructor(container, game, { rightReserve = 0 } = {}) {
     this.root = container;
@@ -906,8 +930,13 @@ export class StripRenderer {
       if (this.slashTier && +this.slashTier.split(":")[1] < t && this.slashTier.split(":")[0] === S.cls)
         this.juice.banner(`${tx("Attaque de base : {0} !", { 0: ATTACK_TIERS[t].name })}`, CLASS_FX[S.cls] || "#fff", this.heroX + 80, true);
       this.slashTier = tierKey;
-      this.slash.className = "slash t" + t + (slashOn ? " on" : "");
+      // (it. 1065) rangs 2 à 4 : lueur dessinée une fois dans une image (bakedSlash), plus de filtre drop-shadow ; la lame
+      // s'allume à chaque coup et le filtre (trois ombres jusqu'à 18 px au rang 4) était recalculé sans cesse : ≈ 8 points
+      // d'un cœur en fin de partie (bande 32 → 24 %)
+      const img = t >= 2 ? bakedSlash(t, CLASS_FX[S.cls] || "#fff") : null;
+      this.slash.className = "slash t" + t + (img ? " baked" : "") + (slashOn ? " on" : "");
       this.slash.style.setProperty("--c", CLASS_FX[S.cls] || "#fff");
+      this.slash.style.backgroundImage = img ? `url(${img})` : "";
     }
 
     this.updateSpeech(dt, x);

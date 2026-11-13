@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1065) : performance en fin de partie, suite. Nouvelle décomposition (éléments masqués un à un) :
+  l'entaille du héros valait ≈ 8 points (barres de vie, affixes, relique portée : bruit). Aux rangs 2 à 4, sa lueur
+  était un filtre CSS (trois drop-shadow jusqu'à 18 px au rang 4) recalculé à chaque coup (la lame s'allume et s'éteint
+  sans cesse). Elle est dessinée une fois dans une image (bakedSlash : canevas ×3, ombres appliquées en cascade comme
+  les filtres, mise en cache par rang et couleur) ; capture côte à côte : même rendu, sans les coutures entre blocs.
+  Copies neuves, 2 mesures, avant → après : bande 31,7 / 32,0 → 23,8 / 23,8 %, panneau 34,2 / 33,2 → 25,0 / 25,5 %
+  (GPU 17,7 → 9,9) ; dev-data inchangé. Depuis l'it. 1063, bande de fin de partie 38 → 24 %. @keyframes orphelines
+  retirées. CLAUDE.md.
 - 2026-11-13 (it. 1064) : performance en fin de partie. Décomposition de la bande (partie de fin de partie, classes
   masquées une à une par CSS en injection TEMP, part GPU de --perf) : étincelles −0,8, nombres de dégâts −1, sorts −6,
   dont tout sur les ANNEAUX (une quinzaine en 10 s) : leur animation CSS de 0,55 s faisait repeindre la bande au rythme
@@ -4005,7 +4013,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
   (ex. +0,1 % d'attaque et de PV), affiché « Points en surplus : +36 % » ; à mesurer avec simulate.js (semaine).
-- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; it. 1064 : → 32 %, anneaux de sorts ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; it. 1064 : → 32 %, anneaux de sorts ; it. 1065 : → 24 %, entaille du héros ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
   (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium
