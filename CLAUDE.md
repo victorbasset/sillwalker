@@ -218,6 +218,13 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (`z.src` pour les zones) ou une clé. Arrivé à la musique (it. 531 : couleur des décors perdue hors français).
 - Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
+- Sortie d'une version (itch.io, it. 1144) : 1) `version` de package.json ; 2) notes de version dans news.js
+  (NEWS_RELEASES, à la FIN : `{ version, after, items }`, `after` = NEWS_ID de la version précédente : 0.1.2 = 32,
+  0.1.3 = 58) : une dizaine de nouveautés MAJEURES choisies parmi les éditions parues depuis, sans les petites
+  retouches, noms repris tels que traduits (événements, élites, PNJ…), à traduire ; un joueur qui n'a rien lu depuis
+  la version précédente voit la fenêtre s'ouvrir seule au lancement ; 3) npm test, autotest, lang-overflow ;
+  4) constructions (voir « Construire la version Windows ») déposées dans Médias/dist-itch avec leurs sha256 ;
+  5) essai de la version construite avec un HOME temporaire.
 - « Quoi de neuf » (game/news.js) : après une série de nouveautés visibles, publier une édition (une liste ajoutée à la
   FIN de NEWS_EDITIONS, textes à traduire ; ne jamais modifier une édition publiée) : Victor et les joueurs la voient
   une fois au lancement suivant, avec les éditions sautées (au plus 3, les plus anciennes comptées) ; l'autotest mesure le pire cas.

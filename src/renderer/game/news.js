@@ -315,6 +315,7 @@ const RELEASE_013 = [
   "Le détail des statistiques montre d’où vient la puissance du héros ; quêtes et prochain déblocage donnent leur temps restant estimé.",
   "En fin de partie, la bande consomme environ un tiers de processeur en moins ; le panneau peut grandir à 115 % ou 130 % (Réglages).",
 ];
+// 0.1.3 distribuée avec l'édition 58 (NEWS_ID) : la version suivante prendra after: 58.
 export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {

@@ -3690,6 +3690,15 @@ test("notes de version : un joueur de la 0.1.2 voit celles de la 0.1.3, pas un l
   assert(releaseFor(32).items.length >= 6 && releaseFor(32).items.length <= 12, "une liste courte et choisie");
 });
 
+test("version de package.json : ses notes de version existent (it. 1146)", () => {
+  // Une nouvelle version (itch.io) sans notes : les joueurs de la précédente ne verraient que les 3 dernières éditions.
+  // Ajouter { version, after: NEWS_ID de la version précédente, items } à la fin de NEWS_RELEASES (news.js, CLAUDE.md).
+  const { NEWS_RELEASES, NEWS_ID } = M_news_js, pkg = JSON.parse(fs.readFileSync(new URL("../package.json", import.meta.url), "utf8"));
+  const last = NEWS_RELEASES[NEWS_RELEASES.length - 1];
+  assert.equal(last.version, pkg.version, "package.json " + pkg.version + " : notes de version à écrire dans news.js");
+  assert(last.after < NEWS_ID, "des éditions parues depuis la version précédente");
+});
+
 test("ascension : seules les données de la course repartent de zéro (it. 1123)", () => {
   // (it. 1122) les choix des paliers de maîtrise étaient perdus à l'ascension (oubliés dans la liste de ascend()).
   // Partie de fin de partie + quelques données que la sauvegarde type n'a pas ; toute donnée remise à sa valeur de

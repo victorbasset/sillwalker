@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1146) : procédure de sortie d'une version écrite dans CLAUDE.md (version, notes NEWS_RELEASES avec
+  after = NEWS_ID de la précédente : 0.1.2 = 32, 0.1.3 = 58 ; tests ; constructions ; essai avec HOME temporaire).
+  Garde-fou : un test échoue si la version de package.json n'a pas ses notes de version. 257 tests ; autotest 226/226.
 - 2026-11-13 (it. 1145) : mémoire de la fin de partie au grand graphe rempli, 14 min (mem-watch, MEM_SAVE) : panneau
   ouvert 475 → palier ≈ 565 Mo dès ≈ 5 min (559-572 ensuite) ; panneau fermé 473 → palier ≈ 530 Mo vers 10 min.
   La hausse de l'it. 1144 (557 → 643 en 6 min, une seule mesure courte) était la mise en route, pas une fuite.
