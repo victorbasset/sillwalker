@@ -2725,5 +2725,8 @@ export const KEYS = [
   "Pas encore atteint dans cette course : réglé d’avance.",
   "Reliques",
   "Sources de puissance",
-  "Puissance du héros divisée par ce qu’elle serait sans cette source."
+  "Puissance du héros divisée par ce qu’elle serait sans cette source.",
+  "« Toutes les statistiques » montre d’où vient la puissance du héros : ce que multiplient l’équipement, les compétences, les talents, les constellations, le grand graphe…",
+  "Maîtrises : un palier atteint dans une course précédente se règle d’avance (⏳), sans attendre de l’atteindre à nouveau.",
+  "Taille de l’interface à 130 % : les bulles des objets et des nœuds de compétence restent près de ce qu’on survole et dans le panneau."
 ];

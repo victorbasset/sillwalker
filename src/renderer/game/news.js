@@ -274,7 +274,12 @@ const EDITION_56 = [
   "Les bonus choisis aux paliers des maîtrises sont désormais gardés à l’ascension (ils revenaient à l’option par défaut à chaque course).",
   "Grand graphe rempli : son achèvement est annoncé, avec ce que donnent désormais les points en plus.",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42, EDITION_43, EDITION_44, EDITION_45, EDITION_46, EDITION_47, EDITION_48, EDITION_49, EDITION_50, EDITION_51, EDITION_52, EDITION_53, EDITION_54, EDITION_55, EDITION_56];
+const EDITION_57 = [
+  "« Toutes les statistiques » montre d’où vient la puissance du héros : ce que multiplient l’équipement, les compétences, les talents, les constellations, le grand graphe…",
+  "Maîtrises : un palier atteint dans une course précédente se règle d’avance (⏳), sans attendre de l’atteindre à nouveau.",
+  "Taille de l’interface à 130 % : les bulles des objets et des nœuds de compétence restent près de ce qu’on survole et dans le panneau.",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42, EDITION_43, EDITION_44, EDITION_45, EDITION_46, EDITION_47, EDITION_48, EDITION_49, EDITION_50, EDITION_51, EDITION_52, EDITION_53, EDITION_54, EDITION_55, EDITION_56, EDITION_57];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();

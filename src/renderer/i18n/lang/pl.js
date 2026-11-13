@@ -1596,4 +1596,7 @@ export default {
   2721: "Relikwie",
   2722: "Źródła mocy",
   2723: "Moc bohatera podzielona przez moc bez tego źródła.",
+  2724: "„Wszystkie statystyki” pokazują, skąd bierze się moc bohatera: ile mnożą ją ekwipunek, umiejętności, talenty, konstelacje, wielki graf…",
+  2725: "Mistrzostwa: próg osiągnięty w poprzednim biegu można ustawić z góry (⏳), bez ponownego osiągania.",
+  2726: "Rozmiar interfejsu 130%: dymki przedmiotów i węzłów umiejętności zostają przy wskazanym elemencie i w panelu.",
 };

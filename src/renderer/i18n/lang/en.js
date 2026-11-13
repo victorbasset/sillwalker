@@ -1596,4 +1596,7 @@ export default {
   2721: "Relics",
   2722: "Power sources",
   2723: "Hero power divided by what it would be without this source.",
+  2724: "“All statistics” shows where the hero’s power comes from: what equipment, skills, talents, constellations, the great graph… multiply it by.",
+  2725: "Masteries: a milestone reached in a previous run can be set in advance (⏳), without reaching it again.",
+  2726: "Interface size at 130%: item and skill node tooltips stay next to what you hover and inside the panel.",
 };

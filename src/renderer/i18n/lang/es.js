@@ -1596,4 +1596,7 @@ export default {
   2721: "Reliquias",
   2722: "Fuentes de poder",
   2723: "Poder del héroe dividido por el que tendría sin esta fuente.",
+  2724: "«Todas las estadísticas» muestra de dónde viene el poder del héroe: por cuánto lo multiplican el equipo, las habilidades, los talentos, las constelaciones, el gran grafo…",
+  2725: "Maestrías: un hito alcanzado en una partida anterior se elige por adelantado (⏳), sin volver a alcanzarlo.",
+  2726: "Tamaño de la interfaz al 130 %: los globos de objetos y nodos de habilidad quedan junto a lo que se señala y dentro del panel.",
 };

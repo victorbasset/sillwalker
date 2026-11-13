@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1132) : « Quoi de neuf », édition 57 : sources de puissance, paliers de maîtrise réglables
+  d'avance, bulles à leur place au zoom 130 %. 9 langues (i18n-quotes : « Toutes les statistiques » à citer tel que
+  traduit en anglais, allemand et chinois : corrigé) ; pire cas sans défilement ; autotest 223/223 ; 10 langues sans
+  défaut.
 - 2026-11-13 (it. 1131, revue générale) : 12 h simulées guerrier 61, rôdeur 62, mage 60 (repères) ; fuzz 1200
   parties, 0 bloquée ; --crawl en anglais (dev-data) 384 clics sans erreur ; --perf (copies neuves, seul : une
   première mesure prise pendant les simulations donnait 25 % pour la bande, à jeter) : bande 19,5 %, panneau 20,5 %,

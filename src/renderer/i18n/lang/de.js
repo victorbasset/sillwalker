@@ -1596,4 +1596,7 @@ export default {
   2721: "Relikte",
   2722: "Stärkequellen",
   2723: "Stärke des Helden geteilt durch die Stärke ohne diese Quelle.",
+  2724: "„Alle Statistiken“ zeigen, woher die Stärke des Helden kommt: womit Ausrüstung, Fertigkeiten, Talente, Sternbilder, der große Graph… sie multiplizieren.",
+  2725: "Meisterschaften: Eine in einem früheren Lauf erreichte Stufe lässt sich im Voraus wählen (⏳), ohne sie erneut zu erreichen.",
+  2726: "Oberflächengröße 130 %: Die Infos zu Gegenständen und Fertigkeitsknoten bleiben beim Gezeigten und im Panel.",
 };
