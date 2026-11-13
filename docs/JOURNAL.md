@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1157) : DÉFAUT DE LIVRAISON corrigé : le zip Mac 0.1.3 déposé (it. 1144, 1153) sortait
+  d'electron-builder seul, SANS signature (hors macOS) : un binaire arm64 non signé est tué au lancement sur Mac (la
+  0.1.2 passait par scripts/mac-from-linux.sh, signature ad hoc rcodesign, it. 833). Refait avec ce script (signature
+  vérifiée : print-signature-info), redéposé (sha256 5f88ced5…). rcodesign copié dans ~/.local/bin (il ne survivait
+  que dans le brouillon d'une ancienne session). CLAUDE.md (procédure de construction) et steam/checklist.md (66
+  succès, chemin de rcodesign) corrigés.
 - 2026-11-13 (it. 1156) : contrôle de transmutation rendu fiable : le diagnostic de l'échec de l'it. 1155 (« sac
   0+0+0+ ») montrait des objets fabriqués devenus AMÉLIORATIONS (jamais transmutées) ; le contrôle prend un emplacement
   équipé où ils n'en sont pas, et les refabrique s'ils le sont devenus juste avant le clic. Autotest 227/227 trois

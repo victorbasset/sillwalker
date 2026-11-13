@@ -15,7 +15,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 
 - ⬜ Vrai App ID : `node scripts/steam-set-appid.mjs <App ID>` (remplace 480 dans `src/shared/config.js` et active
   `STEAM_RELAUNCH_IF_NEEDED` ; npm test refuse la relance avec 480).
-- ✅ Succès : 63, noms dans les 10 langues (`steam/achievements.md`).
+- ✅ Succès : 66, noms dans les 10 langues (`steam/achievements.md`).
 - ✅ Sauvegarde Steam Cloud (API Cloud, la plus récente gagne au lancement).
 - ✅ Présence enrichie (`steam/richpresence.vdf`, 10 langues).
 - ✅ Envoi des versions : `npm run dist` puis `npm run steam:build` (SteamPipe, `scripts/steam-upload.mjs`).
@@ -26,7 +26,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - 🟡 Page du magasin : descriptions courte et longue, 10 langues → `steam/store-page.md`.
 - 🟡 Captures 1920×1080 (anglais, français) → `steam/screenshots/`.
 - 🟡 Visuels (capsules, bibliothèque, logo) : première version → `steam/capsules/` (à juger, un graphiste ferait mieux).
-- 🟡 Succès : créer les 64 « API Name » de `steam/achievements.md`, icônes 64×64 dans `steam/achievement-icons/`
+- 🟡 Succès : créer les 66 « API Name » de `steam/achievements.md`, icônes 64×64 dans `steam/achievement-icons/`
   (`<ID>.png` obtenu, `<ID>_gray.png` verrouillé ; refaites par `scripts/steam-capsules/achicons.js`), publier.
 - 🟡 Steam Cloud : activer, 1 fichier, quota de 1 Mo largement suffisant (sauvegarde ≈ 17 Ko, ≈ 21 Ko après 48 h simulées, it. 963).
 - 🟡 Présence enrichie : téléverser `steam/richpresence.vdf`.
@@ -45,7 +45,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - ✅ Linux : `npm run dist:itch:linux` (archive tar.gz, construisible sous Windows) ; `npm run dist:itch:appimage`
   (AppImage : seulement sous Linux, ou Windows en mode développeur : liens symboliques). AppImage construite et
   lancée sur le serveur (partie neuve, Steam coupé), envoyée à Victor en 5 morceaux.
-- 🟡 Mac Apple Silicon : `scripts/mac-from-linux.sh <rcodesign> <dossier>` la construit sur le serveur (signature ad
+- 🟡 Mac Apple Silicon : `scripts/mac-from-linux.sh ~/.local/bin/rcodesign <dossier>` la construit sur le serveur (signature ad
   hoc, it. 833 ; NON ESSAYÉE sur un vrai Mac). Sinon `npm run dist:itch:mac` (zip Apple Silicon + Intel) SUR UN MAC ; sans compte Apple Developer
   (99 $/an) l'appli n'est pas notarisée : premier lancement par clic droit → Ouvrir.
 - 🟡 itch.io : couverture 630×500 → `steam/capsules/itch-cover.png` ; captures et textes : ceux de Steam.
