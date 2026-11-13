@@ -1359,4 +1359,5 @@ export default {
   2484: "Sets: completing a set no longer leaves you weaker (your previous, stronger gear goes back on; the bonus stays), and Bestiary > Sets lets you complete one in one click.",
   2485: "Travel log in columns; shorter Zone card (worn-out boss, relic of the zone's boss).",
   2486: "No more “skill points” reminder once the whole tree is learned.",
+  2487: "{n} set piece kept to complete a set.|{n} set pieces kept to complete a set.",
 };

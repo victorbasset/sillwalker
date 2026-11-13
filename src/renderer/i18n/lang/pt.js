@@ -1359,4 +1359,5 @@ export default {
   2484: "Conjuntos: completar um conjunto não te deixa mais fraco (o equipamento anterior, mais forte, é reequipado; o bônus fica), e Bestiário > Conjuntos permite completá-lo com um clique.",
   2485: "Diário de viagem em colunas; cartão da zona mais curto (chefe exausto, relíquia do chefe da zona).",
   2486: "Sem lembrete de “pontos de habilidade” quando a árvore está completa.",
+  2487: "{n} peça de conjunto guardada para completar um.|{n} peças de conjunto guardadas para completar um.",
 };

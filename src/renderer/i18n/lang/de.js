@@ -1359,4 +1359,5 @@ export default {
   2484: "Sets: Ein Set zu vervollständigen schwächt dich nicht mehr (die vorherige, stärkere Ausrüstung wird wieder angelegt; der Bonus bleibt), und Bestiarium > Sets vervollständigt es mit einem Klick.",
   2485: "Reisetagebuch in Spalten; kürzere Zonenkarte (erschöpfter Boss, Relikt des Zonenbosses).",
   2486: "Keine Erinnerung an „Fertigkeitspunkte“ mehr, wenn der Baum vollständig ist.",
+  2487: "{n} Setteil behalten, um ein Set zu vervollständigen.|{n} Setteile behalten, um ein Set zu vervollständigen.",
 };

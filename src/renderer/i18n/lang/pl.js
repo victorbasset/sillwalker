@@ -1359,4 +1359,5 @@ export default {
   2484: "Zestawy: skompletowanie zestawu już cię nie osłabia (poprzednie, silniejsze wyposażenie wraca; bonus zostaje), a Bestiariusz > Zestawy pozwala skompletować go jednym kliknięciem.",
   2485: "Dziennik podróży w kolumnach; krótsza karta strefy (wyczerpany boss, relikwia bossa strefy).",
   2486: "Koniec przypominania o „punktach umiejętności”, gdy drzewo jest ukończone.",
+  2487: "{n} część zestawu zachowana, by go skompletować.|{n} części zestawu zachowane, by go skompletować.|{n} części zestawu zachowanych, by go skompletować.",
 };

@@ -2488,5 +2488,6 @@ export const KEYS = [
   "✓ Arbre complet · {0} points au total",
   "Panoplies : compléter une panoplie ne te laisse plus affaibli (l’équipement d’avant, plus fort, est remis ; le bonus reste), et Bestiaire > Panoplies propose de la compléter d’un clic.",
   "Carnet de route en colonnes ; carte Zone plus courte (boss épuisé, relique du boss de la zone).",
-  "Plus de rappel « points de compétence » une fois l’arbre entièrement appris."
+  "Plus de rappel « points de compétence » une fois l’arbre entièrement appris.",
+  "{n} pièce de panoplie gardée pour en compléter une.|{n} pièces de panoplie gardées pour en compléter une."
 ];

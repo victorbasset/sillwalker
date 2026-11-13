@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1022) : « Vendre ce qui ne m'améliore pas » dit au survol combien de pièces de panoplie il garde (« 2
+  pièces de panoplie gardées pour en compléter une. », légendaires exclus : gardés de toute façon) : le joueur voyait des
+  objets plus faibles rester dans le sac sans savoir pourquoi (garde de l'it. 1004). Contrôle d'autotest (rendu
+  indépendant du tirage et des pièces déjà présentes : trois passages à 204/204). Vérifié aussi : luminance des héros
+  (assassin 47, nécromancien 49, les autres ≥ 69) ; en capture de nuit, ils restent lisibles (touches de couleur) : rien
+  à changer.
 - 2026-11-13 (it. 1021, revue générale) : simulation 12 h, records des courses : druide 44 → 62, samouraï 41 → 64, barde
   44 → 62 (réguliers). Performance (copie neuve) : bande 19,6 %, panneau 20,5 %, mini 7,0 %, icône 0,5 %. Captures
   Familiers et Carte à 1366 px en français, anglais et coréen, mini en coréen (contour du boss visible) : propres.

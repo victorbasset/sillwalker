@@ -1359,4 +1359,5 @@ export default {
   2484: "Conjuntos: completar un conjunto ya no te debilita (se vuelve a equipar el equipo anterior, más fuerte; la bonificación se queda), y Bestiario > Conjuntos permite completarlo con un clic.",
   2485: "Diario de ruta en columnas; tarjeta de zona más corta (jefe agotado, reliquia del jefe de la zona).",
   2486: "Se acabó el aviso de «puntos de habilidad» cuando el árbol está completo.",
+  2487: "{n} pieza de conjunto guardada para completar uno.|{n} piezas de conjunto guardadas para completar uno.",
 };
