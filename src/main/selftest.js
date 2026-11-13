@@ -482,12 +482,16 @@ async function runSelfTest(strip) {
   // (it. 1069) emplacement équipé imposé : un commun tiré pour un emplacement vide est une amélioration, pas un objet
   // inutile (diagnostic « sac 0+00 » : deux inutiles seulement, rien à transmuter ; deuxième cause, après la fenêtre
   // de confirmation encore cachée de l'it. 1066)
-  await js("(() => { const g = window.__game, sl = Object.keys(g.S.equip).find((k) => g.S.equip[k]); g.S.bag.length = 0; for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.slot = sl; it.lvl = 1; it.st = {}; delete it.power; g.S.bag.push(it); } g.changed() })()");
+  // (it. 1156) instable une fois sur trois (« sac 0+0+0+ ») : les objets fabriqués étaient des AMÉLIORATIONS (jamais
+  // transmutées) ; on prend un emplacement équipé où ils n'en sont pas, et on le revérifie juste avant le clic
+  const mkTrans = "(() => { const g = window.__game; g.S.bag.length = 0; const mk = (sl) => { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.slot = sl; it.lvl = 1; it.st = {}; delete it.power; return it; }; for (const sl of Object.keys(g.S.equip).filter((k) => g.S.equip[k])) { const t = mk(sl); if (!g.isUpgrade(t)) { g.S.bag.push(t, mk(sl), mk(sl)); g.changed(); return sl; } } g.changed(); return 'aucun emplacement'; })()";
+  await js(mkTrans);
   await click('[data-tab="adventure"]');
   await sleep(200);
   const tr0 = await js("window.__game.S.stats.transmutes || 0");
   // (it. 1023) attentes sur l'état (fenêtre de confirmation, puis compteur) et non plus 150 ms fixes : instable sous xvfb
   await until(() => js("!!document.querySelector('[data-action=\"transmute\"]:not([disabled])')"));
+  if (await js("window.__game.S.bag.some((it) => window.__game.isUpgrade(it))")) { await js(mkTrans); await sleep(150); } // devenus améliorations entre-temps
   await click('[data-action="transmute"]');
   await until(() => js(CONFIRM_SHOWN));
   await click('[data-action="confirm-ok"]');

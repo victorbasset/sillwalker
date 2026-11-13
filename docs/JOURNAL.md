@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1156) : contrôle de transmutation rendu fiable : le diagnostic de l'échec de l'it. 1155 (« sac
+  0+0+0+ ») montrait des objets fabriqués devenus AMÉLIORATIONS (jamais transmutées) ; le contrôle prend un emplacement
+  équipé où ils n'en sont pas, et les refabrique s'ils le sont devenus juste avant le clic. Autotest 227/227 trois
+  fois de suite.
 - 2026-11-13 (it. 1155) : la bulle d'une voie pas encore choisie dit si c'est celle que prend « Dépenser
   automatiquement » (la plus puissante, it. 1154). En route, coréen : une particule après un guillemet fermant
   (« 「{0}」을(를) ») restait brute ; koJosa saute désormais un guillemet ou une parenthèse fermante (la « Voie fermée »
@@ -4493,7 +4497,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 Vu it. 1155 : contrôle d'autotest « transmutation (après confirmation) » instable, une fois sur trois passages :
+- FAIT (it. 1156) P3 Vu it. 1155 : contrôle d'autotest « transmutation (après confirmation) » instable, une fois sur trois passages :
   « 164 -> 164 · sac 0+0+0+ plan {used:0, made:0} bouton inactif » : le sac n'avait rien à transmuter à cet instant
   (dépend de l'état de la partie) ; le contrôle doit fabriquer lui-même sa matière.
 - DEMANDES DE VICTOR (2026-11-13, midi), à traiter en premier, découpées en petites itérations :
