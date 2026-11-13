@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1153) : versions 0.1.3 reconstruites à l'état du commit 53830e5 (bouton « Version 0.1.3 » des
+  Réglages, annoncé par le devlog) et redéposées dans Médias/dist-itch (remplacement d'un coup : copie sous un nom
+  temporaire puis renommage). sha256 : linux fff890d0…, mac-arm64 6442a8de…, win e840b65e…. Version Linux construite
+  essayée (HOME temporaire, sauvegarde de référence 0.1.2) : chargée, fenêtre de la 0.1.3 montrée (newsSeen → 58).
 - 2026-11-13 (it. 1152) : docs/devlog-0.1.3.md : texte du devlog itch.io de la 0.1.3, prêt à coller, en anglais et
   en français (nouveautés de la fenêtre de version, détails, « ta partie est conservée »), libellés cités tels
   qu'affichés dans le jeu (« Sell what doesn't upgrade me »).
