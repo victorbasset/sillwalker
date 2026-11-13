@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1091, revue générale) : simulation 12 h, records des courses : lancier 44 → 62, gladiateur 44 → 64,
+  chaman 44 → 66 (réguliers). Performance (copie neuve de dev-data) : bande 19,4 %, panneau 20,6 %, mini 7,2 %,
+  icône 0,5 %. Captures en japonais : Quêtes (Plume), Héros (Bram), Bestiaire (Fenouil), mini : propres. Texte
+  japonais de la fin de partie : HP, Lv, pt, Qa, Qi, BGM (usuels). À surveiller : en zone 10, trois cinématiques
+  arrivent ensemble (héros libéré, chronique, rencontre de Bram) ; la file en garde 3 : juste.
 - 2026-11-13 (it. 1090, demande E, étape E4) : septième PNJ, Maman Brindille, l'éleveuse, tient les Familiers
   (chignon gris, tablier fleuri, un œuf dans les mains ; 5 répliques : « Chut… celui-là dort. Il a beaucoup couru
   aujourd'hui. »). La barre des Familiers est déjà pleine (œufs, intendant, expéditions) : nouvelle variante
