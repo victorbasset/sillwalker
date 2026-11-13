@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1017) : le joueur simulé dépense aussi ses points de talent restants dans les Maîtrises (rangs
+  illimités ; répartition du jeu, autoSpendTalents), comme un joueur attentif : la partie de fin de partie gardait
+  128 points dormants. hero-table 12 h : moyenne 63,3 → 63,7, écart 5,7 → 5,0 zones (61,3 artificier → 66,3 paladin) ;
+  semaine : guerrier et mage 293 (inchangé). Repères mis à jour (CLAUDE.md, hero-table.mjs).
 - 2026-11-13 (it. 1016) : onglet Compétences, arbre entièrement appris : « ✓ Arbre complet · 506 points au total » au
   lieu de « 362 points libres · 144 / 144 nœuds actifs », qui laissait croire qu'il restait à faire. « Quoi de neuf »,
   édition 47 : panoplies (équipement d'avant remis, bouton du Bestiaire), Carnet de route en colonnes et carte Zone

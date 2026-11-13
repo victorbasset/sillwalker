@@ -76,6 +76,9 @@ function playerTurn() {
   const voieIx = process.env.VOIE === "none" ? -1 : +(process.env.VOIE || 0);
   if (voieIx >= 0 && VOIES[g.S.cls] && !chosenVoie(g.S)) g.learnTalent(VOIES[g.S.cls][voieIx].id, 1);
   for (const b of TREES[g.S.cls]) for (const t of b.talents) g.learnTalent(t.id, 99);
+  // (it. 1017) points restants dans les Maîtrises (rangs illimités), comme un joueur attentif (répartition du jeu,
+  // autoSpendTalents) ; sans cela, la partie de fin de partie gardait 128 points de talent dormants
+  g.autoSpendTalents();
   // Duo (demande 17) : le joueur prend comme compagnon le premier héros libéré de l'autre portée.
   // Compagnon : le duo idéal (synergie) s'il est libre, sinon le premier héros possible (comme un vrai joueur).
   if (!g.S.partner && g.choosePartner) {

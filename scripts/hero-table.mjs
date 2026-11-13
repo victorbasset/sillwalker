@@ -1,7 +1,7 @@
 // Tableau d'équilibrage des 20 héros (it. 1012) : record des courses en N heures, moyenne de plusieurs graines,
 // simulations en parallèle (horloge virtuelle : résultats reproductibles). Trié du plus faible au plus fort.
 //   node --experimental-default-type=module scripts/hero-table.mjs [heures=12] [graines=7,3,11] [parallèle=8]
-// Repère (it. 1012, 12 h, graines 7/3/11) : de 61,0 (mage) à 66,7 (gladiateur), moyenne ≈ 63,3.
+// Repère (it. 1017, 12 h, graines 7/3/11, Maîtrises dépensées) : de 61,3 (artificier) à 66,3 (paladin), moyenne ≈ 63,7.
 import { spawn } from "node:child_process";
 import { CLASSES } from "../src/renderer/game/classes.js";
 
