@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1063) : scripts/max-save.mjs : sauvegarde « tout au maximum » (fin de partie + 12 345 victoires par
+  monstre, collection, pouvoirs, panoplies, 64 succès, 20 héros, reliques niveau 5, record 400). Débordements en fr,
+  ru, de à 1280 et 1920 : aucun ; texte extrait en russe et en allemand : rien de non traduit (« (complet) » de l'it.
+  1062 : 83 fois traduit). CLAUDE.md.
 - 2026-11-13 (it. 1062) : Bestiaire : un monstre au dernier palier (10 000 victoires) affichait « (complet) » en
   français dans toutes les langues (chaîne en dur, hors tx ; aucune sauvegarde de test n'atteint ce palier, 452 au
   plus : les extractions de texte ne pouvaient pas le voir). Traduit dans les 9 langues. Balayage des chaînes
