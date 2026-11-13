@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1101, revue générale) : simulation 12 h, records des courses : arbalétrier 41 → 62, danseur de lames
+  42 → 65, berserker 44 → 64 (réguliers). Performance (copie neuve de dev-data) : bande 19,3 %, panneau 20,8 %, mini
+  7,2 %, icône 0,5 %. Captures en coréen : Statistiques (Tico), Talents (Corvin), Familiers (Maman Brindille), mini :
+  propres. Texte coréen de la fin de partie (graphe entamé) : HP, Lv, Qa, Qi (usuels). Rien à corriger.
 - 2026-11-13 (it. 1100) : contrôle de santé après les ajouts du jour. scripts/fuzz.mjs 60 graines (1200 parties, les
   20 héros) : 0 bloquée. --crawl en russe sur la partie de fin de partie avec des nœuds du grand graphe pris (PNJ,
   graphe, réinitialisations, boutique, vente…) : 500 clics, aucune erreur.
