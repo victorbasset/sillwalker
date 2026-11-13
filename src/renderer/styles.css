@@ -1185,15 +1185,18 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 }
 /* (it. 1001) white-space sur le titre : en japonais, « 装備 » se coupait entre ses deux caractères (le texte nu d'un
    flex rétrécit jusqu'au plus petit morceau : un seul caractère en chinois, japonais et coréen) */
-@media (max-width: 1499px) {
-  #p-detail > h2 { flex-wrap: nowrap; white-space: nowrap; }
-  #p-detail > h2 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-}
+/* (it. 1025) à toutes les largeurs : à 1920 px en russe, « клик по предмету: подробности и ковка » prenait trois lignes
+   et faisait défiler l'Aventure de fin de partie (9 px) ; le sous-titre est une aide (tronqué, en entier au survol) */
+#p-detail > h2 { flex-wrap: nowrap; white-space: nowrap; }
+#p-detail > h2 small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 /* (it. 1003) carte Zone : « course : 136 · record : 142 » à côté du titre ; le titre ne se coupe pas (« 区域 / 136 »),
    le sous-titre passe à la ligne dans sa place */
 /* (it. 1010) nom de zone un peu plus petit sur un écran de portable : « Хрустальная Пещера / +4 » prenait deux lignes */
 @media (max-width: 1499px) { .zname { font-size: 16px; } }
 #p-zone > h2 { white-space: nowrap; }
+/* (it. 1025) « Zone précédente / Zone suivante » sur une même ligne : en russe, empilés, ils faisaient défiler l'Aventure
+   de fin de partie à 1920 px (colonne Zone : boss à trois capacités, relique) */
+#p-zone .row button { font-size: 13px; padding-left: 8px; padding-right: 8px; }
 #p-zone > h2 small { white-space: normal; text-align: right; }
 #p-zone > h2 small .nw { white-space: nowrap; }
 .synergy-on { color: var(--good); }

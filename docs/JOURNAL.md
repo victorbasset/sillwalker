@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1025) : lang-overflow mesure la fin de partie à d'autres largeurs (FIN_WIDTHS=1280,1366,1920 ; 1280
+  seulement par défaut). Défaut trouvé : en russe à 1920 px, l'Aventure de fin de partie défilait de 9 px ; colonne
+  Zone la plus haute (439 px de contenu pour 445), « Предыдущая зона / Следующая зона » empilés. Boutons de zone en
+  13 px, côte à côte dans toutes les langues ; sous-titre de l'Équipement tronqué sur une ligne à toutes les largeurs
+  (trois lignes en russe à 1920 px). fr, ru, de, pl, es, pt à 1280, 1366 et 1920 : sans défaut ; 10 langues sans défaut ;
+  autotest 204/204. CLAUDE.md.
 - 2026-11-13 (it. 1024) : autotest, « vendre ce qui n'améliore pas (après confirmation) » : même schéma fragile que la
   transmutation (clic, 150 ms, confirmation, 150 ms) : attentes sur l'état (bouton actif, fenêtre de confirmation,
   taille du sac) ; seul autre « confirm-ok » : la sortie finale. Trois passages à 204/204.

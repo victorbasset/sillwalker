@@ -36,19 +36,21 @@ for (const lang of langs) {
     // automatismes, constellations au maximum… L'it. 985 y a trouvé Ascension (80 px) et Aventure (35 px), invisibles
     // avec dev-data. Régénérer : DUMP=scripts/fixtures/endgame-save.json node … scripts/simulate.js 48 warrior
     const endFile = path.join(root, "scripts", "fixtures", "endgame-save.json");
-    if (fs.existsSync(endFile) && widths.includes(1280)) {
+    // (it. 1025) FIN_WIDTHS=1280,1366,1920 : la fin de partie à d'autres largeurs (1280 seulement par défaut)
+    const finWidths = (process.env.FIN_WIDTHS || "1280").split(",").map(Number).filter((fw) => widths.includes(fw) || process.env.FIN_WIDTHS);
+    if (fs.existsSync(endFile)) for (const fw of finWidths) {
       const end = JSON.parse(fs.readFileSync(endFile, "utf8"));
       fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...end, last: Date.now(), settings: { ...(end.settings || {}), lang } }));
       let out = "";
       try {
         out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
-          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, "--width=1280", "--overflow-report", "--exit-after=20"],
+          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, `--width=${fw}`, "--overflow-report", "--exit-after=20"],
           { encoding: "utf8", timeout: 60000, stdio: ["ignore", "pipe", "pipe"] });
       } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
       const m = out.match(/\[overflow\] (\d+) (.*)/);
       const res = m ? m[2].trim() : "pas de mesure";
       if (res !== "aucun") bad++;
-      console.log(`${lang.padEnd(3)} fin 1280 : ${res}`);
+      console.log(`${lang.padEnd(3)} fin ${fw} : ${res}`);
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 }
