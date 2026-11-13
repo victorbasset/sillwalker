@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1129, contrôles) : suite des it. 1127-1128, revue de tout ce qui se place d'après la souris ou
+  l'écran dans le panneau zoomé : bulles (maison, objets, nœuds) corrigées ; glissement des rangées (hscroll, it.
+  1053) et des vues (Compétences, zf) déjà ramenés au zoom ; déplacement de la fenêtre (windrag) : simple seuil.
+  Rien d'autre. Coût de l'onglet Compétences en fin de partie, grand graphe plein (618 nœuds) : premier rendu 3,8 ms,
+  rendu médian 3,7 ms (max 4,8), survol d'un nœud 0,3 ms (Aventure : 9 ms) : rien à optimiser.
 - 2026-11-13 (it. 1128) : bulle d'un OBJET avec « Taille de l'interface » à 130 % : affichée 158 à 324 px à droite de
   l'objet survolé et sortant du bas du panneau de 55 à 192 px (mesures de l'écran prises pour des px CSS, le défaut
   corrigé à l'it. 1053 pour les autres bulles). Ramenées au zoom, vraie largeur de la bulle : écart 6-10 px, dans le
