@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1111, revue générale) : 12 h simulées guerrier 61, rôdeur 62, mage 60 (repères tenus) ; --perf
+  (copie neuve de dev-data) bande 19,2 %, panneau 20,5 %, mini 7,2 %, icône 0,5 % ; fuzz 1200 parties, 0 bloquée ;
+  --crawl en polonais sur la fin de partie : 500 clics sans erreur ; textes russes de la fin de partie (grand graphe
+  et choix de palier compris) : seuls les suffixes communs des grands nombres (« Qa », voulus) sont latins ; captures
+  (Aventure fr, Boutique en, Compétences ja, mini) sans défaut. Rien à corriger.
 - 2026-11-13 (it. 1110) : semaine simulée après les paliers des maîtrises (it. 1084) et les retouches du grand graphe :
   guerrier 335 (comme à l'it. 1078), mage 324 (320) ; montée régulière (guerrier : 125, 150, 170, 184, 198, 200, 250…).
   Repère de CLAUDE.md mis à jour.
