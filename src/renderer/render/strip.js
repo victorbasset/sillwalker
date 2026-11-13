@@ -388,8 +388,14 @@ export class StripRenderer {
       return Math.abs(cx - bx) * 2 < w + b.w && cy < by + b.h && by < cy + h;
     }) || (obs && obs.some((o) => cx - w / 2 < o.r && o.l < cx + w / 2 && cy - lift < o.b && o.t < cy + h));
     // D'abord empilés (au-dessus, au-dessous), puis de côté (face à un boss, il n'y a de place que pour 2 ou 3 rangées).
-    const rows = [0, -h, h, -2 * h, 2 * h, 3 * h], side = Math.round(w * 0.5) + 16;
-    for (const dx of [0, side, -side, 2 * side, -2 * side, 3 * side]) for (const dy of rows) {
+    // (it. 1070, demande de Victor) les nombres partaient trop loin à droite du monstre : en fin de partie, un sur trois
+    // était décalé d'un à trois pas de côté (≈ 60 à 180 px), toujours à droite d'abord. Maintenant : toutes les rangées
+    // au-dessus du point, puis au-dessous, puis de petits pas de côté (demi-largeur + 4 px, deux au plus), à gauche et à
+    // droite tour à tour ; sinon sur place. Face à un boss (obstacles : son nom, large, au-dessus de lui), les anciens
+    // grands pas : il faut sortir de la largeur du nom.
+    const boss = !!obs?.length, rows = boss ? [0, -h, h, -2 * h, 2 * h, 3 * h] : [0, -h, -2 * h, -3 * h, h, 2 * h, 3 * h];
+    const side = Math.round(w * 0.5) + (boss ? 16 : 4);
+    for (const dx of boss ? [0, side, -side, 2 * side, -2 * side, 3 * side] : [0, -side, side, -2 * side, 2 * side]) for (const dy of rows) {
       const cx = x + dx, cy = Math.max(minY, Math.min(GROUND - h - 4, y + dy));
       if (!hits(cx, cy)) return { x: cx, y: cy };
     }

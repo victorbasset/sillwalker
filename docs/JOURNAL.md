@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1070, demande A de Victor) : nombres de dégâts trop loin à droite du monstre. Le point de départ
+  était bon (centré, ≈ 8 px à gauche du centre du monstre) ; la place libre cherchée pour ne pas recouvrir les autres
+  nombres partait d'abord à DROITE, d'un à trois pas d'≈ 60 px. Mesure en fin de partie (10 s, 71 nombres) : 21 décalés
+  à droite. Maintenant : toutes les rangées au-dessus du monstre, puis au-dessous, puis de petits pas de côté
+  (demi-largeur + 4 px, deux au plus), à gauche et à droite tour à tour ; face à un boss seulement, les anciens grands
+  pas (il faut sortir de la largeur de son nom). Après : ≈ 72 % sur place (48 % avant), 4 à 8 à droite, au plus 100 px
+  (≈ 180 avant). Capture : colonne au-dessus du monstre combattu. Autotest 2 × 207/207 (chevauchements, nom du boss).
 - 2026-11-13 (it. 1069) : retour après 8 h d'absence en fin de partie (russe, allemand, 1280 px) : résumé du journal
   propre (« За 8 ч : 312 монстров… », « Während 8 Std.: … »). Vu en passant : la partie de fin de partie
   (scripts/fixtures/endgame-save.json, produite par simulate.js) avait story.intro = false (la simulation n'ouvre jamais
@@ -4023,7 +4030,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 ## Idées
 
 - DEMANDES DE VICTOR (2026-11-13, midi), à traiter en premier, découpées en petites itérations :
-  A. Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
+  A. FAIT (it. 1070). Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
   B. Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
      mettre près d'eux. Les 4 objets ne tiennent pas sur Mac sans défilement horizontal : icônes et cartes plus petites.
   C. Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
