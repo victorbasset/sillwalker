@@ -250,4 +250,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   verrouillée et carte normale des héros, it. 505) : compter les occurrences avant de remplacer la première.
 - `sed` sur des chaînes JavaScript : attention aux `\u…` et aux `\n`, vérifier le résultat.
 - Le dossier `dist\win-unpacked` peut être verrouillé si l'utilisateur y lance le jeu.
-- Construire la version Windows : `npm run dist` (sous Linux, il faut Wine pour l'icône de l'exécutable).
+- Construire la version Windows : `npm run dist` ; pour itch.io : `npm run dist:itch` (zip Windows), `dist:itch:appimage`
+  (Linux), `npx electron-builder --mac zip --arm64 -c.extraMetadata.distribution=itch -c.directories.output=dist-itch`
+  (Mac à puce Apple, à renommer `-mac-arm64.zip`). Depuis le serveur, sans Wine, l'icône et la version de l'exécutable
+  Windows sont bien posées (vérifié it. 1144 avec resedit : 7 tailles, « Sillwalker 0.1.3 »).
+  Une version CONSTRUITE ignore les options de dev (`--user-data`, `--shot`…) : la lancer pour un essai ouvre le
+  dossier de sauvegarde par défaut (`~/.config/Sillwalker`) ; ne le faire que si ce dossier n'existe pas, et le
+  supprimer ensuite (it. 1144 : partie neuve créée puis retirée), ou passer `HOME=<dossier temporaire>`.

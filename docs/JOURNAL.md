@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1144, suite) : versions 0.1.3 construites et déposées dans Médias/dist-itch (Linux AppImage, Mac
+  arm64, Windows zip, construit sur le serveur sans Wine : icône et version de l'exécutable vérifiées avec resedit).
+  Essai de la version Linux construite, HOME temporaire, partie restée à la 0.1.2 : « version hors Steam (itch) »,
+  partie chargée, newsSeen 32 → 58 (fenêtre de la 0.1.3 montrée). Leçon : une version construite ignore
+  --user-data ; un premier essai sans HOME temporaire a créé ~/.config/Sillwalker sur le serveur (partie neuve de
+  25 s, dossier inexistant avant), supprimé aussitôt ; CLAUDE.md le dit désormais.
 - 2026-11-13 (it. 1144, demande de Victor) : VERSION 0.1.3 (package.json). La 0.1.2 (itch.io) s'arrêtait à l'édition
   32 de « Quoi de neuf » ; 26 éditions depuis, la fenêtre n'en montre que 3. Notes de version (news.js,
   NEWS_RELEASES, releaseFor) : 10 nouveautés majeures choisies (grand graphe, personnages, talents et maîtrises,
