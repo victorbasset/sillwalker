@@ -426,7 +426,7 @@ import { SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, active
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, synergyEffects } from "../src/renderer/game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode } from "../src/renderer/game/skillgraph.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -3542,14 +3542,20 @@ test("grand graphe : fermé tant que la fleur n'est pas complète ; voies exclus
 });
 
 test("grand graphe : synergies (« si je suis tanky, je tape plus fort », « plus je suis riche… ») (it. 1075)", () => {
-  assert.equal(synergyEffects({ synHpAtk: 5, hpPct: 50 }, 0).atkPct, 25, "PV → attaque");
-  assert.equal(Math.round(synergyEffects({ synGoldAtk: 1 }, 1e9).atkPct), 9, "or → attaque (puissances de 10)");
-  assert.equal(synergyEffects({ synAtkHp: 2, atkPct: 50 }, 0).hpPct, 10, "attaque → PV, depuis l'attaque avant synergie");
-  assert.deepEqual(synergyEffects({ hpPct: 80 }, 1e20), {}, "rien sans nœud de synergie");
+  // (it. 1078) étage multiplicatif : PV et attaque comptent par DOUBLEMENT, l'or par puissance de 10
+  assert.equal(graphLayer({ synHpAtk: 5 }, { hpPct: 300 }, 0).atk, 10, "PV ×4 (deux doublements) → +10 % d'attaque");
+  assert.equal(Math.round(graphLayer({ synGoldAtk: 1 }, {}, 1e9).atk), 9, "or → attaque (puissances de 10)");
+  assert.equal(graphLayer({ synAtkHp: 2 }, { atkPct: 700 }, 0).hp, 6, "attaque ×8 → +6 % de PV");
+  assert.equal(graphLayer({ atkPct: 40 }, { atkPct: 5000 }, 0).atk, 40, "le +40 % du graphe reste entier (multiplicatif)");
+  assert.equal(graphLayer({}, { hpPct: 80 }, 1e20).atk, 0, "rien sans nœud de synergie");
   const S = freshState(); S.lvl = 600; S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
   const before = heroStats(S).atk;
   S.skills.outer = ["vitality-gate", ...Array.from({ length: 30 }, (_, k) => "vitality-v2-" + k)];
   assert(heroStats(S).atk > before * 1.05, "la voie du colosse furieux fait taper plus fort");
+  // (it. 1078) même avec d'énormes bonus d'ailleurs, 5 nœuds d'attaque du graphe se sentent (multiplicatif)
+  const S2 = freshState(); S2.lvl = 600; S2.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
+  const b2 = heroStats(S2).atk; S2.skills.outer = ["force-gate", "force-v0-0", "force-v0-1", "force-v0-2", "force-v0-3"];
+  assert(heroStats(S2).atk > b2 * 1.015, "petits nœuds d’attaque : au moins +1,5 %");
 });
 
 test("grand graphe : prise, annulation (le graphe d'abord) et réinitialisation complète (it. 1077)", () => {
@@ -3562,6 +3568,18 @@ test("grand graphe : prise, annulation (le graphe d'abord) et réinitialisation 
   g.undoSkill(); assert.equal(g.S.skills.outer.length, 1, "annuler retire d'abord le dernier nœud du graphe");
   assert.equal(g.S.skills.order.length, nFlower, "la fleur reste");
   g.resetSkills(); assert.equal(g.S.skills.outer.length, 0); assert.equal(g.S.skills.order.length, 0);
+});
+
+test("grand graphe : dépense automatique dans une seule voie par région (it. 1078)", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 2000; g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];
+  const n = g.autoSpendGraph();
+  assert(n > 200, "tout ce qui est permis : " + n);
+  for (const reg of ["force", "vitality", "fortune"]) {
+    const br = new Set(g.S.skills.outer.map((id) => SKILL_GRAPH.nodes[id]).filter((x) => x.region === reg && x.branch != null).map((x) => x.branch));
+    assert.equal(br.size, 1, "une seule voie : " + reg);
+  }
+  assert.equal(nextGraphNode(g.S), null, "plus rien de prenable");
 });
 
 test("grand graphe : nœuds inconnus ou en double retirés de la sauvegarde (it. 1075)", () => {

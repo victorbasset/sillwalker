@@ -2616,5 +2616,7 @@ export const KEYS = [
   "Couronne · {0}",
   "Voie fermée : dans cette région, tu suis « {0} ».",
   "Choisir cette voie ferme les deux autres de la région.",
-  "Grand graphe : {n} point libre · {2} / {3} nœuds|Grand graphe : {n} points libres · {2} / {3} nœuds"
+  "Grand graphe : {n} point libre · {2} / {3} nœuds|Grand graphe : {n} points libres · {2} / {3} nœuds",
+  "d’attaque par doublement de tes points de vie",
+  "de points de vie par doublement de ton attaque"
 ];

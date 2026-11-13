@@ -26,7 +26,7 @@ const SECTOR_PREF = ["force", "vitality", "fortune", "agility", "mastery", "arca
 function takeSkills() {
   for (;;) {
     const avail = Object.keys(SKILL_TREE.nodes).filter((id) => canTakeSkill(g.S, id));
-    if (!avail.length) return;
+    if (!avail.length) { g.autoSpendGraph(); return; } // (it. 1078) fleur pleine : le grand graphe
     avail.sort((a, b) => {
       const na = SKILL_TREE.nodes[a], nb = SKILL_TREE.nodes[b];
       const w = (n) => (n.kind === "keystone" ? -5 : n.kind === "notable" ? -2 : 0) + SECTOR_PREF.indexOf(n.sector);

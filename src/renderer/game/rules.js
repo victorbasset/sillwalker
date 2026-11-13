@@ -11,7 +11,7 @@ import { petEffects } from "./pets.js";
 import { prestigeEffects } from "./prestige.js";
 import { bestiaryEffects } from "./bestiary.js";
 import { skillTreeEffects } from "./skilltree.js";
-import { skillGraphEffects, synergyEffects } from "./skillgraph.js";
+import { skillGraphEffects, graphLayer, GRAPH_LAYER_KEYS } from "./skillgraph.js";
 import { setEffects, SETS, SET_KEYS, SET_CHANCE } from "./sets.js";
 import { BUFF_EFFECTS, workshopEffects } from "./shop.js";
 import { dayModEffects } from "./daymods.js";
@@ -127,7 +127,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   // Toutes les sources de bonus : classe + talents, pouvoirs légendaires,
   // familier actif, constellations, bestiaire (puis élixirs ci-dessous).
   const t = talentEffects(S);
-  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), skillGraphEffects(S), dayModEffects(S), codexEffects(S), workshopEffects(S), guildEffects(S), eventsSeenEffects(S), affixesSeenEffects(S)]) {
+  for (const src of [powerEffects(equip), setEffects(equip), petEffects(S), prestigeEffects(S), bestiaryEffects(S), skillTreeEffects(S), dayModEffects(S), codexEffects(S), workshopEffects(S), guildEffects(S), eventsSeenEffects(S), affixesSeenEffects(S)]) {
     for (const k in src) t[k] = (t[k] || 0) + src[k];
   }
   // Compagnon du duo : une part de sa capacité (demande 17).
@@ -138,12 +138,18 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   if (buffs) for (const id in S.buffs || {}) if (S.buffs[id] > 0 && BUFF_EFFECTS[id]) {
     for (const k in BUFF_EFFECTS[id]) t[k] = (t[k] || 0) + BUFF_EFFECTS[id][k];
   }
-  // (it. 1075) synergies du grand graphe (skillgraph.js) : un axe qui compte dans un autre, à partir des totaux ci-dessus
-  { const syn = synergyEffects(t, S.gold); for (const k in syn) t[k] = (t[k] || 0) + syn[k]; }
+  // (it. 1075-1078) grand graphe (skillgraph.js) : ses effets ordinaires s'ajoutent ; attaque, PV, défense et synergies
+  // forment un étage multiplicatif à part (graphLayer), appliqué plus bas
+  const ge = skillGraphEffects(S);
+  for (const k in ge) if (!GRAPH_LAYER_KEYS.has(k)) t[k] = (t[k] || 0) + ge[k];
+  const gl = graphLayer(ge, t, S.gold);
+  if (gl.critDmg) t.critDmg = (t.critDmg || 0) + gl.critDmg;
+  if (gl.burn) t.burn = (t.burn || 0) + gl.burn;
   const v = (k) => t[k] || 0;
   s.hp *= (cls.mul.hp || 1) * (1 + v("hpPct") / 100);
   s.atk *= (cls.mul.atk || 1) * (1 + v("atkPct") / 100);
   s.def *= (cls.mul.def || 1) * (1 + v("defPct") / 100);
+  s.hp *= 1 + gl.hp / 100; s.atk *= 1 + gl.atk / 100; s.def *= 1 + gl.def / 100;
   s.crit = Math.min(75, s.crit + (cls.add.crit || 0) + v("crit"));
   s.spd = Math.min(300, s.spd + (cls.add.spd || 0) + v("spd"));
   s.gold += v("gold");

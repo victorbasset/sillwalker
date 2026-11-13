@@ -1487,4 +1487,6 @@ export default {
   2612: "Ścieżka zamknięta: w tym regionie podążasz „{0}”.",
   2613: "Wybór tej ścieżki zamyka dwie pozostałe w regionie.",
   2614: "Wielki graf: {n} wolny punkt · {2} / {3} węzłów|Wielki graf: {n} wolne punkty · {2} / {3} węzłów|Wielki graf: {n} wolnych punktów · {2} / {3} węzłów",
+  2615: "ataku za każde podwojenie twojego zdrowia",
+  2616: "zdrowia za każde podwojenie twojego ataku",
 };

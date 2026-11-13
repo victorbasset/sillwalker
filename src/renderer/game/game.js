@@ -8,7 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
-import { SKILL_GRAPH, takeGraphNode } from "./skillgraph.js";
+import { SKILL_GRAPH, takeGraphNode, nextGraphNode } from "./skillgraph.js";
 import { RELICS, RELIC_IDS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
 /** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
 const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
@@ -2562,10 +2562,9 @@ export class Game {
       if (!this.takeSkill(avail[0])) break;
       active.add(avail[0]); n++;
     }
-    return n;
+    return n + this.autoSpendGraph(); // (it. 1078) la fleur pleine, la suite va au grand graphe
   }
 
-  /** Retire le dernier nœud choisi (seul un nœud « feuille » peut partir sans casser le chemin). */
   /** (it. 1077) Prendre un nœud du grand graphe autour de la fleur (skillgraph.js). */
   takeGraph(id) {
     if (!takeGraphNode(this.S, id)) return false;
@@ -2577,6 +2576,14 @@ export class Game {
     return true;
   }
 
+  /** (it. 1078) Dépense automatique dans le grand graphe (voie déjà choisie, sinon celle par défaut) ; renvoie le nombre. */
+  autoSpendGraph() {
+    let n = 0;
+    for (let guard = 0; guard < 700; guard++) { const id = nextGraphNode(this.S); if (!id || !this.takeGraph(id)) break; n++; }
+    return n;
+  }
+
+  /** Retire le dernier nœud choisi (seul un nœud « feuille » peut partir sans casser le chemin). */
   undoSkill() {
     // (it. 1077) le grand graphe d'abord (ses nœuds ont été pris après toute la fleur)
     const o = this.S.skills.outer?.length ? this.S.skills.outer : this.S.skills.order;

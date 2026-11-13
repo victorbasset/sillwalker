@@ -1487,4 +1487,6 @@ export default {
   2612: "Senda cerrada: en esta región sigues «{0}».",
   2613: "Elegir esta senda cierra las otras dos de la región.",
   2614: "Gran grafo: {n} punto libre · {2} / {3} nodos|Gran grafo: {n} puntos libres · {2} / {3} nodos",
+  2615: "de ataque por cada vez que se duplican tus puntos de vida",
+  2616: "de puntos de vida por cada vez que se duplica tu ataque",
 };

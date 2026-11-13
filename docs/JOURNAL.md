@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1078, demande D, étape D5) : équilibrage du grand graphe. Ses +% s'ajoutaient aux autres sources
+  (des milliers de % en fin de partie) : 5 nœuds d'attaque valaient +0,007 %. Attaque, PV et défense du graphe forment
+  maintenant un étage MULTIPLICATIF à part (graphLayer, heroStats) ; les synergies PV ↔ attaque suivent le DOUBLEMENT
+  du multiplicateur (log2 ; libellés « par doublement de tes points de vie », traduits), l'or sa puissance de 10, les
+  autres sont plafonnées par le jeu. Graphe complet à pleine valeur : puissance ×126 (≈ 60 zones) ; échelle
+  GRAPH_SCALE 0,3 : attaque ×2,3, PV ×1,4, puissance ×6,1 (≈ 23 zones). Dépense automatique (Game.autoSpendGraph :
+  voie déjà choisie, sinon une voie par défaut, grands nœuds d'abord) : le bouton « Dépenser automatiquement » et la
+  dépense à chaque niveau continuent dans le graphe une fois la fleur pleine ; simulate.js l'utilise. Semaine
+  simulée, avant → après : guerrier 293 → 335, mage 293 → 320, montée régulière (à pleine valeur : 128 → 236 en une
+  course). 2 tests (245) ; autotest 208/208. CLAUDE.md (repère).
 - 2026-11-13 (it. 1077, demande D, étape D3) : le grand graphe s'ouvre quand toute la fleur est acquise. Clic (ou
   Entrée au clavier) sur un nœud relié pour l'apprendre ; la porte de chaque région s'ouvre depuis la clé de voûte de
   son pétale ; choisir le premier nœud d'une voie ferme les deux autres de la région (bulle : « Choisir cette voie
@@ -4094,7 +4104,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à
      la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 (FAIT, it. 1075) données et règles (nœuds,
      liens, coûts, effets ; sauvegarde, migration, tests) ; D2 (FAIT, it. 1076) affichage grisé autour de la fleur ; D3 (FAIT, it. 1077) achat et
-     effets ; D4 choix exclusifs, réinitialisation ; D5 équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
+     effets ; D4 choix exclusifs, réinitialisation ; D5 (FAIT, it. 1078) équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
      « Quoi de neuf ».
      Précision de Victor (même jour) : des nœuds de SYNERGIE, qui font compter un axe dans un autre, pour chacun des
      6 pétales : « si je suis tanky, je tape plus fort » (attaque selon les PV), « plus je suis riche, plus je fais

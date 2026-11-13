@@ -1487,4 +1487,6 @@ export default {
   2612: "Caminho fechado: nesta região você segue «{0}».",
   2613: "Escolher este caminho fecha os outros dois da região.",
   2614: "Grande grafo: {n} ponto livre · {2} / {3} nós|Grande grafo: {n} pontos livres · {2} / {3} nós",
+  2615: "de ataque a cada vez que seus pontos de vida dobram",
+  2616: "de pontos de vida a cada vez que seu ataque dobra",
 };

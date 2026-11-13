@@ -1487,4 +1487,6 @@ export default {
   2612: "Pfad geschlossen: In dieser Region folgst du „{0}“.",
   2613: "Diesen Pfad zu wählen schließt die beiden anderen der Region.",
   2614: "Großer Graph: {n} freier Punkt · {2} / {3} Knoten|Großer Graph: {n} freie Punkte · {2} / {3} Knoten",
+  2615: "Angriff je Verdopplung deiner Lebenspunkte",
+  2616: "Lebenspunkte je Verdopplung deines Angriffs",
 };

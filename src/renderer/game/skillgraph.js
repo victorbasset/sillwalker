@@ -162,28 +162,59 @@ export function takeGraphNode(S, id) {
   return true;
 }
 
+/** (it. 1078) Échelle de tous les effets du graphe (équilibre ; partie de fin de partie, graphe complet : à 1, puissance
+ *  ×126, une soixantaine de zones ; à 0,3, attaque ×2,3, PV ×1,4, puissance ×6,1, ≈ 23 zones). Les valeurs écrites dans
+ *  REGIONS restent lisibles ; l'échelle s'applique ici. */
+export const GRAPH_SCALE = 0.3;
+
 /** Effets du grand graphe (effets ordinaires et syn*). */
 export function skillGraphEffects(S) {
   const out = {};
   for (const id of activeGraphSet(S)) {
     const eff = SKILL_GRAPH.nodes[id]?.eff || {};
-    for (const k in eff) out[k] = (out[k] || 0) + eff[k];
+    for (const k in eff) out[k] = (out[k] || 0) + eff[k] * GRAPH_SCALE;
   }
   return out;
 }
 
 /**
- * Synergies (rules.js, heroStats) : à partir des totaux d'effets AVANT synergies (pas de boucle : l'attaque gagnée par
- * les PV ne redonne pas de PV), renvoie les bonus à ajouter. gold : or possédé.
+ * (it. 1078) Étage du grand graphe, appliqué À PART dans heroStats (rules.js) : attaque, PV et défense du graphe
+ * MULTIPLIENT le résultat (en fin de partie, les autres sources totalisent des milliers de % : un +1 % additif ne
+ * valait rien, +0,007 % pour 5 nœuds). Les synergies suivent le DOUBLEMENT des PV / de l'attaque (log2 du multiplicateur
+ * total, sinon les bonus énormes de fin de partie les emballaient), la puissance de 10 de l'or, l'esquive, la vitesse
+ * et les critiques (plafonnées par le jeu). ge : effets du graphe ; t : totaux des autres sources ; gold : or possédé.
+ * Renvoie { atk, hp, def } (% multiplicatifs) et { critDmg, burn } (% additifs).
  */
-export function synergyEffects(t, gold) {
-  const v = (k) => t[k] || 0, out = {};
-  const add = (k, x) => { if (x) out[k] = (out[k] || 0) + x; };
-  add("atkPct", v("synHpAtk") * Math.max(0, v("hpPct")) / 10);
-  add("atkPct", v("synGoldAtk") * Math.log10(1 + Math.max(0, gold || 0)));
-  add("hpPct", v("synAtkHp") * Math.max(0, v("atkPct")) / 10);
-  add("critDmg", v("synSpdCrit") * Math.max(0, v("spd")) / 10);
-  add("burn", v("synCritBurn") * Math.max(0, v("crit")));
-  add("atkPct", v("synDodgeAtk") * Math.max(0, v("dodge")));
-  return out;
+export function graphLayer(ge, t, gold) {
+  const v = (o, k) => o[k] || 0;
+  const hpRatio = (1 + Math.max(0, v(t, "hpPct")) / 100) * (1 + v(ge, "hpPct") / 100);
+  const atkRatio = (1 + Math.max(0, v(t, "atkPct")) / 100) * (1 + v(ge, "atkPct") / 100);
+  return {
+    atk: v(ge, "atkPct") + v(ge, "synHpAtk") * Math.log2(hpRatio) + v(ge, "synGoldAtk") * Math.log10(1 + Math.max(0, gold || 0))
+      + v(ge, "synDodgeAtk") * Math.min(40, Math.max(0, v(t, "dodge") + v(ge, "dodge"))),
+    hp: v(ge, "hpPct") + v(ge, "synAtkHp") * Math.log2(atkRatio),
+    def: v(ge, "defPct"),
+    critDmg: v(ge, "synSpdCrit") * Math.min(300, Math.max(0, v(t, "spd") + v(ge, "spd"))) / 10,
+    burn: v(ge, "synCritBurn") * Math.min(75, Math.max(0, 5 + v(t, "crit") + v(ge, "crit"))),
+  };
+}
+/** Clés du graphe traitées par graphLayer (les autres s'ajoutent aux totaux comme partout). */
+export const GRAPH_LAYER_KEYS = new Set(["atkPct", "hpPct", "defPct", "synHpAtk", "synGoldAtk", "synAtkHp", "synSpdCrit", "synCritBurn", "synDodgeAtk"]);
+
+/** Voie suivie par défaut quand le joueur laisse le jeu dépenser (et dans simulate.js) : la plus utile au combat. */
+export const DEFAULT_BRANCH = { force: 0, agility: 2, arcane: 2, vitality: 2, fortune: 2, mastery: 2 };
+
+/** Prochain nœud à prendre automatiquement : dans la voie déjà choisie (sinon la voie par défaut), grands nœuds
+ *  d'abord, puis le plus proche de la fleur. null s'il n'y en a plus. */
+export function nextGraphNode(S) {
+  const N = SKILL_GRAPH.nodes;
+  const ok = Object.keys(N).filter((id) => {
+    if (!canTakeGraph(S, id)) return false;
+    const n = N[id];
+    if (n.group) { const c = chosenBranch(S, n.region); return c >= 0 ? c === n.branch : n.branch === DEFAULT_BRANCH[n.region]; }
+    return true;
+  });
+  if (!ok.length) return null;
+  const w = (n) => ({ voiekey: -3, crown: -3, notable: -2, gate: -1 }[n.kind] || 0) * 400 + Math.hypot(n.x, n.y);
+  return ok.sort((a, b) => w(N[a]) - w(N[b]))[0];
 }

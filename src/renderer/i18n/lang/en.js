@@ -1487,4 +1487,6 @@ export default {
   2612: "Path closed: in this region you follow “{0}”.",
   2613: "Choosing this path closes the region’s other two.",
   2614: "Great graph: {n} free point · {2} / {3} nodes|Great graph: {n} free points · {2} / {3} nodes",
+  2615: "attack per doubling of your health",
+  2616: "health per doubling of your attack",
 };
