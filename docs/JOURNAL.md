@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1103) : nouvelle décomposition de la bande en fin de partie (éléments masqués un à un, copies
+  neuves) : base 24,3 % (GPU 10,1, page 12,7) ; sans les nombres de dégâts 23,4, sans les effets de sorts 23,4, sans
+  le héros 23,7, sans étincelles / pièces / feux follets 23,4, sans barres de vie et affixes 24,2. Plus aucun poste
+  au-dessus d'un point : les gros gains faciles sont faits (38 → 24 % aux it. 1064-1066). Le reste se partage entre
+  le script du jeu (≈ 12,7) et le dessin du décor.
 - 2026-11-13 (it. 1102) : valeur fausse dans le grand graphe : la bulle d'un nœud (et son libellé pour les lecteurs
   d'écran) montrait la valeur écrite dans les données, alors que l'échelle GRAPH_SCALE (0,3, it. 1078) s'applique au
   calcul : « +2 % d'attaque » pour 0,6 % réels. graphNodeEffects (valeur réelle, arrondie au centième) ; test logique :
@@ -4278,7 +4283,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
   (ex. +0,1 % d'attaque et de PV), affiché « Points en surplus : +36 % » ; à mesurer avec simulate.js (semaine).
-- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; it. 1064 : → 32 %, anneaux de sorts ; it. 1065 : → 24 %, entaille du héros ; it. 1066 : projectiles des héros à distance, 31 → 24,5 % ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; it. 1064 : → 32 %, anneaux de sorts ; it. 1065 : → 24 %, entaille du héros ; it. 1066 : projectiles des héros à distance, 31 → 24,5 % ; it. 1103 : plus aucun poste au-dessus d'un point (voir « Fait ») ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
   (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium
