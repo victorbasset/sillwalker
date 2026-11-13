@@ -942,7 +942,7 @@ export class Panel {
     const mb = $(this.root, "#mbody");
     mb.innerHTML = `<div class="modalwide">${body.innerHTML}</div>`;
     // (it. 744) une case à cocher (Automatismes) ne ferme pas la fenêtre : on peut en changer plusieurs
-    mb.firstElementChild.addEventListener("click", (e) => { if (e.target.closest("[data-tab], [data-action]") && !e.target.closest("label.toggle")) $(this.root, "#modal").hidden = true; });
+    mb.firstElementChild.addEventListener("click", (e) => { if (e.target.closest("[data-tab], [data-action]") && !e.target.closest("label.toggle, [data-keepopen]")) $(this.root, "#modal").hidden = true; }); // (it. 1133) data-keepopen : choix en série
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }

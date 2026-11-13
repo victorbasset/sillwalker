@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1133, moins de clics) : la fenêtre « Choisir les bonus des paliers » se refermait à chaque choix
+  (tout bouton d'action dans la grande fenêtre la ferme) : régler 6 paliers demandait de la rouvrir 6 fois. Les
+  boutons des paliers portent data-keepopen (exception, comme les cases des Automatismes) et la mise en évidence suit
+  le choix sur place (aria-pressed compris). Le contrôle d'autotest du choix vérifie la fenêtre encore ouverte et la
+  bonne option en évidence. Autotest 223/223.
 - 2026-11-13 (it. 1132) : « Quoi de neuf », édition 57 : sources de puissance, paliers de maîtrise réglables
   d'avance, bulles à leur place au zoom 130 %. 9 langues (i18n-quotes : « Toutes les statistiques » à citer tel que
   traduit en anglais, allemand et chinois : corrigé) ; pire cas sans défilement ; autotest 223/223 ; 10 langues sans

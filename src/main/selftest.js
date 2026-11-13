@@ -271,6 +271,9 @@ async function runSelfTest(strip) {
       if (out || cut) return "boutons hors " + out + ", étiquettes coupées " + cut;
       const b = document.querySelector('#modal [data-action="t-mpick"][data-at="10"][data-opt="b"]'); if (!b) return "pas d'option b";
       b.click(); await new Promise((r) => setTimeout(r, 100));
+      // (it. 1133) la fenêtre reste ouverte et l'option choisie s'y met en évidence (6 paliers d'affilée)
+      if (document.querySelector('#modal').hidden) return "fenêtre refermée par le choix";
+      if (!b.classList.contains("on") || document.querySelector('#modal [data-at="10"][data-opt="a"]').classList.contains("on")) return "mise en évidence pas à jour";
       return "choix " + ((S.masteryPicks || {})["ms_power:10"] || "aucun");
     } finally { S.masteryPicks = keep.picks; if (keep.r == null) delete S.talents[S.cls].ms_power; else S.talents[S.cls].ms_power = keep.r; T.sel = null; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
   check("onglet Talents : un bonus de palier de maîtrise se choisit", mPick === "choix b", mPick);

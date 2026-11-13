@@ -134,7 +134,7 @@ export class TalentsTab {
     // (it. 1125) paliers atteints dans cette course, et ceux déjà atteints avant une ascension (réglés d'avance)
     const S = this.game.S, P = S.masteryPicks || {}, got = masteryMilestones(id, 400, S).got.filter((g) => g.b && (r >= g.at || P[id + ":" + g.at]));
     if (!got.length) return "";
-    const opt = (g, o) => `<button class="quiet mpick${g.pick === o ? " on" : ""}" data-action="t-mpick" data-id="${id}" data-at="${g.at}" data-opt="${o}" aria-pressed="${g.pick === o}">${esc(describeEffects(g[o]))}</button>`;
+    const opt = (g, o) => `<button class="quiet mpick${g.pick === o ? " on" : ""}" data-action="t-mpick" data-keepopen data-id="${id}" data-at="${g.at}" data-opt="${o}" aria-pressed="${g.pick === o}">${esc(describeEffects(g[o]))}</button>`;
     // (it. 1108) dans la ligne « Paliers atteints » (une ligne de moins : l'onglet défilait de 15 px à 1280 px)
     return `<details class="more mpickbox" data-keep="ms-picks"><summary title="${esc(tx("Choisir les bonus des paliers ({0})", { 0: got.length }))}" data-modal-title="${esc(tx("Choisir les bonus des paliers ({0})", { 0: got.length }))}">${tx("choisir")} · ${got.length}</summary>
       <ul class="lines mpicks">${got.map((g) => `<li${r >= g.at ? "" : ` class="later" title="${esc(tx("Pas encore atteint dans cette course : réglé d’avance."))}"`}><span>${tx("rang {0}", { 0: g.at })}${r >= g.at ? "" : " ⏳"}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul></details>`;
@@ -162,7 +162,10 @@ export class TalentsTab {
       if (this.armed === b.dataset.id) { this.armed = null; g.learnTalent(b.dataset.id, 1); }
       else { this.armed = b.dataset.id; setTimeout(() => { if (this.armed === b.dataset.id) { this.armed = null; g.changed(); } }, 4000); }
     }
-    else if (a === "t-mpick") g.pickMastery(b.dataset.id, +b.dataset.at, b.dataset.opt); // (it. 1107)
+    // (it. 1107) ; (it. 1133) la fenêtre reste ouverte (6 paliers d'affilée) : la mise en évidence suit sur place
+    else if (a === "t-mpick" && g.pickMastery(b.dataset.id, +b.dataset.at, b.dataset.opt)) {
+      for (const x of b.parentElement.querySelectorAll(".mpick")) { const on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-pressed", String(on)); }
+    }
     else if (a === "t-auto") g.autoSpendTalents();
     else if (a === "t-autoon") { g.S.settings.autoTalents = b.checked; if (b.checked) g.autoSpendTalents(); g.changed(); }
     else if (a === "t-reset") g.resetTalents();
