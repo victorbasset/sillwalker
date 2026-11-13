@@ -121,9 +121,9 @@ export class TalentsTab {
         ${next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}
         ${ix.branch === "mastery" ? (() => { const ms = masteryMilestones(t.id, r, S); // (it. 1084) paliers atteints et prochain
           // le nombre seulement (la liste, longue, dans la bulle : en allemand, elle faisait défiler la carte)
-          return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${ms.got.length ? ms.got.length + " ⓘ" : tx("aucun")}</span></li>`
-            + (ms.next ? `<li><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${esc(describeEffects(ms.next.a) + (ms.next.b ? " " + tx("ou") + " " + describeEffects(ms.next.b) : ""))}</span></li>` : ""); })() : ""}</ul>
-        ${ix.branch === "mastery" ? this.picksHTML(t.id, r) : ""}
+          return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${ms.got.length ? (this.picksHTML(t.id, r) || ms.got.length + " ⓘ") : tx("aucun")}</span></li>`
+            // (it. 1108) les deux options au survol (sur deux lignes, elles faisaient défiler l'onglet à 1280 px)
+            + (ms.next ? `<li title="${esc(describeEffects(ms.next.a) + (ms.next.b ? " " + tx("ou") + " " + describeEffects(ms.next.b) : ""))}"><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${ms.next.b ? "A / B ⓘ" : esc(describeEffects(ms.next.a))}</span></li>` : ""); })() : ""}</ul>
         ${why && r < t.max ? `<p class="note">${esc(why)}${cend()}</p>` : ""}
       </div>`;
   }
@@ -134,7 +134,8 @@ export class TalentsTab {
     const S = this.game.S, got = masteryMilestones(id, r, S).got.filter((g) => g.b);
     if (!got.length) return "";
     const opt = (g, o) => `<button class="quiet mpick${g.pick === o ? " on" : ""}" data-action="t-mpick" data-id="${id}" data-at="${g.at}" data-opt="${o}" aria-pressed="${g.pick === o}">${esc(describeEffects(g[o]))}</button>`;
-    return `<details class="more" data-keep="ms-picks"><summary>${tx("Choisir les bonus des paliers ({0})", { 0: got.length })}</summary>
+    // (it. 1108) dans la ligne « Paliers atteints » (une ligne de moins : l'onglet défilait de 15 px à 1280 px)
+    return `<details class="more mpickbox" data-keep="ms-picks"><summary title="${esc(tx("Choisir les bonus des paliers ({0})", { 0: got.length }))}">${tx("choisir")} · ${got.length}</summary>
       <ul class="lines mpicks">${got.map((g) => `<li><span>${tx("rang {0}", { 0: g.at })}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul></details>`;
   }
 

@@ -654,6 +654,7 @@ details.more summary:hover { color: var(--accent); }
 .talent .tr .mnext { font-size: 11px; color: var(--muted); white-space: nowrap; }
 .talent.mastery .tr { white-space: nowrap; }
 /* (it. 1107) bonus au choix des paliers de maîtrise (grande fenêtre) : l'option choisie en évidence */
+.mpickbox > summary { margin: 0; } /* (it. 1108) dans la ligne « Paliers atteints » ; affichage par défaut (inline / inline-block : le contenu replié se rendait) */
 .mpicks .mpick { font-size: 12px; padding: 2px 6px; background: var(--chip); color: var(--ink); white-space: normal; text-align: left; }
 .mpicks .mpick.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, var(--panel)); color: var(--ink); }
 .talent.mastery:has(.tmax) .mnext { display: none; } /* avec la pastille « tout », la tuile débordait (polonais, 1280 px) : le palier reste dans le détail */

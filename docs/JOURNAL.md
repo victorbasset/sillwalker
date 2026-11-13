@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1108) : contrôle d'autotest du choix d'un bonus de palier (grande fenêtre, option b enregistrée).
+  Il a montré qu'une maîtrise sélectionnée allongeait la barre latérale des Talents (onglet à 1280 px : +15 px) : le
+  lien « choisir · 6 » prend la place de la valeur « Paliers atteints » (une ligne de moins), les deux options du
+  prochain palier passent au survol (« A / B ⓘ »). Le contrôle des lignes trop larges mesurait aussi le contenu d'un
+  <details> replié (dans Chromium, getClientRects y répond) : exclu. Maîtrise sélectionnée, 1280 px : fr 471/471,
+  de 489/489, ru 511/511 (sans défilement). README : choix des paliers, réinitialisation et annonce du grand graphe.
+  Autotest 220/220.
 - 2026-11-13 (it. 1107, demande C : « plus intéressant en termes de choix ») : chaque palier de maîtrise (10 à 400)
   propose deux bonus au choix (MASTERY_ALT ; « a », celui de l'it. 1084, par défaut : rien ne change pour une partie
   existante). Ex. puissance, rang 10 : +2 pts de critique OU +4 % de vitesse d'attaque ; endurance, rang 400 : +25 %

@@ -257,6 +257,16 @@ async function runSelfTest(strip) {
   check("onglet Talents : Maj + Entrée ajoute un rang, le focus reste sur le talent", shiftMax === "un focus", shiftMax);
   await click('[data-action="t-auto"]');
   await sleep(200);
+  // (it. 1107-1108) paliers de maîtrise : le choix d'un bonus (grande fenêtre), enregistré
+  const mPick = await js(`(async () => { const P = window.__panel, G = window.__game, S = G.S, T = P.tabs.talents; const keep = { picks: { ...(S.masteryPicks || {}) }, r: (S.talents[S.cls] || {}).ms_power };
+    try { (S.talents[S.cls] ||= {}).ms_power = Math.max(30, keep.r || 0); delete (S.masteryPicks ||= {})["ms_power:10"]; G.invalidateStats();
+      P.setTab("talents"); T.sel = "ms_power"; P.renderAll();
+      const d = document.querySelector('[data-pane="talents"]:not([hidden]) [data-keep="ms-picks"]'); if (!d) return "pas de bloc";
+      P.showDetails(d); const b = document.querySelector('#modal [data-action="t-mpick"][data-at="10"][data-opt="b"]'); if (!b) return "pas d'option b";
+      b.click(); await new Promise((r) => setTimeout(r, 100));
+      return "choix " + ((S.masteryPicks || {})["ms_power:10"] || "aucun");
+    } finally { S.masteryPicks = keep.picks; if (keep.r == null) delete S.talents[S.cls].ms_power; else S.talents[S.cls].ms_power = keep.r; T.sel = null; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
+  check("onglet Talents : un bonus de palier de maîtrise se choisit", mPick === "choix b", mPick);
   check("onglet Talents : dépenser automatiquement", (await js("window.__game.talentPointsFree()")) === 0 || (await js("window.__game.nextAutoTalent()")) === null);
   await click('[data-tab="shop"]');
   await sleep(150);
@@ -1086,8 +1096,8 @@ async function runSelfTest(strip) {
   check("musique : écoute d'un autre air puis retour", /^true:\d+ false:true:true$/.test(mprev), mprev);
   // Débordement horizontal (it. 542) : aucune ligne de liste (« libellé … valeur ») plus large que sa colonne, sur tous
   // les onglets (le défilement vertical est mesuré ailleurs ; ce débordement-là ne se voyait qu'en capture).
-  const wide = await js("(() => { const P = window.__panel, out = []; for (const t of ['adventure','talents','skills','quests','shop','pets','class','ascension','bestiary','stats','settings']) { if (!P.tabs[t]) continue; P.setTab(t); P.renderAll(); for (const li of document.querySelectorAll('.lines li')) if (li.getClientRects().length && li.scrollWidth > li.clientWidth + 1) out.push(t + ':' + li.textContent.slice(0, 30)); } P.setTab('adventure'); return out.length + (out.length ? ' ' + out.slice(0, 4).join(' | ') : ''); })()");
-  check("listes : aucune ligne plus large que sa colonne", wide === "0", wide);
+  const wide = await js("(() => { const P = window.__panel, out = []; for (const t of ['adventure','talents','skills','quests','shop','pets','class','ascension','bestiary','stats','settings']) { if (!P.tabs[t]) continue; P.setTab(t); P.renderAll(); for (const li of document.querySelectorAll('.lines li')) if (li.getClientRects().length && !li.closest('details:not([open])') && li.scrollWidth > li.clientWidth + 1) out.push(t + ':' + li.textContent.slice(0, 30)); } P.setTab('adventure'); return out.length + (out.length ? ' ' + out.slice(0, 4).join(' | ') : ''); })()");
+  check("listes : aucune ligne plus large que sa colonne", wide === "0", wide); // (it. 1108) hors contenu des blocs repliés (rendu dans Chromium : getClientRects y répond)
   // Demande M (it. 499) : onglets serrés (petit écran, langue longue) : chaque onglet garde son icône.
   const ticons = await js("(() => { const P = window.__panel, top = document.querySelector('.ptop'), keep = top.style.width; const out = []; for (let w = 1900; w >= 700; w -= 40) { top.style.width = w + 'px'; P.fitTabs(); const nav = document.querySelector('.tabs'), b = [...nav.querySelectorAll('button')].filter((x) => x.getClientRects().length); const hidden = b.filter((x) => { const i = x.querySelector('.ticon'); return !i || !i.offsetWidth; }).length; if (hidden) out.push(w + ':' + nav.className.replace('tabs', '').trim() + ':' + hidden); out.steps = (out.steps || new Set()).add(nav.className.replace('tabs', '').trim()); } top.style.width = keep; P.fitTabs(); return (out.join(' ') || 'ok') + ' [' + [...out.steps].join(' / ') + ']'; })()");
   check("onglets serrés : toutes les icônes restent (1900 → 700 px)", /^ok \[/.test(ticons) && /slim/.test(ticons) && /compact/.test(ticons), ticons);
