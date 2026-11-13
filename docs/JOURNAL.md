@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1012) : bilan d'équilibrage des 20 héros (12 h, graines 7/3/11, horloge virtuelle) : de 61,0 (mage)
+  à 66,7 (gladiateur), moyenne 63,3 ; plus forts : gladiateur +3,4, gardien des astres +2,7 ; plus faibles : mage −2,3,
+  arbalétrier, assassin, nécromancien −1,6. Écart de 5,7 zones, proche du bruit (±2,3 sur trois graines) : aucune
+  retouche. Outil réutilisable scripts/hero-table.mjs (60 simulations en parallèle, ≈ 3 min 30, tableau trié avec
+  l'écart à la moyenne ; mêmes valeurs en le relançant). Vérifié en passant : « Effets complets » est coupé au premier
+  lancement si Windows demande moins d'animations, et secousses et éclairs en dépendent. CLAUDE.md.
 - 2026-11-13 (it. 1011, revue générale) : simulation 12 h (horloge virtuelle), records des courses : paladin 44 → 65,
   nécromancien 39 → 61, moine 44 → 65 (réguliers). Performance (copie neuve) : bande 19,8 %, panneau 20,5 %, mini 6,9 %,
   icône 0,8 %. Captures Talents et Boutique à 1366 px en français, anglais et chinois, mini en chinois : propres
