@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1036) : idée P1 (bande en fin de partie), part des sorts remesurée sur la nouvelle partie : avec 38-40 %,
+  sans sorts 28,5 % (≈ 10 points). Effets visuels mis hors de cause : sans ombres ni filtres sur les effets de sort
+  38,2 / 35,8 % (≈ 1-2 points), sans l'affichage du perçage 37,2 / 36,4 % (≈ 1,5-2) ; 10 s de jeu : 9 sorts, 20 perçages,
+  7 tirs de drone, 11 effets de sort au plus en même temps. Le reste vient du rythme des combats que les sorts
+  accélèrent (plus de monstres tués, de butin, de nombres, d'apparitions par seconde) : inhérent, pas un gaspillage.
+  Aucun changement.
 - 2026-11-13 (it. 1035) : première minute d'une partie neuve en russe (histoire d'introduction sur une ligne, file de
   la zone 1 lisible) : propre. fuzz sur 120 graines (2400 parties) : 0 bloquée ; save-fuzz FUZZ_BASE=fin : tout ok.
 - 2026-11-13 (it. 1034) : thème clair, partie de fin de partie à 1366 px : Aventure (carte Zone, sous-titre de
