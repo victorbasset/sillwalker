@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1081, revue générale) : simulation 12 h, records des courses : assassin 44 → 62, samouraï 41 → 65,
+  prêtresse 40 → 62 (réguliers). Performance (copie neuve de dev-data) : bande 19,1 %, panneau 20,2 %, mini 7,2 %,
+  icône 0,6 %. Captures : grand graphe en chinois (fin de partie, porte et voie de la Vitalité prises : « 大星图：358
+  个可用点数 · 4 / 618 个节点 »), Boutique en chinois (Mirette et sa bulle, sans défilement), Talents en anglais,
+  mini en chinois : propres. Texte chinois de la fin de partie : Qa, Qi (abréviations des nombres). Rien à corriger.
+  Rappel : dans dev-data, les Maîtrises en sont au rang 420 (reste de la demande C).
 - 2026-11-13 (it. 1080, demande C de Victor, premier pas : « trop de clics ») : onglet Talents, un clic sur un talent le
   monte au MAXIMUM possible (avant : +1 rang par clic, un petit « max » à viser) ; la petite pastille devient « +1 »
   (un seul rang ; aussi Maj + clic / Maj + Entrée). Maîtrises inchangées (+1 au clic, « tout » sur la pastille : pas
