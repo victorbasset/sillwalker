@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1170, bande-annonce 4) : monteur scripts/promo/edit.py <edl.json> <plans> <polices> <sortie> <ffmpeg>
+  [audio] : chaque image composée en Pillow (fond nuit étoilé à vignette, plan cadré par une caméra animée lissée,
+  agrandi au plus proche voisin, ombre portée, titres Pixelify Sans / Geist Pixel à contour, fondus) puis encodée ;
+  ≈ 2,3 s de calcul par seconde de vidéo. Polices du jeu converties en TTF (fontTools, hors dépôt). Premier essai (4
+  scènes) : à reprendre : cadrage (héros et bulle coupés à gauche), plan du graphe qui embarque la bande et son titre
+  posé dessus, carton trop sage (logo), cartouche de zone coupé au bord des plans moyens.
 - 2026-11-14 (it. 1169, bande-annonce 3) : plans du panneau (record.sh : EXTRA ; shots.json : args) : grand graphe
   cadré sur la voie du colosse avec la bulle d'une synergie (« Right now ≈ +4.9% attack »), fenêtre des paliers de
   maîtrise, Aventure (mage, milieu de jeu), « Sources de puissance » (fin de partie), Bestiaire complet. Tous nets.
