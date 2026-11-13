@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1110) : semaine simulée après les paliers des maîtrises (it. 1084) et les retouches du grand graphe :
+  guerrier 335 (comme à l'it. 1078), mage 324 (320) ; montée régulière (guerrier : 125, 150, 170, 184, 198, 200, 250…).
+  Repère de CLAUDE.md mis à jour.
 - 2026-11-13 (it. 1109) : « Quoi de neuf », édition 54 : bonus au choix des paliers de maîtrise ; ouverture du grand
   graphe annoncée, pastille de ses points, « Réinitialiser le grand graphe » ; bulles du graphe à leur vraie valeur.
   Traduite dans les 9 langues ; pire cas (11 nouveautés) sans défilement ; 10 langues sans défaut ; autotest 220/220.
