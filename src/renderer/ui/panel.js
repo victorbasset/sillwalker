@@ -745,9 +745,12 @@ export class Panel {
       <p class="note tight tiphelp">${fromBag ? tx("Double-clic : équiper") : tx("Double-clic : retirer")}</p>`;
     this.tip.hidden = false;
     const r = b.getBoundingClientRect(), pr = this.root.getBoundingClientRect();
+    // (it. 1128) mesures de l'écran ramenées au zoom de l'interface (comme les bulles de l'it. 1053) : à 130 %, la bulle
+    // d'un objet s'affichait jusqu'à 324 px de lui et sortait du bas du panneau
+    const z = pr.width / (this.root.offsetWidth || pr.width) || 1, W = pr.width / z, H = pr.height / z;
     // Jamais par-dessus la barre d'onglets : au plus haut, juste sous l'en-tête du panneau.
-    const head = this.root.querySelector(".ptop"), minTop = head ? head.getBoundingClientRect().bottom - pr.top + this.root.scrollTop + 4 : 4;
-    const left = Math.min(pr.width - 350, r.right - pr.left + 8), top = Math.max(minTop, Math.min(pr.height - this.tip.offsetHeight - 4, r.top - pr.top + this.root.scrollTop));
+    const head = this.root.querySelector(".ptop"), minTop = head ? (head.getBoundingClientRect().bottom - pr.top) / z + this.root.scrollTop + 4 : 4;
+    const left = Math.min(W - this.tip.offsetWidth - 4, (r.right - pr.left) / z + 8), top = Math.max(minTop, Math.min(H - this.tip.offsetHeight - 4 + this.root.scrollTop, (r.top - pr.top) / z + this.root.scrollTop));
     this.tip.style.left = left + "px";
     this.tip.style.top = top + "px";
   }

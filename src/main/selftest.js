@@ -828,6 +828,20 @@ async function runSelfTest(strip) {
       return Math.round(Math.hypot(Math.max(t.left - x, 0, x - t.right), Math.max(t.top - y, 0, y - t.bottom)));
     } finally { root.style.zoom = keep; P.setTab(tab); P.renderAll(); } })()`);
   check("bulle d'info du panneau zoomé (130 %) près de la souris", typeof tipZ === "number" && tipZ < 40, String(tipZ));
+  // (it. 1128) bulle d'un OBJET, panneau zoomé à 130 % : collée à l'objet (elle s'en écartait jusqu'à 324 px) et
+  // pas au-delà du bord droit (le bas se vérifie avec le vrai réglage, qui agrandit aussi la fenêtre : ici, le zoom seul
+  // laisse un panneau trop bas pour la bulle)
+  const itZ = await js(`(() => { const P = window.__panel, root = document.getElementById("panel"), keep = root.style.zoom, tab = P.tab;
+    try {
+      P.setTab("adventure"); P.renderAll(); root.style.zoom = "1.3";
+      const PR = root.getBoundingClientRect(), cells = [...root.querySelectorAll('[data-pane="adventure"]:not([hidden]) .slot[data-action="sel"]:not(.emptyslot)')].filter((e) => e.getClientRects().length);
+      if (!cells.length) return "pas d'objet";
+      const out = [];
+      for (const c of [cells[0], cells[cells.length - 1]]) { c.dispatchEvent(new MouseEvent("mouseover", { bubbles: true })); const T = P.tip.getBoundingClientRect(), C = c.getBoundingClientRect();
+        const gap = Math.max(T.left - C.right, C.left - T.right, 0); if (P.tip.hidden || gap > 30 || T.right > PR.right + 1) out.push(Math.round(gap) + "/" + Math.round(T.right - PR.right)); }
+      return out.length ? "loin ou dehors " + out.join(" ") : "ok";
+    } finally { P.tip.hidden = true; root.style.zoom = keep; P.setTab(tab); P.renderAll(); } })()`);
+  check("bulle d'un objet du panneau zoomé (130 %) près de lui et dans le panneau", itZ === "ok", itZ);
   // (it. 1039) répliques du héros des it. 1037-1038 : une panoplie complète fait parler le héros
   const spk = await js(`(() => { const G = window.__game, st = window.__strip, out = [], fe = G.S.settings.fullEffects;
     G.S.settings.fullEffects = true;

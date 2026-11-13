@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1128) : bulle d'un OBJET avec « Taille de l'interface » à 130 % : affichée 158 à 324 px à droite de
+  l'objet survolé et sortant du bas du panneau de 55 à 192 px (mesures de l'écran prises pour des px CSS, le défaut
+  corrigé à l'it. 1053 pour les autres bulles). Ramenées au zoom, vraie largeur de la bulle : écart 6-10 px, dans le
+  panneau à 100 % et 130 % (1920 et 1366 px). Revue des autres bulles placées à la main : bulle maison des titres et
+  bulle de la bande déjà bornées. Contrôle d'autotest (écart et bord droit ; vérifié qu'il voit l'ancien défaut :
+  158 / 316 px). Autotest 223/223.
 - 2026-11-13 (it. 1127) : bulles des nœuds (fleur et grand graphe) gardées dans la vue. Allongées par les it.
   1112-1114 (synergies, voie entière), celle d'un nœud près du bas sortait de 55 px (fin de partie, russe) : le
   placement ne bornait que la gauche, la droite (largeur fixe 260) et le haut ; il borne aussi le bas, utilise la
