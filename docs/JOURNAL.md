@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1061, revue générale) : simulation 12 h, records des courses : artificier 44 → 62, gardien des astres
+  44 → 69, nécromancien 39 → 62 (réguliers). Performance (copie neuve) : bande 19,7 %, panneau 20,5 %, mini 7,1 %,
+  icône 0,5 %. Captures Aventure et Boutique à 1366 px en français, anglais et japonais (« 装備 » sur une ligne),
+  mini en japonais : propres. Texte japonais : HP, Lv, pt, BGM (usuels). Rien à corriger.
 - 2026-11-13 (it. 1060) : Bestiaire : seule la section affichée est construite (avant : les 83 fiches et toutes les
   autres sections à chaque mise à jour, pour n'en garder qu'une). Panoplies 11 → 2,0 ms, Capacités des boss → 1,6 ms ;
   la section des monstres reste à ≈ 12 ms (83 fiches et images reconstruites : leurs compteurs changent à chaque
