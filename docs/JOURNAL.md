@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1072, demande B de Victor, précisée : « aucun défilement horizontal, même sur les petits écrans ») :
+  Boutique > Marchand sans aucune rangée latérale, à toute largeur. Marchand : 4 objets sur une rangée ; Potions et
+  élixirs : 7 tuiles compactes sur deux rangées de 4 (icône, effet, état, prix ; le nom dans la bulle ; la case
+  « auto » sur la ligne du stock) ; Coffres et œuf : deux rangées de 2 (rareté écrite, nom et niveau dans la bulle).
+  Colonnes 4,5 / 4 / 2. « Renouveler l'étal » et le compte à rebours passent dans le titre de la carte du Marchand,
+  juste au-dessus des objets qu'il renouvelle (sous-titres des cartes dans la bulle de leur titre). Captures fr 1440,
+  en / de / ru 1280 : tout visible, sans défilement. lang-overflow : un mot coupé en allemand à 1280 px
+  (« Schattentänzers ») ; noms du Marchand en 12 px et sa colonne élargie : 10 langues sans défaut.
 - 2026-11-13 (it. 1071, revue générale) : simulation 12 h, records des courses : paladin 44 → 64, moine 45 → 64,
   druide 44 → 62 (réguliers). Performance (copie neuve de dev-data) : bande 19,6 %, panneau 21,5 %, mini 7,0 %, icône
   0,5 %. Texte coréen : HP, Lv (usuels). Captures de la Boutique (fr 1440, en 1280, ko 1440) : confirment la demande B
@@ -4036,7 +4044,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 - DEMANDES DE VICTOR (2026-11-13, midi), à traiter en premier, découpées en petites itérations :
   A. FAIT (it. 1070). Nombres de dégâts (coups critiques compris) affichés trop loin à droite du monstre touché : les recentrer sur lui.
-  B. Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
+  B. FAIT (it. 1072). Boutique : le bouton « Renouveler l'étal » est tout à droite alors qu'il renouvelle les 4 objets de gauche : le
      mettre près d'eux. Les 4 objets ne tiennent pas sur Mac sans défilement horizontal : icônes et cartes plus petites.
   C. Talents : trop de clics par talent, et on arrive trop vite en bas à droite où l'on met des points à l'infini.
      Rendre l'onglet plus riche en choix (à concevoir : clic = tous les rangs possibles, choix exclusifs, paliers…).
@@ -4046,6 +4054,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      liens, coûts, effets ; sauvegarde, migration, tests) ; D2 affichage grisé autour de la fleur ; D3 achat et
      effets ; D4 choix exclusifs, réinitialisation ; D5 équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
      « Quoi de neuf ».
+     Précision de Victor (même jour) : des nœuds de SYNERGIE, qui font compter un axe dans un autre, pour chacun des
+     6 pétales : « si je suis tanky, je tape plus fort » (attaque selon les PV), « plus je suis riche, plus je fais
+     mal » (dégâts selon l'or), etc. Pas seulement « +PV » : des choix qui changent la façon de jouer.
   E. PNJ et histoire : chaque onglet qui se débloque = une rencontre sur la route (ex. la maison d'une petite grenouille
      → Boutique ; un PNJ et sa fusée → Ascension ; une cabane, un lac…). Animation de découverte (le héros entre, parle
      au PNJ), puis le PNJ stylisé dans l'onglet avec des répliques (« J'ai quelques objets pour vous ! »). Étapes : E1

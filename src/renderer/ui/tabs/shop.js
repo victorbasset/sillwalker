@@ -64,9 +64,9 @@ export class ShopTab {
         owned = active ? `${tx("actif ·")} <span id="buff-${c.id}">${mmss(rem)}</span>` : tx("10 min");
         if (rem + c.duration > BUFF_CAP_S) block = tx("Maximum");
       }
-      return `<div class="ctile${active ? " active" : ""}" title="${esc(c.desc)}">
+      // (it. 1072) tuile compacte, deux rangées : le nom passe dans la bulle (l'effet reste écrit)
+      return `<div class="ctile${active ? " active" : ""}" title="${esc(c.name + "\n" + c.desc)}">
         <img src="${shopIconURL(c.id)}" alt="">
-        <div class="nm">${esc(c.name)}</div>
         <div class="eff">${esc(SHORT[c.id] || "")}</div>
         <div class="sub">${owned}</div>
         ${buy("s-cons", c.id, price, block, "", true)}
@@ -75,17 +75,13 @@ export class ShopTab {
     }).join("");
 
     // --- Coffres et œuf ---
-    const chests = CHESTS.map((c) => `<div class="ctile chesttile">
+    const chests = CHESTS.map((c) => `<div class="ctile chesttile" title="${esc(c.name + " · " + tx("niveau {0}", { 0: S.best }))}">
         <img src="${shopIconURL(c.id, 6)}" alt="">
-        <div class="nm rc${c.minRarity}">${esc(c.name)}</div>
-        <div class="eff">${esc(RARITIES[c.minRarity].name)} ${tx("ou mieux")}</div>
-        <div class="sub">${tx("niveau {0}", { 0: S.best })}</div>
+        <div class="eff rc${c.minRarity}">${esc(RARITIES[c.minRarity].name)} ${tx("ou mieux")}</div>
         ${buy("s-chest", c.id, chestPrice(c, S), full ? tx("Sac plein") : "", "", true)}
-      </div>`).join("") + (!eggsAllowed(S) ? "" : `<div class="ctile chesttile">
+      </div>`).join("") + (!eggsAllowed(S) ? "" : `<div class="ctile chesttile" title="${esc(tx("Œuf de familier") + " · " + tx("1 par étal"))}">
         <img src="${shopIconURL("egg", 6)}" alt="">
-        <div class="nm">${tx("Œuf de familier")}</div>
         <div class="eff">${tx("Un familier au hasard")}</div>
-        <div class="sub">${tx("1 par étal")}</div>
         ${buy("s-egg", "egg", eggPrice(S), stock.eggSold ? tx("Vendu") : "", "", true)}
       </div>`); // œuf de familier : seulement une fois l'onglet Familiers là (demande 19)
 
@@ -125,16 +121,19 @@ export class ShopTab {
     }).join("");
 
     const buyable = UNLOCKS.filter((u) => !hasUnlock(S, u.id) && unlockAvailable(S, u) && S.gold >= u.price).length;
-    el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span>
-        <span class="note">${tx("Nouvel étal dans")} <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></span>
-        <button data-action="s-reroll" class="quiet"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmt(rerollPrice(S)) })}</button></div>
+    // (it. 1072, demande de Victor) « Renouveler l'étal » et le compte à rebours dans la carte du Marchand, juste au-dessus des
+    // objets qu'il renouvelle (avant : tout en haut à droite de l'onglet)
+    el.innerHTML = `<div class="shopbar"><span class="purse"><i class="coin"></i>${tx("{0} or", { 0: `<b id="shop-gold">${fmt(S.gold)}</b>` })}</span></div>
       ${subtabsHTML([["shop", tx("Marchand")], ["unlocks", tx("Déblocages"), buyable || null], ["workshop", tx("Atelier")]], this.sec, "s-sec")}
       <div class="shoproot sec-${this.sec}">
       <article class="panel unlocks"><h2>${tx("Déblocages")} <small>${owned} / ${UNLOCKS.length} · ${tx("permanents, gardés à l’ascension")}</small></h2><div class="ugrid hscroll" data-hs="unlocks">${unlocks}</div></article>
       <div class="shopgrid2">
-        <article class="panel merchant"><h2>${tx("Marchand")} <small>${tx("un objet pour ton point faible, une bonne affaire")}</small></h2><div class="mgrid hscroll" data-hs="merchant">${merchant}</div></article>
-        <article class="panel"><h2>${tx("Potions et élixirs")} <small>${tx("10 min de jeu, cumulable jusqu’à 2 h")}</small></h2><div class="cgrid hscroll" data-hs="potions">${consumables}</div></article>
-        <article class="panel"><h2>${tx("Coffres")}</h2><div class="cgrid hscroll" data-hs="chests">${chests}</div></article>
+        <!-- (it. 1072, demande de Victor) plus de défilement de côté : marchand sur une rangée, potions et coffres sur deux -->
+        <article class="panel merchant"><h2 class="mhead" title="${esc(tx("un objet pour ton point faible, une bonne affaire"))}"><span class="mt">${tx("Marchand")}</span>
+          <small title="${esc(tx("Nouvel étal dans"))}">⟳ <span id="shop-timer">${mmss((stock.next - Date.now()) / 1000)}</span></small>
+          <button data-action="s-reroll" class="quiet reroll"${S.gold < rerollPrice(S) ? " disabled" : ""}>${tx("Renouveler l’étal ({0} or)", { 0: fmtShort(rerollPrice(S)) })}</button></h2><div class="mgrid">${merchant}</div></article>
+        <article class="panel"><h2 title="${esc(tx("10 min de jeu, cumulable jusqu’à 2 h"))}">${tx("Potions et élixirs")}</h2><div class="cgrid potions">${consumables}</div></article>
+        <article class="panel"><h2 title="${esc(tx("niveau {0}", { 0: S.best }))}">${tx("Coffres")}</h2><div class="cgrid chests">${chests}</div></article>
         <article class="panel wsec"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
       </div></div>`;
   }

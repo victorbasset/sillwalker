@@ -896,9 +896,21 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Boutique en sous-onglets (demande 18) : marchand / déblocages / atelier */
 .shoproot.sec-shop .unlocks, .shoproot.sec-shop .wsec { display: none; }
 /* L'Atelier caché ici : trois colonnes seulement, les potions s'étalent sur une rangée. */
-.shoproot.sec-shop .shopgrid2 { grid-template-columns: 1.5fr 2.05fr 1.15fr; }
-.shoproot.sec-shop .mgrid { grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); }
-.shoproot.sec-shop .cgrid { grid-template-columns: repeat(auto-fill, minmax(94px, 1fr)); gap: 6px; }
+/* (it. 1072, demande de Victor) aucune rangée qui défile de côté, à toute largeur : marchand (4 objets) sur une rangée,
+   potions (7) sur deux rangées de 4, coffres et œuf sur deux de 2 ; colonnes 4 / 4 / 2, tuiles compactes. */
+.shoproot.sec-shop .shopgrid2 { grid-template-columns: minmax(0, 4.5fr) minmax(0, 4fr) minmax(0, 2fr); }
+.shoproot.sec-shop .mcard .nm { font-size: 12px; } /* allemand à 1280 px : « Schattentänzers » coupé à 13 px */
+.shoproot.sec-shop .mgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.shoproot.sec-shop .cgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.shoproot.sec-shop .cgrid.chests { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.shoproot.sec-shop .ctile { padding: 5px 3px; }
+.shoproot.sec-shop .ctile img, .shoproot.sec-shop .ctile.chesttile img { height: 34px; margin-bottom: 0; }
+.shoproot.sec-shop .ctile .eff { font-size: 11px; line-height: 1.15; }
+.shoproot.sec-shop .mcard { padding: 6px 4px; }
+.shoproot.sec-shop .mcard img { width: 40px; }
+.merchant h2.mhead { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.merchant h2.mhead small { white-space: nowrap; }
+.merchant h2.mhead .reroll { margin-left: auto; font-size: 12px; padding: 2px 6px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .shoproot.sec-unlocks .shopgrid2 { display: none; }
 .shoproot.sec-workshop .unlocks, .shoproot.sec-workshop .shopgrid2 > article:not(.wsec) { display: none; }
 .shoproot.sec-workshop .shopgrid2 { grid-template-columns: 1fr; }
@@ -1124,16 +1136,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Réglages : Zone de danger et Raccourcis clavier empilés dans une colonne (pas de 2e rangée sur écran de portable). */
 .setgrid > .stack { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .setgrid > .stack > .panel { flex: 0 0 auto; }
-/* Boutique sur écran de portable (< 1800 px) : marchand, potions et coffres en rangées latérales (molette ou glisser)
-   au lieu de grilles sur plusieurs lignes qui faisaient défiler l'onglet ; à 1920 px, les grilles restent. */
-.mgrid.hscroll > .mcard { width: 132px; }
-.cgrid.hscroll > .ctile { width: 104px; }
+/* Boutique : plus de rangées latérales depuis l'it. 1072 (voir .shoproot.sec-shop). */
 .shopgrid2 > .panel { min-width: 0; }
-@container panel (min-width: 1768px) {
-  .mgrid.hscroll, .cgrid.hscroll { display: grid !important; overflow: visible; cursor: auto; padding-bottom: 0; }
-  .mgrid.hscroll > .mcard, .cgrid.hscroll > .ctile { width: auto; }
-}
-.mgrid.hscroll { padding-top: 7px; padding-right: 7px; }
+.mgrid { padding-top: 7px; padding-right: 7px; } /* place du ruban « −40 % » */
 /* Bestiaire sur écran de portable (< 1800 px) : les monstres coulent en colonnes sur 7 rangées et la grille défile
    sur le côté (molette ou glisser) au lieu de faire défiler l'onglet ; à 1920 px, la grille habituelle. */
 .beastgrid.hscroll { display: grid !important; gap: 4px; }
