@@ -1347,4 +1347,8 @@ export default {
   2472: "partida: {0} · récord: {1}",
   2473: "(zona {0} alcanzada en esta partida). En la zona {1}: +{2}.",
   2474: "{n} pieza de la bolsa completa el conjunto {0}|{n} piezas de la bolsa completan el conjunto {0}",
+  2475: "{n} en la bolsa",
+  2476: "Conjuntos: la bolsa guarda las piezas de los conjuntos nunca completados, y un clic en «Pendiente» equipa de una vez las que completan uno (bonificación permanente). Bestiario > Conjuntos muestra las piezas de la bolsa.",
+  2477: "La tarjeta de zona distingue la zona alcanzada en esta partida y tu récord.",
+  2478: "Números grandes más legibles (separador de miles) en la pestaña Ascensión.",
 };

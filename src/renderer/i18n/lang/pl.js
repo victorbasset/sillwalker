@@ -1347,4 +1347,8 @@ export default {
   2472: "bieg: {0} · rekord: {1}",
   2473: "(strefa {0} osiągnięta w tym biegu). W strefie {1}: +{2}.",
   2474: "{n} część z torby kompletuje zestaw {0}|{n} części z torby kompletują zestaw {0}|{n} części z torby kompletuje zestaw {0}",
+  2475: "{n} w torbie",
+  2476: "Zestawy: torba zachowuje części nigdy nieukończonych zestawów, a jedno kliknięcie w „Do zrobienia” zakłada naraz te, które go kompletują (stały bonus). Bestiariusz > Zestawy pokazuje części w torbie.",
+  2477: "Karta strefy odróżnia strefę osiągniętą w tym biegu od twojego rekordu.",
+  2478: "Duże liczby czytelniejsze (separator tysięcy) w zakładce Wniebowstąpienie.",
 };

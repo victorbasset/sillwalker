@@ -2476,5 +2476,9 @@ export const KEYS = [
   "En fin de partie, la bande est plus lisible et plus légère (moins de nombres et d’effets à la fois).",
   "course : {0} · record : {1}",
   "(zone {0} atteinte pendant cette course). En zone {1} : +{2}.",
-  "{n} pièce du sac complète la panoplie {0}|{n} pièces du sac complètent la panoplie {0}"
+  "{n} pièce du sac complète la panoplie {0}|{n} pièces du sac complètent la panoplie {0}",
+  "{n} dans le sac",
+  "Panoplies : le sac garde les pièces des panoplies jamais complétées, et un clic sur « À faire » équipe d’un coup celles qui en complètent une (bonus permanent). Bestiaire > Panoplies montre les pièces du sac.",
+  "La carte Zone distingue la zone atteinte pendant cette course et ton record.",
+  "Grands nombres plus lisibles (séparateur des milliers) dans l’onglet Ascension."
 ];

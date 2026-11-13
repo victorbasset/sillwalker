@@ -9,6 +9,7 @@ import { monsterURL, itemIconURL } from "../../render/sprites.js";
 import { CODEX_ENTRIES, CODEX_BONUS, codexCounts, codexEffects, POWER_CODEX_BONUS, powersFound, SET_CODEX_BONUS } from "../../game/codex.js";
 import { POWERS } from "../../game/powers.js";
 import { SETS, SET_KEYS, setCounts } from "../../game/sets.js";
+import { itemName } from "../../i18n/data.js";
 import { RARITIES, SLOTS, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, affixesSeenEffects } from "../../game/data.js";
 import { BOSS_MECHANICS, bossMechanics } from "../../game/bosses.js";
 
@@ -63,7 +64,10 @@ export class BestiaryTab {
         : `<span class="chip pow unknown">???</span>`).join("")}</div>` : ""}
       ${show.sets ? `<h2 class="codexh" id="bj-sets">${tx("Panoplies")} <small>${tx("pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées")} · ${tx("{0} / {1} complétées · chacune donne {2} pour toujours", { 0: Object.keys(S.setsDone || {}).length, 1: SET_KEYS.length, 2: esc(describeEffects(SET_CODEX_BONUS)) })}</small></h2>
       <div class="setgrid">${SET_KEYS.map((id) => { const st = SETS[id], n = setCounts(S.equip)[id] || 0; // toutes les panoplies, et où en est le héros
-        return `<div class="setcard" style="--c:${st.color}"><b class="tint">◆ ${esc(st.name)}</b> <small>${n}/4${(S.setsDone || {})[id] ? " · ✓ " + tx("complétée") : ""}</small>
+        // (it. 1005) pièces gardées dans le sac (une par emplacement non porté) : le joueur voit où en est la panoplie
+        const inBag = {}; for (const it of S.bag) if (it.set === id && !(S.equip[it.slot] && S.equip[it.slot].set === id)) inBag[it.slot] ||= it;
+        const bagN = Object.keys(inBag).length, bagTxt = bagN ? ` · <span title="${esc(Object.values(inBag).map(itemName).join(csep()))}">${tx("{n} dans le sac", { n: bagN })}</span>` : "";
+        return `<div class="setcard" style="--c:${st.color}"><b class="tint">◆ ${esc(st.name)}</b> <small>${n}/4${bagTxt}${(S.setsDone || {})[id] ? " · ✓ " + tx("complétée") : ""}</small>
           <div class="${n >= 2 ? "on" : ""}">${n >= 2 ? "✓ " : ""}${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
           <div class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>` : ""}
       <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle")}</small></h2>

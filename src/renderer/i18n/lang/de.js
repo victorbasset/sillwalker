@@ -1347,4 +1347,8 @@ export default {
   2472: "Lauf: {0} · Rekord: {1}",
   2473: "(Zone {0} in diesem Lauf erreicht). In Zone {1}: +{2}.",
   2474: "{n} Teil aus der Tasche vervollständigt das Set {0}|{n} Teile aus der Tasche vervollständigen das Set {0}",
+  2475: "{n} in der Tasche",
+  2476: "Sets: Die Tasche behält Teile nie vervollständigter Sets, und ein Klick auf „Zu tun“ legt alle Teile an, die eines vervollständigen (dauerhafter Bonus). Bestiarium > Sets zeigt die Teile in der Tasche.",
+  2477: "Die Zonenkarte unterscheidet die in diesem Lauf erreichte Zone und deinen Rekord.",
+  2478: "Große Zahlen besser lesbar (Tausendertrennzeichen) im Tab Aufstieg.",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1005) : Bestiaire > Panoplies : chaque carte indique aussi les emplacements couverts par des pièces du
+  sac (« 0/4 · 1 dans le sac », noms des pièces au survol) : le joueur voit où en est la panoplie que le sac lui garde
+  (it. 1004). « Quoi de neuf », édition 46 : panoplies (garde et tâche à plusieurs pièces), « course · record » de la
+  carte Zone, nombres groupés de l'Ascension. Captures fr et ru (fin de partie) ; 10 langues sans défaut (« Quoi de
+  neuf » au pire cas compris) ; autotest 202/202.
 - 2026-11-13 (it. 1004) : panoplies enfin complétables. Partie de fin de partie : « Panoplies 0 / 10 » après 48 h ;
   mesuré sur 24 h (guerrier) : 187 pièces trouvées (≈ 19 par panoplie, 5 à 7 emplacements), aucune complétée. Les pièces
   n'étaient gardées que pour une panoplie déjà portée (la première partait toujours) et la tâche « Une pièce du sac

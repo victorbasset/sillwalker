@@ -1347,4 +1347,8 @@ export default {
   2472: "corrida: {0} · recorde: {1}",
   2473: "(zona {0} alcançada nesta corrida). Na zona {1}: +{2}.",
   2474: "{n} peça da bolsa completa o conjunto {0}|{n} peças da bolsa completam o conjunto {0}",
+  2475: "{n} na bolsa",
+  2476: "Conjuntos: a bolsa guarda as peças de conjuntos nunca completados, e um clique em “A fazer” equipa de uma vez as que completam um (bônus permanente). Bestiário > Conjuntos mostra as peças da bolsa.",
+  2477: "O cartão da zona distingue a zona alcançada nesta corrida e o seu recorde.",
+  2478: "Números grandes mais legíveis (separador de milhares) na aba Ascensão.",
 };
