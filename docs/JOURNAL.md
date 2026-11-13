@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1098) : mémoire dans la durée après les ajouts du jour (grand graphe en SVG, dix PNJ et leurs
+  images, cinématiques de rencontre) : scripts/mem-watch.sh 9 min à ×10 : « réel » 513 → 499 Mo, stable (repère
+  485-530 Mo). Aucune fuite.
 - 2026-11-13 (it. 1097) : « Quoi de neuf », édition 53 : les huit nouveaux PNJ (Corvin, Plume, Bram, Sola, Fenouil,
   Maman Brindille, Iris, Tico ; « clique-les pour les entendre »), « Vendre ce qui ne m'améliore pas » qui vend tout
   ce qui n'est pas une amélioration, plus de scène de rencontre perdue. Traduite dans les 9 langues ; pire cas (10
