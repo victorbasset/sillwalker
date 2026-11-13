@@ -1527,4 +1527,11 @@ export default {
   2652: "Uwięzieni bohaterowie są oznaczeni klatką. Idź po nich!",
   2653: "Wciąż brakuje mi końca Krawędzi. Opowiesz mi o nim?",
   2654: "Nie zgub się: z góry zawsze cię widzę.",
+  2655: "Koper, przyrodnik",
+  2656: "Namiot pełen słoików i szkiców",
+  2657: "Fascynujące! Ile takich już pokonałeś?",
+  2658: "Każdy zbadany potwór czyni cię nieco silniejszym przeciw niemu.",
+  2659: "Zestawy? Zapisuję każdy element w notesie.",
+  2660: "Nie przynoś mi żywego goblina. Nigdy więcej.",
+  2661: "Pewnego dnia mój bestiariusz będzie kompletny. Dzięki tobie.",
 };

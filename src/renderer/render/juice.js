@@ -95,6 +95,14 @@ function npcPlace(ctx, art, x, gy, t) {
     const sw = Math.sin(t * 2) * 3; ctx.fillStyle = "#ffd34d"; ctx.fillRect(Math.round(x + 48 + sw), gy - 74, 16, 3); // longue-vue
     ctx.fillStyle = "#3a2a1a"; ctx.fillRect(x, gy - 34, 22, 34);                                            // porte de la cabane du bas
   }
+  if (art === "natur") { // (it. 1089) Fenouil : une tente de toile, des bocaux luisants, un papillon qui s'échappe
+    ctx.fillStyle = "#c8a86a"; for (let r = 0; r < 44; r++) ctx.fillRect(x + 11 - r, gy - 44 + r, 2 * r + 1, 1);                    // la tente
+    ctx.fillStyle = "#8a6a3a"; for (let r = 0; r < 30; r++) ctx.fillRect(x + 11 - Math.floor(r / 2), gy - 30 + r, r + 1, 1); // l'entrée
+    const jars = ["#7fd4ff", "#9fe0a8", "#c99bff", "#ffd34d"];
+    jars.forEach((c, i) => { ctx.fillStyle = "#e8eef8"; ctx.fillRect(x + 64 + i * 12, gy - 16, 9, 14); ctx.fillStyle = c; ctx.globalAlpha = 0.6 + 0.4 * Math.sin(t * 3 + i); ctx.fillRect(x + 66 + i * 12, gy - 12, 5, 9); ctx.globalAlpha = 1; });
+    ctx.fillStyle = "#6b4226"; ctx.fillRect(x + 60, gy - 2, 54, 2);                                     // la table
+    if (t > 1.2) { const k = t - 1.2, bx = x + 80 + k * 40, by = gy - 30 - k * 18 + Math.sin(k * 9) * 5; ctx.fillStyle = Math.floor(t * 8) % 2 ? "#ffb7d5" : "#ff8ad8"; ctx.fillRect(Math.round(bx), Math.round(by), 3, 2); ctx.fillRect(Math.round(bx) + 4, Math.round(by), 3, 2); } // un papillon
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble

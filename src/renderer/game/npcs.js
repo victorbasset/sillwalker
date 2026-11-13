@@ -42,6 +42,19 @@ export const NPCS = {
       "Ne te perds pas : de là-haut, je te vois toujours.",
     ],
   },
+  // (it. 1089) le naturaliste du Bestiaire
+  bestiary: {
+    name: "Fenouil, le naturaliste",
+    place: "Une tente pleine de bocaux et de croquis",
+    art: "natur",
+    lines: [
+      "Fascinant ! Tu en as vaincu combien, de celui-là ?",
+      "Chaque monstre étudié te rend un peu plus fort contre lui.",
+      "Les panoplies ? J’en note chaque pièce dans mon carnet.",
+      "Ne me rapporte pas de gobelin vivant. Plus jamais.",
+      "Un jour, mon bestiaire sera complet. Grâce à toi.",
+    ],
+  },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
     name: "Plume, la chouette de la guilde",

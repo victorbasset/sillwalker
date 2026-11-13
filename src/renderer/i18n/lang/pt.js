@@ -1527,4 +1527,11 @@ export default {
   2652: "Os heróis cativos estão marcados com uma jaula. Vá buscá-los!",
   2653: "Ainda me falta o fim do Parapeito. Você vai me contar?",
   2654: "Não se perca: daqui de cima, sempre vejo você.",
+  2655: "Funcho, o naturalista",
+  2656: "Uma tenda cheia de frascos e esboços",
+  2657: "Fascinante! Quantos desses você já venceu?",
+  2658: "Cada monstro estudado te deixa um pouco mais forte contra ele.",
+  2659: "Conjuntos? Anoto cada peça no meu caderno.",
+  2660: "Não me traga um goblin vivo. Nunca mais.",
+  2661: "Um dia meu bestiário estará completo. Graças a você.",
 };

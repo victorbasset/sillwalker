@@ -1527,4 +1527,11 @@ export default {
   2652: "Los héroes cautivos están marcados con una jaula. ¡Ve a buscarlos!",
   2653: "Aún me falta el final del Alféizar. ¿Me lo contarás?",
   2654: "No te pierdas: desde aquí arriba siempre te veo.",
+  2655: "Hinojo, el naturalista",
+  2656: "Una tienda llena de frascos y bocetos",
+  2657: "¡Fascinante! ¿Cuántos de esos has vencido?",
+  2658: "Cada monstruo estudiado te hace un poco más fuerte contra él.",
+  2659: "¿Conjuntos? Anoto cada pieza en mi cuaderno.",
+  2660: "No me traigas un trasgo vivo. Nunca más.",
+  2661: "Un día mi bestiario estará completo. Gracias a ti.",
 };

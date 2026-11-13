@@ -85,4 +85,21 @@ export const NPC_ART = {
     "....KK..KK....",
     "....KK..KK....",
   ]] },
+  // Fenouil, le naturaliste : chapeau d'explorateur, lunettes, une loupe (it. 1089).
+  natur: { pal: { T: "#c8a86a", t: "#8a6a3a", F: "#f0c08a", E: "#1a1a1a", W: "#e8eef8", K: "#6a8a3a", k: "#4a6a2a", L: "#9fd8ff", B: "#5a3a20", S: "#3a3550" }, frames: [[
+    "....TTTTTT....",
+    "..tTTTTTTTTt..",
+    "...FFFFFFFF...",
+    "...WEWFFWEW...",
+    "...FFFFFFFF...",
+    "....FFFFFF....",
+    "...KKKKKKKK...",
+    "..KKKKKKKKKK..",
+    ".FKKKkKKkKKKB.",
+    ".F.KKKKKKKK.LB",
+    "...KKKKKKKK.BL",
+    "...kkkkkkkk...",
+    "....SS..SS....",
+    "....SS..SS....",
+  ]] },
 };

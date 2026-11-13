@@ -1527,4 +1527,11 @@ export default {
   2652: "Captive heroes are marked with a cage. Go and get them!",
   2653: "I’m still missing the end of the Sill. Will you tell me about it?",
   2654: "Don’t get lost: from up here, I can always see you.",
+  2655: "Fennel, the naturalist",
+  2656: "A tent full of jars and sketches",
+  2657: "Fascinating! How many of those have you beaten?",
+  2658: "Every monster studied makes you a little stronger against it.",
+  2659: "Sets? I note every piece in my notebook.",
+  2660: "Don’t bring me a live goblin. Never again.",
+  2661: "One day, my bestiary will be complete. Thanks to you.",
 };

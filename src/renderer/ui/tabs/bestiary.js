@@ -1,4 +1,5 @@
 // Onglet Bestiaire : monstres rencontrés, victoires et paliers.
+import { npcHTML } from "../npc.js";
 import { t as tx, tr, csep, cend } from "../../i18n/index.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
@@ -33,7 +34,7 @@ export class BestiaryTab {
       for (const h of this.codexHTML(S).split(/(?=<h2 class="codexh)/)) { const m = h.match(/id="bj-(\w+)"/); if (m && m[1] === this.sec) html = h; }
       if (!html) this.sec = "beasts";
     }
-    el.innerHTML = this.jumpHTML() + (html || this.beastsHTML(S));
+    el.innerHTML = `<div class="subrow">${this.jumpHTML()}${npcHTML("bestiary", true)}</div>` + (html || this.beastsHTML(S)); // (it. 1089) Fenouil
   }
 
   beastsHTML(S) {

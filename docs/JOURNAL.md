@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1089, demande E, étape E4) : sixième PNJ, Fenouil, le naturaliste, tient le Bestiaire (chapeau
+  d'explorateur, lunettes, une loupe ; 5 répliques : « Ne me rapporte pas de gobelin vivant. Plus jamais. ») : au bout
+  de la rangée des sous-onglets (.subrow). Scène de rencontre : sa tente de toile, des bocaux qui luisent, un
+  papillon qui s'échappe. Contrôle d'autotest des PNJ étendu (215/215) ; capture en polonais (sous-onglets du
+  Bestiaire sur une ligne à 1280 px) ; 10 langues sans défaut. Restent : Talents, Compétences, Familiers, Statistiques.
 - 2026-11-13 (it. 1088, demande E, étape E4) : cinquième PNJ, Sola, la cartographe, tient la Carte (longue tresse,
   foulard vert, une carte roulée sous le bras ; 5 répliques : « Au-delà de la zone 100, mes cartes se répètent…
   c'est étrange. »), dans le titre de la carte du Rebord. Scène de rencontre : une tour de guet en bois, des cartes

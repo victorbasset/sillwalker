@@ -1527,4 +1527,11 @@ export default {
   2652: "Gefangene Helden sind mit einem Käfig markiert. Hol sie dir!",
   2653: "Mir fehlt noch das Ende des Saums. Erzählst du mir davon?",
   2654: "Verirr dich nicht: Von hier oben sehe ich dich immer.",
+  2655: "Fenchel, der Naturforscher",
+  2656: "Ein Zelt voller Gläser und Skizzen",
+  2657: "Faszinierend! Wie viele davon hast du besiegt?",
+  2658: "Jedes erforschte Monster macht dich ein wenig stärker gegen es.",
+  2659: "Sets? Ich notiere jedes Teil in meinem Heft.",
+  2660: "Bring mir keinen lebenden Kobold. Nie wieder.",
+  2661: "Eines Tages wird mein Bestiarium vollständig sein. Dank dir.",
 };

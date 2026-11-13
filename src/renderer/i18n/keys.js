@@ -2656,5 +2656,12 @@ export const KEYS = [
   "Au-delà de la zone 100, mes cartes se répètent… c’est étrange.",
   "Les héros captifs sont marqués d’une cage. Va les chercher !",
   "Il me manque encore le bout du Rebord. Tu me le raconteras ?",
-  "Ne te perds pas : de là-haut, je te vois toujours."
+  "Ne te perds pas : de là-haut, je te vois toujours.",
+  "Fenouil, le naturaliste",
+  "Une tente pleine de bocaux et de croquis",
+  "Fascinant ! Tu en as vaincu combien, de celui-là ?",
+  "Chaque monstre étudié te rend un peu plus fort contre lui.",
+  "Les panoplies ? J’en note chaque pièce dans mon carnet.",
+  "Ne me rapporte pas de gobelin vivant. Plus jamais.",
+  "Un jour, mon bestiaire sera complet. Grâce à toi."
 ];
