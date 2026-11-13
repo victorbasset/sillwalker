@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1027) : --overflow-report vérifie chaque astuce dans la bulle (trois lignes au plus depuis l'it.
+  1026) : « astuce-coupée=id » (textes calculés compris, textFn). 10 langues : aucune coupée. Mesure prouvée : bulle
+  remise à une ligne le temps d'un essai, elle signale « set » et « astrolabe » en russe. Autotest 204/204. CLAUDE.md.
 - 2026-11-13 (it. 1026) : fin de partie à 1366 et 1920 px en anglais, chinois, japonais et coréen : sans défaut (les 10
   langues le sont désormais à toutes les largeurs). Astuce des panoplies complétée : « Ton sac garde les pièces : dès
   qu'il peut en compléter une, « À faire » le fait d'un clic. » En la vérifiant en russe : la bulle d'astuce tenait sur

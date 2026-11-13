@@ -249,7 +249,16 @@ function start() {
             const m = document.getElementById("modal"), mb = m.querySelector(".panel"), mo = mb.scrollHeight - mb.clientHeight;
             if (mo > 2) out.push(k + "=" + mo); m.hidden = true; }
           return innerWidth + " " + (out.join(" ") || "aucun"); })()`).catch((e) => "erreur " + e.message);
-        console.log("[overflow] " + r);
+        // (it. 1027) astuces : chacune dans la bulle (trois lignes au plus, it. 1026) ; celles qui seraient coupées par « … »
+        const hc = await strip.win.webContents.executeJavaScript(`(async () => { const H = (await import("./ui/hints.js")).HINTS, G = window.__game,
+            t = document.getElementById("toast"), b = document.body, open = b.classList.contains("panel-open"), keep = [t.hidden, t.innerHTML], cut = [];
+          b.classList.remove("panel-open"); t.hidden = false;
+          for (const h of H) { let txt = h.text; if (!txt && h.textFn) { try { txt = h.textFn(G); } catch { txt = null; } } if (!txt) continue;
+            t.innerHTML = '<span class="hint">💡</span> ' + txt; if (t.scrollHeight > t.clientHeight + 2) cut.push(h.id); }
+          t.hidden = keep[0]; t.innerHTML = keep[1]; if (open) b.classList.add("panel-open");
+          return cut.length ? "astuce-coupée=" + cut.join("/") : ""; })()`).catch((e) => "astuces : erreur " + e.message);
+        const rr = hc ? (/ aucun$/.test(r) ? r.replace(/ aucun$/, " " + hc) : r + " " + hc) : r;
+        console.log("[overflow] " + rr);
         app.quit();
       }, 3000);
       // (it. 789) --tour : la bande seule 12 s, puis le panneau et cinq onglets (4 s chacun), puis la bande de nouveau
