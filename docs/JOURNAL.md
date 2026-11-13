@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1031, revue générale) : simulation 12 h, records des courses : lancier 44 → 62, gladiateur 44 → 62,
+  chaman 44 → 65 (réguliers). Performance (copie neuve) : bande 19,7 %, panneau 20,4 %, mini 6,8 %, icône 0,9 %.
+  Captures Héros et Statistiques à 1366 px en français, anglais et japonais, mini en japonais : propres. Texte japonais
+  extrait : HP, Lv, pt, BGM seulement (usuels). Rien à corriger.
 - 2026-11-13 (it. 1030) : mesures pour la décision de Victor sur le plafond de fin de semaine (voir Idées, it. 1029) :
   bonus des points en surplus (+36 %, +100 %) et Écailles désactivées n'y changent presque rien ; la courbe ×1,04
   par zone l'explique. Aucun changement du jeu.
