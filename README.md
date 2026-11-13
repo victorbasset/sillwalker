@@ -164,6 +164,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 | `npm test` | Tests de la logique de jeu, sans Electron |
 | `npm run perf` | Mesure RAM/CPU (bande, panneau ouvert, mini, icône seule) → `perf-report.json` |
 | `node --experimental-default-type=module scripts/simulate.js 12 warrior` | Simule un joueur pendant 12 h (équilibrage, records par course) |
+| `node --experimental-default-type=module scripts/hero-table.mjs 12` | Records des 20 héros en 12 h (3 graines, en parallèle ; horloge virtuelle : résultats reproductibles) |
+| `node scripts/lang-overflow.mjs` | Défilements et textes coupés dans les 10 langues (1920, 1600, 1366, 1280 px ; fin de partie ; interface à 130 %) |
 | `npm run selftest` | Parcourt l'interface tout seul (survol, panneau, modes, Quitter) sans toucher à la souris |
 | `npm run icons` | Régénère les icônes à partir du pixel art du héros |
 | `npm run dist` | Build Windows dans `dist/win-unpacked/` (le dossier à envoyer sur Steam) |

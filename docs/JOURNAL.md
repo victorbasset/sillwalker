@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1057) : README, tableau des scripts : hero-table (20 héros, horloge virtuelle) et lang-overflow
+  (10 langues, 4 largeurs, fin de partie, zoom 130 %).
 - 2026-11-13 (it. 1056) : README à jour sur les panoplies (pièces gardées de toute panoplie jamais complétée, 6 au
   plus ; complétion d'un clic depuis « À faire » et le Bestiaire ; équipement d'avant remis ; réplique). Essai
   d'instrumentation du rythme des rendus du panneau sans résultat (compteurs à 0 : autre chemin de rendu) : abandonné,
