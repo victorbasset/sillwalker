@@ -11,6 +11,9 @@ const SPACED = new Set(["fr", "es", "pt", "de", "pl", "ru"]);
 const BIG = { fr: "Md", es: "mil M", pt: "B", de: "Mrd", pl: "mld", ru: "млрд" }; // milliard (en, zh, ja, ko : B)
 
 export const dec = (s) => (COMMA.has(getLang()) ? s.replace(".", ",") : s);
+/** (it. 1002) Entier avec le séparateur des milliers de la langue ; l'espace fine U+202F du français (absente de toutes
+    les polices pixel du jeu : rendue par une police de secours) devient l'insécable ordinaire. */
+export const locInt = (n, L = getLang()) => n.toLocaleString(LOCALE[L] || "en-US").replace(/\u202f/g, NB);
 export const unit = (u) => (SPACED.has(getLang()) ? NB : "") + u;
 
 /** Grands nombres au-delà du millier de milliards (abréviations habituelles des jeux idle), puis notation scientifique. */
@@ -36,11 +39,11 @@ export function fmt(n) {
     return Number(s) >= 1000 ? bump(L, i) : dec(s) + unit(u);
   }
   if (n >= 1e4) { const r = Math.round(n / 1e3); return r >= 1000 ? bump(L, st.length - 1) : r + unit("k"); }
-  return n.toLocaleString(LOCALE[L] || "en-US");
+  return locInt(n, L);
 }
 
 /** (it. 872) Entier complet avec le séparateur des milliers de la langue (« 24 191 », « 24,191 »). */
-export const fmtFull = (n) => Math.round(n).toLocaleString(LOCALE[getLang()] || "en-US");
+export const fmtFull = (n) => locInt(Math.round(n), getLang());
 
 /** Format court à 3 chiffres significatifs (mode mini) : 228 M, 1,23 Md, 45,6 k. */
 export function fmtShort(n) {

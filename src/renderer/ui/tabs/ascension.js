@@ -3,7 +3,7 @@ import { t as tx, txn, fsp, csep } from "../../i18n/index.js";
 import { CLASSES, canPartner, duoSynergy } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
-import { esc } from "../../game/format.js";
+import { esc, fmtFull } from "../../game/format.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { shopIconURL } from "../../render/shopart.js";
 
@@ -33,7 +33,7 @@ export class AscensionTab {
     const autos = `${hasUnlock(S, "skyChart") ? `<label class="toggle" title="${esc(tx("Carte du ciel : placer tout seul les éclats dans la constellation la moins chère"))}" aria-label="${esc(tx("Carte du ciel"))}"><input type="checkbox" data-action="a-stars"${S.settings.autoStars !== false ? " checked" : ""}> ${ico("c_north")}</label>` : ""}${hasUnlock(S, "astrolabe") ? `<label class="toggle" title="${esc(tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record"))}" aria-label="${esc(tx("Astrolabe"))}"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${ico("astro")}</label>` : ""}`;
     const intro = `<article class="panel ascend">
       <h2>${tx("Ascension")} <small>${txn(P.count, "{n} ascension|{n} ascensions")}</small></h2>
-      <p class="shards">${ico("star")} ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${P.shards}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: P.total })}</span></p>
+      <p class="shards">${ico("star")} ${txn(P.shards, "{n} éclat d’étoile|{n} éclats d’étoile", { n: `<b>${fmtFull(P.shards)}</b>` })} <span class="note">${tx("({0} gagnés au total)", { 0: fmtFull(P.total) })}</span></p>
       <p><b>${tx("Lueur stellaire")}</b>${fsp()}${tx(": chaque éclat gagné, même dépensé, donne pour toujours {0}.\n      {1}\n      {2}", { 0: esc(describeEffects(GLOW_PER_SHARD)), 1: P.total ? `${tx("Actuellement :")} <b class="delta-p">${esc(describeEffects(glowEffects(S)))}</b>.` : "", 2: P.bestRun ? `<br><span class="note">${tx("Meilleure course : zone {0}.", { 0: Math.max(P.bestRun, S.best) })}</span>` : "" })}</p>
       <p class="tight">${tx("Ton héros recommence au")} <b>${tx("niveau 1")}</b>${tx(", en zone {0}.", { 0: g.nextStartZone() })}</p>
       ${(P.count || 0) >= 3 ? `<details data-keep="asc-keep"><summary>${tx("Ce qui est gardé ou perdu")}</summary>` : ""}
@@ -51,7 +51,7 @@ export class AscensionTab {
           const syn = duoSynergy(next, pick);
           return `<br>${tx("Compagnon de la prochaine aventure :")} <b>${esc(CLASSES[pick].name)}</b>${syn ? ` <span class="synergy-on">✦ ${esc(tx(syn.name))}</span>` : ""}`; })()}</p>
       ${can
-        ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: gain })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: shardsFor(nextZone + 4) })}</p>
+        ? `<p>${tx("Ascension maintenant :")} <b class="gold">${tx("+{0} éclats", { 0: fmtFull(gain) })}</b> ${tx("(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: fmtFull(shardsFor(nextZone + 4)) })}</p>
            <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : ico("star") + " " + tx("Monter vers les étoiles")}</button>${autos ? `<span class="autorow">${autos}</span>` : ""}</div>`
         : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>${autos ? `<div class="row autorow">${autos}</div>` : ""}`}
     </article>`;
@@ -65,7 +65,7 @@ export class AscensionTab {
       const full = (rank ? tx("Actuel : ") + effText(c.eff, rank) + " · " : "") + (maxed ? tx("maximum atteint") : tx("Rang suivant : ") + effText(c.eff, c.eff.startZone ? rank + 1 : 1));
       return `<li class="shopline" title="${esc(full)}"><img class="eicon big" src="${shopIconURL(c.id, 3)}" alt=""><div class="si"><div class="nm">${esc(c.name)} <small>${rank} / ${c.max}</small></div>
         <div class="sub">${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, c.eff.startZone ? rank + 1 : 1))}</div></div>
-        ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${cost}</button>`}</li>`;
+        ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${fmtFull(cost)}</button>`}</li>`;
     }).join("");
     el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2>${maxedList.length ? `<p class="note tight">${tx("Au maximum ({0}) :", { 0: maxedList.length })}</p><div class="uowned">${maxedChips}</div>` : ""}<ul class="shoplist two-cols">${stars}</ul></article></div>`;
   }

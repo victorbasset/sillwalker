@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1002) : nombres groupés par milliers. Onglet Ascension en fin de partie : « 1111 éclats », « 8857 gagnés
+  au total », « +26571 % attaque » (Lueur stellaire), « +1347 éclats » sans séparateur : fmtFull partout dans
+  l'onglet (coût des constellations compris) ; describeEffects groupe au-delà de 1000. Et en vérifiant le séparateur :
+  en français, toLocaleString sépare les milliers par U+202F, absente de TOUTES les polices pixel du jeu (vérifié avec
+  fontTools) : rendue par une police de secours dans chaque « 8 857 » d'or (fmt sous 10 000), fmtFull et txn. Remplacée
+  par l'insécable ordinaire (locInt, format.js ; groupInt, i18n). Test logique ; capture ; 10 langues sans défaut ;
+  autotest 202/202. CLAUDE.md.
 - 2026-11-13 (it. 1001, revue générale) : simulation 12 h, records des courses : guerrier 39 → 65, mage 43 → 59, rôdeur
   44 → 61 (comme à l'it. 981 : bruit). Performance (copie neuve) : bande 19,3 %, panneau 21,1 %, mini 7,0 %, icône
   0,8 %. Captures Aventure et Quêtes à 1366 px en français, anglais et japonais : en japonais, le titre « 装備 » de la

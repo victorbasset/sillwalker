@@ -39,7 +39,7 @@ import * as M_quests_js from "../src/renderer/game/quests.js";
 import { makeQuest } from "../src/renderer/game/quests.js";
 import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
-import { fmt as fmtN, fmtShort as fmtS, durText, unit as unitF } from "../src/renderer/game/format.js";
+import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -937,6 +937,18 @@ test("quête « proie » : seule la bonne sorte d'élite compte, en jeu et penda
   h.applyOffline(8 * 3600); assert.ok(h.S.quests.slots[0].progress > 0, "hors ligne : " + h.S.quests.slots[0].progress);
   const k = new Game(freshState()); k.S.quests.slots = [{ uid: 902, kind: "prey", type: "affixe_disparu", goal: 1, progress: 0, reward: { gold: 1 } }];
   k.ensureQuests(); assert.ok(k.S.quests.slots.every((q) => q.kind !== "prey" || ELITE_AFFIXES[q.type]), "sorte inconnue remplacée");
+});
+
+test("effets au-delà de 1000 : séparateur des milliers (it. 1002 : « +26571 % attaque » de la Lueur stellaire)", () => {
+  const before = getLang();
+  try {
+    setLang("fr"); const d = M_talents_js.describeEffects({ atkPct: 26571, hpPct: 12.5 });
+    // (it. 1002) séparateur : l'insécable ordinaire, jamais U+202F (absente des polices pixel)
+    assertStrict.ok(!/\u202f/.test(d + fmtFullF(8857) + fmtN(8857) + txn(8857, "{n} éclat|{n} éclats")), JSON.stringify(d));
+    assertStrict.equal(fmtFullF(8857), "8\u00a0857");
+    const dn = d.replace(/\u00a0/g, " "); assert.ok(dn.startsWith("+26 571 %"), d); assert.ok(dn.includes("+12,5 %"), d);
+    setLang("en"); assert.ok(M_talents_js.describeEffects({ atkPct: 26571 }).startsWith("+26,571%"), M_talents_js.describeEffects({ atkPct: 26571 }));
+  } finally { setLang(before); }
 });
 
 test("unité « % » collée au nombre par une espace insécable (it. 949 : « 107 / % » coupé en fin de ligne)", () => {

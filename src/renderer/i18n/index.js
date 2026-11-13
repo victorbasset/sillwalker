@@ -110,7 +110,8 @@ export function plAgree(adj, g) {
  * et le polonais (one|few|many, règles Intl.PluralRules). {n} est remplacé par n.
  */
 let rules = null, rulesLang = null;
-const groupInt = (n) => { try { return n.toLocaleString(lang); } catch { return String(n); } };
+// (it. 1002) U+202F (séparateur français, absent des polices pixel) -> espace insécable ordinaire
+const groupInt = (n) => { try { return n.toLocaleString(lang).replace(/\u202f/g, "\u00a0"); } catch { return String(n); } };
 export function txn(n, src, vars) {
   // (it. 871) {n} brut au-delà de 999 : séparateur des milliers de la langue (« 1 322 », « 1,322 »), comme fmt()
   const shown = Number.isInteger(n) && Math.abs(n) >= 1000 ? groupInt(n) : n;

@@ -153,7 +153,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   qui ne marchait qu'en français et en anglais, est retirée depuis l'it. 685.)
   Nombres : `fmt`, `fmtShort`, `unit("%")`, `dec()` de `game/format.js` (format de la langue).
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
-  Espaces insécables (it. 949-950) : `NB` (format.js) et `fsp()` sont de vraies U+00A0 (U+202F manque aux polices pixel) ;
+  Espaces insécables (it. 949-950) : `NB` (format.js) et `fsp()` sont de vraies U+00A0 (U+202F manque aux polices pixel ;
+  le séparateur français des milliers de toLocaleString est U+202F : passer par `locInt`/`fmtFull` de format.js, it. 1002) ;
   `t()` rend insécable l'espace qui suit un nombre devant un mot ou « % » (« 20,53 M or », « 8 h », it. 952) ; les
   descriptions des données (translateData, français compris) celle de « 40 % ». Dans test-logic, `assert` compare avec
   des espaces ordinaires ; `assertStrict` pour tester les insécables.
