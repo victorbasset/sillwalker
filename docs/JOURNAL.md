@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1039) : contrôle d'autotest des répliques du héros (panoplie complète : une bulle apparaît) ;
+  classUnlock n'y est pas émis (un premier essai avec une donnée inventée a déclenché une erreur dans le gestionnaire
+  de app.js, qui attend { cls } ; l'émettre pour de vrai lancerait la cinématique et la bulle d'info). 205/205.
 - 2026-11-13 (it. 1038) : nouvelles répliques du héros (9 langues) : à l'ascension (« Un nouveau départ, et plus fort ! »,
   1,5 s après le bandeau), à la libération d'un héros (« Un nouvel allié ! ») et quand un œuf tombe (« Un œuf ! Qu'est-ce
   qui va en sortir ? », réplique ordinaire, au plus une toutes les 45 s). Autotest 204/204.

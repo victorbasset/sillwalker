@@ -766,6 +766,15 @@ async function runSelfTest(strip) {
   // (it. 969) détail du retour : « Or gagné » = combats + expéditions du Grand intendant (le même total que la bulle)
   const offD = await js("(() => { const P = window.__panel; P.showOfflineSummary({ seconds: 28800, duration: '8 h', zone: 'Z', kills: 10, gold: 1000, petGold: 500, xp: 1, kept: 0, best: -1, steps: [], petWork: 3, capH: 8, questsDone: 2 }); const t = document.getElementById('mbody').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return t; })()");
   check("retour d’absence : or gagné total, expéditions du Grand intendant détaillées", /1[,.\s\u00a0\u202f]?500/.test(offD) && /\+500/.test(offD) && /Quests completed\s*2/.test(offD), offD.slice(0, 300));
+  // (it. 1039) répliques du héros des it. 1037-1038 : une panoplie complète fait parler le héros
+  const spk = await js(`(() => { const G = window.__game, st = window.__strip, out = [], fe = G.S.settings.fullEffects;
+    G.S.settings.fullEffects = true;
+    // (classUnlock n'est pas émis ici : il lancerait aussi la cinématique et la bulle d'info de la libération)
+    for (const [ev, p] of [["setBonus", { id: "wind", n: 4 }]]) {
+      st.saidAt = -1e9; st.bubble.hidden = true; st.bubble.textContent = ""; G.emit(ev, p);
+      out.push(ev + ":" + (!st.bubble.hidden && st.bubble.textContent ? "ok" : "rien")); }
+    G.S.settings.fullEffects = fe; st.bubble.hidden = true; return out.join(" "); })()`);
+  check("répliques du héros : panoplie complète", spk === "setBonus:ok", spk);
   // (it. 1022) « Vendre ce qui ne m'améliore pas » : au survol, les pièces de panoplie gardées
   const keptT = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;
     const keep = { bag: S.bag.slice(), done: { ...(S.setsDone || {}) }, size: S.bagSize, tab: P.tab };
