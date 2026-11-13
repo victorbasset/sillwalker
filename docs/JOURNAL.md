@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1119) : contrôle d'autotest du grand graphe rempli : « Dépenser automatiquement » sur une partie de
+  haut niveau remplit la fleur puis le graphe (258 nœuds), l'annonce part une seule fois et la ligne « points en
+  surplus » s'affiche dans Compétences (it. 1115, 1117 : seulement en test logique jusqu'ici). Autotest 221/221.
 - 2026-11-13 (it. 1118) : tableau des 20 héros (12 h, graines 7/3/11), le premier depuis l'it. 1017 (paliers et choix
   des maîtrises, grand graphe, etc. depuis) : moyenne 63,7 (inchangée), de 61,0 (assassin : 62/62/59) à 66,7
   (samouraï : 66/65/69) ; écart 5,7 zones, dans le bruit d'une graine (±4). Rien à rééquilibrer ; repères de

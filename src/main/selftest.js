@@ -267,6 +267,16 @@ async function runSelfTest(strip) {
       return "choix " + ((S.masteryPicks || {})["ms_power:10"] || "aucun");
     } finally { S.masteryPicks = keep.picks; if (keep.r == null) delete S.talents[S.cls].ms_power; else S.talents[S.cls].ms_power = keep.r; T.sel = null; G.invalidateStats(); document.querySelector('#modal').hidden = true; P.renderAll(); } })()`);
   check("onglet Talents : un bonus de palier de maîtrise se choisit", mPick === "choix b", mPick);
+  // (it. 1119) grand graphe rempli (it. 1115, 1117) : annonce une fois, ligne « points en surplus » dans Compétences
+  const gFull = await js(`(async () => { const P = window.__panel, G = window.__game, S = G.S; const keep = { lvl: S.lvl, skills: JSON.parse(JSON.stringify(S.skills)), auto: S.settings.autoSkills };
+    try { let n = 0; G.on("graphFull", () => n++);
+      S.lvl = 4000; S.settings.autoSkills = false; S.skills.order = ["root"]; S.skills.outer = []; S.skills.graphSeen = true; delete S.skills.graphFullSeen;
+      G.autoSpendSkills(); G.invalidateStats(); G.advance(1.5); G.advance(1.5);
+      P.setTab("skills"); P.renderAll();
+      const t = document.querySelector('[data-pane="skills"]:not([hidden]) .skpts').textContent;
+      return "nœuds " + S.skills.outer.length + " annonces " + n + (/surplus/.test(t) ? " ligne" : " sans ligne : " + t.slice(0, 80));
+    } finally { S.lvl = keep.lvl; S.skills = keep.skills; S.settings.autoSkills = keep.auto; G.invalidateStats(); P.setTab("adventure"); P.renderAll(); } })()`);
+  check("grand graphe rempli : annoncé une fois, points en surplus affichés", gFull === "nœuds 258 annonces 1 ligne", gFull);
   check("onglet Talents : dépenser automatiquement", (await js("window.__game.talentPointsFree()")) === 0 || (await js("window.__game.nextAutoTalent()")) === null);
   await click('[data-tab="shop"]');
   await sleep(150);
