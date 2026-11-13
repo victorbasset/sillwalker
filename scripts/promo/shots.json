@@ -1,0 +1,75 @@
+{
+  "_doc": "(it. 1168) Liste de tournage de la bande-annonce : chaque plan = une sauvegarde, une mise en scène (code exécuté dans le jeu après le prélude de shoot.mjs), une durée filmée (s) et un délai avant de filmer (s). Sauvegardes : mid = scripts/fixtures/save-0.1.2.json (mage zone 56, compagnon), end = scripts/fixtures/endgame-save.json (guerrier zone 150). (it. 1168) zone : décor du plan (G.setZone, une zone déjà franchie ; décor = (zone-1) % 33 + 1) ; numbers : true pour garder les nombres de dégâts ordinaires (sinon masqués : critiques et mots restent).",
+  "shots": [
+    {
+      "id": "walk",
+      "save": "mid",
+      "secs": 10,
+      "wait": 7,
+      "js": "",
+      "zone": 31
+    },
+    {
+      "id": "bloodmoon",
+      "save": "mid",
+      "secs": 10,
+      "wait": 7,
+      "js": "setTimeout(() => G.startEvent('bloodmoon'), 300);",
+      "zone": 48
+    },
+    {
+      "id": "starfall",
+      "save": "mid",
+      "secs": 10,
+      "wait": 7,
+      "js": "setTimeout(() => G.startEvent('starfall'), 300);",
+      "zone": 40
+    },
+    {
+      "id": "goblinrush",
+      "save": "mid",
+      "secs": 10,
+      "wait": 7,
+      "js": "setTimeout(() => G.startEvent('goblinrush'), 300);",
+      "zone": 39
+    },
+    {
+      "id": "goldrain",
+      "save": "mid",
+      "secs": 8,
+      "wait": 7,
+      "js": "setTimeout(() => G.startEvent('goldrain'), 300);",
+      "zone": 42
+    },
+    {
+      "id": "npc-shop",
+      "save": "mid",
+      "secs": 12,
+      "wait": 6,
+      "js": "setTimeout(() => st.juice.cinematic('npc', { tab: 'shop', force: true }), 800);",
+      "zone": 31
+    },
+    {
+      "id": "relic",
+      "save": "mid",
+      "secs": 10,
+      "wait": 6,
+      "js": "setTimeout(() => st.juice.cinematic('relic', { id: 'drone', force: true }), 800);"
+    },
+    {
+      "id": "intro",
+      "save": "mid",
+      "secs": 14,
+      "wait": 6,
+      "js": "setTimeout(() => st.juice.cinematic('intro', { force: true }), 800);"
+    },
+    {
+      "id": "endfight",
+      "save": "end",
+      "secs": 10,
+      "wait": 7,
+      "js": "",
+      "numbers": true
+    }
+  ]
+}

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1168, bande-annonce 2) : liste de tournage scripts/promo/shots.json + scripts/promo/shoot.mjs
+  (deux plans filmés à la fois, un écran virtuel chacun ; prélude : bulles vidées, astuces coupées, annonces déjà
+  vues). 9 plans filmés (marche, Lune de sang, Nuée d'étoiles, Ruée des gobelins, Pluie d'or, rencontre de Mirette,
+  relique, intro, combat de fin de partie). Premier jet : tous les plans de milieu de jeu dans le même décor (Récif
+  abyssal) et image encombrée (noms de sorts, nombres). Corrigé : « zone » par plan (décors verger, volcan, désert,
+  toundra, ruines célestes ; zones déjà franchies) et nombres de dégâts ordinaires masqués (réglage damageNumbers ;
+  critiques et mots gardés), sauf le combat de fin de partie. Seconde prise : décors variés, action lisible.
 - 2026-11-14 (it. 1167, bande-annonce 1) : base pour filmer net. Option de dev --stage=<fichier.js> (mise en scène
   exécutée dans le jeu au chargement) ; scripts/promo/record.sh <save> <stage|-> <s> <sortie> : jeu VISIBLE sur un
   écran virtuel 3840×2160, échelle ×2 (--force-device-scale-factor=2), fenêtre 3840×1240 filmée à 30 images/s
