@@ -1541,4 +1541,11 @@ export default {
   2666: "Mande-os em expedição: sempre voltam com os bolsos cheios.",
   2667: "O menor dos mascotes pode salvar o maior dos heróis.",
   2668: "Psiu… esse está dormindo. Correu muito hoje.",
+  2669: "Íris, a jardineira das estrelas",
+  2670: "Um jardim de flores luminosas",
+  2671: "Cada pétala da flor é uma maneira de lutar.",
+  2672: "Quando a flor estiver inteira, o grande jardim ao redor vai se abrir.",
+  2673: "Regue uma pétala até o fim: o coração dela vai se acender.",
+  2674: "Os caminhos do grande grafo? Só se segue um por pétala. Escolha bem.",
+  2675: "As flores de estrela nunca murcham. Nem depois de uma ascensão.",
 };

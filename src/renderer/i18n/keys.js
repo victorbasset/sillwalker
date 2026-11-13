@@ -2670,5 +2670,12 @@ export const KEYS = [
   "Chaque familier a son caractère. Comme les enfants.",
   "Envoie-les en expédition : ils reviennent toujours, les poches pleines.",
   "Le plus petit des familiers peut sauver le plus grand des héros.",
-  "Chut… celui-là dort. Il a beaucoup couru aujourd’hui."
+  "Chut… celui-là dort. Il a beaucoup couru aujourd’hui.",
+  "Iris, la jardinière des étoiles",
+  "Un jardin où poussent des fleurs lumineuses",
+  "Chaque pétale de la fleur est une manière de combattre.",
+  "Une fois la fleur entière, le grand jardin autour s’ouvrira.",
+  "Arrose un pétale jusqu’au bout : son cœur s’allumera.",
+  "Les voies du grand graphe ? On n’en suit qu’une par pétale. Choisis bien.",
+  "Les fleurs d’étoile ne fanent jamais. Même après une ascension."
 ];

@@ -1541,4 +1541,11 @@ export default {
   2666: "Mándalas de expedición: siempre vuelven con los bolsillos llenos.",
   2667: "La mascota más pequeña puede salvar al héroe más grande.",
   2668: "Chis… esa está dormida. Hoy ha corrido mucho.",
+  2669: "Iris, la jardinera de las estrellas",
+  2670: "Un jardín de flores luminosas",
+  2671: "Cada pétalo de la flor es una forma de luchar.",
+  2672: "Cuando la flor esté completa, se abrirá el gran jardín que la rodea.",
+  2673: "Riega un pétalo hasta el final: su corazón se encenderá.",
+  2674: "¿Los caminos del gran grafo? Solo se sigue uno por pétalo. Elige bien.",
+  2675: "Las flores de estrella nunca se marchitan. Ni siquiera tras una ascensión.",
 };

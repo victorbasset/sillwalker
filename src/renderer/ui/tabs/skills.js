@@ -1,6 +1,7 @@
 // Onglet Compétences : l'arbre géant (graphe SVG). Glisser pour se déplacer,
 // molette pour zoomer, clic sur un nœud relié pour le prendre.
 // Le SVG est construit une seule fois ; ensuite seuls les états changent.
+import { npcHTML } from "../npc.js";
 import { t as tx, txn } from "../../i18n/index.js";
 import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, skillSpendable, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
@@ -41,7 +42,7 @@ export class SkillsTab {
     this.el = el;
     el.innerHTML = `<div class="skillwrap">
       <aside class="panel skillside">
-        <h2>${tx("Compétences")} <small>${SKILL_NODE_COUNT} ${tx("nœuds")}</small></h2>
+        <h2 class="npch">${tx("Compétences")} <small>${SKILL_NODE_COUNT} ${tx("nœuds")}</small><span class="npcslot"></span></h2>
         <p class="skpts"></p>
         <p class="note">${tx("1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).\n        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.")}</p>
         <div class="row k-autorow"><button data-action="k-auto" class="primary">${tx("Dépenser automatiquement")}</button></div>
@@ -303,6 +304,9 @@ export class SkillsTab {
       const cls = "gedge" + (!open ? "" : gActive.has(e.a) && gActive.has(e.b) ? " on" : "");
       if (e.el && e.el.getAttribute("class") !== cls) e.el.setAttribute("class", cls);
     }
+    // (it. 1093) Iris, la jardinière : l'onglet n'est construit qu'une fois, sa pastille se met à jour ici
+    const slot = this.el.querySelector(".npcslot"), nh = npcHTML("skills", "icon");
+    if (slot && slot.innerHTML !== nh) slot.innerHTML = nh;
     const total = skillPointsTotal(S), free = skillPointsFree(S), used = active.size - 1;
     // (it. 1016) arbre entièrement appris : « 362 points libres · 144 / 144 » laissait croire qu'il restait à faire
     if (used >= SKILL_NODE_COUNT) this.el.querySelector(".skpts").innerHTML = `<span class="delta-p">${tx("✓ Arbre complet · {0} points au total", { 0: total })}</span><br>`

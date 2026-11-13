@@ -119,4 +119,21 @@ export const NPC_ART = {
     "....KK..KK....",
     "....KK..KK....",
   ]] },
+  // Iris, la jardinière des étoiles : chapeau de paille fleuri, robe bleue, un arrosoir (it. 1093).
+  gardener: { pal: { T: "#e8c98a", t: "#c8a86a", P: "#ff8ad8", F: "#f0c08a", E: "#1a1a1a", B: "#6aa8ff", b: "#3a6ab8", A: "#9a96b8", K: "#5a3a20" }, frames: [[
+    "....TTTTTP....",
+    "..tTTTTTTTTt..",
+    "...FFFFFFFF...",
+    "...FEFFFFEF...",
+    "...FFFFFFFF...",
+    "....FFFFFF....",
+    "...BBBBBBBB...",
+    "..BBBBBBBBBB..",
+    ".FBBbBBBBbBBF.",
+    "..BBBBBBBBBBAA",
+    "..BBBBBBBBBBAA",
+    ".bbbbbbbbbbbb.",
+    "....KK..KK....",
+    "....KK..KK....",
+  ]] },
 };

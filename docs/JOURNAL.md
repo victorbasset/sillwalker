@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1093, demande E, étape E4) : huitième PNJ, Iris, la jardinière des étoiles, tient les Compétences
+  (chapeau de paille fleuri, robe bleue, un arrosoir ; 5 répliques : « Les voies du grand graphe ? On n'en suit
+  qu'une par pétale. Choisis bien. ») : portrait dans le titre de la barre latérale (l'onglet n'est construit qu'une
+  fois : emplacement mis à jour par update). Scène de rencontre : une arche fleurie, six fleurs d'étoile aux couleurs
+  des pétales qui s'allument une à une ; Iris posée au sol. Autotest 217/217 ; capture en allemand ; 10 langues sans
+  défaut. Restent : Talents, Statistiques.
 - 2026-11-13 (it. 1092) : rencontres de PNJ, deux réserves des it. 1089-1091. File d'attente des cinématiques portée
   de 3 à 5 (la zone 10 en déclenche 3 d'un coup : héros libéré, chronique, Bram ; essai : 5 d'un coup, 1 jouée et
   4 en attente, aucune perdue). Sans porte (tente de Fenouil, nid de Maman Brindille), le PNJ est posé au sol au lieu

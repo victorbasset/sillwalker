@@ -110,6 +110,17 @@ function npcPlace(ctx, art, x, gy, t) {
     const eggs = ["#fff6c8", "#9fd8ff", "#ffb7d5"];
     eggs.forEach((c, i) => { const crack = i === 1 && t > 2.4; ctx.fillStyle = c; ctx.fillRect(x + 28 + i * 9, gy - 18 - (crack ? Math.round(Math.sin(t * 20)) : 0), 7, 9); if (crack) { ctx.fillStyle = "#1a1a1a"; ctx.fillRect(x + 31 + i * 9, gy - 15, 1, 3); } });
   }
+  if (art === "gardener") { // (it. 1093) Iris : un jardin, des fleurs d'étoile qui s'allument une à une, une arche fleurie
+    ctx.fillStyle = "#5a3a20"; ctx.fillRect(x - 6, gy - 52, 4, 52); ctx.fillRect(x + 26, gy - 52, 4, 52);   // arche
+    ctx.fillStyle = "#3e7a30"; for (let r = 0; r < 10; r++) ctx.fillRect(x - 6 + r, gy - 58 + Math.abs(r - 5), 4, 3); for (let r = 0; r < 26; r++) ctx.fillRect(x - 2 + r, gy - 60, 2, 4);
+    ctx.fillStyle = "#3e7a30"; ctx.fillRect(x + 40, gy - 4, 90, 4);                                           // le massif
+    for (let i = 0; i < 6; i++) {
+      const fx = x + 46 + i * 14, lit = t > 1 + i * 0.35, c = ["#e2552b", "#5fd36f", "#c08cff", "#ff7a6b", "#ffd34d", "#6aa8ff"][i];
+      ctx.fillStyle = "#3e7a30"; ctx.fillRect(fx + 2, gy - 14, 2, 10);
+      ctx.fillStyle = lit ? c : "#4a4a6a"; ctx.fillRect(fx, gy - 18, 6, 4); ctx.fillRect(fx + 2, gy - 20, 2, 8);
+      if (lit) { ctx.globalAlpha = 0.5 + 0.5 * Math.sin(t * 4 + i); ctx.fillStyle = "#fff6c8"; ctx.fillRect(fx + 2, gy - 17, 2, 2); ctx.globalAlpha = 1; }
+    }
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble
@@ -397,7 +408,7 @@ export class Juice {
       npcHero = el("img", "cine-npchero", node); npcHero.src = classPortraitURL(S.cls); npcHero.alt = "";
       npcImg = el("img", "cine-npc", node); npcImg.src = npcURL(npc.art); npcImg.alt = "";
       // sur le seuil de la porte ; sans porte (tente, nid : it. 1092), posé au sol
-      const onGround = npc.art === "natur" || npc.art === "keeper";
+      const onGround = npc.art === "natur" || npc.art === "keeper" || npc.art === "gardener";
       npcImg.style.left = (homeX - 10) + "px"; npcImg.style.top = (homeY - (onGround ? 42 : 54)) + "px"; npcImg.style.opacity = "0";
     }
     const life = { intro: 7, arrive: 5, dawn: 12, chronicle: data.text ? 10 : 5, freed: 5, npc: 10 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;

@@ -68,6 +68,19 @@ export const NPCS = {
       "Chut… celui-là dort. Il a beaucoup couru aujourd’hui.",
     ],
   },
+  // (it. 1093) la gardienne de la fleur de compétences
+  skills: {
+    name: "Iris, la jardinière des étoiles",
+    place: "Un jardin où poussent des fleurs lumineuses",
+    art: "gardener",
+    lines: [
+      "Chaque pétale de la fleur est une manière de combattre.",
+      "Une fois la fleur entière, le grand jardin autour s’ouvrira.",
+      "Arrose un pétale jusqu’au bout : son cœur s’allumera.",
+      "Les voies du grand graphe ? On n’en suit qu’une par pétale. Choisis bien.",
+      "Les fleurs d’étoile ne fanent jamais. Même après une ascension.",
+    ],
+  },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
     name: "Plume, la chouette de la guilde",

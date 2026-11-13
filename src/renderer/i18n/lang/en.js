@@ -1541,4 +1541,11 @@ export default {
   2666: "Send them on expeditions: they always come back with full pockets.",
   2667: "The smallest pet can save the greatest hero.",
   2668: "Shh… that one is sleeping. It ran a lot today.",
+  2669: "Iris, the star gardener",
+  2670: "A garden of glowing flowers",
+  2671: "Each petal of the flower is a way of fighting.",
+  2672: "Once the flower is whole, the great garden around it will open.",
+  2673: "Water a petal to the end: its heart will light up.",
+  2674: "The great graph’s paths? You follow only one per petal. Choose well.",
+  2675: "Star flowers never wilt. Not even after an ascension.",
 };

@@ -1541,4 +1541,11 @@ export default {
   2666: "Schick sie auf Expeditionen: Sie kommen immer mit vollen Taschen zurück.",
   2667: "Der kleinste Begleiter kann den größten Helden retten.",
   2668: "Pst … der da schläft. Er ist heute viel gerannt.",
+  2669: "Iris, die Sternengärtnerin",
+  2670: "Ein Garten voller leuchtender Blumen",
+  2671: "Jedes Blütenblatt der Blume ist eine Art zu kämpfen.",
+  2672: "Ist die Blume vollständig, öffnet sich der große Garten ringsum.",
+  2673: "Gieß ein Blütenblatt bis zum Ende: Sein Herz wird aufleuchten.",
+  2674: "Die Pfade des großen Graphen? Pro Blütenblatt folgst du nur einem. Wähle gut.",
+  2675: "Sternenblumen welken nie. Nicht einmal nach einem Aufstieg.",
 };

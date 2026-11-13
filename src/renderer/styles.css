@@ -663,6 +663,7 @@ h2.npch > .npc.compact { margin-left: auto; min-width: 0; flex: 0 1 auto; }
 .subrow > .npc.compact { margin-left: auto; min-width: 0; flex: 0 1 auto; }
 .npc.icon .say { display: none; } /* (it. 1090) portrait seul (Familiers : barre déjà pleine), réplique au survol */
 .npc.icon { flex: none; }
+h2.npch > .npcslot { margin-left: auto; display: inline-flex; } /* (it. 1093) Compétences : la pastille se met à jour sans reconstruire l'onglet */
 .npc.compact img { height: 24px; }
 .npc.compact .say { font-size: 11px; padding: 1px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 340px; }
 i.coin { display: inline-block; width: 9px; height: 9px; background: #ffd34d; border: 2px solid #14121f; box-shadow: inset -2px -2px 0 #c99a1a; margin-right: 5px; vertical-align: -1px; }

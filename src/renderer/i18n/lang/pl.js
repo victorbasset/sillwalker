@@ -1541,4 +1541,11 @@ export default {
   2666: "Wysyłaj je na wyprawy: zawsze wracają z pełnymi kieszeniami.",
   2667: "Najmniejszy chowaniec może uratować największego bohatera.",
   2668: "Ćśś… ten śpi. Dużo dziś biegał.",
+  2669: "Iris, ogrodniczka gwiazd",
+  2670: "Ogród świecących kwiatów",
+  2671: "Każdy płatek kwiatu to inny sposób walki.",
+  2672: "Gdy kwiat będzie cały, otworzy się wielki ogród wokół.",
+  2673: "Podlewaj płatek do końca: jego serce się zapali.",
+  2674: "Ścieżki wielkiego grafu? Na płatek wybierasz tylko jedną. Wybierz dobrze.",
+  2675: "Gwiezdne kwiaty nigdy nie więdną. Nawet po wniebowstąpieniu.",
 };
