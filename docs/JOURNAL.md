@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1064) : performance en fin de partie. Décomposition de la bande (partie de fin de partie, classes
+  masquées une à une par CSS en injection TEMP, part GPU de --perf) : étincelles −0,8, nombres de dégâts −1, sorts −6,
+  dont tout sur les ANNEAUX (une quinzaine en 10 s) : leur animation CSS de 0,55 s faisait repeindre la bande au rythme
+  du compositeur. Anneaux et dôme grandissent maintenant dans updateFx (échelle arrondie au 1/20) ; icône des sorts du
+  mode mini animée dans draw() (son animation CSS changeait margin-top : remise en page à chaque image). Copies neuves,
+  2 mesures, avant → après : bande 38,3 / 37,6 → 32,3 / 31,2 %, panneau 37,4 / 41,0 → 32,5 / 33,7 %, mini 9,2 / 9,0 →
+  7,5 / 7,4 % ; dev-data inchangé (19,9 → 19,6). Anneau vérifié (échelle 0,6 → 1 → 1,25, retiré à 0,5 s). Autotest :
+  la transmutation échouait une fois sur trois (clic réel tombé à côté) : jusqu'à trois essais ; l'info-bulle
+  des pièces de panoplie gardées aussi (selon l'équipement : avec la panoplie « dusk » déjà portée,
+  les deux pièces activaient un bonus et devenaient des améliorations) : panoplie non portée, sac vidé pendant la mesure. CLAUDE.md.
 - 2026-11-13 (it. 1063) : scripts/max-save.mjs : sauvegarde « tout au maximum » (fin de partie + 12 345 victoires par
   monstre, collection, pouvoirs, panoplies, 64 succès, 20 héros, reliques niveau 5, record 400). Débordements en fr,
   ru, de à 1280 et 1920 : aucun ; texte extrait en russe et en allemand : rien de non traduit (« (complet) » de l'it.
@@ -3995,7 +4005,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
   (ex. +0,1 % d'attaque et de PV), affiché « Points en surplus : +36 % » ; à mesurer avec simulate.js (semaine).
-- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; it. 1064 : → 32 %, anneaux de sorts ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
   (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium

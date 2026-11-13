@@ -51,7 +51,10 @@ export class MiniRenderer {
       const sp = SPELL_INDEX[id]; if (!sp || !this.stage || !this.stage.isConnected) return;
       const im = el("img", "minispell", this.stage); im.src = spellIconURL(sp.tpl, sp.color, 2, sp.fx?.[0]);
       im.style.transform = `translate3d(${HERO_X + 22}px,14px,0)`;
-      setTimeout(() => im.remove(), 700);
+      // (it. 1064) monte et s'efface dans draw() : l'animation CSS (margin-top) remettait la page en forme à chaque image
+      // et faisait repeindre le mode mini au rythme du compositeur
+      (this.spellIcons ||= []).push({ im, t: 0 });
+      if (this.spellIcons.length > 6) this.spellIcons.shift().im.remove();
     });
     game.on("tap", () => { this.monHit = 0.12; });
     // Moments marquants, sobres : un liseré doré et un mot sur la scène pendant quelques secondes, une seule fois.
@@ -118,6 +121,14 @@ export class MiniRenderer {
     const dt = this.lastDraw ? Math.min(0.25, (now - this.lastDraw) / 1000) : 0;
     this.lastDraw = now;
     this.lunge = Math.max(0, this.lunge - dt); this.flash = Math.max(0, this.flash - dt); this.monHit = Math.max(0, this.monHit - dt);
+    if (this.spellIcons?.length) this.spellIcons = this.spellIcons.filter((f) => {
+      f.t += dt;
+      if (f.t >= 0.7 || !f.im.isConnected) { f.im.remove(); return false; }
+      const k = f.t / 0.7, y = Math.round(14 - 10 * (1 - (1 - k) * (1 - k))), o = Math.round((1 - k) * 8) / 8;
+      if (y !== f.y) { f.y = y; f.im.style.transform = `translate3d(${HERO_X + 22}px,${y}px,0)`; }
+      if (o !== f.o) { f.o = o; f.im.style.opacity = o; }
+      return true;
+    });
     const game = this.game, S = game.S, R = game.R;
 
     // (it. 918) ciel des événements, comme sur la bande (it. 916-917) : Lune de sang rouge, Nuée d'étoiles constellée

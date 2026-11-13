@@ -416,11 +416,15 @@ async function runSelfTest(strip) {
   await sleep(200);
   const tr0 = await js("window.__game.S.stats.transmutes || 0");
   // (it. 1023) attentes sur l'état (fenêtre de confirmation, puis compteur) et non plus 150 ms fixes : instable sous xvfb
-  await until(() => js("!!document.querySelector('[data-action=\"transmute\"]:not([disabled])')"));
-  await click('[data-action="transmute"]');
-  await until(() => js("!!document.querySelector('[data-action=\"confirm-ok\"]')"));
-  await click('[data-action="confirm-ok"]');
-  await until(async () => (await js("window.__game.S.stats.transmutes || 0")) > tr0);
+  // (it. 1064) jusqu'à trois essais : un clic réel peut tomber à côté si l'onglet se redessine entre la mesure du
+  // bouton et le clic (205/206 une fois sur trois exécutions)
+  for (let essai = 0; essai < 3 && (await js("window.__game.S.stats.transmutes || 0")) <= tr0; essai++) {
+    await until(() => js("!!document.querySelector('[data-action=\"transmute\"]:not([disabled])')"));
+    await click('[data-action="transmute"]');
+    await until(() => js("!!document.querySelector('[data-action=\"confirm-ok\"]')"), 1500);
+    if (await js("!!document.querySelector('[data-action=\"confirm-ok\"]')")) await click('[data-action="confirm-ok"]');
+    await until(async () => (await js("window.__game.S.stats.transmutes || 0")) > tr0, 1500);
+  }
   check("transmutation (après confirmation)", (await js("window.__game.S.stats.transmutes || 0")) > tr0, `${tr0} -> ${await js("window.__game.S.stats.transmutes || 0")}`);
   // Familiers : envoyer un familier en expédition
   await js("(() => { const P = window.__game.S.pets; P.owned.cat ||= { lvl: 1, xp: 0 }; P.owned.fox ||= { lvl: 1, xp: 0 }; P.active = 'cat'; P.exp = {}; window.__game.changed() })()");
@@ -791,19 +795,24 @@ async function runSelfTest(strip) {
     G.S.settings.fullEffects = fe; st.bubble.hidden = true; return out.join(" "); })()`);
   check("répliques du héros : panoplie complète", spk === "setBonus:ok", spk);
   // (it. 1022) « Vendre ce qui ne m'améliore pas » : au survol, les pièces de panoplie gardées
-  const keptT = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;
+  const keptT = await js(`(async () => { const G = window.__game, P = window.__panel, S = G.S;
+    // (it. 1064) panoplie que le héros ne porte pas : avec « dusk » déjà portée, les deux pièces activaient un bonus de
+    // panoplie, devenaient des améliorations et n'étaient plus « gardées » (échec une fois sur trois, selon l'équipement)
+    const worn = new Set(Object.values(S.equip).filter(Boolean).map((i) => i.set));
+    const sid = Object.keys((await import("./game/sets.js")).SETS).find((k) => !worn.has(k));
     const keep = { bag: S.bag.slice(), done: { ...(S.setsDone || {}) }, size: S.bagSize, tab: P.tab };
     try {
-      S.bagSize = Math.max(S.bagSize, S.bag.length + 2); delete (S.setsDone ||= {}).dusk;
+      // (it. 1064) sac vide d'abord : avec d'autres pièces de panoplie tombées pendant les contrôles, la limite des
+      // pièces gardées (SET_KEEP_MAX) rendait parfois les deux pièces « inutiles » (205/206 une fois sur deux)
+      S.bag = []; S.bagSize = Math.max(S.bagSize, 4); delete (S.setsDone ||= {})[sid];
       // (it. 1053) deux emplacements équipés : sur un emplacement vide, toute pièce serait une amélioration (pas « gardée »)
-      const slots = Object.keys(S.equip).filter((k) => S.equip[k] && S.equip[k].set !== "dusk").slice(0, 2);
-      for (const sl of slots) { const it = G.newItem(3); it.r = 3; it.slot = sl; it.set = "dusk"; it.st = {}; it.lvl = 1; S.bag.push(it); } // épique fixé : un légendaire tiré est gardé pour une autre raison
+      const slots = Object.keys(S.equip).filter((k) => S.equip[k]).slice(0, 2);
+      for (const sl of slots) { const it = G.newItem(3); it.r = 3; it.slot = sl; it.set = sid; it.st = {}; it.lvl = 1; S.bag.push(it); } // épique fixé : un légendaire tiré est gardé pour une autre raison
       G.invalidateStats(); P.setTab("adventure"); P.renderAll();
       const b = document.querySelector('[data-action="sellless"]');
       return b ? (b.title || b.dataset.title || "") : "pas de bouton";
     } finally { S.bag = keep.bag; S.setsDone = keep.done; S.bagSize = keep.size; G.invalidateStats(); P.setTab(keep.tab); P.renderAll(); }
   })()`);
-  // (le sac peut déjà contenir d'autres pièces gardées, tombées pendant les contrôles : au moins 2)
   check("« Vendre ce qui ne m'améliore pas » : pièces de panoplie gardées dites au survol", +((keptT.split("\n")[1] || "").match(/\d+/) || [0])[0] >= 2, keptT.replace(/\n/g, " | ").slice(0, 240));
   // (it. 1013) Bestiaire > Panoplies : bouton « Compléter avec les pièces du sac » sur la carte, un clic la complète
   const setFin = await js(`(() => { const G = window.__game, P = window.__panel, S = G.S;

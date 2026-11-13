@@ -436,7 +436,11 @@ export class StripRenderer {
     if (this.fx.length > 30) this.fx.shift().node.remove();
     node.style.left = Math.round(x) + "px";
     node.style.top = Math.round(y) + "px";
-    this.fx.push({ node, t: 0, life, rise, dx, keep });
+    // (it. 1064) anneaux et dôme grandissent ici, dans la boucle d'images, plus par une animation CSS : tant qu'une
+    // animation CSS tourne, le compositeur repeint la bande à son propre rythme ; en fin de partie (un anneau presque
+    // toujours en vie), elle coûtait ≈ 5 points d'un cœur (37 → 32 %)
+    const grow = node.classList.contains("ring") ? [0.2, 1.3] : node.classList.contains("dome") ? [0.3, 1] : null;
+    this.fx.push({ node, t: 0, life, rise, dx, keep, grow, inner: grow && node.firstChild });
   }
 
   updateFx(dt) {
@@ -447,6 +451,10 @@ export class StripRenderer {
       const y = -q(k * f.rise), x = q(k * f.dx), o = f.keep ? 1 : Math.round((1 - k) * 8) / 8;
       if (y !== f.y || x !== f.x) { f.y = y; f.x = x; f.node.style.transform = `translate3d(${x}px,${y}px,0)`; mark("fx"); }
       if (o !== f.o) { f.o = o; f.node.style.opacity = o; }
+      if (f.grow) {
+        const e = 1 - (1 - k) * (1 - k), sc = Math.round((f.grow[0] + (f.grow[1] - f.grow[0]) * e) * 20) / 20;
+        if (sc !== f.sc) { f.sc = sc; f.inner.style.transform = `scale(${sc})`; }
+      }
     }
     this.fx = this.fx.filter((f) => (f.t < f.life ? true : (f.node.remove(), false)));
   }
