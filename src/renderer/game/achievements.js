@@ -49,7 +49,9 @@ export const ACHIEVEMENTS = [
   { id: "FEATHER",         name: "Plume du vent",      test: (S) => (S.stats.feathers || 0) >= 1 },
   { id: "SHOOTING_STAR",   name: "Vœu exaucé (étoile filante)", test: (S) => (S.stats.stars || 0) >= 1 },
   { id: "SPEED_25",        name: "Rapide comme le vent (+25 % de vitesse)", test: (S) => (S.speed || 0) >= 25 },
-  { id: "FULL_SET",        name: "Panoplie complète (4 pièces)", test: (S) => Object.values(setCounts(S.equip || {})).some((n) => n >= 4) },
+  // (it. 1008) ou une panoplie déjà complétée : la tâche « … complètent la panoplie » remet aussitôt l'équipement d'avant
+  // s'il était plus fort (it. 1007) ; les 4 pièces n'étaient alors jamais portées au moment du contrôle des succès
+  { id: "FULL_SET",        name: "Panoplie complète (4 pièces)", test: (S) => Object.keys(S.setsDone || {}).length > 0 || Object.values(setCounts(S.equip || {})).some((n) => n >= 4) },
   { id: "MASTER_OF_ALL",   name: "Maître de tous les héros", test: (S) => CLASS_KEYS.every((c) => (S.stats.classes || []).includes(c)) },
   { id: "ALL_CLASSES",     name: "Polyvalent : jouer 3 héros", test: (S) => (S.stats.classes || []).length >= 3 },
   // Duo et héros (demande 17)

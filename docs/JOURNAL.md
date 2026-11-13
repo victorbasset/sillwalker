@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1008) : santé du début de partie : first-minutes (premier objet 50-84 s, premier boss 77-84 s),
+  early-pace (60 min : 113 objets, niveau 40, zone 23, 6,3 déblocages) et tab-pace (talents 1, quêtes 5, boutique
+  8-9, Héros 10, carte 12, bestiaire 14-15 min) dans les repères. Corrigé : le succès « Panoplie complète (4 pièces) »
+  ne regardait que les pièces portées ; depuis l'it. 1007, la tâche remet aussitôt l'équipement d'avant s'il était
+  plus fort : les 4 pièces n'étaient jamais portées au moment du contrôle. Il compte aussi les panoplies déjà
+  complétées (setsDone). Test logique ; autotest 202/202.
 - 2026-11-13 (it. 1007) : la tâche « … pièces du sac complètent la panoplie » (it. 1004) ne laisse plus le héros
   affaibli : pour une panoplie jamais complétée, si l'équipement d'avant était plus fort, il est remis aussitôt
   (finishSet ; le bonus de collection reste acquis ; une ligne de journal au lieu de huit « Équipé : … » : equip(it,

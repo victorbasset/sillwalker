@@ -2063,6 +2063,8 @@ test("panoplie jamais complétée : les pièces du sac qui couvrent les 4 emplac
   for (const sl in strong) assert.equal(g.S.equip[sl].id, strong[sl], "objet fort remis : " + sl);
   assert.ok(g.S.log.some((l) => /plus fort, est remis|stronger gear/.test(l)), g.S.log[0]);
   assert.equal(g.setFinisher(), null, "plus rien à proposer");
+  // (it. 1008) succès « Panoplie complète » obtenu même si l'équipement d'avant a été remis aussitôt
+  assert.ok(reachedAchievements(g.S).includes("FULL_SET"));
 });
 
 test("pièces de panoplie pas encore complétée : gardées par « vendre l'inutile » et la transmutation", () => {
