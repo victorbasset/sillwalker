@@ -3698,6 +3698,10 @@ test("maîtrises : un palier à choix franchi est annoncé, une fois (it. 1122)"
   (g.S.talents[g.S.cls] ||= {}).ms_power = 48; g.S.lvl = 2000;
   g.learnTalent("ms_power", 62);
   assert.deepEqual(seen, [50, 100], "paliers déjà vus : pas de nouvelle annonce");
+  // (it. 1125) palier vu dans une course précédente : réglable d'avance ; jamais vu : non
+  g.S.talents[g.S.cls].ms_power = 0;
+  assert(g.pickMastery("ms_power", 100, "b"), "palier 100 vu avant : réglé d'avance");
+  assert(!g.pickMastery("ms_power", 200, "b"), "palier 200 jamais atteint : pas de choix");
 });
 
 test("maîtrises : un bonus au choix à chaque palier, « a » par défaut ; sauvegarde nettoyée (it. 1107)", () => {

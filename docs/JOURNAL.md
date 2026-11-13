@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1125) : paliers de maîtrise réglables d'avance. Les talents repartent de zéro à chaque ascension
+  mais les choix sont gardés (it. 1122) : tout palier déjà atteint dans une course précédente (noté dans masteryPicks)
+  se règle sans attendre de l'atteindre à nouveau (marqué ⏳, bulle « Pas encore atteint dans cette course : réglé
+  d'avance »). La grande fenêtre prend le titre complet (data-modal-title) au lieu du lien court « choisir · 5 ».
+  En route : 1) masteryMilestones avec un rang infini bouclait sans fin (plafonné à 400) ; 2) autotest instable
+  (« BULLE-UN / Du nouveau… ») : une bulle arrivée pendant les 400 ms entre deux bulles de la file passait devant la
+  suivante ; elle attend désormais son tour (toastGap ; __clearToasts annule l'attente) ; trois contrôles d'astuce
+  qui comptaient sur ce passe-droit vident d'abord la file. Test logique ; 9 langues ; 10 langues sans défaut ;
+  autotest 221/221 deux fois de suite.
 - 2026-11-13 (it. 1124) : mode mini : moment « Palier de maîtrise : rang N » (comme l'ouverture et le remplissage du
   grand graphe). « Quoi de neuf », édition 56 : paliers de maîtrise annoncés, choix gardés à l'ascension, grand graphe
   rempli annoncé. 9 langues (termes « Ascension » repris tels que traduits) ; pire cas sans défilement ; autotest

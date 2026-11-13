@@ -1592,4 +1592,5 @@ export default {
   2717: "Masteries: each milestone with a choice is announced (only once); a click opens the mastery to pick its bonus.",
   2718: "Bonuses chosen at mastery milestones are now kept on ascension (they reverted to the default option each run).",
   2719: "Great graph complete: its completion is announced, with what extra points now give.",
+  2720: "Not yet reached this run: set in advance.",
 };

@@ -2620,7 +2620,9 @@ export class Game {
   /** (it. 1107) Choisit l'option d'un palier de maîtrise atteint ("a" ou "b"). */
   pickMastery(id, at, opt) {
     const r = (classTalents(this.S)[id] || 0);
-    if ((opt !== "a" && opt !== "b") || !masteryMilestones(id, r, this.S).got.some((g) => g.at === at && g.b)) return false;
+    // (it. 1125) aussi un palier déjà atteint dans une course précédente (noté dans masteryPicks) : réglé d'avance
+    const seen = !!(this.S.masteryPicks && this.S.masteryPicks[id + ":" + at]);
+    if ((opt !== "a" && opt !== "b") || !masteryMilestones(id, seen ? Math.max(r, 400) : r, this.S).got.some((g) => g.at === at && g.b)) return false;
     (this.S.masteryPicks ||= {})[id + ":" + at] = opt;
     this.invalidateStats();
     this.changed();

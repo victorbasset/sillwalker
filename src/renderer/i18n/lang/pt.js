@@ -1592,4 +1592,5 @@ export default {
   2717: "Maestrias: cada marco com escolha é anunciado (uma só vez); um clique abre a maestria para escolher o bônus.",
   2718: "Os bônus escolhidos nos marcos de maestria agora são mantidos na ascensão (voltavam à opção padrão a cada corrida).",
   2719: "Grande grafo completo: sua conclusão é anunciada, com o que os pontos extras passam a dar.",
+  2720: "Ainda não alcançado nesta corrida: definido com antecedência.",
 };

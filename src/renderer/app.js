@@ -296,8 +296,11 @@ async function boot() {
   // Bulles en file : une nouvelle bulle (récompense du jour…) attend la fermeture de celle affichée
   // (résumé d'absence…) au lieu de la remplacer ; sinon le résumé était perdu au bout de 2,5 s.
   const toastQueue = [];
+  // (it. 1125) toastGap : la suivante de la file arrive 400 ms après la fermeture ; une bulle venue entre-temps passait
+  // devant elle (autotest instable : « BULLE-UN / Du nouveau… ») : elle attend aussi son tour
+  let toastGap = false, gapTimer = 0;
   function showToast(html, action, ms = 15000, queue = true) {
-    if (queue && !toast.hidden && Date.now() < toastUntil) { toastQueue.push([html, action, ms]); return; }
+    if (queue && ((!toast.hidden && Date.now() < toastUntil) || toastGap)) { toastQueue.push([html, action, ms]); return; }
     toast.innerHTML = html;
     toast.hidden = false;
     toastAction = action;
@@ -309,7 +312,7 @@ async function boot() {
   function hideToast() {
     toast.hidden = true; toastAction = null; toastUntil = 0; clickThrough.refresh();
     const next = toastQueue.shift();
-    if (next) setTimeout(() => showToast(...next), 400);
+    if (next) { toastGap = true; gapTimer = setTimeout(() => { toastGap = false; showToast(...next); }, 400); }
   }
   /** Étape du carnet franchie pendant l'absence (la dernière, la plus marquante) : une ligne en plus dans la bulle. */
   const stepText = (sum) => (sum.steps || []).map(journeyText).filter(Boolean).pop() || "";
@@ -502,7 +505,7 @@ async function boot() {
   if (init.isDev && init.crawl) setTimeout(() => { openPanel(); import("./dev/crawl.js").then((m) => m.crawl()); }, 2500); // --crawl
   if (init.isDev) window.__showToast = showToast; // auto-test (dev) : file des bulles
   // Auto-test (dev) : vider la file des bulles (sinon une annonce restée en attente fausse les contrôles de bulles).
-  if (init.isDev) window.__clearToasts = () => { toastQueue.length = 0; hideToast(); };
+  if (init.isDev) window.__clearToasts = () => { toastQueue.length = 0; clearTimeout(gapTimer); toastGap = false; hideToast(); };
   if (init.isDev) window.__checkHints = () => checkHints(); // auto-test (dev)
   if (init.isDev) window.__stepLine = stepLine; // auto-test (dev) : ligne d'étape de la bulle de retour
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)

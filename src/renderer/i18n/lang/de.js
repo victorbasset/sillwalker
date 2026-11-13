@@ -1592,4 +1592,5 @@ export default {
   2717: "Meisterschaften: Jede Stufe mit Wahl wird angekündigt (nur einmal); ein Klick öffnet die Meisterschaft, um ihren Bonus zu wählen.",
   2718: "Die an Meisterschaftsstufen gewählten Boni bleiben jetzt beim Aufstieg erhalten (sie fielen bei jedem Lauf auf die Standardoption zurück).",
   2719: "Großer Graph vollständig: Seine Vollendung wird angekündigt, mit dem, was zusätzliche Punkte jetzt bringen.",
+  2720: "In diesem Lauf noch nicht erreicht: im Voraus gewählt.",
 };

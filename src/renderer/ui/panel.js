@@ -921,7 +921,9 @@ export class Panel {
   /** Contenu d'une section repliable dans la fenêtre large (titre = son résumé). Un bouton ou lien dedans la referme. */
   showDetails(d) {
     const body = d.cloneNode(true); body.querySelector("summary")?.remove();
-    $(this.root, "#mt").textContent = d.querySelector("summary").textContent.trim();
+    // (it. 1125) un résumé court (« choisir · 5 ») peut porter son titre complet dans data-modal-title
+    const sm = d.querySelector("summary");
+    $(this.root, "#mt").textContent = sm.dataset.modalTitle || sm.textContent.trim();
     const mb = $(this.root, "#mbody");
     mb.innerHTML = `<div class="modalwide">${body.innerHTML}</div>`;
     // (it. 744) une case à cocher (Automatismes) ne ferme pas la fenêtre : on peut en changer plusieurs

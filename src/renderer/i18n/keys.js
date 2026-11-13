@@ -2721,5 +2721,6 @@ export const KEYS = [
   "Palier de maîtrise : rang {0}",
   "Maîtrises : chaque palier à choix franchi est annoncé (une seule fois) ; un clic ouvre la maîtrise pour choisir son bonus.",
   "Les bonus choisis aux paliers des maîtrises sont désormais gardés à l’ascension (ils revenaient à l’option par défaut à chaque course).",
-  "Grand graphe rempli : son achèvement est annoncé, avec ce que donnent désormais les points en plus."
+  "Grand graphe rempli : son achèvement est annoncé, avec ce que donnent désormais les points en plus.",
+  "Pas encore atteint dans cette course : réglé d’avance."
 ];
