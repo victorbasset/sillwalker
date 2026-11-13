@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1071, revue générale) : simulation 12 h, records des courses : paladin 44 → 64, moine 45 → 64,
+  druide 44 → 62 (réguliers). Performance (copie neuve de dev-data) : bande 19,6 %, panneau 21,5 %, mini 7,0 %, icône
+  0,5 %. Texte coréen : HP, Lv (usuels). Captures de la Boutique (fr 1440, en 1280, ko 1440) : confirment la demande B
+  de Victor : « Renouveler l'étal » tout en haut à droite, loin des 4 objets du Marchand ; à 1440 px, 3 objets visibles
+  sur 4 (défilement horizontal), à 1280 px 2 et demi ; Potions et Coffres défilent aussi. À traiter à l'it. 1072.
 - 2026-11-13 (it. 1070, demande A de Victor) : nombres de dégâts trop loin à droite du monstre. Le point de départ
   était bon (centré, ≈ 8 px à gauche du centre du monstre) ; la place libre cherchée pour ne pas recouvrir les autres
   nombres partait d'abord à DROITE, d'un à trois pas d'≈ 60 px. Mesure en fin de partie (10 s, 71 nombres) : 21 décalés
