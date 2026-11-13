@@ -17,7 +17,7 @@ const run = (s, disp) => new Promise((ok) => {
   const st = path.join(OUT, s.id + ".stage.js");
   const pre = (s.numbers ? "" : "G.S.settings.damageNumbers = false; ") + (s.zone ? `G.setZone(${s.zone}); ` : "");
   fs.writeFileSync(st, PRELUDE.replace("STAGE", pre + (s.js || "")));
-  const p = spawn("bash", ["scripts/promo/record.sh", SAVES[s.save] || s.save, st, String(s.secs), path.join(OUT, s.id + ".mp4"), String(disp), String(s.wait || 6)], { cwd: ROOT, stdio: "ignore", env: process.env });
+  const p = spawn("bash", ["scripts/promo/record.sh", SAVES[s.save] || s.save, st, String(s.secs), path.join(OUT, s.id + ".mp4"), String(disp), String(s.wait || 6)], { cwd: ROOT, stdio: "ignore", env: { ...process.env, EXTRA: s.args || "" } });
   p.on("exit", (c) => { console.log(`${s.id} : ${c === 0 ? "ok" : "échec " + c}`); ok(); });
 });
 const queue = [...shots];

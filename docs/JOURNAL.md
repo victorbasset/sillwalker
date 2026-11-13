@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1169, bande-annonce 3) : plans du panneau (record.sh : EXTRA ; shots.json : args) : grand graphe
+  cadré sur la voie du colosse avec la bulle d'une synergie (« Right now ≈ +4.9% attack »), fenêtre des paliers de
+  maîtrise, Aventure (mage, milieu de jeu), « Sources de puissance » (fin de partie), Bestiaire complet. Tous nets.
 - 2026-11-14 (it. 1168, bande-annonce 2) : liste de tournage scripts/promo/shots.json + scripts/promo/shoot.mjs
   (deux plans filmés à la fois, un écran virtuel chacun ; prélude : bulles vidées, astuces coupées, annonces déjà
   vues). 9 plans filmés (marche, Lune de sang, Nuée d'étoiles, Ruée des gobelins, Pluie d'or, rencontre de Mirette,

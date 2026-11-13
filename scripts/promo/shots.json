@@ -1,5 +1,5 @@
 {
-  "_doc": "(it. 1168) Liste de tournage de la bande-annonce : chaque plan = une sauvegarde, une mise en scène (code exécuté dans le jeu après le prélude de shoot.mjs), une durée filmée (s) et un délai avant de filmer (s). Sauvegardes : mid = scripts/fixtures/save-0.1.2.json (mage zone 56, compagnon), end = scripts/fixtures/endgame-save.json (guerrier zone 150). (it. 1168) zone : décor du plan (G.setZone, une zone déjà franchie ; décor = (zone-1) % 33 + 1) ; numbers : true pour garder les nombres de dégâts ordinaires (sinon masqués : critiques et mots restent).",
+  "_doc": "(it. 1168) Liste de tournage de la bande-annonce : chaque plan = une sauvegarde, une mise en scène (code exécuté dans le jeu après le prélude de shoot.mjs), une durée filmée (s) et un délai avant de filmer (s). Sauvegardes : mid = scripts/fixtures/save-0.1.2.json (mage zone 56, compagnon), end = scripts/fixtures/endgame-save.json (guerrier zone 150). (it. 1168) zone : décor du plan (G.setZone, une zone déjà franchie ; décor = (zone-1) % 33 + 1) ; numbers : true pour garder les nombres de dégâts ordinaires (sinon masqués : critiques et mots restent). (it. 1169) args : options du jeu en plus (ex. --open-panel --tab=skills).",
   "shots": [
     {
       "id": "walk",
@@ -70,6 +70,46 @@
       "wait": 7,
       "js": "",
       "numbers": true
+    },
+    {
+      "id": "p-graph",
+      "save": "end",
+      "secs": 8,
+      "wait": 7,
+      "args": "--open-panel --tab=skills",
+      "js": "G.S.skills.outer = ['vitality-gate', ...Array.from({ length: 14 }, (_, k) => 'vitality-v2-' + k), 'force-gate', ...Array.from({ length: 6 }, (_, k) => 'force-v2-' + k)]; G.invalidateStats(); P.renderAll(); const K = P.tabs.skills; K.view.k = 0; P.setTab('skills'); P.renderAll(); setTimeout(() => { K.center(); const el = document.querySelector('[data-gid=\"vitality-v2-7\"]') || document.querySelector('[data-gid=\"force-v2-7\"]'); if (el) el.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); }, 3500);"
+    },
+    {
+      "id": "p-mastery",
+      "save": "end",
+      "secs": 7,
+      "wait": 7,
+      "args": "--open-panel --tab=talents",
+      "js": "const T = P.tabs.talents; G.S.talents[G.S.cls].ms_power = 420; G.invalidateStats(); P.setTab('talents'); T.sel = 'ms_power'; P.renderAll(); setTimeout(() => { const d = document.querySelector('[data-pane=\"talents\"]:not([hidden]) [data-keep=\"ms-picks\"]'); if (d) P.showDetails(d); }, 1500);"
+    },
+    {
+      "id": "p-adventure",
+      "save": "mid",
+      "secs": 7,
+      "wait": 7,
+      "args": "--open-panel --tab=adventure",
+      "js": ""
+    },
+    {
+      "id": "p-power",
+      "save": "end",
+      "secs": 6,
+      "wait": 7,
+      "args": "--open-panel --tab=adventure",
+      "js": "G.S.skills.outer = ['vitality-gate', ...Array.from({ length: 14 }, (_, k) => 'vitality-v2-' + k)]; G.invalidateStats(); setTimeout(() => { const d = document.querySelector('[data-pane=\"adventure\"]:not([hidden]) [data-keep=\"hero-stats\"]'); if (d) P.showDetails(d); }, 1500);"
+    },
+    {
+      "id": "p-bestiary",
+      "save": "end",
+      "secs": 6,
+      "wait": 7,
+      "args": "--open-panel --tab=bestiary",
+      "js": ""
     }
   ]
 }

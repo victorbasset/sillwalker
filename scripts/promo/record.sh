@@ -3,7 +3,7 @@
 # (--force-device-scale-factor=2 : pixels et textes nets en gros plan), sur une COPIE de sauvegarde, avec une mise en
 # scène (--stage=<fichier.js>) ; la fenêtre (3840×1240 : panneau + bande) est filmée en 30 images/s.
 # Usage : scripts/promo/record.sh <save.json> <stage.js|-> <secondes> <sortie.mp4> [écran=91] [délai avant de filmer=6]
-# Variables : FF (ffmpeg), LANG_UI (langue de la copie, en par défaut).
+# Variables : FF (ffmpeg), LANG_UI (langue de la copie, en par défaut), EXTRA (options du jeu en plus, ex. --open-panel).
 set -e
 SAVE="$1"; STAGE="$2"; SECS="$3"; OUT="$4"; DISP="${5:-91}"; WAIT="${6:-6}"
 FF="${FF:?FF=<ffmpeg>}"
@@ -13,7 +13,7 @@ Xvfb :$DISP -screen 0 3840x2160x24 -nolisten tcp >/dev/null 2>&1 & XPID=$!
 trap 'kill $XPID 2>/dev/null || true; rm -rf "$D"' EXIT
 sleep 1
 ST=(); [ "$STAGE" != "-" ] && ST=(--stage="$(realpath "$STAGE")")
-DISPLAY=:$DISP timeout $((SECS + WAIT + 20)) ./node_modules/.bin/electron . --no-sandbox --release-ui --force-device-scale-factor=2 --user-data="$D" "${ST[@]}" --exit-after=$((SECS + WAIT + 4)) >/dev/null 2>&1 & EPID=$!
+DISPLAY=:$DISP timeout $((SECS + WAIT + 20)) ./node_modules/.bin/electron . --no-sandbox --release-ui --force-device-scale-factor=2 --user-data="$D" "${ST[@]}" ${EXTRA:-} --exit-after=$((SECS + WAIT + 4)) >/dev/null 2>&1 & EPID=$!
 sleep "$WAIT"
 "$FF" -hide_banner -loglevel error -y -f x11grab -draw_mouse 0 -framerate 30 -video_size 3840x1240 -i :$DISP+0,920 -t "$SECS" -c:v libx264 -crf 12 -preset ultrafast -pix_fmt yuv444p "$OUT"
 wait $EPID 2>/dev/null || true
