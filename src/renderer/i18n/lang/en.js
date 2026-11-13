@@ -1501,4 +1501,9 @@ export default {
   2626: "Next milestone: rank {0}, {1}",
   2627: "Milestones reached",
   2628: "Next milestone: rank {0}",
+  2629: "Great skill graph around the flower, once the flower is complete: 618 nodes, three paths to choose per petal (only one followed), synergies (“the more health you have, the harder you hit”, “the richer you are…”).",
+  2630: "Characters on the road: Mirette, the merchant frog, runs the Shop; Orbo, the rocket astronomer, the Ascension. Each has a meeting scene.",
+  2631: "Shop without scrolling: the Merchant, potions and chests fit on screen; “Restock” sits next to the items.",
+  2632: "Damage numbers stay above the monster hit; chronicles are numbered in story order.",
+  2633: "Talents: one click raises a talent to its maximum; masteries gain milestones (critical, shield, loot…).",
 };

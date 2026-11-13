@@ -1501,4 +1501,9 @@ export default {
   2626: "Następny próg: ranga {0}, {1}",
   2627: "Osiągnięte progi",
   2628: "Następny próg: ranga {0}",
+  2629: "Wielki graf umiejętności wokół kwiatu, gdy kwiat jest ukończony: 618 węzłów, trzy ścieżki do wyboru na płatek (podążasz tylko jedną), synergie („im więcej zdrowia, tym mocniej bijesz”, „im bogatszy jesteś…”).",
+  2630: "Postacie na drodze: Mirette, żaba kupcowa, prowadzi Sklep; Orbo, astronom z rakietą, Wniebowstąpienie. Każde spotkanie ma swoją scenę.",
+  2631: "Sklep bez przewijania: Kupiec, mikstury i skrzynie mieszczą się na ekranie; „Odnów towar” jest obok przedmiotów.",
+  2632: "Liczby obrażeń zostają nad trafionym potworem; kroniki są ponumerowane w kolejności historii.",
+  2633: "Talenty: jedno kliknięcie podnosi talent do maksimum; mistrzostwa zyskują progi (krytyk, tarcza, łup…).",
 };

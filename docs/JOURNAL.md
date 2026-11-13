@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1085, demande D, étape D6) : « Quoi de neuf », édition 52 (grand graphe et ses synergies ; Mirette
+  et Orbo avec leurs scènes de rencontre ; Boutique sans défilement ; dégâts au-dessus du monstre et chroniques
+  numérotées ; talents en un clic et paliers des maîtrises), traduite dans les 9 langues (« Renouveler l'étal » cité
+  comme traduit : i18n-quotes à 0) ; « Quoi de neuf » au pire cas sans défilement (9 nouveautés). README : grand
+  graphe, PNJ, paliers des maîtrises, clic des talents.
 - 2026-11-13 (it. 1084, demande C de Victor, suite : « on met juste des points à l'infini ») : paliers des maîtrises.
   Chaque maîtrise donne, aux rangs 10, 25, 50, 100, 200 et 400, un bonus d'un AUTRE genre (puissance : critique,
   dégâts critiques, dégâts aux boss, frappe double, exécution, +25 % d'attaque ; endurance : régénération, bouclier,

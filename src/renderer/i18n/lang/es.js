@@ -1501,4 +1501,9 @@ export default {
   2626: "Próximo hito: rango {0}, {1}",
   2627: "Hitos alcanzados",
   2628: "Próximo hito: rango {0}",
+  2629: "Gran grafo de habilidades alrededor de la flor, una vez completa: 618 nodos, tres caminos a elegir por pétalo (solo se sigue uno), sinergias («cuanta más vida tienes, más fuerte golpeas», «cuanto más rico eres…»).",
+  2630: "Personajes en el camino: Mirette, la rana comerciante, lleva la Tienda; Orbo, el astrónomo del cohete, la Ascensión. Cada uno tiene su escena de encuentro.",
+  2631: "Tienda sin desplazamiento: el Mercader, las pociones y los cofres caben en pantalla; «Renovar el puesto» está junto a los objetos.",
+  2632: "Los números de daño se quedan sobre el monstruo golpeado; las crónicas se numeran en el orden de la historia.",
+  2633: "Talentos: un clic sube un talento al máximo; las maestrías ganan hitos (crítico, escudo, botín…).",
 };

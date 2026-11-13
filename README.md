@@ -41,7 +41,16 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   Vitalité, Fortune, Maîtrise), 24 nœuds remarquables, 6 clés de voûte. 1 point tous les 2 niveaux + points
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux. Chaque nœud porte
   une icône pixel art (une par effet ; un dessin unique pour les remarquables et les clés : `render/skillicons.js`).
-- **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout, une Voie au choix et des Maîtrises sans limite (aucun point perdu). 1 point par niveau, un clic par rang.
+- **Grand graphe** autour de la fleur (`skillgraph.js`, demande de Victor) : grisé tant que la fleur n'est pas
+  entière, puis ouvert aux points en surplus. 618 nœuds : une région par pétale (porte reliée à la clé de voûte),
+  3 voies exclusives par région (on n'en suit qu'une), dont une de synergie (attaque selon les PV, selon l'or…), et un
+  anneau de couronnes. Attaque, PV et défense du graphe multiplient le résultat (`GRAPH_SCALE`, graphe complet ≈
+  ×6 de puissance). « Dépenser automatiquement » continue dans le graphe une fois la fleur pleine.
+- **PNJ de l'histoire** (`npcs.js`, `art-npcs.js`, `ui/npc.js`) : chaque onglet peut être tenu par un personnage
+  rencontré sur la route (Mirette, la grenouille marchande, pour la Boutique ; Orbo, l'astronome à la fusée, pour
+  l'Ascension) : scène de rencontre sur la bande quand l'onglet s'ouvre (`juice.js`, `npcPlace`), puis le PNJ dans
+  l'onglet avec ses répliques (une autre au clic).
+- **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout, une Voie au choix et des Maîtrises sans limite (aucun point perdu), avec des paliers aux rangs 10, 25, 50, 100, 200, 400 puis à chaque doublement (un bonus d'un autre genre). 1 point par niveau ; un clic monte un talent au maximum (« +1 » : un seul rang).
 - **Déblocages** (boutique, permanents, tous visibles dans une rangée latérale) : 26 automatismes et fonctionnalités à acheter, chacun demandant une zone record
   (étalées de la zone 8 à la zone 300) et de l’or : boutons groupés, carte du voyageur, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
   quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes, maître de forge
@@ -206,6 +215,8 @@ src/
       bestiary.js         paliers du bestiaire
       prestige.js         ascension et constellations
       skilltree.js        arbre de compétences (graphe généré à partir de SECTORS)
+      skillgraph.js       grand graphe autour de la fleur (régions, voies, synergies, étage multiplicatif)
+      npcs.js             PNJ de l'histoire (un par onglet : nom, lieu, répliques)
       events.js           vitesse permanente et événements rares
       bosses.js           capacités spéciales des boss
       relics.js           boss majeurs (zones 50, 100, 150) et les quatre reliques (effets, histoires)

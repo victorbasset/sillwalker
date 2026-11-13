@@ -1501,4 +1501,9 @@ export default {
   2626: "Próximo marco: nível {0}, {1}",
   2627: "Marcos alcançados",
   2628: "Próximo marco: nível {0}",
+  2629: "Grande grafo de habilidades ao redor da flor, quando a flor estiver completa: 618 nós, três caminhos a escolher por pétala (só um seguido), sinergias («quanto mais vida, mais forte o golpe», «quanto mais rico…»).",
+  2630: "Personagens pelo caminho: Mirette, a rã comerciante, cuida da Loja; Orbo, o astrônomo do foguete, da Ascensão. Cada um tem sua cena de encontro.",
+  2631: "Loja sem rolagem: o Mercador, as poções e os baús cabem na tela; «Renovar a banca» fica ao lado dos itens.",
+  2632: "Os números de dano ficam acima do monstro atingido; as crônicas são numeradas na ordem da história.",
+  2633: "Talentos: um clique sobe um talento ao máximo; as maestrias ganham marcos (crítico, escudo, saque…).",
 };

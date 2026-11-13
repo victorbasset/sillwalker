@@ -2630,5 +2630,10 @@ export const KEYS = [
   "Trois… deux… un… Bon, demain peut-être.",
   "Prochain palier : rang {0}, {1}",
   "Paliers atteints",
-  "Prochain palier : rang {0}"
+  "Prochain palier : rang {0}",
+  "Grand graphe de compétences autour de la fleur, une fois la fleur complète : 618 nœuds, trois voies à choisir par pétale (une seule suivie), des synergies (« plus tu as de PV, plus tu frappes fort », « plus tu es riche… »).",
+  "Des personnages sur la route : Mirette, la grenouille marchande, tient la Boutique ; Orbo, l’astronome à la fusée, l’Ascension. Chacun a sa scène de rencontre.",
+  "Boutique sans défilement : le Marchand, les potions et les coffres tiennent à l’écran ; « Renouveler l’étal » est à côté des objets.",
+  "Les nombres de dégâts restent au-dessus du monstre touché ; les chroniques sont numérotées dans l’ordre de l’histoire.",
+  "Talents : un clic monte un talent au maximum ; les maîtrises gagnent des paliers (critique, bouclier, butin…)."
 ];

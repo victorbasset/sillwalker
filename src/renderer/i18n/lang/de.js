@@ -1501,4 +1501,9 @@ export default {
   2626: "Nächste Stufe: Rang {0}, {1}",
   2627: "Erreichte Stufen",
   2628: "Nächste Stufe: Rang {0}",
+  2629: "Großer Fertigkeitsgraph rund um die Blume, sobald die Blume vollständig ist: 618 Knoten, drei Pfade zur Wahl pro Blütenblatt (nur einer wird verfolgt), Synergien („je mehr Leben, desto härter schlägst du zu“, „je reicher du bist …“).",
+  2630: "Figuren unterwegs: Mirette, der Händlerfrosch, führt den Laden; Orbo, der Raketenastronom, den Aufstieg. Jede Begegnung hat ihre eigene Szene.",
+  2631: "Laden ohne Scrollen: Händler, Tränke und Truhen passen auf den Bildschirm; „Angebot erneuern“ steht neben den Waren.",
+  2632: "Schadenszahlen bleiben über dem getroffenen Monster; die Chroniken sind in der Reihenfolge der Geschichte nummeriert.",
+  2633: "Talente: Ein Klick hebt ein Talent aufs Maximum; Meisterschaften erhalten Stufen (kritisch, Schild, Beute …).",
 };
