@@ -208,13 +208,22 @@ export function graphLayer(ge, t, gold) {
   const v = (o, k) => o[k] || 0;
   const hpRatio = (1 + Math.max(0, v(t, "hpPct")) / 100) * (1 + v(ge, "hpPct") / 100);
   const atkRatio = (1 + Math.max(0, v(t, "atkPct")) / 100) * (1 + v(ge, "atkPct") / 100);
+  // (it. 1112) part de chaque synergie, en % de la statistique qu'elle nourrit (affichée dans l'onglet Compétences)
+  const syn = {
+    synHpAtk: v(ge, "synHpAtk") * Math.log2(hpRatio),
+    synGoldAtk: v(ge, "synGoldAtk") * Math.log10(1 + Math.max(0, gold || 0)),
+    synDodgeAtk: v(ge, "synDodgeAtk") * Math.min(40, Math.max(0, v(t, "dodge") + v(ge, "dodge"))),
+    synAtkHp: v(ge, "synAtkHp") * Math.log2(atkRatio),
+    synSpdCrit: v(ge, "synSpdCrit") * Math.min(300, Math.max(0, v(t, "spd") + v(ge, "spd"))) / 10,
+    synCritBurn: v(ge, "synCritBurn") * Math.min(75, Math.max(0, 5 + v(t, "crit") + v(ge, "crit"))),
+  };
   return {
-    atk: v(ge, "atkPct") + v(ge, "synHpAtk") * Math.log2(hpRatio) + v(ge, "synGoldAtk") * Math.log10(1 + Math.max(0, gold || 0))
-      + v(ge, "synDodgeAtk") * Math.min(40, Math.max(0, v(t, "dodge") + v(ge, "dodge"))),
-    hp: v(ge, "hpPct") + v(ge, "synAtkHp") * Math.log2(atkRatio),
+    atk: v(ge, "atkPct") + syn.synHpAtk + syn.synGoldAtk + syn.synDodgeAtk,
+    hp: v(ge, "hpPct") + syn.synAtkHp,
     def: v(ge, "defPct"),
-    critDmg: v(ge, "synSpdCrit") * Math.min(300, Math.max(0, v(t, "spd") + v(ge, "spd"))) / 10,
-    burn: v(ge, "synCritBurn") * Math.min(75, Math.max(0, 5 + v(t, "crit") + v(ge, "crit"))),
+    critDmg: syn.synSpdCrit,
+    burn: syn.synCritBurn,
+    syn,
   };
 }
 /** Clés du graphe traitées par graphLayer (les autres s'ajoutent aux totaux comme partout). */

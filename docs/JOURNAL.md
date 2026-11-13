@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1112, demande D, synergies) : « Bonus actifs » (Compétences) montre ce que chaque synergie du grand
+  graphe donne EN CE MOMENT, à côté de sa règle : « +0,6 % d'attaque par doublement de tes points de vie = +4,9 % »
+  (graphLayer renvoie la part de chaque synergie, heroStats la garde dans graphSyn). La liste défilait de côté
+  (lignes longues) : elle passe à la ligne. Test logique ; 9 langues ; autotest 220/220 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1111, revue générale) : 12 h simulées guerrier 61, rôdeur 62, mage 60 (repères tenus) ; --perf
   (copie neuve de dev-data) bande 19,2 %, panneau 20,5 %, mini 7,2 %, icône 0,5 % ; fuzz 1200 parties, 0 bloquée ;
   --crawl en polonais sur la fin de partie : 500 clics sans erreur ; textes russes de la fin de partie (grand graphe

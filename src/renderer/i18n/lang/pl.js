@@ -1577,4 +1577,5 @@ export default {
   2702: "Mistrzostwa: na każdym progu dwie premie do wyboru („wybierz” w szczegółach mistrzostwa).",
   2703: "Wielki graf: jego otwarcie jest ogłaszane, odznaka Umiejętności liczy jego punkty, a „Zresetuj wielki graf” pozwala zmienić ścieżkę bez utraty kwiatu.",
   2704: "Dymki wielkiego grafu pokazują, co naprawdę daje każdy węzeł.",
+  2705: "Co ta synergia daje w tej chwili",
 };

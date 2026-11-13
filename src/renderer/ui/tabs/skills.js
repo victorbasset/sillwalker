@@ -5,7 +5,7 @@ import { npcHTML } from "../npc.js";
 import { t as tx, txn } from "../../i18n/index.js";
 import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, skillSpendable, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
-import { esc } from "../../game/format.js";
+import { esc, dec, unit } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
@@ -320,7 +320,10 @@ export class SkillsTab {
     else this.el.querySelector(".skpts").innerHTML = `${txn(free, "{n} point libre · {2} / {3} nœuds actifs · {4} points au total|{n} points libres · {2} / {3} nœuds actifs · {4} points au total", { n: `<b class="gold">${free}</b>`, 2: used, 3: SKILL_NODE_COUNT, 4: total })}${S.skills.order.length > used ? `<br><span class="note">${txn(S.skills.order.length - used, "{n} nœud en attente de points.|{n} nœuds en attente de points.")}</span>` : ""}`;
     const eff = skillTreeEffects(S);
     for (const [k, v] of Object.entries(skillGraphEffects(S))) eff[k] = (eff[k] || 0) + v; // (it. 1077) grand graphe compris
-    const lines = Object.keys(eff).map((k) => `<li><span>${esc(describeEffects({ [k]: eff[k] }))}</span></li>`).join("");
+    // (it. 1112) synergies : ce qu'elles donnent EN CE MOMENT (« = +42 % »), pas seulement leur règle
+    const syn = this.game.stats().graphSyn || {};
+    const now = (k) => (k in syn && eff[k] > 0 ? `<span class="delta-p" title="${esc(tx("Ce que cette synergie donne en ce moment"))}">= +${dec(String(Math.round(syn[k] * 10) / 10))}${unit("%")}</span>` : "");
+    const lines = Object.keys(eff).map((k) => `<li><span>${esc(describeEffects({ [k]: eff[k] }))}</span>${now(k)}</li>`).join("");
     this.el.querySelector(".sktotal").innerHTML = lines || `<li><span class="note">${tx("Aucun pour l’instant : commence près de l’origine.")}</span></li>`;
     const bulk = hasUnlock(S, "bulkPoints");
     for (const e of this.el.querySelectorAll(".k-autorow")) e.hidden = !bulk;

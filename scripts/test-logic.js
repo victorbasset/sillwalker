@@ -3567,6 +3567,10 @@ test("grand graphe : synergies (« si je suis tanky, je tape plus fort », « pl
   const before = heroStats(S).atk;
   S.skills.outer = ["vitality-gate", ...Array.from({ length: 30 }, (_, k) => "vitality-v2-" + k)];
   assert(heroStats(S).atk > before * 1.05, "la voie du colosse furieux fait taper plus fort");
+  // (it. 1112) part actuelle de chaque synergie (affichée « = +N % » dans l'onglet Compétences)
+  const gs = heroStats(S).graphSyn;
+  assert(gs && gs.synHpAtk > 0, "part de la synergie PV → attaque connue");
+  assert.equal(graphLayer({ synHpAtk: 5, synGoldAtk: 1 }, { hpPct: 300 }, 1e9).syn.synHpAtk, 10, "la part est celle comptée dans l'attaque");
   // (it. 1078) même avec d'énormes bonus d'ailleurs, 5 nœuds d'attaque du graphe se sentent (multiplicatif)
   const S2 = freshState(); S2.lvl = 600; S2.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
   const b2 = heroStats(S2).atk; S2.skills.outer = ["force-gate", "force-v0-0", "force-v0-1", "force-v0-2", "force-v0-3"];

@@ -1577,4 +1577,5 @@ export default {
   2702: "Maestrías: en cada hito, dos bonificaciones a elegir («elegir» en el detalle de una maestría).",
   2703: "Gran grafo: su apertura se anuncia, la insignia de Habilidades cuenta sus puntos y «Reiniciar el gran grafo» permite cambiar de camino sin perder la flor.",
   2704: "Los globos del gran grafo muestran lo que cada nodo da de verdad.",
+  2705: "Lo que esta sinergia da ahora mismo",
 };
