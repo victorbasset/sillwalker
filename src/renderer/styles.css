@@ -1390,6 +1390,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Relique gagnée (demande S, it. 574) : scène dorée, la relique au-dessus du titre. */
 .cine.relic { background: linear-gradient(#0d0820 0%, #2a1a08 65%, rgba(42, 26, 8, 0.75) 100%); }
 .cine.relic .cine-title { color: #ffe27a; text-shadow: 0 0 12px #c88a1a; }
+/* (it. 1079) rencontre d'un PNJ : le héros qui entre, le PNJ sur le seuil (positions dans juice.js) */
+.cine-npchero, .cine-npc { position: absolute; height: 52px; image-rendering: pixelated; pointer-events: none; }
+.cine-npc { height: 42px; }
 .cine-relic { position: absolute; left: calc(50% - 420px); top: 18%; width: 48px; image-rendering: pixelated; filter: drop-shadow(0 0 6px #ffd34d); animation: relicBob 1.6s ease-in-out infinite alternate; }
 /* Reliques dans l'en-tête de la carte (it. 575) : grisées tant qu'elles ne sont pas gagnées. */
 .relicrow { display: inline-flex; gap: 3px; vertical-align: middle; }

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1079, demande E, étape E3) : rencontre de Mirette sur la bande quand la Boutique s'ouvre (zone 8) :
+  sa maisonnette violette sur un grand nénuphar, au bord de l'eau (dessinée sur le canevas de la cinématique) ; le
+  héros marche jusqu'à la porte et entre, Mirette apparaît sur le seuil ; titre « Mirette, la grenouille marchande »
+  / « Nouvel onglet : Boutique ! », puis sa première réplique. Nouvelle cinématique « npc » (juice.js, npcPlace : un
+  décor par PNJ), lancée par l'ouverture d'un onglet qui a un PNJ ; réglage « Cinématiques » respecté, clic pour
+  passer. Captures à trois moments ; contrôle d'autotest (209/209).
 - 2026-11-13 (it. 1078, demande D, étape D5) : équilibrage du grand graphe. Ses +% s'ajoutaient aux autres sources
   (des milliers de % en fin de partie) : 5 nœuds d'attaque valaient +0,007 %. Attaque, PV et défense du graphe forment
   maintenant un étage MULTIPLICATIF à part (graphLayer, heroStats) ; les synergies PV ↔ attaque suivent le DOUBLEMENT
@@ -4112,7 +4118,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   E. PNJ et histoire : chaque onglet qui se débloque = une rencontre sur la route (ex. la maison d'une petite grenouille
      → Boutique ; un PNJ et sa fusée → Ascension ; une cabane, un lac…). Animation de découverte (le héros entre, parle
      au PNJ), puis le PNJ stylisé dans l'onglet avec des répliques (« J'ai quelques objets pour vous ! »). Étapes : E1
-     liste des PNJ (un par onglet : nom, lieu, répliques ; EN COURS : Boutique faite, it. 1073) ; E2 le PNJ dans son onglet (FAIT pour la Boutique, it. 1073) (portrait pixel + bulle) ; E3
+     liste des PNJ (un par onglet : nom, lieu, répliques ; EN COURS : Boutique faite, it. 1073) ; E2 le PNJ dans son onglet (FAIT pour la Boutique, it. 1073) (portrait pixel + bulle) ; E3 (FAIT pour la Boutique, it. 1079)
      cinématique de rencontre sur la bande ; E4 les autres onglets ; E5 traductions, « Quoi de neuf ».
   Ordre prévu : A, B (rapides), puis E1-E2, D1-D3, E3, C, D4-D6.
   F. FAIT (it. 1074). Chroniques triées dans l'ordre de l'histoire, numérotées dans l'ordre du déblocage.

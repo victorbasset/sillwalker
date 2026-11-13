@@ -17,7 +17,9 @@ import { EVENTS } from "../game/events.js";
 import { BOSS_MECHANICS, agreeDefeated } from "../game/bosses.js";
 import { UNLOCK_INDEX } from "../game/unlocks.js";
 import { fmt, durText } from "../game/format.js";
-import { itemIconURL, classPortraitURL } from "./sprites.js";
+import { itemIconURL, classPortraitURL, npcURL } from "./sprites.js";
+import { npcFor } from "../game/npcs.js";
+import { TAB_GATES } from "../game/tabs.js";
 import { q, el, mark, makeCanvas, sizeCanvas } from "./dom.js";
 
 const MAX_PARTS = 90;
@@ -49,6 +51,22 @@ const WX = {
 const WX_MAX = 48;
 const easeIn = (k) => k * k;
 const easeOut = (k) => 1 - (1 - k) * (1 - k);
+
+/** (it. 1079) Lieu d'un PNJ (game/npcs.js), dessiné sur le canevas d'une cinématique ; x : bord gauche de la porte,
+ *  gy : le sol. frog : une maisonnette sur un grand nénuphar, au bord de l'eau. */
+function npcPlace(ctx, art, x, gy, t) {
+  if (art === "frog") {
+    ctx.fillStyle = "#2f5f8a"; ctx.fillRect(x - 70, gy - 6, 180, 6);                    // l'eau
+    ctx.fillStyle = "#4f8fbf"; for (let i = 0; i < 6; i++) ctx.fillRect(x - 60 + ((i * 31 + Math.floor(t * 8)) % 170), gy - 5, 8, 1);
+    ctx.fillStyle = "#3e7a30"; ctx.fillRect(x - 46, gy - 12, 132, 6);                     // le nénuphar
+    ctx.fillStyle = "#5fae4a"; ctx.fillRect(x - 40, gy - 14, 120, 4);
+    ctx.fillStyle = "#e8c98a"; ctx.fillRect(x - 14, gy - 60, 70, 48);                     // la maisonnette
+    ctx.fillStyle = "#8a5ad0"; for (let r = 0; r < 14; r++) ctx.fillRect(x - 20 + r, gy - 74 + r, 82 - 2 * r, 1); // toit violet
+    ctx.fillStyle = "#6b4226"; ctx.fillRect(x, gy - 42, 22, 30);                          // la porte
+    ctx.fillStyle = "#ffd34d"; ctx.fillRect(x + 32, gy - 50, 12, 10);                     // fenêtre allumée
+    ctx.fillStyle = "#e2552b"; ctx.fillRect(x + 66, gy - 26, 3, 14); ctx.fillRect(x + 62, gy - 30, 11, 4); // fleur
+  }
+}
 
 export class Juice {
   constructor(strip, container) {
@@ -294,6 +312,9 @@ export class Juice {
       // Demande 31 : le titre, puis la première phrase de la chronique, sur une scène propre à chacune.
       chronicle: { start: 0.8, step: 3.6, pages: [[`📜 ${data.title || ""}`, tx("Chronique {0} / {1}", { 0: data.n || 1, 1: data.total || 1 })],
         ...(data.text ? [[data.title || "", firstSentence(data.text)]] : [])] },
+      // (it. 1079, demande E de Victor) rencontre d'un PNJ quand son onglet s'ouvre : son nom, puis sa première réplique
+      npc: { start: 3.2, step: 3.4, pages: kind === "npc" && npcFor(data.tab) ? [[tx(npcFor(data.tab).name), tx("Nouvel onglet : {0} !", { 0: tx(TAB_GATES[data.tab]?.label || "") })],
+        [tx(npcFor(data.tab).name), tx(npcFor(data.tab).lines[0])]] : [["", ""]] },
       credits: { start: 0.8, step: 3.2, pages: [
         ["Sillwalker", tx("Le Briseur d’Étoiles est vaincu")],
         [tx("Héros libérés : {0}", { 0: (S.classesUnlocked || []).length }), tx("Ascensions : {0}", { 0: fmt((S.prestige && S.prestige.count) || 0) })],
@@ -313,7 +334,15 @@ export class Juice {
       img.src = relicIconURL(data.id || data.major.relic, 4); img.alt = "";
     }
     if (kind === "chronicle" && data.id) node.classList.add("chr-" + data.id); // ambiance de couleur (styles.css)
-    const life = { intro: 7, arrive: 5, dawn: 12, chronicle: data.text ? 10 : 5, freed: 5 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
+    // (it. 1079) rencontre d'un PNJ : le héros marche jusqu'à sa maison et y entre, puis le PNJ apparaît sur le seuil
+    const npc = kind === "npc" ? npcFor(data.tab) : null, homeX = Math.round(W / 2 - 300), homeY = this.ground();
+    let npcHero = null, npcImg = null;
+    if (npc) {
+      npcHero = el("img", "cine-npchero", node); npcHero.src = classPortraitURL(S.cls); npcHero.alt = "";
+      npcImg = el("img", "cine-npc", node); npcImg.src = npcURL(npc.art); npcImg.alt = "";
+      npcImg.style.left = (homeX - 10) + "px"; npcImg.style.top = (homeY - 54) + "px"; npcImg.style.opacity = "0"; // sur le seuil
+    }
+    const life = { intro: 7, arrive: 5, dawn: 12, chronicle: data.text ? 10 : 5, freed: 5, npc: 10 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;
     // bx : dawn, là où le Briseur tombe ; arrive, sa place au bout de la bande.
     const bx = kind === "dawn" ? Math.min(W - 220, this.s.monX() + 20) : W - (this.s.rightReserve || 0) - 260, by = this.ground() - 30;
     // Étoiles : dawn, elles montent du Briseur vaincu ; credits, déjà au ciel ; intro, au ciel puis elles tombent.
@@ -399,6 +428,13 @@ export class Juice {
           ctx.fillRect(Math.round(cageX + 22 + Math.cos(a) * rr), Math.round(cageY + 26 + Math.sin(a) * rr * 0.6), 2, 2);
         }
         ctx.globalAlpha = 1;
+      }
+      if (npc) { // maison du PNJ, le héros qui y entre, le PNJ sur le seuil
+        npcPlace(ctx, npc.art, homeX, homeY, t);
+        const walk = Math.min(1, Math.max(0, (t - 0.6) / 1.8)), gone = Math.min(1, Math.max(0, (t - 2.4) / 0.5));
+        npcHero.style.left = Math.round(homeX - 170 + walk * 150) + "px"; npcHero.style.top = (homeY - 52) + "px";
+        npcHero.style.opacity = (1 - gone).toFixed(2);
+        npcImg.style.opacity = Math.min(1, Math.max(0, (t - 2.9) / 0.5)).toFixed(2);
       }
       if (kind === "chronicle" && data.id) chronicleScene(ctx, data.id, t, W, H, this.ground());
       if (kind === "chronicle") { // la nouvelle étoile s'allume au centre : croix qui grandit puis scintille

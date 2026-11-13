@@ -6,6 +6,7 @@
 //   mini  : petit encart près de l'horloge
 //   icon  : fenêtre masquée, seule l'icône de notification (animée) reste
 // La simulation tourne en permanence, quel que soit le mode.
+import { npcFor } from "./game/npcs.js";
 import "./devslow.js"; // en premier : chronomètre les rappels (lenteurs, dev)
 import { SPELLS } from "./game/spells.js";
 import { Music } from "./render/music.js";
@@ -576,6 +577,8 @@ async function boot() {
       if (TAB_GATES[id]?.hint) markHint(game, TAB_GATES[id].hint); // l'annonce dit déjà la même chose : pas de deuxième bulle
       showToast(`✦ ${tx("Nouvel onglet : {0} !", { 0: `<b>${esc(panel.tabLabel(id))}</b>` })} ${esc(desc)}`, () => { openPanel(); panel.setTab(id); }, 10000);
     }
+    // (it. 1079, demande E) l'onglet a un PNJ : la scène de la rencontre sur la bande
+    for (const id of ids) if (npcFor(id)) strip.juice.cinematic("npc", { tab: id });
     panel.dirty = true;
   });
   // Héros bloqué (demande 22) : bulle qui reste 2 min, avec les pistes utiles ; un clic ouvre le panneau.
