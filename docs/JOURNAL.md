@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1055) : effet du cache de l'it. 1054 sur dev-data (copies neuves) : panneau ouvert 20,2 / 20,4 %
+  (avant 20,4-20,7), bande 19,3 / 19,4. Repère par onglet (fin de partie, JavaScript d'un affichage complet après un
+  changement d'état) : Aventure 10,1 ms, Bestiaire 11,0 (construit toutes ses sous-sections puis en garde une ; les
+  compteurs de victoires changent à chaque monstre : peu à gagner sans refonte), Carte 5,3, Héros 4,9, Statistiques
+  4,7, Boutique 3,3, Réglages 3,2, Familiers 2,8, Ascension 2,3, Talents 1,8, Compétences 1,3, Quêtes 1,2. Aucun
+  changement.
 - 2026-11-13 (it. 1054) : performance du panneau. Les alertes « [lent] » de l'autotest montraient l'Aventure à 14-23 ms de
   JavaScript par affichage (autres onglets : 2-5). Mesuré (fin de partie) : renderAll 27 ms, dont renderBag 7 ms :
   chaque objet du sac appelait isUpgrade plusieurs fois par affichage (cases, objets inutiles, pièces gardées), et
