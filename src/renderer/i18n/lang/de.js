@@ -1548,4 +1548,11 @@ export default {
   2673: "Gieß ein Blütenblatt bis zum Ende: Sein Herz wird aufleuchten.",
   2674: "Die Pfade des großen Graphen? Pro Blütenblatt folgst du nur einem. Wähle gut.",
   2675: "Sternenblumen welken nie. Nicht einmal nach einem Aufstieg.",
+  2676: "Corvin, der alte Waffenmeister",
+  2677: "Ein Übungsplatz mit seinen Strohpuppen",
+  2678: "Jede Stufe gibt dir einen Talentpunkt. Lass ihn nicht schlafen!",
+  2679: "Ein Klick, und das Talent steigt so hoch, wie du kannst.",
+  2680: "Das ultimative Talent am Ende eines Zweigs ändert alles.",
+  2681: "Ein Weg, später: Wähle ihn nach deiner Art zu kämpfen.",
+  2682: "Ich habe viele Helden ausgebildet. Wenige kamen so weit wie du.",
 };

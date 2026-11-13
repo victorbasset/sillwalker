@@ -136,4 +136,21 @@ export const NPC_ART = {
     "....KK..KK....",
     "....KK..KK....",
   ]] },
+  // Corvin, le vieux maître d'armes : crâne chauve, longue moustache blanche, tunique rouge, une épée de bois (it. 1094).
+  master: { pal: { F: "#f0c08a", f: "#d8a070", E: "#1a1a1a", W: "#f4f0e8", R: "#c0392b", r: "#8a2a1a", Y: "#ffd34d", B: "#a0713c", K: "#3a3550" }, frames: [[
+    "..............",
+    "....ffffff....",
+    "...FFFFFFFF...",
+    "...FEFFFFEF...",
+    "...FFFFFFFF...",
+    "..WWFWWWWFWW..",
+    "...W.WWWW.W...",
+    "...RRRRRRRR...",
+    "..RRRRYYRRRR.B",
+    ".FRRrRRRRrRRFB",
+    "...RRRRRRRR..B",
+    "...rrrrrrrr..B",
+    "....KK..KK....",
+    "....KK..KK....",
+  ]] },
 };

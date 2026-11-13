@@ -2677,5 +2677,12 @@ export const KEYS = [
   "Une fois la fleur entière, le grand jardin autour s’ouvrira.",
   "Arrose un pétale jusqu’au bout : son cœur s’allumera.",
   "Les voies du grand graphe ? On n’en suit qu’une par pétale. Choisis bien.",
-  "Les fleurs d’étoile ne fanent jamais. Même après une ascension."
+  "Les fleurs d’étoile ne fanent jamais. Même après une ascension.",
+  "Corvin, le vieux maître d’armes",
+  "Un terrain d’entraînement et ses mannequins",
+  "Chaque niveau te donne un point de talent. Ne le laisse pas dormir !",
+  "Un clic, et le talent monte aussi haut que tu le peux.",
+  "Le talent ultime, au bout d’une branche, change tout.",
+  "Une Voie, plus tard : choisis-la selon ta façon de combattre.",
+  "J’ai entraîné bien des héros. Peu sont allés aussi loin que toi."
 ];

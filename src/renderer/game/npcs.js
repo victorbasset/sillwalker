@@ -81,6 +81,19 @@ export const NPCS = {
       "Les fleurs d’étoile ne fanent jamais. Même après une ascension.",
     ],
   },
+  // (it. 1094) le vieux maître d'armes (onglet Talents, le premier : zone 2)
+  talents: {
+    name: "Corvin, le vieux maître d’armes",
+    place: "Un terrain d’entraînement et ses mannequins",
+    art: "master",
+    lines: [
+      "Chaque niveau te donne un point de talent. Ne le laisse pas dormir !",
+      "Un clic, et le talent monte aussi haut que tu le peux.",
+      "Le talent ultime, au bout d’une branche, change tout.",
+      "Une Voie, plus tard : choisis-la selon ta façon de combattre.",
+      "J’ai entraîné bien des héros. Peu sont allés aussi loin que toi.",
+    ],
+  },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
     name: "Plume, la chouette de la guilde",

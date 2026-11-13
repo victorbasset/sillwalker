@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1094, demande E, étape E4) : neuvième PNJ, Corvin, le vieux maître d'armes, tient les Talents, le
+  premier onglet (zone 2) : première rencontre d'un nouveau joueur (crâne chauve, moustache blanche, tunique rouge,
+  épée de bois ; 5 répliques qui expliquent l'onglet : « Un clic, et le talent monte aussi haut que tu le peux. »).
+  Portrait dans le titre de la carte du héros. Scène : terrain d'entraînement, deux mannequins de paille frappés
+  tour à tour, un râtelier ; Corvin posé au sol. « Voie » cité comme dans l'onglet (Vía, Via). Onglet Talents :
+  première image 151-236 ms, comme avant (154-272). Autotest 218/218 ; 10 langues sans défaut. Détail : en espagnol,
+  le sous-titre du titre (« 0 puntos libres · 1322 en total ») passe sur deux lignes à côté du portrait (sans
+  défilement). Reste : Statistiques.
 - 2026-11-13 (it. 1093, demande E, étape E4) : huitième PNJ, Iris, la jardinière des étoiles, tient les Compétences
   (chapeau de paille fleuri, robe bleue, un arrosoir ; 5 répliques : « Les voies du grand graphe ? On n'en suit
   qu'une par pétale. Choisis bien. ») : portrait dans le titre de la barre latérale (l'onglet n'est construit qu'une

@@ -121,6 +121,16 @@ function npcPlace(ctx, art, x, gy, t) {
       if (lit) { ctx.globalAlpha = 0.5 + 0.5 * Math.sin(t * 4 + i); ctx.fillStyle = "#fff6c8"; ctx.fillRect(fx + 2, gy - 17, 2, 2); ctx.globalAlpha = 1; }
     }
   }
+  if (art === "master") { // (it. 1094) Corvin : un terrain d'entraînement, deux mannequins de paille, un râtelier d'armes
+    ctx.fillStyle = "#c08a5a"; ctx.fillRect(x - 40, gy - 3, 190, 3);                                     // la terre battue
+    for (const [mx, hit] of [[x + 50, 1.4], [x + 90, 2.2]]) {                                               // mannequins (frappés tour à tour)
+      const wob = t > hit && t < hit + 0.4 ? Math.round(Math.sin(t * 40) * 2) : 0;
+      ctx.fillStyle = "#6b4226"; ctx.fillRect(mx + 4, gy - 40, 3, 40);
+      ctx.fillStyle = "#e8c98a"; ctx.fillRect(mx + wob, gy - 38, 11, 16); ctx.fillRect(mx + 1 + wob, gy - 46, 9, 8); ctx.fillRect(mx - 5 + wob, gy - 34, 21, 3);
+    }
+    ctx.fillStyle = "#5a3a20"; ctx.fillRect(x + 120, gy - 30, 22, 3); ctx.fillRect(x + 120, gy - 30, 3, 30); ctx.fillRect(x + 139, gy - 30, 3, 30); // râtelier
+    ctx.fillStyle = "#a0713c"; for (let i = 0; i < 3; i++) ctx.fillRect(x + 125 + i * 5, gy - 44, 2, 40);
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble
@@ -408,7 +418,7 @@ export class Juice {
       npcHero = el("img", "cine-npchero", node); npcHero.src = classPortraitURL(S.cls); npcHero.alt = "";
       npcImg = el("img", "cine-npc", node); npcImg.src = npcURL(npc.art); npcImg.alt = "";
       // sur le seuil de la porte ; sans porte (tente, nid : it. 1092), posé au sol
-      const onGround = npc.art === "natur" || npc.art === "keeper" || npc.art === "gardener";
+      const onGround = npc.art === "natur" || npc.art === "keeper" || npc.art === "gardener" || npc.art === "master";
       npcImg.style.left = (homeX - 10) + "px"; npcImg.style.top = (homeY - (onGround ? 42 : 54)) + "px"; npcImg.style.opacity = "0";
     }
     const life = { intro: 7, arrive: 5, dawn: 12, chronicle: data.text ? 10 : 5, freed: 5, npc: 10 }[kind] || PAGES.start + PAGES.pages.length * PAGES.step + 0.6;

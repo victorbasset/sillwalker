@@ -1548,4 +1548,11 @@ export default {
   2673: "Water a petal to the end: its heart will light up.",
   2674: "The great graph’s paths? You follow only one per petal. Choose well.",
   2675: "Star flowers never wilt. Not even after an ascension.",
+  2676: "Corvin, the old weapon master",
+  2677: "A training ground and its dummies",
+  2678: "Every level gives you a talent point. Don’t let it sleep!",
+  2679: "One click, and the talent rises as high as you can take it.",
+  2680: "The ultimate talent, at the end of a branch, changes everything.",
+  2681: "A Way, later on: choose it to suit how you fight.",
+  2682: "I’ve trained many heroes. Few have gone as far as you.",
 };

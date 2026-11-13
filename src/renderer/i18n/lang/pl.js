@@ -1548,4 +1548,11 @@ export default {
   2673: "Podlewaj płatek do końca: jego serce się zapali.",
   2674: "Ścieżki wielkiego grafu? Na płatek wybierasz tylko jedną. Wybierz dobrze.",
   2675: "Gwiezdne kwiaty nigdy nie więdną. Nawet po wniebowstąpieniu.",
+  2676: "Corvin, stary mistrz broni",
+  2677: "Plac ćwiczeń i jego manekiny",
+  2678: "Każdy poziom daje ci punkt talentu. Nie pozwól mu spać!",
+  2679: "Jedno kliknięcie i talent rośnie tak wysoko, jak się da.",
+  2680: "Talent ostateczny, na końcu gałęzi, zmienia wszystko.",
+  2681: "Droga, później: wybierz ją pod swój styl walki.",
+  2682: "Wyszkoliłem wielu bohaterów. Niewielu zaszło tak daleko jak ty.",
 };

@@ -1548,4 +1548,11 @@ export default {
   2673: "Regue uma pétala até o fim: o coração dela vai se acender.",
   2674: "Os caminhos do grande grafo? Só se segue um por pétala. Escolha bem.",
   2675: "As flores de estrela nunca murcham. Nem depois de uma ascensão.",
+  2676: "Corvin, o velho mestre de armas",
+  2677: "Um campo de treino e seus bonecos",
+  2678: "Cada nível te dá um ponto de talento. Não o deixe dormir!",
+  2679: "Um clique, e o talento sobe o mais alto que puder.",
+  2680: "O talento supremo, no fim de um ramo, muda tudo.",
+  2681: "Uma Via, mais tarde: escolha-a conforme seu jeito de lutar.",
+  2682: "Treinei muitos heróis. Poucos foram tão longe quanto você.",
 };
