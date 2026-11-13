@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1032) : deux semaines simulées pour la décision de Victor sur la fin de partie (voir Idées) : sans
+  changement, 293 → 321-335 en 2e semaine ; courbe ×1,03 au-delà de 250 : 338-377. Aucun changement du jeu.
 - 2026-11-13 (it. 1031, revue générale) : simulation 12 h, records des courses : lancier 44 → 62, gladiateur 44 → 62,
   chaman 44 → 65 (réguliers). Performance (copie neuve) : bande 19,7 %, panneau 20,4 %, mini 6,8 %, icône 0,9 %.
   Captures Héros et Statistiques à 1366 px en français, anglais et japonais, mini en japonais : propres. Texte japonais
@@ -3857,6 +3859,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   ≈ 17 zones (1,04^17 ≈ 1,95). Le plafond n'est pas un défaut ponctuel mais le rapport entre la croissance du héros
   en fin de partie et cette courbe : une vraie progression au-delà demande soit une courbe plus douce (MONSTER_LATE_GROWTH
   1,04 → 1,03 au-delà de 250 ?), soit une source de puissance qui croît elle aussi d'environ ×1,04 par zone.
+  Deux semaines (it. 1032, 336 h simulées) : SANS changement, la progression continue lentement (guerrier 293 → 335,
+  mage 293 → 321 en 2e semaine : un fort ralentissement, pas un mur). Avec ×1,03 au-delà de 250 (dossier jetable) :
+  guerrier 350-377, mage 338-350 en fin de 2e semaine (350 : écho suivant). Choix de Victor : garder ce rythme lent
+  (records rares, la fin de partie « dure »), ou adoucir la courbe (≈ +30-40 zones en 2 semaines).
 - À PROPOSER À VICTOR (it. 1018) P3 Points de compétence en surplus : une fois l'arbre entièrement appris (partie de fin
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
