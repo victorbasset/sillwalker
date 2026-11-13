@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1024) : autotest, « vendre ce qui n'améliore pas (après confirmation) » : même schéma fragile que la
+  transmutation (clic, 150 ms, confirmation, 150 ms) : attentes sur l'état (bouton actif, fenêtre de confirmation,
+  taille du sac) ; seul autre « confirm-ok » : la sortie finale. Trois passages à 204/204.
 - 2026-11-13 (it. 1023) : compléter une panoplie d'un clic (finishSet) n'annonce plus « bonus 2 pièces ! » puis aussitôt
   « bonus 4 pièces ! » (deux bandeaux superposés, deux sons, deux lignes) : pièces équipées en lot (_setBatch), le palier
   le plus haut annoncé une fois à la fin ; bonus de collection et jalon du carnet inchangés. Test logique (un seul

@@ -403,10 +403,12 @@ async function runSelfTest(strip) {
   await click('[data-tab="adventure"]');
   await sleep(200);
   const bag0 = await state("S.bag.length"), useless = await js("window.__game.uselessItems().length");
+  // (it. 1024) attentes sur l'état, comme la transmutation (it. 1023)
+  await until(() => js("!!document.querySelector('[data-action=\"sellless\"]:not([disabled])')"));
   await click('[data-action="sellless"]');
-  await sleep(150);
+  await until(() => js("!!document.querySelector('[data-action=\"confirm-ok\"]')"));
   await click('[data-action="confirm-ok"]');
-  await sleep(150);
+  await until(async () => (await state("S.bag.length")) === bag0 - useless);
   check("vendre ce qui n'améliore pas (après confirmation)", useless > 0 && (await state("S.bag.length")) === bag0 - useless, `${bag0} -> ${await state("S.bag.length")} (${useless} inutiles)`);
   // Transmutation (3 communs inutiles -> 1 peu commun), avec confirmation
   await js("(() => { const g = window.__game; g.S.bag.splice(0, 12); for (let i = 0; i < 3; i++) { const it = g.newItem(0, 1); it.r = 0; it.set = null; g.S.bag.push(it); } g.changed() })()");
