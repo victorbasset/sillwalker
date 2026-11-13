@@ -728,10 +728,12 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .actor.cored { background: radial-gradient(farthest-side, color-mix(in srgb, var(--aura) 60%, transparent) 60%, transparent); } /* (it. 974) permanent dès un secteur complet : lueur peinte, plus de double drop-shadow */
 
 /* Projectiles selon le palier d'attaque */
-.proj.t1 { filter: drop-shadow(0 0 3px var(--c)); }
-.proj.t2 { filter: drop-shadow(0 0 4px var(--c)) drop-shadow(0 0 2px #fff); }
-.proj.t3 { filter: drop-shadow(0 0 4px var(--c)) drop-shadow(0 0 8px var(--c)) drop-shadow(0 0 2px #fff); }
-.proj.t4 { filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 18px var(--c)); }
+/* (it. 1066) lueur : halo en dégradé radial derrière le projectile (strip.js, PROJ_GLOW = rayon), plus de drop-shadow */
+.projglow { position: absolute; pointer-events: none; border-radius: 50%; }
+.projglow.t1 { width: 16px; height: 16px; background: radial-gradient(closest-side, color-mix(in srgb, var(--c) 55%, transparent), transparent); }
+.projglow.t2 { width: 20px; height: 20px; background: radial-gradient(closest-side, color-mix(in srgb, #fff 35%, var(--c)) 0, color-mix(in srgb, var(--c) 60%, transparent) 40%, transparent); }
+.projglow.t3 { width: 28px; height: 28px; background: radial-gradient(closest-side, color-mix(in srgb, #fff 40%, var(--c)) 0, color-mix(in srgb, var(--c) 65%, transparent) 35%, color-mix(in srgb, var(--c) 25%, transparent) 70%, transparent); }
+.projglow.t4 { width: 44px; height: 44px; background: radial-gradient(closest-side, #fff 0, color-mix(in srgb, var(--c) 75%, transparent) 25%, color-mix(in srgb, var(--c) 35%, transparent) 55%, transparent); }
 .tierbox { margin-bottom: 10px; }
 .tiers { display: flex; gap: 6px; margin: 4px 0; }
 .tierpip { width: 26px; height: 26px; display: grid; place-items: center; border: 2px solid var(--line); border-radius: 3px; color: var(--muted); }

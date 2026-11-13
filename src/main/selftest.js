@@ -25,6 +25,7 @@ async function runSelfTest(strip) {
   const rectOf = (sel) => js(`(() => { const e = document.querySelector(${JSON.stringify(sel)}); e.scrollIntoView({ block: "nearest" }); const r = e.getBoundingClientRect(); return { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2), w: r.width }; })()`);
   const move = async (x, y) => { wc.sendInputEvent({ type: "mouseMove", x, y }); await sleep(150); };
   /** Attend qu'une condition soit vraie (machine chargée : animations plus lentes). */
+  const CONFIRM_SHOWN = "!!document.querySelector('#confirm:not([hidden]) [data-action=\"confirm-ok\"]')";
   const until = async (test, ms = 3000) => { for (let t = 0; t < ms; t += 100) { if (await test()) return true; await sleep(100); } return !!(await test()); };
   const click = async (sel) => {
     const p = await rectOf(sel);
@@ -406,7 +407,9 @@ async function runSelfTest(strip) {
   // (it. 1024) attentes sur l'état, comme la transmutation (it. 1023)
   await until(() => js("!!document.querySelector('[data-action=\"sellless\"]:not([disabled])')"));
   await click('[data-action="sellless"]');
-  await until(() => js("!!document.querySelector('[data-action=\"confirm-ok\"]')"));
+  // (it. 1066) la fenêtre de confirmation est permanente, seulement masquée : attendre qu'elle soit VISIBLE (avant, l'attente
+  // réussissait tout de suite et le clic visait un bouton caché, aux coordonnées 0 : transmutation 205/206 une fois sur deux)
+  await until(() => js(CONFIRM_SHOWN));
   await click('[data-action="confirm-ok"]');
   await until(async () => (await state("S.bag.length")) === bag0 - useless);
   check("vendre ce qui n'améliore pas (après confirmation)", useless > 0 && (await state("S.bag.length")) === bag0 - useless, `${bag0} -> ${await state("S.bag.length")} (${useless} inutiles)`);
@@ -416,16 +419,13 @@ async function runSelfTest(strip) {
   await sleep(200);
   const tr0 = await js("window.__game.S.stats.transmutes || 0");
   // (it. 1023) attentes sur l'état (fenêtre de confirmation, puis compteur) et non plus 150 ms fixes : instable sous xvfb
-  // (it. 1064) jusqu'à trois essais : un clic réel peut tomber à côté si l'onglet se redessine entre la mesure du
-  // bouton et le clic (205/206 une fois sur trois exécutions)
-  for (let essai = 0; essai < 3 && (await js("window.__game.S.stats.transmutes || 0")) <= tr0; essai++) {
-    await until(() => js("!!document.querySelector('[data-action=\"transmute\"]:not([disabled])')"));
-    await click('[data-action="transmute"]');
-    await until(() => js("!!document.querySelector('[data-action=\"confirm-ok\"]')"), 1500);
-    if (await js("!!document.querySelector('[data-action=\"confirm-ok\"]')")) await click('[data-action="confirm-ok"]');
-    await until(async () => (await js("window.__game.S.stats.transmutes || 0")) > tr0, 1500);
-  }
-  check("transmutation (après confirmation)", (await js("window.__game.S.stats.transmutes || 0")) > tr0, `${tr0} -> ${await js("window.__game.S.stats.transmutes || 0")}`);
+  await until(() => js("!!document.querySelector('[data-action=\"transmute\"]:not([disabled])')"));
+  await click('[data-action="transmute"]');
+  await until(() => js(CONFIRM_SHOWN));
+  await click('[data-action="confirm-ok"]');
+  await until(async () => (await js("window.__game.S.stats.transmutes || 0")) > tr0);
+  const trDiag = await js(`(() => { const g = window.__game, b = document.querySelector('[data-action="transmute"]'); return "sac " + g.S.bag.map((it) => it.r + (g.isUpgrade(it) ? "+" : "")).join("") + " plan " + JSON.stringify(g.transmutePlan()) + " bouton " + (b ? (b.disabled ? "inactif" : "actif") : "absent") + " onglet " + window.__panel.tab + " confirmation " + !document.querySelector("#confirm").hidden; })()`);
+  check("transmutation (après confirmation)", (await js("window.__game.S.stats.transmutes || 0")) > tr0, `${tr0} -> ${await js("window.__game.S.stats.transmutes || 0")} · ${trDiag}`);
   // Familiers : envoyer un familier en expédition
   await js("(() => { const P = window.__game.S.pets; P.owned.cat ||= { lvl: 1, xp: 0 }; P.owned.fox ||= { lvl: 1, xp: 0 }; P.active = 'cat'; P.exp = {}; window.__game.changed() })()");
   await click('[data-tab="pets"]');

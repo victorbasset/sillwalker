@@ -5,6 +5,17 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1066) : performance en fin de partie, héros à distance. La partie de fin de partie joue un guerrier :
+  les projectiles n'y paraissaient pas. Avec un rôdeur (copie modifiée), les projectiles valaient ≈ 7 points (31,4 →
+  24,2 % masqués) : aux rangs 1 à 4, jusqu'à trois drop-shadow, et trois projectiles par coup dès le rang 3. Leur lueur
+  est maintenant un halo en dégradé radial (.projglow, rayon PROJ_GLOW par rang) qui voyage derrière le projectile,
+  peint une fois. Capture côte à côte (flèche, boule de feu, rangs 1 à 4) : halo rond au lieu d'épouser la forme, même
+  intensité. Copies neuves, avant → après : rôdeur 30,7 / 31,0 → 24,6 / 24,5 % (GPU 16,6 → 10,1) ; dev-data (guerrier,
+  aucun projectile) 19,3-19,4 des deux côtés (une première mesure à 20,8 : bruit, refaite deux fois). CLAUDE.md.
+  Autotest : la transmutation échouait encore une fois sur deux malgré les trois essais (it. 1064). Vraie cause, trouvée
+  par un diagnostic ajouté au message d'échec : la fenêtre de confirmation est permanente, seulement masquée ;
+  l'attente « confirmation présente » réussissait tout de suite et le clic visait le bouton caché. Attente d'une
+  fenêtre VISIBLE (CONFIRM_SHOWN) ; les trois essais de l'it. 1064, inutiles, retirés.
 - 2026-11-13 (it. 1065) : performance en fin de partie, suite. Nouvelle décomposition (éléments masqués un à un) :
   l'entaille du héros valait ≈ 8 points (barres de vie, affixes, relique portée : bruit). Aux rangs 2 à 4, sa lueur
   était un filtre CSS (trois drop-shadow jusqu'à 18 px au rang 4) recalculé à chaque coup (la lame s'allume et s'éteint
@@ -4013,7 +4024,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
   (ex. +0,1 % d'attaque et de PV), affiché « Points en surplus : +36 % » ; à mesurer avec simulate.js (semaine).
-- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; it. 1064 : → 32 %, anneaux de sorts ; it. 1065 : → 24 %, entaille du héros ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
+- EN PARTIE (it. 993-997 : 42,5 → 36,4 % ; it. 1064 : → 32 %, anneaux de sorts ; it. 1065 : → 24 %, entaille du héros ; it. 1066 : projectiles des héros à distance, 31 → 24,5 % ; projectiles écartés ; à mesurer sous Windows) P1 Bon voisin, vu it. 992 : en FIN de partie (scripts/fixtures/endgame-save.json), la bande coûte ≈ 42 % d'un cœur
   (≈ 20 % avec dev-data). Décomposition dans le journal (it. 992) : effets complets ≈ 14 pts, sorts ≈ 12 (dont animations
   2,5, perçage 2 ; le reste dans le GPU : 17 → 25 pts), son 4,5, nombres de dégâts 3, compagnon 5, rang de la zone
   (zones ≥ 100 : combats plus longs et plus denses). Pistes : profiler le processus GPU (couches, repeints : Chromium

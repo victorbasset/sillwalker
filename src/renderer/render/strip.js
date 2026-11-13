@@ -93,6 +93,8 @@ const DARK_OUTLINE = "rgba(220, 228, 245, 0.35)"; // (it. 1020)
 /** Entaille des rangs 2 à 4 avec sa lueur, dessinée une fois (it. 1065) : lame de 12 × 24 (quatre blocs en diagonale) et
  *  sa lame croisée, dans une marge de SLASH_M px pour la lueur ; mêmes ombres que les anciens filtres CSS. */
 const SLASH_M = 22, slashCache = new Map();
+/** Rayon du halo des projectiles par rang d'attaque (styles.css, .projglow ; it. 1066). */
+const PROJ_GLOW = [0, 8, 10, 14, 22];
 function bakedSlash(t, c) {
   const key = t + c;
   if (slashCache.has(key)) return slashCache.get(key);
@@ -451,6 +453,14 @@ export class StripRenderer {
 
   projectile(kind, x0, x1, y, tier = 0, color = "#fff") {
     if (!this.active) return;
+    // (it. 1066) lueur des rangs 1 à 4 : un halo en dégradé radial qui voyage derrière le projectile (peint une fois),
+    // plus de filtre drop-shadow : jusqu'à trois ombres sur trois projectiles par coup, recalculées à chaque image,
+    // ≈ 7 points d'un cœur en fin de partie avec un héros à distance (31,5 → 24,5 %)
+    if (tier >= 1) {
+      const R = PROJ_GLOW[tier], g = el("div", "projglow t" + tier, this.fxLayer);
+      g.style.setProperty("--c", color);
+      this.addFx(g, x0 + 6 - R, y + 3 - R, 0.16, 0, x1 - x0, true);
+    }
     const f = el("div", "proj " + kind + " t" + tier, this.fxLayer);
     f.style.setProperty("--c", color);
     this.addFx(f, x0, y, 0.16, 0, x1 - x0, true);
