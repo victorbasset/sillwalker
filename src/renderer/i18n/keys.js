@@ -2501,5 +2501,6 @@ export const KEYS = [
   "Un nouvel allié !",
   "Libre, enfin ! Merci !",
   "Un œuf ! Qu’est-ce qui va en sortir ?",
-  "Tiens, un œuf…"
+  "Tiens, un œuf…",
+  "Ton héros a de nouvelles répliques : panoplie complète, ascension, héros libéré, œuf trouvé."
 ];

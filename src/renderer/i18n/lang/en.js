@@ -1372,4 +1372,5 @@ export default {
   2497: "Free at last! Thank you!",
   2498: "An egg! What will hatch from it?",
   2499: "Oh, an egg…",
+  2500: "Your hero has new lines: full set, ascension, hero freed, egg found.",
 };

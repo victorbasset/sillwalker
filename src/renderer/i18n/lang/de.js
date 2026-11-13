@@ -1372,4 +1372,5 @@ export default {
   2497: "Endlich frei! Danke!",
   2498: "Ein Ei! Was wohl daraus schlüpft?",
   2499: "Nanu, ein Ei…",
+  2500: "Dein Held hat neue Sprüche: komplettes Set, Aufstieg, befreiter Held, gefundenes Ei.",
 };

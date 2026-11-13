@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1042) : « Quoi de neuf », édition 49 : les nouvelles répliques du héros (panoplie complète, ascension,
+  héros libéré, œuf trouvé). 10 langues sans défaut (« Quoi de neuf » au pire cas compris) ; autotest 205/205.
 - 2026-11-13 (it. 1041, revue générale) : simulation 12 h, records des courses : prêtresse 40 → 66, cryomancien 38 → 62,
   gardien des astres 44 → 69 (réguliers). Performance (copie neuve) : bande 19,6 %, panneau 20,7 %, mini 7,1 %, icône
   0,8 %. Captures Quêtes et Ascension à 1366 px en français, anglais et chinois, mini en chinois : propres

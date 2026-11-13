@@ -1372,4 +1372,5 @@ export default {
   2497: "Livre, enfim! Obrigado!",
   2498: "Um ovo! O que vai sair dele?",
   2499: "Olha, um ovo…",
+  2500: "Seu herói tem novas falas: conjunto completo, ascensão, herói libertado, ovo encontrado.",
 };

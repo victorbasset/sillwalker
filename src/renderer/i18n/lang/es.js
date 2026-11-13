@@ -1372,4 +1372,5 @@ export default {
   2497: "¡Libre, por fin! ¡Gracias!",
   2498: "¡Un huevo! ¿Qué saldrá de él?",
   2499: "Vaya, un huevo…",
+  2500: "Tu héroe tiene nuevas frases: conjunto completo, ascensión, héroe liberado, huevo encontrado.",
 };

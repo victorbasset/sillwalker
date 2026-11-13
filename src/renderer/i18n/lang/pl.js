@@ -1372,4 +1372,5 @@ export default {
   2497: "Wreszcie wolny! Dzięki!",
   2498: "Jajo! Co się z niego wykluje?",
   2499: "O, jajo…",
+  2500: "Twój bohater ma nowe kwestie: pełny zestaw, wniebowstąpienie, uwolniony bohater, znalezione jajo.",
 };
