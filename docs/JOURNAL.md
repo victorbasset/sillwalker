@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1004) : panoplies enfin complétables. Partie de fin de partie : « Panoplies 0 / 10 » après 48 h ;
+  mesuré sur 24 h (guerrier) : 187 pièces trouvées (≈ 19 par panoplie, 5 à 7 emplacements), aucune complétée. Les pièces
+  n'étaient gardées que pour une panoplie déjà portée (la première partait toujours) et la tâche « Une pièce du sac
+  complète la panoplie » ne servait qu'à 3 pièces portées. Désormais : (1) le sac garde aussi les pièces des panoplies
+  jamais complétées sans pièce portée (une par emplacement, 6 au plus, les plus avancées d'abord) ; (2) la tâche
+  propose les pièces du sac qui portent une panoplie jamais complétée à 4 (« 3 pièces du sac complètent la panoplie
+  … », un clic les équipe ; le bonus de collection reste ensuite, « Équiper le meilleur » remet le plus fort).
+  simulate.js clique cette tâche et affiche « Panoplies complétées » : 24 h, 4 trajectoires (guerrier, mage, graines
+  7 et 3) : ancienne règle de garde 0/3/2/3, nouvelle 5/2/6/1 (avant tout changement : 0). balance 12 h : +0,8 (bruit).
+  Tests logiques (garde sans pièce portée, plafond, tâche à 4 pièces) ; autotest 202/202.
 - 2026-11-13 (it. 1003) : deux « records » différents. Partie de fin de partie : la bande dit « record 142 » (meilleure
   de toutes les courses, le record à battre, it. 13), la carte Zone « record : 136 » et l'Ascension « (record zone
   136) » (meilleure zone de la course en cours). Quand ils diffèrent : carte Zone « course : 136 · record : 142 »

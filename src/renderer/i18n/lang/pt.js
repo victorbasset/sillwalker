@@ -1346,4 +1346,5 @@ export default {
   2471: "No fim do jogo, a faixa fica mais legível e mais leve (menos números e efeitos ao mesmo tempo).",
   2472: "corrida: {0} · recorde: {1}",
   2473: "(zona {0} alcançada nesta corrida). Na zona {1}: +{2}.",
+  2474: "{n} peça da bolsa completa o conjunto {0}|{n} peças da bolsa completam o conjunto {0}",
 };

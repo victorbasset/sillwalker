@@ -2475,5 +2475,6 @@ export const KEYS = [
   "La récompense en or d’une quête suit ta progression depuis qu’elle a été tirée.",
   "En fin de partie, la bande est plus lisible et plus légère (moins de nombres et d’effets à la fois).",
   "course : {0} · record : {1}",
-  "(zone {0} atteinte pendant cette course). En zone {1} : +{2}."
+  "(zone {0} atteinte pendant cette course). En zone {1} : +{2}.",
+  "{n} pièce du sac complète la panoplie {0}|{n} pièces du sac complètent la panoplie {0}"
 ];

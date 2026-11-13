@@ -1346,4 +1346,5 @@ export default {
   2471: "Late in the game, the strip is easier to read and lighter (fewer numbers and effects at once).",
   2472: "run: {0} · record: {1}",
   2473: "(zone {0} reached this run). At zone {1}: +{2}.",
+  2474: "{n} piece from the bag completes the {0} set|{n} pieces from the bag complete the {0} set",
 };

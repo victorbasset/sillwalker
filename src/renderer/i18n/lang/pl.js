@@ -1346,4 +1346,5 @@ export default {
   2471: "W późnej grze pasek jest czytelniejszy i lżejszy (mniej liczb i efektów naraz).",
   2472: "bieg: {0} · rekord: {1}",
   2473: "(strefa {0} osiągnięta w tym biegu). W strefie {1}: +{2}.",
+  2474: "{n} część z torby kompletuje zestaw {0}|{n} części z torby kompletują zestaw {0}|{n} części z torby kompletuje zestaw {0}",
 };

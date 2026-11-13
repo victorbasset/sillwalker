@@ -38,7 +38,7 @@ import {
   WORKSHOP, workshopPrice, eggPrice, DEAL_DISCOUNT,
 } from "./shop.js";
 import { POWERS, POWER_INDEX } from "./powers.js";
-import { SETS, setCounts } from "./sets.js";
+import { SETS, SET_KEYS, setCounts } from "./sets.js";
 import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
@@ -1255,8 +1255,14 @@ export class Game {
     // Seulement pour les panoplies commencées (au moins une pièce portée) : le sac ne se remplit pas de pièces dispersées.
     // Au plus SET_KEEP_MAX pièces, les panoplies les plus avancées d'abord : le sac ne doit jamais se bloquer.
     const S = this.S, done = S.setsDone || {}, worn = setCounts(S.equip), keep = new Set(), seen = new Set();
-    const cands = S.bag.filter((it) => it.set && SETS[it.set] && !done[it.set] && worn[it.set] && !(S.equip[it.slot] && S.equip[it.slot].set === it.set))
-      .sort((a, b) => worn[b.set] - worn[a.set] || b.r - a.r);
+    // (it. 1004) aussi les panoplies sans pièce portée : sinon la première pièce d'une panoplie partait toujours (24 h de
+    // simulation : 187 pièces trouvées, ≈ 19 par panoplie sur 5 à 7 emplacements, aucune panoplie complétée). Avancement
+    // = pièces portées + emplacements différents dans le sac ; les plus avancées d'abord, toujours SET_KEEP_MAX au plus.
+    const cov = {};
+    for (const it of S.bag) if (it.set && SETS[it.set] && !(S.equip[it.slot] && S.equip[it.slot].set === it.set)) (cov[it.set] ||= new Set()).add(it.slot);
+    const prog = (k) => (worn[k] || 0) + (cov[k] ? cov[k].size : 0);
+    const cands = S.bag.filter((it) => it.set && SETS[it.set] && !done[it.set] && !(S.equip[it.slot] && S.equip[it.slot].set === it.set))
+      .sort((a, b) => prog(b.set) - prog(a.set) || (worn[b.set] || 0) - (worn[a.set] || 0) || b.r - a.r);
     for (const it of cands) {
       if (keep.size >= SET_KEEP_MAX) break;
       const k = it.set + "|" + it.slot;
@@ -2239,7 +2245,7 @@ export class Game {
     if (S.pets.eggs > 0 && hasUnlock(S, "menagerie") && !(hasUnlock(S, "steward") && S.settings.autoPets !== false)) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
     if (this.bagFull()) out.push({ id: "bagFull", n: this.uselessItems().length, tab: "adventure" }); // le butin suivant serait vendu d'office
     const fin = this.setFinisher();
-    if (fin) out.push({ id: "setFinish", n: 1, tab: "adventure", name: SETS[fin.set].name, itemId: fin.id });
+    if (fin) out.push({ id: "setFinish", n: fin.items.length, tab: "adventure", name: SETS[fin.set].name, itemId: fin.items[0].id });
     const stewardOn = hasUnlock(S, "steward") && S.settings.autoPets !== false; // (it. 909) il récupère les expéditions seul
     const ex = stewardOn ? 0 : this.expeditionsReady(now).length;
     if (ex) out.push({ id: "expeditions", n: ex, tab: "pets" });
@@ -2252,10 +2258,23 @@ export class Game {
     return out.filter((t) => !t.tab || tabReady(S, t.tab)); // pas de lien vers un onglet encore fermé
   }
 
-  /** Pièce du sac qui porterait une panoplie à 4 pièces (bonus de 4 pièces) une fois équipée. */
+  /** Pièces du sac qui porteraient une panoplie à 4 pièces une fois équipées : { set, items } ou null. Une pièce si 3
+      sont déjà portées (bonus de 4 pièces) ; (it. 1004) ou plusieurs pour une panoplie jamais complétée, quand le sac
+      couvre les emplacements manquants (bonus de collection permanent : il reste acquis si l'on rééquipe ensuite mieux). */
   setFinisher() {
-    const S = this.S, worn = setCounts(S.equip);
-    return S.bag.find((it) => it.set && SETS[it.set] && worn[it.set] === 3 && !(S.equip[it.slot] && S.equip[it.slot].set === it.set)) || null;
+    const S = this.S, worn = setCounts(S.equip), done = S.setsDone || {};
+    let best = null;
+    for (const k of SET_KEYS) {
+      const w = worn[k] || 0;
+      if (w >= 4 || (w < 3 && done[k])) continue;
+      const bySlot = {};
+      for (const it of S.bag) if (it.set === k && !(S.equip[it.slot] && S.equip[it.slot].set === k)) {
+        const b = bySlot[it.slot]; if (!b || it.r > b.r || (it.r === b.r && (it.lvl || 0) > (b.lvl || 0))) bySlot[it.slot] = it;
+      }
+      const items = Object.values(bySlot).sort((a, b) => b.r - a.r || (b.lvl || 0) - (a.lvl || 0)).slice(0, 4 - w);
+      if (w + items.length >= 4 && (!best || items.length < best.items.length)) best = { set: k, items };
+    }
+    return best;
   }
 
   /** Photo des compteurs à la fermeture du panneau (pour « Depuis ta dernière visite »). */

@@ -1346,4 +1346,5 @@ export default {
   2471: "Al final de la partida, la banda es más legible y más ligera (menos números y efectos a la vez).",
   2472: "partida: {0} · récord: {1}",
   2473: "(zona {0} alcanzada en esta partida). En la zona {1}: +{2}.",
+  2474: "{n} pieza de la bolsa completa el conjunto {0}|{n} piezas de la bolsa completan el conjunto {0}",
 };

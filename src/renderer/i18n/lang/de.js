@@ -1346,4 +1346,5 @@ export default {
   2471: "Im späten Spiel ist die Leiste übersichtlicher und leichter (weniger Zahlen und Effekte gleichzeitig).",
   2472: "Lauf: {0} · Rekord: {1}",
   2473: "(Zone {0} in diesem Lauf erreicht). In Zone {1}: +{2}.",
+  2474: "{n} Teil aus der Tasche vervollständigt das Set {0}|{n} Teile aus der Tasche vervollständigen das Set {0}",
 };

@@ -57,6 +57,9 @@ function playerTurn() {
   // PARTNER_SPELLS=1 (it. 514) : le compagnon a les mêmes rangs de sorts que le héros (pire cas : un joueur qui a déjà
   // monté les sorts de cet autre héros) ; mesure l'effet des sorts du compagnon (PARTNER_SPELL, spells.js).
   if (process.env.PARTNER_SPELLS && g.S.partner) classSpells(g.S.partner).forEach((sp, i) => { const own = classSpells(g.S.cls)[i]; if (own) g.S.spells[sp.id] = spellRank(g.S, own.id); });
+  // (it. 1004) panoplie jamais complétée dont le sac couvre les 4 emplacements : le joueur clique la tâche (bonus de
+  // collection permanent), puis « Équiper le meilleur » remet le plus fort
+  { const f = g.setFinisher(); if (f && !(g.S.setsDone || {})[f.set]) for (const it of f.items) g.equip(it); }
   g.autoEquip();
   g.sellUseless();
   // Forge à la main (comme un joueur, dès l'Enclume) toutes les 10 min : sans cela, le Maître de forge faisait un bond
@@ -110,5 +113,6 @@ console.table(rows);
 console.log("Courses (une ascension à la fin de chacune) :");
 console.table(runs);
 console.log("Déblocages :\n  " + unlockLog.join("\n  "));
+console.log(`Panoplies complétées (it. 1004) : ${Object.keys(g.S.setsDone || {}).length} / 10`);
 // (it. 768) DUMP=fichier : état final écrit comme une sauvegarde (partie très avancée pour mesurer l'interface)
 if (process.env.DUMP) (await import("node:fs")).writeFileSync(process.env.DUMP, JSON.stringify(g.S));

@@ -2029,12 +2029,34 @@ test("panoplie complétée une première fois : bonus permanent, gardé à l'asc
   assert.ok(g.S.setsDone.dawn, "gardé à l'ascension");
 });
 
+test("panoplie jamais complétée : les pièces du sac qui couvrent les 4 emplacements, équipées d'un clic (it. 1004)", () => {
+  const g = new Game(freshLocked());
+  g.S.bag.length = 0; for (const k in g.S.equip) g.S.equip[k] = null; g.invalidateStats();
+  const mk = (slot) => { const it = g.newItem(3); it.slot = slot; it.set = "wind"; it.st = {}; g.S.bag.push(it); return it; };
+  mk("helm"); mk("boots"); mk("gloves");
+  assert.equal(g.setFinisher(), null, "3 emplacements : pas encore");
+  mk("gloves"); assert.equal(g.setFinisher(), null, "un doublon ne compte pas");
+  // plafond des pièces gardées : jamais plus de 6, les panoplies les plus avancées d'abord
+  for (const [set, slot] of [["dawn", "ring"], ["dusk", "ring"], ["merchant", "amulet"], ["shadow", "armor"], ["ronin", "weapon"]]) { const it = g.newItem(3); it.slot = slot; it.set = set; it.st = {}; g.S.bag.push(it); }
+  const kept = g.S.bag.filter((it) => !g.uselessItems().includes(it) && it.set);
+  assert.ok(kept.length <= 6, kept.length);
+  assert.ok(["helm", "boots", "gloves"].every((sl) => kept.some((it) => it.set === "wind" && it.slot === sl)), "la panoplie la plus avancée gardée en entier");
+  mk("ring");
+  const f = g.setFinisher();
+  assert.ok(f && f.set === "wind" && f.items.length === 4, JSON.stringify(f && f.items.map((i) => i.slot)));
+  assert.ok(g.todoNow().some((t) => t.id === "setFinish" && t.n === 4));
+  for (const it of f.items) g.equip(it);
+  assert.ok(g.S.setsDone.wind, "complétée : bonus permanent");
+  assert.equal(g.setFinisher(), null, "plus rien à proposer");
+});
+
 test("pièces de panoplie pas encore complétée : gardées par « vendre l'inutile » et la transmutation", () => {
   const g = new Game(freshLocked());
   g.S.bag.length = 0;
   const mk = (slot, set) => { const it = g.newItem(0); it.r = 0; it.slot = slot; it.set = set; it.st = {}; g.S.bag.push(it); return it; };
   const a = mk("ring", "hunter"), b = mk("ring", "hunter"), c = mk("boots", null);
-  assert.ok(g.uselessItems().includes(a), "panoplie pas commencée : pas de protection");
+  // (it. 1004) gardée même sans pièce portée : sinon la première pièce d'une panoplie partait toujours
+  { const u0 = g.uselessItems(); assert.ok(!u0.includes(a) && u0.includes(b), "panoplie pas commencée : première pièce gardée, doublon vendable"); }
   const worn = g.newItem(2); worn.slot = "helm"; worn.set = "hunter"; g.S.equip.helm = worn; g.invalidateStats();
   const u = g.uselessItems();
   assert.ok(!u.includes(a), "une pièce gardée par panoplie et emplacement");
