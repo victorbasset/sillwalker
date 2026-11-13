@@ -46,7 +46,7 @@ export class BestiaryTab {
       return `<article class="panel beast${known ? "" : " unknown"}" title="${esc(known ? MONSTERS[k].name + " · " + where(k) : tx("Pas encore rencontré"))}">
         <img src="${monsterURL(k, !known)}" alt="">
         <div class="si"><div class="nm">${known ? esc(MONSTERS[k].name) : "???"}</div>
-        <div class="pips">${pips}<span>${fmt(n)}${next ? " / " + fmt(next) : " (complet)"}</span></div></div>
+        <div class="pips">${pips}<span>${fmt(n)}${next ? " / " + fmt(next) : " " + tx("(complet)")}</span></div></div>
       </article>`;
     }).join("");
     const eff = bestiaryEffects(S);

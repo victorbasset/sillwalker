@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1062) : Bestiaire : un monstre au dernier palier (10 000 victoires) affichait « (complet) » en
+  français dans toutes les langues (chaîne en dur, hors tx ; aucune sauvegarde de test n'atteint ce palier, 452 au
+  plus : les extractions de texte ne pouvaient pas le voir). Traduit dans les 9 langues. Balayage des chaînes
+  françaises écrites en dur dans l'interface (script jetable) : pas d'autre cas. Autotest 206/206.
 - 2026-11-13 (it. 1061, revue générale) : simulation 12 h, records des courses : artificier 44 → 62, gardien des astres
   44 → 69, nécromancien 39 → 62 (réguliers). Performance (copie neuve) : bande 19,7 %, panneau 20,5 %, mini 7,1 %,
   icône 0,5 %. Captures Aventure et Boutique à 1366 px en français, anglais et japonais (« 装備 » sur une ligne),
