@@ -1,5 +1,6 @@
 // Simulation d'un joueur attentif sur plusieurs heures (équilibrage).
 //   node --experimental-default-type=module scripts/simulate.js [heures] [classe]
+import { useVirtualClock, realNow } from "./virtual-clock.mjs"; // (it. 1009) en premier : Date.now() virtuel
 import { Game } from "../src/renderer/game/game.js";
 import { freshState } from "../src/renderer/game/state.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
@@ -17,7 +18,7 @@ import { nextUnlock, unlockAvailable, recordZone } from "../src/renderer/game/un
 
 const HOURS = +process.argv[2] || 12, CLS = process.argv[3] || "warrior";
 setRandom(seeded(+process.env.SEED || 7)); // SEED=… pour une autre trajectoire
-const g = new Game(freshState());
+const g = useVirtualClock(new Game(freshState()));
 g.setClass(CLS);
 
 // Ordre de préférence des secteurs de l'arbre de compétences (Force, Vitalité, Fortune...)
@@ -100,7 +101,7 @@ function playerTurn() {
   }
 }
 
-const t0 = Date.now();
+const t0 = realNow();
 for (let h = 1; h <= HOURS; h++) {
   for (let m = 0; m < 60; m++) { g.advance(60); minute++; playerTurn(); }
   const S = g.S;
@@ -108,7 +109,7 @@ for (let h = 1; h <= HOURS; h++) {
     deaths: S.stats.deaths, gold: fmt(S.gold), skills: S.skills.order.length, pets: Object.keys(S.pets.owned).length, quests: S.quests.completed,
     leg: S.stats.legendaries, bestiary: Object.keys(S.bestiary).length });
 }
-console.log(`Classe : ${CLS} · ${HOURS} h simulées en ${((Date.now() - t0) / 1000).toFixed(1)} s`);
+console.log(`Classe : ${CLS} · ${HOURS} h simulées en ${((realNow() - t0) / 1000).toFixed(1)} s`);
 console.table(rows);
 console.log("Courses (une ascension à la fin de chacune) :");
 console.table(runs);

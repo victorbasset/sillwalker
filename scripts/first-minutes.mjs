@@ -1,13 +1,14 @@
 // Les dix premières minutes d'une partie neuve (3 graines) : seconde de la première fois pour chaque récompense
 // (objet, rare, épique, légendaire, élite, boss, niveaux, œuf, quête, événement, premier déblocage payable, onglets).
 // Usage : node --experimental-default-type=module scripts/first-minutes.mjs
+import { useVirtualClock } from "./virtual-clock.mjs"; // (it. 1009) en premier : Date.now() virtuel
 const root = new URL("../src/renderer/game/", import.meta.url).href;
 const { Game } = await import(root + "game.js");
 const { freshState } = await import(root + "state.js");
 const { setRandom, seeded } = await import(root + "util.js");
 for (const seed of [1, 2, 3]) {
   setRandom(seeded(seed));
-  const g = new Game(freshState());
+  const g = useVirtualClock(new Game(freshState()));
   const first = {}; let t = 0;
   const mark = (k) => { if (!(k in first)) first[k] = Math.round(t); };
   g.on("loot", ({ item }) => { mark("objet"); if (item.r >= 2) mark("rare"); if (item.r >= 3) mark("épique"); if (item.r >= 4) mark("légendaire"); });

@@ -1,6 +1,7 @@
 // Recherche de parties bloquées. Usage : node --experimental-default-type=module scripts/fuzz.mjs [graines=60] [minutes=20]
 // Exploration : beaucoup de nouvelles parties (graines différentes), 20 min chacune, joueur passif ;
 // signale celles qui ne progressent pas (blocage).
+import { useVirtualClock } from "./virtual-clock.mjs"; // (it. 1009) en premier : Date.now() virtuel
 const root = new URL("../src/renderer/game/", import.meta.url).href;
 const { Game } = await import(root + "game.js");
 const { freshState } = await import(root + "state.js");
@@ -11,7 +12,7 @@ let bad = 0, n = 0;
 for (const cls of CLASS_KEYS) for (let seed = 1; seed <= SEEDS; seed++) {
   setRandom(seeded(seed * 7919 + cls.length));
   const S = freshState(); S.cls = cls;
-  const g = new Game(S);
+  const g = useVirtualClock(new Game(S));
   let kills = 0; g.on("kill", () => kills++);
   for (let m = 0; m < MIN; m++) { g.advance(60); g.autoEquip(); }
   n++;

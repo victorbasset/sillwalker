@@ -71,6 +71,12 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   plafonnait la semaine à 155 ; balance 12 h ne le voyait pas).
 - Dix premières minutes : `node --experimental-default-type=module scripts/first-minutes.mjs` (seconde de la première
   récompense de chaque sorte, 3 graines). À relancer si on touche au début de partie.
+- Horloge virtuelle (it. 1009) : simulate, early-pace, first-minutes, tab-pace et fuzz importent EN PREMIER
+  scripts/virtual-clock.mjs (Date.now() part d'une date fixe et avance avec g.advance()). Avant, la boutique, les
+  expéditions et les familiers lisaient l'heure réelle : une semaine simulée ne durait que 3 min réelles (étal presque
+  jamais renouvelé, aucune expédition revenue) et le résultat dépendait de la charge de la machine (mage, semaine : 184
+  ou 291 avec le même code ; une dichotomie a désigné un commit d'affichage innocent). Tout nouveau script qui fait
+  tourner une partie : même import. balance.mjs contre un commit d'avant l'it. 1009 compare deux horloges : bruit en plus.
 - Simulation d'équilibrage : `node --experimental-default-type=module scripts/simulate.js [heures] [classe]`
   (quelques secondes ; si elle dépasse une minute, c'est une boucle sans fin : instrumenter tout de suite).
   `IDLE=1` : joueur totalement absent (repère it. 371 : guerrier record 12 → 15 en 12 h ; it. 698 : 15 à 9 h, 16 à 12 h ; le jeu avance sans action).

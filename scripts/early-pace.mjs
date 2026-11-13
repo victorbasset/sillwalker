@@ -1,6 +1,7 @@
 // Rythme de la première heure d'une partie neuve (moyenne de 3 graines) : par tranche de temps, objets reçus,
 // niveau, record de zone, déblocages achetés. Sert à régler le début de partie (demande de Victor : plus tranquille).
 // Usage : node --experimental-default-type=module scripts/early-pace.mjs
+import { useVirtualClock } from "./virtual-clock.mjs"; // (it. 1009) en premier : Date.now() virtuel
 const root = new URL("../src/renderer/game/", import.meta.url).href;
 const { Game } = await import(root + "game.js");
 const { freshState } = await import(root + "state.js");
@@ -10,7 +11,7 @@ const MARKS = [120, 300, 600, 900, 1800, 3600];
 const rows = MARKS.map(() => ({ items: 0, lvl: 0, best: 0, unlocks: 0 }));
 for (const seed of [1, 2, 3]) {
   setRandom(seeded(seed));
-  const g = new Game(freshState());
+  const g = useVirtualClock(new Game(freshState()));
   let items = 0, m = 0;
   g.on("loot", () => items++);
   for (let t = 1; t <= 3600; t++) {

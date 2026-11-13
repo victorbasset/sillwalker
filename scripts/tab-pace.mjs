@@ -1,5 +1,6 @@
 // Moment d'ouverture de chaque onglet (tabs.js) dans une partie neuve, en minutes de jeu (3 graines, 3 h max).
 // Sert à vérifier qu'ils s'ouvrent espacés. Usage : node --experimental-default-type=module scripts/tab-pace.mjs
+import { useVirtualClock } from "./virtual-clock.mjs"; // (it. 1009) en premier : Date.now() virtuel
 const root = new URL("../src/renderer/game/", import.meta.url).href;
 const { Game } = await import(root + "game.js");
 const { freshState } = await import(root + "state.js");
@@ -7,7 +8,7 @@ const { setRandom, seeded } = await import(root + "util.js");
 const { nextUnlock, unlockAvailable } = await import(root + "unlocks.js");
 for (const seed of [1, 2, 3]) {
   setRandom(seeded(seed));
-  const g = new Game(freshState()); const at = {};
+  const g = useVirtualClock(new Game(freshState())); const at = {};
   g.on("tabOpen", ({ ids }) => ids.forEach((id) => { at[id] = t; }));
   let t = 0;
   for (; t < 3 * 3600; t++) {

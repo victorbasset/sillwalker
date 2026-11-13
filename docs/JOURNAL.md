@@ -5,6 +5,15 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1009) : simulations déterministes (horloge virtuelle). Semaine simulée : guerrier 293 (repère) mais
+  mage 182-198 au lieu de 293 ; avant les panoplies, 150-184. Dichotomie (git bisect, critère : dernière course ≥ 250)
+  entre l'it. 965 (293, reproduit) et l'it. 1003 : coupable désigné, un commit d'affichage sans logique ; remesuré, il
+  donnait 291. Cause : la boutique (renouvellement de l'étal, Marchand attitré), les expéditions et les familiers
+  lisent Date.now() ; une semaine simulée dure 3 min réelles, et le résultat dépendait de la charge de la machine.
+  scripts/virtual-clock.mjs (importé en premier par simulate, early-pace, first-minutes, tab-pace, fuzz) : Date.now()
+  part d'une date fixe et avance avec g.advance(). Deux semaines de mage lancées ensemble : identiques (296 et 296) ;
+  guerrier 293, 10 panoplies sur 10 chacun. 12 h : guerrier 40 → 61, mage 43 → 62, rôdeur 44 → 62. early-pace,
+  first-minutes et tab-pace inchangés ; fuzz 1200 parties, 0 bloquée. CLAUDE.md.
 - 2026-11-13 (it. 1008) : santé du début de partie : first-minutes (premier objet 50-84 s, premier boss 77-84 s),
   early-pace (60 min : 113 objets, niveau 40, zone 23, 6,3 déblocages) et tab-pace (talents 1, quêtes 5, boutique
   8-9, Héros 10, carte 12, bestiaire 14-15 min) dans les repères. Corrigé : le succès « Panoplie complète (4 pièces) »
