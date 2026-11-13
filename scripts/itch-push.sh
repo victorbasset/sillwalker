@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # (it. 1164, demande de Victor) Mise à jour du jeu sur itch.io avec butler, depuis le serveur.
-# Usage : scripts/itch-push.sh <compte/jeu> [--dry-run]     (ex. scripts/itch-push.sh victor/sillwalker)
+# Usage : [REF=v0.1.3] scripts/itch-push.sh <compte/jeu> [--dry-run]     (ex. scripts/itch-push.sh victor/sillwalker)
 #   1. construit les trois versions de la version de package.json dans dist-itch/ (Mac : signature ad hoc,
 #      scripts/mac-from-linux.sh ; sans elle, le binaire arm64 est tué au lancement) ;
 #   2. les envoie sur trois canaux : windows (dossier win-unpacked), linux (dossier avec l'AppImage), mac (zip de
@@ -12,6 +12,14 @@
 set -euo pipefail
 TARGET="${1:?usage : scripts/itch-push.sh <compte/jeu> [--dry-run]}"; DRY="${2:-}"
 cd "$(dirname "$0")/.."
+# (it. 1165) REF=v0.1.3 : construit une version figée (étiquette git) dans un dossier de travail à part, même si le
+# code a avancé depuis ; les fichiers construits sont recopiés dans dist-itch/ du dépôt (le dossier de travail est effacé)
+if [ -n "${REF:-}" ]; then
+  WT=$(mktemp -d); git worktree add -f "$WT" "$REF" >/dev/null 2>&1; ln -s "$PWD/node_modules" "$WT/node_modules"
+  cp scripts/mac-from-linux.sh "$WT/scripts/" 2>/dev/null || true
+  trap 'git worktree remove --force "$WT" >/dev/null 2>&1 || true' EXIT
+  ROOT="$PWD"; cd "$WT"
+fi
 BUTLER="${BUTLER:-$HOME/.local/bin/butler}"; RCS="${RCS:-$HOME/.local/bin/rcodesign}"
 VER=$(node -p "require('./package.json').version")
 echo "Sillwalker $VER → $TARGET"
@@ -20,6 +28,7 @@ npm run -s dist:itch >/dev/null                      # Windows : win-unpacked + 
 npm run -s dist:itch:appimage >/dev/null             # Linux : AppImage
 bash scripts/mac-from-linux.sh "$RCS" "$PWD/dist-itch" >/dev/null   # Mac : zip de l'app signée
 LIN=$(mktemp -d); cp "dist-itch/Sillwalker-$VER-linux.AppImage" "$LIN/"; chmod +x "$LIN"/*.AppImage
+if [ -n "${REF:-}" ]; then rm -rf "$ROOT/dist-itch"; mkdir -p "$ROOT/dist-itch"; cp -a dist-itch/Sillwalker-* dist-itch/win-unpacked "$ROOT/dist-itch/"; fi
 for f in "dist-itch/win-unpacked/Sillwalker.exe" "dist-itch/Sillwalker-$VER-mac-arm64.zip" "$LIN/Sillwalker-$VER-linux.AppImage"; do
   [ -s "$f" ] || { echo "manque : $f"; exit 1; }
 done

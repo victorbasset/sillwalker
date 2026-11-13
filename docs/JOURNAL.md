@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1165) : étiquettes git v0.1.2 (4e6fc19) et v0.1.3 (53830e5, état des fichiers Windows et Linux
+  déposés). Le zip Mac refait à l'it. 1157 pour la signature venait du code du moment (voie par défaut du graphe,
+  particule coréenne : postérieurs à la 0.1.3) : reconstruit depuis v0.1.3 (Force 0 vérifié dans l'archive, signature
+  vérifiée) et redéposé (sha256 c37d5303…) ; les trois fichiers 0.1.3 sont cohérents. itch-push.sh : REF=<étiquette>
+  construit une version figée dans un dossier de travail git à part (recopiée dans dist-itch/, dossier effacé ensuite) ;
+  essai à blanc avec REF=v0.1.3 : ok.
 - 2026-11-13 (it. 1164, demande de Victor : « on va gérer tout ça avec butler ») : butler 15.32.0 installé
   (~/.local/bin/butler, depuis broth.itch.zone) ; scripts/itch-push.sh <compte/jeu> [--dry-run] : construit les trois
   versions (Mac signée par mac-from-linux.sh), vérifie les fichiers et les pousse sur les canaux windows (dossier
