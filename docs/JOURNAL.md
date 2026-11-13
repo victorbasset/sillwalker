@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1166) : butler connecté par Victor ; jeu trouvé par l'API d'itch.io (clé de butler) :
+  victor-basset/sillwalker, publié, aucun canal butler encore (0.1.2 envoyée à la main). Question « j'envoie la
+  0.1.3 ? » sans réponse claire : rien envoyé, en attente de son accord. Cible notée dans CLAUDE.md.
 - 2026-11-13 (it. 1165) : étiquettes git v0.1.2 (4e6fc19) et v0.1.3 (53830e5, état des fichiers Windows et Linux
   déposés). Le zip Mac refait à l'it. 1157 pour la signature venait du code du moment (voie par défaut du graphe,
   particule coréenne : postérieurs à la 0.1.3) : reconstruit depuis v0.1.3 (Force 0 vérifié dans l'archive, signature
