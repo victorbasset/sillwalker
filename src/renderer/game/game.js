@@ -1500,6 +1500,7 @@ export class Game {
   /** Monte un talent de `n` rangs (autant que possible). Renvoie le nombre de rangs pris. */
   learnTalent(id, n = 1) {
     let done = 0;
+    const r0 = classTalents(this.S)[id] || 0;
     while (done < n && !cannotLearn(this.S, id)) {
       const ranks = classTalents(this.S);
       ranks[id] = (ranks[id] || 0) + 1;
@@ -1510,6 +1511,14 @@ export class Game {
       this.emit("learned", { n: done }); // son : déclic de talent
       const t = TALENT_INDEX[id].talent;
       if (t.tier === 3) this.log(tx("Talent ultime débloqué : ") + t.name + fsp() + "!");
+      // (it. 1122) palier de maîtrise à choix franchi : annoncé (le joueur peut choisir l'autre bonus)
+      if (TALENT_INDEX[id].branch === "mastery") {
+        const r1 = r0 + done;
+        // annoncé une seule fois dans la partie (les talents repartent de zéro à chaque ascension) : le palier vu est
+        // noté dans masteryPicks avec l'option par défaut (« a », sans effet sur le bonus)
+        const P = (this.S.masteryPicks ||= {});
+        for (const m of masteryMilestones(id, r1, this.S).got) if (m.b && m.at > r0 && !P[id + ":" + m.at]) { P[id + ":" + m.at] = "a"; this.emit("masteryStep", { id, at: m.at, a: m.a, b: m.b }); }
+      }
       this.changed();
     }
     return done;
@@ -2507,6 +2516,8 @@ export class Game {
       // Commodités sans risque, gardées (sinon à recocher à chaque course) : rachat des potions.
       autoPotions: !!old.autoPotions,
       stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, journey: old.journey || [], story: old.story || { intro: true, read: {} }, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
+      // (it. 1122) choix des paliers de maîtrise : gardés (avant : perdus à chaque ascension, à refaire à chaque course)
+      masteryPicks: old.masteryPicks || {},
     });
     // Duo : le compagnon prévu (ou l'actuel) suit, s'il reste de l'autre portée que le héros principal.
     f.quests.auto = !!(old.quests && old.quests.auto); // Bureau des contrats : la réclamation automatique reste cochée

@@ -26,6 +26,7 @@ import { Game } from "./game/game.js";
 import { freshState, migrate, SAVE_VERSION } from "./game/state.js";
 import { reachedAchievements, ACHIEVEMENTS } from "./game/achievements.js";
 import { fmt, esc } from "./game/format.js";
+import { TALENT_INDEX, describeEffects } from "./game/talents.js"; // (it. 1122) annonce des paliers de maîtrise
 import { StripRenderer } from "./render/strip.js";
 import { MiniRenderer } from "./render/mini.js";
 import { makeWindowDraggable } from "./ui/windrag.js";
@@ -575,6 +576,20 @@ async function boot() {
     sound.play("tab");
     showToast(`✦ ${txn(points, "Le grand graphe s’ouvre autour de la fleur ! {n} point à y dépenser.|Le grand graphe s’ouvre autour de la fleur ! {n} points à y dépenser.")}`, () => { openPanel(); panel.setTab("skills"); }, 12000);
     panel.dirty = true;
+  });
+  // (it. 1122) palier de maîtrise à choix franchi : une bulle (les paliers franchis d'un coup sont regroupés : la
+  // dernière, « et N autres ») ; un clic ouvre les Talents sur cette maîtrise
+  let msSteps = [], msTimer = 0;
+  game.on("masteryStep", (st) => {
+    msSteps.push(st);
+    if (msTimer) return;
+    msTimer = setTimeout(() => {
+      const last = msSteps[msSteps.length - 1], more = msSteps.length - 1; msSteps = []; msTimer = 0;
+      const name = TALENT_INDEX[last.id]?.talent.name || "";
+      showToast(`✦ ${tx("{0} : palier du rang {1} atteint ! {2}, ou {3} au choix.", { 0: `<b>${esc(name)}</b>`, 1: last.at, 2: esc(describeEffects(last.a)), 3: esc(describeEffects(last.b)) })}`
+        + (more ? " " + txn(more, "(et {n} autre palier)|(et {n} autres paliers)") : ""),
+        () => { openPanel(); panel.setTab("talents"); if (panel.tabs.talents) panel.tabs.talents.sel = last.id; panel.renderAll(); }, 12000);
+    }, 400);
   });
   // (it. 1117) grand graphe rempli : annoncé une fois, avec ce que donnent désormais les points en plus
   game.on("graphFull", () => {

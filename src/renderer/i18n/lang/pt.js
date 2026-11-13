@@ -1586,4 +1586,6 @@ export default {
   2711: "Grande grafo completo: cada ponto de habilidade excedente dá +0,1% de ataque e PV.",
   2712: "Grande grafo completo! Cada ponto de habilidade extra agora dá +0,1% de ataque e PV.",
   2713: "Grande grafo completo!",
+  2714: "{0}: marco do nível {1} alcançado! {2}, ou {3} à escolha.",
+  2715: "(e mais {n} marco)|(e mais {n} marcos)",
 };

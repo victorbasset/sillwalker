@@ -1586,4 +1586,6 @@ export default {
   2711: "Great graph complete: each surplus skill point gives +0.1% attack and HP.",
   2712: "Great graph complete! Each extra skill point now gives +0.1% attack and HP.",
   2713: "Great graph complete!",
+  2714: "{0}: rank {1} milestone reached! {2}, or {3} if you prefer.",
+  2715: "(and {n} other milestone)|(and {n} other milestones)",
 };

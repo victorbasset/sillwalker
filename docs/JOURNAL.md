@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1122, demande C) : un palier de maîtrise à choix franchi est annoncé (« Maîtrise : puissance :
+  palier du rang 400 atteint ! +25 % attaque, ou +40 % dégâts critiques au choix. » ; clic : Talents, la maîtrise
+  sélectionnée ; paliers franchis d'un coup regroupés, « et N autres »). Une seule fois dans la partie : le palier vu
+  est noté dans masteryPicks (option « a », sans effet). DÉFAUT trouvé en route (it. 1107) : masteryPicks n'était pas
+  gardé à l'ascension, les bonus choisis revenaient à « a » à chaque course : gardé. Test logique (annonce, une fois,
+  choix gardé après ascension) ; vu en français et en russe ; save-fuzz ok ; autotest 221/221.
 - 2026-11-13 (it. 1121, revue générale) : première heure (early-pace) : 1 / 7 / 18 / 31 / 59 / 114 objets, zone 2 → 23,
   6 déblocages à 60 min (inchangé) ; dix premières minutes (3 graines) : premier objet, boss et rare vers 77-84 s,
   onglet Talents 77-84 s, Quêtes ≈ 305 s, Boutique ≈ 550 s ; save-fuzz à partir de la fin de partie : ok (1183

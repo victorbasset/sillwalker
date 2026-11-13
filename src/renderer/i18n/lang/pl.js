@@ -1586,4 +1586,6 @@ export default {
   2711: "Wielki graf ukończony: każdy nadmiarowy punkt umiejętności daje +0,1% ataku i PŻ.",
   2712: "Wielki graf ukończony! Każdy kolejny punkt umiejętności daje teraz +0,1% ataku i PŻ.",
   2713: "Wielki graf ukończony!",
+  2714: "{0}: osiągnięto próg rangi {1}! {2} lub {3} do wyboru.",
+  2715: "(i {n} kolejny próg)|(i {n} kolejne progi)|(i {n} kolejnych progów)",
 };

@@ -1586,4 +1586,6 @@ export default {
   2711: "Großer Graph vollständig: Jeder überzählige Fertigkeitspunkt gibt +0,1 % Angriff und LP.",
   2712: "Großer Graph vollständig! Jeder weitere Fertigkeitspunkt gibt jetzt +0,1 % Angriff und LP.",
   2713: "Großer Graph vollständig!",
+  2714: "{0}: Stufe bei Rang {1} erreicht! {2} oder {3} zur Wahl.",
+  2715: "(und {n} weitere Stufe)|(und {n} weitere Stufen)",
 };

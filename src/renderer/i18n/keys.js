@@ -2715,5 +2715,7 @@ export const KEYS = [
   "Avant de choisir une voie, la bulle de ses nœuds montre ce que donne la voie entière : les trois voies d’une région se comparent.",
   "Grand graphe rempli : chaque point de compétence en surplus donne +0,1 % d’attaque et de PV.",
   "Grand graphe complet ! Chaque point de compétence en plus donne désormais +0,1 % d’attaque et de PV.",
-  "Grand graphe complet !"
+  "Grand graphe complet !",
+  "{0} : palier du rang {1} atteint ! {2}, ou {3} au choix.",
+  "(et {n} autre palier)|(et {n} autres paliers)"
 ];

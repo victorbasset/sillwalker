@@ -3669,6 +3669,24 @@ test("grand graphe : rempli, annoncé une seule fois (it. 1117)", () => {
   assert.equal(n, 1, "une seule annonce");
 });
 
+test("maîtrises : un palier à choix franchi est annoncé, une fois (it. 1122)", () => {
+  // (rang 48 : assez de points dépensés pour que la maîtrise s'apprenne, MASTERY_REQ)
+  const g = new Game(freshState()); (g.S.talents[g.S.cls] ||= {}).ms_power = 48;
+  const seen = []; g.on("masteryStep", (e) => seen.push(e.at));
+  g.S.lvl = 2000; // des points libres
+  g.learnTalent("ms_power", 1); assert.deepEqual(seen, [], "rang 49 : rien");
+  g.learnTalent("ms_power", 1); assert.deepEqual(seen, [50], "rang 50 : palier annoncé");
+  g.learnTalent("ms_power", 60); assert.deepEqual(seen, [50, 100], "rang 110 : le palier 100, une fois");
+  // choix gardés à l'ascension ; un palier déjà vu n'est plus annoncé à la course suivante
+  g.pickMastery("ms_power", 50, "b");
+  g.S.best = Math.max(g.S.best, 60);
+  assert(g.ascend(), "ascension faite");
+  assert.equal(g.S.masteryPicks["ms_power:50"], "b", "choix gardé à l'ascension");
+  (g.S.talents[g.S.cls] ||= {}).ms_power = 48; g.S.lvl = 2000;
+  g.learnTalent("ms_power", 62);
+  assert.deepEqual(seen, [50, 100], "paliers déjà vus : pas de nouvelle annonce");
+});
+
 test("maîtrises : un bonus au choix à chaque palier, « a » par défaut ; sauvegarde nettoyée (it. 1107)", () => {
   const g = new Game(freshState()); (g.S.talents[g.S.cls] ||= {}).ms_power = 25;
   const crit0 = talentEffects(g.S).crit || 0, spd0 = talentEffects(g.S).spd || 0;
