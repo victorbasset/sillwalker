@@ -1355,4 +1355,8 @@ export default {
   2480: "Ten boss strzeże relikwii: {0}.",
   2481: "Ten boss wzmocni: {0} (poziom {1} → {2}).",
   2482: "Skompletuj częściami z torby",
+  2483: "✓ Drzewo ukończone · {0} pkt łącznie",
+  2484: "Zestawy: skompletowanie zestawu już cię nie osłabia (poprzednie, silniejsze wyposażenie wraca; bonus zostaje), a Bestiariusz > Zestawy pozwala skompletować go jednym kliknięciem.",
+  2485: "Dziennik podróży w kolumnach; krótsza karta strefy (wyczerpany boss, relikwia bossa strefy).",
+  2486: "Koniec przypominania o „punktach umiejętności”, gdy drzewo jest ukończone.",
 };

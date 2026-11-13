@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1016) : onglet Compétences, arbre entièrement appris : « ✓ Arbre complet · 506 points au total » au
+  lieu de « 362 points libres · 144 / 144 nœuds actifs », qui laissait croire qu'il restait à faire. « Quoi de neuf »,
+  édition 47 : panoplies (équipement d'avant remis, bouton du Bestiaire), Carnet de route en colonnes et carte Zone
+  plus courte, plus de rappel de points une fois l'arbre appris. Capture (fin de partie) ; 10 langues sans défaut
+  (« Quoi de neuf » au pire cas compris) ; autotest 203/203.
 - 2026-11-13 (it. 1015) : « À faire » de la partie de fin de partie : « 362 points de compétence » alors que l'arbre est
   entièrement pris (144 nœuds sur 144) ; la tâche, l'astuce et la pastille de l'onglet restaient pour toujours.
   skillSpendable(S) (points libres et un nœud prenable) les conditionne. Les 128 points de talent restent signalés :

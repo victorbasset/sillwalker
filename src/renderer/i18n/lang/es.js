@@ -1355,4 +1355,8 @@ export default {
   2480: "Este jefe guarda una reliquia: {0}.",
   2481: "Este jefe reforzará {0} (nivel {1} → {2}).",
   2482: "Completar con piezas de la bolsa",
+  2483: "✓ Árbol completo · {0} puntos en total",
+  2484: "Conjuntos: completar un conjunto ya no te debilita (se vuelve a equipar el equipo anterior, más fuerte; la bonificación se queda), y Bestiario > Conjuntos permite completarlo con un clic.",
+  2485: "Diario de ruta en columnas; tarjeta de zona más corta (jefe agotado, reliquia del jefe de la zona).",
+  2486: "Se acabó el aviso de «puntos de habilidad» cuando el árbol está completo.",
 };

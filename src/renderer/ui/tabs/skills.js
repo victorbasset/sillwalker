@@ -235,7 +235,9 @@ export class SkillsTab {
       if ((e.el.getAttribute("class") || "") !== cls) e.el.setAttribute("class", cls);
     }
     const total = skillPointsTotal(S), free = skillPointsFree(S), used = active.size - 1;
-    this.el.querySelector(".skpts").innerHTML = `${txn(free, "{n} point libre · {2} / {3} nœuds actifs · {4} points au total|{n} points libres · {2} / {3} nœuds actifs · {4} points au total", { n: `<b class="gold">${free}</b>`, 2: used, 3: SKILL_NODE_COUNT, 4: total })}${S.skills.order.length > used ? `<br><span class="note">${txn(S.skills.order.length - used, "{n} nœud en attente de points.|{n} nœuds en attente de points.")}</span>` : ""}`;
+    // (it. 1016) arbre entièrement appris : « 362 points libres · 144 / 144 » laissait croire qu'il restait à faire
+    if (used >= SKILL_NODE_COUNT) this.el.querySelector(".skpts").innerHTML = `<span class="delta-p">${tx("✓ Arbre complet · {0} points au total", { 0: total })}</span>`;
+    else this.el.querySelector(".skpts").innerHTML = `${txn(free, "{n} point libre · {2} / {3} nœuds actifs · {4} points au total|{n} points libres · {2} / {3} nœuds actifs · {4} points au total", { n: `<b class="gold">${free}</b>`, 2: used, 3: SKILL_NODE_COUNT, 4: total })}${S.skills.order.length > used ? `<br><span class="note">${txn(S.skills.order.length - used, "{n} nœud en attente de points.|{n} nœuds en attente de points.")}</span>` : ""}`;
     const eff = skillTreeEffects(S);
     const lines = Object.keys(eff).map((k) => `<li><span>${esc(describeEffects({ [k]: eff[k] }))}</span></li>`).join("");
     this.el.querySelector(".sktotal").innerHTML = lines || `<li><span class="note">${tx("Aucun pour l’instant : commence près de l’origine.")}</span></li>`;

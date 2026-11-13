@@ -1355,4 +1355,8 @@ export default {
   2480: "Dieser Boss bewacht ein Relikt, {0}.",
   2481: "Dieser Boss verstärkt {0} (Stufe {1} → {2}).",
   2482: "Mit Teilen aus der Tasche vervollständigen",
+  2483: "✓ Baum vollständig · {0} Punkte insgesamt",
+  2484: "Sets: Ein Set zu vervollständigen schwächt dich nicht mehr (die vorherige, stärkere Ausrüstung wird wieder angelegt; der Bonus bleibt), und Bestiarium > Sets vervollständigt es mit einem Klick.",
+  2485: "Reisetagebuch in Spalten; kürzere Zonenkarte (erschöpfter Boss, Relikt des Zonenbosses).",
+  2486: "Keine Erinnerung an „Fertigkeitspunkte“ mehr, wenn der Baum vollständig ist.",
 };

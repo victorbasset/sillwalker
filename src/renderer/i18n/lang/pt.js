@@ -1355,4 +1355,8 @@ export default {
   2480: "Este chefe guarda uma relíquia: {0}.",
   2481: "Este chefe vai fortalecer {0} (nível {1} → {2}).",
   2482: "Completar com peças da bolsa",
+  2483: "✓ Árvore completa · {0} pontos no total",
+  2484: "Conjuntos: completar um conjunto não te deixa mais fraco (o equipamento anterior, mais forte, é reequipado; o bônus fica), e Bestiário > Conjuntos permite completá-lo com um clique.",
+  2485: "Diário de viagem em colunas; cartão da zona mais curto (chefe exausto, relíquia do chefe da zona).",
+  2486: "Sem lembrete de “pontos de habilidade” quando a árvore está completa.",
 };

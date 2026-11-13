@@ -1355,4 +1355,8 @@ export default {
   2480: "This boss guards a relic, {0}.",
   2481: "This boss will strengthen {0} (level {1} → {2}).",
   2482: "Complete with pieces from the bag",
+  2483: "✓ Tree complete · {0} points in total",
+  2484: "Sets: completing a set no longer leaves you weaker (your previous, stronger gear goes back on; the bonus stays), and Bestiary > Sets lets you complete one in one click.",
+  2485: "Travel log in columns; shorter Zone card (worn-out boss, relic of the zone's boss).",
+  2486: "No more “skill points” reminder once the whole tree is learned.",
 };
