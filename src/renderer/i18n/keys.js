@@ -2649,5 +2649,12 @@ export const KEYS = [
   "Chaque héros libéré, c’est une serrure de moins au Briseur.",
   "Les barreaux sont faits d’éclats d’étoile. Ça tord mes limes.",
   "Choisis bien ton compagnon : on ne marche jamais seul longtemps.",
-  "Je garde une clé pour chaque cage. Encore faut-il trouver la cage."
+  "Je garde une clé pour chaque cage. Encore faut-il trouver la cage.",
+  "Sola, la cartographe",
+  "Une tour de guet couverte de cartes",
+  "Chaque zone que tu traverses, je la dessine.",
+  "Au-delà de la zone 100, mes cartes se répètent… c’est étrange.",
+  "Les héros captifs sont marqués d’une cage. Va les chercher !",
+  "Il me manque encore le bout du Rebord. Tu me le raconteras ?",
+  "Ne te perds pas : de là-haut, je te vois toujours."
 ];

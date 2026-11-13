@@ -1520,4 +1520,11 @@ export default {
   2645: "As grades são feitas de fragmentos de estrela. Entortam minhas limas.",
   2646: "Escolha bem seu companheiro: ninguém caminha sozinho por muito tempo.",
   2647: "Guardo uma chave para cada jaula. Só falta achar a jaula.",
+  2648: "Sola, a cartógrafa",
+  2649: "Uma torre de vigia coberta de mapas",
+  2650: "Cada zona que você atravessa, eu desenho.",
+  2651: "Além da zona 100, meus mapas se repetem… é estranho.",
+  2652: "Os heróis cativos estão marcados com uma jaula. Vá buscá-los!",
+  2653: "Ainda me falta o fim do Parapeito. Você vai me contar?",
+  2654: "Não se perca: daqui de cima, sempre vejo você.",
 };

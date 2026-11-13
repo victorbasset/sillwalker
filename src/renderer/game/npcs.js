@@ -29,6 +29,19 @@ export const NPCS = {
       "Je garde une clé pour chaque cage. Encore faut-il trouver la cage.",
     ],
   },
+  // (it. 1088) la cartographe du Rebord (onglet Carte)
+  map: {
+    name: "Sola, la cartographe",
+    place: "Une tour de guet couverte de cartes",
+    art: "carto",
+    lines: [
+      "Chaque zone que tu traverses, je la dessine.",
+      "Au-delà de la zone 100, mes cartes se répètent… c’est étrange.",
+      "Les héros captifs sont marqués d’une cage. Va les chercher !",
+      "Il me manque encore le bout du Rebord. Tu me le raconteras ?",
+      "Ne te perds pas : de là-haut, je te vois toujours.",
+    ],
+  },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
     name: "Plume, la chouette de la guilde",

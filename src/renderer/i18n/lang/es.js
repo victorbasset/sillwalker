@@ -1520,4 +1520,11 @@ export default {
   2645: "Los barrotes están hechos de fragmentos de estrella. Me tuercen las limas.",
   2646: "Elige bien a tu compañero: nadie camina solo mucho tiempo.",
   2647: "Guardo una llave para cada jaula. Solo falta encontrar la jaula.",
+  2648: "Sola, la cartógrafa",
+  2649: "Una torre de vigía cubierta de mapas",
+  2650: "Cada zona que cruzas, la dibujo.",
+  2651: "Más allá de la zona 100, mis mapas se repiten… qué extraño.",
+  2652: "Los héroes cautivos están marcados con una jaula. ¡Ve a buscarlos!",
+  2653: "Aún me falta el final del Alféizar. ¿Me lo contarás?",
+  2654: "No te pierdas: desde aquí arriba siempre te veo.",
 };

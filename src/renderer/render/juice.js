@@ -86,6 +86,15 @@ function npcPlace(ctx, art, x, gy, t) {
     ctx.fillRect(x + 94, gy - 4, 30, 4);
     if (t > 1 && t < 2.6 && Math.floor(t * 8) % 2) { ctx.fillStyle = "#ffe27a"; ctx.fillRect(x + 70, gy - 20, 2, 2); ctx.fillRect(x + 74, gy - 22, 2, 2); } // étincelles
   }
+  if (art === "carto") { // (it. 1088) Sola : une tour de guet en bois, des cartes épinglées, une longue-vue
+    ctx.fillStyle = "#7a5233"; ctx.fillRect(x - 10, gy - 58, 6, 58); ctx.fillRect(x + 36, gy - 58, 6, 58); // pieds (la bande fait 120 px)
+    ctx.fillStyle = "#5a3a20"; for (let y = gy - 50; y < gy; y += 14) ctx.fillRect(x - 10, y, 52, 3);       // barreaux
+    ctx.fillStyle = "#8a5a33"; ctx.fillRect(x - 16, gy - 66, 64, 10);                                       // plateforme
+    ctx.fillStyle = "#e8d8a8"; for (let i = 0; i < 3; i++) ctx.fillRect(x - 12 + i * 20, gy - 84 + (i % 2) * 3, 14, 16); // cartes
+    ctx.fillStyle = "#c0392b"; for (let i = 0; i < 3; i++) ctx.fillRect(x - 6 + i * 20, gy - 84 + (i % 2) * 3, 2, 2);
+    const sw = Math.sin(t * 2) * 3; ctx.fillStyle = "#ffd34d"; ctx.fillRect(Math.round(x + 48 + sw), gy - 74, 16, 3); // longue-vue
+    ctx.fillStyle = "#3a2a1a"; ctx.fillRect(x, gy - 34, 22, 34);                                            // porte de la cabane du bas
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble

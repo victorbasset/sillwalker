@@ -1520,4 +1520,11 @@ export default {
   2645: "Die Gitterstäbe sind aus Sternensplittern. Die verbiegen meine Feilen.",
   2646: "Wähle deinen Begleiter gut: Niemand geht lange allein.",
   2647: "Ich habe einen Schlüssel für jeden Käfig. Man muss nur den Käfig finden.",
+  2648: "Sola, die Kartografin",
+  2649: "Ein Wachturm voller Karten",
+  2650: "Jede Zone, die du durchquerst, zeichne ich.",
+  2651: "Jenseits von Zone 100 wiederholen sich meine Karten … seltsam.",
+  2652: "Gefangene Helden sind mit einem Käfig markiert. Hol sie dir!",
+  2653: "Mir fehlt noch das Ende des Saums. Erzählst du mir davon?",
+  2654: "Verirr dich nicht: Von hier oben sehe ich dich immer.",
 };

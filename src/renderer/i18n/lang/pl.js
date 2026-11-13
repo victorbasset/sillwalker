@@ -1520,4 +1520,11 @@ export default {
   2645: "Kraty są z odłamków gwiazd. Wyginają mi pilniki.",
   2646: "Dobrze wybierz towarzysza: nikt długo nie wędruje sam.",
   2647: "Mam klucz do każdej klatki. Trzeba tylko znaleźć klatkę.",
+  2648: "Sola, kartografka",
+  2649: "Wieża strażnicza pełna map",
+  2650: "Każdą strefę, którą przemierzasz, rysuję.",
+  2651: "Za strefą 100 moje mapy się powtarzają… to dziwne.",
+  2652: "Uwięzieni bohaterowie są oznaczeni klatką. Idź po nich!",
+  2653: "Wciąż brakuje mi końca Krawędzi. Opowiesz mi o nim?",
+  2654: "Nie zgub się: z góry zawsze cię widzę.",
 };

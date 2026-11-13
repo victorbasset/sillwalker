@@ -3,6 +3,7 @@
 // aux couleurs de son décor (ciel + sol, comme la bande). Repères : héros prisonniers (zone de leur boss), chroniques,
 // le héros (zone actuelle), le record, et la forteresse du Briseur d'Étoiles en zone 200. Brouillard au-delà du
 // record. Survol : infobulle (zone, boss, chronique, héros). Toujours sombre : c'est une image, comme la bande.
+import { npcHTML } from "../npc.js";
 import { t as tx, fsp, colon, wsp } from "../../i18n/index.js";
 import { esc, fmt } from "../../game/format.js";
 import { zoneName, zoneDef } from "../../game/rules.js";
@@ -122,8 +123,8 @@ export class MapTab {
     const freed = Object.keys(CLASSES).filter((c) => isClassUnlocked(S, c)).length;
     // Tient dans le panneau sans défilement (demande 18) : titre et résumé sur une ligne, explication en infobulle,
     // la carte prend la hauteur restante (elle se réduit pour rentrer en entier ; le détail est dans les infobulles).
-    el.innerHTML = `<article class="panel mappanel"><h2 title="${esc(tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."))}">${tx("Carte du Rebord")}
-      <small class="mapsum">${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE} · ${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })} · 📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })} · ${relicRow}</small></h2>
+    el.innerHTML = `<article class="panel mappanel"><h2 class="npch" title="${esc(tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."))}">${tx("Carte du Rebord")}
+      <small class="mapsum">${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE} · ${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })} · 📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })} · ${relicRow}</small>${npcHTML("map", true)}</h2>
       ${travel ? `<p class="note tight">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : `<p class="note tight">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
       <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W} ${H}" role="group" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div></article>`;
     if (act) el.querySelector(`[data-mz="${cursor}"]`)?.focus({ preventScroll: true });

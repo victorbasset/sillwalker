@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1088, demande E, étape E4) : cinquième PNJ, Sola, la cartographe, tient la Carte (longue tresse,
+  foulard vert, une carte roulée sous le bras ; 5 répliques : « Au-delà de la zone 100, mes cartes se répètent…
+  c'est étrange. »), dans le titre de la carte du Rebord. Scène de rencontre : une tour de guet en bois, des cartes
+  épinglées, une longue-vue qui balance (première version trop haute, coupée par le haut de la bande de 120 px :
+  raccourcie). Contrôle d'autotest des PNJ étendu (214/214) ; capture en allemand (fin de partie, 1280 px) ; 10
+  langues sans défaut.
 - 2026-11-13 (it. 1087, demande E, étape E4) : quatrième PNJ, Bram, le serrurier des cages, tient l'onglet Héros
   (barbe rousse, tablier de cuir, une grosse clé ; 5 répliques : « Les barreaux sont faits d'éclats d'étoile. Ça tord
   mes limes. ») : au bout de la rangée des sous-onglets (nouvelle rangée commune .subrow : rien ne grandit). Scène de

@@ -68,4 +68,21 @@ export const NPC_ART = {
     "....KK..KK....",
     "....KK..KK....",
   ]] },
+  // Sola, la cartographe : longue tresse, foulard vert, une carte roulée sous le bras (it. 1088).
+  carto: { pal: { H: "#3a2a4a", F: "#f0c08a", E: "#1a1a1a", G: "#4f9a6a", g: "#2f6a4a", C: "#e8d8a8", c: "#a88a5a", K: "#3a3550" }, frames: [[
+    "....HHHHHH....",
+    "...HHHHHHHH...",
+    "...HFFFFFFH...",
+    "...HFEFFEFH...",
+    "...HFFFFFFH...",
+    "...GGFFFFGG...",
+    "..HGGGGGGGG...",
+    "..HGGGGGGGGCC.",
+    "..HFGGGGGGFCc.",
+    "...FGGGGGGGCC.",
+    "....GGGGGGGc..",
+    "....gggggggg..",
+    "....KK..KK....",
+    "....KK..KK....",
+  ]] },
 };

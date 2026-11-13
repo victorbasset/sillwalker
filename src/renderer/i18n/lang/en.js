@@ -1520,4 +1520,11 @@ export default {
   2645: "The bars are made of star shards. They bend my files.",
   2646: "Choose your companion well: no one walks alone for long.",
   2647: "I keep a key for every cage. Now we just need to find the cage.",
+  2648: "Sola, the cartographer",
+  2649: "A watchtower covered in maps",
+  2650: "Every zone you cross, I draw it.",
+  2651: "Beyond zone 100, my maps repeat themselves… it’s strange.",
+  2652: "Captive heroes are marked with a cage. Go and get them!",
+  2653: "I’m still missing the end of the Sill. Will you tell me about it?",
+  2654: "Don’t get lost: from up here, I can always see you.",
 };
