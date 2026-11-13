@@ -153,4 +153,21 @@ export const NPC_ART = {
     "....KK..KK....",
     "....KK..KK....",
   ]] },
+  // Tico, l'écureuil scribe : roux, grande queue en panache, lunettes, une plume (it. 1095).
+  scribe: { pal: { O: "#d8732a", o: "#a8551e", L: "#f4d8a8", E: "#1a1a1a", G: "#c8c8d8", W: "#f4f0e8", Q: "#6aa8ff" }, frames: [[
+    "...O....O.....",
+    "...OO..OO.....",
+    "...OOOOOO..oo.",
+    "..OGEOOEGO.ooo",
+    "..OOOLLOOO.ooo",
+    "...OLLLLO..ooo",
+    "....OOOO..oooo",
+    "...OOLLOO.ooo.",
+    "..OOLLLLOOoo..",
+    "..OLLLLLLOo...",
+    "..WQOLLLLO....",
+    "...QOOOOOO....",
+    "....OO..OO....",
+    "....oo..oo....",
+  ]] },
 };

@@ -1555,4 +1555,11 @@ export default {
   2680: "The ultimate talent, at the end of a branch, changes everything.",
   2681: "A Way, later on: choose it to suit how you fight.",
   2682: "I’ve trained many heroes. Few have gone as far as you.",
+  2683: "Tico, the scribe squirrel",
+  2684: "A library dug into an old stump",
+  2685: "I write everything down: every monster, every gold coin, every fall.",
+  2686: "Your records? I keep them nice and warm in my notebook.",
+  2687: "Another achievement! I’ll get my finest quill.",
+  2688: "How many hazelnuts is a gold coin worth? Still working on it.",
+  2689: "Your travel log keeps growing. We’ll make a book of it.",
 };

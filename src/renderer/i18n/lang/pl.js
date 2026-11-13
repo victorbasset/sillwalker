@@ -1555,4 +1555,11 @@ export default {
   2680: "Talent ostateczny, na końcu gałęzi, zmienia wszystko.",
   2681: "Droga, później: wybierz ją pod swój styl walki.",
   2682: "Wyszkoliłem wielu bohaterów. Niewielu zaszło tak daleko jak ty.",
+  2683: "Tico, wiewiórka skryba",
+  2684: "Biblioteka wydrążona w starym pniu",
+  2685: "Zapisuję wszystko: każdego potwora, każdą złotą monetę, każdy upadek.",
+  2686: "Twoje rekordy? Trzymam je w cieple w moim notesie.",
+  2687: "Kolejne osiągnięcie! Wyciągam najładniejsze pióro.",
+  2688: "Ile orzechów laskowych jest warta złota moneta? Wciąż liczę.",
+  2689: "Twój dziennik podróży wciąż rośnie. Zrobimy z niego książkę.",
 };

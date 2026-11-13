@@ -1555,4 +1555,11 @@ export default {
   2680: "O talento supremo, no fim de um ramo, muda tudo.",
   2681: "Uma Via, mais tarde: escolha-a conforme seu jeito de lutar.",
   2682: "Treinei muitos heróis. Poucos foram tão longe quanto você.",
+  2683: "Tico, o esquilo escriba",
+  2684: "Uma biblioteca escavada num velho toco",
+  2685: "Anoto tudo: cada monstro, cada moeda de ouro, cada queda.",
+  2686: "Seus recordes? Guardo bem quentinhos no meu caderno.",
+  2687: "Mais uma conquista! Vou pegar minha melhor pena.",
+  2688: "Quantas avelãs vale uma moeda de ouro? Ainda estou calculando.",
+  2689: "Seu diário de viagem não para de crescer. Vamos fazer um livro.",
 };

@@ -1555,4 +1555,11 @@ export default {
   2680: "El talento definitivo, al final de una rama, lo cambia todo.",
   2681: "Una Vía, más adelante: elígela según tu forma de luchar.",
   2682: "He entrenado a muchos héroes. Pocos han llegado tan lejos como tú.",
+  2683: "Tico, la ardilla escriba",
+  2684: "Una biblioteca excavada en un viejo tocón",
+  2685: "Lo anoto todo: cada monstruo, cada moneda de oro, cada caída.",
+  2686: "¿Tus récords? Los guardo bien calentitos en mi cuaderno.",
+  2687: "¡Un logro más! Saco mi mejor pluma.",
+  2688: "¿Cuántas avellanas vale una moneda de oro? Aún lo estoy calculando.",
+  2689: "Tu diario de viaje no para de crecer. Haremos un libro.",
 };

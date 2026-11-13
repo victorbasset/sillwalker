@@ -1114,7 +1114,7 @@ async function runSelfTest(strip) {
   check("rencontre de la marchande : scène sur la bande", npcC === "2 images · titre", npcC);
   // (it. 1082, 1086) PNJ dans le titre d'une carte (Orbo à l'Ascension, Plume aux Quêtes) : réplique suivante au clic ;
   // leur scène de rencontre sur la bande
-  for (const tab of ["ascension", "quests", "class", "map", "bestiary", "pets", "skills", "talents"]) { // (it. 1087) Bram, au bout des sous-onglets du Héros
+  for (const tab of ["ascension", "quests", "class", "map", "bestiary", "pets", "skills", "talents", "stats"]) { // (it. 1087) Bram, au bout des sous-onglets du Héros
     const r = await js(`(async () => { const P = window.__panel, t = P.tab; P.setTab("${tab}"); P.renderAll(); const q = () => document.querySelector('[data-pane="${tab}"]:not([hidden]) .npc.compact'); const b = q(); if (!b) { P.setTab(t); return "pas de PNJ"; } const s0 = b.querySelector(".say").textContent; b.click(); const s1 = q()?.querySelector(".say").textContent; P.setTab(t); const J = window.__strip?.juice; let sc = "bande inactive"; if (J && J.active) { J.cine = null; J.cinematic("npc", { tab: "${tab}", force: true }); await new Promise((r) => setTimeout(r, 400)); const n = document.querySelector(".cine.npc"); sc = n ? [...n.querySelectorAll("img")].filter((i) => i.naturalWidth > 0).length + " images" : "pas de scène"; n?.click(); } return (s0 !== s1 ? "change" : "même") + " · " + sc; })()`);
     check(`PNJ de l'onglet ${tab} : il parle, sa scène de rencontre`, r === "change · 2 images", r);
   }

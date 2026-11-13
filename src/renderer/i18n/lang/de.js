@@ -1555,4 +1555,11 @@ export default {
   2680: "Das ultimative Talent am Ende eines Zweigs ändert alles.",
   2681: "Ein Weg, später: Wähle ihn nach deiner Art zu kämpfen.",
   2682: "Ich habe viele Helden ausgebildet. Wenige kamen so weit wie du.",
+  2683: "Tico, das Schreiberhörnchen",
+  2684: "Eine Bibliothek in einem alten Baumstumpf",
+  2685: "Ich schreibe alles auf: jedes Monster, jede Goldmünze, jeden Sturz.",
+  2686: "Deine Rekorde? Die bewahre ich schön warm in meinem Heft auf.",
+  2687: "Noch ein Erfolg! Ich hole meine schönste Feder.",
+  2688: "Wie viele Haselnüsse ist eine Goldmünze wert? Ich rechne noch.",
+  2689: "Dein Reisetagebuch wird immer länger. Wir machen ein Buch daraus.",
 };

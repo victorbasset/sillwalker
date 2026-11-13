@@ -2684,5 +2684,12 @@ export const KEYS = [
   "Un clic, et le talent monte aussi haut que tu le peux.",
   "Le talent ultime, au bout d’une branche, change tout.",
   "Une Voie, plus tard : choisis-la selon ta façon de combattre.",
-  "J’ai entraîné bien des héros. Peu sont allés aussi loin que toi."
+  "J’ai entraîné bien des héros. Peu sont allés aussi loin que toi.",
+  "Tico, l’écureuil scribe",
+  "Une bibliothèque creusée dans une vieille souche",
+  "Je note tout : chaque monstre, chaque pièce d’or, chaque chute.",
+  "Tes records ? Je les garde bien au chaud dans mon carnet.",
+  "Un succès de plus ! Je sors ma plus belle plume.",
+  "Combien de noisettes vaut une pièce d’or ? Je cherche encore.",
+  "Ton carnet de route s’allonge. On en fera un livre."
 ];

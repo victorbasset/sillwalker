@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1095, demande E, étape E4 terminée) : dixième et dernier PNJ, Tico, l'écureuil scribe, tient les
+  Statistiques (roux, queue en panache, lunettes, une plume ; 5 répliques : « Combien de noisettes vaut une pièce
+  d'or ? Je cherche encore. »), au bout des sous-onglets. Scène : une souche creusée en bibliothèque, des livres,
+  des feuilles qui s'envolent. Les 10 onglets qui se débloquent ont maintenant leur PNJ et leur rencontre (Corvin,
+  Plume, Mirette, Bram, Sola, Fenouil, Orbo, Maman Brindille, Iris, Tico). Autotest 219/219 ; capture en russe ;
+  10 langues sans défaut.
 - 2026-11-13 (it. 1094, demande E, étape E4) : neuvième PNJ, Corvin, le vieux maître d'armes, tient les Talents, le
   premier onglet (zone 2) : première rencontre d'un nouveau joueur (crâne chauve, moustache blanche, tunique rouge,
   épée de bois ; 5 répliques qui expliquent l'onglet : « Un clic, et le talent monte aussi haut que tu le peux. »).
@@ -4212,6 +4218,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      liste des PNJ (un par onglet : nom, lieu, répliques ; EN COURS : Boutique faite, it. 1073) ; E2 le PNJ dans son onglet (FAIT pour la Boutique, it. 1073) (portrait pixel + bulle) ; E3 (FAIT pour la Boutique, it. 1079)
      cinématique de rencontre sur la bande ; E4 les autres onglets ; E5 traductions, « Quoi de neuf ».
   Ordre prévu : A, B (rapides), puis E1-E2, D1-D3, E3, C, D4-D6.
+  H. (2026-11-13, après-midi) « Vendre ce qui ne m'améliore pas » doit tout vendre, légendaires et pièces de panoplie
+     comprises, tant que ce n'est pas une amélioration : à faire à l'it. 1096.
   F. FAIT (it. 1074). Chroniques triées dans l'ordre de l'histoire, numérotées dans l'ordre du déblocage.
   G. FAIT (it. 1083). P3 (vu it. 1074) Chroniques dans la grande fenêtre : colonnes qui défilent de côté au-delà de 4 entrées ; Victor
      ne veut pas de défilement horizontal (demande B) : à revoir (liste verticale, ou plus de colonnes plus étroites).

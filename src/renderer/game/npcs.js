@@ -94,6 +94,19 @@ export const NPCS = {
       "J’ai entraîné bien des héros. Peu sont allés aussi loin que toi.",
     ],
   },
+  // (it. 1095) le scribe qui compte tout (onglet Statistiques)
+  stats: {
+    name: "Tico, l’écureuil scribe",
+    place: "Une bibliothèque creusée dans une vieille souche",
+    art: "scribe",
+    lines: [
+      "Je note tout : chaque monstre, chaque pièce d’or, chaque chute.",
+      "Tes records ? Je les garde bien au chaud dans mon carnet.",
+      "Un succès de plus ! Je sors ma plus belle plume.",
+      "Combien de noisettes vaut une pièce d’or ? Je cherche encore.",
+      "Ton carnet de route s’allonge. On en fera un livre.",
+    ],
+  },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
     name: "Plume, la chouette de la guilde",

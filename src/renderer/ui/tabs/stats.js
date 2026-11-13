@@ -1,4 +1,5 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
+import { npcHTML } from "../npc.js";
 import { CHRONICLES } from "../../game/story.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, getLang, csep, colon } from "../../i18n/index.js";
@@ -67,7 +68,7 @@ export class StatsTab {
       return `<li class="ach${on ? " on" : ""}"><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
     }).join("");
     const tabs = subtabsHTML([["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")]], this.sec, "st-sec");
-    el.innerHTML = tabs + `<div class="statgrid sec-${this.sec}">
+    el.innerHTML = `<div class="subrow">${tabs}${npcHTML("stats", true)}</div>` + `<div class="statgrid sec-${this.sec}">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}
         ${line(tx("Meilleure zone (toutes courses)"), Math.max(S.best, P.bestRun || 0))}

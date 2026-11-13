@@ -131,6 +131,15 @@ function npcPlace(ctx, art, x, gy, t) {
     ctx.fillStyle = "#5a3a20"; ctx.fillRect(x + 120, gy - 30, 22, 3); ctx.fillRect(x + 120, gy - 30, 3, 30); ctx.fillRect(x + 139, gy - 30, 3, 30); // râtelier
     ctx.fillStyle = "#a0713c"; for (let i = 0; i < 3; i++) ctx.fillRect(x + 125 + i * 5, gy - 44, 2, 40);
   }
+  if (art === "scribe") { // (it. 1095) Tico : une vieille souche creusée en bibliothèque, des livres, des feuilles qui volent
+    ctx.fillStyle = "#6b4226"; ctx.fillRect(x - 20, gy - 46, 70, 46); ctx.fillStyle = "#8a5a33"; ctx.fillRect(x - 24, gy - 50, 78, 6); // souche
+    ctx.fillStyle = "#5a3a20"; for (let i = 0; i < 4; i++) ctx.fillRect(x - 16 + i * 18, gy - 50, 2, 50);
+    ctx.fillStyle = "#3a2a1a"; ctx.fillRect(x, gy - 34, 22, 34);                                         // l'ouverture
+    const books = ["#c0392b", "#4f9a6a", "#6aa8ff", "#ffd34d", "#8a5ad0"];
+    books.forEach((c, i) => { ctx.fillStyle = c; ctx.fillRect(x + 28 + i * 4, gy - 26 - (i % 2) * 2, 3, 12 + (i % 2) * 2); });       // livres
+    for (let i = 0; i < 3; i++) { const k = (t * 0.6 + i * 0.33) % 1; ctx.fillStyle = "#f4f0e8"; ctx.globalAlpha = 1 - k; ctx.fillRect(Math.round(x + 60 + k * 50 + i * 6), Math.round(gy - 40 - k * 30 + Math.sin(k * 8 + i) * 4), 5, 4); } // feuilles
+    ctx.globalAlpha = 1;
+  }
   if (art === "rocket") { // (it. 1082) Orbo : une fusée bricolée en haut d'une colline
     ctx.fillStyle = "#3e5a3a"; for (let r = 0; r < 18; r++) ctx.fillRect(x - 70 + r * 2, gy - r, 200 - r * 4, 1); // la colline
     const rx = x + 44, ry = gy - 18, shake = t > 2 && t < 2.6 ? Math.round(Math.sin(t * 60)) : 0;      // la fusée tremble
