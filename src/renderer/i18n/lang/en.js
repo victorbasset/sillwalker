@@ -1376,4 +1376,6 @@ export default {
   2501: "Mini mode: big moments (set, ascension…) now fit entirely in the small window.",
   2502: "The panel is better laid out on screens 1500 to 1800 px wide, and with the interface size at 115 or 130%.",
   2503: "(complete)",
+  2504: "In the late game, the strip uses about a third less CPU during fights (lighter spell effects, blade and projectiles).",
+  2505: "The Bestiary opens faster, and a monster at its last tier is shown as complete in every language.",
 };

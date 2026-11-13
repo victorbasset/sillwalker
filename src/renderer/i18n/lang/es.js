@@ -1376,4 +1376,6 @@ export default {
   2501: "Modo mini: los grandes momentos (conjunto, ascensión…) caben enteros en la ventana pequeña.",
   2502: "Panel mejor distribuido en pantallas de 1500 a 1800 px de ancho y con el tamaño de interfaz al 115 o 130 %.",
   2503: "(completo)",
+  2504: "Al final de la partida, la franja consume alrededor de un tercio menos de procesador durante los combates (efectos de hechizos, hoja y proyectiles más ligeros).",
+  2505: "El Bestiario se muestra más rápido, y un monstruo en su último nivel aparece como completo en todos los idiomas.",
 };

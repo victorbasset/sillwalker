@@ -1376,4 +1376,6 @@ export default {
   2501: "Modo mini: os grandes momentos (conjunto, ascensão…) cabem inteiros na janela pequena.",
   2502: "Painel mais bem disposto em telas de 1500 a 1800 px de largura e com o tamanho da interface em 115 ou 130 %.",
   2503: "(completo)",
+  2504: "No final do jogo, a faixa consome cerca de um terço a menos de processador durante os combates (efeitos de feitiços, lâmina e projéteis mais leves).",
+  2505: "O Bestiário abre mais rápido, e um monstro no último nível aparece como completo em todos os idiomas.",
 };

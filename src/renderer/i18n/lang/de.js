@@ -1376,4 +1376,6 @@ export default {
   2501: "Mini-Modus: große Momente (Set, Aufstieg …) passen vollständig ins kleine Fenster.",
   2502: "Das Panel ist auf Bildschirmen von 1500 bis 1800 px Breite und bei einer Oberflächengröße von 115 oder 130 % besser angeordnet.",
   2503: "(vollständig)",
+  2504: "Im späten Spiel braucht der Streifen in Kämpfen etwa ein Drittel weniger Prozessorzeit (leichtere Zaubereffekte, Klinge und Geschosse).",
+  2505: "Das Bestiarium öffnet sich schneller, und ein Monster auf der letzten Stufe wird in allen Sprachen als vollständig angezeigt.",
 };

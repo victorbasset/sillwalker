@@ -1376,4 +1376,6 @@ export default {
   2501: "Tryb mini: ważne chwile (zestaw, wniebowstąpienie…) mieszczą się w całości w małym oknie.",
   2502: "Lepszy układ panelu na ekranach o szerokości 1500–1800 px oraz przy rozmiarze interfejsu 115 lub 130 %.",
   2503: "(ukończono)",
+  2504: "W późnej grze pasek zużywa podczas walk około jednej trzeciej mniej procesora (lżejsze efekty zaklęć, ostrza i pocisków).",
+  2505: "Bestiariusz otwiera się szybciej, a potwór na ostatnim progu jest oznaczony jako ukończony we wszystkich językach.",
 };

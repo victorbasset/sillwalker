@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1067) : « Quoi de neuf », édition 51 : la bande consomme environ un tiers de processeur en moins
+  pendant les combats de fin de partie (it. 1064-1066 : 38 → 24 %) ; Bestiaire plus rapide, « complet » traduit
+  (it. 1060-1062). « La bande » nommée comme ailleurs dans chaque langue (Streifen, 长条, 막대…). Chasse aux bugs :
+  --crawl sur la partie de fin de partie en russe (384 clics) et sur la sauvegarde maximale en polonais (351 clics) :
+  aucune erreur. 10 langues sans défaut (« Quoi de neuf » au pire cas compris).
 - 2026-11-13 (it. 1066) : performance en fin de partie, héros à distance. La partie de fin de partie joue un guerrier :
   les projectiles n'y paraissaient pas. Avec un rôdeur (copie modifiée), les projectiles valaient ≈ 7 points (31,4 →
   24,2 % masqués) : aux rangs 1 à 4, jusqu'à trois drop-shadow, et trois projectiles par coup dès le rang 3. Leur lueur
