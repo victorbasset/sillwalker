@@ -219,11 +219,15 @@ function start() {
             G.S.cls = keep; P.renderAll(); if (worst > 2) out.push("sorts=" + worst + "(" + who + ")"); P.tabs.class.sec = "freed"; }
           // Statistiques > Succès (la liste grandit avec chaque succès ; les noms longs du russe passent sur deux lignes)
           if (P.tabs.stats) { P.setTab("stats"); P.tabs.stats.sec = "ach"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("succès=" + o); P.tabs.stats.sec = "numbers"; }
-          // (it. 1013) sous-sections du Bestiaire (seule celle des monstres était mesurée) : panoplies, capacités des boss…
-          if (P.tabs.bestiary) { P.setTab("bestiary"); const keepSec = P.tabs.bestiary.sec;
-            for (const sec of ["codex", "powers", "sets", "bosses", "elites", "events"]) { P.tabs.bestiary.sec = sec; P.renderAll(); if (P.tabs.bestiary.sec !== sec) continue;
-              const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("bestiaire-" + sec + "=" + o); }
-            P.tabs.bestiary.sec = keepSec; P.renderAll(); }
+          // (it. 1013-1014) sous-sections autres que celle par défaut (seule celle-ci était mesurée) : « onglet-section=N »
+          const SUBS = { bestiary: ["codex", "powers", "sets", "bosses", "elites", "events"], shop: ["unlocks", "workshop"],
+            stats: ["journey"], pets: ["unknown"], class: ["locked"] };
+          for (const [tab, secs] of Object.entries(SUBS)) { if (!P.tabs[tab]) continue;
+            const bt = document.querySelector("[data-tab=" + tab + "]"); if (!bt || !bt.getClientRects().length) continue;
+            P.setTab(tab); const keepSec = P.tabs[tab].sec;
+            for (const sec of secs) { P.tabs[tab].sec = sec; P.renderAll(); if (P.tabs[tab].sec !== sec) continue;
+              const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(tab + "-" + sec + "=" + o); }
+            P.tabs[tab].sec = keepSec; P.renderAll(); }
           // (it. 929) tous les déblocages SAUF le dernier : la carte « Prochain déblocage » réapparaît (avec tous, elle
           // disparaît : l'it. 928 a trouvé 11 px de défilement en russe à 1280 sans qu'aucune mesure le voie) ; prêt et pas prêt
           { const G = window.__game, S = G.S, ks = Object.keys(S.unlocks || {}), last = ks[ks.length - 1], keepG = S.gold;

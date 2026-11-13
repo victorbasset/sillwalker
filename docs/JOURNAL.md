@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1014) : --overflow-report mesure toutes les sous-sections (liste SUBS de main.js : Bestiaire, Boutique
+  > Déblocages et Atelier, Statistiques > Carnet de route, Familiers > À découvrir, Héros > Prisonniers ; seule celle
+  par défaut l'était, plus Succès et Sorts). Défaut trouvé : en fin de partie, Statistiques > Carnet de route (30
+  jalons sur une colonne) défilait de 529 px dans les 10 langues ; désormais en colonnes de 340 px (3 à 1280 px, 5 à
+  1920 px), lignes d'un seul tenant. Capture en russe ; 10 langues sans défaut ; autotest 203/203. CLAUDE.md.
 - 2026-11-13 (it. 1013) : Bestiaire > Panoplies : quand le sac complète une panoplie, la mention « · 4 dans le sac »
   de sa carte devient un bouton (« Compléter avec les pièces du sac » en info-bulle) : un clic sur place, comme la
   tâche « À faire » (finishSet(id), setFinisher(id)). --overflow-report mesure désormais chaque sous-section du
