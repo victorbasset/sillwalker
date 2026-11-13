@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1043) : essai abandonné : « collection, pouvoirs, panoplies » dans la liste « Gardé » de l'Ascension
+  (les panoplies complétées sont gardées, le libellé ne le disait pas) ; en russe à 1280 px (dev-data : liste dépliée
+  sous 3 ascensions), le mot de plus repoussait un élément sur une nouvelle ligne : l'onglet défilait de 17 px. Annulé
+  (clé comprise). À retenir : cette liste est à sa limite en russe à 1280 px ; tout allongement demande de la regrouper
+  (deux colonnes ?) ou de la replier plus tôt. Vérifiés sans changement : tâche « Sac plein » à 0 objet inutile (« le
+  butin suivant restera au sol ») ; sac de départ de 24 places (6 pièces gardées au plus).
 - 2026-11-13 (it. 1042) : « Quoi de neuf », édition 49 : les nouvelles répliques du héros (panoplie complète, ascension,
   héros libéré, œuf trouvé). 10 langues sans défaut (« Quoi de neuf » au pire cas compris) ; autotest 205/205.
 - 2026-11-13 (it. 1041, revue générale) : simulation 12 h, records des courses : prêtresse 40 → 66, cryomancien 38 → 62,
