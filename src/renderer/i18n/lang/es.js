@@ -1568,4 +1568,6 @@ export default {
   2693: "Cada pestaña tiene ahora su personaje, encontrado en el camino: Corvin (Talentos), Plume (Misiones), Bram (Héroe), Sola (Mapa), Hinojo (Bestiario), Mamá Ramita (Mascotas), Iris (Habilidades) y Tico (Estadísticas). Haz clic en ellos para oírlos.",
   2694: "«Vender lo que no me mejora» vende todo lo que no sea una mejora, legendarios y piezas de conjunto incluidos.",
   2695: "Ninguna escena perdida: cuando llegan varios encuentros a la vez, esperan su turno.",
+  2696: "Reiniciar el gran grafo",
+  2697: "Gran grafo reiniciado: los caminos vuelven a estar por elegir.",
 };

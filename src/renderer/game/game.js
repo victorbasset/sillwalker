@@ -2601,6 +2601,17 @@ export class Game {
     return true;
   }
 
+  /** (it. 1099) Vide le grand graphe seulement (la fleur reste) : pour changer de voie. */
+  resetGraph() {
+    if (!(this.S.skills.outer || []).length) return false;
+    this.S.skills.outer = [];
+    this.invalidateStats();
+    this.R.hp = Math.min(this.R.hp, this.stats().hp);
+    this.log(tx("Grand graphe réinitialisé : les voies sont de nouveau au choix."));
+    this.changed();
+    return true;
+  }
+
   resetSkills() {
     this.S.skills.order = [];
     this.S.skills.outer = []; // (it. 1077) le grand graphe aussi

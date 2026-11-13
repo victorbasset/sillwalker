@@ -1568,4 +1568,6 @@ export default {
   2693: "Cada aba agora tem seu personagem, encontrado pelo caminho: Corvin (Talentos), Plume (Missões), Bram (Herói), Sola (Mapa), Funcho (Bestiário), Mamãe Graveto (Mascotes), Íris (Habilidades) e Tico (Estatísticas). Clique neles para ouvi-los.",
   2694: "«Vender o que não me melhora» vende tudo o que não for uma melhoria, lendários e peças de conjunto incluídos.",
   2695: "Nenhuma cena perdida: quando vários encontros chegam juntos, esperam a vez.",
+  2696: "Reiniciar o grande grafo",
+  2697: "Grande grafo reiniciado: os caminhos estão de novo à escolha.",
 };

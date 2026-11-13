@@ -1568,4 +1568,6 @@ export default {
   2693: "Every tab now has its own character, met along the road: Corvin (Talents), Plume (Quests), Bram (Hero), Sola (Map), Fennel (Bestiary), Mother Twig (Pets), Iris (Skills) and Tico (Statistics). Click them to hear them.",
   2694: "“Sell what doesn’t upgrade me” sells everything that isn’t an upgrade, legendaries and set pieces included.",
   2695: "No more lost scenes: when several meetings happen at once, they wait their turn.",
+  2696: "Reset the great graph",
+  2697: "Great graph reset: the paths are open to choose again.",
 };

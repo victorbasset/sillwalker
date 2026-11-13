@@ -3582,6 +3582,10 @@ test("grand graphe : prise, annulation (le graphe d'abord) et réinitialisation 
   const nFlower = g.S.skills.order.length;
   g.undoSkill(); assert.equal(g.S.skills.outer.length, 1, "annuler retire d'abord le dernier nœud du graphe");
   assert.equal(g.S.skills.order.length, nFlower, "la fleur reste");
+  // (it. 1099) réinitialiser le grand graphe seulement : la fleur reste, la voie redevient au choix
+  g.takeGraph("fortune-v2-0"); assert(g.resetGraph()); assert.equal(g.S.skills.outer.length, 0);
+  assert.equal(g.S.skills.order.length, nFlower, "la fleur reste");
+  assert(g.takeGraph("fortune-gate") && g.takeGraph("fortune-v0-0"), "une autre voie, maintenant");
   g.resetSkills(); assert.equal(g.S.skills.outer.length, 0); assert.equal(g.S.skills.order.length, 0);
 });
 

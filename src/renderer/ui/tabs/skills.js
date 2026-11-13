@@ -52,6 +52,7 @@ export class SkillsTab {
         <div class="row">
           <button data-action="k-undo" class="quiet">${tx("Annuler le dernier")}</button>
           <button data-action="k-reset" class="quiet">${tx("Tout réinitialiser")}</button>
+          <button data-action="k-greset" class="quiet" hidden>${tx("Réinitialiser le grand graphe")}</button>
           <button data-action="k-center" class="quiet">${tx("Recentrer")}</button>
         </div>
         <h3>${tx("Bonus actifs")}</h3>
@@ -325,6 +326,11 @@ export class SkillsTab {
     const auto = this.el.querySelector('[data-action="k-auto"]');
     auto.disabled = free <= 0; auto.classList.toggle("primary", free > 0);
     this.el.querySelector('[data-action="k-autoon"]').checked = !!S.settings.autoSkills;
+    // (it. 1099) changer de voie sans perdre la fleur : vider le grand graphe seulement (deuxième clic pour confirmer)
+    const greset = this.el.querySelector('[data-action="k-greset"]');
+    greset.hidden = !(S.skills.outer || []).length;
+    greset.textContent = this.armedGReset ? tx("Confirmer la réinitialisation") : tx("Réinitialiser le grand graphe");
+    greset.classList.toggle("danger", !!this.armedGReset);
     const reset = this.el.querySelector('[data-action="k-reset"]');
     reset.textContent = this.armedReset ? tx("Confirmer la réinitialisation") : tx("Tout réinitialiser");
     reset.classList.toggle("danger", this.armedReset);
@@ -338,6 +344,11 @@ export class SkillsTab {
     else if (a === "k-autoon") { g.S.settings.autoSkills = b.checked; if (b.checked) g.autoSpendSkills(); g.changed(); }
     else if (a === "k-undo") g.undoSkill();
     else if (a === "k-center") this.center();
+    else if (a === "k-greset") {
+      if (!this.armedGReset) { this.armedGReset = true; setTimeout(() => { this.armedGReset = false; }, 4000); return; }
+      this.armedGReset = false;
+      g.resetGraph();
+    }
     else if (a === "k-reset") {
       if (!this.armedReset) { this.armedReset = true; setTimeout(() => { this.armedReset = false; }, 4000); return; }
       this.armedReset = false;

@@ -1568,4 +1568,6 @@ export default {
   2693: "Każda zakładka ma teraz swoją postać, spotkaną na drodze: Corvin (Talenty), Plume (Zadania), Bram (Bohater), Sola (Mapa), Koper (Bestiariusz), Mama Gałązka (Chowańce), Iris (Umiejętności) i Tico (Statystyki). Kliknij, by ich usłyszeć.",
   2694: "„Sprzedaj to, co mnie nie ulepsza” sprzedaje wszystko, co nie jest ulepszeniem, łącznie z legendarnymi i częściami zestawów.",
   2695: "Żadnych zgubionych scen: gdy kilka spotkań przychodzi naraz, czekają na swoją kolej.",
+  2696: "Zresetuj wielki graf",
+  2697: "Wielki graf zresetowany: ścieżki znów są do wyboru.",
 };

@@ -2697,5 +2697,7 @@ export const KEYS = [
   "Gardée pour compléter la panoplie : la transmutation et la vente quand le sac est plein l’épargnent (pas le bouton « Vendre ce qui ne m’améliore pas »).",
   "Chaque onglet a maintenant son personnage, rencontré sur la route : Corvin (Talents), Plume (Quêtes), Bram (Héros), Sola (Carte), Fenouil (Bestiaire), Maman Brindille (Familiers), Iris (Compétences) et Tico (Statistiques). Clique-les pour les entendre.",
   "« Vendre ce qui ne m’améliore pas » vend tout ce qui n’est pas une amélioration, légendaires et pièces de panoplie compris.",
-  "Plus de scène perdue : quand plusieurs rencontres arrivent ensemble, elles attendent leur tour."
+  "Plus de scène perdue : quand plusieurs rencontres arrivent ensemble, elles attendent leur tour.",
+  "Réinitialiser le grand graphe",
+  "Grand graphe réinitialisé : les voies sont de nouveau au choix."
 ];

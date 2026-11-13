@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1099, demande D, étape D4) : bouton « Réinitialiser le grand graphe » dans les Compétences (visible
+  dès qu'un nœud du graphe est pris ; deuxième clic pour confirmer) : vide le graphe seulement, la fleur reste, les
+  voies redeviennent au choix (avant : « Tout réinitialiser » vidait aussi la fleur). Game.resetGraph ; test logique
+  (réinitialiser, puis suivre une autre voie). Mesure ciblée (fin de partie avec des nœuds pris, de / ru / pl à
+  1280 px) : aucun défilement. Autotest 219/219 ; 10 langues sans défaut.
 - 2026-11-13 (it. 1098) : mémoire dans la durée après les ajouts du jour (grand graphe en SVG, dix PNJ et leurs
   images, cinématiques de rencontre) : scripts/mem-watch.sh 9 min à ×10 : « réel » 513 → 499 Mo, stable (repère
   485-530 Mo). Aucune fuite.
@@ -4221,7 +4226,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
      De vrais choix (chemins, embranchements, nœuds exclusifs ; pas besoin de tout remplir) ; aide à finir le jeu jusqu'à
      la zone 200, SANS augmenter la difficulté (le héros devient plus fort). Étapes : D1 (FAIT, it. 1075) données et règles (nœuds,
      liens, coûts, effets ; sauvegarde, migration, tests) ; D2 (FAIT, it. 1076) affichage grisé autour de la fleur ; D3 (FAIT, it. 1077) achat et
-     effets ; D4 choix exclusifs, réinitialisation ; D5 (FAIT, it. 1078) équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
+     effets ; D4 (FAIT, it. 1077 et 1099) choix exclusifs, réinitialisation ; D5 (FAIT, it. 1078) équilibrage (simulate.js semaine, hero-table) ; D6 traductions,
      « Quoi de neuf ».
      Précision de Victor (même jour) : des nœuds de SYNERGIE, qui font compter un axe dans un autre, pour chacun des
      6 pétales : « si je suis tanky, je tape plus fort » (attaque selon les PV), « plus je suis riche, plus je fais
