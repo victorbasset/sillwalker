@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1137) : scripts/max-save.mjs (état « tout au maximum ») ignorait les nouveautés des it. 1075-1136 :
+  il remplit désormais le grand graphe (258 nœuds, points en surplus), met les maîtrises au rang 420 avec l'option
+  « b » à chaque palier (annonces vues). Partie obtenue, en russe : textes extraits sans mot non traduit (noms de
+  langues et suffixes de nombres, voulus) ; --overflow-report à 1280 px : aucun débordement. Rien d'autre à corriger.
 - 2026-11-13 (it. 1136) : deux succès pour le grand graphe (66 succès) : « Au-delà de la fleur » (GRAPH_FIRST, un
   premier nœud actif) et « Le grand graphe accompli » (GRAPH_FULL, 258 nœuds, avec sa progression « (N / 258) »).
   Icônes Steam (trèfle et talisman, encore libres ; les 128 existantes régénérées à l'identique, seules les 4

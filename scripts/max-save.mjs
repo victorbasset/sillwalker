@@ -22,5 +22,13 @@ s.relics = Object.fromEntries(RELIC_IDS.map((id) => [id, Date.now()]));
 s.relicLv = Object.fromEntries(RELIC_IDS.map((id) => [id, 5]));
 s.best = s.zone = 400; s.prestige.bestRun = 400;
 s.lang = undefined;
+// (it. 1137) grand graphe rempli (points en surplus compris) et choix des paliers de maîtrise : tous les paliers
+// atteints (rang 420), option « b » partout (les plus longues dans certaines langues)
+const { nextGraphNode } = await import(R + "skillgraph.js");
+const { MASTERY_STEPS, MASTERY_ALT } = await import(R + "talents.js");
+s.lvl = Math.max(s.lvl, 1200); s.skills.outer = [];
+for (let id; (id = nextGraphNode(s));) s.skills.outer.push(id);
+s.skills.graphSeen = s.skills.graphFullSeen = true;
+for (const id of Object.keys(MASTERY_ALT)) { s.talents[s.cls][id] = 420; for (const at of MASTERY_STEPS) (s.masteryPicks ||= {})[id + ":" + at] = "b"; }
 fs.writeFileSync(process.argv[2], JSON.stringify(s));
-console.log("ok", Object.keys(s.bestiary).length, CODEX_ENTRIES.length, Object.keys(POWERS).length, ACHIEVEMENTS.length);
+console.log("ok", s.skills.outer.length + " nœuds", Object.keys(s.bestiary).length, CODEX_ENTRIES.length, Object.keys(POWERS).length, ACHIEVEMENTS.length);
