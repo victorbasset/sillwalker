@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1100) : contrôle de santé après les ajouts du jour. scripts/fuzz.mjs 60 graines (1200 parties, les
+  20 héros) : 0 bloquée. --crawl en russe sur la partie de fin de partie avec des nœuds du grand graphe pris (PNJ,
+  graphe, réinitialisations, boutique, vente…) : 500 clics, aucune erreur.
 - 2026-11-13 (it. 1099, demande D, étape D4) : bouton « Réinitialiser le grand graphe » dans les Compétences (visible
   dès qu'un nœud du graphe est pris ; deuxième clic pour confirmer) : vide le graphe seulement, la fleur reste, les
   voies redeviennent au choix (avant : « Tout réinitialiser » vidait aussi la fleur). Game.resetGraph ; test logique
