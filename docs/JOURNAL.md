@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1068) : « Quoi de neuf » relisible : bouton dans Réglages > Aide (la carte « Raccourcis clavier »
+  devient « Aide », mot traduit dans les 9 langues), les trois dernières éditions. Avant, la seule entrée était la bulle
+  du lancement (15 s, après 6 s), et l'édition était marquée lue dès le lancement : manquée, elle était perdue.
+  Contrôle d'autotest (207/207) ; captures des Réglages à 1280 px en allemand et en russe (boutons sur deux lignes,
+  sans défilement) ; 10 langues sans défaut. README.
 - 2026-11-13 (it. 1067) : « Quoi de neuf », édition 51 : la bande consomme environ un tiers de processeur en moins
   pendant les combats de fin de partie (it. 1064-1066 : 38 → 24 %) ; Bestiaire plus rapide, « complet » traduit
   (it. 1060-1062). « La bande » nommée comme ailleurs dans chaque langue (Streifen, 长条, 막대…). Chasse aux bugs :

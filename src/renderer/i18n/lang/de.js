@@ -1378,4 +1378,5 @@ export default {
   2503: "(vollständig)",
   2504: "Im späten Spiel braucht der Streifen in Kämpfen etwa ein Drittel weniger Prozessorzeit (leichtere Zaubereffekte, Klinge und Geschosse).",
   2505: "Das Bestiarium öffnet sich schneller, und ein Monster auf der letzten Stufe wird in allen Sprachen als vollständig angezeigt.",
+  2506: "Hilfe",
 };

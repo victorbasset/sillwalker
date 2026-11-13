@@ -84,8 +84,10 @@ export class SettingsTab {
         <p class="note tight">${tx("Efface toute la progression (niveaux, objets, ascensions, collection…) et recommence depuis le début. Irréversible.")}</p>
         <div class="row"><button data-action="reset" class="quiet">${tx("Effacer la partie et recommencer")}</button></div>
       </article>
-      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Raccourcis clavier")}</span></h2>
-        <div class="row"><button data-action="showkeys" class="quiet">${tx("Voir les raccourcis")}</button></div>
+      <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Aide")}</span></h2>
+        <!-- (it. 1068) « Quoi de neuf » relisible : la bulle du lancement ne dure que 15 s et les nouveautés étaient
+             marquées lues dès le lancement : manquée, l'édition était perdue -->
+        <div class="row"><button data-action="showkeys" class="quiet">${tx("Voir les raccourcis")}</button><button data-action="shownews" class="quiet">${tx("Quoi de neuf")}</button></div>
       </article>
       </div>
     </div>`;

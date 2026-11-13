@@ -1378,4 +1378,5 @@ export default {
   2503: "(completo)",
   2504: "Al final de la partida, la franja consume alrededor de un tercio menos de procesador durante los combates (efectos de hechizos, hoja y proyectiles más ligeros).",
   2505: "El Bestiario se muestra más rápido, y un monstruo en su último nivel aparece como completo en todos los idiomas.",
+  2506: "Ayuda",
 };

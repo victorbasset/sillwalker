@@ -1378,4 +1378,5 @@ export default {
   2503: "(completo)",
   2504: "No final do jogo, a faixa consome cerca de um terço a menos de processador durante os combates (efeitos de feitiços, lâmina e projéteis mais leves).",
   2505: "O Bestiário abre mais rápido, e um monstro no último nível aparece como completo em todos os idiomas.",
+  2506: "Ajuda",
 };

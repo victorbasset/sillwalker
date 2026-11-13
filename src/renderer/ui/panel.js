@@ -1090,6 +1090,7 @@ export class Panel {
       case "itemlevel": if (it) g.levelItem(it); break;
       case "bagsort": g.sortBag(); break;
       case "showkeys": this.showKeys(); return;
+      case "shownews": this.showNews(0); return;
       case "sellless": {
         const n = g.uselessItems().length;
         this.confirm(tx("Vendre les objets inutiles ?"), txn(n, "{n} objet qui n’améliore pas ton héros sera vendu. Les légendaires sont toujours gardés.|{n} objets qui n’améliorent pas ton héros seront vendus. Les légendaires sont toujours gardés."), tx("Vendre"), () => {

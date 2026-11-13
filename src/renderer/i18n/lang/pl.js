@@ -1378,4 +1378,5 @@ export default {
   2503: "(ukończono)",
   2504: "W późnej grze pasek zużywa podczas walk około jednej trzeciej mniej procesora (lżejsze efekty zaklęć, ostrza i pocisków).",
   2505: "Bestiariusz otwiera się szybciej, a potwór na ostatnim progu jest oznaczony jako ukończony we wszystkich językach.",
+  2506: "Pomoc",
 };

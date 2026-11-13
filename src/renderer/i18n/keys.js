@@ -2507,5 +2507,6 @@ export const KEYS = [
   "Panneau mieux disposé sur les écrans de 1500 à 1800 px de large, et avec la taille de l’interface à 115 ou 130 %.",
   "(complet)",
   "En fin de partie, la bande consomme environ un tiers de processeur en moins pendant les combats (effets des sorts, lame et projectiles allégés).",
-  "Le Bestiaire s’affiche plus vite, et un monstre au dernier palier est dit complet dans toutes les langues."
+  "Le Bestiaire s’affiche plus vite, et un monstre au dernier palier est dit complet dans toutes les langues.",
+  "Aide"
 ];

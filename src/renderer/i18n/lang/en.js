@@ -1378,4 +1378,5 @@ export default {
   2503: "(complete)",
   2504: "In the late game, the strip uses about a third less CPU during fights (lighter spell effects, blade and projectiles).",
   2505: "The Bestiary opens faster, and a monster at its last tier is shown as complete in every language.",
+  2506: "Help",
 };
