@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1164, demande de Victor : « on va gérer tout ça avec butler ») : butler 15.32.0 installé
+  (~/.local/bin/butler, depuis broth.itch.zone) ; scripts/itch-push.sh <compte/jeu> [--dry-run] : construit les trois
+  versions (Mac signée par mac-from-linux.sh), vérifie les fichiers et les pousse sur les canaux windows (dossier
+  win-unpacked), linux (dossier de l'AppImage) et mac (zip de l'app signée) avec --userversion. Essai à blanc : les
+  trois construites (316 / 121 / 116 Mo). Reste : la connexion de butler au compte de Victor et le nom du jeu.
 - 2026-11-13 (it. 1163) : « Quoi de neuf », édition 59 (après la 0.1.3) : voie la plus puissante prise et signalée
   par la dépense automatique ; répliques du héros pour les paliers et le grand graphe. 9 langues (bouton cité tel que
   traduit, vérifié) ; autotest 227/227 ; 10 langues sans défaut.

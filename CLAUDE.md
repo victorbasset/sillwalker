@@ -225,6 +225,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   la version précédente voit la fenêtre s'ouvrir seule au lancement ; 3) npm test, autotest, lang-overflow ;
   4) constructions (voir « Construire la version Windows ») déposées dans Médias/dist-itch avec leurs sha256 ;
   5) essai de la version construite avec un HOME temporaire.
+  6) envoi sur itch.io avec butler (it. 1164, demande de Victor) : `scripts/itch-push.sh <compte/jeu>` construit les
+  trois versions (Mac signée) et les pousse sur les canaux windows, linux, mac (`--userversion` = package.json) ;
+  `--dry-run` construit et vérifie sans rien envoyer. butler : `~/.local/bin/butler` (connexion une fois : `butler
+  login`, identifiants dans ~/.config/itch/). Puis le devlog (docs/devlog-<version>.md).
 - « Quoi de neuf » (game/news.js) : après une série de nouveautés visibles, publier une édition (une liste ajoutée à la
   FIN de NEWS_EDITIONS, textes à traduire ; ne jamais modifier une édition publiée) : Victor et les joueurs la voient
   une fois au lancement suivant, avec les éditions sautées (au plus 3, les plus anciennes comptées) ; l'autotest mesure le pire cas.
