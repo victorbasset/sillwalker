@@ -1361,4 +1361,7 @@ export default {
   2486: "No more “skill points” reminder once the whole tree is learned.",
   2487: "{n} set piece kept to complete a set.|{n} set pieces kept to complete a set.",
   2488: "A set piece! Wear 2, then 4 pieces of the same set for bonuses; each set completed for the first time also makes your hero stronger forever. Your bag keeps the pieces: as soon as it can complete one, “To do” does it in one click. All sets are listed in the Bestiary: click here.",
+  2489: "Bosses and dark monsters have a subtle outline: easier to see against night backgrounds.",
+  2490: "“Sell what doesn't upgrade me” shows on hover how many set pieces it keeps.",
+  2491: "Tips are shown in full (on several lines), in every language.",
 };

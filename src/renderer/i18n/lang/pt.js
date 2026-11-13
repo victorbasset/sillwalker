@@ -1361,4 +1361,7 @@ export default {
   2486: "Sem lembrete de “pontos de habilidade” quando a árvore está completa.",
   2487: "{n} peça de conjunto guardada para completar um.|{n} peças de conjunto guardadas para completar um.",
   2488: "Uma peça de conjunto! Use 2 e depois 4 peças do mesmo conjunto para ganhar bônus; cada conjunto completado pela primeira vez também deixa seu herói mais forte para sempre. Sua bolsa guarda as peças: assim que puder completar um, “A fazer” faz isso com um clique. Todos os conjuntos estão no Bestiário: clique aqui.",
+  2489: "Chefes e monstros escuros têm um contorno discreto: ficam mais visíveis nos cenários noturnos.",
+  2490: "“Vender o que não me melhora” mostra ao passar o mouse quantas peças de conjunto guarda.",
+  2491: "As dicas aparecem por inteiro (em várias linhas), em todos os idiomas.",
 };

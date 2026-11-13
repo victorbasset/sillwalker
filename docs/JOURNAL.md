@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1028) : « Quoi de neuf », édition 48 : contours discrets des boss et des monstres sombres, pièces de
+  panoplie gardées dites au survol de « Vendre ce qui ne m'améliore pas », astuces affichées en entier. Bulles de
+  paroles du héros mesurées (49 répliques) : 283 px au plus (allemand), rien à corriger. 10 langues sans défaut
+  (« Quoi de neuf » au pire cas compris) ; autotest 204/204.
 - 2026-11-13 (it. 1027) : --overflow-report vérifie chaque astuce dans la bulle (trois lignes au plus depuis l'it.
   1026) : « astuce-coupée=id » (textes calculés compris, textFn). 10 langues : aucune coupée. Mesure prouvée : bulle
   remise à une ligne le temps d'un essai, elle signale « set » et « astrolabe » en russe. Autotest 204/204. CLAUDE.md.

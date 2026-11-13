@@ -1361,4 +1361,7 @@ export default {
   2486: "Keine Erinnerung an „Fertigkeitspunkte“ mehr, wenn der Baum vollständig ist.",
   2487: "{n} Setteil behalten, um ein Set zu vervollständigen.|{n} Setteile behalten, um ein Set zu vervollständigen.",
   2488: "Ein Setteil! Trage 2, dann 4 Teile desselben Sets für Boni; jedes zum ersten Mal vervollständigte Set macht deinen Helden außerdem dauerhaft stärker. Deine Tasche behält die Teile: Sobald sie eines vervollständigen kann, erledigt „Zu tun“ das mit einem Klick. Alle Sets stehen im Bestiarium: hier klicken.",
+  2489: "Bosse und dunkle Monster haben eine dezente Kontur: vor nächtlichem Hintergrund besser zu sehen.",
+  2490: "„Verkaufen, was mich nicht verbessert“ zeigt beim Überfahren, wie viele Setteile behalten werden.",
+  2491: "Tipps werden vollständig angezeigt (über mehrere Zeilen), in allen Sprachen.",
 };

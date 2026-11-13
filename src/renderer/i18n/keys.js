@@ -2490,5 +2490,8 @@ export const KEYS = [
   "Carnet de route en colonnes ; carte Zone plus courte (boss épuisé, relique du boss de la zone).",
   "Plus de rappel « points de compétence » une fois l’arbre entièrement appris.",
   "{n} pièce de panoplie gardée pour en compléter une.|{n} pièces de panoplie gardées pour en compléter une.",
-  "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus ; chaque panoplie complétée une première fois rend aussi ton héros plus fort pour toujours. Ton sac garde les pièces : dès qu’il peut en compléter une, « À faire » le fait d’un clic. Toutes les panoplies sont dans le Bestiaire : clique ici."
+  "Une pièce de panoplie ! Porte 2 puis 4 pièces de la même panoplie pour des bonus ; chaque panoplie complétée une première fois rend aussi ton héros plus fort pour toujours. Ton sac garde les pièces : dès qu’il peut en compléter une, « À faire » le fait d’un clic. Toutes les panoplies sont dans le Bestiaire : clique ici.",
+  "Les boss et les monstres sombres ont un contour discret : on les voit mieux dans les décors de nuit.",
+  "« Vendre ce qui ne m’améliore pas » dit au survol combien de pièces de panoplie il garde.",
+  "Les astuces s’affichent en entier (sur plusieurs lignes), dans toutes les langues."
 ];

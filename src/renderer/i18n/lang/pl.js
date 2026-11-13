@@ -1361,4 +1361,7 @@ export default {
   2486: "Koniec przypominania o „punktach umiejętności”, gdy drzewo jest ukończone.",
   2487: "{n} część zestawu zachowana, by go skompletować.|{n} części zestawu zachowane, by go skompletować.|{n} części zestawu zachowanych, by go skompletować.",
   2488: "Część zestawu! Załóż 2, a potem 4 części tego samego zestawu, aby zdobyć bonusy; każdy zestaw skompletowany po raz pierwszy na zawsze wzmacnia też bohatera. Torba zachowuje części: gdy tylko może skompletować zestaw, „Do zrobienia” zrobi to jednym kliknięciem. Wszystkie zestawy są w Bestiariuszu: kliknij tutaj.",
+  2489: "Bossowie i ciemne potwory mają subtelny kontur: lepiej je widać na nocnym tle.",
+  2490: "„Sprzedaj, co mnie nie ulepsza” po najechaniu pokazuje, ile części zestawów zachowuje.",
+  2491: "Wskazówki wyświetlają się w całości (w kilku wierszach), we wszystkich językach.",
 };
