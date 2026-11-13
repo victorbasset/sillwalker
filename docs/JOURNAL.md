@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-13 (it. 1011, revue générale) : simulation 12 h (horloge virtuelle), records des courses : paladin 44 → 65,
+  nécromancien 39 → 61, moine 44 → 65 (réguliers). Performance (copie neuve) : bande 19,8 %, panneau 20,5 %, mini 6,9 %,
+  icône 0,8 %. Captures Talents et Boutique à 1366 px en français, anglais et chinois, mini en chinois : propres
+  (l'étal du Marchand de dev-data, tiré avant l'it. 988, ne propose que des objets plus faibles : il se renouvellera).
+  Texte chinois extrait : aucun mot latin suspect. --crawl en polonais sur la partie de fin de partie : 385 clics,
+  aucune erreur. Rien à corriger.
 - 2026-11-13 (it. 1010) : partie de fin de partie régénérée avec l'horloge virtuelle (scripts/fixtures/endgame-save.json,
   simulate.js 48 h guerrier : zone 150, niveau 183, 19 ascensions, 6 panoplies, 16 familiers en expédition, 331
   expéditions accomplies) ; simulate.js envoie désormais les familiers libres en « Voyage » toutes les 10 min (joueur
