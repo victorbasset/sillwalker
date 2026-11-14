@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1252) : outil --dump-text (main.js) : il ne lisait que la sous-section par défaut de chaque onglet
+  (Bestiaire > Élites, Événements, Bénédictions ; Boutique > Atelier ; Statistiques > Succès… jamais extraits) et
+  les attributs title, vides depuis l'it. 817 (les bulles sont dans data-title) : le texte des bulles échappait donc
+  aussi à la chasse aux mots non traduits. Il parcourt maintenant toutes les sous-sections (boutons data-to) et lit
+  data-title. Partie de fin en russe : 19 781 lignes (au lieu de ≈ 11 600), rien de non traduit (suffixes Qa / Qi
+  voulus, noms de langues, Esc). CLAUDE.md.
 - 2026-11-14 (it. 1251, revue générale) : performance (it. 1249) et 12 h des 10 héros (balance, it. 1250) déjà
   mesurées, inchangées. Texte japonais de la partie de fin (11 589 lignes) : aucun mot latin hors noms propres, langues
   et touches (Esc, DEV, BGM) ; Lune pâle traduite partout (18 occurrences). Captures en japonais : Bestiaire > Élites

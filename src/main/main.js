@@ -167,11 +167,19 @@ function start() {
         for (const t of tabs) {
           strip.send("command", "tab:" + t);
           await new Promise((r) => setTimeout(r, 700));
-          out += `=== ${t}\n` + await wc.executeJavaScript(`(() => {
-            const p = document.querySelector("#panel") || document.body;
-            const extra = [...document.querySelectorAll("[title], [aria-label]")].map((e) => (e.title || "") + " | " + (e.getAttribute("aria-label") || ""));
-            return p.innerText + "\\n--- attributs\\n" + extra.join("\\n");
-          })()`) + "\n";
+          // (it. 1252) toutes les sous-sections de l'onglet (Bestiaire > Élites, Boutique > Atelier…), pas seulement celle
+          // par défaut ; et les bulles d'aide (data-title depuis l'it. 817 : title est vide)
+          const secs = await wc.executeJavaScript(`(() => { const T = window.__panel && window.__panel.tabs["${t}"];
+            const b = [...document.querySelectorAll('[data-pane="${t}"] [data-action="b-jump"], [data-pane="${t}"] .subtabs [data-to]')].map((e) => e.dataset.to);
+            return T && "sec" in T ? [...new Set([T.sec, ...b])] : [null]; })()`);
+          for (const sec of secs) {
+            if (sec) { await wc.executeJavaScript(`(() => { const P = window.__panel; P.tabs["${t}"].sec = ${JSON.stringify(sec)}; P.renderAll(); })()`); await new Promise((r) => setTimeout(r, 300)); }
+            out += `=== ${t}${sec ? " > " + sec : ""}\n` + await wc.executeJavaScript(`(() => {
+              const p = document.querySelector("#panel") || document.body;
+              const extra = [...p.querySelectorAll("[title], [data-title], [aria-label]")].map((e) => (e.title || e.dataset.title || "") + " | " + (e.getAttribute("aria-label") || ""));
+              return p.innerText + "\\n--- attributs\\n" + extra.join("\\n");
+            })()`) + "\n";
+          }
         }
         out += "=== strip\n" + await wc.executeJavaScript("document.body.innerText");
         fs.writeFileSync(path.resolve(flags.dumpText), out);

@@ -172,7 +172,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   un nouveau boss ou une nouvelle pièce d'équipement au nom féminin, neutre ou pluriel s'y ajoute. Coréen : écrire la
   double particule après une variable (`{0}이(가)`, `{0}을(를)`…) ; `koJosa` (appelé par `t()`) garde la bonne.
 - `i18n-check` ne voit pas les textes écrits en dur hors `tx()` : extraire le texte affiché en russe
-  (`--open-panel --dump-text=<fichier>`, sans `--exit-after`) et y chercher les mots latins
+  (`--open-panel --dump-text=<fichier>`, sans `--exit-after` ; depuis l'it. 1252 il parcourt aussi chaque sous-section des onglets et le texte des bulles d'aide, `data-title`) et y chercher les mots latins
   (`grep -oP "(?<![A-Za-z])[A-Za-zÀ-ÿ']{2,}"`, mots courts compris : « pts », « min », « oui » y ont échappé) ; ce qui n'est pas un repère `=== onglet` est suspect. Le faire aussi sur la partie de fin de partie (scripts/fixtures/endgame-save.json, `s.log = []` dans la copie : le journal garde la langue de la simulation) : reliques, boss majeurs, chroniques et panoplies n'apparaissent pas dans dev-data (it. 1018 : ru, ja, pl propres).
   États extrêmes (aucune sauvegarde de test ne les atteint) : `node --experimental-default-type=module scripts/max-save.mjs <copie>/save.json`
   (tout au maximum : « (complet) » du Bestiaire restait en français, it. 1062-1063).
