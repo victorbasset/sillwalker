@@ -952,6 +952,13 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of art.frames) for (const row of f) assert.equal(row.length, f[0].length, p.id + " : « " + row + " »");
     }
   });
+  test("chaque succès a son icône Steam (achicons.html et les deux PNG, it. 1303)", () => {
+    const html = fs.readFileSync(new URL("./steam-capsules/achicons.html", import.meta.url), "utf8");
+    for (const a of ACH_T) {
+      assert.ok(new RegExp("\\b" + a.id + ": \"").test(html), "icône non choisie dans achicons.html : " + a.id);
+      for (const f of [a.id + ".png", a.id + "_gray.png"]) assert.ok(fs.existsSync(new URL("../steam/achievement-icons/" + f, import.meta.url)), "icône absente : " + f + " (scripts/steam-capsules/achicons.js)");
+    }
+  });
   test("chaque événement rare a son propre son (sound.js, it. 1302)", () => {
     const src = fs.readFileSync(new URL("../src/renderer/render/sound.js", import.meta.url), "utf8");
     for (const k of Object.keys(EVENTS_T)) assert.ok(src.includes(`case "${k}":`), "son manquant : " + k);

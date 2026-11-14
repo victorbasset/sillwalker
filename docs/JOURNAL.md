@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1303) : test : chaque succès a son icône choisie dans achicons.html et ses deux PNG
+  (steam/achievement-icons, couleur et grisée) ; avant, un oubli ne se voyait qu'en relançant achicons.js (it. 1266 :
+  un dessin inexistant y avait été signalé). Les 68 sont complets. Série des it. 1299-1303 : réplique de chaque
+  bénédiction, icône et poids de chaque quête, son de chaque événement, icône de chaque succès vérifiés par npm test.
 - 2026-11-14 (it. 1302) : sons des événements rares : l'autotest rendait une liste écrite à la main (il fallait y
   ajouter chaque nouvel événement, fait pour la Lune pâle à l'it. 1242) ; il prend maintenant EVENTS du jeu. Test :
   chaque événement a son « case » dans sound.js. Autotest 228/228 (« son : tous les sons » ok).
