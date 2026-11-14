@@ -37,18 +37,17 @@ for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
     if tr is not None: sc["track"] = tr
     if SERIES == "promo":
         panel = rect and rect[3] == 620  # (it. 1178) fenêtre entière (3840 → 1920 : taille réelle d'un écran 1920)
+        # (it. 1192) image centrée entre l'accroche (≈ 180 px) et le logo (≈ 990 px) : avant, tout était tassé en haut
+        mid = lambda h: max(230, 585 - h // 2)
         if src == "bloodmoon":
-            sc["rect"] = [0, 380, 1920, 200]; sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 640, 1920, 200]}]
-        elif rect and rect[3] in (240, 400):
-            sc["rect"] = [0, 300 if rect[3] == 400 else 380, 1920, rect[3]]
-        elif rect and rect[3] in (600, 800) and rect[1] < 230:  # bande sous l'accroche
-            sc["rect"] = [0, 230 if rect[3] == 800 else 300, 1920, rect[3]]
-        if panel:  # vue du panneau : réduite pour laisser la place à l'accroche
-            sc["rect"] = [0, 250, 1920, 620]
+            sc["rect"] = [0, 355, 1920, 200]; sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 615, 1920, 200]}]
+        elif rect and typ == "clip":
+            sc["rect"] = [0, mid(rect[3]), 1920, rect[3]]
         top = 40 if not panel else 30
         sc["title"] = [[tl(head), "title", 76, R if head == "BLOOD MOON" else ([140, 200, 255] if head == "STAR SWARM" else G), top], [tl(sub), "body", 34, L, top + 96]]
         sc["plate"] = typ == "desktop"
-        sc["logo"] = ["steam/capsules/library-logo.png", 1000, 0]
+        if typ != "desktop":  # (it. 1192) sur le bureau, le logo en coin tombait sur la bande du jeu
+            sc["logo"] = ["steam/capsules/library-logo.png", 1000, 0]
     S.append(sc)
 json.dump({"scenes": S}, open(OUT, "w"), indent=1)
 print(SERIES, len(S))

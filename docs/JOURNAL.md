@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1192, captures 7) : relecture à pleine taille : captures « promo » centrées entre l'accroche et le
+  logo (tassées en haut avant) ; plus de logo en coin sur le bureau (il tombait sur la bande du jeu) ; record.sh vide
+  le journal de la copie (le journal garde la langue de la partie d'origine : lignes anglaises dans l'Aventure en
+  français et dans les 8 autres langues) ; Aventure refilmée dans les 9 langues, toutes les captures relivrées.
 - 2026-11-14 (it. 1191, captures 6) : captures Steam (jeu seul) dans les 10 langues : les 13 plans utiles refilmés avec
   le jeu en es, pt, de, pl, ru, zh, ja, ko (échecs isolés du tournage, code 251 : plans manquants retournés) ;
   Mirette cadrée à ×1,2 (sa réplique allemande, plus longue, était coupée à ×1,5). Livrées dans
