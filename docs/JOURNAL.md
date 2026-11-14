@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1179, captures 4) : Mirette recadrée à ×1,5 lissé (maison, nom et réplique entiers) ; Ruée des
+  gobelins à l'instant de la pluie d'or (×2 autour du héros). Planches des deux séries envoyées à Victor.
 - 2026-11-14 (it. 1178, captures 3) : 13 captures par série : trois nouveaux plans (carte du Rebord, boutique,
   familiers ; bulles d'aide masquées pendant le tournage) ; captures de la Nuée d'étoiles, de la carte (« 200 zones to
   cross ») et de la boutique (« Every comfort is earned »). Les vues du panneau montrent la fenêtre ENTIÈRE à sa taille
