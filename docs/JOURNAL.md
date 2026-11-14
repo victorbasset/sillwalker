@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1262) : la quête « Vaincre un champion » avance aussi hors ligne (applyOffline : champions tirés à
+  CHAMPION.chance par monstre dès la zone 5, comptés dans les statistiques) : plutôt que l'exception ajoutée à la note
+  à l'it. 1261, retirée (la note reprend son texte d'avant, déjà traduit). Test (8 h d'absence : ≥ 1 champion pour
+  238 monstres) ; autotest 227/227.
 - 2026-11-14 (it. 1261, revue générale) : 12 h simulées : guerrier 69, mage 61, rôdeur 60 (61 / 62 / 64 à la 1241 ;
   une graine, ±4 zones par héros ; la moyenne des 10 héros était dans le bruit à l'it. 1250) ; performance : bande
   18,8 %, panneau 20,3 %, mini 6,6 %, icône 0,5 % (inchangé). Capture de l'onglet Quêtes (anglais, quête de champion

@@ -1112,6 +1112,10 @@ export class Game {
     // (it. 882) Élites rencontrées pendant l'absence, aux mêmes chances qu'en jeu (bénédiction du jour, Appât des
     // champions) : avant, une quête « élites » restait à 0 toute la nuit malgré des milliers de victoires.
     const elites = this.offlineElites(kills, hs);
+    // (it. 1262) champions vaincus pendant l'absence (chance par monstre, dès CHAMPION.minZone) : la quête « Vaincre un
+    // champion » avance aussi hors ligne, comme les autres
+    if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance, champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0);
+      if (champs) { S.stats.champions = (S.stats.champions || 0) + champs; this.questProgress("champion", champs); } }
     if (elites) { S.stats.elites += elites; this.questProgress("elite", elites);
       // (it. 946) proies pendant l'absence : chaque élite a une sorte au hasard (1 chance sur 7 d'être la bonne)
       const na = Object.keys(ELITE_AFFIXES).length;

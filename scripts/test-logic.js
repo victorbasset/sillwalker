@@ -940,6 +940,11 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, champion: true, affix: "fast" }); g.killMonster();
     assert.equal(g.S.quests.slots[0].progress, 1);
     assert.ok(M_quests_js.QUEST_TEMPLATES.champion.ok({ zone: 1, prestige: { count: 0 } }) === false, "pas en tout début de partie");
+    // (it. 1262) hors ligne : une longue absence fait aussi avancer la quête (≈ 1 champion pour 200 monstres)
+    const h = new Game(freshState()); h.S.zone = 10; h.S.stats.kills = 50;
+    h.S.quests.slots[0] = { id: 998, kind: "champion", goal: 99, progress: 0, stars: 1, reward: { gold: 10 } };
+    const sum = h.applyOffline(8 * 3600);
+    assert.ok(sum && sum.kills >= 200 && h.S.quests.slots[0].progress >= 1, (sum && sum.kills) + " monstres, " + h.S.quests.slots[0].progress + " champions");
   });
   test("élite régénérante : regagne sa vie en combat, jamais au-delà du maximum (it. 1250)", () => {
     const g = new Game(freshState());
