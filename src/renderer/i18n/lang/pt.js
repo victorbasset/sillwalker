@@ -1651,4 +1651,7 @@ export default {
   2776: "Lua pálida",
   2777: "Os monstros chegam com metade da vida!",
   2778: "Mal se aguentam de pé!",
+  2779: "Novo evento raro, a Lua pálida: durante 30 s, cada monstro chega com metade da vida, chefes incluídos.",
+  2780: "Registro: a primeira vez que você vive cada bênção do dia, o bônus permanente é anunciado.",
+  2781: "A bênção do dia que muda à meia-noite agora vale na hora.",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1243) : « Quoi de neuf », édition 64 : Lune pâle, annonce des bénédictions vécues, bénédiction de
+  minuit appliquée aussitôt (it. 1238-1242) ; traduite (noms d'événement repris tels que traduits). Autotest 227/227,
+  lang-overflow propre (pire cas des 3 dernières éditions).
 - 2026-11-14 (it. 1242) : 15e événement rare, « Lune pâle » (30 s, chance 0,15 % par victoire) : chaque monstre qui
   arrive n'a que la moitié de sa vie, boss compris (PALE_MOON, events.js ; barre de vie à moitié vide) : victoires en
   rafale et coup de pouce contre un boss coriace. Réplique du héros, son (autotest : il visait des notes absentes de

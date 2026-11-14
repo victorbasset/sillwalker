@@ -1651,4 +1651,7 @@ export default {
   2776: "Luna pálida",
   2777: "¡Los monstruos llegan con la mitad de su vida!",
   2778: "¡Apenas se tienen en pie!",
+  2779: "Nuevo evento raro, la Luna pálida: durante 30 s, cada monstruo llega con la mitad de su vida, jefes incluidos.",
+  2780: "Registro: la primera vez que vives cada bendición del día, se anuncia su bonificación permanente.",
+  2781: "La bendición del día que cambia a medianoche se aplica al instante.",
 };

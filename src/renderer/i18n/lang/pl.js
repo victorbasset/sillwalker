@@ -1651,4 +1651,7 @@ export default {
   2776: "Blady Księżyc",
   2777: "Potwory przybywają z połową życia!",
   2778: "Ledwo trzymają się na nogach!",
+  2779: "Nowe rzadkie wydarzenie, Blady Księżyc: przez 30 s każdy potwór przybywa z połową życia, łącznie z bossami.",
+  2780: "Dziennik: przy pierwszym przeżytym błogosławieństwie dnia każdego rodzaju ogłaszana jest jego stała premia.",
+  2781: "Błogosławieństwo dnia zmieniające się o północy działa teraz od razu.",
 };

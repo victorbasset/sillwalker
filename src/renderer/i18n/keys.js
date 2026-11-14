@@ -2780,5 +2780,8 @@ export const KEYS = [
   "Nouvelle bénédiction vécue : {0} pour toujours ({1} / {2}).",
   "Lune pâle",
   "Les monstres arrivent à moitié de leur vie !",
-  "Ils tiennent à peine debout !"
+  "Ils tiennent à peine debout !",
+  "Nouvel événement rare, la Lune pâle : pendant 30 s, chaque monstre arrive avec la moitié de sa vie, boss compris.",
+  "Journal : la première bénédiction du jour vécue de chaque sorte annonce son bonus pour toujours.",
+  "La bénédiction du jour qui change à minuit s’applique aussitôt, sans attendre."
 ];

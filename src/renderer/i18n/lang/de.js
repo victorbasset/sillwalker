@@ -1651,4 +1651,7 @@ export default {
   2776: "Fahler Mond",
   2777: "Monster kommen mit halbem Leben an!",
   2778: "Die können kaum noch stehen!",
+  2779: "Neues seltenes Ereignis, der Fahle Mond: 30 s lang kommt jedes Monster mit halbem Leben an, Bosse eingeschlossen.",
+  2780: "Protokoll: Wenn du einen Tagessegen zum ersten Mal erlebst, wird sein dauerhafter Bonus angekündigt.",
+  2781: "Ein Tagessegen, der um Mitternacht wechselt, wirkt jetzt sofort.",
 };

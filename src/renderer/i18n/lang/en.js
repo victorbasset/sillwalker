@@ -1651,4 +1651,7 @@ export default {
   2776: "Pale Moon",
   2777: "Monsters arrive with half their life!",
   2778: "They can barely stand!",
+  2779: "New rare event, the Pale Moon: for 30 s, every monster arrives with half its life, bosses included.",
+  2780: "Log: the first time you live through each kind of daily blessing, its permanent bonus is announced.",
+  2781: "A daily blessing that changes at midnight now applies right away.",
 };
