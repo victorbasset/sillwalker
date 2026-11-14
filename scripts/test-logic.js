@@ -952,6 +952,16 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of art.frames) for (const row of f) assert.equal(row.length, f[0].length, p.id + " : « " + row + " »");
     }
   });
+  test("chaque sorte de quête a sa propre icône et un poids de tirage (it. 1300)", () => {
+    const ui = fs.readFileSync(new URL("../src/renderer/ui/tabs/quests.js", import.meta.url), "utf8");
+    const icons = ui.slice(ui.indexOf("const KIND_ICON"), ui.indexOf("};", ui.indexOf("const KIND_ICON")));
+    const game = fs.readFileSync(new URL("../src/renderer/game/quests.js", import.meta.url), "utf8");
+    const weights = game.slice(game.indexOf("const WEIGHTS"), game.indexOf("};", game.indexOf("const WEIGHTS")));
+    for (const k of Object.keys(M_quests_js.QUEST_TEMPLATES)) {
+      assert.ok(new RegExp("\\b" + k + ": \\(").test(icons), "icône manquante : " + k + " (repli sur celle des chasses)");
+      assert.ok(new RegExp("\\b" + k + ": \\d").test(weights), "poids de tirage manquant : " + k);
+    }
+  });
   test("chaque bénédiction du jour a sa réplique du héros (strip.js dm_<clé>, it. 1299)", () => {
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);

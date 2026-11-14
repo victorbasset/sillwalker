@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1300) : test : chaque sorte de quête a sa propre icône (sinon repli silencieux sur celle des chasses,
+  ui/tabs/quests.js) et un poids de tirage (sinon jamais proposée, game/quests.js WEIGHTS) ; vérifié qu'une sorte
+  fictive échoue. Les 17 sont complètes.
 - 2026-11-14 (it. 1299) : test : chaque bénédiction du jour a sa réplique du héros (dm_<clé> dans strip.js), comme les
   événements rares (it. 982) ; sans elle, say() ignore la liste absente et le héros resterait muet sans que rien ne
   le signale. Les 12 en ont une.
