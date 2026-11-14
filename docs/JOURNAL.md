@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1334, contrôle) : passage à minuit : npm test 291/291 avec la date réelle du 15 ; calendrier tenu
+  (15 fureur, 16 trésor, 17 gobelins, comme annoncé avant l'ajout du Jour de l'élan).
 - 2026-11-15 (it. 1333, contrôle) : --crawl en français sur une copie de dev-data : 387 clics, aucune erreur ;
   ~/.config/Sillwalker toujours absent.
 - 2026-11-14 (it. 1332) : taille de la sauvegarde remesurée pour le quota Steam Cloud (1 Mo) : dev 17,6 Ko, fin de partie
