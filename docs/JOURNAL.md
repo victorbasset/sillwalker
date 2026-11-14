@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1231, revue générale) : performance sur copie neuve de dev-data : bande 21,3 %, panneau 20,5 %, mini
+  7,1 %, icône 0,5 % (stable : la vérification de scène de PNJ à chaque image ne coûte rien de mesurable) ; 12 h
+  simulées : 61 / 62 / 64 (guerrier / mage / archer, inchangé ; la simulation ne réclame pas de récompense du jour, le
+  bonus des bénédictions, +10 % d'expérience au plus en dix jours, n'y joue pas) ; texte coréen de la partie de fin :
+  propre. Rien à noter.
 - 2026-11-14 (it. 1230) : README à jour des nouveautés de l'après-midi (Jour des ombres, réplique du héros, collection
   des bénédictions, objets restés au sol dans le résumé d'absence). La page du magasin ne chiffre pas les
   bénédictions : rien à y changer.
