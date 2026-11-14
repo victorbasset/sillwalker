@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1176, captures 1) : scripts/promo/stills.py → edit.py (sortie « %02d.png » : une image par scène) :
+  deux séries de 10 captures 1920×1080 à partir des plans tournés : « steam » (du jeu seul, sans texte publicitaire)
+  et « promo » (accroche + sous-titre, petit logo en bas à droite) : bureau, héros ×4, Lune de sang, Mirette, grand
+  graphe, paliers, Aventure, Bestiaire, combat de fin de partie, Ruée des gobelins. Corrigé : titres invisibles sur
+  une image seule (sortie animée), vues du panneau qui coupaient la bande (fenêtre entière, 2203 px réduits),
+  événements ×3, gros plans sous l'accroche. À reprendre : Lune de sang (deux élites seulement à ×3). Images gardées
+  hors dépôt jusqu'à la version finale (poids de l'historique).
 - 2026-11-14 (it. 1175, bande-annonce 9) : ouverture : carton du logo vivant (poussée 0,94 → 1, étoiles qui
   scintillent, reflet qui éclaircit les pixels du logo ; une surimpression faisait une tache grise) ; bureau dessiné
   d'une journée de travail (fond crépuscule à montagnes, éditeur de code coloré, document, lecteur « lofi beats to idle

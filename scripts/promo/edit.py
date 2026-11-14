@@ -69,7 +69,7 @@ def paste_title(img, title, i, sc):
     """(it. 1173) Entrée animée du titre : glissé de 28 px vers le haut et fondu sur 8 images ; « punch » : le titre
     arrive agrandi (×1,12) et se pose (titres d'événements). Sortie : fondu sur les 5 dernières images si fade=0."""
     n = int(round(sc["dur"] * FPS)); k = ease(min(1.0, i / 8)) if sc.get("title_in", True) else 1.0
-    out = 1.0 if sc.get("fade", 8) else ease(min(1.0, (n - 1 - i) / 5))
+    out = 1.0 if sc.get("fade", 8) or n <= 10 else ease(min(1.0, (n - 1 - i) / 5))  # une capture (1 image) : pas de sortie
     a = k * out
     lay = title
     if sc.get("punch") and k < 1:
@@ -187,9 +187,11 @@ def render_scene(sc, enc, bgs):
     if sc.get("logo"):  # (it. 1172) logo du jeu (image), centré, à la largeur demandée, au plus proche voisin
         lp, ly, lw = sc["logo"]
         lg = Image.open(os.path.join(ROOT, lp)).convert("RGBA")
+        corner = lw == 0  # largeur 0 : petit logo en bas à droite (captures « promo », it. 1176)
+        lw = 260 if corner else lw
         lg = lg.resize((lw, round(lg.height * lw / lg.width)), Image.NEAREST)
         lay = title.copy() if title is not None else Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        lay.paste(lg, ((W - lw) // 2, ly), lg)
+        lay.paste(lg, (W - lw - 36, H - lg.height - 28) if corner else ((W - lw) // 2, ly), lg)
         title = lay
     fade = sc.get("fade", 8)
     if sc["type"] == "desktop":  # caméra dans le bureau ×2 (3840×2160), image entière par défaut
@@ -281,6 +283,11 @@ def render_scene(sc, enc, bgs):
 def main():
     edl = json.load(open(EDL, encoding="utf-8"))
     args = [FF, "-hide_banner", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-"]
+    if OUT.endswith(".png"):  # (it. 1176) captures : une image par scène (dur = 1/30 s), sortie « dossier/%02d.png »
+        enc = subprocess.Popen(args + [OUT], stdin=subprocess.PIPE)
+        for sc in edl["scenes"]:
+            render_scene(sc, enc, {})
+        enc.stdin.close(); enc.wait(); print(OUT); return
     if AUDIO:
         args += ["-i", AUDIO, "-shortest", "-c:a", "aac", "-b:a", "192k"]
     args += ["-c:v", "libx264", "-crf", "16", "-preset", "medium", "-pix_fmt", "yuv420p", "-movflags", "+faststart", OUT]

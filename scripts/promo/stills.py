@@ -1,0 +1,40 @@
+# (it. 1176) Captures d'écran 1920×1080 à partir des plans tournés (scripts/promo/shoot.mjs), par edit.py (une image par
+# scène). Deux séries : « steam » (du jeu seul, sans texte publicitaire : règles de Steam) et « promo » (accroche et
+# logo, pour itch.io et les réseaux). Usage : python3 scripts/promo/stills.py <steam|promo> <edl.json>
+import json, sys
+SERIES, OUT = sys.argv[1], sys.argv[2]
+G, L, R = [255, 217, 138], [236, 232, 255], [255, 120, 110]
+F = 1 / 30
+CU = lambda x: [[x, 1040, 480], [x, 1040, 480]]
+EV = lambda x: [[x, 1040, 640], [x, 1040, 640]]  # (it. 1176) événements ×3 (640×200 → 1920×600)
+SHOTS = [
+    # (plan, instant, type, rect, cam, suivi du héros, accroche, sous-titre)
+    ("walk", 5.0, "desktop", None, [[0, 0, 3840], [0, 0, 3840]], None, "Your taskbar has a new neighbour.", "An idle RPG that lives on the edge of your screen"),
+    ("walk", 4.5, "clip", [0, 140, 1920, 800], CU(0), 150, "A tiny hero. A big adventure.", "Fights, loots and grows stronger while you work"),
+    ("bloodmoon", 5.0, "clip", [0, 240, 1920, 600], EV(1150), None, "BLOOD MOON", "14 rare events turn the road upside down"),
+    ("npc-shop", 5.0, "clip", [0, 240, 1920, 600], EV(1250), None, "Meet the folk of the Sill.", "Every tab has its inhabitant, met along the road"),
+    ("p-graph", 5.0, "clip", [0, 0, 1920, 1080], [[1100, 0, 2203], [1100, 0, 2203]], None, "A 618-node great graph", "Paths to choose, synergies that change how you play"),
+    ("p-mastery", 4.0, "clip", [0, 0, 1920, 1080], [[820, 0, 2203], [820, 0, 2203]], None, "Real choices", "Two bonuses at every mastery milestone"),
+    ("p-adventure", 3.0, "clip", [0, 0, 1920, 1080], [[0, 0, 2203], [0, 0, 2203]], None, "Gear up and forge", "Sets, legendary powers, a forge and a merchant"),
+    ("p-bestiary", 3.0, "clip", [0, 0, 1920, 1080], [[0, 0, 2203], [0, 0, 2203]], None, "Collect them all", "83 monsters, elites, sets and rare events"),
+    ("endfight", 3.0, "clip", [0, 140, 1920, 800], CU(1500), None, "Grow absurdly powerful.", "20 heroes, fighting in pairs"),
+    ("goblinrush", 5.0, "clip", [0, 240, 1920, 600], EV(1200), None, "GOBLIN RUSH", "Golden goblins, everywhere"),
+]
+S = []
+for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
+    sc = {"type": typ, "src": src, "t0": t0, "dur": F, "cam": cam, "fade": 0, "title_in": False}
+    if rect: sc["rect"] = rect
+    if tr is not None: sc["track"] = tr
+    if SERIES == "promo":
+        panel = rect and rect[3] == 1080
+        if rect and rect[3] in (600, 800) and rect[1] < 230:  # bande sous l'accroche
+            sc["rect"] = [0, 230 if rect[3] == 800 else 300, 1920, rect[3]]
+        if panel:  # vue du panneau : réduite pour laisser la place à l'accroche
+            sc["rect"] = [192, 190, 1536, 864]  # (it. 1176) fenêtre entière (panneau et bande) : cadrage 2203 de large
+        top = 40 if not panel else 30
+        sc["title"] = [[head, "title", 76, R if head == "BLOOD MOON" else G, top], [sub, "body", 34, L, top + 96]]
+        sc["plate"] = typ == "desktop"
+        sc["logo"] = ["steam/capsules/library-logo.png", 1000, 0]
+    S.append(sc)
+json.dump({"scenes": S}, open(OUT, "w"), indent=1)
+print(SERIES, len(S))
