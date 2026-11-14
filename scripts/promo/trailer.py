@@ -21,7 +21,7 @@ sc(1, type="clip", src="walk", t0=4, rect=CUR, cam=CU(700, 760), track=150, fade
 sc(1, type="clip", src="walk", t0=6.8, rect=CUR, cam=CU(780, 880), track=150, fade=0, title=[T("Fights. Loots. Grows stronger.", 60, 64)])
 sc(1, type="card", logo=["steam/capsules/library-logo.png", 380, 900], fade=6)
 sc(1, type="clip", src="npc-shop", t0=4.2, rect=[0, 420, 1920, 300], cam=[[1060, 1040, 1280], [1100, 1040, 1280]], smooth=True, fade=0, title=[T("Meet the folk of the Sill.", 200, 72)])
-sc(1, type="clip", src="p-adventure", t0=1, rect=PAN, cam=[[0, 40, 1920], [40, 50, 1920]], fade=0, title=[T("Gear up. Forge. Complete your sets.", 975, 56)])
+sc(1, type="clip", src="p-adventure", t0=1, rect=PAN, cam=[[0, 0, 2560], [60, 0, 2560]], fade=0, title=[T("Gear up. Forge. Complete your sets.", 975, 56)])
 sc(1, type="clip", src="bloodmoon", t0=2, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("BLOOD MOON", 170, 120, R), T("every monster turns elite", 330, 38, L, "body")])
 sc(1, type="clip", src="starfall", t0=1.5, rect=EVR, cam=EV(700, 1300), track=180, fade=0, punch=True, title=[T("STAR SWARM", 170, 120, [170, 210, 255]), T("catch the falling stars", 330, 38, L, "body")])
 sc(1, type="clip", src="goblinrush", t0=1.5, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("GOBLIN RUSH", 170, 120, [140, 230, 120]), T("golden goblins, everywhere", 330, 38, L, "body")])
@@ -31,7 +31,7 @@ sc(2, type="clip", src="p-graph", t0=2, rect=[160, 40, 1600, 900], cam=[[1500, 4
 sc(1, type="clip", src="p-mastery", t0=2, rect=PAN, cam=[[960, 40, 1920], [960, 40, 1920]], fade=0, title=[T("Real choices, every milestone.", 975, 56)])
 # (it. 1189) combat contre un boss majeur (le Chevalier de l'éclipse, zone 150) : sorts, critiques, esquives
 sc(1, type="clip", src="boss", t0=6, rect=EVR, cam=EV(2680, 2740), track=340, fade=0, punch=True, title=[T("Grow absurdly powerful.", 250, 72)])
-sc(1, type="clip", src="p-bestiary", t0=1, rect=PAN, cam=[[0, 40, 1920], [0, 40, 1920]], fade=0, title=[T("83 monsters. 20 heroes. 14 rare events.", 975, 52)])
+sc(1, type="clip", src="p-bestiary", t0=1, rect=PAN, cam=[[0, 0, 2560], [0, 0, 2560]], fade=0, title=[T("83 monsters. 20 heroes. 14 rare events.", 975, 52)])
 # (it. 1183) coupes rapides de la fin : quatre compositions différentes (avant : quatre gros plans du même duo, avec le
 # suivi du héros, identiques à l'œil) : la Lune de sang entière, la carte, le combat de fin, la Ruée des gobelins
 sc(0.5, type="clip", src="bloodmoon", t0=6, rect=[0, 300, 1920, 200], cam=[[0, 1040, 1920], [0, 1040, 1920]], fade=0, extra=[{"cam": [1920, 1040, 1920], "rect": [0, 580, 1920, 200]}])

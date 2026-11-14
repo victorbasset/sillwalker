@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1196, bande-annonce 19) : relecture de la version finale : Aventure et Bestiaire cadrés à ×0,75
+  (2560 px du tournage → 1920) : colonnes entières et bande du jeu dessous (à ×1, l'équipement était coupé au bord).
+  Cinq bandes-annonces complètes relivrées. steam/screenshots et steam/media : remplacés une seule fois, avant midi.
 - 2026-11-14 (it. 1195, médias 3) : vignettes (scripts/promo/thumbs.py) : vignette YouTube 1280×720 et couverture
   itch.io 630×500 en cinq langues, à partir d'une image nette du combat contre le boss majeur (bande ×3 et ×2 sans
   le HUD du jeu), bandeau du logo (rogné de sa marge transparente : il chevauchait la scène) et accroche
