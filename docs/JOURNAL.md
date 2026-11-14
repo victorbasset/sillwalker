@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1327) : test : les effets des quatre reliques suivent RELIC_POWER et DRONE (missile 1,5 s, 1,5 % /
+  0,4 %, 300 % ; −45 % et 1 %/s ; ×2,5 ; doublés et +50 % d'or) ; tous justes.
 - 2026-11-14 (it. 1326) : test : les descriptions des consommables suivent leurs constantes (potion : seuil 30 %, soin
   50 %, stock 20 ; élixirs : effets de BUFF_EFFECTS, 10 min, cumul 2 h) ; tous justes.
 - 2026-11-14 (it. 1325) : les multiplicateurs annoncés par les événements rares comparés au code : la Rafale de vent

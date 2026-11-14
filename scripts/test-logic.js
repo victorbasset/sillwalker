@@ -18,6 +18,7 @@ import * as M_news_js from "../src/renderer/game/news.js";
 import * as M_spells_js from "../src/renderer/game/spells.js";
 import { SPELL_INDEX as SPELL_INDEX_T, spellCd, pierceTargets } from "../src/renderer/game/spells.js";
 import { hasRelic as hasRelic_T } from "../src/renderer/game/relics.js";
+import * as M_relics_js from "../src/renderer/game/relics.js";
 import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
@@ -999,6 +1000,18 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
   test("chaque bénédiction du jour a sa réplique du héros (strip.js dm_<clé>, it. 1299)", () => {
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
+  });
+  test("reliques : les chiffres des effets suivent RELIC_POWER et DRONE (it. 1327)", () => {
+    const R = M_relics_js, fr = (x) => String(+x.toFixed(2)).replace(".", ","), P = (x) => fr(x * 100) + " %";
+    const E = (id) => R.RELICS[id].effect;
+    const want = {
+      drone: [fr(R.DRONE.every) + " s", P(R.DRONE.pct), P(R.DRONE.bossPct), P(R.DRONE.atk)],
+      heart: ["−" + P(1 - R.RELIC_POWER.heartGuard), P(R.RELIC_POWER.heartRegen)],
+      blade: [fr(R.RELIC_POWER.blade)],
+      crown: [P(R.RELIC_POWER.crownGold - 1)],
+    };
+    for (const [id, list] of Object.entries(want)) for (const w of list) assert.ok(E(id).includes(w), id + " : « " + w + " » absent de « " + E(id) + " »");
+    assert.equal(R.RELIC_POWER.crown, 2, "couronne : « doublés »");
   });
   test("consommables : les chiffres des descriptions suivent les constantes (it. 1326)", () => {
     const S = M_shop_js, by = Object.fromEntries(S.CONSUMABLES.map((c) => [c.id, c]));
