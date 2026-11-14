@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1187, bande-annonce 15) : version verticale 1080×1920 (TikTok, Shorts, Reels), 29,7 s, anglais et
+  français : CUT=vertical (trailer.py) + PROMO_SIZE=1080x1920 (edit.py) ; bande ×3 au milieu suivant le héros, titres
+  sur deux lignes au-dessus, logo centré en bas ; mêmes musique et bruitages que la version courte.
 - 2026-11-14 (it. 1186, médias 1) : GIF animés pour la page itch.io (scripts/promo/gifs.py) : cinq boucles de 4-5 s
   (marche, Lune de sang, Ruée des gobelins, Nuée d'étoiles, combat de fin), nettes au pixel (rendu ×2 du tournage
   sans mise à l'échelle, 240 px de haut), cadrées sur le héros d'après son journal, palette par GIF, 15 images/s :

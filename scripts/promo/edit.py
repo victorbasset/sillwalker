@@ -9,6 +9,8 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 EDL, SHOTS, FONTS, OUT, FF = sys.argv[1:6]
 AUDIO = sys.argv[6] if len(sys.argv) > 6 else None
 W, H, FPS = 1920, 1080, 30
+if os.environ.get("PROMO_SIZE"):  # (it. 1187) format vertical : PROMO_SIZE=1080x1920
+    W, H = (int(v) for v in os.environ["PROMO_SIZE"].split("x"))
 SRC_W, SRC_H = 3840, 1240
 GOLD, INK, LIGHT = (255, 217, 138), (20, 18, 31), (236, 232, 255)
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
@@ -191,6 +193,9 @@ def render_scene(sc, enc, bgs):
         lw = 260 if corner else lw
         lg = lg.resize((lw, round(lg.height * lw / lg.width)), Image.NEAREST)
         lay = title.copy() if title is not None else Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        if corner and H > W:  # format vertical : logo centré en bas, plus grand (it. 1187)
+            lw = 440; lg = Image.open(os.path.join(ROOT, lp)).convert("RGBA"); lg = lg.resize((lw, round(lg.height * lw / lg.width)), Image.NEAREST)
+            corner = False
         lay.paste(lg, (W - lw - 36, H - lg.height - 28) if corner else ((W - lw) // 2, ly), lg)
         title = lay
     fade = sc.get("fade", 8)

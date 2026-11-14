@@ -43,6 +43,16 @@ FR = {
     "Every comfort is earned": "Chaque confort se mérite",
     "Unlock automations in the shop as you progress": "Débloquez des automatismes en boutique au fil du jeu",
     "Golden goblins, everywhere": "Des gobelins dorés, partout",
+    "A tiny hero": "Un petit héros",
+    "walks the edge of your screen.": "marche au bord de votre écran.",
+    "A 618-node": "Un grand graphe",
+    "great graph.": "de 618 nœuds.",
+    "Grow absurdly": "Devenez absurdement",
+    "powerful.": "puissant.",
+    "An idle RPG on the": "Un RPG idle",
+    "edge of your screen": "au bord de votre écran",
+    "Wishlist on Steam": "Ajoutez-le sur Steam",
+    "Play now on itch.io": "Jouez sur itch.io",
 }
 LANG = os.environ.get("PROMO_LANG", "en")
 

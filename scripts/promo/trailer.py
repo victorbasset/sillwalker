@@ -41,5 +41,20 @@ if os.environ.get("CUT") == "short":
     # (it. 1185) version courte (≈ 30 s, réseaux) : 11 mesures prises dans le montage complet (indice, mesures)
     keep = [(0, 1), (1, 2), (2, 1), (6, 1), (7, 1), (8, 1), (11, 1), (13, 1), (19, 2)]
     S = [dict(S[i], dur=round(b * BAR, 4)) for i, b in keep]
+if os.environ.get("CUT") == "vertical":
+    # (it. 1187) version verticale 1080×1920 (TikTok, Shorts, Reels ; à rendre avec PROMO_SIZE=1080x1920) : 11 mesures,
+    # bande ×2 (cadrage 540×200 → 1080×400) au milieu de l'écran, titres sur deux lignes au-dessus
+    VR = [0, 700, 1080, 600]  # bande ×3 (cadrage 360×200 → 1080×600)
+    V = lambda x: [[x, 1040, 360], [x + 15, 1040, 360]]
+    S = []
+    sc(1, type="card", logo=["steam/capsules/library-logo.png", 820, 900], fade=10)
+    sc(1, type="clip", src="walk", t0=4, rect=VR, cam=V(700), track=90, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("A tiny hero", 380, 84), T("walks the edge of your screen.", 500, 50)])
+    for src, t0, a, b, col in [("bloodmoon", 2, "BLOOD MOON", "every monster turns elite", R), ("starfall", 1.5, "STAR SWARM", "catch the falling stars", [170, 210, 255]),
+                               ("goblinrush", 1.5, "GOBLIN RUSH", "golden goblins, everywhere", [140, 230, 120]), ("goldrain", 1, "RAIN OF GOLD", "and 10 more rare events", G)]:
+        sc(1, type="clip", src=src, t0=t0, rect=VR, cam=V(800), track=90, fade=0, punch=True, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T(a, 400, 104, col), T(b, 550, 40, L, "body")])
+    sc(1, type="clip", src="p-graph", t0=2, rect=[0, 560, 1080, 900], cam=[[1900, 60, 1080], [2100, 90, 1080]], fade=0, title=[T("A 618-node", 300, 80), T("great graph.", 410, 80)])
+    sc(1, type="clip", src="endfight", t0=2, rect=VR, cam=V(1500), track=90, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("Grow absurdly", 380, 84), T("powerful.", 490, 84)])
+    sc(3, type="card", logo=["steam/capsules/library-logo.png", 700, 900], fade=14, bg="dawn",
+       title=[T("An idle RPG on the", 1020, 46, L, "body"), T("edge of your screen", 1080, 46, L, "body"), T("Wishlist on Steam", 1220, 56), T("Play now on itch.io", 1300, 56), T("Windows  ·  macOS  ·  Linux", 1430, 34, [170, 160, 210], "body")])
 json.dump({"scenes": S}, open(sys.argv[1], "w"), indent=1)
 print(len(S), "scènes", round(sum(s["dur"] for s in S), 2), "s")
