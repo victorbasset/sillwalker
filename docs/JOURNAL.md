@@ -4722,7 +4722,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - (Moyenne, revue it. 1211) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.
-- EN COURS (demande de Victor, 2026-11-14 00 h 14 : « jusqu'à samedi 12 h, focus maximum sur la bande-annonce et les
+- FAIT (it. 1168-1210 ; matériel dans steam/promo) (demande de Victor, 2026-11-14 00 h 14 : « jusqu'à samedi 12 h, focus maximum sur la bande-annonce et les
   captures d'écran, rendu d'agence de com ; prends ton temps ; ensuite reprends normalement »). Plan : 1) filmer net
   (échelle ×2, scripts/promo/record.sh, --stage) ; 2) plans mis en scène (boss et relique, Lune de sang, Nuée
   d'étoiles, Ruée des gobelins, rencontre de PNJ, légendaire, grand graphe, paliers, mode mini, bureau) ; 3) montage
