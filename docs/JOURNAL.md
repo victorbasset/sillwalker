@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1281, revue générale) : performance bande 18,8 %, panneau 20,0 %, mini 6,6 %, icône 0,5 %
+  (inchangé) ; bande en anglais (partie de fin) : correcte. Équilibrage déjà vérifié dans la décennie (12 h des 20
+  héros it. 1267, semaine it. 1280), langues (extraction complète it. 1253 et 1271, lang-overflow it. 1276), crawl
+  (pl, it. 1274), fuzz avec bénédictions (it. 1278). Rien à corriger.
 - 2026-11-14 (it. 1280, contrôle) : une semaine simulée (simulate.js 168) après les ajouts du jour (Régénérant, Lune
   pâle, quête et Jour des champions) : dernières courses guerrier 350 / 349 / 350 / 349, mage 338 / 349 / 350 / 349 ;
   repère it. 1115 : 350 / 349 : inchangé ; panoplies 10 et 9 sur 10. Piège noté : une boucle d'attente
