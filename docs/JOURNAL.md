@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1320) : totaux du README et de la checklist Steam comparés au jeu (68 succès, 18 familiers, 9 élites,
+  16 événements, 13 bénédictions, 17 quêtes) : la checklist annonçait encore « Succès : 67 » (ligne de l'état fait,
+  oubliée à l'it. 1266). Corrigé ; test : les deux nombres de succès de la checklist suivent ACHIEVEMENTS.
 - 2026-11-14 (it. 1319, contrôle) : début de partie après le Venimeux (élites dès la zone 3) : early-pace 2 / 7 / 17 /
   35 / 69 / 120 objets, zone 23 et 6,3 déblocages à 60 min (it. 1240 : 114, zone 23, 6) ; first-minutes : premier
   boss à 76-79 s. Aucun ralentissement. (Capture du Venimeux tentée sans succès : la file modifiée après coup

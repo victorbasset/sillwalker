@@ -952,6 +952,11 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of art.frames) for (const row of f) assert.equal(row.length, f[0].length, p.id + " : « " + row + " »");
     }
   });
+  test("checklist Steam : le nombre de succès suit le jeu (it. 1320)", () => {
+    const md = fs.readFileSync(new URL("../steam/checklist.md", import.meta.url), "utf8");
+    const nums = [...md.matchAll(/Succès : (\d+), noms|créer les (\d+) « API Name »/g)].map((m) => +(m[1] || m[2]));
+    assert.ok(nums.length >= 2 && nums.every((n) => n === ACH_T.length), "checklist : " + nums.join(", ") + " pour " + ACH_T.length + " succès");
+  });
   test("chaque succès a son icône Steam (achicons.html et les deux PNG, it. 1303)", () => {
     const html = fs.readFileSync(new URL("./steam-capsules/achicons.html", import.meta.url), "utf8");
     for (const a of ACH_T) {

@@ -15,7 +15,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 
 - ⬜ Vrai App ID : `node scripts/steam-set-appid.mjs <App ID>` (remplace 480 dans `src/shared/config.js` et active
   `STEAM_RELAUNCH_IF_NEEDED` ; npm test refuse la relance avec 480).
-- ✅ Succès : 67, noms dans les 10 langues (`steam/achievements.md`).
+- ✅ Succès : 68, noms dans les 10 langues (`steam/achievements.md`).
 - ✅ Sauvegarde Steam Cloud (API Cloud, la plus récente gagne au lancement).
 - ✅ Présence enrichie (`steam/richpresence.vdf`, 10 langues).
 - ✅ Envoi des versions : `npm run dist` puis `npm run steam:build` (SteamPipe, `scripts/steam-upload.mjs`).
