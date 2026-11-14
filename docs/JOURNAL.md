@@ -5,6 +5,16 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1268) : 11e bénédiction du jour, « Jour des champions » (👑, champions ×4 : file, hors ligne et
+  temps estimé de la quête de champion), ajoutée à la FIN de DAY_MODS : aujourd'hui et les trois jours suivants
+  inchangés (vérifié avant / après). Réplique du héros (dm_champions), traduite. Le test de stabilité du calendrier
+  (it. 1237) avait un seuil fixe (85 % des jours comme avec 9 bénédictions) devenu faux à 11 (9/11 ≈ 82 % attendus) :
+  il compare maintenant au calendrier d'une bénédiction de moins (≈ 1 jour sur n change) et à l'origine (≈ 9 / n).
+  Écarté : une 16e capacité de boss (ajouter à ORDER rebat les capacités de tous les boss : (z - 1) % ORDER.length).
+  Outil : le rapport de débordement désignait la feuille la plus basse (le journal, colonne déjà pleine qui s'étire
+  avec la rangée) ; il désigne maintenant la colonne dont le contenu descend le plus près du bas de sa boîte, celle
+  qui fixe la hauteur de la rangée (vérifié sur le bloc fabriqué : p-hero>tempx). Le défilement espagnol est revenu
+  pendant la mesure (4e fois) : la prochaine occurrence nommera la vraie colonne. Autotest 227/227.
 - 2026-11-14 (it. 1267, contrôle) : tableau des 20 héros (hero-table, 12 h) après la Lune pâle et l'élite
   Régénérant : moyenne 64,0 (repère it. 1118 : 63,7), de 61 (barde) à 69 (samouraï), une graine par héros (±4) :
   rien à régler.

@@ -1666,4 +1666,7 @@ export default {
   2791: "Neue Quest: einen Champion besiegen (epische Truhe, manchmal ein Ei). Sie läuft auch während deiner Abwesenheit weiter, mit geschätzter Zeit.",
   2792: "Der Regenerierende heilt sich nicht mehr, solange er brennt oder vergiftet ist.",
   2793: "Geißel der Champions (25 Champions)",
+  2794: "Tag der Champions",
+  2795: "Champions ×4.",
+  2796: "Die Champions sind unterwegs. Die Krone gehört mir!",
 };

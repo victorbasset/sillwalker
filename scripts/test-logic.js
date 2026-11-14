@@ -938,6 +938,14 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     assert.ok(!ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
     g.S.stats.champions = 25; assert.ok(ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
   });
+  test("Jour des champions : champions ×4 dans la file (it. 1268)", () => {
+    const count = (mod) => { let n = 0; for (let k = 0; k < 400; k++) { const g = new Game(freshState()); g.S.zone = 12; g.S.daily.mod = mod;
+      g.R.lineup = null; n += g.lineup().filter((x) => x.champion).length; } return n; };
+    const base = count("gold"), day = count("champions");
+    assert.ok(day > base * 2.5, "champions : " + base + " → " + day);
+    assert.equal(DAY_MODS.champions.champion, 4);
+    assert.equal(DAY_MOD_KEYS[DAY_MOD_KEYS.length - 1], "champions", "ajoutée à la fin (calendrier stable)");
+  });
   test("quête « Vaincre un champion » : avance seulement sur un champion (it. 1260)", () => {
     const g = new Game(freshState()); g.S.zone = 10;
     g.S.quests.slots[0] = { id: 999, kind: "champion", goal: 1, progress: 0, stars: 1, reward: { gold: 10 } };
@@ -1002,9 +1010,14 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
   test("calendrier des bénédictions stable quand on en ajoute une (it. 1237)", () => {
     // calcul d'origine (9 bénédictions, avant l'it. 1222) : au moins 85 % des jours doivent garder la même
     const old = (day) => { let h = 2166136261; for (const c of day) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return DAY_MOD_KEYS[(h >>> 0) % 9]; };
-    let same = 0, n = 0; const seen = new Set();
-    for (let m = 1; m <= 12; m++) for (let d = 1; d <= 28; d++) { const k = `2027-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`; n++; if (dayModFor(k) === old(k)) same++; seen.add(dayModFor(k)); }
-    assert.ok(same / n > 0.85, same + " / " + n);
+    // (it. 1268) calendrier avec une bénédiction de moins (même tirage réservoir) : le dernier ajout ne prend
+    // qu'environ un jour sur n ; et toutes les bénédictions d'origine gardent ≈ 9 / n des jours
+    const fnv = (str) => { let h = 2166136261; for (const c of String(str)) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
+    const prev = (day) => { let k = DAY_MOD_KEYS[fnv(day) % 9]; for (let i = 9; i < DAY_MOD_KEYS.length - 1; i++) if (fnv(day + "#" + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i]; return k; };
+    let same = 0, samePrev = 0, n = 0; const seen = new Set(), L = DAY_MOD_KEYS.length;
+    for (let m = 1; m <= 12; m++) for (let d = 1; d <= 28; d++) { const k = `2027-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`; n++; if (dayModFor(k) === old(k)) same++; if (dayModFor(k) === prev(k)) samePrev++; seen.add(dayModFor(k)); }
+    assert.ok(same / n > 9 / L - 0.05, "calendrier d'origine : " + same + " / " + n);
+    assert.ok(samePrev / n > 1 - 1 / L - 0.04, "dernier ajout : " + samePrev + " / " + n);
     assert.equal(seen.size, DAY_MOD_KEYS.length, "toutes les bénédictions sortent");
     assert.equal(dayModFor("2026-11-14"), old("2026-11-14"));
   });

@@ -1666,4 +1666,7 @@ export default {
   2791: "Nueva misión: derrotar a un campeón (cofre épico, a veces un huevo). También avanza durante tu ausencia, con un tiempo estimado.",
   2792: "El Regenerante ya no se cura mientras arde o está envenenado.",
   2793: "Azote de campeones (25 campeones)",
+  2794: "Día de los campeones",
+  2795: "Campeones ×4.",
+  2796: "Los campeones salen hoy. ¡La corona es mía!",
 };

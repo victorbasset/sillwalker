@@ -1666,4 +1666,7 @@ export default {
   2791: "New quest: defeat a champion (epic chest, sometimes an egg). It also progresses while you're away, with an estimated time.",
   2792: "The Regenerating no longer heals while it is burning or poisoned.",
   2793: "Bane of Champions (25 champions)",
+  2794: "Day of Champions",
+  2795: "Champions ×4.",
+  2796: "The champions are out. The crown is mine!",
 };

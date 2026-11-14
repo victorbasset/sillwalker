@@ -17,6 +17,8 @@ export const DAY_MODS = {
   marvels: { icon: "🌠", name: "Jour des prodiges", desc: "Événements rares ×2.",                   eff: {}, events: 2 },
   // (it. 1222) journée défensive et réactive : esquiver puis rendre les coups
   shadows: { icon: "🌙", name: "Jour des ombres",   desc: "+15 % d’esquive, +20 % de riposte.",     eff: { dodge: 15, riposte: 20 } },
+  // (it. 1268) 11e : les champions (élites dorées, butin épique) ×4 ; ajoutée à la FIN (calendrier stable, it. 1237)
+  champions: { icon: "👑", name: "Jour des champions", desc: "Champions ×4.", eff: {}, champion: 4 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

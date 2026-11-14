@@ -143,7 +143,7 @@ export class Game {
       R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
         ? { type: "goblin", elite: false, goblin: true }
         : (() => {
-          const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance, elite = champion || rand() < ELITE.chance * eliteMul;
+          const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance * (dm?.champion || 1), elite = champion || rand() < ELITE.chance * eliteMul;
           return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
       if ((R.events.bloodmoon || 0) > 0) this.bloodMoon(R.lineup, 0); // Lune de sang : la nouvelle série naît élite
@@ -1114,7 +1114,7 @@ export class Game {
     const elites = this.offlineElites(kills, hs);
     // (it. 1262) champions vaincus pendant l'absence (chance par monstre, dès CHAMPION.minZone) : la quête « Vaincre un
     // champion » avance aussi hors ligne, comme les autres
-    if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance, champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0);
+    if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance * (activeDayMod(S)?.champion || 1), champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0);
       if (champs) { S.stats.champions = (S.stats.champions || 0) + champs; this.questProgress("champion", champs); } }
     if (elites) { S.stats.elites += elites; this.questProgress("elite", elites);
       // (it. 946) proies pendant l'absence : chaque élite a une sorte au hasard (1 chance sur 7 d'être la bonne)
@@ -2155,7 +2155,7 @@ export class Game {
       rate *= p / (q.kind === "prey" ? Object.keys(ELITE_AFFIXES).length : 1);
     }
     // (it. 1263) champions : même chance par victoire que pendant l'absence (it. 1262)
-    if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance; }
+    if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance * (activeDayMod(this.S)?.champion || 1); }
     return left / rate;
   }
 

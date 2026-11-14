@@ -1666,4 +1666,7 @@ export default {
   2791: "Nowe zadanie: pokonaj czempiona (epicka skrzynia, czasem jajo). Postępuje też podczas twojej nieobecności, z szacowanym czasem.",
   2792: "Regenerujący nie leczy się już, gdy płonie lub jest zatruty.",
   2793: "Zmora czempionów (25 czempionów)",
+  2794: "Dzień czempionów",
+  2795: "Czempioni ×4.",
+  2796: "Czempioni wyszli na łowy. Korona będzie moja!",
 };
