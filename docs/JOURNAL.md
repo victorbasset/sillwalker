@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1218, contrôles) : --crawl en russe sur la partie de fin (501 clics) et en polonais sur la partie
+  0.1.2 (382 clics) : aucune erreur ; fin de partie sur copie neuve : bande 24,7 % d'un cœur (repère it. 1066 : ≈ 24),
+  panneau 25,9, mini 7,6, icône 0,7 : pas de régression depuis les changements de la bande (it. 1208-1216).
 - 2026-11-14 (it. 1217) : « Quoi de neuf », édition 60 : le compagnon au corps à corps marche devant un héros à
   distance (bande et mode mini) ; rencontres des personnages sans monstres, butin ni réplique par-dessus. Traduite
   dans les 10 langues (i18n-check 0 problème) ; autotest 227/227 ; lang-overflow : aucun défilement ni mot coupé.
