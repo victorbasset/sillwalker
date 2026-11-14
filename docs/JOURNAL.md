@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1249, contrôle) : performance après les it. 1238-1248 (ciel de la Lune pâle, pastilles) :
+  bande 21,2 %, panneau 20,8 %, mini 7,1 %, icône 0,5 % d'un cœur : inchangé (revue 1231 : ≈ 21 %). Rien à faire.
 - 2026-11-14 (it. 1248) : pastilles des événements en cours (Aventure), thème clair : la bordure prenait la couleur
   brute de l'événement, presque invisible sur le fond clair pour les plus pâles (Lune pâle #d8dcf0, Voile protecteur,
   Nuée d'étoiles) ; elle suit maintenant la teinte assombrie du texte (color-mix … --tintk, comme .tint). Contraste du
