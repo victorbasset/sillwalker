@@ -598,6 +598,13 @@ export class StripRenderer {
         ctx.fillStyle = x + y < -1 ? "#ff8a8a" : "#d8303e"; ctx.fillRect(cx + x * P, cy + y * P, P, P);
       }
     }
+    if (this.paleSky) { // (it. 1244) Lune pâle : voile gris-bleu délavé et grande lune blanche, mi-voilée
+      ctx.fillStyle = "rgba(200, 210, 235, 0.22)"; ctx.fillRect(0, 0, this.W, GROUND);
+      const cx = Math.round(this.W * 0.38 / P) * P, cy = 3 * P, r = 3;
+      for (let y = -r; y <= r; y++) for (let x = -r; x <= r; x++) if (x * x + y * y <= r * r + 1) {
+        ctx.fillStyle = x > 0 ? "#b9bfd6" : "#f2f4ff"; ctx.fillRect(cx + x * P, cy + y * P, P, P);
+      }
+    }
     if (this.starSky) { // (it. 917) Nuée d'étoiles : ciel assombri et constellé (toutes les étoiles, même de jour)
       ctx.fillStyle = "#0b1030"; ctx.globalAlpha = 0.3; ctx.fillRect(0, 0, this.W, GROUND); ctx.globalAlpha = 1;
       this.drawStars(ctx, 0.85, 1);
@@ -834,6 +841,8 @@ export class StripRenderer {
     if (blood !== !!this.bloodSky) { this.bloodSky = blood; this.drawBase(); this.fadeT = 0.5; }
     const starry = (R.events.starfall || 0) > 0; // (it. 917) Nuée d'étoiles, même principe
     if (starry !== !!this.starSky) { this.starSky = starry; this.drawBase(); this.fadeT = 0.5; }
+    const pale = (R.events.palemoon || 0) > 0; // (it. 1244) Lune pâle, même principe
+    if (pale !== !!this.paleSky) { this.paleSky = pale; this.drawBase(); this.fadeT = 0.5; }
     this.updateFx(dt);
     this.juice.update(dt);
     // Tremblement de la scène (boss vaincu, coup dévastateur, légendaire, coffre) : par pas de 3 px.

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1244) : Lune pâle : son ciel, comme la Lune de sang et la Nuée d'étoiles (cuit une fois dans le
+  décor, fondu à l'entrée et à la sortie) : voile gris-bleu délavé et lune blanche mi-voilée, sur la bande (strip.js
+  paleSky) et en mode mini (clé du décor). Contrôle d'autotest du ciel du mode mini étendu à la Lune pâle ; capture
+  de la bande vérifiée. Autotest 227/227.
 - 2026-11-14 (it. 1243) : « Quoi de neuf », édition 64 : Lune pâle, annonce des bénédictions vécues, bénédiction de
   minuit appliquée aussitôt (it. 1238-1242) ; traduite (noms d'événement repris tels que traduits). Autotest 227/227,
   lang-overflow propre (pire cas des 3 dernières éditions).

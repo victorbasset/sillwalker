@@ -137,8 +137,8 @@ export class MiniRenderer {
     const game = this.game, S = game.S, R = game.R;
 
     // (it. 918) ciel des événements, comme sur la bande (it. 916-917) : Lune de sang rouge, Nuée d'étoiles constellée
-    const blood = (R.events.bloodmoon || 0) > 0, starry = (R.events.starfall || 0) > 0;
-    const key = S.zone + ":" + this.cssDpr + ":" + blood + ":" + starry;
+    const blood = (R.events.bloodmoon || 0) > 0, starry = (R.events.starfall || 0) > 0, pale = (R.events.palemoon || 0) > 0;
+    const key = S.zone + ":" + this.cssDpr + ":" + blood + ":" + starry + ":" + pale;
     if (key !== this.sceneKey) {
       this.sceneKey = key;
       const ctx = this.base.ctx;
@@ -147,6 +147,11 @@ export class MiniRenderer {
         ctx.fillStyle = "rgba(170, 20, 40, 0.28)"; ctx.fillRect(0, 0, SCENE_W, GROUND);
         const cx = Math.round(SCENE_W * 0.7 / P) * P, cy = 3 * P;
         for (let y = -2; y <= 2; y++) for (let x = -2; x <= 2; x++) if (x * x + y * y <= 5) { ctx.fillStyle = x + y < -1 ? "#ff8a8a" : "#d8303e"; ctx.fillRect(cx + x * P, cy + y * P, P, P); }
+      }
+      if (pale) { // (it. 1244) Lune pâle : ciel délavé et lune blanche mi-voilée
+        ctx.fillStyle = "rgba(200, 210, 235, 0.22)"; ctx.fillRect(0, 0, SCENE_W, GROUND);
+        const cx = Math.round(SCENE_W * 0.3 / P) * P, cy = 3 * P;
+        for (let y = -2; y <= 2; y++) for (let x = -2; x <= 2; x++) if (x * x + y * y <= 5) { ctx.fillStyle = x > 0 ? "#b9bfd6" : "#f2f4ff"; ctx.fillRect(cx + x * P, cy + y * P, P, P); }
       }
       if (starry) {
         ctx.fillStyle = "rgba(11, 16, 48, 0.3)"; ctx.fillRect(0, 0, SCENE_W, GROUND);

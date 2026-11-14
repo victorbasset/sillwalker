@@ -194,12 +194,13 @@ async function runSelfTest(strip) {
   check("mode mini : clic sur le monstre = coup bonus", miniTap && (await state("S.stats.taps || 0")) > mt0 && strip.mode() === "mini");
   // (it. 919) Ciel des événements en mode mini (it. 918) : Lune de sang puis Nuée d'étoiles, puis retour au ciel normal.
   const mSky = [];
-  for (const ev of ["bloodmoon", "starfall", null]) {
-    await js(`(() => { const E = window.__game.R.events; E.bloodmoon = ${ev === "bloodmoon" ? 20 : 0}; E.starfall = ${ev === "starfall" ? 20 : 0}; })()`);
+  // (it. 1244) et Lune pâle
+  for (const ev of ["bloodmoon", "starfall", "palemoon", null]) {
+    await js(`(() => { const E = window.__game.R.events; E.bloodmoon = ${ev === "bloodmoon" ? 20 : 0}; E.starfall = ${ev === "starfall" ? 20 : 0}; E.palemoon = ${ev === "palemoon" ? 20 : 0}; })()`);
     await sleep(400);
-    mSky.push(await js("window.__mini.sceneKey.split(':').slice(-2).join(':')"));
+    mSky.push(await js("window.__mini.sceneKey.split(':').slice(-3).join(':')"));
   }
-  check("mode mini : ciel de la Lune de sang et de la Nuée d’étoiles", mSky.join(" ") === "true:false false:true false:false", mSky.join(" "));
+  check("mode mini : ciel de la Lune de sang, de la Nuée d’étoiles et de la Lune pâle", mSky.join(" ") === "true:false:false false:true:false false:false:true false:false:false", mSky.join(" "));
   // (it. 930) Bulle du mode mini : le prochain déblocage donne aussi le temps estimé au rythme actuel.
   const mEta = await js(`(async () => { const { UNLOCKS } = await import("./game/unlocks.js"); const G = window.__game, S = G.S, M = window.__mini, keepU = S.unlocks, keepG = S.gold, keepB = S.best, keepP = G.R.pace;
     const u = UNLOCKS[UNLOCKS.length - 1]; S.best = Math.max(S.best, u.zone); S.unlocks = Object.fromEntries(UNLOCKS.slice(0, -1).map((x) => [x.id, true])); S.gold = u.price / 2;
