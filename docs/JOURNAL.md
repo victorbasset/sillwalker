@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1335, contrôle) : élite Venimeux enfin vue à l'image (mise en scène --stage : toute la file venimeuse,
+  copie de dev-data) : étiquette verte « Venimeux », deux empoisonnements en 20 s (PV qui baissent sans achever),
+  halo vert du héros (juice.js) et « Empoisonné ! ». Conforme ; rien à corriger. Astuce : dans un --stage, écrire
+  avec console.warn (seuls avertissements et erreurs de la page remontent dans la console).
 - 2026-11-15 (it. 1334, contrôle) : passage à minuit : npm test 291/291 avec la date réelle du 15 ; calendrier tenu
   (15 fureur, 16 trésor, 17 gobelins, comme annoncé avant l'ajout du Jour de l'élan).
 - 2026-11-15 (it. 1333, contrôle) : --crawl en français sur une copie de dev-data : 387 clics, aucune erreur ;
