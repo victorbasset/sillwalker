@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1287, contrôle) : texte de l'état « tout au maximum » (max-save complété à l'it. 1285 ; toutes
+  sous-sections et bulles, it. 1252) en russe et en japonais (≈ 19 500 lignes chacun) : aucun mot non traduit.
 - 2026-11-14 (it. 1286) : lang-overflow mesure aussi l'état « tout au maximum » (max-save) à 1920 et 1280 px dans
   chaque langue (« xx max 1920 », NO_MAX=1 pour sauter) : le défaut russe de l'it. 1285 n'apparaissait dans aucune
   autre mesure. Passe complète : 10 langues propres. CLAUDE.md.
