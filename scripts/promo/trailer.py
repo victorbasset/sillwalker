@@ -13,7 +13,7 @@ PAN = [0, 60, 1920, 900]
 S = []
 def sc(bars, **k): k["dur"] = round(bars * BAR, 4); S.append(k)
 sc(2, type="card", logo=["steam/capsules/library-logo.png", 380, 900], fade=12)
-sc(2, type="desktop", src="walk", t0=1, cam=[[0, 0, 3840], [760, 1640, 1200]], fade=4, title=[T("Your taskbar has a new neighbour.", 100, 64)])
+sc(2, type="desktop", src="walk", t0=1, cam=[[0, 0, 3840], [760, 1640, 1200]], fade=4, plate=True, title=[T("Your taskbar has a new neighbour.", 100, 64)])
 sc(1, type="clip", src="walk", t0=4, rect=CUR, cam=CU(700, 760), track=150, fade=0, title=[T("A tiny hero walks the edge of your screen.", 60, 54)])
 sc(1, type="clip", src="walk", t0=6.8, rect=CUR, cam=CU(780, 880), track=150, fade=0, title=[T("Fights. Loots. Grows stronger.", 60, 64)])
 sc(1, type="clip", src="npc-shop", t0=4.2, rect=EVR, cam=EV(1180, 1220), fade=0, title=[T("Meet the folk of the Sill.", 200, 72)])

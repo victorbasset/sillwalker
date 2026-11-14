@@ -48,10 +48,14 @@ def background(kind):
     return Image.composite(bg, Image.new("RGB", (W, H), (4, 3, 8)), v)
 
 
-def text_layer(lines):
-    """Calque RGBA d'un titre : [(texte, police, taille, couleur, y)] centrés ; contour sombre de 3 px, ombre portée."""
+def text_layer(lines, plate=False):
+    """Calque RGBA d'un titre : [(texte, police, taille, couleur, y)] centrés ; contour sombre de 3 px, ombre portée ;
+    plate : bandeau sombre translucide derrière (titre posé sur une image chargée, it. 1175)."""
     lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(lay)
+    if plate and lines:
+        top = min(l[4] for l in lines) - 24; bot = max(l[4] + l[2] for l in lines) + 30
+        d.rectangle([0, top, W, bot], fill=(14, 12, 26, 175))
     for txt, fname, size, col, y in lines:
         f = font(fname, size)
         w = d.textlength(txt, font=f)
@@ -121,7 +125,7 @@ def desk_frame(src):
     fenêtre (sa transparence : le jeu n'utilise pas #000) devient transparent."""
     global DESK2
     if DESK2 is None:
-        DESK2 = Image.open(sc_desk_path).convert("RGB").resize((W * 2, H * 2), Image.NEAREST)
+        DESK2 = make_desk().resize((W * 2, H * 2), Image.NEAREST)
     import numpy as np
     a = np.asarray(src)
     mask = Image.fromarray(((a.max(axis=2) > 6) * 255).astype("uint8"), "L")
@@ -133,11 +137,53 @@ def desk_frame(src):
 sc_desk_path = os.path.join(os.path.dirname(OUT), "desk.png")
 
 
+def make_desk():
+    """(it. 1175) Bureau d'une journée de travail (1920×1080) : fond d'écran crépuscule, éditeur de code, document,
+    lecteur de musique, barre des tâches avec horloge. Aucun noir pur (#000) : réservé à la transparence du jeu."""
+    import random
+    rnd = random.Random(3)
+    img = Image.new("RGB", (W, H)); d = ImageDraw.Draw(img)
+    for y in range(H):  # ciel du crépuscule
+        k = y / H
+        d.line([(0, y), (W, y)], fill=(int(58 + 120 * k), int(52 + 60 * k), int(110 + 30 * k)))
+    for i, (col, base, amp) in enumerate([((70, 60, 120), 640, 90), ((52, 44, 96), 720, 70), ((36, 30, 70), 800, 50)]):
+        pts = [(x, base - amp * (0.5 + 0.5 * math.sin(x / (160 + 60 * i) + i * 2))) for x in range(0, W + 40, 40)]
+        d.polygon(pts + [(W, H), (0, H)], fill=col)
+    def window(x, y, w, h, title, dark):
+        sh = Image.new("RGBA", (w + 60, h + 60), (0, 0, 0, 0)); ImageDraw.Draw(sh).rectangle([30, 36, w + 30, h + 36], fill=(8, 6, 16, 120))
+        sh = sh.filter(ImageFilter.GaussianBlur(14)); img.paste(sh, (x - 30, y - 30), sh)
+        d.rectangle([x, y, x + w, y + h], fill=(30, 30, 40) if dark else (246, 246, 250))
+        d.rectangle([x, y, x + w, y + 34], fill=(44, 44, 58) if dark else (226, 226, 234))
+        for j, c in enumerate([(240, 96, 90), (240, 190, 70), (110, 200, 100)]):
+            d.ellipse([x + 14 + j * 22, y + 11, x + 26 + j * 22, y + 23], fill=c)
+        d.text((x + 90, y + 8), title, font=font("body", 18), fill=(200, 200, 215) if dark else (90, 90, 110))
+    window(120, 90, 900, 560, "main.ts — project", True)
+    cols = [(198, 120, 221), (97, 175, 239), (229, 192, 123), (152, 195, 121), (171, 178, 191), (224, 108, 117)]
+    for r in range(17):
+        x = 170 + 34 * rnd.choice([0, 0, 1, 1, 2, 3]); y = 150 + r * 28
+        d.text((140, y), str(r + 1), font=font("body", 16), fill=(90, 92, 110))
+        for _ in range(rnd.randint(1, 4)):
+            w = rnd.randint(40, 180); d.rectangle([x, y + 6, x + w, y + 16], fill=rnd.choice(cols)); x += w + 14
+            if x > 960: break
+    window(1080, 150, 700, 430, "Quarterly report.docx", False)
+    d.rectangle([1120, 210, 1500, 232], fill=(60, 60, 80))
+    for r in range(9):
+        w = rnd.randint(420, 620); d.rectangle([1120, 260 + r * 30, 1120 + w, 270 + r * 30], fill=(196, 196, 206))
+    window(1300, 620, 480, 150, "lofi beats to idle to", True)
+    d.rectangle([1330, 700, 1750, 706], fill=(70, 70, 90)); d.rectangle([1330, 700, 1560, 706], fill=(255, 217, 138))
+    d.polygon([(1520, 735), (1520, 757), (1538, 746)], fill=(236, 232, 255))
+    d.rectangle([0, H - 48, W, H], fill=(28, 26, 42))  # barre des tâches
+    for j, c in enumerate([(97, 175, 239), (152, 195, 121), (229, 192, 123), (198, 120, 221), (224, 108, 117)]):
+        d.rounded_rectangle([20 + j * 52, H - 40, 52 + j * 52, H - 8], 6, fill=c)
+    d.text((W - 92, H - 36), "09:41", font=font("body", 22), fill=(236, 232, 255))
+    return img
+
+
 def render_scene(sc, enc, bgs):
     dur = sc["dur"]
     n = int(round(dur * FPS))
     bg = bgs.setdefault(sc.get("bg", "night"), background(sc.get("bg", "night")))
-    title = text_layer(sc["title"]) if sc.get("title") else None
+    title = text_layer(sc["title"], sc.get("plate", False)) if sc.get("title") else None
     if sc.get("logo"):  # (it. 1172) logo du jeu (image), centré, à la largeur demandée, au plus proche voisin
         lp, ly, lw = sc["logo"]
         lg = Image.open(os.path.join(ROOT, lp)).convert("RGBA")
@@ -158,6 +204,32 @@ def render_scene(sc, enc, bgs):
             img = comp.resize((W, H), Image.NEAREST if W / cw >= 1 else Image.BOX)
             if title is not None:
                 paste_title(img, title, i, sc)
+            if fade and (i < fade or i >= n - fade):
+                a = min(i, n - 1 - i) / fade
+                img = Image.blend(Image.new("RGB", (W, H), (0, 0, 0)), img, max(0.0, min(1.0, a)))
+            enc.stdin.write(img.tobytes())
+        return
+    if sc["type"] == "card" and sc.get("logo"):  # (it. 1175) carton vivant
+        lp, ly, lw = sc["logo"]
+        lg0 = Image.open(os.path.join(ROOT, lp)).convert("RGBA")
+        txt = text_layer(sc["title"]) if sc.get("title") else None
+        import random
+        rnd = random.Random(11); tw_stars = [(rnd.randrange(W), rnd.randrange(H), rnd.random() * 6.28, rnd.choice([2, 4])) for _ in range(90)]
+        for i in range(n):
+            img = bg.copy(); d = ImageDraw.Draw(img)
+            for (x, y, ph, sz) in tw_stars:  # scintillement
+                v = 0.5 + 0.5 * math.sin(ph + i / 9)
+                d.rectangle([x, y, x + sz - 1, y + sz - 1], fill=(int(120 + 120 * v), int(110 + 100 * v), int(170 + 80 * v)))
+            z = 0.94 + 0.06 * ease(i / max(1, n - 1))
+            lw2 = int(lw * z); lg = lg0.resize((lw2, round(lg0.height * lw2 / lg0.width)), Image.NEAREST)
+            sx = int((-0.4 + 1.8 * (i / max(1, n - 1))) * lg.width)  # reflet qui balaie le logo
+            sh = Image.new("L", lg.size, 0); ImageDraw.Draw(sh).polygon([(sx, 0), (sx + 60, 0), (sx + 20, lg.height), (sx - 40, lg.height)], fill=120)
+            from PIL import ImageEnhance  # le reflet éclaircit les pixels du logo (une tache grise en surimpression, avant)
+            bright = ImageEnhance.Brightness(lg).enhance(1.7); bright.putalpha(lg.getchannel("A"))
+            lg = Image.composite(bright, lg, sh)
+            img.paste(lg, ((W - lw2) // 2, ly + (lw - lw2) // 6), lg)
+            if txt is not None:
+                paste_title(img, txt, i, sc)
             if fade and (i < fade or i >= n - fade):
                 a = min(i, n - 1 - i) / fade
                 img = Image.blend(Image.new("RGB", (W, H), (0, 0, 0)), img, max(0.0, min(1.0, a)))

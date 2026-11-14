@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1175, bande-annonce 9) : ouverture : carton du logo vivant (poussée 0,94 → 1, étoiles qui
+  scintillent, reflet qui éclaircit les pixels du logo ; une surimpression faisait une tache grise) ; bureau dessiné
+  d'une journée de travail (fond crépuscule à montagnes, éditeur de code coloré, document, lecteur « lofi beats to idle
+  to », barre des tâches et horloge 09:41 ; sans noir pur) ; bandeau sombre translucide derrière un titre posé sur une
+  image chargée (« plate »). Version 4 complète.
 - 2026-11-14 (it. 1174, bande-annonce 8) : caméra qui suit le héros : la mise en scène note sa position toutes les
   100 ms (« [hx] <ms> <x> », console.warn), record.sh garde le journal (<plan>.log) et l'heure du début du film
   (<plan>.t0) ; edit.py (« track » : héros à N px du bord du cadrage, moyenne glissante ± 0,6 s). Vu : le héros avance
