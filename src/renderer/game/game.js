@@ -295,6 +295,8 @@ export class Game {
     } else if (R.mode === "fight" && R.mon) {
       const m = R.mon;
       m.age += dt;
+      // (it. 1250) élite régénérante : regagne une part de sa vie chaque seconde
+      if (m.affix === "regen" && m.hp > 0 && m.hp < m.max) m.hp = Math.min(m.max, m.hp + m.max * ELITE_AFFIXES.regen.regen * dt);
       // Attaques du héros
       if (R.frozen > 0) R.frozen -= dt;
       if (R.cursed > 0) R.cursed -= dt;

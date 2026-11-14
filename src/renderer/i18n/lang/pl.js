@@ -1655,4 +1655,6 @@ export default {
   2780: "Dziennik: przy pierwszym przeżytym błogosławieństwie dnia każdego rodzaju ogłaszana jest jego stała premia.",
   2781: "Błogosławieństwo dnia zmieniające się o północy działa teraz od razu.",
   2782: "{n} boss pokonany|{n} bossowie pokonani|{n} bossów pokonanych",
+  2783: "Regenerujący",
+  2784: "Odzyskuje 3 % maksymalnego życia co sekundę.",
 };

@@ -1655,4 +1655,6 @@ export default {
   2780: "Log: the first time you live through each kind of daily blessing, its permanent bonus is announced.",
   2781: "A daily blessing that changes at midnight now applies right away.",
   2782: "{n} boss defeated|{n} bosses defeated",
+  2783: "Regenerating",
+  2784: "Regains 3% of its max life every second.",
 };

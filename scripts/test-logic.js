@@ -932,6 +932,16 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("élite régénérante : regagne sa vie en combat, jamais au-delà du maximum (it. 1250)", () => {
+    const g = new Game(freshState());
+    for (let i = 0; i < 2000 && g.R.mode !== "fight"; i++) g.advance(0.05);
+    assert.equal(g.R.mode, "fight");
+    const m = g.R.mon; Object.assign(m, { elite: true, affix: "regen" }); m.hp = m.max * 0.5;
+    g.R.atkT = 99; g.R.mode = "fight"; // le héros ne frappe pas pendant la mesure
+    const h0 = m.hp; g.update ? g.update(0.5) : g.advance(0.5);
+    assert.ok(m.hp > h0 && m.hp <= m.max, h0 + " → " + m.hp);
+    m.hp = m.max * 0.999; g.R.atkT = 99; g.advance(2); assert.ok(m.hp <= m.max);
+  });
   test("bilan de la Lune pâle : boss vaincus comptés (it. 1246)", () => {
     const g = new Game(freshState()); g.startEvent("palemoon"); g.S.stats.kills += 4; g.S.stats.bosses += 1;
     const line = g.eventReport("palemoon"); assert.ok(/1\sboss\svaincu|1\sboss\sdefeated/.test(line), line);
@@ -1006,12 +1016,12 @@ test("sortes d'élites vaincues : retenues, succès « Tueur d'élites » (it. 9
   // une élite fuyante vaincue (vraie victoire) : retenue
   g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
   assert.equal(g.S.stats.affixesSeen.elusive, 1); // (it. 956) un compteur par sorte
-  assert.ok(g.S.log.some((l) => /Fuyant|Evasive/.test(l) && /1 \/ 7/.test(l)), "annoncée (it. 944)");
+  assert.ok(g.S.log.some((l) => /Fuyant|Evasive/.test(l) && new RegExp("1 / " + ids.length).test(l)), "annoncée (it. 944)");
   const n = g.S.log.length; g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "elusive" }); g.killMonster();
   assert.equal(g.S.stats.affixesSeen.elusive, 2, "deuxième victoire comptée");
   g.S.stats.affixesSeen.fast = true; g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "fast" }); g.killMonster();
   assert.equal(g.S.stats.affixesSeen.fast, 2, "ancienne valeur « true » = 1, puis 2");
-  assert.ok(!g.S.log.slice(0, 3).some((l) => /1 \/ 7|2 \/ 7/.test(l)), "pas deux fois : " + n);
+  assert.ok(!g.S.log.slice(0, 3).some((l) => new RegExp("[12] / " + ids.length).test(l)), "pas deux fois : " + n);
   for (const a of ids.slice(0, -1)) g.S.stats.affixesSeen[a] = true;
   assert.ok(!reachedAchievements(g.S).includes("ELITES_ALL"), "pas encore toutes");
   g.S.stats.affixesSeen[ids[ids.length - 1]] = true; g.S.stats.affixesSeen.affixe_inconnu = true;

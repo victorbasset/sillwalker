@@ -1655,4 +1655,6 @@ export default {
   2780: "Registro: la primera vez que vives cada bendición del día, se anuncia su bonificación permanente.",
   2781: "La bendición del día que cambia a medianoche se aplica al instante.",
   2782: "{n} jefe derrotado|{n} jefes derrotados",
+  2783: "Regenerante",
+  2784: "Recupera el 3 % de su vida máxima cada segundo.",
 };

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1250) : 8e sorte d'élite, « Régénérant » (data.js ELITE_AFFIXES.regen) : regagne 3 % de sa vie
+  maximale chaque seconde en combat (jamais au-delà) : il faut frapper fort et vite. Rejoint d'elle-même le Bestiaire
+  (Élites), les proies des quêtes et le succès « Tueur d'élites ». Traduit ; comptes 7 → 8 dans store-page (10
+  langues), README. Tests : régénération bornée ; les anciens contrôles qui attendaient « 1 / 7 » (test-logic et
+  autotest) suivent maintenant le nombre de sortes. fuzz 1200 parties sans blocage ; balance 12 h : 62,5 contre 63,5
+  (bruit) ; autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1249, contrôle) : performance après les it. 1238-1248 (ciel de la Lune pâle, pastilles) :
   bande 21,2 %, panneau 20,8 %, mini 7,1 %, icône 0,5 % d'un cœur : inchangé (revue 1231 : ≈ 21 %). Rien à faire.
 - 2026-11-14 (it. 1248) : pastilles des événements en cours (Aventure), thème clair : la bordure prenait la couleur

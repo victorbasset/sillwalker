@@ -31,7 +31,7 @@ Sillwalker vit dans une fine bande au bord de l'écran, juste au-dessus de la ba
 [*]Plus de 30 régions et 80 monstres, élites dorés, gobelins fuyards et boss qui gardent des reliques
 [*]Une histoire racontée en petites cinématiques, jusqu'au Briseur d'Étoiles… et au-delà
 [*]Des ascensions pour repartir plus fort, et 26 automatismes à débloquer au fil du jeu
-[*]Jamais deux heures pareilles : 15 événements rares, 15 capacités de boss, 7 sortes d'élites, une bénédiction différente chaque jour et 16 sortes de quêtes
+[*]Jamais deux heures pareilles : 15 événements rares, 15 capacités de boss, 8 sortes d'élites, une bénédiction différente chaque jour et 16 sortes de quêtes
 [/list]
 
 [h2]Pensé pour rester discret[/h2]
@@ -62,7 +62,7 @@ Sillwalker lives in a thin strip at the edge of your screen, right above the tas
 [*]Over 30 regions and 80 monsters, golden elites, fleeing goblins and bosses guarding relics
 [*]A story told through tiny cutscenes, all the way to the Starbreaker… and beyond
 [*]Ascensions to start over stronger, and 26 automations to unlock along the way
-[*]No two hours alike: 15 rare events, 15 boss abilities, 7 kinds of elites, a different blessing every day and 16 kinds of quests
+[*]No two hours alike: 15 rare events, 15 boss abilities, 8 kinds of elites, a different blessing every day and 16 kinds of quests
 [/list]
 
 [h2]Built to stay out of the way[/h2]
@@ -93,7 +93,7 @@ Sillwalker vive en una franja fina en el borde de la pantalla, justo encima de l
 [*]Más de 30 regiones y 80 monstruos, élites dorados, goblins huidizos y jefes que guardan reliquias
 [*]Una historia contada en pequeñas cinemáticas, hasta el Rompeestrellas… y más allá
 [*]Ascensiones para volver a empezar más fuerte, y 26 automatismos que desbloquear
-[*]Nunca dos horas iguales: 15 eventos raros, 15 habilidades de jefe, 7 tipos de élites, una bendición distinta cada día y 16 tipos de misiones
+[*]Nunca dos horas iguales: 15 eventos raros, 15 habilidades de jefe, 8 tipos de élites, una bendición distinta cada día y 16 tipos de misiones
 [/list]
 
 [h2]Pensado para no estorbar[/h2]
@@ -124,7 +124,7 @@ Sillwalker vive em uma faixa fina na borda da tela, logo acima da barra de taref
 [*]Mais de 30 regiões e 80 monstros, elites dourados, goblins fujões e chefes que guardam relíquias
 [*]Uma história contada em pequenas cenas, até o Quebra-Estrelas… e além
 [*]Ascensões para recomeçar mais forte, e 26 automatismos para desbloquear
-[*]Nunca duas horas iguais: 15 eventos raros, 15 habilidades de chefe, 7 tipos de elites, uma bênção diferente a cada dia e 16 tipos de missões
+[*]Nunca duas horas iguais: 15 eventos raros, 15 habilidades de chefe, 8 tipos de elites, uma bênção diferente a cada dia e 16 tipos de missões
 [/list]
 
 [h2]Feito para não atrapalhar[/h2]
@@ -155,7 +155,7 @@ Sillwalker lebt in einem schmalen Streifen am Bildschirmrand, direkt über der T
 [*]Über 30 Regionen und 80 Monster, goldene Eliten, flüchtende Kobolde und Bosse, die Relikte bewachen
 [*]Eine Geschichte in kleinen Zwischensequenzen, bis zum Sternenbrecher… und darüber hinaus
 [*]Aufstiege, um stärker neu zu beginnen, und 26 Automatiken zum Freischalten
-[*]Keine Stunde wie die andere: 15 seltene Ereignisse, 15 Bossfähigkeiten, 7 Elitearten, jeden Tag ein anderer Segen und 16 Questarten
+[*]Keine Stunde wie die andere: 15 seltene Ereignisse, 15 Bossfähigkeiten, 8 Elitearten, jeden Tag ein anderer Segen und 16 Questarten
 [/list]
 
 [h2]Gemacht, um nicht zu stören[/h2]
@@ -186,7 +186,7 @@ Sillwalker żyje w wąskim pasku na krawędzi ekranu, tuż nad paskiem zadań. K
 [*]Ponad 30 krain i 80 potworów, złote elity, uciekające gobliny i bossowie strzegący reliktów
 [*]Historia opowiedziana w krótkich przerywnikach, aż do Łamacza Gwiazd… i dalej
 [*]Wniebowstąpienia, by zacząć od nowa silniejszym, i 26 automatyzacji do odblokowania
-[*]Żadne dwie godziny nie są takie same: 15 rzadkich wydarzeń, 15 umiejętności bossów, 7 rodzajów elit, codziennie inne błogosławieństwo i 16 rodzajów zadań
+[*]Żadne dwie godziny nie są takie same: 15 rzadkich wydarzeń, 15 umiejętności bossów, 8 rodzajów elit, codziennie inne błogosławieństwo i 16 rodzajów zadań
 [/list]
 
 [h2]Stworzony, by nie przeszkadzać[/h2]
@@ -217,7 +217,7 @@ Sillwalker живёт в узкой полосе у края экрана, пр�
 [*]Более 30 регионов и 80 монстров, золотые элиты, убегающие гоблины и боссы, охраняющие реликвии
 [*]История в коротких роликах — вплоть до Сокрушителя Звёзд… и дальше
 [*]Вознесения, чтобы начать заново сильнее, и 26 автоматизаций, которые можно открыть
-[*]Ни один час не похож на другой: 15 редких событий, 15 способностей боссов, 7 видов элит, каждый день новое благословение и 16 видов заданий
+[*]Ни один час не похож на другой: 15 редких событий, 15 способностей боссов, 8 видов элит, каждый день новое благословение и 16 видов заданий
 [/list]
 
 [h2]Создана, чтобы не мешать[/h2]
@@ -248,7 +248,7 @@ Sillwalker 住在屏幕边缘、任务栏正上方的一条细长条中。鼠标
 [*]30 多个地区与 80 种怪物，金色精英、逃跑的哥布林以及守护圣物的首领
 [*]用小段过场动画讲述的故事，直到碎星者……乃至更远
 [*]飞升后变得更强重新出发，还有 26 项自动化功能等你解锁
-[*]每个小时都不一样：15 种稀有事件、15 种首领技能、7 种精英、每天不同的祝福，以及 16 种任务
+[*]每个小时都不一样：15 种稀有事件、15 种首领技能、8 种精英、每天不同的祝福，以及 16 种任务
 [/list]
 
 [h2]安静不打扰[/h2]
@@ -279,7 +279,7 @@ Sillwalker は画面の端、タスクバーのすぐ上にある細い帯の中
 [*]30以上の地域と80種のモンスター、金色のエリート、逃げるゴブリン、聖遺物を守るボス
 [*]小さなカットシーンで語られる物語。星砕きまで……そしてその先へ
 [*]昇天でより強くなって再出発、解放できる26の自動化
-[*]同じ一時間は二度とない：15 種のレアイベント、15 種のボス能力、7 種のエリート、日替わりの祝福、16 種のクエスト
+[*]同じ一時間は二度とない：15 種のレアイベント、15 種のボス能力、8 種のエリート、日替わりの祝福、16 種のクエスト
 [/list]
 
 [h2]邪魔をしない設計[/h2]
@@ -310,7 +310,7 @@ Sillwalker는 화면 가장자리, 작업 표시줄 바로 위의 얇은 띠에 
 [*]30곳이 넘는 지역과 80종의 몬스터, 황금 정예, 도망치는 고블린, 유물을 지키는 보스
 [*]짧은 컷신으로 펼쳐지는 이야기, 별파괴자까지… 그리고 그 너머로
 [*]승천으로 더 강해져 다시 출발, 해금할 수 있는 자동화 26가지
-[*]같은 한 시간은 없습니다: 희귀 이벤트 15종, 보스 능력 15종, 정예 7종, 매일 바뀌는 축복, 퀘스트 16종
+[*]같은 한 시간은 없습니다: 희귀 이벤트 15종, 보스 능력 15종, 정예 8종, 매일 바뀌는 축복, 퀘스트 16종
 [/list]
 
 [h2]방해하지 않도록 설계[/h2]

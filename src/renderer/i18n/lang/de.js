@@ -1655,4 +1655,6 @@ export default {
   2780: "Protokoll: Wenn du einen Tagessegen zum ersten Mal erlebst, wird sein dauerhafter Bonus angekündigt.",
   2781: "Ein Tagessegen, der um Mitternacht wechselt, wirkt jetzt sofort.",
   2782: "{n} Boss besiegt|{n} Bosse besiegt",
+  2783: "Regenerierend",
+  2784: "Gewinnt jede Sekunde 3 % seines maximalen Lebens zurück.",
 };
