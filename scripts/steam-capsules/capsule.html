@@ -64,6 +64,37 @@ function title(size, cx, cy, align = "center") {
   x.fillStyle = g; x.fillText("Sillwalker", cx, cy);
 }
 const k = (n) => Math.max(2, Math.round(n));
+// (it. 1203) illustration principale (« rendu d'agence ») : le duo en grand au premier plan face au drake, l'or qui
+// jaillit entre eux, une lueur chaude au point de choc, le Briseur en ombre au fond, sol réduit à une bande, vignette
+function keyart(ground, kh, opts = {}) {
+  sky();
+  const sb = STARBREAKER_ART, dark = Object.fromEntries(Object.keys(sb.pal).map((c) => [c, "#1b1535"]));
+  sprite(sb.frames[0], 0, dark, Math.round(kh * 1.9), W * (opts.sbx ?? 0.5), ground - U * 4, true, 0.85);
+  hills(ground - U * 8, "#241a40", U * 4, U * 6);
+  hills(ground - U * 3, "#2e3f5c", U * 2, U * 4);
+  x.fillStyle = "#3d5a3c"; x.fillRect(0, ground, W, H); x.fillStyle = "#6b5a3a"; x.fillRect(0, ground + U * 2, W, H);
+  x.fillStyle = "#4e7a46"; for (let px = 0; px < W; px += U * 3) if (rnd() < 0.5) x.fillRect(px, ground - U, U, U);
+  const feet = ground + U * 2, hx = W * (opts.hx ?? 0.1), cx = W * (opts.clash ?? 0.47), cy = feet - kh * 9;
+  // lueur au point de choc
+  const glow = x.createRadialGradient(cx, cy, 0, cx, cy, kh * 26);
+  glow.addColorStop(0, "rgba(255,217,138,0.55)"); glow.addColorStop(0.4, "rgba(255,170,90,0.18)"); glow.addColorStop(1, "rgba(255,170,90,0)");
+  x.fillStyle = glow; x.fillRect(0, 0, W, H);
+  const w = CLASS_ART.warrior, m = CLASS_ART.mage, d = MONSTER_ART.drake;
+  sprite(m.walk1, 0, m.pal, kh, hx, feet);
+  sprite(w.walk1, 0, w.pal, kh, hx + kh * 11, feet);
+  const dk = Math.round(kh * (opts.boss ?? 1.35)), ds = buildSprite(d.frames[0], d.pal, dk, true, 1);
+  x.drawImage(ds, Math.round(W * (opts.bx ?? 0.95) - ds.width), Math.round(feet - ds.height));
+  // l'or qui jaillit (carrés pixel, deux tons)
+  for (let i = 0; i < (opts.coins ?? 26); i++) {
+    const a = -Math.PI * (0.15 + rnd() * 0.7), r = kh * (4 + rnd() * 22), s = Math.max(U, Math.round(kh * (0.6 + rnd() * 0.6)));
+    const px = cx + Math.cos(a) * r, py = cy + Math.sin(a) * r * 0.8;
+    x.fillStyle = "#7a4a12"; x.fillRect(Math.round(px), Math.round(py), s, s);
+    x.fillStyle = rnd() < 0.5 ? "#ffd34d" : "#ffe9a8"; x.fillRect(Math.round(px), Math.round(py), s - Math.max(1, s >> 2), s - Math.max(1, s >> 2));
+  }
+  // vignette
+  const v = x.createRadialGradient(W / 2, H * 0.55, Math.min(W, H) * 0.35, W / 2, H * 0.55, Math.max(W, H) * 0.75);
+  v.addColorStop(0, "rgba(8,6,18,0)"); v.addColorStop(1, "rgba(8,6,18,0.55)"); x.fillStyle = v; x.fillRect(0, 0, W, H);
+}
 if (kind === "logo") { title(H * 0.42, W / 2, H / 2); }
 else if (kind === "avatar") {
   // (it. 814) photo de profil (itch.io…) : le héros en grand sur le ciel fêlé, sol en bas
@@ -73,8 +104,8 @@ else if (kind === "avatar") {
   x.drawImage(sp, Math.round((W - sp.width) / 2), Math.round(H * 0.86 + U * 2 - sp.height));
 }
 else if (kind === "hero") { scene(H * 0.78, k(H / 75), { sbx: 0.55, hx: 0.12, mons: ["slime", "skel", "wolf", "golem", "drake"] }); }
-else if (kind === "small") { scene(H * 0.86, k(H / 40)); x.fillStyle = "rgba(13,11,31,0.35)"; x.fillRect(0, 0, W, H); title(H * 0.42, W / 2, H * 0.4); }
-else if (H > W) { scene(H * 0.82, k(W / 70), { hx: 0.1, mons: ["slime", "drake"] }); title(W * 0.2, W / 2, H * 0.17); }
-else { scene(H * 0.8, k(H / 60)); title(H * 0.24, W / 2, H * 0.25); }
+else if (kind === "small") { keyart(H * 0.9, k(H / 26), { coins: 14 }); x.fillStyle = "rgba(13,11,31,0.3)"; x.fillRect(0, 0, W, H); title(H * 0.42, W / 2, H * 0.36); }
+else if (H > W) { keyart(H * 0.86, k(W / 44), { hx: 0.04, clash: 0.55, bx: 1.0, boss: 0.95, sbx: 0.3 }); title(W * 0.2, W / 2, H * 0.15); }
+else { keyart(H * 0.88, k(H / 42)); title(H * 0.22, W / 2, H * 0.19); }
 document.title = "READY";
 </script>

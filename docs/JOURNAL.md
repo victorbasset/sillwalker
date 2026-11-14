@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1203, médias 6) : relecture du dossier de livraison (10 langues partout, 15 captures par série, 20
+  vidéos de 29,7 s et 10 de 64,7 s ; LISEZMOI réécrit au propre). Capsules Steam : nouvelle composition « illustration »
+  (capsule.html, keyart : le duo en grand face au drake, or qui jaillit, lueur au point de choc, Briseur en ombre,
+  vignette ; le titre a de l'air) pour les capsules d'en-tête, petite, principale, verticales ; livrées en PROPOSITION
+  (Médias/sillwalker-promo/capsules-steam-proposition), steam/capsules du dépôt inchangé en attendant l'avis de Victor.
 - 2026-11-14 (it. 1202, médias 5) : vignettes YouTube et couvertures itch.io dans les 10 langues (thumbs.py :
   accroche dans la police pixel du titre, lettres cyrilliques et polonaises prises dans les polices du jeu caractère
   par caractère, Noto Sans CJK pour le chinois, le japonais et le coréen).
