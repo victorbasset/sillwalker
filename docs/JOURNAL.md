@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1270, contrôle) : deux passes complètes de lang-overflow après la correction de l'it. 1269 : aucun
+  défilement (avant : le défaut espagnol dans 3 des 4 dernières passes complètes, it. 1256-1268). Tenu pour corrigé ;
+  à rouvrir s'il revient (le rapport nommera la colonne).
 - 2026-11-14 (it. 1269) : défilement passager de l'Aventure en espagnol à 1280 px : le rapport corrigé (it. 1268) a
   nommé la colonne du héros (p-hero, rangée « Pendiente · Crónicas »). Reproduit l'état de lang-overflow (tous les
   déblocages, zone 310, quatre reliques) : « Experiencia 4,49 mil M / 1,54e105 » passait sur deux lignes (selon la
@@ -4956,7 +4959,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
+- FAIT (it. 1269-1270, ligne d'expérience de la carte du héros) P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
   1280 px, défilement de 10 px), puis rien sur quatre relances : un état passager de dev-data (pastilles des
   événements ou élixirs en cours ?). Forcer deux événements et des élixirs à 1280 px en espagnol et mesurer.
   Écarté à l'it. 1257 (injections TEMP, es 1280) : trois événements et six élixirs actifs (0), expérience très
