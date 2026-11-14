@@ -1644,4 +1644,5 @@ export default {
   2769: "Podsumowanie nieobecności: pokazuje, ile przedmiotów zostało na ziemi, gdy torba była pełna.",
   2770: "Każde przeżyte błogosławieństwo daje na zawsze {0}. Obecny bonus: {1}.",
   2771: "Kolekcja błogosławieństw: każde przeżyte błogosławieństwo dnia daje na zawsze +1% doświadczenia; zobacz Bestiariusz > Błogosławieństwa dnia.",
+  2772: "Dziesięć błogosławionych dni",
 };

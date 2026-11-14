@@ -1,6 +1,7 @@
 // Succès. `id` doit correspondre exactement à l'« API Name » déclaré dans
 // Steamworks (Stats & Achievements). Ajouter un succès = une ligne ici.
 import { EVENTS } from "./events.js";
+import { DAY_MOD_KEYS } from "./daymods.js";
 import { TREES } from "./talents.js";
 import { PETS } from "./pets.js";
 import { MONSTERS, ZONES, ELITE_AFFIXES } from "./data.js";
@@ -15,6 +16,8 @@ import { CHRONICLES } from "./story.js";
 import { RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel, ECHO_BOSSES } from "./relics.js";
 import { classSpells, spellRank } from "./spells.js";
 
+/** (it. 1232) Bénédictions du jour déjà vécues (succès « Dix jours bénis »), parmi celles qui existent. */
+const blessingsSeenCount = (S) => DAY_MOD_KEYS.filter((k) => ((S.daily && S.daily.seen) || {})[k]).length;
 /** Le plus de sorts appris par un même héros (0 à 3). */
 const spellsBest = (S) => Math.max(0, ...CLASS_KEYS.map((c) => classSpells(c).filter((x) => spellRank(S, x.id) > 0).length));
 /** Événements rares déjà vus (succès « Chasseur d’événements »), parmi ceux qui existent encore. */
@@ -62,6 +65,7 @@ export const ACHIEVEMENTS = [
   { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
   { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
   { id: "EVENTS_ALL",      name: "Chasseur d’événements", test: (S) => eventsSeenCount(S) >= Object.keys(EVENTS).length },
+  { id: "BLESSINGS_ALL",   name: "Dix jours bénis", test: (S) => blessingsSeenCount(S) >= DAY_MOD_KEYS.length }, // (it. 1232)
   { id: "ELITES_ALL",      name: "Tueur d’élites",     test: (S) => affixesSeenCount(S) >= Object.keys(ELITE_AFFIXES).length },
   { id: "PURE_HEART",      name: "Cœur pur",           test: (S) => (S.stats.pureBoss || 0) > 0 },
   { id: "DUO_SYNERGY",     name: "Duo parfait",        test: (S) => !!duoSynergy(S.cls, S.partner) },
@@ -120,6 +124,7 @@ export function earnedAchievements(S) {
 const rec = (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0);
 export const ACH_PROGRESS = {
   EVENTS_ALL: (S) => [eventsSeenCount(S), Object.keys(EVENTS).length],
+  BLESSINGS_ALL: (S) => [blessingsSeenCount(S), DAY_MOD_KEYS.length],
   ELITES_ALL: (S) => [affixesSeenCount(S), Object.keys(ELITE_AFFIXES).length],
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
   CHRONICLER: (S) => [chronRead(S), CHRONICLES.length - 1],

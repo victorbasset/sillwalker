@@ -1644,4 +1644,5 @@ export default {
   2769: "Abwesenheitsübersicht: Sie zeigt, wie viele Gegenstände bei voller Tasche am Boden liegen blieben.",
   2770: "Jeder erlebte Segen gibt {0} für immer. Aktueller Bonus: {1}.",
   2771: "Segenssammlung: Jeder bereits erlebte Segen des Tages gibt für immer +1 % Erfahrung; zu sehen unter Bestiarium > Segen des Tages.",
+  2772: "Zehn gesegnete Tage",
 };

@@ -919,6 +919,13 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     raw.daily.seen = "abîmé";
     assert.equal(typeof migrate(raw).daily.seen, "object");
   });
+  test("succès « Dix jours bénis » : les dix bénédictions vécues (it. 1232)", () => {
+    const g = new Game(freshState()); g.S.daily.seen = {};
+    for (const k of DAY_MOD_KEYS.slice(1)) g.S.daily.seen[k] = true;
+    assert.ok(!M_achievements_js.reachedAchievements(g.S).includes("BLESSINGS_ALL"));
+    g.S.daily.seen[DAY_MOD_KEYS[0]] = true;
+    assert.ok(M_achievements_js.reachedAchievements(g.S).includes("BLESSINGS_ALL"));
+  });
   test("collection des bénédictions : +1 % d'expérience par bénédiction vécue (it. 1226)", () => {
     const g = new Game(freshState()); g.S.daily.mod = null; g.S.daily.seen = {}; g.invalidateStats();
     const x0 = heroStats(g.S).xp || 0;

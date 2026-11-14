@@ -1644,4 +1644,5 @@ export default {
   2769: "Away summary: it shows how many items were left on the ground when the bag was full.",
   2770: "Each blessing you live through gives {0} forever. Current bonus: {1}.",
   2771: "Blessing collection: each daily blessing you have lived through gives +1% experience forever; see Bestiary > Daily blessings.",
+  2772: "Ten Blessed Days",
 };

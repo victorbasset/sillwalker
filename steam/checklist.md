@@ -15,7 +15,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 
 - ⬜ Vrai App ID : `node scripts/steam-set-appid.mjs <App ID>` (remplace 480 dans `src/shared/config.js` et active
   `STEAM_RELAUNCH_IF_NEEDED` ; npm test refuse la relance avec 480).
-- ✅ Succès : 66, noms dans les 10 langues (`steam/achievements.md`).
+- ✅ Succès : 67, noms dans les 10 langues (`steam/achievements.md`).
 - ✅ Sauvegarde Steam Cloud (API Cloud, la plus récente gagne au lancement).
 - ✅ Présence enrichie (`steam/richpresence.vdf`, 10 langues).
 - ✅ Envoi des versions : `npm run dist` puis `npm run steam:build` (SteamPipe, `scripts/steam-upload.mjs`).
@@ -28,7 +28,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
   (une série par page localisée), les versions avec accroches et tout le matériel promo : `steam/promo/`
   (aussi sur le partage, Médias/sillwalker-promo ; LISEZMOI.txt ; régénérable par `scripts/promo/`).
 - 🟡 Visuels (capsules, bibliothèque, logo) : première version → `steam/capsules/` (à juger, un graphiste ferait mieux).
-- 🟡 Succès : créer les 66 « API Name » de `steam/achievements.md`, icônes 64×64 dans `steam/achievement-icons/`
+- 🟡 Succès : créer les 67 « API Name » de `steam/achievements.md`, icônes 64×64 dans `steam/achievement-icons/`
   (`<ID>.png` obtenu, `<ID>_gray.png` verrouillé ; refaites par `scripts/steam-capsules/achicons.js`), publier.
 - 🟡 Steam Cloud : activer, 1 fichier, quota de 1 Mo largement suffisant (sauvegarde ≈ 17 Ko, ≈ 21 Ko après 48 h simulées, it. 963).
 - 🟡 Présence enrichie : téléverser `steam/richpresence.vdf`.

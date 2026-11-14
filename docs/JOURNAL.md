@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1232) : 67e succès « Dix jours bénis » (BLESSINGS_ALL) : les dix bénédictions du jour vécues ;
+  progression x / 10 dans Statistiques > Succès. Traduit (10 langues) ; steam/achievements.md régénéré ; icônes
+  (trophée : « gust » et « aegis » n'existent pas et donnaient une potion par défaut) dans steam/achievement-icons ;
+  README (liste Steam) et checklist (67) ; test. La liste des succès débordait de 7 px à 1366 px (espagnol, russe) :
+  le seuil serré passe de 1333 à 1334 px (panneau de 1366 − 32 px). Autotest 227/227 ; lang-overflow : rien.
 - 2026-11-14 (it. 1231, revue générale) : performance sur copie neuve de dev-data : bande 21,3 %, panneau 20,5 %, mini
   7,1 %, icône 0,5 % (stable : la vérification de scène de PNJ à chaque image ne coûte rien de mesurable) ; 12 h
   simulées : 61 / 62 / 64 (guerrier / mage / archer, inchangé ; la simulation ne réclame pas de récompense du jour, le

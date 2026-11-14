@@ -1644,4 +1644,5 @@ export default {
   2769: "Resumo da ausência: mostra quantos itens ficaram no chão quando a bolsa estava cheia.",
   2770: "Cada bênção vivida dá {0} para sempre. Bônus atual: {1}.",
   2771: "Coleção de bênçãos: cada bênção do dia já vivida dá +1% de experiência para sempre; acompanhe em Bestiário > Bênçãos do dia.",
+  2772: "Dez dias abençoados",
 };
