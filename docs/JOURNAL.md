@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1256) : élite Régénérant alignée sur la Régénération des boss : pas de soin tant qu'elle brûle ou
+  est empoisonnée (vraie parade : sorts et talents de brûlure / poison). Description mise à jour (nouvelle clé,
+  traduite), README. Test (brûlure : pas de soin). Vérifié aussi (it. 1256, sans changement) : résumé d'absence de
+  3 h (bulle et réplique du héros) fidèle. Autotest 227/227.
 - 2026-11-14 (it. 1255) : « Quoi de neuf », édition 65 : élite Régénérant (et son +N vert), ciel et bilan de la Lune
   pâle, bordure des événements en thème clair (it. 1244-1254) ; traduite. Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1254) : élite régénérante : son soin se voit sur la bande, un « +N » vert au-dessus d'elle au plus
@@ -4890,6 +4894,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
+  1280 px, défilement de 10 px), puis rien sur quatre relances : un état passager de dev-data (pastilles des
+  événements ou élixirs en cours ?). Forcer deux événements et des élixirs à 1280 px en espagnol et mesurer.
 - (Close, it. 1213 : pas un bug) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.

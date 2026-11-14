@@ -296,7 +296,8 @@ export class Game {
       const m = R.mon;
       m.age += dt;
       // (it. 1250) élite régénérante : regagne une part de sa vie chaque seconde
-      if (m.affix === "regen" && m.hp > 0 && m.hp < m.max) {
+      // (it. 1256) comme la Régénération des boss : la brûlure et le poison l'empêchent de se soigner
+      if (m.affix === "regen" && m.hp > 0 && m.hp < m.max && !(m.burnT > 0) && !(m.poisonT > 0)) {
         const before = m.hp; m.hp = Math.min(m.max, m.hp + m.max * ELITE_AFFIXES.regen.regen * dt);
         // (it. 1254) le soin se voit : un « +N » par seconde au plus (événement « monRegen »)
         m.regenAcc = (m.regenAcc || 0) + m.hp - before; m.regenT = (m.regenT || 0) + dt;

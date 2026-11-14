@@ -1660,4 +1660,5 @@ export default {
   2785: "Neue Elite, der Regenerierende: Er gewinnt jede Sekunde 3 % seines Lebens zurück (ein grünes +N zeigt es); schlag hart und schnell zu.",
   2786: "Der Fahle Mond hat seinen eigenen Himmel (verblasster Schleier, weißer Mond), und seine Bilanz zählt die besiegten Bosse.",
   2787: "Helles Design: Der Rahmen laufender Ereignisse ist besser sichtbar.",
+  2788: "Gewinnt jede Sekunde 3 % seines maximalen Lebens zurück, außer wenn er brennt oder vergiftet ist.",
 };

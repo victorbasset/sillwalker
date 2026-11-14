@@ -1660,4 +1660,5 @@ export default {
   2785: "Nova elite, o Regenerante: recupera 3 % da vida a cada segundo (um +N verde mostra isso); bata forte e rápido.",
   2786: "A Lua pálida tem seu céu (véu desbotado e lua branca) e seu resumo conta os chefes derrotados.",
   2787: "Tema claro: a borda dos eventos em andamento aparece melhor.",
+  2788: "Recupera 3 % da vida máxima a cada segundo, exceto se estiver queimando ou envenenado.",
 };

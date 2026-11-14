@@ -217,7 +217,7 @@ export const ELITE_AFFIXES = {
   elusive:  { name: "Fuyant",     color: "#c8b6ff", dodge: 0.2, desc: "Esquive 20 % des coups du héros (les coups au clic touchent toujours)." },
   thorny:   { name: "Épineux",    color: "#9ad35a", thorns: 0.15, desc: "Renvoie 15 % des dégâts qu’il reçoit au héros, sans jamais l’achever." },
   // (it. 1250) 8e sorte : se soigne avec le temps : il faut frapper fort et vite (les gros coups au clic aident)
-  regen:    { name: "Régénérant", color: "#5fe0b0", regen: 0.03, desc: "Regagne 3 % de sa vie maximale chaque seconde." },
+  regen:    { name: "Régénérant", color: "#5fe0b0", regen: 0.03, desc: "Regagne 3 % de sa vie maximale chaque seconde, sauf s’il brûle ou est empoisonné." },
 };
 
 // Les zones bouclent : après la dernière, on repart de la première avec des

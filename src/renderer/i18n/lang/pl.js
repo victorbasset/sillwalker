@@ -1660,4 +1660,5 @@ export default {
   2785: "Nowa elita, Regenerujący: odzyskuje 3 % życia co sekundę (pokazuje to zielone +N); uderzaj mocno i szybko.",
   2786: "Blady Księżyc ma swoje niebo (wyblakła zasłona i biały księżyc), a jego podsumowanie liczy pokonanych bossów.",
   2787: "Jasny motyw: ramka trwających wydarzeń jest lepiej widoczna.",
+  2788: "Odzyskuje 3 % maksymalnego życia co sekundę, chyba że płonie lub jest zatruty.",
 };

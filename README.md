@@ -113,7 +113,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   sorts pendant 4 s, toutes les 15 s) réservé aux échos des lieutenants (zones 250, 300, 350). Un boss qui bat le héros s'use : −5 % de PV par défaite
   (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu. Parade : le Talisman de pureté (pouvoir légendaire) repousse
   la malédiction et le venin.
-- **Élites à affixes** : rapide, blindé, vampirique, furieux, givré (ses coups peuvent geler le héros), épineux (renvoie 15 % des dégâts reçus, sans achever le héros), fuyant (esquive 20 % des coups) ou régénérant (regagne 3 % de sa vie chaque seconde).
+- **Élites à affixes** : rapide, blindé, vampirique, furieux, givré (ses coups peuvent geler le héros), épineux (renvoie 15 % des dégâts reçus, sans achever le héros), fuyant (esquive 20 % des coups) ou régénérant (regagne 3 % de sa vie chaque seconde, sauf s’il brûle ou est empoisonné).
 - **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
 - **Panoplies** : 10 ensembles (dont le Voyageur du vent, axé vitesse, le Traqueur de champions, qui attire les élites, et le Plumage du phénix, qui relève le héros une fois par combat), bonus à 2 et 4 pièces
   (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros) ; chaque panoplie
