@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1328) : descriptions chiffrées des déblocages comparées au code : Forge « +1 à +10 » = MAX_PLUS
+  (test ajouté), Transmutation « 3 objets » = lots de 3, Grimoire « un dixième de ton or » = S.gold × 0,1 ; tout juste.
+  Fin de la série de vérifications « ce qui est annoncé = ce qui se passe » (it. 1322-1328 : un vrai défaut, la Rafale
+  de vent, un oubli, l'or de la Fête des gobelins, et mon erreur du Jour de l'élan).
 - 2026-11-14 (it. 1327) : test : les effets des quatre reliques suivent RELIC_POWER et DRONE (missile 1,5 s, 1,5 % /
   0,4 %, 300 % ; −45 % et 1 %/s ; ×2,5 ; doublés et +50 % d'or) ; tous justes.
 - 2026-11-14 (it. 1326) : test : les descriptions des consommables suivent leurs constantes (potion : seuil 30 %, soin

@@ -57,7 +57,7 @@ import { TREES, cannotLearn, talentPointsFree, TIER_REQ, masteryMilestones, tale
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
-import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES } from "../src/renderer/game/data.js";
+import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
@@ -1000,6 +1000,11 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
   test("chaque bénédiction du jour a sa réplique du héros (strip.js dm_<clé>, it. 1299)", () => {
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
+  });
+  test("déblocage Forge : la description annonce le niveau maximal réel (it. 1328)", () => {
+    const f = UNLOCKS.find((u) => u.id === "forge");
+    const MAX_PLUS = MAX_PLUS_T;
+    assert.ok(f.desc.includes("+" + MAX_PLUS), f.desc + " / MAX_PLUS " + MAX_PLUS);
   });
   test("reliques : les chiffres des effets suivent RELIC_POWER et DRONE (it. 1327)", () => {
     const R = M_relics_js, fr = (x) => String(+x.toFixed(2)).replace(".", ","), P = (x) => fr(x * 100) + " %";
