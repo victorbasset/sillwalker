@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1202, médias 5) : vignettes YouTube et couvertures itch.io dans les 10 langues (thumbs.py :
+  accroche dans la police pixel du titre, lettres cyrilliques et polonaises prises dans les polices du jeu caractère
+  par caractère, Noto Sans CJK pour le chinois, le japonais et le coréen).
 - 2026-11-14 (it. 1201, bande-annonce 21) : bandes-annonces dans les 10 langues : russe, polonais, chinois, japonais,
   coréen ajoutés (textes de la bande-annonce dans texts_asia.py, plans manquants tournés, polices de secours par
   langue dans le rendu) : 30 vidéos (complète, 30 s, verticale × 10 langues) dans Médias/sillwalker-promo/videos.

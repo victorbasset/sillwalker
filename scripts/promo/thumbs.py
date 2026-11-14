@@ -9,7 +9,12 @@ LANG = sys.argv[5] if len(sys.argv) > 5 else "en"
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 HOOK = {"en": "AN IDLE RPG ON YOUR TASKBAR", "fr": "UN RPG IDLE SUR VOTRE BARRE DES TÂCHES",
         "de": "EIN IDLE-RPG AUF DEINER TASKLEISTE", "es": "UN RPG IDLE EN TU BARRA DE TAREAS",
-        "pt": "UM RPG IDLE NA SUA BARRA DE TAREFAS"}[LANG]
+        "pt": "UM RPG IDLE NA SUA BARRA DE TAREFAS", "pl": "IDLE RPG NA TWOIM PASKU ZADAŃ",
+        "ru": "IDLE-RPG НА ВАШЕЙ ПАНЕЛИ ЗАДАЧ", "zh": "住在任务栏上的放置类 RPG", "ja": "タスクバーに住む放置系RPG",
+        "ko": "작업 표시줄에 사는 방치형 RPG"}[LANG]
+# (it. 1202) police de l'accroche hors alphabet latin de base : celle du jeu (cyrillique, latin étendu) ou Noto CJK
+NOTO = "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"
+HOOK_FONT = {"ru": ("cyr.ttf", 0), "pl": ("latx.ttf", 0), "zh": (NOTO, 2), "ja": (NOTO, 0), "ko": (NOTO, 1)}.get(LANG)
 os.makedirs(OUT, exist_ok=True)
 tmp = os.path.join(OUT, "_frame.png")
 subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-y", "-ss", "9.5", "-i", os.path.join(SHOTS, "boss.mp4"),
@@ -20,15 +25,36 @@ logo = logo.crop(logo.getbbox())  # sans la marge transparente de l'image
 INK = (14, 12, 26)
 
 
-def fnt(name, size): return ImageFont.truetype(os.path.join(FONTS, name + ".ttf"), size)
+def fnt(name, size):
+    if HOOK_FONT:
+        return ImageFont.truetype(os.path.join(FONTS, HOOK_FONT[0]), size, index=HOOK_FONT[1])
+    return ImageFont.truetype(os.path.join(FONTS, name + ".ttf"), size)
+
+
+def runs(s, name, size):
+    """Morceaux (texte, police) : pour le russe et le polonais, la police pixel latine du titre et, pour les lettres
+    qu'elle n'a pas, celle de secours ; ailleurs, une seule police (Noto CJK a aussi le latin)."""
+    if LANG not in ("ru", "pl"):
+        return [(s, fnt(name, size))]
+    from fontTools.ttLib import TTFont
+    base = os.path.join(FONTS, name + ".ttf"); has = set(TTFont(base).getBestCmap())
+    out = []
+    for ch in s:
+        k = "b" if (ch.isspace() or ord(ch) in has) else "f"
+        if out and out[-1][0] == k: out[-1][1] += ch
+        else: out.append([k, ch])
+    return [(t, ImageFont.truetype(base, size) if k == "b" else fnt(name, size)) for k, t in out]
 
 
 def text(img, s, y, size, col=(255, 217, 138), name="title"):
-    d = ImageDraw.Draw(img); f = fnt(name, size)
-    while d.textlength(s, font=f) > img.width - 60: size -= 2; f = fnt(name, size)
-    x = (img.width - d.textlength(s, font=f)) / 2
-    d.text((x + 3, y + 4), s, font=f, fill=(0, 0, 0))
-    d.text((x, y), s, font=f, fill=col, stroke_width=3, stroke_fill=INK)
+    d = ImageDraw.Draw(img)
+    w = lambda sz: sum(d.textlength(t, font=f) for t, f in runs(s, name, sz))
+    while w(size) > img.width - 60: size -= 2
+    x0 = (img.width - w(size)) / 2; base = y + ImageFont.truetype(os.path.join(FONTS, name + ".ttf"), size).getmetrics()[0]
+    for dx, dy, kw in [(3, 4, dict(fill=(0, 0, 0))), (0, 0, dict(fill=col, stroke_width=3, stroke_fill=INK))]:
+        x = x0 + dx
+        for t, f in runs(s, name, size):
+            d.text((x, base + dy), t, font=f, anchor="ls", **kw); x += d.textlength(t, font=f)
 
 
 def band(img, y0, y1, a0, a1):  # dégradé sombre vertical (a0 → a1 d'opacité)
