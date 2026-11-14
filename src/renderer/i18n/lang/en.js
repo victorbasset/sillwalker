@@ -1665,4 +1665,5 @@ export default {
   2790: "Quests progress on their own, even offline (except bosses, champions, rare events and spells). {n} quest completed in total. {3} % of quests have 3 stars and a rare reward.|Quests progress on their own, even offline (except bosses, champions, rare events and spells). {n} quests completed in total. {3} % of quests have 3 stars and a rare reward.",
   2791: "New quest: defeat a champion (epic chest, sometimes an egg). It also progresses while you're away, with an estimated time.",
   2792: "The Regenerating no longer heals while it is burning or poisoned.",
+  2793: "Bane of Champions (25 champions)",
 };

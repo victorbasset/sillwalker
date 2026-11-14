@@ -932,6 +932,12 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("succès « Fléau des champions » : 25 champions, progression affichée (it. 1266)", () => {
+    const g = new Game(freshState()); g.S.stats.champions = 24;
+    assert.deepEqual(ACH_PROGRESS.CHAMPIONS_25(g.S), [24, 25]);
+    assert.ok(!ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
+    g.S.stats.champions = 25; assert.ok(ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
+  });
   test("quête « Vaincre un champion » : avance seulement sur un champion (it. 1260)", () => {
     const g = new Game(freshState()); g.S.zone = 10;
     g.S.quests.slots[0] = { id: 999, kind: "champion", goal: 1, progress: 0, stars: 1, reward: { gold: 10 } };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1266) : 68e succès, « Fléau des champions (25 champions) » (CHAMPIONS_25, progression x / 25) :
+  un objectif lointain après « Tueur de champion » (≈ 5000 monstres ; la quête de champion y aide). Traduit ; icône
+  (chevalier blanc, à côté du chevalier noir de CHAMPION ; « knight_crystal » n'a pas de dessin : sans icône, achicons
+  le signale) ; steam/achievements.md régénéré (68), checklist, README. Test ; autotest 227/227 ; lang-overflow
+  propre. Pour Victor : déclarer CHAMPIONS_25 dans Steamworks avec ses deux icônes.
 - 2026-11-14 (it. 1265) : checklist Steam : page du magasin modifiée jusqu'à l'it. 1260 (15 événements, 8 élites,
   17 quêtes), à recopier dans Steamworks si déjà saisie. Défilement espagnol : une piste de plus écartée (Idées).
 - 2026-11-14 (it. 1264) : « Quoi de neuf », édition 66 : quête de champion (hors ligne, temps estimé), Régénérant

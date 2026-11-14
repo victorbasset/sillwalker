@@ -1665,4 +1665,5 @@ export default {
   2790: "Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
   2791: "Nowe zadanie: pokonaj czempiona (epicka skrzynia, czasem jajo). Postępuje też podczas twojej nieobecności, z szacowanym czasem.",
   2792: "Regenerujący nie leczy się już, gdy płonie lub jest zatruty.",
+  2793: "Zmora czempionów (25 czempionów)",
 };

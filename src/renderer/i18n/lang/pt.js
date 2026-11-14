@@ -1665,4 +1665,5 @@ export default {
   2790: "As missões avançam sozinhas, mesmo offline (exceto chefes, campeões, eventos raros e feitiços). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, campeões, eventos raros e feitiços). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
   2791: "Nova missão: derrotar um campeão (baú épico, às vezes um ovo). Ela também avança durante a sua ausência, com um tempo estimado.",
   2792: "O Regenerante não se cura mais enquanto estiver queimando ou envenenado.",
+  2793: "Flagelo dos campeões (25 campeões)",
 };

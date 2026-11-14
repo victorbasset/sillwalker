@@ -1665,4 +1665,5 @@ export default {
   2790: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, campeones, eventos raros y hechizos). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, campeones, eventos raros y hechizos). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
   2791: "Nueva misión: derrotar a un campeón (cofre épico, a veces un huevo). También avanza durante tu ausencia, con un tiempo estimado.",
   2792: "El Regenerante ya no se cura mientras arde o está envenenado.",
+  2793: "Azote de campeones (25 campeones)",
 };

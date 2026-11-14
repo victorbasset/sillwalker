@@ -92,6 +92,8 @@ export const ACHIEVEMENTS = [
   { id: "CODEX_ALL",       name: "Grand collectionneur (tous les objets)", test: (S) => { const c = codexCounts(S); return c.found >= c.total; } },
   { id: "EXPEDITIONS_10",  name: "Explorateurs (10 expéditions)", test: (S) => (S.stats.expeditions || 0) >= 10 },
   { id: "CHAMPION",        name: "Tueur de champion", test: (S) => (S.stats.champions || 0) >= 1 },
+  // (it. 1266) un objectif lointain après le premier champion (≈ 5000 monstres ; la quête de champion y aide)
+  { id: "CHAMPIONS_25",    name: "Fléau des champions (25 champions)", test: (S) => (S.stats.champions || 0) >= 25 },
   { id: "POWERS_ALL",      name: "Tous les pouvoirs légendaires", test: (S) => Object.keys(S.powersSeen || {}).length >= POWERS.length },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
   { id: "UNLOCK_FIRST",    name: "Premier déblocage", test: (S) => Object.keys(S.unlocks || {}).length >= 1 },
@@ -125,6 +127,7 @@ const rec = (S) => Math.max(S.best, (S.prestige && S.prestige.bestRun) || 0);
 export const ACH_PROGRESS = {
   EVENTS_ALL: (S) => [eventsSeenCount(S), Object.keys(EVENTS).length],
   BLESSINGS_ALL: (S) => [blessingsSeenCount(S), DAY_MOD_KEYS.length],
+  CHAMPIONS_25: (S) => [S.stats.champions || 0, 25],
   ELITES_ALL: (S) => [affixesSeenCount(S), Object.keys(ELITE_AFFIXES).length],
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
   CHRONICLER: (S) => [chronRead(S), CHRONICLES.length - 1],
