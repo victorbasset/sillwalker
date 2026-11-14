@@ -1,7 +1,7 @@
 # Devlog itch.io : version 0.1.4 (BROUILLON, it. 1298)
 
 Brouillon préparé pendant le développement, à relire et compléter le jour de la sortie (Victor décide quand). Il
-reprend les éditions « Quoi de neuf » 59 à 72 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
+reprend les éditions « Quoi de neuf » 59 à 73 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
 À la sortie : mettre les mêmes points dans NEWS_RELEASES (news.js, `after: 58`), renommer ce fichier en
 devlog-0.1.4.md et ajouter ce qui sera paru entre-temps.
 
@@ -20,6 +20,7 @@ Sillwalker 0.1.4 is out! Here is what's new since 0.1.3:
 - **A new pet, the Froglet:** its croaking draws elites (+2% per level).
 - **Duo on the strip:** a ranged hero now lets their melee companion walk in front.
 - **Return after an absence:** the summary now counts items left on the ground (full bag) and the champions that fell.
+- **Fairer events:** the Wind Gust now truly doubles your speed, even late in the game, and the Goblin Festival shows its +15% gold bonus.
 - Many fixes in all 10 languages.
 
 Your save carries over: just install the new version over the old one.
@@ -41,6 +42,7 @@ Sillwalker 0.1.4 est disponible ! Voici les nouveautés depuis la 0.1.3 :
 - **Un nouveau familier, la Grenouillette :** ses coassements attirent les élites (+2 % par niveau).
 - **Le duo sur la bande :** un héros à distance laisse son compagnon au corps à corps marcher devant lui.
 - **Retour après une absence :** le résumé compte les objets restés au sol (sac plein) et les champions tombés.
+- **Des événements plus justes :** la Rafale de vent double vraiment ta vitesse, même en fin de partie, et la Fête des gobelins affiche son bonus de +15 % d'or.
 - De nombreuses corrections dans les 10 langues.
 
 Ta sauvegarde est conservée : installe simplement la nouvelle version par-dessus l'ancienne.
