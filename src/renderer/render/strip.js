@@ -211,6 +211,8 @@ export class StripRenderer {
     g.on("bagFull", () => this.say(SPEECH.bag)); // ordinaire : au plus une réplique toutes les 45 s // ordinaire : pas de bulle sur le nom d'un boss
     g.on("bossNemesis", () => this.say(SPEECH.nemesis, true));
     g.on("bossDodge", () => this.float(this.monX() + 14, 40, tx("Raté !"), "#c8c8d8"));
+    // (it. 1254) élite régénérante : sa vie qui remonte se voit (comme un nombre de dégâts : réglage « Nombres de dégâts »)
+    g.on("monRegen", ({ amount } = {}) => { if (amount >= 1) this.float(this.monX() + 8, 50, "+" + fmt(Math.round(amount)), "#5fe0b0", false, true); });
     g.on("dodge", () => this.float(this.heroX + 16, 44, tx("Esquive"), "#9fd8ff"));
     g.on("riposte", ({ dmg }) => this.float(this.monX() + 14, 34, tx("Riposte ") + fmt(Math.round(dmg)), "#ffb07a"));
     g.on("potion", () => this.float(this.heroX + 16, 36, tx("Potion !"), "#ff8ad8", true));

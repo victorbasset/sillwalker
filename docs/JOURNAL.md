@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1254) : élite régénérante : son soin se voit sur la bande, un « +N » vert au-dessus d'elle au plus
+  une fois par seconde (événement monRegen, game.js ; masqué avec les nombres de dégâts). Test (1 à 2 annonces en
+  2 s) ; vérifié en capture (+247k, +334k) ; autotest 227/227.
 - 2026-11-14 (it. 1253, contrôle) : nouvel extracteur (it. 1252, toutes sous-sections et bulles) passé sur la partie
   de fin en ja, zh, ko, pl, de, es, pt (≈ 19 800 lignes chacune) : aucun texte non traduit. Langues asiatiques : aucun
   mot latin hors suffixes des grands nombres et « pt » japonais (abréviation de points, voulue) ; langues latines :

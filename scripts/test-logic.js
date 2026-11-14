@@ -941,6 +941,9 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const h0 = m.hp; g.update ? g.update(0.5) : g.advance(0.5);
     assert.ok(m.hp > h0 && m.hp <= m.max, h0 + " → " + m.hp);
     m.hp = m.max * 0.999; g.R.atkT = 99; g.advance(2); assert.ok(m.hp <= m.max);
+    // (it. 1254) annoncé au plus une fois par seconde, seulement quand il regagne vraiment de la vie
+    let n = 0; g.on("monRegen", () => n++); m.hp = m.max * 0.2; for (let i = 0; i < 20; i++) { g.R.atkT = 99; g.advance(0.1); }
+    assert.ok(n >= 1 && n <= 2, "monRegen : " + n);
   });
   test("bilan de la Lune pâle : boss vaincus comptés (it. 1246)", () => {
     const g = new Game(freshState()); g.startEvent("palemoon"); g.S.stats.kills += 4; g.S.stats.bosses += 1;

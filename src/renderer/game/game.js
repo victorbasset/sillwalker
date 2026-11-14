@@ -296,7 +296,12 @@ export class Game {
       const m = R.mon;
       m.age += dt;
       // (it. 1250) élite régénérante : regagne une part de sa vie chaque seconde
-      if (m.affix === "regen" && m.hp > 0 && m.hp < m.max) m.hp = Math.min(m.max, m.hp + m.max * ELITE_AFFIXES.regen.regen * dt);
+      if (m.affix === "regen" && m.hp > 0 && m.hp < m.max) {
+        const before = m.hp; m.hp = Math.min(m.max, m.hp + m.max * ELITE_AFFIXES.regen.regen * dt);
+        // (it. 1254) le soin se voit : un « +N » par seconde au plus (événement « monRegen »)
+        m.regenAcc = (m.regenAcc || 0) + m.hp - before; m.regenT = (m.regenT || 0) + dt;
+        if (m.regenT >= 1) { this.emit("monRegen", { amount: m.regenAcc }); m.regenAcc = 0; m.regenT = 0; }
+      }
       // Attaques du héros
       if (R.frozen > 0) R.frozen -= dt;
       if (R.cursed > 0) R.cursed -= dt;
