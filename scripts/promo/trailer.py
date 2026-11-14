@@ -1,9 +1,11 @@
 # (it. 1172) Montage de la bande-annonce (version anglaise), calé sur la musique (air de la zone 126, 89 bpm : 1 mesure = 2,697 s).
 # Produit la liste des scènes pour edit.py : python3 scripts/promo/trailer.py <edl.json>
-import json, sys
+import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from texts import tr as tl
 BAR = 60 / 89 * 4
 G, L, R = [255, 217, 138], [236, 232, 255], [255, 120, 110]
-def T(t, y, size=64, col=G, f="title"): return [t, f, size, col, y]
+def T(t, y, size=64, col=G, f="title"): return [tl(t), f, size, col, y]
 # (it. 1173) gros plans ×4 (cadrage 480×200 → 1920×800), plans d'événements ×2 (960×200 → 1920×400)
 CU = lambda x0, x1: [[x0, 1040, 480], [x1, 1040, 480]]
 CUR = [0, 170, 1920, 800]
@@ -27,7 +29,7 @@ sc(2, type="clip", src="p-graph", t0=2, rect=[160, 40, 1600, 900], cam=[[1500, 4
 sc(1, type="clip", src="p-mastery", t0=2, rect=PAN, cam=[[960, 40, 1920], [960, 40, 1920]], fade=0, title=[T("Real choices, every milestone.", 975, 56)])
 sc(1, type="clip", src="endfight", t0=2, rect=CUR, cam=CU(1500, 1560), track=130, fade=0, title=[T("Grow absurdly powerful.", 60, 64)])
 sc(1, type="clip", src="p-bestiary", t0=1, rect=PAN, cam=[[0, 40, 1920], [0, 40, 1920]], fade=0, title=[T("83 monsters. 20 heroes. 14 rare events.", 975, 52)])
-for src, t0, x, tr in [("bloodmoon", 6, 900, None), ("goblinrush", 6, 1300, None), ("starfall", 6, 820, None), ("walk", 9, 1000, 200)]:
+for src, t0, x, tr in [("bloodmoon", 6, 900, 200), ("goblinrush", 6, 1300, 200), ("starfall", 6, 820, 200), ("walk", 9, 1000, 200)]:
     sc(0.5, type="clip", src=src, t0=t0, rect=CUR, cam=CU(x, x + 30), track=tr, fade=0)
 sc(3, type="card", logo=["steam/capsules/library-logo.png", 300, 760], fade=14, bg="dawn",
    title=[T("An idle RPG on the edge of your screen", 560, 40, L, "body"), T("Wishlist on Steam  ·  Play now on itch.io", 660, 44), T("Windows  ·  macOS  ·  Linux", 760, 30, [170, 160, 210], "body")])

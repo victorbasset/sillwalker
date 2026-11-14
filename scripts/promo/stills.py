@@ -1,7 +1,9 @@
 # (it. 1176) Captures d'écran 1920×1080 à partir des plans tournés (scripts/promo/shoot.mjs), par edit.py (une image par
 # scène). Deux séries : « steam » (du jeu seul, sans texte publicitaire : règles de Steam) et « promo » (accroche et
 # logo, pour itch.io et les réseaux). Usage : python3 scripts/promo/stills.py <steam|promo> <edl.json>
-import json, sys
+import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from texts import tr as tl
 SERIES, OUT = sys.argv[1], sys.argv[2]
 G, L, R = [255, 217, 138], [236, 232, 255], [255, 120, 110]
 F = 1 / 30
@@ -43,7 +45,7 @@ for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
         if panel:  # vue du panneau : réduite pour laisser la place à l'accroche
             sc["rect"] = [0, 250, 1920, 620]
         top = 40 if not panel else 30
-        sc["title"] = [[head, "title", 76, R if head == "BLOOD MOON" else ([140, 200, 255] if head == "STAR SWARM" else G), top], [sub, "body", 34, L, top + 96]]
+        sc["title"] = [[tl(head), "title", 76, R if head == "BLOOD MOON" else ([140, 200, 255] if head == "STAR SWARM" else G), top], [tl(sub), "body", 34, L, top + 96]]
         sc["plate"] = typ == "desktop"
         sc["logo"] = ["steam/capsules/library-logo.png", 1000, 0]
     S.append(sc)

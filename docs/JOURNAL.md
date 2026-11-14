@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1182, bande-annonce 11) : version française : scripts/promo/texts.py (textes anglais d'origine,
+  traduction par PROMO_LANG=fr, noms repris de la traduction du jeu : Lune de sang, Nuée d'étoiles, Rebord…) ; tous les
+  plans refilmés avec le jeu en français (LANG_UI=fr) ; bande-annonce et 2 × 13 captures en français. Coupes rapides
+  de la fin : caméra qui suit le héros aussi.
 - 2026-11-14 (it. 1181, captures 5) : captures recadrées sur les nouvelles prises : Nuée d'étoiles, Ruée des gobelins et
   combat de fin suivent le héros ; combat de fin à ×2 (le duo, ses critiques à plusieurs millions et l'élite en face ;
   à ×4 les nombres masquaient tout).
