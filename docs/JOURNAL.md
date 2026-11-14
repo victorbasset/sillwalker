@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1331, revue générale) : après la Rafale de vent corrigée (vitesse doublée) : 12 h 65 / 60 / 65 ;
+  semaine guerrier 350 / 350 / 349 (repère 350) ; fuzz 1200 parties, 0 bloquée. Performance et langues mesurées à la
+  1321, rien depuis qui les touche. Rien à corriger.
 - 2026-11-14 (it. 1330) : brouillon du devlog 0.1.4 : Rafale de vent et Fête des gobelins (éditions jusqu'à 73).
 - 2026-11-14 (it. 1329) : « Quoi de neuf », édition 73 : Rafale de vent qui double vraiment la vitesse, bonus d'or de
   la Fête des gobelins annoncé ; traduite (noms d'événement et de bénédiction tels que traduits). Autotest 228/228.
