@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1188, médias 2) : dossier de livraison sur le partage (Médias/sillwalker-promo, ≈ 60 Mo, hors
+  dépôt) : six vidéos (complète, 30 s, verticale × anglais/français), 4 × 13 captures (Steam sans texte / promo avec
+  accroches × deux langues), cinq GIF, LISEZMOI.txt (usage de chaque fichier, régénération). steam/screenshots et
+  steam/media ne seront remplacés qu'une fois, à la version finale (poids de l'historique git).
 - 2026-11-14 (it. 1187, bande-annonce 15) : version verticale 1080×1920 (TikTok, Shorts, Reels), 29,7 s, anglais et
   français : CUT=vertical (trailer.py) + PROMO_SIZE=1080x1920 (edit.py) ; bande ×3 au milieu suivant le héros, titres
   sur deux lignes au-dessus, logo centré en bas ; mêmes musique et bruitages que la version courte.
