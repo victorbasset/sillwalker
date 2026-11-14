@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1247, contrôle) : dix premières minutes (first-minutes, 3 graines) après la Lune pâle (un tirage de
+  plus par victoire) : saines (premier objet 54-81 s, boss 75-81 s, onglets aux mêmes minutes). Checklist Steam : la
+  page du magasin a changé à l'it. 1242 (15 événements), à recopier si déjà saisie ; dossiers de presse du partage
+  (Médias/sillwalker-promo) mis à jour aussi.
 - 2026-11-14 (it. 1246) : bilan de fin de la Lune pâle : « … dont N boss vaincus » (eventSnap compte aussi les boss),
   puisque sa raison d'être est de franchir un boss coriace. Traduit (3 formes en ru et pl) ; test ; autotest 227/227.
 - 2026-11-14 (it. 1245, contrôle) : --crawl en coréen sur la partie de fin après les it. 1238-1244 : 502 clics, aucune
