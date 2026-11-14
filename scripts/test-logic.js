@@ -995,6 +995,12 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
   });
+  test("bénédictions déjà annoncées : inchangées par les ajouts (sel par rang, it. 1314)", () => {
+    // le 14/11/2026 (Jour du rempart) et les jours suivants étaient joués ou annoncés (« Demain : … ») quand la 13e est
+    // arrivée : son tirage devait les épargner
+    assert.deepEqual(["2026-11-14", "2026-11-15", "2026-11-16", "2026-11-17"].map(dayModFor), ["bulwark", "fury", "treasure", "goblins"]);
+    assert.equal(DAY_MOD_KEYS.indexOf("momentum"), 12, "13e, ajoutée à la fin");
+  });
   test("Jour des géants : +50 % de dégâts contre les boss (it. 1292)", () => {
     const g = new Game(freshState()); const b0 = g.stats().bossDmg || 0;
     g.S.daily.mod = "giants"; g.invalidateStats();

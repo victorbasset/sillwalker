@@ -2826,5 +2826,8 @@ export const KEYS = [
   "Bestiaire > Bénédictions du jour : la bénédiction d’aujourd’hui et celle de demain sont marquées, même celle de demain jamais vécue.",
   "Venimeux",
   "Ses coups peuvent empoisonner le héros (3 % de ses PV max par seconde pendant 4 s, sans l’achever).",
-  "Nouvelle élite, le Venimeux : ses coups peuvent empoisonner le héros quelques secondes (sans jamais l’achever ; la pureté raccourcit le poison)."
+  "Nouvelle élite, le Venimeux : ses coups peuvent empoisonner le héros quelques secondes (sans jamais l’achever ; la pureté raccourcit le poison).",
+  "Jour de l’élan",
+  "+100 % de dégâts du premier coup et des coups au clic.",
+  "Le premier coup est le bon, aujourd’hui !"
 ];

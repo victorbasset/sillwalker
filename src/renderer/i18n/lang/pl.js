@@ -1697,4 +1697,7 @@ export default {
   2822: "Jadowity",
   2823: "Jego ciosy mogą zatruć bohatera (3 % maks. PŻ na sekundę przez 4 s, nigdy śmiertelnie).",
   2824: "Nowa elita, Jadowity: jego ciosy mogą zatruć bohatera na kilka sekund (nigdy śmiertelnie; czystość skraca truciznę).",
+  2825: "Dzień rozpędu",
+  2826: "+100 % obrażeń pierwszego ciosu i ciosów kliknięciem.",
+  2827: "Dziś liczy się pierwszy cios!",
 };

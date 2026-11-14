@@ -251,7 +251,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   compter ses points (fontTools) et la passer par ce script ; ne pas multiplier les tailles et graisses.
 - Bénédictions du jour (it. 1237) : toujours AJOUTER une bénédiction à la FIN de DAY_MODS (daymods.js) ; dayModFor
   garde le calendrier des 9 premières et chaque ajout ne prend qu'un jour sur n (tirage réservoir). Changer l'ordre ou
-  le modulo rebat tout le calendrier (bénédiction du jour qui change en pleine journée à la mise à jour).
+  le modulo rebat tout le calendrier (bénédiction du jour qui change en pleine journée à la mise à jour). Le jour pris par
+  un ajout peut tomber AUJOURD'HUI ou demain (it. 1314 : la 13e prenait le 14/11) : vérifier ces jours avant / après et, au
+  besoin, donner à ce rang un autre sel (DAY_MOD_SALT) ; un test fige les jours déjà annoncés.
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.

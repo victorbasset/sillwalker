@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1314) : 13e bénédiction du jour, « Jour de l'élan » (💨, +100 % de dégâts du premier coup et des
+  coups au clic : le joueur présent récompensé). Ajoutée à la fin, mais le tirage réservoir lui donnait… le 14/11/2026,
+  aujourd'hui (le Jour du rempart aurait changé en pleine journée chez Victor) : sel propre à ce rang (DAY_MOD_SALT,
+  « #2 ») qui épargne le 14 au 21 novembre ; 18 jours sur 336 en 2027 (≈ 1 / 13). Test qui fige les jours déjà annoncés
+  (14-17/11). Réplique, traduite ; README ; CLAUDE.md (piège). Autotest 228/228 ; lang-overflow propre.
 - 2026-11-14 (it. 1313, contrôle) : --crawl en russe sur l'état maximal après l'Écho des lames et le Venimeux :
   557 clics, aucune erreur.
 - 2026-11-14 (it. 1312) : brouillon du devlog 0.1.4 : élite Venimeux ajoutée (éditions jusqu'à 71).

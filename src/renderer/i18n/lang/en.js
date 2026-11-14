@@ -1697,4 +1697,7 @@ export default {
   2822: "Venomous",
   2823: "Its hits can poison the hero (3% of max HP per second for 4 s, never lethal).",
   2824: "New elite, the Venomous: its hits can poison the hero for a few seconds (never lethal; purity shortens the poison).",
+  2825: "Day of Momentum",
+  2826: "+100% damage on the first hit and on click hits.",
+  2827: "The first hit is the one that counts today!",
 };

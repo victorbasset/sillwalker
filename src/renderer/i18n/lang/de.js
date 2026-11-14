@@ -1697,4 +1697,7 @@ export default {
   2822: "Giftig",
   2823: "Seine Treffer können den Helden vergiften (3 % seiner max. LP pro Sekunde, 4 s lang, nie tödlich).",
   2824: "Neue Elite, der Giftige: Seine Treffer können den Helden einige Sekunden vergiften (nie tödlich; Reinheit verkürzt das Gift).",
+  2825: "Tag des Schwungs",
+  2826: "+100 % Schaden beim ersten Treffer und bei Klicktreffern.",
+  2827: "Heute sitzt der erste Treffer!",
 };

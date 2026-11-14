@@ -1697,4 +1697,7 @@ export default {
   2822: "Venenoso",
   2823: "Sus golpes pueden envenenar al héroe (3 % de sus PV máx. por segundo durante 4 s, sin rematarlo).",
   2824: "Nueva élite, el Venenoso: sus golpes pueden envenenar al héroe unos segundos (sin rematarlo nunca; la pureza acorta el veneno).",
+  2825: "Día del impulso",
+  2826: "+100 % de daño del primer golpe y de los golpes con clic.",
+  2827: "¡Hoy el primer golpe es el bueno!",
 };

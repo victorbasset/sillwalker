@@ -21,6 +21,8 @@ export const DAY_MODS = {
   champions: { icon: "👑", name: "Jour des champions", desc: "Champions ×4.", eff: {}, champion: 4 },
   // (it. 1292) 12e : le jour où l'on franchit un boss coriace (dégâts contre les boss) ; ajoutée à la FIN (it. 1237)
   giants: { icon: "🗿", name: "Jour des géants", desc: "+50 % de dégâts contre les boss.", eff: { bossDmg: 50 } },
+  // (it. 1314) 13e : le joueur présent est récompensé (premier coup de chaque combat, coups au clic) ; ajoutée à la FIN
+  momentum: { icon: "💨", name: "Jour de l’élan", desc: "+100 % de dégâts du premier coup et des coups au clic.", eff: { firstStrike: 100, tapDmg: 100 } },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 
@@ -36,9 +38,14 @@ function fnv(str) {
  *  jour même comprise pour qui mettait le jeu à jour en cours de journée. */
 const DAY_MODS_BASE = 9;
 /** Modificateur du jour "AAAA-MM-JJ" (déterministe). */
+/** (it. 1314) Sel du tirage d'une bénédiction ajoutée (rang → sel ; « # » par défaut). Le tirage réservoir donne à un
+ *  ajout un jour sur n, mais CE jour-là peut tomber aujourd'hui ou demain (déjà annoncé) : la 13e aurait remplacé la
+ *  bénédiction du 14/11/2026 en pleine journée. On choisit alors un autre sel pour CE rang, qui épargne aujourd'hui et
+ *  les jours suivants ; ne jamais changer le sel d'un rang déjà publié (son calendrier bougerait). */
+const DAY_MOD_SALT = { 12: "#2" };
 export function dayModFor(day) {
   let k = DAY_MOD_KEYS[fnv(day) % DAY_MODS_BASE];
-  for (let i = DAY_MODS_BASE; i < DAY_MOD_KEYS.length; i++) if (fnv(day + "#" + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i];
+  for (let i = DAY_MODS_BASE; i < DAY_MOD_KEYS.length; i++) if (fnv(day + (DAY_MOD_SALT[i] || "#") + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i];
   return k;
 }
 
