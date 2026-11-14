@@ -1000,6 +1000,14 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
   });
+  test("chaque bénédiction : les nombres de son effet réel figurent dans sa description (it. 1322)", () => {
+    // le Jour de l'élan avait firstStrike: 100 (unité : fraction) : un premier coup ×101 annoncé « +100 % »
+    for (const k of DAY_MOD_KEYS) {
+      const m = DAY_MODS[k], txt = M_talents_js.describeEffects(m.eff || {});
+      const nums = (txt.match(/\d+(?:[.,]\d+)?/g) || []);
+      for (const n of nums) assert.ok(m.desc.replace(/\s/g, "").includes(n), k + " : effet réel « " + txt + " » absent de la description « " + m.desc + " »");
+    }
+  });
   test("bénédictions déjà annoncées : inchangées par les ajouts (sel par rang, it. 1314)", () => {
     // le 14/11/2026 (Jour du rempart) et les jours suivants étaient joués ou annoncés (« Demain : … ») quand la 13e est
     // arrivée : son tirage devait les épargner

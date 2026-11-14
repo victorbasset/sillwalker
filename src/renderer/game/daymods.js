@@ -10,7 +10,7 @@ export const DAY_MODS = {
   wind:    { icon: "🍃", name: "Jour du vent",      desc: "+20 % de vitesse de déplacement.",     eff: { moveSpd: 20 } },
   fury:    { icon: "🔥", name: "Jour de furie",     desc: "+20 % d’attaque, +10 % de critique.",   eff: { atkPct: 20, crit: 10 } },
   bulwark: { icon: "🛡", name: "Jour du rempart",   desc: "+25 % de PV et de défense.",            eff: { hpPct: 25, defPct: 25 } },
-  goblins: { icon: "👺", name: "Fête des gobelins", desc: "Gobelins voleurs ×4.",                  eff: { gold: 15 }, goblin: 4 },
+  goblins: { icon: "👺", name: "Fête des gobelins", desc: "Gobelins voleurs ×4, +15 % d’or.",                  eff: { gold: 15 }, goblin: 4 },
   // (it. 887) une journée de trouvailles : coffres sur le chemin, en jeu comme pendant l'absence
   treasure: { icon: "💎", name: "Jour des trésors", desc: "Coffres au trésor ×3 sur le chemin.",   eff: {}, chest: 3 },
   // (it. 938) une journée de prodiges : événements rares deux fois plus fréquents (collection plus rapide)
@@ -22,7 +22,7 @@ export const DAY_MODS = {
   // (it. 1292) 12e : le jour où l'on franchit un boss coriace (dégâts contre les boss) ; ajoutée à la FIN (it. 1237)
   giants: { icon: "🗿", name: "Jour des géants", desc: "+50 % de dégâts contre les boss.", eff: { bossDmg: 50 } },
   // (it. 1314) 13e : le joueur présent est récompensé (premier coup de chaque combat, coups au clic) ; ajoutée à la FIN
-  momentum: { icon: "💨", name: "Jour de l’élan", desc: "+100 % de dégâts du premier coup et des coups au clic.", eff: { firstStrike: 100, tapDmg: 100 } },
+  momentum: { icon: "💨", name: "Jour de l’élan", desc: "+100 % de dégâts du premier coup et des coups au clic.", eff: { firstStrike: 1, tapDmg: 100 } }, // firstStrike : en fraction (×100 à l’affichage), tapDmg : en %
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

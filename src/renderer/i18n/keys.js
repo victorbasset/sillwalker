@@ -2830,5 +2830,6 @@ export const KEYS = [
   "Jour de l’élan",
   "+100 % de dégâts du premier coup et des coups au clic.",
   "Le premier coup est le bon, aujourd’hui !",
-  "Nouvelle bénédiction du jour, le Jour de l’élan : +100 % de dégâts du premier coup et des coups au clic."
+  "Nouvelle bénédiction du jour, le Jour de l’élan : +100 % de dégâts du premier coup et des coups au clic.",
+  "Gobelins voleurs ×4, +15 % d’or."
 ];

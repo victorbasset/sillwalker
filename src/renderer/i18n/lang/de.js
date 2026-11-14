@@ -1701,4 +1701,5 @@ export default {
   2826: "+100 % Schaden beim ersten Treffer und bei Klicktreffern.",
   2827: "Heute sitzt der erste Treffer!",
   2828: "Neuer Tagessegen, der Tag des Schwungs: +100 % Schaden beim ersten Treffer und bei Klicktreffern.",
+  2829: "Diebische Kobolde ×4, +15 % Gold.",
 };

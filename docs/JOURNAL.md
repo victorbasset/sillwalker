@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1322, défaut corrigé) : le Jour de l'élan (it. 1314) avait firstStrike: 100, or cet effet s'exprime en
+  fraction (×100 à l'affichage ; game.js : dmg *= 1 + firstStrike) : premier coup ×101 au lieu de ×2 ce jour-là.
+  Corrigé (firstStrike: 1). Nouveau test : les nombres de l'effet réel de chaque bénédiction (describeEffects) doivent
+  figurer dans sa description ; il a aussitôt trouvé un défaut ancien : la Fête des gobelins donnait +15 % d'or sans
+  le dire (« Gobelins voleurs ×4. » → « …, +15 % d'or. », traduit). bossDmg (Jour des géants) vérifié : en %, juste.
+  Autotest 228/228 ; lang-overflow propre. Le Jour de l'élan ne tombe pas avant fin novembre : aucun joueur touché.
 - 2026-11-14 (it. 1321, revue générale) : performance bande 19,4 %, panneau 20,2 %, mini 6,8 %, icône 0,6 % (stable) ;
   lang-overflow complet (avec l'état maximal) : propre ; ~/.config/Sillwalker absent (garde-fou de l'it. 1318). Équilibre
   (it. 1311, trois graines) et début de partie (it. 1319) récents. Rien à corriger.
