@@ -238,5 +238,8 @@ PT["Or keep it tiny."] = "Ou deixe-o minúsculo."
 LANG = os.environ.get("PROMO_LANG", "en")
 
 
+from texts_asia import ZH, JA, KO, RU, PL  # (it. 1200)
+
+
 def tr(s):
-    return {"fr": FR, "de": DE, "es": ES, "pt": PT}.get(LANG, {}).get(s, s)
+    return {"fr": FR, "de": DE, "es": ES, "pt": PT, "zh": ZH, "ja": JA, "ko": KO, "ru": RU, "pl": PL}.get(LANG, {}).get(s, s)

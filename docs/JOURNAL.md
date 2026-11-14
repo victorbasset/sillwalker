@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1200, captures 10) : captures « promo » dans les 10 langues : accroches en chinois, japonais,
+  coréen, russe, polonais (texts_asia.py, noms repris du jeu) ; edit.py dessine chaque caractère dans la première
+  police qui l'a (PROMO_FALLBACK, ligne de base commune) : Tiny5 (cyrillique) et Geist Pixel étendu (polonais) du jeu
+  (mkfonts.py), Noto Sans CJK Bold pour le chinois, le japonais et le coréen (DotGothic16 du jeu : traits trop fins à
+  grande taille, 49 caractères simplifiés absents).
 - 2026-11-14 (it. 1199, médias 4) : dossier de presse (scripts/promo/presskit.html, copié dans Médias/sillwalker-promo) :
   page autonome en anglais qui pointe vers les fichiers voisins : bande-annonce lisible sur place et ses trois
   formats à télécharger, fiche (développeur, plateformes, langues, disponibilité), six points forts, 15 captures,

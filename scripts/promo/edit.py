@@ -20,6 +20,48 @@ def font(name, size):
     return ImageFont.truetype(os.path.join(FONTS, name + ".ttf"), size)
 
 
+# (it. 1200) polices de secours pour les lettres absentes des polices pixel latines (cyrillique, polonais, CJK) :
+# PROMO_FALLBACK="chemin[#indice],…" ; chaque caractère prend la première police qui l'a
+_CMAPS = {}
+
+
+def _cmap(path, idx):
+    if (path, idx) not in _CMAPS:
+        from fontTools.ttLib import TTFont
+        _CMAPS[(path, idx)] = set(TTFont(path, fontNumber=idx).getBestCmap())
+    return _CMAPS[(path, idx)]
+
+
+def _chain(name):
+    c = [(os.path.join(FONTS, name + ".ttf"), 0)]
+    for e in filter(None, os.environ.get("PROMO_FALLBACK", "").split(",")):
+        pth, _, i = e.partition("#"); c.append((pth, int(i or 0)))
+    return c
+
+
+def runs(txt, name, size):
+    """Morceaux (texte, police) d'une ligne, chacun dans la première police de la chaîne qui a ses caractères."""
+    chain, out = _chain(name), []
+    for ch in txt:
+        pick = chain[0]
+        if not ch.isspace():
+            pick = next((c for c in chain if ord(ch) in _cmap(*c)), chain[0])
+        if out and out[-1][1] == pick: out[-1][0] += ch
+        else: out.append([ch, pick])
+    return [(t, ImageFont.truetype(p, size, index=i)) for t, (p, i) in out]
+
+
+def tlen(d, txt, name, size):
+    return sum(d.textlength(t, font=f) for t, f in runs(txt, name, size))
+
+
+def tdraw(d, xy, txt, name, size, **kw):
+    """Dessine sur une ligne de base commune (celle de la police principale) : les polices de secours s'alignent."""
+    x, y = xy; base = y + font(name, size).getmetrics()[0]
+    for t, f in runs(txt, name, size):
+        d.text((x, base), t, font=f, anchor="ls", **kw); x += d.textlength(t, font=f)
+
+
 def ease(t):  # lissage d'entrée et de sortie (caméra)
     t = max(0.0, min(1.0, t))
     return t * t * (3 - 2 * t)
@@ -59,13 +101,12 @@ def text_layer(lines, plate=False):
         top = min(l[4] for l in lines) - 24; bot = max(l[4] + l[2] for l in lines) + 30
         d.rectangle([0, top, W, bot], fill=(14, 12, 26, 175))
     for txt, fname, size, col, y in lines:
-        f = font(fname, size)
-        w = d.textlength(txt, font=f)
+        w = tlen(d, txt, fname, size)
         while w > W - 80 and size > 20:  # (it. 1194) titre traduit trop long (allemand, espagnol, format vertical) : réduit
-            size -= 4; f = font(fname, size); w = d.textlength(txt, font=f)
+            size -= 4; w = tlen(d, txt, fname, size)
         x = (W - w) / 2
-        d.text((x + 4, y + 5), txt, font=f, fill=(0, 0, 0, 150))
-        d.text((x, y), txt, font=f, fill=tuple(col) + (255,), stroke_width=3, stroke_fill=INK + (255,))
+        tdraw(d, (x + 4, y + 5), txt, fname, size, fill=(0, 0, 0, 150))
+        tdraw(d, (x, y), txt, fname, size, fill=tuple(col) + (255,), stroke_width=3, stroke_fill=INK + (255,))
     return lay
 
 
