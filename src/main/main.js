@@ -9,6 +9,14 @@ const flags = require("./flags");
 const { registerScheme, serveDirectory } = require("./protocol");
 
 if (flags.userData) app.setPath("userData", path.resolve(flags.userData));
+// (it. 1318) un lancement de test (--ghost) sans --user-data utilisait le dossier de sauvegarde par défaut : un oubli
+// dans une commande (it. 1317) a créé ~/.config/Sillwalker. Les tests ne touchent jamais la vraie sauvegarde : ils
+// partent alors d'un dossier temporaire neuf (un joueur ne lance jamais le jeu avec --ghost, réservé au développement).
+else if (flags.ghost) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "sillwalker-ghost-"));
+  app.setPath("userData", tmp);
+  console.log("[dev] --ghost sans --user-data : dossier temporaire", tmp, "(la vraie sauvegarde n'est pas touchée)");
+}
 app.setAppUserModelId("com.sillwalker.game");
 registerScheme();
 // Effets sonores (désactivés par défaut) : pas besoin d'un clic pour démarrer l'audio.

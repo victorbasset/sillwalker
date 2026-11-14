@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1318) : garde-fou après l'incident de l'it. 1317 : un lancement --ghost (tests seulement, jamais un
+  joueur) sans --user-data part d'un dossier temporaire neuf (main.js, message « [dev] --ghost sans --user-data ») au
+  lieu du dossier de sauvegarde par défaut. Vérifié : ~/.config/Sillwalker n'est plus créé. Aucun script du dépôt ne
+  lançait --ghost sans --user-data. CLAUDE.md. Autotest 228/228.
 - 2026-11-14 (it. 1317, incident corrigé) : deux captures lancées SANS --user-data (oubli dans la commande) : le jeu a
   créé ~/.config/Sillwalker (compte claude du serveur ; partie neuve de 2 Ko, tous les fichiers datés de 22:55-22:56,
   rien de plus ancien : le dossier n'existait pas). Supprimé aussitôt, comme à l'it. 1144 ; la sauvegarde de Victor
