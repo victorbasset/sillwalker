@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1259, contrôle) : lang-overflow complet (10 langues, avec le nouveau rapport de cause) : aucun
+  défilement ; save-fuzz (dev : 1211 corruptions ; fin de partie : 1190) : ok, après les ajouts du jour (bénédictions
+  vécues, Lune pâle, élite Régénérant).
 - 2026-11-14 (it. 1258) : --overflow-report (donc lang-overflow) nomme ce qui dépasse quand un onglet défile :
   « adventure-cause=p-hero>P:Los_lugartenientes… » (colonne .panel et élément le plus bas, texte tronqué). Vérifié sur
   un débordement fabriqué (bloc de 80 px dans la colonne du héros, injection TEMP) : colonne désignée juste.
