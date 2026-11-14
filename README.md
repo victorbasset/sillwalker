@@ -64,7 +64,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   douceur jusqu'à ×1,04 (`zoneMight`, rules.js), pour que la progression continue jusqu'à la zone 200 et au-delà
   (semaine simulée : record 161).
 - **Boutique** : marchand (4 objets, renouvelé toutes les 15 min ou contre de l'or), potions bues automatiquement
-  sous 30 % de vie, élixirs de 10 min (attaque, or, expérience), coffres à rareté garantie, sac jusqu'à 48 places.
+  sous 30 % de vie, élixirs de 10 min (attaque, or, expérience, vitesse, butin, PV et défense ; Encens de chasse : +100 % d'élites, jamais racheté automatiquement), coffres à rareté garantie, sac jusqu'à 48 places.
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
   chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).

@@ -2833,5 +2833,9 @@ export const KEYS = [
   "Nouvelle bénédiction du jour, le Jour de l’élan : +100 % de dégâts du premier coup et des coups au clic.",
   "Gobelins voleurs ×4, +15 % d’or.",
   "La Rafale de vent double maintenant vraiment ta vitesse de déplacement, même quand elle est déjà très haute.",
-  "La Fête des gobelins annonce aussi son bonus de +15 % d’or."
+  "La Fête des gobelins annonce aussi son bonus de +15 % d’or.",
+  "Encens de chasse",
+  "+100 % d’élites pendant 10 min de jeu (cumulable jusqu’à 2 h) : plus de risque, plus de butin. Jamais racheté automatiquement.",
+  "+100 % d’élites",
+  "Nouveau à la boutique : l’Encens de chasse attire deux fois plus d’élites pendant 10 min. Plus de risque, plus de butin ; l’Herboriste perpétuel ne le rachète jamais à ta place."
 ];

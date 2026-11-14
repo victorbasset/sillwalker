@@ -29,8 +29,11 @@ export const CONSUMABLES = [
     desc: "+40 % de chances de butin pendant 10 min de jeu (cumulable jusqu’à 2 h)." },
   { id: "iron",    name: "Tonique de fer",       base: 150, kind: "buff", duration: 600,
     desc: "+30 % de PV et de défense pendant 10 min de jeu (cumulable jusqu’à 2 h)." },
+  // (it. 1336) plus d'élites : un choix de risque, donc jamais racheté par l'Herboriste perpétuel (manual)
+  { id: "lure",    name: "Encens de chasse",     base: 180, kind: "buff", duration: 600, manual: true,
+    desc: "+100 % d’élites pendant 10 min de jeu (cumulable jusqu’à 2 h) : plus de risque, plus de butin. Jamais racheté automatiquement." },
 ];
-export const BUFF_EFFECTS = { elixir: { atkPct: 25 }, fortune: { gold: 50 }, wisdom: { xp: 50 }, haste: { moveSpd: 30 }, luck: { drop: 40 }, iron: { hpPct: 30, defPct: 30 } };
+export const BUFF_EFFECTS = { elixir: { atkPct: 25 }, fortune: { gold: 50 }, wisdom: { xp: 50 }, haste: { moveSpd: 30 }, luck: { drop: 40 }, iron: { hpPct: 30, defPct: 30 }, lure: { elites: 100 } };
 
 /** Coffres : un objet de la meilleure zone, rareté minimale garantie. */
 export const CHESTS = [

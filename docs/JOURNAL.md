@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1336) : nouveau consommable, l'Encens de chasse (boutique, 8e tuile : la grille passe à 4 × 2) :
+  +100 % d'élites pendant 10 min (cumulable 2 h), plus de risque et plus de butin ; utile pour la quête et les succès
+  d'élites et pour compléter le Bestiaire des élites. Jamais racheté par l'Herboriste perpétuel (`manual`, en jeu comme
+  pendant une absence) : le risque reste un choix. Icône d'encensoir, 10 langues, test, « Quoi de neuf » 74, devlog.
+  Le joueur simulé ne l'achète pas : équilibre inchangé. Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1335, contrôle) : élite Venimeux enfin vue à l'image (mise en scène --stage : toute la file venimeuse,
   copie de dev-data) : étiquette verte « Venimeux », deux empoisonnements en 20 s (PV qui baissent sans achever),
   halo vert du héros (juice.js) et « Empoisonné ! ». Conforme ; rien à corriger. Astuce : dans un --stage, écrire

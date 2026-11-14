@@ -1704,4 +1704,8 @@ export default {
   2829: "Diebische Kobolde ×4, +15 % Gold.",
   2830: "Die Windböe verdoppelt jetzt wirklich deine Laufgeschwindigkeit, auch wenn sie schon sehr hoch ist.",
   2831: "Das Koboldfest nennt jetzt auch seinen Bonus von +15 % Gold.",
+  2832: "Jagdweihrauch",
+  2833: "+100 % Elite-Gegner für 10 Min. Spielzeit (stapelbar bis 2 Std.): mehr Risiko, mehr Beute. Wird nie automatisch nachgekauft.",
+  2834: "+100 % Elite-Gegner",
+  2835: "Neu im Laden: Jagdweihrauch lockt 10 Min. lang doppelt so viele Elite-Gegner an. Mehr Risiko, mehr Beute; der Ewige Kräuterkundler kauft ihn nie für dich nach.",
 };

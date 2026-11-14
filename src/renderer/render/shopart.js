@@ -45,6 +45,8 @@ const EVERFIRE = ["..P.W.P..", "...PWP...", ".KKKKKKK.", "KPPPPPPPK", "KMMMMMMMK
 const BELL = ["....G....", "...GGG...", "..GGWGG..", "..GGWGG..", ".GGGGGGG.", ".GGGGGGG.", "GGGGGGGGG", "....B...."];
 const MAP = ["PPP.PPP..", "PPLPPPLP.", "PLPPPLPPP", "PPPRPPPLP", "PLPPPPPPP", "PPPPLPPRP", ".PPP.PPPP"];
 
+// (it. 1336) Encens de chasse : encensoir suspendu, fumée verte qui attire les élites
+const CENSER = ["..S...S..", "...S.S...", "..S.S....", "....C....", "...KKK...", "..KYYYK..", ".KYRYRYK.", "..KYYYK..", "...KKK..."];
 const OUT = "#14121f";
 export const SHOP_ICON_DEFS = {
   potion:  [FLASK, { L: "#e2394a", D: "#a8222f", W: "#f4f0e8" }],
@@ -54,6 +56,7 @@ export const SHOP_ICON_DEFS = {
   fortune: [SCROLL, { P: "#f0dca8", L: "#e9b949" }],
   wisdom:  [SCROLL, { P: "#f0dca8", L: "#5a8ad8" }],
   luck:    [CLOVER, { G: "#5fd36f", g: "#2f8a3a" }],
+  lure:    [CENSER, { S: "#9fe0b0", C: "#8a6a3a", Y: "#d9a83a", R: "#ff6a3a" }],
   chest_wood:  [CHEST, { B: "#a8703a", M: "#5c3a1a", Y: "#e9b949" }],
   chest_iron:  [CHEST, { B: "#6b4a2b", M: "#9aa3ad", Y: "#e9b949" }],
   chest_royal: [CHEST, { B: "#7a3a8a", M: "#e9b949", Y: "#fff6c8" }],

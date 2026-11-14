@@ -1735,7 +1735,7 @@ export class Game {
     if (!hasUnlock(S, "herbalist") || S.settings.autoBuffs === false) return 0;
     let n = 0;
     for (const c of CONSUMABLES) {
-      if (c.kind !== "buff" || (S.buffs[c.id] || 0) >= 60) continue;
+      if (c.kind !== "buff" || c.manual || (S.buffs[c.id] || 0) >= 60) continue;
       const price = consumablePrice(c, S);
       if (S.gold < price * 4 || (S.buffs[c.id] || 0) + c.duration > BUFF_CAP_S) continue;
       S.gold -= price; S.stats.purchases++;
@@ -1756,7 +1756,7 @@ export class Game {
     if (!hasUnlock(S, "herbalist") || S.settings.autoBuffs === false || !(sec > 0)) return 0;
     let n = 0;
     for (const c of CONSUMABLES) {
-      if (c.kind !== "buff") continue;
+      if (c.kind !== "buff" || c.manual) continue;
       const left = S.buffs[c.id] || 0;
       if (left >= sec + 60) continue;
       const k = Math.ceil((sec + 60 - left) / c.duration), price = consumablePrice(c, S);

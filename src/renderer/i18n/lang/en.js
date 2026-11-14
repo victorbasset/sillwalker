@@ -1704,4 +1704,8 @@ export default {
   2829: "Thieving goblins ×4, +15% gold.",
   2830: "The Wind Gust now truly doubles your movement speed, even when it is already very high.",
   2831: "The Goblin Festival now also announces its +15% gold bonus.",
+  2832: "Hunting Incense",
+  2833: "+100% elites for 10 min of play (stacks up to 2 h): more risk, more loot. Never rebought automatically.",
+  2834: "+100% elites",
+  2835: "New in the Shop: Hunting Incense draws twice as many elites for 10 min. More risk, more loot; the Everlasting Herbalist never rebuys it for you.",
 };

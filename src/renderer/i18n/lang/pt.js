@@ -1704,4 +1704,8 @@ export default {
   2829: "Goblins ladrões ×4, +15 % de ouro.",
   2830: "A Rajada de vento agora dobra de verdade sua velocidade de movimento, mesmo quando já está muito alta.",
   2831: "A Festa dos goblins agora também anuncia seu bônus de +15 % de ouro.",
+  2832: "Incenso de caça",
+  2833: "+100 % de elites por 10 min de jogo (acumulável até 2 h): mais risco, mais butim. Nunca é recomprado automaticamente.",
+  2834: "+100 % de elites",
+  2835: "Novidade na Loja: o Incenso de caça atrai o dobro de elites por 10 min. Mais risco, mais butim; o Herbalista perpétuo nunca o recompra por você.",
 };

@@ -1704,4 +1704,8 @@ export default {
   2829: "Goblins ladrones ×4, +15 % de oro.",
   2830: "La Ráfaga de viento ahora duplica de verdad tu velocidad de movimiento, incluso cuando ya es muy alta.",
   2831: "La Fiesta de los goblins anuncia también su bonificación de +15 % de oro.",
+  2832: "Incienso de caza",
+  2833: "+100 % de élites durante 10 min de juego (acumulable hasta 2 h): más riesgo, más botín. Nunca se recompra automáticamente.",
+  2834: "+100 % de élites",
+  2835: "Novedad en la Tienda: el Incienso de caza atrae el doble de élites durante 10 min. Más riesgo, más botín; el Herbolario perpetuo nunca lo recompra por ti.",
 };

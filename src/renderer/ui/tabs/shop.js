@@ -22,7 +22,7 @@ import { lockLink as lockLinkS } from "../locks.js";
 
 const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${uH(Math.floor(m / 60))} ${String(m % 60).padStart(2, "0")}` : `${uMin(m)} ${String(s % 60).padStart(2, "0")}`; };
 /** Effet court affiché sous chaque consommable. */
-const SHORT = { potion: tx("Rend 50 % des PV"), elixir: tx("+25 % d’attaque"), fortune: tx("+50 % d’or"), wisdom: tx("+50 % d’expérience"), haste: tx("+30 % de vitesse"), luck: tx("+40 % de butin"), iron: tx("+30 % PV et défense") };
+const SHORT = { potion: tx("Rend 50 % des PV"), elixir: tx("+25 % d’attaque"), fortune: tx("+50 % d’or"), wisdom: tx("+50 % d’expérience"), haste: tx("+30 % de vitesse"), luck: tx("+40 % de butin"), iron: tx("+30 % PV et défense"), lure: tx("+100 % d’élites") };
 
 export class ShopTab {
   constructor(game) { this.game = game; this.root = null; this.sec = "shop"; } // sous-onglet affiché (demande 18)

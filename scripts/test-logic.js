@@ -3626,6 +3626,19 @@ test("Herboriste perpétuel : rachète les élixirs dont l'effet s'achève, avec
   assert.equal(g2.autoBuffs(), 0, "sans déblocage : rien");
 });
 
+test("Encens de chasse : double la chance d'élite, jamais racheté par l'Herboriste (it. 1336)", () => {
+  const g = new Game(freshState()); g.S.buffs = {}; g.S.zone = Math.max(g.S.zone, 10);
+  const hs0 = g.stats(), p0 = g.eliteChancePerKill(hs0);
+  g.S.buffs.lure = 600; g.invalidateStats();
+  const hs1 = g.stats();
+  assert.equal(hs1.elites - (hs0.elites || 0), 100, "+100 d'élites");
+  assert.ok(g.eliteChancePerKill(hs1) > p0 * 1.5, p0 + " -> " + g.eliteChancePerKill(hs1));
+  g.S.buffs = {}; g.S.unlocks.herbalist = true; g.S.settings.autoBuffs = true; g.S.gold = 1e30;
+  g.autoBuffs(); assert.ok(!(g.S.buffs.lure > 0), "en jeu : pas d'encens");
+  g.S.buffs = {}; g.offlineBuffs(3600); assert.ok(!(g.S.buffs.lure > 0), "absence : pas d'encens");
+  assert.ok(g.S.buffs.elixir > 0, "les autres, si");
+});
+
 test("absence : l'Herboriste perpétuel garde les élixirs actifs pendant toute l'absence (it. 839)", () => {
   const g = new Game(freshState());
   g.S.unlocks.herbalist = true; g.S.settings.autoBuffs = true; g.S.buffs = {};
