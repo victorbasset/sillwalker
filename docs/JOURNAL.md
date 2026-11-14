@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1337, contrôle) : Encens de chasse en russe à 1280 px, actif (« активен · 11 мин 11 ») : la grille
+  4 × 2 tient. --crawl en russe : 388 clics sans erreur (il n'avait pas cliqué l'encens : achat vérifié à part par un
+  --stage, clic sur le bouton → 600 s d'effet).
 - 2026-11-15 (it. 1336) : nouveau consommable, l'Encens de chasse (boutique, 8e tuile : la grille passe à 4 × 2) :
   +100 % d'élites pendant 10 min (cumulable 2 h), plus de risque et plus de butin ; utile pour la quête et les succès
   d'élites et pour compléter le Bestiaire des élites. Jamais racheté par l'Herboriste perpétuel (`manual`, en jeu comme
