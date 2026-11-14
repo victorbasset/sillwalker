@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1212) : enquête sur les panoplies du mage (revue 1211) : simulation instrumentée ; ni vente ni
+  ascension en cause (pertes égales aux autres classes) ; l'écart vient de l'équipement porté (Idées, piste notée).
+  Pas de changement du jeu.
 - 2026-11-14 (it. 1211, revue générale) : performance stable (copie neuve de dev-data : bande 21,1 %, panneau
   20,9 %, mini 7,0 %, icône 0,5 % d'un cœur) ; lang-overflow : aucun défilement ni mot coupé dans les 10 langues
   (fin de partie et 130 % compris) ; texte russe extrait : rien d'anglais ou de français oublié ; 12 h simulées :
@@ -4722,6 +4725,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - (Moyenne, revue it. 1211) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.
+  Mesuré à l'it. 1212 (simulation instrumentée, 12 h) : le mage trouve PLUS de pièces (119 contre 100 au guerrier),
+  et les perd autant (vendues comme inutiles 47 / 48, effacées par les ascensions 63 / 48) : la différence est
+  l'équipement porté (mage : surtout des épiques, 1-2 pièces de panoplie ; guerrier : des légendaires, plus de pièces
+  portées, donc setFinisher atteint 4 plus souvent). Piste : pourquoi « Équiper le meilleur » du mage préfère des
+  épiques (calcul de puissance des objets selon la classe ?).
 - FAIT (it. 1168-1210 ; matériel dans steam/promo) (demande de Victor, 2026-11-14 00 h 14 : « jusqu'à samedi 12 h, focus maximum sur la bande-annonce et les
   captures d'écran, rendu d'agence de com ; prends ton temps ; ensuite reprends normalement »). Plan : 1) filmer net
   (échelle ×2, scripts/promo/record.sh, --stage) ; 2) plans mis en scène (boss et relique, Lune de sang, Nuée
