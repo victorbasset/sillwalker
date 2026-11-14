@@ -1661,4 +1661,5 @@ export default {
   2786: "Der Fahle Mond hat seinen eigenen Himmel (verblasster Schleier, weißer Mond), und seine Bilanz zählt die besiegten Bosse.",
   2787: "Helles Design: Der Rahmen laufender Ereignisse ist besser sichtbar.",
   2788: "Gewinnt jede Sekunde 3 % seines maximalen Lebens zurück, außer wenn er brennt oder vergiftet ist.",
+  2789: "{n} Champion besiegen|{n} Champions besiegen",
 };

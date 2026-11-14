@@ -1661,4 +1661,5 @@ export default {
   2786: "Blady Księżyc ma swoje niebo (wyblakła zasłona i biały księżyc), a jego podsumowanie liczy pokonanych bossów.",
   2787: "Jasny motyw: ramka trwających wydarzeń jest lepiej widoczna.",
   2788: "Odzyskuje 3 % maksymalnego życia co sekundę, chyba że płonie lub jest zatruty.",
+  2789: "Pokonaj {n} czempiona|Pokonaj {n} czempionów|Pokonaj {n} czempionów",
 };

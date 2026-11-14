@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1260) : 17e sorte de quête, « Vaincre un champion » (quests.js : dès la zone 5 ou après une
+  ascension ; objectif 1, ×1,8 / ×3 avec les étoiles ; coffre épique, or, œuf 30 %) : un objectif de patience (un
+  champion ≈ tous les 200 monstres). Icône (casque à cornes épique), traduite ; comptes 16 → 17 dans store-page (10
+  langues ; steam-store-check l'a signalé aussitôt), README. Test (une élite ordinaire ne compte pas ; pas en tout
+  début de partie). Autotest 227/227. Non pris en compte hors ligne (les champions n'y sont pas simulés).
 - 2026-11-14 (it. 1259, contrôle) : lang-overflow complet (10 langues, avec le nouveau rapport de cause) : aucun
   défilement ; save-fuzz (dev : 1211 corruptions ; fin de partie : 1190) : ok, après les ajouts du jour (bénédictions
   vécues, Lune pâle, élite Régénérant).

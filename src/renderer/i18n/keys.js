@@ -2790,5 +2790,6 @@ export const KEYS = [
   "Nouvelle élite, le Régénérant : il regagne 3 % de sa vie chaque seconde (un +N vert le montre) ; frappe fort et vite.",
   "La Lune pâle a son ciel (voile délavé et lune blanche) et son bilan compte les boss vaincus.",
   "Thème clair : la bordure des événements en cours se voit mieux.",
-  "Regagne 3 % de sa vie maximale chaque seconde, sauf s’il brûle ou est empoisonné."
+  "Regagne 3 % de sa vie maximale chaque seconde, sauf s’il brûle ou est empoisonné.",
+  "Vaincre {n} champion|Vaincre {n} champions"
 ];

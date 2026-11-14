@@ -932,6 +932,15 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("quête « Vaincre un champion » : avance seulement sur un champion (it. 1260)", () => {
+    const g = new Game(freshState()); g.S.zone = 10;
+    g.S.quests.slots[0] = { id: 999, kind: "champion", goal: 1, progress: 0, stars: 1, reward: { gold: 10 } };
+    g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "fast" }); g.killMonster();
+    assert.equal(g.S.quests.slots[0].progress, 0, "une élite ordinaire ne compte pas");
+    g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, champion: true, affix: "fast" }); g.killMonster();
+    assert.equal(g.S.quests.slots[0].progress, 1);
+    assert.ok(M_quests_js.QUEST_TEMPLATES.champion.ok({ zone: 1, prestige: { count: 0 } }) === false, "pas en tout début de partie");
+  });
   test("élite régénérante : regagne sa vie en combat, jamais au-delà du maximum (it. 1250)", () => {
     const g = new Game(freshState());
     for (let i = 0; i < 2000 && g.R.mode !== "fight"; i++) g.advance(0.05);

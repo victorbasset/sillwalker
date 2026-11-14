@@ -2,7 +2,7 @@
 // terminée attend que le joueur réclame sa récompense ; une nouvelle prend
 // alors sa place. Les objectifs et récompenses suivent la progression.
 import { t as tx, txn, getLang } from "../i18n/index.js";
-import { MONSTERS, ELITE, ELITE_AFFIXES } from "./data.js";
+import { MONSTERS, ELITE, ELITE_AFFIXES, CHAMPION } from "./data.js";
 import { zoneDef, heroStats } from "./rules.js";
 import { rand, pick } from "./util.js";
 import { eggsAllowed, fixQuestEgg } from "./tabs.js";
@@ -57,6 +57,12 @@ export const QUEST_TEMPLATES = {
     ok: (S) => S.zone >= ELITE.minZone || (S.prestige.count || 0) > 0,
     text: (q) => txn(q.goal, "Vaincre {n} élite « {0} »|Vaincre {n} élites « {0} »", { 0: (ELITE_AFFIXES[q.type] || {}).name || "?" }),
     make: (S) => ({ goal: randInt(1, 2), type: pick(Object.keys(ELITE_AFFIXES)), reward: { chest: 2, gold: Math.round(goldScale(S) * 90) } }),
+  },
+  // (it. 1260) 17e sorte : les champions (élites dorées, environ un monstre sur 200 dès la zone 5) : un objectif de patience
+  champion: {
+    ok: (S) => S.zone >= CHAMPION.minZone || (S.prestige.count || 0) > 0,
+    text: (q) => txn(q.goal, "Vaincre {n} champion|Vaincre {n} champions"),
+    make: (S) => ({ goal: 1, reward: { chest: 3, gold: Math.round(goldScale(S) * 120), egg: rand() < 0.3 } }),
   },
   boss: {
     text: (q) => txn(q.goal, "Vaincre {n} boss|Vaincre {n} boss"),
@@ -113,7 +119,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

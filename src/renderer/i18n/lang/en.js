@@ -1661,4 +1661,5 @@ export default {
   2786: "The Pale Moon has its own sky (washed-out veil and white moon), and its summary counts the bosses defeated.",
   2787: "Light theme: the border of ongoing events is easier to see.",
   2788: "Regains 3% of its max life every second, unless it is burning or poisoned.",
+  2789: "Defeat {n} champion|Defeat {n} champions",
 };

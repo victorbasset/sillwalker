@@ -1661,4 +1661,5 @@ export default {
   2786: "La Luna pálida tiene su cielo (velo desvaído y luna blanca) y su resumen cuenta los jefes derrotados.",
   2787: "Tema claro: el borde de los eventos en curso se ve mejor.",
   2788: "Recupera el 3 % de su vida máxima cada segundo, salvo si arde o está envenenado.",
+  2789: "Derrotar {n} campeón|Derrotar {n} campeones",
 };

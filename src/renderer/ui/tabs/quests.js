@@ -27,6 +27,7 @@ const KIND_ICON = {
   // sorts lancés : l'icône du premier sort appris par le héros (sa forme, sa couleur), sinon un éclair
   spell: (S) => { const sp = S && classSpells(S.cls).find((x) => spellRank(S, x.id) > 0); return sp ? spellIconURL(sp.tpl, sp.color, 2, sp.fx?.[0]) : spellIconURL("bolt", "#8fd0ff", 2); },
   crit: () => itemIconURL({ icon: "dagger", slot: "weapon", r: 3 }), // coups critiques : la lame qui frappe juste
+  champion: () => itemIconURL({ icon: "horned", slot: "helm", r: 3 }), // (it. 1260) champions : le casque à cornes, en épique
 };
 
 function rewardHTML(rw) {
