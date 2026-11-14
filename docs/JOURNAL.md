@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1313, contrôle) : --crawl en russe sur l'état maximal après l'Écho des lames et le Venimeux :
+  557 clics, aucune erreur.
 - 2026-11-14 (it. 1312) : brouillon du devlog 0.1.4 : élite Venimeux ajoutée (éditions jusqu'à 71).
 - 2026-11-14 (it. 1311, revue générale) : 12 h 65 / 59 / 65 ; 20 héros (hero-table) 63,5 de moyenne. Le mage à 59
   deux revues de suite : balance contre b4871a2 (avant tous les ajouts de l'après-midi) sur trois graines (3, 11,
