@@ -952,6 +952,10 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of art.frames) for (const row of f) assert.equal(row.length, f[0].length, p.id + " : « " + row + " »");
     }
   });
+  test("chaque événement rare a son propre son (sound.js, it. 1302)", () => {
+    const src = fs.readFileSync(new URL("../src/renderer/render/sound.js", import.meta.url), "utf8");
+    for (const k of Object.keys(EVENTS_T)) assert.ok(src.includes(`case "${k}":`), "son manquant : " + k);
+  });
   test("chaque sorte de quête a sa propre icône et un poids de tirage (it. 1300)", () => {
     const ui = fs.readFileSync(new URL("../src/renderer/ui/tabs/quests.js", import.meta.url), "utf8");
     const icons = ui.slice(ui.indexOf("const KIND_ICON"), ui.indexOf("};", ui.indexOf("const KIND_ICON")));

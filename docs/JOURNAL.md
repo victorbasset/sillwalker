@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1302) : sons des événements rares : l'autotest rendait une liste écrite à la main (il fallait y
+  ajouter chaque nouvel événement, fait pour la Lune pâle à l'it. 1242) ; il prend maintenant EVENTS du jeu. Test :
+  chaque événement a son « case » dans sound.js. Autotest 228/228 (« son : tous les sons » ok).
 - 2026-11-14 (it. 1301, revue générale) : performance bande 19,2 %, panneau 19,9 %, mini 6,8 %, icône 0,6 % (stable) ;
   texte de l'état maximal en coréen (aucun mot latin) et en allemand (aucun mot français : « des », « Ton » sont
   allemands). Équilibre vérifié à la 1291, langues et crawl sur l'état maximal aux 1286-1295. Rien à corriger.
