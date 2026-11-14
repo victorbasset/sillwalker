@@ -19,6 +19,7 @@ import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
 import { isRanged } from "../game/classes.js";
+import { activeDayMod } from "../game/daymods.js";
 
 export const MINI_H = 64;
 const SCENE_W = 212, GROUND = 58, HERO_X = 8, CONTACT = 44;
@@ -272,6 +273,8 @@ export class MiniRenderer {
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
       if (ev) tip.push(EVENTS[ev[0]].name + colon() + EVENTS[ev[0]].text, tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10");
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + colon() + rec);
+      const dm = activeDayMod(S); // (it. 1234) la bénédiction du jour, lisible aussi depuis le mode mini
+      if (dm) tip.push(`${tx("Bénédiction du jour :")} ${dm.icon} ${dm.name} · ${dm.desc}`);
       this.goalWrap.hidden = false;
       if (!u) { // tout est débloqué : la barre suit le record de toutes les courses
         this.goal.style.width = Math.round(Math.min(1, S.zone / rec) * 100) + "%";

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1234) : mode mini : sa bulle de survol donne la bénédiction du jour (« Bénédiction du jour :
+  👺 Fête des gobelins · Gobelins voleurs ×4. »), jusque-là visible seulement dans le panneau. mini.js (libellé déjà
+  traduit) ; vérifié en allemand ; autotest 227/227.
 - 2026-11-14 (it. 1233, contrôle) : --crawl en japonais sur la partie de fin, avec trois bénédictions vécues (nouveau
   sous-onglet du Bestiaire, lien des Statistiques, 67e succès) : 502 clics, aucune erreur.
 - 2026-11-14 (it. 1232) : 67e succès « Dix jours bénis » (BLESSINGS_ALL) : les dix bénédictions du jour vécues ;
