@@ -1121,13 +1121,15 @@ export class Game {
     }
     this.invalidateStats();
     const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + hs.drop / 100) * 0.3));
-    let best = -1, bestItem = null;
+    let best = -1, bestItem = null, onGround = 0;
     for (let i = 0; i < drops; i++) {
       const it = this.newItem(0);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
       if (it.r >= 2) this.questProgress("loot", 1); // (it. 883) butin rare ou mieux, gardé ou non (comme en jeu)
+      const autoSold = !!(S.autoSell[RARITIES[it.r].id] && hasUnlock(S, "autoSell"));
       const kept = this.addToBag(it, true);
+      if (!kept && !autoSold) onGround++; // (it. 1219) sac plein : resté au sol, signalé dans le résumé d'absence
       if (kept && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
@@ -1169,7 +1171,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, forged, anviled, transmuted, petWork, herbs, traded, spells, elites,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites,
     };
     this.log(tx("Pendant ") + summary.duration + colon() + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") +

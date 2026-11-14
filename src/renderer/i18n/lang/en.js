@@ -1625,4 +1625,5 @@ export default {
   2750: "Your hero reacts to mastery milestones and to the great graph, from its opening to its completion.",
   2751: "A ranged hero (mage, archer…) now lets their melee companion walk in front, on the strip as in mini mode.",
   2752: "Meeting a character: monsters fade away during the scene, with no loot or hero line on top.",
+  2753: "Left on the ground (bag full)",
 };

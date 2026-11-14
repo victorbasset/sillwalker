@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1219) : résumé d'absence : nouvelle ligne « Laissés au sol (sac plein) » (en rouge) quand le sac
+  plein a fait perdre du butin pendant l'absence (avant : seulement une ligne perdue dans le journal ; une partie de
+  6 h avec le sac plein en perdait plusieurs). game.js applyOffline (onGround, hors ventes automatiques), panel.js ;
+  traduit (10 langues) ; test logique (sac plein : > 0 ; sac immense : 0) ; autotest 227/227 (pire cas mesuré
+  avec la ligne) ; capture en allemand.
 - 2026-11-14 (it. 1218, contrôles) : --crawl en russe sur la partie de fin (501 clics) et en polonais sur la partie
   0.1.2 (382 clics) : aucune erreur ; fin de partie sur copie neuve : bande 24,7 % d'un cœur (repère it. 1066 : ≈ 24),
   panneau 25,9, mini 7,6, icône 0,7 : pas de régression depuis les changements de la bande (it. 1208-1216).

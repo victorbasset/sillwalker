@@ -231,6 +231,18 @@ test("rythme indépendant de la largeur d'écran", () => {
   assert.ok(approachTime() > 2 && approachTime() < 5);
 });
 
+test("hors ligne : objets laissés au sol quand le sac est plein, comptés dans le résumé (it. 1219)", () => {
+  const g = new Game(freshState());
+  for (const k in g.S.autoSell) g.S.autoSell[k] = false;
+  while (g.S.bag.length < g.S.bagSize) g.S.bag.push(g.newItem(0));
+  const sum = g.applyOffline(8 * 3600);
+  assert.ok(sum.onGround > 0, "sac plein : des objets restent au sol (" + sum.onGround + ")");
+  const g2 = new Game(freshState());
+  for (const k in g2.S.autoSell) g2.S.autoSell[k] = false;
+  g2.S.bagSize = 999;
+  assert.equal(g2.applyOffline(8 * 3600).onGround, 0);
+});
+
 test("hors ligne : plafonné, élixirs consommés", () => {
   const g = new Game(freshState());
   assert.equal(g.applyOffline(10), null);

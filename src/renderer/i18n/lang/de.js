@@ -1625,4 +1625,5 @@ export default {
   2750: "Dein Held reagiert auf Meisterschaftsstufen und auf den großen Graphen, von seiner Öffnung bis zu seiner Vollendung.",
   2751: "Ein Fernkampf-Held (Magier, Bogenschütze…) lässt seinen Nahkampf-Begleiter jetzt vorausgehen, auf dem Streifen wie im Mini-Modus.",
   2752: "Begegnung mit einer Figur: Monster verschwinden während der Szene, ohne Beute oder Heldensprüche darüber.",
+  2753: "Am Boden liegen gelassen (Tasche voll)",
 };
