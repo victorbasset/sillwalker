@@ -1949,7 +1949,7 @@ export class Game {
   eventSnap() {
     const st = this.S.stats;
     return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
-      spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0 };
+      spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0, bosses: st.bosses || 0 };
   }
 
   /**
@@ -1969,6 +1969,8 @@ export class Game {
     if (id === "arcane" && d("spells")) parts.push(txn(d("spells"), "{n} sort lancé|{n} sorts lancés", { n: fmt(d("spells")) }));
     if (id === "shardfall" && d("shards")) parts.push(txn(d("shards"), "{n} éclat d’étoile|{n} éclats d’étoile", { n: fmt(d("shards")) }));
     if (id === "starfall" && d("stars")) parts.push(txn(d("stars"), "{n} étoile filante attrapée|{n} étoiles filantes attrapées", { n: fmt(d("stars")) }));
+    // (it. 1246) Lune pâle : les boss abattus (sa raison d'être : franchir un boss coriace)
+    if (id === "palemoon" && d("bosses")) parts.push(txn(d("bosses"), "{n} boss vaincu|{n} boss vaincus", { n: fmt(d("bosses")) }));
     if (id === "goblinrush" && d("goblins")) parts.push(txn(d("goblins"), "{n} gobelin attrapé|{n} gobelins attrapés", { n: fmt(d("goblins")) }));
     if ((id === "goldrain" || id === "bloodmoon" || id === "goblinrush") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));
     const line = tx("{0} · bilan : {1}", { 0: ev.name, 1: parts.join(csep()) }) + cend();

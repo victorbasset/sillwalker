@@ -2783,5 +2783,6 @@ export const KEYS = [
   "Ils tiennent à peine debout !",
   "Nouvel événement rare, la Lune pâle : pendant 30 s, chaque monstre arrive avec la moitié de sa vie, boss compris.",
   "Journal : la première bénédiction du jour vécue de chaque sorte annonce son bonus pour toujours.",
-  "La bénédiction du jour qui change à minuit s’applique aussitôt, sans attendre."
+  "La bénédiction du jour qui change à minuit s’applique aussitôt, sans attendre.",
+  "{n} boss vaincu|{n} boss vaincus"
 ];

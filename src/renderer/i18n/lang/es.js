@@ -1654,4 +1654,5 @@ export default {
   2779: "Nuevo evento raro, la Luna pálida: durante 30 s, cada monstruo llega con la mitad de su vida, jefes incluidos.",
   2780: "Registro: la primera vez que vives cada bendición del día, se anuncia su bonificación permanente.",
   2781: "La bendición del día que cambia a medianoche se aplica al instante.",
+  2782: "{n} jefe derrotado|{n} jefes derrotados",
 };

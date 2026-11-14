@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1246) : bilan de fin de la Lune pâle : « … dont N boss vaincus » (eventSnap compte aussi les boss),
+  puisque sa raison d'être est de franchir un boss coriace. Traduit (3 formes en ru et pl) ; test ; autotest 227/227.
 - 2026-11-14 (it. 1245, contrôle) : --crawl en coréen sur la partie de fin après les it. 1238-1244 : 502 clics, aucune
   erreur. Relu la piste « panoplies du mage » des Idées : déjà close (it. 1213), upgradeDelta compare les statistiques
   complètes, bonus de panoplie compris.

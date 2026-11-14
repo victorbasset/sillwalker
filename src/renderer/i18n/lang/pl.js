@@ -1654,4 +1654,5 @@ export default {
   2779: "Nowe rzadkie wydarzenie, Blady Księżyc: przez 30 s każdy potwór przybywa z połową życia, łącznie z bossami.",
   2780: "Dziennik: przy pierwszym przeżytym błogosławieństwie dnia każdego rodzaju ogłaszana jest jego stała premia.",
   2781: "Błogosławieństwo dnia zmieniające się o północy działa teraz od razu.",
+  2782: "{n} boss pokonany|{n} bossowie pokonani|{n} bossów pokonanych",
 };

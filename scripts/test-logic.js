@@ -932,6 +932,10 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("bilan de la Lune pâle : boss vaincus comptés (it. 1246)", () => {
+    const g = new Game(freshState()); g.startEvent("palemoon"); g.S.stats.kills += 4; g.S.stats.bosses += 1;
+    const line = g.eventReport("palemoon"); assert.ok(/1\sboss\svaincu|1\sboss\sdefeated/.test(line), line);
+  });
   test("Lune pâle : les monstres arrivent à moitié de leur vie (it. 1242)", () => {
     const g = new Game(freshState());
     for (let i = 0; i < 400 && !g.R.mon; i++) g.advance(0.25);

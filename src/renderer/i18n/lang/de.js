@@ -1654,4 +1654,5 @@ export default {
   2779: "Neues seltenes Ereignis, der Fahle Mond: 30 s lang kommt jedes Monster mit halbem Leben an, Bosse eingeschlossen.",
   2780: "Protokoll: Wenn du einen Tagessegen zum ersten Mal erlebst, wird sein dauerhafter Bonus angekündigt.",
   2781: "Ein Tagessegen, der um Mitternacht wechselt, wirkt jetzt sofort.",
+  2782: "{n} Boss besiegt|{n} Bosse besiegt",
 };
