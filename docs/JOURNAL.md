@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1316, contrôle) : après le Venimeux et la 13e bénédiction : save-fuzz ok (dev 1211, fin 1190
+  corruptions) ; fuzz avec toutes les bénédictions (FUZZ_DAYMOD=all) : 1200 parties, 0 bloquée.
 - 2026-11-14 (it. 1315) : « Quoi de neuf », édition 72 : Jour de l'élan ; traduite. Brouillon du devlog 0.1.4 : quatre
   nouvelles bénédictions. Autotest 228/228 ; lang-overflow propre.
 - 2026-11-14 (it. 1314) : 13e bénédiction du jour, « Jour de l'élan » (💨, +100 % de dégâts du premier coup et des
