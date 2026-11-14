@@ -1692,4 +1692,6 @@ export default {
   2817: "Eco de las hojas",
   2818: "¡Cada golpe impacta dos veces!",
   2819: "¡Cada golpe cuenta doble!",
+  2820: "Nuevo evento raro, el Eco de las hojas: durante 30 s, cada golpe impacta dos veces.",
+  2821: "Bestiario > Bendiciones del día: se marcan la bendición de hoy y la de mañana, incluso la de mañana nunca vivida.",
 };

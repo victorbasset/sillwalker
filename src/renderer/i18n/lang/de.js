@@ -1692,4 +1692,6 @@ export default {
   2817: "Klingenecho",
   2818: "Jeder Treffer schlägt doppelt zu!",
   2819: "Jeder Treffer zählt doppelt!",
+  2820: "Neues seltenes Ereignis, das Klingenecho: 30 s lang schlägt jeder Treffer doppelt zu.",
+  2821: "Bestiarium > Segen des Tages: Der Segen von heute und der von morgen sind markiert, auch der von morgen, wenn du ihn nie erlebt hast.",
 };

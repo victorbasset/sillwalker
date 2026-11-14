@@ -1692,4 +1692,6 @@ export default {
   2817: "Echo ostrzy",
   2818: "Każdy cios trafia dwa razy!",
   2819: "Każdy cios liczy się podwójnie!",
+  2820: "Nowe rzadkie wydarzenie, Echo ostrzy: przez 30 s każdy cios trafia dwa razy.",
+  2821: "Bestiariusz > Błogosławieństwa dnia: dzisiejsze i jutrzejsze są oznaczone, nawet jutrzejsze, którego nigdy nie przeżyłeś.",
 };

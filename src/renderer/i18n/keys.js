@@ -2821,5 +2821,7 @@ export const KEYS = [
   "demain",
   "Écho des lames",
   "Chaque coup frappe deux fois !",
-  "Chaque coup compte double !"
+  "Chaque coup compte double !",
+  "Nouvel événement rare, l’Écho des lames : pendant 30 s, chaque coup frappe deux fois.",
+  "Bestiaire > Bénédictions du jour : la bénédiction d’aujourd’hui et celle de demain sont marquées, même celle de demain jamais vécue."
 ];

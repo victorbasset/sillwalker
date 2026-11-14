@@ -1692,4 +1692,6 @@ export default {
   2817: "Echoing Blades",
   2818: "Every hit strikes twice!",
   2819: "Every hit counts double!",
+  2820: "New rare event, Echoing Blades: for 30 s, every hit strikes twice.",
+  2821: "Bestiary > Daily blessings: today's and tomorrow's blessings are marked, even tomorrow's if you've never lived it.",
 };

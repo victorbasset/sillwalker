@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1305) : « Quoi de neuf », édition 70 : Écho des lames, étiquettes aujourd'hui / demain du Bestiaire ;
+  traduite, noms de l'onglet et de la sous-section repris tels que traduits dans le jeu (« Segen des Tages »,
+  « 怪物图鉴 », « 몬스터 도감 > 오늘의 축복들 » : vérifiés un par un ; i18n-quotes ne contrôle que les libellés entre
+  guillemets). Autotest 228/228 ; lang-overflow propre.
 - 2026-11-14 (it. 1304) : 16e événement rare, « Écho des lames » (30 s, 0,2 %) : chaque coup du héros frappe deux
   fois (la frappe double garantie ; le tirage habituel reste fait : même suite de hasard hors événement). Ajouté à la
   FIN d'EVENTS. Réplique, son (deux lames qui sifflent ; rendu par l'autotest qui suit maintenant la liste du jeu),

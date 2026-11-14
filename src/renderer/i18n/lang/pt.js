@@ -1692,4 +1692,6 @@ export default {
   2817: "Eco das lâminas",
   2818: "Cada golpe acerta duas vezes!",
   2819: "Cada golpe conta em dobro!",
+  2820: "Novo evento raro, o Eco das lâminas: durante 30 s, cada golpe acerta duas vezes.",
+  2821: "Bestiário > Bênçãos do dia: a bênção de hoje e a de amanhã ficam marcadas, mesmo a de amanhã nunca vivida.",
 };
