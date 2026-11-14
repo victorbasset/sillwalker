@@ -14,7 +14,7 @@ SHOTS = [
     ("walk", 5.0, "desktop", None, [[0, 0, 3840], [0, 0, 3840]], None, "Your taskbar has a new neighbour.", "An idle RPG that lives on the edge of your screen"),
     ("walk", 4.5, "clip", [0, 140, 1920, 800], CU(0), 150, "A tiny hero. A big adventure.", "Fights, loots and grows stronger while you work"),
     ("bloodmoon", 5.0, "clip", [0, 240, 1920, 600], EV(1150), None, "BLOOD MOON", "14 rare events turn the road upside down"),
-    ("npc-shop", 5.0, "clip", [0, 390, 1920, 300], [[1080, 1040, 1280], [1080, 1040, 1280]], None, "Meet the folk of the Sill.", "Every tab has its inhabitant, met along the road"),
+    ("npc-shop", 5.0, "clip", [0, 420, 1920, 240], [[960, 1040, 1600], [960, 1040, 1600]], None, "Meet the folk of the Sill.", "Every tab has its inhabitant, met along the road"),
     ("p-graph", 5.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "A 618-node great graph", "Paths to choose, synergies that change how you play"),
     ("p-mastery", 4.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Real choices", "Two bonuses at every mastery milestone"),
     ("p-adventure", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Gear up and forge", "Sets, legendary powers, a forge and a merchant"),
@@ -30,7 +30,7 @@ S = []
 for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
     sc = {"type": typ, "src": src, "t0": t0, "dur": F, "cam": cam, "fade": 0, "title_in": False}
     if rect: sc["rect"] = rect
-    if src == "npc-shop": sc["smooth"] = True  # ×1,5 (Mirette, sa maison et toute sa réplique, it. 1179)
+    if src == "npc-shop": sc["smooth"] = True  # ×1,2 (Mirette, sa maison et toute sa réplique, même en allemand : it. 1179, 1191)
     if src == "bloodmoon":  # (it. 1177) toute la bande, en deux moitiés empilées (×1) : le cortège entier d'élites
         sc["rect"] = [0, 330, 1920, 200]; sc["cam"] = [[0, 1040, 1920], [0, 1040, 1920]]
         sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 590, 1920, 200]}]
@@ -39,8 +39,8 @@ for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
         panel = rect and rect[3] == 620  # (it. 1178) fenêtre entière (3840 → 1920 : taille réelle d'un écran 1920)
         if src == "bloodmoon":
             sc["rect"] = [0, 380, 1920, 200]; sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 640, 1920, 200]}]
-        elif rect and rect[3] in (300, 400):
-            sc["rect"] = [0, 300 if rect[3] == 400 else 360, 1920, rect[3]]
+        elif rect and rect[3] in (240, 400):
+            sc["rect"] = [0, 300 if rect[3] == 400 else 380, 1920, rect[3]]
         elif rect and rect[3] in (600, 800) and rect[1] < 230:  # bande sous l'accroche
             sc["rect"] = [0, 230 if rect[3] == 800 else 300, 1920, rect[3]]
         if panel:  # vue du panneau : réduite pour laisser la place à l'accroche

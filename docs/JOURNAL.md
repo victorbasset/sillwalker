@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1191, captures 6) : captures Steam (jeu seul) dans les 10 langues : les 13 plans utiles refilmés avec
+  le jeu en es, pt, de, pl, ru, zh, ja, ko (échecs isolés du tournage, code 251 : plans manquants retournés) ;
+  Mirette cadrée à ×1,2 (sa réplique allemande, plus longue, était coupée à ×1,5). Livrées dans
+  Médias/sillwalker-promo/captures-steam-<langue> (Steam accepte des captures par langue).
 - 2026-11-14 (it. 1190, bande-annonce 17) : ouverture sur l'idée du jeu : le bureau en premier (3 mesures, la musique
   s'ouvre quand la caméra plonge vers la bande), le logo arrive en titre après les deux gros plans du héros (avant :
   5 s de logo fixe en ouverture, sans accroche) ; version courte réordonnée de même ; verticale : boss mieux cadré.
