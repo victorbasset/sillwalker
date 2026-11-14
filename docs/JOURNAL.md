@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1298) : brouillon du devlog de la prochaine version (docs/devlog-0.1.4-brouillon.md, anglais et
+  français) tiré des éditions « Quoi de neuf » 59 à 69 parues depuis la 0.1.3 : champions (quête, succès, fanfare),
+  Lune pâle, Régénérant, trois bénédictions et leur collection, Grenouillette, duo à distance, résumé d'absence.
+  Rien de publié : la sortie reste la décision de Victor (marche à suivre en tête du fichier).
 - 2026-11-14 (it. 1297) : contrôle d'autotest pour l'it. 1296 : Bestiaire > Bénédictions du jour porte deux étiquettes
   (aujourd'hui, demain) et la bénédiction de demain est dévoilée (2 étiquettes, 10 cartes inconnues) ; indépendant de
   la date (la bénédiction forcée du jour est toujours différente de celle de demain). Autotest 228/228.
