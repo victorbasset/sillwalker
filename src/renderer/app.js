@@ -527,6 +527,9 @@ async function boot() {
     const before = game.S.daily?.mod;
     const r = game.claimDaily(localDay());
     const dm = activeDayMod(game.S);
+    // (it. 1223) nouvelle bénédiction : le héros la salue (pas au tout premier lancement, réservé à l'introduction)
+    const mod = game.S.daily?.mod;
+    if (dm && mod && mod !== before && !firstVisit) setTimeout(() => strip.dayLine(mod), 8000);
     if (!r) {
       if (dm && before && before !== game.S.daily.mod) setTimeout(() => showToast(`${dm.icon} ${tx("Bénédiction du jour :")} <b>${esc(dm.name)}</b> — ${esc(dm.desc)}`, () => openPanel(), 12000), 2500);
       return;

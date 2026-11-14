@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1223) : le héros salue la bénédiction du jour quand elle commence, une réplique par bénédiction
+  (« Les gobelins sont de sortie… », « Aujourd’hui, je danse avec les ombres. »…), 8 s après le lancement (après
+  « Te revoilà ! » ; jamais au tout premier lancement). strip.js (SPEECH dm_*, dayLine), app.js (checkDaily) ;
+  10 répliques traduites ; vérifié en jeu (copie de la partie 0.1.2, récompense d'hier) ; autotest 227/227.
 - 2026-11-14 (it. 1222) : 10e bénédiction du jour, « Jour des ombres » : +15 % d'esquive, +20 % de riposte (journée
   défensive et réactive, différente des neuf autres ; effets existants seulement). daymods.js ; traduite (10 langues) ;
   test (esquive et riposte en plus) ; autotest 227/227 ; lang-overflow (mesure chaque bénédiction) : rien.

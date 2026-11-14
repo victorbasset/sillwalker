@@ -2757,5 +2757,15 @@ export const KEYS = [
   "Rencontre d’un personnage : les monstres s’effacent le temps de la scène, sans butin ni réplique du héros par-dessus.",
   "Laissés au sol (sac plein)",
   "Jour des ombres",
-  "+15 % d’esquive, +20 % de riposte."
+  "+15 % d’esquive, +20 % de riposte.",
+  "Une journée en or s’annonce !",
+  "Aujourd’hui, j’apprends tout.",
+  "Grande chasse ! Les élites n’ont qu’à bien se tenir.",
+  "Le vent est avec moi aujourd’hui.",
+  "Je bous d’impatience !",
+  "Rien ne passera, aujourd’hui.",
+  "Les gobelins sont de sortie…",
+  "Des coffres partout, je le sens !",
+  "Il va se passer des choses, aujourd’hui…",
+  "Aujourd’hui, je danse avec les ombres."
 ];

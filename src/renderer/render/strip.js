@@ -68,6 +68,17 @@ const SPEECH = {
   bag: [tx("Mon sac déborde !"), tx("Plus de place dans le sac…"), tx("Il faudrait vider le sac !")],
   back: [tx("Te revoilà !"), tx("Tu m’as manqué !"), tx("J’ai bien avancé, tu as vu ?")],
   nemesis: [tx("Enfin !"), tx("Cette fois, c’est la bonne !"), tx("Je savais que j’y arriverais.")],
+  // (it. 1223) une réplique par bénédiction du jour, dite quand elle commence
+  dm_gold: [tx("Une journée en or s’annonce !")],
+  dm_wisdom: [tx("Aujourd’hui, j’apprends tout.")],
+  dm_hunt: [tx("Grande chasse ! Les élites n’ont qu’à bien se tenir.")],
+  dm_wind: [tx("Le vent est avec moi aujourd’hui.")],
+  dm_fury: [tx("Je bous d’impatience !")],
+  dm_bulwark: [tx("Rien ne passera, aujourd’hui.")],
+  dm_goblins: [tx("Les gobelins sont de sortie…")],
+  dm_treasure: [tx("Des coffres partout, je le sens !")],
+  dm_marvels: [tx("Il va se passer des choses, aujourd’hui…")],
+  dm_shadows: [tx("Aujourd’hui, je danse avec les ombres.")],
 };
 
 export const STRIP_H = 120;
@@ -312,7 +323,9 @@ export class StripRenderer {
   /* ---------- Répliques du héros ---------- */
   /** Le héros dit une réplique tirée de la liste (au plus une toutes les 45 s, sauf si urgent). */
   /** Retour du joueur après une absence : le héros l'accueille. */
-  welcomeBack() { this.say(SPEECH.back); } // réplique ordinaire : jamais sur le nom d'un boss
+  welcomeBack() { this.say(SPEECH.back); }
+  /** (it. 1223) Bénédiction du jour qui commence : la réplique du héros (urgente : passe même après « Te revoilà ! »). */
+  dayLine(mod) { this.say(SPEECH["dm_" + mod], true); } // réplique ordinaire : jamais sur le nom d'un boss
 
   say(list, urgent = false) {
     if (!this.active || this.game.S.settings.fullEffects === false || !list) return;
