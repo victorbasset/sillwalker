@@ -1669,4 +1669,6 @@ export default {
   2794: "Dia dos campeões",
   2795: "Campeões ×4.",
   2796: "Os campeões estão à solta. A coroa é minha!",
+  2797: "Nova bênção do dia, o Dia dos campeões: quatro vezes mais campeões.",
+  2798: "Nova conquista: Flagelo dos campeões (25 campeões derrotados).",
 };

@@ -1669,4 +1669,6 @@ export default {
   2794: "Tag der Champions",
   2795: "Champions ×4.",
   2796: "Die Champions sind unterwegs. Die Krone gehört mir!",
+  2797: "Neuer Tagessegen, der Tag der Champions: viermal so viele Champions.",
+  2798: "Neuer Erfolg: Geißel der Champions (25 Champions besiegt).",
 };

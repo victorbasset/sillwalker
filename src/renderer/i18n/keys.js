@@ -2798,5 +2798,7 @@ export const KEYS = [
   "Fléau des champions (25 champions)",
   "Jour des champions",
   "Champions ×4.",
-  "Les champions sont de sortie. À moi la couronne !"
+  "Les champions sont de sortie. À moi la couronne !",
+  "Nouvelle bénédiction du jour, le Jour des champions : quatre fois plus de champions.",
+  "Nouveau succès : Fléau des champions (25 champions vaincus)."
 ];

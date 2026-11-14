@@ -1669,4 +1669,6 @@ export default {
   2794: "Dzień czempionów",
   2795: "Czempioni ×4.",
   2796: "Czempioni wyszli na łowy. Korona będzie moja!",
+  2797: "Nowe błogosławieństwo dnia, Dzień czempionów: cztery razy więcej czempionów.",
+  2798: "Nowe osiągnięcie: Zmora czempionów (25 pokonanych czempionów).",
 };

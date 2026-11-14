@@ -1669,4 +1669,6 @@ export default {
   2794: "Day of Champions",
   2795: "Champions ×4.",
   2796: "The champions are out. The crown is mine!",
+  2797: "New daily blessing, the Day of Champions: four times as many champions.",
+  2798: "New achievement: Bane of Champions (25 champions defeated).",
 };

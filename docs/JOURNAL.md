@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1272) : « Quoi de neuf », édition 67 : Jour des champions, succès Fléau des champions ; traduite.
+  Autotest 227/227 ; lang-overflow propre (3e passe complète de suite sans le défaut espagnol).
 - 2026-11-14 (it. 1271, revue générale + demandes de Victor) : texte YouTube de la bande-annonce anglaise (titre,
   description, tags ; chiffres limités à la 0.1.3) rangé dans steam/promo-posts.md. Miniature YouTube 1280×720 dans
   la composition de la capsule principale proposée (mage derrière, guerrier devant, drake ; make.js, capsule.html :

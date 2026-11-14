@@ -1669,4 +1669,6 @@ export default {
   2794: "Día de los campeones",
   2795: "Campeones ×4.",
   2796: "Los campeones salen hoy. ¡La corona es mía!",
+  2797: "Nueva bendición del día, el Día de los campeones: cuatro veces más campeones.",
+  2798: "Nuevo logro: Azote de campeones (25 campeones derrotados).",
 };
