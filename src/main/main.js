@@ -192,6 +192,13 @@ function start() {
           for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) {
             const b = document.querySelector("[data-tab=" + id + "]"); if (!b || !b.getClientRects().length) continue;
             P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o);
+            // (it. 1258) l'élément qui dépasse le plus bas, nommé (classe et début du texte) : un défilement passager se
+            // nomme de lui-même (es 1280, it. 1256-1257, jamais reproduit)
+            if (o > 2) { const pb = p.getBoundingClientRect().bottom, pn = document.querySelector("[data-pane=" + id + "]:not([hidden])");
+              const low = pn ? [...pn.querySelectorAll("*")].filter((e) => e.getClientRects().length && e.children.length === 0 && e.getBoundingClientRect().bottom > pb + 1)
+                .sort((a, b) => b.getBoundingClientRect().bottom - a.getBoundingClientRect().bottom)[0] : null;
+              if (low) { const box = low.closest(".panel") || low.parentElement;
+                out.push(id + "-cause=" + ((box.id || box.className || box.tagName) + ">" + (low.className || low.tagName) + ":" + (low.textContent || "").trim().slice(0, 24)).replace(/\\s+/g, "_")); } }
             // (it. 543) ligne de liste plus large que sa colonne (débordement horizontal)
             let w = 0; for (const li of document.querySelectorAll(".lines li")) if (li.getClientRects().length && li.scrollWidth > li.clientWidth + 1) w++; if (w) out.push(id + "-large=" + w);
             // (it. 849) libellé d'un seul mot trop long qui passe sous sa valeur (« Gegenstandssammlung44 / 44 »)

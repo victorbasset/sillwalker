@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1258) : --overflow-report (donc lang-overflow) nomme ce qui dépasse quand un onglet défile :
+  « adventure-cause=p-hero>P:Los_lugartenientes… » (colonne .panel et élément le plus bas, texte tronqué). Vérifié sur
+  un débordement fabriqué (bloc de 80 px dans la colonne du héros, injection TEMP) : colonne désignée juste.
+  Piège évité : dans le JavaScript envoyé en gabarit (`…`), « \s » devient « s » : écrire « \\s ». Autotest 227/227.
 - 2026-11-14 (it. 1257, enquête sans correction) : défilement passager de l'Aventure en espagnol à 1280 px (vu une
   fois sur cinq à l'it. 1256) : trois causes plausibles écartées par mesure (voir Idées) ; une retouche CSS essayée
   (carte du déblocage réduite sous le résumé de visite) retirée : sans elle, la mesure donnait déjà 0, elle ne
@@ -4907,6 +4911,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   trois variantes de l'Aventure (normale, avant-dernier prêt / pas prêt) étaient à 10 dans la même passe : un état
   constant pendant cette passe (pas la carte du déblocage). Piste suivante : faire écrire à --overflow-report
   l'élément qui dépasse (classe et texte), pour que la prochaine occurrence se nomme d'elle-même.
+  FAIT it. 1258 : --overflow-report ajoute « onglet-cause=colonne>élément:texte » ; à la prochaine occurrence, lire
+  cette ligne dans la sortie de lang-overflow.
 - (Close, it. 1213 : pas un bug) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.
