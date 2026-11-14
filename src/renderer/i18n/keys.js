@@ -2791,5 +2791,6 @@ export const KEYS = [
   "La Lune pâle a son ciel (voile délavé et lune blanche) et son bilan compte les boss vaincus.",
   "Thème clair : la bordure des événements en cours se voit mieux.",
   "Regagne 3 % de sa vie maximale chaque seconde, sauf s’il brûle ou est empoisonné.",
-  "Vaincre {n} champion|Vaincre {n} champions"
+  "Vaincre {n} champion|Vaincre {n} champions",
+  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare."
 ];

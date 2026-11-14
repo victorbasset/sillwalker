@@ -1662,4 +1662,5 @@ export default {
   2787: "Tema claro: a borda dos eventos em andamento aparece melhor.",
   2788: "Recupera 3 % da vida máxima a cada segundo, exceto se estiver queimando ou envenenado.",
   2789: "Derrotar {n} campeão|Derrotar {n} campeões",
+  2790: "As missões avançam sozinhas, mesmo offline (exceto chefes, campeões, eventos raros e feitiços). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, campeões, eventos raros e feitiços). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
 };

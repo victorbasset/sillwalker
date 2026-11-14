@@ -1662,4 +1662,5 @@ export default {
   2787: "Helles Design: Der Rahmen laufender Ereignisse ist besser sichtbar.",
   2788: "Gewinnt jede Sekunde 3 % seines maximalen Lebens zurück, außer wenn er brennt oder vergiftet ist.",
   2789: "{n} Champion besiegen|{n} Champions besiegen",
+  2790: "Quests laufen von selbst weiter, sogar offline (außer Bosse, Champions, seltene Ereignisse und Zauber). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, Champions, seltene Ereignisse und Zauber). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
 };

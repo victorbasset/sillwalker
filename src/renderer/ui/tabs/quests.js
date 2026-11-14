@@ -81,7 +81,7 @@ export class QuestsTab {
       </article>`;
     }).join("");
     el.innerHTML = `${guild}<div class="questgrid">${cards}</div>
-      <p class="note">${txn(S.quests.completed, "Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 3: STARS[3].w })}</p>`;
+      <p class="note">${txn(S.quests.completed, "Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 3: STARS[3].w })}</p>`;
   }
 
   onAction(a, b) {

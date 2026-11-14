@@ -1662,4 +1662,5 @@ export default {
   2787: "Tema claro: el borde de los eventos en curso se ve mejor.",
   2788: "Recupera el 3 % de su vida máxima cada segundo, salvo si arde o está envenenado.",
   2789: "Derrotar {n} campeón|Derrotar {n} campeones",
+  2790: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, campeones, eventos raros y hechizos). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, campeones, eventos raros y hechizos). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
 };

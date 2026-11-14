@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1261, revue générale) : 12 h simulées : guerrier 69, mage 61, rôdeur 60 (61 / 62 / 64 à la 1241 ;
+  une graine, ±4 zones par héros ; la moyenne des 10 héros était dans le bruit à l'it. 1250) ; performance : bande
+  18,8 %, panneau 20,3 %, mini 6,6 %, icône 0,5 % (inchangé). Capture de l'onglet Quêtes (anglais, quête de champion
+  3 étoiles) : correcte, mais la note du bas promettait que tout avance hors ligne « sauf boss, événements rares et
+  sorts » : les champions (it. 1260) n'y avancent pas non plus : ajoutés à la liste (nouvelle clé, 10 langues).
+  Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1260) : 17e sorte de quête, « Vaincre un champion » (quests.js : dès la zone 5 ou après une
   ascension ; objectif 1, ×1,8 / ×3 avec les étoiles ; coffre épique, or, œuf 30 %) : un objectif de patience (un
   champion ≈ tous les 200 monstres). Icône (casque à cornes épique), traduite ; comptes 16 → 17 dans store-page (10

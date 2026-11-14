@@ -1662,4 +1662,5 @@ export default {
   2787: "Jasny motyw: ramka trwających wydarzeń jest lepiej widoczna.",
   2788: "Odzyskuje 3 % maksymalnego życia co sekundę, chyba że płonie lub jest zatruty.",
   2789: "Pokonaj {n} czempiona|Pokonaj {n} czempionów|Pokonaj {n} czempionów",
+  2790: "Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
 };
