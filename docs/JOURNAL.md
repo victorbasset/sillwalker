@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1301, revue générale) : performance bande 19,2 %, panneau 19,9 %, mini 6,8 %, icône 0,6 % (stable) ;
+  texte de l'état maximal en coréen (aucun mot latin) et en allemand (aucun mot français : « des », « Ton » sont
+  allemands). Équilibre vérifié à la 1291, langues et crawl sur l'état maximal aux 1286-1295. Rien à corriger.
 - 2026-11-14 (it. 1300) : test : chaque sorte de quête a sa propre icône (sinon repli silencieux sur celle des chasses,
   ui/tabs/quests.js) et un poids de tirage (sinon jamais proposée, game/quests.js WEIGHTS) ; vérifié qu'une sorte
   fictive échoue. Les 17 sont complètes.
