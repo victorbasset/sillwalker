@@ -1623,4 +1623,6 @@ export default {
   2748: "¡No queda ni un camino por trazar!",
   2749: "Gran grafo: «Gastar automáticamente» toma en cada región el camino más poderoso, y el globo de ese camino lo indica.",
   2750: "Tu héroe reacciona a los hitos de maestría y al gran grafo, desde su apertura hasta su finalización.",
+  2751: "Un héroe a distancia (mago, arquero…) ahora deja que su compañero cuerpo a cuerpo camine delante, en la franja y en el modo mini.",
+  2752: "Encuentro con un personaje: los monstruos se desvanecen durante la escena, sin botín ni frases del héroe encima.",
 };

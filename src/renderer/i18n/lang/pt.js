@@ -1623,4 +1623,6 @@ export default {
   2748: "Nenhum caminho mais para traçar!",
   2749: "Grande grafo: «Gastar automaticamente» escolhe em cada região o caminho mais poderoso, e o balão desse caminho indica isso.",
   2750: "Seu herói reage aos marcos de maestria e ao grande grafo, da abertura à conclusão.",
+  2751: "Um herói à distância (mago, arqueiro…) agora deixa o companheiro corpo a corpo caminhar à frente, na faixa e no modo mini.",
+  2752: "Encontro com um personagem: os monstros somem durante a cena, sem saque nem falas do herói por cima.",
 };

@@ -1623,4 +1623,6 @@ export default {
   2748: "Not a single path left to draw!",
   2749: "Great graph: “Spend automatically” takes the most powerful path in each region, and that path’s tooltip says so.",
   2750: "Your hero reacts to mastery milestones and to the great graph, from its opening to its completion.",
+  2751: "A ranged hero (mage, archer…) now lets their melee companion walk in front, on the strip as in mini mode.",
+  2752: "Meeting a character: monsters fade away during the scene, with no loot or hero line on top.",
 };

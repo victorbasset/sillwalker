@@ -1623,4 +1623,6 @@ export default {
   2748: "Nie została ani jedna ścieżka do wytyczenia!",
   2749: "Wielki graf: „Wydaj automatycznie” wybiera w każdym regionie najsilniejszą ścieżkę, a dymek tej ścieżki to pokazuje.",
   2750: "Twój bohater reaguje na progi mistrzostwa i na wielki graf, od jego otwarcia po ukończenie.",
+  2751: "Bohater dystansowy (mag, łucznik…) pozwala teraz towarzyszowi walczącemu wręcz iść przodem, na pasku i w trybie mini.",
+  2752: "Spotkanie z postacią: potwory znikają na czas sceny, bez łupów ani kwestii bohatera na wierzchu.",
 };

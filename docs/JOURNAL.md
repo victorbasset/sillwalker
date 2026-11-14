@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1217) : « Quoi de neuf », édition 60 : le compagnon au corps à corps marche devant un héros à
+  distance (bande et mode mini) ; rencontres des personnages sans monstres, butin ni réplique par-dessus. Traduite
+  dans les 10 langues (i18n-check 0 problème) ; autotest 227/227 ; lang-overflow : aucun défilement ni mot coupé.
 - 2026-11-14 (it. 1216) : rencontre d'un PNJ : le héros ne commente plus un combat masqué pendant que le PNJ parle
   (sa réplique « Une de plus pour ma collection ! » pouvait recouvrir celle de Mirette ; strip.js say). Autotest 227/227.
 - 2026-11-14 (it. 1215) : rencontre d'un PNJ : plus de gains d'or ni de pièces qui jaillissent des monstres masqués

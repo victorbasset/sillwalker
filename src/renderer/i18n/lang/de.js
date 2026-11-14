@@ -1623,4 +1623,6 @@ export default {
   2748: "Kein einziger Pfad mehr zu ziehen!",
   2749: "Großer Graph: „Automatisch verteilen“ nimmt in jeder Region den stärksten Pfad, und die Info dieses Pfads sagt es.",
   2750: "Dein Held reagiert auf Meisterschaftsstufen und auf den großen Graphen, von seiner Öffnung bis zu seiner Vollendung.",
+  2751: "Ein Fernkampf-Held (Magier, Bogenschütze…) lässt seinen Nahkampf-Begleiter jetzt vorausgehen, auf dem Streifen wie im Mini-Modus.",
+  2752: "Begegnung mit einer Figur: Monster verschwinden während der Szene, ohne Beute oder Heldensprüche darüber.",
 };

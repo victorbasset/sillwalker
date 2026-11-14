@@ -2752,5 +2752,7 @@ export const KEYS = [
   "Tout un monde autour de la fleur…",
   "Plus un seul chemin à tracer !",
   "Grand graphe : « Dépenser automatiquement » prend dans chaque région la voie la plus puissante, et la bulle de cette voie le signale.",
-  "Ton héros réagit aux paliers de maîtrise et au grand graphe, de son ouverture à son achèvement."
+  "Ton héros réagit aux paliers de maîtrise et au grand graphe, de son ouverture à son achèvement.",
+  "Un héros à distance (mage, archer…) laisse maintenant son compagnon au corps à corps marcher devant lui, sur la bande comme en mode mini.",
+  "Rencontre d’un personnage : les monstres s’effacent le temps de la scène, sans butin ni réplique du héros par-dessus."
 ];
