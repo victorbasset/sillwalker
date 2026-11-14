@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1321, revue générale) : performance bande 19,4 %, panneau 20,2 %, mini 6,8 %, icône 0,6 % (stable) ;
+  lang-overflow complet (avec l'état maximal) : propre ; ~/.config/Sillwalker absent (garde-fou de l'it. 1318). Équilibre
+  (it. 1311, trois graines) et début de partie (it. 1319) récents. Rien à corriger.
 - 2026-11-14 (it. 1320) : totaux du README et de la checklist Steam comparés au jeu (68 succès, 18 familiers, 9 élites,
   16 événements, 13 bénédictions, 17 quêtes) : la checklist annonçait encore « Succès : 67 » (ligne de l'état fait,
   oubliée à l'it. 1266). Corrigé ; test : les deux nombres de succès de la checklist suivent ACHIEVEMENTS.
