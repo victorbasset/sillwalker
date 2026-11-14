@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1240, contrôle) : rythme de la première heure (early-pace) identique au repère de l'it. 1121 (1 / 7 /
+  18 / 31 / 59 / 114 objets, zone 23 et 6 déblocages à 60 min) après les changements de l'après-midi. Vérifié aussi :
+  « +1% expérience » dans le journal du banc de test vient des données non traduites hors interface (translateData),
+  pas d'un défaut du jeu.
 - 2026-11-14 (it. 1239) : journal : « Nouvelle bénédiction vécue : +1 % d'expérience pour toujours (x / 10). », la
   première fois qu'une bénédiction est vécue, comme « Événement découvert » et les élites (vérifié : ces deux
   collections vidaient déjà le cache des statistiques). game.js claimDaily ; traduit ; test (une ligne, pas de doublon
