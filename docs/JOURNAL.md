@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1299) : test : chaque bénédiction du jour a sa réplique du héros (dm_<clé> dans strip.js), comme les
+  événements rares (it. 982) ; sans elle, say() ignore la liste absente et le héros resterait muet sans que rien ne
+  le signale. Les 12 en ont une.
 - 2026-11-14 (it. 1298) : brouillon du devlog de la prochaine version (docs/devlog-0.1.4-brouillon.md, anglais et
   français) tiré des éditions « Quoi de neuf » 59 à 69 parues depuis la 0.1.3 : champions (quête, succès, fanfare),
   Lune pâle, Régénérant, trois bénédictions et leur collection, Grenouillette, duo à distance, résumé d'absence.

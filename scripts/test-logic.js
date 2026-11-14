@@ -952,6 +952,10 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of art.frames) for (const row of f) assert.equal(row.length, f[0].length, p.id + " : « " + row + " »");
     }
   });
+  test("chaque bénédiction du jour a sa réplique du héros (strip.js dm_<clé>, it. 1299)", () => {
+    const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
+    for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
+  });
   test("Jour des géants : +50 % de dégâts contre les boss (it. 1292)", () => {
     const g = new Game(freshState()); const b0 = g.stats().bossDmg || 0;
     g.S.daily.mod = "giants"; g.invalidateStats();
