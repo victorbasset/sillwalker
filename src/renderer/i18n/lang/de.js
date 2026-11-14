@@ -1687,4 +1687,6 @@ export default {
   2812: "Neuer Tagessegen, der Tag der Riesen: +50 % Schaden gegen Bosse.",
   2813: "Ein besiegter Champion bekommt seine kleine Fanfare.",
   2814: "Der Segen-Erfolg heißt jetzt „Alle Tagessegen“.",
+  2815: "heute",
+  2816: "morgen",
 };

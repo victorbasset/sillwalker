@@ -2816,5 +2816,7 @@ export const KEYS = [
   "Toutes les bénédictions du jour",
   "Nouvelle bénédiction du jour, le Jour des géants : +50 % de dégâts contre les boss.",
   "Un champion vaincu a sa petite fanfare.",
-  "Le succès des bénédictions s’appelle désormais « Toutes les bénédictions du jour »."
+  "Le succès des bénédictions s’appelle désormais « Toutes les bénédictions du jour ».",
+  "aujourd’hui",
+  "demain"
 ];

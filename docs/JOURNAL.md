@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1296) : Bestiaire > Bénédictions du jour : étiquettes « aujourd'hui » et « demain » sur les cartes ;
+  celle de demain est dévoilée même jamais vécue (une raison de revenir ; la bulle de la pastille du jour la nommait
+  déjà). Traduit ; vérifié en capture (Jour de furie « demain », Jour du rempart « aujourd'hui »). Autotest 227/227 ;
+  lang-overflow propre.
 - 2026-11-14 (it. 1295, contrôle) : --crawl en japonais sur l'état « tout au maximum » (max-save : toutes les
   collections, compteurs géants) : 557 clics, aucune erreur.
 - 2026-11-14 (it. 1294) : recherche d'autres noms ou textes qui citent un nombre dépendant d'une liste qui grandit

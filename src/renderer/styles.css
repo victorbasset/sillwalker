@@ -1466,3 +1466,5 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .lines li:has(> b > .nw) > span { min-width: min-content; }
 /* (it. 942) bénédiction du jour bornée quand d'autres puces la suivent : la suivante reste lisible */
 .chips .chip.daymod:not(:last-child) { flex-shrink: 0; max-width: 75%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* (it. 1296) Bestiaire > Bénédictions du jour : « aujourd'hui » / « demain » sur la carte */
+.daytag { font-size: 11px; color: var(--accent); border: 1px solid currentColor; padding: 0 4px; margin-left: 4px; white-space: nowrap; }

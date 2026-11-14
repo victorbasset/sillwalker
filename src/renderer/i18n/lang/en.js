@@ -1687,4 +1687,6 @@ export default {
   2812: "New daily blessing, the Day of Giants: +50% damage against bosses.",
   2813: "A defeated champion now gets its own little fanfare.",
   2814: "The blessings achievement is now called “All daily blessings”.",
+  2815: "today",
+  2816: "tomorrow",
 };

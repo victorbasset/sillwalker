@@ -4,7 +4,7 @@ import { t as tx, tr, csep, cend } from "../../i18n/index.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
-import { DAY_MODS, BLESSING_SEEN_BONUS, blessingsSeenEffects } from "../../game/daymods.js";
+import { DAY_MODS, BLESSING_SEEN_BONUS, blessingsSeenEffects, dayModFor } from "../../game/daymods.js";
 import { fmt, esc, dec, unit, uS } from "../../game/format.js";
 import { EVENTS, EVENT_SEEN_BONUS, eventsSeenEffects } from "../../game/events.js";
 import { monsterURL, itemIconURL } from "../../render/sprites.js";
@@ -116,11 +116,15 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
   blessingsHTML(S) {
     const seen = (S.daily && S.daily.seen) || {}, ks = Object.keys(DAY_MODS), n = ks.filter((k) => seen[k]).length, today = S.daily && S.daily.mod;
     const cur = describeEffects(blessingsSeenEffects(S)) || "—";
+    const tm = new Date(Date.now() + 864e5), tomorrow = dayModFor(`${tm.getFullYear()}-${String(tm.getMonth() + 1).padStart(2, "0")}-${String(tm.getDate()).padStart(2, "0")}`);
     return `<h2 class="codexh" id="bj-blessings">${tx("Bénédictions du jour")} (${n} / ${ks.length})</h2>
       <p class="note tabintro">${tx("Chaque bénédiction vécue donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(BLESSING_SEEN_BONUS)), 1: esc(cur) })}</p>
       <div class="setgrid">${ks.map((k) => { const m = DAY_MODS[k];
-        return seen[k]
-        ? `<div class="setcard${k === today ? " here" : ""}"><b>${m.icon} ${esc(m.name)}</b> <small>${esc(m.desc)}</small></div>`
+        // (it. 1296) aujourd'hui et demain marqués ; celle de demain dévoilée même jamais vécue (une raison de revenir ;
+        // la bulle de la pastille du jour la nommait déjà)
+        const tag = k === today ? ` <span class="daytag">${tx("aujourd’hui")}</span>` : k === tomorrow ? ` <span class="daytag">${tx("demain")}</span>` : "";
+        return seen[k] || k === tomorrow
+        ? `<div class="setcard${k === today ? " here" : ""}"><b>${m.icon} ${esc(m.name)}</b>${tag} <small>${esc(m.desc)}</small></div>`
         : `<div class="setcard unknown"><b>???</b></div>`; }).join("")}</div>`;
   }
 
