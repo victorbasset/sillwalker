@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1207, demande de Victor : « mets tout ça dans le repo ») : tout le matériel promo copié dans
+  steam/promo/ (312 Mo : 30 vidéos, 300 captures, vignettes, GIF, capsules proposées, dossiers de presse, LISEZMOI),
+  même organisation que Médias/sillwalker-promo (les dossiers de presse s'ouvrent tels quels) ; checklist à jour.
 - 2026-11-14 (it. 1206, médias 8, intégration finale) : steam/screenshots remplacé par la série finale (15 vues, jeu
   seul, anglais et français, 5,3 Mo ; les 6 anciennes par langue retirées) ; steam/checklist.md renvoie au dossier
   Médias/sillwalker-promo pour les 10 langues, les accroches et les bandes-annonces (≈ 14 Mo chacune, gardées hors

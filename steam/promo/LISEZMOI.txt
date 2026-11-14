@@ -1,0 +1,41 @@
+Sillwalker : médias promotionnels (2026-11-14)
+==============================================
+Langues : en, fr, de, es, pt, pl, ru, zh, ja, ko (le suffixe -<langue> de chaque fichier ou dossier).
+
+presskit.html / presskit-fr.html
+  Dossier de presse en anglais et en français (bande-annonce, fiche, captures, GIF), liés entre eux. S'ouvre dans un navigateur depuis ce
+  dossier ; à héberger tel quel avec les dossiers voisins, ou à envoyer en lien aux journalistes.
+
+videos/
+  sillwalker-trailer-<langue>.mp4    bande-annonce complète, 65 s, 1920×1080 (Steam, itch.io, YouTube)
+  sillwalker-30s-<langue>.mp4        version courte, 30 s, 1920×1080 (réseaux : X, Bluesky, Reddit)
+  sillwalker-vertical-<langue>.mp4   version verticale, 30 s, 1080×1920 (TikTok, YouTube Shorts, Reels)
+  Jeu filmé dans chaque langue ; musique du jeu (air de la zone 126), bruitages synthétisés, son à −15 LUFS.
+
+captures-steam-<langue>/
+  15 captures 1920×1080 SANS texte publicitaire (règle de Steam : seulement le jeu). Steam accepte des
+  captures par langue : celles de chaque langue pour la page localisée du magasin.
+captures-promo-<langue>/
+  Les mêmes vues avec accroche et logo (itch.io, réseaux, presse). Chinois, japonais, coréen : accroches en
+  Noto Sans CJK (les polices pixel du jeu n'ont pas ces caractères à grande taille).
+  01 bureau          02 héros          03 Lune de sang     04 Mirette        05 grand graphe
+  06 paliers         07 Aventure       08 Bestiaire        09 combat de fin  10 boss majeur
+  11 carte           12 Nuée d’étoiles 13 boutique         14 mode mini      15 Ruée des gobelins
+
+vignettes/
+  youtube-thumbnail-<langue>.png   1280×720, vignette de la vidéo YouTube
+  itch-cover-<langue>.png          630×500, « Cover image » de la page itch.io
+  logo.png                         logo seul, fond transparent
+
+gifs/
+  Boucles de 4-5 s, nettes au pixel, pour la description itch.io (glisser dans l'éditeur de la page).
+
+Copie dans le dépôt : steam/promo/ (it. 1207). Tout se régénère depuis le dépôt, dossier scripts/promo/ : shoot.mjs tourne les plans (LANG_UI=<langue>),
+trailer.py et stills.py font les montages (PROMO_LANG=<langue> ; CUT=short ou vertical), edit.py rend les images
+(PROMO_SIZE=1080x1920 en vertical ; PROMO_FALLBACK pour les polices de secours), sfx.py les bruitages,
+thumbs.py les vignettes, gifs.py les GIF, presskit.html le dossier de presse.
+
+capsules-steam-proposition/
+  Nouvelles capsules du magasin Steam (le duo face au drake, l'or qui jaillit, lueur au point de choc), aux tailles
+  exigées par Steam. PROPOSITION : les capsules actuelles (steam/capsules du dépôt) ne sont pas remplacées ; si tu
+  préfères celles-ci, dis-le et je les mets dans le dépôt (scripts/steam-capsules/make.js les régénère).

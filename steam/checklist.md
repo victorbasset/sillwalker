@@ -25,8 +25,8 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 
 - 🟡 Page du magasin : descriptions courte et longue, 10 langues → `steam/store-page.md`.
 - 🟡 Captures 1920×1080 (it. 1206 : 15 vues, jeu seul, anglais et français) → `steam/screenshots/` ; les 10 langues
-  (une série par page localisée), les versions avec accroches et tout le matériel promo : `Médias/sillwalker-promo`
-  (LISEZMOI.txt ; régénérable par `scripts/promo/`).
+  (une série par page localisée), les versions avec accroches et tout le matériel promo : `steam/promo/`
+  (aussi sur le partage, Médias/sillwalker-promo ; LISEZMOI.txt ; régénérable par `scripts/promo/`).
 - 🟡 Visuels (capsules, bibliothèque, logo) : première version → `steam/capsules/` (à juger, un graphiste ferait mieux).
 - 🟡 Succès : créer les 66 « API Name » de `steam/achievements.md`, icônes 64×64 dans `steam/achievement-icons/`
   (`<ID>.png` obtenu, `<ID>_gray.png` verrouillé ; refaites par `scripts/steam-capsules/achicons.js`), publier.
@@ -38,8 +38,8 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 - 🟡 Extrait animé de la bande (20 s, 1920×120) pour « À propos de ce jeu » : `steam/media/strip-en.mp4` / `.webm` (et `strip-fr`)
   (`scripts/steam-video.sh`).
 - 🟡 Bande-annonce (it. 1168-1205 : 65 s, 1920×1080, musique du jeu et bruitages, 10 langues ; plus une version de
-  30 s et une verticale) : `Médias/sillwalker-promo/videos/sillwalker-trailer-<langue>.mp4` (≈ 14 Mo chacune, gardées
-  hors du dépôt ; `scripts/promo/`). L'ancienne première version muette reste dans `steam/media/trailer-*.mp4`.
+  30 s et une verticale) : `steam/promo/videos/sillwalker-trailer-<langue>.mp4` (≈ 14 Mo chacune ;
+  `scripts/promo/`). L'ancienne première version muette reste dans `steam/media/trailer-*.mp4`.
 
 ## Hors Steam (itch.io, démo…)
 

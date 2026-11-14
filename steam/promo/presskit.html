@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sillwalker press kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #100d1c; --panel: #1a1530; --ink: #ece8ff; --muted: #a8a1c8; --gold: #ffd98a; --line: #2e2650; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 Inter, system-ui, sans-serif; }
+  header { padding: 64px 16px 40px; text-align: center; background: radial-gradient(ellipse at top, #2a1f52 0%, var(--bg) 70%); }
+  header img.logo { width: min(560px, 90%); image-rendering: pixelated; }
+  header p { color: var(--muted); font-size: 19px; margin: 12px auto 0; max-width: 640px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 0 16px 80px; }
+  h2 { font-family: "Pixelify Sans", monospace; color: var(--gold); font-size: 30px; margin: 56px 0 16px; letter-spacing: .5px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .facts { background: var(--panel); border: 1px solid var(--line); padding: 20px 24px; }
+  .facts dt { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-top: 12px; }
+  .facts dt:first-child { margin-top: 0; }
+  .facts dd { margin: 2px 0 0; }
+  ul.features { padding-left: 20px; } ul.features li { margin: 6px 0; }
+  video { width: 100%; display: block; border: 1px solid var(--line); background: #000; }
+  .shots a { display: block; border: 1px solid var(--line); }
+  .shots img, .gifs img { width: 100%; display: block; image-rendering: pixelated; }
+  .gifs { display: grid; gap: 12px; }
+  .dl { display: flex; flex-wrap: wrap; gap: 10px; }
+  .dl a { color: var(--bg); background: var(--gold); text-decoration: none; padding: 8px 14px; font-weight: 600; }
+  a { color: var(--gold); }
+  footer { color: var(--muted); text-align: center; font-size: 14px; padding: 24px 16px 48px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<header>
+  <p style="text-align:right;margin:-40px 0 24px;font-size:14px"><a href="presskit-fr.html">Version française</a></p>
+  <img class="logo" src="vignettes/logo.png" alt="Sillwalker">
+  <p>An idle RPG that lives on the edge of your screen. Your hero walks a pixel-art strip above the taskbar, fights, loots and grows stronger while you work, play or watch videos.</p>
+</header>
+<main>
+  <h2>Trailer</h2>
+  <video src="videos/sillwalker-trailer-en.mp4" controls preload="metadata" poster="vignettes/youtube-thumbnail-en.png"></video>
+  <div class="dl" style="margin-top:12px">
+    <a href="videos/sillwalker-trailer-en.mp4" download>Trailer 1080p (65 s)</a>
+    <a href="videos/sillwalker-30s-en.mp4" download>Short cut (30 s)</a>
+    <a href="videos/sillwalker-vertical-en.mp4" download>Vertical 9:16 (30 s)</a>
+  </div>
+
+  <h2>Fact sheet</h2>
+  <div class="grid">
+    <dl class="facts">
+      <dt>Developer</dt><dd>Victor Basset (solo developer, France)</dd>
+      <dt>Genre</dt><dd>Idle RPG, incremental, pixel art</dd>
+      <dt>Platforms</dt><dd>Windows, macOS (Apple silicon), Linux</dd>
+      <dt>Availability</dt><dd>itch.io (version 0.1.3) · Steam: coming soon</dd>
+      <dt>Languages</dt><dd>English, French, Spanish, Portuguese, German, Polish, Russian, Chinese, Japanese, Korean</dd>
+    </dl>
+    <div class="facts">
+      <ul class="features">
+        <li>20 heroes to free, fighting in pairs, each with their own talents and unique spells</li>
+        <li>A 144-skill tree surrounded by a 618-node great graph of paths and synergies</li>
+        <li>Over 30 regions, 83 monsters, elites, golden goblins and bosses guarding relics</li>
+        <li>14 rare events, 15 boss abilities, a different blessing every day</li>
+        <li>Progress continues while the game is closed (up to 8 hours)</li>
+        <li>Clicks pass through the strip; it hides in front of fullscreen games and videos</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Screenshots</h2>
+  <p style="color:var(--muted)">1920×1080, gameplay only. Versions with headlines: <code>captures-promo-&lt;lang&gt;/</code>; other languages: <code>captures-steam-&lt;lang&gt;/</code>.</p>
+  <div class="grid shots" id="shots"></div>
+
+  <h2>Animated GIFs</h2>
+  <div class="gifs">
+    <img src="gifs/sillwalker-walk.gif" alt="Hero walking the strip" loading="lazy">
+    <img src="gifs/sillwalker-blood-moon.gif" alt="Blood Moon event" loading="lazy">
+    <img src="gifs/sillwalker-goblin-rush.gif" alt="Goblin Rush event" loading="lazy">
+    <img src="gifs/sillwalker-endgame.gif" alt="Endgame fight" loading="lazy">
+  </div>
+</main>
+<footer>Sillwalker © Victor Basset. Screenshots and videos may be used freely for coverage of the game.</footer>
+<script>
+  const box = document.getElementById("shots");
+  for (let i = 1; i <= 15; i++) {
+    const n = String(i).padStart(2, "0"), a = document.createElement("a");
+    a.href = `captures-steam-en/${n}.png`; a.innerHTML = `<img src="captures-steam-en/${n}.png" alt="Screenshot ${i}" loading="lazy">`;
+    box.appendChild(a);
+  }
+</script>
+</body>
+</html>
