@@ -40,7 +40,7 @@ sc(0.5, type="clip", src="bloodmoon", t0=6, rect=[0, 300, 1920, 200], cam=[[0, 1
 sc(0.5, type="clip", src="p-map", t0=2, rect=[0, 230, 1920, 620], cam=[[0, 0, 3840], [0, 0, 3840]], fade=0)
 sc(0.5, type="clip", src="endfight", t0=5, rect=EVR, cam=EV(1500, 1500), track=200, fade=0)
 sc(0.5, type="clip", src="goblinrush", t0=4, rect=CUR, cam=CU(1300, 1330), track=120, fade=0)
-sc(3, type="card", logo=["steam/capsules/library-logo.png", 300, 760], fade=14, bg="dawn",
+sc(3, type="card", logo=["steam/capsules/library-logo.png", 300, 760], fade=14, bg="dawn", strip={"src": "walk", "t0": 2},
    title=[T("An idle RPG on the edge of your screen", 560, 40, L, "body"), T("Wishlist on Steam  ·  Play now on itch.io", 660, 44), T("Windows  ·  macOS  ·  Linux", 760, 30, [170, 160, 210], "body")])
 if os.environ.get("CUT") == "short":
     # (it. 1185) version courte (≈ 30 s, réseaux) : 11 mesures prises dans le montage complet (indice, mesures)

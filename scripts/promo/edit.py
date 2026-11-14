@@ -274,8 +274,16 @@ def render_scene(sc, enc, bgs):
         txt = text_layer(sc["title"]) if sc.get("title") else None
         import random
         rnd = random.Random(11); tw_stars = [(rnd.randrange(W), rnd.randrange(H), rnd.random() * 6.28, rnd.choice([2, 4])) for _ in range(90)]
+        band = None
+        if sc.get("strip"):  # (it. 1205) la bande du jeu qui défile en bas du carton (signature : le jeu au bord de l'écran)
+            st = sc["strip"]; band = frames(st["src"], st.get("t0", 0), sc["dur"])
         for i in range(n):
             img = bg.copy(); d = ImageDraw.Draw(img)
+            if band is not None:
+                fr = next(band, None)
+                if fr is not None:
+                    sw = W * 2; strip_img = fr.crop((0, 1000, sw if sw <= 3840 else 3840, 1240)).resize((W, 120), Image.BOX)
+                    img.paste(strip_img, (0, H - 120))
             for (x, y, ph, sz) in tw_stars:  # scintillement
                 v = 0.5 + 0.5 * math.sin(ph + i / 9)
                 d.rectangle([x, y, x + sz - 1, y + sz - 1], fill=(int(120 + 120 * v), int(110 + 100 * v), int(170 + 80 * v)))

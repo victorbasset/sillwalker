@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1205, bande-annonce 22) : carton final avec la bande du jeu qui défile en bas de l'écran (edit.py,
+  option « strip » des cartons : un plan réduit à 1920×120 sous le logo et les liens) : l'idée du jeu jusqu'à la
+  dernière image. 30 vidéos recalculées et relivrées.
 - 2026-11-14 (it. 1204, médias 7) : dossier de presse en français (scripts/promo/presskit-fr.html : textes traduits,
   vidéos, vignette et captures françaises), lié à la version anglaise (lien croisé en haut de page) ; livré.
 - 2026-11-14 (it. 1203, médias 6) : relecture du dossier de livraison (10 langues partout, 15 captures par série, 20
