@@ -18,6 +18,7 @@ import { SPELL_INDEX } from "../game/spells.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
+import { isRanged } from "../game/classes.js";
 
 export const MINI_H = 64;
 const SCENE_W = 212, GROUND = 58, HERO_X = 8, CONTACT = 44;
@@ -223,11 +224,14 @@ export class MiniRenderer {
       this.partner = null; this.partnerCls = pcls;
       if (pcls) { const ps = buildHeroSprites(pcls, {}, this.dpr, 2); this.partner = new Actor(this.stage, [ps.walk1, ps.walk2, ps.attack]); }
     }
-    const off = this.partner ? 14 : 0;
+    // (it. 1214, comme sur la bande, it. 1209) héros à distance et compagnon au corps à corps : le compagnon passe devant
+    const leads = !!this.partner && isRanged(S.cls) && !isRanged(pcls);
+    // places habituelles : compagnon en HERO_X - 4, héros 14 px devant ; inversées quand le compagnon mène
+    const off = !this.partner ? 0 : leads ? -4 : 14;
     if (this.partner) {
       const pf = R.mode === "walk" ? 1 - walkF : 0, pfr = this.partner.frames[pf];
       this.partner.show(pf);
-      this.partner.move(HERO_X - 4, GROUND - pfr.ch + P + (R.mode === "walk" && !walkF ? -P : 0));
+      this.partner.move(leads ? HERO_X + 14 : HERO_X - 4, GROUND - pfr.ch + P + (R.mode === "walk" && !walkF ? -P : 0));
       this.partner.alpha(R.mode === "dead" ? 0.35 : 1);
     }
     if (off !== this.heroOff) { this.heroOff = off; this.heroBar.el.style.transform = `translate3d(${HERO_X + 3 + off}px,4px,0)`; }

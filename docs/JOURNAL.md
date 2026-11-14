@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1214) : mode mini : comme sur la bande (it. 1209), un compagnon au corps à corps marche devant un
+  héros à distance (le mage, derrière son guerrier) ; places simplement inversées, barre de vie sur le héros.
+  Vérifié en capture (mage + guerrier), autotest 227/227. Dix premières minutes contrôlées (first-minutes) : saines.
 - 2026-11-14 (it. 1213) : panoplies du mage, fin de l'enquête : pas un bug. Le mage garde deux pièces « Ronin errant »
   forgées +10 de niveau 17-20 jusqu'en zone 61 : le bonus de 2 pièces (iai, premier coup) vaut 19 % de sa puissance,
   et une arme fraîche de zone 59 à +0 ne le bat que 6 fois sur 100 (à +10 : jusqu'à ×1,66). Ces emplacements
