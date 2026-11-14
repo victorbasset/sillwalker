@@ -2806,5 +2806,6 @@ export const KEYS = [
   "À genoux, champion !",
   "Grenouillette",
   "Ses coassements attirent les élites… et leur butin.",
-  "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}"
+  "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}",
+  "{n} potion|{n} potions"
 ];

@@ -938,6 +938,13 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     assert.ok(!ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
     g.S.stats.champions = 25; assert.ok(ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
   });
+  test("récompense d'une seule potion : « 1 potion » au singulier (it. 1283)", () => {
+    const g = new Game(freshState()); g.S.potions = 0; g.S.log = [];
+    g.S.quests.slots[0] = { uid: 995, kind: "kill", goal: 1, progress: 1, stars: 1, reward: { potions: 1 } };
+    g.claimQuest(995);
+    const line = g.S.log.find((l) => /potion/.test(l)) || "";
+    assert.ok(/1\spotion(?!s)/.test(line), line);
+  });
   test("chaque familier a son dessin, toutes ses images de même largeur (it. 1282)", () => {
     for (const p of M_pets_js.PETS) {
       const art = M_art_js.PET_ART[p.id];

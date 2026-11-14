@@ -1677,4 +1677,5 @@ export default {
   2802: "Froglet",
   2803: "Its croaking draws elites… and their loot.",
   2804: "Send the free pet: {1}|Send the {n} free pets: {1}",
+  2805: "{n} potion|{n} potions",
 };

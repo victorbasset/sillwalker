@@ -1677,4 +1677,5 @@ export default {
   2802: "Ranita",
   2803: "Su croar atrae a las élites… y su botín.",
   2804: "Enviar la mascota libre: {1}|Enviar las {n} mascotas libres: {1}",
+  2805: "{n} poción|{n} pociones",
 };

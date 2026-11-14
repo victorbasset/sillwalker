@@ -1677,4 +1677,5 @@ export default {
   2802: "Fröschlein",
   2803: "Sein Quaken lockt Elite-Gegner an … und ihre Beute.",
   2804: "Den freien Begleiter schicken: {1}|Die {n} freien Begleiter schicken: {1}",
+  2805: "{n} Trank|{n} Tränke",
 };

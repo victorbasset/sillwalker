@@ -1677,4 +1677,5 @@ export default {
   2802: "Sapinho",
   2803: "Seu coaxar atrai as elites… e o butim delas.",
   2804: "Enviar o mascote livre: {1}|Enviar os {n} mascotes livres: {1}",
+  2805: "{n} poção|{n} poções",
 };

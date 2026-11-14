@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1283) : chasse aux pluriels en dur (suite de « les 1 familiers », it. 1282) : relevé des tx() dont
+  le nombre précède un nom au pluriel (30 cas) ; la plupart ne voient jamais 1 (objectifs ≥ 2, paliers, constellations
+  par pas de 2, « Récupérer {0} expéditions » affiché seulement au-delà de 1). Corrigé : « {0} potions » des
+  récompenses de quête (carte et journal ; les quêtes de critiques et de sorts donnent 1 potion) → txn « {n} potion »
+  (3 formes en ru et pl). Test (« 1 potion » au singulier) ; autotest 227/227.
 - 2026-11-14 (it. 1282) : 18e familier, la Grenouillette (clin d'œil à Mirette, la grenouille marchande) : +2 %
   d'élites rencontrées par niveau (20 % au niveau 10, comme l'Appât des champions) ; dessin pixel (art.js PET_ART,
   deux images : posée, en l'air), ajoutée à la FIN de PETS ; traduite. Test : chaque familier a son dessin, images de
