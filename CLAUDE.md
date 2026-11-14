@@ -175,7 +175,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (`--open-panel --dump-text=<fichier>`, sans `--exit-after` ; depuis l'it. 1252 il parcourt aussi chaque sous-section des onglets et le texte des bulles d'aide, `data-title`) et y chercher les mots latins
   (`grep -oP "(?<![A-Za-z])[A-Za-zÀ-ÿ']{2,}"`, mots courts compris : « pts », « min », « oui » y ont échappé) ; ce qui n'est pas un repère `=== onglet` est suspect. Le faire aussi sur la partie de fin de partie (scripts/fixtures/endgame-save.json, `s.log = []` dans la copie : le journal garde la langue de la simulation) : reliques, boss majeurs, chroniques et panoplies n'apparaissent pas dans dev-data (it. 1018 : ru, ja, pl propres).
   États extrêmes (aucune sauvegarde de test ne les atteint) : `node --experimental-default-type=module scripts/max-save.mjs <copie>/save.json`
-  (tout au maximum : « (complet) » du Bestiaire restait en français, it. 1062-1063).
+  (tout au maximum : « (complet) » du Bestiaire restait en français, it. 1062-1063). lang-overflow mesure aussi cet état à 1920 et 1280 px dans chaque langue (« xx max 1920 », it. 1286 ; `NO_MAX=1` pour sauter) ; max-save doit couvrir chaque nouvelle collection (familiers, élites, événements, bénédictions… : it. 1285).
 - Les noms d'objets sont enregistrés **en français** et traduits à l'affichage (`itemName`).
 
 ## Pièges connus

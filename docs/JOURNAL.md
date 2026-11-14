@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1286) : lang-overflow mesure aussi l'état « tout au maximum » (max-save) à 1920 et 1280 px dans
+  chaque langue (« xx max 1920 », NO_MAX=1 pour sauter) : le défaut russe de l'it. 1285 n'apparaissait dans aucune
+  autre mesure. Passe complète : 10 langues propres. CLAUDE.md.
 - 2026-11-14 (it. 1285) : scripts/max-save.mjs (état « tout au maximum ») complété : tous les familiers (18, niveau
   10), toutes les sortes d'élites, tous les événements, toutes les bénédictions vécues, compteurs à 5-6 chiffres
   (champions, élites) ; il en ignorait plusieurs (17 familiers, 7 élites, 0 bénédiction). Mesuré ensuite dans les

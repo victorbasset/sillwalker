@@ -96,6 +96,27 @@ for (const lang of langs) {
       if (res !== "aucun") bad++;
       console.log(`${lang.padEnd(3)} fin 1920 × 130 % : ${res}`);
     }
+    // (it. 1286) état « tout au maximum » (scripts/max-save.mjs : toutes les collections, compteurs géants) à 1920 et
+    // 1280 px : en russe, les Statistiques y défilaient de 4 px (it. 1285) sans qu'aucune autre mesure le voie.
+    // NO_MAX=1 pour sauter ces mesures.
+    if (!process.env.NO_MAX) {
+      const maxFile = path.join(dir, "max.json");
+      execFileSync(process.execPath, ["--experimental-default-type=module", path.join(root, "scripts", "max-save.mjs"), maxFile], { stdio: "ignore" });
+      for (const mw of [1920, 1280]) {
+        const mx = JSON.parse(fs.readFileSync(maxFile, "utf8"));
+        fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...mx, last: Date.now(), settings: { ...(mx.settings || {}), lang, newsSeen: 999 } }));
+        let out = "";
+        try {
+          out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
+            "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, `--width=${mw}`, "--overflow-report", "--exit-after=20"],
+            { encoding: "utf8", timeout: 60000, stdio: ["ignore", "pipe", "pipe"] });
+        } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
+        const m = out.match(/\[overflow\] (\d+) (.*)/);
+        const res = m ? m[2].trim() : "pas de mesure";
+        if (res !== "aucun") bad++;
+        console.log(`${lang.padEnd(3)} max ${mw} : ${res}`);
+      }
+    }
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 }
 console.log(bad ? `${bad} mesure(s) en défaut (défilement, débordement ou mot coupé)` : "aucun défilement ni mot coupé");
