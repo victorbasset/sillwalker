@@ -1678,4 +1678,6 @@ export default {
   2803: "Su croar atrae a las élites… y su botín.",
   2804: "Enviar la mascota libre: {1}|Enviar las {n} mascotas libres: {1}",
   2805: "{n} poción|{n} pociones",
+  2806: "Nueva mascota, la Ranita: su croar atrae a las élites (+2 % por nivel).",
+  2807: "El héroe celebra cada campeón derrotado, y el resumen de ausencia cuenta los campeones caídos.",
 };

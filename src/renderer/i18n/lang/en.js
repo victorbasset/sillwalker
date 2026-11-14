@@ -1678,4 +1678,6 @@ export default {
   2803: "Its croaking draws elites… and their loot.",
   2804: "Send the free pet: {1}|Send the {n} free pets: {1}",
   2805: "{n} potion|{n} potions",
+  2806: "New pet, the Froglet: its croaking draws elites (+2% per level).",
+  2807: "The hero cheers every champion defeated, and the absence summary counts the champions that fell.",
 };

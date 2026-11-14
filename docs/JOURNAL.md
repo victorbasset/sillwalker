@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1284) : « Quoi de neuf », édition 68 : Grenouillette, réplique du champion vaincu, champions dans
+  le résumé d'absence ; traduite (noms repris tels que traduits). Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1283) : chasse aux pluriels en dur (suite de « les 1 familiers », it. 1282) : relevé des tx() dont
   le nombre précède un nom au pluriel (30 cas) ; la plupart ne voient jamais 1 (objectifs ≥ 2, paliers, constellations
   par pas de 2, « Récupérer {0} expéditions » affiché seulement au-delà de 1). Corrigé : « {0} potions » des

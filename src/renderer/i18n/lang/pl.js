@@ -1678,4 +1678,6 @@ export default {
   2803: "Jej rechot przyciąga elity… i ich łupy.",
   2804: "Wyślij {n} wolnego pupila: {1}|Wyślij {n} wolne pupile: {1}|Wyślij {n} wolnych pupili: {1}",
   2805: "{n} mikstura|{n} mikstury|{n} mikstur",
+  2806: "Nowy pupil, Żabka: jej rechot przyciąga elity (+2 % na poziom).",
+  2807: "Bohater wita każdego pokonanego czempiona, a podsumowanie nieobecności liczy poległych czempionów.",
 };

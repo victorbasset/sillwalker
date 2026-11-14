@@ -2807,5 +2807,7 @@ export const KEYS = [
   "Grenouillette",
   "Ses coassements attirent les élites… et leur butin.",
   "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}",
-  "{n} potion|{n} potions"
+  "{n} potion|{n} potions",
+  "Nouveau familier, la Grenouillette : ses coassements attirent les élites (+2 % par niveau).",
+  "Le héros salue chaque champion vaincu, et le résumé d’absence compte les champions tombés."
 ];

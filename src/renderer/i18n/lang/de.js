@@ -1678,4 +1678,6 @@ export default {
   2803: "Sein Quaken lockt Elite-Gegner an … und ihre Beute.",
   2804: "Den freien Begleiter schicken: {1}|Die {n} freien Begleiter schicken: {1}",
   2805: "{n} Trank|{n} Tränke",
+  2806: "Neuer Begleiter, das Fröschlein: Sein Quaken lockt Elite-Gegner an (+2 % pro Stufe).",
+  2807: "Der Held feiert jeden besiegten Champion, und die Abwesenheitsübersicht zählt die gefallenen Champions.",
 };

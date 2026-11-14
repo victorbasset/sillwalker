@@ -1678,4 +1678,6 @@ export default {
   2803: "Seu coaxar atrai as elites… e o butim delas.",
   2804: "Enviar o mascote livre: {1}|Enviar os {n} mascotes livres: {1}",
   2805: "{n} poção|{n} poções",
+  2806: "Novo mascote, o Sapinho: seu coaxar atrai as elites (+2 % por nível).",
+  2807: "O herói comemora cada campeão derrotado, e o resumo de ausência conta os campeões abatidos.",
 };
