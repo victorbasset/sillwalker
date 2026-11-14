@@ -231,6 +231,10 @@ FR.update({"Or keep it tiny": "Ou gardez-le tout petit", "Mini mode: a corner of
 DE.update({"Or keep it tiny": "Oder halte es winzig", "Mini mode: a corner of your screen, always in view": "Mini-Modus: eine Ecke deines Bildschirms, immer im Blick"})
 ES.update({"Or keep it tiny": "O mantenlo diminuto", "Mini mode: a corner of your screen, always in view": "Modo mini: una esquina de tu pantalla, siempre a la vista"})
 PT.update({"Or keep it tiny": "Ou deixe-o minúsculo", "Mini mode: a corner of your screen, always in view": "Modo mini: um canto da sua tela, sempre à vista"})
+FR["Or keep it tiny."] = "Ou gardez-le tout petit."
+DE["Or keep it tiny."] = "Oder halte es winzig."
+ES["Or keep it tiny."] = "O mantenlo diminuto."
+PT["Or keep it tiny."] = "Ou deixe-o minúsculo."
 LANG = os.environ.get("PROMO_LANG", "en")
 
 

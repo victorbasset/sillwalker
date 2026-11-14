@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1198, bande-annonce 20) : le mode mini dans la bande-annonce complète (1 mesure, « Or keep it tiny. »,
+  la caméra glisse vers le widget dans le coin du bureau ; relique ramenée à 1 mesure : 24 mesures en tout, calées
+  sur la musique). Cinq langues relivrées.
 - 2026-11-14 (it. 1197, captures 9) : capture du mode mini (15e) : plan « mini » filmé en écran entier (GRAB_SIZE /
   GRAB_POS dans record.sh, « grab » dans shots.json ; edit.py lit la taille de chaque plan) et posé sur le bureau
   dessiné (×0,67 : le widget dans son coin, le bureau autour) ; « Or keep it tiny » en cinq langues ; tourné dans les

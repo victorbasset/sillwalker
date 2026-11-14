@@ -19,6 +19,8 @@ def sc(bars, **k): k["dur"] = round(bars * BAR, 4); S.append(k)
 sc(3, type="desktop", src="walk", t0=1, cam=[[0, 0, 3840], [760, 1640, 1200]], fade=4, plate=True, title=[T("Your taskbar has a new neighbour.", 100, 64)])
 sc(1, type="clip", src="walk", t0=4, rect=CUR, cam=CU(700, 760), track=150, fade=0, title=[T("A tiny hero walks the edge of your screen.", 60, 54)])
 sc(1, type="clip", src="walk", t0=6.8, rect=CUR, cam=CU(780, 880), track=150, fade=0, title=[T("Fights. Loots. Grows stronger.", 60, 64)])
+# (it. 1198) le mode mini sur le bureau : la caméra glisse vers le widget dans son coin
+sc(1, type="desktop", src="mini", t0=2, cam=[[480, 270, 3360], [1440, 810, 2400]], fade=0, plate=True, title=[T("Or keep it tiny.", 100, 64)])
 sc(1, type="card", logo=["steam/capsules/library-logo.png", 380, 900], fade=6)
 sc(1, type="clip", src="npc-shop", t0=4.2, rect=[0, 420, 1920, 300], cam=[[1060, 1040, 1280], [1100, 1040, 1280]], smooth=True, fade=0, title=[T("Meet the folk of the Sill.", 200, 72)])
 sc(1, type="clip", src="p-adventure", t0=1, rect=PAN, cam=[[0, 0, 2560], [60, 0, 2560]], fade=0, title=[T("Gear up. Forge. Complete your sets.", 975, 56)])
@@ -26,7 +28,7 @@ sc(1, type="clip", src="bloodmoon", t0=2, rect=EVR, cam=EV(800, 1500), track=180
 sc(1, type="clip", src="starfall", t0=1.5, rect=EVR, cam=EV(700, 1300), track=180, fade=0, punch=True, title=[T("STAR SWARM", 170, 120, [170, 210, 255]), T("catch the falling stars", 330, 38, L, "body")])
 sc(1, type="clip", src="goblinrush", t0=1.5, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("GOBLIN RUSH", 170, 120, [140, 230, 120]), T("golden goblins, everywhere", 330, 38, L, "body")])
 sc(1, type="clip", src="goldrain", t0=1, rect=EVR, cam=EV(800, 1400), track=180, fade=0, punch=True, title=[T("RAIN OF GOLD", 170, 120), T("and 10 more rare events", 330, 38, L, "body")])
-sc(2, type="clip", src="relic", t0=1, rect=[0, 486, 1920, 208], cam=[[1000, 1040, 1840], [1000, 1040, 1840]], smooth=True, fade=0, title=[T("Bosses guard ancient relics.", 200, 64)])
+sc(1, type="clip", src="relic", t0=1, rect=[0, 486, 1920, 208], cam=[[1000, 1040, 1840], [1000, 1040, 1840]], smooth=True, fade=0, title=[T("Bosses guard ancient relics.", 200, 64)])
 sc(2, type="clip", src="p-graph", t0=2, rect=[160, 40, 1600, 900], cam=[[1500, 40, 1600], [1700, 80, 1600]], fade=0, title=[T("A 618-node great graph.", 965, 60)])
 sc(1, type="clip", src="p-mastery", t0=2, rect=PAN, cam=[[960, 40, 1920], [960, 40, 1920]], fade=0, title=[T("Real choices, every milestone.", 975, 56)])
 # (it. 1189) combat contre un boss majeur (le Chevalier de l'éclipse, zone 150) : sorts, critiques, esquives
@@ -42,7 +44,7 @@ sc(3, type="card", logo=["steam/capsules/library-logo.png", 300, 760], fade=14, 
    title=[T("An idle RPG on the edge of your screen", 560, 40, L, "body"), T("Wishlist on Steam  ·  Play now on itch.io", 660, 44), T("Windows  ·  macOS  ·  Linux", 760, 30, [170, 160, 210], "body")])
 if os.environ.get("CUT") == "short":
     # (it. 1185) version courte (≈ 30 s, réseaux) : 11 mesures prises dans le montage complet (indice, mesures)
-    keep = [(0, 2), (1, 1), (3, 1), (6, 1), (7, 1), (8, 1), (11, 1), (13, 1), (19, 2)]
+    keep = [(0, 2), (1, 1), (4, 1), (7, 1), (8, 1), (9, 1), (12, 1), (14, 1), (20, 2)]
     S = [dict(S[i], dur=round(b * BAR, 4)) for i, b in keep]
 if os.environ.get("CUT") == "vertical":
     # (it. 1187) version verticale 1080×1920 (TikTok, Shorts, Reels ; à rendre avec PROMO_SIZE=1080x1920) : 11 mesures,
