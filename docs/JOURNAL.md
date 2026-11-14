@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1201, bande-annonce 21) : bandes-annonces dans les 10 langues : russe, polonais, chinois, japonais,
+  coréen ajoutés (textes de la bande-annonce dans texts_asia.py, plans manquants tournés, polices de secours par
+  langue dans le rendu) : 30 vidéos (complète, 30 s, verticale × 10 langues) dans Médias/sillwalker-promo/videos.
 - 2026-11-14 (it. 1200, captures 10) : captures « promo » dans les 10 langues : accroches en chinois, japonais,
   coréen, russe, polonais (texts_asia.py, noms repris du jeu) ; edit.py dessine chaque caractère dans la première
   police qui l'a (PROMO_FALLBACK, ligne de base commune) : Tiny5 (cyrillique) et Geist Pixel étendu (polonais) du jeu
