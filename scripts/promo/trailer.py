@@ -14,10 +14,12 @@ EVR = [0, 470, 1920, 400]
 PAN = [0, 60, 1920, 900]
 S = []
 def sc(bars, **k): k["dur"] = round(bars * BAR, 4); S.append(k)
-sc(2, type="card", logo=["steam/capsules/library-logo.png", 380, 900], fade=12)
-sc(2, type="desktop", src="walk", t0=1, cam=[[0, 0, 3840], [760, 1640, 1200]], fade=4, plate=True, title=[T("Your taskbar has a new neighbour.", 100, 64)])
+# (it. 1190) ouverture sur l'idée du jeu (le bureau, 3 mesures : la musique s'ouvre quand on plonge vers la bande),
+# le logo vient après les deux gros plans du héros, en titre (avant : 5 s de logo fixe en ouverture)
+sc(3, type="desktop", src="walk", t0=1, cam=[[0, 0, 3840], [760, 1640, 1200]], fade=4, plate=True, title=[T("Your taskbar has a new neighbour.", 100, 64)])
 sc(1, type="clip", src="walk", t0=4, rect=CUR, cam=CU(700, 760), track=150, fade=0, title=[T("A tiny hero walks the edge of your screen.", 60, 54)])
 sc(1, type="clip", src="walk", t0=6.8, rect=CUR, cam=CU(780, 880), track=150, fade=0, title=[T("Fights. Loots. Grows stronger.", 60, 64)])
+sc(1, type="card", logo=["steam/capsules/library-logo.png", 380, 900], fade=6)
 sc(1, type="clip", src="npc-shop", t0=4.2, rect=[0, 420, 1920, 300], cam=[[1060, 1040, 1280], [1100, 1040, 1280]], smooth=True, fade=0, title=[T("Meet the folk of the Sill.", 200, 72)])
 sc(1, type="clip", src="p-adventure", t0=1, rect=PAN, cam=[[0, 40, 1920], [40, 50, 1920]], fade=0, title=[T("Gear up. Forge. Complete your sets.", 975, 56)])
 sc(1, type="clip", src="bloodmoon", t0=2, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("BLOOD MOON", 170, 120, R), T("every monster turns elite", 330, 38, L, "body")])
@@ -40,7 +42,7 @@ sc(3, type="card", logo=["steam/capsules/library-logo.png", 300, 760], fade=14, 
    title=[T("An idle RPG on the edge of your screen", 560, 40, L, "body"), T("Wishlist on Steam  ·  Play now on itch.io", 660, 44), T("Windows  ·  macOS  ·  Linux", 760, 30, [170, 160, 210], "body")])
 if os.environ.get("CUT") == "short":
     # (it. 1185) version courte (≈ 30 s, réseaux) : 11 mesures prises dans le montage complet (indice, mesures)
-    keep = [(0, 1), (1, 2), (2, 1), (6, 1), (7, 1), (8, 1), (11, 1), (13, 1), (19, 2)]
+    keep = [(0, 2), (1, 1), (3, 1), (6, 1), (7, 1), (8, 1), (11, 1), (13, 1), (19, 2)]
     S = [dict(S[i], dur=round(b * BAR, 4)) for i, b in keep]
 if os.environ.get("CUT") == "vertical":
     # (it. 1187) version verticale 1080×1920 (TikTok, Shorts, Reels ; à rendre avec PROMO_SIZE=1080x1920) : 11 mesures,
@@ -54,7 +56,7 @@ if os.environ.get("CUT") == "vertical":
                                ("goblinrush", 1.5, "GOBLIN RUSH", "golden goblins, everywhere", [140, 230, 120]), ("goldrain", 1, "RAIN OF GOLD", "and 10 more rare events", G)]:
         sc(1, type="clip", src=src, t0=t0, rect=VR, cam=V(800), track=90, fade=0, punch=True, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T(a, 400, 104, col), T(b, 550, 40, L, "body")])
     sc(1, type="clip", src="p-graph", t0=2, rect=[0, 560, 1080, 900], cam=[[1900, 60, 1080], [2100, 90, 1080]], fade=0, title=[T("A 618-node", 300, 80), T("great graph.", 410, 80)])
-    sc(1, type="clip", src="boss", t0=6, rect=VR, cam=V(2930), track=60, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("Grow absurdly", 380, 84), T("powerful.", 490, 84)])
+    sc(1, type="clip", src="boss", t0=6, rect=VR, cam=V(2930), track=110, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("Grow absurdly", 380, 84), T("powerful.", 490, 84)])
     sc(3, type="card", logo=["steam/capsules/library-logo.png", 700, 900], fade=14, bg="dawn",
        title=[T("An idle RPG on the", 1020, 46, L, "body"), T("edge of your screen", 1080, 46, L, "body"), T("Wishlist on Steam", 1220, 56), T("Play now on itch.io", 1300, 56), T("Windows  ·  macOS  ·  Linux", 1430, 34, [170, 160, 210], "body")])
 json.dump({"scenes": S}, open(sys.argv[1], "w"), indent=1)

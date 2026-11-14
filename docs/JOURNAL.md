@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1190, bande-annonce 17) : ouverture sur l'idée du jeu : le bureau en premier (3 mesures, la musique
+  s'ouvre quand la caméra plonge vers la bande), le logo arrive en titre après les deux gros plans du héros (avant :
+  5 s de logo fixe en ouverture, sans accroche) ; version courte réordonnée de même ; verticale : boss mieux cadré.
+  Cinématique d'ouverture du jeu écartée (≈ 2 s de carton, trop courte pour un plan). Six vidéos livrées à nouveau.
 - 2026-11-14 (it. 1189, bande-annonce 16) : plan d'un boss majeur (shots.json « boss » : partie de fin, S.kills = 10
   → le Chevalier de l'éclipse de la zone 150 tout de suite) : sorts du duo, critiques à 15-17 M, esquives, ripostes.
   Il remplace le combat ordinaire pour « Grow absurdly powerful. » (version complète, avec impact ; verticale) ; 14e
