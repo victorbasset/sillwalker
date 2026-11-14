@@ -265,6 +265,7 @@ export class Juice {
   /** Pièces : jaillissent, rebondissent, puis filent vers le compteur d'or. */
   coins(x, y, n, big) {
     if (!this.active) return;
+    if (this.npcScene()) return; // (it. 1215) rencontre d'un PNJ : monstres masqués, butin aussi
     if (!this.full) n = Math.min(n, 3); // effets réduits
     for (let i = 0; i < n; i++) {
       const node = el("div", "coin" + (big && i % 4 === 0 ? " big" : ""), this.layer);
@@ -288,6 +289,7 @@ export class Juice {
   /** Butin : l'icône saute du monstre, puis va dans le sac. Faisceau pour rare et mieux. */
   loot(item, x, ground) {
     if (!this.active) return;
+    if (this.npcScene()) return; // (it. 1215) rencontre d'un PNJ : monstres masqués, butin aussi
     const r = item.r, color = RARITIES[r].color, y0 = this.ground() - 24;
     if (r >= 2 && (this.full || r >= LEGENDARY)) {
       const beam = el("div", "beam" + (r >= LEGENDARY ? " legendary" : ""), this.layer);
@@ -442,12 +444,12 @@ export class Juice {
       tx: 20 + Math.random() * (W - 40), ty: 6 + Math.random() * (H * 0.6), d: 1.2 + Math.random() * 2.2,
       start: kind === "dawn" ? 0.8 + i * 0.03 + Math.random() * 0.6 : -10, ph: Math.random() * 6, big: Math.random() < 0.15,
       fall: 1.8 + Math.random() * 0.8, fx: (Math.random() - 0.5) * 120, gy: this.ground() - 2 - Math.random() * 6 }));
-    const state = { done: false, node };
-    this.cine = state;
     // (it. 1208, demande de Victor) rencontre d'un PNJ : pas de monstre autour de sa maison (ils passaient derrière la
-    // grenouille) ; ils réapparaissent à la fin de la scène
-    const stage = npc ? this.s.stage : null;
-    if (stage) stage.classList.add("npc-scene");
+    // grenouille) ; ils réapparaissent à la fin de la scène. (it. 1215) état déduit de this.cine à chaque image
+    // (syncNpcScene) : une scène effacée autrement que par sa fin (clear, autre scène) ne laisse plus les monstres cachés
+    const state = { done: false, node, npc: !!npc };
+    this.cine = state;
+    this.syncNpcScene();
     node.addEventListener("click", () => { state.done = true; });
     this.s.game.emit("cinematic", { kind, id: data.id });
     if (this.onHits) setTimeout(this.onHits, 0); // zones cliquables de la fenêtre à recalculer
@@ -457,7 +459,7 @@ export class Juice {
       const k = Math.max(0, Math.min(fadeIn, fadeOut));
       if (state.done || t >= life) {
         if (this.cine === state) this.cine = null;
-        if (stage) stage.classList.remove("npc-scene");
+        this.syncNpcScene();
         if (this.onHits) setTimeout(this.onHits, 0); // le calque disparaît : les clics retraversent la bande
         // Générique après la victoire (sauf si on a passé la scène), puis la cinématique suivante en attente.
         if (kind === "dawn" && !state.done) (this.cineQueue ||= []).unshift(["credits", {}]);
@@ -669,7 +671,15 @@ export class Juice {
     return { x: x0 + (x1 - x0) * k, y: 10 + k * 34 };
   }
 
+  /** (it. 1215) Une rencontre de PNJ est-elle à l'écran ? (les monstres et leur butin sont alors masqués) */
+  npcScene() { return !!(this.cine && this.cine.npc && !this.cine.done); }
+  syncNpcScene() {
+    const on = this.npcScene(), st = this.s.stage;
+    if (st && st.classList.contains("npc-scene") !== on) st.classList.toggle("npc-scene", on);
+  }
+
   update(dt) {
+    this.syncNpcScene();
     if (this.pulse > 0) {
       this.pulse = Math.max(0, this.pulse - dt);
       const sc = (1 + this.pulse * 1.1).toFixed(2);
@@ -736,7 +746,7 @@ export class Juice {
     if (this.wxc) { this.wxc.c.remove(); this.wxc = null; }
   }
 
-  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.cine = null; this.star = null; this.wx.length = 0; this.wxKind = null; this.wxc = null; this.wxKey = ""; }
+  clear() { this.layer.replaceChildren(); this.parts.length = 0; this.cine = null; this.syncNpcScene(); this.star = null; this.wx.length = 0; this.wxKind = null; this.wxc = null; this.wxKey = ""; }
 }
 
 /** Première phrase d'un texte (sous-titre court d'une cinématique). */

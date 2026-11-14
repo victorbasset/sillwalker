@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1215) : rencontre d'un PNJ : plus de gains d'or ni de pièces qui jaillissent des monstres masqués
+  (strip.js float, juice.js coins et loot). Corrigé au passage un défaut de l'it. 1208 : la classe qui masque les
+  monstres n'était retirée qu'à la fin normale de la scène ; une scène effacée autrement (clear de la bande, autre
+  scène qui la remplace) pouvait les laisser invisibles. L'état se déduit maintenant de la scène en cours à chaque
+  image (juice.npcScene / syncNpcScene). Autotest 227/227 (l'échec du premier passage venait de ce défaut). Reste,
+  rare : la réplique du héros sur un butin peut s'afficher pendant la scène.
 - 2026-11-14 (it. 1214) : mode mini : comme sur la bande (it. 1209), un compagnon au corps à corps marche devant un
   héros à distance (le mage, derrière son guerrier) ; places simplement inversées, barre de vie sur le héros.
   Vérifié en capture (mage + guerrier), autotest 227/227. Dix premières minutes contrôlées (first-minutes) : saines.

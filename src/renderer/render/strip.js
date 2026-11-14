@@ -358,6 +358,7 @@ export class StripRenderer {
   /* ---------- Effets (animés par la boucle à 30 FPS) ---------- */
   float(x, y, txt, col, big, isDamage) {
     if (!this.active) return;
+    if (this.juice && this.juice.npcScene()) return; // (it. 1215) rencontre d'un PNJ : pas de nombres sans monstre
     if (isDamage && this.game.S.settings.damageNumbers === false) return;
     // (it. 997) en fin de partie (coups, sorts, compagnon, drone), une douzaine de nombres montaient en même temps : les
     // petits nombres de dégâts ordinaires s'arrêtent à MAX_DMG_FLOATS visibles ; les grands (critiques, mots) passent
