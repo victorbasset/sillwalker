@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1275, contrôle) : ouverture des onglets (tab-pace, 3 graines) après les ajouts du jour : talents
+  1 min, quêtes 5, boutique 8-9, Héros 10, carte 12, bestiaire 14-15, ascension 23-36 : dans les repères.
 - 2026-11-14 (it. 1274, contrôle) : --crawl en polonais sur la partie de fin, Jour des champions actif, quête de
   champion 3 étoiles, élite Régénérant vue : 502 clics, aucune erreur.
 - 2026-11-14 (it. 1273) : Jour des champions en tout début de partie (zone < 5, première course) : sa bulle précise
