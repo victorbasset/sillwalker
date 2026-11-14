@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1251, revue générale) : performance (it. 1249) et 12 h des 10 héros (balance, it. 1250) déjà
+  mesurées, inchangées. Texte japonais de la partie de fin (11 589 lignes) : aucun mot latin hors noms propres, langues
+  et touches (Esc, DEV, BGM) ; Lune pâle traduite partout (18 occurrences). Captures en japonais : Bestiaire > Élites
+  « エリート (8 / 8) » avec 再生する et le bonus +8 % ; mode mini lisible. Rien à corriger. Note : --dump-text ne
+  parcourt que la sous-section par défaut des onglets (Élites, Événements… restent hors du texte extrait ; mesurés
+  par lang-overflow, pas par la chasse aux mots non traduits).
 - 2026-11-14 (it. 1250) : 8e sorte d'élite, « Régénérant » (data.js ELITE_AFFIXES.regen) : regagne 3 % de sa vie
   maximale chaque seconde en combat (jamais au-delà) : il faut frapper fort et vite. Rejoint d'elle-même le Bestiaire
   (Élites), les proies des quêtes et le succès « Tueur d'élites ». Traduit ; comptes 7 → 8 dans store-page (10
