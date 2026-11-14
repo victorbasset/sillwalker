@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1248) : pastilles des événements en cours (Aventure), thème clair : la bordure prenait la couleur
+  brute de l'événement, presque invisible sur le fond clair pour les plus pâles (Lune pâle #d8dcf0, Voile protecteur,
+  Nuée d'étoiles) ; elle suit maintenant la teinte assombrie du texte (color-mix … --tintk, comme .tint). Contraste du
+  texte mesuré pour les 15 événements en thème clair : 4,3 à 7,4. Vérifié en capture ; autotest 227/227.
 - 2026-11-14 (it. 1247, contrôle) : dix premières minutes (first-minutes, 3 graines) après la Lune pâle (un tirage de
   plus par victoire) : saines (premier objet 54-81 s, boss 75-81 s, onglets aux mêmes minutes). Checklist Steam : la
   page du magasin a changé à l'it. 1242 (15 événements), à recopier si déjà saisie ; dossiers de presse du partage

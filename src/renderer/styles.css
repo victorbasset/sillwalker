@@ -463,7 +463,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.hawkeye { background: radial-gradient(farthest-side, color-mix(in srgb, #ff9f43 50%, transparent) 55%, transparent); }
 .actor.frenzy.hawkeye { background: radial-gradient(farthest-side, color-mix(in srgb, #ff4a4a 50%, transparent) 55%, transparent), radial-gradient(farthest-side, color-mix(in srgb, #ff9f43 50%, transparent) 55%, transparent); }
 .layer.hud { transform-origin: 80% 50%; }
-.chip.event { border-color: var(--c); color: var(--c); }
+.chip.event { border-color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); color: var(--c); } /* (it. 1248) bordure visible en thème clair (Lune pâle, Voile protecteur : couleurs très claires) */
 /* Couleurs vives pensées pour le fond sombre : assombries en thème clair pour rester lisibles. */
 .tint, .sub.tint, .chip.event, .chip.set { color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }
 .chip.set { border-color: var(--c); }
