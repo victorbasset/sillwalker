@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1206, médias 8, intégration finale) : steam/screenshots remplacé par la série finale (15 vues, jeu
+  seul, anglais et français, 5,3 Mo ; les 6 anciennes par langue retirées) ; steam/checklist.md renvoie au dossier
+  Médias/sillwalker-promo pour les 10 langues, les accroches et les bandes-annonces (≈ 14 Mo chacune, gardées hors
+  du dépôt). Fin du chantier promo demandé jusqu'à samedi midi : retour aux itérations normales ensuite.
 - 2026-11-14 (it. 1205, bande-annonce 22) : carton final avec la bande du jeu qui défile en bas de l'écran (edit.py,
   option « strip » des cartons : un plan réduit à 1920×120 sous le logo et les liens) : l'idée du jeu jusqu'à la
   dernière image. 30 vidéos recalculées et relivrées.
