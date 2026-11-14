@@ -1639,4 +1639,7 @@ export default {
   2764: "Dziś coś się wydarzy…",
   2765: "Dziś tańczę z cieniami.",
   2766: "Błogosławieństwa dnia",
+  2767: "Nowe błogosławieństwo dnia: Dzień cieni (+15% uniku, +20% riposty).",
+  2768: "Twój bohater wita każde błogosławieństwo dnia, gdy się zaczyna, a Statystyki liczą te, które już przeżyłeś (x / 10).",
+  2769: "Podsumowanie nieobecności: pokazuje, ile przedmiotów zostało na ziemi, gdy torba była pełna.",
 };

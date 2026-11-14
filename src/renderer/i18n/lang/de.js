@@ -1639,4 +1639,7 @@ export default {
   2764: "Heute wird etwas passieren …",
   2765: "Heute tanze ich mit den Schatten.",
   2766: "Segen des Tages",
+  2767: "Neuer Segen des Tages: der Tag der Schatten (+15 % Ausweichen, +20 % Konter).",
+  2768: "Dein Held begrüßt jeden Segen des Tages, wenn er beginnt, und die Statistik zählt die, die du schon erlebt hast (x / 10).",
+  2769: "Abwesenheitsübersicht: Sie zeigt, wie viele Gegenstände bei voller Tasche am Boden liegen blieben.",
 };

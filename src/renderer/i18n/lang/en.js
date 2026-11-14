@@ -1639,4 +1639,7 @@ export default {
   2764: "Something’s going to happen today…",
   2765: "Today, I dance with the shadows.",
   2766: "Daily blessings",
+  2767: "New daily blessing: the Day of Shadows (+15% dodge, +20% riposte).",
+  2768: "Your hero greets each daily blessing when it begins, and Statistics counts the ones you have already lived through (x / 10).",
+  2769: "Away summary: it shows how many items were left on the ground when the bag was full.",
 };

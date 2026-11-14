@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1225) : « Quoi de neuf », édition 61 : Jour des ombres ; le héros salue les bénédictions, et
+  Statistiques compte celles déjà vécues ; objets laissés au sol dans le résumé d'absence. Traduite (10 langues) ;
+  autotest 227/227 ; lang-overflow : rien.
 - 2026-11-14 (it. 1224) : bénédictions vécues : la partie retient chaque bénédiction du jour rencontrée (S.daily.seen ;
   celle du jour en cours comptée au chargement) ; Statistiques > Moments rares : « Bénédictions du jour  x / 10 », la
   liste au survol (✓ vue, · pas encore). Une collection de plus pour les longues parties (dix jours au moins pour la

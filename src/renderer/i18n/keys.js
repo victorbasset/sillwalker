@@ -2768,5 +2768,8 @@ export const KEYS = [
   "Des coffres partout, je le sens !",
   "Il va se passer des choses, aujourd’hui…",
   "Aujourd’hui, je danse avec les ombres.",
-  "Bénédictions du jour"
+  "Bénédictions du jour",
+  "Nouvelle bénédiction du jour : le Jour des ombres (+15 % d’esquive, +20 % de riposte).",
+  "Ton héros salue chaque bénédiction du jour quand elle commence, et Statistiques compte celles que tu as déjà vécues (x / 10).",
+  "Résumé d’absence : il indique combien d’objets sont restés au sol quand le sac était plein."
 ];

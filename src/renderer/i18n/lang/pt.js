@@ -1639,4 +1639,7 @@ export default {
   2764: "Algo vai acontecer hoje…",
   2765: "Hoje eu danço com as sombras.",
   2766: "Bênçãos do dia",
+  2767: "Nova bênção do dia: o Dia das sombras (+15% de esquiva, +20% de réplica).",
+  2768: "Seu herói saúda cada bênção do dia quando ela começa, e Estatísticas conta as que você já viveu (x / 10).",
+  2769: "Resumo da ausência: mostra quantos itens ficaram no chão quando a bolsa estava cheia.",
 };
