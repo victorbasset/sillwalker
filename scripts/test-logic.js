@@ -1000,6 +1000,17 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
   });
+  test("consommables : les chiffres des descriptions suivent les constantes (it. 1326)", () => {
+    const S = M_shop_js, by = Object.fromEntries(S.CONSUMABLES.map((c) => [c.id, c]));
+    const P = (x) => Math.round(x * 100) + " %";
+    const pot = by.potion.desc;
+    assert.ok(pot.includes(P(S.POTION_THRESHOLD)) && pot.includes(P(S.POTION_HEAL)) && pot.includes(String(S.POTION_MAX)), pot);
+    for (const [id, eff] of Object.entries(S.BUFF_EFFECTS)) {
+      const d = by[id].desc;
+      for (const v of new Set(Object.values(eff))) assert.ok(d.includes(v + " %"), id + " : « " + v + " % » absent de « " + d + " »");
+      assert.ok(d.includes(by[id].duration / 60 + " min") && d.includes(S.BUFF_CAP_S / 3600 + " h"), id + " : durée / cumul : " + d);
+    }
+  });
   test("Rafale de vent : la vitesse de déplacement double vraiment (« ×2 », it. 1325)", () => {
     const g = new Game(freshState()); g.S.stats.feathers = 0; const base = g.moveMul();
     g.R.events.wind = 30; assert.equal(g.moveMul(), base * 2);

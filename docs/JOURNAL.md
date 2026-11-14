@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1326) : test : les descriptions des consommables suivent leurs constantes (potion : seuil 30 %, soin
+  50 %, stock 20 ; élixirs : effets de BUFF_EFFECTS, 10 min, cumul 2 h) ; tous justes.
 - 2026-11-14 (it. 1325) : les multiplicateurs annoncés par les événements rares comparés au code : la Rafale de vent
   promettait « Vitesse de déplacement ×2 » mais ajoutait +100 % (moveMul : 1 + permanent + 1) ; en fin de partie
   (+174 % permanents), ×1,37 seulement. Elle double maintenant vraiment la vitesse. Les autres sont fidèles (Pluie d'or
