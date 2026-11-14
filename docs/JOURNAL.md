@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1297) : contrôle d'autotest pour l'it. 1296 : Bestiaire > Bénédictions du jour porte deux étiquettes
+  (aujourd'hui, demain) et la bénédiction de demain est dévoilée (2 étiquettes, 10 cartes inconnues) ; indépendant de
+  la date (la bénédiction forcée du jour est toujours différente de celle de demain). Autotest 228/228.
 - 2026-11-14 (it. 1296) : Bestiaire > Bénédictions du jour : étiquettes « aujourd'hui » et « demain » sur les cartes ;
   celle de demain est dévoilée même jamais vécue (une raison de revenir ; la bulle de la pastille du jour la nommait
   déjà). Traduit ; vérifié en capture (Jour de furie « demain », Jour du rempart « aujourd'hui »). Autotest 227/227 ;

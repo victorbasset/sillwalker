@@ -1140,6 +1140,14 @@ async function runSelfTest(strip) {
   // (it. 936) l'événement en cours a sa carte encadrée, avec ses secondes restantes
   const evh = await js("(() => { const P = window.__panel, G = window.__game, S = G.S, keep = S.stats.eventsSeen, kt = P.tab, ks = P.tabs.bestiary.sec; S.stats.events = Math.max(1, S.stats.events || 0); S.stats.eventsSeen = { wind: true }; G.R.events.wind = 17.2; P.tabs.bestiary.sec = 'events'; P.setTab('bestiary'); P.renderAll(); const c = document.querySelector('[data-pane=bestiary]:not([hidden]) .setcard.here'); const r = c ? (/18/.test(c.textContent) ? 'ok' : c.textContent) : 'pas encadrée'; G.R.events.wind = 0; S.stats.eventsSeen = keep; P.tabs.bestiary.sec = ks; P.setTab(kt); P.renderAll(); return r; })()");
   check("Bestiaire > Événements rares : l’événement en cours encadré, secondes restantes", evh === "ok", evh);
+  // (it. 1297) Bestiaire > Bénédictions du jour : deux étiquettes, « aujourd'hui » sur la bénédiction du jour et « demain »
+  // sur celle de demain, dévoilée même jamais vécue (it. 1296)
+  const blt = await js(`(async () => { const { dayModFor } = await import("./game/daymods.js"); const P = window.__panel, S = window.__game.S, keepSeen = S.daily.seen, keepMod = S.daily.mod, kt = P.tab, ks = P.tabs.bestiary.sec;
+    const tm = new Date(Date.now() + 864e5), tom = dayModFor(tm.getFullYear() + "-" + String(tm.getMonth() + 1).padStart(2, "0") + "-" + String(tm.getDate()).padStart(2, "0"));
+    S.daily.mod = tom === "gold" ? "wind" : "gold"; S.daily.seen = { [S.daily.mod]: true }; P.tabs.bestiary.sec = "blessings"; P.setTab("bestiary"); P.renderAll();
+    const tags = [...document.querySelectorAll("[data-pane=bestiary]:not([hidden]) .setgrid .daytag")], unknown = document.querySelectorAll("[data-pane=bestiary]:not([hidden]) .setgrid .setcard.unknown").length;
+    const r = tags.length + " " + unknown; S.daily.seen = keepSeen; S.daily.mod = keepMod; P.tabs.bestiary.sec = ks; P.setTab(kt); P.renderAll(); return r; })()`);
+  check("Bestiaire > Bénédictions du jour : « aujourd’hui » et « demain » marqués, demain dévoilée", (([a, b]) => +a === 2 && +b >= 1)(String(blt).split(" ")), blt);
   // (it. 922) Statistiques : un clic sur « Événements rares (n / 13) » ouvre Bestiaire > Événements rares.
   const evl = await js("(() => { const P = window.__panel, S = window.__game.S, kt = P.tab, ks = P.tabs.bestiary.sec; S.stats.events = Math.max(1, S.stats.events || 0); P.tabs.stats.sec = 'numbers'; P.setTab('stats'); P.renderAll(); const b = document.querySelector('[data-pane=stats]:not([hidden]) button[data-sec=events]'); if (!b) return 'pas de lien'; b.click(); const r = P.tab + ' ' + P.tabs.bestiary.sec; P.tabs.bestiary.sec = ks; P.setTab(kt); P.renderAll(); return r; })()");
   check("Statistiques : « Événements rares » mène au Bestiaire", evl === "bestiary events", evl);
