@@ -1647,4 +1647,5 @@ export default {
   2772: "Zehn gesegnete Tage",
   2773: "Neuer Erfolg „Zehn gesegnete Tage“: alle zehn Segen des Tages erleben.",
   2774: "Mini-Modus: Der Tooltip zeigt auch den Segen des Tages.",
+  2775: "Neuer Segen erlebt: {0} für immer ({1} / {2}).",
 };

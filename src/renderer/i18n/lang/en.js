@@ -1647,4 +1647,5 @@ export default {
   2772: "Ten Blessed Days",
   2773: "New achievement “Ten Blessed Days”: live through all ten daily blessings.",
   2774: "Mini mode: the hover tooltip also shows the daily blessing.",
+  2775: "New blessing lived through: {0} forever ({1} / {2}).",
 };

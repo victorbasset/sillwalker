@@ -932,6 +932,13 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("nouvelle bénédiction vécue annoncée dans le journal, une seule fois (it. 1239)", () => {
+    const g = new Game(freshState()); g.S.daily.seen = {}; g.S.daily.mod = null;
+    const day = "2026-06-01"; g.claimDaily(day);
+    const line = (L) => L.filter((t) => /bénédiction vécue|blessing lived through/.test(t)).length;
+    assert.equal(line(g.S.log), 1);
+    g.claimDaily(day); assert.equal(line(g.S.log), 1, "pas de doublon le même jour");
+  });
   test("nouvelle bénédiction : statistiques à jour tout de suite (it. 1238)", () => {
     let fury = null, other = null;
     for (let d = 1; d <= 60 && !(fury && other); d++) { const k = `2026-05-${String(((d - 1) % 28) + 1).padStart(2, "0")}`; const m = dayModFor(k); if (m === "fury") fury = fury || k; else if (!["fury", "bulwark"].includes(m)) other = other || k; }

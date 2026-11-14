@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1239) : journal : « Nouvelle bénédiction vécue : +1 % d'expérience pour toujours (x / 10). », la
+  première fois qu'une bénédiction est vécue, comme « Événement découvert » et les élites (vérifié : ces deux
+  collections vidaient déjà le cache des statistiques). game.js claimDaily ; traduit ; test (une ligne, pas de doublon
+  le même jour) ; autotest 227/227.
 - 2026-11-14 (it. 1238) : bénédiction du jour qui change pendant que le jeu tourne (minuit) : le héros gardait les
   effets de la veille (statistiques en cache : changed() ne les vide pas) jusqu'au prochain changement d'équipement
   ou de niveau ; défaut ancien, hérité aussi par le bonus des bénédictions vécues. claimDaily invalide maintenant les

@@ -2776,5 +2776,6 @@ export const KEYS = [
   "Collection des bénédictions : chaque bénédiction du jour déjà vécue donne +1 % d’expérience pour toujours, à suivre dans Bestiaire > Bénédictions du jour.",
   "Dix jours bénis",
   "Nouveau succès « Dix jours bénis » : vivre les dix bénédictions du jour.",
-  "Mode mini : la bulle de survol donne aussi la bénédiction du jour."
+  "Mode mini : la bulle de survol donne aussi la bénédiction du jour.",
+  "Nouvelle bénédiction vécue : {0} pour toujours ({1} / {2})."
 ];

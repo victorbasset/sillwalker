@@ -1647,4 +1647,5 @@ export default {
   2772: "Diez días benditos",
   2773: "Nuevo logro «Diez días benditos»: vive las diez bendiciones del día.",
   2774: "Modo mini: la burbuja al pasar el ratón también muestra la bendición del día.",
+  2775: "Nueva bendición vivida: {0} para siempre ({1} / {2}).",
 };

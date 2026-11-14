@@ -20,7 +20,7 @@ const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000
 export const journeyZoneStep = (z) => z % (z <= 50 ? 5 : 10) === 0;
 import { t as tx, txn, tr, fsp, colon, lc, csep, cend, wsp } from "../i18n/index.js";
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
-import { activeDayMod, dayModFor } from "./daymods.js";
+import { activeDayMod, dayModFor, DAY_MODS, DAY_MOD_KEYS, BLESSING_SEEN_BONUS } from "./daymods.js";
 import {
   RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, GOBLIN, MONSTERS, BAG_SIZE,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
@@ -2063,7 +2063,11 @@ export class Game {
     // le héros gardait les effets de la veille jusqu'au prochain changement d'équipement ou de niveau)
     if (D.mod !== dayModFor(today)) { D.mod = dayModFor(today); this.R.lineup = null; this.invalidateStats(); this.changed(); }
     const seenNow = D.seen && typeof D.seen === "object" ? D.seen : (D.seen = {});
-    if (!seenNow[D.mod]) { seenNow[D.mod] = true; this.invalidateStats(); } // (it. 1224) bénédictions vécues (+1 % d'expérience)
+    if (!seenNow[D.mod] && DAY_MODS[D.mod]) { // (it. 1224) bénédictions vécues (+1 % d'expérience) ; (it. 1239) on le dit,
+      seenNow[D.mod] = true; this.invalidateStats(); // comme « Événement découvert »
+      const n = DAY_MOD_KEYS.filter((k) => seenNow[k]).length;
+      this.log(tx("Nouvelle bénédiction vécue : {0} pour toujours ({1} / {2}).", { 0: describeEffects(BLESSING_SEEN_BONUS), 1: n, 2: DAY_MOD_KEYS.length }));
+    }
     if (D.last === today) return null;
     const yesterday = new Date(new Date(today + "T12:00:00").getTime() - 86400000).toISOString().slice(0, 10);
     // Série interrompue (au moins un jour manqué) : on le dira au joueur plutôt que de repartir à 1 en silence.
