@@ -18,7 +18,7 @@ sc(2, type="card", logo=["steam/capsules/library-logo.png", 380, 900], fade=12)
 sc(2, type="desktop", src="walk", t0=1, cam=[[0, 0, 3840], [760, 1640, 1200]], fade=4, plate=True, title=[T("Your taskbar has a new neighbour.", 100, 64)])
 sc(1, type="clip", src="walk", t0=4, rect=CUR, cam=CU(700, 760), track=150, fade=0, title=[T("A tiny hero walks the edge of your screen.", 60, 54)])
 sc(1, type="clip", src="walk", t0=6.8, rect=CUR, cam=CU(780, 880), track=150, fade=0, title=[T("Fights. Loots. Grows stronger.", 60, 64)])
-sc(1, type="clip", src="npc-shop", t0=4.2, rect=EVR, cam=EV(1180, 1220), fade=0, title=[T("Meet the folk of the Sill.", 200, 72)])
+sc(1, type="clip", src="npc-shop", t0=4.2, rect=[0, 420, 1920, 300], cam=[[1060, 1040, 1280], [1100, 1040, 1280]], smooth=True, fade=0, title=[T("Meet the folk of the Sill.", 200, 72)])
 sc(1, type="clip", src="p-adventure", t0=1, rect=PAN, cam=[[0, 40, 1920], [40, 50, 1920]], fade=0, title=[T("Gear up. Forge. Complete your sets.", 975, 56)])
 sc(1, type="clip", src="bloodmoon", t0=2, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("BLOOD MOON", 170, 120, R), T("every monster turns elite", 330, 38, L, "body")])
 sc(1, type="clip", src="starfall", t0=1.5, rect=EVR, cam=EV(700, 1300), track=180, fade=0, punch=True, title=[T("STAR SWARM", 170, 120, [170, 210, 255]), T("catch the falling stars", 330, 38, L, "body")])
@@ -29,8 +29,12 @@ sc(2, type="clip", src="p-graph", t0=2, rect=[160, 40, 1600, 900], cam=[[1500, 4
 sc(1, type="clip", src="p-mastery", t0=2, rect=PAN, cam=[[960, 40, 1920], [960, 40, 1920]], fade=0, title=[T("Real choices, every milestone.", 975, 56)])
 sc(1, type="clip", src="endfight", t0=2, rect=CUR, cam=CU(1500, 1560), track=130, fade=0, title=[T("Grow absurdly powerful.", 60, 64)])
 sc(1, type="clip", src="p-bestiary", t0=1, rect=PAN, cam=[[0, 40, 1920], [0, 40, 1920]], fade=0, title=[T("83 monsters. 20 heroes. 14 rare events.", 975, 52)])
-for src, t0, x, tr in [("bloodmoon", 6, 900, 200), ("goblinrush", 6, 1300, 200), ("starfall", 6, 820, 200), ("walk", 9, 1000, 200)]:
-    sc(0.5, type="clip", src=src, t0=t0, rect=CUR, cam=CU(x, x + 30), track=tr, fade=0)
+# (it. 1183) coupes rapides de la fin : quatre compositions différentes (avant : quatre gros plans du même duo, avec le
+# suivi du héros, identiques à l'œil) : la Lune de sang entière, la carte, le combat de fin, la Ruée des gobelins
+sc(0.5, type="clip", src="bloodmoon", t0=6, rect=[0, 300, 1920, 200], cam=[[0, 1040, 1920], [0, 1040, 1920]], fade=0, extra=[{"cam": [1920, 1040, 1920], "rect": [0, 580, 1920, 200]}])
+sc(0.5, type="clip", src="p-map", t0=2, rect=[0, 230, 1920, 620], cam=[[0, 0, 3840], [0, 0, 3840]], fade=0)
+sc(0.5, type="clip", src="endfight", t0=5, rect=EVR, cam=EV(1500, 1500), track=200, fade=0)
+sc(0.5, type="clip", src="goblinrush", t0=4, rect=CUR, cam=CU(1300, 1330), track=120, fade=0)
 sc(3, type="card", logo=["steam/capsules/library-logo.png", 300, 760], fade=14, bg="dawn",
    title=[T("An idle RPG on the edge of your screen", 560, 40, L, "body"), T("Wishlist on Steam  ·  Play now on itch.io", 660, 44), T("Windows  ·  macOS  ·  Linux", 760, 30, [170, 160, 210], "body")])
 json.dump({"scenes": S}, open(sys.argv[1], "w"), indent=1)

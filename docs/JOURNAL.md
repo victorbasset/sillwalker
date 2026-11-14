@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1183, bande-annonce 12) : relecture image par image (une image par scène, deux langues) : Mirette
+  cadrée à ×1,5 (sa réplique française, plus longue, était coupée) ; coupes rapides de la fin variées (Lune de sang en
+  écran scindé, carte, combat de fin, Ruée des gobelins ; avant : quatre gros plans identiques du même duo, effet du
+  suivi du héros). Versions 6 (anglais) et 2 (français).
 - 2026-11-14 (it. 1182, bande-annonce 11) : version française : scripts/promo/texts.py (textes anglais d'origine,
   traduction par PROMO_LANG=fr, noms repris de la traduction du jeu : Lune de sang, Nuée d'étoiles, Rebord…) ; tous les
   plans refilmés avec le jeu en français (LANG_UI=fr) ; bande-annonce et 2 × 13 captures en français. Coupes rapides
