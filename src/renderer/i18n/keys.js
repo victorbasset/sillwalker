@@ -2767,5 +2767,6 @@ export const KEYS = [
   "Les gobelins sont de sortie…",
   "Des coffres partout, je le sens !",
   "Il va se passer des choses, aujourd’hui…",
-  "Aujourd’hui, je danse avec les ombres."
+  "Aujourd’hui, je danse avec les ombres.",
+  "Bénédictions du jour"
 ];

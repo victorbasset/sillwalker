@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1224) : bénédictions vécues : la partie retient chaque bénédiction du jour rencontrée (S.daily.seen ;
+  celle du jour en cours comptée au chargement) ; Statistiques > Moments rares : « Bénédictions du jour  x / 10 », la
+  liste au survol (✓ vue, · pas encore). Une collection de plus pour les longues parties (dix jours au moins pour la
+  compléter). state.js (défaut, migration, valeur abîmée), game.js claimDaily, stats.js ; traduit ; test (retenues,
+  ancienne sauvegarde, valeur abîmée) ; save-fuzz ok (1197) ; autotest 227/227 ; lang-overflow : rien ; capture en
+  allemand.
 - 2026-11-14 (it. 1223) : le héros salue la bénédiction du jour quand elle commence, une réplique par bénédiction
   (« Les gobelins sont de sortie… », « Aujourd’hui, je danse avec les ombres. »…), 8 s après le lancement (après
   « Te revoilà ! » ; jamais au tout premier lancement). strip.js (SPEECH dm_*, dayLine), app.js (checkDaily) ;

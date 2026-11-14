@@ -62,7 +62,7 @@ export function freshState(now = Date.now()) {
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
     settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 1, ambVol: 1, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
-    daily: { last: null, streak: 0 },   // récompense quotidienne (série de jours consécutifs)
+    daily: { last: null, streak: 0, seen: {} }, // récompense quotidienne (série de jours consécutifs) ; seen : bénédictions vécues (it. 1224)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
     tabsOpen: {},
@@ -210,6 +210,8 @@ export function migrate(raw) {
   if (s.settings.lang != null && !LANGS.some((l) => l.id === s.settings.lang)) delete s.settings.lang;
   if (s.settings.hints != null && !isObj(s.settings.hints)) s.settings.hints = {};
   s.daily = Object.assign(def.daily, isObj(o.daily) ? o.daily : {});
+  if (!isObj(s.daily.seen)) s.daily.seen = {}; // (it. 1224) bénédictions vécues ; absent avant, ou abîmé
+  if (s.daily.mod && typeof s.daily.mod === "string") s.daily.seen[s.daily.mod] = true; // celle du jour en cours compte
   s.potions = Math.max(0, Math.floor(+s.potions || 0));
   s.bagSize = Math.max(BAG_SIZE, Math.floor(+s.bagSize || BAG_SIZE));
   for (const k of ["lvl", "zone", "best", "nextId"]) s[k] = Math.max(1, Math.floor(+s[k] || 1));

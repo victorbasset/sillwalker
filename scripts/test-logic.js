@@ -909,6 +909,16 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     assert.ok(heroStats(g.S).atk > before.atk);
     for (const k of DAY_MOD_KEYS) assert.ok(DAY_MODS[k].name && DAY_MODS[k].desc);
   });
+  test("bénédictions vécues : retenues jour après jour, sauvegarde ancienne ou abîmée tolérée (it. 1224)", () => {
+    const g = new Game(freshState());
+    const mods = new Set();
+    for (let d = 1; d <= 20; d++) { const day = `2026-04-${String(d).padStart(2, "0")}`; g.claimDaily(day); mods.add(dayModFor(day)); }
+    for (const m of mods) assert.ok(g.S.daily.seen[m], m);
+    const raw = JSON.parse(JSON.stringify(g.S)); raw.daily = { last: "2026-04-01", streak: 1, mod: "fury" }; // avant l'it. 1224
+    assert.ok(migrate(raw).daily.seen.fury);
+    raw.daily.seen = "abîmé";
+    assert.equal(typeof migrate(raw).daily.seen, "object");
+  });
   test("Jour des ombres : esquive et riposte en plus (it. 1222)", () => {
     const g = new Game(freshState()), before = heroStats(g.S);
     g.S.daily.mod = "shadows"; g.invalidateStats();
