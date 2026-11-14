@@ -1683,4 +1683,5 @@ export default {
   2808: "Día de los gigantes",
   2809: "+50 % de daño contra los jefes.",
   2810: "Cuanto más grandes, más fuerte caen.",
+  2811: "Todas las bendiciones del día",
 };

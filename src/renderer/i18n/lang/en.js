@@ -1683,4 +1683,5 @@ export default {
   2808: "Day of Giants",
   2809: "+50% damage against bosses.",
   2810: "The bigger they are, the harder they fall.",
+  2811: "All daily blessings",
 };

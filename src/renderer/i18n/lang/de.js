@@ -1683,4 +1683,5 @@ export default {
   2808: "Tag der Riesen",
   2809: "+50 % Schaden gegen Bosse.",
   2810: "Je größer sie sind, desto tiefer fallen sie.",
+  2811: "Alle Tagessegen",
 };

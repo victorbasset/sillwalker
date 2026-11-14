@@ -2812,5 +2812,6 @@ export const KEYS = [
   "Le héros salue chaque champion vaincu, et le résumé d’absence compte les champions tombés.",
   "Jour des géants",
   "+50 % de dégâts contre les boss.",
-  "Plus ils sont gros, plus ils tombent fort."
+  "Plus ils sont gros, plus ils tombent fort.",
+  "Toutes les bénédictions du jour"
 ];

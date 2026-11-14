@@ -16,7 +16,7 @@ import { CHRONICLES } from "./story.js";
 import { RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel, ECHO_BOSSES } from "./relics.js";
 import { classSpells, spellRank } from "./spells.js";
 
-/** (it. 1232) Bénédictions du jour déjà vécues (succès « Dix jours bénis »), parmi celles qui existent. */
+/** (it. 1232) Bénédictions du jour déjà vécues (succès « Toutes les bénédictions du jour »), parmi celles qui existent. */
 const blessingsSeenCount = (S) => DAY_MOD_KEYS.filter((k) => ((S.daily && S.daily.seen) || {})[k]).length;
 /** Le plus de sorts appris par un même héros (0 à 3). */
 const spellsBest = (S) => Math.max(0, ...CLASS_KEYS.map((c) => classSpells(c).filter((x) => spellRank(S, x.id) > 0).length));
@@ -65,7 +65,8 @@ export const ACHIEVEMENTS = [
   { id: "DUO_FIRST",       name: "Premier duo",        test: (S) => !!S.partner },
   { id: "HEROES_10",       name: "Dix héros libérés",  test: (S) => (S.classesUnlocked || []).length >= 10 },
   { id: "EVENTS_ALL",      name: "Chasseur d’événements", test: (S) => eventsSeenCount(S) >= Object.keys(EVENTS).length },
-  { id: "BLESSINGS_ALL",   name: "Dix jours bénis", test: (S) => blessingsSeenCount(S) >= DAY_MOD_KEYS.length }, // (it. 1232)
+  // (it. 1293) nom sans nombre : « Dix jours bénis » devenait faux à chaque nouvelle bénédiction (12 à l'it. 1292)
+  { id: "BLESSINGS_ALL",   name: "Toutes les bénédictions du jour", test: (S) => blessingsSeenCount(S) >= DAY_MOD_KEYS.length }, // (it. 1232)
   { id: "ELITES_ALL",      name: "Tueur d’élites",     test: (S) => affixesSeenCount(S) >= Object.keys(ELITE_AFFIXES).length },
   { id: "PURE_HEART",      name: "Cœur pur",           test: (S) => (S.stats.pureBoss || 0) > 0 },
   { id: "DUO_SYNERGY",     name: "Duo parfait",        test: (S) => !!duoSynergy(S.cls, S.partner) },

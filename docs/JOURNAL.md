@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1293) : succès BLESSINGS_ALL renommé « Toutes les bénédictions du jour » (était « Dix jours bénis »,
+  faux depuis la 11e bénédiction ; même API Name). Traduit ; steam/achievements.md régénéré (68 succès). L'édition 63
+  de « Quoi de neuf » garde l'ancien nom (éditions publiées jamais modifiées). Pour Victor : dans Steamworks, renommer
+  le succès BLESSINGS_ALL s'il était déjà déclaré. Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1292) : 12e bénédiction du jour, « Jour des géants » (🗿, +50 % de dégâts contre les boss) : le
   jour où l'on franchit un boss coriace ; ajoutée à la FIN (aujourd'hui et les trois jours suivants inchangés,
   vérifié avant / après). Réplique du héros, traduite (« Чем больше шкаф, тем громче падает » en russe…). Le test de

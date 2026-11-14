@@ -1683,4 +1683,5 @@ export default {
   2808: "Dzień olbrzymów",
   2809: "+50 % obrażeń przeciw bossom.",
   2810: "Im więksi, tym głośniej upadają.",
+  2811: "Wszystkie błogosławieństwa dnia",
 };
