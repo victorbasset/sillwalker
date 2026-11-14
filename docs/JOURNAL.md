@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1195, médias 3) : vignettes (scripts/promo/thumbs.py) : vignette YouTube 1280×720 et couverture
+  itch.io 630×500 en cinq langues, à partir d'une image nette du combat contre le boss majeur (bande ×3 et ×2 sans
+  le HUD du jeu), bandeau du logo (rogné de sa marge transparente : il chevauchait la scène) et accroche
+  (« An idle RPG on your taskbar »). Livrées dans Médias/sillwalker-promo/vignettes.
 - 2026-11-14 (it. 1194, bande-annonce 18) : bandes-annonces en allemand, espagnol et portugais (complète, 30 s,
   verticale : 15 vidéos en tout avec l'anglais et le français) : textes traduits (texts.py), plans manquants tournés ;
   edit.py réduit un titre trop large pour l'image (ENJAMBRE DE ESTRELLAS en vertical) ; relique cadrée sur sa phrase
