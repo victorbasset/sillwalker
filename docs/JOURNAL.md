@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1265) : checklist Steam : page du magasin modifiée jusqu'à l'it. 1260 (15 événements, 8 élites,
+  17 quêtes), à recopier dans Steamworks si déjà saisie. Défilement espagnol : une piste de plus écartée (Idées).
 - 2026-11-14 (it. 1264) : « Quoi de neuf », édition 66 : quête de champion (hors ligne, temps estimé), Régénérant
   sans soin en brûlant ou empoisonné ; traduite. Autotest 227/227. lang-overflow : le défilement passager de
   l'Aventure en espagnol à 1280 px est revenu (10 px, une fois) et le rapport (it. 1258) a désigné la colonne du
@@ -4942,6 +4944,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   cette ligne dans la sortie de lang-overflow.
   Revu à l'it. 1264 (troisième occurrence, colonne p-hero confirmée ; l'élément nommé était faux : contenu d'une
   section repliée, exclu depuis).
+  Écarté aussi à l'it. 1265 : la rangée « À faire · Chroniques · Toutes les statistiques » (73 px avec 6 comme avec
+  12 tâches à faire). Ne plus chercher à l'aveugle : attendre que le rapport nomme l'élément.
 - (Close, it. 1213 : pas un bug) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.

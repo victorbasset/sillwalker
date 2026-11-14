@@ -23,7 +23,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 
 ## Dans Steamworks (Victor, avec les fichiers prêts)
 
-- 🟡 Page du magasin : descriptions courte et longue, 10 langues → `steam/store-page.md`. Dernière retouche : it. 1242 (15 événements rares, à recopier si déjà saisie).
+- 🟡 Page du magasin : descriptions courte et longue, 10 langues → `steam/store-page.md`. Dernière retouche : it. 1260 (15 événements rares, 8 sortes d’élites, 17 sortes de quêtes ; à recopier si déjà saisie).
 - 🟡 Captures 1920×1080 (it. 1206 : 15 vues, jeu seul, anglais et français) → `steam/screenshots/` ; les 10 langues
   (une série par page localisée), les versions avec accroches et tout le matériel promo : `steam/promo/`
   (aussi sur le partage, Médias/sillwalker-promo ; LISEZMOI.txt ; régénérable par `scripts/promo/`).
