@@ -37,5 +37,9 @@ sc(0.5, type="clip", src="endfight", t0=5, rect=EVR, cam=EV(1500, 1500), track=2
 sc(0.5, type="clip", src="goblinrush", t0=4, rect=CUR, cam=CU(1300, 1330), track=120, fade=0)
 sc(3, type="card", logo=["steam/capsules/library-logo.png", 300, 760], fade=14, bg="dawn",
    title=[T("An idle RPG on the edge of your screen", 560, 40, L, "body"), T("Wishlist on Steam  ·  Play now on itch.io", 660, 44), T("Windows  ·  macOS  ·  Linux", 760, 30, [170, 160, 210], "body")])
+if os.environ.get("CUT") == "short":
+    # (it. 1185) version courte (≈ 30 s, réseaux) : 11 mesures prises dans le montage complet (indice, mesures)
+    keep = [(0, 1), (1, 2), (2, 1), (6, 1), (7, 1), (8, 1), (11, 1), (13, 1), (19, 2)]
+    S = [dict(S[i], dur=round(b * BAR, 4)) for i, b in keep]
 json.dump({"scenes": S}, open(sys.argv[1], "w"), indent=1)
 print(len(S), "scènes", round(sum(s["dur"] for s in S), 2), "s")

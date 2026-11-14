@@ -295,7 +295,8 @@ def main():
             render_scene(sc, enc, {})
         enc.stdin.close(); enc.wait(); print(OUT); return
     if AUDIO:
-        args += ["-i", AUDIO, "-shortest", "-c:a", "aac", "-b:a", "192k"]
+        total = sum(sc["dur"] for sc in edl["scenes"])  # (it. 1185) musique fondue sur la dernière seconde et demie
+        args += ["-i", AUDIO, "-shortest", "-af", f"afade=t=out:st={max(0, total - 1.5):.2f}:d=1.5", "-c:a", "aac", "-b:a", "192k"]
     args += ["-c:v", "libx264", "-crf", "16", "-preset", "medium", "-pix_fmt", "yuv420p", "-movflags", "+faststart", OUT]
     enc = subprocess.Popen(args, stdin=subprocess.PIPE)
     bgs = {}

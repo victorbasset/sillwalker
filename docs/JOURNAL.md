@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1185, bande-annonce 14) : version courte de 29,7 s pour les réseaux (CUT=short dans trailer.py :
+  11 mesures prises au montage complet : logo, bureau, héros, trois événements, grand graphe, combat de fin, carton
+  final), anglais et français ; musique fondue sur la dernière seconde et demie (edit.py), bruitages recalés.
 - 2026-11-14 (it. 1184, bande-annonce 13) : bruitages (scripts/promo/sfx.py, synthétisés par numpy, calés sur la liste
   des scènes) : souffle qui monte avant chaque titre d'événement, impact grave sur la coupe, tintement sur les cartons
   du logo ; ≈ 5 dB sous la musique (mesuré : efficace 0,05 contre 0,08-0,10), crête du mélange 0,84, film à −15,3 LUFS.
