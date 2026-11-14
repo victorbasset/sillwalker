@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1269) : défilement passager de l'Aventure en espagnol à 1280 px : le rapport corrigé (it. 1268) a
+  nommé la colonne du héros (p-hero, rangée « Pendiente · Crónicas »). Reproduit l'état de lang-overflow (tous les
+  déblocages, zone 310, quatre reliques) : « Experiencia 4,49 mil M / 1,54e105 » passait sur deux lignes (selon la
+  quantité d'expérience : d'où le caractère passager). Correction : dans la carte du héros, la valeur ne se coupe
+  plus, le libellé cède (points de suspension) ; vérifié en capture : une seule ligne, libellé entier. Non prouvé
+  comme seule cause : dans l'état reproduit, la rangée était tenue par une autre colonne (marge du héros 14 px avant
+  comme après, aucun défilement). La prochaine passe dira si le défaut revient. Autotest 227/227.
 - 2026-11-14 (it. 1268) : 11e bénédiction du jour, « Jour des champions » (👑, champions ×4 : file, hors ligne et
   temps estimé de la quête de champion), ajoutée à la FIN de DAY_MODS : aujourd'hui et les trois jours suivants
   inchangés (vérifié avant / après). Réplique du héros (dm_champions), traduite. Le test de stabilité du calendrier

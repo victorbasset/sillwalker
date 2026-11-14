@@ -212,6 +212,10 @@ button.close { padding: 2px 9px; font-weight: 700; }
 .panel h2 small { font-size: 14px; color: var(--muted); font-weight: 400; }
 .panel h3 { font-size: 16px; margin: 12px 0 2px; font-weight: 600; }
 .kv { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; color: var(--muted); }
+/* (it. 1269) carte du héros : « Experiencia 4,49 mil M / 1,54e105 » passait sur deux lignes à 1280 px (espagnol) et
+   faisait défiler l'Aventure de 10 px selon la quantité d'expérience : la valeur ne se coupe jamais, le libellé cède */
+#p-hero .kv > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#p-hero .kv > span:last-child { flex: none; white-space: nowrap; }
 .bar { height: 10px; background: var(--bar); border-radius: 2px; overflow: hidden; margin: 4px 0 8px; }
 .bar > i { display: block; height: 100%; background: var(--accent); width: 0; }
 .stats { display: grid; grid-template-columns: 1fr auto; gap: 1px 12px; margin: 0 0 10px; font-size: 15px; }
