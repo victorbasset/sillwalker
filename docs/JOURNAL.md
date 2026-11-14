@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1290) : son d'un champion vaincu : quatre pièces (élite : trois, boss : cinq) et une petite fanfare
+  montante (sol, do, mi, triangle, plus douce que le boss et le légendaire) ; avant, il sonnait comme une élite.
+  Ajouté au rendu hors ligne de l'autotest (« son : tous les sons » : sans erreur, NaN ni saturation) ; 227/227.
 - 2026-11-14 (it. 1289, contrôle) : mémoire dans la durée (mem-watch, 6 min à ×10) après les ajouts du jour (« +N » du
   Régénérant, ciel de la Lune pâle, Grenouillette) : 495-515 Mo réels, sans dérive (repère 485-530). Vérifié aussi :
   la récompense du jour se réclame déjà seule au lancement (pas de déblocage à créer de ce côté).

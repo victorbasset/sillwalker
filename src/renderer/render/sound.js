@@ -399,6 +399,8 @@ export class Sound {
         break;
       case "level": [NOTES.C5, NOTES.E5, NOTES.G5, NOTES.C6].forEach((f, i) => this.tone(f, i * 0.07, 0.14, "triangle", 0.3)); break;
       case "boss": this.tone(110, 0, 0.35, "sawtooth", 0.35, 0.4); this.noise(0, 0.2, 0.3); break;
+      // (it. 1290) champion vaincu : petite fanfare montante (trois notes, plus douce que le boss et le légendaire)
+      case "champion": [NOTES.G5, NOTES.C6, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.09, 0.18, "triangle", 0.26)); break;
       case "smash": this.tone(80, 0, 0.3, "square", 0.4, 0.5); this.noise(0, 0.15, 0.35); break;
       // Capacités de boss : un son court et reconnaissable pour chacune (extra = id de la capacité)
       case "bossSkill":
@@ -436,7 +438,7 @@ export class Sound {
     game.on("partnerHit", () => { const m = game.R.mon; if (game.S.partner) this.hit(game.S.partner, m && m.type, false); }); // compagnon du duo
     // Victoire : le tintement de la victoire s'efface si les pièces volent vers la bourse (chacune sonne en rentrant) ;
     // il reste quand aucune pièce n'est animée (mode mini, effets réduits, bande cachée).
-    game.on("kill", ({ mon }) => { if (performance.now() - (this.inT || 0) > 3000) this.coin(mon.boss ? 5 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); });
+    game.on("kill", ({ mon }) => { if (performance.now() - (this.inT || 0) > 3000) this.coin(mon.boss ? 5 : mon.champion ? 4 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); else if (mon.champion) this.play("champion"); });
     game.on("coinIn", ({ big }) => this.coinIn(big));
     // Moments qui n'avaient pas de son (suite de la demande C) ; les plus fréquents sont limités dans le temps.
     const on = (ev, ms, fn) => game.on(ev, (p) => { if (this.enabled && this.ensure() && this.throttle("ev-" + ev, ms)) fn(p); });

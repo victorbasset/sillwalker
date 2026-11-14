@@ -1084,7 +1084,7 @@ async function runSelfTest(strip) {
     for (const id of ["bolt", "gust", "mend", "fire", "aegis", "meteor"]) await render("sort-" + id, (s) => s.spellSound(id));
     await render("gestion", (s) => { const h = {}; s.bind({ on: (e, fn) => { h[e] = fn; }, R: { events: {} }, S: window.__game.S, zoneDef: () => null }); clearInterval(s.ambT); h.equipped({ r: 4 }); h.soldOne({}); h.sold({ n: 9 }); h.spent({}); h.learned({ skill: true }); });
     await render("ambiance-évén", (s) => s.eventAmbience({ goldrain: 5, wind: 5, shardfall: 5, nest: 5 }));
-    for (const id of ["coin", "loot", "legendary", "level", "boss", "chest", "star", "quest", "ascend"]) await render("play-" + id, (s) => s.play(id));
+    for (const id of ["coin", "loot", "legendary", "level", "boss", "champion", "chest", "star", "quest", "ascend"]) await render("play-" + id, (s) => s.play(id));
     return out.join(" ") || "ok";
   } catch (e) { return "erreur " + e.message; } })()`);
   // Musique (it. 523) : un passage complet de 8 airs (un par décor), même chaîne que le jeu : aucun ne sature, et leurs
