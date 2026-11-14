@@ -2772,5 +2772,6 @@ export const KEYS = [
   "Nouvelle bénédiction du jour : le Jour des ombres (+15 % d’esquive, +20 % de riposte).",
   "Ton héros salue chaque bénédiction du jour quand elle commence, et Statistiques compte celles que tu as déjà vécues (x / 10).",
   "Résumé d’absence : il indique combien d’objets sont restés au sol quand le sac était plein.",
-  "Chaque bénédiction vécue donne {0} pour toujours. Bonus actuel : {1}."
+  "Chaque bénédiction vécue donne {0} pour toujours. Bonus actuel : {1}.",
+  "Collection des bénédictions : chaque bénédiction du jour déjà vécue donne +1 % d’expérience pour toujours, à suivre dans Bestiaire > Bénédictions du jour."
 ];

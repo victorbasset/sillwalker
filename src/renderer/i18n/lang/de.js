@@ -1643,4 +1643,5 @@ export default {
   2768: "Dein Held begrüßt jeden Segen des Tages, wenn er beginnt, und die Statistik zählt die, die du schon erlebt hast (x / 10).",
   2769: "Abwesenheitsübersicht: Sie zeigt, wie viele Gegenstände bei voller Tasche am Boden liegen blieben.",
   2770: "Jeder erlebte Segen gibt {0} für immer. Aktueller Bonus: {1}.",
+  2771: "Segenssammlung: Jeder bereits erlebte Segen des Tages gibt für immer +1 % Erfahrung; zu sehen unter Bestiarium > Segen des Tages.",
 };

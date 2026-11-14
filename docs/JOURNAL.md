@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1229) : « Quoi de neuf », édition 62 : collection des bénédictions (+1 % d'expérience chacune,
+  Bestiaire > Bénédictions du jour). Libellés cités tels que traduits ; autotest 227/227 ; lang-overflow : rien.
 - 2026-11-14 (it. 1228) : Statistiques : « Bénédictions du jour → » mène en un clic au sous-onglet du Bestiaire, comme
   « Événements rares → » (dès qu'une est vécue et le Bestiaire ouvert). Clic vérifié en jeu (onglet bestiary /
   blessings) ; autotest 227/227 ; lang-overflow : rien.

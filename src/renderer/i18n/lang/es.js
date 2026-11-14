@@ -1643,4 +1643,5 @@ export default {
   2768: "Tu héroe saluda cada bendición del día cuando empieza, y Estadísticas cuenta las que ya has vivido (x / 10).",
   2769: "Resumen de ausencia: indica cuántos objetos se quedaron en el suelo cuando la bolsa estaba llena.",
   2770: "Cada bendición vivida da {0} para siempre. Bonificación actual: {1}.",
+  2771: "Colección de bendiciones: cada bendición del día ya vivida da +1 % de experiencia para siempre; consúltalo en Bestiario > Bendiciones del día.",
 };
