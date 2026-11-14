@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1208, demande de Victor) : rencontre d'un PNJ : plus de monstre autour de sa maison (ils passaient
+  derrière la grenouille) : classe « mon » sur les monstres de la bande (strip.js monsterActor), masqués tant que la
+  scène dure (.stage.npc-scene, juice.js), sans transition (leurs fondus sont animés par le jeu). Autotest 227/227.
 - 2026-11-14 (it. 1207, demande de Victor : « mets tout ça dans le repo ») : tout le matériel promo copié dans
   steam/promo/ (312 Mo : 30 vidéos, 300 captures, vignettes, GIF, capsules proposées, dossiers de presse, LISEZMOI),
   même organisation que Médias/sillwalker-promo (les dossiers de presse s'ouvrent tels quels) ; checklist à jour.

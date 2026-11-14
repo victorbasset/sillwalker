@@ -444,6 +444,10 @@ export class Juice {
       fall: 1.8 + Math.random() * 0.8, fx: (Math.random() - 0.5) * 120, gy: this.ground() - 2 - Math.random() * 6 }));
     const state = { done: false, node };
     this.cine = state;
+    // (it. 1208, demande de Victor) rencontre d'un PNJ : pas de monstre autour de sa maison (ils passaient derrière la
+    // grenouille) ; ils réapparaissent à la fin de la scène
+    const stage = npc ? this.s.stage : null;
+    if (stage) stage.classList.add("npc-scene");
     node.addEventListener("click", () => { state.done = true; });
     this.s.game.emit("cinematic", { kind, id: data.id });
     if (this.onHits) setTimeout(this.onHits, 0); // zones cliquables de la fenêtre à recalculer
@@ -453,6 +457,7 @@ export class Juice {
       const k = Math.max(0, Math.min(fadeIn, fadeOut));
       if (state.done || t >= life) {
         if (this.cine === state) this.cine = null;
+        if (stage) stage.classList.remove("npc-scene");
         if (this.onHits) setTimeout(this.onHits, 0); // le calque disparaît : les clics retraversent la bande
         // Générique après la victoire (sauf si on a passé la scène), puis la cinématique suivante en attente.
         if (kind === "dawn" && !state.done) (this.cineQueue ||= []).unshift(["credits", {}]);

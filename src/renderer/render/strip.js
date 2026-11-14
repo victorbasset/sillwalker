@@ -680,7 +680,8 @@ export class StripRenderer {
     const frames = boss ? set.boss : set.normal;
     // (it. 1020) monstre ordinaire sombre : contour très discret (plus pâle que celui des boss, sans rappeler l'or des élites)
     if (!outline && isDarkSprite(frames)) outline = DARK_OUTLINE;
-    const a = new Actor(this.stage, outline ? outlinedFrames(frames, outline, this.dpr) : frames, boss ? "boss" + (final ? " final" : "") : "");
+    // (it. 1208) classe « mon » : les monstres se cachent pendant la rencontre d'un PNJ (juice.js, .stage.npc-scene)
+    const a = new Actor(this.stage, outline ? outlinedFrames(frames, outline, this.dpr) : frames, "mon" + (boss ? " boss" + (final ? " final" : "") : ""));
     a.fly = set.fly; a.boss = boss;
     if (boss && !final) a.addCrown(); // le Briseur porte sa propre couronne d'éclats
     return a;
