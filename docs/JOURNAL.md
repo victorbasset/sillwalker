@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1263) : quête « Vaincre un champion » : temps estimé restant au rythme actuel des combats
+  (questEta : une chance sur 200 par victoire, comme hors ligne), affiché sur sa carte comme pour les chasses et les
+  élites. Test (200 fois le temps d'une victoire) ; autotest 227/227.
 - 2026-11-14 (it. 1262) : la quête « Vaincre un champion » avance aussi hors ligne (applyOffline : champions tirés à
   CHAMPION.chance par monstre dès la zone 5, comptés dans les statistiques) : plutôt que l'exception ajoutée à la note
   à l'it. 1261, retirée (la note reprend son texte d'avant, déjà traduit). Test (8 h d'absence : ≥ 1 champion pour

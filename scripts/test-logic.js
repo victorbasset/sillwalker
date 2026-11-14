@@ -940,6 +940,10 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, champion: true, affix: "fast" }); g.killMonster();
     assert.equal(g.S.quests.slots[0].progress, 1);
     assert.ok(M_quests_js.QUEST_TEMPLATES.champion.ok({ zone: 1, prestige: { count: 0 } }) === false, "pas en tout début de partie");
+    // (it. 1263) temps estimé : 200 fois celui d'une victoire (une chance sur 200 par monstre)
+    const e = new Game(freshState()); e.S.zone = 10; e.R.pace = Array.from({ length: 11 }, (_, i) => [i * 10, 1]);
+    const qc = { id: 997, kind: "champion", goal: 1, progress: 0, stars: 1, reward: {} }, qk = { id: 996, kind: "kill", goal: 1, progress: 0, stars: 1, reward: {} };
+    assert.ok(Math.abs(e.questEta(qc) / e.questEta(qk) - 1 / 0.005) < 1, e.questEta(qc) + " / " + e.questEta(qk));
     // (it. 1262) hors ligne : une longue absence fait aussi avancer la quête (≈ 1 champion pour 200 monstres)
     const h = new Game(freshState()); h.S.zone = 10; h.S.stats.kills = 50;
     h.S.quests.slots[0] = { id: 998, kind: "champion", goal: 99, progress: 0, stars: 1, reward: { gold: 10 } };

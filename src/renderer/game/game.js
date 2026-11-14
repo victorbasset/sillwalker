@@ -2141,7 +2141,7 @@ export class Game {
 
   questEta(q) {
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
@@ -2154,6 +2154,8 @@ export class Game {
       if (!(p > 0)) return null;
       rate *= p / (q.kind === "prey" ? Object.keys(ELITE_AFFIXES).length : 1);
     }
+    // (it. 1263) champions : même chance par victoire que pendant l'absence (it. 1262)
+    if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance; }
     return left / rate;
   }
 
