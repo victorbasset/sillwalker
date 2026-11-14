@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1306) : nouveau contrôle de npm test, scripts/i18n-paths.mjs : un chemin « Onglet > Sous-section »
+  cité sans guillemets (Quoi de neuf, aides) doit reprendre les libellés tels que traduits dans le jeu (i18n-quotes
+  ne voit que les « … »). Il a trouvé 4 écarts dans d'anciennes éditions : « 图鉴 / 図鑑 / 도감 > … » au lieu de
+  « 怪物图鉴 / モンスター図鑑 / 몬스터 도감 », « 설정 > 사운드 » au lieu de « 설정 > 소리 » ; traductions alignées (le texte
+  français des éditions publiées est inchangé). 9 chemins, 0 écart. CLAUDE.md.
 - 2026-11-14 (it. 1305) : « Quoi de neuf », édition 70 : Écho des lames, étiquettes aujourd'hui / demain du Bestiaire ;
   traduite, noms de l'onglet et de la sous-section repris tels que traduits dans le jeu (« Segen des Tages »,
   « 怪物图鉴 », « 몬스터 도감 > 오늘의 축복들 » : vérifiés un par un ; i18n-quotes ne contrôle que les libellés entre

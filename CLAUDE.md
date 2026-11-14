@@ -153,7 +153,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   (ajoutées à la fin de `i18n/keys.js`, l'ordre ne bouge jamais), puis les traduire dans
   **chacun** des fichiers `src/renderer/i18n/lang/{en,es,pt,de,pl,ru,zh,ja,ko}.js` (indice = position),
   et vérifier avec `scripts/i18n-check.mjs <langue>` (0 problème attendu).
-  Un texte qui cite « un libellé » du jeu doit le citer tel qu'il est traduit : `scripts/i18n-quotes.mjs` (lancé par `npm test`) le vérifie dans les 9 langues.
+  Un texte qui cite « un libellé » du jeu doit le citer tel qu'il est traduit : `scripts/i18n-quotes.mjs` (lancé par `npm test`) le vérifie dans les 9 langues. Les chemins cités sans guillemets (« Bestiaire > Panoplies ») aussi : `scripts/i18n-paths.mjs` (it. 1306).
 - Pluriels : `txn(n, "{n} objet|{n} objets")` (i18n/index.js) ; chaque traduction donne ses formes séparées
   par « | » : 1 (zh, ja, ko), 3 (ru, pl : one|few|many), 2 sinon (vérifié par i18n-check). (L'ancienne méthode `plS(n)`,
   qui ne marchait qu'en français et en anglais, est retirée depuis l'it. 685.)
