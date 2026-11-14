@@ -27,7 +27,8 @@ sc(1, type="clip", src="goldrain", t0=1, rect=EVR, cam=EV(800, 1400), track=180,
 sc(2, type="clip", src="relic", t0=1, rect=[0, 470, 1920, 240], cam=[[960, 1040, 1600], [1000, 1040, 1600]], smooth=True, fade=0, title=[T("Bosses guard ancient relics.", 200, 64)])
 sc(2, type="clip", src="p-graph", t0=2, rect=[160, 40, 1600, 900], cam=[[1500, 40, 1600], [1700, 80, 1600]], fade=0, title=[T("A 618-node great graph.", 965, 60)])
 sc(1, type="clip", src="p-mastery", t0=2, rect=PAN, cam=[[960, 40, 1920], [960, 40, 1920]], fade=0, title=[T("Real choices, every milestone.", 975, 56)])
-sc(1, type="clip", src="endfight", t0=2, rect=CUR, cam=CU(1500, 1560), track=130, fade=0, title=[T("Grow absurdly powerful.", 60, 64)])
+# (it. 1189) combat contre un boss majeur (le Chevalier de l'éclipse, zone 150) : sorts, critiques, esquives
+sc(1, type="clip", src="boss", t0=6, rect=EVR, cam=EV(2680, 2740), track=340, fade=0, punch=True, title=[T("Grow absurdly powerful.", 250, 72)])
 sc(1, type="clip", src="p-bestiary", t0=1, rect=PAN, cam=[[0, 40, 1920], [0, 40, 1920]], fade=0, title=[T("83 monsters. 20 heroes. 14 rare events.", 975, 52)])
 # (it. 1183) coupes rapides de la fin : quatre compositions différentes (avant : quatre gros plans du même duo, avec le
 # suivi du héros, identiques à l'œil) : la Lune de sang entière, la carte, le combat de fin, la Ruée des gobelins
@@ -53,7 +54,7 @@ if os.environ.get("CUT") == "vertical":
                                ("goblinrush", 1.5, "GOBLIN RUSH", "golden goblins, everywhere", [140, 230, 120]), ("goldrain", 1, "RAIN OF GOLD", "and 10 more rare events", G)]:
         sc(1, type="clip", src=src, t0=t0, rect=VR, cam=V(800), track=90, fade=0, punch=True, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T(a, 400, 104, col), T(b, 550, 40, L, "body")])
     sc(1, type="clip", src="p-graph", t0=2, rect=[0, 560, 1080, 900], cam=[[1900, 60, 1080], [2100, 90, 1080]], fade=0, title=[T("A 618-node", 300, 80), T("great graph.", 410, 80)])
-    sc(1, type="clip", src="endfight", t0=2, rect=VR, cam=V(1500), track=90, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("Grow absurdly", 380, 84), T("powerful.", 490, 84)])
+    sc(1, type="clip", src="boss", t0=6, rect=VR, cam=V(2930), track=60, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("Grow absurdly", 380, 84), T("powerful.", 490, 84)])
     sc(3, type="card", logo=["steam/capsules/library-logo.png", 700, 900], fade=14, bg="dawn",
        title=[T("An idle RPG on the", 1020, 46, L, "body"), T("edge of your screen", 1080, 46, L, "body"), T("Wishlist on Steam", 1220, 56), T("Play now on itch.io", 1300, 56), T("Windows  ·  macOS  ·  Linux", 1430, 34, [170, 160, 210], "body")])
 json.dump({"scenes": S}, open(sys.argv[1], "w"), indent=1)

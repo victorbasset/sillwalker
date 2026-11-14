@@ -53,6 +53,8 @@ FR = {
     "edge of your screen": "au bord de votre écran",
     "Wishlist on Steam": "Ajoutez-le sur Steam",
     "Play now on itch.io": "Jouez sur itch.io",
+    "Legendary bosses": "Des boss légendaires",
+    "Each one guards a relic that changes your run": "Chacun garde une relique qui change votre partie",
 }
 LANG = os.environ.get("PROMO_LANG", "en")
 

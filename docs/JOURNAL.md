@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1189, bande-annonce 16) : plan d'un boss majeur (shots.json « boss » : partie de fin, S.kills = 10
+  → le Chevalier de l'éclipse de la zone 150 tout de suite) : sorts du duo, critiques à 15-17 M, esquives, ripostes.
+  Il remplace le combat ordinaire pour « Grow absurdly powerful. » (version complète, avec impact ; verticale) ; 14e
+  capture « Legendary bosses / Des boss légendaires ». Cadrage d'après la position du héros (les prises diffèrent).
 - 2026-11-14 (it. 1188, médias 2) : dossier de livraison sur le partage (Médias/sillwalker-promo, ≈ 60 Mo, hors
   dépôt) : six vidéos (complète, 30 s, verticale × anglais/français), 4 × 13 captures (Steam sans texte / promo avec
   accroches × deux langues), cinq GIF, LISEZMOI.txt (usage de chaque fichier, régénération). steam/screenshots et

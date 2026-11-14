@@ -134,6 +134,14 @@
    "wait": 7,
    "args": "--open-panel --tab=pets",
    "js": "document.head.insertAdjacentHTML('beforeend', '<style>.gtip, .itemtip { display: none !important; }</style>');"
+  },
+  {
+   "id": "boss",
+   "save": "end",
+   "secs": 14,
+   "wait": 7,
+   "numbers": true,
+   "js": "G.S.kills = 10; G.R.mon = null; G.R.mode = 'walk'; G.startLeg(0.2);"
   }
  ]
 }
