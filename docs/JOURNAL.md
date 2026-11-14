@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1220, contrôles) : parties bloquées (fuzz, 60 graines) : 1200 parties, 0 bloquée ; sauvegardes
+  abîmées : ok (dev-data 1190 corruptions, fin de partie 1183, partie 0.1.2 1127). Sac plein au retour : la tâche
+  « Sac plein… » du résumé couvre déjà le cas (vendre l'inutile, ou « le butin suivant restera au sol »).
 - 2026-11-14 (it. 1219) : résumé d'absence : nouvelle ligne « Laissés au sol (sac plein) » (en rouge) quand le sac
   plein a fait perdre du butin pendant l'absence (avant : seulement une ligne perdue dans le journal ; une partie de
   6 h avec le sac plein en perdait plusieurs). game.js applyOffline (onGround, hors ventes automatiques), panel.js ;
