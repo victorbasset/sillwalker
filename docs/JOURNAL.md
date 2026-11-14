@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1235, contrôle) : répliques de bénédiction les plus longues (« Große Jagd! Die Elite soll sich in
+  Acht nehmen. », « Большая охота! Пусть элита поберегётся. ») : la bulle tient dans la bande, au-dessus du héros.
 - 2026-11-14 (it. 1234) : mode mini : sa bulle de survol donne la bénédiction du jour (« Bénédiction du jour :
   👺 Fête des gobelins · Gobelins voleurs ×4. »), jusque-là visible seulement dans le panneau. mini.js (libellé déjà
   traduit) ; vérifié en allemand ; autotest 227/227.
