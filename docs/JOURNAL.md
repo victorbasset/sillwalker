@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1291, revue générale) : 12 h simulées 62 / 59 / 60 (une graine) ; balance contre b4871a2 (début de
+  l'après-midi, avant Lune pâle, Régénérant, champions, Grenouillette) : 63,8 → 63,7 sur les 10 classes (bruit).
+  Mode mini en chinois avec la Grenouillette : correct. Performance (it. 1281) et langues (it. 1286-1287) récentes.
 - 2026-11-14 (it. 1290) : son d'un champion vaincu : quatre pièces (élite : trois, boss : cinq) et une petite fanfare
   montante (sol, do, mi, triangle, plus douce que le boss et le légendaire) ; avant, il sonnait comme une élite.
   Ajouté au rendu hors ligne de l'autotest (« son : tous les sons » : sans erreur, NaN ni saturation) ; 227/227.
