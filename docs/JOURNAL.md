@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1213) : panoplies du mage, fin de l'enquête : pas un bug. Le mage garde deux pièces « Ronin errant »
+  forgées +10 de niveau 17-20 jusqu'en zone 61 : le bonus de 2 pièces (iai, premier coup) vaut 19 % de sa puissance,
+  et une arme fraîche de zone 59 à +0 ne le bat que 6 fois sur 100 (à +10 : jusqu'à ×1,66). Ces emplacements
+  occupés le laissent rarement réunir 4 pièces d'une autre panoplie. Équilibre voulu (la forge reste sur l'objet) ;
+  rien à changer.
 - 2026-11-14 (it. 1212) : enquête sur les panoplies du mage (revue 1211) : simulation instrumentée ; ni vente ni
   ascension en cause (pertes égales aux autres classes) ; l'écart vient de l'équipement porté (Idées, piste notée).
   Pas de changement du jeu.
@@ -4722,7 +4727,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- (Moyenne, revue it. 1211) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
+- (Close, it. 1213 : pas un bug) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.
   Mesuré à l'it. 1212 (simulation instrumentée, 12 h) : le mage trouve PLUS de pièces (119 contre 100 au guerrier),
