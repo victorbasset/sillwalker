@@ -2777,5 +2777,8 @@ export const KEYS = [
   "Dix jours bénis",
   "Nouveau succès « Dix jours bénis » : vivre les dix bénédictions du jour.",
   "Mode mini : la bulle de survol donne aussi la bénédiction du jour.",
-  "Nouvelle bénédiction vécue : {0} pour toujours ({1} / {2})."
+  "Nouvelle bénédiction vécue : {0} pour toujours ({1} / {2}).",
+  "Lune pâle",
+  "Les monstres arrivent à moitié de leur vie !",
+  "Ils tiennent à peine debout !"
 ];

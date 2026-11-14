@@ -1648,4 +1648,7 @@ export default {
   2773: "Nuevo logro «Diez días benditos»: vive las diez bendiciones del día.",
   2774: "Modo mini: la burbuja al pasar el ratón también muestra la bendición del día.",
   2775: "Nueva bendición vivida: {0} para siempre ({1} / {2}).",
+  2776: "Luna pálida",
+  2777: "¡Los monstruos llegan con la mitad de su vida!",
+  2778: "¡Apenas se tienen en pie!",
 };

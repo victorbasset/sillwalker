@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1242) : 15e événement rare, « Lune pâle » (30 s, chance 0,15 % par victoire) : chaque monstre qui
+  arrive n'a que la moitié de sa vie, boss compris (PALE_MOON, events.js ; barre de vie à moitié vide) : victoires en
+  rafale et coup de pouce contre un boss coriace. Réplique du héros, son (autotest : il visait des notes absentes de
+  NOTES, rendu non fini, corrigé), traduit ; comptes 14 → 15 dans store-page (10 langues), dossiers de presse, README.
+  Le tirage des événements consomme un nombre de plus à chaque victoire : un ancien test qui dépendait du tirage (pas
+  de coffre après un champion) rejoue maintenant jusqu'à une victoire sans coffre. Test ; fuzz 1200 parties sans
+  blocage ; autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1241, revue générale, allégée : rien de lourd depuis la 1231) : texte polonais de la partie de fin
   (bénédictions vécues comprises) : aucun mot français ou anglais ; 12 h simulées : 61 / 62 / 64, inchangé. Rien à
   noter.

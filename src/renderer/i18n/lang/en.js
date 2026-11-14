@@ -1648,4 +1648,7 @@ export default {
   2773: "New achievement “Ten Blessed Days”: live through all ten daily blessings.",
   2774: "Mini mode: the hover tooltip also shows the daily blessing.",
   2775: "New blessing lived through: {0} forever ({1} / {2}).",
+  2776: "Pale Moon",
+  2777: "Monsters arrive with half their life!",
+  2778: "They can barely stand!",
 };

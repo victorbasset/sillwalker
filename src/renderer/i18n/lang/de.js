@@ -1648,4 +1648,7 @@ export default {
   2773: "Neuer Erfolg „Zehn gesegnete Tage“: alle zehn Segen des Tages erleben.",
   2774: "Mini-Modus: Der Tooltip zeigt auch den Segen des Tages.",
   2775: "Neuer Segen erlebt: {0} für immer ({1} / {2}).",
+  2776: "Fahler Mond",
+  2777: "Monster kommen mit halbem Leben an!",
+  2778: "Die können kaum noch stehen!",
 };

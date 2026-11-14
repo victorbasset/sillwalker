@@ -932,6 +932,14 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("Lune pâle : les monstres arrivent à moitié de leur vie (it. 1242)", () => {
+    const g = new Game(freshState());
+    for (let i = 0; i < 400 && !g.R.mon; i++) g.advance(0.25);
+    assert.ok(g.R.mon && g.R.mon.hp > g.R.mon.max * 0.9, "monstre ordinaire à pleine vie");
+    g.R.mon = null; g.R.spawnT = 0; g.startEvent("palemoon");
+    for (let i = 0; i < 400 && !g.R.mon; i++) g.advance(0.05);
+    assert.ok(g.R.mon && g.R.mon.hp <= g.R.mon.max * 0.5 + 1e-9 && g.R.mon.hp >= 1, "monstre à moitié : " + (g.R.mon && g.R.mon.hp / g.R.mon.max));
+  });
   test("nouvelle bénédiction vécue annoncée dans le journal, une seule fois (it. 1239)", () => {
     const g = new Game(freshState()); g.S.daily.seen = {}; g.S.daily.mod = null;
     const day = "2026-06-01"; g.claimDaily(day);
@@ -1074,9 +1082,14 @@ test("Ruée des gobelins : la suite de la file se peuple de gobelins, bilan des 
 });
 
 test("butin d'une victoire : le nouveau type pour la collection rejoint la ligne du butin (it. 958)", () => {
-  const g = new Game(freshState()); g.S.codex = {}; g.S.log = [];
-  // champion : butin épique ou mieux, donc toujours une ligne « Butin … ! » (indépendant du tirage)
-  g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, champion: true, affix: "fast" }); g.killMonster();
+  // champion : butin épique ou mieux, donc toujours une ligne « Butin … ! » ; (it. 1242) sans coffre au trésor (son
+  // objet a sa propre ligne de collection) : on rejoue jusqu'à une victoire sans coffre, indépendamment du tirage
+  let g;
+  for (let k = 0; k < 30; k++) {
+    g = new Game(freshState()); g.S.codex = {}; g.S.log = [];
+    g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, champion: true, affix: "fast" }); g.killMonster();
+    if (!g.S.log.some((l) => /Coffre au trésor|Treasure chest/.test(String(l)))) break;
+  }
   const merged = g.S.log.filter((l) => /Nouveau type pour la collection|New type for the collection/.test(String(l)));
   const alone = g.S.log.filter((l) => /Nouveau type d’objet pour la collection|New item type for the collection/.test(String(l)));
   assert.ok(merged.length === 1 && alone.length === 0, JSON.stringify(g.S.log));

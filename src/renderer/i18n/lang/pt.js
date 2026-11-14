@@ -1648,4 +1648,7 @@ export default {
   2773: "Nova conquista “Dez dias abençoados”: viva as dez bênçãos do dia.",
   2774: "Modo mini: a dica ao passar o mouse também mostra a bênção do dia.",
   2775: "Nova bênção vivida: {0} para sempre ({1} / {2}).",
+  2776: "Lua pálida",
+  2777: "Os monstros chegam com metade da vida!",
+  2778: "Mal se aguentam de pé!",
 };

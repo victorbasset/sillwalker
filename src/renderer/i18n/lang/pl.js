@@ -1648,4 +1648,7 @@ export default {
   2773: "Nowe osiągnięcie „Dziesięć błogosławionych dni”: przeżyj wszystkie dziesięć błogosławieństw dnia.",
   2774: "Tryb mini: dymek po najechaniu pokazuje też błogosławieństwo dnia.",
   2775: "Nowe przeżyte błogosławieństwo: {0} na zawsze ({1} / {2}).",
+  2776: "Blady Księżyc",
+  2777: "Potwory przybywają z połową życia!",
+  2778: "Ledwo trzymają się na nogach!",
 };

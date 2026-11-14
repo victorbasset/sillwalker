@@ -49,12 +49,17 @@ export const EVENTS = {
   // Variété (it. 954) : un monstre sur trois environ, dans la suite de la file, devient un gobelin doré (or volé à
   // rattraper avant qu'il s'enfuie)
   goblinrush: { name: "Ruée des gobelins", chance: 0.0015, duration: 30, text: "Des gobelins dorés partout : attrape-les !", color: "#ffcf3f" },
+  // Variété (it. 1242, 15e événement) : chaque monstre qui arrive n'a que la moitié de sa vie (boss compris) : des
+  // victoires en rafale, et un coup de pouce pour franchir un boss coriace.
+  palemoon: { name: "Lune pâle", chance: 0.0015, duration: 30, text: "Les monstres arrivent à moitié de leur vie !", color: "#d8dcf0" },
   starfall: { name: "Nuée d’étoiles", chance: 0.001, duration: 30, text: "Les étoiles filantes se suivent : attrape-les !", color: "#ffe28a" },
 };
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;
 /** (it. 954) Ruée des gobelins : part des monstres simples à venir changés en gobelins dorés. */
 export const GOBLIN_RUSH = 0.35;
+/** (it. 1242) Lune pâle : part de sa vie avec laquelle chaque monstre arrive. */
+export const PALE_MOON = 0.5;
 
 /** (it. 932) Collection des événements rares : chaque événement déjà vécu donne un bonus permanent (Bestiaire). */
 export const EVENT_SEEN_BONUS = { gold: 1 };

@@ -44,7 +44,7 @@ import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, roll
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
@@ -273,6 +273,8 @@ export class Game {
           const slot = !R.mon.boss && this.lineup()[this.S.kills];
           if (slot && slot.pierced > 0) { R.mon.hp -= Math.min(slot.pierced, R.mon.hp - 1); slot.pierced = 0; }
           if (R.mon.boss && R.bossPierced > 0) { R.mon.hp -= Math.min(R.bossPierced, R.mon.max * 0.25); R.bossPierced = 0; }
+          // (it. 1242) Lune pâle : le monstre arrive affaibli (sa barre de vie le montre à moitié vide)
+          if ((R.events.palemoon || 0) > 0) R.mon.hp = Math.max(1, Math.min(R.mon.hp, R.mon.max * PALE_MOON));
           this.emit("spawn", R.mon);
           if (R.mon.boss) this.charmSwap(R.mon);
         }
