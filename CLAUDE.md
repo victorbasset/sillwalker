@@ -49,7 +49,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   Délai maximal 10 min (≈ 70 s d'habitude ; `SELFTEST_MAX_MIN`) : au-delà, échec citant la dernière vérification (it. 863). Sortie complète gardée dans `logs/selftest-last.log` (et `logs/selftest-last-fail.log` pour le dernier échec) : un échec isolé se relit après coup (it. 906).
   Avant une mesure `--perf`, vérifier qu'aucun Electron de test orphelin ne tourne (`ps -ef | grep electron`).
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
-  nouvelles parties (les 20 héros) et signale celles qui ne progressent pas (60 graines = 1200 parties, ≈ 1 min). À relancer après
+  nouvelles parties (les 20 héros) et signale celles qui ne progressent pas (60 graines = 1200 parties, ≈ 1 min). `FUZZ_DAYMOD=<clé|all>` : avec une bénédiction du jour active (it. 1278 ; elles changent la file : élites, gobelins, champions). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
 - Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (27 corruptions écrites à la main
   de la sauvegarde de dev, chacune « ok », puis un balayage de chaque donnée et de chaque champ des sous-objets avec sept

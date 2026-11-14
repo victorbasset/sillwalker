@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1278) : fuzz.mjs : option FUZZ_DAYMOD=<clé|all> (bénédiction du jour active ; all : une par
+  graine) : les bénédictions changent la file (élites ×3, gobelins ×4, champions ×4) et le fuzz ne les essayait
+  jamais. Vérifié qu'elle agit (30 parties de 20 min : 21 champions avec le Jour des champions, 9 sans). Résultats :
+  sans bénédiction, avec le Jour des champions, avec toutes : 1200 parties chacun, 0 bloquée. CLAUDE.md.
 - 2026-11-14 (it. 1277) : un champion vaincu (rare : ≈ 1 monstre sur 200) a sa réplique du héros sur la bande
   (« Un champion de moins ! », « À genoux, champion ! » ; strip.js SPEECH.champion, au moment où l'écran tremble).
   Traduites. Autotest 227/227.
