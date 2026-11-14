@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1193, captures 8) : captures « promo » en allemand, espagnol et portugais (texts.py : DE, ES, PT ;
+  noms repris des traductions du jeu : Blutmond, Saum, Luna de sangre, Alféizar, Parapeito…). Pas de polonais, russe
+  ni CJK : les polices des titres (Pixelify, Geist Pixel) n'ont pas ces lettres (vérifié par fontTools). Vidéos
+  françaises recalculées avec l'Aventure sans journal anglais ; tout relivré.
 - 2026-11-14 (it. 1192, captures 7) : relecture à pleine taille : captures « promo » centrées entre l'accroche et le
   logo (tassées en haut avant) ; plus de logo en coin sur le bureau (il tombait sur la bande du jeu) ; record.sh vide
   le journal de la copie (le journal garde la langue de la partie d'origine : lignes anglaises dans l'Aventure en
