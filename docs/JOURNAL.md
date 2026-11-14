@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1267, contrôle) : tableau des 20 héros (hero-table, 12 h) après la Lune pâle et l'élite
+  Régénérant : moyenne 64,0 (repère it. 1118 : 63,7), de 61 (barde) à 69 (samouraï), une graine par héros (±4) :
+  rien à régler.
 - 2026-11-14 (it. 1266) : 68e succès, « Fléau des champions (25 champions) » (CHAMPIONS_25, progression x / 25) :
   un objectif lointain après « Tueur de champion » (≈ 5000 monstres ; la quête de champion y aide). Traduit ; icône
   (chevalier blanc, à côté du chevalier noir de CHAMPION ; « knight_crystal » n'a pas de dessin : sans icône, achicons
