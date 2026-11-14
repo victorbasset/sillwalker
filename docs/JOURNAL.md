@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1241, revue générale, allégée : rien de lourd depuis la 1231) : texte polonais de la partie de fin
+  (bénédictions vécues comprises) : aucun mot français ou anglais ; 12 h simulées : 61 / 62 / 64, inchangé. Rien à
+  noter.
 - 2026-11-14 (it. 1240, contrôle) : rythme de la première heure (early-pace) identique au repère de l'it. 1121 (1 / 7 /
   18 / 31 / 59 / 114 objets, zone 23 et 6 déblocages à 60 min) après les changements de l'après-midi. Vérifié aussi :
   « +1% expérience » dans le journal du banc de test vient des données non traduites hors interface (translateData),
