@@ -1645,4 +1645,6 @@ export default {
   2770: "Każde przeżyte błogosławieństwo daje na zawsze {0}. Obecny bonus: {1}.",
   2771: "Kolekcja błogosławieństw: każde przeżyte błogosławieństwo dnia daje na zawsze +1% doświadczenia; zobacz Bestiariusz > Błogosławieństwa dnia.",
   2772: "Dziesięć błogosławionych dni",
+  2773: "Nowe osiągnięcie „Dziesięć błogosławionych dni”: przeżyj wszystkie dziesięć błogosławieństw dnia.",
+  2774: "Tryb mini: dymek po najechaniu pokazuje też błogosławieństwo dnia.",
 };

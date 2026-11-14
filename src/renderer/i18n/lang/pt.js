@@ -1645,4 +1645,6 @@ export default {
   2770: "Cada bênção vivida dá {0} para sempre. Bônus atual: {1}.",
   2771: "Coleção de bênçãos: cada bênção do dia já vivida dá +1% de experiência para sempre; acompanhe em Bestiário > Bênçãos do dia.",
   2772: "Dez dias abençoados",
+  2773: "Nova conquista “Dez dias abençoados”: viva as dez bênçãos do dia.",
+  2774: "Modo mini: a dica ao passar o mouse também mostra a bênção do dia.",
 };

@@ -2774,5 +2774,7 @@ export const KEYS = [
   "Résumé d’absence : il indique combien d’objets sont restés au sol quand le sac était plein.",
   "Chaque bénédiction vécue donne {0} pour toujours. Bonus actuel : {1}.",
   "Collection des bénédictions : chaque bénédiction du jour déjà vécue donne +1 % d’expérience pour toujours, à suivre dans Bestiaire > Bénédictions du jour.",
-  "Dix jours bénis"
+  "Dix jours bénis",
+  "Nouveau succès « Dix jours bénis » : vivre les dix bénédictions du jour.",
+  "Mode mini : la bulle de survol donne aussi la bénédiction du jour."
 ];

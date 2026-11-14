@@ -1645,4 +1645,6 @@ export default {
   2770: "Cada bendición vivida da {0} para siempre. Bonificación actual: {1}.",
   2771: "Colección de bendiciones: cada bendición del día ya vivida da +1 % de experiencia para siempre; consúltalo en Bestiario > Bendiciones del día.",
   2772: "Diez días benditos",
+  2773: "Nuevo logro «Diez días benditos»: vive las diez bendiciones del día.",
+  2774: "Modo mini: la burbuja al pasar el ratón también muestra la bendición del día.",
 };

@@ -1645,4 +1645,6 @@ export default {
   2770: "Each blessing you live through gives {0} forever. Current bonus: {1}.",
   2771: "Blessing collection: each daily blessing you have lived through gives +1% experience forever; see Bestiary > Daily blessings.",
   2772: "Ten Blessed Days",
+  2773: "New achievement “Ten Blessed Days”: live through all ten daily blessings.",
+  2774: "Mini mode: the hover tooltip also shows the daily blessing.",
 };

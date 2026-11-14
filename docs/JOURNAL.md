@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1236) : « Quoi de neuf », édition 63 : succès « Dix jours bénis » ; bénédiction du jour dans la
+  bulle du mode mini. Traduite (nom du succès cité tel que traduit : i18n-quotes) ; autotest 227/227 ; lang-overflow :
+  rien. Au passage : le héros « absent » d'une capture de dev-data combattait le boss tout à droite (x = 1576), pas
+  de défaut.
 - 2026-11-14 (it. 1235, contrôle) : répliques de bénédiction les plus longues (« Große Jagd! Die Elite soll sich in
   Acht nehmen. », « Большая охота! Пусть элита поберегётся. ») : la bulle tient dans la bande, au-dessus du héros.
 - 2026-11-14 (it. 1234) : mode mini : sa bulle de survol donne la bénédiction du jour (« Bénédiction du jour :
