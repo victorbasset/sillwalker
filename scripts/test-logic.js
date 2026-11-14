@@ -932,6 +932,15 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("calendrier des bénédictions stable quand on en ajoute une (it. 1237)", () => {
+    // calcul d'origine (9 bénédictions, avant l'it. 1222) : au moins 85 % des jours doivent garder la même
+    const old = (day) => { let h = 2166136261; for (const c of day) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return DAY_MOD_KEYS[(h >>> 0) % 9]; };
+    let same = 0, n = 0; const seen = new Set();
+    for (let m = 1; m <= 12; m++) for (let d = 1; d <= 28; d++) { const k = `2027-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`; n++; if (dayModFor(k) === old(k)) same++; seen.add(dayModFor(k)); }
+    assert.ok(same / n > 0.85, same + " / " + n);
+    assert.equal(seen.size, DAY_MOD_KEYS.length, "toutes les bénédictions sortent");
+    assert.equal(dayModFor("2026-11-14"), old("2026-11-14"));
+  });
   test("Jour des ombres : esquive et riposte en plus (it. 1222)", () => {
     const g = new Game(freshState()), before = heroStats(g.S);
     g.S.daily.mod = "shadows"; g.invalidateStats();

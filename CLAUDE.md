@@ -249,6 +249,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   taille chez Victor, panneau et onglets bloqués à la première ouverture. Fusionnée par scripts/simplify-pixel-font.py
   (38 points par lettre, contours resserrés de 7 unités pour garder la même encre). Toute nouvelle police pixel :
   compter ses points (fontTools) et la passer par ce script ; ne pas multiplier les tailles et graisses.
+- Bénédictions du jour (it. 1237) : toujours AJOUTER une bénédiction à la FIN de DAY_MODS (daymods.js) ; dayModFor
+  garde le calendrier des 9 premières et chaque ajout ne prend qu'un jour sur n (tirage réservoir). Changer l'ordre ou
+  le modulo rebat tout le calendrier (bénédiction du jour qui change en pleine journée à la mise à jour).
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.

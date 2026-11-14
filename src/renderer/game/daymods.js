@@ -20,11 +20,22 @@ export const DAY_MODS = {
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 
+/** Empreinte FNV-1a d'un texte. */
+function fnv(str) {
+  let h = 2166136261;
+  for (const c of String(str)) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return h >>> 0;
+}
+/** (it. 1237) Bénédictions d'origine : leur calendrier ne doit plus bouger. Chaque bénédiction ajoutée après (la n-ième)
+ *  prend la place du jour avec une chance de 1 sur n (tirage « réservoir » : répartition toujours uniforme). Avant,
+ *  ajouter le Jour des ombres (it. 1222) changeait le modulo : 27 jours sur 30 changeaient de bénédiction, celle du
+ *  jour même comprise pour qui mettait le jeu à jour en cours de journée. */
+const DAY_MODS_BASE = 9;
 /** Modificateur du jour "AAAA-MM-JJ" (déterministe). */
 export function dayModFor(day) {
-  let h = 2166136261;
-  for (const c of String(day)) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
-  return DAY_MOD_KEYS[(h >>> 0) % DAY_MOD_KEYS.length];
+  let k = DAY_MOD_KEYS[fnv(day) % DAY_MODS_BASE];
+  for (let i = DAY_MODS_BASE; i < DAY_MOD_KEYS.length; i++) if (fnv(day + "#" + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i];
+  return k;
 }
 
 /** Modificateur actif de la partie (ou null). */

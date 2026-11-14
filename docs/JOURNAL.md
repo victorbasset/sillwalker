@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1237) : calendrier des bénédictions stable : ajouter le Jour des ombres (it. 1222) avait changé le
+  modulo du tirage, si bien que 27 jours sur 30 changeaient de bénédiction, celle du jour même comprise pour qui
+  mettait le jeu à jour en pleine journée (aujourd'hui : rempart → gobelins), et les « Demain : … » déjà vus étaient
+  faux. dayModFor garde maintenant le calcul des 9 bénédictions d'origine ; chaque ajout prend un jour sur n (tirage
+  réservoir) : 90 % des jours inchangés, répartition uniforme (≈ 100 jours chacune sur 1008). Test (≥ 85 % inchangés,
+  toutes sortent, aujourd'hui inchangé) ; CLAUDE.md (pièges : ajouter à la fin). Autotest 227/227.
 - 2026-11-14 (it. 1236) : « Quoi de neuf », édition 63 : succès « Dix jours bénis » ; bénédiction du jour dans la
   bulle du mode mini. Traduite (nom du succès cité tel que traduit : i18n-quotes) ; autotest 227/227 ; lang-overflow :
   rien. Au passage : le héros « absent » d'une capture de dev-data combattait le boss tout à droite (x = 1576), pas
@@ -60,7 +66,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - 2026-11-14 (it. 1222) : 10e bénédiction du jour, « Jour des ombres » : +15 % d'esquive, +20 % de riposte (journée
   défensive et réactive, différente des neuf autres ; effets existants seulement). daymods.js ; traduite (10 langues) ;
   test (esquive et riposte en plus) ; autotest 227/227 ; lang-overflow (mesure chaque bénédiction) : rien.
-  Le mod est enregistré dans la partie (S.daily.mod) : la bénédiction en cours d'un joueur ne change pas.
+  (Erreur corrigée à l'it. 1237 : claimDaily recalcule la bénédiction à chaque lancement ; l'ajout changeait le
+  calendrier entier, celle du jour comprise.)
 - 2026-11-14 (it. 1221, revue générale, allégée : la précédente date de l'it. 1211, performance mesurée à l'it. 1218) :
   texte japonais extrait sur la partie de fin : propre ; captures (Aventure en japonais, Talents en anglais, mode mini
   en japonais) : rien qui déborde, duo dans le bon ordre (archère derrière le guerrier) ; 12 h simulées : records 61
