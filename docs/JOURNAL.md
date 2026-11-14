@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1325) : les multiplicateurs annoncés par les événements rares comparés au code : la Rafale de vent
+  promettait « Vitesse de déplacement ×2 » mais ajoutait +100 % (moveMul : 1 + permanent + 1) ; en fin de partie
+  (+174 % permanents), ×1,37 seulement. Elle double maintenant vraiment la vitesse. Les autres sont fidèles (Pluie d'or
+  ×3, Frénésie ×2, Sagesse ×3, Voile ½, Marée arcanique ×2, Zèle ×2, Lune pâle ½). Test ; autotest 228/228.
 - 2026-11-14 (it. 1324) : test : les chiffres des descriptions des capacités de boss suivent leurs constantes (Peau de
   pierre, Fureur croissante, Crachat venimeux, Tenace, Malédiction, Écailles) ; tous justes.
 - 2026-11-14 (it. 1323) : test, suite de l'it. 1322 : les paramètres chiffrés de chaque élite (PV, attaque,

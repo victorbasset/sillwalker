@@ -1919,7 +1919,9 @@ export class Game {
   /* ---------- Vitesse et événements rares ---------- */
   /** Multiplicateur de vitesse de déplacement (permanent + rafale de vent). */
   moveMul() {
-    return 1 + (this.stats().moveSpd || 0) / 100 + ((this.R.events.wind || 0) > 0 ? 1 : 0);
+    // (it. 1325) la Rafale de vent DOUBLE la vitesse (« ×2 » annoncé) ; avant, elle ajoutait +100 % : en fin de partie
+    // (+174 % permanents), l'événement ne donnait que ×1,37
+    return (1 + (this.stats().moveSpd || 0) / 100) * ((this.R.events.wind || 0) > 0 ? 2 : 1);
   }
 
   tickEvents(dt) {

@@ -1000,6 +1000,11 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
   });
+  test("Rafale de vent : la vitesse de déplacement double vraiment (« ×2 », it. 1325)", () => {
+    const g = new Game(freshState()); g.S.stats.feathers = 0; const base = g.moveMul();
+    g.R.events.wind = 30; assert.equal(g.moveMul(), base * 2);
+    assert.ok(/×2/.test(EVENTS_T.wind.text));
+  });
   test("capacités de boss : les chiffres des descriptions suivent les constantes (it. 1324)", () => {
     const B = M_bosses_js, D = (k) => B.BOSS_MECHANICS[k].desc, P = (x) => Math.round(x * 100) + " %";
     const want = {
