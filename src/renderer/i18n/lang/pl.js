@@ -1671,4 +1671,5 @@ export default {
   2796: "Czempioni wyszli na łowy. Korona będzie moja!",
   2797: "Nowe błogosławieństwo dnia, Dzień czempionów: cztery razy więcej czempionów.",
   2798: "Nowe osiągnięcie: Zmora czempionów (25 pokonanych czempionów).",
+  2799: "Czempioni pojawiają się od strefy {0}.",
 };
