@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1319, contrôle) : début de partie après le Venimeux (élites dès la zone 3) : early-pace 2 / 7 / 17 /
+  35 / 69 / 120 objets, zone 23 et 6,3 déblocages à 60 min (it. 1240 : 114, zone 23, 6) ; first-minutes : premier
+  boss à 76-79 s. Aucun ralentissement. (Capture du Venimeux tentée sans succès : la file modifiée après coup
+  n'affiche pas les étiquettes ; comportement couvert par le test logique.)
 - 2026-11-14 (it. 1318) : garde-fou après l'incident de l'it. 1317 : un lancement --ghost (tests seulement, jamais un
   joueur) sans --user-data part d'un dossier temporaire neuf (main.js, message « [dev] --ghost sans --user-data ») au
   lieu du dossier de sauvegarde par défaut. Vérifié : ~/.config/Sillwalker n'est plus créé. Aucun script du dépôt ne
