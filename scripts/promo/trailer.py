@@ -26,7 +26,7 @@ sc(1, type="clip", src="bloodmoon", t0=2, rect=EVR, cam=EV(800, 1500), track=180
 sc(1, type="clip", src="starfall", t0=1.5, rect=EVR, cam=EV(700, 1300), track=180, fade=0, punch=True, title=[T("STAR SWARM", 170, 120, [170, 210, 255]), T("catch the falling stars", 330, 38, L, "body")])
 sc(1, type="clip", src="goblinrush", t0=1.5, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("GOBLIN RUSH", 170, 120, [140, 230, 120]), T("golden goblins, everywhere", 330, 38, L, "body")])
 sc(1, type="clip", src="goldrain", t0=1, rect=EVR, cam=EV(800, 1400), track=180, fade=0, punch=True, title=[T("RAIN OF GOLD", 170, 120), T("and 10 more rare events", 330, 38, L, "body")])
-sc(2, type="clip", src="relic", t0=1, rect=[0, 470, 1920, 240], cam=[[960, 1040, 1600], [1000, 1040, 1600]], smooth=True, fade=0, title=[T("Bosses guard ancient relics.", 200, 64)])
+sc(2, type="clip", src="relic", t0=1, rect=[0, 486, 1920, 208], cam=[[1000, 1040, 1840], [1000, 1040, 1840]], smooth=True, fade=0, title=[T("Bosses guard ancient relics.", 200, 64)])
 sc(2, type="clip", src="p-graph", t0=2, rect=[160, 40, 1600, 900], cam=[[1500, 40, 1600], [1700, 80, 1600]], fade=0, title=[T("A 618-node great graph.", 965, 60)])
 sc(1, type="clip", src="p-mastery", t0=2, rect=PAN, cam=[[960, 40, 1920], [960, 40, 1920]], fade=0, title=[T("Real choices, every milestone.", 975, 56)])
 # (it. 1189) combat contre un boss majeur (le Chevalier de l'éclipse, zone 150) : sorts, critiques, esquives

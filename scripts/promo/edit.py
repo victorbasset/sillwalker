@@ -61,6 +61,8 @@ def text_layer(lines, plate=False):
     for txt, fname, size, col, y in lines:
         f = font(fname, size)
         w = d.textlength(txt, font=f)
+        while w > W - 80 and size > 20:  # (it. 1194) titre traduit trop long (allemand, espagnol, format vertical) : réduit
+            size -= 4; f = font(fname, size); w = d.textlength(txt, font=f)
         x = (W - w) / 2
         d.text((x + 4, y + 5), txt, font=f, fill=(0, 0, 0, 150))
         d.text((x, y), txt, font=f, fill=tuple(col) + (255,), stroke_width=3, stroke_fill=INK + (255,))

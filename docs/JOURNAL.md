@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1194, bande-annonce 18) : bandes-annonces en allemand, espagnol et portugais (complète, 30 s,
+  verticale : 15 vidéos en tout avec l'anglais et le français) : textes traduits (texts.py), plans manquants tournés ;
+  edit.py réduit un titre trop large pour l'image (ENJAMBRE DE ESTRELLAS en vertical) ; relique cadrée sur sa phrase
+  (centrée sur la bande, 1840 px) : la phrase portugaise, plus longue, était coupée.
 - 2026-11-14 (it. 1193, captures 8) : captures « promo » en allemand, espagnol et portugais (texts.py : DE, ES, PT ;
   noms repris des traductions du jeu : Blutmond, Saum, Luna de sangre, Alféizar, Parapeito…). Pas de polonais, russe
   ni CJK : les polices des titres (Pixelify, Geist Pixel) n'ont pas ces lettres (vérifié par fontTools). Vidéos
