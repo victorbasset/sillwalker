@@ -15,6 +15,8 @@ export const DAY_MODS = {
   treasure: { icon: "💎", name: "Jour des trésors", desc: "Coffres au trésor ×3 sur le chemin.",   eff: {}, chest: 3 },
   // (it. 938) une journée de prodiges : événements rares deux fois plus fréquents (collection plus rapide)
   marvels: { icon: "🌠", name: "Jour des prodiges", desc: "Événements rares ×2.",                   eff: {}, events: 2 },
+  // (it. 1222) journée défensive et réactive : esquiver puis rendre les coups
+  shadows: { icon: "🌙", name: "Jour des ombres",   desc: "+15 % d’esquive, +20 % de riposte.",     eff: { dodge: 15, riposte: 20 } },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

@@ -1626,4 +1626,6 @@ export default {
   2751: "Bohater dystansowy (mag, łucznik…) pozwala teraz towarzyszowi walczącemu wręcz iść przodem, na pasku i w trybie mini.",
   2752: "Spotkanie z postacią: potwory znikają na czas sceny, bez łupów ani kwestii bohatera na wierzchu.",
   2753: "Zostawione na ziemi (pełna torba)",
+  2754: "Dzień cieni",
+  2755: "+15% uniku, +20% riposty.",
 };

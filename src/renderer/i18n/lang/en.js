@@ -1626,4 +1626,6 @@ export default {
   2751: "A ranged hero (mage, archer…) now lets their melee companion walk in front, on the strip as in mini mode.",
   2752: "Meeting a character: monsters fade away during the scene, with no loot or hero line on top.",
   2753: "Left on the ground (bag full)",
+  2754: "Day of Shadows",
+  2755: "+15% dodge, +20% riposte.",
 };

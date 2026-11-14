@@ -1626,4 +1626,6 @@ export default {
   2751: "Un héroe a distancia (mago, arquero…) ahora deja que su compañero cuerpo a cuerpo camine delante, en la franja y en el modo mini.",
   2752: "Encuentro con un personaje: los monstruos se desvanecen durante la escena, sin botín ni frases del héroe encima.",
   2753: "Dejados en el suelo (bolsa llena)",
+  2754: "Día de las sombras",
+  2755: "+15 % de esquiva, +20 % de réplica.",
 };

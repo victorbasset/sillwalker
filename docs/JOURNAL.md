@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1222) : 10e bénédiction du jour, « Jour des ombres » : +15 % d'esquive, +20 % de riposte (journée
+  défensive et réactive, différente des neuf autres ; effets existants seulement). daymods.js ; traduite (10 langues) ;
+  test (esquive et riposte en plus) ; autotest 227/227 ; lang-overflow (mesure chaque bénédiction) : rien.
+  Le mod est enregistré dans la partie (S.daily.mod) : la bénédiction en cours d'un joueur ne change pas.
 - 2026-11-14 (it. 1221, revue générale, allégée : la précédente date de l'it. 1211, performance mesurée à l'it. 1218) :
   texte japonais extrait sur la partie de fin : propre ; captures (Aventure en japonais, Talents en anglais, mode mini
   en japonais) : rien qui déborde, duo dans le bon ordre (archère derrière le guerrier) ; 12 h simulées : records 61

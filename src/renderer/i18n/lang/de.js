@@ -1626,4 +1626,6 @@ export default {
   2751: "Ein Fernkampf-Held (Magier, Bogenschütze…) lässt seinen Nahkampf-Begleiter jetzt vorausgehen, auf dem Streifen wie im Mini-Modus.",
   2752: "Begegnung mit einer Figur: Monster verschwinden während der Szene, ohne Beute oder Heldensprüche darüber.",
   2753: "Am Boden liegen gelassen (Tasche voll)",
+  2754: "Tag der Schatten",
+  2755: "+15 % Ausweichen, +20 % Konter.",
 };

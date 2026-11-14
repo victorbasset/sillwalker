@@ -909,6 +909,12 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     assert.ok(heroStats(g.S).atk > before.atk);
     for (const k of DAY_MOD_KEYS) assert.ok(DAY_MODS[k].name && DAY_MODS[k].desc);
   });
+  test("Jour des ombres : esquive et riposte en plus (it. 1222)", () => {
+    const g = new Game(freshState()), before = heroStats(g.S);
+    g.S.daily.mod = "shadows"; g.invalidateStats();
+    const after = heroStats(g.S);
+    assert.ok((after.dodge || 0) > (before.dodge || 0) && (after.riposte || 0) > (before.riposte || 0), JSON.stringify([before.dodge, after.dodge, before.riposte, after.riposte]));
+  });
   test("Jour des trésors : coffres ×3 en jeu et pendant l'absence (it. 887)", () => {
     const count = (mod) => {
       const g = new Game(freshState()); g.S.daily.mod = mod; let n = 0;
