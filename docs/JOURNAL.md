@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1332) : taille de la sauvegarde remesurée pour le quota Steam Cloud (1 Mo) : dev 17,6 Ko, fin de partie
+  22,8 Ko, pire cas « tout au maximum » 28,3 Ko (it. 963 : 17 / 21 Ko) ; checklist mise à jour, marge toujours large.
+  Vérifié aussi : npm test 17 s (le test « aucune nouvelle partie bloquée » en prend 11,8, gardé : garde-fou utile).
 - 2026-11-14 (it. 1331, revue générale) : après la Rafale de vent corrigée (vitesse doublée) : 12 h 65 / 60 / 65 ;
   semaine guerrier 350 / 350 / 349 (repère 350) ; fuzz 1200 parties, 0 bloquée. Performance et langues mesurées à la
   1321, rien depuis qui les touche. Rien à corriger.
