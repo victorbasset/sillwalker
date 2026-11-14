@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1280, contrôle) : une semaine simulée (simulate.js 168) après les ajouts du jour (Régénérant, Lune
+  pâle, quête et Jour des champions) : dernières courses guerrier 350 / 349 / 350 / 349, mage 338 / 349 / 350 / 349 ;
+  repère it. 1115 : 350 / 349 : inchangé ; panoplies 10 et 9 sur 10. Piège noté : une boucle d'attente
+  « while pgrep -f "simulate.js 168" » se trouve elle-même (sa propre ligne de commande contient le motif) et ne
+  finit jamais : attendre les processus par leur PID.
 - 2026-11-14 (it. 1279) : README : le Jour des champions dans la liste des bénédictions (quête de champion, Régénérant,
   Lune pâle et le succès y étaient déjà).
 - 2026-11-14 (it. 1278) : fuzz.mjs : option FUZZ_DAYMOD=<clé|all> (bénédiction du jour active ; all : une par
