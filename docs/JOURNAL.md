@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1228) : Statistiques : « Bénédictions du jour → » mène en un clic au sous-onglet du Bestiaire, comme
+  « Événements rares → » (dès qu'une est vécue et le Bestiaire ouvert). Clic vérifié en jeu (onglet bestiary /
+  blessings) ; autotest 227/227 ; lang-overflow : rien.
 - 2026-11-14 (it. 1227) : Bestiaire > « Bénédictions du jour », nouveau sous-onglet (dès la première vécue) : les dix
   bénédictions, nom, icône et effet pour celles déjà vécues, « ??? » sinon, celle du jour encadrée ; le bonus de la
   collection et le bonus actuel (+1 % d'expérience chacune). bestiary.js ; main.js (sous-section mesurée par

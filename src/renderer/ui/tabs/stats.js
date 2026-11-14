@@ -110,7 +110,9 @@ export class StatsTab {
           const seen = (S.daily && S.daily.seen) || {}, ks = Object.keys(DAY_MODS), n = ks.filter((k) => seen[k]).length;
           // (it. 1226) le bonus de la collection dans la bulle (dans la valeur, il chevauchait le libellé en russe et polonais)
           const bonus = n ? describeEffects(blessingsSeenEffects(S)) + "\n" : "";
-          return `<li title="${esc(bonus + ks.map((k) => `${seen[k] ? "✓" : "·"} ${DAY_MODS[k].icon} ${DAY_MODS[k].name}`).join("\n"))}"><span>${esc(tx("Bénédictions du jour"))} <span class="note help">ⓘ</span></span><b>${n} / ${ks.length}</b></li>`; })()}
+          return `<li title="${esc(bonus + ks.map((k) => `${seen[k] ? "✓" : "·"} ${DAY_MODS[k].icon} ${DAY_MODS[k].name}`).join("\n"))}"><span>${n && tabReady(S, "bestiary") // (it. 1228) un clic : Bestiaire > Bénédictions du jour, comme les événements
+            ? `<button class="linkbtn textlink" data-tab="bestiary" data-sec="blessings">${esc(tx("Bénédictions du jour"))} →</button>`
+            : `${esc(tx("Bénédictions du jour"))} <span class="note help">ⓘ</span>`}</span><b>${n} / ${ks.length}</b></li>`; })()}
         ${line(tx("Expéditions de familiers"), fmt(st.expeditions || 0))}
         ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
       </ul></article>
