@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1178, captures 3) : 13 captures par série : trois nouveaux plans (carte du Rebord, boutique,
+  familiers ; bulles d'aide masquées pendant le tournage) ; captures de la Nuée d'étoiles, de la carte (« 200 zones to
+  cross ») et de la boutique (« Every comfort is earned »). Les vues du panneau montrent la fenêtre ENTIÈRE à sa taille
+  réelle sur un écran de 1920 px (avant : coupées à droite). À reprendre : Mirette coupée, Ruée des gobelins sans gobelin.
 - 2026-11-14 (it. 1177, captures 2) : écran scindé (edit.py, « extra » : cadrages en plus de la même image) : la capture
   de la Lune de sang montre toute la bande en deux moitiés empilées à ×1 : le cortège entier d'élites étiquetées
   jusqu'au boss du volcan (à ×3, deux élites seulement). La bande-annonce garde le panoramique ×2 (plus vivant).

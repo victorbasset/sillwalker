@@ -13,11 +13,14 @@ SHOTS = [
     ("walk", 4.5, "clip", [0, 140, 1920, 800], CU(0), 150, "A tiny hero. A big adventure.", "Fights, loots and grows stronger while you work"),
     ("bloodmoon", 5.0, "clip", [0, 240, 1920, 600], EV(1150), None, "BLOOD MOON", "14 rare events turn the road upside down"),
     ("npc-shop", 5.0, "clip", [0, 240, 1920, 600], EV(1250), None, "Meet the folk of the Sill.", "Every tab has its inhabitant, met along the road"),
-    ("p-graph", 5.0, "clip", [0, 0, 1920, 1080], [[1100, 0, 2203], [1100, 0, 2203]], None, "A 618-node great graph", "Paths to choose, synergies that change how you play"),
-    ("p-mastery", 4.0, "clip", [0, 0, 1920, 1080], [[820, 0, 2203], [820, 0, 2203]], None, "Real choices", "Two bonuses at every mastery milestone"),
-    ("p-adventure", 3.0, "clip", [0, 0, 1920, 1080], [[0, 0, 2203], [0, 0, 2203]], None, "Gear up and forge", "Sets, legendary powers, a forge and a merchant"),
-    ("p-bestiary", 3.0, "clip", [0, 0, 1920, 1080], [[0, 0, 2203], [0, 0, 2203]], None, "Collect them all", "83 monsters, elites, sets and rare events"),
+    ("p-graph", 5.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "A 618-node great graph", "Paths to choose, synergies that change how you play"),
+    ("p-mastery", 4.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Real choices", "Two bonuses at every mastery milestone"),
+    ("p-adventure", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Gear up and forge", "Sets, legendary powers, a forge and a merchant"),
+    ("p-bestiary", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Collect them all", "83 monsters, elites, sets and rare events"),
     ("endfight", 3.0, "clip", [0, 140, 1920, 800], CU(1500), None, "Grow absurdly powerful.", "20 heroes, fighting in pairs"),
+    ("p-map", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "200 zones to cross", "Free the captive heroes, uncover the chronicles"),
+    ("starfall", 5.0, "clip", [0, 240, 1920, 600], EV(1150), None, "STAR SWARM", "Catch the falling stars before they fade"),
+    ("p-shop", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Every comfort is earned", "Unlock automations in the shop as you progress"),
     ("goblinrush", 5.0, "clip", [0, 240, 1920, 600], EV(1200), None, "GOBLIN RUSH", "Golden goblins, everywhere"),
 ]
 S = []
@@ -29,15 +32,15 @@ for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
         sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 590, 1920, 200]}]
     if tr is not None: sc["track"] = tr
     if SERIES == "promo":
-        panel = rect and rect[3] == 1080
+        panel = rect and rect[3] == 620  # (it. 1178) fenêtre entière (3840 → 1920 : taille réelle d'un écran 1920)
         if src == "bloodmoon":
             sc["rect"] = [0, 380, 1920, 200]; sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 640, 1920, 200]}]
         elif rect and rect[3] in (600, 800) and rect[1] < 230:  # bande sous l'accroche
             sc["rect"] = [0, 230 if rect[3] == 800 else 300, 1920, rect[3]]
         if panel:  # vue du panneau : réduite pour laisser la place à l'accroche
-            sc["rect"] = [192, 190, 1536, 864]  # (it. 1176) fenêtre entière (panneau et bande) : cadrage 2203 de large
+            sc["rect"] = [0, 250, 1920, 620]
         top = 40 if not panel else 30
-        sc["title"] = [[head, "title", 76, R if head == "BLOOD MOON" else G, top], [sub, "body", 34, L, top + 96]]
+        sc["title"] = [[head, "title", 76, R if head == "BLOOD MOON" else ([140, 200, 255] if head == "STAR SWARM" else G), top], [sub, "body", 34, L, top + 96]]
         sc["plate"] = typ == "desktop"
         sc["logo"] = ["steam/capsules/library-logo.png", 1000, 0]
     S.append(sc)
