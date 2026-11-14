@@ -1000,6 +1000,18 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
   });
+  test("capacités de boss : les chiffres des descriptions suivent les constantes (it. 1324)", () => {
+    const B = M_bosses_js, D = (k) => B.BOSS_MECHANICS[k].desc, P = (x) => Math.round(x * 100) + " %";
+    const want = {
+      bulwark: [P(B.BULWARK.cut), P(B.BULWARK.above)],
+      fury: [B.FURY.every + " s", P(1 - B.FURY.speed), B.FURY.max + " fois"],
+      venom: [B.VENOM.every + " s", B.VENOM.s + " s", P(B.VENOM.pct)],
+      tenacious: [P(B.TENACIOUS.back)],
+      curse: [B.CURSE.every + " s", B.CURSE.s + " s", P(B.CURSE.hurt)],
+    };
+    for (const [k, list] of Object.entries(want)) for (const w of list) assert.ok(D(k).includes(w), k + " : « " + w + " » absent de « " + D(k) + " »");
+    assert.ok(/moitié/.test(D("scales")) && B.SCALES.keep === 0.5, "écailles : la moitié du bonus");
+  });
   test("chaque élite : ses paramètres chiffrés figurent dans sa description (it. 1323)", () => {
     const pct = (x) => String(Math.round(x * 100));
     for (const [k, a] of Object.entries(ELITE_AFFIXES)) {

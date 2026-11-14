@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1324) : test : les chiffres des descriptions des capacités de boss suivent leurs constantes (Peau de
+  pierre, Fureur croissante, Crachat venimeux, Tenace, Malédiction, Écailles) ; tous justes.
 - 2026-11-14 (it. 1323) : test, suite de l'it. 1322 : les paramètres chiffrés de chaque élite (PV, attaque,
   régénération, épines, esquive) figurent dans sa description ; les 9 sont justes.
 - 2026-11-14 (it. 1322, défaut corrigé) : le Jour de l'élan (it. 1314) avait firstStrike: 100, or cet effet s'exprime en
