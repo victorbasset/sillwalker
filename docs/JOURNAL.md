@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1184, bande-annonce 13) : bruitages (scripts/promo/sfx.py, synthétisés par numpy, calés sur la liste
+  des scènes) : souffle qui monte avant chaque titre d'événement, impact grave sur la coupe, tintement sur les cartons
+  du logo ; ≈ 5 dB sous la musique (mesuré : efficace 0,05 contre 0,08-0,10), crête du mélange 0,84, film à −15,3 LUFS.
+  Versions 7 (anglais) et 3 (français).
 - 2026-11-14 (it. 1183, bande-annonce 12) : relecture image par image (une image par scène, deux langues) : Mirette
   cadrée à ×1,5 (sa réplique française, plus longue, était coupée) ; coupes rapides de la fin variées (Lune de sang en
   écran scindé, carte, combat de fin, Ruée des gobelins ; avant : quatre gros plans identiques du même duo, effet du
