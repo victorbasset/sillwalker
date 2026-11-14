@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1277) : un champion vaincu (rare : ≈ 1 monstre sur 200) a sa réplique du héros sur la bande
+  (« Un champion de moins ! », « À genoux, champion ! » ; strip.js SPEECH.champion, au moment où l'écran tremble).
+  Traduites. Autotest 227/227.
 - 2026-11-14 (it. 1276) : résumé d'absence (détail) : ligne « Champions vaincus » quand des champions sont tombés
   pendant l'absence (comptés depuis l'it. 1262 mais pas montrés ; clé existante, déjà traduite). Pire cas de
   l'autotest complété (champions: 3) ; test : le résumé compte autant de champions que la quête en a reçu.

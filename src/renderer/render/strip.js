@@ -37,6 +37,8 @@ const SPEECH = {
   legendary: [tx("Ça brille !"), tx("Légendaire ! Enfin !"), tx("Celui-là, je le garde.")],
   ko: [tx("Aïe… je reviens."), tx("Juste une égratignure."), tx("Je l’avais presque !")],
   record: [tx("Jamais allé aussi loin !"), tx("Terre inconnue !")],
+  // (it. 1277) un champion vaincu (environ un monstre sur 200) : un moment rare, il le dit
+  champion: [tx("Un champion de moins !"), tx("À genoux, champion !")],
   level: [tx("Je me sens plus fort !"), tx("Encore un niveau !")],
   event: [tx("Tu as vu ça ?"), tx("C’est le moment !"), tx("Profitons-en !")],
   // (it. 937) répliques propres à certains événements (les autres gardent les répliques communes ci-dessus)
@@ -317,6 +319,7 @@ export class StripRenderer {
     g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + fmt(Math.round(dmg)), "#ff7a6b", false, true); });
     g.on("kill", ({ mon, gold }) => {
       if (mon.boss || mon.champion) this.shake(0.35);
+      if (mon.champion && !mon.boss) this.say(SPEECH.champion);
       this.float(this.monX() + 10, 50, "+" + tx("{0} or", { 0: fmt(gold) }), "#ffd34d");
       if (this.active) this.makeCorpse(mon, this.monX());
     });

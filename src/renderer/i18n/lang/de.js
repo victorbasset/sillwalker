@@ -1672,4 +1672,6 @@ export default {
   2797: "Neuer Tagessegen, der Tag der Champions: viermal so viele Champions.",
   2798: "Neuer Erfolg: Geißel der Champions (25 Champions besiegt).",
   2799: "Champions erscheinen ab Zone {0}.",
+  2800: "Ein Champion weniger!",
+  2801: "Auf die Knie, Champion!",
 };

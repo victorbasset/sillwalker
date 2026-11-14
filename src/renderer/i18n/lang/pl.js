@@ -1672,4 +1672,6 @@ export default {
   2797: "Nowe błogosławieństwo dnia, Dzień czempionów: cztery razy więcej czempionów.",
   2798: "Nowe osiągnięcie: Zmora czempionów (25 pokonanych czempionów).",
   2799: "Czempioni pojawiają się od strefy {0}.",
+  2800: "Jeden czempion mniej!",
+  2801: "Na kolana, czempionie!",
 };

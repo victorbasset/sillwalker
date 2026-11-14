@@ -1672,4 +1672,6 @@ export default {
   2797: "New daily blessing, the Day of Champions: four times as many champions.",
   2798: "New achievement: Bane of Champions (25 champions defeated).",
   2799: "Champions appear from zone {0} onward.",
+  2800: "One champion down!",
+  2801: "Kneel, champion!",
 };

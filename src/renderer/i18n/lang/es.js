@@ -1672,4 +1672,6 @@ export default {
   2797: "Nueva bendición del día, el Día de los campeones: cuatro veces más campeones.",
   2798: "Nuevo logro: Azote de campeones (25 campeones derrotados).",
   2799: "Los campeones aparecen a partir de la zona {0}.",
+  2800: "¡Un campeón menos!",
+  2801: "¡De rodillas, campeón!",
 };

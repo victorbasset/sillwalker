@@ -1672,4 +1672,6 @@ export default {
   2797: "Nova bênção do dia, o Dia dos campeões: quatro vezes mais campeões.",
   2798: "Nova conquista: Flagelo dos campeões (25 campeões derrotados).",
   2799: "Os campeões aparecem a partir da zona {0}.",
+  2800: "Menos um campeão!",
+  2801: "De joelhos, campeão!",
 };
