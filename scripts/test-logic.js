@@ -932,6 +932,14 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
     assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
   });
+  test("nouvelle bénédiction : statistiques à jour tout de suite (it. 1238)", () => {
+    let fury = null, other = null;
+    for (let d = 1; d <= 60 && !(fury && other); d++) { const k = `2026-05-${String(((d - 1) % 28) + 1).padStart(2, "0")}`; const m = dayModFor(k); if (m === "fury") fury = fury || k; else if (!["fury", "bulwark"].includes(m)) other = other || k; }
+    const g = new Game(freshState());
+    g.claimDaily(other); const a0 = g.stats().atk; // statistiques en cache
+    g.claimDaily(fury);
+    assert.ok(g.stats().atk > a0, "Jour de furie pris en compte sans attendre : " + a0 + " → " + g.stats().atk);
+  });
   test("calendrier des bénédictions stable quand on en ajoute une (it. 1237)", () => {
     // calcul d'origine (9 bénédictions, avant l'it. 1222) : au moins 85 % des jours doivent garder la même
     const old = (day) => { let h = 2166136261; for (const c of day) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return DAY_MOD_KEYS[(h >>> 0) % 9]; };

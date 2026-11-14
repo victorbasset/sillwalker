@@ -2059,8 +2059,11 @@ export class Game {
    */
   claimDaily(today) {
     const D = (this.S.daily ||= { last: null, streak: 0 });
-    if (D.mod !== dayModFor(today)) { D.mod = dayModFor(today); this.R.lineup = null; this.changed(); }
-    (D.seen && typeof D.seen === "object" ? D.seen : (D.seen = {}))[D.mod] = true; // (it. 1224) bénédictions vécues
+    // (it. 1238) nouvelle bénédiction : statistiques recalculées tout de suite (changed() ne vide pas le cache : à minuit,
+    // le héros gardait les effets de la veille jusqu'au prochain changement d'équipement ou de niveau)
+    if (D.mod !== dayModFor(today)) { D.mod = dayModFor(today); this.R.lineup = null; this.invalidateStats(); this.changed(); }
+    const seenNow = D.seen && typeof D.seen === "object" ? D.seen : (D.seen = {});
+    if (!seenNow[D.mod]) { seenNow[D.mod] = true; this.invalidateStats(); } // (it. 1224) bénédictions vécues (+1 % d'expérience)
     if (D.last === today) return null;
     const yesterday = new Date(new Date(today + "T12:00:00").getTime() - 86400000).toISOString().slice(0, 10);
     // Série interrompue (au moins un jour manqué) : on le dira au joueur plutôt que de repartir à 1 en silence.

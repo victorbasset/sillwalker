@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1238) : bénédiction du jour qui change pendant que le jeu tourne (minuit) : le héros gardait les
+  effets de la veille (statistiques en cache : changed() ne les vide pas) jusqu'au prochain changement d'équipement
+  ou de niveau ; défaut ancien, hérité aussi par le bonus des bénédictions vécues. claimDaily invalide maintenant les
+  statistiques. Test (Jour de furie : attaque à jour aussitôt ; échoue sur l'ancien code, 4 → 4, passe sur le
+  nouveau) ; autotest 227/227.
 - 2026-11-14 (it. 1237) : calendrier des bénédictions stable : ajouter le Jour des ombres (it. 1222) avait changé le
   modulo du tirage, si bien que 27 jours sur 30 changeaient de bénédiction, celle du jour même comprise pour qui
   mettait le jeu à jour en pleine journée (aujourd'hui : rempart → gobelins), et les « Demain : … » déjà vus étaient
