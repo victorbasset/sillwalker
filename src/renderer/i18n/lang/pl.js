@@ -1700,4 +1700,5 @@ export default {
   2825: "Dzień rozpędu",
   2826: "+100 % obrażeń pierwszego ciosu i ciosów kliknięciem.",
   2827: "Dziś liczy się pierwszy cios!",
+  2828: "Nowe błogosławieństwo dnia, Dzień rozpędu: +100 % obrażeń pierwszego ciosu i ciosów kliknięciem.",
 };

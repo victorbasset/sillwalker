@@ -1700,4 +1700,5 @@ export default {
   2825: "Tag des Schwungs",
   2826: "+100 % Schaden beim ersten Treffer und bei Klicktreffern.",
   2827: "Heute sitzt der erste Treffer!",
+  2828: "Neuer Tagessegen, der Tag des Schwungs: +100 % Schaden beim ersten Treffer und bei Klicktreffern.",
 };

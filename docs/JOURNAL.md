@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1315) : « Quoi de neuf », édition 72 : Jour de l'élan ; traduite. Brouillon du devlog 0.1.4 : quatre
+  nouvelles bénédictions. Autotest 228/228 ; lang-overflow propre.
 - 2026-11-14 (it. 1314) : 13e bénédiction du jour, « Jour de l'élan » (💨, +100 % de dégâts du premier coup et des
   coups au clic : le joueur présent récompensé). Ajoutée à la fin, mais le tirage réservoir lui donnait… le 14/11/2026,
   aujourd'hui (le Jour du rempart aurait changé en pleine journée chez Victor) : sel propre à ce rang (DAY_MOD_SALT,

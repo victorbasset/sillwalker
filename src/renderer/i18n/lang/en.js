@@ -1700,4 +1700,5 @@ export default {
   2825: "Day of Momentum",
   2826: "+100% damage on the first hit and on click hits.",
   2827: "The first hit is the one that counts today!",
+  2828: "New daily blessing, the Day of Momentum: +100% damage on the first hit and on click hits.",
 };

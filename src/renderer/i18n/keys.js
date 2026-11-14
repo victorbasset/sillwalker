@@ -2829,5 +2829,6 @@ export const KEYS = [
   "Nouvelle élite, le Venimeux : ses coups peuvent empoisonner le héros quelques secondes (sans jamais l’achever ; la pureté raccourcit le poison).",
   "Jour de l’élan",
   "+100 % de dégâts du premier coup et des coups au clic.",
-  "Le premier coup est le bon, aujourd’hui !"
+  "Le premier coup est le bon, aujourd’hui !",
+  "Nouvelle bénédiction du jour, le Jour de l’élan : +100 % de dégâts du premier coup et des coups au clic."
 ];

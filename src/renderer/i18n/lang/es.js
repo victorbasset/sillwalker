@@ -1700,4 +1700,5 @@ export default {
   2825: "Día del impulso",
   2826: "+100 % de daño del primer golpe y de los golpes con clic.",
   2827: "¡Hoy el primer golpe es el bueno!",
+  2828: "Nueva bendición del día, el Día del impulso: +100 % de daño del primer golpe y de los golpes con clic.",
 };
