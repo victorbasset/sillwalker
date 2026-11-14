@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1308) : brouillon du devlog 0.1.4 complété (éditions jusqu'à 70) : Écho des lames, Jour des géants
+  (+50 % contre les boss), titre revu ; toujours non publié.
 - 2026-11-14 (it. 1307, contrôle) : balance 12 h contre dbb35c4 (avant l'Écho des lames) : 63,7 → 63,4 sur les 10
   classes (bruit ; ±1,5). L'événement (0,2 % par victoire, 30 s) ne déplace pas la progression.
 - 2026-11-14 (it. 1306) : nouveau contrôle de npm test, scripts/i18n-paths.mjs : un chemin « Onglet > Sous-section »
