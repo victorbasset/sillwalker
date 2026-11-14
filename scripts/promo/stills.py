@@ -24,6 +24,7 @@ SHOTS = [
     ("p-map", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "200 zones to cross", "Free the captive heroes, uncover the chronicles"),
     ("starfall", 5.0, "clip", [0, 240, 1920, 600], EV(1150), 180, "STAR SWARM", "Catch the falling stars before they fade"),
     ("p-shop", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Every comfort is earned", "Unlock automations in the shop as you progress"),
+    ("mini", 4.0, "desktop", None, [[960, 540, 2880], [960, 540, 2880]], None, "Or keep it tiny", "Mini mode: a corner of your screen, always in view"),
     ("goblinrush", 6.0, "clip", [0, 340, 1920, 400], [[980, 1040, 960], [980, 1040, 960]], 180, "GOBLIN RUSH", "Golden goblins, everywhere"),
 ]
 S = []

@@ -142,6 +142,18 @@
    "wait": 7,
    "numbers": true,
    "js": "G.S.kills = 10; G.R.mon = null; G.R.mode = 'walk'; G.startLeg(0.2);"
+  },
+  {
+   "id": "mini",
+   "save": "end",
+   "secs": 8,
+   "wait": 8,
+   "args": "--mode=mini",
+   "grab": [
+    "3840x2160",
+    "0,0"
+   ],
+   "js": ""
   }
  ]
 }

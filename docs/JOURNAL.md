@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1197, captures 9) : capture du mode mini (15e) : plan « mini » filmé en écran entier (GRAB_SIZE /
+  GRAB_POS dans record.sh, « grab » dans shots.json ; edit.py lit la taille de chaque plan) et posé sur le bureau
+  dessiné (×0,67 : le widget dans son coin, le bureau autour) ; « Or keep it tiny » en cinq langues ; tourné dans les
+  10 langues (le widget est traduit : « Stf. », « エリア »). Toutes les captures relivrées.
 - 2026-11-14 (it. 1196, bande-annonce 19) : relecture de la version finale : Aventure et Bestiaire cadrés à ×0,75
   (2560 px du tournage → 1920) : colonnes entières et bande du jeu dessous (à ×1, l'équipement était coupé au bord).
   Cinq bandes-annonces complètes relivrées. steam/screenshots et steam/media : remplacés une seule fois, avant midi.

@@ -105,19 +105,28 @@ def hero_x(track, t, smooth=0.6):
     return sum(near) / len(near) if near else None
 
 
+def src_h(src):
+    """(it. 1197) Hauteur des images d'un plan : 1240 (fenêtre du jeu) ou 2160 (écran entier, mode mini)."""
+    out = subprocess.run([FF, "-hide_banner", "-i", os.path.join(SHOTS, src + ".mp4")], capture_output=True, text=True).stderr
+    import re
+    m = re.search(r", (\d{3,4})x(\d{3,4})", out)
+    return int(m.group(2)) if m else SRC_H
+
+
 def frames(src, t0, dur):
     """Images du plan entre t0 et t0 + dur (ffmpeg → RGB brut)."""
     n = int(round(dur * FPS))
     p = subprocess.Popen([FF, "-hide_banner", "-loglevel", "error", "-ss", str(t0), "-i", os.path.join(SHOTS, src + ".mp4"),
                           "-frames:v", str(n), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
-    size = SRC_W * SRC_H * 3
+    sh = src_h(src)
+    size = SRC_W * sh * 3
     last = None
     for _ in range(n):
         b = p.stdout.read(size)
         if len(b) < size:
             b = last  # plan plus court que prévu : on tient la dernière image
         last = b
-        yield Image.frombuffer("RGB", (SRC_W, SRC_H), b, "raw", "RGB", 0, 1)
+        yield Image.frombuffer("RGB", (SRC_W, sh), b, "raw", "RGB", 0, 1)
     p.stdout.close(); p.wait()
 
 
@@ -134,7 +143,7 @@ def desk_frame(src):
     a = np.asarray(src)
     mask = Image.fromarray(((a.max(axis=2) > 6) * 255).astype("uint8"), "L")
     img = DESK2.copy()
-    img.paste(src, (0, (H - 48) * 2 - SRC_H), mask)
+    img.paste(src, (0, (H - 48) * 2 - src.height), mask)
     return img
 
 
