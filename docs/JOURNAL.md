@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1323) : test, suite de l'it. 1322 : les paramètres chiffrés de chaque élite (PV, attaque,
+  régénération, épines, esquive) figurent dans sa description ; les 9 sont justes.
 - 2026-11-14 (it. 1322, défaut corrigé) : le Jour de l'élan (it. 1314) avait firstStrike: 100, or cet effet s'exprime en
   fraction (×100 à l'affichage ; game.js : dmg *= 1 + firstStrike) : premier coup ×101 au lieu de ×2 ce jour-là.
   Corrigé (firstStrike: 1). Nouveau test : les nombres de l'effet réel de chaque bénédiction (describeEffects) doivent

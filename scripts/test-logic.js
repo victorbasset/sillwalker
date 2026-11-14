@@ -1000,6 +1000,16 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const src = fs.readFileSync(new URL("../src/renderer/render/strip.js", import.meta.url), "utf8");
     for (const k of DAY_MOD_KEYS) assert.ok(src.includes("dm_" + k + ":"), "réplique manquante : dm_" + k);
   });
+  test("chaque élite : ses paramètres chiffrés figurent dans sa description (it. 1323)", () => {
+    const pct = (x) => String(Math.round(x * 100));
+    for (const [k, a] of Object.entries(ELITE_AFFIXES)) {
+      const want = [];
+      if (a.hp) want.push(pct(a.hp - 1));
+      if (a.atk) want.push(pct(a.atk - 1));
+      for (const f of ["regen", "thorns", "dodge"]) if (a[f]) want.push(pct(a[f]));
+      for (const n of want) assert.ok(a.desc.includes(n + " %"), k + " : « " + n + " % » absent de « " + a.desc + " »");
+    }
+  });
   test("chaque bénédiction : les nombres de son effet réel figurent dans sa description (it. 1322)", () => {
     // le Jour de l'élan avait firstStrike: 100 (unité : fraction) : un premier coup ×101 annoncé « +100 % »
     for (const k of DAY_MOD_KEYS) {
