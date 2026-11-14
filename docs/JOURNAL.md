@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1186, médias 1) : GIF animés pour la page itch.io (scripts/promo/gifs.py) : cinq boucles de 4-5 s
+  (marche, Lune de sang, Ruée des gobelins, Nuée d'étoiles, combat de fin), nettes au pixel (rendu ×2 du tournage
+  sans mise à l'échelle, 240 px de haut), cadrées sur le héros d'après son journal, palette par GIF, 15 images/s :
+  500 Ko à 1,3 Mo chacun.
 - 2026-11-14 (it. 1185, bande-annonce 14) : version courte de 29,7 s pour les réseaux (CUT=short dans trailer.py :
   11 mesures prises au montage complet : logo, bureau, héros, trois événements, grand graphe, combat de fin, carton
   final), anglais et français ; musique fondue sur la dernière seconde et demie (edit.py), bruitages recalés.
