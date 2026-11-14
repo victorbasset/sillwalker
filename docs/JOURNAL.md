@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1177, captures 2) : écran scindé (edit.py, « extra » : cadrages en plus de la même image) : la capture
+  de la Lune de sang montre toute la bande en deux moitiés empilées à ×1 : le cortège entier d'élites étiquetées
+  jusqu'au boss du volcan (à ×3, deux élites seulement). La bande-annonce garde le panoramique ×2 (plus vivant).
 - 2026-11-14 (it. 1176, captures 1) : scripts/promo/stills.py → edit.py (sortie « %02d.png » : une image par scène) :
   deux séries de 10 captures 1920×1080 à partir des plans tournés : « steam » (du jeu seul, sans texte publicitaire)
   et « promo » (accroche + sous-titre, petit logo en bas à droite) : bureau, héros ×4, Lune de sang, Mirette, grand

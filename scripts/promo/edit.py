@@ -271,6 +271,12 @@ def render_scene(sc, enc, bgs):
             sh = sh.filter(ImageFilter.GaussianBlur(12))
             img.paste(sh, (tx - 20, ty - 20), sh)
             img.paste(part, (tx, ty))
+            for ex in sc.get("extra", []):  # (it. 1177) cadrages en plus de la même image (écran scindé)
+                (ex0, ey0, ew), (rx, ry, rw, rh) = ex["cam"], ex["rect"]
+                eh = ew * rh / rw
+                ep = src.crop((int(ex0), int(ey0), int(ex0 + ew), int(ey0 + eh))).resize((rw, rh), Image.NEAREST if rw / ew >= 1 else Image.BOX)
+                img.paste(sh.resize((rw + 40, rh + 40)), (rx - 20, ry - 20), sh.resize((rw + 40, rh + 40)))
+                img.paste(ep, (rx, ry))
         if title is not None:
             paste_title(img, title, i, sc)
         # fondu au noir en entrée et en sortie

@@ -24,10 +24,15 @@ S = []
 for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
     sc = {"type": typ, "src": src, "t0": t0, "dur": F, "cam": cam, "fade": 0, "title_in": False}
     if rect: sc["rect"] = rect
+    if src == "bloodmoon":  # (it. 1177) toute la bande, en deux moitiés empilées (×1) : le cortège entier d'élites
+        sc["rect"] = [0, 330, 1920, 200]; sc["cam"] = [[0, 1040, 1920], [0, 1040, 1920]]
+        sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 590, 1920, 200]}]
     if tr is not None: sc["track"] = tr
     if SERIES == "promo":
         panel = rect and rect[3] == 1080
-        if rect and rect[3] in (600, 800) and rect[1] < 230:  # bande sous l'accroche
+        if src == "bloodmoon":
+            sc["rect"] = [0, 380, 1920, 200]; sc["extra"] = [{"cam": [1920, 1040, 1920], "rect": [0, 640, 1920, 200]}]
+        elif rect and rect[3] in (600, 800) and rect[1] < 230:  # bande sous l'accroche
             sc["rect"] = [0, 230 if rect[3] == 800 else 300, 1920, rect[3]]
         if panel:  # vue du panneau : réduite pour laisser la place à l'accroche
             sc["rect"] = [192, 190, 1536, 864]  # (it. 1176) fenêtre entière (panneau et bande) : cadrage 2203 de large
