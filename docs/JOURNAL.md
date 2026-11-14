@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1253, contrôle) : nouvel extracteur (it. 1252, toutes sous-sections et bulles) passé sur la partie
+  de fin en ja, zh, ko, pl, de, es, pt (≈ 19 800 lignes chacune) : aucun texte non traduit. Langues asiatiques : aucun
+  mot latin hors suffixes des grands nombres et « pt » japonais (abréviation de points, voulue) ; langues latines :
+  aucun mot français (« Pas » ceinture en polonais, « Ton » en allemand, « le » espagnol : vrais mots).
 - 2026-11-14 (it. 1252) : outil --dump-text (main.js) : il ne lisait que la sous-section par défaut de chaque onglet
   (Bestiaire > Élites, Événements, Bénédictions ; Boutique > Atelier ; Statistiques > Succès… jamais extraits) et
   les attributs title, vides depuis l'it. 817 (les bulles sont dans data-title) : le texte des bulles échappait donc
