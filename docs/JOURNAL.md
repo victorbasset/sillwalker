@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1285) : scripts/max-save.mjs (état « tout au maximum ») complété : tous les familiers (18, niveau
+  10), toutes les sortes d'élites, tous les événements, toutes les bénédictions vécues, compteurs à 5-6 chiffres
+  (champions, élites) ; il en ignorait plusieurs (17 familiers, 7 élites, 0 bénédiction). Mesuré ensuite dans les
+  10 langues à 1920 et 1280 px : en russe à 1920 px, les Statistiques défilaient de 4 px (défaut antérieur, déjà là
+  avec l'ancien max-save) : deux libellés passaient sur deux lignes, raccourcis (« Самый дальний побеждённый босс »
+  → « Дальний побеждённый босс », « Засчитанное офлайн-время » → « Офлайн-время (зачтено) »). Ensuite : 10 langues
+  propres aux deux largeurs. Autotest 227/227.
 - 2026-11-14 (it. 1284) : « Quoi de neuf », édition 68 : Grenouillette, réplique du champion vaincu, champions dans
   le résumé d'absence ; traduite (noms repris tels que traduits). Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1283) : chasse aux pluriels en dur (suite de « les 1 familiers », it. 1282) : relevé des tx() dont

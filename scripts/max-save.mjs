@@ -30,5 +30,16 @@ s.lvl = Math.max(s.lvl, 1200); s.skills.outer = [];
 for (let id; (id = nextGraphNode(s));) s.skills.outer.push(id);
 s.skills.graphSeen = s.skills.graphFullSeen = true;
 for (const id of Object.keys(MASTERY_ALT)) { s.talents[s.cls][id] = 420; for (const at of MASTERY_STEPS) (s.masteryPicks ||= {})[id + ":" + at] = "b"; }
+// (it. 1285) collections ajoutées depuis : tous les familiers (niveau 10), toutes les sortes d'élites, tous les événements
+// rares, toutes les bénédictions vécues, et des compteurs à plusieurs chiffres (champions, élites)
+const { PETS } = await import(R + "pets.js");
+const { ELITE_AFFIXES } = await import(R + "data.js");
+const { EVENTS } = await import(R + "events.js");
+const { DAY_MOD_KEYS } = await import(R + "daymods.js");
+s.pets.owned = Object.fromEntries(PETS.map((p) => [p.id, { lvl: 10, xp: 0 }]));
+s.stats.affixesSeen = Object.fromEntries(Object.keys(ELITE_AFFIXES).map((k) => [k, 9999]));
+s.stats.eventsSeen = Object.fromEntries(Object.keys(EVENTS).map((k) => [k, true]));
+s.daily.seen = Object.fromEntries(DAY_MOD_KEYS.map((k) => [k, true]));
+s.stats.champions = 12345; s.stats.elites = Math.max(s.stats.elites || 0, 987654);
 fs.writeFileSync(process.argv[2], JSON.stringify(s));
 console.log("ok", s.skills.outer.length + " nœuds", Object.keys(s.bestiary).length, CODEX_ENTRIES.length, Object.keys(POWERS).length, ACHIEVEMENTS.length);
