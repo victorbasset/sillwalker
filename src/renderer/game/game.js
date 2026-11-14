@@ -1114,7 +1114,8 @@ export class Game {
     const elites = this.offlineElites(kills, hs);
     // (it. 1262) champions vaincus pendant l'absence (chance par monstre, dès CHAMPION.minZone) : la quête « Vaincre un
     // champion » avance aussi hors ligne, comme les autres
-    if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance * (activeDayMod(S)?.champion || 1), champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0);
+    let champs = 0; // (it. 1276) dans le résumé d'absence
+    if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance * (activeDayMod(S)?.champion || 1); champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0);
       if (champs) { S.stats.champions = (S.stats.champions || 0) + champs; this.questProgress("champion", champs); } }
     if (elites) { S.stats.elites += elites; this.questProgress("elite", elites);
       // (it. 946) proies pendant l'absence : chaque élite a une sorte au hasard (1 chance sur 7 d'être la bonne)
@@ -1185,7 +1186,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,
     };
     this.log(tx("Pendant ") + summary.duration + colon() + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") +

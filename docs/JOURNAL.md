@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1276) : résumé d'absence (détail) : ligne « Champions vaincus » quand des champions sont tombés
+  pendant l'absence (comptés depuis l'it. 1262 mais pas montrés ; clé existante, déjà traduite). Pire cas de
+  l'autotest complété (champions: 3) ; test : le résumé compte autant de champions que la quête en a reçu.
+  Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1275, contrôle) : ouverture des onglets (tab-pace, 3 graines) après les ajouts du jour : talents
   1 min, quêtes 5, boutique 8-9, Héros 10, carte 12, bestiaire 14-15, ascension 23-36 : dans les repères.
 - 2026-11-14 (it. 1274, contrôle) : --crawl en polonais sur la partie de fin, Jour des champions actif, quête de

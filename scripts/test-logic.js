@@ -962,7 +962,7 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const h = new Game(freshState()); h.S.zone = 10; h.S.stats.kills = 50;
     h.S.quests.slots[0] = { id: 998, kind: "champion", goal: 99, progress: 0, stars: 1, reward: { gold: 10 } };
     const sum = h.applyOffline(8 * 3600);
-    assert.ok(sum && sum.kills >= 200 && h.S.quests.slots[0].progress >= 1, (sum && sum.kills) + " monstres, " + h.S.quests.slots[0].progress + " champions");
+    assert.ok(sum && sum.kills >= 200 && h.S.quests.slots[0].progress >= 1 && sum.champions === h.S.quests.slots[0].progress, (sum && sum.kills) + " monstres, " + h.S.quests.slots[0].progress + " champions");
   });
   test("élite régénérante : regagne sa vie en combat, jamais au-delà du maximum (it. 1250)", () => {
     const g = new Game(freshState());

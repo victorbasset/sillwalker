@@ -506,6 +506,7 @@ export class Panel {
       <ul class="lines">
         <li><span>${tx("Monstres vaincus")}</span><b>${fmt(sum.kills)}</b></li>
         ${sum.elites ? `<li><span>${tx("Élites vaincues")}</span><b>${fmt(sum.elites)}</b></li>` : ""}
+        ${sum.champions ? `<li><span>${tx("Champions vaincus")}</span><b>${fmt(sum.champions)}</b></li>` : ""}
         <li><span>${tx("Or gagné")}</span><b>+${fmt(sum.gold + (sum.petGold || 0))}</b></li>
         <li><span>${tx("Expérience")}</span><b>+${fmt(sum.xp)}</b></li>
         ${sum.newLevel ? `<li><span>${tx("Nouveau niveau")}</span><b>${sum.newLevel}</b></li>` : ""}
