@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1210) : tout le matériel promo refait avec les corrections des it. 1208-1209 (guerrier devant le
+  mage, aucun monstre autour de la maison de Mirette) : tous les plans retournés dans les 10 langues, 300 captures,
+  vignettes, GIF et 30 vidéos recalculés ; livrés sur le partage, dans steam/promo et steam/screenshots.
 - 2026-11-14 (it. 1209, demande de Victor) : duo : un héros à distance (mage, archer…) avec un compagnon au corps à
   corps laisse le compagnon marcher devant lui (strip.js, placement du compagnon) ; avant, le mage menait la marche et
   son guerrier suivait. Autotest 227/227. Tout le matériel promo est retourné et recalculé avec ce placement.
