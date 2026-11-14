@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1180, bande-annonce 10) : plans de la bande retournés avec le journal de position du héros
+  (Lune de sang, Nuée d'étoiles, Ruée des gobelins, Pluie d'or, relique, combat de fin) : la caméra des événements et
+  du combat final suit le héros (avant : panoramique fixe réglé à la main, qui le perdait selon la prise) ; relique
+  cadrée à ×1,2 : la phrase du Drone stellaire entière (coupée aux deux bords avant). Version 5.
 - 2026-11-14 (it. 1179, captures 4) : Mirette recadrée à ×1,5 lissé (maison, nom et réplique entiers) ; Ruée des
   gobelins à l'instant de la pluie d'or (×2 autour du héros). Planches des deux séries envoyées à Victor.
 - 2026-11-14 (it. 1178, captures 3) : 13 captures par série : trois nouveaux plans (carte du Rebord, boutique,
