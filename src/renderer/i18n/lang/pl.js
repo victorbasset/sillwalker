@@ -1663,4 +1663,6 @@ export default {
   2788: "Odzyskuje 3 % maksymalnego życia co sekundę, chyba że płonie lub jest zatruty.",
   2789: "Pokonaj {n} czempiona|Pokonaj {n} czempionów|Pokonaj {n} czempionów",
   2790: "Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, czempionami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
+  2791: "Nowe zadanie: pokonaj czempiona (epicka skrzynia, czasem jajo). Postępuje też podczas twojej nieobecności, z szacowanym czasem.",
+  2792: "Regenerujący nie leczy się już, gdy płonie lub jest zatruty.",
 };

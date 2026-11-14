@@ -2792,5 +2792,7 @@ export const KEYS = [
   "Thème clair : la bordure des événements en cours se voit mieux.",
   "Regagne 3 % de sa vie maximale chaque seconde, sauf s’il brûle ou est empoisonné.",
   "Vaincre {n} champion|Vaincre {n} champions",
-  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare."
+  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, champions, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
+  "Nouvelle quête : vaincre un champion (coffre épique, parfois un œuf). Elle avance aussi pendant ton absence, avec un temps estimé.",
+  "Le Régénérant ne se soigne plus tant qu’il brûle ou qu’il est empoisonné."
 ];

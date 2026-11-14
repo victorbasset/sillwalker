@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1264) : « Quoi de neuf », édition 66 : quête de champion (hors ligne, temps estimé), Régénérant
+  sans soin en brûlant ou empoisonné ; traduite. Autotest 227/227. lang-overflow : le défilement passager de
+  l'Aventure en espagnol à 1280 px est revenu (10 px, une fois) et le rapport (it. 1258) a désigné la colonne du
+  héros (p-hero), mais comme élément le texte d'une chronique, dans une section REPLIÉE : le contenu d'un <details>
+  fermé garde des rectangles dans Chromium. Rapport corrigé (contenu replié exclu) ; deux passes espagnoles ensuite :
+  rien. La cause reste à nommer (voir Idées).
 - 2026-11-14 (it. 1263) : quête « Vaincre un champion » : temps estimé restant au rythme actuel des combats
   (questEta : une chance sur 200 par victoire, comme hors ligne), affiché sur sa carte comme pour les chasses et les
   élites. Test (200 fois le temps d'une victoire) ; autotest 227/227.
@@ -4934,6 +4940,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   l'élément qui dépasse (classe et texte), pour que la prochaine occurrence se nomme d'elle-même.
   FAIT it. 1258 : --overflow-report ajoute « onglet-cause=colonne>élément:texte » ; à la prochaine occurrence, lire
   cette ligne dans la sortie de lang-overflow.
+  Revu à l'it. 1264 (troisième occurrence, colonne p-hero confirmée ; l'élément nommé était faux : contenu d'une
+  section repliée, exclu depuis).
 - (Close, it. 1213 : pas un bug) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.

@@ -195,7 +195,7 @@ function start() {
             // (it. 1258) l'élément qui dépasse le plus bas, nommé (classe et début du texte) : un défilement passager se
             // nomme de lui-même (es 1280, it. 1256-1257, jamais reproduit)
             if (o > 2) { const pb = p.getBoundingClientRect().bottom, pn = document.querySelector("[data-pane=" + id + "]:not([hidden])");
-              const low = pn ? [...pn.querySelectorAll("*")].filter((e) => e.getClientRects().length && e.children.length === 0 && e.getBoundingClientRect().bottom > pb + 1)
+              const low = pn ? [...pn.querySelectorAll("*")].filter((e) => e.getClientRects().length && e.children.length === 0 && !e.closest("details:not([open]) > :not(summary)") && e.getBoundingClientRect().bottom > pb + 1)
                 .sort((a, b) => b.getBoundingClientRect().bottom - a.getBoundingClientRect().bottom)[0] : null;
               if (low) { const box = low.closest(".panel") || low.parentElement;
                 out.push(id + "-cause=" + ((box.id || box.className || box.tagName) + ">" + (low.className || low.tagName) + ":" + (low.textContent || "").trim().slice(0, 24)).replace(/\\s+/g, "_")); } }

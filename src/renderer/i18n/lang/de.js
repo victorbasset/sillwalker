@@ -1663,4 +1663,6 @@ export default {
   2788: "Gewinnt jede Sekunde 3 % seines maximalen Lebens zurück, außer wenn er brennt oder vergiftet ist.",
   2789: "{n} Champion besiegen|{n} Champions besiegen",
   2790: "Quests laufen von selbst weiter, sogar offline (außer Bosse, Champions, seltene Ereignisse und Zauber). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, Champions, seltene Ereignisse und Zauber). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
+  2791: "Neue Quest: einen Champion besiegen (epische Truhe, manchmal ein Ei). Sie läuft auch während deiner Abwesenheit weiter, mit geschätzter Zeit.",
+  2792: "Der Regenerierende heilt sich nicht mehr, solange er brennt oder vergiftet ist.",
 };
