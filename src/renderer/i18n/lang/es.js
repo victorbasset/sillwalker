@@ -1694,4 +1694,6 @@ export default {
   2819: "¡Cada golpe cuenta doble!",
   2820: "Nuevo evento raro, el Eco de las hojas: durante 30 s, cada golpe impacta dos veces.",
   2821: "Bestiario > Bendiciones del día: se marcan la bendición de hoy y la de mañana, incluso la de mañana nunca vivida.",
+  2822: "Venenoso",
+  2823: "Sus golpes pueden envenenar al héroe (3 % de sus PV máx. por segundo durante 4 s, sin rematarlo).",
 };

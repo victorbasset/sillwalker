@@ -1694,4 +1694,6 @@ export default {
   2819: "Every hit counts double!",
   2820: "New rare event, Echoing Blades: for 30 s, every hit strikes twice.",
   2821: "Bestiary > Daily blessings: today's and tomorrow's blessings are marked, even tomorrow's if you've never lived it.",
+  2822: "Venomous",
+  2823: "Its hits can poison the hero (3% of max HP per second for 4 s, never lethal).",
 };

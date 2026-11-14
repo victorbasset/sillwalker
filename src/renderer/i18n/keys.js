@@ -2823,5 +2823,7 @@ export const KEYS = [
   "Chaque coup frappe deux fois !",
   "Chaque coup compte double !",
   "Nouvel événement rare, l’Écho des lames : pendant 30 s, chaque coup frappe deux fois.",
-  "Bestiaire > Bénédictions du jour : la bénédiction d’aujourd’hui et celle de demain sont marquées, même celle de demain jamais vécue."
+  "Bestiaire > Bénédictions du jour : la bénédiction d’aujourd’hui et celle de demain sont marquées, même celle de demain jamais vécue.",
+  "Venimeux",
+  "Ses coups peuvent empoisonner le héros (3 % de ses PV max par seconde pendant 4 s, sans l’achever)."
 ];

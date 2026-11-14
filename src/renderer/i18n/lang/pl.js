@@ -1694,4 +1694,6 @@ export default {
   2819: "Każdy cios liczy się podwójnie!",
   2820: "Nowe rzadkie wydarzenie, Echo ostrzy: przez 30 s każdy cios trafia dwa razy.",
   2821: "Bestiariusz > Błogosławieństwa dnia: dzisiejsze i jutrzejsze są oznaczone, nawet jutrzejsze, którego nigdy nie przeżyłeś.",
+  2822: "Jadowity",
+  2823: "Jego ciosy mogą zatruć bohatera (3 % maks. PŻ na sekundę przez 4 s, nigdy śmiertelnie).",
 };

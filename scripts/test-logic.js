@@ -959,6 +959,17 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of [a.id + ".png", a.id + "_gray.png"]) assert.ok(fs.existsSync(new URL("../steam/achievement-icons/" + f, import.meta.url)), "icône absente : " + f + " (scripts/steam-capsules/achicons.js)");
     }
   });
+  test("élite venimeuse : empoisonne le héros, sans jamais l'achever (it. 1309)", () => {
+    let poisoned = false;
+    for (let k = 0; k < 40 && !poisoned; k++) {
+      const g = new Game(freshState());
+      for (let i = 0; i < 2000 && g.R.mode !== "fight"; i++) g.advance(0.05);
+      Object.assign(g.R.mon, { elite: true, affix: "venomous", hp: 1e30, max: 1e30 });
+      for (let i = 0; i < 300 && !poisoned; i++) { g.advance(0.05); if (g.R.venomT > 0) poisoned = true; }
+      if (poisoned) { g.R.hp = 2; g.R.atkT = 99; g.R.mon.atk = 0; g.S.potions = 0; for (let i = 0; i < 40; i++) g.advance(0.1); assert.ok(g.R.hp >= 1, "le venin n'achève pas : " + g.R.hp); }
+    }
+    assert.ok(poisoned, "le héros finit empoisonné");
+  });
   test("Écho des lames : chaque coup frappe deux fois (it. 1304)", () => {
     const strikes = (echo) => { const g = new Game(freshState()); for (let i = 0; i < 2000 && g.R.mode !== "fight"; i++) g.advance(0.05);
       const m = g.R.mon; m.hp = m.max = 1e30; let n = 0; const orig = g.heroStrike.bind(g); g.heroStrike = (...a) => { n++; return orig(...a); };

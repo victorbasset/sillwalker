@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1309) : 9e sorte d'élite, « Venimeux » : 20 % de chances par coup d'empoisonner le héros avec le
+  venin des boss (3 % de ses PV max par seconde, 4 s, raccourci par la pureté, n'achève jamais ; halo vert existant).
+  Le venin ne s'écoulait que dans bossTick : il s'écoule maintenant aussi hors boss. Traduit ; comptes 8 → 9 dans
+  store-page (10 langues), README, checklist. Test (empoisonné, PV ≥ 1). fuzz 1200 parties sans blocage ; balance
+  12 h : +1,0 (bruit) ; autotest 228/228 ; lang-overflow propre.
 - 2026-11-14 (it. 1308) : brouillon du devlog 0.1.4 complété (éditions jusqu'à 70) : Écho des lames, Jour des géants
   (+50 % contre les boss), titre revu ; toujours non publié.
 - 2026-11-14 (it. 1307, contrôle) : balance 12 h contre dbb35c4 (avant l'Écho des lames) : 63,7 → 63,4 sur les 10

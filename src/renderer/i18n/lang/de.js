@@ -1694,4 +1694,6 @@ export default {
   2819: "Jeder Treffer zählt doppelt!",
   2820: "Neues seltenes Ereignis, das Klingenecho: 30 s lang schlägt jeder Treffer doppelt zu.",
   2821: "Bestiarium > Segen des Tages: Der Segen von heute und der von morgen sind markiert, auch der von morgen, wenn du ihn nie erlebt hast.",
+  2822: "Giftig",
+  2823: "Seine Treffer können den Helden vergiften (3 % seiner max. LP pro Sekunde, 4 s lang, nie tödlich).",
 };

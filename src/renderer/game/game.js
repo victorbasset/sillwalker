@@ -295,6 +295,12 @@ export class Game {
     } else if (R.mode === "fight" && R.mon) {
       const m = R.mon;
       m.age += dt;
+      // (it. 1309) venin d'une élite venimeuse (celui des boss s'écoule dans bossTick) : n'achève jamais le héros
+      if (!m.boss && R.venomT > 0) {
+        R.venomT -= dt;
+        if (R.hp > 1) R.hp = Math.max(1, R.hp - hs.hp * VENOM.pct * dt);
+        if (R.hp < hs.hp * POTION_THRESHOLD) this.drinkPotion(hs);
+      }
       // (it. 1250) élite régénérante : regagne une part de sa vie chaque seconde
       // (it. 1256) comme la Régénération des boss : la brûlure et le poison l'empêchent de se soigner
       if (m.affix === "regen" && m.hp > 0 && m.hp < m.max && !(m.burnT > 0) && !(m.poisonT > 0)) {
@@ -419,6 +425,11 @@ export class Game {
     R.hp -= dmg;
     if (dmg > 0) this.emit(mult > 1 ? "smash" : "heroHurt", { dmg });
     if (m.affix === "vampiric" && dmg > 0) m.hp = Math.min(m.max, m.hp + dmg * ELITE_AFFIXES.vampiric.lifesteal);
+    // (it. 1309) élite venimeuse : le venin des boss (même durée, réduit par la pureté)
+    if (m.affix === "venomous" && dmg > 0 && !(R.venomT > 0) && rand() < ELITE_AFFIXES.venomous.venom.chance) {
+      const d = VENOM.s * (1 - (hs.purity || 0) / 100);
+      if (d > 0.05) { R.venomT = d; this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
+    }
     if (m.affix === "frosty" && dmg > 0 && rand() < ELITE_AFFIXES.frosty.freeze.chance) { // gel : attaques du héros ralenties
       R.frozen = Math.max(R.frozen || 0, ELITE_AFFIXES.frosty.freeze.s);
       this.emit("bossSkill", { id: "frost" });
