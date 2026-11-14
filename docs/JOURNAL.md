@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1209, demande de Victor) : duo : un héros à distance (mage, archer…) avec un compagnon au corps à
+  corps laisse le compagnon marcher devant lui (strip.js, placement du compagnon) ; avant, le mage menait la marche et
+  son guerrier suivait. Autotest 227/227. Tout le matériel promo est retourné et recalculé avec ce placement.
 - 2026-11-14 (it. 1208, demande de Victor) : rencontre d'un PNJ : plus de monstre autour de sa maison (ils passaient
   derrière la grenouille) : classe « mon » sur les monstres de la bande (strip.js monsterActor), masqués tant que la
   scène dure (.stage.npc-scene, juice.js), sans transition (leurs fondus sont animés par le jeu). Autotest 227/227.

@@ -903,7 +903,10 @@ export class StripRenderer {
       this.partnerAtk = Math.max(0, (this.partnerAtk || 0) - dt);
       const pf = this.partner.frames[0], fighting = R.mode === "fight" && R.mon, ranged = isRanged(this.partnerCls);
       // Corps à corps : au contact du monstre, juste devant lui ; à distance : quelques pas derrière le héros.
-      const px = fighting && !ranged ? this.monX() - pf.cw + 6 : x - pf.cw + 6;
+      // (it. 1209, demande de Victor) héros à distance (mage, archer…) et compagnon au corps à corps : en marche aussi, le
+      // compagnon passe devant (le mage menait la marche, son guerrier derrière lui)
+      const leads = !ranged && !melee;
+      const px = fighting && !ranged ? this.monX() - pf.cw + 6 : leads ? x + this.hero.w - 6 : x - pf.cw + 6;
       this.partner.show(this.partnerAtk > 0 ? 2 : Math.floor(R.time * (fighting ? 2 : 5) + 1) % 2);
       this.partner.move(px, GROUND - pf.ch);
       this.partner.alpha(R.mode === "dead" ? 0.35 : 1);
