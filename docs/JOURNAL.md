@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1181, captures 5) : captures recadrées sur les nouvelles prises : Nuée d'étoiles, Ruée des gobelins et
+  combat de fin suivent le héros ; combat de fin à ×2 (le duo, ses critiques à plusieurs millions et l'élite en face ;
+  à ×4 les nombres masquaient tout).
 - 2026-11-14 (it. 1180, bande-annonce 10) : plans de la bande retournés avec le journal de position du héros
   (Lune de sang, Nuée d'étoiles, Ruée des gobelins, Pluie d'or, relique, combat de fin) : la caméra des événements et
   du combat final suit le héros (avant : panoramique fixe réglé à la main, qui le perdait selon la prise) ; relique

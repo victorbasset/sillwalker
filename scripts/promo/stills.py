@@ -17,11 +17,11 @@ SHOTS = [
     ("p-mastery", 4.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Real choices", "Two bonuses at every mastery milestone"),
     ("p-adventure", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Gear up and forge", "Sets, legendary powers, a forge and a merchant"),
     ("p-bestiary", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Collect them all", "83 monsters, elites, sets and rare events"),
-    ("endfight", 3.0, "clip", [0, 140, 1920, 800], CU(1500), None, "Grow absurdly powerful.", "20 heroes, fighting in pairs"),
+    ("endfight", 3.0, "clip", [0, 340, 1920, 400], [[1500, 1040, 960], [1500, 1040, 960]], 200, "Grow absurdly powerful.", "20 heroes, fighting in pairs"),
     ("p-map", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "200 zones to cross", "Free the captive heroes, uncover the chronicles"),
-    ("starfall", 5.0, "clip", [0, 240, 1920, 600], EV(1150), None, "STAR SWARM", "Catch the falling stars before they fade"),
+    ("starfall", 5.0, "clip", [0, 240, 1920, 600], EV(1150), 180, "STAR SWARM", "Catch the falling stars before they fade"),
     ("p-shop", 3.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Every comfort is earned", "Unlock automations in the shop as you progress"),
-    ("goblinrush", 6.0, "clip", [0, 340, 1920, 400], [[980, 1040, 960], [980, 1040, 960]], None, "GOBLIN RUSH", "Golden goblins, everywhere"),
+    ("goblinrush", 6.0, "clip", [0, 340, 1920, 400], [[980, 1040, 960], [980, 1040, 960]], 180, "GOBLIN RUSH", "Golden goblins, everywhere"),
 ]
 S = []
 for src, t0, typ, rect, cam, tr, head, sub in SHOTS:
