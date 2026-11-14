@@ -1684,4 +1684,7 @@ export default {
   2809: "+50 % obrażeń przeciw bossom.",
   2810: "Im więksi, tym głośniej upadają.",
   2811: "Wszystkie błogosławieństwa dnia",
+  2812: "Nowe błogosławieństwo dnia, Dzień olbrzymów: +50 % obrażeń przeciw bossom.",
+  2813: "Pokonany czempion ma teraz swoją małą fanfarę.",
+  2814: "Osiągnięcie błogosławieństw nazywa się teraz „Wszystkie błogosławieństwa dnia”.",
 };

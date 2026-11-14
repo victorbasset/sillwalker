@@ -2813,5 +2813,8 @@ export const KEYS = [
   "Jour des géants",
   "+50 % de dégâts contre les boss.",
   "Plus ils sont gros, plus ils tombent fort.",
-  "Toutes les bénédictions du jour"
+  "Toutes les bénédictions du jour",
+  "Nouvelle bénédiction du jour, le Jour des géants : +50 % de dégâts contre les boss.",
+  "Un champion vaincu a sa petite fanfare.",
+  "Le succès des bénédictions s’appelle désormais « Toutes les bénédictions du jour »."
 ];

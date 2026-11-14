@@ -1684,4 +1684,7 @@ export default {
   2809: "+50 % de dano contra chefes.",
   2810: "Quanto maior, maior a queda.",
   2811: "Todas as bênçãos do dia",
+  2812: "Nova bênção do dia, o Dia dos gigantes: +50 % de dano contra chefes.",
+  2813: "Um campeão derrotado ganha sua pequena fanfarra.",
+  2814: "A conquista das bênçãos agora se chama “Todas as bênçãos do dia”.",
 };

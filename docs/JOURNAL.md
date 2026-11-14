@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1294) : recherche d'autres noms ou textes qui citent un nombre dépendant d'une liste qui grandit
+  (comme « Dix jours bénis ») : aucun (succès à seuil fixe : cinq ascensions, dix héros, quatre reliques, trois
+  échos ; aucun « N sortes / événements… » en dur). « Quoi de neuf », édition 69 : Jour des géants, fanfare du
+  champion, succès renommé (libellé cité tel que traduit : i18n-quotes à 0). Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1293) : succès BLESSINGS_ALL renommé « Toutes les bénédictions du jour » (était « Dix jours bénis »,
   faux depuis la 11e bénédiction ; même API Name). Traduit ; steam/achievements.md régénéré (68 succès). L'édition 63
   de « Quoi de neuf » garde l'ancien nom (éditions publiées jamais modifiées). Pour Victor : dans Steamworks, renommer

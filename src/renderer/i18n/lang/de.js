@@ -1684,4 +1684,7 @@ export default {
   2809: "+50 % Schaden gegen Bosse.",
   2810: "Je größer sie sind, desto tiefer fallen sie.",
   2811: "Alle Tagessegen",
+  2812: "Neuer Tagessegen, der Tag der Riesen: +50 % Schaden gegen Bosse.",
+  2813: "Ein besiegter Champion bekommt seine kleine Fanfare.",
+  2814: "Der Segen-Erfolg heißt jetzt „Alle Tagessegen“.",
 };

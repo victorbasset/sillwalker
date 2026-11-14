@@ -1684,4 +1684,7 @@ export default {
   2809: "+50 % de daño contra los jefes.",
   2810: "Cuanto más grandes, más fuerte caen.",
   2811: "Todas las bendiciones del día",
+  2812: "Nueva bendición del día, el Día de los gigantes: +50 % de daño contra los jefes.",
+  2813: "Un campeón derrotado tiene su pequeña fanfarria.",
+  2814: "El logro de las bendiciones se llama ahora «Todas las bendiciones del día».",
 };
