@@ -53,6 +53,9 @@ export const EVENTS = {
   // victoires en rafale, et un coup de pouce pour franchir un boss coriace.
   palemoon: { name: "Lune pâle", chance: 0.0015, duration: 30, text: "Les monstres arrivent à moitié de leur vie !", color: "#d8dcf0" },
   starfall: { name: "Nuée d’étoiles", chance: 0.001, duration: 30, text: "Les étoiles filantes se suivent : attrape-les !", color: "#ffe28a" },
+  // (it. 1304) 16e : chaque coup du héros frappe deux fois (la frappe double de certains talents, garantie) ; ajouté à
+  // la FIN (le tirage parcourt la liste dans l'ordre)
+  echo: { name: "Écho des lames", chance: 0.002, duration: 30, text: "Chaque coup frappe deux fois !", color: "#e0a8ff" },
 };
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;

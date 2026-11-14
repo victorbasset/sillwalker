@@ -2818,5 +2818,8 @@ export const KEYS = [
   "Un champion vaincu a sa petite fanfare.",
   "Le succès des bénédictions s’appelle désormais « Toutes les bénédictions du jour ».",
   "aujourd’hui",
-  "demain"
+  "demain",
+  "Écho des lames",
+  "Chaque coup frappe deux fois !",
+  "Chaque coup compte double !"
 ];

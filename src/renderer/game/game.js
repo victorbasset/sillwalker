@@ -315,7 +315,9 @@ export class Game {
         this.heroStrike(m, hs, R.firstHit, false);
         R.firstHit = false;
         if (m.hp <= 0) { this.killMonster(); return; }
-        if (hs.doubleShot > 0 && rand() < hs.doubleShot / 100) {
+        // (it. 1304) Écho des lames : la frappe double est garantie (le tirage reste fait : même suite de hasard)
+        const dbl = hs.doubleShot > 0 && rand() < hs.doubleShot / 100;
+        if (dbl || (R.events.echo || 0) > 0) {
           this.heroStrike(m, hs, false, true);
           if (m.hp <= 0) { this.killMonster(); return; }
         }

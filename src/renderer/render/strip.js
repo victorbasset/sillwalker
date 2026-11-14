@@ -58,6 +58,7 @@ const SPEECH = {
   ev_ward: [tx("Rien ne peut m’atteindre !")],
   ev_arcane: [tx("La magie coule à flots !")],
   ev_palemoon: [tx("Ils tiennent à peine debout !")], // (it. 1242)
+  ev_echo: [tx("Chaque coup compte double !")], // (it. 1304)
   eliteNew: [tx("Une de plus pour ma collection !"), tx("Celle-là, je ne l’avais jamais battue !")],
   setFull: [tx("Panoplie au complet !"), tx("Tout est assorti, enfin !")], // (it. 1037) palier de 4 pièces
   // (it. 1038) ascension, héros libéré, œuf trouvé

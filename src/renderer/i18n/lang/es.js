@@ -1689,4 +1689,7 @@ export default {
   2814: "El logro de las bendiciones se llama ahora «Todas las bendiciones del día».",
   2815: "hoy",
   2816: "mañana",
+  2817: "Eco de las hojas",
+  2818: "¡Cada golpe impacta dos veces!",
+  2819: "¡Cada golpe cuenta doble!",
 };

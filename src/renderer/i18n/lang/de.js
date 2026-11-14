@@ -1689,4 +1689,7 @@ export default {
   2814: "Der Segen-Erfolg heißt jetzt „Alle Tagessegen“.",
   2815: "heute",
   2816: "morgen",
+  2817: "Klingenecho",
+  2818: "Jeder Treffer schlägt doppelt zu!",
+  2819: "Jeder Treffer zählt doppelt!",
 };

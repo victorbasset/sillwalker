@@ -959,6 +959,13 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of [a.id + ".png", a.id + "_gray.png"]) assert.ok(fs.existsSync(new URL("../steam/achievement-icons/" + f, import.meta.url)), "icône absente : " + f + " (scripts/steam-capsules/achicons.js)");
     }
   });
+  test("Écho des lames : chaque coup frappe deux fois (it. 1304)", () => {
+    const strikes = (echo) => { const g = new Game(freshState()); for (let i = 0; i < 2000 && g.R.mode !== "fight"; i++) g.advance(0.05);
+      const m = g.R.mon; m.hp = m.max = 1e30; let n = 0; const orig = g.heroStrike.bind(g); g.heroStrike = (...a) => { n++; return orig(...a); };
+      if (echo) g.R.events.echo = 999; for (let i = 0; i < 100; i++) g.advance(0.1); return n; };
+    const a = strikes(false), b = strikes(true);
+    assert.ok(b >= a * 1.8, "coups : " + a + " → " + b);
+  });
   test("chaque événement rare a son propre son (sound.js, it. 1302)", () => {
     const src = fs.readFileSync(new URL("../src/renderer/render/sound.js", import.meta.url), "utf8");
     for (const k of Object.keys(EVENTS_T)) assert.ok(src.includes(`case "${k}":`), "son manquant : " + k);

@@ -171,6 +171,7 @@ export class Sound {
       case "arcane": [N.C5, N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, i * 0.06, 0.4, "sine", 0.06, 1.2)); this.whoosh(0.1, 0.5, 600, 2400, 0.06, 4); break; // marée arcanique : arpège qui monte, souffle
       case "ward": this.tone(N.E5, 0, 0.8, "sine", 0.08, 1.5); this.tone(N.E5 * 1.01, 0, 0.8, "sine", 0.06, 1.5); this.whoosh(0, 0.6, 2000, 4000, 0.05, 3); break; // voile qui se lève
       case "goblinrush": [N.C6, N.E6, N.C6, N.G6].forEach((f, i) => this.tone(f, i * 0.07, 0.12, "square", 0.06)); break; // (it. 954) ricanements de gobelins
+      case "echo": [0, 0.07].forEach((d) => { this.tone(N.G5, d, 0.12, "triangle", 0.12); this.whoosh(d, 0.15, 2500, 5000, 0.04, 3); }); break; // deux lames qui sifflent (it. 1304)
       case "palemoon": [N.E5, N.D5, N.C5].forEach((f, i) => this.tone(f / 2, i * 0.12, 0.6, "sine", 0.07, 1.5)); this.whoosh(0, 0.9, 1400, 600, 0.04, 2); break; // lune qui se voile (it. 1242)
       case "starfall": [N.E6, N.C6, N.G5, N.E5].forEach((f, i) => this.tone(f * 2, i * 0.08, 0.3, "sine", 0.08)); this.whoosh(0, 0.8, 3000, 1200, 0.05, 3); break; // pluie d'étoiles qui descend
       case "bloodmoon": this.tone(N.A5 / 4, 0, 1.4, "triangle", 0.2, 0.9); this.tone(N.A5 / 4 * 1.5, 0.05, 1.2, "sine", 0.08, 0.9); this.whoosh(0.3, 1.1, 500, 900, 0.08, 1.2); break; // gong grave et hurlement lointain

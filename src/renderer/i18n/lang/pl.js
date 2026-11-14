@@ -1689,4 +1689,7 @@ export default {
   2814: "Osiągnięcie błogosławieństw nazywa się teraz „Wszystkie błogosławieństwa dnia”.",
   2815: "dziś",
   2816: "jutro",
+  2817: "Echo ostrzy",
+  2818: "Każdy cios trafia dwa razy!",
+  2819: "Każdy cios liczy się podwójnie!",
 };

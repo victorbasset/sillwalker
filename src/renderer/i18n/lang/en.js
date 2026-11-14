@@ -1689,4 +1689,7 @@ export default {
   2814: "The blessings achievement is now called “All daily blessings”.",
   2815: "today",
   2816: "tomorrow",
+  2817: "Echoing Blades",
+  2818: "Every hit strikes twice!",
+  2819: "Every hit counts double!",
 };

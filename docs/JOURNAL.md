@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1304) : 16e événement rare, « Écho des lames » (30 s, 0,2 %) : chaque coup du héros frappe deux
+  fois (la frappe double garantie ; le tirage habituel reste fait : même suite de hasard hors événement). Ajouté à la
+  FIN d'EVENTS. Réplique, son (deux lames qui sifflent ; rendu par l'autotest qui suit maintenant la liste du jeu),
+  traduit ; comptes 15 → 16 dans store-page (10 langues), dossiers de presse (dépôt et partage), README, checklist
+  Steam. Test (≥ 1,8 fois plus de coups). fuzz 1200 parties sans blocage ; autotest 228/228 ; lang-overflow propre.
 - 2026-11-14 (it. 1303) : test : chaque succès a son icône choisie dans achicons.html et ses deux PNG
   (steam/achievement-icons, couleur et grisée) ; avant, un oubli ne se voyait qu'en relançant achicons.js (it. 1266 :
   un dessin inexistant y avait été signalé). Les 68 sont complets. Série des it. 1299-1303 : réplique de chaque

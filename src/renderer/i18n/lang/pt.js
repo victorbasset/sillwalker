@@ -1689,4 +1689,7 @@ export default {
   2814: "A conquista das bênçãos agora se chama “Todas as bênçãos do dia”.",
   2815: "hoje",
   2816: "amanhã",
+  2817: "Eco das lâminas",
+  2818: "Cada golpe acerta duas vezes!",
+  2819: "Cada golpe conta em dobro!",
 };
