@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1211, revue générale) : performance stable (copie neuve de dev-data : bande 21,1 %, panneau
+  20,9 %, mini 7,0 %, icône 0,5 % d'un cœur) ; lang-overflow : aucun défilement ni mot coupé dans les 10 langues
+  (fin de partie et 130 % compris) ; texte russe extrait : rien d'anglais ou de français oublié ; 12 h simulées :
+  guerrier, mage, archer 62-63 de record. À surveiller (Idées) : le mage ne complète aucune panoplie en 12 h (graines
+  7, 3, 11), contre 3 à 5 pour le guerrier.
 - 2026-11-14 (it. 1210) : tout le matériel promo refait avec les corrections des it. 1208-1209 (guerrier devant le
   mage, aucun monstre autour de la maison de Mirette) : tous les plans retournés dans les 10 langues, 300 captures,
   vignettes, GIF et 30 vidéos recalculés ; livrés sur le partage, dans steam/promo et steam/screenshots.
@@ -4714,6 +4719,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- (Moyenne, revue it. 1211) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
+  il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
+  la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.
 - EN COURS (demande de Victor, 2026-11-14 00 h 14 : « jusqu'à samedi 12 h, focus maximum sur la bande-annonce et les
   captures d'écran, rendu d'agence de com ; prends ton temps ; ensuite reprends normalement »). Plan : 1) filmer net
   (échelle ×2, scripts/promo/record.sh, --stage) ; 2) plans mis en scène (boss et relique, Lune de sang, Nuée
