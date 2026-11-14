@@ -70,3 +70,33 @@ Next up is balancing based on what you tell me. The little feedback button at th
 back to this page. After that: the Steam release, with achievements and cloud saves.
 
 If something felt slow, confusing or just fun, drop a comment, I read everything.
+
+## YouTube — bande-annonce anglaise (it. 1271, demande de Victor)
+
+Vidéo : `steam/promo/videos/sillwalker-trailer-en.mp4` ; vignette : `steam/promo/vignettes/youtube-thumbnail-en.png`.
+Puis sur itch.io : Edit game > « Gameplay video or trailer » : coller le lien YouTube. Chiffres limités à ce que
+contient la 0.1.3 (pas ceux de store-page.md, qui décrit la version en développement).
+
+**Titre** : Sillwalker – Official Trailer | An idle RPG that lives above your taskbar
+
+**Description** :
+
+Sillwalker is an idle RPG that lives in a thin strip right above your taskbar.
+Your hero walks, fights and loots on their own while you work, play or watch videos. Clicks pass straight through the strip, and it hides in front of fullscreen games and videos.
+Whenever you feel like it, open the panel and dive in: free new heroes, grow your skill tree, forge gear, raise pets, ascend and start over stronger.
+
+▶ Play it now on itch.io (Windows, macOS on Apple silicon, Linux): https://victor-basset.itch.io/sillwalker
+
+What's inside:
+• 20 heroes to free, fighting in pairs, each with their own talents and spells
+• A skill tree surrounded by a great 618-node graph of paths and synergies
+• Over 30 pixel-art regions, golden elites, thieving goblins and bosses guarding relics
+• Rare events, daily blessings and a small story told in tiny cutscenes
+• Progress continues while the game is closed (up to 8 hours)
+• 10 languages, lofi music for every region
+
+Made by a solo developer in France.
+
+#Sillwalker #IdleGame #IndieGame #PixelArt #IdleRPG
+
+**Tags** : Sillwalker, idle game, idle RPG, incremental game, pixel art, indie game, desktop game, taskbar game, cozy game, gamedev

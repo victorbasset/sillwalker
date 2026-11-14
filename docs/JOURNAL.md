@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1271, revue générale + demandes de Victor) : texte YouTube de la bande-annonce anglaise (titre,
+  description, tags ; chiffres limités à la 0.1.3) rangé dans steam/promo-posts.md. Miniature YouTube 1280×720 dans
+  la composition de la capsule principale proposée (mage derrière, guerrier devant, drake ; make.js, capsule.html :
+  main-capsule identique octet pour octet à la proposition) + couverture itch 630×500 assortie, dans
+  steam/promo/capsules-steam-proposition et sur le partage. Revue : texte coréen et russe de la partie de fin avec le
+  Jour des champions, la quête de champion et le succès (≈ 19 800 lignes chacun) : rien de non traduit ; 12 h et
+  performance mesurées à la 1261, rien depuis qui les touche.
 - 2026-11-14 (it. 1270, contrôle) : deux passes complètes de lang-overflow après la correction de l'it. 1269 : aucun
   défilement (avant : le défaut espagnol dans 3 des 4 dernières passes complètes, it. 1256-1268). Tenu pour corrigé ;
   à rouvrir s'il revient (le rapport nommera la colonne).
