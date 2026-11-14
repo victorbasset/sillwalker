@@ -1674,4 +1674,7 @@ export default {
   2799: "Los campeones aparecen a partir de la zona {0}.",
   2800: "¡Un campeón menos!",
   2801: "¡De rodillas, campeón!",
+  2802: "Ranita",
+  2803: "Su croar atrae a las élites… y su botín.",
+  2804: "Enviar la mascota libre: {1}|Enviar las {n} mascotas libres: {1}",
 };

@@ -1674,4 +1674,7 @@ export default {
   2799: "Champions appear from zone {0} onward.",
   2800: "One champion down!",
   2801: "Kneel, champion!",
+  2802: "Froglet",
+  2803: "Its croaking draws elites… and their loot.",
+  2804: "Send the free pet: {1}|Send the {n} free pets: {1}",
 };

@@ -938,6 +938,13 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     assert.ok(!ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
     g.S.stats.champions = 25; assert.ok(ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
   });
+  test("chaque familier a son dessin, toutes ses images de même largeur (it. 1282)", () => {
+    for (const p of M_pets_js.PETS) {
+      const art = M_art_js.PET_ART[p.id];
+      assert.ok(art && art.frames.length >= 2, "dessin de " + p.id);
+      for (const f of art.frames) for (const row of f) assert.equal(row.length, f[0].length, p.id + " : « " + row + " »");
+    }
+  });
   test("Jour des champions : champions ×4 dans la file (it. 1268)", () => {
     const count = (mod) => { let n = 0; for (let k = 0; k < 400; k++) { const g = new Game(freshState()); g.S.zone = 12; g.S.daily.mod = mod;
       g.R.lineup = null; n += g.lineup().filter((x) => x.champion).length; } return n; };

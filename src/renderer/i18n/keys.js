@@ -2803,5 +2803,8 @@ export const KEYS = [
   "Nouveau succès : Fléau des champions (25 champions vaincus).",
   "Les champions apparaissent à partir de la zone {0}.",
   "Un champion de moins !",
-  "À genoux, champion !"
+  "À genoux, champion !",
+  "Grenouillette",
+  "Ses coassements attirent les élites… et leur butin.",
+  "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}"
 ];

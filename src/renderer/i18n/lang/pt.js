@@ -1674,4 +1674,7 @@ export default {
   2799: "Os campeões aparecem a partir da zona {0}.",
   2800: "Menos um campeão!",
   2801: "De joelhos, campeão!",
+  2802: "Sapinho",
+  2803: "Seu coaxar atrai as elites… e o butim delas.",
+  2804: "Enviar o mascote livre: {1}|Enviar os {n} mascotes livres: {1}",
 };

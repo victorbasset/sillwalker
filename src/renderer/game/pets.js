@@ -27,6 +27,8 @@ export const PETS = [
   // Contre la Malédiction des boss : un peu de pureté (durée réduite), sans valoir le Talisman de pureté.
   { id: "moth", name: "Phalène pâle", desc: "Ses ailes de lumière éloignent les malédictions.", eff: { purity: 5, hpPct: 1 } }, // ×niveau : 50 % de pureté au niveau 10
   { id: "starling", name: "Étoilon",    desc: "Un éclat d’étoile vivant qui a choisi de te suivre. Rare.", eff: { moveSpd: 1, crit: 0.5 }, weight: 0.4 },
+  // (it. 1282) clin d'œil à Mirette, la grenouille marchande : attire les élites (+2 % par niveau, comme l'Appât)
+  { id: "froglet", name: "Grenouillette", desc: "Ses coassements attirent les élites… et leur butin.", eff: { elites: 2 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

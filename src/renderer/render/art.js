@@ -317,6 +317,10 @@ export const PET_ART = {
   moth: { pal: { W: "#f4f0ff", L: "#c9d4ff", B: "#8a7a5a", E: "#1a1a1a" }, fly: true, frames: [
     ["W.....W", "WW...WW", "WLWBWLW", "WWLELWW", ".W.B.W.", "...B..."],
     [".......", "WW...WW", "WWWBWWW", ".WLELW.", "..WBW..", "...B..."]] },
+  // (it. 1282) Grenouillette : petite grenouille verte qui sautille (deuxième image : en l'air)
+  froglet: { pal: { G: "#5fbf4a", L: "#a8e07a", E: "#1a1a1a", R: "#e2552b" }, frames: [
+    ["..GG.GG..", ".GEGGEGG.", "GGGGGGGGG", "GLLRRLLG.", ".GLLLLG..", "GG....GG."],
+    ["..GG.GG..", ".GEGGEGG.", "GGGGGGGGG", "GLLLLLLG.", "G.GLLG.G.", "........."]] },
   fairy: { pal: { P: "#ff9ad8", W: "#dff3ff", S: "#f1c7a0", Y: "#ffe27a" }, fly: true, frames: [
     ["W.....W", "WW.Y.WW", "WWSSSWW", ".WPPPW.", "..PPP..", "..P.P.."],
     [".......", ".W.Y.W.", "WWSSSWW", "WWPPPWW", "..PPP..", "..P.P.."]] },

@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1282) : 18e familier, la Grenouillette (clin d'œil à Mirette, la grenouille marchande) : +2 %
+  d'élites rencontrées par niveau (20 % au niveau 10, comme l'Appât des champions) ; dessin pixel (art.js PET_ART,
+  deux images : posée, en l'air), ajoutée à la FIN de PETS ; traduite. Test : chaque familier a son dessin, images de
+  largeur égale. Vérifié en capture (carte niv. 3 : +6 % ; elle suit le héros sur la bande). README : « 14
+  compagnons » corrigé en 18 (il en comptait 14 depuis longtemps, il y en avait 17). Vu sur la même capture et
+  corrigé : « Envoyer les 1 familiers libres » (pluriel en dur) → txn (« Envoyer le familier libre », 3 formes en
+  ru et pl). Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1281, revue générale) : performance bande 18,8 %, panneau 20,0 %, mini 6,6 %, icône 0,5 %
   (inchangé) ; bande en anglais (partie de fin) : correcte. Équilibrage déjà vérifié dans la décennie (12 h des 20
   héros it. 1267, semaine it. 1280), langues (extraction complète it. 1253 et 1271, lang-overflow it. 1276), crawl

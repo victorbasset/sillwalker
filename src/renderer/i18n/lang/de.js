@@ -1674,4 +1674,7 @@ export default {
   2799: "Champions erscheinen ab Zone {0}.",
   2800: "Ein Champion weniger!",
   2801: "Auf die Knie, Champion!",
+  2802: "Fröschlein",
+  2803: "Sein Quaken lockt Elite-Gegner an … und ihre Beute.",
+  2804: "Den freien Begleiter schicken: {1}|Die {n} freien Begleiter schicken: {1}",
 };

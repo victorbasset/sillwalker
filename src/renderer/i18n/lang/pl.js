@@ -1674,4 +1674,7 @@ export default {
   2799: "Czempioni pojawiają się od strefy {0}.",
   2800: "Jeden czempion mniej!",
   2801: "Na kolana, czempionie!",
+  2802: "Żabka",
+  2803: "Jej rechot przyciąga elity… i ich łupy.",
+  2804: "Wyślij {n} wolnego pupila: {1}|Wyślij {n} wolne pupile: {1}|Wyślij {n} wolnych pupili: {1}",
 };
