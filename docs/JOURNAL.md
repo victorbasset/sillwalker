@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1311, revue générale) : 12 h 65 / 59 / 65 ; 20 héros (hero-table) 63,5 de moyenne. Le mage à 59
+  deux revues de suite : balance contre b4871a2 (avant tous les ajouts de l'après-midi) sur trois graines (3, 11,
+  21) : moyenne générale 63,4 → 63,4 ; mage 62 / 61 / 62 → 62 / 61 / 59 (−1 en moyenne : bruit, ±4 par héros et par
+  graine). Rien à régler.
 - 2026-11-14 (it. 1310) : « Quoi de neuf », édition 71 : élite Venimeux ; traduite. Autotest 228/228.
 - 2026-11-14 (it. 1309) : 9e sorte d'élite, « Venimeux » : 20 % de chances par coup d'empoisonner le héros avec le
   venin des boss (3 % de ses PV max par seconde, 4 s, raccourci par la pureté, n'achève jamais ; halo vert existant).
