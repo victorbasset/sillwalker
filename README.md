@@ -125,7 +125,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   bonus de collection reste). Le héros le fête d'une réplique.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
-- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3, prodiges : événements rares ×2, ombres : esquive et riposte), saluée par le héros. Chaque bénédiction vécue donne +1 % d'expérience pour toujours (collection dans Bestiaire > Bénédictions du jour, compte dans Statistiques).
+- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3, prodiges : événements rares ×2, ombres : esquive et riposte, champions : champions ×4), saluée par le héros. Chaque bénédiction vécue donne +1 % d'expérience pour toujours (collection dans Bestiaire > Bénédictions du jour, compte dans Statistiques).
 - **Statistiques** : records, compteurs de l'aventure (dont la collection de panoplies) et liste des succès.
 - **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
