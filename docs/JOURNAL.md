@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1230) : README à jour des nouveautés de l'après-midi (Jour des ombres, réplique du héros, collection
+  des bénédictions, objets restés au sol dans le résumé d'absence). La page du magasin ne chiffre pas les
+  bénédictions : rien à y changer.
 - 2026-11-14 (it. 1229) : « Quoi de neuf », édition 62 : collection des bénédictions (+1 % d'expérience chacune,
   Bestiaire > Bénédictions du jour). Libellés cités tels que traduits ; autotest 227/227 ; lang-overflow : rien.
 - 2026-11-14 (it. 1228) : Statistiques : « Bénédictions du jour → » mène en un clic au sous-onglet du Bestiaire, comme

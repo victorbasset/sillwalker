@@ -125,7 +125,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   bonus de collection reste). Le héros le fête d'une réplique.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
-- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3, prodiges : événements rares ×2).
+- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3, prodiges : événements rares ×2, ombres : esquive et riposte), saluée par le héros. Chaque bénédiction vécue donne +1 % d'expérience pour toujours (collection dans Bestiaire > Bénédictions du jour, compte dans Statistiques).
 - **Statistiques** : records, compteurs de l'aventure (dont la collection de panoplies) et liste des succès.
 - **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
@@ -153,7 +153,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
 - **Onglets** : quand ils ne tiennent pas sur une ligne (langue aux mots longs, petit écran), marges resserrées, puis
   sans icônes, puis police réduite ; les icônes seules en dernier recours.
-- **Retour** : après une absence, résumé des gains, meilleur objet (équipable d'un clic) et « À faire maintenant »
+- **Retour** : après une absence, résumé des gains (et des objets restés au sol si le sac était plein), meilleur objet (équipable d'un clic) et « À faire maintenant »
   (quêtes, points, déblocage abordable, œufs, expéditions, sac plein, pièce qui complète une panoplie, éclats d'étoile à placer) : avec les déblocages « tout d'un coup », ces lignes
   s'exécutent d'un clic (✦) et le déblocage payable s'achète directement ; la même liste est dans la carte
   du héros (« À faire (N) », repliable). Pendant l'absence, les automatismes achetés
