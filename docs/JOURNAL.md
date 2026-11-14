@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1312) : brouillon du devlog 0.1.4 : élite Venimeux ajoutée (éditions jusqu'à 71).
 - 2026-11-14 (it. 1311, revue générale) : 12 h 65 / 59 / 65 ; 20 héros (hero-table) 63,5 de moyenne. Le mage à 59
   deux revues de suite : balance contre b4871a2 (avant tous les ajouts de l'après-midi) sur trois graines (3, 11,
   21) : moyenne générale 63,4 → 63,4 ; mage 62 / 61 / 62 → 62 / 61 / 59 (−1 en moyenne : bruit, ±4 par héros et par
