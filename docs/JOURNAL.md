@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1221, revue générale, allégée : la précédente date de l'it. 1211, performance mesurée à l'it. 1218) :
+  texte japonais extrait sur la partie de fin : propre ; captures (Aventure en japonais, Talents en anglais, mode mini
+  en japonais) : rien qui déborde, duo dans le bon ordre (archère derrière le guerrier) ; 12 h simulées : records 61
+  (guerrier), 62 (mage), 64 (archer), dans le bruit des repères. Aucun problème à noter.
 - 2026-11-14 (it. 1220, contrôles) : parties bloquées (fuzz, 60 graines) : 1200 parties, 0 bloquée ; sauvegardes
   abîmées : ok (dev-data 1190 corruptions, fin de partie 1183, partie 0.1.2 1127). Sac plein au retour : la tâche
   « Sac plein… » du résumé couvre déjà le cas (vendre l'inutile, ou « le butin suivant restera au sol »).
