@@ -11,7 +11,8 @@ import { SET_KEYS, SETS } from "../../game/sets.js";
 import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
 import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
-import { activeDayMod, DAY_MODS } from "../../game/daymods.js";
+import { activeDayMod, DAY_MODS, blessingsSeenEffects } from "../../game/daymods.js";
+import { describeEffects } from "../../game/talents.js";
 import { tabReady } from "../../game/tabs.js";
 
 import { fmt, fmtShort, esc, dec, unit, uH, uMin } from "../../game/format.js";
@@ -107,7 +108,9 @@ export class StatsTab {
         ${line(tx("Coffres au trésor"), fmt(st.chests || 0))}
         ${(() => { // (it. 1224) bénédictions du jour déjà vécues ; la liste au survol (✓ vue, · pas encore)
           const seen = (S.daily && S.daily.seen) || {}, ks = Object.keys(DAY_MODS), n = ks.filter((k) => seen[k]).length;
-          return `<li title="${esc(ks.map((k) => `${seen[k] ? "✓" : "·"} ${DAY_MODS[k].icon} ${DAY_MODS[k].name}`).join("\n"))}"><span>${esc(tx("Bénédictions du jour"))} <span class="note help">ⓘ</span></span><b>${n} / ${ks.length}</b></li>`; })()}
+          // (it. 1226) le bonus de la collection dans la bulle (dans la valeur, il chevauchait le libellé en russe et polonais)
+          const bonus = n ? describeEffects(blessingsSeenEffects(S)) + "\n" : "";
+          return `<li title="${esc(bonus + ks.map((k) => `${seen[k] ? "✓" : "·"} ${DAY_MODS[k].icon} ${DAY_MODS[k].name}`).join("\n"))}"><span>${esc(tx("Bénédictions du jour"))} <span class="note help">ⓘ</span></span><b>${n} / ${ks.length}</b></li>`; })()}
         ${line(tx("Expéditions de familiers"), fmt(st.expeditions || 0))}
         ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
       </ul></article>

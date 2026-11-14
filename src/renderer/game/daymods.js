@@ -34,3 +34,11 @@ export function dayModEffects(S) {
   const m = activeDayMod(S);
   return m ? { ...m.eff } : {};
 }
+
+/** (it. 1226) Collection des bénédictions : chacune déjà vécue donne +1 % d'expérience pour toujours (10 au plus). */
+export const BLESSING_SEEN_BONUS = { xp: 1 };
+export function blessingsSeenEffects(S) {
+  const seen = (S && S.daily && S.daily.seen) || {}, n = DAY_MOD_KEYS.filter((k) => seen[k]).length, out = {};
+  if (n) for (const k in BLESSING_SEEN_BONUS) out[k] = BLESSING_SEEN_BONUS[k] * n;
+  return out;
+}

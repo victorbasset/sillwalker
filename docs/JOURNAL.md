@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1226) : collection des bénédictions : chaque bénédiction du jour déjà vécue donne +1 % d'expérience
+  pour toujours (+10 % au plus ; les événements rares donnent de l'or, les bénédictions de l'expérience). daymods.js
+  (BLESSING_SEEN_BONUS, blessingsSeenEffects), rules.js (heroStats) ; le bonus dans la bulle de la ligne
+  Statistiques (dans la valeur, il chevauchait le libellé en russe et polonais : lang-overflow, 20 mesures, puis 0) ;
+  test (3 vues = +3 %, clé inconnue ignorée) ; autotest 227/227. À annoncer dans la prochaine édition de « Quoi de
+  neuf » (l'édition 61 est publiée).
 - 2026-11-14 (it. 1225) : « Quoi de neuf », édition 61 : Jour des ombres ; le héros salue les bénédictions, et
   Statistiques compte celles déjà vécues ; objets laissés au sol dans le résumé d'absence. Traduite (10 langues) ;
   autotest 227/227 ; lang-overflow : rien.

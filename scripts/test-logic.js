@@ -919,6 +919,12 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     raw.daily.seen = "abîmé";
     assert.equal(typeof migrate(raw).daily.seen, "object");
   });
+  test("collection des bénédictions : +1 % d'expérience par bénédiction vécue (it. 1226)", () => {
+    const g = new Game(freshState()); g.S.daily.mod = null; g.S.daily.seen = {}; g.invalidateStats();
+    const x0 = heroStats(g.S).xp || 0;
+    g.S.daily.seen = { gold: true, wind: true, shadows: true, inconnue: true }; g.invalidateStats();
+    assert.equal(Math.round(((heroStats(g.S).xp || 0) - x0) * 100) / 100, 3);
+  });
   test("Jour des ombres : esquive et riposte en plus (it. 1222)", () => {
     const g = new Game(freshState()), before = heroStats(g.S);
     g.S.daily.mod = "shadows"; g.invalidateStats();
