@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1310) : « Quoi de neuf », édition 71 : élite Venimeux ; traduite. Autotest 228/228.
 - 2026-11-14 (it. 1309) : 9e sorte d'élite, « Venimeux » : 20 % de chances par coup d'empoisonner le héros avec le
   venin des boss (3 % de ses PV max par seconde, 4 s, raccourci par la pureté, n'achève jamais ; halo vert existant).
   Le venin ne s'écoulait que dans bossTick : il s'écoule maintenant aussi hors boss. Traduit ; comptes 8 → 9 dans

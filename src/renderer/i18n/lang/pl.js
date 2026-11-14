@@ -1696,4 +1696,5 @@ export default {
   2821: "Bestiariusz > Błogosławieństwa dnia: dzisiejsze i jutrzejsze są oznaczone, nawet jutrzejsze, którego nigdy nie przeżyłeś.",
   2822: "Jadowity",
   2823: "Jego ciosy mogą zatruć bohatera (3 % maks. PŻ na sekundę przez 4 s, nigdy śmiertelnie).",
+  2824: "Nowa elita, Jadowity: jego ciosy mogą zatruć bohatera na kilka sekund (nigdy śmiertelnie; czystość skraca truciznę).",
 };

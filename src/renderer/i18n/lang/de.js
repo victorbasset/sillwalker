@@ -1696,4 +1696,5 @@ export default {
   2821: "Bestiarium > Segen des Tages: Der Segen von heute und der von morgen sind markiert, auch der von morgen, wenn du ihn nie erlebt hast.",
   2822: "Giftig",
   2823: "Seine Treffer können den Helden vergiften (3 % seiner max. LP pro Sekunde, 4 s lang, nie tödlich).",
+  2824: "Neue Elite, der Giftige: Seine Treffer können den Helden einige Sekunden vergiften (nie tödlich; Reinheit verkürzt das Gift).",
 };

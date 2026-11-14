@@ -1696,4 +1696,5 @@ export default {
   2821: "Bestiário > Bênçãos do dia: a bênção de hoje e a de amanhã ficam marcadas, mesmo a de amanhã nunca vivida.",
   2822: "Venenoso",
   2823: "Seus golpes podem envenenar o herói (3 % dos PV máx. por segundo durante 4 s, sem finalizá-lo).",
+  2824: "Nova elite, o Venenoso: seus golpes podem envenenar o herói por alguns segundos (sem nunca finalizá-lo; a pureza encurta o veneno).",
 };

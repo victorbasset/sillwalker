@@ -1696,4 +1696,5 @@ export default {
   2821: "Bestiary > Daily blessings: today's and tomorrow's blessings are marked, even tomorrow's if you've never lived it.",
   2822: "Venomous",
   2823: "Its hits can poison the hero (3% of max HP per second for 4 s, never lethal).",
+  2824: "New elite, the Venomous: its hits can poison the hero for a few seconds (never lethal; purity shortens the poison).",
 };
