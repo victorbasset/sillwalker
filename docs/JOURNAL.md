@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1317, incident corrigé) : deux captures lancées SANS --user-data (oubli dans la commande) : le jeu a
+  créé ~/.config/Sillwalker (compte claude du serveur ; partie neuve de 2 Ko, tous les fichiers datés de 22:55-22:56,
+  rien de plus ancien : le dossier n'existait pas). Supprimé aussitôt, comme à l'it. 1144 ; la sauvegarde de Victor
+  (sous Windows, et /home/victor ici) n'a jamais été concernée ; dev-data intact (zone 56). Vérifié aussi : aucune
+  injection TEMP laissée dans le dépôt. Leçon : toute commande electron de capture porte --user-data=<copie>.
 - 2026-11-14 (it. 1316, contrôle) : après le Venimeux et la 13e bénédiction : save-fuzz ok (dev 1211, fin 1190
   corruptions) ; fuzz avec toutes les bénédictions (FUZZ_DAYMOD=all) : 1200 parties, 0 bloquée.
 - 2026-11-14 (it. 1315) : « Quoi de neuf », édition 72 : Jour de l'élan ; traduite. Brouillon du devlog 0.1.4 : quatre
