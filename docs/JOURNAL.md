@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1295, contrôle) : --crawl en japonais sur l'état « tout au maximum » (max-save : toutes les
+  collections, compteurs géants) : 557 clics, aucune erreur.
 - 2026-11-14 (it. 1294) : recherche d'autres noms ou textes qui citent un nombre dépendant d'une liste qui grandit
   (comme « Dix jours bénis ») : aucun (succès à seuil fixe : cinq ascensions, dix héros, quatre reliques, trois
   échos ; aucun « N sortes / événements… » en dur). « Quoi de neuf », édition 69 : Jour des géants, fanfare du
