@@ -220,7 +220,7 @@ function start() {
           // Statistiques > Succès (la liste grandit avec chaque succès ; les noms longs du russe passent sur deux lignes)
           if (P.tabs.stats) { P.setTab("stats"); P.tabs.stats.sec = "ach"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("succès=" + o); P.tabs.stats.sec = "numbers"; }
           // (it. 1013-1014) sous-sections autres que celle par défaut (seule celle-ci était mesurée) : « onglet-section=N »
-          const SUBS = { bestiary: ["codex", "powers", "sets", "bosses", "elites", "events"], shop: ["unlocks", "workshop"],
+          const SUBS = { bestiary: ["codex", "powers", "sets", "bosses", "elites", "events", "blessings"], shop: ["unlocks", "workshop"],
             stats: ["journey"], pets: ["unknown"], class: ["locked"] };
           for (const [tab, secs] of Object.entries(SUBS)) { if (!P.tabs[tab]) continue;
             const bt = document.querySelector("[data-tab=" + tab + "]"); if (!bt || !bt.getClientRects().length) continue;

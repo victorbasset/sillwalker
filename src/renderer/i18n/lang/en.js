@@ -1642,4 +1642,5 @@ export default {
   2767: "New daily blessing: the Day of Shadows (+15% dodge, +20% riposte).",
   2768: "Your hero greets each daily blessing when it begins, and Statistics counts the ones you have already lived through (x / 10).",
   2769: "Away summary: it shows how many items were left on the ground when the bag was full.",
+  2770: "Each blessing you live through gives {0} forever. Current bonus: {1}.",
 };

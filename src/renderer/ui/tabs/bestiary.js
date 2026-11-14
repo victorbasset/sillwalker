@@ -4,6 +4,7 @@ import { t as tx, tr, csep, cend } from "../../i18n/index.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
+import { DAY_MODS, BLESSING_SEEN_BONUS, blessingsSeenEffects } from "../../game/daymods.js";
 import { fmt, esc, dec, unit, uS } from "../../game/format.js";
 import { EVENTS, EVENT_SEEN_BONUS, eventsSeenEffects } from "../../game/events.js";
 import { monsterURL, itemIconURL } from "../../render/sprites.js";
@@ -93,7 +94,8 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
         return `<h2 class="codexh" id="bj-elites">${tx("Élites")} (${ae.filter(([id]) => won[id]).length} / ${ae.length}) <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
       <p class="note tabintro">${tx("Chaque sorte d’élite vaincue donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(AFFIX_SEEN_BONUS)), 1: esc(describeEffects(affixesSeenEffects(S)) || "—") })}</p>
       <div class="setgrid">${ae.map(([id, a]) => `<div class="setcard${won[id] ? "" : " unknown"}" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b>${won[id] ? ` <small>✓ ×${fmt(affixWins(won[id]))}</small>` : ""}<div>${esc(a.desc || "")}</div></div>`).join("")}</div>`; })() : ""}
-      ${show.events ? this.eventsHTML(S) : ""}`;
+      ${show.events ? this.eventsHTML(S) : ""}
+      ${show.blessings ? this.blessingsHTML(S) : ""}`;
   }
 
   /** (it. 920) Les événements rares : vus (nom, effet, chance) ou encore mystérieux (« ??? ») ; succès « Chasseur d'événements ». */
@@ -106,20 +108,34 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
       <div class="setgrid">${ent.map(([id, e]) => { const t = this.game.R.events[id] || 0; // (it. 936) en cours : encadré, secondes restantes
         return seen[id]
         ? `<div class="setcard${t > 0 ? " here" : ""}" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${t > 0 ? esc(tx("en cours · {0}", { 0: uS(Math.ceil(t)) })) : pct(e.chance) + tx(" par victoire")}</small><div>${esc(e.text)}</div></div>`
-        : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`; }).join("")}</div>`;
+        : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`; }).join("")}</div>
+`;
+  }
+
+  /** (it. 1227) Les bénédictions du jour vécues (S.daily.seen) : même présentation que les événements ; celle du jour encadrée. */
+  blessingsHTML(S) {
+    const seen = (S.daily && S.daily.seen) || {}, ks = Object.keys(DAY_MODS), n = ks.filter((k) => seen[k]).length, today = S.daily && S.daily.mod;
+    const cur = describeEffects(blessingsSeenEffects(S)) || "—";
+    return `<h2 class="codexh" id="bj-blessings">${tx("Bénédictions du jour")} (${n} / ${ks.length})</h2>
+      <p class="note tabintro">${tx("Chaque bénédiction vécue donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(BLESSING_SEEN_BONUS)), 1: esc(cur) })}</p>
+      <div class="setgrid">${ks.map((k) => { const m = DAY_MODS[k];
+        return seen[k]
+        ? `<div class="setcard${k === today ? " here" : ""}"><b>${m.icon} ${esc(m.name)}</b> <small>${esc(m.desc)}</small></div>`
+        : `<div class="setcard unknown"><b>???</b></div>`; }).join("")}</div>`;
   }
 
   /** Sections affichées : seulement ce que le joueur a déjà rencontré (moins d'informations d'un coup). */
   shown(S) {
     return { powers: powersFound(S) > 0, sets: codexCounts(S).epic > 0 || Object.keys(S.setsDone || {}).length > 0, elites: (S.stats.elites || 0) > 0,
-      events: (S.stats.events || 0) > 0 }; // (it. 920)
+      events: (S.stats.events || 0) > 0, // (it. 920)
+      blessings: Object.keys((S.daily && S.daily.seen) || {}).some((k) => DAY_MODS[k]) }; // (it. 1227)
   }
 
   /** Sous-onglets : un clic affiche la section (les autres restent cachées). */
   jumpHTML() {
     const show = this.shown(this.game.S);
     const L = [["codex", tx("Collection d’objets")], ["powers", tx("Pouvoirs légendaires")], ["sets", tx("Panoplies")],
-      ["bosses", tx("Capacités des boss")], ["elites", tx("Élites")], ["events", tx("Événements rares")], ["beasts", tx("Bestiaire")]].filter(([k]) => show[k] !== false);
+      ["bosses", tx("Capacités des boss")], ["elites", tx("Élites")], ["events", tx("Événements rares")], ["blessings", tx("Bénédictions du jour")], ["beasts", tx("Bestiaire")]].filter(([k]) => show[k] !== false);
     // Les monstres en premier : c'est le cœur du bestiaire.
     L.unshift(...L.splice(L.findIndex(([k]) => k === "beasts"), 1));
     return `<nav class="bjump subtabs" role="tablist" aria-label="${esc(tx("Aller à"))}">${L.map(([k, n]) => `<button class="quiet${this.sec === k ? " on" : ""}" role="tab" aria-selected="${this.sec === k}" data-action="b-jump" data-to="${k}">${esc(n)}</button>`).join("")}</nav>`;

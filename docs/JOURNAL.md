@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1227) : Bestiaire > « Bénédictions du jour », nouveau sous-onglet (dès la première vécue) : les dix
+  bénédictions, nom, icône et effet pour celles déjà vécues, « ??? » sinon, celle du jour encadrée ; le bonus de la
+  collection et le bonus actuel (+1 % d'expérience chacune). bestiary.js ; main.js (sous-section mesurée par
+  lang-overflow) ; traduit ; autotest 227/227 ; lang-overflow : rien ; capture en allemand.
 - 2026-11-14 (it. 1226) : collection des bénédictions : chaque bénédiction du jour déjà vécue donne +1 % d'expérience
   pour toujours (+10 % au plus ; les événements rares donnent de l'or, les bénédictions de l'expérience). daymods.js
   (BLESSING_SEEN_BONUS, blessingsSeenEffects), rules.js (heroStats) ; le bonus dans la bulle de la ligne
