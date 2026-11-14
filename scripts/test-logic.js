@@ -952,13 +952,19 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       for (const f of art.frames) for (const row of f) assert.equal(row.length, f[0].length, p.id + " : « " + row + " »");
     }
   });
+  test("Jour des géants : +50 % de dégâts contre les boss (it. 1292)", () => {
+    const g = new Game(freshState()); const b0 = g.stats().bossDmg || 0;
+    g.S.daily.mod = "giants"; g.invalidateStats();
+    assert.equal((g.stats().bossDmg || 0) - b0, 50);
+    assert.equal(DAY_MOD_KEYS.indexOf("giants"), 11, "12e, ajoutée à la fin");
+  });
   test("Jour des champions : champions ×4 dans la file (it. 1268)", () => {
     const count = (mod) => { let n = 0; for (let k = 0; k < 400; k++) { const g = new Game(freshState()); g.S.zone = 12; g.S.daily.mod = mod;
       g.R.lineup = null; n += g.lineup().filter((x) => x.champion).length; } return n; };
     const base = count("gold"), day = count("champions");
     assert.ok(day > base * 2.5, "champions : " + base + " → " + day);
     assert.equal(DAY_MODS.champions.champion, 4);
-    assert.equal(DAY_MOD_KEYS[DAY_MOD_KEYS.length - 1], "champions", "ajoutée à la fin (calendrier stable)");
+    assert.equal(DAY_MOD_KEYS.indexOf("champions"), 10, "11e, à sa place (calendrier stable : on ajoute toujours à la fin)");
   });
   test("quête « Vaincre un champion » : avance seulement sur un champion (it. 1260)", () => {
     const g = new Game(freshState()); g.S.zone = 10;

@@ -1680,4 +1680,7 @@ export default {
   2805: "{n} mikstura|{n} mikstury|{n} mikstur",
   2806: "Nowy pupil, Żabka: jej rechot przyciąga elity (+2 % na poziom).",
   2807: "Bohater wita każdego pokonanego czempiona, a podsumowanie nieobecności liczy poległych czempionów.",
+  2808: "Dzień olbrzymów",
+  2809: "+50 % obrażeń przeciw bossom.",
+  2810: "Im więksi, tym głośniej upadają.",
 };

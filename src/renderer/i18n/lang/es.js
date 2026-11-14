@@ -1680,4 +1680,7 @@ export default {
   2805: "{n} poción|{n} pociones",
   2806: "Nueva mascota, la Ranita: su croar atrae a las élites (+2 % por nivel).",
   2807: "El héroe celebra cada campeón derrotado, y el resumen de ausencia cuenta los campeones caídos.",
+  2808: "Día de los gigantes",
+  2809: "+50 % de daño contra los jefes.",
+  2810: "Cuanto más grandes, más fuerte caen.",
 };

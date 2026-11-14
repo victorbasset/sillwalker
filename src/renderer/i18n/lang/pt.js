@@ -1680,4 +1680,7 @@ export default {
   2805: "{n} poção|{n} poções",
   2806: "Novo mascote, o Sapinho: seu coaxar atrai as elites (+2 % por nível).",
   2807: "O herói comemora cada campeão derrotado, e o resumo de ausência conta os campeões abatidos.",
+  2808: "Dia dos gigantes",
+  2809: "+50 % de dano contra chefes.",
+  2810: "Quanto maior, maior a queda.",
 };

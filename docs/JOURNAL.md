@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1292) : 12e bénédiction du jour, « Jour des géants » (🗿, +50 % de dégâts contre les boss) : le
+  jour où l'on franchit un boss coriace ; ajoutée à la FIN (aujourd'hui et les trois jours suivants inchangés,
+  vérifié avant / après). Réplique du héros, traduite (« Чем больше шкаф, тем громче падает » en russe…). Le test de
+  l'it. 1268 exigeait que les champions soient la dernière bénédiction : remplacé par « 11e, à sa place ». Test
+  (+50 de bossDmg). README. Autotest 227/227 ; lang-overflow propre (chaque bénédiction mesurée).
 - 2026-11-14 (it. 1291, revue générale) : 12 h simulées 62 / 59 / 60 (une graine) ; balance contre b4871a2 (début de
   l'après-midi, avant Lune pâle, Régénérant, champions, Grenouillette) : 63,8 → 63,7 sur les 10 classes (bruit).
   Mode mini en chinois avec la Grenouillette : correct. Performance (it. 1281) et langues (it. 1286-1287) récentes.

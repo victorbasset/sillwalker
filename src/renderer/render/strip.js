@@ -83,6 +83,7 @@ const SPEECH = {
   dm_marvels: [tx("Il va se passer des choses, aujourd’hui…")],
   dm_shadows: [tx("Aujourd’hui, je danse avec les ombres.")],
   dm_champions: [tx("Les champions sont de sortie. À moi la couronne !")], // (it. 1268)
+  dm_giants: [tx("Plus ils sont gros, plus ils tombent fort.")], // (it. 1292)
 };
 
 export const STRIP_H = 120;

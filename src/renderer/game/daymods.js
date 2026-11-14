@@ -19,6 +19,8 @@ export const DAY_MODS = {
   shadows: { icon: "🌙", name: "Jour des ombres",   desc: "+15 % d’esquive, +20 % de riposte.",     eff: { dodge: 15, riposte: 20 } },
   // (it. 1268) 11e : les champions (élites dorées, butin épique) ×4 ; ajoutée à la FIN (calendrier stable, it. 1237)
   champions: { icon: "👑", name: "Jour des champions", desc: "Champions ×4.", eff: {}, champion: 4 },
+  // (it. 1292) 12e : le jour où l'on franchit un boss coriace (dégâts contre les boss) ; ajoutée à la FIN (it. 1237)
+  giants: { icon: "🗿", name: "Jour des géants", desc: "+50 % de dégâts contre les boss.", eff: { bossDmg: 50 } },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

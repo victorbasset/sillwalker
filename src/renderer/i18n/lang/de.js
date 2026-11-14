@@ -1680,4 +1680,7 @@ export default {
   2805: "{n} Trank|{n} Tränke",
   2806: "Neuer Begleiter, das Fröschlein: Sein Quaken lockt Elite-Gegner an (+2 % pro Stufe).",
   2807: "Der Held feiert jeden besiegten Champion, und die Abwesenheitsübersicht zählt die gefallenen Champions.",
+  2808: "Tag der Riesen",
+  2809: "+50 % Schaden gegen Bosse.",
+  2810: "Je größer sie sind, desto tiefer fallen sie.",
 };

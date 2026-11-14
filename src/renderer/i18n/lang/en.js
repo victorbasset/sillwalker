@@ -1680,4 +1680,7 @@ export default {
   2805: "{n} potion|{n} potions",
   2806: "New pet, the Froglet: its croaking draws elites (+2% per level).",
   2807: "The hero cheers every champion defeated, and the absence summary counts the champions that fell.",
+  2808: "Day of Giants",
+  2809: "+50% damage against bosses.",
+  2810: "The bigger they are, the harder they fall.",
 };
