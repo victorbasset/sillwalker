@@ -316,6 +316,7 @@ export class StripRenderer {
 
   say(list, urgent = false) {
     if (!this.active || this.game.S.settings.fullEffects === false || !list) return;
+    if (this.juice && this.juice.npcScene()) return; // (it. 1216) le PNJ parle : le héros ne commente pas un combat masqué
     const now = this.game.R.time;
     if (!urgent && now - (this.saidAt ?? -1e9) < 45) return;
     const G = this.game; // pas de bulle sur le nom du boss (présent, ou le prochain monstre)
