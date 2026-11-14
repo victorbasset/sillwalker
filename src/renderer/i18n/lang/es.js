@@ -1702,4 +1702,6 @@ export default {
   2827: "¡Hoy el primer golpe es el bueno!",
   2828: "Nueva bendición del día, el Día del impulso: +100 % de daño del primer golpe y de los golpes con clic.",
   2829: "Goblins ladrones ×4, +15 % de oro.",
+  2830: "La Ráfaga de viento ahora duplica de verdad tu velocidad de movimiento, incluso cuando ya es muy alta.",
+  2831: "La Fiesta de los goblins anuncia también su bonificación de +15 % de oro.",
 };

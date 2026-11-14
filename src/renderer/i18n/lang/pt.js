@@ -1702,4 +1702,6 @@ export default {
   2827: "Hoje o primeiro golpe é o que vale!",
   2828: "Nova bênção do dia, o Dia do impulso: +100 % de dano do primeiro golpe e dos golpes de clique.",
   2829: "Goblins ladrões ×4, +15 % de ouro.",
+  2830: "A Rajada de vento agora dobra de verdade sua velocidade de movimento, mesmo quando já está muito alta.",
+  2831: "A Festa dos goblins agora também anuncia seu bônus de +15 % de ouro.",
 };

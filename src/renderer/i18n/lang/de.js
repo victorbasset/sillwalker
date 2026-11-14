@@ -1702,4 +1702,6 @@ export default {
   2827: "Heute sitzt der erste Treffer!",
   2828: "Neuer Tagessegen, der Tag des Schwungs: +100 % Schaden beim ersten Treffer und bei Klicktreffern.",
   2829: "Diebische Kobolde ×4, +15 % Gold.",
+  2830: "Die Windböe verdoppelt jetzt wirklich deine Laufgeschwindigkeit, auch wenn sie schon sehr hoch ist.",
+  2831: "Das Koboldfest nennt jetzt auch seinen Bonus von +15 % Gold.",
 };

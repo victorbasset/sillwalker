@@ -1702,4 +1702,6 @@ export default {
   2827: "The first hit is the one that counts today!",
   2828: "New daily blessing, the Day of Momentum: +100% damage on the first hit and on click hits.",
   2829: "Thieving goblins ×4, +15% gold.",
+  2830: "The Wind Gust now truly doubles your movement speed, even when it is already very high.",
+  2831: "The Goblin Festival now also announces its +15% gold bonus.",
 };

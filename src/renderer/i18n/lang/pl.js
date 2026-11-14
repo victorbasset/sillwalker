@@ -1702,4 +1702,6 @@ export default {
   2827: "Dziś liczy się pierwszy cios!",
   2828: "Nowe błogosławieństwo dnia, Dzień rozpędu: +100 % obrażeń pierwszego ciosu i ciosów kliknięciem.",
   2829: "Gobliny złodzieje ×4, +15 % złota.",
+  2830: "Poryw wiatru naprawdę podwaja teraz prędkość ruchu, nawet gdy jest już bardzo wysoka.",
+  2831: "Święto goblinów podaje teraz także premię +15 % złota.",
 };

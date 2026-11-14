@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1329) : « Quoi de neuf », édition 73 : Rafale de vent qui double vraiment la vitesse, bonus d'or de
+  la Fête des gobelins annoncé ; traduite (noms d'événement et de bénédiction tels que traduits). Autotest 228/228.
 - 2026-11-14 (it. 1328) : descriptions chiffrées des déblocages comparées au code : Forge « +1 à +10 » = MAX_PLUS
   (test ajouté), Transmutation « 3 objets » = lots de 3, Grimoire « un dixième de ton or » = S.gold × 0,1 ; tout juste.
   Fin de la série de vérifications « ce qui est annoncé = ce qui se passe » (it. 1322-1328 : un vrai défaut, la Rafale
