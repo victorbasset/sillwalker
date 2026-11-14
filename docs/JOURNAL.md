@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1289, contrôle) : mémoire dans la durée (mem-watch, 6 min à ×10) après les ajouts du jour (« +N » du
+  Régénérant, ciel de la Lune pâle, Grenouillette) : 495-515 Mo réels, sans dérive (repère 485-530). Vérifié aussi :
+  la récompense du jour se réclame déjà seule au lancement (pas de déblocage à créer de ce côté).
 - 2026-11-14 (it. 1288, contrôle) : save-fuzz après la quête de champion, la Grenouillette et le Jour des champions :
   dev 1211, fin de partie 1190, version 0.1.2 1134 corruptions : ok sur les trois bases.
 - 2026-11-14 (it. 1287, contrôle) : texte de l'état « tout au maximum » (max-save complété à l'it. 1285 ; toutes
