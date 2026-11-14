@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1257, enquête sans correction) : défilement passager de l'Aventure en espagnol à 1280 px (vu une
+  fois sur cinq à l'it. 1256) : trois causes plausibles écartées par mesure (voir Idées) ; une retouche CSS essayée
+  (carte du déblocage réduite sous le résumé de visite) retirée : sans elle, la mesure donnait déjà 0, elle ne
+  corrigeait donc rien de prouvé.
 - 2026-11-14 (it. 1256) : élite Régénérant alignée sur la Régénération des boss : pas de soin tant qu'elle brûle ou
   est empoisonnée (vraie parade : sorts et talents de brûlure / poison). Description mise à jour (nouvelle clé,
   traduite), README. Test (brûlure : pas de soin). Vérifié aussi (it. 1256, sans changement) : résumé d'absence de
@@ -4897,6 +4901,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
   1280 px, défilement de 10 px), puis rien sur quatre relances : un état passager de dev-data (pastilles des
   événements ou élixirs en cours ?). Forcer deux événements et des élixirs à 1280 px en espagnol et mesurer.
+  Écarté à l'it. 1257 (injections TEMP, es 1280) : trois événements et six élixirs actifs (0), expérience très
+  longue (0), résumé « Depuis ta dernière visite » au pire cas avec la carte du déblocage sur trois lignes (0, avec
+  ou sans retouche). Marge de la colonne du héros : 14 px (la plus serrée ; Sac 51, Équipement 21, Zone 64). Les
+  trois variantes de l'Aventure (normale, avant-dernier prêt / pas prêt) étaient à 10 dans la même passe : un état
+  constant pendant cette passe (pas la carte du déblocage). Piste suivante : faire écrire à --overflow-report
+  l'élément qui dépasse (classe et texte), pour que la prochaine occurrence se nomme d'elle-même.
 - (Close, it. 1213 : pas un bug) Panoplies du mage : 0 / 10 complétées en 12 h simulées sur trois graines (guerrier 3-5) :
   il a des pièces (6 dans le sac, 4 portées) mais jamais 4 emplacements différents d'une même panoplie. Regarder si
   la vente automatique ou « Équiper le meilleur » du joueur simulé (ou du jeu) écarte les pièces d'une panoplie en cours.
