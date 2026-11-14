@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1288, contrôle) : save-fuzz après la quête de champion, la Grenouillette et le Jour des champions :
+  dev 1211, fin de partie 1190, version 0.1.2 1134 corruptions : ok sur les trois bases.
 - 2026-11-14 (it. 1287, contrôle) : texte de l'état « tout au maximum » (max-save complété à l'it. 1285 ; toutes
   sous-sections et bulles, it. 1252) en russe et en japonais (≈ 19 500 lignes chacun) : aucun mot non traduit.
 - 2026-11-14 (it. 1286) : lang-overflow mesure aussi l'état « tout au maximum » (max-save) à 1920 et 1280 px dans
