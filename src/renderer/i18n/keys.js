@@ -2786,5 +2786,8 @@ export const KEYS = [
   "La bénédiction du jour qui change à minuit s’applique aussitôt, sans attendre.",
   "{n} boss vaincu|{n} boss vaincus",
   "Régénérant",
-  "Regagne 3 % de sa vie maximale chaque seconde."
+  "Regagne 3 % de sa vie maximale chaque seconde.",
+  "Nouvelle élite, le Régénérant : il regagne 3 % de sa vie chaque seconde (un +N vert le montre) ; frappe fort et vite.",
+  "La Lune pâle a son ciel (voile délavé et lune blanche) et son bilan compte les boss vaincus.",
+  "Thème clair : la bordure des événements en cours se voit mieux."
 ];

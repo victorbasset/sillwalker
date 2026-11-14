@@ -1657,4 +1657,7 @@ export default {
   2782: "{n} boss defeated|{n} bosses defeated",
   2783: "Regenerating",
   2784: "Regains 3% of its max life every second.",
+  2785: "New elite, the Regenerating: it regains 3% of its life every second (a green +N shows it); hit hard and fast.",
+  2786: "The Pale Moon has its own sky (washed-out veil and white moon), and its summary counts the bosses defeated.",
+  2787: "Light theme: the border of ongoing events is easier to see.",
 };

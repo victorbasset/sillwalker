@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1255) : « Quoi de neuf », édition 65 : élite Régénérant (et son +N vert), ciel et bilan de la Lune
+  pâle, bordure des événements en thème clair (it. 1244-1254) ; traduite. Autotest 227/227 ; lang-overflow propre.
 - 2026-11-14 (it. 1254) : élite régénérante : son soin se voit sur la bande, un « +N » vert au-dessus d'elle au plus
   une fois par seconde (événement monRegen, game.js ; masqué avec les nombres de dégâts). Test (1 à 2 annonces en
   2 s) ; vérifié en capture (+247k, +334k) ; autotest 227/227.

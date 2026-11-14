@@ -1657,4 +1657,7 @@ export default {
   2782: "{n} jefe derrotado|{n} jefes derrotados",
   2783: "Regenerante",
   2784: "Recupera el 3 % de su vida máxima cada segundo.",
+  2785: "Nueva élite, el Regenerante: recupera el 3 % de su vida cada segundo (un +N verde lo muestra); golpea fuerte y rápido.",
+  2786: "La Luna pálida tiene su cielo (velo desvaído y luna blanca) y su resumen cuenta los jefes derrotados.",
+  2787: "Tema claro: el borde de los eventos en curso se ve mejor.",
 };
