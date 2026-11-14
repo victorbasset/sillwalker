@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1204, médias 7) : dossier de presse en français (scripts/promo/presskit-fr.html : textes traduits,
+  vidéos, vignette et captures françaises), lié à la version anglaise (lien croisé en haut de page) ; livré.
 - 2026-11-14 (it. 1203, médias 6) : relecture du dossier de livraison (10 langues partout, 15 captures par série, 20
   vidéos de 29,7 s et 10 de 64,7 s ; LISEZMOI réécrit au propre). Capsules Steam : nouvelle composition « illustration »
   (capsule.html, keyart : le duo en grand face au drake, or qui jaillit, lueur au point de choc, Briseur en ombre,
