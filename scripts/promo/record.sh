@@ -13,8 +13,9 @@ Xvfb :$DISP -screen 0 3840x2160x24 -nolisten tcp >/dev/null 2>&1 & XPID=$!
 trap 'kill $XPID 2>/dev/null || true; rm -rf "$D"' EXIT
 sleep 1
 ST=(); [ "$STAGE" != "-" ] && ST=(--stage="$(realpath "$STAGE")")
-DISPLAY=:$DISP timeout $((SECS + WAIT + 20)) ./node_modules/.bin/electron . --no-sandbox --release-ui --force-device-scale-factor=2 --user-data="$D" "${ST[@]}" ${EXTRA:-} --exit-after=$((SECS + WAIT + 4)) >/dev/null 2>&1 & EPID=$!
+DISPLAY=:$DISP timeout $((SECS + WAIT + 20)) ./node_modules/.bin/electron . --no-sandbox --release-ui --force-device-scale-factor=2 --user-data="$D" "${ST[@]}" ${EXTRA:-} --exit-after=$((SECS + WAIT + 4)) >"${OUT%.mp4}.log" 2>&1 & EPID=$!
 sleep "$WAIT"
+date +%s%3N > "${OUT%.mp4}.t0"   # (it. 1174) début du film (ms) : la position du héros notée par la mise en scène s'y cale
 "$FF" -hide_banner -loglevel error -y -f x11grab -draw_mouse 0 -framerate 30 -video_size 3840x1240 -i :$DISP+0,920 -t "$SECS" -c:v libx264 -crf 12 -preset ultrafast -pix_fmt yuv444p "$OUT"
 wait $EPID 2>/dev/null || true
 echo "$OUT"

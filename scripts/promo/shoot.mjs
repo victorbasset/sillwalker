@@ -10,6 +10,7 @@ const SAVES = { mid: "scripts/fixtures/save-0.1.2.json", end: "scripts/fixtures/
 const PRELUDE = `(() => { const G = window.__game, st = window.__strip, P = window.__panel;
   window.__noHints = true; G.S.settings.fullEffects = true; G.S.skills.graphSeen = true; G.S.skills.graphFullSeen = true;
   const clr = () => { try { window.__clearToasts && window.__clearToasts(); } catch {} }; clr(); setInterval(clr, 250);
+  setInterval(() => console.warn("[hx] " + Date.now() + " " + Math.round(st.heroX)), 100); // (it. 1174) caméra qui suit le héros
   try { STAGE } catch (e) { console.log("[stage] " + e.message); } })();`;
 fs.mkdirSync(OUT, { recursive: true });
 const shots = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts/promo/shots.json"), "utf8")).shots.filter((s) => !ONLY || ONLY.includes(s.id));

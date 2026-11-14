@@ -79,6 +79,24 @@ def paste_title(img, title, i, sc):
     img.paste(lay, (0, dy), lay)
 
 
+def hero_track(src):
+    """(it. 1174) Position du héros (px logiques) au fil du plan : [(secondes depuis le début du film, x)], d'après le
+    journal du tournage (« [hx] <ms> <x> ») et l'heure de début du film (<plan>.t0)."""
+    import re
+    try:
+        t0 = int(open(os.path.join(SHOTS, src + ".t0")).read().strip())
+        txt = open(os.path.join(SHOTS, src + ".log"), encoding="utf-8", errors="ignore").read()
+        return sorted(((int(a) - t0) / 1000, int(b)) for a, b in re.findall(r"\[hx\] (\d+) (-?\d+)", txt))
+    except OSError:
+        return []
+
+
+def hero_x(track, t, smooth=0.6):
+    """Position lissée (moyenne sur ± smooth s) à l'instant t ; None sans journal."""
+    near = [x for (tt, x) in track if abs(tt - t) <= smooth]
+    return sum(near) / len(near) if near else None
+
+
 def frames(src, t0, dur):
     """Images du plan entre t0 et t0 + dur (ffmpeg → RGB brut)."""
     n = int(round(dur * FPS))
@@ -152,6 +170,7 @@ def render_scene(sc, enc, bgs):
     # cible : rectangle de l'image où se pose le plan (x, y, l, h) ; caméra : (x, y, l) du cadrage dans le plan, la
     # hauteur suivant le rapport de la cible
     tx, ty, tw, th = sc.get("rect", [0, 300, 1920, 480])
+    track = hero_track(sc["src"]) if sc.get("track") is not None and sc.get("src") else []
     cam = sc.get("cam", [[0, 1000, 960], [0, 1000, 960]])
     for i in range(n):
         f = i / max(1, n - 1)
@@ -161,6 +180,10 @@ def render_scene(sc, enc, bgs):
             k = ease(f)
             cx = cam[0][0] + (cam[1][0] - cam[0][0]) * k
             cy = cam[0][1] + (cam[1][1] - cam[0][1]) * k
+            if sc.get("track") is not None and track:  # (it. 1174) caméra qui suit le héros, à « track » px du bord gauche du cadrage
+                hx = hero_x(track, sc.get("t0", 0) + i / FPS)
+                if hx is not None:
+                    cx = hx * 2 - sc["track"]
             cw = cam[0][2] + (cam[1][2] - cam[0][2]) * k
             ch = cw * th / tw
             box = (int(cx), int(cy), int(cx + cw), int(cy + ch))

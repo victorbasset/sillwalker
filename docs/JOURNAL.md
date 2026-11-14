@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-14 (it. 1174, bande-annonce 8) : caméra qui suit le héros : la mise en scène note sa position toutes les
+  100 ms (« [hx] <ms> <x> », console.warn), record.sh garde le journal (<plan>.log) et l'heure du début du film
+  (<plan>.t0) ; edit.py (« track » : héros à N px du bord du cadrage, moyenne glissante ± 0,6 s). Vu : le héros avance
+  à ≈ 55 px/s (setZone le ramène au bord) : plans de marche désormais toujours cadrés. La rencontre de Mirette est une
+  scène fixe, loin du héros : plan ×2 fixe sur la maison et sa réplique (une mesure, après l'annonce d'un champion
+  tué), mesure libérée pour un plan Aventure (« Gear up. Forge. Complete your sets. »). Version 3 : 20 scènes, 64,7 s.
 - 2026-11-14 (it. 1173, bande-annonce 7) : version 2 : titres animés (glissé + fondu ; « punch » : zoom qui se pose
   pour les événements), gros plans ×4 (480×200 → 1920×800), événements ×2 avec panoramique le long des élites, titres
   agrandis (événements 120 px), combat de fin de partie recadré sur les héros (« Crit 5.62M »), relique en plan
