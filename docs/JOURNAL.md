@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1339, contrôle) : --crawl réparé, sur l'état « tout au maximum » (max-save) dans 8 langues (en, de,
+  es, pt, pl, ja, zh, ko ; fr et ru faits à la 1338) : 706-724 clics chacune, aucune erreur.
 - 2026-11-15 (it. 1338) : --crawl réparé (il manquait l'achat de l'Encens de chasse, it. 1337). Trois défauts : il lisait
   la liste des boutons d'avance, et un clic qui redessine l'onglet (achat) détachait les suivants, « cliqués » sans
   effet mais marqués vus ; le bouton du PNJ, nommé par sa réplique (qui change), redessinait l'onglet à chaque passe ;
