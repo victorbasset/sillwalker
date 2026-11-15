@@ -1720,4 +1720,9 @@ export default {
   2845: "Criar {n} item por transmutação|Criar {n} itens por transmutação",
   2846: "Coletar {n} expedição|Coletar {n} expedições",
   2847: "Seu herói está travado na zona {0} ({n} derrota).|Seu herói está travado na zona {0} ({n} derrotas).",
+  2848: "Ascensão nº {0}! +{n} fragmento de estrela|Ascensão nº {0}! +{n} fragmentos de estrela",
+  2849: "Astrolábio: o herói estava empacado na zona {0}, ascensão automática (+{n} fragmento de estrela).|Astrolábio: o herói estava empacado na zona {0}, ascensão automática (+{n} fragmentos de estrela).",
+  2850: "Ascensão nº {0}: {1} e {2}. Uma nova aventura começa{3}!",
+  2851: "+{n} fragmento de estrela|+{n} fragmentos de estrela",
+  2852: "+{n} ponto de habilidade permanente|+{n} pontos de habilidade permanentes",
 };

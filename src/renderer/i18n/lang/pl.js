@@ -1720,4 +1720,9 @@ export default {
   2845: "Stwórz {n} przedmiot transmutacją|Stwórz {n} przedmioty transmutacją|Stwórz {n} przedmiotów transmutacją",
   2846: "Odbierz {n} wyprawę|Odbierz {n} wyprawy|Odbierz {n} wypraw",
   2847: "Twój bohater utknął w strefie {0} ({n} porażka).|Twój bohater utknął w strefie {0} ({n} porażki).|Twój bohater utknął w strefie {0} ({n} porażek).",
+  2848: "Wniebowstąpienie nr {0}! +{n} odłamek gwiazd|Wniebowstąpienie nr {0}! +{n} odłamki gwiazd|Wniebowstąpienie nr {0}! +{n} odłamków gwiazd",
+  2849: "Astrolabium: bohater utknął w strefie {0}, automatyczne wniebowstąpienie (+{n} odłamek gwiazd).|Astrolabium: bohater utknął w strefie {0}, automatyczne wniebowstąpienie (+{n} odłamki gwiazd).|Astrolabium: bohater utknął w strefie {0}, automatyczne wniebowstąpienie (+{n} odłamków gwiazd).",
+  2850: "Wniebowstąpienie nr {0}: {1} i {2}. Zaczyna się nowa przygoda{3}!",
+  2851: "+{n} odłamek gwiazd|+{n} odłamki gwiazd|+{n} odłamków gwiazd",
+  2852: "+{n} stały punkt umiejętności|+{n} stałe punkty umiejętności|+{n} stałych punktów umiejętności",
 };

@@ -1720,4 +1720,9 @@ export default {
   2845: "{n} Gegenstand durch Transmutation erschaffen|{n} Gegenstände durch Transmutation erschaffen",
   2846: "{n} Expedition abholen|{n} Expeditionen abholen",
   2847: "Dein Held steckt in Zone {0} fest ({n} Niederlage).|Dein Held steckt in Zone {0} fest ({n} Niederlagen).",
+  2848: "Aufstieg Nr. {0}! +{n} Sternensplitter|Aufstieg Nr. {0}! +{n} Sternensplitter",
+  2849: "Astrolabium: Der Held steckte in Zone {0} fest, automatischer Aufstieg (+{n} Sternensplitter).|Astrolabium: Der Held steckte in Zone {0} fest, automatischer Aufstieg (+{n} Sternensplitter).",
+  2850: "Aufstieg Nr. {0}: {1} und {2}. Ein neues Abenteuer beginnt{3}!",
+  2851: "+{n} Sternensplitter|+{n} Sternensplitter",
+  2852: "+{n} dauerhafter Fertigkeitspunkt|+{n} dauerhafte Fertigkeitspunkte",
 };

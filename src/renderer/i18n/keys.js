@@ -2849,5 +2849,10 @@ export const KEYS = [
   "Vaincre {n} élite|Vaincre {n} élites",
   "Créer {n} objet par transmutation|Créer {n} objets par transmutation",
   "Récupérer {n} expédition|Récupérer {n} expéditions",
-  "Ton héros bloque en zone {0} ({n} défaite).|Ton héros bloque en zone {0} ({n} défaites)."
+  "Ton héros bloque en zone {0} ({n} défaite).|Ton héros bloque en zone {0} ({n} défaites).",
+  "Ascension n° {0} ! +{n} éclat d’étoile|Ascension n° {0} ! +{n} éclats d’étoile",
+  "Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{n} éclat d’étoile).|Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{n} éclats d’étoile).",
+  "Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !",
+  "+{n} éclat d’étoile|+{n} éclats d’étoile",
+  "+{n} point de compétence permanent|+{n} points de compétence permanents"
 ];

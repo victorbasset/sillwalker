@@ -1720,4 +1720,9 @@ export default {
   2845: "Create {n} item by transmutation|Create {n} items by transmutation",
   2846: "Collect {n} expedition|Collect {n} expeditions",
   2847: "Your hero is stuck in zone {0} ({n} defeat).|Your hero is stuck in zone {0} ({n} defeats).",
+  2848: "Ascension #{0}! +{n} star shard|Ascension #{0}! +{n} star shards",
+  2849: "Astrolabe: the hero was stuck in zone {0}, automatic ascension (+{n} star shard).|Astrolabe: the hero was stuck in zone {0}, automatic ascension (+{n} star shards).",
+  2850: "Ascension #{0}: {1} and {2}. A new adventure begins{3}!",
+  2851: "+{n} star shard|+{n} star shards",
+  2852: "+{n} permanent skill point|+{n} permanent skill points",
 };

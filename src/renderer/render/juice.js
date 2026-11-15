@@ -10,7 +10,7 @@ import { RELICS, majorBoss, hasRelic } from "../game/relics.js";
 import { relicIconURL } from "./shopart.js";
 import { SETS } from "../game/sets.js";
 import { itemName } from "../i18n/data.js";
-import { t as tx, fsp } from "../i18n/index.js";
+import { t as tx, txn, fsp } from "../i18n/index.js";
 import { CLASSES, duoSynergy } from "../game/classes.js";
 import { RARITIES, LEGENDARY } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
@@ -203,7 +203,7 @@ export class Juice {
       this.sparkles(this.s.heroX + 18, this.ground() - 40, st.color, n >= 4 ? 18 : 10);
     });
     g.on("ascend", ({ count, gain } = {}) => { // nouvelle course : moment marquant, mais bref
-      this.banner(`✦ ${tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })}`, "#c9b8ff", this.s.heroX + 40, true);
+      this.banner(`✦ ${txn(gain || 0, "Ascension n° {0} ! +{n} éclat d’étoile|Ascension n° {0} ! +{n} éclats d’étoile", { 0: count })}`, "#c9b8ff", this.s.heroX + 40, true);
       this.sparkles(this.s.heroX + 18, this.ground() - 40, "#e0d8ff", 20);
     });
     g.on("event", ({ id }) => { const ev = EVENTS[id]; this.banner(`${ev.name}${fsp()}! ${ev.text}`, ev.color, this.s.heroX + 60, true); this.flash(ev.color, 0.2); });

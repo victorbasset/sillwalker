@@ -2545,7 +2545,7 @@ export class Game {
     if ((R.wallDeaths || []).filter((t) => R.time - t < 900).length < 4) return false;
     const gain = this.ascendShards(), best = S.best;
     if (!this.ascend({ auto: true })) return false;
-    this.log(tx("Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{1} éclats d’étoile).", { 0: best, 1: gain }));
+    this.log(txn(gain, "Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{n} éclat d’étoile).|Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{n} éclats d’étoile).", { 0: best }));
     return true;
   }
 
@@ -2584,7 +2584,7 @@ export class Game {
     f.potions += eff.potions || 0;
     if (!(f.stats.classes ||= []).includes(f.cls)) f.stats.classes.push(f.cls);
     this.load(f);
-    this.log(`${tx("Ascension n° {0} : +{1} éclats d’étoile et +{2} points de compétence permanents. Une nouvelle aventure commence{3} !", { 0: P.count, 1: gain, 2: skillGain, 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
+    this.log(`${tx("Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !", { 0: P.count, 1: txn(gain, "+{n} éclat d’étoile|+{n} éclats d’étoile"), 2: txn(skillGain, "+{n} point de compétence permanent|+{n} points de compétence permanents"), 3: f.zone > 1 ? tx(" en zone ") + f.zone : "" })}`);
     this.milestone("asc", P.count);
     this.autoConstellations(); // Carte du ciel : les nouveaux éclats sont placés tout de suite
     this.emit("ascend", { count: P.count, gain });

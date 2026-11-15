@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1358) : messages d'ascension accordés : journal (« +22 звёздных осколка и +1 постоянное очко
+  навыков » ; en français aussi, « +1 point de compétence permanent » au lieu de « +1 points … permanents »), bannière
+  de la bande et du mini (« Вознесение № 4! +2 звёздных осколка ») et Astrolabe. Le message du journal est composé de
+  deux morceaux accordés chacun. Autotest 228/228.
 - 2026-11-15 (it. 1357) : suite des pluriels : « Récupérer N expéditions » (Familiers ; « Забрать 2 экспедиции »,
   « Odbierz 2 wyprawy ») et l'alerte « Ton héros bloque en zone Z (N défaites) » (« 3 поражения », « 3 porażki »)
   accordés. Bestiaire « {0} victoires » laissé : paliers 10 / 100 / 1 000 / 10 000, même forme partout.
@@ -5259,8 +5263,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 ## Idées
 
 - P3 (it. 1356) Autres nombres variables devant un pluriel fixe (russe et polonais faux selon le nombre), à passer
-  par txn : éclats d'ascension (« +{1} éclats d’étoile » : game.js ascend et Astrolabe, juice.js, mini.js,
-  ascension.js « +{0} éclats » et « Rapportera alors {2} éclats », hints.js), talents.js « {0} points dépensés ».
+  par txn : ascension.js « +{0} éclats » et « Rapportera alors {2} éclats », hints.js, talents.js « {0} points
+  dépensés ». (Messages d'ascension, Astrolabe, bannières : faits à l'it. 1358.)
   (Expéditions et défaites faites à l'it. 1357 ; bestiaire inutile : paliers fixes.)
 - FAIT (it. 1269-1270, ligne d'expérience de la carte du héros) P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
   1280 px, défilement de 10 px), puis rien sur quatre relances : un état passager de dev-data (pastilles des

@@ -2,7 +2,7 @@
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { TAB_GATES, tabOpen } from "../game/tabs.js";
 import { CHRONICLES } from "../game/story.js";
-import { t as tx, fsp, colon, csep } from "../i18n/index.js";
+import { t as tx, txn, fsp, colon, csep } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
 import { SETS } from "../game/sets.js";
@@ -75,7 +75,7 @@ export class MiniRenderer {
     game.on("masteryStep", ({ at }) => this.showMoment("✦ " + tx("Palier de maîtrise : rang {0}", { 0: at }))); // (it. 1124)
     game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(csep()) })));
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(zone % 50 === 0 ? "✦ " + tx("Cap franchi : zone {0} !", { 0: zone }) : tx("Nouveau record : zone {0} !", { 0: zone })); });
-    game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + tx("Ascension n° {0} ! +{1} éclats d’étoile", { 0: count, 1: gain })));
+    game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + txn(gain || 0, "Ascension n° {0} ! +{n} éclat d’étoile|Ascension n° {0} ! +{n} éclats d’étoile", { 0: count })));
     // Clic sur le monstre combattu : coup bonus (sans agrandir l'encart).
     this.tap = el("button", "minitap", this.root);
     this.tap.hidden = true;
