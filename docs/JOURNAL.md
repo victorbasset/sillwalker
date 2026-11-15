@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1500, outil) : nouveau contrôle d'autotest : avec un compagnon, Héros > Sorts et attaque montre deux
+  cadres, les 3 cartes du compagnon, sans défilement (dev-data n'a pas de compagnon : le cadre n'était vu que par la
+  boucle des duos de lang-overflow). Autotest 230/230.
 - 2026-11-15 (it. 1499, contrôle) : texte extrait en russe avec un compagnon (mage) : le cadre « Заклинания: Маг »
   et « спутник, вполсилы » sont présents, aucun mot français (avant, dev-data sans compagnon ne montrait jamais ce
   cadre).

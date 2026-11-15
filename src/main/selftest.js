@@ -628,6 +628,12 @@ async function runSelfTest(strip) {
     const r = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), keep = P.sinceVisit; P.sinceVisit = { min: 754, kills: 123456, gold: 9.87e15, leg: 12, lvl0: 1200, lvl1: 1313, best: 255, asc: 3, spells: 140, relics: 4, chests: 17, goblins: 38, events: 23 }; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('#p-hero .visit'); const r = (b ? 'ok' : 'absente') + ' ' + o; P.sinceVisit = keep; P.renderAll(); return r; })()");
     check("« Depuis ta dernière visite » au pire cas : l'Aventure ne défile pas", /^ok -?[0-2]$/.test(r) || /^ok -\d+$/.test(r), r);
   }
+  // (it. 1500) sorts du compagnon en grand (demande de Victor, it. 1491) : deux cadres côte à côte, cartes du compagnon
+  // avec leurs boutons, l'onglet ne défile pas
+  {
+    const r = await js("(() => { const P = window.__panel, G = window.__game, p = document.getElementById('panel'), keep = { pt: G.S.partner, sec: P.tabs.class.sec }; G.S.partner = G.S.cls === 'mage' ? 'warrior' : 'mage'; P.setTab('class'); P.tabs.class.sec = 'style'; P.renderAll(); const boxes = document.querySelectorAll('[data-pane=class] .spellduo.two .spellbox').length, cards = document.querySelectorAll('[data-pane=class] .partnerbox .spellcard').length, o = p.scrollHeight - p.clientHeight; G.S.partner = keep.pt; P.tabs.class.sec = keep.sec; P.renderAll(); P.setTab('adventure'); return boxes + ' ' + cards + ' ' + o; })()");
+    check("sorts du compagnon : cadre à droite, ses cartes, pas de défilement", /^2 3 -?[0-2]$/.test(r), r);
+  }
   // (it. 1464) héros bloqué : les pistes dans la carte de la zone (forge comprise) ne font pas défiler l'Aventure
   {
     const r = await js("(() => { const P = window.__panel, G = window.__game, p = document.getElementById('panel'), keep = { w: G.R.wallDeaths, f: G.S.unlocks.forge, g: G.S.gold }; P.setTab('adventure'); G.R.wallDeaths = [G.R.time, G.R.time, G.R.time, G.R.time]; G.S.unlocks.forge = true; G.S.gold = 1e30; keep.p = G.S.potions; G.S.potions = 0; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('.stucktips'); const r = (b ? 'ok' : 'absente') + ' ' + o; G.R.wallDeaths = keep.w; if (!keep.f) delete G.S.unlocks.forge; G.S.gold = keep.g; G.S.potions = keep.p; P.renderAll(); return r; })()");
