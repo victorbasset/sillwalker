@@ -1816,4 +1816,6 @@ export default {
   2941: "En la franja, los disparos de los héroes a distancia pasan por delante del compañero.",
   2942: "Ruso: el texto usa la misma fuente pixel que los demás idiomas (66 letras dibujadas para el juego).",
   2943: "Ver o cambiar las bonificaciones de los umbrales",
+  2944: "Barras de vida arriba de la franja",
+  2945: "Tu vida y la del monstruo enfrentado, junto a la zona y el récord, escudo incluido.",
 };

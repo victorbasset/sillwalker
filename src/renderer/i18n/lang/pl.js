@@ -1816,4 +1816,6 @@ export default {
   2941: "Na pasku strzały bohaterów dystansowych lecą przed towarzyszem.",
   2942: "Rosyjski: tekst używa tej samej czcionki pikselowej co inne języki (66 liter narysowanych dla gry).",
   2943: "Zobacz lub zmień premie progów",
+  2944: "Paski życia u góry paska",
+  2945: "Twoje życie i życie potwora, obok strefy i rekordu, razem z tarczą.",
 };

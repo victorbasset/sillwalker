@@ -2945,5 +2945,7 @@ export const KEYS = [
   "Talents : la Voie tient sur une colonne (sa description au survol) ; Héros > Sorts et attaque : les boutons d’amélioration sont alignés en bas des cartes.",
   "Sur la bande, les tirs des héros à distance passent devant le compagnon.",
   "Russe : le texte s’affiche dans la même police pixel que les autres langues (66 lettres dessinées pour le jeu).",
-  "Voir ou changer les bonus des paliers"
+  "Voir ou changer les bonus des paliers",
+  "Barres de vie en haut de la bande",
+  "Ta vie et celle du monstre affronté, à côté de la zone et du record, bouclier compris."
 ];

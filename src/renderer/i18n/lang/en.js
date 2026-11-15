@@ -1816,4 +1816,6 @@ export default {
   2941: "On the strip, ranged heroes' shots now fly in front of the companion.",
   2942: "Russian: the text uses the same pixel font as the other languages (66 letters drawn for the game).",
   2943: "See or change the milestone bonuses",
+  2944: "Health bars at the top of the strip",
+  2945: "Your health and the current monster's, next to the zone and record, shield included.",
 };

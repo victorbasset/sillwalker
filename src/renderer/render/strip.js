@@ -21,13 +21,14 @@ import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/s
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice } from "./juice.js";
-import { fmt, uS } from "../game/format.js";
+import { fmt, fmtShort, uS } from "../game/format.js";
+import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
-import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
+import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
 
 // Répliques du héros, par circonstance.
 const SPEECH = {
@@ -107,6 +108,7 @@ const LEFT = 24;            // position de départ du héros
 const RIGHT_MARGIN = 300;   // le boss (2× plus large) s'arrête avant l'or, le niveau et les boutons
 const FIGHTS = KILLS_PER_ZONE + 1;
 const HUD_L_W = 520, HUD_R_W = 260, HUD_H = 24;
+const HUD_BAR_PILL = 246; // (it. 1531) largeur d'une pastille de barre de vie (styles.css .hudbar)
 const CENTER_HUD_W = 2400; // au-delà : informations au milieu de la bande (écrans ultra-larges)
 // Caractères pleine chasse (chinois, japonais, coréen, ponctuation « ！ ») : deux fois la largeur d'un chiffre.
 const WIDE_CHARS = /[\u1100-\u11ff\u2e80-\u9fff\uac00-\ud7af\uf900-\ufaff\ufe30-\ufe4f\uff00-\uff60\uffe0-\uffe6]/g;
@@ -163,6 +165,8 @@ export class StripRenderer {
     this.fade = el("div", "fade", container);
     this.hudL = makeCanvas(container, "layer hud");
     this.hudR = makeCanvas(container, "layer hud");
+    // (it. 1531, demande de Victor) barres de vie du héros et du monstre affronté dans la rangée d'informations
+    this.hpHero = new HudBar(container, "hero"); this.hpMon = new HudBar(container, "mon"); this.monIcons = new Map();
     this.xp = el("div", "xpbar", container);
     this.xpFill = el("i", "", this.xp);
 
@@ -1023,6 +1027,7 @@ export class StripRenderer {
 
     this.drawHudLeft();
     this.drawHudRight();
+    this.updateHudBars();
     const xpPct = (100 * S.xp / game.xpNeed()).toFixed(1);
     if (xpPct !== this.xpKey) { this.xpKey = xpPct; this.xpFill.style.transform = `scaleX(${xpPct / 100})`; mark("xp"); }
   }
@@ -1057,14 +1062,51 @@ export class StripRenderer {
     if (recTxt) drawText(ctx, recTxt, px + 20, 17, recCol);
   }
 
+  /** (it. 1531, demande de Victor) Barres de vie du héros et du monstre affronté dans la rangée d'informations (réglage
+   *  « Barres de vie en haut de la bande », activé par défaut). Mode centré : à gauche de la pastille de la zone et après
+   *  les boutons ; aux bords : à la suite de la pastille de la zone, s'il y a la place. Le monstre seulement en combat. */
+  updateHudBars() {
+    const g = this.game, S = g.S, R = g.R, BW = HUD_BAR_PILL, gap = 8;
+    let hx = 0, mx = 0, fits = false, monFits = false;
+    if (S.settings.hudBars !== false) {
+      if (this.centerHud && this.hudSpan) { hx = Math.round((this.hudLX || 0) + 3 - gap - BW); mx = Math.round(this.hudSpan[1] + gap); fits = hx >= 0; monFits = fits && mx + BW <= this.W; }
+      // aux bords : les deux à la suite de la pastille de la zone (avant la pastille or / niveau, le monstre passait sur le
+      // nom du boss, qui s'étend vers la gauche depuis le boss)
+      // (écran étroit : la barre du héros seule, s'il n'y a pas la place pour les deux)
+      else { hx = Math.round((this.hudLRight || 0) + gap); mx = hx + BW + gap; const lim = (this.hudRLeft || this.W) - 300; fits = hx + BW + 24 <= lim; monFits = mx + BW + 24 <= lim; }
+    }
+    const fight = R.mode === "fight" && R.mon;
+    this.hpHero.visible(fits); this.hpMon.visible(monFits && !!fight);
+    this.hpBars = fits ? [[hx, hx + BW]].concat(fight && monFits ? [[mx, mx + BW]] : []) : null;
+    if (!fits) return;
+    const hs = g.stats(), hp = Math.max(0, R.hp), sh = R.mode === "fight" ? (R.shield || 0) : 0;
+    this.hpHero.place(hx);
+    this.hpHero.icon(heroHeadURL(S.cls, heroVisual(S), 36), this.heroCls);
+    this.hpHero.set(hp, hs.hp, sh, fmtShort(hp), sh > 0 ? "+" + fmtShort(sh) : "");
+    if (!fight || !monFits) return;
+    const m = R.mon, msh = m.shell > 0 ? m.shell : 0;
+    this.hpMon.place(mx);
+    const ik = m.type + "|" + !!m.boss + "|" + isFinalZone(S.zone);
+    if (!this.monIcons.has(ik)) {
+      const set = isFinalZone(S.zone) && m.boss ? this.sprites.starbreaker : this.sprites.monsters[m.type];
+      const f = set && (m.boss ? set.boss : set.normal);
+      let url = "";
+      try { url = f && f[0] ? f[0].toDataURL() : ""; } catch (e) { url = ""; }
+      this.monIcons.set(ik, url);
+    }
+    this.hpMon.icon(this.monIcons.get(ik), ik);
+    this.hpMon.set(Math.max(0, m.hp), m.max, msh, fmtShort(Math.max(0, m.hp)), msh > 0 ? "+" + fmtShort(msh) : "");
+  }
+
   /** (it. 874) Bandes horizontales [début, fin] occupées par les pastilles d'informations (hauteur HUD_H, en haut) :
    *  la météo (bulles, flocons, feuilles…) n'y est pas dessinée, elle passait par-dessus « Zone 55 · Récif… ». */
   hudBands() {
     const H = HUD_H + 2;
-    if (this.centerHud && this.hudSpan) return { h: H, bands: [this.hudSpan] };
+    if (this.centerHud && this.hudSpan) return { h: H, bands: [this.hudSpan].concat(this.hpBars || []) };
     const bands = [];
     if (this.hudLRight) bands.push([0, this.hudLRight + 2]);
     if (this.hudRLeft) bands.push([this.hudRLeft - 2, this.W]);
+    if (this.hpBars) bands.push(...this.hpBars); // (it. 1531) barres de vie : la météo ne passe pas dessus
     return { h: H, bands };
   }
 

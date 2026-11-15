@@ -1816,4 +1816,6 @@ export default {
   2941: "Auf dem Streifen fliegen die Schüsse der Fernkampfhelden jetzt vor dem Begleiter.",
   2942: "Russisch: Der Text nutzt dieselbe Pixelschrift wie die anderen Sprachen (66 Buchstaben fürs Spiel gezeichnet).",
   2943: "Stufenboni ansehen oder ändern",
+  2944: "Lebensbalken oben im Streifen",
+  2945: "Deine Lebenspunkte und die des Monsters, neben Zone und Rekord, Schild inklusive.",
 };

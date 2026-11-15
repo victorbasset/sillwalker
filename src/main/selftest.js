@@ -628,6 +628,12 @@ async function runSelfTest(strip) {
     const r = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), keep = P.sinceVisit; P.sinceVisit = { min: 754, kills: 123456, gold: 9.87e15, leg: 12, lvl0: 1200, lvl1: 1313, best: 255, asc: 3, spells: 140, relics: 4, chests: 17, goblins: 38, events: 23 }; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('#p-hero .visit'); const r = (b ? 'ok' : 'absente') + ' ' + o; P.sinceVisit = keep; P.renderAll(); return r; })()");
     check("« Depuis ta dernière visite » au pire cas : l'Aventure ne défile pas", /^ok -?[0-2]$/.test(r) || /^ok -\d+$/.test(r), r);
   }
+  // (it. 1531, demande de Victor) barres de vie dans la rangée d'informations de la bande : visibles par défaut (celle du
+  // héros au moins), masquées par le réglage
+  {
+    const r = await js("new Promise((ok) => { const S = window.__game.S, st = window.__strip; const keep = S.settings.hudBars; S.settings.hudBars = true; st.updateHudBars(); const on = !document.querySelector('.hudbar.hero').hidden; S.settings.hudBars = false; st.updateHudBars(); const off = [...document.querySelectorAll('.hudbar')].every((x) => x.hidden); S.settings.hudBars = keep; st.updateHudBars(); ok(on + ' ' + off + ' ' + (st.W || 0)); })");
+    check("bande : barres de vie en haut (réglage)", /^true true/.test(r) || (/^false true (\d+)/.test(r) && +r.split(" ")[2] < 1200), r);
+  }
   // (it. 1528, demande de Victor) survoler un objet ne fait jamais défiler le panneau (une longue bulle dépassait en
   // bas : la barre de défilement apparaissait et la page sautait)
   {

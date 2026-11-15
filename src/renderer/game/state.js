@@ -62,7 +62,7 @@ export function freshState(now = Date.now()) {
     skills: { order: [], outer: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
-    settings: { sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 1, ambVol: 1, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
+    settings: { hudBars: true, sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 1, ambVol: 1, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
     daily: { last: null, streak: 0, seen: {} }, // récompense quotidienne (série de jours consécutifs) ; seen : bénédictions vécues (it. 1224)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
@@ -260,6 +260,8 @@ export function migrate(raw) {
   for (const k of ["musicVol", "ambVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite
   // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)
   if (!["auto", "center", "edges"].includes(s.settings.hudPos)) s.settings.hudPos = "auto";
+  // (it. 1531) barres de vie en haut de la bande : activées par défaut (anciennes sauvegardes comprises)
+  if (typeof s.settings.hudBars !== "boolean") s.settings.hudBars = true;
   s.settings.cinematics = s.settings.cinematics !== false;
   if (!isObj(o.settings) || o.settings.soundOn2 !== true) { s.settings.sound = true; s.settings.soundOn2 = true; }
   // Carnet apparu après coup, partie déjà entamée : une première entrée situe le point de départ.

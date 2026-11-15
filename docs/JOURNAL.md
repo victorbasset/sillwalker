@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1531, demande de Victor) : barres de vie du héros et du monstre affronté dans la rangée d'informations
+  de la bande (dom.js HudBar, strip.js updateHudBars) : pastille comme zone / or, tête du héros (heroHeadURL), miniature
+  du monstre (première image de son sprite, en cache), barre de 140 px, bouclier bleu-blanc (R.shield, carapace m.shell),
+  nombres (bouclier en bleu). Mode centré : héros à gauche de la zone, monstre après les boutons ; aux bords : les deux
+  à la suite de la zone (devant la pastille or / niveau, le monstre passait sur le nom du boss), le héros seul si la
+  place manque (1366 px). Le monstre seulement en combat ; la météo les évite (hudBands). Réglage settings.hudBars
+  (Réglages > Fenêtre, activé par défaut, anciennes sauvegardes comprises), 2 clés × 9 langues. DOM touché seulement
+  quand la valeur affichée change : perf bande 19,2 % (inchangée). Contrôle d'autotest (233/233).
 - 2026-11-15 (it. 1530) : lang-overflow mesure aussi la fiche de chaque maîtrise (rang 60 au moins : paliers, bouton) :
   « maîtrise=N(id) » ; elle trouvait 38 px (de, pl 1280, Fortune au rang 419 de dev-data) et 20 (ru) : sous-titre
   réduit à « rang N » pour une maîtrise apprise, note « aucun point » masquée en panneau étroit → 0 partout.

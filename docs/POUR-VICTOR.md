@@ -39,7 +39,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés du 14 au 15 novembre (it. 1328-1524)
+## Nouveautés du 14 au 15 novembre (it. 1328-1531)
 
 **Contenu**
 - Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau), Grillon (+5 % d'événements
@@ -82,6 +82,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   sorts : boutons d'amélioration alignés en bas.
 - Tes demandes : les tirs à distance passent devant le compagnon ; le russe s'affiche dans une version cyrillique de
   la police du texte anglais (66 lettres dessinées pour le jeu), au lieu de Tiny5.
+- Tes demandes : bulle d'objet bornée (plus de défilement au survol) ; bouton « Bonus » permanent sur chaque maîtrise ;
+  barres de vie du héros et du monstre dans la rangée d'informations de la bande (tête du héros, miniature du monstre,
+  bouclier en bleu-blanc, nombres), réglage « Barres de vie en haut de la bande » (Réglages > Fenêtre, activé).
 - « Quoi de neuf » : édition 98 (tes demandes de cet après-midi, 4 nouveautés).
 
 **Corrections**

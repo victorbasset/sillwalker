@@ -241,6 +241,34 @@ export class Bar {
   }
 }
 
+/** (it. 1531, demande de Victor) Barre de vie de la rangée d'informations de la bande (héros ou monstre affronté) :
+ *  pastille comme celles de la zone et de l'or, icône, barre, bouclier (segment bleu-blanc) et nombres. Le DOM n'est
+ *  touché que quand la valeur affichée change (barre au pixel près, nombres arrondis). */
+export const HUD_BAR_W = 140;
+export class HudBar {
+  constructor(parent, cls) {
+    this.el = el("div", "hudbar " + cls, parent);
+    this.ic = el("img", "ic", this.el); this.ic.alt = "";
+    const t = el("span", "tr", this.el);
+    this.fill = el("i", "", t); this.sh = el("b", "", t);
+    this.txt = el("span", "t", this.el); this.stxt = el("span", "ts", this.el);
+    this.key = null; this.icKey = null; this.shown = true; this.x = null;
+  }
+  icon(url, key) { if (key !== this.icKey) { this.icKey = key; this.ic.src = url || ""; this.ic.hidden = !url; mark("hudbar"); } }
+  set(hp, max, shield, text, stext = "") {
+    const W = HUD_BAR_W, f = max > 0 ? Math.max(0, Math.min(1, hp / max)) : 0, q = Math.round(f * W);
+    const s = max > 0 ? Math.round(Math.max(0, Math.min(1, (shield || 0) / max)) * W) : 0;
+    const key = q + "|" + s + "|" + text + "|" + stext;
+    if (key === this.key) return;
+    this.key = key; mark("hudbar");
+    this.fill.style.transform = `scaleX(${q / W})`;
+    this.sh.style.width = s + "px"; this.sh.style.left = Math.min(q, W - s) + "px"; this.sh.hidden = !s;
+    this.txt.textContent = text; this.stxt.textContent = stext;
+  }
+  place(x) { if (x !== this.x) { this.x = x; this.el.style.transform = `translate3d(${x}px,0,0)`; mark("hudbar"); } }
+  visible(v) { if (v !== this.shown) { this.shown = v; this.el.hidden = !v; mark("hudbar"); } }
+}
+
 /** Agrandissement uniforme du panneau (accessibilité). */
 /** Thème du panneau : null = celui de Windows, "light" ou "dark" (styles.css : :root[data-theme]). */
 /** Thème du panneau : "auto" = celui de Windows, "light", sinon sombre (par défaut, demande de Victor). */

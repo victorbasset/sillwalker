@@ -471,6 +471,20 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.hawkeye { background: radial-gradient(farthest-side, color-mix(in srgb, #ff9f43 50%, transparent) 55%, transparent); }
 .actor.frenzy.hawkeye { background: radial-gradient(farthest-side, color-mix(in srgb, #ff4a4a 50%, transparent) 55%, transparent), radial-gradient(farthest-side, color-mix(in srgb, #ff9f43 50%, transparent) 55%, transparent); }
 .layer.hud { transform-origin: 80% 50%; }
+/* (it. 1531, demande de Victor) barres de vie du héros et du monstre dans la rangée d'informations (render/dom.js HudBar,
+   strip.js updateHudBars) : pastille comme celles de la zone et de l'or (drawPill), largeur HUD_BAR_PILL (246 px) */
+.hudbar { position: absolute; top: 1px; left: 0; width: 246px; height: 22px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 6px; background: rgba(20, 18, 31, 0.72); border-radius: 4px; font: 13px var(--font-text); line-height: 1; color: #fff; white-space: nowrap; overflow: hidden; pointer-events: none; text-shadow: 1px 0 #14121f, -1px 0 #14121f, 0 1px #14121f, 0 -1px #14121f; }
+.hudbar[hidden] { display: none; }
+.hudbar .ic { width: 18px; height: 18px; object-fit: contain; image-rendering: pixelated; flex: none; }
+.hudbar .ic[hidden] { display: none; }
+.hudbar .tr { position: relative; flex: none; width: 140px; height: 10px; background: #3a1c24; box-shadow: 0 0 0 1px #14121f; }
+.hudbar .tr > i { position: absolute; left: 0; top: 0; width: 140px; height: 10px; transform-origin: left; }
+.hudbar.hero .tr > i { background: linear-gradient(#9cf0a8, #4fae5f 70%); }
+.hudbar.mon .tr > i { background: linear-gradient(#ff9a8a, #d0453a 70%); }
+.hudbar .tr > b { position: absolute; top: 0; height: 10px; background: linear-gradient(#ffffff, #8fd8ff); box-shadow: 0 0 3px #bfefff; }
+.hudbar .tr > b[hidden] { display: none; }
+.hudbar .t { flex: none; }
+.hudbar .ts { flex: none; color: #8fd8ff; }
 .chip.event { border-color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); color: var(--c); } /* (it. 1248) bordure visible en thème clair (Lune pâle, Voile protecteur : couleurs très claires) */
 /* Couleurs vives pensées pour le fond sombre : assombries en thème clair pour rester lisibles. */
 .tint, .sub.tint, .chip.event, .chip.set { color: color-mix(in oklab, var(--c) var(--tintk), var(--ink)); }

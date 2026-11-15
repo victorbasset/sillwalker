@@ -1816,4 +1816,6 @@ export default {
   2941: "Na faixa, os disparos dos heróis à distância passam à frente do companheiro.",
   2942: "Russo: o texto usa a mesma fonte pixel que os outros idiomas (66 letras desenhadas para o jogo).",
   2943: "Ver ou mudar os bónus dos patamares",
+  2944: "Barras de vida no topo da faixa",
+  2945: "A tua vida e a do monstro enfrentado, junto à zona e ao recorde, escudo incluído.",
 };
