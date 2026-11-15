@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1502) : devlog 0.1.4 (en et fr) : les sorts du compagnon en grand (demande de Victor).
 - 2026-11-15 (it. 1501, REVUE GÉNÉRALE) : 12 h graine 7, records : guerrier 66, rôdeur 65, paladin 61 (moyenne ≈ 64).
   perf:linux : bande 19,3 %, panneau 21,3 %, mini 7,1 %, icône 0,5 % (stables). Captures en et ja de Héros > Sorts
   et attaque avec un compagnon : deux cadres, aucun défilement, compteur « 0 / 6 ». Texte polonais avec un compagnon :
