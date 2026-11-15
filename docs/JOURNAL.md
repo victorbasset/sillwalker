@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1529) : contrôle : survol de chaque élément à bulle d'aide de chaque onglet (ru 1280, fr 1920) :
+  aucune ne fait défiler le panneau (le défaut de l'it. 1528 ne touchait que la bulle d'objet). Demande de Victor :
+  fond étoilé pour la page itch.io (steam/itch/ : trame exacte du panneau, version plus visible, et une tuile de 384 px
+  aux étoiles placées au hasard, sans répétition visible ; raccords vérifiés en mosaïque).
 - 2026-11-15 (it. 1528, demande de Victor : survoler un objet fait apparaître la barre de défilement et sauter la page) :
   bulle d'objet (.itemtip, panel.js onHover) bornée à la place sous l'en-tête : version serrée (.compact) si trop longue,
   puis coupée (overflow hidden). Mesuré sur les 31 objets de dev-data : avant, jusqu'à 36 px de défilement (fr 1920),

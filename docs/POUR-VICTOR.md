@@ -25,7 +25,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Color : BG `#18121f`, BG 2 `#231a2d`, Text `#efe6d2`, Link `#e8b14a`, Headers `#e8b14a`, Buttons `#e8b14a` (ou `#a3600c`
   si le texte des boutons se lit mal), BG2 Alpha 100 %.
 - Text : Font Lato, Size Large, Header font Pixel. Layout : Screenshots Auto (sidebar).
-- Images : Banner `steam/capsules/header-capsule.png` ; Background : aucun (fond uni).
+- Images : Banner `steam/capsules/header-capsule.png` ; Background : `steam/itch/background-tile-large.png` (ciel
+  étoilé du jeu, 384 px, se répète sans raccord ; « Repeat » / mosaïque). Variantes : `background-tile.png` (la trame
+  exacte du panneau, très discrète) et `background-tile-visible.png` (la même, étoiles plus visibles).
 
 ## Fin de partie (à décider, pas urgent)
 
