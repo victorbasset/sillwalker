@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1468, contrôle) : tableau des 20 héros (12 h, graines 7/3/11) : moyenne 63,6 (it. 1118 : 63,7),
+  de 60,7 (mage) à 67,3 (gardien stellaire), écart 6,7 zones (avant 5,7). Dans le bruit par héros (±2 sur 3 graines) :
+  rien à régler ; à surveiller si le mage reste le plus faible et le gardien stellaire le plus fort aux prochaines
+  mesures. Repère ajouté dans hero-table.mjs (et rappel : 2e argument = liste de graines).
 - 2026-11-15 (it. 1467, contrôle) : après les changements d'interface du jour (fiches cliquables du Bestiaire, quêtes
   de chasse « absent d'ici », pistes du héros bloqué, marques ◆) : --crawl sur l'état maximal en russe (625 clics) et
   sur la fin de partie en polonais (686 clics) : aucune erreur. Écarté : une bulle de pistes sur « ⚠ bloqué » de la
