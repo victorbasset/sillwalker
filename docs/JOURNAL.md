@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1341, revue générale) : 12 h guerrier 65, mage 60, rôdeur 65 (inchangés) ; --perf sur une copie
+  neuve de dev-data : bande 19,5 %, panneau 20,9 %, mini 6,7 %, icône 0,5 % (icônes des effets actifs sans coût
+  visible) ; texte extrait en russe et en japonais (toutes sous-sections et bulles) : aucun mot non traduit ; captures
+  Boutique en japonais (encens et élixir actifs) et mode mini en anglais : propres. Rien à corriger.
 - 2026-11-15 (it. 1340) : la bande montre les élixirs, parchemins et l'Encens de chasse actifs : une petite icône
   chacun devant l'or (4 au plus, sinon 3 et « +N »), dans le canevas du haut à droite, redessiné seulement quand la
   liste change (aucun coût par image). Avant, il fallait ouvrir le panneau pour savoir ce qui était actif. Vu en
