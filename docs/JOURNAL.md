@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1432) : Statistiques > Probabilités : la chance de coffre « aujourd’hui » compte aussi la Pie (avant :
+  seulement le Jour des trésors ; comme la ligne des élites avec la Grenouillette). Pie niveau 10 : « aujourd’hui
+  0,32 % » (0,2 × 1,6), vérifié par --stage. Autotest 228/228.
 - 2026-11-15 (it. 1431, REVUE GÉNÉRALE) : 12 h graine 7, records des courses : paladin 69, nécromancien 61, moine 65
   (moyenne habituelle ≈ 64). perf:linux : bande 19,3 %, panneau 19,9 %, mini 6,7 %, icône 0,6 % (stables). Captures
   zh et fr (Statistiques, Familiers, Bestiaire) : rien d'anormal (« 成就 33 / 70 » compte le nouveau succès). Texte

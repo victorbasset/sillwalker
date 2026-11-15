@@ -63,6 +63,8 @@ export class StatsTab {
     // (it. 893) taux du jour quand il diffère de la base (bénédiction du jour, Appât des champions) : « 6 % · aujourd'hui 18 % »
     const dm = activeDayMod(S), today = (base, mul) => (mul !== 1 ? " · " + tx("aujourd’hui {0}", { 0: pct(base * mul) }) : "");
     const eliteMul = (dm?.elite || 1) * (1 + (this.game.stats().elites || 0) / 100);
+    // (it. 1432) coffres : Jour des trésors et Pie (avant, la Pie n'apparaissait pas dans la chance affichée)
+    const chestMul = (dm?.chest || 1) * (1 + (this.game.stats().chests || 0) / 100);
     const reached = earnedAchievements(S); // déjà obtenus compris : un ajout de contenu ne retire pas d'étoile
     const ach = ACHIEVEMENTS.map((a) => {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
@@ -120,7 +122,7 @@ export class StatsTab {
       <article class="panel wide"><h2><span class="hicon"><img src="${shopIconURL("luck", 3)}" alt="">${tx("Probabilités")}</span></h2><ul class="lines">
         ${line(tx("Plume du vent (+1 % de vitesse)"), segs(`${pct(FEATHER.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(FEATHER.elite), 1: pct(FEATHER.boss) })}`))}
         ${line(tx("Étoile filante (+2 % de vitesse)"), segs(`${tx("toutes les {0}–{1} min", { 0: STAR.minS / 60, 1: STAR.maxS / 60 })}`))}
-        ${line(tx("Coffre au trésor"), segs(`${pct(CHEST.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(CHEST.elite), 1: pct(CHEST.boss) })}${today(CHEST.normal, dm?.chest || 1)}`))}
+        ${line(tx("Coffre au trésor"), segs(`${pct(CHEST.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(CHEST.elite), 1: pct(CHEST.boss) })}${today(CHEST.normal, chestMul)}`))}
         ${(() => { // les événements en une ligne (sinon la liste fait défiler l'onglet) : le détail au survol
           // ✓ : déjà vu (succès « Chasseur d'événements ») ; (vus / total)
           const ent = Object.entries(EVENTS), ev = ent.map(([, e]) => e), cs = ev.map((e) => e.chance), seen = st.eventsSeen || {};
