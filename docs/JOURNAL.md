@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1417) : quête « Lancer N sorts » : temps estimé sur sa carte (somme des 1 / recharge des sorts appris,
+  héros et compagnon, Jour des arcanes compris ; un peu optimiste, les sorts ne partant qu'en combat) ; aucun sans sort
+  appris. Fin de partie : 20 sorts ≈ 25 s (affiché « ≈ 1 min »). Test. Autotest 228/228.
 - 2026-11-15 (it. 1416, contrôle) : --crawl sur une partie NEUVE (début de partie, peu d'onglets ouverts) en japonais et
   en russe : 72 clics chacune, aucune erreur (les autres parcours de la nuit portaient sur dev-data, la fin de partie et
   l'état maximal).

@@ -2183,12 +2183,19 @@ export class Game {
 
   questEta(q) {
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
     if (q.kind === "gold") { const g = P.slice(1).reduce((a, x) => a + x[1], 0) / dt; return g > 0 ? left / g : null; }
     let rate = (P.length - 1) / dt; // victoires par seconde
+    // (it. 1417) sorts : somme des 1 / recharge des sorts appris (héros et compagnon), Jour des arcanes compris ; les sorts
+    // ne partent qu'en combat : estimation un peu optimiste
+    if (q.kind === "spell") {
+      const S = this.S, mul = activeDayMod(S)?.spellCdr || 1; let perSec = 0;
+      for (const cls of [S.cls, S.partner].filter(Boolean)) for (const sp of classSpells(cls)) { const r = spellRank(S, sp.id); if (r) perSec += mul / spellCd(sp, r); }
+      return perSec > 0 ? left / perSec : null;
+    }
     // (it. 1408) niveaux : l'expérience qui reste pour les niveaux demandés, au rythme des victoires de la zone
     if (q.kind === "level") {
       const S = this.S, perKill = monsterBase(S.zone, false).xp * earlyPace(S) * (1 + (this.stats().xp || 0) / 100);
