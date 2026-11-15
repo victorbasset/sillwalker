@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1388) : Bestiaire > Élites : tant que la collection des sortes d'élites n'est pas complète (10 avec
+  l'Explosif), le titre de la section porte l'astuce de l'Encens de chasse au survol (même texte que les quêtes
+  d'élites, it. 1344 ; rien de plus à l'écran). Vérifié par --stage. Aucune tâche en suspens (TODO, FIXME) dans le code.
 - 2026-11-15 (it. 1387, contrôle) : save-fuzz après l'Explosif (affixesSeen, proies) sur dev-data (1211) et la
   partie 0.1.2 (1134) : ok ; la fin de partie l'était à l'it. 1382.
 - 2026-11-15 (it. 1386) : docs/POUR-VICTOR.md : ce qui attend Victor, en une page (page Steam à recopier : 17

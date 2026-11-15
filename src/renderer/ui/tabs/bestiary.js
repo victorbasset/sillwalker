@@ -14,6 +14,7 @@ import { SETS, SET_KEYS, setCounts } from "../../game/sets.js";
 import { itemName } from "../../i18n/data.js";
 import { RARITIES, SLOTS, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, affixesSeenEffects } from "../../game/data.js";
 import { BOSS_MECHANICS, bossMechanics } from "../../game/bosses.js";
+import { tabOpen } from "../../game/tabs.js";
 
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
@@ -91,7 +92,9 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
         let nz = 0; for (let z = S.zone; z < S.zone + 60; z++) if (bossMechanics(z).includes(id)) { nz = z; break; }
         return `<div class="setcard${nz === S.zone ? " here" : ""}" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
       ${show.elites ? (() => { const won = (S.stats && S.stats.affixesSeen) || {}, ae = Object.entries(ELITE_AFFIXES); // (it. 943) sortes vaincues : ✓
-        return `<h2 class="codexh" id="bj-elites">${tx("Élites")} (${ae.filter(([id]) => won[id]).length} / ${ae.length}) <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
+        // (it. 1388) collection incomplète : l'astuce de l'Encens de chasse au survol du titre (rien de plus à l'écran)
+        const lureTip = ae.some(([id]) => !won[id]) && tabOpen(S, "shop") ? ` title="${esc(tx("Astuce : l’Encens de chasse de la Boutique attire deux fois plus d’élites."))}"` : "";
+        return `<h2 class="codexh" id="bj-elites"${lureTip}>${tx("Élites")} (${ae.filter(([id]) => won[id]).length} / ${ae.length}) <small>${tx("monstres dorés : butin garanti, or ×4 ; chacun a un affixe")}</small></h2>
       <p class="note tabintro">${tx("Chaque sorte d’élite vaincue donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(AFFIX_SEEN_BONUS)), 1: esc(describeEffects(affixesSeenEffects(S)) || "—") })}</p>
       <div class="setgrid">${ae.map(([id, a]) => `<div class="setcard${won[id] ? "" : " unknown"}" style="--c:${a.color}"><b class="tint">${esc(a.name)}</b>${won[id] ? ` <small>✓ ×${fmt(affixWins(won[id]))}</small>` : ""}<div>${esc(a.desc || "")}</div></div>`).join("")}</div>`; })() : ""}
       ${show.events ? this.eventsHTML(S) : ""}
