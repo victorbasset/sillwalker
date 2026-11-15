@@ -472,8 +472,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .actor.frenzy.hawkeye { background: radial-gradient(farthest-side, color-mix(in srgb, #ff4a4a 50%, transparent) 55%, transparent), radial-gradient(farthest-side, color-mix(in srgb, #ff9f43 50%, transparent) 55%, transparent); }
 .layer.hud { transform-origin: 80% 50%; }
 /* (it. 1531, demande de Victor) barres de vie du héros et du monstre dans la rangée d'informations (render/dom.js HudBar,
-   strip.js updateHudBars) : pastille comme celles de la zone et de l'or (drawPill), largeur HUD_BAR_PILL (246 px) */
-.hudbar { position: absolute; top: 1px; left: 0; width: 246px; height: 22px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 6px; background: rgba(20, 18, 31, 0.72); border-radius: 4px; font: 13px var(--font-text); line-height: 1; color: #fff; white-space: nowrap; overflow: hidden; pointer-events: none; text-shadow: 1px 0 #14121f, -1px 0 #14121f, 0 1px #14121f, 0 -1px #14121f; }
+   strip.js updateHudBars) : pastille comme celles de la zone et de l'or (drawPill), largeur HUD_BAR_PILL (290 px : la valeur du bouclier tient à droite, it. 1536) */
+.hudbar { position: absolute; top: 1px; left: 0; width: 290px; height: 22px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 8px 0 6px; background: rgba(20, 18, 31, 0.72); border-radius: 4px; font: 13px var(--font-text); line-height: 1; color: #fff; white-space: nowrap; overflow: hidden; pointer-events: none; text-shadow: 1px 0 #14121f, -1px 0 #14121f, 0 1px #14121f, 0 -1px #14121f; }
 .hudbar[hidden] { display: none; }
 .hudbar .ic { width: 18px; height: 18px; object-fit: contain; image-rendering: pixelated; flex: none; }
 .hudbar .ic[hidden] { display: none; }
