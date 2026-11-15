@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1361, revue générale) : après la série des pluriels : --perf (copie neuve) bande 19,2 %, panneau
+  20,9 %, mini 6,6 %, icône 0,6 % ; --crawl en russe sur l'état maximal 725 clics sans erreur ; lang-overflow des
+  10 langues (avec fin de partie, 130 % et état maximal) : aucun défilement ni mot coupé. Équilibre non touché
+  depuis la revue 1351. Rien à corriger.
 - 2026-11-15 (it. 1360, contrôle) : début de partie après les changements de la nuit : premières récompenses
   (first-minutes, 3 graines) objet 52-79 s, boss 76-79 s, niveau 16 vers 13-15 min ; onglets (tab-pace) Talents 1 min,
   Quêtes 5, Boutique 8-9, Héros 10, Carte 12, Bestiaire 14-15. Inchangé.
