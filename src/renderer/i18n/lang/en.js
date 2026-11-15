@@ -1781,4 +1781,5 @@ export default {
   2906: "Stuck hero: the tips to move on stay shown in the zone card and in the mini mode tooltip, and a new tip suggests forging your gear when your gold allows it.",
   2907: "they flee: hero too slow here",
   2908: "resume advancing",
+  2909: "Quests: a stuck quest says so on its card (golden goblins too fast for your hero, auto-advance turned off: one click resumes it), and the click-hit quest reminds you how to strike.",
 };

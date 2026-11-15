@@ -1781,4 +1781,5 @@ export default {
   2906: "Herói travado: as dicas para avançar ficam visíveis no cartão da zona e no balão do modo mini, e uma nova dica sugere forjar o teu equipamento quando o teu ouro o permite.",
   2907: "fogem: herói lento demais aqui",
   2908: "retomar o avanço",
+  2909: "Missões: uma missão travada diz isso no seu cartão (goblins rápidos demais para o teu herói, avanço automático desligado: um clique retoma-o), e a de golpes com clique lembra como bater.",
 };

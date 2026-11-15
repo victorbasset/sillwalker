@@ -1781,4 +1781,5 @@ export default {
   2906: "Festsitzender Held: Die Ideen zum Weiterkommen bleiben in der Zonenkarte und im Tooltip des Mini-Modus sichtbar, und eine neue Idee schlägt vor, deine Ausrüstung zu schmieden, wenn dein Gold reicht.",
   2907: "sie fliehen: Held hier zu langsam",
   2908: "wieder vorrücken",
+  2909: "Quests: Eine festsitzende Quest sagt es auf ihrer Karte (Goldkobolde zu schnell für deinen Helden, automatisches Vorrücken aus: ein Klick nimmt es wieder auf), und die Klicktreffer-Quest erinnert daran, wie man zuschlägt.",
 };

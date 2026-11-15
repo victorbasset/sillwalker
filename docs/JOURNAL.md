@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1473) : « Quoi de neuf » 95 (quêtes qui disent pourquoi elles n'avancent pas, astuce des coups au
+  clic), 10 langues ; devlog et POUR-VICTOR (it. 1467-1472). Autotest 229/229, lang-overflow propre.
 - 2026-11-15 (it. 1472) : quêtes : vérifié que forge, transmutation, expéditions, coups au clic et sorts ne sont proposés
   qu'à qui peut les faire (ok). La carte « coups au clic » porte l'astuce de la bande en bulle (« clique sur le monstre
   que ton héros combat… », clé déjà traduite). Vérifié par --stage (anglais). Autotest 229/229.

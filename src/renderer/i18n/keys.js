@@ -2910,5 +2910,6 @@ export const KEYS = [
   "forge ton équipement avec ton or",
   "Héros bloqué : les pistes pour avancer restent affichées dans la carte de la zone et dans la bulle du mode mini, et une nouvelle piste propose de forger ton équipement quand ton or le permet.",
   "ils s’enfuient : héros trop lent ici",
-  "reprendre l’avancée"
+  "reprendre l’avancée",
+  "Quêtes : une quête bloquée le dit sur sa carte (gobelins trop rapides pour ton héros, avancée automatique coupée : un clic la reprend), et celle des coups au clic rappelle comment frapper."
 ];

@@ -1781,4 +1781,5 @@ export default {
   2906: "Héroe atascado: las pistas para avanzar siguen visibles en la tarjeta de la zona y en la burbuja del modo mini, y una nueva pista propone forjar tu equipo cuando tu oro lo permite.",
   2907: "huyen: héroe demasiado lento aquí",
   2908: "reanudar el avance",
+  2909: "Misiones: una misión atascada lo indica en su tarjeta (goblins demasiado rápidos para tu héroe, avance automático desactivado: un clic lo reanuda), y la de golpes con clic recuerda cómo golpear.",
 };

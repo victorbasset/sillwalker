@@ -1781,4 +1781,5 @@ export default {
   2906: "Zablokowany bohater: wskazówki, jak iść dalej, zostają widoczne na karcie strefy i w dymku trybu mini, a nowa wskazówka proponuje wykuć ekwipunek, gdy pozwala na to złoto.",
   2907: "uciekają: bohater tu za wolny",
   2908: "wznów postęp",
+  2909: "Zadania: zablokowane zadanie mówi o tym na swojej karcie (złote gobliny za szybkie dla bohatera, automatyczny postęp wyłączony: jedno kliknięcie go wznawia), a zadanie z trafieniami kliknięciem przypomina, jak uderzać.",
 };
