@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1383, contrôle) : l'Explosif à l'image (--stage : toute la file explosive, monstre ramené à 1 PV
+  toutes les 2 s car la zone 56 de dev-data est longue à vaincre) : étiquettes orange « Explosif », 4 explosions en
+  10 s, PV du héros qui baissent puis remontent. Conforme.
 - 2026-11-15 (it. 1382) : 10e sorte d'élite, l'Explosif : en mourant, il inflige au héros 6 % de ses PV max, sans jamais
   l'achever (le danger à la fin du combat, pas pendant). Texte « Explosion ! » et étincelles sur la bande, son (rendu
   par l'autotest), test (dégâts et « jamais achevé »), fidélité de sa description (paramètre explode), 10 langues,
