@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1372) : balayage ponctuel (script hors dépôt) des noms de consommables, événements, familiers,
+  déblocages et bénédictions cités dans d'autres textes, en en / de / es / pt / zh / ja / ko : 11 écarts, presque tous
+  des déclinaisons allemandes normales ou le nom propre du succès « Ménagerie complète » ; un vrai : coréen « 대장장이
+  장인 » pour le déblocage « 대장장이 명인 » (Maître de forge) dans le résumé d'absence. Corrigé.
 - 2026-11-15 (it. 1371, revue générale) : 12 h guerrier 67, mage 62, rôdeur 65 (avec le Lucane ; balance jugée bruit
   à la 1364) ; texte extrait en chinois (aucun mot latin) et en allemand (aucun mot français) ; capture Familiers >
   À découvrir en japonais (bonus et « レア » lisibles). Performance mesurée à la 1361, seul un sprite ajouté depuis.
