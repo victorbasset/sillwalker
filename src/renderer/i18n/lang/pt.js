@@ -1811,4 +1811,8 @@ export default {
   2936: "Patamar atingido: escolhe o seu bónus (A ou B). Até lá, aplica-se A.",
   2937: "Escolher bónus",
   2938: "2 bónus à escolha",
+  2939: "Talentos: uma mestria com um patamar à espera da tua escolha tem um botão «Escolher bónus», e «O que fazer agora» lembra-te (sem escolha, aplica-se o primeiro bónus).",
+  2940: "Talentos: a Via cabe numa coluna (a descrição ao passar o rato); Herói > Feitiços e ataque: os botões de melhoria alinham-se no fundo dos cartões.",
+  2941: "Na faixa, os disparos dos heróis à distância passam à frente do companheiro.",
+  2942: "Russo: o texto usa a mesma fonte pixel que os outros idiomas (66 letras desenhadas para o jogo).",
 };

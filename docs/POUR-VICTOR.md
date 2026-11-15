@@ -67,7 +67,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   compagnon (le familier aussi).
 - Tes demandes : duo, un compagnon au corps à corps encaisse pour un héros à distance (dégâts subis −15 %), un
   compagnon à distance couvre un héros au corps à corps (attaque +15 %). Équilibre 12 h : dans le bruit (+0,2 / −0,3).
-- « Quoi de neuf » : édition 99.
+- « Quoi de neuf » : éditions 99 et 100.
 - Tes demandes (Talents) : bouton « Choisir un bonus » sur chaque maîtrise dont un palier attend son choix (ouvre la
   fenêtre), signalé aussi dans « À faire » ; la Voie sur une colonne (description au survol), les Maîtrises sur deux ;
   sorts : boutons d'amélioration alignés en bas.

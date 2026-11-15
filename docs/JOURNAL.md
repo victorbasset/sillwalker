@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1525) : édition 100 de « Quoi de neuf » (bouton « Choisir un bonus » et « À faire maintenant », Voie
+  réduite et boutons des sorts alignés, tirs devant le compagnon, police russe), 9 langues. Autotest 231/231.
 - 2026-11-15 (it. 1524, demande de Victor : « la police russe illisible ») : Geist Pixel n'a pas de cyrillique (ni le
   paquet geist complet, ni fontsource) : 66 lettres russes dessinées sur sa grille (scripts/cyrillic-geist-pixel/ :
   raster.py, glyphs.py, build.py), 20 reprises du latin (А = A, Н = H…), les autres dessinées ; 2 372 points

@@ -1811,4 +1811,8 @@ export default {
   2936: "Stufe erreicht: wähle ihren Bonus (A oder B). Bis dahin gilt A.",
   2937: "Bonus wählen",
   2938: "2 Boni zur Wahl",
+  2939: "Talente: Eine Meisterschaft, deren Stufe auf deine Wahl wartet, hat einen Knopf „Bonus wählen“, und „Jetzt zu tun“ erinnert dich daran (ohne Wahl gilt der erste Bonus).",
+  2940: "Talente: Der Weg passt in eine Spalte (Beschreibung beim Überfahren); Held > Zauber & Angriff: Die Aufwertungsknöpfe stehen unten auf den Karten in einer Reihe.",
+  2941: "Auf dem Streifen fliegen die Schüsse der Fernkampfhelden jetzt vor dem Begleiter.",
+  2942: "Russisch: Der Text nutzt dieselbe Pixelschrift wie die anderen Sprachen (66 Buchstaben fürs Spiel gezeichnet).",
 };

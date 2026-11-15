@@ -1811,4 +1811,8 @@ export default {
   2936: "Milestone reached: choose its bonus (A or B). Until then, A applies.",
   2937: "Choose a bonus",
   2938: "2 bonuses to choose from",
+  2939: "Talents: a mastery whose milestone awaits your choice has a “Choose a bonus” button, and “Things to do now” reminds you (without a choice, the first bonus applies).",
+  2940: "Talents: the Way fits in one column (its description on hover); Hero > Spells & attack: the upgrade buttons line up at the bottom of the cards.",
+  2941: "On the strip, ranged heroes' shots now fly in front of the companion.",
+  2942: "Russian: the text uses the same pixel font as the other languages (66 letters drawn for the game).",
 };

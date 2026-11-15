@@ -1811,4 +1811,8 @@ export default {
   2936: "Próg osiągnięty: wybierz premię (A lub B). Do tego czasu działa A.",
   2937: "Wybierz premię",
   2938: "2 premie do wyboru",
+  2939: "Talenty: mistrzostwo, którego próg czeka na twój wybór, ma przycisk „Wybierz premię”, a „Do zrobienia teraz” ci o tym przypomina (bez wyboru działa pierwsza premia).",
+  2940: "Talenty: Droga mieści się w jednej kolumnie (opis po najechaniu); Bohater > Zaklęcia i atak: przyciski ulepszeń są wyrównane na dole kart.",
+  2941: "Na pasku strzały bohaterów dystansowych lecą przed towarzyszem.",
+  2942: "Rosyjski: tekst używa tej samej czcionki pikselowej co inne języki (66 liter narysowanych dla gry).",
 };

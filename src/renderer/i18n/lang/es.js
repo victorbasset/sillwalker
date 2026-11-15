@@ -1811,4 +1811,8 @@ export default {
   2936: "Umbral alcanzado: elige su bonificación (A o B). Mientras tanto, se aplica A.",
   2937: "Elegir bonificación",
   2938: "2 bonificaciones a elegir",
+  2939: "Talentos: una maestría con un umbral pendiente de elección tiene un botón «Elegir bonificación», y «Qué hacer ahora» te lo recuerda (sin elección, se aplica la primera bonificación).",
+  2940: "Talentos: la Vía cabe en una columna (su descripción al pasar el ratón); Héroe > Hechizos y ataque: los botones de mejora se alinean abajo en las cartas.",
+  2941: "En la franja, los disparos de los héroes a distancia pasan por delante del compañero.",
+  2942: "Ruso: el texto usa la misma fuente pixel que los demás idiomas (66 letras dibujadas para el juego).",
 };
