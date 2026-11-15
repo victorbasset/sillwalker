@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1420) : vérifié en vrai (--stage sur une copie de dev-data) le temps estimé d'une quête d'expéditions :
+  « ≈ 24 min » pour deux retours à 10 et 25 min. POUR-VICTOR complété (it. 1415-1419).
 - 2026-11-15 (it. 1419) : quête « Ramener N expéditions » : temps estimé exact (heure du n-ième retour parmi les
   expéditions en cours ; aucun s'il n'y en a pas assez en route). Test. Autotest 228/228.
 - 2026-11-15 (it. 1418) : quête « Porter N coups critiques » : temps estimé sur sa carte (attaques par seconde × chance
