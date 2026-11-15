@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1556) : --crawl après les changements d'interface des it. 1544-1555 (Réglages à droite, clic sur le
+  rebord, coffres de quête) : dev-data en russe 707 clics, fin de partie en polonais 702 clics, aucune erreur.
 - 2026-11-16 (it. 1555) : « Tout réclamer » (Quêtes) : le plus bel objet des coffres réclamés s'ouvre sous les yeux,
   comme une quête réclamée seule (it. 1546) ; la réclamation automatique reste silencieuse. Autotest 238/238.
 - 2026-11-16 (it. 1554) : contrôle après Poupouce (un tirage de plus dans la file des monstres) : balance 12 h contre
