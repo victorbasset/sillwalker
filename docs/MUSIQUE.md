@@ -46,6 +46,8 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
       craquements de vinyle, bus maître (égaliseur, compresseur, limiteur).
 - [x] 3. Le leitmotiv (4 mesures) et ses 4 habits ; harmonie commune.
 - [ ] 4. Morceau 1 « Le Rebord » : partition complète, mixage, master, mesures ; extrait envoyé à Victor.
+      - [x] 4a. composition et arrangement complets (v1 envoyée)
+      - [ ] 4b. mixage : présence (≈ +5 dB à 2-4 kHz), bas-médiums 125-250 Hz, niveaux des sections ; retours de Victor
 - [ ] 5. Morceau 2 « Sentiers d'étoiles » : idem.
 - [ ] 6. Morceau 3 « Les Lieutenants » : idem.
 - [ ] 7. Morceau 4 « Le Briseur d'Étoiles » : idem.
@@ -88,3 +90,13 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   Mesures à corriger dans les vrais morceaux : ledge trop terne (−18,7 dB à 2 kHz, −26,6 à 4 kHz : présence) ; embers
   trop sombre et grave (−36,5 dB à 8 kHz, cordes trop filtrées, sub dominant) ; largeur stéréo partout ≈ 0,2-0,3 (trop
   centré : panoramiques plus larges, doublures gauche/droite, effet Haas) ; starbreaker le plus équilibré.
+- 15/11 : Victor aime le leitmotiv (« oui j'aime bien ») : on le garde pour les 4 morceaux.
+- 15/11 (tâche 4a) : « Le Rebord » v1 (`tracks/rebord.js`) : 48 mesures, 82 bpm, ré majeur, boucle de 140,5 s (queue
+  repliée sur le début : studio.html, `loop: true`). Forme intro 4 · A 8 (flûte) · A' 8 (puce + flûte à l'octave,
+  guitare) · B 8 (pont : Gmaj7-A6-F♯m7-Bm7-Em9-A7sus-Dmaj7-Bm7/A7, mélodie nouvelle cloche + flûte) · respiration 4
+  (batterie hors, pleurage 18 cents) · A'' 8 (cymbale, puce + flûte à l'octave, cordes, nappe) · outro 8 (la batterie
+  s'éclaircit puis s'arrête, retour aux accords de l'intro). Accords voicés à la main (sans fondamentale), batterie
+  swinguée (0,17 temps), notes fantômes, roulements de fin de section. Rendu 190 s. Mesures : −15,9 LUFS, LRA 5,5,
+  vrai pic −2,5, largeur 0,39, raccord 0,014 ; octaves 63 0 · 125 −1,9 · 250 −1,4 · 500 −5,6 · 1k −10,3 · 2k −15,8 ·
+  4k −21,6 · 8k −24,3 : encore sombre et un peu chargé en bas-médiums. Envoyé à Victor
+  (Médias/dist-itch/musique/02-le-rebord-v1.mp3).

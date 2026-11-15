@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 4a) : morceau 1 « Le Rebord » v1 (48 mesures, 2 min 20 en boucle sans couture), envoyé à
+  Victor ; mixage à affiner (présence, bas-médiums).
 - 2026-11-15 (musique, tâche 3) : leitmotiv commun (question / réponse, 8 mesures, en degrés de gamme) et ses 4 habits
   (grilles vérifiées note à note) ; démonstration enchaînée envoyée à Victor.
 - 2026-11-15 (musique, tâche 2) : instruments de la bande originale (flûte, puce façon Terraria, cloches, cordes,
