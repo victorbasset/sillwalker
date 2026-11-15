@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1476) : POUR-VICTOR : nouveautés du 14-15/11 réécrites en liste (contenu, confort, corrections,
+  vérifié) au lieu d'un long paragraphe.
 - 2026-11-15 (it. 1475) : CLAUDE.md : « Quoi de neuf » à regrouper (une édition de 3-5 nouveautés par série, pas une
   ligne par itération) ; les onze éditions d'une ligne de la journée remplissent déjà la fenêtre (11 nouveautés).
 - 2026-11-15 (it. 1474) : « Quoi de neuf » : jusqu'à 11 nouveautés (NEWS_FILL_ITEMS 8 → 11). Les éditions 85 à 95 font

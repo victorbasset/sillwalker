@@ -30,29 +30,32 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1473)
+## Nouveautés du 14 au 15 novembre (it. 1328-1476)
 
-Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
-Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
-découvrir. Corrections : parchemins de fortune et de savoir enfin comptés pendant l'absence ; « tout dépenser » du
-grand graphe sans gel (400 → 40 ms) ; pluriels russes et polonais (quêtes, ascension, sac…) ; termes cohérents
-(« pupil » en polonais, noms d'onglets) ; outil `--crawl` qui clique vraiment tous les boutons.
-Ensuite (it. 1387-1402) : succès « Démineur » (25 Explosifs, 69e succès) ; les élites vaincues pendant l'absence
-comptent pour leur sorte ; bilans des événements plus riches (vie rendue, expérience, œufs) ; astuce de l'Encens de
-chasse dans Bestiaire > Élites ; 18e sorte de quête « Gagner N niveaux » (avec son temps estimé, jamais proposée
-quand les niveaux ne viennent plus) ; la bulle du mode mini annonce la bénédiction de demain ; bénédiction « Jour des arcanes » (sorts rechargés 50 % plus
-vite ; la pastille et la bulle du mode mini disent quand les sorts arrivent si aucun n'est appris) ; temps estimé
-sur les cartes des quêtes de sorts, de coups critiques et d'expéditions (exact pour ces dernières) et de coffres ; une quête de chasse dont le monstre
-n'est pas dans la zone dit où il vit (un clic y emmène avec la Carte du voyageur) ; 20e familier, la Pie (+6 % de coffres au trésor par niveau, aussi
-comptée dans Statistiques > Probabilités) ; 70e succès « Pilleur de coffres » (50 coffres) ; 18e événement rare, le Trésor enfoui (coffres à chaque
-victoire pendant 30 s) ; Statistiques > Probabilités : chances du jour pour événements et champions ; sorts : recharge
-réelle le Jour des arcanes ; Bestiaire : avec la Carte du voyageur, un clic (ou Entrée) sur un monstre emmène là où il
-vit ; temps estimé aussi pour les quêtes d'événements, d'objets rares et de boss ; « Quoi de neuf » montre jusqu'à
-8 nouveautés quand les éditions sont courtes ; 19e sorte de quête « Attraper N gobelins dorés » (les gobelins sont
-aussi attrapés pendant l'absence, avec leur or, et comptés dans « Depuis ta dernière visite » ; la quête n'est
-jamais proposée à un héros trop lent pour les attraper) ; sur la bande, un ◆ marque les monstres visés par une quête
-en cours (chasse, proie, champions, gobelins) ; héros bloqué : pistes visibles dans la carte de la zone et la bulle
-du mode mini, nouvelle piste « forger avec ton or » (un héros simulé butait une heure avec 400 k d'or) ; cartes de quête qui disent pourquoi elles n'avancent pas
-(gobelins trop rapides, avancée coupée avec un bouton pour la reprendre). Vérifié : l'ensemble
-des ajouts de la nuit ne change pas l'équilibre (3 graines, encore après la Pie),
-mémoire et performance stables.
+**Contenu**
+- Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau) : 20 familiers.
+- Événements rares : Source de vie (soin), Trésor enfoui (coffres pendant 30 s) : 18 événements.
+- Bénédictions du jour : Jour du sang, Jour des arcanes (sorts rechargés 50 % plus vite).
+- Élite Explosive ; Encens de chasse (boutique, deux fois plus d'élites 10 min).
+- Quêtes : « Gagner N niveaux » et « Attraper N gobelins dorés » (19 sortes) ; les gobelins sont aussi attrapés pendant
+  l'absence, avec leur or, quand le héros est assez rapide.
+- Succès : « Démineur » (25 Explosifs) et « Pilleur de coffres » (50 coffres) : 70 succès.
+
+**Confort**
+- Temps estimé sur presque toutes les cartes de quête (exact pour les expéditions ; aucun quand le héros bute).
+- Une quête qui ne peut pas avancer le dit : monstre absent de la zone (où il vit, un clic y emmène avec la Carte du
+  voyageur), gobelins trop rapides, avancée automatique coupée (un bouton la reprend).
+- Sur la bande, un ◆ marque les monstres visés par une quête en cours.
+- Bestiaire : un clic (ou Entrée) sur un monstre emmène là où il vit (Carte du voyageur).
+- Héros bloqué : pistes visibles dans la carte de la zone et la bulle du mode mini ; nouvelle piste « forger avec ton
+  or » (un héros simulé butait une heure avec 400 k d'or).
+- Mode mini : effets actifs, bénédiction de demain, pistes du héros bloqué ; Statistiques > Probabilités : chances
+  du jour (Pie, prodiges, champions) ; recharge réelle des sorts le Jour des arcanes.
+- « Quoi de neuf » montre jusqu'à 11 nouveautés quand les éditions sont courtes.
+
+**Corrections**
+- Parchemins de fortune et de savoir enfin comptés pendant l'absence ; « tout dépenser » du grand graphe sans gel
+  (400 → 40 ms) ; pluriels russes et polonais ; termes cohérents d'une langue à l'autre.
+
+**Vérifié** : équilibre inchangé (3 graines ; tableau des 20 héros 63,6 de moyenne), mémoire et performance stables,
+parcours complets sans erreur (10 langues, état maximal, fin de partie).
