@@ -48,7 +48,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
 - [x] 4. Morceau 1 « Le Rebord » : partition complète, mixage, master, mesures ; extrait envoyé à Victor.
       - [x] 4a. composition et arrangement complets (v1 envoyée)
       - [x] 4b. mixage (v2 envoyée) ; retouches selon les retours de Victor : tâche 9
-- [ ] 5. Morceau 2 « Sentiers d'étoiles » : idem.
+- [x] 5. Morceau 2 « Sentiers d'étoiles » : idem.
 - [ ] 6. Morceau 3 « Les Lieutenants » : idem.
 - [ ] 7. Morceau 4 « Le Briseur d'Étoiles » : idem.
 - [ ] 8. Intégration dans le jeu : `render/music.js` lit les 4 fichiers selon la zone (tranches de 50), fondu
@@ -107,3 +107,13 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   +8, charlestons +8, cloche +6, cordes +5, nappe +4, caisse claire +3, guitare +3. v2 : −15,9 LUFS, LRA 6,3, vrai pic
   −1,6, largeur 0,41, raccord 0,006 ; octaves 1k −7,2 · 2k −12,3 · 4k −17,6 · 8k −20,0 (≈ +4 dB de présence ; chaud
   mais clair). Envoyée à Victor (02-le-rebord-v2.mp3).
+- 15/11 (tâche 5) : « Sentiers d'étoiles » v1 (`tracks/sentiers.js`) : 56 mesures, 92 bpm, si mineur, boucle de 146,1 s.
+  Forme intro 8 (arpège qui s'ouvre, cloches, puis shaker et basse) · A 8 (thème en mineur à la puce + cloche à
+  l'octave) · A' 8 (puce + cordes à l'octave grave) · pont 8 (VI-III-VII-i ×2, mélodie qui s'envole, nappe 7 voix,
+  chœur) · suspension 4 (batterie coupée, thème noyé d'écho) · montée 4 (bruit, grosse caisse à chaque temps,
+  roulement) · A'' 8 (puce à l'octave, cordes, cloche, chœur, cymbale) · outro 8. Arpège de guitare en doubles croches
+  sur deux octaves avec écho pointé, basse syncopée (0 · 0,75 · 1,5 · 2,5 · 3). Niveaux posés d'après le morceau 1 ;
+  rendu par pistes : trou à 250 Hz (−13,3 dB : piano monté d'une octave et coupé sous 200 Hz) et claquements
+  inaudibles (−61 dB) → piano dans son registre (passe-haut 120 Hz), claquements +8. Mesures : −15,9 LUFS, LRA 7,4,
+  vrai pic −2,3, largeur 0,39, raccord 0,005 ; octaves 63 0 · 125 −1,7 · 250 −7,2 · 500 −7,8 · 1k −7,0 · 2k −11,2 ·
+  4k −14,9 · 8k −18,5 (courbe régulière, la plus équilibrée). Envoyé à Victor (03-sentiers-d-etoiles-v1.mp3).
