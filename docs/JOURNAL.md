@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1345) : « tout dépenser » dans le grand graphe 10 fois plus rapide : sur la partie de fin de partie,
+  258 nœuds pris en ≈ 400 ms (jeu figé le temps du clic, ou d'une montée de niveau avec dépense automatique) → 40 ms.
+  nextGraphNode testait les 618 nœuds en recalculant à chaque fois les points libres (effets des constellations) et
+  l'ensemble des nœuds pris : maintenant une fois par recherche. Mêmes nœuds dans le même ordre (comparé à l'ancien
+  code, dev et fin de partie). Trouvé par save-fuzz FUZZ_BASE=fin qui ne finissait plus en 400 s (cru d'abord une
+  boucle sans fin : c'était cette lenteur, 1 190 fois) ; maintenant 49 s, ok sur les trois bases.
 - 2026-11-15 (it. 1344) : quêtes d'élites (« Vaincre N élites », proies) en cours : au survol de la carte, l'astuce
   « l'Encens de chasse de la Boutique attire deux fois plus d'élites » (une fois la Boutique ouverte ; la carte ne
   grandit pas). Vérifié par --stage : présente sur la quête en cours, absente sur la quête accomplie et les autres.

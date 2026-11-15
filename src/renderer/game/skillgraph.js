@@ -165,10 +165,19 @@ export function chosenBranch(S, region) {
 /** Un nœud peut-il être pris ? Relié à un nœud déjà acquis (fleur entière ou grand graphe), point libre, et pas dans
  *  une voie fermée par le choix d'une autre voie de la même région. */
 export function canTakeGraph(S, id) {
+  return graphPointsFree(S) > 0 && canLink(S, id, new Set(outer(S)), branchesOf(S));
+}
+/** (it. 1345) Voie choisie dans chaque région (une seule lecture de outer) : { région: voie }. */
+function branchesOf(S) {
+  const out = {};
+  for (const id of outer(S)) { const n = SKILL_GRAPH.nodes[id]; if (n && n.branch != null && !(n.region in out)) out[n.region] = n.branch; }
+  return out;
+}
+/** Le nœud est-il relié et dans une voie ouverte ? (points libres vérifiés par l'appelant) */
+function canLink(S, id, chosen, branches) {
   const n = SKILL_GRAPH.nodes[id];
-  if (!n || outer(S).includes(id) || graphPointsFree(S) <= 0) return false;
-  if (n.branch != null) { const c = chosenBranch(S, n.region); if (c >= 0 && c !== n.branch) return false; }
-  const chosen = new Set(outer(S));
+  if (!n || chosen.has(id)) return false;
+  if (n.branch != null) { const c = branches[n.region] ?? -1; if (c >= 0 && c !== n.branch) return false; }
   return n.links.some((l) => chosen.has(l) || (SKILL_TREE.nodes[l] && l.endsWith("-key")));
 }
 
@@ -246,10 +255,14 @@ export const DEFAULT_BRANCH = { force: 2, agility: 2, arcane: 0, vitality: 2, fo
  *  d'abord, puis le plus proche de la fleur. null s'il n'y en a plus. */
 export function nextGraphNode(S) {
   const N = SKILL_GRAPH.nodes;
+  // (it. 1345) points libres, nœuds pris et voies calculés une fois par appel, pas une fois par nœud (618 nœuds :
+  // « tout dépenser » sur une fin de partie prenait 258 nœuds en ≈ 400 ms, jeu figé pendant ce temps)
+  if (graphPointsFree(S) <= 0) return null;
+  const chosen = new Set(outer(S)), branches = branchesOf(S);
   const ok = Object.keys(N).filter((id) => {
-    if (!canTakeGraph(S, id)) return false;
+    if (!canLink(S, id, chosen, branches)) return false;
     const n = N[id];
-    if (n.group) { const c = chosenBranch(S, n.region); return c >= 0 ? c === n.branch : n.branch === DEFAULT_BRANCH[n.region]; }
+    if (n.group) { const c = branches[n.region] ?? -1; return c >= 0 ? c === n.branch : n.branch === DEFAULT_BRANCH[n.region]; }
     return true;
   });
   if (!ok.length) return null;
