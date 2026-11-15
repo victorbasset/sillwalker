@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1454) : « Depuis ta dernière visite » : ligne « Gobelins dorés attrapés » (libellé déjà traduit des
+  Statistiques) quand l'absence en a attrapé (it. 1452). Pire cas de l'autotest complété (38 gobelins) : l'Aventure ne
+  défile pas (ok 0). Autotest 228/228.
 - 2026-11-15 (it. 1453, contrôle) : effet des gobelins hors ligne (it. 1452) sur l'or d'une absence de 8 h : partie de
   fin de partie et dev-data, ×1,000 (aucun gobelin : 310 victoires en 8 h, un gobelin ne peut être abattu en 4 s). Le
   gain ne vaut que pour un héros qui bat vite ses monstres (farm d'une zone facile, partie neuve : 39 gobelins en 8 h) ;

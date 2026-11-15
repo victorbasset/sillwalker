@@ -524,6 +524,7 @@ export class Panel {
         ${sum.onGround ? `<li><span>${tx("Laissés au sol (sac plein)")}</span><b class="delta-n">${fmt(sum.onGround)}</b></li>` : ""}
         ${sum.feathers ? `<li><span>${tx("Plumes du vent")}</span><b>${tx("+{0} % de vitesse", { 0: sum.feathers })}</b></li>` : ""}
         ${sum.chests ? `<li><span>${tx("Coffres au trésor")}</span><b>${sum.chests}</b></li>` : ""}
+        ${sum.goblins ? `<li><span>${tx("Gobelins dorés attrapés")}</span><b>${fmt(sum.goblins)}</b></li>` : ""}
         ${sum.questsDone ? `<li><span>${tx("Quêtes accomplies")}</span><b>${sum.questsDone}</b></li>` : ""}
         ${sum.spells ? `<li><span>${tx("Grimoire des sorts")}</span><b>${txn(sum.spells, "+{n} rang de sort|+{n} rangs de sorts")}</b></li>` : ""}
         ${sum.forged ? `<li><span>${tx("Maître de forge")}</span><b>${txn(sum.forged, "+{n} amélioration|+{n} améliorations")}</b></li>` : ""}

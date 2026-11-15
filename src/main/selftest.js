@@ -625,7 +625,7 @@ async function runSelfTest(strip) {
   // (it. 896) Pire cas de la ligne (tous les gains, nombres longs) : l'Aventure ne défile pas (1920 px ; en dessous de
   // 1500 px la ligne tient sur une seule ligne, texte complet au survol).
   {
-    const r = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), keep = P.sinceVisit; P.sinceVisit = { min: 754, kills: 123456, gold: 9.87e15, leg: 12, lvl0: 1200, lvl1: 1313, best: 255, asc: 3, spells: 140, relics: 4, chests: 17, events: 23 }; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('#p-hero .visit'); const r = (b ? 'ok' : 'absente') + ' ' + o; P.sinceVisit = keep; P.renderAll(); return r; })()");
+    const r = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), keep = P.sinceVisit; P.sinceVisit = { min: 754, kills: 123456, gold: 9.87e15, leg: 12, lvl0: 1200, lvl1: 1313, best: 255, asc: 3, spells: 140, relics: 4, chests: 17, goblins: 38, events: 23 }; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('#p-hero .visit'); const r = (b ? 'ok' : 'absente') + ' ' + o; P.sinceVisit = keep; P.renderAll(); return r; })()");
     check("« Depuis ta dernière visite » au pire cas : l'Aventure ne défile pas", /^ok -?[0-2]$/.test(r) || /^ok -\d+$/.test(r), r);
   }
   // Deux pièces d'une même panoplie portées (copie de test) : l'étiquette de la fiche du héros apparaît.
