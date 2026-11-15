@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1411, revue générale) : après la quête « Gagner N niveaux » : save-fuzz fin de partie ok (1190) ;
+  fuzz 800 parties, 0 bloquée ; texte allemand : aucun mot français. Équilibre (it. 1410), performance (1401) et
+  mémoire (1390) déjà mesurés. Rien à corriger.
 - 2026-11-15 (it. 1410, contrôle) : équilibre après la quête « Gagner N niveaux » : balance 12 h contre 6eebf9b :
   63,1 → 63,8 (+0,7, bruit). Rien à corriger.
 - 2026-11-15 (it. 1409) : POUR-VICTOR et brouillon du devlog : la quête « Gagner N niveaux » et la bénédiction de
