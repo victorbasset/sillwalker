@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1416, contrôle) : --crawl sur une partie NEUVE (début de partie, peu d'onglets ouverts) en japonais et
+  en russe : 72 clics chacune, aucune erreur (les autres parcours de la nuit portaient sur dev-data, la fin de partie et
+  l'état maximal).
 - 2026-11-15 (it. 1415) : précisions d'une bénédiction qui ne sert pas encore (élites, champions, sorts pas encore là)
   regroupées dans ui/daymodnotes.js, et ajoutées à la bulle du mode mini (avant : seulement la pastille du panneau).
   Vérifié en partie neuve sous le Jour des arcanes, panneau et mini. Autotest 228/228.
