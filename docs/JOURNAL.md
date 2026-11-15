@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1526) : contrôle : la police russe (it. 1524) sert partout (titres du panneau, onglets, bande :
+  FONT de dom.js commence par Geist Pixel ; seuls h1 et .brand en Pixelify). POUR-VICTOR : thème itch.io proposé.
 - 2026-11-15 (it. 1525) : édition 100 de « Quoi de neuf » (bouton « Choisir un bonus » et « À faire maintenant », Voie
   réduite et boutons des sorts alignés, tirs devant le compagnon, police russe), 9 langues. Autotest 231/231.
 - 2026-11-15 (it. 1524, demande de Victor : « la police russe illisible ») : Geist Pixel n'a pas de cyrillique (ni le

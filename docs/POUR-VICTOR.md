@@ -20,6 +20,13 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Pour sortir : `CLAUDE.md` > « Sortie d'une version » (numéro, notes, constructions, `scripts/itch-push.sh` après ton
   « oui »).
 
+## Page itch.io (thème proposé le 15/11, couleurs du panneau sombre)
+
+- Color : BG `#18121f`, BG 2 `#231a2d`, Text `#efe6d2`, Link `#e8b14a`, Headers `#e8b14a`, Buttons `#e8b14a` (ou `#a3600c`
+  si le texte des boutons se lit mal), BG2 Alpha 100 %.
+- Text : Font Lato, Size Large, Header font Pixel. Layout : Screenshots Auto (sidebar).
+- Images : Banner `steam/capsules/header-capsule.png` ; Background : aucun (fond uni).
+
 ## Fin de partie (à décider, pas urgent)
 
 - Une semaine simulée finit toujours vers la zone 350 (guerrier et mage), l'écho de boss suivant : la progression
