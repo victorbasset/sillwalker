@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1430) : 70e succès CHESTS_50 « Pilleur de coffres (50 coffres) », objectif lointain lié à la Pie
+  (seul « un coffre » existait) : progression affichée, icône (coffre de fer) générée, achievements.md, checklist,
+  README, POUR-VICTOR (à déclarer dans Steamworks), « Quoi de neuf » 88, 10 langues, test. Autotest 228/228,
+  lang-overflow propre (Statistiques > Succès compris).
 - 2026-11-15 (it. 1429, contrôle) : équilibre après la Pie (balance.mjs 12 contre d00cf97, 10 classes) : graine 3
   −1,4, graine 11 −0,2, graine 21 +0,4 ; moyenne −0,4 zone : bruit (les coffres changent les tirages, pas la force).
 - 2026-11-15 (it. 1428, contrôle) : état maximal (max-save, les 20 familiers dont la Pie) en russe : --crawl 618 clics

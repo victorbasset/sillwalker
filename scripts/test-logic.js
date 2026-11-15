@@ -1072,6 +1072,9 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     g.S.stats.affixesSeen.explosive = 25; assert.ok(ACH_T.find((a) => a.id === "EXPLOSIVE_25").test(g.S));
     assert.ok(!ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
     g.S.stats.champions = 25; assert.ok(ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
+    // (it. 1430) Pilleur de coffres : 50 coffres au trésor
+    g.S.stats.chests = 49; assert.deepEqual(ACH_PROGRESS.CHESTS_50(g.S), [49, 50]); assert.ok(!ACH_T.find((a) => a.id === "CHESTS_50").test(g.S));
+    g.S.stats.chests = 50; assert.ok(ACH_T.find((a) => a.id === "CHESTS_50").test(g.S));
   });
   test("récompense d'une seule potion : « 1 potion » au singulier (it. 1283)", () => {
     const g = new Game(freshState()); g.S.potions = 0; g.S.log = [];

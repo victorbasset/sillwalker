@@ -1765,4 +1765,6 @@ export default {
   2890: "Localiza todo lo que brilla, sobre todo los cofres del tesoro.",
   2891: "cofres del tesoro encontrados",
   2892: "Nueva mascota, la Urraca: localiza los cofres del tesoro (+6 % de cofres encontrados por nivel).",
+  2893: "Saqueador de cofres (50 cofres)",
+  2894: "Nuevo logro: Saqueador de cofres (50 cofres del tesoro encontrados).",
 };

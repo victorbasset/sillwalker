@@ -2894,5 +2894,7 @@ export const KEYS = [
   "Pie",
   "Repère tout ce qui brille, surtout les coffres au trésor.",
   "coffres au trésor trouvés",
-  "Nouveau familier, la Pie : elle repère les coffres au trésor (+6 % de coffres trouvés par niveau)."
+  "Nouveau familier, la Pie : elle repère les coffres au trésor (+6 % de coffres trouvés par niveau).",
+  "Pilleur de coffres (50 coffres)",
+  "Nouveau succès : Pilleur de coffres (50 coffres au trésor trouvés)."
 ];

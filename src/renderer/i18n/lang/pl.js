@@ -1765,4 +1765,6 @@ export default {
   2890: "Wypatrzy wszystko, co błyszczy, zwłaszcza skrzynie ze skarbem.",
   2891: "znalezione skrzynie ze skarbem",
   2892: "Nowy pupil: Sroka, która wypatruje skrzyń ze skarbem (+6 % znalezionych skrzyń na poziom).",
+  2893: "Łupieżca skrzyń (50 skrzyń)",
+  2894: "Nowe osiągnięcie: Łupieżca skrzyń (50 znalezionych skrzyń ze skarbem).",
 };

@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (69 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (70 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -56,6 +56,7 @@ Généré par `scripts/steam-achievements.mjs` (69 succès). À recopier dans St
 | `REFORGE_10` | Forgeron (10 reforges) | Blacksmith (10 reforges) | Herrero (10 reforjas) | Ferreiro (10 reforjas) | Schmied (10 Umschmiedungen) | Kowal (10 przekuć) | Кузнец (10 перековок) | 铁匠（10 次重铸） | 鍛冶師（再鍛造 10 回） | 대장장이 (재단조 10회) |
 | `EVENTS_10` | Chanceux (10 événements rares) | Lucky (10 rare events) | Afortunado (10 eventos raros) | Sortudo (10 eventos raros) | Glückspilz (10 seltene Ereignisse) | Szczęściarz (10 rzadkich zdarzeń) | Везунчик (10 редких событий) | 幸运儿（10 次稀有事件） | 幸運児（レアイベント 10 回） | 행운아 (희귀 이벤트 10회) |
 | `CHEST` | Chasseur de trésors (un coffre) | Treasure Hunter (a chest) | Cazatesoros (un cofre) | Caçador de tesouros (um baú) | Schatzjäger (eine Truhe) | Łowca skarbów (skrzynia) | Охотник за сокровищами (сундук) | 寻宝者（宝箱） | トレジャーハンター（宝箱） | 보물 사냥꾼 (상자) |
+| `CHESTS_50` | Pilleur de coffres (50 coffres) | Chest Raider (50 chests) | Saqueador de cofres (50 cofres) | Saqueador de baús (50 baús) | Truhenplünderer (50 Truhen) | Łupieżca skrzyń (50 skrzyń) | Грабитель сундуков (50 сундуков) | 宝箱掠夺者（50 个宝箱） | 宝箱あらし（宝箱 50 個） | 상자 약탈자 (상자 50개) |
 | `CODEX_HALF` | Collectionneur (la moitié des objets) | Collector (half of the items) | Coleccionista (la mitad de los objetos) | Colecionador (metade dos itens) | Sammler (die Hälfte der Gegenstände) | Kolekcjoner (połowa przedmiotów) | Коллекционер (половина предметов) | 收藏家（一半物品） | コレクター（アイテムの半分） | 수집가 (아이템 절반) |
 | `CODEX_ALL` | Grand collectionneur (tous les objets) | Grand Collector (all items) | Gran coleccionista (todos los objetos) | Grande colecionador (todos os itens) | Großer Sammler (alle Gegenstände) | Wielki kolekcjoner (wszystkie przedmioty) | Великий коллекционер (все предметы) | 大收藏家（全部物品） | 大コレクター（全アイテム） | 위대한 수집가 (모든 아이템) |
 | `EXPEDITIONS_10` | Explorateurs (10 expéditions) | Explorers (10 expeditions) | Exploradores (10 expediciones) | Exploradores (10 expedições) | Entdecker (10 Expeditionen) | Odkrywcy (10 wypraw) | Исследователи (10 экспедиций) | 探险家（10 次探险） | 探検家（遠征 10 回） | 탐험가 (원정 10회) |

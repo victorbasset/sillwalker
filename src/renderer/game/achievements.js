@@ -89,6 +89,8 @@ export const ACHIEVEMENTS = [
   { id: "REFORGE_10",      name: "Forgeron (10 reforges)", test: (S) => (S.stats.reforges || 0) >= 10 },
   { id: "EVENTS_10",       name: "Chanceux (10 événements rares)", test: (S) => (S.stats.events || 0) >= 10 },
   { id: "CHEST",           name: "Chasseur de trésors (un coffre)", test: (S) => (S.stats.chests || 0) >= 1 },
+  // (it. 1430) 50 coffres au trésor (la Pie et le Jour des trésors y aident)
+  { id: "CHESTS_50",       name: "Pilleur de coffres (50 coffres)", test: (S) => (S.stats.chests || 0) >= 50 },
   { id: "CODEX_HALF",      name: "Collectionneur (la moitié des objets)", test: (S) => { const c = codexCounts(S); return c.found * 2 >= c.total; } },
   { id: "CODEX_ALL",       name: "Grand collectionneur (tous les objets)", test: (S) => { const c = codexCounts(S); return c.found >= c.total; } },
   { id: "EXPEDITIONS_10",  name: "Explorateurs (10 expéditions)", test: (S) => (S.stats.expeditions || 0) >= 10 },
@@ -131,6 +133,7 @@ export const ACH_PROGRESS = {
   EVENTS_ALL: (S) => [eventsSeenCount(S), Object.keys(EVENTS).length],
   BLESSINGS_ALL: (S) => [blessingsSeenCount(S), DAY_MOD_KEYS.length],
   CHAMPIONS_25: (S) => [S.stats.champions || 0, 25],
+  CHESTS_50: (S) => [Math.min(50, S.stats.chests || 0), 50],
   EXPLOSIVE_25: (S) => [Math.min(25, affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.explosive)), 25],
   ELITES_ALL: (S) => [affixesSeenCount(S), Object.keys(ELITE_AFFIXES).length],
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],

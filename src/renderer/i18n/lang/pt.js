@@ -1765,4 +1765,6 @@ export default {
   2890: "Repara em tudo o que brilha, sobretudo nos baús do tesouro.",
   2891: "baús do tesouro encontrados",
   2892: "Novo mascote: a Pega, que repara nos baús do tesouro (+6 % de baús encontrados por nível).",
+  2893: "Saqueador de baús (50 baús)",
+  2894: "Nova conquista: Saqueador de baús (50 baús do tesouro encontrados).",
 };

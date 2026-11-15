@@ -1765,4 +1765,6 @@ export default {
   2890: "Erspäht alles, was glänzt, vor allem Schatztruhen.",
   2891: "gefundene Schatztruhen",
   2892: "Neuer Begleiter: die Elster, die Schatztruhen erspäht (+6 % gefundene Truhen pro Stufe).",
+  2893: "Truhenplünderer (50 Truhen)",
+  2894: "Neuer Erfolg: Truhenplünderer (50 Schatztruhen gefunden).",
 };
