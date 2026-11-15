@@ -745,7 +745,11 @@ export class StripRenderer {
     if (this.slotKey === line) return;
     for (const s of this.slots) s.remove();
     this.slots = [];
-    const huntTypes = new Set(((g.S.quests && g.S.quests.slots) || []).filter((q) => q && q.kind === "hunt" && q.progress < q.goal).map((q) => q.type));
+    // (it. 1458-1459) cibles des quêtes en cours : chasse (sorte de monstre), proie (sorte d'élite), champions, gobelins dorés
+    const openQ = ((g.S.quests && g.S.quests.slots) || []).filter((q) => q && q.progress < q.goal);
+    const huntTypes = new Set(openQ.filter((q) => q.kind === "hunt").map((q) => q.type));
+    const preyAffixes = new Set(openQ.filter((q) => q.kind === "prey").map((q) => q.type));
+    const wantChamp = openQ.some((q) => q.kind === "champion"), wantGoblin = openQ.some((q) => q.kind === "goblin");
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       // final : le Briseur d'Étoiles ; élite / champion : contour doré / violet dans l'image
@@ -773,12 +777,12 @@ export class StripRenderer {
         const af = ELITE_AFFIXES[line[k].affix];
         // (it. 947) ✦ : sorte jamais vaincue (elle compte pour la collection du Bestiaire et le succès « Tueur d'élites »)
         const fresh = af && !((this.game.S.stats && this.game.S.stats.affixesSeen) || {})[line[k].affix] ? " ✦" : "";
-        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = (af ? upFirst(tx("Champion {0}", { 0: af.name.toLowerCase() })) : tx("Champion")) + fresh; }
-        else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name + fresh; tag.style.color = af.color; }
+        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = (af ? upFirst(tx("Champion {0}", { 0: af.name.toLowerCase() })) : tx("Champion")) + fresh + (wantChamp || preyAffixes.has(line[k].affix) ? " ◆" : ""); }
+        else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name + fresh + (preyAffixes.has(line[k].affix) ? " ◆" : ""); tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
       // (it. 1458) monstre visé par une quête de chasse en cours : petite marque ◆ (posée avec la série, pas à chaque image)
-      if (!boss && !line[k].elite && !line[k].goblin && huntTypes.has(line[k].type)) el("div", "affix qmark", a.el).textContent = "◆";
+      if (!boss && !line[k].elite && ((line[k].goblin && wantGoblin) || (!line[k].goblin && huntTypes.has(line[k].type)))) el("div", "affix qmark", a.el).textContent = "◆";
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";
       a.flame.hidden = true;

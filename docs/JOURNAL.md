@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1459) : marque ◆ de la bande étendue : élite de la sorte demandée par une quête « proie » (« Rapide ✦
+  ◆ », l'autre élite sans marque), champions pendant la quête des champions, gobelins dorés pendant la quête des
+  gobelins. Vérifié par --stage (élites forcées dans la série). L'édition 93 (déjà publiée) ne cite que la chasse :
+  laissée telle quelle. Autotest 228/228.
 - 2026-11-15 (it. 1458) : bande : un petit ◆ bleu clair (#9fd8ff, couleur de « Quête accomplie ! ») au-dessus des
   monstres ordinaires visés par une quête de chasse en cours ; posé avec la série (syncSlots), jamais à chaque image ;
   repris par clearQueueTags comme les étiquettes d'élites. Vérifié par --stage (2 dragonnets marqués). « Quoi de neuf »
