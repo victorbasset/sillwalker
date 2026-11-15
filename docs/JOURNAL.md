@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1389) : proposition « fin de semaine » (it. 1029) remise à jour : le mur est passé de 293 à 350
+  (écho de boss) avec le grand graphe et les points en surplus ; le choix (rythme lent ou courbe plus douce au-delà
+  de 250) ajouté à docs/POUR-VICTOR.md. Une 4e expédition de familier étudiée puis laissée (rangée de boutons et Grand
+  intendant à revoir : trop pour une itération).
 - 2026-11-15 (it. 1388) : Bestiaire > Élites : tant que la collection des sortes d'élites n'est pas complète (10 avec
   l'Explosif), le titre de la section porte l'astuce de l'Encens de chasse au survol (même texte que les quêtes
   d'élites, it. 1344 ; rien de plus à l'écran). Vérifié par --stage. Aucune tâche en suspens (TODO, FIXME) dans le code.
@@ -5451,6 +5455,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   mage 293 → 321 en 2e semaine : un fort ralentissement, pas un mur). Avec ×1,03 au-delà de 250 (dossier jetable) :
   guerrier 350-377, mage 338-350 en fin de 2e semaine (350 : écho suivant). Choix de Victor : garder ce rythme lent
   (records rares, la fin de partie « dure »), ou adoucir la courbe (≈ +30-40 zones en 2 semaines).
+  Mise à jour (it. 1389) : depuis le grand graphe (it. 1078) et les points en surplus (it. 1115), la semaine finit à
+  349-350 pour le guerrier comme pour le mage (it. 1381) : le mur a reculé de 293 à 350, l'écho de boss de la zone 350.
+  Même choix à faire ; résumé dans docs/POUR-VICTOR.md.
 - FAIT (it. 1115, grand graphe rempli : +0,1 % d'attaque et de PV par point ; à confirmer par Victor) P3 Points de compétence en surplus : une fois l'arbre entièrement appris (partie de fin
   de partie : 144 nœuds sur 144, 362 points de plus), les points qui arrivent encore ne servent à rien (depuis l'it.
   1015-1016, plus de rappel, « ✓ Arbre complet »). Piste : chaque point en surplus donne un petit bonus permanent
