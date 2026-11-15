@@ -31,6 +31,8 @@ export const PETS = [
   { id: "froglet", name: "Grenouillette", desc: "Ses coassements attirent les élites… et leur butin.", eff: { elites: 2 } },
   // (it. 1363) Lucane : le familier des chasseurs de boss (aucun ne renforçait encore les dégâts contre eux)
   { id: "stagbeetle", name: "Lucane", desc: "Ses mandibules visent les points faibles des boss.", eff: { bossDmg: 3 } },
+  // (it. 1427) Pie : plus de coffres au trésor sur le chemin (+60 % au niveau 10)
+  { id: "magpie", name: "Pie", desc: "Repère tout ce qui brille, surtout les coffres au trésor.", eff: { chests: 6 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

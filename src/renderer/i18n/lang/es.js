@@ -1761,4 +1761,8 @@ export default {
   2886: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros y hechizos). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros y hechizos). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
   2887: "no está aquí · zona {0}",
   2888: "Misiones: una cacería cuyo monstruo no vive en tu zona te dice dónde encontrarlo; con el Mapa del viajero, un clic te lleva allí. Las misiones de hechizos, golpes críticos, cofres y expediciones también muestran un tiempo estimado.",
+  2889: "Urraca",
+  2890: "Localiza todo lo que brilla, sobre todo los cofres del tesoro.",
+  2891: "cofres del tesoro encontrados",
+  2892: "Nueva mascota, la Urraca: localiza los cofres del tesoro (+6 % de cofres encontrados por nivel).",
 };

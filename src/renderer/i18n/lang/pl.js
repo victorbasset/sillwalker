@@ -1761,4 +1761,8 @@ export default {
   2886: "Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
   2887: "nie ma tutaj · strefa {0}",
   2888: "Zadania: polowanie na potwora, który nie żyje w twojej strefie, mówi, gdzie go znaleźć; z Mapą podróżnika jedno kliknięcie cię tam zabiera. Zadania zaklęć, trafień krytycznych, skrzyń i wypraw też pokazują szacowany czas.",
+  2889: "Sroka",
+  2890: "Wypatrzy wszystko, co błyszczy, zwłaszcza skrzynie ze skarbem.",
+  2891: "znalezione skrzynie ze skarbem",
+  2892: "Nowy pupil: Sroka, która wypatruje skrzyń ze skarbem (+6 % znalezionych skrzyń na poziom).",
 };

@@ -13,9 +13,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Version 0.1.4 (à décider)
 
-- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 86). Nouveautés
+- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 87). Nouveautés
   majeures depuis la 0.1.3 : champions et leur quête, 3 événements rares (Lune pâle, Écho des lames, Source de vie),
-  3 élites (Régénérant, Venimeux, Explosif), 6 bénédictions du jour, 2 familiers (Grenouillette, Lucane), l'Encens de
+  3 élites (Régénérant, Venimeux, Explosif), 6 bénédictions du jour, 3 familiers (Grenouillette, Lucane, Pie), l'Encens de
   chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.
 - Pour sortir : `CLAUDE.md` > « Sortie d'une version » (numéro, notes, constructions, `scripts/itch-push.sh` après ton
   « oui »).

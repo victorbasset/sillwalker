@@ -2890,5 +2890,9 @@ export const KEYS = [
   "Les sorts s’apprennent à partir de la zone {0}.",
   "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
   "absent d’ici · zone {0}",
-  "Quêtes : une chasse dont le monstre ne vit pas dans ta zone dit où le trouver ; avec la Carte du voyageur, un clic t’y emmène. Les quêtes de sorts, de coups critiques, de coffres et d’expéditions affichent aussi un temps estimé."
+  "Quêtes : une chasse dont le monstre ne vit pas dans ta zone dit où le trouver ; avec la Carte du voyageur, un clic t’y emmène. Les quêtes de sorts, de coups critiques, de coffres et d’expéditions affichent aussi un temps estimé.",
+  "Pie",
+  "Repère tout ce qui brille, surtout les coffres au trésor.",
+  "coffres au trésor trouvés",
+  "Nouveau familier, la Pie : elle repère les coffres au trésor (+6 % de coffres trouvés par niveau)."
 ];

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1427) : 20e familier, la Pie (+6 % de coffres au trésor par niveau, +60 % au niveau 10) : nouvel
+  effet « chests » (talents.js, rules.js), compté sur la chance de coffre en jeu, pendant l'absence et dans le temps
+  estimé de la quête de coffres. Sprite noir et blanc à reflet bleu (volant), regardé en capture sur la bande.
+  10 langues, test, « Quoi de neuf » 87, devlog, POUR-VICTOR. Autotest 228/228, lang-overflow propre, simulate 8 h
+  normal (zone 39 en course, 6 ascensions).
 - 2026-11-15 (it. 1426) : quête « Chasser N … » dont le monstre ne vit pas dans la zone actuelle (zone changée,
   ascension) : la carte dit « absent d’ici · zone N » (zone la plus proche, jusqu'au record, où il vit) ; avec la Carte
   du voyageur c'est un bouton qui y emmène le héros. Avant : quête bloquée sans explication. Vérifié par --stage :

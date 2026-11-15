@@ -42,6 +42,7 @@ export const EFFECTS = {
   offline:     { label: "efficacité hors ligne", unit: "%" },
   secondWind:  { label: "second souffle", unit: "" },
   elites:      { label: "élites rencontrées", unit: "%" },
+  chests:      { label: "coffres au trésor trouvés", unit: "%" }, // (it. 1427) la Pie
   purity:      { label: "de résistance à la Malédiction et au venin des boss (durée réduite)", unit: "%" },
   // (it. 1077) synergies du grand graphe (skillgraph.js) : un axe qui compte dans un autre
   synHpAtk:    { label: "d’attaque par doublement de tes points de vie", unit: "%" },

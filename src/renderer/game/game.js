@@ -1180,7 +1180,7 @@ export class Game {
     }
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
     const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
-    const dmc = activeDayMod(S)?.chest || 1, feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal * dmc, 3 * dmc);
+    const dmc = (activeDayMod(S)?.chest || 1) * (1 + (hs.chests || 0) / 100), feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal * dmc, 3 * dmc);
     if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     for (let i = 0; i < chests; i++) this.openChest();
     // Automatismes achetés : ils ont « travaillé » pendant l'absence (une seule ligne de journal chacun).
@@ -2074,7 +2074,8 @@ export class Game {
     if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, tx("Plume du vent")); }
     const evMul = activeDayMod(this.S)?.events || 1; // Jour des prodiges (it. 938)
     for (const id in EVENTS) if ((!EVENTS[id].req || EVENTS[id].req(this.S)) && rand() < EVENTS[id].chance * evMul) { this.startEvent(id); break; }
-    if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal) * (activeDayMod(this.S)?.chest || 1)) this.openChest(); // Jour des trésors
+    // Jour des trésors ; (it. 1427) la Pie
+    if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal) * (activeDayMod(this.S)?.chest || 1) * (1 + (this.stats().chests || 0) / 100)) this.openChest();
   }
 
   /** Coffre au trésor trouvé sur le chemin. */
@@ -2224,7 +2225,7 @@ export class Game {
     // (it. 1423) coffres : chance par victoire (élites plus généreuses), Jour des trésors compris ; long et très variable
     if (q.kind === "chest") {
       const pe = Math.min(1, Math.max(0, this.eliteChancePerKill(this.stats()) || 0));
-      rate *= (CHEST.normal * (1 - pe) + CHEST.elite * pe) * (activeDayMod(this.S)?.chest || 1);
+      rate *= (CHEST.normal * (1 - pe) + CHEST.elite * pe) * (activeDayMod(this.S)?.chest || 1) * (1 + (this.stats().chests || 0) / 100);
     }
     return left / rate;
   }

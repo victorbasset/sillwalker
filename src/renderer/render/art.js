@@ -325,6 +325,10 @@ export const PET_ART = {
   stagbeetle: { pal: { B: "#6a3a1e", L: "#b8743a", H: "#3a1e0e", M: "#2a1408", E: "#e8d0a0", D: "#2a1408" }, frames: [
     ["......M.M", "..BBBBMM.", ".BBLBBBH.", "BBBBBBBHE", ".BBBBBBH.", ".D.D.D..."],
     ["......M.M", "..BBBBMM.", ".BBLBBBH.", "BBBBBBBHE", ".BBBBBBH.", "..D.D.D.."]] },
+  // (it. 1427) Pie : noire et blanche à longue queue, reflet bleu sur l'aile (deuxième image : ailes levées)
+  magpie: { pal: { K: "#1a1a24", W: "#f4f4f8", U: "#3a5aa8", Y: "#ffd34d" }, fly: true, frames: [
+    ["..KK.....", ".KKYK....", "KKKKKUUK.", ".WWKUUKKK", ".WWKK...K", "..K.K...."],
+    ["..KK.UU..", ".KKYKUU..", "KKKKKUKK.", ".WWKKKKKK", ".WWKK...K", "..K.K...."]] },
   fairy: { pal: { P: "#ff9ad8", W: "#dff3ff", S: "#f1c7a0", Y: "#ffe27a" }, fly: true, frames: [
     ["W.....W", "WW.Y.WW", "WWSSSWW", ".WPPPW.", "..PPP..", "..P.P.."],
     [".......", ".W.Y.W.", "WWSSSWW", "WWPPPWW", "..PPP..", "..P.P.."]] },

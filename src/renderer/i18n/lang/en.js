@@ -1761,4 +1761,8 @@ export default {
   2886: "Quests progress on their own, even offline (except bosses, new zones, rare events and spells). {n} quest completed in total. {3} % of quests have 3 stars and a rare reward.|Quests progress on their own, even offline (except bosses, new zones, rare events and spells). {n} quests completed in total. {3} % of quests have 3 stars and a rare reward.",
   2887: "not here · zone {0}",
   2888: "Quests: a hunt whose monster doesn't live in your zone tells you where to find it; with the Traveler's Map, one click takes you there. Spell, critical hit, chest and expedition quests also show an estimated time.",
+  2889: "Magpie",
+  2890: "Spots everything that shines, especially treasure chests.",
+  2891: "treasure chests found",
+  2892: "New pet, the Magpie: it spots treasure chests (+6% chests found per level).",
 };

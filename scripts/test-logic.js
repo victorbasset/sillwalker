@@ -394,6 +394,15 @@ test("Lucane : +3 % de dégâts contre les boss par niveau, sprite présent (it.
   assert.equal((g.stats().bossDmg || 0) - b0, 12);
 });
 
+test("Pie : +6 % de coffres au trésor par niveau, en jeu et pendant l'absence (it. 1427)", () => {
+  const g = new Game(freshState());
+  g.R.pace = Array.from({ length: 10 }, (_, i) => [i * 2, 5]);
+  const q = { uid: 7, kind: "chest", goal: 1, progress: 0, reward: {}, stars: 1 }, e0 = g.questEta(q);
+  g.S.pets.owned.magpie = { lvl: 10, xp: 0 }; g.S.pets.active = "magpie"; g.invalidateStats();
+  assert.equal(g.stats().chests, 60);
+  assert.ok(Math.abs(e0 / g.questEta(q) - 1.6) < 1e-9, "temps estimé divisé par 1,6");
+});
+
 test("Source de vie : 4 % des PV max par seconde, texte fidèle à SPRING (it. 1375)", () => {
   const g = new Game(freshState()); const hs = g.stats();
   g.R.hp = hs.hp * 0.2; g.R.mode = "walk"; g.R.mon = null;
