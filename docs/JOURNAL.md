@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1455, contrôle) : après les gobelins hors ligne et la 19e quête : save-fuzz sur les trois bases
+  (dev 1218, fin 1190, 0.1.2 1134 corruptions) : ok.
 - 2026-11-15 (it. 1454) : « Depuis ta dernière visite » : ligne « Gobelins dorés attrapés » (libellé déjà traduit des
   Statistiques) quand l'absence en a attrapé (it. 1452). Pire cas de l'autotest complété (38 gobelins) : l'Aventure ne
   défile pas (ok 0). Autotest 228/228.
