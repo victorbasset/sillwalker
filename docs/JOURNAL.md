@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1369) : polonais : les familiers s'appellent partout « pupil » comme l'onglet (« Pupile ») ;
+  douze textes disaient « chowaniec », dont « Mama Gałązka (Chowańce) » qui citait l'onglet sous un autre nom
+  (quêtes d'expédition, Grand intendant, « À faire », astuces, nouveautés). Gardé : « Cienisty chowaniec », nœud du
+  grand graphe des serviteurs (créature magique, pas un familier du jeu). Autres langues vérifiées : un seul terme.
 - 2026-11-15 (it. 1368) : « Quoi de neuf », édition 78 : bonus des familiers à découvrir (it. 1366), chemin
   « Familiers > À découvrir » tel que traduit ; allemand de l'édition 77 aligné (« Begleiter », pas « Haustier »,
   comme l'onglet) ; README.
