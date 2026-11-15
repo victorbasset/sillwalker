@@ -2191,7 +2191,7 @@ export class Game {
       return ends.length >= left ? Math.max(0, (ends[left - 1] - now) / 1000) : null;
     }
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
@@ -2224,6 +2224,14 @@ export class Game {
     }
     // (it. 1263) champions : même chance par victoire que pendant l'absence (it. 1262)
     if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance * (activeDayMod(this.S)?.champion || 1); }
+    // (it. 1448) butin rare ou mieux : objet d'un monstre ordinaire (chance de butin) ou d'une élite (toujours, rareté
+    // minimale), rareté selon les poids fixes de RARITIES ; champions, boss et Corne d'abondance négligés (estimation basse)
+    if (q.kind === "loot") {
+      const pr = (min) => { let all = 0, rare = 0; RARITIES.forEach((r, i) => { if (i >= min) { all += r.weight; if (i >= 2) rare += r.weight; } }); return all ? rare / all : 0; };
+      const hs = this.stats(), pe = Math.min(1, Math.max(0, this.eliteChancePerKill(hs) || 0));
+      const pDrop = Math.min(1, DROP_CHANCE * earlyPace(this.S) * (1 + (hs.drop || 0) / 100));
+      rate *= (1 - pe) * pDrop * pr(0) + pe * pr(ELITE.minRarity);
+    }
     // (it. 1447) événements rares : chance qu'une victoire en déclenche un (ceux permis ici, Jour des prodiges compris)
     if (q.kind === "event") {
       const evMul = activeDayMod(this.S)?.events || 1;

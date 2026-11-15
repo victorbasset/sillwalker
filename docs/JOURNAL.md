@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1448) : quête « Trouver N objets rares ou mieux » : temps estimé sur sa carte (monstre ordinaire :
+  chance de butin × part rare+ des poids de RARITIES ; élite : butin sûr dès sa rareté minimale ; boss, champions et
+  Corne d'abondance négligés). Vérifié sur la partie de fin de partie (20 min simulées, graine 5) : 2 estimés, 2
+  obtenus. Test. Autotest 228/228.
 - 2026-11-15 (it. 1447) : quête « Vivre N événements rares » : temps estimé sur sa carte (rythme des victoires × chance
   qu'une victoire déclenche un événement permis ici, Jour des prodiges compris). Fin de partie, une victoire / 2 s :
   2 événements ≈ 2 min. Test. Autotest 228/228. Quêtes encore sans estimation : boss, forge, transmutation, butin,
