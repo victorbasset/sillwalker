@@ -127,12 +127,14 @@ export class StatsTab {
           // ✓ : déjà vu (succès « Chasseur d'événements ») ; (vus / total)
           const ent = Object.entries(EVENTS), ev = ent.map(([, e]) => e), cs = ev.map((e) => e.chance), seen = st.eventsSeen || {};
           const nSeen = ent.filter(([id]) => seen[id]).length;
+          // (it. 1435) Jour des prodiges : la chance du jour (avant, seule la chance de base était affichée)
+          const evMul = dm?.events || 1, evToday = evMul !== 1 ? " · " + tx("aujourd’hui {0}", { 0: `${pct(Math.min(...cs) * evMul)}–${pct(Math.max(...cs) * evMul)}` }) : "";
           return `<li title="${esc(ent.map(([id, e]) => `${seen[id] ? "✓" : "·"} ${e.name}${colon()}${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${(st.events || 0) > 0 && tabReady(S, "bestiary") // (it. 922) un clic : Bestiaire > Événements rares
             ? `<button class="linkbtn textlink" data-tab="bestiary" data-sec="events">${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) →</button>`
-            : `${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span>`}</span><b>${segs(`${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}`)}</b></li>`; })()}
+            : `${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span>`}</span><b>${segs(`${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}${evToday}`)}</b></li>`; })()}
         ${line(tx("Gobelin doré"), segs(pct(GOBLIN.chance) + tx(" par monstre") + today(GOBLIN.chance, dm?.goblin || 1)))}
         ${line(tx("Élite"), segs(pct(ELITE.chance) + tx(" par monstre") + today(ELITE.chance, eliteMul)))}
-        ${line(tx("Champion (butin épique, dès la zone {0})", { 0: CHAMPION.minZone }), segs(pct(CHAMPION.chance) + tx(" par monstre")))}
+        ${line(tx("Champion (butin épique, dès la zone {0})", { 0: CHAMPION.minZone }), segs(pct(CHAMPION.chance) + tx(" par monstre") + today(CHAMPION.chance, dm?.champion || 1)))}
         ${line(tx("Œuf"), segs(`${tx("boss {0} · élite {1}", { 0: pct(EGG_CHANCE.boss), 1: pct(EGG_CHANCE.elite) })}`))}
       </ul></article>
       <article class="panel achievements"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Succès")}</span> <small>${reached.size} / ${ACHIEVEMENTS.length}</small></h2><ul class="achlist">${ach}</ul></article>
