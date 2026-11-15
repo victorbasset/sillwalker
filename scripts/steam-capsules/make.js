@@ -9,7 +9,8 @@ const SIZES = [
   ["itch-cover", 630, 500, "main"], // (it. 805) couverture de la page itch.io
   ["youtube-thumbnail", 1280, 720, "main"],
   ["avatar", 512, 512, "avatar"], // (it. 814) photo de profil itch.io // (it. 813) miniature de la bande-annonce YouTube
-];
+  ["update-0.1.4", 1920, 1080, "update"], // (it. 1541) image de couverture du devlog de la 0.1.4 (16:9)
+].filter(([name]) => !process.env.ONLY || name === process.env.ONLY); // ONLY=<nom> : une seule image
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const win = new BrowserWindow({ show: false, width: 800, height: 600, transparent: true, webPreferences: { offscreen: true } });
