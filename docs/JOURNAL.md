@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1367, contrôle) : « ??? » du Bestiaire (événements, bénédictions, pouvoirs) gardés : la découverte
+  y est le but (contrairement aux familiers, it. 1366, où le bonus est un objectif). Textes promotionnels : aucun nombre
+  de familiers cité. Pourcentages construits à la main hors unit() : seulement des largeurs CSS. Rien à corriger.
 - 2026-11-15 (it. 1366) : Familiers > À découvrir : chaque familier pas encore trouvé garde son nom secret (« ??? »)
   mais montre son bonus au niveau 1 (« +3 % dégâts contre les boss ») et « Rare » s'il l'est : un but concret pour les
   œufs. Vu en capture ; autotest 228/228, lang-overflow propre (la sous-section est mesurée).
