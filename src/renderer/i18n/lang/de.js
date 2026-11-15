@@ -1711,4 +1711,6 @@ export default {
   2836: "Der Streifen zeigt deine aktiven Elixiere, Schriftrollen und Weihrauch: je ein kleines Symbol, direkt vor deinem Gold.",
   2837: "Aktive Effekte",
   2838: "Tipp: Jagdweihrauch aus dem Laden lockt doppelt so viele Elite-Gegner an.",
+  2839: "Während deiner Abwesenheit zählen die Schriftrollen des Glücks und des Wissens endlich (sie brachten fast nichts), ebenso der Trank der Eile, das vierblättrige Kleeblatt und der Jagdweihrauch.",
+  2840: "„Automatisch verteilen“ im großen Graphen lässt das Spiel im Endspiel nicht mehr einfrieren.",
 };

@@ -1711,4 +1711,6 @@ export default {
   2836: "La franja muestra tus elixires, pergaminos e incienso activos: un pequeño icono para cada uno, justo delante de tu oro.",
   2837: "Efectos activos",
   2838: "Consejo: el Incienso de caza de la Tienda atrae el doble de élites.",
+  2839: "Durante tu ausencia, los pergaminos de fortuna y del saber por fin cuentan (casi no daban nada), igual que la poción de celeridad, el trébol de cuatro hojas y el incienso de caza.",
+  2840: "«Gastar automáticamente» en el gran grafo ya no congela el juego al final de la partida.",
 };

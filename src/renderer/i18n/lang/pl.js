@@ -1711,4 +1711,6 @@ export default {
   2836: "Pasek pokazuje aktywne eliksiry, zwoje i kadzidło: po jednej małej ikonie, tuż przed twoim złotem.",
   2837: "Aktywne efekty",
   2838: "Wskazówka: Kadzidło łowieckie ze Sklepu przyciąga dwa razy więcej elit.",
+  2839: "Podczas twojej nieobecności zwoje fortuny i wiedzy wreszcie się liczą (prawie nic nie dawały), podobnie jak mikstura chyżości, czterolistna koniczyna i kadzidło łowieckie.",
+  2840: "„Wydaj automatycznie” w wielkim grafie nie zamraża już gry pod koniec rozgrywki.",
 };

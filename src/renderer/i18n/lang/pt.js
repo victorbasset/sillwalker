@@ -1711,4 +1711,6 @@ export default {
   2836: "A faixa mostra seus elixires, pergaminhos e incenso ativos: um pequeno ícone para cada um, logo antes do seu ouro.",
   2837: "Efeitos ativos",
   2838: "Dica: o Incenso de caça da Loja atrai o dobro de elites.",
+  2839: "Durante sua ausência, os pergaminhos da fortuna e do saber finalmente contam (quase não davam nada), assim como a poção da celeridade, o trevo de quatro folhas e o incenso de caça.",
+  2840: "“Gastar automaticamente” no grande grafo não trava mais o jogo no fim da partida.",
 };

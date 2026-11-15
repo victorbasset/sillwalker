@@ -1711,4 +1711,6 @@ export default {
   2836: "The strip now shows your active elixirs, scrolls and incense: one small icon each, right in front of your gold.",
   2837: "Active effects",
   2838: "Tip: Hunting Incense from the Shop draws twice as many elites.",
+  2839: "While you're away, Scrolls of Fortune and Knowledge finally count (they gave almost nothing), as do the Potion of Haste, the Four-leaf Clover and Hunting Incense.",
+  2840: "“Spend automatically” in the great graph no longer freezes the game late in a run.",
 };

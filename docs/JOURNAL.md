@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1350) : « Quoi de neuf », édition 76 : effets comptés pendant l'absence (it. 1348-1349) et
+  « Dépenser automatiquement » du grand graphe sans gel (it. 1345) ; libellé cité tel que le bouton (i18n-quotes ok),
+  noms des consommables tels que traduits ; ligne au brouillon du devlog. Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1349) : absence, suite de la 1348 : la Potion de célérité (marche plus rapide entre deux combats)
   et le Trèfle à quatre feuilles (plus d'objets) comptent aussi hors ligne, au prorata de leur durée ; ils étaient
   ignorés. Le Tonique de fer reste hors du calcul (il ne joue que sur l'estimation de survie, grossière). Test étendu.
