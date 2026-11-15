@@ -1726,4 +1726,8 @@ export default {
   2851: "+{n} star shard|+{n} star shards",
   2852: "+{n} permanent skill point|+{n} permanent skill points",
   2853: "+{n} shard|+{n} shards",
+  2854: "Stag Beetle",
+  2855: "Its mandibles go for the bosses' weak spots.",
+  2856: "New pet: the Stag Beetle, whose mandibles go for the bosses' weak spots (+3% damage against them per level).",
+  2857: "Quests, ascensions and several messages now match their numbers in every language, in the singular as well as in Russian and Polish plurals.",
 };

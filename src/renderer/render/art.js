@@ -321,6 +321,10 @@ export const PET_ART = {
   froglet: { pal: { G: "#5fbf4a", L: "#a8e07a", E: "#1a1a1a", R: "#e2552b" }, frames: [
     ["..GG.GG..", ".GEGGEGG.", "GGGGGGGGG", "GLLRRLLG.", ".GLLLLG..", "GG....GG."],
     ["..GG.GG..", ".GEGGEGG.", "GGGGGGGGG", "GLLLLLLG.", "G.GLLG.G.", "........."]] },
+  // (it. 1363) Lucane : scarabée brun aux grandes mandibules (deuxième image : pattes décalées)
+  stagbeetle: { pal: { B: "#6a3a1e", L: "#b8743a", H: "#3a1e0e", M: "#2a1408", E: "#e8d0a0", D: "#2a1408" }, frames: [
+    ["......M.M", "..BBBBMM.", ".BBLBBBH.", "BBBBBBBHE", ".BBBBBBH.", ".D.D.D..."],
+    ["......M.M", "..BBBBMM.", ".BBLBBBH.", "BBBBBBBHE", ".BBBBBBH.", "..D.D.D.."]] },
   fairy: { pal: { P: "#ff9ad8", W: "#dff3ff", S: "#f1c7a0", Y: "#ffe27a" }, fly: true, frames: [
     ["W.....W", "WW.Y.WW", "WWSSSWW", ".WPPPW.", "..PPP..", "..P.P.."],
     [".......", ".W.Y.W.", "WWSSSWW", "WWPPPWW", "..PPP..", "..P.P.."]] },

@@ -1726,4 +1726,8 @@ export default {
   2851: "+{n} fragmento de estrella|+{n} fragmentos de estrella",
   2852: "+{n} punto de habilidad permanente|+{n} puntos de habilidad permanentes",
   2853: "+{n} fragmento|+{n} fragmentos",
+  2854: "Ciervo volante",
+  2855: "Sus mandíbulas buscan los puntos débiles de los jefes.",
+  2856: "Nueva mascota: el Ciervo volante, cuyas mandíbulas buscan los puntos débiles de los jefes (+3 % de daño contra ellos por nivel).",
+  2857: "Las misiones, las ascensiones y varios mensajes concuerdan por fin con sus números en todos los idiomas, en singular y en los plurales rusos y polacos.",
 };

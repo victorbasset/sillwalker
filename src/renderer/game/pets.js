@@ -29,6 +29,8 @@ export const PETS = [
   { id: "starling", name: "Étoilon",    desc: "Un éclat d’étoile vivant qui a choisi de te suivre. Rare.", eff: { moveSpd: 1, crit: 0.5 }, weight: 0.4 },
   // (it. 1282) clin d'œil à Mirette, la grenouille marchande : attire les élites (+2 % par niveau, comme l'Appât)
   { id: "froglet", name: "Grenouillette", desc: "Ses coassements attirent les élites… et leur butin.", eff: { elites: 2 } },
+  // (it. 1363) Lucane : le familier des chasseurs de boss (aucun ne renforçait encore les dégâts contre eux)
+  { id: "stagbeetle", name: "Lucane", desc: "Ses mandibules visent les points faibles des boss.", eff: { bossDmg: 3 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

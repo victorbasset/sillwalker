@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1363) : nouveau familier, le Lucane (scarabée brun aux grandes mandibules) : +3 % de dégâts contre
+  les boss par niveau (+30 % au niveau 10), le premier familier des chasseurs de boss. Sprite à deux images (vu sur la
+  bande et dans l'onglet), 10 langues (« Pupile » en polonais comme ailleurs), test, README (19 familiers),
+  « Quoi de neuf » 77 (avec les pluriels des it. 1353-1359), devlog. Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1362) : Boutique : la durée affichée sous un élixir inactif vient de sa constante (c.duration ;
   « 10 min » écrit en dur). Même rendu aujourd'hui, mais un consommable d'une autre durée ne mentira plus.
 - 2026-11-15 (it. 1361, revue générale) : après la série des pluriels : --perf (copie neuve) bande 19,2 %, panneau

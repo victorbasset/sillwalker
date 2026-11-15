@@ -1726,4 +1726,8 @@ export default {
   2851: "+{n} odłamek gwiazd|+{n} odłamki gwiazd|+{n} odłamków gwiazd",
   2852: "+{n} stały punkt umiejętności|+{n} stałe punkty umiejętności|+{n} stałych punktów umiejętności",
   2853: "+{n} odłamek|+{n} odłamki|+{n} odłamków",
+  2854: "Jelonek",
+  2855: "Jego żuwaczki celują w słabe punkty bossów.",
+  2856: "Nowy pupil: Jelonek, którego żuwaczki celują w słabe punkty bossów (+3 % obrażeń przeciw nim na poziom).",
+  2857: "Zadania, wniebowstąpienia i kilka komunikatów wreszcie odmieniają liczby we wszystkich językach, w liczbie pojedynczej i w rosyjskich i polskich liczbach mnogich.",
 };

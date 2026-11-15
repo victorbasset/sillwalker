@@ -1726,4 +1726,8 @@ export default {
   2851: "+{n} fragmento de estrela|+{n} fragmentos de estrela",
   2852: "+{n} ponto de habilidade permanente|+{n} pontos de habilidade permanentes",
   2853: "+{n} fragmento|+{n} fragmentos",
+  2854: "Besouro-veado",
+  2855: "Suas mandíbulas miram os pontos fracos dos chefes.",
+  2856: "Novo mascote: o Besouro-veado, cujas mandíbulas miram os pontos fracos dos chefes (+3 % de dano contra eles por nível).",
+  2857: "Missões, ascensões e várias mensagens agora concordam com seus números em todos os idiomas, no singular e nos plurais russos e poloneses.",
 };

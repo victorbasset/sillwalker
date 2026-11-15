@@ -385,6 +385,13 @@ test("absence : « 1 monster defeated » au singulier dans le journal (it. 1353)
   assert.ok(/\b1\smonster\sdefeated\b/.test(found) && !/monsters/.test(found), found);
 });
 
+test("Lucane : +3 % de dégâts contre les boss par niveau, sprite présent (it. 1363)", () => {
+  const g = new Game(freshState());
+  const b0 = g.stats().bossDmg || 0;
+  g.S.pets.owned.stagbeetle = { lvl: 4, xp: 0 }; g.S.pets.active = "stagbeetle"; g.invalidateStats();
+  assert.equal((g.stats().bossDmg || 0) - b0, 12);
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);

@@ -2855,5 +2855,9 @@ export const KEYS = [
   "Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !",
   "+{n} éclat d’étoile|+{n} éclats d’étoile",
   "+{n} point de compétence permanent|+{n} points de compétence permanents",
-  "+{n} éclat|+{n} éclats"
+  "+{n} éclat|+{n} éclats",
+  "Lucane",
+  "Ses mandibules visent les points faibles des boss.",
+  "Nouveau familier : le Lucane, dont les mandibules visent les points faibles des boss (+3 % de dégâts contre eux par niveau).",
+  "Les quêtes, les ascensions et plusieurs messages accordent enfin leurs nombres dans toutes les langues, au singulier comme dans les pluriels russes et polonais."
 ];
