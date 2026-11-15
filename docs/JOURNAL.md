@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1537) : devlog 0.1.4 (en et fr) : barres de vie en haut de la bande, bouton des bonus de maîtrise,
+  police russe et portugais brésilien ; éditions 59 à 101.
 - 2026-11-15 (it. 1536, demandes de Victor) : barres de vie en haut de la bande : celle du monstre reste affichée entre
   deux combats (le dernier monstre, vide, « 0 » ; « — » avant le premier) ; pastilles de 290 px (246 avant) : la valeur
   du bouclier tient à droite (« 247 k +161 k », sans débordement). Vérifié par --stage ; autotest 233/233.

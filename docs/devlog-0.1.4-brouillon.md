@@ -1,7 +1,7 @@
 # Devlog itch.io : version 0.1.4 (BROUILLON, it. 1298)
 
 Brouillon préparé pendant le développement, à relire et compléter le jour de la sortie (Victor décide quand). Il
-reprend les éditions « Quoi de neuf » 59 à 99 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
+reprend les éditions « Quoi de neuf » 59 à 101 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
 À la sortie : mettre les mêmes points dans NEWS_RELEASES (news.js, `after: 58`), renommer ce fichier en
 devlog-0.1.4.md et ajouter ce qui sera paru entre-temps.
 
@@ -22,6 +22,9 @@ Sillwalker 0.1.4 is out! Here is what's new since 0.1.3:
 - **Your companion's spells, in full:** Hero > Spells & attack now shows them as large cards, to the right of your hero's, with their real (half) power; the hero card lists them too.
 - **A real duo:** a melee companion stands in front of a ranged hero and takes part of the blows (damage taken −15%); a ranged companion covers a melee hero with their shots (attack +15%).
 - **Small comforts:** an item bought at the shop that makes your hero stronger is equipped right away; after the flower, “Spend automatically” follows your most advanced line; the map shows your hero's head right on their zone.
+- **Health at a glance:** your health and the current monster's now sit at the top of the strip, next to the zone, with shields shown in blue (can be turned off in Settings > Window).
+- **Mastery bonuses, one click away:** every mastery with a two-bonus milestone has its own “Choose a bonus” / “Bonus” button.
+- **Languages:** Russian now uses the same pixel font as the other languages (66 letters drawn for the game), and Portuguese is consistently Brazilian.
 - **At a glance:** the strip shows your active elixirs, scrolls and incense as small icons in front of your gold.
 - **Two new kinds of quest:** gain levels, and catch golden goblins; both progress on their own, even while you're away.
 - **Return after an absence:** the summary now counts items left on the ground (full bag) and the champions that fell.
@@ -50,6 +53,9 @@ Sillwalker 0.1.4 est disponible ! Voici les nouveautés depuis la 0.1.3 :
 - **Les sorts du compagnon en grand :** Héros > Sorts et attaque les montre en grandes cartes, à droite de ceux du héros, à leur vraie puissance (la moitié) ; la carte du héros les cite aussi.
 - **Un vrai duo :** un compagnon au corps à corps se place devant un héros à distance et encaisse une part des coups (dégâts subis −15 %) ; un compagnon à distance couvre un héros au corps à corps de ses tirs (attaque +15 %).
 - **Petits conforts :** un objet acheté à la boutique qui renforce ton héros est équipé tout de suite ; après la fleur, « Dépenser automatiquement » suit ta ligne la plus avancée ; la carte montre la tête de ton héros sur sa zone.
+- **La vie d’un coup d’œil :** ta vie et celle du monstre affronté s’affichent en haut de la bande, à côté de la zone, bouclier en bleu (désactivable dans Réglages > Fenêtre).
+- **Les bonus des maîtrises à portée de clic :** chaque maîtrise dont un palier propose deux bonus a son bouton « Choisir un bonus » / « Bonus ».
+- **Langues :** le russe utilise la même police pixel que les autres langues (66 lettres dessinées pour le jeu), et le portugais est entièrement brésilien.
 - **D'un coup d'œil :** la bande montre tes élixirs, parchemins et encens actifs, en petites icônes devant ton or.
 - **Deux nouvelles sortes de quête :** gagner des niveaux, et attraper des gobelins dorés ; elles avancent toutes seules, même pendant ton absence.
 - **Retour après une absence :** le résumé compte les objets restés au sol (sac plein) et les champions tombés.
