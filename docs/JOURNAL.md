@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1464) : héros bloqué : les pistes (deux premières, forge comprise) restent visibles dans la carte de
+  la zone de l'Aventure (« ⚠ Pistes : … », en rouge) tant qu'il bloque ; avant, seulement dans la bulle (une fois).
+  Pistes regroupées dans ui/stucktips.js (bulle et panneau). Nouveau contrôle d'autotest (pire cas : Enclume, or
+  illimité) : l'Aventure ne défile pas ; capture en russe à 1280 px. Autotest 229/229, lang-overflow propre.
 - 2026-11-15 (it. 1463) : étude de la longue traîne (it. 1462, graine 3) : le héros bute ≈ 1 h sur les boss des zones
   19-21 avec jusqu'à 400 k d'or qui dort (le joueur simulé ne forge ni n'achète rien) ; la date exacte dépend du moment
   des équipements (trajectoire chaotique : record 20 à 50 ou 114 min selon un décalage d'une seconde). Les pistes de

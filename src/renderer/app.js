@@ -18,6 +18,7 @@ import { getLang, setLang, DEFAULT_LANG, LANGS, txn, systemLang, csep, fsp, colo
 import { translateData, repairItemNames } from "./i18n/data.js";
 import { itemName } from "./i18n/data.js";
 import { t as tx } from "./i18n/index.js";
+import { stuckTipsText } from "./ui/stucktips.js";
 import { todoLabel } from "./ui/todo.js";
 import { CLASSES } from "./game/classes.js";
 import { PET_INDEX } from "./game/pets.js";
@@ -619,10 +620,8 @@ async function boot() {
     panel.dirty = true;
   });
   // Héros bloqué (demande 22) : bulle qui reste 2 min, avec les pistes utiles ; un clic ouvre le panneau.
-  const STUCK_TIPS = { equip: "équipe le meilleur ▲", talents: "dépense tes points de talent", forge: "forge ton équipement avec ton or", potions: "rachète des potions",
-    ascend: "une ascension le rendra bien plus fort", farm: "laisse-le farmer un peu plus bas" };
   game.on("stuck", ({ zone, deaths }) => {
-    const tips = game.stuckTips().slice(0, 2).map((k) => tx(STUCK_TIPS[k])).join(" · ");
+    const tips = stuckTipsText(game).join(" · ");
     showToast(`⚠ ${txn(deaths, "Ton héros bloque en zone {0} ({n} défaite).|Ton héros bloque en zone {0} ({n} défaites).", { 0: zone })} ${tx("Pistes :")} ${esc(tips)}`, () => { openPanel(); panel.setTab("adventure"); panel.renderAll(); }, 120000);
   });
   // Sac plein et une amélioration restée au sol : bulle (au plus une toutes les 3 min) ; un clic ouvre le sac.

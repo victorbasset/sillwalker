@@ -628,6 +628,11 @@ async function runSelfTest(strip) {
     const r = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), keep = P.sinceVisit; P.sinceVisit = { min: 754, kills: 123456, gold: 9.87e15, leg: 12, lvl0: 1200, lvl1: 1313, best: 255, asc: 3, spells: 140, relics: 4, chests: 17, goblins: 38, events: 23 }; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('#p-hero .visit'); const r = (b ? 'ok' : 'absente') + ' ' + o; P.sinceVisit = keep; P.renderAll(); return r; })()");
     check("« Depuis ta dernière visite » au pire cas : l'Aventure ne défile pas", /^ok -?[0-2]$/.test(r) || /^ok -\d+$/.test(r), r);
   }
+  // (it. 1464) héros bloqué : les pistes dans la carte de la zone (forge comprise) ne font pas défiler l'Aventure
+  {
+    const r = await js("(() => { const P = window.__panel, G = window.__game, p = document.getElementById('panel'), keep = { w: G.R.wallDeaths, f: G.S.unlocks.forge, g: G.S.gold }; P.setTab('adventure'); G.R.wallDeaths = [G.R.time, G.R.time, G.R.time, G.R.time]; G.S.unlocks.forge = true; G.S.gold = 1e30; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('.stucktips'); const r = (b ? 'ok' : 'absente') + ' ' + o; G.R.wallDeaths = keep.w; if (!keep.f) delete G.S.unlocks.forge; G.S.gold = keep.g; P.renderAll(); return r; })()");
+    check("héros bloqué : pistes dans la carte de la zone, l'Aventure ne défile pas", /^ok -?[0-2]$/.test(r) || /^ok -\d+$/.test(r), r);
+  }
   // Deux pièces d'une même panoplie portées (copie de test) : l'étiquette de la fiche du héros apparaît.
   await js("(() => { const E = window.__game.S.equip; const its = Object.values(E).filter(Boolean).slice(0, 2); its.forEach((it) => { it.set = 'dawn'; }); window.__game.invalidateStats(); window.__panel.renderAll(); })()");
   await sleep(100);

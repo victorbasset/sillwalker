@@ -8,6 +8,7 @@ import { newsShown, NEWS_RELEASES } from "../game/news.js";
 import { itemName, itemKindLine } from "../i18n/data.js";
 import { t as tx, txn, lc, colon, tr, csep, cend, wsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
+import { stuckTipsText } from "./stucktips.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";
 import { dayModNotes } from "./daymodnotes.js";
@@ -1052,6 +1053,7 @@ export class Panel {
           const parry = PURE_PARRIES.includes(id) && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
           return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(csep())}${cend()}</p>
       ${this.relicAheadHTML(S)}
+      ${this.game.stuckInfo() ? `<p class="note tight stucktips">⚠ ${esc(tx("Pistes :"))}${wsp()}${esc(stuckTipsText(this.game).join(" · "))}</p>` : "" /* (it. 1464) héros bloqué : les pistes restent visibles ici après la bulle */}
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> ${tx("Passer à la zone suivante après le boss")}</label>
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>${tx("Zone précédente")}</button>
