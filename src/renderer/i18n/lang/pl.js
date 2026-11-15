@@ -1730,4 +1730,5 @@ export default {
   2855: "Jego żuwaczki celują w słabe punkty bossów.",
   2856: "Nowy pupil: Jelonek, którego żuwaczki celują w słabe punkty bossów (+3 % obrażeń przeciw nim na poziom).",
   2857: "Zadania, wniebowstąpienia i kilka komunikatów wreszcie odmieniają liczby we wszystkich językach, w liczbie pojedynczej i w rosyjskich i polskich liczbach mnogich.",
+  2858: "Premia na poziomie 1: {0}",
 };

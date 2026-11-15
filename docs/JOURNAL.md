@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1366) : Familiers > À découvrir : chaque familier pas encore trouvé garde son nom secret (« ??? »)
+  mais montre son bonus au niveau 1 (« +3 % dégâts contre les boss ») et « Rare » s'il l'est : un but concret pour les
+  œufs. Vu en capture ; autotest 228/228, lang-overflow propre (la sous-section est mesurée).
 - 2026-11-15 (it. 1365) : succès « Ménagerie complète » après le Lucane : calculé sur la liste (PETS), sans nombre
   écrit dans ses textes ni sur Steam ; un succès déjà obtenu reste acquis. CLAUDE.md : astuces --stage (console.warn),
   s.last pour les captures d'effets, et save-fuzz « sans fin » qui peut n'être qu'une lenteur (it. 1335, 1340, 1345).

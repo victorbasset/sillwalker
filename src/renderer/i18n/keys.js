@@ -2859,5 +2859,6 @@ export const KEYS = [
   "Lucane",
   "Ses mandibules visent les points faibles des boss.",
   "Nouveau familier : le Lucane, dont les mandibules visent les points faibles des boss (+3 % de dégâts contre eux par niveau).",
-  "Les quêtes, les ascensions et plusieurs messages accordent enfin leurs nombres dans toutes les langues, au singulier comme dans les pluriels russes et polonais."
+  "Les quêtes, les ascensions et plusieurs messages accordent enfin leurs nombres dans toutes les langues, au singulier comme dans les pluriels russes et polonais.",
+  "Bonus au niveau 1 : {0}"
 ];

@@ -1730,4 +1730,5 @@ export default {
   2855: "Seine Zangen zielen auf die Schwachstellen der Bosse.",
   2856: "Neues Haustier: der Hirschkäfer, dessen Zangen auf die Schwachstellen der Bosse zielen (+3 % Schaden gegen sie pro Stufe).",
   2857: "Aufträge, Aufstiege und mehrere Meldungen passen ihre Zahlen jetzt in allen Sprachen an, im Singular wie in den russischen und polnischen Pluralformen.",
+  2858: "Bonus auf Stufe 1: {0}",
 };
