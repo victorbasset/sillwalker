@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1429, contrôle) : équilibre après la Pie (balance.mjs 12 contre d00cf97, 10 classes) : graine 3
+  −1,4, graine 11 −0,2, graine 21 +0,4 ; moyenne −0,4 zone : bruit (les coffres changent les tirages, pas la force).
 - 2026-11-15 (it. 1428, contrôle) : état maximal (max-save, les 20 familiers dont la Pie) en russe : --crawl 618 clics
   sans erreur ; texte extrait : « Сорока » présent, aucun mot français. Fausse piste écartée : une copie faite par
   « cp -r a b » alors que b existait déjà atterrit dans b/a (le jeu chargeait une ancienne copie) : toujours
