@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1527, REVUE GÉNÉRALE, repoussée depuis l'it. 1521) : 12 h graine 7 : mage 61, moine 65, nécromancien 65.
+  perf:linux : bande 19,2 %, panneau 20,7 %, mini 6,7 %, icône 0,6 % (stables, police russe comprise). Captures zh
+  (Talents : Voie sur une colonne, « 选择加成 »), pl (Héros), ru (Boutique) ; texte allemand avec un compagnon : aucun
+  mot français. Rien à noter dans Idées.
 - 2026-11-15 (it. 1526) : contrôle : la police russe (it. 1524) sert partout (titres du panneau, onglets, bande :
   FONT de dom.js commence par Geist Pixel ; seuls h1 et .brand en Pixelify). POUR-VICTOR : thème itch.io proposé.
 - 2026-11-15 (it. 1525) : édition 100 de « Quoi de neuf » (bouton « Choisir un bonus » et « À faire maintenant », Voie
