@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1534) : CLAUDE.md : mesure « maîtrise=N » de lang-overflow ; règles de la rangée d'informations de la
+  bande (hudBands, nom du boss, DOM mis à jour au changement).
 - 2026-11-15 (it. 1533) : portugais harmonisé vers le brésilien (majoritaire : ≈ 230 « você / seu / sua » contre 24
   formes européennes ; page du magasin en « Português (Brasil) ») : 43 traductions réécrites (tu → você, rato →
   mouse, ecrã → tela, bónus → bônus, mestria → maestria, saco → bolsa, objeto → item, familiar → mascote, « já não »

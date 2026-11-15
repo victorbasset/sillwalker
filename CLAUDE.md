@@ -219,7 +219,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   une liste qui grandit (nouvel événement, nouvelle capacité…) peut le casser. Remède habituel : une rangée latérale
   (`class="hscroll" data-hs="clé"`, ui/hscroll.js : molette, glisser, position gardée) ou un détail au survol (ⓘ).
   `--overflow-report` (donc lang-overflow) signale aussi « onglet-large=N » : lignes de liste plus larges que leur colonne
-  (débordement horizontal, it. 541-543) et « onglet-chevauche=N » : libellé d'un seul mot qui passe sous sa valeur (it. 849), « onglet-coupé=mots » : mot coupé en plein milieu sur deux lignes, sans trait d'union (it. 865 ; chinois, japonais et coréen exclus), « onglet-titre=… » : titre de panneau chinois ou japonais coupé entre deux caractères (« 装 / 備 », it. 1001), « astuce-coupée=id » : astuce qui dépasse les trois lignes de la bulle (it. 1027), et la page des sorts des 20 héros (« sorts=N(héros) », it. 553). Il mesure aussi chaque sous-section des onglets (« bestiary-sets=N », « stats-journey=N »…, it. 1013-1014 ; avant, seule celle par défaut l'était : liste SUBS de main.js, à compléter pour une nouvelle sous-section), « Quoi de neuf » au pire cas, Héros > Sorts et Statistiques > Succès (la liste des succès
+  (débordement horizontal, it. 541-543) et « onglet-chevauche=N » : libellé d'un seul mot qui passe sous sa valeur (it. 849), « onglet-coupé=mots » : mot coupé en plein milieu sur deux lignes, sans trait d'union (it. 865 ; chinois, japonais et coréen exclus), « onglet-titre=… » : titre de panneau chinois ou japonais coupé entre deux caractères (« 装 / 備 », it. 1001), « astuce-coupée=id » : astuce qui dépasse les trois lignes de la bulle (it. 1027), et la page des sorts des 20 héros (« sorts=N(héros) », it. 553), et la fiche de chaque maîtrise (« maîtrise=N(id) », it. 1530 : 38 px en allemand que rien ne voyait). Il mesure aussi chaque sous-section des onglets (« bestiary-sets=N », « stats-journey=N »…, it. 1013-1014 ; avant, seule celle par défaut l'était : liste SUBS de main.js, à compléter pour une nouvelle sous-section), « Quoi de neuf » au pire cas, Héros > Sorts et Statistiques > Succès (la liste des succès
   grandit à chaque ajout : relancer lang-overflow après un nouveau succès ; it. 503, polonais à 1920).
   Les contrôles mesurent les sections REPLIÉES : une section repliable (<details>) qui grandit fait défiler l'onglet
   une fois dépliée sans qu'aucun contrôle ne le voie. Remède : l'ouvrir dans la fenêtre large (panel.js > MODAL_DETAILS
@@ -248,6 +248,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   ligne (85-95) ont rempli la fenêtre et repoussaient les plus anciennes hors de vue (it. 1442, 1474-1475).
 - Réglages qui touchent l'affichage sans recharger : « Économie d'énergie » (settings.eco, 15 images/s, événement
   `sillwalker-framerate`) et « Cinématiques de l'histoire » (settings.cinematics ; `data.force` pour le ▶ des chroniques).
+- Rangée d'informations de la bande (zone, or, barres de vie du réglage hudBars, it. 1531) : tout nouvel élément y
+  déclare sa bande horizontale dans `hudBands()` (strip.js), sinon la météo passe dessus (it. 874) ; il ne recouvre pas
+  le nom du boss, qui s'étend vers la gauche depuis le boss (it. 854) ; DOM mis à jour seulement quand la valeur change.
 - Bande : la fenêtre laisse traverser les clics sauf au-dessus des éléments `.hit` (ui/clickthrough.js, recalculé par
   `clickThrough.refresh()`). Tout nouvel élément cliquable de la bande doit porter `.hit` ; `element.click()` dans
   l'autotest ne passe pas par ce filtre (un « clic : passer » marchait en test et pas en vrai).
