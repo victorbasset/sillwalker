@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1446, contrôle) : après Jour des arcanes, Pie, Trésor enfoui : fuzz sous toutes les bénédictions
+  (FUZZ_DAYMOD=all, 400 parties) et fuzz normal (1200 parties) : 0 bloquée. mem-watch 6 min ×10 : 501-516 Mo puis
+  retour à 501 (plage attendue 485-530 Mo) : pas de fuite.
 - 2026-11-15 (it. 1445, outil) : early-pace.mjs : SEEDS=n (3 par défaut, repères inchangés : 104 / 37 / 22 / 5,7) et
   écart entre graines à 60 min en dernière ligne. Repère sur 10 graines : 105 objets, niveau 38 (35–40), zone 22
   (20–23), 5,9 déblocages. CLAUDE.md mis à jour.
