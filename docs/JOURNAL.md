@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1470) : quête « Atteindre la zone N » avec l'avancée automatique coupée (« Passer à la zone suivante
+  après le boss » décoché) : elle ne pouvait pas avancer, sans le dire ; sa carte porte un bouton « reprendre
+  l’avancée » qui la réactive d'un clic (puis disparaît). 10 langues ; vérifié par --stage en russe à 1280 px.
+  Autotest 229/229.
 - 2026-11-15 (it. 1469) : carte d'une quête « Attraper N gobelins dorés » déjà tirée alors que le héros est trop lent
   (zone changée…) : « · ils s’enfuient : héros trop lent ici » sur la ligne de progression (comme « absent d’ici »
   pour la chasse) ; le bouton Changer reste là. 10 langues, capture en allemand à 1280 px. Autotest 229/229.

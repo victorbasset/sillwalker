@@ -2909,5 +2909,6 @@ export const KEYS = [
   "Sur la bande, un petit ◆ marque les monstres visés par une quête de chasse en cours.",
   "forge ton équipement avec ton or",
   "Héros bloqué : les pistes pour avancer restent affichées dans la carte de la zone et dans la bulle du mode mini, et une nouvelle piste propose de forger ton équipement quand ton or le permet.",
-  "ils s’enfuient : héros trop lent ici"
+  "ils s’enfuient : héros trop lent ici",
+  "reprendre l’avancée"
 ];

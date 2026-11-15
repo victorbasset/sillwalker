@@ -80,6 +80,8 @@ export class QuestsTab {
           away = hasUnlock(S, "travelMap") ? ` <button class="qgo" data-action="q-go" data-z="${best}" title="${esc(tx("Clic : y aller"))}">${lbl}</button>` : ` <small class="eta">· ${lbl}</small>`;
         }
       }
+      // (it. 1470) « Atteindre la zone N » avec l'avancée automatique coupée : rien ne bouge ; un clic la remet
+      if (!done && q.kind === "zone" && !S.autoAdvance) away = ` <button class="qgo" data-action="q-adv">${esc(tx("reprendre l’avancée"))}</button>`;
       // (it. 1469) gobelins dorés trop rapides pour le héros (ils s'enfuient avant d'être abattus) : on le dit
       if (!done && q.kind === "goblin" && !goblinCatchable(S)) away = ` <small class="eta">· ${esc(tx("ils s’enfuient : héros trop lent ici"))}</small>`;
       // (it. 1344) quêtes d'élites : l'Encens de chasse les accélère (astuce au survol, la carte ne grandit pas)
@@ -107,6 +109,7 @@ export class QuestsTab {
     else if (a === "q-claimall") { for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid); }
     else if (a === "q-reroll") g.rerollQuest(+b.dataset.id);
     else if (a === "q-go" && hasUnlock(g.S, "travelMap")) g.setZone(+b.dataset.z); // (it. 1426)
+    else if (a === "q-adv") g.setAutoAdvance(true); // (it. 1470)
     else if (a === "q-auto") { g.S.quests.auto = b.checked; if (b.checked) { g.R.autoClaim = true; g.autoClaimQuests(); } g.changed(); }
   }
 

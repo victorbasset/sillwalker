@@ -1780,4 +1780,5 @@ export default {
   2905: "forja tu equipo con tu oro",
   2906: "Héroe atascado: las pistas para avanzar siguen visibles en la tarjeta de la zona y en la burbuja del modo mini, y una nueva pista propone forjar tu equipo cuando tu oro lo permite.",
   2907: "huyen: héroe demasiado lento aquí",
+  2908: "reanudar el avance",
 };

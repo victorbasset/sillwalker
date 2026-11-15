@@ -1780,4 +1780,5 @@ export default {
   2905: "forge your gear with your gold",
   2906: "Stuck hero: the tips to move on stay shown in the zone card and in the mini mode tooltip, and a new tip suggests forging your gear when your gold allows it.",
   2907: "they flee: hero too slow here",
+  2908: "resume advancing",
 };

@@ -1780,4 +1780,5 @@ export default {
   2905: "schmiede deine Ausrüstung mit deinem Gold",
   2906: "Festsitzender Held: Die Ideen zum Weiterkommen bleiben in der Zonenkarte und im Tooltip des Mini-Modus sichtbar, und eine neue Idee schlägt vor, deine Ausrüstung zu schmieden, wenn dein Gold reicht.",
   2907: "sie fliehen: Held hier zu langsam",
+  2908: "wieder vorrücken",
 };
