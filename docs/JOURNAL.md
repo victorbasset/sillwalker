@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1533) : portugais harmonisé vers le brésilien (majoritaire : ≈ 230 « você / seu / sua » contre 24
+  formes européennes ; page du magasin en « Português (Brasil) ») : 43 traductions réécrites (tu → você, rato →
+  mouse, ecrã → tela, bónus → bônus, mestria → maestria, saco → bolsa, objeto → item, familiar → mascote, « já não »
+  → « não … mais »), presque toutes des 4 derniers jours. Contrôle : barres de vie avec la bande en haut de l'écran.
+  i18n-check et citations sans problème, lang-overflow pt propre, autotest 233/233.
 - 2026-11-15 (it. 1532) : édition 101 de « Quoi de neuf » (barres de vie en haut de la bande, bouton « Bonus » des
   maîtrises, bulle d'objet sans saut), 9 langues ; « Bónus » (pt, clé 160 ; était le brésilien « Bônus ») ; ko : « 특성 »
   (nom de l'onglet) dans l'édition 100 au lieu de « 재능 ». Autotest 233/233.
@@ -5855,7 +5860,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
-- P3 (it. 1532) Portugais : les premières traductions sont brésiliennes (« Bônus », « Seu herói », « Configurações »),
+- FAIT (it. 1533 : vers le brésilien, comme la page du magasin) P3 (it. 1532) Portugais : les premières traductions sont brésiliennes (« Bônus », « Seu herói », « Configurações »),
   les récentes européennes (« teu herói », « bónus ») : choisir une variante et harmoniser (passe longue sur pt.js).
 
 - CLOS (it. 1483 : semaine 350 pour le mage comme pour le guerrier) P3 (it. 1482) Mage un peu en retrait sur 12 h (60,7 sur 6 graines contre 63,6 pour la moyenne des héros ; gardien
