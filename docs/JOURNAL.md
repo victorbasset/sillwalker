@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1368) : « Quoi de neuf », édition 78 : bonus des familiers à découvrir (it. 1366), chemin
+  « Familiers > À découvrir » tel que traduit ; allemand de l'édition 77 aligné (« Begleiter », pas « Haustier »,
+  comme l'onglet) ; README.
 - 2026-11-15 (it. 1367, contrôle) : « ??? » du Bestiaire (événements, bénédictions, pouvoirs) gardés : la découverte
   y est le but (contrairement aux familiers, it. 1366, où le bonus est un objectif). Textes promotionnels : aucun nombre
   de familiers cité. Pourcentages construits à la main hors unit() : seulement des largeurs CSS. Rien à corriger.

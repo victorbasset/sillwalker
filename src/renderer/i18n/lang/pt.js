@@ -1731,4 +1731,5 @@ export default {
   2856: "Novo mascote: o Besouro-veado, cujas mandíbulas miram os pontos fracos dos chefes (+3 % de dano contra eles por nível).",
   2857: "Missões, ascensões e várias mensagens agora concordam com seus números em todos os idiomas, no singular e nos plurais russos e poloneses.",
   2858: "Bônus no nível 1: {0}",
+  2859: "Mascotes > A descobrir: cada mascote ainda desconhecido mantém o nome em segredo, mas mostra seu bônus no nível 1 e se é raro.",
 };

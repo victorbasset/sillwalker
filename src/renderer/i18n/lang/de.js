@@ -1728,7 +1728,8 @@ export default {
   2853: "+{n} Splitter|+{n} Splitter",
   2854: "Hirschkäfer",
   2855: "Seine Zangen zielen auf die Schwachstellen der Bosse.",
-  2856: "Neues Haustier: der Hirschkäfer, dessen Zangen auf die Schwachstellen der Bosse zielen (+3 % Schaden gegen sie pro Stufe).",
+  2856: "Neuer Begleiter: der Hirschkäfer, dessen Zangen auf die Schwachstellen der Bosse zielen (+3 % Schaden gegen sie pro Stufe).",
   2857: "Aufträge, Aufstiege und mehrere Meldungen passen ihre Zahlen jetzt in allen Sprachen an, im Singular wie in den russischen und polnischen Pluralformen.",
   2858: "Bonus auf Stufe 1: {0}",
+  2859: "Begleiter > Zu entdecken: Jeder noch unbekannte Begleiter hält seinen Namen geheim, zeigt aber seinen Bonus auf Stufe 1 und ob er selten ist.",
 };

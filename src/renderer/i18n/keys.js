@@ -2860,5 +2860,6 @@ export const KEYS = [
   "Ses mandibules visent les points faibles des boss.",
   "Nouveau familier : le Lucane, dont les mandibules visent les points faibles des boss (+3 % de dégâts contre eux par niveau).",
   "Les quêtes, les ascensions et plusieurs messages accordent enfin leurs nombres dans toutes les langues, au singulier comme dans les pluriels russes et polonais.",
-  "Bonus au niveau 1 : {0}"
+  "Bonus au niveau 1 : {0}",
+  "Familiers > À découvrir : chaque familier encore inconnu garde son nom secret, mais montre son bonus au niveau 1 et s’il est rare."
 ];

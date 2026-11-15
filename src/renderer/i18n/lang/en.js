@@ -1731,4 +1731,5 @@ export default {
   2856: "New pet: the Stag Beetle, whose mandibles go for the bosses' weak spots (+3% damage against them per level).",
   2857: "Quests, ascensions and several messages now match their numbers in every language, in the singular as well as in Russian and Polish plurals.",
   2858: "Bonus at level 1: {0}",
+  2859: "Pets > To discover: every pet you haven't found yet keeps its name secret, but shows its bonus at level 1 and whether it is rare.",
 };

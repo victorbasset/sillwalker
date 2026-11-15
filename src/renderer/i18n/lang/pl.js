@@ -1731,4 +1731,5 @@ export default {
   2856: "Nowy pupil: Jelonek, którego żuwaczki celują w słabe punkty bossów (+3 % obrażeń przeciw nim na poziom).",
   2857: "Zadania, wniebowstąpienia i kilka komunikatów wreszcie odmieniają liczby we wszystkich językach, w liczbie pojedynczej i w rosyjskich i polskich liczbach mnogich.",
   2858: "Premia na poziomie 1: {0}",
+  2859: "Pupile > Do odkrycia: każdy nieznany jeszcze pupil zachowuje imię w tajemnicy, ale pokazuje premię na poziomie 1 i czy jest rzadki.",
 };

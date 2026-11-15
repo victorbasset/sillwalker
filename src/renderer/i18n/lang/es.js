@@ -1731,4 +1731,5 @@ export default {
   2856: "Nueva mascota: el Ciervo volante, cuyas mandíbulas buscan los puntos débiles de los jefes (+3 % de daño contra ellos por nivel).",
   2857: "Las misiones, las ascensiones y varios mensajes concuerdan por fin con sus números en todos los idiomas, en singular y en los plurales rusos y polacos.",
   2858: "Bonificación en el nivel 1: {0}",
+  2859: "Mascotas > Por descubrir: cada mascota aún desconocida guarda su nombre en secreto, pero muestra su bonificación en el nivel 1 y si es rara.",
 };
