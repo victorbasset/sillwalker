@@ -1744,4 +1744,6 @@ export default {
   2869: "Explodes on death: deals 6% of the hero's max HP, never finishing them off.",
   2870: "Explosion!",
   2871: "New elite, the Explosive: when it dies, it deals 6% of your hero's max HP (never finishing them off). Better not end the fight out of breath.",
+  2872: "Bomb Disposal (25 explosives)",
+  2873: "New achievement, Bomb Disposal: defeat 25 explosive elites.",
 };

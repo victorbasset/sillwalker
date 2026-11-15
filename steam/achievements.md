@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (68 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (69 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -61,6 +61,7 @@ Généré par `scripts/steam-achievements.mjs` (68 succès). À recopier dans St
 | `EXPEDITIONS_10` | Explorateurs (10 expéditions) | Explorers (10 expeditions) | Exploradores (10 expediciones) | Exploradores (10 expedições) | Entdecker (10 Expeditionen) | Odkrywcy (10 wypraw) | Исследователи (10 экспедиций) | 探险家（10 次探险） | 探検家（遠征 10 回） | 탐험가 (원정 10회) |
 | `CHAMPION` | Tueur de champion | Champion Slayer | Matacampeones | Matador de campeões | Championtöter | Pogromca czempionów | Убийца чемпионов | 勇者杀手 | チャンピオン殺し | 챔피언 사냥꾼 |
 | `CHAMPIONS_25` | Fléau des champions (25 champions) | Bane of Champions (25 champions) | Azote de campeones (25 campeones) | Flagelo dos campeões (25 campeões) | Geißel der Champions (25 Champions) | Zmora czempionów (25 czempionów) | Бич чемпионов (25 чемпионов) | 勇者克星（25 个勇者） | チャンピオンの災い（チャンピオン 25 体） | 챔피언의 재앙 (챔피언 25마리) |
+| `EXPLOSIVE_25` | Démineur (25 explosifs) | Bomb Disposal (25 explosives) | Artificiero (25 explosivos) | Desarmador (25 explosivos) | Kampfmittelräumer (25 Explosive) | Saper (25 wybuchowych) | Сапёр (25 взрывных) | 排爆专家（25 只爆裂精英） | 爆弾処理班（爆発するエリート 25 体） | 폭탄 해체반 (폭발하는 정예 25마리) |
 | `POWERS_ALL` | Tous les pouvoirs légendaires | All legendary powers | Todos los poderes legendarios | Todos os poderes lendários | Alle legendären Kräfte | Wszystkie legendarne moce | Все легендарные силы | 所有传说之力 | すべてのレジェンドの力 | 모든 전설의 힘 |
 | `POTIONS_50` | Alchimiste (50 potions bues) | Alchemist (50 potions drunk) | Alquimista (50 pociones bebidas) | Alquimista (50 poções bebidas) | Alchemist (50 Tränke getrunken) | Alchemik (50 wypitych mikstur) | Алхимик (50 выпитых зелий) | 炼金术士（喝下 50 瓶药水） | 錬金術師（ポーション 50 個） | 연금술사 (물약 50개) |
 | `UNLOCK_FIRST` | Premier déblocage | First Unlock | Primer desbloqueo | Primeiro desbloqueio | Erste Freischaltung | Pierwsze odblokowanie | Первое улучшение | 首次解锁 | 初めての解放 | 첫 해금 |

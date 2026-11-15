@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1395) : 69e succès, « Démineur (25 explosifs) » (EXPLOSIVE_25, progression x / 25 sur le compteur de
+  l'Explosif du Bestiaire) : un objectif de quelques heures pour la nouvelle élite. Icônes 64×64 (élémentaire de feu,
+  couleur et grisée) générées par achicons.js et seules copiées (les 136 autres identiques), steam/achievements.md
+  régénéré, checklist 69, README, test, 10 langues, « Quoi de neuf » 82, POUR-VICTOR (à déclarer dans Steamworks).
+  Autotest 228/228, lang-overflow propre (liste des succès plus longue).
 - 2026-11-15 (it. 1394, contrôle) : début de partie après l'Explosif (élites dès la zone 3) : premier objet 63-81 s,
   boss 77-81 s, niveau 15-17 vers 13-15 min ; onglets Talents 1 min, Quêtes 5, Boutique 9-10, Héros 10-11, Carte 12-13,
   Bestiaire 15. Comme à l'it. 1360.

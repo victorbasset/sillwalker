@@ -2873,5 +2873,7 @@ export const KEYS = [
   "Explosif",
   "Explose en mourant : inflige au héros 6 % de ses PV max, sans jamais l’achever.",
   "Explosion !",
-  "Nouvelle élite, l’Explosif : en mourant, il inflige à ton héros 6 % de ses PV max (sans jamais l’achever). Mieux vaut ne pas finir le combat à bout de souffle."
+  "Nouvelle élite, l’Explosif : en mourant, il inflige à ton héros 6 % de ses PV max (sans jamais l’achever). Mieux vaut ne pas finir le combat à bout de souffle.",
+  "Démineur (25 explosifs)",
+  "Nouveau succès, Démineur : vaincre 25 élites explosives."
 ];

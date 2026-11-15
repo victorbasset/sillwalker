@@ -1744,4 +1744,6 @@ export default {
   2869: "Explode ao morrer: causa ao herói 6 % dos PV máx., sem nunca o matar.",
   2870: "Explosão!",
   2871: "Nova elite, o Explosivo: ao morrer, causa ao seu herói 6 % dos PV máx. (sem nunca o matar). Melhor não terminar o combate sem fôlego.",
+  2872: "Desarmador (25 explosivos)",
+  2873: "Nova conquista, Desarmador: derrote 25 elites explosivas.",
 };

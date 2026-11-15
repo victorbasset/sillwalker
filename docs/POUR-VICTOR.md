@@ -7,9 +7,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 17 événements rares et
   10 sortes d'élites (it. 1375 et 1382).
-- **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » avec ses deux icônes (`steam/achievement-icons/`,
-  it. 1266) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
-  Liste complète : `steam/achievements.md` (68 succès).
+- **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
+  (it. 1395), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
+  Liste complète : `steam/achievements.md` (69 succès).
 
 ## Version 0.1.4 (à décider)
 

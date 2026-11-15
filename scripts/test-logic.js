@@ -1005,6 +1005,10 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
   test("succès « Fléau des champions » : 25 champions, progression affichée (it. 1266)", () => {
     const g = new Game(freshState()); g.S.stats.champions = 24;
     assert.deepEqual(ACH_PROGRESS.CHAMPIONS_25(g.S), [24, 25]);
+    // (it. 1395) Démineur : 25 élites explosives (compteur par sorte du Bestiaire)
+    g.S.stats.affixesSeen = { explosive: 24 }; assert.deepEqual(ACH_PROGRESS.EXPLOSIVE_25(g.S), [24, 25]);
+    assert.ok(!ACH_T.find((a) => a.id === "EXPLOSIVE_25").test(g.S));
+    g.S.stats.affixesSeen.explosive = 25; assert.ok(ACH_T.find((a) => a.id === "EXPLOSIVE_25").test(g.S));
     assert.ok(!ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
     g.S.stats.champions = 25; assert.ok(ACH_T.find((a) => a.id === "CHAMPIONS_25").test(g.S));
   });

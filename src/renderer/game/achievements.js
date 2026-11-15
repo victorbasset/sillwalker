@@ -4,7 +4,7 @@ import { EVENTS } from "./events.js";
 import { DAY_MOD_KEYS } from "./daymods.js";
 import { TREES } from "./talents.js";
 import { PETS } from "./pets.js";
-import { MONSTERS, ZONES, ELITE_AFFIXES } from "./data.js";
+import { MONSTERS, ZONES, ELITE_AFFIXES, affixWins } from "./data.js";
 import { UNLOCKS } from "./unlocks.js";
 import { CLASS_KEYS, duoSynergy } from "./classes.js";
 import { setCounts } from "./sets.js";
@@ -95,6 +95,8 @@ export const ACHIEVEMENTS = [
   { id: "CHAMPION",        name: "Tueur de champion", test: (S) => (S.stats.champions || 0) >= 1 },
   // (it. 1266) un objectif lointain après le premier champion (≈ 5000 monstres ; la quête de champion y aide)
   { id: "CHAMPIONS_25",    name: "Fléau des champions (25 champions)", test: (S) => (S.stats.champions || 0) >= 25 },
+  // (it. 1395) 25 élites explosives vaincues (Bestiaire > Élites les compte)
+  { id: "EXPLOSIVE_25",    name: "Démineur (25 explosifs)", test: (S) => affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.explosive) >= 25 },
   { id: "POWERS_ALL",      name: "Tous les pouvoirs légendaires", test: (S) => Object.keys(S.powersSeen || {}).length >= POWERS.length },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
   { id: "UNLOCK_FIRST",    name: "Premier déblocage", test: (S) => Object.keys(S.unlocks || {}).length >= 1 },
@@ -129,6 +131,7 @@ export const ACH_PROGRESS = {
   EVENTS_ALL: (S) => [eventsSeenCount(S), Object.keys(EVENTS).length],
   BLESSINGS_ALL: (S) => [blessingsSeenCount(S), DAY_MOD_KEYS.length],
   CHAMPIONS_25: (S) => [S.stats.champions || 0, 25],
+  EXPLOSIVE_25: (S) => [Math.min(25, affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.explosive)), 25],
   ELITES_ALL: (S) => [affixesSeenCount(S), Object.keys(ELITE_AFFIXES).length],
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
   CHRONICLER: (S) => [chronRead(S), CHRONICLES.length - 1],
