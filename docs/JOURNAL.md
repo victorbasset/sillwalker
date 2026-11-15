@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1394, contrôle) : début de partie après l'Explosif (élites dès la zone 3) : premier objet 63-81 s,
+  boss 77-81 s, niveau 15-17 vers 13-15 min ; onglets Talents 1 min, Quêtes 5, Boutique 9-10, Héros 10-11, Carte 12-13,
+  Bestiaire 15. Comme à l'it. 1360.
 - 2026-11-15 (it. 1393, contrôle) : panneau ouvert, redessins complets (renderAll, un par « change ») : 3,9 par seconde
   dans les 10 premières secondes (le Grand intendant ramène et renvoie d'un coup les expéditions finies pendant
   l'absence : rafale de lancement), puis 1 en 10 s en régime établi (une victoire). Coût d'un renderAll : 3-10 ms
