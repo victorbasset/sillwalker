@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 3) : leitmotiv commun (question / réponse, 8 mesures, en degrés de gamme) et ses 4 habits
+  (grilles vérifiées note à note) ; démonstration enchaînée envoyée à Victor.
 - 2026-11-15 (musique, tâche 2) : instruments de la bande originale (flûte, puce façon Terraria, cloches, cordes,
   chœur, basses, percussions épiques, vinyle, pleurage de bande) ; vitrine de 68 s envoyée à Victor.
 - 2026-11-15 (musique, tâche 1) : chaîne de rendu de la bande originale (scripts/music/ : rendu hors ligne dans une

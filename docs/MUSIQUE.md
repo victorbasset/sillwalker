@@ -44,7 +44,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
       (kick, snare, hats, saturation douce), percussions épiques (toms, timbales), effets : réverbération à
       convolution (impulsion générée), écho stéréo, chorus, compression en sidechain, wow/flutter de bande,
       craquements de vinyle, bus maître (égaliseur, compresseur, limiteur).
-- [ ] 3. Le leitmotiv (4 mesures) et ses 4 habits ; harmonie commune.
+- [x] 3. Le leitmotiv (4 mesures) et ses 4 habits ; harmonie commune.
 - [ ] 4. Morceau 1 « Le Rebord » : partition complète, mixage, master, mesures ; extrait envoyé à Victor.
 - [ ] 5. Morceau 2 « Sentiers d'étoiles » : idem.
 - [ ] 6. Morceau 3 « Les Lieutenants » : idem.
@@ -78,3 +78,13 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   rendue en 37 s) : −16 LUFS, vrai pic −4,1 dBFS, pente ≈ −5 dB/octave au-dessus de 1 kHz (chaud) ; 63 Hz 8 dB
   au-dessus de 125 Hz : basse sub et grosse caisse un peu fortes, à baisser dans les morceaux. Envoyée à Victor
   (Médias/dist-itch/musique/00-vitrine-instruments.mp3) pour juger les timbres.
+- 15/11 (tâche 3) : leitmotiv écrit en degrés de gamme (`scripts/music/theme.js`) : question de 4 mesures (rebond sur la
+  quinte grave, montée jusqu'au saut de sixte, en suspens) et réponse de 4 mesures (descente, pose sur la tonique,
+  levée vers la reprise). Grilles des 4 habits vérifiées note à note : ledge ré majeur I-vi-IV-V / I-vi-V-I ; starpath
+  si mineur i-VI-III-VII / iv-VI-VII-i ; embers sol mineur harmonique i-iv-VI-V / i-iv-V-i (iv en mesure 2 : sur VI, le
+  la de la mélodie faisait un triton) ; starbreaker ré majeur I-V-vi-IV / I-V-V-I, coda ♭VI-♭VII-I APRÈS le thème
+  (sous la mélodie, ♭VI frottait). Démonstration des 4 habits (`tracks/_leitmotiv.js`, leit-*.js), enchaînés :
+  Médias/dist-itch/musique/01-leitmotiv-4-habits.mp3, envoyée à Victor.
+  Mesures à corriger dans les vrais morceaux : ledge trop terne (−18,7 dB à 2 kHz, −26,6 à 4 kHz : présence) ; embers
+  trop sombre et grave (−36,5 dB à 8 kHz, cordes trop filtrées, sub dominant) ; largeur stéréo partout ≈ 0,2-0,3 (trop
+  centré : panoramiques plus larges, doublures gauche/droite, effet Haas) ; starbreaker le plus équilibré.
