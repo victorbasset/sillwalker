@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1451, REVUE GÉNÉRALE) : 12 h graine 7, records : berserker 69, cryomancien 62, barde 65 (moyenne
+  ≈ 64). perf:linux : bande 19,2 %, panneau 19,9 %, mini 7,0 %, icône 0,6 % (stables). Captures es et pt à 1366 px
+  (Héros, Familiers, Statistiques) : rien d'anormal (« Eventos raros (0 / 18) », « A descobrir 4 »). Texte extrait en
+  polonais : aucun mot français. Rien à noter dans Idées.
 - 2026-11-15 (it. 1450) : « Quoi de neuf » 91 : temps estimés des quêtes d'événements, d'objets rares et de boss
   (it. 1447-1449), 10 langues ; devlog et POUR-VICTOR (it. 1441-1450). Autotest 228/228, lang-overflow propre (fenêtre
   « Quoi de neuf » à 8 nouveautés comprise).
