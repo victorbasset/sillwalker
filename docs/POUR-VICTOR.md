@@ -1,0 +1,33 @@
+# Ce qui attend Victor
+
+Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les gestes que seul Victor peut faire ; le
+détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
+
+## Steamworks (si la page ou les succès sont déjà saisis)
+
+- **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 17 événements rares et
+  10 sortes d'élites (it. 1375 et 1382).
+- **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » avec ses deux icônes (`steam/achievement-icons/`,
+  it. 1266) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
+  Liste complète : `steam/achievements.md` (68 succès).
+
+## Version 0.1.4 (à décider)
+
+- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 81). Nouveautés
+  majeures depuis la 0.1.3 : champions et leur quête, 3 événements rares (Lune pâle, Écho des lames, Source de vie),
+  3 élites (Régénérant, Venimeux, Explosif), 5 bénédictions du jour, 2 familiers (Grenouillette, Lucane), l'Encens de
+  chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.
+- Pour sortir : `CLAUDE.md` > « Sortie d'une version » (numéro, notes, constructions, `scripts/itch-push.sh` après ton
+  « oui »).
+
+## À vérifier sous Windows (impossible sur le serveur)
+
+- Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
+
+## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1386)
+
+Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
+Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
+découvrir. Corrections : parchemins de fortune et de savoir enfin comptés pendant l'absence ; « tout dépenser » du
+grand graphe sans gel (400 → 40 ms) ; pluriels russes et polonais (quêtes, ascension, sac…) ; termes cohérents
+(« pupil » en polonais, noms d'onglets) ; outil `--crawl` qui clique vraiment tous les boutons.

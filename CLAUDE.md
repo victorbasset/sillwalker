@@ -2,6 +2,7 @@
 
 Idle RPG Electron qui vit dans une bande au-dessus de la barre des tâches Windows.
 Le README décrit le contenu et l'organisation du code ; ce fichier dit **comment travailler** ici.
+`docs/POUR-VICTOR.md` regroupe ce qui attend Victor (Steamworks, sortie, vérifications Windows) : le tenir à jour.
 
 ## L'utilisateur
 

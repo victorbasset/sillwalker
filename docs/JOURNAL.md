@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1386) : docs/POUR-VICTOR.md : ce qui attend Victor, en une page (page Steam à recopier : 17
+  événements, 10 élites ; CHAMPIONS_25 à déclarer, BLESSINGS_ALL à renommer ; 0.1.4 à décider, devlog prêt ;
+  vérifications Windows) et les nouveautés de la nuit. Signalé en tête de CLAUDE.md.
 - 2026-11-15 (it. 1385, contrôle) : page Steam et dossier de presse : aucune élite ni aucun événement cité par son nom
   (seulement des nombres, déjà à jour). i18n-names avec l'Explosif : aucun écart. --crawl sur la fin de partie en
   coréen (635 clics) et en allemand (676) : aucune erreur.
