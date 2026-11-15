@@ -221,6 +221,8 @@ export const ELITE_AFFIXES = {
   // la pureté le raccourcit)
   venomous: { name: "Venimeux",   color: "#7ddc4a", venom: { chance: 0.2 }, desc: "Ses coups peuvent empoisonner le héros (3 % de ses PV max par seconde pendant 4 s, sans l’achever)." },
   regen:    { name: "Régénérant", color: "#5fe0b0", regen: 0.03, desc: "Regagne 3 % de sa vie maximale chaque seconde, sauf s’il brûle ou est empoisonné." },
+  // (it. 1382) 10e sorte : une dernière surprise à sa mort (le danger est à la fin, pas pendant le combat)
+  explosive: { name: "Explosif",  color: "#ff6a3a", explode: 0.06, desc: "Explose en mourant : inflige au héros 6 % de ses PV max, sans jamais l’achever." },
 };
 
 // Les zones bouclent : après la dernière, on repart de la première avec des

@@ -1740,4 +1740,8 @@ export default {
   2865: "+5% kradzieży życia, +25% obrażeń krytycznych.",
   2866: "Każdy cios dodaje mi sił.",
   2867: "Nowe błogosławieństwo dnia, Dzień krwi: +5% kradzieży życia i +25% obrażeń krytycznych.",
+  2868: "Wybuchowy",
+  2869: "Wybucha przy śmierci: zadaje bohaterowi 6 % maks. PŻ, nigdy go nie dobijając.",
+  2870: "Wybuch!",
+  2871: "Nowa elita, Wybuchowy: ginąc, zadaje twojemu bohaterowi 6 % maks. PŻ (nigdy go nie dobijając). Lepiej nie kończyć walki bez tchu.",
 };

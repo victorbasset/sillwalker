@@ -943,6 +943,8 @@ export class Game {
     if (m.boss && m.mech && m.mech.includes("curse") && hs.purity >= 100) S.stats.pureBoss = (S.stats.pureBoss || 0) + 1;
     S.stats.kills++;
     if (m.elite) S.stats.elites++;
+    // (it. 1382) élite explosive : une part des PV max du héros, sans jamais l'achever
+    if (m.affix === "explosive" && R.hp > 1) { const d = Math.min(R.hp - 1, hs.hp * ELITE_AFFIXES.explosive.explode); R.hp -= d; this.emit("bossSkill", { id: "explode", dmg: d }); }
     // (it. 943) sortes d'élites vaincues (Bestiaire > Élites, succès « Tueur d'élites »)
     // (it. 956) un compteur par sorte (true des versions précédentes = 1)
     if (m.elite && m.affix && ELITE_AFFIXES[m.affix]) {

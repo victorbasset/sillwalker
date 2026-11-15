@@ -402,6 +402,15 @@ test("Source de vie : 4 % des PV max par seconde, texte fidèle à SPRING (it. 1
   assert.ok(EVENTS_T.spring.text.includes("4 %"), EVENTS_T.spring.text);
 });
 
+test("élite explosive : 6 % des PV max du héros à sa mort, sans l'achever (it. 1382)", () => {
+  const g = new Game(freshState()); g.S.zone = 10; const hs = g.stats();
+  g.R.mode = "fight"; g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "explosive", hp: 0 });
+  g.R.hp = hs.hp; g.killMonster();
+  assert.ok(Math.abs((hs.hp - g.R.hp) - hs.hp * 0.06) < hs.hp * 1e-6, "perte " + (hs.hp - g.R.hp));
+  g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { elite: true, affix: "explosive", hp: 0 });
+  g.R.hp = 2; g.killMonster(); assert.ok(g.R.hp >= 1, "jamais achevé : " + g.R.hp);
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);
@@ -1112,7 +1121,7 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
       const want = [];
       if (a.hp) want.push(pct(a.hp - 1));
       if (a.atk) want.push(pct(a.atk - 1));
-      for (const f of ["regen", "thorns", "dodge"]) if (a[f]) want.push(pct(a[f]));
+      for (const f of ["regen", "thorns", "dodge", "explode"]) if (a[f]) want.push(pct(a[f]));
       for (const n of want) assert.ok(a.desc.includes(n + " %"), k + " : « " + n + " % » absent de « " + a.desc + " »");
     }
   });

@@ -239,6 +239,8 @@ export class StripRenderer {
       if (id === "tenacious") { this.shake(0.25); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 20, this.ground - 30, "#ff9a4a", 10); }
       if (id === "venom") { this.float(this.heroX + 10, 30, tx("Empoisonné !"), "#8fe36a", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#8fe36a", 8); return; }
       if (id === "silence") { this.float(this.heroX + 10, 30, tx("Silence !"), "#c9b8f0", true); return; }
+      // (it. 1382) élite explosive : éclat orange sur le héros
+      if (id === "explode") { this.float(this.heroX + 10, 30, tx("Explosion !"), "#ff6a3a", true); this.shake(0.2); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#ff6a3a", 10); return; }
       if (id === "frost") { this.float(this.heroX + 10, 30, tx("Gelé !"), "#bfe8ff", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#bfe8ff", 8); return; }
       if (label && label[0]) this.float(this.monX() + 20, 14, label[0], label[1], true);
     });

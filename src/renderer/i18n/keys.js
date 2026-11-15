@@ -2869,5 +2869,9 @@ export const KEYS = [
   "Jour du sang",
   "+5 % de vol de vie, +25 % de dégâts critiques.",
   "Chaque coup me redonne des forces.",
-  "Nouvelle bénédiction du jour, le Jour du sang : +5 % de vol de vie et +25 % de dégâts critiques."
+  "Nouvelle bénédiction du jour, le Jour du sang : +5 % de vol de vie et +25 % de dégâts critiques.",
+  "Explosif",
+  "Explose en mourant : inflige au héros 6 % de ses PV max, sans jamais l’achever.",
+  "Explosion !",
+  "Nouvelle élite, l’Explosif : en mourant, il inflige à ton héros 6 % de ses PV max (sans jamais l’achever). Mieux vaut ne pas finir le combat à bout de souffle."
 ];

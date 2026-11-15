@@ -1740,4 +1740,8 @@ export default {
   2865: "+5 % de robo de vida, +25 % de daño crítico.",
   2866: "Cada golpe me devuelve fuerzas.",
   2867: "Nueva bendición del día, el Día de la sangre: +5 % de robo de vida y +25 % de daño crítico.",
+  2868: "Explosivo",
+  2869: "Explota al morir: inflige al héroe un 6 % de sus PV máx., sin rematarlo nunca.",
+  2870: "¡Explosión!",
+  2871: "Nueva élite, el Explosivo: al morir, inflige a tu héroe un 6 % de sus PV máx. (sin rematarlo nunca). Mejor no terminar el combate sin aliento.",
 };

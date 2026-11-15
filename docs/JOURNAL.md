@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1382) : 10e sorte d'élite, l'Explosif : en mourant, il inflige au héros 6 % de ses PV max, sans jamais
+  l'achever (le danger à la fin du combat, pas pendant). Texte « Explosion ! » et étincelles sur la bande, son (rendu
+  par l'autotest), test (dégâts et « jamais achevé »), fidélité de sa description (paramètre explode), 10 langues,
+  page Steam 9 → 10 dans les 10 langues, checklist, README, « Quoi de neuf » 81, devlog. Équilibre : balance −1,0 sur
+  deux graines à 10 % … puis −1,2 avec une explosion à ZÉRO : l'écart vient du tirage décalé par l'affixe ajouté, pas
+  de l'explosion (bruit) ; gardé à 6 % (moins agaçant). Autotest 228/228, fuzz 0 bloquée, save-fuzz fin ok,
+  lang-overflow propre.
 - 2026-11-15 (it. 1381, revue générale) : après le Lucane, la Source de vie, le Jour du sang et le ménage des imports :
   --perf (copie neuve) bande 19,9 %, panneau 20,9 %, mini 6,7 %, icône 0,6 % ; semaine guerrier 350 / 349 / 350
   (repère 350) ; save-fuzz FUZZ_BASE=fin ok (1190). Traductions et interface vérifiées aux it. 1371-1380. Rien à corriger.

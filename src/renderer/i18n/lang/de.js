@@ -1740,4 +1740,8 @@ export default {
   2865: "+5 % Lebensraub, +25 % kritischer Schaden.",
   2866: "Jeder Treffer gibt mir Kraft zurück.",
   2867: "Neuer Segen des Tages, der Tag des Blutes: +5 % Lebensraub und +25 % kritischer Schaden.",
+  2868: "Explosiv",
+  2869: "Explodiert beim Tod: fügt dem Helden 6 % seiner max. LP zu, ohne ihn je zu erledigen.",
+  2870: "Explosion!",
+  2871: "Neuer Elite-Gegner, der Explosive: Beim Tod fügt er deinem Helden 6 % seiner max. LP zu (ohne ihn je zu erledigen). Besser nicht außer Atem ins Kampfende gehen.",
 };
