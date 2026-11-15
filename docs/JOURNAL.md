@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1379, contrôle) : succès « Toutes les bénédictions du jour » calculé sur DAY_MOD_KEYS, sans nombre
+  écrit. hero-table 12 h (graine 3) après le Lucane, la Source de vie et le Jour du sang : moyenne 63,6 (repère 63,7),
+  mage 58 → guerrier 69 (bruit d'une graine, ±4 par héros). Rien à corriger.
 - 2026-11-15 (it. 1378) : 14e bénédiction du jour, le Jour du sang 🩸 (+5 % de vol de vie, +25 % de dégâts critiques :
   aucune ne touchait ces statistiques), ajoutée à la FIN. Calendrier vérifié du 14 au 30/11 : seul le 28 change
   (trésors → sang), aujourd'hui, demain et les jours figés intacts. Le test « dernier ajout » reconstruisait le
