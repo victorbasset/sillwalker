@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1421, REVUE GÉNÉRALE) : 12 h graine 7 : guerrier 66, mage 60, rôdeur 62 (moyenne habituelle ≈ 64,
+  bruit). perf:linux : bande 19,4 %, panneau 21,1 %, mini 6,7 %, icône 0,5 % (stables). Captures fr, en, ja
+  (Aventure, Quêtes, Boutique, mini) : rien d'anormal. Texte extrait en ja et ko : seuls mots latins attendus (HP,
+  Lv, Esc, noms des langues ; « attributs » = repère de section du fichier extrait). Fausse alerte vérifiée par
+  mesure : en anglais, le nom du boss majeur semblait toucher l'or ; il s'arrête bien 8 px avant la pastille (c'est le
+  sommet du sprite du volcan qui dépasse). Rien à noter dans Idées.
 - 2026-11-15 (it. 1420) : vérifié en vrai (--stage sur une copie de dev-data) le temps estimé d'une quête d'expéditions :
   « ≈ 24 min » pour deux retours à 10 et 25 min. POUR-VICTOR complété (it. 1415-1419).
 - 2026-11-15 (it. 1419) : quête « Ramener N expéditions » : temps estimé exact (heure du n-ième retour parmi les
