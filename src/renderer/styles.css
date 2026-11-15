@@ -1337,7 +1337,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 @container panel (max-width: 1467px) { .duoline .duotag .synname { display: none; } }
 /* Sorts (demande D) : cartes dans « Style de combat », couleur du sort en bordure. */
 /* (it. 1490, demande de Victor) sorts du héros et du compagnon côte à côte */
-.spellduo.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+/* (it. 1506, demande de Victor) les deux cadres ont la même hauteur (stretch : avant, start, le compagnon était plus court) */
+.spellduo.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: stretch; }
 .spellduo.two .spellgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .partnerbox h2 small { font-size: 12px; }
 .spellmini .pmini { color: var(--muted); margin: 0 3px; } /* (it. 1495) séparateur héros · compagnon */

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1506, demande de Victor) : Héros > Sorts et attaque : les cadres du héros et du compagnon ont la
+  même hauteur (grille en stretch au lieu de start). Mesuré 200/200 à 1920 (fr), 211/211 à 1280 (ru), sans défilement.
 - 2026-11-15 (it. 1505, demande de Victor) : grand graphe, « Dépenser automatiquement » suit la ligne la plus avancée
   (nextGraphNode) : région la plus fournie d'abord, sa voie de la porte à l'anneau, puis son anneau ; une région n'est
   quittée qu'une fois finie (avant : gros nœuds accessibles d'abord, n'importe où : les six portes, puis des sauts
