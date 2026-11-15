@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1440, contrôle) : état maximal (max-save : les 18 événements vus) en japonais : --crawl 636 clics sans
+  erreur ; texte : « 埋もれた財宝 » présent, aucun mot français. POUR-VICTOR complété (it. 1434-1439).
 - 2026-11-15 (it. 1439) : 18e événement rare, le Trésor enfoui (0,15 %, 30 s : chaque victoire a 10 % de chances
   d'ouvrir un coffre au trésor ; thème de la Pie et de « Pilleur de coffres ») : bilan « N coffres au trésor »,
   réplique, son (rendu par l'autotest), paillettes dorées (particule de la Nichée), 10 langues, test, « Quoi de neuf »

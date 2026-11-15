@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1433)
+## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1440)
 
 Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
 Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
@@ -44,6 +44,9 @@ quand les niveaux ne viennent plus) ; la bulle du mode mini annonce la bénédic
 vite ; la pastille et la bulle du mode mini disent quand les sorts arrivent si aucun n'est appris) ; temps estimé
 sur les cartes des quêtes de sorts, de coups critiques et d'expéditions (exact pour ces dernières) et de coffres ; une quête de chasse dont le monstre
 n'est pas dans la zone dit où il vit (un clic y emmène avec la Carte du voyageur) ; 20e familier, la Pie (+6 % de coffres au trésor par niveau, aussi
-comptée dans Statistiques > Probabilités) ; 70e succès « Pilleur de coffres » (50 coffres). Vérifié : l'ensemble
+comptée dans Statistiques > Probabilités) ; 70e succès « Pilleur de coffres » (50 coffres) ; 18e événement rare, le Trésor enfoui (coffres à chaque
+victoire pendant 30 s) ; Statistiques > Probabilités : chances du jour pour événements et champions ; sorts : recharge
+réelle le Jour des arcanes ; Bestiaire : avec la Carte du voyageur, un clic (ou Entrée) sur un monstre emmène là où il
+vit. Vérifié : l'ensemble
 des ajouts de la nuit ne change pas l'équilibre (3 graines, encore après la Pie),
 mémoire et performance stables.
