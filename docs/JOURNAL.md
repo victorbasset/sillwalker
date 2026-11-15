@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 6) : morceau 3 « Les Lieutenants » (56 mesures, 2 min 20 en boucle, sol mineur, épique
+  sombre : cordes, chœur, taiko, ostinato de harpe, puce des boss), mixé d'après le rendu par pistes ; envoyé à Victor.
 - 2026-11-15 (musique, tâche 5) : morceau 2 « Sentiers d'étoiles » (56 mesures, 2 min 26 en boucle, si mineur,
   aventure), mixé d'après le rendu par pistes ; envoyé à Victor.
 - 2026-11-15 (musique, tâche 4b) : rendu par pistes séparées et analyse (scripts/music/stems.py) ; « Le Rebord » v2

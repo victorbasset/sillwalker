@@ -49,7 +49,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
       - [x] 4a. composition et arrangement complets (v1 envoyée)
       - [x] 4b. mixage (v2 envoyée) ; retouches selon les retours de Victor : tâche 9
 - [x] 5. Morceau 2 « Sentiers d'étoiles » : idem.
-- [ ] 6. Morceau 3 « Les Lieutenants » : idem.
+- [x] 6. Morceau 3 « Les Lieutenants » : idem.
 - [ ] 7. Morceau 4 « Le Briseur d'Étoiles » : idem.
 - [ ] 8. Intégration dans le jeu : `render/music.js` lit les 4 fichiers selon la zone (tranches de 50), fondu
       enchaîné, volume du réglage « Musique », mode muet, aperçu dans Réglages > Son (4 morceaux), boucle sans
@@ -117,3 +117,13 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   inaudibles (−61 dB) → piano dans son registre (passe-haut 120 Hz), claquements +8. Mesures : −15,9 LUFS, LRA 7,4,
   vrai pic −2,3, largeur 0,39, raccord 0,005 ; octaves 63 0 · 125 −1,7 · 250 −7,2 · 500 −7,8 · 1k −7,0 · 2k −11,2 ·
   4k −14,9 · 8k −18,5 (courbe régulière, la plus équilibrée). Envoyé à Victor (03-sentiers-d-etoiles-v1.mp3).
+- 15/11 (tâche 6) : « Les Lieutenants » v1 (`tracks/lieutenants.js`) : 56 mesures, 96 bpm, sol mineur harmonique,
+  boucle de 140 s. Forme intro 8 (nappe grave, timbales espacées, chœur qui monte, ostinato qui entre) · A 8 (thème aux
+  cordes, chœur à l'octave grave, rythme taiko) · A' 8 (puce 12,5 % doublée des cordes : couleur des boss de Terraria) ·
+  pont héroïque 8 (VI-VII-i-V | iv-V-VI-V, nouvelle mélodie cordes + chœur) · mystère 4 (célesta seule) · montée 4
+  (toms en crescendo) · A'' 8 (puce, cordes, chœur, charlestons en doubles croches) · outro 8. Ostinato de harpe en
+  croches (contre l'esquisse trop sombre), scintillements de célesta, roulements de toms en fin de section. Rendu par
+  pistes : toms trop forts (−19,9 dB rms), trou à 250 Hz (−13,8 : accords de cordes une octave trop haut), puce et
+  célesta timides → toms −4, cordes dans leur registre, puce et célesta +4. Mesures : −15,9 LUFS, LRA 5,5, vrai pic
+  −4,6, largeur 0,43, raccord 0,005 ; octaves 63 −2,2 · 125 0 · 250 −9,5 · 500 −8,5 · 1k −5,8 · 2k −9,7 · 4k −14,0 ·
+  8k −20,1. Envoyé à Victor (04-les-lieutenants-v1.mp3).
