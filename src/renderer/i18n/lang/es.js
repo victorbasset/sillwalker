@@ -1732,4 +1732,8 @@ export default {
   2857: "Las misiones, las ascensiones y varios mensajes concuerdan por fin con sus números en todos los idiomas, en singular y en los plurales rusos y polacos.",
   2858: "Bonificación en el nivel 1: {0}",
   2859: "Mascotas > Por descubrir: cada mascota aún desconocida guarda su nombre en secreto, pero muestra su bonificación en el nivel 1 y si es rara.",
+  2860: "Manantial de vida",
+  2861: "¡El héroe recupera un 4 % de sus PV máx. por segundo!",
+  2862: "¡Me siento revivir!",
+  2863: "Nuevo evento raro, el Manantial de vida: durante 30 segundos, tu héroe recupera un 4 % de sus PV máx. cada segundo. Ideal para aguantar a un jefe duro.",
 };

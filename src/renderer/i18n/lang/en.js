@@ -1732,4 +1732,8 @@ export default {
   2857: "Quests, ascensions and several messages now match their numbers in every language, in the singular as well as in Russian and Polish plurals.",
   2858: "Bonus at level 1: {0}",
   2859: "Pets > To discover: every pet you haven't found yet keeps its name secret, but shows its bonus at level 1 and whether it is rare.",
+  2860: "Spring of Life",
+  2861: "The hero regains 4% of max HP every second!",
+  2862: "I feel alive again!",
+  2863: "New rare event, the Spring of Life: for 30 seconds, your hero regains 4% of max HP every second. Enough to outlast a tough boss.",
 };

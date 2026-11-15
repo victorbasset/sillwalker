@@ -392,6 +392,16 @@ test("Lucane : +3 % de dégâts contre les boss par niveau, sprite présent (it.
   assert.equal((g.stats().bossDmg || 0) - b0, 12);
 });
 
+test("Source de vie : 4 % des PV max par seconde, texte fidèle à SPRING (it. 1375)", () => {
+  const g = new Game(freshState()); const hs = g.stats();
+  g.R.hp = hs.hp * 0.2; g.R.mode = "walk"; g.R.mon = null;
+  const regen0 = (() => { const h0 = g.R.hp; g.step(1); const d = g.R.hp - h0; g.R.hp = hs.hp * 0.2; return d; })();
+  g.startEvent("spring"); const h1 = g.R.hp; g.step(1);
+  const gained = (g.R.hp - h1) - regen0;
+  assert.ok(Math.abs(gained - hs.hp * 0.04) < hs.hp * 0.005, "soin : " + gained + " pour " + hs.hp * 0.04);
+  assert.ok(EVENTS_T.spring.text.includes("4 %"), EVENTS_T.spring.text);
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);

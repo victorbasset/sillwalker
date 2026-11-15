@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1375) : 17e événement rare, la Source de vie (0,2 % par victoire, 30 s) : le héros regagne 4 % de ses
+  PV max par seconde (SPRING), en marche comme en combat ; aucun événement ne soignait, un appui contre un boss
+  coriace. Ajouté à la FIN de EVENTS ; réplique du héros, son (montée douce), test (soin mesuré, texte fidèle),
+  10 langues, page Steam 16 → 17 dans les 10 langues, dossiers de presse (dépôt et Médias), checklist, README,
+  « Quoi de neuf » 79, devlog. Écarté avant : une 16e capacité de boss (ORDER modulo : aurait changé les capacités de
+  tous les boss existants). Autotest 228/228, fuzz 0 bloquée, guerrier 12 h 67, lang-overflow propre.
 - 2026-11-15 (it. 1374) : scripts/i18n-names.mjs (balayage des it. 1372-1373, deux vraies fautes trouvées) gardé
   dans le dépôt, à lancer à la main (faux positifs grammaticaux : hors npm test) ; CLAUDE.md. Vérifié : « Berserker »
   est « バーサーカー » en japonais pour la classe, la panoplie et ses objets.

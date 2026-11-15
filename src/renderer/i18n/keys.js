@@ -2861,5 +2861,9 @@ export const KEYS = [
   "Nouveau familier : le Lucane, dont les mandibules visent les points faibles des boss (+3 % de dégâts contre eux par niveau).",
   "Les quêtes, les ascensions et plusieurs messages accordent enfin leurs nombres dans toutes les langues, au singulier comme dans les pluriels russes et polonais.",
   "Bonus au niveau 1 : {0}",
-  "Familiers > À découvrir : chaque familier encore inconnu garde son nom secret, mais montre son bonus au niveau 1 et s’il est rare."
+  "Familiers > À découvrir : chaque familier encore inconnu garde son nom secret, mais montre son bonus au niveau 1 et s’il est rare.",
+  "Source de vie",
+  "Le héros regagne 4 % de ses PV max par seconde !",
+  "Je me sens revivre !",
+  "Nouvel événement rare, la Source de vie : pendant 30 secondes, ton héros regagne 4 % de ses PV max chaque seconde. De quoi tenir face à un boss coriace."
 ];

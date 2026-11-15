@@ -1732,4 +1732,8 @@ export default {
   2857: "Missões, ascensões e várias mensagens agora concordam com seus números em todos os idiomas, no singular e nos plurais russos e poloneses.",
   2858: "Bônus no nível 1: {0}",
   2859: "Mascotes > A descobrir: cada mascote ainda desconhecido mantém o nome em segredo, mas mostra seu bônus no nível 1 e se é raro.",
+  2860: "Fonte da vida",
+  2861: "O herói recupera 4 % dos PV máx. por segundo!",
+  2862: "Sinto-me renascer!",
+  2863: "Novo evento raro, a Fonte da vida: por 30 segundos, seu herói recupera 4 % dos PV máx. a cada segundo. Ótimo para resistir a um chefe duro.",
 };

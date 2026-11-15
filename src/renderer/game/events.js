@@ -56,6 +56,8 @@ export const EVENTS = {
   // (it. 1304) 16e : chaque coup du héros frappe deux fois (la frappe double de certains talents, garantie) ; ajouté à
   // la FIN (le tirage parcourt la liste dans l'ordre)
   echo: { name: "Écho des lames", chance: 0.002, duration: 30, text: "Chaque coup frappe deux fois !", color: "#e0a8ff" },
+  // (it. 1375) 17e : le héros se soigne vite (aucun événement ne soignait ; un appui contre un boss coriace), à la FIN
+  spring: { name: "Source de vie", chance: 0.002, duration: 30, text: "Le héros regagne 4 % de ses PV max par seconde !", color: "#7fe8a0" },
 };
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;
@@ -63,6 +65,8 @@ export const STARFALL_GAP = 1.5;
 export const GOBLIN_RUSH = 0.35;
 /** (it. 1242) Lune pâle : part de sa vie avec laquelle chaque monstre arrive. */
 export const PALE_MOON = 0.5;
+/** (it. 1375) Source de vie : part des PV max regagnée par seconde. */
+export const SPRING = 0.04;
 
 /** (it. 932) Collection des événements rares : chaque événement déjà vécu donne un bonus permanent (Bestiaire). */
 export const EVENT_SEEN_BONUS = { gold: 1 };

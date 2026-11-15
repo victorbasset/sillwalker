@@ -1732,4 +1732,8 @@ export default {
   2857: "Aufträge, Aufstiege und mehrere Meldungen passen ihre Zahlen jetzt in allen Sprachen an, im Singular wie in den russischen und polnischen Pluralformen.",
   2858: "Bonus auf Stufe 1: {0}",
   2859: "Begleiter > Zu entdecken: Jeder noch unbekannte Begleiter hält seinen Namen geheim, zeigt aber seinen Bonus auf Stufe 1 und ob er selten ist.",
+  2860: "Quell des Lebens",
+  2861: "Der Held regeneriert 4 % seiner max. LP pro Sekunde!",
+  2862: "Ich fühle mich wie neugeboren!",
+  2863: "Neues seltenes Ereignis, der Quell des Lebens: 30 Sekunden lang regeneriert dein Held jede Sekunde 4 % seiner max. LP. Genug, um einen zähen Boss auszuhalten.",
 };

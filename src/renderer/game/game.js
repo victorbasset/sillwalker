@@ -44,7 +44,7 @@ import { PETS, PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, roll
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
@@ -257,6 +257,8 @@ export class Game {
       if (R.corpse.t <= 0) R.corpse = null;
     }
     this.tickEvents(dt);
+    // (it. 1375) Source de vie : soin rapide, en marche comme en combat
+    if ((R.events.spring || 0) > 0 && R.hp > 0) R.hp = Math.min(hs.hp, R.hp + hs.hp * SPRING * dt);
     if (R.mode === "walk") {
       // La vitesse de déplacement accélère tout le trajet (apparition + approche).
       const mv = this.moveMul();

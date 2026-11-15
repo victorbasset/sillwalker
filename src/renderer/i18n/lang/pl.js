@@ -1732,4 +1732,8 @@ export default {
   2857: "Zadania, wniebowstąpienia i kilka komunikatów wreszcie odmieniają liczby we wszystkich językach, w liczbie pojedynczej i w rosyjskich i polskich liczbach mnogich.",
   2858: "Premia na poziomie 1: {0}",
   2859: "Pupile > Do odkrycia: każdy nieznany jeszcze pupil zachowuje imię w tajemnicy, ale pokazuje premię na poziomie 1 i czy jest rzadki.",
+  2860: "Źródło życia",
+  2861: "Bohater odzyskuje 4 % maks. PŻ na sekundę!",
+  2862: "Czuję, że wracam do życia!",
+  2863: "Nowe rzadkie wydarzenie, Źródło życia: przez 30 sekund bohater odzyskuje co sekundę 4 % maks. PŻ. Wystarczy, by przetrwać twardego bossa.",
 };
