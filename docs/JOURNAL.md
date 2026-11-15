@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1467, contrôle) : après les changements d'interface du jour (fiches cliquables du Bestiaire, quêtes
+  de chasse « absent d'ici », pistes du héros bloqué, marques ◆) : --crawl sur l'état maximal en russe (625 clics) et
+  sur la fin de partie en polonais (686 clics) : aucune erreur. Écarté : une bulle de pistes sur « ⚠ bloqué » de la
+  bande (la zone n'est pas cliquable ; la rendre « .hit » arrêterait les clics vers le bureau).
 - 2026-11-15 (it. 1466) : « Quoi de neuf » 94 : aide au héros bloqué (pistes dans la carte de la zone et la bulle du
   mode mini, piste « forger »), 10 langues ; devlog et POUR-VICTOR (it. 1461-1466). Autotest 229/229, lang-overflow
   propre (fenêtre à 8 nouveautés).
