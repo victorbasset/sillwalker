@@ -630,7 +630,7 @@ async function runSelfTest(strip) {
   }
   // (it. 1464) héros bloqué : les pistes dans la carte de la zone (forge comprise) ne font pas défiler l'Aventure
   {
-    const r = await js("(() => { const P = window.__panel, G = window.__game, p = document.getElementById('panel'), keep = { w: G.R.wallDeaths, f: G.S.unlocks.forge, g: G.S.gold }; P.setTab('adventure'); G.R.wallDeaths = [G.R.time, G.R.time, G.R.time, G.R.time]; G.S.unlocks.forge = true; G.S.gold = 1e30; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('.stucktips'); const r = (b ? 'ok' : 'absente') + ' ' + o; G.R.wallDeaths = keep.w; if (!keep.f) delete G.S.unlocks.forge; G.S.gold = keep.g; P.renderAll(); return r; })()");
+    const r = await js("(() => { const P = window.__panel, G = window.__game, p = document.getElementById('panel'), keep = { w: G.R.wallDeaths, f: G.S.unlocks.forge, g: G.S.gold }; P.setTab('adventure'); G.R.wallDeaths = [G.R.time, G.R.time, G.R.time, G.R.time]; G.S.unlocks.forge = true; G.S.gold = 1e30; keep.p = G.S.potions; G.S.potions = 0; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('.stucktips'); const r = (b ? 'ok' : 'absente') + ' ' + o; G.R.wallDeaths = keep.w; if (!keep.f) delete G.S.unlocks.forge; G.S.gold = keep.g; G.S.potions = keep.p; P.renderAll(); return r; })()");
     check("héros bloqué : pistes dans la carte de la zone, l'Aventure ne défile pas", /^ok -?[0-2]$/.test(r) || /^ok -\d+$/.test(r), r);
   }
   // Deux pièces d'une même panoplie portées (copie de test) : l'étiquette de la fiche du héros apparaît.

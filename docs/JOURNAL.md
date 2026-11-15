@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1490) : héros bloqué : la carte de la zone montre trois pistes (la bulle en garde deux) : l'ascension
+  n'était jamais visible quand forge et potions passaient avant. Pire cas de l'autotest durci (Enclume, or illimité,
+  aucune potion) : l'Aventure ne défile pas. Autotest 229/229.
 - 2026-11-15 (it. 1489) : devlog 0.1.4 (fr et en) et POUR-VICTOR : quatre nouveaux familiers (le Grillon ajouté).
 - 2026-11-15 (it. 1488) : « Quoi de neuf » 96, une édition regroupée de trois lignes (Grillon, ◆ sur les élites du
   type chassé, ⚠ des gobelins dans les Statistiques), comme le demande désormais CLAUDE.md. 10 langues (termes
