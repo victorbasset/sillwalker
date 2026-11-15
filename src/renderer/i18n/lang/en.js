@@ -1749,4 +1749,6 @@ export default {
   2874: "+{n} HP regained|+{n} HP regained",
   2875: "+{n} experience point|+{n} experience points",
   2876: "{n} egg found|{n} eggs found",
+  2877: "Rare event summaries say more: the life restored by the Spring of Life, the experience from the Breath of Wisdom, the eggs from Nesting.",
+  2878: "While you're away, defeated elites now also count for their kind (Bestiary, Bomb Disposal achievement).",
 };

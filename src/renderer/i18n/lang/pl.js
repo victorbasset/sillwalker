@@ -1749,4 +1749,6 @@ export default {
   2874: "+{n} PŻ odzyskany|+{n} PŻ odzyskane|+{n} PŻ odzyskanych",
   2875: "+{n} punkt doświadczenia|+{n} punkty doświadczenia|+{n} punktów doświadczenia",
   2876: "{n} jajo znalezione|{n} jaja znalezione|{n} jaj znalezionych",
+  2877: "Podsumowania rzadkich wydarzeń mówią więcej: życie przywrócone przez Źródło życia, doświadczenie z Tchnienia mądrości, jaja z Wylęgu.",
+  2878: "Podczas twojej nieobecności pokonane elity liczą się też dla swojego rodzaju (Bestiariusz, osiągnięcie Saper).",
 };

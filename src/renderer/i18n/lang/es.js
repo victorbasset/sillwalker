@@ -1749,4 +1749,6 @@ export default {
   2874: "+{n} PV recuperado|+{n} PV recuperados",
   2875: "+{n} punto de experiencia|+{n} puntos de experiencia",
   2876: "{n} huevo encontrado|{n} huevos encontrados",
+  2877: "Los balances de los eventos raros dicen más: la vida devuelta por el Manantial de vida, la experiencia del Soplo de sabiduría, los huevos de la Nidada.",
+  2878: "Durante tu ausencia, las élites derrotadas también cuentan para su tipo (Bestiario, logro Artificiero).",
 };

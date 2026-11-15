@@ -1749,4 +1749,6 @@ export default {
   2874: "+{n} LP zurückgewonnen|+{n} LP zurückgewonnen",
   2875: "+{n} Erfahrungspunkt|+{n} Erfahrungspunkte",
   2876: "{n} Ei gefunden|{n} Eier gefunden",
+  2877: "Die Bilanzen seltener Ereignisse sagen mehr: das vom Quell des Lebens zurückgegebene Leben, die Erfahrung aus dem Hauch der Weisheit, die Eier der Brutzeit.",
+  2878: "Während deiner Abwesenheit zählen besiegte Elite-Gegner auch für ihre Art (Bestiarium, Erfolg Kampfmittelräumer).",
 };

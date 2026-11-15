@@ -1,7 +1,7 @@
 # Devlog itch.io : version 0.1.4 (BROUILLON, it. 1298)
 
 Brouillon préparé pendant le développement, à relire et compléter le jour de la sortie (Victor décide quand). Il
-reprend les éditions « Quoi de neuf » 59 à 82 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
+reprend les éditions « Quoi de neuf » 59 à 83 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
 À la sortie : mettre les mêmes points dans NEWS_RELEASES (news.js, `after: 58`), renommer ce fichier en
 devlog-0.1.4.md et ajouter ce qui sera paru entre-temps.
 

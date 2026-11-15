@@ -1749,4 +1749,6 @@ export default {
   2874: "+{n} PV recuperado|+{n} PV recuperados",
   2875: "+{n} ponto de experiência|+{n} pontos de experiência",
   2876: "{n} ovo encontrado|{n} ovos encontrados",
+  2877: "Os balanços dos eventos raros dizem mais: a vida devolvida pela Fonte da vida, a experiência do Sopro de sabedoria, os ovos da Ninhada.",
+  2878: "Durante sua ausência, as elites derrotadas também contam para o seu tipo (Bestiário, conquista Desarmador).",
 };

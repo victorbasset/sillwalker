@@ -2878,5 +2878,7 @@ export const KEYS = [
   "Nouveau succès, Démineur : vaincre 25 élites explosives.",
   "+{n} PV regagné|+{n} PV regagnés",
   "+{n} point d’expérience|+{n} points d’expérience",
-  "{n} œuf trouvé|{n} œufs trouvés"
+  "{n} œuf trouvé|{n} œufs trouvés",
+  "Les bilans des événements rares en disent plus : la vie rendue par la Source de vie, l’expérience du Souffle de sagesse, les œufs de la Nichée.",
+  "Pendant ton absence, les élites vaincues comptent aussi pour leur sorte (Bestiaire, succès Démineur)."
 ];
