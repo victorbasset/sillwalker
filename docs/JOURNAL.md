@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1480, contrôle) : cartes de quête avec indications (gobelins trop rapides, bouton « reprendre
+  l’avancée ») en russe et en polonais à 1280 px (état non couvert par lang-overflow) : aucun débordement, aucun
+  défilement ; en russe l'indication des gobelins passe sur deux lignes, la carte reste propre.
 - 2026-11-15 (it. 1479) : Statistiques > Probabilités, ligne « Gobelin doré » : un ⚠ dont la bulle dit « ils
   s’enfuient : héros trop lent ici » quand le héros ne peut pas en abattre un avant sa fuite. D'abord écrit en clair
   sur la ligne : lang-overflow l'a vue trop large en russe à 1280 px (fin de partie et état maximal) ; passé en bulle,
