@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1438) : clavier : les fiches cliquables du Bestiaire (it. 1437) sont focalisables (tabindex, role
+  button, aria-label « nom · Clic : y aller · Zone N ») ; panel.js : Entrée ou Espace sur tout élément role="button"
+  qui porte une action (hors vrais boutons) fait un clic, sauf si la touche est déjà traitée (la Carte a son propre
+  clavier : pas de double voyage). Vérifié par --stage (Entrée : 56 → 37) ; « carte au clavier » de l'autotest OK.
+  Autotest 228/228.
 - 2026-11-15 (it. 1437) : Bestiaire : avec la Carte du voyageur, une fiche de monstre absent de la zone se clique et
   emmène le héros dans la zone atteinte la plus proche où il vit (« Clic : y aller · Zone N » dans la bulle ; monter
   ses paliers sans passer par la Carte). nearestZoneWith (rules.js) partagé avec la quête de chasse (it. 1426) et

@@ -245,6 +245,14 @@ export class Panel {
     this.root.addEventListener("change", (e) => this.onChange(e));
     // (it. 779) Barre d'onglets au clavier (rôle ARIA tablist) : ← → passent à l'onglet voisin ouvert, Début / Fin au
     // premier / dernier ; l'onglet choisi s'affiche et garde le focus.
+    // (it. 1438) élément cliquable qui n'est pas un bouton (fiche du Bestiaire…) : Entrée ou Espace comme un clic
+    this.root.addEventListener("keydown", (e) => {
+      const t = e.target;
+      // déjà traité (la Carte a son propre clavier) : rien
+      if (!e.defaultPrevented && (e.key === "Enter" || e.key === " ") && t && typeof t.click === "function" && t.tagName !== "BUTTON" && t.getAttribute && t.getAttribute("role") === "button" && t.dataset.action) {
+        e.preventDefault(); e.stopPropagation(); t.click();
+      }
+    });
     this.root.addEventListener("keydown", (e) => {
       const b = e.target.closest && e.target.closest('[role="tab"]');
       if (!b || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) return;
