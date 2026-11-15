@@ -1776,4 +1776,5 @@ export default {
   2901: "Quests: rare event, rare item and boss quests also show an estimated time (no time while your hero is stuck on a boss).",
   2902: "Catch {n} golden goblin|Catch {n} golden goblins",
   2903: "New kind of quest: catch golden goblins. While you're away, your hero catches some too (with their gold) if fast enough.",
+  2904: "On the strip, a small ◆ marks the monsters targeted by an active hunting quest.",
 };

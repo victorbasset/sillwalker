@@ -745,6 +745,7 @@ export class StripRenderer {
     if (this.slotKey === line) return;
     for (const s of this.slots) s.remove();
     this.slots = [];
+    const huntTypes = new Set(((g.S.quests && g.S.quests.slots) || []).filter((q) => q && q.kind === "hunt" && q.progress < q.goal).map((q) => q.type));
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       // final : le Briseur d'Étoiles ; élite / champion : contour doré / violet dans l'image
@@ -776,6 +777,8 @@ export class StripRenderer {
         else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name + fresh; tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
+      // (it. 1458) monstre visé par une quête de chasse en cours : petite marque ◆ (posée avec la série, pas à chaque image)
+      if (!boss && !line[k].elite && !line[k].goblin && huntTypes.has(line[k].type)) el("div", "affix qmark", a.el).textContent = "◆";
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";
       a.flame.hidden = true;

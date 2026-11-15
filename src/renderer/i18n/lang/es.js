@@ -1776,4 +1776,5 @@ export default {
   2901: "Misiones: las de eventos raros, objetos raros y jefes también muestran un tiempo estimado (sin tiempo mientras tu héroe esté atascado ante un jefe).",
   2902: "Atrapar {n} goblin dorado|Atrapar {n} goblins dorados",
   2903: "Nuevo tipo de misión: atrapar goblins dorados. Mientras no estás, tu héroe también atrapa algunos (con su oro) si es lo bastante rápido.",
+  2904: "En la franja, un pequeño ◆ marca a los monstruos que busca una misión de caza en curso.",
 };

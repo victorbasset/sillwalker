@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1458) : bande : un petit ◆ bleu clair (#9fd8ff, couleur de « Quête accomplie ! ») au-dessus des
+  monstres ordinaires visés par une quête de chasse en cours ; posé avec la série (syncSlots), jamais à chaque image ;
+  repris par clearQueueTags comme les étiquettes d'élites. Vérifié par --stage (2 dragonnets marqués). « Quoi de neuf »
+  93 (Streifen, faixa, franja… : mot de la bande repris des Réglages). Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1457) : README à jour des ajouts du jour : quêtes (gobelins dorés), événements (trésor enfoui),
   20 familiers.
 - 2026-11-15 (it. 1456) : quête « Attraper N gobelins dorés » : jamais proposée à un héros trop lent pour abattre un
