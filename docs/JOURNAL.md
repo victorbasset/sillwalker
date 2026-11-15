@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1456) : quête « Attraper N gobelins dorés » : jamais proposée à un héros trop lent pour abattre un
+  gobelin avant sa fuite (goblinCatchable, quests.js : PV du gobelin / dégâts par seconde sans élixirs ni sorts < 4 s),
+  et pas de temps estimé dans ce cas (avant : l'estimation supposait chaque gobelin attrapé). Une quête déjà tirée
+  reste (bouton Changer). Test (zone 1 oui, zone 300 avec l'équipement de départ non). Autotest 228/228.
 - 2026-11-15 (it. 1455, contrôle) : après les gobelins hors ligne et la 19e quête : save-fuzz sur les trois bases
   (dev 1218, fin 1190, 0.1.2 1134 corruptions) : ok.
 - 2026-11-15 (it. 1454) : « Depuis ta dernière visite » : ligne « Gobelins dorés attrapés » (libellé déjà traduit des

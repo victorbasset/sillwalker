@@ -2,8 +2,8 @@
 // terminée attend que le joueur réclame sa récompense ; une nouvelle prend
 // alors sa place. Les objectifs et récompenses suivent la progression.
 import { t as tx, txn, getLang } from "../i18n/index.js";
-import { MONSTERS, ELITE, ELITE_AFFIXES, CHAMPION } from "./data.js";
-import { zoneDef, heroStats, xpNeed, monsterBase, earlyPace } from "./rules.js";
+import { MONSTERS, ELITE, ELITE_AFFIXES, CHAMPION, GOBLIN } from "./data.js";
+import { zoneDef, heroStats, heroDps, xpNeed, monsterBase, earlyPace } from "./rules.js";
 import { rand, pick } from "./util.js";
 import { eggsAllowed, fixQuestEgg } from "./tabs.js";
 import { classSpells, spellRank } from "./spells.js";
@@ -33,6 +33,13 @@ const fr = () => getLang() === "fr";
  * Modèles. make(S) -> { goal, type?, reward }. Les récompenses possibles :
  * gold, chest (rareté minimale), buff (id d'élixir), potions, egg, shards.
  */
+/** (it. 1456) Le héros abat-il un gobelin doré (MONSTERS.goblin.hp × PV d'un monstre de sa zone) avant sa fuite ? (estimation
+ *  sans élixirs ni sorts : prudente) */
+export function goblinCatchable(S) {
+  const dps = heroDps(heroStats(S, S.equip));
+  return dps > 0 && monsterBase(S.zone, false).hp * MONSTERS.goblin.hp / dps < GOBLIN.flee;
+}
+
 export const QUEST_TEMPLATES = {
   kill: {
     // (it. 1356) accordé dans toutes les langues (« Победить 22 монстров » : forme fausse selon le nombre)
@@ -59,8 +66,10 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: randInt(1, 2), type: pick(Object.keys(ELITE_AFFIXES)), reward: { chest: 2, gold: Math.round(goldScale(S) * 90) } }),
   },
   // (it. 1260) 17e sorte : les champions (élites dorées, environ un monstre sur 200 dès la zone 5) : un objectif de patience
-  // (it. 1452) gobelins dorés attrapés (avant qu'ils ne s'enfuient) ; aussi pendant l'absence
+  // (it. 1452) gobelins dorés attrapés (avant qu'ils ne s'enfuient) ; aussi pendant l'absence ; (it. 1456) jamais proposée
+  // à un héros trop lent pour en abattre un avant sa fuite
   goblin: {
+    ok: (S) => goblinCatchable(S),
     text: (q) => txn(q.goal, "Attraper {n} gobelin doré|Attraper {n} gobelins dorés"),
     make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 110), potions: 2, egg: rand() < 0.2 } }),
   },

@@ -232,6 +232,17 @@ test("rythme indépendant de la largeur d'écran", () => {
   assert.ok(approachTime() > 2 && approachTime() < 5);
 });
 
+test("quête des gobelins : jamais proposée ni estimée pour un héros trop lent (it. 1456)", () => {
+  const g = new Game(freshState()); g.S.zone = 1;
+  assert.ok(M_quests_js.goblinCatchable(g.S), "zone 1 : attrapés");
+  assert.ok(M_quests_js.QUEST_TEMPLATES.goblin.ok(g.S));
+  g.S.zone = 300; g.invalidateStats();
+  assert.ok(!M_quests_js.goblinCatchable(g.S), "zone 300 avec l'équipement de départ : ils s'enfuient");
+  assert.ok(!M_quests_js.QUEST_TEMPLATES.goblin.ok(g.S));
+  g.R.pace = Array.from({ length: 10 }, (_, i) => [i * 2, 5]);
+  assert.equal(g.questEta({ uid: 5, kind: "goblin", goal: 1, progress: 0, reward: {}, stars: 1 }), null);
+});
+
 test("gobelins dorés pendant l'absence : attrapés, comptés et quête « Attraper N gobelins » (it. 1452)", () => {
   const g = new Game(freshState()); g.S.zone = 1;
   g.S.quests.slots[0] = { uid: 4242, kind: "goblin", goal: 2, progress: 0, reward: { gold: 1 }, stars: 1 };

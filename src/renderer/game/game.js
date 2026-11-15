@@ -42,7 +42,7 @@ import { POWERS, POWER_INDEX } from "./powers.js";
 import { SETS, SET_KEYS, setCounts } from "./sets.js";
 import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
-import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
+import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
@@ -2230,7 +2230,7 @@ export class Game {
     // (it. 1263) champions : même chance par victoire que pendant l'absence (it. 1262)
     if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance * (activeDayMod(this.S)?.champion || 1); }
     // (it. 1452) gobelins dorés : leur chance par victoire (Jour des gobelins compris ; supposés attrapés)
-    if (q.kind === "goblin") rate *= GOBLIN.chance * (activeDayMod(this.S)?.goblin || 1);
+    if (q.kind === "goblin") { if (!goblinCatchable(this.S)) return null; rate *= GOBLIN.chance * (activeDayMod(this.S)?.goblin || 1); } // (it. 1456) trop lent : ils s'enfuient
     // (it. 1449) boss : un boss toutes les KILLS_PER_ZONE victoires (avancée automatique ou non) ; aucune estimation si le
     // héros bute sur un boss (stuckInfo)
     if (q.kind === "boss") { if (this.stuckInfo()) return null; rate /= KILLS_PER_ZONE + 1; }
