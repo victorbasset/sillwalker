@@ -7,11 +7,18 @@ const q = new URLSearchParams(location.search), name = q.get("track"), out = q.g
 try {
   const track = (await import(`./tracks/${name}.js`)).default;
   const sr = 48000, len = Math.ceil((track.bars * 240 / track.bpm + (track.tail ?? 4)) * sr);
-  const ctx = new OfflineAudioContext(2, len, sr);
-  const st = new Studio(ctx, { bpm: track.bpm });
+  const stems = q.get("stems") === "1", NCH = stems ? 18 : 2;
+  const ctx = new OfflineAudioContext(NCH, len, sr);
+  let merger = null;
+  if (stems) { ctx.destination.channelCount = NCH; ctx.destination.channelInterpretation = "discrete"; merger = ctx.createChannelMerger(NCH); merger.connect(ctx.destination); }
+  const st = new Studio(ctx, { bpm: track.bpm, stems: merger });
   await track.render(st);
   st.applyDucking();
   const t0 = performance.now(); let buf = await ctx.startRendering();
+  if (stems) { // une piste mono par fichier (WAV 24 bits, recopiée sur deux canaux), et la liste des noms
+    for (let k = 0; k < st.stemNames.length; k++) { const d = buf.getChannelData(2 + k), b = new AudioBuffer({ numberOfChannels: 2, length: d.length, sampleRate: sr }); b.getChannelData(0).set(d); b.getChannelData(1).set(d); require("fs").writeFileSync(out.replace(/\.wav$/, `.stem-${st.stemNames[k]}.wav`), wav24(b)); }
+    const mix = new AudioBuffer({ numberOfChannels: 2, length: buf.length, sampleRate: sr }); mix.getChannelData(0).set(buf.getChannelData(0)); mix.getChannelData(1).set(buf.getChannelData(1)); buf = mix;
+  }
   // Morceau en boucle (track.loop) : la queue après la dernière mesure (réverbération, écho, notes tenues) est repliée
   // sur le début, puis le fichier est coupé pile à la fin de la dernière mesure : la boucle s'enchaîne sans couture.
   if (track.loop) {

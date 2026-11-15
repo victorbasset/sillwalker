@@ -10,7 +10,7 @@ export function rng(seed = 1) { let s = seed >>> 0 || 1; return () => ((s = (s *
 
 export class Studio {
   /** bpm, mesures en 4/4 ; sr : fréquence d'échantillonnage. */
-  constructor(ctx, { bpm }) {
+  constructor(ctx, { bpm, stems = null }) {
     this.ctx = ctx; this.bpm = bpm; this.beat = 60 / bpm; this.bar = this.beat * 4;
     this.rand = rng(20261115);
     // ---- bus maître : correction douce, compression de bus, limiteur ----
@@ -23,7 +23,12 @@ export class Studio {
     const glue = c.createDynamicsCompressor(); glue.threshold.value = -18; glue.knee.value = 8; glue.ratio.value = 2; glue.attack.value = 0.03; glue.release.value = 0.25;
     this.makeup = c.createGain(); this.makeup.gain.value = 1.4;
     const lim = c.createDynamicsCompressor(); lim.threshold.value = -3; lim.knee.value = 0; lim.ratio.value = 20; lim.attack.value = 0.001; lim.release.value = 0.08;
-    this.master.connect(low); low.connect(shelfL); shelfL.connect(mud); mud.connect(air); air.connect(glue); glue.connect(this.makeup); this.makeup.connect(lim); lim.connect(c.destination);
+    this.master.connect(low); low.connect(shelfL); shelfL.connect(mud); mud.connect(air); air.connect(glue); glue.connect(this.makeup); this.makeup.connect(lim);
+    // Rendu par pistes (stems : ChannelMerger) : le mixage stéréo sur les sorties 0-1, chaque piste (mono, après le
+    // volume, sans réverbération) sur sa propre sortie, pour mesurer qui charge quelle bande (master.py --stems).
+    this.stems = stems; this.stemNames = [];
+    if (stems) { const sp = c.createChannelSplitter(2); lim.connect(sp); sp.connect(stems, 0, 0); sp.connect(stems, 1, 1); }
+    else lim.connect(c.destination);
     // ---- réverbération (convolution, impulsion générée : grande salle douce) ----
     this.reverb = c.createConvolver(); this.reverb.buffer = this.impulse(3.2, 2.6, 0.02);
     const rvRet = c.createGain(); rvRet.gain.value = 0.9;
@@ -75,6 +80,7 @@ export class Studio {
     head.connect(duckG); duckG.connect(vol); vol.gain.value = Math.pow(10, db / 20); vol.connect(pn); pn.pan.value = pan; pn.connect(this.master);
     if (verb) { const s = c.createGain(); s.gain.value = verb; pn.connect(s); s.connect(this.reverb); }
     if (delay) { const s = c.createGain(); s.gain.value = delay; pn.connect(s); s.connect(this.delayIn); }
+    if (this.stems && this.stemNames.length < this.stems.numberOfInputs - 2) { const m = c.createGain(); m.channelCount = 1; m.channelCountMode = "explicit"; m.channelInterpretation = "speakers"; vol.connect(m); m.connect(this.stems, 0, 2 + this.stemNames.length); this.stemNames.push(name); }
     const ch = { name, in: inp, duck: duckG, duckAmt: duck };
     this.channels[name] = ch;
     return ch;

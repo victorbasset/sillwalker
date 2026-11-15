@@ -45,9 +45,9 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
       convolution (impulsion générée), écho stéréo, chorus, compression en sidechain, wow/flutter de bande,
       craquements de vinyle, bus maître (égaliseur, compresseur, limiteur).
 - [x] 3. Le leitmotiv (4 mesures) et ses 4 habits ; harmonie commune.
-- [ ] 4. Morceau 1 « Le Rebord » : partition complète, mixage, master, mesures ; extrait envoyé à Victor.
+- [x] 4. Morceau 1 « Le Rebord » : partition complète, mixage, master, mesures ; extrait envoyé à Victor.
       - [x] 4a. composition et arrangement complets (v1 envoyée)
-      - [ ] 4b. mixage : présence (≈ +5 dB à 2-4 kHz), bas-médiums 125-250 Hz, niveaux des sections ; retours de Victor
+      - [x] 4b. mixage (v2 envoyée) ; retouches selon les retours de Victor : tâche 9
 - [ ] 5. Morceau 2 « Sentiers d'étoiles » : idem.
 - [ ] 6. Morceau 3 « Les Lieutenants » : idem.
 - [ ] 7. Morceau 4 « Le Briseur d'Étoiles » : idem.
@@ -100,3 +100,10 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   vrai pic −2,5, largeur 0,39, raccord 0,014 ; octaves 63 0 · 125 −1,9 · 250 −1,4 · 500 −5,6 · 1k −10,3 · 2k −15,8 ·
   4k −21,6 · 8k −24,3 : encore sombre et un peu chargé en bas-médiums. Envoyé à Victor
   (Médias/dist-itch/musique/02-le-rebord-v1.mp3).
+- 15/11 (tâche 4b) : rendu par pistes séparées (STEMS=1 : ChannelMerger, chaque piste sur sa sortie ; `stems.py` :
+  niveau moyen et octaves de chaque piste). Diagnostic : le piano électrique chargeait 250 Hz (−6 dB) sans aigus
+  (−62 dB à 2 kHz) ; la puce (−44,5 dB rms contre −30 pour la flûte), les charlestons (−59), la cloche, les cordes et
+  la nappe presque inaudibles. Corrigé : piano −3 dB, passe-haut 180 Hz, plus brillant (epiano `bright` 1,7) ; puce
+  +8, charlestons +8, cloche +6, cordes +5, nappe +4, caisse claire +3, guitare +3. v2 : −15,9 LUFS, LRA 6,3, vrai pic
+  −1,6, largeur 0,41, raccord 0,006 ; octaves 1k −7,2 · 2k −12,3 · 4k −17,6 · 8k −20,0 (≈ +4 dB de présence ; chaud
+  mais clair). Envoyée à Victor (02-le-rebord-v2.mp3).

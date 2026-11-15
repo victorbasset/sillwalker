@@ -21,13 +21,13 @@ function vibrato(c, o, t, stop, rate, cents, delay = 0.25) {
 
 /** Piano électrique (façon Rhodes) en FM : porteuse modulée ×1 dont l'indice décroît (attaque « tine »), cloche ×14
  *  très courte, deuxième porteuse désaccordée (chœur). */
-export function epiano(st, ch, t, m, dur, vel = 0.8) {
+export function epiano(st, ch, t, m, dur, vel = 0.8, { bright = 1 } = {}) {
   const c = st.ctx, f = hz(m), end = t + dur, stop = end + 2.5;
   const out = c.createGain(); env(out, t, 0.004, 0.22 * vel, 1.2, 0.35, 0.35, end); out.connect(ch.in);
   const car = st.wobble(osc(c, "sine", f, t, stop)), mod = st.wobble(osc(c, "sine", f, t, stop)), mg = c.createGain();
-  mg.gain.setValueAtTime(f * 2.2 * vel, t); mg.gain.setTargetAtTime(f * 0.35, t, 0.12);
+  mg.gain.setValueAtTime(f * 2.2 * vel * bright, t); mg.gain.setTargetAtTime(f * 0.35 * bright, t, 0.12);
   mod.connect(mg); mg.connect(car.frequency); car.connect(out);
-  const tine = osc(c, "sine", f * 14, t, t + 0.2), tg = c.createGain(); tg.gain.setValueAtTime(0.03 * vel, t); tg.gain.setTargetAtTime(0, t, 0.015); tine.connect(tg); tg.connect(out);
+  const tine = osc(c, "sine", f * 14, t, t + 0.2), tg = c.createGain(); tg.gain.setValueAtTime(0.03 * vel * bright, t); tg.gain.setTargetAtTime(0, t, 0.015); tine.connect(tg); tg.connect(out);
   const car2 = st.wobble(osc(c, "sine", f, t, stop, 6)), g2 = c.createGain(); g2.gain.value = 0.35; car2.connect(g2); g2.connect(out);
 }
 

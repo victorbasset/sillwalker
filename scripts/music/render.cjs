@@ -6,7 +6,7 @@ const path = require("path");
 const [name, out] = process.argv.slice(-2);
 app.whenReady().then(async () => {
   const win = new BrowserWindow({ show: false, webPreferences: { nodeIntegration: true, contextIsolation: false, backgroundThrottling: false } });
-  await win.loadFile(path.join(__dirname, "studio.html"), { query: { track: name, out: path.resolve(out) } });
+  await win.loadFile(path.join(__dirname, "studio.html"), { query: { track: name, out: path.resolve(out), stems: process.env.STEMS ? "1" : "0" } });
   for (let i = 0; i < 3000; i++) { const t = win.webContents.getTitle(); if (t.startsWith("DONE") || t.startsWith("ERROR")) { console.log(name, t); break; } await new Promise((r) => setTimeout(r, 200)); }
   app.quit();
 });

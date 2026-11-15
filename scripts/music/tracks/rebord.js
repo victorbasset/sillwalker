@@ -33,17 +33,19 @@ export default {
   async render(st) {
     const SW = 0.17; // swing : retard des croches à contretemps (en temps)
     const sw = (beat) => (Math.abs(beat % 1 - 0.5) < 1e-6 ? beat + SW : beat);
-    const keys = st.channel("keys", { db: -5, pan: -0.3, verb: 0.22, delay: 0.05, duck: 0.22 });
-    const gtr = st.channel("gtr", { db: -8, pan: 0.55, verb: 0.2, delay: 0.16, duck: 0.2, hp: 180 });
-    const flute = st.channel("flute", { db: -3, pan: 0.15, verb: 0.32, delay: 0.12, duck: 0.1 });
-    const chip = st.channel("chip", { db: -4, pan: -0.15, verb: 0.25, delay: 0.18, duck: 0.1 });
-    const bellc = st.channel("bell", { db: -9, pan: 0.45, verb: 0.4, delay: 0.2 });
-    const padc = st.channel("pad", { db: -15, verb: 0.5, duck: 0.45, hp: 200 });
-    const strc = st.channel("strings", { db: -12, pan: 0.25, verb: 0.4, duck: 0.3 });
+    // (4b) niveaux d'après le rendu par pistes (stems.py) : le piano électrique chargeait 250 Hz et cachait le reste ;
+    // la puce (qui porte le thème), les charlestons, la cloche, les cordes et la nappe étaient presque inaudibles
+    const keys = st.channel("keys", { db: -8, pan: -0.3, verb: 0.22, delay: 0.05, duck: 0.22, hp: 180 });
+    const gtr = st.channel("gtr", { db: -5, pan: 0.55, verb: 0.2, delay: 0.16, duck: 0.2, hp: 180 });
+    const flute = st.channel("flute", { db: -2, pan: 0.15, verb: 0.32, delay: 0.12, duck: 0.1 });
+    const chip = st.channel("chip", { db: 4, pan: -0.15, verb: 0.25, delay: 0.18, duck: 0.1 });
+    const bellc = st.channel("bell", { db: -3, pan: 0.45, verb: 0.4, delay: 0.2 });
+    const padc = st.channel("pad", { db: -11, verb: 0.5, duck: 0.45, hp: 200 });
+    const strc = st.channel("strings", { db: -7, pan: 0.25, verb: 0.4, duck: 0.3 });
     const bass = st.channel("bass", { db: -8, duck: 0.3 });
-    const kickc = st.channel("kick", { db: -6, lp: 6000 });
-    const snarec = st.channel("snare", { db: -9, verb: 0.12, pan: 0.03 });
-    const hatc = st.channel("hats", { db: -11, pan: 0.18, lp: 11000 });
+    const kickc = st.channel("kick", { db: -7, lp: 6000 });
+    const snarec = st.channel("snare", { db: -6, verb: 0.12, pan: 0.03 });
+    const hatc = st.channel("hats", { db: -3, pan: 0.18, lp: 12000 });
     const fx = st.channel("fx", { db: -12, verb: 0.15 });
     I.vinyl(st, fx, 0, st.at(BARS), 6, 0.9);
     st.setWow(9, 0);
@@ -58,7 +60,7 @@ export default {
           const [notes, root] = V[cname], beat = half ? ci * 2 : 0, len = half ? 2 : 4, t = st.at(bar, beat);
           // piano électrique : arpégé très légèrement (la main ne frappe jamais tout d'un coup)
           const kv = name === "intro" || name === "breath" ? 0.45 : name === "outro" && k >= 4 ? 0.4 : 0.55;
-          notes.forEach((m, i) => I.epiano(st, keys, t + i * 0.016, m, st.beat * len * 0.94, kv - i * 0.03));
+          notes.forEach((m, i) => I.epiano(st, keys, t + i * 0.016, m, st.beat * len * 0.94, kv - i * 0.03, { bright: 1.7 }));
           // basse : fondamentale, quinte ou octave en relance, approche chromatique vers la mesure suivante
           const drumsOn = name !== "intro" && name !== "breath" && !(name === "outro" && k >= 6);
           if (name !== "intro" && !(name === "outro" && k >= 6)) {
