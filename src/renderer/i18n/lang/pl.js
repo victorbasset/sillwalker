@@ -1773,4 +1773,5 @@ export default {
   2898: "Błyszczy się pod każdym krokiem!",
   2899: "{n} skrzynia ze skarbem|{n} skrzynie ze skarbem|{n} skrzyń ze skarbem",
   2900: "Nowe rzadkie wydarzenie, Zakopany skarb: przez 30 sekund każde zwycięstwo może zostawić skrzynię ze skarbem.",
+  2901: "Zadania: zadania z rzadkimi wydarzeniami, rzadkimi przedmiotami i bossami też pokazują szacowany czas (bez czasu, gdy bohater utknął na bossie).",
 };

@@ -1773,4 +1773,5 @@ export default {
   2898: "Everything glitters under my feet!",
   2899: "{n} treasure chest|{n} treasure chests",
   2900: "New rare event, Buried Treasure: for 30 seconds, every victory may leave a treasure chest.",
+  2901: "Quests: rare event, rare item and boss quests also show an estimated time (no time while your hero is stuck on a boss).",
 };

@@ -13,7 +13,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Version 0.1.4 (à décider)
 
-- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 90). Nouveautés
+- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 91). Nouveautés
   majeures depuis la 0.1.3 : champions et leur quête, 4 événements rares (Lune pâle, Écho des lames, Source de vie, Trésor enfoui),
   3 élites (Régénérant, Venimeux, Explosif), 6 bénédictions du jour, 3 familiers (Grenouillette, Lucane, Pie), l'Encens de
   chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.
@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1440)
+## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1450)
 
 Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
 Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
@@ -47,6 +47,7 @@ n'est pas dans la zone dit où il vit (un clic y emmène avec la Carte du voyage
 comptée dans Statistiques > Probabilités) ; 70e succès « Pilleur de coffres » (50 coffres) ; 18e événement rare, le Trésor enfoui (coffres à chaque
 victoire pendant 30 s) ; Statistiques > Probabilités : chances du jour pour événements et champions ; sorts : recharge
 réelle le Jour des arcanes ; Bestiaire : avec la Carte du voyageur, un clic (ou Entrée) sur un monstre emmène là où il
-vit. Vérifié : l'ensemble
+vit ; temps estimé aussi pour les quêtes d'événements, d'objets rares et de boss ; « Quoi de neuf » montre jusqu'à
+8 nouveautés quand les éditions sont courtes. Vérifié : l'ensemble
 des ajouts de la nuit ne change pas l'équilibre (3 graines, encore après la Pie),
 mémoire et performance stables.

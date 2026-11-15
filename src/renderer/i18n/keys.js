@@ -2902,5 +2902,6 @@ export const KEYS = [
   "Chaque victoire peut laisser un coffre au trésor !",
   "Ça brille sous chaque pas !",
   "{n} coffre au trésor|{n} coffres au trésor",
-  "Nouvel événement rare, le Trésor enfoui : pendant 30 secondes, chaque victoire peut laisser un coffre au trésor."
+  "Nouvel événement rare, le Trésor enfoui : pendant 30 secondes, chaque victoire peut laisser un coffre au trésor.",
+  "Quêtes : celles d’événements rares, d’objets rares et de boss affichent aussi un temps estimé (pas de temps quand ton héros bute sur un boss)."
 ];

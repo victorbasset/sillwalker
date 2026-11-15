@@ -1773,4 +1773,5 @@ export default {
   2898: "Unter jedem Schritt glitzert es!",
   2899: "{n} Schatztruhe|{n} Schatztruhen",
   2900: "Neues seltenes Ereignis, der Vergrabene Schatz: 30 Sekunden lang kann jeder Sieg eine Schatztruhe hinterlassen.",
+  2901: "Quests: Auch Quests für seltene Ereignisse, seltene Gegenstände und Bosse zeigen eine geschätzte Zeit (keine, solange dein Held an einem Boss scheitert).",
 };

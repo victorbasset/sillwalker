@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1450) : « Quoi de neuf » 91 : temps estimés des quêtes d'événements, d'objets rares et de boss
+  (it. 1447-1449), 10 langues ; devlog et POUR-VICTOR (it. 1441-1450). Autotest 228/228, lang-overflow propre (fenêtre
+  « Quoi de neuf » à 8 nouveautés comprise).
 - 2026-11-15 (it. 1449) : quête « Vaincre N boss » : temps estimé sur sa carte (un boss toutes les KILLS_PER_ZONE + 1
   victoires, avancée automatique ou non) ; aucune estimation quand le héros bute sur un boss (stuckInfo). Ancien test
   (it. 926, « boss : inconnu ») mis à jour ; test du cas bloqué. Autotest 228/228. Restent sans estimation : forge,

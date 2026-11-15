@@ -1773,4 +1773,5 @@ export default {
   2898: "¡Todo brilla bajo mis pies!",
   2899: "{n} cofre del tesoro|{n} cofres del tesoro",
   2900: "Nuevo evento raro, el Tesoro enterrado: durante 30 segundos, cada victoria puede dejar un cofre del tesoro.",
+  2901: "Misiones: las de eventos raros, objetos raros y jefes también muestran un tiempo estimado (sin tiempo mientras tu héroe esté atascado ante un jefe).",
 };

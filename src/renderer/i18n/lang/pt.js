@@ -1773,4 +1773,5 @@ export default {
   2898: "Tudo brilha a cada passo!",
   2899: "{n} baú do tesouro|{n} baús do tesouro",
   2900: "Novo evento raro, o Tesouro enterrado: durante 30 segundos, cada vitória pode deixar um baú do tesouro.",
+  2901: "Missões: as de eventos raros, itens raros e chefes também mostram um tempo estimado (sem tempo enquanto o teu herói estiver travado num chefe).",
 };
