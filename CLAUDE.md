@@ -242,6 +242,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   FIN de NEWS_EDITIONS, textes à traduire ; ne jamais modifier une édition publiée) : Victor et les joueurs la voient
   une fois au lancement suivant, avec les éditions sautées (les 3 dernières, puis d'autres tant que le total reste sous
   11 nouveautés : NEWS_FILL_ITEMS, it. 1442, 1474 ; les plus anciennes comptées) ; l'autotest mesure le pire cas.
+  Regrouper : une édition par série (3-5 nouveautés), pas une ligne par itération ; le 15/11, onze éditions d'une
+  ligne (85-95) ont rempli la fenêtre et repoussaient les plus anciennes hors de vue (it. 1442, 1474-1475).
 - Réglages qui touchent l'affichage sans recharger : « Économie d'énergie » (settings.eco, 15 images/s, événement
   `sillwalker-framerate`) et « Cinématiques de l'histoire » (settings.cinematics ; `data.force` pour le ▶ des chroniques).
 - Bande : la fenêtre laisse traverser les clics sauf au-dessus des éléments `.hit` (ui/clickthrough.js, recalculé par

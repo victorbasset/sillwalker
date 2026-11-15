@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1475) : CLAUDE.md : « Quoi de neuf » à regrouper (une édition de 3-5 nouveautés par série, pas une
+  ligne par itération) ; les onze éditions d'une ligne de la journée remplissent déjà la fenêtre (11 nouveautés).
 - 2026-11-15 (it. 1474) : « Quoi de neuf » : jusqu'à 11 nouveautés (NEWS_FILL_ITEMS 8 → 11). Les éditions 85 à 95 font
   11 lignes : à 8, quelqu'un qui en était à la 84 aurait encore perdu les trois premières (Jour des arcanes, quêtes de
   chasse, Pie). Mesuré : aucun défilement dans les 10 langues (lang-overflow, 1280-1920 px), capture en allemand à
