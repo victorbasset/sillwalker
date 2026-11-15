@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1347, contrôle) : actions en un clic chronométrées sur la fin de partie (autoEquip, sellUseless,
+  transmute, autoSpendTalents, todoNow…) : toutes sous 5 ms au premier appel, todoNow 0,13 ms ensuite (appelé par le
+  mini à chaque gain d'or), autoEquip 1,2 ms. Aucun autre gel du genre de l'it. 1345.
 - 2026-11-15 (it. 1346, contrôle) : suite de l'it. 1345, autres lenteurs du même genre cherchées. Onglet Compétences :
   618 appels de canTakeGraph par rafraîchissement ≈ 1,5 ms (graphSpendable déjà en cache) : rien à faire. Boucle de
   jeu sur la fin de partie (profil --cpu-prof, 20 000 pas ≈ 11 min de jeu) : ≈ 200 ms de calcul au total, castSpells
