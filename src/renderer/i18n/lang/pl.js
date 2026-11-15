@@ -1818,4 +1818,7 @@ export default {
   2943: "Zobacz lub zmień premie progów",
   2944: "Paski życia u góry paska",
   2945: "Twoje życie i życie potwora, obok strefy i rekordu, razem z tarczą.",
+  2946: "Pasek: twoje życie i życie potwora widać u góry, obok strefy, razem z tarczą (Ustawienia > Okno: „Paski życia u góry paska”).",
+  2947: "Talenty: każde mistrzostwo z progiem o dwóch premiach ma stały przycisk „Premia”, by przejrzeć lub zmienić wybór bez otwierania karty.",
+  2948: "Najechanie na przedmiot już nie przesuwa strony: długi opis się zagęszcza, by zmieścić się w panelu.",
 };

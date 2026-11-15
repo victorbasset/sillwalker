@@ -27,7 +27,7 @@ export default {
   136: "Caçador de goblins", 137: "Pegar a estrela cadente", 138: "Nenhum por enquanto: comece perto da origem.", 139: "Aura sagrada", 140: "Antes do chefe", 141: "Aventura", 142: "Aventureiro", 143: "Aliança", 144: "Beijo do vampiro",
   145: "Passeio", 146: "Faixa", 147: "Bandido", 148: "Bastião", 149: "Bastião Negro", 150: "Bastião sagrado", 151: "Derrote o chefe desta zona para libertá-lo.{0}", 152: "Rainha Gosma", 153: "Berserker", 154: "Bestiário",
   155: "Bestiário completo", 156: "Bem-vindo a Sillwalker! Seu herói avança e luta sozinho. Clique aqui (ou em ⌃ à direita) para abrir o painel.", 157: "Blindado", 158: "Bebedor de sangue", 159: "Bosque Corrompido",
-  160: "Bônus", 161: "Bônus ativos", 162: "Bônus permanente (mantido na ascensão):", 163: "Chefe", 164: "Chefe:", 165: "Chefe a caminho", 166: "Chefe mais distante derrotado", 167: "Chefe derrotado! Seu herói fica aqui farmando.",
+  160: "Bónus", 161: "Bônus ativos", 162: "Bônus permanente (mantido na ascensão):", 163: "Chefe", 164: "Chefe:", 165: "Chefe a caminho", 166: "Chefe mais distante derrotado", 167: "Chefe derrotado! Seu herói fica aqui farmando.",
   168: "Chefes derrotados", 169: "Botas", 170: "Botas de Hermes", 171: "Açougueiro do campo", 172: "Escudo de mana", 173: "Escudo sagrado: cada combate começa com um escudo igual a 20% do PV máx., que absorve dano.",
   174: "Bolsa sem fundo", 175: "Loja", 176: "Braço de ferro", 177: "Braços de titã", 178: "Braseiro", 179: "Braçadeiras", 180: "Brigantina", 181: "Bruto", 182: "Queimadura", 183: "Queimadura +60% e veneno +15%, mas −10% de ataque.",
   184: "Queimadura: cada feitiço incendeia o alvo, que perde 25% do ataque do mago por segundo durante 3 s.", 185: "Bebida automaticamente abaixo de 30% de vida: restaura 50% do PV. Estoque máximo: 20.", 186: "Bushido", 187: "Saque ",
@@ -1818,4 +1818,7 @@ export default {
   2943: "Ver ou mudar os bónus dos patamares",
   2944: "Barras de vida no topo da faixa",
   2945: "A tua vida e a do monstro enfrentado, junto à zona e ao recorde, escudo incluído.",
+  2946: "Faixa: a tua vida e a do monstro enfrentado aparecem no topo, junto à zona, escudo incluído (Configurações > Janela: «Barras de vida no topo da faixa»).",
+  2947: "Talentos: cada mestria com um patamar de dois bónus mantém um botão «Bónus» para rever ou mudar a tua escolha, sem passar pela ficha.",
+  2948: "Passar o rato sobre um objeto já não faz a página saltar: uma descrição longa encolhe para caber no painel.",
 };

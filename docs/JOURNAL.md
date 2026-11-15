@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1532) : édition 101 de « Quoi de neuf » (barres de vie en haut de la bande, bouton « Bonus » des
+  maîtrises, bulle d'objet sans saut), 9 langues ; « Bónus » (pt, clé 160 ; était le brésilien « Bônus ») ; ko : « 특성 »
+  (nom de l'onglet) dans l'édition 100 au lieu de « 재능 ». Autotest 233/233.
 - 2026-11-15 (it. 1531, demande de Victor) : barres de vie du héros et du monstre affronté dans la rangée d'informations
   de la bande (dom.js HudBar, strip.js updateHudBars) : pastille comme zone / or, tête du héros (heroHeadURL), miniature
   du monstre (première image de son sprite, en cache), barre de 140 px, bouclier bleu-blanc (R.shield, carapace m.shell),
@@ -5852,6 +5855,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
+- P3 (it. 1532) Portugais : les premières traductions sont brésiliennes (« Bônus », « Seu herói », « Configurações »),
+  les récentes européennes (« teu herói », « bónus ») : choisir une variante et harmoniser (passe longue sur pt.js).
 
 - CLOS (it. 1483 : semaine 350 pour le mage comme pour le guerrier) P3 (it. 1482) Mage un peu en retrait sur 12 h (60,7 sur 6 graines contre 63,6 pour la moyenne des héros ; gardien
   stellaire en tête à 67,3). Avant tout réglage : comparer sur une semaine (simulate.js 168 mage / warrior), le mage

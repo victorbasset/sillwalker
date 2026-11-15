@@ -1818,4 +1818,7 @@ export default {
   2943: "Ver o cambiar las bonificaciones de los umbrales",
   2944: "Barras de vida arriba de la franja",
   2945: "Tu vida y la del monstruo enfrentado, junto a la zona y el récord, escudo incluido.",
+  2946: "Franja: tu vida y la del monstruo enfrentado se muestran arriba, junto a la zona, escudo incluido (Ajustes > Ventana: «Barras de vida arriba de la franja»).",
+  2947: "Talentos: cada maestría con un umbral de dos bonificaciones conserva un botón «Bonificación» para revisar o cambiar tu elección, sin pasar por la ficha.",
+  2948: "Pasar el ratón sobre un objeto ya no hace saltar la página: una descripción larga se compacta para caber en el panel.",
 };

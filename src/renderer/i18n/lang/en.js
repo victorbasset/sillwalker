@@ -1818,4 +1818,7 @@ export default {
   2943: "See or change the milestone bonuses",
   2944: "Health bars at the top of the strip",
   2945: "Your health and the current monster's, next to the zone and record, shield included.",
+  2946: "Strip: your health and the current monster's now show at the top, next to the zone, shield included (Settings > Window: “Health bars at the top of the strip”).",
+  2947: "Talents: each mastery with a two-bonus milestone keeps a “Bonus” button to review or change your choice, without going through the details.",
+  2948: "Hovering an item no longer makes the page jump: a long description tightens to fit in the panel.",
 };

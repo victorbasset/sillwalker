@@ -2947,5 +2947,8 @@ export const KEYS = [
   "Russe : le texte s’affiche dans la même police pixel que les autres langues (66 lettres dessinées pour le jeu).",
   "Voir ou changer les bonus des paliers",
   "Barres de vie en haut de la bande",
-  "Ta vie et celle du monstre affronté, à côté de la zone et du record, bouclier compris."
+  "Ta vie et celle du monstre affronté, à côté de la zone et du record, bouclier compris.",
+  "Bande : ta vie et celle du monstre affronté s’affichent en haut, à côté de la zone, bouclier compris (Réglages > Fenêtre : « Barres de vie en haut de la bande »).",
+  "Talents : chaque maîtrise dont un palier propose deux bonus garde un bouton « Bonus » pour revoir ou changer ton choix, sans passer par la fiche.",
+  "Survoler un objet ne fait plus sauter la page : une longue description se resserre pour tenir dans le panneau."
 ];

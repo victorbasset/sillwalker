@@ -1818,4 +1818,7 @@ export default {
   2943: "Stufenboni ansehen oder ändern",
   2944: "Lebensbalken oben im Streifen",
   2945: "Deine Lebenspunkte und die des Monsters, neben Zone und Rekord, Schild inklusive.",
+  2946: "Streifen: Deine Lebenspunkte und die des Monsters stehen jetzt oben neben der Zone, Schild inklusive (Einstellungen > Fenster: „Lebensbalken oben im Streifen“).",
+  2947: "Talente: Jede Meisterschaft mit einer Stufe mit zwei Boni behält einen Knopf „Bonus“, um deine Wahl anzusehen oder zu ändern, ohne über die Detailansicht.",
+  2948: "Das Überfahren eines Gegenstands lässt die Seite nicht mehr springen: Eine lange Beschreibung wird kompakter, damit sie ins Fenster passt.",
 };
