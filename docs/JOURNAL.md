@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1496) : CLAUDE.md : i18n-check signale désormais une clé sans aucune traduction (liste TECH pour les
+  clés techniques).
 - 2026-11-15 (it. 1495) : carte du héros (Aventure) : la ligne du duo montre aussi les sorts appris du compagnon,
   après ceux du héros (séparateur « · », rang et nom au survol, un clic mène aux sorts) ; vérifié en fr et ru à 1280
   et 1920 px. « Quoi de neuf » 97 regroupée (sorts du compagnon en grand, cette ligne, trois pistes du héros bloqué).

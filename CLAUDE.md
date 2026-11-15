@@ -161,7 +161,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Nouvelles clés : `node --experimental-default-type=module scripts/i18n-append.mjs '["clé 1","clé 2"]'`
   (ajoutées à la fin de `i18n/keys.js`, l'ordre ne bouge jamais), puis les traduire dans
   **chacun** des fichiers `src/renderer/i18n/lang/{en,es,pt,de,pl,ru,zh,ja,ko}.js` (indice = position),
-  et vérifier avec `scripts/i18n-check.mjs <langue>` (0 problème attendu).
+  et vérifier avec `scripts/i18n-check.mjs <langue>` (0 problème attendu). Depuis l'it. 1495, il signale aussi une clé
+  sans traduction dans TOUTES les langues (avant, il ne comparait qu'à l'anglais) ; une clé technique (classe CSS,
+  police, transformation) s'ajoute à sa liste TECH.
   Un texte qui cite « un libellé » du jeu doit le citer tel qu'il est traduit : `scripts/i18n-quotes.mjs` (lancé par `npm test`) le vérifie dans les 9 langues. Les chemins cités sans guillemets (« Bestiaire > Panoplies ») aussi : `scripts/i18n-paths.mjs` (it. 1306), ainsi que les noms d'onglets cités entre parenthèses (« Mama Gałązka (Pupile) », it. 1370). Noms du jeu cités dans d'autres textes (familiers, déblocages, panoplies…) : `scripts/i18n-names.mjs` à lancer à la main après un ajout (faux positifs grammaticaux à juger, it. 1374).
 - Pluriels : `txn(n, "{n} objet|{n} objets")` (i18n/index.js) ; chaque traduction donne ses formes séparées
   par « | » : 1 (zh, ja, ko), 3 (ru, pl : one|few|many), 2 sinon (vérifié par i18n-check). (L'ancienne méthode `plS(n)`,
