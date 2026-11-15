@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1342) : « Quoi de neuf », édition 75 : les icônes des effets actifs sur la bande ; traduite (« la
+  bande » comme ailleurs : Streifen, 长条…) ; ligne au brouillon du devlog 0.1.4. Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1341, revue générale) : 12 h guerrier 65, mage 60, rôdeur 65 (inchangés) ; --perf sur une copie
   neuve de dev-data : bande 19,5 %, panneau 20,9 %, mini 6,7 %, icône 0,5 % (icônes des effets actifs sans coût
   visible) ; texte extrait en russe et en japonais (toutes sous-sections et bulles) : aucun mot non traduit ; captures

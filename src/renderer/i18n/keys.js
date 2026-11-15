@@ -2837,5 +2837,6 @@ export const KEYS = [
   "Encens de chasse",
   "+100 % d’élites pendant 10 min de jeu (cumulable jusqu’à 2 h) : plus de risque, plus de butin. Jamais racheté automatiquement.",
   "+100 % d’élites",
-  "Nouveau à la boutique : l’Encens de chasse attire deux fois plus d’élites pendant 10 min. Plus de risque, plus de butin ; l’Herboriste perpétuel ne le rachète jamais à ta place."
+  "Nouveau à la boutique : l’Encens de chasse attire deux fois plus d’élites pendant 10 min. Plus de risque, plus de butin ; l’Herboriste perpétuel ne le rachète jamais à ta place.",
+  "La bande montre tes élixirs, parchemins et encens actifs : une petite icône chacun, juste devant ton or."
 ];

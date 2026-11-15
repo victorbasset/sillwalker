@@ -1708,4 +1708,5 @@ export default {
   2833: "+100 % Elite-Gegner für 10 Min. Spielzeit (stapelbar bis 2 Std.): mehr Risiko, mehr Beute. Wird nie automatisch nachgekauft.",
   2834: "+100 % Elite-Gegner",
   2835: "Neu im Laden: Jagdweihrauch lockt 10 Min. lang doppelt so viele Elite-Gegner an. Mehr Risiko, mehr Beute; der Ewige Kräuterkundler kauft ihn nie für dich nach.",
+  2836: "Der Streifen zeigt deine aktiven Elixiere, Schriftrollen und Weihrauch: je ein kleines Symbol, direkt vor deinem Gold.",
 };

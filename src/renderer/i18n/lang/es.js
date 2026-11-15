@@ -1708,4 +1708,5 @@ export default {
   2833: "+100 % de élites durante 10 min de juego (acumulable hasta 2 h): más riesgo, más botín. Nunca se recompra automáticamente.",
   2834: "+100 % de élites",
   2835: "Novedad en la Tienda: el Incienso de caza atrae el doble de élites durante 10 min. Más riesgo, más botín; el Herbolario perpetuo nunca lo recompra por ti.",
+  2836: "La franja muestra tus elixires, pergaminos e incienso activos: un pequeño icono para cada uno, justo delante de tu oro.",
 };

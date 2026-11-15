@@ -1708,4 +1708,5 @@ export default {
   2833: "+100 % elit przez 10 min gry (kumuluje się do 2 h): większe ryzyko, więcej łupów. Nigdy nie jest odkupowane automatycznie.",
   2834: "+100 % elit",
   2835: "Nowość w Sklepie: Kadzidło łowieckie przez 10 min przyciąga dwa razy więcej elit. Większe ryzyko, więcej łupów; Wieczny zielarz nigdy nie odkupi go za ciebie.",
+  2836: "Pasek pokazuje aktywne eliksiry, zwoje i kadzidło: po jednej małej ikonie, tuż przed twoim złotem.",
 };
