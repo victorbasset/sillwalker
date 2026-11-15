@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1554) : contrôle après Poupouce (un tirage de plus dans la file des monstres) : balance 12 h contre
+  5b15681f, moyenne 64,2 → 64,7 (bruit) ; dix premières minutes inchangées (niveau 2 vers 1 min, premier boss 77-79 s,
+  boutique vers 9 min). Rien à corriger.
 - 2026-11-16 (it. 1553) : Statistiques : un ✦ rose après les gobelins dorés dès qu'un Poupouce est vaincu, son compte au survol
   (une ligne à part, ou le compte écrit en clair, faisait défiler l'onglet en russe et chevaucher en allemand à 1280 px,
   pire cas de max-save, qui compte maintenant les Poupouce).
