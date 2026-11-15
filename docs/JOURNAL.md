@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1405, contrôle) : place dans la Boutique mesurée à 1280 px (allemand et français) pour un 9e
+  consommable : ne tient pas sans retoucher les tuiles ; mesures ajoutées à l'idée du Parchemin des arcanes.
 - 2026-11-15 (it. 1404) : idée étudiée puis écartée pour l'instant : un « Parchemin des arcanes » (sorts rechargés plus
   vite, 10 min). La grille des consommables est fixée à 4 colonnes × 2 rangées (8 tuiles depuis l'Encens) : une 9e
   ouvrirait une 3e rangée (≈ 110 px) et ferait défiler la Boutique à 1280 px ; noté dans les Idées.
@@ -5419,6 +5421,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - P3 (it. 1404) Parchemin des arcanes (sorts rechargés 50 % plus vite, 10 min ; effet lu dans castSpells comme la
   Marée arcanique) : demande d'abord une place dans la Boutique (grille 4 × 2 pleine). Pistes : tuiles plus basses,
   ou une rangée de consommables défilante (hscroll), vérifiées à 1280 px dans les 10 langues.
+  Mesuré (it. 1405, 1280 px) : panneau 497 px, Boutique 405 px (rien ne défile), tuile de consommable 144 px en
+  allemand (131 en français) : une 3e rangée (≈ 150 px) ne tient pas ; il faudrait des tuiles d'≈ 95 px (prix sur la
+  ligne de l'effet) ou la rangée défilante.
 - FAIT (it. 1355-1359) P3 Nombres variables devant un pluriel fixe (russe et polonais faux selon le nombre) : tous
   passés par txn ou vérifiés (constantes de la forme « many », tournures neutres des traducteurs).
   (Expéditions et défaites faites à l'it. 1357 ; bestiaire inutile : paliers fixes.)
