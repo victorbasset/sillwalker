@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 10) : CLAUDE.md et README à jour pour la bande originale ; édition 102 de « Quoi de neuf »
+  (bande originale, curseur « Effets », barres de vie).
 - 2026-11-15 (musique, tâche 9a) : humanisation des 4 morceaux (micro-décalages et forces variables, à graine) ;
   rendus à nouveau et remplacés dans le jeu ; autotest 235/235.
 - 2026-11-15 (musique, tâche 8) : les 4 morceaux dans le jeu (lecture par tranches de 50 zones, boucle sans blanc,

@@ -1835,4 +1835,7 @@ export default {
   2960: "Four original tracks, one for every 50 zones, with a crossfade.",
   2961: "Track {0} / {1} · zones {2}–{3}",
   2962: "Effects",
+  2963: "A soundtrack: four tracks composed for the game, one for every 50 zones, built around one theme, from warm lofi to an epic galactic finale.",
+  2964: "Settings: an “Effects” slider sets the volume of sound effects, next to music and ambience.",
+  2965: "Health bars at the top of the strip: between fights, the monster’s bar shows the next enemy; a fallen hero shows “K.O.” and the time until they return.",
 };

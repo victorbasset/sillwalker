@@ -2964,5 +2964,8 @@ export const KEYS = [
   "Le jeu démarre dans la langue de ton système ; le russe a une police pixel lisible.",
   "Quatre morceaux originaux, un par tranche de 50 zones, avec un fondu enchaîné.",
   "Morceau {0} / {1} · zones {2}–{3}",
-  "Effets"
+  "Effets",
+  "Une bande originale : quatre morceaux composés pour le jeu, un par tranche de 50 zones, autour d’un même thème, du lofi chaud au final épique galactique.",
+  "Réglages : un curseur « Effets » règle le volume des bruitages, à côté de la musique et de l’ambiance.",
+  "Barres de vie en haut de la bande : entre deux combats, celle du monstre montre le prochain ennemi ; un héros tombé affiche « K.O. » et le temps avant son retour."
 ];

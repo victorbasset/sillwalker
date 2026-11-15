@@ -1835,4 +1835,7 @@ export default {
   2960: "Cuatro temas originales, uno por cada tramo de 50 zonas, con fundido encadenado.",
   2961: "Tema {0} / {1} · zonas {2}–{3}",
   2962: "Efectos",
+  2963: "Una banda sonora: cuatro temas compuestos para el juego, uno por cada tramo de 50 zonas, en torno a un mismo tema, del lofi cálido a un final épico galáctico.",
+  2964: "Ajustes: un control «Efectos» regula el volumen de los efectos de sonido, junto a la música y el ambiente.",
+  2965: "Barras de vida arriba de la franja: entre combates, la del monstruo muestra al siguiente enemigo; un héroe caído muestra «K.O.» y el tiempo hasta su regreso.",
 };

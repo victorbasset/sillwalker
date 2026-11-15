@@ -57,8 +57,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   valeurs absurdes : « ok balayage (N corruptions) » attendu, ≈ 35 s ; it. 873 ; chaque corruption passe aussi par les moments à risque (mort face à un boss, boss vaincu, événement, coffre, étoile, achat d'un déblocage, quêtes : exercise(), it. 903) et par les actions du joueur (sac, forge, boutique, familiers, points, ascension : it. 904) ; le balayage touche aussi les champs d'un objet, d'une quête, d'un familier et d'une expédition (it. 905). Un cas qui ne finit pas (boucle sans fin) : `FUZZ_TRACE=1` affiche chaque cas avant de le jouer, le dernier affiché est le coupable ; un nouveau moment de ce genre s'y ajoute). À relancer après tout ajout de donnée sauvegardée. Il lit l'heure réelle (pas l'horloge virtuelle) : un cas qui
 semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 1345 : « tout dépenser » du grand graphe à
 400 ms) ; chronométrer un cas isolé avant de chercher une boucle. `FUZZ_BASE=fin` : même balayage à partir de la partie de fin de partie (scripts/fixtures/endgame-save.json, it. 999) ; `FUZZ_BASE=0.1.2` : à partir d'une partie de la version 0.1.2 (scripts/fixtures/save-0.1.2.json, it. 1149).
-- Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 485-530 Mo stables
-  attendus (bruit d'une mesure à l'autre), son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
+- Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 565-575 Mo stables
+  attendus depuis la bande originale (it. 1541 : +55 Mo, le morceau décodé en mémoire pour une boucle sans blanc ; 485-530 avant) (bruit d'une mesure à l'autre), son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
   zone, déblocages à 2, 5, 10, 15, 30, 60 min ; 3 graines, `SEEDS=10` pour moins de bruit : sur 3 graines, ±3 niveaux et
   ±3 zones à 60 min, it. 1444-1445). Le début est volontairement calme (`earlyPace`, rules.js).
@@ -136,9 +136,13 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de
   render/sound.js et signale erreur, NaN ou saturation (pic > 0,2 ; les effets font ≈ 0,02) : ajouter tout nouveau son
   à sa liste (selftest.js, « son : tous les sons ») ; pour comparer des volumes, même méthode dans une injection TEMP.
-  Musique (lofi, un air par tranche de 5 zones) : l'autotest rend un passage complet de 8 airs (`Music.schedulePass`) et
-  vérifie saturation et équilibre des volumes. Pour faire ÉCOUTER à Victor : rendre des passages en WAV dans une injection
-  TEMP (OfflineAudioContext + schedulePass, base64 par morceaux dans la console), puis les lui envoyer (it. 520).
+  Musique (it. 1541) : 4 morceaux composés à la main (un par tranche de 50 zones), rendus HORS du jeu par
+  `scripts/music/` et livrés en `src/renderer/assets/music/*.opus` ; plan, choix et mesures : docs/MUSIQUE.md. Retoucher
+  un morceau : sa partition `scripts/music/tracks/<morceau>.js`, puis `xvfb-run -a node_modules/.bin/electron
+  --no-sandbox scripts/music/render.cjs <morceau> <x.wav>` (STEMS=1 : pistes séparées, `scripts/music/stems.py`), puis
+  `<venv>/bin/python -I scripts/music/master.py <x.wav> <sortie> --loop` (−16 LUFS, Opus + MP3, mesures) et copier
+  l'Opus dans assets/music/. L'autotest décode les 4 (NaN, saturation, rapport des volumes < 1,3) et vérifie la lecture.
+  Victor écoute les MP3 déposés dans Médias/dist-itch/musique/.
 
 ## Sortie sur Steam (it. 781-799)
 

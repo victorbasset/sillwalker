@@ -57,7 +57,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
 - [ ] 9. Passe de finition sur les retours de Victor (mixage, tempo, instruments).
       - [x] 9a. humanisation (décalages et vélocités variables) ; les 4 morceaux rendus à nouveau
       - [ ] 9b. retours d'écoute de Victor (en attente)
-- [ ] 10. Nettoyage : ancien générateur retiré (ou gardé en secours si un fichier manque), README, CLAUDE.md,
+- [x] 10. Nettoyage : ancien générateur retiré (ou gardé en secours si un fichier manque), README, CLAUDE.md,
       « Quoi de neuf », devlog.
 
 ## Journal de la musique
@@ -159,3 +159,8 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   parallèle : ≈ 10 min). Mesures inchangées à ±0,5 dB : rebord −15,9 LUFS LRA 6,2 raccord 0,005 ; sentiers −15,9 / 7,4 /
   0,004 ; lieutenants −15,9 / 5,4 / 0,005 ; briseur −16,0 / 6,9 / 0,004, largeur 0,47. Fichiers du jeu remplacés ;
   autotest 235/235 (rapport des volumes 1,11). MP3 : 02-le-rebord-v3, 03-…-v2, 04-…-v2, 05-…-v2.
+- 15/11 (tâche 10) : nettoyage. L'ancien générateur (airs synthétisés en direct) avait été retiré à la tâche 8 (en cas de
+  fichier manquant : silence, sans erreur). CLAUDE.md (section Son : comment retoucher et rendre un morceau ; repère
+  mem-watch 565-575 Mo) et README à jour ; édition 102 de « Quoi de neuf » (bande originale, curseur « Effets »,
+  barres de vie), traduite dans les 9 langues. Le devlog viendra avec la prochaine version (0.1.5).
+  Reste : 9b, les retours d'écoute de Victor.

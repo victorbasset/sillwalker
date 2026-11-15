@@ -89,9 +89,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 16 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
 - **Son** (render/sound.js, render/music.js) : effets variés, ambiance de chaque zone (bulles, braises, oiseaux…),
-  musique lofi façon Terraria générée (rien d'enregistré) : un air par tranche de 5 zones, tempo posé, swing, accords de
-  septième au piano électrique, rythme feutré, passe-bas et écho selon le décor, craquements de vinyle ; l'air varie
-  d'un passage à l'autre (intermèdes, silences), plus intense contre les boss. Volumes séparés dans Réglages > Son.
+  bande originale de 4 morceaux composés pour le jeu (zones 1-50, 51-100, 101-150, 151-200, puis les mêmes), autour
+  d'un même leitmotiv, du lofi chaud au final épique galactique avec une couleur Terraria ; rendus et masterisés hors du
+  jeu (scripts/music/, docs/MUSIQUE.md), lus en boucle sans couture, fondu enchaîné, plus de poids contre les boss.
+  Volumes séparés (effets, ambiance, musique, général) dans Réglages > Son.
 - **Cycle jour / nuit** sur la bande, calé sur l'heure de l'ordinateur.
 - **Bon voisin** : économie d'énergie (15 images/s, Réglages), bande cachée devant une application en plein écran
   (Windows, menu de l'icône), cinématiques désactivables, ralenti automatique sur batterie et en absence.
@@ -234,7 +235,7 @@ src/
     render/               art.js = pixel art, dom.js = briques communes,
                           strip.js = bande (parcours de zone), mini.js = encart mini, heroart.js = héros
                           assemblés à partir de pièces, equipvis.js = équipement visible, juice.js = effets,
-                          sound.js = sons, music.js = musique lofi, trayicons.js = icônes de la zone de notification ;
+                          sound.js = sons, music.js = lecture des 4 morceaux (assets/music/), trayicons.js = icônes de la zone de notification ;
                           sprites.js = images des personnages (contours et halo dessinés une fois : outlinedFrames,
                           glowFrames ; jamais de filtre CSS permanent sur la bande, voir CLAUDE.md)
     i18n/                 traductions : index.js (t(), langue), keys.js (textes source, ordre fixe),

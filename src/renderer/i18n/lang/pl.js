@@ -1835,4 +1835,7 @@ export default {
   2960: "Cztery oryginalne utwory, jeden na każde 50 stref, z płynnym przejściem.",
   2961: "Utwór {0} / {1} · strefy {2}–{3}",
   2962: "Efekty",
+  2963: "Ścieżka dźwiękowa: cztery utwory skomponowane dla gry, jeden na każde 50 stref, wokół jednego motywu, od ciepłego lofi po epicki galaktyczny finał.",
+  2964: "Ustawienia: suwak „Efekty” reguluje głośność efektów dźwiękowych, obok muzyki i otoczenia.",
+  2965: "Paski życia u góry paska: między walkami pasek potwora pokazuje następnego wroga; poległy bohater pokazuje „K.O.” i czas do powrotu.",
 };
