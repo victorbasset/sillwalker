@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1518, contrôle) : après les effets du duo (it. 1515-1516) : fuzz 60 graines, 1200 parties, 0 bloquée ;
+  hero-table 12 h × graines 7/3/11 (20 héros) : moyenne 64,6 (63,6 avant), mage 61,3 → gardien des astres 68,3
+  (écart 7,0 contre 6,6) : rien à régler.
 - 2026-11-15 (it. 1517, demande de Victor) : Héros > Sorts et attaque : l'explication des sorts du compagnon en
   paragraphe sous son titre, comme celle du héros (la mention « compagnon, à moitié de leur puissance » ne reste dans le
   titre qu'en mode compact, où ces paragraphes sont masqués) ; titres des deux cadres à 28 px au moins (celui du héros
