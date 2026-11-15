@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1450)
+## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1460)
 
 Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
 Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
@@ -49,6 +49,8 @@ victoire pendant 30 s) ; Statistiques > Probabilités : chances du jour pour év
 réelle le Jour des arcanes ; Bestiaire : avec la Carte du voyageur, un clic (ou Entrée) sur un monstre emmène là où il
 vit ; temps estimé aussi pour les quêtes d'événements, d'objets rares et de boss ; « Quoi de neuf » montre jusqu'à
 8 nouveautés quand les éditions sont courtes ; 19e sorte de quête « Attraper N gobelins dorés » (les gobelins sont
-aussi attrapés pendant l'absence, avec leur or). Vérifié : l'ensemble
+aussi attrapés pendant l'absence, avec leur or, et comptés dans « Depuis ta dernière visite » ; la quête n'est
+jamais proposée à un héros trop lent pour les attraper) ; sur la bande, un ◆ marque les monstres visés par une quête
+en cours (chasse, proie, champions, gobelins). Vérifié : l'ensemble
 des ajouts de la nuit ne change pas l'équilibre (3 graines, encore après la Pie),
 mémoire et performance stables.

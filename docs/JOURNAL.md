@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1460) : POUR-VICTOR complété (it. 1452-1459 : gobelins hors ligne, quête réservée aux héros assez
+  rapides, marque ◆ sur la bande).
 - 2026-11-15 (it. 1459) : marque ◆ de la bande étendue : élite de la sorte demandée par une quête « proie » (« Rapide ✦
   ◆ », l'autre élite sans marque), champions pendant la quête des champions, gobelins dorés pendant la quête des
   gobelins. Vérifié par --stage (élites forcées dans la série). L'édition 93 (déjà publiée) ne cite que la chasse :
