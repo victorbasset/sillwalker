@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1563) : musique arrêtée pendant le décodage d'un morceau (bande cachée, curseur à 0 %) : le décodage, en
+  finissant, remettait le tampon (≈ 55 Mo) en mémoire ; il ne le fait plus. Vu par l'autotest (1 échec sur 240 à
+  l'it. 1562, commit déjà parti) ; deux passes à 240/240 après correction.
 - 2026-11-16 (it. 1562) : bande : les nombres de dégâts du héros (critiques, ripostes) évitent le nom du boss dès qu'il est
   affiché, même loin de lui (le nom s'étend vers la gauche au-dessus du héros, et s'affiche déjà quand le boss attend au
   bout de la file) ; avant, seuls les nombres près du boss l'évitaient. Vérifié en capture.

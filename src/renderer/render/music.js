@@ -96,7 +96,8 @@ export class Music {
     const ctx = this.sound.audio();
     const p = fetch(`assets/music/${id}.opus`).then((r) => r.arrayBuffer()).then((ab) => ctx.decodeAudioData(ab));
     this.buffers.set(id, p);
-    try { const b = await p; this.buffers.set(id, b); return b; } catch (e) { this.buffers.delete(id); throw e; }
+    // (it. 1563) arrêtée pendant le décodage (stop() : bande cachée, curseur à 0 %) : le tampon n'est pas remis en mémoire
+    try { const b = await p; if (this.buffers.get(id) === p) this.buffers.set(id, b); return b; } catch (e) { if (this.buffers.get(id) === p) this.buffers.delete(id); throw e; }
   }
 
   async applyZone(zone) {
