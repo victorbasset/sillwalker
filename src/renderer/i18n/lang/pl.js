@@ -1777,4 +1777,5 @@ export default {
   2902: "Złap {n} złotego goblina|Złap {n} złote gobliny|Złap {n} złotych goblinów",
   2903: "Nowy rodzaj zadania: łapanie złotych goblinów. Podczas twojej nieobecności bohater też je łapie (razem z ich złotem), jeśli jest dość szybki.",
   2904: "Na pasku małe ◆ oznacza potwory, na które poluje trwające zadanie łowieckie.",
+  2905: "wykuj ekwipunek za swoje złoto",
 };

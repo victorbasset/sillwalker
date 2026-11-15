@@ -232,6 +232,16 @@ test("rythme indépendant de la largeur d'écran", () => {
   assert.ok(approachTime() > 2 && approachTime() < 5);
 });
 
+test("héros bloqué : la piste « forge » quand l'Enclume est là et l'or suffit (it. 1463)", () => {
+  const g = new Game(freshState());
+  g.S.unlocks.forge = true; g.S.gold = 0;
+  assert.ok(!g.stuckTips().includes("forge"), "sans or : pas de forge");
+  g.S.gold = 1e12;
+  const anyEquip = Object.values(g.S.equip).some((it) => it);
+  assert.equal(g.stuckTips().includes("forge"), anyEquip, "assez d'or et une pièce portée : forge");
+  delete g.S.unlocks.forge; assert.ok(!g.stuckTips().includes("forge"), "sans Enclume : pas de forge");
+});
+
 test("quête des gobelins : jamais proposée ni estimée pour un héros trop lent (it. 1456)", () => {
   const g = new Game(freshState()); g.S.zone = 1;
   assert.ok(M_quests_js.goblinCatchable(g.S), "zone 1 : attrapés");

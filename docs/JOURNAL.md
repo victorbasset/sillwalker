@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1463) : étude de la longue traîne (it. 1462, graine 3) : le héros bute ≈ 1 h sur les boss des zones
+  19-21 avec jusqu'à 400 k d'or qui dort (le joueur simulé ne forge ni n'achète rien) ; la date exacte dépend du moment
+  des équipements (trajectoire chaotique : record 20 à 50 ou 114 min selon un décalage d'une seconde). Les pistes de
+  l'alerte « héros bloqué » ne parlaient jamais de cet or : nouvelle piste « forge ton équipement avec ton or » (après
+  équiper et talents) quand l'Enclume est achetée et qu'une pièce portée peut être forgée. 10 langues (verbe du
+  bouton de forge repris), test. Autotest 228/228.
 - 2026-11-15 (it. 1462, contrôle) : ouverture de l'Ascension (tab-pace sur 10 graines) : avant la nuit 21-61 min ;
   maintenant 19-43 min pour 8 graines, 114 et 124 min pour les graines 3 et 6. Apparu avec le Trésor enfoui, mais
   identique avec sa chance à 0 : décalage des tirages, pas un effet de l'événement. Révèle une longue traîne du début
@@ -5625,7 +5631,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 1462) Longue traîne avant l'Ascension : sur 10 trajectoires (tab-pace, joueur simulé), 2 n'atteignent la
+- EN PARTIE TRAITÉ (it. 1463 : piste « forge » dans l'alerte) P3 (it. 1462) Longue traîne avant l'Ascension : sur 10 trajectoires (tab-pace, joueur simulé), 2 n'atteignent la
   zone de l'Ascension qu'en ≈ 2 h (114 et 124 min) contre 19-43 min pour les autres ; avant la nuit la plus lente
   était à 61 min (simple décalage des tirages, it. 1462). À étudier : où ces héros butent (boss de zone 20-24 ?), ce
   que le joueur simulé ne fait pas (talents, forge, sorts), et si l'alerte « héros bloqué » leur propose la bonne piste.

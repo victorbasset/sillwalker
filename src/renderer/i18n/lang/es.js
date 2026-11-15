@@ -1777,4 +1777,5 @@ export default {
   2902: "Atrapar {n} goblin dorado|Atrapar {n} goblins dorados",
   2903: "Nuevo tipo de misión: atrapar goblins dorados. Mientras no estás, tu héroe también atrapa algunos (con su oro) si es lo bastante rápido.",
   2904: "En la franja, un pequeño ◆ marca a los monstruos que busca una misión de caza en curso.",
+  2905: "forja tu equipo con tu oro",
 };

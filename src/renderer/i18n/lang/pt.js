@@ -1777,4 +1777,5 @@ export default {
   2902: "Pegar {n} goblin dourado|Pegar {n} goblins dourados",
   2903: "Novo tipo de missão: pegar goblins dourados. Enquanto estás fora, o teu herói também pega alguns (com o ouro deles) se for rápido o bastante.",
   2904: "Na faixa, um pequeno ◆ marca os monstros visados por uma missão de caça em curso.",
+  2905: "forja o teu equipamento com o teu ouro",
 };

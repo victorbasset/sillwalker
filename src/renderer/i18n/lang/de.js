@@ -1777,4 +1777,5 @@ export default {
   2902: "{n} Goldkobold fangen|{n} Goldkobolde fangen",
   2903: "Neue Questart: Goldkobolde fangen. Während deiner Abwesenheit fängt dein Held auch welche (samt ihrem Gold), wenn er schnell genug ist.",
   2904: "Auf dem Streifen markiert ein kleines ◆ die Monster, die eine laufende Jagd-Quest verlangt.",
+  2905: "schmiede deine Ausrüstung mit deinem Gold",
 };
