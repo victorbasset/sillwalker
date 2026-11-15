@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1434) : Héros > Sorts et attaque : le Jour des arcanes donne la recharge réelle du jour (« Toutes les
+  4 s » au lieu de 6, 13,3 au lieu de 20), suivie de 🔮 (nom et effet de la bénédiction au survol) ; avant, la recharge
+  de base restait affichée. Aucun texte nouveau. Vérifié par --stage (sous-section ouverte par [data-to=style]).
+  Autotest 228/228.
 - 2026-11-15 (it. 1433) : POUR-VICTOR : la Pie, le succès « Pilleur de coffres » et la chance de coffre affichée dans
   les nouveautés de la nuit (it. 1427-1432).
 - 2026-11-15 (it. 1432) : Statistiques > Probabilités : la chance de coffre « aujourd’hui » compte aussi la Pie (avant :

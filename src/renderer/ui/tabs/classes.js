@@ -12,6 +12,7 @@ import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, spe
 import { recordZone, hasUnlock } from "../../game/unlocks.js";
 import { lockLink } from "../locks.js";
 import { spellIconURL } from "../../render/shopart.js";
+import { activeDayMod } from "../../game/daymods.js";
 import { classPortraitURL } from "../../render/sprites.js";
 
 const pct = (m) => (m === 1 ? "" : `${m > 1 ? "+" : "−"}${Math.round(Math.abs(m - 1) * 100)}${unit("%")}`);
@@ -121,8 +122,10 @@ export class ClassesTab {
         : `<button data-action="c-spell" data-id="${sp.id}" class="${r ? "quiet" : "primary"}"${S.gold < price ? " disabled" : ""} title="${esc(tx("Rang {0} : {1}", { 0: r + 1, 1: effAt(r + 1) }) + (spellCd(sp, r + 1) < spellCd(sp, Math.max(1, r)) ? " · " + tx("recharge : {0} s", { 0: dec(String(spellCd(sp, r + 1))) }) : ""))}">${r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })}</button>`
           // « max » (Manuel du stratège, comme les talents) : autant de rangs que l'or le permet, dès que deux sont abordables.
           + (hasUnlock(S, "bulkPoints") && r + 1 < SPELL_MAX && S.gold >= price * 3.5 ? ` <button data-action="c-spellmax" data-id="${sp.id}" class="quiet" title="${esc(tx("Acheter autant de niveaux que possible"))}">${tx("max")}</button>` : "");
+      // (it. 1434) Jour des arcanes : la recharge réelle du jour, et l'icône de la bénédiction (nom au survol)
+      const dmS = activeDayMod(S), cdMul = dmS?.spellCdr || 1, dmCd = cdMul !== 1 ? ` <span class="help" title="${esc(`${dmS.icon} ${dmS.name} · ${dmS.desc}`)}">${dmS.icon}</span>` : "";
       return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3, sp.fx?.[0])}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
-        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: dec(String(spellCd(sp, Math.max(1, r)))), 1: eff })}${spellFxText(sp, r).map((t) => ` · <b class="tint">${t}</b>`).join("")}</p>${btn}</div>`;
+        <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: dec(String(Math.round(spellCd(sp, Math.max(1, r)) / cdMul * 10) / 10)), 1: eff })}${dmCd}${spellFxText(sp, r).map((t) => ` · <b class="tint">${t}</b>`).join("")}</p>${btn}</div>`;
     }).join("");
     // Grimoire des sorts (case ou lien vers le déblocage) dans le titre : une ligne de moins (sinon l'onglet défilait).
     const book = hasUnlock(S, "spellBook") ? `<label class="toggle" title="${esc(tx("Grimoire des sorts : améliorer tout seul le sort le moins cher"))}"><input type="checkbox" data-action="c-autospells"${S.settings.autoSpells !== false ? " checked" : ""}> ${tx("Grimoire des sorts")}</label>` : lockLink(S, "spellBook");
