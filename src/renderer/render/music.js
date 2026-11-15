@@ -44,7 +44,11 @@ export class Music {
 
   /** Volume propre de la musique (Réglages, 0 à 2 ; 1 = niveau d'origine) : appliqué tout de suite au morceau en cours. */
   setLevel(level) {
+    const was = this.level;
     this.level = Math.max(0, Math.min(2, +level || 0));
+    // (it. 1560) curseur à 0 % : rien à jouer, le morceau décodé est libéré ; il revient quand le curseur remonte
+    if (this.level === 0) { if (this.voice || this.buffers.size) this.stop(); return; }
+    if (was === 0 && this.enabled && this.zone) { const z = this.zone; this.zone = 0; this.setZone(z); return; }
     const ctx = this.sound.ctx, v = this.voice;
     if (ctx && v && !v.dying) { const t = ctx.currentTime; v.gain.gain.cancelScheduledValues(t); v.gain.gain.setTargetAtTime(this.target(), t, 0.15); }
   }
@@ -98,7 +102,7 @@ export class Music {
   async applyZone(zone) {
     if (zone === this.zone && this.voice) return;
     this.zone = zone;
-    if (!this.enabled) return;
+    if (!this.enabled || this.level === 0) return;
     const ctx = this.sound.audio();
     if (!ctx) return;
     const idx = trackIndex(zone);

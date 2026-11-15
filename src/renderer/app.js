@@ -149,7 +149,7 @@ async function boot() {
     sound.setEffects(P.fxVol ?? 1);
     music.setLevel(P.musicVol ?? 1);
     music.set(P.music !== false);
-    sound.setIdle(!!P.muted || (!P.sound && P.music === false));
+    sound.setIdle(!!P.muted || (!P.sound && (P.music === false || (P.musicVol ?? 1) === 0))); // (it. 1560) musique à 0 % comptée comme coupée
     // économie d'énergie ou batterie : musique plus légère (accords à 3 notes, pas de vinyle) ; music.onBattery : app.js plus bas
     music.lite = !!P.eco || !!music.onBattery;
     window.dispatchEvent(new Event("sillwalker-framerate")); // « Économie d'énergie » a pu changer : cadence à revoir

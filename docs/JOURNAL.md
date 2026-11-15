@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1560) : curseur « Musique » à 0 % : le morceau n'est plus joué en silence, il est libéré (≈ 55 Mo)
+  et revient quand le curseur remonte ; avec les effets coupés, le moteur audio se met en veille comme si la musique
+  était décochée. Autotest 240/240.
 - 2026-11-16 (it. 1559) : bon voisin : bande cachée plus d'une minute (icône seule, plein écran, session verrouillée), le
   morceau de musique décodé (≈ 55 Mo) est libéré ; il revient en fondu quand la bande réapparaît (Music.hide ; autotest 239/239).
 - 2026-11-16 (it. 1558) : quand Poupouce entre en combat, le héros s'étonne dans une bulle (« C'est… Poupouce ?! »),

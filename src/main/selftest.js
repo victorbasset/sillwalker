@@ -1168,6 +1168,11 @@ async function runSelfTest(strip) {
     M.hide(false); M.hideDelay = undefined;
     for (let i = 0; i < 40 && !(M.voice && M.voice.idx === trackIndex(G.S.zone)); i++) await new Promise((r) => setTimeout(r, 250));
     return freed + " " + !!(M.voice && M.voice.idx === trackIndex(G.S.zone)); })()`);
+  const lv0 = await js(`(async () => { const M = window.__music, G = window.__game, lv = M.level ?? 1; if (!M.enabled) return "désactivée";
+    M.setLevel(0); const freed = !M.voice && M.buffers.size === 0; M.setLevel(lv || 1);
+    for (let i = 0; i < 40 && !M.voice; i++) await new Promise((r) => setTimeout(r, 250));
+    return freed + " " + !!M.voice; })()`);
+  check("musique : curseur à 0 % = morceau libéré, repris quand il remonte", lv0 === "true true" || lv0 === "désactivée", lv0);
   check("musique : libérée quand la bande reste cachée, reprise à son retour", hid === "true true" || hid === "désactivée", hid);
   check("musique : le morceau de la zone joue, l'aperçu en change", play === "true true" || play === "désactivée", play);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
