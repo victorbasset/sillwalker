@@ -8,7 +8,7 @@
 
 export const MUSIC_BLOCK = 50;
 export const TRACKS = [
-  { id: "rebord", name: "Le Rebord" },
+  { id: "rebord", name: "Le Rebord", gain: 0.75 }, // (demande de Victor) le premier, très léger : −2,5 dB dans le jeu
   { id: "sentiers", name: "Sentiers d’étoiles" },
   { id: "lieutenants", name: "Les Lieutenants" },
   { id: "briseur", name: "Le Briseur d’Étoiles" },
@@ -49,7 +49,7 @@ export class Music {
     if (ctx && v && !v.dying) { const t = ctx.currentTime; v.gain.gain.cancelScheduledValues(t); v.gain.gain.setTargetAtTime(this.target(), t, 0.15); }
   }
 
-  target() { return MUSIC_GAIN * (this.level ?? 1) * (this._boss ? 1.26 : 1); }
+  target(idx = this.voice?.idx ?? trackIndex(this.zone || 1)) { return MUSIC_GAIN * (TRACKS[idx]?.gain ?? 1) * (this.level ?? 1) * (this._boss ? 1.26 : 1); }
 
   /** Combat de boss (app.js) : volume +2 dB et graves renforcés, en douceur. */
   set boss(on) {
@@ -111,7 +111,7 @@ export class Music {
     if (old) { old.gain.gain.cancelScheduledValues(t); old.gain.gain.setValueAtTime(old.gain.gain.value, t); old.gain.gain.linearRampToValueAtTime(0, t + FADE); old.dying = true; old.src.stop(t + FADE + 0.05); this.retire(old); }
     const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
     const low = ctx.createBiquadFilter(); low.type = "lowshelf"; low.frequency.value = 120; low.gain.value = this._boss ? 4 : 0;
-    const gain = ctx.createGain(); gain.gain.setValueAtTime(0, t); gain.gain.linearRampToValueAtTime(this.target(), t + FADE);
+    const gain = ctx.createGain(); gain.gain.setValueAtTime(0, t); gain.gain.linearRampToValueAtTime(this.target(idx), t + FADE);
     src.connect(low); low.connect(gain); gain.connect(this.sound.out || this.sound.master); // volume général, pas le bus des effets
     src.start(t);
     this.voice = { src, low, gain, idx };

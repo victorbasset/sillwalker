@@ -165,3 +165,10 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   barres de vie), traduite dans les 9 langues. Le devlog viendra avec la prochaine version (0.1.5).
   Reste : 9b, les retours d'écoute de Victor.
 - 15/11 : Victor valide les 4 morceaux (« c'est bon comme ça »). Bande originale terminée ; retour à la boucle ordinaire.
+- 15/11 (9c-9d, retours d'un joueur et de Victor) : le Rebord, guitare (arpèges dès 35 s) reculée de 8 dB, plus douce
+  (passe-bas 3,2 kHz), batterie −2 / −3 dB, et joué à 0,75 dans le jeu (TRACKS.gain) : « très léger » ; −15,9 LUFS,
+  aigus plus sombres (4 kHz −21 dB contre −18). Le Briseur d'Étoiles prend une identité synthwave pour ne plus
+  ressembler aux Lieutenants : 108 bpm, grosse caisse sur chaque temps, charlestons ouverts à contretemps, piano en
+  croches répétées, nappes qui pompent (duck 0,8), thème à la puce et aux cloches (plus de cordes ni de chœur sur le
+  thème, plus de toms façon taiko) ; 133 s, −16,0 LUFS, raccord 0,0006. MP3 : 02-le-rebord-v4, 05-le-briseur-d-etoiles-v3.
+

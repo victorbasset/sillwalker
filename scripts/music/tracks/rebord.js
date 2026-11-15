@@ -36,15 +36,17 @@ export default {
     // (4b) niveaux d'après le rendu par pistes (stems.py) : le piano électrique chargeait 250 Hz et cachait le reste ;
     // la puce (qui porte le thème), les charlestons, la cloche, les cordes et la nappe étaient presque inaudibles
     const keys = st.channel("keys", { db: -8, pan: -0.3, verb: 0.22, delay: 0.05, duck: 0.22, hp: 180 });
-    const gtr = st.channel("gtr", { db: -5, pan: 0.55, verb: 0.2, delay: 0.16, duck: 0.2, hp: 180 });
+    // (9c, retour d'un joueur : « les tics de guitare qui arrivent à 35 s sont trop forts, la musique doit être bien sans »)
+    // guitare reculée de 8 dB, plus sombre ; et un morceau plus léger dans l'ensemble (demande de Victor)
+    const gtr = st.channel("gtr", { db: -13, pan: 0.6, verb: 0.3, delay: 0.16, duck: 0.25, hp: 220, lp: 3200 });
     const flute = st.channel("flute", { db: -2, pan: 0.15, verb: 0.32, delay: 0.12, duck: 0.1 });
     const chip = st.channel("chip", { db: 4, pan: -0.15, verb: 0.25, delay: 0.18, duck: 0.1 });
     const bellc = st.channel("bell", { db: -3, pan: 0.45, verb: 0.4, delay: 0.2 });
     const padc = st.channel("pad", { db: -11, verb: 0.5, duck: 0.45, hp: 200 });
     const strc = st.channel("strings", { db: -7, pan: 0.25, verb: 0.4, duck: 0.3 });
     const bass = st.channel("bass", { db: -8, duck: 0.3 });
-    const kickc = st.channel("kick", { db: -7, lp: 6000 });
-    const snarec = st.channel("snare", { db: -6, verb: 0.12, pan: 0.03 });
+    const kickc = st.channel("kick", { db: -9, lp: 5000 });
+    const snarec = st.channel("snare", { db: -9, verb: 0.14, pan: 0.03 });
     const hatc = st.channel("hats", { db: -3, pan: 0.18, lp: 12000 });
     const fx = st.channel("fx", { db: -12, verb: 0.15 });
     I.vinyl(st, fx, 0, st.at(BARS), 6, 0.9);
@@ -70,7 +72,7 @@ export default {
           // guitare : arpèges en croches dans A', B, A'' (pas dans l'intro, la respiration)
           if (name === "A2" || name === "B" || name === "A3" || (name === "outro" && k < 4)) {
             const pat = [0, 2, 1, 3, 2, 1, 3, 2];
-            for (let j = 0; j < len * 2; j++) I.pluck(st, gtr, st.at(bar, sw(beat + j / 2)), notes[pat[j] % notes.length] + 12, st.beat * 0.5, 0.42 + (j % 2 ? 0 : 0.08), 0.55);
+            for (let j = 0; j < len * 2; j++) I.pluck(st, gtr, st.at(bar, sw(beat + j / 2)), notes[pat[j] % notes.length] + 12, st.beat * 0.5, 0.3 + (j % 2 ? 0 : 0.05), 0.4);
           }
           // nappe et cordes : dans le pont et le dernier A
           if (name === "B" || name === "A3") I.pad(st, padc, t, notes[1] + 12, st.beat * len, 0.55, { cut: 2200 });

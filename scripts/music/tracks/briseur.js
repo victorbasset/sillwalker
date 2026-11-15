@@ -30,7 +30,10 @@ const BARS = SECTIONS.reduce((a, [, n]) => a + n, 0);
 const CODA_PROG = ["Bb", "C", "D", "D"];
 
 export default {
-  bpm: 100, bars: BARS, tail: 7, loop: true,
+  // (9d, retour d'un joueur : « la quatrième ressemble pas mal à la troisième ») une identité à lui : synthwave
+  // galactique (grosse caisse sur chaque temps, charlestons ouverts à contretemps, nappes qui pompent, thème à la puce
+  // et aux cloches, sans cordes ni chœur sur le thème ni toms façon taiko : c'est la couleur des Lieutenants), 108 bpm
+  bpm: 108, bars: BARS, tail: 7, loop: true,
   async render(st) {
     const chip = st.channel("chip", { db: 5, pan: -0.1, verb: 0.3, delay: 0.18, duck: 0.12 });
     const melo = st.channel("melo", { db: 0, pan: 0.12, verb: 0.38, delay: 0.06, duck: 0.12 });
@@ -40,7 +43,7 @@ export default {
     // (rendu par pistes) arpège de cloches trop discret pour un final « galactique », aigus à −22 dB à 8 kHz ; grosse
     // caisse la plus forte des pistes
     const arp = st.channel("arp", { db: -2, pan: 0.45, verb: 0.35, delay: 0.25, duck: 0.3, hp: 300 });
-    const padc = st.channel("pad", { db: -9, verb: 0.55, duck: 0.5, hp: 150 });
+    const padc = st.channel("pad", { db: -8, verb: 0.5, duck: 0.8, hp: 150 });
     const bass = st.channel("bass", { db: -8, duck: 0.3 });
     const kickc = st.channel("kick", { db: -8, lp: 7000 });
     const snarec = st.channel("snare", { db: -5, verb: 0.25, pan: 0.03 });
@@ -64,17 +67,19 @@ export default {
         const av = name === "intro" ? 0.12 + 0.03 * k : name === "outro" ? 0.35 - 0.03 * k : name === "space" ? 0.25 : 0.33;
         for (let j = 0; j < 16; j++) I.bell(st, arp, st.at(bar, j / 4), notes[[0, 1, 2, 3, 2, 1, 3, 2][j % 8]] + 24 + (j >= 8 ? 12 : 0), st.beat * 0.25, av, { ring: 0.5, index: 1.2 });
         // piano (bas-médiums) et cordes d'accompagnement dans leur registre
-        if (full) { notes.forEach((m, i) => I.epiano(st, keys, t + i * 0.012, m, st.bar * 0.9, 0.45, { bright: 1.4 })); notes.forEach((m) => I.strings(st, strc, t, m, st.bar * 0.98, 0.65, { attack: 0.3 })); }
-        if (name === "intro" || name === "space" || big) notes.slice(0, 3).forEach((m) => I.choir(st, choirc, t, m + 12, st.bar * 0.98, name === "intro" ? 0.2 + 0.04 * k : 0.45));
+        // piano en accords répétés à la croche (pulsation synthwave) ; cordes seulement dans le pont, chœur dans l'espace et la coda
+        if (full) for (let e = 0; e < 8; e++) notes.forEach((m, i) => I.epiano(st, keys, st.at(bar, e / 2) + i * 0.006, m, st.beat * 0.4, e % 2 ? 0.32 : 0.42, { bright: 1.6 }));
+        if (name === "B") notes.forEach((m) => I.strings(st, strc, t, m, st.bar * 0.98, 0.55, { attack: 0.3 }));
+        if (name === "space" || name === "coda") notes.slice(0, 3).forEach((m) => I.choir(st, choirc, t, m + 12, st.bar * 0.98, 0.4));
         // basse : croches en octaves (pompe), tenue dans l'espace
         if (full || name === "build" || (name === "outro" && k < 6)) for (let e = 0; e < 8; e++) I.pluckbass(st, bass, st.at(bar, e / 2), root + (e % 2 ? 12 : 0), st.beat * 0.45, e % 2 ? 0.65 : 0.85);
         else if (name === "space" || (name === "intro" && k >= 4)) I.sub(st, bass, t, root + 12, st.bar * 0.9, 0.6);
         // ---- batterie ----
         if (full) {
-          [0, 1.5, 2, 3.5].forEach((b, i) => I.kick(st, kickc, st.at(bar, b), i % 2 ? 0.7 : 0.95));
-          [1, 3].forEach((b) => { I.snare(st, snarec, st.at(bar, b), 0.85); I.clap(st, clapc, st.at(bar, b), 0.55); });
-          for (let e = 0; e < 8; e++) I.hat(st, hatc, st.at(bar, e / 2), e % 2 ? 0.55 : 0.35, e % 2 === 1 && name === "A3");
-          if (name === "A2" || name === "A3") { I.tom(st, perc, st.at(bar, 3.5), 45, 0.5); I.tom(st, perc, st.at(bar, 3.75), 41, 0.55); }
+          for (let b = 0; b < 4; b++) I.kick(st, kickc, st.at(bar, b), b % 2 ? 0.8 : 0.95); // sur chaque temps
+          [1, 3].forEach((b) => { I.snare(st, snarec, st.at(bar, b), 0.7); I.clap(st, clapc, st.at(bar, b), 0.7); });
+          for (let e = 0; e < 8; e++) I.hat(st, hatc, st.at(bar, e / 2), e % 2 ? 0.6 : 0.25, e % 2 === 1); // ouverts à contretemps
+          if (name === "A3") for (let e = 0; e < 16; e++) I.shaker(st, perc, st.at(bar, e / 4), e % 2 ? 0.35 : 0.55);
           if (k === n - 1 && name !== "coda") for (let r = 0; r < 8; r++) I.snare(st, snarec, st.at(bar, 2 + r / 4), 0.3 + r * 0.08);
           if (k % 4 === 0) I.crash(st, hatc, t, k === 0 ? 0.85 : 0.5);
         } else if (name === "intro" && k >= 4) {
@@ -90,11 +95,11 @@ export default {
       // ---- mélodies ----
       const theme = realize(THEME, { tonic: 74, scale: "major", at: t0 * 4 });
       if (name === "intro") realize(THEME.slice(0, 9), { tonic: 86, scale: "major", at: t0 * 4 + 16 }).forEach((nt) => I.chip(st, chip, st.at(0, nt.beat), nt.midi, nt.len * st.beat * 0.9, 0.4));
-      if (name === "A") theme.forEach((nt) => { const t = st.at(0, nt.beat), d = nt.len * st.beat * 0.92; I.chip(st, chip, t, nt.midi + 12, d, 0.85, { glide: nt.len >= 1 ? 1 : 0 }); I.strings(st, melo, t, nt.midi, d, 0.9, { attack: 0.04 }); });
-      if (name === "A2") theme.forEach((nt) => { const t = st.at(0, nt.beat), d = nt.len * st.beat * 0.95; I.strings(st, melo, t, nt.midi + 12, d, 0.95, { attack: 0.05 }); I.choir(st, choirc, t, nt.midi, d, 0.55); });
+      if (name === "A") theme.forEach((nt) => { const t = st.at(0, nt.beat), d = nt.len * st.beat * 0.92; I.chip(st, chip, t, nt.midi + 12, d, 0.85, { glide: nt.len >= 1 ? 1 : 0 }); I.bell(st, fx, t, nt.midi + 24, d, 0.3, { ring: 1 }); });
+      if (name === "A2") theme.forEach((nt) => { const t = st.at(0, nt.beat), d = nt.len * st.beat * 0.92; I.chip(st, chip, t, nt.midi + 12, d, 0.8, { duty: 0.25, glide: nt.len >= 1 ? 1 : 0 }); I.chip(st, melo, t, nt.midi, d, 0.55, { duty: 0.5 }); });
       if (name === "B") BRIDGE_MEL.forEach(([b, m, l]) => { const t = st.at(t0, b), d = l * st.beat * 0.93; I.bell(st, fx, t, m, d, 0.6, { ring: 1.8 }); I.chip(st, chip, t, m, d, 0.75); I.strings(st, melo, t, m - 12, d, 0.8, { attack: 0.06 }); });
       if (name === "space") realize(THEME.slice(0, 9), { tonic: 86, scale: "major", at: t0 * 4 }).forEach((nt) => I.bell(st, fx, st.at(0, nt.beat), nt.midi, nt.len * st.beat, 0.55, { ring: 2.2 }));
-      if (name === "A3") theme.forEach((nt) => { const t = st.at(0, nt.beat), d = nt.len * st.beat * 0.92; I.chip(st, chip, t, nt.midi + 12, d, 0.9, { glide: nt.len >= 1 ? 1 : 0 }); I.strings(st, melo, t, nt.midi + 12, d, 0.95, { attack: 0.04 }); I.choir(st, choirc, t, nt.midi, d, 0.6); });
+      if (name === "A3") theme.forEach((nt) => { const t = st.at(0, nt.beat), d = nt.len * st.beat * 0.92; I.chip(st, chip, t, nt.midi + 12, d, 0.9, { glide: nt.len >= 1 ? 1 : 0 }); I.chip(st, melo, t, nt.midi, d, 0.55, { duty: 0.5 }); I.bell(st, fx, t, nt.midi + 24, d, 0.35, { ring: 1 }); });
       if (name === "coda") { // la tonique tenue au-dessus de ♭VI – ♭VII – I, puis le grand accord
         I.chip(st, chip, st.at(t0), 86, st.bar * 2.9, 0.75); I.strings(st, melo, st.at(t0), 86, st.bar * 3.9, 0.95, { attack: 0.1 }); I.choir(st, choirc, st.at(t0), 74, st.bar * 3.9, 0.6);
         I.tom(st, perc, st.at(t0 + 2), 31, 0.95, true); I.crash(st, hatc, st.at(t0 + 2), 0.9);

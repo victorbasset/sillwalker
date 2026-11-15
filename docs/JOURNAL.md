@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1547, retours d'un joueur) : musique : le Rebord plus léger (guitare des 35 s baissée, plus doux dans
+  le jeu) ; le Briseur d'Étoiles en synthwave galactique, bien distinct des Lieutenants.
 - 2026-11-15 (it. 1546, retours d'un joueur, Kreen, transmis par Victor) : jauge d'expérience sous « Niv. N » sur la
   bande (on ne voyait pas l'XP) ; boutique « Atteindre la zone N (record M) » avec une bulle « la zone compte, pas le
   niveau » ; plus d'air entre le bouton du son et la pastille du niveau (place réelle des boutons mesurée) ; onglet
