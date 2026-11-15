@@ -1838,4 +1838,8 @@ export default {
   2963: "Una banda sonora: cuatro temas compuestos para el juego, uno por cada tramo de 50 zonas, en torno a un mismo tema, del lofi cálido a un final épico galáctico.",
   2964: "Ajustes: un control «Efectos» regula el volumen de los efectos de sonido, junto a la música y el ambiente.",
   2965: "Barras de vida arriba de la franja: entre combates, la del monstruo muestra al siguiente enemigo; un héroe caído muestra «K.O.» y el tiempo hasta su regreso.",
+  2966: "«{0}» · zonas {1}–{2}",
+  2967: "El Alféizar",
+  2968: "Senderos de estrellas",
+  2969: "Los Lugartenientes",
 };

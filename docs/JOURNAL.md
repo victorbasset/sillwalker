@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1545) : Réglages > Son : l'aperçu de la musique donne le nom du morceau (« Sentiers d'étoiles » · zones 51–100)
+  au lieu de « Morceau 2 / 4 » ; noms traduits (le Rebord et le Briseur d'Étoiles repris tels qu'ils sont déjà traduits).
 - 2026-11-15 (it. 1544, signalé par Victor) : clic sur le rebord haut d'un bouton sans effet (le bouton s'enfonce de 2 px,
   le relâchement tombait au-dessus) : ui/pressfix.js clique le bouton pressé si on le relâche à 4 px au plus ; autotest 236/236.
 - 2026-11-15 (musique) : Victor valide les 4 morceaux ; plan de la musique terminé, retour à la boucle ordinaire.

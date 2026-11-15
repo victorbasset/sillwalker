@@ -1838,4 +1838,8 @@ export default {
   2963: "Ein Soundtrack: vier eigens komponierte Stücke, eines pro 50 Zonen, rund um ein gemeinsames Thema, vom warmen Lofi bis zum epischen galaktischen Finale.",
   2964: "Einstellungen: ein Regler „Effekte“ stellt die Lautstärke der Soundeffekte ein, neben Musik und Ambiente.",
   2965: "Lebensbalken oben in der Leiste: zwischen zwei Kämpfen zeigt der Balken des Monsters den nächsten Gegner; ein gefallener Held zeigt „K.O.“ und die Zeit bis zur Rückkehr.",
+  2966: "„{0}“ · Zonen {1}–{2}",
+  2967: "Der Saum",
+  2968: "Sternenpfade",
+  2969: "Die Statthalter",
 };

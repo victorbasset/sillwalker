@@ -1838,4 +1838,8 @@ export default {
   2963: "Ścieżka dźwiękowa: cztery utwory skomponowane dla gry, jeden na każde 50 stref, wokół jednego motywu, od ciepłego lofi po epicki galaktyczny finał.",
   2964: "Ustawienia: suwak „Efekty” reguluje głośność efektów dźwiękowych, obok muzyki i otoczenia.",
   2965: "Paski życia u góry paska: między walkami pasek potwora pokazuje następnego wroga; poległy bohater pokazuje „K.O.” i czas do powrotu.",
+  2966: "„{0}” · strefy {1}–{2}",
+  2967: "Krawędź",
+  2968: "Gwiezdne ścieżki",
+  2969: "Namiestnicy",
 };

@@ -1838,4 +1838,8 @@ export default {
   2963: "Uma trilha sonora: quatro faixas compostas para o jogo, uma a cada 50 zonas, em torno de um mesmo tema, do lofi aconchegante a um final épico galáctico.",
   2964: "Configurações: um controle “Efeitos” ajusta o volume dos efeitos sonoros, ao lado da música e do ambiente.",
   2965: "Barras de vida no topo da faixa: entre lutas, a do monstro mostra o próximo inimigo; um herói caído mostra “K.O.” e o tempo até voltar.",
+  2966: "“{0}” · zonas {1}–{2}",
+  2967: "O Parapeito",
+  2968: "Trilhas de estrelas",
+  2969: "Os Tenentes",
 };
