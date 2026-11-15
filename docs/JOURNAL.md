@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1449) : quête « Vaincre N boss » : temps estimé sur sa carte (un boss toutes les KILLS_PER_ZONE + 1
+  victoires, avancée automatique ou non) ; aucune estimation quand le héros bute sur un boss (stuckInfo). Ancien test
+  (it. 926, « boss : inconnu ») mis à jour ; test du cas bloqué. Autotest 228/228. Restent sans estimation : forge,
+  transmutation, coups au clic et zone (gestes du joueur ou progression incertaine).
 - 2026-11-15 (it. 1448) : quête « Trouver N objets rares ou mieux » : temps estimé sur sa carte (monstre ordinaire :
   chance de butin × part rare+ des poids de RARITIES ; élite : butin sûr dès sa rareté minimale ; boss, champions et
   Corne d'abondance négligés). Vérifié sur la partie de fin de partie (20 min simulées, graine 5) : 2 estimés, 2

@@ -481,6 +481,12 @@ test("quête « Gagner N niveaux » : avance aux montées de niveau, en jeu et p
   // (it. 1423) coffres : plus long qu'une victoire (≈ 1 coffre pour 500 victoires sans élite)
   // (it. 1447) événements rares : une estimation finie
   const qe = { uid: 998, kind: "event", goal: 2, progress: 0, reward: {}, stars: 1 }, ee = g.questEta(qe);
+  // (it. 1449) boss : une estimation, aucune si le héros bute sur un boss
+  const qb = { uid: 1000, kind: "boss", goal: 2, progress: 0, reward: {}, stars: 1 };
+  assert.ok(g.questEta(qb) > 0, "boss");
+  const t0 = g.R.time; g.R.time = 1000; g.R.wallDeaths = [990, 992, 994, 996];
+  assert.ok(g.stuckInfo(), "bloqué"); assert.equal(g.questEta(qb), null, "pas d'estimation si bloqué");
+  g.R.wallDeaths = []; g.R.time = t0;
   // (it. 1448) butin rare ou mieux : une estimation finie
   const el = g.questEta({ uid: 999, kind: "loot", goal: 4, progress: 0, reward: {}, stars: 1 });
   assert.ok(el > 0 && Number.isFinite(el), "butin " + el);
@@ -2327,7 +2333,8 @@ test("quêtes : temps restant estimé au rythme des combats (it. 926)", () => {
   assert.ok(Math.abs(g.questEta({ ...q, kind: "gold", goal: 1000, progress: 0 }) - 60) < 1e-6, "1000 or à 50 or / 3 s");
   const t = g.zoneDef().monsters;
   assert.ok(Math.abs(g.questEta({ ...q, kind: "hunt", type: t[0], goal: 10, progress: 0 }) - 30 * t.length) < 1e-6, "chasse : une victoire sur " + t.length);
-  assert.equal(g.questEta({ ...q, kind: "boss" }), null);
+  // (it. 1449) boss : un toutes les KILLS_PER_ZONE victoires (avant : aucune estimation)
+  assert.ok(Math.abs(g.questEta({ ...q, kind: "boss" }) - 60 * 3 * (KILLS_PER_ZONE + 1)) < 1e-6, "boss : 1 victoire sur " + (KILLS_PER_ZONE + 1));
   assert.equal(g.questEta({ ...q, progress: 100 }), null, "finie");
   // (it. 928) or à gagner : même rythme
   assert.ok(Math.abs(g.goldEta(500) - 30) < 1e-6, "500 or à 50 or / 3 s : 30 s");

@@ -2191,7 +2191,7 @@ export class Game {
       return ends.length >= left ? Math.max(0, (ends[left - 1] - now) / 1000) : null;
     }
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot", "boss"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
@@ -2224,6 +2224,9 @@ export class Game {
     }
     // (it. 1263) champions : même chance par victoire que pendant l'absence (it. 1262)
     if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance * (activeDayMod(this.S)?.champion || 1); }
+    // (it. 1449) boss : un boss toutes les KILLS_PER_ZONE victoires (avancée automatique ou non) ; aucune estimation si le
+    // héros bute sur un boss (stuckInfo)
+    if (q.kind === "boss") { if (this.stuckInfo()) return null; rate /= KILLS_PER_ZONE + 1; }
     // (it. 1448) butin rare ou mieux : objet d'un monstre ordinaire (chance de butin) ou d'une élite (toujours, rareté
     // minimale), rareté selon les poids fixes de RARITIES ; champions, boss et Corne d'abondance négligés (estimation basse)
     if (q.kind === "loot") {
