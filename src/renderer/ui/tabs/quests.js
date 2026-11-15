@@ -13,6 +13,7 @@ import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { tabOpen } from "../../game/tabs.js";
 import { classSpells, spellRank } from "../../game/spells.js";
+import { zoneDef } from "../../game/rules.js";
 
 /** Icône de chaque type de quête (réutilise les dessins de la boutique et des objets). */
 const KIND_ICON = {
@@ -69,6 +70,17 @@ export class QuestsTab {
       const prog = q.kind === "gold" ? `${fmt(q.progress)} / ${fmt(q.goal)}` : `${Math.min(q.progress, q.goal)} / ${q.goal}`;
       const eta = g.questEta(q); // (it. 926) au rythme actuel des combats
       const etaTxt = eta != null && eta < 48 * 3600 ? ` <small class="eta">· ${esc(tx("≈ {0}", { 0: durText(Math.max(60, eta)) }))}</small>` : "";
+      // (it. 1426) chasse d'un monstre absent de la zone (zone changée, ascension) : la zone la plus proche où il vit ;
+      // avec la Carte du voyageur, un clic y emmène le héros
+      let away = "";
+      if (!done && q.kind === "hunt" && !zoneDef(S.zone).monsters.includes(q.type)) {
+        let best = 0;
+        for (let z = 1; z <= S.best; z++) if (zoneDef(z).monsters.includes(q.type) && (!best || Math.abs(z - S.zone) < Math.abs(best - S.zone))) best = z;
+        if (best) {
+          const lbl = esc(tx("absent d’ici · zone {0}", { 0: best }));
+          away = hasUnlock(S, "travelMap") ? ` <button class="qgo" data-action="q-go" data-z="${best}" title="${esc(tx("Clic : y aller"))}">${lbl}</button>` : ` <small class="eta">· ${lbl}</small>`;
+        }
+      }
       // (it. 1344) quêtes d'élites : l'Encens de chasse les accélère (astuce au survol, la carte ne grandit pas)
       const lureTip = !done && (q.kind === "elite" || q.kind === "prey") && tabOpen(S, "shop")
         ? ` title="${esc(tx("Astuce : l’Encens de chasse de la Boutique attire deux fois plus d’élites."))}"` : "";
@@ -76,7 +88,7 @@ export class QuestsTab {
         <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)(S)}" alt=""><div>
           <div class="stars">${"★".repeat(stars)}<span>${"★".repeat(3 - stars)}</span></div>
           <h2>${esc(questText(q, fmt))}</h2></div></div>
-        <div class="kv"><span>${tx("Progression")}</span><span>${prog}${etaTxt}</span></div>
+        <div class="kv"><span>${tx("Progression")}</span><span>${prog}${etaTxt}${away}</span></div>
         <div class="bar"><i style="width:${pct}%"></i></div>
         <div class="rewards">${rewardHTML(q.reward.gold ? { ...q.reward, gold: questGold(S, q) } : q.reward)}</div>
         <div class="row">${done
@@ -93,6 +105,7 @@ export class QuestsTab {
     if (a === "q-claim") g.claimQuest(+b.dataset.id);
     else if (a === "q-claimall") { for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid); }
     else if (a === "q-reroll") g.rerollQuest(+b.dataset.id);
+    else if (a === "q-go" && hasUnlock(g.S, "travelMap")) g.setZone(+b.dataset.z); // (it. 1426)
     else if (a === "q-auto") { g.S.quests.auto = b.checked; if (b.checked) { g.R.autoClaim = true; g.autoClaimQuests(); } g.changed(); }
   }
 

@@ -13,7 +13,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Version 0.1.4 (à décider)
 
-- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 85). Nouveautés
+- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 86). Nouveautés
   majeures depuis la 0.1.3 : champions et leur quête, 3 événements rares (Lune pâle, Écho des lames, Source de vie),
   3 élites (Régénérant, Venimeux, Explosif), 6 bénédictions du jour, 2 familiers (Grenouillette, Lucane), l'Encens de
   chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.
@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1420)
+## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1426)
 
 Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
 Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
@@ -42,5 +42,6 @@ comptent pour leur sorte ; bilans des événements plus riches (vie rendue, exp�
 chasse dans Bestiaire > Élites ; 18e sorte de quête « Gagner N niveaux » (avec son temps estimé, jamais proposée
 quand les niveaux ne viennent plus) ; la bulle du mode mini annonce la bénédiction de demain ; bénédiction « Jour des arcanes » (sorts rechargés 50 % plus
 vite ; la pastille et la bulle du mode mini disent quand les sorts arrivent si aucun n'est appris) ; temps estimé
-sur les cartes des quêtes de sorts, de coups critiques et d'expéditions (exact pour ces dernières). Vérifié : l'ensemble des ajouts de la nuit ne change pas l'équilibre (3 graines),
+sur les cartes des quêtes de sorts, de coups critiques et d'expéditions (exact pour ces dernières) et de coffres ; une quête de chasse dont le monstre
+n'est pas dans la zone dit où il vit (un clic y emmène avec la Carte du voyageur). Vérifié : l'ensemble des ajouts de la nuit ne change pas l'équilibre (3 graines),
 mémoire et performance stables.

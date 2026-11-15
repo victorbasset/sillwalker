@@ -1759,4 +1759,6 @@ export default {
   2884: "Nueva bendición del día, el Día de los arcanos: los hechizos se recargan un 50 % más rápido.",
   2885: "Los hechizos se aprenden a partir de la zona {0}.",
   2886: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros y hechizos). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros y hechizos). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
+  2887: "no está aquí · zona {0}",
+  2888: "Misiones: una cacería cuyo monstruo no vive en tu zona te dice dónde encontrarlo; con el Mapa del viajero, un clic te lleva allí. Las misiones de hechizos, golpes críticos, cofres y expediciones también muestran un tiempo estimado.",
 };

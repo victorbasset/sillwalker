@@ -1759,4 +1759,6 @@ export default {
   2884: "Nowe błogosławieństwo dnia, Dzień arkanów: zaklęcia ładują się 50% szybciej.",
   2885: "Zaklęć uczysz się od strefy {0}.",
   2886: "Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami i zaklęciami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
+  2887: "nie ma tutaj · strefa {0}",
+  2888: "Zadania: polowanie na potwora, który nie żyje w twojej strefie, mówi, gdzie go znaleźć; z Mapą podróżnika jedno kliknięcie cię tam zabiera. Zadania zaklęć, trafień krytycznych, skrzyń i wypraw też pokazują szacowany czas.",
 };

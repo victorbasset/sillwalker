@@ -1759,4 +1759,6 @@ export default {
   2884: "Nova bênção do dia, o Dia dos arcanos: os feitiços recarregam 50 % mais rápido.",
   2885: "Os feitiços são aprendidos a partir da zona {0}.",
   2886: "As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros e feitiços). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros e feitiços). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
+  2887: "não está aqui · zona {0}",
+  2888: "Missões: uma caçada cujo monstro não vive na tua zona diz onde encontrá-lo; com o Mapa do viajante, um clique leva-te até lá. As missões de feitiços, golpes críticos, baús e expedições também mostram um tempo estimado.",
 };

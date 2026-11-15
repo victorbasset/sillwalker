@@ -1759,4 +1759,6 @@ export default {
   2884: "Neuer Segen des Tages, der Tag der Arkana: Zauber laden 50 % schneller auf.",
   2885: "Zauber lernt man ab Zone {0}.",
   2886: "Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse und Zauber). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse und Zauber). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
+  2887: "nicht hier · Zone {0}",
+  2888: "Quests: Eine Jagd, deren Monster nicht in deiner Zone lebt, sagt dir, wo du es findest; mit der Karte des Reisenden bringt dich ein Klick dorthin. Quests für Zauber, kritische Treffer, Truhen und Expeditionen zeigen auch eine geschätzte Zeit.",
 };

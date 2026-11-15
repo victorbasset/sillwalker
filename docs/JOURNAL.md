@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1426) : quête « Chasser N … » dont le monstre ne vit pas dans la zone actuelle (zone changée,
+  ascension) : la carte dit « absent d’ici · zone N » (zone la plus proche, jusqu'au record, où il vit) ; avec la Carte
+  du voyageur c'est un bouton qui y emmène le héros. Avant : quête bloquée sans explication. Vérifié par --stage :
+  allemand 1280 px (texte, sans débordement), bouton 56 → 37. « Quoi de neuf » 86 (avec les temps estimés des
+  it. 1417-1423). Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1425, contrôle) : après les temps estimés des quêtes (it. 1417-1423) : save-fuzz (dev 1218 et fin
   1190 corruptions) ok ; questEta essayé à la main avec des expéditions abîmées (null, liste, texte, NaN, nombre en
   texte) et des quêtes au but illisible : aucune erreur, null ou une valeur sensée. first-minutes inchangé (niv. 2
