@@ -1746,4 +1746,5 @@ export default {
   2871: "Nowa elita, Wybuchowy: ginąc, zadaje twojemu bohaterowi 6 % maks. PŻ (nigdy go nie dobijając). Lepiej nie kończyć walki bez tchu.",
   2872: "Saper (25 wybuchowych)",
   2873: "Nowe osiągnięcie, Saper: pokonaj 25 wybuchowych elit.",
+  2874: "+{n} PŻ odzyskany|+{n} PŻ odzyskane|+{n} PŻ odzyskanych",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1398) : bilan de la Source de vie au journal : la vie rendue (« Source de vie · bilan : 12 monstres
+  vaincus, +1,8 M PV regagnés. »), comme les boss pour la Lune pâle ; accumulée pendant l'événement, remise à zéro à son
+  début. 10 langues (3 formes en polonais), test. Autotest 228/228.
 - 2026-11-15 (it. 1397) : absence : les compteurs par sorte d'élite (Bestiaire > Élites, succès Démineur) avancent
   aussi hors ligne, une sorte au hasard par élite comme les proies ; seules les sortes déjà vaincues comptent (la
   découverte d'une sorte reste un moment du jeu en direct, avec son annonce et son bonus). Avant, un joueur surtout

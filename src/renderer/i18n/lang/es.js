@@ -1746,4 +1746,5 @@ export default {
   2871: "Nueva élite, el Explosivo: al morir, inflige a tu héroe un 6 % de sus PV máx. (sin rematarlo nunca). Mejor no terminar el combate sin aliento.",
   2872: "Artificiero (25 explosivos)",
   2873: "Nuevo logro, Artificiero: derrota a 25 élites explosivas.",
+  2874: "+{n} PV recuperado|+{n} PV recuperados",
 };

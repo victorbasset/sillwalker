@@ -400,6 +400,8 @@ test("Source de vie : 4 % des PV max par seconde, texte fidèle à SPRING (it. 1
   const gained = (g.R.hp - h1) - regen0;
   assert.ok(Math.abs(gained - hs.hp * 0.04) < hs.hp * 0.005, "soin : " + gained + " pour " + hs.hp * 0.04);
   assert.ok(EVENTS_T.spring.text.includes("4 %"), EVENTS_T.spring.text);
+  // (it. 1398) bilan : la vie rendue
+  g.S.stats.kills += 3; const line = g.eventReport("spring"); assert.ok(/regained|regagné/.test(line), line);
 });
 
 test("élite explosive : 6 % des PV max du héros à sa mort, sans l'achever (it. 1382)", () => {

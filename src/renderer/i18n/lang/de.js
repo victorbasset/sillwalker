@@ -1746,4 +1746,5 @@ export default {
   2871: "Neuer Elite-Gegner, der Explosive: Beim Tod fügt er deinem Helden 6 % seiner max. LP zu (ohne ihn je zu erledigen). Besser nicht außer Atem ins Kampfende gehen.",
   2872: "Kampfmittelräumer (25 Explosive)",
   2873: "Neuer Erfolg, Kampfmittelräumer: Besiege 25 explosive Elite-Gegner.",
+  2874: "+{n} LP zurückgewonnen|+{n} LP zurückgewonnen",
 };
