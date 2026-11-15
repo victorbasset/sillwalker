@@ -1715,4 +1715,7 @@ export default {
   2840: "«Gastar automáticamente» en el gran grafo ya no congela el juego al final de la partida.",
   2841: "{n} hueco · +6 por nivel|{n} huecos · +6 por nivel",
   2842: "{n} nodo|{n} nodos",
+  2843: "Derrotar {n} monstruo|Derrotar {n} monstruos",
+  2844: "Derrotar a {n} élite|Derrotar a {n} élites",
+  2845: "Crear {n} objeto por transmutación|Crear {n} objetos por transmutación",
 };

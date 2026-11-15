@@ -1715,4 +1715,7 @@ export default {
   2840: "„Automatisch verteilen“ im großen Graphen lässt das Spiel im Endspiel nicht mehr einfrieren.",
   2841: "{n} Platz · +6 pro Stufe|{n} Plätze · +6 pro Stufe",
   2842: "{n} Knoten|{n} Knoten",
+  2843: "{n} Monster besiegen|{n} Monster besiegen",
+  2844: "{n} Elitegegner besiegen|{n} Elitegegner besiegen",
+  2845: "{n} Gegenstand durch Transmutation erschaffen|{n} Gegenstände durch Transmutation erschaffen",
 };

@@ -2844,5 +2844,8 @@ export const KEYS = [
   "Pendant ton absence, les parchemins de fortune et de savoir comptent enfin (ils ne donnaient presque rien), tout comme la potion de célérité, le trèfle à quatre feuilles et l’encens de chasse.",
   "« Dépenser automatiquement » dans le grand graphe ne fige plus le jeu en fin de partie.",
   "{n} place · +6 par niveau|{n} places · +6 par niveau",
-  "{n} nœud|{n} nœuds"
+  "{n} nœud|{n} nœuds",
+  "Vaincre {n} monstre|Vaincre {n} monstres",
+  "Vaincre {n} élite|Vaincre {n} élites",
+  "Créer {n} objet par transmutation|Créer {n} objets par transmutation"
 ];

@@ -13,7 +13,6 @@ export const goldScale = (S) => 3 * Math.pow(1.25, Math.max(1, S.best) - 1); // 
 export const questRerollPrice = (S) => Math.round(goldScale(S) * 25);
 
 const randInt = (a, b) => a + Math.floor(rand() * (b - a + 1));
-const plural = (n, s, p = s + "s") => (n > 1 ? p : s);
 /** (it. 989) Pluriel français d'un nom de monstre : le nom et ses adjectifs (« rats géants », « crabes abyssaux »), rien
  *  après « de / des / du / d’ » (« loups des neiges ») ; avant : un « s » collé à la fin (« cultiste du néants »). */
 const FR_PLURAL_SPECIAL = { "œil des profondeurs": "yeux des profondeurs", "chauve-souris": "chauves-souris", "feu follet": "feux follets", "chef de guerre orc": "chefs de guerre orcs" };
@@ -36,7 +35,8 @@ const fr = () => getLang() === "fr";
  */
 export const QUEST_TEMPLATES = {
   kill: {
-    text: (q) => `${tx("Vaincre {0} monstres", { 0: q.goal })}`,
+    // (it. 1356) accordé dans toutes les langues (« Победить 22 монстров » : forme fausse selon le nombre)
+    text: (q) => txn(q.goal, "Vaincre {n} monstre|Vaincre {n} monstres"),
     make: (S) => { const goal = randInt(4, 8) * 10; return { goal, reward: { gold: Math.round(goal * goldScale(S) * 2.5) } }; },
   },
   hunt: {
@@ -49,7 +49,7 @@ export const QUEST_TEMPLATES = {
   },
   elite: {
     ok: (S) => S.zone >= ELITE.minZone || (S.prestige.count || 0) > 0, // pas d'élite avant la zone 3 en première course
-    text: (q) => (fr() ? tx("Vaincre {0} {1}", { 0: q.goal, 1: plural(q.goal, "élite") }) : tx("Vaincre {0} élites", { 0: q.goal })),
+    text: (q) => txn(q.goal, "Vaincre {n} élite|Vaincre {n} élites"),
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, gold: Math.round(goldScale(S) * 60) } }),
   },
   // (it. 946) proie : une sorte d'élite précise (son nom entre guillemets : pas d'accord à faire dans les langues à genres)
@@ -84,7 +84,7 @@ export const QUEST_TEMPLATES = {
   },
   transmute: {
     ok: (S) => !!(S.unlocks && S.unlocks.transmute), // pas avant le déblocage de la transmutation
-    text: (q) => (fr() ? tx("Créer {0} {1} par transmutation", { 0: q.goal, 1: plural(q.goal, "objet") }) : tx("Créer {0} objets par transmutation", { 0: q.goal })),
+    text: (q) => txn(q.goal, "Créer {n} objet par transmutation|Créer {n} objets par transmutation"),
     make: (S) => ({ goal: randInt(2, 4), reward: { chest: 2, potions: 2 } }),
   },
   loot: { // butin trouvé sur les monstres (rare ou mieux)

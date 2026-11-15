@@ -1715,4 +1715,7 @@ export default {
   2840: "“Gastar automaticamente” no grande grafo não trava mais o jogo no fim da partida.",
   2841: "{n} espaço · +6 por nível|{n} espaços · +6 por nível",
   2842: "{n} nó|{n} nós",
+  2843: "Derrotar {n} monstro|Derrotar {n} monstros",
+  2844: "Derrotar {n} elite|Derrotar {n} elites",
+  2845: "Criar {n} item por transmutação|Criar {n} itens por transmutação",
 };

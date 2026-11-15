@@ -1715,4 +1715,7 @@ export default {
   2840: "“Spend automatically” in the great graph no longer freezes the game late in a run.",
   2841: "{n} slot · +6 per level|{n} slots · +6 per level",
   2842: "{n} node|{n} nodes",
+  2843: "Defeat {n} monster|Defeat {n} monsters",
+  2844: "Defeat {n} elite|Defeat {n} elites",
+  2845: "Create {n} item by transmutation|Create {n} items by transmutation",
 };

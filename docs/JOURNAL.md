@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1356) : intitulés des quêtes accordés dans toutes les langues : « Vaincre N monstres / élites »,
+  « Créer N objets par transmutation » (russe « Победи 3 элиты » / « 5 элит », polonais « Pokonaj 24 potwory » ;
+  avant, un mot fixe ou un contournement « Победи элит: 3 »). txn à 3 formes ; le français reste identique ; plural()
+  devenue inutile retirée. Autotest 228/228, lang-overflow ru, pl propre.
 - 2026-11-15 (it. 1355) : pluriels russes et polonais justes pour deux nombres écrits devant un mot fixe : taille du
   sac (Boutique > Atelier, 12 à 48 places : « 24 ячеек » → « 24 ячейки », « 42 miejsc » → « 42 miejsca ») et nombre
   de nœuds de la fleur (« 144 узлов » → « 144 узла », « 144 węzłów » → « 144 węzły »). txn avec 3 formes ; recherche
@@ -5251,6 +5255,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 1356) Autres nombres variables devant un pluriel fixe (russe et polonais faux selon le nombre), à passer
+  par txn : éclats d'ascension (« +{1} éclats d’étoile » : game.js ascend et Astrolabe, juice.js, mini.js,
+  ascension.js « +{0} éclats » et « Rapportera alors {2} éclats », hints.js), bestiary.js « {0} victoires »,
+  pets.js « Récupérer {0} expéditions », app.js « ({1} défaites) », talents.js « {0} points dépensés ».
 - FAIT (it. 1269-1270, ligne d'expérience de la carte du héros) P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
   1280 px, défilement de 10 px), puis rien sur quatre relances : un état passager de dev-data (pastilles des
   événements ou élixirs en cours ?). Forcer deux événements et des élixirs à 1280 px en espagnol et mesurer.

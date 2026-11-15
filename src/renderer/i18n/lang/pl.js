@@ -1715,4 +1715,7 @@ export default {
   2840: "„Wydaj automatycznie” w wielkim grafie nie zamraża już gry pod koniec rozgrywki.",
   2841: "{n} miejsce · +6 na poziom|{n} miejsca · +6 na poziom|{n} miejsc · +6 na poziom",
   2842: "{n} węzeł|{n} węzły|{n} węzłów",
+  2843: "Pokonaj {n} potwora|Pokonaj {n} potwory|Pokonaj {n} potworów",
+  2844: "Pokonaj {n} elitę|Pokonaj {n} elity|Pokonaj {n} elit",
+  2845: "Stwórz {n} przedmiot transmutacją|Stwórz {n} przedmioty transmutacją|Stwórz {n} przedmiotów transmutacją",
 };
