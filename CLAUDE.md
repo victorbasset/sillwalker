@@ -53,7 +53,9 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   tout changement des monstres, élites, champions ou de la mort du héros.
 - Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (27 corruptions écrites à la main
   de la sauvegarde de dev, chacune « ok », puis un balayage de chaque donnée et de chaque champ des sous-objets avec sept
-  valeurs absurdes : « ok balayage (N corruptions) » attendu, ≈ 35 s ; it. 873 ; chaque corruption passe aussi par les moments à risque (mort face à un boss, boss vaincu, événement, coffre, étoile, achat d'un déblocage, quêtes : exercise(), it. 903) et par les actions du joueur (sac, forge, boutique, familiers, points, ascension : it. 904) ; le balayage touche aussi les champs d'un objet, d'une quête, d'un familier et d'une expédition (it. 905). Un cas qui ne finit pas (boucle sans fin) : `FUZZ_TRACE=1` affiche chaque cas avant de le jouer, le dernier affiché est le coupable ; un nouveau moment de ce genre s'y ajoute). À relancer après tout ajout de donnée sauvegardée. `FUZZ_BASE=fin` : même balayage à partir de la partie de fin de partie (scripts/fixtures/endgame-save.json, it. 999) ; `FUZZ_BASE=0.1.2` : à partir d'une partie de la version 0.1.2 (scripts/fixtures/save-0.1.2.json, it. 1149).
+  valeurs absurdes : « ok balayage (N corruptions) » attendu, ≈ 35 s ; it. 873 ; chaque corruption passe aussi par les moments à risque (mort face à un boss, boss vaincu, événement, coffre, étoile, achat d'un déblocage, quêtes : exercise(), it. 903) et par les actions du joueur (sac, forge, boutique, familiers, points, ascension : it. 904) ; le balayage touche aussi les champs d'un objet, d'une quête, d'un familier et d'une expédition (it. 905). Un cas qui ne finit pas (boucle sans fin) : `FUZZ_TRACE=1` affiche chaque cas avant de le jouer, le dernier affiché est le coupable ; un nouveau moment de ce genre s'y ajoute). À relancer après tout ajout de donnée sauvegardée. Il lit l'heure réelle (pas l'horloge virtuelle) : un cas qui
+semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 1345 : « tout dépenser » du grand graphe à
+400 ms) ; chronométrer un cas isolé avant de chercher une boucle. `FUZZ_BASE=fin` : même balayage à partir de la partie de fin de partie (scripts/fixtures/endgame-save.json, it. 999) ; `FUZZ_BASE=0.1.2` : à partir d'une partie de la version 0.1.2 (scripts/fixtures/save-0.1.2.json, it. 1149).
 - Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 485-530 Mo stables
   attendus (bruit d'une mesure à l'autre), son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
@@ -96,6 +98,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   `--dump-text=<fichier>` (texte de chaque onglet, pour traquer les textes non traduits), `--demo`,
   `--battery` (simule un portable sur batterie : 20 images/s), `--idle` (simule un utilisateur absent : 10 images/s).
   `--release-ui` : cache les commandes de dev (DEV, ×1, ×3, ×10) pour des captures fidèles à la version distribuée.
+  `--stage=<fichier.js>` : exécute un script dans la page (window.__game en dev) pour mettre en scène un état rare ;
+  y écrire avec `console.warn` (seuls avertissements et erreurs de la page remontent dans la console, it. 1335).
+  Copie de sauvegarde pour une capture : régler `s.last = Date.now()`, sinon l'absence simulée au lancement épuise
+  élixirs et effets avant l'image (it. 1340).
   `--crawl` : clique sur tous les boutons de tous les onglets, chaque sous-section l'une après l'autre, et affiche `CRAWL-ERREUR …` / `CRAWL-FINI N clics en S s`
   (≈ 690 clics en 22 s depuis l'it. 1338 : avant, un clic qui redessinait l'onglet faisait « cliquer » des boutons détachés, sans effet, et le Marchand n'était jamais parcouru)
   (sur une COPIE de sauvegarde : il achète, vend, dépense ; ajouter `--exit-after=200`, sinon le jeu reste ouvert). À lancer après un gros changement d'interface.

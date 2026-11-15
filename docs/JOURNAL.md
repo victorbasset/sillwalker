@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1365) : succès « Ménagerie complète » après le Lucane : calculé sur la liste (PETS), sans nombre
+  écrit dans ses textes ni sur Steam ; un succès déjà obtenu reste acquis. CLAUDE.md : astuces --stage (console.warn),
+  s.last pour les captures d'effets, et save-fuzz « sans fin » qui peut n'être qu'une lenteur (it. 1335, 1340, 1345).
 - 2026-11-15 (it. 1364, contrôle) : équilibre après le Lucane : balance 12 h contre 4096b50, graine 7 : 63,2 → 64,6
   (+1,4), graine 3 : 62,3 → 63,0 (+0,7) : bruit (le familier ajouté change aussi le tirage des œufs, donc les
   trajectoires) ; fuzz 1200 parties, 0 bloquée. Rien à corriger.
