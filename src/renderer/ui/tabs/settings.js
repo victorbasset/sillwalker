@@ -8,7 +8,7 @@ import { applyUiScale, applyTheme, themeOf, effectiveUiScale } from "../../rende
 const IS_MAC = /Mac/i.test(navigator.platform || navigator.userAgent || "");
 import { WEATHER } from "../../render/juice.js";
 import { esc, unit } from "../../game/format.js";
-import { musicZone } from "../../render/music.js";
+import { musicZone, trackIndex, TRACKS, MUSIC_BLOCK } from "../../render/music.js";
 
 
 export class SettingsTab {
@@ -46,13 +46,14 @@ export class SettingsTab {
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("note", 3)}" alt="">${tx("Son")}</span></h2>
         ${check("sound", tx("Effets sonores"), tx("Coups, pièces, butin, montée de niveau… Le bouton haut-parleur de la bande coupe tout (effets et musique) et rend l’état d’avant au clic suivant."))}
+        <label class="range">${tx("Effets")} <input type="range" min="0" max="200" step="10" value="${Math.round((P.fxVol ?? 1) * 100)}" data-action="se-fxvol"${P.sound ? "" : " disabled"}> <span>${Math.round((P.fxVol ?? 1) * 100)}${unit("%")}</span></label>
         ${check("zoneAmbience", tx("Ambiance des zones"), tx("Bulles sous l’eau, braises qui crépitent, oiseaux le jour et grillons la nuit… Très discrète, avec les effets sonores."))}
         <label class="range">${tx("Ambiance")} <input type="range" min="0" max="200" step="10" value="${Math.round((P.ambVol ?? 1) * 100)}" data-action="se-ambvol"${P.sound && P.zoneAmbience ? "" : " disabled"}> <span>${Math.round((P.ambVol ?? 1) * 100)}${unit("%")}</span></label>
-        ${check("music", tx("Musique de fond"), tx("Un petit air par zone, discret, avec un fondu quand on change de zone."))}
+        ${check("music", tx("Musique de fond"), tx("Quatre morceaux originaux, un par tranche de 50 zones, avec un fondu enchaîné."))}
         <label class="range">${tx("Musique")} <input type="range" min="0" max="200" step="10" value="${Math.round((P.musicVol ?? 1) * 100)}" data-action="se-musicvol"${P.music !== false ? "" : " disabled"}> <span>${Math.round((P.musicVol ?? 1) * 100)}${unit("%")}</span></label>
         <label class="range">${tx("Volume général")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound || P.music !== false ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button>
-          ${P.music !== false && !P.muted ? `<span class="mpreview">${tx("Air des zones {0}", { 0: `${this.shownZone()}–${this.shownZone() + 4}` })} <button data-action="se-mprev" data-d="-1" class="quiet" title="${esc(tx("Écouter l’air précédent (45 s)"))}">◀</button><button data-action="se-mprev" data-d="1" class="quiet" title="${esc(tx("Écouter l’air suivant (45 s)"))}">▶</button></span>` : ""}</div>
+          ${P.music !== false && !P.muted ? `<span class="mpreview">${tx("Morceau {0} / {1} · zones {2}–{3}", { 0: trackIndex(this.shownZone()) + 1, 1: TRACKS.length, 2: this.shownZone(), 3: this.shownZone() + MUSIC_BLOCK - 1 })} <button data-action="se-mprev" data-d="-1" class="quiet" title="${esc(tx("Écouter l’air précédent (45 s)"))}">◀</button><button data-action="se-mprev" data-d="1" class="quiet" title="${esc(tx("Écouter l’air suivant (45 s)"))}">▶</button></span>` : ""}</div>
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">${tx("Affichage")}</span></h2>
         ${check("dayNight", tx("Cycle jour / nuit"), tx("La bande suit l’heure de ton ordinateur."))}
@@ -99,10 +100,10 @@ export class SettingsTab {
     const P = this.game.S.settings;
     if (a === "se-toggle") { P[b.dataset.key] = b.checked; this.onChange?.(); }
     else if (a === "se-volume") { P.volume = +b.value / 100; this.onChange?.(); b.blur(); }
-    else if (a === "se-musicvol" || a === "se-ambvol") { P[a === "se-musicvol" ? "musicVol" : "ambVol"] = +b.value / 100; this.onChange?.(); b.blur(); }
-    else if (a === "se-mprev") { // écoute des airs (it. 534) : tranche de 5 zones précédente / suivante, 45 s
+    else if (a === "se-musicvol" || a === "se-ambvol" || a === "se-fxvol") { P[a === "se-musicvol" ? "musicVol" : a === "se-fxvol" ? "fxVol" : "ambVol"] = +b.value / 100; this.onChange?.(); b.blur(); }
+    else if (a === "se-mprev") { // écoute des morceaux (it. 534 ; 1541 : 4 morceaux, tranches de 50 zones), 45 s
       const cur = this.shownZone();
-      this.pz = Math.max(1, Math.min(196, cur + 5 * +b.dataset.d));
+      this.pz = Math.max(1, Math.min(1 + MUSIC_BLOCK * (TRACKS.length - 1), cur + MUSIC_BLOCK * +b.dataset.d));
       this.music?.preview(this.pz);
     }
     else if (a === "se-testsound") { // échantillon : coups, pièces, puis l'ambiance de la zone (régler les curseurs à l'oreille)

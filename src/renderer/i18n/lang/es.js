@@ -1832,4 +1832,7 @@ export default {
   2957: "Talentos: un botón en cada maestría para elegir las bonificaciones de sus umbrales.",
   2958: "Comodidad: un objeto comprado que refuerza a tu héroe se equipa al instante, y las ausencias por fin cuentan pergaminos, pociones e inciensos.",
   2959: "El juego empieza en el idioma de tu sistema; el ruso tiene una fuente pixel legible.",
+  2960: "Cuatro temas originales, uno por cada tramo de 50 zonas, con fundido encadenado.",
+  2961: "Tema {0} / {1} · zonas {2}–{3}",
+  2962: "Efectos",
 };

@@ -1832,4 +1832,7 @@ export default {
   2957: "Talentos: um botão em cada maestria para escolher os bônus dos patamares.",
   2958: "Conforto: um item comprado que fortalece seu herói é equipado na hora, e as ausências finalmente contam pergaminhos, poções e incensos.",
   2959: "O jogo começa no idioma do seu sistema; o russo ganha uma fonte pixel legível.",
+  2960: "Quatro faixas originais, uma a cada 50 zonas, com transição suave.",
+  2961: "Faixa {0} / {1} · zonas {2}–{3}",
+  2962: "Efeitos",
 };

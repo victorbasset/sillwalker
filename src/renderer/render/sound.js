@@ -38,8 +38,12 @@ export class Sound {
   set(enabled, volume) {
     this.enabled = !!enabled;
     this.volume = Math.max(0, Math.min(1, +volume || 0));
-    if (this.master) this.master.gain.value = this.volume * 0.25;
+    if (this.out) this.out.gain.value = this.volume * 0.25;
   }
+
+  /** (it. 1542, demande de Victor) Volume propre des effets sonores (Réglages, 0 à 2 ; 1 = niveau d'origine) :
+   *  « master » est le bus des effets ; l'ambiance et la musique se branchent sur « out » (volume général). */
+  setEffects(level) { this.fxLevel = Math.max(0, Math.min(2, +level || 0)); if (this.master && this.out) this.master.gain.value = this.fxLevel; }
 
   ensure() {
     if (!this.enabled) return null;
@@ -51,9 +55,12 @@ export class Sound {
     if (this.muted || this.paused) return null; // paused : bande cachée (plein écran, icône seule, session verrouillée)
     if (!this.ctx) {
       this.ctx = new AudioContext();
-      this.master = this.ctx.createGain();
-      this.master.gain.value = this.volume * 0.25;
-      this.master.connect(this.ctx.destination);
+      this.out = this.ctx.createGain(); // volume général
+      this.out.gain.value = this.volume * 0.25;
+      this.out.connect(this.ctx.destination);
+      this.master = this.ctx.createGain(); // bus des effets sonores (curseur « Effets »)
+      this.master.gain.value = this.fxLevel ?? 1;
+      this.master.connect(this.out);
     }
     if (this.ctx.state === "suspended") this.ctx.resume();
     return this.ctx;
@@ -202,7 +209,7 @@ export class Sound {
     setTimeout(() => { if (this.enabled) { this.last = {}; this.hit(cls, "skel", true); } }, 450);
     setTimeout(() => {
       if (!this.enabled || this.ambLevel === 0) return;
-      if (!this.ambBus || this.ambBus.context !== this.ctx) { this.ambBus = this.ctx.createGain(); this.ambBus.gain.value = this.ambLevel ?? 1; this.ambBus.connect(this.master); }
+      if (!this.ambBus || this.ambBus.context !== this.ctx) { this.ambBus = this.ctx.createGain(); this.ambBus.gain.value = this.ambLevel ?? 1; this.ambBus.connect(this.out || this.master); }
       const master = this.master; this.master = this.ambBus;
       try { this.zoneSounds(kind, night, true); } finally { this.master = master; }
     }, 1000);
@@ -214,7 +221,7 @@ export class Sound {
   zoneAmbience(kind, night) {
     if (!this.enabled || !this.ensure() || this.ambLevel === 0) return;
     // Tous les sons de l'ambiance passent par un bus à part (son curseur de volume) : on détourne « master » le temps du tirage.
-    if (!this.ambBus || this.ambBus.context !== this.ctx) { this.ambBus = this.ctx.createGain(); this.ambBus.gain.value = this.ambLevel ?? 1; this.ambBus.connect(this.master); }
+    if (!this.ambBus || this.ambBus.context !== this.ctx) { this.ambBus = this.ctx.createGain(); this.ambBus.gain.value = this.ambLevel ?? 1; this.ambBus.connect(this.out || this.master); }
     const master = this.master; this.master = this.ambBus;
     try { this.zoneSounds(kind, night); } finally { this.master = master; }
   }

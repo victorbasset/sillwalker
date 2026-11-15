@@ -2961,5 +2961,8 @@ export const KEYS = [
   "Deux nouvelles sortes de quête (gagner des niveaux, attraper des gobelins dorés) et un temps estimé sur presque toutes les quêtes.",
   "Talents : un bouton sur chaque maîtrise pour choisir les bonus de ses paliers.",
   "Confort : un achat qui renforce ton héros est équipé tout de suite, et les absences comptent enfin parchemins, potions et encens.",
-  "Le jeu démarre dans la langue de ton système ; le russe a une police pixel lisible."
+  "Le jeu démarre dans la langue de ton système ; le russe a une police pixel lisible.",
+  "Quatre morceaux originaux, un par tranche de 50 zones, avec un fondu enchaîné.",
+  "Morceau {0} / {1} · zones {2}–{3}",
+  "Effets"
 ];

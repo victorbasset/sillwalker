@@ -1832,4 +1832,7 @@ export default {
   2957: "Talenty: przycisk na każdym mistrzostwie do wyboru premii jego progów.",
   2958: "Wygoda: kupiony przedmiot, który wzmacnia bohatera, od razu zostaje założony, a nieobecność wreszcie liczy zwoje, mikstury i kadzidła.",
   2959: "Gra uruchamia się w języku systemu; rosyjski dostał czytelną czcionkę pikselową.",
+  2960: "Cztery oryginalne utwory, jeden na każde 50 stref, z płynnym przejściem.",
+  2961: "Utwór {0} / {1} · strefy {2}–{3}",
+  2962: "Efekty",
 };

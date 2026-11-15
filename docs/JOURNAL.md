@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 8) : les 4 morceaux dans le jeu (lecture par tranches de 50 zones, boucle sans blanc,
+  fondu enchaîné, aperçu dans les Réglages, boss) ; autotest (décodage, volumes, lecture) ; perf −1 à −1,6 point,
+  mémoire +55 Mo stable. Demande de Victor : curseur « Effets » à côté de « Musique » et « Ambiance ». Autotest 235/235,
+  lang-overflow propre.
 - 2026-11-15 (musique, tâche 7) : morceau 4 « Le Briseur d'Étoiles » (60 mesures, 2 min 24 en boucle, final
   galactique avec coda ♭VI-♭VII-I) ; les 4 morceaux sont composés et mixés, envoyés à Victor.
 - 2026-11-15 (musique, tâche 6) : morceau 3 « Les Lieutenants » (56 mesures, 2 min 20 en boucle, sol mineur, épique

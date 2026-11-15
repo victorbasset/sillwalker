@@ -1099,36 +1099,44 @@ async function runSelfTest(strip) {
     await render("perçant", (s) => s.pierceSound());
     await render("drone", (s) => s.droneSound());
     await render("relique", (s) => s.relicSound());
-    // Musique lofi (it. 520) : chaque timbre (accord de 4 notes pour le piano électrique) et les deux rythmes boom-bap.
-    const MusicK = window.__music.constructor;
-    // (it. 536) comme en jeu : timbres et rythmes passent par le volume de la musique (MUSIC_GAIN 0,32)
-    const mg = (s) => { const g = s.ctx.createGain(); g.gain.value = 0.32; g.connect(s.master); return g; };
-    for (const inst of ["epiano", "flute", "bell", "marimba", "pluck", "strings", "whistle", "pulse12", "pulse25", "sub", "triangle", "pluckbass", "pulsebass"])
-      await render("musique-" + inst, (s) => { const m = new MusicK(s), g = mg(s); for (const f of inst === "epiano" ? [220, 261.6, 329.6, 392] : [330]) m.play(g, inst, f, 0.05, 0.8, inst === "epiano" ? 0.55 : 1); });
-    for (const kit of ["lofi", "lofi2", "shaker", "soft"]) await render("rythme-" + kit, (s) => { const m = new MusicK(s), g = mg(s); for (let k = 0; k < 16; k++) m.drum(g, kit, k, 0.05 + k * 0.11); });
+    // (it. 1541) la musique n'est plus synthétisée en direct : les 4 morceaux sont contrôlés plus bas
     for (const id of ["bolt", "gust", "mend", "fire", "aegis", "meteor"]) await render("sort-" + id, (s) => s.spellSound(id));
     await render("gestion", (s) => { const h = {}; s.bind({ on: (e, fn) => { h[e] = fn; }, R: { events: {} }, S: window.__game.S, zoneDef: () => null }); clearInterval(s.ambT); h.equipped({ r: 4 }); h.soldOne({}); h.sold({ n: 9 }); h.spent({}); h.learned({ skill: true }); });
     await render("ambiance-évén", (s) => s.eventAmbience({ goldrain: 5, wind: 5, shardfall: 5, nest: 5 }));
     for (const id of ["coin", "loot", "legendary", "level", "boss", "champion", "chest", "star", "quest", "ascend"]) await render("play-" + id, (s) => s.play(id));
     return out.join(" ") || "ok";
   } catch (e) { return "erreur " + e.message; } })()`);
-  // Musique (it. 523) : un passage complet de 8 airs (un par décor), même chaîne que le jeu : aucun ne sature, et leurs
-  // volumes moyens restent proches (rapport max / min < 2,2) : aucun air nettement plus fort qu'un autre.
+  // (it. 1541) Musique : les 4 morceaux (assets/music/*.opus) se décodent, sans NaN ni saturation, à des volumes proches
+  // (rapport des moyennes quadratiques < 1,3 : masterisés à −16 LUFS) ; le jeu joue celui de sa zone ; l'aperçu change de morceau.
   const mix = await js(`(async () => { try {
-    const S0 = window.__sound, MusicK = window.__music.constructor, { songFor } = await import("./render/music.js"), rms = [], bad = [];
-    // (la 9e : combat de boss, basse doublée et percussions lourdes)
-    for (let z of [1, 6, 11, 16, 21, 26, 31, 36, -11]) {
-      const boss = z < 0; z = Math.abs(z);
-      const song = songFor(z), ctx = new OfflineAudioContext(1, 22050 * Math.ceil(64 * 30 / song.bpm + 3), 22050), s = new S0.constructor();
-      s.ctx = ctx; s.master = ctx.createGain(); s.master.gain.value = 0.6; s.master.connect(ctx.destination); s.enabled = true; s.ensure = () => ctx; s.audio = () => ctx;
-      new MusicK(s).schedulePass(song, 0.05, boss); const d = (await ctx.startRendering()).getChannelData(0);
-      let pk = 0, sq = 0; for (const x of d) { if (Number.isNaN(x)) return "NaN zone " + z; pk = Math.max(pk, Math.abs(x)); sq += x * x; }
-      if (pk > 0.5) bad.push(z + (boss ? "boss" : "") + ":pic " + pk.toFixed(2)); if (!boss) rms.push(Math.sqrt(sq / d.length));
+    const { TRACKS } = await import("./render/music.js"), rms = [], bad = [];
+    for (const t of TRACKS) {
+      const ab = await (await fetch("assets/music/" + t.id + ".opus")).arrayBuffer(), b = await new OfflineAudioContext(2, 1, 48000).decodeAudioData(ab);
+      let pk = 0, sq = 0, n = 0;
+      for (let c = 0; c < 2; c++) for (const x of b.getChannelData(c)) { if (Number.isNaN(x)) return "NaN " + t.id; const a = Math.abs(x); if (a > pk) pk = a; sq += x * x; n++; }
+      if (pk >= 0.99) bad.push(t.id + ":pic " + pk.toFixed(2)); if (b.duration < 120) bad.push(t.id + ":durée " + b.duration.toFixed(0));
+      rms.push(Math.sqrt(sq / n));
     }
     const k = Math.max(...rms) / Math.min(...rms);
     return (bad.join(" ") || "ok") + " rapport " + k.toFixed(2) + " [" + rms.map((r) => r.toFixed(3)).join(" ") + "]";
   } catch (e) { return "erreur " + e.message; } })()`);
-  check("musique : 8 airs et un combat de boss sans saturation, volumes équilibrés", /^ok rapport /.test(mix) && +mix.split(" ")[2] < 2.2, mix);
+  check("musique : 4 morceaux décodés sans saturation, volumes proches", /^ok rapport /.test(mix) && +mix.split(" ")[2] < 1.3, mix);
+  const play = await js(`(async () => { try {
+    const M = window.__music, G = window.__game, { trackIndex } = await import("./render/music.js");
+    if (!M.enabled) return "désactivée";
+    M.setZone(G.S.zone);
+    for (let i = 0; i < 40 && !(M.voice && M.voice.idx === trackIndex(G.S.zone)); i++) await new Promise((r) => setTimeout(r, 250));
+    const a = M.voice ? M.voice.idx === trackIndex(G.S.zone) : false;
+    M.preview(G.S.zone > 100 ? 1 : 151);
+    for (let i = 0; i < 40 && !(M.voice && M.voice.idx !== trackIndex(G.S.zone)); i++) await new Promise((r) => setTimeout(r, 250));
+    const b = M.voice ? M.voice.idx !== trackIndex(G.S.zone) : false;
+    M.endPreview();
+    return a + " " + b;
+  } catch (e) { return "erreur " + e.message; } })()`);
+  // (it. 1542, demande de Victor) curseur « Effets » : il règle le bus des effets, pas le volume général (musique, ambiance)
+  const fxv = await js("(() => { const s = window.__sound; s.audio(); if (!s.out) return 'sans contexte'; const o = s.out.gain.value; s.setEffects(0.5); const a = s.master.gain.value; s.setEffects(1); return (Math.abs(a - 0.5) < 1e-6) + ' ' + (s.out.gain.value === o) + ' ' + (s.master.gain.value === 1); })()");
+  check("son : le curseur « Effets » règle les effets seuls", fxv === "true true true" || fxv === "sans contexte", fxv);
+  check("musique : le morceau de la zone joue, l'aperçu en change", play === "true true" || play === "désactivée", play);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
   // Touche U (it. 628) : achète le prochain déblocage s'il est prêt, ne fait rien sinon.
   const keyU = await js("(() => { const G = window.__game, P = window.__panel, S = G.S, keep = JSON.stringify({ g: S.gold, u: S.unlocks }); const n0 = Object.keys(S.unlocks || {}).length; S.gold = 0; const a = P.onKey({ key: 'u', target: document.body }); S.gold = 1e300; const b = P.onKey({ key: 'u', target: document.body }); const n1 = Object.keys(S.unlocks || {}).length; const k = JSON.parse(keep); S.gold = k.g; S.unlocks = k.u; P.renderAll(); return a + ' ' + (b === (n1 > n0)); })()");

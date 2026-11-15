@@ -1832,4 +1832,7 @@ export default {
   2957: "Talente: ein Knopf auf jeder Meisterschaft, um die Boni ihrer Stufen zu wählen.",
   2958: "Komfort: Ein gekaufter Gegenstand, der deinen Helden stärkt, wird sofort angelegt, und Abwesenheiten zählen endlich Schriftrollen, Tränke und Räucherwerk.",
   2959: "Das Spiel startet in der Sprache deines Systems; Russisch bekommt eine lesbare Pixelschrift.",
+  2960: "Vier eigene Musikstücke, eines pro 50 Zonen, mit Überblendung.",
+  2961: "Stück {0} / {1} · Zonen {2}–{3}",
+  2962: "Effekte",
 };

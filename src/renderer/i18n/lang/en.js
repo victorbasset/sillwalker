@@ -1832,4 +1832,7 @@ export default {
   2957: "Talents: a button on each mastery to choose its milestone bonuses.",
   2958: "Comfort: an item you buy that makes your hero stronger is equipped right away, and absences finally count scrolls, potions and incense.",
   2959: "The game starts in your system's language; Russian gets a readable pixel font.",
+  2960: "Four original tracks, one for every 50 zones, with a crossfade.",
+  2961: "Track {0} / {1} · zones {2}–{3}",
+  2962: "Effects",
 };

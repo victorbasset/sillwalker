@@ -144,6 +144,7 @@ async function boot() {
     sound.muted = !!P.muted;
     sound.set(P.sound && !P.muted, P.volume);
     sound.setAmbience(P.ambVol ?? 1);
+    sound.setEffects(P.fxVol ?? 1);
     music.setLevel(P.musicVol ?? 1);
     music.set(P.music !== false);
     sound.setIdle(!!P.muted || (!P.sound && P.music === false));

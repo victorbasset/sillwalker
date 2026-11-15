@@ -61,7 +61,7 @@ import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as 
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
-import { songFor, musicZone } from "../src/renderer/render/music.js";
+import { trackIndex, musicZone, TRACKS } from "../src/renderer/render/music.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
 import { SETS as SETS_T, setEffects } from "../src/renderer/game/sets.js";
 import { DICTS as DICTS_T } from "../src/renderer/i18n/dicts.js";
@@ -2857,39 +2857,12 @@ test("sons de coup (demande 25) : un timbre par héros et une matière par monst
   assert.notEqual(weaponOf("ranger"), weaponOf("warrior"));
 });
 
-test("musique de fond (demande 24) : un air par zone, toujours le même pour une zone, 200 airs différents", () => {
-  const a = songFor(12), b = songFor(12);
-  assert.deepEqual(a, b, "même zone = même air");
-  const keys = new Set(); for (let z = 1; z <= 200; z++) { const s = songFor(z); keys.add(JSON.stringify(s.notes.map((n) => n.midi))); assert.ok(s.bpm >= 66 && s.bpm <= 92 && s.notes.length >= 8 && s.chords.length >= 8 && s.chords.every((c) => c.notes.length === 4) && s.swing > 0.1, "zone " + z + " (lofi : tempo posé, accords de septième, swing)"); for (const n of s.notes) assert.ok(n.midi >= 50 && n.midi <= 90); }
-  assert.ok(keys.size >= 195, "quasiment 200 mélodies différentes : " + keys.size);
-  assert.equal(freshState().settings.music, true, "musique activée par défaut");
-  const s12 = songFor(12), A = s12.notes.filter((n) => n.step < 16).map((n) => n.step + ":" + n.midi).join(), A1 = s12.notes.filter((n) => n.step >= 16 && n.step < 32).map((n) => (n.step - 16) + ":" + n.midi).join();
-  assert.equal(A, A1, "forme A A B A : le motif revient à l'identique (air reconnaissable)");
-  // Diversité des instruments (demande de Victor) : sur 200 zones, au moins 8 timbres de mélodie, 3 basses, 4 rythmes.
-  const L = new Set(), B = new Set(), D = new Set(); for (let z = 1; z <= 200; z++) { const t = songFor(z); L.add(t.lead); B.add(t.bassInst); D.add(t.drums); }
-  assert.ok(L.size >= 8 && B.size >= 3 && D.size >= 4, [L.size, B.size, D.size].join(" "));
-  assert.equal(songFor(77).lead, songFor(77).lead, "même zone = mêmes instruments");
-  // Passages (demande C : moins répétitif) : le 0 est l'air d'avant ; les suivants gardent le motif A et varient le reste ;
-  // intermède calme au 3e, silence au 7e ; toujours les mêmes pour une zone (reconnaissable en y revenant).
-  assert.deepEqual(songFor(12, 0), songFor(12), "passage 0 = air d'origine");
-  const motif = (t) => t.notes.filter((n) => n.step < 16).map((n) => n.step + ":" + (n.midi % 12)).join();
-  let varied = 0;
-  for (let z = 1; z <= 40; z++) {
-    const p0 = songFor(z, 0), p1 = songFor(z, 1);
-    assert.equal(motif(p1), motif(p0), "zone " + z + " : le motif A reste");
-    if (JSON.stringify(p1.notes) !== JSON.stringify(p0.notes)) varied++;
-    assert.equal(songFor(z, 7).notes.length, 0, "silence au 8e passage");
-    assert.ok(songFor(z, 3).calm && songFor(z, 3).drums === "none", "intermède calme");
-    assert.deepEqual(songFor(z, 5), songFor(z, 5), "même passage = même musique");
-    assert.equal(songFor(z, 2).bpm, p0.bpm, "même tempo d'un passage à l'autre");
-  }
-  assert.ok(varied >= 38, "les passages varient : " + varied + " / 40");
-  // Un air par tranche de 5 zones (it. 521, demande de Victor).
-  assert.deepEqual([1, 3, 5, 6, 10, 11, 0, 203].map(musicZone), [1, 1, 1, 6, 6, 11, 1, 201], "tranches de 5 zones");
-  // Couleur du décor indépendante de la langue (it. 531) : un nom traduit (translateData) ne change pas l'air.
-  assert.equal(songFor(1).mood, "wood", "forêt reconnue");
-  ZONES.forEach((z, i) => { const keep = z.name, before = JSON.stringify(songFor(i + 1)); z.src ||= keep; z.name = "Translated " + i;
-    const after = JSON.stringify(songFor(i + 1)); z.name = keep; assert.equal(after, before, "zone " + (i + 1) + " : même air dans toutes les langues"); });
+test("musique de fond (it. 1541) : 4 morceaux, un par tranche de 50 zones, puis les mêmes au-delà de 200", () => {
+  assert.deepEqual([1, 50, 51, 100, 101, 150, 151, 200].map(trackIndex), [0, 0, 1, 1, 2, 2, 3, 3], "tranches de 50");
+  assert.deepEqual([201, 250, 251, 400, 401].map(trackIndex), [0, 0, 1, 3, 0], "au-delà du Rebord : les mêmes, dans l'ordre");
+  assert.deepEqual([0, 1, 49, 50, 51, 203].map(musicZone), [1, 1, 1, 1, 51, 201], "première zone de la tranche");
+  assert.equal(TRACKS.length, 4);
+  for (const t of TRACKS) assert.ok(fs.statSync(new URL(`../src/renderer/assets/music/${t.id}.opus`, import.meta.url)).size > 500000, t.id + " présent");
 });
 
 test("duo de héros (demande 17) : un compagnon de l'autre portée frappe aussi ; changement à l'ascension", () => {

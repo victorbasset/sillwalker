@@ -51,7 +51,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
 - [x] 5. Morceau 2 « Sentiers d'étoiles » : idem.
 - [x] 6. Morceau 3 « Les Lieutenants » : idem.
 - [x] 7. Morceau 4 « Le Briseur d'Étoiles » : idem.
-- [ ] 8. Intégration dans le jeu : `render/music.js` lit les 4 fichiers selon la zone (tranches de 50), fondu
+- [x] 8. Intégration dans le jeu : `render/music.js` lit les 4 fichiers selon la zone (tranches de 50), fondu
       enchaîné, volume du réglage « Musique », mode muet, aperçu dans Réglages > Son (4 morceaux), boucle sans
       couture, boss ; autotest (fichiers présents, lecture, volume) ; perf:linux et mem-watch ; bande-annonce.
 - [ ] 9. Passe de finition sur les retours de Victor (mixage, tempo, instruments).
@@ -136,3 +136,17 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   8 kHz, grosse caisse la plus forte → arpège +5, charlestons +3, grosse caisse −2. Mesures : −16,0 LUFS, LRA 6,8,
   vrai pic −4,7, largeur 0,46 (la plus large), raccord 0,005 ; octaves 63 −0,2 · 125 0 · 250 −7,3 · 500 −7,1 · 1k −3,8 ·
   2k −6,9 · 4k −12,8 · 8k −19,2 (le plus brillant des quatre). Envoyé à Victor (05-le-briseur-d-etoiles-v1.mp3).
+- 15/11 (tâche 8) : intégration. `render/music.js` réécrit : 4 morceaux (`assets/music/{rebord,sentiers,lieutenants,
+  briseur}.opus`, 128 kb/s, ≈ 2,5-2,9 Mo chacun), tranches de 50 zones (`trackIndex`, `musicZone`), au-delà de 200 les
+  mêmes dans l'ordre ; décodés en mémoire et lus en boucle à l'échantillon près (AudioBufferSourceNode.loop), fondu
+  enchaîné de 2,5 s, tampon de l'ancien morceau libéré à la fin du fondu ; même interface qu'avant (set, setLevel,
+  setZone, preview / endPreview, boss : volume +2 dB et graves +4 dB, lite sans objet). Gain 0,11 : même équilibre avec
+  les bruitages qu'avant (moyenne quadratique des anciens airs ≈ 0,014, morceaux ≈ 0,126). Réglages > Son : « Morceau
+  N / 4 · zones X–Y », ◀ ▶ par tranches de 50, description de l'option. Tests logiques : découpage en tranches et
+  fichiers présents. Autotest : 4 morceaux décodés sans NaN ni saturation, volumes proches (rapport 1,10 :
+  0,131 · 0,133 · 0,125 · 0,120) ; le morceau de la zone joue, l'aperçu en change. perf:linux : bande 18,4 % (≈ 19,5
+  avant), panneau 19,4 % (≈ 21), mini 5,6 % (≈ 6,8) : la synthèse en direct ne coûte plus rien. mem-watch 6 min :
+  567-575 Mo stables (485-530 avant : ≈ +55 Mo, le morceau décodé ; prix de la boucle sans blanc ; à revoir si Victor
+  le juge trop).
+- 15/11 (demande de Victor) : curseur « Effets » (Réglages > Son, 0 à 200 %) : sound.js a maintenant un volume
+  général (`out`) et un bus des effets (`master`, `setEffects`) ; l'ambiance et la musique se branchent sur `out`.

@@ -257,7 +257,7 @@ export function migrate(raw) {
   { const v = +s.settings.volume; s.settings.volume = s.settings.volume != null && Number.isFinite(v) ? Math.max(0, Math.min(1, v)) : 0.4; }
   // Taille du panneau (100, 115 ou 130 %) : une valeur aberrante (50) agrandissait le panneau d'autant (zoom CSS).
   { const z = +s.settings.uiScale; if (s.settings.uiScale != null && !(Number.isFinite(z) && z >= 1 && z <= 1.3)) delete s.settings.uiScale; }
-  for (const k of ["musicVol", "ambVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite
+  for (const k of ["musicVol", "ambVol", "fxVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite
   // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)
   if (!["auto", "center", "edges"].includes(s.settings.hudPos)) s.settings.hudPos = "auto";
   // (it. 1531) barres de vie en haut de la bande : activées par défaut (anciennes sauvegardes comprises)
