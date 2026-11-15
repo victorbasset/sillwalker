@@ -2181,7 +2181,12 @@ export class Game {
     return dt > 0 && g > 0 ? amount / g : null;
   }
 
-  questEta(q) {
+  questEta(q, now = Date.now()) {
+    // (it. 1419) expéditions : l'heure exacte du n-ième retour parmi celles en cours (pas besoin du rythme des victoires)
+    if (q && q.kind === "expedition" && !questDone(q)) {
+      const left = q.goal - q.progress, ends = Object.values(this.S.pets.exp || {}).map((e) => e && e.end).filter((t) => t > 0).sort((a, b) => a - b);
+      return ends.length >= left ? Math.max(0, (ends[left - 1] - now) / 1000) : null;
+    }
     const P = this.R.pace || [];
     if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];

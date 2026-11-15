@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1419) : quête « Ramener N expéditions » : temps estimé exact (heure du n-ième retour parmi les
+  expéditions en cours ; aucun s'il n'y en a pas assez en route). Test. Autotest 228/228.
 - 2026-11-15 (it. 1418) : quête « Porter N coups critiques » : temps estimé sur sa carte (attaques par seconde × chance
   de critique ; un peu optimiste). Test. Autotest 228/228. Quêtes encore sans estimation : leur cadence dépend du
   hasard ou du joueur (boss, coffres, événements, forge, transmutation, butin, expéditions, coups au clic, zone).

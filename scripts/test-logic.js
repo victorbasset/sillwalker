@@ -448,6 +448,10 @@ test("quête « Gagner N niveaux » : avance aux montées de niveau, en jeu et p
   // (it. 1418) critiques : une estimation dès qu'il a des chances de critique
   const ec = g.questEta({ uid: 994, kind: "crit", goal: 40, progress: 0, reward: {}, stars: 1 });
   assert.ok(g.stats().crit > 0 ? ec > 0 && Number.isFinite(ec) : ec === null, "crit " + ec);
+  // (it. 1419) expéditions : l'heure du n-ième retour
+  g.S.pets.exp = { a: { kind: "short", start: 0, end: 60000 }, b: { kind: "short", start: 0, end: 120000 } };
+  assert.equal(g.questEta({ uid: 995, kind: "expedition", goal: 2, progress: 0, reward: {}, stars: 1 }, 0), 120);
+  assert.equal(g.questEta({ uid: 996, kind: "expedition", goal: 3, progress: 0, reward: {}, stars: 1 }, 0), null, "pas assez en route");
 });
 
 test("Jour des arcanes : recharge des sorts ×1,5, texte fidèle (it. 1412)", () => {
