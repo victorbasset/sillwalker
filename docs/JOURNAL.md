@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1403) : mode mini : sa bulle annonce aussi la bénédiction de demain (« Demain : 💎 Jour des trésors »),
+  comme la pastille du panneau et le Bestiaire (clé existante, déjà traduite). Vérifié par --stage. Autotest 228/228.
 - 2026-11-15 (it. 1402) : POUR-VICTOR : nouveautés de la nuit complétées jusqu'à l'it. 1402 (Démineur, élites
   d'absence, bilans, astuce du Bestiaire ; équilibre, mémoire et performance vérifiés).
 - 2026-11-15 (it. 1401, revue générale) : --perf (copie neuve) bande 19,1 %, panneau 21,5 %, mini 6,7 %, icône 0,5 % ;

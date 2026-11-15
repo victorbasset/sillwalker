@@ -20,7 +20,7 @@ import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
 import { isRanged } from "../game/classes.js";
-import { activeDayMod } from "../game/daymods.js";
+import { activeDayMod, dayModFor, DAY_MODS } from "../game/daymods.js";
 
 export const MINI_H = 64;
 const SCENE_W = 212, GROUND = 58, HERO_X = 8, CONTACT = 44;
@@ -281,6 +281,9 @@ export class MiniRenderer {
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + colon() + rec);
       const dm = activeDayMod(S); // (it. 1234) la bénédiction du jour, lisible aussi depuis le mode mini
       if (dm) tip.push(`${tx("Bénédiction du jour :")} ${dm.icon} ${dm.name} · ${dm.desc}`);
+      // (it. 1403) celle de demain, comme la bulle de la pastille du panneau (une raison de revenir)
+      const tm = new Date(Date.now() + 864e5), dmNext = DAY_MODS[dayModFor(`${tm.getFullYear()}-${String(tm.getMonth() + 1).padStart(2, "0")}-${String(tm.getDate()).padStart(2, "0")}`)];
+      if (dm && dmNext) tip.push(tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name}` }));
       // (it. 1343) élixirs, parchemins et encens en cours, avec les minutes restantes (comme la carte du héros)
       const buffs = CONSUMABLES.filter((c) => c.kind === "buff" && (S.buffs[c.id] || 0) > 0).map((c) => c.name + " " + uMin(Math.ceil(S.buffs[c.id] / 60)));
       if (buffs.length) tip.push(tx("Effets en cours") + colon() + listJoin(buffs));
