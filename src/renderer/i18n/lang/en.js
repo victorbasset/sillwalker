@@ -1799,4 +1799,5 @@ export default {
   2924: "Map: your hero's head now sits on the square of their zone, and the map's texts (relic levels…) are easier to read.",
   2925: "Hero > Spells & attack: without a companion, a “No companion yet” frame invites you to choose one; with one, both frames have the same height.",
   2926: "Shop: an item you buy that makes your hero stronger is equipped right away.",
+  2927: "Click: buy and equip right away (it makes your hero stronger).",
 };

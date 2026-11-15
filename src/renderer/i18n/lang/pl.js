@@ -1799,4 +1799,5 @@ export default {
   2924: "Mapa: głowa bohatera stoi teraz na polu jego strefy, a teksty mapy (poziom reliktów…) są czytelniejsze.",
   2925: "Bohater > Zaklęcia i atak: bez towarzysza ramka „Brak towarzysza” zachęca do wyboru; z towarzyszem obie ramki mają tę samą wysokość.",
   2926: "Sklep: kupiony przedmiot, który wzmacnia bohatera, od razu zostaje założony.",
+  2927: "Klik: kup i od razu załóż (wzmacnia bohatera).",
 };

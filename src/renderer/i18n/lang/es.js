@@ -1799,4 +1799,5 @@ export default {
   2924: "Mapa: la cabeza de tu héroe se posa sobre la casilla de su zona, y los textos del mapa (nivel de las reliquias…) se leen mejor.",
   2925: "Héroe > Hechizos y ataque: sin compañero, un marco «Aún sin compañero» invita a elegir uno; con él, los dos marcos tienen la misma altura.",
   2926: "Tienda: un objeto comprado que refuerza a tu héroe se equipa al instante.",
+  2927: "Clic: comprar y equipar al instante (refuerza a tu héroe).",
 };

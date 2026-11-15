@@ -1799,4 +1799,5 @@ export default {
   2924: "Karte: Der Kopf deines Helden sitzt jetzt auf dem Feld seiner Zone, und die Texte der Karte (Reliktstufen …) sind besser lesbar.",
   2925: "Held > Zauber & Angriff: Ohne Begleiter lädt ein Rahmen „Noch kein Begleiter“ ein, einen zu wählen; mit Begleiter sind beide Rahmen gleich hoch.",
   2926: "Laden: Ein gekaufter Gegenstand, der deinen Helden stärkt, wird sofort angelegt.",
+  2927: "Klick: kaufen und sofort anlegen (stärkt deinen Helden).",
 };

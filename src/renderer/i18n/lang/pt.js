@@ -1799,4 +1799,5 @@ export default {
   2924: "Mapa: a cabeça do teu herói pousa no quadrado da sua zona, e os textos do mapa (nível das relíquias…) leem-se melhor.",
   2925: "Herói > Feitiços e ataque: sem companheiro, um quadro «Ainda sem companheiro» convida a escolher um; com ele, os dois quadros têm a mesma altura.",
   2926: "Loja: um objeto comprado que reforça o teu herói é equipado de imediato.",
+  2927: "Clique: comprar e equipar de imediato (reforça o teu herói).",
 };

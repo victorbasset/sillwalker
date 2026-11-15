@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1512) : Boutique, bouton d'achat d'un objet qui renforce le héros : bulle « Clic : acheter et
+  équiper tout de suite (il renforce ton héros). » (comportement de l'it. 1510, annoncé). 9 langues. Vérifié par
+  --stage (seule l'amélioration a la bulle). Autotest 230/230.
 - 2026-11-15 (it. 1511, demande de Victor) : bande, le serviteur (.actor.minion : squelette, loup) au premier plan
   (z-index 3 ; le compagnon, classe hero, à 2, le cachait). Vérifié en capture (nécromancien + paladin). Autotest
   230/230. À mettre dans la prochaine édition de « Quoi de neuf » (la 98 est parue).

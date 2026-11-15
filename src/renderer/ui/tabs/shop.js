@@ -34,9 +34,10 @@ export class ShopTab {
     const g = this.game, S = g.S, stock = g.shopStock(), full = g.bagFull();
     // (it. 847) tuiles étroites (potions, coffres, œuf) : prix court à 3 chiffres (« 257 M » et non « 256,59 / M »
     // coupé sur deux lignes) ; le prix exact reste dans la bulle quand l'achat est possible.
-    const buy = (action, id, price, block = "", cls = "", short = false) =>
+    // (it. 1512) tip : bulle du bouton quand l'achat est possible (objet équipé dès l'achat, it. 1510)
+    const buy = (action, id, price, block = "", cls = "", short = false, tip = "") =>
       block ? `<button disabled class="buy">${esc(block)}</button>`
-        : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` ${tx("disabled title=\"Pas assez d’or\"")}` : short && fmtShort(price) !== fmt(price) ? ` title="${fmt(price)}"` : ""}><i class="coin"></i>${short ? fmtShort(price) : fmt(price)}</button>`;
+        : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` ${tx("disabled title=\"Pas assez d’or\"")}` : tip ? ` title="${esc(tip)}"` : short && fmtShort(price) !== fmt(price) ? ` title="${fmt(price)}"` : ""}><i class="coin"></i>${short ? fmtShort(price) : fmt(price)}</button>`;
 
     // --- Marchand ---
     const merchant = stock.items.length ? stock.items.map((it) => {
@@ -50,7 +51,7 @@ export class ShopTab {
         ${it.power && POWER_INDEX[it.power] ? `<div class="sub power-mini one" title="${esc(POWER_INDEX[it.power].name)}">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
         ${it.set && SETS[it.set] ? `<div class="sub tint one" style="--c:${SETS[it.set].color}" title="${esc(SETS[it.set].name)}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
         <div class="verdict ${d > 0.005 || !cur ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${up ? "▲ " : ""}${verdict}</div>
-        ${buy("s-item", it.id, it.price, full ? tx("Sac plein") : "", up ? "primary" : "")}
+        ${buy("s-item", it.id, it.price, full ? tx("Sac plein") : "", up ? "primary" : "", false, g.isUpgrade(it) ? tx("Clic : acheter et équiper tout de suite (il renforce ton héros).") : "")}
       </div>`;
     }).join("") : `<p class="empty">${tx("Le marchand a tout vendu. Revenez plus tard !")}</p>`;
 
