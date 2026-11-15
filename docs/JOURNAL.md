@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1425, contrôle) : après les temps estimés des quêtes (it. 1417-1423) : save-fuzz (dev 1218 et fin
+  1190 corruptions) ok ; questEta essayé à la main avec des expéditions abîmées (null, liste, texte, NaN, nombre en
+  texte) et des quêtes au but illisible : aucune erreur, null ou une valeur sensée. first-minutes inchangé (niv. 2
+  vers 57 s, boss et premier objet vers 78 s, 1er déblocage vers 384-430 s). Le mode mini signale déjà les quêtes à
+  réclamer (point doré, « À faire maintenant ») : rien à ajouter.
 - 2026-11-15 (it. 1424, contrôle) : accessibilité : tous les boutons, cases, curseurs et listes de tous les onglets
   (préparés d'avance) ont un nom lisible par un lecteur d'écran (texte, aria-label, bulle, étiquette ou image avec
   alt) ; seul le bouton de la fenêtre de confirmation est vide tant qu'elle est fermée (rempli à l'ouverture).
