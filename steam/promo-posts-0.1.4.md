@@ -19,8 +19,11 @@ https://victor-basset.itch.io/sillwalker
   mention ci-dessous ; là où l'IA est interdite, **ne pas poster**.
 - **Rester pour répondre** pendant les 2-3 premières heures : c'est là que le post vit ou meurt.
 - **Clés gratuites** : une par message privé, jamais en liste dans un post.
-- **Visuel** : poster la vidéo de 30 s (`steam/promo/videos/sillwalker-30s-en.mp4`) ou le GIF
-  (`steam/media/reveal.gif`) directement dans le post (pas un lien), le lien itch.io en commentaire ou dans le texte
+- **Prix** : 1 $, gratuit (100 % de réduction) jusqu'au 12 décembre 2026 : les textes le disent ; après cette date,
+  retirer « free until December 12 ».
+- **Visuel** : la vidéo de la 0.1.4 (`steam/media/sillwalker-0.1.4.mp4`, 12 s) ou le GIF (`steam/media/sillwalker-0.1.4.gif`,
+  1280 × 720, 3,7 Mo ; régénérables par `scripts/promo/make-gif-0.1.4.py`), sinon la vidéo de 30 s
+  (`steam/promo/videos/sillwalker-30s-en.mp4`) directement dans le post (pas un lien), le lien itch.io en commentaire ou dans le texte
   selon les règles du sous-forum.
 
 Mention d'IA (là où elle est demandée) :
@@ -44,9 +47,35 @@ Mention d'IA (là où elle est demandée) :
 
 ## r/playmygame
 
-**Titre** : I made an idle RPG that lives in a thin strip above your taskbar — looking for feedback
+Modèle obligatoire du sous-forum (le remplir tel quel ; flair de plateforme après la publication). Jeu gratuit
+jusqu'au 12 décembre : case « Free to play » (après, il redevient payant : seulement le mardi, « [TT] » dans le titre).
+
+**Titre** : Sillwalker – an idle RPG that lives in a thin strip above your taskbar
 
 **Texte** :
+
+* Game Title: Sillwalker
+* Playable Link: https://victor-basset.itch.io/sillwalker
+* Platform: Windows, Linux, macOS (Apple Silicon)
+* Description: Sillwalker is an idle RPG that lives in a thin strip right above your taskbar. Your hero walks, fights
+  and picks up loot on their own while you work, browse or play something else, and your clicks go straight through
+  the strip, so it never gets in the way. Whenever you feel like it, click the strip and a full panel opens: free
+  20 heroes who fight in pairs, spend talent points, grow a skill flower and the big graph around it, forge gear,
+  raise pets, collect relics from major bosses, and ascend to start over stronger. A small story about a broken sky
+  is told in tiny cutscenes right in the strip. Version 0.1.4 just came out with champions and their own quest, four
+  new rare events (like a pale moon where every monster spawns at half health), three new elites, six daily blessings,
+  new pets, and a duo system where your companion tanks for you or covers you with ranged shots. It's in 10 languages
+  and keeps progressing while it's closed (up to 8 hours). I'd really like to hear how the first hour feels: too slow,
+  too fast, or about right?
+* Free to Play Status:
+   * [x] Free to play (100% off until December 12)
+   * [ ] Demo/Key available
+   * [ ] Paid (Allowed only on Tuesdays with [TT] in the title)
+* Involvement: Solo developer. I designed and directed everything; the code was written with an AI coding assistant
+  (Claude), and the pixel art and music are drawn and composed by that code (hand-written pixel grids, synthesized
+  audio).
+
+Ancien texte libre (si le modèle n'est plus exigé) :
 
 Hey! I've been working on Sillwalker for a while: your hero walks along the bottom of your screen, fights and loots on
 their own while you do other stuff. Clicks go right through the strip, so it never gets in the way. When you feel like
@@ -55,7 +84,7 @@ it, you click it and a full panel opens (heroes, talents, a big skill graph, pet
 I just pushed version 0.1.4 with champions, a "pale moon" event where every monster spawns at half health, and a
 proper duo system where your second hero tanks or covers for the first.
 
-It's free on itch.io for Windows, Linux and Mac. What I'd really like to know: does the first hour feel too slow, too
+It's free on itch.io until December 12 (100% off), for Windows, Linux and Mac. What I'd really like to know: does the first hour feel too slow, too
 fast, or about right?
 
 https://victor-basset.itch.io/sillwalker
@@ -70,7 +99,7 @@ This started as "what if a tiny pixel guy walked along my taskbar" and kind of g
 RPG: 20 heroes to free, fighting in pairs, a skill tree, pets, relics, a small story told in mini cutscenes. The whole
 thing stays in a strip at the bottom of the screen and lets your clicks through.
 
-Update 0.1.4 just came out (champions, new rare events, health bars right in the strip). Free on itch, in 10
+Update 0.1.4 just came out (champions, new rare events, health bars right in the strip). Free on itch until December 12, in 10
 languages: https://victor-basset.itch.io/sillwalker
 
 Happy to answer anything about how it works!
@@ -88,7 +117,7 @@ Quick notes for Linux folks: the strip is a transparent always-on-top window, cl
 buttons, and it hides itself when a fullscreen game or video is in front. I'd love to hear how it behaves on different
 desktops (GNOME, KDE, tiling WMs…), that's the part I can't test everywhere.
 
-Free on itch: https://victor-basset.itch.io/sillwalker
+Free on itch until December 12: https://victor-basset.itch.io/sillwalker
 
 ## r/macgaming
 
@@ -103,7 +132,7 @@ own, clicks go through, and you open the full game whenever you want. There's a 
 One honest heads-up: it isn't notarized yet, so macOS will warn you the first time. Right-click the app → Open does
 the trick. If anything looks off on your Mac, tell me, Mac is the platform I get the least feedback on.
 
-Free on itch: https://victor-basset.itch.io/sillwalker
+Free on itch until December 12: https://victor-basset.itch.io/sillwalker
 
 ## r/indiegames
 
@@ -116,7 +145,7 @@ work or play something else. The new update adds champions with their own quest,
 pale moon, where every monster arrives at half health for 30 seconds), new elites, new pets, and a duo system where
 your companion actually protects you.
 
-Free in early access, Windows / Linux / Mac: https://victor-basset.itch.io/sillwalker
+Free in early access until December 12, Windows / Linux / Mac: https://victor-basset.itch.io/sillwalker
 
 ## r/IndieDev
 
@@ -136,7 +165,7 @@ hard way:
 - **Text has to fit in 10 languages at 1280 px.** Russian and German broke my layouts more often than anything else,
   so every UI change gets measured in all languages automatically.
 
-If you're curious what it looks like, it's on itch (free): https://victor-basset.itch.io/sillwalker
+If you're curious what it looks like, it's on itch (free until December 12): https://victor-basset.itch.io/sillwalker
 
 ## r/incremental_games (fil hebdomadaire, commentaire)
 
