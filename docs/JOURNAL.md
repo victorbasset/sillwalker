@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1478, outil) : check-comments.mjs repère aussi un commentaire « // » qui finit par « ; } » ou par une
+  affectation « x.y = z; », même quand le code avant finit par « ; » (cas de l'it. 1477, vu seulement par la
+  vérification de syntaxe). Aucune fausse alerte sur les 126 fichiers ; le cas de l'it. 1477 reproduit est signalé.
 - 2026-11-15 (it. 1477) : marque ◆ de la bande : aussi sur l'étiquette d'une élite ou d'un champion du type visé par une
   quête de chasse (la chasse compte le type, élite ou non ; avant, seuls les monstres ordinaires étaient marqués).
   En chemin, un commentaire « // » ajouté en fin de ligne avalait la suite (piège connu) : arrêté par le contrôle de

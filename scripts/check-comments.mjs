@@ -34,7 +34,9 @@ for (const f of files) fs.readFileSync(f, "utf8").split("\n").forEach((l, i) => 
   // (Un exemple de format entre accolades, « { clé: valeur, … } », est une documentation : ignoré.)
   if (/\b[a-zA-Z_$][\w$]*: [a-zA-Z_$][\w$.]*(\([^)]*\))?,/.test(com.replace(/\{[^}]*\}?/g, ""))) { bad.push(`${path.relative(ROOT, f)}:${i + 1}: ${l.trim().slice(0, 150)}`); return; }
   // « ); » en fin de commentaire : presque toujours un appel avalé, quelle que soit la fin du code.
-  const callTail = /\)\s*;$/.test(com);
+  // (it. 1478) « …; } » ou une affectation « x.y = z; » en fin de commentaire : la fin d'un bloc avalée (élite de la
+  // bande, it. 1477 : le code avant « // » finissait par « ; », la vérification suivante ne regardait pas le commentaire)
+  const callTail = /\)\s*;$/.test(com) || /;\s*\}+$/.test(com) || /[\w$\]]\s=\s[^=].*;$/.test(com);
   if (!callTail && /[;{}(\[,]$|=>$/.test(code)) return;
   if (callTail || /[;,]$/.test(com)) bad.push(`${path.relative(ROOT, f)}:${i + 1}: ${l.trim().slice(0, 150)}`);
 });
