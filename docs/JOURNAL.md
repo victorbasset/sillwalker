@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1364, contrôle) : équilibre après le Lucane : balance 12 h contre 4096b50, graine 7 : 63,2 → 64,6
+  (+1,4), graine 3 : 62,3 → 63,0 (+0,7) : bruit (le familier ajouté change aussi le tirage des œufs, donc les
+  trajectoires) ; fuzz 1200 parties, 0 bloquée. Rien à corriger.
 - 2026-11-15 (it. 1363) : nouveau familier, le Lucane (scarabée brun aux grandes mandibules) : +3 % de dégâts contre
   les boss par niveau (+30 % au niveau 10), le premier familier des chasseurs de boss. Sprite à deux images (vu sur la
   bande et dans l'onglet), 10 langues (« Pupile » en polonais comme ailleurs), test, README (19 familiers),
