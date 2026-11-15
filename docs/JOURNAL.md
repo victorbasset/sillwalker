@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1471, REVUE GÉNÉRALE) : 12 h graine 7, records : gladiateur 62, chaman 64, danseuse de lames 64
+  (moyenne ≈ 64). perf:linux : bande 19,0 %, panneau 20,4 %, mini 6,8 %, icône 0,5 % (stables). Captures zh et fr
+  (Quêtes, Aventure, mini) : rien d'anormal. Texte extrait en japonais : seuls mots latins attendus. Rien à noter dans
+  Idées.
 - 2026-11-15 (it. 1470) : quête « Atteindre la zone N » avec l'avancée automatique coupée (« Passer à la zone suivante
   après le boss » décoché) : elle ne pouvait pas avancer, sans le dire ; sa carte porte un bouton « reprendre
   l’avancée » qui la réactive d'un clic (puis disparaît). 10 langues ; vérifié par --stage en russe à 1280 px.
