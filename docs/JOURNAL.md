@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1355) : pluriels russes et polonais justes pour deux nombres écrits devant un mot fixe : taille du
+  sac (Boutique > Atelier, 12 à 48 places : « 24 ячеек » → « 24 ячейки », « 42 miejsc » → « 42 miejsca ») et nombre
+  de nœuds de la fleur (« 144 узлов » → « 144 узла », « 144 węzłów » → « 144 węzły »). txn avec 3 formes ; recherche
+  des gabarits `${n} ${tx("…")}` : c'étaient les deux seuls à nombre variable. Autotest 228/228, lang-overflow ru, pl
+  propre.
 - 2026-11-15 (it. 1354) : stock de potions plafonné par POTION_MAX partout (trois « 20 » écrits en dur dans game.js :
   potion du coffre, récompense d'événement, constellation) : un changement du stock maximal ne laissera plus de trou.
   Recherche des autres valeurs en dur du même genre (7200, 600) : aucune autre.

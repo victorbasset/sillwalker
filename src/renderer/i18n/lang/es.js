@@ -1713,4 +1713,6 @@ export default {
   2838: "Consejo: el Incienso de caza de la Tienda atrae el doble de élites.",
   2839: "Durante tu ausencia, los pergaminos de fortuna y del saber por fin cuentan (casi no daban nada), igual que la poción de celeridad, el trébol de cuatro hojas y el incienso de caza.",
   2840: "«Gastar automáticamente» en el gran grafo ya no congela el juego al final de la partida.",
+  2841: "{n} hueco · +6 por nivel|{n} huecos · +6 por nivel",
+  2842: "{n} nodo|{n} nodos",
 };

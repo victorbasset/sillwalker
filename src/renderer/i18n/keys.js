@@ -2842,5 +2842,7 @@ export const KEYS = [
   "Effets en cours",
   "Astuce : l’Encens de chasse de la Boutique attire deux fois plus d’élites.",
   "Pendant ton absence, les parchemins de fortune et de savoir comptent enfin (ils ne donnaient presque rien), tout comme la potion de célérité, le trèfle à quatre feuilles et l’encens de chasse.",
-  "« Dépenser automatiquement » dans le grand graphe ne fige plus le jeu en fin de partie."
+  "« Dépenser automatiquement » dans le grand graphe ne fige plus le jeu en fin de partie.",
+  "{n} place · +6 par niveau|{n} places · +6 par niveau",
+  "{n} nœud|{n} nœuds"
 ];

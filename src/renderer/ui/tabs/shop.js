@@ -101,7 +101,7 @@ export class ShopTab {
       const have = S.upgrades[u.id] || 0, maxed = have >= u.max;
       return `<div class="wsline">
         <img src="${shopIconURL("bag", 4)}" alt="">
-        <div class="si"><div class="nm">${esc(u.name)} <small>${have} / ${u.max}</small></div><div class="sub">${S.bagSize} ${tx("places · +6 par niveau")}</div></div>
+        <div class="si"><div class="nm">${esc(u.name)} <small>${have} / ${u.max}</small></div><div class="sub">${txn(S.bagSize, "{n} place · +6 par niveau|{n} places · +6 par niveau")}</div></div>
         ${maxed ? `<button disabled class="buy">${tx("Maximum")}</button>` : buy("s-up", u.id, upgradePrice(u, S))}
       </div>`;
     }).join("");

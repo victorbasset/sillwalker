@@ -1713,4 +1713,6 @@ export default {
   2838: "Tipp: Jagdweihrauch aus dem Laden lockt doppelt so viele Elite-Gegner an.",
   2839: "Während deiner Abwesenheit zählen die Schriftrollen des Glücks und des Wissens endlich (sie brachten fast nichts), ebenso der Trank der Eile, das vierblättrige Kleeblatt und der Jagdweihrauch.",
   2840: "„Automatisch verteilen“ im großen Graphen lässt das Spiel im Endspiel nicht mehr einfrieren.",
+  2841: "{n} Platz · +6 pro Stufe|{n} Plätze · +6 pro Stufe",
+  2842: "{n} Knoten|{n} Knoten",
 };

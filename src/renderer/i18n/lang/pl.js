@@ -1713,4 +1713,6 @@ export default {
   2838: "Wskazówka: Kadzidło łowieckie ze Sklepu przyciąga dwa razy więcej elit.",
   2839: "Podczas twojej nieobecności zwoje fortuny i wiedzy wreszcie się liczą (prawie nic nie dawały), podobnie jak mikstura chyżości, czterolistna koniczyna i kadzidło łowieckie.",
   2840: "„Wydaj automatycznie” w wielkim grafie nie zamraża już gry pod koniec rozgrywki.",
+  2841: "{n} miejsce · +6 na poziom|{n} miejsca · +6 na poziom|{n} miejsc · +6 na poziom",
+  2842: "{n} węzeł|{n} węzły|{n} węzłów",
 };

@@ -47,7 +47,7 @@ export class SkillsTab {
     this.el = el;
     el.innerHTML = `<div class="skillwrap">
       <aside class="panel skillside">
-        <h2 class="npch">${tx("Compétences")} <small>${SKILL_NODE_COUNT} ${tx("nœuds")}</small><span class="npcslot"></span></h2>
+        <h2 class="npch">${tx("Compétences")} <small>${txn(SKILL_NODE_COUNT, "{n} nœud|{n} nœuds")}</small><span class="npcslot"></span></h2>
         <p class="skpts"></p>
         <p class="note">${tx("1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).\n        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.")}</p>
         <div class="row k-autorow"><button data-action="k-auto" class="primary">${tx("Dépenser automatiquement")}</button></div>
