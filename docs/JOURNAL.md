@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1483, contrôle) : semaine simulée (168 h, graines 7 et 3) : mage 350 / 350, guerrier 350 / 350 (le
+  mur de fin de semaine). Le retard du mage sur 12 h (it. 1482) s'efface ensuite : rien à régler, idée close.
 - 2026-11-15 (it. 1482, contrôle) : mage, le plus faible des mesures du jour : 12 h sur 6 graines, mage 60-62
   (moyenne 60,7), guerrier 57-67 (62,3) ; moyenne des 20 héros 63,6. Écart régulier mais modeste : noté dans Idées,
   rien de changé.
@@ -5695,7 +5697,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 1482) Mage un peu en retrait sur 12 h (60,7 sur 6 graines contre 63,6 pour la moyenne des héros ; gardien
+- CLOS (it. 1483 : semaine 350 pour le mage comme pour le guerrier) P3 (it. 1482) Mage un peu en retrait sur 12 h (60,7 sur 6 graines contre 63,6 pour la moyenne des héros ; gardien
   stellaire en tête à 67,3). Avant tout réglage : comparer sur une semaine (simulate.js 168 mage / warrior), le mage
   rattrapait en fin de partie (it. 1115 : 349 contre 350). Si l'écart tient aussi sur la semaine : un petit bonus de
   classe (≈ +5 % d'attaque), vérifié avec hero-table sur 3 graines.
