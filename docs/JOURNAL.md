@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1559) : bon voisin : bande cachée plus d'une minute (icône seule, plein écran, session verrouillée), le
+  morceau de musique décodé (≈ 55 Mo) est libéré ; il revient en fondu quand la bande réapparaît (Music.hide ; autotest 239/239).
 - 2026-11-16 (it. 1558) : quand Poupouce entre en combat, le héros s'étonne dans une bulle (« C'est… Poupouce ?! »),
   comme pour une nouvelle sorte d'élite ; 2 répliques traduites (le nom reste tel quel).
 - 2026-11-16 (it. 1557) : thème clair vérifié en capture après les it. 1544-1555 (onglet Réglages à droite, boutons,

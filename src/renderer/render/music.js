@@ -128,6 +128,14 @@ export class Music {
     };
   }
 
+  /** (it. 1559) Bande cachée (icône seule, plein écran, session verrouillée) : au bout d'une minute, le morceau décodé
+   *  (≈ 55 Mo) est libéré ; il revient, en fondu, quand la bande réapparaît. */
+  hide(hidden) {
+    clearTimeout(this.hideT);
+    if (hidden) { this.hideT = setTimeout(() => { if (this.voice || this.buffers.size) { this.stop(); this.released = true; } }, this.hideDelay ?? 60000); return; }
+    if (this.released) { this.released = false; const z = this.zone; this.zone = 0; if (this.enabled && z) this.setZone(z); }
+  }
+
   stop() {
     this.req++;
     for (const v of [this.voice]) if (v) { try { v.src.stop(); v.src.disconnect(); v.low.disconnect(); v.gain.disconnect(); } catch { /* déjà arrêté */ } }

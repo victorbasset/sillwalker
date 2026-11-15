@@ -457,6 +457,7 @@ async function boot() {
   function setVisible(v) {
     visible = v;
     sound.setPaused(!v); // bande cachée : ni effets ni musique (un jeu ou une vidéo en plein écran a son propre son)
+    music.hide(!v); // (it. 1559) et, au bout d'une minute, le morceau décodé libéré
     if (!v && panelOpen) closePanel(true);
     restartLoop();
   }

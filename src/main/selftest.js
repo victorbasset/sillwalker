@@ -1160,6 +1160,15 @@ async function runSelfTest(strip) {
     host.remove(); return a + " " + n; })()`);
   check("clic sur le rebord d'un bouton : l'action part (une fois, pas ailleurs)", edge === "1 1", edge);
   check("son : le curseur « Effets » règle les effets seuls", fxv === "true true true" || fxv === "sans contexte", fxv);
+  // (it. 1559) bande cachée : le morceau décodé est libéré (délai raccourci ici), puis revient quand elle réapparaît
+  const hid = await js(`(async () => { const M = window.__music, G = window.__game, { trackIndex } = await import("./render/music.js");
+    if (!M.enabled) return "désactivée"; M.setZone(G.S.zone);
+    for (let i = 0; i < 40 && !M.voice; i++) await new Promise((r) => setTimeout(r, 250));
+    M.hideDelay = 50; M.hide(true); await new Promise((r) => setTimeout(r, 200)); const freed = !M.voice && M.buffers.size === 0;
+    M.hide(false); M.hideDelay = undefined;
+    for (let i = 0; i < 40 && !(M.voice && M.voice.idx === trackIndex(G.S.zone)); i++) await new Promise((r) => setTimeout(r, 250));
+    return freed + " " + !!(M.voice && M.voice.idx === trackIndex(G.S.zone)); })()`);
+  check("musique : libérée quand la bande reste cachée, reprise à son retour", hid === "true true" || hid === "désactivée", hid);
   check("musique : le morceau de la zone joue, l'aperçu en change", play === "true true" || play === "désactivée", play);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
   // Touche U (it. 628) : achète le prochain déblocage s'il est prêt, ne fait rien sinon.
