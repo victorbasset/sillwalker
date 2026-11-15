@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1551, revue générale) : simulation 12 h (record 65 guerrier, 61 mage, 62 rôdeur : comme avant) ;
+  perf:linux bande 18,6 %, panneau 19,5 %, mini 5,9 % ; texte russe propre (seuls des repères et des noms propres en
+  latin) ; captures fr / en / ja de la Boutique : l'onglet Réglages déplacé à droite (it. 1546) s'écrivait en 14 px
+  (taille des boutons de droite) : remis à 16 px comme les autres onglets ; lang-overflow propre.
 - 2026-11-15 (it. 1550) : mode mini : la barre d'expérience passe de l'or au violet (comme la jauge de la bande) ; dorée,
   au-dessus de la barre du prochain déblocage, elle se lisait comme de l'or.
 - 2026-11-15 (it. 1549) : édition 103 de « Quoi de neuf » : jauge d'expérience, coffres de quête ouverts sous les yeux,
@@ -5935,6 +5939,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
+- P3 (it. 1551) Bande, japonais : le nom du boss majeur (« 覚醒したイグニヴォラ… · HP -25% ») finit à quelques
+  pixels de la pastille de l'or, sa couronne entre les deux ; mesurer l'écart réel (placeBossName garde 8 px) dans les
+  langues aux noms longs et au pire cas (buffs actifs, or long).
 - FAIT (it. 1533 : vers le brésilien, comme la page du magasin) P3 (it. 1532) Portugais : les premières traductions sont brésiliennes (« Bônus », « Seu herói », « Configurações »),
   les récentes européennes (« teu herói », « bónus ») : choisir une variante et harmoniser (passe longue sur pt.js).
 

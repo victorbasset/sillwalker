@@ -1545,5 +1545,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 
 /* (it. 1522) fiche d'un talent, panneau étroit : texte un peu plus petit (russe à 1280 px, fiche d'une maîtrise : 6 px de défilement) */
 @container panel (max-width: 1334px) { .tdetail .lines li { font-size: 14px; } .tdetail .tsel > p.note { display: none; } }
-.tabs-side { display: flex; margin: 0 4px 0 0; }
+/* (it. 1551) même taille que les autres onglets (.controls est en 14 px) ; .tabs.small reste en 12 px */
+.tabs-side { display: flex; margin: 0 4px 0 0; font-size: 16px; color: var(--ink); }
 .tabs-side button[aria-selected="true"] { border-bottom-width: 2px; }
