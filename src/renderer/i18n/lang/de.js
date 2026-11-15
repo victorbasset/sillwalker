@@ -1805,4 +1805,5 @@ export default {
   2930: "Duo: Ein Nahkampf-Begleiter fängt vor einem Fernkampf-Helden einen Teil der Treffer ab (erlittener Schaden −15 %); ein Fernkampf-Begleiter deckt einen Nahkampf-Helden mit seinen Schüssen (Angriff +15 %).",
   2931: "Auf dem Streifen stehen Diener (Skelett, Wolf) und Begleittier jetzt vor dem Helden und seinem Begleiter: Sie sind nicht mehr verdeckt.",
   2932: "Laden: Die Blase des Kaufknopfs sagt, wann der Gegenstand sofort angelegt wird.",
+  2933: "Begleiter",
 };

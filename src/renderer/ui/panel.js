@@ -826,7 +826,7 @@ export class Panel {
   powerSourcesHTML() {
     const now = Date.now();
     if (this._psrc && now - this._psrc.t < 2000) return this._psrc.html;
-    const NAMES = { equip: "Équipement", talents: "Talents", flower: "Compétences", graph: "Grand graphe", relics: "Reliques", stars: "Constellations", pet: "Familiers" };
+    const NAMES = { equip: "Équipement", talents: "Talents", flower: "Compétences", graph: "Grand graphe", relics: "Reliques", stars: "Constellations", pet: "Familiers", partner: "Compagnon" };
     const x = (m) => "×" + (m < 2 ? dec(m.toFixed(2)) : m < 10 ? dec(m.toFixed(1)) : fmtShort(m)); // ×1,03 et non ×1,0
     const list = powerSources(this.game.S).map(([k, m]) => `<span>${esc(tx(NAMES[k]))} <b>${x(m)}</b></span>`).join(csep());
     const html = list ? `<p class="note tight psrc" title="${esc(tx("Puissance du héros divisée par ce qu’elle serait sans cette source."))}">${tx("Sources de puissance")}${colon()}${list}</p>` : "";

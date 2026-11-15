@@ -4142,6 +4142,10 @@ test("duo : le compagnon au corps à corps encaisse, celui à distance couvre (i
   // l'attaque gagne au moins la couverture (le passif du rôdeur peut ajouter d'autres bonus)
   assert(g.stats().atk >= w0 * (1 + DUO.cover) - 1e-6, "attaque couverte : " + w0 + " → " + g.stats().atk);
   assert(atk0 > 0);
+  // (it. 1516) le compagnon compte parmi les sources de puissance, et la part encaissée dans la robustesse
+  assert(powerSources(g.S).some(([k]) => k === "partner"), "source « Compagnon »");
+  g.S.cls = "ranger"; g.S.partner = "warrior"; g.invalidateStats();
+  assert.equal(g.stats().guard, DUO.guard * 100);
 });
 
 test("boutique : un objet acheté à la main qui renforce le héros est équipé (it. 1510, demande de Victor)", () => {

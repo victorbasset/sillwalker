@@ -1805,4 +1805,5 @@ export default {
   2930: "Duet: towarzysz walczący wręcz przyjmuje część ciosów przed bohaterem dystansowym (otrzymywane obrażenia −15%); towarzysz dystansowy osłania strzałami bohatera walczącego wręcz (atak +15%).",
   2931: "Na pasku sługa (szkielet, wilk) i chowaniec stoją przed bohaterem i jego towarzyszem: nie są już zasłonięci.",
   2932: "Sklep: dymek przycisku zakupu mówi, kiedy przedmiot zostanie od razu założony.",
+  2933: "Towarzysz",
 };

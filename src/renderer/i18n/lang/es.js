@@ -1805,4 +1805,5 @@ export default {
   2930: "Dúo: un compañero cuerpo a cuerpo encaja parte de los golpes delante de un héroe a distancia (daño recibido −15 %); un compañero a distancia cubre con sus disparos a un héroe cuerpo a cuerpo (ataque +15 %).",
   2931: "En la franja, el sirviente (esqueleto, lobo) y la mascota pasan delante del héroe y su compañero: ya no quedan ocultos.",
   2932: "Tienda: la burbuja del botón de compra avisa cuando el objeto se equipará al instante.",
+  2933: "Compañero",
 };

@@ -1805,4 +1805,5 @@ export default {
   2930: "Duo: a melee companion takes part of the blows in front of a ranged hero (damage taken −15%); a ranged companion covers a melee hero with their shots (attack +15%).",
   2931: "On the strip, the minion (skeleton, wolf) and the pet now stand in front of the hero and their companion: they are no longer hidden.",
   2932: "Shop: the buy button's tooltip says when the item will be equipped right away.",
+  2933: "Companion",
 };

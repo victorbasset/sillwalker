@@ -4,7 +4,7 @@ import {
   RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, ITEM_BASES, ITEM_SUFFIXES, ZONES, MONSTERS, ELITE, DYES, materialFor,
   WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, CHAMPION,
 } from "./data.js";
-import { classDef, CLASSES, DUO, duoSynergy, duoCover } from "./classes.js";
+import { classDef, CLASSES, DUO, duoSynergy, duoCover, duoGuard } from "./classes.js";
 import { talentEffects } from "./talents.js";
 import { powerEffects } from "./powers.js";
 import { petEffects } from "./pets.js";
@@ -151,6 +151,8 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   s.def *= (cls.mul.def || 1) * (1 + v("defPct") / 100);
   s.hp *= 1 + gl.hp / 100; s.atk *= 1 + gl.atk / 100; s.def *= 1 + gl.def / 100;
   s.atk *= 1 + duoCover(S); // (it. 1515) tir de couverture du compagnon à distance
+  // (it. 1516) part des coups encaissée par le compagnon au corps à corps (comptée dans la robustesse de power())
+  s.guard = duoGuard(S) * 100;
   s.crit = Math.min(75, s.crit + (cls.add.crit || 0) + v("crit"));
   s.spd = Math.min(300, s.spd + (cls.add.spd || 0) + v("spd"));
   s.gold += v("gold");
@@ -195,6 +197,8 @@ export function powerSources(S) {
     ["relics", base / p({ ...S, relics: {} })],
     ["stars", base / p({ ...S, prestige: { ...S.prestige, ranks: {} } })],
     ["pet", base / p({ ...S, pets: { ...S.pets, active: null } })],
+    // (it. 1516) le compagnon du duo : son attaque, la moitié de son passif, la synergie, et il encaisse ou couvre
+    ["partner", base / p({ ...S, partner: null })],
   ];
   return out.filter(([, m]) => isFinite(m) && m > 1.005).sort((a, b) => b[1] - a[1]);
 }
@@ -202,7 +206,7 @@ export function powerSources(S) {
 export const power = (s) =>
   heroDps(s) * (1 + s.burn / 100) * (1 + (s.execute || 0) * 0.003) *
   s.hp * (1 + s.def / 40) * (1 + (s.shield || 0) / 200) * (1 + (s.thorns || 0) / 300) *
-  (1 / (1 - Math.min(40, s.dodge || 0) / 100)) * (1 + (s.lifesteal || 0) / 25) * (1 + Math.max(0, (s.regen || 8) - 8) / 40) *
+  (1 / (1 - Math.min(40, s.dodge || 0) / 100)) * (1 / (1 - Math.min(50, s.guard || 0) / 100)) * (1 + (s.lifesteal || 0) / 25) * (1 + Math.max(0, (s.regen || 8) - 8) / 40) *
   // Pureté : la Malédiction (+15 % de dégâts subis un tiers du temps) vaut ≈ 5 % de robustesse
   (1 + (s.purity || 0) / 2000);
 

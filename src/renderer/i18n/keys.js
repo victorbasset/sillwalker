@@ -2934,5 +2934,6 @@ export const KEYS = [
   "À distance, il te couvre de ses tirs : attaque +{0} %.",
   "Duo : un compagnon au corps à corps encaisse une part des coups devant un héros à distance (dégâts subis −15 %) ; un compagnon à distance couvre un héros au corps à corps de ses tirs (attaque +15 %).",
   "Sur la bande, le serviteur (squelette, loup) et le familier passent devant le héros et son compagnon : ils ne sont plus cachés.",
-  "Boutique : la bulle du bouton d’achat annonce quand l’objet sera équipé tout de suite."
+  "Boutique : la bulle du bouton d’achat annonce quand l’objet sera équipé tout de suite.",
+  "Compagnon"
 ];

@@ -1805,4 +1805,5 @@ export default {
   2930: "Dupla: um companheiro corpo a corpo aguenta parte dos golpes à frente de um herói à distância (dano sofrido −15 %); um companheiro à distância cobre um herói corpo a corpo com os seus disparos (ataque +15 %).",
   2931: "Na faixa, o servo (esqueleto, lobo) e o familiar passam à frente do herói e do companheiro: já não ficam escondidos.",
   2932: "Loja: a bolha do botão de compra avisa quando o objeto será equipado de imediato.",
+  2933: "Companheiro",
 };

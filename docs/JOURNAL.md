@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1516) : la part encaissée par le compagnon (it. 1515) devient une stat (hs.guard), comptée dans la
+  robustesse de power() (comme l'esquive) ; « Compagnon » parmi les sources de puissance (powerSources, carte du héros) :
+  ×1,23 rôdeur + guerrier, ×1,18 guerrier + rôdeur (dev-data). Test complété (312). ru / de 1280 sans défilement ;
+  autotest 231/231, lang-overflow propre.
 - 2026-11-15 (it. 1515, demandes de Victor) : duo (classes.js DUO.guard / DUO.cover, duoGuard / duoCover) : héros
   principal à distance, son compagnon au corps à corps encaisse (dégâts subis ×0,85, combat et absence) ; héros au
   corps à corps, son compagnon à distance le couvre (attaque ×1,15, heroStats). Note du duo (Héros) qui l'annonce,
