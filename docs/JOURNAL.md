@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1561, revue générale) : simulation 12 h, graine 11 : guerrier 69, druide 64, nécromancien 64 ; perf:linux
+  bande 18,4 %, panneau 20,2 %, mini 5,7 % ; captures Quêtes et Talents en anglais et chinois (rien à redire) ; texte
+  chinois propre. Noté : les nombres de dégâts du héros montent jusque dans la rangée du haut et passent sur le nom du boss.
 - 2026-11-16 (it. 1560) : curseur « Musique » à 0 % : le morceau n'est plus joué en silence, il est libéré (≈ 55 Mo)
   et revient quand le curseur remonte ; avec les effets coupés, le moteur audio se met en veille comme si la musique
   était décochée. Autotest 240/240.
@@ -5961,6 +5964,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
+- P3 (it. 1561) Bande : les nombres de dégâts (« Crit 116k », « Esquive ») montent jusque dans la rangée d'informations
+  et passent sur le nom du boss pendant le combat ; les arrêter sous la rangée (hudBands) ou les faire pâlir avant.
 - CLOS (it. 1552 : 8 px mesurés en ja, de, ru, fr, pl, la marge prévue ; la couronne est celle du boss) P3 (it. 1551) Bande, japonais : le nom du boss majeur (« 覚醒したイグニヴォラ… · HP -25% ») finit à quelques
   pixels de la pastille de l'or, sa couronne entre les deux ; mesurer l'écart réel (placeBossName garde 8 px) dans les
   langues aux noms longs et au pire cas (buffs actifs, or long).
