@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1408) : quête « Gagner N niveaux » : temps estimé sur sa carte (« ≈ 25 min »), comme les quêtes de
+  victoires : expérience restante pour les niveaux demandés ÷ (rythme des victoires × expérience d'une victoire de la
+  zone, bonus compris). Test. Autotest 228/228.
 - 2026-11-15 (it. 1407) : quête « Gagner N niveaux » proposée seulement si un niveau coûte au plus ≈ 500 victoires de la
   zone (bonus d'expérience non comptés). Mesuré sur 30 min de jeu : fin de partie 183 → 185 (elle se fait en
   30-60 min) ; dev-data niveau 1313 → 1313 (elle ne finirait jamais : plus proposée). Autotest 228/228.

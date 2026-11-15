@@ -2182,12 +2182,18 @@ export class Game {
 
   questEta(q) {
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
     if (q.kind === "gold") { const g = P.slice(1).reduce((a, x) => a + x[1], 0) / dt; return g > 0 ? left / g : null; }
     let rate = (P.length - 1) / dt; // victoires par seconde
+    // (it. 1408) niveaux : l'expérience qui reste pour les niveaux demandés, au rythme des victoires de la zone
+    if (q.kind === "level") {
+      const S = this.S, perKill = monsterBase(S.zone, false).xp * earlyPace(S) * (1 + (this.stats().xp || 0) / 100);
+      let need = -S.xp; for (let i = 0; i < left; i++) need += xpNeed(S.lvl + i);
+      return perKill > 0 ? Math.max(0, need) / (rate * perKill) : null;
+    }
     if (q.kind === "hunt") { const types = this.zoneDef().monsters; if (!types.includes(q.type)) return null; rate /= types.length; }
     // (it. 976) élites : chance d'élite par victoire (mêmes règles que pendant l'absence) ; proie : une sorte sur toutes
     if (q.kind === "elite" || q.kind === "prey") {

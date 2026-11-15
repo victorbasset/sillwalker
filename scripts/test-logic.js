@@ -439,6 +439,10 @@ test("quête « Gagner N niveaux » : avance aux montées de niveau, en jeu et p
   g.S.quests.slots[0] = { uid: 991, kind: "level", goal: 3, progress: 0, reward: { gold: 10 }, stars: 1 };
   g.gainXp(1e9); const lv = g.S.quests.slots.find((q) => q.uid === 991);
   assert.ok(lv && lv.progress >= 1, "montée en jeu : " + (lv && lv.progress));
+  // (it. 1408) temps estimé : défini dès que le rythme des victoires est connu
+  const q2 = { uid: 992, kind: "level", goal: 3, progress: 0, reward: {}, stars: 1 };
+  g.R.pace = Array.from({ length: 10 }, (_, i) => [i * 2, 5]);
+  const eta = g.questEta(q2); assert.ok(eta > 0 && Number.isFinite(eta), "eta " + eta);
 });
 
 test("quêtes : progression, récompense, renouvellement", () => {
