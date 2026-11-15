@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1346, contrôle) : suite de l'it. 1345, autres lenteurs du même genre cherchées. Onglet Compétences :
+  618 appels de canTakeGraph par rafraîchissement ≈ 1,5 ms (graphSpendable déjà en cache) : rien à faire. Boucle de
+  jeu sur la fin de partie (profil --cpu-prof, 20 000 pas ≈ 11 min de jeu) : ≈ 200 ms de calcul au total, castSpells
+  et step en tête : négligeable. Rien à corriger.
 - 2026-11-15 (it. 1345) : « tout dépenser » dans le grand graphe 10 fois plus rapide : sur la partie de fin de partie,
   258 nœuds pris en ≈ 400 ms (jeu figé le temps du clic, ou d'une montée de niveau avec dépense automatique) → 40 ms.
   nextGraphNode testait les 618 nœuds en recalculant à chaque fois les points libres (effets des constellations) et
