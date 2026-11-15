@@ -4,7 +4,7 @@ import { npcHTML } from "../npc.js";
 import { describeEffects } from "../../game/talents.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, fsp, tr, wsp } from "../../i18n/index.js";
-import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner, DUO_SYNERGIES, duoGuard, duoCover } from "../../game/classes.js";
+import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner, DUO_SYNERGIES, duoGuard, duoCover, isRanged, DUO } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
 import { esc, unit, fmt, dec } from "../../game/format.js";
@@ -74,7 +74,8 @@ export class ClassesTab {
       const isPartner = S.partner === k, nextPartner = S.nextPartner === k;
       const duo = isPartner ? `<button disabled>${tx("Compagnon actuel")}</button>`
         : nextPartner ? `<button disabled class="primary">${tx("Compagnon à l’ascension ✓")}</button>`
-        : canPartner(S, next, k) ? `<button data-action="c-partner" data-id="${k}" title="${esc(S.partner ? tx("Compagnon pour la prochaine ascension") : tx("Prendre comme compagnon"))}">${S.partner ? tx("Duo à l’ascension") : tx("Prendre en duo")}</button>` : "";
+        // (it. 1520) la bulle dit aussi ce que ce compagnon apporte : il encaisse (corps à corps) ou couvre (à distance)
+        : canPartner(S, next, k) ? `<button data-action="c-partner" data-id="${k}" title="${esc((S.partner ? tx("Compagnon pour la prochaine ascension") : tx("Prendre comme compagnon")) + "\n" + (isRanged(k) ? tx("À distance, il te couvre de ses tirs : attaque +{0} %.", { 0: Math.round(DUO.cover * 100) }) : tx("Devant toi, il encaisse une part des coups : dégâts subis −{0} %.", { 0: Math.round(DUO.guard * 100) })))}">${S.partner ? tx("Duo à l’ascension") : tx("Prendre en duo")}</button>` : "";
       // Carte compacte (demande 18) : description d'ambiance en infobulle, modificateurs sur une ligne.
       return `<article class="panel classcard${cur ? " current" : ""}${chosen && !cur ? " chosen" : ""}${isPartner ? " partner" : ""}" title="${esc(c.desc)}"${cur ? " data-hs-start" : ""}>
         <div class="detail-head"><img src="${classPortraitURL(k)}" alt=""><div>

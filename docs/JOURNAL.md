@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1520) : Héros > Libérés, bulle de « Prendre en duo » / « Duo à l'ascension » : ce que ce compagnon
+  apporte (il couvre à distance : attaque +15 % ; il encaisse au corps à corps : dégâts subis −15 %), phrases déjà
+  traduites. Vérifié par --stage. Autotest 231/231.
 - 2026-11-15 (it. 1519) : devlog 0.1.4 (en et fr) : le vrai duo (encaisse / couvre) et les petits conforts (achats
   équipés, dépense automatique qui suit la ligne, tête du héros sur la carte) ; éditions 59 à 99.
 - 2026-11-15 (it. 1518, contrôle) : après les effets du duo (it. 1515-1516) : fuzz 60 graines, 1200 parties, 0 bloquée ;
