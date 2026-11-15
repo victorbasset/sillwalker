@@ -28,6 +28,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Images : Banner `steam/capsules/header-capsule.png` ; Background : `steam/itch/background-tile-large.png` (ciel
   étoilé du jeu, 384 px, se répète sans raccord ; « Repeat » / mosaïque). Variantes : `background-tile.png` (la trame
   exacte du panneau, très discrète) et `background-tile-visible.png` (la même, étoiles plus visibles).
+- Widget (à coller dans un site) : `steam/itch/widget.html` (page https://victor-basset.itch.io/sillwalker, jeu n° 5341716).
 
 ## Fin de partie (à décider, pas urgent)
 
