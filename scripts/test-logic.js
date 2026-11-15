@@ -244,6 +244,24 @@ test("hors ligne : objets laissés au sol quand le sac est plein, comptés dans 
   assert.equal(g2.applyOffline(8 * 3600).onGround, 0);
 });
 
+test("hors ligne : parchemins et encens comptés au prorata de leur durée (it. 1348)", () => {
+  const run = (buffs, unlocks) => {
+    const g = new Game(freshState()); g.S.zone = 5; g.S.best = Math.max(g.S.best, 5); g.S.buffs = { ...buffs };
+    if (unlocks === false) g.S.unlocks.herbalist = false;
+    for (const k in g.S.autoSell) g.S.autoSell[k] = true;
+    const g0 = g.S.gold, x0 = g.S.stats.goldTotal || 0; const sum = g.applyOffline(3600);
+    return { gold: (g.S.stats.goldTotal || 0) - x0, elites: sum ? sum.elites || 0 : 0, sum };
+  };
+  const none = run({}, false), fort = run({ fortune: 600 }, false);
+  // 10 min sur 60 : +50 % × 1/6 de l'or (avant : la part était lue après coup, donc nulle)
+  assert.ok(fort.gold > none.gold * 1.03, none.gold + " -> " + fort.gold);
+  const full = run({ fortune: 3600 }, false);
+  assert.ok(full.gold > fort.gold * 1.2, "toute l'absence couverte : " + fort.gold + " -> " + full.gold);
+  let e0 = 0, e1 = 0;
+  for (let i = 0; i < 5; i++) { e0 += run({}, false).elites; e1 += run({ lure: 3600 }, false).elites; }
+  assert.ok(e1 > e0 * 1.5, "encens : élites " + e0 + " -> " + e1);
+});
+
 test("hors ligne : plafonné, élixirs consommés", () => {
   const g = new Game(freshState());
   assert.equal(g.applyOffline(10), null);

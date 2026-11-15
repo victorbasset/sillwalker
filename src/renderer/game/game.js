@@ -34,7 +34,7 @@ import {
 import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked, canPartner } from "./classes.js";
 import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects, masteryMilestones } from "./talents.js";
 import {
-  CONSUMABLES, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
+  CONSUMABLES, BUFF_EFFECTS, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
   WORKSHOP, workshopPrice, eggPrice, DEAL_DISCOUNT,
 } from "./shop.js";
@@ -1096,8 +1096,13 @@ export class Game {
     // (it. 839) Herboriste perpétuel : il rachète les élixirs pendant l'absence comme en jeu (avant, leur effet
     // s'épuisait hors ligne). Chaque élixir qu'il peut payer (même réserve de 4 fois le prix) couvre toute l'absence.
     const herbs = this.offlineBuffs(sec);
-    const share =(id) => Math.min(S.buffs[id] || 0, sec) / sec;
-    const atkBoost = 1 + 0.25 * share("elixir");
+    // (it. 1348) parts figées AVANT de retirer l'absence aux durées : l'or et l'expérience les lisaient après, donc un
+    // parchemin de 10 min comptait pour 0 pendant une heure d'absence, et ceux de l'Herboriste (couvrant toute
+    // l'absence) pour ≈ 60 s seulement. Valeurs lues dans BUFF_EFFECTS (elles étaient écrites en dur).
+    const shares = {};
+    for (const id in BUFF_EFFECTS) shares[id] = Math.min(S.buffs[id] || 0, sec) / sec;
+    const share = (id) => shares[id] || 0;
+    const atkBoost = 1 + BUFF_EFFECTS.elixir.atkPct / 100 * share("elixir");
     // (it. 568) + les sorts de dégâts appris (héros, compagnon à moitié) : avant, l'absence les ignorait
     // (it. 577) + le Drone stellaire et le Cœur de l'aube (reliques) : l'absence les ignorait
     const drone = this.droneDps(hs);
@@ -1111,10 +1116,10 @@ export class Game {
     if (kills < 1) return null;
     const bagBefore = new Set(S.bag.map((i) => i.id)), lvl0 = S.lvl, journey0 = (S.journey || []).length;
     const qDone0 = S.quests.slots.filter(questDone).length; // (it. 970) quêtes accomplies pendant l'absence
-    const gold = Math.round(kills * b.gold * earlyPace(S) * (1 + hs.gold / 100 + 0.5 * share("fortune")));
+    const gold = Math.round(kills * b.gold * earlyPace(S) * (1 + hs.gold / 100 + BUFF_EFFECTS.fortune.gold / 100 * share("fortune")));
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
-    const xp = Math.round(kills * b.xp * earlyPace(S) * (1 + hs.xp / 100 + 0.5 * share("wisdom")));
+    const xp = Math.round(kills * b.xp * earlyPace(S) * (1 + hs.xp / 100 + BUFF_EFFECTS.wisdom.xp / 100 * share("wisdom")));
     S.gold += gold;
     S.stats.kills += kills;
     const types = zoneDef(S.zone).monsters;
@@ -1124,7 +1129,8 @@ export class Game {
     this.questProgress("gold", gold);
     // (it. 882) Élites rencontrées pendant l'absence, aux mêmes chances qu'en jeu (bénédiction du jour, Appât des
     // champions) : avant, une quête « élites » restait à 0 toute la nuit malgré des milliers de victoires.
-    const elites = this.offlineElites(kills, hs);
+    // (it. 1348) l'Encens de chasse compte aussi, au prorata de sa durée restante
+    const elites = this.offlineElites(kills, { ...hs, elites: (hs.elites || 0) + BUFF_EFFECTS.lure.elites * share("lure") });
     // (it. 1262) champions vaincus pendant l'absence (chance par monstre, dès CHAMPION.minZone) : la quête « Vaincre un
     // champion » avance aussi hors ligne, comme les autres
     let champs = 0; // (it. 1276) dans le résumé d'absence

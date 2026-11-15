@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1348) : absence : les parchemins de fortune et de savoir comptent enfin. Leur part de durée était
+  lue APRÈS avoir retiré l'absence aux durées : un parchemin de 10 min valait 0 pendant une heure d'absence, et ceux
+  de l'Herboriste perpétuel (achetés pour couvrir toute l'absence) ≈ 60 s seulement (+50 % d'or et d'expérience
+  presque perdus chaque nuit). Parts figées avant ; valeurs lues dans BUFF_EFFECTS (écrites en dur). L'Encens de
+  chasse compte aussi hors ligne (élites au prorata). Test (ancien code : 746 → 746 d'or avec ou sans parchemin).
 - 2026-11-15 (it. 1347, contrôle) : actions en un clic chronométrées sur la fin de partie (autoEquip, sellUseless,
   transmute, autoSpendTalents, todoNow…) : toutes sous 5 ms au premier appel, todoNow 0,13 ms ensuite (appelé par le
   mini à chaque gain d'or), autoEquip 1,2 ms. Aucun autre gel du genre de l'it. 1345.
