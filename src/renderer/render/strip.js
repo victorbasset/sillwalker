@@ -1082,7 +1082,9 @@ export class StripRenderer {
     const hs = g.stats(), hp = Math.max(0, R.hp), sh = R.mode === "fight" ? (R.shield || 0) : 0;
     this.hpHero.place(hx);
     this.hpHero.icon(heroHeadURL(S.cls, heroVisual(S), 36), this.heroCls);
-    this.hpHero.set(hp, hs.hp, sh, fmtShort(hp), sh > 0 ? "+" + fmtShort(sh) : "");
+    // (it. 1535) K.O. : « K.O. · 3 s » (temps avant le retour) au lieu d'un « 0 » sans explication
+    if (R.mode === "dead") this.hpHero.set(0, hs.hp, 0, tx("K.O. · {0} s", { 0: Math.max(1, Math.ceil(R.deadT || 0)) }));
+    else this.hpHero.set(hp, hs.hp, sh, fmtShort(hp), sh > 0 ? "+" + fmtShort(sh) : "");
     if (!fight || !monFits) return;
     const m = R.mon, msh = m.shell > 0 ? m.shell : 0;
     this.hpMon.place(mx);

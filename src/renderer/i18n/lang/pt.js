@@ -1821,4 +1821,5 @@ export default {
   2946: "Faixa: sua vida e a do monstro enfrentado aparecem no topo, ao lado da zona, escudo incluído (Configurações > Janela: «Barras de vida no topo da faixa»).",
   2947: "Talentos: cada maestria com um patamar de dois bônus mantém um botão «Bônus» para rever ou mudar sua escolha, sem passar pela ficha.",
   2948: "Passar o mouse sobre um item não faz mais a página pular: uma descrição longa se compacta para caber no painel.",
+  2949: "Nocaute · {0} s",
 };

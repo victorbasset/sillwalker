@@ -1821,4 +1821,5 @@ export default {
   2946: "Pasek: twoje życie i życie potwora widać u góry, obok strefy, razem z tarczą (Ustawienia > Okno: „Paski życia u góry paska”).",
   2947: "Talenty: każde mistrzostwo z progiem o dwóch premiach ma stały przycisk „Premia”, by przejrzeć lub zmienić wybór bez otwierania karty.",
   2948: "Najechanie na przedmiot już nie przesuwa strony: długi opis się zagęszcza, by zmieścić się w panelu.",
+  2949: "Nokaut · {0} s",
 };

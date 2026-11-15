@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1535) : barre de vie du héros en haut de la bande : « K.O. · 4 s » (temps avant le retour) quand le
+  héros est tombé, au lieu d'un « 0 ». 1 clé, 9 langues. Vérifié par --stage ; autotest 233/233.
 - 2026-11-15 (it. 1534) : CLAUDE.md : mesure « maîtrise=N » de lang-overflow ; règles de la rangée d'informations de la
   bande (hudBands, nom du boss, DOM mis à jour au changement).
 - 2026-11-15 (it. 1533) : portugais harmonisé vers le brésilien (majoritaire : ≈ 230 « você / seu / sua » contre 24
