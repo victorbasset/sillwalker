@@ -1767,4 +1767,5 @@ export default {
   2892: "New pet, the Magpie: it spots treasure chests (+6% chests found per level).",
   2893: "Chest Raider (50 chests)",
   2894: "New achievement: Chest Raider (50 treasure chests found).",
+  2895: "Bestiary: with the Traveler's Map, clicking a monster takes you to the nearest zone where it lives, to raise its tiers.",
 };

@@ -51,7 +51,7 @@ import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src
 import { setRandom, seeded } from "../src/renderer/game/util.js";
 import { systemLang, plAgree, koJosa } from "../src/renderer/i18n/index.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked, takeNewChronicles, FINAL_ZONE, FINAL_BOSS, storyWon } from "../src/renderer/game/story.js";
-import { approachTime, heroStats, powerSources, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark } from "../src/renderer/game/rules.js";
+import { approachTime, heroStats, powerSources, heroDps, power, earlyPace, zoneMight, MONSTER_LATE_GROWTH, zoneName, loopMark, nearestZoneWith, zoneDef } from "../src/renderer/game/rules.js";
 import { affixesSeenEffects as affixesSeenEffectsT } from "../src/renderer/game/data.js";
 import { TREES, cannotLearn, talentPointsFree, TIER_REQ, masteryMilestones, talentEffects } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
@@ -392,6 +392,14 @@ test("Lucane : +3 % de dégâts contre les boss par niveau, sprite présent (it.
   const b0 = g.stats().bossDmg || 0;
   g.S.pets.owned.stagbeetle = { lvl: 4, xp: 0 }; g.S.pets.active = "stagbeetle"; g.invalidateStats();
   assert.equal((g.stats().bossDmg || 0) - b0, 12);
+});
+
+test("nearestZoneWith : zone atteinte la plus proche où vit un monstre (it. 1437)", () => {
+  const S = { zone: 40, best: 60 }, type = zoneDef(12).monsters[0];
+  const z = nearestZoneWith(S, type);
+  assert.ok(z >= 1 && z <= 60 && zoneDef(z).monsters.includes(type), "zone " + z);
+  for (let y = 1; y <= 60; y++) if (zoneDef(y).monsters.includes(type)) assert.ok(Math.abs(y - 40) >= Math.abs(z - 40));
+  assert.equal(nearestZoneWith({ zone: 1, best: 1 }, "inconnu"), 0);
 });
 
 test("Pie : +6 % de coffres au trésor par niveau, en jeu et pendant l'absence (it. 1427)", () => {

@@ -1767,4 +1767,5 @@ export default {
   2892: "Nowy pupil: Sroka, która wypatruje skrzyń ze skarbem (+6 % znalezionych skrzyń na poziom).",
   2893: "Łupieżca skrzyń (50 skrzyń)",
   2894: "Nowe osiągnięcie: Łupieżca skrzyń (50 znalezionych skrzyń ze skarbem).",
+  2895: "Bestiariusz: z Mapą podróżnika kliknięcie potwora zabiera cię do najbliższej strefy, w której żyje, by podnieść jego progi.",
 };

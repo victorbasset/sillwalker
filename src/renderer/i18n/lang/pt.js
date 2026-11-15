@@ -1767,4 +1767,5 @@ export default {
   2892: "Novo mascote: a Pega, que repara nos baús do tesouro (+6 % de baús encontrados por nível).",
   2893: "Saqueador de baús (50 baús)",
   2894: "Nova conquista: Saqueador de baús (50 baús do tesouro encontrados).",
+  2895: "Bestiário: com o Mapa do viajante, um clique num monstro leva-te à zona mais próxima onde ele vive, para subir os seus patamares.",
 };

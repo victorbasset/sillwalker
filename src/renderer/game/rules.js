@@ -215,6 +215,12 @@ export function upgradeDelta(S, it) {
 /** Marque de boucle : « + », « ++ », puis « +3 », « +6 »… (plus lisible qu'une longue suite de « + » en fin de partie). */
 export const loopMark = (n) => (n <= 2 ? "+".repeat(n) : "+" + n);
 export const zoneDef = (z) => ZONES[(z - 1) % ZONES.length];
+/** (it. 1437) Zone atteinte (1 à S.best) la plus proche de la zone actuelle où vit ce monstre ; 0 s'il n'y en a pas. */
+export function nearestZoneWith(S, type) {
+  let best = 0;
+  for (let z = 1; z <= (S.best || 1); z++) if (zoneDef(z).monsters.includes(type) && (!best || Math.abs(z - S.zone) < Math.abs(best - S.zone))) best = z;
+  return best;
+}
 export function zoneName(z) {
   const cycle = Math.floor((z - 1) / ZONES.length);
   return zoneDef(z).name + (cycle ? " " + loopMark(cycle) : "");

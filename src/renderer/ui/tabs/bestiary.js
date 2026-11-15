@@ -15,6 +15,8 @@ import { itemName } from "../../i18n/data.js";
 import { RARITIES, SLOTS, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, affixesSeenEffects } from "../../game/data.js";
 import { BOSS_MECHANICS, bossMechanics } from "../../game/bosses.js";
 import { tabOpen } from "../../game/tabs.js";
+import { hasUnlock } from "../../game/unlocks.js";
+import { zoneDef, nearestZoneWith } from "../../game/rules.js";
 
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
@@ -41,12 +43,14 @@ export class BestiaryTab {
 
   beastsHTML(S) {
     const B = S.bestiary || {};
-    const keys = Object.keys(MONSTERS), seen = keys.filter((k) => B[k] > 0).length;
+    const keys = Object.keys(MONSTERS), seen = keys.filter((k) => B[k] > 0).length, travel = hasUnlock(S, "travelMap");
     const cards = keys.map((k) => {
       const n = B[k] || 0, known = n > 0, tier = bestiaryTier(n), next = BESTIARY_TIERS[tier];
       const pips = BESTIARY_TIERS.map((t, i) => `<i class="${i < tier ? "on" : ""}" title="${esc(tx("{0} victoires", { 0: fmt(t) }))}"></i>`).join("");
       // Fiche compacte (demande 18) : les zones où vit le monstre passent en infobulle.
-      return `<article class="panel beast${known ? "" : " unknown"}" title="${esc(known ? MONSTERS[k].name + " · " + where(k) : tx("Pas encore rencontré"))}">
+      // (it. 1437) Carte du voyageur : un clic emmène le héros dans la zone la plus proche où vit le monstre (paliers)
+      const gz = known && travel && !zoneDef(S.zone).monsters.includes(k) ? nearestZoneWith(S, k) : 0;
+      return `<article class="panel beast${known ? "" : " unknown"}${gz ? " go" : ""}"${gz ? ` data-action="b-go" data-z="${gz}"` : ""} title="${esc(known ? MONSTERS[k].name + " · " + where(k) + (gz ? "\n" + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }) : "") : tx("Pas encore rencontré"))}">
         <img src="${monsterURL(k, !known)}" alt="">
         <div class="si"><div class="nm">${known ? esc(MONSTERS[k].name) : "???"}</div>
         <div class="pips">${pips}<span>${fmt(n)}${next ? " / " + fmt(next) : " " + tx("(complet)")}</span></div></div>
@@ -151,6 +155,7 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
   onAction(a, b) {
     if (a === "b-jump") this.sec = b.dataset.to.replace(/^bj-/, ""); // le panneau se redessine ensuite
     else if (a === "b-setfin") this.game.finishSet(b.dataset.id);
+    else if (a === "b-go" && hasUnlock(this.game.S, "travelMap")) this.game.setZone(+b.dataset.z); // (it. 1437)
   }
   // (it. 936) un événement en cours : le compte à rebours de sa carte avance (sous-onglet des événements seulement)
   tick() { return this.sec === "events" && Object.values(this.game.R.events || {}).some((t) => t > 0); }

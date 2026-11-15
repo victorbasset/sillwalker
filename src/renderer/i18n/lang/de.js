@@ -1767,4 +1767,5 @@ export default {
   2892: "Neuer Begleiter: die Elster, die Schatztruhen erspäht (+6 % gefundene Truhen pro Stufe).",
   2893: "Truhenplünderer (50 Truhen)",
   2894: "Neuer Erfolg: Truhenplünderer (50 Schatztruhen gefunden).",
+  2895: "Bestiarium: Mit der Karte des Reisenden bringt dich ein Klick auf ein Monster in die nächste Zone, in der es lebt, um seine Stufen zu steigern.",
 };

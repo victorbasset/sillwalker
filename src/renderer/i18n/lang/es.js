@@ -1767,4 +1767,5 @@ export default {
   2892: "Nueva mascota, la Urraca: localiza los cofres del tesoro (+6 % de cofres encontrados por nivel).",
   2893: "Saqueador de cofres (50 cofres)",
   2894: "Nuevo logro: Saqueador de cofres (50 cofres del tesoro encontrados).",
+  2895: "Bestiario: con el Mapa del viajero, un clic en un monstruo te lleva a la zona más cercana donde vive, para subir sus niveles.",
 };

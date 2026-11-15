@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1437) : Bestiaire : avec la Carte du voyageur, une fiche de monstre absent de la zone se clique et
+  emmène le héros dans la zone atteinte la plus proche où il vit (« Clic : y aller · Zone N » dans la bulle ; monter
+  ses paliers sans passer par la Carte). nearestZoneWith (rules.js) partagé avec la quête de chasse (it. 1426) et
+  testé. Un glisser de la rangée ne déclenche pas de voyage (clic absorbé par hscroll). Vérifié par --stage : 56 → 37.
+  « Quoi de neuf » 89. Autotest 228/228, crawl 705 clics, lang-overflow propre.
 - 2026-11-15 (it. 1436, contrôle) : i18n-names après la Pie et « Pilleur de coffres » : 24 écarts, tous connus
   (génitifs allemands et coréens, réplique libre japonaise) ; aucun ne vient des ajouts de la nuit. Écart assumé :
   le succès « Ménagerie complète » ne reprend pas le mot du déblocage « Ménagerie » en es, pt, zh, ja ; le corriger

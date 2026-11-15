@@ -13,7 +13,7 @@ import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { tabOpen } from "../../game/tabs.js";
 import { classSpells, spellRank } from "../../game/spells.js";
-import { zoneDef } from "../../game/rules.js";
+import { zoneDef, nearestZoneWith } from "../../game/rules.js";
 
 /** Icône de chaque type de quête (réutilise les dessins de la boutique et des objets). */
 const KIND_ICON = {
@@ -74,8 +74,7 @@ export class QuestsTab {
       // avec la Carte du voyageur, un clic y emmène le héros
       let away = "";
       if (!done && q.kind === "hunt" && !zoneDef(S.zone).monsters.includes(q.type)) {
-        let best = 0;
-        for (let z = 1; z <= S.best; z++) if (zoneDef(z).monsters.includes(q.type) && (!best || Math.abs(z - S.zone) < Math.abs(best - S.zone))) best = z;
+        const best = nearestZoneWith(S, q.type);
         if (best) {
           const lbl = esc(tx("absent d’ici · zone {0}", { 0: best }));
           away = hasUnlock(S, "travelMap") ? ` <button class="qgo" data-action="q-go" data-z="${best}" title="${esc(tx("Clic : y aller"))}">${lbl}</button>` : ` <small class="eta">· ${lbl}</small>`;
