@@ -39,7 +39,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
 - [x] 1. Outil de rendu : `scripts/music/render.mjs` + `scripts/music/studio.html` (fenêtre cachée), moteur
       `scripts/music/engine.js` (instruments, effets, mixage, maître), export WAV puis Opus/MP3 (ffmpeg du venv),
       mesures ebur128. Morceau d'essai de 8 mesures pour valider la chaîne.
-- [ ] 2. Instruments de qualité : piano électrique FM, guitare pincée (Karplus-Strong), flûte, lead chiptune doux,
+- [x] 2. Instruments de qualité : piano électrique FM, guitare pincée (Karplus-Strong), flûte, lead chiptune doux,
       cloches, pad (supersaw filtré, chorus), cordes, chœur (formants), basse sub + basse pincée, batterie lofi
       (kick, snare, hats, saturation douce), percussions épiques (toms, timbales), effets : réverbération à
       convolution (impulsion générée), écho stéréo, chorus, compression en sidechain, wow/flutter de bande,
@@ -70,3 +70,11 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   graves), largeur stéréo plus généreuse.
   Commandes : `xvfb-run -a node_modules/.bin/electron --no-sandbox scripts/music/render.cjs <morceau> <x.wav>` puis
   `<venv>/bin/python -I scripts/music/master.py <x.wav> <sortie> [--loop]`.
+- 15/11 (tâche 2) : instruments : piano électrique FM, guitare et basse pincées (Karplus-Strong), cloche/célesta FM,
+  flûte (souffle, vibrato, montée d'attaque), lead « puce » (rectangulaire 25 % en série de Fourier, filtrée, glissé),
+  nappe supersaw 5/7 voix, cordes d'ensemble, chœur « aah » (formants 800/1150/2900 Hz), basse sub ; batterie : grosse
+  caisse, caisse claire, claquement, charleston, shaker, cymbale, toms/timbales ; montée de bruit, craquements de vinyle ;
+  pleurage de bande commun (st.setWow). Mesure par octave (dB) dans master.py. Vitrine de 68 s (`tracks/vitrine.js`,
+  rendue en 37 s) : −16 LUFS, vrai pic −4,1 dBFS, pente ≈ −5 dB/octave au-dessus de 1 kHz (chaud) ; 63 Hz 8 dB
+  au-dessus de 125 Hz : basse sub et grosse caisse un peu fortes, à baisser dans les morceaux. Envoyée à Victor
+  (Médias/dist-itch/musique/00-vitrine-instruments.mp3) pour juger les timbres.

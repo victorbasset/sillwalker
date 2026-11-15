@@ -38,7 +38,18 @@ export class Studio {
     this.delayIn.connect(dlp); dlp.connect(dL); dlp.connect(dR); dL.connect(mL); dR.connect(mR); mL.connect(this.master); mR.connect(this.master);
     dL.connect(fb); fb.connect(dlp); dR.connect(this.reverb);
     this.channels = {}; this.kicks = [];
+    // ---- pleurage de bande (lofi) : un flottement lent et commun de la hauteur, en cents, auquel les oscillateurs se
+    // branchent (wobble) ; 0 = aucun. Deux vitesses mêlées (pleurage 0,55 Hz + scintillement 6 Hz très faible).
+    this.wowCents = c.createGain(); this.wowCents.gain.value = 0;
+    const w1 = c.createOscillator(), w2 = c.createOscillator(), w2g = c.createGain();
+    w1.frequency.value = 0.55; w2.frequency.value = 6.1; w2g.gain.value = 0.18;
+    w1.connect(this.wowCents); w2.connect(w2g); w2g.connect(this.wowCents); w1.start(0); w2.start(0);
   }
+
+  /** Profondeur du pleurage de bande (cents) à partir de t ; rampe douce. */
+  setWow(cents, t = 0) { this.wowCents.gain.setTargetAtTime(cents, t, 0.5); }
+  /** Branche un oscillateur sur le pleurage de bande. */
+  wobble(o) { this.wowCents.connect(o.detune); return o; }
 
   /** Impulsion de réverbération stéréo : bruit qui décroît (duree s, decroissance), prédélai, deux canaux décorrélés. */
   impulse(dur, decay, pre) {

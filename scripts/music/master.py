@@ -43,11 +43,16 @@ x = x.reshape(-1, ch)
 mono = x.mean(axis=1)
 spec = np.abs(np.fft.rfft(mono * np.hanning(len(mono)))) ** 2
 fr = np.fft.rfftfreq(len(mono), 1 / sr)
-bands = [("sub <60", 20, 60), ("grave 60-250", 60, 250), ("bas-médium 250-1k", 250, 1000), ("médium 1-4k", 1000, 4000), ("aigu 4-10k", 4000, 10000), ("air >10k", 10000, 20000)]
-tot = spec[(fr > 20) & (fr < 20000)].sum()
-share = {name: round(100 * spec[(fr >= lo) & (fr < hi)].sum() / tot, 1) for name, lo, hi in bands}
+# niveau par octave (dB, relatif à l'octave la plus forte) : un bruit rose donne une courbe plate ; un mixage équilibré
+# descend doucement vers les aigus (≈ −3 à −5 dB par octave au-dessus de 1 kHz)
+oct_db = {}
+for fc in (63, 125, 250, 500, 1000, 2000, 4000, 8000, 16000):
+    sel = (fr >= fc / 2 ** 0.5) & (fr < fc * 2 ** 0.5)
+    oct_db[fc] = 10 * np.log10(spec[sel].sum() + 1e-20)
+top = max(oct_db.values())
+share = {f"{fc}": round(v - top, 1) for fc, v in oct_db.items()}
 side = x[:, 0] - x[:, 1]; width = round(float(np.sqrt((side ** 2).mean()) / (np.sqrt((mono ** 2).mean()) + 1e-12)), 2)
-res = {"LUFS": grab("I:"), "LRA": grab("LRA:"), "vrai pic": grab("Peak:"), "bandes %": share, "largeur stéréo (S/M)": width}
+res = {"LUFS": grab("I:"), "LRA": grab("LRA:"), "vrai pic": grab("Peak:"), "octaves dB": share, "largeur stéréo (S/M)": width}
 if loop:
     k = int(0.005 * sr)
     res["raccord de boucle (saut max)"] = round(float(np.abs(x[-k:].mean(axis=0) - x[:k].mean(axis=0)).max()), 4)
