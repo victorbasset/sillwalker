@@ -800,7 +800,7 @@ export class Game {
 
   gainXp(x) {
     const S = this.S;
-    S.xp += x;
+    S.xp += x; this.R.xpGot = (this.R.xpGot || 0) + x; // (it. 1399) compteur en mémoire (bilan des événements)
     let up = false;
     const lvlBefore = S.lvl;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; up = true; }
@@ -1994,7 +1994,8 @@ export class Game {
   eventSnap() {
     const st = this.S.stats;
     return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
-      spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0, bosses: st.bosses || 0 };
+      spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0, bosses: st.bosses || 0,
+      xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0 };
   }
 
   /**
@@ -2018,6 +2019,9 @@ export class Game {
     if (id === "palemoon" && d("bosses")) parts.push(txn(d("bosses"), "{n} boss vaincu|{n} boss vaincus", { n: fmt(d("bosses")) }));
     // (it. 1398) Source de vie : la vie rendue au héros (sa raison d'être)
     if (id === "spring" && this.R.springHeal >= 1) { const h = Math.round(this.R.springHeal); parts.push(txn(h, "+{n} PV regagné|+{n} PV regagnés", { n: fmt(h) })); this.R.springHeal = 0; }
+    // (it. 1399) Souffle de sagesse et Nichée : leur raison d'être (expérience, œufs)
+    if (id === "wisdom" && d("xp")) parts.push(txn(Math.round(d("xp")), "+{n} point d’expérience|+{n} points d’expérience", { n: fmt(Math.round(d("xp"))) }));
+    if (id === "nest" && d("eggs")) parts.push(txn(d("eggs"), "{n} œuf trouvé|{n} œufs trouvés", { n: fmt(d("eggs")) }));
     if (id === "goblinrush" && d("goblins")) parts.push(txn(d("goblins"), "{n} gobelin attrapé|{n} gobelins attrapés", { n: fmt(d("goblins")) }));
     if ((id === "goldrain" || id === "bloodmoon" || id === "goblinrush") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));
     const line = tx("{0} · bilan : {1}", { 0: ev.name, 1: parts.join(csep()) }) + cend();
@@ -2273,6 +2277,7 @@ export class Game {
   /* ---------- Familiers ---------- */
   gainEgg() {
     this.S.pets.eggs++;
+    this.R.eggsGot = (this.R.eggsGot || 0) + 1; // (it. 1399) compteur en mémoire (bilan des événements)
     this.emit("egg");
     // (it. 884) le Grand intendant le fera éclore : pas d'invitation à le faire soi-même
     const steward = hasUnlock(this.S, "steward") && this.S.settings.autoPets !== false;

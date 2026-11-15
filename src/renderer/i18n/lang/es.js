@@ -1747,4 +1747,6 @@ export default {
   2872: "Artificiero (25 explosivos)",
   2873: "Nuevo logro, Artificiero: derrota a 25 élites explosivas.",
   2874: "+{n} PV recuperado|+{n} PV recuperados",
+  2875: "+{n} punto de experiencia|+{n} puntos de experiencia",
+  2876: "{n} huevo encontrado|{n} huevos encontrados",
 };

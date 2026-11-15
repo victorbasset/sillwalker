@@ -1747,4 +1747,6 @@ export default {
   2872: "Saper (25 wybuchowych)",
   2873: "Nowe osiągnięcie, Saper: pokonaj 25 wybuchowych elit.",
   2874: "+{n} PŻ odzyskany|+{n} PŻ odzyskane|+{n} PŻ odzyskanych",
+  2875: "+{n} punkt doświadczenia|+{n} punkty doświadczenia|+{n} punktów doświadczenia",
+  2876: "{n} jajo znalezione|{n} jaja znalezione|{n} jaj znalezionych",
 };

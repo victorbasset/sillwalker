@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1399) : bilans d'événements : le Souffle de sagesse dit l'expérience gagnée et la Nichée les œufs
+  trouvés (compteurs en mémoire, pas de donnée sauvegardée). 10 langues (3 formes en russe et polonais), test.
+  Restent sans chiffre propre (leur effet n'est pas un gain comptable) : vent, frénésie, zèle, voile, écho.
 - 2026-11-15 (it. 1398) : bilan de la Source de vie au journal : la vie rendue (« Source de vie · bilan : 12 monstres
   vaincus, +1,8 M PV regagnés. »), comme les boss pour la Lune pâle ; accumulée pendant l'événement, remise à zéro à son
   début. 10 langues (3 formes en polonais), test. Autotest 228/228.

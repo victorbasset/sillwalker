@@ -1747,4 +1747,6 @@ export default {
   2872: "Bomb Disposal (25 explosives)",
   2873: "New achievement, Bomb Disposal: defeat 25 explosive elites.",
   2874: "+{n} HP regained|+{n} HP regained",
+  2875: "+{n} experience point|+{n} experience points",
+  2876: "{n} egg found|{n} eggs found",
 };

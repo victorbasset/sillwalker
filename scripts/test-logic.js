@@ -426,6 +426,12 @@ test("absence : les compteurs par sorte d'élite avancent, sauf les sortes jamai
   assert.ok(ok, "une absence avec assez d'élites");
 });
 
+test("bilans du Souffle de sagesse (expérience) et de la Nichée (œufs) (it. 1399)", () => {
+  const g = new Game(freshState());
+  g.startEvent("wisdom"); g.S.stats.kills += 2; g.gainXp(50); assert.ok(/experience point/.test(g.eventReport("wisdom")));
+  g.startEvent("nest"); g.S.stats.kills += 2; g.gainEgg(); const ln = g.eventReport("nest"); assert.ok(/1\segg\sfound/.test(ln), "œuf : " + ln);
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);

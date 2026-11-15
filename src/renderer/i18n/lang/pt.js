@@ -1747,4 +1747,6 @@ export default {
   2872: "Desarmador (25 explosivos)",
   2873: "Nova conquista, Desarmador: derrote 25 elites explosivas.",
   2874: "+{n} PV recuperado|+{n} PV recuperados",
+  2875: "+{n} ponto de experiência|+{n} pontos de experiência",
+  2876: "{n} ovo encontrado|{n} ovos encontrados",
 };

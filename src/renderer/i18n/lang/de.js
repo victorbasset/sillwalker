@@ -1747,4 +1747,6 @@ export default {
   2872: "Kampfmittelräumer (25 Explosive)",
   2873: "Neuer Erfolg, Kampfmittelräumer: Besiege 25 explosive Elite-Gegner.",
   2874: "+{n} LP zurückgewonnen|+{n} LP zurückgewonnen",
+  2875: "+{n} Erfahrungspunkt|+{n} Erfahrungspunkte",
+  2876: "{n} Ei gefunden|{n} Eier gefunden",
 };
