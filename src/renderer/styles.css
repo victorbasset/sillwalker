@@ -1398,9 +1398,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Thème clair : contour sombre des icônes de sorts (les sorts blancs du guerrier disparaissaient sur le crème, it. 509). */
 .duoline .spellmini img, .spellcard .spellico { filter: var(--iconsh); }
 /* Sorts et attaque : sorts du compagnon (icône + rang), sur une ligne. */
-.pspells { margin-top: 4px; }
-.pspells .pspell { display: inline-flex; align-items: center; gap: 2px; margin-right: 8px; color: var(--muted); }
-.pspells .pspell img { width: 16px; height: 16px; image-rendering: pixelated; filter: var(--iconsh); vertical-align: middle; }
 /* Réglages > Son : écoute des airs (◀ ▶). */
 .mpreview { display: inline-flex; align-items: center; gap: 4px; margin-left: 10px; color: var(--muted); font-size: 13px; }
 .mpreview button { padding: 2px 8px; }
@@ -1424,10 +1421,6 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
   .spellcard .spellico { width: 22px; height: 22px; }
 }
 /* Sorts du compagnon : « + » pour apprendre / améliorer (it. 558) */
-.pspells .pspell.off img { filter: grayscale(1); opacity: .5; }
-.pspells .pplus { padding: 0 5px; margin-left: 3px; font-size: 11px; line-height: 1.2; min-height: 0; }
-/* (it. 559) « + » abordable : couleur d'accent (on voit d'un coup d'œil ce qu'on peut acheter) */
-.pspells .pplus:not(:disabled) { color: var(--accent); border-color: var(--accent); }
 /* Reliques (demande S, it. 572) : sur le héros (drone, couronne, petites icônes) et au-dessus du boss qui la garde. */
 .actor .relic-drone { position: absolute; left: -22px; top: -14px; width: 27px; image-rendering: pixelated; pointer-events: none; }
 .actor .relic-crown { position: absolute; top: 1px; z-index: 2; width: 18px; image-rendering: pixelated; pointer-events: none; }
