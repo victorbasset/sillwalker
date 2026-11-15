@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1444, contrôle) : première heure (early-pace, 3 graines) : à 60 min 104 objets, niveau 37, zone 22,
+  5,7 déblocages, contre 120 / 40 / 23 / 6,3 avant la nuit (4096b50). Dichotomie sur les 25 commits de la nuit
+  (dossier de travail git) : stable jusqu'au Bestiaire (111 / 41 / 25 / 6,7), la baisse arrive avec le Trésor enfoui ;
+  avec sa chance mise à 0 (le tirage reste, l'événement n'arrive jamais), même résultat 104 / 37 / 22 : simple décalage
+  des tirages aléatoires (un événement de plus = un tirage de plus par victoire), pas un effet du jeu. Bruit de
+  early-pace sur 3 graines : au moins ±3 niveaux et ±3 zones à 60 min ; ne pas régler le début sur un seul écart.
 - 2026-11-15 (it. 1443, contrôle) : « Quoi de neuf » à 7 nouveautés regardé en capture (allemand, 1280 px) : deux
   colonnes lisibles, aucun défilement, « … und 209 ältere Neuerungen » en bas. Rien à corriger.
 - 2026-11-15 (it. 1442) : « Quoi de neuf » : après les 3 dernières éditions, la fenêtre en ajoute de plus anciennes tant
