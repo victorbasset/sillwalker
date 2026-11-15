@@ -411,6 +411,19 @@ test("élite explosive : 6 % des PV max du héros à sa mort, sans l'achever (it
   g.R.hp = 2; g.killMonster(); assert.ok(g.R.hp >= 1, "jamais achevé : " + g.R.hp);
 });
 
+test("absence : les compteurs par sorte d'élite avancent, sauf les sortes jamais vaincues (it. 1397)", () => {
+  let ok = false;
+  for (let z = 5; z < 40 && !ok; z++) {
+    const g = new Game(freshState()); g.S.zone = z; g.S.stats.affixesSeen = { explosive: 3 };
+    const sum = g.applyOffline(8 * 3600);
+    if (!sum || !(sum.elites > 20)) continue;
+    ok = true;
+    assert.ok(g.S.stats.affixesSeen.explosive > 3, "explosif : " + g.S.stats.affixesSeen.explosive);
+    assert.equal(Object.keys(g.S.stats.affixesSeen).length, 1, "aucune sorte découverte hors ligne");
+  }
+  assert.ok(ok, "une absence avec assez d'élites");
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);

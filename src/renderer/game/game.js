@@ -1142,9 +1142,13 @@ export class Game {
     if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance * (activeDayMod(S)?.champion || 1); champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0);
       if (champs) { S.stats.champions = (S.stats.champions || 0) + champs; this.questProgress("champion", champs); } }
     if (elites) { S.stats.elites += elites; this.questProgress("elite", elites);
-      // (it. 946) proies pendant l'absence : chaque élite a une sorte au hasard (1 chance sur 7 d'être la bonne)
+      // (it. 946) proies pendant l'absence : chaque élite a une sorte au hasard (1 chance sur na d'être la bonne)
       const na = Object.keys(ELITE_AFFIXES).length;
-      for (const q of S.quests.slots) if (q.kind === "prey") { const x = elites / na, n = Math.floor(x) + (rand() < x % 1 ? 1 : 0); if (n) this.questProgress("prey", n, q.type); } }
+      for (const q of S.quests.slots) if (q.kind === "prey") { const x = elites / na, n = Math.floor(x) + (rand() < x % 1 ? 1 : 0); if (n) this.questProgress("prey", n, q.type); }
+      // (it. 1397) compteurs par sorte (Bestiaire, succès Démineur) : avant, ils n'avançaient qu'en jeu. Seules les sortes
+      // déjà vaincues comptent : la découverte d'une nouvelle sorte reste un moment du jeu en direct (annonce, bonus).
+      const A = (S.stats.affixesSeen ||= {});
+      for (const k of Object.keys(ELITE_AFFIXES)) { if (!affixWins(A[k])) continue; const x = elites / na, n = Math.floor(x) + (rand() < x % 1 ? 1 : 0); if (n) A[k] = affixWins(A[k]) + n; } }
     // (it. 883) coups critiques : au moins un coup par victoire, aux chances de critique du héros (estimation basse)
     const crits = Math.floor(kills * Math.min(1, Math.max(0, hs.crit) / 100));
     if (crits) { S.stats.crits = (+S.stats.crits || 0) + crits; this.questProgress("crit", crits); }

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1397) : absence : les compteurs par sorte d'élite (Bestiaire > Élites, succès Démineur) avancent
+  aussi hors ligne, une sorte au hasard par élite comme les proies ; seules les sortes déjà vaincues comptent (la
+  découverte d'une sorte reste un moment du jeu en direct, avec son annonce et son bonus). Avant, un joueur surtout
+  absent ne progressait jamais vers Démineur. Test ; save-fuzz ok ; commentaire « 1 chance sur 7 » périmé corrigé.
 - 2026-11-15 (it. 1396) : brouillon du devlog 0.1.4 et POUR-VICTOR : le succès Démineur (éditions jusqu'à 82). Aucun
   « 68 succès » resté dans la page Steam, les dossiers de presse ou le README.
 - 2026-11-15 (it. 1395) : 69e succès, « Démineur (25 explosifs) » (EXPLOSIVE_25, progression x / 25 sur le compteur de
