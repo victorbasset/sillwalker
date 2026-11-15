@@ -1842,4 +1842,7 @@ export default {
   2967: "Krawędź",
   2968: "Gwiezdne ścieżki",
   2969: "Namiestnicy",
+  2970: "Liczy się najdalsza osiągnięta strefa, a nie poziom bohatera.",
+  2971: "Dużo sprzedajesz ręcznie? „Oko znawcy” (Sklep) jednym kliknięciem sprzedaje wszystko, co nie ulepsza twojego bohatera. Kliknij tutaj.",
+  2972: "{0} pokonany: {1} złota!",
 };

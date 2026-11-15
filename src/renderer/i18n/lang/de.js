@@ -1842,4 +1842,7 @@ export default {
   2967: "Der Saum",
   2968: "Sternenpfade",
   2969: "Die Statthalter",
+  2970: "Es zählt die weiteste je erreichte Zone, nicht die Stufe des Helden.",
+  2971: "Du verkaufst viel von Hand? Der „Kennerblick“ (Laden) verkauft mit einem Klick alles, was deinen Helden nicht verbessert. Hier klicken.",
+  2972: "{0} besiegt: {1} Gold!",
 };

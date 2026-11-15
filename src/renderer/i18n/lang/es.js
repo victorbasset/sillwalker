@@ -1842,4 +1842,7 @@ export default {
   2967: "El Alféizar",
   2968: "Senderos de estrellas",
   2969: "Los Lugartenientes",
+  2970: "Cuenta la zona más lejana alcanzada, no el nivel del héroe.",
+  2971: "¿Vendes mucho a mano? El «Ojo del entendido» (Tienda) vende de un clic todo lo que no mejora a tu héroe. Haz clic aquí.",
+  2972: "{0} vencido: ¡{1} de oro!",
 };

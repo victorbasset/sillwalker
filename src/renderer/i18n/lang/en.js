@@ -1842,4 +1842,7 @@ export default {
   2967: "The Sill",
   2968: "Starpaths",
   2969: "The Lieutenants",
+  2970: "What counts is the farthest zone ever reached, not the hero’s level.",
+  2971: "Selling a lot by hand? The “Connoisseur's Eye” (Shop) sells everything that doesn’t improve your hero in one click. Click here.",
+  2972: "{0} defeated: {1} gold!",
 };

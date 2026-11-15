@@ -22,7 +22,7 @@ import { t as tx, txn, tr, fsp, colon, lc, csep, cend, wsp } from "../i18n/index
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor, DAY_MODS, DAY_MOD_KEYS, BLESSING_SEEN_BONUS } from "./daymods.js";
 import {
-  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, GOBLIN, MONSTERS,
+  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, GOBLIN, POUPOUCE, MONSTERS,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
   CHAMPION,
 } from "./data.js";
@@ -144,7 +144,8 @@ export class Game {
         ? { type: "goblin", elite: false, goblin: true }
         : (() => {
           const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance * (dm?.champion || 1), elite = champion || rand() < ELITE.chance * eliteMul;
-          return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
+          const poupouce = !elite && this.S.zone >= POUPOUCE.minZone && rand() < POUPOUCE.chance;
+          return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null, ...(poupouce ? { poupouce } : {}) };
         })()));
       if ((R.events.bloodmoon || 0) > 0) this.bloodMoon(R.lineup, 0); // Lune de sang : la nouvelle série naît élite
       if ((R.events.goblinrush || 0) > 0) this.goblinRush(R.lineup, 0); // (it. 954) Ruée des gobelins
@@ -792,6 +793,7 @@ export class Game {
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,
       mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null,
       name: boss ? bossName(this.S.zone) : null, fem: boss && bossGender(this.S.zone) === "f", gender: boss ? bossGender(this.S.zone) : null });
+    if (!boss && slot.poupouce) { mon.poupouce = true; mon.gold *= POUPOUCE.gold; }
     if (boss && isFinalZone(this.S.zone)) { // le Briseur d'Étoiles (story.js) : but final de l'histoire
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }
@@ -972,6 +974,7 @@ export class Game {
         this.invalidateStats(); // (it. 983) bonus de la collection des élites
       }
     }
+    if (m.poupouce) { S.stats.poupouce = (S.stats.poupouce || 0) + 1; this.log(tx("{0} vaincu : {1} or !", { 0: POUPOUCE.name, 1: fmt(gold) })); }
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.questProgress("goblin", 1); this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
     S.bestiary[m.type] = (S.bestiary[m.type] || 0) + 1;
     this.questProgress("kill", 1);
@@ -2309,7 +2312,7 @@ export class Game {
     if (rw.chest) {
       const it = this.newItem(rw.chest, S.best);
       if (this.bagFull()) { const v = sellValue(it); S.gold += v; parts.push(tx("{0} (sac plein : vendu {1} or)", { 0: itemName(it), 1: fmt(v) })); }
-      else { S.bag.push(it); parts.push(itemName(it)); this.emit("loot", { item: it, mon: null }); }
+      else { S.bag.push(it); parts.push(itemName(it)); this.emit("loot", { item: it, mon: null }); this.R.questChest = { item: it, min: rw.chest }; } // (it. 1546) ouverture animée (Quêtes)
     }
     // (it. 1352) le nom du vrai consommable gagné (« élixir » même pour un parchemin ou un trèfle) ; durée, plafond et
     // stock lus dans shop.js (écrits en dur) ; éclats au pluriel accordé

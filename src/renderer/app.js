@@ -106,7 +106,7 @@ async function boot() {
   applyUiScale(game.S.settings.uiScale);
   applyTheme(game.S.settings.theme);
   if (init.isDev) window.__applyTheme = applyTheme; // auto-test (dev)
-  const strip = new StripRenderer($("#strip"), game, { rightReserve: 96 }); // 3 boutons : son, réduire, agrandir
+  const strip = new StripRenderer($("#strip"), game, { rightReserve: 110 }); // 3 boutons : son, réduire, agrandir (3 × 28 + 2 × 4 + 8 = 100 px, plus 10 px d'air : it. 1546, le son touchait le niveau)
   const mini = new MiniRenderer($("#mini"), game);
   const clickThrough = initClickThrough(api);
   strip.juice.onHits = () => clickThrough.refresh(); // cinématiques : le calque se clique (« passer »)
@@ -556,7 +556,10 @@ async function boot() {
   }
   setInterval(checkDaily, 60000);
   // Après une mise à jour : une bulle « Quoi de neuf » (un clic ouvre la liste), une seule fois.
-  if (newsDue(game.S)) {
+  // (it. 1546) partie neuve : rien à annoncer (la fenêtre « Nouveautés de la version » s'ouvrait par-dessus l'intro
+  // d'un tout nouveau joueur) ; toutes les éditions comptent comme lues
+  if (firstVisit && newsDue(game.S)) markNews(game.S);
+  else if (newsDue(game.S)) {
     const seen = game.S.settings.newsSeen || 0; // éditions déjà lues : on montre seulement les suivantes
     markNews(game.S);
     // (it. 1144, demande de Victor) nouvelle VERSION distribuée (0.1.2 → 0.1.3) : sa fenêtre de nouveautés majeures

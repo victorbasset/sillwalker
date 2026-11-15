@@ -4379,4 +4379,13 @@ test("nombres : un arrondi qui atteint 1000 passe au palier supérieur (it. 872 
   } finally { setLang(before); }
 });
 
+test("Poupouce (it. 1546, demande d'un joueur) : un monstre ordinaire rare qui porte ce nom et rapporte 5 fois plus d'or", () => {
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = 10;
+  let found = null;
+  for (let k = 0; k < 400 && !found; k++) { g.R.lineup = null; g.R.lineupZone = 0; found = g.lineup().find((s) => s.poupouce); }
+  assert.ok(found, "au moins un Poupouce en 400 séries");
+  assert.ok(!found.elite && !found.goblin, "jamais une élite ni un gobelin");
+});
+
 console.log(`\n${pass} tests réussis`);

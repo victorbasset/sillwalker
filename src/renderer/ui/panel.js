@@ -175,6 +175,7 @@ export class Panel {
       class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game), map: new MapTab(game),
       settings: new SettingsTab(game, settings),
     };
+    this.tabs.quests.onReveal = ({ item, min }) => { this.renderAll(); this.revealChest(min >= 3 ? "chest_royal" : min >= 2 ? "chest_iron" : "chest_wood", item); };
     this.dirty = true;
     this.isOpen = false;
     this.uiT = 0;
@@ -191,12 +192,15 @@ export class Panel {
         <button data-speed="3" aria-pressed="${this.speed === 3}">×3</button>
         <button data-speed="10" aria-pressed="${this.speed === 10}">×10</button>
       </div>` : "";
+    // (it. 1546, retour d'un joueur) Réglages rangé à droite, avec « Ton avis », « Mode mini » et « Quitter »
+    const tabBtn = (t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(t.label + " · " + tx("Raccourci : {0}", { 0: "1234567890-="[i] }))}" aria-label="${esc(t.label)}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt=""><span class="tlabel">${t.label}</span><span class="tbadge" data-badge="${t.id}" hidden></span></button>`;
     this.root.innerHTML = `
       <header class="ptop">
         <h1 title="${esc("Sillwalker " + (this.version || ""))}">Sillwalker</h1>
-        <nav class="tabs" role="tablist">${TABS.map((t, i) => `${t.group ? `<span class="tabsep" aria-hidden="true"></span>` : ""}<button role="tab" data-tab="${t.id}" title="${esc(t.label + " · " + tx("Raccourci : {0}", { 0: "1234567890-="[i] }))}" aria-label="${esc(t.label)}" aria-selected="${t.id === this.tab}"><img class="ticon" src="${shopIconURL(t.icon, 2)}" alt=""><span class="tlabel">${t.label}</span><span class="tbadge" data-badge="${t.id}" hidden></span></button>`).join("")}</nav>
+        <nav class="tabs" role="tablist">${TABS.map((t, i) => t.id === "settings" ? "" : tabBtn(t, i)).join("")}</nav>
         <div class="controls">
           ${dev}
+          <nav class="tabs tabs-side" role="tablist">${TABS.map((t, i) => t.id === "settings" ? tabBtn({ ...t, group: false }, i) : "").join("")}</nav>
           <button data-action="feedback" class="quiet feedback" aria-label="${esc(tx("Ton avis"))}" title="${esc(tx("Ton avis") + " — " + tx("Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte.") + (this.version ? " (Sillwalker " + this.version + ")" : ""))}"><img src="${shopIconURL("contract", 2)}" alt=""></button>
           <button data-action="mini" class="quiet" title="${esc(tx("Réduire en petit encart près de l’horloge"))}">${tx("Mode mini")}</button>
           <button data-action="quit" class="quiet quit" title="${esc(tx("Quitter Sillwalker (la partie est sauvegardée)"))}">${tx("Quitter")}</button>
@@ -477,12 +481,12 @@ export class Panel {
     const nav = this.root.querySelector(".tabs"), top = this.root.querySelector(".ptop");
     if (!nav || !top || !top.offsetWidth) return;
     const steps = ["tight", "small", "slim", "compact"];
-    nav.classList.remove(...steps);
+    const side = this.root.querySelector(".tabs-side"), navs = side ? [nav, side] : [nav];
+    for (const n of navs) n.classList.remove(...steps);
     const wraps = () => { const b = [...nav.querySelectorAll("button")]; return b.length && b[b.length - 1].offsetTop > b[0].offsetTop + 4 || nav.offsetTop > top.firstElementChild.offsetTop + 8 || top.querySelector(".controls").offsetTop > nav.offsetTop + 8; };
     for (const s of steps) {
       if (!wraps()) return;
-      if (s === "compact") nav.classList.remove("slim", "small"); // icônes seules : place retrouvée, taille normale
-      nav.classList.add(s);
+      for (const n of navs) { if (s === "compact") n.classList.remove("slim", "small"); n.classList.add(s); } // compact : icônes seules, taille normale
     }
   }
 
@@ -1023,7 +1027,7 @@ export class Panel {
     const ready = zoneOk && S.gold >= u.price;
     // (it. 928) il ne manque que de l'or : temps estimé au rythme actuel des victoires (moins de 48 h)
     const eta = zoneOk && !ready ? this.game.goldEta(u.price - S.gold) : null, etaTxt = eta != null && eta < 48 * 3600 ? " · " + tx("≈ {0}", { 0: durText(Math.max(60, eta)) }) : "";
-    const what = zoneOk ? (ready ? tx("cliquer pour l’acheter ({0} or)", { 0: fmt(u.price) }) : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}${etaTxt}`) : tx("Zone record {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
+    const what = zoneOk ? (ready ? tx("cliquer pour l’acheter ({0} or)", { 0: fmt(u.price) }) : `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}${etaTxt}`) : tx("Atteindre la zone {0}", { 0: u.zone }) + ` (${recordZone(S)} / ${u.zone})`;
     // Prêt : un clic l'achète tout de suite (au lieu d'ouvrir la boutique puis d'y cliquer).
     return `<button class="goal${ready ? " ready" : ""}" ${ready ? `data-action="goal-buy" data-id="${u.id}"` : `data-tab="shop" data-sec="unlocks"`} title="${esc(`${u.name} · ${what}\n${u.desc}`)}">
       <img src="${shopIconURL(u.icon, 2)}" alt=""><span class="gtxt"><small>${tx("Prochain déblocage")}</small> ${esc(u.name)} · ${what}</span>
@@ -1143,7 +1147,7 @@ export class Panel {
         break;
       case "desel": this.selected = null; break;
       case "equip": if (it) { g.equip(it); this.selected = { from: "equip", slot: it.slot }; } break;
-      case "sell": if (it) { g.sell(it); this.selected = null; } break;
+      case "sell": if (it) { g.sell(it); this.selected = null; g.R.manualSells = (g.R.manualSells || 0) + 1; } break; // (it. 1546) astuce « bulksell » (hints.js)
       case "unequip": if (it && g.unequip(it.slot)) this.selected = { from: "bag", id: it.id }; break;
       case "forge": if (it) g.forge(it); break;
       case "reforge": if (it) g.reforge(it); break;

@@ -17,7 +17,7 @@ import { npcHTML } from "../npc.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { POWER_INDEX } from "../../game/powers.js";
 import { SETS } from "../../game/sets.js";
-import { UNLOCKS, hasUnlock, nextUnlock, unlockAvailable } from "../../game/unlocks.js";
+import { UNLOCKS, hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../../game/unlocks.js";
 import { lockLink as lockLinkS } from "../locks.js";
 
 const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${uH(Math.floor(m / 60))} ${String(m % 60).padStart(2, "0")}` : `${uMin(m)} ${String(s % 60).padStart(2, "0")}`; };
@@ -118,7 +118,7 @@ export class ShopTab {
         <img src="${shopIconURL(u.icon, 4)}" alt="">
         <div class="nm">${esc(u.name)}</div>
         <div class="sub">${esc(u.desc)}</div>
-        ${have ? `<div class="got">✓ ${tx("Débloqué")}</div>` : unlockAvailable(S, u) ? buy("s-unlock", u.id, u.price, "", isNext ? "primary" : "") : `<div class="req">🔒 ${tx("Zone record {0}", { 0: u.zone })}</div>`}
+        ${have ? `<div class="got">✓ ${tx("Débloqué")}</div>` : unlockAvailable(S, u) ? buy("s-unlock", u.id, u.price, "", isNext ? "primary" : "") : `<div class="req" title="${esc(tx("La zone la plus lointaine jamais atteinte compte, pas le niveau du héros."))}">🔒 ${tx("Atteindre la zone {0}", { 0: u.zone })} <small>(${tx("record {0}", { 0: recordZone(S) })})</small></div>`}
       </div>`;
     }).join("");
 

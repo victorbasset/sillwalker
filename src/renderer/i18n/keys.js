@@ -2971,5 +2971,8 @@ export const KEYS = [
   "« {0} » · zones {1}–{2}",
   "Le Rebord",
   "Sentiers d’étoiles",
-  "Les Lieutenants"
+  "Les Lieutenants",
+  "La zone la plus lointaine jamais atteinte compte, pas le niveau du héros.",
+  "Tu vends beaucoup à la main ? L’« Œil du connaisseur » (Boutique) vend d’un clic tout ce qui n’améliore pas ton héros. Clique ici.",
+  "{0} vaincu : {1} or !"
 ];

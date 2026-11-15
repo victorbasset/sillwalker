@@ -1842,4 +1842,7 @@ export default {
   2967: "O Parapeito",
   2968: "Trilhas de estrelas",
   2969: "Os Tenentes",
+  2970: "Conta a zona mais distante já alcançada, não o nível do herói.",
+  2971: "Vendendo muito à mão? O “Olho do conhecedor” (Loja) vende num clique tudo o que não melhora seu herói. Clique aqui.",
+  2972: "{0} derrotado: {1} de ouro!",
 };

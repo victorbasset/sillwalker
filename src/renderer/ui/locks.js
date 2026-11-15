@@ -13,6 +13,6 @@ export function lockLink(S, id) {
   if (hasUnlock(S, id)) return "";
   const u = UNLOCK_INDEX[id];
   if (!u || !tabOpen(S, "shop") || (!unlockAvailable(S, u) && u.zone > (S.best || 1) + LOCK_LOOKAHEAD)) return "";
-  const when = unlockAvailable(S, u) ? tx("{0} or", { 0: fmt(u.price) }) : tx("Zone record {0}", { 0: u.zone });
+  const when = unlockAvailable(S, u) ? tx("{0} or", { 0: fmt(u.price) }) : tx("Atteindre la zone {0}", { 0: u.zone });
   return `<button class="linkbtn lock" data-tab="shop" data-sec="unlocks" title="${esc(tx("À débloquer dans la boutique : {0}", { 0: u.desc }))}">🔒 ${esc(u.name)} · ${when}</button>`;
 }

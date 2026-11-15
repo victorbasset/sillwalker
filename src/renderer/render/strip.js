@@ -14,7 +14,7 @@ import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
-import { KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
+import { KILLS_PER_ZONE, ELITE_AFFIXES, POUPOUCE } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
 import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/story.js";
@@ -559,6 +559,9 @@ export class StripRenderer {
     sizeCanvas(this.hudL, Math.min(HUD_L_W, this.W), HUD_H, dpr);
     sizeCanvas(this.hudR, HUD_R_W, HUD_H, dpr);
     this.skyKey = "";
+    // (it. 1546) place réelle des boutons (polices, échelle d'affichage de Windows) : jamais moins de 10 px d'air
+    const btns = this.root.querySelector(".strip-btns");
+    if (btns && btns.offsetWidth) this.rightReserve = Math.max(this.rightReserve, btns.offsetWidth + 8 + 10);
     this.hudR.c.style.left = (this.W - HUD_R_W - this.rightReserve) + "px";
     // Écran très large (Odyssey G9, demande 21) : zone, or, niveau et boutons regroupés au milieu, dans une languette
     // qui déplie le panneau, au lieu des deux bouts de l'écran. Écrans ordinaires : inchangés.
@@ -787,6 +790,7 @@ export class StripRenderer {
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
       // (it. 1458) monstre visé par une quête de chasse en cours : petite marque ◆ (posée avec la série, pas à chaque image)
+      if (!boss && line[k].poupouce) { const tag = el("div", "affix", a.el); tag.textContent = POUPOUCE.name; tag.style.color = "#ff9ad2"; } // (it. 1546)
       if (!boss && !line[k].elite && ((line[k].goblin && wantGoblin) || (!line[k].goblin && huntTypes.has(line[k].type)))) el("div", "affix qmark", a.el).textContent = "◆";
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";
@@ -1165,7 +1169,10 @@ export class StripRenderer {
       // (it. 1340) élixirs, parchemins et encens actifs : une icône chacun devant l'or (4 au plus, puis « +N »),
       // redessinés seulement quand la liste change (pas à chaque seconde)
       buffs = CONSUMABLES.filter((c) => c.kind === "buff" && (S.buffs[c.id] || 0) > 0).map((c) => c.id),
-      key = gt + "|" + lvlTxt + "|" + buffs.join(",");
+      // (it. 1546, retour d'un joueur : « on sait pas où est l'xp, on monte de niveau sans savoir comment ») jauge
+      // d'expérience sous le niveau, par pas de 2 % (redessinée au plus 50 fois par niveau)
+      xpStep = Math.min(50, Math.floor(50 * S.xp / Math.max(1, this.game.xpNeed()))),
+      key = gt + "|" + lvlTxt + "|" + buffs.join(",") + "|" + xpStep;
     if (key === this.hudRKey) return;
     this.hudRKey = key; mark("hud");
     const ctx = this.hudR.ctx, right = HUD_R_W - 10;
@@ -1185,10 +1192,13 @@ export class StripRenderer {
     }
     this.placeBossName();
     drawPill(ctx, pillL, HUD_R_W - 3, HUD_H);
-    drawText(ctx, lvlTxt, right, 17, "#ffffff", "right");
-    drawText(ctx, gt, right - 14 - lw, 17, "#ffd34d", "right");
+    drawText(ctx, lvlTxt, right, 15, "#ffffff", "right");
+    const gw = Math.round(lw), gx = right - gw;
+    ctx.fillStyle = "#3a3458"; ctx.fillRect(gx, 18, gw, 3);
+    ctx.fillStyle = "#b48cff"; ctx.fillRect(gx, 18, Math.round(gw * xpStep / 50), 3);
+    drawText(ctx, gt, right - 14 - lw, 16, "#ffd34d", "right");
     ctx.font = FONT;
-    drawCoin(ctx, right - 14 - lw - ctx.measureText(gt).width - 14, 7);
+    drawCoin(ctx, right - 14 - lw - ctx.measureText(gt).width - 14, 6);
     let bx = pillL + 8;
     for (const id of shown) { const ic = shopIconCanvas(id, 2); ctx.drawImage(ic, bx, Math.round((HUD_H - ic.height) / 2)); bx += 21; }
     if (more) drawText(ctx, moreTxt, bx + 1, 17, "#cfc6e8", "left");

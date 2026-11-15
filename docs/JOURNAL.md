@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1546, retours d'un joueur, Kreen, transmis par Victor) : jauge d'expérience sous « Niv. N » sur la
+  bande (on ne voyait pas l'XP) ; boutique « Atteindre la zone N (record M) » avec une bulle « la zone compte, pas le
+  niveau » ; plus d'air entre le bouton du son et la pastille du niveau (place réelle des boutons mesurée) ; onglet
+  Réglages rangé à droite avec « Mode mini » et « Quitter » ; objet sélectionné : cadre clair (l'or se confondait avec
+  le légendaire) ; quête à coffre réclamée à la main : le coffre s'ouvre sous les yeux (comme ceux de la boutique) ;
+  astuce « Œil du connaisseur » après trois ventes à la main ; Poupouce, un monstre rare (≈ 1 sur 250, zone 2+,
+  or ×5). Bug trouvé au passage : une partie neuve ouvrait « Nouveautés de la version » par-dessus l'intro.
 - 2026-11-15 (it. 1545) : Réglages > Son : l'aperçu de la musique donne le nom du morceau (« Sentiers d'étoiles » · zones 51–100)
   au lieu de « Morceau 2 / 4 » ; noms traduits (le Rebord et le Briseur d'Étoiles repris tels qu'ils sont déjà traduits).
 - 2026-11-15 (it. 1544, signalé par Victor) : clic sur le rebord haut d'un bouton sans effet (le bouton s'enfonce de 2 px,

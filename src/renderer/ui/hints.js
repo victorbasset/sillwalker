@@ -31,6 +31,10 @@ export const HINTS = [
     when: (g) => g.S.stats.deaths > 0 && g.S.prestige.count === 0 && g.S.best <= 15 },
   { id: "upgrade", tab: "adventure", text: tx("Un objet plus puissant t’attend dans le sac (▲) : double-clique dessus pour l’équiper (ou clique ici pour ouvrir le sac)."),
     when: (g) => g.hasUpgradeCached() },
+  // (it. 1546, retour d'un joueur : « on peut pas vendre plusieurs objets en même temps ») trois ventes à la main en peu
+  // de temps, sans l'Œil du connaisseur : il existe, et où le trouver
+  { id: "bulksell", tab: "shop", text: tx("Tu vends beaucoup à la main ? L’« Œil du connaisseur » (Boutique) vend d’un clic tout ce qui n’améliore pas ton héros. Clique ici."),
+    when: (g) => (g.R.manualSells || 0) >= 3 && !hasUnlock(g.S, "bulkEquip") && tabOpen(g.S, "shop") },
   { id: "talent", tab: "talents", text: tx("Niveau supérieur : tu as un point de talent à dépenser. Clique ici !"),
     when: (g) => g.talentPointsFree() > 0 },
   { id: "skills", tab: "skills", text: tx("L’arbre de compétences s’ouvre : 1 point tous les 2 niveaux. Clique ici pour le découvrir."),

@@ -359,6 +359,14 @@ async function runSelfTest(strip) {
   await click('[data-action="q-claim"]');
   await sleep(150);
   check("onglet Quêtes : réclamer une récompense", (await state("S.quests.completed")) === done0 + 1 && (await state("S.quests.slots.length")) === 3);
+  // (it. 1546) quête à coffre réclamée à la main : le coffre s'ouvre (fenêtre animée, comme ceux de la boutique)
+  await js("(() => { const g = window.__game; g.S.quests.slots[0].progress = g.S.quests.slots[0].goal; g.S.quests.slots[0].reward = { gold: 5, chest: 2 }; g.changed(); })()");
+  await sleep(150);
+  await click('[data-action="q-claim"]');
+  await sleep(250);
+  const qrev = await js("(() => { const m = document.querySelector('#modal'); const ok = !m.hidden && !!m.querySelector('.reveal .rname'); return ok + ' ' + (m.querySelector('.rname') || {}).className; })()");
+  check("quête à coffre réclamée : le coffre s'ouvre sous les yeux", /^true rname rc[2-4]$/.test(qrev), qrev);
+  await js("document.querySelector('#modal').hidden = true");
   // Familiers : faire éclore un œuf
   await js("window.__game.S.pets.eggs += 1; window.__game.changed()");
   await click('[data-tab="pets"]');
