@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1499, contrôle) : texte extrait en russe avec un compagnon (mage) : le cadre « Заклинания: Маг »
+  et « спутник, вполсилы » sont présents, aucun mot français (avant, dev-data sans compagnon ne montrait jamais ce
+  cadre).
 - 2026-11-15 (it. 1498) : POUR-VICTOR complété (it. 1490-1497 : sorts du compagnon partout, i18n-check).
 - 2026-11-15 (it. 1497) : compteur du sous-onglet « Sorts et attaque » : avec un compagnon, compte aussi ses sorts
   (« 0 / 6 » au lieu de « 0 / 3 »), puisqu'ils s'affichent en grand sur la même page. Vérifié par --stage.
