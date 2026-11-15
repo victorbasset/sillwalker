@@ -1718,4 +1718,6 @@ export default {
   2843: "{n} Monster besiegen|{n} Monster besiegen",
   2844: "{n} Elitegegner besiegen|{n} Elitegegner besiegen",
   2845: "{n} Gegenstand durch Transmutation erschaffen|{n} Gegenstände durch Transmutation erschaffen",
+  2846: "{n} Expedition abholen|{n} Expeditionen abholen",
+  2847: "Dein Held steckt in Zone {0} fest ({n} Niederlage).|Dein Held steckt in Zone {0} fest ({n} Niederlagen).",
 };

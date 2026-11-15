@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1357) : suite des pluriels : « Récupérer N expéditions » (Familiers ; « Забрать 2 экспедиции »,
+  « Odbierz 2 wyprawy ») et l'alerte « Ton héros bloque en zone Z (N défaites) » (« 3 поражения », « 3 porażki »)
+  accordés. Bestiaire « {0} victoires » laissé : paliers 10 / 100 / 1 000 / 10 000, même forme partout.
 - 2026-11-15 (it. 1356) : intitulés des quêtes accordés dans toutes les langues : « Vaincre N monstres / élites »,
   « Créer N objets par transmutation » (russe « Победи 3 элиты » / « 5 элит », polonais « Pokonaj 24 potwory » ;
   avant, un mot fixe ou un contournement « Победи элит: 3 »). txn à 3 formes ; le français reste identique ; plural()
@@ -5257,8 +5260,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 - P3 (it. 1356) Autres nombres variables devant un pluriel fixe (russe et polonais faux selon le nombre), à passer
   par txn : éclats d'ascension (« +{1} éclats d’étoile » : game.js ascend et Astrolabe, juice.js, mini.js,
-  ascension.js « +{0} éclats » et « Rapportera alors {2} éclats », hints.js), bestiary.js « {0} victoires »,
-  pets.js « Récupérer {0} expéditions », app.js « ({1} défaites) », talents.js « {0} points dépensés ».
+  ascension.js « +{0} éclats » et « Rapportera alors {2} éclats », hints.js), talents.js « {0} points dépensés ».
+  (Expéditions et défaites faites à l'it. 1357 ; bestiaire inutile : paliers fixes.)
 - FAIT (it. 1269-1270, ligne d'expérience de la carte du héros) P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
   1280 px, défilement de 10 px), puis rien sur quatre relances : un état passager de dev-data (pastilles des
   événements ou élixirs en cours ?). Forcer deux événements et des élixirs à 1280 px en espagnol et mesurer.

@@ -1718,4 +1718,6 @@ export default {
   2843: "Derrotar {n} monstruo|Derrotar {n} monstruos",
   2844: "Derrotar a {n} élite|Derrotar a {n} élites",
   2845: "Crear {n} objeto por transmutación|Crear {n} objetos por transmutación",
+  2846: "Recoger {n} expedición|Recoger {n} expediciones",
+  2847: "Tu héroe está atascado en la zona {0} ({n} derrota).|Tu héroe está atascado en la zona {0} ({n} derrotas).",
 };

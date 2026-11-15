@@ -1718,4 +1718,6 @@ export default {
   2843: "Pokonaj {n} potwora|Pokonaj {n} potwory|Pokonaj {n} potworów",
   2844: "Pokonaj {n} elitę|Pokonaj {n} elity|Pokonaj {n} elit",
   2845: "Stwórz {n} przedmiot transmutacją|Stwórz {n} przedmioty transmutacją|Stwórz {n} przedmiotów transmutacją",
+  2846: "Odbierz {n} wyprawę|Odbierz {n} wyprawy|Odbierz {n} wypraw",
+  2847: "Twój bohater utknął w strefie {0} ({n} porażka).|Twój bohater utknął w strefie {0} ({n} porażki).|Twój bohater utknął w strefie {0} ({n} porażek).",
 };

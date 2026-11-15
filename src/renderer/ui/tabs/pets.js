@@ -75,7 +75,7 @@ export class PetsTab {
         ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${txn(idle, "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}", { 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
         ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
           ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
-        ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${tx("Récupérer {0} expéditions", { 0: this.readyN })}</button>` : ""}
+        ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${txn(this.readyN, "Récupérer {n} expédition|Récupérer {n} expéditions")}</button>` : ""}
         <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
       </div>
       <div class="petgrid hscroll sec-${owned < PETS.length ? this.sec : "found"}" data-hs="pets-${this.sec}">${cards}</div>`;

@@ -1718,4 +1718,6 @@ export default {
   2843: "Defeat {n} monster|Defeat {n} monsters",
   2844: "Defeat {n} elite|Defeat {n} elites",
   2845: "Create {n} item by transmutation|Create {n} items by transmutation",
+  2846: "Collect {n} expedition|Collect {n} expeditions",
+  2847: "Your hero is stuck in zone {0} ({n} defeat).|Your hero is stuck in zone {0} ({n} defeats).",
 };

@@ -2847,5 +2847,7 @@ export const KEYS = [
   "{n} nœud|{n} nœuds",
   "Vaincre {n} monstre|Vaincre {n} monstres",
   "Vaincre {n} élite|Vaincre {n} élites",
-  "Créer {n} objet par transmutation|Créer {n} objets par transmutation"
+  "Créer {n} objet par transmutation|Créer {n} objets par transmutation",
+  "Récupérer {n} expédition|Récupérer {n} expéditions",
+  "Ton héros bloque en zone {0} ({n} défaite).|Ton héros bloque en zone {0} ({n} défaites)."
 ];
