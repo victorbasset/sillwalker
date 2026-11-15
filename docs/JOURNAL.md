@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1442) : « Quoi de neuf » : après les 3 dernières éditions, la fenêtre en ajoute de plus anciennes tant
+  que le total reste sous 8 nouveautés (NEWS_FILL_ITEMS). Avant, six éditions d'une ligne parues ce matin (85-90) :
+  Victor n'en aurait vu que 3, les autres réduites à « … et N nouveautés plus anciennes ». newsShown(84) : les 6 ;
+  fenêtre complète : 7 nouveautés au lieu de 3. Test adapté. Autotest 228/228 (« 7 0 »), lang-overflow propre.
 - 2026-11-15 (it. 1441, REVUE GÉNÉRALE) : 12 h graine 7, records des courses : assassin 62, druide 66, samouraï 66
   (moyenne ≈ 64). perf:linux : bande 18,8 %, panneau 20,8 %, mini 6,7 %, icône 0,5 % (stables). Captures ko et en
   (Bestiaire > Événements rares : 18 cartes sur trois rangées de six, Quêtes, mini) : rien d'anormal. Texte extrait en

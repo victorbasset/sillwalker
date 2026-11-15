@@ -937,7 +937,11 @@ test("Quoi de neuf : rien pour une partie neuve, une fois pour une ancienne sauv
   // Au plus 3 éditions affichées ; les plus anciennes sont comptées (« … et N nouveautés plus anciennes »)
   const { newsShown, NEWS_MAX_EDITIONS } = M_news_js, sh = newsShown(0);
   assert.equal(sh.items.length + sh.older, NEWS_EDITIONS.flat().length, "rien ne se perd dans le compte");
-  assert.ok(sh.items.length === NEWS_EDITIONS.slice(-NEWS_MAX_EDITIONS).flat().length, "les 3 dernières éditions");
+  // (it. 1442) au moins les 3 dernières éditions, puis d'autres tant que le total reste sous NEWS_FILL_ITEMS
+  const three = NEWS_EDITIONS.slice(-NEWS_MAX_EDITIONS).flat().length;
+  assert.ok(sh.items.length >= three, "au moins les 3 dernières éditions");
+  assert.ok(sh.items.length === three || sh.items.length <= M_news_js.NEWS_FILL_ITEMS, "complément sous la limite : " + sh.items.length);
+  assert.deepEqual(sh.items.slice(0, three), NEWS_EDITIONS.slice(-NEWS_MAX_EDITIONS).reverse().flat(), "les plus récentes d'abord");
   assert.equal(newsShown(NEWS_ID - 1).older, 0);
 });
 

@@ -239,7 +239,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   login`, identifiants dans ~/.config/itch/). Puis le devlog (docs/devlog-<version>.md).
 - « Quoi de neuf » (game/news.js) : après une série de nouveautés visibles, publier une édition (une liste ajoutée à la
   FIN de NEWS_EDITIONS, textes à traduire ; ne jamais modifier une édition publiée) : Victor et les joueurs la voient
-  une fois au lancement suivant, avec les éditions sautées (au plus 3, les plus anciennes comptées) ; l'autotest mesure le pire cas.
+  une fois au lancement suivant, avec les éditions sautées (les 3 dernières, puis d'autres tant que le total reste sous
+  8 nouveautés : NEWS_FILL_ITEMS, it. 1442 ; les plus anciennes comptées) ; l'autotest mesure le pire cas.
 - Réglages qui touchent l'affichage sans recharger : « Économie d'énergie » (settings.eco, 15 images/s, événement
   `sillwalker-framerate`) et « Cinématiques de l'histoire » (settings.cinematics ; `data.force` pour le ▶ des chroniques).
 - Bande : la fenêtre laisse traverser les clics sauf au-dessus des éléments `.hit` (ui/clickthrough.js, recalculé par

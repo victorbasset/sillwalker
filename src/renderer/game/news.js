@@ -432,9 +432,14 @@ export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).re
 /** Au plus NEWS_MAX_EDITIONS éditions affichées (la fenêtre ne doit jamais défiler, même après une longue absence) :
  *  { items, older } — older = nombre de nouveautés plus anciennes non montrées. */
 export const NEWS_MAX_EDITIONS = 3;
+/** (it. 1442) puis des éditions plus anciennes tant que le total reste sous NEWS_FILL_ITEMS nouveautés : les éditions d'une
+ *  seule ligne laissaient la fenêtre presque vide alors que les plus anciennes passaient à la trappe. */
+export const NEWS_FILL_ITEMS = 8;
 export function newsShown(seen = 0) {
   const eds = NEWS_EDITIONS.slice(Math.max(0, seen)).reverse();
-  return { items: eds.slice(0, NEWS_MAX_EDITIONS).flat(), older: eds.slice(NEWS_MAX_EDITIONS).flat().length };
+  let k = Math.min(NEWS_MAX_EDITIONS, eds.length), n = eds.slice(0, k).flat().length;
+  while (k < eds.length && n + eds[k].length <= NEWS_FILL_ITEMS) n += eds[k++].length;
+  return { items: eds.slice(0, k).flat(), older: eds.slice(k).flat().length };
 }
 
 /** Nouveautés à annoncer ? (pas pour une partie neuve : l'intro passe avant tout) */
