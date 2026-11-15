@@ -2,7 +2,7 @@
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { TAB_GATES, tabOpen } from "../game/tabs.js";
 import { CHRONICLES } from "../game/story.js";
-import { t as tx, txn, fsp, colon, csep } from "../i18n/index.js";
+import { t as tx, txn, fsp, colon, csep, wsp } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
 import { SETS } from "../game/sets.js";
@@ -22,6 +22,7 @@ import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enf
 import { isRanged } from "../game/classes.js";
 import { activeDayMod, dayModFor, DAY_MODS } from "../game/daymods.js";
 import { dayModNotes } from "../ui/daymodnotes.js";
+import { stuckTipsText } from "../ui/stucktips.js";
 
 export const MINI_H = 64;
 const SCENE_W = 212, GROUND = 58, HERO_X = 8, CONTACT = 44;
@@ -269,7 +270,7 @@ export class MiniRenderer {
     // (it. 895) événement rare en cours : son nom et ses secondes à la place de la zone, comme sur la bande (avant, le
     // mode mini ne l'annonçait qu'à son début)
     const ev = Object.entries(R.events || {}).find(([id, t]) => t > 0 && EVENTS[id]);
-    const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills + "|" + (ev ? ev[0] + Math.ceil(ev[1]) : "");
+    const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills + "|" + (ev ? ev[0] + Math.ceil(ev[1]) : "") + "|" + !!this.game.stuckInfo(); // (it. 1465) bloqué : bulle à jour
     if (info !== this.infoKey) {
       this.infoKey = info; mark("hud");
       this.lvl.textContent = tx("Niv. ") + S.lvl;
@@ -304,6 +305,8 @@ export class MiniRenderer {
       // Actions qui attendent le joueur (quêtes, sac, déblocage…) : un point doré près du niveau, détail au survol.
       const todo = game.todoNow();
       if (todo.length) tip.push(tx("À faire maintenant") + colon().trimEnd() + "\n  • " + todo.map(todoLabel).join("\n  • "));
+      // (it. 1465) héros bloqué (liseré rouge) : les pistes, comme dans la carte de la zone
+      if (this.game.stuckInfo()) tip.push("⚠ " + tx("Pistes :") + wsp() + stuckTipsText(this.game).join(" · "));
       this.info.classList.toggle("todo", todo.length > 0);
       this.info.classList.toggle("stuck", !!this.game.stuckInfo()); // héros bloqué : liseré rouge (demande 22)
       tip.push(tx("Cliquer pour agrandir"));

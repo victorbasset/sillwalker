@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1465) : mode mini : la bulle du héros bloqué (liseré rouge) donne aussi les pistes (« ⚠ Pistes :
+  forge ton équipement avec ton or · rachète des potions ») ; l'état bloqué entre dans la clé de rafraîchissement de la
+  bulle (avant : mise à jour seulement au prochain changement de niveau, or, zone ou victoire). Vérifié par --stage
+  (window.__mini). Autotest 229/229.
 - 2026-11-15 (it. 1464) : héros bloqué : les pistes (deux premières, forge comprise) restent visibles dans la carte de
   la zone de l'Aventure (« ⚠ Pistes : … », en rouge) tant qu'il bloque ; avant, seulement dans la bulle (une fois).
   Pistes regroupées dans ui/stucktips.js (bulle et panneau). Nouveau contrôle d'autotest (pire cas : Enclume, or
