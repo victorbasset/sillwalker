@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1484, contrôle) : --crawl sur une partie neuve en espagnol, portugais et chinois (après les
+  changements d'interface du jour) : 72, 72 et 78 clics, aucune erreur.
 - 2026-11-15 (it. 1483, contrôle) : semaine simulée (168 h, graines 7 et 3) : mage 350 / 350, guerrier 350 / 350 (le
   mur de fin de semaine). Le retard du mage sur 12 h (it. 1482) s'efface ensuite : rien à régler, idée close.
 - 2026-11-15 (it. 1482, contrôle) : mage, le plus faible des mesures du jour : 12 h sur 6 graines, mage 60-62
