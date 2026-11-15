@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1431, REVUE GÉNÉRALE) : 12 h graine 7, records des courses : paladin 69, nécromancien 61, moine 65
+  (moyenne habituelle ≈ 64). perf:linux : bande 19,3 %, panneau 19,9 %, mini 6,7 %, icône 0,6 % (stables). Captures
+  zh et fr (Statistiques, Familiers, Bestiaire) : rien d'anormal (« 成就 33 / 70 » compte le nouveau succès). Texte
+  extrait en chinois : seuls mots latins attendus. Rien à noter dans Idées.
 - 2026-11-15 (it. 1430) : 70e succès CHESTS_50 « Pilleur de coffres (50 coffres) », objectif lointain lié à la Pie
   (seul « un coffre » existait) : progression affichée, icône (coffre de fer) générée, achievements.md, checklist,
   README, POUR-VICTOR (à déclarer dans Steamworks), « Quoi de neuf » 88, 10 langues, test. Autotest 228/228,
