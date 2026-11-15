@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1453, contrôle) : effet des gobelins hors ligne (it. 1452) sur l'or d'une absence de 8 h : partie de
+  fin de partie et dev-data, ×1,000 (aucun gobelin : 310 victoires en 8 h, un gobelin ne peut être abattu en 4 s). Le
+  gain ne vaut que pour un héros qui bat vite ses monstres (farm d'une zone facile, partie neuve : 39 gobelins en 8 h) ;
+  il rapproche alors l'or hors ligne de l'or en jeu, où les gobelins comptaient déjà (≈ +20 % à 1,5 % × 15). Les
+  simulations (simulate, balance) ne passent pas par applyOffline : non concernées.
 - 2026-11-15 (it. 1452) : 19e sorte de quête « Attraper N gobelins dorés » (1-2, or, potions, parfois un œuf ; icône
   pièces d'or ; temps estimé = rythme × chance de gobelin, Fête des gobelins comprise). Pendant l'absence, les gobelins
   sont maintenant attrapés (avant : jamais) si le héros abat un gobelin (0,7× PV) avant sa fuite (4 s) : compteur,
