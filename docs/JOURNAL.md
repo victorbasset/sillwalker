@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1418) : quête « Porter N coups critiques » : temps estimé sur sa carte (attaques par seconde × chance
+  de critique ; un peu optimiste). Test. Autotest 228/228. Quêtes encore sans estimation : leur cadence dépend du
+  hasard ou du joueur (boss, coffres, événements, forge, transmutation, butin, expéditions, coups au clic, zone).
 - 2026-11-15 (it. 1417) : quête « Lancer N sorts » : temps estimé sur sa carte (somme des 1 / recharge des sorts appris,
   héros et compagnon, Jour des arcanes compris ; un peu optimiste, les sorts ne partant qu'en combat) ; aucun sans sort
   appris. Fin de partie : 20 sorts ≈ 25 s (affiché « ≈ 1 min »). Test. Autotest 228/228.

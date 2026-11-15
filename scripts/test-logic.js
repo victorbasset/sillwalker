@@ -445,6 +445,9 @@ test("quête « Gagner N niveaux » : avance aux montées de niveau, en jeu et p
   const eta = g.questEta(q2); assert.ok(eta > 0 && Number.isFinite(eta), "eta " + eta);
   // (it. 1417) sorts : pas d'estimation sans sort appris
   assert.equal(g.questEta({ uid: 993, kind: "spell", goal: 10, progress: 0, reward: {}, stars: 1 }), null);
+  // (it. 1418) critiques : une estimation dès qu'il a des chances de critique
+  const ec = g.questEta({ uid: 994, kind: "crit", goal: 40, progress: 0, reward: {}, stars: 1 });
+  assert.ok(g.stats().crit > 0 ? ec > 0 && Number.isFinite(ec) : ec === null, "crit " + ec);
 });
 
 test("Jour des arcanes : recharge des sorts ×1,5, texte fidèle (it. 1412)", () => {

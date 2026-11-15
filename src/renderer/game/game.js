@@ -2183,7 +2183,7 @@ export class Game {
 
   questEta(q) {
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
@@ -2194,6 +2194,11 @@ export class Game {
     if (q.kind === "spell") {
       const S = this.S, mul = activeDayMod(S)?.spellCdr || 1; let perSec = 0;
       for (const cls of [S.cls, S.partner].filter(Boolean)) for (const sp of classSpells(cls)) { const r = spellRank(S, sp.id); if (r) perSec += mul / spellCd(sp, r); }
+      return perSec > 0 ? left / perSec : null;
+    }
+    // (it. 1418) critiques : attaques par seconde × chance de critique (optimiste : le héros n'attaque qu'en combat)
+    if (q.kind === "crit") {
+      const hs = this.stats(), perSec = (1 + (hs.spd || 0) / 100) * Math.min(1, Math.max(0, hs.crit || 0) / 100);
       return perSec > 0 ? left / perSec : null;
     }
     // (it. 1408) niveaux : l'expérience qui reste pour les niveaux demandés, au rythme des victoires de la zone
