@@ -61,7 +61,17 @@
     ],
     "electronLanguages": [
       "fr",
-      "en-US"
+      "en-US",
+      "es",
+      "pt-BR",
+      "pt-PT",
+      "de",
+      "pl",
+      "ru",
+      "zh-CN",
+      "zh-TW",
+      "ja",
+      "ko"
     ],
     "win": {
       "target": [

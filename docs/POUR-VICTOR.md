@@ -39,6 +39,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 ## À vérifier sous Windows (impossible sur le serveur)
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
+- (it. 1538) Version construite, première partie (dossier de sauvegarde neuf) : le jeu doit démarrer dans la langue
+  de Windows / macOS (vérifié sous Linux seulement).
 
 ## Nouveautés du 14 au 15 novembre (it. 1328-1531)
 

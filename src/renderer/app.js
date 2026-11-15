@@ -67,7 +67,8 @@ async function boot() {
   const game = new Game(fresh);
   // Langue : celle de la sauvegarde (copiée dans localStorage, lue dès le chargement des modules).
   // Partie neuve sans langue choisie : celle du système (un Windows en français démarre en français).
-  const wanted = game.S.settings.lang || systemLang();
+  // (it. 1538) langues du système lues par le processus principal (Windows, Linux, macOS) ; sinon celles de Chromium
+  const wanted = game.S.settings.lang || systemLang(init.systemLangs && init.systemLangs.length ? init.systemLangs : undefined);
   // Recharger seulement si la langue voulue est valide (sinon rechargement sans fin) et une seule fois par lancement.
   const reloaded = (() => { try { return sessionStorage.getItem("langReload"); } catch { return wanted; } })();
   if (wanted !== getLang() && LANGS.some((l) => l.id === wanted) && reloaded !== wanted) {

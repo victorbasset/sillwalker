@@ -56,7 +56,21 @@ function start() {
     const atLogin = !!app.getLoginItemSettings().wasOpenedAtLogin || os.uptime() < 180;
     if (settings.isNew) settings.set("mode", "strip");
     else if (!atLogin && settings.get("mode") === "icon") settings.set("mode", settings.get("lastShownMode") === "mini" ? "mini" : "strip");
-    require("./i18n").setLang(settings.get("lang") || "en");
+    // (it. 1538, demande de Victor) premier lancement : la langue du système, sur Windows, Linux et macOS. Lue dans le
+    // système (app.getPreferredSystemLanguages) : la liste de Chromium (navigator.languages) retombait sur l'anglais dans
+    // la version construite, qui ne gardait que les fichiers de langue fr et en-US. --lang (essais) reste prioritaire.
+    const systemLangs = () => {
+      const forced = process.argv.find((a) => a.startsWith("--lang="));
+      if (forced) return [forced.slice(7)];
+      let l = [];
+      try { l = app.getPreferredSystemLanguages(); } catch { l = []; }
+      return (l && l.length ? l : [app.getLocale()]).filter(Boolean).map(String);
+    };
+    const firstLang = (list) => {
+      for (const x of list) { const id = x.toLowerCase().split(/[-_]/)[0]; if (["fr", "en", "es", "pt", "de", "pl", "ru", "zh", "ja", "ko"].includes(id)) return id; }
+      return "en";
+    };
+    require("./i18n").setLang(settings.get("lang") || firstLang(systemLangs()));
     const store = new SaveStore(app.getPath("userData"), { backupIntervalMs: config.BACKUP_INTERVAL_MS });
     const url = serveDirectory(path.join(__dirname, "..", "renderer"));
 
@@ -75,6 +89,7 @@ function start() {
     /* ---------- IPC ---------- */
     ipcMain.handle("init:get", () => ({
       isDev: flags.isDev,
+      systemLangs: systemLangs(), // (it. 1538) langue d'une partie neuve
       devControls: flags.isDev && !flags.releaseUi,
       crawl: flags.crawl,
       fontBench: flags.fontBench,

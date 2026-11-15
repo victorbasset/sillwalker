@@ -110,8 +110,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
 - Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`
-  de la copie), pas de `settings.json`. Partie neuve (dossier vide) : langue du système, à forcer avec
-  `--lang=fr-FR` (option de Chromium). Le panneau est sombre par défaut ; pour capturer le thème clair, mettre `settings.theme = "light"` dans la copie
+  de la copie), pas de `settings.json`. Partie neuve (dossier vide) : langue du système (lue par le processus principal,
+  app.getPreferredSystemLanguages, it. 1538), à forcer avec `--lang=fr-FR` (lu dans process.argv) ; sous Linux, LANGUAGE / LANG. Le panneau est sombre par défaut ; pour capturer le thème clair, mettre `settings.theme = "light"` dans la copie
   (ou `"auto"` + `--force-dark-mode` pour tester le suivi de Windows).
 - Les erreurs de l'interface s'affichent dans la console sous la forme `[renderer error] …`.
 - Tests logiques : le `freshState` de `test-logic.js` donne TOUS les déblocages sauf `armsValet`, `skyChart`, `spellBook`,

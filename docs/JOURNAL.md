@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1538, demande de Victor : la langue du système par défaut, sur Windows, Linux et Mac) : la version
+  construite ne gardait que les fichiers de langue Chromium fr et en-US (electronLanguages) : navigator.languages y
+  retombait sur l'anglais pour un système allemand, russe… La langue est maintenant lue par le processus principal
+  (app.getPreferredSystemLanguages ; --lang= des essais lu dans process.argv) et transmise au jeu (init.systemLangs) ;
+  le menu de l'icône aussi est dans la langue du système dès le premier lancement ; electronLanguages : les 10 langues.
+  Vérifié (Linux, dossier neuf) : LANG ru / de / ja / en / pt_BR → ru / de / ja / en / pt ; italien → en ; --lang=pl-PL
+  → pl ; partie existante en fr gardée. Autotest 233/233. À vérifier par Victor sous Windows et Mac (version construite).
 - 2026-11-15 (it. 1537) : devlog 0.1.4 (en et fr) : barres de vie en haut de la bande, bouton des bonus de maîtrise,
   police russe et portugais brésilien ; éditions 59 à 101.
 - 2026-11-15 (it. 1536, demandes de Victor) : barres de vie en haut de la bande : celle du monstre reste affichée entre
