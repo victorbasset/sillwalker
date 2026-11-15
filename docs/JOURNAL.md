@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1409) : POUR-VICTOR et brouillon du devlog : la quête « Gagner N niveaux » et la bénédiction de
+  demain dans la bulle du mini.
 - 2026-11-15 (it. 1408) : quête « Gagner N niveaux » : temps estimé sur sa carte (« ≈ 25 min »), comme les quêtes de
   victoires : expérience restante pour les niveaux demandés ÷ (rythme des victoires × expérience d'une victoire de la
   zone, bonus compris). Test. Autotest 228/228.

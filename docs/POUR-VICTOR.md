@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1402)
+## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1409)
 
 Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
 Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
@@ -39,5 +39,6 @@ grand graphe sans gel (400 → 40 ms) ; pluriels russes et polonais (quêtes, as
 (« pupil » en polonais, noms d'onglets) ; outil `--crawl` qui clique vraiment tous les boutons.
 Ensuite (it. 1387-1402) : succès « Démineur » (25 Explosifs, 69e succès) ; les élites vaincues pendant l'absence
 comptent pour leur sorte ; bilans des événements plus riches (vie rendue, expérience, œufs) ; astuce de l'Encens de
-chasse dans Bestiaire > Élites. Vérifié : l'ensemble des ajouts de la nuit ne change pas l'équilibre (3 graines),
+chasse dans Bestiaire > Élites ; 18e sorte de quête « Gagner N niveaux » (avec son temps estimé, jamais proposée
+quand les niveaux ne viennent plus) ; la bulle du mode mini annonce la bénédiction de demain. Vérifié : l'ensemble des ajouts de la nuit ne change pas l'équilibre (3 graines),
 mémoire et performance stables.
