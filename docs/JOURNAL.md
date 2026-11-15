@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1492, contrôle) : sorts du héros et du compagnon côte à côte en thème clair (1366 px) : lisibles,
+  couleurs des sorts gardées, aucun défilement.
 - 2026-11-15 (it. 1491, DEMANDES DE VICTOR) : (1) « mode automatique très grands écrans » par défaut : c'est déjà le cas
   (settings.hudPos « auto » pour toute partie neuve ou sans réglage ; migrate le remet si la valeur est inconnue) : rien
   à changer. (2) Héros > Sorts et attaque : les sorts du compagnon en grandes cartes, dans un cadre « Sorts de
