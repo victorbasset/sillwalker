@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1487, contrôle) : état maximal (21 familiers dont le Grillon) en japonais : --crawl 648 clics sans
+  erreur ; texte : « コオロギ » présent (22 fois), aucun mot français.
 - 2026-11-15 (it. 1486, contrôle) : équilibre après le Grillon (balance.mjs 12 contre 442b6f7) : graine 3 +0,9,
   graine 11 +0,3, graine 21 −0,7 ; moyenne +0,2 zone : bruit.
 - 2026-11-15 (it. 1485) : 21e familier, le Grillon (+5 % d'événements rares par niveau, +50 % au niveau 10) : nouvel
