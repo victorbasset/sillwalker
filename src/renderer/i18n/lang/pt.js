@@ -1753,4 +1753,8 @@ export default {
   2878: "Durante sua ausência, as elites derrotadas também contam para o seu tipo (Bestiário, conquista Desarmador).",
   2879: "Subir {n} nível|Subir {n} níveis",
   2880: "Novo tipo de missão: subir de nível. Ela avança sozinha, mesmo durante sua ausência.",
+  2881: "Dia dos arcanos",
+  2882: "Feitiços recarregam 50 % mais rápido.",
+  2883: "Hoje meus feitiços voltam num piscar de olhos!",
+  2884: "Nova bênção do dia, o Dia dos arcanos: os feitiços recarregam 50 % mais rápido.",
 };

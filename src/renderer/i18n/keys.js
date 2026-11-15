@@ -2882,5 +2882,9 @@ export const KEYS = [
   "Les bilans des événements rares en disent plus : la vie rendue par la Source de vie, l’expérience du Souffle de sagesse, les œufs de la Nichée.",
   "Pendant ton absence, les élites vaincues comptent aussi pour leur sorte (Bestiaire, succès Démineur).",
   "Gagner {n} niveau|Gagner {n} niveaux",
-  "Nouvelle sorte de quête : gagner des niveaux. Elle avance toute seule, même pendant ton absence."
+  "Nouvelle sorte de quête : gagner des niveaux. Elle avance toute seule, même pendant ton absence.",
+  "Jour des arcanes",
+  "Sorts rechargés 50 % plus vite.",
+  "Mes sorts reviennent en un éclair aujourd’hui !",
+  "Nouvelle bénédiction du jour, le Jour des arcanes : les sorts se rechargent 50 % plus vite."
 ];

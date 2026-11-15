@@ -1753,4 +1753,8 @@ export default {
   2878: "Podczas twojej nieobecności pokonane elity liczą się też dla swojego rodzaju (Bestiariusz, osiągnięcie Saper).",
   2879: "Zdobądź {n} poziom|Zdobądź {n} poziomy|Zdobądź {n} poziomów",
   2880: "Nowy rodzaj zadania: zdobywanie poziomów. Postępuje samo, nawet podczas twojej nieobecności.",
+  2881: "Dzień arkanów",
+  2882: "Zaklęcia ładują się 50% szybciej.",
+  2883: "Moje zaklęcia wracają dziś w mgnieniu oka!",
+  2884: "Nowe błogosławieństwo dnia, Dzień arkanów: zaklęcia ładują się 50% szybciej.",
 };

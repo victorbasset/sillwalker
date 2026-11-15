@@ -1753,4 +1753,8 @@ export default {
   2878: "Durante tu ausencia, las élites derrotadas también cuentan para su tipo (Bestiario, logro Artificiero).",
   2879: "Subir {n} nivel|Subir {n} niveles",
   2880: "Nuevo tipo de misión: subir niveles. Avanza sola, incluso durante tu ausencia.",
+  2881: "Día de los arcanos",
+  2882: "Los hechizos se recargan un 50 % más rápido.",
+  2883: "¡Hoy mis hechizos vuelven en un instante!",
+  2884: "Nueva bendición del día, el Día de los arcanos: los hechizos se recargan un 50 % más rápido.",
 };

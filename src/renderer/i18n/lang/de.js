@@ -1753,4 +1753,8 @@ export default {
   2878: "Während deiner Abwesenheit zählen besiegte Elite-Gegner auch für ihre Art (Bestiarium, Erfolg Kampfmittelräumer).",
   2879: "{n} Stufe aufsteigen|{n} Stufen aufsteigen",
   2880: "Neue Questart: Stufen aufsteigen. Sie schreitet von selbst voran, auch während deiner Abwesenheit.",
+  2881: "Tag der Arkana",
+  2882: "Zauber laden 50 % schneller auf.",
+  2883: "Meine Zauber sind heute im Nu wieder da!",
+  2884: "Neuer Segen des Tages, der Tag der Arkana: Zauber laden 50 % schneller auf.",
 };

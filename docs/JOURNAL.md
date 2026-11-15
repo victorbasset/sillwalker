@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1412) : 15e bénédiction du jour, le Jour des arcanes 🔮 (sorts rechargés 50 % plus vite, cumulable
+  avec la Marée arcanique ; aucune bénédiction ne touchait les sorts), ajoutée à la FIN. Calendrier du 14 au 30/11
+  inchangé (elle viendra plus tard). Réplique du héros, 10 langues, test, README, « Quoi de neuf » 85, devlog,
+  POUR-VICTOR. Autotest 228/228, lang-overflow propre, fuzz sous cette bénédiction 0 bloquée.
 - 2026-11-15 (it. 1411, revue générale) : après la quête « Gagner N niveaux » : save-fuzz fin de partie ok (1190) ;
   fuzz 800 parties, 0 bloquée ; texte allemand : aucun mot français. Équilibre (it. 1410), performance (1401) et
   mémoire (1390) déjà mesurés. Rien à corriger.

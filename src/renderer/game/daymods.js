@@ -25,6 +25,8 @@ export const DAY_MODS = {
   momentum: { icon: "💨", name: "Jour de l’élan", desc: "+100 % de dégâts du premier coup et des coups au clic.", eff: { firstStrike: 1, tapDmg: 100 } }, // firstStrike : en fraction (×100 à l’affichage), tapDmg : en %
   // (it. 1378) 14e, ajouté à la FIN : vol de vie et dégâts critiques (aucune bénédiction ne les touchait)
   blood: { icon: "🩸", name: "Jour du sang", desc: "+5 % de vol de vie, +25 % de dégâts critiques.", eff: { lifesteal: 5, critDmg: 25 } },
+  // (it. 1412) 15e, ajouté à la FIN : les sorts (aucune bénédiction ne les touchait ; la Marée arcanique le fait 30 s)
+  arcana: { icon: "🔮", name: "Jour des arcanes", desc: "Sorts rechargés 50 % plus vite.", eff: {}, spellCdr: 1.5 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

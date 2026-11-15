@@ -1753,4 +1753,8 @@ export default {
   2878: "While you're away, defeated elites now also count for their kind (Bestiary, Bomb Disposal achievement).",
   2879: "Gain {n} level|Gain {n} levels",
   2880: "New kind of quest: gain levels. It progresses on its own, even while you're away.",
+  2881: "Day of Arcana",
+  2882: "Spells recharge 50% faster.",
+  2883: "My spells come back in a flash today!",
+  2884: "New blessing of the day, the Day of Arcana: spells recharge 50% faster.",
 };

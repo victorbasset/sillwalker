@@ -445,6 +445,12 @@ test("quête « Gagner N niveaux » : avance aux montées de niveau, en jeu et p
   const eta = g.questEta(q2); assert.ok(eta > 0 && Number.isFinite(eta), "eta " + eta);
 });
 
+test("Jour des arcanes : recharge des sorts ×1,5, texte fidèle (it. 1412)", () => {
+  const { DAY_MODS } = M_daymods_js;
+  assert.equal(DAY_MODS.arcana.spellCdr, 1.5);
+  assert.ok(DAY_MODS.arcana.desc.includes("50 %"), DAY_MODS.arcana.desc);
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);

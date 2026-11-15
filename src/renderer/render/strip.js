@@ -89,6 +89,7 @@ const SPEECH = {
   dm_giants: [tx("Plus ils sont gros, plus ils tombent fort.")], // (it. 1292)
   dm_momentum: [tx("Le premier coup est le bon, aujourd’hui !")], // (it. 1314)
   dm_blood: [tx("Chaque coup me redonne des forces.")], // (it. 1378)
+  dm_arcana: [tx("Mes sorts reviennent en un éclair aujourd’hui !")], // (it. 1412)
 };
 
 export const STRIP_H = 120;

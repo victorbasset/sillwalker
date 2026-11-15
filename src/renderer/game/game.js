@@ -562,7 +562,8 @@ export class Game {
     // propres recharges) : apprendre les sorts d'un autre héros sert aussi quand il accompagne.
     const casters = [[S.cls, 1, ""]];
     // Marée arcanique (événement) : les recharges filent deux fois plus vite.
-    const cdt = (R.events.arcane || 0) > 0 ? dt * 2 : dt;
+    // (it. 1412) Jour des arcanes : recharge ×1,5 (cumulable avec la Marée arcanique)
+    const cdt = ((R.events.arcane || 0) > 0 ? dt * 2 : dt) * (activeDayMod(this.S)?.spellCdr || 1);
     if (S.partner && hs.duo > 0) casters.push([S.partner, PARTNER_SPELL, "p:"]);
     for (const [cls, pow, pre] of casters) for (const sp of classSpells(cls)) {
       const r = spellRank(S, sp.id), key = pre + sp.id;
