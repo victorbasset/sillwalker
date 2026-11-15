@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1550) : mode mini : la barre d'expérience passe de l'or au violet (comme la jauge de la bande) ; dorée,
+  au-dessus de la barre du prochain déblocage, elle se lisait comme de l'or.
 - 2026-11-15 (it. 1549) : édition 103 de « Quoi de neuf » : jauge d'expérience, coffres de quête ouverts sous les yeux,
   Réglages à droite et cadre de sélection, Poupouce (9 langues ; lang-overflow propre).
 - 2026-11-15 (it. 1548) : l'astuce « Nouveau déblocage à ta portée… Clique ici » ouvre la boutique directement sur

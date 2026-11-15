@@ -155,7 +155,8 @@ body.panel-open #toast { display: none; }
 #mini .mini-goal { position: absolute; left: 8px; right: 8px; bottom: 1px; height: 2px; background: rgba(255, 255, 255, 0.08); }
 #mini .mini-goal i { display: block; height: 100%; width: 0; background: #7dd3a0; }
 #mini .mini-goal.ready i { background: #ffd34d; }
-#mini .mini-xp i { display: block; height: 100%; width: 0; background: #ffd34d; }
+/* (it. 1550) violette comme la jauge de la bande et la barre du bas : en or, elle se lisait comme de l'or */
+#mini .mini-xp i { display: block; height: 100%; width: 0; background: #b48cff; }
 #mini .mini-zone { color: #a29ec2; font-size: 12px; white-space: nowrap; }
 #mini .minihint { position: absolute; right: 52px; top: 5px; font-size: 13px; line-height: 1; filter: drop-shadow(0 0 3px #ffd34d); }
 #mini .mini-btns { position: absolute; right: 3px; top: 3px; display: flex; flex-direction: row; gap: 3px; z-index: 5; }
