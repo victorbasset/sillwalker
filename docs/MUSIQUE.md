@@ -50,7 +50,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
       - [x] 4b. mixage (v2 envoyée) ; retouches selon les retours de Victor : tâche 9
 - [x] 5. Morceau 2 « Sentiers d'étoiles » : idem.
 - [x] 6. Morceau 3 « Les Lieutenants » : idem.
-- [ ] 7. Morceau 4 « Le Briseur d'Étoiles » : idem.
+- [x] 7. Morceau 4 « Le Briseur d'Étoiles » : idem.
 - [ ] 8. Intégration dans le jeu : `render/music.js` lit les 4 fichiers selon la zone (tranches de 50), fondu
       enchaîné, volume du réglage « Musique », mode muet, aperçu dans Réglages > Son (4 morceaux), boucle sans
       couture, boss ; autotest (fichiers présents, lecture, volume) ; perf:linux et mem-watch ; bande-annonce.
@@ -127,3 +127,12 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   célesta timides → toms −4, cordes dans leur registre, puce et célesta +4. Mesures : −15,9 LUFS, LRA 5,5, vrai pic
   −4,6, largeur 0,43, raccord 0,005 ; octaves 63 −2,2 · 125 0 · 250 −9,5 · 500 −8,5 · 1k −5,8 · 2k −9,7 · 4k −14,0 ·
   8k −20,1. Envoyé à Victor (04-les-lieutenants-v1.mp3).
+- 15/11 (tâche 7) : « Le Briseur d'Étoiles » v1 (`tracks/briseur.js`) : 60 mesures, 100 bpm, ré majeur, boucle de
+  144 s. Forme intro 8 (arpèges de cloches, chœur qui monte, battement, montée) · A 8 (puce à l'octave + cordes, batterie
+  qui pousse, basse en octaves) · A' 8 (cordes + chœur, toms) · pont cosmique 8 (IV-V-iii-vi | ♭VI-♭VII-I-V, mélodie
+  cloche + puce + cordes) · espace 4 · montée 4 (roulement jusqu'aux triples croches) · A'' 8 (tout) · coda 4 (♭VI-♭VII-
+  I-I, tonique tenue, timbale et cymbale) · outro 8. Deux nappes supersaw par mesure (7 voix dans les grands moments),
+  arpège de cloches en doubles croches sur deux octaves. Rendu par pistes : arpège trop discret (−39 dB), aigus −22 dB à
+  8 kHz, grosse caisse la plus forte → arpège +5, charlestons +3, grosse caisse −2. Mesures : −16,0 LUFS, LRA 6,8,
+  vrai pic −4,7, largeur 0,46 (la plus large), raccord 0,005 ; octaves 63 −0,2 · 125 0 · 250 −7,3 · 500 −7,1 · 1k −3,8 ·
+  2k −6,9 · 4k −12,8 · 8k −19,2 (le plus brillant des quatre). Envoyé à Victor (05-le-briseur-d-etoiles-v1.mp3).

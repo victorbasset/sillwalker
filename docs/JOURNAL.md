@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 7) : morceau 4 « Le Briseur d'Étoiles » (60 mesures, 2 min 24 en boucle, final
+  galactique avec coda ♭VI-♭VII-I) ; les 4 morceaux sont composés et mixés, envoyés à Victor.
 - 2026-11-15 (musique, tâche 6) : morceau 3 « Les Lieutenants » (56 mesures, 2 min 20 en boucle, sol mineur, épique
   sombre : cordes, chœur, taiko, ostinato de harpe, puce des boss), mixé d'après le rendu par pistes ; envoyé à Victor.
 - 2026-11-15 (musique, tâche 5) : morceau 2 « Sentiers d'étoiles » (56 mesures, 2 min 26 en boucle, si mineur,
