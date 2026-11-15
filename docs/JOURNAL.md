@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1511, demande de Victor) : bande, le serviteur (.actor.minion : squelette, loup) au premier plan
+  (z-index 3 ; le compagnon, classe hero, à 2, le cachait). Vérifié en capture (nécromancien + paladin). Autotest
+  230/230. À mettre dans la prochaine édition de « Quoi de neuf » (la 98 est parue).
 - 2026-11-15 (it. 1509-1510) : édition 98 de « Quoi de neuf » (dépense automatique qui suit la ligne, carte, cadre
   sans compagnon, achats équipés), 9 langues. Demande de Victor : Game.buyFromShop, un objet acheté à la main qui est
   une amélioration (isUpgrade) est équipé tout de suite (Boutique) ; test ajouté (311). Autotest 230/230.
