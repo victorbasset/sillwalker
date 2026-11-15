@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1390, contrôle) : mémoire dans la durée après les ajouts de la nuit (icônes d'effets, halo, éclats
+  d'explosion) : mem-watch 6 min à ×3 : réel 488-501 Mo, stable (repère 485-530). Pas de fuite.
 - 2026-11-15 (it. 1389) : proposition « fin de semaine » (it. 1029) remise à jour : le mur est passé de 293 à 350
   (écho de boss) avec le grand graphe et les points en surplus ; le choix (rythme lent ou courbe plus douce au-delà
   de 250) ajouté à docs/POUR-VICTOR.md. Une 4e expédition de familier étudiée puis laissée (rangée de boutons et Grand
