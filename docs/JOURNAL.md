@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1406) : 18e sorte de quête, « Gagner N niveaux » (2 à 4 ; or, potions, parfois un œuf) : avance aux
+  montées de niveau, en jeu comme pendant l'absence (un objectif de patience). Icône du livre de la Bibliothèque,
+  10 langues (3 formes en russe et polonais), test, page Steam 17 → 18 dans les 10 langues, checklist, README,
+  « Quoi de neuf » 84, devlog, POUR-VICTOR. Deux anciens tests dépendaient du tirage décalé par le nouveau poids de
+  quête : l'or d'absence lu dans le résumé (pas le total, qui compte les quêtes réclamées) ; le message du légendaire
+  au sol cherché en TÊTE du journal (unshift ; une ligne de collection peut s'ajouter). Autotest 228/228, fuzz 0
+  bloquée, lang-overflow propre.
 - 2026-11-15 (it. 1405, contrôle) : place dans la Boutique mesurée à 1280 px (allemand et français) pour un 9e
   consommable : ne tient pas sans retoucher les tuiles ; mesures ajoutées à l'idée du Parchemin des arcanes.
 - 2026-11-15 (it. 1404) : idée étudiée puis écartée pour l'instant : un « Parchemin des arcanes » (sorts rechargés plus

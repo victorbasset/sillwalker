@@ -2880,5 +2880,7 @@ export const KEYS = [
   "+{n} point d’expérience|+{n} points d’expérience",
   "{n} œuf trouvé|{n} œufs trouvés",
   "Les bilans des événements rares en disent plus : la vie rendue par la Source de vie, l’expérience du Souffle de sagesse, les œufs de la Nichée.",
-  "Pendant ton absence, les élites vaincues comptent aussi pour leur sorte (Bestiaire, succès Démineur)."
+  "Pendant ton absence, les élites vaincues comptent aussi pour leur sorte (Bestiaire, succès Démineur).",
+  "Gagner {n} niveau|Gagner {n} niveaux",
+  "Nouvelle sorte de quête : gagner des niveaux. Elle avance toute seule, même pendant ton absence."
 ];

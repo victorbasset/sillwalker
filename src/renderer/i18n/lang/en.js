@@ -1751,4 +1751,6 @@ export default {
   2876: "{n} egg found|{n} eggs found",
   2877: "Rare event summaries say more: the life restored by the Spring of Life, the experience from the Breath of Wisdom, the eggs from Nesting.",
   2878: "While you're away, defeated elites now also count for their kind (Bestiary, Bomb Disposal achievement).",
+  2879: "Gain {n} level|Gain {n} levels",
+  2880: "New kind of quest: gain levels. It progresses on its own, even while you're away.",
 };

@@ -249,8 +249,10 @@ test("hors ligne : parchemins et encens comptés au prorata de leur durée (it. 
     const g = new Game(freshState()); g.S.zone = 5; g.S.best = Math.max(g.S.best, 5); g.S.buffs = { ...buffs };
     if (unlocks === false) g.S.unlocks.herbalist = false;
     for (const k in g.S.autoSell) g.S.autoSell[k] = true;
-    const g0 = g.S.gold, x0 = g.S.stats.goldTotal || 0; const sum = g.applyOffline(3600);
-    return { gold: (g.S.stats.goldTotal || 0) - x0, elites: sum ? sum.elites || 0 : 0, sum };
+    // (it. 1406) l'or des victoires de l'absence (résumé), pas le total : une quête réclamée pendant l'absence (« Gagner N
+    // niveaux » par exemple) y ajouterait sa récompense selon le tirage des quêtes
+    const sum = g.applyOffline(3600);
+    return { gold: sum ? sum.gold : 0, elites: sum ? sum.elites || 0 : 0, sum };
   };
   const none = run({}, false), fort = run({ fortune: 600 }, false);
   // 10 min sur 60 : +50 % × 1/6 de l'or (avant : la part était lue après coup, donc nulle)
@@ -430,6 +432,13 @@ test("bilans du Souffle de sagesse (expérience) et de la Nichée (œufs) (it. 1
   const g = new Game(freshState());
   g.startEvent("wisdom"); g.S.stats.kills += 2; g.gainXp(50); assert.ok(/experience point/.test(g.eventReport("wisdom")));
   g.startEvent("nest"); g.S.stats.kills += 2; g.gainEgg(); const ln = g.eventReport("nest"); assert.ok(/1\segg\sfound/.test(ln), "œuf : " + ln);
+});
+
+test("quête « Gagner N niveaux » : avance aux montées de niveau, en jeu et pendant l'absence (it. 1406)", () => {
+  const g = new Game(freshState());
+  g.S.quests.slots[0] = { uid: 991, kind: "level", goal: 3, progress: 0, reward: { gold: 10 }, stars: 1 };
+  g.gainXp(1e9); const lv = g.S.quests.slots.find((q) => q.uid === 991);
+  assert.ok(lv && lv.progress >= 1, "montée en jeu : " + (lv && lv.progress));
 });
 
 test("quêtes : progression, récompense, renouvellement", () => {
@@ -2076,7 +2085,9 @@ test("sac plein : le butin reste au sol, sans or ni échange (demande de Victor)
   const leg = mk(4);
   assert.equal(g.addToBag(leg), false, "légendaire : resté au sol");
   assert.equal(g.R.grounded, leg.id, "signalé à l'animation (reste au sol)");
-  assert.equal(g.S.log.length, logs + 1, "le légendaire perdu est signalé au journal");
+  // (it. 1406) le message du sol parmi les dernières lignes, en tête du journal (une ligne « nouveau type pour la
+  // collection » peut s'ajouter selon le type tiré)
+  assert.ok(g.S.log.slice(0, 3).some((l) => /ground|au sol/.test(JSON.stringify(l))), "le légendaire perdu est signalé au journal : " + JSON.stringify(g.S.log.slice(0, 3)));
   assert.equal(g.addToBag(mk(0)), false);
   const lost = []; g.on("lostUpgrade", (e) => lost.push(e.item));
   assert.equal(g.addToBag(mk(1, true)), false, "amélioration sans Valet : au sol");

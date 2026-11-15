@@ -114,12 +114,17 @@ export const QUEST_TEMPLATES = {
     text: (q) => txn(q.goal, "Lancer {n} sort|Lancer {n} sorts"),
     make: (S) => ({ goal: randInt(3, 6) * 5, reward: { gold: Math.round(goldScale(S) * 80), potions: 1, egg: rand() < 0.15 } }),
   },
+  // (it. 1406) 18e sorte : des niveaux à gagner (avance seule, même pendant l'absence : un objectif de patience)
+  level: {
+    text: (q) => txn(q.goal, "Gagner {n} niveau|Gagner {n} niveaux"),
+    make: (S) => ({ goal: randInt(2, 4), reward: { gold: Math.round(goldScale(S) * 90), potions: 2, egg: rand() < 0.15 } }),
+  },
   zone: {
     text: (q) => `${tx("Atteindre la zone {0}", { 0: q.goal })}`,
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1, level: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

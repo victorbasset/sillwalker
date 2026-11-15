@@ -5,15 +5,15 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
-- **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 17 événements rares et
-  10 sortes d'élites (it. 1375 et 1382).
+- **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 17 événements rares,
+  10 sortes d'élites et 18 sortes de quêtes (it. 1375, 1382 et 1406).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
   (it. 1395), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
   Liste complète : `steam/achievements.md` (69 succès).
 
 ## Version 0.1.4 (à décider)
 
-- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 83). Nouveautés
+- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 84). Nouveautés
   majeures depuis la 0.1.3 : champions et leur quête, 3 événements rares (Lune pâle, Écho des lames, Source de vie),
   3 élites (Régénérant, Venimeux, Explosif), 5 bénédictions du jour, 2 familiers (Grenouillette, Lucane), l'Encens de
   chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.

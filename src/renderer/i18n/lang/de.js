@@ -1751,4 +1751,6 @@ export default {
   2876: "{n} Ei gefunden|{n} Eier gefunden",
   2877: "Die Bilanzen seltener Ereignisse sagen mehr: das vom Quell des Lebens zurückgegebene Leben, die Erfahrung aus dem Hauch der Weisheit, die Eier der Brutzeit.",
   2878: "Während deiner Abwesenheit zählen besiegte Elite-Gegner auch für ihre Art (Bestiarium, Erfolg Kampfmittelräumer).",
+  2879: "{n} Stufe aufsteigen|{n} Stufen aufsteigen",
+  2880: "Neue Questart: Stufen aufsteigen. Sie schreitet von selbst voran, auch während deiner Abwesenheit.",
 };

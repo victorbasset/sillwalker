@@ -804,7 +804,7 @@ export class Game {
     let up = false;
     const lvlBefore = S.lvl;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; up = true; }
-    if (up) this.noteLevels(lvlBefore, S.lvl);
+    if (up) { this.noteLevels(lvlBefore, S.lvl); this.questProgress("level", S.lvl - lvlBefore); } // (it. 1406) quête « Gagner N niveaux »
     if (up) {
       this.invalidateStats();
       this.R.hp = this.stats().hp;
@@ -1156,6 +1156,7 @@ export class Game {
     S.xp += xp;
     while (S.xp >= xpNeed(S.lvl)) { S.xp -= xpNeed(S.lvl); S.lvl++; }
     this.noteLevels(lvl0, S.lvl);
+    if (S.lvl > lvl0) this.questProgress("level", S.lvl - lvl0); // (it. 1406) aussi pendant l'absence
     // Grimoire de l'éveil : les points gagnés pendant l'absence se dépensent comme en jeu (sinon ils attendaient le niveau suivant).
     if (S.lvl > lvl0 && hasUnlock(S, "autoLevel")) {
       this.invalidateStats();

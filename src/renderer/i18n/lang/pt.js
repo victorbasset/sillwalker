@@ -1751,4 +1751,6 @@ export default {
   2876: "{n} ovo encontrado|{n} ovos encontrados",
   2877: "Os balanços dos eventos raros dizem mais: a vida devolvida pela Fonte da vida, a experiência do Sopro de sabedoria, os ovos da Ninhada.",
   2878: "Durante sua ausência, as elites derrotadas também contam para o seu tipo (Bestiário, conquista Desarmador).",
+  2879: "Subir {n} nível|Subir {n} níveis",
+  2880: "Novo tipo de missão: subir de nível. Ela avança sozinha, mesmo durante sua ausência.",
 };
