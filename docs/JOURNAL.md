@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1503) : Idées : le Parchemin des arcanes écarté (couvert par le Jour des arcanes et la Marée
+  arcanique ; la Boutique n'a pas de place à 1280 px).
 - 2026-11-15 (it. 1502) : devlog 0.1.4 (en et fr) : les sorts du compagnon en grand (demande de Victor).
 - 2026-11-15 (it. 1501, REVUE GÉNÉRALE) : 12 h graine 7, records : guerrier 66, rôdeur 65, paladin 61 (moyenne ≈ 64).
   perf:linux : bande 19,3 %, panneau 21,3 %, mini 7,1 %, icône 0,5 % (stables). Captures en et ja de Héros > Sorts
@@ -5760,7 +5762,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   zone de l'Ascension qu'en ≈ 2 h (114 et 124 min) contre 19-43 min pour les autres ; avant la nuit la plus lente
   était à 61 min (simple décalage des tirages, it. 1462). À étudier : où ces héros butent (boss de zone 20-24 ?), ce
   que le joueur simulé ne fait pas (talents, forge, sorts), et si l'alerte « héros bloqué » leur propose la bonne piste.
-- P3 (it. 1404) Parchemin des arcanes (sorts rechargés 50 % plus vite, 10 min ; effet lu dans castSpells comme la
+- ÉCARTÉ (it. 1503 : le Jour des arcanes, it. 1412, et la Marée arcanique couvrent ce besoin ; pas de place dans la
+  Boutique) P3 (it. 1404) Parchemin des arcanes (sorts rechargés 50 % plus vite, 10 min ; effet lu dans castSpells comme la
   Marée arcanique) : demande d'abord une place dans la Boutique (grille 4 × 2 pleine). Pistes : tuiles plus basses,
   ou une rangée de consommables défilante (hscroll), vérifiées à 1280 px dans les 10 langues.
   Mesuré (it. 1405, 1280 px) : panneau 497 px, Boutique 405 px (rien ne défile), tuile de consommable 144 px en
