@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1489) : devlog 0.1.4 (fr et en) et POUR-VICTOR : quatre nouveaux familiers (le Grillon ajouté).
 - 2026-11-15 (it. 1488) : « Quoi de neuf » 96, une édition regroupée de trois lignes (Grillon, ◆ sur les élites du
   type chassé, ⚠ des gobelins dans les Statistiques), comme le demande désormais CLAUDE.md. 10 langues (termes
   repris du jeu). Autotest 229/229 (« 11 0 »), lang-overflow propre.
