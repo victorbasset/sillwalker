@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1540) : test de Game.nextFoe (premier de la file à pleine vie, perçage déduit, boss une fois la file
+  vidée) : 314 tests.
 - 2026-11-15 (it. 1539, demandes de Victor) : barre du monstre en haut de la bande : entre deux combats, le prochain
   monstre de la file ou le boss (Game.nextFoe : PV de base, perçage déduit ; en cache par zone et rang) au lieu d'un
   « 0 ». Nombres écrits dans la jauge (186 × 14 px ; bouclier en bleu après les PV) : pastilles de 224 px sans place

@@ -4125,6 +4125,21 @@ test("grand graphe : dépense automatique dans une seule voie par région (it. 1
   assert.equal(nextGraphNode(g.S), null, "plus rien de prenable");
 });
 
+test("bande : prochain monstre de la file pour la barre du haut (it. 1539)", () => {
+  const g = new Game(freshState());
+  g.S.zone = 12; g.S.kills = 0;
+  const line = g.lineup(), f = g.nextFoe();
+  assert(f && !f.boss && f.type === line[0].type, "le premier de la file");
+  assert(f.max > 0 && Math.abs(f.hp - f.max) < 1e-6, "vie pleine");
+  // perçage : la vie restante tient compte des dégâts déjà reçus dans la file
+  line[0].pierced = f.max * 0.4;
+  assert(Math.abs(g.nextFoe().hp - f.max * 0.6) < f.max * 1e-6, "perçage déduit");
+  // file vidée : le boss
+  g.S.kills = line.length;
+  const b = g.nextFoe();
+  assert(b && b.boss && b.max > f.max, "le boss, plus robuste");
+});
+
 test("duo : le compagnon au corps à corps encaisse, celui à distance couvre (it. 1515, demandes de Victor)", () => {
   const { duoGuard, duoCover, DUO } = M_classes_js;
   const g = new Game(freshState());
