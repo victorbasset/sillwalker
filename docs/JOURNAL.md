@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1436, contrôle) : i18n-names après la Pie et « Pilleur de coffres » : 24 écarts, tous connus
+  (génitifs allemands et coréens, réplique libre japonaise) ; aucun ne vient des ajouts de la nuit. Écart assumé :
+  le succès « Ménagerie complète » ne reprend pas le mot du déblocage « Ménagerie » en es, pt, zh, ja ; le corriger
+  obligerait à ressaisir le nom du succès dans Steamworks, pour un gain faible.
 - 2026-11-15 (it. 1435) : Statistiques > Probabilités : les lignes « Événements rares » et « Champion » donnent aussi la
   chance du jour (Jour des prodiges ×2 : « aujourd’hui 0,2 %–0,8 % » ; Jour des champions ×4 : « aujourd’hui 2 % »),
   comme coffres, gobelins et élites ; revue de toutes les bénédictions : chacune est maintenant visible là où elle
