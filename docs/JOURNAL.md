@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1380) : i18n-names sur les noms de la nuit (Lucane, Source de vie, Jour du sang, Encens de chasse),
+  aussi en russe et polonais : aucun écart. Ménage : dix imports devenus inutiles retirés (game.js BAG_SIZE et PETS,
+  strip.js RARITIES, et des fonctions de format dans panel, map, pets, settings, shop, skills). Autotest 228/228.
 - 2026-11-15 (it. 1379, contrôle) : succès « Toutes les bénédictions du jour » calculé sur DAY_MOD_KEYS, sans nombre
   écrit. hero-table 12 h (graine 3) après le Lucane, la Source de vie et le Jour du sang : moyenne 63,6 (repère 63,7),
   mage 58 → guerrier 69 (bruit d'une graine, ±4 par héros). Rien à corriger.

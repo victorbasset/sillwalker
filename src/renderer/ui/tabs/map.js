@@ -4,7 +4,7 @@
 // le héros (zone actuelle), le record, et la forteresse du Briseur d'Étoiles en zone 200. Brouillard au-delà du
 // record. Survol : infobulle (zone, boss, chronique, héros). Toujours sombre : c'est une image, comme la bande.
 import { npcHTML } from "../npc.js";
-import { t as tx, fsp, colon, wsp } from "../../i18n/index.js";
+import { t as tx, colon, wsp } from "../../i18n/index.js";
 import { esc, fmt } from "../../game/format.js";
 import { zoneName, zoneDef } from "../../game/rules.js";
 import { bossName } from "../../game/bosses.js";

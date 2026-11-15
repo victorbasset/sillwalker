@@ -6,7 +6,7 @@
 import { npcTalk } from "./npc.js";
 import { newsShown, NEWS_RELEASES } from "../game/news.js";
 import { itemName, itemKindLine } from "../i18n/data.js";
-import { t as tx, txn, lc, fsp, colon, tr, csep, cend, wsp } from "../i18n/index.js";
+import { t as tx, txn, lc, colon, tr, csep, cend, wsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";

@@ -9,7 +9,7 @@ import { esc, dec, unit } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, graphPointsTotal, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS, GRAPH_MAX_TAKE, nextGraphNode, DEFAULT_BRANCH } from "../../game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS, GRAPH_MAX_TAKE, nextGraphNode, DEFAULT_BRANCH } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).

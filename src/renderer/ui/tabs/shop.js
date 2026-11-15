@@ -5,13 +5,13 @@ import { subtabsHTML } from "../subtabs.js";
 import { eggsAllowed } from "../../game/tabs.js";
 import { itemName, itemKindLine } from "../../i18n/data.js";
 import { t as tx, txn } from "../../i18n/index.js";
-import { RARITIES, SLOTS } from "../../game/data.js";
+import { RARITIES } from "../../game/data.js";
 import {
   CONSUMABLES, CHESTS, UPGRADES, WORKSHOP, POTION_MAX, BUFF_CAP_S, DEAL_DISCOUNT,
   consumablePrice, chestPrice, upgradePrice, rerollPrice, workshopPrice, eggPrice,
 } from "../../game/shop.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, fmtShort, esc, NB, unit, uH, uMin } from "../../game/format.js";
+import { fmt, fmtShort, esc, unit, uH, uMin } from "../../game/format.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { npcHTML } from "../npc.js";
 import { shopIconURL } from "../../render/shopart.js";

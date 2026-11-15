@@ -14,7 +14,7 @@ import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
-import { RARITIES, KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
+import { KILLS_PER_ZONE, ELITE_AFFIXES } from "../game/data.js";
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
 import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/story.js";

@@ -1,7 +1,7 @@
 // Onglet Réglages : préférences du jeu (sauvegardées avec la partie) et de la
 // fenêtre (position, opacité, démarrage : réglées par le processus principal).
 import { NEWS_RELEASES } from "../../game/news.js"; // (it. 1150) notes de la dernière version
-import { t as tx, LANGS, getLang, setLang, wsp } from "../../i18n/index.js";
+import { t as tx, LANGS, getLang, setLang } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
 import { applyUiScale, applyTheme, themeOf, effectiveUiScale } from "../../render/dom.js";
 // Mac (Victor y joue aussi) : les textes qui nomment Windows ont leur version macOS.
