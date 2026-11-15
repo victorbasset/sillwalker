@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1462, contrôle) : ouverture de l'Ascension (tab-pace sur 10 graines) : avant la nuit 21-61 min ;
+  maintenant 19-43 min pour 8 graines, 114 et 124 min pour les graines 3 et 6. Apparu avec le Trésor enfoui, mais
+  identique avec sa chance à 0 : décalage des tirages, pas un effet de l'événement. Révèle une longue traîne du début
+  de partie (noté dans Idées).
 - 2026-11-15 (it. 1461, REVUE GÉNÉRALE) : 12 h graine 7, records : arbalétrier 64, lancier 65, prêtresse 65 (moyenne
   ≈ 64). perf:linux : bande 19,3 %, panneau 20,6 %, mini 6,5 %, icône 0,6 % (stables, marque ◆ comprise). Captures de
   et ja (Quêtes, Bestiaire, mini) : rien d'anormal. Texte extrait en russe : seuls mots latins attendus. Rien à noter
@@ -5621,6 +5625,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 1462) Longue traîne avant l'Ascension : sur 10 trajectoires (tab-pace, joueur simulé), 2 n'atteignent la
+  zone de l'Ascension qu'en ≈ 2 h (114 et 124 min) contre 19-43 min pour les autres ; avant la nuit la plus lente
+  était à 61 min (simple décalage des tirages, it. 1462). À étudier : où ces héros butent (boss de zone 20-24 ?), ce
+  que le joueur simulé ne fait pas (talents, forge, sorts), et si l'alerte « héros bloqué » leur propose la bonne piste.
 - P3 (it. 1404) Parchemin des arcanes (sorts rechargés 50 % plus vite, 10 min ; effet lu dans castSpells comme la
   Marée arcanique) : demande d'abord une place dans la Boutique (grille 4 × 2 pleine). Pistes : tuiles plus basses,
   ou une rangée de consommables défilante (hscroll), vérifiées à 1280 px dans les 10 langues.
