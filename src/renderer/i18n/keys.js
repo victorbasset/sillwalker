@@ -2908,5 +2908,6 @@ export const KEYS = [
   "Nouvelle sorte de quête : attraper des gobelins dorés. Pendant ton absence, ton héros en attrape aussi (avec leur or) s’il est assez rapide.",
   "Sur la bande, un petit ◆ marque les monstres visés par une quête de chasse en cours.",
   "forge ton équipement avec ton or",
-  "Héros bloqué : les pistes pour avancer restent affichées dans la carte de la zone et dans la bulle du mode mini, et une nouvelle piste propose de forger ton équipement quand ton or le permet."
+  "Héros bloqué : les pistes pour avancer restent affichées dans la carte de la zone et dans la bulle du mode mini, et une nouvelle piste propose de forger ton équipement quand ton or le permet.",
+  "ils s’enfuient : héros trop lent ici"
 ];

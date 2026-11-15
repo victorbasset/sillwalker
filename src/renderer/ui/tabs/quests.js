@@ -2,7 +2,7 @@
 // contrats de 1 à 3 étoiles. Option de réclamation automatique.
 import { npcHTML } from "../npc.js";
 import { t as tx, txn } from "../../i18n/index.js";
-import { questText, questDone, questGold, questRerollPrice, guildRank, guildRankName, GUILD_BONUS, STARS } from "../../game/quests.js";
+import { questText, questDone, questGold, questRerollPrice, guildRank, guildRankName, GUILD_BONUS, STARS, goblinCatchable } from "../../game/quests.js";
 import { CONSUMABLES } from "../../game/shop.js";
 import { RARITIES } from "../../game/data.js";
 import { describeEffects } from "../../game/talents.js";
@@ -80,6 +80,8 @@ export class QuestsTab {
           away = hasUnlock(S, "travelMap") ? ` <button class="qgo" data-action="q-go" data-z="${best}" title="${esc(tx("Clic : y aller"))}">${lbl}</button>` : ` <small class="eta">· ${lbl}</small>`;
         }
       }
+      // (it. 1469) gobelins dorés trop rapides pour le héros (ils s'enfuient avant d'être abattus) : on le dit
+      if (!done && q.kind === "goblin" && !goblinCatchable(S)) away = ` <small class="eta">· ${esc(tx("ils s’enfuient : héros trop lent ici"))}</small>`;
       // (it. 1344) quêtes d'élites : l'Encens de chasse les accélère (astuce au survol, la carte ne grandit pas)
       const lureTip = !done && (q.kind === "elite" || q.kind === "prey") && tabOpen(S, "shop")
         ? ` title="${esc(tx("Astuce : l’Encens de chasse de la Boutique attire deux fois plus d’élites."))}"` : "";

@@ -1779,4 +1779,5 @@ export default {
   2904: "Na faixa, um pequeno ◆ marca os monstros visados por uma missão de caça em curso.",
   2905: "forja o teu equipamento com o teu ouro",
   2906: "Herói travado: as dicas para avançar ficam visíveis no cartão da zona e no balão do modo mini, e uma nova dica sugere forjar o teu equipamento quando o teu ouro o permite.",
+  2907: "fogem: herói lento demais aqui",
 };

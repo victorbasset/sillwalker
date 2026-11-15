@@ -1779,4 +1779,5 @@ export default {
   2904: "Na pasku małe ◆ oznacza potwory, na które poluje trwające zadanie łowieckie.",
   2905: "wykuj ekwipunek za swoje złoto",
   2906: "Zablokowany bohater: wskazówki, jak iść dalej, zostają widoczne na karcie strefy i w dymku trybu mini, a nowa wskazówka proponuje wykuć ekwipunek, gdy pozwala na to złoto.",
+  2907: "uciekają: bohater tu za wolny",
 };

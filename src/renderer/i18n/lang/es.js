@@ -1779,4 +1779,5 @@ export default {
   2904: "En la franja, un pequeño ◆ marca a los monstruos que busca una misión de caza en curso.",
   2905: "forja tu equipo con tu oro",
   2906: "Héroe atascado: las pistas para avanzar siguen visibles en la tarjeta de la zona y en la burbuja del modo mini, y una nueva pista propone forjar tu equipo cuando tu oro lo permite.",
+  2907: "huyen: héroe demasiado lento aquí",
 };

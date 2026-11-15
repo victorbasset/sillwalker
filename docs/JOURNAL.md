@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1469) : carte d'une quête « Attraper N gobelins dorés » déjà tirée alors que le héros est trop lent
+  (zone changée…) : « · ils s’enfuient : héros trop lent ici » sur la ligne de progression (comme « absent d’ici »
+  pour la chasse) ; le bouton Changer reste là. 10 langues, capture en allemand à 1280 px. Autotest 229/229.
 - 2026-11-15 (it. 1468, contrôle) : tableau des 20 héros (12 h, graines 7/3/11) : moyenne 63,6 (it. 1118 : 63,7),
   de 60,7 (mage) à 67,3 (gardien stellaire), écart 6,7 zones (avant 5,7). Dans le bruit par héros (±2 sur 3 graines) :
   rien à régler ; à surveiller si le mage reste le plus faible et le gardien stellaire le plus fort aux prochaines
