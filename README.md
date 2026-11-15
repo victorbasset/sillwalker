@@ -84,7 +84,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (`spellCd`). Visibles sur la carte du héros (Aventure) et sur chaque carte de l'onglet Héros ; record du plus gros
   sort dans Statistiques ; succès « Mage de bataille » et « Grimoire complet ». Déblocage Grimoire des sorts : les
   améliore tout seul, ceux du compagnon compris (une fois par minute de jeu, sous 10 % de l'or). Les sorts du compagnon
-  s'apprennent aussi à la main (« + », Sorts et attaque). Gardés à l'ascension.
+  ont leur propre cadre en grandes cartes, à droite de ceux du héros (Héros > Sorts et attaque ; valeurs à moitié de
+  puissance), et s'apprennent aussi à la main. Gardés à l'ascension.
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 16 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
 - **Son** (render/sound.js, render/music.js) : effets variés, ambiance de chaque zone (bulles, braises, oiseaux…),

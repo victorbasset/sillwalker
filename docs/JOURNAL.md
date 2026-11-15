@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1494) : README : les sorts du compagnon ont leur cadre en grandes cartes (it. 1491) ; l'ancien « + »
+  de la ligne d'icônes n'existe plus.
 - 2026-11-15 (it. 1493) : styles.css : règles de l'ancienne ligne d'icônes des sorts du compagnon (.pspells, .pplus ;
   remplacée par le cadre de l'it. 1491) retirées (7 lignes, plus aucun usage). Autotest 229/229.
 - 2026-11-15 (it. 1492, contrôle) : sorts du héros et du compagnon côte à côte en thème clair (1366 px) : lisibles,
