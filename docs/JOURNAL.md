@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1477) : marque ◆ de la bande : aussi sur l'étiquette d'une élite ou d'un champion du type visé par une
+  quête de chasse (la chasse compte le type, élite ou non ; avant, seuls les monstres ordinaires étaient marqués).
+  En chemin, un commentaire « // » ajouté en fin de ligne avalait la suite (piège connu) : arrêté par le contrôle de
+  syntaxe de npm test, corrigé (commentaire sur sa propre ligne). Vérifié par --stage. Autotest 229/229.
 - 2026-11-15 (it. 1476) : POUR-VICTOR : nouveautés du 14-15/11 réécrites en liste (contenu, confort, corrections,
   vérifié) au lieu d'un long paragraphe.
 - 2026-11-15 (it. 1475) : CLAUDE.md : « Quoi de neuf » à regrouper (une édition de 3-5 nouveautés par série, pas une

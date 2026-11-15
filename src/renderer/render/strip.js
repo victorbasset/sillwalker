@@ -772,13 +772,14 @@ export class StripRenderer {
         if (y0 - 40 < 2) tag.style.top = (2 - y0) + "px";
         this.placeBossName();
       }
+      // (it. 1477) une élite (ou un champion) du type chassé compte aussi pour la quête de chasse : marque ◆ sur son étiquette
       if (!boss && line[k].elite) {
         a.el.classList.add(line[k].champion ? "champion" : "elite");
         const af = ELITE_AFFIXES[line[k].affix];
         // (it. 947) ✦ : sorte jamais vaincue (elle compte pour la collection du Bestiaire et le succès « Tueur d'élites »)
         const fresh = af && !((this.game.S.stats && this.game.S.stats.affixesSeen) || {})[line[k].affix] ? " ✦" : "";
-        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = (af ? upFirst(tx("Champion {0}", { 0: af.name.toLowerCase() })) : tx("Champion")) + fresh + (wantChamp || preyAffixes.has(line[k].affix) ? " ◆" : ""); }
-        else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name + fresh + (preyAffixes.has(line[k].affix) ? " ◆" : ""); tag.style.color = af.color; }
+        if (line[k].champion) { const tag = el("div", "affix champ", a.el); tag.textContent = (af ? upFirst(tx("Champion {0}", { 0: af.name.toLowerCase() })) : tx("Champion")) + fresh + (wantChamp || preyAffixes.has(line[k].affix) || huntTypes.has(line[k].type) ? " ◆" : ""); }
+        else if (af) { const tag = el("div", "affix", a.el); tag.textContent = af.name + fresh + (preyAffixes.has(line[k].affix) || huntTypes.has(line[k].type) ? " ◆" : ""); tag.style.color = af.color; }
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
       // (it. 1458) monstre visé par une quête de chasse en cours : petite marque ◆ (posée avec la série, pas à chaque image)
