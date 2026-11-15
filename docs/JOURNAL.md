@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1401, revue générale) : --perf (copie neuve) bande 19,1 %, panneau 21,5 %, mini 6,7 %, icône 0,5 % ;
+  --crawl en polonais sur l'état maximal 724 clics sans erreur ; texte russe : aucun mot latin hors noms voulus.
+  Équilibre vérifié aux it. 1391-1392. Rien à corriger.
 - 2026-11-15 (it. 1400) : « Quoi de neuf », édition 83 : bilans d'événements plus riches (it. 1398-1399) et élites
   d'absence comptées par sorte (it. 1397) ; noms tels que traduits. Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1399) : bilans d'événements : le Souffle de sagesse dit l'expérience gagnée et la Nichée les œufs
