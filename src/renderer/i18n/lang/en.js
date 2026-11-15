@@ -1709,4 +1709,5 @@ export default {
   2834: "+100% elites",
   2835: "New in the Shop: Hunting Incense draws twice as many elites for 10 min. More risk, more loot; the Everlasting Herbalist never rebuys it for you.",
   2836: "The strip now shows your active elixirs, scrolls and incense: one small icon each, right in front of your gold.",
+  2837: "Active effects",
 };

@@ -1709,4 +1709,5 @@ export default {
   2834: "+100 % Elite-Gegner",
   2835: "Neu im Laden: Jagdweihrauch lockt 10 Min. lang doppelt so viele Elite-Gegner an. Mehr Risiko, mehr Beute; der Ewige Kräuterkundler kauft ihn nie für dich nach.",
   2836: "Der Streifen zeigt deine aktiven Elixiere, Schriftrollen und Weihrauch: je ein kleines Symbol, direkt vor deinem Gold.",
+  2837: "Aktive Effekte",
 };

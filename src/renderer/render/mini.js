@@ -11,7 +11,8 @@ import { PIXEL as P } from "./art.js";
 import { majorBoss, ECHO_OUTLINE } from "../game/relics.js";
 import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
-import { fmt, fmtShort, uS, durText } from "../game/format.js";
+import { fmt, fmtShort, uS, uMin, durText, listJoin } from "../game/format.js";
+import { CONSUMABLES } from "../game/shop.js";
 import { xpNeed } from "../game/rules.js";
 import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
@@ -280,6 +281,9 @@ export class MiniRenderer {
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + colon() + rec);
       const dm = activeDayMod(S); // (it. 1234) la bénédiction du jour, lisible aussi depuis le mode mini
       if (dm) tip.push(`${tx("Bénédiction du jour :")} ${dm.icon} ${dm.name} · ${dm.desc}`);
+      // (it. 1343) élixirs, parchemins et encens en cours, avec les minutes restantes (comme la carte du héros)
+      const buffs = CONSUMABLES.filter((c) => c.kind === "buff" && (S.buffs[c.id] || 0) > 0).map((c) => c.name + " " + uMin(Math.ceil(S.buffs[c.id] / 60)));
+      if (buffs.length) tip.push(tx("Effets en cours") + colon() + listJoin(buffs));
       this.goalWrap.hidden = false;
       if (!u) { // tout est débloqué : la barre suit le record de toutes les courses
         this.goal.style.width = Math.round(Math.min(1, S.zone / rec) * 100) + "%";

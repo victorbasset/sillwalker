@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1343) : mode mini : sa bulle (survol de la zone d'infos) dit aussi les effets en cours, avec les
+  minutes restantes (« Effets en cours : Élixir de force 12 min et Encens de chasse 50 min »), après la bénédiction
+  du jour. Vérifié en français et en japonais (lecture de la bulle par --stage).
 - 2026-11-15 (it. 1342) : « Quoi de neuf », édition 75 : les icônes des effets actifs sur la bande ; traduite (« la
   bande » comme ailleurs : Streifen, 长条…) ; ligne au brouillon du devlog 0.1.4. Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1341, revue générale) : 12 h guerrier 65, mage 60, rôdeur 65 (inchangés) ; --perf sur une copie
