@@ -362,6 +362,18 @@ test("légendaires : un pouvoir qui compte dans les statistiques", () => {
   assert.notEqual(withPower, JSON.stringify(g.stats()), "le pouvoir " + saved + " change les statistiques");
 });
 
+test("quête : la récompense nomme le vrai consommable et accorde les éclats (it. 1352)", () => {
+  const g = new Game(freshState()); g.S.buffs = {};
+  const q = g.S.quests.slots[0]; q.reward = { buff: "fortune", shards: 1 }; q.progress = q.goal;
+  const n0 = g.S.log.length; assert.ok(g.claimQuest(q.uid));
+  const line = g.S.log.slice(n0).map((l) => (l && l.t) || String(l)).join(" ");
+  assert.ok(/Parchemin de fortune/.test(line) && !/elixir/i.test(line), line);
+  assert.ok(/\b1\sstar\sshard\b/.test(line), "singulier : " + line);
+  assert.equal(g.S.buffs.fortune, 600);
+  const q2 = g.S.quests.slots[0]; q2.reward = { buff: "nope" }; q2.progress = q2.goal;
+  assert.ok(g.claimQuest(q2.uid), "consommable inconnu (autre version) : réclamée quand même");
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);

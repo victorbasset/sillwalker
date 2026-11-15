@@ -2215,9 +2215,12 @@ export class Game {
       if (this.bagFull()) { const v = sellValue(it); S.gold += v; parts.push(tx("{0} (sac plein : vendu {1} or)", { 0: itemName(it), 1: fmt(v) })); }
       else { S.bag.push(it); parts.push(itemName(it)); this.emit("loot", { item: it, mon: null }); }
     }
-    if (rw.buff) { S.buffs[rw.buff] = Math.min(7200, (S.buffs[rw.buff] || 0) + 600); this.invalidateStats(); parts.push(tx("élixir de 10 min")); }
-    if (rw.potions) { S.potions = Math.min(20, S.potions + rw.potions); parts.push(txn(rw.potions, "{n} potion|{n} potions")); }
-    if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(fmt(rw.shards) + tx(" éclats d’étoile")); }
+    // (it. 1352) le nom du vrai consommable gagné (« élixir » même pour un parchemin ou un trèfle) ; durée, plafond et
+    // stock lus dans shop.js (écrits en dur) ; éclats au pluriel accordé
+    const bc = rw.buff && CONSUMABLES.find((c) => c.id === rw.buff && c.kind === "buff");
+    if (bc) { S.buffs[bc.id] = Math.min(BUFF_CAP_S, (S.buffs[bc.id] || 0) + bc.duration); this.invalidateStats(); parts.push(bc.name + " · " + uMin(bc.duration / 60)); }
+    if (rw.potions) { S.potions = Math.min(POTION_MAX, S.potions + rw.potions); parts.push(txn(rw.potions, "{n} potion|{n} potions")); }
+    if (rw.shards) { S.prestige.shards += rw.shards; S.prestige.total += rw.shards; parts.push(txn(rw.shards, "{n} éclat d’étoile|{n} éclats d’étoile")); }
     if (rw.egg) { this.gainEgg(); parts.push(tx("un œuf")); }
     if (rw.speed) { this.gainSpeed(rw.speed, tx("Quête héroïque")); parts.push(`${tx("+{0} % de vitesse pour toujours", { 0: rw.speed })}`); }
     const stars = [1, 2, 3].includes(Q.slots[i].stars) ? Q.slots[i].stars : 1; // (it. 905) illisible : 1

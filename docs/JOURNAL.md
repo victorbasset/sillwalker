@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1352) : récompense de quête au journal : elle nomme le vrai consommable gagné (« Parchemin de
+  fortune · 10 min » ; avant, toujours « élixir de 10 min », même pour un parchemin ou un trèfle) et accorde les
+  éclats (« 1 éclat », avant « 1 éclats »). Durée, plafond et stock lus dans shop.js (écrits en dur) ; un consommable
+  inconnu (autre version) ne bloque pas la réclamation. Test (ancien code : « 10-min elixir, 1 star shards »).
 - 2026-11-15 (it. 1351, revue générale) : après les effets comptés hors ligne (1348-1349) : 12 h guerrier 65, mage 60,
   rôdeur 65 ; joueur absent (IDLE=1) 16 à 12 h (repère 16) ; fuzz 1200 parties, 0 bloquée ; texte extrait en coréen
   (aucun mot latin hors HP / Lv voulus) et en polonais (aucun mot français). Performance mesurée à la 1341, rien depuis
