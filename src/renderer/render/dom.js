@@ -244,14 +244,16 @@ export class Bar {
 /** (it. 1531, demande de Victor) Barre de vie de la rangée d'informations de la bande (héros ou monstre affronté) :
  *  pastille comme celles de la zone et de l'or, icône, barre, bouclier (segment bleu-blanc) et nombres. Le DOM n'est
  *  touché que quand la valeur affichée change (barre au pixel près, nombres arrondis). */
-export const HUD_BAR_W = 140;
+export const HUD_BAR_W = 186;
 export class HudBar {
   constructor(parent, cls) {
     this.el = el("div", "hudbar " + cls, parent);
     this.ic = el("img", "ic", this.el); this.ic.alt = "";
     const t = el("span", "tr", this.el);
     this.fill = el("i", "", t); this.sh = el("b", "", t);
-    this.txt = el("span", "t", this.el); this.stxt = el("span", "ts", this.el);
+    // (it. 1539) les nombres dans la barre elle-même (avant : à droite, place vide la plupart du temps sans bouclier)
+    const lb = el("span", "lbl", t);
+    this.txt = el("span", "t", lb); this.stxt = el("span", "ts", lb);
     this.key = null; this.icKey = null; this.shown = true; this.x = null;
   }
   icon(url, key) { if (key !== this.icKey) { this.icKey = key; this.ic.src = url || ""; this.ic.hidden = !url; mark("hudbar"); } }

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1539, demandes de Victor) : barre du monstre en haut de la bande : entre deux combats, le prochain
+  monstre de la file ou le boss (Game.nextFoe : PV de base, perçage déduit ; en cache par zone et rang) au lieu d'un
+  « 0 ». Nombres écrits dans la jauge (186 × 14 px ; bouclier en bleu après les PV) : pastilles de 224 px sans place
+  vide à droite. Autotest 233/233.
 - 2026-11-15 (it. 1538, demande de Victor : la langue du système par défaut, sur Windows, Linux et Mac) : la version
   construite ne gardait que les fichiers de langue Chromium fr et en-US (electronLanguages) : navigator.languages y
   retombait sur l'anglais pour un système allemand, russe… La langue est maintenant lue par le processus principal

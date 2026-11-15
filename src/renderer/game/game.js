@@ -651,6 +651,19 @@ export class Game {
     return (hs.atk * DRONE.atk + monsterBase(this.S.zone, false).hp * DRONE.pct) / DRONE.every * relicPow(this.S, "drone");
   }
 
+  /** (it. 1539, demande de Victor) Prochain monstre de la file (ou le boss) : { type, boss, hp, max } (PV de base, perçage
+   *  déduit) ; affiché par la barre de vie du haut de la bande entre deux combats. */
+  nextFoe() {
+    const line = this.lineup(), i = this.S.kills;
+    if (i >= line.length) {
+      const Z = zoneDef(this.S.zone), max = monsterBase(this.S.zone, true, Z.boss, false, false).hp;
+      return { type: Z.boss, boss: true, max, hp: max * this.slotHealth(line.length) };
+    }
+    const s = line[i]; if (!s) return null;
+    const max = monsterBase(this.S.zone, false, s.type, s.elite, !!s.champion).hp;
+    return { type: s.type, boss: false, max, hp: max * this.slotHealth(i) };
+  }
+
   /** Part de vie restante d'un monstre de la file (barre de la bande après un perçage ; estimation : PV de base). */
   slotHealth(i) {
     if (i === this.lineup().length) { // le boss (estimation : PV de base, plafond d'un quart)

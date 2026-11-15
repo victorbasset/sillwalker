@@ -108,7 +108,7 @@ const LEFT = 24;            // position de départ du héros
 const RIGHT_MARGIN = 300;   // le boss (2× plus large) s'arrête avant l'or, le niveau et les boutons
 const FIGHTS = KILLS_PER_ZONE + 1;
 const HUD_L_W = 520, HUD_R_W = 260, HUD_H = 24;
-const HUD_BAR_PILL = 290; // (it. 1531) largeur d'une pastille de barre de vie (styles.css .hudbar)
+const HUD_BAR_PILL = 224; // (it. 1531) largeur d'une pastille de barre de vie (styles.css .hudbar)
 const CENTER_HUD_W = 2400; // au-delà : informations au milieu de la bande (écrans ultra-larges)
 // Caractères pleine chasse (chinois, japonais, coréen, ponctuation « ！ ») : deux fois la largeur d'un chiffre.
 const WIDE_CHARS = /[\u1100-\u11ff\u2e80-\u9fff\uac00-\ud7af\uf900-\ufaff\ufe30-\ufe4f\uff00-\uff60\uffe0-\uffe6]/g;
@@ -1088,10 +1088,13 @@ export class StripRenderer {
     else this.hpHero.set(hp, hs.hp, sh, fmtShort(hp), sh > 0 ? "+" + fmtShort(sh) : "");
     if (!monFits) return;
     this.hpMon.place(mx);
-    if (!fight) { if (this.hpMon.key == null) this.hpMon.set(0, 1, 0, "—"); else if (this.lastMonHp !== 0) { this.lastMonHp = 0; this.hpMon.set(0, 1, 0, "0"); } return; }
-    this.lastMonHp = null;
-    const m = R.mon, msh = m.shell > 0 ? m.shell : 0;
-    this.hpMon.place(mx);
+    // (it. 1539, demande de Victor) entre deux combats : le prochain monstre de la file (ou le boss), et non un « 0 »
+    // (calcul en cache : zone et rang dans la file inchangés, au plus deux fois par seconde pour suivre un perçage)
+    const nk = S.zone + "|" + S.kills, now = performance.now();
+    if (!fight && (nk !== this.nextFoeKey || now - (this.nextFoeT || 0) > 500)) { this.nextFoeKey = nk; this.nextFoeT = now; this.nextFoeVal = g.nextFoe(); }
+    const m = fight ? R.mon : this.nextFoeVal;
+    if (!m) { this.hpMon.set(0, 1, 0, "—"); return; }
+    const msh = m.shell > 0 ? m.shell : 0;
     const ik = m.type + "|" + !!m.boss + "|" + isFinalZone(S.zone);
     if (!this.monIcons.has(ik)) {
       const set = isFinalZone(S.zone) && m.boss ? this.sprites.starbreaker : this.sprites.monsters[m.type];
