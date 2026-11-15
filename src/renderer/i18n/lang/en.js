@@ -1851,4 +1851,6 @@ export default {
   2976: "A rare monster, Poupouce, hides among the others: it drops five times more gold.",
   2977: "Level up! Every monster you defeat gives experience: the purple gauge under your level (and at the very bottom of the strip) shows the next one.",
   2978: "{0} defeated",
+  2979: "Poupouce?! No way…",
+  2980: "Is that… Poupouce?!",
 };

@@ -63,6 +63,7 @@ const SPEECH = {
   ev_spring: [tx("Je me sens revivre !")], // (it. 1375)
   ev_hoard: [tx("Ça brille sous chaque pas !")], // (it. 1439)
   ev_echo: [tx("Chaque coup compte double !")], // (it. 1304)
+  poupouce: [tx("Poupouce ?! Pas possible…"), tx("C’est… Poupouce ?!")], // (it. 1558) monstre rare (data.js, POUPOUCE)
   eliteNew: [tx("Une de plus pour ma collection !"), tx("Celle-là, je ne l’avais jamais battue !")],
   setFull: [tx("Panoplie au complet !"), tx("Tout est assorti, enfin !")], // (it. 1037) palier de 4 pièces
   // (it. 1038) ascension, héros libéré, œuf trouvé
@@ -216,6 +217,7 @@ export class StripRenderer {
     g.on("levelUp", () => this.say(SPEECH.level));
     g.on("event", ({ id } = {}) => this.say(SPEECH["ev_" + id] || SPEECH.event));
     g.on("eliteNew", () => this.say(SPEECH.eliteNew)); // (it. 956)
+    g.on("spawn", (m) => { if (m && m.poupouce) this.say(SPEECH.poupouce, true); }); // (it. 1558)
     g.on("setBonus", ({ n }) => { if (n >= 4) this.say(SPEECH.setFull, true); }); // (it. 1037)
     g.on("masteryStep", () => this.say(SPEECH.mastery, true)); // (it. 1162) rare (une fois par palier dans la partie) : comme un grand moment
     g.on("graphOpen", () => this.say(SPEECH.graphOpen, true));

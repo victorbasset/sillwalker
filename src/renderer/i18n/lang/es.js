@@ -1851,4 +1851,6 @@ export default {
   2976: "Un monstruo raro, Poupouce, se esconde entre los demás: da cinco veces más oro.",
   2977: "¡Subes de nivel! Cada monstruo vencido da experiencia: la barra morada bajo tu nivel (y abajo del todo en la franja) muestra el siguiente.",
   2978: "{0} vencidos",
+  2979: "¿¡Poupouce!? No puede ser…",
+  2980: "¿Es… Poupouce?!",
 };

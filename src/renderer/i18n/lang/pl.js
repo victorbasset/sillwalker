@@ -1851,4 +1851,6 @@ export default {
   2976: "Rzadki potwór, Poupouce, ukrywa się wśród innych: daje pięć razy więcej złota.",
   2977: "Nowy poziom! Każdy pokonany potwór daje doświadczenie: fioletowy pasek pod twoim poziomem (i na samym dole paska) pokazuje następny.",
   2978: "{0} pokonane",
+  2979: "Poupouce?! Niemożliwe…",
+  2980: "To… Poupouce?!",
 };

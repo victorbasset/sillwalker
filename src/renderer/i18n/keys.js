@@ -2980,5 +2980,7 @@ export const KEYS = [
   "Réglages rejoint les boutons de droite du panneau ; l’objet sélectionné a un cadre clair (il se confondait avec le légendaire).",
   "Un monstre rare, Poupouce, se cache parmi les autres : il rapporte cinq fois plus d’or.",
   "Niveau supérieur ! Chaque monstre vaincu donne de l’expérience : la jauge violette sous ton niveau (et tout en bas de la bande) montre le prochain.",
-  "{0} vaincus"
+  "{0} vaincus",
+  "Poupouce ?! Pas possible…",
+  "C’est… Poupouce ?!"
 ];

@@ -1851,4 +1851,6 @@ export default {
   2976: "Um monstro raro, Poupouce, se esconde entre os outros: dá cinco vezes mais ouro.",
   2977: "Subiu de nível! Cada monstro derrotado dá experiência: a barra roxa sob o seu nível (e bem embaixo da faixa) mostra o próximo.",
   2978: "{0} derrotados",
+  2979: "Poupouce?! Não pode ser…",
+  2980: "É… o Poupouce?!",
 };

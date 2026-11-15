@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1558) : quand Poupouce entre en combat, le héros s'étonne dans une bulle (« C'est… Poupouce ?! »),
+  comme pour une nouvelle sorte d'élite ; 2 répliques traduites (le nom reste tel quel).
 - 2026-11-16 (it. 1557) : thème clair vérifié en capture après les it. 1544-1555 (onglet Réglages à droite, boutons,
   sac) : rien à corriger.
 - 2026-11-16 (it. 1556) : --crawl après les changements d'interface des it. 1544-1555 (Réglages à droite, clic sur le

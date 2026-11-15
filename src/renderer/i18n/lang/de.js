@@ -1851,4 +1851,6 @@ export default {
   2976: "Ein seltenes Monster, Poupouce, versteckt sich unter den anderen: Es bringt fünfmal so viel Gold.",
   2977: "Stufenaufstieg! Jedes besiegte Monster gibt Erfahrung: Die lila Anzeige unter deiner Stufe (und ganz unten in der Leiste) zeigt die nächste.",
   2978: "{0} besiegt",
+  2979: "Poupouce?! Unmöglich …",
+  2980: "Ist das … Poupouce?!",
 };
