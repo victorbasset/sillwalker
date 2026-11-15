@@ -412,7 +412,10 @@ export class StripRenderer {
     // (la police de secours de ces écritures est aussi un peu plus haute : 21 px au lieu de 19 en grand).
     const w = (str.length + wide) * (big ? 8 : 7) + 4, h = (big ? 19 : 17) + (wide ? 2 : 0);
     // (it. 860) …ni, décalés de côté ou en montant, sur la fin de son nom ou la relique qu'il garde.
-    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss ? y - (big ? 14 : 12) : -6, nearBoss ? this.bossObstacles() : null);
+    // (it. 1562) le nom du boss s'étend vers la gauche au-dessus du héros : les nombres du héros (critiques, esquives),
+    // loin du boss, montaient dessus ; ils l'évitent dès que le nom est affiché (combat du boss, ou boss en attente au
+    // bout de la file)
+    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss ? y - (big ? 14 : 12) : -6, this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : null);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
