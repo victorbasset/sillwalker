@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (demande de Victor) : boucle « musique » pour ≈ 24 h : 4 morceaux composés à la main (zones 1-50, 51-100,
+  101-150, 151-200 ; lofi, épique galactique, couleur Terraria), pré-rendus en studio hors du jeu, avec un leitmotiv
+  commun. Plan et suivi : docs/MUSIQUE.md.
 - 2026-11-15 (it. 1541, SORTIE 0.1.4, demande de Victor ; boucle arrêtée) : revue générale (12 h : samouraï 65,
   druide 65, assassin 62 ; perf bande 19,5 %, panneau 21,0 %, mini 6,8 %, icône 0,6 %). package.json 0.1.4 ; notes de
   version NEWS_RELEASES 0.1.4 (after: 58, 10 nouveautés majeures, 9 langues) ; test des notes adapté (un joueur de la
