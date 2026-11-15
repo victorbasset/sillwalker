@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1524, demande de Victor : « la police russe illisible ») : Geist Pixel n'a pas de cyrillique (ni le
+  paquet geist complet, ni fontsource) : 66 lettres russes dessinées sur sa grille (scripts/cyrillic-geist-pixel/ :
+  raster.py, glyphs.py, build.py), 20 reprises du latin (А = A, Н = H…), les autres dessinées ; 2 372 points
+  (≈ 36 par lettre, comme le latin simplifié) ; servies sous « Geist Pixel » (unicode-range russe). Planche d'essai
+  vérifiée (une erreur Н = N corrigée). Autotest 231/231, lang-overflow propre (10 langues).
 - 2026-11-15 (it. 1523, demande de Victor) : bande, projectiles des héros à distance (.proj, .projglow) en z-index 3 :
   devant le compagnon au lieu de derrière. Vérifié par --stage (rôdeur + guerrier). Autotest 231/231.
 - 2026-11-15 (it. 1522, demandes de Victor : le choix des bonus de paliers était introuvable, « A/B » obscur) :

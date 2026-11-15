@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés du 14 au 15 novembre (it. 1328-1522)
+## Nouveautés du 14 au 15 novembre (it. 1328-1524)
 
 **Contenu**
 - Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau), Grillon (+5 % d'événements
@@ -71,6 +71,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Tes demandes (Talents) : bouton « Choisir un bonus » sur chaque maîtrise dont un palier attend son choix (ouvre la
   fenêtre), signalé aussi dans « À faire » ; la Voie sur une colonne (description au survol), les Maîtrises sur deux ;
   sorts : boutons d'amélioration alignés en bas.
+- Tes demandes : les tirs à distance passent devant le compagnon ; le russe s'affiche dans une version cyrillique de
+  la police du texte anglais (66 lettres dessinées pour le jeu), au lieu de Tiny5.
 - « Quoi de neuf » : édition 98 (tes demandes de cet après-midi, 4 nouveautés).
 
 **Corrections**

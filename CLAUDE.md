@@ -263,6 +263,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   taille chez Victor, panneau et onglets bloqués à la première ouverture. Fusionnée par scripts/simplify-pixel-font.py
   (38 points par lettre, contours resserrés de 7 unités pour garder la même encre). Toute nouvelle police pixel :
   compter ses points (fontTools) et la passer par ce script ; ne pas multiplier les tailles et graisses.
+  Lettres russes (it. 1524) : dessinées sur la grille de Geist Pixel par scripts/cyrillic-geist-pixel/ (README : retoucher
+  une lettre dans glyphs.py, reconstruire) ; avant, Tiny5, jugé illisible par Victor.
 - Bénédictions du jour (it. 1237) : toujours AJOUTER une bénédiction à la FIN de DAY_MODS (daymods.js) ; dayModFor
   garde le calendrier des 9 premières et chaque ajout ne prend qu'un jour sur n (tirage réservoir). Changer l'ordre ou
   le modulo rebat tout le calendrier (bénédiction du jour qui change en pleine journée à la mise à jour). Le jour pris par
