@@ -2914,5 +2914,8 @@ export const KEYS = [
   "Quêtes : une quête bloquée le dit sur sa carte (gobelins trop rapides pour ton héros, avancée automatique coupée : un clic la reprend), et celle des coups au clic rappelle comment frapper.",
   "Grillon",
   "Son chant attire les prodiges : les événements rares viennent plus souvent.",
-  "événements rares"
+  "événements rares",
+  "Nouveau familier, le Grillon : son chant attire les prodiges (+5 % d’événements rares par niveau).",
+  "Sur la bande, le ◆ des quêtes de chasse marque aussi les élites et champions du type chassé.",
+  "Statistiques : la ligne des gobelins dorés prévient (⚠) quand ton héros est trop lent pour les attraper."
 ];

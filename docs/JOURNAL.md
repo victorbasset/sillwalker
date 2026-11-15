@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1488) : « Quoi de neuf » 96, une édition regroupée de trois lignes (Grillon, ◆ sur les élites du
+  type chassé, ⚠ des gobelins dans les Statistiques), comme le demande désormais CLAUDE.md. 10 langues (termes
+  repris du jeu). Autotest 229/229 (« 11 0 »), lang-overflow propre.
 - 2026-11-15 (it. 1487, contrôle) : état maximal (21 familiers dont le Grillon) en japonais : --crawl 648 clics sans
   erreur ; texte : « コオロギ » présent (22 fois), aucun mot français.
 - 2026-11-15 (it. 1486, contrôle) : équilibre après le Grillon (balance.mjs 12 contre 442b6f7) : graine 3 +0,9,

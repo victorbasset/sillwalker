@@ -1785,4 +1785,7 @@ export default {
   2910: "Grilo",
   2911: "O seu canto atrai prodígios: os eventos raros acontecem mais vezes.",
   2912: "eventos raros",
+  2913: "Novo mascote: o Grilo, cujo canto atrai prodígios (+5 % de eventos raros por nível).",
+  2914: "Na faixa, o ◆ das missões de caça marca também as elites e campeões do tipo caçado.",
+  2915: "Estatísticas: a linha dos goblins dourados avisa (⚠) quando o teu herói é lento demais para os pegar.",
 };

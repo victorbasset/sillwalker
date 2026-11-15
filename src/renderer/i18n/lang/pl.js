@@ -1785,4 +1785,7 @@ export default {
   2910: "Świerszcz",
   2911: "Jego śpiew przyciąga cuda: rzadkie zdarzenia zdarzają się częściej.",
   2912: "rzadkie zdarzenia",
+  2913: "Nowy pupil: Świerszcz, którego śpiew przyciąga cuda (+5 % rzadkich zdarzeń na poziom).",
+  2914: "Na pasku ◆ zadań łowieckich oznacza też elity i czempionów polowanego rodzaju.",
+  2915: "Statystyki: wiersz złotych goblinów ostrzega (⚠), gdy bohater jest za wolny, by je złapać.",
 };

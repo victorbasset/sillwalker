@@ -1785,4 +1785,7 @@ export default {
   2910: "Grillo",
   2911: "Su canto atrae los prodigios: los eventos raros llegan más a menudo.",
   2912: "eventos raros",
+  2913: "Nueva mascota, el Grillo: su canto atrae los prodigios (+5 % de eventos raros por nivel).",
+  2914: "En la franja, el ◆ de las misiones de caza marca también a las élites y campeones del tipo cazado.",
+  2915: "Estadísticas: la línea de los goblins dorados avisa (⚠) cuando tu héroe es demasiado lento para atraparlos.",
 };

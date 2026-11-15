@@ -1785,4 +1785,7 @@ export default {
   2910: "Cricket",
   2911: "Its song draws wonders: rare events come more often.",
   2912: "rare events",
+  2913: "New pet, the Cricket: its song draws wonders (+5% rare events per level).",
+  2914: "On the strip, the ◆ of hunting quests also marks elites and champions of the hunted kind.",
+  2915: "Statistics: the golden goblin line warns (⚠) when your hero is too slow to catch them.",
 };
