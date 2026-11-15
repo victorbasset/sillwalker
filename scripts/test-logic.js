@@ -4388,4 +4388,7 @@ test("Poupouce (it. 1546, demande d'un joueur) : un monstre ordinaire rare qui p
   assert.ok(!found.elite && !found.goblin, "jamais une élite ni un gobelin");
 });
 
+test("astuces vers la boutique (it. 1548) : celles d'un déblocage ouvrent la sous-section Déblocages", () => {
+  for (const id of ["unlock", "bulksell"]) assert.equal(M_hints_js.HINTS.find((h) => h.id === id).sec, "unlocks", id);
+});
 console.log(`\n${pass} tests réussis`);

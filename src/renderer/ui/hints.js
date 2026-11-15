@@ -33,7 +33,7 @@ export const HINTS = [
     when: (g) => g.hasUpgradeCached() },
   // (it. 1546, retour d'un joueur : « on peut pas vendre plusieurs objets en même temps ») trois ventes à la main en peu
   // de temps, sans l'Œil du connaisseur : il existe, et où le trouver
-  { id: "bulksell", tab: "shop", text: tx("Tu vends beaucoup à la main ? L’« Œil du connaisseur » (Boutique) vend d’un clic tout ce qui n’améliore pas ton héros. Clique ici."),
+  { id: "bulksell", tab: "shop", sec: "unlocks", text: tx("Tu vends beaucoup à la main ? L’« Œil du connaisseur » (Boutique) vend d’un clic tout ce qui n’améliore pas ton héros. Clique ici."),
     when: (g) => (g.R.manualSells || 0) >= 3 && !hasUnlock(g.S, "bulkEquip") && tabOpen(g.S, "shop") },
   { id: "talent", tab: "talents", text: tx("Niveau supérieur : tu as un point de talent à dépenser. Clique ici !"),
     when: (g) => g.talentPointsFree() > 0 },
@@ -68,7 +68,7 @@ export const HINTS = [
   { id: "stuck", tab: "ascension", text: null, perRun: true,
     textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),
     when: (g) => g.canAscend() && g.S.prestige.count > 0 && (g.R.wallDeaths || []).filter((t) => g.R.time - t < 900).length >= 4 },
-  { id: "unlock", tab: "shop", text: null, perUnlock: true,
+  { id: "unlock", tab: "shop", sec: "unlocks", text: null, perUnlock: true,
     textFn: (g) => { const u = nextUnlock(g.S); return tx("Nouveau déblocage à ta portée : {0} ({1} or). Clique ici pour la boutique.", { 0: u.name, 1: fmt(u.price) }); },
     when: (g) => { const u = nextUnlock(g.S); return !!u && unlockAvailable(g.S, u) && g.S.gold >= u.price; } },
   { id: "astrolabe", tab: "ascension", text: tx("Astrolabe acquis ! Il est éteint au départ : coche-le dans l’onglet Ascension pour qu’il fasse l’ascension à ta place quand ton héros bloque. Clique ici."),

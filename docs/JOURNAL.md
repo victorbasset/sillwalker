@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1548) : l'astuce « Nouveau déblocage à ta portée… Clique ici » ouvre la boutique directement sur
+  les Déblocages (elle ouvrait le Marchand : il fallait chercher) ; de même pour l'astuce de la vente groupée.
 - 2026-11-15 (it. 1547, retours d'un joueur) : musique : le Rebord plus léger (guitare des 35 s baissée, plus doux dans
   le jeu) ; le Briseur d'Étoiles en synthwave galactique, bien distinct des Lieutenants.
 - 2026-11-15 (it. 1546, retours d'un joueur, Kreen, transmis par Victor) : jauge d'expérience sous « Niv. N » sur la
