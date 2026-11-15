@@ -251,21 +251,30 @@ export const GRAPH_LAYER_KEYS = new Set(["atkPct", "hpPct", "defPct", "synHpAtk"
 // guerrier, le mage et le rôdeur (force : ×1,463 contre ×1,276 ; arcanes : ×1,280 contre ×1,207) ; les autres l'étaient déjà
 export const DEFAULT_BRANCH = { force: 2, agility: 2, arcane: 0, vitality: 2, fortune: 2, mastery: 2 };
 
-/** Prochain nœud à prendre automatiquement : dans la voie déjà choisie (sinon la voie par défaut), grands nœuds
- *  d'abord, puis le plus proche de la fleur. null s'il n'y en a plus. */
+/** Prochain nœud à prendre automatiquement. (it. 1505, demande de Victor) Il suit la ligne la plus avancée : la région
+ *  où le joueur a déjà pris le plus de nœuds d'abord, et dans cette région la voie choisie (sinon celle par défaut) de
+ *  la porte vers l'anneau, puis l'anneau de la région ; une région n'est quittée qu'une fois finie, pour
+ *  la suivante la plus avancée (à égalité, l'ordre des pétales ; une région neuve commence par sa porte). Avant, les
+ *  gros nœuds accessibles passaient d'abord, n'importe où : le bouton ouvrait les six portes et sautait d'une région
+ *  à l'autre. null s'il n'y a plus rien à prendre. */
 export function nextGraphNode(S) {
   const N = SKILL_GRAPH.nodes;
   // (it. 1345) points libres, nœuds pris et voies calculés une fois par appel, pas une fois par nœud (618 nœuds :
   // « tout dépenser » sur une fin de partie prenait 258 nœuds en ≈ 400 ms, jeu figé pendant ce temps)
   if (graphPointsFree(S) <= 0) return null;
-  const chosen = new Set(outer(S)), branches = branchesOf(S);
-  const ok = Object.keys(N).filter((id) => {
-    if (!canLink(S, id, chosen, branches)) return false;
+  const chosen = new Set(outer(S)), branches = branchesOf(S), count = {};
+  for (const id of chosen) { const r = N[id] && N[id].region; if (r) count[r] = (count[r] || 0) + 1; }
+  const order = SECTORS.map((x) => x.id);
+  const rank = (r) => -(count[r] || 0) * 100 + order.indexOf(r);
+  let best = null, bw = Infinity;
+  for (const id in N) {
+    if (!canLink(S, id, chosen, branches)) continue;
     const n = N[id];
-    if (n.group) { const c = branches[n.region] ?? -1; return c >= 0 ? c === n.branch : n.branch === DEFAULT_BRANCH[n.region]; }
-    return true;
-  });
-  if (!ok.length) return null;
-  const w = (n) => ({ voiekey: -3, crown: -3, notable: -2, gate: -1 }[n.kind] || 0) * 400 + Math.hypot(n.x, n.y);
-  return ok.sort((a, b) => w(N[a]) - w(N[b]))[0];
+    if (n.group) { const c = branches[n.region] ?? -1; if (c >= 0 ? c !== n.branch : n.branch !== DEFAULT_BRANCH[n.region]) continue; }
+    // région d'abord, puis le long de la voie (distance à la fleur : la porte, la voie, puis l'anneau, que la voie
+    // rejoint à sa couronne)
+    const w = rank(n.region) * 1e5 + Math.hypot(n.x, n.y);
+    if (w < bw) { bw = w; best = id; }
+  }
+  return best;
 }

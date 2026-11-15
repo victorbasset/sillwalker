@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1505, demande de Victor) : grand graphe, « Dépenser automatiquement » suit la ligne la plus avancée
+  (nextGraphNode) : région la plus fournie d'abord, sa voie de la porte à l'anneau, puis son anneau ; une région n'est
+  quittée qu'une fois finie (avant : gros nœuds accessibles d'abord, n'importe où : les six portes, puis des sauts
+  d'une région à l'autre). Test ajouté (310). Semaine simulée : guerrier 350, mage 350 (inchangé). Autotest 230/230.
 - 2026-11-15 (it. 1504) : Héros > Sorts et attaque sans compagnon (deux héros libérés au moins) : cadre de droite
   « Pas encore de compagnon » (ce qu'il apporte, bouton « Choisir un compagnon » vers Libérés). Sa phrase reste
   visible en mode compact. 3 clés, 9 langues. Vérifié fr 1920 / ru 1280 ; autotest 230/230, lang-overflow propre.

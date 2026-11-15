@@ -4125,6 +4125,24 @@ test("grand graphe : dépense automatique dans une seule voie par région (it. 1
   assert.equal(nextGraphNode(g.S), null, "plus rien de prenable");
 });
 
+test("grand graphe : la dépense automatique suit la ligne la plus avancée (it. 1505, demande de Victor)", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 2000; g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];
+  // le joueur a avancé à la main dans la voie de la sève (vitalité, voie 1), et pris une porte ailleurs
+  assert(g.takeGraph("fortune-gate") && g.takeGraph("vitality-gate"));
+  for (let k = 0; k < 4; k++) assert(g.takeGraph("vitality-v1-" + k));
+  const before = g.S.skills.outer.length;
+  // la suite de sa voie, nœud après nœud, puis sa couronne ; aucune autre région avant
+  for (let k = 4; k < 30; k++) { const id = nextGraphNode(g.S); assert.equal(id, "vitality-v1-" + k); g.takeGraph(id); }
+  assert.equal(nextGraphNode(g.S), "vitality-r0", "la couronne de la région au bout de la voie");
+  while (nextGraphNode(g.S) && SKILL_GRAPH.nodes[nextGraphNode(g.S)].region === "vitality") g.takeGraph(nextGraphNode(g.S));
+  const regs = new Set(g.S.skills.outer.slice(before).map((id) => SKILL_GRAPH.nodes[id].region));
+  assert.deepEqual([...regs], ["vitality"], "la région finie d'abord");
+  // puis la région suivante la plus avancée : la fortune (sa porte déjà prise), dans sa voie par défaut
+  const nx = SKILL_GRAPH.nodes[nextGraphNode(g.S)];
+  assert.equal(nx.region, "fortune"); assert.equal(nx.branch, 2);
+});
+
 test("maîtrises : paliers aux rangs 10, 25, 50, 100, 200, 400 puis à chaque doublement (it. 1084)", () => {
   assert.equal(masteryMilestones("ms_power", 0).got.length, 0);
   assert.equal(masteryMilestones("ms_power", 0).next.at, 10);

@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés du 14 au 15 novembre (it. 1328-1498)
+## Nouveautés du 14 au 15 novembre (it. 1328-1505)
 
 **Contenu**
 - Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau), Grillon (+5 % d'événements
@@ -56,6 +56,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Ta demande : Héros > Sorts et attaque montre les sorts du compagnon en grandes cartes, à droite de ceux du héros ;
   la carte du héros (Aventure) montre aussi ses sorts appris, et le compteur du sous-onglet les compte.
   (Le mode « Automatique (très grands écrans) » était déjà le réglage par défaut.)
+- Ta demande : après la fleur, « Dépenser automatiquement » suit la ligne la plus avancée (la région où tu as le plus
+  de nœuds, sa voie jusqu'au bout puis son anneau) au lieu d'ouvrir les six portes et de sauter d'une région à
+  l'autre. Fin de semaine simulée inchangée (350).
 
 **Corrections**
 - Parchemins de fortune et de savoir enfin comptés pendant l'absence ; « tout dépenser » du grand graphe sans gel
