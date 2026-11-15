@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1371, revue générale) : 12 h guerrier 67, mage 62, rôdeur 65 (avec le Lucane ; balance jugée bruit
+  à la 1364) ; texte extrait en chinois (aucun mot latin) et en allemand (aucun mot français) ; capture Familiers >
+  À découvrir en japonais (bonus et « レア » lisibles). Performance mesurée à la 1361, seul un sprite ajouté depuis.
+  Rien à corriger.
 - 2026-11-15 (it. 1370) : i18n-paths (npm test) vérifie aussi les noms d'onglets cités entre parenthèses (la faute
   « (Chowańce) » de l'it. 1369 passait). Il en a trouvé 6 dans l'annonce des personnages des onglets : japonais
   « タレント » pour 天賦 (Talents), coréen « 재능 » pour 특성, allemand « Aufträge » pour l'onglet « Quests »,
