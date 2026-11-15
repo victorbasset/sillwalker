@@ -15,5 +15,15 @@ KEYS.forEach((k, i) => {
       for (const p of parts) { const want = L[l][idx.get(p)]; if (want && !tr.includes(want)) { bad++; console.log(l, i, JSON.stringify(p), "→", JSON.stringify(want), "absent de :", tr.slice(0, 90)); } } }
   }
 });
-console.log(`i18n-paths : ${n} chemins « Onglet > Sous-section », ${bad} écart(s)`);
+// (it. 1370) nom d'onglet cité entre parenthèses (« Mama Gałązka (Chowańce) » au lieu de « (Pupile) », it. 1369)
+const TABS = ["Aventure", "Talents", "Compétences", "Quêtes", "Boutique", "Familiers", "Héros", "Ascension", "Bestiaire", "Statistiques", "Carte", "Réglages"];
+let np = 0;
+KEYS.forEach((k, i) => {
+  for (const m of k.matchAll(/\(([^()]{3,30})\)/g)) {
+    const t = m[1].trim(); if (!TABS.includes(t) || !idx.has(t)) continue; np++;
+    for (const l of langs) { const tr = L[l][i], want = L[l][idx.get(t)]; if (!tr || !want) continue;
+      if (!tr.includes(want)) { bad++; console.log(l, i, JSON.stringify(t), "→", JSON.stringify(want), "absent de :", tr.slice(0, 90)); } }
+  }
+});
+console.log(`i18n-paths : ${n} chemins « Onglet > Sous-section », ${np} onglets cités entre parenthèses, ${bad} écart(s)`);
 if (bad) process.exit(1);

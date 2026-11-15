@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1370) : i18n-paths (npm test) vérifie aussi les noms d'onglets cités entre parenthèses (la faute
+  « (Chowańce) » de l'it. 1369 passait). Il en a trouvé 6 dans l'annonce des personnages des onglets : japonais
+  « タレント » pour 天賦 (Talents), coréen « 재능 » pour 특성, allemand « Aufträge » pour l'onglet « Quests »,
+  Bestiaire abrégé en chinois, japonais et coréen (« 图鉴 » pour 怪物图鉴). Corrigés.
 - 2026-11-15 (it. 1369) : polonais : les familiers s'appellent partout « pupil » comme l'onglet (« Pupile ») ;
   douze textes disaient « chowaniec », dont « Mama Gałązka (Chowańce) » qui citait l'onglet sous un autre nom
   (quêtes d'expédition, Grand intendant, « À faire », astuces, nouveautés). Gardé : « Cienisty chowaniec », nœud du
