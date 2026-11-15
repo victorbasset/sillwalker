@@ -2887,5 +2887,6 @@ export const KEYS = [
   "Sorts rechargés 50 % plus vite.",
   "Mes sorts reviennent en un éclair aujourd’hui !",
   "Nouvelle bénédiction du jour, le Jour des arcanes : les sorts se rechargent 50 % plus vite.",
-  "Les sorts s’apprennent à partir de la zone {0}."
+  "Les sorts s’apprennent à partir de la zone {0}.",
+  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare."
 ];

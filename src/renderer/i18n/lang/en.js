@@ -1758,4 +1758,5 @@ export default {
   2883: "My spells come back in a flash today!",
   2884: "New blessing of the day, the Day of Arcana: spells recharge 50% faster.",
   2885: "Spells are learned from zone {0} onward.",
+  2886: "Quests progress on their own, even offline (except bosses, new zones, rare events and spells). {n} quest completed in total. {3} % of quests have 3 stars and a rare reward.|Quests progress on their own, even offline (except bosses, new zones, rare events and spells). {n} quests completed in total. {3} % of quests have 3 stars and a rare reward.",
 };

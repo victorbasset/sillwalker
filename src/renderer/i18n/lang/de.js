@@ -1758,4 +1758,5 @@ export default {
   2883: "Meine Zauber sind heute im Nu wieder da!",
   2884: "Neuer Segen des Tages, der Tag der Arkana: Zauber laden 50 % schneller auf.",
   2885: "Zauber lernt man ab Zone {0}.",
+  2886: "Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse und Zauber). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse und Zauber). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
 };

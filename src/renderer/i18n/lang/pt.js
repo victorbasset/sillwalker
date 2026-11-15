@@ -1758,4 +1758,5 @@ export default {
   2883: "Hoje meus feitiços voltam num piscar de olhos!",
   2884: "Nova bênção do dia, o Dia dos arcanos: os feitiços recarregam 50 % mais rápido.",
   2885: "Os feitiços são aprendidos a partir da zona {0}.",
+  2886: "As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros e feitiços). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros e feitiços). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
 };

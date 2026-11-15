@@ -1758,4 +1758,5 @@ export default {
   2883: "¡Hoy mis hechizos vuelven en un instante!",
   2884: "Nueva bendición del día, el Día de los arcanos: los hechizos se recargan un 50 % más rápido.",
   2885: "Los hechizos se aprenden a partir de la zona {0}.",
+  2886: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros y hechizos). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros y hechizos). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
 };

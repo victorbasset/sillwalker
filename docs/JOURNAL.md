@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1422) : note de l'onglet Quêtes corrigée : les quêtes « Atteindre la zone N » n'avancent pas non
+  plus pendant l'absence (le héros reste dans sa zone, sans boss) : « sauf boss, nouvelles zones, événements rares et
+  sorts ». Nouvelle clé dérivée des 9 traductions de l'ancienne. Autotest 228/228, lang-overflow propre.
 - 2026-11-15 (it. 1421, REVUE GÉNÉRALE) : 12 h graine 7 : guerrier 66, mage 60, rôdeur 62 (moyenne habituelle ≈ 64,
   bruit). perf:linux : bande 19,4 %, panneau 21,1 %, mini 6,7 %, icône 0,5 % (stables). Captures fr, en, ja
   (Aventure, Quêtes, Boutique, mini) : rien d'anormal. Texte extrait en ja et ko : seuls mots latins attendus (HP,
