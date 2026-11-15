@@ -260,6 +260,8 @@ test("hors ligne : parchemins et encens comptés au prorata de leur durée (it. 
   let e0 = 0, e1 = 0;
   for (let i = 0; i < 5; i++) { e0 += run({}, false).elites; e1 += run({ lure: 3600 }, false).elites; }
   assert.ok(e1 > e0 * 1.5, "encens : élites " + e0 + " -> " + e1);
+  // (it. 1349) célérité : plus de victoires
+  assert.ok(run({ haste: 3600 }, false).sum.kills > none.sum.kills, "célérité : plus de victoires");
 });
 
 test("hors ligne : plafonné, élixirs consommés", () => {

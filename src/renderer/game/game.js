@@ -1107,7 +1107,8 @@ export class Game {
     // (it. 577) + le Drone stellaire et le Cœur de l'aube (reliques) : l'absence les ignorait
     const drone = this.droneDps(hs);
     const dps = (heroDps(hs) + this.spellDps(hs)) * atkBoost * (1 + hs.burn / 100 * 1.5) + drone;
-    const perKill = b.hp / dps + approachTime() / (1 + (hs.moveSpd || 0) / 100);
+    // (it. 1349) Potion de célérité au prorata de sa durée (elle était ignorée hors ligne)
+    const perKill = b.hp / dps + approachTime() / (1 + ((hs.moveSpd || 0) + BUFF_EFFECTS.haste.moveSpd * share("haste")) / 100);
     const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100) * heartGuard(S);
     const eff = Math.min(0.9, (taken > hs.hp * 0.8 ? 0.25 : 0.6) * (1 + hs.offline / 100));
     const kills = Math.floor(sec / perKill * eff);
@@ -1154,7 +1155,8 @@ export class Game {
       if (S.settings.autoSkills) this.autoSpendSkills();
     }
     this.invalidateStats();
-    const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + hs.drop / 100) * 0.3));
+    // (it. 1349) Trèfle à quatre feuilles au prorata de sa durée (ignoré hors ligne jusque-là)
+    const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + (hs.drop + BUFF_EFFECTS.luck.drop * share("luck")) / 100) * 0.3));
     let best = -1, bestItem = null, onGround = 0;
     for (let i = 0; i < drops; i++) {
       const it = this.newItem(0);

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1349) : absence, suite de la 1348 : la Potion de célérité (marche plus rapide entre deux combats)
+  et le Trèfle à quatre feuilles (plus d'objets) comptent aussi hors ligne, au prorata de leur durée ; ils étaient
+  ignorés. Le Tonique de fer reste hors du calcul (il ne joue que sur l'estimation de survie, grossière). Test étendu.
 - 2026-11-15 (it. 1348) : absence : les parchemins de fortune et de savoir comptent enfin. Leur part de durée était
   lue APRÈS avoir retiré l'absence aux durées : un parchemin de 10 min valait 0 pendant une heure d'absence, et ceux
   de l'Herboriste perpétuel (achetés pour couvrir toute l'absence) ≈ 60 s seulement (+50 % d'or et d'expérience
