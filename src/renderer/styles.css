@@ -782,6 +782,8 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .actor.hero { z-index: 2; }
 /* (it. 1511, demande de Victor) le serviteur (squelette, loup), petit, devant le héros et le compagnon (sinon caché) */
 .actor.minion { z-index: 3; }
+/* (it. 1514) le familier aussi : petit, le compagnon le cachait de la même façon */
+.actor.pet { z-index: 3; }
 .float { z-index: 4; }
 .actor.cored { background: radial-gradient(farthest-side, color-mix(in srgb, var(--aura) 60%, transparent) 60%, transparent); } /* (it. 974) permanent dès un secteur complet : lueur peinte, plus de double drop-shadow */
 

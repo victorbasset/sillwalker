@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1514) : bande, le familier (.actor.pet) au premier plan comme le serviteur (z-index 3 ; le
+  compagnon le cachait aussi). Vérifié par --stage (pet 3, serviteur 3, héros 2). Autotest 231/231.
 - 2026-11-15 (it. 1513, outil) : contrôle d'autotest « carte : tête du héros sur sa zone, textes lisibles » (centre de
   la tête dans le carré .mz.here, police calculée des textes = Geist Pixel). Autotest 231/231.
 - 2026-11-15 (it. 1512) : Boutique, bouton d'achat d'un objet qui renforce le héros : bulle « Clic : acheter et
