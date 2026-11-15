@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1481, REVUE GÉNÉRALE) : 12 h graine 7, records : gardien stellaire 67, mage 61, artificier 62
+  (mêmes extrêmes que le tableau de l'it. 1468, dans le bruit). perf:linux : bande 19,3 %, panneau 20,7 %, mini 6,7 %,
+  icône 0,6 % (stables). Captures ko et es (Statistiques avec le ⚠ des gobelins, Quêtes) : rien d'anormal. Texte
+  extrait en allemand : aucun mot français. Rien à noter dans Idées.
 - 2026-11-15 (it. 1480, contrôle) : cartes de quête avec indications (gobelins trop rapides, bouton « reprendre
   l’avancée ») en russe et en polonais à 1280 px (état non couvert par lang-overflow) : aucun débordement, aucun
   défilement ; en russe l'indication des gobelins passe sur deux lignes, la carte reste propre.
