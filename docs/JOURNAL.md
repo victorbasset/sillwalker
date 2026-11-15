@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1428, contrôle) : état maximal (max-save, les 20 familiers dont la Pie) en russe : --crawl 618 clics
+  sans erreur ; texte extrait : « Сорока » présent, aucun mot français. Fausse piste écartée : une copie faite par
+  « cp -r a b » alors que b existait déjà atterrit dans b/a (le jeu chargeait une ancienne copie) : toujours
+  « rm -rf b » avant de copier.
 - 2026-11-15 (it. 1427) : 20e familier, la Pie (+6 % de coffres au trésor par niveau, +60 % au niveau 10) : nouvel
   effet « chests » (talents.js, rules.js), compté sur la chance de coffre en jeu, pendant l'absence et dans le temps
   estimé de la quête de coffres. Sprite noir et blanc à reflet bleu (volant), regardé en capture sur la bande.
