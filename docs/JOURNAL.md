@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1338) : --crawl réparé (il manquait l'achat de l'Encens de chasse, it. 1337). Trois défauts : il lisait
+  la liste des boutons d'avance, et un clic qui redessine l'onglet (achat) détachait les suivants, « cliqués » sans
+  effet mais marqués vus ; le bouton du PNJ, nommé par sa réplique (qui change), redessinait l'onglet à chaque passe ;
+  les sous-onglets étaient cliqués comme les autres boutons, donc le parcours finissait sur la dernière sous-section
+  (Boutique > Marchand jamais parcouru). Maintenant : chaque sous-section tour à tour, un bouton à la fois, page relue
+  après chaque clic. Vrais clics : ≈ 254 → 691 (22 s). Aucune erreur en français et en russe (dev et fin de partie).
 - 2026-11-15 (it. 1337, contrôle) : Encens de chasse en russe à 1280 px, actif (« активен · 11 мин 11 ») : la grille
   4 × 2 tient. --crawl en russe : 388 clics sans erreur (il n'avait pas cliqué l'encens : achat vérifié à part par un
   --stage, clic sur le bouton → 600 s d'effet).
