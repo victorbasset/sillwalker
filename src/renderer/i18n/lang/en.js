@@ -1792,4 +1792,7 @@ export default {
   2917: "Hero > Spells & attack: your companion's spells have their own frame, as large cards, to the right of your hero's.",
   2918: "The hero card (Adventure) also shows your companion's learned spells, after your hero's.",
   2919: "Stuck hero: the zone card now gives three tips (ascension is no longer left out).",
+  2920: "No companion yet",
+  2921: "A companion fights at your side and casts its own spells, at half their power.",
+  2922: "Choose a companion",
 };

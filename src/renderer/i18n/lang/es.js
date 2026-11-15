@@ -1792,4 +1792,7 @@ export default {
   2917: "Héroe > Hechizos y ataque: los hechizos de tu compañero tienen su propio marco, en cartas grandes, a la derecha de los de tu héroe.",
   2918: "La tarjeta del héroe (Aventura) muestra también los hechizos aprendidos de tu compañero, tras los de tu héroe.",
   2919: "Héroe atascado: la tarjeta de la zona da ahora tres pistas (la ascensión ya no falta).",
+  2920: "Aún sin compañero",
+  2921: "Un compañero lucha a tu lado y lanza sus propios hechizos, a la mitad de su potencia.",
+  2922: "Elegir un compañero",
 };

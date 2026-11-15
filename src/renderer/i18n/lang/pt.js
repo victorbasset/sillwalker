@@ -1792,4 +1792,7 @@ export default {
   2917: "Herói > Feitiços e ataque: os feitiços do teu companheiro têm o seu próprio quadro, em cartões grandes, à direita dos do teu herói.",
   2918: "O cartão do herói (Aventura) mostra também os feitiços aprendidos do teu companheiro, depois dos do teu herói.",
   2919: "Herói travado: o cartão da zona dá agora três dicas (a ascensão já não fica de fora).",
+  2920: "Ainda sem companheiro",
+  2921: "Um companheiro luta ao teu lado e lança os seus próprios feitiços, com metade da potência.",
+  2922: "Escolher um companheiro",
 };

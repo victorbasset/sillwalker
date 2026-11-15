@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1504) : Héros > Sorts et attaque sans compagnon (deux héros libérés au moins) : cadre de droite
+  « Pas encore de compagnon » (ce qu'il apporte, bouton « Choisir un compagnon » vers Libérés). Sa phrase reste
+  visible en mode compact. 3 clés, 9 langues. Vérifié fr 1920 / ru 1280 ; autotest 230/230, lang-overflow propre.
 - 2026-11-15 (it. 1503) : Idées : le Parchemin des arcanes écarté (couvert par le Jour des arcanes et la Marée
   arcanique ; la Boutique n'a pas de place à 1280 px).
 - 2026-11-15 (it. 1502) : devlog 0.1.4 (en et fr) : les sorts du compagnon en grand (demande de Victor).

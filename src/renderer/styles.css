@@ -1343,6 +1343,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellmini .pmini { color: var(--muted); margin: 0 3px; } /* (it. 1495) séparateur héros · compagnon */
 @container panel (max-width: 1568px) {
   .spellduo.two .spellbox > p.note { display: none; }
+  /* (it. 1504) le cadre « Pas encore de compagnon » est court : sa phrase reste */
+  .spellduo.two .partnerbox.empty > p.note { display: block; }
   .spellduo.two .spellcard button { font-size: 11px; padding: 1px 5px; margin-top: 2px; }
   .spellduo.two .spellcard .note.tight { line-height: 1.25; margin: 2px 0; }
   .spellduo.two .spellcard { padding: 4px 6px; }

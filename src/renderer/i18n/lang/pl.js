@@ -1792,4 +1792,7 @@ export default {
   2917: "Bohater > Zaklęcia i atak: zaklęcia towarzysza mają własną ramkę z dużymi kartami, na prawo od zaklęć bohatera.",
   2918: "Karta bohatera (Przygoda) pokazuje też wyuczone zaklęcia towarzysza, po zaklęciach bohatera.",
   2919: "Zablokowany bohater: karta strefy podaje teraz trzy wskazówki (wniebowstąpienie już nie znika).",
+  2920: "Brak towarzysza",
+  2921: "Towarzysz walczy u twego boku i rzuca własne zaklęcia, z połową mocy.",
+  2922: "Wybierz towarzysza",
 };

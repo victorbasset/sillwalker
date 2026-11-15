@@ -1792,4 +1792,7 @@ export default {
   2917: "Held > Zauber & Angriff: Die Zauber deines Begleiters haben einen eigenen Rahmen mit großen Karten, rechts neben denen deines Helden.",
   2918: "Die Heldenkarte (Abenteuer) zeigt auch die erlernten Zauber deines Begleiters, nach denen deines Helden.",
   2919: "Festsitzender Held: Die Zonenkarte nennt jetzt drei Ideen (der Aufstieg fehlt nicht mehr).",
+  2920: "Noch kein Begleiter",
+  2921: "Ein Begleiter kämpft an deiner Seite und wirkt eigene Zauber, mit halber Stärke.",
+  2922: "Begleiter wählen",
 };

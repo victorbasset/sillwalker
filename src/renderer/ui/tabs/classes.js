@@ -149,7 +149,11 @@ export class ClassesTab {
   /** Sorts du compagnon : (it. 527) une ligne d'icônes ; (it. 1490, demande de Victor) en grandes cartes, dans un cadre à
    *  droite de ceux du héros, valeurs à moitié de puissance (PARTNER_SPELL) ; apprendre / améliorer comme pour le héros. */
   partnerSpells(S, rec) {
-    if (!S.partner || !CLASSES[S.partner]) return "";
+    // (it. 1504) pas encore de compagnon mais un deuxième héros libéré : le cadre de droite invite à en choisir un
+    if (!S.partner || !CLASSES[S.partner]) return (S.classesUnlocked || []).length >= 2
+      ? `<article class="panel spellbox partnerbox empty"><h2>${tx("Pas encore de compagnon")}</h2>
+        <p class="note">${tx("Un compagnon combat à tes côtés et lance ses propres sorts, à moitié de leur puissance.")}</p>
+        <button class="linkbtn" data-action="c-sec" data-to="freed">${tx("Choisir un compagnon")} →</button></article>` : "";
     const cards = classSpells(S.partner).map((sp) => this.spellCard(S, sp, rec, PARTNER_SPELL)).join("");
     return `<article class="panel spellbox partnerbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.partner].name) })} <small>${esc(tx("compagnon, à moitié de leur puissance"))}</small></h2>
       <div class="spellgrid">${cards}</div></article>`;

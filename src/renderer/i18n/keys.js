@@ -2921,5 +2921,8 @@ export const KEYS = [
   "compagnon, à moitié de leur puissance",
   "Héros > Sorts et attaque : les sorts de ton compagnon ont leur propre cadre, en grandes cartes, à droite de ceux de ton héros.",
   "La carte du héros (Aventure) montre aussi les sorts appris de ton compagnon, après ceux de ton héros.",
-  "Héros bloqué : la carte de la zone donne maintenant trois pistes (l’ascension n’y manque plus)."
+  "Héros bloqué : la carte de la zone donne maintenant trois pistes (l’ascension n’y manque plus).",
+  "Pas encore de compagnon",
+  "Un compagnon combat à tes côtés et lance ses propres sorts, à moitié de leur puissance.",
+  "Choisir un compagnon"
 ];
