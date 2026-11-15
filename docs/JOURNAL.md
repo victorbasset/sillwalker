@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1410, contrôle) : équilibre après la quête « Gagner N niveaux » : balance 12 h contre 6eebf9b :
+  63,1 → 63,8 (+0,7, bruit). Rien à corriger.
 - 2026-11-15 (it. 1409) : POUR-VICTOR et brouillon du devlog : la quête « Gagner N niveaux » et la bénédiction de
   demain dans la bulle du mini.
 - 2026-11-15 (it. 1408) : quête « Gagner N niveaux » : temps estimé sur sa carte (« ≈ 25 min »), comme les quêtes de
