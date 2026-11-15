@@ -3,7 +3,7 @@
 // alors sa place. Les objectifs et récompenses suivent la progression.
 import { t as tx, txn, getLang } from "../i18n/index.js";
 import { MONSTERS, ELITE, ELITE_AFFIXES, CHAMPION } from "./data.js";
-import { zoneDef, heroStats } from "./rules.js";
+import { zoneDef, heroStats, xpNeed, monsterBase, earlyPace } from "./rules.js";
 import { rand, pick } from "./util.js";
 import { eggsAllowed, fixQuestEgg } from "./tabs.js";
 import { classSpells, spellRank } from "./spells.js";
@@ -116,6 +116,9 @@ export const QUEST_TEMPLATES = {
   },
   // (it. 1406) 18e sorte : des niveaux à gagner (avance seule, même pendant l'absence : un objectif de patience)
   level: {
+    // (it. 1407) seulement si un niveau coûte au plus ≈ 500 victoires de la zone (bonus d'expérience non comptés) : un
+    // héros très au-dessus de sa zone (niveau 1313 de dev-data : 0 niveau en 30 min) ne la finirait jamais
+    ok: (S) => xpNeed(S.lvl) <= monsterBase(S.zone, false).xp * earlyPace(S) * 500,
     text: (q) => txn(q.goal, "Gagner {n} niveau|Gagner {n} niveaux"),
     make: (S) => ({ goal: randInt(2, 4), reward: { gold: Math.round(goldScale(S) * 90), potions: 2, egg: rand() < 0.15 } }),
   },
