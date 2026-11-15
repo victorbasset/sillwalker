@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1351, revue générale) : après les effets comptés hors ligne (1348-1349) : 12 h guerrier 65, mage 60,
+  rôdeur 65 ; joueur absent (IDLE=1) 16 à 12 h (repère 16) ; fuzz 1200 parties, 0 bloquée ; texte extrait en coréen
+  (aucun mot latin hors HP / Lv voulus) et en polonais (aucun mot français). Performance mesurée à la 1341, rien depuis
+  qui touche le rendu sauf la bulle du mini (texte). Rien à corriger.
 - 2026-11-15 (it. 1350) : « Quoi de neuf », édition 76 : effets comptés pendant l'absence (it. 1348-1349) et
   « Dépenser automatiquement » du grand graphe sans gel (it. 1345) ; libellé cité tel que le bouton (i18n-quotes ok),
   noms des consommables tels que traduits ; ligne au brouillon du devlog. Autotest 228/228, lang-overflow propre.
