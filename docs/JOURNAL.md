@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1513, outil) : contrôle d'autotest « carte : tête du héros sur sa zone, textes lisibles » (centre de
+  la tête dans le carré .mz.here, police calculée des textes = Geist Pixel). Autotest 231/231.
 - 2026-11-15 (it. 1512) : Boutique, bouton d'achat d'un objet qui renforce le héros : bulle « Clic : acheter et
   équiper tout de suite (il renforce ton héros). » (comportement de l'it. 1510, annoncé). 9 langues. Vérifié par
   --stage (seule l'amélioration a la bulle). Autotest 230/230.
