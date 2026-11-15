@@ -1849,4 +1849,5 @@ export default {
   2974: "Skrzynia z zadania odebrana ręcznie otwiera się na twoich oczach, jak te ze sklepu.",
   2975: "Ustawienia trafiły do przycisków po prawej stronie panelu; wybrany przedmiot ma jasną ramkę (mylił się z legendarnym).",
   2976: "Rzadki potwór, Poupouce, ukrywa się wśród innych: daje pięć razy więcej złota.",
+  2977: "Nowy poziom! Każdy pokonany potwór daje doświadczenie: fioletowy pasek pod twoim poziomem (i na samym dole paska) pokazuje następny.",
 };

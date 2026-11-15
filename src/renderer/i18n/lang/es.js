@@ -1849,4 +1849,5 @@ export default {
   2974: "Un cofre de misión reclamado a mano se abre ante tus ojos, como los de la tienda.",
   2975: "Ajustes se une a los botones de la derecha del panel; el objeto seleccionado tiene un marco claro (se confundía con el legendario).",
   2976: "Un monstruo raro, Poupouce, se esconde entre los demás: da cinco veces más oro.",
+  2977: "¡Subes de nivel! Cada monstruo vencido da experiencia: la barra morada bajo tu nivel (y abajo del todo en la franja) muestra el siguiente.",
 };

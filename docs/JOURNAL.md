@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1552, retour d'un joueur : « on monte de niveau sans savoir comment ») : au premier niveau gagné,
+  une astuce explique que chaque monstre vaincu donne de l'expérience et montre la jauge violette ; écart nom du boss /
+  pastille de l'or mesuré (8 px dans 5 langues, idée close).
 - 2026-11-15 (it. 1551, revue générale) : simulation 12 h (record 65 guerrier, 61 mage, 62 rôdeur : comme avant) ;
   perf:linux bande 18,6 %, panneau 19,5 %, mini 5,9 % ; texte russe propre (seuls des repères et des noms propres en
   latin) ; captures fr / en / ja de la Boutique : l'onglet Réglages déplacé à droite (it. 1546) s'écrivait en 14 px
@@ -5939,7 +5942,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
-- P3 (it. 1551) Bande, japonais : le nom du boss majeur (« 覚醒したイグニヴォラ… · HP -25% ») finit à quelques
+- CLOS (it. 1552 : 8 px mesurés en ja, de, ru, fr, pl, la marge prévue ; la couronne est celle du boss) P3 (it. 1551) Bande, japonais : le nom du boss majeur (« 覚醒したイグニヴォラ… · HP -25% ») finit à quelques
   pixels de la pastille de l'or, sa couronne entre les deux ; mesurer l'écart réel (placeBossName garde 8 px) dans les
   langues aux noms longs et au pire cas (buffs actifs, or long).
 - FAIT (it. 1533 : vers le brésilien, comme la page du magasin) P3 (it. 1532) Portugais : les premières traductions sont brésiliennes (« Bônus », « Seu herói », « Configurações »),
