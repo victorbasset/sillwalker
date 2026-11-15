@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1461, REVUE GÉNÉRALE) : 12 h graine 7, records : arbalétrier 64, lancier 65, prêtresse 65 (moyenne
+  ≈ 64). perf:linux : bande 19,3 %, panneau 20,6 %, mini 6,5 %, icône 0,6 % (stables, marque ◆ comprise). Captures de
+  et ja (Quêtes, Bestiaire, mini) : rien d'anormal. Texte extrait en russe : seuls mots latins attendus. Rien à noter
+  dans Idées.
 - 2026-11-15 (it. 1460) : POUR-VICTOR complété (it. 1452-1459 : gobelins hors ligne, quête réservée aux héros assez
   rapides, marque ◆ sur la bande).
 - 2026-11-15 (it. 1459) : marque ◆ de la bande étendue : élite de la sorte demandée par une quête « proie » (« Rapide ✦
