@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1530) : lang-overflow mesure aussi la fiche de chaque maîtrise (rang 60 au moins : paliers, bouton) :
+  « maîtrise=N(id) » ; elle trouvait 38 px (de, pl 1280, Fortune au rang 419 de dev-data) et 20 (ru) : sous-titre
+  réduit à « rang N » pour une maîtrise apprise, note « aucun point » masquée en panneau étroit → 0 partout.
+  Demande de Victor (« choisir » dans la fiche qui change au survol, pas pratique) : bouton permanent sur la maîtrise
+  dès qu'un palier à deux bonus est atteint (« Choisir un bonus » en attente, « Bonus » ensuite : revoir, changer),
+  qui ouvre la fenêtre de choix. Autotest 232/232, lang-overflow propre (10 langues).
 - 2026-11-15 (it. 1529) : contrôle : survol de chaque élément à bulle d'aide de chaque onglet (ru 1280, fr 1920) :
   aucune ne fait défiler le panneau (le défaut de l'it. 1528 ne touchait que la bulle d'objet). Demande de Victor :
   fond étoilé pour la page itch.io (steam/itch/ : trame exacte du panneau, version plus visible, et une tuile de 384 px

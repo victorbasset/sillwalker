@@ -1815,4 +1815,5 @@ export default {
   2940: "Talenty: Droga mieści się w jednej kolumnie (opis po najechaniu); Bohater > Zaklęcia i atak: przyciski ulepszeń są wyrównane na dole kart.",
   2941: "Na pasku strzały bohaterów dystansowych lecą przed towarzyszem.",
   2942: "Rosyjski: tekst używa tej samej czcionki pikselowej co inne języki (66 liter narysowanych dla gry).",
+  2943: "Zobacz lub zmień premie progów",
 };

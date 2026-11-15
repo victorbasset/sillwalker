@@ -1815,4 +1815,5 @@ export default {
   2940: "Talente: Der Weg passt in eine Spalte (Beschreibung beim Überfahren); Held > Zauber & Angriff: Die Aufwertungsknöpfe stehen unten auf den Karten in einer Reihe.",
   2941: "Auf dem Streifen fliegen die Schüsse der Fernkampfhelden jetzt vor dem Begleiter.",
   2942: "Russisch: Der Text nutzt dieselbe Pixelschrift wie die anderen Sprachen (66 Buchstaben fürs Spiel gezeichnet).",
+  2943: "Stufenboni ansehen oder ändern",
 };

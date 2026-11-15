@@ -1815,4 +1815,5 @@ export default {
   2940: "Talents: the Way fits in one column (its description on hover); Hero > Spells & attack: the upgrade buttons line up at the bottom of the cards.",
   2941: "On the strip, ranged heroes' shots now fly in front of the companion.",
   2942: "Russian: the text uses the same pixel font as the other languages (66 letters drawn for the game).",
+  2943: "See or change the milestone bonuses",
 };

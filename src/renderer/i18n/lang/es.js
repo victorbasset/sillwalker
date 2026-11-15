@@ -1815,4 +1815,5 @@ export default {
   2940: "Talentos: la Vía cabe en una columna (su descripción al pasar el ratón); Héroe > Hechizos y ataque: los botones de mejora se alinean abajo en las cartas.",
   2941: "En la franja, los disparos de los héroes a distancia pasan por delante del compañero.",
   2942: "Ruso: el texto usa la misma fuente pixel que los demás idiomas (66 letras dibujadas para el juego).",
+  2943: "Ver o cambiar las bonificaciones de los umbrales",
 };

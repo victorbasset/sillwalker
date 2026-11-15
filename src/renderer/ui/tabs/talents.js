@@ -59,7 +59,11 @@ export class TalentsTab {
       const can = !cannotLearn(S, m.id);
       return `<button class="${["talent", "mastery", locked ? "locked" : "", r ? "has" : "", can ? "can" : "", this.sel === m.id ? "sel" : ""].join(" ")}" data-action="t-learn" data-n="1" data-id="${m.id}" data-tid="${m.id}">
         <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace(tx("Maîtrise : "), "")))}</span><span class="tr">${locked ? "🔒 " + txn(MASTERY_REQ, "{n} pt|{n} pts") : tx("rang {0}", { 0: r }) + (masteryMilestones(m.id, r).next ? ` <small class="mnext" title="${esc(tx("Prochain palier : rang {0}, {1}", { 0: masteryMilestones(m.id, r).next.at, 1: describeEffects(masteryMilestones(m.id, r).next.eff) }))}">→ ${masteryMilestones(m.id, r).next.at}</small>` : "")}</span>
-        ${pend.has(m.id) ? `<span class="mpend" data-action="t-mpend" data-id="${m.id}" title="${esc(tx("Palier atteint : choisis son bonus (A ou B). En attendant, A s’applique."))}">${tx("Choisir un bonus")}</span>` : ""}
+        ${/* (it. 1530, demande de Victor : le « choisir » de la fiche, qui change au survol, n'est pas pratique) bouton
+          permanent sur la maîtrise dès qu'un palier à deux bonus est atteint : « Choisir un bonus » tant qu'un choix attend,
+          « Bonus » ensuite (revoir, changer) ; il ouvre la fenêtre de choix */ ""}
+        ${pend.has(m.id) ? `<span class="mpend" data-action="t-mpend" data-id="${m.id}" title="${esc(tx("Palier atteint : choisis son bonus (A ou B). En attendant, A s’applique."))}">${tx("Choisir un bonus")}</span>`
+          : masteryMilestones(m.id, r, S).got.some((x) => x.b) ? `<span class="mpend done" data-action="t-mpend" data-id="${m.id}" title="${esc(tx("Voir ou changer les bonus des paliers"))}">${tx("Bonus")}</span>` : ""}
         ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">${tx("tout")}</span>` : ""}</button>`;
     }).join("");
     // Voie et maîtrises montrées à l'approche de leur seuil (10 points avant) : moins d'informations d'un coup au début,
@@ -116,7 +120,8 @@ export class TalentsTab {
     const now = r ? describeEffects(t.eff, r) : tx("aucun effet pour l’instant");
     const next = r < t.max ? describeEffects(t.eff, 1) : "";
     const where = ix.branch === "voie" ? `${tx("Voie (spécialisation), demande {0} points dépensés", { 0: VOIE_REQ })}`
-      : ix.branch === "mastery" ? `${tx("Maîtrise, demande {0} points dépensés · rang {1}", { 0: MASTERY_REQ, 1: r })}`
+      // (it. 1530) maîtrise déjà apprise : le rang seul (la condition d'accès ne sert plus ; une ligne de moins)
+      : ix.branch === "mastery" ? (r ? tx("rang {0}", { 0: r }) : `${tx("Maîtrise, demande {0} points dépensés · rang {1}", { 0: MASTERY_REQ, 1: r })}`)
       : `${tree[ix.branch].name}${tx(", palier {0}{1} · rang {2} / {3}", { 0: t.tier + 1, 1: TIER_REQ[t.tier] ? ` ${tx("(demande {0} points dans la branche)", { 0: TIER_REQ[t.tier] })}` : "", 2: r, 3: t.max })}`;
     return `<div class="tsel">
         <div class="nm">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</div>

@@ -246,6 +246,11 @@ function start() {
             const all = [...new Set((window.__spellsAll || []).map((x) => x.cls))];
             for (const c of all.concat(keep)) for (const pt of [null, ...all.filter((x) => x !== c)]) { G.S.cls = c; G.S.partner = pt; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > worst) { worst = o; who = c + (pt ? "+" + pt : ""); } }
             G.S.cls = keep; G.S.partner = keepP; P.renderAll(); if (worst > 2) out.push("sorts=" + worst + "(" + who + ")"); P.tabs.class.sec = "freed"; }
+          // (it. 1530) Talents, fiche d'une maîtrise (paliers, bouton « Choisir un bonus ») : elle faisait défiler l'onglet de
+          // 47 px en russe à 1280 px sans qu'aucune mesure le voie (seule la fiche par défaut l'était, it. 1522)
+          if (P.tabs.talents) { P.setTab("talents"); P.renderAll(); const G = window.__game, T = (G.S.talents[G.S.cls] ||= {}), keepT = { ...T }, keepSel = P.tabs.talents.sel; let worst = 0, who = "";
+            for (const b of [...document.querySelectorAll("[data-pane=talents] .talent.mastery[data-tid]")]) { const id = b.dataset.tid; T[id] = Math.max(T[id] || 0, 60); P.tabs.talents.sel = id; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > worst) { worst = o; who = id; } }
+            for (const k of Object.keys(T)) if (!(k in keepT)) delete T[k]; Object.assign(T, keepT); P.tabs.talents.sel = keepSel; G.invalidateStats(); P.renderAll(); if (worst > 2) out.push("maîtrise=" + worst + "(" + who + ")"); }
           // Statistiques > Succès (la liste grandit avec chaque succès ; les noms longs du russe passent sur deux lignes)
           if (P.tabs.stats) { P.setTab("stats"); P.tabs.stats.sec = "ach"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("succès=" + o); P.tabs.stats.sec = "numbers"; }
           // (it. 1013-1014) sous-sections autres que celle par défaut (seule celle-ci était mesurée) : « onglet-section=N »

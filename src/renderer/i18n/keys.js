@@ -2944,5 +2944,6 @@ export const KEYS = [
   "Talents : une maîtrise dont un palier attend ton choix porte un bouton « Choisir un bonus », et « À faire maintenant » te le rappelle (sans choix, le premier bonus s’applique).",
   "Talents : la Voie tient sur une colonne (sa description au survol) ; Héros > Sorts et attaque : les boutons d’amélioration sont alignés en bas des cartes.",
   "Sur la bande, les tirs des héros à distance passent devant le compagnon.",
-  "Russe : le texte s’affiche dans la même police pixel que les autres langues (66 lettres dessinées pour le jeu)."
+  "Russe : le texte s’affiche dans la même police pixel que les autres langues (66 lettres dessinées pour le jeu).",
+  "Voir ou changer les bonus des paliers"
 ];

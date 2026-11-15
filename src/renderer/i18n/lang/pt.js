@@ -1815,4 +1815,5 @@ export default {
   2940: "Talentos: a Via cabe numa coluna (a descrição ao passar o rato); Herói > Feitiços e ataque: os botões de melhoria alinham-se no fundo dos cartões.",
   2941: "Na faixa, os disparos dos heróis à distância passam à frente do companheiro.",
   2942: "Russo: o texto usa a mesma fonte pixel que os outros idiomas (66 letras desenhadas para o jogo).",
+  2943: "Ver ou mudar os bónus dos patamares",
 };
