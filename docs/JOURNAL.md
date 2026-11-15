@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1441, REVUE GÉNÉRALE) : 12 h graine 7, records des courses : assassin 62, druide 66, samouraï 66
+  (moyenne ≈ 64). perf:linux : bande 18,8 %, panneau 20,8 %, mini 6,7 %, icône 0,5 % (stables). Captures ko et en
+  (Bestiaire > Événements rares : 18 cartes sur trois rangées de six, Quêtes, mini) : rien d'anormal. Texte extrait en
+  coréen : seuls mots latins attendus. À garder en tête : un 19e événement ouvrira une 4e rangée dans Bestiaire >
+  Événements (à mesurer alors à 1280 px). Rien d'autre à noter.
 - 2026-11-15 (it. 1440, contrôle) : état maximal (max-save : les 18 événements vus) en japonais : --crawl 636 clics sans
   erreur ; texte : « 埋もれた財宝 » présent, aucun mot français. POUR-VICTOR complété (it. 1434-1439).
 - 2026-11-15 (it. 1439) : 18e événement rare, le Trésor enfoui (0,15 %, 30 s : chaque victoire a 10 % de chances
