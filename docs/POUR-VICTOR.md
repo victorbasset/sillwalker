@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés du 14 au 15 novembre (it. 1328-1476)
+## Nouveautés du 14 au 15 novembre (it. 1328-1498)
 
 **Contenu**
 - Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau), Grillon (+5 % d'événements
@@ -53,7 +53,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Mode mini : effets actifs, bénédiction de demain, pistes du héros bloqué ; Statistiques > Probabilités : chances
   du jour (Pie, prodiges, champions) ; recharge réelle des sorts le Jour des arcanes.
 - « Quoi de neuf » montre jusqu'à 11 nouveautés quand les éditions sont courtes.
-- Ta demande : Héros > Sorts et attaque montre les sorts du compagnon en grandes cartes, à droite de ceux du héros.
+- Ta demande : Héros > Sorts et attaque montre les sorts du compagnon en grandes cartes, à droite de ceux du héros ;
+  la carte du héros (Aventure) montre aussi ses sorts appris, et le compteur du sous-onglet les compte.
   (Le mode « Automatique (très grands écrans) » était déjà le réglage par défaut.)
 
 **Corrections**
@@ -61,4 +62,5 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (400 → 40 ms) ; pluriels russes et polonais ; termes cohérents d'une langue à l'autre.
 
 **Vérifié** : équilibre inchangé (3 graines ; tableau des 20 héros 63,6 de moyenne), mémoire et performance stables,
-parcours complets sans erreur (10 langues, état maximal, fin de partie).
+parcours complets sans erreur (10 langues, état maximal, fin de partie). Le contrôle des traductions signale
+maintenant aussi une phrase oubliée dans toutes les langues.
