@@ -13,7 +13,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Version 0.1.4 (à décider)
 
-- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 93). Nouveautés
+- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 94). Nouveautés
   majeures depuis la 0.1.3 : champions et leur quête, 4 événements rares (Lune pâle, Écho des lames, Source de vie, Trésor enfoui),
   3 élites (Régénérant, Venimeux, Explosif), 6 bénédictions du jour, 3 familiers (Grenouillette, Lucane, Pie), l'Encens de
   chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.
@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1460)
+## Nouveautés de la nuit du 14 au 15 novembre (it. 1328-1466)
 
 Contenu : Encens de chasse (boutique), Lucane (familier), Source de vie (événement), Jour du sang (bénédiction),
 Explosif (élite) ; icônes des effets actifs sur la bande et dans la bulle du mode mini ; bonus des familiers à
@@ -51,6 +51,7 @@ vit ; temps estimé aussi pour les quêtes d'événements, d'objets rares et de 
 8 nouveautés quand les éditions sont courtes ; 19e sorte de quête « Attraper N gobelins dorés » (les gobelins sont
 aussi attrapés pendant l'absence, avec leur or, et comptés dans « Depuis ta dernière visite » ; la quête n'est
 jamais proposée à un héros trop lent pour les attraper) ; sur la bande, un ◆ marque les monstres visés par une quête
-en cours (chasse, proie, champions, gobelins). Vérifié : l'ensemble
+en cours (chasse, proie, champions, gobelins) ; héros bloqué : pistes visibles dans la carte de la zone et la bulle
+du mode mini, nouvelle piste « forger avec ton or » (un héros simulé butait une heure avec 400 k d'or). Vérifié : l'ensemble
 des ajouts de la nuit ne change pas l'équilibre (3 graines, encore après la Pie),
 mémoire et performance stables.

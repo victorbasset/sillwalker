@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1466) : « Quoi de neuf » 94 : aide au héros bloqué (pistes dans la carte de la zone et la bulle du
+  mode mini, piste « forger »), 10 langues ; devlog et POUR-VICTOR (it. 1461-1466). Autotest 229/229, lang-overflow
+  propre (fenêtre à 8 nouveautés).
 - 2026-11-15 (it. 1465) : mode mini : la bulle du héros bloqué (liseré rouge) donne aussi les pistes (« ⚠ Pistes :
   forge ton équipement avec ton or · rachète des potions ») ; l'état bloqué entre dans la clé de rafraîchissement de la
   bulle (avant : mise à jour seulement au prochain changement de niveau, or, zone ou victoire). Vérifié par --stage

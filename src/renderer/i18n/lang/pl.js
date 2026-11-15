@@ -1778,4 +1778,5 @@ export default {
   2903: "Nowy rodzaj zadania: łapanie złotych goblinów. Podczas twojej nieobecności bohater też je łapie (razem z ich złotem), jeśli jest dość szybki.",
   2904: "Na pasku małe ◆ oznacza potwory, na które poluje trwające zadanie łowieckie.",
   2905: "wykuj ekwipunek za swoje złoto",
+  2906: "Zablokowany bohater: wskazówki, jak iść dalej, zostają widoczne na karcie strefy i w dymku trybu mini, a nowa wskazówka proponuje wykuć ekwipunek, gdy pozwala na to złoto.",
 };

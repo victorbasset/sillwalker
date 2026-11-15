@@ -1778,4 +1778,5 @@ export default {
   2903: "Neue Questart: Goldkobolde fangen. Während deiner Abwesenheit fängt dein Held auch welche (samt ihrem Gold), wenn er schnell genug ist.",
   2904: "Auf dem Streifen markiert ein kleines ◆ die Monster, die eine laufende Jagd-Quest verlangt.",
   2905: "schmiede deine Ausrüstung mit deinem Gold",
+  2906: "Festsitzender Held: Die Ideen zum Weiterkommen bleiben in der Zonenkarte und im Tooltip des Mini-Modus sichtbar, und eine neue Idee schlägt vor, deine Ausrüstung zu schmieden, wenn dein Gold reicht.",
 };
