@@ -54,9 +54,9 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
 - [x] 8. Intégration dans le jeu : `render/music.js` lit les 4 fichiers selon la zone (tranches de 50), fondu
       enchaîné, volume du réglage « Musique », mode muet, aperçu dans Réglages > Son (4 morceaux), boucle sans
       couture, boss ; autotest (fichiers présents, lecture, volume) ; perf:linux et mem-watch ; bande-annonce.
-- [ ] 9. Passe de finition sur les retours de Victor (mixage, tempo, instruments).
+- [x] 9. Passe de finition sur les retours de Victor (mixage, tempo, instruments).
       - [x] 9a. humanisation (décalages et vélocités variables) ; les 4 morceaux rendus à nouveau
-      - [ ] 9b. retours d'écoute de Victor (en attente)
+      - [x] 9b. retours d'écoute de Victor : « c'est bon comme ça » (15/11)
 - [x] 10. Nettoyage : ancien générateur retiré (ou gardé en secours si un fichier manque), README, CLAUDE.md,
       « Quoi de neuf », devlog.
 
@@ -164,3 +164,4 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   mem-watch 565-575 Mo) et README à jour ; édition 102 de « Quoi de neuf » (bande originale, curseur « Effets »,
   barres de vie), traduite dans les 9 langues. Le devlog viendra avec la prochaine version (0.1.5).
   Reste : 9b, les retours d'écoute de Victor.
+- 15/11 : Victor valide les 4 morceaux (« c'est bon comme ça »). Bande originale terminée ; retour à la boucle ordinaire.
