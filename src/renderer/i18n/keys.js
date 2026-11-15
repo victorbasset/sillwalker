@@ -2897,5 +2897,10 @@ export const KEYS = [
   "Nouveau familier, la Pie : elle repère les coffres au trésor (+6 % de coffres trouvés par niveau).",
   "Pilleur de coffres (50 coffres)",
   "Nouveau succès : Pilleur de coffres (50 coffres au trésor trouvés).",
-  "Bestiaire : avec la Carte du voyageur, un clic sur un monstre t’emmène dans la zone la plus proche où il vit, pour monter ses paliers."
+  "Bestiaire : avec la Carte du voyageur, un clic sur un monstre t’emmène dans la zone la plus proche où il vit, pour monter ses paliers.",
+  "Trésor enfoui",
+  "Chaque victoire peut laisser un coffre au trésor !",
+  "Ça brille sous chaque pas !",
+  "{n} coffre au trésor|{n} coffres au trésor",
+  "Nouvel événement rare, le Trésor enfoui : pendant 30 secondes, chaque victoire peut laisser un coffre au trésor."
 ];

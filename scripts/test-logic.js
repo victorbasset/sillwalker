@@ -445,6 +445,15 @@ test("absence : les compteurs par sorte d'élite avancent, sauf les sortes jamai
   assert.ok(ok, "une absence avec assez d'élites");
 });
 
+test("Trésor enfoui : des coffres pendant l'événement, comptés au bilan (it. 1439)", () => {
+  const g = new Game(freshState());
+  g.startEvent("hoard"); const c0 = g.S.stats.chests || 0;
+  for (let i = 0; i < 200; i++) { g.R.mon = g.makeMonster(false); g.killMonster(); g.R.events.hoard = 30; }
+  const n = (g.S.stats.chests || 0) - c0;
+  assert.ok(n >= 5 && n <= 50, "coffres : " + n);
+  const ln = g.eventReport("hoard"); assert.ok(/treasure chests?/.test(ln), "bilan : " + ln);
+});
+
 test("bilans du Souffle de sagesse (expérience) et de la Nichée (œufs) (it. 1399)", () => {
   const g = new Game(freshState());
   g.startEvent("wisdom"); g.S.stats.kills += 2; g.gainXp(50); assert.ok(/experience point/.test(g.eventReport("wisdom")));

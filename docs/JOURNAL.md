@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1439) : 18e événement rare, le Trésor enfoui (0,15 %, 30 s : chaque victoire a 10 % de chances
+  d'ouvrir un coffre au trésor ; thème de la Pie et de « Pilleur de coffres ») : bilan « N coffres au trésor »,
+  réplique, son (rendu par l'autotest), paillettes dorées (particule de la Nichée), 10 langues, test, « Quoi de neuf »
+  90 ; page du magasin (10 langues), dossiers de presse, checklist, devlog, POUR-VICTOR : 18 événements. En chemin :
+  l'autotest a vu une taille de police fractionnaire (11,67 px) sur le temps estimé des quêtes (<small class="eta">
+  sans règle, plus souvent visible depuis les estimations des it. 1417-1423) : fixé à 12 px. Autotest 228/228,
+  lang-overflow propre, fuzz (Jour des prodiges) 0 bloquée.
 - 2026-11-15 (it. 1438) : clavier : les fiches cliquables du Bestiaire (it. 1437) sont focalisables (tabindex, role
   button, aria-label « nom · Clic : y aller · Zone N ») ; panel.js : Entrée ou Espace sur tout élément role="button"
   qui porte une action (hors vrais boutons) fait un clic, sauf si la touche est déjà traitée (la Carte a son propre

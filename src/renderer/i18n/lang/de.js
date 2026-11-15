@@ -1768,4 +1768,9 @@ export default {
   2893: "Truhenplünderer (50 Truhen)",
   2894: "Neuer Erfolg: Truhenplünderer (50 Schatztruhen gefunden).",
   2895: "Bestiarium: Mit der Karte des Reisenden bringt dich ein Klick auf ein Monster in die nächste Zone, in der es lebt, um seine Stufen zu steigern.",
+  2896: "Vergrabener Schatz",
+  2897: "Jeder Sieg kann eine Schatztruhe hinterlassen!",
+  2898: "Unter jedem Schritt glitzert es!",
+  2899: "{n} Schatztruhe|{n} Schatztruhen",
+  2900: "Neues seltenes Ereignis, der Vergrabene Schatz: 30 Sekunden lang kann jeder Sieg eine Schatztruhe hinterlassen.",
 };

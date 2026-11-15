@@ -1768,4 +1768,9 @@ export default {
   2893: "Saqueador de cofres (50 cofres)",
   2894: "Nuevo logro: Saqueador de cofres (50 cofres del tesoro encontrados).",
   2895: "Bestiario: con el Mapa del viajero, un clic en un monstruo te lleva a la zona más cercana donde vive, para subir sus niveles.",
+  2896: "Tesoro enterrado",
+  2897: "¡Cada victoria puede dejar un cofre del tesoro!",
+  2898: "¡Todo brilla bajo mis pies!",
+  2899: "{n} cofre del tesoro|{n} cofres del tesoro",
+  2900: "Nuevo evento raro, el Tesoro enterrado: durante 30 segundos, cada victoria puede dejar un cofre del tesoro.",
 };

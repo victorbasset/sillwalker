@@ -599,6 +599,12 @@ export class Juice {
       node.style.background = Math.random() < 0.4 ? "#fff3dc" : "#f0c987";
       this.add(node, (p) => { this.place(node, x + Math.sin(ph + p.t * 7) * 10, -8 + p.t * 70); return p.t < 1.4; });
     }
+    // (it. 1439) Trésor enfoui : paillettes dorées qui descendent autour du héros (même particule que la Nichée)
+    if ((E.hoard || 0) > 0 && Math.random() < dt * 5) {
+      const node = el("div", "spark nestdown", this.layer), x = Math.max(0, Math.min(W - 10, this.s.heroX - 100 + Math.random() * 600)), ph = Math.random() * 6;
+      node.style.background = Math.random() < 0.4 ? "#fff1b0" : "#e8b04a";
+      this.add(node, (p) => { this.place(node, x + Math.sin(ph + p.t * 7) * 6, -8 + p.t * 80); return p.t < 1.3; });
+    }
     // Duo idéal (synergie) : de temps en temps, une étincelle dorée file entre les deux héros.
     const st = this.s, gS = st.game.S;
     if (st.partner && st.partnerX != null && Math.random() < dt * 0.6 && duoSynergy(gS.cls, gS.partner)) {

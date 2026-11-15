@@ -1768,4 +1768,9 @@ export default {
   2893: "Łupieżca skrzyń (50 skrzyń)",
   2894: "Nowe osiągnięcie: Łupieżca skrzyń (50 znalezionych skrzyń ze skarbem).",
   2895: "Bestiariusz: z Mapą podróżnika kliknięcie potwora zabiera cię do najbliższej strefy, w której żyje, by podnieść jego progi.",
+  2896: "Zakopany skarb",
+  2897: "Każde zwycięstwo może zostawić skrzynię ze skarbem!",
+  2898: "Błyszczy się pod każdym krokiem!",
+  2899: "{n} skrzynia ze skarbem|{n} skrzynie ze skarbem|{n} skrzyń ze skarbem",
+  2900: "Nowe rzadkie wydarzenie, Zakopany skarb: przez 30 sekund każde zwycięstwo może zostawić skrzynię ze skarbem.",
 };

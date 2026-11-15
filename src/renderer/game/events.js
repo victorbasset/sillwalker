@@ -16,6 +16,7 @@ export const CHEST = { normal: 0.002, elite: 0.015, boss: 0.03, gold: 80, epic: 
 export const SHARDFALL_CHANCE = 0.25;
 /** Nichée : chance par victoire de trouver un œuf de familier pendant l'événement. */
 export const NEST_CHANCE = 0.12;
+export const HOARD_CHANCE = 0.1; // (it. 1439) Trésor enfoui : chance de coffre par victoire
 export const STAR = { minS: 40 * 60, maxS: 90 * 60, life: 12, speedGain: 2 };
 
 /** Événements temporaires : chance par victoire, durée, effet. */
@@ -58,6 +59,8 @@ export const EVENTS = {
   echo: { name: "Écho des lames", chance: 0.002, duration: 30, text: "Chaque coup frappe deux fois !", color: "#e0a8ff" },
   // (it. 1375) 17e : le héros se soigne vite (aucun événement ne soignait ; un appui contre un boss coriace), à la FIN
   spring: { name: "Source de vie", chance: 0.002, duration: 30, text: "Le héros regagne 4 % de ses PV max par seconde !", color: "#7fe8a0" },
+  // (it. 1439) Variété : coffres au trésor à la pelle (thème de la Pie et du succès « Pilleur de coffres »)
+  hoard: { name: "Trésor enfoui", chance: 0.0015, duration: 30, text: "Chaque victoire peut laisser un coffre au trésor !", color: "#e8b04a" },
 };
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;

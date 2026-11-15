@@ -1768,4 +1768,9 @@ export default {
   2893: "Saqueador de baús (50 baús)",
   2894: "Nova conquista: Saqueador de baús (50 baús do tesouro encontrados).",
   2895: "Bestiário: com o Mapa do viajante, um clique num monstro leva-te à zona mais próxima onde ele vive, para subir os seus patamares.",
+  2896: "Tesouro enterrado",
+  2897: "Cada vitória pode deixar um baú do tesouro!",
+  2898: "Tudo brilha a cada passo!",
+  2899: "{n} baú do tesouro|{n} baús do tesouro",
+  2900: "Novo evento raro, o Tesouro enterrado: durante 30 segundos, cada vitória pode deixar um baú do tesouro.",
 };

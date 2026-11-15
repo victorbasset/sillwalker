@@ -44,7 +44,7 @@ import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, E
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
@@ -970,6 +970,7 @@ export class Game {
     this.petGainXp(m.boss ? 10 : m.elite ? 5 : 1);
     if (eggsAllowed(S) && ((m.boss && rand() < EGG_CHANCE.boss) || (m.elite && rand() < EGG_CHANCE.elite))) this.gainEgg();
     else if ((R.events.nest || 0) > 0 && eggsAllowed(S) && rand() < NEST_CHANCE) this.gainEgg(); // Nichée (events.js)
+    if ((R.events.hoard || 0) > 0 && rand() < HOARD_CHANCE) this.openChest(); // (it. 1439) Trésor enfoui
     this.emit("kill", { mon: m, gold });
     this.rollRareThings(m);
     this.autoBuyPotions();
@@ -1997,7 +1998,7 @@ export class Game {
     const st = this.S.stats;
     return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
       spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0, bosses: st.bosses || 0,
-      xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0 };
+      xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0, chests: st.chests || 0 };
   }
 
   /**
@@ -2023,6 +2024,7 @@ export class Game {
     if (id === "spring" && this.R.springHeal >= 1) { const h = Math.round(this.R.springHeal); parts.push(txn(h, "+{n} PV regagné|+{n} PV regagnés", { n: fmt(h) })); this.R.springHeal = 0; }
     // (it. 1399) Souffle de sagesse et Nichée : leur raison d'être (expérience, œufs)
     if (id === "wisdom" && d("xp")) parts.push(txn(Math.round(d("xp")), "+{n} point d’expérience|+{n} points d’expérience", { n: fmt(Math.round(d("xp"))) }));
+    if (id === "hoard" && d("chests")) parts.push(txn(d("chests"), "{n} coffre au trésor|{n} coffres au trésor", { n: fmt(d("chests")) })); // (it. 1439)
     if (id === "nest" && d("eggs")) parts.push(txn(d("eggs"), "{n} œuf trouvé|{n} œufs trouvés", { n: fmt(d("eggs")) }));
     if (id === "goblinrush" && d("goblins")) parts.push(txn(d("goblins"), "{n} gobelin attrapé|{n} gobelins attrapés", { n: fmt(d("goblins")) }));
     if ((id === "goldrain" || id === "bloodmoon" || id === "goblinrush") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));
