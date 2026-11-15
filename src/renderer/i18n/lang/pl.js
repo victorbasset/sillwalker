@@ -1789,4 +1789,7 @@ export default {
   2914: "Na pasku ◆ zadań łowieckich oznacza też elity i czempionów polowanego rodzaju.",
   2915: "Statystyki: wiersz złotych goblinów ostrzega (⚠), gdy bohater jest za wolny, by je złapać.",
   2916: "towarzysz, z połową mocy",
+  2917: "Bohater > Zaklęcia i atak: zaklęcia towarzysza mają własną ramkę z dużymi kartami, na prawo od zaklęć bohatera.",
+  2918: "Karta bohatera (Przygoda) pokazuje też wyuczone zaklęcia towarzysza, po zaklęciach bohatera.",
+  2919: "Zablokowany bohater: karta strefy podaje teraz trzy wskazówki (wniebowstąpienie już nie znika).",
 };

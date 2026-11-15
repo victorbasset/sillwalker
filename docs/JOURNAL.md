@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1495) : carte du héros (Aventure) : la ligne du duo montre aussi les sorts appris du compagnon,
+  après ceux du héros (séparateur « · », rang et nom au survol, un clic mène aux sorts) ; vérifié en fr et ru à 1280
+  et 1920 px. « Quoi de neuf » 97 regroupée (sorts du compagnon en grand, cette ligne, trois pistes du héros bloqué).
+  En chemin : le script d'ajout des traductions de l'édition a échoué (crochet manquant) et i18n-check ne l'a pas vu,
+  car il ne comparait qu'à l'anglais ; il signale maintenant toute clé sans traduction, hors 23 clés techniques
+  listées (polices, classes, transformations), vérifié en retirant une clé. Autotest 229/229, lang-overflow propre.
 - 2026-11-15 (it. 1494) : README : les sorts du compagnon ont leur cadre en grandes cartes (it. 1491) ; l'ancien « + »
   de la ligne d'icônes n'existe plus.
 - 2026-11-15 (it. 1493) : styles.css : règles de l'ancienne ligne d'icônes des sorts du compagnon (.pspells, .pplus ;

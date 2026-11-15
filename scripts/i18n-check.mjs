@@ -19,5 +19,13 @@ for (const i in tab) {
   if (/^class=|^disabled /.test(KEYS[i]) && !/^class=|^disabled /.test(tab[i])) { console.log(`${i}: attribut HTML cassé`); bad++; }
 }
 const missing = Object.keys(ref).filter((i) => tab[i] == null);
+// (it. 1495) clé sans traduction dans cette langue ET en anglais : une phrase ajoutée sans traduction passait inaperçue
+// (comparaison à l'anglais seulement). Seules les clés techniques ci-dessous (polices, classes, transformations, noms
+// propres) restent sans traduction.
+const TECH = new Set(["13px 'Geist Pixel'", "600 13px 'Pixelify Sans'", '<i class="lid"></i><i class="box"></i>', "DEV", "Sillwalker",
+  "affix bossname", "affix champ", 'class="{0}"', "has maxed", "itemfx rb", "layer base", "layer hud", "lbl corepct", "scale({0})", "scaleX({0})",
+  "slash t", "star hit", "translate(-50%,0) scale({0})", "translate({0},{1}) scale({2})", "translate3d({0}px,4px,0)", "translate3d({0}px,{1}px,0)",
+  "translate3d({0}px,{1}px,0) scale({2})", "translate3d({0}px,{1}px,0){2}"]);
+KEYS.forEach((k, i) => { if (tab[i] == null && !TECH.has(k)) { console.log(`${i}: aucune traduction : ${String(k).slice(0, 80)}`); bad++; } });
 console.log(`${lang} : ${Object.keys(tab).length} traductions, ${missing.length} manquantes par rapport à l'anglais${missing.length ? " (" + missing.slice(0, 20).join(",") + ")" : ""}, ${bad} problème(s)`);
 process.exit(bad ? 1 : 0);

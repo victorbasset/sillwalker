@@ -1340,6 +1340,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellduo.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
 .spellduo.two .spellgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .partnerbox h2 small { font-size: 12px; }
+.spellmini .pmini { color: var(--muted); margin: 0 3px; } /* (it. 1495) séparateur héros · compagnon */
 @container panel (max-width: 1568px) {
   .spellduo.two .spellbox > p.note { display: none; }
   .spellduo.two .spellcard button { font-size: 11px; padding: 1px 5px; margin-top: 2px; }

@@ -1789,4 +1789,7 @@ export default {
   2914: "Auf dem Streifen markiert das ◆ der Jagd-Quests auch Elitegegner und Champions der gejagten Art.",
   2915: "Statistiken: Die Zeile der Goldkobolde warnt (⚠), wenn dein Held zu langsam ist, um sie zu fangen.",
   2916: "Begleiter, mit halber Stärke",
+  2917: "Held > Zauber & Angriff: Die Zauber deines Begleiters haben einen eigenen Rahmen mit großen Karten, rechts neben denen deines Helden.",
+  2918: "Die Heldenkarte (Abenteuer) zeigt auch die erlernten Zauber deines Begleiters, nach denen deines Helden.",
+  2919: "Festsitzender Held: Die Zonenkarte nennt jetzt drei Ideen (der Aufstieg fehlt nicht mehr).",
 };

@@ -1789,4 +1789,7 @@ export default {
   2914: "En la franja, el ◆ de las misiones de caza marca también a las élites y campeones del tipo cazado.",
   2915: "Estadísticas: la línea de los goblins dorados avisa (⚠) cuando tu héroe es demasiado lento para atraparlos.",
   2916: "compañero, a la mitad de potencia",
+  2917: "Héroe > Hechizos y ataque: los hechizos de tu compañero tienen su propio marco, en cartas grandes, a la derecha de los de tu héroe.",
+  2918: "La tarjeta del héroe (Aventura) muestra también los hechizos aprendidos de tu compañero, tras los de tu héroe.",
+  2919: "Héroe atascado: la tarjeta de la zona da ahora tres pistas (la ascensión ya no falta).",
 };

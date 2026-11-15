@@ -1789,4 +1789,7 @@ export default {
   2914: "On the strip, the ◆ of hunting quests also marks elites and champions of the hunted kind.",
   2915: "Statistics: the golden goblin line warns (⚠) when your hero is too slow to catch them.",
   2916: "companion, at half power",
+  2917: "Hero > Spells & attack: your companion's spells have their own frame, as large cards, to the right of your hero's.",
+  2918: "The hero card (Adventure) also shows your companion's learned spells, after your hero's.",
+  2919: "Stuck hero: the zone card now gives three tips (ascension is no longer left out).",
 };

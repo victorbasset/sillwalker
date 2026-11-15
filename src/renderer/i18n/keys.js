@@ -2918,5 +2918,8 @@ export const KEYS = [
   "Nouveau familier, le Grillon : son chant attire les prodiges (+5 % d’événements rares par niveau).",
   "Sur la bande, le ◆ des quêtes de chasse marque aussi les élites et champions du type chassé.",
   "Statistiques : la ligne des gobelins dorés prévient (⚠) quand ton héros est trop lent pour les attraper.",
-  "compagnon, à moitié de leur puissance"
+  "compagnon, à moitié de leur puissance",
+  "Héros > Sorts et attaque : les sorts de ton compagnon ont leur propre cadre, en grandes cartes, à droite de ceux de ton héros.",
+  "La carte du héros (Aventure) montre aussi les sorts appris de ton compagnon, après ceux de ton héros.",
+  "Héros bloqué : la carte de la zone donne maintenant trois pistes (l’ascension n’y manque plus)."
 ];

@@ -1789,4 +1789,7 @@ export default {
   2914: "Na faixa, o ◆ das missões de caça marca também as elites e campeões do tipo caçado.",
   2915: "Estatísticas: a linha dos goblins dourados avisa (⚠) quando o teu herói é lento demais para os pegar.",
   2916: "companheiro, com metade da potência",
+  2917: "Herói > Feitiços e ataque: os feitiços do teu companheiro têm o seu próprio quadro, em cartões grandes, à direita dos do teu herói.",
+  2918: "O cartão do herói (Aventura) mostra também os feitiços aprendidos do teu companheiro, depois dos do teu herói.",
+  2919: "Herói travado: o cartão da zona dá agora três dicas (a ascensão já não fica de fora).",
 };
