@@ -68,10 +68,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
   chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
-- **Quêtes** : 3 contrats à la fois (chasse, élites, proie (une sorte d’élite précise), boss, or, forge, butin rare, événements rares, coffres au trésor, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés, champions, niveaux), récompenses variées ;
+- **Quêtes** : 3 contrats à la fois (chasse, élites, proie (une sorte d’élite précise), boss, or, forge, butin rare, événements rares, coffres au trésor, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés, champions, niveaux, gobelins dorés), récompenses variées ;
   jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
-- **Familiers** : 19 compagnons (dont le lapin et le phénix, rares) qui suivent le héros (ceux à découvrir montrent déjà leur bonus), sortent d'œufs (boss, élites, quêtes)
+- **Familiers** : 20 compagnons (dont le lapin et le phénix, rares) qui suivent le héros (ceux à découvrir montrent déjà leur bonus), sortent d'œufs (boss, élites, quêtes)
   et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
   or, expérience, œufs et objets.
 - **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 29 pouvoirs uniques (dont l'Appât des champions, qui attire les élites).
@@ -106,7 +106,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.
 - **Répliques** : le héros parle de temps en temps (légendaire, boss, K.O., record…).
 - **Vitesse** (le bonus le plus précieux) : plumes du vent très rares et étoiles filantes à attraper d'un clic
-  (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie, corne d'abondance (un objet à chaque victoire), souffle de sagesse (expérience ×3), œil du faucon (tous les coups critiques), marée arcanique (recharges des sorts ×2, si un sort est appris), lune de sang (chaque monstre qui arrive est une élite), ruée des gobelins (un monstre sur trois devient un gobelin doré), nuée d'étoiles (les étoiles filantes se suivent pendant 30 s), lune pâle (chaque monstre arrive avec la moitié de sa vie, boss compris), écho des lames (chaque coup frappe deux fois), source de vie (le héros regagne 4 % de ses PV max par seconde),
+  (permanent), rafale de vent (temporaire), pouvoir « Bottes d'Hermès ». Autres événements rares : pluie d'or, frénésie, corne d'abondance (un objet à chaque victoire), souffle de sagesse (expérience ×3), œil du faucon (tous les coups critiques), marée arcanique (recharges des sorts ×2, si un sort est appris), lune de sang (chaque monstre qui arrive est une élite), ruée des gobelins (un monstre sur trois devient un gobelin doré), nuée d'étoiles (les étoiles filantes se suivent pendant 30 s), lune pâle (chaque monstre arrive avec la moitié de sa vie, boss compris), écho des lames (chaque coup frappe deux fois), source de vie (le héros regagne 4 % de ses PV max par seconde), trésor enfoui (chaque victoire peut laisser un coffre),
   **coffre au trésor** (or, potion, objet rare ou mieux).
 - **Boss** : capacités spéciales (enragé, coup dévastateur annoncé, carapace, régénération, miroir, vampirisme, souffle glacé,
   insaisissable, fureur croissante, peau de pierre, malédiction, tenace, crachat venimeux, écailles : la moitié du bonus des critiques), deux à partir de la 2e boucle ; Silence (plus de

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1457) : README à jour des ajouts du jour : quêtes (gobelins dorés), événements (trésor enfoui),
+  20 familiers.
 - 2026-11-15 (it. 1456) : quête « Attraper N gobelins dorés » : jamais proposée à un héros trop lent pour abattre un
   gobelin avant sa fuite (goblinCatchable, quests.js : PV du gobelin / dégâts par seconde sans élixirs ni sorts < 4 s),
   et pas de temps estimé dans ce cas (avant : l'estimation supposait chaque gobelin attrapé). Une quête déjà tirée
