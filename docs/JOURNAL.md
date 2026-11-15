@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1521, demande de Victor) : Héros > Sorts et attaque : boutons d'amélioration des sorts alignés en bas
+  (carte en colonne : en-tête .spellhd, texte, .spellact poussé en bas ; avec un compagnon, chaque grille remplit son
+  cadre : les six boutons sur une ligne). Mesuré fr 1920 (286 partout), ru 1280, de 1366, sans défilement.
+  Autotest 231/231, lang-overflow propre. (La revue générale passe à l'it. suivante.)
 - 2026-11-15 (it. 1520) : Héros > Libérés, bulle de « Prendre en duo » / « Duo à l'ascension » : ce que ce compagnon
   apporte (il couvre à distance : attaque +15 % ; il encaisse au corps à corps : dégâts subis −15 %), phrases déjà
   traduites. Vérifié par --stage. Autotest 231/231.

@@ -1366,6 +1366,12 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 }
 .spellgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .spellcard { border: 2px solid var(--edge); border-left: 4px solid var(--c); padding: 6px 8px; background: var(--card, transparent); }
+/* (it. 1521, demande de Victor) boutons d'amélioration alignés en bas des cartes (cartes d'une rangée à la même hauteur) */
+.spellcard { display: flex; flex-direction: column; }
+.spellcard .spellact { margin-top: auto; }
+/* les deux cadres ont la même hauteur (it. 1506) : la grille remplit le sien, les boutons des deux cadres tombent sur la même ligne */
+.spellduo.two .spellbox { display: flex; flex-direction: column; }
+.spellduo.two .spellbox > .spellgrid { flex: 1; }
 .spellcard.locked { opacity: 0.55; }
 .spellcard.on { box-shadow: inset 0 0 0 1px var(--c); }
 .spellcard button { margin-top: 4px; font-size: 12px; padding: 2px 8px; }
