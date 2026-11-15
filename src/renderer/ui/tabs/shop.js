@@ -62,7 +62,7 @@ export class ShopTab {
       else {
         const rem = S.buffs[c.id] || 0;
         active = rem > 0;
-        owned = active ? `${tx("actif ·")} <span id="buff-${c.id}">${mmss(rem)}</span>` : tx("10 min");
+        owned = active ? `${tx("actif ·")} <span id="buff-${c.id}">${mmss(rem)}</span>` : uMin(c.duration / 60); // (it. 1362) durée de chaque consommable (« 10 min » écrit en dur)
         if (rem + c.duration > BUFF_CAP_S) block = tx("Maximum");
       }
       // (it. 1072) tuile compacte, deux rangées : le nom passe dans la bulle (l'effet reste écrit)

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1362) : Boutique : la durée affichée sous un élixir inactif vient de sa constante (c.duration ;
+  « 10 min » écrit en dur). Même rendu aujourd'hui, mais un consommable d'une autre durée ne mentira plus.
 - 2026-11-15 (it. 1361, revue générale) : après la série des pluriels : --perf (copie neuve) bande 19,2 %, panneau
   20,9 %, mini 6,6 %, icône 0,6 % ; --crawl en russe sur l'état maximal 725 clics sans erreur ; lang-overflow des
   10 langues (avec fin de partie, 130 % et état maximal) : aucun défilement ni mot coupé. Équilibre non touché
