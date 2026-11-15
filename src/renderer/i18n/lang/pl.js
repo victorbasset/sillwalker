@@ -1845,4 +1845,8 @@ export default {
   2970: "Liczy się najdalsza osiągnięta strefa, a nie poziom bohatera.",
   2971: "Dużo sprzedajesz ręcznie? „Oko znawcy” (Sklep) jednym kliknięciem sprzedaje wszystko, co nie ulepsza twojego bohatera. Kliknij tutaj.",
   2972: "{0} pokonany: {1} złota!",
+  2973: "Pasek doświadczenia pod poziomem na pasku: wreszcie widać, jak zbliża się kolejny poziom.",
+  2974: "Skrzynia z zadania odebrana ręcznie otwiera się na twoich oczach, jak te ze sklepu.",
+  2975: "Ustawienia trafiły do przycisków po prawej stronie panelu; wybrany przedmiot ma jasną ramkę (mylił się z legendarnym).",
+  2976: "Rzadki potwór, Poupouce, ukrywa się wśród innych: daje pięć razy więcej złota.",
 };

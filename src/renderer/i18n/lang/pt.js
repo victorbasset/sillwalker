@@ -1845,4 +1845,8 @@ export default {
   2970: "Conta a zona mais distante já alcançada, não o nível do herói.",
   2971: "Vendendo muito à mão? O “Olho do conhecedor” (Loja) vende num clique tudo o que não melhora seu herói. Clique aqui.",
   2972: "{0} derrotado: {1} de ouro!",
+  2973: "Uma barra de experiência sob o nível, na faixa: enfim dá para ver o próximo nível chegando.",
+  2974: "Um baú de missão resgatado à mão abre diante dos seus olhos, como os da loja.",
+  2975: "Configurações agora fica com os botões à direita do painel; o item selecionado ganha uma moldura clara (confundia-se com o lendário).",
+  2976: "Um monstro raro, Poupouce, se esconde entre os outros: dá cinco vezes mais ouro.",
 };

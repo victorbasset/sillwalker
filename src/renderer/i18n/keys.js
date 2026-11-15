@@ -2974,5 +2974,9 @@ export const KEYS = [
   "Les Lieutenants",
   "La zone la plus lointaine jamais atteinte compte, pas le niveau du héros.",
   "Tu vends beaucoup à la main ? L’« Œil du connaisseur » (Boutique) vend d’un clic tout ce qui n’améliore pas ton héros. Clique ici.",
-  "{0} vaincu : {1} or !"
+  "{0} vaincu : {1} or !",
+  "Une jauge d’expérience sous le niveau, sur la bande : on voit enfin venir le niveau suivant.",
+  "Une quête à coffre réclamée à la main ouvre son coffre sous tes yeux, comme ceux de la boutique.",
+  "Réglages rejoint les boutons de droite du panneau ; l’objet sélectionné a un cadre clair (il se confondait avec le légendaire).",
+  "Un monstre rare, Poupouce, se cache parmi les autres : il rapporte cinq fois plus d’or."
 ];

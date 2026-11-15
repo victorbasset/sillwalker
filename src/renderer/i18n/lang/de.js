@@ -1845,4 +1845,8 @@ export default {
   2970: "Es zählt die weiteste je erreichte Zone, nicht die Stufe des Helden.",
   2971: "Du verkaufst viel von Hand? Der „Kennerblick“ (Laden) verkauft mit einem Klick alles, was deinen Helden nicht verbessert. Hier klicken.",
   2972: "{0} besiegt: {1} Gold!",
+  2973: "Eine Erfahrungsanzeige unter der Stufe in der Leiste: Endlich sieht man die nächste Stufe kommen.",
+  2974: "Eine von Hand abgeholte Truhen-Quest öffnet ihre Truhe vor deinen Augen, wie die Truhen im Laden.",
+  2975: "Einstellungen sitzt jetzt bei den Knöpfen rechts im Panel; der gewählte Gegenstand hat einen hellen Rahmen (er war vom Legendären kaum zu unterscheiden).",
+  2976: "Ein seltenes Monster, Poupouce, versteckt sich unter den anderen: Es bringt fünfmal so viel Gold.",
 };

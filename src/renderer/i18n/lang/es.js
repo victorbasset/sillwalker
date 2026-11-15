@@ -1845,4 +1845,8 @@ export default {
   2970: "Cuenta la zona más lejana alcanzada, no el nivel del héroe.",
   2971: "¿Vendes mucho a mano? El «Ojo del entendido» (Tienda) vende de un clic todo lo que no mejora a tu héroe. Haz clic aquí.",
   2972: "{0} vencido: ¡{1} de oro!",
+  2973: "Una barra de experiencia bajo el nivel, en la franja: por fin se ve llegar el siguiente nivel.",
+  2974: "Un cofre de misión reclamado a mano se abre ante tus ojos, como los de la tienda.",
+  2975: "Ajustes se une a los botones de la derecha del panel; el objeto seleccionado tiene un marco claro (se confundía con el legendario).",
+  2976: "Un monstruo raro, Poupouce, se esconde entre los demás: da cinco veces más oro.",
 };

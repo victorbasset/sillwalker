@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1549) : édition 103 de « Quoi de neuf » : jauge d'expérience, coffres de quête ouverts sous les yeux,
+  Réglages à droite et cadre de sélection, Poupouce (9 langues ; lang-overflow propre).
 - 2026-11-15 (it. 1548) : l'astuce « Nouveau déblocage à ta portée… Clique ici » ouvre la boutique directement sur
   les Déblocages (elle ouvrait le Marchand : il fallait chercher) ; de même pour l'astuce de la vente groupée.
 - 2026-11-15 (it. 1547, retours d'un joueur) : musique : le Rebord plus léger (guitare des 35 s baissée, plus doux dans

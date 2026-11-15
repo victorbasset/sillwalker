@@ -1845,4 +1845,8 @@ export default {
   2970: "What counts is the farthest zone ever reached, not the hero’s level.",
   2971: "Selling a lot by hand? The “Connoisseur's Eye” (Shop) sells everything that doesn’t improve your hero in one click. Click here.",
   2972: "{0} defeated: {1} gold!",
+  2973: "An experience gauge under your level on the strip: you can finally see the next level coming.",
+  2974: "A quest chest claimed by hand now opens before your eyes, like the shop’s chests.",
+  2975: "Settings joins the buttons on the right of the panel; the selected item gets a light frame (it blended in with legendary).",
+  2976: "A rare monster, Poupouce, hides among the others: it drops five times more gold.",
 };
