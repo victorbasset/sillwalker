@@ -1,4 +1,5 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
+import { goblinCatchable } from "../../game/quests.js";
 import { npcHTML } from "../npc.js";
 import { CHRONICLES } from "../../game/story.js";
 import { subtabsHTML } from "../subtabs.js";
@@ -132,7 +133,7 @@ export class StatsTab {
           return `<li title="${esc(ent.map(([id, e]) => `${seen[id] ? "✓" : "·"} ${e.name}${colon()}${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${(st.events || 0) > 0 && tabReady(S, "bestiary") // (it. 922) un clic : Bestiaire > Événements rares
             ? `<button class="linkbtn textlink" data-tab="bestiary" data-sec="events">${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) →</button>`
             : `${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span>`}</span><b>${segs(`${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}${evToday}`)}</b></li>`; })()}
-        ${line(tx("Gobelin doré"), segs(pct(GOBLIN.chance) + tx(" par monstre") + today(GOBLIN.chance, dm?.goblin || 1)))}
+        ${line(tx("Gobelin doré"), segs(pct(GOBLIN.chance) + tx(" par monstre") + today(GOBLIN.chance, dm?.goblin || 1)) + (goblinCatchable(S) ? "" : ` <span class="help" title="${esc(tx("ils s’enfuient : héros trop lent ici"))}">⚠</span>` /* (it. 1479) en bulle : la ligne ne tenait pas en russe à 1280 px */))}
         ${line(tx("Élite"), segs(pct(ELITE.chance) + tx(" par monstre") + today(ELITE.chance, eliteMul)))}
         ${line(tx("Champion (butin épique, dès la zone {0})", { 0: CHAMPION.minZone }), segs(pct(CHAMPION.chance) + tx(" par monstre") + today(CHAMPION.chance, dm?.champion || 1)))}
         ${line(tx("Œuf"), segs(`${tx("boss {0} · élite {1}", { 0: pct(EGG_CHANCE.boss), 1: pct(EGG_CHANCE.elite) })}`))}

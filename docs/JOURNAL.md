@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1479) : Statistiques > Probabilités, ligne « Gobelin doré » : un ⚠ dont la bulle dit « ils
+  s’enfuient : héros trop lent ici » quand le héros ne peut pas en abattre un avant sa fuite. D'abord écrit en clair
+  sur la ligne : lang-overflow l'a vue trop large en russe à 1280 px (fin de partie et état maximal) ; passé en bulle,
+  propre partout. Autotest 229/229.
 - 2026-11-15 (it. 1478, outil) : check-comments.mjs repère aussi un commentaire « // » qui finit par « ; } » ou par une
   affectation « x.y = z; », même quand le code avant finit par « ; » (cas de l'it. 1477, vu seulement par la
   vérification de syntaxe). Aucune fausse alerte sur les 126 fichiers ; le cas de l'it. 1477 reproduit est signalé.
