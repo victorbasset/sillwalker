@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1391, revue générale) : 12 h guerrier 61, mage 59, rôdeur 62 (une graine ; la moyenne des 10 classes
+  après l'Explosif a été jugée bruit à l'it. 1382 : −0,9 à −1,2, le même écart sans explosion) ; joueur absent 16 à
+  12 h (repère 16) ; texte japonais : aucun mot latin hors HP / Lv / pt voulus. Performance et mémoire mesurées aux
+  it. 1381 et 1390. Rien à corriger.
 - 2026-11-15 (it. 1390, contrôle) : mémoire dans la durée après les ajouts de la nuit (icônes d'effets, halo, éclats
   d'explosion) : mem-watch 6 min à ×3 : réel 488-501 Mo, stable (repère 485-530). Pas de fuite.
 - 2026-11-15 (it. 1389) : proposition « fin de semaine » (it. 1029) remise à jour : le mur est passé de 293 à 350
