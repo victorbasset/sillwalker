@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1393, contrôle) : panneau ouvert, redessins complets (renderAll, un par « change ») : 3,9 par seconde
+  dans les 10 premières secondes (le Grand intendant ramène et renvoie d'un coup les expéditions finies pendant
+  l'absence : rafale de lancement), puis 1 en 10 s en régime établi (une victoire). Coût d'un renderAll : 3-10 ms
+  (Bestiaire le plus lourd) : même à une victoire par seconde (début de partie), < 1 % d'un cœur. Rien à gagner.
 - 2026-11-15 (it. 1392, contrôle) : effet cumulé des ajouts de la nuit (Lucane, Source de vie, Jour du sang,
   Explosif…) : balance 12 h contre 4096b50, trois graines : −0,1 / +0,6 / +0,1 zone : aucun. Les records plus bas de
   simulate.js seul (guerrier 61) ne se retrouvent pas dans balance (guerrier 65, graine 7).
