@@ -1850,4 +1850,5 @@ export default {
   2975: "Configurações agora fica com os botões à direita do painel; o item selecionado ganha uma moldura clara (confundia-se com o lendário).",
   2976: "Um monstro raro, Poupouce, se esconde entre os outros: dá cinco vezes mais ouro.",
   2977: "Subiu de nível! Cada monstro derrotado dá experiência: a barra roxa sob o seu nível (e bem embaixo da faixa) mostra o próximo.",
+  2978: "{0} derrotados",
 };

@@ -10,7 +10,7 @@ import { CLASSES } from "../../game/classes.js";
 import { codexCounts } from "../../game/codex.js";
 import { SET_KEYS, SETS } from "../../game/sets.js";
 import { EVENTS, FEATHER, STAR, CHEST } from "../../game/events.js";
-import { GOBLIN, ELITE, CHAMPION } from "../../game/data.js";
+import { GOBLIN, ELITE, CHAMPION, POUPOUCE } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
 import { activeDayMod, DAY_MODS, blessingsSeenEffects } from "../../game/daymods.js";
 import { describeEffects } from "../../game/talents.js";
@@ -88,7 +88,7 @@ export class StatsTab {
         ${st.majors ? line(tx("Boss majeurs et échos vaincus"), fmt(st.majors)) : ""}
         ${line(tx("Élites vaincus"), fmt(st.elites || 0))}
         ${line(tx("Champions vaincus"), fmt(st.champions || 0))}
-        ${line(tx("Gobelins dorés attrapés"), fmt(st.goblins || 0))}
+        ${line(tx("Gobelins dorés attrapés"), fmt(st.goblins || 0) + (+st.poupouce > 0 ? ` <span class="tint" style="--c:#ff9ad2" title="${esc(tx("{0} vaincus", { 0: POUPOUCE.name }) + colon() + fmt(+st.poupouce))}">✦</span>` : ""))}
         ${line("K.O.", fmt(st.deaths))}
         ${line(tx("Coups au clic"), fmt(st.taps || 0))}
         ${line(tx("Coups critiques"), fmt(+st.crits || 0))}

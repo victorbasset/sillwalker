@@ -41,5 +41,6 @@ s.stats.affixesSeen = Object.fromEntries(Object.keys(ELITE_AFFIXES).map((k) => [
 s.stats.eventsSeen = Object.fromEntries(Object.keys(EVENTS).map((k) => [k, true]));
 s.daily.seen = Object.fromEntries(DAY_MOD_KEYS.map((k) => [k, true]));
 s.stats.champions = 12345; s.stats.elites = Math.max(s.stats.elites || 0, 987654);
+s.stats.poupouce = 4242; // (it. 1553) ligne « Poupouce vaincus » des Statistiques
 fs.writeFileSync(process.argv[2], JSON.stringify(s));
 console.log("ok", s.skills.outer.length + " nœuds", Object.keys(s.bestiary).length, CODEX_ENTRIES.length, Object.keys(POWERS).length, ACHIEVEMENTS.length);

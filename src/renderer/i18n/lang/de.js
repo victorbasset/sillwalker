@@ -1850,4 +1850,5 @@ export default {
   2975: "Einstellungen sitzt jetzt bei den Knöpfen rechts im Panel; der gewählte Gegenstand hat einen hellen Rahmen (er war vom Legendären kaum zu unterscheiden).",
   2976: "Ein seltenes Monster, Poupouce, versteckt sich unter den anderen: Es bringt fünfmal so viel Gold.",
   2977: "Stufenaufstieg! Jedes besiegte Monster gibt Erfahrung: Die lila Anzeige unter deiner Stufe (und ganz unten in der Leiste) zeigt die nächste.",
+  2978: "{0} besiegt",
 };

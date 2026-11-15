@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1553) : Statistiques : un ✦ rose après les gobelins dorés dès qu'un Poupouce est vaincu, son compte au survol
+  (une ligne à part, ou le compte écrit en clair, faisait défiler l'onglet en russe et chevaucher en allemand à 1280 px,
+  pire cas de max-save, qui compte maintenant les Poupouce).
 - 2026-11-15 (it. 1552, retour d'un joueur : « on monte de niveau sans savoir comment ») : au premier niveau gagné,
   une astuce explique que chaque monstre vaincu donne de l'expérience et montre la jauge violette ; écart nom du boss /
   pastille de l'or mesuré (8 px dans 5 langues, idée close).
