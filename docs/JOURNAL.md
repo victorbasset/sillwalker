@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1392, contrôle) : effet cumulé des ajouts de la nuit (Lucane, Source de vie, Jour du sang,
+  Explosif…) : balance 12 h contre 4096b50, trois graines : −0,1 / +0,6 / +0,1 zone : aucun. Les records plus bas de
+  simulate.js seul (guerrier 61) ne se retrouvent pas dans balance (guerrier 65, graine 7).
 - 2026-11-15 (it. 1391, revue générale) : 12 h guerrier 61, mage 59, rôdeur 62 (une graine ; la moyenne des 10 classes
   après l'Explosif a été jugée bruit à l'it. 1382 : −0,9 à −1,2, le même écart sans explosion) ; joueur absent 16 à
   12 h (repère 16) ; texte japonais : aucun mot latin hors HP / Lv / pt voulus. Performance et mémoire mesurées aux
