@@ -510,6 +510,13 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .gtip { position: absolute; z-index: 30; max-width: 280px; padding: 6px 9px; background: var(--panel); color: var(--text, inherit); border: 2px solid var(--line); border-radius: 4px; box-shadow: 0 3px 0 var(--line); pointer-events: none; font-size: 13px; line-height: 1.35; white-space: pre-line; }
 .itemtip { position: absolute; z-index: 20; width: 270px; padding: 8px 10px; background: var(--panel); border: 2px solid var(--accent); border-radius: 4px; box-shadow: 0 4px 0 var(--line); pointer-events: none; font-size: 14px; }
 .itemtip[hidden] { display: none; }
+/* (it. 1528) bulle d'objet bornée à la hauteur du panneau (panel.js onHover) : serrée si trop longue, jamais de défilement */
+.itemtip { overflow: hidden; box-sizing: border-box; }
+.itemtip.compact { font-size: 12px; line-height: 1.2; padding: 5px 8px; }
+.itemtip.compact .nm { font-size: 14px; }
+.itemtip.compact .lines li { padding: 0; }
+.itemtip.compact .tiphelp { display: none; }
+.itemtip.compact .verdict { margin-top: 2px; }
 .itemtip .nm { font-weight: 600; font-size: 16px; line-height: 1.2; }
 .itemtip .sub { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
 .itemtip .verdict { margin-top: 6px; }

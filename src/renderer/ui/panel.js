@@ -763,6 +763,12 @@ export class Panel {
     const z = pr.width / (this.root.offsetWidth || pr.width) || 1, W = pr.width / z, H = pr.height / z;
     // Jamais par-dessus la barre d'onglets : au plus haut, juste sous l'en-tête du panneau.
     const head = this.root.querySelector(".ptop"), minTop = head ? (head.getBoundingClientRect().bottom - pr.top) / z + this.root.scrollTop + 4 : 4;
+    // (it. 1528, demande de Victor) jamais plus haute que la place sous l'en-tête : une longue description (légendaire,
+    // panoplie) dépassait du bas, la barre de défilement apparaissait et la page sautait. D'abord plus serrée, puis coupée.
+    const room = H + this.root.scrollTop - minTop - 4;
+    this.tip.classList.remove("compact"); this.tip.style.maxHeight = "";
+    if (this.tip.offsetHeight > room) this.tip.classList.add("compact");
+    this.tip.style.maxHeight = room + "px";
     const left = Math.min(W - this.tip.offsetWidth - 4, (r.right - pr.left) / z + 8), top = Math.max(minTop, Math.min(H - this.tip.offsetHeight - 4 + this.root.scrollTop, (r.top - pr.top) / z + this.root.scrollTop));
     this.tip.style.left = left + "px";
     this.tip.style.top = top + "px";

@@ -628,6 +628,12 @@ async function runSelfTest(strip) {
     const r = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), keep = P.sinceVisit; P.sinceVisit = { min: 754, kills: 123456, gold: 9.87e15, leg: 12, lvl0: 1200, lvl1: 1313, best: 255, asc: 3, spells: 140, relics: 4, chests: 17, goblins: 38, events: 23 }; P.renderAll(); const o = p.scrollHeight - p.clientHeight, b = document.querySelector('#p-hero .visit'); const r = (b ? 'ok' : 'absente') + ' ' + o; P.sinceVisit = keep; P.renderAll(); return r; })()");
     check("« Depuis ta dernière visite » au pire cas : l'Aventure ne défile pas", /^ok -?[0-2]$/.test(r) || /^ok -\d+$/.test(r), r);
   }
+  // (it. 1528, demande de Victor) survoler un objet ne fait jamais défiler le panneau (une longue bulle dépassait en
+  // bas : la barre de défilement apparaissait et la page sautait)
+  {
+    const r = await js("(() => { const P = window.__panel, p = document.getElementById('panel'); P.setTab('adventure'); P.renderAll(); let worst = 0, n = 0; for (const s of document.querySelectorAll('[data-pane=adventure]:not([hidden]) .slot[data-from]')) { s.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); worst = Math.max(worst, p.scrollHeight - p.clientHeight); n++; } document.querySelector('.itemtip').hidden = true; return n + ' ' + worst; })()");
+    check("bulle d'un objet : jamais de défilement au survol", /^\d+ [0-2]$/.test(r) && +r.split(" ")[0] > 0, r);
+  }
   // (it. 1500) sorts du compagnon en grand (demande de Victor, it. 1491) : deux cadres côte à côte, cartes du compagnon
   // avec leurs boutons, l'onglet ne défile pas
   {
