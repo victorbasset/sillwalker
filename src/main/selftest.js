@@ -367,6 +367,14 @@ async function runSelfTest(strip) {
   const qrev = await js("(() => { const m = document.querySelector('#modal'); const ok = !m.hidden && !!m.querySelector('.reveal .rname'); return ok + ' ' + (m.querySelector('.rname') || {}).className; })()");
   check("quête à coffre réclamée : le coffre s'ouvre sous les yeux", /^true rname rc[2-4]$/.test(qrev), qrev);
   await js("document.querySelector('#modal').hidden = true");
+  // (it. 1555) « Tout réclamer » avec deux coffres : le meilleur des deux s'ouvre
+  const qall = await js(`(async () => { const g = window.__game, S = g.S; const had = S.unlocks.questDesk; S.unlocks.questDesk = true;
+    S.bag.splice(0, 4); S.quests.slots.slice(0, 2).forEach((q, i) => { q.progress = q.goal; q.reward = { chest: 2 + i }; }); g.changed();
+    window.__panel.renderAll(); await new Promise((r) => setTimeout(r, 200));
+    const b = document.querySelector('[data-pane="quests"]:not([hidden]) [data-action="q-claimall"]'); if (!b) { S.unlocks.questDesk = had; return "pas de bouton"; }
+    b.click(); await new Promise((r) => setTimeout(r, 250)); const m = document.querySelector('#modal'); const ok = !m.hidden && !!m.querySelector('.reveal .rname');
+    m.hidden = true; S.unlocks.questDesk = had; g.changed(); return String(ok); })()`);
+  check("« Tout réclamer » : le plus beau coffre s'ouvre", qall === "true", qall);
   // Familiers : faire éclore un œuf
   await js("window.__game.S.pets.eggs += 1; window.__game.changed()");
   await click('[data-tab="pets"]');

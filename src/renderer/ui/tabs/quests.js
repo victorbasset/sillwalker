@@ -110,7 +110,12 @@ export class QuestsTab {
     // (it. 1546, retour d'un joueur : « ça donne l'impression de rien looter, c'est satisfaisant d'en ouvrir ») réclamée
     // à la main, une quête à coffre l'ouvre sous les yeux du joueur, comme un coffre de la boutique
     if (a === "q-claim") { g.R.questChest = null; g.claimQuest(+b.dataset.id); const c = g.R.questChest; g.R.questChest = null; if (c) this.onReveal?.(c); }
-    else if (a === "q-claimall") { for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid); }
+    else if (a === "q-claimall") { // (it. 1555) plusieurs coffres : le plus beau objet s'ouvre sous les yeux
+      let best = null;
+      for (const q of [...g.S.quests.slots]) if (questDone(q)) { g.R.questChest = null; g.claimQuest(q.uid); const c = g.R.questChest; if (c && (!best || c.item.r > best.item.r)) best = c; }
+      g.R.questChest = null;
+      if (best) this.onReveal?.(best);
+    }
     else if (a === "q-reroll") g.rerollQuest(+b.dataset.id);
     else if (a === "q-go" && hasUnlock(g.S, "travelMap")) g.setZone(+b.dataset.z); // (it. 1426)
     else if (a === "q-adv") g.setAutoAdvance(true); // (it. 1470)

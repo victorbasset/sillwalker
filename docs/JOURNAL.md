@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1555) : « Tout réclamer » (Quêtes) : le plus bel objet des coffres réclamés s'ouvre sous les yeux,
+  comme une quête réclamée seule (it. 1546) ; la réclamation automatique reste silencieuse. Autotest 238/238.
 - 2026-11-16 (it. 1554) : contrôle après Poupouce (un tirage de plus dans la file des monstres) : balance 12 h contre
   5b15681f, moyenne 64,2 → 64,7 (bruit) ; dix premières minutes inchangées (niveau 2 vers 1 min, premier boss 77-79 s,
   boutique vers 9 min). Rien à corriger.
