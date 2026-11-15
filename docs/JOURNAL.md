@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1396) : brouillon du devlog 0.1.4 et POUR-VICTOR : le succès Démineur (éditions jusqu'à 82). Aucun
+  « 68 succès » resté dans la page Steam, les dossiers de presse ou le README.
 - 2026-11-15 (it. 1395) : 69e succès, « Démineur (25 explosifs) » (EXPLOSIVE_25, progression x / 25 sur le compteur de
   l'Explosif du Bestiaire) : un objectif de quelques heures pour la nouvelle élite. Icônes 64×64 (élémentaire de feu,
   couleur et grisée) générées par achicons.js et seules copiées (les 136 autres identiques), steam/achievements.md
