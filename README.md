@@ -253,7 +253,16 @@ src/
 - **Talent** : une ligne dans la branche voulue de `TREES` (effets possibles : `EFFECTS`).
 - **Article de boutique** : `CONSUMABLES`, `CHESTS` ou `UPGRADES` dans `shop.js` (+ l'effet dans `BUFF_EFFECTS` pour un élixir).
 - **Quête** : un modèle dans `QUEST_TEMPLATES` (+ son poids dans `WEIGHTS`) et un appel à `questProgress` là où l'action se produit.
-- **Familier** : une entrée dans `PETS` + un sprite dans `PET_ART`.
+- **Familier** : une entrée dans `PETS` (à la fin) + un sprite dans `PET_ART`.
+- **Événement rare** (it. 1375) : une entrée À LA FIN de `EVENTS` (events.js) et son effet dans game.js ; une réplique
+  `ev_<id>` (strip.js SPEECH), un son `case "<id>"` (sound.js) ; nom et texte à traduire. Le nombre d'événements est cité
+  par `steam/store-page.md` (10 langues, vérifié par npm test), les dossiers de presse (`steam/promo`, `scripts/promo`,
+  partage Médias) et la checklist Steam.
+- **Élite** (it. 1382) : une entrée à la fin de `ELITE_AFFIXES` (data.js), son effet dans game.js, ses paramètres
+  chiffrés dans sa description (test de fidélité) ; même compte cité par la page Steam que les événements.
+- **Bénédiction du jour** (it. 1378) : toujours À LA FIN de `DAY_MODS` ; vérifier que le calendrier d'aujourd'hui et des
+  jours déjà annoncés ne bouge pas (sinon un sel dans `DAY_MOD_SALT`) ; une réplique `dm_<id>` (strip.js).
+- Après un de ces ajouts : `scripts/i18n-names.mjs`, lang-overflow (le Bestiaire grandit), une édition « Quoi de neuf ».
 - **Pouvoir légendaire** / **constellation** : une ligne dans `POWERS` / `CONSTELLATIONS`.
 - **Sort** : une mécanique dans `SPELL_TEMPLATES` (+ son effet dans `strip.spellFx`, son son dans `Sound.spellSound`, son
   dessin dans `SPELL_ART` de `shopart.js`) ; les sorts d'un héros dans `CLASS_SPELLS` (noms à traduire).

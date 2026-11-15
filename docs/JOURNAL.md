@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1384) : README « Ajouter du contenu » : recettes pour un événement rare, une élite et une bénédiction
+  du jour (où écrire, ordre « à la fin », réplique, son, nombres cités par la page Steam et les dossiers de presse,
+  calendrier), tirées des ajouts de la nuit ; familiers « à la fin » aussi.
 - 2026-11-15 (it. 1383, contrôle) : l'Explosif à l'image (--stage : toute la file explosive, monstre ramené à 1 PV
   toutes les 2 s car la zone 56 de dev-data est longue à vaincre) : étiquettes orange « Explosif », 4 explosions en
   10 s, PV du héros qui baissent puis remontent. Conforme.
