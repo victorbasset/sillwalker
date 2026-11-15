@@ -25,7 +25,8 @@ import { fmt, uS } from "../game/format.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
-import { spellIconURL, relicIconURL } from "./shopart.js";
+import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
+import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar } from "./dom.js";
 
 // Répliques du héros, par circonstance.
@@ -1095,14 +1096,20 @@ export class StripRenderer {
 
   drawHudRight() {
     const S = this.game.S, gt = fmt(S.gold).replace(/[  ]/g, " "), // espaces fines : absentes de la police pixel du canevas
-      lvlTxt = tx("Niv. ") + S.lvl, key = gt + "|" + lvlTxt;
+      lvlTxt = tx("Niv. ") + S.lvl,
+      // (it. 1340) élixirs, parchemins et encens actifs : une icône chacun devant l'or (4 au plus, puis « +N »),
+      // redessinés seulement quand la liste change (pas à chaque seconde)
+      buffs = CONSUMABLES.filter((c) => c.kind === "buff" && (S.buffs[c.id] || 0) > 0).map((c) => c.id),
+      key = gt + "|" + lvlTxt + "|" + buffs.join(",");
     if (key === this.hudRKey) return;
     this.hudRKey = key; mark("hud");
     const ctx = this.hudR.ctx, right = HUD_R_W - 10;
     ctx.clearRect(0, 0, HUD_R_W, HUD_H);
     ctx.font = FONT;
     const lw = ctx.measureText(lvlTxt).width;
-    const pillL = Math.max(2, right - 14 - lw - ctx.measureText(gt).width - 22);
+    const shown = buffs.length > 4 ? buffs.slice(0, 3) : buffs, more = buffs.length - shown.length,
+      moreTxt = more ? "+" + more : "", iconsW = shown.length * 21 + (more ? ctx.measureText(moreTxt).width + 4 : 0) + (buffs.length ? 6 : 0);
+    const pillL = Math.max(2, right - 14 - lw - ctx.measureText(gt).width - 22 - iconsW);
     this.hudRLeft = this.W - HUD_R_W - this.rightReserve + pillL; // bord gauche de la pastille or / niveau (bulle du héros)
     if (this.centerHud) { // pastille or / niveau juste à droite du milieu, puis les boutons
       const x = Math.round(this.W / 2 + 6 - pillL);
@@ -1117,5 +1124,8 @@ export class StripRenderer {
     drawText(ctx, gt, right - 14 - lw, 17, "#ffd34d", "right");
     ctx.font = FONT;
     drawCoin(ctx, right - 14 - lw - ctx.measureText(gt).width - 14, 7);
+    let bx = pillL + 8;
+    for (const id of shown) { const ic = shopIconCanvas(id, 2); ctx.drawImage(ic, bx, Math.round((HUD_H - ic.height) / 2)); bx += 21; }
+    if (more) drawText(ctx, moreTxt, bx + 1, 17, "#cfc6e8", "left");
   }
 }

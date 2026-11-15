@@ -199,6 +199,14 @@ export function spellIconURL(tpl, color, scale = 3, badge = null) {
   return cache[k];
 }
 
+/** (it. 1340) l'icône en canevas (dessin synchrone dans un autre canevas : effets actifs de la bande). */
+const canvasCache = {};
+export function shopIconCanvas(id, scale = 2) {
+  const k = id + "@" + scale;
+  if (!canvasCache[k]) { const d = SHOP_ICON_DEFS[id] || SHOP_ICON_DEFS.potion; canvasCache[k] = buildSprite(d[0], { K: OUT, ...d[1] }, scale, false, 1); }
+  return canvasCache[k];
+}
+
 export function shopIconURL(id, scale = 5) {
   const k = id + "@" + scale;
   if (!cache[k]) {

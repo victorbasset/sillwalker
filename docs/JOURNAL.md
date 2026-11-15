@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1340) : la bande montre les élixirs, parchemins et l'Encens de chasse actifs : une petite icône
+  chacun devant l'or (4 au plus, sinon 3 et « +N »), dans le canevas du haut à droite, redessiné seulement quand la
+  liste change (aucun coût par image). Avant, il fallait ouvrir le panneau pour savoir ce qui était actif. Vu en
+  français à 1920 px et en allemand à 1280 px (2 et 6 effets). Astuce de capture : dans une copie de sauvegarde, régler
+  `s.last = Date.now()`, sinon l'absence simulée épuise les effets avant l'image.
 - 2026-11-15 (it. 1339, contrôle) : --crawl réparé, sur l'état « tout au maximum » (max-save) dans 8 langues (en, de,
   es, pt, pl, ja, zh, ko ; fr et ru faits à la 1338) : 706-724 clics chacune, aucune erreur.
 - 2026-11-15 (it. 1338) : --crawl réparé (il manquait l'achat de l'Encens de chasse, it. 1337). Trois défauts : il lisait
