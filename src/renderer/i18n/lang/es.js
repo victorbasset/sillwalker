@@ -1807,4 +1807,8 @@ export default {
   2932: "Tienda: la burbuja del botón de compra avisa cuando el objeto se equipará al instante.",
   2933: "Compañero",
   2934: "Tu compañero los lanza solo en combate, además de tus hechizos, a la mitad de su potencia.",
+  2935: "{n} umbral de maestría: elige su bonificación (A o B)|{n} umbrales de maestría: elige sus bonificaciones (A o B)",
+  2936: "Umbral alcanzado: elige su bonificación (A o B). Mientras tanto, se aplica A.",
+  2937: "Elegir bonificación",
+  2938: "2 bonificaciones a elegir",
 };

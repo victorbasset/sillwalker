@@ -4329,6 +4329,26 @@ test("maîtrises : un palier à choix franchi est annoncé, une fois (it. 1122)"
   assert(!g.pickMastery("ms_power", 200, "b"), "palier 200 jamais atteint : pas de choix");
 });
 
+test("maîtrises : un palier dont le bonus n'a jamais été choisi est signalé (it. 1522, Victor ne trouvait pas le choix)", () => {
+  const g = new Game(freshState()); (g.S.talents[g.S.cls] ||= {}).ms_power = 48;
+  g.S.lvl = 2000;
+  assert.deepEqual(g.pendingMasteryPicks().map((x) => x.at), [10, 25], "rang 48 : paliers 10 et 25 déjà atteints");
+  g.learnTalent("ms_power", 2);
+  assert.deepEqual(g.pendingMasteryPicks().map((x) => x.at), [10, 25, 50], "paliers 10, 25 et 50 à choisir");
+  assert(g.todoNow().some((t) => t.id === "masteryPick" && t.n === 3), "dans « À faire »");
+  // choisir A (le bonus déjà actif) compte aussi : le palier n'est plus signalé
+  assert(g.pickMastery("ms_power", 10, "a"));
+  assert(g.pickMastery("ms_power", 25, "b"));
+  assert.deepEqual(g.pendingMasteryPicks().map((x) => x.at), [50]);
+  // gardé à l'ascension, et nettoyé au chargement (valeur absurde)
+  g.S.best = Math.max(g.S.best, 60);
+  assert(g.ascend());
+  assert.equal(g.S.masteryChosen["ms_power:10"], true, "gardé à l'ascension");
+  const bad = freshState(); bad.masteryChosen = { "ms_power:10": true, "x": 3, "ms_power:25": "oui" };
+  const g2 = new Game(migrate(JSON.parse(JSON.stringify(bad))));
+  assert.deepEqual(Object.keys(g2.S.masteryChosen), ["ms_power:10"], "sauvegarde nettoyée");
+});
+
 test("maîtrises : un bonus au choix à chaque palier, « a » par défaut ; sauvegarde nettoyée (it. 1107)", () => {
   const g = new Game(freshState()); (g.S.talents[g.S.cls] ||= {}).ms_power = 25;
   const crit0 = talentEffects(g.S).crit || 0, spd0 = talentEffects(g.S).spd || 0;

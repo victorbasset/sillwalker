@@ -1807,4 +1807,8 @@ export default {
   2932: "Loja: a bolha do botão de compra avisa quando o objeto será equipado de imediato.",
   2933: "Companheiro",
   2934: "O teu companheiro lança-os sozinho em combate, além dos teus feitiços, com metade da potência.",
+  2935: "{n} patamar de mestria: escolhe o seu bónus (A ou B)|{n} patamares de mestria: escolhe os seus bónus (A ou B)",
+  2936: "Patamar atingido: escolhe o seu bónus (A ou B). Até lá, aplica-se A.",
+  2937: "Escolher bónus",
+  2938: "2 bónus à escolha",
 };

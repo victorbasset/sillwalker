@@ -1807,4 +1807,8 @@ export default {
   2932: "Laden: Die Blase des Kaufknopfs sagt, wann der Gegenstand sofort angelegt wird.",
   2933: "Begleiter",
   2934: "Dein Begleiter wirkt sie im Kampf von selbst, zusätzlich zu deinen Zaubern, mit halber Stärke.",
+  2935: "{n} Meisterschaftsstufe: wähle ihren Bonus (A oder B)|{n} Meisterschaftsstufen: wähle ihre Boni (A oder B)",
+  2936: "Stufe erreicht: wähle ihren Bonus (A oder B). Bis dahin gilt A.",
+  2937: "Bonus wählen",
+  2938: "2 Boni zur Wahl",
 };

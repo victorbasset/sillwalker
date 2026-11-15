@@ -6,6 +6,7 @@ const LABELS = {
   quests: (t) => txn(t.n, "{n} quête à réclamer|{n} quêtes à réclamer"),
   upgrade: () => tx("Un objet plus puissant t’attend dans le sac"),
   talents: (t) => txn(t.n, "{n} point de talent à dépenser →|{n} points de talent à dépenser →").replace(/ →$/, ""),
+  masteryPick: (t) => txn(t.n, "{n} palier de maîtrise : choisis son bonus (A ou B)|{n} paliers de maîtrise : choisis leurs bonus (A ou B)"),
   skills: (t) => txn(t.n, "{n} point de compétence à dépenser|{n} points de compétence à dépenser"),
   unlock: (t) => tx("Déblocage abordable : {0}", { 0: t.name }),
   spell: (t) => tx("Sort à apprendre : {0}", { 0: tr(t.name) }),

@@ -637,6 +637,8 @@ details.more summary:hover { color: var(--accent); }
 .talent.can:hover { background: color-mix(in oklab, var(--good) 14%, var(--panel)); }
 .talent.locked, .talent.maxed { cursor: default; }
 .talent .tmax { margin-left: 6px; align-self: center; font-size: 11px; padding: 0 5px; line-height: 16px; background: var(--good); color: #14121f; border-radius: 3px; cursor: pointer; }
+/* (it. 1522) palier de maîtrise dont le bonus reste à choisir : ouvre le choix (A ou B) */
+.talent .mpend { margin-left: 8px; align-self: center; flex: none; white-space: nowrap; font-size: 12px; padding: 1px 8px; line-height: 17px; background: var(--accent); color: #14121f; border-radius: 3px; cursor: pointer; font-weight: 600; }
 .talent .tmax:hover { filter: brightness(1.2); }
 .talent.voie.armed { border-color: color-mix(in oklab, #ffd34d var(--tintk), var(--accent)); background: color-mix(in oklab, #ffd34d 14%, var(--panel)); }
 .warnline { color: var(--good); }
@@ -647,7 +649,10 @@ details.more summary:hover { color: var(--accent); }
 /* Détail du talent : hauteur fixe pour que la grille ne bouge pas au survol */
 #tsel { height: 150px; overflow: hidden; }
 .tgrid .tdetail { grid-row: span 2; }
-.tgrid .tvoie { grid-column: 2 / span 2; }
+/* (it. 1522, demande de Victor) la Voie sur une colonne, les Maîtrises sur deux (place pour « Choisir un bonus ») */
+.tgrid .tvoie { grid-column: 2; }
+.tvoie .vt { display: none; }
+.tgrid .tmastery { grid-column: 3 / span 2; }
 #tsel { height: auto; min-height: 120px; }
 
 /* ---------- Boutique illustrée ---------- */
@@ -666,7 +671,9 @@ details.more summary:hover { color: var(--accent); }
 /* (it. 1107) bonus au choix des paliers de maîtrise (grande fenêtre) : l'option choisie en évidence */
 .mpicks li > span:first-child { white-space: nowrap; flex-shrink: 0; margin-right: 8px; } /* (it. 1141) insécable ET sans rétrécir : elle passait sous le premier bouton */ /* (it. 1126) « rang 100 » se coupait sur deux lignes */
 .mpicks li.later > span:first-child { color: var(--muted); } /* (it. 1125) palier pas encore atteint dans cette course */
-.mpickbox > summary { margin: 0; } /* (it. 1108) dans la ligne « Paliers atteints » ; affichage par défaut (inline / inline-block : le contenu replié se rendait) */
+.mpickbox > summary { margin: 0; }
+/* (it. 1522, demande de Victor : « trop discret ») le « choisir » de la fiche en vrai bouton */
+details.more.mpickbox > summary, details.more.mpickbox > summary:hover { background: var(--accent); color: #14121f; padding: 0 10px; line-height: 1.3; border-radius: 3px; font-weight: 600; cursor: pointer; } /* (it. 1108) dans la ligne « Paliers atteints » ; affichage par défaut (inline / inline-block : le contenu replié se rendait) */
 .mpicks .mpick { font-size: 12px; padding: 2px 6px; background: var(--chip); color: var(--ink); white-space: normal; text-align: left; }
 .mpicks .mpick.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, var(--panel)); color: var(--ink); }
 .talent.mastery:has(.tmax) .mnext { display: none; } /* avec la pastille « tout », la tuile débordait (polonais, 1280 px) : le palier reste dans le détail */
@@ -1009,6 +1016,8 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 #p-bag > .row button { font-size: 13px; padding: 4px 8px; }
 /* Talents (demande 18) : lignes plus basses, notes des cadres en ⓘ. */
 .tbranch .talent { padding-top: 5px; padding-bottom: 5px; }
+/* (it. 1522) maîtrises un peu plus serrées (russe à 1280 px : 4 px de défilement avec le bouton « Choisir un bonus ») */
+.tmastery .talent { padding-top: 4px; padding-bottom: 4px; }
 .tbranch h2 .help { cursor: help; margin-left: 4px; }
 /* Ascension (demandes 27 et 29) : icônes ; « gardé / perdu » en étiquettes compactes. */
 .keeplose ul { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 3px 10px; font-size: 13px; }
@@ -1501,3 +1510,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .chips .chip.daymod:not(:last-child) { flex-shrink: 0; max-width: 75%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* (it. 1296) Bestiaire > Bénédictions du jour : « aujourd'hui » / « demain » sur la carte */
 .daytag { font-size: 11px; color: var(--accent); border: 1px solid currentColor; padding: 0 4px; margin-left: 4px; white-space: nowrap; }
+
+
+/* (it. 1522) fiche d'un talent, panneau étroit : texte un peu plus petit (russe à 1280 px, fiche d'une maîtrise : 6 px de défilement) */
+@container panel (max-width: 1334px) { .tdetail .lines li { font-size: 14px; } }

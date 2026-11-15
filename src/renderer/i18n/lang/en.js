@@ -1807,4 +1807,8 @@ export default {
   2932: "Shop: the buy button's tooltip says when the item will be equipped right away.",
   2933: "Companion",
   2934: "Your companion casts them on their own in combat, on top of your spells, at half their power.",
+  2935: "{n} mastery milestone: choose its bonus (A or B)|{n} mastery milestones: choose their bonuses (A or B)",
+  2936: "Milestone reached: choose its bonus (A or B). Until then, A applies.",
+  2937: "Choose a bonus",
+  2938: "2 bonuses to choose from",
 };

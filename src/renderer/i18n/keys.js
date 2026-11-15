@@ -2936,5 +2936,9 @@ export const KEYS = [
   "Sur la bande, le serviteur (squelette, loup) et le familier passent devant le héros et son compagnon : ils ne sont plus cachés.",
   "Boutique : la bulle du bouton d’achat annonce quand l’objet sera équipé tout de suite.",
   "Compagnon",
-  "Ton compagnon les lance tout seul en combat, en plus de tes sorts, à moitié de leur puissance."
+  "Ton compagnon les lance tout seul en combat, en plus de tes sorts, à moitié de leur puissance.",
+  "{n} palier de maîtrise : choisis son bonus (A ou B)|{n} paliers de maîtrise : choisis leurs bonus (A ou B)",
+  "Palier atteint : choisis son bonus (A ou B). En attendant, A s’applique.",
+  "Choisir un bonus",
+  "2 bonus au choix"
 ];

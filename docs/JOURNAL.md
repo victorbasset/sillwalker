@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1522, demandes de Victor : le choix des bonus de paliers était introuvable, « A/B » obscur) :
+  S.masteryChosen (paliers où le joueur a cliqué ; nettoyé au chargement, gardé à l'ascension) ; Game.pendingMasteryPicks ;
+  « À faire » : « N paliers de maîtrise : choisis leurs bonus » ; bouton « Choisir un bonus » sur la maîtrise (ouvre la
+  fenêtre de choix sans dépenser de point) ; « choisir · N » de la fiche en vrai bouton ; « Prochain palier » : « 2 bonus
+  au choix » au lieu de « A / B ». Voie sur une colonne (description au survol), Maîtrises sur deux ; aide « Clic sur un
+  talent… » dans le ⓘ du titre ; maîtrises et lignes de la fiche plus serrées en panneau étroit. Avant : la fiche d'une
+  maîtrise faisait défiler l'onglet de 47 px en russe à 1280 px (aucun contrôle ne la mesurait) ; maintenant 0 (ru, de,
+  pl 1280, ru 1366). Test ajouté (313). Autotest 231/231, save-fuzz ok (1225), lang-overflow propre.
 - 2026-11-15 (it. 1521, demande de Victor) : Héros > Sorts et attaque : boutons d'amélioration des sorts alignés en bas
   (carte en colonne : en-tête .spellhd, texte, .spellact poussé en bas ; avec un compagnon, chaque grille remplit son
   cadre : les six boutons sur une ligne). Mesuré fr 1920 (286 partout), ru 1280, de 1366, sans défilement.

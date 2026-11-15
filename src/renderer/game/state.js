@@ -43,6 +43,7 @@ export function freshState(now = Date.now()) {
     partner: null,      // héros compagnon du duo (demande 17) : autre portée que le héros principal
     nextPartner: null,  // compagnon choisi pour la prochaine ascension
     talents: {},        // { classe: { idTalent: rang } } : chaque classe garde ses talents
+    masteryChosen: {},  // (it. 1522) paliers où le joueur a cliqué un bonus (les autres sont signalés « à choisir »)
     masteryPicks: {},   // (it. 1107) option choisie à chaque palier de maîtrise : { "ms_power:10": "b" } ("a" par défaut)
     buffs: {},          // { elixir: secondes restantes, ... }
     potions: 3,
@@ -167,6 +168,8 @@ export function migrate(raw) {
   for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop", "bossDefeats", "unlocks"]) if (!isObj(s[k])) s[k] = {};
   // Talents par classe ({ classe: { talent: rang } }) : entrées illisibles retirées (elles faisaient échouer le démarrage).
   // (it. 1107) paliers de maîtrise : seules les valeurs "a" / "b" sous une clé « id:rang » restent
+  if (!isObj(s.masteryChosen)) s.masteryChosen = {};
+  for (const k of Object.keys(s.masteryChosen)) if (!/^ms_\w+:\d+$/.test(k) || s.masteryChosen[k] !== true) delete s.masteryChosen[k];
   if (!isObj(s.masteryPicks)) s.masteryPicks = {};
   for (const k of Object.keys(s.masteryPicks)) if (!/^ms_\w+:\d+$/.test(k) || (s.masteryPicks[k] !== "a" && s.masteryPicks[k] !== "b")) delete s.masteryPicks[k];
   for (const c of Object.keys(s.talents)) {

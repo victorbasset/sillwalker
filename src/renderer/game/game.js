@@ -2392,6 +2392,17 @@ export class Game {
    * Ce que le joueur peut faire tout de suite (résumé d'absence) : [{ id, n, tab, name? }],
    * dans l'ordre d'intérêt. Seulement ce qui est réellement disponible (déblocages compris).
    */
+  /** (it. 1522, Victor ne trouvait pas le choix des bonus) Paliers de maîtrise atteints dans cette course, à deux
+   *  bonus, où le joueur n'a jamais cliqué (le bonus A s'applique en attendant) : [{ id, at }]. */
+  pendingMasteryPicks() {
+    const S = this.S, P = S.masteryPicks || {}, C = S.masteryChosen || {}, ranks = classTalents(S), out = [];
+    for (const m of MASTERIES) {
+      const r = ranks[m.id] || 0;
+      if (r) for (const g of masteryMilestones(m.id, r, S).got) { const k = m.id + ":" + g.at; if (g.b && P[k] !== "b" && !C[k]) out.push({ id: m.id, at: g.at }); }
+    }
+    return out;
+  }
+
   todoNow(now = Date.now()) {
     const S = this.S, out = [];
     // (it. 909) réclamation automatique (Bureau des contrats) : seules restent celles qui attendent de la place (coffre)
@@ -2401,6 +2412,8 @@ export class Game {
     if (this.hasUpgradeCached()) out.push({ id: "upgrade", n: 1, tab: "adventure" });
     const tp = this.talentPointsFree();
     if (tp > 0) out.push({ id: "talents", n: tp, tab: "talents" });
+    const mp = this.pendingMasteryPicks().length;
+    if (mp) out.push({ id: "masteryPick", n: mp, tab: "talents" });
     const sp = skillPointsFree(S);
     if (sp > 0 && skillSpendable(S)) out.push({ id: "skills", n: sp, tab: "skills" });
     else if (graphSpendable(S)) out.push({ id: "skills", n: graphPointsFree(S), tab: "skills" }); // (it. 1105) le grand graphe
@@ -2661,6 +2674,7 @@ export class Game {
       stats: old.stats, bossDefeats: old.bossDefeats || {}, guild: old.guild, codex: old.codex, powersSeen: old.powersSeen, setsDone: old.setsDone || {}, tabsOpen: old.tabsOpen || {}, journey: old.journey || [], story: old.story || { intro: true, read: {} }, nextId: old.nextId, log: old.log, skills: old.skills, speed: old.speed, settings: old.settings, daily: old.daily,
       // (it. 1122) choix des paliers de maîtrise : gardés (avant : perdus à chaque ascension, à refaire à chaque course)
       masteryPicks: old.masteryPicks || {},
+      masteryChosen: old.masteryChosen || {},
     });
     // Duo : le compagnon prévu (ou l'actuel) suit, s'il reste de l'autre portée que le héros principal.
     f.quests.auto = !!(old.quests && old.quests.auto); // Bureau des contrats : la réclamation automatique reste cochée
@@ -2767,6 +2781,7 @@ export class Game {
     const seen = !!(this.S.masteryPicks && this.S.masteryPicks[id + ":" + at]);
     if ((opt !== "a" && opt !== "b") || !masteryMilestones(id, seen ? Math.max(r, 400) : r, this.S).got.some((g) => g.at === at && g.b)) return false;
     (this.S.masteryPicks ||= {})[id + ":" + at] = opt;
+    (this.S.masteryChosen ||= {})[id + ":" + at] = true; // (it. 1522) choisi par le joueur : plus signalé
     this.invalidateStats();
     this.changed();
     return true;

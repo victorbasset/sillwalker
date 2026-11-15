@@ -48,14 +48,18 @@ export class TalentsTab {
       const taken = voie && voie.id === v.id, closed = voie && !taken, locked = spentAll < VOIE_REQ;
       const cls = ["talent", "voie", taken ? "has maxed" : "", closed ? "closed" : "", locked ? "locked" : "", this.sel === v.id ? "sel" : ""].join(" ");
       const armed = this.armed === v.id && !taken;
-      return `<button class="${cls}${armed ? " armed" : ""}" data-action="t-voie" data-id="${v.id}" data-tid="${v.id}"><span class="tn">${taken ? "✦ " : ""}${esc(v.name)}</span>
+      // (it. 1522, demande de Victor : réduire la Voie) la description au survol, une ligne par voie
+      return `<button class="${cls}${armed ? " armed" : ""}" data-action="t-voie" data-id="${v.id}" data-tid="${v.id}" title="${esc(v.text)}"><span class="tn">${taken ? "✦ " : ""}${esc(v.name)}</span>
         <span class="tr">${taken ? tx("choisie") : locked ? "🔒 " + txn(VOIE_REQ, "{n} pt|{n} pts") : closed ? "—" : armed ? tx("cliquer encore pour confirmer") : tx("choisir")}</span><span class="vt">${esc(v.text)}</span></button>`;
     }).join("");
+    // (it. 1522) paliers atteints dont le bonus n'a jamais été choisi : pastille « A/B » qui ouvre le choix
+    const pend = new Set(this.game.pendingMasteryPicks().map((x) => x.id));
     const masteries = MASTERIES.map((m) => {
       const r = ranks[m.id] || 0, locked = spentAll < MASTERY_REQ;
       const can = !cannotLearn(S, m.id);
       return `<button class="${["talent", "mastery", locked ? "locked" : "", r ? "has" : "", can ? "can" : "", this.sel === m.id ? "sel" : ""].join(" ")}" data-action="t-learn" data-n="1" data-id="${m.id}" data-tid="${m.id}">
         <span class="tn"><img class="eicon" src="${effectIconURL(m.eff)}" alt="">${esc(((n) => n[0].toUpperCase() + n.slice(1))(m.name.replace(tx("Maîtrise : "), "")))}</span><span class="tr">${locked ? "🔒 " + txn(MASTERY_REQ, "{n} pt|{n} pts") : tx("rang {0}", { 0: r }) + (masteryMilestones(m.id, r).next ? ` <small class="mnext" title="${esc(tx("Prochain palier : rang {0}, {1}", { 0: masteryMilestones(m.id, r).next.at, 1: describeEffects(masteryMilestones(m.id, r).next.eff) }))}">→ ${masteryMilestones(m.id, r).next.at}</small>` : "")}</span>
+        ${pend.has(m.id) ? `<span class="mpend" data-action="t-mpend" data-id="${m.id}" title="${esc(tx("Palier atteint : choisis son bonus (A ou B). En attendant, A s’applique."))}">${tx("Choisir un bonus")}</span>` : ""}
         ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">${tx("tout")}</span>` : ""}</button>`;
     }).join("");
     // Voie et maîtrises montrées à l'approche de leur seuil (10 points avant) : moins d'informations d'un coup au début,
@@ -69,11 +73,12 @@ export class TalentsTab {
 
     const canVoie = !voie && spentAll >= VOIE_REQ;
     const head = `<article class="panel tdetail">
-      <h2 class="npch">${esc(g.classDef().name)} <small>${txn(free, "{n} point libre · {0} au total|{n} points libres · {0} au total", { 0: fmt(total) })}</small>${npcHTML("talents", "icon")}</h2>
+      <h2 class="npch">${esc(g.classDef().name)} <small>${txn(free, "{n} point libre · {0} au total|{n} points libres · {0} au total", { 0: fmt(total) })} <span class="help" title="${esc(tx("Clic sur un talent : autant de rangs que possible · « +1 » : un seul rang. Survole un talent pour voir son effet."))}">ⓘ</span></small>${npcHTML("talents", "icon")}</h2>
       ${hasUnlock(g.S, "bulkPoints") ? `<div class="row"><button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button></div>` : `<div class="row">${lockLink(g.S, "bulkPoints")}</div>`}
       ${hasUnlock(g.S, "autoLevel") ? `<label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>` : ""}
       ${canVoie ? `<p class="note warnline">${tx("✦ Une voie est disponible : choisis-la dans le cadre « Voie ».")}</p>` : ""}
-      <p class="note">${tx("Clic sur un talent : autant de rangs que possible · « +1 » : un seul rang. Survole un talent pour voir son effet.")}</p>
+      ${""/* (it. 1522) l'aide « Clic sur un talent… » passe dans le ⓘ du titre : la fiche d'une maîtrise (paliers, choix A/B)
+        faisait défiler l'onglet à 1280 px (47 px en russe) */}
       <div id="tsel">${this.detailHTML()}</div>
       <div class="row tfoot">
         <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
@@ -123,7 +128,7 @@ export class TalentsTab {
           // le nombre seulement (la liste, longue, dans la bulle : en allemand, elle faisait défiler la carte)
           return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${this.picksHTML(t.id, r) || (ms.got.length ? ms.got.length + " ⓘ" : tx("aucun"))}</span></li>`
             // (it. 1108) les deux options au survol (sur deux lignes, elles faisaient défiler l'onglet à 1280 px)
-            + (ms.next ? `<li title="${esc(describeEffects(ms.next.a) + (ms.next.b ? " " + tx("ou") + " " + describeEffects(ms.next.b) : ""))}"><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${ms.next.b ? "A / B ⓘ" : esc(describeEffects(ms.next.a))}</span></li>` : ""); })() : ""}</ul>
+            + (ms.next ? `<li title="${esc(describeEffects(ms.next.a) + (ms.next.b ? " " + tx("ou") + " " + describeEffects(ms.next.b) : ""))}"><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${ms.next.b ? tx("2 bonus au choix") : esc(describeEffects(ms.next.a))}</span></li>` : ""); })() : ""}</ul>
         ${why && r < t.max ? `<p class="note">${esc(why)}${cend()}</p>` : ""}
       </div>`;
   }
@@ -154,6 +159,8 @@ export class TalentsTab {
   onAction(a, b, e) {
     const g = this.game;
     if (a === "t-sel") this.sel = b.dataset.id;
+    // (it. 1522) pastille « A/B » : la fiche de cette maîtrise, et la fenêtre de choix des paliers ouverte
+    else if (a === "t-mpend") { this.sel = b.dataset.id; setTimeout(() => this.root?.querySelector("#tsel .mpickbox summary")?.click(), 0); }
     // Maj + clic : comme le petit bouton (« +1 » sur un talent, « tout » sur une maîtrise)
     else if (a === "t-learn") this.learnFrom(b, !!e?.shiftKey);
     else if (a === "t-voie") {

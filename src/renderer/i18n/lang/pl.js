@@ -1807,4 +1807,8 @@ export default {
   2932: "Sklep: dymek przycisku zakupu mówi, kiedy przedmiot zostanie od razu założony.",
   2933: "Towarzysz",
   2934: "Towarzysz rzuca je sam w walce, oprócz twoich zaklęć, z połową mocy.",
+  2935: "{n} próg mistrzostwa: wybierz jego premię (A lub B)|{n} progi mistrzostwa: wybierz ich premie (A lub B)|{n} progów mistrzostwa: wybierz ich premie (A lub B)",
+  2936: "Próg osiągnięty: wybierz premię (A lub B). Do tego czasu działa A.",
+  2937: "Wybierz premię",
+  2938: "2 premie do wyboru",
 };
