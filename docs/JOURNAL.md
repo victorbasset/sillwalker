@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1374) : scripts/i18n-names.mjs (balayage des it. 1372-1373, deux vraies fautes trouvées) gardé
+  dans le dépôt, à lancer à la main (faux positifs grammaticaux : hors npm test) ; CLAUDE.md. Vérifié : « Berserker »
+  est « バーサーカー » en japonais pour la classe, la panoplie et ses objets.
 - 2026-11-15 (it. 1373) : même balayage pour les affixes d'élites, panoplies, reliques, constellations, atelier et
   coffres : 25 écarts, presque tous grammaticaux (génitifs allemands, « 의 » coréen omis en complément d'objet,
   « Rapide » qui n'est pas le même mot que « Swift as the Wind »). Un vrai : japonais « 狂戦士の怒りの » sur les objets
