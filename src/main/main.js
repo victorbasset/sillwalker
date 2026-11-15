@@ -241,9 +241,11 @@ function start() {
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)
           // (it. 553) pour les 20 héros : les cartes à deux effets passent sur deux lignes ; le pire est signalé
-          { P.setTab("class"); P.tabs.class.sec = "style"; const G = window.__game, keep = G.S.cls; let worst = 0, who = "";
-            for (const c of [...new Set((window.__spellsAll || []).map((x) => x.cls))].concat(keep)) { G.S.cls = c; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > worst) { worst = o; who = c; } }
-            G.S.cls = keep; P.renderAll(); if (worst > 2) out.push("sorts=" + worst + "(" + who + ")"); P.tabs.class.sec = "freed"; }
+          // (it. 1490) et chaque duo héros + compagnon (sorts du compagnon en grand, à droite)
+          { P.setTab("class"); P.tabs.class.sec = "style"; const G = window.__game, keep = G.S.cls, keepP = G.S.partner; let worst = 0, who = "";
+            const all = [...new Set((window.__spellsAll || []).map((x) => x.cls))];
+            for (const c of all.concat(keep)) for (const pt of [null, ...all.filter((x) => x !== c)]) { G.S.cls = c; G.S.partner = pt; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > worst) { worst = o; who = c + (pt ? "+" + pt : ""); } }
+            G.S.cls = keep; G.S.partner = keepP; P.renderAll(); if (worst > 2) out.push("sorts=" + worst + "(" + who + ")"); P.tabs.class.sec = "freed"; }
           // Statistiques > Succès (la liste grandit avec chaque succès ; les noms longs du russe passent sur deux lignes)
           if (P.tabs.stats) { P.setTab("stats"); P.tabs.stats.sec = "ach"; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("succès=" + o); P.tabs.stats.sec = "numbers"; }
           // (it. 1013-1014) sous-sections autres que celle par défaut (seule celle-ci était mesurée) : « onglet-section=N »

@@ -1336,6 +1336,18 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .duoline .duotag { white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
 @container panel (max-width: 1467px) { .duoline .duotag .synname { display: none; } }
 /* Sorts (demande D) : cartes dans « Style de combat », couleur du sort en bordure. */
+/* (it. 1490, demande de Victor) sorts du héros et du compagnon côte à côte */
+.spellduo.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+.spellduo.two .spellgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.partnerbox h2 small { font-size: 12px; }
+@container panel (max-width: 1568px) {
+  .spellduo.two .spellbox > p.note { display: none; }
+  .spellduo.two .spellcard button { font-size: 11px; padding: 1px 5px; margin-top: 2px; }
+  .spellduo.two .spellcard .note.tight { line-height: 1.25; margin: 2px 0; }
+  .spellduo.two .spellcard { padding: 4px 6px; }
+  .spellduo.two .spellcard .spellico { width: 22px; height: 22px; }
+  .spellduo.two .spellgrid { gap: 6px; }
+}
 .spellgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .spellcard { border: 2px solid var(--edge); border-left: 4px solid var(--c); padding: 6px 8px; background: var(--card, transparent); }
 .spellcard.locked { opacity: 0.55; }

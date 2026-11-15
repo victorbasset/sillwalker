@@ -8,7 +8,7 @@ import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUn
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
 import { esc, unit, fmt, dec } from "../../game/format.js";
-import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, spellScale, pierceTargets } from "../../game/spells.js";
+import { SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, spellScale, pierceTargets, PARTNER_SPELL } from "../../game/spells.js";
 import { recordZone, hasUnlock } from "../../game/unlocks.js";
 import { lockLink } from "../locks.js";
 import { spellIconURL } from "../../render/shopart.js";
@@ -102,18 +102,22 @@ export class ClassesTab {
     const duoNote = `<p class="note tabintro">${P ? tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: `<b>${esc(P.name)}</b>` })
       : tx("Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension).")}</p>`;
     // Sorts et attaque (ancien « Style de combat ») : son propre sous-onglet (demande 18) ; les autres montrent les cartes des héros.
-    el.innerHTML = `${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>
+    // (it. 1490) sous-section des sorts : les deux phrases d'introduction (duo, héros libérés) parlent des cartes des héros ;
+    // masquées ici, elles laissent la place aux sorts du compagnon affichés en grand
+    const intro = this.sec === "style" ? "" : `${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>`;
+    el.innerHTML = `${intro}
       <div class="subrow">${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Sorts et attaque"), `${classSpells(S.cls).filter((x) => spellRank(S, x.id) > 0).length} / ${classSpells(S.cls).length}`]], this.sec, "c-sec")}${npcHTML("class", true)}</div>
       ${this.sec === "style" ? this.spellsHTML(S) + style : `<div class="classgrid hscroll sec-${this.sec}" data-hs="heroes-${this.sec}">${cards}</div>`}`;
   }
 
   /** Sorts (demande D) : appris pour tous les héros, ils s'ajoutent à l'attaque de base en combat. */
-  spellsHTML(S) {
-    const rec = recordZone(S);
-    const cards = classSpells(S.cls).map((sp) => {
-      const r = spellRank(S, sp.id), open = rec >= sp.zone, price = spellPrice(sp, r), v = spellValue(sp, Math.max(1, r));
+  /** Carte d'un sort (it. 1490 : partagée par le héros et son compagnon ; mul = PARTNER_SPELL pour le compagnon,
+   *  valeurs affichées à sa vraie puissance). */
+  spellCard(S, sp, rec, mul = 1) {
+    {
+      const r = spellRank(S, sp.id), open = rec >= sp.zone, price = spellPrice(sp, r), v = spellValue(sp, Math.max(1, r)) * mul;
       // Effet affiché à un rang donné (le rang actuel sur la carte, le suivant dans l'infobulle du bouton).
-      const effAt = (rank) => { const w = spellValue(sp, Math.max(1, rank)); return sp.kind === "dmg" ? (sp.hits > 1 ? txn(sp.hits, "{n} coup de {0} % de l’attaque|{n} coups de {0} % de l’attaque", { 0: Math.round(w * 100) }) : tx("{0} % de l’attaque", { 0: Math.round(w * 100) }))
+      const effAt = (rank) => { const w = spellValue(sp, Math.max(1, rank)) * mul; return sp.kind === "dmg" ? (sp.hits > 1 ? txn(sp.hits, "{n} coup de {0} % de l’attaque|{n} coups de {0} % de l’attaque", { 0: Math.round(w * 100) }) : tx("{0} % de l’attaque", { 0: Math.round(w * 100) }))
         : sp.kind === "heal" ? tx("soigne {0} % des PV", { 0: Math.round(w) }) : tx("bouclier de {0} % des PV", { 0: Math.round(w) }); };
       const eff = sp.kind === "dmg" ? (sp.hits > 1 ? txn(sp.hits, "{n} coup de {0} % de l’attaque|{n} coups de {0} % de l’attaque", { 0: Math.round(v * 100) }) : tx("{0} % de l’attaque", { 0: Math.round(v * 100) }))
         : sp.kind === "heal" ? tx("soigne {0} % des PV", { 0: Math.round(v) }) : tx("bouclier de {0} % des PV", { 0: Math.round(v) });
@@ -126,23 +130,27 @@ export class ClassesTab {
       const dmS = activeDayMod(S), cdMul = dmS?.spellCdr || 1, dmCd = cdMul !== 1 ? ` <span class="help" title="${esc(`${dmS.icon} ${dmS.name} · ${dmS.desc}`)}">${dmS.icon}</span>` : "";
       return `<div class="spellcard${r ? " on" : ""}${open ? "" : " locked"}" style="--c:${sp.color}"><img class="spellico" src="${spellIconURL(sp.tpl, sp.color, 3, sp.fx?.[0])}" alt=""><b class="tint">${esc(tr(sp.name))}</b> <small>${r ? tx("rang {0} / {1}", { 0: r, 1: SPELL_MAX }) : ""}</small>
         <p class="note tight">${tx("Toutes les {0} s : {1}", { 0: dec(String(Math.round(spellCd(sp, Math.max(1, r)) / cdMul * 10) / 10)), 1: eff })}${dmCd}${spellFxText(sp, r).map((t) => ` · <b class="tint">${t}</b>`).join("")}</p>${btn}</div>`;
-    }).join("");
-    // Grimoire des sorts (case ou lien vers le déblocage) dans le titre : une ligne de moins (sinon l'onglet défilait).
-    const book = hasUnlock(S, "spellBook") ? `<label class="toggle" title="${esc(tx("Grimoire des sorts : améliorer tout seul le sort le moins cher"))}"><input type="checkbox" data-action="c-autospells"${S.settings.autoSpells !== false ? " checked" : ""}> ${tx("Grimoire des sorts")}</label>` : lockLink(S, "spellBook");
-    return `<article class="panel spellbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.cls] ? CLASSES[S.cls].name : "") })} <small class="spellbook">${book}</small></h2>
-      <p class="note tight">${tx("Ils se lancent tout seuls en combat dès qu’ils sont rechargés, en plus de l’attaque de base.")} ${tx("Propres à chaque héros, gardés à l’ascension.")} <span class="help" title="${esc(tx("Ton compagnon lance aussi les siens, à moitié de leur puissance."))}">ⓘ</span></p>
-      <div class="spellgrid">${cards}</div>${this.partnerSpells(S)}</article>`;
+    }
   }
 
-  /** Sorts du compagnon (it. 527) : une ligne, icônes et rangs, lancés à moitié de leur puissance. */
-  partnerSpells(S) {
+  spellsHTML(S) {
+    const rec = recordZone(S);
+    const cards = classSpells(S.cls).map((sp) => this.spellCard(S, sp, rec)).join("");
+    // Grimoire des sorts (case ou lien vers le déblocage) dans le titre : une ligne de moins (sinon l'onglet défilait).
+    const book = hasUnlock(S, "spellBook") ? `<label class="toggle" title="${esc(tx("Grimoire des sorts : améliorer tout seul le sort le moins cher"))}"><input type="checkbox" data-action="c-autospells"${S.settings.autoSpells !== false ? " checked" : ""}> ${tx("Grimoire des sorts")}</label>` : lockLink(S, "spellBook");
+    const duo = this.partnerSpells(S, rec);
+    return `<div class="spellduo${duo ? " two" : ""}"><article class="panel spellbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.cls] ? CLASSES[S.cls].name : "") })} <small class="spellbook">${book}</small></h2>
+      <p class="note tight">${tx("Ils se lancent tout seuls en combat dès qu’ils sont rechargés, en plus de l’attaque de base.")} ${tx("Propres à chaque héros, gardés à l’ascension.")} <span class="help" title="${esc(tx("Ton compagnon lance aussi les siens, à moitié de leur puissance."))}">ⓘ</span></p>
+      <div class="spellgrid">${cards}</div></article>${duo}</div>`;
+  }
+
+  /** Sorts du compagnon : (it. 527) une ligne d'icônes ; (it. 1490, demande de Victor) en grandes cartes, dans un cadre à
+   *  droite de ceux du héros, valeurs à moitié de puissance (PARTNER_SPELL) ; apprendre / améliorer comme pour le héros. */
+  partnerSpells(S, rec) {
     if (!S.partner || !CLASSES[S.partner]) return "";
-    // (it. 558) tous ses sorts débloqués, appris ou non ; « + » apprend / améliore (prix en infobulle)
-    const rec = recordZone(S), list = classSpells(S.partner).filter((x) => rec >= x.zone);
-    const icons = list.map((x) => { const r = spellRank(S, x.id), price = spellPrice(x, r);
-      const plus = r < SPELL_MAX ? `<button class="quiet pplus" data-action="c-spell" data-id="${x.id}"${S.gold < price ? " disabled" : ""} title="${esc((r ? tx("Améliorer ({0} or)", { 0: fmt(price) }) : tx("Apprendre ({0} or)", { 0: fmt(price) })) + " · " + [tr(x.name), ...spellFxText(x, r + 1)].join(" · "))}">+</button>` : "";
-      return `<span class="pspell${r ? "" : " off"}" title="${esc([tr(x.name), ...spellFxText(x, r)].join(" · "))}"><img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="">${r}${plus}</span>`; }).join("");
-    return `<p class="note tight pspells">${tx("Sorts du compagnon ({0}), à moitié de leur puissance :", { 0: esc(CLASSES[S.partner].name) })} ${icons || tx("aucun appris (apprends-les en jouant ce héros)")}</p>`;
+    const cards = classSpells(S.partner).map((sp) => this.spellCard(S, sp, rec, PARTNER_SPELL)).join("");
+    return `<article class="panel spellbox partnerbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.partner].name) })} <small>${esc(tx("compagnon, à moitié de leur puissance"))}</small></h2>
+      <div class="spellgrid">${cards}</div></article>`;
   }
 
   onAction(a, b) {

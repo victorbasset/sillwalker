@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1491, DEMANDES DE VICTOR) : (1) « mode automatique très grands écrans » par défaut : c'est déjà le cas
+  (settings.hudPos « auto » pour toute partie neuve ou sans réglage ; migrate le remet si la valeur est inconnue) : rien
+  à changer. (2) Héros > Sorts et attaque : les sorts du compagnon en grandes cartes, dans un cadre « Sorts de
+  {compagnon} » à droite de ceux du héros (même carte que le héros : rang, effets à moitié de puissance, recharge,
+  Apprendre / max) ; remplace la ligne de petites icônes. Place gagnée : les deux phrases d'introduction de l'onglet
+  (duo, héros libérés) ne s'affichent plus dans cette sous-section ; cartes plus compactes sous 1600 px. lang-overflow
+  mesure maintenant les 380 duos (héros + compagnon) en plus des 20 héros seuls : d'abord jusqu'à 38 px de défilement
+  (ru 1280), puis aucun défilement dans les 10 langues. Autotest 229/229, crawl 702 clics avec un compagnon.
 - 2026-11-15 (it. 1490) : héros bloqué : la carte de la zone montre trois pistes (la bulle en garde deux) : l'ascension
   n'était jamais visible quand forge et potions passaient avant. Pire cas de l'autotest durci (Enclume, or illimité,
   aucune potion) : l'Aventure ne défile pas. Autotest 229/229.

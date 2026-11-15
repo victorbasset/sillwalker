@@ -53,6 +53,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Mode mini : effets actifs, bénédiction de demain, pistes du héros bloqué ; Statistiques > Probabilités : chances
   du jour (Pie, prodiges, champions) ; recharge réelle des sorts le Jour des arcanes.
 - « Quoi de neuf » montre jusqu'à 11 nouveautés quand les éditions sont courtes.
+- Ta demande : Héros > Sorts et attaque montre les sorts du compagnon en grandes cartes, à droite de ceux du héros.
+  (Le mode « Automatique (très grands écrans) » était déjà le réglage par défaut.)
 
 **Corrections**
 - Parchemins de fortune et de savoir enfin comptés pendant l'absence ; « tout dépenser » du grand graphe sans gel

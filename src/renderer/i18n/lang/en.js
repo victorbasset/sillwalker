@@ -1788,4 +1788,5 @@ export default {
   2913: "New pet, the Cricket: its song draws wonders (+5% rare events per level).",
   2914: "On the strip, the ◆ of hunting quests also marks elites and champions of the hunted kind.",
   2915: "Statistics: the golden goblin line warns (⚠) when your hero is too slow to catch them.",
+  2916: "companion, at half power",
 };

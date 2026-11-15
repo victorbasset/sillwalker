@@ -1788,4 +1788,5 @@ export default {
   2913: "Nowy pupil: Świerszcz, którego śpiew przyciąga cuda (+5 % rzadkich zdarzeń na poziom).",
   2914: "Na pasku ◆ zadań łowieckich oznacza też elity i czempionów polowanego rodzaju.",
   2915: "Statystyki: wiersz złotych goblinów ostrzega (⚠), gdy bohater jest za wolny, by je złapać.",
+  2916: "towarzysz, z połową mocy",
 };

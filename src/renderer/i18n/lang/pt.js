@@ -1788,4 +1788,5 @@ export default {
   2913: "Novo mascote: o Grilo, cujo canto atrai prodígios (+5 % de eventos raros por nível).",
   2914: "Na faixa, o ◆ das missões de caça marca também as elites e campeões do tipo caçado.",
   2915: "Estatísticas: a linha dos goblins dourados avisa (⚠) quando o teu herói é lento demais para os pegar.",
+  2916: "companheiro, com metade da potência",
 };

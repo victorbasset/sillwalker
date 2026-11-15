@@ -1788,4 +1788,5 @@ export default {
   2913: "Neuer Begleiter: die Grille, deren Zirpen Wunder anlockt (+5 % seltene Ereignisse pro Stufe).",
   2914: "Auf dem Streifen markiert das ◆ der Jagd-Quests auch Elitegegner und Champions der gejagten Art.",
   2915: "Statistiken: Die Zeile der Goldkobolde warnt (⚠), wenn dein Held zu langsam ist, um sie zu fangen.",
+  2916: "Begleiter, mit halber Stärke",
 };

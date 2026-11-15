@@ -2917,5 +2917,6 @@ export const KEYS = [
   "événements rares",
   "Nouveau familier, le Grillon : son chant attire les prodiges (+5 % d’événements rares par niveau).",
   "Sur la bande, le ◆ des quêtes de chasse marque aussi les élites et champions du type chassé.",
-  "Statistiques : la ligne des gobelins dorés prévient (⚠) quand ton héros est trop lent pour les attraper."
+  "Statistiques : la ligne des gobelins dorés prévient (⚠) quand ton héros est trop lent pour les attraper.",
+  "compagnon, à moitié de leur puissance"
 ];
