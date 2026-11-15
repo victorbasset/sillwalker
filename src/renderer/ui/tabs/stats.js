@@ -129,7 +129,7 @@ export class StatsTab {
           const ent = Object.entries(EVENTS), ev = ent.map(([, e]) => e), cs = ev.map((e) => e.chance), seen = st.eventsSeen || {};
           const nSeen = ent.filter(([id]) => seen[id]).length;
           // (it. 1435) Jour des prodiges : la chance du jour (avant, seule la chance de base était affichée)
-          const evMul = dm?.events || 1, evToday = evMul !== 1 ? " · " + tx("aujourd’hui {0}", { 0: `${pct(Math.min(...cs) * evMul)}–${pct(Math.max(...cs) * evMul)}` }) : "";
+          const evMul = (dm?.events || 1) * (1 + (this.game.stats().events || 0) / 100), evToday = evMul !== 1 ? " · " + tx("aujourd’hui {0}", { 0: `${pct(Math.min(...cs) * evMul)}–${pct(Math.max(...cs) * evMul)}` }) : "";
           return `<li title="${esc(ent.map(([id, e]) => `${seen[id] ? "✓" : "·"} ${e.name}${colon()}${pct(e.chance)}${tx(" par victoire")}`).join("\n"))}"><span>${(st.events || 0) > 0 && tabReady(S, "bestiary") // (it. 922) un clic : Bestiaire > Événements rares
             ? `<button class="linkbtn textlink" data-tab="bestiary" data-sec="events">${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) →</button>`
             : `${esc(tx("Événements rares"))} (${nSeen} / ${ev.length}) <span class="note help">ⓘ</span>`}</span><b>${segs(`${pct(Math.min(...cs))}–${pct(Math.max(...cs))}${tx(" par victoire")}${evToday}`)}</b></li>`; })()}

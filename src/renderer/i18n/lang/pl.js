@@ -1782,4 +1782,7 @@ export default {
   2907: "uciekają: bohater tu za wolny",
   2908: "wznów postęp",
   2909: "Zadania: zablokowane zadanie mówi o tym na swojej karcie (złote gobliny za szybkie dla bohatera, automatyczny postęp wyłączony: jedno kliknięcie go wznawia), a zadanie z trafieniami kliknięciem przypomina, jak uderzać.",
+  2910: "Świerszcz",
+  2911: "Jego śpiew przyciąga cuda: rzadkie zdarzenia zdarzają się częściej.",
+  2912: "rzadkie zdarzenia",
 };

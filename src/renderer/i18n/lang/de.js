@@ -1782,4 +1782,7 @@ export default {
   2907: "sie fliehen: Held hier zu langsam",
   2908: "wieder vorrücken",
   2909: "Quests: Eine festsitzende Quest sagt es auf ihrer Karte (Goldkobolde zu schnell für deinen Helden, automatisches Vorrücken aus: ein Klick nimmt es wieder auf), und die Klicktreffer-Quest erinnert daran, wie man zuschlägt.",
+  2910: "Grille",
+  2911: "Ihr Zirpen lockt Wunder an: Seltene Ereignisse kommen öfter.",
+  2912: "seltene Ereignisse",
 };

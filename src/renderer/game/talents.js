@@ -43,6 +43,7 @@ export const EFFECTS = {
   secondWind:  { label: "second souffle", unit: "" },
   elites:      { label: "élites rencontrées", unit: "%" },
   chests:      { label: "coffres au trésor trouvés", unit: "%" }, // (it. 1427) la Pie
+  events:      { label: "événements rares", unit: "%" }, // (it. 1485) le Grillon
   purity:      { label: "de résistance à la Malédiction et au venin des boss (durée réduite)", unit: "%" },
   // (it. 1077) synergies du grand graphe (skillgraph.js) : un axe qui compte dans un autre
   synHpAtk:    { label: "d’attaque par doublement de tes points de vie", unit: "%" },

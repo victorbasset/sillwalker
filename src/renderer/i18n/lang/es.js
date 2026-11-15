@@ -1782,4 +1782,7 @@ export default {
   2907: "huyen: héroe demasiado lento aquí",
   2908: "reanudar el avance",
   2909: "Misiones: una misión atascada lo indica en su tarjeta (goblins demasiado rápidos para tu héroe, avance automático desactivado: un clic lo reanuda), y la de golpes con clic recuerda cómo golpear.",
+  2910: "Grillo",
+  2911: "Su canto atrae los prodigios: los eventos raros llegan más a menudo.",
+  2912: "eventos raros",
 };

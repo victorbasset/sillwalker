@@ -2079,7 +2079,8 @@ export class Game {
   rollRareThings(m) {
     const chance = m.boss ? FEATHER.boss : m.elite ? FEATHER.elite : FEATHER.normal;
     if (rand() < chance) { this.S.stats.feathers = (this.S.stats.feathers || 0) + 1; this.gainSpeed(FEATHER.gain, tx("Plume du vent")); }
-    const evMul = activeDayMod(this.S)?.events || 1; // Jour des prodiges (it. 938)
+    // Jour des prodiges (it. 938) ; (it. 1485) le Grillon
+    const evMul = (activeDayMod(this.S)?.events || 1) * (1 + (this.stats().events || 0) / 100);
     for (const id in EVENTS) if ((!EVENTS[id].req || EVENTS[id].req(this.S)) && rand() < EVENTS[id].chance * evMul) { this.startEvent(id); break; }
     // Jour des trésors ; (it. 1427) la Pie
     if (rand() < (m.boss ? CHEST.boss : m.elite ? CHEST.elite : CHEST.normal) * (activeDayMod(this.S)?.chest || 1) * (1 + (this.stats().chests || 0) / 100)) this.openChest();
@@ -2244,7 +2245,7 @@ export class Game {
     }
     // (it. 1447) événements rares : chance qu'une victoire en déclenche un (ceux permis ici, Jour des prodiges compris)
     if (q.kind === "event") {
-      const evMul = activeDayMod(this.S)?.events || 1;
+      const evMul = (activeDayMod(this.S)?.events || 1) * (1 + (this.stats().events || 0) / 100);
       let none = 1; for (const id in EVENTS) if (!EVENTS[id].req || EVENTS[id].req(this.S)) none *= 1 - Math.min(1, EVENTS[id].chance * evMul);
       rate *= 1 - none;
     }

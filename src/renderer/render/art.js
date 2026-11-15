@@ -325,6 +325,10 @@ export const PET_ART = {
   stagbeetle: { pal: { B: "#6a3a1e", L: "#b8743a", H: "#3a1e0e", M: "#2a1408", E: "#e8d0a0", D: "#2a1408" }, frames: [
     ["......M.M", "..BBBBMM.", ".BBLBBBH.", "BBBBBBBHE", ".BBBBBBH.", ".D.D.D..."],
     ["......M.M", "..BBBBMM.", ".BBLBBBH.", "BBBBBBBHE", ".BBBBBBH.", "..D.D.D.."]] },
+  // (it. 1485) Grillon : vert sombre aux longues antennes et pattes arrière repliées (deuxième image : pattes tendues)
+  cricket: { pal: { G: "#3f7a2e", L: "#7fbf4a", D: "#1f3d16", E: "#e8e08a" }, frames: [
+    ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", ".D..D.DD."],
+    ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", "D..D...D."]] },
   // (it. 1427) Pie : noire et blanche à longue queue, reflet bleu sur l'aile (deuxième image : ailes levées)
   magpie: { pal: { K: "#1a1a24", W: "#f4f4f8", U: "#3a5aa8", Y: "#ffd34d" }, fly: true, frames: [
     ["..KK.....", ".KKYK....", "KKKKKUUK.", ".WWKUUKKK", ".WWKK...K", "..K.K...."],

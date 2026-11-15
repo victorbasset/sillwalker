@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1485) : 21e familier, le Grillon (+5 % d'événements rares par niveau, +50 % au niveau 10) : nouvel
+  effet « events », compté dans la chance d'événement, le temps estimé de la quête d'événements et la ligne
+  « Événements rares » des Probabilités. Sprite vert aux longues antennes, regardé sur la bande. 10 langues, test,
+  README (21 familiers), POUR-VICTOR. « Quoi de neuf » : à regrouper avec les prochaines nouveautés (CLAUDE.md).
+  Autotest 229/229, lang-overflow propre, simulate 8 h normal.
 - 2026-11-15 (it. 1484, contrôle) : --crawl sur une partie neuve en espagnol, portugais et chinois (après les
   changements d'interface du jour) : 72, 72 et 78 clics, aucune erreur.
 - 2026-11-15 (it. 1483, contrôle) : semaine simulée (168 h, graines 7 et 3) : mage 350 / 350, guerrier 350 / 350 (le

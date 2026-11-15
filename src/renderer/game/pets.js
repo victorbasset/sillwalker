@@ -33,6 +33,8 @@ export const PETS = [
   { id: "stagbeetle", name: "Lucane", desc: "Ses mandibules visent les points faibles des boss.", eff: { bossDmg: 3 } },
   // (it. 1427) Pie : plus de coffres au trésor sur le chemin (+60 % au niveau 10)
   { id: "magpie", name: "Pie", desc: "Repère tout ce qui brille, surtout les coffres au trésor.", eff: { chests: 6 } },
+  // (it. 1485) Grillon : événements rares plus fréquents (+50 % au niveau 10)
+  { id: "cricket", name: "Grillon", desc: "Son chant attire les prodiges : les événements rares viennent plus souvent.", eff: { events: 5 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

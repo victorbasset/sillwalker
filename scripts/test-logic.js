@@ -426,6 +426,15 @@ test("Lucane : +3 % de dégâts contre les boss par niveau, sprite présent (it.
   assert.equal((g.stats().bossDmg || 0) - b0, 12);
 });
 
+test("Grillon : +5 % d'événements rares par niveau (temps estimé de la quête d'événements) (it. 1485)", () => {
+  const g = new Game(freshState());
+  g.R.pace = Array.from({ length: 10 }, (_, i) => [i * 2, 5]);
+  const q = { uid: 8, kind: "event", goal: 2, progress: 0, reward: {}, stars: 1 }, e0 = g.questEta(q);
+  g.S.pets.owned.cricket = { lvl: 10, xp: 0 }; g.S.pets.active = "cricket"; g.invalidateStats();
+  assert.equal(g.stats().events, 50);
+  assert.ok(g.questEta(q) < e0 * 0.75, "plus rapide avec le Grillon");
+});
+
 test("nearestZoneWith : zone atteinte la plus proche où vit un monstre (it. 1437)", () => {
   const S = { zone: 40, best: 60 }, type = zoneDef(12).monsters[0];
   const z = nearestZoneWith(S, type);

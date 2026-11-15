@@ -33,7 +33,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 ## Nouveautés du 14 au 15 novembre (it. 1328-1476)
 
 **Contenu**
-- Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau) : 20 familiers.
+- Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau), Grillon (+5 % d'événements
+  rares par niveau) : 21 familiers.
 - Événements rares : Source de vie (soin), Trésor enfoui (coffres pendant 30 s) : 18 événements.
 - Bénédictions du jour : Jour du sang, Jour des arcanes (sorts rechargés 50 % plus vite).
 - Élite Explosive ; Encens de chasse (boutique, deux fois plus d'élites 10 min).

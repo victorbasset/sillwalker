@@ -1782,4 +1782,7 @@ export default {
   2907: "fogem: herói lento demais aqui",
   2908: "retomar o avanço",
   2909: "Missões: uma missão travada diz isso no seu cartão (goblins rápidos demais para o teu herói, avanço automático desligado: um clique retoma-o), e a de golpes com clique lembra como bater.",
+  2910: "Grilo",
+  2911: "O seu canto atrai prodígios: os eventos raros acontecem mais vezes.",
+  2912: "eventos raros",
 };

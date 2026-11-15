@@ -1782,4 +1782,7 @@ export default {
   2907: "they flee: hero too slow here",
   2908: "resume advancing",
   2909: "Quests: a stuck quest says so on its card (golden goblins too fast for your hero, auto-advance turned off: one click resumes it), and the click-hit quest reminds you how to strike.",
+  2910: "Cricket",
+  2911: "Its song draws wonders: rare events come more often.",
+  2912: "rare events",
 };
