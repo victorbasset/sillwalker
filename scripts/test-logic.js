@@ -232,6 +232,17 @@ test("rythme indépendant de la largeur d'écran", () => {
   assert.ok(approachTime() > 2 && approachTime() < 5);
 });
 
+test("gobelins dorés pendant l'absence : attrapés, comptés et quête « Attraper N gobelins » (it. 1452)", () => {
+  const g = new Game(freshState()); g.S.zone = 1;
+  g.S.quests.slots[0] = { uid: 4242, kind: "goblin", goal: 2, progress: 0, reward: { gold: 1 }, stars: 1 };
+  const k0 = g.S.stats.goblins || 0;
+  g.applyOffline(8 * 3600);
+  const n = (g.S.stats.goblins || 0) - k0;
+  assert.ok(n > 0, "gobelins attrapés : " + n);
+  const q = g.S.quests.slots.find((x) => x.uid === 4242);
+  assert.ok(!q || q.progress >= 2, "quête avancée : " + JSON.stringify(q));
+});
+
 test("hors ligne : objets laissés au sol quand le sac est plein, comptés dans le résumé (it. 1219)", () => {
   const g = new Game(freshState());
   for (const k in g.S.autoSell) g.S.autoSell[k] = false;

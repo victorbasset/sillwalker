@@ -6,14 +6,14 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
 - **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 18 événements rares,
-  10 sortes d'élites et 18 sortes de quêtes (it. 1375, 1382 et 1406).
+  10 sortes d'élites et 19 sortes de quêtes (it. 1375, 1382, 1406 et 1452).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
   (it. 1395), `CHESTS_50` « Pilleur de coffres (50 coffres) » (it. 1430), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
   Liste complète : `steam/achievements.md` (70 succès).
 
 ## Version 0.1.4 (à décider)
 
-- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 91). Nouveautés
+- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 92). Nouveautés
   majeures depuis la 0.1.3 : champions et leur quête, 4 événements rares (Lune pâle, Écho des lames, Source de vie, Trésor enfoui),
   3 élites (Régénérant, Venimeux, Explosif), 6 bénédictions du jour, 3 familiers (Grenouillette, Lucane, Pie), l'Encens de
   chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.
@@ -48,6 +48,7 @@ comptée dans Statistiques > Probabilités) ; 70e succès « Pilleur de coffres 
 victoire pendant 30 s) ; Statistiques > Probabilités : chances du jour pour événements et champions ; sorts : recharge
 réelle le Jour des arcanes ; Bestiaire : avec la Carte du voyageur, un clic (ou Entrée) sur un monstre emmène là où il
 vit ; temps estimé aussi pour les quêtes d'événements, d'objets rares et de boss ; « Quoi de neuf » montre jusqu'à
-8 nouveautés quand les éditions sont courtes. Vérifié : l'ensemble
+8 nouveautés quand les éditions sont courtes ; 19e sorte de quête « Attraper N gobelins dorés » (les gobelins sont
+aussi attrapés pendant l'absence, avec leur or). Vérifié : l'ensemble
 des ajouts de la nuit ne change pas l'équilibre (3 graines, encore après la Pie),
 mémoire et performance stables.

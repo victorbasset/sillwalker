@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1452) : 19e sorte de quête « Attraper N gobelins dorés » (1-2, or, potions, parfois un œuf ; icône
+  pièces d'or ; temps estimé = rythme × chance de gobelin, Fête des gobelins comprise). Pendant l'absence, les gobelins
+  sont maintenant attrapés (avant : jamais) si le héros abat un gobelin (0,7× PV) avant sa fuite (4 s) : compteur,
+  quête et leur or (×15). Test (8 h d'absence : gobelins attrapés, quête avancée). Page du magasin (10 langues),
+  checklist, POUR-VICTOR : 19 sortes de quêtes ; devlog, « Quoi de neuf » 92. Capture en russe à 1280 px. Autotest
+  228/228, lang-overflow propre (fenêtre « Quoi de neuf » à 8 nouveautés).
 - 2026-11-15 (it. 1451, REVUE GÉNÉRALE) : 12 h graine 7, records : berserker 69, cryomancien 62, barde 65 (moyenne
   ≈ 64). perf:linux : bande 19,2 %, panneau 19,9 %, mini 7,0 %, icône 0,6 % (stables). Captures es et pt à 1366 px
   (Héros, Familiers, Statistiques) : rien d'anormal (« Eventos raros (0 / 18) », « A descobrir 4 »). Texte extrait en

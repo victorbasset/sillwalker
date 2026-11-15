@@ -1774,4 +1774,6 @@ export default {
   2899: "{n} baú do tesouro|{n} baús do tesouro",
   2900: "Novo evento raro, o Tesouro enterrado: durante 30 segundos, cada vitória pode deixar um baú do tesouro.",
   2901: "Missões: as de eventos raros, itens raros e chefes também mostram um tempo estimado (sem tempo enquanto o teu herói estiver travado num chefe).",
+  2902: "Pegar {n} goblin dourado|Pegar {n} goblins dourados",
+  2903: "Novo tipo de missão: pegar goblins dourados. Enquanto estás fora, o teu herói também pega alguns (com o ouro deles) se for rápido o bastante.",
 };

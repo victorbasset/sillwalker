@@ -59,6 +59,11 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: randInt(1, 2), type: pick(Object.keys(ELITE_AFFIXES)), reward: { chest: 2, gold: Math.round(goldScale(S) * 90) } }),
   },
   // (it. 1260) 17e sorte : les champions (élites dorées, environ un monstre sur 200 dès la zone 5) : un objectif de patience
+  // (it. 1452) gobelins dorés attrapés (avant qu'ils ne s'enfuient) ; aussi pendant l'absence
+  goblin: {
+    text: (q) => txn(q.goal, "Attraper {n} gobelin doré|Attraper {n} gobelins dorés"),
+    make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 110), potions: 2, egg: rand() < 0.2 } }),
+  },
   champion: {
     ok: (S) => S.zone >= CHAMPION.minZone || (S.prestige.count || 0) > 0,
     text: (q) => txn(q.goal, "Vaincre {n} champion|Vaincre {n} champions"),
@@ -127,7 +132,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1, level: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1, level: 1, goblin: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

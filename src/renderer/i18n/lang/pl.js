@@ -1774,4 +1774,6 @@ export default {
   2899: "{n} skrzynia ze skarbem|{n} skrzynie ze skarbem|{n} skrzyń ze skarbem",
   2900: "Nowe rzadkie wydarzenie, Zakopany skarb: przez 30 sekund każde zwycięstwo może zostawić skrzynię ze skarbem.",
   2901: "Zadania: zadania z rzadkimi wydarzeniami, rzadkimi przedmiotami i bossami też pokazują szacowany czas (bez czasu, gdy bohater utknął na bossie).",
+  2902: "Złap {n} złotego goblina|Złap {n} złote gobliny|Złap {n} złotych goblinów",
+  2903: "Nowy rodzaj zadania: łapanie złotych goblinów. Podczas twojej nieobecności bohater też je łapie (razem z ich złotem), jeśli jest dość szybki.",
 };

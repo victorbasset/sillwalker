@@ -959,7 +959,7 @@ export class Game {
         this.invalidateStats(); // (it. 983) bonus de la collection des élites
       }
     }
-    if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
+    if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.questProgress("goblin", 1); this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
     S.bestiary[m.type] = (S.bestiary[m.type] || 0) + 1;
     this.questProgress("kill", 1);
     this.questProgress("hunt", 1, m.type);
@@ -1123,7 +1123,12 @@ export class Game {
     if (kills < 1) return null;
     const bagBefore = new Set(S.bag.map((i) => i.id)), lvl0 = S.lvl, journey0 = (S.journey || []).length;
     const qDone0 = S.quests.slots.filter(questDone).length; // (it. 970) quêtes accomplies pendant l'absence
-    const gold = Math.round(kills * b.gold * earlyPace(S) * (1 + hs.gold / 100 + BUFF_EFFECTS.fortune.gold / 100 * share("fortune")));
+    // (it. 1452) gobelins dorés pendant l'absence : attrapés si le héros abat un gobelin (0,7× les PV) avant sa fuite ;
+    // leur or (×15) compte avec le reste
+    const gx = b.hp * MONSTERS.goblin.hp / dps < GOBLIN.flee ? kills * GOBLIN.chance * (activeDayMod(S)?.goblin || 1) : 0;
+    const goblins = Math.floor(gx) + (rand() < gx % 1 ? 1 : 0);
+    const gold = Math.round((kills + goblins * (MONSTERS.goblin.gold - 1)) * b.gold * earlyPace(S) * (1 + hs.gold / 100 + BUFF_EFFECTS.fortune.gold / 100 * share("fortune")));
+    if (goblins) { S.stats.goblins = (S.stats.goblins || 0) + goblins; this.questProgress("goblin", goblins); }
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
     const xp = Math.round(kills * b.xp * earlyPace(S) * (1 + hs.xp / 100 + BUFF_EFFECTS.wisdom.xp / 100 * share("wisdom")));
@@ -2191,7 +2196,7 @@ export class Game {
       return ends.length >= left ? Math.max(0, (ends[left - 1] - now) / 1000) : null;
     }
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot", "boss"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot", "boss", "goblin"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
@@ -2224,6 +2229,8 @@ export class Game {
     }
     // (it. 1263) champions : même chance par victoire que pendant l'absence (it. 1262)
     if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance * (activeDayMod(this.S)?.champion || 1); }
+    // (it. 1452) gobelins dorés : leur chance par victoire (Jour des gobelins compris ; supposés attrapés)
+    if (q.kind === "goblin") rate *= GOBLIN.chance * (activeDayMod(this.S)?.goblin || 1);
     // (it. 1449) boss : un boss toutes les KILLS_PER_ZONE victoires (avancée automatique ou non) ; aucune estimation si le
     // héros bute sur un boss (stuckInfo)
     if (q.kind === "boss") { if (this.stuckInfo()) return null; rate /= KILLS_PER_ZONE + 1; }

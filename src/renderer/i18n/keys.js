@@ -2903,5 +2903,7 @@ export const KEYS = [
   "Ça brille sous chaque pas !",
   "{n} coffre au trésor|{n} coffres au trésor",
   "Nouvel événement rare, le Trésor enfoui : pendant 30 secondes, chaque victoire peut laisser un coffre au trésor.",
-  "Quêtes : celles d’événements rares, d’objets rares et de boss affichent aussi un temps estimé (pas de temps quand ton héros bute sur un boss)."
+  "Quêtes : celles d’événements rares, d’objets rares et de boss affichent aussi un temps estimé (pas de temps quand ton héros bute sur un boss).",
+  "Attraper {n} gobelin doré|Attraper {n} gobelins dorés",
+  "Nouvelle sorte de quête : attraper des gobelins dorés. Pendant ton absence, ton héros en attrape aussi (avec leur or) s’il est assez rapide."
 ];

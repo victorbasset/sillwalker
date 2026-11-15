@@ -1,7 +1,7 @@
 # Devlog itch.io : version 0.1.4 (BROUILLON, it. 1298)
 
 Brouillon préparé pendant le développement, à relire et compléter le jour de la sortie (Victor décide quand). Il
-reprend les éditions « Quoi de neuf » 59 à 91 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
+reprend les éditions « Quoi de neuf » 59 à 92 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
 À la sortie : mettre les mêmes points dans NEWS_RELEASES (news.js, `after: 58`), renommer ce fichier en
 devlog-0.1.4.md et ajouter ce qui sera paru entre-temps.
 
@@ -20,7 +20,7 @@ Sillwalker 0.1.4 is out! Here is what's new since 0.1.3:
 - **Three new pets:** the Froglet, whose croaking draws elites (+2% per level), the Stag Beetle, whose mandibles go for the bosses' weak spots (+3% damage against them per level), and the Magpie, who spots treasure chests (+6% per level). And in the Shop, **Hunting Incense**: twice as many elites for 10 minutes, for those who want the risk (never rebought automatically).
 - **Duo on the strip:** a ranged hero now lets their melee companion walk in front.
 - **At a glance:** the strip shows your active elixirs, scrolls and incense as small icons in front of your gold.
-- **A new kind of quest:** gain levels; it progresses on its own, even while you're away.
+- **Two new kinds of quest:** gain levels, and catch golden goblins; both progress on their own, even while you're away.
 - **Return after an absence:** the summary now counts items left on the ground (full bag) and the champions that fell.
 - **Fairer events:** the Wind Gust now truly doubles your speed, even late in the game, and the Goblin Festival shows its +15% gold bonus.
 - **Fairer absences:** Scrolls of Fortune and Knowledge, the Potion of Haste, the Four-leaf Clover and Hunting Incense now count while you're away; spending all points in the great graph no longer freezes the game.
@@ -45,7 +45,7 @@ Sillwalker 0.1.4 est disponible ! Voici les nouveautés depuis la 0.1.3 :
 - **Trois nouveaux familiers :** la Grenouillette, dont les coassements attirent les élites (+2 % par niveau), le Lucane, dont les mandibules visent les points faibles des boss (+3 % de dégâts contre eux par niveau), et la Pie, qui repère les coffres au trésor (+6 % par niveau). Et à la boutique, l'**Encens de chasse** : deux fois plus d'élites pendant 10 minutes, pour qui veut le risque (jamais racheté automatiquement).
 - **Le duo sur la bande :** un héros à distance laisse son compagnon au corps à corps marcher devant lui.
 - **D'un coup d'œil :** la bande montre tes élixirs, parchemins et encens actifs, en petites icônes devant ton or.
-- **Une nouvelle sorte de quête :** gagner des niveaux ; elle avance toute seule, même pendant ton absence.
+- **Deux nouvelles sortes de quête :** gagner des niveaux, et attraper des gobelins dorés ; elles avancent toutes seules, même pendant ton absence.
 - **Retour après une absence :** le résumé compte les objets restés au sol (sac plein) et les champions tombés.
 - **Des événements plus justes :** la Rafale de vent double vraiment ta vitesse, même en fin de partie, et la Fête des gobelins affiche son bonus de +15 % d'or.
 - **Des absences plus justes :** parchemins de fortune et de savoir, potion de célérité, trèfle à quatre feuilles et encens de chasse comptent pendant ton absence ; dépenser tous ses points dans le grand graphe ne fige plus le jeu.

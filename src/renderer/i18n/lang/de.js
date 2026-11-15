@@ -1774,4 +1774,6 @@ export default {
   2899: "{n} Schatztruhe|{n} Schatztruhen",
   2900: "Neues seltenes Ereignis, der Vergrabene Schatz: 30 Sekunden lang kann jeder Sieg eine Schatztruhe hinterlassen.",
   2901: "Quests: Auch Quests für seltene Ereignisse, seltene Gegenstände und Bosse zeigen eine geschätzte Zeit (keine, solange dein Held an einem Boss scheitert).",
+  2902: "{n} Goldkobold fangen|{n} Goldkobolde fangen",
+  2903: "Neue Questart: Goldkobolde fangen. Während deiner Abwesenheit fängt dein Held auch welche (samt ihrem Gold), wenn er schnell genug ist.",
 };
