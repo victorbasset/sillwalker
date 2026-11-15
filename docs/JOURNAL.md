@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1387, contrôle) : save-fuzz après l'Explosif (affixesSeen, proies) sur dev-data (1211) et la
+  partie 0.1.2 (1134) : ok ; la fin de partie l'était à l'it. 1382.
 - 2026-11-15 (it. 1386) : docs/POUR-VICTOR.md : ce qui attend Victor, en une page (page Steam à recopier : 17
   événements, 10 élites ; CHAMPIONS_25 à déclarer, BLESSINGS_ALL à renommer ; 0.1.4 à décider, devlog prêt ;
   vérifications Windows) et les nouveautés de la nuit. Signalé en tête de CLAUDE.md.
