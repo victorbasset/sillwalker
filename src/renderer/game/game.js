@@ -2188,7 +2188,7 @@ export class Game {
       return ends.length >= left ? Math.max(0, (ends[left - 1] - now) / 1000) : null;
     }
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     const left = q.goal - q.progress;
@@ -2221,6 +2221,11 @@ export class Game {
     }
     // (it. 1263) champions : même chance par victoire que pendant l'absence (it. 1262)
     if (q.kind === "champion") { if (this.S.zone < CHAMPION.minZone) return null; rate *= CHAMPION.chance * (activeDayMod(this.S)?.champion || 1); }
+    // (it. 1423) coffres : chance par victoire (élites plus généreuses), Jour des trésors compris ; long et très variable
+    if (q.kind === "chest") {
+      const pe = Math.min(1, Math.max(0, this.eliteChancePerKill(this.stats()) || 0));
+      rate *= (CHEST.normal * (1 - pe) + CHEST.elite * pe) * (activeDayMod(this.S)?.chest || 1);
+    }
     return left / rate;
   }
 

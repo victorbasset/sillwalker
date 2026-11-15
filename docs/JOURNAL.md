@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1423) : quête « Trouver N coffres au trésor » : temps estimé sur sa carte (rythme des victoires ×
+  chance de coffre, élites plus généreuses, Jour des trésors compris). Fin de partie, une victoire / 2 s : ≈ 10 min.
+  Test. Autotest 228/228.
 - 2026-11-15 (it. 1422) : note de l'onglet Quêtes corrigée : les quêtes « Atteindre la zone N » n'avancent pas non
   plus pendant l'absence (le héros reste dans sa zone, sans boss) : « sauf boss, nouvelles zones, événements rares et
   sorts ». Nouvelle clé dérivée des 9 traductions de l'ancienne. Autotest 228/228, lang-overflow propre.
