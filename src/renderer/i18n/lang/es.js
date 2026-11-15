@@ -1806,4 +1806,5 @@ export default {
   2931: "En la franja, el sirviente (esqueleto, lobo) y la mascota pasan delante del héroe y su compañero: ya no quedan ocultos.",
   2932: "Tienda: la burbuja del botón de compra avisa cuando el objeto se equipará al instante.",
   2933: "Compañero",
+  2934: "Tu compañero los lanza solo en combate, además de tus hechizos, a la mitad de su potencia.",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1517, demande de Victor) : Héros > Sorts et attaque : l'explication des sorts du compagnon en
+  paragraphe sous son titre, comme celle du héros (la mention « compagnon, à moitié de leur puissance » ne reste dans le
+  titre qu'en mode compact, où ces paragraphes sont masqués) ; titres des deux cadres à 28 px au moins (celui du héros
+  porte le Grimoire) : les grilles de cartes partent à la même ligne (fr 1920, ru 1280, de 1366). Autotest 231/231,
+  lang-overflow propre.
 - 2026-11-15 (it. 1516) : la part encaissée par le compagnon (it. 1515) devient une stat (hs.guard), comptée dans la
   robustesse de power() (comme l'esquive) ; « Compagnon » parmi les sources de puissance (powerSources, carte du héros) :
   ×1,23 rôdeur + guerrier, ×1,18 guerrier + rôdeur (dev-data). Test complété (312). ru / de 1280 sans défilement ;

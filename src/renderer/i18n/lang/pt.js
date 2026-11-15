@@ -1806,4 +1806,5 @@ export default {
   2931: "Na faixa, o servo (esqueleto, lobo) e o familiar passam à frente do herói e do companheiro: já não ficam escondidos.",
   2932: "Loja: a bolha do botão de compra avisa quando o objeto será equipado de imediato.",
   2933: "Companheiro",
+  2934: "O teu companheiro lança-os sozinho em combate, além dos teus feitiços, com metade da potência.",
 };

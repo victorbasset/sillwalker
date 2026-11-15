@@ -1806,4 +1806,5 @@ export default {
   2931: "Auf dem Streifen stehen Diener (Skelett, Wolf) und Begleittier jetzt vor dem Helden und seinem Begleiter: Sie sind nicht mehr verdeckt.",
   2932: "Laden: Die Blase des Kaufknopfs sagt, wann der Gegenstand sofort angelegt wird.",
   2933: "Begleiter",
+  2934: "Dein Begleiter wirkt sie im Kampf von selbst, zusätzlich zu deinen Zaubern, mit halber Stärke.",
 };

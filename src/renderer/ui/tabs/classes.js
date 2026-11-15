@@ -158,7 +158,10 @@ export class ClassesTab {
         <p class="note">${tx("Un compagnon combat à tes côtés et lance ses propres sorts, à moitié de leur puissance.")}</p>
         <button class="linkbtn" data-action="c-sec" data-to="freed">${tx("Choisir un compagnon")} →</button></article>` : "";
     const cards = classSpells(S.partner).map((sp) => this.spellCard(S, sp, rec, PARTNER_SPELL)).join("");
-    return `<article class="panel spellbox partnerbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.partner].name) })} <small>${esc(tx("compagnon, à moitié de leur puissance"))}</small></h2>
+    // (it. 1517, demande de Victor) l'explication sous le titre, comme celle des sorts du héros : les cartes s'alignent ;
+    // la petite mention du titre ne reste qu'en mode compact (où ces paragraphes sont masqués)
+    return `<article class="panel spellbox partnerbox"><h2>${tx("Sorts de {0}", { 0: esc(CLASSES[S.partner].name) })} <small class="half">${esc(tx("compagnon, à moitié de leur puissance"))}</small></h2>
+      <p class="note tight">${tx("Ton compagnon les lance tout seul en combat, en plus de tes sorts, à moitié de leur puissance.")}</p>
       <div class="spellgrid">${cards}</div></article>`;
   }
 

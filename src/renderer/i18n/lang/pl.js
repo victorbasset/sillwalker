@@ -1806,4 +1806,5 @@ export default {
   2931: "Na pasku sługa (szkielet, wilk) i chowaniec stoją przed bohaterem i jego towarzyszem: nie są już zasłonięci.",
   2932: "Sklep: dymek przycisku zakupu mówi, kiedy przedmiot zostanie od razu założony.",
   2933: "Towarzysz",
+  2934: "Towarzysz rzuca je sam w walce, oprócz twoich zaklęć, z połową mocy.",
 };
