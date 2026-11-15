@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1424, contrôle) : accessibilité : tous les boutons, cases, curseurs et listes de tous les onglets
+  (préparés d'avance) ont un nom lisible par un lecteur d'écran (texte, aria-label, bulle, étiquette ou image avec
+  alt) ; seul le bouton de la fenêtre de confirmation est vide tant qu'elle est fermée (rempli à l'ouverture).
+  Bilan d'absence de 8 h regardé en capture : rien d'anormal.
 - 2026-11-15 (it. 1423) : quête « Trouver N coffres au trésor » : temps estimé sur sa carte (rythme des victoires ×
   chance de coffre, élites plus généreuses, Jour des trésors compris). Fin de partie, une victoire / 2 s : ≈ 10 min.
   Test. Autotest 228/228.
