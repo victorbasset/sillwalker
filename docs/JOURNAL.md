@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1415) : précisions d'une bénédiction qui ne sert pas encore (élites, champions, sorts pas encore là)
+  regroupées dans ui/daymodnotes.js, et ajoutées à la bulle du mode mini (avant : seulement la pastille du panneau).
+  Vérifié en partie neuve sous le Jour des arcanes, panneau et mini. Autotest 228/228.
 - 2026-11-15 (it. 1414) : POUR-VICTOR : le Jour des arcanes dans les nouveautés de la nuit.
 - 2026-11-15 (it. 1413) : Jour des arcanes sans sort appris : la bulle de la pastille ajoute « Les sorts s’apprennent à
   partir de la zone 10. » (comme les élites et les champions avant leur zone). 10 langues ; vérifié sur une partie
