@@ -39,6 +39,8 @@ import { heroVisual, visualKey } from "./render/equipvis.js";
 import { Panel } from "./ui/panel.js";
 import { initClickThrough } from "./ui/clickthrough.js";
 import { recordZone } from "./game/unlocks.js";
+import { installPressFix } from "./ui/pressfix.js";
+installPressFix();
 
 const api = window.sillwalker;
 const FRAME_MS = 1000 / 30;         // rendu plafonné à 30 images/s

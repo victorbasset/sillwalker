@@ -1135,6 +1135,14 @@ async function runSelfTest(strip) {
   } catch (e) { return "erreur " + e.message; } })()`);
   // (it. 1542, demande de Victor) curseur « Effets » : il règle le bus des effets, pas le volume général (musique, ambiance)
   const fxv = await js("(() => { const s = window.__sound; s.audio(); if (!s.out) return 'sans contexte'; const o = s.out.gain.value; s.setEffects(0.5); const a = s.master.gain.value; s.setEffects(1); return (Math.abs(a - 0.5) < 1e-6) + ' ' + (s.out.gain.value === o) + ' ' + (s.master.gain.value === 1); })()");
+  // (it. 1544) clic sur le rebord haut d'un bouton : il s'enfonce de 2 px, le relâchement tombe juste au-dessus ; le clic part quand même
+  const edge = await js(`(() => { const host = document.createElement("div"); host.style.cssText = "position:fixed;left:40px;top:40px;padding:10px;z-index:99999"; const b = document.createElement("button"); b.textContent = "test"; let n = 0; b.onclick = () => n++; host.append(b); document.body.append(host);
+    const r = b.getBoundingClientRect(), x = r.left + 10, y = r.top - 1;
+    b.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, clientX: x, clientY: r.top + 1, button: 0 }));
+    host.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, clientX: x, clientY: y, button: 0 }));
+    const a = n; host.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, clientX: x, clientY: y - 20, button: 0 })); host.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, clientX: x, clientY: y - 20, button: 0 }));
+    host.remove(); return a + " " + n; })()`);
+  check("clic sur le rebord d'un bouton : l'action part (une fois, pas ailleurs)", edge === "1 1", edge);
   check("son : le curseur « Effets » règle les effets seuls", fxv === "true true true" || fxv === "sans contexte", fxv);
   check("musique : le morceau de la zone joue, l'aperçu en change", play === "true true" || play === "désactivée", play);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
