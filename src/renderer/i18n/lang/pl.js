@@ -1736,4 +1736,8 @@ export default {
   2861: "Bohater odzyskuje 4 % maks. PŻ na sekundę!",
   2862: "Czuję, że wracam do życia!",
   2863: "Nowe rzadkie wydarzenie, Źródło życia: przez 30 sekund bohater odzyskuje co sekundę 4 % maks. PŻ. Wystarczy, by przetrwać twardego bossa.",
+  2864: "Dzień krwi",
+  2865: "+5% kradzieży życia, +25% obrażeń krytycznych.",
+  2866: "Każdy cios dodaje mi sił.",
+  2867: "Nowe błogosławieństwo dnia, Dzień krwi: +5% kradzieży życia i +25% obrażeń krytycznych.",
 };

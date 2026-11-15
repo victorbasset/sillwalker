@@ -1736,4 +1736,8 @@ export default {
   2861: "Der Held regeneriert 4 % seiner max. LP pro Sekunde!",
   2862: "Ich fühle mich wie neugeboren!",
   2863: "Neues seltenes Ereignis, der Quell des Lebens: 30 Sekunden lang regeneriert dein Held jede Sekunde 4 % seiner max. LP. Genug, um einen zähen Boss auszuhalten.",
+  2864: "Tag des Blutes",
+  2865: "+5 % Lebensraub, +25 % kritischer Schaden.",
+  2866: "Jeder Treffer gibt mir Kraft zurück.",
+  2867: "Neuer Segen des Tages, der Tag des Blutes: +5 % Lebensraub und +25 % kritischer Schaden.",
 };

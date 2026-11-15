@@ -1736,4 +1736,8 @@ export default {
   2861: "¡El héroe recupera un 4 % de sus PV máx. por segundo!",
   2862: "¡Me siento revivir!",
   2863: "Nuevo evento raro, el Manantial de vida: durante 30 segundos, tu héroe recupera un 4 % de sus PV máx. cada segundo. Ideal para aguantar a un jefe duro.",
+  2864: "Día de la sangre",
+  2865: "+5 % de robo de vida, +25 % de daño crítico.",
+  2866: "Cada golpe me devuelve fuerzas.",
+  2867: "Nueva bendición del día, el Día de la sangre: +5 % de robo de vida y +25 % de daño crítico.",
 };

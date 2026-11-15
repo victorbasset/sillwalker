@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1378) : 14e bénédiction du jour, le Jour du sang 🩸 (+5 % de vol de vie, +25 % de dégâts critiques :
+  aucune ne touchait ces statistiques), ajoutée à la FIN. Calendrier vérifié du 14 au 30/11 : seul le 28 change
+  (trésors → sang), aujourd'hui, demain et les jours figés intacts. Le test « dernier ajout » reconstruisait le
+  calendrier sans le sel du rang 12 (DAY_MOD_SALT, maintenant exporté) : corrigé. Réplique du héros, 10 langues,
+  README, « Quoi de neuf » 80, devlog. Autotest 228/228, lang-overflow propre, fuzz sous cette bénédiction 0 bloquée.
 - 2026-11-15 (it. 1377, contrôle) : succès « Chasseur d'événements » après la Source de vie : calculé sur EVENTS,
   sans nombre écrit (déjà obtenu : acquis). max-save remplit bien 17 événements et 19 familiers ; --crawl en français
   sur cet état : 705 clics sans erreur.

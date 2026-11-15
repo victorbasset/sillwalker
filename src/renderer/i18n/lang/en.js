@@ -1736,4 +1736,8 @@ export default {
   2861: "The hero regains 4% of max HP every second!",
   2862: "I feel alive again!",
   2863: "New rare event, the Spring of Life: for 30 seconds, your hero regains 4% of max HP every second. Enough to outlast a tough boss.",
+  2864: "Day of Blood",
+  2865: "+5% life steal, +25% critical damage.",
+  2866: "Every hit gives me strength back.",
+  2867: "New blessing of the day, the Day of Blood: +5% life steal and +25% critical damage.",
 };

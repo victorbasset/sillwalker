@@ -2865,5 +2865,9 @@ export const KEYS = [
   "Source de vie",
   "Le héros regagne 4 % de ses PV max par seconde !",
   "Je me sens revivre !",
-  "Nouvel événement rare, la Source de vie : pendant 30 secondes, ton héros regagne 4 % de ses PV max chaque seconde. De quoi tenir face à un boss coriace."
+  "Nouvel événement rare, la Source de vie : pendant 30 secondes, ton héros regagne 4 % de ses PV max chaque seconde. De quoi tenir face à un boss coriace.",
+  "Jour du sang",
+  "+5 % de vol de vie, +25 % de dégâts critiques.",
+  "Chaque coup me redonne des forces.",
+  "Nouvelle bénédiction du jour, le Jour du sang : +5 % de vol de vie et +25 % de dégâts critiques."
 ];

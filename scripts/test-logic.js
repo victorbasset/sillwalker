@@ -1211,7 +1211,9 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     // (it. 1268) calendrier avec une bénédiction de moins (même tirage réservoir) : le dernier ajout ne prend
     // qu'environ un jour sur n ; et toutes les bénédictions d'origine gardent ≈ 9 / n des jours
     const fnv = (str) => { let h = 2166136261; for (const c of String(str)) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
-    const prev = (day) => { let k = DAY_MOD_KEYS[fnv(day) % 9]; for (let i = 9; i < DAY_MOD_KEYS.length - 1; i++) if (fnv(day + "#" + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i]; return k; };
+    // (it. 1378) avec le sel par rang (DAY_MOD_SALT, it. 1314), sinon le rang 12 ne tire plus comme le jeu
+    const SALT = M_daymods_js.DAY_MOD_SALT || {};
+    const prev = (day) => { let k = DAY_MOD_KEYS[fnv(day) % 9]; for (let i = 9; i < DAY_MOD_KEYS.length - 1; i++) if (fnv(day + (SALT[i] || "#") + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i]; return k; };
     let same = 0, samePrev = 0, n = 0; const seen = new Set(), L = DAY_MOD_KEYS.length;
     for (let m = 1; m <= 12; m++) for (let d = 1; d <= 28; d++) { const k = `2027-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`; n++; if (dayModFor(k) === old(k)) same++; if (dayModFor(k) === prev(k)) samePrev++; seen.add(dayModFor(k)); }
     assert.ok(same / n > 9 / L - 0.05, "calendrier d'origine : " + same + " / " + n);

@@ -23,6 +23,8 @@ export const DAY_MODS = {
   giants: { icon: "🗿", name: "Jour des géants", desc: "+50 % de dégâts contre les boss.", eff: { bossDmg: 50 } },
   // (it. 1314) 13e : le joueur présent est récompensé (premier coup de chaque combat, coups au clic) ; ajoutée à la FIN
   momentum: { icon: "💨", name: "Jour de l’élan", desc: "+100 % de dégâts du premier coup et des coups au clic.", eff: { firstStrike: 1, tapDmg: 100 } }, // firstStrike : en fraction (×100 à l’affichage), tapDmg : en %
+  // (it. 1378) 14e, ajouté à la FIN : vol de vie et dégâts critiques (aucune bénédiction ne les touchait)
+  blood: { icon: "🩸", name: "Jour du sang", desc: "+5 % de vol de vie, +25 % de dégâts critiques.", eff: { lifesteal: 5, critDmg: 25 } },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 
@@ -42,7 +44,7 @@ const DAY_MODS_BASE = 9;
  *  ajout un jour sur n, mais CE jour-là peut tomber aujourd'hui ou demain (déjà annoncé) : la 13e aurait remplacé la
  *  bénédiction du 14/11/2026 en pleine journée. On choisit alors un autre sel pour CE rang, qui épargne aujourd'hui et
  *  les jours suivants ; ne jamais changer le sel d'un rang déjà publié (son calendrier bougerait). */
-const DAY_MOD_SALT = { 12: "#2" };
+export const DAY_MOD_SALT = { 12: "#2" };
 export function dayModFor(day) {
   let k = DAY_MOD_KEYS[fnv(day) % DAY_MODS_BASE];
   for (let i = DAY_MODS_BASE; i < DAY_MOD_KEYS.length; i++) if (fnv(day + (DAY_MOD_SALT[i] || "#") + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i];

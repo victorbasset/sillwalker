@@ -1736,4 +1736,8 @@ export default {
   2861: "O herói recupera 4 % dos PV máx. por segundo!",
   2862: "Sinto-me renascer!",
   2863: "Novo evento raro, a Fonte da vida: por 30 segundos, seu herói recupera 4 % dos PV máx. a cada segundo. Ótimo para resistir a um chefe duro.",
+  2864: "Dia do sangue",
+  2865: "+5 % de roubo de vida, +25 % de dano crítico.",
+  2866: "Cada golpe me devolve as forças.",
+  2867: "Nova bênção do dia, o Dia do sangue: +5 % de roubo de vida e +25 % de dano crítico.",
 };
