@@ -1800,4 +1800,9 @@ export default {
   2925: "Bohater > Zaklęcia i atak: bez towarzysza ramka „Brak towarzysza” zachęca do wyboru; z towarzyszem obie ramki mają tę samą wysokość.",
   2926: "Sklep: kupiony przedmiot, który wzmacnia bohatera, od razu zostaje założony.",
   2927: "Klik: kup i od razu załóż (wzmacnia bohatera).",
+  2928: "Przed tobą przyjmuje część ciosów: otrzymywane obrażenia −{0}%.",
+  2929: "Z dystansu osłania cię strzałami: atak +{0}%.",
+  2930: "Duet: towarzysz walczący wręcz przyjmuje część ciosów przed bohaterem dystansowym (otrzymywane obrażenia −15%); towarzysz dystansowy osłania strzałami bohatera walczącego wręcz (atak +15%).",
+  2931: "Na pasku sługa (szkielet, wilk) i chowaniec stoją przed bohaterem i jego towarzyszem: nie są już zasłonięci.",
+  2932: "Sklep: dymek przycisku zakupu mówi, kiedy przedmiot zostanie od razu założony.",
 };

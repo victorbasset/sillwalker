@@ -31,7 +31,7 @@ import {
   zoneDef, zoneName, monsterBase, approachTime,
   itemScore,
 } from "./rules.js";
-import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked, canPartner } from "./classes.js";
+import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked, canPartner, duoGuard } from "./classes.js";
 import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects, masteryMilestones } from "./talents.js";
 import {
   CONSUMABLES, BUFF_EFFECTS, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
@@ -414,7 +414,7 @@ export class Game {
   monsterAttack(m, hs, mult) {
     const R = this.R;
     if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
-    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * heartGuard(this.S); // Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
+    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * heartGuard(this.S) * (1 - duoGuard(this.S)); // (it. 1515 : compagnon qui encaisse) Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
     if (hs.thorns > 0) {
       m.hp -= dmg * hs.thorns / 100;
       if (m.hp <= 0) { this.killMonster(); return true; }
@@ -1115,7 +1115,7 @@ export class Game {
     const dps = (heroDps(hs) + this.spellDps(hs)) * atkBoost * (1 + hs.burn / 100 * 1.5) + drone;
     // (it. 1349) Potion de célérité au prorata de sa durée (elle était ignorée hors ligne)
     const perKill = b.hp / dps + approachTime() / (1 + ((hs.moveSpd || 0) + BUFF_EFFECTS.haste.moveSpd * share("haste")) / 100);
-    const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100) * heartGuard(S);
+    const taken = b.atk / b.interval * (b.hp / dps) * 40 / (40 + hs.def) * (1 - hs.dodge / 100) * heartGuard(S) * (1 - duoGuard(S));
     const eff = Math.min(0.9, (taken > hs.hp * 0.8 ? 0.25 : 0.6) * (1 + hs.offline / 100));
     const kills = Math.floor(sec / perKill * eff);
     for (const id in S.buffs) S.buffs[id] = Math.max(0, (S.buffs[id] || 0) - sec);

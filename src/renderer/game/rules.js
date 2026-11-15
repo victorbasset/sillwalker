@@ -4,7 +4,7 @@ import {
   RARITIES, SLOTS, SLOT_KEYS, STAT_NAMES, ITEM_BASES, ITEM_SUFFIXES, ZONES, MONSTERS, ELITE, DYES, materialFor,
   WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, CHAMPION,
 } from "./data.js";
-import { classDef, CLASSES, DUO, duoSynergy } from "./classes.js";
+import { classDef, CLASSES, DUO, duoSynergy, duoCover } from "./classes.js";
 import { talentEffects } from "./talents.js";
 import { powerEffects } from "./powers.js";
 import { petEffects } from "./pets.js";
@@ -150,6 +150,7 @@ export function heroStats(S, equip = S.equip, { buffs = true } = {}) {
   s.atk *= (cls.mul.atk || 1) * (1 + v("atkPct") / 100);
   s.def *= (cls.mul.def || 1) * (1 + v("defPct") / 100);
   s.hp *= 1 + gl.hp / 100; s.atk *= 1 + gl.atk / 100; s.def *= 1 + gl.def / 100;
+  s.atk *= 1 + duoCover(S); // (it. 1515) tir de couverture du compagnon à distance
   s.crit = Math.min(75, s.crit + (cls.add.crit || 0) + v("crit"));
   s.spd = Math.min(300, s.spd + (cls.add.spd || 0) + v("spd"));
   s.gold += v("gold");

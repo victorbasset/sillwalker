@@ -1800,4 +1800,9 @@ export default {
   2925: "Herói > Feitiços e ataque: sem companheiro, um quadro «Ainda sem companheiro» convida a escolher um; com ele, os dois quadros têm a mesma altura.",
   2926: "Loja: um objeto comprado que reforça o teu herói é equipado de imediato.",
   2927: "Clique: comprar e equipar de imediato (reforça o teu herói).",
+  2928: "À tua frente, aguenta parte dos golpes: dano sofrido −{0} %.",
+  2929: "À distância, cobre-te com os seus disparos: ataque +{0} %.",
+  2930: "Dupla: um companheiro corpo a corpo aguenta parte dos golpes à frente de um herói à distância (dano sofrido −15 %); um companheiro à distância cobre um herói corpo a corpo com os seus disparos (ataque +15 %).",
+  2931: "Na faixa, o servo (esqueleto, lobo) e o familiar passam à frente do herói e do companheiro: já não ficam escondidos.",
+  2932: "Loja: a bolha do botão de compra avisa quando o objeto será equipado de imediato.",
 };

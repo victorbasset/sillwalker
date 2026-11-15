@@ -3,8 +3,8 @@
 import { npcHTML } from "../npc.js";
 import { describeEffects } from "../../game/talents.js";
 import { subtabsHTML } from "../subtabs.js";
-import { t as tx, txn, fsp, tr } from "../../i18n/index.js";
-import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner, DUO_SYNERGIES } from "../../game/classes.js";
+import { t as tx, txn, fsp, tr, wsp } from "../../i18n/index.js";
+import { CLASSES, CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE, isClassUnlocked, ATTACK_TIERS, attackTier, canPartner, DUO_SYNERGIES, duoGuard, duoCover } from "../../game/classes.js";
 import { talentPointsSpent } from "../../game/talents.js";
 import { zoneName } from "../../game/rules.js";
 import { esc, unit, fmt, dec } from "../../game/format.js";
@@ -99,7 +99,10 @@ export class ClassesTab {
       <div class="tiers">${ATTACK_TIERS.map((t, i) => `<span class="tierpip${i <= tier ? " on" : ""}" title="${esc(tx("{0} : niveau {1}{2}", { 0: esc(t.name), 1: t.lvl, 2: t.asc ? ` ${txn(t.asc, "et {n} ascension|et {n} ascensions")}` : "" }))}">${i + 1}</span>`).join("")}</div>
       <p class="note tight">${tx("Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).\n      {0}", { 0: nextT ? `${tx("Prochain palier :")} <b>${esc(nextT.name)}</b>${tx(", niveau {0}{1}.", { 0: nextT.lvl, 1: nextT.asc ? ` ${txn(nextT.asc, "et {n} ascension|et {n} ascensions")}` : "" })}` : tx("Palier maximal atteint !") })}</p></article>`;
     const P = S.partner && CLASSES[S.partner];
-    const duoNote = `<p class="note tabintro">${P ? tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: `<b>${esc(P.name)}</b>` })
+    // (it. 1515, demandes de Victor) compagnon au corps à corps : il encaisse ; à distance : il couvre de ses tirs
+    const duoPerk = P ? (duoGuard(S) ? wsp() + tx("Devant toi, il encaisse une part des coups : dégâts subis −{0} %.", { 0: Math.round(duoGuard(S) * 100) })
+      : duoCover(S) ? wsp() + tx("À distance, il te couvre de ses tirs : attaque +{0} %.", { 0: Math.round(duoCover(S) * 100) }) : "") : "";
+    const duoNote = `<p class="note tabintro">${P ? tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: `<b>${esc(P.name)}</b>` }) + duoPerk
       : tx("Duo : un héros à distance et un héros au corps à corps combattent ensemble. Choisis un compagnon de l’autre portée (le premier arrive tout de suite, les suivants à l’ascension).")}</p>`;
     // Sorts et attaque (ancien « Style de combat ») : son propre sous-onglet (demande 18) ; les autres montrent les cartes des héros.
     // (it. 1490) sous-section des sorts : les deux phrases d'introduction (duo, héros libérés) parlent des cartes des héros ;

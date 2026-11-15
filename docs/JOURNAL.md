@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1515, demandes de Victor) : duo (classes.js DUO.guard / DUO.cover, duoGuard / duoCover) : héros
+  principal à distance, son compagnon au corps à corps encaisse (dégâts subis ×0,85, combat et absence) ; héros au
+  corps à corps, son compagnon à distance le couvre (attaque ×1,15, heroStats). Note du duo (Héros) qui l'annonce,
+  vérifiée ru / de à 1280 dans les deux cas. Test ajouté (312). balance.mjs 12 h contre HEAD : +0,2 (graine 7),
+  −0,3 (graine 3) : bruit. Édition 99 de « Quoi de neuf » (duo, serviteur et familier devant, bulle de la Boutique).
+  Autotest 231/231, lang-overflow propre.
 - 2026-11-15 (it. 1514) : bande, le familier (.actor.pet) au premier plan comme le serviteur (z-index 3 ; le
   compagnon le cachait aussi). Vérifié par --stage (pet 3, serviteur 3, héros 2). Autotest 231/231.
 - 2026-11-15 (it. 1513, outil) : contrôle d'autotest « carte : tête du héros sur sa zone, textes lisibles » (centre de

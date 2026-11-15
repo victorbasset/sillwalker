@@ -1800,4 +1800,9 @@ export default {
   2925: "Held > Zauber & Angriff: Ohne Begleiter lädt ein Rahmen „Noch kein Begleiter“ ein, einen zu wählen; mit Begleiter sind beide Rahmen gleich hoch.",
   2926: "Laden: Ein gekaufter Gegenstand, der deinen Helden stärkt, wird sofort angelegt.",
   2927: "Klick: kaufen und sofort anlegen (stärkt deinen Helden).",
+  2928: "Vor dir fängt er einen Teil der Treffer ab: erlittener Schaden −{0} %.",
+  2929: "Aus der Ferne deckt er dich mit seinen Schüssen: Angriff +{0} %.",
+  2930: "Duo: Ein Nahkampf-Begleiter fängt vor einem Fernkampf-Helden einen Teil der Treffer ab (erlittener Schaden −15 %); ein Fernkampf-Begleiter deckt einen Nahkampf-Helden mit seinen Schüssen (Angriff +15 %).",
+  2931: "Auf dem Streifen stehen Diener (Skelett, Wolf) und Begleittier jetzt vor dem Helden und seinem Begleiter: Sie sind nicht mehr verdeckt.",
+  2932: "Laden: Die Blase des Kaufknopfs sagt, wann der Gegenstand sofort angelegt wird.",
 };

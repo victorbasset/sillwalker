@@ -1800,4 +1800,9 @@ export default {
   2925: "Hero > Spells & attack: without a companion, a “No companion yet” frame invites you to choose one; with one, both frames have the same height.",
   2926: "Shop: an item you buy that makes your hero stronger is equipped right away.",
   2927: "Click: buy and equip right away (it makes your hero stronger).",
+  2928: "In front of you, they take part of the blows: damage taken −{0}%.",
+  2929: "From afar, they cover you with their shots: attack +{0}%.",
+  2930: "Duo: a melee companion takes part of the blows in front of a ranged hero (damage taken −15%); a ranged companion covers a melee hero with their shots (attack +15%).",
+  2931: "On the strip, the minion (skeleton, wolf) and the pet now stand in front of the hero and their companion: they are no longer hidden.",
+  2932: "Shop: the buy button's tooltip says when the item will be equipped right away.",
 };

@@ -4125,6 +4125,25 @@ test("grand graphe : dépense automatique dans une seule voie par région (it. 1
   assert.equal(nextGraphNode(g.S), null, "plus rien de prenable");
 });
 
+test("duo : le compagnon au corps à corps encaisse, celui à distance couvre (it. 1515, demandes de Victor)", () => {
+  const { duoGuard, duoCover, DUO } = M_classes_js;
+  const g = new Game(freshState());
+  // héros à distance (rôdeur) + compagnon au corps à corps (guerrier) : dégâts subis réduits, pas de bonus d'attaque
+  g.S.cls = "ranger"; g.S.partner = null; g.invalidateStats();
+  const atk0 = g.stats().atk;
+  assert.equal(duoGuard(g.S), 0, "sans compagnon : rien");
+  g.S.partner = "warrior"; g.invalidateStats();
+  assert.equal(duoGuard(g.S), DUO.guard); assert.equal(duoCover(g.S), 0);
+  // héros au corps à corps (guerrier) + compagnon à distance (rôdeur) : attaque +15 %, pas de réduction
+  g.S.cls = "warrior"; g.S.partner = null; g.invalidateStats();
+  const w0 = g.stats().atk;
+  g.S.partner = "ranger"; g.invalidateStats();
+  assert.equal(duoGuard(g.S), 0); assert.equal(duoCover(g.S), DUO.cover);
+  // l'attaque gagne au moins la couverture (le passif du rôdeur peut ajouter d'autres bonus)
+  assert(g.stats().atk >= w0 * (1 + DUO.cover) - 1e-6, "attaque couverte : " + w0 + " → " + g.stats().atk);
+  assert(atk0 > 0);
+});
+
 test("boutique : un objet acheté à la main qui renforce le héros est équipé (it. 1510, demande de Victor)", () => {
   const g = new Game(freshState());
   g.S.gold = 1e12;

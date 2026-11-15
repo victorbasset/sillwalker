@@ -1800,4 +1800,9 @@ export default {
   2925: "Héroe > Hechizos y ataque: sin compañero, un marco «Aún sin compañero» invita a elegir uno; con él, los dos marcos tienen la misma altura.",
   2926: "Tienda: un objeto comprado que refuerza a tu héroe se equipa al instante.",
   2927: "Clic: comprar y equipar al instante (refuerza a tu héroe).",
+  2928: "Delante de ti, encaja parte de los golpes: daño recibido −{0} %.",
+  2929: "A distancia, te cubre con sus disparos: ataque +{0} %.",
+  2930: "Dúo: un compañero cuerpo a cuerpo encaja parte de los golpes delante de un héroe a distancia (daño recibido −15 %); un compañero a distancia cubre con sus disparos a un héroe cuerpo a cuerpo (ataque +15 %).",
+  2931: "En la franja, el sirviente (esqueleto, lobo) y la mascota pasan delante del héroe y su compañero: ya no quedan ocultos.",
+  2932: "Tienda: la burbuja del botón de compra avisa cuando el objeto se equipará al instante.",
 };

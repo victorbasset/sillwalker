@@ -30,7 +30,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Voir `docs/JOURNAL.md` > Idées > « À VÉRIFIER PAR VICTOR SOUS WINDOWS » (premier plan, son, carte graphique).
 
-## Nouveautés du 14 au 15 novembre (it. 1328-1511)
+## Nouveautés du 14 au 15 novembre (it. 1328-1515)
 
 **Contenu**
 - Familiers : Lucane (dégâts contre les boss), Pie (+6 % de coffres au trésor par niveau), Grillon (+5 % d'événements
@@ -64,7 +64,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   sous le drone…) dans la police des textes, avec un contour, lisibles.
 - Ta demande : un objet acheté à la Boutique qui renforce le héros est équipé tout de suite.
 - Ta demande : sur la bande, le serviteur (squelette du nécromancien, loup du druide) passe devant le héros et le
-  compagnon.
+  compagnon (le familier aussi).
+- Tes demandes : duo, un compagnon au corps à corps encaisse pour un héros à distance (dégâts subis −15 %), un
+  compagnon à distance couvre un héros au corps à corps (attaque +15 %). Équilibre 12 h : dans le bruit (+0,2 / −0,3).
+- « Quoi de neuf » : édition 99.
 - « Quoi de neuf » : édition 98 (tes demandes de cet après-midi, 4 nouveautés).
 
 **Corrections**

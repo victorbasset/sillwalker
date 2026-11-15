@@ -225,7 +225,15 @@ export const CLASS_FX = { warrior: "#dfe7ef", ranger: "#9fe0a8", mage: "#ffb733"
 export const isRanged = (cls) => !!(CLASSES[cls] && CLASSES[cls].projectile);
 /** Le compagnon frappe en continu : DUO.atk % de l'attaque du héros par seconde (× l'attaque de sa classe) et
  *  apporte DUO.passive (part) de sa capacité. */
-export const DUO = { atk: 35, passive: 0.5 };
+// guard (it. 1515, demande de Victor) : un héros principal à distance a toujours un compagnon au corps à corps, qui
+// tient la ligne devant lui et encaisse une part des coups (dégâts subis −15 %)
+// cover (it. 1515, demande de Victor, l'inverse) : un héros principal au corps à corps a toujours un compagnon à
+// distance, qui le couvre de ses tirs (attaque +15 %)
+export const DUO = { atk: 35, passive: 0.5, guard: 0.15, cover: 0.15 };
+/** Part des dégâts que le compagnon au corps à corps encaisse pour un héros principal à distance (0 sinon). */
+/** Bonus d'attaque du tir de couverture d'un compagnon à distance pour un héros principal au corps à corps (0 sinon). */
+export const duoCover = (S) => (S.partner && CLASSES[S.partner] && !isRanged(S.cls) && isRanged(S.partner) ? DUO.cover : 0);
+export const duoGuard = (S) => (S.partner && CLASSES[S.partner] && isRanged(S.cls) && !isRanged(S.partner) ? DUO.guard : 0);
 /** Ce héros peut-il accompagner le héros principal `main` ? (libéré, autre portée) */
 export const canPartner = (S, main, cls) => !!CLASSES[cls] && cls !== main && isClassUnlocked(S, cls) && isRanged(cls) !== isRanged(main);
 
