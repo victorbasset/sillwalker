@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1377, contrôle) : succès « Chasseur d'événements » après la Source de vie : calculé sur EVENTS,
+  sans nombre écrit (déjà obtenu : acquis). max-save remplit bien 17 événements et 19 familiers ; --crawl en français
+  sur cet état : 705 clics sans erreur.
 - 2026-11-15 (it. 1376) : Source de vie : halo vert menthe derrière le héros pendant l'événement (dégradé radial
   fixe, comme ceux de la Marée arcanique et du Voile protecteur : aucune animation CSS). Vu en capture avec la
   bannière et la pastille « Source de vie 29 s ». Autotest 228/228.
