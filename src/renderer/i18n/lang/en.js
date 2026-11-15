@@ -1725,4 +1725,5 @@ export default {
   2850: "Ascension #{0}: {1} and {2}. A new adventure begins{3}!",
   2851: "+{n} star shard|+{n} star shards",
   2852: "+{n} permanent skill point|+{n} permanent skill points",
+  2853: "+{n} shard|+{n} shards",
 };

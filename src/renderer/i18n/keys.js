@@ -2854,5 +2854,6 @@ export const KEYS = [
   "Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{n} éclat d’étoile).|Astrolabe : le héros bloquait en zone {0}, ascension automatique (+{n} éclats d’étoile).",
   "Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !",
   "+{n} éclat d’étoile|+{n} éclats d’étoile",
-  "+{n} point de compétence permanent|+{n} points de compétence permanents"
+  "+{n} point de compétence permanent|+{n} points de compétence permanents",
+  "+{n} éclat|+{n} éclats"
 ];

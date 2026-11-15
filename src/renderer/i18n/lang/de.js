@@ -1725,4 +1725,5 @@ export default {
   2850: "Aufstieg Nr. {0}: {1} und {2}. Ein neues Abenteuer beginnt{3}!",
   2851: "+{n} Sternensplitter|+{n} Sternensplitter",
   2852: "+{n} dauerhafter Fertigkeitspunkt|+{n} dauerhafte Fertigkeitspunkte",
+  2853: "+{n} Splitter|+{n} Splitter",
 };

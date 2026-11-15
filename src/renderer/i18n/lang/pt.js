@@ -1725,4 +1725,5 @@ export default {
   2850: "Ascensão nº {0}: {1} e {2}. Uma nova aventura começa{3}!",
   2851: "+{n} fragmento de estrela|+{n} fragmentos de estrela",
   2852: "+{n} ponto de habilidade permanente|+{n} pontos de habilidade permanentes",
+  2853: "+{n} fragmento|+{n} fragmentos",
 };

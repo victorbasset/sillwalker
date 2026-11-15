@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1359) : fin de la série des pluriels (1355-1359) : Ascension « +N éclats » accordé (« +22 осколка »,
+  « +22 odłamki »). Laissés tels quels, vérifiés : seuils des Talents (30, 40, 0, 5, 10, 20) et éclats de la zone
+  minimale (14), tous de la forme « many » en russe et polonais ; astuce du héros bloqué et total des éclats déjà
+  tournés sans accord par les traducteurs (« звёздных осколков: {0} »).
 - 2026-11-15 (it. 1358) : messages d'ascension accordés : journal (« +22 звёздных осколка и +1 постоянное очко
   навыков » ; en français aussi, « +1 point de compétence permanent » au lieu de « +1 points … permanents »), bannière
   de la bande et du mini (« Вознесение № 4! +2 звёздных осколка ») et Astrolabe. Le message du journal est composé de
@@ -5262,9 +5266,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 1356) Autres nombres variables devant un pluriel fixe (russe et polonais faux selon le nombre), à passer
-  par txn : ascension.js « +{0} éclats » et « Rapportera alors {2} éclats », hints.js, talents.js « {0} points
-  dépensés ». (Messages d'ascension, Astrolabe, bannières : faits à l'it. 1358.)
+- FAIT (it. 1355-1359) P3 Nombres variables devant un pluriel fixe (russe et polonais faux selon le nombre) : tous
+  passés par txn ou vérifiés (constantes de la forme « many », tournures neutres des traducteurs).
   (Expéditions et défaites faites à l'it. 1357 ; bestiaire inutile : paliers fixes.)
 - FAIT (it. 1269-1270, ligne d'expérience de la carte du héros) P2 Vu it. 1256 : lang-overflow, une fois sur cinq, « es 1280 : adventure=10 » (Aventure en espagnol, écran de
   1280 px, défilement de 10 px), puis rien sur quatre relances : un état passager de dev-data (pastilles des

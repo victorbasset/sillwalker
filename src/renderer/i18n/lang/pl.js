@@ -1725,4 +1725,5 @@ export default {
   2850: "Wniebowstąpienie nr {0}: {1} i {2}. Zaczyna się nowa przygoda{3}!",
   2851: "+{n} odłamek gwiazd|+{n} odłamki gwiazd|+{n} odłamków gwiazd",
   2852: "+{n} stały punkt umiejętności|+{n} stałe punkty umiejętności|+{n} stałych punktów umiejętności",
+  2853: "+{n} odłamek|+{n} odłamki|+{n} odłamków",
 };
