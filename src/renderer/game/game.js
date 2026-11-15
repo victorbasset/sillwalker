@@ -2069,7 +2069,7 @@ export class Game {
     S.stats.chests = (S.stats.chests || 0) + 1;
     this.questProgress("chest", 1); // quête « Trouver N coffres au trésor » (aussi pendant l'absence)
     const x = rand(), item = this.newItem(x < CHEST.legendary ? 4 : x < CHEST.epic ? 3 : 2);
-    S.potions = Math.min(20, S.potions + 1);
+    S.potions = Math.min(POTION_MAX, S.potions + 1);
     this.log(`${tx("Coffre au trésor ! +{0} or, une potion et {1}.", { 0: fmt(gold), 1: itemName(item) })}`);
     this.emit("chest", { gold, item });
     this.addToBag(item);
@@ -2118,7 +2118,7 @@ export class Game {
     const day = D.streak, gold = Math.round(3 * Math.pow(1.25, this.S.best - 1) * 40 * day);
     this.S.gold += gold;
     const reward = { day, gold, potions: day >= 3 ? 2 : 0, item: null, mod: D.mod, broken };
-    if (reward.potions) this.S.potions = Math.min(20, this.S.potions + reward.potions);
+    if (reward.potions) this.S.potions = Math.min(POTION_MAX, this.S.potions + reward.potions);
     if (day === 7 && !this.bagFull()) { reward.item = this.newItem(3, this.S.best); this.S.bag.push(reward.item); }
     this.log(`${tx("Récompense du jour {0}/7 : +{1} or{2}{3}.", { 0: day, 1: fmt(gold), 2: reward.potions ? tx(", 2 potions") : "", 3: reward.item ? csep() + itemName(reward.item) : "" })}`);
     this.emit("daily", reward);
@@ -2599,7 +2599,7 @@ export class Game {
     if (rank >= c.max || P.shards < cost) return false;
     P.shards -= cost;
     P.ranks[id] = rank + 1;
-    if (c.eff.potions) this.S.potions = Math.min(20, this.S.potions + c.eff.potions);
+    if (c.eff.potions) this.S.potions = Math.min(POTION_MAX, this.S.potions + c.eff.potions);
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
     if (!quiet) this.log(`${tx("Constellation {0} : rang {1}.", { 0: c.name, 1: rank + 1 })}`);

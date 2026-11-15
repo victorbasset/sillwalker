@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1354) : stock de potions plafonné par POTION_MAX partout (trois « 20 » écrits en dur dans game.js :
+  potion du coffre, récompense d'événement, constellation) : un changement du stock maximal ne laissera plus de trou.
+  Recherche des autres valeurs en dur du même genre (7200, 600) : aucune autre.
 - 2026-11-15 (it. 1353) : résumé d'absence au journal : « 1 monstre vaincu » au singulier (avant « 1 monstres
   vaincus » ; clé accordée existante, 3 formes en russe et polonais) et virgule de la langue après (« 、 » en japonais
   et chinois, au lieu d'une virgule en dur dans la traduction). Recherche des autres nombres collés à un pluriel
