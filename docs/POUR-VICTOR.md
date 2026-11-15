@@ -11,14 +11,11 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (it. 1395), `CHESTS_50` « Pilleur de coffres (50 coffres) » (it. 1430), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
   Liste complète : `steam/achievements.md` (70 succès).
 
-## Version 0.1.4 (à décider)
+## Version 0.1.4 (sortie le 15/11)
 
-- Brouillon du devlog prêt : `docs/devlog-0.1.4-brouillon.md` (éditions « Quoi de neuf » 59 à 101). Nouveautés
-  majeures depuis la 0.1.3 : champions et leur quête, 4 événements rares (Lune pâle, Écho des lames, Source de vie, Trésor enfoui),
-  3 élites (Régénérant, Venimeux, Explosif), 6 bénédictions du jour, 4 familiers (Grenouillette, Lucane, Pie, Grillon), l'Encens de
-  chasse, les effets actifs sur la bande, des absences plus justes, de nombreuses corrections de langues.
-- Pour sortir : `CLAUDE.md` > « Sortie d'une version » (numéro, notes, constructions, `scripts/itch-push.sh` après ton
-  « oui »).
+- Construite et envoyée sur itch.io par butler (canaux windows, linux, mac ; it. 1541). Devlog à publier :
+  `docs/devlog-0.1.4.md` (anglais et français). Copies dans `\\192.168.1.25\Médias\dist-itch`.
+- Les joueurs de la 0.1.3 voient au lancement la fenêtre « Nouveautés de la version 0.1.4 » (10 nouveautés majeures).
 
 ## Page itch.io (thème proposé le 15/11, couleurs du panneau sombre)
 

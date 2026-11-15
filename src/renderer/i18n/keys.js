@@ -2951,5 +2951,15 @@ export const KEYS = [
   "Bande : ta vie et celle du monstre affronté s’affichent en haut, à côté de la zone, bouclier compris (Réglages > Fenêtre : « Barres de vie en haut de la bande »).",
   "Talents : chaque maîtrise dont un palier propose deux bonus garde un bouton « Bonus » pour revoir ou changer ton choix, sans passer par la fiche.",
   "Survoler un objet ne fait plus sauter la page : une longue description se resserre pour tenir dans le panneau.",
-  "K.O. · {0} s"
+  "K.O. · {0} s",
+  "Les champions ont leur quête (coffre épique, parfois un œuf) et leur succès.",
+  "Quatre nouveaux événements rares et trois nouvelles élites, à découvrir dans le Bestiaire.",
+  "Six nouvelles bénédictions du jour ; chaque bénédiction vécue donne +1 % d’expérience pour toujours.",
+  "Quatre nouveaux familiers, et un encens de la boutique qui double les élites pendant 10 minutes.",
+  "Un vrai duo : ton compagnon au corps à corps encaisse une part des coups, celui à distance te couvre de ses tirs, et ses sorts s’affichent en grand.",
+  "Ta vie et celle du monstre affronté s’affichent en haut de la bande, bouclier compris.",
+  "Deux nouvelles sortes de quête (gagner des niveaux, attraper des gobelins dorés) et un temps estimé sur presque toutes les quêtes.",
+  "Talents : un bouton sur chaque maîtrise pour choisir les bonus de ses paliers.",
+  "Confort : un achat qui renforce ton héros est équipé tout de suite, et les absences comptent enfin parchemins, potions et encens.",
+  "Le jeu démarre dans la langue de ton système ; le russe a une police pixel lisible."
 ];

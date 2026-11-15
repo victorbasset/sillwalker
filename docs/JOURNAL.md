@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1541, SORTIE 0.1.4, demande de Victor ; boucle arrêtée) : revue générale (12 h : samouraï 65,
+  druide 65, assassin 62 ; perf bande 19,5 %, panneau 21,0 %, mini 6,8 %, icône 0,6 %). package.json 0.1.4 ; notes de
+  version NEWS_RELEASES 0.1.4 (after: 58, 10 nouveautés majeures, 9 langues) ; test des notes adapté (un joueur de la
+  0.1.3 ou plus ancien voit la plus récente) ; note espagnole des Réglages raccourcie (défilait de 11 px à 1280 px
+  depuis la case des barres de vie, it. 1531). devlog-0.1.4.md (ex-brouillon). npm test 314, autotest 233/233,
+  lang-overflow propre (10 langues).
 - 2026-11-15 (it. 1540) : test de Game.nextFoe (premier de la file à pleine vie, perçage déduit, boss une fois la file
   vidée) : 314 tests.
 - 2026-11-15 (it. 1539, demandes de Victor) : barre du monstre en haut de la bande : entre deux combats, le prochain

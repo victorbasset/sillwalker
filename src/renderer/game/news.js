@@ -521,8 +521,21 @@ const RELEASE_013 = [
   "Le détail des statistiques montre d’où vient la puissance du héros ; quêtes et prochain déblocage donnent leur temps restant estimé.",
   "En fin de partie, la bande consomme environ un tiers de processeur en moins ; le panneau peut grandir à 115 % ou 130 % (Réglages).",
 ];
-// 0.1.3 distribuée avec l'édition 58 (NEWS_ID) : la version suivante prendra after: 58.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }];
+// (it. 1541) 0.1.4 : éditions 59 à 101
+const RELEASE_014 = [
+  "Les champions ont leur quête (coffre épique, parfois un œuf) et leur succès.",
+  "Quatre nouveaux événements rares et trois nouvelles élites, à découvrir dans le Bestiaire.",
+  "Six nouvelles bénédictions du jour ; chaque bénédiction vécue donne +1 % d’expérience pour toujours.",
+  "Quatre nouveaux familiers, et un encens de la boutique qui double les élites pendant 10 minutes.",
+  "Un vrai duo : ton compagnon au corps à corps encaisse une part des coups, celui à distance te couvre de ses tirs, et ses sorts s’affichent en grand.",
+  "Ta vie et celle du monstre affronté s’affichent en haut de la bande, bouclier compris.",
+  "Deux nouvelles sortes de quête (gagner des niveaux, attraper des gobelins dorés) et un temps estimé sur presque toutes les quêtes.",
+  "Talents : un bouton sur chaque maîtrise pour choisir les bonus de ses paliers.",
+  "Confort : un achat qui renforce ton héros est équipé tout de suite, et les absences comptent enfin parchemins, potions et encens.",
+  "Le jeu démarre dans la langue de ton système ; le russe a une police pixel lisible.",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101 (NEWS_ID) : la version suivante prendra after: 101.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);

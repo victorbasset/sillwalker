@@ -4268,11 +4268,12 @@ test("sources de puissance : chaque système mesuré en le retirant (it. 1130)",
 
 test("notes de version : un joueur de la 0.1.2 voit celles de la 0.1.3, pas un lecteur récent (it. 1144)", () => {
   const { releaseFor, NEWS_ID } = M_news_js;
-  assert.equal(releaseFor(32)?.version, "0.1.3", "dernière édition lue = 32 (0.1.2)");
-  assert.equal(releaseFor(10)?.version, "0.1.3", "plus ancien encore : aussi");
-  assert.equal(releaseFor(40), null, "a déjà lu des éditions de la 0.1.3 : éditions normales");
+  // (it. 1541) depuis la 0.1.4 : un joueur de la 0.1.3 (édition 58) ou plus ancien voit les notes de la plus récente
+  assert.equal(releaseFor(58)?.version, "0.1.4", "dernière édition lue = 58 (0.1.3)");
+  assert.equal(releaseFor(32)?.version, "0.1.4", "plus ancien encore (0.1.2) : la version la plus récente");
+  assert.equal(releaseFor(60), null, "a déjà lu des éditions de la 0.1.4 : éditions normales");
   assert.equal(releaseFor(NEWS_ID), null, "à jour");
-  assert(releaseFor(32).items.length >= 6 && releaseFor(32).items.length <= 12, "une liste courte et choisie");
+  for (const v of [32, 58]) assert(releaseFor(v).items.length >= 6 && releaseFor(v).items.length <= 12, "une liste courte et choisie");
 });
 
 test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148)", () => {
@@ -4291,7 +4292,7 @@ test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148
   assert(g.stats().atk > 0 && isFinite(power(g.stats())), "statistiques calculables");
   const { newsDue, releaseFor } = M_news_js;
   assert(newsDue(S), "nouveautés à annoncer");
-  assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.3", "fenêtre de la 0.1.3");
+  assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.4", "fenêtre de la version la plus récente (0.1.4 depuis l'it. 1541)");
 });
 
 test("coréen : particule après un guillemet fermant (it. 1155)", () => {
