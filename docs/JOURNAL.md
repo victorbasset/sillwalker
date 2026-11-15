@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1443, contrôle) : « Quoi de neuf » à 7 nouveautés regardé en capture (allemand, 1280 px) : deux
+  colonnes lisibles, aucun défilement, « … und 209 ältere Neuerungen » en bas. Rien à corriger.
 - 2026-11-15 (it. 1442) : « Quoi de neuf » : après les 3 dernières éditions, la fenêtre en ajoute de plus anciennes tant
   que le total reste sous 8 nouveautés (NEWS_FILL_ITEMS). Avant, six éditions d'une ligne parues ce matin (85-90) :
   Victor n'en aurait vu que 3, les autres réduites à « … et N nouveautés plus anciennes ». newsShown(84) : les 6 ;
