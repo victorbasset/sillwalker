@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1433) : POUR-VICTOR : la Pie, le succès « Pilleur de coffres » et la chance de coffre affichée dans
+  les nouveautés de la nuit (it. 1427-1432).
 - 2026-11-15 (it. 1432) : Statistiques > Probabilités : la chance de coffre « aujourd’hui » compte aussi la Pie (avant :
   seulement le Jour des trésors ; comme la ligne des élites avec la Grenouillette). Pie niveau 10 : « aujourd’hui
   0,32 % » (0,2 × 1,6), vérifié par --stage. Autotest 228/228.
