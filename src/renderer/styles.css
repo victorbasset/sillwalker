@@ -272,7 +272,8 @@ p.note:not(.warnline), p.tabintro { border-left: 2px solid color-mix(in srgb, va
 #panel::-webkit-scrollbar-track, .log::-webkit-scrollbar-track { background: transparent; }
 
 /* Projectiles, élites, brûlure */
-.proj { position: absolute; will-change: transform; }
+/* (it. 1523, demande de Victor) z-index 3 : les tirs passent devant le compagnon (2) au lieu de derrière */
+.proj { position: absolute; will-change: transform; z-index: 3; }
 .proj.arrow { width: 18px; height: 3px; background: linear-gradient(90deg, #a0713c 0 12px, #e3ebf3 12px); box-shadow: 0 0 0 1px #14121f; }
 .proj.fire { width: 12px; height: 12px; border-radius: 3px; background: #ffb733; box-shadow: 0 0 0 3px #e2552b, 0 0 0 4px #14121f; translate: 0 -4px; }
 /* .actor.champion / .actor.elite : contour dessiné dans l'image (sprites.js outlinedFrames, it. 595), plus de filtre */
@@ -796,7 +797,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 
 /* Projectiles selon le palier d'attaque */
 /* (it. 1066) lueur : halo en dégradé radial derrière le projectile (strip.js, PROJ_GLOW = rayon), plus de drop-shadow */
-.projglow { position: absolute; pointer-events: none; border-radius: 50%; }
+.projglow { position: absolute; pointer-events: none; border-radius: 50%; z-index: 3; }
 .projglow.t1 { width: 16px; height: 16px; background: radial-gradient(closest-side, color-mix(in srgb, var(--c) 55%, transparent), transparent); }
 .projglow.t2 { width: 20px; height: 20px; background: radial-gradient(closest-side, color-mix(in srgb, #fff 35%, var(--c)) 0, color-mix(in srgb, var(--c) 60%, transparent) 40%, transparent); }
 .projglow.t3 { width: 28px; height: 28px; background: radial-gradient(closest-side, color-mix(in srgb, #fff 40%, var(--c)) 0, color-mix(in srgb, var(--c) 65%, transparent) 35%, color-mix(in srgb, var(--c) 25%, transparent) 70%, transparent); }

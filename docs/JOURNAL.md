@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1523, demande de Victor) : bande, projectiles des héros à distance (.proj, .projglow) en z-index 3 :
+  devant le compagnon au lieu de derrière. Vérifié par --stage (rôdeur + guerrier). Autotest 231/231.
 - 2026-11-15 (it. 1522, demandes de Victor : le choix des bonus de paliers était introuvable, « A/B » obscur) :
   S.masteryChosen (paliers où le joueur a cliqué ; nettoyé au chargement, gardé à l'ascension) ; Game.pendingMasteryPicks ;
   « À faire » : « N paliers de maîtrise : choisis leurs bonus » ; bouton « Choisir un bonus » sur la maîtrise (ouvre la
