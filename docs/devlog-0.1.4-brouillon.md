@@ -1,7 +1,7 @@
 # Devlog itch.io : version 0.1.4 (BROUILLON, it. 1298)
 
 Brouillon préparé pendant le développement, à relire et compléter le jour de la sortie (Victor décide quand). Il
-reprend les éditions « Quoi de neuf » 59 à 97 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
+reprend les éditions « Quoi de neuf » 59 à 99 parues depuis la 0.1.3 (news.js), réduites aux nouveautés majeures.
 À la sortie : mettre les mêmes points dans NEWS_RELEASES (news.js, `after: 58`), renommer ce fichier en
 devlog-0.1.4.md et ajouter ce qui sera paru entre-temps.
 
@@ -20,6 +20,8 @@ Sillwalker 0.1.4 is out! Here is what's new since 0.1.3:
 - **Four new pets:** the Froglet, whose croaking draws elites (+2% per level), the Stag Beetle, whose mandibles go for the bosses' weak spots (+3% damage against them per level), the Magpie, who spots treasure chests (+6% per level), and the Cricket, whose song draws rare events (+5% per level). And in the Shop, **Hunting Incense**: twice as many elites for 10 minutes, for those who want the risk (never rebought automatically).
 - **Duo on the strip:** a ranged hero now lets their melee companion walk in front.
 - **Your companion's spells, in full:** Hero > Spells & attack now shows them as large cards, to the right of your hero's, with their real (half) power; the hero card lists them too.
+- **A real duo:** a melee companion stands in front of a ranged hero and takes part of the blows (damage taken −15%); a ranged companion covers a melee hero with their shots (attack +15%).
+- **Small comforts:** an item bought at the shop that makes your hero stronger is equipped right away; after the flower, “Spend automatically” follows your most advanced line; the map shows your hero's head right on their zone.
 - **At a glance:** the strip shows your active elixirs, scrolls and incense as small icons in front of your gold.
 - **Two new kinds of quest:** gain levels, and catch golden goblins; both progress on their own, even while you're away.
 - **Return after an absence:** the summary now counts items left on the ground (full bag) and the champions that fell.
@@ -46,6 +48,8 @@ Sillwalker 0.1.4 est disponible ! Voici les nouveautés depuis la 0.1.3 :
 - **Quatre nouveaux familiers :** la Grenouillette, dont les coassements attirent les élites (+2 % par niveau), le Lucane, dont les mandibules visent les points faibles des boss (+3 % de dégâts contre eux par niveau), la Pie, qui repère les coffres au trésor (+6 % par niveau), et le Grillon, dont le chant attire les événements rares (+5 % par niveau). Et à la boutique, l'**Encens de chasse** : deux fois plus d'élites pendant 10 minutes, pour qui veut le risque (jamais racheté automatiquement).
 - **Le duo sur la bande :** un héros à distance laisse son compagnon au corps à corps marcher devant lui.
 - **Les sorts du compagnon en grand :** Héros > Sorts et attaque les montre en grandes cartes, à droite de ceux du héros, à leur vraie puissance (la moitié) ; la carte du héros les cite aussi.
+- **Un vrai duo :** un compagnon au corps à corps se place devant un héros à distance et encaisse une part des coups (dégâts subis −15 %) ; un compagnon à distance couvre un héros au corps à corps de ses tirs (attaque +15 %).
+- **Petits conforts :** un objet acheté à la boutique qui renforce ton héros est équipé tout de suite ; après la fleur, « Dépenser automatiquement » suit ta ligne la plus avancée ; la carte montre la tête de ton héros sur sa zone.
 - **D'un coup d'œil :** la bande montre tes élixirs, parchemins et encens actifs, en petites icônes devant ton or.
 - **Deux nouvelles sortes de quête :** gagner des niveaux, et attraper des gobelins dorés ; elles avancent toutes seules, même pendant ton absence.
 - **Retour après une absence :** le résumé compte les objets restés au sol (sac plein) et les champions tombés.

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1519) : devlog 0.1.4 (en et fr) : le vrai duo (encaisse / couvre) et les petits conforts (achats
+  équipés, dépense automatique qui suit la ligne, tête du héros sur la carte) ; éditions 59 à 99.
 - 2026-11-15 (it. 1518, contrôle) : après les effets du duo (it. 1515-1516) : fuzz 60 graines, 1200 parties, 0 bloquée ;
   hero-table 12 h × graines 7/3/11 (20 héros) : moyenne 64,6 (63,6 avant), mage 61,3 → gardien des astres 68,3
   (écart 7,0 contre 6,6) : rien à régler.
