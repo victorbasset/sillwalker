@@ -1757,4 +1757,5 @@ export default {
   2882: "Los hechizos se recargan un 50 % más rápido.",
   2883: "¡Hoy mis hechizos vuelven en un instante!",
   2884: "Nueva bendición del día, el Día de los arcanos: los hechizos se recargan un 50 % más rápido.",
+  2885: "Los hechizos se aprenden a partir de la zona {0}.",
 };

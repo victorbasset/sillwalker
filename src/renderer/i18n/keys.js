@@ -2886,5 +2886,6 @@ export const KEYS = [
   "Jour des arcanes",
   "Sorts rechargés 50 % plus vite.",
   "Mes sorts reviennent en un éclair aujourd’hui !",
-  "Nouvelle bénédiction du jour, le Jour des arcanes : les sorts se rechargent 50 % plus vite."
+  "Nouvelle bénédiction du jour, le Jour des arcanes : les sorts se rechargent 50 % plus vite.",
+  "Les sorts s’apprennent à partir de la zone {0}."
 ];

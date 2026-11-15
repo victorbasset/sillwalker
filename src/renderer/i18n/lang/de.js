@@ -1757,4 +1757,5 @@ export default {
   2882: "Zauber laden 50 % schneller auf.",
   2883: "Meine Zauber sind heute im Nu wieder da!",
   2884: "Neuer Segen des Tages, der Tag der Arkana: Zauber laden 50 % schneller auf.",
+  2885: "Zauber lernt man ab Zone {0}.",
 };

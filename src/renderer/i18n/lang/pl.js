@@ -1757,4 +1757,5 @@ export default {
   2882: "Zaklęcia ładują się 50% szybciej.",
   2883: "Moje zaklęcia wracają dziś w mgnieniu oka!",
   2884: "Nowe błogosławieństwo dnia, Dzień arkanów: zaklęcia ładują się 50% szybciej.",
+  2885: "Zaklęć uczysz się od strefy {0}.",
 };

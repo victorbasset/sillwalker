@@ -9,7 +9,7 @@ import { itemName, itemKindLine } from "../i18n/data.js";
 import { t as tx, txn, lc, colon, tr, csep, cend, wsp } from "../i18n/index.js";
 import { todoLabel } from "./todo.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
-import { classSpells, spellRank } from "../game/spells.js";
+import { classSpells, spellRank, SPELL_ZONES } from "../game/spells.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE, CHAMPION } from "../game/data.js";
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower, powerSources } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
@@ -780,7 +780,9 @@ export class Panel {
     const dmLater = dm && dm.elite && S.zone < ELITE.minZone && !((S.prestige && S.prestige.count) > 0) ? "\n" + tx("Les élites apparaissent à partir de la zone {0}.", { 0: ELITE.minZone }) : "";
     // (it. 1273) Jour des champions, même cas : pas de champion avant la zone 5 en première course
     const dmLaterC = dm && dm.champion && S.zone < CHAMPION.minZone && !((S.prestige && S.prestige.count) > 0) ? "\n" + tx("Les champions apparaissent à partir de la zone {0}.", { 0: CHAMPION.minZone }) : "";
-    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.icon} ${dm.name} · ${dm.desc}${dmLater}${dmLaterC}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
+    // (it. 1413) Jour des arcanes sans sort appris : il ne sert à rien encore, on dit quand les sorts arrivent
+    const dmLaterS = dm && dm.spellCdr && !classSpells(S.cls).some((x) => spellRank(S, x.id) > 0) ? "\n" + tx("Les sorts s’apprennent à partir de la zone {0}.", { 0: SPELL_ZONES[0] }) : "";
+    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.icon} ${dm.name} · ${dm.desc}${dmLater}${dmLaterC}${dmLaterS}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);

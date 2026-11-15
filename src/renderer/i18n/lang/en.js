@@ -1757,4 +1757,5 @@ export default {
   2882: "Spells recharge 50% faster.",
   2883: "My spells come back in a flash today!",
   2884: "New blessing of the day, the Day of Arcana: spells recharge 50% faster.",
+  2885: "Spells are learned from zone {0} onward.",
 };

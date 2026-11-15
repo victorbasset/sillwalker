@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1413) : Jour des arcanes sans sort appris : la bulle de la pastille ajoute « Les sorts s’apprennent à
+  partir de la zone 10. » (comme les élites et les champions avant leur zone). 10 langues ; vérifié sur une partie
+  neuve par --stage. Autotest 228/228.
 - 2026-11-15 (it. 1412) : 15e bénédiction du jour, le Jour des arcanes 🔮 (sorts rechargés 50 % plus vite, cumulable
   avec la Marée arcanique ; aucune bénédiction ne touchait les sorts), ajoutée à la FIN. Calendrier du 14 au 30/11
   inchangé (elle viendra plus tard). Réplique du héros, 10 langues, test, README, « Quoi de neuf » 85, devlog,

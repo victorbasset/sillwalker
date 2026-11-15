@@ -1757,4 +1757,5 @@ export default {
   2882: "Feitiços recarregam 50 % mais rápido.",
   2883: "Hoje meus feitiços voltam num piscar de olhos!",
   2884: "Nova bênção do dia, o Dia dos arcanos: os feitiços recarregam 50 % mais rápido.",
+  2885: "Os feitiços são aprendidos a partir da zona {0}.",
 };
