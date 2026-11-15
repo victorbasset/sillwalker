@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1353) : résumé d'absence au journal : « 1 monstre vaincu » au singulier (avant « 1 monstres
+  vaincus » ; clé accordée existante, 3 formes en russe et polonais) et virgule de la langue après (« 、 » en japonais
+  et chinois, au lieu d'une virgule en dur dans la traduction). Recherche des autres nombres collés à un pluriel
+  fixe : c'était le seul. Test (ancien code : « During 1 min: 1 monsters defeated »).
 - 2026-11-15 (it. 1352) : récompense de quête au journal : elle nomme le vrai consommable gagné (« Parchemin de
   fortune · 10 min » ; avant, toujours « élixir de 10 min », même pour un parchemin ou un trèfle) et accorde les
   éclats (« 1 éclat », avant « 1 éclats »). Durée, plafond et stock lus dans shop.js (écrits en dur) ; un consommable

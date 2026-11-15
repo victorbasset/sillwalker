@@ -1209,7 +1209,8 @@ export class Game {
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,
     };
-    this.log(tx("Pendant ") + summary.duration + colon() + fmt(kills) + tx(" monstres vaincus, +") + tx("{0} or", { 0: fmt(gold) }) +
+    // (it. 1353) victoires accordées (« 1 monstres vaincus ») et virgule de la langue (« 、 » en japonais)
+    this.log(tx("Pendant ") + summary.duration + colon() + txn(kills, "{n} monstre vaincu|{n} monstres vaincus") + csep() + "+" + tx("{0} or", { 0: fmt(gold) }) +
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") +
       // (it. 844) rien gardé : pas de « 0 objet gardé » dans le journal
       (summary.kept ? tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés.") : cend()));

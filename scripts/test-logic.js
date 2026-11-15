@@ -374,6 +374,17 @@ test("quête : la récompense nomme le vrai consommable et accorde les éclats (
   assert.ok(g.claimQuest(q2.uid), "consommable inconnu (autre version) : réclamée quand même");
 });
 
+test("absence : « 1 monster defeated » au singulier dans le journal (it. 1353)", () => {
+  let found = null;
+  for (let z = 1; z < 80 && !found; z++) for (const sec of [40, 60, 90, 120, 200]) {
+    if (found) break;
+    const g = new Game(freshState()); g.S.zone = z; const n0 = g.S.log.length; const sum = g.applyOffline(sec);
+    if (sum && sum.kills === 1) found = g.S.log.slice(n0).map((l) => (l && l.t) || String(l)).join(" ");
+  }
+  assert.ok(found, "une absence à une seule victoire");
+  assert.ok(/\b1\smonster\sdefeated\b/.test(found) && !/monsters/.test(found), found);
+});
+
 test("quêtes : progression, récompense, renouvellement", () => {
   const g = new Game(freshState());
   assert.equal(g.S.quests.slots.length, 3);
