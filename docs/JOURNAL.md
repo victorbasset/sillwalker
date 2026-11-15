@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1385, contrôle) : page Steam et dossier de presse : aucune élite ni aucun événement cité par son nom
+  (seulement des nombres, déjà à jour). i18n-names avec l'Explosif : aucun écart. --crawl sur la fin de partie en
+  coréen (635 clics) et en allemand (676) : aucune erreur.
 - 2026-11-15 (it. 1384) : README « Ajouter du contenu » : recettes pour un événement rare, une élite et une bénédiction
   du jour (où écrire, ordre « à la fin », réplique, son, nombres cités par la page Steam et les dossiers de presse,
   calendrier), tirées des ajouts de la nuit ; familiers « à la fin » aussi.
