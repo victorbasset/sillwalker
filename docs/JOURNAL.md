@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1360, contrôle) : début de partie après les changements de la nuit : premières récompenses
+  (first-minutes, 3 graines) objet 52-79 s, boss 76-79 s, niveau 16 vers 13-15 min ; onglets (tab-pace) Talents 1 min,
+  Quêtes 5, Boutique 8-9, Héros 10, Carte 12, Bestiaire 14-15. Inchangé.
 - 2026-11-15 (it. 1359) : fin de la série des pluriels (1355-1359) : Ascension « +N éclats » accordé (« +22 осколка »,
   « +22 odłamki »). Laissés tels quels, vérifiés : seuils des Talents (30, 40, 0, 5, 10, 20) et éclats de la zone
   minimale (14), tous de la forme « many » en russe et polonais ; astuce du héros bloqué et total des éclats déjà
