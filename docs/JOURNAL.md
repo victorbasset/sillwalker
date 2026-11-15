@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1344) : quêtes d'élites (« Vaincre N élites », proies) en cours : au survol de la carte, l'astuce
+  « l'Encens de chasse de la Boutique attire deux fois plus d'élites » (une fois la Boutique ouverte ; la carte ne
+  grandit pas). Vérifié par --stage : présente sur la quête en cours, absente sur la quête accomplie et les autres.
 - 2026-11-15 (it. 1343) : mode mini : sa bulle (survol de la zone d'infos) dit aussi les effets en cours, avec les
   minutes restantes (« Effets en cours : Élixir de force 12 min et Encens de chasse 50 min »), après la bénédiction
   du jour. Vérifié en français et en japonais (lecture de la bulle par --stage).

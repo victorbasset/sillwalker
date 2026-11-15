@@ -1710,4 +1710,5 @@ export default {
   2835: "Novidade na Loja: o Incenso de caça atrai o dobro de elites por 10 min. Mais risco, mais butim; o Herbalista perpétuo nunca o recompra por você.",
   2836: "A faixa mostra seus elixires, pergaminhos e incenso ativos: um pequeno ícone para cada um, logo antes do seu ouro.",
   2837: "Efeitos ativos",
+  2838: "Dica: o Incenso de caça da Loja atrai o dobro de elites.",
 };

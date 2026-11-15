@@ -11,6 +11,7 @@ import { shopIconURL, spellIconURL } from "../../render/shopart.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
+import { tabOpen } from "../../game/tabs.js";
 import { classSpells, spellRank } from "../../game/spells.js";
 
 /** Icône de chaque type de quête (réutilise les dessins de la boutique et des objets). */
@@ -68,7 +69,10 @@ export class QuestsTab {
       const prog = q.kind === "gold" ? `${fmt(q.progress)} / ${fmt(q.goal)}` : `${Math.min(q.progress, q.goal)} / ${q.goal}`;
       const eta = g.questEta(q); // (it. 926) au rythme actuel des combats
       const etaTxt = eta != null && eta < 48 * 3600 ? ` <small class="eta">· ${esc(tx("≈ {0}", { 0: durText(Math.max(60, eta)) }))}</small>` : "";
-      return `<article class="panel questcard s${stars}${done ? " done" : ""}">
+      // (it. 1344) quêtes d'élites : l'Encens de chasse les accélère (astuce au survol, la carte ne grandit pas)
+      const lureTip = !done && (q.kind === "elite" || q.kind === "prey") && tabOpen(S, "shop")
+        ? ` title="${esc(tx("Astuce : l’Encens de chasse de la Boutique attire deux fois plus d’élites."))}"` : "";
+      return `<article class="panel questcard s${stars}${done ? " done" : ""}"${lureTip}>
         <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)(S)}" alt=""><div>
           <div class="stars">${"★".repeat(stars)}<span>${"★".repeat(3 - stars)}</span></div>
           <h2>${esc(questText(q, fmt))}</h2></div></div>

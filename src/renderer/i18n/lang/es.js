@@ -1710,4 +1710,5 @@ export default {
   2835: "Novedad en la Tienda: el Incienso de caza atrae el doble de élites durante 10 min. Más riesgo, más botín; el Herbolario perpetuo nunca lo recompra por ti.",
   2836: "La franja muestra tus elixires, pergaminos e incienso activos: un pequeño icono para cada uno, justo delante de tu oro.",
   2837: "Efectos activos",
+  2838: "Consejo: el Incienso de caza de la Tienda atrae el doble de élites.",
 };

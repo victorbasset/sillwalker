@@ -1710,4 +1710,5 @@ export default {
   2835: "Nowość w Sklepie: Kadzidło łowieckie przez 10 min przyciąga dwa razy więcej elit. Większe ryzyko, więcej łupów; Wieczny zielarz nigdy nie odkupi go za ciebie.",
   2836: "Pasek pokazuje aktywne eliksiry, zwoje i kadzidło: po jednej małej ikonie, tuż przed twoim złotem.",
   2837: "Aktywne efekty",
+  2838: "Wskazówka: Kadzidło łowieckie ze Sklepu przyciąga dwa razy więcej elit.",
 };
