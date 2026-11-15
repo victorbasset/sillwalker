@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1497) : compteur du sous-onglet « Sorts et attaque » : avec un compagnon, compte aussi ses sorts
+  (« 0 / 6 » au lieu de « 0 / 3 »), puisqu'ils s'affichent en grand sur la même page. Vérifié par --stage.
+  Autotest 229/229.
 - 2026-11-15 (it. 1496) : CLAUDE.md : i18n-check signale désormais une clé sans aucune traduction (liste TECH pour les
   clés techniques).
 - 2026-11-15 (it. 1495) : carte du héros (Aventure) : la ligne du duo montre aussi les sorts appris du compagnon,
