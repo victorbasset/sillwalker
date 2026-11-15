@@ -55,6 +55,8 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
       enchaîné, volume du réglage « Musique », mode muet, aperçu dans Réglages > Son (4 morceaux), boucle sans
       couture, boss ; autotest (fichiers présents, lecture, volume) ; perf:linux et mem-watch ; bande-annonce.
 - [ ] 9. Passe de finition sur les retours de Victor (mixage, tempo, instruments).
+      - [x] 9a. humanisation (décalages et vélocités variables) ; les 4 morceaux rendus à nouveau
+      - [ ] 9b. retours d'écoute de Victor (en attente)
 - [ ] 10. Nettoyage : ancien générateur retiré (ou gardé en secours si un fichier manque), README, CLAUDE.md,
       « Quoi de neuf », devlog.
 
@@ -150,3 +152,10 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   le juge trop).
 - 15/11 (demande de Victor) : curseur « Effets » (Réglages > Son, 0 à 200 %) : sound.js a maintenant un volume
   général (`out`) et un bus des effets (`master`, `setEffects`) ; l'ambiance et la musique se branchent sur `out`.
+- 15/11 (tâche 9a) : humanisation (`Studio.humanize`, générateur à graine : rendu identique) : chaque note décalée
+  de quelques ms et frappée avec une force variable (mélodies et accords ±8 ms / ±8 %, cordes ±12 ms, chœur ±15 ms,
+  charlestons et shaker ±6-8 ms / ±15 %, grosse caisse ±2 ms pour garder le groove), 14 instruments. Les 4 morceaux
+  rendus à nouveau (render.cjs : délai porté à 30 min, un rendu lent sortait sans rien dire ; quatre rendus en
+  parallèle : ≈ 10 min). Mesures inchangées à ±0,5 dB : rebord −15,9 LUFS LRA 6,2 raccord 0,005 ; sentiers −15,9 / 7,4 /
+  0,004 ; lieutenants −15,9 / 5,4 / 0,005 ; briseur −16,0 / 6,9 / 0,004, largeur 0,47. Fichiers du jeu remplacés ;
+  autotest 235/235 (rapport des volumes 1,11). MP3 : 02-le-rebord-v3, 03-…-v2, 04-…-v2, 05-…-v2.

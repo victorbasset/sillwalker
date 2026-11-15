@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 9a) : humanisation des 4 morceaux (micro-décalages et forces variables, à graine) ;
+  rendus à nouveau et remplacés dans le jeu ; autotest 235/235.
 - 2026-11-15 (musique, tâche 8) : les 4 morceaux dans le jeu (lecture par tranches de 50 zones, boucle sans blanc,
   fondu enchaîné, aperçu dans les Réglages, boss) ; autotest (décodage, volumes, lecture) ; perf −1 à −1,6 point,
   mémoire +55 Mo stable. Demande de Victor : curseur « Effets » à côté de « Musique » et « Ambiance ». Autotest 235/235,

@@ -51,6 +51,14 @@ export class Studio {
     w1.connect(this.wowCents); w2.connect(w2g); w2g.connect(this.wowCents); w1.start(0); w2.start(0);
   }
 
+  /** (tâche 9) Humanisation : un musicien ne joue jamais pile sur la grille ni deux fois avec la même force. Petit
+   *  décalage (± time s) et variation de vélocité (± amt), tirés d'un générateur à graine : rendu identique. */
+  humanize(t, vel, time = 0.008, amt = 0.08) {
+    this.hr ||= rng(4242);
+    const dt = (this.hr() - 0.5) * 2 * time, dv = 1 + (this.hr() - 0.5) * 2 * amt;
+    return [Math.max(0, t + dt), vel * dv];
+  }
+
   /** Profondeur du pleurage de bande (cents) à partir de t ; rampe douce. */
   setWow(cents, t = 0) { this.wowCents.gain.setTargetAtTime(cents, t, 0.5); }
   /** Branche un oscillateur sur le pleurage de bande. */

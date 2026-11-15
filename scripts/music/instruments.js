@@ -22,6 +22,7 @@ function vibrato(c, o, t, stop, rate, cents, delay = 0.25) {
 /** Piano électrique (façon Rhodes) en FM : porteuse modulée ×1 dont l'indice décroît (attaque « tine »), cloche ×14
  *  très courte, deuxième porteuse désaccordée (chœur). */
 export function epiano(st, ch, t, m, dur, vel = 0.8, { bright = 1 } = {}) {
+  [t, vel] = st.humanize(t, vel, 0.008, 0.08);
   const c = st.ctx, f = hz(m), end = t + dur, stop = end + 2.5;
   const out = c.createGain(); env(out, t, 0.004, 0.22 * vel, 1.2, 0.35, 0.35, end); out.connect(ch.in);
   const car = st.wobble(osc(c, "sine", f, t, stop)), mod = st.wobble(osc(c, "sine", f, t, stop)), mg = c.createGain();
@@ -48,6 +49,7 @@ function ksBuffer(c, m, bright, len) {
   ksCache.set(key, b); return b;
 }
 export function pluck(st, ch, t, m, dur, vel = 0.8, bright = 0.5) {
+  [t, vel] = st.humanize(t, vel, 0.006, 0.1);
   const c = st.ctx, s = c.createBufferSource(); s.buffer = ksBuffer(c, m, bright, 2.2);
   s.detune.value = 0; st.wobble(s);
   const g = c.createGain(); g.gain.setValueAtTime(0.5 * vel, t); g.gain.setValueAtTime(0.5 * vel, t + dur); g.gain.setTargetAtTime(0, t + dur, 0.12);
@@ -56,6 +58,7 @@ export function pluck(st, ch, t, m, dur, vel = 0.8, bright = 0.5) {
 }
 /** Basse pincée (Karplus-Strong grave, plus sombre) avec un sinus sous la fondamentale pour le poids. */
 export function pluckbass(st, ch, t, m, dur, vel = 0.8) {
+  [t, vel] = st.humanize(t, vel, 0.004, 0.06);
   const c = st.ctx, s = c.createBufferSource(); s.buffer = ksBuffer(c, m, 0.15, 2.5);
   const g = c.createGain(); g.gain.setValueAtTime(0.55 * vel, t); g.gain.setValueAtTime(0.55 * vel, t + dur); g.gain.setTargetAtTime(0, t + dur, 0.07);
   const lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 900;
@@ -65,6 +68,7 @@ export function pluckbass(st, ch, t, m, dur, vel = 0.8) {
 
 /** Cloche / célesta en FM (rapport 1:3,5 : partiels inharmoniques de cloche), longue résonance. */
 export function bell(st, ch, t, m, dur, vel = 0.7, { ratio = 3.5, index = 1.6, ring = 2.2 } = {}) {
+  [t, vel] = st.humanize(t, vel, 0.006, 0.08);
   const c = st.ctx, f = hz(m), stop = t + Math.max(dur, ring) + 1;
   const out = c.createGain(); out.gain.setValueAtTime(0, t); out.gain.linearRampToValueAtTime(0.16 * vel, t + 0.003); out.gain.setTargetAtTime(0, t + 0.003, ring / 3); out.connect(ch.in);
   const car = st.wobble(osc(c, "sine", f, t, stop)), mod = osc(c, "sine", f * ratio, t, stop), mg = c.createGain();
@@ -77,6 +81,7 @@ export function bell(st, ch, t, m, dur, vel = 0.7, { ratio = 3.5, index = 1.6, r
 /** Flûte : sinus + triangle doux, souffle (bruit filtré autour de la note) surtout à l'attaque, vibrato qui
  *  s'installe ; légère montée de hauteur à l'attaque (comme une vraie flûte). */
 export function flute(st, ch, t, m, dur, vel = 0.7) {
+  [t, vel] = st.humanize(t, vel, 0.01, 0.06);
   const c = st.ctx, f = hz(m), end = t + dur, stop = end + 1;
   const out = c.createGain(); env(out, t, 0.06, 0.14 * vel, 0.3, 0.85, 0.12, end); out.connect(ch.in);
   const o = st.wobble(osc(c, "sine", f, t, stop)); o.detune.setValueAtTime(-25, t); o.detune.linearRampToValueAtTime(0, t + 0.07);
@@ -100,6 +105,7 @@ function pulseWave(c, duty) {
   return pulseWaves.get(duty);
 }
 export function chip(st, ch, t, m, dur, vel = 0.7, { duty = 0.25, cut = 3200, glide = 0 } = {}) {
+  [t, vel] = st.humanize(t, vel, 0.005, 0.06);
   const c = st.ctx, f = hz(m), end = t + dur, stop = end + 0.6;
   const o = c.createOscillator(); o.setPeriodicWave(pulseWave(c, duty)); o.frequency.setValueAtTime(glide ? hz(m - glide) : f, t);
   if (glide) o.frequency.exponentialRampToValueAtTime(f, t + 0.05);
@@ -124,6 +130,7 @@ export function pad(st, ch, t, m, dur, vel = 0.6, { cut = 1800, open = 1.2, voic
 
 /** Cordes d'ensemble : dents de scie désaccordées, attaque lente, filtre qui suit la vélocité, vibrato d'ensemble. */
 export function strings(st, ch, t, m, dur, vel = 0.7, { attack = 0.35 } = {}) {
+  [t, vel] = st.humanize(t, vel, 0.012, 0.06);
   const c = st.ctx, f = hz(m), end = t + dur, stop = end + 2;
   const lp = c.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1200 + 2600 * vel; lp.Q.value = 0.5;
   const hp = c.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 110;
@@ -138,6 +145,7 @@ export function strings(st, ch, t, m, dur, vel = 0.7, { attack = 0.35 } = {}) {
 /** Chœur « aah » : dents de scie filtrées par trois formants de la voyelle A (≈ 800, 1150, 2900 Hz), deux voix
  *  désaccordées, attaque douce. */
 export function choir(st, ch, t, m, dur, vel = 0.6) {
+  [t, vel] = st.humanize(t, vel, 0.015, 0.05);
   const c = st.ctx, f = hz(m), end = t + dur, stop = end + 2.5;
   const g = c.createGain(); env(g, t, 0.45, 0.1 * vel, 1.5, 0.9, 0.7, end); g.connect(ch.in);
   const mix = c.createGain(); mix.gain.value = 1;
@@ -170,6 +178,7 @@ const noiseHit = (st, ch, t, { type = "bandpass", f = 2000, q = 0.7, vol = 0.3, 
 };
 /** Grosse caisse ronde : sinus 150 → 48 Hz, clic doux ; note le temps pour la compression en sidechain. */
 export function kick(st, ch, t, vel = 0.9) {
+  [t, vel] = st.humanize(t, vel, 0.002, 0.04);
   const c = st.ctx, o = c.createOscillator(), g = c.createGain();
   o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(48, t + 0.11);
   g.gain.setValueAtTime(0.9 * vel, t); g.gain.setTargetAtTime(0, t + 0.04, 0.09);
@@ -179,6 +188,7 @@ export function kick(st, ch, t, vel = 0.9) {
 }
 /** Caisse claire feutrée (lofi) : bruit filtré + corps sinus 190 Hz. */
 export function snare(st, ch, t, vel = 0.8) {
+  [t, vel] = st.humanize(t, vel, 0.004, 0.08);
   const c = st.ctx;
   noiseHit(st, ch, t, { f: 1800, vol: 0.32 * vel, decay: 0.06, len: 0.4, off: 0.3 });
   const o = c.createOscillator(), og = c.createGain(); o.frequency.setValueAtTime(190, t); o.frequency.exponentialRampToValueAtTime(150, t + 0.06);
@@ -186,14 +196,17 @@ export function snare(st, ch, t, vel = 0.8) {
 }
 /** Claquement de mains / « rim » léger (bruit court bande étroite, trois micro-attaques). */
 export function clap(st, ch, t, vel = 0.6) {
+  [t, vel] = st.humanize(t, vel, 0.004, 0.08);
   [0, 0.011, 0.022].forEach((d, i) => noiseHit(st, ch, t + d, { f: 1300, q: 1.4, vol: (i === 2 ? 0.28 : 0.16) * vel, decay: i === 2 ? 0.05 : 0.008, len: 0.3, off: 0.5 + i * 0.1 }));
 }
 /** Charleston : bruit aigu très court (fermé) ou plus long (ouvert). */
 export function hat(st, ch, t, vel = 0.5, open = false) {
+  [t, vel] = st.humanize(t, vel, 0.006, 0.15);
   noiseHit(st, ch, t, { type: "highpass", f: 7500, vol: 0.12 * vel, decay: open ? 0.09 : 0.018, len: open ? 0.5 : 0.12, off: 0.55 + (t % 0.3) });
 }
 /** Shaker : bruit aigu en souffle (attaque arrondie). */
 export function shaker(st, ch, t, vel = 0.4) {
+  [t, vel] = st.humanize(t, vel, 0.008, 0.15);
   const c = st.ctx, s = c.createBufferSource(), hp = c.createBiquadFilter(), g = c.createGain();
   s.buffer = noise(c); hp.type = "highpass"; hp.frequency.value = 6000;
   g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.07 * vel, t + 0.02); g.gain.setTargetAtTime(0, t + 0.025, 0.03);
@@ -206,6 +219,7 @@ export function crash(st, ch, t, vel = 0.6) {
 }
 /** Tom / timbale : sinus qui descend, peau (bruit bas) ; « timpani » plus grave et plus long. */
 export function tom(st, ch, t, m, vel = 0.8, long = false) {
+  [t, vel] = st.humanize(t, vel, 0.004, 0.06);
   const c = st.ctx, f = hz(m), o = c.createOscillator(), g = c.createGain();
   o.frequency.setValueAtTime(f * 1.5, t); o.frequency.exponentialRampToValueAtTime(f, t + 0.06);
   g.gain.setValueAtTime(0.6 * vel, t); g.gain.setTargetAtTime(0, t + 0.02, long ? 0.45 : 0.16);
