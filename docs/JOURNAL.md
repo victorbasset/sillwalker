@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1447) : quête « Vivre N événements rares » : temps estimé sur sa carte (rythme des victoires × chance
+  qu'une victoire déclenche un événement permis ici, Jour des prodiges compris). Fin de partie, une victoire / 2 s :
+  2 événements ≈ 2 min. Test. Autotest 228/228. Quêtes encore sans estimation : boss, forge, transmutation, butin,
+  coups au clic, zone (cadence propre au joueur ou au boss).
 - 2026-11-15 (it. 1446, contrôle) : après Jour des arcanes, Pie, Trésor enfoui : fuzz sous toutes les bénédictions
   (FUZZ_DAYMOD=all, 400 parties) et fuzz normal (1200 parties) : 0 bloquée. mem-watch 6 min ×10 : 501-516 Mo puis
   retour à 501 (plage attendue 485-530 Mo) : pas de fuite.

@@ -479,6 +479,9 @@ test("quête « Gagner N niveaux » : avance aux montées de niveau, en jeu et p
   assert.equal(g.questEta({ uid: 995, kind: "expedition", goal: 2, progress: 0, reward: {}, stars: 1 }, 0), 120);
   assert.equal(g.questEta({ uid: 996, kind: "expedition", goal: 3, progress: 0, reward: {}, stars: 1 }, 0), null, "pas assez en route");
   // (it. 1423) coffres : plus long qu'une victoire (≈ 1 coffre pour 500 victoires sans élite)
+  // (it. 1447) événements rares : une estimation finie
+  const qe = { uid: 998, kind: "event", goal: 2, progress: 0, reward: {}, stars: 1 }, ee = g.questEta(qe);
+  assert.ok(ee > 0 && Number.isFinite(ee), "événements " + ee);
   const ech = g.questEta({ uid: 997, kind: "chest", goal: 1, progress: 0, reward: {}, stars: 1 });
   assert.ok(ech > 0 && Number.isFinite(ech), "coffre " + ech);
 });
