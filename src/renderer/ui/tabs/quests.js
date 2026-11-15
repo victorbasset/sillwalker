@@ -86,7 +86,9 @@ export class QuestsTab {
       if (!done && q.kind === "goblin" && !goblinCatchable(S)) away = ` <small class="eta">· ${esc(tx("ils s’enfuient : héros trop lent ici"))}</small>`;
       // (it. 1344) quêtes d'élites : l'Encens de chasse les accélère (astuce au survol, la carte ne grandit pas)
       const lureTip = !done && (q.kind === "elite" || q.kind === "prey") && tabOpen(S, "shop")
-        ? ` title="${esc(tx("Astuce : l’Encens de chasse de la Boutique attire deux fois plus d’élites."))}"` : "";
+        ? ` title="${esc(tx("Astuce : l’Encens de chasse de la Boutique attire deux fois plus d’élites."))}"`
+        // (it. 1472) coups au clic : comment les porter (astuce déjà traduite de la bande)
+        : !done && q.kind === "tap" ? ` title="${esc(tx("Astuce : clique sur le monstre que ton héros combat pour lui porter des coups bonus !"))}"` : "";
       return `<article class="panel questcard s${stars}${done ? " done" : ""}"${lureTip}>
         <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)(S)}" alt=""><div>
           <div class="stars">${"★".repeat(stars)}<span>${"★".repeat(3 - stars)}</span></div>

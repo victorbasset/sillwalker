@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1472) : quêtes : vérifié que forge, transmutation, expéditions, coups au clic et sorts ne sont proposés
+  qu'à qui peut les faire (ok). La carte « coups au clic » porte l'astuce de la bande en bulle (« clique sur le monstre
+  que ton héros combat… », clé déjà traduite). Vérifié par --stage (anglais). Autotest 229/229.
 - 2026-11-15 (it. 1471, REVUE GÉNÉRALE) : 12 h graine 7, records : gladiateur 62, chaman 64, danseuse de lames 64
   (moyenne ≈ 64). perf:linux : bande 19,0 %, panneau 20,4 %, mini 6,8 %, icône 0,5 % (stables). Captures zh et fr
   (Quêtes, Aventure, mini) : rien d'anormal. Texte extrait en japonais : seuls mots latins attendus. Rien à noter dans
