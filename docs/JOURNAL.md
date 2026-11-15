@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1486, contrôle) : équilibre après le Grillon (balance.mjs 12 contre 442b6f7) : graine 3 +0,9,
+  graine 11 +0,3, graine 21 −0,7 ; moyenne +0,2 zone : bruit.
 - 2026-11-15 (it. 1485) : 21e familier, le Grillon (+5 % d'événements rares par niveau, +50 % au niveau 10) : nouvel
   effet « events », compté dans la chance d'événement, le temps estimé de la quête d'événements et la ligne
   « Événements rares » des Probabilités. Sprite vert aux longues antennes, regardé sur la bande. 10 langues, test,
