@@ -1311,6 +1311,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* Voile protecteur (événement) : halo bleu pâle autour du héros. */
 .actor.arcane { background: radial-gradient(farthest-side, color-mix(in srgb, #b48cff 50%, transparent) 55%, transparent); }
 .actor.ward { background: radial-gradient(farthest-side, color-mix(in srgb, #bfefff 50%, transparent) 55%, transparent); }
+.actor.spring { background: radial-gradient(farthest-side, color-mix(in srgb, #7fe8a0 50%, transparent) 55%, transparent); } /* (it. 1376) Source de vie */
 .actor.ward.cursed { background: radial-gradient(farthest-side, color-mix(in srgb, #b07cff 50%, transparent) 55%, transparent), radial-gradient(farthest-side, color-mix(in srgb, #bfefff 50%, transparent) 55%, transparent); }
 /* Mode mini : trois boutons (son, réduire, agrandir) en haut à droite : l'ampoule descend sur la ligne de l'or (demande B). */
 #mini .minihint { right: 8px; top: 23px; }

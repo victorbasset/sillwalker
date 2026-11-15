@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1376) : Source de vie : halo vert menthe derrière le héros pendant l'événement (dégradé radial
+  fixe, comme ceux de la Marée arcanique et du Voile protecteur : aucune animation CSS). Vu en capture avec la
+  bannière et la pastille « Source de vie 29 s ». Autotest 228/228.
 - 2026-11-15 (it. 1375) : 17e événement rare, la Source de vie (0,2 % par victoire, 30 s) : le héros regagne 4 % de ses
   PV max par seconde (SPRING), en marche comme en combat ; aucun événement ne soignait, un appui contre un boss
   coriace. Ajouté à la FIN de EVENTS ; réplique du héros, son (montée douce), test (soin mesuré, texte fidèle),
