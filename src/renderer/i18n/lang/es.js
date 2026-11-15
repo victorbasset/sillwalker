@@ -1795,4 +1795,8 @@ export default {
   2920: "Aún sin compañero",
   2921: "Un compañero lucha a tu lado y lanza sus propios hechizos, a la mitad de su potencia.",
   2922: "Elegir un compañero",
+  2923: "Habilidades: tras la flor, «Gastar automáticamente» sigue tu línea más avanzada (su vía hasta el final, luego su anillo) en vez de saltar de una región a otra.",
+  2924: "Mapa: la cabeza de tu héroe se posa sobre la casilla de su zona, y los textos del mapa (nivel de las reliquias…) se leen mejor.",
+  2925: "Héroe > Hechizos y ataque: sin compañero, un marco «Aún sin compañero» invita a elegir uno; con él, los dos marcos tienen la misma altura.",
+  2926: "Tienda: un objeto comprado que refuerza a tu héroe se equipa al instante.",
 };

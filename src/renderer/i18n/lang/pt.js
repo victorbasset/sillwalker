@@ -1795,4 +1795,8 @@ export default {
   2920: "Ainda sem companheiro",
   2921: "Um companheiro luta ao teu lado e lança os seus próprios feitiços, com metade da potência.",
   2922: "Escolher um companheiro",
+  2923: "Habilidades: depois da flor, «Gastar automaticamente» segue a tua linha mais avançada (a sua via até ao fim, depois o seu anel) em vez de saltar de uma região para outra.",
+  2924: "Mapa: a cabeça do teu herói pousa no quadrado da sua zona, e os textos do mapa (nível das relíquias…) leem-se melhor.",
+  2925: "Herói > Feitiços e ataque: sem companheiro, um quadro «Ainda sem companheiro» convida a escolher um; com ele, os dois quadros têm a mesma altura.",
+  2926: "Loja: um objeto comprado que reforça o teu herói é equipado de imediato.",
 };

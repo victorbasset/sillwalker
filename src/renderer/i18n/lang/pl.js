@@ -1795,4 +1795,8 @@ export default {
   2920: "Brak towarzysza",
   2921: "Towarzysz walczy u twego boku i rzuca własne zaklęcia, z połową mocy.",
   2922: "Wybierz towarzysza",
+  2923: "Umiejętności: po kwiecie „Wydaj automatycznie” podąża twoją najdalej rozwiniętą linią (jej ścieżką do końca, potem jej pierścieniem) zamiast skakać między regionami.",
+  2924: "Mapa: głowa bohatera stoi teraz na polu jego strefy, a teksty mapy (poziom reliktów…) są czytelniejsze.",
+  2925: "Bohater > Zaklęcia i atak: bez towarzysza ramka „Brak towarzysza” zachęca do wyboru; z towarzyszem obie ramki mają tę samą wysokość.",
+  2926: "Sklep: kupiony przedmiot, który wzmacnia bohatera, od razu zostaje założony.",
 };

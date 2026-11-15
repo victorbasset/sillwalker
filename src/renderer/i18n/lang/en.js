@@ -1795,4 +1795,8 @@ export default {
   2920: "No companion yet",
   2921: "A companion fights at your side and casts its own spells, at half their power.",
   2922: "Choose a companion",
+  2923: "Skills: after the flower, “Spend automatically” follows your most advanced line (its path to the end, then its ring) instead of jumping from one region to another.",
+  2924: "Map: your hero's head now sits on the square of their zone, and the map's texts (relic levels…) are easier to read.",
+  2925: "Hero > Spells & attack: without a companion, a “No companion yet” frame invites you to choose one; with one, both frames have the same height.",
+  2926: "Shop: an item you buy that makes your hero stronger is equipped right away.",
 };

@@ -145,7 +145,7 @@ export class ShopTab {
   onAction(a, b) {
     if (a === "s-sec") { this.sec = b.dataset.to; return; }
     const g = this.game, id = a === "s-item" ? +b.dataset.id : b.dataset.id;
-    if (a === "s-item") g.buyShopItem(id);
+    if (a === "s-item") g.buyFromShop(id);
     else if (a === "s-cons") g.buyConsumable(id);
     else if (a === "s-chest") g.buyChest(id);
     else if (a === "s-egg") g.buyEgg();

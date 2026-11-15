@@ -2924,5 +2924,9 @@ export const KEYS = [
   "Héros bloqué : la carte de la zone donne maintenant trois pistes (l’ascension n’y manque plus).",
   "Pas encore de compagnon",
   "Un compagnon combat à tes côtés et lance ses propres sorts, à moitié de leur puissance.",
-  "Choisir un compagnon"
+  "Choisir un compagnon",
+  "Compétences : après la fleur, « Dépenser automatiquement » suit ta ligne la plus avancée (sa voie jusqu’au bout, puis son anneau) au lieu de sauter d’une région à l’autre.",
+  "Carte : la tête de ton héros se pose sur le carré de sa zone, et les textes de la carte (niveau des reliques…) se lisent mieux.",
+  "Héros > Sorts et attaque : sans compagnon, un cadre « Pas encore de compagnon » invite à en choisir un ; avec lui, les deux cadres ont la même hauteur.",
+  "Boutique : un objet acheté qui renforce ton héros est équipé tout de suite."
 ];

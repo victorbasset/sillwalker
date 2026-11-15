@@ -1795,4 +1795,8 @@ export default {
   2920: "Noch kein Begleiter",
   2921: "Ein Begleiter kämpft an deiner Seite und wirkt eigene Zauber, mit halber Stärke.",
   2922: "Begleiter wählen",
+  2923: "Fertigkeiten: Nach der Blume folgt „Automatisch verteilen“ deiner am weitesten ausgebauten Linie (ihrem Pfad bis zum Ende, dann ihrem Ring), statt von Region zu Region zu springen.",
+  2924: "Karte: Der Kopf deines Helden sitzt jetzt auf dem Feld seiner Zone, und die Texte der Karte (Reliktstufen …) sind besser lesbar.",
+  2925: "Held > Zauber & Angriff: Ohne Begleiter lädt ein Rahmen „Noch kein Begleiter“ ein, einen zu wählen; mit Begleiter sind beide Rahmen gleich hoch.",
+  2926: "Laden: Ein gekaufter Gegenstand, der deinen Helden stärkt, wird sofort angelegt.",
 };

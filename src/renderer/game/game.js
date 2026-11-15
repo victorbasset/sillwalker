@@ -1928,6 +1928,15 @@ export class Game {
     return true;
   }
 
+  /** (it. 1510, demande de Victor) Achat à la main dans la Boutique : l'objet est équipé tout de suite s'il renforce le
+   *  héros (même mesure que la flèche d'amélioration du sac) ; sinon il va dans le sac, comme avant. */
+  buyFromShop(id) {
+    if (!this.buyShopItem(id)) return false;
+    const it = this.findBagItem(id);
+    if (it && this.isUpgrade(it)) this.equip(it);
+    return true;
+  }
+
   buyShopItem(id) {
     const S = this.S, shop = S.shop;
     const it = shop && shop.items.find((i) => i.id === id);

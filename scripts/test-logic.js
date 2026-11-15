@@ -4125,6 +4125,33 @@ test("grand graphe : dépense automatique dans une seule voie par région (it. 1
   assert.equal(nextGraphNode(g.S), null, "plus rien de prenable");
 });
 
+test("boutique : un objet acheté à la main qui renforce le héros est équipé (it. 1510, demande de Victor)", () => {
+  const g = new Game(freshState());
+  g.S.gold = 1e12;
+  g.restockShop();
+  const offers = (g.S.shop && g.S.shop.items) || [];
+  assert(offers.length > 0, "un étal");
+  // un objet bien meilleur que l'équipement porté : équipé
+  const up = offers.find((it) => it.slot);
+  assert(up, "un objet d'équipement à l'étal");
+  up.il = 9999; up.r = Math.max(up.r, 3);
+  const old = g.S.equip[up.slot];
+  if (old) old.il = 1;
+  assert(g.isUpgrade(up), "c'est une amélioration");
+  assert(g.buyFromShop(up.id));
+  assert.equal(g.S.equip[up.slot] && g.S.equip[up.slot].id, up.id, "équipé tout de suite");
+  // un objet plus faible que ce qui est porté : reste dans le sac
+  const weak = g.S.shop.items.find((it) => it.slot === up.slot) || g.S.shop.items.find((it) => it.slot);
+  if (weak) {
+    if (g.S.equip[weak.slot]) g.S.equip[weak.slot].il = 99999;
+    weak.il = 1;
+    assert(!g.isUpgrade(weak));
+    assert(g.buyFromShop(weak.id));
+    assert(g.S.bag.some((it) => it.id === weak.id), "dans le sac");
+    assert.notEqual(g.S.equip[weak.slot].id, weak.id);
+  }
+});
+
 test("grand graphe : la dépense automatique suit la ligne la plus avancée (it. 1505, demande de Victor)", () => {
   const g = new Game(freshState());
   g.S.lvl = 2000; g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];

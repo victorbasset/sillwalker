@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1509-1510) : édition 98 de « Quoi de neuf » (dépense automatique qui suit la ligne, carte, cadre
+  sans compagnon, achats équipés), 9 langues. Demande de Victor : Game.buyFromShop, un objet acheté à la main qui est
+  une amélioration (isUpgrade) est équipé tout de suite (Boutique) ; test ajouté (311). Autotest 230/230.
 - 2026-11-15 (it. 1507-1508, demandes de Victor) : Héros > Sorts et attaque : 12 px sous les sorts (même écart
   qu'entre les deux cadres). Carte du Rebord : la tête du héros (heroHeadURL, trayicons.js : celle de l'icône de
   notification) posée sur le carré de sa zone, au lieu du héros en pied au-dessus (et de la tige près d'une cage) ;
