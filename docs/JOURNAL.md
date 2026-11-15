@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1373) : même balayage pour les affixes d'élites, panoplies, reliques, constellations, atelier et
+  coffres : 25 écarts, presque tous grammaticaux (génitifs allemands, « 의 » coréen omis en complément d'objet,
+  « Rapide » qui n'est pas le même mot que « Swift as the Wind »). Un vrai : japonais « 狂戦士の怒りの » sur les objets
+  de la panoplie « バーサーカーの怒り » (Furie du berserker). Aligné.
 - 2026-11-15 (it. 1372) : balayage ponctuel (script hors dépôt) des noms de consommables, événements, familiers,
   déblocages et bénédictions cités dans d'autres textes, en en / de / es / pt / zh / ja / ko : 11 écarts, presque tous
   des déclinaisons allemandes normales ou le nom propre du succès « Ménagerie complète » ; un vrai : coréen « 대장장이
