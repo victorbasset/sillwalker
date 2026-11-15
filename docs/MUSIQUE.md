@@ -36,7 +36,7 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
 
 ## Tâches
 
-- [ ] 1. Outil de rendu : `scripts/music/render.mjs` + `scripts/music/studio.html` (fenêtre cachée), moteur
+- [x] 1. Outil de rendu : `scripts/music/render.mjs` + `scripts/music/studio.html` (fenêtre cachée), moteur
       `scripts/music/engine.js` (instruments, effets, mixage, maître), export WAV puis Opus/MP3 (ffmpeg du venv),
       mesures ebur128. Morceau d'essai de 8 mesures pour valider la chaîne.
 - [ ] 2. Instruments de qualité : piano électrique FM, guitare pincée (Karplus-Strong), flûte, lead chiptune doux,
@@ -59,3 +59,14 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
 ## Journal de la musique
 
 - 15/11 : plan écrit.
+- 15/11 (tâche 1) : chaîne de rendu en place. `scripts/music/render.cjs` (fenêtre Electron cachée) + `studio.html` +
+  `engine.js` (console : pistes, panoramique, envois réverbération à convolution / écho stéréo, sidechain sur la grosse
+  caisse ; maître : passe-haut 28 Hz, égaliseur, compresseur de bus, limiteur) + `instruments.js` (piano électrique FM,
+  guitare Karplus-Strong, nappe supersaw stéréo, basse sub, grosse caisse, caisse claire, charleston) +
+  `master.py` (loudnorm deux passes → −16 LUFS, vrai pic ≤ −1 dBTP ; Opus 128 kb/s et MP3 ; énergie par bandes,
+  largeur stéréo, raccord de boucle). Essai de 8 mesures (`tracks/essai.js`) : 27 s rendues en 3,5 s, sans NaN ;
+  après master −16,0 LUFS, vrai pic −6,3 dBFS, largeur 0,24. Opus : ≈ 0,56 Mo pour 27 s (≈ 3 Mo par morceau de
+  3 min). À améliorer (tâche 2) : bandes en dB par octave pondérées (l'énergie brute est toujours dominée par les
+  graves), largeur stéréo plus généreuse.
+  Commandes : `xvfb-run -a node_modules/.bin/electron --no-sandbox scripts/music/render.cjs <morceau> <x.wav>` puis
+  `<venv>/bin/python -I scripts/music/master.py <x.wav> <sortie> [--loop]`.

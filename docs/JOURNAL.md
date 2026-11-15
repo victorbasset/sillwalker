@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (musique, tâche 1) : chaîne de rendu de la bande originale (scripts/music/ : rendu hors ligne dans une
+  fenêtre Electron cachée, console de mixage, mastering, export Opus/MP3 et mesures). Essai de 8 mesures validé.
 - 2026-11-15 (demande de Victor) : boucle « musique » pour ≈ 24 h : 4 morceaux composés à la main (zones 1-50, 51-100,
   101-150, 151-200 ; lofi, épique galactique, couleur Terraria), pré-rendus en studio hors du jeu, avec un leitmotiv
   commun. Plan et suivi : docs/MUSIQUE.md.
