@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1381, revue générale) : après le Lucane, la Source de vie, le Jour du sang et le ménage des imports :
+  --perf (copie neuve) bande 19,9 %, panneau 20,9 %, mini 6,7 %, icône 0,6 % ; semaine guerrier 350 / 349 / 350
+  (repère 350) ; save-fuzz FUZZ_BASE=fin ok (1190). Traductions et interface vérifiées aux it. 1371-1380. Rien à corriger.
 - 2026-11-15 (it. 1380) : i18n-names sur les noms de la nuit (Lucane, Source de vie, Jour du sang, Encens de chasse),
   aussi en russe et polonais : aucun écart. Ménage : dix imports devenus inutiles retirés (game.js BAG_SIZE et PETS,
   strip.js RARITIES, et des fonctions de format dans panel, map, pets, settings, shop, skills). Autotest 228/228.
