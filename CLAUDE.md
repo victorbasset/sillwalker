@@ -60,7 +60,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 485-530 Mo stables
   attendus (bruit d'une mesure à l'autre), son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
-  zone, déblocages à 2, 5, 10, 15, 30, 60 min). Le début est volontairement calme (`earlyPace`, rules.js).
+  zone, déblocages à 2, 5, 10, 15, 30, 60 min ; 3 graines, `SEEDS=10` pour moins de bruit : sur 3 graines, ±3 niveaux et
+  ±3 zones à 60 min, it. 1444-1445). Le début est volontairement calme (`earlyPace`, rules.js).
 - Ouverture des onglets : `node --experimental-default-type=module scripts/tab-pace.mjs` (minute d'ouverture de chaque
   onglet, 3 graines) ; à relancer si on touche aux seuils de game/tabs.js ou au rythme du début.
 - Fin de partie : `node --experimental-default-type=module scripts/simulate.js 168 <classe>` (une semaine, ~80 s) :

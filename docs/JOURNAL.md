@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1445, outil) : early-pace.mjs : SEEDS=n (3 par défaut, repères inchangés : 104 / 37 / 22 / 5,7) et
+  écart entre graines à 60 min en dernière ligne. Repère sur 10 graines : 105 objets, niveau 38 (35–40), zone 22
+  (20–23), 5,9 déblocages. CLAUDE.md mis à jour.
 - 2026-11-15 (it. 1444, contrôle) : première heure (early-pace, 3 graines) : à 60 min 104 objets, niveau 37, zone 22,
   5,7 déblocages, contre 120 / 40 / 23 / 6,3 avant la nuit (4096b50). Dichotomie sur les 25 commits de la nuit
   (dossier de travail git) : stable jusqu'au Bestiaire (111 / 41 / 25 / 6,7), la baisse arrive avec le Trésor enfoui ;
