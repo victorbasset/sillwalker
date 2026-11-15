@@ -54,3 +54,11 @@ export function makeTrayIcons(cls, visual) {
     loot: [both({ overlay: [[0, 0, SPARK], [2, 0, SPARK], [1, 1, "#ffffff"], [0, 2, SPARK], [2, 2, SPARK]] }), both({})],
   };
 }
+
+// (it. 1508, demande de Victor) la même tête pour la carte du Rebord, posée sur le carré de la zone du héros
+const headCache = new Map();
+export function heroHeadURL(cls, visual, size = 36) {
+  const k = cls + "|" + JSON.stringify(visual || {}) + "|" + size;
+  if (!headCache.has(k)) { if (headCache.size > 20) headCache.clear(); headCache.set(k, draw(grid(cls, visual), size)); }
+  return headCache.get(k);
+}

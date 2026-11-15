@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-15 (it. 1507-1508, demandes de Victor) : Héros > Sorts et attaque : 12 px sous les sorts (même écart
+  qu'entre les deux cadres). Carte du Rebord : la tête du héros (heroHeadURL, trayicons.js : celle de l'icône de
+  notification) posée sur le carré de sa zone, au lieu du héros en pied au-dessus (et de la tige près d'une cage) ;
+  textes de la carte en Geist Pixel (Pixelify à cette taille rendait « ★ 3/5 » sous le drone comme « 3/S ») avec un
+  contour sombre, niveau des reliques en 10. Autotest 230/230, lang-overflow propre.
 - 2026-11-15 (it. 1506, demande de Victor) : Héros > Sorts et attaque : les cadres du héros et du compagnon ont la
   même hauteur (grille en stretch au lieu de start). Mesuré 200/200 à 1920 (fr), 211/211 à 1280 (ru), sans défilement.
 - 2026-11-15 (it. 1505, demande de Victor) : grand graphe, « Dépenser automatiquement » suit la ligne la plus avancée

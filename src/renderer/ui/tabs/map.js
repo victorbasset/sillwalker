@@ -11,10 +11,11 @@ import { bossName } from "../../game/bosses.js";
 import { recordZone, hasUnlock, UNLOCK_INDEX } from "../../game/unlocks.js";
 import { CLASSES, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.js";
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game/story.js";
-import { classPortraitURL, dressedPortraitURL, starbreakerURL } from "../../render/sprites.js";
+import { classPortraitURL, starbreakerURL } from "../../render/sprites.js";
 import { relicIconURL } from "../../render/shopart.js";
 import { MAJOR_BOSSES, RELICS, RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel, relicLevelText } from "../../game/relics.js";
 import { heroVisual } from "../../render/equipvis.js";
+import { heroHeadURL } from "../../render/trayicons.js";
 
 // 4 rangées de 50 zones : la carte entière tient dans le panneau, large et peu haut (demande 18, sans défilement).
 const L = 50;                      // zones par rangée
@@ -116,9 +117,8 @@ export class MapTab {
     if (recordZone(S) !== S.zone) parts.push(`<g class="mflag" title="${esc(tx("Record : zone {0}", { 0: recordZone(S) }))}"><rect x="${rp.x - 1}" y="${rp.y - 14}" width="2" height="14"/><rect class="cloth" x="${rp.x + 1}" y="${rp.y - 14}" width="7" height="5"/></g>`);
     if (S.zone <= FINAL_ZONE) {
       const hp = mapPos(S.zone);
-      // Une cage voisine (zone ±1) : le héros se hisse au-dessus, relié à sa zone par un trait.
-      const lift = Object.values(CLASS_UNLOCK_ZONE).some((z) => Math.abs(z - S.zone) <= 1 && mapPos(z).r === hp.r) ? 24 : 0;
-      parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}">${lift ? `<rect class="mpin" x="${hp.x - 1}" y="${hp.y - lift - 3}" width="2" height="${lift + 3}"/>` : ""}<image href="${dressedPortraitURL(S.cls, heroVisual(S))}" x="${hp.x - 10}" y="${hp.y - 25 - lift}" width="20" height="22"/></g>`);
+      // (it. 1508, demande de Victor) la tête du héros (celle de l'icône de notification) posée sur le carré de sa zone
+      parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}"><image href="${heroHeadURL(S.cls, heroVisual(S))}" x="${hp.x - 10}" y="${hp.y + BAND_H / 2 - 10}" width="20" height="20"/></g>`);
     } else parts.push(`<g class="mhero" title="${esc(tx("Ton héros : zone {0}", { 0: S.zone }))}"><text class="mbeyond" x="${fcx}" y="${f.y + BAND_H + 26}">${esc(tx("Au-delà du Rebord : zone {0}", { 0: S.zone }))} →</text></g>`);
     const freed = Object.keys(CLASSES).filter((c) => isClassUnlocked(S, c)).length;
     // Tient dans le panneau sans défilement (demande 18) : titre et résumé sur une ligne, explication en infobulle,
