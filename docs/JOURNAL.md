@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1693) : les 2 px du panneau du sac (it. 1692) : #p-bag est en overflow visible (aucune barre, aucun défilement
+  possible) et aucun élément ne dépasse son bord : simple écart de scrollHeight, sans effet visible.
 - 2026-11-16 (it. 1692) : pire cas de la demande de Victor (sac de 48 légendaires, chaque objet sélectionné tour à tour), ru et de,
   1280 et 1366 px : le détail tient sous le sac, l'onglet ne défile pas (2 px au plus dans le panneau du sac, cause non vérifiée).
 - 2026-11-16 (it. 1691, revue générale) : simulation 12 h graine 31 : guerrier 65, druide 67, assassin 62 ; perf:linux bande
