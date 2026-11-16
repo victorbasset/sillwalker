@@ -10,13 +10,14 @@ const SIZES = [
   ["youtube-thumbnail", 1280, 720, "main"],
   ["avatar", 512, 512, "avatar"], // (it. 814) photo de profil itch.io // (it. 813) miniature de la bande-annonce YouTube
   ["update-0.1.4", 1920, 1080, "update"], // (it. 1541) image de couverture du devlog de la 0.1.4 (16:9)
+  ["update-0.1.5", 1920, 1080, "update", { ver: "0.1.5", tags: "Original soundtrack|Poupouce the cat|XP bar|Quest chests|The Colossal|Pet Day|10 languages" }], // (it. 1761)
 ].filter(([name]) => !process.env.ONLY || name === process.env.ONLY); // ONLY=<nom> : une seule image
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const win = new BrowserWindow({ show: false, width: 800, height: 600, transparent: true, webPreferences: { offscreen: true } });
-  for (const [name, w, h, kind] of SIZES) {
+  for (const [name, w, h, kind, extra] of SIZES) {
     await win.loadURL("about:blank");
-    await win.loadFile(path.join(__dirname, "capsule.html"), { query: { w: String(w), h: String(h), kind } }).catch((e) => console.log("chargement :", e.message));
+    await win.loadFile(path.join(__dirname, "capsule.html"), { query: { w: String(w), h: String(h), kind, ...(extra || {}) } }).catch((e) => console.log("chargement :", e.message));
     for (let i = 0; i < 100 && win.webContents.getTitle() !== "READY"; i++) await new Promise((r) => setTimeout(r, 100));
     const png = await win.webContents.executeJavaScript("document.getElementById('c').toDataURL('image/png')");
     fs.writeFileSync(path.join(OUT, name + ".png"), Buffer.from(png.split(",")[1], "base64"));
