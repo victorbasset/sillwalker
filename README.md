@@ -31,7 +31,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Carte du Rebord** (onglet Carte, zone 12) : les 200 zones en serpentin aux couleurs de leur décor, héros
   prisonniers, chroniques, record, Briseur au bout, brouillard au-delà du record ; avec la **Carte du voyageur**
   (déblocage, zone 22), un clic sur une zone déjà atteinte y emmène le héros.
-- **20 héros, en duo** (un à distance + un au corps à corps ; le compagnon frappe à 35 %, apporte la moitié de son passif et lance les sorts appris pour sa classe à moitié de leur puissance) :
+- **20 héros, en duo** (un à distance + un au corps à corps ; le compagnon frappe à 35 %, apporte la moitié de son passif et lance les sorts appris pour sa classe à moitié de leur puissance ; sur la bande, le compagnon se tient derrière le héros sans le cacher, ses tirs se voient partir, it. 1802-1807) :
   prisonniers de boss de zone (zones 10 à 192) ; une fois libérés, on change de héros et de compagnon à l’ascension :
   Guerrier (riposte), Rôdeur (tir d'ouverture), Mage (brûlure), Paladin (bouclier sacré), Assassin (poison cumulable),
   Nécromancien (serviteur squelette), Moine (enchaînement), Druide (épines, esprit-loup), Samouraï (iaijutsu : un coup sur 4 critique renforcé),
@@ -178,7 +178,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   chacun de ces moments (option). `render/juice.js`, `render/sound.js`.
 - **Journal** (Statistiques > Journal depuis l'it. 1678 ; avant, 5e colonne de l'Aventure, qui a gardé quatre colonnes :
   héros, équipement, sac élargi à 16 cases par rangée, zone ; `ui/log.js`) : les messages répétitifs se cumulent (ventes du sac plein, élites vaincues, défaites : « … (×N) »),
-  le Grand intendant résume son travail en une ligne. Lignes importantes colorées dans les 10 langues, précédées d'un
+  le Grand intendant résume son travail en une ligne. Chaque ligne indique son heure (it. 1800). Lignes importantes colorées dans les 10 langues, précédées d'un
   symbole (★ ◆ ✦ ✓ ⚠, daltoniens) ; case « Lignes importantes seulement » (it. 1715-1725).
 
 ## Scripts
