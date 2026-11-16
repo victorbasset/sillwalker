@@ -1959,4 +1959,13 @@ export default {
   3084: "Helado: este golpe congela al héroe 1,5 s (ataques más lentos).",
   3085: "Tóxico: este golpe envenena al héroe 3 s.",
   3086: "Tenebroso: este golpe maldice al héroe 2 s.",
+  3087: "Picado",
+  3088: "Cada 5 s, gana altura y se lanza en picado sobre el héroe: un golpe al 130 % de su ataque.",
+  3089: "Mordisco del vampiro",
+  3090: "Cada 5 s, gana altura y se lanza en picado sobre el héroe: un golpe al 130 % de su ataque, del que bebe la mitad para curarse.",
+  3091: "Nube de esporas",
+  3092: "Cada 7 s, se hincha y suelta una nube de esporas: el héroe, aturdido, no golpea durante 0,8 s.",
+  3093: "¡Picado!",
+  3094: "¡Esporas!",
+  3095: "Tóxico: este golpe envenena al héroe 1,5 s.",
 };

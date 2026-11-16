@@ -3088,5 +3088,14 @@ export const KEYS = [
   "Brûlant : ce coup frappe 20 % plus fort.",
   "Glacé : ce coup gèle le héros 1,5 s (attaques ralenties).",
   "Toxique : ce coup empoisonne le héros 3 s.",
-  "Ténébreux : ce coup maudit le héros 2 s."
+  "Ténébreux : ce coup maudit le héros 2 s.",
+  "Piqué",
+  "Toutes les 5 s, prend de la hauteur puis pique sur le héros : un coup à 130 % de son attaque.",
+  "Morsure du vampire",
+  "Toutes les 5 s, prend de la hauteur puis pique sur le héros : un coup à 130 % de son attaque, dont il boit la moitié pour se soigner.",
+  "Nuage de spores",
+  "Toutes les 7 s, gonfle puis lâche un nuage de spores : le héros, étourdi, ne frappe plus pendant 0,8 s.",
+  "Piqué !",
+  "Spores !",
+  "Toxique : ce coup empoisonne le héros 1,5 s."
 ];

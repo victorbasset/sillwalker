@@ -1959,4 +1959,13 @@ export default {
   3084: "Lodowy: ten cios zamraża bohatera na 1,5 s (wolniejsze ataki).",
   3085: "Toksyczny: ten cios zatruwa bohatera na 3 s.",
   3086: "Mroczny: ten cios przeklina bohatera na 2 s.",
+  3087: "Pikowanie",
+  3088: "Co 5 s wzbija się wyżej i pikuje na bohatera: cios za 130% jego ataku.",
+  3089: "Ukąszenie wampira",
+  3090: "Co 5 s wzbija się wyżej i pikuje na bohatera: cios za 130% jego ataku, którego połowę wypija, by się uleczyć.",
+  3091: "Chmura zarodników",
+  3092: "Co 7 s pęcznieje i wypuszcza chmurę zarodników: oszołomiony bohater nie atakuje przez 0,8 s.",
+  3093: "Pikowanie!",
+  3094: "Zarodniki!",
+  3095: "Toksyczny: ten cios zatruwa bohatera na 1,5 s.",
 };

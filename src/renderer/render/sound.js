@@ -434,6 +434,8 @@ export class Sound {
       case "monSkill":
         if (this.throttle("ms-" + extra, 600)) switch (extra) {
           case "leap": this.tone(220, 0, 0.16, "sine", 0.14, 2.4); this.tone(140, 0.2, 0.1, "triangle", 0.12, 0.6); break; // boing, puis plat
+          case "dive": this.whoosh(0, 0.3, 2600, 500, 0.12, 2); this.tone(900, 0.22, 0.06, "square", 0.08, 0.5); break; // (it. 1854) sifflement qui plonge, puis morsure
+          case "spores": this.noise(0, 0.35, 0.1); this.whoosh(0, 0.4, 400, 1400, 0.08, 1); break; // (it. 1854) bouffée feutrée
         }
         break;
       case "bossSkill":

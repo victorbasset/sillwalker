@@ -30,6 +30,8 @@ import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../g
 import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
+/** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -261,9 +263,13 @@ export class StripRenderer {
     g.on("monSkill", ({ id, el, phase }) => {
       this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : 0.45 };
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || "#a8f07a", word = { leap: tx("Bond !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !") }[id];
       if (word) this.float(this.monX() + 14, 18, word, col, true);
-      if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 24, col, 8);
+      if (this.active && this.juice.full) {
+        this.juice.sparkles(this.heroX + 18, this.ground - 24, col, 8);
+        // (it. 1854) spores : le nuage part du champignon et enveloppe le héros
+        if (id === "spores") { this.juice.sparkles(this.monX() + 14, this.ground - 18, col, 12); this.juice.sparkles(this.heroX + 10, this.ground - 34, col, 10); }
+      }
     });
     g.on("bossSkill", ({ id }) => {
       const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"], bulwark: [tx("Peau de pierre brisée !"), "#c9ced6"], curse: [tx("Maudit !"), "#b07cff"], curseBlocked: [tx("Malédiction repoussée !"), "#bfefff"], venomBlocked: [tx("Venin repoussé !"), "#bfefff"], tenacious: [tx("Il se relève !"), "#ff9a4a"] }[id];
@@ -796,6 +802,18 @@ export class StripRenderer {
     const f = this.mfx; if (!f) return null;
     f.t += dt; const p = f.t / f.d;
     if (p >= 1) { this.mfx = null; return null; }
+    if (f.id === "dive") {
+      // chauve-souris : monte de 16 px pendant l'annonce, puis fond sur le héros et remonte à sa place
+      if (f.phase === "tell") return { dx: 0, dy: -16 * Math.min(1, p * 1.5) };
+      const reach = Math.min(44, Math.max(0, this.monX() - this.heroX - 24));
+      const dive = p < 0.5 ? p / 0.5 : 1 - (p - 0.5) / 0.5; // aller, puis retour
+      return { dx: -dive * reach, dy: -16 * (1 - dive) + 10 * dive };
+    }
+    if (f.id === "spores") {
+      // champignard : se tasse en gonflant, puis se détend d'un coup en lâchant le nuage
+      if (f.phase === "tell") return { dx: 0, dy: 3 };
+      return { dx: 0, dy: -Math.sin(p * Math.PI) * 6 };
+    }
     if (f.id === "leap") {
       // gluant : se ramasse (écrasé vers le sol), puis bondit vers le héros en arc et retombe à sa place
       if (f.phase === "tell") return { dx: 0, dy: 3 };

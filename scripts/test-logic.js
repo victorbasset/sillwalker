@@ -27,6 +27,8 @@ import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_bosses_1849 from "../src/renderer/game/bosses.js";
+import { MON_SKILLS as MON_SKILLS_1854, monSkillOf as monSkillOf1854 } from "../src/renderer/game/monskills.js";
+import { skillBalance as skillBalance1854 } from "../src/renderer/game/game.js";
 import { natureOf as natureOf1850, lifeSeed as lifeSeed1850, lifeOffset as lifeOffset1850 } from "../src/renderer/render/monlife.js";
 import * as M_events_js from "../src/renderer/game/events.js";
 import * as M_equipvis_js from "../src/renderer/render/equipvis.js";
@@ -4663,5 +4665,25 @@ test("séries de monstres (it. 1852) : 7 à 13 monstres, 10 en moyenne ; jamais 
   assert.ok(mn >= 7 && mx <= 13 && mn < 9 && mx > 11, mn + "-" + mx);
   assert.ok(Math.abs(sum / N - 10) < 0.15, "moyenne " + sum / N);
   for (let i = 0; i < 200; i++) { g.S.kills = 12; g.R.lineupZone = 0; assert.ok(g.lineup().length >= 12, "série rechargée en cours de zone"); }
+});
+test("compétences des monstres (it. 1854) : chacune est jouée, a son mot, son son et sa traduction", () => {
+  const rd = (f) => fs.readFileSync(new URL("../src/renderer/" + f, import.meta.url), "utf8");
+  const game = rd("game/game.js"), strip = rd("render/strip.js"), sound = rd("render/sound.js"), self = fs.readFileSync(new URL("../src/main/selftest.js", import.meta.url), "utf8");
+  const ids = new Set(Object.values(MON_SKILLS_1854).map((k) => k.id));
+  for (const id of ids) {
+    assert.ok(game.includes(`case "${id}":`), id + " : joué dans monSkillTick");
+    assert.ok(new RegExp(`\\b${id}: tx\\(`).test(strip), id + " : mot sur la bande");
+    assert.ok(sound.includes(`case "${id}":`), id + " : son");
+    assert.ok(self.includes(`"${id}"`), id + " : son rendu par l'autotest");
+  }
+  const keep = getLang();
+  try { setLang("en"); for (const k of Object.values(MON_SKILLS_1854)) { assert.notEqual(tT(k.name), k.name, k.name + " traduit"); assert.notEqual(tT(k.desc), k.desc, k.desc + " traduit"); } } finally { setLang(keep); }
+  assert.equal(monSkillOf1854("bat_vampire").drain, 0.5, "le vampire a sa propre version");
+  assert.equal(monSkillOf1854("mush_venom").el, "poison", "le champignard vénéneux empoisonne");
+  // compensation (it. 1854) : un coup en plus baisse l'attaque, un étourdissement baisse les PV
+  const m1 = { atk: 100, hp: 1000, max: 1000, interval: 1 }; skillBalance1854(m1, monSkillOf1854("slime"));
+  assert.ok(Math.abs(m1.atk * (1 + 1.4 / 6) - 100) < 1e-9 && m1.hp === 1000, "gluant : attaque compensée");
+  const m2 = { atk: 100, hp: 1000, max: 1000, interval: 1 }; skillBalance1854(m2, monSkillOf1854("mush"));
+  assert.ok(m2.atk === 100 && m2.hp === Math.round(1000 * (1 - 0.8 / 7)), "champignard : PV compensés");
 });
 console.log(`\n${pass} tests réussis`);

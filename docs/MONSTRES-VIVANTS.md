@@ -36,6 +36,11 @@ se balançaient qu'au combat.
    game.js monSkillTick / elementHit, strip.js monSkillPose et mot, sound.js « monSkill », Bestiaire : infobulle) :
    - gluants (it. 1853) : Bond gluant, toutes les 6 s se ramassent puis bondissent (×1,4) ; lave ×1,2, givre gel 1,5 s,
      toxique venin 3 s ; balance −0,1, early-pace inchangé ;
+   - chauves-souris (it. 1854) : Piqué (monte, fond sur le héros, ×1,3) ; le vampire boit la moitié du sang versé ;
+   - champignards (it. 1854) : Nuage de spores (gonflent, étourdissent le héros 0,8 s) ; le vénéneux empoisonne ;
+   - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
+     un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
+     des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;
    familles à suivre, famille par famille (dessin de base), chacune déclinée pour ses variantes (feu, givre, poison…) :
    gluants, champignons, chauves-souris, squelettes, scorpions, loups, golems, plantes, spectres, diablotins, rats,
    araignées, momies, yétis, harpies, élémentaires, crabes, chevaliers noirs, sylvains, wyvernes, tyrannœils, crapauds,

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1854, journée des monstres) : chauves-souris : Piqué (montent de 16 px, fondent sur le héros, ×1,3 ; le
+  vampire, version propre, boit la moitié du sang versé) ; champignards : Nuage de spores (gonflent, étourdissent le héros
+  0,8 s ; le vénéneux empoisonne). Règle d'équilibre (game.js skillBalance) : un coup en plus baisse l'attaque d'autant,
+  un étourdissement ou un gel baisse les PV d'autant ; poison des variantes 3 → 1,5 s. Sans elle : balance −1,7 ; avec :
+  −1,4 / +0,8 / −0,4 sur trois graines contre aea72772. Test générique (chaque compétence : jouée, mot, son, autotest,
+  traduite) ; early-pace, fuzz 600 / 0 ; npm test 343, autotest 253/253.
 - 2026-11-16 (it. 1853, journée des monstres) : cadre des compétences de monstres (game/monskills.js : une par famille,
   teintée par l'élément de la variante : feu ×1,2, givre gel 1,5 s, poison venin 3 s, ombre malédiction 2 s ; annonce
   « tell » puis effet ; Bestiaire : en infobulle) ; première famille, les gluants : Bond gluant (toutes les 6 s, se

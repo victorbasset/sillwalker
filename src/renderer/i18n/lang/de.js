@@ -1959,4 +1959,13 @@ export default {
   3084: "Eisig: Dieser Treffer friert den Helden 1,5 s ein (langsamere Angriffe).",
   3085: "Giftig: Dieser Treffer vergiftet den Helden 3 s lang.",
   3086: "Finster: Dieser Treffer verflucht den Helden 2 s lang.",
+  3087: "Sturzflug",
+  3088: "Alle 5 s gewinnt sie an Höhe und stürzt sich auf den Helden: ein Treffer mit 130 % ihres Angriffs.",
+  3089: "Vampirbiss",
+  3090: "Alle 5 s gewinnt er an Höhe und stürzt sich auf den Helden: ein Treffer mit 130 % seines Angriffs, dessen Hälfte er trinkt, um sich zu heilen.",
+  3091: "Sporenwolke",
+  3092: "Alle 7 s bläht er sich auf und stößt eine Sporenwolke aus: Der benommene Held kann 0,8 s lang nicht angreifen.",
+  3093: "Sturzflug!",
+  3094: "Sporen!",
+  3095: "Giftig: Dieser Treffer vergiftet den Helden 1,5 s lang.",
 };

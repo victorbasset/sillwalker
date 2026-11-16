@@ -1959,4 +1959,13 @@ export default {
   3084: "Frozen: this hit freezes the hero for 1.5 s (slower attacks).",
   3085: "Toxic: this hit poisons the hero for 3 s.",
   3086: "Shadowy: this hit curses the hero for 2 s.",
+  3087: "Dive",
+  3088: "Every 5 s, gains height then dives at the hero: a hit at 130% of its attack.",
+  3089: "Vampire Bite",
+  3090: "Every 5 s, gains height then dives at the hero: a hit at 130% of its attack, half of which it drinks to heal itself.",
+  3091: "Spore Cloud",
+  3092: "Every 7 s, swells then releases a spore cloud: the dazed hero cannot attack for 0.8 s.",
+  3093: "Dive!",
+  3094: "Spores!",
+  3095: "Toxic: this hit poisons the hero for 1.5 s.",
 };

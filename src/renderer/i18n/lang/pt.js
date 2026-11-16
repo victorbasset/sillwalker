@@ -1959,4 +1959,13 @@ export default {
   3084: "Gélido: este golpe congela o herói por 1,5 s (ataques mais lentos).",
   3085: "Tóxico: este golpe envenena o herói por 3 s.",
   3086: "Sombrio: este golpe amaldiçoa o herói por 2 s.",
+  3087: "Mergulho",
+  3088: "A cada 5 s, ganha altura e mergulha no herói: um golpe a 130 % do ataque.",
+  3089: "Mordida do vampiro",
+  3090: "A cada 5 s, ganha altura e mergulha no herói: um golpe a 130 % do ataque, metade do qual ele bebe para se curar.",
+  3091: "Nuvem de esporos",
+  3092: "A cada 7 s, incha e solta uma nuvem de esporos: o herói, atordoado, não ataca por 0,8 s.",
+  3093: "Mergulho!",
+  3094: "Esporos!",
+  3095: "Tóxico: este golpe envenena o herói por 1,5 s.",
 };

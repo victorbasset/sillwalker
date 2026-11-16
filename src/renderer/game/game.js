@@ -48,6 +48,17 @@ import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE,
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { monSkillOf } from "./monskills.js";
+/** (it. 1854) Une compétence change la façon de se battre d'un monstre, pas sa force : un coup en plus (bond, piqué…)
+ *  baisse d'autant son attaque de base (mêmes dégâts au total, plus marqués) ; ce qui empêche le héros de frapper (spores,
+ *  gel d'une variante de givre) baisse d'autant ses PV (même durée de combat). Sans cela, chaque famille rendait le jeu
+ *  plus dur (balance 12 h : −1,7 zone avec trois familles). */
+export function skillBalance(m, sk) {
+  if (sk.mult) m.atk /= 1 + sk.mult * (sk.el === "fire" ? 1.2 : 1) * (m.interval || 1) / sk.every;
+  let lost = 0; // part du combat où le héros ne frappe pas (ou au ralenti)
+  if (sk.stun) lost += sk.stun / sk.every;
+  if (sk.el === "frost") lost += 0.4 * 1.5 / sk.every;
+  if (lost > 0) { m.hp = Math.max(1, Math.round(m.hp * (1 - lost))); m.max = m.hp; }
+}
 /** (it. 1852) Nombre de monstres d'une nouvelle série : 7 à 13, en triangle autour de 10 (moyenne inchangée). */
 export const zoneCount = () => Math.max(ZONE_COUNT.min, Math.min(ZONE_COUNT.max,
   Math.round(KILLS_PER_ZONE + (rand() + rand() - 1) * (ZONE_COUNT.max - KILLS_PER_ZONE + 0.5))));
@@ -497,6 +508,18 @@ export class Game {
         this.elementHit(sk.el, hs);
         break;
       }
+      case "dive": { // (it. 1854) Chauves-souris : piqué ; le vampire boit une part du sang versé
+        const h0 = R.hp;
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        if (sk.drain && h0 > R.hp) m.hp = Math.min(m.max, m.hp + (h0 - R.hp) * sk.drain);
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "spores": { // (it. 1854) Champignards : nuage de spores, le héros étourdi ne frappe plus
+        R.chained = Math.max(R.chained || 0, sk.stun);
+        this.elementHit(sk.el, hs);
+        break;
+      }
     }
     return false;
   }
@@ -506,7 +529,7 @@ export class Game {
     const R = this.R;
     if (el === "frost") { R.frozen = Math.max(R.frozen || 0, 1.5); this.emit("bossSkill", { id: "frost" }); }
     else if (el === "poison") {
-      const d = 3 * (1 - (hs.purity || 0) / 100); // la pureté (Talisman de pureté…) le raccourcit, comme le venin des boss
+      const d = 1.5 * (1 - (hs.purity || 0) / 100); // la pureté (Talisman de pureté…) le raccourcit, comme le venin des boss
       if (d > 0.05) { R.venomT = Math.max(R.venomT || 0, d); this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
     } else if (el === "shadow") {
       const d = 2 * (1 - (hs.purity || 0) / 100);
@@ -876,7 +899,7 @@ export class Game {
       name: boss ? bossName(this.S.zone) : null, fem: boss && bossGender(this.S.zone) === "f", gender: boss ? bossGender(this.S.zone) : null });
     if (!boss && slot.poupouce) { mon.poupouce = true; mon.gold *= POUPOUCE.gold; }
     // (it. 1853) compétence de sa famille (monskills.js) : monstres ordinaires, ni gobelin ni Poupouce
-    if (!boss && !slot.goblin && !slot.poupouce) { const sk = monSkillOf(slot.type); if (sk) { mon.skill = sk; mon.skillT = sk.first; } }
+    if (!boss && !slot.goblin && !slot.poupouce) { const sk = monSkillOf(slot.type); if (sk) { mon.skill = sk; mon.skillT = sk.first; skillBalance(mon, sk); } }
     if (boss && isFinalZone(this.S.zone)) { // le Briseur d'Étoiles (story.js) : but final de l'histoire
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }
