@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1751, revue générale) : mage, PV 0,75 contre 0,85 (it. 1748) sur 4 nouvelles graines (21/31/41/51) : 62,5 contre
+  62,5 ; sur les 7 graines, 61,9 → 63,0 (+1,1, pas +2,7 : la mesure de l'it. 1748 tenait du palier franchi) ; gardé (petit gain
+  probable, mage parmi les plus bas). perf:linux bande 18,4 %, panneau 19,1 %, mini 5,7 % ; coréen (--dump-text) : aucun mot
+  français. Rien d'autre à corriger.
 - 2026-11-16 (it. 1750, essai abandonné) : assassin (61,7, le plus bas en 12 h, graines 7/3/11) : PV ×0,95 → 61,7 ; attaque ×1,25 →
   62,7 ; critique +25 → 62,7 ; les deux → 62,7. Les records tombent sur des paliers (murs des zones 62, 65, 69) : aucun
   réglage ne le fait passer de façon fiable au palier suivant ; rien gardé (gain non prouvé). Pour régler un héros, mesurer
