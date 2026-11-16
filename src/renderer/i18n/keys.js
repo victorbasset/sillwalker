@@ -3060,5 +3060,8 @@ export const KEYS = [
   "Tico, le scribe des Statistiques, a de nouvelles répliques en début de partie.",
   "Journal : chaque ligne indique l’heure à laquelle elle est arrivée.",
   "Duo : un compagnon à distance ne disparaît plus derrière un héros au corps à corps, et ses tirs se voient partir.",
-  "Aventure : la barre d’expérience passe au violet, comme sur la bande et en mode mini."
+  "Aventure : la barre d’expérience passe au violet, comme sur la bande et en mode mini.",
+  "Duo : deux combattants au corps à corps, ou un compagnon et le serviteur du nécromancien, ne se cachent plus l’un l’autre.",
+  "Assassin : plus de défense (il tombait deux fois plus souvent que les autres héros).",
+  "Mage : un peu plus de points de vie."
 ];

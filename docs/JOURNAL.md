@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1828) : « Quoi de neuf », édition 118 (duo : combattants et serviteur ne se cachent plus ; défense de l'assassin ; PV du
+  mage) ; 10 langues (noms de classes repris tels que traduits), clés 3059-3061. npm test 333, autotest 253/253.
 - 2026-11-16 (it. 1827, contrôle) : morts en 12 h (graine 7) : berserker 177, arbalétrier 164, moine 134, paladin 47 (assassin 239
   avant l'it. 1826) : écarts modérés, berserker fragile par conception ; rien changé.
 - 2026-11-16 (it. 1826) : assassin : il mourait deux fois plus que le moine (239 contre 134 en 12 h, graine 7) ; défense ×0,9 → ×1,1 :

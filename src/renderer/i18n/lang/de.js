@@ -1931,4 +1931,7 @@ export default {
   3056: "Protokoll: Jede Zeile zeigt, um wie viel Uhr sie kam.",
   3057: "Duo: Ein Fernkampf-Begleiter verschwindet nicht mehr hinter einem Nahkampfhelden, und seine Schüsse sind zu sehen.",
   3058: "Abenteuer: Die Erfahrungsleiste wird violett, wie in der Leiste und im Mini-Modus.",
+  3059: "Duo: Zwei Nahkämpfer oder ein Begleiter und der Diener des Totenbeschwörers verdecken sich nicht mehr gegenseitig.",
+  3060: "Assassine: mehr Verteidigung (fiel doppelt so oft wie die anderen Helden).",
+  3061: "Magier: etwas mehr Lebenspunkte.",
 };

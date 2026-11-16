@@ -1931,4 +1931,7 @@ export default {
   3056: "Log: each line shows the time it arrived.",
   3057: "Duo: a ranged companion no longer vanishes behind a melee hero, and you can see its shots fly.",
   3058: "Adventure: the experience bar turns purple, like on the strip and in mini mode.",
+  3059: "Duo: two melee fighters, or a companion and the necromancer's minion, no longer hide each other.",
+  3060: "Assassin: more defense (it fell twice as often as the other heroes).",
+  3061: "Mage: a bit more health.",
 };

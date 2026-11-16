@@ -1931,4 +1931,7 @@ export default {
   3056: "Diario: cada línea indica la hora a la que llegó.",
   3057: "Dúo: un compañero a distancia ya no desaparece detrás de un héroe cuerpo a cuerpo, y se ven salir sus disparos.",
   3058: "Aventura: la barra de experiencia pasa a violeta, como en la franja y en el modo mini.",
+  3059: "Dúo: dos luchadores cuerpo a cuerpo, o un compañero y el esbirro del nigromante, ya no se tapan entre sí.",
+  3060: "Asesino: más defensa (caía el doble que los demás héroes).",
+  3061: "Mago: algo más de vida.",
 };

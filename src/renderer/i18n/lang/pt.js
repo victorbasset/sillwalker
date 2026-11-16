@@ -1931,4 +1931,7 @@ export default {
   3056: "Diário: cada linha mostra a hora em que chegou.",
   3057: "Dupla: um companheiro à distância não some mais atrás de um herói corpo a corpo, e dá para ver os tiros saindo.",
   3058: "Aventura: a barra de experiência fica roxa, como na faixa e no modo mini.",
+  3059: "Dupla: dois lutadores corpo a corpo, ou um companheiro e o lacaio do necromante, não se escondem mais um atrás do outro.",
+  3060: "Assassino: mais defesa (caía duas vezes mais que os outros heróis).",
+  3061: "Mago: um pouco mais de vida.",
 };

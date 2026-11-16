@@ -1931,4 +1931,7 @@ export default {
   3056: "Dziennik: każdy wiersz pokazuje godzinę, o której się pojawił.",
   3057: "Duet: towarzysz dystansowy nie znika już za bohaterem walczącym wręcz, a jego strzały widać.",
   3058: "Przygoda: pasek doświadczenia jest fioletowy, jak na pasku gry i w trybie mini.",
+  3059: "Duet: dwóch wojowników walczących wręcz albo towarzysz i sługa nekromanty już się nie zasłaniają.",
+  3060: "Zabójca: więcej obrony (padał dwa razy częściej niż inni bohaterowie).",
+  3061: "Mag: trochę więcej punktów życia.",
 };
