@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1612) : fuzz élargi : 200 graines, 4 000 parties neuves (20 héros), 0 bloquée.
 - 2026-11-16 (it. 1611, revue générale) : simulation 12 h graine 7 : arbalétrier 66, berserker 66, danse-lames 65 ; perf:linux
   bande 18,6 %, panneau 19,8 %, mini 5,7 % ; Carte (de) propre ; texte allemand sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1610) : CLAUDE.md, pièges connus : le clic sur le rebord des boutons enfoncés (ui/pressfix.js).
