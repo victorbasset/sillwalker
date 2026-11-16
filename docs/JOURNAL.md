@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1714) : tableau des 20 héros (12 h, graines 7 / 3 / 11) après les ajouts du jour : moyenne 64,8, de 62,3 (assassin,
+  61,7 à l'it. 1637 avant son renforcement) à 67,3 (paladin) ; écart 5,0 zones (5,7 avant).
 - 2026-11-16 (it. 1713) : CLAUDE.md ne décrit plus l'ancienne Aventure (rien à reprendre) ; fuzz 60 graines : 1 200 parties, 0 bloquée.
 - 2026-11-16 (it. 1712) : capture de l'Ascension en espagnol (l'onglet s'appelle « ascension », pas « prestige ») : propre.
 - 2026-11-16 (it. 1711, revue générale) : simulation 12 h graine 51 : nécromancien 62, danseuse de lames 66, artificier 65 ;
