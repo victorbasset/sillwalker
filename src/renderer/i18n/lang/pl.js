@@ -1892,4 +1892,7 @@ export default {
   3017: "Dziennik się przeprowadził: jest teraz w Statystyki > Dziennik.",
   3018: "Przygoda: ekwipunek jest teraz przed torbą, a torba jest szersza (16 miejsc w rzędzie na dużym ekranie): szczegóły przedmiotu mieszczą się bez przewijania.",
   3019: "Przycisk Ustawienia jest teraz tuż na lewo od „Wyjdź”.",
+  3020: "Przycisk Ustawienia jest ostatecznie tuż na lewo od „Tryb mini”.",
+  3021: "Menu panelu zostaje w jednej linii, nawet po powiększeniu interfejsu lub zmianie rozmiaru okna.",
+  3022: "Zwiastun powstał na nowo z oryginalną ścieżką dźwiękową gry („Krawędź”), we wszystkich 10 językach.",
 };

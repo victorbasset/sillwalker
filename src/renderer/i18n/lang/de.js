@@ -1892,4 +1892,7 @@ export default {
   3017: "Das Protokoll ist umgezogen: Es ist jetzt unter Statistiken > Protokoll.",
   3018: "Abenteuer: Die Ausrüstung kommt vor der Tasche, und die Tasche ist breiter (16 Plätze pro Reihe auf großen Bildschirmen): Die Details eines Gegenstands passen ohne Scrollen.",
   3019: "Der Knopf Einstellungen sitzt jetzt direkt links von „Beenden“.",
+  3020: "Der Knopf Einstellungen sitzt nun direkt links von „Mini-Modus“.",
+  3021: "Das Menü des Panels bleibt einzeilig, auch wenn du die Oberfläche vergrößerst oder die Fenstergröße änderst.",
+  3022: "Der Trailer wurde mit dem Original-Soundtrack des Spiels („Der Saum“) neu gemacht, in allen 10 Sprachen.",
 };

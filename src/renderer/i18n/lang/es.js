@@ -1892,4 +1892,7 @@ export default {
   3017: "El Diario se ha mudado: ahora está en Estadísticas > Diario.",
   3018: "Aventura: el equipo va antes que la bolsa, y la bolsa es más ancha (16 casillas por fila en pantallas grandes): el detalle de un objeto se lee sin desplazarse.",
   3019: "El botón Ajustes está ahora justo a la izquierda de «Salir».",
+  3020: "El botón Ajustes queda finalmente justo a la izquierda de «Modo mini».",
+  3021: "El menú del panel se mantiene en una sola línea, incluso al agrandar la interfaz o cambiar el tamaño de la ventana.",
+  3022: "El tráiler se ha rehecho con la banda sonora original del juego («El Alféizar»), en los 10 idiomas.",
 };

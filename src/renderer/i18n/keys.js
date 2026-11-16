@@ -3021,5 +3021,8 @@ export const KEYS = [
   "Bande : les nombres ne sortent plus par le haut et évitent la bulle de parole du héros.",
   "Le Journal a déménagé : il est maintenant dans Statistiques > Journal.",
   "Aventure : l’équipement passe avant le sac, et le sac s’élargit (16 cases par rangée sur grand écran) : le détail d’un objet se lit sans défiler.",
-  "Le bouton Réglages est maintenant juste à gauche de « Quitter »."
+  "Le bouton Réglages est maintenant juste à gauche de « Quitter ».",
+  "Le bouton Réglages est finalement juste à gauche de « Mode mini ».",
+  "Le menu du panneau reste sur une seule ligne, même quand on agrandit l’interface ou qu’on change la taille de la fenêtre.",
+  "La bande-annonce est refaite sur la bande originale du jeu (« Le Rebord »), dans les 10 langues."
 ];

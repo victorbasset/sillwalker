@@ -1892,4 +1892,7 @@ export default {
   3017: "O Diário mudou de lugar: agora fica em Estatísticas > Diário.",
   3018: "Aventura: o equipamento vem antes da bolsa, e a bolsa ficou mais larga (16 espaços por linha em telas grandes): os detalhes de um item cabem sem rolar.",
   3019: "O botão Configurações agora fica logo à esquerda de \"Sair\".",
+  3020: "O botão Configurações fica finalmente logo à esquerda de \"Modo mini\".",
+  3021: "O menu do painel fica em uma só linha, mesmo ao aumentar a interface ou redimensionar a janela.",
+  3022: "O trailer foi refeito com a trilha sonora original do jogo (\"O Parapeito\"), nos 10 idiomas.",
 };

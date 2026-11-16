@@ -1892,4 +1892,7 @@ export default {
   3017: "The Log has moved: it now lives in Statistics > Log.",
   3018: "Adventure: equipment now comes before the bag, and the bag is wider (16 slots per row on large screens): an item's details fit without scrolling.",
   3019: "The Settings button now sits just left of \"Quit\".",
+  3020: "The Settings button finally sits just left of \"Mini mode\".",
+  3021: "The panel menu stays on a single line, even when you enlarge the interface or resize the window.",
+  3022: "The trailer has been remade on the game's original soundtrack (\"The Sill\"), in all 10 languages.",
 };
