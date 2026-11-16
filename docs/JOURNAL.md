@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1702) : « Quoi de neuf », édition 112 (Jour des familiers, touche J, Journal à 40 lignes au lieu de 25) ; 10 langues,
+  noms et chemins tels que traduits. Clés 3027-3029. max-save couvre déjà la 17e bénédiction (DAY_MOD_KEYS). Autotest 246/246.
 - 2026-11-16 (it. 1701, revue générale) : simulation 12 h graine 41 : rôdeur 62, barde 67, lancier 69 ; perf:linux bande
   18,3 %, panneau 19,1 %, mini 5,5 % ; Bestiaire > Bénédictions (fr, 4 / 17) et Familiers (pl) propres ; chinois sans mot
   français. Rien à corriger.

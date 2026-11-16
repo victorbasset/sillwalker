@@ -1899,4 +1899,7 @@ export default {
   3024: "Dia dos mascotes",
   3025: "Bônus do mascote ativo ×2.",
   3026: "Os mascotes estão em plena forma hoje!",
+  3027: "Uma 17ª bênção do dia, o Dia dos mascotes: o bônus do mascote ativo é dobrado.",
+  3028: "Tecla J: abre diretamente Estatísticas > Diário.",
+  3029: "O Diário agora mostra suas últimas 40 linhas na tela (antes 25).",
 };

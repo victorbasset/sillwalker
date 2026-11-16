@@ -3028,5 +3028,8 @@ export const KEYS = [
   "Ouvrir le Journal (Statistiques)",
   "Jour des familiers",
   "Bonus du familier actif ×2.",
-  "Les familiers sont en pleine forme aujourd’hui !"
+  "Les familiers sont en pleine forme aujourd’hui !",
+  "Une 17e bénédiction du jour, le Jour des familiers : le bonus du familier actif est doublé.",
+  "Touche J : ouvre directement Statistiques > Journal.",
+  "Le Journal garde maintenant ses 40 dernières lignes à l’écran (25 avant)."
 ];

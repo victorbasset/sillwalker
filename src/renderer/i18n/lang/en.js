@@ -1899,4 +1899,7 @@ export default {
   3024: "Pet Day",
   3025: "Active pet bonus ×2.",
   3026: "The pets are in top shape today!",
+  3027: "A 17th daily blessing, Pet Day: the active pet's bonus is doubled.",
+  3028: "J key: opens Statistics > Log directly.",
+  3029: "The Log now shows its last 40 lines on screen (25 before).",
 };

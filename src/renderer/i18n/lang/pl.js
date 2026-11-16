@@ -1899,4 +1899,7 @@ export default {
   3024: "Dzień pupili",
   3025: "Premia aktywnego pupila ×2.",
   3026: "Pupile są dziś w świetnej formie!",
+  3027: "17. błogosławieństwo dnia, Dzień pupili: premia aktywnego pupila jest podwojona.",
+  3028: "Klawisz J: otwiera od razu Statystyki > Dziennik.",
+  3029: "Dziennik pokazuje teraz ostatnie 40 wierszy (wcześniej 25).",
 };

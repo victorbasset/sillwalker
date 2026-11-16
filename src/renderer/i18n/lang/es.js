@@ -1899,4 +1899,7 @@ export default {
   3024: "Día de las mascotas",
   3025: "Bonificación de la mascota activa ×2.",
   3026: "¡Las mascotas están en plena forma hoy!",
+  3027: "Una 17.ª bendición del día, el Día de las mascotas: la bonificación de la mascota activa se duplica.",
+  3028: "Tecla J: abre directamente Estadísticas > Diario.",
+  3029: "El Diario muestra ahora sus últimas 40 líneas en pantalla (antes 25).",
 };

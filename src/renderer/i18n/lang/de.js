@@ -1899,4 +1899,7 @@ export default {
   3024: "Tag der Begleiter",
   3025: "Bonus des aktiven Begleiters ×2.",
   3026: "Die Begleiter sind heute in Topform!",
+  3027: "Ein 17. Tagessegen, der Tag der Begleiter: Der Bonus des aktiven Begleiters wird verdoppelt.",
+  3028: "Taste J: öffnet direkt Statistiken > Protokoll.",
+  3029: "Das Protokoll zeigt jetzt seine letzten 40 Zeilen an (vorher 25).",
 };
