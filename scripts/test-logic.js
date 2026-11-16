@@ -4399,4 +4399,17 @@ test("sauvegarde d'avant les volumes séparés (it. 1580) : effets, musique, amb
   assert.equal(m.settings.fxVol, 1); assert.equal(m.settings.musicVol, 1); assert.equal(m.settings.ambVol, 1);
   assert.equal(m.settings.hudBars, true);
 });
+test("astuces de l'expérience et de la vente groupée (it. 1552, 1546) : elles finissent par sortir", () => {
+  // on passe les bulles précédentes (comme le jeu, une à la fois) jusqu'à trouver celle qu'on attend
+  const find = (gg, id) => { for (let i = 0; i < 40; i++) { const h = nextHint(gg); if (!h) return null; if (h.id === id) return h; markHint(gg, h.key); } return null; };
+  const g = new Game(freshLocked()); g.S.lvl = 9;
+  assert.ok(find(g, "xp"), "astuce de l'expérience au niveau 9");
+  const g2 = new Game(freshLocked()); g2.S.lvl = 13;
+  assert.ok(!find(g2, "xp"), "plus d'astuce de l'expérience au niveau 13");
+  const g3 = new Game(freshLocked()); g3.S.tabsOpen = { ...(g3.S.tabsOpen || {}), shop: true }; g3.R.manualSells = 3;
+  const h = find(g3, "bulksell");
+  assert.ok(h && h.sec === "unlocks", "astuce de la vente groupée, vers les Déblocages");
+  const g4 = new Game(freshLocked()); g4.S.tabsOpen = { ...(g4.S.tabsOpen || {}), shop: true }; g4.S.unlocks = { bulkEquip: true }; g4.R.manualSells = 3;
+  assert.ok(!find(g4, "bulksell"), "Œil du connaisseur déjà acheté : pas d'astuce");
+});
 console.log(`\n${pass} tests réussis`);

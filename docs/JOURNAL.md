@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1602) : test : les astuces de l'expérience (jusqu'au niveau 12, pas au-delà) et de la vente groupée (vers les
+  Déblocages, pas si l'Œil du connaisseur est acheté) sortent après les bulles qui passent avant (318 tests).
 - 2026-11-16 (it. 1601, revue générale) : simulation 12 h graine 21 : cryomancien 65, gladiateur 66, prêtresse 65 ;
   perf:linux bande 18,2 %, panneau 19,7 %, mini 5,6 % ; Quêtes (de) propres, nombres de dégâts sous la rangée du haut ;
   coréen sans texte oublié. Rien à corriger.
