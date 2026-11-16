@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1719) : « Hache du bourreau » en français dans une ligne anglaise (test hors du jeu de l'it. 1715) : pas un défaut,
+  translateData traduit les noms des pouvoirs au démarrage (i18n/data.js) ; seul le script Node la sautait.
 - 2026-11-16 (it. 1718) : CLAUDE.md, Pièges : la leçon des couleurs du Journal (texte affiché comparé à du français).
 - 2026-11-16 (it. 1717) : recherche du même piège que l'it. 1715 (expression ou comparaison en français appliquée à un texte
   traduit) dans toute l'interface : aucun autre cas (les includes() restants portent sur des identifiants : drain, enrage…).
