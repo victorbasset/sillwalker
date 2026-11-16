@@ -1853,4 +1853,6 @@ export default {
   2978: "{0} defeated",
   2979: "Poupouce?! No way…",
   2980: "Is that… Poupouce?!",
+  2981: "Play the previous track (45 s)",
+  2982: "Play the next track (45 s)",
 };

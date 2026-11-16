@@ -1853,4 +1853,6 @@ export default {
   2978: "{0} pokonane",
   2979: "Poupouce?! Niemożliwe…",
   2980: "To… Poupouce?!",
+  2981: "Posłuchaj poprzedniego utworu (45 s)",
+  2982: "Posłuchaj następnego utworu (45 s)",
 };

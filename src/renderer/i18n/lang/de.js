@@ -1853,4 +1853,6 @@ export default {
   2978: "{0} besiegt",
   2979: "Poupouce?! Unmöglich …",
   2980: "Ist das … Poupouce?!",
+  2981: "Vorheriges Stück anhören (45 s)",
+  2982: "Nächstes Stück anhören (45 s)",
 };

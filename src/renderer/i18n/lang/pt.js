@@ -1853,4 +1853,6 @@ export default {
   2978: "{0} derrotados",
   2979: "Poupouce?! Não pode ser…",
   2980: "É… o Poupouce?!",
+  2981: "Ouvir a faixa anterior (45 s)",
+  2982: "Ouvir a próxima faixa (45 s)",
 };

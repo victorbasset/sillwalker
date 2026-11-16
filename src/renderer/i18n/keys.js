@@ -2982,5 +2982,7 @@ export const KEYS = [
   "Niveau supérieur ! Chaque monstre vaincu donne de l’expérience : la jauge violette sous ton niveau (et tout en bas de la bande) montre le prochain.",
   "{0} vaincus",
   "Poupouce ?! Pas possible…",
-  "C’est… Poupouce ?!"
+  "C’est… Poupouce ?!",
+  "Écouter le morceau précédent (45 s)",
+  "Écouter le morceau suivant (45 s)"
 ];

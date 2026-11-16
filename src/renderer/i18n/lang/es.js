@@ -1853,4 +1853,6 @@ export default {
   2978: "{0} vencidos",
   2979: "¿¡Poupouce!? No puede ser…",
   2980: "¿Es… Poupouce?!",
+  2981: "Escuchar el tema anterior (45 s)",
+  2982: "Escuchar el tema siguiente (45 s)",
 };
