@@ -3,6 +3,18 @@
 Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les gestes que seul Victor peut faire ; le
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
+
+## Nuit du 15 au 16/11 (it. 1546-1633), en bref
+
+- Retours de Kreen traités : jauge d'XP (bande, mini, éclat au niveau gagné, astuce), « Atteindre la zone N (record M) »,
+  Réglages à droite, cadre de sélection clair, coffres de quête ouverts sous les yeux (fanfare, fermeture seule s'il n'y a
+  rien à équiper), astuce « Œil du connaisseur », Poupouce (monstre rare, contour rose, ✦, succès, Jour de Poupouce),
+  Rebord plus léger, Briseur d'Étoiles en synthwave.
+- Musique : bulle « ♪ » au changement de morceau, 📌 pour garder son morceau, morceau libéré de la mémoire (bande cachée,
+  curseur à 0 %), bande-annonce branchée sur la bande originale (le montage reste à refaire : voir plus bas).
+- Contenu : 11e élite, le Colossal (taille de boss), succès « Tombeur de colosses » ; éditions 102 à 107 de « Quoi de neuf ».
+- À décider : sortir la 0.1.5 (devlog prêt, 10 langues : docs/devlog-0.1.5-brouillon.md) ; refaire la bande-annonce sur la
+  nouvelle musique ; déclarer POUPOUCE et COLOSSAL_25 dans Steamworks.
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
 - **Version 0.1.5 (quand tu veux)** : brouillon du devlog prêt (`docs/devlog-0.1.5-brouillon.md`, fr et en) : bande
