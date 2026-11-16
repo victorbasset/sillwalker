@@ -179,6 +179,8 @@ export class MiniRenderer {
           : echo ? outlinedFrames(set.normal, ECHO_OUTLINE, this.dpr)
           // (it. 1019) boss : contour pâle, comme sur la bande (boss sombre sur décor sombre)
           : m.boss ? outlinedFrames(set.normal, "rgba(232, 238, 255, 0.55)", this.dpr)
+          // (it. 1607) Poupouce : contour rose, comme sur la bande
+          : m.poupouce ? outlinedFrames(set.normal, "#ff9ad2", this.dpr)
           // (it. 1020) monstre sombre : contour très discret, comme sur la bande
           : isDarkSprite(set.normal) ? outlinedFrames(set.normal, "rgba(220, 228, 245, 0.35)", this.dpr) : set.normal);
         a.fly = set.fly;

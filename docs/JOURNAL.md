@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1607) : mode mini : Poupouce en combat a aussi son contour rose (comme les élites dorées et la bande).
 - 2026-11-16 (it. 1606) : édition 106 de « Quoi de neuf » : coffres (fanfare, fermeture seule), contour rose de Poupouce, sa
   chance dans les Statistiques ; 9 langues, lang-overflow propre.
 - 2026-11-16 (it. 1605) : Poupouce a un contour rose dessiné dans l'image (comme les élites : aucun coût de rendu), assorti à son
