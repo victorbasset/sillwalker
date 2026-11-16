@@ -1917,4 +1917,6 @@ export default {
   3042: "Protokoll: Kästchen „Nur wichtige Zeilen“ und ein Symbol vor jeder wichtigen Zeile (★ legendär, ◆ episch…).",
   3043: "Das Protokoll gibt es ab Zone 3 (Statistiken), ohne auf Zone 40 zu warten.",
   3044: "Statistiken komplett: Rekorde, Erfolge und Logbuch sind da!",
+  3045: "Ich schreibe jede deiner Heldentaten sauber ins Protokoll.",
+  3046: "Später zeige ich dir noch viel mehr. Im Moment sortiere ich meine Notizen.",
 };

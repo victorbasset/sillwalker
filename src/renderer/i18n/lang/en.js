@@ -1917,4 +1917,6 @@ export default {
   3042: "Log: “Important lines only” box and a symbol before each important line (★ legendary, ◆ epic…).",
   3043: "The Log is available from zone 3 (Statistics), no need to wait for zone 40.",
   3044: "Full Statistics: records, achievements and logbook are here!",
+  3045: "I copy each of your exploits into the Log, neatly.",
+  3046: "Later, I'll show you much more. For now, I'm sorting my notes.",
 };

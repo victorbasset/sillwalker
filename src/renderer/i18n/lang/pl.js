@@ -1917,4 +1917,6 @@ export default {
   3042: "Dziennik: pole „Tylko ważne wiersze” i symbol przed każdym ważnym wierszem (★ legendarne, ◆ epickie…).",
   3043: "Dziennik jest dostępny od strefy 3 (Statystyki), bez czekania na strefę 40.",
   3044: "Pełne Statystyki: rekordy, osiągnięcia i dziennik podróży już są!",
+  3045: "Przepisuję każdy twój wyczyn do Dziennika, na czysto.",
+  3046: "Później pokażę ci dużo więcej. Na razie porządkuję notatki.",
 };

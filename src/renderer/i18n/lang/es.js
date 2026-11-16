@@ -1917,4 +1917,6 @@ export default {
   3042: "Diario: casilla «Solo líneas importantes» y un símbolo delante de cada línea importante (★ legendario, ◆ épico…).",
   3043: "El Diario está disponible desde la zona 3 (Estadísticas), sin esperar a la zona 40.",
   3044: "Estadísticas completas: ¡ya están los récords, logros y cuaderno de viaje!",
+  3045: "Copio cada una de tus hazañas en el Diario, en limpio.",
+  3046: "Más adelante te enseñaré mucho más. Por ahora, ordeno mis notas.",
 };

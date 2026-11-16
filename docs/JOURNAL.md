@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1762) : Tico (Statistiques) : deux répliques de plus pour la période « Journal seul » (avant la zone 40), qui
+  n'en avait que deux (« Je recopie chacun de tes exploits dans le Journal… », « Plus tard, je t’en montrerai bien plus… ») ;
+  10 langues, clés 3045-3046. npm test 330, autotest 248/248.
 - 2026-11-16 (it. 1761, revue générale) : après la sortie de la 0.1.5 : simulation 12 h graine 91 : paladin 64, druide 66, barde 65 ;
   perf:linux bande 18,5 %, panneau 19,1 %, mini 5,6 % ; couverture de la 0.1.4 régénérée identique au pixel près (capsule.html
   paramétré à l'it. 1760 pour la 0.1.5). Rien à corriger.

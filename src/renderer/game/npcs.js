@@ -105,9 +105,12 @@ export const NPCS = {
       "Un succès de plus ! Je sors ma plus belle plume.",
       "Combien de noisettes vaut une pièce d’or ? Je cherche encore.",
       "Ton carnet de route s’allonge. On en fera un livre.",
+      "Je recopie chacun de tes exploits dans le Journal, au propre.",
+      "Plus tard, je t’en montrerai bien plus. Pour l’instant, je trie mes notes.",
     ],
     // (it. 1739) avant la zone 40, l'onglet ne montre que le Journal : pas de records, succès ni carnet de route à citer
-    early: [0, 3],
+    // (it. 1762) deux répliques de plus pour cette période (5 et 6)
+    early: [0, 3, 5, 6],
   },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
