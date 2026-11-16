@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1656) : résumé d'absence en thème clair : « ✦ Poupouce vaincus » (.tint) assombri et lisible ; le nom long du
+  meilleur butin passe à la ligne.
 - 2026-11-16 (it. 1655) : IDLE=1 (joueur absent, guerrier, 12 h) : record 15 (zone 14 à 12 h, niveau 46), comme le repère de l'it. 698.
   (Avec IDLE, le tableau « Courses » est vide : le record se lit dans le tableau horaire.)
 - 2026-11-16 (it. 1654) : Poupouce vaincu : le héros dit « Pardon, Poupouce… » ou « Reviens vite, Poupouce ! » (remplace la réplique
