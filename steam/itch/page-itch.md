@@ -11,7 +11,8 @@ Réponses données à Victor le 2026-11-16, à reprendre si la page est refaite.
 - **Languages :** English, French, Spanish, Portuguese (Brazil), German, Polish, Russian, Chinese (Simplified),
   Japanese, Korean.
 - **Accessibility :** Interactive tutorial (bulles de conseils, onglets ouverts peu à peu) ; Color-blind friendly
-  seulement en partie (symboles du Journal ; raretés et barres de vie surtout en couleur) ; pas de Configurable
+  (corrigé à l'it. 1772 : rareté des objets en pastilles • •• ••• ★ en plus de la couleur, RARITY_PIP de panel.js ;
+  symboles devant les lignes importantes du Journal ; barres de vie distinguées par leur place) ; pas de Configurable
   controls ni de High-contrast.
 - **Audience & Content :** pas de contenu sensible, pas d'avertissement.
 
