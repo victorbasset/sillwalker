@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1822, contrôle) : serviteur tiré des statistiques du duo (un compagnon nécromancien en donne un aussi) : le
+  placement de l'it. 1818 compare serviteur et compagnon quel qu'il soit ; steam/checklist.md à jour (72 succès, rien de daté).
 - 2026-11-16 (it. 1821, revue générale) : simulation 12 h graine 151 : moine 62, lancier 65, prêtresse 62 ; perf:linux bande 18,3 %,
   panneau 19,7 %, mini 5,7 % ; coréen : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1820) : autotest : nécromancien + samouraï en marche, le serviteur passe devant le compagnon (42 px). Autotest
