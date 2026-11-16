@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1614) : Quêtes : la récompense « élixir / parchemin » donne son effet en bulle (texte de la boutique, déjà traduit).
 - 2026-11-16 (it. 1613) : Quêtes : bulles d'aide sur les récompenses « œuf » (rejoint tes œufs, Familiers) et « éclats d'étoile »
   (constellations, Ascension) ; onglets cités vérifiés par i18n-paths dans les 9 langues.
 - 2026-11-16 (it. 1612) : fuzz élargi : 200 graines, 4 000 parties neuves (20 héros), 0 bloquée.
