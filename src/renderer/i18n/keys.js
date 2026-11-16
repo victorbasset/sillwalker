@@ -3066,5 +3066,8 @@ export const KEYS = [
   "Mage : un peu plus de points de vie.",
   "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que légendaires, records et événements.",
   "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que le butin rare, les événements, les quêtes et les chutes du héros.",
-  "★ légendaire · ◆ épique · ✦ butin rare et événements · ✓ quêtes, œufs, expéditions · ⚑ grandes étapes · ⚠ chutes du héros"
+  "★ légendaire · ◆ épique · ✦ butin rare et événements · ✓ quêtes, œufs, expéditions · ⚑ grandes étapes · ⚠ chutes du héros",
+  "Journal : les événements et les grandes étapes (⚑ reliques, ascensions, déblocages, sorts…) restent visibles avec « Lignes importantes seulement ».",
+  "Journal : au survol de cette case, une légende explique chaque symbole (★ ◆ ✦ ✓ ⚑ ⚠).",
+  "Une astuce fait découvrir ce filtre une fois le Journal bien rempli."
 ];

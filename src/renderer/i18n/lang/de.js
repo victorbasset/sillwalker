@@ -1937,4 +1937,7 @@ export default {
   3062: "Das Protokoll läuft zu schnell? Hake „Nur wichtige Zeilen“ an (Statistiken > Protokoll): Es zeigt nur Legendäres, Rekorde und Ereignisse.",
   3063: "Das Protokoll läuft zu schnell? Hake „Nur wichtige Zeilen“ an (Statistiken > Protokoll): Es zeigt nur seltene Beute, Ereignisse, Quests und die Niederlagen deines Helden.",
   3064: "★ legendär · ◆ episch · ✦ seltene Beute und Ereignisse · ✓ Quests, Eier, Expeditionen · ⚑ Meilensteine · ⚠ Niederlagen des Helden",
+  3065: "Protokoll: Ereignisse und Meilensteine (⚑ Relikte, Aufstiege, Freischaltungen, Zauber…) bleiben mit „Nur wichtige Zeilen“ sichtbar.",
+  3066: "Protokoll: Beim Überfahren dieses Kästchens erklärt eine Legende jedes Symbol (★ ◆ ✦ ✓ ⚑ ⚠).",
+  3067: "Ein Tipp stellt diesen Filter vor, sobald das Protokoll gut gefüllt ist.",
 };

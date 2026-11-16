@@ -1937,4 +1937,7 @@ export default {
   3062: "O diário passa rápido demais? Marque «Só linhas importantes» (Estatísticas > Diário): ele guarda só lendários, recordes e eventos.",
   3063: "O diário passa rápido demais? Marque «Só linhas importantes» (Estatísticas > Diário): ele guarda só o saque raro, os eventos, as missões e as quedas do herói.",
   3064: "★ lendário · ◆ épico · ✦ saque raro e eventos · ✓ missões, ovos, expedições · ⚑ grandes etapas · ⚠ quedas do herói",
+  3065: "Diário: os eventos e as grandes etapas (⚑ relíquias, ascensões, desbloqueios, feitiços…) continuam visíveis com «Só linhas importantes».",
+  3066: "Diário: ao passar o mouse nessa caixa, uma legenda explica cada símbolo (★ ◆ ✦ ✓ ⚑ ⚠).",
+  3067: "Uma dica apresenta esse filtro quando o diário estiver bem cheio.",
 };

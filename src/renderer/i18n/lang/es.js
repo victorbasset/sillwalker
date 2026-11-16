@@ -1937,4 +1937,7 @@ export default {
   3062: "¿El diario va muy rápido? Marca «Solo líneas importantes» (Estadísticas > Diario): solo guarda legendarios, récords y eventos.",
   3063: "¿El diario va muy rápido? Marca «Solo líneas importantes» (Estadísticas > Diario): solo guarda el botín raro, los eventos, las misiones y las caídas del héroe.",
   3064: "★ legendario · ◆ épico · ✦ botín raro y eventos · ✓ misiones, huevos, expediciones · ⚑ grandes etapas · ⚠ caídas del héroe",
+  3065: "Diario: los eventos y las grandes etapas (⚑ reliquias, ascensiones, desbloqueos, hechizos…) siguen visibles con «Solo líneas importantes».",
+  3066: "Diario: al pasar el ratón por esa casilla, una leyenda explica cada símbolo (★ ◆ ✦ ✓ ⚑ ⚠).",
+  3067: "Un consejo da a conocer este filtro cuando el diario está bien lleno.",
 };

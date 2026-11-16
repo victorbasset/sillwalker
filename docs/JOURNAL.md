@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1839) : « Quoi de neuf », édition 119 (Journal : événements et étapes gardés par le filtre ; légende des
+  symboles ; astuce du filtre), clés 3065-3067, 10 langues. npm test 336, autotest 253/253.
 - 2026-11-16 (it. 1838) : légende des symboles du Journal au survol de la case « Lignes importantes seulement » (★ ◆ ✦ ✓ ⚑ ⚠ ;
   aucune légende avant). Clé 3064, 10 langues, noms de rareté repris tels que traduits (japonais « レジェンド »).
   npm test 336, autotest 253/253.

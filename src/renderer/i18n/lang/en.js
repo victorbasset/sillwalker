@@ -1937,4 +1937,7 @@ export default {
   3062: "Log scrolling too fast? Tick “Important lines only” (Statistics > Log): it keeps only legendaries, records and events.",
   3063: "Log scrolling too fast? Tick “Important lines only” (Statistics > Log): it keeps only rare loot, events, quests and your hero’s falls.",
   3064: "★ legendary · ◆ epic · ✦ rare loot and events · ✓ quests, eggs, expeditions · ⚑ milestones · ⚠ hero falls",
+  3065: "Log: events and milestones (⚑ relics, ascensions, unlocks, spells…) stay visible with “Important lines only”.",
+  3066: "Log: hover that box for a legend explaining each symbol (★ ◆ ✦ ✓ ⚑ ⚠).",
+  3067: "A tip now points out this filter once the Log fills up.",
 };
