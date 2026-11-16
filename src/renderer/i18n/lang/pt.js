@@ -1905,4 +1905,7 @@ export default {
   3030: "Nenhum mascote ativo: escolha um (Mascotes).",
   3031: "Os mascotes nascem de ovos de chefes, elites e missões.",
   3032: "×2 hoje (Dia dos mascotes)",
+  3033: "Diário: as linhas importantes (lendário, épico, missão, baú, K.O.) são coloridas em todos os idiomas, não só em francês.",
+  3034: "Dia dos mascotes: o cartão do mascote ativo mostra o bônus dobrado.",
+  3035: "Dia dos mascotes sem mascote ativo: a bênção avisa e diz onde conseguir um.",
 };

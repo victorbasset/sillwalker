@@ -1905,4 +1905,7 @@ export default {
   3030: "Brak aktywnego pupila: wybierz jednego (Pupile).",
   3031: "Pupile wykluwają się z jaj od bossów, elit i zadań.",
   3032: "×2 dziś (Dzień pupili)",
+  3033: "Dziennik: ważne wiersze (legendarne, epickie, zadanie, skrzynia, K.O.) są kolorowe we wszystkich językach, nie tylko po francusku.",
+  3034: "Dzień pupili: karta aktywnego pupila pokazuje podwojoną premię.",
+  3035: "Dzień pupili bez aktywnego pupila: błogosławieństwo o tym mówi i podpowiada, skąd go wziąć.",
 };

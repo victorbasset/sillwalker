@@ -3034,5 +3034,8 @@ export const KEYS = [
   "Le Journal garde maintenant ses 40 dernières lignes à l’écran (25 avant).",
   "Aucun familier actif : choisis-en un (Familiers).",
   "Les familiers sortent des œufs des boss, des élites et des quêtes.",
-  "×2 aujourd’hui (Jour des familiers)"
+  "×2 aujourd’hui (Jour des familiers)",
+  "Journal : les lignes importantes (légendaire, épique, quête, coffre, K.O.) sont colorées dans toutes les langues, plus seulement en français.",
+  "Jour des familiers : la carte du familier actif montre son bonus doublé.",
+  "Jour des familiers sans familier actif : la bénédiction l’indique et dit où en trouver."
 ];

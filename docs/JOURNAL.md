@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1720) : « Quoi de neuf », édition 113 (couleurs du Journal dans toutes les langues, bonus doublé sur la carte du familier,
+  précision sans familier actif) ; 10 langues. Clés 3033-3035. npm test 324, autotest 246/246.
 - 2026-11-16 (it. 1719) : « Hache du bourreau » en français dans une ligne anglaise (test hors du jeu de l'it. 1715) : pas un défaut,
   translateData traduit les noms des pouvoirs au démarrage (i18n/data.js) ; seul le script Node la sautait.
 - 2026-11-16 (it. 1718) : CLAUDE.md, Pièges : la leçon des couleurs du Journal (texte affiché comparé à du français).

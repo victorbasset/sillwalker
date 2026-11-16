@@ -1905,4 +1905,7 @@ export default {
   3030: "Ninguna mascota activa: elige una (Mascotas).",
   3031: "Las mascotas nacen de huevos de jefes, élites y misiones.",
   3032: "×2 hoy (Día de las mascotas)",
+  3033: "Diario: las líneas importantes (legendario, épico, misión, cofre, K.O.) se colorean en todos los idiomas, no solo en francés.",
+  3034: "Día de las mascotas: la tarjeta de la mascota activa muestra su bonificación duplicada.",
+  3035: "Día de las mascotas sin mascota activa: la bendición lo indica y dice dónde conseguir una.",
 };

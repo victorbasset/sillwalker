@@ -1905,4 +1905,7 @@ export default {
   3030: "Kein aktiver Begleiter: wähle einen (Begleiter).",
   3031: "Begleiter schlüpfen aus Eiern von Bossen, Elite-Gegnern und Quests.",
   3032: "×2 heute (Tag der Begleiter)",
+  3033: "Protokoll: wichtige Zeilen (legendär, episch, Quest, Truhe, K.O.) sind in allen Sprachen gefärbt, nicht nur auf Französisch.",
+  3034: "Tag der Begleiter: Die Karte des aktiven Begleiters zeigt den verdoppelten Bonus.",
+  3035: "Tag der Begleiter ohne aktiven Begleiter: Der Segen sagt es und wo man einen findet.",
 };
