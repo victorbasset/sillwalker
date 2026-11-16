@@ -15,8 +15,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 18 événements rares,
   11 sortes d'élites (le Colossal, it. 1617) et 19 sortes de quêtes (it. 1375, 1382, 1406, 1452 et 1617).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
-  (it. 1395), `CHESTS_50` « Pilleur de coffres (50 coffres) » (it. 1430), `POUPOUCE` « Poupouce ?! » (it. 1576), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
-  Liste complète : `steam/achievements.md` (71 succès).
+  (it. 1395), `CHESTS_50` « Pilleur de coffres (50 coffres) » (it. 1430), `POUPOUCE` « Poupouce ?! » (it. 1576), `COLOSSAL_25` « Tombeur de colosses (25 colossaux) » (it. 1622), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
+  Liste complète : `steam/achievements.md` (72 succès).
 
 ## Version 0.1.4 (sortie le 15/11)
 

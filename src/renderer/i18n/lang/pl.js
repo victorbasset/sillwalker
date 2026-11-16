@@ -1877,4 +1877,5 @@ export default {
   3002: "11. rodzaj elity, Kolosalny: wielki jak boss, 120% więcej życia, ale ciosy o 40% wolniejsze.",
   3003: "Zadania: po najechaniu każda nagroda się tłumaczy (skrzynia, jajo, odłamki gwiazd, eliksiry i zwoje).",
   3004: "Poupouce nosi ✦, dopóki go nie pokonasz, i zachowuje różowy kontur w trybie mini.",
+  3005: "Pogromca kolosów (25 kolosalnych)",
 };

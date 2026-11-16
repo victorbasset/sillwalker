@@ -1877,4 +1877,5 @@ export default {
   3002: "Eine 11. Eliteart, der Kolossale: groß wie ein Boss, 120 % mehr Leben, aber 40 % langsamere Schläge.",
   3003: "Quests: Beim Überfahren erklärt sich jede Belohnung (Truhe, Ei, Sternensplitter, Elixiere und Schriftrollen).",
   3004: "Poupouce trägt ein ✦, solange du ihn nie besiegt hast, und behält seinen rosa Umriss im Mini-Modus.",
+  3005: "Kolossbezwinger (25 Kolossale)",
 };

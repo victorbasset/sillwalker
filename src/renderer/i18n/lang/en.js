@@ -1877,4 +1877,5 @@ export default {
   3002: "An 11th kind of elite, the Colossal: as big as a boss, 120% more health, but 40% slower blows.",
   3003: "Quests: hover a reward to see what it does (chest, egg, star shards, elixirs and scrolls).",
   3004: "Poupouce wears a ✦ until you've defeated him once, and keeps his pink outline in mini mode.",
+  3005: "Colossus Slayer (25 colossals)",
 };

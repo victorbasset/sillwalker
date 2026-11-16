@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1622) : succès « Tombeur de colosses (25 colossaux) » (COLOSSAL_25, icônes Steam du golem), 72 succès ;
+  espagnol « Derribacolosos (25) » (le nom long faisait défiler la fin de partie à 130 % de 4 px) ; checklist, README, POUR-VICTOR.
 - 2026-11-16 (it. 1621, revue générale) : simulation 12 h graine 3 : druide 64, gardien stellaire 62, artificier 66 ; perf:linux
   bande 18,4 %, panneau 21,1 %, mini 5,9 % ; Bestiaire > Élites (ru) : le Colossal y figure, 11 sortes, propre. Rien à corriger.
 - 2026-11-16 (it. 1620) : édition 107 de « Quoi de neuf » : le Colossal, les récompenses de quête expliquées, Poupouce ✦ et

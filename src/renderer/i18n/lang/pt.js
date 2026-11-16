@@ -1877,4 +1877,5 @@ export default {
   3002: "Um 11º tipo de elite, o Colossal: grande como um chefe, 120% mais vida, mas golpes 40% mais lentos.",
   3003: "Missões: ao passar o mouse, cada recompensa se explica (baú, ovo, fragmentos de estrela, elixires e pergaminhos).",
   3004: "O Poupouce exibe um ✦ enquanto você nunca o derrotou, e mantém o contorno rosa no modo mini.",
+  3005: "Derrubador de colossos (25 colossais)",
 };
