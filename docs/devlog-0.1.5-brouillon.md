@@ -88,6 +88,7 @@ Thanks for playing!
 - **Una Aventura más despejada:** el equipo va antes que la bolsa, la bolsa es más ancha (16 casillas por fila en pantallas grandes) y el detalle de un objeto se lee sin desplazarse; el Diario pasa a Estadísticas > Diario (tecla J) y Ajustes queda a la izquierda de «Modo mini».
 - **Más claro:** la tienda dice «Alcanza la zona 40 (récord 32)», Ajustes se une a los botones de la derecha, el objeto seleccionado tiene un marco claro, los números de daño ya no tapan la parte de arriba de la franja y las recompensas de misión se explican al pasar el ratón.
 - **Más ligero:** la música ya no se sintetiza en directo, y el tema se libera de la memoria cuando la franja sigue oculta.
+- Una partida nueva ya no abre la ventana de novedades encima de la introducción; un clic en el borde de un botón por fin cuenta.
 
 Tu partida se conserva: instala la nueva versión encima de la anterior. ¡Gracias por jugar!
 
@@ -104,6 +105,7 @@ Tu partida se conserva: instala la nueva versión encima de la anterior. ¡Graci
 - **Uma Aventura mais arejada:** o equipamento vem antes da bolsa, a bolsa ficou mais larga (16 espaços por linha em telas grandes) e os detalhes de um item cabem sem rolar; o Diário vai para Estatísticas > Diário (tecla J) e Configurações fica à esquerda de "Modo mini".
 - **Mais claro:** a loja diz “Alcance a zona 40 (recorde 32)”, Configurações vai para os botões da direita, o item selecionado ganha uma moldura clara, os números de dano não cobrem mais o topo da faixa e as recompensas de missão se explicam ao passar o mouse.
 - **Mais leve:** a música não é mais sintetizada ao vivo, e a faixa sai da memória quando a faixa do jogo fica escondida.
+- Um jogo novo não abre mais a janela de novidades por cima da introdução; um clique na borda de um botão finalmente conta.
 
 Seu save é mantido: basta instalar a nova versão por cima da antiga. Obrigado por jogar!
 
@@ -120,6 +122,7 @@ Seu save é mantido: basta instalar a nova versão por cima da antiga. Obrigado 
 - **Ein luftigeres Abenteuer:** Die Ausrüstung kommt vor der Tasche, die Tasche ist breiter (16 Plätze pro Reihe auf großen Bildschirmen) und die Details eines Gegenstands passen ohne Scrollen; das Protokoll zieht nach Statistiken > Protokoll (Taste J), und Einstellungen sitzt links von „Mini-Modus“.
 - **Klarer:** Der Laden sagt „Erreiche Zone 40 (Rekord 32)“, Einstellungen sitzt bei den Knöpfen rechts, der gewählte Gegenstand hat einen hellen Rahmen, Schadenszahlen verdecken den oberen Rand der Leiste nicht mehr und Quest-Belohnungen erklären sich beim Überfahren.
 - **Leichter:** Die Musik wird nicht mehr live erzeugt, und das Stück wird aus dem Speicher entfernt, solange die Leiste verborgen ist.
+- Ein neues Spiel öffnet das Neuigkeiten-Fenster nicht mehr über dem Intro; ein Klick auf den Rand eines Knopfs zählt endlich.
 
 Dein Spielstand bleibt erhalten: Installiere die neue Version einfach über die alte. Danke fürs Spielen!
 
@@ -136,6 +139,7 @@ Dein Spielstand bleibt erhalten: Installiere die neue Version einfach über die 
 - **Przestronniejsza Przygoda:** ekwipunek jest przed torbą, torba jest szersza (16 miejsc w rzędzie na dużym ekranie), a szczegóły przedmiotu mieszczą się bez przewijania; Dziennik przenosi się do Statystyki > Dziennik (klawisz J), a Ustawienia są na lewo od „Tryb mini”.
 - **Czytelniej:** sklep pisze „Osiągnij strefę 40 (rekord 32)”, Ustawienia trafiły do przycisków po prawej, wybrany przedmiot ma jasną ramkę, liczby obrażeń nie zasłaniają już góry paska, a nagrody zadań tłumaczą się po najechaniu.
 - **Lżej:** muzyka nie jest już syntetyzowana na żywo, a utwór znika z pamięci, gdy pasek jest ukryty.
+- Nowa gra nie otwiera już okna nowości na wstępie; kliknięcie w samą krawędź przycisku w końcu działa.
 
 Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za grę!
 
@@ -152,6 +156,7 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **Просторнее Приключение:** снаряжение перед сумкой, сумка шире (16 ячеек в ряду на большом экране), описание предмета видно без прокрутки; Журнал переехал в Статистика > Журнал (клавиша J), а Настройки — слева от «Мини-режим».
 - **Понятнее:** лавка пишет «Достигни зоны 40 (рекорд 32)», Настройки переехали к кнопкам справа, у выбранного предмета светлая рамка, числа урона больше не закрывают верх полосы, а награды заданий объясняются при наведении.
 - **Легче:** музыка больше не синтезируется на лету, а композиция выгружается из памяти, пока полоса скрыта.
+- Новая игра больше не открывает окно новостей поверх вступления; клик по самому краю кнопки наконец срабатывает.
 
 Сохранение остаётся: просто установи новую версию поверх старой. Спасибо за игру!
 
@@ -168,6 +173,7 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **更宽敞的冒险页：** 装备移到背包前面，背包更宽（大屏幕上每行 16 格），物品详情无需滚动；日志移到 统计 > 日志（J 键），设置位于“迷你模式”左边。
 - **更清楚：** 商店显示“到达第 40 区（纪录 32）”，“设置”移到右侧按钮旁，选中的物品有浅色边框，伤害数字不再遮住长条顶部，任务奖励悬停即可看到说明。
 - **更轻量：** 音乐不再实时合成，长条隐藏时曲目会从内存中释放。
+- 新游戏不再在开场上弹出更新内容窗口；点击按钮的边缘终于也算数了。
 
 存档会保留：直接把新版本安装在旧版本上即可。感谢游玩！
 
@@ -184,6 +190,7 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **ゆとりある冒険タブ：** 装備がバッグの前に、バッグは広く（大画面で1列16マス）、アイテムの詳細がスクロールなしで読める。ログは 統計 > ログ へ（Jキー）、設定は「ミニモード」の左に。
 - **わかりやすく：** ショップは「エリア 40 に到達（記録 32）」と表示、「設定」は右側のボタンの並びへ、選択中のアイテムは明るい枠、ダメージ表示がバー上部に重ならなくなり、クエスト報酬はマウスを乗せると説明が出る。
 - **より軽く：** 音楽はリアルタイム合成をやめ、バーが隠れている間は曲をメモリから解放する。
+- 新しいゲームでは導入の上に新着ウィンドウが開かなくなった。ボタンの縁をクリックしても反応するようになった。
 
 セーブデータはそのまま：新しいバージョンを上書きインストールするだけ。遊んでくれてありがとう！
 
@@ -200,5 +207,6 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **더 여유로운 모험 탭:** 장비가 가방 앞으로, 가방은 더 넓게(큰 화면에서 한 줄에 16칸), 아이템 상세는 스크롤 없이 보입니다. 기록은 통계 > 기록으로(J 키), 설정은 "미니 모드" 왼쪽으로.
 - **더 명확하게:** 상점에 "구역 40 도달 (기록 32)"이 표시되고, "설정"은 오른쪽 버튼 옆으로, 선택한 아이템은 밝은 테두리, 피해 숫자가 띠 위쪽을 가리지 않으며, 퀘스트 보상은 마우스를 올리면 설명이 나옵니다.
 - **더 가볍게:** 음악을 실시간으로 합성하지 않고, 띠가 숨겨져 있는 동안에는 곡을 메모리에서 해제합니다.
+- 새 게임에서 소개 위에 새 소식 창이 더 이상 열리지 않습니다. 버튼 가장자리를 클릭해도 이제 작동합니다.
 
 세이브는 그대로 유지됩니다: 새 버전을 기존 버전 위에 설치하기만 하면 됩니다. 플레이해 주셔서 감사합니다!

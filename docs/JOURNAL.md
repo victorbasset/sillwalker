@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1698) : devlog 0.1.5 : le dernier point (partie neuve sans fenêtre des nouveautés, clic sur le rebord d'un bouton)
+  manquait dans 8 langues (9 points contre 10 en fr et en) : ajouté ; page itch régénérée, 10 points partout.
 - 2026-11-16 (it. 1697) : devlog 0.1.5 (brouillon et page itch) : point « Aventure plus aérée » (équipement avant le sac, sac à 16
   cases par rangée, Journal dans Statistiques > Journal, touche J, Réglages à gauche de « Mode mini ») dans les 10 langues.
 - 2026-11-16 (it. 1696) : --crawl en anglais sur la partie de fin de partie après la nouvelle disposition (Journal, Aventure,
