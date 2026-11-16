@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1768, demande de Victor) : images promotionnelles itch.io (steam/itch/promo-images, Médias/dist-itch/promo) :
+  réseaux sociaux 1200 × 630, favicon 512 × 512, couverture large 2520 × 1080 (21:9), logo transparent 1002 × 208 (recadré,
+  contour sombre : lisible sur blanc et noir) ; scripts/steam-capsules/make.js (ONLY=itch-…).
 - 2026-11-16 (it. 1768) : autotest : Poupouce et sac plein, le héros prévient (langue de l'autotest variable : réplique reconnue à sa
   longueur). Autotest 249/249.
 - 2026-11-16 (it. 1767) : Poupouce arrive et le sac est plein : le héros prévient « Le sac est plein : vite, une place pour le

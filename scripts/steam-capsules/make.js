@@ -10,6 +10,10 @@ const SIZES = [
   ["youtube-thumbnail", 1280, 720, "main"],
   ["avatar", 512, 512, "avatar"], // (it. 814) photo de profil itch.io // (it. 813) miniature de la bande-annonce YouTube
   ["update-0.1.4", 1920, 1080, "update"], // (it. 1541) image de couverture du devlog de la 0.1.4 (16:9)
+  // (it. 1768, demande de Victor) images promotionnelles d'itch.io : réseaux sociaux, favicon carré, couverture large 21:9,
+  // logo transparent horizontal
+  ["itch-social", 1200, 630, "main"], ["itch-favicon", 512, 512, "avatar"], ["itch-wide-cover", 2520, 1080, "main"],
+  ["itch-logo", 1600, 480, "logo"],
   ["update-0.1.5", 1920, 1080, "update", { ver: "0.1.5", tags: "Original soundtrack|Poupouce the cat|XP bar|Quest chests|The Colossal|Pet Day|10 languages" }], // (it. 1761)
 ].filter(([name]) => !process.env.ONLY || name === process.env.ONLY); // ONLY=<nom> : une seule image
 app.whenReady().then(async () => {
