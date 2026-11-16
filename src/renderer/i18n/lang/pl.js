@@ -1861,4 +1861,7 @@ export default {
   2986: "Poupouce?!",
   2987: "Skrzynia otwiera się, gdy odbierasz zadanie; jej przedmiot trafia do torby.",
   2988: "Zachowaj ten utwór niezależnie od strefy (kolejne kliknięcie: utwór strefy)",
+  2989: "Dzień Poupouce",
+  2990: "Poupouce ×10.",
+  2991: "Podobno Poupouce kręci się dziś wszędzie…",
 };

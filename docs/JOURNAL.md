@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1586) : 16e bénédiction du jour, « Jour de Poupouce » 🍄 (Poupouce ×10), ajoutée à la FIN : le 16 et le 17/11
+  gardent les leurs (Jour des trésors, Fête des gobelins), première le 19/11 ; réplique du héros ; fuzz FUZZ_DAYMOD=poupouce
+  (600 parties, 0 bloquée), lang-overflow propre, autotest 241/241.
 - 2026-11-16 (it. 1585) : early-pace (3 graines) : à 10 min niveau 13 / zone 8 / 1,3 déblocage ; à 60 min niveau 38-40, zone
   22-25, 6,3 déblocages : comme avant (rythme du début intact après les it. 1526-1584).
 - 2026-11-16 (it. 1584) : tableau des 20 héros, 12 h × graines 7 / 3 / 11 : de 62,7 (assassin, prêtresse) à 67,3 (paladin,

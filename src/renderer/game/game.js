@@ -144,7 +144,7 @@ export class Game {
         ? { type: "goblin", elite: false, goblin: true }
         : (() => {
           const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance * (dm?.champion || 1), elite = champion || rand() < ELITE.chance * eliteMul;
-          const poupouce = !elite && this.S.zone >= POUPOUCE.minZone && rand() < POUPOUCE.chance;
+          const poupouce = !elite && this.S.zone >= POUPOUCE.minZone && rand() < POUPOUCE.chance * (dm?.poupouce || 1); // (it. 1586) Jour de Poupouce
           return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null, ...(poupouce ? { poupouce } : {}) };
         })()));
       if ((R.events.bloodmoon || 0) > 0) this.bloodMoon(R.lineup, 0); // Lune de sang : la nouvelle série naît élite

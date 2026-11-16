@@ -1861,4 +1861,7 @@ export default {
   2986: "¿¡Poupouce!?",
   2987: "El cofre se abre al reclamar la misión; su objeto va a la bolsa.",
   2988: "Mantener este tema sea cual sea la zona (otro clic: el tema de la zona)",
+  2989: "Día de Poupouce",
+  2990: "Poupouce ×10.",
+  2991: "Dicen que hoy Poupouce anda por todas partes…",
 };

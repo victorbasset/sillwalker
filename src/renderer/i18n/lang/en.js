@@ -1861,4 +1861,7 @@ export default {
   2986: "Poupouce?!",
   2987: "The chest opens when you claim the quest; its item goes into your bag.",
   2988: "Keep this track whatever the zone (click again: the zone’s track)",
+  2989: "Poupouce Day",
+  2990: "Poupouce ×10.",
+  2991: "Word is Poupouce is lurking everywhere today…",
 };

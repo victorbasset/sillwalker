@@ -2990,5 +2990,8 @@ export const KEYS = [
   "Niveau gagné : la jauge d’expérience brille en or ; en mode mini, la bulle au survol donne l’expérience.",
   "Poupouce ?!",
   "Le coffre s’ouvre quand tu réclames la quête ; son objet va dans le sac.",
-  "Garder ce morceau, quelle que soit la zone (un autre clic : le morceau de la zone)"
+  "Garder ce morceau, quelle que soit la zone (un autre clic : le morceau de la zone)",
+  "Jour de Poupouce",
+  "Poupouce ×10.",
+  "Il paraît que Poupouce rôde partout aujourd’hui…"
 ];

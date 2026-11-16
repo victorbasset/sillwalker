@@ -1861,4 +1861,7 @@ export default {
   2986: "Poupouce?!",
   2987: "Die Truhe öffnet sich, wenn du die Quest abholst; ihr Gegenstand kommt in die Tasche.",
   2988: "Dieses Stück behalten, egal in welcher Zone (erneut klicken: das Stück der Zone)",
+  2989: "Poupouce-Tag",
+  2990: "Poupouce ×10.",
+  2991: "Es heißt, Poupouce streift heute überall herum …",
 };

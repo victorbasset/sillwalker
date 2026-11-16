@@ -1861,4 +1861,7 @@ export default {
   2986: "Poupouce?!",
   2987: "O baú se abre quando você resgata a missão; o item vai para a bolsa.",
   2988: "Manter esta faixa em qualquer zona (outro clique: a faixa da zona)",
+  2989: "Dia do Poupouce",
+  2990: "Poupouce ×10.",
+  2991: "Dizem que o Poupouce está rondando por toda parte hoje…",
 };

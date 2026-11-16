@@ -27,6 +27,8 @@ export const DAY_MODS = {
   blood: { icon: "🩸", name: "Jour du sang", desc: "+5 % de vol de vie, +25 % de dégâts critiques.", eff: { lifesteal: 5, critDmg: 25 } },
   // (it. 1412) 15e, ajouté à la FIN : les sorts (aucune bénédiction ne les touchait ; la Marée arcanique le fait 30 s)
   arcana: { icon: "🔮", name: "Jour des arcanes", desc: "Sorts rechargés 50 % plus vite.", eff: {}, spellCdr: 1.5 },
+  // (it. 1586) 16e, ajouté à la FIN : le monstre rare Poupouce (data.js, POUPOUCE) dix fois plus fréquent
+  poupouce: { icon: "🍄", name: "Jour de Poupouce", desc: "Poupouce ×10.", eff: {}, poupouce: 10 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

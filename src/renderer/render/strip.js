@@ -93,6 +93,7 @@ const SPEECH = {
   dm_momentum: [tx("Le premier coup est le bon, aujourd’hui !")], // (it. 1314)
   dm_blood: [tx("Chaque coup me redonne des forces.")], // (it. 1378)
   dm_arcana: [tx("Mes sorts reviennent en un éclair aujourd’hui !")], // (it. 1412)
+  dm_poupouce: [tx("Il paraît que Poupouce rôde partout aujourd’hui…")], // (it. 1586)
 };
 
 export const STRIP_H = 120;
