@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1824, contrôle) : lang-overflow complet après le Journal horodaté et le duo : aucun défilement ni mot coupé
+  (10 langues, 4 largeurs, fin de partie, état maximal, 130 %).
 - 2026-11-16 (it. 1823) : autotest : deux combattants au contact (guerrier + samouraï), le compagnon 15 px en retrait du héros.
   Autotest 253/253.
 - 2026-11-16 (it. 1822, contrôle) : serviteur tiré des statistiques du duo (un compagnon nécromancien en donne un aussi) : le
