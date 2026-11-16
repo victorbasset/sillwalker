@@ -171,7 +171,7 @@ export class Game {
    */
   syncLogLang(lang) {
     const S = this.S;
-    if (S.logLang && S.logLang !== lang && S.log.length) S.log = [tx("Langue changée : le journal reprend ici.")];
+    if (S.logLang && S.logLang !== lang && S.log.length) { S.log = [tx("Langue changée : le journal reprend ici.")]; S.logT = [Date.now()]; }
     S.logLang = lang;
   }
 
@@ -184,7 +184,7 @@ export class Game {
     const at = rep ? L.indexOf(rep.text) : -1;
     if (at >= 0 && at < LOG_MERGE) {
       rep.n++;
-      L[at] = rep.text = `${msg} (×${rep.n})`;
+      L[at] = rep.text = `${msg} (×${rep.n})`; this.logTimes()[at] = Date.now();
       this.emit("log", L[at]);
       return;
     }
@@ -199,15 +199,25 @@ export class Game {
    */
   logReplace(key, msg) {
     const L = this.S.log, last = (this.R.replLines ||= {}), at = last[key] != null ? L.indexOf(last[key]) : -1;
-    if (at >= 0 && at < LOG_MERGE) L.splice(at, 1);
+    if (at >= 0 && at < LOG_MERGE) { const T = this.logTimes(); L.splice(at, 1); T.splice(at, 1); } // heures alignées AVANT de couper
     last[key] = msg;
     this.log(msg);
   }
 
+  /** (it. 1800) Heure de chaque ligne du journal (S.logT, parallèle à S.log ; null pour les lignes d'avant). */
+  logTimes() {
+    const S = this.S, L = S.log;
+    if (!Array.isArray(S.logT)) S.logT = [];
+    const T = S.logT;
+    if (T.length > L.length) T.length = L.length;
+    while (T.length < L.length) T.push(null);
+    return T;
+  }
+
   log(msg) {
-    const L = this.S.log;
-    L.unshift(msg);
-    if (L.length > LOG_SIZE) L.length = LOG_SIZE;
+    const L = this.S.log, T = this.logTimes();
+    L.unshift(msg); T.unshift(Date.now());
+    if (L.length > LOG_SIZE) { L.length = LOG_SIZE; T.length = LOG_SIZE; }
     this.emit("log", msg);
   }
 
@@ -880,7 +890,7 @@ export class Game {
     const at = cur ? L.indexOf(cur.text) : -1;
     if (at >= 0 && at < LOG_MERGE) {
       cur.n++; cur.gold += v;
-      L[at] = cur.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: cur.n, 1: fmt(cur.gold) })}`;
+      L[at] = cur.text = `${label}${fsp()}${tx(": {0} (+{1} or).", { 0: cur.n, 1: fmt(cur.gold) })}`; this.logTimes()[at] = Date.now();
       this.emit("log", L[at]);
       return;
     }
@@ -893,7 +903,7 @@ export class Game {
   logLeft() {
     const L = this.S.log, lines = (this.R.saleLines ||= {}), cur = lines.left;
     const at = cur ? L.indexOf(cur.text) : -1;
-    if (at >= 0 && at < LOG_MERGE) { cur.n++; L[at] = cur.text = tx("Sac plein, objets laissés au sol : {0}.", { 0: cur.n }); this.emit("log", L[at]); return; }
+    if (at >= 0 && at < LOG_MERGE) { cur.n++; L[at] = cur.text = tx("Sac plein, objets laissés au sol : {0}.", { 0: cur.n }); this.logTimes()[at] = Date.now(); this.emit("log", L[at]); return; }
     lines.left = { n: 1, text: tx("Sac plein, objets laissés au sol : {0}.", { 0: 1 }) };
     this.log(lines.left.text);
   }

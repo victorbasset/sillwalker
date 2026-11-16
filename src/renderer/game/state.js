@@ -35,6 +35,7 @@ export function freshState(now = Date.now()) {
     stats: { kills: 0, deaths: 0, bosses: 0, legendaries: 0, elites: 0, purchases: 0, classes: ["warrior"] },
     achievements: [],   // identifiants déjà signalés à Steam
     log: [],
+    logT: [],               // (it. 1800) heure de chaque ligne du journal (parallèle à log)
     bossDefeats: {},    // { zone: défaites contre son boss } jusqu’à sa victoire (usure des boss, bosses.js)
     logLang: null,      // langue dans laquelle le journal est écrit (repart à zéro si elle change)
     cls: "warrior",     // classe active (voir classes.js)
@@ -151,6 +152,8 @@ export function migrate(raw) {
   if (!isObj(s.shop) || !Array.isArray(s.shop.items) || !Number.isFinite(s.shop.next)) s.shop = null;
   else s.shop.items = s.shop.items.filter((it) => okItem(it) && Number.isFinite(it.price)).map(fixItem);
   if (!Array.isArray(s.log)) s.log = [];
+  // (it. 1800) heures du journal : nombres seulement, jamais plus longues que le journal
+  s.logT = Array.isArray(s.logT) ? s.logT.slice(0, s.log.length).map((t) => (Number.isFinite(t) && t > 0 ? t : null)) : [];
   if (!Array.isArray(s.achievements)) s.achievements = [];
   if (!CLASSES[s.cls]) s.cls = "warrior";
   // Héros débloqués : avant ce système, toutes les classes étaient libres ; on garde celles déjà jouées.

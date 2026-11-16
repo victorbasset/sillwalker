@@ -593,6 +593,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 #log li.lg-epic { color: var(--r3); }
 #log li.lg-good { color: var(--good); }
 #log li.lg-bad { color: var(--bad); }
+/* (it. 1800) heure de la ligne, discrète, alignée à gauche */
+#log li .lt { display: inline-block; min-width: 3.4em; margin-right: 8px; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 /* (it. 1725) repère en tête des lignes importantes : la catégorie ne tient plus à la seule couleur (daltoniens) */
 #log li[class^="lg-"]::before { display: inline-block; width: 1.2em; }
 #log li.lg-leg::before { content: "★"; }

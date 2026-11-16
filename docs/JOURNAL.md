@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1800) : Journal horodaté : chaque nouvelle ligne montre son heure (« 19:46 » aujourd'hui, la date avant, au
+  format de la langue) ; S.logT parallèle à S.log, tenu aligné dans log, logRepeat, logReplace, logSale, logLeft et au
+  changement de langue (défaut d'ordre dans logReplace trouvé par le test et corrigé) ; migrate nettoie. Test ; save-fuzz ok
+  (1267), npm test 333, autotest 250/250, lang-overflow ru, de 1280 propre ; captures en, ja.
 - 2026-11-16 (it. 1799, contrôle) : early-pace (3 graines) : à 60 min 114 objets, niveau 39, zone 24, 6,3 déblocages (repère it. 1240 :
   114, zone 23, 6) ; 10 min : 19 objets, zone 9, 1,3 déblocage. Rythme de la première heure inchangé.
 - 2026-11-16 (it. 1798, contrôle) : joueur totalement absent (IDLE=1, guerrier, 12 h) : record 16, comme le repère (it. 698) ; les

@@ -126,7 +126,7 @@ export class StatsTab {
         ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
       </ul></article>
       ${journeyHTML(S)}
-      ${this.sec === "log" ? `<article class="panel logpanel"><h2><span class="hicon"><img src="${shopIconURL("contract", 3)}" alt="">${tx("Journal")}</span><label class="toggle logimp"><input type="checkbox" data-action="st-logimp"${S.settings.logImportant ? " checked" : ""}> ${tx("Lignes importantes seulement")}</label></h2><ul class="log" id="log">${logHTML(S.log, 60, !!S.settings.logImportant)}</ul></article>` : "" /* (it. 1677) le Journal quitte l'Aventure (demande de Victor) */}
+      ${this.sec === "log" ? `<article class="panel logpanel"><h2><span class="hicon"><img src="${shopIconURL("contract", 3)}" alt="">${tx("Journal")}</span><label class="toggle logimp"><input type="checkbox" data-action="st-logimp"${S.settings.logImportant ? " checked" : ""}> ${tx("Lignes importantes seulement")}</label></h2><ul class="log" id="log">${logHTML(S.log, 60, !!S.settings.logImportant, S.logT)}</ul></article>` : "" /* (it. 1677) le Journal quitte l'Aventure (demande de Victor) */}
       <article class="panel wide"><h2><span class="hicon"><img src="${shopIconURL("luck", 3)}" alt="">${tx("Probabilités")}</span></h2><ul class="lines">
         ${line(tx("Plume du vent (+1 % de vitesse)"), segs(`${pct(FEATHER.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(FEATHER.elite), 1: pct(FEATHER.boss) })}`))}
         ${line(tx("Étoile filante (+2 % de vitesse)"), segs(`${tx("toutes les {0}–{1} min", { 0: STAR.minS / 60, 1: STAR.maxS / 60 })}`))}

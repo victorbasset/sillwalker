@@ -3421,6 +3421,18 @@ test("absence : légendaires de Poupouce comptés seulement s'ils sont rangés (
   } finally { POUPOUCE_1730.chance = ch; }
 });
 
+test("journal : heure de chaque ligne, alignée sur les lignes (it. 1800)", () => {
+  const g = new Game(freshState()); g.S.log = []; g.S.logT = [];
+  g.log("A"); g.log("B"); g.logRepeat("C"); g.logRepeat("C"); g.logReplace("k", "D1"); g.logReplace("k", "D2");
+  assert.equal(g.S.logT.length, g.S.log.length, "même longueur");
+  assert.ok(g.S.logT.every((t) => Number.isFinite(t)), "toutes horodatées");
+  for (let i = 0; i < 60; i++) g.log("x" + i);
+  assert.equal(g.S.log.length, g.S.logT.length, "coupé ensemble");
+  const o = JSON.parse(JSON.stringify(freshState())); o.log = ["a", "b"]; o.logT = [5, "z", 7, 8];
+  const m = migrate(o); assert.deepEqual(m.logT, [5, null], "illisible -> null, jamais plus long");
+  assert.ok(/<time class="lt">/.test(logHTML1715(["a"], 60, false, [Date.now()])), "affichée");
+});
+
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
   const P = freshState().settings;
   assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");

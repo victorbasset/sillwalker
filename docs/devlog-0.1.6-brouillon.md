@@ -27,3 +27,4 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
   vraiment rangés) ; en jeu, le Journal signale un légendaire de Poupouce resté au sol faute de place.
 - **Tico, le scribe des Statistiques,** a de nouvelles répliques en début de partie (il ne parle plus de ce qui n'est pas
   encore ouvert).
+- **Journal horodaté :** chaque ligne indique l'heure à laquelle elle est arrivée.

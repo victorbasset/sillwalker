@@ -30,8 +30,17 @@ const logClass = (l) => { const s = lc(l), m = patterns().find(([, fs]) => fs.so
 
 /** Lignes du journal (les plus récentes d'abord), colorées selon ce qu'elles racontent. (it. 1723) `important` : seulement
  *  les lignes colorées (butin, quêtes, coffres, K.O.…), les comptes rendus de routine écartés. */
-export const logHTML = (L, n = 60, important = false) => {
+/** (it. 1800) Heure d'une ligne : « 14:32 » aujourd'hui, « 15 nov. 14:32 » avant (format de la langue). */
+const lineTime = (t) => {
+  if (!Number.isFinite(t)) return "";
+  const d = new Date(t), lang = getLang(), now = new Date();
+  try {
+    const hm = d.toLocaleTimeString(lang, { hour: "2-digit", minute: "2-digit" });
+    return d.toDateString() === now.toDateString() ? hm : `${d.toLocaleDateString(lang, { day: "numeric", month: "short" })} ${hm}`;
+  } catch { return ""; }
+};
+export const logHTML = (L, n = 60, important = false, T = null) => {
   if (!L || !L.length) return tx("<li>Ton héros se met en route.</li>");
-  const rows = L.slice(0, important ? 400 : n).map((l) => [l, logClass(l)]).filter(([, c]) => !important || c).slice(0, n);
-  return rows.length ? rows.map(([l, c]) => `<li${c}>${esc(l)}</li>`).join("") : `<li class="muted">${tx("Aucune ligne importante pour l’instant.")}</li>`;
+  const rows = L.slice(0, important ? 400 : n).map((l, i) => [l, logClass(l), T ? lineTime(T[i]) : ""]).filter(([, c]) => !important || c).slice(0, n);
+  return rows.length ? rows.map(([l, c, t]) => `<li${c}>${t ? `<time class="lt">${esc(t)}</time>` : ""}${esc(l)}</li>`).join("") : `<li class="muted">${tx("Aucune ligne importante pour l’instant.")}</li>`;
 };
