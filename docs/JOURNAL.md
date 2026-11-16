@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1722) : contrôles sans correction. Mode mini en français et japonais : propre. Alertes « [lent] » de l'autotest
+  (onglets à 200-270 ms jusqu'à l'image, JavaScript 2-7 ms) : mesurées hors autotest (mise en scène, 4 ouvertures de
+  6 onglets, copie de dev-data) : 13-34 ms, une ou deux images ; la lenteur vient de la charge de l'autotest, pas du jeu.
 - 2026-11-16 (it. 1721, revue générale) : simulation 12 h graine 61 : gardien stellaire 67, berserker 66, prêtresse 65 ; perf:linux
   bande 18,4 %, panneau 19,4 %, mini 5,7 % ; Journal en anglais coloré (légendaire en or, œufs en vert) et Quêtes (ru)
   propres ; polonais sans mot français. Rien à corriger.
