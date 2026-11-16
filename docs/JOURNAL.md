@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1676) : même tuile en espagnol et portugais (« Puntos / Pontos de vida » sur deux lignes à 1280 px) → « Vida ». Vérifié
+  en capture : es, pt, de, ko, en, ru, pl sur une ligne. npm test, autotest 244/244.
 - 2026-11-16 (it. 1675) : russe, tuile de la carte du héros : « Очки здоровья » (deux lignes à 1280 px) → « Здоровье », sur une ligne
   comme les trois autres ; polonais (« Punkty życia ») déjà sur une ligne. npm test, autotest 244/244.
 - 2026-11-16 (it. 1674) : POUR-VICTOR : nouveautés de la fin de matinée (it. 1651-1673).
