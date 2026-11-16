@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1758) : POUR-VICTOR : liste d'essai de la 0.1.5 sous Windows (notes de version, son, Journal, Poupouce) et commande
+  d'envoi figée (REF=v0.1.5) pour après son « oui ».
 - 2026-11-16 (it. 1757) : 0.1.5 construite (itch-push.sh --dry-run : Windows, Linux, Mac signée ad hoc) ; essai de l'AppImage avec un
   HOME temporaire (partie neuve, sauvegarde écrite, aucune erreur) ; déposée dans Médias/dist-itch avec SHA256-0.1.5.txt ;
   étiquette v0.1.5 sur 0b4dc0f0. Envoi itch.io (butler) en attente du « oui » de Victor ; devlog prêt (steam/itch/devlog-0.1.5.html).

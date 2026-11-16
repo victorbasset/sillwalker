@@ -131,3 +131,9 @@ maintenant aussi une phrase oubliée dans toutes les langues.
 - (it. 1734) À écouter : Poupouce miaule en arrivant (impossible à entendre sur le serveur). Trop fort, trop faible, pas assez chat ?
 - (it. 1757) 0.1.5 prête : fichiers dans Médias/dist-itch (sha256 dans SHA256-0.1.5.txt), étiquette v0.1.5. Dire « oui » pour
   l'envoi sur itch.io par butler, puis publier le devlog (steam/itch/devlog-0.1.5.html, 10 langues).
+- (it. 1758) Essai rapide de la 0.1.5 sous Windows (Sillwalker-0.1.5-win.zip, ce que le serveur ne peut pas vérifier) :
+  1. au lancement, la fenêtre « Nouveautés de la version 0.1.5 » s'ouvre une fois (si ta partie a lu jusqu'à l'édition 101) ;
+  2. la musique joue, et Réglages > Son règle séparément Effets, Musique et Ambiance ;
+  3. Statistiques > Journal : couleurs et symboles, case « Lignes importantes seulement » ;
+  4. Poupouce (rare) : le chat et son miaulement ; trop fort, trop faible ?
+  Envoi itch.io après ton « oui » : `REF=v0.1.5 scripts/itch-push.sh victor-basset/sillwalker` (version figée, le code a avancé).
