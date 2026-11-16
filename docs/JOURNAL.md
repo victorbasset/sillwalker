@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1621, revue générale) : simulation 12 h graine 3 : druide 64, gardien stellaire 62, artificier 66 ; perf:linux
+  bande 18,4 %, panneau 21,1 %, mini 5,9 % ; Bestiaire > Élites (ru) : le Colossal y figure, 11 sortes, propre. Rien à corriger.
 - 2026-11-16 (it. 1620) : édition 107 de « Quoi de neuf » : le Colossal, les récompenses de quête expliquées, Poupouce ✦ et
   contour en mini ; 9 langues, lang-overflow propre.
 - 2026-11-16 (it. 1619) : save-fuzz après le Colossal : dev-data (1 246 corruptions) et fin de partie (1 204), ok.
