@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1687) : vignettes et GIF promo regénérés depuis les nouveaux plans puis GARDÉS tels quels : le nouveau plan
+  du boss est chargé à chaque instant (2-3 nombres et noms de sorts sur le duo, balayé de 5 à 13,5 s), l'ancienne vignette
+  (un seul critique lisible) reste meilleure et ne montre aucune interface ; les GIF, cadrés sur le héros, n'ont pas la
+  rangée d'informations : identiques à l'œil.
 - 2026-11-16 (it. 1686) : captures promo refaites avec les nouveaux plans (it. 1684) : 10 langues × séries « steam » et « promo »
   (300 images : nouvelle Aventure, jauge d'XP, 18 événements rares, cyrillique Geist Pixel) + steam/screenshots (en, fr) ;
   livrées dans steam/promo et sur le partage (Médias/sillwalker-promo).
