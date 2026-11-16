@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1707) : onglet Familiers le Jour des familiers (ligne « ×2 aujourd'hui »), ru, de, pl à 1280 px : ni l'onglet ni la carte
+  ne défilent.
 - 2026-11-16 (it. 1706) : Jour des familiers : la carte du familier actif affichait son bonus de base ; elle montre le bonus réel
   (doublé : Chaton +80 % d'or au lieu de +40 %) et « ×2 aujourd'hui (Jour des familiers) » ; 10 langues. Vu en mise en scène.
   npm test 323, autotest 246/246.
