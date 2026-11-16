@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1749, contrôle) : semaine du mage après ses PV (it. 1748) : record 350 (palier de l'écho de la zone 350,
+  inchangé), 6 158 éclats.
 - 2026-11-16 (it. 1748) : tableau des 20 héros (12 h, graines 7/3/11) : mage 61,0 (dernier), assassin 61,7 … moine 68,0, moyenne
   64,9, écart 7. Mage : PV ×0,75 → ×0,85 (essai attaque ×1,5 : 60,3, sans effet) : 61,0 → 63,7 (64 / 62 / 65). Fuzz 600
   parties, 0 bloquée ; npm test 330, autotest 248/248.
