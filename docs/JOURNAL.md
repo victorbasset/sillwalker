@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1659) : « Depuis ta dernière visite » au pire cas (toutes les parties, Poupouce compris), 1280 px, russe et
+  allemand : une ligne de 26 px coupée par « … », détail au survol ; l'Aventure ne défile pas.
 - 2026-11-16 (it. 1658) : longue traîne avant l'Ascension, mesurée sur 6 graines (joueur naïf de tab-pace : équipe, talents,
   déblocages, ni forge ni boutique) : zone 20 (ASCEND_MIN_ZONE) à 24, 33, 33, 48, 57 min et > 60 ; mur aux zones 18-21 dès
   ≈ 20 min, une mort toutes les 1-2 min, +1 zone par ≈ 15 min. Le joueur d'early-pace (plus actif) est en zone 22-26 à
