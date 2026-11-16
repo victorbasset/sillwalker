@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1792, contrôle) : panneau ouvert remesuré deux fois après le 20,0 % de la revue 1791 : 19,3 % et 19,0 % : du bruit,
+  pas de régression.
 - 2026-11-16 (it. 1791, revue générale) : simulation 12 h graine 121 : danseuse de lames 64, artificier 65, chaman 62 ; perf:linux
   bande 18,3 %, panneau 20,0 % (19,1-19,7 dans la journée : bruit), mini 5,7 % ; espagnol : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1790, contrôle) : lang-overflow complet (10 langues, 4 largeurs, fin de partie, état maximal, 130 %) après les
