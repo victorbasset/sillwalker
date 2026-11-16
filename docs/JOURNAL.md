@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1642) : correction de l'it. 1641 vérifiée en mise en scène (8 critiques au même point, coréen) : montées
+  22 px pour les nombres bas, 14 px à y = 8, 4 px à y = −6 (au lieu de 22) ; les nombres réels restent entiers dans la bande.
 - 2026-11-16 (it. 1641, revue générale) : simulation 12 h graine 7 : druide 64, barde 64, gardien stellaire 65 ; perf:linux bande
   18,5 %, panneau 19,8 %, mini 5,7 % ; mode mini (en) et Quêtes (ko) propres ; allemand sans mot français. Vu en
   coréen : un nombre empilé tout en haut de la bande (y ≈ −6) montait encore de 22 px et sortait coupé de la fenêtre ;
