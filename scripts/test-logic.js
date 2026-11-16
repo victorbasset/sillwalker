@@ -4412,4 +4412,12 @@ test("astuces de l'expérience et de la vente groupée (it. 1552, 1546) : elles 
   const g4 = new Game(freshLocked()); g4.S.tabsOpen = { ...(g4.S.tabsOpen || {}), shop: true }; g4.S.unlocks = { bulkEquip: true }; g4.R.manualSells = 3;
   assert.ok(!find(g4, "bulksell"), "Œil du connaisseur déjà acheté : pas d'astuce");
 });
+test("élite Colossale (it. 1617) : 120 % de vie en plus, coups 40 % plus lents, attaque inchangée", () => {
+  const g = new Game(freshState());
+  const base = { hp: 1000, max: 1000, atk: 50, interval: 1, affix: "colossal" };
+  const m = { ...base }; g.applyAffix(m);
+  assert.equal(m.max, 2200); assert.equal(m.hp, 2200);
+  assert.ok(Math.abs(m.interval - 1.4) < 1e-9, "coups espacés");
+  assert.equal(m.atk, 50, "attaque inchangée");
+});
 console.log(`\n${pass} tests réussis`);
