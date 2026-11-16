@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1827, contrôle) : morts en 12 h (graine 7) : berserker 177, arbalétrier 164, moine 134, paladin 47 (assassin 239
+  avant l'it. 1826) : écarts modérés, berserker fragile par conception ; rien changé.
 - 2026-11-16 (it. 1826) : assassin : il mourait deux fois plus que le moine (239 contre 134 en 12 h, graine 7) ; défense ×0,9 → ×1,1 :
   61,4 → 64,0 sur 7 graines (62 62 66 65 66 65 62 ; avant 62 61 61 62 62 62 60), là où PV, attaque, critique et poison
   n'avaient rien donné (it. 1750, 1795-1796). Fuzz 600 parties, 0 bloquée ; npm test 333, autotest 253/253.
