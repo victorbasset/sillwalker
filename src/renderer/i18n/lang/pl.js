@@ -1867,4 +1867,7 @@ export default {
   2992: "Ustawienia > Dźwięk: 📌 zachowuje ulubiony utwór niezależnie od strefy.",
   2993: "Nowe błogosławieństwo dnia, Dzień Poupouce: Poupouce pojawia się dziesięć razy częściej.",
   2994: "Nowe osiągnięcie: „Poupouce?!”, za pierwsze zwycięstwo nad nim.",
+  2995: "Skrzynia otwarta na twoich oczach gra swoją małą fanfarę i zamyka się sama, jeśli nie ma czego założyć.",
+  2996: "Poupouce widać z daleka: różowy kontur, pasujący do jego imienia.",
+  2997: "Statystyki: po pokonaniu Poupouce jego szansa na pojawienie się trafia do Prawdopodobieństw.",
 };

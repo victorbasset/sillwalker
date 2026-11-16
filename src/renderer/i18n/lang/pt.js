@@ -1867,4 +1867,7 @@ export default {
   2992: "Configurações > Som: 📌 mantém sua faixa favorita, em qualquer zona.",
   2993: "Nova bênção do dia, o Dia do Poupouce: o Poupouce aparece dez vezes mais.",
   2994: "Nova conquista: “Poupouce?!”, pela primeira vitória contra ele.",
+  2995: "Um baú aberto diante dos seus olhos toca sua pequena fanfarra e se fecha sozinho se não houver nada para equipar.",
+  2996: "O Poupouce se destaca de longe: um contorno rosa, combinando com o nome.",
+  2997: "Estatísticas: depois de derrotar o Poupouce, a chance de ele aparecer entra nas Probabilidades.",
 };

@@ -1867,4 +1867,7 @@ export default {
   2992: "Ajustes > Sonido: 📌 mantiene tu tema favorito, sea cual sea la zona.",
   2993: "Nueva bendición del día, el Día de Poupouce: Poupouce aparece diez veces más a menudo.",
   2994: "Nuevo logro: «¿¡Poupouce!?», por tu primera victoria contra él.",
+  2995: "Un cofre abierto ante tus ojos toca su pequeña fanfarria y se cierra solo si no hay nada que equipar.",
+  2996: "Poupouce se ve de lejos: un contorno rosa, a juego con su nombre.",
+  2997: "Estadísticas: una vez vencido Poupouce, su probabilidad de aparecer se suma a las Probabilidades.",
 };

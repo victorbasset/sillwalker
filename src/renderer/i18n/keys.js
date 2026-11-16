@@ -2996,5 +2996,8 @@ export const KEYS = [
   "Il paraît que Poupouce rôde partout aujourd’hui…",
   "Réglages > Son : 📌 garde ton morceau préféré, quelle que soit la zone.",
   "Nouvelle bénédiction du jour, le Jour de Poupouce : Poupouce apparaît dix fois plus souvent.",
-  "Nouveau succès : « Poupouce ?! », pour ta première victoire sur lui."
+  "Nouveau succès : « Poupouce ?! », pour ta première victoire sur lui.",
+  "Un coffre ouvert sous tes yeux joue sa petite fanfare, et se referme tout seul s’il n’y a rien à équiper.",
+  "Poupouce se repère de loin : un contour rose, assorti à son nom.",
+  "Statistiques : une fois Poupouce vaincu, sa chance d’apparition rejoint les Probabilités."
 ];

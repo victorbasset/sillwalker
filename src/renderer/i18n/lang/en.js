@@ -1867,4 +1867,7 @@ export default {
   2992: "Settings > Sound: 📌 keeps your favourite track, whatever the zone.",
   2993: "New blessing of the day, Poupouce Day: Poupouce shows up ten times as often.",
   2994: "New achievement: “Poupouce?!”, for your first win against him.",
+  2995: "A chest opened before your eyes plays its little fanfare, and closes by itself when there's nothing to equip.",
+  2996: "Poupouce stands out from afar: a pink outline, matching his name.",
+  2997: "Statistics: once Poupouce is defeated, his chance to appear joins the Probabilities.",
 };

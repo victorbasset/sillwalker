@@ -1867,4 +1867,7 @@ export default {
   2992: "Einstellungen > Ton: 📌 behält dein Lieblingsstück, egal in welcher Zone.",
   2993: "Neuer Segen des Tages, der Poupouce-Tag: Poupouce taucht zehnmal so oft auf.",
   2994: "Neuer Erfolg: „Poupouce?!“, für deinen ersten Sieg gegen ihn.",
+  2995: "Eine vor deinen Augen geöffnete Truhe spielt ihre kleine Fanfare und schließt sich von selbst, wenn es nichts auszurüsten gibt.",
+  2996: "Poupouce fällt von Weitem auf: ein rosa Umriss, passend zu seinem Namen.",
+  2997: "Statistiken: Sobald Poupouce besiegt ist, steht seine Erscheinungschance bei den Wahrscheinlichkeiten.",
 };
