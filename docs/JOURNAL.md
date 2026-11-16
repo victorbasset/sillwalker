@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1584) : tableau des 20 héros, 12 h × graines 7 / 3 / 11 : de 62,7 (assassin, prêtresse) à 67,3 (paladin,
+  gladiateur), moyenne 64,8, écart 4,7 zones (bruit d'une graine : ±4) : pas de héros à reprendre. Repère dans CLAUDE.md.
 - 2026-11-16 (it. 1583) : Réglages > Son : 📌 « Garder ce morceau » à côté de ◀ ▶ : la musique reste sur ce morceau quelle que
   soit la zone (settings.musicPin, -1 = selon la zone, borné par migrate) ; un autre clic revient au morceau de la zone ;
   pas de bulle « ♪ » tant qu'un morceau est gardé. Autotest 241/241, lang-overflow et save-fuzz propres.
