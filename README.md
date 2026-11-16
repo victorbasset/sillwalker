@@ -173,7 +173,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   bannières (niveau, record de zone, événements, palier de panoplie, boss « enfin vaincu » après un K.O.), répliques
   du héros (événement, revanche, sac plein, retour ; jamais sur le nom d'un boss ni sur les pastilles), sons pour
   chacun de ces moments (option). `render/juice.js`, `render/sound.js`.
-- **Journal** : les messages répétitifs se cumulent (ventes du sac plein, élites vaincues, défaites : « … (×N) »),
+- **Journal** (Statistiques > Journal depuis l'it. 1678 ; avant, 5e colonne de l'Aventure, qui a gardé quatre colonnes :
+  héros, équipement, sac élargi à 16 cases par rangée, zone ; `ui/log.js`) : les messages répétitifs se cumulent (ventes du sac plein, élites vaincues, défaites : « … (×N) »),
   le Grand intendant résume son travail en une ligne.
 
 ## Scripts

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1682) : README : le Journal dans Statistiques > Journal, l'Aventure en quatre colonnes (héros, équipement, sac, zone).
 - 2026-11-16 (it. 1681) : demandes de Victor : (1) menu sur deux lignes (vu chez lui en mode dev) : les onglets n'étaient ajustés
   (fitTabs) qu'au changement d'onglet ; ils le sont aussi quand les polices sont prêtes et quand la largeur de l'en-tête
   change (ResizeObserver, une fois par image). Reproduit en zoomant le panneau après l'ouverture : avant, boutons sur une
