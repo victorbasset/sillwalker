@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1799, contrôle) : early-pace (3 graines) : à 60 min 114 objets, niveau 39, zone 24, 6,3 déblocages (repère it. 1240 :
+  114, zone 23, 6) ; 10 min : 19 objets, zone 9, 1,3 déblocage. Rythme de la première heure inchangé.
 - 2026-11-16 (it. 1798, contrôle) : joueur totalement absent (IDLE=1, guerrier, 12 h) : record 16, comme le repère (it. 698) ; les
   changements du jour n'ont pas touché la progression sans action.
 - 2026-11-16 (it. 1797, contrôle) : succès « Poupouce ?! » : nom seul, sans description (jeu et steam/achievements.md) : rien de
