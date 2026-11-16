@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1706) : Jour des familiers : la carte du familier actif affichait son bonus de base ; elle montre le bonus réel
+  (doublé : Chaton +80 % d'or au lieu de +40 %) et « ×2 aujourd'hui (Jour des familiers) » ; 10 langues. Vu en mise en scène.
+  npm test 323, autotest 246/246.
 - 2026-11-16 (it. 1705) : i18n-names après le Jour des familiers et les éditions 110-112 : toujours 25 écarts connus, aucun nouveau.
 - 2026-11-16 (it. 1704) : devlog 0.1.5 : point « Jour des familiers » dans les 10 langues (11 points partout) ; page itch régénérée.
 - 2026-11-16 (it. 1703) : Jour des familiers sans familier actif : une précision dans la pastille et la bulle du mode mini (« Aucun

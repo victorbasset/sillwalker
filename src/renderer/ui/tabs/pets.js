@@ -4,6 +4,7 @@ import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, lc } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
+import { activeDayMod } from "../../game/daymods.js";
 import { esc, uH, uMin } from "../../game/format.js";
 
 const left = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return h ? `${uH(h)} ${String(m).padStart(2, "0")}` : `${uMin(m)} ${String(s % 60).padStart(2, "0")}`; };
@@ -48,12 +49,13 @@ export class PetsTab {
           <p class="delta-p">${esc(tx("Bonus au niveau 1 : {0}", { 0: describeEffects(p.eff) }))}</p>
           <p class="note">${tx("Sort d’un œuf : boss ({0} %), élites ({1} %) ou quêtes.", { 0: Math.round(EGG_CHANCE.boss * 100), 1: Math.round(EGG_CHANCE.elite * 100) })}</p></article>`;
       }
-      const maxed = own.lvl >= PET_MAX_LVL, need = petXpNeed(own.lvl);
+      const maxed = own.lvl >= PET_MAX_LVL, need = petXpNeed(own.lvl), petDay = !!activeDayMod(this.game.S)?.pets;
       // Carte compacte (demande 18) : la description d'ambiance passe en infobulle.
       return `<article class="panel petcard${active ? " current" : ""}" title="${esc(p.desc)}"${active ? " data-hs-start" : ""}>
         <div class="detail-head"><img src="${petURL(p.id)}" alt=""><div>
           <div class="nm">${esc(p.name)} <small>${tx("niv. {0}", { 0: own.lvl })}${maxed ? ` (${tx("max")})` : ""}</small></div></div></div>
-        <ul class="lines"><li><span>${tx("Bonus")}</span><span class="delta-p">${esc(describeEffects(p.eff, own.lvl))}</span></li>
+        <ul class="lines"><li><span>${tx("Bonus")}</span><span class="delta-p">${esc(describeEffects(p.eff, own.lvl * (petDay && active ? 2 : 1)))}</span></li>
+        ${petDay && active ? `<li class="note petday">${esc(tx("×2 aujourd’hui (Jour des familiers)"))}</li>` : "" /* (it. 1706) le bonus affiché est celui qui s'applique */}
         ${maxed ? "" : `<li><span>${tx("Niveau suivant")}</span><span>${esc(describeEffects(p.eff, own.lvl + 1))}</span></li>`}</ul>
         ${maxed ? "" : `<div class="kv"><span>${tx("Expérience")}</span><span>${Math.floor(own.xp)} / ${need}</span></div><div class="bar"><i style="width:${(100 * own.xp) / need}%"></i></div>`}
         <div class="row">${active ? `<button disabled>${tx("Compagnon actuel")}</button>` : (this.game.S.pets.exp || {})[p.id] ? "" : `<button data-action="p-set" data-id="${p.id}">${tx("Emmener")}</button>`}</div>

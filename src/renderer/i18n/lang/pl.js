@@ -1904,4 +1904,5 @@ export default {
   3029: "Dziennik pokazuje teraz ostatnie 40 wierszy (wcześniej 25).",
   3030: "Brak aktywnego pupila: wybierz jednego (Pupile).",
   3031: "Pupile wykluwają się z jaj od bossów, elit i zadań.",
+  3032: "×2 dziś (Dzień pupili)",
 };

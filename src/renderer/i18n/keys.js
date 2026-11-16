@@ -3033,5 +3033,6 @@ export const KEYS = [
   "Touche J : ouvre directement Statistiques > Journal.",
   "Le Journal garde maintenant ses 40 dernières lignes à l’écran (25 avant).",
   "Aucun familier actif : choisis-en un (Familiers).",
-  "Les familiers sortent des œufs des boss, des élites et des quêtes."
+  "Les familiers sortent des œufs des boss, des élites et des quêtes.",
+  "×2 aujourd’hui (Jour des familiers)"
 ];

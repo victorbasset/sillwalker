@@ -1904,4 +1904,5 @@ export default {
   3029: "El Diario muestra ahora sus últimas 40 líneas en pantalla (antes 25).",
   3030: "Ninguna mascota activa: elige una (Mascotas).",
   3031: "Las mascotas nacen de huevos de jefes, élites y misiones.",
+  3032: "×2 hoy (Día de las mascotas)",
 };

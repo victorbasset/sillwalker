@@ -1904,4 +1904,5 @@ export default {
   3029: "O Diário agora mostra suas últimas 40 linhas na tela (antes 25).",
   3030: "Nenhum mascote ativo: escolha um (Mascotes).",
   3031: "Os mascotes nascem de ovos de chefes, elites e missões.",
+  3032: "×2 hoje (Dia dos mascotes)",
 };

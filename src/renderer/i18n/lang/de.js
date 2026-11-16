@@ -1904,4 +1904,5 @@ export default {
   3029: "Das Protokoll zeigt jetzt seine letzten 40 Zeilen an (vorher 25).",
   3030: "Kein aktiver Begleiter: wähle einen (Begleiter).",
   3031: "Begleiter schlüpfen aus Eiern von Bossen, Elite-Gegnern und Quests.",
+  3032: "×2 heute (Tag der Begleiter)",
 };

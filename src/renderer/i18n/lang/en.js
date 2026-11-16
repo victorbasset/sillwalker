@@ -1904,4 +1904,5 @@ export default {
   3029: "The Log now shows its last 40 lines on screen (25 before).",
   3030: "No active pet: pick one (Pets).",
   3031: "Pets hatch from eggs dropped by bosses, elites and quests.",
+  3032: "×2 today (Pet Day)",
 };
