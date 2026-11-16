@@ -1858,4 +1858,5 @@ export default {
   2983: "Mit jedem neuen Abschnitt von 50 Zonen nennt eine Blase das Stück, das beginnt.",
   2984: "„Alle abholen“ und die Taste R öffnen ebenfalls die schönste Truhe vor deinen Augen.",
   2985: "Stufenaufstieg: Die Erfahrungsanzeige leuchtet golden; im Mini-Modus zeigt die Blase beim Überfahren die Erfahrung.",
+  2986: "Poupouce?!",
 };

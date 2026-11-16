@@ -2987,5 +2987,6 @@ export const KEYS = [
   "Écouter le morceau suivant (45 s)",
   "À chaque nouvelle tranche de 50 zones, une bulle annonce le morceau qui commence.",
   "« Tout réclamer » et la touche R ouvrent aussi le plus beau coffre sous tes yeux.",
-  "Niveau gagné : la jauge d’expérience brille en or ; en mode mini, la bulle au survol donne l’expérience."
+  "Niveau gagné : la jauge d’expérience brille en or ; en mode mini, la bulle au survol donne l’expérience.",
+  "Poupouce ?!"
 ];

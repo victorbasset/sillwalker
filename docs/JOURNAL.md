@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1576) : succès « Poupouce ?! » (POUPOUCE : vaincre Poupouce), icônes Steam (champignon), noms dans les 10
+  langues, steam/achievements.md (71), checklist, README et POUR-VICTOR (à déclarer dans Steamworks) ; lang-overflow propre.
 - 2026-11-16 (it. 1575) : édition 104 de « Quoi de neuf » : morceau annoncé, coffres de « Tout réclamer » et de la touche R,
   jauge d'expérience (bande et mode mini) ; 9 langues, lang-overflow propre.
 - 2026-11-16 (it. 1574) : nouveau morceau (tranche de 50 zones) : une bulle sobre le nomme (« ♪ Sentiers d'étoiles », 6 s),

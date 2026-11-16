@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (70 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (71 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -19,6 +19,7 @@ Généré par `scripts/steam-achievements.mjs` (70 succès). À recopier dans St
 | `PETS_ALL` | Ménagerie complète | Complete Menagerie | Colección de mascotas completa | Coleção de mascotes completa | Vollständige Menagerie | Pełna menażeria | Полный зверинец | 完整动物园 | 動物園コンプリート | 동물원 완성 |
 | `QUESTS_25` | 25 quêtes accomplies | 25 quests completed | 25 misiones completadas | 25 missões concluídas | 25 Quests abgeschlossen | 25 ukończonych zadań | 25 выполненных заданий | 完成 25 个任务 | クエスト 25 個達成 | 퀘스트 25개 완료 |
 | `GOBLIN` | Attrape-gobelin | Goblin Catcher | Cazagoblins | Caçador de goblins | Koboldfänger | Łowca goblinów | Охотник на гоблинов | 哥布林猎人 | ゴブリンハンター | 고블린 사냥꾼 |
+| `POUPOUCE` | Poupouce ?! | Poupouce?! | ¿¡Poupouce!? | Poupouce?! | Poupouce?! | Poupouce?! | Poupouce?! | Poupouce？！ | Poupouce？！ | Poupouce?! |
 | `BESTIARY_ALL` | Bestiaire complet | Complete bestiary | Bestiario completo | Bestiário completo | Vollständiges Bestiarium | Pełny bestiariusz | Полный бестиарий | 完整图鉴 | 図鑑コンプリート | 도감 완성 |
 | `SKILL_KEYSTONE` | Clé de voûte | Keystone | Piedra angular | Pedra angular | Schlussstein | Zwornik | Замковый камень | 拱心石 | 要石 | 쐐기돌 |
 | `SKILL_100` | 100 compétences | 100 skills | 100 habilidades | 100 habilidades | 100 Fertigkeiten | 100 umiejętności | 100 навыков | 100 个技能 | スキル 100 | 스킬 100개 |

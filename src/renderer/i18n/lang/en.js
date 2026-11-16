@@ -1858,4 +1858,5 @@ export default {
   2983: "With each new stretch of 50 zones, a bubble names the track that begins.",
   2984: "“Claim all” and the R key also open the finest chest before your eyes.",
   2985: "Level up: the experience gauge flashes gold; in mini mode, the hover bubble shows your experience.",
+  2986: "Poupouce?!",
 };

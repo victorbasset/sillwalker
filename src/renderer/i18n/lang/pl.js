@@ -1858,4 +1858,5 @@ export default {
   2983: "Z każdym nowym odcinkiem 50 stref dymek zapowiada rozpoczynający się utwór.",
   2984: "„Odbierz wszystko” i klawisz R też otwierają najlepszą skrzynię na twoich oczach.",
   2985: "Nowy poziom: pasek doświadczenia błyska złotem; w trybie mini dymek po najechaniu pokazuje doświadczenie.",
+  2986: "Poupouce?!",
 };

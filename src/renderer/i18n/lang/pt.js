@@ -1858,4 +1858,5 @@ export default {
   2983: "A cada novo trecho de 50 zonas, um balão anuncia a faixa que começa.",
   2984: "“Resgatar tudo” e a tecla R também abrem o melhor baú diante dos seus olhos.",
   2985: "Subiu de nível: a barra de experiência brilha em dourado; no modo mini, o balão ao passar o mouse mostra a experiência.",
+  2986: "Poupouce?!",
 };

@@ -47,6 +47,7 @@ export const ACHIEVEMENTS = [
   { id: "PETS_ALL",        name: "Ménagerie complète", test: (S) => PETS.every((p) => S.pets?.owned?.[p.id]) },
   { id: "QUESTS_25",       name: "25 quêtes accomplies", test: (S) => (S.quests?.completed || 0) >= 25 },
   { id: "GOBLIN",          name: "Attrape-gobelin",    test: (S) => (S.stats.goblins || 0) >= 1 },
+  { id: "POUPOUCE",        name: "Poupouce ?!",        test: (S) => (+S.stats.poupouce || 0) >= 1 }, // (it. 1576) monstre rare (data.js)
   { id: "BESTIARY_ALL",    name: "Bestiaire complet",  test: (S) => Object.keys(MONSTERS).every((k) => (S.bestiary?.[k] || 0) > 0) },
   { id: "SKILL_KEYSTONE",  name: "Clé de voûte",       test: (S) => [...activeSkillSet(S)].some((id) => SKILL_TREE.nodes[id].kind === "keystone") },
   { id: "SKILL_100",       name: "100 compétences",    test: (S) => activeSkillSet(S).size - 1 >= 100 },

@@ -1858,4 +1858,5 @@ export default {
   2983: "En cada nuevo tramo de 50 zonas, una burbuja anuncia el tema que empieza.",
   2984: "«Reclamar todo» y la tecla R también abren el mejor cofre ante tus ojos.",
   2985: "Subida de nivel: la barra de experiencia brilla en dorado; en modo mini, la burbuja al pasar el ratón muestra la experiencia.",
+  2986: "¿¡Poupouce!?",
 };
