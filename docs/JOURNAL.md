@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1797, contrôle) : succès « Poupouce ?! » : nom seul, sans description (jeu et steam/achievements.md) : rien de
+  l'ancien Poupouce à corriger avant sa déclaration dans Steamworks.
 - 2026-11-16 (it. 1796, essai abandonné) : assassin, poison 15 % → 20 % sur 7 graines : 61,4 (inchangé). Ni PV, ni attaque, ni
   critique, ni poison ne le font passer le palier de la zone 62 : limite ailleurs (or, équipement) ; piste close, rien gardé.
 - 2026-11-16 (it. 1795, essai abandonné) : assassin sur 7 graines (7/3/11/21/31/41/51) : actuel 61,4 ; attaque ×1,25 et critique +25 :
