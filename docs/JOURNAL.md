@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1564) : page du magasin Steam (10 langues) : « musique lofi » devient « bande originale composée pour le
+  jeu (du lofi chaud au final galactique) » ; steam-store-check à jour.
 - 2026-11-16 (it. 1563) : musique arrêtée pendant le décodage d'un morceau (bande cachée, curseur à 0 %) : le décodage, en
   finissant, remettait le tampon (≈ 55 Mo) en mémoire ; il ne le fait plus. Vu par l'autotest (1 échec sur 240 à
   l'it. 1562, commit déjà parti) ; deux passes à 240/240 après correction.

@@ -38,7 +38,7 @@ Sillwalker vit dans une fine bande au bord de l'écran, juste au-dessus de la ba
 [list]
 [*]Le jeu avance même fermé (jusqu'à 8 heures)
 [*]Économie d'énergie, mode batterie, son coupé en un clic
-[*]Musique lofi et ambiances propres à chaque région
+[*]Bande originale composée pour le jeu (du lofi chaud au final galactique) et ambiances propres à chaque région
 [*]10 langues, sauvegarde dans le Steam Cloud, succès Steam
 [/list]
 
@@ -69,7 +69,7 @@ Sillwalker lives in a thin strip at the edge of your screen, right above the tas
 [list]
 [*]Progress continues while the game is closed (up to 8 hours)
 [*]Power saving, battery mode, one-click mute
-[*]Lofi music and ambient sounds for every region
+[*]An original soundtrack composed for the game (from warm lofi to a galactic finale) and ambient sounds for every region
 [*]10 languages, Steam Cloud saves, Steam achievements
 [/list]
 
@@ -100,7 +100,7 @@ Sillwalker vive en una franja fina en el borde de la pantalla, justo encima de l
 [list]
 [*]El juego avanza incluso cerrado (hasta 8 horas)
 [*]Ahorro de energía, modo batería, silencio con un clic
-[*]Música lofi y ambientes propios de cada región
+[*]Banda sonora original compuesta para el juego (del lofi cálido al final galáctico) y ambientes propios de cada región
 [*]10 idiomas, guardado en Steam Cloud, logros de Steam
 [/list]
 
@@ -131,7 +131,7 @@ Sillwalker vive em uma faixa fina na borda da tela, logo acima da barra de taref
 [list]
 [*]O jogo avança mesmo fechado (até 8 horas)
 [*]Economia de energia, modo bateria, som desligado com um clique
-[*]Música lofi e ambientes próprios de cada região
+[*]Trilha sonora original composta para o jogo (do lofi aconchegante ao final galáctico) e ambientes próprios de cada região
 [*]10 idiomas, salvamento no Steam Cloud, conquistas Steam
 [/list]
 
@@ -162,7 +162,7 @@ Sillwalker lebt in einem schmalen Streifen am Bildschirmrand, direkt über der T
 [list]
 [*]Das Spiel läuft auch geschlossen weiter (bis zu 8 Stunden)
 [*]Energiesparen, Akkumodus, Stummschalten mit einem Klick
-[*]Lofi-Musik und eigene Klangkulissen für jede Region
+[*]Eigens komponierter Soundtrack (vom warmen Lofi bis zum galaktischen Finale) und eigene Klangkulissen für jede Region
 [*]10 Sprachen, Speicherstände in der Steam Cloud, Steam-Errungenschaften
 [/list]
 
@@ -193,7 +193,7 @@ Sillwalker żyje w wąskim pasku na krawędzi ekranu, tuż nad paskiem zadań. K
 [list]
 [*]Gra toczy się nawet po zamknięciu (do 8 godzin)
 [*]Oszczędzanie energii, tryb baterii, wyciszenie jednym kliknięciem
-[*]Muzyka lofi i odgłosy otoczenia dla każdej krainy
+[*]Oryginalna ścieżka dźwiękowa skomponowana dla gry (od ciepłego lofi po galaktyczny finał) i odgłosy otoczenia dla każdej krainy
 [*]10 języków, zapis w Steam Cloud, osiągnięcia Steam
 [/list]
 
@@ -224,7 +224,7 @@ Sillwalker живёт в узкой полосе у края экрана, пр�
 [list]
 [*]Игра идёт, даже когда закрыта (до 8 часов)
 [*]Энергосбережение, режим батареи, отключение звука одним щелчком
-[*]Lofi-музыка и свои звуки окружения в каждом регионе
+[*]Оригинальный саундтрек, написанный для игры (от тёплого лоу-фая до космического финала), и свои звуки окружения в каждом регионе
 [*]10 языков, сохранения в Steam Cloud, достижения Steam
 [/list]
 
@@ -255,7 +255,7 @@ Sillwalker 住在屏幕边缘、任务栏正上方的一条细长条中。鼠标
 [list]
 [*]关闭游戏后仍会继续推进（最多 8 小时）
 [*]节能模式、电池模式、一键静音
-[*]Lofi 音乐与每个地区独有的环境音
+[*]为游戏创作的原声音乐（从温暖的 Lo-fi 到银河终章）与每个地区独有的环境音
 [*]10 种语言、Steam 云存档、Steam 成就
 [/list]
 
@@ -286,7 +286,7 @@ Sillwalker は画面の端、タスクバーのすぐ上にある細い帯の中
 [list]
 [*]閉じていてもゲームは進む（最大8時間）
 [*]省電力、バッテリーモード、ワンクリックで消音
-[*]Lofi 音楽と地域ごとの環境音
+[*]ゲームのために作曲したオリジナルサウンドトラック（温かいローファイから銀河のフィナーレまで）と地域ごとの環境音
 [*]10言語対応、Steam クラウドセーブ、Steam 実績
 [/list]
 
@@ -317,6 +317,6 @@ Sillwalker는 화면 가장자리, 작업 표시줄 바로 위의 얇은 띠에 
 [list]
 [*]게임을 닫아도 진행 (최대 8시간)
 [*]절전, 배터리 모드, 클릭 한 번으로 음소거
-[*]Lofi 음악과 지역마다 다른 환경음
+[*]게임을 위해 작곡한 오리지널 사운드트랙(따뜻한 로파이부터 은하의 피날레까지)과 지역마다 다른 환경음
 [*]10개 언어, Steam 클라우드 저장, Steam 도전 과제
 [/list]
