@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1686) : captures promo refaites avec les nouveaux plans (it. 1684) : 10 langues × séries « steam » et « promo »
+  (300 images : nouvelle Aventure, jauge d'XP, 18 événements rares, cyrillique Geist Pixel) + steam/screenshots (en, fr) ;
+  livrées dans steam/promo et sur le partage (Médias/sillwalker-promo).
 - 2026-11-16 (it. 1685) : fichiers Python compilés (scripts/promo/__pycache__) retirés du dépôt, __pycache__/ et *.pyc ignorés.
 - 2026-11-16 (it. 1684, suite) : demandes de Victor : bandes-annonces refaites sur la bande originale. Tous les plans retournés
   dans les 10 langues (190, jauge d'XP, nouvelle Aventure, Réglages) ; « 18 événements rares » (au lieu de 14) partout ;
