@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1755, contrôle) : first-minutes après les changements du jour : mêmes secondes (objet 15-79 s, boss 77-79 s,
+  Talents ≈ 80 s, Quêtes ≈ 300 s) ; Statistiques (Journal) s'ouvre à 150-157 s, une découverte de plus dans ce creux.
 - 2026-11-16 (it. 1754, contrôle) : textes de Poupouce après son changement : résumé d'absence (« Poupouce vaincus »), succès
   (nom seul), Statistiques > Moments rares (chance affichée « 0,1 % », avec la bénédiction du jour) : tous justes.
 - 2026-11-16 (it. 1753) : mode mini : l'arrivée de Poupouce (« ✦ C’est… Poupouce ?! ») et les Statistiques complètes s'affichent
