@@ -11,7 +11,7 @@ import { PIXEL as P } from "./art.js";
 import { majorBoss, ECHO_OUTLINE } from "../game/relics.js";
 import { buildSpriteSet, buildHeroSprites, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
 import { heroVisual, visualKey } from "./equipvis.js";
-import { fmt, fmtShort, uS, uMin, durText, listJoin } from "../game/format.js";
+import { fmt, fmtShort, uS, uMin, durText, listJoin, unit } from "../game/format.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { xpNeed } from "../game/rules.js";
 import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
@@ -281,6 +281,8 @@ export class MiniRenderer {
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
       if (ev) tip.push(EVENTS[ev[0]].name + colon() + EVENTS[ev[0]].text, tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10");
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + colon() + rec);
+      // (it. 1573) la fine barre violette du bas : l'expérience vers le niveau suivant
+      tip.push(tx("Expérience") + colon() + Math.min(99, Math.floor((100 * S.xp) / xpNeed(S.lvl))) + unit("%"));
       const dm = activeDayMod(S); // (it. 1234) la bénédiction du jour, lisible aussi depuis le mode mini
       if (dm) tip.push(`${tx("Bénédiction du jour :")} ${dm.icon} ${dm.name} · ${dm.desc}`, ...dayModNotes(S, dm)); // (it. 1415) précisions
       // (it. 1403) celle de demain, comme la bulle de la pastille du panneau (une raison de revenir)

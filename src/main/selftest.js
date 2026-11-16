@@ -1165,8 +1165,9 @@ async function runSelfTest(strip) {
   const hid = await js(`(async () => { const M = window.__music, G = window.__game, { trackIndex } = await import("./render/music.js");
     if (!M.enabled) return "désactivée"; M.setZone(G.S.zone);
     for (let i = 0; i < 40 && !M.voice; i++) await new Promise((r) => setTimeout(r, 250));
-    M.hideDelay = 50; M.hide(true); await new Promise((r) => setTimeout(r, 200)); const freed = !M.voice && M.buffers.size === 0;
-    M.hide(false); M.hideDelay = undefined;
+    // comme setVisible(false) d'app.js : son en pause (sinon la boucle du jeu relance le morceau de la zone)
+    window.__sound.setPaused(true); M.hideDelay = 50; M.hide(true); await new Promise((r) => setTimeout(r, 200)); const freed = !M.voice && M.buffers.size === 0;
+    window.__sound.setPaused(false); M.hide(false); M.hideDelay = undefined;
     for (let i = 0; i < 40 && !(M.voice && M.voice.idx === trackIndex(G.S.zone)); i++) await new Promise((r) => setTimeout(r, 250));
     return freed + " " + !!(M.voice && M.voice.idx === trackIndex(G.S.zone)); })()`);
   const lv0 = await js(`(async () => { const M = window.__music, G = window.__game, lv = M.level ?? 1; if (!M.enabled) return "désactivée";

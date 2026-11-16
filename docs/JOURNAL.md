@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1573) : mode mini : la bulle au survol donne l'expérience (« Expérience : 62 % », la fine barre violette).
+  Autotest : le contrôle « musique libérée, bande cachée » échouait parfois (la boucle du jeu relançait le morceau) : il
+  met maintenant le son en pause comme le vrai masquage ; 2 passes à 240/240.
 - 2026-11-16 (it. 1572) : CLAUDE.md : mem-watch avec une mise en scène (MEM_ARGS), et la fenêtre du coffre de quête à
   refermer dans l'autotest.
 - 2026-11-16 (it. 1571, revue générale) : simulation 12 h graine 21 : mage 66, samouraï 65, moine 62 ; perf:linux bande
