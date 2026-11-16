@@ -41,6 +41,9 @@ se balançaient qu'au combat.
    - squelettes (it. 1855) : Os qui se reforment (la première fois, s'écroulent 0,8 s puis se relèvent avec 30 % de leurs
      PV ; PV de départ ÷ 1,3) ;
    - scorpions (it. 1855) : Dard (lèvent la queue, un coup de plus et 1,5 s de venin) ; l'obsidienne maudit en plus ;
+   - loups (it. 1856) : Hurlement de meute (se dressent, hurlent : 30 % plus rapides 3 s ; les loups de la file relèvent
+     la tête en réponse : premier comportement de groupe) ;
+   - golems (it. 1856) : Poing de pierre (se penchent lentement pour armer, abattent ×2,2 esquivable, la bande tremble) ;
    - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
      un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
      des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;

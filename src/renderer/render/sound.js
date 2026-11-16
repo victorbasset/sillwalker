@@ -438,6 +438,8 @@ export class Sound {
           case "spores": this.noise(0, 0.35, 0.1); this.whoosh(0, 0.4, 400, 1400, 0.08, 1); break; // (it. 1854) bouffée feutrée
           case "reassemble": [0, 0.07, 0.12, 0.2, 0.26].forEach((t, i) => this.tone(700 + (i % 2) * 260, t, 0.04, "square", 0.07)); this.tone(320, 0.5, 0.12, "triangle", 0.1, 1.6); break; // (it. 1855) os qui s'entrechoquent, puis se remettent
           case "sting": this.tone(1800, 0, 0.05, "square", 0.08, 0.6); this.noise(0.04, 0.06, 0.12); break; // (it. 1855) piqûre sèche
+          case "howl": this.tone(360, 0, 0.7, "sine", 0.12, 1.7); this.tone(540, 0.05, 0.6, "sine", 0.05, 1.5); break; // (it. 1856) hurlement qui monte
+          case "slam": this.tone(60, 0, 0.35, "sawtooth", 0.22, 0.5); this.noise(0, 0.2, 0.25); break; // (it. 1856) choc sourd de la pierre
         }
         break;
       case "bossSkill":

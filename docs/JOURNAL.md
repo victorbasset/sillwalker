@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1856, journée des monstres) : loups : Hurlement de meute (toutes les 8 s, se dressent et hurlent, 30 %
+  plus rapides 3 s, attaque compensée ; les loups qui attendent dans la file relèvent la tête : vérifié en jeu, 5 / 5) ;
+  golems : Poing de pierre (arment lentement, abattent ×2,2 esquivable, secousse). Balance contre aea72772 : +0,1 / +0,7 ;
+  fuzz 600 / 0 ; npm test 344, autotest 253/253.
 - 2026-11-17 (it. 1855, journée des monstres) : squelettes : Os qui se reforment (abattus une première fois, ils
   s'écroulent en tas d'os 0,8 s, étourdis, puis se relèvent avec 30 % de leurs PV ; PV de départ ÷ 1,3) ; scorpions :
   Dard (se cabrent, un coup de plus et 1,5 s de venin, la pureté le raccourcit ; obsidienne : malédiction). Mots, poses,

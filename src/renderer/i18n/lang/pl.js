@@ -1974,4 +1974,10 @@ export default {
   3099: "Co 6 s unosi ogon i kłuje: dodatkowy cios, który zatruwa bohatera na 1,5 s.",
   3100: "Składa się z powrotem!",
   3101: "Żądło!",
+  3102: "Wycie watahy",
+  3103: "Co 8 s wyje (wataha mu odpowiada), a potem przez 3 s atakuje o 30% szybciej.",
+  3104: "Kamienna pięść",
+  3105: "Co 8 s powoli bierze zamach pięścią i ją opuszcza: cios za 220% jego ataku, którego bohater może uniknąć.",
+  3106: "Auuuu!",
+  3107: "Kamienna pięść!",
 };

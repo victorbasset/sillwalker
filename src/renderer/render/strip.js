@@ -31,7 +31,7 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
-const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a" };
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -263,7 +263,10 @@ export class StripRenderer {
     g.on("monSkill", ({ id, el, phase }) => {
       this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : 0.45 };
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !") }[id];
+      // (it. 1856) la meute répond : les loups qui attendent dans la file relèvent la tête un instant
+      if (id === "howl") for (const a of this.slots) if (a.art === "wolf") a.howlT = 0.7 + Math.random() * 0.4;
+      if (id === "slam") this.shake(0.15);
       if (word) this.float(this.monX() + 14, 18, word, col, true);
       if (this.active && this.juice.full) {
         this.juice.sparkles(this.heroX + 18, this.ground - 24, col, 8);
@@ -809,6 +812,19 @@ export class StripRenderer {
       const dive = p < 0.5 ? p / 0.5 : 1 - (p - 0.5) / 0.5; // aller, puis retour
       return { dx: -dive * reach, dy: -16 * (1 - dive) + 10 * dive };
     }
+    if (f.id === "howl") {
+      // loup : se dresse, museau levé, le temps du hurlement
+      if (f.phase === "tell") return { dx: 2, dy: -3 };
+      return { dx: 0, dy: p < 0.6 ? -3 : 0 };
+    }
+    if (f.id === "slam") {
+      // golem : se penche lentement en arrière pour armer, puis s'abat en avant et revient
+      if (f.phase === "tell") return { dx: 6 * Math.min(1, p * 1.4), dy: -2 * Math.min(1, p * 1.4) };
+      // frappe : d'armé (+6 px) à abattu (−12 px) en un quart du temps, puis retour lent à sa place
+      if (p < 0.25) { const h = p / 0.25; return { dx: 6 - 18 * h, dy: -2 + 4 * h }; }
+      const back = 1 - (p - 0.25) / 0.75;
+      return { dx: -12 * back, dy: 2 * back };
+    }
     if (f.id === "reassemble") {
       // squelette : s'écroule d'un coup (tas d'os au sol), reste à terre, puis se redresse
       const down = p < 0.15 ? p / 0.15 : p < 0.7 ? 1 : 1 - (p - 0.7) / 0.3;
@@ -902,7 +918,7 @@ export class StripRenderer {
       a.bar.visible(false);
       a.move(this.fightX(k + 1), this.monY(a, 0));
       // (it. 1850) vie en attente : nature selon le dessin de base, rythme propre à la place (monlife.js)
-      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.nature = natureOf(def.art || (boss ? Z.boss : line[k].type), !!a.fly); a.lifeSeed = lifeSeed(g.S.zone, k); }
+      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.lifeSeed = lifeSeed(g.S.zone, k); }
       this.slots.push(a);
     }
     this.slotKey = line;
@@ -1001,7 +1017,10 @@ export class StripRenderer {
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0) + (pose ? pose.dx : 0), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0));
+      // (it. 1856) loup de la file qui répond au hurlement : tête levée (petit bond vers le haut), puis repos
+      let answer = 0;
+      if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
+      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0) + (pose ? pose.dx : 0), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer);
       const flip = !!(life && life.face < 0);
       if (a.flipped !== flip) { a.flipped = flip; a.el.classList.toggle("flip", flip); mark("flip"); }
       // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).

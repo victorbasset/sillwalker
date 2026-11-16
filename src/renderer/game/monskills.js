@@ -30,6 +30,12 @@ export const MON_SKILLS = {
   // (it. 1855) Scorpions : lèvent la queue, puis piquent ; le dard empoisonne toujours
   scorp: { id: "sting", name: "Dard", every: 6, first: 3, tell: 0.7, mult: 1, venom: 1.5,
     desc: "Toutes les 6 s, lève la queue puis pique : un coup de plus, qui empoisonne le héros 1,5 s." },
+  // (it. 1856) Loups : hurlent (la meute qui attend répond), puis attaquent plus vite
+  wolf: { id: "howl", name: "Hurlement de meute", every: 8, first: 2, tell: 0.6, haste: { s: 3, k: 0.7 },
+    desc: "Toutes les 8 s, hurle (la meute lui répond) puis attaque 30 % plus vite pendant 3 s." },
+  // (it. 1856) Golems : arment lentement leur poing, puis l'abattent
+  golem: { id: "slam", name: "Poing de pierre", every: 8, first: 4, tell: 0.9, mult: 2.2,
+    desc: "Toutes les 8 s, arme lentement son poing puis l’abat : un coup à 220 % de son attaque, que le héros peut esquiver." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

@@ -1974,4 +1974,10 @@ export default {
   3099: "A cada 6 s, ergue a cauda e pica: um golpe a mais, que envenena o herói por 1,5 s.",
   3100: "Ele se refaz!",
   3101: "Ferrão!",
+  3102: "Uivo da matilha",
+  3103: "A cada 8 s, uiva (a matilha responde) e ataca 30 % mais rápido por 3 s.",
+  3104: "Punho de pedra",
+  3105: "A cada 8 s, prepara devagar o punho e o desce: um golpe a 220 % do ataque que o herói pode esquivar.",
+  3106: "Auuuu!",
+  3107: "Punho de pedra!",
 };

@@ -1974,4 +1974,10 @@ export default {
   3099: "Every 6 s, raises its tail then stings: one extra hit that poisons the hero for 1.5 s.",
   3100: "It reforms!",
   3101: "Sting!",
+  3102: "Pack Howl",
+  3103: "Every 8 s, howls (the pack answers) then attacks 30% faster for 3 s.",
+  3104: "Stone Fist",
+  3105: "Every 8 s, slowly winds up its fist then brings it down: a hit at 220% of its attack that the hero can dodge.",
+  3106: "Awooo!",
+  3107: "Stone fist!",
 };

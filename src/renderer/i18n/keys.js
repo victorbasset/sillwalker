@@ -3103,5 +3103,11 @@ export const KEYS = [
   "Dard",
   "Toutes les 6 s, lève la queue puis pique : un coup de plus, qui empoisonne le héros 1,5 s.",
   "Il se reforme !",
-  "Dard !"
+  "Dard !",
+  "Hurlement de meute",
+  "Toutes les 8 s, hurle (la meute lui répond) puis attaque 30 % plus vite pendant 3 s.",
+  "Poing de pierre",
+  "Toutes les 8 s, arme lentement son poing puis l’abat : un coup à 220 % de son attaque, que le héros peut esquiver.",
+  "Ahouuu !",
+  "Poing de pierre !"
 ];

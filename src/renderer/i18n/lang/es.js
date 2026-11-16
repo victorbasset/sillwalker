@@ -1974,4 +1974,10 @@ export default {
   3099: "Cada 6 s, alza la cola y pica: un golpe más, que envenena al héroe 1,5 s.",
   3100: "¡Se rehace!",
   3101: "¡Aguijón!",
+  3102: "Aullido de manada",
+  3103: "Cada 8 s, aúlla (la manada le responde) y ataca un 30 % más rápido durante 3 s.",
+  3104: "Puño de piedra",
+  3105: "Cada 8 s, arma lentamente el puño y lo descarga: un golpe al 220 % de su ataque que el héroe puede esquivar.",
+  3106: "¡Auuuu!",
+  3107: "¡Puño de piedra!",
 };

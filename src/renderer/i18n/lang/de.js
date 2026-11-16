@@ -1974,4 +1974,10 @@ export default {
   3099: "Alle 6 s hebt er den Schwanz und sticht zu: ein zusätzlicher Treffer, der den Helden 1,5 s lang vergiftet.",
   3100: "Es fügt sich neu!",
   3101: "Stachel!",
+  3102: "Rudelgeheul",
+  3103: "Alle 8 s heult er (das Rudel antwortet) und greift dann 3 s lang 30 % schneller an.",
+  3104: "Steinfaust",
+  3105: "Alle 8 s holt er langsam mit der Faust aus und lässt sie niedersausen: ein Treffer mit 220 % seines Angriffs, dem der Held ausweichen kann.",
+  3106: "Auuuu!",
+  3107: "Steinfaust!",
 };

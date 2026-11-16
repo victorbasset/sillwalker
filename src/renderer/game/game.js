@@ -54,6 +54,8 @@ import { monSkillOf } from "./monskills.js";
  *  plus dur (balance 12 h : −1,7 zone avec trois familles). */
 export function skillBalance(m, sk) {
   if (sk.mult) m.atk /= 1 + sk.mult * (sk.el === "fire" ? 1.2 : 1) * (m.interval || 1) / sk.every;
+  // (it. 1856) accélération (hurlement) : autant de coups en plus, autant d'attaque en moins
+  if (sk.haste) m.atk /= 1 + sk.haste.s * (1 / sk.haste.k - 1) / sk.every;
   // (it. 1855) se relever avec une part de ses PV : autant de PV en moins au départ
   if (sk.back) { m.hp = Math.max(1, Math.round(m.hp / (1 + sk.back))); m.max = m.hp; }
   let lost = 0; // part du combat où le héros ne frappe pas (ou au ralenti)
@@ -440,7 +442,8 @@ export class Game {
       if (m.weakT > 0) m.weakT -= dt;
       if (m.slowT > 0) m.slowT -= dt;
       if (m.stunT > 0) m.stunT -= dt;
-      else m.t -= dt * (m.slowT > 0 ? 0.5 : 1);
+      else m.t -= dt * (m.slowT > 0 ? 0.5 : 1) / (m.hasteT > 0 ? m.hasteK : 1); // (it. 1856) hurlement : plus rapide
+      if (m.hasteT > 0) m.hasteT -= dt;
       if (m.t <= 0) {
         m.t = m.interval;
         if (this.monsterAttack(m, hs, 1)) return;
@@ -518,6 +521,16 @@ export class Game {
         break;
       }
       case "reassemble": break; // (it. 1855) squelettes : déclenché à leur chute (killMonster), pas à la minuterie
+      case "howl": { // (it. 1856) Loups : hurlement, puis attaques plus rapides quelques secondes
+        m.hasteT = sk.haste.s; m.hasteK = sk.haste.k;
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "slam": { // (it. 1856) Golems : coup de poing lourd (esquivable : monsterAttack tire l'esquive du héros)
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        this.elementHit(sk.el, hs);
+        break;
+      }
       case "sting": { // (it. 1855) Scorpions : dard empoisonné (la pureté le raccourcit), puis l'élément de la variante
         if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
         const d = sk.venom * (1 - (hs.purity || 0) / 100);
