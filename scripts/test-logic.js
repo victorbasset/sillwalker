@@ -4512,12 +4512,14 @@ test("nombres : un arrondi qui atteint 1000 passe au palier supérieur (it. 872 
   } finally { setLang(before); }
 });
 
-test("Poupouce (it. 1546, demande d'un joueur) : un monstre ordinaire rare qui porte ce nom et rapporte 5 fois plus d'or", () => {
+test("Poupouce (it. 1546 ; chat depuis l'it. 1730) : apparaît dans la file, à part, jamais élite ni gobelin", () => {
   const g = new Game(freshState());
   g.S.zone = g.S.best = 10;
   let found = null;
-  for (let k = 0; k < 400 && !found; k++) { g.R.lineup = null; g.R.lineupZone = 0; found = g.lineup().find((s) => s.poupouce); }
-  assert.ok(found, "au moins un Poupouce en 400 séries");
+  // (it. 1786) 1 monstre sur 1 000 : 3 000 séries (≈ 30 Poupouce attendus) au lieu de 400 (≈ 4, absent 2 fois sur 100)
+  for (let k = 0; k < 3000 && !found; k++) { g.R.lineup = null; g.R.lineupZone = 0; found = g.lineup().find((s) => s.poupouce); }
+  assert.ok(found, "au moins un Poupouce en 3 000 séries");
+  assert.equal(found.type, "poupouce", "son propre dessin");
   assert.ok(!found.elite && !found.goblin, "jamais une élite ni un gobelin");
 });
 

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1786) : test Poupouce de l'it. 1546 mis à jour : titre (chat, plus « 5 fois plus d'or »), 3 000 séries au lieu de 400
+  (à 1 sur 1 000, absent 2 fois sur 100 : fragile au moindre renommage), type « poupouce » vérifié. npm test 332.
 - 2026-11-16 (it. 1785, contrôle) : Bestiaire avec des monstres en plus (cartes clonées le temps de la mesure) : 85 cartes à 1920 et
   1280 px, 96 (8 rangées) en russe à 1920 px sur la fin de partie : aucun débordement ; la crainte de la revue 1741 est levée.
 - 2026-11-16 (it. 1784, contrôle) : --crawl en japonais sur la partie de fin de partie (690 clics en 22 s, aucune erreur) ; texte
