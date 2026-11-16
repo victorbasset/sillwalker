@@ -1896,4 +1896,7 @@ export default {
   3021: "The panel menu stays on a single line, even when you enlarge the interface or resize the window.",
   3022: "The trailer has been remade on the game's original soundtrack (\"The Sill\"), in all 10 languages.",
   3023: "Open the Log (Statistics)",
+  3024: "Pet Day",
+  3025: "Active pet bonus ×2.",
+  3026: "The pets are in top shape today!",
 };

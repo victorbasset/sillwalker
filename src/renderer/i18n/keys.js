@@ -3025,5 +3025,8 @@ export const KEYS = [
   "Le bouton Réglages est finalement juste à gauche de « Mode mini ».",
   "Le menu du panneau reste sur une seule ligne, même quand on agrandit l’interface ou qu’on change la taille de la fenêtre.",
   "La bande-annonce est refaite sur la bande originale du jeu (« Le Rebord »), dans les 10 langues.",
-  "Ouvrir le Journal (Statistiques)"
+  "Ouvrir le Journal (Statistiques)",
+  "Jour des familiers",
+  "Bonus du familier actif ×2.",
+  "Les familiers sont en pleine forme aujourd’hui !"
 ];

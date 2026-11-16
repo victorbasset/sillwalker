@@ -1896,4 +1896,7 @@ export default {
   3021: "Menu panelu zostaje w jednej linii, nawet po powiększeniu interfejsu lub zmianie rozmiaru okna.",
   3022: "Zwiastun powstał na nowo z oryginalną ścieżką dźwiękową gry („Krawędź”), we wszystkich 10 językach.",
   3023: "Otwórz Dziennik (Statystyki)",
+  3024: "Dzień pupili",
+  3025: "Premia aktywnego pupila ×2.",
+  3026: "Pupile są dziś w świetnej formie!",
 };

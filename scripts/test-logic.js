@@ -3313,6 +3313,17 @@ test("Filet à étoiles : attrape l'étoile à mi-course, jamais sans le débloc
   assert.ok(on.speed > off.speed, "vitesse permanente gagnée");
 });
 
+test("Jour des familiers (it. 1700) : bonus du familier actif doublé, rien sans familier", () => {
+  const S = freshState(), id = M_pets_js.PETS[0].id;
+  S.pets.owned[id] = { lvl: 3, xp: 0 }; S.pets.active = id;
+  const base = M_pets_js.petEffects(S);
+  S.daily = { ...(S.daily || {}), mod: "pets" };
+  const day = M_pets_js.petEffects(S);
+  for (const k in base) assert.equal(day[k], base[k] * 2, k);
+  assert.ok(Object.keys(base).length > 0);
+  S.pets.active = null; assert.deepEqual(M_pets_js.petEffects(S), {});
+});
+
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
   const P = freshState().settings;
   assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");

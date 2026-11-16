@@ -1896,4 +1896,7 @@ export default {
   3021: "El menú del panel se mantiene en una sola línea, incluso al agrandar la interfaz o cambiar el tamaño de la ventana.",
   3022: "El tráiler se ha rehecho con la banda sonora original del juego («El Alféizar»), en los 10 idiomas.",
   3023: "Abrir el Diario (Estadísticas)",
+  3024: "Día de las mascotas",
+  3025: "Bonificación de la mascota activa ×2.",
+  3026: "¡Las mascotas están en plena forma hoy!",
 };

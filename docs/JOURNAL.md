@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1700) : 17e bénédiction du jour, « Jour des familiers » 🐾 (bonus du familier actif ×2 ; aucune ne touchait les
+  familiers) ajoutée à la FIN : premier jour le 22/11 (ni aujourd'hui ni demain ; calendrier annoncé inchangé, tests) ;
+  réplique du héros ; 10 langues (polonais « pupile » comme l'onglet). Test « Jour des familiers » ; npm test 322,
+  autotest 246/246, lang-overflow complet : aucun ; fuzz sous cette bénédiction : 0 bloquée.
 - 2026-11-16 (it. 1699) : save-fuzz après la migration des volumes (it. 1679) : dev ok (1 253), fin ok (1 211), 0.1.2 ok (1 155).
 - 2026-11-16 (it. 1698) : devlog 0.1.5 : le dernier point (partie neuve sans fenêtre des nouveautés, clic sur le rebord d'un bouton)
   manquait dans 8 langues (9 points contre 10 en fr et en) : ajouté ; page itch régénérée, 10 points partout.

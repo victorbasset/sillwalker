@@ -1896,4 +1896,7 @@ export default {
   3021: "O menu do painel fica em uma só linha, mesmo ao aumentar a interface ou redimensionar a janela.",
   3022: "O trailer foi refeito com a trilha sonora original do jogo (\"O Parapeito\"), nos 10 idiomas.",
   3023: "Abrir o Diário (Estatísticas)",
+  3024: "Dia dos mascotes",
+  3025: "Bônus do mascote ativo ×2.",
+  3026: "Os mascotes estão em plena forma hoje!",
 };

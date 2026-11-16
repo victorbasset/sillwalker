@@ -2,6 +2,7 @@
 // il gagne de l'expérience à chaque victoire et son bonus grandit avec son
 // niveau. Ils sortent d'œufs (boss, élites, quêtes). Un doublon donne de
 // l'expérience au familier déjà possédé.
+import { activeDayMod } from "./daymods.js"; // (it. 1700) Jour des familiers
 export const PET_MAX_LVL = 10;
 export const EGG_CHANCE = { boss: 0.06, elite: 0.02 };
 export const DUPLICATE_XP = 60;
@@ -62,6 +63,7 @@ export function petEffects(S) {
   const P = S.pets, out = {};
   const id = P && P.active, own = id && P.owned[id], def = id && PET_INDEX[id];
   if (!own || !def) return out;
-  for (const k in def.eff) out[k] = def.eff[k] * own.lvl;
+  const mul = activeDayMod(S)?.pets || 1; // (it. 1700) Jour des familiers : bonus doublé
+  for (const k in def.eff) out[k] = def.eff[k] * own.lvl * mul;
   return out;
 }
