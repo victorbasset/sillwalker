@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1818) : nécromancien + compagnon au corps à corps : le squelette se superposait au compagnon (en marche : même
+  place devant le héros ; au combat : même contact). En marche, le serviteur passe devant le compagnon qui mène ; au combat, le
+  compagnon se tient 18 px derrière le serviteur. Captures (trois personnages séparés) ; npm test 333, autotest 251/251.
 - 2026-11-16 (it. 1817) : CLAUDE.md, Pièges : règles de placement du duo (bande et mode mini) et contrôle de l'autotest associé.
 - 2026-11-16 (it. 1816, contrôle) : mode mini, duo de deux combattants (guerrier + samouraï) : le compagnon reste lisible à gauche,
   le héros devant ; rien à corriger.

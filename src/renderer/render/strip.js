@@ -1005,7 +1005,8 @@ export class StripRenderer {
       const gapBack = ranged && melee ? 16 : -6;
       // (it. 1807) deux combattants au corps à corps : au même point de contact ils se cachaient l'un l'autre ; le compagnon
       // se tient 20 px en retrait (les deux restent lisibles)
-      const px = fighting && !ranged ? this.monX() - pf.cw + 6 - (melee ? 20 : 0) : leads ? x + this.hero.w - 6 : x - pf.cw - gapBack;
+      // (it. 1818) serviteur (nécromancien…) au contact : le compagnon combattant se tient 18 px derrière lui
+      const px = fighting && !ranged ? this.monX() - pf.cw + 6 - (melee ? 20 : this.minion ? 18 : 0) : leads ? x + this.hero.w - 6 : x - pf.cw - gapBack;
       this.partner.show(this.partnerAtk > 0 ? 2 : Math.floor(R.time * (fighting ? 2 : 5) + 1) % 2);
       this.partner.move(px, GROUND - pf.ch);
       this.partner.alpha(R.mode === "dead" ? 0.35 : 1);
@@ -1015,7 +1016,9 @@ export class StripRenderer {
       this.minionLunge = Math.max(0, (this.minionLunge || 0) - dt);
       const mf = this.minion.frames[0], fighting = R.mode === "fight" && R.mon;
       // Au combat, le serviteur se place au contact du monstre ; sinon il précède le héros.
-      const mx = fighting ? this.monX() - mf.cw - 2 + (this.minionLunge > 0 ? 4 : 0) : x + this.hero.w + 4;
+      // (it. 1818) en marche, devant le compagnon s'il mène (les deux se superposaient devant le héros)
+      const ahead = this.partner && this.partnerX > x ? this.partnerX + this.partner.frames[0].cw - 2 : x + this.hero.w + 4;
+      const mx = fighting ? this.monX() - mf.cw - 2 + (this.minionLunge > 0 ? 4 : 0) : ahead;
       this.minion.show(Math.floor(R.time * (fighting ? 4 : 5)) % 2);
       this.minion.move(mx, GROUND - mf.ch + 2);
       this.minion.alpha(R.mode === "dead" ? 0.35 : 0.9);
