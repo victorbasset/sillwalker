@@ -245,7 +245,10 @@ export class MiniRenderer {
     if (this.partner) {
       const pf = R.mode === "walk" ? 1 - walkF : 0, pfr = this.partner.frames[pf];
       this.partner.show(pf);
-      this.partner.move(leads ? HERO_X + 14 : HERO_X - 4, GROUND - pfr.ch + P + (R.mode === "walk" && !walkF ? -P : 0));
+      // (it. 1804, demande de Victor : l'arbalétrier caché derrière le samouraï) tireur derrière un héros au corps à corps :
+      // contre le bord (4 px de plus en arrière) ; le héros ne bouge pas (avancé, sa barre de vie touchait celle du monstre)
+      const back = isRanged(pcls) && !isRanged(S.cls) ? HERO_X - 8 : HERO_X - 4;
+      this.partner.move(leads ? HERO_X + 14 : back, GROUND - pfr.ch + P + (R.mode === "walk" && !walkF ? -P : 0));
       this.partner.alpha(R.mode === "dead" ? 0.35 : 1);
     }
     if (off !== this.heroOff) { this.heroOff = off; this.heroBar.el.style.transform = `translate3d(${HERO_X + 3 + off}px,4px,0)`; }

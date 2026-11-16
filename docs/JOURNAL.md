@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1804, suite de la demande de Victor) : mode mini, tireur derrière un héros au corps à corps : contre le bord
+  (4 px plus en arrière, écart 18 → 22 px) ; essai d'avancer le héros abandonné (sa barre de vie touchait celle du monstre au
+  contact, le monstre étant placé indépendamment du héros). Captures ; npm test 333, autotest 250/250.
 - 2026-11-16 (it. 1803, contrôle) : carreaux de l'arbalétrier compagnon capturés en vol (tirs forcés) : ils partent de l'arbalète,
   passent devant le héros et atteignent le monstre, à la hauteur des tirs du héros ; capture envoyée à Victor.
 - 2026-11-16 (it. 1802, demandes de Victor) : (1) compagnon à distance derrière un héros au corps à corps (arbalétrier derrière le
