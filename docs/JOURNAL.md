@@ -5,9 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1835, contrôle) : la bulle manquait sur les captures de l'it. 1834 ; mesurée (visible, opacité 1, 38 px
+  au-dessus de la bande) puis capturée : l'astuce « logimp » s'affiche sur une ligne en allemand (981 px). Pour une capture
+  d'astuce : dans le --stage, __clearToasts() puis __checkHints() à 12 s, --shot-delay=14000. Rien à corriger dans le jeu.
 - 2026-11-16 (it. 1834, contrôle) : astuce « logimp » mise en scène en allemand (toutes les autres marquées vues, 5 000
   monstres) : nextHint la propose et la bulle reçoit « Das Protokoll läuft zu schnell? Hake „Nur wichtige Zeilen“ an… »
-  (la capture --shot ne montre pas la bulle, connu) ; brouillon du devlog 0.1.6 complété.
+  ; brouillon du devlog 0.1.6 complété. (Capture sans bulle : mise en scène mal minutée, voir it. 1835.)
 - 2026-11-16 (it. 1833) : astuce « logimp » : le filtre du Journal (it. 1723) restait à découvrir ; une fois 2 000 monstres vaincus,
   onglet Statistiques ouvert et case pas cochée, la bulle cite « Lignes importantes seulement » (Statistiques > Journal) et
   ouvre le Journal au clic. Clé 3062 (10 langues, i18n-quotes et i18n-paths : 0 écart) ; aucune astuce coupée (de, ru, pl,
