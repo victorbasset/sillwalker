@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1708) : semaine simulée (168 h, graine 7) sur le jeu actuel : guerrier 350, mage 350 (repère it. 1115 : 350 / 349) ;
+  CLAUDE.md à jour.
 - 2026-11-16 (it. 1707) : onglet Familiers le Jour des familiers (ligne « ×2 aujourd'hui »), ru, de, pl à 1280 px : ni l'onglet ni la carte
   ne défilent.
 - 2026-11-16 (it. 1706) : Jour des familiers : la carte du familier actif affichait son bonus de base ; elle montre le bonus réel
