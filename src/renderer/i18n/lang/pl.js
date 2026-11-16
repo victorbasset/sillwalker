@@ -1924,4 +1924,5 @@ export default {
   3049: "Poupouce się pojawia, a twoja torba jest pełna: bohater ostrzega cię w porę, by zrobić miejsce na legendarny przedmiot.",
   3050: "Tryb mini: pojawienie się Poupouce też jest tam widoczne.",
   3051: "(+{n} legendarny przedmiot)|(+{n} legendarne przedmioty)|(+{n} legendarnych przedmiotów)",
+  3052: "Legendarny łup Poupouce został na ziemi: torba pełna.",
 };

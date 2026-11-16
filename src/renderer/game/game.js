@@ -1010,6 +1010,8 @@ export class Game {
       if (it.r >= 2) this.questProgress("loot", 1);
       this.addToBag(it);
       this.emit("loot", { item: it, mon: m, ground: this.R.grounded === it.id }); // ground : resté au sol (sac plein)
+      // (it. 1779) le Journal ne promet pas un légendaire perdu (sac plein, règle de Victor)
+      if (m.poupouce && this.R.grounded === it.id) this.log(tx("Le légendaire de Poupouce est resté au sol : sac plein."));
     }
     if (m.champion) { S.stats.champions = (S.stats.champions || 0) + 1; this.questProgress("champion", 1); this.log(`${tx("Champion vaincu : {0} or et un butin épique !", { 0: fmt(gold) })}`); }
     else if (m.elite) this.logSale("elite", tx("Élites vaincues"), gold); // cumul : une ligne au lieu d'une par élite

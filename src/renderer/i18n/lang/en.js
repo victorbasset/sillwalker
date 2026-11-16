@@ -1924,4 +1924,5 @@ export default {
   3049: "Poupouce shows up and your bag is full: your hero warns you, in time to make room for its legendary item.",
   3050: "Mini mode: Poupouce's arrival shows up there too.",
   3051: "(+{n} legendary item)|(+{n} legendary items)",
+  3052: "Poupouce's legendary was left on the ground: bag full.",
 };

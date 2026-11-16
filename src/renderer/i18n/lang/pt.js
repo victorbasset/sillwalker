@@ -1924,4 +1924,5 @@ export default {
   3049: "Poupouce aparece e sua bolsa está cheia: seu herói avisa a tempo de abrir espaço para o item lendário.",
   3050: "Modo mini: a chegada do Poupouce também aparece lá.",
   3051: "(+{n} item lendário)|(+{n} itens lendários)",
+  3052: "O lendário do Poupouce ficou no chão: bolsa cheia.",
 };

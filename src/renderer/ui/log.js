@@ -14,7 +14,7 @@ const LOG_KEYS = [
     "Plume du vent"], []],
   ["lg-epic", [], [3]],
   ["lg-good", ["Quête accomplie ! Récompense à réclamer.", "revient de {0} : +{1} or{2}{3} !", "L’œuf éclot : {0} !", "L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", "Un œuf !"], []],
-  ["lg-bad", ["Ton héros est tombé. La progression de la zone repart à zéro.", "Trop dur : ton héros recule vers ", "Dernière potion de soin bue : passe à la boutique !", "K.O."], []],
+  ["lg-bad", ["Ton héros est tombé. La progression de la zone repart à zéro.", "Trop dur : ton héros recule vers ", "Dernière potion de soin bue : passe à la boutique !", "K.O.", "Le légendaire de Poupouce est resté au sol : sac plein."], []],
 ];
 const lc = (s) => String(s).toLocaleLowerCase();
 /** Plus long morceau fixe d'un modèle traduit (entre les {0}). */

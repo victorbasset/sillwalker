@@ -3398,6 +3398,19 @@ test("Statistiques complètes à la zone 40 : annoncées une fois, pas pour une 
   assert.equal(migrate(o).statsFullSeen, true, "ancienne partie : déjà vu");
 });
 
+test("Poupouce vaincu sac plein : le Journal dit que le légendaire est resté au sol (it. 1779)", () => {
+  const g = new Game(freshState()); g.S.zone = 5; g.S.best = 5; g.S.autoSell = {};
+  g.R.mon = g.makeMonster(false); Object.assign(g.R.mon, { type: "poupouce", poupouce: true, elite: false, champion: false });
+  g.S.bagSize = g.S.bag.length; g.S.unlocks.armsValet = false;
+  g.killMonster();
+  assert.ok(g.S.log.some((l) => l === tT("Le légendaire de Poupouce est resté au sol : sac plein.")), "ligne au sol");
+  const g2 = new Game(freshState()); g2.S.zone = 5; g2.S.best = 5; g2.S.autoSell = {};
+  g2.R.mon = g2.makeMonster(false); Object.assign(g2.R.mon, { type: "poupouce", poupouce: true, elite: false, champion: false });
+  g2.killMonster();
+  assert.ok(!g2.S.log.some((l) => l === tT("Le légendaire de Poupouce est resté au sol : sac plein.")), "sac libre : rien");
+  assert.ok(g2.S.bag.some((it) => it && it.r === 4), "légendaire rangé");
+});
+
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
   const P = freshState().settings;
   assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");
