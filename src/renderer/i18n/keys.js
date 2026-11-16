@@ -3007,5 +3007,7 @@ export const KEYS = [
   "Une 11e sorte d’élite, le Colossal : grand comme un boss, 120 % de vie en plus, mais des coups 40 % plus lents.",
   "Quêtes : au survol, chaque récompense s’explique (coffre, œuf, éclats d’étoile, élixirs et parchemins).",
   "Poupouce porte un ✦ tant que tu ne l’as jamais vaincu, et garde son contour rose en mode mini.",
-  "Tombeur de colosses (25 colossaux)"
+  "Tombeur de colosses (25 colossaux)",
+  "Il est immense, celui-là…",
+  "Plus il est grand, plus il tombe de haut !"
 ];

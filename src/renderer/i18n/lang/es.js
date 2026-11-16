@@ -1878,4 +1878,6 @@ export default {
   3003: "Misiones: al pasar el ratón, cada recompensa se explica (cofre, huevo, fragmentos de estrella, elixires y pergaminos).",
   3004: "Poupouce lleva un ✦ mientras no lo hayas vencido nunca, y conserva su contorno rosa en modo mini.",
   3005: "Derribacolosos (25 colosales)",
+  3006: "Ese es enorme…",
+  3007: "¡Cuanto más grande, más dura es la caída!",
 };

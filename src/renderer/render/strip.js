@@ -65,6 +65,7 @@ const SPEECH = {
   ev_hoard: [tx("Ça brille sous chaque pas !")], // (it. 1439)
   ev_echo: [tx("Chaque coup compte double !")], // (it. 1304)
   poupouce: [tx("Poupouce ?! Pas possible…"), tx("C’est… Poupouce ?!")], // (it. 1558) monstre rare (data.js, POUPOUCE)
+  colossal: [tx("Il est immense, celui-là…"), tx("Plus il est grand, plus il tombe de haut !")], // (it. 1625) premier Colossal
   eliteNew: [tx("Une de plus pour ma collection !"), tx("Celle-là, je ne l’avais jamais battue !")],
   setFull: [tx("Panoplie au complet !"), tx("Tout est assorti, enfin !")], // (it. 1037) palier de 4 pièces
   // (it. 1038) ascension, héros libéré, œuf trouvé
@@ -219,7 +220,10 @@ export class StripRenderer {
     g.on("levelUp", () => { this.say(SPEECH.level); this.lvlFlash = g.R.time + 1.2; }); // (it. 1570) la jauge d'XP brille
     g.on("event", ({ id } = {}) => this.say(SPEECH["ev_" + id] || SPEECH.event));
     g.on("eliteNew", () => this.say(SPEECH.eliteNew)); // (it. 956)
-    g.on("spawn", (m) => { if (m && m.poupouce) this.say(SPEECH.poupouce, true); }); // (it. 1558)
+    g.on("spawn", (m) => {
+      if (m && m.poupouce) this.say(SPEECH.poupouce, true); // (it. 1558)
+      else if (m && m.affix === "colossal" && !((g.S.stats || {}).affixesSeen || {}).colossal) this.say(SPEECH.colossal, true); // (it. 1625) tant qu'aucun n'est vaincu
+    });
     g.on("setBonus", ({ n }) => { if (n >= 4) this.say(SPEECH.setFull, true); }); // (it. 1037)
     g.on("masteryStep", () => this.say(SPEECH.mastery, true)); // (it. 1162) rare (une fois par palier dans la partie) : comme un grand moment
     g.on("graphOpen", () => this.say(SPEECH.graphOpen, true));

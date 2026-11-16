@@ -1878,4 +1878,6 @@ export default {
   3003: "Missões: ao passar o mouse, cada recompensa se explica (baú, ovo, fragmentos de estrela, elixires e pergaminhos).",
   3004: "O Poupouce exibe um ✦ enquanto você nunca o derrotou, e mantém o contorno rosa no modo mini.",
   3005: "Derrubador de colossos (25 colossais)",
+  3006: "Esse aí é enorme…",
+  3007: "Quanto maior, maior a queda!",
 };

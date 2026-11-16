@@ -1878,4 +1878,6 @@ export default {
   3003: "Quests: hover a reward to see what it does (chest, egg, star shards, elixirs and scrolls).",
   3004: "Poupouce wears a ✦ until you've defeated him once, and keeps his pink outline in mini mode.",
   3005: "Colossus Slayer (25 colossals)",
+  3006: "That one's enormous…",
+  3007: "The bigger they are, the harder they fall!",
 };

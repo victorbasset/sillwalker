@@ -1878,4 +1878,6 @@ export default {
   3003: "Zadania: po najechaniu każda nagroda się tłumaczy (skrzynia, jajo, odłamki gwiazd, eliksiry i zwoje).",
   3004: "Poupouce nosi ✦, dopóki go nie pokonasz, i zachowuje różowy kontur w trybie mini.",
   3005: "Pogromca kolosów (25 kolosalnych)",
+  3006: "Ten jest ogromny…",
+  3007: "Im większy, tym głośniej upada!",
 };

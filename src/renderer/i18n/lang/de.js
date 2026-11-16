@@ -1878,4 +1878,6 @@ export default {
   3003: "Quests: Beim Überfahren erklärt sich jede Belohnung (Truhe, Ei, Sternensplitter, Elixiere und Schriftrollen).",
   3004: "Poupouce trägt ein ✦, solange du ihn nie besiegt hast, und behält seinen rosa Umriss im Mini-Modus.",
   3005: "Kolossbezwinger (25 Kolossale)",
+  3006: "Der ist ja riesig …",
+  3007: "Je größer sie sind, desto tiefer fallen sie!",
 };
