@@ -47,6 +47,7 @@ import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillS
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
+import { monSkillOf } from "./monskills.js";
 /** (it. 1852) Nombre de monstres d'une nouvelle série : 7 à 13, en triangle autour de 10 (moyenne inchangée). */
 export const zoneCount = () => Math.max(ZONE_COUNT.min, Math.min(ZONE_COUNT.max,
   Math.round(KILLS_PER_ZONE + (rand() + rand() - 1) * (ZONE_COUNT.max - KILLS_PER_ZONE + 0.5))));
@@ -420,6 +421,8 @@ export class Game {
       }
       // Capacités spéciales des boss
       if (m.boss && this.bossTick(m, hs, dt)) return;
+      // (it. 1853) compétence du monstre (monskills.js) ; étourdi : il ne peut pas s'en servir
+      if (m.skill && !(m.stunT > 0) && this.monSkillTick(m, hs, dt)) return;
       // Attaques du monstre (sorts, demande Q : étourdi, il n'attaque plus ; ralenti, deux fois moins vite)
       if (m.weakT > 0) m.weakT -= dt;
       if (m.slowT > 0) m.slowT -= dt;
@@ -477,6 +480,38 @@ export class Game {
       } else { this.heroDown(); return true; }
     }
     return false;
+  }
+
+  /** (it. 1853) Compétence d'un monstre ordinaire (monskills.js) : annonce (« tell »), puis effet. True : combat fini. */
+  monSkillTick(m, hs, dt) {
+    const sk = m.skill, R = this.R;
+    const before = m.skillT;
+    m.skillT -= dt * (m.slowT > 0 ? 0.5 : 1);
+    if (before > sk.tell && m.skillT <= sk.tell) this.emit("monSkill", { id: sk.id, el: sk.el, phase: "tell", mon: m });
+    if (m.skillT > 0) return false;
+    m.skillT = sk.every;
+    this.emit("monSkill", { id: sk.id, el: sk.el, phase: "go", mon: m });
+    switch (sk.id) {
+      case "leap": { // Gluants : bond sur le héros
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        this.elementHit(sk.el, hs);
+        break;
+      }
+    }
+    return false;
+  }
+
+  /** (it. 1853) Effet de l'élément d'une variante (monskills.js, ELEMENT_TEXT) après sa compétence. */
+  elementHit(el, hs) {
+    const R = this.R;
+    if (el === "frost") { R.frozen = Math.max(R.frozen || 0, 1.5); this.emit("bossSkill", { id: "frost" }); }
+    else if (el === "poison") {
+      const d = 3 * (1 - (hs.purity || 0) / 100); // la pureté (Talisman de pureté…) le raccourcit, comme le venin des boss
+      if (d > 0.05) { R.venomT = Math.max(R.venomT || 0, d); this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
+    } else if (el === "shadow") {
+      const d = 2 * (1 - (hs.purity || 0) / 100);
+      if (d > 0.05) { R.cursed = Math.max(R.cursed || 0, d); this.emit("bossSkill", { id: "curse" }); } else this.emit("bossSkill", { id: "curseBlocked" });
+    }
   }
 
   /** Capacités du boss (voir bosses.js). Renvoie true si le combat est fini. */
@@ -840,6 +875,8 @@ export class Game {
       mech: boss ? bossMechanics(this.S.zone) : null, smashT: 6, shell: 0, affix: slot.affix || null,
       name: boss ? bossName(this.S.zone) : null, fem: boss && bossGender(this.S.zone) === "f", gender: boss ? bossGender(this.S.zone) : null });
     if (!boss && slot.poupouce) { mon.poupouce = true; mon.gold *= POUPOUCE.gold; }
+    // (it. 1853) compétence de sa famille (monskills.js) : monstres ordinaires, ni gobelin ni Poupouce
+    if (!boss && !slot.goblin && !slot.poupouce) { const sk = monSkillOf(slot.type); if (sk) { mon.skill = sk; mon.skillT = sk.first; } }
     if (boss && isFinalZone(this.S.zone)) { // le Briseur d'Étoiles (story.js) : but final de l'histoire
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }

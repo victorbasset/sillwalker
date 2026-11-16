@@ -1,6 +1,7 @@
 // Onglet Bestiaire : monstres rencontrés, victoires et paliers.
 import { npcHTML } from "../npc.js";
-import { t as tx, tr, csep, cend } from "../../i18n/index.js";
+import { t as tx, tr, csep, cend, colon, wsp } from "../../i18n/index.js";
+import { monSkillOf, ELEMENT_TEXT } from "../../game/monskills.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
 import { describeEffects } from "../../game/talents.js";
@@ -18,6 +19,11 @@ import { tabOpen } from "../../game/tabs.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { zoneDef, nearestZoneWith } from "../../game/rules.js";
 
+// (it. 1853) compétence de la famille du monstre (monskills.js), et l'effet de l'élément de sa variante
+const skillLine = (type) => {
+  const sk = monSkillOf(type); if (!sk) return "";
+  return "\n" + tx(sk.name) + colon() + tx(sk.desc) + (sk.el ? wsp() + tx(ELEMENT_TEXT[sk.el]) : "");
+};
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
   if (type === "poupouce") return tx("Extrêmement rare, partout. Or à foison et un objet légendaire."); // (it. 1730)
@@ -51,7 +57,7 @@ export class BestiaryTab {
       // Fiche compacte (demande 18) : les zones où vit le monstre passent en infobulle.
       // (it. 1437) Carte du voyageur : un clic emmène le héros dans la zone la plus proche où vit le monstre (paliers)
       const gz = known && travel && !zoneDef(S.zone).monsters.includes(k) ? nearestZoneWith(S, k) : 0;
-      return `<article class="panel beast${known ? "" : " unknown"}${gz ? " go" : ""}"${gz ? ` data-action="b-go" data-z="${gz}" role="button" tabindex="0" aria-label="${esc(MONSTERS[k].name + " · " + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }))}"` : ""} title="${esc(known ? MONSTERS[k].name + " · " + where(k) + (gz ? "\n" + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }) : "") : tx("Pas encore rencontré"))}">
+      return `<article class="panel beast${known ? "" : " unknown"}${gz ? " go" : ""}"${gz ? ` data-action="b-go" data-z="${gz}" role="button" tabindex="0" aria-label="${esc(MONSTERS[k].name + " · " + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }))}"` : ""} title="${esc(known ? MONSTERS[k].name + " · " + where(k) + skillLine(k) + (gz ? "\n" + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }) : "") : tx("Pas encore rencontré"))}">
         <img src="${monsterURL(k, !known)}" alt="">
         <div class="si"><div class="nm">${known ? esc(MONSTERS[k].name) : "???"}</div>
         <div class="pips">${pips}<span>${fmt(n)}${next ? " / " + fmt(next) : " " + tx("(complet)")}</span></div></div>

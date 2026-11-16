@@ -28,6 +28,8 @@ import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
 import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
+/** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
+const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -253,6 +255,15 @@ export class StripRenderer {
       this.partnerAtk = 0.25;
       const pd = CLASSES[this.partnerCls];
       if (pd && pd.projectile && this.partner && g.R.mon) this.projectile(pd.projectile, (this.partnerX || this.heroX) + 24, this.monX() + 6, g.R.mon.boss ? 46 : 70, 0, "#fff");
+    });
+    // (it. 1853) compétences des monstres (monskills.js) : le monstre combattu se prépare (« tell »), puis agit ; le
+    // mouvement est appliqué dans la boucle des monstres (monSkillPose), le mot s'affiche quand il agit
+    g.on("monSkill", ({ id, el, phase }) => {
+      this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : 0.45 };
+      if (phase !== "go") return;
+      const col = MON_EL_COLOR[el] || "#a8f07a", word = { leap: tx("Bond !") }[id];
+      if (word) this.float(this.monX() + 14, 18, word, col, true);
+      if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 24, col, 8);
     });
     g.on("bossSkill", ({ id }) => {
       const label = { enrage: [tx("ENRAGÉ !"), "#ff4a4a"], shell: [tx("Carapace !"), "#9fd8ff"], mirror: [tx("Miroir !"), "#e0d8ff"], frost: [tx("Gelé !"), "#bfe8ff"], smash: ["", ""], fury: [tx("Fureur !"), "#ff9a4a"], bulwark: [tx("Peau de pierre brisée !"), "#c9ced6"], curse: [tx("Maudit !"), "#b07cff"], curseBlocked: [tx("Malédiction repoussée !"), "#bfefff"], venomBlocked: [tx("Venin repoussé !"), "#bfefff"], tenacious: [tx("Il se relève !"), "#ff9a4a"] }[id];
@@ -780,6 +791,20 @@ export class StripRenderer {
   // (it. 1019) tout boss a un contour : pâle et discret, sinon celui de l'écho. Sans lui, un boss sombre se perdait dans
   // un décor sombre (Carapace des Abysses, bleu nuit, au Récif abyssal de nuit). Dessiné dans l'image (outlinedFrames),
   // pas en filtre CSS (it. 595 : ≈ 0,5 point par ombre empilée)
+  /** (it. 1853) Pose du monstre combattu pendant sa compétence (monskills.js) : décalage { dx, dy } ou null. */
+  monSkillPose(dt) {
+    const f = this.mfx; if (!f) return null;
+    f.t += dt; const p = f.t / f.d;
+    if (p >= 1) { this.mfx = null; return null; }
+    if (f.id === "leap") {
+      // gluant : se ramasse (écrasé vers le sol), puis bondit vers le héros en arc et retombe à sa place
+      if (f.phase === "tell") return { dx: 0, dy: 3 };
+      const arc = Math.sin(p * Math.PI);
+      return { dx: -arc * Math.min(40, Math.max(0, this.monX() - this.heroX - 30)), dy: -arc * 22 };
+    }
+    return null;
+  }
+
   bossOutline() { return majorBoss(this.game.S.zone)?.echo ? ECHO_OUTLINE : BOSS_OUTLINE; }
 
   monY(a, bob) {
@@ -945,8 +970,9 @@ export class StripRenderer {
       a.show(fighting ? busy : idle);
       const bob = fighting && a.fly ? Math.sin(R.time * 5) * 3 : 0;
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
+      const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0), this.monY(a, bob) + (life ? life.dy : 0));
+      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0) + (pose ? pose.dx : 0), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0));
       const flip = !!(life && life.face < 0);
       if (a.flipped !== flip) { a.flipped = flip; a.el.classList.toggle("flip", flip); mark("flip"); }
       // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).

@@ -32,7 +32,11 @@ se balançaient qu'au combat.
    (game.js zoneCount, data.js ZONE_COUNT) ; la bande les répartit sur toute sa largeur (strip.js fights()), la pastille de
    zone, le panneau et le mode mini comptent la vraie longueur ; série jamais plus courte que le compte déjà fait
    (rechargement), compte borné à 13 par migrate. balance −0,4 (bruit), early-pace, fuzz, save-fuzz : inchangés.
-3. **Compétences propres**, famille par famille (dessin de base), chacune déclinée pour ses variantes (feu, givre, poison…) :
+3. **Compétences propres** (cadre : it. 1853, game/monskills.js : MON_SKILLS par famille, elementOf pour les variantes,
+   game.js monSkillTick / elementHit, strip.js monSkillPose et mot, sound.js « monSkill », Bestiaire : infobulle) :
+   - gluants (it. 1853) : Bond gluant, toutes les 6 s se ramassent puis bondissent (×1,4) ; lave ×1,2, givre gel 1,5 s,
+     toxique venin 3 s ; balance −0,1, early-pace inchangé ;
+   familles à suivre, famille par famille (dessin de base), chacune déclinée pour ses variantes (feu, givre, poison…) :
    gluants, champignons, chauves-souris, squelettes, scorpions, loups, golems, plantes, spectres, diablotins, rats,
    araignées, momies, yétis, harpies, élémentaires, crabes, chevaliers noirs, sylvains, wyvernes, tyrannœils, crapauds,
    serpents, scarabées, sangliers, ours, orcs, cultistes, guêpes, méduses, lézards, vers, mimiques, bandits, corbeaux,

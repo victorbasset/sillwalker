@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1853, journée des monstres) : cadre des compétences de monstres (game/monskills.js : une par famille,
+  teintée par l'élément de la variante : feu ×1,2, givre gel 1,5 s, poison venin 3 s, ombre malédiction 2 s ; annonce
+  « tell » puis effet ; Bestiaire : en infobulle) ; première famille, les gluants : Bond gluant (toutes les 6 s, se
+  ramassent puis bondissent, ×1,4). Pose mesurée en jeu (écrasé +3 px, arc de 21 px vers le héros) ; son « boing » rendu
+  par l'autotest ; 7 clés, 10 langues. balance −0,1, early-pace inchangé, fuzz 600 / 0 ; npm test 342, autotest 253/253.
 - 2026-11-16 (it. 1852, journée des monstres) : séries de 7 à 13 monstres (triangle autour de 10, même moyenne) :
   zoneCount (game.js), ZONE_COUNT (data.js), strip.js fights() (bande, pastille), panneau et mini (« n / longueur »),
   migrate borne le compte à 13, série jamais plus courte que le compte fait. Tests adaptés (compte = longueur de la série) ;

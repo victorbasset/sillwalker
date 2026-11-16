@@ -1952,4 +1952,11 @@ export default {
   3077: "Odradza się z popiołów!",
   3078: "Zaćmienie!",
   3079: "Rozbite niebo!",
+  3080: "Lepki skok",
+  3081: "Co 6 s kuli się i skacze na bohatera: cios za 140% jego ataku.",
+  3082: "Skok!",
+  3083: "Palący: ten cios uderza o 20% mocniej.",
+  3084: "Lodowy: ten cios zamraża bohatera na 1,5 s (wolniejsze ataki).",
+  3085: "Toksyczny: ten cios zatruwa bohatera na 3 s.",
+  3086: "Mroczny: ten cios przeklina bohatera na 2 s.",
 };

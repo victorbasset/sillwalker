@@ -1952,4 +1952,11 @@ export default {
   3077: "Rises from the ashes!",
   3078: "Eclipse!",
   3079: "Shattered sky!",
+  3080: "Gooey Leap",
+  3081: "Every 6 s, gathers itself then leaps at the hero: a hit at 140% of its attack.",
+  3082: "Leap!",
+  3083: "Scorching: this hit strikes 20% harder.",
+  3084: "Frozen: this hit freezes the hero for 1.5 s (slower attacks).",
+  3085: "Toxic: this hit poisons the hero for 3 s.",
+  3086: "Shadowy: this hit curses the hero for 2 s.",
 };

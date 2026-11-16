@@ -1952,4 +1952,11 @@ export default {
   3077: "Renasce das cinzas!",
   3078: "Eclipse!",
   3079: "Céu partido!",
+  3080: "Salto pegajoso",
+  3081: "A cada 6 s, se encolhe e salta no herói: um golpe a 140 % do ataque.",
+  3082: "Salto!",
+  3083: "Escaldante: este golpe bate 20 % mais forte.",
+  3084: "Gélido: este golpe congela o herói por 1,5 s (ataques mais lentos).",
+  3085: "Tóxico: este golpe envenena o herói por 3 s.",
+  3086: "Sombrio: este golpe amaldiçoa o herói por 2 s.",
 };

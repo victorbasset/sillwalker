@@ -430,6 +430,12 @@ export class Sound {
       case "champion": [NOTES.G5, NOTES.C6, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.09, 0.18, "triangle", 0.26)); break;
       case "smash": this.tone(80, 0, 0.3, "square", 0.4, 0.5); this.noise(0, 0.15, 0.35); break;
       // Capacités de boss : un son court et reconnaissable pour chacune (extra = id de la capacité)
+      // (it. 1853) compétences des monstres (monskills.js) : un son court par compétence (extra = id)
+      case "monSkill":
+        if (this.throttle("ms-" + extra, 600)) switch (extra) {
+          case "leap": this.tone(220, 0, 0.16, "sine", 0.14, 2.4); this.tone(140, 0.2, 0.1, "triangle", 0.12, 0.6); break; // boing, puis plat
+        }
+        break;
       case "bossSkill":
         if (this.throttle("bs-" + extra, 1000)) switch (extra) {
           case "enrage": this.tone(90, 0, 0.35, "sawtooth", 0.3, 0.6); this.noise(0, 0.2, 0.2); break; // grondement
@@ -516,6 +522,7 @@ export class Sound {
     game.on("unlock", () => this.play("chest"));
     game.on("smash", () => this.play("smash"));
     game.on("bossSkill", ({ id }) => { if (id !== "smash") this.play("bossSkill", id); }); // smash a déjà son coup
+    game.on("monSkill", ({ id, phase }) => { if (phase === "go") this.play("monSkill", id); }); // (it. 1853)
     game.on("event", ({ id }) => { if (this.enabled && this.ensure()) this.eventSound(id); });
     // Étoile filante : sifflement qui descend à son passage ; petite chute de deux notes si elle s'échappe.
     game.on("star", () => { if (this.enabled && this.ensure()) { this.whoosh(0, 0.9, 5000, 1500, 0.35, 4); this.tone(NOTES.E6 * 2, 0, 0.5, "sine", 0.08, 0.5); } });

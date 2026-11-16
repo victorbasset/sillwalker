@@ -1952,4 +1952,11 @@ export default {
   3077: "Steigt aus der Asche!",
   3078: "Finsternis!",
   3079: "Zerbrochener Himmel!",
+  3080: "Klebriger Sprung",
+  3081: "Alle 6 s zieht er sich zusammen und springt auf den Helden: ein Treffer mit 140 % seines Angriffs.",
+  3082: "Sprung!",
+  3083: "Glühend: Dieser Treffer schlägt 20 % härter zu.",
+  3084: "Eisig: Dieser Treffer friert den Helden 1,5 s ein (langsamere Angriffe).",
+  3085: "Giftig: Dieser Treffer vergiftet den Helden 3 s lang.",
+  3086: "Finster: Dieser Treffer verflucht den Helden 2 s lang.",
 };

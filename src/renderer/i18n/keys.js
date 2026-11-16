@@ -3081,5 +3081,12 @@ export const KEYS = [
   "Enchaîné !",
   "Renaît des cendres !",
   "Éclipse !",
-  "Ciel brisé !"
+  "Ciel brisé !",
+  "Bond gluant",
+  "Toutes les 6 s, se ramasse puis bondit sur le héros : un coup à 140 % de son attaque.",
+  "Bond !",
+  "Brûlant : ce coup frappe 20 % plus fort.",
+  "Glacé : ce coup gèle le héros 1,5 s (attaques ralenties).",
+  "Toxique : ce coup empoisonne le héros 3 s.",
+  "Ténébreux : ce coup maudit le héros 2 s."
 ];
