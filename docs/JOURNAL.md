@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1721, revue générale) : simulation 12 h graine 61 : gardien stellaire 67, berserker 66, prêtresse 65 ; perf:linux
+  bande 18,4 %, panneau 19,4 %, mini 5,7 % ; Journal en anglais coloré (légendaire en or, œufs en vert) et Quêtes (ru)
+  propres ; polonais sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1720) : « Quoi de neuf », édition 113 (couleurs du Journal dans toutes les langues, bonus doublé sur la carte du familier,
   précision sans familier actif) ; 10 langues. Clés 3033-3035. npm test 324, autotest 246/246.
 - 2026-11-16 (it. 1719) : « Hache du bourreau » en français dans une ligne anglaise (test hors du jeu de l'it. 1715) : pas un défaut,
