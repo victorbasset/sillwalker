@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1701, revue générale) : simulation 12 h graine 41 : rôdeur 62, barde 67, lancier 69 ; perf:linux bande
+  18,3 %, panneau 19,1 %, mini 5,5 % ; Bestiaire > Bénédictions (fr, 4 / 17) et Familiers (pl) propres ; chinois sans mot
+  français. Rien à corriger.
 - 2026-11-16 (it. 1700) : 17e bénédiction du jour, « Jour des familiers » 🐾 (bonus du familier actif ×2 ; aucune ne touchait les
   familiers) ajoutée à la FIN : premier jour le 22/11 (ni aujourd'hui ni demain ; calendrier annoncé inchangé, tests) ;
   réplique du héros ; 10 langues (polonais « pupile » comme l'onglet). Test « Jour des familiers » ; npm test 322,
