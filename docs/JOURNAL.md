@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1808, contrôle) : les quatre sortes de duo en combat sur la bande : tireur derrière un combattant (it. 1802),
+  deux combattants (it. 1807), mage + samouraï (compagnon devant, séparés), mage + rôdeur (rôdeur entier derrière, arc qui
+  passe derrière le mage) : tous lisibles.
 - 2026-11-16 (it. 1807, suite de la demande de Victor) : deux combattants au corps à corps (guerrier + samouraï) se tenaient au même
   point de contact et se cachaient l'un l'autre : le compagnon se tient 20 px en retrait et passe derrière le héros
   (.actor.hero.partner, z-index 1) : les deux lisibles, le héros entier. Captures ; npm test 333, autotest 250/250.
