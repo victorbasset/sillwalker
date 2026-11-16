@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1593) : bande à 1280 px (fr, ru) : zone, barre de vie du héros (celle du monstre s'efface faute de place,
+  comme prévu), nom du boss, or, niveau et sa jauge tiennent sans se chevaucher ; nombres de dégâts sous la rangée.
 - 2026-11-16 (it. 1592) : brouillon du devlog 0.1.5 (docs/devlog-0.1.5-brouillon.md, fr et en) ; proposé à Victor (POUR-VICTOR).
 - 2026-11-16 (it. 1591, revue générale) : simulation 12 h graine 11 : paladin 69, lancier 67, chaman 64 ; perf:linux bande
   18,0 %, panneau 19,8 %, mini 5,7 % ; Aventure (pt) et Réglages (ja) propres ; japonais sans texte oublié (« pt » = points,
