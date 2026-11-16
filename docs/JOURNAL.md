@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1601, revue générale) : simulation 12 h graine 21 : cryomancien 65, gladiateur 66, prêtresse 65 ;
+  perf:linux bande 18,2 %, panneau 19,7 %, mini 5,6 % ; Quêtes (de) propres, nombres de dégâts sous la rangée du haut ;
+  coréen sans texte oublié. Rien à corriger.
 - 2026-11-16 (it. 1600) : --crawl (fr) après la fermeture automatique des coffres : 718 clics, aucune erreur.
 - 2026-11-16 (it. 1599) : fermeture automatique (4 s) étendue aux coffres de la boutique, et seulement quand il n'y a pas
   « Équiper maintenant » à décider (objet plus puissant : la fenêtre attend le joueur).
