@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1834, contrôle) : astuce « logimp » mise en scène en allemand (toutes les autres marquées vues, 5 000
+  monstres) : nextHint la propose et la bulle reçoit « Das Protokoll läuft zu schnell? Hake „Nur wichtige Zeilen“ an… »
+  (la capture --shot ne montre pas la bulle, connu) ; brouillon du devlog 0.1.6 complété.
 - 2026-11-16 (it. 1833) : astuce « logimp » : le filtre du Journal (it. 1723) restait à découvrir ; une fois 2 000 monstres vaincus,
   onglet Statistiques ouvert et case pas cochée, la bulle cite « Lignes importantes seulement » (Statistiques > Journal) et
   ouvre le Journal au clic. Clé 3062 (10 langues, i18n-quotes et i18n-paths : 0 écart) ; aucune astuce coupée (de, ru, pl,
