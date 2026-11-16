@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1699) : save-fuzz après la migration des volumes (it. 1679) : dev ok (1 253), fin ok (1 211), 0.1.2 ok (1 155).
 - 2026-11-16 (it. 1698) : devlog 0.1.5 : le dernier point (partie neuve sans fenêtre des nouveautés, clic sur le rebord d'un bouton)
   manquait dans 8 langues (9 points contre 10 en fr et en) : ajouté ; page itch régénérée, 10 points partout.
 - 2026-11-16 (it. 1697) : devlog 0.1.5 (brouillon et page itch) : point « Aventure plus aérée » (équipement avant le sac, sac à 16
