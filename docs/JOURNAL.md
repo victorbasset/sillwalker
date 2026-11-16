@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1754, contrôle) : textes de Poupouce après son changement : résumé d'absence (« Poupouce vaincus »), succès
+  (nom seul), Statistiques > Moments rares (chance affichée « 0,1 % », avec la bénédiction du jour) : tous justes.
 - 2026-11-16 (it. 1753) : mode mini : l'arrivée de Poupouce (« ✦ C’est… Poupouce ?! ») et les Statistiques complètes s'affichent
   en moment (la réplique du héros n'existait que sur la bande) ; textes déjà traduits. Captures fr, de (deux lignes) ;
   npm test 330, autotest 248/248.
