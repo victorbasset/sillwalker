@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1711, revue générale) : simulation 12 h graine 51 : nécromancien 62, danseuse de lames 66, artificier 65 ;
+  perf:linux bande 18,2 %, panneau 19,3 %, mini 5,6 % ; mode mini (ko) et Aventure (es, « Vida » sur une ligne) propres ;
+  allemand sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1710) : POUR-VICTOR : résumé de l'après-midi (it. 1691-1709).
 - 2026-11-16 (it. 1709) : les 350 / 350 de la semaine (it. 1708) : un palier, l'écho du lieutenant en zone 350 (4-6 dernières courses à
   349-350) ; en 2e semaine (336 h, guerrier) il est franchi : 380 → 419. Pas de plafond ; CLAUDE.md précisé.
