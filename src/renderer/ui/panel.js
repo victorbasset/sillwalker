@@ -175,7 +175,13 @@ export class Panel {
       class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game), map: new MapTab(game),
       settings: new SettingsTab(game, settings),
     };
-    this.tabs.quests.onReveal = ({ item, min }) => { this.renderAll(); this.revealChest(min >= 3 ? "chest_royal" : min >= 2 ? "chest_iron" : "chest_wood", item); };
+    this.tabs.quests.onReveal = ({ item, min }) => {
+      this.renderAll(); this.revealChest(min >= 3 ? "chest_royal" : min >= 2 ? "chest_iron" : "chest_wood", item);
+      // (it. 1598, Victor limite les clics) le coffre d'une quête se referme seul après 4 s (pas sous la souris)
+      const m = $(this.root, "#modal"), body = $(this.root, "#mbody .reveal");
+      clearTimeout(this.revealT);
+      this.revealT = setTimeout(() => { if (!m.hidden && $(this.root, "#mbody .reveal") === body && !m.matches(":hover")) m.hidden = true; }, 4000);
+    };
     this.dirty = true;
     this.isOpen = false;
     this.uiT = 0;

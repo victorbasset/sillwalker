@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1598) : le coffre d'une quête ouvert sous les yeux se referme seul après 4 s (sauf souris dessus) : l'animation
+  sans clic de plus (Victor limite les clics) ; Entrée équipe toujours, Échap ferme.
 - 2026-11-16 (it. 1597) : l'astuce de l'expérience vaut jusqu'au niveau 12 (6 avant) : bienvenue, objet plus puissant et
   talent passent souvent avant elle (vu à l'it. 1596) et elle risquait de ne jamais sortir.
 - 2026-11-16 (it. 1596) : partie neuve en anglais, captures à 20 s, 70 s, 2 min : histoire, puis « Welcome… », puis l'objet plus
