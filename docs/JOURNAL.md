@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1813, contrôle) : --crawl en portugais (675 clics en 21 s, aucune erreur) ; texte affiché sans mot français ni
+  {n}, undefined ou NaN.
 - 2026-11-16 (it. 1812, contrôle) : scène la plus chargée (nécromancien + serviteur squelette + arbalétrier compagnon + familier) :
   chacun reste lisible (arbalétrier entier derrière, squelette devant le héros).
 - 2026-11-16 (it. 1811, revue générale) : simulation 12 h graine 141 : samouraï 69, arbalétrier 62, barde 69 ; perf:linux bande
