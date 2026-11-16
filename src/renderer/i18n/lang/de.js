@@ -1913,4 +1913,7 @@ export default {
   3038: "Das Protokoll deines Abenteuers; Rekorde und Erfolge kommen später.",
   3039: "{0} besiegt: {1} Gold und ein legendärer Gegenstand!",
   3040: "Extrem selten, überall. Massenhaft Gold und ein legendärer Gegenstand.",
+  3041: "Poupouce ist jetzt eine weiße Katze mit schwarzen Flecken: extrem selten, lässt massenhaft Gold und einen legendären Gegenstand fallen.",
+  3042: "Protokoll: Kästchen „Nur wichtige Zeilen“ und ein Symbol vor jeder wichtigen Zeile (★ legendär, ◆ episch…).",
+  3043: "Das Protokoll gibt es ab Zone 3 (Statistiken), ohne auf Zone 40 zu warten.",
 };

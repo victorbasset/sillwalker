@@ -1913,4 +1913,7 @@ export default {
   3038: "El Diario de tu aventura; los récords y logros llegarán más tarde.",
   3039: "{0} derrotado: ¡{1} de oro y un objeto legendario!",
   3040: "Rarísimo, en cualquier lugar. Montones de oro y un objeto legendario.",
+  3041: "Poupouce ahora es un gato blanco con manchas negras: rarísimo, deja muchísimo oro y un objeto legendario.",
+  3042: "Diario: casilla «Solo líneas importantes» y un símbolo delante de cada línea importante (★ legendario, ◆ épico…).",
+  3043: "El Diario está disponible desde la zona 3 (Estadísticas), sin esperar a la zona 40.",
 };

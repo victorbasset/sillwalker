@@ -1913,4 +1913,7 @@ export default {
   3038: "Dziennik twojej przygody; rekordy i osiągnięcia pojawią się później.",
   3039: "{0} pokonany: {1} złota i legendarny przedmiot!",
   3040: "Niezwykle rzadki, wszędzie. Mnóstwo złota i legendarny przedmiot.",
+  3041: "Poupouce to teraz biały kot w czarne łaty: niezwykle rzadki, zostawia mnóstwo złota i legendarny przedmiot.",
+  3042: "Dziennik: pole „Tylko ważne wiersze” i symbol przed każdym ważnym wierszem (★ legendarne, ◆ epickie…).",
+  3043: "Dziennik jest dostępny od strefy 3 (Statystyki), bez czekania na strefę 40.",
 };

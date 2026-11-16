@@ -1913,4 +1913,7 @@ export default {
   3038: "Your adventure's Log; records and achievements will come later.",
   3039: "{0} defeated: {1} gold and a legendary item!",
   3040: "Extremely rare, anywhere. Heaps of gold and a legendary item.",
+  3041: "Poupouce is now a white cat with black spots: extremely rare, it drops heaps of gold and a legendary item.",
+  3042: "Log: “Important lines only” box and a symbol before each important line (★ legendary, ◆ epic…).",
+  3043: "The Log is available from zone 3 (Statistics), no need to wait for zone 40.",
 };

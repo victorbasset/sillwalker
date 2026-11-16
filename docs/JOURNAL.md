@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1733) : « Quoi de neuf », édition 114 (Poupouce en chat, Journal : lignes importantes et symboles, Journal dès la
+  zone 3) ; 10 langues, clés 3041-3043. npm test 328, autotest 247/247.
 - 2026-11-16 (it. 1732) : Poupouce au Bestiaire : ceux vaincus avant l'it. 1730 (stats.poupouce) comptent pour sa carte (migrate,
   sans changer SAVE_VERSION) : une collection complète ne se défait pas à la mise à jour. Choix par défaut en attendant
   l'avis de Victor (POUR-VICTOR). Test ; save-fuzz ok (1253), npm test 328, autotest 247/247.
