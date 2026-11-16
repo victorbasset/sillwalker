@@ -1936,4 +1936,5 @@ export default {
   3061: "Mage: a bit more health.",
   3062: "Log scrolling too fast? Tick “Important lines only” (Statistics > Log): it keeps only legendaries, records and events.",
   3063: "Log scrolling too fast? Tick “Important lines only” (Statistics > Log): it keeps only rare loot, events, quests and your hero’s falls.",
+  3064: "★ legendary · ◆ epic · ✦ rare loot and events · ✓ quests, eggs, expeditions · ⚑ milestones · ⚠ hero falls",
 };

@@ -3065,5 +3065,6 @@ export const KEYS = [
   "Assassin : plus de défense (il tombait deux fois plus souvent que les autres héros).",
   "Mage : un peu plus de points de vie.",
   "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que légendaires, records et événements.",
-  "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que le butin rare, les événements, les quêtes et les chutes du héros."
+  "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que le butin rare, les événements, les quêtes et les chutes du héros.",
+  "★ légendaire · ◆ épique · ✦ butin rare et événements · ✓ quêtes, œufs, expéditions · ⚑ grandes étapes · ⚠ chutes du héros"
 ];

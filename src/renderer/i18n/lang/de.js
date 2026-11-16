@@ -1936,4 +1936,5 @@ export default {
   3061: "Magier: etwas mehr Lebenspunkte.",
   3062: "Das Protokoll läuft zu schnell? Hake „Nur wichtige Zeilen“ an (Statistiken > Protokoll): Es zeigt nur Legendäres, Rekorde und Ereignisse.",
   3063: "Das Protokoll läuft zu schnell? Hake „Nur wichtige Zeilen“ an (Statistiken > Protokoll): Es zeigt nur seltene Beute, Ereignisse, Quests und die Niederlagen deines Helden.",
+  3064: "★ legendär · ◆ episch · ✦ seltene Beute und Ereignisse · ✓ Quests, Eier, Expeditionen · ⚑ Meilensteine · ⚠ Niederlagen des Helden",
 };

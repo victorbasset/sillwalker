@@ -1936,4 +1936,5 @@ export default {
   3061: "Mago: algo más de vida.",
   3062: "¿El diario va muy rápido? Marca «Solo líneas importantes» (Estadísticas > Diario): solo guarda legendarios, récords y eventos.",
   3063: "¿El diario va muy rápido? Marca «Solo líneas importantes» (Estadísticas > Diario): solo guarda el botín raro, los eventos, las misiones y las caídas del héroe.",
+  3064: "★ legendario · ◆ épico · ✦ botín raro y eventos · ✓ misiones, huevos, expediciones · ⚑ grandes etapas · ⚠ caídas del héroe",
 };

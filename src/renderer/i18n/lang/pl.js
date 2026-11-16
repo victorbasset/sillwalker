@@ -1936,4 +1936,5 @@ export default {
   3061: "Mag: trochę więcej punktów życia.",
   3062: "Dziennik przewija się za szybko? Zaznacz „Tylko ważne wiersze” (Statystyki > Dziennik): zostaną tylko legendarne przedmioty, rekordy i wydarzenia.",
   3063: "Dziennik przewija się za szybko? Zaznacz „Tylko ważne wiersze” (Statystyki > Dziennik): zostaną tylko rzadkie łupy, wydarzenia, zadania i upadki bohatera.",
+  3064: "★ legendarne · ◆ epickie · ✦ rzadkie łupy i wydarzenia · ✓ zadania, jaja, wyprawy · ⚑ kamienie milowe · ⚠ upadki bohatera",
 };

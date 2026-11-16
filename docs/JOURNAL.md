@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1838) : légende des symboles du Journal au survol de la case « Lignes importantes seulement » (★ ◆ ✦ ✓ ⚑ ⚠ ;
+  aucune légende avant). Clé 3064, 10 langues, noms de rareté repris tels que traduits (japonais « レジェンド »).
+  npm test 336, autotest 253/253.
 - 2026-11-16 (it. 1837) : Journal, 6e catégorie « lg-mile » (⚑, couleur --accent) : relique obtenue ou renforcée, ascension, héros
   libéré, Briseur d'Étoiles vaincu, nouvelle bénédiction, première panoplie, déblocage, guilde, talent ultime, sort appris ;
   ces étapes étaient écartées par le filtre « Lignes importantes seulement ». Motifs vérifiés en fr, en, zh, ja, ko, ru ;
