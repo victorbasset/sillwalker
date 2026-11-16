@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1770) : steam/itch/page-itch.md : réponses au formulaire de classification itch.io (entrées, durée, langues,
+  accessibilité, contenu) et emplacement des images promotionnelles.
 - 2026-11-16 (it. 1769) : CLAUDE.md : images promotionnelles itch.io et couverture de devlog régénérables par steam-capsules/make.js.
 - 2026-11-16 (it. 1768, demande de Victor) : images promotionnelles itch.io (steam/itch/promo-images, Médias/dist-itch/promo) :
   réseaux sociaux 1200 × 630, favicon 512 × 512, couverture large 2520 × 1080 (21:9), logo transparent 1002 × 208 (recadré,
