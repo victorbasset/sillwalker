@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1836) : l'astuce « logimp » promettait « légendaires, records et événements » : le filtre ne gardait ni les
+  bilans d'événements, ni leurs découvertes, ni les records. Bilan de fin d'événement, « Événement découvert » et nouvelle
+  sorte d'élite passent dans lg-rare (motif traduit vérifié dans les 9 langues) ; astuce reformulée (« butin rare, événements,
+  quêtes et chutes du héros », clé 3063, la 3062 ne sert plus). Test ; npm test 335, autotest 253/253, aucune astuce coupée.
 - 2026-11-16 (it. 1835, contrôle) : la bulle manquait sur les captures de l'it. 1834 ; mesurée (visible, opacité 1, 38 px
   au-dessus de la bande) puis capturée : l'astuce « logimp » s'affiche sur une ligne en allemand (981 px). Pour une capture
   d'astuce : dans le --stage, __clearToasts() puis __checkHints() à 12 s, --shot-delay=14000. Rien à corriger dans le jeu.

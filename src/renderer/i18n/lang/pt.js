@@ -1935,4 +1935,5 @@ export default {
   3060: "Assassino: mais defesa (caía duas vezes mais que os outros heróis).",
   3061: "Mago: um pouco mais de vida.",
   3062: "O diário passa rápido demais? Marque «Só linhas importantes» (Estatísticas > Diário): ele guarda só lendários, recordes e eventos.",
+  3063: "O diário passa rápido demais? Marque «Só linhas importantes» (Estatísticas > Diário): ele guarda só o saque raro, os eventos, as missões e as quedas do herói.",
 };

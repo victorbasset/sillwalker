@@ -11,7 +11,9 @@ const LOG_KEYS = [
   ["lg-leg", ["Nouveau pouvoir légendaire découvert : {0} !", "{0} vaincu : {1} or et un objet légendaire !"], [LEGENDARY]],
   ["lg-rare", ["Champion vaincu : {0} or et un butin épique !", "Coffre au trésor ! +{0} or", "Étoile filante attrapée ! +{0} or",
     "Étoile filante attrapée : +{0} or !", ": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", ": +{0} % de vitesse pour toujours ! (+{1} %)",
-    "Plume du vent"], []],
+    "Plume du vent",
+    // (it. 1836) événements : bilan de fin, découverte d'un nouvel événement ou d'une nouvelle sorte d'élite
+    "{0} · bilan : {1}", "Événement découvert : {0} pour toujours ({1} / {2}).", "Nouvelle sorte d’élite vaincue : {0} ({1} / {2}), {3} pour toujours."], []],
   ["lg-epic", [], [3]],
   ["lg-good", ["Quête accomplie ! Récompense à réclamer.", "revient de {0} : +{1} or{2}{3} !", "L’œuf éclot : {0} !", "L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", "Un œuf !"], []],
   ["lg-bad", ["Ton héros est tombé. La progression de la zone repart à zéro.", "Trop dur : ton héros recule vers ", "Dernière potion de soin bue : passe à la boutique !", "K.O.", "Le légendaire de Poupouce est resté au sol : sac plein."], []],

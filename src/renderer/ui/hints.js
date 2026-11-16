@@ -90,7 +90,7 @@ export const HINTS = [
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
     when: (g) => (g.S.speed || 0) > 0 && statsFull(g.S) }, // (it. 1729) chiffres visibles à partir de la zone 40
   // (it. 1833) le filtre du Journal (it. 1723) restait à découvrir : une fois le journal bien rempli
-  { id: "logimp", tab: "stats", sec: "log", text: tx("Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que légendaires, records et événements."),
+  { id: "logimp", tab: "stats", sec: "log", text: tx("Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que le butin rare, les événements, les quêtes et les chutes du héros."),
     when: (g) => tabOpen(g.S, "stats") && (g.S.stats.kills || 0) >= 2000 && !g.S.settings.logImportant },
 ];
 

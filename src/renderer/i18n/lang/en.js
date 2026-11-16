@@ -1935,4 +1935,5 @@ export default {
   3060: "Assassin: more defense (it fell twice as often as the other heroes).",
   3061: "Mage: a bit more health.",
   3062: "Log scrolling too fast? Tick “Important lines only” (Statistics > Log): it keeps only legendaries, records and events.",
+  3063: "Log scrolling too fast? Tick “Important lines only” (Statistics > Log): it keeps only rare loot, events, quests and your hero’s falls.",
 };

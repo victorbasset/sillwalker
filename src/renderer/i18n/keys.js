@@ -3064,5 +3064,6 @@ export const KEYS = [
   "Duo : deux combattants au corps à corps, ou un compagnon et le serviteur du nécromancien, ne se cachent plus l’un l’autre.",
   "Assassin : plus de défense (il tombait deux fois plus souvent que les autres héros).",
   "Mage : un peu plus de points de vie.",
-  "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que légendaires, records et événements."
+  "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que légendaires, records et événements.",
+  "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que le butin rare, les événements, les quêtes et les chutes du héros."
 ];
