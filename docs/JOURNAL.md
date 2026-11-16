@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1605) : Poupouce a un contour rose dessiné dans l'image (comme les élites : aucun coût de rendu), assorti à son
+  étiquette ; vérifié en capture.
 - 2026-11-16 (it. 1604) : l'ouverture animée d'un coffre (boutique, quête) joue la petite fanfare des coffres (événement
   « chestOpen » : le son seul, sans la secousse de la bande des coffres du chemin).
 - 2026-11-16 (it. 1603) : joueur absent (IDLE=1, guerrier, 12 h) : record 15 à 12 h, niveau 46 (repère it. 698 : 15-16) : inchangé.
