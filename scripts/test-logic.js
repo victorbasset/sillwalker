@@ -3388,6 +3388,16 @@ test("Tico (Statistiques) : avant la zone 40, aucune réplique sur les records, 
   assert.ok(Array.from({ length: npc.lines.length }, (_, k) => npcLine1739(npc, k * 30000)).some((l) => /carnet/.test(l)), "toutes ensuite");
 });
 
+test("Statistiques complètes à la zone 40 : annoncées une fois, pas pour une partie déjà au-delà (it. 1740)", () => {
+  const g = new Game(freshState()); let n = 0; g.on("statsFull", () => n++);
+  g.S.tabsOpen = { stats: true }; g.S.best = 39; g.R.tabT = 1; g.step(0.01); assert.equal(n, 0, "zone 39 : rien");
+  g.S.best = 40;
+  for (let i = 0; i < 3; i++) { g.R.tabT = 1; g.step(0.01); }
+  assert.equal(n, 1, "une annonce"); assert.equal(g.S.tabsOpen.stats, "new", "pastille");
+  const o = JSON.parse(JSON.stringify(freshState())); delete o.statsFullSeen; o.best = 80;
+  assert.equal(migrate(o).statsFullSeen, true, "ancienne partie : déjà vu");
+});
+
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
   const P = freshState().settings;
   assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");

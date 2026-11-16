@@ -622,6 +622,12 @@ async function boot() {
     showToast(`✦ ${tx("Grand graphe complet ! Chaque point de compétence en plus donne désormais +0,1 % d’attaque et de PV.")}`, () => { openPanel(); panel.setTab("skills"); }, 12000);
     panel.dirty = true;
   });
+  // (it. 1740) Statistiques complètes (zone 40) : l'onglet était déjà ouvert pour le Journal
+  game.on("statsFull", () => {
+    sound.play("tab");
+    showToast(`✦ ${tx("Statistiques complètes : records, succès et carnet de route sont là !")}`, () => { openPanel(); panel.tabs.stats.sec = "numbers"; panel.setTab("stats"); }, 10000);
+    panel.dirty = true;
+  });
   game.on("tabOpen", ({ ids }) => {
     sound.play("tab");
     for (const id of ids) {

@@ -1916,4 +1916,5 @@ export default {
   3041: "Poupouce ahora es un gato blanco con manchas negras: rarísimo, deja muchísimo oro y un objeto legendario.",
   3042: "Diario: casilla «Solo líneas importantes» y un símbolo delante de cada línea importante (★ legendario, ◆ épico…).",
   3043: "El Diario está disponible desde la zona 3 (Estadísticas), sin esperar a la zona 40.",
+  3044: "Estadísticas completas: ¡ya están los récords, logros y cuaderno de viaje!",
 };

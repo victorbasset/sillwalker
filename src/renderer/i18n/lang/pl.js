@@ -1916,4 +1916,5 @@ export default {
   3041: "Poupouce to teraz biały kot w czarne łaty: niezwykle rzadki, zostawia mnóstwo złota i legendarny przedmiot.",
   3042: "Dziennik: pole „Tylko ważne wiersze” i symbol przed każdym ważnym wierszem (★ legendarne, ◆ epickie…).",
   3043: "Dziennik jest dostępny od strefy 3 (Statystyki), bez czekania na strefę 40.",
+  3044: "Pełne Statystyki: rekordy, osiągnięcia i dziennik podróży już są!",
 };

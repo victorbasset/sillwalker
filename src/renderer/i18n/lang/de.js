@@ -1916,4 +1916,5 @@ export default {
   3041: "Poupouce ist jetzt eine weiße Katze mit schwarzen Flecken: extrem selten, lässt massenhaft Gold und einen legendären Gegenstand fallen.",
   3042: "Protokoll: Kästchen „Nur wichtige Zeilen“ und ein Symbol vor jeder wichtigen Zeile (★ legendär, ◆ episch…).",
   3043: "Das Protokoll gibt es ab Zone 3 (Statistiken), ohne auf Zone 40 zu warten.",
+  3044: "Statistiken komplett: Rekorde, Erfolge und Logbuch sind da!",
 };

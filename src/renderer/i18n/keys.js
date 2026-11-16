@@ -3045,5 +3045,6 @@ export const KEYS = [
   "Extrêmement rare, partout. Or à foison et un objet légendaire.",
   "Poupouce est maintenant un chat blanc tacheté de noir : extrêmement rare, il laisse énormément d’or et un objet légendaire.",
   "Journal : case « Lignes importantes seulement » et un symbole devant chaque ligne importante (★ légendaire, ◆ épique…).",
-  "Le Journal est là dès la zone 3 (Statistiques), sans attendre la zone 40."
+  "Le Journal est là dès la zone 3 (Statistiques), sans attendre la zone 40.",
+  "Statistiques complètes : records, succès et carnet de route sont là !"
 ];

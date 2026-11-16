@@ -13,7 +13,7 @@ import { RELICS, RELIC_IDS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBos
 /** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
 const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
 import { itemName } from "../i18n/data.js";
-import { openTabs, tabReady, eggsAllowed, fixQuestEgg } from "./tabs.js";
+import { openTabs, tabReady, eggsAllowed, fixQuestEgg, statsFull } from "./tabs.js";
 import { takeNewChronicles, FINAL_BOSS, isFinalZone, storyWon } from "./story.js";
 const JOURNEY_MAX = 120, JOURNEY_LEVELS = [10, 25, 50, 100, 250, 500, 1000, 2000, 5000];
 /** Record de zone noté au carnet : tous les 5 jusqu'à la zone 50, puis tous les 10. */
@@ -242,6 +242,9 @@ export class Game {
     R.time += dt;
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
     if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh }); // (it. 1105) le grand graphe s'ouvre : annoncé une fois
+      // (it. 1740) Statistiques ouvert tôt pour le Journal (it. 1729) : chiffres, succès et carnet de route arrivent à la zone 40,
+      // annoncés une fois (pastille « new » de l'onglet et bulle)
+      if (!this.S.statsFullSeen && statsFull(this.S)) { this.S.statsFullSeen = true; if (this.S.tabsOpen && this.S.tabsOpen.stats) { this.S.tabsOpen.stats = "new"; this.emit("statsFull"); } }
       // (it. 1117) déjà rempli (ancienne partie) : pas de « N points à y dépenser », l'annonce du graphe complet suit
       if (!this.S.skills.graphSeen && flowerComplete(this.S)) { this.S.skills.graphSeen = true; if ((this.S.skills.outer || []).length < GRAPH_MAX_TAKE) this.emit("graphOpen", { points: graphPointsFree(this.S) }); }
       // (it. 1117) grand graphe rempli (une voie par région) : annoncé une fois, les points suivants deviennent un bonus

@@ -1916,4 +1916,5 @@ export default {
   3041: "Poupouce is now a white cat with black spots: extremely rare, it drops heaps of gold and a legendary item.",
   3042: "Log: “Important lines only” box and a symbol before each important line (★ legendary, ◆ epic…).",
   3043: "The Log is available from zone 3 (Statistics), no need to wait for zone 40.",
+  3044: "Full Statistics: records, achievements and logbook are here!",
 };

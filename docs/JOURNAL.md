@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1740) : tab-pace : Statistiques s'ouvre à 2-3 min (entre Talents 1 min et Quêtes 5 min). Le passage aux
+  Statistiques complètes (zone 40) est maintenant annoncé une fois : bulle « Statistiques complètes : records, succès et carnet de
+  route sont là ! » (clic : Chiffres), son, pastille de l'onglet (S.statsFullSeen, déjà vu pour une partie au-delà de la zone 40).
+  Clé 3044, test ; save-fuzz ok (1260), npm test 330, autotest 247/247, capture (de).
 - 2026-11-16 (it. 1739) : Tico (PNJ de Statistiques) parlait de records, succès et carnet de route quand l'onglet ne montre que
   le Journal (avant la zone 40, it. 1729 ; vu en capture) : répliques du début choisies (npcs.js, early). Test ; npm test 329,
   autotest 247/247.

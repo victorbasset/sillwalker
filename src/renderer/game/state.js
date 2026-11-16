@@ -69,6 +69,7 @@ export function freshState(now = Date.now()) {
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
     tabsOpen: {},
+    statsFullSeen: false,   // (it. 1740) déblocage complet des Statistiques (zone 40) déjà annoncé
     story: { intro: false, read: { sky: true }, won: false }, // « sky » : c'est l'intro // histoire (story.js) : intro vue, chroniques annoncées
     journey: [],            // carnet de route : grandes étapes datées [{ t, k: lvl|zone|leg|cls|asc, v }] (game.milestone)           // onglets du panneau déjà ouverts { id: true | "new" } (tabs.js : déblocage progressif)
     setsDone: {},           // panoplies complétées (4 pièces portées) au moins une fois { id: true }, voir codex.js
@@ -231,6 +232,8 @@ export function migrate(raw) {
   // valeur par défaut, sinon il se propagerait (éclats, réputation, statistiques…) et pourrait bloquer la partie.
   // Onglets progressifs, apparus après coup : tout ce que le joueur connaissait déjà reste ouvert.
   if (!isObj(o.tabsOpen)) seedTabs(s);
+  // (it. 1740) partie déjà au-delà de la zone 40 : rien à annoncer
+  if (typeof o.statsFullSeen !== "boolean") s.statsFullSeen = Math.max(s.best || 1, (s.prestige && s.prestige.bestRun) || 0) >= 40;
   s.journey = Array.isArray(s.journey) ? s.journey.filter((e) => isObj(e) && Number.isFinite(e.t) && typeof e.k === "string").slice(-120) : [];
   // Histoire apparue après coup : une partie déjà entamée ne revoit pas l'intro surgir (relisible dans les Chroniques).
   if (!isObj(o.story)) {
