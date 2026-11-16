@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1588) : semaine simulée : fausse alerte (« mage 285-307 ») ; le tableau des courses en compte plus de 40 et
+  mes lectures (grep -A30, et la dichotomie qui s'en servait) s'arrêtaient vers la 30e : la dernière course atteint 349,
+  comme le repère (350). Simulation vérifiée déterministe (deux exécutions identiques). Leçon dans CLAUDE.md.
 - 2026-11-16 (it. 1587) : édition 105 de « Quoi de neuf » : morceau gardé (📌), Jour de Poupouce, succès « Poupouce ?! » ;
   9 langues, chemin « Réglages > Son » vérifié par i18n-paths, lang-overflow propre.
 - 2026-11-16 (it. 1586) : 16e bénédiction du jour, « Jour de Poupouce » 🍄 (Poupouce ×10), ajoutée à la FIN : le 16 et le 17/11
