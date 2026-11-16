@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1684) : demande de Victor : la bande originale en MP3 dans le dépôt (steam/promo/bande-originale : les 4 versions
+  finales, ≈ 18 Mo, avec un LISEZMOI ; les essais intermédiaires restent sur le partage).
 - 2026-11-16 (it. 1683) : perf:linux après la nouvelle Aventure (sac 16 colonnes, ResizeObserver de l'en-tête) : bande 18,1 %, panneau
   19,7 %, mini 5,5 % ; inchangé.
 - 2026-11-16 (it. 1682) : README : le Journal dans Statistiques > Journal, l'Aventure en quatre colonnes (héros, équipement, sac, zone).

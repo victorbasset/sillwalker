@@ -1,0 +1,9 @@
+Sillwalker — bande originale (4 morceaux composés pour le jeu, un par tranche de 50 zones)
+
+01-le-rebord.mp3             zones 1-50     82 bpm   lofi chaleureux, le leitmotiv à la flûte
+02-sentiers-d-etoiles.mp3    zones 51-100   92 bpm   aventure, guitare et « puce »
+03-les-lieutenants.mp3       zones 101-150  96 bpm   épique sombre, timbales, cordes et chœur (musique des bandes-annonces)
+04-le-briseur-d-etoiles.mp3  zones 151-200  108 bpm  final synthwave galactique
+
+Chaque morceau boucle sans couture (≈ 2 min 20). Masterisés à −16 LUFS, MP3 256 kbit/s.
+Le jeu lit les mêmes morceaux en Opus (src/renderer/assets/music/). Partitions et rendu : scripts/music/, docs/MUSIQUE.md.
