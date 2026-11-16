@@ -13,7 +13,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Musique : bulle « ♪ » au changement de morceau, 📌 pour garder son morceau, morceau libéré de la mémoire (bande cachée,
   curseur à 0 %), bande-annonce branchée sur la bande originale (le montage reste à refaire : voir plus bas).
 - Contenu : 11e élite, le Colossal (taille de boss), succès « Tombeur de colosses » ; éditions 102 à 107 de « Quoi de neuf ».
-- À décider : sortir la 0.1.5 (devlog prêt, 10 langues : docs/devlog-0.1.5-brouillon.md) ; refaire la bande-annonce sur la
+- À décider : sortir la 0.1.5 (devlog prêt, 10 langues : docs/devlog-0.1.5-brouillon.md, et sa version HTML pour itch : steam/itch/devlog-0.1.5.html) ; refaire la bande-annonce sur la
   nouvelle musique ; déclarer POUPOUCE et COLOSSAL_25 dans Steamworks.
 ## Steamworks (si la page ou les succès sont déjà saisis)
 

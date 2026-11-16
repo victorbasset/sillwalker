@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1635) : steam/itch/devlog-0.1.5.html prêt (anglais déplié, 9 langues repliées, comme la 0.1.4), tiré du brouillon.
 - 2026-11-16 (it. 1634) : mode mini vérifié en vrai : la bulle d'aide donne « Meilleure zone… / Expérience : 0 % / Bénédiction du jour… /
   Demain… » (it. 1573).
 - 2026-11-16 (it. 1633) : POUR-VICTOR : résumé de la nuit (it. 1546-1633) et décisions en attente.
