@@ -425,20 +425,20 @@ export class StripRenderer {
     // (it. 1562) le nom du boss s'étend vers la gauche au-dessus du héros : les nombres du héros (critiques, esquives),
     // loin du boss, montaient dessus ; ils l'évitent dès que le nom est affiché (combat du boss, ou boss en attente au
     // bout de la file)
-    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss || underHud ? y - (big ? 14 : 12) : -6, this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : null);
+    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss || underHud ? y - (big ? 14 : 12) : 0, this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : null);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
     // (it. 1591) sous une pastille du haut (près du boss aussi) : la montée s'arrête sous la rangée
-    // (it. 1641) ailleurs, un nombre empilé tout en haut (y ≈ −6) montait encore de 22 px et sortait de la fenêtre,
-    // coupé à moitié (revue en coréen) : sa montée s'arrête au bord
-    this.addFx(f, at.x, at.y, 1, underHud ? Math.max(4, Math.min(22, at.y - hb.h - 2)) : Math.max(4, Math.min(22, at.y + 6)));
+    // (it. 1641, 1651) ailleurs, un nombre empilé tout en haut montait encore de 22 px et sortait de la fenêtre, coupé à
+    // moitié (revues en coréen et en anglais) : il naît à y ≥ 0 et sa montée s'arrête 2 px au-dessus du bord au plus
+    this.addFx(f, at.x, at.y, 1, underHud ? Math.max(4, Math.min(22, at.y - hb.h - 2)) : Math.max(4, Math.min(22, at.y + 2)));
     const e = this.fx[this.fx.length - 1];
     e.box = { x: at.x, y: at.y, w, h };
   }
 
   /** Place la plus proche de (x, y) où un texte w × h (centré sur x) ne recouvre aucun nombre flottant récent. */
-  freeSpot(x, y, w, h, minY = -6, obs = null) {
+  freeSpot(x, y, w, h, minY = 0, obs = null) { // (it. 1651) 0 et non −6 : le nombre le plus haut naissait déjà coupé
     const live = this.fx.filter((f) => f.box && f.t < 0.7);
     if (!live.length && !obs?.length) return { x, y };
     // Obstacles fixes (nom du boss, relique) : le texte ne doit pas les toucher tant qu'il est bien visible, c'est-à-dire

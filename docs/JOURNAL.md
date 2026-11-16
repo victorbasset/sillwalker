@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1651, revue générale) : simulation 12 h graine 3 : paladin 68, cryomancien 67, arbalétrier 69 ; perf:linux
+  bande 18,5 %, panneau 19,0 %, mini 5,8 % ; Statistiques (en) et Aventure (zh) propres ; japonais : seuls les noms voulus
+  en latin. Vu en anglais : « Crit 107k » encore coupé en haut de la bande (it. 1641 incomplète : la place la plus haute
+  était y = −6, déjà hors de la fenêtre) : elle passe à 0 et la montée s'arrête 2 px au-dessus du bord au plus.
 - 2026-11-16 (it. 1650) : --crawl en polonais sur la partie de fin de partie : 695 clics en 22 s, aucune erreur.
 - 2026-11-16 (it. 1649) : son de Poupouce vaincu : la pluie de 4 pièces d'un champion (avant : 1, comme un monstre ordinaire).
   Bestiaire : rien à ajouter (Poupouce est une variante d'un monstre, compté sous son espèce). npm test, autotest 242/242.
