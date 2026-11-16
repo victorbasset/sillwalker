@@ -5,6 +5,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
+- **Bande-annonce et nouvelle musique (it. 1582)** : les vidéos de `steam/promo/videos/` (65 s, 30 s, verticale, 10 langues)
+  portent encore l'ancienne musique générée, et leur montage est calé sur son tempo (89 bpm). Les refaire sur la bande
+  originale (par exemple « Sentiers d'étoiles », 92 bpm, ou « Les Lieutenants », 96 bpm) demande de recaler les plans et
+  ajoute ≈ 250 Mo à l'historique git : à décider. `scripts/trailer/music.js` sait déjà fournir un morceau en WAV.
 - **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 18 événements rares,
   10 sortes d'élites et 19 sortes de quêtes (it. 1375, 1382, 1406 et 1452).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
