@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1794) : devlog 0.1.6 complété (répliques de Tico, it. 1739 et 1762) ; il couvre les éditions 115 et 116.
 - 2026-11-16 (it. 1793) : « Quoi de neuf », édition 116 (légendaires de Poupouce au retour d'absence, ligne du Journal quand l'un
   reste au sol, nouvelles répliques de Tico) ; 10 langues (nom de Tico repris tel que traduit), clés 3053-3055. npm test 332,
   autotest 250/250.

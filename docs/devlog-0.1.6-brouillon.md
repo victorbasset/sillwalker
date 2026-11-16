@@ -25,3 +25,5 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
 - **Mage :** un peu plus de points de vie.
 - **Retour d'absence :** la fenêtre dit combien d'objets légendaires les Poupouce vaincus t'ont laissés (seulement ceux
   vraiment rangés) ; en jeu, le Journal signale un légendaire de Poupouce resté au sol faute de place.
+- **Tico, le scribe des Statistiques,** a de nouvelles répliques en début de partie (il ne parle plus de ce qui n'est pas
+  encore ouvert).
