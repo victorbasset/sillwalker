@@ -162,7 +162,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Envoi : `npm run dist` puis `npm run steam:build` (fichiers SteamPipe dans `steam/build/`, hors git).
 - Images et vidéos (`steam/screenshots`, `capsules`, `achievement-icons`, `media`) : régénérables par
   `scripts/steam-prep-save.mjs` (sauvegarde sans bulles, à partir d'une partie `simulate.js` avec `DUMP=`),
-  `steam-compose.py` (captures sur un bureau), `steam-capsules/make.js` et `achicons.js`, `steam-video.sh`,
+  `steam-compose.py` (captures sur un bureau), `steam-capsules/make.js` (aussi les images promotionnelles itch.io,
+  `ONLY=itch-social|itch-favicon|itch-wide-cover|itch-logo`, logo recadré ensuite, it. 1768 ; et la couverture d'un devlog,
+  entrée `update-<version>` avec ver et tags) et `achicons.js`, `steam-video.sh`,
   `steam-trailer.sh` (option de dev `--tour`). Bandes-annonces promo (10 langues × 3 coupes, it. 1684) : `scripts/promo/shoot.mjs`
   (plans, LANG_UI), puis `scripts/promo/build-videos.sh` (musique « Le Rebord » par music.py, bruitages et volume par sfx.py
   à −32 dB, PROMO_DB ; images par edit.py) ; ≈ 3 min 30 de tournage et 6 min de montage par langue. Outils Python (Pillow, fontTools, ffmpeg de pip imageio-ffmpeg) :
