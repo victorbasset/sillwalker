@@ -1,16 +1,32 @@
 // Journal (it. 1677, demande de Victor) : il quitte l'Aventure pour Statistiques > Journal ; liste partagée.
-import { t as tx } from "../i18n/index.js";
+import { t as tx, getLang } from "../i18n/index.js";
 import { esc } from "../game/format.js";
+import { RARITIES, LEGENDARY } from "../game/data.js";
 
-/** Couleur d'une ligne du journal selon ce qu'elle raconte. */
-const LOG_COLORS = [
-  [/légendaire|pouvoir légendaire/i, "lg-leg"],
-  [/Champion|Coffre au trésor|Étoile filante|Plume|Plumes du vent|vitesse de déplacement, pour toujours/, "lg-rare"],
-  [/épique/i, "lg-epic"],
-  [/Quête accomplie|revient de|L’œuf éclot|Un œuf/, "lg-good"],
-  [/K.O.|est tombé|Trop dur|Dernière potion/, "lg-bad"],
+// Couleur d'une ligne du journal selon ce qu'elle raconte. (it. 1715) Les motifs étaient des expressions en français :
+// dans les 9 autres langues, presque rien n'était coloré (anglais : 2 lignes sur 196, français : 13 sur 199). Ils viennent
+// maintenant des messages traduits (le plus long morceau fixe de chaque modèle, sans les {0}) et des noms de rareté
+// (traduits au démarrage) ; recalculés à chaque changement de langue.
+const LOG_KEYS = [
+  ["lg-leg", ["Nouveau pouvoir légendaire découvert : {0} !"], [LEGENDARY]],
+  ["lg-rare", ["Champion vaincu : {0} or et un butin épique !", "Coffre au trésor ! +{0} or", "Étoile filante attrapée ! +{0} or",
+    "Étoile filante attrapée : +{0} or !", ": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", ": +{0} % de vitesse pour toujours ! (+{1} %)",
+    "Plume du vent"], []],
+  ["lg-epic", [], [3]],
+  ["lg-good", ["Quête accomplie ! Récompense à réclamer.", "revient de {0} : +{1} or{2}{3} !", "L’œuf éclot : {0} !", "L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", "Un œuf !"], []],
+  ["lg-bad", ["Ton héros est tombé. La progression de la zone repart à zéro.", "Trop dur : ton héros recule vers ", "Dernière potion de soin bue : passe à la boutique !", "K.O."], []],
 ];
-const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); return m ? ` class="${m[1]}"` : ""; };
+const lc = (s) => String(s).toLocaleLowerCase();
+/** Plus long morceau fixe d'un modèle traduit (entre les {0}). */
+const frag = (key) => lc(tx(key)).split(/\{[^}]*\}/).map((x) => x.trim()).sort((a, b) => b.length - a.length)[0] || "";
+let cache = null, cacheLang = null;
+function patterns() {
+  if (cache && cacheLang === getLang()) return cache;
+  cacheLang = getLang();
+  cache = LOG_KEYS.map(([cls, keys, rarities]) => [cls, [...keys.map(frag), ...rarities.map((r) => lc(RARITIES[r]?.name || ""))].filter((f) => f.length >= 3)]);
+  return cache;
+}
+const logClass = (l) => { const s = lc(l), m = patterns().find(([, fs]) => fs.some((f) => s.includes(f))); return m ? ` class="${m[0]}"` : ""; };
 
 /** Lignes du journal (les plus récentes d'abord), colorées selon ce qu'elles racontent. */
 export const logHTML = (L, n = 60) => (L && L.length ? L.slice(0, n).map((l) => `<li${logClass(l)}>${esc(l)}</li>`).join("") : tx("<li>Ton héros se met en route.</li>"));
