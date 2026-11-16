@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1658) : longue traîne avant l'Ascension, mesurée sur 6 graines (joueur naïf de tab-pace : équipe, talents,
+  déblocages, ni forge ni boutique) : zone 20 (ASCEND_MIN_ZONE) à 24, 33, 33, 48, 57 min et > 60 ; mur aux zones 18-21 dès
+  ≈ 20 min, une mort toutes les 1-2 min, +1 zone par ≈ 15 min. Le joueur d'early-pace (plus actif) est en zone 22-26 à
+  60 min : laissé tel quel (début volontairement calme, earlyPace) ; l'alerte « héros bloqué » propose déjà la forge.
 - 2026-11-16 (it. 1657) : mem-watch 8 min après la nuit : réel 611-620 Mo de 2 à 6 min, puis 528-535 Mo (ramasse-miettes) ; aucune
   croissance. Palier un peu au-dessus du repère (565-585) mais récupérable. Devlog 0.1.5 : Poupouce déjà présenté, rien à changer.
 - 2026-11-16 (it. 1656) : résumé d'absence en thème clair : « ✦ Poupouce vaincus » (.tint) assombri et lisible ; le nom long du
@@ -6178,7 +6182,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   stellaire en tête à 67,3). Avant tout réglage : comparer sur une semaine (simulate.js 168 mage / warrior), le mage
   rattrapait en fin de partie (it. 1115 : 349 contre 350). Si l'écart tient aussi sur la semaine : un petit bonus de
   classe (≈ +5 % d'attaque), vérifié avec hero-table sur 3 graines.
-- EN PARTIE TRAITÉ (it. 1463 : piste « forge » dans l'alerte) P3 (it. 1462) Longue traîne avant l'Ascension : sur 10 trajectoires (tab-pace, joueur simulé), 2 n'atteignent la
+- CLOS (it. 1658 : mesuré, mur 18-21 pour un joueur naïf seulement ; laissé tel quel) P3 (it. 1462) Longue traîne avant l'Ascension : sur 10 trajectoires (tab-pace, joueur simulé), 2 n'atteignent la
   zone de l'Ascension qu'en ≈ 2 h (114 et 124 min) contre 19-43 min pour les autres ; avant la nuit la plus lente
   était à 61 min (simple décalage des tirages, it. 1462). À étudier : où ces héros butent (boss de zone 20-24 ?), ce
   que le joueur simulé ne fait pas (talents, forge, sorts), et si l'alerte « héros bloqué » leur propose la bonne piste.
