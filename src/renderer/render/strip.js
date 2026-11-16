@@ -802,7 +802,7 @@ export class StripRenderer {
       }
       if (!boss && line[k].goblin) a.el.classList.add("goblin");
       // (it. 1458) monstre visé par une quête de chasse en cours : petite marque ◆ (posée avec la série, pas à chaque image)
-      if (!boss && line[k].poupouce) { const tag = el("div", "affix", a.el); tag.textContent = POUPOUCE.name; tag.style.color = POUPOUCE_PINK; } // (it. 1546)
+      if (!boss && line[k].poupouce) { const tag = el("div", "affix", a.el); tag.textContent = POUPOUCE.name + (+(this.game.S.stats || {}).poupouce > 0 ? "" : " ✦"); tag.style.color = POUPOUCE_PINK; } // (it. 1608) ✦ : jamais vaincu, comme les élites // (it. 1546)
       if (!boss && !line[k].elite && ((line[k].goblin && wantGoblin) || (!line[k].goblin && huntTypes.has(line[k].type)))) el("div", "affix qmark", a.el).textContent = "◆";
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";
