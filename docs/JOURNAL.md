@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1705) : i18n-names après le Jour des familiers et les éditions 110-112 : toujours 25 écarts connus, aucun nouveau.
 - 2026-11-16 (it. 1704) : devlog 0.1.5 : point « Jour des familiers » dans les 10 langues (11 points partout) ; page itch régénérée.
 - 2026-11-16 (it. 1703) : Jour des familiers sans familier actif : une précision dans la pastille et la bulle du mode mini (« Aucun
   familier actif : choisis-en un (Familiers). », ou d'où viennent les familiers si l'onglet n'est pas ouvert) ; 10 langues ; test.
