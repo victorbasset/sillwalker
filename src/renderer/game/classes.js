@@ -51,7 +51,7 @@ export const CLASSES = {
     name: "Assassin",
     role: "Critiques et poison, au corps à corps",
     desc: "Frappe vite, frappe juste, et laisse le poison finir le travail.",
-    mul: { hp: 0.85, atk: 1.1, def: 0.9 },
+    mul: { hp: 0.85, atk: 1.15, def: 0.9 },
     add: { crit: 15 },
     passive: { poison: 15, dodge: 10 },
     passiveText: "Lames empoisonnées : chaque coup ajoute une charge de poison (15 % de l’attaque par seconde, 5 charges max, 4 s). +10 % d’esquive.",

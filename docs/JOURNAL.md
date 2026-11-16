@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1638) : assassin, le plus bas des tableaux de héros : 61,5 de moyenne sur 8 graines (12 h ; moine 63,2, moyenne
+  64,8). Attaque de classe ×1,10 → ×1,15 : 62,6 sur les mêmes graines. npm test, autotest 242/242.
 - 2026-11-16 (it. 1637) : tableau des 20 héros après le Colossal (12 h, graines 7 / 3 / 11) : moyenne 64,8 (inchangée), de 61,7
   (assassin) à 67,3 (paladin).
 - 2026-11-16 (it. 1636) : CLAUDE.md, section Son : bulle du morceau, 📌, libération du tampon et ses contrôles.
@@ -6117,8 +6119,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
-- P3 (it. 1637) Assassin le plus bas des tableaux de héros à chaque fois (61,0 it. 1118, 62,7 it. 1584, 61,7 it. 1637 ; moyenne
-  64,8) : si l'écart tient sur 5 graines, un petit bonus de classe (≈ +5 % d'attaque), vérifié par hero-table.
 - FAIT (it. 1562) P3 (it. 1561) Bande : les nombres de dégâts (« Crit 116k », « Esquive ») montent jusque dans la rangée d'informations
   et passent sur le nom du boss pendant le combat ; les arrêter sous la rangée (hudBands) ou les faire pâlir avant.
 - CLOS (it. 1552 : 8 px mesurés en ja, de, ru, fr, pl, la marge prévue ; la couronne est celle du boss) P3 (it. 1551) Bande, japonais : le nom du boss majeur (« 覚醒したイグニヴォラ… · HP -25% ») finit à quelques
