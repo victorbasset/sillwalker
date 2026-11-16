@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1567) : fuite de mémoire aux changements de morceau ? mem-watch 6 min avec un changement de tranche toutes les
+  20 s (MEM_ARGS="--stage=…" appelant music.setZone 1 / 51 / 101 / 151) : 540-660 Mo, en dents de scie (deux morceaux
+  pendant le fondu et le décodage, puis rendus par le ramasse-miettes), sans croissance ; repère calme ≈ 550-570 Mo. Pas de fuite.
 - 2026-11-16 (it. 1566) : Réglages > Son : bulles des boutons ◀ ▶ « Écouter le morceau précédent / suivant » (elles parlaient
   encore de l'« air » de l'ancien générateur), 9 langues.
 - 2026-11-16 (it. 1565) : bande-annonce : scripts/trailer/music.js (+ music.html) appelait l'ancien générateur (songFor,
