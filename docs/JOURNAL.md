@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1647) : early-pace après la nuit : 114 objets, niveau 39-40, zone 22-26 et 6,3 déblocages à 60 min, comme le repère.
 - 2026-11-16 (it. 1646) : first-minutes après la nuit (coffres ouverts, astuces) : objet 15-79 s, boss 77-79 s, 1er déblocage
   169-390 s, Boutique 9 min, niveau 16 vers 13 min : comme avant. Aucun autre nom d'objet en ligne « libellé / valeur » à
   replier (seul « Meilleur butin », it. 1643).
