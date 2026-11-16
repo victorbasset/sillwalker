@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1851, revue générale) : 12 h graine 181 : gladiateur 65, druide 62, gardien stellaire 71 ; perf:linux bande
+  18,3 %, panneau 19,4 %, mini 5,6 % (vie des monstres comprise) ; portugais : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1850, journée des monstres, demande de Victor) : plan dans docs/MONSTRES-VIVANTS.md ; vie des monstres
   en attente (render/monlife.js) : marcheurs (±30 px, arrêts), volants (planent, dérivent), sauteurs (gluants, crapauds),
   furtifs (courses brèves), colosses (un pas de loin en loin), mimique immobile ; à moins de 150 px du héros, retour à sa
