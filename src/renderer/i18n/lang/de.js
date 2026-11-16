@@ -1883,4 +1883,6 @@ export default {
   3008: "Während deiner Abwesenheit kann dein Held auch Poupouce begegnen: Das Fenster „Während deiner Abwesenheit“ meldet es, zusammen mit den gefangenen Goldkobolden.",
   3009: "Assassine: Klassenangriff +15 % (statt +10 %).",
   3010: "Mini-Modus: Die Blase der nächsten Freischaltung nennt jetzt auch deinen Zonenrekord.",
+  3011: "Verzeihung, Poupouce …",
+  3012: "Komm bald wieder, Poupouce!",
 };

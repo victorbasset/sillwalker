@@ -65,6 +65,7 @@ const SPEECH = {
   ev_hoard: [tx("Ça brille sous chaque pas !")], // (it. 1439)
   ev_echo: [tx("Chaque coup compte double !")], // (it. 1304)
   poupouce: [tx("Poupouce ?! Pas possible…"), tx("C’est… Poupouce ?!")], // (it. 1558) monstre rare (data.js, POUPOUCE)
+  poupouceDown: [tx("Pardon, Poupouce…"), tx("Reviens vite, Poupouce !")], // (it. 1654) vaincu
   colossal: [tx("Il est immense, celui-là…"), tx("Plus il est grand, plus il tombe de haut !")], // (it. 1625) premier Colossal
   eliteNew: [tx("Une de plus pour ma collection !"), tx("Celle-là, je ne l’avais jamais battue !")],
   setFull: [tx("Panoplie au complet !"), tx("Tout est assorti, enfin !")], // (it. 1037) palier de 4 pièces
@@ -342,6 +343,8 @@ export class StripRenderer {
     g.on("kill", ({ mon, gold }) => {
       if (mon.boss || mon.champion) this.shake(0.35);
       if (mon.champion && !mon.boss) this.say(SPEECH.champion);
+      // (it. 1654) Poupouce vaincu : la réplique remplace celle de son arrivée (souvent dite il y a moins de 6 s)
+      if (mon.poupouce) { this.saidAt = -1e9; this.say(SPEECH.poupouceDown, true); }
       this.float(this.monX() + 10, 50, "+" + tx("{0} or", { 0: fmt(gold) }), "#ffd34d");
       if (this.active) this.makeCorpse(mon, this.monX());
     });

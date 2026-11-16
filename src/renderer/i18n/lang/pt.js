@@ -1883,4 +1883,6 @@ export default {
   3008: "Enquanto você está fora, seu herói também pode encontrar Poupouce: a janela \"Enquanto você esteve fora\" o anuncia, junto com os goblins dourados capturados.",
   3009: "Assassino: ataque de classe +15% (em vez de +10%).",
   3010: "Modo mini: o balão do próximo desbloqueio também lembra seu recorde de zona.",
+  3011: "Desculpa, Poupouce…",
+  3012: "Volte logo, Poupouce!",
 };

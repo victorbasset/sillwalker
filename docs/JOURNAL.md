@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1654) : Poupouce vaincu : le héros dit « Pardon, Poupouce… » ou « Reviens vite, Poupouce ! » (remplace la réplique
+  de son arrivée, souvent dite moins de 6 s avant) ; 10 langues, Poupouce en latin partout. Vu en japonais en mise en
+  scène. Clés 3011-3012. npm test, autotest 242/242.
 - 2026-11-16 (it. 1653) : bande : les nombres et noms de sorts évitent la bulle de parole du héros (obstacle ajouté à freeSpot,
   comme le nom du boss : speechObstacle). Mise en scène (fin de partie, anglais) : bulle de y = 1 à 29, « Volley of
   Arrows » placé à y = 45 au lieu de 0, sans chevauchement. npm test, autotest 242/242.

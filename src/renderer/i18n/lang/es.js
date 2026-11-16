@@ -1883,4 +1883,6 @@ export default {
   3008: "Durante tu ausencia, tu héroe también puede cruzarse con Poupouce: la ventana «Durante tu ausencia» lo anuncia, junto con los goblins dorados atrapados.",
   3009: "Asesino: ataque de clase +15 % (en lugar de +10 %).",
   3010: "Modo mini: la burbuja del próximo desbloqueo también recuerda tu récord de zona.",
+  3011: "Perdón, Poupouce…",
+  3012: "¡Vuelve pronto, Poupouce!",
 };

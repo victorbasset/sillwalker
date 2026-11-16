@@ -1883,4 +1883,6 @@ export default {
   3008: "While you're away, your hero can also run into Poupouce: the \"While you were away\" window announces it, along with the golden goblins caught.",
   3009: "Assassin: class attack +15% (instead of +10%).",
   3010: "Mini mode: the next unlock bubble also shows your zone record.",
+  3011: "Sorry, Poupouce…",
+  3012: "Come back soon, Poupouce!",
 };

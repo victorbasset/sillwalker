@@ -3012,5 +3012,7 @@ export const KEYS = [
   "Plus il est grand, plus il tombe de haut !",
   "Pendant ton absence, ton héros peut aussi croiser Poupouce : la fenêtre « Pendant ton absence » l’annonce, avec les gobelins dorés attrapés.",
   "Assassin : attaque de classe +15 % (au lieu de +10 %).",
-  "Mode mini : la bulle du prochain déblocage rappelle aussi ton record de zone."
+  "Mode mini : la bulle du prochain déblocage rappelle aussi ton record de zone.",
+  "Pardon, Poupouce…",
+  "Reviens vite, Poupouce !"
 ];

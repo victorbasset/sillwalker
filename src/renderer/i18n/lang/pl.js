@@ -1883,4 +1883,6 @@ export default {
   3008: "Podczas twojej nieobecności bohater może też spotkać Poupouce: okno „Podczas twojej nieobecności” to ogłasza, razem ze złapanymi złotymi goblinami.",
   3009: "Zabójca: atak klasy +15% (zamiast +10%).",
   3010: "Tryb mini: dymek następnego odblokowania przypomina też twój rekord strefy.",
+  3011: "Wybacz, Poupouce…",
+  3012: "Wracaj szybko, Poupouce!",
 };
