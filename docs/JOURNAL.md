@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1830) : early-pace accepte `CLS=<classe>`. Première heure (5 graines) : guerrier niveau 40 zone 24,
+  assassin 41 / 24, mage 41 / 22 : la défense de l'assassin et les PV du mage ne pressent pas le début.
 - 2026-11-16 (it. 1829, contrôle) : semaine simulée après la défense de l'assassin (it. 1826) : assassin 350 (palier de l'écho, 43 courses,
   6 158 éclats), guerrier 350 : même plafond de semaine que le repère de l'it. 1708, pas d'emballement.
 - 2026-11-16 (it. 1828) : « Quoi de neuf », édition 118 (duo : combattants et serviteur ne se cachent plus ; défense de l'assassin ; PV du

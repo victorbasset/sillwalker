@@ -3,6 +3,7 @@
 // Usage : node --experimental-default-type=module scripts/early-pace.mjs
 // (it. 1445) SEEDS=10 devant la commande : moyenne de 10 graines (3 par défaut, repères du journal) ; la dernière ligne
 // donne l'écart entre graines à 60 min (bruit : sur 3 graines, ±3 niveaux et ±3 zones, it. 1444).
+// (it. 1830) CLS=assassin : un héros précis.
 import { useVirtualClock } from "./virtual-clock.mjs"; // (it. 1009) en premier : Date.now() virtuel
 const root = new URL("../src/renderer/game/", import.meta.url).href;
 const { Game } = await import(root + "game.js");
@@ -14,7 +15,10 @@ const rows = MARKS.map(() => ({ items: 0, lvl: 0, best: 0, unlocks: 0 }));
 const N = Math.max(1, +process.env.SEEDS || 3), last = [];
 for (let seed = 1; seed <= N; seed++) {
   setRandom(seeded(seed));
-  const g = useVirtualClock(new Game(freshState()));
+  // (it. 1830) CLS=<classe> devant la commande : première heure d'un héros précis (sinon celui de la partie neuve)
+  const st0 = freshState();
+  if (process.env.CLS) st0.cls = process.env.CLS;
+  const g = useVirtualClock(new Game(st0));
   let items = 0, m = 0;
   g.on("loot", () => items++);
   for (let t = 1; t <= 3600; t++) {

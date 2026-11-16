@@ -61,7 +61,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   attendus depuis la bande originale (it. 1541 : +55 Mo, le morceau décodé en mémoire pour une boucle sans blanc ; 485-530 avant ; it. 1728 : 542-550 sur 8 min, plat) (bruit d'une mesure à l'autre), son et musique actifs ; `MEM_ARGS="--stage=<fichier.js>"` y ajoute une mise en scène (it. 1567 : changement de morceau toutes les 20 s, 540-660 Mo en dents de scie, sans croissance) ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
   zone, déblocages à 2, 5, 10, 15, 30, 60 min ; 3 graines, `SEEDS=10` pour moins de bruit : sur 3 graines, ±3 niveaux et
-  ±3 zones à 60 min, it. 1444-1445). Le début est volontairement calme (`earlyPace`, rules.js).
+  ±3 zones à 60 min, it. 1444-1445 ; `CLS=<classe>` : un héros précis, it. 1830). Le début est volontairement calme (`earlyPace`, rules.js).
 - Ouverture des onglets : `node --experimental-default-type=module scripts/tab-pace.mjs` (minute d'ouverture de chaque
   onglet, 3 graines) ; à relancer si on touche aux seuils de game/tabs.js ou au rythme du début.
 - Fin de partie : `node --experimental-default-type=module scripts/simulate.js 168 <classe>` (une semaine, ~80 s) :
