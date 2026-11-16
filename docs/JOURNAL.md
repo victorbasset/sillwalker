@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1811, revue générale) : simulation 12 h graine 141 : samouraï 69, arbalétrier 62, barde 69 ; perf:linux bande
+  18,2 %, panneau 19,5 %, mini 5,7 % (duo et Journal horodaté sans coût visible) ; allemand : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1810) : README à jour (duo lisible sur la bande, Journal horodaté).
 - 2026-11-16 (it. 1809) : autotest : duo guerrier + arbalétrier, le tireur ne recouvre pas le héros (16 px d'écart) et passe derrière lui
   (z-index 1). Autotest 251/251.
