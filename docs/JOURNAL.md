@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1632) : fuzz sous la Grande chasse (élites ×3, donc plus de Colossaux) : 1 200 parties, 0 bloquée.
 - 2026-11-16 (it. 1631, revue générale) : simulation 12 h graine 11 : assassin 61, nécromancien 62, lancier 65 ; perf:linux bande
   18,0 %, panneau 19,0 %, mini 5,8 % ; Héros (ja) propre ; polonais sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1630) : i18n-names après le Colossal et son succès : toujours 25 écarts connus (déclinaisons), aucun nouveau.
