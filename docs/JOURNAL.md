@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1846, contrôle) : fuzz sous chaque bénédiction du jour (FUZZ_DAYMOD=all, 20 graines) après la défense de
+  l'assassin : 400 parties, 0 bloquée.
 - 2026-11-16 (it. 1845) : Journal, la récompense de connexion du jour passe en ✓ (gardée par le filtre ; 10 langues vérifiées).
   Gobelins dorés laissés ordinaires : une Ruée en écrirait des dizaines. npm test 338, autotest 253/253.
 - 2026-11-16 (it. 1844) : Journal, la ligne « 🏆 Succès : … » (écrite par app.js) n'avait aucune catégorie : écartée par le
