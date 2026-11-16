@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1657) : mem-watch 8 min après la nuit : réel 611-620 Mo de 2 à 6 min, puis 528-535 Mo (ramasse-miettes) ; aucune
+  croissance. Palier un peu au-dessus du repère (565-585) mais récupérable. Devlog 0.1.5 : Poupouce déjà présenté, rien à changer.
 - 2026-11-16 (it. 1656) : résumé d'absence en thème clair : « ✦ Poupouce vaincus » (.tint) assombri et lisible ; le nom long du
   meilleur butin passe à la ligne.
 - 2026-11-16 (it. 1655) : IDLE=1 (joueur absent, guerrier, 12 h) : record 15 (zone 14 à 12 h, niveau 46), comme le repère de l'it. 698.
