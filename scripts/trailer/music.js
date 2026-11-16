@@ -1,20 +1,21 @@
-// (it. 807) node_modules/.bin/electron scripts/trailer/music.js <dossier> : passages de musique du jeu en WAV.
+// (it. 807 ; it. 1565 : les 4 morceaux de la bande originale) node_modules/.bin/electron scripts/trailer/music.js <dossier> :
+// un morceau du jeu (src/renderer/assets/music/<id>.opus) décodé en WAV pour la bande-annonce.
+// MUSIC_TRACKS="nom:morceau;…" (morceaux : rebord, sentiers, lieutenants, briseur ; par défaut « track:rebord »).
 const { app, BrowserWindow } = require("electron");
 const fs = require("fs"), path = require("path");
 const OUT = path.resolve(process.argv[process.argv.length - 1]);
-// un air, trois passages bout à bout ; droit (sans swing ni écho marqué) et sans la variante boss (it. 812)
-// (it. 1171) MUSIC_PASSES="nom:zone:passages:droit;…" (ex. "z141:141:0,0,0,0:1") pour d'autres airs
-const PASSES = process.env.MUSIC_PASSES ? process.env.MUSIC_PASSES.split(";").map((x) => x.split(":")) : [["track", 36, "0,0,0", "1"]];
+const LIST = (process.env.MUSIC_TRACKS || "track:rebord").split(";").map((x) => x.split(":"));
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const win = new BrowserWindow({ show: false, webPreferences: { offscreen: true } });
-  for (const [name, zone, boss, straight] of PASSES) {
+  for (const [name, id] of LIST) {
     await win.loadURL("about:blank");
-    await win.loadFile(path.join(__dirname, "music.html"), { query: { zone: String(zone), passes: boss, straight } });
-    for (let i = 0; i < 600 && win.webContents.getTitle() !== "READY"; i++) await new Promise((r) => setTimeout(r, 100));
+    await win.loadFile(path.join(__dirname, "music.html"), { query: { id } });
+    for (let i = 0; i < 600 && !/^(READY|ERROR)/.test(win.webContents.getTitle()); i++) await new Promise((r) => setTimeout(r, 100));
+    if (win.webContents.getTitle() !== "READY") { console.log(name, win.webContents.getTitle()); continue; }
     const b64 = await win.webContents.executeJavaScript("window.__wav");
     fs.writeFileSync(path.join(OUT, name + ".wav"), Buffer.from(b64, "base64"));
-    console.log(name, "zone", zone, "passages", boss);
+    console.log(name, "morceau", id);
   }
   app.quit();
 });

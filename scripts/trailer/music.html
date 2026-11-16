@@ -1,33 +1,18 @@
 <!doctype html><meta charset="utf-8">
 <script type="module">
-// (it. 807) Musique de la bande-annonce : passages des airs du jeu rendus hors ligne (même chaîne que le jeu), en WAV.
-import { Sound } from "../../src/renderer/render/sound.js";
-import { Music, songFor } from "../../src/renderer/render/music.js";
-const RATE = 44100;
-// (it. 811) Plusieurs passages du MÊME air, bout à bout dans un seul rendu : tempo continu (Victor : « le rythme
-// n'est pas bon » quand trois airs différents étaient fondus l'un dans l'autre). `bosses` : « 0,0,1 » = deux passages
-// normaux puis la version combat de boss, qui commence pile au début d'un passage.
-async function render(zone, bosses, straight) {
-  // (it. 812) « straight » : sans swing et presque sans écho (croches retardées + écho à 3/4 de temps : Victor
-  // entendait « les instruments au mauvais moment » sur le montage)
-  const song = straight ? { ...songFor(zone), swing: 0, echo: 0.06 } : songFor(zone), pass = 64 * 30 / song.bpm, len = Math.ceil(pass * bosses.length + 3);
-  const ctx = new OfflineAudioContext(2, RATE * len, RATE), s = new Sound();
-  s.ctx = ctx; s.master = ctx.createGain(); s.master.gain.value = 0.9; s.master.connect(ctx.destination); s.enabled = true; s.ensure = () => ctx; s.audio = () => ctx;
-  bosses.forEach((b, i) => new Music(s).schedulePass(song, 0.05 + i * pass, b));
-  return ctx.startRendering();
-}
-function wav(buf) {
-  const n = buf.length, ch = buf.numberOfChannels, out = new DataView(new ArrayBuffer(44 + n * ch * 2));
-  const w = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
-  w(0, "RIFF"); out.setUint32(4, 36 + n * ch * 2, true); w(8, "WAVEfmt "); out.setUint32(16, 16, true); out.setUint16(20, 1, true);
-  out.setUint16(22, ch, true); out.setUint32(24, RATE, true); out.setUint32(28, RATE * ch * 2, true); out.setUint16(32, ch * 2, true);
-  out.setUint16(34, 16, true); w(36, "data"); out.setUint32(40, n * ch * 2, true);
-  const data = [...Array(ch)].map((_, c) => buf.getChannelData(c));
-  for (let i = 0, o = 44; i < n; i++) for (let c = 0; c < ch; c++, o += 2) out.setInt16(o, Math.max(-1, Math.min(1, data[c][i])) * 32767, true);
-  let bin = ""; const u = new Uint8Array(out.buffer); for (let i = 0; i < u.length; i += 0x8000) bin += String.fromCharCode(...u.subarray(i, i + 0x8000));
-  return btoa(bin);
-}
-const q = new URLSearchParams(location.search);
-window.__wav = wav(await render(+q.get("zone"), q.get("passes").split(",").map((b) => b === "1"), q.get("straight") === "1"));
-document.title = "READY";
+// (it. 1565) décode un morceau de la bande originale (Opus) et le rend en WAV 16 bits stéréo pour scripts/trailer/make.py
+const id = new URLSearchParams(location.search).get("id") || "rebord";
+try {
+  const ab = await (await fetch(`../../src/renderer/assets/music/${id}.opus`)).arrayBuffer();
+  const buf = await new OfflineAudioContext(2, 1, 48000).decodeAudioData(ab);
+  const n = buf.length, ch = [buf.getChannelData(0), buf.getChannelData(buf.numberOfChannels > 1 ? 1 : 0)];
+  const out = new DataView(new ArrayBuffer(44 + n * 4)), w = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
+  w(0, "RIFF"); out.setUint32(4, 36 + n * 4, true); w(8, "WAVEfmt "); out.setUint32(16, 16, true); out.setUint16(20, 1, true);
+  out.setUint16(22, 2, true); out.setUint32(24, buf.sampleRate, true); out.setUint32(28, buf.sampleRate * 4, true);
+  out.setUint16(32, 4, true); out.setUint16(34, 16, true); w(36, "data"); out.setUint32(40, n * 4, true);
+  for (let i = 0; i < n; i++) for (let c = 0; c < 2; c++) out.setInt16(44 + i * 4 + c * 2, Math.max(-32768, Math.min(32767, Math.round(ch[c][i] * 32767))), true);
+  const bytes = new Uint8Array(out.buffer); let s = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+  window.__wav = btoa(s); document.title = "READY";
+} catch (e) { document.title = "ERROR " + e.message; }
 </script>

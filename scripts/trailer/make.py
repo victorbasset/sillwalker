@@ -128,12 +128,10 @@ import re
 probe = subprocess.run([FF, "-hide_banner", "-i", video], capture_output=True, text=True).stderr
 h, m, sec = re.search(r"Duration: (\d+):(\d+):([\d.]+)", probe).groups()
 total = int(h) * 3600 + int(m) * 60 + float(sec)
-# (it. 811) une seule piste continue (même air, même tempo : scripts/trailer/music.js) ; gain fixe pour amener la crête
-# à -1 dB, +8 dB tenus par un limiteur (assez fort pour YouTube ; loudnorm faisait « pomper » le volume), fondus
+# (it. 811) une seule piste continue ; (it. 1565) un morceau de la bande originale (scripts/trailer/music.js), déjà
+# masterisé à −16 LUFS : +2 dB tenus par le limiteur (≈ −14 LUFS, assez fort pour YouTube), fondus
 track = os.path.join(WORK, "track.wav")
-vd = subprocess.run([FF, "-hide_banner", "-i", track, "-af", "volumedetect", "-f", "null", "-"], capture_output=True, text=True).stderr
-peak = float(re.search(r"max_volume: (-?[\d.]+) dB", vd).group(1))
-af = f"[1:a]atrim=0:{total},volume={7 - peak:.1f}dB,alimiter=limit=0.84:attack=5:release=80:level=0,afade=t=in:st=0:d=1.5,afade=t=out:st={total - 3}:d=3[a]"
+af = f"[1:a]atrim=0:{total},volume=2dB,alimiter=limit=0.84:attack=5:release=80:level=0,afade=t=in:st=0:d=1.5,afade=t=out:st={total - 3}:d=3[a]"
 run(["-i", video, "-i", track,
      "-filter_complex", af, "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-crf", "17", "-preset", "slow",
      "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", "-shortest", OUT])

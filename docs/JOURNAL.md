@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1565) : bande-annonce : scripts/trailer/music.js (+ music.html) appelait l'ancien générateur (songFor,
+  retiré à l'it. 1541) ; il décode maintenant un morceau de la bande originale en WAV (MUSIC_TRACKS="nom:morceau", par
+  défaut le Rebord ; vérifié : track.wav de 140 s) ; make.py ne remonte plus le gain de 8 dB (morceau déjà à −16 LUFS : +2 dB).
 - 2026-11-16 (it. 1564) : page du magasin Steam (10 langues) : « musique lofi » devient « bande originale composée pour le
   jeu (du lofi chaud au final galactique) » ; steam-store-check à jour.
 - 2026-11-16 (it. 1563) : musique arrêtée pendant le décodage d'un morceau (bande cachée, curseur à 0 %) : le décodage, en
