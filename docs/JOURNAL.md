@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1776, contrôle) : raccourcis clavier : les 11 touches gérées par panel.onKey (B C E F J M R S T U V) et les chiffres
+  des onglets figurent tous dans la fenêtre d'aide (showKeys).
 - 2026-11-16 (it. 1775, contrôle) : Jour de Poupouce avec le nouveau Poupouce : fuzz FUZZ_DAYMOD=poupouce 600 parties, 0 bloquée ;
   ≈ +100 % d'or ce jour-là (Jour de fortune +50 %) et un légendaire / 100 monstres : gardé, question dans POUR-VICTOR.
 - 2026-11-16 (it. 1774) : brouillon du devlog 0.1.6 ouvert (docs/devlog-0.1.6-brouillon.md : bloc de publication, nouveautés depuis
