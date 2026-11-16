@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1690) : POUR-VICTOR : résumé du début d'après-midi (it. 1675-1689).
 - 2026-11-16 (it. 1689) : « Quoi de neuf », édition 111 : Réglages à gauche de « Mode mini » (corrige l'édition 110, qu'on ne retouche
   pas), menu sur une ligne, bande-annonce sur « Le Rebord » ; 10 langues, libellés cités tels que traduits. Clés 3020-3022.
 - 2026-11-16 (it. 1688) : fuzz FUZZ_DAYMOD=all (bénédictions du jour, Jour de Poupouce compris), 30 graines : 600 parties, 0 bloquée.

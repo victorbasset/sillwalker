@@ -20,6 +20,11 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   ligne dans « Moments rares » ; bande, les nombres ne sortent plus par le haut et évitent la bulle du héros ; édition 109.
   Mesuré sans rien changer : le mur des zones 18-21 avant l'Ascension se passe en 20-30 min en suivant l'alerte « héros
   bloqué » (forge), jusqu'à 56 min sans la suivre.
+- Début d'après-midi (it. 1675-1689, tes demandes) : Journal dans Statistiques > Journal ; Aventure en 4 colonnes (héros,
+  équipement, sac à 16 cases par rangée, zone) ; Réglages à gauche de « Mode mini » ; menu toujours sur une ligne ;
+  volumes d'une partie neuve (général 50 %, effets 20 %, musique 50 %, ambiance 100 % ; les sauvegardes existantes
+  gardent les leurs) ; bandes-annonces (30 vidéos) et captures (300) refaites, musique « Le Rebord », son discret ;
+  bande originale en MP3 dans steam/promo/bande-originale ; éditions 110 et 111 de « Quoi de neuf ».
 - À décider : sortir la 0.1.5 (devlog prêt, 10 langues : docs/devlog-0.1.5-brouillon.md, et sa version HTML pour itch : steam/itch/devlog-0.1.5.html) ; déclarer POUPOUCE et COLOSSAL_25 dans Steamworks.
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
