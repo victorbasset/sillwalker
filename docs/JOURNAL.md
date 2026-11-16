@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1820) : autotest : nécromancien + samouraï en marche, le serviteur passe devant le compagnon (42 px). Autotest
+  252/252.
 - 2026-11-16 (it. 1819, contrôle) : mode mini sans serviteur (rien à faire pour le cas de l'it. 1818) ; fuzz avec une bénédiction du
   jour par graine (FUZZ_DAYMOD=all) : 1200 parties, 0 bloquée.
 - 2026-11-16 (it. 1818) : nécromancien + compagnon au corps à corps : le squelette se superposait au compagnon (en marche : même
