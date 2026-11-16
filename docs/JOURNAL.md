@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1829, contrôle) : semaine simulée après la défense de l'assassin (it. 1826) : assassin 350 (palier de l'écho, 43 courses,
+  6 158 éclats), guerrier 350 : même plafond de semaine que le repère de l'it. 1708, pas d'emballement.
 - 2026-11-16 (it. 1828) : « Quoi de neuf », édition 118 (duo : combattants et serviteur ne se cachent plus ; défense de l'assassin ; PV du
   mage) ; 10 langues (noms de classes repris tels que traduits), clés 3059-3061. npm test 333, autotest 253/253.
 - 2026-11-16 (it. 1827, contrôle) : morts en 12 h (graine 7) : berserker 177, arbalétrier 164, moine 134, paladin 47 (assassin 239
