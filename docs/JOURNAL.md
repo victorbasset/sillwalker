@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1646) : first-minutes après la nuit (coffres ouverts, astuces) : objet 15-79 s, boss 77-79 s, 1er déblocage
+  169-390 s, Boutique 9 min, niveau 16 vers 13 min : comme avant. Aucun autre nom d'objet en ligne « libellé / valeur » à
+  replier (seul « Meilleur butin », it. 1643).
 - 2026-11-16 (it. 1645) : save-fuzz après Poupouce hors ligne (it. 1643) : ok balayage (1 246 corruptions) ; FUZZ_BASE=fin : ok (1 204).
 - 2026-11-16 (it. 1644) : « Quoi de neuf », édition 108 (Poupouce et gobelins dans le résumé d'absence, assassin +15 %, record
   dans la bulle du mode mini), 10 langues, noms repris tels que traduits (Poupouce reste latin). Clés 3008-3010.
