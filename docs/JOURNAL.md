@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1817) : CLAUDE.md, Pièges : règles de placement du duo (bande et mode mini) et contrôle de l'autotest associé.
 - 2026-11-16 (it. 1816, contrôle) : mode mini, duo de deux combattants (guerrier + samouraï) : le compagnon reste lisible à gauche,
   le héros devant ; rien à corriger.
 - 2026-11-16 (it. 1815, contrôle) : simulation 24 h (graine 7) : guerrier et mage au même record (86, dernière table « Courses ») ; repère

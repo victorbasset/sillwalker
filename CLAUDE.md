@@ -298,6 +298,11 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Boutons enfoncés (it. 1544, signalé par Victor) : `button:active` descend de 2 px ; un clic sur le rebord haut se
   relâchait hors du bouton et le navigateur n'envoyait pas le clic. ui/pressfix.js clique le bouton pressé si on le
   relâche à 4 px au plus (contrôle de l'autotest « clic sur le rebord d'un bouton ») : garder ce filet si le style change.
+- Duo sur la bande (it. 1802-1807, demande de Victor : l'arbalétrier disparaissait derrière le samouraï) : placement du
+  compagnon dans strip.js (tireur 16 px derrière un héros au corps à corps ; deux combattants : compagnon 20 px en retrait)
+  et `.actor.hero.partner { z-index: 1 }` (le héros principal reste entier) ; mode mini : mini.js (tireur contre le bord, le
+  héros ne bouge pas : avancé, sa barre de vie touchait celle du monstre). Contrôle de l'autotest « duo : l'arbalétrier… ».
+  Vérifier les quatre sortes de duo (tireur/combattant × devant/derrière) en capture après toute retouche des positions.
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.
