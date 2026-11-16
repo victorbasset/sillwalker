@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1819, contrôle) : mode mini sans serviteur (rien à faire pour le cas de l'it. 1818) ; fuzz avec une bénédiction du
+  jour par graine (FUZZ_DAYMOD=all) : 1200 parties, 0 bloquée.
 - 2026-11-16 (it. 1818) : nécromancien + compagnon au corps à corps : le squelette se superposait au compagnon (en marche : même
   place devant le héros ; au combat : même contact). En marche, le serviteur passe devant le compagnon qui mène ; au combat, le
   compagnon se tient 18 px derrière le serviteur. Captures (trois personnages séparés) ; npm test 333, autotest 251/251.
