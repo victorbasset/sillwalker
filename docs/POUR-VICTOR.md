@@ -125,3 +125,6 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 **Vérifié** : équilibre inchangé (3 graines ; tableau des 20 héros 63,6 de moyenne), mémoire et performance stables,
 parcours complets sans erreur (10 langues, état maximal, fin de partie). Le contrôle des traductions signale
 maintenant aussi une phrase oubliée dans toutes les langues.
+
+- (2026-11-16, it. 1732) Poupouce (chat) compte au Bestiaire ; les Poupouce vaincus avant ce changement comptent pour sa
+  carte, pour ne pas défaire une collection complète. Si tu préfères qu'il reste hors du total, dis-le.

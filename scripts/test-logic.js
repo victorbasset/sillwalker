@@ -3375,6 +3375,12 @@ test("Poupouce : un chat à part, extrêmement rare, beaucoup d'or et un objet l
   } finally { POUPOUCE_1730.chance = ch; }
 });
 
+test("Poupouce : ceux vaincus avant l'it. 1730 comptent au Bestiaire (it. 1732)", () => {
+  const o = JSON.parse(JSON.stringify(freshState())); o.stats.poupouce = 3; delete o.bestiary.poupouce;
+  assert.equal(migrate(o).bestiary.poupouce, 3);
+  const n = JSON.parse(JSON.stringify(freshState())); assert.ok(!migrate(n).bestiary.poupouce, "aucun : rien");
+});
+
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
   const P = freshState().settings;
   assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");

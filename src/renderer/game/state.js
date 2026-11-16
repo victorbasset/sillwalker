@@ -168,6 +168,9 @@ export function migrate(raw) {
   // (it. 902) + bossDefeats et unlocks : abîmés (un nombre), la mort du héros face à un boss ou l'achat d'un déblocage
   // plantait (« Cannot create property '55' on number », vu par save-fuzz une fois sur deux)
   for (const k of ["talents", "buffs", "upgrades", "bestiary", "workshop", "bossDefeats", "unlocks"]) if (!isObj(s[k])) s[k] = {};
+  // (it. 1732) Poupouce est un monstre à part depuis l'it. 1730 (avant : un monstre de la zone, compté sous son type) : ceux
+  // déjà vaincus comptent pour sa carte du Bestiaire (une collection complète ne se défait pas à la mise à jour)
+  { const pp = Math.floor(+s.stats.poupouce || 0); if (pp > 0 && !(+s.bestiary.poupouce > 0)) s.bestiary.poupouce = pp; }
   // Talents par classe ({ classe: { talent: rang } }) : entrées illisibles retirées (elles faisaient échouer le démarrage).
   // (it. 1107) paliers de maîtrise : seules les valeurs "a" / "b" sous une clé « id:rang » restent
   if (!isObj(s.masteryChosen)) s.masteryChosen = {};
