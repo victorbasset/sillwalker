@@ -120,8 +120,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   la malédiction et le venin.
 - **Élites à affixes** : rapide, blindé, vampirique, furieux, givré (ses coups peuvent geler le héros), épineux (renvoie 15 % des dégâts reçus, sans achever le héros), fuyant (esquive 20 % des coups), venimeux (ses coups peuvent empoisonner le héros), régénérant (regagne 3 % de sa vie chaque seconde, sauf s’il brûle ou est empoisonné) ou explosif (inflige au héros 6 % de ses PV max en mourant, sans l’achever), colossal (120 % de PV en plus, coups 40 % plus lents).
 - **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
-- **Poupouce** (demande d'un joueur) : environ un monstre ordinaire sur 250 (dès la zone 2) porte ce nom, en rose au-dessus
-  de lui, et rapporte 5 fois plus d'or ; le héros s'en étonne, un succès et une bénédiction du jour (×10) lui sont dédiés.
+- **Poupouce** (demande d'un joueur ; chat depuis l'it. 1730, demande de Victor) : un chat blanc tacheté de noir, monstre à
+  part (Bestiaire), extrêmement rare (un monstre sur 1 000, dès la zone 2) : 100 fois l'or d'un monstre et un objet légendaire
+  garanti, aussi pendant l'absence ; il miaule en arrivant, le héros s'en étonne, un succès et une bénédiction du jour (×10)
+  lui sont dédiés.
 - **Panoplies** : 10 ensembles (dont le Voyageur du vent, axé vitesse, le Traqueur de champions, qui attire les élites, et le Plumage du phénix, qui relève le héros une fois par combat), bonus à 2 et 4 pièces
   (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros) ; chaque panoplie
   complétée une première fois donne +1 % attaque et +1 % PV pour toujours (Bestiaire : « N / 10 complétées »).
@@ -145,7 +147,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   zones puis tous les 10 après la zone 50, premier légendaire, héros libérés, ascensions), gardées à l'ascension.
 - **Onglets progressifs** : un nouveau joueur ne voit que l'Aventure et les Réglages ; les autres onglets s'ouvrent
   selon le record de zone, espacés pour laisser le temps de s'habituer (Talents zone 2, Quêtes 5, Boutique 8, Classe 10,
-  Bestiaire 15, Ascension 20, Familiers 25, Compétences 30, Statistiques 40 ; soit de 1 min à plus de 2 h de jeu,
+  Bestiaire 15, Ascension 20, Familiers 25, Compétences 30 ; Statistiques à la zone 3 avec le seul Journal, complet
+  à la zone 40, annoncé par une bulle (it. 1729-1743) ; soit de 1 min à plus de 2 h de jeu,
   scripts/tab-pace.mjs), chacun annoncé par une bulle et marqué ✦ jusqu'à la visite.
   Une fois ouvert, un onglet le reste (ascension comprise) ; les parties existantes gardent tout (game/tabs.js).
   En mode mini, l'annonce passe sur la scène. Dans les onglets aussi, l'information vient à son heure : Bestiaire
@@ -175,7 +178,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   chacun de ces moments (option). `render/juice.js`, `render/sound.js`.
 - **Journal** (Statistiques > Journal depuis l'it. 1678 ; avant, 5e colonne de l'Aventure, qui a gardé quatre colonnes :
   héros, équipement, sac élargi à 16 cases par rangée, zone ; `ui/log.js`) : les messages répétitifs se cumulent (ventes du sac plein, élites vaincues, défaites : « … (×N) »),
-  le Grand intendant résume son travail en une ligne.
+  le Grand intendant résume son travail en une ligne. Lignes importantes colorées dans les 10 langues, précédées d'un
+  symbole (★ ◆ ✦ ✓ ⚠, daltoniens) ; case « Lignes importantes seulement » (it. 1715-1725).
 
 ## Scripts
 
