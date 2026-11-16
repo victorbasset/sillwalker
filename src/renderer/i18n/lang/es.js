@@ -1864,4 +1864,7 @@ export default {
   2989: "Día de Poupouce",
   2990: "Poupouce ×10.",
   2991: "Dicen que hoy Poupouce anda por todas partes…",
+  2992: "Ajustes > Sonido: 📌 mantiene tu tema favorito, sea cual sea la zona.",
+  2993: "Nueva bendición del día, el Día de Poupouce: Poupouce aparece diez veces más a menudo.",
+  2994: "Nuevo logro: «¿¡Poupouce!?», por tu primera victoria contra él.",
 };

@@ -1864,4 +1864,7 @@ export default {
   2989: "Poupouce Day",
   2990: "Poupouce ×10.",
   2991: "Word is Poupouce is lurking everywhere today…",
+  2992: "Settings > Sound: 📌 keeps your favourite track, whatever the zone.",
+  2993: "New blessing of the day, Poupouce Day: Poupouce shows up ten times as often.",
+  2994: "New achievement: “Poupouce?!”, for your first win against him.",
 };

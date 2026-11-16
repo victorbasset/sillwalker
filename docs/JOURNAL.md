@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1587) : édition 105 de « Quoi de neuf » : morceau gardé (📌), Jour de Poupouce, succès « Poupouce ?! » ;
+  9 langues, chemin « Réglages > Son » vérifié par i18n-paths, lang-overflow propre.
 - 2026-11-16 (it. 1586) : 16e bénédiction du jour, « Jour de Poupouce » 🍄 (Poupouce ×10), ajoutée à la FIN : le 16 et le 17/11
   gardent les leurs (Jour des trésors, Fête des gobelins), première le 19/11 ; réplique du héros ; fuzz FUZZ_DAYMOD=poupouce
   (600 parties, 0 bloquée), lang-overflow propre, autotest 241/241.

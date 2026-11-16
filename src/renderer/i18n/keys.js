@@ -2993,5 +2993,8 @@ export const KEYS = [
   "Garder ce morceau, quelle que soit la zone (un autre clic : le morceau de la zone)",
   "Jour de Poupouce",
   "Poupouce ×10.",
-  "Il paraît que Poupouce rôde partout aujourd’hui…"
+  "Il paraît que Poupouce rôde partout aujourd’hui…",
+  "Réglages > Son : 📌 garde ton morceau préféré, quelle que soit la zone.",
+  "Nouvelle bénédiction du jour, le Jour de Poupouce : Poupouce apparaît dix fois plus souvent.",
+  "Nouveau succès : « Poupouce ?! », pour ta première victoire sur lui."
 ];

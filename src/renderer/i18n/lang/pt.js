@@ -1864,4 +1864,7 @@ export default {
   2989: "Dia do Poupouce",
   2990: "Poupouce ×10.",
   2991: "Dizem que o Poupouce está rondando por toda parte hoje…",
+  2992: "Configurações > Som: 📌 mantém sua faixa favorita, em qualquer zona.",
+  2993: "Nova bênção do dia, o Dia do Poupouce: o Poupouce aparece dez vezes mais.",
+  2994: "Nova conquista: “Poupouce?!”, pela primeira vitória contra ele.",
 };

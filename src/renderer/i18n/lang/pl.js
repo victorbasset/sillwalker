@@ -1864,4 +1864,7 @@ export default {
   2989: "Dzień Poupouce",
   2990: "Poupouce ×10.",
   2991: "Podobno Poupouce kręci się dziś wszędzie…",
+  2992: "Ustawienia > Dźwięk: 📌 zachowuje ulubiony utwór niezależnie od strefy.",
+  2993: "Nowe błogosławieństwo dnia, Dzień Poupouce: Poupouce pojawia się dziesięć razy częściej.",
+  2994: "Nowe osiągnięcie: „Poupouce?!”, za pierwsze zwycięstwo nad nim.",
 };

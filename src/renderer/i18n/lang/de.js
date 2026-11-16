@@ -1864,4 +1864,7 @@ export default {
   2989: "Poupouce-Tag",
   2990: "Poupouce ×10.",
   2991: "Es heißt, Poupouce streift heute überall herum …",
+  2992: "Einstellungen > Ton: 📌 behält dein Lieblingsstück, egal in welcher Zone.",
+  2993: "Neuer Segen des Tages, der Poupouce-Tag: Poupouce taucht zehnmal so oft auf.",
+  2994: "Neuer Erfolg: „Poupouce?!“, für deinen ersten Sieg gegen ihn.",
 };
