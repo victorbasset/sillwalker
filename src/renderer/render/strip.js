@@ -407,8 +407,8 @@ export class StripRenderer {
     if (nearBoss) y = Math.max(y, 46);
     // (it. 1571) sous une pastille de la rangée du haut (zone, barres de vie, or) : même départ bas, pour finir sa montée
     // (22 px) sous la rangée plutôt que sur la pastille
-    let underHud = false;
-    if (!nearBoss) { const hb = this.hudBands(); underHud = hb.bands.some(([a, b]) => x > a - 20 && x < b + 20); if (underHud) y = Math.max(y, hb.h + 20); }
+    const hb = this.hudBands(), underHud = hb.bands.some(([a, b]) => x > a - 20 && x < b + 20);
+    if (!nearBoss && underHud) y = Math.max(y, hb.h + 20);
     // Nombres qui tombent au même endroit au même instant (fin de partie : coup, critique et dégâts reçus) : chacun
     // cherche une place libre parmi les nombres encore jeunes, au-dessus puis au-dessous, sinon de côté (it. 846).
     // Largeur estimée sans mesure de mise en page : les caractères chinois, japonais et coréens sont deux fois plus larges
@@ -424,7 +424,8 @@ export class StripRenderer {
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
-    this.addFx(f, at.x, at.y, 1, 22);
+    // (it. 1591) sous une pastille du haut (près du boss aussi) : la montée s'arrête sous la rangée
+    this.addFx(f, at.x, at.y, 1, underHud ? Math.max(4, Math.min(22, at.y - hb.h - 2)) : 22);
     const e = this.fx[this.fx.length - 1];
     e.box = { x: at.x, y: at.y, w, h };
   }

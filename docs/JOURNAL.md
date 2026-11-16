@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1591, revue générale) : simulation 12 h graine 11 : paladin 69, lancier 67, chaman 64 ; perf:linux bande
+  18,0 %, panneau 19,8 %, mini 5,7 % ; Aventure (pt) et Réglages (ja) propres ; japonais sans texte oublié (« pt » = points,
+  « HP », « BGM », Poupouce : voulus). Corrigé : près du boss et des pastilles de droite, les nombres de dégâts
+  montaient encore sur l'or et le niveau : sous une pastille, leur montée s'arrête sous la rangée (vérifié en capture).
 - 2026-11-16 (it. 1590) : Statistiques > Chiffres, Probabilités : la ligne « Poupouce » (0,4 % par monstre, « aujourd'hui ×10 »
   le Jour de Poupouce) apparaît une fois Poupouce vaincu ; lang-overflow propre au pire cas (max-save) et chaque jour.
 - 2026-11-16 (it. 1589) : bulle « ♪ morceau » seulement quand la bande est affichée (en mode mini ou bande cachée, elle
