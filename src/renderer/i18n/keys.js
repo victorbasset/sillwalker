@@ -3063,5 +3063,6 @@ export const KEYS = [
   "Aventure : la barre d’expérience passe au violet, comme sur la bande et en mode mini.",
   "Duo : deux combattants au corps à corps, ou un compagnon et le serviteur du nécromancien, ne se cachent plus l’un l’autre.",
   "Assassin : plus de défense (il tombait deux fois plus souvent que les autres héros).",
-  "Mage : un peu plus de points de vie."
+  "Mage : un peu plus de points de vie.",
+  "Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que légendaires, records et événements."
 ];

@@ -1934,4 +1934,5 @@ export default {
   3059: "Dupla: dois lutadores corpo a corpo, ou um companheiro e o lacaio do necromante, não se escondem mais um atrás do outro.",
   3060: "Assassino: mais defesa (caía duas vezes mais que os outros heróis).",
   3061: "Mago: um pouco mais de vida.",
+  3062: "O diário passa rápido demais? Marque «Só linhas importantes» (Estatísticas > Diário): ele guarda só lendários, recordes e eventos.",
 };

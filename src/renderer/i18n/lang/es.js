@@ -1934,4 +1934,5 @@ export default {
   3059: "Dúo: dos luchadores cuerpo a cuerpo, o un compañero y el esbirro del nigromante, ya no se tapan entre sí.",
   3060: "Asesino: más defensa (caía el doble que los demás héroes).",
   3061: "Mago: algo más de vida.",
+  3062: "¿El diario va muy rápido? Marca «Solo líneas importantes» (Estadísticas > Diario): solo guarda legendarios, récords y eventos.",
 };

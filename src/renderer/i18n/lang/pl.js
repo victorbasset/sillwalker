@@ -1934,4 +1934,5 @@ export default {
   3059: "Duet: dwóch wojowników walczących wręcz albo towarzysz i sługa nekromanty już się nie zasłaniają.",
   3060: "Zabójca: więcej obrony (padał dwa razy częściej niż inni bohaterowie).",
   3061: "Mag: trochę więcej punktów życia.",
+  3062: "Dziennik przewija się za szybko? Zaznacz „Tylko ważne wiersze” (Statystyki > Dziennik): zostaną tylko legendarne przedmioty, rekordy i wydarzenia.",
 };

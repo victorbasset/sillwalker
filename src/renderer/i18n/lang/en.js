@@ -1934,4 +1934,5 @@ export default {
   3059: "Duo: two melee fighters, or a companion and the necromancer's minion, no longer hide each other.",
   3060: "Assassin: more defense (it fell twice as often as the other heroes).",
   3061: "Mage: a bit more health.",
+  3062: "Log scrolling too fast? Tick “Important lines only” (Statistics > Log): it keeps only legendaries, records and events.",
 };

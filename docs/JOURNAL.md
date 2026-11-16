@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1833) : astuce « logimp » : le filtre du Journal (it. 1723) restait à découvrir ; une fois 2 000 monstres vaincus,
+  onglet Statistiques ouvert et case pas cochée, la bulle cite « Lignes importantes seulement » (Statistiques > Journal) et
+  ouvre le Journal au clic. Clé 3062 (10 langues, i18n-quotes et i18n-paths : 0 écart) ; aucune astuce coupée (de, ru, pl,
+  es, pt). Test ; npm test 334, autotest 253/253.
 - 2026-11-16 (it. 1832, contrôle) : --crawl en coréen sur la partie de fin de partie (Journal horodaté, Statistiques complètes) :
   688 clics en 24 s, aucune erreur.
 - 2026-11-16 (it. 1831, revue générale) : 12 h graine 161 : assassin 62, chaman 62, barde 61 (graine dure pour les trois) ;

@@ -89,6 +89,9 @@ export const HINTS = [
     when: (g) => g.S.stats.kills >= 300 && g.S.settings.sound !== false && !g.S.settings.muted },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
     when: (g) => (g.S.speed || 0) > 0 && statsFull(g.S) }, // (it. 1729) chiffres visibles à partir de la zone 40
+  // (it. 1833) le filtre du Journal (it. 1723) restait à découvrir : une fois le journal bien rempli
+  { id: "logimp", tab: "stats", sec: "log", text: tx("Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que légendaires, records et événements."),
+    when: (g) => tabOpen(g.S, "stats") && (g.S.stats.kills || 0) >= 2000 && !g.S.settings.logImportant },
 ];
 
 /** Clé « déjà vu » : une fois pour toutes, ou une fois par course (perRun). */

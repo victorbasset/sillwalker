@@ -4567,4 +4567,12 @@ test("élite Colossale (it. 1617) : 120 % de vie en plus, coups 40 % plus lents,
   assert.ok(Math.abs(m.interval - 1.4) < 1e-9, "coups espacés");
   assert.equal(m.atk, 50, "attaque inchangée");
 });
+test("astuce du filtre du Journal (it. 1833) : journal bien rempli, case pas encore cochée", () => {
+  const find = (gg, id) => { for (let i = 0; i < 40; i++) { const h = nextHint(gg); if (!h) return null; if (h.id === id) return h; markHint(gg, h.key); } return null; };
+  const mk = (kills, imp) => { const g = new Game(freshLocked()); g.S.tabsOpen = { ...(g.S.tabsOpen || {}), stats: true }; g.S.stats.kills = kills; g.S.settings.logImportant = imp; return g; };
+  const h = find(mk(2500, false), "logimp");
+  assert.ok(h && h.tab === "stats" && h.sec === "log", "astuce vers Statistiques > Journal");
+  assert.ok(!find(mk(500, false), "logimp"), "journal encore court : pas d'astuce");
+  assert.ok(!find(mk(2500, true), "logimp"), "case déjà cochée : pas d'astuce");
+});
 console.log(`\n${pass} tests réussis`);
