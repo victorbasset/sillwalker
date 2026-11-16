@@ -507,6 +507,7 @@ export class Sound {
     game.on("feather", () => this.play("event"));
     game.on("starCaught", () => { this.play("star"); this.coin(4); }); // attrapée : l'étoile tinte, puis l'or tombe
     game.on("chest", () => this.play("chest"));
+    game.on("chestOpen", () => this.play("chest")); // (it. 1604) coffre ouvert sous les yeux (boutique, quête)
     game.on("expedition", () => this.play("loot"));
     game.on("codex", () => this.play("codex"));
     game.on("heroDown", () => this.play("ko"));
