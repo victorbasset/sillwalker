@@ -1889,4 +1889,7 @@ export default {
   3014: "Poupouce pokonany: różowy baner, deszcz monet, dźwięk czempiona i słowo pożegnania od bohatera.",
   3015: "Sklep: gdy torba jest pełna, przycisk „Torba pełna” otwiera torbę (Przygoda), by zrobić miejsce.",
   3016: "Pasek: liczby nie wylatują już górą i omijają dymek bohatera.",
+  3017: "Dziennik się przeprowadził: jest teraz w Statystyki > Dziennik.",
+  3018: "Przygoda: ekwipunek jest teraz przed torbą, a torba jest szersza (16 miejsc w rzędzie na dużym ekranie): szczegóły przedmiotu mieszczą się bez przewijania.",
+  3019: "Przycisk Ustawienia jest teraz tuż na lewo od „Wyjdź”.",
 };

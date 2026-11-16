@@ -1889,4 +1889,7 @@ export default {
   3014: "Poupouce derrotado: faixa rosa, chuva de moedas, som de campeão e uma palavra de despedida do herói.",
   3015: "Loja: com a bolsa cheia, o botão \"Bolsa cheia\" abre a bolsa (Aventura) para liberar espaço.",
   3016: "Faixa: os números não saem mais pelo topo e evitam o balão de fala do herói.",
+  3017: "O Diário mudou de lugar: agora fica em Estatísticas > Diário.",
+  3018: "Aventura: o equipamento vem antes da bolsa, e a bolsa ficou mais larga (16 espaços por linha em telas grandes): os detalhes de um item cabem sem rolar.",
+  3019: "O botão Configurações agora fica logo à esquerda de \"Sair\".",
 };

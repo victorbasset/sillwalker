@@ -1889,4 +1889,7 @@ export default {
   3014: "Poupouce besiegt: rosa Banner, Münzregen, Champion-Klang und ein Abschiedswort des Helden.",
   3015: "Laden: Ist die Tasche voll, öffnet der Knopf „Tasche voll“ die Tasche (Abenteuer), um Platz zu schaffen.",
   3016: "Leiste: Zahlen fliegen nicht mehr oben hinaus und weichen der Sprechblase des Helden aus.",
+  3017: "Das Protokoll ist umgezogen: Es ist jetzt unter Statistiken > Protokoll.",
+  3018: "Abenteuer: Die Ausrüstung kommt vor der Tasche, und die Tasche ist breiter (16 Plätze pro Reihe auf großen Bildschirmen): Die Details eines Gegenstands passen ohne Scrollen.",
+  3019: "Der Knopf Einstellungen sitzt jetzt direkt links von „Beenden“.",
 };

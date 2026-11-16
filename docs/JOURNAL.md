@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1680) : « Quoi de neuf », édition 110 (Journal dans Statistiques > Journal, Aventure réorganisée, Réglages près de
+  « Quitter »), 10 langues, chemins et libellés tels que traduits. Clés 3017-3019. npm test, autotest 245/245.
 - 2026-11-16 (it. 1679) : demandes de Victor : (1) partie neuve : volume général 50 %, effets 20 %, musique 50 %, ambiance 100 %
   (freshState) ; une sauvegarde existante sans réglage de volume garde l'ancien niveau (migrate : 0,4 et 1, test « avant les
   volumes séparés » inchangé) ; vérifié en lançant une partie neuve (0,5 / 0,2 / 0,5 / 1) et une vieille sauvegarde (0,7 / 1 /

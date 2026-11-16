@@ -3018,5 +3018,8 @@ export const KEYS = [
   "Clic : ouvrir le sac (Aventure) pour vendre ou transmuter.",
   "Poupouce vaincu : bannière rose, gerbe de pièces, son de champion et un mot d’adieu du héros.",
   "Boutique : quand le sac est plein, le bouton « Sac plein » ouvre le sac (Aventure) pour faire de la place.",
-  "Bande : les nombres ne sortent plus par le haut et évitent la bulle de parole du héros."
+  "Bande : les nombres ne sortent plus par le haut et évitent la bulle de parole du héros.",
+  "Le Journal a déménagé : il est maintenant dans Statistiques > Journal.",
+  "Aventure : l’équipement passe avant le sac, et le sac s’élargit (16 cases par rangée sur grand écran) : le détail d’un objet se lit sans défiler.",
+  "Le bouton Réglages est maintenant juste à gauche de « Quitter »."
 ];

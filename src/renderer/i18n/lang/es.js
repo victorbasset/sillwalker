@@ -1889,4 +1889,7 @@ export default {
   3014: "Poupouce derrotado: estandarte rosa, lluvia de monedas, sonido de campeón y unas palabras de despedida del héroe.",
   3015: "Tienda: con la bolsa llena, el botón «Bolsa llena» abre la bolsa (Aventura) para hacer sitio.",
   3016: "Franja: los números ya no se salen por arriba y evitan el bocadillo del héroe.",
+  3017: "El Diario se ha mudado: ahora está en Estadísticas > Diario.",
+  3018: "Aventura: el equipo va antes que la bolsa, y la bolsa es más ancha (16 casillas por fila en pantallas grandes): el detalle de un objeto se lee sin desplazarse.",
+  3019: "El botón Ajustes está ahora justo a la izquierda de «Salir».",
 };
