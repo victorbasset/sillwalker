@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1737, contrôle) : Poupouce dans MONSTERS : aucun tirage au hasard dans la liste (quêtes de chasse : monstres de
+  la zone) ; seuls le Bestiaire (bonus par paliers, carte) et le succès « Bestiaire complet » le comptent : objectif rare voulu ;
+  un succès déjà obtenu reste acquis.
 - 2026-11-16 (it. 1736, contrôle) : Poupouce (chat) en mode mini : dessin net, contour rose, aucune erreur (capture envoyée à Victor).
 - 2026-11-16 (it. 1735) : volume du miaulement mesuré hors ligne (OfflineAudioContext, mise en scène) : pic 0,032 contre 0,025 pour
   le butin légendaire, 0,014 pour une pièce ; gain 0,35 → 0,28 : pic 0,026, au niveau du légendaire. Autotest 247/247.
