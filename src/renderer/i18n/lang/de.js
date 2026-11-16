@@ -1885,4 +1885,5 @@ export default {
   3010: "Mini-Modus: Die Blase der nächsten Freischaltung nennt jetzt auch deinen Zonenrekord.",
   3011: "Verzeihung, Poupouce …",
   3012: "Komm bald wieder, Poupouce!",
+  3013: "Klick: Tasche öffnen (Abenteuer), um zu verkaufen oder zu transmutieren.",
 };

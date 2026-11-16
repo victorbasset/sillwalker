@@ -36,7 +36,9 @@ export class ShopTab {
     // coupé sur deux lignes) ; le prix exact reste dans la bulle quand l'achat est possible.
     // (it. 1512) tip : bulle du bouton quand l'achat est possible (objet équipé dès l'achat, it. 1510)
     const buy = (action, id, price, block = "", cls = "", short = false, tip = "") =>
-      block ? `<button disabled class="buy">${esc(block)}</button>`
+      // (it. 1663) sac plein : le bouton n'est plus une impasse grisée, il ouvre le sac (Aventure) pour faire de la place
+      block === tx("Sac plein") ? `<button class="buy" data-tab="adventure" title="${esc(tx("Clic : ouvrir le sac (Aventure) pour vendre ou transmuter."))}">${esc(block)}</button>`
+      : block ? `<button disabled class="buy">${esc(block)}</button>`
         : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` ${tx("disabled title=\"Pas assez d’or\"")}` : tip ? ` title="${esc(tip)}"` : short && fmtShort(price) !== fmt(price) ? ` title="${fmt(price)}"` : ""}><i class="coin"></i>${short ? fmtShort(price) : fmt(price)}</button>`;
 
     // --- Marchand ---

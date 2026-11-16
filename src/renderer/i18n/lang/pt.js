@@ -1885,4 +1885,5 @@ export default {
   3010: "Modo mini: o balão do próximo desbloqueio também lembra seu recorde de zona.",
   3011: "Desculpa, Poupouce…",
   3012: "Volte logo, Poupouce!",
+  3013: "Clique: abrir a bolsa (Aventura) para vender ou transmutar.",
 };

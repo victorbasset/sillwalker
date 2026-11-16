@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1663) : Boutique, sac plein : les boutons « Sac plein » (marchand et coffres) ne sont plus des impasses
+  grisées : un clic ouvre le sac (Aventure) pour vendre ou transmuter (info-bulle, 10 langues ; lien data-tab, pas une action).
+  Vérifié en allemand : 7 boutons, clic → Aventure. Clé 3013. npm test, autotest 242/242.
 - 2026-11-16 (it. 1662) : assassin sur une semaine (simulate 168, graine 7) : record 366 avec l'attaque ×1,15 (it. 1638), 377 avec
   l'ancienne ×1,10 : l'assassin, en retrait sur 12 h, est fort en fin de partie ; le renforcement n'y change rien de mesurable (bruit).
   Repère ancien (it. 1115) : guerrier 350, mage 349.

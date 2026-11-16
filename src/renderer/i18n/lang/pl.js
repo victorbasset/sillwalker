@@ -1885,4 +1885,5 @@ export default {
   3010: "Tryb mini: dymek następnego odblokowania przypomina też twój rekord strefy.",
   3011: "Wybacz, Poupouce…",
   3012: "Wracaj szybko, Poupouce!",
+  3013: "Kliknij: otwórz torbę (Przygoda), aby sprzedać lub transmutować.",
 };

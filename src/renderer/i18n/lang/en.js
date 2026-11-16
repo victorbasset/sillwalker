@@ -1885,4 +1885,5 @@ export default {
   3010: "Mini mode: the next unlock bubble also shows your zone record.",
   3011: "Sorry, Poupouce…",
   3012: "Come back soon, Poupouce!",
+  3013: "Click: open the bag (Adventure) to sell or transmute.",
 };

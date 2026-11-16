@@ -1885,4 +1885,5 @@ export default {
   3010: "Modo mini: la burbuja del próximo desbloqueo también recuerda tu récord de zona.",
   3011: "Perdón, Poupouce…",
   3012: "¡Vuelve pronto, Poupouce!",
+  3013: "Clic: abrir la bolsa (Aventura) para vender o transmutar.",
 };

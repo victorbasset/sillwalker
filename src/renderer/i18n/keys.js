@@ -3014,5 +3014,6 @@ export const KEYS = [
   "Assassin : attaque de classe +15 % (au lieu de +10 %).",
   "Mode mini : la bulle du prochain déblocage rappelle aussi ton record de zone.",
   "Pardon, Poupouce…",
-  "Reviens vite, Poupouce !"
+  "Reviens vite, Poupouce !",
+  "Clic : ouvrir le sac (Aventure) pour vendre ou transmuter."
 ];
