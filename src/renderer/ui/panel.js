@@ -192,9 +192,9 @@ export class Panel {
         <div class="controls">
           ${dev}
           <button data-action="feedback" class="quiet feedback" aria-label="${esc(tx("Ton avis"))}" title="${esc(tx("Ton avis") + " — " + tx("Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte.") + (this.version ? " (Sillwalker " + this.version + ")" : ""))}"><img src="${shopIconURL("contract", 2)}" alt=""></button>
-          <button data-action="mini" class="quiet" title="${esc(tx("Réduire en petit encart près de l’horloge"))}">${tx("Mode mini")}</button>
-          <!-- (it. 1677, demande de Victor) Réglages juste à gauche de Quitter -->
+          <!-- (it. 1680, demande de Victor) Réglages juste à gauche de « Mode mini » -->
           <nav class="tabs tabs-side" role="tablist">${TABS.map((t, i) => t.id === "settings" ? tabBtn({ ...t, group: false }, i) : "").join("")}</nav>
+          <button data-action="mini" class="quiet" title="${esc(tx("Réduire en petit encart près de l’horloge"))}">${tx("Mode mini")}</button>
           <button data-action="quit" class="quiet quit" title="${esc(tx("Quitter Sillwalker (la partie est sauvegardée)"))}">${tx("Quitter")}</button>
           <button data-action="close" class="close" aria-label="${esc(tx("Fermer le panneau"))}" title="${esc(tx("Fermer (Échap)"))}">✕</button>
         </div>
@@ -223,6 +223,14 @@ export class Panel {
           <div class="row"><button data-action="closemodal">${tx("Continuer")}</button></div>
         </div>
       </div>`;
+    // (it. 1680, vu par Victor : menu sur deux lignes) les onglets n'étaient ajustés qu'au changement d'onglet : une police
+    // chargée après coup, une fenêtre ou une taille d'interface qui change les laissaient déborder ; on réajuste quand les
+    // polices sont prêtes et quand la largeur de l'en-tête change (une image plus tard, une seule fois)
+    document.fonts?.ready?.then(() => this.fitTabs());
+    if (typeof ResizeObserver === "function") {
+      let w = 0, raf = 0;
+      new ResizeObserver(([e]) => { const nw = Math.round(e.contentRect.width); if (nw === w) return; w = nw; cancelAnimationFrame(raf); raf = requestAnimationFrame(() => this.fitTabs()); }).observe(this.root.querySelector(".ptop"));
+    }
     // Double-clic sur un objet (2e clic d'une série, e.detail = 2) : l'équiper (sac) ou le retirer (héros).
     // Curseurs : le pourcentage affiché suit le glissement (le réglage s'applique au relâchement).
     initHScroll(this.root);

@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1681) : demandes de Victor : (1) menu sur deux lignes (vu chez lui en mode dev) : les onglets n'étaient ajustés
+  (fitTabs) qu'au changement d'onglet ; ils le sont aussi quand les polices sont prêtes et quand la largeur de l'en-tête
+  change (ResizeObserver, une fois par image). Reproduit en zoomant le panneau après l'ouverture : avant, boutons sur une
+  2e ligne (controls à 52 px) ; après, onglets en icônes et une seule ligne. (2) Réglages à gauche de « Mode mini ».
+  L'édition 110 dit « à gauche de Quitter » : correction à mettre dans la prochaine édition (on ne retouche pas une
+  édition publiée). npm test, autotest 245/245, lang-overflow ru, de, pl, fr : aucun.
 - 2026-11-16 (it. 1680) : « Quoi de neuf », édition 110 (Journal dans Statistiques > Journal, Aventure réorganisée, Réglages près de
   « Quitter »), 10 langues, chemins et libellés tels que traduits. Clés 3017-3019. npm test, autotest 245/245.
 - 2026-11-16 (it. 1679) : demandes de Victor : (1) partie neuve : volume général 50 %, effets 20 %, musique 50 %, ambiance 100 %
