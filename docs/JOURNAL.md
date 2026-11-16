@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1826) : assassin : il mourait deux fois plus que le moine (239 contre 134 en 12 h, graine 7) ; défense ×0,9 → ×1,1 :
+  61,4 → 64,0 sur 7 graines (62 62 66 65 66 65 62 ; avant 62 61 61 62 62 62 60), là où PV, attaque, critique et poison
+  n'avaient rien donné (it. 1750, 1795-1796). Fuzz 600 parties, 0 bloquée ; npm test 333, autotest 253/253.
 - 2026-11-16 (it. 1825, contrôle) : tableau des 20 héros (12 h, graines 7/3/11) : 61,7 assassin → 68,0 moine, moyenne 65,0, écart
   6,3 (it. 1748 : 7,0) ; mage 63,7 (dernier avant ses PV). Repère mis à jour dans CLAUDE.md.
 - 2026-11-16 (it. 1824, contrôle) : lang-overflow complet après le Journal horodaté et le duo : aucun défilement ni mot coupé

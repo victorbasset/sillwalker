@@ -22,7 +22,7 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
   route) apparaissent grisés jusqu'à la zone 40, où leur arrivée est annoncée.
 - **Poupouce et le sac plein :** quand il arrive et que ton sac est plein, ton héros te prévient à temps pour faire de
   la place à son objet légendaire ; en mode mini aussi.
-- **Mage :** un peu plus de points de vie.
+- **Mage et assassin :** le mage gagne des points de vie, l'assassin de la défense (il tombait deux fois plus que les autres).
 - **Retour d'absence :** la fenêtre dit combien d'objets légendaires les Poupouce vaincus t'ont laissés (seulement ceux
   vraiment rangés) ; en jeu, le Journal signale un légendaire de Poupouce resté au sol faute de place.
 - **Tico, le scribe des Statistiques,** a de nouvelles répliques en début de partie (il ne parle plus de ce qui n'est pas
