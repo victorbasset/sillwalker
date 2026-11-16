@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1634) : mode mini vérifié en vrai : la bulle d'aide donne « Meilleure zone… / Expérience : 0 % / Bénédiction du jour… /
+  Demain… » (it. 1573).
 - 2026-11-16 (it. 1633) : POUR-VICTOR : résumé de la nuit (it. 1546-1633) et décisions en attente.
 - 2026-11-16 (it. 1632) : fuzz sous la Grande chasse (élites ×3, donc plus de Colossaux) : 1 200 parties, 0 bloquée.
 - 2026-11-16 (it. 1631, revue générale) : simulation 12 h graine 11 : assassin 61, nécromancien 62, lancier 65 ; perf:linux bande
