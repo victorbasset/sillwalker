@@ -27,6 +27,7 @@ import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
 import * as M_bosses_1849 from "../src/renderer/game/bosses.js";
+import { natureOf as natureOf1850, lifeSeed as lifeSeed1850, lifeOffset as lifeOffset1850 } from "../src/renderer/render/monlife.js";
 import * as M_events_js from "../src/renderer/game/events.js";
 import * as M_equipvis_js from "../src/renderer/render/equipvis.js";
 import * as M_skillicons_js from "../src/renderer/render/skillicons.js";
@@ -4639,5 +4640,21 @@ test("pouvoirs uniques (it. 1849) : un par lieutenant et pour le Briseur, aucun 
   for (let z = 1; z <= 400; z++) if (!U[z]) for (const id of Object.values(U)) assert.ok(!M_bosses_1849.bossMechanics(z).includes(id), "zone " + z + " ne doit pas avoir " + id);
   for (const id of Object.values(U)) assert.ok(M_bosses_1849.BOSS_MECHANICS[id], id + " décrit");
   for (const b of M_relics_js.MAJOR_BOSSES) { assert.ok(FINAL_BOSS.hp > b.hp && FINAL_BOSS.atk > b.atk, "Briseur plus dur que " + b.id); }
+});
+test("vie des monstres en attente (it. 1850) : chacun bouge selon sa nature, se fige face au héros qui arrive", () => {
+  assert.equal(natureOf1850("slime", false), "hop"); assert.equal(natureOf1850("bat", true), "fly"); assert.equal(natureOf1850("mimic", false), "statue");
+  assert.equal(natureOf1850("orc", false), "wander"); assert.equal(natureOf1850("rat", false), "skitter");
+  let moved = 0, maxDx = 0;
+  for (const nat of ["wander", "skitter", "hop", "fly", "still"]) for (let t = 0; t < 30; t += 0.25) {
+    const o = lifeOffset1850(nat, lifeSeed1850(2, 3), t, 999);
+    assert.ok(Number.isFinite(o.dx) && Number.isFinite(o.dy) && Math.abs(o.face) === 1, nat);
+    maxDx = Math.max(maxDx, Math.abs(o.dx)); if (Math.abs(o.dx) > 3 || Math.abs(o.dy) > 3) moved++;
+    // héros tout près : en place, tourné vers lui
+    const a = lifeOffset1850(nat, lifeSeed1850(2, 3), t, 40);
+    assert.equal(a.dx, 0, nat + " en alerte : à sa place"); assert.equal(a.face, 1, nat + " en alerte : face au héros");
+  }
+  assert.ok(moved > 100, "ils bougent : " + moved); assert.ok(maxDx <= 31, "pas trop loin de leur place : " + maxDx);
+  for (let t = 0; t < 20; t += 0.5) { const b = lifeOffset1850("wander", 0.3, t, 999, true); assert.ok(b.dx === 0 && b.dy === 0, "le boss garde sa place"); }
+  for (let t = 0; t < 20; t += 0.5) { const m = lifeOffset1850("statue", 0.3, t, 999); assert.ok(m.dx === 0 && m.dy === 0, "la mimique ne bouge pas"); }
 });
 console.log(`\n${pass} tests réussis`);

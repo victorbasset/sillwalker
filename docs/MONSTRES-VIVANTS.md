@@ -1,0 +1,40 @@
+# Monstres vivants : plan de la journée (16-17 novembre 2026)
+
+Demande de Victor (16/11, 23 h) : « que le Rebord devienne plus vivant, plus naturel, comme si on parcourait vraiment
+une zone ; plus ou moins de monstres selon la zone, au hasard ; qu'ils se déplacent, volent dans les airs ; que chaque
+monstre et chaque boss ait des compétences visibles qui lui sont propres ; qu'ils paraissent dotés d'une intelligence.
+Prends ton temps, de manière qualitative. » Pas de nouveaux monstres.
+
+Point de départ : 84 sortes de monstres sur 37 dessins de base (les autres sont des variantes recolorées), 33 décors.
+Chaque zone : exactement 10 monstres plus le boss, chacun planté sur sa place, deux images d'animation ; les volants ne
+se balançaient qu'au combat.
+
+## Règles
+
+- Rien d'animé en CSS en permanence sur la bande (≈ 9 points d'un cœur, CLAUDE.md) : tout passe par la boucle d'images
+  existante et Actor.move, qui n'écrit qu'à chaque pas de pixel (3 px).
+- `npm run perf:linux` après chaque étape visible ; balance (`balance.mjs`, semaine `simulate.js 168`) et `fuzz.mjs`
+  dès qu'une compétence change le combat. Une compétence de monstre doit se voir ET se sentir, sans renverser l'équilibre.
+- Chaque compétence a un mot ou un effet visible sur la bande, un son court, et sa ligne au Bestiaire (10 langues).
+
+## Étapes
+
+1. **Vie en attente** (it. 1850, fait) : `render/monlife.js`. Selon le dessin de base :
+   - marcheurs (`wander`) : vont à un point à ±30 px, s'arrêtent, repartent ; dos au héros quand ils s'éloignent ;
+   - volants (`fly`, tout sprite `fly`) : planent, se balancent et dérivent de ±20 px ;
+   - sauteurs (`hop` : gluants, crapauds) : un bond toutes les 2,5 à 4 s ;
+   - furtifs (`skitter` : rats, araignées, scorpions, scarabées, lézards, serpents, crabes) : courses brèves, arrêts nets ;
+   - colosses (`still` : golems, plantes, sylvains, momies, vers) : un pas de loin en loin ;
+   - la mimique (`statue`) ne bouge pas : elle se fait passer pour un coffre ;
+   - vigilance : à moins de 150 px du héros, le monstre revient à sa place et se tourne vers lui ; les boss gardent la
+     leur.
+2. **Nombre de monstres variable** par zone (au hasard, autour de 10) : logique de jeu (KILLS_PER_ZONE, quêtes, perçage,
+   barre de progression, sauvegarde), à mener prudemment et à mesurer (early-pace, balance, fuzz).
+3. **Compétences propres**, famille par famille (dessin de base), chacune déclinée pour ses variantes (feu, givre, poison…) :
+   gluants, champignons, chauves-souris, squelettes, scorpions, loups, golems, plantes, spectres, diablotins, rats,
+   araignées, momies, yétis, harpies, élémentaires, crabes, chevaliers noirs, sylvains, wyvernes, tyrannœils, crapauds,
+   serpents, scarabées, sangliers, ours, orcs, cultistes, guêpes, méduses, lézards, vers, mimiques, bandits, corbeaux,
+   champignons errants, chevaliers errants, gobelins.
+4. **Boss** : une compétence propre à chacun des 33 boss de zone (en plus de leurs capacités tournantes), visible.
+5. **Comportements d'ensemble** : meutes (loups qui attendent ensemble), volants qui changent d'altitude, monstres qui
+   fuient blessés, réactions à la mort d'un voisin.

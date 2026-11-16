@@ -14,7 +14,7 @@ import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
-import { KILLS_PER_ZONE, ELITE_AFFIXES, POUPOUCE } from "../game/data.js";
+import { KILLS_PER_ZONE, ELITE_AFFIXES, POUPOUCE, MONSTERS } from "../game/data.js";
 const POUPOUCE_PINK = "#ff9ad2"; // (it. 1605) contour et étiquette de Poupouce
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
@@ -27,6 +27,7 @@ import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
+import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -845,6 +846,8 @@ export class StripRenderer {
       if (boss) a.bar.el.classList.add("bossbar");
       a.bar.visible(false);
       a.move(this.fightX(k + 1), this.monY(a, 0));
+      // (it. 1850) vie en attente : nature selon le dessin de base, rythme propre à la place (monlife.js)
+      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.nature = natureOf(def.art || (boss ? Z.boss : line[k].type), !!a.fly); a.lifeSeed = lifeSeed(g.S.zone, k); }
       this.slots.push(a);
     }
     this.slotKey = line;
@@ -940,7 +943,11 @@ export class StripRenderer {
       const fighting = k === cur && R.mon;
       a.show(fighting ? busy : idle);
       const bob = fighting && a.fly ? Math.sin(R.time * 5) * 3 : 0;
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0), this.monY(a, bob));
+      // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
+      const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === FIGHTS - 1);
+      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0), this.monY(a, bob) + (life ? life.dy : 0));
+      const flip = !!(life && life.face < 0);
+      if (a.flipped !== flip) { a.flipped = flip; a.el.classList.toggle("flip", flip); mark("flip"); }
       // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).
       const pierced = !fighting && (k === line.length ? R.bossPierced > 0 : line[k]?.pierced > 0);
       a.bar.visible(!!fighting || pierced);

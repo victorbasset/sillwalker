@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1850, journée des monstres, demande de Victor) : plan dans docs/MONSTRES-VIVANTS.md ; vie des monstres
+  en attente (render/monlife.js) : marcheurs (±30 px, arrêts), volants (planent, dérivent), sauteurs (gluants, crapauds),
+  furtifs (courses brèves), colosses (un pas de loin en loin), mimique immobile ; à moins de 150 px du héros, retour à sa
+  place, face à lui ; boss en place ; dos au héros quand il s'éloigne (classe .flip, images seules). Positions relevées
+  en jeu toutes les 0,7 s ; perf bande 17,9 % (avant 18,3) ; test ; npm test 341, autotest 253/253.
 - 2026-11-16 (it. 1849, demande de Victor : « des compétences uniques, plus durs que la normale, le Briseur encore plus
   dur ») : pouvoirs uniques (bosses.js, hors de ORDER) : Chaînes du Geôlier (toutes les 10 s, héros enchaîné 1,5 s : plus
   d'attaques ; sorts et clics passent), Renaître des cendres (Reine : à 50 % de vie, +20 % PV et +25 % d'attaque), Éclipse
