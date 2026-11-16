@@ -103,14 +103,14 @@ export class Sound {
   }
 
   /** (it. 1734) Miaulement de Poupouce : « mi-aou », une voyelle qui monte puis retombe (deux oscillateurs un peu désaccordés,
-   *  filtre qui s'ouvre et se ferme pour le « a-ou »). Discret : au niveau des effets ordinaires. */
+   *  filtre qui s'ouvre et se ferme pour le « a-ou »). (it. 1735) gain 0,28 : pic au niveau du butin légendaire (0,026), mesuré hors ligne. */
   meow() {
     const ctx = this.ctx, t = ctx.currentTime;
     const f = ctx.createBiquadFilter(), g = ctx.createGain();
     f.type = "bandpass"; f.Q.value = 3;
     f.frequency.setValueAtTime(900, t); f.frequency.linearRampToValueAtTime(1800, t + 0.15); f.frequency.linearRampToValueAtTime(700, t + 0.5);
-    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.35, t + 0.05);
-    g.gain.setValueAtTime(0.35, t + 0.3); g.gain.exponentialRampToValueAtTime(0.001, t + 0.55);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.28, t + 0.05);
+    g.gain.setValueAtTime(0.28, t + 0.3); g.gain.exponentialRampToValueAtTime(0.001, t + 0.55);
     f.connect(g); g.connect(this.master);
     for (const d of [1, 1.006]) {
       const o = ctx.createOscillator(); o.type = "sawtooth";
