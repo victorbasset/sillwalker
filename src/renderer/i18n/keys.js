@@ -3069,5 +3069,17 @@ export const KEYS = [
   "★ légendaire · ◆ épique · ✦ butin rare et événements · ✓ quêtes, œufs, expéditions · ⚑ grandes étapes · ⚠ chutes du héros",
   "Journal : les événements et les grandes étapes (⚑ reliques, ascensions, déblocages, sorts…) restent visibles avec « Lignes importantes seulement ».",
   "Journal : au survol de cette case, une légende explique chaque symbole (★ ◆ ✦ ✓ ⚑ ⚠).",
-  "Une astuce fait découvrir ce filtre une fois le Journal bien rempli."
+  "Une astuce fait découvrir ce filtre une fois le Journal bien rempli.",
+  "Chaînes du Geôlier",
+  "Toutes les 10 s, enchaîne le héros pendant 1,5 s : il ne frappe plus (ses sorts et les coups au clic passent toujours).",
+  "Renaître des cendres",
+  "À 50 % de vie, s’embrase : regagne 20 % de ses PV et frappe 25 % plus fort jusqu’à la fin du combat.",
+  "Éclipse",
+  "Toutes les 12 s, plonge le combat dans le noir pendant 3 s : le héros rate la moitié de ses coups (les coups au clic touchent toujours).",
+  "Ciel brisé",
+  "Toutes les 10 s, fait tomber trois éclats d’étoile : trois coups à 60 % de son attaque, chacun esquivable.",
+  "Enchaîné !",
+  "Renaît des cendres !",
+  "Éclipse !",
+  "Ciel brisé !"
 ];

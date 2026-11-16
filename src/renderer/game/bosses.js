@@ -81,7 +81,18 @@ export const BOSS_MECHANICS = {
   // (it. 964) Variété : contre les héros qui misent tout sur les coups critiques.
   scales: { name: "Écailles", desc: "Les coups critiques ne lui infligent que la moitié de leur bonus." },
   bulwark: { name: "Peau de pierre", desc: "Subit 30 % de dégâts en moins tant qu’il lui reste plus de 70 % de ses PV : la première charge est la plus dure." },
+  // (it. 1849, demande de Victor : « des compétences uniques ») pouvoirs propres aux trois lieutenants et au Briseur
+  // (hors de ORDER : aucun boss ordinaire ne les reçoit ; les échos gardent celui de leur lieutenant)
+  chains: { name: "Chaînes du Geôlier", desc: "Toutes les 10 s, enchaîne le héros pendant 1,5 s : il ne frappe plus (ses sorts et les coups au clic passent toujours)." },
+  ashes: { name: "Renaître des cendres", desc: "À 50 % de vie, s’embrase : regagne 20 % de ses PV et frappe 25 % plus fort jusqu’à la fin du combat." },
+  eclipse: { name: "Éclipse", desc: "Toutes les 12 s, plonge le combat dans le noir pendant 3 s : le héros rate la moitié de ses coups (les coups au clic touchent toujours)." },
+  shards: { name: "Ciel brisé", desc: "Toutes les 10 s, fait tomber trois éclats d’étoile : trois coups à 60 % de son attaque, chacun esquivable." },
 };
+/** (it. 1849) Pouvoirs uniques : Chaînes (Geôlier), Cendres (Reine), Éclipse (Chevalier), Ciel brisé (Briseur). */
+export const CHAINS = { every: 10, first: 4, s: 1.5 };
+export const ASHES = { at: 0.5, heal: 0.2, atk: 1.25 };
+export const ECLIPSE = { every: 12, first: 6, s: 3, miss: 0.5 };
+export const SHARDS = { every: 10, first: 7, n: 3, mult: 0.6 };
 /** Cuirasse : réduction des dégâts au-dessus du seuil de PV. */
 export const BULWARK = { above: 0.7, cut: 0.3 };
 export const FURY = { every: 5, speed: 0.9, max: 6 };

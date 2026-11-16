@@ -26,6 +26,7 @@ import { MAJOR_ART as MAJOR_ART_1847 } from "../src/renderer/render/art-monsters
 import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
+import * as M_bosses_1849 from "../src/renderer/game/bosses.js";
 import * as M_events_js from "../src/renderer/game/events.js";
 import * as M_equipvis_js from "../src/renderer/render/equipvis.js";
 import * as M_skillicons_js from "../src/renderer/render/skillicons.js";
@@ -4631,5 +4632,12 @@ test("lieutenants du Briseur (it. 1847) : chacun a son propre dessin, complet, r
     }
   }
   assert.equal(ids.size, 3, "trois dessins différents");
+});
+test("pouvoirs uniques (it. 1849) : un par lieutenant et pour le Briseur, aucun boss ordinaire ne les a, le Briseur le plus dur", () => {
+  const U = { 50: "chains", 100: "ashes", 150: "eclipse", 200: "shards", 250: "chains", 300: "ashes", 350: "eclipse" };
+  for (const z in U) assert.ok(M_bosses_1849.bossMechanics(+z).includes(U[z]), "zone " + z + " : " + U[z]);
+  for (let z = 1; z <= 400; z++) if (!U[z]) for (const id of Object.values(U)) assert.ok(!M_bosses_1849.bossMechanics(z).includes(id), "zone " + z + " ne doit pas avoir " + id);
+  for (const id of Object.values(U)) assert.ok(M_bosses_1849.BOSS_MECHANICS[id], id + " décrit");
+  for (const b of M_relics_js.MAJOR_BOSSES) { assert.ok(FINAL_BOSS.hp > b.hp && FINAL_BOSS.atk > b.atk, "Briseur plus dur que " + b.id); }
 });
 console.log(`\n${pass} tests réussis`);

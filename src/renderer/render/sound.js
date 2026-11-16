@@ -444,6 +444,12 @@ export class Sound {
           case "silence": this.whoosh(0, 0.4, 3000, 300, 0.1, 2); this.tone(NOTES.E5, 0.05, 0.3, "sine", 0.08, 0.5); break; // (it. 645) le son s'éteint
           case "venom": this.noise(0, 0.18, 0.12); [NOTES.E5, NOTES.C5].forEach((f, i) => this.tone(f * 1.03, 0.04 + i * 0.09, 0.16, "triangle", 0.1, 0.85)); break; // (it. 878) crachat, puis deux notes aigres
           case "curse": [NOTES.A5, NOTES.E5, NOTES.A5 / 2].forEach((f, i) => this.tone(f * 0.94, i * 0.08, 0.22, "sine", 0.14, 0.92)); break; // accord dissonant qui descend
+          // (it. 1849) pouvoirs uniques : chaînes (cliquetis métallique), cendres (souffle qui s'embrase), éclipse (accord
+          // grave qui s'éteint), ciel brisé (trois éclats cristallins qui tombent)
+          case "chains": [0, 0.05, 0.1].forEach((t, i) => this.tone(1500 - i * 220, t, 0.06, "square", 0.08)); this.noise(0, 0.08, 0.12); break;
+          case "ashes": this.whoosh(0, 0.45, 300, 2400, 0.12, 1); this.tone(110, 0.05, 0.35, "sawtooth", 0.18, 1.8); break;
+          case "eclipse": [NOTES.A5 / 4, NOTES.E5 / 4].forEach((f, i) => this.tone(f, i * 0.06, 0.5, "sine", 0.18, 0.7)); break;
+          case "shards": [NOTES.E6, NOTES.C6, NOTES.A5].forEach((f, i) => this.tone(f, i * 0.09, 0.14, "triangle", 0.12, 0.8)); break;
         }
         break;
       case "event": [NOTES.G5, NOTES.C6, NOTES.G6].forEach((f, i) => this.tone(f, i * 0.06, 0.18, "triangle", 0.25)); break;

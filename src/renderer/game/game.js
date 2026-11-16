@@ -45,7 +45,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
-import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES } from "./bosses.js";
+import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
@@ -301,7 +301,7 @@ export class Game {
         R.mon.dist -= (WALK_SPEED + MONSTER_SPEED) * dt * this.moveMul();
         if (R.mon.dist <= 0) {
           R.mon.dist = 0; R.mode = "fight"; R.atkT = 0.25;
-          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0; R.silenced = 0; R.venomT = 0;
+          R.firstHit = true; R.windUsed = false; R.combo = 0; R.minionT = 0; R.hits = 0; R.frozen = 0; R.cursed = 0; R.silenced = 0; R.venomT = 0; R.chained = 0; R.eclipse = 0;
           R.spellT = {}; // sorts : premier lancer après une demi-recharge (pas tous d'un coup à l'arrivée)
           for (const sp of classSpells(this.S.cls)) if (spellRank(this.S, sp.id)) R.spellT[sp.id] = spellCd(sp, spellRank(this.S, sp.id)) * 0.5;
           // (le compagnon : ses recharges repartent aussi, décalées de 3/4)
@@ -330,10 +330,12 @@ export class Game {
       // Attaques du héros
       if (R.frozen > 0) R.frozen -= dt;
       if (R.cursed > 0) R.cursed -= dt;
+      if (R.chained > 0) R.chained -= dt; // (it. 1849) Chaînes du Geôlier : le héros ne frappe plus
+      if (R.eclipse > 0) R.eclipse -= dt; // (it. 1849) Éclipse : la moitié de ses coups ratent (heroStrike)
       // (sorts, demande Q : accélération du héros et soin continu)
       if (R.hasteT > 0) R.hasteT -= dt;
       if (R.regenT > 0) { R.regenT -= dt; R.hp = Math.min(hs.hp, R.hp + hs.hp * (R.regenPct || 0) / 100 * dt); }
-      R.atkT -= dt * ((R.events.frenzy || 0) > 0 ? 2 : 1) * (R.frozen > 0 ? 0.6 : 1) * (R.hasteT > 0 ? 1.5 : 1);
+      R.atkT -= dt * ((R.events.frenzy || 0) > 0 ? 2 : 1) * (R.frozen > 0 ? 0.6 : 1) * (R.hasteT > 0 ? 1.5 : 1) * (R.chained > 0 ? 0 : 1);
       if (R.atkT <= 0) {
         R.atkT = 1 / (1 + hs.spd / 100);
         this.heroStrike(m, hs, R.firstHit, false);
@@ -525,6 +527,27 @@ export class Game {
       m.mirrorT = (m.mirrorT ?? 6) - dt;
       if (m.mirrorT <= 0 && !(m.mirror > 0)) { m.mirror = 2; this.emit("bossSkill", { id: "mirror" }); }
       if (m.mirror > 0) { m.mirror -= dt; if (m.mirror <= 0) { m.mirror = 0; m.mirrorT = 8; } }
+    }
+    // (it. 1849) pouvoirs uniques des lieutenants et du Briseur (bosses.js)
+    if (mech.includes("chains")) {
+      m.chainT = (m.chainT ?? CHAINS.first) - dt;
+      if (m.chainT <= 0) { m.chainT = CHAINS.every; this.R.chained = CHAINS.s; this.emit("bossSkill", { id: "chains" }); }
+    }
+    if (mech.includes("ashes") && !m.reborn && m.hp < m.max * ASHES.at) {
+      m.reborn = true; m.hp = Math.min(m.max, m.hp + m.max * ASHES.heal); m.atk *= ASHES.atk;
+      this.emit("bossSkill", { id: "ashes" });
+    }
+    if (mech.includes("eclipse")) {
+      m.eclT = (m.eclT ?? ECLIPSE.first) - dt;
+      if (m.eclT <= 0) { m.eclT = ECLIPSE.every; this.R.eclipse = ECLIPSE.s; this.emit("bossSkill", { id: "eclipse" }); }
+    }
+    if (mech.includes("shards")) {
+      m.shardT = (m.shardT ?? SHARDS.first) - dt;
+      if (m.shardT <= 0) {
+        m.shardT = SHARDS.every;
+        this.emit("bossSkill", { id: "shards" });
+        for (let k = 0; k < SHARDS.n; k++) if (this.monsterAttack(m, hs, SHARDS.mult)) return true;
+      }
     }
     if (mech.includes("smash")) {
       const before = m.smashT;
@@ -751,6 +774,7 @@ export class Game {
 
   heroStrike(m, hs, first, extra) {
     if (m.mech && m.mech.includes("evasive") && rand() < 0.2) { this.emit("bossDodge"); return; }
+    if (this.R.eclipse > 0 && rand() < ECLIPSE.miss) { this.emit("bossDodge"); return; } // (it. 1849) Éclipse du Chevalier
     if (m.affix === "elusive" && rand() < ELITE_AFFIXES.elusive.dodge) { this.emit("bossDodge"); return; } // élite fuyante (it. 934)
     // Iaijutsu (samouraï) : chaque 4e coup est un critique garanti renforcé.
     const iai = !extra && hs.iai > 0 && (this.R.hits = (this.R.hits || 0) + 1) % 4 === 0;

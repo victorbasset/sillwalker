@@ -9,7 +9,9 @@ export const FINAL_ZONE = 200;
 
 /** Le Briseur d'Étoiles : boss de la zone FINAL_ZONE (première fois et suivantes), plus coriace qu'un boss ordinaire,
  *  avec trois capacités. Vaincu une première fois : S.story.won (fin de l'histoire, gardée à l'ascension). */
-export const FINAL_BOSS = { name: "Le Briseur d’Étoiles", hp: 2.5, atk: 1.25, mech: ["smash", "mirror", "fury"] };
+// (it. 1849, demande de Victor : « le Briseur encore plus dur ») PV ×2,5 → ×3, attaque ×1,25 → ×1,3 (le Chevalier de
+// l’éclipse : ×2,4 / ×1,2) et son pouvoir unique, Ciel brisé (bosses.js)
+export const FINAL_BOSS = { name: "Le Briseur d’Étoiles", hp: 3, atk: 1.3, mech: ["shards", "smash", "mirror", "fury"] };
 export const isFinalZone = (z) => z === FINAL_ZONE;
 export const storyWon = (S) => !!(S.story && S.story.won);
 

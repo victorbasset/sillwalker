@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1849, demande de Victor : « des compétences uniques, plus durs que la normale, le Briseur encore plus
+  dur ») : pouvoirs uniques (bosses.js, hors de ORDER) : Chaînes du Geôlier (toutes les 10 s, héros enchaîné 1,5 s : plus
+  d'attaques ; sorts et clics passent), Renaître des cendres (Reine : à 50 % de vie, +20 % PV et +25 % d'attaque), Éclipse
+  (Chevalier, à la place du Miroir : toutes les 12 s, 3 s où le héros rate un coup sur deux), Ciel brisé (Briseur : toutes
+  les 10 s, trois coups à 60 %, esquivables) ; échos : même pouvoir. Briseur PV ×2,5 → ×3, attaque ×1,25 → ×1,3. Mots sur
+  la bande et sons (rendus par l'autotest) ; 12 clés, 10 langues ; page Steam : 15 → 19 capacités de boss (10 langues).
+  balance 12 h : +1,4 (bruit) ; semaine guerrier et mage : 350 (inchangé) ; fuzz 600 parties, 0 bloquée ; test ;
+  npm test 340, autotest 253/253.
 - 2026-11-16 (it. 1847, demande de Victor : « les boss qui tiennent les reliques, uniques et charismatiques comme le dernier
   boss ») : les trois lieutenants ont leur dessin (render/art-monsters2.js, MAJOR_ART ; relics.js, champ art), au format du
   Briseur (14 × 13, deux images) : Geôlier mécanique (automate de fer et de laiton, œil rouge, fournaise, lanterne-cage),

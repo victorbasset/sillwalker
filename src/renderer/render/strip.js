@@ -257,6 +257,11 @@ export class StripRenderer {
       if (id === "tenacious") { this.shake(0.25); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 20, this.ground - 30, "#ff9a4a", 10); }
       if (id === "venom") { this.float(this.heroX + 10, 30, tx("Empoisonné !"), "#8fe36a", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#8fe36a", 8); return; }
       if (id === "silence") { this.float(this.heroX + 10, 30, tx("Silence !"), "#c9b8f0", true); return; }
+      // (it. 1849) pouvoirs uniques des lieutenants et du Briseur
+      if (id === "chains") { this.float(this.heroX + 10, 30, tx("Enchaîné !"), "#c8ccd4", true); this.shake(0.12); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#c08a3a", 8); return; }
+      if (id === "ashes") { this.float(this.monX() + 20, 14, tx("Renaît des cendres !"), "#ff9a3a", true); this.shake(0.2); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 20, this.ground - 30, "#ff7a2a", 14); return; }
+      if (id === "eclipse") { this.float(this.heroX + 10, 30, tx("Éclipse !"), "#c88cff", true); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 20, this.ground - 40, "#ffd25a", 10); return; }
+      if (id === "shards") { this.float(this.monX() + 20, 14, tx("Ciel brisé !"), "#7ff3ff", true); this.shake(0.18); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 50, "#ffe27a", 14); return; }
       // (it. 1382) élite explosive : éclat orange sur le héros
       if (id === "explode") { this.float(this.heroX + 10, 30, tx("Explosion !"), "#ff6a3a", true); this.shake(0.2); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#ff6a3a", 10); return; }
       if (id === "frost") { this.float(this.heroX + 10, 30, tx("Gelé !"), "#bfe8ff", true); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 18, this.ground - 30, "#bfe8ff", 8); return; }
