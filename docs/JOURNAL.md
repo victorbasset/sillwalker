@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1764) : devlog 0.1.5 : bloc « Publication » en tête (titre, couverture, tags, langues, texte) ; CLAUDE.md : le préparer
+  à chaque version (Victor les a demandés un par un).
 - 2026-11-16 (it. 1763, contrôle) : --crawl en russe sur dev-data (678 clics en 21 s) et sur une partie avant la zone 40 (616 clics,
   sous-onglets grisés des Statistiques compris) : aucune erreur.
 - 2026-11-16 (it. 1762) : Tico (Statistiques) : deux répliques de plus pour la période « Journal seul » (avant la zone 40), qui

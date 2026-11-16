@@ -5,6 +5,17 @@ Brouillon préparé par la boucle automatique : à relire par Victor le jour où
 jour de la sortie : version de package.json, NEWS_RELEASES (news.js, `after: 101`), traductions, puis ce texte en
 10 langues comme pour la 0.1.4 (CLAUDE.md, « Sortie d'une version »).
 
+## Publication sur itch.io (0.1.5 envoyée le 2026-11-16, it. 1759)
+
+- **Titre :** Sillwalker 0.1.5 – an original soundtrack, and Poupouce
+- **Image de couverture :** steam/itch/cover-0.1.5.png (1920 × 1080 ; aussi dans Médias/dist-itch/promo ;
+  `ONLY=update-0.1.5 electron scripts/steam-capsules/make.js <dossier>`)
+- **Tags :** Sillwalker, idle game, idle RPG, incremental game, pixel art, indie game, desktop game, taskbar game,
+  cozy game, gamedev (ou soundtrack à la place de gamedev)
+- **Langues du jeu :** English, French, Spanish, Portuguese (Brazil), German, Polish, Russian, Chinese (Simplified),
+  Japanese, Korean
+- **Texte :** steam/itch/devlog-0.1.5.html (10 langues, l'anglais d'abord)
+
 ---
 
 ## Français
