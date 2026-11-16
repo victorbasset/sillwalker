@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1668) : --perf sur deux copies neuves de dev-data, héros à distance compris (après les nombres et la bulle,
+  it. 1641-1653) : guerrier bande 18,2 % / panneau 19,7 % ; rôdeur 13,6 % / 15,9 %. Aucune régression.
 - 2026-11-16 (it. 1667) : i18n-names après les éditions 108-109 et les nouveaux textes (Poupouce, Sac plein) : 25 écarts connus
   (déclinaisons), aucun nouveau.
 - 2026-11-16 (it. 1666) : --crawl en russe (dev-data, sac plein) après le lien « Sac plein » : 707 clics en 22 s, aucune erreur.
