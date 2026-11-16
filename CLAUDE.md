@@ -244,7 +244,10 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   traduction : ne jamais déduire une logique d'un nom affiché (regex sur `def.name`) ; utiliser le nom d'origine
   (`z.src` pour les zones) ou une clé. Arrivé à la musique (it. 531 : couleur des décors perdue hors français).
   Même piège pour un texte affiché (journal, bulles) : les couleurs du Journal venaient d'expressions en français (« légendaire »,
-  « Quête accomplie ») et ne marchaient qu'en français (it. 1715) ; ui/log.js compare maintenant aux messages traduits (tx).
+  « Quête accomplie ») et ne marchaient qu'en français (it. 1715) ; ui/log.js compare maintenant aux messages traduits (tx) ; LOG_KEYS est rangé par
+  priorité (première catégorie reconnue) : une traduction peut contenir le morceau fixe d'une autre (russe « Открыто: » dans
+  « Событие открыто: », it. 1840). Nouvelle ligne de journal à classer : l'ajouter à LOG_KEYS ; npm test vérifie que chaque
+  modèle de game.js garde la même catégorie dans les 10 langues (it. 1842).
 - Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
 - Sortie d'une version (itch.io, it. 1144) : 1) `version` de package.json ; 2) notes de version dans news.js

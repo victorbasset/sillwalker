@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1843) : CLAUDE.md, piège des couleurs du Journal complété (ordre de LOG_KEYS = priorité, test des 10 langues).
 - 2026-11-16 (it. 1842) : test permanent : chaque modèle de ligne du Journal (les tx() des this.log de game.js, 74) garde
   la même catégorie dans les 10 langues ; vérifié en remettant l'ancien ordre des catégories (échec « fr : sac plein »).
   npm test 338.
