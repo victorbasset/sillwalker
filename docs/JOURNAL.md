@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1728, contrôle) : mémoire dans la durée (mem-watch, 8 min, son et musique) : réel 542-550 Mo, plat,
+  sans croissance (repère 565-575) ; noté dans CLAUDE.md.
 - 2026-11-16 (it. 1727) : autotest : contrôle de la case « Lignes importantes seulement » (vrai clic, ligne ordinaire écartée,
   coffre gardé avec son repère ✦, retour à l'état initial). Vu en passant : la Boutique s'ouvre à la zone 8 (≈ 9 min) alors
   que 300 or sont réunis vers 3-6 min : voulu (onglets ouverts peu à peu, demande de Victor), inchangé. Autotest 247/247.
