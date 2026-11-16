@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1782) : page Steam : ne cite ni Poupouce ni le Journal (rien à mettre à jour) ; devlog 0.1.6 complété (légendaires de
+  Poupouce perdus ou rangés, it. 1779-1780).
 - 2026-11-16 (it. 1781, revue générale) : simulation 12 h graine 111 : cryomancien 62, arbalétrier 62, gardien stellaire 69 ;
   perf:linux bande 18,4 %, panneau 19,7 %, mini 5,6 % ; japonais (--dump-text) : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1780) : « Pendant ton absence » : « (+N objets légendaires) » ne compte que les légendaires de Poupouce vraiment rangés
