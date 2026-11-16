@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1790, contrôle) : lang-overflow complet (10 langues, 4 largeurs, fin de partie, état maximal, 130 %) après les
+  changements d'interface depuis la 0.1.5 : aucun défilement ni mot coupé.
 - 2026-11-16 (it. 1789) : autotest : retour d'absence, ligne des Poupouce (3 vaincus, 1 légendaire rangé → « +1 », pas « +3 »).
   Autotest 250/250.
 - 2026-11-16 (it. 1788) : POUR-VICTOR rangé : les trois questions sur Poupouce regroupées, la 0.1.5 (envoyée) et ce qui reste à
