@@ -1184,6 +1184,12 @@ async function runSelfTest(strip) {
     const a = !!(M.voice && M.voice.idx === want); P.musicPin = -1; window.__panel.tabs.settings.onChange?.();
     for (let i = 0; i < 40 && !(M.voice && M.voice.idx === trackIndex(G.S.zone)); i++) await new Promise((r) => setTimeout(r, 250));
     return a + " " + !!(M.voice && M.voice.idx === trackIndex(G.S.zone)); })()`);
+  // (it. 1609) nouvelle tranche de 50 zones : après 6 s d'installation, une bulle « ♪ » nomme le nouveau morceau
+  const bub = await js(`(async () => { const G = window.__game, M = window.__music, { trackIndex, TRACKS } = await import("./render/music.js"), { t: tr } = await import("./i18n/index.js");
+    if (!M.enabled) return "désactivée"; window.__clearToasts?.(); const z0 = G.S.zone, b0 = G.S.best, to = z0 > 50 ? 1 : 51; G.S.best = Math.max(b0, to); G.S.zone = to; G.changed();
+    let t = ""; for (let i = 0; i < 40 && !/♪/.test(t); i++) { await new Promise((r) => setTimeout(r, 250)); t = document.querySelector("#toast")?.textContent || ""; }
+    G.S.zone = z0; G.S.best = b0; G.changed(); window.__clearToasts?.(); return /♪/.test(t) && t.includes(tr(TRACKS[trackIndex(to)].name)) ? "ok" : "rien : " + t.slice(0, 60); })()`);
+  check("musique : une bulle nomme le morceau d'une nouvelle tranche", bub === "ok" || bub === "désactivée", bub);
   check("musique : 📌 garde un morceau, puis revient à celui de la zone", pin === "true true" || pin === "désactivée", pin);
   check("musique : le morceau de la zone joue, l'aperçu en change", play === "true true" || play === "désactivée", play);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);

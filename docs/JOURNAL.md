@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1609) : autotest : changement de tranche de 50 zones → la bulle « ♪ » nomme le nouveau morceau (traduit) ;
+  242/242.
 - 2026-11-16 (it. 1608) : étiquette « Poupouce ✦ » tant qu'il n'a jamais été vaincu (comme les sortes d'élites nouvelles).
 - 2026-11-16 (it. 1607) : mode mini : Poupouce en combat a aussi son contour rose (comme les élites dorées et la bande).
 - 2026-11-16 (it. 1606) : édition 106 de « Quoi de neuf » : coffres (fanfare, fermeture seule), contour rose de Poupouce, sa
