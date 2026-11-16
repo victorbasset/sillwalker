@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1744, contrôle) : Statistiques avant la zone 40 (sous-onglets grisés) à 1280 px en russe, polonais, espagnol :
+  une seule rangée, aucun défilement (lang-overflow ne mesure pas cet état : ses parties sont au-delà de la zone 40).
 - 2026-11-16 (it. 1743) : Statistiques avant la zone 40 : au lieu d'un unique bouton « Journal », les sous-onglets à venir sont
   montrés grisés « 🔒 Chiffres zone 40 » (subtabs.js : 4e élément lock, bouton désactivé) : un objectif visible. Captures fr, de
   à 1280 px ; npm test 330, autotest 247/247.
