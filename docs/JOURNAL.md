@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1671, revue générale) : simulation 12 h graine 11 : mage 65, prêtresse 65, gladiateur 66 ; perf:linux bande
+  18,2 %, panneau 19,6 %, mini 5,6 % ; Familiers (en) et Quêtes (ja) propres ; portugais sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1670) : Statistiques > Moments rares : Poupouce a sa ligne rose « ✦ Poupouce vaincus N » dès le premier (avant : un ✦
   au survol à côté des gobelins, it. 1590). lang-overflow ru, de, pl, es, pt, fr à 1280 et 1366 (max-save compris) : aucun
   défilement ; capture en russe. npm test, autotest 242/242.
