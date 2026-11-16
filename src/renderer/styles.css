@@ -501,7 +501,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 /* Statistiques */
 .statgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; align-items: stretch; }
 .statgrid .achievements { grid-column: 1 / -1; }
-.achlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 2px 12px; font-size: 13px; line-height: 1.25; } /* rangées serrées : la liste grandit à chaque succès (it. 503, pl 1920 ; it. 943 : 13 px, 64 succès) */
+.achlist { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 2px 12px; font-size: 13px; line-height: 1.25; } /* (it. 1623) 230 → 215 px : une colonne de plus, de la marge pour les prochains succès */ /* rangées serrées : la liste grandit à chaque succès (it. 503, pl 1920 ; it. 943 : 13 px, 64 succès) */
 .ach { color: var(--muted); }
 .ach.on { color: var(--ink); }
 .ach .aico { display: inline-block; width: 18px; color: var(--muted); }
@@ -1435,7 +1435,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellcard .spellico { width: 27px; height: 27px; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
 .spellfx.icon img { width: 27px; height: 27px; image-rendering: pixelated; }
 /* Succès (57 depuis l'it. 482) : à 1366 px et moins, colonnes un peu plus étroites et lignes plus serrées. */
-@container panel (max-width: 1467px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2px 10px; font-size: 13px; } }
+@container panel (max-width: 1467px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(188px, 1fr)); gap: 2px 10px; font-size: 13px; } }
 @container panel (max-width: 1467px) { .achlist { line-height: 1.2; } }
 @container panel (max-width: 1334px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); font-size: 12px; gap: 1px 8px; } }
 /* Mode mini : icône du sort lancé, au-dessus du héros. */

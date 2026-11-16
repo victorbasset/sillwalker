@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1623) : Statistiques > Succès : colonnes un peu plus étroites (230 → 215 px, 200 → 188 px sous 1467 px) :
+  une colonne de plus, de la marge pour les prochains succès ; l'espagnol retrouve « Derribacolosos (25 colosales) ».
+  lang-overflow propre (10 langues, fin de partie à 130 %).
 - 2026-11-16 (it. 1622) : succès « Tombeur de colosses (25 colossaux) » (COLOSSAL_25, icônes Steam du golem), 72 succès ;
   espagnol « Derribacolosos (25) » (le nom long faisait défiler la fin de partie à 130 % de 4 px) ; checklist, README, POUR-VICTOR.
 - 2026-11-16 (it. 1621, revue générale) : simulation 12 h graine 3 : druide 64, gardien stellaire 62, artificier 66 ; perf:linux
