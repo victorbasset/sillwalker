@@ -3031,5 +3031,7 @@ export const KEYS = [
   "Les familiers sont en pleine forme aujourd’hui !",
   "Une 17e bénédiction du jour, le Jour des familiers : le bonus du familier actif est doublé.",
   "Touche J : ouvre directement Statistiques > Journal.",
-  "Le Journal garde maintenant ses 40 dernières lignes à l’écran (25 avant)."
+  "Le Journal garde maintenant ses 40 dernières lignes à l’écran (25 avant).",
+  "Aucun familier actif : choisis-en un (Familiers).",
+  "Les familiers sortent des œufs des boss, des élites et des quêtes."
 ];

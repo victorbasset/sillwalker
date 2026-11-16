@@ -1,5 +1,7 @@
 // Tests rapides de la logique de jeu (sans Electron) :
 //   npm test
+import { dayModNotes as dayModNotes1703 } from "../src/renderer/ui/daymodnotes.js";
+import { DAY_MODS as DAY_MODS_1703 } from "../src/renderer/game/daymods.js";
 import assertStrict from "node:assert/strict";
 // (it. 952) t() rend insécable l'espace après un nombre (« 8 h », « 20,53 M or ») : les tests comparent le texte
 // avec des espaces ordinaires (les tests des espaces insécables eux-mêmes utilisent assertStrict)
@@ -3322,6 +3324,14 @@ test("Jour des familiers (it. 1700) : bonus du familier actif doublé, rien sans
   for (const k in base) assert.equal(day[k], base[k] * 2, k);
   assert.ok(Object.keys(base).length > 0);
   S.pets.active = null; assert.deepEqual(M_pets_js.petEffects(S), {});
+});
+
+test("Jour des familiers : une note sans familier actif, aucune avec (it. 1703)", () => {
+  const S = freshState(), dm = DAY_MODS_1703.pets;
+  S.pets.active = null;
+  assert.equal(dayModNotes1703(S, dm).length, 1);
+  const id = M_pets_js.PETS[0].id; S.pets.owned[id] = { lvl: 1, xp: 0 }; S.pets.active = id;
+  assert.equal(dayModNotes1703(S, dm).length, 0);
 });
 
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {

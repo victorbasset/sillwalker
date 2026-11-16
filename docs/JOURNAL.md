@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1703) : Jour des familiers sans familier actif : une précision dans la pastille et la bulle du mode mini (« Aucun
+  familier actif : choisis-en un (Familiers). », ou d'où viennent les familiers si l'onglet n'est pas ouvert) ; 10 langues ; test.
+  npm test 323, autotest 246/246, lang-overflow ru, de, pl : aucun.
 - 2026-11-16 (it. 1702) : « Quoi de neuf », édition 112 (Jour des familiers, touche J, Journal à 40 lignes au lieu de 25) ; 10 langues,
   noms et chemins tels que traduits. Clés 3027-3029. max-save couvre déjà la 17e bénédiction (DAY_MOD_KEYS). Autotest 246/246.
 - 2026-11-16 (it. 1701, revue générale) : simulation 12 h graine 41 : rôdeur 62, barde 67, lancier 69 ; perf:linux bande

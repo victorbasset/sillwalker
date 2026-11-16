@@ -1902,4 +1902,6 @@ export default {
   3027: "Ein 17. Tagessegen, der Tag der Begleiter: Der Bonus des aktiven Begleiters wird verdoppelt.",
   3028: "Taste J: öffnet direkt Statistiken > Protokoll.",
   3029: "Das Protokoll zeigt jetzt seine letzten 40 Zeilen an (vorher 25).",
+  3030: "Kein aktiver Begleiter: wähle einen (Begleiter).",
+  3031: "Begleiter schlüpfen aus Eiern von Bossen, Elite-Gegnern und Quests.",
 };

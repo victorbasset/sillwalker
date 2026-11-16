@@ -1902,4 +1902,6 @@ export default {
   3027: "Una 17.ª bendición del día, el Día de las mascotas: la bonificación de la mascota activa se duplica.",
   3028: "Tecla J: abre directamente Estadísticas > Diario.",
   3029: "El Diario muestra ahora sus últimas 40 líneas en pantalla (antes 25).",
+  3030: "Ninguna mascota activa: elige una (Mascotas).",
+  3031: "Las mascotas nacen de huevos de jefes, élites y misiones.",
 };

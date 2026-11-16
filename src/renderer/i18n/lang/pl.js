@@ -1902,4 +1902,6 @@ export default {
   3027: "17. błogosławieństwo dnia, Dzień pupili: premia aktywnego pupila jest podwojona.",
   3028: "Klawisz J: otwiera od razu Statystyki > Dziennik.",
   3029: "Dziennik pokazuje teraz ostatnie 40 wierszy (wcześniej 25).",
+  3030: "Brak aktywnego pupila: wybierz jednego (Pupile).",
+  3031: "Pupile wykluwają się z jaj od bossów, elit i zadań.",
 };

@@ -1902,4 +1902,6 @@ export default {
   3027: "Uma 17ª bênção do dia, o Dia dos mascotes: o bônus do mascote ativo é dobrado.",
   3028: "Tecla J: abre diretamente Estatísticas > Diário.",
   3029: "O Diário agora mostra suas últimas 40 linhas na tela (antes 25).",
+  3030: "Nenhum mascote ativo: escolha um (Mascotes).",
+  3031: "Os mascotes nascem de ovos de chefes, elites e missões.",
 };
