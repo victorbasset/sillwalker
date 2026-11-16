@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1781, revue générale) : simulation 12 h graine 111 : cryomancien 62, arbalétrier 62, gardien stellaire 69 ;
+  perf:linux bande 18,4 %, panneau 19,7 %, mini 5,6 % ; japonais (--dump-text) : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1780) : « Pendant ton absence » : « (+N objets légendaires) » ne compte que les légendaires de Poupouce vraiment rangés
   (sum.poupouceLeg ; sac plein : restés au sol, rien d'annoncé) ; test ; npm test 332, autotest 249/249.
 - 2026-11-16 (it. 1779) : Poupouce vaincu sac plein : le Journal ajoute « Le légendaire de Poupouce est resté au sol : sac plein. »
