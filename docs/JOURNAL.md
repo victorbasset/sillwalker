@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1767) : Poupouce arrive et le sac est plein : le héros prévient « Le sac est plein : vite, une place pour le
+  légendaire de Poupouce ! » (bande et mode mini) ; la règle de Victor (butin perdu au sol) ne change pas, le joueur a le
+  temps de vider une case. Clé 3047 (10 langues), bulle vue en allemand ; npm test 330, autotest 248/248.
 - 2026-11-16 (it. 1766, contrôle) : légendaire de Poupouce avec le sac plein : perdu au sol comme tout butin (règle de Victor,
   addToBag) ; question posée dans POUR-VICTOR, rien changé.
 - 2026-11-16 (it. 1765, contrôle) : save-fuzz après les ajouts de migrate du jour (Poupouce au Bestiaire, statsFullSeen) : base fin

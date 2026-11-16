@@ -1919,4 +1919,5 @@ export default {
   3044: "Estadísticas completas: ¡ya están los récords, logros y cuaderno de viaje!",
   3045: "Copio cada una de tus hazañas en el Diario, en limpio.",
   3046: "Más adelante te enseñaré mucho más. Por ahora, ordeno mis notas.",
+  3047: "La bolsa está llena: ¡rápido, haz sitio para el legendario de Poupouce!",
 };

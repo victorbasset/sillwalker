@@ -1919,4 +1919,5 @@ export default {
   3044: "Full Statistics: records, achievements and logbook are here!",
   3045: "I copy each of your exploits into the Log, neatly.",
   3046: "Later, I'll show you much more. For now, I'm sorting my notes.",
+  3047: "The bag is full: quick, make room for Poupouce's legendary!",
 };

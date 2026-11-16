@@ -76,7 +76,7 @@ export class MiniRenderer {
     game.on("graphFull", () => this.showMoment("✦ " + tx("Grand graphe complet !"))); // (it. 1117)
     game.on("masteryStep", ({ at }) => this.showMoment("✦ " + tx("Palier de maîtrise : rang {0}", { 0: at }))); // (it. 1124)
     // (it. 1753) Poupouce arrive (la réplique du héros n'existe que sur la bande) ; Statistiques complètes (it. 1740)
-    game.on("spawn", (m) => { if (m && m.poupouce) this.showMoment("✦ " + tx("C’est… Poupouce ?!")); });
+    game.on("spawn", (m) => { if (m && m.poupouce) this.showMoment("✦ " + (game.bagFull() ? tx("Le sac est plein : vite, une place pour le légendaire de Poupouce !") : tx("C’est… Poupouce ?!"))); });
     game.on("statsFull", () => this.showMoment("✦ " + tx("Statistiques complètes : records, succès et carnet de route sont là !")));
     game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(csep()) })));
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(zone % 50 === 0 ? "✦ " + tx("Cap franchi : zone {0} !", { 0: zone }) : tx("Nouveau record : zone {0} !", { 0: zone })); });

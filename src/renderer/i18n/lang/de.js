@@ -1919,4 +1919,5 @@ export default {
   3044: "Statistiken komplett: Rekorde, Erfolge und Logbuch sind da!",
   3045: "Ich schreibe jede deiner Heldentaten sauber ins Protokoll.",
   3046: "Später zeige ich dir noch viel mehr. Im Moment sortiere ich meine Notizen.",
+  3047: "Die Tasche ist voll: schnell, Platz für Poupouces legendären Gegenstand!",
 };

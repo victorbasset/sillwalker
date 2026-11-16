@@ -1919,4 +1919,5 @@ export default {
   3044: "Pełne Statystyki: rekordy, osiągnięcia i dziennik podróży już są!",
   3045: "Przepisuję każdy twój wyczyn do Dziennika, na czysto.",
   3046: "Później pokażę ci dużo więcej. Na razie porządkuję notatki.",
+  3047: "Torba jest pełna: szybko, zrób miejsce na legendarny łup Poupouce!",
 };
