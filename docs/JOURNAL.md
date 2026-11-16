@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1859, journée des monstres) : momies : Malédiction du tombeau (héros maudit 3 s, attaque compensée) ;
+  yétis : Bloc de glace (×1,8, gel 1 s, PV compensés) ; harpies : Rafale de plumes (quatre plumes de 30 %). Balance contre
+  aea72772 : −0,7 / +1,4 / 0,0 ; fuzz 600 / 0 ; npm test 344, autotest 253/253.
 - 2026-11-17 (it. 1858, journée des monstres) : diablotins : Boule de feu (×1,2, éclat des mains au héros) ; rats :
   Grouillement (trois morsures éclair de 40 %) ; araignées : Toile (attaques du héros −40 % 2 s, PV compensés), la veuve
   noire (version propre) mord en plus. Balance contre aea72772 : −1,1 / −0,8 / +0,4 (neutre) ; fuzz 600 / 0 ; npm test 344 ;

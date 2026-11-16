@@ -446,6 +446,9 @@ export class Sound {
           case "fireball": this.whoosh(0, 0.25, 600, 2200, 0.1, 1); this.noise(0.22, 0.12, 0.18); break; // (it. 1858) souffle, puis éclat
           case "swarm": [0, 0.08, 0.16].forEach((t) => this.tone(2400, t, 0.04, "square", 0.06, 0.8)); break; // (it. 1858) trois couinements-morsures
           case "web": this.whoosh(0, 0.3, 3200, 1800, 0.05, 4); this.tone(1200, 0.05, 0.15, "sine", 0.04, 0.95); break; // (it. 1858) fils tendus
+          case "tombcurse": this.tone(110, 0, 0.6, "sawtooth", 0.08, 0.85); this.whoosh(0.05, 0.5, 900, 300, 0.06, 2); break; // (it. 1859) râle du tombeau
+          case "boulder": this.tone(70, 0, 0.3, "triangle", 0.2, 0.6); this.tone(2600, 0.05, 0.12, "triangle", 0.06, 1.3); break; // (it. 1859) choc, cristaux de glace
+          case "feathers": [0, 0.06, 0.12, 0.18].forEach((t) => this.whoosh(t, 0.08, 1800, 3400, 0.05, 3)); break; // (it. 1859) quatre plumes qui sifflent
         }
         break;
       case "bossSkill":

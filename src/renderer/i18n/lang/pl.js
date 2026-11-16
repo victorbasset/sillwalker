@@ -1998,4 +1998,13 @@ export default {
   3123: "Kula ognia!",
   3124: "Rojenie!",
   3125: "Zaplątany!",
+  3126: "Klątwa grobowca",
+  3127: "Co 9 s unosi ramiona i przeklina bohatera na 3 s: otrzymuje o 15% więcej obrażeń, a kradzież życia już go nie leczy.",
+  3128: "Bryła lodu",
+  3129: "Co 9 s bije się w pierś i ciska bryłą lodu: cios za 180% jego ataku, który zamraża bohatera na 1 s.",
+  3130: "Salwa piór",
+  3131: "Co 6 s bije skrzydłami i wypuszcza cztery pióra: cztery ciosy za 30% jej ataku, każdego można uniknąć.",
+  3132: "Klątwa!",
+  3133: "Bryła lodu!",
+  3134: "Pióra!",
 };

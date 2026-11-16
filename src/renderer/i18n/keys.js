@@ -3127,5 +3127,14 @@ export const KEYS = [
   "Toutes les 8 s, tisse une toile et mord : les attaques du héros ralentissent de 40 % pendant 2 s, et il est empoisonné 1,5 s.",
   "Boule de feu !",
   "Grouillement !",
-  "Englué !"
+  "Englué !",
+  "Malédiction du tombeau",
+  "Toutes les 9 s, lève les bras et maudit le héros pendant 3 s : il subit 15 % de dégâts en plus et son vol de vie ne le soigne plus.",
+  "Bloc de glace",
+  "Toutes les 9 s, se frappe la poitrine puis jette un bloc de glace : un coup à 180 % de son attaque, qui gèle le héros 1 s.",
+  "Rafale de plumes",
+  "Toutes les 6 s, bat des ailes et décoche quatre plumes : quatre coups à 30 % de son attaque, chacun esquivable.",
+  "Malédiction !",
+  "Bloc de glace !",
+  "Plumes !"
 ];

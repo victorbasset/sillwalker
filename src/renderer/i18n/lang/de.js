@@ -1998,4 +1998,13 @@ export default {
   3123: "Feuerball!",
   3124: "Gewimmel!",
   3125: "Verklebt!",
+  3126: "Grabesfluch",
+  3127: "Alle 9 s hebt sie die Arme und verflucht den Helden 3 s lang: Er erleidet 15 % mehr Schaden, und sein Lebensraub heilt ihn nicht mehr.",
+  3128: "Eisbrocken",
+  3129: "Alle 9 s trommelt er sich auf die Brust und schleudert einen Eisbrocken: ein Treffer mit 180 % seines Angriffs, der den Helden 1 s einfriert.",
+  3130: "Federsalve",
+  3131: "Alle 6 s schlägt sie mit den Flügeln und schießt vier Federn ab: vier Treffer mit 30 % ihres Angriffs, jedem kann ausgewichen werden.",
+  3132: "Fluch!",
+  3133: "Eisbrocken!",
+  3134: "Federn!",
 };

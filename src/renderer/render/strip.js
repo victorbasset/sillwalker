@@ -31,7 +31,7 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
-const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8" };
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -263,7 +263,10 @@ export class StripRenderer {
     g.on("monSkill", ({ id, el, phase }) => {
       this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : 0.45 };
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !"), tombcurse: tx("Malédiction !"), boulder: tx("Bloc de glace !"), feathers: tx("Plumes !") }[id];
+      // (it. 1859) bloc de glace : éclats blancs sur le héros, secousse ; plumes : une traînée de plumes jusqu'au héros
+      if (id === "boulder") { this.shake(0.15); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, "#e8f6ff", 14); }
+      if (id === "feathers" && this.active && this.juice.full) for (let i = 0; i < 4; i++) this.juice.sparkles(this.heroX + 20 + (this.monX() - this.heroX - 20) * i / 4, this.ground - 34 + i * 3, "#f0d8b0", 3);
       // (it. 1858) boule de feu : la flamme part des mains du diablotin et éclate sur le héros ; toile : fils sur le héros
       if (id === "fireball" && this.active && this.juice.full) { this.juice.sparkles(this.monX() + 8, this.ground - 30, el ? col : "#ff8a3a", 10); this.juice.sparkles(this.heroX + 16, this.ground - 30, el ? col : "#ffd34d", 12); }
       if (id === "web" && this.active && this.juice.full) this.juice.sparkles(this.heroX + 14, this.ground - 28, "#f4f4f8", 14);
@@ -846,6 +849,21 @@ export class StripRenderer {
       // araignée : se hisse sur ses pattes, puis se rabat en projetant ses fils
       if (f.phase === "tell") return { dx: 0, dy: -4 };
       return { dx: -3 * Math.sin(p * Math.PI), dy: -4 * (1 - p) };
+    }
+    if (f.id === "tombcurse") {
+      // momie : se dresse lentement, bras levés, puis se penche vers le héros en lançant sa malédiction
+      if (f.phase === "tell") return { dx: 0, dy: -3 * Math.min(1, p * 1.5) };
+      return { dx: -4 * Math.sin(p * Math.PI), dy: -3 * (1 - p) };
+    }
+    if (f.id === "boulder") {
+      // yéti : se frappe la poitrine (deux secousses sur place), puis jette le bloc en se penchant en avant
+      if (f.phase === "tell") return { dx: Math.floor(p * 6) % 2 ? 2 : 0, dy: Math.floor(p * 6) % 2 ? -2 : 0 };
+      return { dx: -8 * Math.sin(p * Math.PI), dy: 2 * Math.sin(p * Math.PI) };
+    }
+    if (f.id === "feathers") {
+      // harpie : bat des ailes vite (monte et descend), puis recule d'un coup en lâchant la rafale
+      if (f.phase === "tell") return { dx: 0, dy: Math.floor(p * 10) % 2 ? -4 : 0 };
+      return { dx: 6 * Math.sin(p * Math.PI), dy: -4 * (1 - p) };
     }
     if (f.id === "howl") {
       // loup : se dresse, museau levé, le temps du hurlement

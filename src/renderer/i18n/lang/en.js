@@ -1998,4 +1998,13 @@ export default {
   3123: "Fireball!",
   3124: "Swarm!",
   3125: "Stuck!",
+  3126: "Tomb Curse",
+  3127: "Every 9 s, raises its arms and curses the hero for 3 s: they take 15% more damage and their life steal no longer heals.",
+  3128: "Ice Boulder",
+  3129: "Every 9 s, beats its chest then hurls a block of ice: a hit at 180% of its attack that freezes the hero for 1 s.",
+  3130: "Feather Volley",
+  3131: "Every 6 s, beats its wings and looses four feathers: four hits at 30% of its attack, each one dodgeable.",
+  3132: "Curse!",
+  3133: "Ice boulder!",
+  3134: "Feathers!",
 };

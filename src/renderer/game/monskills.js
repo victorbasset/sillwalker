@@ -55,6 +55,15 @@ export const MON_SKILLS = {
     desc: "Toutes les 8 s, tisse une toile : les attaques du héros ralentissent de 40 % pendant 2 s." },
   spider_widow: { id: "web", name: "Toile de la veuve", every: 8, first: 3, tell: 0.6, slow: 2, venom: 1.5,
     desc: "Toutes les 8 s, tisse une toile et mord : les attaques du héros ralentissent de 40 % pendant 2 s, et il est empoisonné 1,5 s." },
+  // (it. 1859) Momies : lèvent les bras et maudissent le héros
+  mummy: { id: "tombcurse", name: "Malédiction du tombeau", every: 9, first: 3, tell: 0.7, curse: 3,
+    desc: "Toutes les 9 s, lève les bras et maudit le héros pendant 3 s : il subit 15 % de dégâts en plus et son vol de vie ne le soigne plus." },
+  // (it. 1859) Yétis : se frappent la poitrine, puis jettent un bloc de glace
+  yeti: { id: "boulder", name: "Bloc de glace", every: 9, first: 4, tell: 0.8, mult: 1.8, freeze: 1,
+    desc: "Toutes les 9 s, se frappe la poitrine puis jette un bloc de glace : un coup à 180 % de son attaque, qui gèle le héros 1 s." },
+  // (it. 1859) Harpies : battent des ailes et décochent une rafale de plumes
+  harpy: { id: "feathers", name: "Rafale de plumes", every: 6, first: 2.5, tell: 0.5, mult: 1.2, bites: 4,
+    desc: "Toutes les 6 s, bat des ailes et décoche quatre plumes : quatre coups à 30 % de son attaque, chacun esquivable." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

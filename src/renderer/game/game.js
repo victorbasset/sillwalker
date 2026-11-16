@@ -62,6 +62,8 @@ export function skillBalance(m, sk) {
   if (sk.stun) lost += sk.stun / sk.every;
   if (sk.phase) lost += sk.phase / sk.every; // (it. 1857) intangible
   if (sk.slow) lost += 0.4 * sk.slow / sk.every; // (it. 1858) toile : attaques du héros 40 % plus lentes
+  if (sk.freeze) lost += 0.4 * sk.freeze / sk.every; // (it. 1859) bloc de glace : gel
+  if (sk.curse) m.atk /= 1 + CURSE.hurt * sk.curse / sk.every; // (it. 1859) malédiction : 15 % de dégâts en plus, le temps qu'elle dure
   if (sk.el === "frost") lost += 0.4 * 1.5 / sk.every;
   if (lost > 0) { m.hp = Math.max(1, Math.round(m.hp * (1 - lost))); m.max = m.hp; }
 }
@@ -555,6 +557,21 @@ export class Game {
           const d = sk.venom * (1 - (hs.purity || 0) / 100);
           if (d > 0.05) { R.venomT = Math.max(R.venomT || 0, d); this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
         }
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "tombcurse": { // (it. 1859) Momies : malédiction (la pureté la raccourcit, comme celle des boss)
+        const d = sk.curse * (1 - (hs.purity || 0) / 100);
+        if (d > 0.05) { R.cursed = Math.max(R.cursed || 0, d); this.emit("bossSkill", { id: "curse" }); } else this.emit("bossSkill", { id: "curseBlocked" });
+        break;
+      }
+      case "boulder": { // (it. 1859) Yétis : bloc de glace (esquivable) qui gèle le héros
+        if (this.monsterAttack(m, hs, sk.mult)) return true;
+        R.frozen = Math.max(R.frozen || 0, sk.freeze);
+        break;
+      }
+      case "feathers": { // (it. 1859) Harpies : rafale de plumes, chacune esquivable
+        for (let i = 0; i < sk.bites; i++) if (this.monsterAttack(m, hs, sk.mult / sk.bites)) return true;
         this.elementHit(sk.el, hs);
         break;
       }

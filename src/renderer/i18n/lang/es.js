@@ -1998,4 +1998,13 @@ export default {
   3123: "¡Bola de fuego!",
   3124: "¡Enjambre!",
   3125: "¡Atrapado!",
+  3126: "Maldición de la tumba",
+  3127: "Cada 9 s, alza los brazos y maldice al héroe durante 3 s: recibe un 15 % más de daño y su robo de vida ya no lo cura.",
+  3128: "Bloque de hielo",
+  3129: "Cada 9 s, se golpea el pecho y lanza un bloque de hielo: un golpe al 180 % de su ataque que congela al héroe 1 s.",
+  3130: "Ráfaga de plumas",
+  3131: "Cada 6 s, bate las alas y dispara cuatro plumas: cuatro golpes al 30 % de su ataque, cada uno esquivable.",
+  3132: "¡Maldición!",
+  3133: "¡Bloque de hielo!",
+  3134: "¡Plumas!",
 };

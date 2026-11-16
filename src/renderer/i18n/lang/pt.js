@@ -1998,4 +1998,13 @@ export default {
   3123: "Bola de fogo!",
   3124: "Enxame!",
   3125: "Grudado!",
+  3126: "Maldição do túmulo",
+  3127: "A cada 9 s, ergue os braços e amaldiçoa o herói por 3 s: ele sofre 15 % mais dano e seu roubo de vida não o cura mais.",
+  3128: "Bloco de gelo",
+  3129: "A cada 9 s, bate no peito e arremessa um bloco de gelo: um golpe a 180 % do ataque que congela o herói por 1 s.",
+  3130: "Rajada de penas",
+  3131: "A cada 6 s, bate as asas e dispara quatro penas: quatro golpes a 30 % do ataque, cada um esquivável.",
+  3132: "Maldição!",
+  3133: "Bloco de gelo!",
+  3134: "Penas!",
 };

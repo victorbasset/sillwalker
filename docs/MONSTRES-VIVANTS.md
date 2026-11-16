@@ -50,6 +50,9 @@ se balançaient qu'au combat.
    - diablotins (it. 1858) : Boule de feu (lèvent les bras, lancent ×1,2 ; éclat de la main au héros) ; démon des glaces : gel ;
    - rats (it. 1858) : Grouillement (piaffent, trois morsures éclair de 40 %) ; pestiféré : poison ;
    - araignées (it. 1858) : Toile (attaques du héros −40 % 2 s ; PV compensés) ; la veuve noire mord en plus (venin 1,5 s) ;
+   - momies (it. 1859) : Malédiction du tombeau (bras levés, héros maudit 3 s ; la pureté la raccourcit) ;
+   - yétis (it. 1859) : Bloc de glace (se frappent la poitrine, jettent ×1,8, gel 1 s) ;
+   - harpies (it. 1859) : Rafale de plumes (battent des ailes, quatre plumes de 30 %, une traînée jusqu'au héros) ;
    - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
      un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
      des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;
