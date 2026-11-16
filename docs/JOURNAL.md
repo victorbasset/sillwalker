@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1660) : l'alerte « héros bloqué » au mur 18-21 (suite de l'it. 1658) : elle s'allume dès 30 min et propose
+  « forge » puis « potions » (Enclume achetée, 30-120 k d'or qui dort). Un joueur simulé qui suit ces pistes atteint la
+  zone 20 en 20-30 min sur 6 graines (naïf : 20-56 min ; graine 2 : 56 → 28, graine 5 : 46 → 29). L'alerte fait son travail.
 - 2026-11-16 (it. 1659) : « Depuis ta dernière visite » au pire cas (toutes les parties, Poupouce compris), 1280 px, russe et
   allemand : une ligne de 26 px coupée par « … », détail au survol ; l'Aventure ne défile pas.
 - 2026-11-16 (it. 1658) : longue traîne avant l'Ascension, mesurée sur 6 graines (joueur naïf de tab-pace : équipe, talents,
