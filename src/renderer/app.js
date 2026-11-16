@@ -9,7 +9,7 @@
 import { npcFor } from "./game/npcs.js";
 import "./devslow.js"; // en premier : chronomètre les rappels (lenteurs, dev)
 import { SPELLS } from "./game/spells.js";
-import { Music } from "./render/music.js";
+import { Music, trackIndex, TRACKS } from "./render/music.js";
 import { TAB_GATES } from "./game/tabs.js";
 import { INTRO, introDue, markIntro, CHRONICLES, chroniclesUnlocked } from "./game/story.js";
 import { newsDue, markNews, releaseFor } from "./game/news.js";
@@ -162,10 +162,15 @@ async function boot() {
   game.on("heroDown", () => { music.boss = false; });
   // Changement de zone : fondu vers l'air de la nouvelle, une fois le héros installé depuis 6 s (un recul passager
   // après une défaite ne fait plus changer la musique ; demande de Victor : un air fixe par zone, reconnaissable).
-  let musicZone = game.S.zone, musicSince = Date.now();
+  let musicZone = game.S.zone, musicSince = Date.now(), announced = new Set([trackIndex(game.S.zone)]);
   setInterval(() => {
     if (game.S.zone !== musicZone) { musicZone = game.S.zone; musicSince = Date.now(); return; }
-    if (Date.now() - musicSince >= 6000) music.setZone(musicZone);
+    if (Date.now() - musicSince < 6000) return;
+    music.setZone(musicZone);
+    // (it. 1574) nouvelle tranche de 50 zones, nouveau morceau : une bulle sobre le nomme, une fois par morceau et par
+    // lancement (jamais au lancement ; un héros qui recule d'une tranche après une défaite n'en reçoit pas d'autre)
+    const t = trackIndex(musicZone);
+    if (!announced.has(t)) { announced.add(t); if (music.enabled && !music.previewing && (game.S.settings.musicVol ?? 1) > 0) showToast(`♪ ${esc(tx(TRACKS[t].name))}`, null, 6000); }
   }, 1000);
   let speed = init.isDev && init.devSpeed ? init.devSpeed : 1;
   let mode = null, visible = false, pendingOffline = null; // pendingOffline : résumé d’absence en attente (mode mini)

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1574) : nouveau morceau (tranche de 50 zones) : une bulle sobre le nomme (« ♪ Sentiers d'étoiles », 6 s),
+  une fois par morceau et par lancement, jamais au lancement ni pendant un aperçu ou musique coupée. Vérifié en capture.
 - 2026-11-16 (it. 1573) : mode mini : la bulle au survol donne l'expérience (« Expérience : 62 % », la fine barre violette).
   Autotest : le contrôle « musique libérée, bande cachée » échouait parfois (la boucle du jeu relançait le morceau) : il
   met maintenant le son en pause comme le vrai masquage ; 2 passes à 240/240.
