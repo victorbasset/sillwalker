@@ -1855,4 +1855,7 @@ export default {
   2980: "¿Es… Poupouce?!",
   2981: "Escuchar el tema anterior (45 s)",
   2982: "Escuchar el tema siguiente (45 s)",
+  2983: "En cada nuevo tramo de 50 zonas, una burbuja anuncia el tema que empieza.",
+  2984: "«Reclamar todo» y la tecla R también abren el mejor cofre ante tus ojos.",
+  2985: "Subida de nivel: la barra de experiencia brilla en dorado; en modo mini, la burbuja al pasar el ratón muestra la experiencia.",
 };

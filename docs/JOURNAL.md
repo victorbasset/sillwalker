@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1575) : édition 104 de « Quoi de neuf » : morceau annoncé, coffres de « Tout réclamer » et de la touche R,
+  jauge d'expérience (bande et mode mini) ; 9 langues, lang-overflow propre.
 - 2026-11-16 (it. 1574) : nouveau morceau (tranche de 50 zones) : une bulle sobre le nomme (« ♪ Sentiers d'étoiles », 6 s),
   une fois par morceau et par lancement, jamais au lancement ni pendant un aperçu ou musique coupée. Vérifié en capture.
 - 2026-11-16 (it. 1573) : mode mini : la bulle au survol donne l'expérience (« Expérience : 62 % », la fine barre violette).

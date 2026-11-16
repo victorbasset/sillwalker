@@ -1855,4 +1855,7 @@ export default {
   2980: "To… Poupouce?!",
   2981: "Posłuchaj poprzedniego utworu (45 s)",
   2982: "Posłuchaj następnego utworu (45 s)",
+  2983: "Z każdym nowym odcinkiem 50 stref dymek zapowiada rozpoczynający się utwór.",
+  2984: "„Odbierz wszystko” i klawisz R też otwierają najlepszą skrzynię na twoich oczach.",
+  2985: "Nowy poziom: pasek doświadczenia błyska złotem; w trybie mini dymek po najechaniu pokazuje doświadczenie.",
 };
