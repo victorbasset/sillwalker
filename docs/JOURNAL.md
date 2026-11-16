@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1662) : assassin sur une semaine (simulate 168, graine 7) : record 366 avec l'attaque ×1,15 (it. 1638), 377 avec
+  l'ancienne ×1,10 : l'assassin, en retrait sur 12 h, est fort en fin de partie ; le renforcement n'y change rien de mesurable (bruit).
+  Repère ancien (it. 1115) : guerrier 350, mage 349.
 - 2026-11-16 (it. 1661, revue générale) : simulation 12 h graine 21 : moine 62, samouraï 66, chaman 65 ; perf:linux bande
   18,3 %, panneau 19,5 %, mini 5,7 % ; Boutique (fr) et mode mini (ja) propres ; espagnol sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1660) : l'alerte « héros bloqué » au mur 18-21 (suite de l'it. 1658) : elle s'allume dès 30 min et propose
