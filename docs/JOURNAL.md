@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1798, contrôle) : joueur totalement absent (IDLE=1, guerrier, 12 h) : record 16, comme le repère (it. 698) ; les
+  changements du jour n'ont pas touché la progression sans action.
 - 2026-11-16 (it. 1797, contrôle) : succès « Poupouce ?! » : nom seul, sans description (jeu et steam/achievements.md) : rien de
   l'ancien Poupouce à corriger avant sa déclaration dans Steamworks.
 - 2026-11-16 (it. 1796, essai abandonné) : assassin, poison 15 % → 20 % sur 7 graines : 61,4 (inchangé). Ni PV, ni attaque, ni
