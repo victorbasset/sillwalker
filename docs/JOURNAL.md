@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1825, contrôle) : tableau des 20 héros (12 h, graines 7/3/11) : 61,7 assassin → 68,0 moine, moyenne 65,0, écart
+  6,3 (it. 1748 : 7,0) ; mage 63,7 (dernier avant ses PV). Repère mis à jour dans CLAUDE.md.
 - 2026-11-16 (it. 1824, contrôle) : lang-overflow complet après le Journal horodaté et le duo : aucun défilement ni mot coupé
   (10 langues, 4 largeurs, fin de partie, état maximal, 130 %).
 - 2026-11-16 (it. 1823) : autotest : deux combattants au contact (guerrier + samouraï), le compagnon 15 px en retrait du héros.
