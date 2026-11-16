@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1626) : --crawl fin de partie en espagnol après le Colossal : 700 clics, aucune erreur.
 - 2026-11-16 (it. 1625) : premier Colossal (tant qu'aucun n'est vaincu) : le héros s'en étonne (« Il est immense, celui-là… »),
   2 répliques, 9 langues.
 - 2026-11-16 (it. 1624) : brouillon du devlog 0.1.5 : le Colossal et son succès, dans les 10 langues.
