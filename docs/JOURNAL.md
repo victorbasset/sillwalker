@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1596) : partie neuve en anglais, captures à 20 s, 70 s, 2 min : histoire, puis « Welcome… », puis l'objet plus
+  puissant (niveau 3) ; jauge d'XP et barres de vie lisibles dès la première minute. L'astuce de l'XP (niveaux 2 à 6) vient
+  après celles-là, comme prévu (une bulle à la fois).
 - 2026-11-16 (it. 1595) : README : Poupouce, Jour de Poupouce, jauge d'expérience (bande et mini), barres de vie, coffres de
   quête ouverts, ◀ ▶ et 📌 de la musique, bulle du morceau.
 - 2026-11-16 (it. 1594) : i18n-names après les ajouts (morceaux, Jour de Poupouce, succès) : 25 écarts, tous des
