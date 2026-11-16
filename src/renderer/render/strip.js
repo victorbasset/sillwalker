@@ -1003,7 +1003,9 @@ export class StripRenderer {
       // (it. 1802, demande de Victor) compagnon à distance derrière un héros au corps à corps : un vrai écart (avant : 6 px
       // de recouvrement, l'arbalétrier disparaissait derrière le samouraï et ses flèches partaient de derrière lui)
       const gapBack = ranged && melee ? 16 : -6;
-      const px = fighting && !ranged ? this.monX() - pf.cw + 6 : leads ? x + this.hero.w - 6 : x - pf.cw - gapBack;
+      // (it. 1807) deux combattants au corps à corps : au même point de contact ils se cachaient l'un l'autre ; le compagnon
+      // se tient 20 px en retrait (les deux restent lisibles)
+      const px = fighting && !ranged ? this.monX() - pf.cw + 6 - (melee ? 20 : 0) : leads ? x + this.hero.w - 6 : x - pf.cw - gapBack;
       this.partner.show(this.partnerAtk > 0 ? 2 : Math.floor(R.time * (fighting ? 2 : 5) + 1) % 2);
       this.partner.move(px, GROUND - pf.ch);
       this.partner.alpha(R.mode === "dead" ? 0.35 : 1);

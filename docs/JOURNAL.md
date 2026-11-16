@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1807, suite de la demande de Victor) : deux combattants au corps à corps (guerrier + samouraï) se tenaient au même
+  point de contact et se cachaient l'un l'autre : le compagnon se tient 20 px en retrait et passe derrière le héros
+  (.actor.hero.partner, z-index 1) : les deux lisibles, le héros entier. Captures ; npm test 333, autotest 250/250.
 - 2026-11-16 (it. 1806) : « Quoi de neuf », édition 117 (Journal horodaté, duo plus lisible, expérience en violet) ; 10 langues, clés
   3056-3058. npm test 333, autotest 250/250.
 - 2026-11-16 (it. 1805) : devlog 0.1.6 complété (duo plus lisible, expérience en violet : demandes de Victor, it. 1802-1804).

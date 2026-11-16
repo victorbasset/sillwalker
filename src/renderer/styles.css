@@ -829,6 +829,8 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 /* (it. 720, demande V) le héros entre les feux follets : z-index 1 derrière lui, 3 devant (strip.js drawCores) ;
    sans z-index, il passait sous les deux. Les nombres flottants restent au-dessus de tout. */
 .actor.hero { z-index: 2; }
+/* (it. 1807) le compagnon du duo passe derrière le héros quand ils se chevauchent (le héros principal reste entier) */
+.actor.hero.partner { z-index: 1; }
 /* (it. 1511, demande de Victor) le serviteur (squelette, loup), petit, devant le héros et le compagnon (sinon caché) */
 .actor.minion { z-index: 3; }
 /* (it. 1514) le familier aussi : petit, le compagnon le cachait de la même façon */
