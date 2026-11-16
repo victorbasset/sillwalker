@@ -106,6 +106,8 @@ export const NPCS = {
       "Combien de noisettes vaut une pièce d’or ? Je cherche encore.",
       "Ton carnet de route s’allonge. On en fera un livre.",
     ],
+    // (it. 1739) avant la zone 40, l'onglet ne montre que le Journal : pas de records, succès ni carnet de route à citer
+    early: [0, 3],
   },
   // (it. 1086) la chouette messagère du panneau des contrats
   quests: {
@@ -139,7 +141,7 @@ export const NPCS = {
 export const npcFor = (tab) => NPCS[tab] || null;
 
 /** Réplique affichée : change toutes les 30 s (stable entre deux rendus de l'onglet), `extra` = clics du joueur. */
-export function npcLine(npc, now = Date.now(), extra = 0) {
-  const n = npc.lines.length;
-  return npc.lines[(Math.floor(now / 30000) + extra) % n];
+export function npcLine(npc, now = Date.now(), extra = 0, early = false) {
+  const L = early && npc.early ? npc.early.map((i) => npc.lines[i]) : npc.lines; // (it. 1739) répliques du début
+  return L[(Math.floor(now / 30000) + extra) % L.length];
 }

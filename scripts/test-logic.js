@@ -63,6 +63,7 @@ import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { POUPOUCE as POUPOUCE_1730, MONSTERS as MONSTERS_1730 } from "../src/renderer/game/data.js";
+import { NPCS as NPCS_1739, npcLine as npcLine1739 } from "../src/renderer/game/npcs.js";
 import { eggsAllowed, fixQuestEgg, statsFull } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
 import { trackIndex, musicZone, TRACKS } from "../src/renderer/render/music.js";
@@ -3379,6 +3380,12 @@ test("Poupouce : ceux vaincus avant l'it. 1730 comptent au Bestiaire (it. 1732)"
   const o = JSON.parse(JSON.stringify(freshState())); o.stats.poupouce = 3; delete o.bestiary.poupouce;
   assert.equal(migrate(o).bestiary.poupouce, 3);
   const n = JSON.parse(JSON.stringify(freshState())); assert.ok(!migrate(n).bestiary.poupouce, "aucun : rien");
+});
+
+test("Tico (Statistiques) : avant la zone 40, aucune réplique sur les records, succès ou carnet (it. 1739)", () => {
+  const npc = NPCS_1739.stats;
+  for (let k = 0; k < 12; k++) assert.ok(!/records|succès|carnet/i.test(npcLine1739(npc, k * 30000, 0, true)), "début " + k);
+  assert.ok(Array.from({ length: npc.lines.length }, (_, k) => npcLine1739(npc, k * 30000)).some((l) => /carnet/.test(l)), "toutes ensuite");
 });
 
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1739) : Tico (PNJ de Statistiques) parlait de records, succès et carnet de route quand l'onglet ne montre que
+  le Journal (avant la zone 40, it. 1729 ; vu en capture) : répliques du début choisies (npcs.js, early). Test ; npm test 329,
+  autotest 247/247.
 - 2026-11-16 (it. 1738, contrôle) : équilibrage après le nouveau Poupouce (balance.mjs 12 h contre 4e79199f) : moyenne 64,6 → 64,3,
   écart −0,3 zone (bruit) ; un monstre sur 1 000 ne pèse pas sur la progression.
 - 2026-11-16 (it. 1737, contrôle) : Poupouce dans MONSTERS : aucun tirage au hasard dans la liste (quêtes de chasse : monstres de

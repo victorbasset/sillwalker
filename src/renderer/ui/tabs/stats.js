@@ -76,7 +76,7 @@ export class StatsTab {
     const full = statsFull(S);
     if (!full) this.sec = "log";
     const tabs = subtabsHTML(full ? [["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")], ["log", tx("Journal")]] : [["log", tx("Journal")]], this.sec, "st-sec");
-    el.innerHTML = `<div class="subrow">${tabs}${npcHTML("stats", true)}</div>` + `<div class="statgrid sec-${this.sec}">
+    el.innerHTML = `<div class="subrow">${tabs}${npcHTML("stats", true, !full)}</div>` + `<div class="statgrid sec-${this.sec}">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}
         ${line(tx("Meilleure zone (toutes courses)"), Math.max(S.best, P.bestRun || 0))}
