@@ -1,9 +1,11 @@
-# (it. 1172) Montage de la bande-annonce (version anglaise), calé sur la musique (air de la zone 126, 89 bpm : 1 mesure = 2,697 s).
+# (it. 1172) Montage de la bande-annonce (version anglaise), calé sur la mesure de la musique.
+# (it. 1684, demandes de Victor) bande originale : « Le Rebord », 82 bpm (1 mesure = 2,93 s ; PROMO_BPM pour un autre
+# morceau : sentiers 92, lieutenants 96, briseur 108) ; musique préparée par scripts/promo/music.py (avant : air généré, 89 bpm).
 # Produit la liste des scènes pour edit.py : python3 scripts/promo/trailer.py <edl.json>
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from texts import tr as tl
-BAR = 60 / 89 * 4
+BAR = 60 / float(os.environ.get("PROMO_BPM", 82)) * 4
 G, L, R = [255, 217, 138], [236, 232, 255], [255, 120, 110]
 def T(t, y, size=64, col=G, f="title"): return [tl(t), f, size, col, y]
 # (it. 1173) gros plans ×4 (cadrage 480×200 → 1920×800), plans d'événements ×2 (960×200 → 1920×400)
@@ -27,13 +29,13 @@ sc(1, type="clip", src="p-adventure", t0=1, rect=PAN, cam=[[0, 0, 2560], [60, 0,
 sc(1, type="clip", src="bloodmoon", t0=2, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("BLOOD MOON", 170, 120, R), T("every monster turns elite", 330, 38, L, "body")])
 sc(1, type="clip", src="starfall", t0=1.5, rect=EVR, cam=EV(700, 1300), track=180, fade=0, punch=True, title=[T("STAR SWARM", 170, 120, [170, 210, 255]), T("catch the falling stars", 330, 38, L, "body")])
 sc(1, type="clip", src="goblinrush", t0=1.5, rect=EVR, cam=EV(800, 1500), track=180, fade=0, punch=True, title=[T("GOBLIN RUSH", 170, 120, [140, 230, 120]), T("golden goblins, everywhere", 330, 38, L, "body")])
-sc(1, type="clip", src="goldrain", t0=1, rect=EVR, cam=EV(800, 1400), track=180, fade=0, punch=True, title=[T("RAIN OF GOLD", 170, 120), T("and 10 more rare events", 330, 38, L, "body")])
+sc(1, type="clip", src="goldrain", t0=1, rect=EVR, cam=EV(800, 1400), track=180, fade=0, punch=True, title=[T("RAIN OF GOLD", 170, 120), T("and 14 more rare events", 330, 38, L, "body")])
 sc(1, type="clip", src="relic", t0=1, rect=[0, 486, 1920, 208], cam=[[1000, 1040, 1840], [1000, 1040, 1840]], smooth=True, fade=0, title=[T("Bosses guard ancient relics.", 200, 64)])
 sc(2, type="clip", src="p-graph", t0=2, rect=[160, 40, 1600, 900], cam=[[1500, 40, 1600], [1700, 80, 1600]], fade=0, title=[T("A 618-node great graph.", 965, 60)])
 sc(1, type="clip", src="p-mastery", t0=2, rect=PAN, cam=[[960, 40, 1920], [960, 40, 1920]], fade=0, title=[T("Real choices, every milestone.", 975, 56)])
 # (it. 1189) combat contre un boss majeur (le Chevalier de l'éclipse, zone 150) : sorts, critiques, esquives
 sc(1, type="clip", src="boss", t0=6, rect=EVR, cam=EV(2680, 2740), track=340, fade=0, punch=True, title=[T("Grow absurdly powerful.", 250, 72)])
-sc(1, type="clip", src="p-bestiary", t0=1, rect=PAN, cam=[[0, 0, 2560], [0, 0, 2560]], fade=0, title=[T("83 monsters. 20 heroes. 14 rare events.", 975, 52)])
+sc(1, type="clip", src="p-bestiary", t0=1, rect=PAN, cam=[[0, 0, 2560], [0, 0, 2560]], fade=0, title=[T("83 monsters. 20 heroes. 18 rare events.", 975, 52)])
 # (it. 1183) coupes rapides de la fin : quatre compositions différentes (avant : quatre gros plans du même duo, avec le
 # suivi du héros, identiques à l'œil) : la Lune de sang entière, la carte, le combat de fin, la Ruée des gobelins
 sc(0.5, type="clip", src="bloodmoon", t0=6, rect=[0, 300, 1920, 200], cam=[[0, 1040, 1920], [0, 1040, 1920]], fade=0, extra=[{"cam": [1920, 1040, 1920], "rect": [0, 580, 1920, 200]}])
@@ -55,7 +57,7 @@ if os.environ.get("CUT") == "vertical":
     sc(1, type="card", logo=["steam/capsules/library-logo.png", 820, 900], fade=10)
     sc(1, type="clip", src="walk", t0=4, rect=VR, cam=V(700), track=90, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("A tiny hero", 380, 84), T("walks the edge of your screen.", 500, 50)])
     for src, t0, a, b, col in [("bloodmoon", 2, "BLOOD MOON", "every monster turns elite", R), ("starfall", 1.5, "STAR SWARM", "catch the falling stars", [170, 210, 255]),
-                               ("goblinrush", 1.5, "GOBLIN RUSH", "golden goblins, everywhere", [140, 230, 120]), ("goldrain", 1, "RAIN OF GOLD", "and 10 more rare events", G)]:
+                               ("goblinrush", 1.5, "GOBLIN RUSH", "golden goblins, everywhere", [140, 230, 120]), ("goldrain", 1, "RAIN OF GOLD", "and 14 more rare events", G)]:
         sc(1, type="clip", src=src, t0=t0, rect=VR, cam=V(800), track=90, fade=0, punch=True, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T(a, 400, 104, col), T(b, 550, 40, L, "body")])
     sc(1, type="clip", src="p-graph", t0=2, rect=[0, 560, 1080, 900], cam=[[1900, 60, 1080], [2100, 90, 1080]], fade=0, title=[T("A 618-node", 300, 80), T("great graph.", 410, 80)])
     sc(1, type="clip", src="boss", t0=6, rect=VR, cam=V(2930), track=110, fade=0, logo=["steam/capsules/library-logo.png", 1640, 0], title=[T("Grow absurdly", 380, 84), T("powerful.", 490, 84)])

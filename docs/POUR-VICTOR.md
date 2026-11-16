@@ -20,17 +20,14 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   ligne dans « Moments rares » ; bande, les nombres ne sortent plus par le haut et évitent la bulle du héros ; édition 109.
   Mesuré sans rien changer : le mur des zones 18-21 avant l'Ascension se passe en 20-30 min en suivant l'alerte « héros
   bloqué » (forge), jusqu'à 56 min sans la suivre.
-- À décider : sortir la 0.1.5 (devlog prêt, 10 langues : docs/devlog-0.1.5-brouillon.md, et sa version HTML pour itch : steam/itch/devlog-0.1.5.html) ; refaire la bande-annonce sur la
-  nouvelle musique ; déclarer POUPOUCE et COLOSSAL_25 dans Steamworks.
+- À décider : sortir la 0.1.5 (devlog prêt, 10 langues : docs/devlog-0.1.5-brouillon.md, et sa version HTML pour itch : steam/itch/devlog-0.1.5.html) ; déclarer POUPOUCE et COLOSSAL_25 dans Steamworks.
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
 - **Version 0.1.5 (quand tu veux)** : brouillon du devlog prêt (`docs/devlog-0.1.5-brouillon.md`, fr et en) : bande
   originale, volumes séparés, jauge d'XP, coffres ouverts, Poupouce, retours de Kreen. Dis « sors la 0.1.5 » et je
   fais le reste (notes de version, constructions, butler).
-- **Bande-annonce et nouvelle musique (it. 1582)** : les vidéos de `steam/promo/videos/` (65 s, 30 s, verticale, 10 langues)
-  portent encore l'ancienne musique générée, et leur montage est calé sur son tempo (89 bpm). Les refaire sur la bande
-  originale (par exemple « Sentiers d'étoiles », 92 bpm, ou « Les Lieutenants », 96 bpm) demande de recaler les plans et
-  ajoute ≈ 250 Mo à l'historique git : à décider. `scripts/trailer/music.js` sait déjà fournir un morceau en WAV.
+- **Bande-annonce et nouvelle musique** : FAIT (it. 1684, à ta demande) : 30 vidéos (10 langues × complète 70 s, 30 s,
+  verticale) refilmées et montées sur « Le Rebord », son discret (≈ −46 LUFS) ; dans steam/promo/videos et sur le partage.
 - **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 18 événements rares,
   11 sortes d'élites (le Colossal, it. 1617) et 19 sortes de quêtes (it. 1375, 1382, 1406, 1452 et 1617).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »

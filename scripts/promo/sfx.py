@@ -56,6 +56,10 @@ for sc in json.load(open(EDL))["scenes"]:
 mix = mus + fx[:, None]
 peak = np.abs(mix).max()
 if peak > 0.98: mix *= 0.98 / peak
+# (it. 1684, demandes de Victor : « la musique bien moins forte », puis « baisse encore » trois fois) tout le mélange
+# baisse de 32 dB (≈ −46 LUFS au lieu de −13 : une musique de fond très discrète) : musique et bruitages ensemble, les
+# bruitages restent sous la musique ; PROMO_DB pour un autre réglage
+mix *= 10 ** (float(__import__("os").environ.get("PROMO_DB", -32)) / 20)
 o = wave.open(OUT, "wb"); o.setnchannels(ch); o.setsampwidth(2); o.setframerate(SR)
 o.writeframes((mix * 32767).astype(np.int16).tobytes()); o.close()
 print(OUT, "crête", round(float(peak), 3))

@@ -13,7 +13,7 @@ SHOTS = [
     # (plan, instant, type, rect, cam, suivi du héros, accroche, sous-titre)
     ("walk", 5.0, "desktop", None, [[0, 0, 3840], [0, 0, 3840]], None, "Your taskbar has a new neighbour.", "An idle RPG that lives on the edge of your screen"),
     ("walk", 4.5, "clip", [0, 140, 1920, 800], CU(0), 150, "A tiny hero. A big adventure.", "Fights, loots and grows stronger while you work"),
-    ("bloodmoon", 5.0, "clip", [0, 240, 1920, 600], EV(1150), None, "BLOOD MOON", "14 rare events turn the road upside down"),
+    ("bloodmoon", 5.0, "clip", [0, 240, 1920, 600], EV(1150), None, "BLOOD MOON", "18 rare events turn the road upside down"),
     ("npc-shop", 5.0, "clip", [0, 420, 1920, 240], [[960, 1040, 1600], [960, 1040, 1600]], None, "Meet the folk of the Sill.", "Every tab has its inhabitant, met along the road"),
     ("p-graph", 5.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "A 618-node great graph", "Paths to choose, synergies that change how you play"),
     ("p-mastery", 4.0, "clip", [0, 230, 1920, 620], [[0, 0, 3840], [0, 0, 3840]], None, "Real choices", "Two bonuses at every mastery milestone"),

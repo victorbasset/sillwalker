@@ -7,10 +7,11 @@ presskit.html / presskit-fr.html
   dossier ; à héberger tel quel avec les dossiers voisins, ou à envoyer en lien aux journalistes.
 
 videos/
-  sillwalker-trailer-<langue>.mp4    bande-annonce complète, 65 s, 1920×1080 (Steam, itch.io, YouTube)
-  sillwalker-30s-<langue>.mp4        version courte, 30 s, 1920×1080 (réseaux : X, Bluesky, Reddit)
-  sillwalker-vertical-<langue>.mp4   version verticale, 30 s, 1080×1920 (TikTok, YouTube Shorts, Reels)
-  Jeu filmé dans chaque langue ; musique du jeu (air de la zone 126), bruitages synthétisés, son à −15 LUFS.
+  sillwalker-trailer-<langue>.mp4    bande-annonce complète, 70 s, 1920×1080 (Steam, itch.io, YouTube)
+  sillwalker-30s-<langue>.mp4        version courte, 32 s, 1920×1080 (réseaux : X, Bluesky, Reddit)
+  sillwalker-vertical-<langue>.mp4   version verticale, 32 s, 1080×1920 (TikTok, YouTube Shorts, Reels)
+  Jeu filmé dans chaque langue (16/11) ; musique : « Le Rebord » de la bande originale, bruitages synthétisés,
+  son discret à ≈ −46 LUFS (demande de Victor). Fabrication : scripts/promo/build-videos.sh.
 
 captures-steam-<langue>/
   15 captures 1920×1080 SANS texte publicitaire (règle de Steam : seulement le jeu). Steam accepte des

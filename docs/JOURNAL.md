@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1684, suite) : demandes de Victor : bandes-annonces refaites sur la bande originale. Tous les plans retournés
+  dans les 10 langues (190, jauge d'XP, nouvelle Aventure, Réglages) ; « 18 événements rares » (au lieu de 14) partout ;
+  cyrillique des accroches en Geist Pixel (comme le jeu) ; musique « Le Rebord » (82 bpm, après un essai sur « Les
+  Lieutenants » écarté par Victor), thème calé sur le premier plan du héros (music.py : extrait, début étouffé, fondu
+  qui finit sur le temps fort) ; son baissé à ≈ −46 LUFS (−32 dB, quatre réglages successifs avec Victor : sfx.py
+  PROMO_DB). 30 vidéos (70 s, 32 s, verticale 32 s) livrées dans steam/promo/videos et Médias/sillwalker-promo ;
+  scripts/promo/build-videos.sh refait tout le montage.
 - 2026-11-16 (it. 1684) : demande de Victor : la bande originale en MP3 dans le dépôt (steam/promo/bande-originale : les 4 versions
   finales, ≈ 18 Mo, avec un LISEZMOI ; les essais intermédiaires restent sur le partage).
 - 2026-11-16 (it. 1683) : perf:linux après la nouvelle Aventure (sac 16 colonnes, ResizeObserver de l'en-tête) : bande 18,1 %, panneau
