@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1841, revue générale) : 12 h graine 171 : berserker 69, arbalétrier 64, cryomancienne 66 ; perf:linux bande
+  18,4 %, panneau 19,4 %, mini 5,6 % ; japonais : aucun mot français (« attributs » = repère « --- attributs » du dump).
+  Rien à corriger.
 - 2026-11-16 (it. 1840) : Journal, catégorie de chacun des 74 modèles de ligne dans les 10 langues : deux écarts. Russe :
   « Событие открыто: » (événement découvert) contenait « Открыто: » (déblocage) et passait en ⚑ ; français : le légendaire de
   Poupouce resté au sol passait en ★ (nom de la rareté) au lieu de ⚠. Ordre des catégories = priorité : avertissements,
