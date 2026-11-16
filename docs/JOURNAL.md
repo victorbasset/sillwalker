@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1768) : autotest : Poupouce et sac plein, le héros prévient (langue de l'autotest variable : réplique reconnue à sa
+  longueur). Autotest 249/249.
 - 2026-11-16 (it. 1767) : Poupouce arrive et le sac est plein : le héros prévient « Le sac est plein : vite, une place pour le
   légendaire de Poupouce ! » (bande et mode mini) ; la règle de Victor (butin perdu au sol) ne change pas, le joueur a le
   temps de vider une case. Clé 3047 (10 langues), bulle vue en allemand ; npm test 330, autotest 248/248.

@@ -1361,6 +1361,10 @@ async function runSelfTest(strip) {
   // (it. 1648, 1654) Poupouce vaincu : bannière rose avec son nom, et le héros lui dit au revoir (réplique urgente).
   const pDown = await js("(() => { const g = window.__game, s = window.__strip; s.saidAt = -1e9; const type = (g.R.mon && g.R.mon.type) || Object.keys(s.sprites.monsters)[0]; g.emit('kill', { mon: { ...(g.R.mon || {}), type, poupouce: true, boss: false, champion: false, elite: false }, gold: 1234 }); const ban = [...document.querySelectorAll('.banner')].some((b) => b.textContent.includes('Poupouce')); const say = !s.bubble.hidden && s.bubble.textContent.includes('Poupouce'); s.bubble.hidden = true; s.bubbleT = 0; s.saidAt = -1e9; return ban + ' ' + say; })()");
   check("bande : Poupouce vaincu (bannière et réplique)", pDown === "true true", pDown);
+  // (it. 1767) Poupouce arrive, sac plein : le héros prévient que le légendaire serait perdu (bulle remise à zéro ensuite) ;
+  // langue de l'autotest variable : on reconnaît la réplique à sa longueur (les répliques ordinaires de Poupouce sont courtes)
+  const pFull = await js("(() => { const g = window.__game, s = window.__strip, b0 = g.S.bagSize; g.S.bagSize = g.S.bag.length; s.saidAt = -1e9; g.emit('spawn', { poupouce: true, type: 'poupouce' }); const t = s.bubble.textContent, ok = !s.bubble.hidden && t.includes('Poupouce') && t.length > 35, dbg = g.bagFull() + '|' + s.bubble.hidden + '|' + s.bubble.textContent.slice(0, 60); g.S.bagSize = b0; s.bubble.hidden = true; s.bubbleT = 0; s.saidAt = -1e9; return ok + ' ' + dbg; })()");
+  check("bande : Poupouce et sac plein, le héros prévient", pFull.startsWith("true"), pFull);
   // (it. 1677, demande de Victor) Journal : Statistiques > Journal, mis à jour en direct ; plus dans l'Aventure
   await js("(() => { const P = window.__panel; P.tabs.stats.sec = 'log'; P.setTab('stats'); P.renderAll(); window.__game.log('TEST-JOURNAL-1677'); })()");
   await sleep(700);
