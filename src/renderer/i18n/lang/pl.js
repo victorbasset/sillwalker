@@ -1928,4 +1928,7 @@ export default {
   3053: "Podczas twojej nieobecności: okno mówi, ile legendarnych przedmiotów zostawiły ci pokonane Poupouce.",
   3054: "Dziennik: jeśli legendarny łup Poupouce zostanie na ziemi z braku miejsca, pojawi się o tym wiersz.",
   3055: "Tico, skryba Statystyk, ma nowe kwestie na początku gry.",
+  3056: "Dziennik: każdy wiersz pokazuje godzinę, o której się pojawił.",
+  3057: "Duet: towarzysz dystansowy nie znika już za bohaterem walczącym wręcz, a jego strzały widać.",
+  3058: "Przygoda: pasek doświadczenia jest fioletowy, jak na pasku gry i w trybie mini.",
 };

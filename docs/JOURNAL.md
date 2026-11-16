@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1806) : « Quoi de neuf », édition 117 (Journal horodaté, duo plus lisible, expérience en violet) ; 10 langues, clés
+  3056-3058. npm test 333, autotest 250/250.
 - 2026-11-16 (it. 1805) : devlog 0.1.6 complété (duo plus lisible, expérience en violet : demandes de Victor, it. 1802-1804).
 - 2026-11-16 (it. 1804, suite de la demande de Victor) : mode mini, tireur derrière un héros au corps à corps : contre le bord
   (4 px plus en arrière, écart 18 → 22 px) ; essai d'avancer le héros abandonné (sa barre de vie touchait celle du monstre au

@@ -1928,4 +1928,7 @@ export default {
   3053: "Während deiner Abwesenheit: Das Fenster zeigt, wie viele legendäre Gegenstände die besiegten Poupouce dir hinterlassen haben.",
   3054: "Protokoll: Bleibt Poupouces legendärer Gegenstand aus Platzmangel liegen, meldet es eine Zeile.",
   3055: "Tico, der Schreiber der Statistiken, hat zu Spielbeginn neue Sätze.",
+  3056: "Protokoll: Jede Zeile zeigt, um wie viel Uhr sie kam.",
+  3057: "Duo: Ein Fernkampf-Begleiter verschwindet nicht mehr hinter einem Nahkampfhelden, und seine Schüsse sind zu sehen.",
+  3058: "Abenteuer: Die Erfahrungsleiste wird violett, wie in der Leiste und im Mini-Modus.",
 };

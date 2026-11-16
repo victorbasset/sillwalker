@@ -1928,4 +1928,7 @@ export default {
   3053: "Enquanto você estava fora: a janela diz quantos itens lendários os Poupouce derrotados deixaram.",
   3054: "Diário: se o lendário do Poupouce ficar no chão por falta de espaço, uma linha avisa.",
   3055: "Tico, o escriba das Estatísticas, tem falas novas no começo do jogo.",
+  3056: "Diário: cada linha mostra a hora em que chegou.",
+  3057: "Dupla: um companheiro à distância não some mais atrás de um herói corpo a corpo, e dá para ver os tiros saindo.",
+  3058: "Aventura: a barra de experiência fica roxa, como na faixa e no modo mini.",
 };

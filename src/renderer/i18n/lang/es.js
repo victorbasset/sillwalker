@@ -1928,4 +1928,7 @@ export default {
   3053: "Mientras no estabas: la ventana dice cuántos objetos legendarios te dejaron los Poupouce derrotados.",
   3054: "Diario: si el legendario de Poupouce se queda en el suelo por falta de sitio, una línea lo indica.",
   3055: "Tico, el escriba de las Estadísticas, tiene frases nuevas al principio de la partida.",
+  3056: "Diario: cada línea indica la hora a la que llegó.",
+  3057: "Dúo: un compañero a distancia ya no desaparece detrás de un héroe cuerpo a cuerpo, y se ven salir sus disparos.",
+  3058: "Aventura: la barra de experiencia pasa a violeta, como en la franja y en el modo mini.",
 };

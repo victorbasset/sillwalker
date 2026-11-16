@@ -3057,5 +3057,8 @@ export const KEYS = [
   "Le légendaire de Poupouce est resté au sol : sac plein.",
   "Pendant ton absence : la fenêtre dit combien d’objets légendaires les Poupouce vaincus t’ont laissés.",
   "Journal : si le légendaire de Poupouce reste au sol faute de place, une ligne le signale.",
-  "Tico, le scribe des Statistiques, a de nouvelles répliques en début de partie."
+  "Tico, le scribe des Statistiques, a de nouvelles répliques en début de partie.",
+  "Journal : chaque ligne indique l’heure à laquelle elle est arrivée.",
+  "Duo : un compagnon à distance ne disparaît plus derrière un héros au corps à corps, et ses tirs se voient partir.",
+  "Aventure : la barre d’expérience passe au violet, comme sur la bande et en mode mini."
 ];

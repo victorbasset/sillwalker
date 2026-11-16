@@ -1928,4 +1928,7 @@ export default {
   3053: "While you were away: the window says how many legendary items the defeated Poupouces left you.",
   3054: "Log: if Poupouce's legendary stays on the ground for lack of room, a line says so.",
   3055: "Tico, the Statistics scribe, has new lines early in the game.",
+  3056: "Log: each line shows the time it arrived.",
+  3057: "Duo: a ranged companion no longer vanishes behind a melee hero, and you can see its shots fly.",
+  3058: "Adventure: the experience bar turns purple, like on the strip and in mini mode.",
 };
