@@ -593,6 +593,13 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 #log li.lg-epic { color: var(--r3); }
 #log li.lg-good { color: var(--good); }
 #log li.lg-bad { color: var(--bad); }
+/* (it. 1725) repère en tête des lignes importantes : la catégorie ne tient plus à la seule couleur (daltoniens) */
+#log li[class^="lg-"]::before { display: inline-block; width: 1.2em; }
+#log li.lg-leg::before { content: "★"; }
+#log li.lg-epic::before { content: "◆"; }
+#log li.lg-rare::before { content: "✦"; }
+#log li.lg-good::before { content: "✓"; }
+#log li.lg-bad::before { content: "⚠"; }
 
 /* Talents : voie (spécialisation exclusive) et maîtrises (rangs illimités) */
 .talent.voie { flex-wrap: wrap; height: auto; }

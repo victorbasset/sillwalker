@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1725) : Journal accessible aux daltoniens : un repère en tête de chaque ligne importante (★ légendaire,
+  ◆ épique, ✦ coffre / étoile / champion, ✓ quête / œuf, ⚠ K.O. / recul), en CSS (::before), symboles déjà présents dans la
+  police. Captures thèmes sombre et clair ; npm test 325, autotest 246/246.
 - 2026-11-16 (it. 1724) : après le nouveau réglage logImportant (it. 1723) : save-fuzz « ok balayage (1253 corruptions) » ;
   lang-overflow ru, de, pl à 1280 px (Statistiques > Journal compris) : aucun défilement ni mot coupé.
 - 2026-11-16 (it. 1723) : Statistiques > Journal : case « Lignes importantes seulement » (settings.logImportant, gardée dans la
