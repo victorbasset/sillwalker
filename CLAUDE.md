@@ -58,7 +58,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 1345 : « tout dépenser » du grand graphe à
 400 ms) ; chronométrer un cas isolé avant de chercher une boucle. `FUZZ_BASE=fin` : même balayage à partir de la partie de fin de partie (scripts/fixtures/endgame-save.json, it. 999) ; `FUZZ_BASE=0.1.2` : à partir d'une partie de la version 0.1.2 (scripts/fixtures/save-0.1.2.json, it. 1149).
 - Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (Linux ; « réel » = PSS de l'arbre Electron ≈ 565-575 Mo stables
-  attendus depuis la bande originale (it. 1541 : +55 Mo, le morceau décodé en mémoire pour une boucle sans blanc ; 485-530 avant) (bruit d'une mesure à l'autre), son et musique actifs ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
+  attendus depuis la bande originale (it. 1541 : +55 Mo, le morceau décodé en mémoire pour une boucle sans blanc ; 485-530 avant) (bruit d'une mesure à l'autre), son et musique actifs ; `MEM_ARGS="--stage=<fichier.js>"` y ajoute une mise en scène (it. 1567 : changement de morceau toutes les 20 s, 540-660 Mo en dents de scie, sans croissance) ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
   zone, déblocages à 2, 5, 10, 15, 30, 60 min ; 3 graines, `SEEDS=10` pour moins de bruit : sur 3 graines, ±3 niveaux et
   ±3 zones à 60 min, it. 1444-1445). Le début est volontairement calme (`earlyPace`, rules.js).
@@ -277,6 +277,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   le modulo rebat tout le calendrier (bénédiction du jour qui change en pleine journée à la mise à jour). Le jour pris par
   un ajout peut tomber AUJOURD'HUI ou demain (it. 1314 : la 13e prenait le 14/11) : vérifier ces jours avant / après et, au
   besoin, donner à ce rang un autre sel (DAY_MOD_SALT) ; un test fige les jours déjà annoncés.
+- Coffre de quête (it. 1546, 1555, 1568) : réclamer une quête à coffre (clic, « Tout réclamer », touche R ;
+  QuestsTab.claimShow) ouvre la fenêtre animée #modal. Dans l'autotest, la refermer après coup (`#modal.hidden = true`) :
+  restée ouverte, elle faisait échouer les contrôles suivants selon le tirage de la quête (it. 1571).
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1572) : CLAUDE.md : mem-watch avec une mise en scène (MEM_ARGS), et la fenêtre du coffre de quête à
+  refermer dans l'autotest.
 - 2026-11-16 (it. 1571, revue générale) : simulation 12 h graine 21 : mage 66, samouraï 65, moine 62 ; perf:linux bande
   18,1 %, panneau 20,2 %, mini 6,0 % ; Familiers (de) et Bestiaire (ko) sans défaut ; texte polonais sans mot français.
   Corrigé : les nombres de dégâts du héros montaient sur la pastille de la zone et les barres de vie (rangée du haut, à
