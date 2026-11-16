@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1669) : lang-overflow complet après « Sac plein » et les éditions 108-109 (« Quoi de neuf » au pire cas dans les 10
+  langues) : aucun défilement ni mot coupé.
 - 2026-11-16 (it. 1668) : --perf sur deux copies neuves de dev-data, héros à distance compris (après les nombres et la bulle,
   it. 1641-1653) : guerrier bande 18,2 % / panneau 19,7 % ; rôdeur 13,6 % / 15,9 %. Aucune régression.
 - 2026-11-16 (it. 1667) : i18n-names après les éditions 108-109 et les nouveaux textes (Poupouce, Sac plein) : 25 écarts connus
