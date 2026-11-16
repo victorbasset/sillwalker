@@ -75,6 +75,9 @@ export class MiniRenderer {
     game.on("graphOpen", () => this.showMoment("✦ " + tx("Le grand graphe s’ouvre !"))); // (it. 1106)
     game.on("graphFull", () => this.showMoment("✦ " + tx("Grand graphe complet !"))); // (it. 1117)
     game.on("masteryStep", ({ at }) => this.showMoment("✦ " + tx("Palier de maîtrise : rang {0}", { 0: at }))); // (it. 1124)
+    // (it. 1753) Poupouce arrive (la réplique du héros n'existe que sur la bande) ; Statistiques complètes (it. 1740)
+    game.on("spawn", (m) => { if (m && m.poupouce) this.showMoment("✦ " + tx("C’est… Poupouce ?!")); });
+    game.on("statsFull", () => this.showMoment("✦ " + tx("Statistiques complètes : records, succès et carnet de route sont là !")));
     game.on("tabOpen", ({ ids }) => this.showMoment("✦ " + tx("Nouvel onglet : {0} !", { 0: ids.map((id) => tx(TAB_GATES[id]?.label || id)).join(csep()) })));
     game.on("zoneUp", ({ zone, record }) => { if (record) this.showMoment(zone % 50 === 0 ? "✦ " + tx("Cap franchi : zone {0} !", { 0: zone }) : tx("Nouveau record : zone {0} !", { 0: zone })); });
     game.on("ascend", ({ count, gain } = {}) => this.showMoment("✦ " + txn(gain || 0, "Ascension n° {0} ! +{n} éclat d’étoile|Ascension n° {0} ! +{n} éclats d’étoile", { 0: count })));

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1753) : mode mini : l'arrivée de Poupouce (« ✦ C’est… Poupouce ?! ») et les Statistiques complètes s'affichent
+  en moment (la réplique du héros n'existait que sur la bande) ; textes déjà traduits. Captures fr, de (deux lignes) ;
+  npm test 330, autotest 248/248.
 - 2026-11-16 (it. 1752) : CLAUDE.md, équilibrage : les records de 12 h tombent sur des paliers ; confirmer un réglage de héros sur
   4 graines de plus contre l'ancien réglage avant de le garder (leçon des it. 1748-1751).
 - 2026-11-16 (it. 1751, revue générale) : mage, PV 0,75 contre 0,85 (it. 1748) sur 4 nouvelles graines (21/31/41/51) : 62,5 contre
