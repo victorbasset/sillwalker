@@ -239,6 +239,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Hors français, `translateData` (i18n/data.js) remplace les noms des données (zones, monstres, classes…) par leur
   traduction : ne jamais déduire une logique d'un nom affiché (regex sur `def.name`) ; utiliser le nom d'origine
   (`z.src` pour les zones) ou une clé. Arrivé à la musique (it. 531 : couleur des décors perdue hors français).
+  Même piège pour un texte affiché (journal, bulles) : les couleurs du Journal venaient d'expressions en français (« légendaire »,
+  « Quête accomplie ») et ne marchaient qu'en français (it. 1715) ; ui/log.js compare maintenant aux messages traduits (tx).
 - Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
 - Sortie d'une version (itch.io, it. 1144) : 1) `version` de package.json ; 2) notes de version dans news.js
