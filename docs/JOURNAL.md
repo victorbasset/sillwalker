@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1803, contrôle) : carreaux de l'arbalétrier compagnon capturés en vol (tirs forcés) : ils partent de l'arbalète,
+  passent devant le héros et atteignent le monstre, à la hauteur des tirs du héros ; capture envoyée à Victor.
 - 2026-11-16 (it. 1802, demandes de Victor) : (1) compagnon à distance derrière un héros au corps à corps (arbalétrier derrière le
   samouraï) : 16 px d'écart au lieu de 6 px de recouvrement : il ne disparaît plus derrière le héros et ses flèches ont un
   trajet visible (captures guerrier + arbalétrier) ; (2) barre « Expérience » de l'Aventure en violet (#b48cff) comme la
