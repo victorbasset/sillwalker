@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1840) : Journal, catégorie de chacun des 74 modèles de ligne dans les 10 langues : deux écarts. Russe :
+  « Событие открыто: » (événement découvert) contenait « Открыто: » (déblocage) et passait en ⚑ ; français : le légendaire de
+  Poupouce resté au sol passait en ★ (nom de la rareté) au lieu de ⚠. Ordre des catégories = priorité : avertissements,
+  légendaires, rare et événements, étapes, épiques, bonnes nouvelles ; 0 écart ensuite. Test sur les 10 langues ;
+  npm test 337, autotest 253/253.
 - 2026-11-16 (it. 1839) : « Quoi de neuf », édition 119 (Journal : événements et étapes gardés par le filtre ; légende des
   symboles ; astuce du filtre), clés 3065-3067, 10 langues. npm test 336, autotest 253/253.
 - 2026-11-16 (it. 1838) : légende des symboles du Journal au survol de la case « Lignes importantes seulement » (★ ◆ ✦ ✓ ⚑ ⚠ ;

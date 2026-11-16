@@ -3356,6 +3356,18 @@ test("journal : « Lignes importantes seulement » ne garde que les lignes color
   assert.equal((imp.match(/<li/g) || []).length, 1, "une seule importante"); assert.ok(/lg-rare/.test(imp), "le coffre");
   assert.ok(/class="muted"/.test(logHTML1715(["Rien de spécial."], 60, true)), "message quand rien d'important");
 });
+test("journal (it. 1840) : même catégorie dans les 10 langues (sac plein de Poupouce, événement découvert)", () => {
+  const keep = getLang();
+  try {
+    for (const l of ["fr", "en", "es", "pt", "de", "pl", "ru", "zh", "ja", "ko"]) {
+      setLang(l);
+      const cls = (s) => (logHTML1715([s]).match(/class="(lg-[a-z]+)"/) || [])[1];
+      assert.equal(cls(tT("Le légendaire de Poupouce est resté au sol : sac plein.")), "lg-bad", l + " : sac plein");
+      assert.equal(cls(tT("Événement découvert : {0} pour toujours ({1} / {2}).", { 0: "+1 %", 1: 3, 2: 18 })), "lg-rare", l + " : événement");
+      assert.equal(cls(tT("Débloqué : {0} !", { 0: "X" })), "lg-mile", l + " : déblocage");
+    }
+  } finally { setLang(keep); }
+});
 test("journal (it. 1837) : étapes (relique, ascension, déblocage) en lg-mile, gardées par le filtre", () => {
   const L = [tT("Relique obtenue : {0} ! {1}", { 0: "Cœur", 1: "+5 %" }), tT("Débloqué : {0} !", { 0: "Atelier" }), tT("Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !", { 0: 2, 1: "a", 2: "b", 3: "" }), "Une ligne ordinaire."];
   const imp = logHTML1715(L, 60, true);
