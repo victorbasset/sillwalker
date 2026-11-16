@@ -1874,4 +1874,7 @@ export default {
   2999: "Trafia do twoich jaj (Pupile): wykluj je, by zyskać nowego towarzysza.",
   3000: "Kolosalny",
   3001: "120% więcej życia, ale uderza o 40% wolniej.",
+  3002: "11. rodzaj elity, Kolosalny: wielki jak boss, 120% więcej życia, ale ciosy o 40% wolniejsze.",
+  3003: "Zadania: po najechaniu każda nagroda się tłumaczy (skrzynia, jajo, odłamki gwiazd, eliksiry i zwoje).",
+  3004: "Poupouce nosi ✦, dopóki go nie pokonasz, i zachowuje różowy kontur w trybie mini.",
 };

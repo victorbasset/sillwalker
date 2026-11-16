@@ -1874,4 +1874,7 @@ export default {
   2999: "Se une a tus huevos (Mascotas): incúbalo para tener un nuevo compañero.",
   3000: "Colosal",
   3001: "120 % más de vida, pero golpea un 40 % más lento.",
+  3002: "Un 11.º tipo de élite, el Colosal: grande como un jefe, 120 % más de vida, pero golpes un 40 % más lentos.",
+  3003: "Misiones: al pasar el ratón, cada recompensa se explica (cofre, huevo, fragmentos de estrella, elixires y pergaminos).",
+  3004: "Poupouce lleva un ✦ mientras no lo hayas vencido nunca, y conserva su contorno rosa en modo mini.",
 };

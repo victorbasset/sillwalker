@@ -1874,4 +1874,7 @@ export default {
   2999: "It joins your eggs (Pets): hatch it for a new companion.",
   3000: "Colossal",
   3001: "120% more health, but strikes 40% slower.",
+  3002: "An 11th kind of elite, the Colossal: as big as a boss, 120% more health, but 40% slower blows.",
+  3003: "Quests: hover a reward to see what it does (chest, egg, star shards, elixirs and scrolls).",
+  3004: "Poupouce wears a ✦ until you've defeated him once, and keeps his pink outline in mini mode.",
 };
