@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1783, contrôle) : npm test complet en 14 s (332 tests et 9 vérifications) : rien à optimiser. Idée écartée pour
+  l'instant : un 19e événement rare (compte de la page Steam en 10 langues, succès « tous les événements » à revoir).
 - 2026-11-16 (it. 1782) : page Steam : ne cite ni Poupouce ni le Journal (rien à mettre à jour) ; devlog 0.1.6 complété (légendaires de
   Poupouce perdus ou rangés, it. 1779-1780).
 - 2026-11-16 (it. 1781, revue générale) : simulation 12 h graine 111 : cryomancien 62, arbalétrier 62, gardien stellaire 69 ;
