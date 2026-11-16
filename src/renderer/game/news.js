@@ -606,8 +606,21 @@ const RELEASE_014 = [
   "Confort : un achat qui renforce ton héros est équipé tout de suite, et les absences comptent enfin parchemins, potions et encens.",
   "Le jeu démarre dans la langue de ton système ; le russe a une police pixel lisible.",
 ];
-// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101 (NEWS_ID) : la version suivante prendra after: 101.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }];
+// (0.1.5) textes repris des éditions 102-114, déjà traduits
+const RELEASE_015 = [
+  "Une bande originale : quatre morceaux composés pour le jeu, un par tranche de 50 zones, autour d’un même thème, du lofi chaud au final épique galactique.",
+  "Réglages : un curseur « Effets » règle le volume des bruitages, à côté de la musique et de l’ambiance.",
+  "Une jauge d’expérience sous le niveau, sur la bande : on voit enfin venir le niveau suivant.",
+  "Une quête à coffre réclamée à la main ouvre son coffre sous tes yeux, comme ceux de la boutique.",
+  "Poupouce est maintenant un chat blanc tacheté de noir : extrêmement rare, il laisse énormément d’or et un objet légendaire.",
+  "Une 11e sorte d’élite, le Colossal : grand comme un boss, 120 % de vie en plus, mais des coups 40 % plus lents.",
+  "Une 17e bénédiction du jour, le Jour des familiers : le bonus du familier actif est doublé.",
+  "Aventure : l’équipement passe avant le sac, et le sac s’élargit (16 cases par rangée sur grand écran) : le détail d’un objet se lit sans défiler.",
+  "Le Journal a déménagé : il est maintenant dans Statistiques > Journal.",
+  "Quêtes : au survol, chaque récompense s’explique (coffre, œuf, éclats d’étoile, élixirs et parchemins).",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114 (NEWS_ID) : la suivante prendra after: 114.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);

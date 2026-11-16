@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1756, demande de Victor : préparer la 0.1.5) : version 0.1.5 (package.json) ; notes de version RELEASE_015
+  (10 nouveautés reprises des éditions 102-114, déjà traduites ; after: 101) ; tests des notes mis à jour. npm test 330,
+  autotest 248/248, lang-overflow (10 langues) sans défilement ; fenêtre « Neu in Version 0.1.5 » vue en allemand à 1280 px.
 - 2026-11-16 (it. 1755, contrôle) : first-minutes après les changements du jour : mêmes secondes (objet 15-79 s, boss 77-79 s,
   Talents ≈ 80 s, Quêtes ≈ 300 s) ; Statistiques (Journal) s'ouvre à 150-157 s, une découverte de plus dans ce creux.
 - 2026-11-16 (it. 1754, contrôle) : textes de Poupouce après son changement : résumé d'absence (« Poupouce vaincus »), succès
