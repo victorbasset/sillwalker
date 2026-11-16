@@ -282,6 +282,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Coffre de quête (it. 1546, 1555, 1568) : réclamer une quête à coffre (clic, « Tout réclamer », touche R ;
   QuestsTab.claimShow) ouvre la fenêtre animée #modal. Dans l'autotest, la refermer après coup (`#modal.hidden = true`) :
   restée ouverte, elle faisait échouer les contrôles suivants selon le tirage de la quête (it. 1571).
+- Boutons enfoncés (it. 1544, signalé par Victor) : `button:active` descend de 2 px ; un clic sur le rebord haut se
+  relâchait hors du bouton et le navigateur n'envoyait pas le clic. ui/pressfix.js clique le bouton pressé si on le
+  relâche à 4 px au plus (contrôle de l'autotest « clic sur le rebord d'un bouton ») : garder ce filet si le style change.
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.

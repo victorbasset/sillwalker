@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1610) : CLAUDE.md, pièges connus : le clic sur le rebord des boutons enfoncés (ui/pressfix.js).
 - 2026-11-16 (it. 1609) : autotest : changement de tranche de 50 zones → la bulle « ♪ » nomme le nouveau morceau (traduit) ;
   242/242.
 - 2026-11-16 (it. 1608) : étiquette « Poupouce ✦ » tant qu'il n'a jamais été vaincu (comme les sortes d'élites nouvelles).
