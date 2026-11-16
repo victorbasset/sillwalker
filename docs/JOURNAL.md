@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1627) : quêtes « proie » visant le Colossal : textes et pluriels corrects (fr, en, de, ru, pl, ja) ; le nom est traduit
+  en jeu (« Колоссальный » vu à l'it. 1621 ; hors jeu, sans translateData, toutes les élites restent en français).
 - 2026-11-16 (it. 1626) : --crawl fin de partie en espagnol après le Colossal : 700 clics, aucune erreur.
 - 2026-11-16 (it. 1625) : premier Colossal (tant qu'aucun n'est vaincu) : le héros s'en étonne (« Il est immense, celui-là… »),
   2 répliques, 9 langues.
