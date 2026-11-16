@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1717) : recherche du même piège que l'it. 1715 (expression ou comparaison en français appliquée à un texte
+  traduit) dans toute l'interface : aucun autre cas (les includes() restants portent sur des identifiants : drain, enrage…).
 - 2026-11-16 (it. 1716) : couleurs du Journal vérifiées dans le jeu en anglais : 1 h de jeu → lg-good 3, lg-rare 3, lg-bad 3 ;
   lignes « Legendary » et « Epic » écrites à la main → lg-leg et lg-epic (noms de rareté traduits).
 - 2026-11-16 (it. 1715) : couleurs du Journal dans les 10 langues : les motifs (légendaire, épique, quête, K.O.…) étaient des
