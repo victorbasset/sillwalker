@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1631, revue générale) : simulation 12 h graine 11 : assassin 61, nécromancien 62, lancier 65 ; perf:linux bande
+  18,0 %, panneau 19,0 %, mini 5,8 % ; Héros (ja) propre ; polonais sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1630) : i18n-names après le Colossal et son succès : toujours 25 écarts connus (déclinaisons), aucun nouveau.
 - 2026-11-16 (it. 1629) : test de l'élite Colossale (PV ×2,2, intervalle ×1,4, attaque inchangée) ; 319 tests.
 - 2026-11-16 (it. 1628) : early-pace après le Colossal : à 60 min niveau 39-40, zone 22-26, 6,3 déblocages (avant : 38-40, 22-25) :
