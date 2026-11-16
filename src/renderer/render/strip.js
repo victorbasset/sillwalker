@@ -371,6 +371,7 @@ export class StripRenderer {
     this.bubbleUrgent = urgent;
     this.bubbleX = null;
     this.bubbleW = this.bubble.offsetWidth || 0; // mesurée une fois par réplique
+    this.bubbleH = this.bubble.offsetHeight || 20;
     mark("speech");
   }
   updateSpeech(dt, x) {
@@ -425,7 +426,9 @@ export class StripRenderer {
     // (it. 1562) le nom du boss s'étend vers la gauche au-dessus du héros : les nombres du héros (critiques, esquives),
     // loin du boss, montaient dessus ; ils l'évitent dès que le nom est affiché (combat du boss, ou boss en attente au
     // bout de la file)
-    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss || underHud ? y - (big ? 14 : 12) : 0, this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : null);
+    // (it. 1653) la bulle de parole du héros aussi : en fin de partie, le nom d'un sort (« Volley of Arr… ») passait dessous
+    const obs = [...(this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : []), ...this.speechObstacle()];
+    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss || underHud ? y - (big ? 14 : 12) : 0, obs.length ? obs : null);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
@@ -465,6 +468,13 @@ export class StripRenderer {
 
   /** Nom du boss et relique qu'il garde, en coordonnées de la couche des effets (mesurés une fois par série de monstres
    *  ou après un déplacement du nom : pas de mesure de mise en page à chaque nombre). */
+  /** (it. 1653) Rectangle de la bulle de parole affichée (vide sinon), dans les coordonnées des effets. */
+  speechObstacle() {
+    if (this.bubble.hidden || this.bubbleX == null || !this.bubbleW) return [];
+    const t = GROUND - this.hero.h - 30;
+    return [{ l: this.bubbleX - this.bubbleW / 2 - 2, r: this.bubbleX + this.bubbleW / 2 + 2, t: t - 2, b: t + (this.bubbleH || 20) + 2 }];
+  }
+
   bossObstacles() {
     if (this.bossObs) return this.bossObs;
     const base = this.fxLayer.getBoundingClientRect();

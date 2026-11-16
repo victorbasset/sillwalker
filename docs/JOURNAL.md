@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1653) : bande : les nombres et noms de sorts évitent la bulle de parole du héros (obstacle ajouté à freeSpot,
+  comme le nom du boss : speechObstacle). Mise en scène (fin de partie, anglais) : bulle de y = 1 à 29, « Volley of
+  Arrows » placé à y = 45 au lieu de 0, sans chevauchement. npm test, autotest 242/242.
 - 2026-11-16 (it. 1652) : nombres de la bande vérifiés en fin de partie (anglais, deux instants) : le plus haut (« 1.57M »)
   reste entier sous le bord.
 - 2026-11-16 (it. 1651, revue générale) : simulation 12 h graine 3 : paladin 68, cryomancien 67, arbalétrier 69 ; perf:linux
@@ -6152,7 +6155,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   de nouveau lisibles avec le thème clair de Windows (elles étaient jaune pâle sur blanc).
 
 ## Idées
-- P3 (it. 1652) Bande, fin de partie : le nom d'un sort lancé (« Volley of Arr… », en haut) passe sous la bulle de parole du
+- FAIT (it. 1653) P3 (it. 1652) Bande, fin de partie : le nom d'un sort lancé (« Volley of Arr… », en haut) passe sous la bulle de parole du
   héros (« Chests everywhere… ») ; faire éviter la bulle par le nom du sort (ou décaler la bulle), comme les nombres.
 - FAIT (it. 1562) P3 (it. 1561) Bande : les nombres de dégâts (« Crit 116k », « Esquive ») montent jusque dans la rangée d'informations
   et passent sur le nom du boss pendant le combat ; les arrêter sous la rangée (hudBands) ou les faire pâlir avant.
