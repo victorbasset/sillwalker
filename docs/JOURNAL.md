@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1745) : autotest : Statistiques avant la zone 40 (Journal seul, 3 sous-onglets grisés sur une rangée, aucun
+  défilement) ; cet état échappe à lang-overflow. Autotest 248/248.
 - 2026-11-16 (it. 1744, contrôle) : Statistiques avant la zone 40 (sous-onglets grisés) à 1280 px en russe, polonais, espagnol :
   une seule rangée, aucun défilement (lang-overflow ne mesure pas cet état : ses parties sont au-delà de la zone 40).
 - 2026-11-16 (it. 1743) : Statistiques avant la zone 40 : au lieu d'un unique bouton « Journal », les sous-onglets à venir sont
