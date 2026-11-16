@@ -175,13 +175,7 @@ export class Panel {
       class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game), map: new MapTab(game),
       settings: new SettingsTab(game, settings),
     };
-    this.tabs.quests.onReveal = ({ item, min }) => {
-      this.renderAll(); this.revealChest(min >= 3 ? "chest_royal" : min >= 2 ? "chest_iron" : "chest_wood", item);
-      // (it. 1598, Victor limite les clics) le coffre d'une quête se referme seul après 4 s (pas sous la souris)
-      const m = $(this.root, "#modal"), body = $(this.root, "#mbody .reveal");
-      clearTimeout(this.revealT);
-      this.revealT = setTimeout(() => { if (!m.hidden && $(this.root, "#mbody .reveal") === body && !m.matches(":hover")) m.hidden = true; }, 4000);
-    };
+    this.tabs.quests.onReveal = ({ item, min }) => { this.renderAll(); this.revealChest(min >= 3 ? "chest_royal" : min >= 2 ? "chest_iron" : "chest_wood", item); };
     this.dirty = true;
     this.isOpen = false;
     this.uiT = 0;
@@ -510,6 +504,10 @@ export class Panel {
     $(this.root, "#modal").hidden = false;
     // (it. 1577) Entrée équipe l'objet plus puissant (le focus allait sur ✕ : Entrée refermait la fenêtre)
     ($(this.root, '#modal [data-action="reveal-equip"]') || $(this.root, "#modal button")).focus({ preventScroll: true });
+    // (it. 1598-1599, Victor limite les clics) sans « Équiper maintenant » à décider, la fenêtre se referme seule après
+    // 4 s (pas sous la souris), coffre de quête comme de la boutique
+    clearTimeout(this.revealT);
+    if (!up) { const m = $(this.root, "#modal"), body = $(this.root, "#mbody .reveal"); this.revealT = setTimeout(() => { if (!m.hidden && $(this.root, "#mbody .reveal") === body && !m.matches(":hover")) m.hidden = true; }, 4000); }
     $(this.root, "#modal .panel").scrollTop = 0;
   }
 

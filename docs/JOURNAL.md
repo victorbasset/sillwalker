@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1599) : fermeture automatique (4 s) étendue aux coffres de la boutique, et seulement quand il n'y a pas
+  « Équiper maintenant » à décider (objet plus puissant : la fenêtre attend le joueur).
 - 2026-11-16 (it. 1598) : le coffre d'une quête ouvert sous les yeux se referme seul après 4 s (sauf souris dessus) : l'animation
   sans clic de plus (Victor limite les clics) ; Entrée équipe toujours, Échap ferme.
 - 2026-11-16 (it. 1597) : l'astuce de l'expérience vaut jusqu'au niveau 12 (6 avant) : bienvenue, objet plus puissant et
