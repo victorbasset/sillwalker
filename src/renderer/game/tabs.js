@@ -16,10 +16,17 @@ export const TAB_GATES = {
   ascension: { label: "Ascension", zone: ASCEND_MIN_ZONE, desc: "Recommencer plus fort grâce aux éclats d’étoile." },
   pets:      { label: "Familiers", zone: 25, desc: "Des compagnons qui suivent ton héros et le renforcent." },
   skills:    { label: "Compétences", hint: "skills", zone: 30, desc: "L’arbre de compétences : 1 point tous les 2 niveaux." },
-  stats:     { label: "Statistiques", zone: 40, desc: "Tes records et tes chiffres." },
+  // (it. 1729) le Journal vit dans Statistiques depuis l'it. 1677 : avec l'onglet fermé jusqu'à la zone 40 (plusieurs heures),
+  // un nouveau joueur n'avait plus de Journal. L'onglet s'ouvre tôt avec le seul Journal ; chiffres, succès et carnet de
+  // route à la zone 40 (STATS_FULL_ZONE), comme avant.
+  stats:     { label: "Statistiques", zone: 3, desc: "Le Journal de ton aventure ; records et succès viendront plus tard." },
   map:       { label: "Carte", zone: 12, desc: "La carte du Rebord : ton voyage, les héros prisonniers et l’histoire." },
 };
 for (const g of Object.values(TAB_GATES)) g.when = (S) => recordZone(S) >= g.zone || (g === TAB_GATES.pets && Object.keys(S.pets.owned || {}).length > 0);
+
+/** Statistiques complètes (chiffres, succès, carnet de route) : avant, l'onglet ne montre que le Journal (it. 1729). */
+export const STATS_FULL_ZONE = 40;
+export const statsFull = (S) => recordZone(S) >= STATS_FULL_ZONE;
 
 /** L'onglet est-il visible ? (Aventure, Réglages et tout onglet sans seuil : toujours.) */
 export const tabOpen = (S, id) => !TAB_GATES[id] || !!(S.tabsOpen && S.tabsOpen[id]);

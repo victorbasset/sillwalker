@@ -1910,4 +1910,5 @@ export default {
   3035: "Dia dos mascotes sem mascote ativo: a bênção avisa e diz onde conseguir um.",
   3036: "Só linhas importantes",
   3037: "Ainda não há linhas importantes.",
+  3038: "O Diário da sua aventura; recordes e conquistas virão mais tarde.",
 };

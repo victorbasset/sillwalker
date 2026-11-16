@@ -3039,5 +3039,6 @@ export const KEYS = [
   "Jour des familiers : la carte du familier actif montre son bonus doublé.",
   "Jour des familiers sans familier actif : la bénédiction l’indique et dit où en trouver.",
   "Lignes importantes seulement",
-  "Aucune ligne importante pour l’instant."
+  "Aucune ligne importante pour l’instant.",
+  "Le Journal de ton aventure ; records et succès viendront plus tard."
 ];

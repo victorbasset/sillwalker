@@ -1910,4 +1910,5 @@ export default {
   3035: "Tag der Begleiter ohne aktiven Begleiter: Der Segen sagt es und wo man einen findet.",
   3036: "Nur wichtige Zeilen",
   3037: "Noch keine wichtigen Zeilen.",
+  3038: "Das Protokoll deines Abenteuers; Rekorde und Erfolge kommen später.",
 };

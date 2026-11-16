@@ -15,7 +15,7 @@ import { GOBLIN, ELITE, CHAMPION, POUPOUCE } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
 import { activeDayMod, DAY_MODS, blessingsSeenEffects } from "../../game/daymods.js";
 import { describeEffects } from "../../game/talents.js";
-import { tabReady } from "../../game/tabs.js";
+import { tabReady, statsFull } from "../../game/tabs.js";
 
 import { fmt, fmtShort, esc, dec, unit, uH, uMin } from "../../game/format.js";
 const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)) + unit("%");
@@ -72,7 +72,10 @@ export class StatsTab {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
       return `<li class="ach${on ? " on" : ""}"><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
     }).join("");
-    const tabs = subtabsHTML([["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")], ["log", tx("Journal")]], this.sec, "st-sec");
+    // (it. 1729) avant la zone 40 : le Journal seul (l'onglet s'ouvre tôt pour lui)
+    const full = statsFull(S);
+    if (!full) this.sec = "log";
+    const tabs = subtabsHTML(full ? [["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")], ["log", tx("Journal")]] : [["log", tx("Journal")]], this.sec, "st-sec");
     el.innerHTML = `<div class="subrow">${tabs}${npcHTML("stats", true)}</div>` + `<div class="statgrid sec-${this.sec}">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}

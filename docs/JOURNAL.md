@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1729) : le Journal était inaccessible jusqu'à la zone 40 (Statistiques fermé ; plusieurs heures) depuis son
+  déplacement (it. 1677). Statistiques s'ouvre maintenant à la zone 3 avec le Journal seul ; Chiffres, Succès et Carnet de
+  route à la zone 40 (statsFull, tabs.js) ; conseil « vitesse » attendu jusque-là. Clé 3038, test ; npm test 326, autotest 247/247.
 - 2026-11-16 (it. 1728, contrôle) : mémoire dans la durée (mem-watch, 8 min, son et musique) : réel 542-550 Mo, plat,
   sans croissance (repère 565-575) ; noté dans CLAUDE.md.
 - 2026-11-16 (it. 1727) : autotest : contrôle de la case « Lignes importantes seulement » (vrai clic, ligne ordinaire écartée,

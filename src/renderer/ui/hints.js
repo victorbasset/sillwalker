@@ -7,7 +7,7 @@ import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
 import { skillPointsFree, skillSpendable } from "../game/skilltree.js";
 import { nextUnlock, hasUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
-import { tabOpen } from "../game/tabs.js";
+import { tabOpen, statsFull } from "../game/tabs.js";
 import { classSpells, spellPrice, spellRank } from "../game/spells.js";
 import { CLASS_KEYS, CLASSES, canPartner, DUO_SYNERGIES } from "../game/classes.js";
 
@@ -88,7 +88,7 @@ export const HINTS = [
   { id: "sound", tab: "settings", text: tx("Le son te plaît à moitié ? Réglages > Son : volumes séparés de la musique et de l’ambiance, « Écouter » pour essayer, touche C pour tout couper. Clique ici."),
     when: (g) => g.S.stats.kills >= 300 && g.S.settings.sound !== false && !g.S.settings.muted },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
-    when: (g) => (g.S.speed || 0) > 0 },
+    when: (g) => (g.S.speed || 0) > 0 && statsFull(g.S) }, // (it. 1729) chiffres visibles à partir de la zone 40
 ];
 
 /** Clé « déjà vu » : une fois pour toutes, ou une fois par course (perRun). */

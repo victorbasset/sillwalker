@@ -62,7 +62,7 @@ import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
-import { eggsAllowed, fixQuestEgg } from "../src/renderer/game/tabs.js";
+import { eggsAllowed, fixQuestEgg, statsFull } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
 import { trackIndex, musicZone, TRACKS } from "../src/renderer/render/music.js";
 import { MONSTER_ART } from "../src/renderer/render/art.js";
@@ -3351,6 +3351,13 @@ test("journal : « Lignes importantes seulement » ne garde que les lignes color
   assert.equal((all.match(/<li/g) || []).length, 3, "tout");
   assert.equal((imp.match(/<li/g) || []).length, 1, "une seule importante"); assert.ok(/lg-rare/.test(imp), "le coffre");
   assert.ok(/class="muted"/.test(logHTML1715(["Rien de spécial."], 60, true)), "message quand rien d'important");
+});
+
+test("Statistiques : ouvert dès la zone 3 pour le Journal, complet à la zone 40 (it. 1729)", () => {
+  const S = freshState(); S.tabsOpen = {}; S.best = 2; S.prestige.bestRun = 0;
+  openTabs(S); assert.ok(!tabOpen(S, "stats"), "zone 2 : fermé");
+  S.best = 3; openTabs(S); assert.ok(tabOpen(S, "stats"), "zone 3 : ouvert"); assert.ok(!statsFull(S), "Journal seul");
+  S.best = 40; assert.ok(statsFull(S), "zone 40 : complet");
 });
 
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {

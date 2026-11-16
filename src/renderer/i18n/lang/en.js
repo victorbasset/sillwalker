@@ -1910,4 +1910,5 @@ export default {
   3035: "Pet Day without an active pet: the blessing says so and where to find one.",
   3036: "Important lines only",
   3037: "No important lines yet.",
+  3038: "Your adventure's Log; records and achievements will come later.",
 };

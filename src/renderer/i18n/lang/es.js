@@ -1910,4 +1910,5 @@ export default {
   3035: "Día de las mascotas sin mascota activa: la bendición lo indica y dice dónde conseguir una.",
   3036: "Solo líneas importantes",
   3037: "Aún no hay líneas importantes.",
+  3038: "El Diario de tu aventura; los récords y logros llegarán más tarde.",
 };

@@ -1910,4 +1910,5 @@ export default {
   3035: "Dzień pupili bez aktywnego pupila: błogosławieństwo o tym mówi i podpowiada, skąd go wziąć.",
   3036: "Tylko ważne wiersze",
   3037: "Na razie brak ważnych wierszy.",
+  3038: "Dziennik twojej przygody; rekordy i osiągnięcia pojawią się później.",
 };
