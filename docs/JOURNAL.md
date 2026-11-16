@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1650) : --crawl en polonais sur la partie de fin de partie : 695 clics en 22 s, aucune erreur.
 - 2026-11-16 (it. 1649) : son de Poupouce vaincu : la pluie de 4 pièces d'un champion (avant : 1, comme un monstre ordinaire).
   Bestiaire : rien à ajouter (Poupouce est une variante d'un monstre, compté sous son espèce). npm test, autotest 242/242.
 - 2026-11-16 (it. 1648) : Poupouce vaincu se remarque sur la bande : bannière rose « Poupouce vaincu : N or ! » (texte déjà
