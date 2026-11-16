@@ -3411,6 +3411,16 @@ test("Poupouce vaincu sac plein : le Journal dit que le légendaire est resté a
   assert.ok(g2.S.bag.some((it) => it && it.r === 4), "légendaire rangé");
 });
 
+test("absence : légendaires de Poupouce comptés seulement s'ils sont rangés (it. 1780)", () => {
+  const ch = POUPOUCE_1730.chance; POUPOUCE_1730.chance = 1;
+  try {
+    const g = new Game(freshState()); g.S.zone = 5; g.S.best = 5; g.S.autoSell = {};
+    g.S.bagSize = g.S.bag.length; g.S.unlocks.armsValet = false;
+    const sum = g.applyOffline(600);
+    assert.ok(sum.poupouce > 0, "des Poupouce"); assert.equal(sum.poupouceLeg, 0, "sac plein : aucun rangé");
+  } finally { POUPOUCE_1730.chance = ch; }
+});
+
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
   const P = freshState().settings;
   assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");

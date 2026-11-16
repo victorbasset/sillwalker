@@ -1203,6 +1203,7 @@ export class Game {
     const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + (hs.drop + BUFF_EFFECTS.luck.drop * share("luck")) / 100) * 0.3));
     let best = -1, bestItem = null, onGround = 0;
     // (it. 1730) chaque Poupouce vaincu pendant l'absence laisse aussi son objet légendaire
+    let ppLeg = 0; // (it. 1780) légendaires de Poupouce vraiment rangés (sac plein : restés au sol)
     for (let i = 0; i < drops + poupouce; i++) {
       const it = this.newItem(i < drops ? 0 : LEGENDARY);
       best = Math.max(best, it.r);
@@ -1211,6 +1212,7 @@ export class Game {
       const autoSold = !!(S.autoSell[RARITIES[it.r].id] && hasUnlock(S, "autoSell"));
       const kept = this.addToBag(it, true);
       if (!kept && !autoSold) onGround++; // (it. 1219) sac plein : resté au sol, signalé dans le résumé d'absence
+      if (kept && i >= drops) ppLeg++;
       if (kept && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
@@ -1253,7 +1255,7 @@ export class Game {
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,
-      goblins, poupouce, // (it. 1643) les gobelins n'arrivaient jamais jusqu'à la fenêtre (ligne prévue depuis l'it. 1452)
+      goblins, poupouce, poupouceLeg: ppLeg, // (it. 1780) ; (it. 1643) les gobelins n'arrivaient jamais jusqu'à la fenêtre (ligne prévue depuis l'it. 1452)
     };
     // (it. 1353) victoires accordées (« 1 monstres vaincus ») et virgule de la langue (« 、 » en japonais)
     this.log(tx("Pendant ") + summary.duration + colon() + txn(kills, "{n} monstre vaincu|{n} monstres vaincus") + csep() + "+" + tx("{0} or", { 0: fmt(gold) }) +

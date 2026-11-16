@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1780) : « Pendant ton absence » : « (+N objets légendaires) » ne compte que les légendaires de Poupouce vraiment rangés
+  (sum.poupouceLeg ; sac plein : restés au sol, rien d'annoncé) ; test ; npm test 332, autotest 249/249.
 - 2026-11-16 (it. 1779) : Poupouce vaincu sac plein : le Journal ajoute « Le légendaire de Poupouce est resté au sol : sac plein. »
   (en rouge, ⚠) au lieu de laisser croire au butin ; clé 3052, test ; npm test 331, autotest 249/249.
 - 2026-11-16 (it. 1778) : « Pendant ton absence » : la ligne des Poupouce vaincus ajoute « (+N objets légendaires) » (chacun en
