@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1577) : clavier : à l'ouverture d'un coffre (boutique, quête), le focus va sur « Équiper maintenant » quand
+  l'objet est plus puissant : Entrée l'équipe (avant, le focus était sur ✕ et Entrée refermait) ; Échap referme toujours.
+  perf:linux stable (bande 18,5 %, panneau 20,2 %, mini 5,9 %).
 - 2026-11-16 (it. 1576) : succès « Poupouce ?! » (POUPOUCE : vaincre Poupouce), icônes Steam (champignon), noms dans les 10
   langues, steam/achievements.md (71), checklist, README et POUR-VICTOR (à déclarer dans Steamworks) ; lang-overflow propre.
 - 2026-11-16 (it. 1575) : édition 104 de « Quoi de neuf » : morceau annoncé, coffres de « Tout réclamer » et de la touche R,

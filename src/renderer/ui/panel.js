@@ -502,7 +502,8 @@ export class Panel {
         ${up ? `<div class="delta-p">${tx("▲ Plus puissant que ton équipement actuel")}</div>` : ""}
       </div>${up ? `<div class="row"><button class="primary" data-action="reveal-equip" data-id="${it.id}">${tx("Équiper maintenant")}</button></div>` : ""}`;
     $(this.root, "#modal").hidden = false;
-    $(this.root, "#modal button").focus({ preventScroll: true });
+    // (it. 1577) Entrée équipe l'objet plus puissant (le focus allait sur ✕ : Entrée refermait la fenêtre)
+    ($(this.root, '#modal [data-action="reveal-equip"]') || $(this.root, "#modal button")).focus({ preventScroll: true });
     $(this.root, "#modal .panel").scrollTop = 0;
   }
 
