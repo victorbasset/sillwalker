@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1831, revue générale) : 12 h graine 161 : assassin 62, chaman 62, barde 61 (graine dure pour les trois) ;
+  perf:linux bande 18,4 %, panneau 19,7 %, mini 5,7 % ; polonais : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1830) : early-pace accepte `CLS=<classe>`. Première heure (5 graines) : guerrier niveau 40 zone 24,
   assassin 41 / 24, mage 41 / 22 : la défense de l'assassin et les PV du mage ne pressent pas le début.
 - 2026-11-16 (it. 1829, contrôle) : semaine simulée après la défense de l'assassin (it. 1826) : assassin 350 (palier de l'écho, 43 courses,
