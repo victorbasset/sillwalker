@@ -44,6 +44,17 @@ export const MON_SKILLS = {
   // (it. 1857) Spectres : deviennent intangibles, les coups du héros les traversent
   ghost: { id: "phase", name: "Intangible", every: 7, first: 3, tell: 0.4, phase: 1.5,
     desc: "Toutes les 7 s, devient intangible pendant 1,5 s : les coups du héros le traversent." },
+  // (it. 1858) Diablotins : font naître une flamme entre leurs mains, puis la lancent
+  imp: { id: "fireball", name: "Boule de feu", every: 6, first: 2.5, tell: 0.6, mult: 1.2,
+    desc: "Toutes les 6 s, fait naître une boule de feu puis la lance sur le héros : un coup à 120 % de son attaque." },
+  // (it. 1858) Rats : couinent, puis se jettent sur le héros en trois morsures rapides
+  rat: { id: "swarm", name: "Grouillement", every: 7, first: 3, tell: 0.4, mult: 1.2, bites: 3,
+    desc: "Toutes les 7 s, couine puis se jette sur le héros : trois morsures rapides à 40 % de son attaque." },
+  // (it. 1858) Araignées : tissent une toile qui englue le héros ; la veuve noire mord en plus
+  spider: { id: "web", name: "Toile", every: 8, first: 3, tell: 0.6, slow: 2,
+    desc: "Toutes les 8 s, tisse une toile : les attaques du héros ralentissent de 40 % pendant 2 s." },
+  spider_widow: { id: "web", name: "Toile de la veuve", every: 8, first: 3, tell: 0.6, slow: 2, venom: 1.5,
+    desc: "Toutes les 8 s, tisse une toile et mord : les attaques du héros ralentissent de 40 % pendant 2 s, et il est empoisonné 1,5 s." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

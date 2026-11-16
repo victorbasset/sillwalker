@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1858, journée des monstres) : diablotins : Boule de feu (×1,2, éclat des mains au héros) ; rats :
+  Grouillement (trois morsures éclair de 40 %) ; araignées : Toile (attaques du héros −40 % 2 s, PV compensés), la veuve
+  noire (version propre) mord en plus. Balance contre aea72772 : −1,1 / −0,8 / +0,4 (neutre) ; fuzz 600 / 0 ; npm test 344 ;
+  autotest 253/253 (un échec isolé du glisser de ⌃ sous la charge de trois simulations, revenu seul : bruit connu).
 - 2026-11-17 (it. 1857, journée des monstres) : plantes : Racines (toutes les 7 s, héros enlacé 1 s, la plante regagne
   3 % de ses PV) ; mandragore (version propre) : Cri (étourdi 0,5 s, silence 2 s) ; spectres : Intangible (toutes les 7 s,
   1,5 s à demi effacés, coups du héros « Raté ! », PV compensés). Bestiaire : l'effet du feu n'est plus annoncé pour une

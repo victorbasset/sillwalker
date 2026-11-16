@@ -3117,5 +3117,15 @@ export const KEYS = [
   "Toutes les 7 s, devient intangible pendant 1,5 s : les coups du héros le traversent.",
   "Enlacé !",
   "Cri !",
-  "Intangible !"
+  "Intangible !",
+  "Toutes les 6 s, fait naître une boule de feu puis la lance sur le héros : un coup à 120 % de son attaque.",
+  "Grouillement",
+  "Toutes les 7 s, couine puis se jette sur le héros : trois morsures rapides à 40 % de son attaque.",
+  "Toile",
+  "Toutes les 8 s, tisse une toile : les attaques du héros ralentissent de 40 % pendant 2 s.",
+  "Toile de la veuve",
+  "Toutes les 8 s, tisse une toile et mord : les attaques du héros ralentissent de 40 % pendant 2 s, et il est empoisonné 1,5 s.",
+  "Boule de feu !",
+  "Grouillement !",
+  "Englué !"
 ];

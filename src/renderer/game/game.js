@@ -61,6 +61,7 @@ export function skillBalance(m, sk) {
   let lost = 0; // part du combat où le héros ne frappe pas (ou au ralenti)
   if (sk.stun) lost += sk.stun / sk.every;
   if (sk.phase) lost += sk.phase / sk.every; // (it. 1857) intangible
+  if (sk.slow) lost += 0.4 * sk.slow / sk.every; // (it. 1858) toile : attaques du héros 40 % plus lentes
   if (sk.el === "frost") lost += 0.4 * 1.5 / sk.every;
   if (lost > 0) { m.hp = Math.max(1, Math.round(m.hp * (1 - lost))); m.max = m.hp; }
 }
@@ -536,6 +537,25 @@ export class Game {
       }
       case "phase": { // (it. 1857) Spectres : intangibles, les coups du héros les traversent (heroStrike)
         m.phaseT = sk.phase;
+        break;
+      }
+      case "fireball": { // (it. 1858) Diablotins : boule de feu lancée de loin (même coup, esquivable)
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "swarm": { // (it. 1858) Rats : trois morsures rapides (chacune esquivable), puis l'élément (peste : poison)
+        for (let i = 0; i < sk.bites; i++) if (this.monsterAttack(m, hs, sk.mult / sk.bites)) return true;
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "web": { // (it. 1858) Araignées : toile, attaques du héros ralenties ; la veuve noire mord (venin)
+        R.frozen = Math.max(R.frozen || 0, sk.slow);
+        if (sk.venom) {
+          const d = sk.venom * (1 - (hs.purity || 0) / 100);
+          if (d > 0.05) { R.venomT = Math.max(R.venomT || 0, d); this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
+        }
+        this.elementHit(sk.el, hs);
         break;
       }
       case "howl": { // (it. 1856) Loups : hurlement, puis attaques plus rapides quelques secondes

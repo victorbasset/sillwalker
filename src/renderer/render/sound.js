@@ -443,6 +443,9 @@ export class Sound {
           case "roots": this.tone(160, 0, 0.3, "sawtooth", 0.1, 0.8); this.noise(0.05, 0.2, 0.08); break; // (it. 1857) bois qui craque et glisse
           case "scream": this.tone(1400, 0, 0.35, "sawtooth", 0.07, 1.4); this.tone(1900, 0.03, 0.3, "square", 0.04, 1.2); break; // (it. 1857) cri strident
           case "phase": this.tone(660, 0, 0.4, "sine", 0.08, 0.6); this.tone(990, 0.04, 0.35, "sine", 0.05, 0.6); break; // (it. 1857) souffle spectral
+          case "fireball": this.whoosh(0, 0.25, 600, 2200, 0.1, 1); this.noise(0.22, 0.12, 0.18); break; // (it. 1858) souffle, puis éclat
+          case "swarm": [0, 0.08, 0.16].forEach((t) => this.tone(2400, t, 0.04, "square", 0.06, 0.8)); break; // (it. 1858) trois couinements-morsures
+          case "web": this.whoosh(0, 0.3, 3200, 1800, 0.05, 4); this.tone(1200, 0.05, 0.15, "sine", 0.04, 0.95); break; // (it. 1858) fils tendus
         }
         break;
       case "bossSkill":
