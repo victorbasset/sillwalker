@@ -214,7 +214,7 @@ export class StripRenderer {
     // Boss : la bannière « … approche ! » l'annonce déjà, et une bulle cacherait son nom (voir say()).
     g.on("heroDown", () => this.say(SPEECH.ko, true));
     g.on("zoneUp", ({ record }) => { if (record) this.say(SPEECH.record); });
-    g.on("levelUp", () => this.say(SPEECH.level));
+    g.on("levelUp", () => { this.say(SPEECH.level); this.lvlFlash = g.R.time + 1.2; }); // (it. 1570) la jauge d'XP brille
     g.on("event", ({ id } = {}) => this.say(SPEECH["ev_" + id] || SPEECH.event));
     g.on("eliteNew", () => this.say(SPEECH.eliteNew)); // (it. 956)
     g.on("spawn", (m) => { if (m && m.poupouce) this.say(SPEECH.poupouce, true); }); // (it. 1558)
@@ -1177,7 +1177,8 @@ export class StripRenderer {
       // (it. 1546, retour d'un joueur : « on sait pas où est l'xp, on monte de niveau sans savoir comment ») jauge
       // d'expérience sous le niveau, par pas de 2 % (redessinée au plus 50 fois par niveau)
       xpStep = Math.min(50, Math.floor(50 * S.xp / Math.max(1, this.game.xpNeed()))),
-      key = gt + "|" + lvlTxt + "|" + buffs.join(",") + "|" + xpStep;
+      flash = (this.lvlFlash || 0) > this.game.R.time, // (it. 1570) niveau gagné : jauge dorée, pleine, un instant
+      key = gt + "|" + lvlTxt + "|" + buffs.join(",") + "|" + xpStep + "|" + flash;
     if (key === this.hudRKey) return;
     this.hudRKey = key; mark("hud");
     const ctx = this.hudR.ctx, right = HUD_R_W - 10;
@@ -1200,7 +1201,7 @@ export class StripRenderer {
     drawText(ctx, lvlTxt, right, 15, "#ffffff", "right");
     const gw = Math.round(lw), gx = right - gw;
     ctx.fillStyle = "#3a3458"; ctx.fillRect(gx, 18, gw, 3);
-    ctx.fillStyle = "#b48cff"; ctx.fillRect(gx, 18, Math.round(gw * xpStep / 50), 3);
+    ctx.fillStyle = flash ? "#ffe27a" : "#b48cff"; ctx.fillRect(gx, 18, flash ? gw : Math.round(gw * xpStep / 50), 3);
     drawText(ctx, gt, right - 14 - lw, 16, "#ffd34d", "right");
     ctx.font = FONT;
     drawCoin(ctx, right - 14 - lw - ctx.measureText(gt).width - 14, 6);

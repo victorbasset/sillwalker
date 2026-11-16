@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1570, suite du retour « on monte de niveau sans savoir comment ») : au niveau gagné, la jauge d'XP
+  sous « Niv. N » se remplit en or un instant (1,2 s), en plus de la bannière « Niveau N ! » : le lien jauge / niveau se voit.
 - 2026-11-16 (it. 1569) : contrôles après Poupouce : fuzz avec chaque bénédiction du jour (FUZZ_DAYMOD=all, 600 parties,
   0 bloquée) ; save-fuzz à partir de la fin de partie (1 204 corruptions, ok).
 - 2026-11-16 (it. 1568) : touche R (réclamer les quêtes) : le coffre s'ouvre sous les yeux comme au clic (une méthode
