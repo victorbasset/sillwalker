@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1747) : devlog 0.1.5 (brouillon .md et .html itch, 10 langues) : Poupouce décrit en chat blanc tacheté de noir,
+  un monstre sur 1 000, 100 fois l'or et un objet légendaire (avant : contour rose, cinq fois plus d'or).
 - 2026-11-16 (it. 1746) : README à jour : Poupouce en chat (rareté, or, légendaire, miaulement), Statistiques dès la zone 3
   avec le Journal, couleurs et symboles du Journal, case « Lignes importantes seulement ».
 - 2026-11-16 (it. 1745) : autotest : Statistiques avant la zone 40 (Journal seul, 3 sous-onglets grisés sur une rangée, aucun
