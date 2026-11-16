@@ -4391,4 +4391,12 @@ test("Poupouce (it. 1546, demande d'un joueur) : un monstre ordinaire rare qui p
 test("astuces vers la boutique (it. 1548) : celles d'un déblocage ouvrent la sous-section Déblocages", () => {
   for (const id of ["unlock", "bulksell"]) assert.equal(M_hints_js.HINTS.find((h) => h.id === id).sec, "unlocks", id);
 });
+test("sauvegarde d'avant les volumes séparés (it. 1580) : effets, musique, ambiance à 100 %, barres de vie affichées", () => {
+  const old = JSON.parse(JSON.stringify(freshLocked()));
+  for (const k of ["fxVol", "musicVol", "ambVol", "hudBars"]) delete old.settings[k];
+  old.settings.fxVol = "abc";
+  const m = migrate(old);
+  assert.equal(m.settings.fxVol, 1); assert.equal(m.settings.musicVol, 1); assert.equal(m.settings.ambVol, 1);
+  assert.equal(m.settings.hudBars, true);
+});
 console.log(`\n${pass} tests réussis`);

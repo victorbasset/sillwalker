@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1580) : save-fuzz à partir d'une partie 0.1.2 (1 148 corruptions, ok) ; test : une sauvegarde sans les
+  volumes séparés ni l'option des barres de vie reçoit effets / musique / ambiance à 100 % et les barres affichées.
 - 2026-11-16 (it. 1579, retour d'un joueur : « on ouvre les coffres où ? ») : récompense « coffre » d'une quête : bulle au survol
   « Le coffre s'ouvre quand tu réclames la quête ; son objet va dans le sac. » (9 langues).
 - 2026-11-16 (it. 1578) : --crawl après les it. 1566-1577 : dev-data en japonais 713 clics, fin de partie en coréen 698 clics,
