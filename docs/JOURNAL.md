@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1691, revue générale) : simulation 12 h graine 31 : guerrier 65, druide 67, assassin 62 ; perf:linux bande
+  18,2 %, panneau 19,8 %, mini 5,7 % ; Aventure (de, nouvelle disposition) et Statistiques > Journal (ko) propres ; russe
+  sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1690) : POUR-VICTOR : résumé du début d'après-midi (it. 1675-1689).
 - 2026-11-16 (it. 1689) : « Quoi de neuf », édition 111 : Réglages à gauche de « Mode mini » (corrige l'édition 110, qu'on ne retouche
   pas), menu sur une ligne, bande-annonce sur « Le Rebord » ; 10 langues, libellés cités tels que traduits. Clés 3020-3022.
