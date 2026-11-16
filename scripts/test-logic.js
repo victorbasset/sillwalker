@@ -264,6 +264,18 @@ test("gobelins dorés pendant l'absence : attrapés, comptés et quête « Attra
   assert.ok(!q || q.progress >= 2, "quête avancée : " + JSON.stringify(q));
 });
 
+test("Poupouce et gobelins pendant l'absence : comptés et transmis au résumé (it. 1643)", () => {
+  const g = new Game(freshState()); g.S.zone = 5; g.S.best = Math.max(g.S.best, 5);
+  const p0 = +g.S.stats.poupouce || 0, k0 = g.S.stats.goblins || 0;
+  const sum = g.applyOffline(8 * 3600);
+  assert.equal(sum.goblins, (g.S.stats.goblins || 0) - k0, "gobelins transmis à la fenêtre");
+  assert.equal(sum.poupouce, (+g.S.stats.poupouce || 0) - p0, "Poupouce transmis à la fenêtre");
+  // assez de victoires pour en croiser (0,4 % chacune) ; jamais en zone 1 (minZone 2)
+  if (sum.kills > 3000) assert.ok(sum.poupouce > 0, "kills " + sum.kills + " : aucun Poupouce");
+  const g1 = new Game(freshState()); g1.S.zone = 1;
+  assert.equal(g1.applyOffline(8 * 3600).poupouce, 0, "zone 1 : pas de Poupouce");
+});
+
 test("hors ligne : objets laissés au sol quand le sac est plein, comptés dans le résumé (it. 1219)", () => {
   const g = new Game(freshState());
   for (const k in g.S.autoSell) g.S.autoSell[k] = false;
@@ -3320,6 +3332,11 @@ test("depuis ta dernière visite : gains affichés après 5 min, pas avant", () 
   const old = { ...snap }; delete old.chests; delete old.events;
   const v3 = g.visitSummary(old, t0 + 42 * 60000);
   assert.ok(v3.chests === 0 && v3.events === 0);
+  // (it. 1643) Poupouce vaincu entre-temps ; une ancienne photo (sans ce compteur) n'en compte aucun
+  g.S.stats.poupouce = (g.S.stats.poupouce || 0) + 1;
+  assert.equal(g.visitSummary(snap, t0 + 42 * 60000).poupouce, 1);
+  const old2 = { ...snap }; delete old2.poupouce;
+  assert.equal(g.visitSummary(old2, t0 + 42 * 60000).poupouce, 0);
 });
 
 test("record de zone : annoncé seulement au-delà du record de toutes les courses", () => {

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1643) : absence : Poupouce peut maintenant tomber pendant l'absence (0,4 % des victoires dès la zone 2,
+  Jour de Poupouce ×10, or ×5 compris) ; la fenêtre « Pendant ton absence » l'annonce (✦ rose), et « Depuis ta dernière
+  visite » aussi. Trouvé en route : la ligne « Gobelins dorés attrapés » de cette fenêtre ne s'affichait jamais (le résumé
+  ne transmettait pas le nombre, depuis l'it. 1452) ; et un nom d'objet long (« Beste Beute », allemand) recouvrait son
+  libellé : il passe à la ligne (.lines b.wrap). Test ajouté ; captures en allemand ; npm test 320, autotest 242/242.
 - 2026-11-16 (it. 1642) : correction de l'it. 1641 vérifiée en mise en scène (8 critiques au même point, coréen) : montées
   22 px pour les nombres bas, 14 px à y = 8, 4 px à y = −6 (au lieu de 22) ; les nombres réels restent entiers dans la bande.
 - 2026-11-16 (it. 1641, revue générale) : simulation 12 h graine 7 : druide 64, barde 64, gardien stellaire 65 ; perf:linux bande

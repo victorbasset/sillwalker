@@ -1143,7 +1143,11 @@ export class Game {
     // leur or (×15) compte avec le reste
     const gx = b.hp * MONSTERS.goblin.hp / dps < GOBLIN.flee ? kills * GOBLIN.chance * (activeDayMod(S)?.goblin || 1) : 0;
     const goblins = Math.floor(gx) + (rand() < gx % 1 ? 1 : 0);
-    const gold = Math.round((kills + goblins * (MONSTERS.goblin.gold - 1)) * b.gold * earlyPace(S) * (1 + hs.gold / 100 + BUFF_EFFECTS.fortune.gold / 100 * share("fortune")));
+    // (it. 1643) Poupouce pendant l'absence (rare, sans défense : toujours vaincu) ; son or (×5) compte avec le reste
+    const px = S.zone >= POUPOUCE.minZone ? kills * POUPOUCE.chance * (activeDayMod(S)?.poupouce || 1) : 0;
+    const poupouce = Math.floor(px) + (rand() < px % 1 ? 1 : 0);
+    if (poupouce) S.stats.poupouce = (+S.stats.poupouce || 0) + poupouce;
+    const gold = Math.round((kills + goblins * (MONSTERS.goblin.gold - 1) + poupouce * (POUPOUCE.gold - 1)) * b.gold * earlyPace(S) * (1 + hs.gold / 100 + BUFF_EFFECTS.fortune.gold / 100 * share("fortune")));
     if (goblins) { S.stats.goblins = (S.stats.goblins || 0) + goblins; this.questProgress("goblin", goblins); }
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
@@ -1240,6 +1244,7 @@ export class Game {
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,
+      goblins, poupouce, // (it. 1643) les gobelins n'arrivaient jamais jusqu'à la fenêtre (ligne prévue depuis l'it. 1452)
     };
     // (it. 1353) victoires accordées (« 1 monstres vaincus ») et virgule de la langue (« 、 » en japonais)
     this.log(tx("Pendant ") + summary.duration + colon() + txn(kills, "{n} monstre vaincu|{n} monstres vaincus") + csep() + "+" + tx("{0} or", { 0: fmt(gold) }) +
@@ -2506,7 +2511,7 @@ export class Game {
     return { t: now, gold: st.goldTotal || 0, kills: st.kills || 0, lvl: this.S.lvl, asc: this.S.prestige.count, leg: st.legendaries || 0, best: recordZone(this.S),
       spells: Object.values(this.S.spells || {}).reduce((a, r) => a + (+r || 0), 0), // rangs de sorts (Grimoire, it. 557)
       relics: RELIC_IDS.reduce((a, id) => a + relicLevel(this.S, id), 0), // reliques gagnées + niveaux (it. 615)
-      chests: st.chests || 0, events: st.events || 0, goblins: st.goblins || 0 }; // coffres trouvés, événements rares vécus (it. 896) ; gobelins (it. 1454)
+      chests: st.chests || 0, events: st.events || 0, goblins: st.goblins || 0, poupouce: +st.poupouce || 0 }; // coffres trouvés, événements rares vécus (it. 896) ; gobelins (it. 1454) ; Poupouce (it. 1643)
   }
 
   /**
@@ -2527,6 +2532,7 @@ export class Game {
       relics: Math.max(0, (now0.relics || 0) - (snap.relics || 0)),
       chests: Math.max(0, now0.chests - (snap.chests ?? now0.chests)), events: Math.max(0, now0.events - (snap.events ?? now0.events)),
       goblins: Math.max(0, now0.goblins - (snap.goblins ?? now0.goblins)),
+      poupouce: Math.max(0, now0.poupouce - (snap.poupouce ?? now0.poupouce)),
     };
   }
 

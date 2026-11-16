@@ -12,7 +12,7 @@ import { stuckTipsText } from "./stucktips.js";
 import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";
 import { dayModNotes } from "./daymodnotes.js";
-import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE, CHAMPION } from "../game/data.js";
+import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE, CHAMPION, POUPOUCE } from "../game/data.js";
 import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower, powerSources } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { EXPEDITIONS } from "../game/pets.js";
@@ -387,6 +387,7 @@ export class Panel {
     // (it. 896) coffres trouvés et événements rares vécus pendant que le panneau était fermé
     if (v.chests) parts.push(txn(v.chests, "{n} coffre|{n} coffres"));
     if (v.events) parts.push(txn(v.events, "{n} événement rare|{n} événements rares"));
+    if (v.poupouce) parts.push(`<b class="tint" style="--c:#ff9ad2">✦ ${tx("{0} vaincus", { 0: POUPOUCE.name })}${colon()}${fmt(v.poupouce)}</b>`); // (it. 1643) rare : il se remarque
     return `<button class="visit" data-action="visit-ok" title="${esc(parts.join(" · ").replace(/<[^>]*>/g, "") + "\n" + tx("Cliquer pour masquer"))}"><small>${tx("Depuis ta dernière visite ({0})", { 0: dur })}</small> ${parts.join(" · ")}</button>`;
   }
 
@@ -517,8 +518,8 @@ export class Panel {
     // Meilleur objet gardé : son nom (couleur de rareté) et, si c'est une amélioration, « Équiper maintenant ».
     const bi = sum.bestItemId != null ? this.game.findBagItem(sum.bestItemId) : null;
     const worn = !bi && sum.bestItemId != null ? Object.values(this.game.S.equip).find((e) => e && e.id === sum.bestItemId) : null;
-    const best = bi ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${bi.r}">${esc(itemName(bi))}</b></li>${this.game.isUpgrade(bi) ? `<li class="row"><button class="primary" data-action="reveal-equip" data-id="${bi.id}">${tx("Équiper maintenant")}</button></li>` : ""}`
-      : worn ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${worn.r}">${esc(tx("{0} (équipé)", { 0: itemName(worn) }))}</b></li>` // déjà porté (Valet d'armes)
+    const best = bi ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${bi.r} wrap">${esc(itemName(bi))}</b></li>${this.game.isUpgrade(bi) ? `<li class="row"><button class="primary" data-action="reveal-equip" data-id="${bi.id}">${tx("Équiper maintenant")}</button></li>` : ""}`
+      : worn ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${worn.r} wrap">${esc(tx("{0} (équipé)", { 0: itemName(worn) }))}</b></li>` // déjà porté (Valet d'armes)
       : sum.best >= 0 ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${sum.best}">${RARITIES[sum.best].name}</b></li>` : "";
     // (it. 969) « Or gagné » : le même total que la bulle (combats + expéditions du Grand intendant, it. 968)
     $(this.root, "#mbody").innerHTML =
@@ -536,6 +537,7 @@ export class Panel {
         ${sum.feathers ? `<li><span>${tx("Plumes du vent")}</span><b>${tx("+{0} % de vitesse", { 0: sum.feathers })}</b></li>` : ""}
         ${sum.chests ? `<li><span>${tx("Coffres au trésor")}</span><b>${sum.chests}</b></li>` : ""}
         ${sum.goblins ? `<li><span>${tx("Gobelins dorés attrapés")}</span><b>${fmt(sum.goblins)}</b></li>` : ""}
+        ${sum.poupouce ? `<li><span class="tint" style="--c:#ff9ad2">✦ ${tx("{0} vaincus", { 0: POUPOUCE.name })}</span><b>${fmt(sum.poupouce)}</b></li>` : ""}
         ${sum.questsDone ? `<li><span>${tx("Quêtes accomplies")}</span><b>${sum.questsDone}</b></li>` : ""}
         ${sum.spells ? `<li><span>${tx("Grimoire des sorts")}</span><b>${txn(sum.spells, "+{n} rang de sort|+{n} rangs de sorts")}</b></li>` : ""}
         ${sum.forged ? `<li><span>${tx("Maître de forge")}</span><b>${txn(sum.forged, "+{n} amélioration|+{n} améliorations")}</b></li>` : ""}

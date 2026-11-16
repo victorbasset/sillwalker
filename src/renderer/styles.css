@@ -1466,6 +1466,10 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 541) Statistiques : la valeur ne se coupe pas (« 63,97 / Mrd ») ; c'est le libellé qui passe à la ligne. */
 .lines li > span { min-width: 0; }
 .lines li > b { white-space: nowrap; text-align: right; }
+/* (it. 1643) nom d'objet long (« Handschuhe aus Himmelsleder des vergessenen Königs ») : il passe à la ligne au lieu de
+   recouvrir son libellé (« Beste Beute », résumé d'absence) */
+.lines li > b.wrap { white-space: normal; min-width: 0; }
+.lines li:has(> b.wrap) > span { flex-shrink: 0; }
 /* Sort au rang maximal (it. 544) */
 .spellcard .mastered { color: var(--star); font-weight: 600; }
 /* Effets des sorts sur le monstre et le héros (demande Q, it. 549) : simples filtres, sans animation (coût). */
