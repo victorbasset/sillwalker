@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1802, demandes de Victor) : (1) compagnon à distance derrière un héros au corps à corps (arbalétrier derrière le
+  samouraï) : 16 px d'écart au lieu de 6 px de recouvrement : il ne disparaît plus derrière le héros et ses flèches ont un
+  trajet visible (captures guerrier + arbalétrier) ; (2) barre « Expérience » de l'Aventure en violet (#b48cff) comme la
+  jauge de la bande et le mode mini (dans le mode mini, la barre jaune du bas est l'objectif du prochain déblocage).
+  npm test 333, autotest 250/250.
 - 2026-11-16 (it. 1801, revue générale) : simulation 12 h graine 131 : nécromancien 59, druide 64, paladin 69 ; perf:linux bande 18,2 %,
   panneau 19,7 %, mini 5,8 %. Journal horodaté : 1,8 ms par affichage (deux formateurs Intl créés par ligne) → 0,14 ms avec des
   formateurs gardés par langue (ui/log.js). Autotest 250/250.

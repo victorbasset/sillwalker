@@ -222,6 +222,8 @@ button.close { padding: 2px 9px; font-weight: 700; }
 #p-hero .kv > span:last-child { flex: none; white-space: nowrap; }
 .bar { height: 10px; background: var(--bar); border-radius: 2px; overflow: hidden; margin: 4px 0 8px; }
 .bar > i { display: block; height: 100%; background: var(--accent); width: 0; }
+/* (it. 1802, demande de Victor) l'expérience en violet partout, comme la jauge de la bande et la barre du mode mini */
+.bar > i#xpbar { background: #b48cff; }
 .stats { display: grid; grid-template-columns: 1fr auto; gap: 1px 12px; margin: 0 0 10px; font-size: 15px; }
 .stats dt { color: var(--muted); }
 .stats dd { margin: 0; text-align: right; font-weight: 500; }
