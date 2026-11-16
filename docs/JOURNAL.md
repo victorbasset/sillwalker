@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1661, revue générale) : simulation 12 h graine 21 : moine 62, samouraï 66, chaman 65 ; perf:linux bande
+  18,3 %, panneau 19,5 %, mini 5,7 % ; Boutique (fr) et mode mini (ja) propres ; espagnol sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1660) : l'alerte « héros bloqué » au mur 18-21 (suite de l'it. 1658) : elle s'allume dès 30 min et propose
   « forge » puis « potions » (Enclume achetée, 30-120 k d'or qui dort). Un joueur simulé qui suit ces pistes atteint la
   zone 20 en 20-30 min sur 6 graines (naïf : 20-56 min ; graine 2 : 56 → 28, graine 5 : 46 → 29). L'alerte fait son travail.
