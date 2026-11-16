@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1785, contrôle) : Bestiaire avec des monstres en plus (cartes clonées le temps de la mesure) : 85 cartes à 1920 et
+  1280 px, 96 (8 rangées) en russe à 1920 px sur la fin de partie : aucun débordement ; la crainte de la revue 1741 est levée.
 - 2026-11-16 (it. 1784, contrôle) : --crawl en japonais sur la partie de fin de partie (690 clics en 22 s, aucune erreur) ; texte
   affiché sans mot français ni {n}, undefined ou NaN.
 - 2026-11-16 (it. 1783, contrôle) : npm test complet en 14 s (332 tests et 9 vérifications) : rien à optimiser. Idée écartée pour
@@ -6472,7 +6474,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (revue it. 1741) Bestiaire : la grille fait exactement 7 rangées de 12 à 1920 px (84 monstres avec Poupouce) ; le prochain
+- CLOS (it. 1785 : 96 cartes, 8 rangées, en russe à 1920 px et 85 à 1280 px : aucun débordement) P3 (revue it. 1741) Bestiaire : la grille fait exactement 7 rangées de 12 à 1920 px (84 monstres avec Poupouce) ; le prochain
   monstre ajouté ouvre une 8e rangée : relancer lang-overflow (Bestiaire, 1280 et 1920 px) et prévoir des cartes plus basses si ça défile.
 - FAIT (it. 1653) P3 (it. 1652) Bande, fin de partie : le nom d'un sort lancé (« Volley of Arr… », en haut) passe sous la bulle de parole du
   héros (« Chests everywhere… ») ; faire éviter la bulle par le nom du sort (ou décaler la bulle), comme les nombres.
