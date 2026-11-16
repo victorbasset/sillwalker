@@ -449,7 +449,8 @@ export class Sound {
     game.on("partnerHit", () => { const m = game.R.mon; if (game.S.partner) this.hit(game.S.partner, m && m.type, false); }); // compagnon du duo
     // Victoire : le tintement de la victoire s'efface si les pièces volent vers la bourse (chacune sonne en rentrant) ;
     // il reste quand aucune pièce n'est animée (mode mini, effets réduits, bande cachée).
-    game.on("kill", ({ mon }) => { if (performance.now() - (this.inT || 0) > 3000) this.coin(mon.boss ? 5 : mon.champion ? 4 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); else if (mon.champion) this.play("champion"); });
+    // (it. 1649) Poupouce : la pluie de pièces d'un champion (avant : celle d'un monstre ordinaire)
+    game.on("kill", ({ mon }) => { if (performance.now() - (this.inT || 0) > 3000) this.coin(mon.boss ? 5 : mon.champion || mon.poupouce ? 4 : mon.elite ? 3 : 1); if (mon.boss) this.play("boss"); else if (mon.champion) this.play("champion"); });
     game.on("coinIn", ({ big }) => this.coinIn(big));
     // Moments qui n'avaient pas de son (suite de la demande C) ; les plus fréquents sont limités dans le temps.
     const on = (ev, ms, fn) => game.on(ev, (p) => { if (this.enabled && this.ensure() && this.throttle("ev-" + ev, ms)) fn(p); });

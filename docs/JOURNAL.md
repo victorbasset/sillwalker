@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1649) : son de Poupouce vaincu : la pluie de 4 pièces d'un champion (avant : 1, comme un monstre ordinaire).
+  Bestiaire : rien à ajouter (Poupouce est une variante d'un monstre, compté sous son espèce). npm test, autotest 242/242.
 - 2026-11-16 (it. 1648) : Poupouce vaincu se remarque sur la bande : bannière rose « Poupouce vaincu : N or ! » (texte déjà
   traduit, celui du journal), étincelles roses et gerbe de 20 pièces (juice.js). Vu en russe en mise en scène. npm test, autotest 242/242.
 - 2026-11-16 (it. 1647) : early-pace après la nuit : 114 objets, niveau 39-40, zone 22-26 et 6,3 déblocages à 60 min, comme le repère.
