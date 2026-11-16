@@ -140,3 +140,5 @@ maintenant aussi une phrase oubliée dans toutes les langues.
 - (it. 1759) 0.1.5 ENVOYÉE sur itch.io (windows, linux, mac en 0.1.5). Reste : publier le devlog (steam/itch/devlog-0.1.5.html).
 - (it. 1766) Question : sac plein, le légendaire garanti de Poupouce reste au sol et se perd (ta règle « tant pis » pour tout
   le butin). Faut-il une exception pour lui (rangé quand même, ou vendu automatiquement) ? Rien changé en attendant.
+- (it. 1775) Jour de Poupouce (×10) avec le nouveau Poupouce : 1 monstre sur 100 ce jour-là, soit ≈ +100 % d'or et un légendaire
+  tous les 100 monstres (le Jour de fortune : +50 % d'or). Gardé tel quel (une fête, un jour sur 17) ; dis-moi s'il faut ×5.

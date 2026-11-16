@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1775, contrôle) : Jour de Poupouce avec le nouveau Poupouce : fuzz FUZZ_DAYMOD=poupouce 600 parties, 0 bloquée ;
+  ≈ +100 % d'or ce jour-là (Jour de fortune +50 %) et un légendaire / 100 monstres : gardé, question dans POUR-VICTOR.
 - 2026-11-16 (it. 1774) : brouillon du devlog 0.1.6 ouvert (docs/devlog-0.1.6-brouillon.md : bloc de publication, nouveautés depuis
   la 0.1.5 en français, à compléter au fil des éditions).
 - 2026-11-16 (it. 1773) : « Quoi de neuf », édition 115 (Statistiques grisées avant la zone 40 et annonce, Poupouce et sac plein,
