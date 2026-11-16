@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1664) : Boutique : « Sac plein » (lien vers le sac, it. 1663) en texte atténué (--muted, --accent au survol) pour ne
+  pas ressembler à un achat ; vu dans les deux thèmes. npm test, autotest 242/242.
 - 2026-11-16 (it. 1663) : Boutique, sac plein : les boutons « Sac plein » (marchand et coffres) ne sont plus des impasses
   grisées : un clic ouvre le sac (Aventure) pour vendre ou transmuter (info-bulle, 10 langues ; lien data-tab, pas une action).
   Vérifié en allemand : 7 boutons, clic → Aventure. Clé 3013. npm test, autotest 242/242.
