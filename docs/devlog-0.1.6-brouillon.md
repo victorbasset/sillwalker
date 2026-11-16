@@ -31,3 +31,5 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
 - **Duo plus lisible :** un compagnon à distance (arbalétrier, archer, mage…) ne disparaît plus derrière un héros au corps à
   corps, et ses tirs se voient partir.
 - **L'expérience en violet partout :** la barre de l'Aventure prend la couleur de la jauge de la bande et du mode mini.
+- **Lieutenants du Briseur :** le Geôlier mécanique, la Reine des cendres et le Chevalier de l'éclipse ont chacun leur
+  propre dessin (bande, mode mini, Carte), comme le Briseur d'Étoiles.

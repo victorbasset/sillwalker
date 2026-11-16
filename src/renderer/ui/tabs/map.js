@@ -11,7 +11,7 @@ import { bossName } from "../../game/bosses.js";
 import { recordZone, hasUnlock, UNLOCK_INDEX } from "../../game/unlocks.js";
 import { CLASSES, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.js";
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game/story.js";
-import { classPortraitURL, starbreakerURL } from "../../render/sprites.js";
+import { classPortraitURL, starbreakerURL, majorURL } from "../../render/sprites.js";
 import { relicIconURL } from "../../render/shopart.js";
 import { MAJOR_BOSSES, RELICS, RELIC_IDS, RELIC_MAX_LV, hasRelic, relicLevel, relicLevelText } from "../../game/relics.js";
 import { heroVisual } from "../../render/equipvis.js";
@@ -93,7 +93,9 @@ export class MapTab {
       const p = mapPos(mb.zone), r = RELICS[mb.relic], have = hasRelic(S, mb.relic);
       const dir = p.r % 2 ? -1 : 1, ix = dir > 0 ? p.x + 16 : p.x - 43;
       const tip = `${tx(mb.name)}${colon()}${tx("zone {0}", { 0: mb.zone })}\n${have ? "★ " : ""}${tx(r.name)}${colon()}${tx(r.effect)}` + (have ? `\n${tx(r.story)}` : "");
-      parts.push(`<g class="mmajor${have ? " won" : ""}" title="${esc(tip)}"><image href="${relicIconURL(mb.relic, 3)}" x="${ix}" y="${p.y - 22}" width="27" height="27"/>`
+      // (it. 1847) le lieutenant lui-même (son dessin, comme le Briseur), sa relique en petit dans le coin
+      parts.push(`<g class="mmajor${have ? " won" : ""}" title="${esc(tip)}"><image href="${majorURL(mb.art)}" x="${ix}" y="${p.y - 24}" width="28" height="26"/>`
+        + `<image href="${relicIconURL(mb.relic, 2)}" x="${ix + 17}" y="${p.y - 9}" width="13" height="13"/>`
         + `<text class="mfname" x="${ix + 13}" y="${p.y + BAND_H + 2}" style="text-anchor:middle">${have ? `★ ${relicLevel(S, mb.relic)}/${RELIC_MAX_LV}` : ""}</text></g>`);
     }
     // La forteresse du Briseur d'Étoiles, au bout du Rebord (zone 200).

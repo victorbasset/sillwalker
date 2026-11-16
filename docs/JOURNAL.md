@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1847, demande de Victor : « les boss qui tiennent les reliques, uniques et charismatiques comme le dernier
+  boss ») : les trois lieutenants ont leur dessin (render/art-monsters2.js, MAJOR_ART ; relics.js, champ art), au format du
+  Briseur (14 × 13, deux images) : Geôlier mécanique (automate de fer et de laiton, œil rouge, fournaise, lanterne-cage),
+  Reine des cendres (couronne de braises, chevelure de feu, Cœur de l’aube dans la poitrine), Chevalier de l’éclipse (disque
+  noir cerclé d’or, cape pourpre, lame violette). Bande, mode mini, icône de la barre de vie et Carte (portrait + relique) ;
+  plus de couronne générique sur eux ; échos : même dessin, contour spectral. Captures zones 50, 100, 150, 250 et mini ;
+  test (dessins complets) ; npm test 339, autotest 253/253, lang-overflow ru/de 1280-1920 propre.
 - 2026-11-16 (it. 1846, contrôle) : fuzz sous chaque bénédiction du jour (FUZZ_DAYMOD=all, 20 graines) après la défense de
   l'assassin : 400 parties, 0 bloquée.
 - 2026-11-16 (it. 1845) : Journal, la récompense de connexion du jour passe en ✓ (gardée par le filtre ; 10 langues vérifiées).

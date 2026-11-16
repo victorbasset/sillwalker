@@ -7,9 +7,9 @@ import { t as tx } from "../i18n/index.js";
 
 /** Les trois lieutenants : boss de leur zone, plus coriaces qu'un boss ordinaire, avec leurs capacités. */
 export const MAJOR_BOSSES = [
-  { zone: 50, id: "warden", name: "Le Geôlier mécanique", hp: 2, atk: 1.15, mech: ["shell", "smash"], relic: "drone" },
-  { zone: 100, id: "queen", name: "La Reine des cendres", hp: 2.2, atk: 1.2, mech: ["drain", "fury"], relic: "heart" },
-  { zone: 150, id: "eclipse", name: "Le Chevalier de l’éclipse", hp: 2.4, atk: 1.2, mech: ["frost", "mirror", "smash"], relic: "blade" },
+  { zone: 50, id: "warden", art: "warden", name: "Le Geôlier mécanique", hp: 2, atk: 1.15, mech: ["shell", "smash"], relic: "drone" },
+  { zone: 100, id: "queen", art: "queen", name: "La Reine des cendres", hp: 2.2, atk: 1.2, mech: ["drain", "fury"], relic: "heart" },
+  { zone: 150, id: "eclipse", art: "eclipse", name: "Le Chevalier de l’éclipse", hp: 2.4, atk: 1.2, mech: ["frost", "mirror", "smash"], relic: "blade" },
 ];
 /**
  * Échos (it. 634 : objectifs au-delà de la zone 200) : les trois lieutenants reviennent, plus coriaces, en zones 250,

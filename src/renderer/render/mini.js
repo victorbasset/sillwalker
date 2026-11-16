@@ -174,7 +174,8 @@ export class MiniRenderer {
       if (this.monActor) { this.monActor.remove(); this.monActor.bar.el.remove(); }
       this.monActor = null; this.monRef = m;
       if (m) {
-        const set = m.final ? this.sprites.starbreaker : this.sprites.monsters[m.type]; // final : le Briseur d'Étoiles
+        // final : le Briseur d'Étoiles ; (it. 1847) lieutenant (m.art) : son propre dessin
+        const set = m.final ? this.sprites.starbreaker : (m.boss && m.art && this.sprites.major(m.art)) || this.sprites.monsters[m.type];
         // le boss garde la taille normale ici ; élite / champion : contour dessiné dans l'image (it. 595)
         // (it. 702) écho d'un lieutenant : contour spectral, comme sur la bande
         const echo = m.boss && majorBoss(this.game.S.zone)?.echo;
@@ -187,7 +188,7 @@ export class MiniRenderer {
           // (it. 1020) monstre sombre : contour très discret, comme sur la bande
           : isDarkSprite(set.normal) ? outlinedFrames(set.normal, "rgba(220, 228, 245, 0.35)", this.dpr) : set.normal);
         a.fly = set.fly;
-        if (m.boss && !m.final) a.addCrown();
+        if (m.boss && !m.final && !m.art) a.addCrown();
         if (m.final) a.el.classList.add("final");
         if (m.elite) a.el.classList.add("elite");
         a.bar = new Bar(this.stage, "#ff6b5a"); // à la même hauteur que celle du héros

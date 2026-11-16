@@ -755,15 +755,16 @@ export class StripRenderer {
   }
 
   /** outline : couleur du contour dessiné dans l'image (élite, champion), ou rien. */
-  monsterActor(type, boss, final, outline, big = false) {
-    const set = final ? this.sprites.starbreaker : this.sprites.monsters[type];
+  // (it. 1847) art : dessin d'un lieutenant du Briseur (relics.js, MAJOR_BOSSES.art), à la place de celui du boss de la zone
+  monsterActor(type, boss, final, outline, big = false, art = null) {
+    const set = final ? this.sprites.starbreaker : (art && this.sprites.major(art)) || this.sprites.monsters[type];
     const frames = boss || big ? set.boss : set.normal; // (it. 1618) élite Colossale : à la taille d'un boss, sans couronne
     // (it. 1020) monstre ordinaire sombre : contour très discret (plus pâle que celui des boss, sans rappeler l'or des élites)
     if (!outline && isDarkSprite(frames)) outline = DARK_OUTLINE;
     // (it. 1208) classe « mon » : les monstres se cachent pendant la rencontre d'un PNJ (juice.js, .stage.npc-scene)
     const a = new Actor(this.stage, outline ? outlinedFrames(frames, outline, this.dpr) : frames, "mon" + (boss ? " boss" + (final ? " final" : "") : ""));
     a.fly = set.fly; a.boss = boss;
-    if (boss && !final) a.addCrown(); // le Briseur porte sa propre couronne d'éclats
+    if (boss && !final && !(art && this.sprites.major(art))) a.addCrown(); // le Briseur et ses lieutenants ont leur propre coiffe
     return a;
   }
 
@@ -794,7 +795,7 @@ export class StripRenderer {
     for (let k = 0; k < FIGHTS; k++) {
       const boss = k === FIGHTS - 1;
       // final : le Briseur d'Étoiles ; élite / champion : contour doré / violet dans l'image
-      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), boss ? this.bossOutline() : line[k].elite ? eliteColor(line[k]) : line[k].poupouce ? POUPOUCE_PINK : null, !boss && line[k].affix === "colossal"); // (it. 1605) Poupouce : contour rose
+      const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), boss ? this.bossOutline() : line[k].elite ? eliteColor(line[k]) : line[k].poupouce ? POUPOUCE_PINK : null, !boss && line[k].affix === "colossal", boss ? majorBoss(g.S.zone)?.art : null); // (it. 1605) Poupouce : contour rose
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
       const carried = boss && (majorBoss(g.S.zone)?.relic || (isFinalZone(g.S.zone) ? "crown" : null));
       // (it. 613) aussi tant qu'elle peut encore monter de niveau (déjà gagnée : un peu plus pâle)
@@ -847,7 +848,7 @@ export class StripRenderer {
 
   makeCorpse(mon, x) {
     if (this.corpse) this.corpse.remove();
-    const a = this.monsterActor(mon.type, mon.boss, !!mon.final, mon.elite ? eliteColor(mon) : mon.boss ? this.bossOutline() : mon.poupouce ? POUPOUCE_PINK : null, !mon.boss && mon.affix === "colossal");
+    const a = this.monsterActor(mon.type, mon.boss, !!mon.final, mon.elite ? eliteColor(mon) : mon.boss ? this.bossOutline() : mon.poupouce ? POUPOUCE_PINK : null, !mon.boss && mon.affix === "colossal", mon.boss ? mon.art : null);
     if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));
@@ -1144,9 +1145,10 @@ export class StripRenderer {
     const m = fight ? R.mon : this.nextFoeVal;
     if (!m) { this.hpMon.set(0, 1, 0, "—"); return; }
     const msh = m.shell > 0 ? m.shell : 0;
-    const ik = m.type + "|" + !!m.boss + "|" + isFinalZone(S.zone);
+    const art = m.boss ? majorBoss(S.zone)?.art : null; // (it. 1847) lieutenant du Briseur : son propre dessin
+    const ik = m.type + "|" + !!m.boss + "|" + isFinalZone(S.zone) + "|" + (art || "");
     if (!this.monIcons.has(ik)) {
-      const set = isFinalZone(S.zone) && m.boss ? this.sprites.starbreaker : this.sprites.monsters[m.type];
+      const set = isFinalZone(S.zone) && m.boss ? this.sprites.starbreaker : (art && this.sprites.major(art)) || this.sprites.monsters[m.type];
       const f = set && (m.boss ? set.boss : set.normal);
       let url = "";
       try { url = f && f[0] ? f[0].toDataURL() : ""; } catch (e) { url = ""; }

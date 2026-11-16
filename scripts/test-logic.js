@@ -22,6 +22,7 @@ import * as M_spells_js from "../src/renderer/game/spells.js";
 import { SPELL_INDEX as SPELL_INDEX_T, spellCd, pierceTargets } from "../src/renderer/game/spells.js";
 import { hasRelic as hasRelic_T } from "../src/renderer/game/relics.js";
 import * as M_relics_js from "../src/renderer/game/relics.js";
+import { MAJOR_ART as MAJOR_ART_1847 } from "../src/renderer/render/art-monsters2.js";
 import { EVENTS as EVENTS_T } from "../src/renderer/game/events.js";
 import * as M_hints_js from "../src/renderer/ui/hints.js";
 import * as M_story_js from "../src/renderer/game/story.js";
@@ -4616,5 +4617,19 @@ test("astuce du filtre du Journal (it. 1833) : journal bien rempli, case pas enc
   assert.ok(h && h.tab === "stats" && h.sec === "log", "astuce vers Statistiques > Journal");
   assert.ok(!find(mk(500, false), "logimp"), "journal encore court : pas d'astuce");
   assert.ok(!find(mk(2500, true), "logimp"), "case déjà cochée : pas d'astuce");
+});
+test("lieutenants du Briseur (it. 1847) : chacun a son propre dessin, complet, repris par son écho", () => {
+  const ids = new Set();
+  for (const b of [...M_relics_js.MAJOR_BOSSES, ...M_relics_js.ECHO_BOSSES]) {
+    const A = MAJOR_ART_1847[b.art];
+    assert.ok(A, b.id + " : dessin " + b.art);
+    ids.add(b.art);
+    assert.equal(A.frames.length, 2, b.art + " : deux images");
+    for (const fr of A.frames) {
+      assert.equal(fr.length, 13, b.art + " : 13 rangées");
+      for (const row of fr) { assert.equal(row.length, 14, b.art + " : 14 colonnes"); for (const ch of row) assert.ok(ch === "." || A.pal[ch], b.art + " : couleur " + ch); }
+    }
+  }
+  assert.equal(ids.size, 3, "trois dessins différents");
 });
 console.log(`\n${pass} tests réussis`);

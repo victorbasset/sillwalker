@@ -62,3 +62,36 @@ export const STARBREAKER_ART = {
      "vVVMMSMMMV....", "VVVMMMMMMVv...", "vVVsMMMMVVv...", ".vVVAAAAVVv...", ".vVVA..AVVv...", "..vVA..AVv....", "..v.KK.KK.v..."],
   ],
 };
+
+// (it. 1847, demande de Victor : « les boss qui tiennent les reliques, uniques et charismatiques comme le dernier boss »)
+// Les trois lieutenants du Briseur ont leur propre dessin (avant : celui du boss ordinaire de la zone, avec une couronne).
+// Même format que le Briseur (14 × 13, tournés vers la droite) ; leurs échos (zones 250-350) le reprennent, contour spectral.
+export const MAJOR_ART = {
+  // le Geôlier mécanique (zone 50) : automate de fer et de laiton, visière à l’œil rouge, fournaise dans la poitrine,
+  // lanterne-cage au bout d’une chaîne
+  warden: {
+    pal: { K: "#1c1a24", I: "#5c6470", i: "#8d97a4", B: "#c08a3a", b: "#7a5520", R: "#ff4a3a", Y: "#ffd36a", y: "#ff9a3a", C: "#a8b0bc" },
+    frames: [
+      ["...bBBBBb.....", "..bIIIIIIb....", "..IKRRRKIi....", "..IIIIIIIi....", "...bBBBb......", ".iIIIBBIIIi...", "iIIBIIIIBIIi..", "iIIIIYYIIIIi..", "iI.IIYYII..iI.", "bb.IIIIII..bb.", "...bIIIIb...C.", "...II..II..bYb", "..bBB..BBb.bYb"],
+      ["...bBBBBb.....", "..bIIIIIIb....", "..IKKRRRIi....", "..IIIIIIIi....", "...bBBBb......", ".iIIIBBIIIi...", "iIIBIIIIBIIi..", "iIIIIyyIIIIi..", "iI.IIyyII..iI.", "bb.IIIIII..bb.", "...bIIIIb...C.", "..II....II.byb", ".bBB....BBbbyb"],
+    ],
+  },
+  // la Reine des cendres (zone 100) : couronne de braises, chevelure de feu, robe de cendre fendue de braises, le lever
+  // du jour qui brille dans sa poitrine (le Cœur de l’aube)
+  queen: {
+    pal: { F: "#ff7a2a", f: "#ffc24a", S: "#c9b8b4", E: "#ff3a1a", A: "#3a3038", a: "#5a4e56", g: "#2a1e26", G: "#4a2e3e", H: "#ffd36a", h: "#ffb04a" },
+    frames: [
+      ["...f.F.f......", "...FfFfF......", "..FSSSSSF.....", "..FSESESF.....", ".FFSSSSSFF....", ".FAgSSSgAF....", "FFAgGHHGgA.fF.", "F.AgGHHGgAaA..", "..AggGGggA....", "..AgGGGGgA....", ".AgGGGGGGgA...", ".AgGfGGfGgA...", "AAgGGGGGGGgAA."],
+      ["..f.F.f.......", "...FfFfF......", "..FSSSSSF.....", "..FSESESF.....", ".FFSSSSSF.F...", ".FAgSSSgAF....", "FFAgGhhGgA.Ff.", "F.AgGhhGgAaA..", "..AggGGggA....", "..AgGGGGgA....", ".AgGGGGGGgA...", ".AgfGGGfGgA...", "AAgGGGGGGGgAA."],
+    ],
+  },
+  // le Chevalier de l’éclipse (zone 150) : armure sombre devant un disque noir cerclé d’or, cape pourpre, la Lame du
+  // crépuscule levée
+  eclipse: {
+    pal: { K: "#0c0a16", P: "#2e2c4a", p: "#4c4a78", C: "#ffd25a", c: "#fff4c0", E: "#c88cff", B: "#b48cff", b: "#efe2ff", R: "#7a1838" },
+    frames: [
+      ["..cCCCc.......", ".cCKKKKCc.....", ".CKPPPPKC.....", ".CKPEEPKC...b.", ".cCKPPKCc..bB.", "R..pPPPp..bB..", "RRpPPcPPpbB...", "RRPPPPPPPpP...", "RRpPPPPPp.c...", ".R.pPPPp......", ".R.PP.PP......", "...PP.PP......", "..pKK.pKK....."],
+      ["..CcCcC.......", ".cCKKKKCc.....", ".CKPPPPKC.....", ".CKPEEPKC.....", ".cCKPPKCc.....", "R..pPPPp......", "RRpPPcPPpbBBBb", "RRPPPPPPPp....", "RRpPPPPPp.c...", "R..pPPPp......", ".R.PP.PP......", "...PP.PP......", "..pKK.pKK....."],
+    ],
+  },
+};

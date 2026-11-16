@@ -1,5 +1,5 @@
 // Transforme le pixel art en canvas prêts à dessiner (mis en cache).
-import { STARBREAKER_ART } from "./art-monsters2.js";
+import { STARBREAKER_ART, MAJOR_ART } from "./art-monsters2.js";
 import { NPC_ART } from "./art-npcs.js";
 import { OUTLINE, PIXEL, CLASS_ART, MONSTER_ART, ICON_ART, PET_ART, SLOT_ICON } from "./art.js";
 import { RARITIES, MONSTERS } from "../game/data.js";
@@ -160,7 +160,12 @@ function makeSpriteSet(dpr) {
   let sb = null;
   const starbreaker = () => (sb ||= { fly: false, normal: STARBREAKER_ART.frames.map((r) => buildSprite(r, STARBREAKER_ART.pal, PIXEL, true, dpr)),
     get boss() { return (this._boss ||= STARBREAKER_ART.frames.map((r) => buildSprite(r, STARBREAKER_ART.pal, PIXEL * 2, true, dpr))); } });
-  return { heroes, monsters, pets, minions, get starbreaker() { return starbreaker(); } };
+  // (it. 1847) les trois lieutenants (relics.js, MAJOR_BOSSES.art) : même construction que le Briseur, à la demande
+  const majorSets = {};
+  const major = (id) => { const A = MAJOR_ART[id]; if (!A) return null;
+    return (majorSets[id] ||= { fly: false, normal: A.frames.map((r) => buildSprite(r, A.pal, PIXEL, true, dpr)),
+      get boss() { return (this._boss ||= A.frames.map((r) => buildSprite(r, A.pal, PIXEL * 2, true, dpr))); } }); };
+  return { heroes, monsters, pets, minions, get starbreaker() { return starbreaker(); }, major };
 }
 
 const dressedCache = new Map();
@@ -210,6 +215,9 @@ const portraitCache = {};
 /** Portrait d'une classe (data URL) pour l'interface. */
 /** Le Briseur d'Étoiles en petite image (carte du Rebord). */
 let sbURL = null;
+// (it. 1847) portrait d'un lieutenant du Briseur (carte), comme starbreakerURL
+const majorURLs = {};
+export function majorURL(id) { const A = MAJOR_ART[id]; return A ? (majorURLs[id] ||= buildSprite(A.frames[0], A.pal, 3, true, 1).toDataURL()) : ""; }
 export function starbreakerURL() { return (sbURL ||= buildSprite(STARBREAKER_ART.frames[0], STARBREAKER_ART.pal, 3, true, 1).toDataURL()); }
 
 export function classPortraitURL(cls) {

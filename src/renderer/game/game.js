@@ -813,7 +813,7 @@ export class Game {
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }
     const mb = boss && majorBoss(this.S.zone); // boss majeur (relics.js) : plus coriace, porte sa relique
-    if (mb) { mon.hp = mon.max = Math.round(mon.hp * mb.hp); mon.atk *= mb.atk; mon.major = mb.id; mon.relic = mb.relic; mon.echo = !!mb.echo; }
+    if (mb) { mon.hp = mon.max = Math.round(mon.hp * mb.hp); mon.atk *= mb.atk; mon.major = mb.id; mon.art = mb.art; mon.relic = mb.relic; mon.echo = !!mb.echo; }
     const wear = boss ? bossWear(this.S, this.S.zone) : 0;
     if (wear) { mon.hp *= 1 - wear; mon.max = mon.hp; mon.worn = wear; } // usure : défaites précédentes contre ce boss
     this.applyAffix(mon);
