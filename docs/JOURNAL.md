@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1716) : couleurs du Journal vérifiées dans le jeu en anglais : 1 h de jeu → lg-good 3, lg-rare 3, lg-bad 3 ;
+  lignes « Legendary » et « Epic » écrites à la main → lg-leg et lg-epic (noms de rareté traduits).
 - 2026-11-16 (it. 1715) : couleurs du Journal dans les 10 langues : les motifs (légendaire, épique, quête, K.O.…) étaient des
   expressions en français, presque rien n'était coloré ailleurs (1 h simulée : anglais 2 lignes sur 196, français 13). Ils
   viennent maintenant des messages traduits (plus long morceau fixe de chaque modèle) et des noms de rareté : anglais 12,
