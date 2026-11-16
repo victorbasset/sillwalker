@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1578) : --crawl après les it. 1566-1577 : dev-data en japonais 713 clics, fin de partie en coréen 698 clics,
+  aucune erreur.
 - 2026-11-16 (it. 1577) : clavier : à l'ouverture d'un coffre (boutique, quête), le focus va sur « Équiper maintenant » quand
   l'objet est plus puissant : Entrée l'équipe (avant, le focus était sur ✕ et Entrée refermait) ; Échap referme toujours.
   perf:linux stable (bande 18,5 %, panneau 20,2 %, mini 5,9 %).
