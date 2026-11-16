@@ -1880,4 +1880,7 @@ export default {
   3005: "Pogromca kolosów (25 kolosalnych)",
   3006: "Ten jest ogromny…",
   3007: "Im większy, tym głośniej upada!",
+  3008: "Podczas twojej nieobecności bohater może też spotkać Poupouce: okno „Podczas twojej nieobecności” to ogłasza, razem ze złapanymi złotymi goblinami.",
+  3009: "Zabójca: atak klasy +15% (zamiast +10%).",
+  3010: "Tryb mini: dymek następnego odblokowania przypomina też twój rekord strefy.",
 };

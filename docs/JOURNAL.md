@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1644) : « Quoi de neuf », édition 108 (Poupouce et gobelins dans le résumé d'absence, assassin +15 %, record
+  dans la bulle du mode mini), 10 langues, noms repris tels que traduits (Poupouce reste latin). Clés 3008-3010.
 - 2026-11-16 (it. 1643) : absence : Poupouce peut maintenant tomber pendant l'absence (0,4 % des victoires dès la zone 2,
   Jour de Poupouce ×10, or ×5 compris) ; la fenêtre « Pendant ton absence » l'annonce (✦ rose), et « Depuis ta dernière
   visite » aussi. Trouvé en route : la ligne « Gobelins dorés attrapés » de cette fenêtre ne s'affichait jamais (le résumé

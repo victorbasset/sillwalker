@@ -1880,4 +1880,7 @@ export default {
   3005: "Kolossbezwinger (25 Kolossale)",
   3006: "Der ist ja riesig …",
   3007: "Je größer sie sind, desto tiefer fallen sie!",
+  3008: "Während deiner Abwesenheit kann dein Held auch Poupouce begegnen: Das Fenster „Während deiner Abwesenheit“ meldet es, zusammen mit den gefangenen Goldkobolden.",
+  3009: "Assassine: Klassenangriff +15 % (statt +10 %).",
+  3010: "Mini-Modus: Die Blase der nächsten Freischaltung nennt jetzt auch deinen Zonenrekord.",
 };

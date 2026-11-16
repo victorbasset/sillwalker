@@ -1880,4 +1880,7 @@ export default {
   3005: "Derrubador de colossos (25 colossais)",
   3006: "Esse aí é enorme…",
   3007: "Quanto maior, maior a queda!",
+  3008: "Enquanto você está fora, seu herói também pode encontrar Poupouce: a janela \"Enquanto você esteve fora\" o anuncia, junto com os goblins dourados capturados.",
+  3009: "Assassino: ataque de classe +15% (em vez de +10%).",
+  3010: "Modo mini: o balão do próximo desbloqueio também lembra seu recorde de zona.",
 };
