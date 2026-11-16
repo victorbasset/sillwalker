@@ -1870,4 +1870,6 @@ export default {
   2995: "Skrzynia otwarta na twoich oczach gra swoją małą fanfarę i zamyka się sama, jeśli nie ma czego założyć.",
   2996: "Poupouce widać z daleka: różowy kontur, pasujący do jego imienia.",
   2997: "Statystyki: po pokonaniu Poupouce jego szansa na pojawienie się trafia do Prawdopodobieństw.",
+  2998: "Do wydania w gwiazdozbiorach (Wniebowstąpienie), bez zaczynania od nowa.",
+  2999: "Trafia do twoich jaj (Pupile): wykluj je, by zyskać nowego towarzysza.",
 };

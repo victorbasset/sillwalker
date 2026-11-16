@@ -2999,5 +2999,7 @@ export const KEYS = [
   "Nouveau succès : « Poupouce ?! », pour ta première victoire sur lui.",
   "Un coffre ouvert sous tes yeux joue sa petite fanfare, et se referme tout seul s’il n’y a rien à équiper.",
   "Poupouce se repère de loin : un contour rose, assorti à son nom.",
-  "Statistiques : une fois Poupouce vaincu, sa chance d’apparition rejoint les Probabilités."
+  "Statistiques : une fois Poupouce vaincu, sa chance d’apparition rejoint les Probabilités.",
+  "À dépenser dans les constellations (Ascension), sans avoir à recommencer.",
+  "Il rejoint tes œufs (Familiers) : fais-le éclore pour un nouveau compagnon."
 ];

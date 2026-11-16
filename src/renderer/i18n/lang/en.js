@@ -1870,4 +1870,6 @@ export default {
   2995: "A chest opened before your eyes plays its little fanfare, and closes by itself when there's nothing to equip.",
   2996: "Poupouce stands out from afar: a pink outline, matching his name.",
   2997: "Statistics: once Poupouce is defeated, his chance to appear joins the Probabilities.",
+  2998: "Spend them on constellations (Ascension), no restart needed.",
+  2999: "It joins your eggs (Pets): hatch it for a new companion.",
 };

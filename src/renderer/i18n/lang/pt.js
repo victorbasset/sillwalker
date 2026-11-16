@@ -1870,4 +1870,6 @@ export default {
   2995: "Um baú aberto diante dos seus olhos toca sua pequena fanfarra e se fecha sozinho se não houver nada para equipar.",
   2996: "O Poupouce se destaca de longe: um contorno rosa, combinando com o nome.",
   2997: "Estatísticas: depois de derrotar o Poupouce, a chance de ele aparecer entra nas Probabilidades.",
+  2998: "Para gastar nas constelações (Ascensão), sem precisar recomeçar.",
+  2999: "Ele se junta aos seus ovos (Mascotes): choque-o para ganhar um novo companheiro.",
 };

@@ -1870,4 +1870,6 @@ export default {
   2995: "Eine vor deinen Augen geöffnete Truhe spielt ihre kleine Fanfare und schließt sich von selbst, wenn es nichts auszurüsten gibt.",
   2996: "Poupouce fällt von Weitem auf: ein rosa Umriss, passend zu seinem Namen.",
   2997: "Statistiken: Sobald Poupouce besiegt ist, steht seine Erscheinungschance bei den Wahrscheinlichkeiten.",
+  2998: "In den Sternbildern auszugeben (Aufstieg), ohne neu anfangen zu müssen.",
+  2999: "Es kommt zu deinen Eiern (Begleiter): Brüte es aus für einen neuen Gefährten.",
 };

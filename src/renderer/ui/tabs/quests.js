@@ -41,8 +41,8 @@ function rewardHTML(rw) {
     tx("Le coffre s’ouvre quand tu réclames la quête ; son objet va dans le sac.")));
   if (rw.buff) out.push(chip(shopIconURL(rw.buff, 3), CONSUMABLES.find((c) => c.id === rw.buff).name));
   if (rw.potions) out.push(chip(shopIconURL("potion", 3), txn(rw.potions, "{n} potion|{n} potions")));
-  if (rw.shards) out.push(chip(shopIconURL("luck", 3), txn(rw.shards, "{n} éclat d’étoile|{n} éclats d’étoile"), "special"));
-  if (rw.egg) out.push(chip(shopIconURL("egg", 3), tx("œuf de familier"), "special"));
+  if (rw.shards) out.push(chip(shopIconURL("luck", 3), txn(rw.shards, "{n} éclat d’étoile|{n} éclats d’étoile"), "special", tx("À dépenser dans les constellations (Ascension), sans avoir à recommencer.")));
+  if (rw.egg) out.push(chip(shopIconURL("egg", 3), tx("œuf de familier"), "special", tx("Il rejoint tes œufs (Familiers) : fais-le éclore pour un nouveau compagnon."))); // (it. 1613)
   if (rw.speed) out.push(chip(shopIconURL("ws_speed", 3), `${tx("+{0} % de vitesse pour toujours", { 0: rw.speed })}`, "special"));
   return out.join("");
 }
