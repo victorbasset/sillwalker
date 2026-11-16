@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1581, revue générale) : simulation 12 h graine 3 : rôdeur 65, assassin 65, barde 62 ; perf:linux bande
+  19,5 % (18,1-18,5 aux mesures précédentes : bruit du combat en cours), panneau 20,9 %, mini 5,9 % ; Ascension (es) et
+  Statistiques (ru) propres ; texte espagnol sans mot français. Rien à corriger.
 - 2026-11-16 (it. 1580) : save-fuzz à partir d'une partie 0.1.2 (1 148 corruptions, ok) ; test : une sauvegarde sans les
   volumes séparés ni l'option des barres de vie reçoit effets / musique / ambiance à 100 % et les barres affichées.
 - 2026-11-16 (it. 1579, retour d'un joueur : « on ouvre les coffres où ? ») : récompense « coffre » d'une quête : bulle au survol
