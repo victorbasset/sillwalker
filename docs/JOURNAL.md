@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1743) : Statistiques avant la zone 40 : au lieu d'un unique bouton « Journal », les sous-onglets à venir sont
+  montrés grisés « 🔒 Chiffres zone 40 » (subtabs.js : 4e élément lock, bouton désactivé) : un objectif visible. Captures fr, de
+  à 1280 px ; npm test 330, autotest 247/247.
 - 2026-11-16 (it. 1742, contrôle) : carte de Poupouce au Bestiaire (copie de dev-data avec stats.poupouce = 2) : migrate la
   remplit (2 / 10), dessin du chat et nom affichés ; « ??? » dans dev-data = aucun Poupouce vaincu (pas un défaut).
 - 2026-11-16 (it. 1741, revue générale) : simulation 12 h graine 81 : nécromancien 66, moine 65, samouraï 65 ; perf:linux bande

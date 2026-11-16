@@ -15,7 +15,7 @@ import { GOBLIN, ELITE, CHAMPION, POUPOUCE } from "../../game/data.js";
 import { EGG_CHANCE } from "../../game/pets.js";
 import { activeDayMod, DAY_MODS, blessingsSeenEffects } from "../../game/daymods.js";
 import { describeEffects } from "../../game/talents.js";
-import { tabReady, statsFull } from "../../game/tabs.js";
+import { tabReady, statsFull, STATS_FULL_ZONE } from "../../game/tabs.js";
 
 import { fmt, fmtShort, esc, dec, unit, uH, uMin } from "../../game/format.js";
 const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)) + unit("%");
@@ -75,7 +75,7 @@ export class StatsTab {
     // (it. 1729) avant la zone 40 : le Journal seul (l'onglet s'ouvre tôt pour lui)
     const full = statsFull(S);
     if (!full) this.sec = "log";
-    const tabs = subtabsHTML(full ? [["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")], ["log", tx("Journal")]] : [["log", tx("Journal")]], this.sec, "st-sec");
+    const tabs = subtabsHTML(full ? [["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")], ["log", tx("Journal")]] : [["log", tx("Journal")], ...[["numbers", tx("Chiffres")], ["ach", tx("Succès")], ["journey", tx("Carnet de route")]].map(([k, n]) => [k, n, null, tx("zone {0}", { 0: STATS_FULL_ZONE })])], this.sec, "st-sec");
     el.innerHTML = `<div class="subrow">${tabs}${npcHTML("stats", true, !full)}</div>` + `<div class="statgrid sec-${this.sec}">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}

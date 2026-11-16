@@ -982,6 +982,7 @@ svg.rebord { width: 100%; height: calc(var(--panel-h) / var(--ui-zoom, 1) - 160p
 .proj.bomb { width: 10px; height: 10px; border-radius: 50%; background: #3a3550; box-shadow: 0 0 0 1px #14121f, 4px -4px 0 -2px #ffb733; }
 /* Sous-onglets (Bestiaire…) : une section à la fois (demande 18) */
 .subtabs button { font-size: 13px; padding: 3px 10px; }
+.subtabs button.locked { opacity: .55; cursor: default; } /* (it. 1743) sous-onglet à venir */
 .subtabs button.on { border-color: var(--accent); color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent); }
 /* Écran ultra-large (demande 21) : languette au milieu de la bande (zone, or, niveau, boutons) */
 #hud-tab { display: none; }
