@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1845) : Journal, la récompense de connexion du jour passe en ✓ (gardée par le filtre ; 10 langues vérifiées).
+  Gobelins dorés laissés ordinaires : une Ruée en écrirait des dizaines. npm test 338, autotest 253/253.
 - 2026-11-16 (it. 1844) : Journal, la ligne « 🏆 Succès : … » (écrite par app.js) n'avait aucune catégorie : écartée par le
   filtre ; passe en ⚑ (vérifié dans les 10 langues). Le test de l'it. 1842 lit aussi app.js. npm test 338, autotest 253/253.
 - 2026-11-16 (it. 1843) : CLAUDE.md, piège des couleurs du Journal complété (ordre de LOG_KEYS = priorité, test des 10 langues).

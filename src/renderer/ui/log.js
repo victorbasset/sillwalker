@@ -26,7 +26,9 @@ const LOG_KEYS = [
     // (it. 1844) succès (écrit par app.js)
     "🏆 Succès : {0}"], []],
   ["lg-epic", [], [3]],
-  ["lg-good", ["Quête accomplie ! Récompense à réclamer.", "revient de {0} : +{1} or{2}{3} !", "L’œuf éclot : {0} !", "L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", "Un œuf !"], []],
+  ["lg-good", ["Quête accomplie ! Récompense à réclamer.", "revient de {0} : +{1} or{2}{3} !", "L’œuf éclot : {0} !", "L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", "Un œuf !",
+    // (it. 1845) récompense de connexion du jour (une fois par jour)
+    "Récompense du jour {0}/7 : +{1} or{2}{3}."], []],
 ];
 const lc = (s) => String(s).toLocaleLowerCase();
 /** Plus long morceau fixe d'un modèle traduit (entre les {0}). */
