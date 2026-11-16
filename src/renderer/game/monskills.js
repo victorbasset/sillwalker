@@ -64,6 +64,20 @@ export const MON_SKILLS = {
   // (it. 1859) Harpies : battent des ailes et décochent une rafale de plumes
   harpy: { id: "feathers", name: "Rafale de plumes", every: 6, first: 2.5, tell: 0.5, mult: 1.2, bites: 4,
     desc: "Toutes les 6 s, bat des ailes et décoche quatre plumes : quatre coups à 30 % de son attaque, chacun esquivable." },
+  // (it. 1860) Élémentaires de feu : grandissent dans un brasier, puis explosent sur le héros
+  fireelem: { id: "flare", name: "Flambée", every: 7, first: 3, tell: 0.7, mult: 1.5,
+    desc: "Toutes les 7 s, grandit dans un brasier puis explose sur le héros : un coup à 150 % de son attaque." },
+  // (it. 1860) Crabes : se replient dans leur carapace
+  crab: { id: "shell", name: "Carapace", every: 9, first: 4, tell: 0.4, guard: 2, cut: 0.7,
+    desc: "Toutes les 9 s, se replie dans sa carapace pendant 2 s : il ne subit plus que 30 % des dégâts." },
+  // (it. 1860) Chevaliers noirs : lèvent leur bouclier, puis ripostent
+  darkknight: { id: "parry", name: "Parade et riposte", every: 8, first: 3, tell: 0.3, guard: 1.2, cut: 0.8, mult: 1.3,
+    desc: "Toutes les 8 s, lève son bouclier pendant 1,2 s (80 % des dégâts bloqués), puis riposte : un coup à 130 % de son attaque." },
+  // (it. 1860) Sylvains : plongent leurs racines dans le sol et s'en nourrissent ; le sylvain pourri empoisonne
+  treant: { id: "rootdeep", name: "Enracinement", every: 10, first: 4, tell: 0.6, heal: 0.08,
+    desc: "Toutes les 10 s, plonge ses racines dans le sol et regagne 8 % de ses PV." },
+  treant_rot: { id: "rootdeep", name: "Racines pourries", every: 10, first: 4, tell: 0.6, heal: 0.08, venom: 1.5,
+    desc: "Toutes les 10 s, plonge ses racines dans le sol : il regagne 8 % de ses PV, et la pourriture empoisonne le héros 1,5 s." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

@@ -63,6 +63,8 @@ export function skillBalance(m, sk) {
   if (sk.phase) lost += sk.phase / sk.every; // (it. 1857) intangible
   if (sk.slow) lost += 0.4 * sk.slow / sk.every; // (it. 1858) toile : attaques du héros 40 % plus lentes
   if (sk.freeze) lost += 0.4 * sk.freeze / sk.every; // (it. 1859) bloc de glace : gel
+  if (sk.guard) lost += sk.cut * sk.guard / sk.every; // (it. 1860) garde : part des dégâts bloqués
+  if (sk.heal) lost += sk.heal * 0.5; // (it. 1860) soin (≈ la moitié en moyenne : il vient souvent avant la fin du combat)
   if (sk.curse) m.atk /= 1 + CURSE.hurt * sk.curse / sk.every; // (it. 1859) malédiction : 15 % de dégâts en plus, le temps qu'elle dure
   if (sk.el === "frost") lost += 0.4 * 1.5 / sk.every;
   if (lost > 0) { m.hp = Math.max(1, Math.round(m.hp * (1 - lost))); m.max = m.hp; }
@@ -506,6 +508,10 @@ export class Game {
   monSkillTick(m, hs, dt) {
     const sk = m.skill, R = this.R;
     if (m.phaseT > 0) m.phaseT -= dt; // (it. 1857) spectre intangible
+    if (m.guardT > 0) { // (it. 1860) garde (carapace, parade) ; à la fin d'une parade, la riposte
+      m.guardT -= dt;
+      if (m.guardT <= 0 && m.riposte) { m.riposte = false; this.emit("monSkill", { id: "riposte", el: sk.el, phase: "go", mon: m }); if (this.monsterAttack(m, hs, sk.mult)) return true; }
+    }
     const before = m.skillT;
     m.skillT -= dt * (m.slowT > 0 ? 0.5 : 1);
     if (before > sk.tell && m.skillT <= sk.tell) this.emit("monSkill", { id: sk.id, el: sk.el, phase: "tell", mon: m });
@@ -573,6 +579,23 @@ export class Game {
       case "feathers": { // (it. 1859) Harpies : rafale de plumes, chacune esquivable
         for (let i = 0; i < sk.bites; i++) if (this.monsterAttack(m, hs, sk.mult / sk.bites)) return true;
         this.elementHit(sk.el, hs);
+        break;
+      }
+      case "flare": { // (it. 1860) Élémentaires de feu : explosion
+        if (this.monsterAttack(m, hs, sk.mult)) return true;
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "shell": case "parry": { // (it. 1860) garde : dégâts reçus réduits (bulwarkFactor) ; la parade finit en riposte
+        m.guardT = sk.guard; m.guardCut = sk.cut; m.riposte = sk.id === "parry";
+        break;
+      }
+      case "rootdeep": { // (it. 1860) Sylvains : se nourrissent du sol ; le pourri empoisonne
+        m.hp = Math.min(m.max, m.hp + m.max * sk.heal);
+        if (sk.venom) {
+          const d = sk.venom * (1 - (hs.purity || 0) / 100);
+          if (d > 0.05) { R.venomT = Math.max(R.venomT || 0, d); this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
+        }
         break;
       }
       case "howl": { // (it. 1856) Loups : hurlement, puis attaques plus rapides quelques secondes
@@ -728,6 +751,7 @@ export class Game {
 
   /** Cuirasse du boss (bosses.js) : dégâts réduits tant qu'il a beaucoup de PV ; annoncée quand elle se brise. */
   bulwarkFactor(m) {
+    if (m.guardT > 0) return 1 - m.guardCut; // (it. 1860) carapace du crabe, parade du chevalier noir
     if (!m.mech || !m.mech.includes("bulwark")) return 1;
     if (m.hp > m.max * BULWARK.above) return 1 - BULWARK.cut;
     if (!m.bulwarkBroken) { m.bulwarkBroken = true; this.emit("bossSkill", { id: "bulwark" }); }

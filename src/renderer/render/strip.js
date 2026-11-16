@@ -31,7 +31,7 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
-const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0" };
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -261,9 +261,13 @@ export class StripRenderer {
     // (it. 1853) compétences des monstres (monskills.js) : le monstre combattu se prépare (« tell »), puis agit ; le
     // mouvement est appliqué dans la boucle des monstres (monSkillPose), le mot s'affiche quand il agit
     g.on("monSkill", ({ id, el, phase }) => {
-      this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : 0.45 };
+      // (it. 1860) garde : la pose dure toute la garde (carapace 2 s, parade 1,2 s)
+      this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : id === "shell" ? 2 : id === "parry" ? 1.2 : 0.45 };
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !"), tombcurse: tx("Malédiction !"), boulder: tx("Bloc de glace !"), feathers: tx("Plumes !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !"), tombcurse: tx("Malédiction !"), boulder: tx("Bloc de glace !"), feathers: tx("Plumes !"), flare: tx("Flambée !"), shell: tx("Carapace !"), parry: tx("Parade !"), riposte: tx("Riposte !"), rootdeep: tx("Enracinement !") }[id];
+      // (it. 1860) flambée : gerbe de flammes autour de l'élémentaire ; enracinement : sève verte qui monte du sol
+      if (id === "flare") { this.shake(0.12); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 14, this.ground - 26, "#ffb03a", 16); }
+      if (id === "rootdeep" && this.active && this.juice.full) this.juice.sparkles(this.monX() + 16, this.ground - 6, "#8fd36a", 12);
       // (it. 1859) bloc de glace : éclats blancs sur le héros, secousse ; plumes : une traînée de plumes jusqu'au héros
       if (id === "boulder") { this.shake(0.15); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, "#e8f6ff", 14); }
       if (id === "feathers" && this.active && this.juice.full) for (let i = 0; i < 4; i++) this.juice.sparkles(this.heroX + 20 + (this.monX() - this.heroX - 20) * i / 4, this.ground - 34 + i * 3, "#f0d8b0", 3);
@@ -849,6 +853,19 @@ export class StripRenderer {
       // araignée : se hisse sur ses pattes, puis se rabat en projetant ses fils
       if (f.phase === "tell") return { dx: 0, dy: -4 };
       return { dx: -3 * Math.sin(p * Math.PI), dy: -4 * (1 - p) };
+    }
+    if (f.id === "flare") {
+      // élémentaire : grandit (monte en vibrant) pendant l'annonce, puis jaillit vers le héros
+      if (f.phase === "tell") return { dx: Math.floor(p * 14) % 2 ? 1 : -1, dy: -4 * p };
+      return { dx: -10 * Math.sin(p * Math.PI), dy: -4 * (1 - p) };
+    }
+    if (f.id === "shell") return { dx: 2, dy: 4 }; // crabe : tassé dans sa carapace, en retrait
+    if (f.id === "parry") return f.phase === "tell" ? { dx: 1, dy: 0 } : { dx: 4, dy: 0 }; // chevalier : un pas en arrière, bouclier levé
+    if (f.id === "riposte") return { dx: -12 * Math.sin(p * Math.PI), dy: 0 }; // fente en avant
+    if (f.id === "rootdeep") {
+      // sylvain : s'enfonce un peu dans le sol, puis se redresse gonflé de sève
+      if (f.phase === "tell") return { dx: 0, dy: 3 * Math.min(1, p * 2) };
+      return { dx: 0, dy: 3 * (1 - p) - 2 * Math.sin(p * Math.PI) };
     }
     if (f.id === "tombcurse") {
       // momie : se dresse lentement, bras levés, puis se penche vers le héros en lançant sa malédiction

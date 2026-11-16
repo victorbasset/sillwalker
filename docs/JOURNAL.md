@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1860, journée des monstres) : élémentaires de feu : Flambée (×1,5) ; crabes : Carapace (2 s à 30 % des
+  dégâts, par bulwarkFactor : coups, clics, sorts, drone) ; chevaliers noirs : Parade et riposte (bouclier 1,2 s à 80 %,
+  puis riposte ×1,3) ; sylvains : Enracinement (+8 % PV ; le pourri empoisonne). Gardes et soins compensés sur les PV.
+  Balance contre aea72772 : −0,6 / +1,0 / −0,1 ; fuzz 600 / 0 ; npm test 344, autotest 253/253.
 - 2026-11-17 (it. 1859, journée des monstres) : momies : Malédiction du tombeau (héros maudit 3 s, attaque compensée) ;
   yétis : Bloc de glace (×1,8, gel 1 s, PV compensés) ; harpies : Rafale de plumes (quatre plumes de 30 %). Balance contre
   aea72772 : −0,7 / +1,4 / 0,0 ; fuzz 600 / 0 ; npm test 344, autotest 253/253.

@@ -53,6 +53,10 @@ se balançaient qu'au combat.
    - momies (it. 1859) : Malédiction du tombeau (bras levés, héros maudit 3 s ; la pureté la raccourcit) ;
    - yétis (it. 1859) : Bloc de glace (se frappent la poitrine, jettent ×1,8, gel 1 s) ;
    - harpies (it. 1859) : Rafale de plumes (battent des ailes, quatre plumes de 30 %, une traînée jusqu'au héros) ;
+   - élémentaires de feu (it. 1860) : Flambée (grandissent en vibrant, explosent ×1,5, gerbe de flammes) ;
+   - crabes (it. 1860) : Carapace (2 s tassés, 30 % des dégâts ; game.js bulwarkFactor : m.guardT) ;
+   - chevaliers noirs (it. 1860) : Parade et riposte (bouclier 1,2 s, 80 % bloqués, puis fente ×1,3) ;
+   - sylvains (it. 1860) : Enracinement (s'enfoncent, +8 % PV, sève qui monte) ; le pourri empoisonne ;
    - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
      un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
      des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;

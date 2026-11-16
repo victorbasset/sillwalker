@@ -3136,5 +3136,18 @@ export const KEYS = [
   "Toutes les 6 s, bat des ailes et décoche quatre plumes : quatre coups à 30 % de son attaque, chacun esquivable.",
   "Malédiction !",
   "Bloc de glace !",
-  "Plumes !"
+  "Plumes !",
+  "Flambée",
+  "Toutes les 7 s, grandit dans un brasier puis explose sur le héros : un coup à 150 % de son attaque.",
+  "Toutes les 9 s, se replie dans sa carapace pendant 2 s : il ne subit plus que 30 % des dégâts.",
+  "Parade et riposte",
+  "Toutes les 8 s, lève son bouclier pendant 1,2 s (80 % des dégâts bloqués), puis riposte : un coup à 130 % de son attaque.",
+  "Enracinement",
+  "Toutes les 10 s, plonge ses racines dans le sol et regagne 8 % de ses PV.",
+  "Racines pourries",
+  "Toutes les 10 s, plonge ses racines dans le sol : il regagne 8 % de ses PV, et la pourriture empoisonne le héros 1,5 s.",
+  "Flambée !",
+  "Parade !",
+  "Riposte !",
+  "Enracinement !"
 ];
