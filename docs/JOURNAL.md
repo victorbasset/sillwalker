@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1619) : save-fuzz après le Colossal : dev-data (1 246 corruptions) et fin de partie (1 204), ok.
 - 2026-11-16 (it. 1618) : l'élite Colossale prend la taille d'un boss (dessins agrandis des boss, sans couronne) ; les étiquettes des
   monstres hauts restent sous la rangée du haut (variable CSS --tagtop, que clearQueueTags ne remet pas à zéro). Vérifié en capture.
 - 2026-11-16 (it. 1617) : 11e sorte d'élite, le Colossal (120 % de PV en plus, coups 40 % plus lents : un mur lent, le contraire
