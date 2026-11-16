@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1761, revue générale) : après la sortie de la 0.1.5 : simulation 12 h graine 91 : paladin 64, druide 66, barde 65 ;
+  perf:linux bande 18,5 %, panneau 19,1 %, mini 5,6 % ; couverture de la 0.1.4 régénérée identique au pixel près (capsule.html
+  paramétré à l'it. 1760 pour la 0.1.5). Rien à corriger.
 - 2026-11-16 (it. 1760) : CLAUDE.md, sortie d'une version : éditions des versions 0.1.4 (101) et 0.1.5 (114) ; la 0.1.6 prendra after: 114.
 - 2026-11-16 (it. 1759, « oui envoie ») : 0.1.5 envoyée sur itch.io par butler (REF=v0.1.5) : windows #2406906, linux #2406907,
   mac #2406908, toutes en 0.1.5 (correctifs de 11-12 Mo). Reste à Victor : publier le devlog (steam/itch/devlog-0.1.5.html).
