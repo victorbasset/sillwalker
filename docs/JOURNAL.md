@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1771, revue générale) : simulation 12 h graine 101 : lancier 62, chaman 62, gladiateur 67 (paliers 62 / 65 / 69,
+  une graine) ; perf:linux bande 18,5 %, panneau 19,3 %, mini 5,7 % ; chinois (--dump-text) : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1770) : steam/itch/page-itch.md : réponses au formulaire de classification itch.io (entrées, durée, langues,
   accessibilité, contenu) et emplacement des images promotionnelles.
 - 2026-11-16 (it. 1769) : CLAUDE.md : images promotionnelles itch.io et couverture de devlog régénérables par steam-capsules/make.js.
