@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1710) : POUR-VICTOR : résumé de l'après-midi (it. 1691-1709).
 - 2026-11-16 (it. 1709) : les 350 / 350 de la semaine (it. 1708) : un palier, l'écho du lieutenant en zone 350 (4-6 dernières courses à
   349-350) ; en 2e semaine (336 h, guerrier) il est franchi : 380 → 419. Pas de plafond ; CLAUDE.md précisé.
 - 2026-11-16 (it. 1708) : semaine simulée (168 h, graine 7) sur le jeu actuel : guerrier 350, mage 350 (repère it. 1115 : 350 / 349) ;

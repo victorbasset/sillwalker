@@ -25,6 +25,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   volumes d'une partie neuve (général 50 %, effets 20 %, musique 50 %, ambiance 100 % ; les sauvegardes existantes
   gardent les leurs) ; bandes-annonces (30 vidéos) et captures (300) refaites, musique « Le Rebord », son discret ;
   bande originale en MP3 dans steam/promo/bande-originale ; éditions 110 et 111 de « Quoi de neuf ».
+- Après-midi (it. 1691-1709) : 17e bénédiction du jour, le Jour des familiers (bonus du familier ×2, premier jour le
+  22/11 ; la carte du familier montre le bonus doublé, une précision si aucun familier n'est actif) ; touche J =
+  Statistiques > Journal ; captures promo refaites ; devlog 0.1.5 complété (10 langues, 11 points) ; édition 112.
 - À décider : sortir la 0.1.5 (devlog prêt, 10 langues : docs/devlog-0.1.5-brouillon.md, et sa version HTML pour itch : steam/itch/devlog-0.1.5.html) ; déclarer POUPOUCE et COLOSSAL_25 dans Steamworks.
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
