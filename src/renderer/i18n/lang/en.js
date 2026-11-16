@@ -1980,4 +1980,12 @@ export default {
   3105: "Every 8 s, slowly winds up its fist then brings it down: a hit at 220% of its attack that the hero can dodge.",
   3106: "Awooo!",
   3107: "Stone fist!",
+  3108: "Every 7 s, lashes out with its roots: the entangled hero cannot attack for 1 s, and the plant regains 3% of its HP.",
+  3109: "Mandrake Scream",
+  3110: "Every 8 s, lets out a piercing scream: the hero is dazed for 0.5 s and silenced for 2 s (no spells).",
+  3111: "Intangible",
+  3112: "Every 7 s, becomes intangible for 1.5 s: the hero’s hits pass right through it.",
+  3113: "Entangled!",
+  3114: "Scream!",
+  3115: "Intangible!",
 };

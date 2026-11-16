@@ -1980,4 +1980,12 @@ export default {
   3105: "Co 8 s powoli bierze zamach pięścią i ją opuszcza: cios za 220% jego ataku, którego bohater może uniknąć.",
   3106: "Auuuu!",
   3107: "Kamienna pięść!",
+  3108: "Co 7 s wypuszcza korzenie: oplątany bohater nie atakuje przez 1 s, a roślina odzyskuje 3% PŻ.",
+  3109: "Krzyk mandragory",
+  3110: "Co 8 s wydaje przeszywający krzyk: bohater jest oszołomiony na 0,5 s i uciszony na 2 s (żadnych czarów).",
+  3111: "Bezcielesny",
+  3112: "Co 7 s staje się bezcielesny na 1,5 s: ciosy bohatera przez niego przechodzą.",
+  3113: "Oplątany!",
+  3114: "Krzyk!",
+  3115: "Bezcielesny!",
 };

@@ -1980,4 +1980,12 @@ export default {
   3105: "Alle 8 s holt er langsam mit der Faust aus und lässt sie niedersausen: ein Treffer mit 220 % seines Angriffs, dem der Held ausweichen kann.",
   3106: "Auuuu!",
   3107: "Steinfaust!",
+  3108: "Alle 7 s schleudert sie ihre Wurzeln: Der umschlungene Held kann 1 s lang nicht angreifen, und die Pflanze gewinnt 3 % ihrer LP zurück.",
+  3109: "Alraunenschrei",
+  3110: "Alle 8 s stößt sie einen gellenden Schrei aus: Der Held ist 0,5 s benommen und 2 s lang verstummt (keine Zauber).",
+  3111: "Körperlos",
+  3112: "Alle 7 s wird er 1,5 s lang körperlos: Die Schläge des Helden gehen durch ihn hindurch.",
+  3113: "Umschlungen!",
+  3114: "Schrei!",
+  3115: "Körperlos!",
 };

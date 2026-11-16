@@ -60,6 +60,7 @@ export function skillBalance(m, sk) {
   if (sk.back) { m.hp = Math.max(1, Math.round(m.hp / (1 + sk.back))); m.max = m.hp; }
   let lost = 0; // part du combat où le héros ne frappe pas (ou au ralenti)
   if (sk.stun) lost += sk.stun / sk.every;
+  if (sk.phase) lost += sk.phase / sk.every; // (it. 1857) intangible
   if (sk.el === "frost") lost += 0.4 * 1.5 / sk.every;
   if (lost > 0) { m.hp = Math.max(1, Math.round(m.hp * (1 - lost))); m.max = m.hp; }
 }
@@ -501,6 +502,7 @@ export class Game {
   /** (it. 1853) Compétence d'un monstre ordinaire (monskills.js) : annonce (« tell »), puis effet. True : combat fini. */
   monSkillTick(m, hs, dt) {
     const sk = m.skill, R = this.R;
+    if (m.phaseT > 0) m.phaseT -= dt; // (it. 1857) spectre intangible
     const before = m.skillT;
     m.skillT -= dt * (m.slowT > 0 ? 0.5 : 1);
     if (before > sk.tell && m.skillT <= sk.tell) this.emit("monSkill", { id: sk.id, el: sk.el, phase: "tell", mon: m });
@@ -521,6 +523,21 @@ export class Game {
         break;
       }
       case "reassemble": break; // (it. 1855) squelettes : déclenché à leur chute (killMonster), pas à la minuterie
+      case "roots": { // (it. 1857) Plantes : le héros enlacé ne frappe plus ; la plante se nourrit
+        R.chained = Math.max(R.chained || 0, sk.stun);
+        m.hp = Math.min(m.max, m.hp + m.max * sk.regen);
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "scream": { // (it. 1857) Mandragore : étourdit et réduit au silence (plus de sorts)
+        R.chained = Math.max(R.chained || 0, sk.stun);
+        R.silenced = Math.max(R.silenced || 0, sk.silence);
+        break;
+      }
+      case "phase": { // (it. 1857) Spectres : intangibles, les coups du héros les traversent (heroStrike)
+        m.phaseT = sk.phase;
+        break;
+      }
       case "howl": { // (it. 1856) Loups : hurlement, puis attaques plus rapides quelques secondes
         m.hasteT = sk.haste.s; m.hasteK = sk.haste.k;
         this.elementHit(sk.el, hs);
@@ -863,6 +880,7 @@ export class Game {
   heroStrike(m, hs, first, extra) {
     if (m.mech && m.mech.includes("evasive") && rand() < 0.2) { this.emit("bossDodge"); return; }
     if (this.R.eclipse > 0 && rand() < ECLIPSE.miss) { this.emit("bossDodge"); return; } // (it. 1849) Éclipse du Chevalier
+    if (m.phaseT > 0) { this.emit("bossDodge"); return; } // (it. 1857) spectre intangible : le coup le traverse
     if (m.affix === "elusive" && rand() < ELITE_AFFIXES.elusive.dodge) { this.emit("bossDodge"); return; } // élite fuyante (it. 934)
     // Iaijutsu (samouraï) : chaque 4e coup est un critique garanti renforcé.
     const iai = !extra && hs.iai > 0 && (this.R.hits = (this.R.hits || 0) + 1) % 4 === 0;

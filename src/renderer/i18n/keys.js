@@ -3109,5 +3109,13 @@ export const KEYS = [
   "Poing de pierre",
   "Toutes les 8 s, arme lentement son poing puis l’abat : un coup à 220 % de son attaque, que le héros peut esquiver.",
   "Ahouuu !",
-  "Poing de pierre !"
+  "Poing de pierre !",
+  "Toutes les 7 s, lance ses racines : le héros, enlacé, ne frappe plus pendant 1 s, et la plante regagne 3 % de ses PV.",
+  "Cri de la mandragore",
+  "Toutes les 8 s, pousse un cri perçant : le héros est étourdi 0,5 s et réduit au silence 2 s (plus aucun sort).",
+  "Intangible",
+  "Toutes les 7 s, devient intangible pendant 1,5 s : les coups du héros le traversent.",
+  "Enlacé !",
+  "Cri !",
+  "Intangible !"
 ];

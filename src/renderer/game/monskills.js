@@ -36,6 +36,14 @@ export const MON_SKILLS = {
   // (it. 1856) Golems : arment lentement leur poing, puis l'abattent
   golem: { id: "slam", name: "Poing de pierre", every: 8, first: 4, tell: 0.9, mult: 2.2,
     desc: "Toutes les 8 s, arme lentement son poing puis l’abat : un coup à 220 % de son attaque, que le héros peut esquiver." },
+  // (it. 1857) Plantes carnivores : lancent leurs racines, enlacent le héros et se nourrissent ; la mandragore hurle
+  plant: { id: "roots", name: "Racines", every: 7, first: 3, tell: 0.6, stun: 1, regen: 0.03,
+    desc: "Toutes les 7 s, lance ses racines : le héros, enlacé, ne frappe plus pendant 1 s, et la plante regagne 3 % de ses PV." },
+  plant_mandra: { id: "scream", name: "Cri de la mandragore", every: 8, first: 3, tell: 0.5, stun: 0.5, silence: 2,
+    desc: "Toutes les 8 s, pousse un cri perçant : le héros est étourdi 0,5 s et réduit au silence 2 s (plus aucun sort)." },
+  // (it. 1857) Spectres : deviennent intangibles, les coups du héros les traversent
+  ghost: { id: "phase", name: "Intangible", every: 7, first: 3, tell: 0.4, phase: 1.5,
+    desc: "Toutes les 7 s, devient intangible pendant 1,5 s : les coups du héros le traversent." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

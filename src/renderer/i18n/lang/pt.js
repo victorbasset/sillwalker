@@ -1980,4 +1980,12 @@ export default {
   3105: "A cada 8 s, prepara devagar o punho e o desce: um golpe a 220 % do ataque que o herói pode esquivar.",
   3106: "Auuuu!",
   3107: "Punho de pedra!",
+  3108: "A cada 7 s, lança suas raízes: o herói, enredado, não ataca por 1 s, e a planta recupera 3 % dos PV.",
+  3109: "Grito da mandrágora",
+  3110: "A cada 8 s, solta um grito agudo: o herói fica atordoado por 0,5 s e silenciado por 2 s (nenhum feitiço).",
+  3111: "Intangível",
+  3112: "A cada 7 s, fica intangível por 1,5 s: os golpes do herói o atravessam.",
+  3113: "Enredado!",
+  3114: "Grito!",
+  3115: "Intangível!",
 };

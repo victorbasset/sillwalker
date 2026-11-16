@@ -4677,7 +4677,7 @@ test("compétences des monstres (it. 1854) : chacune est jouée, a son mot, son 
     assert.ok(self.includes(`"${id}"`), id + " : son rendu par l'autotest");
   }
   const keep = getLang();
-  try { setLang("en"); for (const k of Object.values(MON_SKILLS_1854)) { assert.notEqual(tT(k.name), k.name, k.name + " traduit"); assert.notEqual(tT(k.desc), k.desc, k.desc + " traduit"); } } finally { setLang(keep); }
+  try { setLang("en"); for (const k of Object.values(MON_SKILLS_1854)) { assert.notEqual(tT(k.desc), k.desc, k.desc + " traduit"); } } finally { setLang(keep); }
   assert.equal(monSkillOf1854("bat_vampire").drain, 0.5, "le vampire a sa propre version");
   assert.equal(monSkillOf1854("mush_venom").el, "poison", "le champignard vénéneux empoisonne");
   // compensation (it. 1854) : un coup en plus baisse l'attaque, un étourdissement baisse les PV

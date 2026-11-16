@@ -31,7 +31,7 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
-const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a" };
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -263,7 +263,8 @@ export class StripRenderer {
     g.on("monSkill", ({ id, el, phase }) => {
       this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : 0.45 };
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !") }[id];
+      if (id === "scream") this.shake(0.12);
       // (it. 1856) la meute répond : les loups qui attendent dans la file relèvent la tête un instant
       if (id === "howl") for (const a of this.slots) if (a.art === "wolf") a.howlT = 0.7 + Math.random() * 0.4;
       if (id === "slam") this.shake(0.15);
@@ -812,6 +813,21 @@ export class StripRenderer {
       const dive = p < 0.5 ? p / 0.5 : 1 - (p - 0.5) / 0.5; // aller, puis retour
       return { dx: -dive * reach, dy: -16 * (1 - dive) + 10 * dive };
     }
+    if (f.id === "roots") {
+      // plante : se ramasse, puis se tend vers le héros (ses racines filent au sol) et se redresse en se nourrissant
+      if (f.phase === "tell") return { dx: 2, dy: 2 };
+      return { dx: -Math.sin(p * Math.PI) * 8, dy: 0 };
+    }
+    if (f.id === "scream") {
+      // mandragore : se tasse, puis jaillit d'un coup en hurlant (vibre)
+      if (f.phase === "tell") return { dx: 0, dy: 3 };
+      return { dx: (Math.floor(p * 20) % 2 ? 3 : -3) * (1 - p), dy: -4 * (1 - p) };
+    }
+    if (f.id === "phase") {
+      // spectre : flotte un peu plus haut pendant qu'il passe dans l'autre monde
+      if (f.phase === "tell") return { dx: 0, dy: -2 };
+      return { dx: 0, dy: -4 * Math.sin(p * Math.PI) };
+    }
     if (f.id === "howl") {
       // loup : se dresse, museau levé, le temps du hurlement
       if (f.phase === "tell") return { dx: 2, dy: -3 };
@@ -1021,6 +1037,8 @@ export class StripRenderer {
       let answer = 0;
       if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0) + (pose ? pose.dx : 0), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer);
+      // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
+      if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
       const flip = !!(life && life.face < 0);
       if (a.flipped !== flip) { a.flipped = flip; a.el.classList.toggle("flip", flip); mark("flip"); }
       // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1857, journée des monstres) : plantes : Racines (toutes les 7 s, héros enlacé 1 s, la plante regagne
+  3 % de ses PV) ; mandragore (version propre) : Cri (étourdi 0,5 s, silence 2 s) ; spectres : Intangible (toutes les 7 s,
+  1,5 s à demi effacés, coups du héros « Raté ! », PV compensés). Bestiaire : l'effet du feu n'est plus annoncé pour une
+  compétence sans coup. Balance contre aea72772 : −2,0 / −0,1 / +1,0 (graines 7, 3, 11 : neutre) ; fuzz 600 / 0 ;
+  npm test 344, autotest 253/253.
 - 2026-11-17 (it. 1856, journée des monstres) : loups : Hurlement de meute (toutes les 8 s, se dressent et hurlent, 30 %
   plus rapides 3 s, attaque compensée ; les loups qui attendent dans la file relèvent la tête : vérifié en jeu, 5 / 5) ;
   golems : Poing de pierre (arment lentement, abattent ×2,2 esquivable, secousse). Balance contre aea72772 : +0,1 / +0,7 ;

@@ -1117,7 +1117,7 @@ async function runSelfTest(strip) {
     await render("miaou", (s) => s.meow()); // (it. 1734) Poupouce
     // capacités des boss (it. 645 : Silence des échos ajouté)
     for (const id of ["enrage", "shell", "frost", "mirror", "fury", "bulwark", "curse", "curseBlocked", "tenacious", "silence", "venom", "venomBlocked", "explode", "chains", "ashes", "eclipse", "shards"]) await render("boss-" + id, (s) => s.play("bossSkill", id));
-    for (const id of ["leap", "dive", "spores", "reassemble", "sting", "howl", "slam"]) await render("mon-" + id, (s) => s.play("monSkill", id)); // (it. 1853) compétences des monstres
+    for (const id of ["leap", "dive", "spores", "reassemble", "sting", "howl", "slam", "roots", "scream", "phase"]) await render("mon-" + id, (s) => s.play("monSkill", id)); // (it. 1853) compétences des monstres
     await render("perçant", (s) => s.pierceSound());
     await render("drone", (s) => s.droneSound());
     await render("relique", (s) => s.relicSound());

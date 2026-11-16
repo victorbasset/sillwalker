@@ -44,6 +44,9 @@ se balançaient qu'au combat.
    - loups (it. 1856) : Hurlement de meute (se dressent, hurlent : 30 % plus rapides 3 s ; les loups de la file relèvent
      la tête en réponse : premier comportement de groupe) ;
    - golems (it. 1856) : Poing de pierre (se penchent lentement pour armer, abattent ×2,2 esquivable, la bande tremble) ;
+   - plantes (it. 1857) : Racines (le héros enlacé 1 s, la plante regagne 3 % de ses PV) ; la mandragore : Cri (étourdi
+     0,5 s, silence 2 s) ;
+   - spectres (it. 1857) : Intangible (1,5 s à demi effacés, les coups du héros les traversent ; PV compensés) ;
    - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
      un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
      des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;

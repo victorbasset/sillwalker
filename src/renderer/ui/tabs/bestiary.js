@@ -22,7 +22,9 @@ import { zoneDef, nearestZoneWith } from "../../game/rules.js";
 // (it. 1853) compétence de la famille du monstre (monskills.js), et l'effet de l'élément de sa variante
 const skillLine = (type) => {
   const sk = monSkillOf(type); if (!sk) return "";
-  return "\n" + tx(sk.name) + colon() + tx(sk.desc) + (sk.el ? wsp() + tx(ELEMENT_TEXT[sk.el]) : "");
+  // (it. 1857) l'élément ne s'ajoute qu'aux compétences qui frappent (le feu « frappe plus fort » n'a pas de sens sans coup)
+  const el = sk.el && (sk.mult || sk.el !== "fire") ? sk.el : null;
+  return "\n" + tx(sk.name) + colon() + tx(sk.desc) + (el ? wsp() + tx(ELEMENT_TEXT[el]) : "");
 };
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
