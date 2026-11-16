@@ -275,7 +275,7 @@ test("Poupouce et gobelins pendant l'absence : comptés et transmis au résumé 
   const sum = g.applyOffline(8 * 3600);
   assert.equal(sum.goblins, (g.S.stats.goblins || 0) - k0, "gobelins transmis à la fenêtre");
   assert.equal(sum.poupouce, (+g.S.stats.poupouce || 0) - p0, "Poupouce transmis à la fenêtre");
-  // assez de victoires pour en croiser (0,4 % chacune) ; jamais en zone 1 (minZone 2)
+  // assez de victoires pour en croiser (0,1 % chacune depuis l'it. 1730 : au-delà de 3 000, au moins 3 garantis) ; jamais en zone 1 (minZone 2)
   if (sum.kills > 3000) assert.ok(sum.poupouce > 0, "kills " + sum.kills + " : aucun Poupouce");
   const g1 = new Game(freshState()); g1.S.zone = 1;
   assert.equal(g1.applyOffline(8 * 3600).poupouce, 0, "zone 1 : pas de Poupouce");

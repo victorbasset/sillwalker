@@ -177,7 +177,7 @@ export class Juice {
     g.on("kill", ({ mon, gold }) => {
       const n = mon.goblin ? 34 : mon.boss ? 28 : mon.champion ? 30 : mon.poupouce ? 20 : mon.elite ? 12 : 2;
       if (mon.champion) { this.banner(tx("Champion vaincu !"), "#c08cff", this.s.monX(), true); this.flash("#c08cff", 0.25); }
-      // (it. 1648) Poupouce, rare (0,4 %) : son nom et son or en rose, une gerbe d'étincelles (le journal seul le disait)
+      // (it. 1648) Poupouce, très rare (0,1 % depuis l'it. 1730) : son nom et son or en rose, une gerbe d'étincelles (le journal seul le disait)
       if (mon.poupouce) { this.banner(tx("{0} vaincu : {1} or !", { 0: POUPOUCE.name, 1: fmt(gold || 0) }), "#ff9ad2", this.s.monX()); this.sparkles(this.s.monX() + 10, this.ground() - 30, "#ff9ad2", 12); }
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin || mon.poupouce);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
