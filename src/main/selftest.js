@@ -1365,6 +1365,11 @@ async function runSelfTest(strip) {
   await sleep(700);
   const logT = await js("(() => { const P = window.__panel, l = document.querySelector('[data-pane=stats]:not([hidden]) #log'), ok = !!l && l.textContent.includes('TEST-JOURNAL-1677'); P.tabs.stats.sec = 'numbers'; P.setTab('adventure'); P.renderAll(); return ok + ' ' + !document.querySelector('[data-pane=adventure] #log'); })()");
   check("Statistiques > Journal : ligne ajoutée en direct, plus de journal dans l'Aventure", logT === "true true", logT);
+  // (it. 1723) case « Lignes importantes seulement » : un vrai clic écarte la ligne ordinaire, garde le coffre (repère ✦)
+  await js("(() => { const g = window.__game, P = window.__panel; g.log('Coffre au trésor ! +5 or'); g.log('TEST-ORDINAIRE-1723'); P.tabs.stats.sec = 'log'; P.setTab('stats'); P.renderAll(); })()");
+  await sleep(400);
+  const logImp = await js("(async () => { const P = window.__panel, q = (s) => document.querySelector('[data-pane=stats]:not([hidden]) ' + s); q('[data-action=st-logimp]').click(); P.renderAll(); await new Promise((r) => setTimeout(r, 300)); const l = q('#log'), on = window.__game.S.settings.logImportant === true && !l.textContent.includes('TEST-ORDINAIRE-1723') && !!l.querySelector('li.lg-rare') && getComputedStyle(l.querySelector('li.lg-rare'), '::before').content.includes('✦'); q('[data-action=st-logimp]').click(); P.renderAll(); await new Promise((r) => setTimeout(r, 300)); const off = window.__game.S.settings.logImportant === false && q('#log').textContent.includes('TEST-ORDINAIRE-1723'); P.tabs.stats.sec = 'numbers'; P.setTab('adventure'); return on + ' ' + off; })()");
+  check("Statistiques > Journal : « Lignes importantes seulement » (clic, repère ✦, retour)", logImp === "true true", logImp);
   // (it. 1694) touche J : Statistiques > Journal directement
   const keyJ = await js("(() => { const P = window.__panel; P.setTab('adventure'); const used = P.onKey({ key: 'j', target: document.body }); const ok = used && P.tab === 'stats' && !!document.querySelector('[data-pane=stats]:not([hidden]) #log'); P.tabs.stats.sec = 'numbers'; P.setTab('adventure'); return String(ok); })()");
   check("touche J : ouvre Statistiques > Journal", keyJ === "true", keyJ);
