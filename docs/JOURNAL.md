@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1777, contrôle) : Poupouce vaincu + légendaire en même temps : bannières empilées sur deux hauteurs (rose puis
+  « ★ LÉGENDAIRE »), sans chevauchement, réplique d'adieu au-dessus (captures à 4,2 et 5,6 s).
 - 2026-11-16 (it. 1776, contrôle) : raccourcis clavier : les 11 touches gérées par panel.onKey (B C E F J M R S T U V) et les chiffres
   des onglets figurent tous dans la fenêtre d'aide (showKeys).
 - 2026-11-16 (it. 1775, contrôle) : Jour de Poupouce avec le nouveau Poupouce : fuzz FUZZ_DAYMOD=poupouce 600 parties, 0 bloquée ;
