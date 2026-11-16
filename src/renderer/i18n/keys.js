@@ -3015,5 +3015,8 @@ export const KEYS = [
   "Mode mini : la bulle du prochain déblocage rappelle aussi ton record de zone.",
   "Pardon, Poupouce…",
   "Reviens vite, Poupouce !",
-  "Clic : ouvrir le sac (Aventure) pour vendre ou transmuter."
+  "Clic : ouvrir le sac (Aventure) pour vendre ou transmuter.",
+  "Poupouce vaincu : bannière rose, gerbe de pièces, son de champion et un mot d’adieu du héros.",
+  "Boutique : quand le sac est plein, le bouton « Sac plein » ouvre le sac (Aventure) pour faire de la place.",
+  "Bande : les nombres ne sortent plus par le haut et évitent la bulle de parole du héros."
 ];

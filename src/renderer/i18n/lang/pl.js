@@ -1886,4 +1886,7 @@ export default {
   3011: "Wybacz, Poupouce…",
   3012: "Wracaj szybko, Poupouce!",
   3013: "Kliknij: otwórz torbę (Przygoda), aby sprzedać lub transmutować.",
+  3014: "Poupouce pokonany: różowy baner, deszcz monet, dźwięk czempiona i słowo pożegnania od bohatera.",
+  3015: "Sklep: gdy torba jest pełna, przycisk „Torba pełna” otwiera torbę (Przygoda), by zrobić miejsce.",
+  3016: "Pasek: liczby nie wylatują już górą i omijają dymek bohatera.",
 };

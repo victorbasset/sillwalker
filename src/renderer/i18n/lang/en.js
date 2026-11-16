@@ -1886,4 +1886,7 @@ export default {
   3011: "Sorry, Poupouce…",
   3012: "Come back soon, Poupouce!",
   3013: "Click: open the bag (Adventure) to sell or transmute.",
+  3014: "Poupouce defeated: a pink banner, a shower of coins, a champion's sound and a farewell word from the hero.",
+  3015: "Shop: when the bag is full, the \"Bag full\" button opens the bag (Adventure) to make room.",
+  3016: "Strip: numbers no longer fly off the top and avoid the hero's speech bubble.",
 };

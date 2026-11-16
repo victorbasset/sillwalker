@@ -1886,4 +1886,7 @@ export default {
   3011: "Verzeihung, Poupouce …",
   3012: "Komm bald wieder, Poupouce!",
   3013: "Klick: Tasche öffnen (Abenteuer), um zu verkaufen oder zu transmutieren.",
+  3014: "Poupouce besiegt: rosa Banner, Münzregen, Champion-Klang und ein Abschiedswort des Helden.",
+  3015: "Laden: Ist die Tasche voll, öffnet der Knopf „Tasche voll“ die Tasche (Abenteuer), um Platz zu schaffen.",
+  3016: "Leiste: Zahlen fliegen nicht mehr oben hinaus und weichen der Sprechblase des Helden aus.",
 };

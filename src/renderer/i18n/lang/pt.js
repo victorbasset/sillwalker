@@ -1886,4 +1886,7 @@ export default {
   3011: "Desculpa, Poupouce…",
   3012: "Volte logo, Poupouce!",
   3013: "Clique: abrir a bolsa (Aventura) para vender ou transmutar.",
+  3014: "Poupouce derrotado: faixa rosa, chuva de moedas, som de campeão e uma palavra de despedida do herói.",
+  3015: "Loja: com a bolsa cheia, o botão \"Bolsa cheia\" abre a bolsa (Aventura) para liberar espaço.",
+  3016: "Faixa: os números não saem mais pelo topo e evitam o balão de fala do herói.",
 };

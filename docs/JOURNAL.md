@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1665) : « Quoi de neuf », édition 109 (Poupouce vaincu fêté, « Sac plein » ouvre le sac, nombres de la bande), 10 langues,
+  libellés cités tels que traduits. Clés 3014-3016. npm test, autotest 242/242 (pire cas de la fenêtre mesuré).
 - 2026-11-16 (it. 1664) : Boutique : « Sac plein » (lien vers le sac, it. 1663) en texte atténué (--muted, --accent au survol) pour ne
   pas ressembler à un achat ; vu dans les deux thèmes. npm test, autotest 242/242.
 - 2026-11-16 (it. 1663) : Boutique, sac plein : les boutons « Sac plein » (marchand et coffres) ne sont plus des impasses
