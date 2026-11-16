@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1628) : early-pace après le Colossal : à 60 min niveau 39-40, zone 22-26, 6,3 déblocages (avant : 38-40, 22-25) :
+  le début n'est pas ralenti.
 - 2026-11-16 (it. 1627) : quêtes « proie » visant le Colossal : textes et pluriels corrects (fr, en, de, ru, pl, ja) ; le nom est traduit
   en jeu (« Колоссальный » vu à l'it. 1621 ; hors jeu, sans translateData, toutes les élites restent en français).
 - 2026-11-16 (it. 1626) : --crawl fin de partie en espagnol après le Colossal : 700 clics, aucune erreur.
