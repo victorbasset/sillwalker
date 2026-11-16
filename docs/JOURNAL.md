@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1688) : fuzz FUZZ_DAYMOD=all (bénédictions du jour, Jour de Poupouce compris), 30 graines : 600 parties, 0 bloquée.
 - 2026-11-16 (it. 1687) : vignettes et GIF promo regénérés depuis les nouveaux plans puis GARDÉS tels quels : le nouveau plan
   du boss est chargé à chaque instant (2-3 nombres et noms de sorts sur le duo, balayé de 5 à 13,5 s), l'ancienne vignette
   (un seul critique lisible) reste meilleure et ne montre aucune interface ; les GIF, cadrés sur le héros, n'ont pas la
