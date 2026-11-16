@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1640) : bulle du mode mini : un déblocage pas encore en vente dit « Atteindre la zone 22 (record 5) », comme la
+  boutique (retour de Kreen, it. 1548) ; vérifié en mise en scène en français et en allemand. npm test, autotest 242/242.
 - 2026-11-16 (it. 1639) : fiche de l'assassin : le bonus d'attaque est calculé (Attaque +15 % sans autre retouche) ; jauge d'XP de la
   bande redessinée seulement au changement de palier ; lang-overflow (10 langues, fin, max, 130 %) : aucun défilement.
 - 2026-11-16 (it. 1638) : assassin, le plus bas des tableaux de héros : 61,5 de moyenne sur 8 graines (12 h ; moine 63,2, moyenne
