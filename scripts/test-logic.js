@@ -3313,6 +3313,12 @@ test("Filet à étoiles : attrape l'étoile à mi-course, jamais sans le débloc
   assert.ok(on.speed > off.speed, "vitesse permanente gagnée");
 });
 
+test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
+  const P = freshState().settings;
+  assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");
+  assert.equal(P.musicVol, 0.5, "musique 50 %"); assert.equal(P.ambVol, 1, "ambiance 100 %");
+});
+
 test("depuis ta dernière visite : gains affichés après 5 min, pas avant", () => {
   const g = new Game(freshState()), t0 = 1e12;
   const snap = g.visitSnapshot(t0);

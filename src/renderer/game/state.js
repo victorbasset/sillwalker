@@ -62,7 +62,9 @@ export function freshState(now = Date.now()) {
     skills: { order: [], outer: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
-    settings: { hudBars: true, sound: true, soundOn2: true, music: true, muted: false, volume: 0.4, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 1, ambVol: 1, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
+    // (it. 1679, demande de Victor) partie neuve : volume général 50 %, effets 20 %, musique 50 %, ambiance 100 % ; les
+    // sauvegardes existantes gardent leurs réglages (migrate : 1 par défaut pour un réglage absent)
+    settings: { hudBars: true, sound: true, soundOn2: true, music: true, muted: false, volume: 0.5, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 0.5, ambVol: 1, fxVol: 0.2, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
     daily: { last: null, streak: 0, seen: {} }, // récompense quotidienne (série de jours consécutifs) ; seen : bénédictions vécues (it. 1224)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }
@@ -209,6 +211,9 @@ export function migrate(raw) {
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
   s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});
+  // (it. 1679) volumes réduits pour une partie NEUVE seulement : une sauvegarde existante à laquelle il manque un réglage
+  // de volume (d'avant les volumes séparés, it. 1580) garde le niveau qu'elle entendait jusque-là
+  if (isObj(o.settings)) { const OLD = { volume: 0.4, musicVol: 1, ambVol: 1, fxVol: 1 }; for (const k in OLD) if (!(k in o.settings)) s.settings[k] = OLD[k]; }
   // Langue inconnue (autre version, valeur abîmée) : la page se rechargeait en boucle pour l'appliquer (app.js).
   if (s.settings.lang != null && !LANGS.some((l) => l.id === s.settings.lang)) delete s.settings.lang;
   if (s.settings.hints != null && !isObj(s.settings.hints)) s.settings.hints = {};

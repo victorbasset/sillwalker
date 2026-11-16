@@ -202,8 +202,9 @@ export class Panel {
       <section class="tabpane" data-pane="adventure">
         <div class="grid">
           <article class="panel" id="p-hero"></article>
-          <article class="panel" id="p-bag"></article>
+          <!-- (it. 1679, demande de Victor) l'équipement avant le sac -->
           <article class="panel" id="p-detail"></article>
+          <article class="panel" id="p-bag"></article>
           <article class="panel" id="p-zone"></article>
         </div>
       </section>

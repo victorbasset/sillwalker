@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1679) : demandes de Victor : (1) partie neuve : volume général 50 %, effets 20 %, musique 50 %, ambiance 100 %
+  (freshState) ; une sauvegarde existante sans réglage de volume garde l'ancien niveau (migrate : 0,4 et 1, test « avant les
+  volumes séparés » inchangé) ; vérifié en lançant une partie neuve (0,5 / 0,2 / 0,5 / 1) et une vieille sauvegarde (0,7 / 1 /
+  1 / 1). (2) Aventure : Équipement avant le Sac (héros, équipement, sac, zone). npm test 321, autotest 245/245,
+  lang-overflow : aucun défilement.
 - 2026-11-16 (it. 1678) : demande de Victor : le Journal quitte l'Aventure pour Statistiques > Journal (4e sous-onglet, mis à
   jour en direct, ui/log.js partagé) ; l'Aventure passe à 4 colonnes et le sac s'élargit : 16 cases par rangée dès 1800 px
   (48 cases en 3 rangées au lieu de 4), 12 sur portable (4 au lieu de 6) ; le détail d'un objet tient dessous sans défiler
