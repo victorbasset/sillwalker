@@ -848,7 +848,7 @@ async function runSelfTest(strip) {
   // File : une cinématique lancée pendant une autre attend la fin de la première (héros libéré puis chronique).
   // Demande T (it. 580) : en combat de boss, les barres de vie du héros et du boss sont visibles, dans la bande,
   // sous les pieds (au-dessus, celle du boss tombait sous son nom et celle du héros sous les nombres de dégâts).
-  const bb0 = await js("(() => { const G = window.__game; window.__bbKeep = G.S.kills; G.S.kills = 10; G.R.mon = G.makeMonster(true); G.R.mode = 'fight'; G.R.hp = G.stats().hp; return 'ok'; })()");
+  const bb0 = await js("(() => { const G = window.__game; window.__bbKeep = G.S.kills; G.S.kills = G.lineup().length; G.R.mon = G.makeMonster(true); G.R.mode = 'fight'; G.R.hp = G.stats().hp; return 'ok'; })()");
   await sleep(700);
   const bb = await js("(() => { const st = window.__strip, H = window.innerHeight; const hb = st.heroBar.el.getBoundingClientRect(), b = document.querySelector('.hpbar.bossbar'); if (!b || b.hidden || st.heroBar.el.hidden) return 'barre absente'; const br = b.getBoundingClientRect(), hr = st.hero.el.getBoundingClientRect(); const r = [hb.top >= hr.bottom - 2, br.bottom <= H, hb.bottom <= H, br.top > 30].join(' '); window.__game.S.kills = window.__bbKeep; return r; })()");
   check("combat de boss : barres de vie du héros et du boss visibles sous les pieds", bb0 === "ok" && bb === "true true true true", bb);
@@ -856,7 +856,7 @@ async function runSelfTest(strip) {
   // relique qu'il garde, même en montant (à mi-course, encore bien visibles) : les 200 boss et les échos (16 en défaut avant).
   {
     const r = await js(`(() => { const st = window.__strip, G = window.__game; if (!st.active) return 'bande inactive';
-      const k0 = G.S.kills, z0 = G.S.zone, m0 = G.R.mon, all = []; for (const z of [...Array(200).keys()].map((i) => i + 1).concat([250, 300, 350])) { G.S.zone = z; G.S.kills = 10; G.R.mon = G.makeMonster(true); st.slotKey = null; st.syncSlots(); st.placeBossName();
+      const k0 = G.S.kills, z0 = G.S.zone, m0 = G.R.mon, all = []; for (const z of [...Array(200).keys()].map((i) => i + 1).concat([250, 300, 350])) { G.S.zone = z; G.S.kills = G.lineup().length; G.R.mon = G.makeMonster(true); st.slotKey = null; st.syncSlots(); st.placeBossName();
       const tag = [...document.querySelectorAll('.affix.bossname')].find((t) => t.isConnected && t.getBoundingClientRect().width);
       if (!tag) { all.push(z + ' nom absent'); continue; }
       const obs = [tag, ...document.querySelectorAll('.relic-carried')].map((e) => e.getBoundingClientRect()).filter((b) => b.width);

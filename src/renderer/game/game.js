@@ -22,7 +22,7 @@ import { t as tx, txn, tr, fsp, colon, lc, csep, cend, wsp } from "../i18n/index
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor, DAY_MODS, DAY_MOD_KEYS, BLESSING_SEEN_BONUS } from "./daymods.js";
 import {
-  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, GOBLIN, POUPOUCE, MONSTERS,
+  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, ZONE_COUNT, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, GOBLIN, POUPOUCE, MONSTERS,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
   CHAMPION,
 } from "./data.js";
@@ -47,6 +47,9 @@ import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillS
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
+/** (it. 1852) Nombre de monstres d'une nouvelle série : 7 à 13, en triangle autour de 10 (moyenne inchangée). */
+export const zoneCount = () => Math.max(ZONE_COUNT.min, Math.min(ZONE_COUNT.max,
+  Math.round(KILLS_PER_ZONE + (rand() + rand() - 1) * (ZONE_COUNT.max - KILLS_PER_ZONE + 0.5))));
 import { freshState } from "./state.js";
 import { fmt , durText, uH, uMin } from "./format.js";
 import { SPELL_INDEX, SPELL_MAX, classSpells, spellPrice, spellRank, spellValue, spellCd, spellScale, PARTNER_SPELL, pierceTargets, PIERCE_FALLOFF } from "./spells.js";
@@ -122,7 +125,7 @@ export class Game {
   findBagItem(id) { return this.S.bag.find((i) => i.id === id) || null; }
 
   /* ---------- Parcours de la zone ----------
-     Une zone = KILLS_PER_ZONE monstres puis le boss. Le trajet entre deux
+     Une zone = une série de monstres (7 à 13, zoneCount ; KILLS_PER_ZONE en moyenne) puis le boss. Le trajet entre deux
      combats est une « étape » (leg) : délai d'apparition + approche. */
   /** Monstres de la zone en cours, dans l'ordre (hors boss) : [{ type, elite }]. */
   lineup() {
@@ -140,7 +143,11 @@ export class Game {
       // les monstres simples. Après une ascension, élites partout comme avant.
       const elitesHere = this.S.zone >= ELITE.minZone || (this.S.prestige.count || 0) > 0;
       const eliteMul = elitesHere ? (dm?.elite || 1) * (1 + (this.stats().elites || 0) / 100) : 0; // Appât des champions
-      R.lineup = Array.from({ length: KILLS_PER_ZONE }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
+      // (it. 1852, journée des monstres, demande de Victor : « plus ou moins de monstres dans une zone, au hasard »)
+      // chaque série compte de 7 à 13 monstres, plus souvent autour de 10 (tirage en triangle) : même moyenne qu'avant
+      // jamais plus courte que ce qui est déjà fait (série retirée au rechargement d'une partie en cours de zone)
+      const count = Math.max(zoneCount(), Math.min(this.S.kills, ZONE_COUNT.max));
+      R.lineup = Array.from({ length: count }, () => (rand() < GOBLIN.chance * (dm?.goblin || 1)
         ? { type: "goblin", elite: false, goblin: true }
         : (() => {
           const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance * (dm?.champion || 1), elite = champion || rand() < ELITE.chance * eliteMul;
@@ -286,7 +293,7 @@ export class Game {
       if (!R.mon) {
         R.spawnT -= dt * this.moveMul();
         if (R.spawnT <= 0) {
-          R.mon = this.makeMonster(this.S.kills >= KILLS_PER_ZONE);
+          R.mon = this.makeMonster(this.S.kills >= this.lineup().length); // (it. 1852) longueur de la série
           // Sort perçant (demandes H et R) : ce monstre a déjà été frappé dans la file ; il arrive blessé (jamais tué).
           const slot = !R.mon.boss && this.lineup()[this.S.kills];
           if (slot && slot.pierced > 0) { R.mon.hp -= Math.min(slot.pierced, R.mon.hp - 1); slot.pierced = 0; }
@@ -826,7 +833,7 @@ export class Game {
 
   makeMonster(boss) {
     const Z = zoneDef(this.S.zone);
-    const slot = boss ? { type: Z.boss, elite: false } : this.lineup()[Math.min(this.S.kills, KILLS_PER_ZONE - 1)];
+    const slot = boss ? { type: Z.boss, elite: false } : this.lineup()[Math.min(this.S.kills, this.lineup().length - 1)];
     const b = monsterBase(this.S.zone, boss, slot.type, slot.elite, !boss && slot.champion);
     const mon = Object.assign(b, { type: slot.type, boss, elite: slot.elite, champion: !boss && !!slot.champion, goblin: !!slot.goblin, fleeT: slot.goblin ? GOBLIN.flee : 0,
       max: b.hp, t: 0.7, dist: SPAWN_DIST, age: 0, burnT: 0, burnDps: 0, poisonT: 0, poisonStacks: 0,

@@ -279,16 +279,16 @@ export class MiniRenderer {
     // (it. 895) événement rare en cours : son nom et ses secondes à la place de la zone, comme sur la bande (avant, le
     // mode mini ne l'annonçait qu'à son début)
     const ev = Object.entries(R.events || {}).find(([id, t]) => t > 0 && EVENTS[id]);
-    const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills + "|" + (ev ? ev[0] + Math.ceil(ev[1]) : "") + "|" + !!this.game.stuckInfo(); // (it. 1465) bloqué : bulle à jour
+    const info = S.lvl + "|" + fmt(S.gold) + "|" + S.zone + "|" + S.kills + "/" + this.game.lineup().length + "|" + (ev ? ev[0] + Math.ceil(ev[1]) : "") + "|" + !!this.game.stuckInfo(); // (it. 1465) bloqué : bulle à jour
     if (info !== this.infoKey) {
       this.infoKey = info; mark("hud");
       this.lvl.textContent = tx("Niv. ") + S.lvl;
       this.gold.textContent = fmtShort(S.gold);
-      this.zone.textContent = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10";
+      this.zone.textContent = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : tx("Zone ") + S.zone + " · " + Math.min(S.kills, this.game.lineup().length) + "/" + this.game.lineup().length;
       this.zone.style.color = ev ? EVENTS[ev[0]].color : "";
       const u = tabOpen(S, "shop") ? nextUnlock(S) : null, rec = recordZone(S), tip = []; // pas de déblocage avant la boutique
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
-      if (ev) tip.push(EVENTS[ev[0]].name + colon() + EVENTS[ev[0]].text, tx("Zone ") + S.zone + " · " + Math.min(S.kills, 10) + "/10");
+      if (ev) tip.push(EVENTS[ev[0]].name + colon() + EVENTS[ev[0]].text, tx("Zone ") + S.zone + " · " + Math.min(S.kills, this.game.lineup().length) + "/" + this.game.lineup().length);
       if (S.zone < rec) tip.push(tx("Meilleure zone (toutes courses)") + colon() + rec);
       // (it. 1573) la fine barre violette du bas : l'expérience vers le niveau suivant
       tip.push(tx("Expérience") + colon() + Math.min(99, Math.floor((100 * S.xp) / xpNeed(S.lvl))) + unit("%"));

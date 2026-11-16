@@ -28,8 +28,10 @@ se balançaient qu'au combat.
    - la mimique (`statue`) ne bouge pas : elle se fait passer pour un coffre ;
    - vigilance : à moins de 150 px du héros, le monstre revient à sa place et se tourne vers lui ; les boss gardent la
      leur.
-2. **Nombre de monstres variable** par zone (au hasard, autour de 10) : logique de jeu (KILLS_PER_ZONE, quêtes, perçage,
-   barre de progression, sauvegarde), à mener prudemment et à mesurer (early-pace, balance, fuzz).
+2. **Nombre de monstres variable** (it. 1852, fait) : chaque série compte 7 à 13 monstres, en triangle autour de 10
+   (game.js zoneCount, data.js ZONE_COUNT) ; la bande les répartit sur toute sa largeur (strip.js fights()), la pastille de
+   zone, le panneau et le mode mini comptent la vraie longueur ; série jamais plus courte que le compte déjà fait
+   (rechargement), compte borné à 13 par migrate. balance −0,4 (bruit), early-pace, fuzz, save-fuzz : inchangés.
 3. **Compétences propres**, famille par famille (dessin de base), chacune déclinée pour ses variantes (feu, givre, poison…) :
    gluants, champignons, chauves-souris, squelettes, scorpions, loups, golems, plantes, spectres, diablotins, rats,
    araignées, momies, yétis, harpies, élémentaires, crabes, chevaliers noirs, sylvains, wyvernes, tyrannœils, crapauds,

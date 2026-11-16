@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1852, journée des monstres) : séries de 7 à 13 monstres (triangle autour de 10, même moyenne) :
+  zoneCount (game.js), ZONE_COUNT (data.js), strip.js fights() (bande, pastille), panneau et mini (« n / longueur »),
+  migrate borne le compte à 13, série jamais plus courte que le compte fait. Tests adaptés (compte = longueur de la série) ;
+  balance 12 h −0,4 (bruit), early-pace 39 / 23 à 60 min, fuzz 600 parties 0 bloquée, save-fuzz ok (1267) ; captures 7 et
+  13 monstres ; npm test 342, autotest 253/253.
 - 2026-11-16 (it. 1851, revue générale) : 12 h graine 181 : gladiateur 65, druide 62, gardien stellaire 71 ; perf:linux bande
   18,3 %, panneau 19,4 %, mini 5,6 % (vie des monstres comprise) ; portugais : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1850, journée des monstres, demande de Victor) : plan dans docs/MONSTRES-VIVANTS.md ; vie des monstres

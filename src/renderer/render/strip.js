@@ -14,7 +14,7 @@ import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
-import { KILLS_PER_ZONE, ELITE_AFFIXES, POUPOUCE, MONSTERS } from "../game/data.js";
+import { ELITE_AFFIXES, POUPOUCE, MONSTERS } from "../game/data.js";
 const POUPOUCE_PINK = "#ff9ad2"; // (it. 1605) contour et étiquette de Poupouce
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
@@ -114,7 +114,6 @@ const LEGEND_GOLD = "#ffc23d";
 const BOSS_BAR_DY = 5;
 const LEFT = 24;            // position de départ du héros
 const RIGHT_MARGIN = 300;   // le boss (2× plus large) s'arrête avant l'or, le niveau et les boutons
-const FIGHTS = KILLS_PER_ZONE + 1;
 const HUD_L_W = 520, HUD_R_W = 260, HUD_H = 24;
 const HUD_BAR_PILL = 224; // (it. 1531) largeur d'une pastille de barre de vie (styles.css .hudbar)
 const CENTER_HUD_W = 2400; // au-delà : informations au milieu de la bande (écrans ultra-larges)
@@ -185,9 +184,11 @@ export class StripRenderer {
   }
 
   /* ---------- Géométrie du parcours ---------- */
-  /** Abscisse du monstre du combat i (1..FIGHTS). */
-  fightX(i) { return LEFT + CONTACT + (this.W - LEFT - CONTACT - RIGHT_MARGIN) * i / FIGHTS; }
-  target() { return Math.min(this.game.S.kills + 1, FIGHTS); }
+  /** (it. 1852) Combats de la série en cours : ses monstres (7 à 13) puis le boss. */
+  fights() { return this.game.lineup().length + 1; }
+  /** Abscisse du monstre du combat i (1..fights()) : la série occupe toute la bande, plus ou moins serrée. */
+  fightX(i) { return LEFT + CONTACT + (this.W - LEFT - CONTACT - RIGHT_MARGIN) * i / this.fights(); }
+  target() { return Math.min(this.game.S.kills + 1, this.fights()); }
   monX() { return this.fightX(this.target()); }
 
   bindGameEvents() {
@@ -374,7 +375,7 @@ export class StripRenderer {
     const now = this.game.R.time;
     if (!urgent && now - (this.saidAt ?? -1e9) < 45) return;
     const G = this.game; // pas de bulle sur le nom du boss (présent, ou le prochain monstre)
-    if (!urgent && ((G.R.mon && G.R.mon.boss) || G.S.kills >= KILLS_PER_ZONE)) return;
+    if (!urgent && ((G.R.mon && G.R.mon.boss) || G.S.kills >= G.lineup().length)) return;
     if (urgent && now - (this.saidAt ?? -1e9) < 6) return;
     this.saidAt = now;
     this.bubble.textContent = list[Math.floor(Math.random() * list.length)];
@@ -798,8 +799,8 @@ export class StripRenderer {
     const huntTypes = new Set(openQ.filter((q) => q.kind === "hunt").map((q) => q.type));
     const preyAffixes = new Set(openQ.filter((q) => q.kind === "prey").map((q) => q.type));
     const wantChamp = openQ.some((q) => q.kind === "champion"), wantGoblin = openQ.some((q) => q.kind === "goblin");
-    for (let k = 0; k < FIGHTS; k++) {
-      const boss = k === FIGHTS - 1;
+    for (let k = 0; k < this.fights(); k++) {
+      const boss = k === this.fights() - 1;
       // final : le Briseur d'Étoiles ; élite / champion : contour doré / violet dans l'image
       const a = this.monsterActor(boss ? Z.boss : line[k].type, boss, boss && isFinalZone(g.S.zone), boss ? this.bossOutline() : line[k].elite ? eliteColor(line[k]) : line[k].poupouce ? POUPOUCE_PINK : null, !boss && line[k].affix === "colossal", boss ? majorBoss(g.S.zone)?.art : null); // (it. 1605) Poupouce : contour rose
       // Boss majeur ou Briseur (demande S) : la relique qu'il garde flotte au-dessus de lui, tant qu'elle n'est pas gagnée.
@@ -933,9 +934,9 @@ export class StripRenderer {
     this.syncSlots();
 
     // Monstres en attente / combat en cours
-    const cur = Math.min(S.kills, FIGHTS - 1), line = game.lineup();
+    const cur = Math.min(S.kills, this.fights() - 1), line = game.lineup();
     const idle = Math.floor(R.time * 2) % 2, busy = Math.floor(R.time * 4) % 2;
-    for (let k = 0; k < FIGHTS; k++) {
+    for (let k = 0; k < this.fights(); k++) {
       const a = this.slots[k];
       const alive = k >= S.kills;
       a.visible(alive);
@@ -944,7 +945,7 @@ export class StripRenderer {
       a.show(fighting ? busy : idle);
       const bob = fighting && a.fly ? Math.sin(R.time * 5) * 3 : 0;
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
-      const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === FIGHTS - 1);
+      const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0), this.monY(a, bob) + (life ? life.dy : 0));
       const flip = !!(life && life.face < 0);
       if (a.flipped !== flip) { a.flipped = flip; a.el.classList.toggle("flip", flip); mark("flip"); }
@@ -1104,22 +1105,22 @@ export class StripRenderer {
     const stuck = this.game.stuckInfo();
     const rec = recordZone(S), recTxt = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : stuck ? "⚠ " + tx("bloqué") : S.zone < rec ? tx("record {0}", { 0: rec }) : "";
     const recCol = ev ? EVENTS[ev[0]].color : stuck ? "#ff6b5a" : "#a29ec2";
-    const key = label + "|" + S.kills + "|" + recTxt;
+    const key = label + "|" + S.kills + "/" + this.game.lineup().length + "|" + recTxt; // (it. 1852) longueur de la série
     if (key === this.hudLKey) return;
     this.hudLKey = key; mark("hud");
     const ctx = this.hudL.ctx;
     ctx.clearRect(0, 0, HUD_L_W, HUD_H);
     ctx.font = FONT;
     const lw0 = ctx.measureText(label).width, rw = recTxt ? ctx.measureText(recTxt).width + 10 : 0;
-    this.hudLRight = Math.min(HUD_L_W - 2, 14 + lw0 + 6 + KILLS_PER_ZONE * 9 + 18 + rw); // bord droit de la pastille (bulle du héros)
+    this.hudLRight = Math.min(HUD_L_W - 2, 14 + lw0 + 6 + this.game.lineup().length * 9 + 18 + rw); // bord droit de la pastille (bulle du héros)
     drawPill(ctx, 3, this.hudLRight, HUD_H);
     if (this.centerHud) { this.hudLX = Math.round(this.W / 2 - 6 - this.hudLRight); this.hudL.c.style.left = this.hudLX + "px"; this.placeTab(); }
     drawText(ctx, label, 10, 17, "#ffffff");
     ctx.font = FONT;
     let px = 14 + ctx.measureText(label).width + 6;
-    for (let i = 0; i < KILLS_PER_ZONE; i++) { ctx.fillStyle = OUTLINE; ctx.fillRect(px - 1, 8, 8, 8); ctx.fillStyle = i < S.kills ? "#ffd34d" : "#4a4560"; ctx.fillRect(px, 9, 6, 6); px += 9; }
+    for (let i = 0, nk = this.game.lineup().length; i < nk; i++) { ctx.fillStyle = OUTLINE; ctx.fillRect(px - 1, 8, 8, 8); ctx.fillStyle = i < S.kills ? "#ffd34d" : "#4a4560"; ctx.fillRect(px, 9, 6, 6); px += 9; }
     ctx.fillStyle = OUTLINE; ctx.fillRect(px + 1, 6, 12, 12);
-    ctx.fillStyle = S.kills >= KILLS_PER_ZONE ? "#ff6b5a" : "#6b3040"; ctx.fillRect(px + 2, 7, 10, 10);
+    ctx.fillStyle = S.kills >= this.game.lineup().length ? "#ff6b5a" : "#6b3040"; ctx.fillRect(px + 2, 7, 10, 10);
     ctx.fillStyle = OUTLINE; ctx.fillRect(px + 4, 10, 2, 2); ctx.fillRect(px + 8, 10, 2, 2);
     if (recTxt) drawText(ctx, recTxt, px + 20, 17, recCol);
   }
@@ -1198,7 +1199,7 @@ export class StripRenderer {
     const t = this.bossTag;
     if (!t || !t.isConnected) return;
     let off = 40;
-    if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(FIGHTS) + this.bossW / 2 + off - (this.hudRLeft - 8));
+    if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(this.fights()) + this.bossW / 2 + off - (this.hudRLeft - 8));
     const v = `calc(-100% + ${Math.round(off)}px) 0`;
     if (t.style.translate !== v || this.tagsFor !== this.slotKey) { t.style.translate = v; this.bossObs = null; this.tagsFor = this.slotKey; this.clearQueueTags(); }
   }

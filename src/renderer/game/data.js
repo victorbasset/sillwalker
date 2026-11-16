@@ -15,6 +15,8 @@ export const DROP_CHANCE = 0.12; // monstres ordinaires (boss et élites : butin
 export const BAG_SIZE = 24;          // taille de départ (agrandissable en boutique)
 export const BAG_MAX = 48;
 export const KILLS_PER_ZONE = 10;
+/** (it. 1852) Taille d'une série : de ZONE_COUNT.min à ZONE_COUNT.max monstres, en triangle autour de KILLS_PER_ZONE. */
+export const ZONE_COUNT = { min: 7, max: 13 };
 export const MAX_PLUS = 10;
 export const OFFLINE_CAP_S = 8 * 3600;
 export const LOG_SIZE = 40;

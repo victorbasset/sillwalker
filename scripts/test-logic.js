@@ -372,7 +372,7 @@ test("équiper, forger, vendre", () => {
 test("parcours : file de monstres (avec élites) et étapes", () => {
   const g = new Game(freshState());
   const line = g.lineup();
-  assert.equal(line.length, 10);
+  assert.ok(line.length >= 7 && line.length <= 13, "série de 7 à 13 monstres (it. 1852) : " + line.length);
   assert.ok(line.every((x) => x.type && typeof x.elite === "boolean"));
   let first = null;
   g.on("spawn", (m) => { if (!first) first = m; });
@@ -810,10 +810,10 @@ test("boss : capacités spéciales", () => {
   const seen = new Set();
   for (const z of [1, 2, 3, 4, 6, 10, 20]) {
     const g = new Game(freshState());
-    g.S.zone = g.S.best = z; g.S.lvl = 12 + z * 2; g.S.kills = 10; g.invalidateStats();
+    g.S.zone = g.S.best = z; g.S.lvl = 12 + z * 2; g.S.kills = g.lineup().length; g.invalidateStats();
     g.on("bossSkill", ({ id }) => seen.add(id));
     g.on("telegraph", () => seen.add("telegraph"));
-    for (let i = 0; i < 4; i++) { g.S.kills = 10; g.advance(40); }
+    for (let i = 0; i < 4; i++) { g.S.kills = g.lineup().length; g.advance(40); }
   }
   // Chaque capacité déclenchée directement (le combat réel peut finir avant le coup dévastateur).
   const g2 = new Game(freshState());
@@ -1532,7 +1532,7 @@ test("boss au nom féminin : « l’Éveillée », « vaincue » en français (i
     const i = M_bosses_js.BOSS_NAMES.indexOf("Carapace-des-Abysses"), z = ZONES.length + i + 1;
     assert.ok(M_bosses_js.bossName(z).endsWith("l’Éveillée"), M_bosses_js.bossName(z));
     assert.equal(M_bosses_js.bossGender(1), "f"); assert.equal(M_bosses_js.bossGender(3), "m");
-    const g = new Game(freshState()); g.S.zone = 1; g.S.kills = KILLS_PER_ZONE; g.S.log = [];
+    const g = new Game(freshState()); g.S.zone = 1; g.S.kills = g.lineup().length; g.S.log = [];
     g.S.bossDefeats = { 1: 2 }; let nem = null; g.on("bossNemesis", (e) => { nem = e; }); // (it. 960) bannière « enfin vaincue »
     g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
     assert.ok(g.S.log.some((l) => /Morille la Ronde vaincue !/.test(l)), JSON.stringify(g.S.log));
@@ -1709,9 +1709,9 @@ test("boss : miroir et vampirisme", () => {
   let mirrored = 0;
   g.on("mirrorHit", ({ dmg }) => { mirrored += dmg; });
   const zMirror = [1, 2, 3, 4, 5, 6].find((z) => bossMechanics(z).includes("mirror"));
-  g.S.zone = g.S.best = zMirror; g.S.kills = 10;
+  g.S.zone = g.S.best = zMirror; g.S.kills = g.lineup().length;
   g.S.autoAdvance = false;
-  for (let i = 0; i < 400 && !mirrored; i++) { g.S.zone = zMirror; g.S.kills = 10; if (g.R.mon && g.R.mon.boss) g.R.mon.hp = Math.max(g.R.mon.hp, g.R.mon.max * 0.6); g.advance(0.5); }
+  for (let i = 0; i < 400 && !mirrored; i++) { g.S.zone = zMirror; g.S.kills = g.lineup().length; if (g.R.mon && g.R.mon.boss) g.R.mon.hp = Math.max(g.R.mon.hp, g.R.mon.max * 0.6); g.advance(0.5); }
   assert.ok(mirrored > 0, "le miroir a renvoyé des dégâts");
 });
 
@@ -1776,8 +1776,8 @@ test("héros à libérer : boss de zone, changement de classe à l'ascension", (
   const z = CLASS_UNLOCK_ZONE.ranger;
   assert.ok(z >= 10, "le premier héros ne se libère pas trop tôt");
   g.S.zone = g.S.best = z; g.S.lvl = 80; g.invalidateStats();
-  g.S.kills = 10;
-  for (let i = 0; i < 600 && !freed; i++) { g.S.kills = Math.max(g.S.kills, 10); g.advance(0.5); }
+  g.S.kills = g.lineup().length;
+  for (let i = 0; i < 600 && !freed; i++) { g.S.kills = Math.max(g.S.kills, g.lineup().length); g.advance(0.5); }
   assert.equal(freed, "ranger");
   assert.ok(g.chooseNextClass("ranger"));
   assert.equal(g.S.cls, "warrior", "pas de changement immédiat");
@@ -2246,7 +2246,7 @@ test("usure des boss : -5 % de PV par défaite (30 % au plus), gardée à l'asce
   assert.equal(g.S.bossDefeats[25], 50, "une défaite contre un monstre ordinaire ne compte pas");
   g.S.best = 25; g.ascend();
   assert.equal(g.S.bossDefeats[25], 50, "gardée à l'ascension : le mur s'use d'une course à l'autre");
-  g.S.zone = 25; g.S.kills = 10; g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
+  g.S.zone = 25; g.S.kills = g.lineup().length; g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
   assert.ok(!g.S.bossDefeats[25], "boss vaincu : il retrouve toute sa force");
 });
 
@@ -2296,7 +2296,7 @@ test("boss enfin vaincu après un K.O. : un moment, pas pour une victoire facile
   const seen = [];
   g.on("bossNemesis", (e) => seen.push(e));
   const killBoss = (tries = 0) => {
-    g.S.kills = 10; g.R.mon = null;
+    g.S.kills = g.lineup().length; g.R.mon = null;
     for (let i = 0; i < 400 && !(g.R.mon && g.R.mon.boss); i++) g.step(0.05);
     assert.ok(g.R.mon && g.R.mon.boss, "boss en vue");
     if (tries) (g.S.bossDefeats ||= {})[g.S.zone] = tries;
@@ -2810,7 +2810,7 @@ test("Briseur d'Étoiles : boss final de la zone 200, plus coriace, fin de l'his
   assert.equal(fb.name, M_bosses_js.bossName(FINAL_ZONE));
   assert.ok(fb.max > before.max * FINAL_BOSS.hp, "plus coriace que le boss précédent");
   const ev = []; g.on("starbreaker", (e) => ev.push(e.first));
-  g.S.kills = KILLS_PER_ZONE; g.R.mon = fb; g.killMonster();
+  g.S.kills = g.lineup().length; g.R.mon = fb; g.killMonster();
   assert.ok(storyWon(g.S)); assert.deepEqual(ev, [true]);
   assert.ok(M_achievements_js.reachedAchievements(g.S).includes("STARBREAKER"), "succès « Le ciel rallumé »");
   assert.ok(g.S.journey.some((e) => e.k === "final"));
@@ -2868,7 +2868,7 @@ test("héros bloqué (demande 22) : 4 défaites près du record en 15 min = une 
   assert.equal(ev.length, 1, "une seule alerte");
   assert.equal(ev[0].zone, 30);
   assert.ok(g.stuckInfo() && g.stuckTips().includes("farm"));
-  g.S.zone = 30; g.S.kills = KILLS_PER_ZONE; g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.S.autoAdvance = true; g.killMonster();
+  g.S.zone = 30; g.S.kills = g.lineup().length; g.R.mon = g.makeMonster(true); g.R.mon.hp = 0; g.S.autoAdvance = true; g.killMonster();
   assert.equal(g.S.best, 31); assert.equal(g.stuckInfo(), null, "record battu : plus bloqué");
 });
 
@@ -3518,7 +3518,7 @@ test("record de zone : annoncé seulement au-delà du record de toutes les cours
   g.on("zoneUp", (e) => seen.push(e));
   const killBoss = () => {
     for (let i = 0; i < 4000 && g.R.mode !== "fight"; i++) g.step(0.05);
-    g.S.kills = 10; // le boss est le prochain monstre
+    g.S.kills = g.lineup().length; // le boss est le prochain monstre
     for (let i = 0; i < 20000 && !seen.length; i++) { if (g.R.mon) { g.R.mon.hp = 0; g.R.mon.boss = true; } g.step(0.05); }
   };
   g.S.zone = g.S.best = 5;
@@ -3771,7 +3771,7 @@ test("Hors ligne (it. 568) : les sorts de dégâts appris comptent dans l'estima
 });
 
 test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagnée, effets, gardée à l'ascension", () => {
-  const g = new Game(freshState()); g.setClass("warrior"); g.S.best = g.S.zone = 50; g.S.kills = 10;
+  const g = new Game(freshState()); g.setClass("warrior"); g.S.best = g.S.zone = 50; g.S.kills = g.lineup().length;
   const m = g.makeMonster(true);
   assert.equal(m.relic, "drone", "le boss de la zone 50 porte le Drone stellaire");
   const plain = (() => { const h = new Game(freshState()); h.S.zone = 49; return h.makeMonster(true); })();
@@ -4656,5 +4656,12 @@ test("vie des monstres en attente (it. 1850) : chacun bouge selon sa nature, se 
   assert.ok(moved > 100, "ils bougent : " + moved); assert.ok(maxDx <= 31, "pas trop loin de leur place : " + maxDx);
   for (let t = 0; t < 20; t += 0.5) { const b = lifeOffset1850("wander", 0.3, t, 999, true); assert.ok(b.dx === 0 && b.dy === 0, "le boss garde sa place"); }
   for (let t = 0; t < 20; t += 0.5) { const m = lifeOffset1850("statue", 0.3, t, 999); assert.ok(m.dx === 0 && m.dy === 0, "la mimique ne bouge pas"); }
+});
+test("séries de monstres (it. 1852) : 7 à 13 monstres, 10 en moyenne ; jamais plus courte que le compte déjà fait", () => {
+  const g = new Game(freshState()); let sum = 0, mn = 99, mx = 0; const N = 3000;
+  for (let i = 0; i < N; i++) { g.R.lineupZone = 0; const n = g.lineup().length; sum += n; mn = Math.min(mn, n); mx = Math.max(mx, n); }
+  assert.ok(mn >= 7 && mx <= 13 && mn < 9 && mx > 11, mn + "-" + mx);
+  assert.ok(Math.abs(sum / N - 10) < 0.15, "moyenne " + sum / N);
+  for (let i = 0; i < 200; i++) { g.S.kills = 12; g.R.lineupZone = 0; assert.ok(g.lineup().length >= 12, "série rechargée en cours de zone"); }
 });
 console.log(`\n${pass} tests réussis`);

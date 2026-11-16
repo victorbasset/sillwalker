@@ -1101,8 +1101,9 @@ export class Panel {
     }
     const kb = $(r, "#killbar");
     if (kb) {
-      kb.style.width = (100 * Math.min(S.kills, KILLS_PER_ZONE) / KILLS_PER_ZONE) + "%";
-      $(r, "#killtxt").textContent = S.kills >= KILLS_PER_ZONE ? tx("Boss en approche") : S.kills + " / " + KILLS_PER_ZONE;
+      const nk = this.game.lineup().length; // (it. 1852) série de 7 à 13 monstres
+      kb.style.width = (100 * Math.min(S.kills, nk) / nk) + "%";
+      $(r, "#killtxt").textContent = S.kills >= nk ? tx("Boss en approche") : S.kills + " / " + nk;
     }
   }
 

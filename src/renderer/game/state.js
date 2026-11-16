@@ -1,7 +1,7 @@
 // Format de la sauvegarde + migrations. Toute nouvelle donnée persistante
 // doit avoir une valeur par défaut ici et, si besoin, une étape de migration.
 import { RELICS } from "./relics.js";
-import { SLOT_KEYS, SLOTS, LEGENDARY, BAG_SIZE, RARITIES } from "./data.js";
+import { SLOT_KEYS, SLOTS, LEGENDARY, BAG_SIZE, RARITIES, ZONE_COUNT } from "./data.js";
 import { CLASSES, CLASS_UNLOCK_ZONE, canPartner } from "./classes.js";
 import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
@@ -231,6 +231,7 @@ export function migrate(raw) {
   s.bagSize = Math.max(BAG_SIZE, Math.floor(+s.bagSize || BAG_SIZE));
   for (const k of ["lvl", "zone", "best", "nextId"]) s[k] = Math.max(1, Math.floor(+s[k] || 1));
   for (const k of ["xp", "gold", "kills"]) s[k] = Math.max(0, +s[k] || 0);
+  s.kills = Math.min(Math.floor(s.kills), ZONE_COUNT.max); // (it. 1852) une série compte au plus ZONE_COUNT.max monstres
   // Nombres illisibles dans les sous-objets (un NaN ou un Infinity d'un bug passé est enregistré « null ») :
   // valeur par défaut, sinon il se propagerait (éclats, réputation, statistiques…) et pourrait bloquer la partie.
   // Onglets progressifs, apparus après coup : tout ce que le joueur connaissait déjà reste ouvert.
