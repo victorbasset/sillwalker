@@ -88,7 +88,7 @@ export class StatsTab {
         ${st.majors ? line(tx("Boss majeurs et échos vaincus"), fmt(st.majors)) : ""}
         ${line(tx("Élites vaincus"), fmt(st.elites || 0))}
         ${line(tx("Champions vaincus"), fmt(st.champions || 0))}
-        ${line(tx("Gobelins dorés attrapés"), fmt(st.goblins || 0) + (+st.poupouce > 0 ? ` <span class="tint" style="--c:#ff9ad2" title="${esc(tx("{0} vaincus", { 0: POUPOUCE.name }) + colon() + fmt(+st.poupouce))}">✦</span>` : ""))}
+        ${line(tx("Gobelins dorés attrapés"), fmt(st.goblins || 0))}
         ${line("K.O.", fmt(st.deaths))}
         ${line(tx("Coups au clic"), fmt(st.taps || 0))}
         ${line(tx("Coups critiques"), fmt(+st.crits || 0))}
@@ -109,6 +109,8 @@ export class StatsTab {
         ${line(tx("Étoiles filantes attrapées"), fmt(st.stars || 0))}
         <li title="${esc(Object.values(EVENTS).map((e) => e.name).join(csep()))}"><span>${esc(tx("Événements rares"))}</span><b>${fmt(st.events || 0)}</b></li>
         ${line(tx("Coffres au trésor"), fmt(st.chests || 0))}
+        ${/* (it. 1670) Poupouce : sa ligne (avant : un ✦ au survol, à côté des gobelins) */ ""}
+        ${+st.poupouce > 0 ? `<li><span class="tint" style="--c:#ff9ad2">✦ ${esc(tx("{0} vaincus", { 0: POUPOUCE.name }))}</span><b>${fmt(+st.poupouce)}</b></li>` : ""}
         ${(() => { // (it. 1224) bénédictions du jour déjà vécues ; la liste au survol (✓ vue, · pas encore)
           const seen = (S.daily && S.daily.seen) || {}, ks = Object.keys(DAY_MODS), n = ks.filter((k) => seen[k]).length;
           // (it. 1226) le bonus de la collection dans la bulle (dans la valeur, il chevauchait le libellé en russe et polonais)

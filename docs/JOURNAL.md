@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1670) : Statistiques > Moments rares : Poupouce a sa ligne rose « ✦ Poupouce vaincus N » dès le premier (avant : un ✦
+  au survol à côté des gobelins, it. 1590). lang-overflow ru, de, pl, es, pt, fr à 1280 et 1366 (max-save compris) : aucun
+  défilement ; capture en russe. npm test, autotest 242/242.
 - 2026-11-16 (it. 1669) : lang-overflow complet après « Sac plein » et les éditions 108-109 (« Quoi de neuf » au pire cas dans les 10
   langues) : aucun défilement ni mot coupé.
 - 2026-11-16 (it. 1668) : --perf sur deux copies neuves de dev-data, héros à distance compris (après les nombres et la bulle,
