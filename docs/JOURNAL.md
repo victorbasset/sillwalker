@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1738, contrôle) : équilibrage après le nouveau Poupouce (balance.mjs 12 h contre 4e79199f) : moyenne 64,6 → 64,3,
+  écart −0,3 zone (bruit) ; un monstre sur 1 000 ne pèse pas sur la progression.
 - 2026-11-16 (it. 1737, contrôle) : Poupouce dans MONSTERS : aucun tirage au hasard dans la liste (quêtes de chasse : monstres de
   la zone) ; seuls le Bestiaire (bonus par paliers, carte) et le succès « Bestiaire complet » le comptent : objectif rare voulu ;
   un succès déjà obtenu reste acquis.
