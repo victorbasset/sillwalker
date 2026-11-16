@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1788) : POUR-VICTOR rangé : les trois questions sur Poupouce regroupées, la 0.1.5 (envoyée) et ce qui reste à
+  vérifier sous Windows dans une seule section ; entrées dépassées (« dire oui pour l'envoi ») retirées.
 - 2026-11-16 (it. 1787) : autres tests de Poupouce revus après sa nouvelle rareté : celui de l'absence reste sûr (au-delà de 3 000
   victoires, au moins 3 garantis par le calcul) ; commentaires « 0,4 % » corrigés (juice.js, test-logic). npm test 332.
 - 2026-11-16 (it. 1786) : test Poupouce de l'it. 1546 mis à jour : titre (chat, plus « 5 fois plus d'or »), 3 000 séries au lieu de 400

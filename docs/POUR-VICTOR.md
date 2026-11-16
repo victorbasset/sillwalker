@@ -126,19 +126,20 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 parcours complets sans erreur (10 langues, état maximal, fin de partie). Le contrôle des traductions signale
 maintenant aussi une phrase oubliée dans toutes les langues.
 
-- (2026-11-16, it. 1732) Poupouce (chat) compte au Bestiaire ; les Poupouce vaincus avant ce changement comptent pour sa
-  carte, pour ne pas défaire une collection complète. Si tu préfères qu'il reste hors du total, dis-le.
-- (it. 1734) À écouter : Poupouce miaule en arrivant (impossible à entendre sur le serveur). Trop fort, trop faible, pas assez chat ?
-- (it. 1757) 0.1.5 prête : fichiers dans Médias/dist-itch (sha256 dans SHA256-0.1.5.txt), étiquette v0.1.5. Dire « oui » pour
-  l'envoi sur itch.io par butler, puis publier le devlog (steam/itch/devlog-0.1.5.html, 10 langues).
-- (it. 1758) Essai rapide de la 0.1.5 sous Windows (Sillwalker-0.1.5-win.zip, ce que le serveur ne peut pas vérifier) :
-  1. au lancement, la fenêtre « Nouveautés de la version 0.1.5 » s'ouvre une fois (si ta partie a lu jusqu'à l'édition 101) ;
-  2. la musique joue, et Réglages > Son règle séparément Effets, Musique et Ambiance ;
-  3. Statistiques > Journal : couleurs et symboles, case « Lignes importantes seulement » ;
-  4. Poupouce (rare) : le chat et son miaulement ; trop fort, trop faible ?
-  Envoi itch.io après ton « oui » : `REF=v0.1.5 scripts/itch-push.sh victor-basset/sillwalker` (version figée, le code a avancé).
-- (it. 1759) 0.1.5 ENVOYÉE sur itch.io (windows, linux, mac en 0.1.5). Reste : publier le devlog (steam/itch/devlog-0.1.5.html).
-- (it. 1766) Question : sac plein, le légendaire garanti de Poupouce reste au sol et se perd (ta règle « tant pis » pour tout
-  le butin). Faut-il une exception pour lui (rangé quand même, ou vendu automatiquement) ? Rien changé en attendant.
-- (it. 1775) Jour de Poupouce (×10) avec le nouveau Poupouce : 1 monstre sur 100 ce jour-là, soit ≈ +100 % d'or et un légendaire
-  tous les 100 monstres (le Jour de fortune : +50 % d'or). Gardé tel quel (une fête, un jour sur 17) ; dis-moi s'il faut ×5.
+### Poupouce : trois questions en attente de ta réponse (it. 1732-1775)
+
+1. **Bestiaire :** Poupouce (chat) compte au Bestiaire et au succès « Bestiaire complet » ; les Poupouce vaincus avant la
+   mise à jour comptent pour sa carte. Le garder dans le total, ou l'en sortir ?
+2. **Sac plein :** son légendaire garanti reste au sol et se perd (ta règle « tant pis ») ; le héros prévient maintenant à
+   temps, et le Journal signale la perte. Faut-il une vraie exception (rangé quand même, ou vendu) ?
+3. **Jour de Poupouce (×10) :** 1 monstre sur 100 ce jour-là, ≈ +100 % d'or et un légendaire tous les 100 monstres (Jour de
+   fortune : +50 %). Garder ×10 ou passer à ×5 ?
+
+### 0.1.5 (envoyée sur itch.io le 2026-11-16, it. 1759)
+
+- Devlog : titre, couverture, tags et langues en tête de docs/devlog-0.1.5-brouillon.md ; texte steam/itch/devlog-0.1.5.html.
+- À vérifier sous Windows (impossible sur le serveur) : la fenêtre « Nouveautés de la version 0.1.5 » s'ouvre une fois au
+  lancement ; la musique joue et Réglages > Son règle Effets, Musique et Ambiance ; Statistiques > Journal (couleurs,
+  symboles, « Lignes importantes seulement ») ; le miaulement de Poupouce (au niveau du butin légendaire : trop fort, trop
+  faible, pas assez chat ?).
+- Version suivante : la 0.1.6 se prépare dans docs/devlog-0.1.6-brouillon.md.
