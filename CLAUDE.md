@@ -247,7 +247,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
 - Sortie d'une version (itch.io, it. 1144) : 1) `version` de package.json ; 2) notes de version dans news.js
   (NEWS_RELEASES, à la FIN : `{ version, after, items }`, `after` = NEWS_ID de la version précédente : 0.1.2 = 32,
-  0.1.3 = 58) : une dizaine de nouveautés MAJEURES choisies parmi les éditions parues depuis, sans les petites
+  0.1.3 = 58, 0.1.4 = 101, 0.1.5 = 114 : la 0.1.6 prendra after: 114) : une dizaine de nouveautés MAJEURES choisies parmi les éditions parues depuis, sans les petites
   retouches, noms repris tels que traduits (événements, élites, PNJ…), à traduire ; un joueur qui n'a rien lu depuis
   la version précédente voit la fenêtre s'ouvrir seule au lancement ; 3) npm test, autotest, lang-overflow ;
   4) constructions (voir « Construire la version Windows ») déposées dans Médias/dist-itch avec leurs sha256 ;
