@@ -148,6 +148,7 @@ async function boot() {
     sound.setAmbience(P.ambVol ?? 1);
     sound.setEffects(P.fxVol ?? 1);
     music.setLevel(P.musicVol ?? 1);
+    if (music.pin !== (P.musicPin ?? -1)) { music.pin = P.musicPin ?? -1; music.setZone(game.S.zone); } // (it. 1583) morceau gardé
     music.set(P.music !== false);
     sound.setIdle(!!P.muted || (!P.sound && (P.music === false || (P.musicVol ?? 1) === 0))); // (it. 1560) musique à 0 % comptée comme coupée
     // économie d'énergie ou batterie : musique plus légère (accords à 3 notes, pas de vinyle) ; music.onBattery : app.js plus bas
@@ -170,7 +171,7 @@ async function boot() {
     // (it. 1574) nouvelle tranche de 50 zones, nouveau morceau : une bulle sobre le nomme, une fois par morceau et par
     // lancement (jamais au lancement ; un héros qui recule d'une tranche après une défaite n'en reçoit pas d'autre)
     const t = trackIndex(musicZone);
-    if (!announced.has(t)) { announced.add(t); if (music.enabled && !music.previewing && (game.S.settings.musicVol ?? 1) > 0) showToast(`♪ ${esc(tx(TRACKS[t].name))}`, null, 6000); }
+    if (!announced.has(t) && !(music.pin >= 0)) { announced.add(t); if (music.enabled && !music.previewing && (game.S.settings.musicVol ?? 1) > 0) showToast(`♪ ${esc(tx(TRACKS[t].name))}`, null, 6000); }
   }, 1000);
   let speed = init.isDev && init.devSpeed ? init.devSpeed : 1;
   let mode = null, visible = false, pendingOffline = null; // pendingOffline : résumé d’absence en attente (mode mini)

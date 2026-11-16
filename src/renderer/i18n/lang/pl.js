@@ -1860,4 +1860,5 @@ export default {
   2985: "Nowy poziom: pasek doświadczenia błyska złotem; w trybie mini dymek po najechaniu pokazuje doświadczenie.",
   2986: "Poupouce?!",
   2987: "Skrzynia otwiera się, gdy odbierasz zadanie; jej przedmiot trafia do torby.",
+  2988: "Zachowaj ten utwór niezależnie od strefy (kolejne kliknięcie: utwór strefy)",
 };

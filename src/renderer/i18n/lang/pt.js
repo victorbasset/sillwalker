@@ -1860,4 +1860,5 @@ export default {
   2985: "Subiu de nível: a barra de experiência brilha em dourado; no modo mini, o balão ao passar o mouse mostra a experiência.",
   2986: "Poupouce?!",
   2987: "O baú se abre quando você resgata a missão; o item vai para a bolsa.",
+  2988: "Manter esta faixa em qualquer zona (outro clique: a faixa da zona)",
 };

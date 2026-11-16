@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1583) : Réglages > Son : 📌 « Garder ce morceau » à côté de ◀ ▶ : la musique reste sur ce morceau quelle que
+  soit la zone (settings.musicPin, -1 = selon la zone, borné par migrate) ; un autre clic revient au morceau de la zone ;
+  pas de bulle « ♪ » tant qu'un morceau est gardé. Autotest 241/241, lang-overflow et save-fuzz propres.
 - 2026-11-16 (it. 1582) : bande-annonce : montage calé sur l'ancienne musique (89 bpm) ; la refaire sur la bande originale =
   recaler les plans et ≈ 250 Mo de vidéos en plus dans git : proposé à Victor (POUR-VICTOR) plutôt que lancé seul.
 - 2026-11-16 (it. 1581, revue générale) : simulation 12 h graine 3 : rôdeur 65, assassin 65, barde 62 ; perf:linux bande

@@ -1860,4 +1860,5 @@ export default {
   2985: "Stufenaufstieg: Die Erfahrungsanzeige leuchtet golden; im Mini-Modus zeigt die Blase beim Überfahren die Erfahrung.",
   2986: "Poupouce?!",
   2987: "Die Truhe öffnet sich, wenn du die Quest abholst; ihr Gegenstand kommt in die Tasche.",
+  2988: "Dieses Stück behalten, egal in welcher Zone (erneut klicken: das Stück der Zone)",
 };

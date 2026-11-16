@@ -84,7 +84,7 @@ export class Music {
 
   /** Change de morceau (fondu enchaîné) quand on passe dans une autre tranche de 50 zones. */
   setZone(zone) {
-    zone = musicZone(zone);
+    zone = this.pin >= 0 && this.pin < TRACKS.length ? 1 + this.pin * MUSIC_BLOCK : musicZone(zone); // (it. 1583) morceau gardé
     if (this.previewing) { this.home = zone; return; }
     this.applyZone(zone);
   }

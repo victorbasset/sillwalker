@@ -1860,4 +1860,5 @@ export default {
   2985: "Level up: the experience gauge flashes gold; in mini mode, the hover bubble shows your experience.",
   2986: "Poupouce?!",
   2987: "The chest opens when you claim the quest; its item goes into your bag.",
+  2988: "Keep this track whatever the zone (click again: the zone’s track)",
 };

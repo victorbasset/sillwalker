@@ -1860,4 +1860,5 @@ export default {
   2985: "Subida de nivel: la barra de experiencia brilla en dorado; en modo mini, la burbuja al pasar el ratón muestra la experiencia.",
   2986: "¿¡Poupouce!?",
   2987: "El cofre se abre al reclamar la misión; su objeto va a la bolsa.",
+  2988: "Mantener este tema sea cual sea la zona (otro clic: el tema de la zona)",
 };

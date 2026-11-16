@@ -26,7 +26,7 @@ export class SettingsTab {
   badge() { return ""; }
 
   /** Tranche dont l'air joue : celle écoutée (Réglages) pendant l'écoute, sinon celle de la zone en cours. */
-  shownZone() { return this.music?.previewing && this.pz ? this.pz : musicZone(this.game.S.zone); }
+  shownZone() { const pin = this.game.S.settings.musicPin ?? -1; return this.music?.previewing && this.pz ? this.pz : pin >= 0 ? 1 + pin * MUSIC_BLOCK : musicZone(this.game.S.zone); }
 
   render(el) {
     // Curseur (volume, opacité) en cours de manipulation : ne pas redessiner, sinon il est remplacé en plein
@@ -53,7 +53,7 @@ export class SettingsTab {
         <label class="range">${tx("Musique")} <input type="range" min="0" max="200" step="10" value="${Math.round((P.musicVol ?? 1) * 100)}" data-action="se-musicvol"${P.music !== false ? "" : " disabled"}> <span>${Math.round((P.musicVol ?? 1) * 100)}${unit("%")}</span></label>
         <label class="range">${tx("Volume général")} <input type="range" min="0" max="100" step="5" value="${Math.round(P.volume * 100)}" data-action="se-volume"${P.sound || P.music !== false ? "" : " disabled"}> <span>${Math.round(P.volume * 100)}${unit("%")}</span></label>
         <div class="row"><button data-action="se-testsound" class="quiet"${P.sound ? "" : " disabled"}>${tx("Écouter")}</button>
-          ${P.music !== false && !P.muted ? `<span class="mpreview">${tx("« {0} » · zones {1}–{2}", { 0: tx(TRACKS[trackIndex(this.shownZone())].name), 1: this.shownZone(), 2: this.shownZone() + MUSIC_BLOCK - 1 })} <button data-action="se-mprev" data-d="-1" class="quiet" title="${esc(tx("Écouter le morceau précédent (45 s)"))}">◀</button><button data-action="se-mprev" data-d="1" class="quiet" title="${esc(tx("Écouter le morceau suivant (45 s)"))}">▶</button></span>` : ""}</div>
+          ${P.music !== false && !P.muted ? `<span class="mpreview">${tx("« {0} » · zones {1}–{2}", { 0: tx(TRACKS[trackIndex(this.shownZone())].name), 1: this.shownZone(), 2: this.shownZone() + MUSIC_BLOCK - 1 })} <button data-action="se-mprev" data-d="-1" class="quiet" title="${esc(tx("Écouter le morceau précédent (45 s)"))}">◀</button><button data-action="se-mprev" data-d="1" class="quiet" title="${esc(tx("Écouter le morceau suivant (45 s)"))}">▶</button><button data-action="se-mpin" class="quiet" aria-pressed="${(P.musicPin ?? -1) === trackIndex(this.shownZone())}" title="${esc(tx("Garder ce morceau, quelle que soit la zone (un autre clic : le morceau de la zone)"))}">📌</button></span>` : ""}</div>
       </article>
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">${tx("Affichage")}</span></h2>
         ${check("dayNight", tx("Cycle jour / nuit"), tx("La bande suit l’heure de ton ordinateur."))}
@@ -105,6 +105,12 @@ export class SettingsTab {
       const cur = this.shownZone();
       this.pz = Math.max(1, Math.min(1 + MUSIC_BLOCK * (TRACKS.length - 1), cur + MUSIC_BLOCK * +b.dataset.d));
       this.music?.preview(this.pz);
+    }
+    else if (a === "se-mpin") { // (it. 1583) garder le morceau affiché, ou revenir au morceau de la zone
+      const idx = trackIndex(this.shownZone());
+      P.musicPin = (P.musicPin ?? -1) === idx ? -1 : idx;
+      this.pz = 0; if (this.music?.previewing) { this.music.home = 0; this.music.previewing = false; clearTimeout(this.music.previewT); }
+      this.onChange?.();
     }
     else if (a === "se-testsound") { // échantillon : coups, pièces, puis l'ambiance de la zone (régler les curseurs à l'oreille)
       const S = this.game.S, z = this.game.zoneDef(), h = new Date().getHours();
