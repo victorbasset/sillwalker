@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1624) : brouillon du devlog 0.1.5 : le Colossal et son succès, dans les 10 langues.
 - 2026-11-16 (it. 1623) : Statistiques > Succès : colonnes un peu plus étroites (230 → 215 px, 200 → 188 px sous 1467 px) :
   une colonne de plus, de la marge pour les prochains succès ; l'espagnol retrouve « Derribacolosos (25 colosales) ».
   lang-overflow propre (10 langues, fin de partie à 130 %).

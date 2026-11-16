@@ -24,6 +24,7 @@ Sillwalker 0.1.5 est disponible ! Les nouveautés depuis la 0.1.4 :
   tes yeux, avec sa petite fanfare ; Entrée équipe l'objet s'il est plus puissant, sinon la fenêtre se referme seule.
 - **Poupouce :** un monstre rare se cache parmi les autres (contour rose, cinq fois plus d'or), avec son succès
   « Poupouce ?! » et sa bénédiction du jour, le Jour de Poupouce.
+- **Le Colossal :** une 11e sorte d'élite, grande comme un boss : 120 % de vie en plus, des coups 40 % plus lents, et un succès pour 25 victoires.
 - **Plus clair :** la boutique dit « Atteindre la zone 40 (record 32) » (c'est la zone qui compte, pas le niveau),
   Réglages rejoint les boutons de droite, l'objet sélectionné a un cadre clair, les nombres de dégâts ne passent plus
   sur les informations du haut de la bande, et les récompenses des quêtes (coffre, œuf, éclats, élixirs) s'expliquent
@@ -55,6 +56,7 @@ Sillwalker 0.1.5 is out! Here is what's new since 0.1.4:
   the item if it's stronger, otherwise the window closes by itself; and it plays its little fanfare.
 - **Poupouce:** a rare monster hides among the others (pink outline, five times the gold), with its own achievement,
   "Poupouce?!", and its own daily blessing, Poupouce Day.
+- **The Colossal:** an 11th kind of elite, as big as a boss: 120% more health, 40% slower blows, and an achievement for 25 wins.
 - **Clearer:** the shop says "Reach zone 40 (record 32)" (the zone counts, not the level), Settings joins the buttons
   on the right, the selected item gets a light frame, damage numbers no longer cover the top of the strip, and quest
   rewards (chest, egg, shards, elixirs) explain themselves on hover.
@@ -77,6 +79,7 @@ Thanks for playing!
 - **La experiencia se ve:** una barra bajo el nivel en la franja (brilla en dorado al subir de nivel) y en la burbuja del modo mini.
 - **Cofres que se abren:** reclamar una misión con cofre (clic, «Reclamar todo» o la tecla R) lo abre ante tus ojos, con su fanfarria; Intro equipa el objeto si es más fuerte, si no la ventana se cierra sola.
 - **Poupouce:** un monstruo raro se esconde entre los demás (contorno rosa, cinco veces más oro), con su logro «¿¡Poupouce!?» y su bendición del día, el Día de Poupouce.
+- **El Colosal:** un 11.º tipo de élite, grande como un jefe: 120 % más de vida, golpes un 40 % más lentos y un logro por 25 victorias.
 - **Más claro:** la tienda dice «Alcanza la zona 40 (récord 32)», Ajustes se une a los botones de la derecha, el objeto seleccionado tiene un marco claro, los números de daño ya no tapan la parte de arriba de la franja y las recompensas de misión se explican al pasar el ratón.
 - **Más ligero:** la música ya no se sintetiza en directo, y el tema se libera de la memoria cuando la franja sigue oculta.
 
@@ -91,6 +94,7 @@ Tu partida se conserva: instala la nueva versión encima de la anterior. ¡Graci
 - **A experiência aparece:** uma barra sob o nível na faixa (brilha em dourado ao subir de nível) e no balão do modo mini.
 - **Baús que se abrem:** resgatar uma missão com baú (clique, “Resgatar tudo” ou a tecla R) o abre diante dos seus olhos, com sua fanfarra; Enter equipa o item se for mais forte, senão a janela se fecha sozinha.
 - **Poupouce:** um monstro raro se esconde entre os outros (contorno rosa, cinco vezes mais ouro), com sua conquista “Poupouce?!” e sua bênção do dia, o Dia do Poupouce.
+- **O Colossal:** um 11º tipo de elite, grande como um chefe: 120% mais vida, golpes 40% mais lentos e uma conquista por 25 vitórias.
 - **Mais claro:** a loja diz “Alcance a zona 40 (recorde 32)”, Configurações vai para os botões da direita, o item selecionado ganha uma moldura clara, os números de dano não cobrem mais o topo da faixa e as recompensas de missão se explicam ao passar o mouse.
 - **Mais leve:** a música não é mais sintetizada ao vivo, e a faixa sai da memória quando a faixa do jogo fica escondida.
 
@@ -105,6 +109,7 @@ Seu save é mantido: basta instalar a nova versão por cima da antiga. Obrigado 
 - **Erfahrung sichtbar:** eine Anzeige unter der Stufe in der Leiste (sie leuchtet golden beim Stufenaufstieg) und in der Blase des Mini-Modus.
 - **Truhen zum Öffnen:** Eine Quest mit Truhe abholen (Klick, „Alle abholen“ oder Taste R) öffnet sie vor deinen Augen, mit kleiner Fanfare; Enter rüstet den Gegenstand aus, wenn er stärker ist, sonst schließt sich das Fenster von selbst.
 - **Poupouce:** Ein seltenes Monster versteckt sich unter den anderen (rosa Umriss, fünfmal so viel Gold), mit eigenem Erfolg „Poupouce?!“ und eigenem Tagessegen, dem Poupouce-Tag.
+- **Der Kolossale:** eine 11. Eliteart, groß wie ein Boss: 120 % mehr Leben, 40 % langsamere Schläge und ein Erfolg für 25 Siege.
 - **Klarer:** Der Laden sagt „Erreiche Zone 40 (Rekord 32)“, Einstellungen sitzt bei den Knöpfen rechts, der gewählte Gegenstand hat einen hellen Rahmen, Schadenszahlen verdecken den oberen Rand der Leiste nicht mehr und Quest-Belohnungen erklären sich beim Überfahren.
 - **Leichter:** Die Musik wird nicht mehr live erzeugt, und das Stück wird aus dem Speicher entfernt, solange die Leiste verborgen ist.
 
@@ -119,6 +124,7 @@ Dein Spielstand bleibt erhalten: Installiere die neue Version einfach über die 
 - **Widać doświadczenie:** pasek pod poziomem na pasku gry (błyska złotem przy nowym poziomie) i w dymku trybu mini.
 - **Skrzynie do otwierania:** odebranie zadania ze skrzynią (klik, „Odbierz wszystko” lub klawisz R) otwiera ją na twoich oczach, z fanfarą; Enter zakłada przedmiot, jeśli jest silniejszy, inaczej okno zamyka się samo.
 - **Poupouce:** rzadki potwór ukrywa się wśród innych (różowy kontur, pięć razy więcej złota), z własnym osiągnięciem „Poupouce?!” i własnym błogosławieństwem dnia, Dniem Poupouce.
+- **Kolosalny:** 11. rodzaj elity, wielki jak boss: 120% więcej życia, ciosy o 40% wolniejsze i osiągnięcie za 25 zwycięstw.
 - **Czytelniej:** sklep pisze „Osiągnij strefę 40 (rekord 32)”, Ustawienia trafiły do przycisków po prawej, wybrany przedmiot ma jasną ramkę, liczby obrażeń nie zasłaniają już góry paska, a nagrody zadań tłumaczą się po najechaniu.
 - **Lżej:** muzyka nie jest już syntetyzowana na żywo, a utwór znika z pamięci, gdy pasek jest ukryty.
 
@@ -133,6 +139,7 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **Опыт виден:** шкала под уровнем на полосе (вспыхивает золотом при новом уровне) и в подсказке мини-режима.
 - **Сундуки, которые открываются:** награда за задание с сундуком (щелчок, «Забрать всё» или клавиша R) открывает его у тебя на глазах, с фанфарой; Enter надевает предмет, если он сильнее, иначе окно закрывается само.
 - **Poupouce:** среди монстров прячется редкий (розовый контур, в пять раз больше золота), со своим достижением «Poupouce?!» и своим благословением дня — Днём Poupouce.
+- **Колоссальный:** 11-й вид элиты размером с босса: на 120 % больше здоровья, удары на 40 % медленнее и достижение за 25 побед.
 - **Понятнее:** лавка пишет «Достигни зоны 40 (рекорд 32)», Настройки переехали к кнопкам справа, у выбранного предмета светлая рамка, числа урона больше не закрывают верх полосы, а награды заданий объясняются при наведении.
 - **Легче:** музыка больше не синтезируется на лету, а композиция выгружается из памяти, пока полоса скрыта.
 
@@ -147,6 +154,7 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **经验看得见：** 长条上的等级下方新增经验条（升级时闪耀金光），迷你模式的提示中也会显示。
 - **亲手开宝箱：** 领取带宝箱的任务（点击、“全部领取”或 R 键）时，宝箱会在你眼前打开并奏响小号角；若物品更强，按回车即可装备，否则窗口自动关闭。
 - **Poupouce：** 一只稀有怪物藏在怪物之中（粉色轮廓，掉落五倍金币），拥有专属成就“Poupouce？！”和专属每日祝福“Poupouce 之日”。
+- **巨硕：** 第 11 种精英，体型如首领：生命值多 120%，攻击慢 40%，击败 25 只即可获得成就。
 - **更清楚：** 商店显示“到达第 40 区（纪录 32）”，“设置”移到右侧按钮旁，选中的物品有浅色边框，伤害数字不再遮住长条顶部，任务奖励悬停即可看到说明。
 - **更轻量：** 音乐不再实时合成，长条隐藏时曲目会从内存中释放。
 
@@ -161,6 +169,7 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **経験値が見える：** バーのレベルの下に経験値ゲージ（レベルアップで金色に光る）、ミニモードの吹き出しにも表示。
 - **自分で開ける宝箱：** 宝箱つきのクエストを受け取る（クリック、「すべて受け取る」、R キー）と、ファンファーレとともに目の前で開く。より強いアイテムなら Enter で装備、そうでなければウィンドウは自動で閉じる。
 - **Poupouce：** レアモンスターが紛れ込んでいる（ピンクの輪郭、ゴールド 5 倍）。専用の実績「Poupouce？！」と、専用の今日の祝福「Poupouce の日」つき。
+- **巨大：** 11 種目のエリート、ボス並みの大きさ：HP 120% 増し、攻撃は 40% 遅く、25 体倒すと実績。
 - **わかりやすく：** ショップは「エリア 40 に到達（記録 32）」と表示、「設定」は右側のボタンの並びへ、選択中のアイテムは明るい枠、ダメージ表示がバー上部に重ならなくなり、クエスト報酬はマウスを乗せると説明が出る。
 - **より軽く：** 音楽はリアルタイム合成をやめ、バーが隠れている間は曲をメモリから解放する。
 
@@ -175,6 +184,7 @@ Twój zapis zostaje: po prostu zainstaluj nową wersję na starą. Dzięki za gr
 - **경험치가 보입니다:** 띠의 레벨 아래 경험치 게이지(레벨 업 때 금빛으로 반짝임)와 미니 모드 말풍선.
 - **직접 여는 상자:** 상자가 걸린 퀘스트를 받으면(클릭, "모두 받기", R 키) 팡파르와 함께 눈앞에서 열립니다. 더 강한 아이템이면 Enter로 장착, 아니면 창이 저절로 닫힙니다.
 - **Poupouce:** 희귀 몬스터가 다른 몬스터들 사이에 숨어 있습니다(분홍 윤곽선, 골드 5배). 전용 업적 "Poupouce?!"와 전용 오늘의 축복 "Poupouce의 날"까지.
+- **거대한:** 11번째 정예 종류, 보스만큼 큼: 체력 120% 증가, 공격 40% 느림, 25마리 처치 시 업적.
 - **더 명확하게:** 상점에 "구역 40 도달 (기록 32)"이 표시되고, "설정"은 오른쪽 버튼 옆으로, 선택한 아이템은 밝은 테두리, 피해 숫자가 띠 위쪽을 가리지 않으며, 퀘스트 보상은 마우스를 올리면 설명이 나옵니다.
 - **더 가볍게:** 음악을 실시간으로 합성하지 않고, 띠가 숨겨져 있는 동안에는 곡을 메모리에서 해제합니다.
 
