@@ -3037,5 +3037,7 @@ export const KEYS = [
   "×2 aujourd’hui (Jour des familiers)",
   "Journal : les lignes importantes (légendaire, épique, quête, coffre, K.O.) sont colorées dans toutes les langues, plus seulement en français.",
   "Jour des familiers : la carte du familier actif montre son bonus doublé.",
-  "Jour des familiers sans familier actif : la bénédiction l’indique et dit où en trouver."
+  "Jour des familiers sans familier actif : la bénédiction l’indique et dit où en trouver.",
+  "Lignes importantes seulement",
+  "Aucune ligne importante pour l’instant."
 ];

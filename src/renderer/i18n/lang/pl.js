@@ -1908,4 +1908,6 @@ export default {
   3033: "Dziennik: ważne wiersze (legendarne, epickie, zadanie, skrzynia, K.O.) są kolorowe we wszystkich językach, nie tylko po francusku.",
   3034: "Dzień pupili: karta aktywnego pupila pokazuje podwojoną premię.",
   3035: "Dzień pupili bez aktywnego pupila: błogosławieństwo o tym mówi i podpowiada, skąd go wziąć.",
+  3036: "Tylko ważne wiersze",
+  3037: "Na razie brak ważnych wierszy.",
 };

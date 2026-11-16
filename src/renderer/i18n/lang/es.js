@@ -1908,4 +1908,6 @@ export default {
   3033: "Diario: las líneas importantes (legendario, épico, misión, cofre, K.O.) se colorean en todos los idiomas, no solo en francés.",
   3034: "Día de las mascotas: la tarjeta de la mascota activa muestra su bonificación duplicada.",
   3035: "Día de las mascotas sin mascota activa: la bendición lo indica y dice dónde conseguir una.",
+  3036: "Solo líneas importantes",
+  3037: "Aún no hay líneas importantes.",
 };

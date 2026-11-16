@@ -1908,4 +1908,6 @@ export default {
   3033: "Log: important lines (legendary, epic, quest, chest, K.O.) are colored in every language, not just French.",
   3034: "Pet Day: the active pet's card shows its doubled bonus.",
   3035: "Pet Day without an active pet: the blessing says so and where to find one.",
+  3036: "Important lines only",
+  3037: "No important lines yet.",
 };

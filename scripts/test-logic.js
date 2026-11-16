@@ -3344,6 +3344,15 @@ test("journal : couleurs tirées des messages traduits, plus d'expressions en fr
   assert.ok(!/class=/.test(h("Une ligne ordinaire.")), "rien");
 });
 
+test("journal : « Lignes importantes seulement » ne garde que les lignes colorées (it. 1723)", () => {
+  const coffre = tT("Coffre au trésor ! +{0} or", { 0: 120 });
+  const L = ["Une ligne ordinaire.", coffre, "Encore une ligne ordinaire."];
+  const all = logHTML1715(L), imp = logHTML1715(L, 60, true);
+  assert.equal((all.match(/<li/g) || []).length, 3, "tout");
+  assert.equal((imp.match(/<li/g) || []).length, 1, "une seule importante"); assert.ok(/lg-rare/.test(imp), "le coffre");
+  assert.ok(/class="muted"/.test(logHTML1715(["Rien de spécial."], 60, true)), "message quand rien d'important");
+});
+
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
   const P = freshState().settings;
   assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");

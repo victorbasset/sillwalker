@@ -998,6 +998,8 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* (it. 1677, demande de Victor) Statistiques > Journal : le journal quitte l'Aventure, sur toute la largeur */
 .statgrid.sec-log > article:not(.logpanel) { display: none; }
 .statgrid.sec-log > .logpanel { grid-column: 1 / -1; }
+.logpanel h2 { display: flex; align-items: center; gap: 12px; }
+.logpanel h2 .logimp { margin-left: auto; font-size: 13px; }
 .logpanel .log { max-height: 320px; } /* la liste défile en elle-même ; l'onglet, jamais (lang-overflow : 360 px faisait défiler de 7 à 13 px) */
 .classgrid.sec-freed > .classcard.locked, .classgrid.sec-locked > .classcard:not(.locked) { display: none; }
 /* Boutique en sous-onglets (demande 18) : marchand / déblocages / atelier */

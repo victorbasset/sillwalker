@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1723) : Statistiques > Journal : case « Lignes importantes seulement » (settings.logImportant, gardée dans la
+  sauvegarde) : seules les lignes colorées (butin, quêtes, coffres, K.O.…) restent, les comptes rendus de routine écartés ;
+  message s'il n'y en a aucune. Captures en, de. Clés 3036-3037, test ; npm test 325, autotest 246/246.
 - 2026-11-16 (it. 1722) : contrôles sans correction. Mode mini en français et japonais : propre. Alertes « [lent] » de l'autotest
   (onglets à 200-270 ms jusqu'à l'image, JavaScript 2-7 ms) : mesurées hors autotest (mise en scène, 4 ouvertures de
   6 onglets, copie de dev-data) : 13-34 ms, une ou deux images ; la lenteur vient de la charge de l'autotest, pas du jeu.

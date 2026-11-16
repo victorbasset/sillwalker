@@ -28,5 +28,10 @@ function patterns() {
 }
 const logClass = (l) => { const s = lc(l), m = patterns().find(([, fs]) => fs.some((f) => s.includes(f))); return m ? ` class="${m[0]}"` : ""; };
 
-/** Lignes du journal (les plus récentes d'abord), colorées selon ce qu'elles racontent. */
-export const logHTML = (L, n = 60) => (L && L.length ? L.slice(0, n).map((l) => `<li${logClass(l)}>${esc(l)}</li>`).join("") : tx("<li>Ton héros se met en route.</li>"));
+/** Lignes du journal (les plus récentes d'abord), colorées selon ce qu'elles racontent. (it. 1723) `important` : seulement
+ *  les lignes colorées (butin, quêtes, coffres, K.O.…), les comptes rendus de routine écartés. */
+export const logHTML = (L, n = 60, important = false) => {
+  if (!L || !L.length) return tx("<li>Ton héros se met en route.</li>");
+  const rows = L.slice(0, important ? 400 : n).map((l) => [l, logClass(l)]).filter(([, c]) => !important || c).slice(0, n);
+  return rows.length ? rows.map(([l, c]) => `<li${c}>${esc(l)}</li>`).join("") : `<li class="muted">${tx("Aucune ligne importante pour l’instant.")}</li>`;
+};

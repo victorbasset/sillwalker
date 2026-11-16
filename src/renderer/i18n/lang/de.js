@@ -1908,4 +1908,6 @@ export default {
   3033: "Protokoll: wichtige Zeilen (legendär, episch, Quest, Truhe, K.O.) sind in allen Sprachen gefärbt, nicht nur auf Französisch.",
   3034: "Tag der Begleiter: Die Karte des aktiven Begleiters zeigt den verdoppelten Bonus.",
   3035: "Tag der Begleiter ohne aktiven Begleiter: Der Segen sagt es und wo man einen findet.",
+  3036: "Nur wichtige Zeilen",
+  3037: "Noch keine wichtigen Zeilen.",
 };
