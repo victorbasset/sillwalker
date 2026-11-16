@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1641, revue générale) : simulation 12 h graine 7 : druide 64, barde 64, gardien stellaire 65 ; perf:linux bande
+  18,5 %, panneau 19,8 %, mini 5,7 % ; mode mini (en) et Quêtes (ko) propres ; allemand sans mot français. Vu en
+  coréen : un nombre empilé tout en haut de la bande (y ≈ −6) montait encore de 22 px et sortait coupé de la fenêtre ;
+  sa montée s'arrête maintenant au bord (strip.js float). npm test, autotest 242/242.
 - 2026-11-16 (it. 1640) : bulle du mode mini : un déblocage pas encore en vente dit « Atteindre la zone 22 (record 5) », comme la
   boutique (retour de Kreen, it. 1548) ; vérifié en mise en scène en français et en allemand. npm test, autotest 242/242.
 - 2026-11-16 (it. 1639) : fiche de l'assassin : le bonus d'attaque est calculé (Attaque +15 % sans autre retouche) ; jauge d'XP de la

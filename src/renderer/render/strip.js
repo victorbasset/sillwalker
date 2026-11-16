@@ -430,7 +430,9 @@ export class StripRenderer {
     f.textContent = txt;
     f.style.color = col;
     // (it. 1591) sous une pastille du haut (près du boss aussi) : la montée s'arrête sous la rangée
-    this.addFx(f, at.x, at.y, 1, underHud ? Math.max(4, Math.min(22, at.y - hb.h - 2)) : 22);
+    // (it. 1641) ailleurs, un nombre empilé tout en haut (y ≈ −6) montait encore de 22 px et sortait de la fenêtre,
+    // coupé à moitié (revue en coréen) : sa montée s'arrête au bord
+    this.addFx(f, at.x, at.y, 1, underHud ? Math.max(4, Math.min(22, at.y - hb.h - 2)) : Math.max(4, Math.min(22, at.y + 6)));
     const e = this.fx[this.fx.length - 1];
     e.box = { x: at.x, y: at.y, w, h };
   }
