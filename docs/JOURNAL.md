@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1645) : save-fuzz après Poupouce hors ligne (it. 1643) : ok balayage (1 246 corruptions) ; FUZZ_BASE=fin : ok (1 204).
 - 2026-11-16 (it. 1644) : « Quoi de neuf », édition 108 (Poupouce et gobelins dans le résumé d'absence, assassin +15 %, record
   dans la bulle du mode mini), 10 langues, noms repris tels que traduits (Poupouce reste latin). Clés 3008-3010.
 - 2026-11-16 (it. 1643) : absence : Poupouce peut maintenant tomber pendant l'absence (0,4 % des victoires dès la zone 2,
