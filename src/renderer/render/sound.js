@@ -102,6 +102,23 @@ export class Sound {
     o.start(t); o.stop(t + dur + 0.02);
   }
 
+  /** (it. 1734) Miaulement de Poupouce : « mi-aou », une voyelle qui monte puis retombe (deux oscillateurs un peu désaccordés,
+   *  filtre qui s'ouvre et se ferme pour le « a-ou »). Discret : au niveau des effets ordinaires. */
+  meow() {
+    const ctx = this.ctx, t = ctx.currentTime;
+    const f = ctx.createBiquadFilter(), g = ctx.createGain();
+    f.type = "bandpass"; f.Q.value = 3;
+    f.frequency.setValueAtTime(900, t); f.frequency.linearRampToValueAtTime(1800, t + 0.15); f.frequency.linearRampToValueAtTime(700, t + 0.5);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.35, t + 0.05);
+    g.gain.setValueAtTime(0.35, t + 0.3); g.gain.exponentialRampToValueAtTime(0.001, t + 0.55);
+    f.connect(g); g.connect(this.master);
+    for (const d of [1, 1.006]) {
+      const o = ctx.createOscillator(); o.type = "sawtooth";
+      o.frequency.setValueAtTime(620 * d, t); o.frequency.linearRampToValueAtTime(840 * d, t + 0.16); o.frequency.linearRampToValueAtTime(560 * d, t + 0.5);
+      o.connect(f); o.start(t); o.stop(t + 0.6);
+    }
+  }
+
   /** Bruit qui s'éteint. `freq` : filtre passe-bande (couleur du bruit : sourd, sec, sifflant) ; 0 = bruit blanc. */
   noise(start, dur, gain = 0.3, freq = 0, q = 1) {
     const ctx = this.ctx, t = ctx.currentTime + start, n = Math.max(1, Math.floor(ctx.sampleRate * dur));
@@ -455,6 +472,8 @@ export class Sound {
     // Moments qui n'avaient pas de son (suite de la demande C) ; les plus fréquents sont limités dans le temps.
     const on = (ev, ms, fn) => game.on(ev, (p) => { if (this.enabled && this.ensure() && this.throttle("ev-" + ev, ms)) fn(p); });
     const N = NOTES;
+    // (it. 1734) Poupouce arrive : un miaulement (pas par `on` : sa limite compterait chaque monstre qui apparaît)
+    game.on("spawn", (m) => { if (m && m.poupouce && this.enabled && this.ensure()) this.meow(); });
     on("dodge", 400, () => this.whoosh(0, 0.18, 900, 2600, 0.25, 1.5)); // esquive : souffle bref qui monte
     on("bossDodge", 400, () => this.whoosh(0, 0.18, 2200, 800, 0.2, 1.5)); // le boss esquive : souffle qui descend
     on("riposte", 300, () => { this.tone(2900, 0, 0.05, "square", 0.04); this.tone(1900, 0.02, 0.12, "triangle", 0.08, 0.9); }); // parade : clac métallique

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1734) : Poupouce miaule en arrivant (sound.js, meow : deux dents de scie désaccordées, filtre « mi-aou »),
+  branché sur l'apparition sans limiteur commun (il aurait compté chaque monstre). Ajouté au rendu hors ligne de l'autotest
+  (« miaou ») ; à écouter par Victor. Page Steam : « 80 monstres » reste juste (contrôle « ≤ »). Autotest 247/247.
 - 2026-11-16 (it. 1733) : « Quoi de neuf », édition 114 (Poupouce en chat, Journal : lignes importantes et symboles, Journal dès la
   zone 3) ; 10 langues, clés 3041-3043. npm test 328, autotest 247/247.
 - 2026-11-16 (it. 1732) : Poupouce au Bestiaire : ceux vaincus avant l'it. 1730 (stats.poupouce) comptent pour sa carte (migrate,

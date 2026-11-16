@@ -128,3 +128,4 @@ maintenant aussi une phrase oubliée dans toutes les langues.
 
 - (2026-11-16, it. 1732) Poupouce (chat) compte au Bestiaire ; les Poupouce vaincus avant ce changement comptent pour sa
   carte, pour ne pas défaire une collection complète. Si tu préfères qu'il reste hors du total, dis-le.
+- (it. 1734) À écouter : Poupouce miaule en arrivant (impossible à entendre sur le serveur). Trop fort, trop faible, pas assez chat ?
