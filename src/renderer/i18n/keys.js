@@ -3001,5 +3001,7 @@ export const KEYS = [
   "Poupouce se repère de loin : un contour rose, assorti à son nom.",
   "Statistiques : une fois Poupouce vaincu, sa chance d’apparition rejoint les Probabilités.",
   "À dépenser dans les constellations (Ascension), sans avoir à recommencer.",
-  "Il rejoint tes œufs (Familiers) : fais-le éclore pour un nouveau compagnon."
+  "Il rejoint tes œufs (Familiers) : fais-le éclore pour un nouveau compagnon.",
+  "Colossal",
+  "120 % de points de vie en plus, mais frappe 40 % plus lentement."
 ];

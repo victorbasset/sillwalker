@@ -1872,4 +1872,6 @@ export default {
   2997: "Statistiken: Sobald Poupouce besiegt ist, steht seine Erscheinungschance bei den Wahrscheinlichkeiten.",
   2998: "In den Sternbildern auszugeben (Aufstieg), ohne neu anfangen zu müssen.",
   2999: "Es kommt zu deinen Eiern (Begleiter): Brüte es aus für einen neuen Gefährten.",
+  3000: "Kolossal",
+  3001: "120 % mehr Lebenspunkte, schlägt aber 40 % langsamer zu.",
 };

@@ -1872,4 +1872,6 @@ export default {
   2997: "Estadísticas: una vez vencido Poupouce, su probabilidad de aparecer se suma a las Probabilidades.",
   2998: "Para gastar en las constelaciones (Ascensión), sin tener que volver a empezar.",
   2999: "Se une a tus huevos (Mascotas): incúbalo para tener un nuevo compañero.",
+  3000: "Colosal",
+  3001: "120 % más de vida, pero golpea un 40 % más lento.",
 };

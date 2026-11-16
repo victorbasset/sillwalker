@@ -1872,4 +1872,6 @@ export default {
   2997: "Statystyki: po pokonaniu Poupouce jego szansa na pojawienie się trafia do Prawdopodobieństw.",
   2998: "Do wydania w gwiazdozbiorach (Wniebowstąpienie), bez zaczynania od nowa.",
   2999: "Trafia do twoich jaj (Pupile): wykluj je, by zyskać nowego towarzysza.",
+  3000: "Kolosalny",
+  3001: "120% więcej życia, ale uderza o 40% wolniej.",
 };

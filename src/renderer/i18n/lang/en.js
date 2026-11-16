@@ -1872,4 +1872,6 @@ export default {
   2997: "Statistics: once Poupouce is defeated, his chance to appear joins the Probabilities.",
   2998: "Spend them on constellations (Ascension), no restart needed.",
   2999: "It joins your eggs (Pets): hatch it for a new companion.",
+  3000: "Colossal",
+  3001: "120% more health, but strikes 40% slower.",
 };

@@ -1872,4 +1872,6 @@ export default {
   2997: "Estatísticas: depois de derrotar o Poupouce, a chance de ele aparecer entra nas Probabilidades.",
   2998: "Para gastar nas constelações (Ascensão), sem precisar recomeçar.",
   2999: "Ele se junta aos seus ovos (Mascotes): choque-o para ganhar um novo companheiro.",
+  3000: "Colossal",
+  3001: "120% mais vida, mas ataca 40% mais devagar.",
 };

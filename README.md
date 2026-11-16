@@ -118,7 +118,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   sorts pendant 4 s, toutes les 15 s) réservé aux échos des lieutenants (zones 250, 300, 350). Un boss qui bat le héros s'use : −5 % de PV par défaite
   (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu. Parade : le Talisman de pureté (pouvoir légendaire) repousse
   la malédiction et le venin.
-- **Élites à affixes** : rapide, blindé, vampirique, furieux, givré (ses coups peuvent geler le héros), épineux (renvoie 15 % des dégâts reçus, sans achever le héros), fuyant (esquive 20 % des coups), venimeux (ses coups peuvent empoisonner le héros), régénérant (regagne 3 % de sa vie chaque seconde, sauf s’il brûle ou est empoisonné) ou explosif (inflige au héros 6 % de ses PV max en mourant, sans l’achever).
+- **Élites à affixes** : rapide, blindé, vampirique, furieux, givré (ses coups peuvent geler le héros), épineux (renvoie 15 % des dégâts reçus, sans achever le héros), fuyant (esquive 20 % des coups), venimeux (ses coups peuvent empoisonner le héros), régénérant (regagne 3 % de sa vie chaque seconde, sauf s’il brûle ou est empoisonné) ou explosif (inflige au héros 6 % de ses PV max en mourant, sans l’achever), colossal (120 % de PV en plus, coups 40 % plus lents).
 - **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
 - **Poupouce** (demande d'un joueur) : environ un monstre ordinaire sur 250 (dès la zone 2) porte ce nom, en rose au-dessus
   de lui, et rapporte 5 fois plus d'or ; le héros s'en étonne, un succès et une bénédiction du jour (×10) lui sont dédiés.

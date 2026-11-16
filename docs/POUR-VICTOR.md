@@ -13,7 +13,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   originale (par exemple « Sentiers d'étoiles », 92 bpm, ou « Les Lieutenants », 96 bpm) demande de recaler les plans et
   ajoute ≈ 250 Mo à l'historique git : à décider. `scripts/trailer/music.js` sait déjà fournir un morceau en WAV.
 - **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 18 événements rares,
-  10 sortes d'élites et 19 sortes de quêtes (it. 1375, 1382, 1406 et 1452).
+  11 sortes d'élites (le Colossal, it. 1617) et 19 sortes de quêtes (it. 1375, 1382, 1406, 1452 et 1617).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
   (it. 1395), `CHESTS_50` « Pilleur de coffres (50 coffres) » (it. 1430), `POUPOUCE` « Poupouce ?! » (it. 1576), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).
   Liste complète : `steam/achievements.md` (71 succès).

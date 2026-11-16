@@ -226,6 +226,8 @@ export const ELITE_AFFIXES = {
   regen:    { name: "Régénérant", color: "#5fe0b0", regen: 0.03, desc: "Regagne 3 % de sa vie maximale chaque seconde, sauf s’il brûle ou est empoisonné." },
   // (it. 1382) 10e sorte : une dernière surprise à sa mort (le danger est à la fin, pas pendant le combat)
   explosive: { name: "Explosif",  color: "#ff6a3a", explode: 0.06, desc: "Explose en mourant : inflige au héros 6 % de ses PV max, sans jamais l’achever." },
+  // (it. 1617) 11e sorte : un mur lent (le contraire du Rapide) : beaucoup de vie, des coups espacés
+  colossal: { name: "Colossal",   color: "#d9b38c", hp: 2.2, interval: 1.4, desc: "120 % de points de vie en plus, mais frappe 40 % plus lentement." },
 };
 
 // Les zones bouclent : après la dernière, on repart de la première avec des
