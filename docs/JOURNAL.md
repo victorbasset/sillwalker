@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1675) : russe, tuile de la carte du héros : « Очки здоровья » (deux lignes à 1280 px) → « Здоровье », sur une ligne
+  comme les trois autres ; polonais (« Punkty życia ») déjà sur une ligne. npm test, autotest 244/244.
 - 2026-11-16 (it. 1674) : POUR-VICTOR : nouveautés de la fin de matinée (it. 1651-1673).
 - 2026-11-16 (it. 1673) : autotest « bande : Poupouce vaincu (bannière et réplique) » : 244/244. (Premier essai : sans monstre en
   combat, le monstre simulé n'avait pas d'espèce et le cadavre plantait ; l'espèce vient maintenant de la file.)
