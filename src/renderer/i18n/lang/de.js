@@ -1895,4 +1895,5 @@ export default {
   3020: "Der Knopf Einstellungen sitzt nun direkt links von „Mini-Modus“.",
   3021: "Das Menü des Panels bleibt einzeilig, auch wenn du die Oberfläche vergrößerst oder die Fenstergröße änderst.",
   3022: "Der Trailer wurde mit dem Original-Soundtrack des Spiels („Der Saum“) neu gemacht, in allen 10 Sprachen.",
+  3023: "Protokoll öffnen (Statistiken)",
 };

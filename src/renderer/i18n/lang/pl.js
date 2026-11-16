@@ -1895,4 +1895,5 @@ export default {
   3020: "Przycisk Ustawienia jest ostatecznie tuż na lewo od „Tryb mini”.",
   3021: "Menu panelu zostaje w jednej linii, nawet po powiększeniu interfejsu lub zmianie rozmiaru okna.",
   3022: "Zwiastun powstał na nowo z oryginalną ścieżką dźwiękową gry („Krawędź”), we wszystkich 10 językach.",
+  3023: "Otwórz Dziennik (Statystyki)",
 };

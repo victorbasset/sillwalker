@@ -1895,4 +1895,5 @@ export default {
   3020: "O botão Configurações fica finalmente logo à esquerda de \"Modo mini\".",
   3021: "O menu do painel fica em uma só linha, mesmo ao aumentar a interface ou redimensionar a janela.",
   3022: "O trailer foi refeito com a trilha sonora original do jogo (\"O Parapeito\"), nos 10 idiomas.",
+  3023: "Abrir o Diário (Estatísticas)",
 };

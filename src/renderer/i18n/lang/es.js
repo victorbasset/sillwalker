@@ -1895,4 +1895,5 @@ export default {
   3020: "El botón Ajustes queda finalmente justo a la izquierda de «Modo mini».",
   3021: "El menú del panel se mantiene en una sola línea, incluso al agrandar la interfaz o cambiar el tamaño de la ventana.",
   3022: "El tráiler se ha rehecho con la banda sonora original del juego («El Alféizar»), en los 10 idiomas.",
+  3023: "Abrir el Diario (Estadísticas)",
 };
