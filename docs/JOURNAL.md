@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1696) : --crawl en anglais sur la partie de fin de partie après la nouvelle disposition (Journal, Aventure,
+  Réglages, touche J) : 687 clics en 22 s, aucune erreur.
 - 2026-11-16 (it. 1695) : --perf avec un sac plein de 48 objets (16 colonnes) : panneau ouvert 19,4 %, bande 18,2 % : comme avec 24.
   Aucun texte du jeu ne situe plus le Journal dans l'Aventure.
 - 2026-11-16 (it. 1694) : touche J : ouvre Statistiques > Journal (un appui au lieu de deux clics, le Journal ayant quitté l'Aventure) ;
