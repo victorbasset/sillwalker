@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1766, contrôle) : légendaire de Poupouce avec le sac plein : perdu au sol comme tout butin (règle de Victor,
+  addToBag) ; question posée dans POUR-VICTOR, rien changé.
 - 2026-11-16 (it. 1765, contrôle) : save-fuzz après les ajouts de migrate du jour (Poupouce au Bestiaire, statsFullSeen) : base fin
   « ok balayage (1218) », base 0.1.2 « ok balayage (1162) ».
 - 2026-11-16 (it. 1764) : devlog 0.1.5 : bloc « Publication » en tête (titre, couverture, tags, langues, texte) ; CLAUDE.md : le préparer

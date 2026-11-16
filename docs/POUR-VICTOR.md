@@ -138,3 +138,5 @@ maintenant aussi une phrase oubliée dans toutes les langues.
   4. Poupouce (rare) : le chat et son miaulement ; trop fort, trop faible ?
   Envoi itch.io après ton « oui » : `REF=v0.1.5 scripts/itch-push.sh victor-basset/sillwalker` (version figée, le code a avancé).
 - (it. 1759) 0.1.5 ENVOYÉE sur itch.io (windows, linux, mac en 0.1.5). Reste : publier le devlog (steam/itch/devlog-0.1.5.html).
+- (it. 1766) Question : sac plein, le légendaire garanti de Poupouce reste au sol et se perd (ta règle « tant pis » pour tout
+  le butin). Faut-il une exception pour lui (rangé quand même, ou vendu automatiquement) ? Rien changé en attendant.
