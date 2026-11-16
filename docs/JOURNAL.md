@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1571, revue générale) : simulation 12 h graine 21 : mage 66, samouraï 65, moine 62 ; perf:linux bande
+  18,1 %, panneau 20,2 %, mini 6,0 % ; Familiers (de) et Bestiaire (ko) sans défaut ; texte polonais sans mot français.
+  Corrigé : les nombres de dégâts du héros montaient sur la pastille de la zone et les barres de vie (rangée du haut, à
+  gauche) : sous une pastille, ils partent plus bas et s'empilent vers le bas (comme près du boss). Autotest : la touche R
+  ouvre maintenant le coffre (it. 1568) : la fenêtre restait ouverte et faisait échouer, selon le tirage de la quête, les
+  contrôles du Bestiaire qui suivent ; refermée après le contrôle (2 passes à 240/240).
 - 2026-11-16 (it. 1570, suite du retour « on monte de niveau sans savoir comment ») : au niveau gagné, la jauge d'XP
   sous « Niv. N » se remplit en or un instant (1,2 s), en plus de la bannière « Niveau N ! » : le lien jauge / niveau se voit.
 - 2026-11-16 (it. 1569) : contrôles après Poupouce : fuzz avec chaque bénédiction du jour (FUZZ_DAYMOD=all, 600 parties,

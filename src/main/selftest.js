@@ -570,6 +570,7 @@ async function runSelfTest(strip) {
   wc.sendInputEvent({ type: "keyDown", keyCode: "R" }); wc.sendInputEvent({ type: "char", keyCode: "r" }); wc.sendInputEvent({ type: "keyUp", keyCode: "R" });
   await sleep(200);
   check("raccourci R : quête terminée réclamée", await js("!window.__game.S.quests.slots.some((q) => q.uid === window.__rq)"));
+  await js("document.querySelector('#modal').hidden = true"); // (it. 1571) coffre de la quête ouvert sous les yeux (it. 1568) : on referme
   // M : réduire en mode mini (puis retour à la bande pour la suite du parcours)
   wc.sendInputEvent({ type: "keyDown", keyCode: "M" }); wc.sendInputEvent({ type: "char", keyCode: "m" }); wc.sendInputEvent({ type: "keyUp", keyCode: "M" });
   await until(async () => strip.mode() === "mini", 3000);

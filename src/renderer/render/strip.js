@@ -404,6 +404,10 @@ export class StripRenderer {
     const m = this.game.R.mon;
     const nearBoss = m && m.boss && Math.abs(x - this.monX()) < 90;
     if (nearBoss) y = Math.max(y, 46);
+    // (it. 1571) sous une pastille de la rangée du haut (zone, barres de vie, or) : même départ bas, pour finir sa montée
+    // (22 px) sous la rangée plutôt que sur la pastille
+    let underHud = false;
+    if (!nearBoss) { const hb = this.hudBands(); underHud = hb.bands.some(([a, b]) => x > a - 20 && x < b + 20); if (underHud) y = Math.max(y, hb.h + 20); }
     // Nombres qui tombent au même endroit au même instant (fin de partie : coup, critique et dégâts reçus) : chacun
     // cherche une place libre parmi les nombres encore jeunes, au-dessus puis au-dessous, sinon de côté (it. 846).
     // Largeur estimée sans mesure de mise en page : les caractères chinois, japonais et coréens sont deux fois plus larges
@@ -415,7 +419,7 @@ export class StripRenderer {
     // (it. 1562) le nom du boss s'étend vers la gauche au-dessus du héros : les nombres du héros (critiques, esquives),
     // loin du boss, montaient dessus ; ils l'évitent dès que le nom est affiché (combat du boss, ou boss en attente au
     // bout de la file)
-    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss ? y - (big ? 14 : 12) : -6, this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : null);
+    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss || underHud ? y - (big ? 14 : 12) : -6, this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : null);
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
