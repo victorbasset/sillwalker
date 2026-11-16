@@ -884,6 +884,9 @@ async function runSelfTest(strip) {
   // (it. 969) détail du retour : « Or gagné » = combats + expéditions du Grand intendant (le même total que la bulle)
   const offD = await js("(() => { const P = window.__panel; P.showOfflineSummary({ seconds: 28800, duration: '8 h', zone: 'Z', kills: 10, gold: 1000, petGold: 500, xp: 1, kept: 0, best: -1, steps: [], petWork: 3, capH: 8, questsDone: 2 }); const t = document.getElementById('mbody').textContent; document.querySelector('#modal [data-action=closemodal]').click(); return t; })()");
   check("retour d’absence : or gagné total, expéditions du Grand intendant détaillées", /1[,.\s\u00a0\u202f]?500/.test(offD) && /\+500/.test(offD) && /Quests completed\s*2/.test(offD), offD.slice(0, 300));
+  // (it. 1778-1780) Poupouce vaincus pendant l'absence : la ligne compte les légendaires vraiment rangés (3 vaincus, 1 rangé)
+  const offP = await js("(() => { const P = window.__panel; P.showOfflineSummary({ seconds: 3600, duration: '1 h', zone: 'Z', kills: 10, gold: 1, xp: 1, kept: 0, best: -1, steps: [], poupouce: 3, poupouceLeg: 1 }); const li = [...document.querySelectorAll('#mbody li')].find((l) => l.textContent.includes('Poupouce')); const t = li ? li.textContent : ''; document.querySelector('#modal [data-action=closemodal]').click(); return t; })()");
+  check("retour d’absence : Poupouce vaincus et légendaires rangés (+1, pas +3)", /3/.test(offP) && /\+1\b/.test(offP) && !/\+3/.test(offP), offP);
   // (it. 1053) bulle d'info du panneau zoomé (« Taille de l'interface » 130 %) : près de la souris, pas 200 px plus loin
   const tipZ = await js(`(() => { const P = window.__panel, root = document.getElementById("panel"), keep = root.style.zoom, tab = P.tab;
     try {
