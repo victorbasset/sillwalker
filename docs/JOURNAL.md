@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1796, essai abandonné) : assassin, poison 15 % → 20 % sur 7 graines : 61,4 (inchangé). Ni PV, ni attaque, ni
+  critique, ni poison ne le font passer le palier de la zone 62 : limite ailleurs (or, équipement) ; piste close, rien gardé.
 - 2026-11-16 (it. 1795, essai abandonné) : assassin sur 7 graines (7/3/11/21/31/41/51) : actuel 61,4 ; attaque ×1,25 et critique +25 :
   62,1 (+0,7, bruit). Rien gardé ; sa faiblesse viendrait de son fonctionnement (poison, corps à corps), pas de ses chiffres.
 - 2026-11-16 (it. 1794) : devlog 0.1.6 complété (répliques de Tico, it. 1739 et 1762) ; il couvre les éditions 115 et 116.
