@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1855, journée des monstres) : squelettes : Os qui se reforment (abattus une première fois, ils
+  s'écroulent en tas d'os 0,8 s, étourdis, puis se relèvent avec 30 % de leurs PV ; PV de départ ÷ 1,3) ; scorpions :
+  Dard (se cabrent, un coup de plus et 1,5 s de venin, la pureté le raccourcit ; obsidienne : malédiction). Mots, poses,
+  sons, 6 clés ; test du squelette. Balance contre aea72772 : −0,3 / +1,3 (graines 7, 3) ; fuzz 600 / 0 ; npm test 344,
+  autotest 253/253.
 - 2026-11-17 (it. 1854, journée des monstres) : chauves-souris : Piqué (montent de 16 px, fondent sur le héros, ×1,3 ; le
   vampire, version propre, boit la moitié du sang versé) ; champignards : Nuage de spores (gonflent, étourdissent le héros
   0,8 s ; le vénéneux empoisonne). Règle d'équilibre (game.js skillBalance) : un coup en plus baisse l'attaque d'autant,

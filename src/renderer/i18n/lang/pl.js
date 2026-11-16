@@ -1968,4 +1968,10 @@ export default {
   3093: "Pikowanie!",
   3094: "Zarodniki!",
   3095: "Toksyczny: ten cios zatruwa bohatera na 1,5 s.",
+  3096: "Zrastające się kości",
+  3097: "Gdy pada po raz pierwszy, rozsypuje się w stos kości, a potem składa się z powrotem z 30% PŻ.",
+  3098: "Żądło",
+  3099: "Co 6 s unosi ogon i kłuje: dodatkowy cios, który zatruwa bohatera na 1,5 s.",
+  3100: "Składa się z powrotem!",
+  3101: "Żądło!",
 };

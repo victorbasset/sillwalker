@@ -54,6 +54,8 @@ import { monSkillOf } from "./monskills.js";
  *  plus dur (balance 12 h : −1,7 zone avec trois familles). */
 export function skillBalance(m, sk) {
   if (sk.mult) m.atk /= 1 + sk.mult * (sk.el === "fire" ? 1.2 : 1) * (m.interval || 1) / sk.every;
+  // (it. 1855) se relever avec une part de ses PV : autant de PV en moins au départ
+  if (sk.back) { m.hp = Math.max(1, Math.round(m.hp / (1 + sk.back))); m.max = m.hp; }
   let lost = 0; // part du combat où le héros ne frappe pas (ou au ralenti)
   if (sk.stun) lost += sk.stun / sk.every;
   if (sk.el === "frost") lost += 0.4 * 1.5 / sk.every;
@@ -513,6 +515,14 @@ export class Game {
         if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
         if (sk.drain && h0 > R.hp) m.hp = Math.min(m.max, m.hp + (h0 - R.hp) * sk.drain);
         this.elementHit(sk.el, hs);
+        break;
+      }
+      case "reassemble": break; // (it. 1855) squelettes : déclenché à leur chute (killMonster), pas à la minuterie
+      case "sting": { // (it. 1855) Scorpions : dard empoisonné (la pureté le raccourcit), puis l'élément de la variante
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        const d = sk.venom * (1 - (hs.purity || 0) / 100);
+        if (d > 0.05) { R.venomT = Math.max(R.venomT || 0, d); this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
+        if (sk.el !== "poison") this.elementHit(sk.el, hs);
         break;
       }
       case "spores": { // (it. 1854) Champignards : nuage de spores, le héros étourdi ne frappe plus
@@ -1046,6 +1056,13 @@ export class Game {
   killMonster() {
     const S = this.S, R = this.R, m = R.mon;
     // Tenace : une fois par combat, le boss se relève au lieu de tomber (brûlure et poison s'éteignent).
+    // (it. 1855) squelettes : la première fois, ils s'écroulent en tas d'os (étourdis le temps de se remonter), puis se
+    // relèvent avec une part de leurs PV
+    if (m && m.skill && m.skill.id === "reassemble" && !m.risen) {
+      m.risen = true; m.hp = m.max * m.skill.back; m.burnT = 0; m.poisonT = 0; m.poisonStacks = 0; m.stunT = Math.max(m.stunT || 0, m.skill.down);
+      this.emit("monSkill", { id: "reassemble", el: m.skill.el, phase: "go", mon: m });
+      return;
+    }
     if (m && m.mech && m.mech.includes("tenacious") && !m.risen) {
       m.risen = true; m.hp = m.max * TENACIOUS.back; m.burnT = 0; m.poisonT = 0; m.poisonStacks = 0;
       this.emit("bossSkill", { id: "tenacious" });

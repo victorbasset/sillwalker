@@ -31,7 +31,7 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
-const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff" };
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -261,9 +261,9 @@ export class StripRenderer {
     // (it. 1853) compétences des monstres (monskills.js) : le monstre combattu se prépare (« tell »), puis agit ; le
     // mouvement est appliqué dans la boucle des monstres (monSkillPose), le mot s'affiche quand il agit
     g.on("monSkill", ({ id, el, phase }) => {
-      this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : 0.45 };
+      this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : 0.45 };
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !") }[id];
       if (word) this.float(this.monX() + 14, 18, word, col, true);
       if (this.active && this.juice.full) {
         this.juice.sparkles(this.heroX + 18, this.ground - 24, col, 8);
@@ -808,6 +808,17 @@ export class StripRenderer {
       const reach = Math.min(44, Math.max(0, this.monX() - this.heroX - 24));
       const dive = p < 0.5 ? p / 0.5 : 1 - (p - 0.5) / 0.5; // aller, puis retour
       return { dx: -dive * reach, dy: -16 * (1 - dive) + 10 * dive };
+    }
+    if (f.id === "reassemble") {
+      // squelette : s'écroule d'un coup (tas d'os au sol), reste à terre, puis se redresse
+      const down = p < 0.15 ? p / 0.15 : p < 0.7 ? 1 : 1 - (p - 0.7) / 0.3;
+      return { dx: 0, dy: 9 * down };
+    }
+    if (f.id === "sting") {
+      // scorpion : se cabre (recule et se dresse) pendant l'annonce, puis se détend vers le héros
+      if (f.phase === "tell") return { dx: 4, dy: -3 };
+      const arc = Math.sin(p * Math.PI);
+      return { dx: -arc * Math.min(18, Math.max(0, this.monX() - this.heroX - 30)), dy: 0 };
     }
     if (f.id === "spores") {
       // champignard : se tasse en gonflant, puis se détend d'un coup en lâchant le nuage

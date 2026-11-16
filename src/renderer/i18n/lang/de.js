@@ -1968,4 +1968,10 @@ export default {
   3093: "Sturzflug!",
   3094: "Sporen!",
   3095: "Giftig: Dieser Treffer vergiftet den Helden 1,5 s lang.",
+  3096: "Sich neu fügende Knochen",
+  3097: "Wenn es zum ersten Mal fällt, zerfällt es zu einem Knochenhaufen und setzt sich dann mit 30 % seiner LP wieder zusammen.",
+  3098: "Stachel",
+  3099: "Alle 6 s hebt er den Schwanz und sticht zu: ein zusätzlicher Treffer, der den Helden 1,5 s lang vergiftet.",
+  3100: "Es fügt sich neu!",
+  3101: "Stachel!",
 };

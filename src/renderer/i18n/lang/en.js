@@ -1968,4 +1968,10 @@ export default {
   3093: "Dive!",
   3094: "Spores!",
   3095: "Toxic: this hit poisons the hero for 1.5 s.",
+  3096: "Reforming Bones",
+  3097: "The first time it falls, it collapses into a pile of bones, then pulls itself back together with 30% of its HP.",
+  3098: "Sting",
+  3099: "Every 6 s, raises its tail then stings: one extra hit that poisons the hero for 1.5 s.",
+  3100: "It reforms!",
+  3101: "Sting!",
 };

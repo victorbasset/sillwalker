@@ -4686,4 +4686,15 @@ test("compétences des monstres (it. 1854) : chacune est jouée, a son mot, son 
   const m2 = { atk: 100, hp: 1000, max: 1000, interval: 1 }; skillBalance1854(m2, monSkillOf1854("mush"));
   assert.ok(m2.atk === 100 && m2.hp === Math.round(1000 * (1 - 0.8 / 7)), "champignard : PV compensés");
 });
+test("squelettes (it. 1855) : abattus une fois, ils se reforment avec 30 % de leurs PV ; la seconde fois, ils tombent", () => {
+  const g = new Game(freshState()); g.S.zone = 3; g.S.kills = 0; g.R.lineupZone = 0; const L = g.lineup(); L[0] = { type: "skel", elite: false };
+  g.R.mon = g.makeMonster(false); g.R.mode = "fight"; const m = g.R.mon, k0 = g.S.stats.kills;
+  assert.equal(m.skill.id, "reassemble");
+  let seen = 0; g.on("monSkill", ({ id }) => { if (id === "reassemble") seen++; });
+  m.hp = 0; g.killMonster();
+  assert.ok(g.R.mon === m && Math.abs(m.hp - m.max * 0.3) < 1e-6 && m.stunT > 0 && seen === 1, "relevé");
+  assert.equal(g.S.stats.kills, k0, "pas encore compté");
+  m.hp = 0; g.killMonster();
+  assert.ok(g.R.mon !== m && g.S.stats.kills === k0 + 1 && seen === 1, "vaincu pour de bon");
+});
 console.log(`\n${pass} tests réussis`);

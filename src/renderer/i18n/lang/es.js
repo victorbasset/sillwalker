@@ -1968,4 +1968,10 @@ export default {
   3093: "¡Picado!",
   3094: "¡Esporas!",
   3095: "Tóxico: este golpe envenena al héroe 1,5 s.",
+  3096: "Huesos que se rehacen",
+  3097: "La primera vez que cae, se desploma en un montón de huesos y luego se rehace con el 30 % de sus PV.",
+  3098: "Aguijón",
+  3099: "Cada 6 s, alza la cola y pica: un golpe más, que envenena al héroe 1,5 s.",
+  3100: "¡Se rehace!",
+  3101: "¡Aguijón!",
 };

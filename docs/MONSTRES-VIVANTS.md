@@ -38,6 +38,9 @@ se balançaient qu'au combat.
      toxique venin 3 s ; balance −0,1, early-pace inchangé ;
    - chauves-souris (it. 1854) : Piqué (monte, fond sur le héros, ×1,3) ; le vampire boit la moitié du sang versé ;
    - champignards (it. 1854) : Nuage de spores (gonflent, étourdissent le héros 0,8 s) ; le vénéneux empoisonne ;
+   - squelettes (it. 1855) : Os qui se reforment (la première fois, s'écroulent 0,8 s puis se relèvent avec 30 % de leurs
+     PV ; PV de départ ÷ 1,3) ;
+   - scorpions (it. 1855) : Dard (lèvent la queue, un coup de plus et 1,5 s de venin) ; l'obsidienne maudit en plus ;
    - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
      un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
      des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;

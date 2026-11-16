@@ -3097,5 +3097,11 @@ export const KEYS = [
   "Toutes les 7 s, gonfle puis lâche un nuage de spores : le héros, étourdi, ne frappe plus pendant 0,8 s.",
   "Piqué !",
   "Spores !",
-  "Toxique : ce coup empoisonne le héros 1,5 s."
+  "Toxique : ce coup empoisonne le héros 1,5 s.",
+  "Os qui se reforment",
+  "La première fois qu’il tombe, s’écroule en tas d’os puis se reforme avec 30 % de ses PV.",
+  "Dard",
+  "Toutes les 6 s, lève la queue puis pique : un coup de plus, qui empoisonne le héros 1,5 s.",
+  "Il se reforme !",
+  "Dard !"
 ];

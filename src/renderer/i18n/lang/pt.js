@@ -1968,4 +1968,10 @@ export default {
   3093: "Mergulho!",
   3094: "Esporos!",
   3095: "Tóxico: este golpe envenena o herói por 1,5 s.",
+  3096: "Ossos que se refazem",
+  3097: "Na primeira vez que cai, desmorona num monte de ossos e depois se refaz com 30 % dos PV.",
+  3098: "Ferrão",
+  3099: "A cada 6 s, ergue a cauda e pica: um golpe a mais, que envenena o herói por 1,5 s.",
+  3100: "Ele se refaz!",
+  3101: "Ferrão!",
 };

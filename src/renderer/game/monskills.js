@@ -24,6 +24,12 @@ export const MON_SKILLS = {
   // (it. 1854) Champignards : gonflent, puis lâchent un nuage de spores qui étourdit le héros
   mush: { id: "spores", name: "Nuage de spores", every: 7, first: 3, tell: 0.6, stun: 0.8,
     desc: "Toutes les 7 s, gonfle puis lâche un nuage de spores : le héros, étourdi, ne frappe plus pendant 0,8 s." },
+  // (it. 1855) Squelettes : abattus une première fois, ils s'écroulent en tas d'os puis se remontent (pas de minuterie)
+  skel: { id: "reassemble", name: "Os qui se reforment", every: 1e9, first: 1e9, tell: 0, back: 0.3, down: 0.8,
+    desc: "La première fois qu’il tombe, s’écroule en tas d’os puis se reforme avec 30 % de ses PV." },
+  // (it. 1855) Scorpions : lèvent la queue, puis piquent ; le dard empoisonne toujours
+  scorp: { id: "sting", name: "Dard", every: 6, first: 3, tell: 0.7, mult: 1, venom: 1.5,
+    desc: "Toutes les 6 s, lève la queue puis pique : un coup de plus, qui empoisonne le héros 1,5 s." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */
