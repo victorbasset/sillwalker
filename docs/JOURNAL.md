@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1791, revue générale) : simulation 12 h graine 121 : danseuse de lames 64, artificier 65, chaman 62 ; perf:linux
+  bande 18,3 %, panneau 20,0 % (19,1-19,7 dans la journée : bruit), mini 5,7 % ; espagnol : aucun mot français. Rien à corriger.
 - 2026-11-16 (it. 1790, contrôle) : lang-overflow complet (10 langues, 4 largeurs, fin de partie, état maximal, 130 %) après les
   changements d'interface depuis la 0.1.5 : aucun défilement ni mot coupé.
 - 2026-11-16 (it. 1789) : autotest : retour d'absence, ligne des Poupouce (3 vaincus, 1 légendaire rangé → « +1 », pas « +3 »).
