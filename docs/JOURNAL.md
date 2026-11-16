@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1726, contrôle) : --crawl en polonais (trois pluriels) sur la partie de fin de partie : 703 clics en 22 s,
+  aucune erreur ; texte affiché (--dump-text) sans {n}, undefined, NaN ni mot français.
 - 2026-11-16 (it. 1725) : Journal accessible aux daltoniens : un repère en tête de chaque ligne importante (★ légendaire,
   ◆ épique, ✦ coffre / étoile / champion, ✓ quête / œuf, ⚠ K.O. / recul), en CSS (::before), symboles déjà présents dans la
   police. Captures thèmes sombre et clair ; npm test 325, autotest 246/246.
