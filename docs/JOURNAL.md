@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1801, revue générale) : simulation 12 h graine 131 : nécromancien 59, druide 64, paladin 69 ; perf:linux bande 18,2 %,
+  panneau 19,7 %, mini 5,8 %. Journal horodaté : 1,8 ms par affichage (deux formateurs Intl créés par ligne) → 0,14 ms avec des
+  formateurs gardés par langue (ui/log.js). Autotest 250/250.
 - 2026-11-16 (it. 1800) : Journal horodaté : chaque nouvelle ligne montre son heure (« 19:46 » aujourd'hui, la date avant, au
   format de la langue) ; S.logT parallèle à S.log, tenu aligné dans log, logRepeat, logReplace, logSale, logLeft et au
   changement de langue (défaut d'ordre dans logReplace trouvé par le test et corrigé) ; migrate nettoie. Test ; save-fuzz ok
