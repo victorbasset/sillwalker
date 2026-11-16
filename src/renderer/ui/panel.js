@@ -200,9 +200,10 @@ export class Panel {
         <nav class="tabs" role="tablist">${TABS.map((t, i) => t.id === "settings" ? "" : tabBtn(t, i)).join("")}</nav>
         <div class="controls">
           ${dev}
-          <nav class="tabs tabs-side" role="tablist">${TABS.map((t, i) => t.id === "settings" ? tabBtn({ ...t, group: false }, i) : "").join("")}</nav>
           <button data-action="feedback" class="quiet feedback" aria-label="${esc(tx("Ton avis"))}" title="${esc(tx("Ton avis") + " — " + tx("Une idée, un bug, une envie ? Laisse un commentaire sur la page du jeu : chaque avis compte.") + (this.version ? " (Sillwalker " + this.version + ")" : ""))}"><img src="${shopIconURL("contract", 2)}" alt=""></button>
           <button data-action="mini" class="quiet" title="${esc(tx("Réduire en petit encart près de l’horloge"))}">${tx("Mode mini")}</button>
+          <!-- (it. 1677, demande de Victor) Réglages juste à gauche de Quitter -->
+          <nav class="tabs tabs-side" role="tablist">${TABS.map((t, i) => t.id === "settings" ? tabBtn({ ...t, group: false }, i) : "").join("")}</nav>
           <button data-action="quit" class="quiet quit" title="${esc(tx("Quitter Sillwalker (la partie est sauvegardée)"))}">${tx("Quitter")}</button>
           <button data-action="close" class="close" aria-label="${esc(tx("Fermer le panneau"))}" title="${esc(tx("Fermer (Échap)"))}">✕</button>
         </div>

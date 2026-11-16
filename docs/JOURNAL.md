@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1677) : demande de Victor : le bouton Réglages passe juste à gauche de « Quitter » (après « Mode mini ») ; vu à
+  1920 et 1280 px. --overflow-report signale un libellé de tuile du héros sur deux lignes (« adventure-tuile-2lignes »,
+  vérifié avec l'ancien « Очки здоровья ») ; lang-overflow des 10 langues à 1280 / 1366 : aucun. Autotest : le contrôle
+  Poupouce (it. 1673) laissait sa bulle, la réplique d'élite suivante était refusée (< 6 s) : bulle remise à zéro. 244/244.
 - 2026-11-16 (it. 1676) : même tuile en espagnol et portugais (« Puntos / Pontos de vida » sur deux lignes à 1280 px) → « Vida ». Vérifié
   en capture : es, pt, de, ko, en, ru, pl sur une ligne. npm test, autotest 244/244.
 - 2026-11-16 (it. 1675) : russe, tuile de la carte du héros : « Очки здоровья » (deux lignes à 1280 px) → « Здоровье », sur une ligne
