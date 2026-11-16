@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1815, contrôle) : simulation 24 h (graine 7) : guerrier et mage au même record (86, dernière table « Courses ») ; repère
+  à 24 h pour la suite (mage plus en retard après ses PV, it. 1748).
 - 2026-11-16 (it. 1814, contrôle) : duo face à un boss (Chapeau-Pourpre, zone 57) : samouraï compagnon visible derrière le guerrier,
   arbalétrier entier à l'écart ; les corrections des it. 1802 et 1807 valent aussi contre les boss.
 - 2026-11-16 (it. 1813, contrôle) : --crawl en portugais (675 clics en 21 s, aucune erreur) ; texte affiché sans mot français ni
