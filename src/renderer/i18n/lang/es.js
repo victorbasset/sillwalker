@@ -1923,4 +1923,5 @@ export default {
   3048: "Estadísticas: antes de la zona 40, las subpestañas que vendrán se muestran en gris, y se anuncia su llegada.",
   3049: "Llega Poupouce y tu bolsa está llena: tu héroe te avisa a tiempo para hacer sitio a su objeto legendario.",
   3050: "Modo mini: la llegada de Poupouce también aparece ahí.",
+  3051: "(+{n} objeto legendario)|(+{n} objetos legendarios)",
 };

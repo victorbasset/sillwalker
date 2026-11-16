@@ -1923,4 +1923,5 @@ export default {
   3048: "Statistics: before zone 40, the upcoming sub-tabs are shown grayed out, and their arrival is announced.",
   3049: "Poupouce shows up and your bag is full: your hero warns you, in time to make room for its legendary item.",
   3050: "Mini mode: Poupouce's arrival shows up there too.",
+  3051: "(+{n} legendary item)|(+{n} legendary items)",
 };

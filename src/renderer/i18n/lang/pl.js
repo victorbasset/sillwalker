@@ -1923,4 +1923,5 @@ export default {
   3048: "Statystyki: przed strefą 40 nadchodzące podzakładki są wyszarzone, a ich pojawienie się jest ogłaszane.",
   3049: "Poupouce się pojawia, a twoja torba jest pełna: bohater ostrzega cię w porę, by zrobić miejsce na legendarny przedmiot.",
   3050: "Tryb mini: pojawienie się Poupouce też jest tam widoczne.",
+  3051: "(+{n} legendarny przedmiot)|(+{n} legendarne przedmioty)|(+{n} legendarnych przedmiotów)",
 };

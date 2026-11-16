@@ -23,3 +23,4 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
 - **Poupouce et le sac plein :** quand il arrive et que ton sac est plein, ton héros te prévient à temps pour faire de
   la place à son objet légendaire ; en mode mini aussi.
 - **Mage :** un peu plus de points de vie.
+- **Retour d'absence :** la fenêtre dit combien d'objets légendaires les Poupouce vaincus t'ont laissés.

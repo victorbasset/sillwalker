@@ -3052,5 +3052,6 @@ export const KEYS = [
   "Le sac est plein : vite, une place pour le légendaire de Poupouce !",
   "Statistiques : avant la zone 40, les sous-onglets à venir sont montrés grisés, et leur arrivée est annoncée.",
   "Poupouce arrive et ton sac est plein : ton héros te prévient, à temps pour faire de la place à son objet légendaire.",
-  "Mode mini : l’arrivée de Poupouce s’y affiche aussi."
+  "Mode mini : l’arrivée de Poupouce s’y affiche aussi.",
+  "(+{n} objet légendaire)|(+{n} objets légendaires)"
 ];

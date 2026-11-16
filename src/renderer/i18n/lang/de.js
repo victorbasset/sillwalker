@@ -1923,4 +1923,5 @@ export default {
   3048: "Statistiken: Vor Zone 40 werden die kommenden Unterreiter ausgegraut gezeigt, und ihre Ankunft wird angekündigt.",
   3049: "Poupouce taucht auf und deine Tasche ist voll: Dein Held warnt dich rechtzeitig, damit du Platz für den legendären Gegenstand machst.",
   3050: "Mini-Modus: Poupouces Ankunft wird auch dort angezeigt.",
+  3051: "(+{n} legendärer Gegenstand)|(+{n} legendäre Gegenstände)",
 };
