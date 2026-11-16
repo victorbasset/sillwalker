@@ -9,3 +9,7 @@ steamworks_sdk*/
 steamworks*.zip
 dist-itch/
 logs/
+
+# fichiers Python compilés (scripts/promo, scripts/music)
+__pycache__/
+*.pyc

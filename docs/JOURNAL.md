@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1685) : fichiers Python compilés (scripts/promo/__pycache__) retirés du dépôt, __pycache__/ et *.pyc ignorés.
 - 2026-11-16 (it. 1684, suite) : demandes de Victor : bandes-annonces refaites sur la bande originale. Tous les plans retournés
   dans les 10 langues (190, jauge d'XP, nouvelle Aventure, Réglages) ; « 18 événements rares » (au lieu de 14) partout ;
   cyrillique des accroches en Geist Pixel (comme le jeu) ; musique « Le Rebord » (82 bpm, après un essai sur « Les
