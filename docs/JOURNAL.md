@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1595) : README : Poupouce, Jour de Poupouce, jauge d'expérience (bande et mini), barres de vie, coffres de
+  quête ouverts, ◀ ▶ et 📌 de la musique, bulle du morceau.
 - 2026-11-16 (it. 1594) : i18n-names après les ajouts (morceaux, Jour de Poupouce, succès) : 25 écarts, tous des
   déclinaisons voulues (génitifs allemands et coréens, « Ménagerie » dans un autre sens…) ; aucun nouveau nom mal cité.
 - 2026-11-16 (it. 1593) : bande à 1280 px (fr, ru) : zone, barre de vie du héros (celle du monstre s'efface faute de place,

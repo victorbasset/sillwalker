@@ -3,9 +3,10 @@
 Idle RPG qui vit dans une bande en bas (ou en haut) de l'écran. Application Electron pour Windows, prévue pour Steam.
 
 Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône de notification) :
-- **Bande** : toute la largeur de l'écran est la carte de la zone. Les 10 monstres attendent le long du chemin, le boss au bout ; le héros avance d'un combat à l'autre.
+- **Bande** : toute la largeur de l'écran est la carte de la zone. Les 10 monstres attendent le long du chemin, le boss au bout ; le héros avance d'un combat à l'autre. En haut : zone, barres de vie du héros et du monstre (bouclier
+  compris), or et niveau avec sa jauge d'expérience (elle brille en or au niveau gagné).
 - **Mini** : petit encart près de l'horloge (combat en cours, niveau, or, zone). Un clic l'agrandit en bande ; au survol,
-  le record à battre et le prochain objectif ; légendaires, records et ascensions s'y signalent brièvement.
+  le record à battre, l'expérience et le prochain objectif ; légendaires, records et ascensions s'y signalent brièvement.
 - **Icône seule** : plus de fenêtre ; l'icône de notification s'anime (marche, combat, K.O., butin) et son infobulle donne niveau, zone, record à battre et or (traduits). Clic sur l'icône = retour au dernier affichage.
 
 ## Contenu
@@ -71,6 +72,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Quêtes** : 3 contrats à la fois (chasse, élites, proie (une sorte d’élite précise), boss, or, forge, butin rare, événements rares, coffres au trésor, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés, champions, niveaux, gobelins dorés), récompenses variées ;
   jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
+  Une quête à coffre réclamée (clic, « Tout réclamer », touche R) ouvre son coffre sous les yeux.
 - **Familiers** : 21 compagnons (dont le lapin et le phénix, rares) qui suivent le héros (ceux à découvrir montrent déjà leur bonus), sortent d'œufs (boss, élites, quêtes)
   et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
   or, expérience, œufs et objets.
@@ -92,7 +94,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   bande originale de 4 morceaux composés pour le jeu (zones 1-50, 51-100, 101-150, 151-200, puis les mêmes), autour
   d'un même leitmotiv, du lofi chaud au final épique galactique avec une couleur Terraria ; rendus et masterisés hors du
   jeu (scripts/music/, docs/MUSIQUE.md), lus en boucle sans couture, fondu enchaîné, plus de poids contre les boss.
-  Volumes séparés (effets, ambiance, musique, général) dans Réglages > Son.
+  Volumes séparés (effets, ambiance, musique, général) dans Réglages > Son, avec ◀ ▶ pour écouter les morceaux et 📌
+  pour en garder un quelle que soit la zone ; une bulle nomme chaque nouveau morceau.
 - **Cycle jour / nuit** sur la bande, calé sur l'heure de l'ordinateur.
 - **Bon voisin** : économie d'énergie (15 images/s, Réglages), bande cachée devant une application en plein écran
   (Windows, menu de l'icône), cinématiques désactivables, ralenti automatique sur batterie et en absence.
@@ -117,6 +120,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   la malédiction et le venin.
 - **Élites à affixes** : rapide, blindé, vampirique, furieux, givré (ses coups peuvent geler le héros), épineux (renvoie 15 % des dégâts reçus, sans achever le héros), fuyant (esquive 20 % des coups), venimeux (ses coups peuvent empoisonner le héros), régénérant (regagne 3 % de sa vie chaque seconde, sauf s’il brûle ou est empoisonné) ou explosif (inflige au héros 6 % de ses PV max en mourant, sans l’achever).
 - **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
+- **Poupouce** (demande d'un joueur) : environ un monstre ordinaire sur 250 (dès la zone 2) porte ce nom, en rose au-dessus
+  de lui, et rapporte 5 fois plus d'or ; le héros s'en étonne, un succès et une bénédiction du jour (×10) lui sont dédiés.
 - **Panoplies** : 10 ensembles (dont le Voyageur du vent, axé vitesse, le Traqueur de champions, qui attire les élites, et le Plumage du phénix, qui relève le héros une fois par combat), bonus à 2 et 4 pièces
   (bannière au palier atteint, détail au survol de l'étiquette de la fiche du héros) ; chaque panoplie
   complétée une première fois donne +1 % attaque et +1 % PV pour toujours (Bestiaire : « N / 10 complétées »).
@@ -127,7 +132,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   bonus de collection reste). Le héros le fête d'une réplique.
 - **Forge** : améliorer (+1 à +10) ou réforger les bonus secondaires ; vente automatique jusqu'aux rares.
 - **Récompense quotidienne** : série de 7 jours consécutifs, coffre royal le 7e jour.
-- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3, prodiges : événements rares ×2, ombres : esquive et riposte, champions : champions ×4, géants : +50 % de dégâts contre les boss, élan : premier coup et coups au clic +100 %, sang : vol de vie +5 % et dégâts critiques +25 %, arcanes : sorts rechargés 50 % plus vite), saluée par le héros. Chaque bénédiction vécue donne +1 % d'expérience pour toujours (collection dans Bestiaire > Bénédictions du jour, compte dans Statistiques).
+- **Bénédiction du jour** : un modificateur différent chaque jour (fortune, savoir, grande chasse, vent, furie, rempart, fête des gobelins, trésors : coffres ×3, prodiges : événements rares ×2, ombres : esquive et riposte, champions : champions ×4, géants : +50 % de dégâts contre les boss, élan : premier coup et coups au clic +100 %, sang : vol de vie +5 % et dégâts critiques +25 %, arcanes : sorts rechargés 50 % plus vite), saluée par le héros. Chaque bénédiction vécue donne +1 % d'expérience pour toujours (collection dans Bestiaire > Bénédictions du jour, compte dans Statistiques). Le 16e, le Jour de Poupouce, rend Poupouce dix fois plus fréquent.
 - **Statistiques** : records, compteurs de l'aventure (dont la collection de panoplies) et liste des succès.
 - **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
