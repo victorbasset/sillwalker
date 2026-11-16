@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1692) : pire cas de la demande de Victor (sac de 48 légendaires, chaque objet sélectionné tour à tour), ru et de,
+  1280 et 1366 px : le détail tient sous le sac, l'onglet ne défile pas (2 px au plus dans le panneau du sac, cause non vérifiée).
 - 2026-11-16 (it. 1691, revue générale) : simulation 12 h graine 31 : guerrier 65, druide 67, assassin 62 ; perf:linux bande
   18,2 %, panneau 19,8 %, mini 5,7 % ; Aventure (de, nouvelle disposition) et Statistiques > Journal (ko) propres ; russe
   sans mot français. Rien à corriger.
