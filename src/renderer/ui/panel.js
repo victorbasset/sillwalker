@@ -92,15 +92,6 @@ const EXTRA_STATS = [
   ["moveSpd", tx("Vitesse de déplacement"), (s) => s.moveSpd > 0, (s) => "+" + n1(s.moveSpd) + unit("%")],
 ];
 
-/** Couleur d'une ligne du journal selon ce qu'elle raconte. */
-const LOG_COLORS = [
-  [/légendaire|pouvoir légendaire/i, "lg-leg"],
-  [/Champion|Coffre au trésor|Étoile filante|Plume|Plumes du vent|vitesse de déplacement, pour toujours/, "lg-rare"],
-  [/épique/i, "lg-epic"],
-  [/Quête accomplie|revient de|L’œuf éclot|Un œuf/, "lg-good"],
-  [/K.O.|est tombé|Trop dur|Dernière potion/, "lg-bad"],
-];
-const logClass = (l) => { const m = LOG_COLORS.find(([re]) => re.test(l)); return m ? ` class="${m[1]}"` : ""; };
 
 // Repère de rareté en forme (pas seulement en couleur) : lisible pour les daltoniens.
 const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible sans les couleurs (daltonisme) : peu commun → légendaire
@@ -181,7 +172,7 @@ export class Panel {
     this.uiT = 0;
     this.build();
     game.on("change", () => { this.dirty = true; });
-    game.on("log", () => { if (this.isOpen && this.tab === "adventure") this.renderLog(); });
+    game.on("log", () => { if (this.isOpen && this.tab === "stats" && this.tabs.stats.sec === "log") this.dirty = true; }); // (it. 1677) Journal : Statistiques > Journal (demande de Victor)
   }
 
   build() {
@@ -214,7 +205,6 @@ export class Panel {
           <article class="panel" id="p-bag"></article>
           <article class="panel" id="p-detail"></article>
           <article class="panel" id="p-zone"></article>
-          <article class="panel" id="p-log"><h2>${tx("Journal")}</h2><ul class="log" id="log"></ul></article>
         </div>
       </section>
       ${TABS.slice(1).map((t) => `<section class="tabpane" data-pane="${t.id}" hidden></section>`).join("")}
@@ -632,7 +622,7 @@ export class Panel {
   renderAll() {
     if (this.tip) this.tip.hidden = true;
     saveHScroll(this.root, this.hs);
-    if (this.tab === "adventure") { this.renderHero(); this.renderBag(); this.renderDetail(); this.renderZone(); this.renderLog(); }
+    if (this.tab === "adventure") { this.renderHero(); this.renderBag(); this.renderDetail(); this.renderZone(); }
     else this.tabs[this.tab].render($(this.root, `[data-pane="${this.tab}"]`));
     // Blocs repliables des onglets (data-keep) : rouverts s'ils l'étaient avant le nouveau rendu.
     for (const d of this.root.querySelectorAll("details[data-keep]")) if (this.kept.has(d.dataset.keep)) d.open = true;
@@ -1084,11 +1074,6 @@ export class Panel {
       <p class="note tight">${dec(String(Math.round(DROP_CHANCE * earlyPace(S) * 1000) / 10))}${NB}${tx("% par monstre, 100{0}% sur le boss (rare minimum) et sur les élites dorés ({1}{2}% des monstres, or ×{3}). Si un objet tombe, sa rareté suit ce tableau :", { 0: NB, 1: Math.round(ELITE.chance * 100), 2: NB, 3: ELITE.gold })}</p>
       <table class="rates">${rows}</table><p class="note">${tx("Ces taux sont fixes et identiques pour tout le monde. Élites vaincus : {0}.", { 0: S.stats.elites || 0 })}</p></details>`;
     this.tick();
-  }
-
-  renderLog() {
-    const el = $(this.root, "#log"), L = this.game.S.log;
-    el.innerHTML = L.length ? L.slice(0, 25).map((l) => `<li${logClass(l)}>${esc(l)}</li>`).join("") : tx("<li>Ton héros se met en route.</li>");
   }
 
   /** Mises à jour légères (barres, or, comptes à rebours) sans reconstruire le HTML. */

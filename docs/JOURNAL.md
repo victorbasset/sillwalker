@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1678) : demande de Victor : le Journal quitte l'Aventure pour Statistiques > Journal (4e sous-onglet, mis à
+  jour en direct, ui/log.js partagé) ; l'Aventure passe à 4 colonnes et le sac s'élargit : 16 cases par rangée dès 1800 px
+  (48 cases en 3 rangées au lieu de 4), 12 sur portable (4 au lieu de 6) ; le détail d'un objet tient dessous sans défiler
+  (vu à 1920 et 1280 px, sac de 48). Liste du Journal limitée à 320 px (à 360, l'onglet défilait de 7-13 px dans les parties
+  pleines : lang-overflow, sous-section « log » ajoutée à SUBS). Autotest « Statistiques > Journal » : 245/245.
 - 2026-11-16 (it. 1677) : demande de Victor : le bouton Réglages passe juste à gauche de « Quitter » (après « Mode mini ») ; vu à
   1920 et 1280 px. --overflow-report signale un libellé de tuile du héros sur deux lignes (« adventure-tuile-2lignes »,
   vérifié avec l'ancien « Очки здоровья ») ; lang-overflow des 10 langues à 1280 / 1366 : aucun. Autotest : le contrôle

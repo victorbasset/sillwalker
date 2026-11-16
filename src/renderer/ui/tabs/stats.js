@@ -1,5 +1,6 @@
 // Onglet Statistiques : records, compteurs de l'aventure et succès.
 import { goblinCatchable } from "../../game/quests.js";
+import { logHTML } from "../log.js";
 import { npcHTML } from "../npc.js";
 import { CHRONICLES } from "../../game/story.js";
 import { subtabsHTML } from "../subtabs.js";
@@ -71,7 +72,7 @@ export class StatsTab {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
       return `<li class="ach${on ? " on" : ""}"><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
     }).join("");
-    const tabs = subtabsHTML([["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")]], this.sec, "st-sec");
+    const tabs = subtabsHTML([["numbers", tx("Chiffres")], ["ach", tx("Succès"), `${reached.size} / ${ACHIEVEMENTS.length}`], ["journey", tx("Carnet de route")], ["log", tx("Journal")]], this.sec, "st-sec");
     el.innerHTML = `<div class="subrow">${tabs}${npcHTML("stats", true)}</div>` + `<div class="statgrid sec-${this.sec}">
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("trophy", 3)}" alt="">${tx("Records")}</span></h2><ul class="lines">
         ${line(tx("Plus gros coup"), fmt(st.maxHit || 0))}
@@ -122,6 +123,7 @@ export class StatsTab {
         ${line(tx("Héros libérés"), (S.classesUnlocked || ["warrior"]).length + " / " + Object.keys(CLASSES).length)}
       </ul></article>
       ${journeyHTML(S)}
+      ${this.sec === "log" ? `<article class="panel logpanel"><h2><span class="hicon"><img src="${shopIconURL("contract", 3)}" alt="">${tx("Journal")}</span></h2><ul class="log" id="log">${logHTML(S.log)}</ul></article>` : "" /* (it. 1677) le Journal quitte l'Aventure (demande de Victor) */}
       <article class="panel wide"><h2><span class="hicon"><img src="${shopIconURL("luck", 3)}" alt="">${tx("Probabilités")}</span></h2><ul class="lines">
         ${line(tx("Plume du vent (+1 % de vitesse)"), segs(`${pct(FEATHER.normal)} ${tx("· élite {0} · boss {1}", { 0: pct(FEATHER.elite), 1: pct(FEATHER.boss) })}`))}
         ${line(tx("Étoile filante (+2 % de vitesse)"), segs(`${tx("toutes les {0}–{1} min", { 0: STAR.minS / 60, 1: STAR.maxS / 60 })}`))}
