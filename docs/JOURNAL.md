@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1842) : test permanent : chaque modèle de ligne du Journal (les tx() des this.log de game.js, 74) garde
+  la même catégorie dans les 10 langues ; vérifié en remettant l'ancien ordre des catégories (échec « fr : sac plein »).
+  npm test 338.
 - 2026-11-16 (it. 1841, revue générale) : 12 h graine 171 : berserker 69, arbalétrier 64, cryomancienne 66 ; perf:linux bande
   18,4 %, panneau 19,4 %, mini 5,6 % ; japonais : aucun mot français (« attributs » = repère « --- attributs » du dump).
   Rien à corriger.

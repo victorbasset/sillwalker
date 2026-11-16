@@ -3368,6 +3368,23 @@ test("journal (it. 1840) : même catégorie dans les 10 langues (sac plein de Po
     }
   } finally { setLang(keep); }
 });
+test("journal (it. 1842) : chaque modèle de ligne de game.js a la même catégorie dans les 10 langues", () => {
+  // une traduction qui contient le morceau fixe d'un autre modèle change la couleur et le repère de la ligne (it. 1840)
+  const src = fs.readFileSync(new URL("../src/renderer/game/game.js", import.meta.url), "utf8");
+  const keys = [...new Set([...src.matchAll(/this\.log\([^;]*/g)].flatMap((m) => [...m[0].matchAll(/tx\("([^"]+)"/g)].map((x) => x[1])))];
+  assert.ok(keys.length >= 60, "modèles trouvés : " + keys.length);
+  const fill = (s) => s.replace(/\{(\d)\}/g, (m, d) => ["Xa", "7", "9", "Yb"][+d] || "Z");
+  const keep = getLang(), seen = {};
+  try {
+    for (const l of ["fr", "en", "es", "pt", "de", "pl", "ru", "zh", "ja", "ko"]) {
+      setLang(l);
+      for (const k of keys) {
+        const c = (logHTML1715([fill(tT(k))]).match(/class="(lg-[a-z]+)"/) || [])[1] || "-";
+        if (!(k in seen)) seen[k] = c; else assert.equal(c, seen[k], `${l} : « ${k.slice(0, 50)} » ${c} au lieu de ${seen[k]}`);
+      }
+    }
+  } finally { setLang(keep); }
+});
 test("journal (it. 1837) : étapes (relique, ascension, déblocage) en lg-mile, gardées par le filtre", () => {
   const L = [tT("Relique obtenue : {0} ! {1}", { 0: "Cœur", 1: "+5 %" }), tT("Débloqué : {0} !", { 0: "Atelier" }), tT("Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !", { 0: 2, 1: "a", 2: "b", 3: "" }), "Une ligne ordinaire."];
   const imp = logHTML1715(L, 60, true);
