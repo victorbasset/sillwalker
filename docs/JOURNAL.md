@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1731, revue générale) : simulation 12 h graine 71 : guerrier 64, mage 60, rôdeur 62 (une graine, ±4) ;
+  perf:linux bande 18,2 %, panneau 19,3 %, mini 5,7 % ; lang-overflow ru, de, pl, ja, fr à 1280 et 1920 px (avec fin de partie
+  et état maximal, Bestiaire avec Poupouce) : aucun défilement ; russe (--dump-text) : aucun mot français (« attributs » =
+  séparateur du fichier extrait). Rien à corriger.
 - 2026-11-16 (it. 1730, demande de Victor, « il est parfait ») : Poupouce devient un monstre à part, un chat blanc tacheté de
   noir (art.js, MONSTERS.poupouce, au Bestiaire) au lieu d'un monstre de la zone au contour rose ; extrêmement rare (1 sur
   1 000, 1 sur 250 avant), 100 fois l'or d'un monstre (5 avant) et un objet légendaire garanti, en jeu comme pendant
