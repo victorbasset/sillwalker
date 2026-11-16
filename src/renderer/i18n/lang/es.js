@@ -1859,4 +1859,5 @@ export default {
   2984: "«Reclamar todo» y la tecla R también abren el mejor cofre ante tus ojos.",
   2985: "Subida de nivel: la barra de experiencia brilla en dorado; en modo mini, la burbuja al pasar el ratón muestra la experiencia.",
   2986: "¿¡Poupouce!?",
+  2987: "El cofre se abre al reclamar la misión; su objeto va a la bolsa.",
 };

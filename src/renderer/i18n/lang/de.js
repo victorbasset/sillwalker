@@ -1859,4 +1859,5 @@ export default {
   2984: "„Alle abholen“ und die Taste R öffnen ebenfalls die schönste Truhe vor deinen Augen.",
   2985: "Stufenaufstieg: Die Erfahrungsanzeige leuchtet golden; im Mini-Modus zeigt die Blase beim Überfahren die Erfahrung.",
   2986: "Poupouce?!",
+  2987: "Die Truhe öffnet sich, wenn du die Quest abholst; ihr Gegenstand kommt in die Tasche.",
 };

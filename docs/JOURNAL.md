@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1579, retour d'un joueur : « on ouvre les coffres où ? ») : récompense « coffre » d'une quête : bulle au survol
+  « Le coffre s'ouvre quand tu réclames la quête ; son objet va dans le sac. » (9 langues).
 - 2026-11-16 (it. 1578) : --crawl après les it. 1566-1577 : dev-data en japonais 713 clics, fin de partie en coréen 698 clics,
   aucune erreur.
 - 2026-11-16 (it. 1577) : clavier : à l'ouverture d'un coffre (boutique, quête), le focus va sur « Équiper maintenant » quand

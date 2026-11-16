@@ -1859,4 +1859,5 @@ export default {
   2984: "“Claim all” and the R key also open the finest chest before your eyes.",
   2985: "Level up: the experience gauge flashes gold; in mini mode, the hover bubble shows your experience.",
   2986: "Poupouce?!",
+  2987: "The chest opens when you claim the quest; its item goes into your bag.",
 };

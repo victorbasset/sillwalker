@@ -34,9 +34,11 @@ const KIND_ICON = {
 
 function rewardHTML(rw) {
   const out = [];
-  const chip = (icon, txt, cls = "") => `<span class="rwd ${cls}"><img src="${icon}" alt="">${esc(txt)}</span>`;
+  const chip = (icon, txt, cls = "", tip = "") => `<span class="rwd ${cls}"${tip ? ` title="${esc(tip)}"` : ""}><img src="${icon}" alt="">${esc(txt)}</span>`;
   if (rw.gold) out.push(chip(shopIconURL("ws_gold", 3), tx("{0} or", { 0: fmt(rw.gold) })));
-  if (rw.chest) out.push(chip(shopIconURL(rw.chest >= 3 ? "chest_royal" : rw.chest >= 2 ? "chest_iron" : "chest_wood", 3), `${tx("coffre {0}+", { 0: RARITIES[rw.chest].name.toLowerCase() })}`, "rc" + rw.chest));
+  if (rw.chest) out.push(chip(shopIconURL(rw.chest >= 3 ? "chest_royal" : rw.chest >= 2 ? "chest_iron" : "chest_wood", 3), `${tx("coffre {0}+", { 0: RARITIES[rw.chest].name.toLowerCase() })}`, "rc" + rw.chest,
+    // (it. 1579, retour d'un joueur : « on ouvre les coffres où ? »)
+    tx("Le coffre s’ouvre quand tu réclames la quête ; son objet va dans le sac.")));
   if (rw.buff) out.push(chip(shopIconURL(rw.buff, 3), CONSUMABLES.find((c) => c.id === rw.buff).name));
   if (rw.potions) out.push(chip(shopIconURL("potion", 3), txn(rw.potions, "{n} potion|{n} potions")));
   if (rw.shards) out.push(chip(shopIconURL("luck", 3), txn(rw.shards, "{n} éclat d’étoile|{n} éclats d’étoile"), "special"));

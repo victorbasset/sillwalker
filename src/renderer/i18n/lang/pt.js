@@ -1859,4 +1859,5 @@ export default {
   2984: "“Resgatar tudo” e a tecla R também abrem o melhor baú diante dos seus olhos.",
   2985: "Subiu de nível: a barra de experiência brilha em dourado; no modo mini, o balão ao passar o mouse mostra a experiência.",
   2986: "Poupouce?!",
+  2987: "O baú se abre quando você resgata a missão; o item vai para a bolsa.",
 };
