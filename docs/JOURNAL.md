@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1673) : autotest « bande : Poupouce vaincu (bannière et réplique) » : 244/244. (Premier essai : sans monstre en
+  combat, le monstre simulé n'avait pas d'espèce et le cadavre plantait ; l'espèce vient maintenant de la file.)
 - 2026-11-16 (it. 1672) : autotest « boutique : Sac plein ouvre le sac (Aventure) » (sac rempli, bouton actif avec info-bulle, clic
   → Aventure, sac rendu) : 243/243.
 - 2026-11-16 (it. 1671, revue générale) : simulation 12 h graine 11 : mage 65, prêtresse 65, gladiateur 66 ; perf:linux bande
