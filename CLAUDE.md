@@ -145,6 +145,10 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   `<venv>/bin/python -I scripts/music/master.py <x.wav> <sortie> --loop` (−16 LUFS, Opus + MP3, mesures) et copier
   l'Opus dans assets/music/. L'autotest décode les 4 (NaN, saturation, rapport des volumes < 1,3) et vérifie la lecture.
   Victor écoute les MP3 déposés dans Médias/dist-itch/musique/.
+  Lecture (render/music.js) : bulle « ♪ » à chaque nouvelle tranche (app.js, une fois par morceau et par lancement, bande
+  affichée seulement), 📌 `settings.musicPin` (morceau gardé, -1 = selon la zone), tampon décodé libéré quand la bande
+  reste cachée 1 min (`hide`, son en pause : l'autotest doit faire de même) ou curseur à 0 % ; un décodage arrêté en
+  route ne remet pas le tampon en mémoire (it. 1563). Autotest : décodage des 4, lecture, aperçu, 📌, bulle, libération.
 
 ## Sortie sur Steam (it. 781-799)
 
