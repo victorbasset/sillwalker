@@ -5,6 +5,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Steamworks (si la page ou les succès sont déjà saisis)
 
+- **Version 0.1.5 (quand tu veux)** : brouillon du devlog prêt (`docs/devlog-0.1.5-brouillon.md`, fr et en) : bande
+  originale, volumes séparés, jauge d'XP, coffres ouverts, Poupouce, retours de Kreen. Dis « sors la 0.1.5 » et je
+  fais le reste (notes de version, constructions, butler).
 - **Bande-annonce et nouvelle musique (it. 1582)** : les vidéos de `steam/promo/videos/` (65 s, 30 s, verticale, 10 langues)
   portent encore l'ancienne musique générée, et leur montage est calé sur son tempo (89 bpm). Les refaire sur la bande
   originale (par exemple « Sentiers d'étoiles », 92 bpm, ou « Les Lieutenants », 96 bpm) demande de recaler les plans et

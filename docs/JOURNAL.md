@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1592) : brouillon du devlog 0.1.5 (docs/devlog-0.1.5-brouillon.md, fr et en) ; proposé à Victor (POUR-VICTOR).
 - 2026-11-16 (it. 1591, revue générale) : simulation 12 h graine 11 : paladin 69, lancier 67, chaman 64 ; perf:linux bande
   18,0 %, panneau 19,8 %, mini 5,7 % ; Aventure (pt) et Réglages (ja) propres ; japonais sans texte oublié (« pt » = points,
   « HP », « BGM », Poupouce : voulus). Corrigé : près du boss et des pastilles de droite, les nombres de dégâts
