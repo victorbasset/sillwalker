@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1585) : early-pace (3 graines) : à 10 min niveau 13 / zone 8 / 1,3 déblocage ; à 60 min niveau 38-40, zone
+  22-25, 6,3 déblocages : comme avant (rythme du début intact après les it. 1526-1584).
 - 2026-11-16 (it. 1584) : tableau des 20 héros, 12 h × graines 7 / 3 / 11 : de 62,7 (assassin, prêtresse) à 67,3 (paladin,
   gladiateur), moyenne 64,8, écart 4,7 zones (bruit d'une graine : ±4) : pas de héros à reprendre. Repère dans CLAUDE.md.
 - 2026-11-16 (it. 1583) : Réglages > Son : 📌 « Garder ce morceau » à côté de ◀ ▶ : la musique reste sur ce morceau quelle que
