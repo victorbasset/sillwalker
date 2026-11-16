@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1814, contrôle) : duo face à un boss (Chapeau-Pourpre, zone 57) : samouraï compagnon visible derrière le guerrier,
+  arbalétrier entier à l'écart ; les corrections des it. 1802 et 1807 valent aussi contre les boss.
 - 2026-11-16 (it. 1813, contrôle) : --crawl en portugais (675 clics en 21 s, aucune erreur) ; texte affiché sans mot français ni
   {n}, undefined ou NaN.
 - 2026-11-16 (it. 1812, contrôle) : scène la plus chargée (nécromancien + serviteur squelette + arbalétrier compagnon + familier) :
