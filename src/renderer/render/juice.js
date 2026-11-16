@@ -12,7 +12,7 @@ import { SETS } from "../game/sets.js";
 import { itemName } from "../i18n/data.js";
 import { t as tx, txn, fsp } from "../i18n/index.js";
 import { CLASSES, duoSynergy } from "../game/classes.js";
-import { RARITIES, LEGENDARY } from "../game/data.js";
+import { RARITIES, LEGENDARY, POUPOUCE } from "../game/data.js";
 import { EVENTS } from "../game/events.js";
 import { BOSS_MECHANICS, agreeDefeated } from "../game/bosses.js";
 import { UNLOCK_INDEX } from "../game/unlocks.js";
@@ -174,10 +174,12 @@ export class Juice {
 
   bind() {
     const g = this.s.game;
-    g.on("kill", ({ mon }) => {
-      const n = mon.goblin ? 34 : mon.boss ? 28 : mon.champion ? 30 : mon.elite ? 12 : 2;
+    g.on("kill", ({ mon, gold }) => {
+      const n = mon.goblin ? 34 : mon.boss ? 28 : mon.champion ? 30 : mon.poupouce ? 20 : mon.elite ? 12 : 2;
       if (mon.champion) { this.banner(tx("Champion vaincu !"), "#c08cff", this.s.monX(), true); this.flash("#c08cff", 0.25); }
-      this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin);
+      // (it. 1648) Poupouce, rare (0,4 %) : son nom et son or en rose, une gerbe d'étincelles (le journal seul le disait)
+      if (mon.poupouce) { this.banner(tx("{0} vaincu : {1} or !", { 0: POUPOUCE.name, 1: fmt(gold || 0) }), "#ff9ad2", this.s.monX()); this.sparkles(this.s.monX() + 10, this.ground() - 30, "#ff9ad2", 12); }
+      this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin || mon.poupouce);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
     g.on("bossNemesis", ({ name, fem, gender }) => this.banner(agreeDefeated(tx(fem ? "{0} enfin vaincue !" : "{0} enfin vaincu !", { 0: name }), gender), "#ffb733", this.s.monX() - 40)); // (it. 960, 966)
