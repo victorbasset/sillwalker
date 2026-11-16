@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1742, contrôle) : carte de Poupouce au Bestiaire (copie de dev-data avec stats.poupouce = 2) : migrate la
+  remplit (2 / 10), dessin du chat et nom affichés ; « ??? » dans dev-data = aucun Poupouce vaincu (pas un défaut).
 - 2026-11-16 (it. 1741, revue générale) : simulation 12 h graine 81 : nécromancien 66, moine 65, samouraï 65 ; perf:linux bande
   18,1 %, panneau 19,5 %, mini 5,6 % ; Bestiaire en chinois propre (84 cartes, Poupouce « ??? » en dernier) ; japonais
   (--dump-text) : aucun mot français. Rien à corriger.
