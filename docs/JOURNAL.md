@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1809) : autotest : duo guerrier + arbalétrier, le tireur ne recouvre pas le héros (16 px d'écart) et passe derrière lui
+  (z-index 1). Autotest 251/251.
 - 2026-11-16 (it. 1808, contrôle) : les quatre sortes de duo en combat sur la bande : tireur derrière un combattant (it. 1802),
   deux combattants (it. 1807), mage + samouraï (compagnon devant, séparés), mage + rôdeur (rôdeur entier derrière, arc qui
   passe derrière le mage) : tous lisibles.
