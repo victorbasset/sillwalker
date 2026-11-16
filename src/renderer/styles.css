@@ -595,6 +595,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 #log li.lg-epic { color: var(--r3); }
 #log li.lg-good { color: var(--good); }
 #log li.lg-bad { color: var(--bad); }
+#log li.lg-mile { color: var(--accent); } /* (it. 1837) étapes : reliques, ascensions, déblocages… */
 /* (it. 1800) heure de la ligne, discrète, alignée à gauche */
 #log li .lt { display: inline-block; min-width: 3.4em; margin-right: 8px; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 /* (it. 1725) repère en tête des lignes importantes : la catégorie ne tient plus à la seule couleur (daltoniens) */
@@ -604,6 +605,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 #log li.lg-rare::before { content: "✦"; }
 #log li.lg-good::before { content: "✓"; }
 #log li.lg-bad::before { content: "⚠"; }
+#log li.lg-mile::before { content: "⚑"; }
 
 /* Talents : voie (spécialisation exclusive) et maîtrises (rangs illimités) */
 .talent.voie { flex-wrap: wrap; height: auto; }

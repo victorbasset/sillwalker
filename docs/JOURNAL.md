@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1837) : Journal, 6e catégorie « lg-mile » (⚑, couleur --accent) : relique obtenue ou renforcée, ascension, héros
+  libéré, Briseur d'Étoiles vaincu, nouvelle bénédiction, première panoplie, déblocage, guilde, talent ultime, sort appris ;
+  ces étapes étaient écartées par le filtre « Lignes importantes seulement ». Motifs vérifiés en fr, en, zh, ja, ko, ru ;
+  capture de la fin de partie dans les deux thèmes. Test ; npm test 336, autotest 253/253.
 - 2026-11-16 (it. 1836) : l'astuce « logimp » promettait « légendaires, records et événements » : le filtre ne gardait ni les
   bilans d'événements, ni leurs découvertes, ni les records. Bilan de fin d'événement, « Événement découvert » et nouvelle
   sorte d'élite passent dans lg-rare (motif traduit vérifié dans les 9 langues) ; astuce reformulée (« butin rare, événements,

@@ -3356,6 +3356,12 @@ test("journal : « Lignes importantes seulement » ne garde que les lignes color
   assert.equal((imp.match(/<li/g) || []).length, 1, "une seule importante"); assert.ok(/lg-rare/.test(imp), "le coffre");
   assert.ok(/class="muted"/.test(logHTML1715(["Rien de spécial."], 60, true)), "message quand rien d'important");
 });
+test("journal (it. 1837) : étapes (relique, ascension, déblocage) en lg-mile, gardées par le filtre", () => {
+  const L = [tT("Relique obtenue : {0} ! {1}", { 0: "Cœur", 1: "+5 %" }), tT("Débloqué : {0} !", { 0: "Atelier" }), tT("Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !", { 0: 2, 1: "a", 2: "b", 3: "" }), "Une ligne ordinaire."];
+  const imp = logHTML1715(L, 60, true);
+  assert.equal((imp.match(/class="lg-mile"/g) || []).length, 3, "trois étapes");
+  assert.equal((imp.match(/<li/g) || []).length, 3, "la ligne ordinaire écartée");
+});
 test("journal (it. 1836) : bilans et découvertes d'événements comptent parmi les lignes importantes", () => {
   const L = [tT("{0} · bilan : {1}", { 0: "Pluie d’or", 1: "+1 200 or" }), tT("Événement découvert : {0} pour toujours ({1} / {2}).", { 0: "+1 % d’or", 1: 3, 2: 18 }), "Une ligne ordinaire."];
   const imp = logHTML1715(L, 60, true);

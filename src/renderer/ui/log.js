@@ -9,6 +9,12 @@ import { RARITIES, LEGENDARY } from "../game/data.js";
 // (traduits au démarrage) ; recalculés à chaque changement de langue.
 const LOG_KEYS = [
   ["lg-leg", ["Nouveau pouvoir légendaire découvert : {0} !", "{0} vaincu : {1} or et un objet légendaire !"], [LEGENDARY]],
+  // (it. 1837) étapes de la partie : reliques, ascensions, héros libérés, déblocages, sorts, bénédictions, panoplies
+  ["lg-mile", ["Relique obtenue : {0} ! {1}", "Relique renforcée : {0}, niveau {1} / {2} (effet +{3} %).",
+    "Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !", "Héros libéré : {0} ! Choisis-le dans l’onglet Héros pour ta prochaine ascension.",
+    "Le Briseur d’Étoiles est vaincu ! Le ciel se rallume.", "Le Briseur d’Étoiles, vaincu une fois de plus.",
+    "Nouvelle bénédiction vécue : {0} pour toujours ({1} / {2}).", "Panoplie complétée pour la première fois : {0} pour toujours.",
+    "Débloqué : {0} !", "Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", "Talent ultime débloqué : ", "Nouveau sort appris : {0} !"], []],
   ["lg-rare", ["Champion vaincu : {0} or et un butin épique !", "Coffre au trésor ! +{0} or", "Étoile filante attrapée ! +{0} or",
     "Étoile filante attrapée : +{0} or !", ": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", ": +{0} % de vitesse pour toujours ! (+{1} %)",
     "Plume du vent",

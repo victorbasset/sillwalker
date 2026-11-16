@@ -27,7 +27,7 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
   vraiment rangés) ; en jeu, le Journal signale un légendaire de Poupouce resté au sol faute de place.
 - **Tico, le scribe des Statistiques,** a de nouvelles répliques en début de partie (il ne parle plus de ce qui n'est pas
   encore ouvert).
-- **Journal horodaté :** chaque ligne indique l'heure à laquelle elle est arrivée ; une astuce fait découvrir la case « Lignes importantes seulement ».
+- **Journal horodaté :** chaque ligne indique l'heure à laquelle elle est arrivée ; une astuce fait découvrir la case « Lignes importantes seulement », qui garde aussi désormais les événements et les grandes étapes (⚑ : reliques, ascensions, déblocages, sorts).
 - **Duo plus lisible :** un compagnon à distance (arbalétrier, archer, mage…) ne disparaît plus derrière un héros au corps à
   corps, et ses tirs se voient partir.
 - **L'expérience en violet partout :** la barre de l'Aventure prend la couleur de la jauge de la bande et du mode mini.
