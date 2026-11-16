@@ -1920,4 +1920,7 @@ export default {
   3045: "I copy each of your exploits into the Log, neatly.",
   3046: "Later, I'll show you much more. For now, I'm sorting my notes.",
   3047: "The bag is full: quick, make room for Poupouce's legendary!",
+  3048: "Statistics: before zone 40, the upcoming sub-tabs are shown grayed out, and their arrival is announced.",
+  3049: "Poupouce shows up and your bag is full: your hero warns you, in time to make room for its legendary item.",
+  3050: "Mini mode: Poupouce's arrival shows up there too.",
 };

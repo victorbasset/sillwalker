@@ -3049,5 +3049,8 @@ export const KEYS = [
   "Statistiques complètes : records, succès et carnet de route sont là !",
   "Je recopie chacun de tes exploits dans le Journal, au propre.",
   "Plus tard, je t’en montrerai bien plus. Pour l’instant, je trie mes notes.",
-  "Le sac est plein : vite, une place pour le légendaire de Poupouce !"
+  "Le sac est plein : vite, une place pour le légendaire de Poupouce !",
+  "Statistiques : avant la zone 40, les sous-onglets à venir sont montrés grisés, et leur arrivée est annoncée.",
+  "Poupouce arrive et ton sac est plein : ton héros te prévient, à temps pour faire de la place à son objet légendaire.",
+  "Mode mini : l’arrivée de Poupouce s’y affiche aussi."
 ];

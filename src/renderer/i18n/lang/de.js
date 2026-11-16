@@ -1920,4 +1920,7 @@ export default {
   3045: "Ich schreibe jede deiner Heldentaten sauber ins Protokoll.",
   3046: "Später zeige ich dir noch viel mehr. Im Moment sortiere ich meine Notizen.",
   3047: "Die Tasche ist voll: schnell, Platz für Poupouces legendären Gegenstand!",
+  3048: "Statistiken: Vor Zone 40 werden die kommenden Unterreiter ausgegraut gezeigt, und ihre Ankunft wird angekündigt.",
+  3049: "Poupouce taucht auf und deine Tasche ist voll: Dein Held warnt dich rechtzeitig, damit du Platz für den legendären Gegenstand machst.",
+  3050: "Mini-Modus: Poupouces Ankunft wird auch dort angezeigt.",
 };

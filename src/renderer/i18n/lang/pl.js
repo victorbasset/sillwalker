@@ -1920,4 +1920,7 @@ export default {
   3045: "Przepisuję każdy twój wyczyn do Dziennika, na czysto.",
   3046: "Później pokażę ci dużo więcej. Na razie porządkuję notatki.",
   3047: "Torba jest pełna: szybko, zrób miejsce na legendarny łup Poupouce!",
+  3048: "Statystyki: przed strefą 40 nadchodzące podzakładki są wyszarzone, a ich pojawienie się jest ogłaszane.",
+  3049: "Poupouce się pojawia, a twoja torba jest pełna: bohater ostrzega cię w porę, by zrobić miejsce na legendarny przedmiot.",
+  3050: "Tryb mini: pojawienie się Poupouce też jest tam widoczne.",
 };

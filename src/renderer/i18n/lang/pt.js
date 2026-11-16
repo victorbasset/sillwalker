@@ -1920,4 +1920,7 @@ export default {
   3045: "Copio cada uma das suas façanhas no Diário, a limpo.",
   3046: "Mais tarde vou te mostrar muito mais. Por enquanto, estou organizando minhas anotações.",
   3047: "A bolsa está cheia: rápido, abra espaço para o lendário do Poupouce!",
+  3048: "Estatísticas: antes da zona 40, as subabas que virão aparecem em cinza, e a chegada delas é anunciada.",
+  3049: "Poupouce aparece e sua bolsa está cheia: seu herói avisa a tempo de abrir espaço para o item lendário.",
+  3050: "Modo mini: a chegada do Poupouce também aparece lá.",
 };

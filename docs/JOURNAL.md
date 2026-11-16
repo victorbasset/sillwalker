@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1773) : « Quoi de neuf », édition 115 (Statistiques grisées avant la zone 40 et annonce, Poupouce et sac plein,
+  Poupouce en mode mini) ; 10 langues, clés 3048-3050. npm test 330, autotest 249/249.
 - 2026-11-16 (it. 1772) : page-itch.md : « Color-blind friendly » peut être coché (pastilles de rareté • •• ••• ★ sur les objets,
   symboles du Journal) ; le conseil donné à Victor disait « en partie », à tort. Signalé à Victor.
 - 2026-11-16 (it. 1771, revue générale) : simulation 12 h graine 101 : lancier 62, chaman 62, gladiateur 67 (paliers 62 / 65 / 69,

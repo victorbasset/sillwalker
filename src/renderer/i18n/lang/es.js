@@ -1920,4 +1920,7 @@ export default {
   3045: "Copio cada una de tus hazañas en el Diario, en limpio.",
   3046: "Más adelante te enseñaré mucho más. Por ahora, ordeno mis notas.",
   3047: "La bolsa está llena: ¡rápido, haz sitio para el legendario de Poupouce!",
+  3048: "Estadísticas: antes de la zona 40, las subpestañas que vendrán se muestran en gris, y se anuncia su llegada.",
+  3049: "Llega Poupouce y tu bolsa está llena: tu héroe te avisa a tiempo para hacer sitio a su objeto legendario.",
+  3050: "Modo mini: la llegada de Poupouce también aparece ahí.",
 };
