@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1750, essai abandonné) : assassin (61,7, le plus bas en 12 h, graines 7/3/11) : PV ×0,95 → 61,7 ; attaque ×1,25 →
+  62,7 ; critique +25 → 62,7 ; les deux → 62,7. Les records tombent sur des paliers (murs des zones 62, 65, 69) : aucun
+  réglage ne le fait passer de façon fiable au palier suivant ; rien gardé (gain non prouvé). Pour régler un héros, mesurer
+  plus longtemps (24 h) ou plus de graines.
 - 2026-11-16 (it. 1749, contrôle) : semaine du mage après ses PV (it. 1748) : record 350 (palier de l'écho de la zone 350,
   inchangé), 6 158 éclats.
 - 2026-11-16 (it. 1748) : tableau des 20 héros (12 h, graines 7/3/11) : mage 61,0 (dernier), assassin 61,7 … moine 68,0, moyenne
