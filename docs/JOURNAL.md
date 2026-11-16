@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1752) : CLAUDE.md, équilibrage : les records de 12 h tombent sur des paliers ; confirmer un réglage de héros sur
+  4 graines de plus contre l'ancien réglage avant de le garder (leçon des it. 1748-1751).
 - 2026-11-16 (it. 1751, revue générale) : mage, PV 0,75 contre 0,85 (it. 1748) sur 4 nouvelles graines (21/31/41/51) : 62,5 contre
   62,5 ; sur les 7 graines, 61,9 → 63,0 (+1,1, pas +2,7 : la mesure de l'it. 1748 tenait du palier franchi) ; gardé (petit gain
   probable, mage parmi les plus bas). perf:linux bande 18,4 %, panneau 19,1 %, mini 5,7 % ; coréen (--dump-text) : aucun mot
