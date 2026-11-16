@@ -33,7 +33,7 @@ export const HINTS = [
     when: (g) => g.hasUpgradeCached() },
   // (it. 1552, retour d'un joueur : « on monte de niveau sans savoir comment ») au premier niveau gagné
   { id: "xp", tab: null, text: tx("Niveau supérieur ! Chaque monstre vaincu donne de l’expérience : la jauge violette sous ton niveau (et tout en bas de la bande) montre le prochain."),
-    when: (g) => g.S.lvl >= 2 && g.S.lvl <= 6 && g.S.prestige.count === 0 },
+    when: (g) => g.S.lvl >= 2 && g.S.lvl <= 12 && g.S.prestige.count === 0 }, // (it. 1597) jusqu’au niveau 12 : les bulles de bienvenue, d’objet et de talent passent souvent avant
   // (it. 1546, retour d'un joueur : « on peut pas vendre plusieurs objets en même temps ») trois ventes à la main en peu
   // de temps, sans l'Œil du connaisseur : il existe, et où le trouver
   { id: "bulksell", tab: "shop", sec: "unlocks", text: tx("Tu vends beaucoup à la main ? L’« Œil du connaisseur » (Boutique) vend d’un clic tout ce qui n’améliore pas ton héros. Clique ici."),

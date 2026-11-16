@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1597) : l'astuce de l'expérience vaut jusqu'au niveau 12 (6 avant) : bienvenue, objet plus puissant et
+  talent passent souvent avant elle (vu à l'it. 1596) et elle risquait de ne jamais sortir.
 - 2026-11-16 (it. 1596) : partie neuve en anglais, captures à 20 s, 70 s, 2 min : histoire, puis « Welcome… », puis l'objet plus
   puissant (niveau 3) ; jauge d'XP et barres de vie lisibles dès la première minute. L'astuce de l'XP (niveaux 2 à 6) vient
   après celles-là, comme prévu (une bulle à la fois).
