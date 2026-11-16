@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1568) : touche R (réclamer les quêtes) : le coffre s'ouvre sous les yeux comme au clic (une méthode
+  commune, QuestsTab.claimShow, pour le clic, « Tout réclamer » et la touche). Autotest 240/240.
 - 2026-11-16 (it. 1567) : fuite de mémoire aux changements de morceau ? mem-watch 6 min avec un changement de tranche toutes les
   20 s (MEM_ARGS="--stage=…" appelant music.setZone 1 / 51 / 101 / 151) : 540-660 Mo, en dents de scie (deux morceaux
   pendant le fondu et le décodage, puis rendus par le ramasse-miettes), sans croissance ; repère calme ≈ 550-570 Mo. Pas de fuite.

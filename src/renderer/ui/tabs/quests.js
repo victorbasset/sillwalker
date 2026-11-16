@@ -105,17 +105,20 @@ export class QuestsTab {
       <p class="note">${txn(S.quests.completed, "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 3: STARS[3].w })}</p>`;
   }
 
+  /** (it. 1555, 1568) Réclame ces quêtes ; le plus bel objet de leurs coffres s'ouvre sous les yeux (clic, « Tout réclamer », touche R). */
+  claimShow(list) {
+    const g = this.game; let best = null;
+    for (const q of [...list]) { g.R.questChest = null; g.claimQuest(q.uid); const c = g.R.questChest; if (c && (!best || c.item.r > best.item.r)) best = c; }
+    g.R.questChest = null;
+    if (best) this.onReveal?.(best);
+  }
+
   onAction(a, b) {
     const g = this.game;
     // (it. 1546, retour d'un joueur : « ça donne l'impression de rien looter, c'est satisfaisant d'en ouvrir ») réclamée
     // à la main, une quête à coffre l'ouvre sous les yeux du joueur, comme un coffre de la boutique
-    if (a === "q-claim") { g.R.questChest = null; g.claimQuest(+b.dataset.id); const c = g.R.questChest; g.R.questChest = null; if (c) this.onReveal?.(c); }
-    else if (a === "q-claimall") { // (it. 1555) plusieurs coffres : le plus beau objet s'ouvre sous les yeux
-      let best = null;
-      for (const q of [...g.S.quests.slots]) if (questDone(q)) { g.R.questChest = null; g.claimQuest(q.uid); const c = g.R.questChest; if (c && (!best || c.item.r > best.item.r)) best = c; }
-      g.R.questChest = null;
-      if (best) this.onReveal?.(best);
-    }
+    if (a === "q-claim") this.claimShow(g.S.quests.slots.filter((q) => q.uid === +b.dataset.id));
+    else if (a === "q-claimall") this.claimShow(g.S.quests.slots.filter(questDone));
     else if (a === "q-reroll") g.rerollQuest(+b.dataset.id);
     else if (a === "q-go" && hasUnlock(g.S, "travelMap")) g.setZone(+b.dataset.z); // (it. 1426)
     else if (a === "q-adv") g.setAutoAdvance(true); // (it. 1470)

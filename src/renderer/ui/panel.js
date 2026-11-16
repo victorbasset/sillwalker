@@ -1260,7 +1260,7 @@ export class Panel {
     if (k === "r") { // réclamer les quêtes terminées : une par appui, toutes avec le Bureau des contrats
       const done = this.game.S.quests.slots.filter((q) => questDone(q));
       if (!done.length) return false;
-      for (const q of hasUnlock(this.game.S, "questDesk") ? done : done.slice(0, 1)) this.game.claimQuest(q.uid);
+      this.tabs.quests.claimShow(hasUnlock(this.game.S, "questDesk") ? done : done.slice(0, 1)); // (it. 1568) coffre ouvert sous les yeux
       this.renderAll();
       return true;
     }
