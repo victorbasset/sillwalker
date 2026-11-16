@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1765, contrôle) : save-fuzz après les ajouts de migrate du jour (Poupouce au Bestiaire, statsFullSeen) : base fin
+  « ok balayage (1218) », base 0.1.2 « ok balayage (1162) ».
 - 2026-11-16 (it. 1764) : devlog 0.1.5 : bloc « Publication » en tête (titre, couverture, tags, langues, texte) ; CLAUDE.md : le préparer
   à chaque version (Victor les a demandés un par un).
 - 2026-11-16 (it. 1763, contrôle) : --crawl en russe sur dev-data (678 clics en 21 s) et sur une partie avant la zone 40 (616 clics,
