@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1667) : i18n-names après les éditions 108-109 et les nouveaux textes (Poupouce, Sac plein) : 25 écarts connus
+  (déclinaisons), aucun nouveau.
 - 2026-11-16 (it. 1666) : --crawl en russe (dev-data, sac plein) après le lien « Sac plein » : 707 clics en 22 s, aucune erreur.
 - 2026-11-16 (it. 1665) : « Quoi de neuf », édition 109 (Poupouce vaincu fêté, « Sac plein » ouvre le sac, nombres de la bande), 10 langues,
   libellés cités tels que traduits. Clés 3014-3016. npm test, autotest 242/242 (pire cas de la fenêtre mesuré).
