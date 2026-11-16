@@ -171,7 +171,7 @@ async function boot() {
     // (it. 1574) nouvelle tranche de 50 zones, nouveau morceau : une bulle sobre le nomme, une fois par morceau et par
     // lancement (jamais au lancement ; un héros qui recule d'une tranche après une défaite n'en reçoit pas d'autre)
     const t = trackIndex(musicZone);
-    if (!announced.has(t) && !(music.pin >= 0)) { announced.add(t); if (music.enabled && !music.previewing && (game.S.settings.musicVol ?? 1) > 0) showToast(`♪ ${esc(tx(TRACKS[t].name))}`, null, 6000); }
+    if (!announced.has(t) && !(music.pin >= 0)) { announced.add(t); if (mode === "strip" && visible && music.enabled && !music.previewing && (game.S.settings.musicVol ?? 1) > 0) showToast(`♪ ${esc(tx(TRACKS[t].name))}`, null, 6000); }
   }, 1000);
   let speed = init.isDev && init.devSpeed ? init.devSpeed : 1;
   let mode = null, visible = false, pendingOffline = null; // pendingOffline : résumé d’absence en attente (mode mini)

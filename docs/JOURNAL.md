@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1589) : bulle « ♪ morceau » seulement quand la bande est affichée (en mode mini ou bande cachée, elle
+  restait en file et sortait plus tard, périmée).
 - 2026-11-16 (it. 1588) : semaine simulée : fausse alerte (« mage 285-307 ») ; le tableau des courses en compte plus de 40 et
   mes lectures (grep -A30, et la dichotomie qui s'en servait) s'arrêtaient vers la 30e : la dernière course atteint 349,
   comme le repère (350). Simulation vérifiée déterministe (deux exécutions identiques). Leçon dans CLAUDE.md.
