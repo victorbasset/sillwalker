@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1748) : tableau des 20 héros (12 h, graines 7/3/11) : mage 61,0 (dernier), assassin 61,7 … moine 68,0, moyenne
+  64,9, écart 7. Mage : PV ×0,75 → ×0,85 (essai attaque ×1,5 : 60,3, sans effet) : 61,0 → 63,7 (64 / 62 / 65). Fuzz 600
+  parties, 0 bloquée ; npm test 330, autotest 248/248.
 - 2026-11-16 (it. 1747) : devlog 0.1.5 (brouillon .md et .html itch, 10 langues) : Poupouce décrit en chat blanc tacheté de noir,
   un monstre sur 1 000, 100 fois l'or et un objet légendaire (avant : contour rose, cinq fois plus d'or).
 - 2026-11-16 (it. 1746) : README à jour : Poupouce en chat (rareté, or, légendaire, miaulement), Statistiques dès la zone 3

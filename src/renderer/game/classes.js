@@ -29,7 +29,7 @@ export const CLASSES = {
     name: "Mage",
     role: "Puissant mais fragile, à distance",
     desc: "Ses boules de feu laissent les monstres en flammes.",
-    mul: { hp: 0.75, atk: 1.4, def: 0.8 },
+    mul: { hp: 0.85, atk: 1.4, def: 0.8 }, // (it. 1748) PV 0,75 → 0,85 : mage 61,0 → 63,7 en 12 h (3 graines ; moyenne des héros 64,9)
     add: {},
     passive: { burn: 25 },
     passiveText: "Brûlure : chaque sort enflamme la cible, qui perd 25 % de l’attaque du mage par seconde pendant 3 s.",
