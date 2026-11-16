@@ -1911,4 +1911,6 @@ export default {
   3036: "Solo líneas importantes",
   3037: "Aún no hay líneas importantes.",
   3038: "El Diario de tu aventura; los récords y logros llegarán más tarde.",
+  3039: "{0} derrotado: ¡{1} de oro y un objeto legendario!",
+  3040: "Rarísimo, en cualquier lugar. Montones de oro y un objeto legendario.",
 };

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1730, demande de Victor, « il est parfait ») : Poupouce devient un monstre à part, un chat blanc tacheté de
+  noir (art.js, MONSTERS.poupouce, au Bestiaire) au lieu d'un monstre de la zone au contour rose ; extrêmement rare (1 sur
+  1 000, 1 sur 250 avant), 100 fois l'or d'un monstre (5 avant) et un objet légendaire garanti, en jeu comme pendant
+  l'absence. Clés 3039-3040, test ; fuzz 0 bloquée, npm test 327, autotest 247/247.
 - 2026-11-16 (it. 1729) : le Journal était inaccessible jusqu'à la zone 40 (Statistiques fermé ; plusieurs heures) depuis son
   déplacement (it. 1677). Statistiques s'ouvre maintenant à la zone 3 avec le Journal seul ; Chiffres, Succès et Carnet de
   route à la zone 40 (statsFull, tabs.js) ; conseil « vitesse » attendu jusque-là. Clé 3038, test ; npm test 326, autotest 247/247.

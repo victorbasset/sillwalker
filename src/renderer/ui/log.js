@@ -8,7 +8,7 @@ import { RARITIES, LEGENDARY } from "../game/data.js";
 // maintenant des messages traduits (le plus long morceau fixe de chaque modèle, sans les {0}) et des noms de rareté
 // (traduits au démarrage) ; recalculés à chaque changement de langue.
 const LOG_KEYS = [
-  ["lg-leg", ["Nouveau pouvoir légendaire découvert : {0} !"], [LEGENDARY]],
+  ["lg-leg", ["Nouveau pouvoir légendaire découvert : {0} !", "{0} vaincu : {1} or et un objet légendaire !"], [LEGENDARY]],
   ["lg-rare", ["Champion vaincu : {0} or et un butin épique !", "Coffre au trésor ! +{0} or", "Étoile filante attrapée ! +{0} or",
     "Étoile filante attrapée : +{0} or !", ": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", ": +{0} % de vitesse pour toujours ! (+{1} %)",
     "Plume du vent"], []],

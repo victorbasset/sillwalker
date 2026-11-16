@@ -1911,4 +1911,6 @@ export default {
   3036: "Nur wichtige Zeilen",
   3037: "Noch keine wichtigen Zeilen.",
   3038: "Das Protokoll deines Abenteuers; Rekorde und Erfolge kommen später.",
+  3039: "{0} besiegt: {1} Gold und ein legendärer Gegenstand!",
+  3040: "Extrem selten, überall. Massenhaft Gold und ein legendärer Gegenstand.",
 };

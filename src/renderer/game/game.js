@@ -145,7 +145,9 @@ export class Game {
         : (() => {
           const champion = this.S.zone >= CHAMPION.minZone && rand() < CHAMPION.chance * (dm?.champion || 1), elite = champion || rand() < ELITE.chance * eliteMul;
           const poupouce = !elite && this.S.zone >= POUPOUCE.minZone && rand() < POUPOUCE.chance * (dm?.poupouce || 1); // (it. 1586) Jour de Poupouce
-          return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null, ...(poupouce ? { poupouce } : {}) };
+          // (it. 1730, demande de Victor) Poupouce est un monstre à part : un chat blanc tacheté de noir (art.js)
+          if (poupouce) return { type: "poupouce", elite: false, champion: false, affix: null, poupouce };
+          return { type: draw(), elite, champion, affix: elite ? pick(Object.keys(ELITE_AFFIXES)) : null };
         })()));
       if ((R.events.bloodmoon || 0) > 0) this.bloodMoon(R.lineup, 0); // Lune de sang : la nouvelle série naît élite
       if ((R.events.goblinrush || 0) > 0) this.goblinRush(R.lineup, 0); // (it. 954) Ruée des gobelins
@@ -974,7 +976,7 @@ export class Game {
         this.invalidateStats(); // (it. 983) bonus de la collection des élites
       }
     }
-    if (m.poupouce) { S.stats.poupouce = (S.stats.poupouce || 0) + 1; this.log(tx("{0} vaincu : {1} or !", { 0: POUPOUCE.name, 1: fmt(gold) })); }
+    if (m.poupouce) { S.stats.poupouce = (S.stats.poupouce || 0) + 1; this.log(tx("{0} vaincu : {1} or et un objet légendaire !", { 0: POUPOUCE.name, 1: fmt(gold) })); }
     if (m.goblin) { S.stats.goblins = (S.stats.goblins || 0) + 1; this.questProgress("goblin", 1); this.log(`${tx("Gobelin doré attrapé : {0} or !", { 0: fmt(gold) })}`); }
     S.bestiary[m.type] = (S.bestiary[m.type] || 0) + 1;
     this.questProgress("kill", 1);
@@ -999,8 +1001,9 @@ export class Game {
     this.autoTransmute();
     const pace = earlyPace(this.S); // tout début de partie : plus tranquille (rules.js)
     this.gainXp(Math.max(1, Math.round(m.xp * pace * (1 + hs.xp / 100) * ((R.events.wisdom || 0) > 0 ? 3 : 1)))); // Souffle de sagesse : ×3
-    if (m.boss || m.elite || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * pace * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
-      const it = this.newItem(m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0, this.S.zone, true);
+    if (m.boss || m.elite || m.poupouce || (R.events.bounty || 0) > 0 || rand() < DROP_CHANCE * pace * (1 + hs.drop / 100)) { // Corne d’abondance : butin à chaque victoire
+      // (it. 1730, demande de Victor) Poupouce : un objet légendaire garanti
+      const it = this.newItem(m.poupouce ? LEGENDARY : m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0, this.S.zone, true);
       if (it.r >= 2) this.questProgress("loot", 1);
       this.addToBag(it);
       this.emit("loot", { item: it, mon: m, ground: this.R.grounded === it.id }); // ground : resté au sol (sac plein)
@@ -1194,8 +1197,9 @@ export class Game {
     // (it. 1349) Trèfle à quatre feuilles au prorata de sa durée (ignoré hors ligne jusque-là)
     const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + (hs.drop + BUFF_EFFECTS.luck.drop * share("luck")) / 100) * 0.3));
     let best = -1, bestItem = null, onGround = 0;
-    for (let i = 0; i < drops; i++) {
-      const it = this.newItem(0);
+    // (it. 1730) chaque Poupouce vaincu pendant l'absence laisse aussi son objet légendaire
+    for (let i = 0; i < drops + poupouce; i++) {
+      const it = this.newItem(i < drops ? 0 : LEGENDARY);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
       if (it.r >= 2) this.questProgress("loot", 1); // (it. 883) butin rare ou mieux, gardé ou non (comme en jeu)

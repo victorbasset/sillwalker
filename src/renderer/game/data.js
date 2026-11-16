@@ -188,11 +188,14 @@ export const MONSTERS = {
   // Rare (GOBLIN.chance) dans n'importe quelle zone : ne se bat pas, s'enfuit
   // au bout de GOBLIN.flee secondes, mais rapporte énormément d'or.
   goblin: { name: "Gobelin doré",     hp: 0.7,  atk: 0,    interval: 1, gold: 15, xp: 2 },
+  poupouce: { name: "Poupouce", hp: 1, atk: 0.5, interval: 1.2, xp: 3 }, // (it. 1730) or : POUPOUCE.gold (game.js)
 };
 export const GOBLIN = { chance: 0.015, flee: 4 };
 // (it. 1546, demande d'un joueur : « je veux qu'un mob s'appelle Poupouce ») un monstre ordinaire sur ≈ 250 porte ce nom
 // (étiquette rose au-dessus de lui) et rapporte 5 fois plus d'or ; nom propre, le même dans toutes les langues
-export const POUPOUCE = { chance: 0.004, minZone: 2, gold: 5, name: "Poupouce" };
+// (it. 1730, demande de Victor) un chat blanc tacheté de noir, extrêmement rare (1 monstre sur 1 000 ; 1 sur 250 avant),
+// 100 fois l'or d'un monstre (5 avant) et un objet légendaire garanti.
+export const POUPOUCE = { chance: 0.001, minZone: 2, gold: 100, name: "Poupouce" };
 
 // Monstres d'élite : rares, plus coriaces, bien plus rentables.
 export const ELITE = { chance: 0.06, hp: 3, atk: 1.5, gold: 4, xp: 3, minRarity: 1, minZone: 3 }; // minZone : première course

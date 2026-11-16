@@ -1911,4 +1911,6 @@ export default {
   3036: "Tylko ważne wiersze",
   3037: "Na razie brak ważnych wierszy.",
   3038: "Dziennik twojej przygody; rekordy i osiągnięcia pojawią się później.",
+  3039: "{0} pokonany: {1} złota i legendarny przedmiot!",
+  3040: "Niezwykle rzadki, wszędzie. Mnóstwo złota i legendarny przedmiot.",
 };

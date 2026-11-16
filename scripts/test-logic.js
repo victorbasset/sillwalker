@@ -62,6 +62,7 @@ import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
+import { POUPOUCE as POUPOUCE_1730, MONSTERS as MONSTERS_1730 } from "../src/renderer/game/data.js";
 import { eggsAllowed, fixQuestEgg, statsFull } from "../src/renderer/game/tabs.js";
 import { weaponOf, materialOf, WEAPON_OF } from "../src/renderer/render/sound.js";
 import { trackIndex, musicZone, TRACKS } from "../src/renderer/render/music.js";
@@ -298,7 +299,9 @@ test("hors ligne : parchemins et encens comptés au prorata de leur durée (it. 
     for (const k in g.S.autoSell) g.S.autoSell[k] = true;
     // (it. 1406) l'or des victoires de l'absence (résumé), pas le total : une quête réclamée pendant l'absence (« Gagner N
     // niveaux » par exemple) y ajouterait sa récompense selon le tirage des quêtes
-    const sum = g.applyOffline(3600);
+    // (it. 1730) Poupouce (100 fois l'or d'un monstre) rendrait la comparaison aléatoire : écarté ici
+    const ch = POUPOUCE_1730.chance; POUPOUCE_1730.chance = 0;
+    const sum = g.applyOffline(3600); POUPOUCE_1730.chance = ch;
     return { gold: sum ? sum.gold : 0, elites: sum ? sum.elites || 0 : 0, sum };
   };
   const none = run({}, false), fort = run({ fortune: 600 }, false);
@@ -3358,6 +3361,18 @@ test("Statistiques : ouvert dès la zone 3 pour le Journal, complet à la zone 4
   openTabs(S); assert.ok(!tabOpen(S, "stats"), "zone 2 : fermé");
   S.best = 3; openTabs(S); assert.ok(tabOpen(S, "stats"), "zone 3 : ouvert"); assert.ok(!statsFull(S), "Journal seul");
   S.best = 40; assert.ok(statsFull(S), "zone 40 : complet");
+});
+
+test("Poupouce : un chat à part, extrêmement rare, beaucoup d'or et un objet légendaire (it. 1730, demande de Victor)", () => {
+  assert.ok(MONSTERS_1730.poupouce, "monstre à part"); assert.ok(POUPOUCE_1730.chance <= 0.001 && POUPOUCE_1730.gold >= 100, "rare et riche");
+  const ch = POUPOUCE_1730.chance; POUPOUCE_1730.chance = 1;
+  try {
+    const g = new Game(freshState()); g.S.zone = 5; g.S.best = 5;
+    const line = g.lineup();
+    assert.ok(line.filter((m) => !m.goblin).every((m) => m.type === "poupouce" && m.poupouce && !m.elite), "file de Poupouce");
+    g.applyOffline(1800);
+    assert.ok(g.S.bag.some((it) => it && it.r === 4), "objet légendaire rapporté");
+  } finally { POUPOUCE_1730.chance = ch; }
 });
 
 test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {

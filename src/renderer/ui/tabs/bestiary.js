@@ -20,6 +20,7 @@ import { zoneDef, nearestZoneWith } from "../../game/rules.js";
 
 const where = (type) => {
   if (type === "goblin") return tx("Rare, partout. S’enfuit vite !");
+  if (type === "poupouce") return tx("Extrêmement rare, partout. Or à foison et un objet légendaire."); // (it. 1730)
   const z = ZONES.filter((x) => x.monsters.includes(type) || x.boss === type).map((x) => x.name);
   return z.join(csep());
 };

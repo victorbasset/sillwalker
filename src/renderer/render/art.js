@@ -181,6 +181,10 @@ export const MONSTER_ART = {
   goblin: { pal: { Y: "#ffd34d", D: "#c99a1a", G: "#5fae4a", E: "#1a1a1a", B: "#8a5a2b", W: "#fff6c8" }, frames: [
     ["...GG.GG..", "...GGGGG..", "...GEGEG..", "...GGGGG..", "..DYYYYD.B", ".G.YWYY.BB", "...YYYY.BB", "...Y..Y...", "..DD..DD.."],
     ["...GG.GG..", "...GGGGG..", "...GEGEG..", "...GGGGG..", "..DYYYYD.B", "..GYWYYGBB", "...YYYY.BB", "..Y....Y..", ".DD....DD."]] },
+  // (it. 1730, demande de Victor) Poupouce : un chat blanc tacheté de noir
+  poupouce: { pal: { W: "#f4f2ec", w: "#c9c6bd", K: "#1e1d24", E: "#5fc46a", P: "#f29bb6" }, frames: [
+    ["..........K.W.", ".........KKWWW", "K........WEWEW", "W........WWPWW", "W..WWWKKWWWWW.", ".WWWKKWWWWKWW.", "..WWWWWWKKWWW.", "...W.W....W.W.", "...w.w....w.w."],
+    ["..........K.W.", ".........KKWWW", ".K.......WEWEW", "W........WWPWW", "W..WWWKKWWWWW.", ".WWWKKWWWWKWW.", "..WWWWWWKKWWW.", "..W...W..W...W", "..w...w..w...w"]] },
   rat: { pal: { G: "#8a7f7a", D: "#5c534f", P: "#e8a0a8", E: "#1a1a1a" }, frames: [
     ["........PP..", "......GGGG..", ".....GGGGEG.", "PPGGGGGGGGGP", "..GGGGGGGG..", "..D.D..D.D.."],
     ["........PP..", "......GGGG..", ".....GGGGEG.", ".PGGGGGGGGGP", "P.GGGGGGGG..", ".D..D.D..D.."]] },

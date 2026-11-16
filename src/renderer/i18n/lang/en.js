@@ -1911,4 +1911,6 @@ export default {
   3036: "Important lines only",
   3037: "No important lines yet.",
   3038: "Your adventure's Log; records and achievements will come later.",
+  3039: "{0} defeated: {1} gold and a legendary item!",
+  3040: "Extremely rare, anywhere. Heaps of gold and a legendary item.",
 };

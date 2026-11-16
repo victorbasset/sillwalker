@@ -3040,5 +3040,7 @@ export const KEYS = [
   "Jour des familiers sans familier actif : la bénédiction l’indique et dit où en trouver.",
   "Lignes importantes seulement",
   "Aucune ligne importante pour l’instant.",
-  "Le Journal de ton aventure ; records et succès viendront plus tard."
+  "Le Journal de ton aventure ; records et succès viendront plus tard.",
+  "{0} vaincu : {1} or et un objet légendaire !",
+  "Extrêmement rare, partout. Or à foison et un objet légendaire."
 ];
