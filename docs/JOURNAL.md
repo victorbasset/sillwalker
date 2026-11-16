@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1590) : Statistiques > Chiffres, Probabilités : la ligne « Poupouce » (0,4 % par monstre, « aujourd'hui ×10 »
+  le Jour de Poupouce) apparaît une fois Poupouce vaincu ; lang-overflow propre au pire cas (max-save) et chaque jour.
 - 2026-11-16 (it. 1589) : bulle « ♪ morceau » seulement quand la bande est affichée (en mode mini ou bande cachée, elle
   restait en file et sortait plus tard, périmée).
 - 2026-11-16 (it. 1588) : semaine simulée : fausse alerte (« mage 285-307 ») ; le tableau des courses en compte plus de 40 et
