@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1569) : contrôles après Poupouce : fuzz avec chaque bénédiction du jour (FUZZ_DAYMOD=all, 600 parties,
+  0 bloquée) ; save-fuzz à partir de la fin de partie (1 204 corruptions, ok).
 - 2026-11-16 (it. 1568) : touche R (réclamer les quêtes) : le coffre s'ouvre sous les yeux comme au clic (une méthode
   commune, QuestsTab.claimShow, pour le clic, « Tout réclamer » et la touche). Autotest 240/240.
 - 2026-11-16 (it. 1567) : fuite de mémoire aux changements de morceau ? mem-watch 6 min avec un changement de tranche toutes les
