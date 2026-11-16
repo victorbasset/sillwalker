@@ -22,7 +22,9 @@ const LOG_KEYS = [
     "Ascension n° {0} : {1} et {2}. Une nouvelle aventure commence{3} !", "Héros libéré : {0} ! Choisis-le dans l’onglet Héros pour ta prochaine ascension.",
     "Le Briseur d’Étoiles est vaincu ! Le ciel se rallume.", "Le Briseur d’Étoiles, vaincu une fois de plus.",
     "Nouvelle bénédiction vécue : {0} pour toujours ({1} / {2}).", "Panoplie complétée pour la première fois : {0} pour toujours.",
-    "Débloqué : {0} !", "Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", "Talent ultime débloqué : ", "Nouveau sort appris : {0} !"], []],
+    "Débloqué : {0} !", "Guilde : tu deviens {0} ! Bonus permanent augmenté{1}.", "Talent ultime débloqué : ", "Nouveau sort appris : {0} !",
+    // (it. 1844) succès (écrit par app.js)
+    "🏆 Succès : {0}"], []],
   ["lg-epic", [], [3]],
   ["lg-good", ["Quête accomplie ! Récompense à réclamer.", "revient de {0} : +{1} or{2}{3} !", "L’œuf éclot : {0} !", "L’œuf éclot : encore un {0} ! Ton {1} gagne de l’expérience.", "Un œuf !"], []],
 ];

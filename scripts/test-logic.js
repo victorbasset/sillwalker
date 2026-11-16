@@ -3370,8 +3370,10 @@ test("journal (it. 1840) : même catégorie dans les 10 langues (sac plein de Po
 });
 test("journal (it. 1842) : chaque modèle de ligne de game.js a la même catégorie dans les 10 langues", () => {
   // une traduction qui contient le morceau fixe d'un autre modèle change la couleur et le repère de la ligne (it. 1840)
-  const src = fs.readFileSync(new URL("../src/renderer/game/game.js", import.meta.url), "utf8");
-  const keys = [...new Set([...src.matchAll(/this\.log\([^;]*/g)].flatMap((m) => [...m[0].matchAll(/tx\("([^"]+)"/g)].map((x) => x[1])))];
+  // (it. 1844) aussi les lignes écrites par app.js (game.log : succès)
+  const src = fs.readFileSync(new URL("../src/renderer/game/game.js", import.meta.url), "utf8") + fs.readFileSync(new URL("../src/renderer/app.js", import.meta.url), "utf8");
+  const keys = [...new Set([...src.matchAll(/(?:this|game)\.log\([^;]*/g)].flatMap((m) => [...m[0].matchAll(/tx\("([^"]+)"/g)].map((x) => x[1])))];
+  assert.ok(keys.includes("🏆 Succès : {0}"), "ligne des succès trouvée");
   assert.ok(keys.length >= 60, "modèles trouvés : " + keys.length);
   const fill = (s) => s.replace(/\{(\d)\}/g, (m, d) => ["Xa", "7", "9", "Yb"][+d] || "Z");
   const keep = getLang(), seen = {};
