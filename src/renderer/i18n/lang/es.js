@@ -1925,4 +1925,7 @@ export default {
   3050: "Modo mini: la llegada de Poupouce también aparece ahí.",
   3051: "(+{n} objeto legendario)|(+{n} objetos legendarios)",
   3052: "El legendario de Poupouce se quedó en el suelo: bolsa llena.",
+  3053: "Mientras no estabas: la ventana dice cuántos objetos legendarios te dejaron los Poupouce derrotados.",
+  3054: "Diario: si el legendario de Poupouce se queda en el suelo por falta de sitio, una línea lo indica.",
+  3055: "Tico, el escriba de las Estadísticas, tiene frases nuevas al principio de la partida.",
 };

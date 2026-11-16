@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1793) : « Quoi de neuf », édition 116 (légendaires de Poupouce au retour d'absence, ligne du Journal quand l'un
+  reste au sol, nouvelles répliques de Tico) ; 10 langues (nom de Tico repris tel que traduit), clés 3053-3055. npm test 332,
+  autotest 250/250.
 - 2026-11-16 (it. 1792, contrôle) : panneau ouvert remesuré deux fois après le 20,0 % de la revue 1791 : 19,3 % et 19,0 % : du bruit,
   pas de régression.
 - 2026-11-16 (it. 1791, revue générale) : simulation 12 h graine 121 : danseuse de lames 64, artificier 65, chaman 62 ; perf:linux

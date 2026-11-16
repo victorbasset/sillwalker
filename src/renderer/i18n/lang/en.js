@@ -1925,4 +1925,7 @@ export default {
   3050: "Mini mode: Poupouce's arrival shows up there too.",
   3051: "(+{n} legendary item)|(+{n} legendary items)",
   3052: "Poupouce's legendary was left on the ground: bag full.",
+  3053: "While you were away: the window says how many legendary items the defeated Poupouces left you.",
+  3054: "Log: if Poupouce's legendary stays on the ground for lack of room, a line says so.",
+  3055: "Tico, the Statistics scribe, has new lines early in the game.",
 };

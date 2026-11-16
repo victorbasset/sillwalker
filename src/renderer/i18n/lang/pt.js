@@ -1925,4 +1925,7 @@ export default {
   3050: "Modo mini: a chegada do Poupouce também aparece lá.",
   3051: "(+{n} item lendário)|(+{n} itens lendários)",
   3052: "O lendário do Poupouce ficou no chão: bolsa cheia.",
+  3053: "Enquanto você estava fora: a janela diz quantos itens lendários os Poupouce derrotados deixaram.",
+  3054: "Diário: se o lendário do Poupouce ficar no chão por falta de espaço, uma linha avisa.",
+  3055: "Tico, o escriba das Estatísticas, tem falas novas no começo do jogo.",
 };

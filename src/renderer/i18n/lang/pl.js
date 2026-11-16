@@ -1925,4 +1925,7 @@ export default {
   3050: "Tryb mini: pojawienie się Poupouce też jest tam widoczne.",
   3051: "(+{n} legendarny przedmiot)|(+{n} legendarne przedmioty)|(+{n} legendarnych przedmiotów)",
   3052: "Legendarny łup Poupouce został na ziemi: torba pełna.",
+  3053: "Podczas twojej nieobecności: okno mówi, ile legendarnych przedmiotów zostawiły ci pokonane Poupouce.",
+  3054: "Dziennik: jeśli legendarny łup Poupouce zostanie na ziemi z braku miejsca, pojawi się o tym wiersz.",
+  3055: "Tico, skryba Statystyk, ma nowe kwestie na początku gry.",
 };

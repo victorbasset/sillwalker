@@ -1925,4 +1925,7 @@ export default {
   3050: "Mini-Modus: Poupouces Ankunft wird auch dort angezeigt.",
   3051: "(+{n} legendärer Gegenstand)|(+{n} legendäre Gegenstände)",
   3052: "Poupouces legendärer Gegenstand blieb liegen: Tasche voll.",
+  3053: "Während deiner Abwesenheit: Das Fenster zeigt, wie viele legendäre Gegenstände die besiegten Poupouce dir hinterlassen haben.",
+  3054: "Protokoll: Bleibt Poupouces legendärer Gegenstand aus Platzmangel liegen, meldet es eine Zeile.",
+  3055: "Tico, der Schreiber der Statistiken, hat zu Spielbeginn neue Sätze.",
 };

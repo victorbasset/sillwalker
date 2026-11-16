@@ -3054,5 +3054,8 @@ export const KEYS = [
   "Poupouce arrive et ton sac est plein : ton héros te prévient, à temps pour faire de la place à son objet légendaire.",
   "Mode mini : l’arrivée de Poupouce s’y affiche aussi.",
   "(+{n} objet légendaire)|(+{n} objets légendaires)",
-  "Le légendaire de Poupouce est resté au sol : sac plein."
+  "Le légendaire de Poupouce est resté au sol : sac plein.",
+  "Pendant ton absence : la fenêtre dit combien d’objets légendaires les Poupouce vaincus t’ont laissés.",
+  "Journal : si le légendaire de Poupouce reste au sol faute de place, une ligne le signale.",
+  "Tico, le scribe des Statistiques, a de nouvelles répliques en début de partie."
 ];
