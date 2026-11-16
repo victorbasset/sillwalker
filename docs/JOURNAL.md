@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1816, contrôle) : mode mini, duo de deux combattants (guerrier + samouraï) : le compagnon reste lisible à gauche,
+  le héros devant ; rien à corriger.
 - 2026-11-16 (it. 1815, contrôle) : simulation 24 h (graine 7) : guerrier et mage au même record (86, dernière table « Courses ») ; repère
   à 24 h pour la suite (mage plus en retard après ses PV, it. 1748).
 - 2026-11-16 (it. 1814, contrôle) : duo face à un boss (Chapeau-Pourpre, zone 57) : samouraï compagnon visible derrière le guerrier,
