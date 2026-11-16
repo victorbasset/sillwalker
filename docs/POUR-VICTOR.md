@@ -129,3 +129,5 @@ maintenant aussi une phrase oubliée dans toutes les langues.
 - (2026-11-16, it. 1732) Poupouce (chat) compte au Bestiaire ; les Poupouce vaincus avant ce changement comptent pour sa
   carte, pour ne pas défaire une collection complète. Si tu préfères qu'il reste hors du total, dis-le.
 - (it. 1734) À écouter : Poupouce miaule en arrivant (impossible à entendre sur le serveur). Trop fort, trop faible, pas assez chat ?
+- (it. 1757) 0.1.5 prête : fichiers dans Médias/dist-itch (sha256 dans SHA256-0.1.5.txt), étiquette v0.1.5. Dire « oui » pour
+  l'envoi sur itch.io par butler, puis publier le devlog (steam/itch/devlog-0.1.5.html, 10 langues).

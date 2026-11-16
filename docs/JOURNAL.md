@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-16 (it. 1757) : 0.1.5 construite (itch-push.sh --dry-run : Windows, Linux, Mac signée ad hoc) ; essai de l'AppImage avec un
+  HOME temporaire (partie neuve, sauvegarde écrite, aucune erreur) ; déposée dans Médias/dist-itch avec SHA256-0.1.5.txt ;
+  étiquette v0.1.5 sur 0b4dc0f0. Envoi itch.io (butler) en attente du « oui » de Victor ; devlog prêt (steam/itch/devlog-0.1.5.html).
 - 2026-11-16 (it. 1756, demande de Victor : préparer la 0.1.5) : version 0.1.5 (package.json) ; notes de version RELEASE_015
   (10 nouveautés reprises des éditions 102-114, déjà traduites ; after: 101) ; tests des notes mis à jour. npm test 330,
   autotest 248/248, lang-overflow (10 langues) sans défilement ; fenêtre « Neu in Version 0.1.5 » vue en allemand à 1280 px.
