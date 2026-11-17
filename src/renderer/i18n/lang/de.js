@@ -2146,4 +2146,8 @@ export default {
   3271: "Dein Held beginnt neu auf Stufe 1, in Zone {0}: Gold, Ausrüstung, Tasche, Talente und Quests dieses Durchlaufs gehen verloren. Du erhältst {1}.",
   3272: "Talente gesamt",
   3273: "Boni aller deiner Talente (Passivfähigkeit des Helden inbegriffen).",
+  3274: "Großen Graphen zurücksetzen?",
+  3275: "Die Punkte des großen Graphen kommen zurück (kostenlos); die Wege sind wieder frei wählbar. Die Blume bleibt.",
+  3276: "Alles zurücksetzen?",
+  3277: "Alle Fertigkeitspunkte kommen zurück (kostenlos), Blume und großer Graph inbegriffen.",
 };

@@ -3275,5 +3275,9 @@ export const KEYS = [
   "Monter vers les étoiles ?",
   "Ton héros recommence au niveau 1, en zone {0} : or, équipement, sac, talents et quêtes de cette course sont perdus. Tu gagnes {1}.",
   "Total des talents",
-  "Bonus de tous tes talents (passif du héros compris)."
+  "Bonus de tous tes talents (passif du héros compris).",
+  "Réinitialiser le grand graphe ?",
+  "Les points du grand graphe reviennent (gratuit) ; les voies sont de nouveau au choix. La fleur reste.",
+  "Tout réinitialiser ?",
+  "Tous les points de compétence reviennent (gratuit), la fleur et le grand graphe compris."
 ];

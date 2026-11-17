@@ -2146,4 +2146,8 @@ export default {
   3271: "Seu herói recomeça no nível 1, na zona {0}: ouro, equipamento, bolsa, talentos e missões desta corrida são perdidos. Você ganha {1}.",
   3272: "Total dos talentos",
   3273: "Bônus de todos os seus talentos (passiva do herói incluída).",
+  3274: "Reiniciar o grande grafo?",
+  3275: "Os pontos do grande grafo voltam (grátis); os caminhos podem ser escolhidos de novo. A flor fica.",
+  3276: "Redefinir tudo?",
+  3277: "Todos os pontos de habilidade voltam (grátis), incluindo a flor e o grande grafo.",
 };

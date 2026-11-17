@@ -2146,4 +2146,8 @@ export default {
   3271: "Twój bohater zaczyna od nowa na poziomie 1, w strefie {0}: złoto, ekwipunek, torba, talenty i zadania tego podejścia przepadają. Zyskujesz {1}.",
   3272: "Suma talentów",
   3273: "Premie ze wszystkich twoich talentów (wraz z cechą bohatera).",
+  3274: "Zresetować wielki graf?",
+  3275: "Punkty wielkiego grafu wracają (za darmo); ścieżki można wybrać ponownie. Kwiat zostaje.",
+  3276: "Zresetować wszystko?",
+  3277: "Wszystkie punkty umiejętności wracają (za darmo), wraz z kwiatem i wielkim grafem.",
 };

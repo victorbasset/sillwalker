@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2112, ergonomie) : Compétences : « Tout réinitialiser » et « Réinitialiser le grand graphe » se confirment dans la
+  fenêtre du panneau (ce qui revient, ce qui reste) au lieu d'un second clic sur le même bouton. Clés 3274-3277 ; autotest
+  « demande confirmation, Annuler ne change rien » ; 270/270.
 - 2026-11-17 (it. 2111, signalé par Victor : lag au survol, détail de la voie) : la fiche des Talents suit le survol sans délai et
   revient au talent cliqué hors des talents (180 ms) ; fiche d'une voie : effets chiffrés ; ligne « Une voie est disponible » retirée ;
   coche compacte au maximum (« ✓ » seul pour un ultime : nom russe sur deux lignes à 1280 px). lang-overflow : état « talents au

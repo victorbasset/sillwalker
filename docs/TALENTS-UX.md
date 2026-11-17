@@ -71,5 +71,6 @@
 
 ## Reste à revoir (hors Talents)
 
-- (fait it. 2102) Ascension : fenêtre de confirmation. Reste Compétences (« Confirmer la réinitialisation ») confirment par un second clic
+- (fait it. 2102 et 2112) Ascension puis Compétences (« Tout réinitialiser », « Réinitialiser le grand graphe ») : fenêtre de
+  confirmation. Avant, Compétences (« Confirmer la réinitialisation ») confirment par un second clic
   sur le même bouton, dont le libellé change : même défaut que l'ancienne Voie.

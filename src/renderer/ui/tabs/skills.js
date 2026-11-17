@@ -28,7 +28,6 @@ export class SkillsTab {
   constructor(game) {
     this.game = game;
     this.view = { x: 0, y: 0, k: 0 }; // k = 0 : à recadrer au premier affichage
-    this.armedReset = false;
   }
 
   badge() {
@@ -370,11 +369,8 @@ export class SkillsTab {
     // (it. 1099) changer de voie sans perdre la fleur : vider le grand graphe seulement (deuxième clic pour confirmer)
     const greset = this.el.querySelector('[data-action="k-greset"]');
     greset.hidden = !(S.skills.outer || []).length;
-    greset.textContent = this.armedGReset ? tx("Confirmer la réinitialisation") : tx("Réinitialiser le grand graphe");
-    greset.classList.toggle("danger", !!this.armedGReset);
-    const reset = this.el.querySelector('[data-action="k-reset"]');
-    reset.textContent = this.armedReset ? tx("Confirmer la réinitialisation") : tx("Tout réinitialiser");
-    reset.classList.toggle("danger", this.armedReset);
+    greset.textContent = tx("Réinitialiser le grand graphe");
+    this.el.querySelector('[data-action="k-reset"]').textContent = tx("Tout réinitialiser");
   }
 
   onAction(a, b) {
@@ -385,15 +381,15 @@ export class SkillsTab {
     else if (a === "k-autoon") { g.S.settings.autoSkills = b.checked; if (b.checked) g.autoSpendSkills(); g.changed(); }
     else if (a === "k-undo") g.undoSkill();
     else if (a === "k-center") this.center();
+    // (it. 2112, ergonomie) confirmation dans la fenêtre du panneau (avant : second clic sur le même bouton, dont le libellé
+    // changeait ; un double clic involontaire effaçait l'arbre)
     else if (a === "k-greset") {
-      if (!this.armedGReset) { this.armedGReset = true; setTimeout(() => { this.armedGReset = false; }, 4000); return; }
-      this.armedGReset = false;
-      g.resetGraph();
+      const go = () => g.resetGraph();
+      if (!this.panel) go(); else this.panel.confirm(tx("Réinitialiser le grand graphe ?"), tx("Les points du grand graphe reviennent (gratuit) ; les voies sont de nouveau au choix. La fleur reste."), tx("Réinitialiser le grand graphe"), go);
     }
     else if (a === "k-reset") {
-      if (!this.armedReset) { this.armedReset = true; setTimeout(() => { this.armedReset = false; }, 4000); return; }
-      this.armedReset = false;
-      g.resetSkills();
+      const go = () => g.resetSkills();
+      if (!this.panel) go(); else this.panel.confirm(tx("Tout réinitialiser ?"), tx("Tous les points de compétence reviennent (gratuit), la fleur et le grand graphe compris."), tx("Tout réinitialiser"), go);
     }
   }
 
