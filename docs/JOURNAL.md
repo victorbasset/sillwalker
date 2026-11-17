@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2081, revue générale) : --crawl en polonais : 674 clics sans erreur ; texte allemand : aucun mot français (« des »,
+  « du » : allemands). Perf, mémoire, équilibrage mesurés aux it. 2071-2080. Rien à corriger.
 - 2026-11-17 (it. 2080, contrôle) : perf après les retouches du mode mini (it. 2071-2079) : bande 18,0 %, panneau 19,1 %, mini 5,6 %
   (5,4-5,6 avant). Rien à corriger.
 - 2026-11-17 (it. 2079, suite du signalement de Victor) : mode mini : un combattant qu'on n'a pas vu attendre (premier de la série,
