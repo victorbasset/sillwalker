@@ -443,6 +443,8 @@ export class StripRenderer {
       let shouted = false;
       for (let k = k0; k < Math.min(k0 + 3, this.slots.length - 1); k++) {
         const a = this.slots[k]; if (!a) continue;
+        // (it. 1919) les craintifs (rats, corbeaux) ne s'emportent pas : la nuée se disperse, plus loin que les autres
+        if (a.packSeed != null && a.packSeed === packId && TIMID.has(a.art)) { a.react = { kind: "startle", t: 0, d: 1, far: 3, delay: (k - k0) * 0.05 }; continue; }
         if (a.packSeed != null && a.packSeed === packId) {
           a.react = { kind: "fury", t: 0, d: 0.9, delay: (k - k0) * 0.1 };
           if (!shouted && a.tx) { shouted = true; const [fx, fy] = a.tx.split(",").map(Number); this.float(fx + a.w / 2, fy - 4, "!", "#ff5a4a", true); }
@@ -1172,7 +1174,7 @@ export class StripRenderer {
       // file (son rythme, son regard) avec un peu de jeu propre : une meute de loups, un vol de chauves-souris ; (it. 1905)
       // espèces grégaires seulement (game.js PACK_ARTS) : deux ours voisins restent chacun de son côté
       { const p = this.slots[this.slots.length - 1];
-        a.packSeed = !boss && p && !p.bossSlot && p.art === a.art && PACK_ARTS.has(a.art) && (a.nature === "wander" || a.nature === "fly") ? (p.packSeed ?? p.lifeSeed) : null; }
+        a.packSeed = !boss && p && !p.bossSlot && p.art === a.art && PACK_ARTS.has(a.art) && ["wander", "fly", "skitter", "hop"].includes(a.nature) ? (p.packSeed ?? p.lifeSeed) : null; }
       a.bossSlot = boss;
       this.slots.push(a);
     }
@@ -1302,7 +1304,8 @@ export class StripRenderer {
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       let life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
       if (life && a.packSeed != null) {
-        // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard
+        // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard ; (it. 1919) rats (furtifs) et
+        // gluants (sauteurs) aussi : les bonds se suivent en cascade, à 0,25 s d'écart
         const lead = lifeOffset(a.nature, a.packSeed, R.time - 0.25, Math.abs(this.fightX(k + 1) - this.heroX), false);
         life = { dx: Math.round((lead.dx * 0.65 + life.dx * 0.35) * 10) / 10 || 0, dy: a.nature === "fly" ? life.dy : lead.dy, face: lead.face };
       }

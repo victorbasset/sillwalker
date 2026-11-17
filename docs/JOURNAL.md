@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1919, journée des monstres) : (1) les rats (furtifs) et les gluants (sauteurs) ne formaient pas de meute sur
+  la bande (seuls marcheurs et volants suivaient un chef) : ils suivent maintenant aussi le leur, bonds en cascade ; (2) un
+  membre craintif (rat, corbeau) tombe : la nuée se disperse plus loin (recul ×3) au lieu de s'emporter. Vérifié (série de
+  rats imposée), autotest 254/254, bande 18,0 %.
 - 2026-11-17 (it. 1918, journée des monstres) : les membres d'une meute bavardent plus volontiers entre eux (deux fois sur trois
   quand une paire de meute attend). Vérifié (série imposée : la paire de loups a bavardé). Autotest 254/254.
 - 2026-11-17 (it. 1917, contrôle) : après la meute furieuse, les chauves-souris de jour et la mimique : autotest 254/254 (aussi
