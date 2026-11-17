@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1902) : POUR-VICTOR : ce qu'il y a à regarder en jouant après la journée des monstres (vie de la bande,
+  compétences et leur fréquence, séries de 7 à 13, lieutenants, équilibre −0,8 zone gardé, performance sous Windows).
 - 2026-11-17 (it. 1901, revue générale) : perf:linux bande 18,1 %, panneau 19,5 %, mini 5,5 % ; 12 h graine 201 : paladin
   64, lancier 62, cryomancienne 65 ; fuzz sous chaque bénédiction : 400 parties, 0 bloquée ; allemand : aucun mot français
   (« des » est l'article allemand). Rien à corriger.

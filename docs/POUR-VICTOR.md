@@ -4,6 +4,22 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Journée des monstres (16-17/11, it. 1847-1901) : à regarder en jouant
+
+Détail : `docs/MONSTRES-VIVANTS.md`. Vidéo envoyée le 17/11 vers 4 h 30 (zone 26, de nuit).
+- **La bande vit-elle assez ?** En attendant, les monstres flânent, planent, sautillent, se tournent vers le héros,
+  bavardent par deux, dorment la nuit (bêtes de jour, « z »), sursautent quand un voisin tombe, s'avancent quand le héros
+  faiblit. Trop, pas assez, trop agité ? Tout se règle dans `render/monlife.js` et `strip.js`.
+- **Compétences** : chaque famille a la sienne, annoncée par un « ! » (bond du gluant, piqué, toile, charge, poing de
+  pierre…), décrite au survol de sa carte du Bestiaire. Lisibles ? Trop fréquentes ? (élites −15 %, champions −25 %,
+  boss −20 % d'intervalle).
+- **Séries de 7 à 13 monstres** par zone (10 en moyenne) : la bande paraît-elle naturelle, serrée ou clairsemée ?
+- **Lieutenants et Briseur** : dessin propre (Carte comprise) et pouvoir unique (Chaînes, Cendres, Éclipse, Ciel brisé).
+- **Équilibre** : ≈ 1 % de progression en moins sur 12 h (−0,8 zone), la semaine inchangée ; je l'ai gardé (monstres un
+  peu plus coriaces). Dis-moi si tu préfères revenir exactement à avant.
+- **Performance sous Windows** : sur le serveur, rien n'a bougé (bande 18 %, fin de partie 25 %) ; à confirmer dans ton
+  Gestionnaire des tâches.
+
 ## Nuit du 15 au 16/11 (it. 1546-1633), en bref
 
 - Retours de Kreen traités : jauge d'XP (bande, mini, éclat au niveau gagné, astuce), « Atteindre la zone N (record M) »,
