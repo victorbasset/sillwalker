@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2031, revue générale) : perf:linux bande 18,4 %, panneau 19,4 %, mini 5,6 % (souffles compris) ; stall-check
+  2 h : 60 parties, 0 figées ; --crawl en russe : 675 clics sans erreur ; polonais : aucun mot français (les « le » d'une
+  recherche ASCII étaient des morceaux de mots polonais). Rien à corriger.
 - 2026-11-17 (it. 2030, journée des monstres) : revue des espèces des zones de cendres et de spores : le fantôme toussait dans la
   Crypte oubliée et l'Ossuaire des titans ; il ne respire plus (ni toux ni éternuement). Test logique complété. Autotest 259/259.
 - 2026-11-17 (it. 2029, journée des monstres) : éternuement vérifié en capture dans les trois zones à spores : le souffle vert
