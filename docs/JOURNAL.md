@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1930, contrôle) : coût des spectres qui s'estompent, pire cas (série de 12 spectres imposée) : compteurs de
+  dev 91 écritures d'opacité pour 856 déplacements sur la même fenêtre : négligeable. Rien à corriger.
 - 2026-11-17 (it. 1929, journée des monstres) : les spectres qui attendent s'estompent et reviennent lentement (75 / 87,5 /
   100 %, Actor.alpha n'écrit qu'aux changements de palier) ; opacité pleine au combat (hors Intangible). Vérifié (série
   imposée). Autotest 254/254.
