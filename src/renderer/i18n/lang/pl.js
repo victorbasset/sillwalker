@@ -2158,4 +2158,6 @@ export default {
   3283: "Talenty: karta pokazuje sumę wszystkich twoich talentów.",
   3284: "Droga: świeci na złoto, gdy jest dostępna, jej karta podaje efekty w liczbach i można ją wybrać, nawet gdy wszystkie punkty są wydawane automatycznie.",
   3285: "Działania bez odwrotu (reset talentów lub umiejętności, wzniesienie się do gwiazd, usunięcie gry) potwierdza się w oknie, a nie drugim kliknięciem w tym samym miejscu.",
+  3286: "Oddaj punkty ostatniego kliknięcia: {0} ({1}).",
+  3287: "Nie ma czego cofnąć: można oddać tylko ostatnie kliknięcie w talent.",
 };

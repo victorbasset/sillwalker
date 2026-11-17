@@ -2158,4 +2158,6 @@ export default {
   3283: "Talente: Die Karte zeigt die Summe all deiner Talente.",
   3284: "Weg: Er leuchtet golden, sobald er verfügbar ist, seine Karte nennt seine Effekte in Zahlen, und er lässt sich auch wählen, wenn alle Punkte automatisch verteilt werden.",
   3285: "Endgültige Aktionen (Talente oder Fertigkeiten zurücksetzen, zu den Sternen aufsteigen, den Spielstand löschen) werden in einem Fenster bestätigt, nicht mehr durch einen zweiten Klick an derselben Stelle.",
+  3286: "Punkte des letzten Klicks zurückgeben: {0} ({1}).",
+  3287: "Nichts rückgängig zu machen: Nur der letzte Klick auf ein Talent lässt sich zurückgeben.",
 };

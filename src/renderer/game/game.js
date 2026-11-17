@@ -32,7 +32,7 @@ import {
   itemScore,
 } from "./rules.js";
 import { CLASSES, classDef, CLASS_UNLOCK_ZONE, isClassUnlocked, canPartner, duoGuard } from "./classes.js";
-import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects, masteryMilestones } from "./talents.js";
+import { TALENT_INDEX, cannotLearn, classTalents, talentPointsFree, TREES, branchSpent, MASTERIES, describeEffects, masteryMilestones, TIER_REQ, talentPointsSpent, VOIE_REQ, MASTERY_REQ } from "./talents.js";
 import {
   CONSUMABLES, BUFF_EFFECTS, CHESTS, UPGRADES, BUFF_CAP_S, POTION_MAX, POTION_HEAL, POTION_THRESHOLD, POTION_COOLDOWN,
   SHOP_REFRESH_S, SHOP_SLOTS, consumablePrice, chestPrice, upgradePrice, rerollPrice,
@@ -1920,6 +1920,8 @@ export class Game {
         const P = (this.S.masteryPicks ||= {});
         for (const m of masteryMilestones(id, r1, this.S).got) if (m.b && m.at > r0 && !P[id + ":" + m.at]) { P[id + ":" + m.at] = "a"; this.emit("masteryStep", { id, at: m.at, a: m.a, b: m.b }); }
       }
+      // (it. 2115) le dernier clic du joueur peut être annulé (undoTalent) ; la dépense automatique l'efface
+      this.lastLearn = { cls: this.S.cls, id, n: done };
       this.changed();
     }
     return done;
@@ -1938,6 +1940,7 @@ export class Game {
       if (!id || !this.learnTalent(id, 1)) break;
       n++;
     }
+    if (n) this.lastLearn = null;
     return n;
   }
 
@@ -1952,6 +1955,33 @@ export class Game {
     return ms.length ? ms[0].id : null;
   }
 
+  /** (it. 2115, ergonomie : un clic dépense jusqu'à tous les points, sans retour) rend les rangs du dernier clic sur un talent,
+   *  gratuitement. Refusé (false) s'il n'y a rien à annuler ou si un talent pris ensuite perdrait son palier (ultime d'une
+   *  branche, voie, maîtrises). */
+  canUndoTalent() { return this.undoTalent(true); }
+  undoTalent(dry = false) {
+    const L = this.lastLearn, S = this.S;
+    if (!L || L.cls !== S.cls || !TALENT_INDEX[L.id]) return false;
+    const ranks = classTalents(S), r = ranks[L.id] || 0;
+    if (r < L.n) return false;
+    ranks[L.id] = r - L.n;
+    const spent = talentPointsSpent(S);
+    const ok = Object.entries(ranks).every(([id, v]) => {
+      if (!v || !TALENT_INDEX[id]) return true;
+      const ix = TALENT_INDEX[id];
+      if (ix.branch === "voie") return spent >= VOIE_REQ;
+      if (ix.branch === "mastery") return spent >= MASTERY_REQ;
+      return branchSpent(S, ix.branch) >= TIER_REQ[ix.talent.tier];
+    });
+    if (dry || !ok) { ranks[L.id] = r; return ok; }
+    if (!ranks[L.id]) delete ranks[L.id];
+    this.lastLearn = null;
+    this.invalidateStats();
+    this.R.hp = Math.min(this.R.hp, this.stats().hp);
+    this.changed();
+    return true;
+  }
+
   talentResetCost() { return this.S.lvl < 10 ? 0 : Math.round(25 * this.S.lvl * Math.pow(1.25, this.S.best - 1) / 10); }
 
   resetTalents() {
@@ -1959,6 +1989,7 @@ export class Game {
     if (this.S.gold < cost) return false;
     this.S.gold -= cost;
     this.S.talents[this.S.cls] = {};
+    this.lastLearn = null;
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
     this.log(tx("Talents réinitialisés") + (cost ? " (" + tx("{0} or", { 0: fmt(cost) }) + ")." : "."));

@@ -30,3 +30,9 @@ docs/devlog-0.1.6.md).
   après une défaite, le vainqueur s'efface et le monstre en attente revient en glissant (it. 2079-2083).
 - **Bande, après une défaite :** les monstres vaincus reviennent en courant du bord et le vainqueur garde sa place (avant :
   l'inverse ; it. 2085).
+- **Onglet Talents refait (demande de Victor, « digne d'un expert en ergonomie », it. 2094-2111) :** la fiche suit le survol sans
+  délai et revient au talent cliqué quand la souris la rejoint ; plus rien ne bouge sous le curseur (pastilles à place fixe) ; un
+  clic annonce son effet ; jauge des paliers par branche ; seules les lignes utiles restent en vert ; total des talents dans la
+  fiche ; la Voie en or quand elle est disponible, avec ses effets chiffrés, et choisissable même en dépense automatique.
+- **Actions sans retour confirmées dans une fenêtre (it. 2099-2113) :** réinitialiser les talents ou les compétences, monter vers
+  les étoiles, effacer la partie (Entrée y annule) ; avant, un second clic au même endroit suffisait.

@@ -66,6 +66,8 @@
    talent CLIQUÉ (on peut aller cliquer « Choisir cette voie » en traversant la grille). Fiche d'une voie : ses effets chiffrés.
    La ligne « Une voie est disponible » est retirée (le cadre doré suffit). Au maximum : « ✓ 10/10 », « ✓ » seul pour un ultime
    (en russe à 1280 px, « ★ Королевская добыча ✓ 1 / 1 » passait sur deux lignes et faisait défiler l'onglet de 6 px).
+15. (it. 2115) Point 4 de l'audit (pas d'annulation) : « ↶ Annuler » en pied de fiche rend gratuitement les points du dernier
+   clic sur un talent ; refusé si un talent pris ensuite perdrait son palier ; la dépense automatique n'est pas annulable.
    À suivre : la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
    identiques se disputent l'attention.
 

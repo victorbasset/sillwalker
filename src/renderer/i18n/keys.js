@@ -3287,5 +3287,7 @@ export const KEYS = [
   "Talents : seules les lignes où un clic sert restent en vert, la fiche annonce l’effet d’un clic avant de cliquer et chaque branche a une jauge de ses paliers.",
   "Talents : la fiche montre le total de tous tes talents.",
   "Voie : elle se voit en or quand elle est disponible, sa fiche donne ses effets chiffrés, et elle se choisit même quand tous les points sont dépensés automatiquement.",
-  "Les actions sans retour (réinitialiser les talents ou les compétences, monter vers les étoiles, effacer la partie) se confirment dans une fenêtre, et plus par un second clic au même endroit."
+  "Les actions sans retour (réinitialiser les talents ou les compétences, monter vers les étoiles, effacer la partie) se confirment dans une fenêtre, et plus par un second clic au même endroit.",
+  "Rendre les points du dernier clic : {0} ({1}).",
+  "Rien à annuler : seul le dernier clic sur un talent peut être rendu."
 ];

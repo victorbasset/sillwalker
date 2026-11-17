@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2115, ergonomie des Talents) : « ↶ Annuler » rend gratuitement les points du dernier clic sur un talent (un clic
+  dépense jusqu'à tous les points libres, sans retour jusqu'ici) ; refusé si un palier serait perdu. Test logique et autotest ;
+  lang-overflow 10 langues × 3 largeurs : rien ; 272/272. Brouillon du devlog 0.1.7 complété (Talents, confirmations).
 - 2026-11-17 (it. 2114) : « Quoi de neuf », édition 136 (refonte des Talents, voie, confirmations dans une fenêtre ; 5 nouveautés, 10
   langues, clés 3281-3285). Traductions de la soirée alignées sur les mots du jeu (ja 天賦, ko 특성, ru навыков). lang-overflow
   10 langues × 1280 / 1920 : rien ; autotest 271/271.

@@ -2158,4 +2158,6 @@ export default {
   3283: "Talents: the card shows the total of all your talents.",
   3284: "Way: it shows in gold when available, its card gives its effects in numbers, and it can be chosen even when all points are spent automatically.",
   3285: "Actions with no way back (resetting talents or skills, rising to the stars, erasing the game) are confirmed in a window, no longer by a second click in the same place.",
+  3286: "Give back the points of the last click: {0} ({1}).",
+  3287: "Nothing to undo: only the last click on a talent can be given back.",
 };

@@ -259,6 +259,18 @@ test("traductions (it. 2067) : en anglais, chinois, japonais et coréen, le pour
   }
 });
 
+test("talents : annuler le dernier clic (it. 2115), refusé s'il casserait un palier", () => {
+  const g = new Game(freshState()); g.S.lvl = 80; g.S.talents[g.S.cls] = {}; g.invalidateStats();
+  const tree = TREES[g.S.cls][0].talents, t0 = tree.find((t) => t.tier === 0), t1 = tree.find((t) => t.tier === 1);
+  const n = g.learnTalent(t0.id, 99);
+  assert.ok(n > 0 && g.canUndoTalent(), "dernier clic annulable");
+  assert.ok(g.undoTalent() && !(g.S.talents[g.S.cls][t0.id] || 0), "rangs rendus");
+  assert.equal(g.undoTalent(), false, "une seule fois");
+  g.learnTalent(t0.id, 99); const a = g.S.talents[g.S.cls][t0.id];
+  if (a >= TIER_REQ[1]) { g.lastLearn = { cls: g.S.cls, id: t0.id, n: a }; g.S.talents[g.S.cls][t1.id] = 1; assert.equal(g.undoTalent(), false, "le palier 2 perdrait son accès : refusé"); assert.equal(g.S.talents[g.S.cls][t0.id], a, "rien n'a changé"); }
+  g.autoSpendTalents(); assert.equal(g.canUndoTalent(), false, "la dépense automatique n'est pas annulable");
+});
+
 test("voie gratuite (it. 2104) : choisissable sans point libre (dépense automatique à chaque niveau)", () => {
   const g = new Game(freshState()); g.S.lvl = 80; g.invalidateStats();
   g.autoSpendTalents();

@@ -2158,4 +2158,6 @@ export default {
   3283: "Talentos: la ficha muestra el total de todos tus talentos.",
   3284: "Vía: se ve en dorado cuando está disponible, su ficha da sus efectos en cifras y se puede elegir aunque todos los puntos se gasten automáticamente.",
   3285: "Las acciones sin vuelta atrás (reiniciar talentos o habilidades, subir a las estrellas, borrar la partida) se confirman en una ventana, y ya no con un segundo clic en el mismo sitio.",
+  3286: "Devolver los puntos del último clic: {0} ({1}).",
+  3287: "Nada que deshacer: solo se puede devolver el último clic en un talento.",
 };

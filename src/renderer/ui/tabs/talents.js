@@ -110,6 +110,8 @@ export class TalentsTab {
         ((o) => { const order = Object.keys(EFFECTS); return Object.entries(o).filter(([, v]) => v).sort((x, y) => order.indexOf(x[0]) - order.indexOf(y[0])); })(talentEffects(S)).map(([k, v]) => { const d = describeEffects({ [k]: v }); return d ? `<span class="chip"><img class="eicon" src="${effectIconURL({ [k]: v })}" alt="">${esc(d)}</span>` : ""; }).filter(Boolean))}
       <div class="row tfoot">
         <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
+        ${/* (it. 2115, ergonomie) annuler le dernier clic (gratuit) ; libellé fixe, après « Réinitialiser » : rien ne bouge */ ""}
+        ${((L, ok) => `<button data-action="t-undo" class="quiet"${ok ? "" : " disabled"} title="${esc(ok ? tx("Rendre les points du dernier clic : {0} ({1}).", { 0: TALENT_INDEX[L.id].talent.name, 1: txn(L.n, "{n} rang|{n} rangs") }) : tx("Rien à annuler : seul le dernier clic sur un talent peut être rendu."))}">↶ ${tx("Annuler")}</button>`)(g.lastLearn, g.canUndoTalent())}
       </div>
     </article>`;
     // (it. 855) Au clavier, le talent qui avait le focus le garde après le redessin (sinon chaque Entrée renvoyait le
@@ -250,6 +252,7 @@ export class TalentsTab {
       if (d && this.panel) this.panel.showDetails(d);
     }
     // Maj + clic : comme le petit bouton (« +1 » sur un talent, « tout » sur une maîtrise)
+    else if (a === "t-undo") g.undoTalent();
     else if (a === "t-learn") { this.confirmReset = false; this.learnFrom(b, !!e?.shiftKey); }
     // (it. 2096) clic sur une voie : sa fiche, avec le bouton « Choisir cette voie » (à un autre endroit que le premier clic)
     else if (a === "t-voie") { this.sel = b.dataset.id; g.changed(); }
