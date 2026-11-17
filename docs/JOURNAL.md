@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2090, enquête) : berserker 77 / 62 / 69 en 12 h (it. 2074) : mêmes courses jusqu'au mur des zones 61-62 ; la
+  graine 7 a le temps d'une 9e course qui franchit le mur et file jusqu'à 77 (palier suivant). Effet des paliers (CLAUDE.md), pas un
+  emballement propre au berserker. Rien à corriger.
 - 2026-11-17 (it. 2089, vérification) : piste « renforce tes reliques » hors de la carte de la zone : info-bulle du mode mini (texte
   libre) et bulle d'alerte de la bande (deux pistes) : rien ne peut déborder. Rien à corriger.
 - 2026-11-17 (it. 2088) : POUR-VICTOR : ce qui a changé depuis la 0.1.6, à regarder en jouant.
