@@ -236,13 +236,18 @@ export class MiniRenderer {
         this.nextKey = nKey;
         if (this.nextActor) { this.nextActor.remove(); this.nextActor = null; }
         const set = nType && this.sprites.monsters[nType];
+        this.nextArrive = 0; // (it. 1997) il arrive en glissant du bord droit, comme sur la bande
         if (set) { const b = new Actor(this.stage, nx.elite ? outlinedFrames(set.normal, nx.champion ? "#c08cff" : "#ffd34d", this.dpr) : set.normal); b.fly = set.fly; b.alpha(0.5); this.nextActor = b; }
       }
       const b = this.nextActor;
       if (b) {
         const show = !(R.mon && R.mon.dist > 40) && !(R.mon && R.mon.boss);
         b.el.hidden = !show;
-        if (show) { b.show(Math.floor(R.time * 2) % 2); b.move(SCENE_W - b.w - 6, GROUND - b.h + P - (b.fly ? 12 : 0)); }
+        if (show) {
+          this.nextArrive = Math.min(1, (this.nextArrive ?? 1) + dt / 0.8);
+          const off = S.settings.fullEffects === false ? 0 : Math.round((1 - this.nextArrive) * (1 - this.nextArrive) * (b.w + 10));
+          b.show(Math.floor(R.time * 2) % 2); b.move(SCENE_W - b.w - 6 + off, GROUND - b.h + P - (b.fly ? 12 : 0));
+        }
       }
     }
 
