@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1881, revue générale) : 12 h graine 191 : samouraï 62, nécromancien 61, artificier 62 ; perf:linux bande
+  18,9 %, panneau 19,5 %, mini 5,6 % ; espagnol : aucun mot français ; --crawl en polonais : 673 clics en 22 s, aucune
+  erreur. Rien à corriger.
 - 2026-11-17 (it. 1880, journée des monstres) : ils sentent la faiblesse : héros sous 30 % de vie en plein combat, la file
   (hors boss) s'avance de 9 px vers lui, et recule quand il se rétablit (progressif). Mis en scène : 0 → 0,99 ; npm test
   345, autotest 253/253.
