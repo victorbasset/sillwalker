@@ -289,6 +289,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   suivant prêt), proies (TIMID / PREDATORS), jour et nuit (DIURNAL / NOCTURNAL), boss impatient. Actor.move arrondit à
   3 px et Actor.alpha au huitième : un geste de 1 px ou un fondu de 5 % ne se voit pas. Mesurer un comportement : --stage
   qui impose `g.R.lineup` (+ `R.lineupZone = S.zone`, `s.slotKey = null`) et relève `slots[k].tx` / `react` (it. 1905).
+  Gestes au repos : ART_GEST (strip.js, par dessin de base), sinon la nature ; le climat de la zone (juice.js WEATHER : neige,
+  braises, bulles, spores) les remplace (it. 2004-2010) : un contrôle de geste se fait dans une zone FIXE (it. 2010 : l'autotest
+  échouait selon la zone courante). Nouvelle série : les monstres accourent du bord (arriveDelay ; pas le boss, it. 1993-1996).
   Voir la bande en mouvement : `scripts/strip-clip.sh <sortie.mp4> [zone] [secondes] [ffmpeg] [mise-en-scène.js]` (écran
   virtuel à part, copie de dev-data ; ffmpeg d'imageio-ffmpeg dans un environnement virtuel du dossier temporaire).
 - Rangée d'informations de la bande (zone, or, barres de vie du réglage hudBars, it. 1531) : tout nouvel élément y

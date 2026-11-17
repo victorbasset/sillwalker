@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2013) : CLAUDE.md : gestes (ART_GEST), climat des zones, contrôles de geste en zone fixe, arrivée des séries.
 - 2026-11-17 (it. 2012) : « Quoi de neuf », édition 128 (climat des zones ; spores et éclat du niveau ; clés 3238-3239, 10 langues).
   Autotest 259/259, lang-overflow ru/de/pl : rien ne défile.
 - 2026-11-17 (it. 2011, revue générale) : perf:linux bande 18,2 %, panneau 19,1 %, mini 5,4 % ; 12 h graine 311 : nécromancien 61,
