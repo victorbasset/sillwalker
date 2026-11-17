@@ -1189,7 +1189,8 @@ export class StripRenderer {
     }
     // (it. 1993) nouvelle série : les monstres arrivent du bord droit, l'un après l'autre, et gagnent leur place (pas celui
     // déjà au combat ; pas avec les effets réduits)
-    if (g.S.settings.fullEffects !== false) this.slots.forEach((a, k) => { if (k > g.S.kills) { a.arriveT = 0; a.arriveDelay = (k - g.S.kills) * 0.12; } });
+    // (it. 1996) le boss attend déjà au bout (en courant, il passait sous les boutons et son nom restait coupé au bord)
+    if (g.S.settings.fullEffects !== false) this.slots.forEach((a, k) => { if (k > g.S.kills && !a.bossSlot) { a.arriveT = 0; a.arriveDelay = (k - g.S.kills) * 0.12; } });
     this.slotKey = line;
     this.placeBossName(); // étiquettes de la file dégagées du nom du boss (it. 892)
   }
@@ -1296,7 +1297,7 @@ export class StripRenderer {
     const calmFx = S.settings.fullEffects === false;
     // (it. 1994) la série recommence (héros à terre, même série) : les monstres déjà vaincus reviennent en courant du bord
     if (this.prevKills != null && S.kills < this.prevKills && this.slotKey === line && !calmFx) {
-      for (let k = S.kills + 1; k <= Math.min(this.prevKills, this.slots.length - 1); k++) { const a = this.slots[k]; if (a) { a.arriveT = 0; a.arriveDelay = 0.6 + (k - S.kills) * 0.15; } }
+      for (let k = S.kills + 1; k <= Math.min(this.prevKills, this.slots.length - 1); k++) { const a = this.slots[k]; if (a && !a.bossSlot) { a.arriveT = 0; a.arriveDelay = 0.6 + (k - S.kills) * 0.15; } }
     }
     this.prevKills = S.kills;
     // (it. 1890) bavardage : de loin en loin, deux voisins loin du héros se tournent l'un vers l'autre (hochements)

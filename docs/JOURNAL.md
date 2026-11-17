@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1996, journée des monstres) : vidéo de l'arrivée d'une série : le boss qui accourait passait sous les boutons et
+  la pastille d'or, son nom coupé au bord : il attend désormais à sa place, seuls ses monstres accourent. Vidéo envoyée à
+  Victor. Autotest 258/258.
 - 2026-11-17 (it. 1995) : autotest « bande : une nouvelle série arrive du bord droit et gagne sa place » (835 px loin à 0,15 s,
   en place à 2,6 s). 258/258.
 - 2026-11-17 (it. 1994, journée des monstres) : la série recommence après une défaite (même série) : les monstres déjà vaincus
