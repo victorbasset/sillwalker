@@ -1378,7 +1378,10 @@ export class StripRenderer {
           const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle", bandit: "look", cultist: "sway", orc: "beat", knight: "salute", darkknight: "salute",
             // (it. 1949) le yéti se frappe la poitrine, la méduse pulse, le serpent ondule, le crabe fait un pas de côté, le loup
             // lève la tête (un petit hurlement muet)
-            yeti: "beat", jelly: "beat", snake: "sway", crab: "paw", wolf: "howl" };
+            yeti: "beat", jelly: "beat", snake: "sway", crab: "paw", wolf: "howl",
+            // (it. 1973) la guêpe bourdonne, le diablotin espiègle se retourne, la harpie se balance, la wyverne se cabre, le
+            // tyrannœil et l'élémentaire de feu palpitent
+            wasp: "rattle", imp: "look", harpy: "sway", drake: "rear", eye: "beat", fireelem: "beat" };
           const nat = ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: { howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };

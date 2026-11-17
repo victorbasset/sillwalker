@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1973, journée des monstres) : six gestes d'espèce de plus (guêpe qui bourdonne, diablotin qui se retourne,
+  harpie qui se balance, wyverne qui se cabre, tyrannœil et élémentaire de feu qui palpitent), avec les mouvements existants.
+  Vérifié (série imposée). Autotest 257/257.
 - 2026-11-17 (it. 1972) : POUR-VICTOR : gestes, effets réduits, mode mini, stall-check.
 - 2026-11-17 (it. 1971, revue générale) : perf:linux bande 18,3 %, panneau 19,1 %, mini 5,5 % ; mémoire 4 min : 566-570 Mo ;
   stall-check 60 / 0 figées ; first-minutes : zone 9-10 et niveau 16-17 à 10 min, premier objet à 42-82 s (comme avant) ;
