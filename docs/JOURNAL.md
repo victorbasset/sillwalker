@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2052) : `npm run perf` / `perf:linux` lançaient le jeu sur dev-data même (la partie de dev avançait à chaque mesure ;
+  l'autotest, stall-check et les captures en partent) : scripts/perf.mjs copie dev-data dans un dossier temporaire. Vérifié :
+  dev-data intact, dossier supprimé ; bande 18,6 %, panneau 19,3 %, mini 5,4 %. Autotest 261/261.
 - 2026-11-17 (it. 2051, revue générale) : perf en fin de partie (copie de endgame-save.json) : guerrier 24,8 %, rôdeur (à distance)
   23,9 % (repère 25,4) ; mémoire 573 Mo ; save-fuzz FUZZ_BASE=fin ok (1 225 corruptions). Rien à corriger.
 - 2026-11-17 (it. 2050, journée des monstres) : sous les gouttes, l'araignée et la chauve-souris (chez elles dans les grottes humides)
