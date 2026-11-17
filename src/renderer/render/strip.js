@@ -1197,7 +1197,8 @@ export class StripRenderer {
     // (it. 1993) nouvelle série : les monstres arrivent du bord droit, l'un après l'autre, et gagnent leur place (pas celui
     // déjà au combat ; pas avec les effets réduits)
     // (it. 1996) le boss attend déjà au bout (en courant, il passait sous les boutons et son nom restait coupé au bord)
-    if (g.S.settings.fullEffects !== false) this.slots.forEach((a, k) => { if (k > g.S.kills && !a.bossSlot) { a.arriveT = 0; a.arriveDelay = (k - g.S.kills) * 0.12; } });
+    // (it. 2092) …mais il apparaît en fondu (0,8 s) au lieu de surgir d'un coup au bout de la file
+    if (g.S.settings.fullEffects !== false) this.slots.forEach((a, k) => { if (k > g.S.kills && !a.bossSlot) { a.arriveT = 0; a.arriveDelay = (k - g.S.kills) * 0.12; } else if (a.bossSlot && k > g.S.kills) { a.fadeIn = 0; a.alpha(0); } });
     this.slotKey = line;
     this.placeBossName(); // étiquettes de la file dégagées du nom du boss (it. 892)
   }
@@ -1476,6 +1477,7 @@ export class StripRenderer {
       if (!fighting && a.stomp2 > 0) { a.stomp2 -= dt; if (a.stomp2 <= 0 && !a.react) a.react = { kind: "gesture", t: 0, d: 0.3, delay: 0 }; }
       if (!fighting && a.howlDelay > 0) a.howlDelay -= dt;
       else if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
+      if (a.fadeIn != null) { a.fadeIn += dt / 0.8; if (a.fadeIn >= 1 || fighting) { a.fadeIn = null; a.alpha(1); } else a.alpha(a.fadeIn); }
       let arrive = 0;
       if (a.arriveDelay != null) {
         a.arriveT += dt;
