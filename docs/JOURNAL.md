@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2019) : proies et prédateurs (it. 1923) : une proie volante (corbeau) n'est plus « coincée » entre deux
+  prédateurs au sol (elle tremblait sur place, vent et dérive écrasés : vu à l'it. 2017). Autotest 259/259.
 - 2026-11-17 (it. 2018) : MONSTRES-VIVANTS, étape 13 complétée (spores, vent, devFreeze).
 - 2026-11-17 (it. 2017) : vent (it. 2015) presque invisible : produit de deux sinus arrondi au pas de 3 px, nul la plupart du
   temps ; rafales de ±12 px. Outil : g.R.devFreeze (partie suspendue, la vie de la file continue) pour mesurer sans que la série
