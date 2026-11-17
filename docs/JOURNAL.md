@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1917, contrôle) : après la meute furieuse, les chauves-souris de jour et la mimique : autotest 254/254 (aussi
+  après le seuil final de l'it. 1916), perf:linux bande 18,2 %, panneau 19,3 %, mini 5,5 % : inchangé.
 - 2026-11-17 (it. 1916, journée des monstres) : la mimique, immobile en coffre, se trahit quand son tour approche (héros à
   moins de 140 px) : un frisson d'un pixel du dessin (3 px, l'arrondi d'Actor.move effaçait 1 px) toutes les 2,5 à 4 s.
   Test (monlife). Autotest 254/254.
