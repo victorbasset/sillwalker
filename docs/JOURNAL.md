@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1901, revue générale) : perf:linux bande 18,1 %, panneau 19,5 %, mini 5,5 % ; 12 h graine 201 : paladin
+  64, lancier 62, cryomancienne 65 ; fuzz sous chaque bénédiction : 400 parties, 0 bloquée ; allemand : aucun mot français
+  (« des » est l'article allemand). Rien à corriger.
 - 2026-11-17 (it. 1900, contrôle) : lang-overflow complet après la journée des monstres (compétence du boss dans le panneau
   de zone, sous-titre du Bestiaire, astuces, éditions 120-121) : aucun défilement ni mot coupé, 10 langues.
 - 2026-11-17 (it. 1899, journée des monstres) : hiérarchie des compétences : élites −15 % d'intervalle, champions −25 %
