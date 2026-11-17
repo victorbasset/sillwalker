@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2124, ergonomie) : fermeture d'une fenêtre par le fond seulement si l'appui aussi était sur le fond (appuyer dans
+  la fenêtre pour sélectionner un texte et relâcher dehors la fermait). Autotest ajouté ; 276/276.
 - 2026-11-18 (it. 2123, ergonomie) : un clic sur le fond d'une fenêtre la ferme : la confirmation est annulée (jamais validée), la
   grande fenêtre (Quoi de neuf, raccourcis, détails) se referme ; un clic dans le cadre ne change rien. Autotest ajouté. Contrôle
   « effet de l'événement au survol » rendu indépendant du tirage (il lisait la première pastille, parfois un autre événement en cours) ;

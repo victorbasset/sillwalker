@@ -286,6 +286,9 @@ export class Panel {
     this.tip.className = "itemtip";
     this.tip.hidden = true;
     this.root.appendChild(this.tip);
+    // (it. 2124) fermeture par le fond : seulement si l'appui AUSSI était sur le fond (appuyer dans la fenêtre, pour sélectionner
+    // un texte, et relâcher dehors envoyait le clic au fond et la fermait)
+    this.root.addEventListener("mousedown", (e) => { this.downBg = e.target.id === "confirm" || e.target.id === "modal" ? e.target.id : null; }, true);
     this.root.addEventListener("mouseover", (e) => this.onHover(e));
     this.root.addEventListener("mouseleave", () => { this.tip.hidden = true; });
     // (it. 835, demande d'une joueuse) glisser-déposer : objet du sac -> sa ligne d'équipement (en surbrillance
@@ -1125,8 +1128,12 @@ export class Panel {
   /* ---------- Interactions ---------- */
   onClick(e) {
     // (it. 2123, ergonomie) un clic sur le fond d'une fenêtre (hors de son cadre) la ferme : la confirmation est ANNULÉE
-    if (e.target.id === "confirm") { this.closeConfirm(); return; }
-    if (e.target.id === "modal") { e.target.hidden = true; return; }
+    if (e.target.id === "confirm" || e.target.id === "modal") {
+      const fromBg = this.downBg === e.target.id || e.detail === 0; // detail 0 : clic sans souris (clavier, autotest)
+      this.downBg = null;
+      if (fromBg) { if (e.target.id === "confirm") this.closeConfirm(); else e.target.hidden = true; }
+      return;
+    }
     const t = e.target.closest("[data-tab]");
     if (t) {
       if (t.closest("#modal")) $(this.root, "#modal").hidden = true;
