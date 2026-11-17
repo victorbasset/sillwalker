@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1890, journée des monstres) : bavardage : toutes les 10 à 18 s, deux voisins loin du héros se tournent
+  l'un vers l'autre 2 s avec de petits hochements. Mesuré : deux paires en 25 s, bien orientées. npm test 346, autotest
+  253/253.
 - 2026-11-17 (it. 1889, contrôle) : début de partie après la journée des monstres : first-minutes (premier boss, objet
   et rare à 71-86 s), tab-pace (talents 1 min, statistiques 2, quêtes 4-5, boutique 8-9, héros 10, carte 11-12, bestiaire
   13-15), early-pace (niveau 39, zone 24 à 60 min) : inchangés.

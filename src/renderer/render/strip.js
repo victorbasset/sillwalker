@@ -1249,6 +1249,13 @@ export class StripRenderer {
 
     // Monstres en attente / combat en cours
     const cur = Math.min(S.kills, this.fights() - 1), line = game.lineup();
+    // (it. 1890) bavardage : de loin en loin, deux voisins loin du héros se tournent l'un vers l'autre (hochements)
+    this.chatT = (this.chatT ?? 8) - dt;
+    if (this.chatT <= 0) {
+      this.chatT = 10 + Math.random() * 8;
+      const k = cur + 2 + Math.floor(Math.random() * Math.max(1, this.fights() - cur - 4)), A = this.slots[k], B = this.slots[k + 1];
+      if (A && B && k + 1 < this.fights() - 1 && !A.react && !B.react && Math.abs(this.fightX(k + 1) - this.heroX) > 220) { A.chat = { t: 2, side: -1 }; B.chat = { t: 2, side: 1 }; }
+    }
     const idle = Math.floor(R.time * 2) % 2, busy = Math.floor(R.time * 4) % 2;
     for (let k = 0; k < this.fights(); k++) {
       const a = this.slots[k];
@@ -1310,7 +1317,11 @@ export class StripRenderer {
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) * (a.brave ? 1.3 : 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
-      const flip = !!(life && life.face < 0);
+      // (it. 1890) bavardage : celui de gauche se tourne vers la droite, l'autre garde sa face ; petits hochements
+      let chatDy = 0, chatFlip = null;
+      if (!fighting && a.chat) { a.chat.t -= dt; if (a.chat.t <= 0) a.chat = null; else { chatFlip = a.chat.side < 0; chatDy = Math.floor(a.chat.t * 5 + (a.chat.side > 0 ? 1 : 0)) % 2 ? -2 : 0; } }
+      if (chatDy && a.tx) { const [cx, cy] = a.tx.split(",").map(Number); a.move(cx, cy + chatDy); }
+      const flip = chatFlip ?? !!(life && life.face < 0);
       if (a.flipped !== flip) { a.flipped = flip; a.el.classList.toggle("flip", flip); mark("flip"); }
       // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).
       const pierced = !fighting && (k === line.length ? R.bossPierced > 0 : line[k]?.pierced > 0);
