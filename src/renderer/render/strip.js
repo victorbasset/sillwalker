@@ -432,6 +432,12 @@ export class StripRenderer {
     g.on("heroDown", () => {
       for (let k = 0; k < this.slots.length; k++) { const a = this.slots[k]; if (a) a.react = { kind: "cheer", t: 0, d: 1.2, delay: (k % 4) * 0.12 }; }
     });
+    // (it. 1882) un sort du héros impressionne la file : les deux suivants sursautent
+    g.on("spell", ({ partner }) => {
+      if (partner) return;
+      const k0 = Math.min(this.game.S.kills + 1, this.slots.length - 1);
+      for (let k = k0; k < Math.min(k0 + 2, this.slots.length - 1); k++) { const a = this.slots[k]; if (a && !a.react) a.react = { kind: "startle", t: 0, d: 0.6, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.1 }; }
+    });
   }
 
   /* ---------- Répliques du héros ---------- */

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1882, journée des monstres) : Poupouce a sa nature (« cat », monlife.js) : petites courses vives, et quand
+  le héros approche il recule de 14 px, dos tourné, pour filer ; un sort du héros fait sursauter les deux suivants de la
+  file. npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1881, revue générale) : 12 h graine 191 : samouraï 62, nécromancien 61, artificier 62 ; perf:linux bande
   18,9 %, panneau 19,5 %, mini 5,6 % ; espagnol : aucun mot français ; --crawl en polonais : 673 clics en 22 s, aucune
   erreur. Rien à corriger.

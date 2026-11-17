@@ -17,6 +17,8 @@ const NATURE = {
   golem: "still", plant: "still", treant: "still", mummy: "still", worm: "still",
   // la mimique se fait passer pour un coffre : elle ne bouge pas d'un pixel tant qu'on ne l'attaque pas
   mimic: "statue",
+  // (it. 1882) Poupouce : trottine par petites courses vives, et quand le héros approche, il recule pour filer
+  poupouce: "cat",
 };
 /** Natures par défaut : les autres marchent (flânent autour de leur place). */
 export const natureOf = (art, fly) => (fly ? "fly" : NATURE[art] || "wander");
@@ -49,6 +51,15 @@ export function lifeOffset(nature, seed, t, heroDist, boss = false) {
   let dx = 0, dy = 0, face = 1;
   switch (nature) {
     case "statue": break;
+    case "cat": {
+      // petites courses vives (comme un furtif), mais le héros qui approche le fait reculer, dos tourné : il veut filer
+      const per = 1.4 + seed, i = Math.floor((t + seed * 3) / per), ph = ((t + seed * 3) % per) / per;
+      const at = (n) => ((Math.sin((n + seed * 23) * 6.7) * 5813.1) % 1) * 16;
+      const from = at(i - 1), to = at(i), go = Math.min(1, ph / 0.2);
+      dx = (from + (to - from) * smooth(go)) * calm + 14 * alert;
+      face = alert > 0.2 ? -1 : go < 1 && to > from ? -1 : 1;
+      return { dx: dx || 0, dy: 0, face };
+    }
     case "fly": {
       // plane : grand balancement lent et dérive de part et d'autre de sa place, ailes au vent
       dx = drift(t, seed, 2.4) * 20 * calm;
