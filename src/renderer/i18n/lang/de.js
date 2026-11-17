@@ -2102,4 +2102,6 @@ export default {
   3227: "Ein sich regenerierendes Monster kann den Helden nicht mehr endlos aufhalten: Nach 90 s Kampf gerät es in Rage.",
   3228: "„Volle Effekte“ abgewählt: Wartende Monster bleiben ruhig.",
   3229: "Erschöpft von einem endlosen Kampf gibt dein Held auf.",
+  3230: "Ängstlich: hält Abstand zu Raubtieren.",
+  3231: "Raubtier: Beutetiere halten Abstand.",
 };

@@ -27,7 +27,7 @@ import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
-import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
+import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS } from "./monlife.js";
 import { monSkillOf } from "../game/monskills.js";
 import { PACK_ARTS } from "../game/game.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
@@ -38,10 +38,8 @@ const DIURNAL = new Set(["frog", "boar", "bear", "crab", "lizard", "snake", "bee
 const NOCTURNAL = new Set(["bat", "ghost", "wolf", "eye", "skel", "mummy", "cultist", "spider", "rat", "imp", "crow"]);
 /** (it. 1888) Façon de tomber, par dessin de base (les volants sans entrée tombent au sol, les autres s'affaissent). */
 const CORPSE_FALL = { ghost: "rise", fireelem: "rise", slime: "squash", jelly: "squash", golem: "crumble", skel: "crumble", mummy: "crumble", treant: "crumble" };
-/** (it. 1867) Craintifs : reculent plus loin quand un voisin tombe. */
-const TIMID = new Set(["rat", "goblin", "bandit", "imp", "frog", "crow", "lizard"]);
-// (it. 1923) prédateurs : un craintif voisin d'un prédateur s'en écarte (et tremble, coincé entre deux)
-const PREDATORS = new Set(["wolf", "bear", "snake", "drake", "boar", "spider", "yeti"]);
+// Craintifs (TIMID, it. 1867) et prédateurs (PREDATORS, it. 1923) : dans monlife.js depuis l'it. 1980 (le Bestiaire les cite)
+
 const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a", sacrifice: "#ff4a5a", flutter: "#ffd34d", shock: "#fff6a8", ambush: "#b8f07a", burrow: "#c9a06a", peck: "#c8c8e8", chomp: "#e9b949", pickpocket: "#ffd34d", pollen: "#b8ffd8", thrust: "#d8e0ec", bomb: "#ffb03a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";

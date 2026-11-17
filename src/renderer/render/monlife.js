@@ -20,6 +20,9 @@ const NATURE = {
   // (it. 1882) Poupouce : trottine par petites courses vives, et quand le héros approche, il recule pour filer
   poupouce: "cat",
 };
+/** (it. 1867, 1923) Craintifs (reculent plus loin, s'écartent des prédateurs) et prédateurs. Dessin de base. */
+export const TIMID = new Set(["rat", "goblin", "bandit", "imp", "frog", "crow", "lizard"]);
+export const PREDATORS = new Set(["wolf", "bear", "snake", "drake", "boar", "spider", "yeti"]);
 /** Natures par défaut : les autres marchent (flânent autour de leur place). */
 export const natureOf = (art, fly) => (fly ? "fly" : NATURE[art] || "wander");
 

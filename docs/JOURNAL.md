@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1980) : Bestiaire : l'infobulle dit aussi « Craintif » et « Prédateur » (clés 3230-3231, 10 langues) ; TIMID et
+  PREDATORS déplacés de strip.js vers monlife.js (lus par les deux). Autotest 257/257, lang-overflow ru/de 1280 : rien.
 - 2026-11-17 (it. 1979, contrôle) : perf:linux après crainte, audace et gestes de plus : bande 18,0 %, panneau 19,7 %, mini 5,4 %.
 - 2026-11-17 (it. 1978) : MONSTRES-VIVANTS, étapes 10 (fin de journée) et 11 (impasses corrigées).
 - 2026-11-17 (it. 1977, journée des monstres) : à l'inverse (it. 1976), au record après une défaite du héros dans la zone, la

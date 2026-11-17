@@ -3231,5 +3231,7 @@ export const KEYS = [
   "En mode mini, le monstre suivant attend son tour au fond de la scène.",
   "Un monstre qui se régénère ne peut plus bloquer le héros sans fin : passé 90 s de combat, il s’emporte.",
   "« Effets complets » décoché : les monstres qui attendent restent calmes.",
-  "Épuisé par un combat sans fin, ton héros renonce."
+  "Épuisé par un combat sans fin, ton héros renonce.",
+  "Craintif : se tient loin des prédateurs.",
+  "Prédateur : les proies s’en écartent."
 ];

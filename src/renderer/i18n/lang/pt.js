@@ -2102,4 +2102,6 @@ export default {
   3227: "Um monstro que se regenera já não pode bloquear o herói sem fim: após 90 s de combate, enfurece-se.",
   3228: "«Efeitos completos» desmarcado: os monstros que esperam ficam calmos.",
   3229: "Exausto por um combate sem fim, o teu herói desiste.",
+  3230: "Medroso: mantém-se longe dos predadores.",
+  3231: "Predador: as presas afastam-se dele.",
 };

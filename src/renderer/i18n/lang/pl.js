@@ -2102,4 +2102,6 @@ export default {
   3227: "Regenerujący się potwór nie może już bez końca blokować bohatera: po 90 s walki wpada w szał.",
   3228: "„Pełne efekty” odznaczone: czekające potwory zachowują spokój.",
   3229: "Wyczerpany niekończącą się walką, twój bohater się poddaje.",
+  3230: "Płochliwy: trzyma się z dala od drapieżników.",
+  3231: "Drapieżnik: ofiary trzymają się od niego z dala.",
 };
