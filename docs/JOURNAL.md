@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1909, contrôle) : semaine simulée après les meutes (tirage des séries changé) : guerrier 350, mage 350
+  (6 158 éclats chacun), comme le repère : rien à corriger.
 - 2026-11-17 (it. 1908) : « Quoi de neuf », édition 122 (meutes et nuées ; élites et champions aguerris ; clés 3216-3217,
   10 langues). Autotest 253/253, lang-overflow ru/de/pl à 1280 et 1920 px : rien ne défile.
 - 2026-11-17 (it. 1907, journée des monstres) : Bestiaire : l'infobulle des espèces grégaires dit « Grégaire : vient souvent
