@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1878, journée des monstres) : jour et nuit : la nuit, les espèces de jour (sangliers, ours, orcs, bandits…)
+  bougent à peine (×0,25) et dorment (« z » de temps en temps), celles de nuit (loups, chauves-souris, spectres,
+  squelettes…) s'agitent (×1,4) ; l'entrain change lentement. Mis en scène de nuit (zone 26) : valeurs attendues, cinq
+  « z » en 9 s. npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1877, journée des monstres) : gestes au repos : de loin en loin (18 à 38 s), un monstre qui attend fait
   un petit bond et lâche trois étincelles de la couleur de sa compétence (jamais la mimique ni le boss). Mesuré : 8 monstres
   ont fait leur geste en 25 s ; perf bande 18,4 %, mini 5,3 %. npm test 345, autotest 253/253.

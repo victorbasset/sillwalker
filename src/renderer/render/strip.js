@@ -32,6 +32,9 @@ import { monSkillOf } from "../game/monskills.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
+/** (it. 1878) Espèces de jour (s'endorment la nuit) et de nuit (s'agitent la nuit), selon le dessin de base. */
+const DIURNAL = new Set(["frog", "boar", "bear", "crab", "lizard", "snake", "beetle", "wasp", "harpy", "plant", "sporeling", "treant", "orc", "bandit", "knight", "goblin", "yeti", "scorp"]);
+const NOCTURNAL = new Set(["bat", "ghost", "wolf", "eye", "skel", "mummy", "cultist", "spider", "rat", "imp", "crow"]);
 /** (it. 1867) Craintifs : reculent plus loin quand un voisin tombe. */
 const TIMID = new Set(["rat", "goblin", "bandit", "imp", "frog", "crow", "lizard"]);
 const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a", sacrifice: "#ff4a5a", flutter: "#ffd34d", shock: "#fff6a8", ambush: "#b8f07a", burrow: "#c9a06a", peck: "#c8c8e8", chomp: "#e9b949", pickpocket: "#ffd34d", pollen: "#b8ffd8", thrust: "#d8e0ec", bomb: "#ffb03a" };
@@ -1193,6 +1196,7 @@ export class StripRenderer {
     if (minute !== this.skyMinute || !this.skyKey) {
       this.skyMinute = minute;
       // Clé du décor : heure (nuit) et étoiles rallumées par l'histoire (une chronique de plus = redessiner).
+      this.nightV = this.nightLevel().night; // (it. 1878) rythme des monstres (jour / nuit), relu une fois par minute
       const k = JSON.stringify(this.nightLevel()) + this.starShare().toFixed(3);
       if (k !== this.skyKey) { this.skyKey = k; this.drawBase(); }
     }
@@ -1228,6 +1232,16 @@ export class StripRenderer {
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      // (it. 1878) jour et nuit : la nuit, les espèces de jour bougent à peine et s'endorment (« z »), celles de nuit
+      // s'agitent ; l'entrain change lentement (pas de saut à la tombée de la nuit)
+      if (!fighting) {
+        const nv = this.nightV || 0, want = DIURNAL.has(a.art) ? 1 - 0.75 * nv : NOCTURNAL.has(a.art) ? 1 + 0.4 * nv : 1;
+        a.act = a.act == null ? want : a.act + (want - a.act) * Math.min(1, dt * 0.5);
+        if (DIURNAL.has(a.art) && nv >= 0.8 && a.tx && k < this.fights() - 1) {
+          a.zzzT = (a.zzzT ?? 2 + Math.random() * 6) - dt;
+          if (a.zzzT <= 0) { a.zzzT = 6 + Math.random() * 6; const [zx, zy] = a.tx.split(",").map(Number); this.float(zx + a.w - 4, zy + 2, "z", "#c8d0ff"); }
+        }
+      }
       // (it. 1877) geste au repos : de loin en loin, un monstre qui attend fait un petit bond qui rappelle sa compétence
       // (trois étincelles de sa couleur) ; jamais la mimique (elle joue le coffre), ni pendant une autre réaction
       if (!fighting && a.skillId && !a.react && a.nature !== "statue" && k < this.fights() - 1) {
@@ -1258,7 +1272,7 @@ export class StripRenderer {
       // (it. 1856) loup de la file qui répond au hurlement : tête levée (petit bond vers le haut), puis repos
       let answer = 0;
       if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0) + (pose ? pose.dx : 0) + rdx, this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
+      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) : 0) + (pose ? pose.dx : 0) + rdx, this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
       const flip = !!(life && life.face < 0);
