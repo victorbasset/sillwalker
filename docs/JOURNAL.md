@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2018) : MONSTRES-VIVANTS, étape 13 complétée (spores, vent, devFreeze).
 - 2026-11-17 (it. 2017) : vent (it. 2015) presque invisible : produit de deux sinus arrondi au pas de 3 px, nul la plupart du
   temps ; rafales de ±12 px. Outil : g.R.devFreeze (partie suspendue, la vie de la file continue) pour mesurer sans que la série
   change. Mesure : corbeau entre golems, 30 px de zone venteuse contre 15 px de zone calme (mes mesures précédentes le mettaient
