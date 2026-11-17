@@ -2112,4 +2112,7 @@ export default {
   3237: "W trybie mini następny potwór wsuwa się na scenę, z obrysem elit i czempionów.",
   3238: "Potwory czują klimat: w śniegu zmarzluchy drżą; w żarze lub pod wodą stwory mrozu lub ognia słabną.",
   3239: "W zarodnikach potwory kichają; gdy bohater awansuje, kolejka podskakuje, oślepiona.",
+  3240: "W wietrznych strefach latające potwory miotane są przez podmuchy.",
+  3241: "W popiołach potwory kaszlą; golemy i szkielety nic sobie z tego nie robią.",
+  3242: "Latająca ofiara między dwoma drapieżnikami odlatuje, zamiast drżeć w miejscu.",
 };

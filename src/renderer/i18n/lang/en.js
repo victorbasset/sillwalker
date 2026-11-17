@@ -2112,4 +2112,7 @@ export default {
   3237: "In mini mode, the next monster slides in, with the outline of elites and champions.",
   3238: "Monsters feel the climate: in the snow, the chilly ones shiver; in embers or underwater, creatures of frost or fire slump.",
   3239: "In the spores, monsters sneeze; when the hero levels up, the queue flinches, dazzled.",
+  3240: "In windy zones, flying monsters are tossed about by the gusts.",
+  3241: "In the ashes, monsters cough; golems and skeletons couldn’t care less.",
+  3242: "Flying prey caught between two predators flies off instead of trembling in place.",
 };

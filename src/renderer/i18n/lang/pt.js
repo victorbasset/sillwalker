@@ -2112,4 +2112,7 @@ export default {
   3237: "No modo mini, o próximo monstro chega a deslizar, com o contorno das elites e dos campeões.",
   3238: "Os monstros sentem o clima: na neve, os friorentos tremem; nas brasas ou debaixo de água, as criaturas do gelo ou do fogo desfalecem.",
   3239: "Nos esporos, os monstros espirram; quando o herói sobe de nível, a fila sobressalta-se, deslumbrada.",
+  3240: "Nas zonas de vento, os monstros voadores são sacudidos pelas rajadas.",
+  3241: "Nas cinzas, os monstros tossem; golens e esqueletos nem ligam.",
+  3242: "Uma presa voadora presa entre dois predadores levanta voo em vez de tremer no lugar.",
 };

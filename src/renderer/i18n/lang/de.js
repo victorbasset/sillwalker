@@ -2112,4 +2112,7 @@ export default {
   3237: "Im Mini-Modus gleitet das nächste Monster herein, mit dem Umriss von Elite und Champions.",
   3238: "Monster spüren das Klima: Im Schnee zittern die Verfrorenen; in der Glut oder unter Wasser sacken Frost- und Feuerwesen zusammen.",
   3239: "In den Sporen niesen die Monster; steigt der Held eine Stufe auf, zuckt die Reihe geblendet zusammen.",
+  3240: "In windigen Zonen werden fliegende Monster von den Böen herumgewirbelt.",
+  3241: "In der Asche husten die Monster; Golems und Skelette kümmert das nicht.",
+  3242: "Fliegende Beute zwischen zwei Raubtieren fliegt davon, statt auf der Stelle zu zittern.",
 };

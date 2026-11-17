@@ -2112,4 +2112,7 @@ export default {
   3237: "En modo mini, el siguiente monstruo llega deslizándose, con el contorno de élites y campeones.",
   3238: "Los monstruos sienten el clima: en la nieve, los frioleros tiritan; entre brasas o bajo el agua, las criaturas del hielo o del fuego se desploman.",
   3239: "Entre las esporas, los monstruos estornudan; cuando el héroe sube de nivel, la fila se sobresalta, deslumbrada.",
+  3240: "En las zonas ventosas, las ráfagas zarandean a los monstruos voladores.",
+  3241: "Entre las cenizas, los monstruos tosen; a los gólems y esqueletos les da igual.",
+  3242: "Una presa voladora atrapada entre dos depredadores alza el vuelo en vez de temblar.",
 };

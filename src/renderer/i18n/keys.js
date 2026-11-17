@@ -3241,5 +3241,8 @@ export const KEYS = [
   "Encore des gestes : le lézard se camoufle, les champignards se gonflent, le scorpion dresse la queue.",
   "En mode mini, le monstre suivant arrive en glissant, avec le contour des élites et des champions.",
   "Les monstres sentent le climat : dans la neige, les frileux grelottent ; dans les braises ou sous l’eau, créatures du froid ou du feu s’affaissent.",
-  "Dans les spores, les monstres éternuent ; quand le héros monte de niveau, la file sursaute, éblouie."
+  "Dans les spores, les monstres éternuent ; quand le héros monte de niveau, la file sursaute, éblouie.",
+  "Dans les zones venteuses, les monstres volants sont ballottés par les rafales.",
+  "Dans les cendres, les monstres toussent ; golems et squelettes n’en ont cure.",
+  "Une proie volante prise entre deux prédateurs s’envole au lieu de trembler sur place."
 ];
