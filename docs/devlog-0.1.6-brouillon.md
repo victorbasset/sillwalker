@@ -36,3 +36,11 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
 - **Monstres vivants (journée du 17/11) :** en attendant leur tour, les monstres flânent, planent ou sautillent et
   réagissent au héros et à la mort d'un voisin ; zones de 7 à 13 monstres ; chaque sorte de monstre a sa compétence
   visible (bond, piqué, toile, charge…), les boss de zone celle de leur famille ; lieutenants et Briseur : pouvoirs uniques.
+- **Meutes et instincts :** loups, rats, chauves-souris… vont par deux ou trois et se déplacent ensemble ; la meute s'avance
+  quand l'un des siens se bat ou tombe, les proies s'écartent des prédateurs, le boss s'impatiente, les loups hurlent à la
+  lune, bandits et gobelins convoitent un butin légendaire ; chaque espèce a son geste en attendant (l'araignée sur son fil,
+  l'ours qui se dresse…). Élites et champions lancent leur compétence plus souvent.
+- **Mode mini :** le monstre suivant attend son tour au fond de la scène.
+- **Effets réduits :** « Effets complets » décoché (ou Windows qui demande moins d'animations), la file reste calme.
+- **Bogue corrigé :** un monstre qui se régénère plus vite qu'on ne le blesse, contre un héros qui encaisse tout, figeait la
+  partie (combat sans fin) ; le monstre s'emporte après 90 s, et le héros abandonne après 3 min au pire.

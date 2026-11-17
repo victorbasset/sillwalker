@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1969) : brouillon du devlog 0.1.6 : meutes et instincts, mode mini, effets réduits, bogue des combats sans fin.
 - 2026-11-17 (it. 1968, contrôle) : lang-overflow complet (éditions 122-125, infobulles du Bestiaire et des Réglages, ligne de
   journal) : aucun défilement ni mot coupé, 10 langues.
 - 2026-11-17 (it. 1967) : abandon après 3 min de combat (it. 1964) : une ligne de journal le dit (« Épuisé par un combat sans
