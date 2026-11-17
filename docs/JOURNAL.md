@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2059, bogue visible) : carte de la zone : la première ligne nommait l'espèce du boss (« Boss (venomous mushling): 72.63M
+  HP ») et la suivante son nom propre (« Boss: Purplecap the Awakened ») : deux noms pour un seul boss. La première ne donne plus que
+  les PV (nouvelle clé, 9 langues) ; en anglais elle tient sur une ligne, en russe à 1280 px la carte raccourcit. Autotest 261/261.
 - 2026-11-17 (it. 2058, bogue visible) : le panneau de la zone annonçait le boss ORDINAIRE (nom et PV) même là où se bat un lieutenant,
   un écho ou le Briseur (zone 150 : « Boss (golem de cristal) : 28,9 Md PV » pour un Chevalier de l'éclipse à 137 Md) ; il nomme
   maintenant le vrai boss et compte son multiplicateur (story.js bossHpFactor, testé). Vérifié en jeu : zones 150 et 200, PV affichés

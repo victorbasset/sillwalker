@@ -1069,14 +1069,14 @@ export class Panel {
 
   renderZone() {
     const S = this.game.S, Z = this.game.zoneDef(), b = monsterBase(S.zone, false), bb = monsterBase(S.zone, true, Z.boss);
-    // (it. 2058) zones 50, 100, 150, 200 et échos : le vrai boss est un lieutenant ou le Briseur (nom et PV), pas le boss ordinaire
-    const mbz = majorBoss(S.zone), zoneBossName = isFinalZone(S.zone) ? tx(FINAL_BOSS.name) : mbz ? majorName(mbz) : lc(MONSTERS[Z.boss].name);
+    // (it. 2058) PV du vrai boss (lieutenant, écho ou Briseur : bossHpFactor) ; (it. 2059) sans son nom : la ligne suivante
+    // (« Boss : Chapeau-Pourpre l'Éveillé ») le nomme, et celle-ci donnait l'espèce (« champignard vénéneux ») : deux noms différents
     const rows = RARITIES.map((r, i) => `<tr><td class="rc${i}">${r.name}</td><td>${r.weight}${unit("%")}</td></tr>`).join("");
     const names = Z.monsters.map((m) => MONSTERS[m].name);
     const list = listJoin(names);
     $(this.root, "#p-zone").innerHTML = `<h2>${tx("Zone {0}", { 0: S.zone })} <small>${recordZone(S) > S.best ? tx("course : {0} · record : {1}", { 0: S.best, 1: recordZone(S) }).split(" · ").map((x) => `<span class="nw">${esc(x)}</span>`).join(" · ") : tx("record : {0}", { 0: S.best })}</small></h2>
       <p class="zname">${esc(this.game.zoneName())}</p>
-      <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss ({1}) : {2} PV.", { 0: fmt(b.hp), 1: esc(zoneBossName), 2: fmt(bb.hp * bossHpFactor(S.zone) * (1 - bossWear(S, S.zone))) })}${
+      <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss : {1} PV.", { 0: fmt(b.hp), 1: fmt(bb.hp * bossHpFactor(S.zone) * (1 - bossWear(S, S.zone))) })}${
         // (it. 1010) boss épuisé : « (−5 %) » après ses PV, la phrase en info-bulle (une ligne de moins : en russe à
         // 1280 px, avec les capacités et une relique annoncée, « Zone suivante » passait sous le bord)
         bossWear(S, S.zone) ? ` <span class="wear" title="${esc(tx("Boss épuisé par tes tentatives : −{0} % de PV jusqu’à ce que tu le battes.", { 0: Math.round(bossWear(S, S.zone) * 100) }))}">(−${Math.round(bossWear(S, S.zone) * 100)}${unit("%")})</span>` : ""}</p>

@@ -2125,4 +2125,5 @@ export default {
   3250: "Der Ritter der Finsternis und der Sternenbrecher sind viel zäher: Man braucht mehrere Aufstiege und verbesserte Relikte, um sie zu besiegen.",
   3251: "Das Herz der Morgenröte schützt etwas weniger: erlittener Schaden −30 % (statt −45 %).",
   3252: "Monster spüren das Klima ihrer Zone: Sie zittern im Schnee, niesen in den Sporen, husten in der Asche und lassen unter Wasser Blasen aufsteigen.",
+  3253: "Monstertypen, ~{0} LP. Boss: {1} LP.",
 };
