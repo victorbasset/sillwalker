@@ -51,7 +51,13 @@ export function lifeOffset(nature, seed, t, heroDist, boss = false) {
   if (boss) return { dx: Math.round(Math.sin(t * 0.6 + seed * 6) * 3 * calm) || 0, dy: -2 * alert, face: 1 };
   let dx = 0, dy = 0, face = 1;
   switch (nature) {
-    case "statue": break;
+    case "statue": {
+      // (it. 1916) immobile tant que le héros est loin ; quand son tour approche (héros à moins de 140 px), elle se trahit : un frisson de 0,15 s
+      // toutes les 2,5 à 4 s, le couvercle qui tressaille
+      const per = 2.5 + seed * 1.5, ph = (t + seed * per) % per;
+      if (alert > 0.1 && ph < 0.15) { dx = Math.floor(ph * 40) % 2 ? 3 : -3; dy = -3; } // un pixel du dessin (3 px : Actor.move arrondit)
+      break;
+    }
     case "cat": {
       // petites courses vives (comme un furtif), mais le héros qui approche le fait reculer, dos tourné : il veut filer
       const per = 1.4 + seed, i = Math.floor((t + seed * 3) / per), ph = ((t + seed * 3) % per) / per;

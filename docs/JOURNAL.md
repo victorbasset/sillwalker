@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1916, journée des monstres) : la mimique, immobile en coffre, se trahit quand son tour approche (héros à
+  moins de 140 px) : un frisson d'un pixel du dessin (3 px, l'arrondi d'Actor.move effaçait 1 px) toutes les 2,5 à 4 s.
+  Test (monlife). Autotest 254/254.
 - 2026-11-17 (it. 1915, journée des monstres) : en plein jour, les chauves-souris somnolent à leur tour (mouvement ×0,35, « z »
   de temps en temps), pendant des bêtes de jour qui dorment la nuit. Vérifié (jour forcé : chauve-souris 0,35, ours 1,00,
   deux « z » en 12 s). Autotest 254/254.

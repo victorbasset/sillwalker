@@ -4682,6 +4682,8 @@ test("vie des monstres en attente (it. 1850) : chacun bouge selon sa nature, se 
   // (it. 1883) le boss respire (balancement de 3 px au plus) mais garde sa place
   for (let t = 0; t < 20; t += 0.5) { const b = lifeOffset1850("wander", 0.3, t, 999, true); assert.ok(Math.abs(b.dx) <= 3 && b.dy === 0, "le boss garde sa place"); }
   for (let t = 0; t < 20; t += 0.5) { const m = lifeOffset1850("statue", 0.3, t, 999); assert.ok(m.dx === 0 && m.dy === 0, "la mimique ne bouge pas"); }
+  // (it. 1916) tout près du héros, elle frissonne de temps en temps (et jamais plus d'un pixel du dessin, 3 px)
+  { let shiv = 0; for (let t = 0; t < 20; t += 0.05) { const m = lifeOffset1850("statue", 0.3, t, 30); if (m.dx || m.dy) { shiv++; assert.ok(Math.abs(m.dx) <= 3 && Math.abs(m.dy) <= 3); } } assert.ok(shiv > 5 && shiv < 120, "frissons de la mimique : " + shiv); }
 });
 test("séries de monstres (it. 1852) : 7 à 13 monstres, 10 en moyenne ; jamais plus courte que le compte déjà fait", () => {
   const g = new Game(freshState()); let sum = 0, mn = 99, mx = 0; const N = 3000;
