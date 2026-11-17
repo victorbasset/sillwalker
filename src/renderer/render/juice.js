@@ -578,13 +578,14 @@ export class Juice {
 
   /** (it. 2028) Souffle dirigé (éternuement, toux) : quelques particules qui partent vers la gauche (le héros) en
    *  s'ouvrant en cône, ralentissent et montent un peu, puis s'effacent ; sparkles, elles, éclatent dans toutes les directions. */
-  puff(x, y, color, n = 4) {
+  // (it. 2036) dir : angle du souffle (π : vers la gauche ; -π/2 : vers le haut, bulles sous l'eau)
+  puff(x, y, color, n = 4, dir = Math.PI) {
     if (!this.active) return;
     n = Math.min(n, MAX_SPARKS - this.layer.getElementsByClassName("spark").length);
     for (let i = 0; i < n; i++) {
       const node = el("div", "spark", this.layer);
       node.style.background = color;
-      const a = Math.PI + (i / Math.max(1, n - 1) - 0.5) * 0.9, sp = 14 + Math.random() * 12;
+      const a = dir + (i / Math.max(1, n - 1) - 0.5) * 0.9, sp = 14 + Math.random() * 12;
       this.add(node, (p) => {
         const k = p.t / 0.7, e = easeOut(k);
         this.place(node, x + Math.cos(a) * sp * e, y + Math.sin(a) * sp * e * 0.6 - k * 4);

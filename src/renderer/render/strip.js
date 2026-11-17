@@ -1411,6 +1411,8 @@ export class StripRenderer {
             // (it. 2035) dans la neige, le frileux qui grelotte souffle une buée (pas le squelette, ni la guêpe : leur cliquetis est le leur)
             else if (nat === "rattle" && wx === "snow" && a.art !== "skel" && a.art !== "wasp") this.juice.puff(gx + 2, gy + Math.round(a.h * 0.4), "#7896c8", 3);
             else this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3);
+            // (it. 2036) sous l'eau, tout geste lâche deux bulles qui montent (en plus du reste)
+            if (wx === "bubble") this.juice.puff(gx + Math.round(a.w * 0.3), gy + 2, "#f4fcff", 2, -Math.PI / 2);
           }
         }
       }

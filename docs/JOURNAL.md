@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2036, journée des monstres) : sous l'eau (Lagon de corail, Récif abyssal, Cité engloutie), tout geste au repos
+  lâche deux bulles qui montent (juice.puff reçoit une direction ; presque blanches : le bleu clair se perdait sur le cyan du
+  Lagon). Vérifié en capture (Lagon, Récif ; aucune bulle hors de l'eau). Autotest 259/259.
 - 2026-11-17 (it. 2035, journée des monstres) : dans la neige, le frileux qui grelotte souffle une buée (juice.puff, bleu acier
   #7896c8 : le bleu pâle se perdait sur la neige ; pas le squelette ni la guêpe). Vérifié en capture aux Pics enneigés et à la
   Toundra gelée. Autotest 259/259.
