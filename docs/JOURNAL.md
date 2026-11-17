@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2114) : « Quoi de neuf », édition 136 (refonte des Talents, voie, confirmations dans une fenêtre ; 5 nouveautés, 10
+  langues, clés 3281-3285). Traductions de la soirée alignées sur les mots du jeu (ja 天賦, ko 특성, ru навыков). lang-overflow
+  10 langues × 1280 / 1920 : rien ; autotest 271/271.
 - 2026-11-17 (it. 2113, ergonomie) : Réglages : « Effacer la partie et recommencer » se confirme dans la fenêtre du panneau (bouton
   rouge « Tout effacer », liste de ce qui est perdu) au lieu d'un second clic sur le même bouton ; dans cette fenêtre, Entrée ANNULE
   (avant, Entrée validait toujours). Clés 3278-3280 ; autotest « Entrée annule » ; 271/271.

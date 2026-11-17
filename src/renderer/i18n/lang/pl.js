@@ -2153,4 +2153,9 @@ export default {
   3278: "Usunąć grę?",
   3279: "Wszystko zostanie usunięte bezpowrotnie: bohater, przedmioty, złoto, wniebowstąpienia, relikwie, pupile i osiągnięcia. Zaczyna się nowa gra.",
   3280: "Usuń wszystko",
+  3281: "Talenty: karta po lewej podąża za kursorem bez opóźnienia i wraca do klikniętego talentu, gdy mysz do niej dotrze; plakietki „+1”, „wszystko” i „Wybierz premię” nie przesuwają się już między kliknięciami.",
+  3282: "Talenty: na zielono zostają tylko wiersze, w których kliknięcie coś daje, karta zapowiada efekt kliknięcia przed kliknięciem, a każda gałąź ma wskaźnik swoich progów.",
+  3283: "Talenty: karta pokazuje sumę wszystkich twoich talentów.",
+  3284: "Droga: świeci na złoto, gdy jest dostępna, jej karta podaje efekty w liczbach i można ją wybrać, nawet gdy wszystkie punkty są wydawane automatycznie.",
+  3285: "Działania bez odwrotu (reset talentów lub umiejętności, wzniesienie się do gwiazd, usunięcie gry) potwierdza się w oknie, a nie drugim kliknięciem w tym samym miejscu.",
 };

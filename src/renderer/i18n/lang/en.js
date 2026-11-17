@@ -2153,4 +2153,9 @@ export default {
   3278: "Erase the game?",
   3279: "Everything is erased, with no way back: hero, items, gold, ascensions, relics, pets and achievements. A new game begins.",
   3280: "Erase everything",
+  3281: "Talents: the left card follows the hover without delay and returns to the clicked talent when the mouse reaches it; the “+1”, “all” and “Choose a bonus” badges no longer move from one click to the next.",
+  3282: "Talents: only the rows where a click helps stay green, the card tells what a click will do before you click, and each branch has a gauge of its tiers.",
+  3283: "Talents: the card shows the total of all your talents.",
+  3284: "Way: it shows in gold when available, its card gives its effects in numbers, and it can be chosen even when all points are spent automatically.",
+  3285: "Actions with no way back (resetting talents or skills, rising to the stars, erasing the game) are confirmed in a window, no longer by a second click in the same place.",
 };

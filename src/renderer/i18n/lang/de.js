@@ -2153,4 +2153,9 @@ export default {
   3278: "Spielstand löschen?",
   3279: "Alles wird gelöscht, ohne Rückweg: Held, Gegenstände, Gold, Aufstiege, Relikte, Begleiter und Erfolge. Ein neues Spiel beginnt.",
   3280: "Alles löschen",
+  3281: "Talente: Die linke Karte folgt dem Mauszeiger ohne Verzögerung und kehrt zum angeklickten Talent zurück, sobald die Maus sie erreicht; die Schilder „+1“, „alle“ und „Bonus wählen“ verrutschen nicht mehr von Klick zu Klick.",
+  3282: "Talente: Nur Zeilen, bei denen ein Klick etwas bringt, bleiben grün, die Karte zeigt vor dem Klick, was er bewirkt, und jeder Zweig hat eine Anzeige seiner Stufen.",
+  3283: "Talente: Die Karte zeigt die Summe all deiner Talente.",
+  3284: "Weg: Er leuchtet golden, sobald er verfügbar ist, seine Karte nennt seine Effekte in Zahlen, und er lässt sich auch wählen, wenn alle Punkte automatisch verteilt werden.",
+  3285: "Endgültige Aktionen (Talente oder Fertigkeiten zurücksetzen, zu den Sternen aufsteigen, den Spielstand löschen) werden in einem Fenster bestätigt, nicht mehr durch einen zweiten Klick an derselben Stelle.",
 };

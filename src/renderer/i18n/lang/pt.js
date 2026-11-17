@@ -2153,4 +2153,9 @@ export default {
   3278: "Apagar o jogo?",
   3279: "Tudo é apagado, sem volta: herói, itens, ouro, ascensões, relíquias, mascotes e conquistas. Um novo jogo começa.",
   3280: "Apagar tudo",
+  3281: "Talentos: a ficha da esquerda segue o cursor sem atraso e volta ao talento clicado quando o mouse chega até ela; as etiquetas “+1”, “tudo” e “Escolher bônus” não se movem mais de um clique para outro.",
+  3282: "Talentos: só as linhas onde um clique serve ficam verdes, a ficha anuncia o efeito de um clique antes de clicar e cada ramo tem um medidor dos seus níveis.",
+  3283: "Talentos: a ficha mostra o total de todos os seus talentos.",
+  3284: "Via: aparece em dourado quando está disponível, sua ficha dá os efeitos em números e pode ser escolhida mesmo quando todos os pontos são gastos automaticamente.",
+  3285: "Ações sem volta (redefinir talentos ou habilidades, subir às estrelas, apagar o jogo) são confirmadas numa janela, e não mais por um segundo clique no mesmo lugar.",
 };

@@ -2153,4 +2153,9 @@ export default {
   3278: "¿Borrar la partida?",
   3279: "Se borra todo, sin vuelta atrás: héroe, objetos, oro, ascensiones, reliquias, mascotas y logros. Empieza una nueva partida.",
   3280: "Borrarlo todo",
+  3281: "Talentos: la ficha de la izquierda sigue el cursor sin retraso y vuelve al talento pulsado cuando el ratón llega a ella; las etiquetas «+1», «todo» y «Elegir bonificación» ya no se mueven de un clic a otro.",
+  3282: "Talentos: solo las filas donde un clic sirve quedan en verde, la ficha anuncia el efecto de un clic antes de pulsar y cada rama tiene un indicador de sus niveles.",
+  3283: "Talentos: la ficha muestra el total de todos tus talentos.",
+  3284: "Vía: se ve en dorado cuando está disponible, su ficha da sus efectos en cifras y se puede elegir aunque todos los puntos se gasten automáticamente.",
+  3285: "Las acciones sin vuelta atrás (reiniciar talentos o habilidades, subir a las estrellas, borrar la partida) se confirman en una ventana, y ya no con un segundo clic en el mismo sitio.",
 };

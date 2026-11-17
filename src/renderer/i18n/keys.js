@@ -3282,5 +3282,10 @@ export const KEYS = [
   "Tous les points de compétence reviennent (gratuit), la fleur et le grand graphe compris.",
   "Effacer la partie ?",
   "Tout est effacé, sans retour : héros, objets, or, ascensions, reliques, familiers et succès. Une nouvelle partie commence.",
-  "Tout effacer"
+  "Tout effacer",
+  "Talents : la fiche de gauche suit le survol sans délai et revient au talent cliqué quand la souris la rejoint ; les pastilles « +1 », « tout » et « Choisir un bonus » ne bougent plus d’un clic à l’autre.",
+  "Talents : seules les lignes où un clic sert restent en vert, la fiche annonce l’effet d’un clic avant de cliquer et chaque branche a une jauge de ses paliers.",
+  "Talents : la fiche montre le total de tous tes talents.",
+  "Voie : elle se voit en or quand elle est disponible, sa fiche donne ses effets chiffrés, et elle se choisit même quand tous les points sont dépensés automatiquement.",
+  "Les actions sans retour (réinitialiser les talents ou les compétences, monter vers les étoiles, effacer la partie) se confirment dans une fenêtre, et plus par un second clic au même endroit."
 ];
