@@ -3227,5 +3227,8 @@ export const KEYS = [
   "Chaque espèce a son geste en attendant son tour : l’araignée remonte sur son fil, l’ours se dresse, le bandit fait le guet…",
   "La nuit, les loups hurlent à la lune et se répondent ; les spectres s’estompent et reviennent.",
   "Un objet légendaire tombe : bandits et gobelins le convoitent.",
-  "Pièces, faisceaux de butin, flashs, monstres qui s’agitent en attendant. Décoche pour une bande plus sobre."
+  "Pièces, faisceaux de butin, flashs, monstres qui s’agitent en attendant. Décoche pour une bande plus sobre.",
+  "En mode mini, le monstre suivant attend son tour au fond de la scène.",
+  "Un monstre qui se régénère ne peut plus bloquer le héros sans fin : passé 90 s de combat, il s’emporte.",
+  "« Effets complets » décoché : les monstres qui attendent restent calmes."
 ];

@@ -2098,4 +2098,7 @@ export default {
   3223: "De noche, los lobos aúllan a la luna y se responden; los espectros se desvanecen y vuelven.",
   3224: "Cae un objeto legendario: bandidos y goblins lo codician.",
   3225: "Monedas, haces de botín, destellos, monstruos que se agitan mientras esperan. Desmárcalo para una franja más sobria.",
+  3226: "En modo mini, el siguiente monstruo espera su turno al fondo de la escena.",
+  3227: "Un monstruo que se regenera ya no puede bloquear al héroe sin fin: tras 90 s de combate, se enfurece.",
+  3228: "«Efectos completos» desmarcado: los monstruos que esperan se quedan tranquilos.",
 };

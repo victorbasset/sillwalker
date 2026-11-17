@@ -2098,4 +2098,7 @@ export default {
   3223: "Nocą wilki wyją do księżyca i odpowiadają sobie; widma bledną i powracają.",
   3224: "Wypada legendarny przedmiot: bandyci i gobliny go pożądają.",
   3225: "Monety, wiązki łupów, błyski, potwory kręcące się w oczekiwaniu. Odznacz dla skromniejszego paska.",
+  3226: "W trybie mini następny potwór czeka na swoją kolej w głębi sceny.",
+  3227: "Regenerujący się potwór nie może już bez końca blokować bohatera: po 90 s walki wpada w szał.",
+  3228: "„Pełne efekty” odznaczone: czekające potwory zachowują spokój.",
 };

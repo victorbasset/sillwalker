@@ -2098,4 +2098,7 @@ export default {
   3223: "À noite, os lobos uivam à lua e respondem-se; os espectros desvanecem e regressam.",
   3224: "Cai um objeto lendário: bandidos e goblins cobiçam-no.",
   3225: "Moedas, feixes de saque, clarões, monstros que se agitam enquanto esperam. Desmarque para uma faixa mais sóbria.",
+  3226: "No modo mini, o próximo monstro espera a sua vez no fundo da cena.",
+  3227: "Um monstro que se regenera já não pode bloquear o herói sem fim: após 90 s de combate, enfurece-se.",
+  3228: "«Efeitos completos» desmarcado: os monstros que esperam ficam calmos.",
 };

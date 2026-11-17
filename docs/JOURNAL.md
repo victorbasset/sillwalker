@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1962) : « Quoi de neuf », édition 125 (mode mini : le suivant attend ; impasse corrigée ; effets réduits :
+  monstres calmes ; clés 3226-3228, 10 langues, libellé « Effets complets » cité tel que traduit). Autotest 257/257,
+  lang-overflow ru/de/pl : rien ne défile.
 - 2026-11-17 (it. 1961, revue générale) : perf:linux bande 18,0 %, panneau 19,3 %, mini 5,3 % ; 12 h graine 261 : chaman 65,
   druide 64, samouraï 65 ; save-fuzz ok (1 267) ; fuzz sous chaque bénédiction : 400 / 0 (garde-fou anti-impasse compris).
   Rien à corriger.

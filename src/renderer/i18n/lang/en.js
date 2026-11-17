@@ -2098,4 +2098,7 @@ export default {
   3223: "At night, wolves howl at the moon and answer each other; ghosts fade and return.",
   3224: "A legendary item drops: bandits and goblins covet it.",
   3225: "Coins, loot beams, flashes, monsters fidgeting while they wait. Uncheck for a more sober strip.",
+  3226: "In mini mode, the next monster waits its turn at the back of the scene.",
+  3227: "A regenerating monster can no longer stall the hero forever: after 90 s of combat, it flies into a rage.",
+  3228: "“Full effects” unchecked: waiting monsters stay calm.",
 };

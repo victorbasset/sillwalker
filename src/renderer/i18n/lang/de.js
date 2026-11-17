@@ -2098,4 +2098,7 @@ export default {
   3223: "Nachts heulen die Wölfe den Mond an und antworten einander; Gespenster verblassen und kehren zurück.",
   3224: "Ein legendärer Gegenstand fällt: Banditen und Goblins begehren ihn.",
   3225: "Münzen, Beutestrahlen, Blitze, Monster, die beim Warten herumzappeln. Abwählen für einen schlichteren Streifen.",
+  3226: "Im Mini-Modus wartet das nächste Monster im Hintergrund der Szene auf seinen Einsatz.",
+  3227: "Ein sich regenerierendes Monster kann den Helden nicht mehr endlos aufhalten: Nach 90 s Kampf gerät es in Rage.",
+  3228: "„Volle Effekte“ abgewählt: Wartende Monster bleiben ruhig.",
 };
