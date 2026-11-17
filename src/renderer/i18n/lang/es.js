@@ -2115,4 +2115,7 @@ export default {
   3240: "En las zonas ventosas, las ráfagas zarandean a los monstruos voladores.",
   3241: "Entre las cenizas, los monstruos tosen; a los gólems y esqueletos les da igual.",
   3242: "Una presa voladora atrapada entre dos depredadores alza el vuelo en vez de temblar.",
+  3243: "Estornudos y toses sueltan una bocanada ante la boca, verde entre las esporas, gris entre las cenizas.",
+  3244: "En la nieve, los frioleros echan vaho; bajo el agua, los monstruos sueltan burbujas; entre las brasas, los yetis humean.",
+  3245: "El cuervo vive de día y duerme de noche; el fantasma ni tirita ni tose: no respira.",
 };

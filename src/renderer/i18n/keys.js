@@ -3244,5 +3244,8 @@ export const KEYS = [
   "Dans les spores, les monstres éternuent ; quand le héros monte de niveau, la file sursaute, éblouie.",
   "Dans les zones venteuses, les monstres volants sont ballottés par les rafales.",
   "Dans les cendres, les monstres toussent ; golems et squelettes n’en ont cure.",
-  "Une proie volante prise entre deux prédateurs s’envole au lieu de trembler sur place."
+  "Une proie volante prise entre deux prédateurs s’envole au lieu de trembler sur place.",
+  "Éternuements et toux soufflent une bouffée devant la gueule, verte dans les spores, grise dans les cendres.",
+  "Dans la neige, les frileux soufflent une buée ; sous l’eau, les monstres lâchent des bulles ; dans les braises, les yétis fument.",
+  "Le corbeau vit le jour et dort la nuit ; le fantôme, lui, ne grelotte ni ne tousse : il ne respire pas."
 ];

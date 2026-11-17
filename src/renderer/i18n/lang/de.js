@@ -2115,4 +2115,7 @@ export default {
   3240: "In windigen Zonen werden fliegende Monster von den Böen herumgewirbelt.",
   3241: "In der Asche husten die Monster; Golems und Skelette kümmert das nicht.",
   3242: "Fliegende Beute zwischen zwei Raubtieren fliegt davon, statt auf der Stelle zu zittern.",
+  3243: "Niesen und Husten blasen ein Wölkchen vor das Maul, grün in den Sporen, grau in der Asche.",
+  3244: "Im Schnee hauchen die Frierenden Atemwolken; unter Wasser lassen Monster Blasen aufsteigen; in der Glut dampfen die Yetis.",
+  3245: "Die Krähe lebt am Tag und schläft nachts; das Gespenst zittert und hustet nicht: Es atmet nicht.",
 };

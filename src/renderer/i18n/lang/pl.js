@@ -2115,4 +2115,7 @@ export default {
   3240: "W wietrznych strefach latające potwory miotane są przez podmuchy.",
   3241: "W popiołach potwory kaszlą; golemy i szkielety nic sobie z tego nie robią.",
   3242: "Latająca ofiara między dwoma drapieżnikami odlatuje, zamiast drżeć w miejscu.",
+  3243: "Kichnięcia i kaszel wydmuchują obłoczek przed pyskiem, zielony w zarodnikach, szary w popiołach.",
+  3244: "W śniegu zmarzluchy chuchają parą; pod wodą potwory wypuszczają bąbelki; w żarze yeti parują.",
+  3245: "Kruk żyje za dnia i śpi nocą; duch ani nie drży, ani nie kaszle: nie oddycha.",
 };

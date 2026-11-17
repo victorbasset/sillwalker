@@ -2115,4 +2115,7 @@ export default {
   3240: "Nas zonas de vento, os monstros voadores são sacudidos pelas rajadas.",
   3241: "Nas cinzas, os monstros tossem; golens e esqueletos nem ligam.",
   3242: "Uma presa voadora presa entre dois predadores levanta voo em vez de tremer no lugar.",
+  3243: "Espirros e tosses soltam uma baforada diante da boca, verde nos esporos, cinzenta nas cinzas.",
+  3244: "Na neve, os friorentos soltam vapor; debaixo de água, os monstros soltam bolhas; nas brasas, os yetis fumegam.",
+  3245: "O corvo vive de dia e dorme à noite; o fantasma não treme nem tosse: não respira.",
 };

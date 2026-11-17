@@ -2115,4 +2115,7 @@ export default {
   3240: "In windy zones, flying monsters are tossed about by the gusts.",
   3241: "In the ashes, monsters cough; golems and skeletons couldn’t care less.",
   3242: "Flying prey caught between two predators flies off instead of trembling in place.",
+  3243: "Sneezes and coughs blow a puff in front of the mouth, green in the spores, grey in the ashes.",
+  3244: "In the snow, chilly monsters breathe out mist; underwater, monsters release bubbles; in the embers, yetis steam.",
+  3245: "The crow lives by day and sleeps at night; the ghost neither shivers nor coughs: it doesn’t breathe.",
 };
