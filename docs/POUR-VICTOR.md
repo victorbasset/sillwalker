@@ -4,6 +4,16 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Depuis la 0.1.6 (soir du 17/11, it. 2058-2087) : à regarder en jouant (prochaine version)
+
+- Mode mini (ton signalement) : le monstre suivant s'avance depuis sa place d'attente ; le boss attend lui aussi au fond ; un
+  monstre qu'on n'a pas vu attendre entre par le bord droit ; après une défaite, le vainqueur s'efface. Dis-moi si un passage
+  te paraît encore saccadé.
+- Bande : après une défaite, les monstres vaincus reviennent en courant du bord (avant : le vainqueur sautait hors de l'écran).
+- Carte de la zone : le vrai boss (lieutenant, écho, Briseur) avec ses vrais PV ; piste « renforce tes reliques » quand le héros
+  bloque devant eux.
+- Ces nouveautés sont dans les éditions 133 à 135 de « Quoi de neuf » ; elles partiront avec la 0.1.7 (docs/devlog-0.1.7-brouillon.md).
+
 ## Version 0.1.6 (envoyée sur itch.io le 17/11, it. 2056) : reste à publier le devlog
 
 - Fichiers dans Médias/dist-itch : Sillwalker-0.1.6-win.zip, -linux.AppImage, -mac-arm64.zip (empreintes : SHA256-0.1.6.txt) ;

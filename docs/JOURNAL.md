@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2088) : POUR-VICTOR : ce qui a changé depuis la 0.1.6, à regarder en jouant.
 - 2026-11-17 (it. 2087, vérification) : bande, victoires ordinaires : relevé toutes les 50 ms, le vaincu est caché (cadavre à part),
   les autres gardent leur place, aucun saut. Rien à corriger.
 - 2026-11-17 (it. 2086) : Quoi de neuf, édition 135 (passages fluides : mode mini ; bande après une défaite), clés 3260-3261
