@@ -2166,4 +2166,9 @@ export default {
   3291: "Click a talent: as many ranks as possible · Shift + click or “+1”: a single rank · Z: undo the last click. Hover a talent to see its effect.",
   3292: "Sell {0}?",
   3293: "Precious item (legendary, set piece or forged): the sale is final.",
+  3294: "Talents: a button gives back the points of your last click for free, and the Z key does the same (in Skills: the last node).",
+  3295: "Shop: when the bag is full, useless items can be sold without leaving the Merchant.",
+  3296: "Selling a precious item (legendary, set piece or forged) asks for confirmation; others still sell in one click.",
+  3297: "Clicking the background of a window closes it; a confirmation is then cancelled.",
+  3298: "Skills: the buttons stay visible without scrolling; mastery bonuses are chosen in an aligned grid.",
 };

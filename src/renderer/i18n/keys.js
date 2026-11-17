@@ -3295,5 +3295,10 @@ export const KEYS = [
   "Annuler le dernier choix (Talents, Compétences)",
   "Clic sur un talent : autant de rangs que possible · Maj + clic ou « +1 » : un seul rang · Z : annuler le dernier clic. Survole un talent pour voir son effet.",
   "Vendre {0} ?",
-  "Objet précieux (légendaire, panoplie ou forgé) : la vente est définitive."
+  "Objet précieux (légendaire, panoplie ou forgé) : la vente est définitive.",
+  "Talents : un bouton rend gratuitement les points de ton dernier clic, et la touche Z fait de même (dans les Compétences : le dernier nœud).",
+  "Boutique : quand le sac est plein, les objets inutiles se vendent sans quitter le Marchand.",
+  "Vendre un objet précieux (légendaire, pièce de panoplie ou forgé) demande confirmation ; les autres se vendent toujours d’un clic.",
+  "Un clic sur le fond d’une fenêtre la ferme ; une confirmation est alors annulée.",
+  "Compétences : les boutons restent visibles sans défiler ; les bonus de maîtrise se choisissent dans une grille alignée."
 ];

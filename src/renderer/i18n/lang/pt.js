@@ -2166,4 +2166,9 @@ export default {
   3291: "Clique num talento: o máximo de níveis possível · Shift + clique ou «+1»: um só nível · Z: desfazer o último clique. Passe o mouse sobre um talento para ver o efeito.",
   3292: "Vender {0}?",
   3293: "Item precioso (lendário, de conjunto ou forjado): a venda é definitiva.",
+  3294: "Talentos: um botão devolve de graça os pontos do seu último clique, e a tecla Z faz o mesmo (em Habilidades: o último nó).",
+  3295: "Loja: com a bolsa cheia, os itens inúteis podem ser vendidos sem sair do Mercador.",
+  3296: "Vender um item precioso (lendário, de conjunto ou forjado) pede confirmação; os outros continuam a ser vendidos com um clique.",
+  3297: "Um clique no fundo de uma janela a fecha; uma confirmação é então cancelada.",
+  3298: "Habilidades: os botões ficam visíveis sem rolar; os bônus de maestria são escolhidos numa grade alinhada.",
 };

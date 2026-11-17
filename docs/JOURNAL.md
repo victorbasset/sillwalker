@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2128) : « Quoi de neuf », édition 137 (annuler le dernier clic et touche Z, vendre sur place à sac plein, vente des
+  objets précieux confirmée, clic sur le fond, Compétences et bonus de maîtrise ; 5 nouveautés, 10 langues, clés 3294-3298). Fenêtre au
+  pire cas sans défilement ; lang-overflow 10 langues × 1280 / 1920 : rien ; 278/278.
 - 2026-11-18 (it. 2127, ergonomie) : vendre un objet précieux (légendaire, pièce de panoplie, forgé) depuis son détail se confirme
   (« Vendre … ? », la vente est définitive) ; les objets ordinaires se vendent toujours d'un clic. Clés 3292-3293 ; autotest ; --crawl
   672 clics sans erreur ; stall-check 60 parties 0 figées, fuzz 1200 parties 0 bloquées ; 278/278.

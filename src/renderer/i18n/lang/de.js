@@ -2166,4 +2166,9 @@ export default {
   3291: "Klick auf ein Talent: so viele Ränge wie möglich · Umschalt + Klick oder „+1“: nur ein Rang · Z: letzten Klick rückgängig machen. Fahre über ein Talent, um seine Wirkung zu sehen.",
   3292: "{0} verkaufen?",
   3293: "Wertvoller Gegenstand (legendär, Setteil oder geschmiedet): Der Verkauf ist endgültig.",
+  3294: "Talente: Ein Knopf gibt die Punkte deines letzten Klicks kostenlos zurück, die Taste Z tut dasselbe (bei den Fertigkeiten: den letzten Knoten).",
+  3295: "Laden: Ist die Tasche voll, lässt sich Unnützes verkaufen, ohne den Händler zu verlassen.",
+  3296: "Der Verkauf eines wertvollen Gegenstands (legendär, Setteil oder geschmiedet) muss bestätigt werden; alles andere verkauft sich weiter mit einem Klick.",
+  3297: "Ein Klick auf den Hintergrund eines Fensters schließt es; eine Bestätigung wird dann abgebrochen.",
+  3298: "Fertigkeiten: Die Knöpfe bleiben ohne Scrollen sichtbar; Meisterschaftsboni werden in einem ausgerichteten Raster gewählt.",
 };

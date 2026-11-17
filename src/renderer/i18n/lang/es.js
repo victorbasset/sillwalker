@@ -2166,4 +2166,9 @@ export default {
   3291: "Clic en un talento: tantos rangos como sea posible · Mayús + clic o «+1»: un solo rango · Z: deshacer el último clic. Pasa el ratón por un talento para ver su efecto.",
   3292: "¿Vender {0}?",
   3293: "Objeto valioso (legendario, de conjunto o forjado): la venta es definitiva.",
+  3294: "Talentos: un botón devuelve gratis los puntos de tu último clic, y la tecla Z hace lo mismo (en Habilidades: el último nodo).",
+  3295: "Tienda: con la bolsa llena, los objetos inútiles se venden sin salir del Mercader.",
+  3296: "Vender un objeto valioso (legendario, de conjunto o forjado) pide confirmación; los demás se siguen vendiendo con un clic.",
+  3297: "Un clic en el fondo de una ventana la cierra; una confirmación queda entonces anulada.",
+  3298: "Habilidades: los botones siguen visibles sin desplazarse; las bonificaciones de maestría se eligen en una cuadrícula alineada.",
 };

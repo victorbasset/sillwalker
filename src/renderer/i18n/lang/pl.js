@@ -2166,4 +2166,9 @@ export default {
   3291: "Kliknięcie talentu: tyle rang, ile się da · Shift + klik lub „+1”: jedna ranga · Z: cofnij ostatnie kliknięcie. Najedź na talent, aby zobaczyć jego efekt.",
   3292: "Sprzedać {0}?",
   3293: "Cenny przedmiot (legendarny, z zestawu lub wykuty): sprzedaż jest ostateczna.",
+  3294: "Talenty: przycisk za darmo zwraca punkty z ostatniego kliknięcia, a klawisz Z robi to samo (w Umiejętnościach: ostatni węzeł).",
+  3295: "Sklep: gdy torba jest pełna, zbędne przedmioty można sprzedać, nie opuszczając Kupca.",
+  3296: "Sprzedaż cennego przedmiotu (legendarnego, z zestawu lub wykutego) wymaga potwierdzenia; pozostałe nadal sprzedaje się jednym kliknięciem.",
+  3297: "Kliknięcie w tło okna zamyka je; potwierdzenie zostaje wtedy anulowane.",
+  3298: "Umiejętności: przyciski są widoczne bez przewijania; premie mistrzostwa wybiera się w wyrównanej siatce.",
 };

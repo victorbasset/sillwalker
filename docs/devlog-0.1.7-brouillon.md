@@ -36,3 +36,6 @@ docs/devlog-0.1.6.md).
   fiche ; la Voie en or quand elle est disponible, avec ses effets chiffrés, et choisissable même en dépense automatique.
 - **Actions sans retour confirmées dans une fenêtre (it. 2099-2113) :** réinitialiser les talents ou les compétences, monter vers
   les étoiles, effacer la partie (Entrée y annule) ; avant, un second clic au même endroit suffisait.
+- **Moins d'erreurs, moins d'allers-retours (it. 2115-2127) :** annuler le dernier clic sur un talent (bouton ou touche Z) ; vendre
+  les inutiles depuis la Boutique quand le sac est plein ; vente des objets précieux confirmée ; un clic sur le fond ferme une
+  fenêtre ; Compétences sans boutons cachés ; bonus de maîtrise en grille alignée.
