@@ -3217,5 +3217,7 @@ export const KEYS = [
   "Chaque famille tombe à sa façon : les volants chutent, les spectres s’envolent, les golems s’effondrent.",
   "Les monstres sursautent quand un voisin tombe ou qu’un sort éclate, s’avancent quand le héros faiblit ; Poupouce, lui, essaie de filer.",
   "En mode mini aussi, le monstre combattu fait le geste de sa compétence.",
-  "Grégaire : vient souvent à deux ou trois."
+  "Grégaire : vient souvent à deux ou trois.",
+  "Loups, rats, chauves-souris, corbeaux… vont souvent à deux ou trois : la meute se déplace ensemble et s’avance quand l’un des siens se bat.",
+  "Élites et champions, plus aguerris, lancent leur compétence plus souvent, avec un mot doré ou violet."
 ];

@@ -2088,4 +2088,6 @@ export default {
   3213: "Os monstros se assustam quando um vizinho cai ou um feitiço explode, e se aproximam quando o herói fraqueja; já Poupouce tenta escapar.",
   3214: "No modo mini também, o monstro em combate faz o gesto da sua habilidade.",
   3215: "Gregário: costuma vir em dois ou três.",
+  3216: "Lobos, ratos, morcegos, corvos… costumam vir em dois ou três: a matilha anda junta e avança quando um dos seus luta.",
+  3217: "Elites e campeões, mais experientes, usam a sua habilidade com mais frequência, com uma palavra dourada ou roxa.",
 };

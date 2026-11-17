@@ -2088,4 +2088,6 @@ export default {
   3213: "Monsters flinch when a neighbor falls or a spell bursts, and close in when the hero weakens; Poupouce tries to slip away.",
   3214: "In mini mode too, the monster in the fight makes its skill’s move.",
   3215: "Gregarious: often comes in twos or threes.",
+  3216: "Wolves, rats, bats, crows… often come in twos or threes: the pack moves together and steps up when one of its own is fighting.",
+  3217: "Elites and champions, more seasoned, use their skill more often, with a golden or purple word.",
 };

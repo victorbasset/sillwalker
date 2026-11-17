@@ -2088,4 +2088,6 @@ export default {
   3213: "Los monstruos se sobresaltan cuando cae un vecino o estalla un hechizo, y se acercan cuando el héroe flaquea; Poupouce, en cambio, intenta escabullirse.",
   3214: "También en el modo mini, el monstruo en combate hace el gesto de su habilidad.",
   3215: "Gregario: suele venir de dos en dos o de tres en tres.",
+  3216: "Lobos, ratas, murciélagos, cuervos… suelen venir de dos en dos o de tres en tres: la manada se mueve junta y avanza cuando uno de los suyos lucha.",
+  3217: "Élites y campeones, más curtidos, lanzan su habilidad más a menudo, con una palabra dorada o violeta.",
 };

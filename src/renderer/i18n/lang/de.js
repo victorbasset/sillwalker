@@ -2088,4 +2088,6 @@ export default {
   3213: "Monster zucken zusammen, wenn ein Nachbar fällt oder ein Zauber einschlägt, und rücken näher, wenn der Held schwächelt; Poupouce versucht zu entwischen.",
   3214: "Auch im Minimodus macht das kämpfende Monster die Bewegung seiner Fähigkeit.",
   3215: "Herdentier: kommt oft zu zweit oder zu dritt.",
+  3216: "Wölfe, Ratten, Fledermäuse, Krähen … kommen oft zu zweit oder zu dritt: Das Rudel bewegt sich gemeinsam und rückt vor, wenn einer der Seinen kämpft.",
+  3217: "Elite und Champions sind erfahrener: Sie setzen ihre Fähigkeit öfter ein, mit einem goldenen oder violetten Wort.",
 };

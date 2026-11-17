@@ -2088,4 +2088,6 @@ export default {
   3213: "Potwory wzdrygają się, gdy pada sąsiad lub wybucha czar, i podchodzą bliżej, gdy bohater słabnie; Poupouce próbuje się wymknąć.",
   3214: "Także w trybie mini walczący potwór wykonuje gest swojej umiejętności.",
   3215: "Stadny: często pojawia się po dwa lub trzy.",
+  3216: "Wilki, szczury, nietoperze, wrony… często pojawiają się po dwa lub trzy: stado porusza się razem i podchodzi bliżej, gdy jeden z nich walczy.",
+  3217: "Elity i czempioni, bardziej zaprawieni w boju, częściej używają swojej umiejętności, ze złotym lub fioletowym słowem.",
 };
