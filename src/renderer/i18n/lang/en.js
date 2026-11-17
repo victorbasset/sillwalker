@@ -2094,4 +2094,7 @@ export default {
   3219: "Prey keeps away from predators; caught between two, it trembles.",
   3220: "The boss grows impatient as the hero approaches: it stamps its feet.",
   3221: "In broad daylight, bats doze; the mimic, for its part, shivers as its turn draws near.",
+  3222: "Each species has its own gesture while waiting its turn: the spider climbs its thread, the bear rears up, the bandit keeps watch…",
+  3223: "At night, wolves howl at the moon and answer each other; ghosts fade and return.",
+  3224: "A legendary item drops: bandits and goblins covet it.",
 };

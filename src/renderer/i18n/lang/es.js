@@ -2094,4 +2094,7 @@ export default {
   3219: "Las presas se apartan de los depredadores; atrapadas entre dos, tiemblan.",
   3220: "El jefe se impacienta cuando el héroe se acerca: da pisotones.",
   3221: "A plena luz del día, los murciélagos dormitan; el mímico, por su parte, se estremece cuando se acerca su turno.",
+  3222: "Cada especie tiene su gesto mientras espera su turno: la araña trepa por su hilo, el oso se alza, el bandido vigila…",
+  3223: "De noche, los lobos aúllan a la luna y se responden; los espectros se desvanecen y vuelven.",
+  3224: "Cae un objeto legendario: bandidos y goblins lo codician.",
 };

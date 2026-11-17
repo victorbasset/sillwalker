@@ -2094,4 +2094,7 @@ export default {
   3219: "Ofiary trzymają się z dala od drapieżników; uwięzione między dwoma, drżą.",
   3220: "Boss niecierpliwi się, gdy bohater się zbliża: tupie nogami.",
   3221: "W biały dzień nietoperze drzemią; mimik zaś drży, gdy zbliża się jego kolej.",
+  3222: "Każdy gatunek ma swój gest, czekając na swoją kolej: pająk wspina się po nici, niedźwiedź staje dęba, bandyta wypatruje…",
+  3223: "Nocą wilki wyją do księżyca i odpowiadają sobie; widma bledną i powracają.",
+  3224: "Wypada legendarny przedmiot: bandyci i gobliny go pożądają.",
 };

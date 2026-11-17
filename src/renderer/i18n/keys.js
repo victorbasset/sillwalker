@@ -3223,5 +3223,8 @@ export const KEYS = [
   "Quand un loup tombe, sa meute s’avance, furieuse ; rats et corbeaux, eux, se dispersent.",
   "Les proies s’écartent des prédateurs ; coincées entre deux, elles tremblent.",
   "Le boss s’impatiente quand le héros approche : il frappe du pied.",
-  "En plein jour, les chauves-souris somnolent ; la mimique, elle, frissonne quand son tour approche."
+  "En plein jour, les chauves-souris somnolent ; la mimique, elle, frissonne quand son tour approche.",
+  "Chaque espèce a son geste en attendant son tour : l’araignée remonte sur son fil, l’ours se dresse, le bandit fait le guet…",
+  "La nuit, les loups hurlent à la lune et se répondent ; les spectres s’estompent et reviennent.",
+  "Un objet légendaire tombe : bandits et gobelins le convoitent."
 ];

@@ -2094,4 +2094,7 @@ export default {
   3219: "As presas afastam-se dos predadores; encurraladas entre dois, tremem.",
   3220: "O chefe impacienta-se quando o herói se aproxima: bate com os pés.",
   3221: "Em pleno dia, os morcegos dormitam; o mímico, por sua vez, estremece quando a sua vez se aproxima.",
+  3222: "Cada espécie tem o seu gesto enquanto espera a vez: a aranha sobe pelo fio, o urso empina-se, o bandido vigia…",
+  3223: "À noite, os lobos uivam à lua e respondem-se; os espectros desvanecem e regressam.",
+  3224: "Cai um objeto lendário: bandidos e goblins cobiçam-no.",
 };

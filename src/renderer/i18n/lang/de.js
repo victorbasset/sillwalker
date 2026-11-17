@@ -2094,4 +2094,7 @@ export default {
   3219: "Beutetiere halten Abstand zu Raubtieren; zwischen zweien gefangen, zittern sie.",
   3220: "Der Boss wird ungeduldig, wenn der Held näher kommt: Er stampft mit den Füßen.",
   3221: "Am helllichten Tag dösen die Fledermäuse; der Mimik dagegen zittert, wenn er bald an der Reihe ist.",
+  3222: "Jede Art hat ihre eigene Geste, während sie wartet: Die Spinne klettert an ihrem Faden hoch, der Bär richtet sich auf, der Bandit hält Ausschau …",
+  3223: "Nachts heulen die Wölfe den Mond an und antworten einander; Gespenster verblassen und kehren zurück.",
+  3224: "Ein legendärer Gegenstand fällt: Banditen und Goblins begehren ihn.",
 };
