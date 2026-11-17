@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1995) : autotest « bande : une nouvelle série arrive du bord droit et gagne sa place » (835 px loin à 0,15 s,
+  en place à 2,6 s). 258/258.
 - 2026-11-17 (it. 1994, journée des monstres) : la série recommence après une défaite (même série) : les monstres déjà vaincus
   reviennent en courant du bord (après 0,6 s, l'un après l'autre) au lieu de réapparaître à leur place. Vérifié (kills 5 → 0 :
   le 3e revient). Autotest 257/257.
