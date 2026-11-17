@@ -2132,4 +2132,6 @@ export default {
   3257: "In English, Chinese, Japanese and Korean, percentages now stick to the number (“10%”).",
   3258: "Mini mode: the next monster steps forward from where it was waiting, without vanishing or popping up further on.",
   3259: "Mini mode: before its fight, the boss waits its turn at the back of the scene, with its crown (or the lieutenant’s or the Starbreaker’s own look).",
+  3260: "Mini mode: the first monster of a wave (and goblins) comes in from the right edge; after a defeat, the winner fades away and the waiting monster slides back in.",
+  3261: "On the strip, after a defeat, the defeated monsters come running back from the edge and the winner keeps its place.",
 };

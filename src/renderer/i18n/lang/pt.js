@@ -2132,4 +2132,6 @@ export default {
   3257: "Em inglês, chinês, japonês e coreano, as porcentagens ficam coladas ao número (“10%”).",
   3258: "Modo mini: o próximo monstro avança a partir do lugar onde esperava, sem sumir nem surgir mais à frente.",
   3259: "Modo mini: antes da luta, o chefe espera a vez no fundo da cena, com sua coroa (ou o visual do tenente ou do Quebra-Estrelas).",
+  3260: "Modo mini: o primeiro monstro de uma leva (e os goblins) entra pela borda direita; após uma derrota, o vencedor desaparece aos poucos e o monstro à espera volta deslizando.",
+  3261: "Na faixa, após uma derrota, os monstros vencidos voltam correndo da borda e o vencedor mantém seu lugar.",
 };

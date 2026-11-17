@@ -2132,4 +2132,6 @@ export default {
   3257: "Po angielsku, chińsku, japońsku i koreańsku procenty przylegają do liczby („10%”).",
   3258: "Tryb mini: następny potwór rusza z miejsca, w którym czekał, nie znikając ani nie pojawiając się dalej.",
   3259: "Tryb mini: przed walką boss czeka na swoją kolej w głębi sceny, w koronie (lub z własnym wyglądem porucznika czy Łamacza Gwiazd).",
+  3260: "Tryb mini: pierwszy potwór fali (i gobliny) wchodzi od prawej krawędzi; po porażce zwycięzca blednie, a czekający potwór wsuwa się z powrotem.",
+  3261: "Na pasku po porażce pokonane potwory wracają biegiem od krawędzi, a zwycięzca zostaje na swoim miejscu.",
 };

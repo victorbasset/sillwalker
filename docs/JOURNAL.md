@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2086) : Quoi de neuf, édition 135 (passages fluides : mode mini ; bande après une défaite), clés 3260-3261
+  traduites. npm test 356, autotest 263/263, lang-overflow : aucun défilement.
 - 2026-11-17 (it. 2085, bogue de la bande trouvé en vérifiant le mode mini) : héros à terre : le monstre VAINQUEUR sautait hors de
   l'écran pour revenir en courant, et le premier vaincu réapparaissait d'un coup à sa place (boucle de l'it. 1994 décalée d'un rang :
   places S.kills + 1 … prevKills au lieu de S.kills … prevKills − 1). Relevé : le loup vainqueur reste à 432-456, l'ours vaincu

@@ -2132,4 +2132,6 @@ export default {
   3257: "En inglés, chino, japonés y coreano, los porcentajes van pegados al número («10%»).",
   3258: "Modo mini: el siguiente monstruo avanza desde su sitio de espera, sin desaparecer ni surgir más lejos.",
   3259: "Modo mini: antes de su combate, el jefe espera su turno al fondo de la escena, con su corona (o el aspecto del lugarteniente o del Rompeestrellas).",
+  3260: "Modo mini: el primer monstruo de una oleada (y los goblins) entra por el borde derecho; tras una derrota, el vencedor se desvanece y el monstruo en espera vuelve deslizándose.",
+  3261: "En la franja, tras una derrota, los monstruos vencidos vuelven corriendo desde el borde y el vencedor conserva su sitio.",
 };

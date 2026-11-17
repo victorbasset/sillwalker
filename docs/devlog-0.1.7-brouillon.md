@@ -28,3 +28,5 @@ docs/devlog-0.1.6.md).
   surgir plus loin (it. 2071) ; avant son combat, le boss attend lui aussi au fond de la scène (it. 2075).
 - **Mode mini, suite :** un monstre qu'on n'a pas vu attendre (premier de la série, gobelin, Poupouce) entre par le bord droit ;
   après une défaite, le vainqueur s'efface et le monstre en attente revient en glissant (it. 2079-2083).
+- **Bande, après une défaite :** les monstres vaincus reviennent en courant du bord et le vainqueur garde sa place (avant :
+  l'inverse ; it. 2085).

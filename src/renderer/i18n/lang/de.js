@@ -2132,4 +2132,6 @@ export default {
   3257: "Auf Englisch, Chinesisch, Japanisch und Koreanisch steht das Prozentzeichen jetzt direkt an der Zahl („10%“).",
   3258: "Mini-Modus: Das nächste Monster rückt von seinem Warteplatz vor, ohne zu verschwinden oder weiter vorn aufzutauchen.",
   3259: "Mini-Modus: Vor seinem Kampf wartet der Boss im Hintergrund der Szene, mit seiner Krone (oder dem eigenen Bild des Statthalters bzw. des Sternenbrechers).",
+  3260: "Mini-Modus: Das erste Monster einer Welle (und Goblins) kommt vom rechten Rand herein; nach einer Niederlage verblasst der Sieger, und das wartende Monster gleitet wieder herein.",
+  3261: "Auf dem Streifen kommen nach einer Niederlage die besiegten Monster vom Rand zurückgelaufen, und der Sieger behält seinen Platz.",
 };
