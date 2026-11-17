@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1939) : autotest « bande : un volant au plus haut ne touche pas la rangée d'informations » (11 chauves-
+  souris, gestes forcés 1,5 s ; mesuré 30 / 26 px). 256/256. (La mesure longue de l'it. 1938, 12 s, descendait à 27 px.)
 - 2026-11-17 (it. 1938) : geste des volants (it. 1933) : monté de 9 px, une chauve-souris au plus haut de sa croisière touchait
   la rangée d'informations (haut à 24 px, rangée de 26 px). Réduit à 6 px : 27 px au plus haut (série de 11 chauves-souris,
   gestes forcés en boucle). Autotest 255/255.
