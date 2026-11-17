@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1955, journée des monstres) : compétences réfléchies : le sylvain garde son Enracinement (soin) tant qu'il
+  a plus de 70 % de ses PV, le cultiste ne se sacrifie pas sous 15 % ; la compétence attend, prête (game.js monSkillTick).
+  Test logique. Balance +1,2 (bruit, deux familles touchées), fuzz 600 / 0, autotest 257/257.
 - 2026-11-17 (it. 1954) : Réglages, « Effets complets » : l'infobulle cite aussi les monstres qui s'agitent en attendant (ce que
   le réglage coupe depuis l'it. 1952 ; clé 3225, 10 langues). Autotest 257/257 ; lang-overflow ru/de/pl/pt 1280 et 1366 : rien.
 - 2026-11-17 (it. 1953, accessibilité) : effets réduits, suite : plus de « z » (sommeil), de « ! » (meute furieuse) ni de « $ »

@@ -537,6 +537,10 @@ export class Game {
       m.guardT -= dt;
       if (m.guardT <= 0 && m.riposte) { m.riposte = false; this.emit("monSkill", { id: "riposte", el: sk.el, phase: "go", mon: m }); if (this.monsterAttack(m, hs, sk.mult)) return true; }
     }
+    // (it. 1955) compétences réfléchies : le sylvain garde son Enracinement (soin) tant qu'il a plus de 70 % de ses PV ; le
+    // cultiste ne se sacrifie pas sous 15 % (il en mourrait presque) : la compétence attend, prête, le bon moment
+    const hpR = m.max > 0 ? m.hp / m.max : 1;
+    if (m.skillT <= sk.tell + 0.05 && ((sk.heal && hpR > 0.7) || (sk.self && hpR < 0.15))) { m.skillT = sk.tell + 0.3; return false; }
     const before = m.skillT;
     m.skillT -= dt * (m.slowT > 0 ? 0.5 : 1);
     if (before > sk.tell && m.skillT <= sk.tell) this.emit("monSkill", { id: sk.id, el: sk.el, phase: "tell", mon: m });

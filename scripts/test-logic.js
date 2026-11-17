@@ -394,6 +394,15 @@ test("meutes (it. 1904) : les espèces grégaires vont par deux ou trois, jamais
   assert.ok(pairs > 30, "des meutes se forment : " + pairs);
 });
 
+test("compétences réfléchies (it. 1955) : le sylvain se soigne blessé seulement, le cultiste ne se sacrifie pas à l'agonie", () => {
+  const g = new Game(freshState()), hs = g.stats();
+  const run = (type, hp) => { const sk = monSkillOf1854(type), m = { type, skill: sk, skillT: 0.01, hp, max: 100, atk: 1, interval: 1 }; let fired = false; g.on("monSkill", (e) => { if (e.mon === m && e.phase === "go") fired = true; }); for (let i = 0; i < 30; i++) g.monSkillTick(m, hs, 0.1); return fired; };
+  assert.ok(!run("treant", 100), "sylvain en pleine santé : il garde son Enracinement");
+  assert.ok(run("treant", 50), "sylvain blessé : il s'enracine");
+  assert.ok(!run("cultist", 10), "cultiste à 10 % : pas de sacrifice");
+  assert.ok(run("cultist", 80), "cultiste en forme : il se sacrifie");
+});
+
 test("parcours : file de monstres (avec élites) et étapes", () => {
   const g = new Game(freshState());
   const line = g.lineup();
