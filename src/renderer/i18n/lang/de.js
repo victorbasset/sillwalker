@@ -2144,4 +2144,6 @@ export default {
   3269: "Alle ausgegebenen Punkte kommen zurück (Meisterschaften und Weg inklusive), zum neuen Verteilen; Kosten: {0}.",
   3270: "Zu den Sternen aufsteigen?",
   3271: "Dein Held beginnt neu auf Stufe 1, in Zone {0}: Gold, Ausrüstung, Tasche, Talente und Quests dieses Durchlaufs gehen verloren. Du erhältst {1}.",
+  3272: "Talente gesamt",
+  3273: "Boni aller deiner Talente (Passivfähigkeit des Helden inbegriffen).",
 };

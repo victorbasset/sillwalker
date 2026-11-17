@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2108, design des Talents) : « Total des talents » sous le détail de la fiche (pastilles sobres, attaque, PV et défense
+  d'abord ; liste complète au survol) : l'encadré restait vide pour un talent au maximum et le total n'était affiché nulle part. Place
+  restante seulement, pastilles qui ne tiennent pas masquées. Clés 3272-3273 ; lang-overflow 10 langues × 3 largeurs : rien ; 268/268.
 - 2026-11-17 (it. 2107, design des Talents) : fiche de gauche : case puis bouton sur une ligne, bouton retiré quand la dépense est
   automatique (il restait grisé) ; détail dans un encadré qui remplit la colonne, alignée sur la hauteur de la grille. lang-overflow
   10 langues × 3 largeurs : rien (après marges resserrées sous 1366 px) ; autotest 268/268.

@@ -3,7 +3,7 @@ import { npcHTML } from "../npc.js";
 import { t as tx, txn, cend, colon } from "../../i18n/index.js";
 import { effectIconURL } from "../../render/shopart.js";
 import { TREES, TIER_REQ, TALENT_INDEX, cannotLearn, branchSpent, talentPointsFree, talentPointsTotal, talentPointsSpent, describeEffects,
-  VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie, masteryMilestones } from "../../game/talents.js";
+  VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie, masteryMilestones, talentEffects, EFFECTS } from "../../game/talents.js";
 import { fmt, esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
@@ -103,6 +103,10 @@ export class TalentsTab {
       ${""/* (it. 1522) l'aide « Clic sur un talent… » passe dans le ⓘ du titre : la fiche d'une maîtrise (paliers, choix A/B)
         faisait défiler l'onglet à 1280 px (47 px en russe) */}
       <div id="tsel">${this.detailHTML()}</div>
+      ${/* (it. 2108, design) sous le détail, le total de tous les talents (pastilles) : l'information manquait à l'onglet et l'encadré
+        restait vide pour un talent au maximum. Il ne prend que la place restante (coupé, jamais de défilement) */ ""}
+      ${((tot) => tot.length ? `<div class="ttotal" title="${esc(tx("Bonus de tous tes talents (passif du héros compris).") + "\n" + tot.map((h) => h.replace(/<[^>]*>/g, "")).join("\n"))}"><div class="tth">${tx("Total des talents")}</div><div class="ttchips">${tot.join("")}</div></div>` : "")(
+        ((o) => { const order = Object.keys(EFFECTS); return Object.entries(o).filter(([, v]) => v).sort((x, y) => order.indexOf(x[0]) - order.indexOf(y[0])); })(talentEffects(S)).map(([k, v]) => { const d = describeEffects({ [k]: v }); return d ? `<span class="chip"><img class="eicon" src="${effectIconURL({ [k]: v })}" alt="">${esc(d)}</span>` : ""; }).filter(Boolean))}
       <div class="row tfoot">
         <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
       </div>
@@ -112,6 +116,9 @@ export class TalentsTab {
     const act = el.contains(document.activeElement) ? document.activeElement.dataset?.tid : null;
     el.innerHTML = `<div class="tgrid">${head}${branches}${extra}</div>`;
     if (act) el.querySelector(`[data-tid="${act}"]`)?.focus({ preventScroll: true });
+    // (it. 2108) total des talents : les pastilles qui ne tiennent pas en entier sont masquées (pas de ligne coupée à mi-hauteur)
+    const tbox = el.querySelector(".ttotal");
+    if (tbox) { const lim = tbox.getBoundingClientRect().bottom + 0.5; for (const c of tbox.querySelectorAll(".chip")) if (c.getBoundingClientRect().bottom > lim) c.hidden = true; }
     if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e)); }
   }
 

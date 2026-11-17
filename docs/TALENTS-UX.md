@@ -55,7 +55,9 @@
 10. (it. 2107) Fiche : la case « À chaque niveau, dépenser tout seul » puis le bouton, sur une ligne ; le bouton se retire quand la
    dépense est automatique (il restait grisé) ; le détail dans un encadré qui remplit la colonne (hauteur alignée sur la grille),
    réinitialisation en pied ; marges resserrées sous 1366 px (fiche d'une maîtrise : 16 px de trop à 1280).
-   À suivre : l'encadré est peu rempli pour un talent au maximum ; la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
+11. (it. 2108) Sous le détail : « Total des talents » (pastilles sobres, effets principaux d'abord, liste complète au survol) ; il
+   ne prend que la place restante et masque les pastilles qui ne tiennent pas en entier (jamais de défilement).
+   À suivre : la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
    identiques se disputent l'attention.
 
 ## Reste à revoir (hors Talents)

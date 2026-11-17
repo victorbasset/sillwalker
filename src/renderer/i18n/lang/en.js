@@ -2144,4 +2144,6 @@ export default {
   3269: "All points spent come back (masteries and Way included), to spend again; cost: {0}.",
   3270: "Rise to the stars?",
   3271: "Your hero starts over at level 1, in zone {0}: gold, equipment, bag, talents and quests of this run are lost. You gain {1}.",
+  3272: "Talent totals",
+  3273: "Bonuses from all your talents (hero passive included).",
 };

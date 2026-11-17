@@ -2144,4 +2144,6 @@ export default {
   3269: "Todos los puntos gastados vuelven (maestrías y vía incluidas), para gastarlos de nuevo; coste: {0}.",
   3270: "¿Subir a las estrellas?",
   3271: "Tu héroe empieza de nuevo en el nivel 1, en la zona {0}: se pierden el oro, el equipo, la bolsa, los talentos y las misiones de esta partida. Ganas {1}.",
+  3272: "Total de talentos",
+  3273: "Bonificaciones de todos tus talentos (pasiva del héroe incluida).",
 };
