@@ -46,13 +46,13 @@ export class SkillsTab {
     this.el = el;
     el.innerHTML = `<div class="skillwrap">
       <aside class="panel skillside">
-        <h2 class="npch">${tx("Compétences")} <small>${txn(SKILL_NODE_COUNT, "{n} nœud|{n} nœuds")}</small><span class="npcslot"></span></h2>
+        ${/* (it. 2116, ergonomie) les boutons d'action en haut, visibles sans défiler (avant : sous deux paragraphes d'aide, coupés
+          en bas de la colonne à 1920 px) ; l'aide passe dans le ⓘ du titre et dans la bulle du bouton automatique */ ""}
+        <h2 class="npch">${tx("Compétences")} <small>${txn(SKILL_NODE_COUNT, "{n} nœud|{n} nœuds")} <span class="help" title="${esc(tx("1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).\n        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.").replace(/\s*\n\s*/g, " "))}">ⓘ</span></small><span class="npcslot"></span></h2>
         <p class="skpts"></p>
-        <p class="note">${tx("1 point tous les 2 niveaux, plus des points permanents gagnés à chaque ascension (et avec la constellation de l’Étoile polaire).\n        Ton chemin est conservé à l’ascension : il se réactive tout seul au fil des niveaux.")}</p>
-        <div class="row k-autorow"><button data-action="k-auto" class="primary">${tx("Dépenser automatiquement")}</button></div>
+        <div class="row k-autorow"><button data-action="k-auto" class="primary" title="${esc(tx("Prolonge le pétale le plus avancé, nœuds remarquables d’abord."))}">${tx("Dépenser automatiquement")}</button></div>
         <div class="row k-lock"></div>
-        <label class="toggle k-autolevel"><input type="checkbox" data-action="k-autoon"> ${tx("À chaque niveau, dépenser tout seul")}</label>
-        <p class="note tight k-autorow">${tx("Prolonge le pétale le plus avancé, nœuds remarquables d’abord.")}</p>
+        <label class="toggle k-autolevel" title="${esc(tx("Prolonge le pétale le plus avancé, nœuds remarquables d’abord."))}"><input type="checkbox" data-action="k-autoon"> ${tx("À chaque niveau, dépenser tout seul")}</label>
         <div class="row">
           <button data-action="k-undo" class="quiet">${tx("Annuler le dernier")}</button>
           <button data-action="k-reset" class="quiet">${tx("Tout réinitialiser")}</button>

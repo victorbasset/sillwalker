@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2116, ergonomie) : Compétences : les boutons (Annuler le dernier, Tout réinitialiser, Recentrer) remontent sous la
+  dépense automatique, visibles sans défiler (avant : coupés en bas de la colonne, sous deux paragraphes d'aide) ; l'aide passe dans
+  le ⓘ du titre et dans la bulle du bouton automatique. lang-overflow 10 langues × 1280 / 1920 : rien ; 272/272.
 - 2026-11-17 (it. 2115, ergonomie des Talents) : « ↶ Annuler » rend gratuitement les points du dernier clic sur un talent (un clic
   dépense jusqu'à tous les points libres, sans retour jusqu'ici) ; refusé si un palier serait perdu. Test logique et autotest ;
   lang-overflow 10 langues × 3 largeurs : rien ; 272/272. Brouillon du devlog 0.1.7 complété (Talents, confirmations).
