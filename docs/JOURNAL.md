@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2009, contrôle) : endurance 8 min à ×10 sur dev-data et fin de partie (arrivées, climat, éclat, gestes) : aucune
+  erreur ; dev-data va et vient 55-56 (plus figée en 57 comme à l'it. 1957), la fin de partie 149-150.
 - 2026-11-17 (it. 2008) : MONSTRES-VIVANTS, étape 13 (climat des zones, sursaut au niveau du héros).
 - 2026-11-17 (it. 2007) : autotest « climat des zones » (zone 46 neige : ours grelotte, yéti se frappe la poitrine ; zone 56 braises :
   ours se dresse, yéti s'affaisse). 259/259.
