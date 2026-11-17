@@ -18,6 +18,7 @@ import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
+import { SPAWN_DIST } from "../game/data.js"; // (it. 2071) combattant venu de la place d'attente
 import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
 import { isRanged } from "../game/classes.js";
 import { activeDayMod, dayModFor, DAY_MODS } from "../game/daymods.js";
@@ -212,8 +213,11 @@ export class MiniRenderer {
         else if (f.phase === "tell") py = 2;
         else { const arc = Math.sin(p * Math.PI); px = -6 * arc; py = -4 * arc; }
       }
-      a.move(HERO_X + CONTACT + dist * 0.55 + (this.monHit > 0 ? 3 : 0) + px, y + py);
-      a.alpha(alive ? Math.min(1, m.age / 0.4) * (m.phaseT > 0 ? 0.375 : 1) : Math.max(0, R.corpse.t / 0.45));
+      // (it. 2071) venu de la place d'attente : part de là (l'écart s'efface à mesure qu'il approche) et de sa demi-transparence
+      const fn = this.fromNext && this.fromNext.mon === m ? this.fromNext : null;
+      const from = fn && alive ? (fn.x - (HERO_X + CONTACT + SPAWN_DIST * 0.55)) * Math.max(0, Math.min(1, dist / SPAWN_DIST)) : 0;
+      a.move(HERO_X + CONTACT + dist * 0.55 + from + (this.monHit > 0 ? 3 : 0) + px, y + py);
+      a.alpha(alive ? Math.min(1, fn ? 0.5 + m.age / 0.8 : m.age / 0.4) * (m.phaseT > 0 ? 0.375 : 1) : Math.max(0, R.corpse.t / 0.45));
       if (a.bar.el.style.opacity !== String(a.alphaV)) a.bar.el.style.opacity = a.alphaV;
       a.bar.visible(alive);
       const tapOn = alive && R.mode === "fight";
@@ -232,7 +236,18 @@ export class MiniRenderer {
       const line = R.lineup || [], nk = S.kills + 1, nx = nk < line.length ? line[nk] : null;
       // (it. 1987) élite / champion : son contour doré / violet, comme sur la bande
       const nType = nx && !nx.goblin && !nx.poupouce ? nx.type : null, nKey = nType ? nk + ":" + nType + (nx.champion ? ":c" : nx.elite ? ":e" : "") : "";
-      if (nKey !== this.nextKey) {
+      // (it. 2071, signalé par Victor : « on voit l'ancien monstre, c'est pas smooth ») le monstre qui attendait est celui que le
+      // héros va combattre : il reste à sa place jusqu'à ce que son combat commence (la victoire précédente fait avancer la file
+      // aussitôt, il disparaissait pendant la marche), puis le combattant part de cette place (fromNext) au lieu de surgir plus loin
+      let keepWaiting = false;
+      if (nKey !== this.nextKey && this.nextActor && parseInt(this.nextKey) === S.kills) {
+        const oldType = this.nextKey.split(":")[1];
+        this.handoffT = (this.handoffT || 0) + dt;
+        if (R.mon && R.mon.type === oldType && (R.mon.age || 0) < 1) { this.fromNext = { mon: R.mon, x: this.nextActor.x }; this.handoffT = 0; }
+        else if (this.handoffT < 3) keepWaiting = true;
+        else this.handoffT = 0;
+      }
+      if (nKey !== this.nextKey && !keepWaiting) {
         this.nextKey = nKey;
         if (this.nextActor) { this.nextActor.remove(); this.nextActor = null; }
         const set = nType && this.sprites.monsters[nType];

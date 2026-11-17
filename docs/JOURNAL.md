@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2071, signalé par Victor : mode mini, « on voit l'ancien monstre, c'est pas smooth ») : à la victoire, la file avance
+  aussitôt : le monstre en attente au fond disparaissait pendant la marche, puis le combattant surgissait plus à gauche (x 132 au lieu
+  de 162) en partant de l'invisible. Le monstre en attente reste maintenant à sa place jusqu'à son combat (3 s au plus), puis le
+  combattant part de cette place et de sa demi-transparence (relevé toutes les 50 ms : 162 → 153 → … → 51, sans trou). Revue générale
+  (même itération) : 12 h guerrier 63, mage 65, samouraï 63 ; bande 18,5 %, panneau 18,7 %, mini 5,4 % ; mémoire 605 Mo.
+  Autotest 261/261.
 - 2026-11-17 (it. 2070) : Quoi de neuf, édition 133 (carte de la zone : vrai boss ; piste « renforce tes reliques » ; pourcentages
   collés en en, zh, ja, ko), clés 3255-3257 traduites. lang-overflow a retrouvé 7 px en russe à 1280 px (zones 200 et 300, héros
   bloqué) selon l'or et l'usure du boss de dev-data : face au Briseur et aux échos (quatre capacités), la carte ne donne qu'une
