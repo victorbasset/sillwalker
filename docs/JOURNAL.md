@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2065, contrôle après l'équilibrage des it. 2053-2054) : stall-check 4 h sous les bénédictions du jour
+  (STALL_DAYMOD=all) : 60 parties, 0 figée ; fuzz 30 graines : 600 parties, 0 bloquée. Rien à corriger.
 - 2026-11-17 (it. 2064) : vérifié : le renforcement d'une relique a sa réaction sur la bande et son son (relicUp), et la carte de la
   zone annonce « Ce boss renforcera … (niveau n → n+1) » ; brouillon du devlog 0.1.7 tenu à jour (it. 2058-2063).
 - 2026-11-17 (it. 2063) : lang-overflow mesure aussi la zone d'un lieutenant ou du Briseur avec le héros bloqué (« adventure-boss150-
