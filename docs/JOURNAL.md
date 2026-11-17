@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1912) : autotest « bande : une meute de loups suit son chef, deux ours voisins restent chacun de son côté »
+  (série imposée, puis rendue). 254/254.
 - 2026-11-17 (it. 1911, revue générale) : perf:linux bande 18,0 %, panneau 19,1 %, mini 5,4 % ; 12 h graine 211 : druide 64,
   samouraï 65, prêtresse 64 ; save-fuzz ok (1 267 corruptions) ; --crawl en russe : 674 clics, aucune erreur. Rien à corriger.
 - 2026-11-17 (it. 1910) : MONSTRES-VIVANTS : étapes 6 (meutes et nuées) et 7 (rangs), outils de vérification (vidéo, relevé
