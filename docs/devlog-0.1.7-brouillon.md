@@ -24,3 +24,5 @@ docs/devlog-0.1.6.md).
   ordinaire, cinq fois moins pour le Chevalier de l'éclipse), et un seul nom pour lui (it. 2058-2059).
 - **Héros bloqué devant un lieutenant ou le Briseur :** une piste « renforce tes reliques » (it. 2062) ; la carte ne défile plus
   dans ces zones, même en russe sur un écran de 1280 px (it. 2063).
+- **Mode mini (signalé par Victor) :** le monstre suivant s'avance depuis sa place d'attente au lieu de disparaître puis de
+  surgir plus loin (it. 2071) ; avant son combat, le boss attend lui aussi au fond de la scène (it. 2075).

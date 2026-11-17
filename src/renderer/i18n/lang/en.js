@@ -2130,4 +2130,6 @@ export default {
   3255: "Zone card: the announced boss is the real one (lieutenant, echo or Starbreaker), with its real HP and a single name.",
   3256: "Hero stuck before a lieutenant or the Starbreaker: a new tip, “strengthen your relics”.",
   3257: "In English, Chinese, Japanese and Korean, percentages now stick to the number (“10%”).",
+  3258: "Mini mode: the next monster steps forward from where it was waiting, without vanishing or popping up further on.",
+  3259: "Mini mode: before its fight, the boss waits its turn at the back of the scene, with its crown (or the lieutenant’s or the Starbreaker’s own look).",
 };

@@ -2130,4 +2130,6 @@ export default {
   3255: "Zonenkarte: Der angekündigte Boss ist der echte (Statthalter, Echo oder Sternenbrecher), mit seinen echten LP und nur einem Namen.",
   3256: "Held steckt vor einem Statthalter oder dem Sternenbrecher fest: ein neuer Tipp, „verstärke deine Relikte“.",
   3257: "Auf Englisch, Chinesisch, Japanisch und Koreanisch steht das Prozentzeichen jetzt direkt an der Zahl („10%“).",
+  3258: "Mini-Modus: Das nächste Monster rückt von seinem Warteplatz vor, ohne zu verschwinden oder weiter vorn aufzutauchen.",
+  3259: "Mini-Modus: Vor seinem Kampf wartet der Boss im Hintergrund der Szene, mit seiner Krone (oder dem eigenen Bild des Statthalters bzw. des Sternenbrechers).",
 };

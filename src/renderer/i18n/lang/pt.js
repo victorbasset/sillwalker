@@ -2130,4 +2130,6 @@ export default {
   3255: "Ficha da zona: o chefe anunciado é o verdadeiro (tenente, eco ou Quebra-Estrelas), com seus PV reais e um único nome.",
   3256: "Herói travado diante de um tenente ou do Quebra-Estrelas: uma nova dica, “fortaleça suas relíquias”.",
   3257: "Em inglês, chinês, japonês e coreano, as porcentagens ficam coladas ao número (“10%”).",
+  3258: "Modo mini: o próximo monstro avança a partir do lugar onde esperava, sem sumir nem surgir mais à frente.",
+  3259: "Modo mini: antes da luta, o chefe espera a vez no fundo da cena, com sua coroa (ou o visual do tenente ou do Quebra-Estrelas).",
 };

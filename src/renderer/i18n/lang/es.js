@@ -2130,4 +2130,6 @@ export default {
   3255: "Ficha de la zona: el jefe anunciado es el verdadero (lugarteniente, eco o Rompeestrellas), con sus PV reales y un solo nombre.",
   3256: "Héroe atascado ante un lugarteniente o el Rompeestrellas: una nueva pista, «refuerza tus reliquias».",
   3257: "En inglés, chino, japonés y coreano, los porcentajes van pegados al número («10%»).",
+  3258: "Modo mini: el siguiente monstruo avanza desde su sitio de espera, sin desaparecer ni surgir más lejos.",
+  3259: "Modo mini: antes de su combate, el jefe espera su turno al fondo de la escena, con su corona (o el aspecto del lugarteniente o del Rompeestrellas).",
 };

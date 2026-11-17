@@ -3259,5 +3259,7 @@ export const KEYS = [
   "renforce tes reliques",
   "Carte de la zone : le boss annoncé est le vrai (lieutenant, écho ou Briseur), avec ses vrais PV et un seul nom.",
   "Héros bloqué devant un lieutenant ou le Briseur : une nouvelle piste, « renforce tes reliques ».",
-  "En anglais, chinois, japonais et coréen, les pourcentages se collent au nombre (« 10% »)."
+  "En anglais, chinois, japonais et coréen, les pourcentages se collent au nombre (« 10% »).",
+  "Mode mini : le monstre suivant s’avance depuis sa place d’attente, sans disparaître ni surgir plus loin.",
+  "Mode mini : avant son combat, le boss attend son tour au fond de la scène, avec sa couronne (ou le dessin du lieutenant ou du Briseur)."
 ];

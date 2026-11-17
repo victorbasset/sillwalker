@@ -2130,4 +2130,6 @@ export default {
   3255: "Karta strefy: zapowiadany boss jest prawdziwy (porucznik, echo lub Łamacz Gwiazd), z prawdziwymi PŻ i jedną nazwą.",
   3256: "Bohater utknął przed porucznikiem lub Łamaczem Gwiazd: nowa wskazówka, „wzmocnij relikty”.",
   3257: "Po angielsku, chińsku, japońsku i koreańsku procenty przylegają do liczby („10%”).",
+  3258: "Tryb mini: następny potwór rusza z miejsca, w którym czekał, nie znikając ani nie pojawiając się dalej.",
+  3259: "Tryb mini: przed walką boss czeka na swoją kolej w głębi sceny, w koronie (lub z własnym wyglądem porucznika czy Łamacza Gwiazd).",
 };
