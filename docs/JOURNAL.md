@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1888, journée des monstres) : chute du monstre vaincu selon sa famille (strip.js corpseFall,
+  CORPSE_FALL) : les volants tombent au sol, spectres et élémentaires montent en se dissipant, gluants et méduses
+  s'affaissent, golems, squelettes, momies et sylvains s'effondrent en tremblant. Mesuré (chauve-souris : 48 → 72 px) ;
+  npm test 346, autotest 253/253.
 - 2026-11-17 (it. 1887, journée des monstres) : astuce « monskills » : après trois compétences vues (R.skillsSeen), elle dit
   ce qu'annonce le « ! » et renvoie au Bestiaire (survol des cartes). Clé 3209, 10 langues, aucune astuce coupée ;
   test ; npm test 346, autotest 253/253.

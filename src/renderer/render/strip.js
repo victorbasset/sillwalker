@@ -35,6 +35,8 @@ const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", sha
 /** (it. 1878) Espèces de jour (s'endorment la nuit) et de nuit (s'agitent la nuit), selon le dessin de base. */
 const DIURNAL = new Set(["frog", "boar", "bear", "crab", "lizard", "snake", "beetle", "wasp", "harpy", "plant", "sporeling", "treant", "orc", "bandit", "knight", "goblin", "yeti", "scorp"]);
 const NOCTURNAL = new Set(["bat", "ghost", "wolf", "eye", "skel", "mummy", "cultist", "spider", "rat", "imp", "crow"]);
+/** (it. 1888) Façon de tomber, par dessin de base (les volants sans entrée tombent au sol, les autres s'affaissent). */
+const CORPSE_FALL = { ghost: "rise", fireelem: "rise", slime: "squash", jelly: "squash", golem: "crumble", skel: "crumble", mummy: "crumble", treant: "crumble" };
 /** (it. 1867) Craintifs : reculent plus loin quand un voisin tombe. */
 const TIMID = new Set(["rat", "goblin", "bandit", "imp", "frog", "crow", "lizard"]);
 const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a", sacrifice: "#ff4a5a", flutter: "#ffd34d", shock: "#fff6a8", ambush: "#b8f07a", burrow: "#c9a06a", peck: "#c8c8e8", chomp: "#e9b949", pickpocket: "#ffd34d", pollen: "#b8ffd8", thrust: "#d8e0ec", bomb: "#ffb03a" };
@@ -1154,7 +1156,25 @@ export class StripRenderer {
     if (mon.elite) a.el.classList.add(mon.champion ? "champion" : "elite");
     a.show(0);
     a.move(x, this.monY(a, 0));
+    // (it. 1888) chute propre à chaque famille (corpseFall) : départ, et sol pour les volants qui tombent
+    const def = MONSTERS[mon.type] || {}, art = def.art || mon.type;
+    a.fall = { kind: mon.boss ? "boss" : CORPSE_FALL[art] || (a.fly ? "drop" : "sink"), x, y0: this.monY(a, 0), ground: GROUND - a.h + P };
     this.corpse = a;
+  }
+
+  /** (it. 1888) Chute du monstre vaincu pendant qu'il s'efface (p : 0 → 1). */
+  corpseFall(a, p) {
+    const f = a.fall; if (!f) return;
+    let dx = 0, dy = 0;
+    switch (f.kind) {
+      case "drop": dy = (f.ground - f.y0) * Math.min(1, p * 1.6) ** 2; break; // volant : tombe au sol
+      case "rise": dy = -14 * p; break; // spectre, feu follet : monte en se dissipant
+      case "squash": dy = 5 * p; break; // gluant, méduse : s'affaisse
+      case "crumble": dy = 8 * p; dx = Math.floor(p * 10) % 2 ? 1 : -1; break; // golem, squelette : s'effondre en tremblant
+      case "boss": dy = 4 * p; break;
+      default: dy = 3 * p; // les autres tombent un peu
+    }
+    a.move(f.x + dx, f.y0 + dy);
   }
 
   shake(t) { if (this.active && this.game.S.settings.fullEffects !== false) this.shakeT = Math.max(this.shakeT, t); }
@@ -1320,7 +1340,7 @@ export class StripRenderer {
       }
     }
     if (this.corpse) {
-      if (R.corpse) this.corpse.alpha(Math.max(0, R.corpse.t / 0.45));
+      if (R.corpse) { this.corpse.alpha(Math.max(0, R.corpse.t / 0.45)); this.corpseFall(this.corpse, 1 - Math.max(0, R.corpse.t / 0.45)); }
       else { this.corpse.remove(); this.corpse = null; }
     }
 
