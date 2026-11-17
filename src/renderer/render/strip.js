@@ -1349,18 +1349,20 @@ export class StripRenderer {
         // (it. 1982) élites et champions, téméraires, ne tremblent pas
         else if (!a.brave && Math.abs(this.fightX(k + 1) - this.heroX) < 220) life = { ...life, dx: life.dx + (Math.floor(R.time * 14 + k) % 2 ? 3 : 0) };
       }
+      if (life && a.packSeed != null) {
+        // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard ; (it. 1919) rats (furtifs) et
+        // gluants (sauteurs) aussi : les bonds se suivent en cascade, à 0,25 s d'écart
+        const lead = lifeOffset(a.nature, a.packSeed, R.time - 0.25, Math.abs(this.fightX(k + 1) - this.heroX), false);
+        life = { dx: Math.round((lead.dx * 0.65 + life.dx * 0.35) * 10) / 10 || 0, dy: a.nature === "fly" ? life.dy : lead.dy, face: lead.face };
+      }
+      // (it. 2043) proies et prédateurs APRÈS la meute : la peur l'emporte (la meute ne gardait que 35 % de l'écart, rats en meute
+      // collés à un ours : le second rat à −2 px en moyenne ; après : −8)
       // (it. 2019) une proie volante (corbeau) n'est pas coincée entre deux prédateurs au sol : elle peut s'envoler
       if (life && TIMID.has(a.art) && a.nature !== "fly" && k < this.fights() - 1) {
         const L = this.slots[k - 1], Rr = this.slots[k + 1];
         const lp = L && k - 1 > cur && PREDATORS.has(L.art), rp = Rr && k + 1 < this.fights() - 1 && PREDATORS.has(Rr.art);
         if (lp && rp) life = { ...life, dx: (Math.floor(R.time * 12) % 2 ? 3 : 0) };
         else if (lp || rp) life = { ...life, dx: life.dx * 0.5 + (lp ? 9 : -9), face: lp ? 1 : -1 };
-      }
-      if (life && a.packSeed != null) {
-        // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard ; (it. 1919) rats (furtifs) et
-        // gluants (sauteurs) aussi : les bonds se suivent en cascade, à 0,25 s d'écart
-        const lead = lifeOffset(a.nature, a.packSeed, R.time - 0.25, Math.abs(this.fightX(k + 1) - this.heroX), false);
-        life = { dx: Math.round((lead.dx * 0.65 + life.dx * 0.35) * 10) / 10 || 0, dy: a.nature === "fly" ? life.dy : lead.dy, face: lead.face };
       }
       // (it. 2015) zone venteuse (plumes) : les volants sont ballottés par les rafales (pas les harpies, chez elles) ;
       // (it. 2017) jusqu'à ±12 px : le produit de deux sinus arrondi au pas de 3 px tombait presque toujours à 0

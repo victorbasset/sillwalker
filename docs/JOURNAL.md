@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2043, journée des monstres) : la règle des proies et prédateurs passe APRÈS celle de la meute (même défaut qu'à
+  l'it. 2042 : la meute ne gardait que 35 % de l'écart). Mesure devFreeze, deux rats en meute collés à un ours : le second
+  s'écartait de 2 px en moyenne, maintenant 8 px (−6 à −9). Ordre : meute, peur, vent. Autotest 260/260.
 - 2026-11-17 (it. 2042, journée des monstres) : pendant l'événement « Rafale de vent », la file réagit : volants ballottés comme en
   zone venteuse, monstres au sol (sauf boss, colosses, mimique) qui reculent de 6 px par à-coups. Le vent passe maintenant APRÈS
   la règle de meute (elle ne gardait que 35 % du mouvement propre : le vent des volants en meute, chauves-souris, corbeaux, s'y
