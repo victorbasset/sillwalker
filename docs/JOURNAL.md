@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1994, journée des monstres) : la série recommence après une défaite (même série) : les monstres déjà vaincus
+  reviennent en courant du bord (après 0,6 s, l'un après l'autre) au lieu de réapparaître à leur place. Vérifié (kills 5 → 0 :
+  le 3e revient). Autotest 257/257.
 - 2026-11-17 (it. 1993, journée des monstres) : arrivée de la série : à chaque nouvelle série, les monstres accourent du bord droit
   l'un après l'autre (0,12 s d'écart, 1,1 s de course, freinage) jusqu'à leur place ; pas le combattant, pas avec les effets
   réduits. Vérifié (positions relevées : tous en place en ≈ 2 s). Autotest 257/257, bande 18,2 %.

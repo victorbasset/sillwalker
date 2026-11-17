@@ -1294,6 +1294,11 @@ export class StripRenderer {
     // Monstres en attente / combat en cours
     const cur = Math.min(S.kills, this.fights() - 1), line = game.lineup();
     const calmFx = S.settings.fullEffects === false;
+    // (it. 1994) la série recommence (héros à terre, même série) : les monstres déjà vaincus reviennent en courant du bord
+    if (this.prevKills != null && S.kills < this.prevKills && this.slotKey === line && !calmFx) {
+      for (let k = S.kills + 1; k <= Math.min(this.prevKills, this.slots.length - 1); k++) { const a = this.slots[k]; if (a) { a.arriveT = 0; a.arriveDelay = 0.6 + (k - S.kills) * 0.15; } }
+    }
+    this.prevKills = S.kills;
     // (it. 1890) bavardage : de loin en loin, deux voisins loin du héros se tournent l'un vers l'autre (hochements)
     // (it. 1932) la nuit, un loup qui attend lève la tête et hurle à la lune toutes les 15 à 30 s ; les autres loups de la
     // file lui répondent un instant après (même geste que le Hurlement de meute)
