@@ -250,6 +250,15 @@ test("héros bloqué : la piste « reliques » devant un lieutenant ou le Briseu
   g.S.zone = 150; g.S.relicLv.heart = 5; assert.ok(!g.stuckTips().includes("relics"), "reliques au maximum : rien à renforcer");
 });
 
+test("traductions (it. 2067) : en anglais, chinois, japonais et coréen, le pourcentage se colle au nombre (« 10% »)", () => {
+  // unit("%") (format.js) n'espace qu'en fr, es, pt, de, pl, ru ; l'it. 2066 a trouvé « 10 % of quests » dans la note des Quêtes
+  for (const l of ["en", "zh", "ja", "ko"]) {
+    const src = fs.readFileSync(new URL(`../src/renderer/i18n/lang/${l}.js`, import.meta.url), "utf8");
+    const bad = src.match(/(\{[0-9a-z]+\}|[0-9]) %/g) || [];
+    assert.equal(bad.length, 0, `${l} : ${bad.slice(0, 3).join(" ; ")}`);
+  }
+});
+
 test("rythme indépendant de la largeur d'écran", () => {
   assert.ok(approachTime() > 2 && approachTime() < 5);
 });
