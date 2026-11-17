@@ -57,6 +57,8 @@
    réinitialisation en pied ; marges resserrées sous 1366 px (fiche d'une maîtrise : 16 px de trop à 1280).
 11. (it. 2108) Sous le détail : « Total des talents » (pastilles sobres, effets principaux d'abord, liste complète au survol) ; il
    ne prend que la place restante et masque les pastilles qui ne tiennent pas en entier (jamais de défilement).
+12. (it. 2109) Maîtrises : « Choisir un bonus » en contour doré avec un point (avant : trois aplats jaunes), « Bonus » (choix fait)
+   en gris discret ; l'aplat revient au survol.
    À suivre : la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
    identiques se disputent l'attention.
 

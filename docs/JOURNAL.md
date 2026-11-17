@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2109, design des Talents) : pastilles des maîtrises : choix en attente en contour doré avec un point (avant : trois
+  aplats jaunes qui criaient ensemble), choix fait en gris discret, aplat au survol. Captures sombre et clair ; autotest 268/268.
 - 2026-11-17 (it. 2108, design des Talents) : « Total des talents » sous le détail de la fiche (pastilles sobres, attaque, PV et défense
   d'abord ; liste complète au survol) : l'encadré restait vide pour un talent au maximum et le total n'était affiché nulle part. Place
   restante seulement, pastilles qui ne tiennent pas masquées. Clés 3272-3273 ; lang-overflow 10 langues × 3 largeurs : rien ; 268/268.
