@@ -299,7 +299,10 @@ export class StripRenderer {
       // (it. 1856) la meute répond : les loups qui attendent dans la file relèvent la tête un instant
       if (id === "howl") for (const a of this.slots) if (a.art === "wolf") a.howlT = 0.7 + Math.random() * 0.4;
       if (id === "slam") this.shake(0.15);
-      if (word) this.float(this.monX() + 14, 18, word, col, true);
+      // (it. 1874) version de boss : mot dans la couleur des boss, secousse et gerbe d'étincelles autour de lui
+      const bossSk = !!(this.game.R.mon && this.game.R.mon.boss);
+      if (word) this.float(this.monX() + 14, bossSk ? 10 : 18, word, bossSk ? "#ff9a7a" : col, true);
+      if (bossSk) { this.shake(0.2); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 24, this.ground - 40, "#ff9a7a", 14); }
       if (this.active && this.juice.full) {
         this.juice.sparkles(this.heroX + 18, this.ground - 24, col, 8);
         // (it. 1854) spores : le nuage part du champignon et enveloppe le héros

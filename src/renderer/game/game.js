@@ -1073,7 +1073,8 @@ export class Game {
     if (mb) { mon.hp = mon.max = Math.round(mon.hp * mb.hp); mon.atk *= mb.atk; mon.major = mb.id; mon.art = mb.art; mon.relic = mb.relic; mon.echo = !!mb.echo; }
     // (it. 1866) boss de zone : la compétence de sa famille (monskills.js), en plus de ses capacités tournantes ; les
     // lieutenants et le Briseur ont leurs pouvoirs uniques (bosses.js), sans elle
-    if (boss && !mb && !mon.final) { const sk = monSkillOf(slot.type); if (sk) { mon.skill = sk; mon.skillT = sk.first; skillBalance(mon, sk); } }
+    // (it. 1874) version de boss : plus fréquente (−20 %) et plus tôt ; compensée comme les autres (skillBalance)
+    if (boss && !mb && !mon.final) { const s0 = monSkillOf(slot.type); if (s0) { const sk = { ...s0, every: s0.every * 0.8, first: s0.first * 0.6, boss: true }; mon.skill = sk; mon.skillT = sk.first; skillBalance(mon, sk); } }
     const wear = boss ? bossWear(this.S, this.S.zone) : 0;
     if (wear) { mon.hp *= 1 - wear; mon.max = mon.hp; mon.worn = wear; } // usure : défaites précédentes contre ce boss
     this.applyAffix(mon);
