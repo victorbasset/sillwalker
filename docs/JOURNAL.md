@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2001, revue générale) : mémoire 4 min : 573-576 Mo ; 12 h graine 301 : guerrier 65, prêtresse 62, berserker 65 ;
+  fuzz sous chaque bénédiction : 400 / 0 ; save-fuzz ok (1 267) ; russe : aucun mot français. Rien à corriger.
 - 2026-11-17 (it. 2000, contrôle) : perf:linux après les arrivées : bande 17,9 %, panneau 19,2 %, mini 5,5 % : inchangé.
 - 2026-11-17 (it. 1999) : MONSTRES-VIVANTS, étape 12 (arrivées) ; POUR-VICTOR : arrivée des séries.
 - 2026-11-17 (it. 1998) : « Quoi de neuf », édition 127 (arrivée des séries et retour des vaincus ; gestes du lézard, des
