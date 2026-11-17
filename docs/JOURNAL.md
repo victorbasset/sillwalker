@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2074, contrôle) : hero-table 12 h, 20 héros, graines 7/3/11 : moyenne 64,5 (comme à l'it. 1970), de 62,3
+  (nécromancien) à 65,7 (moine, gardien stellaire) ; berserker 69,3 tiré par une graine (77 / 69 / 62 : sa variance connue).
+  Rien à corriger.
 - 2026-11-17 (it. 2073) : README : climat des zones, ordre des règles de la file, lieutenants et Briseur plus coriaces, monstre
   suivant du mode mini.
 - 2026-11-17 (it. 2072) : autotest « mode mini : le monstre suivant s'avance depuis sa place d'attente » (bogue de l'it. 2071) :
