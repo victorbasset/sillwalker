@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1879, contrôle) : coût de la journée des monstres en fin de partie (--perf sur une copie neuve de
+  endgame-save, avant aea72772 / après, l'un après l'autre) : bande 25,0 → 25,3 %, panneau 24,5 → 25,6 %, mini 6,3 → 6,4 %,
+  icône 0,8 → 0,5 % : rien de notable.
 - 2026-11-17 (it. 1878, journée des monstres) : jour et nuit : la nuit, les espèces de jour (sangliers, ours, orcs, bandits…)
   bougent à peine (×0,25) et dorment (« z » de temps en temps), celles de nuit (loups, chauves-souris, spectres,
   squelettes…) s'agitent (×1,4) ; l'entrain change lentement. Mis en scène de nuit (zone 26) : valeurs attendues, cinq
