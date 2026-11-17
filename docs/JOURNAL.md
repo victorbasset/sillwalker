@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1895, journée des monstres) : vidéo de 20 s de la bande (zone 26, de nuit) tournée comme steam-video.sh
+  (Xvfb :78 à part, x11grab, ffmpeg d'imageio-ffmpeg, --stage pour la zone) et envoyée à Victor : vie en attente, « z »
+  des bêtes de jour endormies, gestes et compétences visibles en mouvement.
 - 2026-11-17 (it. 1894, journée des monstres) : entrée en scène des boss de zone : au début du combat, le boss se dresse
   (6 px) en tremblant, la bande tremble, « !! » couleur boss (lieutenants et Briseur exclus). Mesuré (zone 26) ; npm test
   346, autotest 253/253.
