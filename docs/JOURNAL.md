@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1863, journée des monstres) : scarabées : Pince ; sangliers : Charge (recul en grattant le sol, puis
+  ruée jusqu'au héros) ; ours : Rugissement ; orcs : Rage (+40 % 3 s, attaque compensée). 30 familles faites. Balance
+  contre aea72772 : +0,2 / +0,9 / −0,2 ; fuzz 600 / 0 ; npm test 344, autotest 253/253.
 - 2026-11-17 (it. 1862, journée des monstres) : wyvernes : Souffle (trois coups de 50 %) ; tyrannœils : Regard pétrifiant
   (héros figé 1,2 s) ; crapauds : Coup de langue ; serpents : Frappe éclair (deux coups de 60 %). 26 familles faites.
   Balance contre aea72772 : −0,7 / +1,3 / +0,8 ; fuzz 600 / 0 ; npm test 344, autotest 253/253.

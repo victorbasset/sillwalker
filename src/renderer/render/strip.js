@@ -31,7 +31,7 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
-const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a" };
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -264,7 +264,11 @@ export class StripRenderer {
       // (it. 1860) garde : la pose dure toute la garde (carapace 2 s, parade 1,2 s)
       this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : id === "shell" ? 2 : id === "parry" ? 1.2 : 0.45 };
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !"), tombcurse: tx("Malédiction !"), boulder: tx("Bloc de glace !"), feathers: tx("Plumes !"), flare: tx("Flambée !"), shell: tx("Carapace !"), parry: tx("Parade !"), riposte: tx("Riposte !"), rootdeep: tx("Enracinement !"), breath: tx("Souffle !"), gaze: tx("Pétrifié !"), tongue: tx("Coup de langue !"), strike: tx("Frappe éclair !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !"), tombcurse: tx("Malédiction !"), boulder: tx("Bloc de glace !"), feathers: tx("Plumes !"), flare: tx("Flambée !"), shell: tx("Carapace !"), parry: tx("Parade !"), riposte: tx("Riposte !"), rootdeep: tx("Enracinement !"), breath: tx("Souffle !"), gaze: tx("Pétrifié !"), tongue: tx("Coup de langue !"), strike: tx("Frappe éclair !"), pinch: tx("Coincé !"), charge: tx("Charge !"), roar: tx("Grrraah !"), rage: tx("Rage !") }[id];
+      // (it. 1863) charge : poussière et secousse ; rugissement : petite secousse ; rage : vapeur rouge autour de l'orc
+      if (id === "charge") { this.shake(0.15); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 20, this.ground - 4, "#c9b89a", 10); }
+      if (id === "roar") this.shake(0.1);
+      if (id === "rage" && this.active && this.juice.full) this.juice.sparkles(this.monX() + 14, this.ground - 30, "#ff5a4a", 12);
       // (it. 1862) souffle : un jet d'étincelles de la gueule au héros ; langue : une ligne rose qui claque jusqu'au héros
       if (id === "breath" && this.active && this.juice.full) for (let i = 0; i < 5; i++) this.juice.sparkles(this.heroX + 18 + (this.monX() - this.heroX - 18) * i / 5, this.ground - 30 - i, el ? col : "#ffb03a", 3);
       if (id === "tongue" && this.active && this.juice.full) for (let i = 0; i < 4; i++) this.juice.sparkles(this.heroX + 20 + (this.monX() - this.heroX - 20) * i / 4, this.ground - 14, "#ff8ab0", 2);
@@ -856,6 +860,27 @@ export class StripRenderer {
       // araignée : se hisse sur ses pattes, puis se rabat en projetant ses fils
       if (f.phase === "tell") return { dx: 0, dy: -4 };
       return { dx: -3 * Math.sin(p * Math.PI), dy: -4 * (1 - p) };
+    }
+    if (f.id === "pinch") {
+      // scarabée : s'avance, mandibules ouvertes, puis serre (petite secousse)
+      if (f.phase === "tell") return { dx: -3, dy: 0 };
+      return { dx: -6 * Math.sin(p * Math.PI) + (Math.floor(p * 12) % 2 ? 1 : 0), dy: 0 };
+    }
+    if (f.id === "charge") {
+      // sanglier : recule en grattant le sol, puis fonce sur le héros et revient
+      if (f.phase === "tell") return { dx: 6 * Math.min(1, p * 1.5) + (Math.floor(p * 10) % 2 ? 1 : 0), dy: 0 };
+      const reach = Math.min(48, Math.max(0, this.monX() - this.heroX - 26));
+      return { dx: p < 0.35 ? 6 - (reach + 6) * (p / 0.35) : -reach * (1 - (p - 0.35) / 0.65), dy: 0 };
+    }
+    if (f.id === "roar") {
+      // ours : se dresse sur ses pattes arrière, puis rugit en tremblant
+      if (f.phase === "tell") return { dx: 2, dy: -4 * Math.min(1, p * 2) };
+      return { dx: Math.floor(p * 18) % 2 ? 2 : 0, dy: -4 * (1 - p) };
+    }
+    if (f.id === "rage") {
+      // orc : se frappe la poitrine (deux sursauts), puis se ramasse, prêt à cogner
+      if (f.phase === "tell") return { dx: 0, dy: Math.floor(p * 6) % 2 ? -2 : 0 };
+      return { dx: -2, dy: 1 };
     }
     if (f.id === "breath") {
       // wyverne : se cabre (recule et monte), puis tend le cou en crachant

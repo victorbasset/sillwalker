@@ -3160,5 +3160,17 @@ export const KEYS = [
   "Souffle !",
   "Pétrifié !",
   "Coup de langue !",
-  "Frappe éclair !"
+  "Frappe éclair !",
+  "Pince",
+  "Toutes les 7 s, saisit le héros entre ses mandibules : un coup à 80 % de son attaque, et le héros, coincé, ne frappe plus pendant 0,6 s.",
+  "Charge",
+  "Toutes les 8 s, gratte le sol puis charge : un coup à 200 % de son attaque, que le héros peut esquiver.",
+  "Rugissement",
+  "Toutes les 9 s, se dresse et rugit : intimidé, le héros attaque 40 % moins vite pendant 2 s.",
+  "Rage",
+  "Toutes les 10 s, se frappe la poitrine et entre en rage : il frappe 40 % plus fort pendant 3 s.",
+  "Coincé !",
+  "Charge !",
+  "Grrraah !",
+  "Rage !"
 ];

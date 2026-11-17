@@ -90,6 +90,18 @@ export const MON_SKILLS = {
   // (it. 1862) Serpents : se lovent, puis frappent deux fois
   snake: { id: "strike", name: "Frappe éclair", every: 6, first: 2.5, tell: 0.5, mult: 1.2, bites: 2,
     desc: "Toutes les 6 s, se love puis frappe deux fois, très vite : deux coups à 60 % de son attaque." },
+  // (it. 1863) Scarabées : saisissent le héros entre leurs mandibules
+  beetle: { id: "pinch", name: "Pince", every: 7, first: 3, tell: 0.5, mult: 0.8, stun: 0.6,
+    desc: "Toutes les 7 s, saisit le héros entre ses mandibules : un coup à 80 % de son attaque, et le héros, coincé, ne frappe plus pendant 0,6 s." },
+  // (it. 1863) Sangliers : grattent le sol, puis chargent
+  boar: { id: "charge", name: "Charge", every: 8, first: 3, tell: 0.8, mult: 2,
+    desc: "Toutes les 8 s, gratte le sol puis charge : un coup à 200 % de son attaque, que le héros peut esquiver." },
+  // (it. 1863) Ours : se dressent et rugissent, le héros intimidé frappe moins vite
+  bear: { id: "roar", name: "Rugissement", every: 9, first: 3, tell: 0.6, slow: 2,
+    desc: "Toutes les 9 s, se dresse et rugit : intimidé, le héros attaque 40 % moins vite pendant 2 s." },
+  // (it. 1863) Orcs : se frappent la poitrine et entrent en rage
+  orc: { id: "rage", name: "Rage", every: 10, first: 3, tell: 0.6, rage: { s: 3, k: 1.4 },
+    desc: "Toutes les 10 s, se frappe la poitrine et entre en rage : il frappe 40 % plus fort pendant 3 s." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

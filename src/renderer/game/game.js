@@ -54,6 +54,8 @@ import { monSkillOf } from "./monskills.js";
  *  plus dur (balance 12 h : −1,7 zone avec trois familles). */
 export function skillBalance(m, sk) {
   if (sk.mult) m.atk /= 1 + sk.mult * (sk.el === "fire" ? 1.2 : 1) * (m.interval || 1) / sk.every;
+  // (it. 1863) rage : coups plus forts pendant un temps, autant d'attaque en moins
+  if (sk.rage) m.atk /= 1 + (sk.rage.k - 1) * sk.rage.s / sk.every;
   // (it. 1856) accélération (hurlement) : autant de coups en plus, autant d'attaque en moins
   if (sk.haste) m.atk /= 1 + sk.haste.s * (1 / sk.haste.k - 1) / sk.every;
   // (it. 1855) se relever avec une part de ses PV : autant de PV en moins au départ
@@ -464,7 +466,7 @@ export class Game {
   monsterAttack(m, hs, mult) {
     const R = this.R;
     if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
-    let dmg = m.atk * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * heartGuard(this.S) * (1 - duoGuard(this.S)); // (it. 1515 : compagnon qui encaisse) Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
+    let dmg = m.atk * (m.rageT > 0 ? m.rageK : 1) * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * heartGuard(this.S) * (1 - duoGuard(this.S)); // (it. 1515 : compagnon qui encaisse) Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
     if (hs.thorns > 0) {
       m.hp -= dmg * hs.thorns / 100;
       if (m.hp <= 0) { this.killMonster(); return true; }
@@ -508,6 +510,7 @@ export class Game {
   monSkillTick(m, hs, dt) {
     const sk = m.skill, R = this.R;
     if (m.phaseT > 0) m.phaseT -= dt; // (it. 1857) spectre intangible
+    if (m.rageT > 0) m.rageT -= dt; // (it. 1863) rage de l'orc
     if (m.guardT > 0) { // (it. 1860) garde (carapace, parade) ; à la fin d'une parade, la riposte
       m.guardT -= dt;
       if (m.guardT <= 0 && m.riposte) { m.riposte = false; this.emit("monSkill", { id: "riposte", el: sk.el, phase: "go", mon: m }); if (this.monsterAttack(m, hs, sk.mult)) return true; }
@@ -547,6 +550,7 @@ export class Game {
         m.phaseT = sk.phase;
         break;
       }
+      case "charge": // (it. 1863) Sangliers : charge (un gros coup, esquivable)
       case "tongue": // (it. 1862) Crapauds : coup de langue (même règle qu'une boule de feu : un coup, puis l'élément)
       case "fireball": { // (it. 1858) Diablotins : boule de feu lancée de loin (même coup, esquivable)
         if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
@@ -558,6 +562,7 @@ export class Game {
         this.elementHit(sk.el, hs);
         break;
       }
+      case "roar": // (it. 1863) Ours : rugissement, le héros intimidé frappe moins vite (même effet que la toile)
       case "web": { // (it. 1858) Araignées : toile, attaques du héros ralenties ; la veuve noire mord (venin)
         R.frozen = Math.max(R.frozen || 0, sk.slow);
         if (sk.venom) {
@@ -600,6 +605,10 @@ export class Game {
         }
         break;
       }
+      case "rage": { // (it. 1863) Orcs : rage, coups plus forts quelques secondes (monsterAttack : m.rageK)
+        m.rageT = sk.rage.s; m.rageK = sk.rage.k;
+        break;
+      }
       case "howl": { // (it. 1856) Loups : hurlement, puis attaques plus rapides quelques secondes
         m.hasteT = sk.haste.s; m.hasteK = sk.haste.k;
         this.elementHit(sk.el, hs);
@@ -615,6 +624,11 @@ export class Game {
         const d = sk.venom * (1 - (hs.purity || 0) / 100);
         if (d > 0.05) { R.venomT = Math.max(R.venomT || 0, d); this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
         if (sk.el !== "poison") this.elementHit(sk.el, hs);
+        break;
+      }
+      case "pinch": { // (it. 1863) Scarabées : coup, puis le héros coincé ne frappe plus
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        R.chained = Math.max(R.chained || 0, sk.stun);
         break;
       }
       case "gaze": // (it. 1862) Tyrannœils : regard pétrifiant (le héros ne frappe plus, comme sous les spores)

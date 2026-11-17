@@ -458,6 +458,10 @@ export class Sound {
           case "gaze": this.tone(330, 0, 0.5, "sine", 0.1, 1.02); this.tone(331.5, 0, 0.5, "sine", 0.1); break; // (it. 1862) battement hypnotique
           case "tongue": this.tone(900, 0, 0.05, "sine", 0.1, 0.4); this.tone(400, 0.06, 0.06, "sine", 0.08, 1.6); break; // (it. 1862) « slurp »
           case "strike": [0, 0.1].forEach((t) => this.whoosh(t, 0.07, 2000, 4000, 0.06, 3)); break; // (it. 1862) deux détentes
+          case "pinch": this.tone(1100, 0, 0.04, "square", 0.08); this.tone(800, 0.05, 0.05, "square", 0.08); break; // (it. 1863) mandibules qui claquent
+          case "charge": this.noise(0, 0.3, 0.14); this.tone(75, 0.2, 0.2, "sawtooth", 0.18, 0.6); break; // (it. 1863) galop, puis choc
+          case "roar": this.tone(95, 0, 0.6, "sawtooth", 0.16, 0.7); this.noise(0, 0.5, 0.1); break; // (it. 1863) rugissement grave
+          case "rage": [0, 0.12].forEach((t) => this.tone(140, t, 0.08, "triangle", 0.18)); this.tone(220, 0.26, 0.25, "sawtooth", 0.1, 1.3); break; // (it. 1863) coups sur la poitrine, cri
         }
         break;
       case "bossSkill":
