@@ -20,6 +20,11 @@ const HOURS = +process.argv[2] || 12, CLS = process.argv[3] || "warrior";
 setRandom(seeded(+process.env.SEED || 7)); // SEED=… pour une autre trajectoire
 const g = useVirtualClock(new Game(freshState()));
 g.setClass(CLS);
+// (it. 2052) RELIC_LOG=1 : chaque relique gagnée ou renforcée (heure simulée, course, niveaux de toutes les reliques)
+if (process.env.RELIC_LOG) {
+  const t0 = Date.now(), gain = g.gainRelic.bind(g);
+  g.gainRelic = (id, echo) => { const ok = gain(id, echo); if (ok) console.log(`RELIQUE ${((Date.now() - t0) / 3.6e6).toFixed(1)} h course ${(g.S.prestige && g.S.prestige.count) || 0} : ${id}${echo ? " (écho)" : ""} → ${JSON.stringify(Object.fromEntries(Object.keys(g.S.relics || {}).map((k) => [k, (g.S.relicLv || {})[k] || 1])))}`); return ok; };
+}
 
 // Ordre de préférence des secteurs de l'arbre de compétences (Force, Vitalité, Fortune...)
 const SECTOR_PREF = ["force", "vitality", "fortune", "agility", "mastery", "arcane"];

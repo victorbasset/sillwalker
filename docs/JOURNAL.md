@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2053, demande de Victor : « trop facile dès qu'on a le Cœur » ; « n'exige pas un niveau, équilibre ») : Chevalier
+  de l'éclipse PV ×2,4 → ×4,5, attaque ×1,2 → ×2,4 ; Briseur ×3 → ×5, ×1,3 → ×2,5 (plus dur que chaque lieutenant, test) ; leurs échos
+  gardent la force d'avant (echoHp / echoAtk). simulate.js : RELIC_LOG=1 (niveaux des reliques à chaque gain). Semaine simulée,
+  premier Chevalier : Cœur 3-4 → 4-5 ; premier Briseur : Lame 1-4 (samouraï en Lame 1, dans la course même du Chevalier) → Lame
+  4-5, 39-51 h → 48-61 h ; records de la semaine inchangés (guerrier 349, mage 350, samouraï 361, rôdeur et nécromancien 349).
+  Essai écarté : force liée au niveau de la relique précédente (Victor ne veut pas d'exigence de niveau). La PV seule ne freinait
+  pas le guerrier (Cœur : dégâts ×0,55, régénération) : l'attaque compte davantage. stall-check 6 h : 0 figée ; autotest 261/261.
 - 2026-11-17 (it. 2052) : `npm run perf` / `perf:linux` lançaient le jeu sur dev-data même (la partie de dev avançait à chaque mesure ;
   l'autotest, stall-check et les captures en partent) : scripts/perf.mjs copie dev-data dans un dossier temporaire. Vérifié :
   dev-data intact, dossier supprimé ; bande 18,6 %, panneau 19,3 %, mini 5,4 %. Autotest 261/261.

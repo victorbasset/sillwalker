@@ -10,7 +10,9 @@ import { t as tx } from "../i18n/index.js";
 export const MAJOR_BOSSES = [
   { zone: 50, id: "warden", art: "warden", name: "Le Geôlier mécanique", hp: 2, atk: 1.15, mech: ["chains", "shell", "smash"], relic: "drone" },
   { zone: 100, id: "queen", art: "queen", name: "La Reine des cendres", hp: 2.2, atk: 1.2, mech: ["ashes", "drain", "fury"], relic: "heart" },
-  { zone: 150, id: "eclipse", art: "eclipse", name: "Le Chevalier de l’éclipse", hp: 2.4, atk: 1.2, mech: ["eclipse", "frost", "smash"], relic: "blade" },
+  // (it. 2052, demande de Victor : « trop facile dès qu'on a le Cœur ») plus coriace : il faut quelques ascensions de plus, le Cœur
+  // amélioré ; echoHp / echoAtk : son écho (zone 300) garde la force d'avant
+  { zone: 150, id: "eclipse", art: "eclipse", name: "Le Chevalier de l’éclipse", hp: 4.5, atk: 2.4, echoHp: 2.4, echoAtk: 1.2, mech: ["eclipse", "frost", "smash"], relic: "blade" },
 ];
 /**
  * Échos (it. 634 : objectifs au-delà de la zone 200) : les trois lieutenants reviennent, plus coriaces, en zones 250,
@@ -18,7 +20,7 @@ export const MAJOR_BOSSES = [
  */
 /** (it. 701-702) Contour spectral des échos sur la bande et en mode mini (même sprite que l'original). */
 export const ECHO_OUTLINE = "#9fdcff";
-export const ECHO_BOSSES = MAJOR_BOSSES.map((b, i) => ({ ...b, zone: 250 + 50 * i, id: b.id + "_echo", echo: true, hp: b.hp * 1.2, atk: b.atk * 1.1, mech: [...b.mech, "silence"] }));
+export const ECHO_BOSSES = MAJOR_BOSSES.map((b, i) => ({ ...b, zone: 250 + 50 * i, id: b.id + "_echo", echo: true, hp: (b.echoHp || b.hp) * 1.2, atk: (b.echoAtk || b.atk) * 1.1, mech: [...b.mech, "silence"] }));
 /** Boss majeur (ou écho) de la zone z, ou null. */
 export const majorBoss = (z) => MAJOR_BOSSES.find((b) => b.zone === z) || ECHO_BOSSES.find((b) => b.zone === z) || null;
 /** Nom affiché d'un boss majeur (« Écho : … » pour un écho). */

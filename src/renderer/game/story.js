@@ -11,7 +11,8 @@ export const FINAL_ZONE = 200;
  *  avec trois capacités. Vaincu une première fois : S.story.won (fin de l'histoire, gardée à l'ascension). */
 // (it. 1849, demande de Victor : « le Briseur encore plus dur ») PV ×2,5 → ×3, attaque ×1,25 → ×1,3 (le Chevalier de
 // l’éclipse : ×2,4 / ×1,2) et son pouvoir unique, Ciel brisé (bosses.js)
-export const FINAL_BOSS = { name: "Le Briseur d’Étoiles", hp: 3, atk: 1.3, mech: ["shards", "smash", "mirror", "fury"] };
+// (it. 2052) plus coriace (3 → 5 PV, 1,3 → 2,5 attaque ; plus dur que chaque lieutenant) : il faut améliorer la Lame sur quelques courses
+export const FINAL_BOSS = { name: "Le Briseur d’Étoiles", hp: 5, atk: 2.5, mech: ["shards", "smash", "mirror", "fury"] };
 export const isFinalZone = (z) => z === FINAL_ZONE;
 export const storyWon = (S) => !!(S.story && S.story.won);
 
