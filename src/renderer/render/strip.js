@@ -1323,7 +1323,9 @@ export class StripRenderer {
         const hsMax = this.game.stats().hp, weak = R.mode === "fight" && hsMax > 0 && R.hp / hsMax < 0.3;
         // (it. 1906) meute : quand un congénère se bat, ceux qui le suivent s'avancent, impatients de prendre la relève
         const fs = R.mon && cur >= 0 ? this.slots[cur] : null, pack = fs && a.packSeed != null && (fs.packSeed ?? fs.lifeSeed) === a.packSeed && k > cur;
-        a.eager = (a.eager || 0) + ((weak ? 1 : pack ? 0.7 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
+        // (it. 1927) le suivant de la file se tient prêt quand le monstre en combat faiblit (sous 25 % de vie)
+        const next = k === cur + 1 && R.mon && !R.mon.boss && R.mon.max > 0 && R.mon.hp / R.mon.max < 0.25;
+        a.eager = (a.eager || 0) + ((weak ? 1 : pack ? 0.7 : next ? 0.6 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
       }
       // (it. 1878) jour et nuit : la nuit, les espèces de jour bougent à peine et s'endorment (« z »), celles de nuit
       // s'agitent ; l'entrain change lentement (pas de saut à la tombée de la nuit)

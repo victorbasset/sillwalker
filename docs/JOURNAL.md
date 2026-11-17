@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1927, journée des monstres) : anticipation : quand le monstre en combat passe sous 25 % de vie, le suivant
+  de la file s'avance (≈ 5 px), prêt à prendre sa place (pas devant un boss). Vérifié (PV du combattant forcés à 20 % : le
+  suivant 0,60, le troisième 0). Autotest 254/254.
 - 2026-11-17 (it. 1926, contrôle) : partie de fin de partie (fixture) 60 s à ×10 en zone 150, puis zone 250 (série de loups
   et de rats imposée, élite comprise ; le héros recule jusqu'à 228 après ses défaites) : aucune erreur de l'interface avec
   meutes, instincts et boss impatient. Rien à corriger.
