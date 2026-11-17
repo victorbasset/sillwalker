@@ -3216,5 +3216,6 @@ export const KEYS = [
   "La nuit, les bêtes de jour dorment et celles de nuit s’agitent ; de temps en temps, deux voisins bavardent en attendant le héros.",
   "Chaque famille tombe à sa façon : les volants chutent, les spectres s’envolent, les golems s’effondrent.",
   "Les monstres sursautent quand un voisin tombe ou qu’un sort éclate, s’avancent quand le héros faiblit ; Poupouce, lui, essaie de filer.",
-  "En mode mini aussi, le monstre combattu fait le geste de sa compétence."
+  "En mode mini aussi, le monstre combattu fait le geste de sa compétence.",
+  "Grégaire : vient souvent à deux ou trois."
 ];

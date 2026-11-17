@@ -2087,4 +2087,5 @@ export default {
   3212: "Each family falls in its own way: flyers drop, ghosts drift up, golems crumble.",
   3213: "Monsters flinch when a neighbor falls or a spell bursts, and close in when the hero weakens; Poupouce tries to slip away.",
   3214: "In mini mode too, the monster in the fight makes its skill’s move.",
+  3215: "Gregarious: often comes in twos or threes.",
 };

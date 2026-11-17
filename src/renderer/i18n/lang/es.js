@@ -2087,4 +2087,5 @@ export default {
   3212: "Cada familia cae a su manera: los voladores se desploman, los espectros se elevan, los gólems se derrumban.",
   3213: "Los monstruos se sobresaltan cuando cae un vecino o estalla un hechizo, y se acercan cuando el héroe flaquea; Poupouce, en cambio, intenta escabullirse.",
   3214: "También en el modo mini, el monstruo en combate hace el gesto de su habilidad.",
+  3215: "Gregario: suele venir de dos en dos o de tres en tres.",
 };

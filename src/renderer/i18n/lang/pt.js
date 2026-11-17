@@ -2087,4 +2087,5 @@ export default {
   3212: "Cada família cai do seu jeito: os voadores despencam, os espectros sobem, os golens desmoronam.",
   3213: "Os monstros se assustam quando um vizinho cai ou um feitiço explode, e se aproximam quando o herói fraqueja; já Poupouce tenta escapar.",
   3214: "No modo mini também, o monstro em combate faz o gesto da sua habilidade.",
+  3215: "Gregário: costuma vir em dois ou três.",
 };

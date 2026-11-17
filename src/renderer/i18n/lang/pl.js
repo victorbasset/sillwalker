@@ -2087,4 +2087,5 @@ export default {
   3212: "Każda rodzina pada po swojemu: latające spadają, widma unoszą się, golemy się rozsypują.",
   3213: "Potwory wzdrygają się, gdy pada sąsiad lub wybucha czar, i podchodzą bliżej, gdy bohater słabnie; Poupouce próbuje się wymknąć.",
   3214: "Także w trybie mini walczący potwór wykonuje gest swojej umiejętności.",
+  3215: "Stadny: często pojawia się po dwa lub trzy.",
 };

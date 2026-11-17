@@ -2087,4 +2087,5 @@ export default {
   3212: "Jede Familie fällt auf ihre Weise: Flieger stürzen ab, Gespenster steigen auf, Golems zerbröckeln.",
   3213: "Monster zucken zusammen, wenn ein Nachbar fällt oder ein Zauber einschlägt, und rücken näher, wenn der Held schwächelt; Poupouce versucht zu entwischen.",
   3214: "Auch im Minimodus macht das kämpfende Monster die Bewegung seiner Fähigkeit.",
+  3215: "Herdentier: kommt oft zu zweit oder zu dritt.",
 };
