@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1965) : stall-check : option STALL_DAYMOD (bénédictions du jour) ; 6 h de jeu : 60 / 0 figées ; 3 h sous les
+  bénédictions : 60 / 0. Noté dans CLAUDE.md.
 - 2026-11-17 (it. 1964, bogue + outil) : scripts/stall-check.mjs (sauvegardes avancées × 20 héros, 2 h de jeu, alerte à 5 min
   sans victoire ni défaite) ; il a trouvé une seconde impasse : nécromancien de dev-data, zone 44, grenouille toxique qui se
   régénère, serviteur qui encaisse tous ses coups (l'emportement de l'it. 1959 n'y peut rien). Dernier recours : après 3 min du
