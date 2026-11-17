@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2010, journée des monstres) : zones à spores (Marais brumeux, Bois corrompu, Champignonnière géante) : qui
+  n'est ni champignon ni plante éternue (coup sec vers l'avant). Vérifié (Marais brumeux : ours et loup éternuent, champignard se
+  gonfle).
 - 2026-11-17 (it. 2009, contrôle) : endurance 8 min à ×10 sur dev-data et fin de partie (arrivées, climat, éclat, gestes) : aucune
   erreur ; dev-data va et vient 55-56 (plus figée en 57 comme à l'it. 1957), la fin de partie 149-150.
 - 2026-11-17 (it. 2008) : MONSTRES-VIVANTS, étape 13 (climat des zones, sursaut au niveau du héros).

@@ -1416,7 +1416,9 @@ export class StripRenderer {
           // (it. 2006) …et sous l'eau (bulles), les créatures de feu (diablotins, élémentaires, variantes de feu) aussi
           const hot = (wx === "ember" && (a.art === "yeti" || elementOf(a.type || "") === "frost"))
             || (wx === "bubble" && (a.art === "imp" || a.art === "fireelem" || elementOf(a.type || "") === "fire"));
-          const nat = cold ? "rattle" : hot ? "still" : ART_GEST[a.art] || a.nature;
+          // (it. 2010) zone à spores : qui n'est ni champignon ni plante éternue (coup sec vers l'avant)
+          const sneeze = wx === "spore" && !["mush", "sporeling", "plant", "treant"].includes(a.art);
+          const nat = cold ? "rattle" : hot ? "still" : sneeze ? "sneeze" : ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
@@ -1451,6 +1453,7 @@ export class StripRenderer {
             else if (r.nat === "look") a.lookFlip = p < 0.3 ? false : p < 0.65;
             else if (r.nat === "beat") rdy = Math.floor(p * 8) % 2 ? -3 : 0;
             else if (r.nat === "salute") rdy = Math.floor(p * 4) % 2 ? 0 : -3;
+            else if (r.nat === "sneeze") { rdx = p > 0.55 && p < 0.7 ? -6 : 0; rdy = p > 0.3 && p < 0.55 ? -3 : 0; }
             else if (r.nat === "paw") rdx = Math.floor(p * 6) % 2 ? 3 : 0;
             else if (r.nat === "rear") rdy = -Math.round(Math.min(1, Math.sin(p * Math.PI) * 1.6) * 2) * 3;
             else if (r.nat === "rattle") rdx = Math.floor(p * 16) % 2 ? 3 : -3;
