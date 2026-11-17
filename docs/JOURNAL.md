@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2119, clavier) : touche Z : annule le dernier choix dans les Talents (dernier clic) et les Compétences (dernier
+  nœud). Raccourcis clavier : le libellé des Talents disait l'inverse (« monter au maximum » pour Maj, qui n'ajoute qu'un rang) ;
+  corrigé. Clés 3289-3290 ; fenêtre des raccourcis sans défilement (ru, de, pl, fr à 1280 px) ; autotest « touche Z » ; 274/274.
 - 2026-11-17 (it. 2118, ergonomie) : Aventure : l'aide de l'en-tête « Équipement », coupée en plein mot à 1920 px (« détails e… »),
   passe dans un ⓘ. Audit des autres onglets noté dans docs/TALENTS-UX.md. lang-overflow 10 langues × 1280 / 1920 : rien ; 273/273.
 - 2026-11-17 (it. 2117, ergonomie) : Boutique, sac plein : ligne « Sac plein · Vendre les inutiles (N) » sous l'en-tête du Marchand

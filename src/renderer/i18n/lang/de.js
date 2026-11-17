@@ -2161,4 +2161,6 @@ export default {
   3286: "Punkte des letzten Klicks zurückgeben: {0} ({1}).",
   3287: "Nichts rückgängig zu machen: Nur der letzte Klick auf ein Talent lässt sich zurückgeben.",
   3288: "Unnützes verkaufen ({0})",
+  3289: "Talente: nur ein Rang (wie „+1“)",
+  3290: "Letzte Wahl rückgängig machen (Talente, Fertigkeiten)",
 };

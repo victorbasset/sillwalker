@@ -3290,5 +3290,7 @@ export const KEYS = [
   "Les actions sans retour (réinitialiser les talents ou les compétences, monter vers les étoiles, effacer la partie) se confirment dans une fenêtre, et plus par un second clic au même endroit.",
   "Rendre les points du dernier clic : {0} ({1}).",
   "Rien à annuler : seul le dernier clic sur un talent peut être rendu.",
-  "Vendre les inutiles ({0})"
+  "Vendre les inutiles ({0})",
+  "Talents : un seul rang (comme « +1 »)",
+  "Annuler le dernier choix (Talents, Compétences)"
 ];

@@ -2161,4 +2161,6 @@ export default {
   3286: "Oddaj punkty ostatniego kliknięcia: {0} ({1}).",
   3287: "Nie ma czego cofnąć: można oddać tylko ostatnie kliknięcie w talent.",
   3288: "Sprzedaj zbędne ({0})",
+  3289: "Talenty: jeden poziom (jak „+1”)",
+  3290: "Cofnij ostatni wybór (Talenty, Umiejętności)",
 };

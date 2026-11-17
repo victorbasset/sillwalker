@@ -2161,4 +2161,6 @@ export default {
   3286: "Devolver los puntos del último clic: {0} ({1}).",
   3287: "Nada que deshacer: solo se puede devolver el último clic en un talento.",
   3288: "Vender inútiles ({0})",
+  3289: "Talentos: un solo rango (como «+1»)",
+  3290: "Deshacer la última elección (Talentos, Habilidades)",
 };

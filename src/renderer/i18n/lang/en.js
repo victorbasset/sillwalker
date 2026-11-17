@@ -2161,4 +2161,6 @@ export default {
   3286: "Give back the points of the last click: {0} ({1}).",
   3287: "Nothing to undo: only the last click on a talent can be given back.",
   3288: "Sell useless ({0})",
+  3289: "Talents: a single rank (like “+1”)",
+  3290: "Undo the last choice (Talents, Skills)",
 };
