@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1963, vérification) : la progression hors ligne (applyOffline) est calculée (dps, temps par monstre), pas
+  simulée coup par coup : l'impasse de l'it. 1958 n'y existe pas. Rien à corriger.
 - 2026-11-17 (it. 1962) : « Quoi de neuf », édition 125 (mode mini : le suivant attend ; impasse corrigée ; effets réduits :
   monstres calmes ; clés 3226-3228, 10 langues, libellé « Effets complets » cité tel que traduit). Autotest 257/257,
   lang-overflow ru/de/pl : rien ne défile.
