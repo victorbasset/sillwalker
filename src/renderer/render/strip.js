@@ -1422,7 +1422,9 @@ export class StripRenderer {
           const hot = (wx === "ember" && (a.art === "yeti" || elementOf(a.type || "") === "frost"))
             || (wx === "bubble" && (a.art === "imp" || a.art === "fireelem" || elementOf(a.type || "") === "fire"));
           // (it. 2010) zone à spores : qui n'est ni champignon ni plante éternue (coup sec vers l'avant)
-          const sneeze = wx === "spore" && !["mush", "sporeling", "plant", "treant"].includes(a.art);
+          // (it. 2022) zone de cendres : on tousse (même geste) ; golems, squelettes et élémentaires de feu n'en ont cure
+          const sneeze = (wx === "spore" && !["mush", "sporeling", "plant", "treant"].includes(a.art))
+            || (wx === "ash" && !["golem", "skel", "fireelem", "mummy"].includes(a.art));
           const nat = cold ? "rattle" : hot ? "still" : sneeze ? "sneeze" : ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };

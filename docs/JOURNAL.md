@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2022, journée des monstres) : zones de cendres (Bastion noir, Crypte oubliée, Mines naines, Ossuaire des titans) :
+  les monstres toussent (geste de l'éternuement) ; golems, squelettes, momies et élémentaires de feu non. Vérifié (Mines naines :
+  ours et loup toussent, golem s'enfonce). Autotest 259/259.
 - 2026-11-17 (it. 2021, revue générale) : perf:linux bande 18,5 %, panneau 19,4 %, mini 5,5 % ; mémoire 571-574 Mo ; balance 12 h
   graine 11 contre aea72772 (avant les compétences des monstres) : +0,3 ; fuzz 600 / 0 ; chinois : aucun mot français. Rien à
   corriger.
