@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1951, revue générale) : perf:linux bande 18,2 %, panneau 19,5 %, mini 5,7 % ; mémoire 4 min : 562-563 Mo ;
+  12 h graine 251 : moine 62, nécromancien 65, arbalétrier 62 ; espagnol : aucun mot français. Rien à corriger.
 - 2026-11-17 (it. 1950, vérification) : geste de la méduse (it. 1949) vu dans le jeu (« beat »), avec orc, chevalier et
   cultiste : tous les gestes d'ART_GEST ont maintenant été déclenchés au moins une fois. Rien à corriger.
 - 2026-11-17 (it. 1949, journée des monstres) : gestes de cinq espèces de plus (ART_GEST) : le loup lève la tête (hurlement
