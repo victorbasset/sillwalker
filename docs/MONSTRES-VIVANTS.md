@@ -128,6 +128,10 @@ se balançaient qu'au combat.
     (juice.js WEATHER), le geste change : neige, qui n'est pas fait pour le froid grelotte ; braises, yétis et variantes de
     givre s'affaissent ; sous l'eau, créatures de feu aussi ; spores : on éternue (it. 2010) ; vent (plumes) : les volants
     sont ballottés, ±12 px (it. 2015, 2017). Autotest « climat des zones ». Mesure sans que la série change : g.R.devFreeze.
+    Cendres : on tousse (it. 2022) ; éternuement et toux soufflent vers le héros (juice.puff, vert moyen / gris clair,
+    vérifiés en capture sur chaque fond, it. 2027-2029). Ni le fantôme ni le golem ne grelottent, toussent ou éternuent
+    (it. 2030, 2032 : revue des espèces de chaque zone à climat). Climat, gestes et leur mouvement : fonctions pures de
+    monlife.js (climateGesture, gestureOf, gestureMotion, testées ; it. 2023-2025). Le corbeau vit le jour (it. 2033).
 
 Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
 série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
