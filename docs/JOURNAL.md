@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2107, design des Talents) : fiche de gauche : case puis bouton sur une ligne, bouton retiré quand la dépense est
+  automatique (il restait grisé) ; détail dans un encadré qui remplit la colonne, alignée sur la hauteur de la grille. lang-overflow
+  10 langues × 3 largeurs : rien (après marges resserrées sous 1366 px) ; autotest 268/268.
 - 2026-11-17 (it. 2106, design des Talents) : Voie disponible et pas encore choisie : ses lignes passent à l'or (cadre, trait à gauche,
   « choisir › ») ; avant, un « choisir » gris qu'on ne remarquait pas. Captures sombre et clair ; autotest 268/268.
 - 2026-11-17 (it. 2105, design des Talents, Victor : « le design est toujours pourri ») : code d'état des lignes. Avant, presque toutes

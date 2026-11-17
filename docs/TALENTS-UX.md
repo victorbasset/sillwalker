@@ -52,7 +52,10 @@
    (avec un trait à gauche) ; au maximum : coche et fond calme ; en cours : barre de rang au pied de la ligne ; maîtrises en cadre
    neutre. Thèmes sombre et clair vérifiés en capture.
 9. (it. 2106) Voie disponible et pas encore choisie : ses deux lignes en or, trait à gauche, « choisir › » (avant : gris).
-   À suivre : la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
+10. (it. 2107) Fiche : la case « À chaque niveau, dépenser tout seul » puis le bouton, sur une ligne ; le bouton se retire quand la
+   dépense est automatique (il restait grisé) ; le détail dans un encadré qui remplit la colonne (hauteur alignée sur la grille),
+   réinitialisation en pied ; marges resserrées sous 1366 px (fiche d'une maîtrise : 16 px de trop à 1280).
+   À suivre : l'encadré est peu rempli pour un talent au maximum ; la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
    identiques se disputent l'attention.
 
 ## Reste à revoir (hors Talents)
