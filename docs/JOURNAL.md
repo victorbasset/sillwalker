@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1925) : MONSTRES-VIVANTS, étape 8 (instincts, it. 1913-1923) ; POUR-VICTOR : meutes et instincts à regarder.
 - 2026-11-17 (it. 1924) : « Quoi de neuf », édition 123 (meute furieuse / nuée qui se disperse, proies et prédateurs, boss
   impatient, chauves-souris de jour et mimique ; clés 3218-3221, 10 langues, nom du monstre repris tel que traduit). Autotest
   254/254, lang-overflow ru/de/pl 1280 / 1920 : rien ne défile.

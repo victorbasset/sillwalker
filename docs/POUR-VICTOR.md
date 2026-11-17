@@ -10,6 +10,8 @@ Détail : `docs/MONSTRES-VIVANTS.md`. Vidéo envoyée le 17/11 vers 4 h 30 (zone
 - **La bande vit-elle assez ?** En attendant, les monstres flânent, planent, sautillent, se tournent vers le héros,
   bavardent par deux, dorment la nuit (bêtes de jour, « z »), sursautent quand un voisin tombe, s'avancent quand le héros
   faiblit. Trop, pas assez, trop agité ? Tout se règle dans `render/monlife.js` et `strip.js`.
+- **Meutes et instincts** (17/11 matin, vidéo des meutes envoyée vers 6 h) : loups, rats, chauves-souris… vont à deux ou
+  trois et se suivent ; la meute s'emporte quand l'un des siens tombe, les proies fuient les prédateurs, le boss s'impatiente.
 - **Compétences** : chaque famille a la sienne, annoncée par un « ! » (bond du gluant, piqué, toile, charge, poing de
   pierre…), décrite au survol de sa carte du Bestiaire. Lisibles ? Trop fréquentes ? (élites −15 %, champions −25 %,
   boss −20 % d'intervalle).

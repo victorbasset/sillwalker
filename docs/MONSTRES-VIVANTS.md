@@ -95,6 +95,13 @@ se balançaient qu'au combat.
    chacun de son côté même voisins. Infobulle du Bestiaire : « Grégaire ». Semaine : 350 / 350, inchangée.
 7. **Rangs** (it. 1899) : élites −15 % d'intervalle de compétence, champions −25 % (compensés), mot doré / violet.
 
+8. **Instincts** (it. 1913-1923, strip.js) : un membre de meute tombe → ses congénères s'avancent, furieux (« ! » rouge) ;
+   craintifs (rats, corbeaux) → la nuée se disperse (recul ×3) ; rats et gluants suivent aussi leur chef (it. 1919) ; la
+   meute bavarde entre elle (it. 1918) ; proies (TIMID) voisines d'un prédateur (PREDATORS) : s'écartent de 9 px, tremblent
+   coincées entre deux (it. 1923) ; boss impatient à deux monstres ou moins : frappe du pied, le dernier de la file sursaute
+   (it. 1922) ; chauves-souris somnolentes en plein jour (it. 1915) ; mimique qui frissonne quand son tour approche
+   (monlife, it. 1916 : pas de 3 px, l'arrondi d'Actor.move efface 1 px).
+
 Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
 série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
 
