@@ -1388,10 +1388,12 @@ export class StripRenderer {
             yeti: "beat", jelly: "beat", snake: "sway", crab: "paw", wolf: "howl",
             // (it. 1973) la guêpe bourdonne, le diablotin espiègle se retourne, la harpie se balance, la wyverne se cabre, le
             // tyrannœil et l'élémentaire de feu palpitent
-            wasp: "rattle", imp: "look", harpy: "sway", drake: "rear", eye: "beat", fireelem: "beat" };
+            wasp: "rattle", imp: "look", harpy: "sway", drake: "rear", eye: "beat", fireelem: "beat",
+            // (it. 1985) le lézard se fond dans le décor (camouflage, comme son Embuscade)
+            lizard: "camo" };
           const nat = ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
-          a.react = { kind: "gesture", t: 0, d: { howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
+          a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
         }
       }
@@ -1434,7 +1436,7 @@ export class StripRenderer {
             else if (r.nat === "fly") rdy = -sn * 6;
             else if (r.nat === "hop") rdy = -sn * 7;
             // (it. 1949) le loup : la tête levée suffit (howlT)
-            else if (r.nat === "howl") rdy = 0;
+            else if (r.nat === "howl" || r.nat === "camo") rdy = 0;
             else rdy = -sn * 3;
           }
           else rdy = -Math.abs(Math.sin(p * Math.PI * 3)) * 5;
@@ -1458,6 +1460,8 @@ export class StripRenderer {
       // (it. 1929) les spectres qui attendent s'estompent et reviennent lentement (entre 75 et 100 %, par huitièmes :
       // Actor.alpha n'écrit qu'aux changements de palier) ; au combat, l'opacité normale reprend (ligne ci-dessus)
       else if (a.art === "ghost") a.alpha(0.875 + 0.125 * Math.sin(R.time * 0.9 + (a.lifeSeed || 0) * 9));
+      // (it. 1985) lézard camouflé : à demi effacé le temps du geste, puis entier
+      else if (a.art === "lizard") a.alpha(!fighting && a.react && a.react.nat === "camo" ? 0.5 : 1);
       if (fighting && a.art === "ghost" && !a.phased && a.alphaV !== 1) a.alpha(1);
       // (it. 1890) bavardage : celui de gauche se tourne vers la droite, l'autre garde sa face ; petits hochements
       let chatDy = 0, chatFlip = null;

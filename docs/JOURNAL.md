@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1985, journée des monstres) : le lézard se camoufle en attendant (à demi effacé 2,2 s, comme son Embuscade).
+  Vérifié (opacité 0,5 puis 1). Autotest 257/257.
 - 2026-11-17 (it. 1984, contrôle) : i18n-names : 25 écarts, tous anciens et grammaticaux (génitif allemand, particule coréenne,
   formulations voisines) ; aucun dans les clés du jour (3204-3234). Rien à corriger.
 - 2026-11-17 (it. 1983) : « Quoi de neuf », édition 126 (réputation, caractères au Bestiaire, compétences réfléchies ; clés
