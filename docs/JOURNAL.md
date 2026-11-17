@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1884, journée des monstres) : rythme irrégulier des compétences (intervalle ±20 %, premier usage ±30 %,
+  même moyenne) : un monstre n'est plus une horloge. Test de Poupouce rendu indépendant du tirage (compétence retirée
+  comme le type). Balance contre HEAD : +0,9 ; fuzz 600 / 0 ; npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1883, journée des monstres) : le boss qui attend respire (balancement lent de 3 px au plus, il se
   redresse de 2 px quand le héros approche) ; élites et champions téméraires : ne sursautent pas, arpentent plus large
   (×1,3). Un commentaire // tombé au milieu d'une ligne a cassé la syntaxe (piège connu), corrigé avant commit. Test du

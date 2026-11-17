@@ -530,7 +530,7 @@ export class Game {
     m.skillT -= dt * (m.slowT > 0 ? 0.5 : 1);
     if (before > sk.tell && m.skillT <= sk.tell) this.emit("monSkill", { id: sk.id, el: sk.el, phase: "tell", mon: m });
     if (m.skillT > 0) return false;
-    m.skillT = sk.every;
+    m.skillT = sk.every * rnd(0.8, 1.2); // (it. 1884) rythme irrégulier : un monstre n'est pas une horloge (même moyenne)
     this.emit("monSkill", { id: sk.id, el: sk.el, phase: "go", mon: m });
     switch (sk.id) {
       case "leap": { // Gluants : bond sur le héros
@@ -1065,7 +1065,7 @@ export class Game {
       name: boss ? bossName(this.S.zone) : null, fem: boss && bossGender(this.S.zone) === "f", gender: boss ? bossGender(this.S.zone) : null });
     if (!boss && slot.poupouce) { mon.poupouce = true; mon.gold *= POUPOUCE.gold; }
     // (it. 1853) compétence de sa famille (monskills.js) : monstres ordinaires, ni gobelin ni Poupouce
-    if (!boss && !slot.goblin && !slot.poupouce) { const sk = monSkillOf(slot.type); if (sk) { mon.skill = sk; mon.skillT = sk.first; skillBalance(mon, sk); } }
+    if (!boss && !slot.goblin && !slot.poupouce) { const sk = monSkillOf(slot.type); if (sk) { mon.skill = sk; mon.skillT = sk.first * rnd(0.7, 1.3); skillBalance(mon, sk); } }
     if (boss && isFinalZone(this.S.zone)) { // le Briseur d'Étoiles (story.js) : but final de l'histoire
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }
@@ -1074,7 +1074,7 @@ export class Game {
     // (it. 1866) boss de zone : la compétence de sa famille (monskills.js), en plus de ses capacités tournantes ; les
     // lieutenants et le Briseur ont leurs pouvoirs uniques (bosses.js), sans elle
     // (it. 1874) version de boss : plus fréquente (−20 %) et plus tôt ; compensée comme les autres (skillBalance)
-    if (boss && !mb && !mon.final) { const s0 = monSkillOf(slot.type); if (s0) { const sk = { ...s0, every: s0.every * 0.8, first: s0.first * 0.6, boss: true }; mon.skill = sk; mon.skillT = sk.first; skillBalance(mon, sk); } }
+    if (boss && !mb && !mon.final) { const s0 = monSkillOf(slot.type); if (s0) { const sk = { ...s0, every: s0.every * 0.8, first: s0.first * 0.6, boss: true }; mon.skill = sk; mon.skillT = sk.first * rnd(0.7, 1.3); skillBalance(mon, sk); } }
     const wear = boss ? bossWear(this.S, this.S.zone) : 0;
     if (wear) { mon.hp *= 1 - wear; mon.max = mon.hp; mon.worn = wear; } // usure : défaites précédentes contre ce boss
     this.applyAffix(mon);
