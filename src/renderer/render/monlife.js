@@ -63,6 +63,35 @@ export function gestureOf(art, nature, el, wx) {
   const nat = climateGesture(art, el, wx) || ART_GEST[art] || nature;
   return { nat, d: GEST_D[nat] || (nature === "still" ? 1 : 0.6) };
 }
+/**
+ * (it. 1933-2022, extrait à l'it. 2025) Mouvement d'un geste au repos à l'avancement p (0 → 1) : { dx, dy } en px (dy < 0 :
+ * vers le haut), et flip (« look » : le monstre se retourne) ; le fil de l'araignée est dessiné par strip.js.
+ */
+export function gestureMotion(nat, p) {
+  const sn = Math.sin(p * Math.PI);
+  let dx = 0, dy = 0, flip;
+  switch (nat) {
+    case "spider": dy = -sn * 24; break;
+    case "skitter": dx = Math.floor(p * 6) % 2 ? 3 : -3; break;
+    case "look": flip = p < 0.3 ? false : p < 0.65; break;
+    case "beat": dy = Math.floor(p * 8) % 2 ? -3 : 0; break;
+    case "salute": dy = Math.floor(p * 4) % 2 ? 0 : -3; break;
+    case "sneeze": dx = p > 0.55 && p < 0.7 ? -6 : 0; dy = p > 0.3 && p < 0.55 ? -3 : 0; break;
+    case "paw": dx = Math.floor(p * 6) % 2 ? 3 : 0; break;
+    case "rear": dy = -Math.round(Math.min(1, sn * 1.6) * 2) * 3; break;
+    case "rattle": dx = Math.floor(p * 16) % 2 ? 3 : -3; break;
+    case "sway": dx = Math.round(Math.sin(p * Math.PI * 2) * 1.4) * 3; break;
+    case "shuffle": dx = p < 0.5 ? -3 : p < 0.8 ? -6 : -3; break;
+    case "still": dy = sn * 3; break;
+    // (it. 1938) 6 px, pas 9 : un volant au plus haut de sa croisière touchait la rangée d'informations (26 px)
+    case "fly": dy = -sn * 6; break;
+    case "hop": dy = -sn * 7; break;
+    // (it. 1949) le loup : la tête levée suffit (howlT) ; le lézard camouflé ne bouge pas
+    case "howl": case "camo": break;
+    default: dy = -sn * 3;
+  }
+  return { dx: dx || 0, dy: dy || 0, flip };
+}
 /** Natures par défaut : les autres marchent (flânent autour de leur place). */
 export const natureOf = (art, fly) => (fly ? "fly" : NATURE[art] || "wander");
 

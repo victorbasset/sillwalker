@@ -27,7 +27,7 @@ import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
-import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS, gestureOf } from "./monlife.js";
+import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS, gestureOf, gestureMotion } from "./monlife.js";
 import { monSkillOf, elementOf } from "../game/monskills.js";
 import { PACK_ARTS } from "../game/game.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
@@ -1422,30 +1422,15 @@ export class StripRenderer {
           if (r.kind === "startle") { const b = p < 0.2 ? p / 0.2 : 1 - (p - 0.2) / 0.8; rdx = 8 * r.far * b; rdy = p < 0.2 ? -4 * Math.sin(p / 0.2 * Math.PI) : 0; }
           else if (r.kind === "fury") { const b = p < 0.25 ? p / 0.25 : 1 - (p - 0.25) / 0.75; rdx = -8 * b + (Math.floor(r.t * 20) % 2 ? 1 : -1) * (p < 0.6 ? 1 : 0); }
           else if (r.kind === "gesture") {
-            const sn = Math.sin(p * Math.PI);
+            // (it. 1933-2022, extrait à l'it. 2025) mouvement du geste : monlife.js gestureMotion ; ici, le fil de l'araignée
+            const gm = gestureMotion(r.nat, p);
+            rdx = gm.dx; rdy = gm.dy; if (gm.flip !== undefined) a.lookFlip = gm.flip;
             if (r.nat === "spider") {
-              rdy = -sn * 24;
+              const sn = Math.sin(p * Math.PI);
               if (!a.silk) { a.silk = document.createElement("div"); a.silk.className = "silk"; a.silk.style.left = Math.round(a.w / 2 - 1) + "px"; a.el.appendChild(a.silk); }
               const h = Math.round((sn * 24 + 12) / 3) * 3; if (a.silkH !== h) { a.silkH = h; a.silk.style.height = h + "px"; a.silk.style.top = -h + "px"; a.silk.hidden = false; }
               if (p > 0.97) { a.silk.hidden = true; a.silkH = -1; }
             }
-            else if (r.nat === "skitter") rdx = Math.floor(p * 6) % 2 ? 3 : -3;
-            else if (r.nat === "look") a.lookFlip = p < 0.3 ? false : p < 0.65;
-            else if (r.nat === "beat") rdy = Math.floor(p * 8) % 2 ? -3 : 0;
-            else if (r.nat === "salute") rdy = Math.floor(p * 4) % 2 ? 0 : -3;
-            else if (r.nat === "sneeze") { rdx = p > 0.55 && p < 0.7 ? -6 : 0; rdy = p > 0.3 && p < 0.55 ? -3 : 0; }
-            else if (r.nat === "paw") rdx = Math.floor(p * 6) % 2 ? 3 : 0;
-            else if (r.nat === "rear") rdy = -Math.round(Math.min(1, Math.sin(p * Math.PI) * 1.6) * 2) * 3;
-            else if (r.nat === "rattle") rdx = Math.floor(p * 16) % 2 ? 3 : -3;
-            else if (r.nat === "sway") rdx = Math.round(Math.sin(p * Math.PI * 2) * 1.4) * 3;
-            else if (r.nat === "shuffle") rdx = p < 0.5 ? -3 : p < 0.8 ? -6 : -3;
-            else if (r.nat === "still") rdy = sn * 3;
-            // (it. 1938) 6 px, pas 9 : un volant au plus haut de sa croisière touchait la rangée d'informations (26 px)
-            else if (r.nat === "fly") rdy = -sn * 6;
-            else if (r.nat === "hop") rdy = -sn * 7;
-            // (it. 1949) le loup : la tête levée suffit (howlT)
-            else if (r.nat === "howl" || r.nat === "camo") rdy = 0;
-            else rdy = -sn * 3;
           }
           else rdy = -Math.abs(Math.sin(p * Math.PI * 3)) * 5;
         }

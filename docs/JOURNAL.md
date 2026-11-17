@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2025, qualité du code) : mouvement des gestes au repos extrait de strip.js vers monlife.js gestureMotion
+  (fonction pure ; le fil de l'araignée reste dessiné par strip.js) ; test logique (bornes de chaque geste, volants sous la
+  rangée d'informations). npm test 353, autotest 259/259.
 - 2026-11-17 (it. 2024, qualité du code) : gestes au repos extraits de strip.js vers monlife.js (ART_GEST, durées, gestureOf :
   climat, puis espèce, puis nature) ; test logique. npm test 352, autotest 259/259.
 - 2026-11-17 (it. 2023, qualité du code) : climat des zones extrait de strip.js vers monlife.js climateGesture (fonction pure) ;

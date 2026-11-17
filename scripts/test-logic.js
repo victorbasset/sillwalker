@@ -51,7 +51,7 @@ import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { PACK_ARTS as PACK_ARTS1904 } from "../src/renderer/game/game.js";
-import { climateGesture as climateGesture2023, gestureOf as gestureOf2024 } from "../src/renderer/render/monlife.js";
+import { climateGesture as climateGesture2023, gestureOf as gestureOf2024, gestureMotion as gestureMotion2025 } from "../src/renderer/render/monlife.js";
 import { MONSTERS as MONSTERS1904, ZONES as ZONES1904 } from "../src/renderer/game/data.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -445,6 +445,20 @@ test("geste au repos (it. 2024) : climat, puis espèce, puis nature", () => {
   assert.deepEqual(gestureOf2024("golem", "still", null, null), { nat: "still", d: 1 });
   assert.equal(gestureOf2024("bear", "wander", null, "snow").nat, "rattle", "le climat passe avant l'espèce");
   assert.equal(gestureOf2024("spider", "skitter", null, null).nat, "spider");
+});
+
+test("mouvement des gestes (it. 2025) : bornes et retour au repos", () => {
+  for (const nat of ["spider", "skitter", "look", "beat", "salute", "sneeze", "paw", "rear", "rattle", "sway", "shuffle", "still", "fly", "hop", "howl", "camo", "wander"]) {
+    for (let p = 0; p <= 1; p += 0.05) {
+      const m = gestureMotion2025(nat, p);
+      assert.ok(Number.isFinite(m.dx) && Number.isFinite(m.dy), nat);
+      assert.ok(m.dy >= -24 && m.dy <= 3 && Math.abs(m.dx) <= 6, `${nat} ${p} : ${m.dx},${m.dy}`);
+    }
+  }
+  assert.ok(gestureMotion2025("fly", 0.5).dy >= -6, "un volant reste sous la rangée d'informations");
+  assert.equal(gestureMotion2025("look", 0.5).flip, true);
+  assert.equal(gestureMotion2025("look", 0.9).flip, false);
+  assert.equal(gestureMotion2025("rear", 0.5).dy, -6);
 });
 
 test("parcours : file de monstres (avec élites) et étapes", () => {
