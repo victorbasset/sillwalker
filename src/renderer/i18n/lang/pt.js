@@ -2121,4 +2121,5 @@ export default {
   3246: "Na poeira, as feras peludas sacodem-se e os bandidos tossem; sob as gotas das grutas e dos esgotos, também se sacodem.",
   3247: "Durante uma “Rajada de vento”, os voadores são sacudidos e os monstros terrestres cambaleiam.",
   3248: "As presas em bando afastam-se mesmo dos predadores e do herói forte demais (o bando já não as retém).",
+  3249: "Dano recebido −30%; você recupera 1% dos seus PV a cada segundo.",
 };

@@ -32,7 +32,7 @@ export const RELICS = {
     effect: "Toutes les 1,5 s, un missile : 1,5 % des PV du monstre (0,4 % pour un boss) + 300 % de ton attaque.",
     story: "Le Geôlier gardait les cages avec une sentinelle forgée dans un éclat d’étoile. Libérée de son maître, elle s’est tournée vers toi : elle se souvient du ciel, et elle a choisi son camp." },
   heart: { zone: 100, name: "Cœur de l’aube", from: "La Reine des cendres",
-    effect: "Dégâts subis −45 % ; tu regagnes 1 % de tes PV chaque seconde.",
+    effect: "Dégâts subis −30 % ; tu regagnes 1 % de tes PV chaque seconde.",
     story: "La Reine avait arraché le dernier lever de soleil et le gardait dans sa poitrine. En tombant, elle l’a lâché : il bat encore, chaud comme un matin d’été, et il te tient debout." },
   blade: { zone: 150, name: "Lame du crépuscule", from: "Le Chevalier de l’éclipse",
     effect: "Ton attaque est multipliée par 2,5.",
@@ -62,5 +62,7 @@ export const relicPow = (S, id) => 1 + RELIC_LV_STEP * (Math.max(1, relicLevel(S
 /** Drone stellaire : intervalle des missiles et dégâts (part des PV max, plus fort contre les monstres ordinaires). */
 // (it. 571 : à 4 % des PV, il écrasait toutes les zones suivantes pour toujours : semaine simulée 186 → 290)
 /** Puissance des autres reliques (règles : rules.js pour l'attaque, les PV et l'or ; game.js pour le Cœur de l'aube). */
-export const RELIC_POWER = { blade: 2.5, crown: 2, crownGold: 1.5, heartGuard: 0.55, heartRegen: 0.01 };
+// (it. 2054) heartGuard 0,55 → 0,7 (Victor : « trop facile dès qu'on a le Cœur ») : −63 % de dégâts subis au niveau 5, une course
+// passait de la zone 87 à 125 ; maintenant −42 % au niveau 5 ; records de la semaine inchangés (guerrier, mage, samouraï 350)
+export const RELIC_POWER = { blade: 2.5, crown: 2, crownGold: 1.5, heartGuard: 0.7, heartRegen: 0.01 };
 export const DRONE = { every: 1.5, pct: 0.015, bossPct: 0.004, atk: 3 };

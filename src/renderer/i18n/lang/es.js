@@ -2121,4 +2121,5 @@ export default {
   3246: "En el polvo, las bestias peludas se sacuden y los bandidos tosen; bajo el goteo de cuevas y cloacas, también se sacuden.",
   3247: "Durante una «Ráfaga de viento», los voladores se zarandean y los monstruos de tierra se tambalean.",
   3248: "Las presas en manada se apartan de verdad de los depredadores y del héroe demasiado fuerte (la manada ya no las retiene).",
+  3249: "Daño recibido −30 %; recuperas el 1 % de tus PV cada segundo.",
 };

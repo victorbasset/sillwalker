@@ -2121,4 +2121,5 @@ export default {
   3246: "In the dust, furry beasts shake themselves off and bandits cough; under the drips of caves and sewers, monsters shake off too.",
   3247: "During a “Wind Gust”, fliers are tossed about and ground monsters stagger.",
   3248: "Prey in a pack truly keep away from predators and from a hero who’s too strong (the pack no longer holds them back).",
+  3249: "Damage taken −30%; you regain 1% of your HP every second.",
 };

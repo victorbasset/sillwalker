@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2054, suite de la demande de Victor : « équilibrer le reste ») : Cœur de l'aube moins protecteur, dégâts subis
+  −45 % → −30 % (−63 % → −42 % au niveau 5 ; régénération inchangée), texte de l'effet traduit (clé 3249). Semaine simulée
+  (guerrier, mage, samouraï) : records 350 / 349 / 350 (avant 349 / 350 / 361), premier Chevalier à Cœur 5 pour les trois (samouraï :
+  34 → 41 h), record par course plus régulier (guerrier, course 17 : 196 → 184 ; course 22 : 283 → 250). stall-check 6 h : 0 figée ;
+  autotest 261/261.
 - 2026-11-17 (it. 2053, demande de Victor : « trop facile dès qu'on a le Cœur » ; « n'exige pas un niveau, équilibre ») : Chevalier
   de l'éclipse PV ×2,4 → ×4,5, attaque ×1,2 → ×2,4 ; Briseur ×3 → ×5, ×1,3 → ×2,5 (plus dur que chaque lieutenant, test) ; leurs échos
   gardent la force d'avant (echoHp / echoAtk). simulate.js : RELIC_LOG=1 (niveaux des reliques à chaque gain). Semaine simulée,

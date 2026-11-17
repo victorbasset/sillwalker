@@ -2121,4 +2121,5 @@ export default {
   3246: "W pyle futrzaste bestie otrząsają się, a bandyci kaszlą; pod kroplami jaskiń i kanałów również się otrząsają.",
   3247: "Podczas zdarzenia „Poryw wiatru” latające potwory są miotane, a naziemne się zataczają.",
   3248: "Ofiary w stadzie naprawdę trzymają się z dala od drapieżników i zbyt silnego bohatera (stado już ich nie zatrzymuje).",
+  3249: "Otrzymywane obrażenia −30%; odzyskujesz 1% PŻ co sekundę.",
 };

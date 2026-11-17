@@ -2121,4 +2121,5 @@ export default {
   3246: "Im Staub schütteln sich pelzige Tiere und Banditen husten; unter den Tropfen von Höhlen und Kanälen schüttelt man sich ebenfalls.",
   3247: "Während einer „Windböe“ werden Flieger herumgewirbelt und Bodenmonster taumeln.",
   3248: "Beutetiere im Rudel halten wirklich Abstand zu Raubtieren und zu einem zu starken Helden (das Rudel hält sie nicht mehr zurück).",
+  3249: "Erlittener Schaden −30 %; du regenerierst jede Sekunde 1 % deiner LP.",
 };

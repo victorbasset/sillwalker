@@ -3250,5 +3250,6 @@ export const KEYS = [
   "Le corbeau vit le jour et dort la nuit ; le fantôme, lui, ne grelotte ni ne tousse : il ne respire pas.",
   "Dans la poussière, les bêtes à fourrure s’ébrouent et les bandits toussent ; sous les gouttes des grottes et des égouts, on s’ébroue aussi.",
   "Pendant une « Rafale de vent », les volants sont ballottés et les monstres au sol chancellent.",
-  "Les proies en meute s’écartent vraiment des prédateurs et du héros trop fort (la meute ne les retient plus)."
+  "Les proies en meute s’écartent vraiment des prédateurs et du héros trop fort (la meute ne les retient plus).",
+  "Dégâts subis −30 % ; tu regagnes 1 % de tes PV chaque seconde."
 ];
