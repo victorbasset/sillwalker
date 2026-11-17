@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2123, ergonomie) : un clic sur le fond d'une fenêtre la ferme : la confirmation est annulée (jamais validée), la
+  grande fenêtre (Quoi de neuf, raccourcis, détails) se referme ; un clic dans le cadre ne change rien. Autotest ajouté. Contrôle
+  « effet de l'événement au survol » rendu indépendant du tirage (il lisait la première pastille, parfois un autre événement en cours) ;
+  275/275.
 - 2026-11-18 (it. 2122) : fenêtres de confirmation vues en capture (Ascension en allemand, effacement de la partie sombre et clair,
   1280 px) ; dans celle de l'effacement, « Annuler » prend l'aspect du bouton par défaut (Entrée y annule), « Tout effacer » reste
   rouge. Bestiaire : cartes plus larges écartées (8e rangée à 1920 px). Autotest 274/274.

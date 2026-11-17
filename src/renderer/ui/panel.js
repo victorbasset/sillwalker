@@ -1124,6 +1124,9 @@ export class Panel {
 
   /* ---------- Interactions ---------- */
   onClick(e) {
+    // (it. 2123, ergonomie) un clic sur le fond d'une fenêtre (hors de son cadre) la ferme : la confirmation est ANNULÉE
+    if (e.target.id === "confirm") { this.closeConfirm(); return; }
+    if (e.target.id === "modal") { e.target.hidden = true; return; }
     const t = e.target.closest("[data-tab]");
     if (t) {
       if (t.closest("#modal")) $(this.root, "#modal").hidden = true;
