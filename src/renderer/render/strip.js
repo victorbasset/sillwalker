@@ -1388,7 +1388,8 @@ export class StripRenderer {
             }
             else if (r.nat === "skitter") rdx = Math.floor(p * 6) % 2 ? 3 : -3;
             else if (r.nat === "still") rdy = sn * 3;
-            else if (r.nat === "fly") rdy = -sn * 9;
+            // (it. 1938) 6 px, pas 9 : un volant au plus haut de sa croisière touchait la rangée d'informations (26 px)
+            else if (r.nat === "fly") rdy = -sn * 6;
             else if (r.nat === "hop") rdy = -sn * 7;
             else rdy = -sn * 3;
           }

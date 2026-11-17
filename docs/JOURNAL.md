@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1938) : geste des volants (it. 1933) : monté de 9 px, une chauve-souris au plus haut de sa croisière touchait
+  la rangée d'informations (haut à 24 px, rangée de 26 px). Réduit à 6 px : 27 px au plus haut (série de 11 chauves-souris,
+  gestes forcés en boucle). Autotest 255/255.
 - 2026-11-17 (it. 1937) : une araignée appelée au combat en plein geste gardait son fil de soie affiché : caché (et geste
   arrêté) dès qu'elle combat. Vérifié (geste forcé, monstre précédent achevé : fil caché). Autotest 255/255.
 - 2026-11-17 (it. 1936, journée des monstres) : geste propre aux araignées : elles remontent le long d'un fil de soie (24 px,
