@@ -316,7 +316,9 @@ export class StripRenderer {
       if (id === "slam") this.shake(0.15);
       // (it. 1874) version de boss : mot dans la couleur des boss, secousse et gerbe d'étincelles autour de lui
       const bossSk = !!(this.game.R.mon && this.game.R.mon.boss);
-      if (word) this.float(this.monX() + 14, bossSk ? 10 : 18, word, bossSk ? "#ff9a7a" : col, true);
+      // (it. 1899) élite : mot doré, champion : violet (comme leur contour)
+      const rm = this.game.R.mon, rankCol = bossSk ? "#ff9a7a" : rm && rm.champion ? "#c08cff" : rm && rm.elite ? "#ffd34d" : col;
+      if (word) this.float(this.monX() + 14, bossSk ? 10 : 18, word, rankCol, true);
       if (bossSk) { this.shake(0.2); if (this.active && this.juice.full) this.juice.sparkles(this.monX() + 24, this.ground - 40, "#ff9a7a", 14); }
       if (this.active && this.juice.full) {
         this.juice.sparkles(this.heroX + 18, this.ground - 24, col, 8);

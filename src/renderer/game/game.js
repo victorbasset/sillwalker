@@ -1070,7 +1070,8 @@ export class Game {
       name: boss ? bossName(this.S.zone) : null, fem: boss && bossGender(this.S.zone) === "f", gender: boss ? bossGender(this.S.zone) : null });
     if (!boss && slot.poupouce) { mon.poupouce = true; mon.gold *= POUPOUCE.gold; }
     // (it. 1853) compétence de sa famille (monskills.js) : monstres ordinaires, ni gobelin ni Poupouce
-    if (!boss && !slot.goblin && !slot.poupouce) { const sk = monSkillOf(slot.type); if (sk) { mon.skill = sk; mon.skillT = sk.first * rnd(0.7, 1.3); skillBalance(mon, sk); } }
+    // (it. 1899) élites et champions : plus aguerris, leur compétence revient plus vite (−15 % / −25 %, compensée)
+    if (!boss && !slot.goblin && !slot.poupouce) { const s0 = monSkillOf(slot.type); if (s0) { const k = slot.champion ? 0.75 : slot.elite ? 0.85 : 1; const sk = k < 1 ? { ...s0, every: s0.every * k } : s0; mon.skill = sk; mon.skillT = sk.first * rnd(0.7, 1.3); skillBalance(mon, sk); } }
     if (boss && isFinalZone(this.S.zone)) { // le Briseur d'Étoiles (story.js) : but final de l'histoire
       mon.hp = mon.max = Math.round(mon.hp * FINAL_BOSS.hp); mon.atk *= FINAL_BOSS.atk; mon.final = true;
     }

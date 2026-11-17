@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1899, journée des monstres) : hiérarchie des compétences : élites −15 % d'intervalle, champions −25 %
+  (compensés), mot doré / violet comme leur contour ; les boss restent au-dessus (−20 %, mot couleur boss, secousse).
+  Balance contre HEAD : +0,2 ; fuzz 600 / 0 ; npm test 346, autotest 253/253.
 - 2026-11-17 (it. 1898, contrôle) : mémoire après la journée des monstres : mem-watch 6 min, plat (608 → 614 Mo, pas de
   fuite) ; 3 min, avant (aea72772) / après : 559-562 / 563-564 Mo : la journée ne coûte rien en mémoire (le niveau à
   ≈ 610 Mo de la mesure longue tient à la durée, pas au code).
