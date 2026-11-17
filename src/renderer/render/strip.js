@@ -34,8 +34,9 @@ import { PACK_ARTS } from "../game/game.js";
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
 /** (it. 1878) Espèces de jour (s'endorment la nuit) et de nuit (s'agitent la nuit), selon le dessin de base. */
-const DIURNAL = new Set(["frog", "boar", "bear", "crab", "lizard", "snake", "beetle", "wasp", "harpy", "plant", "sporeling", "treant", "orc", "bandit", "knight", "goblin", "yeti", "scorp"]);
-const NOCTURNAL = new Set(["bat", "ghost", "wolf", "eye", "skel", "mummy", "cultist", "spider", "rat", "imp", "crow"]);
+// (it. 2033) le corbeau passe du côté du jour : il chasse le jour et dort la nuit au perchoir (la chauve-souris fait l'inverse)
+const DIURNAL = new Set(["crow", "frog", "boar", "bear", "crab", "lizard", "snake", "beetle", "wasp", "harpy", "plant", "sporeling", "treant", "orc", "bandit", "knight", "goblin", "yeti", "scorp"]);
+const NOCTURNAL = new Set(["bat", "ghost", "wolf", "eye", "skel", "mummy", "cultist", "spider", "rat", "imp"]);
 /** (it. 1888) Façon de tomber, par dessin de base (les volants sans entrée tombent au sol, les autres s'affaissent). */
 const CORPSE_FALL = { ghost: "rise", fireelem: "rise", slime: "squash", jelly: "squash", golem: "crumble", skel: "crumble", mummy: "crumble", treant: "crumble" };
 // Craintifs (TIMID, it. 1867) et prédateurs (PREDATORS, it. 1923) : dans monlife.js depuis l'it. 1980 (le Bestiaire les cite)

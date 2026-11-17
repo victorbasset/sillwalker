@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2033, journée des monstres) : le corbeau passe des espèces de nuit à celles de jour (il chasse le jour et
+  s'endort la nuit, « z », comme un vrai corbeau ; la chauve-souris fait l'inverse). Autotest 259/259.
 - 2026-11-17 (it. 2032, journée des monstres) : revue des espèces des zones de neige, braises et eau : le fantôme grelottait
   dans la Toundra gelée ; ni lui ni le golem ne grelottent plus. Le reste est cohérent (diablotin frileux dans le Glacier
   hurlant, squelette qui garde son cliquetis). Autotest 259/259.
