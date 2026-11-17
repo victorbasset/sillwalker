@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1979, contrôle) : perf:linux après crainte, audace et gestes de plus : bande 18,0 %, panneau 19,7 %, mini 5,4 %.
 - 2026-11-17 (it. 1978) : MONSTRES-VIVANTS, étapes 10 (fin de journée) et 11 (impasses corrigées).
 - 2026-11-17 (it. 1977, journée des monstres) : à l'inverse (it. 1976), au record après une défaite du héros dans la zone, la
   file s'enhardit et se tient un peu plus près (≈ 3 px ; pas les craintifs). Vérifié (golems et ours 0,35, rat 0). Autotest 257/257.
