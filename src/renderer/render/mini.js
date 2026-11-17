@@ -230,12 +230,13 @@ export class MiniRenderer {
     // pendant que le combattant arrive de loin, pendant un boss et pour les monstres à part (gobelin, Poupouce)
     {
       const line = R.lineup || [], nk = S.kills + 1, nx = nk < line.length ? line[nk] : null;
-      const nType = nx && !nx.goblin && !nx.poupouce ? nx.type : null, nKey = nType ? nk + ":" + nType : "";
+      // (it. 1987) élite / champion : son contour doré / violet, comme sur la bande
+      const nType = nx && !nx.goblin && !nx.poupouce ? nx.type : null, nKey = nType ? nk + ":" + nType + (nx.champion ? ":c" : nx.elite ? ":e" : "") : "";
       if (nKey !== this.nextKey) {
         this.nextKey = nKey;
         if (this.nextActor) { this.nextActor.remove(); this.nextActor = null; }
         const set = nType && this.sprites.monsters[nType];
-        if (set) { const b = new Actor(this.stage, set.normal); b.fly = set.fly; b.alpha(0.5); this.nextActor = b; }
+        if (set) { const b = new Actor(this.stage, nx.elite ? outlinedFrames(set.normal, nx.champion ? "#c08cff" : "#ffd34d", this.dpr) : set.normal); b.fly = set.fly; b.alpha(0.5); this.nextActor = b; }
       }
       const b = this.nextActor;
       if (b) {

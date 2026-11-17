@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1987) : mode mini : le monstre suivant élite / champion a son contour doré / violet. Vu en capture (contour
+  discret à demi-opacité). Autotest 257/257.
 - 2026-11-17 (it. 1986) : README : vie de la file (natures, gestes, meutes, instincts, effets réduits) et garde-fou des combats sans fin.
 - 2026-11-17 (it. 1985, journée des monstres) : le lézard se camoufle en attendant (à demi effacé 2,2 s, comme son Embuscade).
   Vérifié (opacité 0,5 puis 1). Autotest 257/257.
