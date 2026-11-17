@@ -2122,4 +2122,7 @@ export default {
   3247: "Podczas zdarzenia „Poryw wiatru” latające potwory są miotane, a naziemne się zataczają.",
   3248: "Ofiary w stadzie naprawdę trzymają się z dala od drapieżników i zbyt silnego bohatera (stado już ich nie zatrzymuje).",
   3249: "Otrzymywane obrażenia −30%; odzyskujesz 1% PŻ co sekundę.",
+  3250: "Rycerz Zaćmienia i Łamacz Gwiazd są znacznie twardsi: aby ich pokonać, trzeba kilku wniebowstąpień i ulepszonych reliktów.",
+  3251: "Serce Świtu chroni nieco słabiej: otrzymywane obrażenia −30% (zamiast −45%).",
+  3252: "Potwory czują klimat swojej strefy: drżą w śniegu, kichają w zarodnikach, kaszlą w popiołach i wypuszczają bąbelki pod wodą.",
 };

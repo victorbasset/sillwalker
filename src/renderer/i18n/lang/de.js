@@ -2122,4 +2122,7 @@ export default {
   3247: "Während einer „Windböe“ werden Flieger herumgewirbelt und Bodenmonster taumeln.",
   3248: "Beutetiere im Rudel halten wirklich Abstand zu Raubtieren und zu einem zu starken Helden (das Rudel hält sie nicht mehr zurück).",
   3249: "Erlittener Schaden −30 %; du regenerierst jede Sekunde 1 % deiner LP.",
+  3250: "Der Ritter der Finsternis und der Sternenbrecher sind viel zäher: Man braucht mehrere Aufstiege und verbesserte Relikte, um sie zu besiegen.",
+  3251: "Das Herz der Morgenröte schützt etwas weniger: erlittener Schaden −30 % (statt −45 %).",
+  3252: "Monster spüren das Klima ihrer Zone: Sie zittern im Schnee, niesen in den Sporen, husten in der Asche und lassen unter Wasser Blasen aufsteigen.",
 };

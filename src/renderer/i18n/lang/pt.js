@@ -2122,4 +2122,7 @@ export default {
   3247: "Durante uma “Rajada de vento”, os voadores são sacudidos e os monstros terrestres cambaleiam.",
   3248: "As presas em bando afastam-se mesmo dos predadores e do herói forte demais (o bando já não as retém).",
   3249: "Dano recebido −30%; você recupera 1% dos seus PV a cada segundo.",
+  3250: "O Cavaleiro do Eclipse e o Quebra-Estrelas são muito mais duros: são precisas várias ascensões e relíquias melhoradas para os vencer.",
+  3251: "O Coração da aurora protege um pouco menos: dano recebido −30% (em vez de −45%).",
+  3252: "Os monstros sentem o clima da sua zona: tremem na neve, espirram nos esporos, tossem nas cinzas e soltam bolhas debaixo de água.",
 };

@@ -1,7 +1,7 @@
 {
   "name": "sillwalker",
   "productName": "Sillwalker",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Sillwalker, un idle RPG qui vit en bas de ton écran.",
   "main": "src/main/main.js",
   "private": true,

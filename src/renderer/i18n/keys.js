@@ -3251,5 +3251,8 @@ export const KEYS = [
   "Dans la poussière, les bêtes à fourrure s’ébrouent et les bandits toussent ; sous les gouttes des grottes et des égouts, on s’ébroue aussi.",
   "Pendant une « Rafale de vent », les volants sont ballottés et les monstres au sol chancellent.",
   "Les proies en meute s’écartent vraiment des prédateurs et du héros trop fort (la meute ne les retient plus).",
-  "Dégâts subis −30 % ; tu regagnes 1 % de tes PV chaque seconde."
+  "Dégâts subis −30 % ; tu regagnes 1 % de tes PV chaque seconde.",
+  "Le Chevalier de l’éclipse et le Briseur d’Étoiles sont bien plus coriaces : il faut plusieurs ascensions et des reliques améliorées pour les vaincre.",
+  "Le Cœur de l’aube protège un peu moins : dégâts subis −30 % (au lieu de −45 %).",
+  "Les monstres sentent le climat de leur zone : ils grelottent dans la neige, éternuent dans les spores, toussent dans les cendres, lâchent des bulles sous l’eau."
 ];

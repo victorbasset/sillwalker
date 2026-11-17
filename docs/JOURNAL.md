@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2055, sortie 0.1.6 demandée par Victor) : version 0.1.6 (package.json) ; Quoi de neuf, édition 132 (équilibrage :
+  Chevalier et Briseur plus coriaces, Cœur −30 %) ; notes de version RELEASE_016 (dix nouveautés, after: 114 ; sept phrases reprises des
+  éditions, trois nouvelles, clés 3250-3252 traduites) ; test des notes de version mis à jour (un joueur de la 0.1.5 voit celles de
+  la 0.1.6). npm test 353, autotest 261/261, lang-overflow complet : aucun défilement ni mot coupé.
 - 2026-11-17 (it. 2054, suite de la demande de Victor : « équilibrer le reste ») : Cœur de l'aube moins protecteur, dégâts subis
   −45 % → −30 % (−63 % → −42 % au niveau 5 ; régénération inchangée), texte de l'effet traduit (clé 3249). Semaine simulée
   (guerrier, mage, samouraï) : records 350 / 349 / 350 (avant 349 / 350 / 361), premier Chevalier à Cœur 5 pour les trois (samouraï :

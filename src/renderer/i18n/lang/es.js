@@ -2122,4 +2122,7 @@ export default {
   3247: "Durante una «Ráfaga de viento», los voladores se zarandean y los monstruos de tierra se tambalean.",
   3248: "Las presas en manada se apartan de verdad de los depredadores y del héroe demasiado fuerte (la manada ya no las retiene).",
   3249: "Daño recibido −30 %; recuperas el 1 % de tus PV cada segundo.",
+  3250: "El Caballero del Eclipse y el Rompeestrellas son mucho más duros: hacen falta varias ascensiones y reliquias mejoradas para vencerlos.",
+  3251: "El Corazón del alba protege un poco menos: daño recibido −30 % (en vez de −45 %).",
+  3252: "Los monstruos sienten el clima de su zona: tiritan en la nieve, estornudan entre esporas, tosen entre cenizas y sueltan burbujas bajo el agua.",
 };

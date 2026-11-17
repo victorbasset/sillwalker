@@ -2122,4 +2122,7 @@ export default {
   3247: "During a “Wind Gust”, fliers are tossed about and ground monsters stagger.",
   3248: "Prey in a pack truly keep away from predators and from a hero who’s too strong (the pack no longer holds them back).",
   3249: "Damage taken −30%; you regain 1% of your HP every second.",
+  3250: "The Eclipse Knight and the Starbreaker are much tougher: it takes several ascensions and upgraded relics to defeat them.",
+  3251: "The Heart of Dawn protects a little less: damage taken −30% (instead of −45%).",
+  3252: "Monsters feel their zone’s climate: they shiver in the snow, sneeze in the spores, cough in the ashes and release bubbles underwater.",
 };

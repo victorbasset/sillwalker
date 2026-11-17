@@ -654,7 +654,12 @@ const EDITION_131 = [
   "Pendant une « Rafale de vent », les volants sont ballottés et les monstres au sol chancellent.",
   "Les proies en meute s’écartent vraiment des prédateurs et du héros trop fort (la meute ne les retient plus).",
 ];
-export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42, EDITION_43, EDITION_44, EDITION_45, EDITION_46, EDITION_47, EDITION_48, EDITION_49, EDITION_50, EDITION_51, EDITION_52, EDITION_53, EDITION_54, EDITION_55, EDITION_56, EDITION_57, EDITION_58, EDITION_59, EDITION_60, EDITION_61, EDITION_62, EDITION_63, EDITION_64, EDITION_65, EDITION_66, EDITION_67, EDITION_68, EDITION_69, EDITION_70, EDITION_71, EDITION_72, EDITION_73, EDITION_74, EDITION_75, EDITION_76, EDITION_77, EDITION_78, EDITION_79, EDITION_80, EDITION_81, EDITION_82, EDITION_83, EDITION_84, EDITION_85, EDITION_86, EDITION_87, EDITION_88, EDITION_89, EDITION_90, EDITION_91, EDITION_92, EDITION_93, EDITION_94, EDITION_95, EDITION_96, EDITION_97, EDITION_98, EDITION_99, EDITION_100, EDITION_101, EDITION_102, EDITION_103, EDITION_104, EDITION_105, EDITION_106, EDITION_107, EDITION_108, EDITION_109, EDITION_110, EDITION_111, EDITION_112, EDITION_113, EDITION_114, EDITION_115, EDITION_116, EDITION_117, EDITION_118, EDITION_119, EDITION_120, EDITION_121, EDITION_122, EDITION_123, EDITION_124, EDITION_125, EDITION_126, EDITION_127, EDITION_128, EDITION_129, EDITION_130, EDITION_131];
+// (it. 2055) équilibrage demandé par Victor (it. 2053-2054)
+const EDITION_132 = [
+  "Le Chevalier de l’éclipse et le Briseur d’Étoiles sont bien plus coriaces : il faut plusieurs ascensions et des reliques améliorées pour les vaincre.",
+  "Le Cœur de l’aube protège un peu moins : dégâts subis −30 % (au lieu de −45 %).",
+];
+export const NEWS_EDITIONS = [EDITION_1, EDITION_2, EDITION_3, EDITION_4, EDITION_5, EDITION_6, EDITION_7, EDITION_8, EDITION_9, EDITION_10, EDITION_11, EDITION_12, EDITION_13, EDITION_14, EDITION_15, EDITION_16, EDITION_17, EDITION_18, EDITION_19, EDITION_20, EDITION_21, EDITION_22, EDITION_23, EDITION_24, EDITION_25, EDITION_26, EDITION_27, EDITION_28, EDITION_29, EDITION_30, EDITION_31, EDITION_32, EDITION_33, EDITION_34, EDITION_35, EDITION_36, EDITION_37, EDITION_38, EDITION_39, EDITION_40, EDITION_41, EDITION_42, EDITION_43, EDITION_44, EDITION_45, EDITION_46, EDITION_47, EDITION_48, EDITION_49, EDITION_50, EDITION_51, EDITION_52, EDITION_53, EDITION_54, EDITION_55, EDITION_56, EDITION_57, EDITION_58, EDITION_59, EDITION_60, EDITION_61, EDITION_62, EDITION_63, EDITION_64, EDITION_65, EDITION_66, EDITION_67, EDITION_68, EDITION_69, EDITION_70, EDITION_71, EDITION_72, EDITION_73, EDITION_74, EDITION_75, EDITION_76, EDITION_77, EDITION_78, EDITION_79, EDITION_80, EDITION_81, EDITION_82, EDITION_83, EDITION_84, EDITION_85, EDITION_86, EDITION_87, EDITION_88, EDITION_89, EDITION_90, EDITION_91, EDITION_92, EDITION_93, EDITION_94, EDITION_95, EDITION_96, EDITION_97, EDITION_98, EDITION_99, EDITION_100, EDITION_101, EDITION_102, EDITION_103, EDITION_104, EDITION_105, EDITION_106, EDITION_107, EDITION_108, EDITION_109, EDITION_110, EDITION_111, EDITION_112, EDITION_113, EDITION_114, EDITION_115, EDITION_116, EDITION_117, EDITION_118, EDITION_119, EDITION_120, EDITION_121, EDITION_122, EDITION_123, EDITION_124, EDITION_125, EDITION_126, EDITION_127, EDITION_128, EDITION_129, EDITION_130, EDITION_131, EDITION_132];
 export const NEWS_ID = NEWS_EDITIONS.length;
 /** Nouveautés des éditions après `seen` (0 : toutes), la plus récente d'abord. */
 export const newsItems = (seen = 0) => NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().flat();
@@ -718,8 +723,22 @@ const RELEASE_015 = [
   "Le Journal a déménagé : il est maintenant dans Statistiques > Journal.",
   "Quêtes : au survol, chaque récompense s’explique (coffre, œuf, éclats d’étoile, élixirs et parchemins).",
 ];
-// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114 (NEWS_ID) : la suivante prendra after: 114.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }];
+// (it. 2055) notes de la 0.1.6 : les grandes nouveautés des éditions 115 à 132 (journée des monstres, équilibrage)
+const RELEASE_016 = [
+  "Le Rebord vit : en attendant leur tour, les monstres flânent, planent ou sautillent, se tournent vers le héros qui approche et sursautent quand un voisin tombe.",
+  "Chaque zone compte de 7 à 13 monstres, au hasard.",
+  "Chaque sorte de monstre a sa compétence, visible sur la bande et décrite au survol de sa carte du Bestiaire ; les boss de zone ont celle de leur famille.",
+  "Le Geôlier mécanique, la Reine des cendres et le Chevalier de l’éclipse ont leur propre dessin et un pouvoir unique ; le Briseur d’Étoiles est plus coriace.",
+  "Loups, rats, chauves-souris, corbeaux… vont souvent à deux ou trois : la meute se déplace ensemble et s’avance quand l’un des siens se bat.",
+  "Chaque espèce a son geste en attendant son tour : l’araignée remonte sur son fil, l’ours se dresse, le bandit fait le guet…",
+  "La nuit, les bêtes de jour dorment et celles de nuit s’agitent ; de temps en temps, deux voisins bavardent en attendant le héros.",
+  "Les monstres sentent le climat de leur zone : ils grelottent dans la neige, éternuent dans les spores, toussent dans les cendres, lâchent des bulles sous l’eau.",
+  "Les monstres te jaugent : dans une zone facile, ils te craignent ; à ton record, après une défaite, ils s’enhardissent.",
+  "Le Chevalier de l’éclipse et le Briseur d’Étoiles sont bien plus coriaces : il faut plusieurs ascensions et des reliques améliorées pour les vaincre.",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132 (NEWS_ID) : la suivante
+// prendra after: 132.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);
