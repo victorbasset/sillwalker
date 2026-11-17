@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2008) : MONSTRES-VIVANTS, étape 13 (climat des zones, sursaut au niveau du héros).
 - 2026-11-17 (it. 2007) : autotest « climat des zones » (zone 46 neige : ours grelotte, yéti se frappe la poitrine ; zone 56 braises :
   ours se dresse, yéti s'affaisse). 259/259.
 - 2026-11-17 (it. 2006, journée des monstres) : zones sous l'eau (bulles : Récif abyssal, Cité engloutie, Lagon de corail) : les

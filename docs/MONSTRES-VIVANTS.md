@@ -124,6 +124,10 @@ se balançaient qu'au combat.
     le suivant glisse depuis le bord, avec son contour d'élite. Gestes de plus : lézard camouflé, champignards gonflés,
     scorpion qui dresse la queue (it. 1985, 1992). Autotest « une nouvelle série arrive du bord droit ».
 
+13. **Climat et éclat** (it. 2002-2007) : la file sursaute quand le héros monte de niveau ; selon la météo de la zone
+    (juice.js WEATHER), le geste change : neige, qui n'est pas fait pour le froid grelotte ; braises, yétis et variantes de
+    givre s'affaissent ; sous l'eau, créatures de feu aussi. Autotest « climat des zones ».
+
 Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
 série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
 
