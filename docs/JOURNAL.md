@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1923, journée des monstres) : proies et prédateurs : un craintif (rat, grenouille, lézard, corbeau…) voisin
+  d'un prédateur (loup, ours, serpent, wyverne, sanglier, araignée, yéti) s'en écarte de 9 px et lui tourne le dos ; coincé
+  entre deux, il tremble sur place. Vérifié (série imposée : grenouilles entre ours et loups). Autotest 254/254.
 - 2026-11-17 (it. 1922, journée des monstres) : le boss s'impatiente : plus que deux monstres (ou moins) avant lui, il frappe
   du pied toutes les 2,5 à 3,5 s (deux bonds secs) et le dernier de la file sursaute à chaque coup. Vérifié (série imposée,
   deux monstres restants). Autotest 254/254.

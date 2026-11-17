@@ -40,6 +40,8 @@ const NOCTURNAL = new Set(["bat", "ghost", "wolf", "eye", "skel", "mummy", "cult
 const CORPSE_FALL = { ghost: "rise", fireelem: "rise", slime: "squash", jelly: "squash", golem: "crumble", skel: "crumble", mummy: "crumble", treant: "crumble" };
 /** (it. 1867) Craintifs : reculent plus loin quand un voisin tombe. */
 const TIMID = new Set(["rat", "goblin", "bandit", "imp", "frog", "crow", "lizard"]);
+// (it. 1923) prédateurs : un craintif voisin d'un prédateur s'en écarte (et tremble, coincé entre deux)
+const PREDATORS = new Set(["wolf", "bear", "snake", "drake", "boar", "spider", "yeti"]);
 const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a", sacrifice: "#ff4a5a", flutter: "#ffd34d", shock: "#fff6a8", ambush: "#b8f07a", burrow: "#c9a06a", peck: "#c8c8e8", chomp: "#e9b949", pickpocket: "#ffd34d", pollen: "#b8ffd8", thrust: "#d8e0ec", bomb: "#ffb03a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
@@ -1303,6 +1305,12 @@ export class StripRenderer {
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       let life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      if (life && TIMID.has(a.art) && k < this.fights() - 1) {
+        const L = this.slots[k - 1], Rr = this.slots[k + 1];
+        const lp = L && k - 1 > cur && PREDATORS.has(L.art), rp = Rr && k + 1 < this.fights() - 1 && PREDATORS.has(Rr.art);
+        if (lp && rp) life = { ...life, dx: (Math.floor(R.time * 12) % 2 ? 3 : 0) };
+        else if (lp || rp) life = { ...life, dx: life.dx * 0.5 + (lp ? 9 : -9), face: lp ? 1 : -1 };
+      }
       if (life && a.packSeed != null) {
         // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard ; (it. 1919) rats (furtifs) et
         // gluants (sauteurs) aussi : les bonds se suivent en cascade, à 0,25 s d'écart
