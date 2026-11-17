@@ -2118,4 +2118,7 @@ export default {
   3243: "Kichnięcia i kaszel wydmuchują obłoczek przed pyskiem, zielony w zarodnikach, szary w popiołach.",
   3244: "W śniegu zmarzluchy chuchają parą; pod wodą potwory wypuszczają bąbelki; w żarze yeti parują.",
   3245: "Kruk żyje za dnia i śpi nocą; duch ani nie drży, ani nie kaszle: nie oddycha.",
+  3246: "W pyle futrzaste bestie otrząsają się, a bandyci kaszlą; pod kroplami jaskiń i kanałów również się otrząsają.",
+  3247: "Podczas zdarzenia „Poryw wiatru” latające potwory są miotane, a naziemne się zataczają.",
+  3248: "Ofiary w stadzie naprawdę trzymają się z dala od drapieżników i zbyt silnego bohatera (stado już ich nie zatrzymuje).",
 };

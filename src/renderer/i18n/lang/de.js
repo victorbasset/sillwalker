@@ -2118,4 +2118,7 @@ export default {
   3243: "Niesen und Husten blasen ein Wölkchen vor das Maul, grün in den Sporen, grau in der Asche.",
   3244: "Im Schnee hauchen die Frierenden Atemwolken; unter Wasser lassen Monster Blasen aufsteigen; in der Glut dampfen die Yetis.",
   3245: "Die Krähe lebt am Tag und schläft nachts; das Gespenst zittert und hustet nicht: Es atmet nicht.",
+  3246: "Im Staub schütteln sich pelzige Tiere und Banditen husten; unter den Tropfen von Höhlen und Kanälen schüttelt man sich ebenfalls.",
+  3247: "Während einer „Windböe“ werden Flieger herumgewirbelt und Bodenmonster taumeln.",
+  3248: "Beutetiere im Rudel halten wirklich Abstand zu Raubtieren und zu einem zu starken Helden (das Rudel hält sie nicht mehr zurück).",
 };

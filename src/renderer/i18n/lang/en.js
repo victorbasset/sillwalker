@@ -2118,4 +2118,7 @@ export default {
   3243: "Sneezes and coughs blow a puff in front of the mouth, green in the spores, grey in the ashes.",
   3244: "In the snow, chilly monsters breathe out mist; underwater, monsters release bubbles; in the embers, yetis steam.",
   3245: "The crow lives by day and sleeps at night; the ghost neither shivers nor coughs: it doesn’t breathe.",
+  3246: "In the dust, furry beasts shake themselves off and bandits cough; under the drips of caves and sewers, monsters shake off too.",
+  3247: "During a “Wind Gust”, fliers are tossed about and ground monsters stagger.",
+  3248: "Prey in a pack truly keep away from predators and from a hero who’s too strong (the pack no longer holds them back).",
 };

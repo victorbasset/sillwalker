@@ -2118,4 +2118,7 @@ export default {
   3243: "Espirros e tosses soltam uma baforada diante da boca, verde nos esporos, cinzenta nas cinzas.",
   3244: "Na neve, os friorentos soltam vapor; debaixo de água, os monstros soltam bolhas; nas brasas, os yetis fumegam.",
   3245: "O corvo vive de dia e dorme à noite; o fantasma não treme nem tosse: não respira.",
+  3246: "Na poeira, as feras peludas sacodem-se e os bandidos tossem; sob as gotas das grutas e dos esgotos, também se sacodem.",
+  3247: "Durante uma “Rajada de vento”, os voadores são sacudidos e os monstros terrestres cambaleiam.",
+  3248: "As presas em bando afastam-se mesmo dos predadores e do herói forte demais (o bando já não as retém).",
 };

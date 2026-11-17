@@ -2118,4 +2118,7 @@ export default {
   3243: "Estornudos y toses sueltan una bocanada ante la boca, verde entre las esporas, gris entre las cenizas.",
   3244: "En la nieve, los frioleros echan vaho; bajo el agua, los monstruos sueltan burbujas; entre las brasas, los yetis humean.",
   3245: "El cuervo vive de día y duerme de noche; el fantasma ni tirita ni tose: no respira.",
+  3246: "En el polvo, las bestias peludas se sacuden y los bandidos tosen; bajo el goteo de cuevas y cloacas, también se sacuden.",
+  3247: "Durante una «Ráfaga de viento», los voladores se zarandean y los monstruos de tierra se tambalean.",
+  3248: "Las presas en manada se apartan de verdad de los depredadores y del héroe demasiado fuerte (la manada ya no las retiene).",
 };

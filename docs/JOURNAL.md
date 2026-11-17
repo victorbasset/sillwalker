@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2049) : Quoi de neuf, édition 131 (poussière et gouttes ; Rafale de vent ; proies en meute), clés 3246-3248
+  traduites ; « Rafale de vent » cité tel quel (polonais et russe : « pendant l'événement … », le nom décliné échouait à
+  i18n-quotes). npm test 353, autotest 261/261, lang-overflow : aucun défilement.
 - 2026-11-17 (it. 2048) : MONSTRES-VIVANTS : étape 13 complétée (buée, bulles, vapeur, poussière, gouttes) et étape 14 (Rafale
   de vent, ordre des règles de la file).
 - 2026-11-17 (it. 2047, journée des monstres) : gouttes (Grotte suintante, Égouts oubliés) : une goutte tombe dessus, le monstre s'ébroue
