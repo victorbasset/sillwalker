@@ -3233,5 +3233,8 @@ export const KEYS = [
   "« Effets complets » décoché : les monstres qui attendent restent calmes.",
   "Épuisé par un combat sans fin, ton héros renonce.",
   "Craintif : se tient loin des prédateurs.",
-  "Prédateur : les proies s’en écartent."
+  "Prédateur : les proies s’en écartent.",
+  "Les monstres te jaugent : dans une zone facile, ils te craignent ; à ton record, après une défaite, ils s’enhardissent.",
+  "Le Bestiaire dit si une espèce est grégaire, craintive ou prédatrice.",
+  "Sylvains et cultistes choisissent leur moment : le soin quand ils sont blessés, le sacrifice tant qu’ils tiennent debout."
 ];

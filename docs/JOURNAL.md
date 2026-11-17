@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1983) : « Quoi de neuf », édition 126 (réputation, caractères au Bestiaire, compétences réfléchies ; clés
+  3232-3234, 10 langues ; noms du jeu repris tels que traduits : Sylvain, Cultiste, Bestiaire, corrigés en 7 langues avant
+  publication). Autotest 257/257, lang-overflow ru/de/pl : rien ne défile.
 - 2026-11-17 (it. 1982) : réputation (it. 1976) : les élites et champions, téméraires, ne tremblent plus devant un héros trop fort.
   Autotest 257/257.
 - 2026-11-17 (it. 1981, revue générale) : perf:linux bande 18,1 %, panneau 19,5 %, mini 5,5 % ; balance 12 h graine 3 contre

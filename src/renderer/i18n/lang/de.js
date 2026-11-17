@@ -2104,4 +2104,7 @@ export default {
   3229: "Erschöpft von einem endlosen Kampf gibt dein Held auf.",
   3230: "Ängstlich: hält Abstand zu Raubtieren.",
   3231: "Raubtier: Beutetiere halten Abstand.",
+  3232: "Monster schätzen dich ein: In einer leichten Zone fürchten sie dich; an deinem Rekord werden sie nach einer Niederlage kühner.",
+  3233: "Das Bestiarium zeigt, ob eine Art Herdentier, ängstlich oder Raubtier ist.",
+  3234: "Sylvane und Kultisten wählen ihren Moment: Heilung, wenn sie verwundet sind, das Opfer, solange sie standhalten.",
 };

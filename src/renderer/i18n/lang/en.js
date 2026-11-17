@@ -2104,4 +2104,7 @@ export default {
   3229: "Worn out by an endless fight, your hero gives up.",
   3230: "Timid: keeps away from predators.",
   3231: "Predator: prey keeps its distance.",
+  3232: "Monsters size you up: in an easy zone they fear you; at your record, after a defeat, they grow bolder.",
+  3233: "The Bestiary tells whether a species is gregarious, timid or a predator.",
+  3234: "Sylvans and cultists pick their moment: healing when wounded, sacrifice while they still stand strong.",
 };

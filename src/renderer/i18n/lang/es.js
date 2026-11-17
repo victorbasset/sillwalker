@@ -2104,4 +2104,7 @@ export default {
   3229: "Agotado por un combate sin fin, tu héroe se rinde.",
   3230: "Miedoso: se mantiene lejos de los depredadores.",
   3231: "Depredador: las presas se apartan de él.",
+  3232: "Los monstruos te calibran: en una zona fácil te temen; en tu récord, tras una derrota, se envalentonan.",
+  3233: "El Bestiario indica si una especie es gregaria, miedosa o depredadora.",
+  3234: "Silvanos y cultistas eligen su momento: la curación cuando están heridos, el sacrificio mientras aguantan.",
 };

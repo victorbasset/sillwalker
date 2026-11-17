@@ -2104,4 +2104,7 @@ export default {
   3229: "Wyczerpany niekończącą się walką, twój bohater się poddaje.",
   3230: "Płochliwy: trzyma się z dala od drapieżników.",
   3231: "Drapieżnik: ofiary trzymają się od niego z dala.",
+  3232: "Potwory cię oceniają: w łatwej strefie boją się ciebie; na twoim rekordzie, po porażce, nabierają śmiałości.",
+  3233: "Bestiariusz mówi, czy gatunek jest stadny, płochliwy czy jest drapieżnikiem.",
+  3234: "Leśne duchy i kultyści wybierają moment: leczenie, gdy są ranni, ofiarę, dopóki trzymają się na nogach.",
 };

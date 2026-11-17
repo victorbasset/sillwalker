@@ -2104,4 +2104,7 @@ export default {
   3229: "Exausto por um combate sem fim, o teu herói desiste.",
   3230: "Medroso: mantém-se longe dos predadores.",
   3231: "Predador: as presas afastam-se dele.",
+  3232: "Os monstros avaliam-te: numa zona fácil temem-te; no teu recorde, após uma derrota, ganham coragem.",
+  3233: "O Bestiário indica se uma espécie é gregária, medrosa ou predadora.",
+  3234: "Silvanos e cultistas escolhem o momento: a cura quando estão feridos, o sacrifício enquanto aguentam.",
 };
