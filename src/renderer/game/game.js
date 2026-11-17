@@ -68,6 +68,10 @@ export function skillBalance(m, sk) {
   if (sk.dodge) lost += 0.5 * sk.dodge / sk.every; // (it. 1864) vol erratique : un coup sur deux raté
   if (sk.hide) lost += sk.hide / sk.every; // (it. 1864) caché : hors d'atteinte
   if (sk.blind) lost += ECLIPSE.miss * sk.blind / sk.every; // (it. 1864) aveuglé : un coup sur deux raté
+  // (it. 1886) venin (dard, toile de la veuve, racines pourries, variantes toxiques) et malédiction des variantes d'ombre :
+  // jusqu'ici sans compensation (balance −0,8 zone en moyenne sur trois graines)
+  if (sk.venom || sk.el === "poison") lost += 0.04;
+  if (sk.el === "shadow") lost += 0.02;
   if (sk.guard) lost += sk.cut * sk.guard / sk.every; // (it. 1860) garde : part des dégâts bloqués
   if (sk.heal) lost += sk.heal * 0.5; // (it. 1860) soin (≈ la moitié en moyenne : il vient souvent avant la fin du combat)
   if (sk.curse) m.atk /= 1 + CURSE.hurt * sk.curse / sk.every; // (it. 1859) malédiction : 15 % de dégâts en plus, le temps qu'elle dure

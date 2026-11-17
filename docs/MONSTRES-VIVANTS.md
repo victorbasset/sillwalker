@@ -86,3 +86,8 @@ se balançaient qu'au combat.
    d'informations reste dégagée) ; un monstre ordinaire sous 25 % de vie recule en tremblant, les craintifs plus loin ;
    à suivre : meutes (loups qui attendent ensemble), volants qui changent d'altitude, monstres qui
    fuient blessés, réactions à la mort d'un voisin.
+
+## Bilan d'équilibre (it. 1886)
+
+Contre aea72772 (avant les compétences), sur trois graines (7, 3, 11), après toute la journée : −0,8 zone en 12 h en
+moyenne (≈ 1 %). La semaine reste à 350 (guerrier 366). Gardé : les monstres paraissent un peu plus coriaces.

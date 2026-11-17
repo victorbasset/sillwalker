@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1886, journée des monstres) : bilan d'équilibre contre aea72772 (avant les compétences), trois graines :
+  −1,1 / −0,2 / −1,0 (moyenne −0,8). Venin et ombre compensés à leur tour (PV −4 % / −2 %) : −1,5 / −0,7 / −0,3 (−0,8) :
+  pas la cause ; écart résiduel ≈ 1 % de progression en 12 h, gardé (monstres un peu plus coriaces, ressenti voulu).
+  fuzz 600 / 0 ; npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1885, journée des monstres) : annonce lisible : pendant la préparation d'une compétence, un petit « ! »
   de sa couleur au-dessus du monstre (le joueur voit venir le coup). Mis en scène (sanglier) ; perf bande 18,4 % ;
   npm test 345, autotest 253/253.
