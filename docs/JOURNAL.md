@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2089, vérification) : piste « renforce tes reliques » hors de la carte de la zone : info-bulle du mode mini (texte
+  libre) et bulle d'alerte de la bande (deux pistes) : rien ne peut déborder. Rien à corriger.
 - 2026-11-17 (it. 2088) : POUR-VICTOR : ce qui a changé depuis la 0.1.6, à regarder en jouant.
 - 2026-11-17 (it. 2087, vérification) : bande, victoires ordinaires : relevé toutes les 50 ms, le vaincu est caché (cadavre à part),
   les autres gardent leur place, aucun saut. Rien à corriger.
