@@ -8,6 +8,9 @@ import { fmt, esc } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 
+/** (it. 2094) pause du curseur avant que la fiche suive un talent survolé (traverser un bouton prend moins de 100 ms) */
+export const HOVER_MS = 140;
+
 export class TalentsTab {
   constructor(game) {
     this.game = game;
@@ -150,7 +153,17 @@ export class TalentsTab {
       <ul class="lines mpicks">${got.map((g) => `<li${r >= g.at ? "" : ` class="later" title="${esc(tx("Pas encore atteint dans cette course : réglé d’avance."))}"`}><span>${tx("rang {0}", { 0: g.at })}${r >= g.at ? "" : " ⏳"}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul></details>`;
   }
 
+  /** (it. 2094, demande de Victor : « les clics sur des éléments qui changent à gauche, c'est plus possible ») intention de
+   *  survol : la fiche ne suit un talent qu'après HOVER_MS de pause dessus. Pour aller cliquer dans la fiche (bonus d'une
+   *  maîtrise), la souris traverse d'autres talents sans s'y arrêter : la fiche reste celle qu'on regardait. */
   hover(id) {
+    clearTimeout(this.hoverT);
+    if (!id || id === this.sel || !TALENT_INDEX[id] || !this.root) return;
+    this.hoverT = setTimeout(() => this.show(id), HOVER_MS);
+  }
+
+  /** Affiche la fiche du talent `id` (sans reconstruire tout l'onglet). */
+  show(id) {
     if (!id || id === this.sel || !TALENT_INDEX[id] || !this.root) return;
     this.sel = id;
     const box = this.root.querySelector("#tsel");
@@ -163,6 +176,7 @@ export class TalentsTab {
 
   onAction(a, b, e) {
     const g = this.game;
+    clearTimeout(this.hoverT); // (it. 2094) un clic l'emporte sur une pause en cours
     if (a === "t-sel") this.sel = b.dataset.id;
     // (it. 1522) pastille « A/B » : la fiche de cette maîtrise, et la fenêtre de choix des paliers ouverte
     else if (a === "t-mpend") { this.sel = b.dataset.id; setTimeout(() => this.root?.querySelector("#tsel .mpickbox summary")?.click(), 0); }

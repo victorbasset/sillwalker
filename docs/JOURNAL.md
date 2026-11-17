@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2094, demande de Victor : refonte ergonomique de l'onglet Talents, sur plusieurs itérations ; plan et audit :
+  docs/TALENTS-UX.md) : intention de survol : la fiche de gauche ne suit un talent qu'après 140 ms de pause dessus (avant :
+  aussitôt, et pour aller cliquer dans la fiche, la souris traversait d'autres talents qui la changeaient en route) ; un clic la
+  fixe toujours. Mise en scène : traversée de trois talents à 40 ms → fiche inchangée ; pause → fiche du talent. Autotest
+  « talents : traverser la grille ne change pas la fiche » ; 265/265.
 - 2026-11-17 (it. 2093) : autotest « le boss d'une nouvelle série apparaît en fondu » (alpha < 0,5 juste après, 1 après 1,5 s).
   Autotest 264/264.
 - 2026-11-17 (it. 2092) : bande, nouvelle série : le boss (exclu de l'arrivée en courant, it. 1996) surgissait d'un coup au bout de
