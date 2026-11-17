@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1929, journée des monstres) : les spectres qui attendent s'estompent et reviennent lentement (75 / 87,5 /
+  100 %, Actor.alpha n'écrit qu'aux changements de palier) ; opacité pleine au combat (hors Intangible). Vérifié (série
+  imposée). Autotest 254/254.
 - 2026-11-17 (it. 1928, journée des monstres) : vidéo des instincts envoyée à Victor (zone 46, série imposée : grenouilles,
   meute de loups, rats, ours, boss Grand Yéti ; la série se termine en 25 s). Idée écartée : réagir à la météo (elle est
   fixe par zone, juice.js WEATHER : décor, pas un temps qui change).

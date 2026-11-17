@@ -1381,6 +1381,10 @@ export class StripRenderer {
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) * (a.brave ? 1.3 : 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
+      // (it. 1929) les spectres qui attendent s'estompent et reviennent lentement (entre 75 et 100 %, par huitièmes :
+      // Actor.alpha n'écrit qu'aux changements de palier) ; au combat, l'opacité normale reprend (ligne ci-dessus)
+      else if (a.art === "ghost") a.alpha(0.875 + 0.125 * Math.sin(R.time * 0.9 + (a.lifeSeed || 0) * 9));
+      if (fighting && a.art === "ghost" && !a.phased && a.alphaV !== 1) a.alpha(1);
       // (it. 1890) bavardage : celui de gauche se tourne vers la droite, l'autre garde sa face ; petits hochements
       let chatDy = 0, chatFlip = null;
       if (!fighting && a.chat) { a.chat.t -= dt; if (a.chat.t <= 0) a.chat = null; else { chatFlip = a.chat.side < 0; chatDy = Math.floor(a.chat.t * 5 + (a.chat.side > 0 ? 1 : 0)) % 2 ? -2 : 0; } }
