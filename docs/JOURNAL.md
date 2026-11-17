@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1871, revue générale, journée des monstres) : tableau des 20 héros (12 h, graines 7/3/11) après les
+  compétences de monstres : moyenne 64,4 (it. 1825 : 65,0), écart 5,0 (6,3) ; en recul : rôdeur 61,3 (65,3) et barde
+  61,7 (65,0), à vérifier sur 7 graines ; moine 68,0 → 64,3. perf:linux bande 18,2 %, panneau 19,8 %, mini 5,5 % ;
+  chinois : aucun mot français.
 - 2026-11-17 (it. 1870, journée des monstres) : contrôle visuel de six compétences en plein geste (bond, piqué, charge,
   poing de pierre, fouissement, souffle ; mise en scène : strip.mfx figé à mi-course avant --shot). Contre un héros au
   corps à corps, les élans vers le héros ne faisaient que quelques pixels (distance ≈ 0) : plancher de 10 px pour les
