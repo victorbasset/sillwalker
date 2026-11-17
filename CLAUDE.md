@@ -55,6 +55,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (les 20 héros) et signale celles qui ne progressent pas (60 graines = 1200 parties, ≈ 1 min). `FUZZ_DAYMOD=<clé|all>` : avec une bénédiction du jour active (it. 1278 ; elles changent la file : élites, gobelins, champions). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
+- Parties figées dans des sauvegardes avancées (it. 1964) : `node --experimental-default-type=module scripts/stall-check.mjs [heures=2]`
+  (dev-data, fin de partie, 0.1.2 × les 20 héros, ≈ 25 s ; « 60 parties, 0 figées » attendu). fuzz.mjs ne voit que des parties
+  neuves : l'impasse « boss qui se régénère contre héros qui encaisse tout » (it. 1958) et celle du serviteur du nécromancien
+  (it. 1964) n'apparaissaient qu'en partie avancée. Garde-fous dans game.js (emportement après 90 s, abandon après 3 min).
 - Sauvegardes abîmées : `node --experimental-default-type=module scripts/save-fuzz.mjs` (27 corruptions écrites à la main
   de la sauvegarde de dev, chacune « ok », puis un balayage de chaque donnée et de chaque champ des sous-objets avec sept
   valeurs absurdes : « ok balayage (N corruptions) » attendu, ≈ 35 s ; it. 873 ; chaque corruption passe aussi par les moments à risque (mort face à un boss, boss vaincu, événement, coffre, étoile, achat d'un déblocage, quêtes : exercise(), it. 903) et par les actions du joueur (sac, forge, boutique, familiers, points, ascension : it. 904) ; le balayage touche aussi les champs d'un objet, d'une quête, d'un familier et d'une expédition (it. 905). Un cas qui ne finit pas (boucle sans fin) : `FUZZ_TRACE=1` affiche chaque cas avant de le jouer, le dernier affiché est le coupable ; un nouveau moment de ce genre s'y ajoute). À relancer après tout ajout de donnée sauvegardée. Il lit l'heure réelle (pas l'horloge virtuelle) : un cas qui

@@ -463,6 +463,10 @@ export class Game {
       // (it. 1959) tout monstre, pas seulement les boss : un élite « Régénérant » pouvait figer la partie de la même façon ;
       // hors boss, l'accélération est discrète (pas de mot de capacité de boss)
       m.fightT = (m.fightT || 0) + dt;
+      // (it. 1964) dernier recours : 3 min du même combat (le serviteur du nécromancien encaissait tous les coups d'une
+      // grenouille qui se régénérait : l'emportement n'y pouvait rien), le héros, épuisé, abandonne : compté comme une
+      // défaite (recul après deux), la progression reprend
+      if (m.fightT > 180) { this.heroDown(); return; }
       if (m.fightT > 90) {
         m.wrathT = (m.wrathT ?? 0) - dt;
         if (m.wrathT <= 0) { m.wrathT = 10; m.interval *= FURY.speed; if (m.boss) { m.fury = (m.fury || 0) + 1; this.emit("bossSkill", { id: "fury", n: m.fury }); } }

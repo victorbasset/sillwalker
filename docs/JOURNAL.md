@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1964, bogue + outil) : scripts/stall-check.mjs (sauvegardes avancées × 20 héros, 2 h de jeu, alerte à 5 min
+  sans victoire ni défaite) ; il a trouvé une seconde impasse : nécromancien de dev-data, zone 44, grenouille toxique qui se
+  régénère, serviteur qui encaisse tous ses coups (l'emportement de l'it. 1959 n'y peut rien). Dernier recours : après 3 min du
+  même combat, le héros abandonne (compté comme une défaite). 60 parties, 0 figées ; balance +0,0 ; fuzz 600 / 0 ;
+  autotest 257/257. Noté dans CLAUDE.md.
 - 2026-11-17 (it. 1963, vérification) : la progression hors ligne (applyOffline) est calculée (dps, temps par monstre), pas
   simulée coup par coup : l'impasse de l'it. 1958 n'y existe pas. Rien à corriger.
 - 2026-11-17 (it. 1962) : « Quoi de neuf », édition 125 (mode mini : le suivant attend ; impasse corrigée ; effets réduits :
