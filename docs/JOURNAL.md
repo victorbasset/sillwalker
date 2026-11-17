@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2078, vérification) : retour après 8 h d'absence (copie de dev-data) : la bulle « Pendant ton absence (8 h) : 244
+  monstres, +29,06 Md or. Cliquer pour le détail. » s'affiche sur la bande (pas avec --open-panel, normal). Rien à corriger.
 - 2026-11-17 (it. 2077) : Quoi de neuf, édition 134 (mode mini : monstre suivant fluide, boss en attente), clés 3258-3259
   traduites. npm test 356, autotest 262/262, lang-overflow : aucun défilement.
 - 2026-11-17 (it. 2076, vérification) : mode mini, boss en attente vu en capture en zone 150 (Chevalier de l'éclipse, son dessin,
