@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2063) : lang-overflow mesure aussi la zone d'un lieutenant ou du Briseur avec le héros bloqué (« adventure-boss150-
+  bloqué=N ») : il a trouvé en russe à 1280 px 7 px (zones 100, 150) et 22 px (zones 200, 300) ; la zone 200 défilait déjà avant
+  l'it. 2062 (16 px, carte du Briseur : une ligne de capacités de plus). Dans ces zones, la carte donne maintenant deux pistes (elle
+  porte déjà la relique gardée) : 10 langues à 1280 et 1366 px, aucun défilement. Autotest 261/261.
 - 2026-11-17 (it. 2062) : héros bloqué devant un lieutenant ou le Briseur (bien plus coriaces depuis l'it. 2053) avec une relique pas
   au maximum : nouvelle piste « renforce tes reliques » (avant l'ascension ; la bulle de la relique dit comment). Test logique. Une
   première phrase plus longue faisait passer « Chances de butin » sous la bande en russe à 1280 px (carte de la zone 150, trois

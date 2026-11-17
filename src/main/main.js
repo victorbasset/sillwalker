@@ -285,6 +285,13 @@ function start() {
             if (last) { delete S.unlocks[last]; P.setTab("adventure");
               for (const [gold, tag] of [[1e300, "prêt"], [1, "pas-prêt"]]) { S.gold = gold; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("adventure-avant-dernier-" + tag + "=" + o); }
               S.unlocks[last] = true; S.gold = keepG; } }
+          // (it. 2063) zone d'un lieutenant ou du Briseur, héros bloqué, reliques incomplètes : ligne de la relique gardée et trois
+          // pistes dont « renforce tes reliques » (it. 2062 : une phrase plus longue poussait « Chances de butin » sous la bande en
+          // russe à 1280 px, sans qu'aucune mesure le voie)
+          { const G = window.__game, S = G.S, keep = { z: S.zone, r: S.relics, lv: S.relicLv };
+            S.relics = { drone: 1, heart: 1, blade: 1 }; S.relicLv = { drone: 5, heart: 3, blade: 2 }; G.stuckInfo = () => ({ deaths: 4 }); G.invalidateStats(); P.setTab("adventure");
+            for (const z of [50, 100, 150, 200, 300]) { S.zone = z; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("adventure-boss" + z + "-bloqué=" + o); }
+            delete G.stuckInfo; S.zone = keep.z; S.relics = keep.r; S.relicLv = keep.lv; G.invalidateStats(); P.renderAll(); }
           // (it. 939) Statistiques sous chaque bénédiction du jour : « aujourd'hui … » allonge certaines valeurs (coffre,
           // élite, gobelin) ; « Schatztruhe » passait sous sa valeur les Jours des trésors seulement (défaut intermittent)
           // (it. 940) toutes les bénédictions, Aventure (puce de la bénédiction) comprise
