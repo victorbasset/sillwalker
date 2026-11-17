@@ -1226,6 +1226,11 @@ export class StripRenderer {
       const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
       // (it. 1867) réactions de groupe : sursaut (mort d'un voisin), joie (héros à terre)
       let rdx = 0, rdy = 0;
+      // (it. 1868) monstre ordinaire très blessé (sous 25 % de vie) : il recule en tremblant, prêt à fuir (les craintifs
+      // plus loin) ; pas pendant une compétence (sa pose l'emporte)
+      if (fighting && !R.mon.boss && !pose && R.mon.max > 0 && R.mon.hp / R.mon.max < 0.25) {
+        rdx = (TIMID.has(a.art) ? 9 : 5) + (Math.floor(R.time * 9) % 2 ? 1 : 0);
+      }
       if (!fighting && a.react) {
         const r = a.react; r.t += dt;
         const p = (r.t - r.delay) / r.d;

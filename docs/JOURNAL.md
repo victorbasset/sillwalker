@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1868, journée des monstres) : volants : altitude de croisière propre, qui monte et descend lentement
+  (mesuré : ≥ 30 px du haut de la bande pour les monstres ordinaires, la rangée d'informations fait 24 px) ; monstre
+  ordinaire sous 25 % de vie : recule en tremblant (5 px, 9 px pour les craintifs). npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1867, journée des monstres) : réactions de groupe sur la bande : à la mort d'un monstre, les trois
   suivants sursautent et reculent (8 px, 16 px pour les craintifs : rats, gobelins, bandits, diablotins, crapauds,
   corbeaux, lézards) ; héros à terre : la file sautille de joie, chacun à son tour. Mesuré en jeu (le mort est à S.kills

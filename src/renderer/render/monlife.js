@@ -52,7 +52,9 @@ export function lifeOffset(nature, seed, t, heroDist, boss = false) {
     case "fly": {
       // plane : grand balancement lent et dérive de part et d'autre de sa place, ailes au vent
       dx = drift(t, seed, 2.4) * 20 * calm;
-      dy = Math.sin(t * (1.6 + seed) + seed * 6) * 4 - 2;
+      // (it. 1868) altitude propre : chaque volant croise plus haut ou plus bas, et elle change lentement (montée, descente)
+      const cruise = -2 - seed * 4 + drift(t, seed * 3.7, 9) * 4 * calm; // au plus ≈ 12 px plus haut : la rangée d'informations (24 px) reste dégagée
+      dy = cruise + Math.sin(t * (1.6 + seed) + seed * 6) * 4 - 2;
       const v = drift(t + 0.2, seed, 2.4) - drift(t, seed, 2.4);
       face = calm > 0.5 && v > 0.01 ? -1 : 1; // part vers la droite : il tourne le dos au héros
       break;

@@ -82,5 +82,7 @@ se balançaient qu'au combat.
    À suivre : une variante propre à certains boss (nom, effet renforcé).
 5. **Comportements d'ensemble** (it. 1856 : la meute de loups répond au hurlement ; it. 1867 : quand un monstre tombe,
    les trois suivants sursautent et reculent, les craintifs plus loin ; héros à terre : la file sautille de joie) ;
+   it. 1868 : chaque volant croise à sa propre altitude, qui change lentement (≥ 30 px du haut : la rangée
+   d'informations reste dégagée) ; un monstre ordinaire sous 25 % de vie recule en tremblant, les craintifs plus loin ;
    à suivre : meutes (loups qui attendent ensemble), volants qui changent d'altitude, monstres qui
    fuient blessés, réactions à la mort d'un voisin.
