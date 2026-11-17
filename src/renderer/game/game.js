@@ -466,7 +466,7 @@ export class Game {
       // (it. 1964) dernier recours : 3 min du même combat (le serviteur du nécromancien encaissait tous les coups d'une
       // grenouille qui se régénérait : l'emportement n'y pouvait rien), le héros, épuisé, abandonne : compté comme une
       // défaite (recul après deux), la progression reprend
-      if (m.fightT > 180) { this.heroDown(); return; }
+      if (m.fightT > 180) { this.log(tx("Épuisé par un combat sans fin, ton héros renonce.")); this.heroDown(); return; }
       if (m.fightT > 90) {
         m.wrathT = (m.wrathT ?? 0) - dt;
         if (m.wrathT <= 0) { m.wrathT = 10; m.interval *= FURY.speed; if (m.boss) { m.fury = (m.fury || 0) + 1; this.emit("bossSkill", { id: "fury", n: m.fury }); } }

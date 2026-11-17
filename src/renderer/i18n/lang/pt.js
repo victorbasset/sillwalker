@@ -2101,4 +2101,5 @@ export default {
   3226: "No modo mini, o próximo monstro espera a sua vez no fundo da cena.",
   3227: "Um monstro que se regenera já não pode bloquear o herói sem fim: após 90 s de combate, enfurece-se.",
   3228: "«Efeitos completos» desmarcado: os monstros que esperam ficam calmos.",
+  3229: "Exausto por um combate sem fim, o teu herói desiste.",
 };

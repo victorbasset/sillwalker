@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1967) : abandon après 3 min de combat (it. 1964) : une ligne de journal le dit (« Épuisé par un combat sans
+  fin, ton héros renonce. », clé 3229, 10 langues, catégorie « mauvaise nouvelle » de log.js) avant celle de la défaite.
+  Autotest 257/257.
 - 2026-11-17 (it. 1966, contrôle) : semaine simulée après le dernier recours (abandon après 3 min, it. 1964), pour vérifier
   qu'il ne coupe pas de longs combats de boss gagnants en fin de partie : guerrier 349, mage 350 : inchangé.
 - 2026-11-17 (it. 1965) : stall-check : option STALL_DAYMOD (bénédictions du jour) ; 6 h de jeu : 60 / 0 figées ; 3 h sous les

@@ -2101,4 +2101,5 @@ export default {
   3226: "In mini mode, the next monster waits its turn at the back of the scene.",
   3227: "A regenerating monster can no longer stall the hero forever: after 90 s of combat, it flies into a rage.",
   3228: "“Full effects” unchecked: waiting monsters stay calm.",
+  3229: "Worn out by an endless fight, your hero gives up.",
 };

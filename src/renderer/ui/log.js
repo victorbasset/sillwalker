@@ -10,7 +10,7 @@ import { RARITIES, LEGENDARY } from "../game/data.js";
 const LOG_KEYS = [
   // (it. 1840) ordre = priorité : « sac plein » avant « légendaire » (le français y lit le nom de la rareté), événements
   // avant étapes (le russe « Открыто: » de « Débloqué » est contenu dans « Событие открыто: »)
-  ["lg-bad", ["Ton héros est tombé. La progression de la zone repart à zéro.", "Trop dur : ton héros recule vers ", "Dernière potion de soin bue : passe à la boutique !", "K.O.", "Le légendaire de Poupouce est resté au sol : sac plein."], []],
+  ["lg-bad", ["Ton héros est tombé. La progression de la zone repart à zéro.", "Trop dur : ton héros recule vers ", "Dernière potion de soin bue : passe à la boutique !", "K.O.", "Le légendaire de Poupouce est resté au sol : sac plein.", "Épuisé par un combat sans fin, ton héros renonce."], []],
   ["lg-leg", ["Nouveau pouvoir légendaire découvert : {0} !", "{0} vaincu : {1} or et un objet légendaire !"], [LEGENDARY]],
   ["lg-rare", ["Champion vaincu : {0} or et un butin épique !", "Coffre au trésor ! +{0} or", "Étoile filante attrapée ! +{0} or",
     "Étoile filante attrapée : +{0} or !", ": +{0} % de vitesse de déplacement, pour toujours (total +{1} %).", ": +{0} % de vitesse pour toujours ! (+{1} %)",

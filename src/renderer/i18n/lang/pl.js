@@ -2101,4 +2101,5 @@ export default {
   3226: "W trybie mini następny potwór czeka na swoją kolej w głębi sceny.",
   3227: "Regenerujący się potwór nie może już bez końca blokować bohatera: po 90 s walki wpada w szał.",
   3228: "„Pełne efekty” odznaczone: czekające potwory zachowują spokój.",
+  3229: "Wyczerpany niekończącą się walką, twój bohater się poddaje.",
 };
