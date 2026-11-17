@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1941, revue générale) : perf:linux bande 18,2 %, panneau 18,9 %, mini 5,5 % ; balance 12 h contre aea72772
+  (avant les compétences des monstres) : −0,9 zone, comme le bilan de l'it. 1886 (−0,8) : les meutes n'ont rien changé ;
+  fuzz 600 / 0 ; --crawl en polonais : 675 clics, aucune erreur. Rien à corriger.
 - 2026-11-17 (it. 1940, vérification) : « seconde phase des boss » écartée : les capacités tournantes « Enragé » et « Fureur
   croissante » (bosses.js) le font déjà. Vidéo de l'it. 1928 en zone 40 : pas un défaut de strip-clip (la série imposée
   s'applique, relevé à 3, 5, 9 s), le héros l'avait finie avant 20 s ; filmer là où une série dure plus que la vidéo.
