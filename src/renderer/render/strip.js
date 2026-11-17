@@ -1291,10 +1291,11 @@ export class StripRenderer {
 
     // Monstres en attente / combat en cours
     const cur = Math.min(S.kills, this.fights() - 1), line = game.lineup();
+    const calmFx = S.settings.fullEffects === false;
     // (it. 1890) bavardage : de loin en loin, deux voisins loin du héros se tournent l'un vers l'autre (hochements)
     // (it. 1932) la nuit, un loup qui attend lève la tête et hurle à la lune toutes les 15 à 30 s ; les autres loups de la
     // file lui répondent un instant après (même geste que le Hurlement de meute)
-    if ((this.nightV || 0) >= 0.8) {
+    if ((this.nightV || 0) >= 0.8 && !calmFx) {
       this.moonT = (this.moonT ?? 6 + Math.random() * 10) - dt;
       if (this.moonT <= 0) {
         this.moonT = 15 + Math.random() * 15;
@@ -1303,7 +1304,7 @@ export class StripRenderer {
       }
     }
     this.chatT = (this.chatT ?? 8) - dt;
-    if (this.chatT <= 0) {
+    if (this.chatT <= 0 && !calmFx) {
       this.chatT = 10 + Math.random() * 8;
       // (it. 1918) les membres d'une meute bavardent plus volontiers entre eux (deux fois sur trois s'il y en a une en attente)
       const packPairs = [];
@@ -1322,7 +1323,9 @@ export class StripRenderer {
       const bob = fighting && a.fly ? Math.sin(R.time * 5) * 3 : 0;
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
-      let life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      // (it. 1952) « Effets complets » coupés (ou Windows qui demande moins d'animations, app.js) : la file reste calme, chacun à
+      // sa place (ni flânerie, ni geste, ni bavardage, ni sursaut) ; les compétences au combat restent visibles
+      let life = fighting || calmFx ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
       if (life && TIMID.has(a.art) && k < this.fights() - 1) {
         const L = this.slots[k - 1], Rr = this.slots[k + 1];
         const lp = L && k - 1 > cur && PREDATORS.has(L.art), rp = Rr && k + 1 < this.fights() - 1 && PREDATORS.has(Rr.art);
@@ -1360,7 +1363,7 @@ export class StripRenderer {
       }
       // (it. 1877) geste au repos : de loin en loin, un monstre qui attend fait un petit bond qui rappelle sa compétence
       // (trois étincelles de sa couleur) ; jamais la mimique (elle joue le coffre), ni pendant une autre réaction
-      if (!fighting && a.skillId && !a.react && a.nature !== "statue" && k < this.fights() - 1) {
+      if (!fighting && !calmFx && a.skillId && !a.react && a.nature !== "statue" && k < this.fights() - 1) {
         a.nextGesture -= dt;
         if (a.nextGesture <= 0) {
           a.nextGesture = 18 + Math.random() * 20;
@@ -1390,6 +1393,7 @@ export class StripRenderer {
       }
       // (it. 1937) au combat, plus de fil de soie (une araignée appelée en plein geste le gardait affiché)
       if (fighting && a.silk && !a.silk.hidden) { a.silk.hidden = true; a.silkH = -1; a.react = null; }
+      if (calmFx && a.react) { a.react = null; if (a.silk) { a.silk.hidden = true; a.silkH = -1; } }
       if (!fighting && a.react) {
         const r = a.react; r.t += dt;
         const p = (r.t - r.delay) / r.d;
