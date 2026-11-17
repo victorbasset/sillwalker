@@ -4656,7 +4656,8 @@ test("vie des monstres en attente (it. 1850) : chacun bouge selon sa nature, se 
     assert.equal(a.dx, 0, nat + " en alerte : à sa place"); assert.equal(a.face, 1, nat + " en alerte : face au héros");
   }
   assert.ok(moved > 100, "ils bougent : " + moved); assert.ok(maxDx <= 31, "pas trop loin de leur place : " + maxDx);
-  for (let t = 0; t < 20; t += 0.5) { const b = lifeOffset1850("wander", 0.3, t, 999, true); assert.ok(b.dx === 0 && b.dy === 0, "le boss garde sa place"); }
+  // (it. 1883) le boss respire (balancement de 3 px au plus) mais garde sa place
+  for (let t = 0; t < 20; t += 0.5) { const b = lifeOffset1850("wander", 0.3, t, 999, true); assert.ok(Math.abs(b.dx) <= 3 && b.dy === 0, "le boss garde sa place"); }
   for (let t = 0; t < 20; t += 0.5) { const m = lifeOffset1850("statue", 0.3, t, 999); assert.ok(m.dx === 0 && m.dy === 0, "la mimique ne bouge pas"); }
 });
 test("séries de monstres (it. 1852) : 7 à 13 monstres, 10 en moyenne ; jamais plus courte que le compte déjà fait", () => {

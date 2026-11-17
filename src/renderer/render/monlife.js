@@ -47,7 +47,8 @@ function drift(t, seed, period) {
 export function lifeOffset(nature, seed, t, heroDist, boss = false) {
   // Vigilance : à moins de 150 px, le monstre a vu le héros ; il revient à sa place et lui fait face (à 60 px : en place)
   const alert = heroDist < 150 ? Math.min(1, (150 - heroDist) / 90) : 0, calm = 1 - alert;
-  if (boss) return { dx: 0, dy: 0, face: 1 };
+  // (it. 1883) le boss garde sa place mais respire : balancement lent ; il se redresse quand le héros approche
+  if (boss) return { dx: Math.round(Math.sin(t * 0.6 + seed * 6) * 3 * calm) || 0, dy: -2 * alert, face: 1 };
   let dx = 0, dy = 0, face = 1;
   switch (nature) {
     case "statue": break;

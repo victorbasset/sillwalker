@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1883, journée des monstres) : le boss qui attend respire (balancement lent de 3 px au plus, il se
+  redresse de 2 px quand le héros approche) ; élites et champions téméraires : ne sursautent pas, arpentent plus large
+  (×1,3). Un commentaire // tombé au milieu d'une ligne a cassé la syntaxe (piège connu), corrigé avant commit. Test du
+  boss adapté ; npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1882, journée des monstres) : Poupouce a sa nature (« cat », monlife.js) : petites courses vives, et quand
   le héros approche il recule de 14 px, dos tourné, pour filer ; un sort du héros fait sursauter les deux suivants de la
   file. npm test 345, autotest 253/253.

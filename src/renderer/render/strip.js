@@ -425,7 +425,7 @@ export class StripRenderer {
       // l'événement part avant que le compte avance : le mort est à S.kills, ses voisins juste après
       const k0 = Math.min(this.game.S.kills + 1, this.slots.length - 1);
       for (let k = k0; k < Math.min(k0 + 3, this.slots.length - 1); k++) {
-        const a = this.slots[k]; if (!a) continue;
+        const a = this.slots[k]; if (!a || a.brave) continue;
         a.react = { kind: "startle", t: 0, d: 0.7 + (k - k0) * 0.1, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.08 };
       }
     });
@@ -436,7 +436,7 @@ export class StripRenderer {
     g.on("spell", ({ partner }) => {
       if (partner) return;
       const k0 = Math.min(this.game.S.kills + 1, this.slots.length - 1);
-      for (let k = k0; k < Math.min(k0 + 2, this.slots.length - 1); k++) { const a = this.slots[k]; if (a && !a.react) a.react = { kind: "startle", t: 0, d: 0.6, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.1 }; }
+      for (let k = k0; k < Math.min(k0 + 2, this.slots.length - 1); k++) { const a = this.slots[k]; if (a && !a.react && !a.brave) a.react = { kind: "startle", t: 0, d: 0.6, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.1 }; }
     });
   }
 
@@ -1138,7 +1138,8 @@ export class StripRenderer {
       a.bar.visible(false);
       a.move(this.fightX(k + 1), this.monY(a, 0));
       // (it. 1850) vie en attente : nature selon le dessin de base, rythme propre à la place (monlife.js)
-      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.skillId = monSkillOf(boss ? Z.boss : line[k].type)?.id || null; a.nextGesture = 6 + lifeSeed(g.S.zone, k + 31) * 20; a.lifeSeed = lifeSeed(g.S.zone, k); }
+      // (it. 1883) a.brave : élite ou champion, téméraire (ne sursaute pas, arpente plus large)
+      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.skillId = monSkillOf(boss ? Z.boss : line[k].type)?.id || null; a.brave = !boss && !!(line[k] && line[k].elite); a.nextGesture = 6 + lifeSeed(g.S.zone, k + 31) * 20; a.lifeSeed = lifeSeed(g.S.zone, k); }
       this.slots.push(a);
     }
     this.slotKey = line;
@@ -1284,7 +1285,7 @@ export class StripRenderer {
       // (it. 1856) loup de la file qui répond au hurlement : tête levée (petit bond vers le haut), puis repos
       let answer = 0;
       if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
+      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) * (a.brave ? 1.3 : 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
       const flip = !!(life && life.face < 0);
