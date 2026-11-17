@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1945, journée des monstres) : convoitise : un objet légendaire tombe, les bandits et gobelins de la file le
+  convoitent : « $ » doré au-dessus d'eux, ils s'avancent 2 s. Vérifié (butin légendaire émis : les deux bandits à 0,89,
+  l'ours entre eux à 0). Autotest 256/256.
 - 2026-11-17 (it. 1944, journée des monstres) : quatre gestes de plus : le bandit fait le guet (se retourne un instant), le
   cultiste se balance en psalmodiant, l'orc se frappe la poitrine, les chevaliers saluent. Vérifié (série imposée ; le
   bandit se retourne bien). Autotest 256/256.

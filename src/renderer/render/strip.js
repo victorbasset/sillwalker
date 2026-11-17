@@ -423,6 +423,14 @@ export class StripRenderer {
     g.on("petLevel", ({ pet }) => this.float(this.heroX - 10, 50, pet.name + tx(" monte de niveau"), "#9fe0a8"));
     g.on("questDone", () => this.float(this.heroX + 16, 30, tx("Quête accomplie !"), "#9fd8ff", true));
     g.on("loot", ({ item }) => { if (item.r >= 4) this.shake(0.3); });
+    // (it. 1945) un objet légendaire brille : les bandits et gobelins de la file le convoitent (ils s'avancent 2 s, un « $ »)
+    g.on("loot", ({ item }) => {
+      if (!(item && item.r >= 4)) return;
+      for (const a of this.slots) if ((a.art === "bandit" || a.art === "goblin") && a.tx && !a.bossSlot) {
+        a.greedT = 2;
+        const [x, y] = a.tx.split(",").map(Number); this.float(x + a.w / 2, y - 2, "$", "#ffd34d");
+      }
+    });
     g.on("chest", () => this.shake(0.2));
     g.on("heroHurt", ({ dmg }) => { this.flash = 0.12; this.float(this.heroX + 16, 44, "-" + fmt(Math.round(dmg)), "#ff7a6b", false, true); });
     g.on("kill", ({ mon, gold }) => {
@@ -1335,7 +1343,8 @@ export class StripRenderer {
         const fs = R.mon && cur >= 0 ? this.slots[cur] : null, pack = fs && a.packSeed != null && (fs.packSeed ?? fs.lifeSeed) === a.packSeed && k > cur;
         // (it. 1927) le suivant de la file se tient prêt quand le monstre en combat faiblit (sous 25 % de vie)
         const next = k === cur + 1 && R.mon && !R.mon.boss && R.mon.max > 0 && R.mon.hp / R.mon.max < 0.25;
-        a.eager = (a.eager || 0) + ((weak ? 1 : pack ? 0.7 : next ? 0.6 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
+        if (a.greedT > 0) a.greedT -= dt;
+        a.eager = (a.eager || 0) + ((weak ? 1 : a.greedT > 0 ? 0.9 : pack ? 0.7 : next ? 0.6 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
       }
       // (it. 1878) jour et nuit : la nuit, les espèces de jour bougent à peine et s'endorment (« z »), celles de nuit
       // s'agitent ; l'entrain change lentement (pas de saut à la tombée de la nuit)
