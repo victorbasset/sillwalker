@@ -1369,6 +1369,8 @@ export class StripRenderer {
       if (fighting && !R.mon.boss && !pose && R.mon.max > 0 && R.mon.hp / R.mon.max < 0.25) {
         rdx = (TIMID.has(a.art) ? 9 : 5) + (Math.floor(R.time * 9) % 2 ? 1 : 0);
       }
+      // (it. 1937) au combat, plus de fil de soie (une araignée appelée en plein geste le gardait affiché)
+      if (fighting && a.silk && !a.silk.hidden) { a.silk.hidden = true; a.silkH = -1; a.react = null; }
       if (!fighting && a.react) {
         const r = a.react; r.t += dt;
         const p = (r.t - r.delay) / r.d;

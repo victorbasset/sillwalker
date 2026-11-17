@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1937) : une araignée appelée au combat en plein geste gardait son fil de soie affiché : caché (et geste
+  arrêté) dès qu'elle combat. Vérifié (geste forcé, monstre précédent achevé : fil caché). Autotest 255/255.
 - 2026-11-17 (it. 1936, journée des monstres) : geste propre aux araignées : elles remontent le long d'un fil de soie (24 px,
   1,6 s) puis redescendent ; fil = petit élément statique (.silk), hauteur réécrite par pas de 3 px seulement pendant le geste,
   caché ensuite. Vu en capture. Autotest 255/255.
