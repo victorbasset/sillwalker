@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2016, mesure) : vent (it. 2015) : amplitude d'un corbeau sur 10 s, zone venteuse 24 px contre 15 px en zone
+  calme (deux lancements). Comparaison dans une même partie impossible : la série change (victoires ou défaites) pendant le
+  relevé. Piège noté : de jour, les chauves-souris somnolent (mouvement ×0,35, vent compris) ; mesurer un volant actif.
 - 2026-11-17 (it. 2015, journée des monstres) : zones venteuses (plumes : Nid des harpies, Côte des naufragés, Trône des
   tempêtes) : les volants sont ballottés par des rafales (±9 px, en vagues ; pas les harpies). Vérifié (vent détecté en zone 14 ;
   l'effet s'ajoute à la dérive naturelle, difficile à isoler par relevé). Autotest 259/259.
