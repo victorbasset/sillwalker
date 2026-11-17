@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1897, contrôle) : tableau des 20 héros (12 h, graines 7/3/11) : moyenne 64,0, écart 4,7 (le plus serré) ;
+  mage 61,7 et nécromancien 62,0 en bas. Sur 7 graines contre aea72772 : mage 63,5 → 63,1 (bruit), nécromancien 63,7 →
+  62,4 (−1,3, dans la marge ≈ ±1,1) : à surveiller, rien changé.
 - 2026-11-17 (it. 1896) : scripts/strip-clip.sh : courte vidéo de la bande (zone et mise en scène au choix, écran virtuel
   à part, copie de dev-data) pour vérifier ce qui bouge ; essayé (zone 2, 6 s). Noté dans CLAUDE.md.
 - 2026-11-17 (it. 1895, journée des monstres) : vidéo de 20 s de la bande (zone 26, de nuit) tournée comme steam-video.sh
