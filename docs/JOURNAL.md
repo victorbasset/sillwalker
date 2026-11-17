@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1981, revue générale) : perf:linux bande 18,1 %, panneau 19,5 %, mini 5,5 % ; balance 12 h graine 3 contre
+  aea72772 (avant les compétences des monstres) : −0,8, comme le bilan du matin ; fuzz 600 / 0 ; stall-check 60 / 0 ; polonais :
+  aucun mot français. Rien à corriger.
 - 2026-11-17 (it. 1980) : Bestiaire : l'infobulle dit aussi « Craintif » et « Prédateur » (clés 3230-3231, 10 langues) ; TIMID et
   PREDATORS déplacés de strip.js vers monlife.js (lus par les deux). Autotest 257/257, lang-overflow ru/de 1280 : rien.
 - 2026-11-17 (it. 1979, contrôle) : perf:linux après crainte, audace et gestes de plus : bande 18,0 %, panneau 19,7 %, mini 5,4 %.
