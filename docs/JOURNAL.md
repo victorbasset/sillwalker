@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2037, journée des monstres) : dans les braises, le yéti et les créatures de givre fondent : un peu de vapeur
+  monte (vérifié en capture au Volcan des wyvernes). Autotest : « élite, réplique du héros » échouait selon le tirage
+  (makeMonster tirait Poupouce, « Pardon, Poupouce… » passait devant) : poupouce: false dans les deux contrôles d'élite.
+  Autotest 259/259.
 - 2026-11-17 (it. 2036, journée des monstres) : sous l'eau (Lagon de corail, Récif abyssal, Cité engloutie), tout geste au repos
   lâche deux bulles qui montent (juice.puff reçoit une direction ; presque blanches : le bleu clair se perdait sur le cyan du
   Lagon). Vérifié en capture (Lagon, Récif ; aucune bulle hors de l'eau). Autotest 259/259.

@@ -1413,6 +1413,8 @@ export class StripRenderer {
             else this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3);
             // (it. 2036) sous l'eau, tout geste lâche deux bulles qui montent (en plus du reste)
             if (wx === "bubble") this.juice.puff(gx + Math.round(a.w * 0.3), gy + 2, "#f4fcff", 2, -Math.PI / 2);
+            // (it. 2037) dans les braises, le yéti et les créatures de givre fondent : un peu de vapeur monte
+            if (wx === "ember" && (a.art === "yeti" || elementOf(a.type || "") === "frost")) this.juice.puff(gx + Math.round(a.w / 2), gy + 2, "#e4e4ec", 3, -Math.PI / 2);
           }
         }
       }
