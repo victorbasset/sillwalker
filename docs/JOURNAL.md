@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2042, journée des monstres) : pendant l'événement « Rafale de vent », la file réagit : volants ballottés comme en
+  zone venteuse, monstres au sol (sauf boss, colosses, mimique) qui reculent de 6 px par à-coups. Le vent passe maintenant APRÈS
+  la règle de meute (elle ne gardait que 35 % du mouvement propre : le vent des volants en meute, chauves-souris, corbeaux, s'y
+  perdait). Mesure devFreeze, slimes en meute : 3 et 0 px au calme, 6 et 6 px en rafale. Autotest 260/260.
 - 2026-11-17 (it. 2041, revue générale) : save-fuzz ok (1 267 corruptions) ; fuzz sous les bénédictions du jour : 600 / 0 bloquées ;
   --crawl en japonais : 675 clics sans erreur ; japonais : aucun mot français (« attributs » = repère « --- attributs » de
   l'extraction). Rien à corriger.

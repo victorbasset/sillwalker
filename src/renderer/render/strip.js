@@ -1349,9 +1349,6 @@ export class StripRenderer {
         // (it. 1982) élites et champions, téméraires, ne tremblent pas
         else if (!a.brave && Math.abs(this.fightX(k + 1) - this.heroX) < 220) life = { ...life, dx: life.dx + (Math.floor(R.time * 14 + k) % 2 ? 3 : 0) };
       }
-      // (it. 2015) zone venteuse (plumes) : les volants sont ballottés par les rafales (pas les harpies, chez elles) ;
-      // (it. 2017) jusqu'à ±12 px : le produit de deux sinus arrondi au pas de 3 px tombait presque toujours à 0
-      if (life && a.nature === "fly" && a.art !== "harpy" && this.windy) life = { ...life, dx: life.dx + Math.round((Math.sin(R.time * 1.7 + (a.lifeSeed || 0) * 7) * 0.6 + Math.sin(R.time * 0.5) * 0.4) * 4) * 3 };
       // (it. 2019) une proie volante (corbeau) n'est pas coincée entre deux prédateurs au sol : elle peut s'envoler
       if (life && TIMID.has(a.art) && a.nature !== "fly" && k < this.fights() - 1) {
         const L = this.slots[k - 1], Rr = this.slots[k + 1];
@@ -1365,6 +1362,14 @@ export class StripRenderer {
         const lead = lifeOffset(a.nature, a.packSeed, R.time - 0.25, Math.abs(this.fightX(k + 1) - this.heroX), false);
         life = { dx: Math.round((lead.dx * 0.65 + life.dx * 0.35) * 10) / 10 || 0, dy: a.nature === "fly" ? life.dy : lead.dy, face: lead.face };
       }
+      // (it. 2015) zone venteuse (plumes) : les volants sont ballottés par les rafales (pas les harpies, chez elles) ;
+      // (it. 2017) jusqu'à ±12 px : le produit de deux sinus arrondi au pas de 3 px tombait presque toujours à 0
+      // (it. 2042) après la meute (elle ne gardait que 35 % du mouvement propre : le vent s'y perdait) ;
+      // pendant l'événement « Rafale de vent » (R.events.wind), même ballottement partout ; et les monstres au sol
+      // (sauf les boss et les colosses) chancellent : un pas en arrière par à-coups, chacun à son rythme
+      const gust = (R.events.wind || 0) > 0;
+      if (life && a.nature === "fly" && a.art !== "harpy" && (this.windy || gust)) life = { ...life, dx: life.dx + Math.round((Math.sin(R.time * 1.7 + (a.lifeSeed || 0) * 7) * 0.6 + Math.sin(R.time * 0.5) * 0.4) * 4) * 3 };
+      else if (life && gust && !a.bossSlot && a.nature !== "still" && a.nature !== "statue" && Math.sin(R.time * 5 + (a.lifeSeed || 0) * 11) > 0.3) life = { ...life, dx: life.dx + 6 };
       // (it. 1880) ils sentent la faiblesse : héros sous 30 % de vie en plein combat, la file s'avance un peu vers lui (les
       // boss restent à leur place) ; elle recule quand il se rétablit
       if (!fighting && k < this.fights() - 1) {
