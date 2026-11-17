@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2029, journée des monstres) : éternuement vérifié en capture dans les trois zones à spores : le souffle vert
+  pâle disparaissait sur le Marais brumeux (fond vert clair) ; vert moyen (#6f9636), visible aussi au Bois corrompu et à la
+  Champignonnière géante (fonds violets). Autotest 259/259.
 - 2026-11-17 (it. 2028, journée des monstres) : vérifiée en capture, la bouffée de l'it. 2027 éclatait en étoile (sparkles)
   et son gris se perdait sur le fond brun des Mines naines : nouveau juice.puff (souffle dirigé vers le héros, en cône, qui
   monte un peu), couleurs plus claires. Capture : petit souffle net devant la gueule. Autotest 259/259.
