@@ -1359,8 +1359,10 @@ export class StripRenderer {
           // (looping : monte haut puis redescend), sauteur (grand bond) ; les autres, le petit bond
           // (it. 1936) l'araignée remonte le long d'un fil de soie, puis redescend
           // (it. 1942) parmi les colosses : plantes et sylvains se balancent, la momie fait un pas traînant
-          const nat = a.art === "spider" ? "spider" : a.art === "plant" || a.art === "treant" ? "sway" : a.art === "mummy" ? "shuffle" : a.nature;
-          a.react = { kind: "gesture", t: 0, d: nat === "spider" ? 1.6 : nat === "sway" ? 1.4 : a.nature === "still" ? 1 : 0.6, delay: 0, nat };
+          // (it. 1943) marcheurs : le sanglier gratte le sol, l'ours se dresse, le squelette s'entrechoque
+          const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle" };
+          const nat = ART_GEST[a.art] || a.nature;
+          a.react = { kind: "gesture", t: 0, d: { spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
         }
       }
@@ -1389,6 +1391,9 @@ export class StripRenderer {
               if (p > 0.97) { a.silk.hidden = true; a.silkH = -1; }
             }
             else if (r.nat === "skitter") rdx = Math.floor(p * 6) % 2 ? 3 : -3;
+            else if (r.nat === "paw") rdx = Math.floor(p * 6) % 2 ? 3 : 0;
+            else if (r.nat === "rear") rdy = -Math.round(Math.min(1, Math.sin(p * Math.PI) * 1.6) * 2) * 3;
+            else if (r.nat === "rattle") rdx = Math.floor(p * 16) % 2 ? 3 : -3;
             else if (r.nat === "sway") rdx = Math.round(Math.sin(p * Math.PI * 2) * 1.4) * 3;
             else if (r.nat === "shuffle") rdx = p < 0.5 ? -3 : p < 0.8 ? -6 : -3;
             else if (r.nat === "still") rdy = sn * 3;
