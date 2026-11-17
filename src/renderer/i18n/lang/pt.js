@@ -2164,4 +2164,6 @@ export default {
   3289: "Talentos: um só nível (como “+1”)",
   3290: "Desfazer a última escolha (Talentos, Habilidades)",
   3291: "Clique num talento: o máximo de níveis possível · Shift + clique ou «+1»: um só nível · Z: desfazer o último clique. Passe o mouse sobre um talento para ver o efeito.",
+  3292: "Vender {0}?",
+  3293: "Item precioso (lendário, de conjunto ou forjado): a venda é definitiva.",
 };

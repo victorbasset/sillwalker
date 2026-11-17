@@ -2164,4 +2164,6 @@ export default {
   3289: "Talente: nur ein Rang (wie „+1“)",
   3290: "Letzte Wahl rückgängig machen (Talente, Fertigkeiten)",
   3291: "Klick auf ein Talent: so viele Ränge wie möglich · Umschalt + Klick oder „+1“: nur ein Rang · Z: letzten Klick rückgängig machen. Fahre über ein Talent, um seine Wirkung zu sehen.",
+  3292: "{0} verkaufen?",
+  3293: "Wertvoller Gegenstand (legendär, Setteil oder geschmiedet): Der Verkauf ist endgültig.",
 };

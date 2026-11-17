@@ -1176,7 +1176,16 @@ export class Panel {
         break;
       case "desel": this.selected = null; break;
       case "equip": if (it) { g.equip(it); this.selected = { from: "equip", slot: it.slot }; } break;
-      case "sell": if (it) { g.sell(it); this.selected = null; g.R.manualSells = (g.R.manualSells || 0) + 1; } break; // (it. 1546) astuce « bulksell » (hints.js)
+      case "sell": if (it) {
+        const go = () => { g.sell(it); this.selected = null; g.R.manualSells = (g.R.manualSells || 0) + 1; this.renderAll(); }; // (it. 1546) astuce « bulksell » (hints.js)
+        // (it. 2127, ergonomie) objet précieux (légendaire, pièce de panoplie, forgé) : la vente, sans retour, se confirme ; les
+        // autres se vendent d'un clic comme avant
+        if (it.r >= LEGENDARY || it.set || it.plus > 0) {
+          this.confirm(tx("Vendre {0} ?", { 0: itemName(it) }), tx("Objet précieux (légendaire, panoplie ou forgé) : la vente est définitive."), tx("Vendre ({0} or)", { 0: fmt(sellValue(it)) }), go);
+          return;
+        }
+        go();
+      } return;
       case "unequip": if (it && g.unequip(it.slot)) this.selected = { from: "bag", id: it.id }; break;
       case "forge": if (it) g.forge(it); break;
       case "reforge": if (it) g.reforge(it); break;

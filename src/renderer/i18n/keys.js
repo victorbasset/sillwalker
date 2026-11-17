@@ -3293,5 +3293,7 @@ export const KEYS = [
   "Vendre les inutiles ({0})",
   "Talents : un seul rang (comme « +1 »)",
   "Annuler le dernier choix (Talents, Compétences)",
-  "Clic sur un talent : autant de rangs que possible · Maj + clic ou « +1 » : un seul rang · Z : annuler le dernier clic. Survole un talent pour voir son effet."
+  "Clic sur un talent : autant de rangs que possible · Maj + clic ou « +1 » : un seul rang · Z : annuler le dernier clic. Survole un talent pour voir son effet.",
+  "Vendre {0} ?",
+  "Objet précieux (légendaire, panoplie ou forgé) : la vente est définitive."
 ];

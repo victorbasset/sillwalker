@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2127, ergonomie) : vendre un objet précieux (légendaire, pièce de panoplie, forgé) depuis son détail se confirme
+  (« Vendre … ? », la vente est définitive) ; les objets ordinaires se vendent toujours d'un clic. Clés 3292-3293 ; autotest ; --crawl
+  672 clics sans erreur ; stall-check 60 parties 0 figées, fuzz 1200 parties 0 bloquées ; 278/278.
 - 2026-11-18 (it. 2126) : Échap annule « Réinitialiser les talents ? » (dans la fiche) au lieu de fermer le panneau ; autotest ajouté.
   CLAUDE.md : conventions d'ergonomie de la nuit (panel.confirm et this.panel, confirmSafe, clic sur le fond, rien ne bouge sous le
   curseur, fiche des Talents qui revient au talent cliqué). 277/277.
