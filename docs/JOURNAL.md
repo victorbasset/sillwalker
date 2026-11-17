@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1900, contrôle) : lang-overflow complet après la journée des monstres (compétence du boss dans le panneau
+  de zone, sous-titre du Bestiaire, astuces, éditions 120-121) : aucun défilement ni mot coupé, 10 langues.
 - 2026-11-17 (it. 1899, journée des monstres) : hiérarchie des compétences : élites −15 % d'intervalle, champions −25 %
   (compensés), mot doré / violet comme leur contour ; les boss restent au-dessus (−20 %, mot couleur boss, secousse).
   Balance contre HEAD : +0,2 ; fuzz 600 / 0 ; npm test 346, autotest 253/253.
