@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2028, journée des monstres) : vérifiée en capture, la bouffée de l'it. 2027 éclatait en étoile (sparkles)
+  et son gris se perdait sur le fond brun des Mines naines : nouveau juice.puff (souffle dirigé vers le héros, en cône, qui
+  monte un peu), couleurs plus claires. Capture : petit souffle net devant la gueule. Autotest 259/259.
 - 2026-11-17 (it. 2027, journée des monstres) : éternuement et toux soufflent une bouffée devant la gueule (4 particules : vertes
   dans les spores, grises dans les cendres ; effets complets seulement) au lieu des étincelles de la compétence. Mise en scène
   Mines naines sans erreur, autotest 259/259.

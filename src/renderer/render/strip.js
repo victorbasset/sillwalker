@@ -1404,7 +1404,8 @@ export class StripRenderer {
           // (it. 2027) éternuement ou toux : une bouffée devant la gueule (verte dans les spores, grise dans les cendres)
           if (this.active && this.juice.full && a.tx) {
             const [gx, gy] = a.tx.split(",").map(Number), wx = WEATHER[Zd.src || Zd.name];
-            if (nat === "sneeze") this.juice.sparkles(gx + 2, gy + Math.round(a.h * 0.4), wx === "ash" ? "#9a948c" : "#b8d890", 4);
+            // (it. 2028) souffle dirigé vers la gauche (juice.puff), couleurs plus claires : le gris sur fond brun ne se voyait pas
+            if (nat === "sneeze") this.juice.puff(gx + 2, gy + Math.round(a.h * 0.4), wx === "ash" ? "#d8d2c8" : "#cfeaa0", 4);
             else this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3);
           }
         }
