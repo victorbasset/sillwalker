@@ -4,12 +4,11 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Version 0.1.6 (préparée le 17/11, it. 2055) : en attente de ton feu vert
+## Version 0.1.6 (envoyée sur itch.io le 17/11, it. 2056) : reste à publier le devlog
 
 - Fichiers dans Médias/dist-itch : Sillwalker-0.1.6-win.zip, -linux.AppImage, -mac-arm64.zip (empreintes : SHA256-0.1.6.txt) ;
   version Linux essayée (HOME temporaire) : partie neuve, aucun souci. Étiquette git v0.1.6.
-- Envoi sur itch.io par butler (`scripts/itch-push.sh victor-basset/sillwalker`, essai `--dry-run` réussi) : **dis « oui »**
-  et il part (canaux windows, linux, mac).
+- Envoyée sur itch.io par butler (REF=v0.1.6) : canaux windows, linux, mac en 0.1.6 (l'application itch met le jeu à jour).
 - Devlog : docs/devlog-0.1.6.md (titre, tags, langues) ; texte à coller : steam/itch/devlog-0.1.6.html ; couverture :
   steam/itch/cover-0.1.6.png (aussi dans Médias/dist-itch/promo).
 - Équilibrage à juger en jouant : Chevalier de l'éclipse et Briseur bien plus coriaces, Cœur de l'aube −30 % de dégâts subis.

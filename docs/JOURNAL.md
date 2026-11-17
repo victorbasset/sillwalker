@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2056) : feu vert de Victor : 0.1.6 envoyée sur itch.io (`REF=v0.1.6 scripts/itch-push.sh victor-basset/sillwalker`) ;
+  butler status : windows #2417912, linux #2417914, mac #2417917, tous en 0.1.6. Fenêtre des notes de version vérifiée en capture
+  (joueur de la 0.1.5 : dix nouveautés sur deux colonnes, sans défilement).
 - 2026-11-17 (it. 2055, sortie 0.1.6, suite) : constructions par `itch-push.sh --dry-run` (Windows 157 Mo, Linux 138 Mo, Mac signée
   132 Mo), déposées dans Médias/dist-itch avec SHA256-0.1.6.txt ; AppImage essayée avec un HOME temporaire (partie neuve, 5
   victoires en 40 s, aucune erreur) ; étiquette v0.1.6 (89d14556) poussée ; devlog : docs/devlog-0.1.6.md (bloc de publication),

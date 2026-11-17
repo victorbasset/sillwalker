@@ -3,7 +3,7 @@
 À publier sur la page itch.io (Devlog > New post) le jour de la sortie. Reprend les éditions « Quoi de neuf » 115 à 132
 parues depuis la 0.1.5, réduites aux nouveautés majeures (les mêmes que NEWS_RELEASES, news.js : RELEASE_016).
 
-## Publication sur itch.io (0.1.6 préparée le 2026-11-17, it. 2055 ; envoi par butler après le feu vert de Victor)
+## Publication sur itch.io (0.1.6 envoyée le 2026-11-17 par butler, it. 2056 : builds windows #2417912, linux #2417914, mac #2417917)
 
 - **Titre :** Sillwalker 0.1.6 – the Sill comes alive
 - **Image de couverture :** steam/itch/cover-0.1.6.png (1920 × 1080 ; aussi dans Médias/dist-itch/promo ;
