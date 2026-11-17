@@ -1,22 +1,29 @@
-# Devlog itch.io : version 0.1.6 (BROUILLON, ouvert à l'it. 1774)
+# Devlog itch.io : version 0.1.6
 
-Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues depuis la 0.1.5 (éditions « Quoi de neuf »
-115 et suivantes). Le jour de la sortie : version de package.json, NEWS_RELEASES (news.js, `after: 114`), puis ce texte en
-10 langues et le bloc « Publication » rempli (CLAUDE.md, « Sortie d'une version »).
+À publier sur la page itch.io (Devlog > New post) le jour de la sortie. Reprend les éditions « Quoi de neuf » 115 à 132
+parues depuis la 0.1.5, réduites aux nouveautés majeures (les mêmes que NEWS_RELEASES, news.js : RELEASE_016).
 
-## Publication sur itch.io (à remplir à la sortie)
+## Publication sur itch.io (0.1.6 préparée le 2026-11-17, it. 2055 ; envoi par butler après le feu vert de Victor)
 
-- **Titre :** (à choisir)
-- **Image de couverture :** scripts/steam-capsules/make.js, entrée `update-0.1.6` (ver, tags)
+- **Titre :** Sillwalker 0.1.6 – the Sill comes alive
+- **Image de couverture :** steam/itch/cover-0.1.6.png (1920 × 1080 ; aussi dans Médias/dist-itch/promo ;
+  `ONLY=update-0.1.6 electron scripts/steam-capsules/make.js <dossier>`)
 - **Tags :** Sillwalker, idle game, idle RPG, incremental game, pixel art, indie game, desktop game, taskbar game,
   cozy game, gamedev
 - **Langues du jeu :** English, French, Spanish, Portuguese (Brazil), German, Polish, Russian, Chinese (Simplified),
   Japanese, Korean
-- **Texte :** steam/itch/devlog-0.1.6.html (à produire, 10 langues)
+- **Texte :** steam/itch/devlog-0.1.6.html (10 langues, l'anglais d'abord, les autres dans des blocs repliables)
+- **Fichiers :** Médias/dist-itch/Sillwalker-0.1.6-{win.zip, linux.AppImage, mac-arm64.zip}, empreintes dans SHA256-0.1.6.txt ;
+  étiquette git v0.1.6
 
 ---
 
-## Français (nouveautés depuis la 0.1.5, à compléter)
+## Français
+
+**Titre :** Sillwalker 0.1.6 : le Rebord prend vie
+
+Le texte publié (10 langues) est steam/itch/devlog-0.1.6.html. Notes de travail tenues au fil des éditions (plus
+détaillées que le devlog) :
 
 - **Statistiques dès le début :** l'onglet montre le Journal, et les sous-onglets à venir (Chiffres, Succès, Carnet de
   route) apparaissent grisés jusqu'à la zone 40, où leur arrivée est annoncée.
@@ -48,3 +55,5 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
 - **Effets réduits :** « Effets complets » décoché (ou Windows qui demande moins d'animations), la file reste calme.
 - **Bogue corrigé :** un monstre qui se régénère plus vite qu'on ne le blesse, contre un héros qui encaisse tout, figeait la
   partie (combat sans fin) ; le monstre s'emporte après 90 s, et le héros abandonne après 3 min au pire.
+- **Équilibrage (demande de Victor) :** le Chevalier de l'éclipse et le Briseur d'Étoiles sont bien plus coriaces (il faut
+  plusieurs ascensions et des reliques améliorées) ; le Cœur de l'aube protège un peu moins (dégâts subis −30 %).

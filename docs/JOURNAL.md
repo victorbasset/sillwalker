@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2055, sortie 0.1.6, suite) : constructions par `itch-push.sh --dry-run` (Windows 157 Mo, Linux 138 Mo, Mac signée
+  132 Mo), déposées dans Médias/dist-itch avec SHA256-0.1.6.txt ; AppImage essayée avec un HOME temporaire (partie neuve, 5
+  victoires en 40 s, aucune erreur) ; étiquette v0.1.6 (89d14556) poussée ; devlog : docs/devlog-0.1.6.md (bloc de publication),
+  steam/itch/devlog-0.1.6.html (10 langues), couverture steam/itch/cover-0.1.6.png (make.js, update-0.1.6). Envoi butler : en
+  attente du « oui » de Victor.
 - 2026-11-17 (it. 2055, sortie 0.1.6 demandée par Victor) : version 0.1.6 (package.json) ; Quoi de neuf, édition 132 (équilibrage :
   Chevalier et Briseur plus coriaces, Cœur −30 %) ; notes de version RELEASE_016 (dix nouveautés, after: 114 ; sept phrases reprises des
   éditions, trois nouvelles, clés 3250-3252 traduites) ; test des notes de version mis à jour (un joueur de la 0.1.5 voit celles de

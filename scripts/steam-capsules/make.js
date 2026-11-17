@@ -15,6 +15,7 @@ const SIZES = [
   ["itch-social", 1200, 630, "main"], ["itch-favicon", 512, 512, "avatar"], ["itch-wide-cover", 2520, 1080, "main"],
   ["itch-logo", 1600, 480, "logo"],
   ["update-0.1.5", 1920, 1080, "update", { ver: "0.1.5", tags: "Original soundtrack|Poupouce the cat|XP bar|Quest chests|The Colossal|Pet Day|10 languages" }], // (it. 1761)
+  ["update-0.1.6", 1920, 1080, "update", { ver: "0.1.6", tags: "Living monsters|Monster skills|Packs & instincts|Zone climates|Tougher bosses|10 languages" }], // (it. 2055)
 ].filter(([name]) => !process.env.ONLY || name === process.env.ONLY); // ONLY=<nom> : une seule image
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });
