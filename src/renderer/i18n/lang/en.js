@@ -2138,4 +2138,6 @@ export default {
   3263: "Final until the talents are reset.",
   3264: "On click",
   3265: "+{n} rank|+{n} ranks",
+  3266: "Next tier: {0} points in the branch ({1} to go).",
+  3267: "All tiers are open.",
 };

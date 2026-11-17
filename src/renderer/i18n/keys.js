@@ -3267,5 +3267,7 @@ export const KEYS = [
   "Choisir cette voie (définitive)",
   "Définitive jusqu’à la réinitialisation des talents.",
   "Au clic",
-  "+{n} rang|+{n} rangs"
+  "+{n} rang|+{n} rangs",
+  "Prochain palier : {0} points dans la branche (encore {1}).",
+  "Tous les paliers sont ouverts."
 ];

@@ -2138,4 +2138,6 @@ export default {
   3263: "Endgültig, bis die Talente zurückgesetzt werden.",
   3264: "Beim Klick",
   3265: "+{n} Rang|+{n} Ränge",
+  3266: "Nächste Stufe: {0} Punkte im Zweig (noch {1}).",
+  3267: "Alle Stufen sind offen.",
 };

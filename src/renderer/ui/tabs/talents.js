@@ -46,7 +46,12 @@ export class TalentsTab {
             (en allemand à 1280 px, les noms longs passaient sur deux lignes) */ ""}
           ${can && t.max - r > 1 && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="1" data-id="${t.id}" title="${esc(tx("Un seul rang"))}">+1</span>` : !locked && r < t.max ? `<span class="tmax off" aria-hidden="true">+1</span>` : ""}</button>`;
       }).join("");
-      return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${txn(spent, "{n} pt|{n} pts")}</small></h2>${rows}</article>`;
+      // (it. 2098, ergonomie) jauge des paliers sous le titre : points de la branche et repères des paliers (5, 10, 20) ; au survol,
+      // ce qui manque pour le prochain (avant : seul le cadenas d'un talent le disait)
+      const top = TIER_REQ[TIER_REQ.length - 1], nextReq = TIER_REQ.find((q) => q > spent);
+      const gaugeTip = nextReq != null ? tx("Prochain palier : {0} points dans la branche (encore {1}).", { 0: nextReq, 1: nextReq - spent }) : tx("Tous les paliers sont ouverts.");
+      const gauge = `<div class="tgauge${nextReq == null ? " full" : ""}" title="${esc(gaugeTip)}"><i style="width:${Math.min(100, spent / top * 100).toFixed(1)}%"></i>${TIER_REQ.slice(1).map((q) => `<b class="${spent >= q ? "on" : ""}" style="left:${(q / top * 100).toFixed(1)}%"></b>`).join("")}</div>`;
+      return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${txn(spent, "{n} pt|{n} pts")}</small></h2>${gauge}${rows}</article>`;
     }).join("");
 
     // Voie (spécialisation exclusive) et maîtrises (rangs illimités).

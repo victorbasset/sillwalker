@@ -2138,4 +2138,6 @@ export default {
   3263: "Definitiva hasta reiniciar los talentos.",
   3264: "Al hacer clic",
   3265: "+{n} rango|+{n} rangos",
+  3266: "Siguiente nivel: {0} puntos en la rama (faltan {1}).",
+  3267: "Todos los niveles están abiertos.",
 };

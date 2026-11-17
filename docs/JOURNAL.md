@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2098, Talents, étape 5) : jauge des paliers sous le titre de chaque branche (points, repères 5 / 10 / 20 ; au survol,
+  ce qui manque pour le prochain). Clés 3266-3267. Captures sombre et clair ; lang-overflow 10 langues × 1280 / 1366 / 1920 : rien ;
+  autotest 266/266.
 - 2026-11-17 (it. 2097, Talents, étape 4) : la fiche dit ce qu'un clic va faire : « Au clic : +8 rangs → +30 % attaque » (avant :
   « Rang suivant : +3 % », alors qu'un clic en ajoutait jusqu'à 8). Clés 3264-3265 (pluriels ru, pl). Captures fr 1920, ru 1280.
   Autotest 266/266.

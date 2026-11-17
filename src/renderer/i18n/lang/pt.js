@@ -2138,4 +2138,6 @@ export default {
   3263: "Definitiva até redefinir os talentos.",
   3264: "Ao clicar",
   3265: "+{n} nível|+{n} níveis",
+  3266: "Próximo patamar: {0} pontos no ramo (faltam {1}).",
+  3267: "Todos os patamares estão abertos.",
 };

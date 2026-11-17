@@ -2138,4 +2138,6 @@ export default {
   3263: "Ostateczna do zresetowania talentów.",
   3264: "Po kliknięciu",
   3265: "+{n} ranga|+{n} rangi|+{n} rang",
+  3266: "Następny próg: {0} pkt w gałęzi (jeszcze {1}).",
+  3267: "Wszystkie progi są otwarte.",
 };
