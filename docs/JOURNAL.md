@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2060, revue des onglets Héros et Statistiques en anglais) : rien à corriger. Vu : dev-data compte 13 événements rares
+  mais une seule sorte « vue » (1 / 18) : sauvegarde antérieure au suivi des sortes (it. 932) ; startEvent incrémente les deux au
+  même endroit, une partie récente ne peut pas les désaccorder.
 - 2026-11-17 (it. 2059, bogue visible) : carte de la zone : la première ligne nommait l'espèce du boss (« Boss (venomous mushling): 72.63M
   HP ») et la suivante son nom propre (« Boss: Purplecap the Awakened ») : deux noms pour un seul boss. La première ne donne plus que
   les PV (nouvelle clé, 9 langues) ; en anglais elle tient sur une ligne, en russe à 1280 px la carte raccourcit. Autotest 261/261.
