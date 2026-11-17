@@ -23,6 +23,21 @@ const NATURE = {
 /** (it. 1867, 1923) Craintifs (reculent plus loin, s'écartent des prédateurs) et prédateurs. Dessin de base. */
 export const TIMID = new Set(["rat", "goblin", "bandit", "imp", "frog", "crow", "lizard"]);
 export const PREDATORS = new Set(["wolf", "bear", "snake", "drake", "boar", "spider", "yeti"]);
+/**
+ * (it. 2004-2022, extrait à l'it. 2023) Geste imposé par le climat de la zone (météo de juice.js WEATHER), ou null.
+ *  art : dessin de base ; el : élément de la variante (monskills elementOf : fire, frost, poison, shadow) ; wx : météo.
+ *  neige : qui n'est pas fait pour le froid grelotte ; braises : yétis et variantes de givre s'affaissent ; sous l'eau
+ *  (bulles) : créatures de feu aussi ; spores : on éternue (sauf champignons et plantes) ; cendres : on tousse (même geste ;
+ *  pas les golems, squelettes, momies, élémentaires de feu).
+ */
+export function climateGesture(art, el, wx) {
+  if (wx === "snow" && art !== "yeti" && el !== "frost") return "rattle";
+  if (wx === "ember" && (art === "yeti" || el === "frost")) return "still";
+  if (wx === "bubble" && (art === "imp" || art === "fireelem" || el === "fire")) return "still";
+  if (wx === "spore" && !["mush", "sporeling", "plant", "treant"].includes(art)) return "sneeze";
+  if (wx === "ash" && !["golem", "skel", "fireelem", "mummy"].includes(art)) return "sneeze";
+  return null;
+}
 /** Natures par défaut : les autres marchent (flânent autour de leur place). */
 export const natureOf = (art, fly) => (fly ? "fly" : NATURE[art] || "wander");
 

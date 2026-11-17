@@ -51,6 +51,7 @@ import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { PACK_ARTS as PACK_ARTS1904 } from "../src/renderer/game/game.js";
+import { climateGesture as climateGesture2023 } from "../src/renderer/render/monlife.js";
 import { MONSTERS as MONSTERS1904, ZONES as ZONES1904 } from "../src/renderer/game/data.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -424,6 +425,18 @@ test("impasse face à un boss (it. 1958) : après 90 s de combat, le boss s'empo
   for (let i = 0; i < 4000 && !downs; i++) g.advance(0.1);
   assert.ok(fury > 0, "Fureur croissante déclenchée");
   assert.ok(downs > 0, "le héros finit par tomber : la progression reprend");
+});
+
+test("climat des zones (it. 2023) : le geste imposé selon la météo", () => {
+  assert.equal(climateGesture2023("bear", null, "snow"), "rattle");
+  assert.equal(climateGesture2023("yeti", null, "snow"), null);
+  assert.equal(climateGesture2023("slime", "frost", "snow"), null);
+  assert.equal(climateGesture2023("yeti", null, "ember"), "still");
+  assert.equal(climateGesture2023("slime", "fire", "bubble"), "still");
+  assert.equal(climateGesture2023("wolf", null, "spore"), "sneeze");
+  assert.equal(climateGesture2023("mush", null, "spore"), null);
+  assert.equal(climateGesture2023("golem", null, "ash"), null);
+  assert.equal(climateGesture2023("bear", null, "leaf"), null);
 });
 
 test("parcours : file de monstres (avec élites) et étapes", () => {

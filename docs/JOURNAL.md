@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2023, qualité du code) : climat des zones extrait de strip.js vers monlife.js climateGesture (fonction pure) ;
+  test logique (9 cas : neige, braises, eau, spores, cendres, sans effet). npm test 351, autotest 259/259 (climat compris).
 - 2026-11-17 (it. 2022, journée des monstres) : zones de cendres (Bastion noir, Crypte oubliée, Mines naines, Ossuaire des titans) :
   les monstres toussent (geste de l'éternuement) ; golems, squelettes, momies et élémentaires de feu non. Vérifié (Mines naines :
   ours et loup toussent, golem s'enfonce). Autotest 259/259.

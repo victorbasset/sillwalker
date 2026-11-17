@@ -27,7 +27,7 @@ import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
-import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS } from "./monlife.js";
+import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS, climateGesture } from "./monlife.js";
 import { monSkillOf, elementOf } from "../game/monskills.js";
 import { PACK_ARTS } from "../game/game.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
@@ -1413,19 +1413,9 @@ export class StripRenderer {
             lizard: "camo",
             // (it. 1992) champignards et champignons errants se gonflent (spores), le scorpion dresse la queue
             mush: "beat", sporeling: "beat", scorp: "rear" };
-          // (it. 2004) zone enneigée : qui n'est pas fait pour le froid grelotte (pas les yétis ni les variantes de givre)
-          const Zd = this.game.zoneDef(), snowy = WEATHER[Zd.src || Zd.name] === "snow";
-          const cold = snowy && a.art !== "yeti" && elementOf(a.type || "") !== "frost";
-          // (it. 2005) zone de braises : yétis et variantes de givre souffrent de la chaleur (ils s'affaissent, « still »)
-          const wx = WEATHER[Zd.src || Zd.name];
-          // (it. 2006) …et sous l'eau (bulles), les créatures de feu (diablotins, élémentaires, variantes de feu) aussi
-          const hot = (wx === "ember" && (a.art === "yeti" || elementOf(a.type || "") === "frost"))
-            || (wx === "bubble" && (a.art === "imp" || a.art === "fireelem" || elementOf(a.type || "") === "fire"));
-          // (it. 2010) zone à spores : qui n'est ni champignon ni plante éternue (coup sec vers l'avant)
-          // (it. 2022) zone de cendres : on tousse (même geste) ; golems, squelettes et élémentaires de feu n'en ont cure
-          const sneeze = (wx === "spore" && !["mush", "sporeling", "plant", "treant"].includes(a.art))
-            || (wx === "ash" && !["golem", "skel", "fireelem", "mummy"].includes(a.art));
-          const nat = cold ? "rattle" : hot ? "still" : sneeze ? "sneeze" : ART_GEST[a.art] || a.nature;
+          // (it. 2004-2022, extrait à l'it. 2023) climat de la zone : monlife.js climateGesture (neige, braises, eau, spores, cendres)
+          const Zd = this.game.zoneDef();
+          const nat = climateGesture(a.art, elementOf(a.type || ""), WEATHER[Zd.src || Zd.name]) || ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
