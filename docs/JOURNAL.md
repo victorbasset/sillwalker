@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1928, journée des monstres) : vidéo des instincts envoyée à Victor (zone 46, série imposée : grenouilles,
+  meute de loups, rats, ours, boss Grand Yéti ; la série se termine en 25 s). Idée écartée : réagir à la météo (elle est
+  fixe par zone, juice.js WEATHER : décor, pas un temps qui change).
 - 2026-11-17 (it. 1927, journée des monstres) : anticipation : quand le monstre en combat passe sous 25 % de vie, le suivant
   de la file s'avance (≈ 5 px), prêt à prendre sa place (pas devant un boss). Vérifié (PV du combattant forcés à 20 % : le
   suivant 0,60, le troisième 0). Autotest 254/254.
