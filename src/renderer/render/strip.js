@@ -1314,9 +1314,11 @@ export class StripRenderer {
       // (it. 1878) jour et nuit : la nuit, les espèces de jour bougent à peine et s'endorment (« z »), celles de nuit
       // s'agitent ; l'entrain change lentement (pas de saut à la tombée de la nuit)
       if (!fighting) {
-        const nv = this.nightV || 0, want = DIURNAL.has(a.art) ? 1 - 0.75 * nv : NOCTURNAL.has(a.art) ? 1 + 0.4 * nv : 1;
+        // (it. 1915) en plein jour, les chauves-souris somnolent à leur tour (à peine un battement d'ailes, « z »)
+        const nv = this.nightV || 0, daySleep = a.art === "bat" && nv <= 0.1;
+        const want = DIURNAL.has(a.art) ? 1 - 0.75 * nv : daySleep ? 0.35 : NOCTURNAL.has(a.art) ? 1 + 0.4 * nv : 1;
         a.act = a.act == null ? want : a.act + (want - a.act) * Math.min(1, dt * 0.5);
-        if (DIURNAL.has(a.art) && nv >= 0.8 && a.tx && k < this.fights() - 1) {
+        if (((DIURNAL.has(a.art) && nv >= 0.8) || daySleep) && a.tx && k < this.fights() - 1) {
           a.zzzT = (a.zzzT ?? 2 + Math.random() * 6) - dt;
           if (a.zzzT <= 0) { a.zzzT = 6 + Math.random() * 6; const [zx, zy] = a.tx.split(",").map(Number); this.float(zx + a.w - 4, zy + 2, "z", "#c8d0ff"); }
         }

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1915, journée des monstres) : en plein jour, les chauves-souris somnolent à leur tour (mouvement ×0,35, « z »
+  de temps en temps), pendant des bêtes de jour qui dorment la nuit. Vérifié (jour forcé : chauve-souris 0,35, ours 1,00,
+  deux « z » en 12 s). Autotest 254/254.
 - 2026-11-17 (it. 1914, journée des monstres) : vidéo des meutes envoyée à Victor (strip-clip, zone 56, série imposée : 3 loups,
   2 chauves-souris, 2 loups entre des ours). Leçon : en zone basse le héros de dev-data tue tout d'un coup ; filmer près
   du record (56-57) pour que la file reste en place.
