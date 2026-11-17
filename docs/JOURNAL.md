@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1921, revue générale) : 12 h graine 221 : rôdeur 66, berserker 64, chaman 65 ; fuzz 600 / 0 ; early-pace
+  (meutes dans le tirage) : 60 min niveau 40-42, zone 23-26, comme avant ; japonais : aucun mot français (« attributs » =
+  repère du dump, « Language / Langue » voulu). Rien à corriger.
 - 2026-11-17 (it. 1920) : autotest des meutes étendu aux rats (furtifs, oubliés jusqu'à l'it. 1919). 254/254.
 - 2026-11-17 (it. 1919, journée des monstres) : (1) les rats (furtifs) et les gluants (sauteurs) ne formaient pas de meute sur
   la bande (seuls marcheurs et volants suivaient un chef) : ils suivent maintenant aussi le leur, bonds en cascade ; (2) un
