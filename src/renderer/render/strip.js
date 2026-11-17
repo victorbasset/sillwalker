@@ -1327,6 +1327,12 @@ export class StripRenderer {
       // (it. 1952) « Effets complets » coupés (ou Windows qui demande moins d'animations, app.js) : la file reste calme, chacun à
       // sa place (ni flânerie, ni geste, ni bavardage, ni sursaut) ; les compétences au combat restent visibles
       let life = fighting || calmFx ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      // (it. 1976) le héros repasse dans une zone bien sous son record (15 zones ou plus) : les monstres le savent plus fort ;
+      // les craintifs se tiennent loin, dos tourné, les autres tremblent quand il approche (à moins de 220 px)
+      if (life && k < this.fights() - 1 && S.best - S.zone >= 15) {
+        if (TIMID.has(a.art)) life = { ...life, dx: life.dx * 0.5 + 12, face: -1 };
+        else if (Math.abs(this.fightX(k + 1) - this.heroX) < 220) life = { ...life, dx: life.dx + (Math.floor(R.time * 14 + k) % 2 ? 3 : 0) };
+      }
       if (life && TIMID.has(a.art) && k < this.fights() - 1) {
         const L = this.slots[k - 1], Rr = this.slots[k + 1];
         const lp = L && k - 1 > cur && PREDATORS.has(L.art), rp = Rr && k + 1 < this.fights() - 1 && PREDATORS.has(Rr.art);

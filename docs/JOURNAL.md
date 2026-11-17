@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1976, journée des monstres) : réputation : dans une zone 15 zones ou plus sous le record, les monstres savent le
+  héros plus fort : les craintifs se tiennent à 12 px de plus, dos tourné ; les autres tremblent quand il approche (220 px).
+  Vérifié (zone 20, record 57 : rat à +12, golems qui tremblent). La revue des « Crit » superposés (it. 1975) : le placement
+  existant (it. 846) les écarte déjà, rien changé. Autotest 257/257.
 - 2026-11-17 (it. 1975, revue visuelle) : vidéo de 16 s, zone 46, série variée imposée (meutes, proies, élite, colosses), quatre
   images examinées : monstres bien espacés, nuée de chauves-souris ensemble, rien dans la rangée d'informations. Seul
   encombrement : les « Crit » flottants qui se superposent au-dessus du héros pendant les combats rapides (antérieur à la
