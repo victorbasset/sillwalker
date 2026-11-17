@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1934) : geste du golem vérifié (s'enfonce de 3 px) ; autotest « bande : geste au repos propre à la nature »
+  (rat, golem, chauve-souris, série imposée puis rendue). 255/255.
 - 2026-11-17 (it. 1933, journée des monstres) : le geste au repos dépend de la nature : les furtifs reniflent de droite à
   gauche, les colosses s'enfoncent lourdement, les volants montent haut puis redescendent, les sauteurs font un grand bond
   (les autres, le petit bond d'avant). Vérifié (rat, golem, chauve-souris, gluant). Autotest 254/254.
