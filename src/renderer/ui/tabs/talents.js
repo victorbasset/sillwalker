@@ -174,7 +174,8 @@ export class TalentsTab {
           : next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}
         ${ix.branch === "mastery" ? (() => { const ms = masteryMilestones(t.id, r, S); // (it. 1084) paliers atteints et prochain
           // le nombre seulement (la liste, longue, dans la bulle : en allemand, elle faisait défiler la carte)
-          return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${this.picksHTML(t.id, r) || (ms.got.length ? ms.got.length + " ⓘ" : tx("aucun"))}</span></li>`
+          return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${/* (it. 2103, demande de Victor : plus de bouton « choisir · N » dans la fiche) le nombre seulement ; le choix des bonus
+            se fait par la pastille « Choisir un bonus » / « Bonus » de la maîtrise */ ""}${ms.got.length ? ms.got.length + " ⓘ" : tx("aucun")}</span></li>`
             // (it. 1108) les deux options au survol (sur deux lignes, elles faisaient défiler l'onglet à 1280 px)
             + (ms.next ? `<li title="${esc(describeEffects(ms.next.a) + (ms.next.b ? " " + tx("ou") + " " + describeEffects(ms.next.b) : ""))}"><span>${tx("Prochain palier : rang {0}", { 0: ms.next.at })}</span><span class="delta-p">${ms.next.b ? tx("2 bonus au choix") : esc(describeEffects(ms.next.a))}</span></li>` : ""); })() : ""}</ul>
         ${why && r < t.max ? `<p class="note">${esc(why)}${cend()}</p>` : ""}
@@ -220,7 +221,14 @@ export class TalentsTab {
     clearTimeout(this.hoverT); // (it. 2094) un clic l'emporte sur une pause en cours
     if (a === "t-sel") this.sel = b.dataset.id;
     // (it. 1522) pastille « A/B » : la fiche de cette maîtrise, et la fenêtre de choix des paliers ouverte
-    else if (a === "t-mpend") { this.sel = b.dataset.id; setTimeout(() => this.root?.querySelector("#tsel .mpickbox summary")?.click(), 0); }
+    // (it. 2103) la fenêtre de choix s'ouvre directement (avant : par un clic sur le bouton « choisir · N » de la fiche, retiré)
+    else if (a === "t-mpend") {
+      this.sel = b.dataset.id;
+      const r = (g.S.talents[g.S.cls] || {})[b.dataset.id] || 0, tmp = document.createElement("div");
+      tmp.innerHTML = this.picksHTML(b.dataset.id, r);
+      const d = tmp.querySelector("details");
+      if (d && this.panel) this.panel.showDetails(d);
+    }
     // Maj + clic : comme le petit bouton (« +1 » sur un talent, « tout » sur une maîtrise)
     else if (a === "t-learn") { this.confirmReset = false; this.learnFrom(b, !!e?.shiftKey); }
     // (it. 2096) clic sur une voie : sa fiche, avec le bouton « Choisir cette voie » (à un autre endroit que le premier clic)

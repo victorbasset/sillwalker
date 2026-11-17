@@ -273,8 +273,9 @@ async function runSelfTest(strip) {
   const mPick = await js(`(async () => { const P = window.__panel, G = window.__game, S = G.S, T = P.tabs.talents; const keep = { picks: { ...(S.masteryPicks || {}) }, r: (S.talents[S.cls] || {}).ms_power };
     try { (S.talents[S.cls] ||= {}).ms_power = Math.max(420, keep.r || 0); delete (S.masteryPicks ||= {})["ms_power:10"]; G.invalidateStats();
       P.setTab("talents"); T.sel = "ms_power"; P.renderAll();
-      const d = document.querySelector('[data-pane="talents"]:not([hidden]) [data-keep="ms-picks"]'); if (!d) return "pas de bloc";
-      P.showDetails(d);
+      // (it. 2103) par la pastille de la maîtrise (le bouton « choisir · N » de la fiche est retiré)
+      const pill = document.querySelector('[data-pane="talents"]:not([hidden]) .talent[data-tid="ms_power"] .mpend:not(.off)'); if (!pill) return "pas de pastille";
+      pill.click(); await new Promise((ok) => setTimeout(ok, 100)); if (document.querySelector('#modal').hidden) return "fenêtre fermée";
       // (it. 1126) fenêtre mesurée : ni défilement, ni bouton hors de sa ligne, ni étiquette « rang N » sur deux lignes
       const box = document.querySelector('#modal').firstElementChild, lis = [...document.querySelectorAll('#modal .mpicks li')];
       if (box.scrollHeight > box.clientHeight + 1) return "fenêtre qui défile " + box.scrollHeight + "/" + box.clientHeight;

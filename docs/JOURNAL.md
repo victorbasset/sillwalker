@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2103, demande de Victor : « je veux plus voir ce bouton ici ») : fiche d'une maîtrise : le bouton « ▶ choisir · N »
+  de la ligne « Paliers atteints » est retiré (le nombre seul, détail au survol) ; la pastille « Choisir un bonus » / « Bonus » de la
+  maîtrise ouvre la fenêtre de choix directement (avant, elle cliquait ce bouton). Autotest du choix de bonus adapté ; 268/268.
 - 2026-11-17 (it. 2102, ergonomie) : Ascension : confirmation dans la fenêtre du panneau (« Monter vers les étoiles ? », ce qu'on perd et
   ce qu'on gagne) au lieu d'un second clic sur le même bouton (un double clic involontaire lançait l'ascension ; le libellé armé ne se
   remettait pas). Les onglets reçoivent le panneau (t.panel). Autotest « le bouton demande confirmation » ; 268/268.
