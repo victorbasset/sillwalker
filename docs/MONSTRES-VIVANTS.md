@@ -132,6 +132,14 @@ se balançaient qu'au combat.
     vérifiés en capture sur chaque fond, it. 2027-2029). Ni le fantôme ni le golem ne grelottent, toussent ou éternuent
     (it. 2030, 2032 : revue des espèces de chaque zone à climat). Climat, gestes et leur mouvement : fonctions pures de
     monlife.js (climateGesture, gestureOf, gestureMotion, testées ; it. 2023-2025). Le corbeau vit le jour (it. 2033).
+    Buée dans la neige, bulles sous l'eau, vapeur des frileux dans les braises (it. 2035-2037) ; poussière : les bêtes à
+    fourrure s'ébrouent, les humanoïdes toussent (it. 2046) ; gouttes : on s'ébroue, sauf grenouille, slime et ver (it. 2047).
+    Feuilles et poussières lumineuses : rien (pas de réaction naturelle). Autotest « souffles du climat » (it. 2038).
+
+14. **Rafale de vent et ordre des règles** (it. 2042-2045) : pendant l'événement « Rafale de vent », volants ballottés et
+    monstres au sol qui reculent par à-coups. La règle de meute (65 % du chef, 35 % du sien) effaçait les règles appliquées
+    avant elle : vent, peur du héros, proies et prédateurs passent maintenant après. Ordre : vie propre, meute, peur du héros,
+    proies et prédateurs, vent. Autotest « une proie en meute s'écarte du prédateur voisin ».
 
 Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
 série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
