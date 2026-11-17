@@ -278,6 +278,11 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   game.js skillBalance compense chacune (attaque ou PV) : une compétence change la façon de se battre, pas la force. Un
   test vérifie que chaque compétence est jouée, a son mot, son son et sa traduction. Capture d'un geste : figer
   `strip.mfx = { id, phase: "go", t, d: 8 }` (d long) 300 ms avant --shot. Vie en attente : render/monlife.js.
+  Comportements en attente (it. 1850-1934) : monlife.js (déplacement selon la nature, pur, testé) ; strip.js : meutes
+  (game.js PACK_ARTS, packSeed), réactions `a.react` (startle, fury, cheer, gesture avec `nat`), eager (héros faible, meute,
+  suivant prêt), proies (TIMID / PREDATORS), jour et nuit (DIURNAL / NOCTURNAL), boss impatient. Actor.move arrondit à
+  3 px et Actor.alpha au huitième : un geste de 1 px ou un fondu de 5 % ne se voit pas. Mesurer un comportement : --stage
+  qui impose `g.R.lineup` (+ `R.lineupZone = S.zone`, `s.slotKey = null`) et relève `slots[k].tx` / `react` (it. 1905).
   Voir la bande en mouvement : `scripts/strip-clip.sh <sortie.mp4> [zone] [secondes] [ffmpeg] [mise-en-scène.js]` (écran
   virtuel à part, copie de dev-data ; ffmpeg d'imageio-ffmpeg dans un environnement virtuel du dossier temporaire).
 - Rangée d'informations de la bande (zone, or, barres de vie du réglage hudBars, it. 1531) : tout nouvel élément y

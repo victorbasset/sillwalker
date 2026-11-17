@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1935) : CLAUDE.md : où vivent les comportements des monstres en attente, arrondis d'Actor (3 px, 1/8),
+  méthode de mesure par --stage.
 - 2026-11-17 (it. 1934) : geste du golem vérifié (s'enfonce de 3 px) ; autotest « bande : geste au repos propre à la nature »
   (rat, golem, chauve-souris, série imposée puis rendue). 255/255.
 - 2026-11-17 (it. 1933, journée des monstres) : le geste au repos dépend de la nature : les furtifs reniflent de droite à
