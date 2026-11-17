@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2061, revue générale) : captures en japonais (Aventure, mode mini) : propres, nouvelle ligne de la carte de la zone
+  comprise ; texte de l'interface en coréen : aucun mot non traduit (HP, Lv, noms de langues : voulus). Perf, mémoire et équilibrage
+  mesurés aux it. 2051-2054. Rien à corriger.
 - 2026-11-17 (it. 2060, revue des onglets Héros et Statistiques en anglais) : rien à corriger. Vu : dev-data compte 13 événements rares
   mais une seule sorte « vue » (1 / 18) : sauvegarde antérieure au suivi des sortes (it. 932) ; startEvent incrémente les deux au
   même endroit, une partie récente ne peut pas les désaccorder.
