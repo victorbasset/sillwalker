@@ -19,6 +19,9 @@ Détail : `docs/MONSTRES-VIVANTS.md`. Vidéo envoyée le 17/11 vers 4 h 30 (zone
 - **Lieutenants et Briseur** : dessin propre (Carte comprise) et pouvoir unique (Chaînes, Cendres, Éclipse, Ciel brisé).
 - **Équilibre** : ≈ 1 % de progression en moins sur 12 h (−0,8 zone), la semaine inchangée ; je l'ai gardé (monstres un
   peu plus coriaces). Dis-moi si tu préfères revenir exactement à avant.
+- **Bogue corrigé (it. 1958-1959)** : un boss (ou un élite) qui se régénère plus vite que le héros ne le blesse, contre un
+  héros qui encaisse tout, figeait la partie (combat sans fin, jamais de recul). Après 90 s, le monstre s'emporte
+  désormais jusqu'à ce que l'un des deux tombe. Si tu as déjà vu ton héros bloqué très longtemps devant un boss, c'était ça.
 - **Performance sous Windows** : sur le serveur, rien n'a bougé (bande 18 %, fin de partie 25 %) ; à confirmer dans ton
   Gestionnaire des tâches.
 
