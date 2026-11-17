@@ -241,6 +241,13 @@ export class StripRenderer {
       // (it. 1558) ; (it. 1767) sac plein : son légendaire serait perdu (règle de Victor) : le héros prévient à temps
       if (m && m.poupouce) this.say(g.bagFull() ? SPEECH.poupouceBagFull : SPEECH.poupouce, true);
       else if (m && m.affix === "colossal" && !((g.S.stats || {}).affixesSeen || {}).colossal) this.say(SPEECH.colossal, true); // (it. 1625) tant qu'aucun n'est vaincu
+      // (it. 1894) entrée en scène d'un boss de zone : il se dresse de toute sa hauteur, la bande tremble, « !! » (les
+      // lieutenants et le Briseur ont leur propre mise en scène)
+      if (m && m.boss && !m.final && !m.major) {
+        this.mfx = { id: "bossIntro", phase: "go", t: 0, d: 0.9 };
+        this.shake(0.15);
+        this.float(this.monX() + 24, 8, "!!", "#ff9a7a", true);
+      }
     });
     g.on("setBonus", ({ n }) => { if (n >= 4) this.say(SPEECH.setFull, true); }); // (it. 1037)
     g.on("masteryStep", () => this.say(SPEECH.mastery, true)); // (it. 1162) rare (une fois par palier dans la partie) : comme un grand moment
@@ -932,6 +939,11 @@ export class StripRenderer {
       // gobelin : recule en allumant la mèche (tremblote), puis lance d'un geste ample
       if (f.phase === "tell") return { dx: 4 * Math.min(1, p * 2) + (Math.floor(p * 16) % 2 ? 1 : 0), dy: 0 };
       return { dx: 4 - 8 * Math.sin(p * Math.PI), dy: -3 * Math.sin(p * Math.PI) };
+    }
+    if (f.id === "bossIntro") {
+      // boss : se dresse (monte de 6 px) et tremble, puis se pose, prêt au combat
+      const up = p < 0.3 ? p / 0.3 : 1 - (p - 0.3) / 0.7;
+      return { dx: p < 0.5 ? (Math.floor(p * 24) % 2 ? 1 : -1) : 0, dy: -6 * up };
     }
     if (f.id === "sacrifice") {
       // cultiste : se plie (se taille la paume), puis se redresse bras tendus vers le héros

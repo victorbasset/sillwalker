@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1894, journée des monstres) : entrée en scène des boss de zone : au début du combat, le boss se dresse
+  (6 px) en tremblant, la bande tremble, « !! » couleur boss (lieutenants et Briseur exclus). Mesuré (zone 26) ; npm test
+  346, autotest 253/253.
 - 2026-11-17 (it. 1893) : README à jour de la journée des monstres (séries de 7 à 13 et vie en attente, compétences des
   monstres, monskills.js et monlife.js dans l'arborescence, ajouter un monstre : sa compétence). Idée écartée : réaction à
   la météo (ambiance fixe par zone, rien de vivant à y gagner).
