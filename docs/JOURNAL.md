@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1970, contrôle) : tableau des 20 héros (12 h, graines 7/3/11) : moyenne 64,5, nécromancien 62,3 en bas,
+  berserker 69,3 en haut (un 77). Berserker sur 7 graines, avant / après les garde-fous anti-impasse (2b1777bc / HEAD) :
+  67,8 / 66,8, le 77 existait déjà : forte variance du berserker, pas une régression. Rien changé.
 - 2026-11-17 (it. 1969) : brouillon du devlog 0.1.6 : meutes et instincts, mode mini, effets réduits, bogue des combats sans fin.
 - 2026-11-17 (it. 1968, contrôle) : lang-overflow complet (éditions 122-125, infobulles du Bestiaire et des Réglages, ligne de
   journal) : aucun défilement ni mot coupé, 10 langues.
