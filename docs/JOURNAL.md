@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1993, journée des monstres) : arrivée de la série : à chaque nouvelle série, les monstres accourent du bord droit
+  l'un après l'autre (0,12 s d'écart, 1,1 s de course, freinage) jusqu'à leur place ; pas le combattant, pas avec les effets
+  réduits. Vérifié (positions relevées : tous en place en ≈ 2 s). Autotest 257/257, bande 18,2 %.
 - 2026-11-17 (it. 1992, journée des monstres) : gestes : champignards et champignons errants se gonflent, le scorpion dresse la
   queue (vérifié). CLAUDE.md : mesure de mémoire, juger un écart contre l'ancien commit mesuré aussitôt. Autotest 257/257.
 - 2026-11-17 (it. 1991, revue générale) : perf:linux bande 18,3 %, panneau 18,9 %, mini 5,6 % ; 12 h graine 291 : cryomancienne 64,

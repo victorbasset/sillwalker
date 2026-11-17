@@ -1187,6 +1187,9 @@ export class StripRenderer {
       a.bossSlot = boss;
       this.slots.push(a);
     }
+    // (it. 1993) nouvelle série : les monstres arrivent du bord droit, l'un après l'autre, et gagnent leur place (pas celui
+    // déjà au combat ; pas avec les effets réduits)
+    if (g.S.settings.fullEffects !== false) this.slots.forEach((a, k) => { if (k > g.S.kills) { a.arriveT = 0; a.arriveDelay = (k - g.S.kills) * 0.12; } });
     this.slotKey = line;
     this.placeBossName(); // étiquettes de la file dégagées du nom du boss (it. 892)
   }
@@ -1456,7 +1459,14 @@ export class StripRenderer {
       if (!fighting && a.stomp2 > 0) { a.stomp2 -= dt; if (a.stomp2 <= 0 && !a.react) a.react = { kind: "gesture", t: 0, d: 0.3, delay: 0 }; }
       if (!fighting && a.howlDelay > 0) a.howlDelay -= dt;
       else if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) * (a.brave ? 1.3 : 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
+      let arrive = 0;
+      if (a.arriveDelay != null) {
+        a.arriveT += dt;
+        const p = Math.max(0, Math.min(1, (a.arriveT - a.arriveDelay) / 1.1)), e = 1 - (1 - p) * (1 - p) * (1 - p);
+        arrive = (1 - e) * Math.max(0, this.W + 30 - this.fightX(k + 1));
+        if (p >= 1 || fighting) a.arriveDelay = null;
+      }
+      a.move(arrive + this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) * (a.brave ? 1.3 : 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
       // (it. 1929) les spectres qui attendent s'estompent et reviennent lentement (entre 75 et 100 %, par huitièmes :
