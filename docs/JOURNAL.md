@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2045) : autotest « une proie en meute s'écarte du prédateur voisin » (deux rats collés à un ours, devFreeze, record
+  ramené à 30 : la peur du héros poussait le rat dans l'autre sens, −3) : −6 px en moyenne, seuil −4 (≈ −2 avec l'ancien ordre
+  des règles). Autotest 261/261 deux fois.
 - 2026-11-17 (it. 2044, journée des monstres) : la peur du héros bien plus fort (it. 1976) passe aussi APRÈS la meute : les craintifs
   en meute ne gardaient que 35 % de leur recul (et le regard du chef). Mesure devFreeze, deux rats parmi des golems : +2 px en
   moyenne avant, +11 après. Ordre : meute, peur du héros, proies et prédateurs, vent. Autotest 260/260.

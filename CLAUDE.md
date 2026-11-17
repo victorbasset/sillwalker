@@ -293,7 +293,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   braises, bulles, spores) les remplace (it. 2004-2010) : un contrôle de geste se fait dans une zone FIXE (it. 2010 : l'autotest
   échouait selon la zone courante). Nouvelle série : les monstres accourent du bord (arriveDelay ; pas le boss, it. 1993-1996).
   Mesurer la vie de la file sans que la série change : `g.R.devFreeze = true` (game.js step : ni combat ni marche, le temps
-  avance ; it. 2017). Attention aux règles qui en écrasent d'autres (un craintif entre deux prédateurs tremble sur place).
+  avance ; it. 2017). Attention aux règles qui en écrasent d'autres (un craintif entre deux prédateurs tremble sur place) ; ordre dans strip.js : vie propre,
+  meute (elle ne garde que 35 % du mouvement propre), puis peur du héros, proies et prédateurs, vent (it. 2042-2045, autotest « proie en meute »).
   Voir la bande en mouvement : `scripts/strip-clip.sh <sortie.mp4> [zone] [secondes] [ffmpeg] [mise-en-scène.js]` (écran
   virtuel à part, copie de dev-data ; ffmpeg d'imageio-ffmpeg dans un environnement virtuel du dossier temporaire).
 - Rangée d'informations de la bande (zone, or, barres de vie du réglage hudBars, it. 1531) : tout nouvel élément y
