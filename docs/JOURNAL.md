@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2076, vérification) : mode mini, boss en attente vu en capture en zone 150 (Chevalier de l'éclipse, son dessin,
+  contour pâle) et 300 (écho de la Reine, contour spectral). Rien à corriger.
 - 2026-11-17 (it. 2075) : mode mini : pendant le dernier monstre de la série, le boss attend au fond de la scène, à demi effacé
   (couronne ; lieutenant ou Briseur : leur dessin ; écho : contour spectral), puis s'avance de là (passage de l'it. 2071) ;
   relevé : boss à 162 pendant que le cadavre s'efface, puis 156 → 51 ; capture : golem couronné au fond. Autotest 262/262.
