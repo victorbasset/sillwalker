@@ -3,7 +3,7 @@
 Idle RPG qui vit dans une bande en bas (ou en haut) de l'écran. Application Electron pour Windows, prévue pour Steam.
 
 Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône de notification) :
-- **Bande** : toute la largeur de l'écran est la carte de la zone. Les 10 monstres attendent le long du chemin, le boss au bout ; le héros avance d'un combat à l'autre. En haut : zone, barres de vie du héros et du monstre (bouclier
+- **Bande** : toute la largeur de l'écran est la carte de la zone. Les monstres de la série (7 à 13) attendent le long du chemin, le boss au bout ; ils vivent leur vie en attendant (flânent, planent, sautillent, bavardent, dorment la nuit pour les bêtes de jour), se tournent vers le héros qui approche et réagissent à la mort d'un voisin ; le héros avance d'un combat à l'autre. En haut : zone, barres de vie du héros et du monstre (bouclier
   compris), or et niveau avec sa jauge d'expérience (elle brille en or au niveau gagné).
 - **Mini** : petit encart près de l'horloge (combat en cours, niveau, or, zone). Un clic l'agrandit en bande ; au survol,
   le record à battre, l'expérience et le prochain objectif ; légendaires, records et ascensions s'y signalent brièvement.
@@ -108,6 +108,11 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   les capacités des boss, les affixes d'élite et les événements rares (ceux jamais vus restent « ??? » ; chacun vécu donne +1 % d'or pour toujours) ; chaque sorte d'élite vaincue donne +1 % de chances de butin pour toujours.
 - **Collection d'objets** : chaque type d'objet trouvé (44) donne un bonus permanent, plus encore en épique et en légendaire.
 - **Transmutation** : 3 objets inutiles d'une rareté → 1 objet de la rareté au-dessus.
+- **Compétences des monstres** (journée des monstres, 17/11) : chaque famille a la sienne (bond du gluant, piqué de la
+  chauve-souris, toile de l'araignée, charge du sanglier, Fouissement du ver…), annoncée par un « ! », jouée sur la bande et
+  en mode mini, décrite au survol de la carte du Bestiaire ; les variantes (feu, givre, poison, ombre) y ajoutent un effet ;
+  les boss de zone ont celle de leur famille, les lieutenants et le Briseur un pouvoir unique. Chacune est compensée
+  (attaque ou PV) : elle change la façon de se battre, pas la force. Plan et bilan : `docs/MONSTRES-VIVANTS.md`.
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.
 - **Répliques** : le héros parle de temps en temps (légendaire, boss, K.O., record…).
 - **Vitesse** (le bonus le plus précieux) : plumes du vent très rares et étoiles filantes à attraper d'un clic
@@ -221,6 +226,7 @@ src/
     app.js                assemble jeu + rendu + UI, boucles, sauvegarde auto
     game/                 LOGIQUE PURE (aucun DOM) : testable avec Node
       data.js             contenu : raretés, zones, monstres, élites, objets, rythme
+      monskills.js        compétences des monstres, par famille (et l'effet de l'élément des variantes)
       classes.js          classes jouables (statistiques, passif, combat à distance)
       talents.js          arbres de talents et effets
       shop.js             catalogue de la boutique et prix
@@ -243,7 +249,7 @@ src/
       state.js            format de sauvegarde + migrations
       achievements.js     succès Steam
     render/               art.js = pixel art, dom.js = briques communes,
-                          strip.js = bande (parcours de zone), mini.js = encart mini, heroart.js = héros
+                          strip.js = bande (parcours de zone), monlife.js = vie des monstres en attente, mini.js = encart mini, heroart.js = héros
                           assemblés à partir de pièces, equipvis.js = équipement visible, juice.js = effets,
                           sound.js = sons, music.js = lecture des 4 morceaux (assets/music/), trayicons.js = icônes de la zone de notification ;
                           sprites.js = images des personnages (contours et halo dessinés une fois : outlinedFrames,
@@ -257,7 +263,7 @@ src/
 ### Ajouter du contenu
 
 - **Zone** : une entrée dans `ZONES` (`game/data.js`).
-- **Monstre** : un nom et ses modificateurs dans `MONSTERS` + 2 images dans `MONSTER_ART` (`render/art.js`).
+- **Monstre** : un nom et ses modificateurs dans `MONSTERS` + 2 images dans `MONSTER_ART` (`render/art.js`). Sa compétence vient de sa famille (`game/monskills.js`) ; une nouvelle famille demande une compétence (un test le vérifie), sa pose dans `strip.js` (`monSkillPose`), son mot et son son.
 - **Classe** : une entrée dans `classes.js`, un arbre dans `talents.js` (`TREES`), un sprite dans `CLASS_ART`.
   Mécaniques disponibles pour un passif ou un talent : voir `EFFECTS` (bouclier, poison, serviteur, enchaînement, épines...).
 - **Arbre de compétences** : modifier `SECTORS` dans `skilltree.js` (petits nœuds, remarquables, clé de voûte) ;

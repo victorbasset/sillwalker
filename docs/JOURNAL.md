@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1893) : README à jour de la journée des monstres (séries de 7 à 13 et vie en attente, compétences des
+  monstres, monskills.js et monlife.js dans l'arborescence, ajouter un monstre : sa compétence). Idée écartée : réaction à
+  la météo (ambiance fixe par zone, rien de vivant à y gagner).
 - 2026-11-17 (it. 1892, journée des monstres) : « Quoi de neuf », édition 121 (« ! » et boss ; jour/nuit et bavardage ;
   chutes par famille ; réactions et Poupouce qui file ; geste en mode mini), clés 3210-3214, 10 langues (Poupouce gardé
   tel quel, comme en jeu). npm test 346, autotest 253/253, lang-overflow ru/de/pl 1280 propre.
