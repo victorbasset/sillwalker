@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2085, bogue de la bande trouvé en vérifiant le mode mini) : héros à terre : le monstre VAINQUEUR sautait hors de
+  l'écran pour revenir en courant, et le premier vaincu réapparaissait d'un coup à sa place (boucle de l'it. 1994 décalée d'un rang :
+  places S.kills + 1 … prevKills au lieu de S.kills … prevKills − 1). Relevé : le loup vainqueur reste à 432-456, l'ours vaincu
+  revient de 1950 à 261. Autotest « héros à terre, les vaincus reviennent du bord » (true true false). Autotest 263/263.
 - 2026-11-17 (it. 2084) : CLAUDE.md : passages du mode mini et façon de les mesurer ; brouillon du devlog 0.1.7 complété.
 - 2026-11-17 (it. 2083) : mode mini : le héros vaincu, le monstre vainqueur disparaissait d'un coup ; il s'efface en 0,45 s (relevé :
   0,875 → 0,125). Après une victoire, rien ne change (le cadavre est déjà effacé). Autotest 262/262.

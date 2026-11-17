@@ -1305,7 +1305,9 @@ export class StripRenderer {
     if (this.windZone !== S.zone) { this.windZone = S.zone; const Zw = game.zoneDef(); this.windy = WEATHER[Zw.src || Zw.name] === "feather"; }
     // (it. 1994) la série recommence (héros à terre, même série) : les monstres déjà vaincus reviennent en courant du bord
     if (this.prevKills != null && S.kills < this.prevKills && this.slotKey === line && !calmFx) {
-      for (let k = S.kills + 1; k <= Math.min(this.prevKills, this.slots.length - 1); k++) { const a = this.slots[k]; if (a && !a.bossSlot) { a.arriveT = 0; a.arriveDelay = 0.6 + (k - S.kills) * 0.15; } }
+      // (it. 2085) les VAINCUS (places S.kills … prevKills − 1) ; le combattant (place prevKills), resté debout, garde sa place : la boucle
+      // allait de S.kills + 1 à prevKills : le vainqueur sautait hors de l'écran et le premier vaincu réapparaissait d'un coup
+      for (let k = S.kills; k < Math.min(this.prevKills, this.slots.length); k++) { const a = this.slots[k]; if (a && !a.bossSlot) { a.arriveT = 0; a.arriveDelay = 0.6 + (k - S.kills) * 0.15; } }
     }
     this.prevKills = S.kills;
     // (it. 1890) bavardage : de loin en loin, deux voisins loin du héros se tournent l'un vers l'autre (hochements)
