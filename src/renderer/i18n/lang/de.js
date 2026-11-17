@@ -2076,4 +2076,8 @@ export default {
   3201: "Benommen!",
   3202: "Stoß!",
   3203: "Bumm!",
+  3204: "Der mechanische Kerkermeister, die Aschenkönigin und der Ritter der Finsternis haben ein eigenes Aussehen und eine einzigartige Kraft; der Sternenbrecher ist zäher.",
+  3205: "Der Saum lebt: Während sie warten, schlendern, gleiten oder hüpfen die Monster, drehen sich zum nahenden Helden um und zucken zusammen, wenn ein Nachbar fällt.",
+  3206: "Jede Zone hat zufällig 7 bis 13 Monster.",
+  3207: "Jede Monsterart hat ihre eigene Fähigkeit, sichtbar auf der Leiste und beim Überfahren ihrer Bestiarium-Karte beschrieben; Zonenbosse haben die ihrer Familie.",
 };

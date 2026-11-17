@@ -2076,4 +2076,8 @@ export default {
   3201: "Numbed!",
   3202: "Thrust!",
   3203: "Boom!",
+  3204: "The Clockwork Jailer, the Ash Queen and the Eclipse Knight have their own art and a unique power; the Starbreaker is tougher.",
+  3205: "The Sill comes alive: while waiting their turn, monsters wander, glide or hop, turn toward the approaching hero and flinch when a neighbor falls.",
+  3206: "Each zone holds 7 to 13 monsters, at random.",
+  3207: "Every kind of monster has its own skill, visible on the strip and described when you hover its Bestiary card; zone bosses have their family’s.",
 };

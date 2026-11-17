@@ -2076,4 +2076,8 @@ export default {
   3201: "Odrętwiały!",
   3202: "Pchnięcie!",
   3203: "Bum!",
+  3204: "Mechaniczny Strażnik Lochów, Królowa Popiołów i Rycerz Zaćmienia mają własny wygląd i wyjątkową moc; Łamacz Gwiazd jest twardszy.",
+  3205: "Krawędź ożywa: czekając na swoją kolej, potwory przechadzają się, szybują lub podskakują, odwracają się do nadchodzącego bohatera i wzdrygają się, gdy pada sąsiad.",
+  3206: "Każda strefa ma losowo od 7 do 13 potworów.",
+  3207: "Każdy rodzaj potwora ma własną umiejętność, widoczną na pasku i opisaną po najechaniu na jego kartę w Bestiariuszu; bossowie stref mają umiejętność swojej rodziny.",
 };

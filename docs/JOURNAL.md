@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1869, journée des monstres) : « Quoi de neuf », édition 120 (lieutenants : dessin et pouvoir unique,
+  Briseur plus coriace ; le Rebord vit ; zones de 7 à 13 monstres ; une compétence par sorte de monstre), clés
+  3204-3207, 10 langues (noms repris tels que traduits). npm test 345, autotest 253/253, lang-overflow ru/de/pl 1280 propre.
 - 2026-11-17 (it. 1868, journée des monstres) : volants : altitude de croisière propre, qui monte et descend lentement
   (mesuré : ≥ 30 px du haut de la bande pour les monstres ordinaires, la rangée d'informations fait 24 px) ; monstre
   ordinaire sous 25 % de vie : recule en tremblant (5 px, 9 px pour les craintifs). npm test 345, autotest 253/253.

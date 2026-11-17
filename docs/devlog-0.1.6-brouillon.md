@@ -33,3 +33,6 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
 - **L'expérience en violet partout :** la barre de l'Aventure prend la couleur de la jauge de la bande et du mode mini.
 - **Lieutenants du Briseur :** le Geôlier mécanique, la Reine des cendres et le Chevalier de l'éclipse ont chacun leur
   propre dessin (bande, mode mini, Carte), comme le Briseur d'Étoiles.
+- **Monstres vivants (journée du 17/11) :** en attendant leur tour, les monstres flânent, planent ou sautillent et
+  réagissent au héros et à la mort d'un voisin ; zones de 7 à 13 monstres ; chaque sorte de monstre a sa compétence
+  visible (bond, piqué, toile, charge…), les boss de zone celle de leur famille ; lieutenants et Briseur : pouvoirs uniques.

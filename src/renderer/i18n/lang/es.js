@@ -2076,4 +2076,8 @@ export default {
   3201: "¡Entumecido!",
   3202: "¡Estocada!",
   3203: "¡Bum!",
+  3204: "El Carcelero Mecánico, la Reina de las Cenizas y el Caballero del Eclipse tienen su propio dibujo y un poder único; el Rompeestrellas es más duro.",
+  3205: "El Alféizar cobra vida: mientras esperan su turno, los monstruos pasean, planean o saltan, se vuelven hacia el héroe que se acerca y se sobresaltan cuando cae un vecino.",
+  3206: "Cada zona tiene de 7 a 13 monstruos, al azar.",
+  3207: "Cada tipo de monstruo tiene su habilidad, visible en la franja y descrita al pasar el ratón por su carta del Bestiario; los jefes de zona tienen la de su familia.",
 };
