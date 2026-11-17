@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1944, journée des monstres) : quatre gestes de plus : le bandit fait le guet (se retourne un instant), le
+  cultiste se balance en psalmodiant, l'orc se frappe la poitrine, les chevaliers saluent. Vérifié (série imposée ; le
+  bandit se retourne bien). Autotest 256/256.
 - 2026-11-17 (it. 1943, journée des monstres) : gestes propres à trois marcheurs (strip.js ART_GEST) : le sanglier gratte le
   sol, l'ours se dresse (6 px, 1,2 s), le squelette s'entrechoque. Vérifié (série imposée). Autotest 256/256.
 - 2026-11-17 (it. 1942, journée des monstres) : gestes des colosses affinés : plantes et sylvains se balancent (±3 px, 1,4 s),

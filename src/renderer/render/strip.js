@@ -1360,9 +1360,11 @@ export class StripRenderer {
           // (it. 1936) l'araignée remonte le long d'un fil de soie, puis redescend
           // (it. 1942) parmi les colosses : plantes et sylvains se balancent, la momie fait un pas traînant
           // (it. 1943) marcheurs : le sanglier gratte le sol, l'ours se dresse, le squelette s'entrechoque
-          const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle" };
+          // (it. 1944) le bandit regarde de part et d'autre, le cultiste se balance en psalmodiant, l'orc se frappe la poitrine,
+          // le chevalier salue (deux petits saluts)
+          const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle", bandit: "look", cultist: "sway", orc: "beat", knight: "salute", darkknight: "salute" };
           const nat = ART_GEST[a.art] || a.nature;
-          a.react = { kind: "gesture", t: 0, d: { spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
+          a.react = { kind: "gesture", t: 0, d: { spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
         }
       }
@@ -1391,6 +1393,9 @@ export class StripRenderer {
               if (p > 0.97) { a.silk.hidden = true; a.silkH = -1; }
             }
             else if (r.nat === "skitter") rdx = Math.floor(p * 6) % 2 ? 3 : -3;
+            else if (r.nat === "look") a.lookFlip = p < 0.3 ? false : p < 0.65;
+            else if (r.nat === "beat") rdy = Math.floor(p * 8) % 2 ? -3 : 0;
+            else if (r.nat === "salute") rdy = Math.floor(p * 4) % 2 ? 0 : -3;
             else if (r.nat === "paw") rdx = Math.floor(p * 6) % 2 ? 3 : 0;
             else if (r.nat === "rear") rdy = -Math.round(Math.min(1, Math.sin(p * Math.PI) * 1.6) * 2) * 3;
             else if (r.nat === "rattle") rdx = Math.floor(p * 16) % 2 ? 3 : -3;
@@ -1428,7 +1433,9 @@ export class StripRenderer {
       let chatDy = 0, chatFlip = null;
       if (!fighting && a.chat) { a.chat.t -= dt; if (a.chat.t <= 0) a.chat = null; else { chatFlip = a.chat.side < 0; chatDy = Math.floor(a.chat.t * 5 + (a.chat.side > 0 ? 1 : 0)) % 2 ? -2 : 0; } }
       if (chatDy && a.tx) { const [cx, cy] = a.tx.split(",").map(Number); a.move(cx, cy + chatDy); }
-      const flip = chatFlip ?? !!(life && life.face < 0);
+      // (it. 1944) le bandit qui fait le guet se retourne un instant (geste « look »)
+      const look = !fighting && a.react && a.react.nat === "look" ? a.lookFlip : null;
+      const flip = chatFlip ?? look ?? !!(life && life.face < 0);
       if (a.flipped !== flip) { a.flipped = flip; a.el.classList.toggle("flip", flip); mark("flip"); }
       // Barre : le monstre combattu, ou un monstre de la file déjà blessé par un perçage (demande R : visible jusqu'à son tour).
       const pierced = !fighting && (k === line.length ? R.bossPierced > 0 : line[k]?.pierced > 0);
