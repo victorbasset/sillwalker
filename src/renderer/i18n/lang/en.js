@@ -2107,4 +2107,7 @@ export default {
   3232: "Monsters size you up: in an easy zone they fear you; at your record, after a defeat, they grow bolder.",
   3233: "The Bestiary tells whether a species is gregarious, timid or a predator.",
   3234: "Sylvans and cultists pick their moment: healing when wounded, sacrifice while they still stand strong.",
+  3235: "Each new series arrives running in from the edge of the strip; after a defeat, the monsters already beaten come back too.",
+  3236: "More gestures: the lizard blends in, mushlings puff up, the scorpion raises its tail.",
+  3237: "In mini mode, the next monster slides in, with the outline of elites and champions.",
 };

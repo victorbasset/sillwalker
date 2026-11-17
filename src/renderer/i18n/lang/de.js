@@ -2107,4 +2107,7 @@ export default {
   3232: "Monster schätzen dich ein: In einer leichten Zone fürchten sie dich; an deinem Rekord werden sie nach einer Niederlage kühner.",
   3233: "Das Bestiarium zeigt, ob eine Art Herdentier, ängstlich oder Raubtier ist.",
   3234: "Sylvane und Kultisten wählen ihren Moment: Heilung, wenn sie verwundet sind, das Opfer, solange sie standhalten.",
+  3235: "Jede neue Serie kommt vom Rand des Streifens herangelaufen; nach einer Niederlage kehren auch die bereits besiegten Monster zurück.",
+  3236: "Weitere Gesten: Die Echse tarnt sich, Pilzlinge blähen sich auf, der Skorpion hebt den Schwanz.",
+  3237: "Im Mini-Modus gleitet das nächste Monster herein, mit dem Umriss von Elite und Champions.",
 };

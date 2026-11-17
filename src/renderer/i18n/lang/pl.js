@@ -2107,4 +2107,7 @@ export default {
   3232: "Potwory cię oceniają: w łatwej strefie boją się ciebie; na twoim rekordzie, po porażce, nabierają śmiałości.",
   3233: "Bestiariusz mówi, czy gatunek jest stadny, płochliwy czy jest drapieżnikiem.",
   3234: "Leśne duchy i kultyści wybierają moment: leczenie, gdy są ranni, ofiarę, dopóki trzymają się na nogach.",
+  3235: "Każda nowa seria nadbiega od krawędzi paska; po porażce wracają też już pokonane potwory.",
+  3236: "Więcej gestów: jaszczurka się maskuje, grzybole się nadymają, skorpion unosi ogon.",
+  3237: "W trybie mini następny potwór wsuwa się na scenę, z obrysem elit i czempionów.",
 };

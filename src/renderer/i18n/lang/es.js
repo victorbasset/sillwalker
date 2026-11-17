@@ -2107,4 +2107,7 @@ export default {
   3232: "Los monstruos te calibran: en una zona fácil te temen; en tu récord, tras una derrota, se envalentonan.",
   3233: "El Bestiario indica si una especie es gregaria, miedosa o depredadora.",
   3234: "Silvanos y cultistas eligen su momento: la curación cuando están heridos, el sacrificio mientras aguantan.",
+  3235: "Cada nueva serie llega corriendo desde el borde de la franja; tras una derrota, los monstruos ya vencidos también vuelven.",
+  3236: "Más gestos: el lagarto se camufla, los champiñones se hinchan, el escorpión levanta la cola.",
+  3237: "En modo mini, el siguiente monstruo llega deslizándose, con el contorno de élites y campeones.",
 };

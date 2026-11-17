@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1998) : « Quoi de neuf », édition 127 (arrivée des séries et retour des vaincus ; gestes du lézard, des
+  champignards, du scorpion ; mode mini ; clés 3235-3237, noms de monstres repris tels que traduits). Autotest 258/258,
+  lang-overflow ru/de/pl : rien ne défile.
 - 2026-11-17 (it. 1997) : mode mini : le monstre suivant arrive en glissant du bord droit (0,8 s ; pas avec les effets réduits).
   Vérifié (x 207 → 174). Autotest 258/258.
 - 2026-11-17 (it. 1996, journée des monstres) : vidéo de l'arrivée d'une série : le boss qui accourait passait sous les boutons et

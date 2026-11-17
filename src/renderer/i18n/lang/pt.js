@@ -2107,4 +2107,7 @@ export default {
   3232: "Os monstros avaliam-te: numa zona fácil temem-te; no teu recorde, após uma derrota, ganham coragem.",
   3233: "O Bestiário indica se uma espécie é gregária, medrosa ou predadora.",
   3234: "Silvanos e cultistas escolhem o momento: a cura quando estão feridos, o sacrifício enquanto aguentam.",
+  3235: "Cada nova série chega a correr da borda da faixa; após uma derrota, os monstros já vencidos também voltam.",
+  3236: "Mais gestos: o lagarto camufla-se, os cogumelitos incham, o escorpião ergue a cauda.",
+  3237: "No modo mini, o próximo monstro chega a deslizar, com o contorno das elites e dos campeões.",
 };

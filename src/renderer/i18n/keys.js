@@ -3236,5 +3236,8 @@ export const KEYS = [
   "Prédateur : les proies s’en écartent.",
   "Les monstres te jaugent : dans une zone facile, ils te craignent ; à ton record, après une défaite, ils s’enhardissent.",
   "Le Bestiaire dit si une espèce est grégaire, craintive ou prédatrice.",
-  "Sylvains et cultistes choisissent leur moment : le soin quand ils sont blessés, le sacrifice tant qu’ils tiennent debout."
+  "Sylvains et cultistes choisissent leur moment : le soin quand ils sont blessés, le sacrifice tant qu’ils tiennent debout.",
+  "Chaque nouvelle série arrive en courant du bord de la bande ; après une défaite, les monstres déjà vaincus reviennent aussi.",
+  "Encore des gestes : le lézard se camoufle, les champignards se gonflent, le scorpion dresse la queue.",
+  "En mode mini, le monstre suivant arrive en glissant, avec le contour des élites et des champions."
 ];
