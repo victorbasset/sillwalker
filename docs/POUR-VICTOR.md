@@ -12,6 +12,12 @@ Détail : `docs/MONSTRES-VIVANTS.md`. Vidéo envoyée le 17/11 vers 4 h 30 (zone
   faiblit. Trop, pas assez, trop agité ? Tout se règle dans `render/monlife.js` et `strip.js`.
 - **Meutes et instincts** (17/11 matin, vidéo des meutes envoyée vers 6 h) : loups, rats, chauves-souris… vont à deux ou
   trois et se suivent ; la meute s'emporte quand l'un des siens tombe, les proies fuient les prédateurs, le boss s'impatiente.
+- **Gestes (17/11 matin)** : chaque espèce a son geste en attendant (l'araignée remonte sur son fil, l'ours se dresse, le
+  bandit fait le guet, les plantes se balancent…) ; les loups hurlent à la lune ; bandits et gobelins convoitent les
+  légendaires. Trop de choses qui bougent ? Décoche « Effets complets » : la file reste alors calme (et c'est automatique si
+  Windows demande moins d'animations).
+- **Mode mini** : le monstre suivant attend au fond de la scène, à demi effacé. À garder ?
+- **Outil** : `scripts/stall-check.mjs` cherche les parties figées dans des sauvegardes avancées (il a trouvé deux impasses).
 - **Compétences** : chaque famille a la sienne, annoncée par un « ! » (bond du gluant, piqué, toile, charge, poing de
   pierre…), décrite au survol de sa carte du Bestiaire. Lisibles ? Trop fréquentes ? (élites −15 %, champions −25 %,
   boss −20 % d'intervalle).
