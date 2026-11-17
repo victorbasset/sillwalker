@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2104, signalé par Victor) : avec « À chaque niveau, dépenser tout seul », aucun point n'était jamais libre et la voie
+  restait impossible à choisir ; la voie est maintenant gratuite (elle demande 30 points dépensés, plus un point libre ; une voie déjà
+  choisie rend son point). Test logique « voie gratuite » ; npm test 357, autotest 268/268.
 - 2026-11-17 (it. 2103, demande de Victor : « je veux plus voir ce bouton ici ») : fiche d'une maîtrise : le bouton « ▶ choisir · N »
   de la ligne « Paliers atteints » est retiré (le nombre seul, détail au survol) ; la pastille « Choisir un bonus » / « Bonus » de la
   maîtrise ouvre la fenêtre de choix directement (avant, elle cliquait ce bouton). Autotest du choix de bonus adapté ; 268/268.

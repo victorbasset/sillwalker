@@ -259,6 +259,17 @@ test("traductions (it. 2067) : en anglais, chinois, japonais et coréen, le pour
   }
 });
 
+test("voie gratuite (it. 2104) : choisissable sans point libre (dépense automatique à chaque niveau)", () => {
+  const g = new Game(freshState()); g.S.lvl = 80; g.invalidateStats();
+  g.autoSpendTalents();
+  assert.equal(talentPointsFree(g.S), 0, "tout dépensé, comme avec la case « À chaque niveau, dépenser tout seul »");
+  const v = M_talents_js.VOIES[g.S.cls][0].id;
+  assert.equal(cannotLearn(g.S, v), null, "la voie reste choisissable");
+  g.learnTalent(v, 1);
+  assert.ok(M_talents_js.chosenVoie(g.S), "voie prise");
+  assert.equal(talentPointsFree(g.S), 0, "elle ne coûte aucun point");
+});
+
 test("rythme indépendant de la largeur d'écran", () => {
   assert.ok(approachTime() > 2 && approachTime() < 5);
 });

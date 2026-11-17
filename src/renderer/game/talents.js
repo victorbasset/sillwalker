@@ -420,9 +420,12 @@ export const chosenVoie = (S, cls = S.cls) => (VOIES[cls] || []).find((v) => (S.
 /** 1 point par niveau, plus les points offerts par la constellation de l'Arbre. */
 export const talentPointsTotal = (S) => Math.max(0, S.lvl - 1) + (prestigeEffects(S).talentPts || 0);
 export const classTalents = (S) => (S.talents[S.cls] ||= {});
+/** (it. 2104, signalé par Victor : avec « À chaque niveau, dépenser tout seul », aucun point n'est jamais libre et la voie
+ *  restait impossible à choisir) la voie est gratuite : elle demande des points dépensés (VOIE_REQ), pas un point libre, et ne
+ *  compte pas parmi les points dépensés (une voie déjà choisie rend son point). */
 export function talentPointsSpent(S, cls = S.cls) {
   const r = S.talents[cls] || {};
-  return Object.values(r).reduce((a, b) => a + b, 0);
+  return Object.entries(r).reduce((a, [id, b]) => a + (TALENT_INDEX[id]?.branch === "voie" ? 0 : b), 0);
 }
 export const talentPointsFree = (S) => talentPointsTotal(S) - talentPointsSpent(S);
 export function branchSpent(S, branch, cls = S.cls) {
@@ -440,8 +443,7 @@ export function cannotLearn(S, id) {
     const cur = chosenVoie(S);
     if (cur && cur.id !== id) return tx("Voie déjà choisie : {0} (réinitialise les talents pour changer)", { 0: cur.name });
     if (talentPointsSpent(S) < VOIE_REQ) return txn(VOIE_REQ, "Demande {n} point dépensé dans les talents|Demande {n} points dépensés dans les talents");
-    if (talentPointsFree(S) <= 0) return tx("Aucun point disponible (1 point par niveau)");
-    return null;
+    return null; // (it. 2104) gratuite : pas besoin d'un point libre
   }
   if (ix.branch === "mastery") {
     if (talentPointsSpent(S) < MASTERY_REQ) return txn(MASTERY_REQ, "Demande {n} point dépensé dans les talents|Demande {n} points dépensés dans les talents");
