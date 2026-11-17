@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1880, journée des monstres) : ils sentent la faiblesse : héros sous 30 % de vie en plein combat, la file
+  (hors boss) s'avance de 9 px vers lui, et recule quand il se rétablit (progressif). Mis en scène : 0 → 0,99 ; npm test
+  345, autotest 253/253.
 - 2026-11-17 (it. 1879, contrôle) : coût de la journée des monstres en fin de partie (--perf sur une copie neuve de
   endgame-save, avant aea72772 / après, l'un après l'autre) : bande 25,0 → 25,3 %, panneau 24,5 → 25,6 %, mini 6,3 → 6,4 %,
   icône 0,8 → 0,5 % : rien de notable.

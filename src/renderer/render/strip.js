@@ -1232,6 +1232,12 @@ export class StripRenderer {
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      // (it. 1880) ils sentent la faiblesse : héros sous 30 % de vie en plein combat, la file s'avance un peu vers lui (les
+      // boss restent à leur place) ; elle recule quand il se rétablit
+      if (!fighting && k < this.fights() - 1) {
+        const hsMax = this.game.stats().hp, weak = R.mode === "fight" && hsMax > 0 && R.hp / hsMax < 0.3;
+        a.eager = (a.eager || 0) + ((weak ? 1 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
+      }
       // (it. 1878) jour et nuit : la nuit, les espèces de jour bougent à peine et s'endorment (« z »), celles de nuit
       // s'agitent ; l'entrain change lentement (pas de saut à la tombée de la nuit)
       if (!fighting) {
@@ -1272,7 +1278,7 @@ export class StripRenderer {
       // (it. 1856) loup de la file qui répond au hurlement : tête levée (petit bond vers le haut), puis repos
       let answer = 0;
       if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) : 0) + (pose ? pose.dx : 0) + rdx, this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
+      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
       const flip = !!(life && life.face < 0);
