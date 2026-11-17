@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1875, contrôle) : save-fuzz après la journée des monstres (séries variables, compétences) : dev ok
+  (1267), fin ok (1225), 0.1.2 ok (1169). Le monstre en combat (compétence, minuteries, or volé) n'est pas sauvegardé.
 - 2026-11-17 (it. 1874, journée des monstres) : version de boss de la compétence de famille : plus fréquente (−20 %),
   premier usage plus tôt, compensée ; sur la bande, mot couleur boss, secousse et gerbe d'étincelles. Balance contre
   aea72772 : −2,0 / −0,6 / +0,4 (moyenne −0,7 ; −0,4 avant : bruit, tendance à surveiller) ; fuzz 600 / 0 ; npm test
