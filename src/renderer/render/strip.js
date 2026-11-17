@@ -27,7 +27,7 @@ import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
-import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS, climateGesture } from "./monlife.js";
+import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS, gestureOf } from "./monlife.js";
 import { monSkillOf, elementOf } from "../game/monskills.js";
 import { PACK_ARTS } from "../game/game.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
@@ -1397,27 +1397,10 @@ export class StripRenderer {
           a.nextGesture = 18 + Math.random() * 20;
           // (it. 1933) le geste dépend de la nature : furtif (renifle de droite à gauche), colosse (s'enfonce, lourd), volant
           // (looping : monte haut puis redescend), sauteur (grand bond) ; les autres, le petit bond
-          // (it. 1936) l'araignée remonte le long d'un fil de soie, puis redescend
-          // (it. 1942) parmi les colosses : plantes et sylvains se balancent, la momie fait un pas traînant
-          // (it. 1943) marcheurs : le sanglier gratte le sol, l'ours se dresse, le squelette s'entrechoque
-          // (it. 1944) le bandit regarde de part et d'autre, le cultiste se balance en psalmodiant, l'orc se frappe la poitrine,
-          // le chevalier salue (deux petits saluts)
-          const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle", bandit: "look", cultist: "sway", orc: "beat", knight: "salute", darkknight: "salute",
-            // (it. 1949) le yéti se frappe la poitrine, la méduse pulse, le serpent ondule, le crabe fait un pas de côté, le loup
-            // lève la tête (un petit hurlement muet)
-            yeti: "beat", jelly: "beat", snake: "sway", crab: "paw", wolf: "howl",
-            // (it. 1973) la guêpe bourdonne, le diablotin espiègle se retourne, la harpie se balance, la wyverne se cabre, le
-            // tyrannœil et l'élémentaire de feu palpitent
-            wasp: "rattle", imp: "look", harpy: "sway", drake: "rear", eye: "beat", fireelem: "beat",
-            // (it. 1985) le lézard se fond dans le décor (camouflage, comme son Embuscade)
-            lizard: "camo",
-            // (it. 1992) champignards et champignons errants se gonflent (spores), le scorpion dresse la queue
-            mush: "beat", sporeling: "beat", scorp: "rear" };
-          // (it. 2004-2022, extrait à l'it. 2023) climat de la zone : monlife.js climateGesture (neige, braises, eau, spores, cendres)
-          const Zd = this.game.zoneDef();
-          const nat = climateGesture(a.art, elementOf(a.type || ""), WEATHER[Zd.src || Zd.name]) || ART_GEST[a.art] || a.nature;
+          // (it. 1933-1992, extrait à l'it. 2024) geste selon l'espèce, la nature et le climat : monlife.js gestureOf
+          const Zd = this.game.zoneDef(), gst = gestureOf(a.art, a.nature, elementOf(a.type || ""), WEATHER[Zd.src || Zd.name]), nat = gst.nat;
           if (nat === "howl") a.howlT = 0.9;
-          a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
+          a.react = { kind: "gesture", t: 0, d: gst.d, delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
         }
       }

@@ -38,6 +38,31 @@ export function climateGesture(art, el, wx) {
   if (wx === "ash" && !["golem", "skel", "fireelem", "mummy"].includes(art)) return "sneeze";
   return null;
 }
+/**
+ * (it. 1936-1992) Geste au repos propre à l'espèce (dessin de base) : l'araignée remonte sur son fil, plantes, sylvains,
+ * cultiste, serpent et harpie se balancent, la momie traîne le pas, sanglier et crabe grattent / font un pas de côté, ours,
+ * wyverne et scorpion se dressent, squelette et guêpe s'entrechoquent / bourdonnent, bandit et diablotin se retournent, orc,
+ * yéti, méduse, tyrannœil, élémentaire de feu et champignons battent ou palpitent, chevaliers saluent, le loup lève la tête,
+ * le lézard se camoufle. Sans entrée : le geste de sa nature.
+ */
+export const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle", bandit: "look", cultist: "sway", orc: "beat", knight: "salute", darkknight: "salute",
+            // (it. 1949) le yéti se frappe la poitrine, la méduse pulse, le serpent ondule, le crabe fait un pas de côté, le loup
+            // lève la tête (un petit hurlement muet)
+            yeti: "beat", jelly: "beat", snake: "sway", crab: "paw", wolf: "howl",
+            // (it. 1973) la guêpe bourdonne, le diablotin espiègle se retourne, la harpie se balance, la wyverne se cabre, le
+            // tyrannœil et l'élémentaire de feu palpitent
+            wasp: "rattle", imp: "look", harpy: "sway", drake: "rear", eye: "beat", fireelem: "beat",
+            // (it. 1985) le lézard se fond dans le décor (camouflage, comme son Embuscade)
+            lizard: "camo",
+            // (it. 1992) champignards et champignons errants se gonflent (spores), le scorpion dresse la queue
+            mush: "beat", sporeling: "beat", scorp: "rear" };
+/** Durée (s) de chaque geste ; par défaut 1 s pour les colosses, 0,6 s sinon. */
+const GEST_D = { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 };
+/** (it. 2024) Geste au repos : le climat de la zone d'abord, puis l'espèce, puis la nature. Renvoie { nat, d }. */
+export function gestureOf(art, nature, el, wx) {
+  const nat = climateGesture(art, el, wx) || ART_GEST[art] || nature;
+  return { nat, d: GEST_D[nat] || (nature === "still" ? 1 : 0.6) };
+}
 /** Natures par défaut : les autres marchent (flânent autour de leur place). */
 export const natureOf = (art, fly) => (fly ? "fly" : NATURE[art] || "wander");
 

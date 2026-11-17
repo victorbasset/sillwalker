@@ -51,7 +51,7 @@ import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { PACK_ARTS as PACK_ARTS1904 } from "../src/renderer/game/game.js";
-import { climateGesture as climateGesture2023 } from "../src/renderer/render/monlife.js";
+import { climateGesture as climateGesture2023, gestureOf as gestureOf2024 } from "../src/renderer/render/monlife.js";
 import { MONSTERS as MONSTERS1904, ZONES as ZONES1904 } from "../src/renderer/game/data.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
@@ -437,6 +437,14 @@ test("climat des zones (it. 2023) : le geste imposé selon la météo", () => {
   assert.equal(climateGesture2023("mush", null, "spore"), null);
   assert.equal(climateGesture2023("golem", null, "ash"), null);
   assert.equal(climateGesture2023("bear", null, "leaf"), null);
+});
+
+test("geste au repos (it. 2024) : climat, puis espèce, puis nature", () => {
+  assert.deepEqual(gestureOf2024("bear", "wander", null, null), { nat: "rear", d: 1.2 });
+  assert.deepEqual(gestureOf2024("rat", "skitter", null, null), { nat: "skitter", d: 0.6 });
+  assert.deepEqual(gestureOf2024("golem", "still", null, null), { nat: "still", d: 1 });
+  assert.equal(gestureOf2024("bear", "wander", null, "snow").nat, "rattle", "le climat passe avant l'espèce");
+  assert.equal(gestureOf2024("spider", "skitter", null, null).nat, "spider");
 });
 
 test("parcours : file de monstres (avec élites) et étapes", () => {
