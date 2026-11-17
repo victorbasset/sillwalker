@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2082) : mode mini, après une défaite : le monstre en attente, caché pendant que le combattant approchait,
+  réapparaissait d'un coup à sa place ; il revient maintenant en glissant du bord (relevé : 207 → 198 → … → 180). Autotest 262/262.
 - 2026-11-17 (it. 2081, revue générale) : --crawl en polonais : 674 clics sans erreur ; texte allemand : aucun mot français (« des »,
   « du » : allemands). Perf, mémoire, équilibrage mesurés aux it. 2071-2080. Rien à corriger.
 - 2026-11-17 (it. 2080, contrôle) : perf après les retouches du mode mini (it. 2071-2079) : bande 18,0 %, panneau 19,1 %, mini 5,6 %

@@ -273,6 +273,8 @@ export class MiniRenderer {
       if (b) {
         const show = !(R.mon && R.mon.dist > 40) && !(R.mon && R.mon.boss);
         b.el.hidden = !show;
+        // (it. 2082) caché pendant que le combattant approche : il reviendra en glissant du bord (après une défaite, il réapparaissait d'un coup)
+        if (!show) this.nextArrive = 0;
         if (show) {
           this.nextArrive = Math.min(1, (this.nextArrive ?? 1) + dt / 0.8);
           const off = S.settings.fullEffects === false ? 0 : Math.round((1 - this.nextArrive) * (1 - this.nextArrive) * (b.w + 10));
