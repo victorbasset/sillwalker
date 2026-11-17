@@ -2160,4 +2160,5 @@ export default {
   3285: "Las acciones sin vuelta atrás (reiniciar talentos o habilidades, subir a las estrellas, borrar la partida) se confirman en una ventana, y ya no con un segundo clic en el mismo sitio.",
   3286: "Devolver los puntos del último clic: {0} ({1}).",
   3287: "Nada que deshacer: solo se puede devolver el último clic en un talento.",
+  3288: "Vender inútiles ({0})",
 };

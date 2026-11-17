@@ -2160,4 +2160,5 @@ export default {
   3285: "Działania bez odwrotu (reset talentów lub umiejętności, wzniesienie się do gwiazd, usunięcie gry) potwierdza się w oknie, a nie drugim kliknięciem w tym samym miejscu.",
   3286: "Oddaj punkty ostatniego kliknięcia: {0} ({1}).",
   3287: "Nie ma czego cofnąć: można oddać tylko ostatnie kliknięcie w talent.",
+  3288: "Sprzedaj zbędne ({0})",
 };

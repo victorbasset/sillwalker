@@ -2160,4 +2160,5 @@ export default {
   3285: "Ações sem volta (redefinir talentos ou habilidades, subir às estrelas, apagar o jogo) são confirmadas numa janela, e não mais por um segundo clique no mesmo lugar.",
   3286: "Devolver os pontos do último clique: {0} ({1}).",
   3287: "Nada para desfazer: só o último clique num talento pode ser devolvido.",
+  3288: "Vender inúteis ({0})",
 };

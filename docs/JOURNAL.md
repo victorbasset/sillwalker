@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2117, ergonomie) : Boutique, sac plein : ligne « Sac plein · Vendre les inutiles (N) » sous l'en-tête du Marchand
+  (même confirmation que dans le sac) ; avant, chaque objet affichait « Sac plein » et il fallait passer par l'Aventure puis revenir.
+  Clé 3288 ; autotest « demande confirmation sur place » ; lang-overflow 10 langues × 1280 / 1920 : rien ; 273/273.
 - 2026-11-17 (it. 2116, ergonomie) : Compétences : les boutons (Annuler le dernier, Tout réinitialiser, Recentrer) remontent sous la
   dépense automatique, visibles sans défiler (avant : coupés en bas de la colonne, sous deux paragraphes d'aide) ; l'aide passe dans
   le ⓘ du titre et dans la bulle du bouton automatique. lang-overflow 10 langues × 1280 / 1920 : rien ; 272/272.

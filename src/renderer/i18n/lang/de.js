@@ -2160,4 +2160,5 @@ export default {
   3285: "Endgültige Aktionen (Talente oder Fertigkeiten zurücksetzen, zu den Sternen aufsteigen, den Spielstand löschen) werden in einem Fenster bestätigt, nicht mehr durch einen zweiten Klick an derselben Stelle.",
   3286: "Punkte des letzten Klicks zurückgeben: {0} ({1}).",
   3287: "Nichts rückgängig zu machen: Nur der letzte Klick auf ein Talent lässt sich zurückgeben.",
+  3288: "Unnützes verkaufen ({0})",
 };
