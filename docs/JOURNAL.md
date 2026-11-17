@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1877, journée des monstres) : gestes au repos : de loin en loin (18 à 38 s), un monstre qui attend fait
+  un petit bond et lâche trois étincelles de la couleur de sa compétence (jamais la mimique ni le boss). Mesuré : 8 monstres
+  ont fait leur geste en 25 s ; perf bande 18,4 %, mini 5,3 %. npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1876, journée des monstres) : Bestiaire > Capacités des boss : le sous-titre dit que chaque boss a aussi la
   compétence de sa famille (au survol de sa carte). Clé 3208, 10 langues ; lang-overflow ru/de/pl/fr 1280-1920 propre ;
   npm test 345, autotest 253/253.

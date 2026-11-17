@@ -28,6 +28,7 @@ import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
 import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
+import { monSkillOf } from "../game/monskills.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
@@ -1128,7 +1129,7 @@ export class StripRenderer {
       a.bar.visible(false);
       a.move(this.fightX(k + 1), this.monY(a, 0));
       // (it. 1850) vie en attente : nature selon le dessin de base, rythme propre à la place (monlife.js)
-      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.lifeSeed = lifeSeed(g.S.zone, k); }
+      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.skillId = monSkillOf(boss ? Z.boss : line[k].type)?.id || null; a.nextGesture = 6 + lifeSeed(g.S.zone, k + 31) * 20; a.lifeSeed = lifeSeed(g.S.zone, k); }
       this.slots.push(a);
     }
     this.slotKey = line;
@@ -1227,6 +1228,16 @@ export class StripRenderer {
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      // (it. 1877) geste au repos : de loin en loin, un monstre qui attend fait un petit bond qui rappelle sa compétence
+      // (trois étincelles de sa couleur) ; jamais la mimique (elle joue le coffre), ni pendant une autre réaction
+      if (!fighting && a.skillId && !a.react && a.nature !== "statue" && k < this.fights() - 1) {
+        a.nextGesture -= dt;
+        if (a.nextGesture <= 0) {
+          a.nextGesture = 18 + Math.random() * 20;
+          a.react = { kind: "gesture", t: 0, d: 0.6, delay: 0 };
+          if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
+        }
+      }
       // (it. 1867) réactions de groupe : sursaut (mort d'un voisin), joie (héros à terre)
       let rdx = 0, rdy = 0;
       // (it. 1868) monstre ordinaire très blessé (sous 25 % de vie) : il recule en tremblant, prêt à fuir (les craintifs
@@ -1240,6 +1251,7 @@ export class StripRenderer {
         if (p >= 1) a.react = null;
         else if (p > 0) {
           if (r.kind === "startle") { const b = p < 0.2 ? p / 0.2 : 1 - (p - 0.2) / 0.8; rdx = 8 * r.far * b; rdy = p < 0.2 ? -4 * Math.sin(p / 0.2 * Math.PI) : 0; }
+          else if (r.kind === "gesture") rdy = -Math.sin(p * Math.PI) * 3;
           else rdy = -Math.abs(Math.sin(p * Math.PI * 3)) * 5;
         }
       }
