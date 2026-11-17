@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2110, revue du design des Talents) : à 1920 px, une rangée du « Total des talents » restait coupée à mi-hauteur
+  (mesurée avant la fin de la mise en page) ; mesure refaite à l'image suivante et après les polices. Autotest « total des talents sans
+  pastille coupée » ; 269/269.
 - 2026-11-17 (it. 2109, design des Talents) : pastilles des maîtrises : choix en attente en contour doré avec un point (avant : trois
   aplats jaunes qui criaient ensemble), choix fait en gris discret, aplat au survol. Captures sombre et clair ; autotest 268/268.
 - 2026-11-17 (it. 2108, design des Talents) : « Total des talents » sous le détail de la fiche (pastilles sobres, attaque, PV et défense

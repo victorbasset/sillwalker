@@ -117,8 +117,12 @@ export class TalentsTab {
     el.innerHTML = `<div class="tgrid">${head}${branches}${extra}</div>`;
     if (act) el.querySelector(`[data-tid="${act}"]`)?.focus({ preventScroll: true });
     // (it. 2108) total des talents : les pastilles qui ne tiennent pas en entier sont masquées (pas de ligne coupée à mi-hauteur)
-    const tbox = el.querySelector(".ttotal");
-    if (tbox) { const lim = tbox.getBoundingClientRect().bottom + 0.5; for (const c of tbox.querySelectorAll(".chip")) if (c.getBoundingClientRect().bottom > lim) c.hidden = true; }
+    // (it. 2110) mesuré à l'image suivante et une fois les polices chargées : au moment du dessin, la mise en page n'était pas
+    // finie et une rangée restait coupée à mi-hauteur à 1920 px
+    const fit = () => { const tbox = el.querySelector(".ttotal"); if (!tbox || !tbox.offsetHeight) return;
+      const chips = tbox.querySelectorAll(".chip"); for (const c of chips) c.hidden = false;
+      const lim = tbox.getBoundingClientRect().bottom + 0.5; for (const c of chips) if (c.getBoundingClientRect().bottom > lim) c.hidden = true; };
+    fit(); requestAnimationFrame(fit); document.fonts?.ready.then(fit);
     if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e)); }
   }
 

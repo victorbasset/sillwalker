@@ -59,6 +59,8 @@
    ne prend que la place restante et masque les pastilles qui ne tiennent pas en entier (jamais de défilement).
 12. (it. 2109) Maîtrises : « Choisir un bonus » en contour doré avec un point (avant : trois aplats jaunes), « Bonus » (choix fait)
    en gris discret ; l'aplat revient au survol.
+13. (it. 2110) Revue d'ensemble à 1920 et 1280 px : une rangée du total restait coupée à 1920 px (mesure faite avant la fin de
+   la mise en page) : refaite à l'image suivante et après le chargement des polices ; autotest « sans pastille coupée ».
    À suivre : la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
    identiques se disputent l'attention.
 
