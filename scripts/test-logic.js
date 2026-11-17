@@ -4697,4 +4697,15 @@ test("squelettes (it. 1855) : abattus une fois, ils se reforment avec 30 % de le
   m.hp = 0; g.killMonster();
   assert.ok(g.R.mon !== m && g.S.stats.kills === k0 + 1 && seen === 1, "vaincu pour de bon");
 });
+test("compétences des monstres (it. 1865) : toutes les sortes en ont une (sauf le gobelin doré et Poupouce) ; le bandit rend l'or volé", () => {
+  const missing = Object.keys(MONSTERS).filter((k) => k !== "goblin" && k !== "poupouce" && !monSkillOf1854(k));
+  assert.deepEqual(missing, [], "sans compétence : " + missing.join(", "));
+  const g = new Game(freshState()); g.S.zone = 11; g.S.kills = 0; g.R.lineupZone = 0; const L = g.lineup(); L[0] = { type: "bandit", elite: false };
+  g.S.gold = 1e6; g.R.mon = g.makeMonster(false); g.R.mode = "fight"; const m = g.R.mon; m.skillT = 0; g.R.hp = 1e12;
+  const hs = g.stats(); g.monSkillTick(m, hs, 0.01);
+  assert.ok(m.stolen > 0 && g.S.gold === 1e6 - m.stolen, "or volé : " + m.stolen);
+  const before = g.S.gold, total0 = g.S.stats.goldTotal || 0; m.hp = 0; g.killMonster();
+  const earned = (g.S.stats.goldTotal || 0) - total0;
+  assert.ok(Math.abs(g.S.gold - before - earned - m.stolen) < 1e-6, "l'or volé revient, en plus du butin (pas compté comme gagné)");
+});
 console.log(`\n${pass} tests réussis`);

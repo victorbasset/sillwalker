@@ -561,6 +561,7 @@ export class Game {
         m.phaseT = sk.phase;
         break;
       }
+      case "chomp": case "bomb": // (it. 1865) Mimiques (claquement), gobelins pillards (bombe) : un gros coup
       case "charge": // (it. 1863) Sangliers : charge (un gros coup, esquivable)
       case "tongue": // (it. 1862) Crapauds : coup de langue (même règle qu'une boule de feu : un coup, puis l'élément)
       case "fireball": { // (it. 1858) Diablotins : boule de feu lancée de loin (même coup, esquivable)
@@ -573,6 +574,7 @@ export class Game {
         this.elementHit(sk.el, hs);
         break;
       }
+      case "pollen": // (it. 1865) Champignons errants : pollen, le héros engourdi frappe moins vite (comme la toile)
       case "roar": // (it. 1863) Ours : rugissement, le héros intimidé frappe moins vite (même effet que la toile)
       case "web": { // (it. 1858) Araignées : toile, attaques du héros ralenties ; la veuve noire mord (venin)
         R.frozen = Math.max(R.frozen || 0, sk.slow);
@@ -638,6 +640,19 @@ export class Game {
         if (this.monsterAttack(m, hs, sk.mult)) return true;
         R.eclipse = Math.max(R.eclipse || 0, sk.blind);
         this.elementHit(sk.el, hs);
+        break;
+      }
+      case "pickpocket": { // (it. 1865) Bandits : coup et vol d'un peu d'or (rendu à leur chute : killMonster)
+        if (this.monsterAttack(m, hs, sk.mult)) return true;
+        const take = Math.min(this.S.gold, Math.round(m.gold * sk.steal));
+        if (take > 0) { this.S.gold -= take; m.stolen = (m.stolen || 0) + take; this.emit("goldStolen", { amount: take }); }
+        break;
+      }
+      case "thrust": { // (it. 1865) Chevaliers errants : l'estoc traverse le bouclier (mis de côté le temps du coup)
+        const sh = R.shield || 0; R.shield = 0;
+        const end = this.monsterAttack(m, hs, sk.mult);
+        if (R.shield === 0) R.shield = sh;
+        if (end) return true;
         break;
       }
       case "howl": { // (it. 1856) Loups : hurlement, puis attaques plus rapides quelques secondes
@@ -1213,6 +1228,7 @@ export class Game {
     const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
     S.gold += gold;
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
+    if (m.stolen > 0) { S.gold += m.stolen; this.emit("goldBack", { amount: m.stolen }); } // (it. 1865) le bandit rend ce qu'il a volé
     // (it. 926) rythme récent (60 dernières victoires) : estimation du temps restant des quêtes (questEta)
     (R.pace ||= []).push([R.time, gold]); if (R.pace.length > 60) R.pace.shift();
     // Pluie d'éclats : un éclat d'étoile de temps en temps (compte aussi dans la lueur stellaire).

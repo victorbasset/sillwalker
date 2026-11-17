@@ -31,7 +31,7 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
-const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a", sacrifice: "#ff4a5a", flutter: "#ffd34d", shock: "#fff6a8", ambush: "#b8f07a", burrow: "#c9a06a", peck: "#c8c8e8" };
+const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a", sacrifice: "#ff4a5a", flutter: "#ffd34d", shock: "#fff6a8", ambush: "#b8f07a", burrow: "#c9a06a", peck: "#c8c8e8", chomp: "#e9b949", pickpocket: "#ffd34d", pollen: "#b8ffd8", thrust: "#d8e0ec", bomb: "#ffb03a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { q, FONT, mark, el, makeCanvas, sizeCanvas, drawText, drawPill, drawCoin, drawBackdrop, Actor, Bar, HudBar } from "./dom.js";
@@ -260,13 +260,19 @@ export class StripRenderer {
     });
     // (it. 1853) compétences des monstres (monskills.js) : le monstre combattu se prépare (« tell »), puis agit ; le
     // mouvement est appliqué dans la boucle des monstres (monSkillPose), le mot s'affiche quand il agit
+    // (it. 1865) bandit : l'or volé file du héros vers lui (et revient quand il tombe)
+    g.on("goldStolen", ({ amount }) => this.float(this.heroX + 10, 44, tx("{0} or", { 0: "−" + fmt(amount) }), "#ffd34d"));
+    g.on("goldBack", ({ amount }) => this.float(this.heroX + 10, 44, tx("{0} or", { 0: "+" + fmt(amount) }), "#ffe27a"));
     g.on("monSkill", ({ id, el, phase }) => {
       // (it. 1860) garde : la pose dure toute la garde (carapace 2 s, parade 1,2 s)
       // (it. 1864) caché (embuscade, fouissement) : la pose dure toute la cachette ; « out » : il surgit
       this.mfx = { id, el, phase, t: 0, d: phase === "tell" ? 0.5 : id === "reassemble" ? 0.9 : id === "shell" ? 2 : id === "parry" ? 1.2 : id === "flutter" ? 2 : (id === "ambush" || id === "burrow") && phase === "go" ? 1.5 : 0.45 };
       if (phase === "out") { const w = { ambush: tx("Embuscade !"), burrow: tx("Il jaillit !") }[id]; if (w) this.float(this.monX() + 14, 18, w, MON_EL_COLOR[el] || MON_SKILL_COLOR[id], true); if (id === "burrow") this.shake(0.15); return; }
       if (phase !== "go") return;
-      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !"), tombcurse: tx("Malédiction !"), boulder: tx("Bloc de glace !"), feathers: tx("Plumes !"), flare: tx("Flambée !"), shell: tx("Carapace !"), parry: tx("Parade !"), riposte: tx("Riposte !"), rootdeep: tx("Enracinement !"), breath: tx("Souffle !"), gaze: tx("Pétrifié !"), tongue: tx("Coup de langue !"), strike: tx("Frappe éclair !"), pinch: tx("Coincé !"), charge: tx("Charge !"), roar: tx("Grrraah !"), rage: tx("Rage !"), sacrifice: tx("Sacrifice !"), flutter: tx("Vol erratique !"), shock: tx("Décharge !"), ambush: tx("Disparu !"), burrow: tx("Sous terre !"), peck: tx("Aveuglé !") }[id];
+      const col = MON_EL_COLOR[el] || MON_SKILL_COLOR[id] || "#a8f07a", word = { leap: tx("Bond !"), dive: tx("Piqué !"), spores: tx("Spores !"), reassemble: tx("Il se reforme !"), sting: tx("Dard !"), howl: tx("Ahouuu !"), slam: tx("Poing de pierre !"), roots: tx("Enlacé !"), scream: tx("Cri !"), phase: tx("Intangible !"), fireball: tx("Boule de feu !"), swarm: tx("Grouillement !"), web: tx("Englué !"), tombcurse: tx("Malédiction !"), boulder: tx("Bloc de glace !"), feathers: tx("Plumes !"), flare: tx("Flambée !"), shell: tx("Carapace !"), parry: tx("Parade !"), riposte: tx("Riposte !"), rootdeep: tx("Enracinement !"), breath: tx("Souffle !"), gaze: tx("Pétrifié !"), tongue: tx("Coup de langue !"), strike: tx("Frappe éclair !"), pinch: tx("Coincé !"), charge: tx("Charge !"), roar: tx("Grrraah !"), rage: tx("Rage !"), sacrifice: tx("Sacrifice !"), flutter: tx("Vol erratique !"), shock: tx("Décharge !"), ambush: tx("Disparu !"), burrow: tx("Sous terre !"), peck: tx("Aveuglé !"), chomp: tx("Clac !"), pickpocket: tx("Vol à la tire !"), pollen: tx("Engourdi !"), thrust: tx("Estoc !"), bomb: tx("Boum !") }[id];
+      // (it. 1865) pollen : poussière lumineuse sur le héros ; bombe : explosion et secousse
+      if (id === "pollen" && this.active && this.juice.full) this.juice.sparkles(this.heroX + 14, this.ground - 30, "#b8ffd8", 14);
+      if (id === "bomb") { this.shake(0.18); if (this.active && this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 22, "#ffb03a", 16); }
       // (it. 1864) sacrifice : le sang du cultiste ; décharge : éclairs sur le héros ; fouissement : terre soulevée
       if (id === "sacrifice" && this.active && this.juice.full) { this.juice.sparkles(this.monX() + 14, this.ground - 24, "#c0202a", 10); this.juice.sparkles(this.heroX + 16, this.ground - 30, "#ff4a5a", 10); }
       if (id === "shock" && this.active && this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 34, el ? col : "#fff6a8", 14);
@@ -866,6 +872,34 @@ export class StripRenderer {
       // araignée : se hisse sur ses pattes, puis se rabat en projetant ses fils
       if (f.phase === "tell") return { dx: 0, dy: -4 };
       return { dx: -3 * Math.sin(p * Math.PI), dy: -4 * (1 - p) };
+    }
+    if (f.id === "chomp") {
+      // mimique : le couvercle s'entrouvre (petit soulèvement), puis elle bondit gueule ouverte
+      if (f.phase === "tell") return { dx: 0, dy: -2 };
+      const reach = Math.min(20, Math.max(0, this.monX() - this.heroX - 30));
+      return { dx: -reach * Math.sin(p * Math.PI), dy: -8 * Math.sin(p * Math.PI) };
+    }
+    if (f.id === "pickpocket") {
+      // bandit : feinte d'un pas de côté, puis file au contact et repart aussitôt
+      if (f.phase === "tell") return { dx: 3, dy: 0 };
+      const reach = Math.min(26, Math.max(0, this.monX() - this.heroX - 26));
+      return { dx: -reach * Math.sin(p * Math.PI), dy: 0 };
+    }
+    if (f.id === "pollen") {
+      // champignon errant : se secoue (petit bond) en lâchant son pollen
+      if (f.phase === "tell") return { dx: 0, dy: 2 };
+      return { dx: 0, dy: -4 * Math.sin(p * Math.PI * 2) };
+    }
+    if (f.id === "thrust") {
+      // chevalier errant : recule pour armer, puis se fend loin en avant
+      if (f.phase === "tell") return { dx: 5, dy: 0 };
+      const reach = Math.min(24, Math.max(0, this.monX() - this.heroX - 28));
+      return { dx: p < 0.3 ? 5 - (reach + 5) * (p / 0.3) : -reach * (1 - (p - 0.3) / 0.7), dy: 0 };
+    }
+    if (f.id === "bomb") {
+      // gobelin : recule en allumant la mèche (tremblote), puis lance d'un geste ample
+      if (f.phase === "tell") return { dx: 4 * Math.min(1, p * 2) + (Math.floor(p * 16) % 2 ? 1 : 0), dy: 0 };
+      return { dx: 4 - 8 * Math.sin(p * Math.PI), dy: -3 * Math.sin(p * Math.PI) };
     }
     if (f.id === "sacrifice") {
       // cultiste : se plie (se taille la paume), puis se redresse bras tendus vers le héros

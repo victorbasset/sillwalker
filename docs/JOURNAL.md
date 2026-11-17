@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1865, journée des monstres) : dernières familles : mimiques (Claquement dès le début du combat),
+  bandits (Vol à la tire : l'or volé revient à leur chute, sans compter comme gagné), champignons errants (Pollen),
+  chevaliers errants (Estoc qui traverse le bouclier), gobelins pillards (Bombe). Toutes les sortes de monstres ont
+  désormais leur compétence (test : aucune oubliée, hors gobelin doré et Poupouce). Balance contre aea72772 : −1,0 / +0,4
+  / +1,1 ; early-pace 39 / 23 ; fuzz 600 / 0 ; npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1864, journée des monstres) : cultistes : Sacrifice ; guêpes : Vol erratique ; méduses : Décharge ;
   lézards : Embuscade et vers : Fouissement (cachés 1,5 s hors d'atteinte, puis surgissent : phase « out ») ; corbeaux :
   Bec à l'œil (aveuglé 2 s, par R.eclipse). 36 familles faites. Balance contre aea72772 : −1,0 / +0,1 / −0,2 ; fuzz

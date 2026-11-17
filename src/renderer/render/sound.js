@@ -468,6 +468,11 @@ export class Sound {
           case "ambush": this.whoosh(0, 0.25, 3000, 800, 0.05, 2); break; // (it. 1864) se fond dans le décor
           case "burrow": this.noise(0, 0.4, 0.14); this.tone(80, 0, 0.4, "triangle", 0.1, 0.6); break; // (it. 1864) terre qui s'écroule
           case "peck": this.tone(1500, 0, 0.04, "square", 0.1); this.tone(700, 0.05, 0.1, "sine", 0.06, 0.5); break; // (it. 1864) coup de bec sec
+          case "chomp": this.tone(180, 0, 0.06, "square", 0.14); this.noise(0.04, 0.08, 0.16); break; // (it. 1865) couvercle qui claque
+          case "pickpocket": [0, 0.06, 0.12].forEach((t, i) => this.tone(NOTES.E6 + i * 120, t, 0.05, "triangle", 0.06)); break; // (it. 1865) pièces qui tintent
+          case "pollen": this.tone(1600, 0, 0.5, "sine", 0.04, 0.8); this.tone(2400, 0.1, 0.4, "sine", 0.03, 0.8); break; // (it. 1865) scintillement assoupi
+          case "thrust": this.whoosh(0, 0.12, 1500, 4200, 0.08, 3); this.tone(2600, 0.1, 0.06, "triangle", 0.06); break; // (it. 1865) lame qui file
+          case "bomb": this.noise(0, 0.15, 0.05); this.noise(0.25, 0.35, 0.3); this.tone(55, 0.25, 0.35, "sawtooth", 0.2, 0.5); break; // (it. 1865) mèche, puis explosion
         }
         break;
       case "bossSkill":

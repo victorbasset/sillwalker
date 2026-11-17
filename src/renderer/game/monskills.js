@@ -120,6 +120,21 @@ export const MON_SKILLS = {
   // (it. 1864) Corbeaux : visent l'œil, le héros aveuglé rate la moitié de ses coups
   crow: { id: "peck", name: "Bec à l’œil", every: 6, first: 2, tell: 0.4, mult: 1, blind: 2,
     desc: "Toutes les 6 s, pique le héros à l’œil : un coup de plus, et le héros, aveuglé, rate la moitié de ses coups pendant 2 s." },
+  // (it. 1865) Mimiques : immobiles tant qu'on ne les attaque pas, puis claquent leur couvercle (dès le début du combat)
+  mimic: { id: "chomp", name: "Claquement", every: 9, first: 0.6, tell: 0.4, mult: 1.8,
+    desc: "Dès le début du combat, puis toutes les 9 s, ouvre grand sa gueule de coffre et mord : un coup à 180 % de son attaque." },
+  // (it. 1865) Bandits : frappent et volent un peu d'or, qu'ils rendent en tombant
+  bandit: { id: "pickpocket", name: "Vol à la tire", every: 7, first: 2.5, tell: 0.4, mult: 0.8, steal: 0.4,
+    desc: "Toutes les 7 s, frappe (80 % de son attaque) et vole un peu d’or au héros ; il le rend en tombant." },
+  // (it. 1865) Champignons errants : lâchent un pollen lumineux qui engourdit le héros
+  sporeling: { id: "pollen", name: "Pollen soporifique", every: 8, first: 3, tell: 0.6, slow: 2,
+    desc: "Toutes les 8 s, lâche un pollen lumineux : engourdi, le héros attaque 40 % moins vite pendant 2 s." },
+  // (it. 1865) Chevaliers errants : se fendent, l'estoc traverse le bouclier du héros
+  knight: { id: "thrust", name: "Estoc", every: 7, first: 3, tell: 0.5, mult: 1.6, pierce: true,
+    desc: "Toutes les 7 s, se fend : un coup à 160 % de son attaque, qui traverse le bouclier du héros." },
+  // (it. 1865) Gobelins pillards : allument une mèche, puis jettent une bombe
+  goblin: { id: "bomb", name: "Bombe", every: 9, first: 3, tell: 1, mult: 1.5,
+    desc: "Toutes les 9 s, allume la mèche d’une bombe puis la jette : un coup à 150 % de son attaque." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

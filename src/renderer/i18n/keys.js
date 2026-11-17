@@ -3191,5 +3191,19 @@ export const KEYS = [
   "Sous terre !",
   "Aveuglé !",
   "Embuscade !",
-  "Il jaillit !"
+  "Il jaillit !",
+  "Claquement",
+  "Dès le début du combat, puis toutes les 9 s, ouvre grand sa gueule de coffre et mord : un coup à 180 % de son attaque.",
+  "Toutes les 7 s, frappe (80 % de son attaque) et vole un peu d’or au héros ; il le rend en tombant.",
+  "Pollen soporifique",
+  "Toutes les 8 s, lâche un pollen lumineux : engourdi, le héros attaque 40 % moins vite pendant 2 s.",
+  "Estoc",
+  "Toutes les 7 s, se fend : un coup à 160 % de son attaque, qui traverse le bouclier du héros.",
+  "Bombe",
+  "Toutes les 9 s, allume la mèche d’une bombe puis la jette : un coup à 150 % de son attaque.",
+  "Clac !",
+  "Vol à la tire !",
+  "Engourdi !",
+  "Estoc !",
+  "Boum !"
 ];
