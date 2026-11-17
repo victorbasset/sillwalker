@@ -175,6 +175,7 @@ export class Panel {
       class: new ClassesTab(game), ascension: new AscensionTab(game), bestiary: new BestiaryTab(game), stats: new StatsTab(game), map: new MapTab(game),
       settings: new SettingsTab(game, settings),
     };
+    for (const t of Object.values(this.tabs)) t.panel = this; // (it. 2102) fenêtre de confirmation (panel.confirm) pour les onglets
     this.tabs.quests.onReveal = ({ item, min }) => { this.renderAll(); this.revealChest(min >= 3 ? "chest_royal" : min >= 2 ? "chest_iron" : "chest_wood", item); };
     this.dirty = true;
     this.isOpen = false;

@@ -2142,4 +2142,6 @@ export default {
   3267: "Alle Stufen sind offen.",
   3268: "Talente zurücksetzen?",
   3269: "Alle ausgegebenen Punkte kommen zurück (Meisterschaften und Weg inklusive), zum neuen Verteilen; Kosten: {0}.",
+  3270: "Zu den Sternen aufsteigen?",
+  3271: "Dein Held beginnt neu auf Stufe 1, in Zone {0}: Gold, Ausrüstung, Tasche, Talente und Quests dieses Durchlaufs gehen verloren. Du erhältst {1}.",
 };

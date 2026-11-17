@@ -3271,5 +3271,7 @@ export const KEYS = [
   "Prochain palier : {0} points dans la branche (encore {1}).",
   "Tous les paliers sont ouverts.",
   "Réinitialiser les talents ?",
-  "Tous les points dépensés reviennent (maîtrises et voie comprises), à redépenser ; coût : {0}."
+  "Tous les points dépensés reviennent (maîtrises et voie comprises), à redépenser ; coût : {0}.",
+  "Monter vers les étoiles ?",
+  "Ton héros recommence au niveau 1, en zone {0} : or, équipement, sac, talents et quêtes de cette course sont perdus. Tu gagnes {1}."
 ];

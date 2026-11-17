@@ -22,7 +22,7 @@ function effText(eff, n) {
 }
 
 export class AscensionTab {
-  constructor(game) { this.game = game; this.armed = false; }
+  constructor(game) { this.game = game; }
 
   // « ! » : première ascension possible, ou éclats d'étoile à placer dans une constellation (it. 868)
   badge() { return (this.game.canAscend() && this.game.S.prestige.count === 0) || this.game.constellationAffordable() ? "!" : ""; }
@@ -53,7 +53,7 @@ export class AscensionTab {
           return `<br>${tx("Compagnon de la prochaine aventure :")} <b>${esc(CLASSES[pick].name)}</b>${syn ? ` <span class="synergy-on">✦ ${esc(tx(syn.name))}</span>` : ""}`; })()}</p>
       ${can
         ? `<p>${tx("Ascension maintenant :")} <b class="gold">${txn(gain, "+{n} éclat|+{n} éclats")}</b> ${tx(recordZone(S) > S.best ? "(zone {0} atteinte pendant cette course). En zone {1} : +{2}." : "(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: fmtFull(shardsFor(nextZone + 4)) })}</p>
-           <div class="row"><button data-action="a-ascend" class="${this.armed ? "danger" : "primary"}">${this.armed ? tx("Confirmer : tout recommencer") : ico("star") + " " + tx("Monter vers les étoiles")}</button>${autos ? `<span class="autorow">${autos}</span>` : ""}</div>`
+           <div class="row"><button data-action="a-ascend" class="primary">${ico("star") + " " + tx("Monter vers les étoiles")}</button>${autos ? `<span class="autorow">${autos}</span>` : ""}</div>`
         : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>${autos ? `<div class="row autorow">${autos}</div>` : ""}`}
     </article>`;
     // Constellations au maximum : regroupées en une ligne de pastilles (effet au survol) ; la liste ne garde que
@@ -75,10 +75,14 @@ export class AscensionTab {
     if (a === "a-buy") this.game.buyConstellation(b.dataset.id);
     else if (a === "a-stars") { this.game.S.settings.autoStars = b.checked; if (b.checked) this.game.autoConstellations(); this.game.changed(); }
     else if (a === "a-auto") { this.game.S.settings.autoAscend = b.checked; this.game.changed(); }
-    else if (a === "a-ascend") {
-      if (!this.armed) { this.armed = true; setTimeout(() => { this.armed = false; }, 5000); return; }
-      this.armed = false;
-      this.game.ascend();
+    // (it. 2102, ergonomie) confirmation dans la fenêtre du panneau, ce qu'on gagne et ce qu'on perd en clair (avant : second clic
+    // sur le même bouton, dont le libellé changeait ; un double clic involontaire lançait l'ascension)
+    else if (a === "a-ascend" && this.game.canAscend()) {
+      const g = this.game, go = () => g.ascend();
+      if (!this.panel) { go(); return; }
+      this.panel.confirm(tx("Monter vers les étoiles ?"),
+        tx("Ton héros recommence au niveau 1, en zone {0} : or, équipement, sac, talents et quêtes de cette course sont perdus. Tu gagnes {1}.", { 0: g.nextStartZone(), 1: txn(g.ascendShards(), "{n} éclat d’étoile|{n} éclats d’étoile", { n: fmtFull(g.ascendShards()) }) }),
+        tx("Monter vers les étoiles"), go);
     }
   }
 

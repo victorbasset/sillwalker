@@ -2142,4 +2142,6 @@ export default {
   3267: "Todos os patamares estão abertos.",
   3268: "Redefinir os talentos?",
   3269: "Todos os pontos gastos voltam (maestrias e via incluídas), para gastar de novo; custo: {0}.",
+  3270: "Subir às estrelas?",
+  3271: "Seu herói recomeça no nível 1, na zona {0}: ouro, equipamento, bolsa, talentos e missões desta corrida são perdidos. Você ganha {1}.",
 };

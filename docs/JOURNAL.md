@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2102, ergonomie) : Ascension : confirmation dans la fenêtre du panneau (« Monter vers les étoiles ? », ce qu'on perd et
+  ce qu'on gagne) au lieu d'un second clic sur le même bouton (un double clic involontaire lançait l'ascension ; le libellé armé ne se
+  remettait pas). Les onglets reçoivent le panneau (t.panel). Autotest « le bouton demande confirmation » ; 268/268.
 - 2026-11-17 (it. 2101, revue générale) : --crawl (points libres en plus, nouveaux boutons des Talents compris) : 675 clics sans
   erreur ; perf bande 18,5 %, panneau 19,5 %, mini 5,4 %. Rien à corriger.
 - 2026-11-17 (it. 2100, Talents, étape 7 : revue) : talents verrouillés « 🔒 20 » (l'unité au survol, les paliers sur la jauge) :

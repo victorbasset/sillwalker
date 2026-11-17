@@ -2142,4 +2142,6 @@ export default {
   3267: "Wszystkie progi są otwarte.",
   3268: "Zresetować talenty?",
   3269: "Wszystkie wydane punkty wracają (z mistrzostwami i drogą), do ponownego wydania; koszt: {0}.",
+  3270: "Wznieść się do gwiazd?",
+  3271: "Twój bohater zaczyna od nowa na poziomie 1, w strefie {0}: złoto, ekwipunek, torba, talenty i zadania tego podejścia przepadają. Zyskujesz {1}.",
 };
