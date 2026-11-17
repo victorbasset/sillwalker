@@ -428,7 +428,8 @@ export class StripRenderer {
       if (!(item && item.r >= 4)) return;
       for (const a of this.slots) if ((a.art === "bandit" || a.art === "goblin") && a.tx && !a.bossSlot) {
         a.greedT = 2;
-        const [x, y] = a.tx.split(",").map(Number); this.float(x + a.w / 2, y - 2, "$", "#ffd34d");
+        // (it. 1953) pas de « $ » flottant quand les effets sont réduits
+        if (this.game.S.settings.fullEffects !== false) { const [x, y] = a.tx.split(",").map(Number); this.float(x + a.w / 2, y - 2, "$", "#ffd34d"); }
       }
     });
     g.on("chest", () => this.shake(0.2));
@@ -457,7 +458,7 @@ export class StripRenderer {
         if (a.packSeed != null && a.packSeed === packId && TIMID.has(a.art)) { a.react = { kind: "startle", t: 0, d: 1, far: 3, delay: (k - k0) * 0.05 }; continue; }
         if (a.packSeed != null && a.packSeed === packId) {
           a.react = { kind: "fury", t: 0, d: 0.9, delay: (k - k0) * 0.1 };
-          if (!shouted && a.tx) { shouted = true; const [fx, fy] = a.tx.split(",").map(Number); this.float(fx + a.w / 2, fy - 4, "!", "#ff5a4a", true); }
+          if (!shouted && a.tx && this.game.S.settings.fullEffects !== false) { shouted = true; const [fx, fy] = a.tx.split(",").map(Number); this.float(fx + a.w / 2, fy - 4, "!", "#ff5a4a", true); }
           continue;
         }
         if (a.brave) continue;
@@ -1358,7 +1359,7 @@ export class StripRenderer {
         a.act = a.act == null ? want : a.act + (want - a.act) * Math.min(1, dt * 0.5);
         if (((DIURNAL.has(a.art) && nv >= 0.8) || daySleep) && a.tx && k < this.fights() - 1) {
           a.zzzT = (a.zzzT ?? 2 + Math.random() * 6) - dt;
-          if (a.zzzT <= 0) { a.zzzT = 6 + Math.random() * 6; const [zx, zy] = a.tx.split(",").map(Number); this.float(zx + a.w - 4, zy + 2, "z", "#c8d0ff"); }
+          if (a.zzzT <= 0) { a.zzzT = 6 + Math.random() * 6; if (!calmFx) { const [zx, zy] = a.tx.split(",").map(Number); this.float(zx + a.w - 4, zy + 2, "z", "#c8d0ff"); } }
         }
       }
       // (it. 1877) geste au repos : de loin en loin, un monstre qui attend fait un petit bond qui rappelle sa compétence
