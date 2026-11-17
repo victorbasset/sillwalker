@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2046, journée des monstres) : poussière (déserts, steppe, pyramide) : loups, sangliers, ours et yétis s'ébrouent (nuage
+  qui monte), bandits, orcs et cultistes toussent ; brun #6e5232 (le sable #a8865a se perdait sur les fonds sableux). Vérifié en
+  capture à la Steppe des loups et au Désert brûlant ; test logique complété. Autotest 261/261.
 - 2026-11-17 (it. 2045) : autotest « une proie en meute s'écarte du prédateur voisin » (deux rats collés à un ours, devFreeze, record
   ramené à 30 : la peur du héros poussait le rat dans l'autre sens, −3) : −6 px en moyenne, seuil −4 (≈ −2 avec l'ancien ordre
   des règles). Autotest 261/261 deux fois.

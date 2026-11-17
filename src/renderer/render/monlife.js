@@ -38,6 +38,9 @@ export function climateGesture(art, el, wx) {
   // (it. 2030) le fantôme ne respire pas : il ne tousse pas dans la Crypte oubliée ni dans l'Ossuaire des titans
   if (wx === "spore" && !["mush", "sporeling", "plant", "treant", "ghost"].includes(art)) return "sneeze";
   if (wx === "ash" && !["golem", "skel", "fireelem", "mummy", "ghost"].includes(art)) return "sneeze";
+  // (it. 2046) poussière (déserts, steppe) : les bêtes à fourrure s'ébrouent (secousse, comme le grelottement), les humanoïdes toussent
+  if (wx === "dust" && ["wolf", "boar", "bear", "yeti"].includes(art)) return "rattle";
+  if (wx === "dust" && ["bandit", "orc", "cultist"].includes(art)) return "sneeze";
   return null;
 }
 /**
