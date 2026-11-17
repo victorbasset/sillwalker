@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1957, contrôle) : endurance : 8 min à ×10 (≈ 80 min de jeu) sur dev-data et sur la fin de partie, en même
+  temps : aucune erreur de l'interface (dev-data reste devant le boss de la zone 57, son mur ; la fin de partie va et vient
+  149-151). Rien à corriger.
 - 2026-11-17 (it. 1956, journée des monstres) : mode mini : le suivant de la file attend au fond de la scène, à demi effacé
   (caché pendant que le combattant arrive, pendant un boss, et pour gobelin et Poupouce). Vu en capture (loup derrière un
   ours). Mini 5,6 % (inchangé), autotest 257/257.
