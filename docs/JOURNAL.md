@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2027, journée des monstres) : éternuement et toux soufflent une bouffée devant la gueule (4 particules : vertes
+  dans les spores, grises dans les cendres ; effets complets seulement) au lieu des étincelles de la compétence. Mise en scène
+  Mines naines sans erreur, autotest 259/259.
 - 2026-11-17 (it. 2026) : Quoi de neuf, édition 129 (vent, toux dans les cendres, proie volante qui s'envole), clés 3240-3242
   traduites dans les 9 langues. npm test 353, autotest 259/259, lang-overflow : aucun défilement.
 - 2026-11-17 (it. 2025, qualité du code) : mouvement des gestes au repos extrait de strip.js vers monlife.js gestureMotion

@@ -1401,7 +1401,12 @@ export class StripRenderer {
           const Zd = this.game.zoneDef(), gst = gestureOf(a.art, a.nature, elementOf(a.type || ""), WEATHER[Zd.src || Zd.name]), nat = gst.nat;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: gst.d, delay: 0, nat };
-          if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
+          // (it. 2027) éternuement ou toux : une bouffée devant la gueule (verte dans les spores, grise dans les cendres)
+          if (this.active && this.juice.full && a.tx) {
+            const [gx, gy] = a.tx.split(",").map(Number), wx = WEATHER[Zd.src || Zd.name];
+            if (nat === "sneeze") this.juice.sparkles(gx + 2, gy + Math.round(a.h * 0.4), wx === "ash" ? "#9a948c" : "#b8d890", 4);
+            else this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3);
+          }
         }
       }
       // (it. 1867) réactions de groupe : sursaut (mort d'un voisin), joie (héros à terre)
