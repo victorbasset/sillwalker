@@ -110,6 +110,15 @@ se balançaient qu'au combat.
    bandits et gobelins qui convoitent un butin légendaire (« $ », it. 1945). Contrôles d'autotest : meutes, gestes,
    volants sous la rangée d'informations.
 
+10. **Fin de journée** (it. 1949-1977) : gestes d'espèce de plus (loup, yéti, méduse, serpent, crabe, guêpe, diablotin,
+    harpie, wyverne, tyrannœil, élémentaire de feu) ; compétences réfléchies (soin du sylvain blessé seulement, pas de
+    sacrifice du cultiste à l'agonie, it. 1955) ; mode mini : le suivant attend au fond (it. 1956) ; effets réduits : file
+    immobile, sans textes flottants (it. 1952-1954) ; réputation : zone 15 sous le record, les monstres craignent le héros,
+    au record après une défaite ils s'enhardissent (it. 1976-1977).
+11. **Impasses corrigées** (it. 1958-1964, game.js) : un monstre qui se régénère plus vite qu'il n'est blessé, contre un
+    héros qui encaisse tout (ou un serviteur qui encaisse pour lui), figeait la partie. Après 90 s, le monstre s'emporte
+    (Fureur croissante, sans plafond) ; après 3 min, le héros abandonne (défaite). Outil : `scripts/stall-check.mjs`.
+
 Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
 série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
 
