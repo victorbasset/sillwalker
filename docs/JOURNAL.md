@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1903, journée des monstres) : meutes et nuées : deux voisins (ou plus) de la même espèce qui marchent ou
+  volent suivent le même chef de file (65 % de son mouvement, avec 0,25 s de retard, même regard) ; ils se déplacent
+  ensemble au lieu de flâner chacun de son côté. Autotest 253/253, bande 18,3 %.
 - 2026-11-17 (it. 1902) : POUR-VICTOR : ce qu'il y a à regarder en jouant après la journée des monstres (vie de la bande,
   compétences et leur fréquence, séries de 7 à 13, lieutenants, équilibre −0,8 zone gardé, performance sous Windows).
 - 2026-11-17 (it. 1901, revue générale) : perf:linux bande 18,1 %, panneau 19,5 %, mini 5,5 % ; 12 h graine 201 : paladin

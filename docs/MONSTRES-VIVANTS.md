@@ -84,7 +84,8 @@ se balançaient qu'au combat.
    les trois suivants sursautent et reculent, les craintifs plus loin ; héros à terre : la file sautille de joie) ;
    it. 1868 : chaque volant croise à sa propre altitude, qui change lentement (≥ 30 px du haut : la rangée
    d'informations reste dégagée) ; un monstre ordinaire sous 25 % de vie recule en tremblant, les craintifs plus loin ;
-   à suivre : meutes (loups qui attendent ensemble), volants qui changent d'altitude, monstres qui
+   it. 1903 : meutes et nuées (voisins de même espèce qui suivent un chef de file, strip.js packSeed) ;
+   à suivre : , volants qui changent d'altitude, monstres qui
    fuient blessés, réactions à la mort d'un voisin.
 
 ## Bilan d'équilibre (it. 1886)

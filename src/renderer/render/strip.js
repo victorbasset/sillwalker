@@ -1158,6 +1158,11 @@ export class StripRenderer {
       // (it. 1850) vie en attente : nature selon le dessin de base, rythme propre à la place (monlife.js)
       // (it. 1883) a.brave : élite ou champion, téméraire (ne sursaute pas, arpente plus large)
       { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.skillId = monSkillOf(boss ? Z.boss : line[k].type)?.id || null; a.brave = !boss && !!(line[k] && line[k].elite); a.nextGesture = 6 + lifeSeed(g.S.zone, k + 31) * 20; a.lifeSeed = lifeSeed(g.S.zone, k); }
+      // (it. 1903) meutes et nuées : deux voisins (ou plus) de la même espèce qui marchent ou volent suivent le même chef de
+      // file (son rythme, son regard) avec un peu de jeu propre : une meute de loups, un vol de chauves-souris
+      { const p = this.slots[this.slots.length - 1];
+        a.packSeed = !boss && p && !p.bossSlot && p.art === a.art && (a.nature === "wander" || a.nature === "fly") ? (p.packSeed ?? p.lifeSeed) : null; }
+      a.bossSlot = boss;
       this.slots.push(a);
     }
     this.slotKey = line;
@@ -1281,7 +1286,12 @@ export class StripRenderer {
       const bob = fighting && a.fly ? Math.sin(R.time * 5) * 3 : 0;
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
-      const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      let life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      if (life && a.packSeed != null) {
+        // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard
+        const lead = lifeOffset(a.nature, a.packSeed, R.time - 0.25, Math.abs(this.fightX(k + 1) - this.heroX), false);
+        life = { dx: Math.round((lead.dx * 0.65 + life.dx * 0.35) * 10) / 10 || 0, dy: a.nature === "fly" ? life.dy : lead.dy, face: lead.face };
+      }
       // (it. 1880) ils sentent la faiblesse : héros sous 30 % de vie en plein combat, la file s'avance un peu vers lui (les
       // boss restent à leur place) ; elle recule quand il se rétablit
       if (!fighting && k < this.fights() - 1) {
