@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1872, contrôle) : rôdeur et barde « en recul » au tableau de l'it. 1871 : sur 7 graines (7, 3, 11, 21,
+  31, 41, 51), contre aea72772 (avant les compétences de monstres, git worktree) : rôdeur 62,7 → 62,7, barde 64,6 → 64,1 :
+  bruit, rien à corriger (le tableau à 3 graines tombait sur leurs mauvaises graines).
 - 2026-11-17 (it. 1871, revue générale, journée des monstres) : tableau des 20 héros (12 h, graines 7/3/11) après les
   compétences de monstres : moyenne 64,4 (it. 1825 : 65,0), écart 5,0 (6,3) ; en recul : rôdeur 61,3 (65,3) et barde
   61,7 (65,0), à vérifier sur 7 graines ; moine 68,0 → 64,3. perf:linux bande 18,2 %, panneau 19,8 %, mini 5,5 % ;
