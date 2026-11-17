@@ -2097,4 +2097,5 @@ export default {
   3222: "Cada especie tiene su gesto mientras espera su turno: la araña trepa por su hilo, el oso se alza, el bandido vigila…",
   3223: "De noche, los lobos aúllan a la luna y se responden; los espectros se desvanecen y vuelven.",
   3224: "Cae un objeto legendario: bandidos y goblins lo codician.",
+  3225: "Monedas, haces de botín, destellos, monstruos que se agitan mientras esperan. Desmárcalo para una franja más sobria.",
 };

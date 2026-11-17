@@ -58,7 +58,7 @@ export class SettingsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("eye", 3)}" alt="">${tx("Affichage")}</span></h2>
         ${check("dayNight", tx("Cycle jour / nuit"), tx("La bande suit l’heure de ton ordinateur."))}
         ${check("damageNumbers", tx("Nombres de dégâts"))}
-        ${check("fullEffects", tx("Effets complets"), tx("Pièces, faisceaux de butin, flashs. Décoche pour une bande plus sobre."))}
+        ${check("fullEffects", tx("Effets complets"), tx("Pièces, faisceaux de butin, flashs, monstres qui s’agitent en attendant. Décoche pour une bande plus sobre."))}
         ${check("weather", tx("Météo des zones"), tx("Neige, braises, feuilles, bulles… (un peu plus de calcul)."))}
         <p class="note tight">${tx("Thème du panneau")}</p>
         <div class="row seg">${[["dark", tx("Sombre")], ["light", tx("Clair")], ["auto", IS_MAC ? tx("Automatique (macOS)") : tx("Automatique (Windows)")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v}" aria-pressed="${themeOf(P.theme) === v}">${esc(label)}</button>`).join("")}</div>

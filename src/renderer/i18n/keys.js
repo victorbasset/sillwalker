@@ -3226,5 +3226,6 @@ export const KEYS = [
   "En plein jour, les chauves-souris somnolent ; la mimique, elle, frissonne quand son tour approche.",
   "Chaque espèce a son geste en attendant son tour : l’araignée remonte sur son fil, l’ours se dresse, le bandit fait le guet…",
   "La nuit, les loups hurlent à la lune et se répondent ; les spectres s’estompent et reviennent.",
-  "Un objet légendaire tombe : bandits et gobelins le convoitent."
+  "Un objet légendaire tombe : bandits et gobelins le convoitent.",
+  "Pièces, faisceaux de butin, flashs, monstres qui s’agitent en attendant. Décoche pour une bande plus sobre."
 ];

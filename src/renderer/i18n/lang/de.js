@@ -2097,4 +2097,5 @@ export default {
   3222: "Jede Art hat ihre eigene Geste, während sie wartet: Die Spinne klettert an ihrem Faden hoch, der Bär richtet sich auf, der Bandit hält Ausschau …",
   3223: "Nachts heulen die Wölfe den Mond an und antworten einander; Gespenster verblassen und kehren zurück.",
   3224: "Ein legendärer Gegenstand fällt: Banditen und Goblins begehren ihn.",
+  3225: "Münzen, Beutestrahlen, Blitze, Monster, die beim Warten herumzappeln. Abwählen für einen schlichteren Streifen.",
 };

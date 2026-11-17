@@ -2097,4 +2097,5 @@ export default {
   3222: "Each species has its own gesture while waiting its turn: the spider climbs its thread, the bear rears up, the bandit keeps watch…",
   3223: "At night, wolves howl at the moon and answer each other; ghosts fade and return.",
   3224: "A legendary item drops: bandits and goblins covet it.",
+  3225: "Coins, loot beams, flashes, monsters fidgeting while they wait. Uncheck for a more sober strip.",
 };

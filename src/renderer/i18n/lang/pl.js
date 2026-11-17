@@ -2097,4 +2097,5 @@ export default {
   3222: "Każdy gatunek ma swój gest, czekając na swoją kolej: pająk wspina się po nici, niedźwiedź staje dęba, bandyta wypatruje…",
   3223: "Nocą wilki wyją do księżyca i odpowiadają sobie; widma bledną i powracają.",
   3224: "Wypada legendarny przedmiot: bandyci i gobliny go pożądają.",
+  3225: "Monety, wiązki łupów, błyski, potwory kręcące się w oczekiwaniu. Odznacz dla skromniejszego paska.",
 };
