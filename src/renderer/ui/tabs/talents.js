@@ -111,7 +111,8 @@ export class TalentsTab {
       <div class="row tfoot">
         <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
         ${/* (it. 2115, ergonomie) annuler le dernier clic (gratuit) ; libellé fixe, après « Réinitialiser » : rien ne bouge */ ""}
-        ${((L, ok) => `<button data-action="t-undo" class="quiet"${ok ? "" : " disabled"} title="${esc(ok ? tx("Rendre les points du dernier clic : {0} ({1}).", { 0: TALENT_INDEX[L.id].talent.name, 1: txn(L.n, "{n} rang|{n} rangs") }) : tx("Rien à annuler : seul le dernier clic sur un talent peut être rendu."))}">↶ ${tx("Annuler")}</button>`)(g.lastLearn, g.canUndoTalent())}
+        ${((L, ok) => `<button data-action="t-undo" class="quiet"${ok ? "" : " disabled"} title="${esc(ok ? tx("Rendre les points du dernier clic : {0} ({1}).", { 0: TALENT_INDEX[L.id].talent.name, 1: txn(L.n, "{n} rang|{n} rangs") }) : tx("Rien à annuler : seul le dernier clic sur un talent peut être rendu."))}">↶ ${/* (it. 2121) « Annuler le dernier » (défaire), comme dans les Compétences : « Annuler » seul se traduit « Cancel »,
+          « キャンセル » (fermer une fenêtre) */ tx("Annuler le dernier")}</button>`)(g.lastLearn, g.canUndoTalent())}
       </div>
     </article>`;
     // (it. 855) Au clavier, le talent qui avait le focus le garde après le redessin (sinon chaque Entrée renvoyait le

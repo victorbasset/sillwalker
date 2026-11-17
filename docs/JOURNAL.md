@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2121, revue générale) : simulations 12 h : guerrier 62, mage 64, rôdeur 65 (voie gratuite sans effet notable) ;
+  perf bande 18,4 %, panneau 19,1 %, mini 5,6 %, icône 0,6 %. Captures des Talents en anglais et japonais : le bouton « ↶ Annuler »
+  disait « Cancel » / « キャンセル » (clé « Annuler » = fermer une fenêtre) : il prend « Annuler le dernier » (Undo last), comme les
+  Compétences. lang-overflow 10 langues × 3 largeurs : rien ; 274/274.
 - 2026-11-17 (it. 2120) : --crawl en français et en russe après les nouvelles fenêtres de confirmation : 671 clics sans erreur ;
   texte russe (--dump-text) : aucun mot non traduit. Aide ⓘ des Talents complétée (Maj + clic : un rang ; Z : annuler le dernier
   clic ; clé 3291). Autotest 274/274.
