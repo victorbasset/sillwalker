@@ -278,6 +278,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   game.js skillBalance compense chacune (attaque ou PV) : une compétence change la façon de se battre, pas la force. Un
   test vérifie que chaque compétence est jouée, a son mot, son son et sa traduction. Capture d'un geste : figer
   `strip.mfx = { id, phase: "go", t, d: 8 }` (d long) 300 ms avant --shot. Vie en attente : render/monlife.js.
+  Voir la bande en mouvement : `scripts/strip-clip.sh <sortie.mp4> [zone] [secondes] [ffmpeg] [mise-en-scène.js]` (écran
+  virtuel à part, copie de dev-data ; ffmpeg d'imageio-ffmpeg dans un environnement virtuel du dossier temporaire).
 - Rangée d'informations de la bande (zone, or, barres de vie du réglage hudBars, it. 1531) : tout nouvel élément y
   déclare sa bande horizontale dans `hudBands()` (strip.js), sinon la météo passe dessus (it. 874) ; il ne recouvre pas
   le nom du boss, qui s'étend vers la gauche depuis le boss (it. 854) ; DOM mis à jour seulement quand la valeur change.

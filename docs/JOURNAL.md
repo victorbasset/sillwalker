@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1896) : scripts/strip-clip.sh : courte vidéo de la bande (zone et mise en scène au choix, écran virtuel
+  à part, copie de dev-data) pour vérifier ce qui bouge ; essayé (zone 2, 6 s). Noté dans CLAUDE.md.
 - 2026-11-17 (it. 1895, journée des monstres) : vidéo de 20 s de la bande (zone 26, de nuit) tournée comme steam-video.sh
   (Xvfb :78 à part, x11grab, ffmpeg d'imageio-ffmpeg, --stage pour la zone) et envoyée à Victor : vie en attente, « z »
   des bêtes de jour endormies, gestes et compétences visibles en mouvement.
