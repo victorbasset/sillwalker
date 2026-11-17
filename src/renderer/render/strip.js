@@ -853,7 +853,7 @@ export class StripRenderer {
     if (f.id === "dive") {
       // chauve-souris : monte de 16 px pendant l'annonce, puis fond sur le héros et remonte à sa place
       if (f.phase === "tell") return { dx: 0, dy: -16 * Math.min(1, p * 1.5) };
-      const reach = Math.min(44, Math.max(0, this.monX() - this.heroX - 24));
+      const reach = Math.min(44, Math.max(10, this.monX() - this.heroX - 24));
       const dive = p < 0.5 ? p / 0.5 : 1 - (p - 0.5) / 0.5; // aller, puis retour
       return { dx: -dive * reach, dy: -16 * (1 - dive) + 10 * dive };
     }
@@ -880,7 +880,7 @@ export class StripRenderer {
     if (f.id === "swarm") {
       // rat : piaffe sur place, puis trois allers-retours éclair vers le héros
       if (f.phase === "tell") return { dx: Math.floor(p * 12) % 2 ? 2 : -2, dy: 0 };
-      const reach = Math.min(20, Math.max(0, this.monX() - this.heroX - 28));
+      const reach = Math.min(20, Math.max(10, this.monX() - this.heroX - 28));
       return { dx: -Math.abs(Math.sin(p * Math.PI * 3)) * reach, dy: 0 };
     }
     if (f.id === "web") {
@@ -891,13 +891,13 @@ export class StripRenderer {
     if (f.id === "chomp") {
       // mimique : le couvercle s'entrouvre (petit soulèvement), puis elle bondit gueule ouverte
       if (f.phase === "tell") return { dx: 0, dy: -2 };
-      const reach = Math.min(20, Math.max(0, this.monX() - this.heroX - 30));
+      const reach = Math.min(20, Math.max(10, this.monX() - this.heroX - 30));
       return { dx: -reach * Math.sin(p * Math.PI), dy: -8 * Math.sin(p * Math.PI) };
     }
     if (f.id === "pickpocket") {
       // bandit : feinte d'un pas de côté, puis file au contact et repart aussitôt
       if (f.phase === "tell") return { dx: 3, dy: 0 };
-      const reach = Math.min(26, Math.max(0, this.monX() - this.heroX - 26));
+      const reach = Math.min(26, Math.max(10, this.monX() - this.heroX - 26));
       return { dx: -reach * Math.sin(p * Math.PI), dy: 0 };
     }
     if (f.id === "pollen") {
@@ -908,7 +908,7 @@ export class StripRenderer {
     if (f.id === "thrust") {
       // chevalier errant : recule pour armer, puis se fend loin en avant
       if (f.phase === "tell") return { dx: 5, dy: 0 };
-      const reach = Math.min(24, Math.max(0, this.monX() - this.heroX - 28));
+      const reach = Math.min(24, Math.max(10, this.monX() - this.heroX - 28));
       return { dx: p < 0.3 ? 5 - (reach + 5) * (p / 0.3) : -reach * (1 - (p - 0.3) / 0.7), dy: 0 };
     }
     if (f.id === "bomb") {
@@ -940,13 +940,13 @@ export class StripRenderer {
       // ver : s'enfonce sous terre (descend de 18 px), puis jaillit plus près du héros
       if (f.phase === "tell") return { dx: 0, dy: 3 };
       if (f.phase === "go") return { dx: 0, dy: 18 * Math.min(1, p * 4) };
-      const reach = Math.min(30, Math.max(0, this.monX() - this.heroX - 30));
+      const reach = Math.min(30, Math.max(10, this.monX() - this.heroX - 30));
       return { dx: -reach * Math.sin(p * Math.PI), dy: 18 * (1 - Math.min(1, p * 3)) - 10 * Math.sin(p * Math.PI) };
     }
     if (f.id === "peck") {
       // corbeau : prend son élan en arrière, puis pique droit vers le visage du héros
       if (f.phase === "tell") return { dx: 4, dy: -4 };
-      const reach = Math.min(36, Math.max(0, this.monX() - this.heroX - 24));
+      const reach = Math.min(36, Math.max(10, this.monX() - this.heroX - 24));
       return { dx: -reach * Math.sin(p * Math.PI), dy: -4 + 4 * p };
     }
     if (f.id === "pinch") {
@@ -957,7 +957,7 @@ export class StripRenderer {
     if (f.id === "charge") {
       // sanglier : recule en grattant le sol, puis fonce sur le héros et revient
       if (f.phase === "tell") return { dx: 6 * Math.min(1, p * 1.5) + (Math.floor(p * 10) % 2 ? 1 : 0), dy: 0 };
-      const reach = Math.min(48, Math.max(0, this.monX() - this.heroX - 26));
+      const reach = Math.min(48, Math.max(10, this.monX() - this.heroX - 26));
       return { dx: p < 0.35 ? 6 - (reach + 6) * (p / 0.35) : -reach * (1 - (p - 0.35) / 0.65), dy: 0 };
     }
     if (f.id === "roar") {
@@ -988,7 +988,7 @@ export class StripRenderer {
     if (f.id === "strike") {
       // serpent : se love (recule), puis deux détentes éclair vers le héros
       if (f.phase === "tell") return { dx: 5, dy: 1 };
-      const reach = Math.min(22, Math.max(0, this.monX() - this.heroX - 28));
+      const reach = Math.min(22, Math.max(10, this.monX() - this.heroX - 28));
       return { dx: -Math.abs(Math.sin(p * Math.PI * 2)) * reach, dy: 0 };
     }
     if (f.id === "flare") {
@@ -1041,7 +1041,7 @@ export class StripRenderer {
       // scorpion : se cabre (recule et se dresse) pendant l'annonce, puis se détend vers le héros
       if (f.phase === "tell") return { dx: 4, dy: -3 };
       const arc = Math.sin(p * Math.PI);
-      return { dx: -arc * Math.min(18, Math.max(0, this.monX() - this.heroX - 30)), dy: 0 };
+      return { dx: -arc * Math.min(18, Math.max(10, this.monX() - this.heroX - 30)), dy: 0 };
     }
     if (f.id === "spores") {
       // champignard : se tasse en gonflant, puis se détend d'un coup en lâchant le nuage
@@ -1052,7 +1052,7 @@ export class StripRenderer {
       // gluant : se ramasse (écrasé vers le sol), puis bondit vers le héros en arc et retombe à sa place
       if (f.phase === "tell") return { dx: 0, dy: 3 };
       const arc = Math.sin(p * Math.PI);
-      return { dx: -arc * Math.min(40, Math.max(0, this.monX() - this.heroX - 30)), dy: -arc * 22 };
+      return { dx: -arc * Math.min(40, Math.max(10, this.monX() - this.heroX - 30)), dy: -arc * 22 };
     }
     return null;
   }

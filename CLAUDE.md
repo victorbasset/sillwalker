@@ -273,6 +273,11 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   ligne (85-95) ont rempli la fenêtre et repoussaient les plus anciennes hors de vue (it. 1442, 1474-1475).
 - Réglages qui touchent l'affichage sans recharger : « Économie d'énergie » (settings.eco, 15 images/s, événement
   `sillwalker-framerate`) et « Cinématiques de l'histoire » (settings.cinematics ; `data.force` pour le ▶ des chroniques).
+- Compétences des monstres (journée du 17/11, it. 1850-1870 ; plan et bilan : docs/MONSTRES-VIVANTS.md) : une par famille
+  (game/monskills.js), jouée dans game.js monSkillTick, posée sur la bande par strip.js monSkillPose (mfx), mot et son ;
+  game.js skillBalance compense chacune (attaque ou PV) : une compétence change la façon de se battre, pas la force. Un
+  test vérifie que chaque compétence est jouée, a son mot, son son et sa traduction. Capture d'un geste : figer
+  `strip.mfx = { id, phase: "go", t, d: 8 }` (d long) 300 ms avant --shot. Vie en attente : render/monlife.js.
 - Rangée d'informations de la bande (zone, or, barres de vie du réglage hudBars, it. 1531) : tout nouvel élément y
   déclare sa bande horizontale dans `hudBands()` (strip.js), sinon la météo passe dessus (it. 874) ; il ne recouvre pas
   le nom du boss, qui s'étend vers la gauche depuis le boss (it. 854) ; DOM mis à jour seulement quand la valeur change.

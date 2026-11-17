@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1870, journée des monstres) : contrôle visuel de six compétences en plein geste (bond, piqué, charge,
+  poing de pierre, fouissement, souffle ; mise en scène : strip.mfx figé à mi-course avant --shot). Contre un héros au
+  corps à corps, les élans vers le héros ne faisaient que quelques pixels (distance ≈ 0) : plancher de 10 px pour les
+  onze élans (strip.js monSkillPose). Captures : chaque geste se lit. npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1869, journée des monstres) : « Quoi de neuf », édition 120 (lieutenants : dessin et pouvoir unique,
   Briseur plus coriace ; le Rebord vit ; zones de 7 à 13 monstres ; une compétence par sorte de monstre), clés
   3204-3207, 10 langues (noms repris tels que traduits). npm test 345, autotest 253/253, lang-overflow ru/de/pl 1280 propre.
