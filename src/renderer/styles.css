@@ -1094,6 +1094,16 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .tgauge.full > i { background: var(--accent); }
 .tgauge > b { position: absolute; top: -2px; width: 2px; height: 8px; margin-left: -1px; background: var(--muted); }
 .tgauge > b.on { background: var(--accent); }
+/* (it. 2105, design, Victor : « le design est toujours pourri ») code d'état des lignes : seul ce qu'on peut cliquer garde le cadre
+   vert vif ; au maximum, calme (fond teinté, coche) ; en cours, une barre de rang au pied ; maîtrises en cadre neutre (la pastille
+   « Choisir un bonus » suffit à attirer l'œil). Avant : presque toutes les lignes en vert, rien ne ressortait. */
+.tbranch .talent.has:not(.can) { border-color: color-mix(in srgb, var(--good) 35%, var(--edge)); }
+.tbranch .talent.maxed { background: color-mix(in srgb, var(--good) 9%, var(--chip)); }
+.tbranch .talent.maxed .tr { color: color-mix(in srgb, var(--good) 75%, var(--muted)); }
+.tbranch .talent.can { border-color: var(--good); box-shadow: inset 3px 0 0 var(--good); }
+.talent .tbar { position: absolute; left: 3px; bottom: 3px; height: 2px; max-width: calc(100% - 6px); background: var(--good); opacity: .8; pointer-events: none; }
+.tmastery .talent.has:not(.can) { border-color: var(--edge); }
+.tmastery .talent.can { border-color: var(--good); }
 /* Ascension (demandes 27 et 29) : icônes ; « gardé / perdu » en étiquettes compactes. */
 .keeplose ul { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 3px 10px; font-size: 13px; }
 .keeplose li { display: inline-flex; align-items: center; gap: 4px; }

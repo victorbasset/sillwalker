@@ -46,7 +46,15 @@
    nom sur deux lignes en allemand à 1280 px ; 10 langues × 1280 / 1366 / 1920 px, thèmes sombre et clair ; clavier : les
    emplacements invisibles ne prennent pas le focus, les boutons de la fiche (voie, réinitialisation) se tabulent.
 
+## Design visuel (Victor, it. 2104 : « c'est mieux mais le design est toujours pourri »)
+
+8. (it. 2105) Code d'état des lignes : presque toutes avaient le même cadre vert. Seules les lignes cliquables gardent le vert vif
+   (avec un trait à gauche) ; au maximum : coche et fond calme ; en cours : barre de rang au pied de la ligne ; maîtrises en cadre
+   neutre. Thèmes sombre et clair vérifiés en capture.
+   À suivre : la Voie disponible doit appeler l'œil ; la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
+   identiques se disputent l'attention.
+
 ## Reste à revoir (hors Talents)
 
-- Ascension (« Confirmer : tout recommencer ») et Compétences (« Confirmer la réinitialisation ») confirment par un second clic
+- (fait it. 2102) Ascension : fenêtre de confirmation. Reste Compétences (« Confirmer la réinitialisation ») confirment par un second clic
   sur le même bouton, dont le libellé change : même défaut que l'ancienne Voie.

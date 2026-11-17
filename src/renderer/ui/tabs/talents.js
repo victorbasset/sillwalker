@@ -41,7 +41,7 @@ export class TalentsTab {
           <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
           ${/* (it. 2100) verrouillé : « 🔒 20 » (l'unité au survol ; la jauge de la branche montre les paliers) : en allemand à 1280 px,
             « 🔒 20 Pkt. » faisait passer le nom des ultimes sur deux lignes */ ""}
-          <span class="tr"${locked ? ` title="${esc(tx("Prochain palier : {0} points dans la branche (encore {1}).", { 0: TIER_REQ[t.tier], 1: TIER_REQ[t.tier] - spent }))}"` : ""}>${locked ? "🔒 " + TIER_REQ[t.tier] : r + " / " + t.max}</span>
+          <span class="tr"${locked ? ` title="${esc(tx("Prochain palier : {0} points dans la branche (encore {1}).", { 0: TIER_REQ[t.tier], 1: TIER_REQ[t.tier] - spent }))}"` : ""}>${locked ? "🔒 " + TIER_REQ[t.tier] : r >= t.max ? "✓ " + r + " / " + t.max : r + " / " + t.max}</span>${/* (it. 2105, design) barre de progression du rang au pied de la ligne, tant qu'il n'est pas au maximum */ ""}${!locked && r > 0 && r < t.max ? `<i class="tbar" style="width:${(r / t.max * 100).toFixed(1)}%"></i>` : ""}
           ${/* (it. 2095, ergonomie : rien ne naît ni ne disparaît sous le curseur) l'emplacement du « +1 » existe tant que le talent
             est ouvert et pas au maximum (les seuls dont la pastille peut changer d'un clic à l'autre) ; hors d'usage, il est
             invisible et sans action (un clic à sa place vaut un clic sur le talent). Verrouillé ou au maximum : pas d'emplacement

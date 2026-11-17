@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2105, design des Talents, Victor : « le design est toujours pourri ») : code d'état des lignes. Avant, presque toutes
+  avaient le même cadre vert ; seules les cliquables le gardent (trait à gauche), au maximum : coche et fond calme, en cours : barre de
+  rang au pied. Captures sombre et clair ; autotest 268/268.
 - 2026-11-17 (it. 2104, signalé par Victor) : avec « À chaque niveau, dépenser tout seul », aucun point n'était jamais libre et la voie
   restait impossible à choisir ; la voie est maintenant gratuite (elle demande 30 points dépensés, plus un point libre ; une voie déjà
   choisie rend son point). Test logique « voie gratuite » ; npm test 357, autotest 268/268.
