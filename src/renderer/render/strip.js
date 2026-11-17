@@ -1342,18 +1342,20 @@ export class StripRenderer {
       // (it. 1952) « Effets complets » coupés (ou Windows qui demande moins d'animations, app.js) : la file reste calme, chacun à
       // sa place (ni flânerie, ni geste, ni bavardage, ni sursaut) ; les compétences au combat restent visibles
       let life = fighting || calmFx ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      if (life && a.packSeed != null) {
+        // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard ; (it. 1919) rats (furtifs) et
+        // gluants (sauteurs) aussi : les bonds se suivent en cascade, à 0,25 s d'écart
+        const lead = lifeOffset(a.nature, a.packSeed, R.time - 0.25, Math.abs(this.fightX(k + 1) - this.heroX), false);
+        life = { dx: Math.round((lead.dx * 0.65 + life.dx * 0.35) * 10) / 10 || 0, dy: a.nature === "fly" ? life.dy : lead.dy, face: lead.face };
+      }
+      // (it. 2044) après la meute aussi (craintifs en meute : 35 % du recul et regard du chef ; mesure, deux rats parmi des golems,
+      // record 57, zone 30 : le second à +2 px en moyenne ; après : +11)
       // (it. 1976) le héros repasse dans une zone bien sous son record (15 zones ou plus) : les monstres le savent plus fort ;
       // les craintifs se tiennent loin, dos tourné, les autres tremblent quand il approche (à moins de 220 px)
       if (life && k < this.fights() - 1 && S.best - S.zone >= 15) {
         if (TIMID.has(a.art)) life = { ...life, dx: life.dx * 0.5 + 12, face: -1 };
         // (it. 1982) élites et champions, téméraires, ne tremblent pas
         else if (!a.brave && Math.abs(this.fightX(k + 1) - this.heroX) < 220) life = { ...life, dx: life.dx + (Math.floor(R.time * 14 + k) % 2 ? 3 : 0) };
-      }
-      if (life && a.packSeed != null) {
-        // (it. 1903) suit le chef de meute : 65 % de son mouvement, 35 % du sien, même regard ; (it. 1919) rats (furtifs) et
-        // gluants (sauteurs) aussi : les bonds se suivent en cascade, à 0,25 s d'écart
-        const lead = lifeOffset(a.nature, a.packSeed, R.time - 0.25, Math.abs(this.fightX(k + 1) - this.heroX), false);
-        life = { dx: Math.round((lead.dx * 0.65 + life.dx * 0.35) * 10) / 10 || 0, dy: a.nature === "fly" ? life.dy : lead.dy, face: lead.face };
       }
       // (it. 2043) proies et prédateurs APRÈS la meute : la peur l'emporte (la meute ne gardait que 35 % de l'écart, rats en meute
       // collés à un ours : le second rat à −2 px en moyenne ; après : −8)
