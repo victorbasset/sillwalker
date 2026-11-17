@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1999) : MONSTRES-VIVANTS, étape 12 (arrivées) ; POUR-VICTOR : arrivée des séries.
 - 2026-11-17 (it. 1998) : « Quoi de neuf », édition 127 (arrivée des séries et retour des vaincus ; gestes du lézard, des
   champignards, du scorpion ; mode mini ; clés 3235-3237, noms de monstres repris tels que traduits). Autotest 258/258,
   lang-overflow ru/de/pl : rien ne défile.

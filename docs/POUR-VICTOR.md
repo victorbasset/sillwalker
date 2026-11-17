@@ -17,6 +17,7 @@ Détail : `docs/MONSTRES-VIVANTS.md`. Vidéo envoyée le 17/11 vers 4 h 30 (zone
   légendaires. Trop de choses qui bougent ? Décoche « Effets complets » : la file reste alors calme (et c'est automatique si
   Windows demande moins d'animations).
 - **Mode mini** : le monstre suivant attend au fond de la scène, à demi effacé. À garder ?
+- **Arrivée des séries (17/11 midi, vidéo envoyée vers 12 h 35)** : chaque nouvelle série accourt du bord droit ; le boss attend.
 - **Outil** : `scripts/stall-check.mjs` cherche les parties figées dans des sauvegardes avancées (il a trouvé deux impasses).
 - **Compétences** : chaque famille a la sienne, annoncée par un « ! » (bond du gluant, piqué, toile, charge, poing de
   pierre…), décrite au survol de sa carte du Bestiaire. Lisibles ? Trop fréquentes ? (élites −15 %, champions −25 %,

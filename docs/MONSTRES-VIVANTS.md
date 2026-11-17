@@ -119,6 +119,11 @@ se balançaient qu'au combat.
     héros qui encaisse tout (ou un serviteur qui encaisse pour lui), figeait la partie. Après 90 s, le monstre s'emporte
     (Fureur croissante, sans plafond) ; après 3 min, le héros abandonne (défaite). Outil : `scripts/stall-check.mjs`.
 
+12. **Arrivées** (it. 1993-1997) : chaque nouvelle série accourt du bord droit, l'un après l'autre (le boss attend déjà à
+    sa place : en courant, il passait sous les boutons) ; après une défaite, les vaincus reviennent en courant ; en mode mini,
+    le suivant glisse depuis le bord, avec son contour d'élite. Gestes de plus : lézard camouflé, champignards gonflés,
+    scorpion qui dresse la queue (it. 1985, 1992). Autotest « une nouvelle série arrive du bord droit ».
+
 Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
 série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
 
