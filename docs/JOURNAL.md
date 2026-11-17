@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1971, revue générale) : perf:linux bande 18,3 %, panneau 19,1 %, mini 5,5 % ; mémoire 4 min : 566-570 Mo ;
+  stall-check 60 / 0 figées ; first-minutes : zone 9-10 et niveau 16-17 à 10 min, premier objet à 42-82 s (comme avant) ;
+  --crawl en russe : 675 clics, aucune erreur. Rien à corriger.
 - 2026-11-17 (it. 1970, contrôle) : tableau des 20 héros (12 h, graines 7/3/11) : moyenne 64,5, nécromancien 62,3 en bas,
   berserker 69,3 en haut (un 77). Berserker sur 7 graines, avant / après les garde-fous anti-impasse (2b1777bc / HEAD) :
   67,8 / 66,8, le 77 existait déjà : forte variance du berserker, pas une régression. Rien changé.
