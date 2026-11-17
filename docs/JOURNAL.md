@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1966, contrôle) : semaine simulée après le dernier recours (abandon après 3 min, it. 1964), pour vérifier
+  qu'il ne coupe pas de longs combats de boss gagnants en fin de partie : guerrier 349, mage 350 : inchangé.
 - 2026-11-17 (it. 1965) : stall-check : option STALL_DAYMOD (bénédictions du jour) ; 6 h de jeu : 60 / 0 figées ; 3 h sous les
   bénédictions : 60 / 0. Noté dans CLAUDE.md.
 - 2026-11-17 (it. 1964, bogue + outil) : scripts/stall-check.mjs (sauvegardes avancées × 20 héros, 2 h de jeu, alerte à 5 min
