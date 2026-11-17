@@ -89,6 +89,7 @@ export const BOSS_MECHANICS = {
   shards: { name: "Ciel brisé", desc: "Toutes les 10 s, fait tomber trois éclats d’étoile : trois coups à 60 % de son attaque, chacun esquivable." },
 };
 /** (it. 1849) Pouvoirs uniques : Chaînes (Geôlier), Cendres (Reine), Éclipse (Chevalier), Ciel brisé (Briseur). */
+export const UNIQUE_MECHS = ["chains", "ashes", "eclipse", "shards"];
 export const CHAINS = { every: 10, first: 4, s: 1.5 };
 export const ASHES = { at: 0.5, heal: 0.2, atk: 1.25 };
 export const ECLIPSE = { every: 12, first: 6, s: 3, miss: 0.5 };

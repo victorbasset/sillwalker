@@ -13,11 +13,12 @@ import { shopIconURL, spellIconURL, relicIconURL } from "../render/shopart.js";
 import { classSpells, spellRank } from "../game/spells.js";
 import { dayModNotes } from "./daymodnotes.js";
 import { RARITIES, LEGENDARY, SLOTS, SLOT_KEYS, STAT_NAMES, KILLS_PER_ZONE, MAX_PLUS, DROP_CHANCE, MONSTERS, ELITE, CHAMPION, POUPOUCE } from "../game/data.js";
-import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower, powerSources } from "../game/rules.js";
+import { forgeCost, reforgeCost, levelUpCost, sellValue, monsterBase, itemMult, earlyPace, power as heroPower, powerSources, zoneDef } from "../game/rules.js";
 import { CONSUMABLES } from "../game/shop.js";
 import { EXPEDITIONS } from "../game/pets.js";
 import { fmt, fmtShort, fmtFull, fmtStat, esc, NB, dec, unit, listJoin , uH, uMin, uS, durText } from "../game/format.js";
-import { RELICS, RELIC_IDS, MAJOR_BOSSES, ECHO_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable, majorName } from "../game/relics.js";
+import { RELICS, RELIC_IDS, MAJOR_BOSSES, ECHO_BOSSES, hasRelic, relicLevel, relicLevelText, relicUpgradable, majorName, majorBoss } from "../game/relics.js";
+import { monSkillOf } from "../game/monskills.js";
 import { itemIconURL, classPortraitURL, dressedPortraitURL } from "../render/sprites.js";
 import { heroVisual } from "../render/equipvis.js";
 import { TalentsTab } from "./tabs/talents.js";
@@ -43,7 +44,7 @@ import { BOSS_MECHANICS, bossMechanics, bossName, bossWear, PURE_PARRIES } from 
 import { lockLink } from "./locks.js";
 import { tabOpen, TAB_GATES } from "../game/tabs.js";
 import { journeyText } from "./tabs/stats.js";
-import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, FINAL_BOSS } from "../game/story.js";
+import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, FINAL_BOSS, isFinalZone } from "../game/story.js";
 import { ASCEND_MIN_ZONE } from "../game/prestige.js";
 import { hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 
@@ -147,6 +148,14 @@ function warmFont(font) {
   const t2 = performance.now();
   s.remove();
   if (window.__devSlow && t2 - t0 > 30) console.warn(`[lent] police ${font.split(",")[0]} : lettres ${Math.round(t1 - t0)} ms, symboles ${Math.round(t2 - t1)} ms`);
+}
+
+/** (it. 1866) Compétence de famille du boss de la zone (monskills.js), à la suite de ses capacités ; rien pour un
+ *  lieutenant ou le Briseur (pouvoirs uniques), ni pour un boss sans famille connue. */
+function bossSkillHTML(S) {
+  if (majorBoss(S.zone) || isFinalZone(S.zone)) return [];
+  const sk = monSkillOf(zoneDef(S.zone).boss); if (!sk) return [];
+  return [`<b class="bskill" title="${esc(tx(sk.desc))}">${esc(tx(sk.name))}</b>`];
 }
 
 export class Panel {
@@ -1072,7 +1081,7 @@ export class Panel {
       <p class="note tight bossmech">${tx("Boss :")}${wsp()}<b class="bname">${esc(bossName(S.zone))}</b>${cend()}${wsp()}${tx("Capacités du boss :")}${wsp()}${bossMechanics(S.zone).map((id) => {
           // Malédiction, venin : la parade, si le joueur a déjà vu le Talisman de pureté
           const parry = PURE_PARRIES.includes(id) && (S.powersSeen || {}).p_pure ? "\n" + tx("Parade : {0}", { 0: tx("Talisman de pureté") }) : "";
-          return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).join(csep())}${cend()}</p>
+          return `<b title="${esc(BOSS_MECHANICS[id].desc + parry)}">${esc(BOSS_MECHANICS[id].name)}</b>`; }).concat(bossSkillHTML(S)).join(csep())}${cend()}</p>
       ${this.relicAheadHTML(S)}
       ${this.game.stuckInfo() ? `<p class="note tight stucktips">⚠ ${esc(tx("Pistes :"))}${wsp()}${esc(stuckTipsText(this.game, 3).join(" · "))}</p>` : "" /* (it. 1464) héros bloqué : les pistes restent visibles ici après la bulle */}
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>

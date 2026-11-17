@@ -2248,7 +2248,7 @@ test("usure des boss : -5 % de PV par défaite (30 % au plus), gardée à l'asce
   assert.equal(g.S.bossDefeats[25], 50, "une défaite contre un monstre ordinaire ne compte pas");
   g.S.best = 25; g.ascend();
   assert.equal(g.S.bossDefeats[25], 50, "gardée à l'ascension : le mur s'use d'une course à l'autre");
-  g.S.zone = 25; g.S.kills = g.lineup().length; g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.hp = 0; g.killMonster();
+  g.S.zone = 25; g.S.kills = g.lineup().length; g.R.mon = g.makeMonster(true); g.R.mon.mech = []; g.R.mon.skill = null; g.R.mon.hp = 0; g.killMonster();
   assert.ok(!g.S.bossDefeats[25], "boss vaincu : il retrouve toute sa force");
 });
 

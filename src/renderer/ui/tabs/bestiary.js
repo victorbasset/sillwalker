@@ -14,7 +14,7 @@ import { POWERS } from "../../game/powers.js";
 import { SETS, SET_KEYS, setCounts } from "../../game/sets.js";
 import { itemName } from "../../i18n/data.js";
 import { RARITIES, SLOTS, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, affixesSeenEffects } from "../../game/data.js";
-import { BOSS_MECHANICS, bossMechanics } from "../../game/bosses.js";
+import { BOSS_MECHANICS, bossMechanics, UNIQUE_MECHS } from "../../game/bosses.js";
 import { tabOpen } from "../../game/tabs.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { zoneDef, nearestZoneWith } from "../../game/rules.js";
@@ -101,7 +101,9 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
           <div class="${n >= 2 ? "on" : ""}">${n >= 2 ? "✓ " : ""}${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
           <div class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>` : ""}
       <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle")}</small></h2>
-      <div class="setgrid">${Object.entries(BOSS_MECHANICS).map(([id, b]) => { // prochaine zone (à partir de la zone actuelle) dont le boss a cette capacité
+      ${/* (it. 1866) capacités tournantes seulement : les pouvoirs uniques des lieutenants et du Briseur (it. 1849) faisaient
+         défiler l'onglet en russe et en allemand à 1280 px ; ils restent décrits dans le panneau de zone de leur boss */ ""}
+      <div class="setgrid">${Object.entries(BOSS_MECHANICS).filter(([id]) => !UNIQUE_MECHS.includes(id)).map(([id, b]) => { // prochaine zone (à partir de la zone actuelle) dont le boss a cette capacité
         let nz = 0; for (let z = S.zone; z < S.zone + 60; z++) if (bossMechanics(z).includes(id)) { nz = z; break; }
         return `<div class="setcard${nz === S.zone ? " here" : ""}" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
       ${show.elites ? (() => { const won = (S.stats && S.stats.affixesSeen) || {}, ae = Object.entries(ELITE_AFFIXES); // (it. 943) sortes vaincues : ✓

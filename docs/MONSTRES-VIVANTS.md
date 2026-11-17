@@ -77,6 +77,8 @@ se balançaient qu'au combat.
    araignées, momies, yétis, harpies, élémentaires, crabes, chevaliers noirs, sylvains, wyvernes, tyrannœils, crapauds,
    serpents, scarabées, sangliers, ours, orcs, cultistes, guêpes, méduses, lézards, vers, mimiques, bandits, corbeaux,
    champignons errants, chevaliers errants, gobelins.
-4. **Boss** : une compétence propre à chacun des 33 boss de zone (en plus de leurs capacités tournantes), visible.
+4. **Boss** (it. 1866, première passe) : chaque boss de zone a la compétence de sa famille (son dessin de base), en plus
+   de ses capacités tournantes, listée dans le panneau de zone ; lieutenants et Briseur : leurs pouvoirs uniques (it. 1849).
+   À suivre : une variante propre à certains boss (nom, effet renforcé).
 5. **Comportements d'ensemble** : meutes (loups qui attendent ensemble), volants qui changent d'altitude, monstres qui
    fuient blessés, réactions à la mort d'un voisin.

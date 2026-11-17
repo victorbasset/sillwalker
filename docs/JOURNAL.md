@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1866, journée des monstres) : les boss de zone reçoivent la compétence de leur famille (compensée),
+  listée à la suite de leurs capacités dans le panneau de zone (lieutenants et Briseur exclus). Trouvé en passant : le
+  Bestiaire > Capacités des boss listait aussi les quatre pouvoirs uniques de l'it. 1849 et défilait en russe (jusqu'à
+  77 px) et en allemand (36 px) ; ils en sont retirés (UNIQUE_MECHS). lang-overflow complet : propre. Balance contre
+  aea72772 : −1,8 / +0,9 / −0,4 ; fuzz 600 / 0 ; npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1865, journée des monstres) : dernières familles : mimiques (Claquement dès le début du combat),
   bandits (Vol à la tire : l'or volé revient à leur chute, sans compter comme gagné), champignons errants (Pollen),
   chevaliers errants (Estoc qui traverse le bouclier), gobelins pillards (Bombe). Toutes les sortes de monstres ont
