@@ -2082,4 +2082,9 @@ export default {
   3207: "Każdy rodzaj potwora ma własną umiejętność, widoczną na pasku i opisaną po najechaniu na jego kartę w Bestiariuszu; bossowie stref mają umiejętność swojej rodziny.",
   3208: "jedna na bossa, dwie od 2. okrążenia; do tego umiejętność jego rodziny (po najechaniu na jego kartę)",
   3209: "Każdy rodzaj potwora ma swoją umiejętność: „!” nad nim zapowiada atak. Najedź na jego kartę w Bestiariuszu, by ją poznać.",
+  3210: "„!” nad potworem zapowiada jego umiejętność; bossowie używają jej częściej i efektowniej.",
+  3211: "Nocą dzienne stworzenia śpią, a nocne się ożywiają; od czasu do czasu dwóch sąsiadów gawędzi, czekając na bohatera.",
+  3212: "Każda rodzina pada po swojemu: latające spadają, widma unoszą się, golemy się rozsypują.",
+  3213: "Potwory wzdrygają się, gdy pada sąsiad lub wybucha czar, i podchodzą bliżej, gdy bohater słabnie; Poupouce próbuje się wymknąć.",
+  3214: "Także w trybie mini walczący potwór wykonuje gest swojej umiejętności.",
 };

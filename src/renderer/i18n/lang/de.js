@@ -2082,4 +2082,9 @@ export default {
   3207: "Jede Monsterart hat ihre eigene Fähigkeit, sichtbar auf der Leiste und beim Überfahren ihrer Bestiarium-Karte beschrieben; Zonenbosse haben die ihrer Familie.",
   3208: "eine pro Boss, zwei ab der 2. Runde; dazu die Fähigkeit seiner Familie (beim Überfahren seiner Karte)",
   3209: "Jede Monsterart hat ihre Fähigkeit: Ein „!“ über ihr kündigt den Angriff an. Fahre über ihre Bestiarium-Karte, um sie kennenzulernen.",
+  3210: "Ein „!“ über einem Monster kündigt seine Fähigkeit an; Bosse setzen ihre öfter und eindrucksvoller ein.",
+  3211: "Nachts schlafen die Tagtiere und die Nachttiere werden unruhig; ab und zu plaudern zwei Nachbarn, während sie auf den Helden warten.",
+  3212: "Jede Familie fällt auf ihre Weise: Flieger stürzen ab, Gespenster steigen auf, Golems zerbröckeln.",
+  3213: "Monster zucken zusammen, wenn ein Nachbar fällt oder ein Zauber einschlägt, und rücken näher, wenn der Held schwächelt; Poupouce versucht zu entwischen.",
+  3214: "Auch im Minimodus macht das kämpfende Monster die Bewegung seiner Fähigkeit.",
 };

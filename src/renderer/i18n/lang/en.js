@@ -2082,4 +2082,9 @@ export default {
   3207: "Every kind of monster has its own skill, visible on the strip and described when you hover its Bestiary card; zone bosses have their family’s.",
   3208: "one per boss, two from the 2nd loop; plus their family’s skill (hover their card)",
   3209: "Every kind of monster has its own skill: a “!” above it announces its move. Hover its Bestiary card to learn it.",
+  3210: "A “!” above a monster announces its skill; bosses use theirs more often, with more flair.",
+  3211: "At night, day creatures sleep and night creatures grow restless; now and then, two neighbors chat while waiting for the hero.",
+  3212: "Each family falls in its own way: flyers drop, ghosts drift up, golems crumble.",
+  3213: "Monsters flinch when a neighbor falls or a spell bursts, and close in when the hero weakens; Poupouce tries to slip away.",
+  3214: "In mini mode too, the monster in the fight makes its skill’s move.",
 };

@@ -3211,5 +3211,10 @@ export const KEYS = [
   "Chaque zone compte de 7 à 13 monstres, au hasard.",
   "Chaque sorte de monstre a sa compétence, visible sur la bande et décrite au survol de sa carte du Bestiaire ; les boss de zone ont celle de leur famille.",
   "une par boss, deux à partir de la 2e boucle ; en plus, la compétence de sa famille (au survol de sa carte)",
-  "Chaque sorte de monstre a sa compétence : un « ! » au-dessus de lui annonce son coup. Survole sa carte du Bestiaire pour la connaître."
+  "Chaque sorte de monstre a sa compétence : un « ! » au-dessus de lui annonce son coup. Survole sa carte du Bestiaire pour la connaître.",
+  "Un « ! » au-dessus d’un monstre annonce sa compétence ; les boss la lancent plus souvent, avec plus d’éclat.",
+  "La nuit, les bêtes de jour dorment et celles de nuit s’agitent ; de temps en temps, deux voisins bavardent en attendant le héros.",
+  "Chaque famille tombe à sa façon : les volants chutent, les spectres s’envolent, les golems s’effondrent.",
+  "Les monstres sursautent quand un voisin tombe ou qu’un sort éclate, s’avancent quand le héros faiblit ; Poupouce, lui, essaie de filer.",
+  "En mode mini aussi, le monstre combattu fait le geste de sa compétence."
 ];

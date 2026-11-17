@@ -2082,4 +2082,9 @@ export default {
   3207: "Cada tipo de monstruo tiene su habilidad, visible en la franja y descrita al pasar el ratón por su carta del Bestiario; los jefes de zona tienen la de su familia.",
   3208: "una por jefe, dos a partir de la 2.ª vuelta; además, la habilidad de su familia (al pasar sobre su carta)",
   3209: "Cada tipo de monstruo tiene su habilidad: un «!» sobre él anuncia su golpe. Pasa el ratón por su carta del Bestiario para conocerla.",
+  3210: "Un «!» sobre un monstruo anuncia su habilidad; los jefes la usan más a menudo y con más brillo.",
+  3211: "De noche, las bestias diurnas duermen y las nocturnas se agitan; de vez en cuando, dos vecinos charlan mientras esperan al héroe.",
+  3212: "Cada familia cae a su manera: los voladores se desploman, los espectros se elevan, los gólems se derrumban.",
+  3213: "Los monstruos se sobresaltan cuando cae un vecino o estalla un hechizo, y se acercan cuando el héroe flaquea; Poupouce, en cambio, intenta escabullirse.",
+  3214: "También en el modo mini, el monstruo en combate hace el gesto de su habilidad.",
 };
