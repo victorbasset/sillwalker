@@ -2126,4 +2126,5 @@ export default {
   3251: "El Corazón del alba protege un poco menos: daño recibido −30 % (en vez de −45 %).",
   3252: "Los monstruos sienten el clima de su zona: tiritan en la nieve, estornudan entre esporas, tosen entre cenizas y sueltan burbujas bajo el agua.",
   3253: "tipos de monstruos, ~{0} PV. Jefe: {1} PV.",
+  3254: "refuerza tus reliquias",
 };

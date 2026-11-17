@@ -242,6 +242,14 @@ test("combat : potions automatiques, riposte, brûlure, flèche d'ouverture", ()
   assert.ok(opening > 0, "tir d'ouverture");
 });
 
+test("héros bloqué : la piste « reliques » devant un lieutenant ou le Briseur (it. 2062)", () => {
+  const g = new Game(freshState());
+  g.S.relics = { drone: 1, heart: 1 }; g.S.relicLv = { drone: 5, heart: 3 };
+  g.S.zone = 150; assert.ok(g.stuckTips().includes("relics"), "Chevalier, Cœur 3/5 : renforcer les reliques");
+  g.S.zone = 149; assert.ok(!g.stuckTips().includes("relics"), "zone ordinaire : pas de piste");
+  g.S.zone = 150; g.S.relicLv.heart = 5; assert.ok(!g.stuckTips().includes("relics"), "reliques au maximum : rien à renforcer");
+});
+
 test("rythme indépendant de la largeur d'écran", () => {
   assert.ok(approachTime() > 2 && approachTime() < 5);
 });

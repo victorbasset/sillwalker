@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2062) : héros bloqué devant un lieutenant ou le Briseur (bien plus coriaces depuis l'it. 2053) avec une relique pas
+  au maximum : nouvelle piste « renforce tes reliques » (avant l'ascension ; la bulle de la relique dit comment). Test logique. Une
+  première phrase plus longue faisait passer « Chances de butin » sous la bande en russe à 1280 px (carte de la zone 150, trois
+  pistes) : raccourcie, vérifiée en capture (de, ru, 1280 px). Autotest 261/261.
 - 2026-11-17 (it. 2061, revue générale) : captures en japonais (Aventure, mode mini) : propres, nouvelle ligne de la carte de la zone
   comprise ; texte de l'interface en coréen : aucun mot non traduit (HP, Lv, noms de langues : voulus). Perf, mémoire et équilibrage
   mesurés aux it. 2051-2054. Rien à corriger.

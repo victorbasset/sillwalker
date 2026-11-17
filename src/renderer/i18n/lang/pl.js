@@ -2126,4 +2126,5 @@ export default {
   3251: "Serce Świtu chroni nieco słabiej: otrzymywane obrażenia −30% (zamiast −45%).",
   3252: "Potwory czują klimat swojej strefy: drżą w śniegu, kichają w zarodnikach, kaszlą w popiołach i wypuszczają bąbelki pod wodą.",
   3253: "typów potworów, ~{0} PŻ. Boss: {1} PŻ.",
+  3254: "wzmocnij relikty",
 };

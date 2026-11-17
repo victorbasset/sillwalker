@@ -3255,5 +3255,6 @@ export const KEYS = [
   "Le Chevalier de l’éclipse et le Briseur d’Étoiles sont bien plus coriaces : il faut plusieurs ascensions et des reliques améliorées pour les vaincre.",
   "Le Cœur de l’aube protège un peu moins : dégâts subis −30 % (au lieu de −45 %).",
   "Les monstres sentent le climat de leur zone : ils grelottent dans la neige, éternuent dans les spores, toussent dans les cendres, lâchent des bulles sous l’eau.",
-  "types de monstres, ~{0} PV. Boss : {1} PV."
+  "types de monstres, ~{0} PV. Boss : {1} PV.",
+  "renforce tes reliques"
 ];

@@ -2126,4 +2126,5 @@ export default {
   3251: "Das Herz der Morgenröte schützt etwas weniger: erlittener Schaden −30 % (statt −45 %).",
   3252: "Monster spüren das Klima ihrer Zone: Sie zittern im Schnee, niesen in den Sporen, husten in der Asche und lassen unter Wasser Blasen aufsteigen.",
   3253: "Monstertypen, ~{0} LP. Boss: {1} LP.",
+  3254: "verstärke deine Relikte",
 };

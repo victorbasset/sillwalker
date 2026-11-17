@@ -2948,6 +2948,9 @@ export class Game {
     // simulé de tab-pace butait une heure en zone 19-21 avec 400 k d'or, faute de forger)
     if (hasUnlock(S, "forge") && Object.values(S.equip).some((it) => it && it.plus < MAX_PLUS && S.gold >= forgeCost(it))) out.push("forge");
     if (tabReady(S, "shop") && S.potions < 3) out.push("potions");
+    // (it. 2062) bloqué devant un lieutenant ou le Briseur (bien plus coriaces depuis l'it. 2053) avec une relique pas au maximum :
+    // la renforcer (un niveau par course en rebattant son gardien) ; avant l'ascension, qui l'accompagne
+    if ((majorBoss(S.zone) || isFinalZone(S.zone)) && RELIC_IDS.some((id) => hasRelic(S, id) && relicLevel(S, id) < RELIC_MAX_LV)) out.push("relics");
     if (this.canAscend()) out.push("ascend");
     out.push("farm");
     return out;

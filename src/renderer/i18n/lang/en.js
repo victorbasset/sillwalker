@@ -2126,4 +2126,5 @@ export default {
   3251: "The Heart of Dawn protects a little less: damage taken −30% (instead of −45%).",
   3252: "Monsters feel their zone’s climate: they shiver in the snow, sneeze in the spores, cough in the ashes and release bubbles underwater.",
   3253: "monster types, ~{0} HP. Boss: {1} HP.",
+  3254: "strengthen your relics",
 };

@@ -2126,4 +2126,5 @@ export default {
   3251: "O Coração da aurora protege um pouco menos: dano recebido −30% (em vez de −45%).",
   3252: "Os monstros sentem o clima da sua zona: tremem na neve, espirram nos esporos, tossem nas cinzas e soltam bolhas debaixo de água.",
   3253: "tipos de monstros, ~{0} PV. Chefe: {1} PV.",
+  3254: "fortaleça suas relíquias",
 };
