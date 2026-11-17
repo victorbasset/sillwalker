@@ -1419,6 +1419,8 @@ export class StripRenderer {
             // (it. 2046) poussière : toux couleur sable ; la bête à fourrure qui s'ébroue lâche un nuage qui monte
             if (nat === "sneeze") this.juice.puff(gx + 2, gy + Math.round(a.h * 0.4), wx === "ash" ? "#d8d2c8" : wx === "dust" ? "#6e5232" : "#6f9636", 4);
             else if (nat === "rattle" && wx === "dust") this.juice.puff(gx + Math.round(a.w / 2), gy + Math.round(a.h * 0.3), "#6e5232", 4, -Math.PI / 2);
+            // (it. 2047) sous les gouttes, il s'ébroue : gouttelettes projetées vers le haut
+            else if (nat === "rattle" && wx === "drip") this.juice.puff(gx + Math.round(a.w / 2), gy + 2, "#6fb4ea", 4, -Math.PI / 2);
             // (it. 2035) dans la neige, le frileux qui grelotte souffle une buée (pas le squelette, ni la guêpe : leur cliquetis est le leur)
             else if (nat === "rattle" && wx === "snow" && a.art !== "skel" && a.art !== "wasp") this.juice.puff(gx + 2, gy + Math.round(a.h * 0.4), "#7896c8", 3);
             else this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3);

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2047, journée des monstres) : gouttes (Grotte suintante, Égouts oubliés) : une goutte tombe dessus, le monstre s'ébroue
+  et projette des gouttelettes bleues ; grenouille, slime et ver s'y plaisent (rien). Vérifié en capture dans les deux zones ; test
+  logique complété. Feuilles et poussières lumineuses : pas de réaction (rien de naturel à montrer). Autotest 261/261.
 - 2026-11-17 (it. 2046, journée des monstres) : poussière (déserts, steppe, pyramide) : loups, sangliers, ours et yétis s'ébrouent (nuage
   qui monte), bandits, orcs et cultistes toussent ; brun #6e5232 (le sable #a8865a se perdait sur les fonds sableux). Vérifié en
   capture à la Steppe des loups et au Désert brûlant ; test logique complété. Autotest 261/261.
