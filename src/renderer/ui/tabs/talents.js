@@ -129,6 +129,7 @@ export class TalentsTab {
     const ix = TALENT_INDEX[this.sel], t = ix.talent, r = ranks[t.id] || 0, why = cannotLearn(S, t.id);
     const now = r ? describeEffects(t.eff, r) : tx("aucun effet pour l’instant");
     const next = r < t.max ? describeEffects(t.eff, 1) : "";
+    const clickN = why || r >= t.max ? 0 : ix.branch === "mastery" ? 1 : Math.min(t.max - r, talentPointsFree(S));
     const where = ix.branch === "voie" ? `${tx("Voie (spécialisation), demande {0} points dépensés", { 0: VOIE_REQ })}`
       // (it. 1530) maîtrise déjà apprise : le rang seul (la condition d'accès ne sert plus ; une ligne de moins)
       : ix.branch === "mastery" ? (r ? tx("rang {0}", { 0: r }) : `${tx("Maîtrise, demande {0} points dépensés · rang {1}", { 0: MASTERY_REQ, 1: r })}`)
@@ -150,7 +151,10 @@ export class TalentsTab {
         <div class="sub">${esc(where)}</div>
         ${t.text ? `<p class="ttext">${esc(t.text)}</p>` : ""}
         <ul class="lines"><li><span>${tx("Effet actuel")}</span><span>${esc(now)}</span></li>
-        ${next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}
+        ${/* (it. 2097, ergonomie : ce qu'un clic va faire se lit avant le clic) « Au clic : +N rangs → effet total » quand le talent
+          peut être appris (un clic monte au maximum possible ; une maîtrise : un rang) ; sinon le rang suivant, pour information */ ""}
+        ${clickN > 0 ? `<li><span>${tx("Au clic")}</span><span class="delta-p">${esc(txn(clickN, "+{n} rang|+{n} rangs"))} → ${esc(describeEffects(t.eff, r + clickN))}</span></li>`
+          : next ? `<li><span>${tx("Rang suivant")}</span><span class="delta-p">${esc(next)}</span></li>` : ""}
         ${ix.branch === "mastery" ? (() => { const ms = masteryMilestones(t.id, r, S); // (it. 1084) paliers atteints et prochain
           // le nombre seulement (la liste, longue, dans la bulle : en allemand, elle faisait défiler la carte)
           return `<li title="${esc(ms.got.map((x) => tx("rang {0}", { 0: x.at }) + colon() + describeEffects(x.eff)).join("\n"))}"><span>${tx("Paliers atteints")}</span><span>${this.picksHTML(t.id, r) || (ms.got.length ? ms.got.length + " ⓘ" : tx("aucun"))}</span></li>`

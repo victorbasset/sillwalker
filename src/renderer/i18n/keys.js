@@ -3265,5 +3265,7 @@ export const KEYS = [
   "Mode mini : le premier monstre d’une série (et les gobelins) entre par le bord droit ; après une défaite, le vainqueur s’efface et le monstre en attente revient en glissant.",
   "Sur la bande, après une défaite, les monstres vaincus reviennent en courant du bord et le vainqueur garde sa place.",
   "Choisir cette voie (définitive)",
-  "Définitive jusqu’à la réinitialisation des talents."
+  "Définitive jusqu’à la réinitialisation des talents.",
+  "Au clic",
+  "+{n} rang|+{n} rangs"
 ];

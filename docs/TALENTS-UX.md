@@ -36,6 +36,7 @@
    (avertissement complet en info-bulle ; la ligne « demande 30 points » s'efface quand la voie est accessible). Plus de
    « cliquer encore pour confirmer ». À revoir ensuite : Ascension et Compétences confirment encore par un second clic au même
    endroit (bouton qui change de libellé).
-4. Aperçu du clic : la fiche dit ce qu'un clic fera (« Clic : +5 rangs, 5 points »).
+4. (it. 2097) Aperçu du clic : « Au clic : +8 rangs → +30 % attaque » (au maximum possible ; une maîtrise : +1 rang) ;
+   sans point ou au maximum : « Rang suivant », pour information.
 5. Branches : jauge des paliers (5 / 10 / 20) dans l'en-tête de chaque branche.
 6. Revue : 10 langues, 1280 / 1366 / 1920 px, thème clair, clavier.

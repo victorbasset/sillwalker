@@ -2136,4 +2136,6 @@ export default {
   3261: "En la franja, tras una derrota, los monstruos vencidos vuelven corriendo desde el borde y el vencedor conserva su sitio.",
   3262: "Elegir esta vía (definitiva)",
   3263: "Definitiva hasta reiniciar los talentos.",
+  3264: "Al hacer clic",
+  3265: "+{n} rango|+{n} rangos",
 };

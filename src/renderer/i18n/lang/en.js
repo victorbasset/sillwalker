@@ -2136,4 +2136,6 @@ export default {
   3261: "On the strip, after a defeat, the defeated monsters come running back from the edge and the winner keeps its place.",
   3262: "Choose this Way (final)",
   3263: "Final until the talents are reset.",
+  3264: "On click",
+  3265: "+{n} rank|+{n} ranks",
 };

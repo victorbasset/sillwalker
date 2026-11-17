@@ -2136,4 +2136,6 @@ export default {
   3261: "Auf dem Streifen kommen nach einer Niederlage die besiegten Monster vom Rand zurückgelaufen, und der Sieger behält seinen Platz.",
   3262: "Diesen Weg wählen (endgültig)",
   3263: "Endgültig, bis die Talente zurückgesetzt werden.",
+  3264: "Beim Klick",
+  3265: "+{n} Rang|+{n} Ränge",
 };

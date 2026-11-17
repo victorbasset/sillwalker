@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2097, Talents, étape 4) : la fiche dit ce qu'un clic va faire : « Au clic : +8 rangs → +30 % attaque » (avant :
+  « Rang suivant : +3 % », alors qu'un clic en ajoutait jusqu'à 8). Clés 3264-3265 (pluriels ru, pl). Captures fr 1920, ru 1280.
+  Autotest 266/266.
 - 2026-11-17 (it. 2096, Talents, étape 3) : Voie : un clic sur la ligne la montre dans la fiche ; elle se choisit par le bouton
   « Choisir cette voie (définitive) » (avant : deux clics au même endroit, le libellé changeant en « cliquer encore pour
   confirmer »). Captures ru / de à 1280 px ; autotest « un clic montre la voie, le bouton de la fiche la choisit » ; 266/266.

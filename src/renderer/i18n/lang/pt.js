@@ -2136,4 +2136,6 @@ export default {
   3261: "Na faixa, após uma derrota, os monstros vencidos voltam correndo da borda e o vencedor mantém seu lugar.",
   3262: "Escolher esta via (definitiva)",
   3263: "Definitiva até redefinir os talentos.",
+  3264: "Ao clicar",
+  3265: "+{n} nível|+{n} níveis",
 };

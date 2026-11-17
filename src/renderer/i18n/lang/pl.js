@@ -2136,4 +2136,6 @@ export default {
   3261: "Na pasku po porażce pokonane potwory wracają biegiem od krawędzi, a zwycięzca zostaje na swoim miejscu.",
   3262: "Wybierz tę drogę (ostatecznie)",
   3263: "Ostateczna do zresetowania talentów.",
+  3264: "Po kliknięciu",
+  3265: "+{n} ranga|+{n} rangi|+{n} rang",
 };
