@@ -285,6 +285,15 @@ function start() {
             if (last) { delete S.unlocks[last]; P.setTab("adventure");
               for (const [gold, tag] of [[1e300, "prêt"], [1, "pas-prêt"]]) { S.gold = gold; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("adventure-avant-dernier-" + tag + "=" + o); }
               S.unlocks[last] = true; S.gold = keepG; } }
+          // (it. 2111) Talents : tous les talents de la classe au maximum (coche), voie pas choisie et montrée dans la fiche : en
+          // russe à 1280 px, « ★ Королевская добыча ✓ 1 / 1 » passait sur deux lignes sans qu'aucune mesure le voie
+          { const G = window.__game, S = G.S, T = P.tabs.talents, keepR = JSON.stringify(S.talents[S.cls] || {}), keepL = S.lvl, keepSel = T.sel, keepPin = T.pin;
+            S.talents[S.cls] = {}; S.lvl += 200; G.invalidateStats(); G.autoSpendTalents(); P.setTab("talents"); P.renderAll();
+            const v = document.querySelector('[data-pane="talents"] .talent.voie'); if (v) { T.sel = T.pin = v.dataset.id; P.renderAll(); }
+            const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("talents-max-voie=" + o);
+            const two = [...document.querySelectorAll('[data-pane="talents"] .tbranch .talent:not(.voie)')].filter((b) => b.getBoundingClientRect().height > 48).map((b) => b.dataset.tid);
+            if (two.length) out.push("talents-2lignes=" + two.join("/"));
+            S.talents[S.cls] = JSON.parse(keepR); S.lvl = keepL; T.sel = keepSel; T.pin = keepPin; G.invalidateStats(); P.renderAll(); }
           // (it. 2063) zone d'un lieutenant ou du Briseur, héros bloqué, reliques incomplètes : ligne de la relique gardée et trois
           // pistes dont « renforce tes reliques » (it. 2062 : une phrase plus longue poussait « Chances de butin » sous la bande en
           // russe à 1280 px, sans qu'aucune mesure le voie)

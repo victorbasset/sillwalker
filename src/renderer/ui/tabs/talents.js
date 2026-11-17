@@ -1,6 +1,6 @@
 // Onglet Talents : arbre de la classe active (3 branches × 4 paliers).
 import { npcHTML } from "../npc.js";
-import { t as tx, txn, cend, colon } from "../../i18n/index.js";
+import { t as tx, txn, cend, colon, csep } from "../../i18n/index.js";
 import { effectIconURL } from "../../render/shopart.js";
 import { TREES, TIER_REQ, TALENT_INDEX, cannotLearn, branchSpent, talentPointsFree, talentPointsTotal, talentPointsSpent, describeEffects,
   VOIES, VOIE_REQ, MASTERIES, MASTERY_REQ, chosenVoie, masteryMilestones, talentEffects, EFFECTS } from "../../game/talents.js";
@@ -9,7 +9,7 @@ import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 
 /** (it. 2094) pause du curseur avant que la fiche suive un talent survolé (traverser un bouton prend moins de 100 ms) */
-export const HOVER_MS = 140;
+export const RESTORE_MS = 180;
 
 export class TalentsTab {
   constructor(game) {
@@ -27,6 +27,7 @@ export class TalentsTab {
     // (it. 1107) une maîtrise (commune à toutes les classes, cls « * ») reste sélectionnée : son détail et le choix des
     // paliers disparaissaient au rendu suivant
     if (!this.sel || (TALENT_INDEX[this.sel]?.cls !== S.cls && TALENT_INDEX[this.sel]?.cls !== "*")) this.sel = tree[0].talents[0].id;
+    if (!this.pin || (TALENT_INDEX[this.pin]?.cls !== S.cls && TALENT_INDEX[this.pin]?.cls !== "*")) this.pin = this.sel;
     const free = talentPointsFree(S), total = talentPointsTotal(S), cost = g.talentResetCost();
 
     const branches = tree.map((b, bi) => {
@@ -41,7 +42,7 @@ export class TalentsTab {
           <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
           ${/* (it. 2100) verrouillé : « 🔒 20 » (l'unité au survol ; la jauge de la branche montre les paliers) : en allemand à 1280 px,
             « 🔒 20 Pkt. » faisait passer le nom des ultimes sur deux lignes */ ""}
-          <span class="tr"${locked ? ` title="${esc(tx("Prochain palier : {0} points dans la branche (encore {1}).", { 0: TIER_REQ[t.tier], 1: TIER_REQ[t.tier] - spent }))}"` : ""}>${locked ? "🔒 " + TIER_REQ[t.tier] : r >= t.max ? "✓ " + r + " / " + t.max : r + " / " + t.max}</span>${/* (it. 2105, design) barre de progression du rang au pied de la ligne, tant qu'il n'est pas au maximum */ ""}${!locked && r > 0 && r < t.max ? `<i class="tbar" style="width:${(r / t.max * 100).toFixed(1)}%"></i>` : ""}
+          <span class="tr"${locked ? ` title="${esc(tx("Prochain palier : {0} points dans la branche (encore {1}).", { 0: TIER_REQ[t.tier], 1: TIER_REQ[t.tier] - spent }))}"` : ""}>${locked ? "🔒 " + TIER_REQ[t.tier] : r >= t.max ? (t.max === 1 ? "✓" : "✓ " + r + "/" + t.max) : r + " / " + t.max}</span>${/* (it. 2105, design) barre de progression du rang au pied de la ligne, tant qu'il n'est pas au maximum */ ""}${!locked && r > 0 && r < t.max ? `<i class="tbar" style="width:${(r / t.max * 100).toFixed(1)}%"></i>` : ""}
           ${/* (it. 2095, ergonomie : rien ne naît ni ne disparaît sous le curseur) l'emplacement du « +1 » existe tant que le talent
             est ouvert et pas au maximum (les seuls dont la pastille peut changer d'un clic à l'autre) ; hors d'usage, il est
             invisible et sans action (un clic à sa place vaut un clic sur le talent). Verrouillé ou au maximum : pas d'emplacement
@@ -92,14 +93,14 @@ export class TalentsTab {
       : showVoie ? extraFull.slice(0, extraFull.indexOf('<article class="panel tbranch tmastery">'))
       : `<p class="note tlater">${tx("Plus tard : une voie dès {0} points dépensés, des maîtrises dès {1}.", { 0: VOIE_REQ, 1: MASTERY_REQ })}</p>`;
 
-    const canVoie = !voie && spentAll >= VOIE_REQ;
     const head = `<article class="panel tdetail">
       <h2 class="npch">${esc(g.classDef().name)} <small>${txn(free, "{n} point libre · {0} au total|{n} points libres · {0} au total", { 0: fmt(total) })} <span class="help" title="${esc(tx("Clic sur un talent : autant de rangs que possible · « +1 » : un seul rang. Survole un talent pour voir son effet."))}">ⓘ</span></small>${npcHTML("talents", "icon")}</h2>
       ${/* (it. 2107, design) la case d'abord, puis le bouton, sur une ligne ; le bouton se retire quand la dépense est automatique
         (il restait grisé, inutile) : cocher ne déplace rien sous le curseur, la case est à gauche */ ""}
       ${hasUnlock(g.S, "bulkPoints") ? `<div class="row tautos">${hasUnlock(g.S, "autoLevel") ? `<label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>` : ""}${hasUnlock(g.S, "autoLevel") && g.S.settings.autoTalents ? "" : `<button data-action="t-auto" class="${free > 0 ? "primary" : ""}"${free > 0 ? "" : " disabled"} title="${esc(tx("Ultimes d’abord, puis la branche la plus avancée, puis les maîtrises. Ne choisit jamais la voie à ta place."))}">${tx("Dépenser automatiquement{0}", { 0: free > 0 ? ` (${free})` : "" })}</button>`}</div>` : `<div class="row">${lockLink(g.S, "bulkPoints")}</div>`}
       ${!hasUnlock(g.S, "bulkPoints") && hasUnlock(g.S, "autoLevel") ? `<label class="toggle"><input type="checkbox" data-action="t-autoon"${g.S.settings.autoTalents ? " checked" : ""}> ${tx("À chaque niveau, dépenser tout seul")}</label>` : ""}
-      ${canVoie ? `<p class="note warnline">${tx("✦ Une voie est disponible : choisis-la dans le cadre « Voie ».")}</p>` : ""}
+      ${/* (it. 2111) plus de ligne « Une voie est disponible » : le cadre de la Voie, en or (it. 2106), suffit ; la place sert aux
+        effets chiffrés de la voie dans la fiche (6 px de défilement en russe à 1280 px) */ ""}
       ${""/* (it. 1522) l'aide « Clic sur un talent… » passe dans le ⓘ du titre : la fiche d'une maîtrise (paliers, choix A/B)
         faisait défiler l'onglet à 1280 px (47 px en russe) */}
       <div id="tsel">${this.detailHTML()}</div>
@@ -171,6 +172,8 @@ export class TalentsTab {
         <div class="nm">${esc(t.name)}</div>
         ${ok ? "" : `<div class="sub">${esc(where)}</div>`}${/* accessible : la condition d'accès ne sert plus, place à l'avertissement */ ""}
         ${t.text ? `<p class="ttext">${esc(t.text)}</p>` : ""}
+        ${/* (it. 2111, signalé par Victor : « on sait pas ce que ça fait ») les effets chiffrés de la voie, pas seulement sa phrase */ ""}
+        <p class="veff delta-p">${esc(Object.entries(t.eff).map(([k, v]) => describeEffects({ [k]: v })).filter(Boolean).join(csep()))}</p>
         ${/* l'avertissement dans le bouton (la fiche, de hauteur fixe, coupait une ligne en dessous en russe et en allemand) */ ""}
         ${ok ? `<div class="row"><button class="primary" data-action="t-voie-ok" data-id="${t.id}" title="${esc(tx("Définitive jusqu’à la réinitialisation des talents."))}">${tx("Choisir cette voie (définitive)")}</button></div>`
           : `<p class="note">${esc(why)}${cend()}</p>`}
@@ -207,13 +210,16 @@ export class TalentsTab {
       <ul class="lines mpicks">${got.map((g) => `<li${r >= g.at ? "" : ` class="later" title="${esc(tx("Pas encore atteint dans cette course : réglé d’avance."))}"`}><span>${tx("rang {0}", { 0: g.at })}${r >= g.at ? "" : " ⏳"}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul></details>`;
   }
 
-  /** (it. 2094, demande de Victor : « les clics sur des éléments qui changent à gauche, c'est plus possible ») intention de
-   *  survol : la fiche ne suit un talent qu'après HOVER_MS de pause dessus. Pour aller cliquer dans la fiche (bonus d'une
-   *  maîtrise), la souris traverse d'autres talents sans s'y arrêter : la fiche reste celle qu'on regardait. */
+  /** (it. 2111, signalé par Victor : « effet de lag au hover ») la fiche suit le survol tout de suite (avant : après 140 ms de
+   *  pause, ressenti comme un retard) ; hors des talents (vers la fiche, pour y cliquer), elle revient au talent CLIQUÉ (`pin`)
+   *  après RESTORE_MS : traverser la grille en route ne fait plus perdre le bouton qu'on visait (voie, bonus).
+   *  (it. 2094 : première réponse, l'intention de survol par une pause.) */
   hover(id) {
     clearTimeout(this.hoverT);
-    if (!id || id === this.sel || !TALENT_INDEX[id] || !this.root) return;
-    this.hoverT = setTimeout(() => this.show(id), HOVER_MS);
+    if (!this.root) return;
+    if (id && TALENT_INDEX[id]) { this.show(id); return; }
+    const back = this.pin && TALENT_INDEX[this.pin] ? this.pin : null;
+    if (back && back !== this.sel) this.hoverT = setTimeout(() => this.show(back), RESTORE_MS);
   }
 
   /** Affiche la fiche du talent `id` (sans reconstruire tout l'onglet). */
@@ -232,6 +238,7 @@ export class TalentsTab {
   onAction(a, b, e) {
     const g = this.game;
     clearTimeout(this.hoverT); // (it. 2094) un clic l'emporte sur une pause en cours
+    if (b?.dataset?.id && TALENT_INDEX[b.dataset.id]) this.pin = b.dataset.id; // (it. 2111) la fiche y revient après un survol
     if (a === "t-sel") this.sel = b.dataset.id;
     // (it. 1522) pastille « A/B » : la fiche de cette maîtrise, et la fenêtre de choix des paliers ouverte
     // (it. 2103) la fenêtre de choix s'ouvre directement (avant : par un clic sur le bouton « choisir · N » de la fiche, retiré)

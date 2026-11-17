@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2111, signalé par Victor : lag au survol, détail de la voie) : la fiche des Talents suit le survol sans délai et
+  revient au talent cliqué hors des talents (180 ms) ; fiche d'une voie : effets chiffrés ; ligne « Une voie est disponible » retirée ;
+  coche compacte au maximum (« ✓ » seul pour un ultime : nom russe sur deux lignes à 1280 px). lang-overflow : état « talents au
+  maximum, voie montrée » et lignes de talent sur deux lignes (talents-2lignes). Autotest du survol réécrit ; 269/269.
 - 2026-11-17 (it. 2110, revue du design des Talents) : à 1920 px, une rangée du « Total des talents » restait coupée à mi-hauteur
   (mesurée avant la fin de la mise en page) ; mesure refaite à l'image suivante et après les polices. Autotest « total des talents sans
   pastille coupée » ; 269/269.

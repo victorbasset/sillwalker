@@ -61,6 +61,11 @@
    en gris discret ; l'aplat revient au survol.
 13. (it. 2110) Revue d'ensemble à 1920 et 1280 px : une rangée du total restait coupée à 1920 px (mesure faite avant la fin de
    la mise en page) : refaite à l'image suivante et après le chargement des polices ; autotest « sans pastille coupée ».
+14. (it. 2111, signalé par Victor : « effet de lag au hover », « on voit pas le détail de la voie ») la fiche suit le survol
+   SANS délai (l'intention de 140 ms de l'étape 1 se ressentait comme un retard) ; hors des talents, elle revient après 180 ms au
+   talent CLIQUÉ (on peut aller cliquer « Choisir cette voie » en traversant la grille). Fiche d'une voie : ses effets chiffrés.
+   La ligne « Une voie est disponible » est retirée (le cadre doré suffit). Au maximum : « ✓ 10/10 », « ✓ » seul pour un ultime
+   (en russe à 1280 px, « ★ Королевская добыча ✓ 1 / 1 » passait sur deux lignes et faisait défiler l'onglet de 6 px).
    À suivre : la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
    identiques se disputent l'attention.
 
