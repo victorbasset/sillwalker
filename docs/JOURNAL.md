@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2068, revue des onglets Familiers, Ascension, Bestiaire, Carte en anglais) : rien à corriger (les éclats de
+  l'Ascension sans ascension viennent de dev-data, remplie à la main). Revue de tous les onglets en anglais terminée (it. 2059-2068).
 - 2026-11-17 (it. 2067) : npm test vérifie qu'en anglais, chinois, japonais et coréen aucun pourcentage n'est espacé (« {3} % »,
   « 15 % ») ; l'expression trouve les 4 lignes fautives de l'ancien en.js (it. 2066). npm test 356, autotest 261/261.
 - 2026-11-17 (it. 2066, revue des onglets Quêtes, Boutique, Réglages en anglais) : la note des Quêtes disait « 10 % of quests » : en
