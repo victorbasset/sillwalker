@@ -131,6 +131,16 @@ export class TalentsTab {
   /** Détail du talent survolé (sans reconstruire tout l'onglet). */
   detailHTML() {
     const S = this.game.S, tree = TREES[S.cls], ranks = S.talents[S.cls] || {};
+    // (it. 2099, ergonomie) la réinitialisation (tout l'arbre, maîtrises et voie comprises) se confirme ici, loin du bouton
+    // « Réinitialiser » : avant, un seul clic effaçait tout
+    if (this.confirmReset) {
+      const cost = this.game.talentResetCost();
+      return `<div class="tsel tconfirm">
+        <div class="nm">${tx("Réinitialiser les talents ?")}</div>
+        <p class="ttext">${tx("Tous les points dépensés reviennent (maîtrises et voie comprises), à redépenser ; coût : {0}.", { 0: cost ? tx("{0} or", { 0: fmt(cost) }) : tx("(gratuit)").replace(/[()（）]/g, "") })}</p>
+        <div class="row"><button class="danger" data-action="t-reset-ok">${tx("Tout réinitialiser")}</button> <button class="quiet" data-action="t-reset-no">${tx("Annuler")}</button></div>
+      </div>`;
+    }
     const ix = TALENT_INDEX[this.sel], t = ix.talent, r = ranks[t.id] || 0, why = cannotLearn(S, t.id);
     const now = r ? describeEffects(t.eff, r) : tx("aucun effet pour l’instant");
     const next = r < t.max ? describeEffects(t.eff, 1) : "";
@@ -192,6 +202,7 @@ export class TalentsTab {
 
   /** Affiche la fiche du talent `id` (sans reconstruire tout l'onglet). */
   show(id) {
+    if (this.confirmReset) return; // la confirmation reste affichée jusqu'à un choix
     if (!id || id === this.sel || !TALENT_INDEX[id] || !this.root) return;
     this.sel = id;
     const box = this.root.querySelector("#tsel");
@@ -209,7 +220,7 @@ export class TalentsTab {
     // (it. 1522) pastille « A/B » : la fiche de cette maîtrise, et la fenêtre de choix des paliers ouverte
     else if (a === "t-mpend") { this.sel = b.dataset.id; setTimeout(() => this.root?.querySelector("#tsel .mpickbox summary")?.click(), 0); }
     // Maj + clic : comme le petit bouton (« +1 » sur un talent, « tout » sur une maîtrise)
-    else if (a === "t-learn") this.learnFrom(b, !!e?.shiftKey);
+    else if (a === "t-learn") { this.confirmReset = false; this.learnFrom(b, !!e?.shiftKey); }
     // (it. 2096) clic sur une voie : sa fiche, avec le bouton « Choisir cette voie » (à un autre endroit que le premier clic)
     else if (a === "t-voie") { this.sel = b.dataset.id; g.changed(); }
     else if (a === "t-voie-ok" && !cannotLearn(g.S, b.dataset.id)) { this.sel = b.dataset.id; g.learnTalent(b.dataset.id, 1); }
@@ -219,7 +230,9 @@ export class TalentsTab {
     }
     else if (a === "t-auto") g.autoSpendTalents();
     else if (a === "t-autoon") { g.S.settings.autoTalents = b.checked; if (b.checked) g.autoSpendTalents(); g.changed(); }
-    else if (a === "t-reset") g.resetTalents();
+    else if (a === "t-reset") { this.confirmReset = true; g.changed(); }
+    else if (a === "t-reset-ok") { this.confirmReset = false; g.resetTalents(); }
+    else if (a === "t-reset-no") { this.confirmReset = false; g.changed(); }
   }
 
   tick() {}

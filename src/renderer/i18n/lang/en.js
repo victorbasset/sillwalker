@@ -2140,4 +2140,6 @@ export default {
   3265: "+{n} rank|+{n} ranks",
   3266: "Next tier: {0} points in the branch ({1} to go).",
   3267: "All tiers are open.",
+  3268: "Reset the talents?",
+  3269: "All points spent come back (masteries and Way included), to spend again; cost: {0}.",
 };

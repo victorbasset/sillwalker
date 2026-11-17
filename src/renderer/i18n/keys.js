@@ -3269,5 +3269,7 @@ export const KEYS = [
   "Au clic",
   "+{n} rang|+{n} rangs",
   "Prochain palier : {0} points dans la branche (encore {1}).",
-  "Tous les paliers sont ouverts."
+  "Tous les paliers sont ouverts.",
+  "Réinitialiser les talents ?",
+  "Tous les points dépensés reviennent (maîtrises et voie comprises), à redépenser ; coût : {0}."
 ];

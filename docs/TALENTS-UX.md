@@ -40,4 +40,6 @@
    sans point ou au maximum : « Rang suivant », pour information.
 5. (it. 2098) Branches : jauge des paliers sous le titre (remplissage, repères 5 / 10 / 20 allumés une fois atteints ; au
    survol : « Prochain palier : 10 points dans la branche (encore 3) »). Thèmes sombre et clair vérifiés.
-6. Revue : 10 langues, 1280 / 1366 / 1920 px, thème clair, clavier.
+6. (it. 2099) Réinitialisation : un seul clic effaçait tout l'arbre (maîtrises et voie comprises) ; le bouton demande
+   maintenant confirmation dans la fiche (« Tout réinitialiser » / « Annuler »), loin de lui.
+7. Revue : 10 langues, 1280 / 1366 / 1920 px, thème clair, clavier.

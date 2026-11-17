@@ -2140,4 +2140,6 @@ export default {
   3265: "+{n} ranga|+{n} rangi|+{n} rang",
   3266: "Następny próg: {0} pkt w gałęzi (jeszcze {1}).",
   3267: "Wszystkie progi są otwarte.",
+  3268: "Zresetować talenty?",
+  3269: "Wszystkie wydane punkty wracają (z mistrzostwami i drogą), do ponownego wydania; koszt: {0}.",
 };

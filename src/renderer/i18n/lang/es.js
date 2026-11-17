@@ -2140,4 +2140,6 @@ export default {
   3265: "+{n} rango|+{n} rangos",
   3266: "Siguiente nivel: {0} puntos en la rama (faltan {1}).",
   3267: "Todos los niveles están abiertos.",
+  3268: "¿Reiniciar los talentos?",
+  3269: "Todos los puntos gastados vuelven (maestrías y vía incluidas), para gastarlos de nuevo; coste: {0}.",
 };

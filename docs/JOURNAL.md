@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2099, Talents, étape 6) : « Réinitialiser » effaçait tout l'arbre (maîtrises et voie comprises) en un seul clic ;
+  il demande maintenant confirmation dans la fiche (« Tout réinitialiser » / « Annuler »), loin du bouton. Clés 3268-3269. Capture de
+  1280 ; autotest « réinitialiser demande confirmation » ; 267/267.
 - 2026-11-17 (it. 2098, Talents, étape 5) : jauge des paliers sous le titre de chaque branche (points, repères 5 / 10 / 20 ; au survol,
   ce qui manque pour le prochain). Clés 3266-3267. Captures sombre et clair ; lang-overflow 10 langues × 1280 / 1366 / 1920 : rien ;
   autotest 266/266.

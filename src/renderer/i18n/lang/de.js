@@ -2140,4 +2140,6 @@ export default {
   3265: "+{n} Rang|+{n} Ränge",
   3266: "Nächste Stufe: {0} Punkte im Zweig (noch {1}).",
   3267: "Alle Stufen sind offen.",
+  3268: "Talente zurücksetzen?",
+  3269: "Alle ausgegebenen Punkte kommen zurück (Meisterschaften und Weg inklusive), zum neuen Verteilen; Kosten: {0}.",
 };

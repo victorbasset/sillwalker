@@ -2140,4 +2140,6 @@ export default {
   3265: "+{n} nível|+{n} níveis",
   3266: "Próximo patamar: {0} pontos no ramo (faltam {1}).",
   3267: "Todos os patamares estão abertos.",
+  3268: "Redefinir os talentos?",
+  3269: "Todos os pontos gastos voltam (maestrias e via incluídas), para gastar de novo; custo: {0}.",
 };
