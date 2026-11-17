@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1956, journée des monstres) : mode mini : le suivant de la file attend au fond de la scène, à demi effacé
+  (caché pendant que le combattant arrive, pendant un boss, et pour gobelin et Poupouce). Vu en capture (loup derrière un
+  ours). Mini 5,6 % (inchangé), autotest 257/257.
 - 2026-11-17 (it. 1955, journée des monstres) : compétences réfléchies : le sylvain garde son Enracinement (soin) tant qu'il
   a plus de 70 % de ses PV, le cultiste ne se sacrifie pas sous 15 % ; la compétence attend, prête (game.js monSkillTick).
   Test logique. Balance +1,2 (bruit, deux familles touchées), fuzz 600 / 0, autotest 257/257.

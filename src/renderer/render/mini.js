@@ -226,6 +226,25 @@ export class MiniRenderer {
       }
     }
 
+    // (it. 1956) le suivant de la file attend au fond de la scène, à demi effacé (comme sur la bande, en plus petit) ; caché
+    // pendant que le combattant arrive de loin, pendant un boss et pour les monstres à part (gobelin, Poupouce)
+    {
+      const line = R.lineup || [], nk = S.kills + 1, nx = nk < line.length ? line[nk] : null;
+      const nType = nx && !nx.goblin && !nx.poupouce ? nx.type : null, nKey = nType ? nk + ":" + nType : "";
+      if (nKey !== this.nextKey) {
+        this.nextKey = nKey;
+        if (this.nextActor) { this.nextActor.remove(); this.nextActor = null; }
+        const set = nType && this.sprites.monsters[nType];
+        if (set) { const b = new Actor(this.stage, set.normal); b.fly = set.fly; b.alpha(0.5); this.nextActor = b; }
+      }
+      const b = this.nextActor;
+      if (b) {
+        const show = !(R.mon && R.mon.dist > 40) && !(R.mon && R.mon.boss);
+        b.el.hidden = !show;
+        if (show) { b.show(Math.floor(R.time * 2) % 2); b.move(SCENE_W - b.w - 6, GROUND - b.h + P - (b.fly ? 12 : 0)); }
+      }
+    }
+
     // Héros (sur place : c'est le monstre qui arrive). Sprite selon la classe.
     const crown = !!(S.relics && S.relics.crown); // Couronne d'étoiles (relique) : aussi sur le héros du mode mini
     const vis = heroVisual(S), heroKey = S.cls + "|" + visualKey(vis) + (crown ? "|crown" : "");
