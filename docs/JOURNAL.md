@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2041, revue générale) : save-fuzz ok (1 267 corruptions) ; fuzz sous les bénédictions du jour : 600 / 0 bloquées ;
+  --crawl en japonais : 675 clics sans erreur ; japonais : aucun mot français (« attributs » = repère « --- attributs » de
+  l'extraction). Rien à corriger.
 - 2026-11-17 (it. 2040) : brouillon du devlog 0.1.6 : climat des zones (neige, braises, eau, spores, cendres, vent) et arrivée
   des séries depuis le bord.
 - 2026-11-17 (it. 2039) : Quoi de neuf, édition 130 (souffles ; buée, bulles, vapeur ; corbeau de jour, fantôme), clés 3243-3245
