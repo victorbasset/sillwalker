@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2002, journée des monstres) : le héros monte de niveau : les deux plus proches de la file sursautent, éblouis
+  (pas les téméraires ; pas avec les effets réduits). Vérifié. Autotest 258/258.
 - 2026-11-17 (it. 2001, revue générale) : mémoire 4 min : 573-576 Mo ; 12 h graine 301 : guerrier 65, prêtresse 62, berserker 65 ;
   fuzz sous chaque bénédiction : 400 / 0 ; save-fuzz ok (1 267) ; russe : aucun mot français. Rien à corriger.
 - 2026-11-17 (it. 2000, contrôle) : perf:linux après les arrivées : bande 17,9 %, panneau 19,2 %, mini 5,5 % : inchangé.

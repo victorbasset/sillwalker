@@ -472,6 +472,12 @@ export class StripRenderer {
       const k0 = Math.min(this.game.S.kills + 1, this.slots.length - 1);
       for (let k = k0; k < Math.min(k0 + 2, this.slots.length - 1); k++) { const a = this.slots[k]; if (a && !a.react && !a.brave) a.react = { kind: "startle", t: 0, d: 0.6, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.1 }; }
     });
+    // (it. 2002) le héros monte de niveau (éclat de lumière) : les deux plus proches de la file sursautent, éblouis
+    g.on("levelUp", () => {
+      if (!this.active || this.game.S.settings.fullEffects === false) return;
+      const k0 = Math.min(this.game.S.kills + 1, this.slots.length - 1);
+      for (let k = k0; k < Math.min(k0 + 2, this.slots.length - 1); k++) { const a = this.slots[k]; if (a && !a.react && !a.brave) a.react = { kind: "startle", t: 0, d: 0.7, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.1 }; }
+    });
   }
 
   /* ---------- Répliques du héros ---------- */
