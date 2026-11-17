@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2050, journée des monstres) : sous les gouttes, l'araignée et la chauve-souris (chez elles dans les grottes humides)
+  gardent leur geste propre (fil, vol) au lieu de s'ébrouer (vu sur la capture de l'it. 2047). Test logique complété. Autotest 261/261.
 - 2026-11-17 (it. 2049) : Quoi de neuf, édition 131 (poussière et gouttes ; Rafale de vent ; proies en meute), clés 3246-3248
   traduites ; « Rafale de vent » cité tel quel (polonais et russe : « pendant l'événement … », le nom décliné échouait à
   i18n-quotes). npm test 353, autotest 261/261, lang-overflow : aucun défilement.

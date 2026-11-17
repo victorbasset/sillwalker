@@ -42,7 +42,8 @@ export function climateGesture(art, el, wx) {
   if (wx === "dust" && ["wolf", "boar", "bear", "yeti"].includes(art)) return "rattle";
   if (wx === "dust" && ["bandit", "orc", "cultist"].includes(art)) return "sneeze";
   // (it. 2047) gouttes (Grotte suintante, Égouts oubliés) : une goutte tombe dessus, il s'ébroue ; grenouille, slime et ver s'y plaisent
-  if (wx === "drip" && !["frog", "slime", "worm", "ghost", "golem"].includes(art)) return "rattle";
+  // (it. 2050) l'araignée et la chauve-souris sont chez elles dans les grottes humides : elles gardent leur geste (fil, vol)
+  if (wx === "drip" && !["frog", "slime", "worm", "ghost", "golem", "spider", "bat"].includes(art)) return "rattle";
   return null;
 }
 /**
