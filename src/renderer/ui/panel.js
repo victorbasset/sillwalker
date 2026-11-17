@@ -1218,7 +1218,7 @@ export class Panel {
     $(this.root, "#cbody").textContent = text;
     const ok = $(this.root, '[data-action="confirm-ok"]');
     ok.textContent = okLabel;
-    ok.classList.remove("danger"); ok.classList.add("primary"); this.confirmSafe = false; // (it. 2113) confirmReset : rouge, Entrée annule
+    ok.classList.remove("danger"); ok.classList.add("primary"); this.confirmSafe = false; $(this.root, '[data-action="confirm-cancel"]').classList.remove("primary"); // (it. 2113) confirmReset : rouge, Entrée annule
     this.confirmFn = onOk;
     $(this.root, "#confirm").hidden = false;
     ok.focus();
@@ -1233,6 +1233,8 @@ export class Panel {
     $(this.root, '[data-action="confirm-ok"]').classList.replace("primary", "danger");
     this.confirmSafe = true;
     // le bouton par défaut (Entrée) est « Annuler » pour une action sans retour
+    // (it. 2122) « Annuler » en bouton par défaut (Entrée annule ici) : il se voit comme tel
+    $(this.root, '[data-action="confirm-cancel"]').classList.add("primary");
     $(this.root, '[data-action="confirm-cancel"]').focus();
   }
 

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2122) : fenêtres de confirmation vues en capture (Ascension en allemand, effacement de la partie sombre et clair,
+  1280 px) ; dans celle de l'effacement, « Annuler » prend l'aspect du bouton par défaut (Entrée y annule), « Tout effacer » reste
+  rouge. Bestiaire : cartes plus larges écartées (8e rangée à 1920 px). Autotest 274/274.
 - 2026-11-18 (it. 2121, revue générale) : simulations 12 h : guerrier 62, mage 64, rôdeur 65 (voie gratuite sans effet notable) ;
   perf bande 18,4 %, panneau 19,1 %, mini 5,6 %, icône 0,6 %. Captures des Talents en anglais et japonais : le bouton « ↶ Annuler »
   disait « Cancel » / « キャンセル » (clé « Annuler » = fermer une fenêtre) : il prend « Annuler le dernier » (Undo last), comme les
