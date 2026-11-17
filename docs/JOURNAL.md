@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2051, revue générale) : perf en fin de partie (copie de endgame-save.json) : guerrier 24,8 %, rôdeur (à distance)
+  23,9 % (repère 25,4) ; mémoire 573 Mo ; save-fuzz FUZZ_BASE=fin ok (1 225 corruptions). Rien à corriger.
 - 2026-11-17 (it. 2050, journée des monstres) : sous les gouttes, l'araignée et la chauve-souris (chez elles dans les grottes humides)
   gardent leur geste propre (fil, vol) au lieu de s'ébrouer (vu sur la capture de l'it. 2047). Test logique complété. Autotest 261/261.
 - 2026-11-17 (it. 2049) : Quoi de neuf, édition 131 (poussière et gouttes ; Rafale de vent ; proies en meute), clés 3246-3248
