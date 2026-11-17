@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1864, journée des monstres) : cultistes : Sacrifice ; guêpes : Vol erratique ; méduses : Décharge ;
+  lézards : Embuscade et vers : Fouissement (cachés 1,5 s hors d'atteinte, puis surgissent : phase « out ») ; corbeaux :
+  Bec à l'œil (aveuglé 2 s, par R.eclipse). 36 familles faites. Balance contre aea72772 : −1,0 / +0,1 / −0,2 ; fuzz
+  600 / 0 ; npm test 344, autotest 253/253.
 - 2026-11-17 (it. 1863, journée des monstres) : scarabées : Pince ; sangliers : Charge (recul en grattant le sol, puis
   ruée jusqu'au héros) ; ours : Rugissement ; orcs : Rage (+40 % 3 s, attaque compensée). 30 familles faites. Balance
   contre aea72772 : +0,2 / +0,9 / −0,2 ; fuzz 600 / 0 ; npm test 344, autotest 253/253.

@@ -65,6 +65,9 @@ export function skillBalance(m, sk) {
   if (sk.phase) lost += sk.phase / sk.every; // (it. 1857) intangible
   if (sk.slow) lost += 0.4 * sk.slow / sk.every; // (it. 1858) toile : attaques du héros 40 % plus lentes
   if (sk.freeze) lost += 0.4 * sk.freeze / sk.every; // (it. 1859) bloc de glace : gel
+  if (sk.dodge) lost += 0.5 * sk.dodge / sk.every; // (it. 1864) vol erratique : un coup sur deux raté
+  if (sk.hide) lost += sk.hide / sk.every; // (it. 1864) caché : hors d'atteinte
+  if (sk.blind) lost += ECLIPSE.miss * sk.blind / sk.every; // (it. 1864) aveuglé : un coup sur deux raté
   if (sk.guard) lost += sk.cut * sk.guard / sk.every; // (it. 1860) garde : part des dégâts bloqués
   if (sk.heal) lost += sk.heal * 0.5; // (it. 1860) soin (≈ la moitié en moyenne : il vient souvent avant la fin du combat)
   if (sk.curse) m.atk /= 1 + CURSE.hurt * sk.curse / sk.every; // (it. 1859) malédiction : 15 % de dégâts en plus, le temps qu'elle dure
@@ -511,6 +514,14 @@ export class Game {
     const sk = m.skill, R = this.R;
     if (m.phaseT > 0) m.phaseT -= dt; // (it. 1857) spectre intangible
     if (m.rageT > 0) m.rageT -= dt; // (it. 1863) rage de l'orc
+    if (m.dodgeT > 0) m.dodgeT -= dt; // (it. 1864) vol erratique de la guêpe
+    // (it. 1864) embuscade (lézard), fouissement (ver) : caché tant que phaseT court, puis il surgit et frappe
+    if (m.ambush && !(m.phaseT > 0)) {
+      m.ambush = false;
+      this.emit("monSkill", { id: sk.id, el: sk.el, phase: "out", mon: m });
+      if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+      this.elementHit(sk.el, hs);
+    }
     if (m.guardT > 0) { // (it. 1860) garde (carapace, parade) ; à la fin d'une parade, la riposte
       m.guardT -= dt;
       if (m.guardT <= 0 && m.riposte) { m.riposte = false; this.emit("monSkill", { id: "riposte", el: sk.el, phase: "go", mon: m }); if (this.monsterAttack(m, hs, sk.mult)) return true; }
@@ -607,6 +618,26 @@ export class Game {
       }
       case "rage": { // (it. 1863) Orcs : rage, coups plus forts quelques secondes (monsterAttack : m.rageK)
         m.rageT = sk.rage.s; m.rageK = sk.rage.k;
+        break;
+      }
+      case "sacrifice": { // (it. 1864) Cultistes : magie de sang (se blessent, puis frappent fort)
+        m.hp = Math.max(1, m.hp - m.max * sk.self);
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "flutter": { m.dodgeT = sk.dodge; break; } // (it. 1864) Guêpes : vol erratique (heroStrike)
+      case "shock": { // (it. 1864) Méduses : décharge, le héros secoué ne frappe plus
+        if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
+        R.chained = Math.max(R.chained || 0, sk.stun);
+        this.elementHit(sk.el, hs);
+        break;
+      }
+      case "ambush": case "burrow": { m.phaseT = sk.hide; m.ambush = true; break; } // (it. 1864) caché, puis surgit (plus haut)
+      case "peck": { // (it. 1864) Corbeaux : bec à l'œil, le héros aveuglé rate la moitié de ses coups
+        if (this.monsterAttack(m, hs, sk.mult)) return true;
+        R.eclipse = Math.max(R.eclipse || 0, sk.blind);
+        this.elementHit(sk.el, hs);
         break;
       }
       case "howl": { // (it. 1856) Loups : hurlement, puis attaques plus rapides quelques secondes
@@ -959,6 +990,7 @@ export class Game {
     if (m.mech && m.mech.includes("evasive") && rand() < 0.2) { this.emit("bossDodge"); return; }
     if (this.R.eclipse > 0 && rand() < ECLIPSE.miss) { this.emit("bossDodge"); return; } // (it. 1849) Éclipse du Chevalier
     if (m.phaseT > 0) { this.emit("bossDodge"); return; } // (it. 1857) spectre intangible : le coup le traverse
+    if (m.dodgeT > 0 && rand() < 0.5) { this.emit("bossDodge"); return; } // (it. 1864) guêpe en vol erratique
     if (m.affix === "elusive" && rand() < ELITE_AFFIXES.elusive.dodge) { this.emit("bossDodge"); return; } // élite fuyante (it. 934)
     // Iaijutsu (samouraï) : chaque 4e coup est un critique garanti renforcé.
     const iai = !extra && hs.iai > 0 && (this.R.hits = (this.R.hits || 0) + 1) % 4 === 0;

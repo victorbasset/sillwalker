@@ -63,6 +63,9 @@ se balançaient qu'au combat.
    - serpents (it. 1862) : Frappe éclair (se lovent, deux coups de 60 %) ; givre : gel ;
    - scarabées (it. 1863) : Pince (×0,8 et héros coincé 0,6 s) ; sangliers : Charge (grattent, foncent ×2) ;
      ours : Rugissement (attaques du héros −40 % 2 s) ; orcs : Rage (+40 % 3 s, monsterAttack m.rageK) ;
+   - cultistes (it. 1864) : Sacrifice (−10 % de leurs PV, magie de sang ×2) ; guêpes : Vol erratique (zigzag 2 s, un coup
+     sur deux raté) ; méduses : Décharge (×1, héros secoué 0,5 s) ; lézards : Embuscade (fondus 1,5 s, surgissent ×1,5) ;
+     vers : Fouissement (sous terre 1,5 s, jaillissent ×1,6) ; corbeaux : Bec à l'œil (héros aveuglé 2 s) ;
    - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
      un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
      des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;

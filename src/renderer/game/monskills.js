@@ -102,6 +102,24 @@ export const MON_SKILLS = {
   // (it. 1863) Orcs : se frappent la poitrine et entrent en rage
   orc: { id: "rage", name: "Rage", every: 10, first: 3, tell: 0.6, rage: { s: 3, k: 1.4 },
     desc: "Toutes les 10 s, se frappe la poitrine et entre en rage : il frappe 40 % plus fort pendant 3 s." },
+  // (it. 1864) Cultistes : se taillent une part de leur vie pour une magie de sang
+  cultist: { id: "sacrifice", name: "Sacrifice", every: 8, first: 3, tell: 0.7, mult: 2, self: 0.1,
+    desc: "Toutes les 8 s, se taille 10 % de ses PV puis lance une magie de sang : un coup à 200 % de son attaque." },
+  // (it. 1864) Guêpes : vol erratique, la moitié des coups du héros les manquent
+  wasp: { id: "flutter", name: "Vol erratique", every: 7, first: 2, tell: 0.3, dodge: 2,
+    desc: "Toutes les 7 s, zigzague pendant 2 s : la moitié des coups du héros la ratent." },
+  // (it. 1864) Méduses : décharge électrique
+  jelly: { id: "shock", name: "Décharge", every: 7, first: 3, tell: 0.5, mult: 1, stun: 0.5,
+    desc: "Toutes les 7 s, électrise le héros : un coup de plus, et le héros, secoué, ne frappe plus pendant 0,5 s." },
+  // (it. 1864) Lézards : se fondent dans le décor, puis surgissent
+  lizard: { id: "ambush", name: "Embuscade", every: 8, first: 3, tell: 0.4, hide: 1.5, mult: 1.5,
+    desc: "Toutes les 8 s, se fond dans le décor pendant 1,5 s (les coups du héros le ratent), puis surgit : un coup à 150 % de son attaque." },
+  // (it. 1864) Vers des sables : s'enfoncent sous terre, puis jaillissent sous le héros
+  worm: { id: "burrow", name: "Fouissement", every: 8, first: 3, tell: 0.5, hide: 1.5, mult: 1.6,
+    desc: "Toutes les 8 s, s’enfonce sous terre pendant 1,5 s (hors d’atteinte), puis jaillit sous le héros : un coup à 160 % de son attaque." },
+  // (it. 1864) Corbeaux : visent l'œil, le héros aveuglé rate la moitié de ses coups
+  crow: { id: "peck", name: "Bec à l’œil", every: 6, first: 2, tell: 0.4, mult: 1, blind: 2,
+    desc: "Toutes les 6 s, pique le héros à l’œil : un coup de plus, et le héros, aveuglé, rate la moitié de ses coups pendant 2 s." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

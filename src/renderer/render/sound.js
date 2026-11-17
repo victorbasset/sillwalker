@@ -462,6 +462,12 @@ export class Sound {
           case "charge": this.noise(0, 0.3, 0.14); this.tone(75, 0.2, 0.2, "sawtooth", 0.18, 0.6); break; // (it. 1863) galop, puis choc
           case "roar": this.tone(95, 0, 0.6, "sawtooth", 0.16, 0.7); this.noise(0, 0.5, 0.1); break; // (it. 1863) rugissement grave
           case "rage": [0, 0.12].forEach((t) => this.tone(140, t, 0.08, "triangle", 0.18)); this.tone(220, 0.26, 0.25, "sawtooth", 0.1, 1.3); break; // (it. 1863) coups sur la poitrine, cri
+          case "sacrifice": this.tone(220, 0, 0.4, "sawtooth", 0.08, 0.5); this.tone(110, 0.2, 0.3, "square", 0.1, 0.7); break; // (it. 1864) incantation de sang
+          case "flutter": this.tone(240, 0, 0.5, "sawtooth", 0.05, 1.2); this.tone(250, 0, 0.5, "sawtooth", 0.04, 1.1); break; // (it. 1864) bourdonnement
+          case "shock": [0, 0.05, 0.1].forEach((t, i) => this.tone(1800 - i * 400, t, 0.04, "square", 0.08)); this.noise(0, 0.15, 0.1); break; // (it. 1864) grésillement
+          case "ambush": this.whoosh(0, 0.25, 3000, 800, 0.05, 2); break; // (it. 1864) se fond dans le décor
+          case "burrow": this.noise(0, 0.4, 0.14); this.tone(80, 0, 0.4, "triangle", 0.1, 0.6); break; // (it. 1864) terre qui s'écroule
+          case "peck": this.tone(1500, 0, 0.04, "square", 0.1); this.tone(700, 0.05, 0.1, "sine", 0.06, 0.5); break; // (it. 1864) coup de bec sec
         }
         break;
       case "bossSkill":
