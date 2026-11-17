@@ -29,6 +29,7 @@ import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
 import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 import { monSkillOf } from "../game/monskills.js";
+import { PACK_ARTS } from "../game/game.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
@@ -1159,9 +1160,10 @@ export class StripRenderer {
       // (it. 1883) a.brave : élite ou champion, téméraire (ne sursaute pas, arpente plus large)
       { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.skillId = monSkillOf(boss ? Z.boss : line[k].type)?.id || null; a.brave = !boss && !!(line[k] && line[k].elite); a.nextGesture = 6 + lifeSeed(g.S.zone, k + 31) * 20; a.lifeSeed = lifeSeed(g.S.zone, k); }
       // (it. 1903) meutes et nuées : deux voisins (ou plus) de la même espèce qui marchent ou volent suivent le même chef de
-      // file (son rythme, son regard) avec un peu de jeu propre : une meute de loups, un vol de chauves-souris
+      // file (son rythme, son regard) avec un peu de jeu propre : une meute de loups, un vol de chauves-souris ; (it. 1905)
+      // espèces grégaires seulement (game.js PACK_ARTS) : deux ours voisins restent chacun de son côté
       { const p = this.slots[this.slots.length - 1];
-        a.packSeed = !boss && p && !p.bossSlot && p.art === a.art && (a.nature === "wander" || a.nature === "fly") ? (p.packSeed ?? p.lifeSeed) : null; }
+        a.packSeed = !boss && p && !p.bossSlot && p.art === a.art && PACK_ARTS.has(a.art) && (a.nature === "wander" || a.nature === "fly") ? (p.packSeed ?? p.lifeSeed) : null; }
       a.bossSlot = boss;
       this.slots.push(a);
     }

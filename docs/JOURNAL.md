@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1905, journée des monstres) : meutes vérifiées dans le jeu (série de loups imposée, positions relevées
+  toutes les 0,5 s : les deux suiveurs avancent et reculent avec le chef, à quelques pixels près). Correction : deux ours
+  voisins se suivaient aussi ; seules les espèces grégaires (PACK_ARTS) font meute sur la bande. Autotest 253/253.
 - 2026-11-17 (it. 1904, journée des monstres) : la vidéo de contrôle a montré que les meutes de l'it. 1903 ne se formaient
   presque jamais (le tirage « comme des cartes » interdit deux fois le même monstre de suite). Espèces grégaires
   (game.js PACK_ARTS : loups, chauves-souris, rats, corbeaux, guêpes, harpies, gluants, sangliers) : 35 % de chances que le
