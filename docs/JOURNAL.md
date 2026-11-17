@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2004, journée des monstres) : zones enneigées (météo « snow » : Toundra gelée, Pics enneigés, Glacier hurlant) :
+  qui n'est pas fait pour le froid grelotte à la place de son geste ; yétis et variantes de givre gardent le leur. Vérifié
+  (Pics enneigés : ours grelotte, yéti se frappe la poitrine, gluant de givre sautille). Autotest 258/258.
 - 2026-11-17 (it. 2003, contrôle) : partie neuve (dossier temporaire, français) capturée à 90 s : zone 2, deux gluants et deux rats
   côte à côte (meutes dès le début), série variée, boss gluant au bout ; aucune erreur. Rien à corriger.
 - 2026-11-17 (it. 2002, journée des monstres) : le héros monte de niveau : les deux plus proches de la file sursautent, éblouis

@@ -21,14 +21,14 @@ import { bossName, bossWear } from "../game/bosses.js";
 import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/story.js";
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
-import { Juice } from "./juice.js";
+import { Juice, WEATHER } from "./juice.js";
 import { fmt, fmtShort, uS } from "../game/format.js";
 import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
 import { RELICS, majorBoss, hasRelic, relicUpgradable, ECHO_OUTLINE } from "../game/relics.js";
 import { natureOf, lifeSeed, lifeOffset, TIMID, PREDATORS } from "./monlife.js";
-import { monSkillOf } from "../game/monskills.js";
+import { monSkillOf, elementOf } from "../game/monskills.js";
 import { PACK_ARTS } from "../game/game.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
@@ -1184,7 +1184,7 @@ export class StripRenderer {
       a.move(this.fightX(k + 1), this.monY(a, 0));
       // (it. 1850) vie en attente : nature selon le dessin de base, rythme propre à la place (monlife.js)
       // (it. 1883) a.brave : élite ou champion, téméraire (ne sursaute pas, arpente plus large)
-      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.nature = natureOf(a.art, !!a.fly); a.skillId = monSkillOf(boss ? Z.boss : line[k].type)?.id || null; a.brave = !boss && !!(line[k] && line[k].elite); a.nextGesture = 6 + lifeSeed(g.S.zone, k + 31) * 20; a.lifeSeed = lifeSeed(g.S.zone, k); }
+      { const def = MONSTERS[boss ? Z.boss : line[k].type] || {}; a.art = def.art || (boss ? Z.boss : line[k].type); a.type = boss ? Z.boss : line[k].type; a.nature = natureOf(a.art, !!a.fly); a.skillId = monSkillOf(boss ? Z.boss : line[k].type)?.id || null; a.brave = !boss && !!(line[k] && line[k].elite); a.nextGesture = 6 + lifeSeed(g.S.zone, k + 31) * 20; a.lifeSeed = lifeSeed(g.S.zone, k); }
       // (it. 1903) meutes et nuées : deux voisins (ou plus) de la même espèce qui marchent ou volent suivent le même chef de
       // file (son rythme, son regard) avec un peu de jeu propre : une meute de loups, un vol de chauves-souris ; (it. 1905)
       // espèces grégaires seulement (game.js PACK_ARTS) : deux ours voisins restent chacun de son côté
@@ -1408,7 +1408,10 @@ export class StripRenderer {
             lizard: "camo",
             // (it. 1992) champignards et champignons errants se gonflent (spores), le scorpion dresse la queue
             mush: "beat", sporeling: "beat", scorp: "rear" };
-          const nat = ART_GEST[a.art] || a.nature;
+          // (it. 2004) zone enneigée : qui n'est pas fait pour le froid grelotte (pas les yétis ni les variantes de givre)
+          const Zd = this.game.zoneDef(), snowy = WEATHER[Zd.src || Zd.name] === "snow";
+          const cold = snowy && a.art !== "yeti" && elementOf(a.type || "") !== "frost";
+          const nat = cold ? "rattle" : ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
