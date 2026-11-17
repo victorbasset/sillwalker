@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1876, journée des monstres) : Bestiaire > Capacités des boss : le sous-titre dit que chaque boss a aussi la
+  compétence de sa famille (au survol de sa carte). Clé 3208, 10 langues ; lang-overflow ru/de/pl/fr 1280-1920 propre ;
+  npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1875, contrôle) : save-fuzz après la journée des monstres (séries variables, compétences) : dev ok
   (1267), fin ok (1225), 0.1.2 ok (1169). Le monstre en combat (compétence, minuteries, or volé) n'est pas sauvegardé.
 - 2026-11-17 (it. 1874, journée des monstres) : version de boss de la compétence de famille : plus fréquente (−20 %),

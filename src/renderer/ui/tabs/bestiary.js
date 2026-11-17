@@ -100,7 +100,7 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
         return `<div class="setcard" style="--c:${st.color}"><b class="tint">◆ ${esc(st.name)}</b> <small>${n}/4${bagTxt}${(S.setsDone || {})[id] ? " · ✓ " + tx("complétée") : ""}</small>
           <div class="${n >= 2 ? "on" : ""}">${n >= 2 ? "✓ " : ""}${tx("2 pièces : {0}", { 0: esc(describeEffects(st.two)) })}</div>
           <div class="${n >= 4 ? "on" : ""}">${n >= 4 ? "✓ " : ""}${tx("4 pièces : {0}", { 0: esc(describeEffects(st.four)) })}</div></div>`; }).join("")}</div>` : ""}
-      <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle")}</small></h2>
+      <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle ; en plus, la compétence de sa famille (au survol de sa carte)")}</small></h2>
       ${/* (it. 1866) capacités tournantes seulement : les pouvoirs uniques des lieutenants et du Briseur (it. 1849) faisaient
          défiler l'onglet en russe et en allemand à 1280 px ; ils restent décrits dans le panneau de zone de leur boss */ ""}
       <div class="setgrid">${Object.entries(BOSS_MECHANICS).filter(([id]) => !UNIQUE_MECHS.includes(id)).map(([id, b]) => { // prochaine zone (à partir de la zone actuelle) dont le boss a cette capacité

@@ -3209,5 +3209,6 @@ export const KEYS = [
   "Le Geôlier mécanique, la Reine des cendres et le Chevalier de l’éclipse ont leur propre dessin et un pouvoir unique ; le Briseur d’Étoiles est plus coriace.",
   "Le Rebord vit : en attendant leur tour, les monstres flânent, planent ou sautillent, se tournent vers le héros qui approche et sursautent quand un voisin tombe.",
   "Chaque zone compte de 7 à 13 monstres, au hasard.",
-  "Chaque sorte de monstre a sa compétence, visible sur la bande et décrite au survol de sa carte du Bestiaire ; les boss de zone ont celle de leur famille."
+  "Chaque sorte de monstre a sa compétence, visible sur la bande et décrite au survol de sa carte du Bestiaire ; les boss de zone ont celle de leur famille.",
+  "une par boss, deux à partir de la 2e boucle ; en plus, la compétence de sa famille (au survol de sa carte)"
 ];

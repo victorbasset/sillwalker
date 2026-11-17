@@ -2080,4 +2080,5 @@ export default {
   3205: "O Parapeito ganha vida: enquanto esperam a vez, os monstros passeiam, planam ou saltitam, viram-se para o herói que se aproxima e se assustam quando um vizinho cai.",
   3206: "Cada zona tem de 7 a 13 monstros, ao acaso.",
   3207: "Cada tipo de monstro tem sua habilidade, visível na faixa e descrita ao passar o mouse na carta do Bestiário; os chefes de zona têm a da sua família.",
+  3208: "uma por chefe, duas a partir da 2.ª volta; além disso, a habilidade da sua família (ao passar sobre a carta)",
 };
