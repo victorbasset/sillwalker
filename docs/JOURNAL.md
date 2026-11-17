@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2095, Talents, étape 2) : pastilles à emplacement fixe : « +1 », « tout », « Choisir un bonus » / « Bonus » ne
+  naissent ni ne disparaissent plus d'un clic à l'autre (invisibles et sans action hors d'usage ; les deux libellés du bonus
+  superposés) ; Maj + clic ignore l'emplacement invisible. Le « → 800 » des maîtrises, caché dès qu'une pastille « tout » existait,
+  dépend maintenant de la largeur du panneau. Captures fr 1920 / de 1280 ; lang-overflow 10 langues × 4 largeurs : rien.
+  Autotest 265/265.
 - 2026-11-17 (it. 2094, demande de Victor : refonte ergonomique de l'onglet Talents, sur plusieurs itérations ; plan et audit :
   docs/TALENTS-UX.md) : intention de survol : la fiche de gauche ne suit un talent qu'après 140 ms de pause dessus (avant :
   aussitôt, et pour aller cliquer dans la fiche, la souris traversait d'autres talents qui la changeaient en route) ; un clic la

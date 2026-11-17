@@ -257,7 +257,7 @@ async function runSelfTest(strip) {
   check("onglet Talents : un clic sur un talent dépense ses points (au maximum possible)", spent1 > spent0, `${spent0} -> ${spent1}`);
   // (it. 855, 1080) Maj + Entrée sur un talent : comme sa pastille « +1 » (un seul rang) ; le focus reste sur ce talent.
   const shiftMax = await js(`(async () => { const g = window.__game, S = g.S, P = window.__panel;
-    const pick = () => document.querySelector('[data-pane="talents"]:not([hidden]) .talent:not(.mastery) .tmax')?.closest('.talent');
+    const pick = () => document.querySelector('[data-pane="talents"]:not([hidden]) .talent:not(.mastery) .tmax:not(.off)')?.closest('.talent');
     // (it. 1080) talents tous au maximum (dev-data, niveau 1313) : on en remet un à zéro, et des points libres
     if (!pick()) { const ranks = S.talents[S.cls] ||= {}; const id = Object.keys(ranks).find((k) => ranks[k] > 2 && !k.startsWith("v_") && !k.startsWith("ms_")); if (id) ranks[id] = 0; S.lvl += 6; g.invalidateStats(); g.changed(); P.renderAll(); }
     const b = pick(); if (!b) return 'aucun talent avec +1';

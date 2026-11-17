@@ -28,7 +28,10 @@
 ## Étapes
 
 1. (it. 2094) Intention de survol : la fiche ne suit un talent qu'après 140 ms de pause dessus ; un clic la fixe.
-2. Pastilles à emplacement réservé (« +1 », « tout », bonus) : visibles ou estompées, jamais retirées.
+2. (it. 2095) Pastilles à emplacement réservé : « +1 » (talent ouvert, pas au maximum), « tout » et « Choisir un bonus » /
+   « Bonus » (libellés superposés, largeur du plus long) restent en place, invisibles et sans action hors d'usage ; le prochain
+   palier d'une maîtrise (« → 800 ») dépend de la largeur du panneau (caché sous 1600 px), plus des points libres.
+   Reste vu : en allemand à 1280 px, deux ultimes verrouillés passent sur deux lignes (cadenas + « 20 Pkt. ») : étape 6.
 3. Voie : un clic la sélectionne, le choix se confirme par un bouton dans la fiche (« Choisir cette voie »).
 4. Aperçu du clic : la fiche dit ce qu'un clic fera (« Clic : +5 rangs, 5 points »).
 5. Branches : jauge des paliers (5 / 10 / 20) dans l'en-tête de chaque branche.

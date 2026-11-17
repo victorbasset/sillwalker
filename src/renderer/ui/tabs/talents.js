@@ -40,7 +40,11 @@ export class TalentsTab {
         return `<button class="${cls}" data-action="t-learn" data-n="99" data-id="${t.id}" data-tid="${t.id}">
           <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
           <span class="tr">${locked ? "🔒 " + txn(TIER_REQ[t.tier], "{n} pt|{n} pts") : r + " / " + t.max}</span>
-          ${can && t.max - r > 1 && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="1" data-id="${t.id}" title="${esc(tx("Un seul rang"))}">+1</span>` : ""}</button>`;
+          ${/* (it. 2095, ergonomie : rien ne naît ni ne disparaît sous le curseur) l'emplacement du « +1 » existe tant que le talent
+            est ouvert et pas au maximum (les seuls dont la pastille peut changer d'un clic à l'autre) ; hors d'usage, il est
+            invisible et sans action (un clic à sa place vaut un clic sur le talent). Verrouillé ou au maximum : pas d'emplacement
+            (en allemand à 1280 px, les noms longs passaient sur deux lignes) */ ""}
+          ${can && t.max - r > 1 && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="1" data-id="${t.id}" title="${esc(tx("Un seul rang"))}">+1</span>` : !locked && r < t.max ? `<span class="tmax off" aria-hidden="true">+1</span>` : ""}</button>`;
       }).join("");
       return `<article class="panel tbranch"><h2>${esc(b.name)} <small>${txn(spent, "{n} pt|{n} pts")}</small></h2>${rows}</article>`;
     }).join("");
@@ -65,9 +69,10 @@ export class TalentsTab {
         ${/* (it. 1530, demande de Victor : le « choisir » de la fiche, qui change au survol, n'est pas pratique) bouton
           permanent sur la maîtrise dès qu'un palier à deux bonus est atteint : « Choisir un bonus » tant qu'un choix attend,
           « Bonus » ensuite (revoir, changer) ; il ouvre la fenêtre de choix */ ""}
-        ${pend.has(m.id) ? `<span class="mpend" data-action="t-mpend" data-id="${m.id}" title="${esc(tx("Palier atteint : choisis son bonus (A ou B). En attendant, A s’applique."))}">${tx("Choisir un bonus")}</span>`
-          : masteryMilestones(m.id, r, S).got.some((x) => x.b) ? `<span class="mpend done" data-action="t-mpend" data-id="${m.id}" title="${esc(tx("Voir ou changer les bonus des paliers"))}">${tx("Bonus")}</span>` : ""}
-        ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">${tx("tout")}</span>` : ""}</button>`;
+        ${/* (it. 2095) emplacement fixe : les deux libellés superposés (la pastille garde la largeur du plus long), invisible
+          tant qu'aucun palier à deux bonus n'est atteint ; « tout » de même */ ""}
+        ${((st) => `<span class="mpend${st === "done" ? " done" : st ? "" : " off"}"${st ? ` data-action="t-mpend" data-id="${m.id}" title="${esc(st === "done" ? tx("Voir ou changer les bonus des paliers") : tx("Palier atteint : choisis son bonus (A ou B). En attendant, A s’applique."))}"` : ` aria-hidden="true"`}><span${st === "pend" ? "" : ` class="hid"`}>${tx("Choisir un bonus")}</span><span${st === "done" ? "" : ` class="hid"`}>${tx("Bonus")}</span></span>`)(pend.has(m.id) ? "pend" : masteryMilestones(m.id, r, S).got.some((x) => x.b) ? "done" : "")}
+        ${can && free > 1 ? `<span class="tmax" data-action="t-learn" data-n="9999" data-id="${m.id}" title="${esc(tx("Y mettre tous les points libres"))}">${tx("tout")}</span>` : `<span class="tmax off" aria-hidden="true">${tx("tout")}</span>`}</button>`;
     }).join("");
     // Voie et maîtrises montrées à l'approche de leur seuil (10 points avant) : moins d'informations d'un coup au début,
     // une ligne annonce l'objectif en attendant.
@@ -110,7 +115,7 @@ export class TalentsTab {
 
   /** Apprend le talent du bouton (talent : au maximum possible ; maîtrise : +1), ou comme son petit bouton quand `all` (Maj). */
   learnFrom(b, all) {
-    const max = all && b.querySelector(".tmax");
+    const max = all && b.querySelector(".tmax:not(.off)"); // (it. 2095) pas l'emplacement invisible
     const n = max ? +max.dataset.n : +b.dataset.n || 1;
     this.sel = b.dataset.id;
     this.game.learnTalent(b.dataset.id, n);
