@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2083) : mode mini : le héros vaincu, le monstre vainqueur disparaissait d'un coup ; il s'efface en 0,45 s (relevé :
+  0,875 → 0,125). Après une victoire, rien ne change (le cadavre est déjà effacé). Autotest 262/262.
 - 2026-11-17 (it. 2082) : mode mini, après une défaite : le monstre en attente, caché pendant que le combattant approchait,
   réapparaissait d'un coup à sa place ; il revient maintenant en glissant du bord (relevé : 207 → 198 → … → 180). Autotest 262/262.
 - 2026-11-17 (it. 2081, revue générale) : --crawl en polonais : 674 clics sans erreur ; texte allemand : aucun mot français (« des »,

@@ -175,7 +175,10 @@ export class MiniRenderer {
     // Monstre en cours (ou cadavre qui s'efface)
     const m = R.mon || (R.corpse && R.corpse.mon);
     if (m !== this.monRef) {
-      if (this.monActor) { this.monActor.remove(); this.monActor.bar.el.remove(); }
+      // (it. 2083) plus de monstre ni de cadavre (héros vaincu) : le vainqueur s'efface en 0,45 s au lieu de disparaître d'un coup
+      if (this.leaving) { this.leaving.a.remove(); this.leaving = null; }
+      if (this.monActor && !m && (this.monActor.alphaV || 0) > 0) { this.monActor.bar.el.remove(); this.leaving = { a: this.monActor, t: 0.45, a0: this.monActor.alphaV }; }
+      else if (this.monActor) { this.monActor.remove(); this.monActor.bar.el.remove(); }
       this.monActor = null; this.monRef = m;
       if (m) {
         // final : le Briseur d'Étoiles ; (it. 1847) lieutenant (m.art) : son propre dessin
@@ -199,6 +202,10 @@ export class MiniRenderer {
         a.barX = null;
         this.monActor = a;
       }
+    }
+    if (this.leaving) {
+      const L = this.leaving; L.t -= dt;
+      if (L.t <= 0) { L.a.remove(); this.leaving = null; } else L.a.alpha(L.a0 * L.t / 0.45);
     }
     if (this.monActor) {
       const a = this.monActor, alive = m === R.mon;
