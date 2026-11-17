@@ -2090,4 +2090,8 @@ export default {
   3215: "Gregário: costuma vir em dois ou três.",
   3216: "Lobos, ratos, morcegos, corvos… costumam vir em dois ou três: a matilha anda junta e avança quando um dos seus luta.",
   3217: "Elites e campeões, mais experientes, usam a sua habilidade com mais frequência, com uma palavra dourada ou roxa.",
+  3218: "Quando um lobo cai, a sua matilha avança, furiosa; ratos e corvos, por sua vez, dispersam-se.",
+  3219: "As presas afastam-se dos predadores; encurraladas entre dois, tremem.",
+  3220: "O chefe impacienta-se quando o herói se aproxima: bate com os pés.",
+  3221: "Em pleno dia, os morcegos dormitam; o mímico, por sua vez, estremece quando a sua vez se aproxima.",
 };

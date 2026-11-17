@@ -2090,4 +2090,8 @@ export default {
   3215: "Gregarious: often comes in twos or threes.",
   3216: "Wolves, rats, bats, crows… often come in twos or threes: the pack moves together and steps up when one of its own is fighting.",
   3217: "Elites and champions, more seasoned, use their skill more often, with a golden or purple word.",
+  3218: "When a wolf falls, its pack steps up, furious; rats and crows scatter instead.",
+  3219: "Prey keeps away from predators; caught between two, it trembles.",
+  3220: "The boss grows impatient as the hero approaches: it stamps its feet.",
+  3221: "In broad daylight, bats doze; the mimic, for its part, shivers as its turn draws near.",
 };

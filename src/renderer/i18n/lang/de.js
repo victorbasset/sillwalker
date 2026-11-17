@@ -2090,4 +2090,8 @@ export default {
   3215: "Herdentier: kommt oft zu zweit oder zu dritt.",
   3216: "Wölfe, Ratten, Fledermäuse, Krähen … kommen oft zu zweit oder zu dritt: Das Rudel bewegt sich gemeinsam und rückt vor, wenn einer der Seinen kämpft.",
   3217: "Elite und Champions sind erfahrener: Sie setzen ihre Fähigkeit öfter ein, mit einem goldenen oder violetten Wort.",
+  3218: "Fällt ein Wolf, rückt sein Rudel wütend vor; Ratten und Krähen dagegen stieben auseinander.",
+  3219: "Beutetiere halten Abstand zu Raubtieren; zwischen zweien gefangen, zittern sie.",
+  3220: "Der Boss wird ungeduldig, wenn der Held näher kommt: Er stampft mit den Füßen.",
+  3221: "Am helllichten Tag dösen die Fledermäuse; der Mimik dagegen zittert, wenn er bald an der Reihe ist.",
 };

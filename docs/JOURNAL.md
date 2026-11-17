@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1924) : « Quoi de neuf », édition 123 (meute furieuse / nuée qui se disperse, proies et prédateurs, boss
+  impatient, chauves-souris de jour et mimique ; clés 3218-3221, 10 langues, nom du monstre repris tel que traduit). Autotest
+  254/254, lang-overflow ru/de/pl 1280 / 1920 : rien ne défile.
 - 2026-11-17 (it. 1923, journée des monstres) : proies et prédateurs : un craintif (rat, grenouille, lézard, corbeau…) voisin
   d'un prédateur (loup, ours, serpent, wyverne, sanglier, araignée, yéti) s'en écarte de 9 px et lui tourne le dos ; coincé
   entre deux, il tremble sur place. Vérifié (série imposée : grenouilles entre ours et loups). Autotest 254/254.

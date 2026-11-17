@@ -3219,5 +3219,9 @@ export const KEYS = [
   "En mode mini aussi, le monstre combattu fait le geste de sa compétence.",
   "Grégaire : vient souvent à deux ou trois.",
   "Loups, rats, chauves-souris, corbeaux… vont souvent à deux ou trois : la meute se déplace ensemble et s’avance quand l’un des siens se bat.",
-  "Élites et champions, plus aguerris, lancent leur compétence plus souvent, avec un mot doré ou violet."
+  "Élites et champions, plus aguerris, lancent leur compétence plus souvent, avec un mot doré ou violet.",
+  "Quand un loup tombe, sa meute s’avance, furieuse ; rats et corbeaux, eux, se dispersent.",
+  "Les proies s’écartent des prédateurs ; coincées entre deux, elles tremblent.",
+  "Le boss s’impatiente quand le héros approche : il frappe du pied.",
+  "En plein jour, les chauves-souris somnolent ; la mimique, elle, frissonne quand son tour approche."
 ];

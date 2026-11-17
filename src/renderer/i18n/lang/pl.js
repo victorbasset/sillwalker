@@ -2090,4 +2090,8 @@ export default {
   3215: "Stadny: często pojawia się po dwa lub trzy.",
   3216: "Wilki, szczury, nietoperze, wrony… często pojawiają się po dwa lub trzy: stado porusza się razem i podchodzi bliżej, gdy jeden z nich walczy.",
   3217: "Elity i czempioni, bardziej zaprawieni w boju, częściej używają swojej umiejętności, ze złotym lub fioletowym słowem.",
+  3218: "Gdy pada wilk, jego wataha rusza naprzód, wściekła; szczury i wrony natomiast się rozpierzchają.",
+  3219: "Ofiary trzymają się z dala od drapieżników; uwięzione między dwoma, drżą.",
+  3220: "Boss niecierpliwi się, gdy bohater się zbliża: tupie nogami.",
+  3221: "W biały dzień nietoperze drzemią; mimik zaś drży, gdy zbliża się jego kolej.",
 };

@@ -2090,4 +2090,8 @@ export default {
   3215: "Gregario: suele venir de dos en dos o de tres en tres.",
   3216: "Lobos, ratas, murciélagos, cuervos… suelen venir de dos en dos o de tres en tres: la manada se mueve junta y avanza cuando uno de los suyos lucha.",
   3217: "Élites y campeones, más curtidos, lanzan su habilidad más a menudo, con una palabra dorada o violeta.",
+  3218: "Cuando cae un lobo, su manada avanza, furiosa; ratas y cuervos, en cambio, se dispersan.",
+  3219: "Las presas se apartan de los depredadores; atrapadas entre dos, tiemblan.",
+  3220: "El jefe se impacienta cuando el héroe se acerca: da pisotones.",
+  3221: "A plena luz del día, los murciélagos dormitan; el mímico, por su parte, se estremece cuando se acerca su turno.",
 };
