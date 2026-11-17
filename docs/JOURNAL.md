@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1989, essai d'équilibrage, rien gardé) : nécromancien, serviteur 30 → 35 % : 61,8 sur 7 graines (actuel 63,2).
+  Trois réglages (PV, attaque, serviteur) sans gain : son retard (≈ 1 zone sous la moyenne) tient aux paliers des zones, pas
+  à une statistique ; laissé tel quel.
 - 2026-11-17 (it. 1988, essai d'équilibrage, rien gardé) : nécromancien, dernier du tableau (62,3). Sur 7 graines (12 h) : actuel
   63,2 ; PV 0,8 → 0,85 : 63,2 ; attaque 1,25 → 1,3 : 62,8. Ni la survie ni l'attaque ne le font franchir ses paliers : réglages
   retirés. Piste suivante si besoin : le serviteur (30 %, texte traduit à changer avec).
