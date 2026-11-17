@@ -31,7 +31,8 @@ export const PREDATORS = new Set(["wolf", "bear", "snake", "drake", "boar", "spi
  *  pas les golems, squelettes, momies, élémentaires de feu, fantômes).
  */
 export function climateGesture(art, el, wx) {
-  if (wx === "snow" && art !== "yeti" && el !== "frost") return "rattle";
+  // (it. 2032) ni le fantôme (Toundra gelée) ni le golem de pierre ne grelottent
+  if (wx === "snow" && !["yeti", "ghost", "golem"].includes(art) && el !== "frost") return "rattle";
   if (wx === "ember" && (art === "yeti" || el === "frost")) return "still";
   if (wx === "bubble" && (art === "imp" || art === "fireelem" || el === "fire")) return "still";
   // (it. 2030) le fantôme ne respire pas : il ne tousse pas dans la Crypte oubliée ni dans l'Ossuaire des titans

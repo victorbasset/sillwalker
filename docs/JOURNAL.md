@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2032, journée des monstres) : revue des espèces des zones de neige, braises et eau : le fantôme grelottait
+  dans la Toundra gelée ; ni lui ni le golem ne grelottent plus. Le reste est cohérent (diablotin frileux dans le Glacier
+  hurlant, squelette qui garde son cliquetis). Autotest 259/259.
 - 2026-11-17 (it. 2031, revue générale) : perf:linux bande 18,4 %, panneau 19,4 %, mini 5,6 % (souffles compris) ; stall-check
   2 h : 60 parties, 0 figées ; --crawl en russe : 675 clics sans erreur ; polonais : aucun mot français (les « le » d'une
   recherche ASCII étaient des morceaux de mots polonais). Rien à corriger.

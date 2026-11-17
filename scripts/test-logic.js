@@ -430,6 +430,7 @@ test("impasse face à un boss (it. 1958) : après 90 s de combat, le boss s'empo
 test("climat des zones (it. 2023) : le geste imposé selon la météo", () => {
   assert.equal(climateGesture2023("bear", null, "snow"), "rattle");
   assert.equal(climateGesture2023("yeti", null, "snow"), null);
+  assert.equal(climateGesture2023("ghost", null, "snow"), null, "le fantôme ne grelotte pas");
   assert.equal(climateGesture2023("slime", "frost", "snow"), null);
   assert.equal(climateGesture2023("yeti", null, "ember"), "still");
   assert.equal(climateGesture2023("slime", "fire", "bubble"), "still");
