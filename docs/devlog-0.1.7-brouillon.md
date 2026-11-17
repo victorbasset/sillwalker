@@ -26,3 +26,5 @@ docs/devlog-0.1.6.md).
   dans ces zones, même en russe sur un écran de 1280 px (it. 2063).
 - **Mode mini (signalé par Victor) :** le monstre suivant s'avance depuis sa place d'attente au lieu de disparaître puis de
   surgir plus loin (it. 2071) ; avant son combat, le boss attend lui aussi au fond de la scène (it. 2075).
+- **Mode mini, suite :** un monstre qu'on n'a pas vu attendre (premier de la série, gobelin, Poupouce) entre par le bord droit ;
+  après une défaite, le vainqueur s'efface et le monstre en attente revient en glissant (it. 2079-2083).

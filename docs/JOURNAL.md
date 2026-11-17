@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2084) : CLAUDE.md : passages du mode mini et façon de les mesurer ; brouillon du devlog 0.1.7 complété.
 - 2026-11-17 (it. 2083) : mode mini : le héros vaincu, le monstre vainqueur disparaissait d'un coup ; il s'efface en 0,45 s (relevé :
   0,875 → 0,125). Après une victoire, rien ne change (le cadavre est déjà effacé). Autotest 262/262.
 - 2026-11-17 (it. 2082) : mode mini, après une défaite : le monstre en attente, caché pendant que le combattant approchait,

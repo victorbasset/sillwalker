@@ -337,6 +337,11 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   héros ne bouge pas : avancé, sa barre de vie touchait celle du monstre). Contrôle de l'autotest « duo : l'arbalétrier… ».
   Vérifier les quatre sortes de duo (tireur/combattant × devant/derrière) en capture après toute retouche des positions.
   Avec un serviteur (nécromancien, it. 1818) : il passe devant le compagnon qui mène, et le compagnon recule au combat.
+- Mode mini, passages (it. 2071-2083, signalé par Victor : « pas smooth ») : le suivant attend au fond (nextActor, boss compris) et
+  reste là jusqu'à son combat (la victoire fait avancer la file avant l'apparition du combattant) ; le combattant part de cette
+  place (fromNext, reconnu dès la première image), sinon entre par le bord droit ; un suivant caché revient en glissant ; le
+  vainqueur d'une défaite s'efface (leaving). Mesurer : --mode=mini et un --stage qui relève M.monActor / M.nextActor (x, alphaV)
+  toutes les 50 ms (window.__mini) ; autotest « le monstre suivant s'avance depuis sa place d'attente ».
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.
