@@ -42,4 +42,11 @@
    survol : « Prochain palier : 10 points dans la branche (encore 3) »). Thèmes sombre et clair vérifiés.
 6. (it. 2099) Réinitialisation : un seul clic effaçait tout l'arbre (maîtrises et voie comprises) ; le bouton demande
    maintenant confirmation dans la fiche (« Tout réinitialiser » / « Annuler »), loin de lui.
-7. Revue : 10 langues, 1280 / 1366 / 1920 px, thème clair, clavier.
+7. (it. 2100) Revue : badge des talents verrouillés réduit à « 🔒 20 » (paliers sur la jauge, texte complet au survol) : plus de
+   nom sur deux lignes en allemand à 1280 px ; 10 langues × 1280 / 1366 / 1920 px, thèmes sombre et clair ; clavier : les
+   emplacements invisibles ne prennent pas le focus, les boutons de la fiche (voie, réinitialisation) se tabulent.
+
+## Reste à revoir (hors Talents)
+
+- Ascension (« Confirmer : tout recommencer ») et Compétences (« Confirmer la réinitialisation ») confirment par un second clic
+  sur le même bouton, dont le libellé change : même défaut que l'ancienne Voie.

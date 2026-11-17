@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2100, Talents, étape 7 : revue) : talents verrouillés « 🔒 20 » (l'unité au survol, les paliers sur la jauge) :
+  en allemand à 1280 px, les ultimes ne passent plus sur deux lignes. lang-overflow 10 langues × 3 largeurs : rien ; autotest 267/267.
 - 2026-11-17 (it. 2099, Talents, étape 6) : « Réinitialiser » effaçait tout l'arbre (maîtrises et voie comprises) en un seul clic ;
   il demande maintenant confirmation dans la fiche (« Tout réinitialiser » / « Annuler »), loin du bouton. Clés 3268-3269. Capture de
   1280 ; autotest « réinitialiser demande confirmation » ; 267/267.

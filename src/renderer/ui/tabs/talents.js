@@ -39,7 +39,9 @@ export class TalentsTab {
         // pastille « +1 » (ou Maj + clic) n'ajoute qu'un rang
         return `<button class="${cls}" data-action="t-learn" data-n="99" data-id="${t.id}" data-tid="${t.id}">
           <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
-          <span class="tr">${locked ? "🔒 " + txn(TIER_REQ[t.tier], "{n} pt|{n} pts") : r + " / " + t.max}</span>
+          ${/* (it. 2100) verrouillé : « 🔒 20 » (l'unité au survol ; la jauge de la branche montre les paliers) : en allemand à 1280 px,
+            « 🔒 20 Pkt. » faisait passer le nom des ultimes sur deux lignes */ ""}
+          <span class="tr"${locked ? ` title="${esc(tx("Prochain palier : {0} points dans la branche (encore {1}).", { 0: TIER_REQ[t.tier], 1: TIER_REQ[t.tier] - spent }))}"` : ""}>${locked ? "🔒 " + TIER_REQ[t.tier] : r + " / " + t.max}</span>
           ${/* (it. 2095, ergonomie : rien ne naît ni ne disparaît sous le curseur) l'emplacement du « +1 » existe tant que le talent
             est ouvert et pas au maximum (les seuls dont la pastille peut changer d'un clic à l'autre) ; hors d'usage, il est
             invisible et sans action (un clic à sa place vaut un clic sur le talent). Verrouillé ou au maximum : pas d'emplacement
