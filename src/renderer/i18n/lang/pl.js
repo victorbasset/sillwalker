@@ -2110,4 +2110,6 @@ export default {
   3235: "Każda nowa seria nadbiega od krawędzi paska; po porażce wracają też już pokonane potwory.",
   3236: "Więcej gestów: jaszczurka się maskuje, grzybole się nadymają, skorpion unosi ogon.",
   3237: "W trybie mini następny potwór wsuwa się na scenę, z obrysem elit i czempionów.",
+  3238: "Potwory czują klimat: w śniegu zmarzluchy drżą; w żarze lub pod wodą stwory mrozu lub ognia słabną.",
+  3239: "W zarodnikach potwory kichają; gdy bohater awansuje, kolejka podskakuje, oślepiona.",
 };

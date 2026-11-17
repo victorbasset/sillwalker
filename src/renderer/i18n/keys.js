@@ -3239,5 +3239,7 @@ export const KEYS = [
   "Sylvains et cultistes choisissent leur moment : le soin quand ils sont blessés, le sacrifice tant qu’ils tiennent debout.",
   "Chaque nouvelle série arrive en courant du bord de la bande ; après une défaite, les monstres déjà vaincus reviennent aussi.",
   "Encore des gestes : le lézard se camoufle, les champignards se gonflent, le scorpion dresse la queue.",
-  "En mode mini, le monstre suivant arrive en glissant, avec le contour des élites et des champions."
+  "En mode mini, le monstre suivant arrive en glissant, avec le contour des élites et des champions.",
+  "Les monstres sentent le climat : dans la neige, les frileux grelottent ; dans les braises ou sous l’eau, créatures du froid ou du feu s’affaissent.",
+  "Dans les spores, les monstres éternuent ; quand le héros monte de niveau, la file sursaute, éblouie."
 ];

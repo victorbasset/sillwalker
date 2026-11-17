@@ -2110,4 +2110,6 @@ export default {
   3235: "Cada nova série chega a correr da borda da faixa; após uma derrota, os monstros já vencidos também voltam.",
   3236: "Mais gestos: o lagarto camufla-se, os cogumelitos incham, o escorpião ergue a cauda.",
   3237: "No modo mini, o próximo monstro chega a deslizar, com o contorno das elites e dos campeões.",
+  3238: "Os monstros sentem o clima: na neve, os friorentos tremem; nas brasas ou debaixo de água, as criaturas do gelo ou do fogo desfalecem.",
+  3239: "Nos esporos, os monstros espirram; quando o herói sobe de nível, a fila sobressalta-se, deslumbrada.",
 };

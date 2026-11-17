@@ -2110,4 +2110,6 @@ export default {
   3235: "Each new series arrives running in from the edge of the strip; after a defeat, the monsters already beaten come back too.",
   3236: "More gestures: the lizard blends in, mushlings puff up, the scorpion raises its tail.",
   3237: "In mini mode, the next monster slides in, with the outline of elites and champions.",
+  3238: "Monsters feel the climate: in the snow, the chilly ones shiver; in embers or underwater, creatures of frost or fire slump.",
+  3239: "In the spores, monsters sneeze; when the hero levels up, the queue flinches, dazzled.",
 };

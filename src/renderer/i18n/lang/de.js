@@ -2110,4 +2110,6 @@ export default {
   3235: "Jede neue Serie kommt vom Rand des Streifens herangelaufen; nach einer Niederlage kehren auch die bereits besiegten Monster zurück.",
   3236: "Weitere Gesten: Die Echse tarnt sich, Pilzlinge blähen sich auf, der Skorpion hebt den Schwanz.",
   3237: "Im Mini-Modus gleitet das nächste Monster herein, mit dem Umriss von Elite und Champions.",
+  3238: "Monster spüren das Klima: Im Schnee zittern die Verfrorenen; in der Glut oder unter Wasser sacken Frost- und Feuerwesen zusammen.",
+  3239: "In den Sporen niesen die Monster; steigt der Held eine Stufe auf, zuckt die Reihe geblendet zusammen.",
 };

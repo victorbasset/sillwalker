@@ -2110,4 +2110,6 @@ export default {
   3235: "Cada nueva serie llega corriendo desde el borde de la franja; tras una derrota, los monstruos ya vencidos también vuelven.",
   3236: "Más gestos: el lagarto se camufla, los champiñones se hinchan, el escorpión levanta la cola.",
   3237: "En modo mini, el siguiente monstruo llega deslizándose, con el contorno de élites y campeones.",
+  3238: "Los monstruos sienten el clima: en la nieve, los frioleros tiritan; entre brasas o bajo el agua, las criaturas del hielo o del fuego se desploman.",
+  3239: "Entre las esporas, los monstruos estornudan; cuando el héroe sube de nivel, la fila se sobresalta, deslumbrada.",
 };
