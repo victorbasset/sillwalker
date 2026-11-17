@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2093) : autotest « le boss d'une nouvelle série apparaît en fondu » (alpha < 0,5 juste après, 1 après 1,5 s).
+  Autotest 264/264.
 - 2026-11-17 (it. 2092) : bande, nouvelle série : le boss (exclu de l'arrivée en courant, it. 1996) surgissait d'un coup au bout de
   la file ; il apparaît en fondu (0,8 s ; relevé : 0 → 0,125 → … → 1). Effets réduits : comme avant. Autotest 263/263.
 - 2026-11-17 (it. 2091, revue générale) : mémoire 569-572 Mo, stable ; save-fuzz FUZZ_BASE=0.1.2 ok (1 169 corruptions). Rien à
