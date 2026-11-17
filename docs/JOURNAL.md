@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1862, journée des monstres) : wyvernes : Souffle (trois coups de 50 %) ; tyrannœils : Regard pétrifiant
+  (héros figé 1,2 s) ; crapauds : Coup de langue ; serpents : Frappe éclair (deux coups de 60 %). 26 familles faites.
+  Balance contre aea72772 : −0,7 / +1,3 / +0,8 ; fuzz 600 / 0 ; npm test 344, autotest 253/253.
 - 2026-11-17 (it. 1861, revue générale, journée des monstres) : semaine avec 22 familles de compétences : guerrier 366
   (dernière course), mage 350 : la fin de partie tient. perf:linux bande 18,3 %, panneau 19,3 %, mini 5,6 % (une première
   mesure à 25,4 % était faussée par les deux semaines simulées en parallèle : noté dans CLAUDE.md) ; russe : aucun mot

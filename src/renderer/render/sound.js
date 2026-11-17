@@ -454,6 +454,10 @@ export class Sound {
           case "parry": this.tone(2200, 0, 0.12, "triangle", 0.08, 0.9); this.tone(1650, 0, 0.14, "triangle", 0.06); break; // (it. 1860) métal contre métal
           case "riposte": this.whoosh(0, 0.15, 1200, 3000, 0.08, 2); break; // (it. 1860) fente
           case "rootdeep": this.tone(130, 0, 0.5, "triangle", 0.12, 0.7); this.noise(0.1, 0.3, 0.06); break; // (it. 1860) racines qui s'enfoncent
+          case "breath": this.noise(0, 0.45, 0.16); this.whoosh(0, 0.45, 500, 1600, 0.1, 1); break; // (it. 1862) souffle qui ronfle
+          case "gaze": this.tone(330, 0, 0.5, "sine", 0.1, 1.02); this.tone(331.5, 0, 0.5, "sine", 0.1); break; // (it. 1862) battement hypnotique
+          case "tongue": this.tone(900, 0, 0.05, "sine", 0.1, 0.4); this.tone(400, 0.06, 0.06, "sine", 0.08, 1.6); break; // (it. 1862) « slurp »
+          case "strike": [0, 0.1].forEach((t) => this.whoosh(t, 0.07, 2000, 4000, 0.06, 3)); break; // (it. 1862) deux détentes
         }
         break;
       case "bossSkill":

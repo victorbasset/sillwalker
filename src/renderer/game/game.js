@@ -547,6 +547,7 @@ export class Game {
         m.phaseT = sk.phase;
         break;
       }
+      case "tongue": // (it. 1862) Crapauds : coup de langue (même règle qu'une boule de feu : un coup, puis l'élément)
       case "fireball": { // (it. 1858) Diablotins : boule de feu lancée de loin (même coup, esquivable)
         if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;
         this.elementHit(sk.el, hs);
@@ -576,6 +577,7 @@ export class Game {
         R.frozen = Math.max(R.frozen || 0, sk.freeze);
         break;
       }
+      case "breath": case "strike": // (it. 1862) Wyvernes (souffle), serpents (frappe éclair) : plusieurs coups rapides
       case "feathers": { // (it. 1859) Harpies : rafale de plumes, chacune esquivable
         for (let i = 0; i < sk.bites; i++) if (this.monsterAttack(m, hs, sk.mult / sk.bites)) return true;
         this.elementHit(sk.el, hs);
@@ -615,6 +617,7 @@ export class Game {
         if (sk.el !== "poison") this.elementHit(sk.el, hs);
         break;
       }
+      case "gaze": // (it. 1862) Tyrannœils : regard pétrifiant (le héros ne frappe plus, comme sous les spores)
       case "spores": { // (it. 1854) Champignards : nuage de spores, le héros étourdi ne frappe plus
         R.chained = Math.max(R.chained || 0, sk.stun);
         this.elementHit(sk.el, hs);

@@ -78,6 +78,18 @@ export const MON_SKILLS = {
     desc: "Toutes les 10 s, plonge ses racines dans le sol et regagne 8 % de ses PV." },
   treant_rot: { id: "rootdeep", name: "Racines pourries", every: 10, first: 4, tell: 0.6, heal: 0.08, venom: 1.5,
     desc: "Toutes les 10 s, plonge ses racines dans le sol : il regagne 8 % de ses PV, et la pourriture empoisonne le héros 1,5 s." },
+  // (it. 1862) Wyvernes : se cabrent, puis crachent un souffle (trois coups rapides)
+  drake: { id: "breath", name: "Souffle", every: 8, first: 3, tell: 0.7, mult: 1.5, bites: 3,
+    desc: "Toutes les 8 s, se cabre puis crache son souffle : trois coups rapides à 50 % de son attaque." },
+  // (it. 1862) Tyrannœils : s'écarquillent, le héros pétrifié ne frappe plus
+  eye: { id: "gaze", name: "Regard pétrifiant", every: 9, first: 3, tell: 0.7, stun: 1.2,
+    desc: "Toutes les 9 s, s’écarquille et fixe le héros : pétrifié, il ne frappe plus pendant 1,2 s." },
+  // (it. 1862) Crapauds : coup de langue, de loin
+  frog: { id: "tongue", name: "Coup de langue", every: 5, first: 2, tell: 0.4, mult: 1,
+    desc: "Toutes les 5 s, gonfle la gorge puis fouette le héros de sa langue : un coup de plus." },
+  // (it. 1862) Serpents : se lovent, puis frappent deux fois
+  snake: { id: "strike", name: "Frappe éclair", every: 6, first: 2.5, tell: 0.5, mult: 1.2, bites: 2,
+    desc: "Toutes les 6 s, se love puis frappe deux fois, très vite : deux coups à 60 % de son attaque." },
 };
 
 /** Élément d'une variante, lu dans sa clé (jamais dans le nom affiché, traduit) : il teinte la compétence de sa famille. */

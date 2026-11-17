@@ -57,6 +57,10 @@ se balançaient qu'au combat.
    - crabes (it. 1860) : Carapace (2 s tassés, 30 % des dégâts ; game.js bulwarkFactor : m.guardT) ;
    - chevaliers noirs (it. 1860) : Parade et riposte (bouclier 1,2 s, 80 % bloqués, puis fente ×1,3) ;
    - sylvains (it. 1860) : Enracinement (s'enfoncent, +8 % PV, sève qui monte) ; le pourri empoisonne ;
+   - wyvernes (it. 1862) : Souffle (se cabrent, trois coups de 50 %, jet de flammes jusqu'au héros) ;
+   - tyrannœils (it. 1862) : Regard pétrifiant (héros figé 1,2 s) ;
+   - crapauds (it. 1862) : Coup de langue (un coup de plus, ligne rose) ; grenouille toxique : poison ;
+   - serpents (it. 1862) : Frappe éclair (se lovent, deux coups de 60 %) ; givre : gel ;
    - **règle d'équilibre (it. 1854)** : une compétence change la façon de se battre, pas la force (game.js skillBalance) :
      un coup en plus baisse l'attaque de base d'autant, ce qui empêche le héros de frapper baisse les PV d'autant ; poison
      des variantes : 1,5 s. Avant : −1,7 zone avec trois familles ; après : −1,4 / +0,8 / −0,4 (graines 7, 3, 11) ;

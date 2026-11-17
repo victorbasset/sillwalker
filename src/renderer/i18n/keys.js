@@ -3149,5 +3149,16 @@ export const KEYS = [
   "Flambée !",
   "Parade !",
   "Riposte !",
-  "Enracinement !"
+  "Enracinement !",
+  "Toutes les 8 s, se cabre puis crache son souffle : trois coups rapides à 50 % de son attaque.",
+  "Regard pétrifiant",
+  "Toutes les 9 s, s’écarquille et fixe le héros : pétrifié, il ne frappe plus pendant 1,2 s.",
+  "Coup de langue",
+  "Toutes les 5 s, gonfle la gorge puis fouette le héros de sa langue : un coup de plus.",
+  "Frappe éclair",
+  "Toutes les 6 s, se love puis frappe deux fois, très vite : deux coups à 60 % de son attaque.",
+  "Souffle !",
+  "Pétrifié !",
+  "Coup de langue !",
+  "Frappe éclair !"
 ];
