@@ -40,6 +40,10 @@ Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues d
   quand l'un des siens se bat ou tombe, les proies s'écartent des prédateurs, le boss s'impatiente, les loups hurlent à la
   lune, bandits et gobelins convoitent un butin légendaire ; chaque espèce a son geste en attendant (l'araignée sur son fil,
   l'ours qui se dresse…). Élites et champions lancent leur compétence plus souvent.
+- **Le climat des zones :** dans la neige, les frileux grelottent et soufflent une buée ; dans les braises, les yétis
+  s'affaissent et fument ; sous l'eau, les monstres lâchent des bulles ; dans les spores, ils éternuent, dans les cendres,
+  ils toussent ; le vent ballotte les volants. Le fantôme, lui, ne respire pas ; le corbeau vit le jour.
+- **Une nouvelle série arrive :** les monstres accourent du bord de l'écran au lieu d'apparaître d'un coup.
 - **Mode mini :** le monstre suivant attend son tour au fond de la scène.
 - **Effets réduits :** « Effets complets » décoché (ou Windows qui demande moins d'animations), la file reste calme.
 - **Bogue corrigé :** un monstre qui se régénère plus vite qu'on ne le blesse, contre un héros qui encaisse tout, figeait la

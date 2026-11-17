@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2040) : brouillon du devlog 0.1.6 : climat des zones (neige, braises, eau, spores, cendres, vent) et arrivée
+  des séries depuis le bord.
 - 2026-11-17 (it. 2039) : Quoi de neuf, édition 130 (souffles ; buée, bulles, vapeur ; corbeau de jour, fantôme), clés 3243-3245
   traduites dans les 9 langues. npm test 353, autotest 260/260, lang-overflow : aucun défilement.
 - 2026-11-17 (it. 2038) : autotest « souffles du climat » (toux grise aux Mines naines, bulles au Lagon de corail : particules de
