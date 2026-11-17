@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2069, contrôle) : dix premières minutes après la journée (monstres vivants, arrivées, équilibrage) : first-minutes
+  inchangé (zone 9-10, niveau 16-17 à 10 min ; premier objet 42-82 s, premier boss 70-82 s, 1er déblocage 345-408 s).
 - 2026-11-17 (it. 2068, revue des onglets Familiers, Ascension, Bestiaire, Carte en anglais) : rien à corriger (les éclats de
   l'Ascension sans ascension viennent de dev-data, remplie à la main). Revue de tous les onglets en anglais terminée (it. 2059-2068).
 - 2026-11-17 (it. 2067) : npm test vérifie qu'en anglais, chinois, japonais et coréen aucun pourcentage n'est espacé (« {3} % »,
