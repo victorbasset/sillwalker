@@ -2134,4 +2134,6 @@ export default {
   3259: "Tryb mini: przed walką boss czeka na swoją kolej w głębi sceny, w koronie (lub z własnym wyglądem porucznika czy Łamacza Gwiazd).",
   3260: "Tryb mini: pierwszy potwór fali (i gobliny) wchodzi od prawej krawędzi; po porażce zwycięzca blednie, a czekający potwór wsuwa się z powrotem.",
   3261: "Na pasku po porażce pokonane potwory wracają biegiem od krawędzi, a zwycięzca zostaje na swoim miejscu.",
+  3262: "Wybierz tę drogę (ostatecznie)",
+  3263: "Ostateczna do zresetowania talentów.",
 };

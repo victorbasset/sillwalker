@@ -2134,4 +2134,6 @@ export default {
   3259: "Mini mode: before its fight, the boss waits its turn at the back of the scene, with its crown (or the lieutenant’s or the Starbreaker’s own look).",
   3260: "Mini mode: the first monster of a wave (and goblins) comes in from the right edge; after a defeat, the winner fades away and the waiting monster slides back in.",
   3261: "On the strip, after a defeat, the defeated monsters come running back from the edge and the winner keeps its place.",
+  3262: "Choose this Way (final)",
+  3263: "Final until the talents are reset.",
 };

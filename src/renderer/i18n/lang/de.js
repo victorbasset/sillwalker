@@ -2134,4 +2134,6 @@ export default {
   3259: "Mini-Modus: Vor seinem Kampf wartet der Boss im Hintergrund der Szene, mit seiner Krone (oder dem eigenen Bild des Statthalters bzw. des Sternenbrechers).",
   3260: "Mini-Modus: Das erste Monster einer Welle (und Goblins) kommt vom rechten Rand herein; nach einer Niederlage verblasst der Sieger, und das wartende Monster gleitet wieder herein.",
   3261: "Auf dem Streifen kommen nach einer Niederlage die besiegten Monster vom Rand zurückgelaufen, und der Sieger behält seinen Platz.",
+  3262: "Diesen Weg wählen (endgültig)",
+  3263: "Endgültig, bis die Talente zurückgesetzt werden.",
 };

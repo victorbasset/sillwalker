@@ -3263,5 +3263,7 @@ export const KEYS = [
   "Mode mini : le monstre suivant s’avance depuis sa place d’attente, sans disparaître ni surgir plus loin.",
   "Mode mini : avant son combat, le boss attend son tour au fond de la scène, avec sa couronne (ou le dessin du lieutenant ou du Briseur).",
   "Mode mini : le premier monstre d’une série (et les gobelins) entre par le bord droit ; après une défaite, le vainqueur s’efface et le monstre en attente revient en glissant.",
-  "Sur la bande, après une défaite, les monstres vaincus reviennent en courant du bord et le vainqueur garde sa place."
+  "Sur la bande, après une défaite, les monstres vaincus reviennent en courant du bord et le vainqueur garde sa place.",
+  "Choisir cette voie (définitive)",
+  "Définitive jusqu’à la réinitialisation des talents."
 ];

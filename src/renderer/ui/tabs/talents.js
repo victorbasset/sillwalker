@@ -54,10 +54,12 @@ export class TalentsTab {
     const voies = (VOIES[S.cls] || []).map((v) => {
       const taken = voie && voie.id === v.id, closed = voie && !taken, locked = spentAll < VOIE_REQ;
       const cls = ["talent", "voie", taken ? "has maxed" : "", closed ? "closed" : "", locked ? "locked" : "", this.sel === v.id ? "sel" : ""].join(" ");
-      const armed = this.armed === v.id && !taken;
+      // (it. 2096, ergonomie) plus de « cliquer encore pour confirmer » sur la ligne : un clic montre la voie dans la fiche, où un
+      // bouton explicite la choisit
+      const armed = false;
       // (it. 1522, demande de Victor : réduire la Voie) la description au survol, une ligne par voie
       return `<button class="${cls}${armed ? " armed" : ""}" data-action="t-voie" data-id="${v.id}" data-tid="${v.id}" title="${esc(v.text)}"><span class="tn">${taken ? "✦ " : ""}${esc(v.name)}</span>
-        <span class="tr">${taken ? tx("choisie") : locked ? "🔒 " + txn(VOIE_REQ, "{n} pt|{n} pts") : closed ? "—" : armed ? tx("cliquer encore pour confirmer") : tx("choisir")}</span><span class="vt">${esc(v.text)}</span></button>`;
+        <span class="tr">${taken ? tx("choisie") : locked ? "🔒 " + txn(VOIE_REQ, "{n} pt|{n} pts") : closed ? "—" : tx("choisir")}</span><span class="vt">${esc(v.text)}</span></button>`;
     }).join("");
     // (it. 1522) paliers atteints dont le bonus n'a jamais été choisi : pastille « A/B » qui ouvre le choix
     const pend = new Set(this.game.pendingMasteryPicks().map((x) => x.id));
@@ -131,6 +133,18 @@ export class TalentsTab {
       // (it. 1530) maîtrise déjà apprise : le rang seul (la condition d'accès ne sert plus ; une ligne de moins)
       : ix.branch === "mastery" ? (r ? tx("rang {0}", { 0: r }) : `${tx("Maîtrise, demande {0} points dépensés · rang {1}", { 0: MASTERY_REQ, 1: r })}`)
       : `${tree[ix.branch].name}${tx(", palier {0}{1} · rang {2} / {3}", { 0: t.tier + 1, 1: TIER_REQ[t.tier] ? ` ${tx("(demande {0} points dans la branche)", { 0: TIER_REQ[t.tier] })}` : "", 2: r, 3: t.max })}`;
+    // (it. 2096) voie pas encore choisie : sa description et le bouton qui la choisit (la ligne de la voie ne fait que la montrer)
+    if (ix.branch === "voie" && !r) {
+      const ok = !why;
+      return `<div class="tsel">
+        <div class="nm">${esc(t.name)}</div>
+        ${ok ? "" : `<div class="sub">${esc(where)}</div>`}${/* accessible : la condition d'accès ne sert plus, place à l'avertissement */ ""}
+        ${t.text ? `<p class="ttext">${esc(t.text)}</p>` : ""}
+        ${/* l'avertissement dans le bouton (la fiche, de hauteur fixe, coupait une ligne en dessous en russe et en allemand) */ ""}
+        ${ok ? `<div class="row"><button class="primary" data-action="t-voie-ok" data-id="${t.id}" title="${esc(tx("Définitive jusqu’à la réinitialisation des talents."))}">${tx("Choisir cette voie (définitive)")}</button></div>`
+          : `<p class="note">${esc(why)}${cend()}</p>`}
+      </div>`;
+    }
     return `<div class="tsel">
         <div class="nm">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</div>
         <div class="sub">${esc(where)}</div>
@@ -187,12 +201,9 @@ export class TalentsTab {
     else if (a === "t-mpend") { this.sel = b.dataset.id; setTimeout(() => this.root?.querySelector("#tsel .mpickbox summary")?.click(), 0); }
     // Maj + clic : comme le petit bouton (« +1 » sur un talent, « tout » sur une maîtrise)
     else if (a === "t-learn") this.learnFrom(b, !!e?.shiftKey);
-    else if (a === "t-voie") {
-      this.sel = b.dataset.id;
-      if (cannotLearn(g.S, b.dataset.id)) return;
-      if (this.armed === b.dataset.id) { this.armed = null; g.learnTalent(b.dataset.id, 1); }
-      else { this.armed = b.dataset.id; setTimeout(() => { if (this.armed === b.dataset.id) { this.armed = null; g.changed(); } }, 4000); }
-    }
+    // (it. 2096) clic sur une voie : sa fiche, avec le bouton « Choisir cette voie » (à un autre endroit que le premier clic)
+    else if (a === "t-voie") { this.sel = b.dataset.id; g.changed(); }
+    else if (a === "t-voie-ok" && !cannotLearn(g.S, b.dataset.id)) { this.sel = b.dataset.id; g.learnTalent(b.dataset.id, 1); }
     // (it. 1107) ; (it. 1133) la fenêtre reste ouverte (6 paliers d'affilée) : la mise en évidence suit sur place
     else if (a === "t-mpick" && g.pickMastery(b.dataset.id, +b.dataset.at, b.dataset.opt)) {
       for (const x of b.parentElement.querySelectorAll(".mpick")) { const on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-pressed", String(on)); }

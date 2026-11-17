@@ -2134,4 +2134,6 @@ export default {
   3259: "Modo mini: antes de su combate, el jefe espera su turno al fondo de la escena, con su corona (o el aspecto del lugarteniente o del Rompeestrellas).",
   3260: "Modo mini: el primer monstruo de una oleada (y los goblins) entra por el borde derecho; tras una derrota, el vencedor se desvanece y el monstruo en espera vuelve deslizándose.",
   3261: "En la franja, tras una derrota, los monstruos vencidos vuelven corriendo desde el borde y el vencedor conserva su sitio.",
+  3262: "Elegir esta vía (definitiva)",
+  3263: "Definitiva hasta reiniciar los talentos.",
 };

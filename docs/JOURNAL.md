@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2096, Talents, étape 3) : Voie : un clic sur la ligne la montre dans la fiche ; elle se choisit par le bouton
+  « Choisir cette voie (définitive) » (avant : deux clics au même endroit, le libellé changeant en « cliquer encore pour
+  confirmer »). Captures ru / de à 1280 px ; autotest « un clic montre la voie, le bouton de la fiche la choisit » ; 266/266.
 - 2026-11-17 (it. 2095, Talents, étape 2) : pastilles à emplacement fixe : « +1 », « tout », « Choisir un bonus » / « Bonus » ne
   naissent ni ne disparaissent plus d'un clic à l'autre (invisibles et sans action hors d'usage ; les deux libellés du bonus
   superposés) ; Maj + clic ignore l'emplacement invisible. Le « → 800 » des maîtrises, caché dès qu'une pastille « tout » existait,
