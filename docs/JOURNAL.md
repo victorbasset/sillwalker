@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1948, contrôle) : perf de fin de partie (fixture, copie neuve à chaque mesure) avant / après les meutes, instincts
+  et gestes (99e9711d contre HEAD, alternés) : 25,27 / 25,21 contre 25,21 / 25,71 % : +0,2 point, dans le bruit. Rien à corriger.
 - 2026-11-17 (it. 1947) : « Quoi de neuf », édition 124 (gestes propres à chaque espèce ; loups qui hurlent à la lune, spectres
   qui s'estompent ; convoitise ; clés 3222-3224, 10 langues). Autotest 256/256, lang-overflow ru/de/pl : rien ne défile.
 - 2026-11-17 (it. 1946) : MONSTRES-VIVANTS, étape 9 (gestes et caractères, it. 1927-1945).
