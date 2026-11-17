@@ -113,6 +113,12 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   en mode mini, décrite au survol de la carte du Bestiaire ; les variantes (feu, givre, poison, ombre) y ajoutent un effet ;
   les boss de zone ont celle de leur famille, les lieutenants et le Briseur un pouvoir unique. Chacune est compensée
   (attaque ou PV) : elle change la façon de se battre, pas la force. Plan et bilan : `docs/MONSTRES-VIVANTS.md`.
+- **Vie de la file** (17/11) : séries de 7 à 13 monstres ; en attendant, chacun vit selon sa nature (flâne, plane, sautille,
+  file par à-coups) et fait son geste d'espèce ; espèces grégaires en meutes (elles se suivent, s'avancent, s'emportent ou
+  se dispersent quand l'une tombe) ; proies et prédateurs, sommeil de jour ou de nuit, boss impatient, convoitise des
+  légendaires, crainte d'un héros trop fort ; tout s'arrête avec « Effets complets » décoché (render/monlife.js, strip.js).
+- **Garde-fou des combats sans fin** : un monstre qu'on ne peut pas tuer et qui ne peut pas tuer s'emporte après 90 s ; le
+  héros abandonne après 3 min (game.js) ; `scripts/stall-check.mjs` cherche ces impasses dans des parties avancées.
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.
 - **Répliques** : le héros parle de temps en temps (légendaire, boss, K.O., record…).
 - **Vitesse** (le bonus le plus précieux) : plumes du vent très rares et étoiles filantes à attraper d'un clic
