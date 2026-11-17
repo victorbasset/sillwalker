@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2003, contrôle) : partie neuve (dossier temporaire, français) capturée à 90 s : zone 2, deux gluants et deux rats
+  côte à côte (meutes dès le début), série variée, boss gluant au bout ; aucune erreur. Rien à corriger.
 - 2026-11-17 (it. 2002, journée des monstres) : le héros monte de niveau : les deux plus proches de la file sursautent, éblouis
   (pas les téméraires ; pas avec les effets réduits). Vérifié. Autotest 258/258.
 - 2026-11-17 (it. 2001, revue générale) : mémoire 4 min : 573-576 Mo ; 12 h graine 301 : guerrier 65, prêtresse 62, berserker 65 ;
