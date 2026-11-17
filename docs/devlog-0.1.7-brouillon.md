@@ -20,3 +20,7 @@ docs/devlog-0.1.6.md).
 
 ## Français (nouveautés depuis la 0.1.6, à compléter)
 
+- **Carte de la zone :** le boss annoncé est le vrai (lieutenant, écho ou Briseur, avec ses vrais PV : avant, ceux d'un boss
+  ordinaire, cinq fois moins pour le Chevalier de l'éclipse), et un seul nom pour lui (it. 2058-2059).
+- **Héros bloqué devant un lieutenant ou le Briseur :** une piste « renforce tes reliques » (it. 2062) ; la carte ne défile plus
+  dans ces zones, même en russe sur un écran de 1280 px (it. 2063).

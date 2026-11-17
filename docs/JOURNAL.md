@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2064) : vérifié : le renforcement d'une relique a sa réaction sur la bande et son son (relicUp), et la carte de la
+  zone annonce « Ce boss renforcera … (niveau n → n+1) » ; brouillon du devlog 0.1.7 tenu à jour (it. 2058-2063).
 - 2026-11-17 (it. 2063) : lang-overflow mesure aussi la zone d'un lieutenant ou du Briseur avec le héros bloqué (« adventure-boss150-
   bloqué=N ») : il a trouvé en russe à 1280 px 7 px (zones 100, 150) et 22 px (zones 200, 300) ; la zone 200 défilait déjà avant
   l'it. 2062 (16 px, carte du Briseur : une ligne de capacités de plus). Dans ces zones, la carte donne maintenant deux pistes (elle
