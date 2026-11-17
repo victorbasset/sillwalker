@@ -62,6 +62,9 @@ export class MiniRenderer {
       if (this.spellIcons.length > 6) this.spellIcons.shift().im.remove();
     });
     game.on("tap", () => { this.monHit = 0.12; });
+    // (it. 1873) compétences des monstres en mode mini : une version réduite du geste de la bande (il se tasse pendant
+    // l'annonce, puis s'élance vers le héros) ; caché ou intangible : à demi effacé, comme sur la bande
+    game.on("monSkill", ({ phase }) => { this.mfx = { phase, t: 0, d: phase === "tell" ? 0.5 : 0.4 }; });
     // Moments marquants, sobres : un liseré doré et un mot sur la scène pendant quelques secondes, une seule fois.
     this.moment = el("div", "minimoment", this.scene);
     this.moment.hidden = true;
@@ -202,8 +205,15 @@ export class MiniRenderer {
       let y = GROUND - a.h + P;
       if (a.fly) y -= 12 + (alive ? Math.sin(R.time * 5) * 2 : 0);
       const dist = alive ? m.dist : 0;
-      a.move(HERO_X + CONTACT + dist * 0.55 + (this.monHit > 0 ? 3 : 0), y);
-      a.alpha(alive ? Math.min(1, m.age / 0.4) : Math.max(0, R.corpse.t / 0.45));
+      let px = 0, py = 0;
+      if (alive && this.mfx) {
+        const f = this.mfx; f.t += dt; const p = f.t / f.d;
+        if (p >= 1) this.mfx = null;
+        else if (f.phase === "tell") py = 2;
+        else { const arc = Math.sin(p * Math.PI); px = -6 * arc; py = -4 * arc; }
+      }
+      a.move(HERO_X + CONTACT + dist * 0.55 + (this.monHit > 0 ? 3 : 0) + px, y + py);
+      a.alpha(alive ? Math.min(1, m.age / 0.4) * (m.phaseT > 0 ? 0.375 : 1) : Math.max(0, R.corpse.t / 0.45));
       if (a.bar.el.style.opacity !== String(a.alphaV)) a.bar.el.style.opacity = a.alphaV;
       a.bar.visible(alive);
       const tapOn = alive && R.mode === "fight";

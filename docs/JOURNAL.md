@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1873, journée des monstres) : mode mini : le monstre combattu fait une version réduite du geste de sa
+  compétence (se tasse de 2 px pendant l'annonce, s'élance de 6 px et se soulève de 4 px) et s'efface à demi quand il
+  est caché ou intangible (phaseT). Mesuré en jeu (x 129 → 135, y 27 → 30). npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1872, contrôle) : rôdeur et barde « en recul » au tableau de l'it. 1871 : sur 7 graines (7, 3, 11, 21,
   31, 41, 51), contre aea72772 (avant les compétences de monstres, git worktree) : rôdeur 62,7 → 62,7, barde 64,6 → 64,1 :
   bruit, rien à corriger (le tableau à 3 graines tombait sur leurs mauvaises graines).
