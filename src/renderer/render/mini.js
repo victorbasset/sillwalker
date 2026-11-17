@@ -214,10 +214,17 @@ export class MiniRenderer {
         else { const arc = Math.sin(p * Math.PI); px = -6 * arc; py = -4 * arc; }
       }
       // (it. 2071) venu de la place d'attente : part de là (l'écart s'efface à mesure qu'il approche) et de sa demi-transparence
+      // le passage de relais est noté plus bas (bloc du suivant) : à la toute première image, le reconnaître ici (sinon une image au bord)
+      if (alive && (!this.fromNext || this.fromNext.mon !== m) && (m.age || 0) < 0.3 && this.nextActor && parseInt(this.nextKey) === this.game.S.kills && this.nextKey.split(":")[1] === m.type)
+        this.fromNext = { mon: m, x: this.nextActor.x };
       const fn = this.fromNext && this.fromNext.mon === m ? this.fromNext : null;
-      const from = fn && alive ? (fn.x - (HERO_X + CONTACT + SPAWN_DIST * 0.55)) * Math.max(0, Math.min(1, dist / SPAWN_DIST)) : 0;
+      // (it. 2079) sinon (premier de la série, gobelin, Poupouce…) : il entre par le bord droit, comme sur la bande, au lieu de
+      // surgir au milieu de la scène en fondu (« Effets complets » décoché : comme avant)
+      const k = Math.max(0, Math.min(1, dist / SPAWN_DIST)), x0 = HERO_X + CONTACT + SPAWN_DIST * 0.55;
+      const edge = !fn && alive && this.game.S.settings.fullEffects !== false;
+      const from = fn && alive ? (fn.x - x0) * k : edge ? (SCENE_W + 2 - x0) * k : 0;
       a.move(HERO_X + CONTACT + dist * 0.55 + from + (this.monHit > 0 ? 3 : 0) + px, y + py);
-      a.alpha(alive ? Math.min(1, fn ? 0.5 + m.age / 0.8 : m.age / 0.4) * (m.phaseT > 0 ? 0.375 : 1) : Math.max(0, R.corpse.t / 0.45));
+      a.alpha(alive ? Math.min(1, fn ? 0.5 + m.age / 0.8 : edge ? 1 : m.age / 0.4) * (m.phaseT > 0 ? 0.375 : 1) : Math.max(0, R.corpse.t / 0.45));
       if (a.bar.el.style.opacity !== String(a.alphaV)) a.bar.el.style.opacity = a.alphaV;
       a.bar.visible(alive);
       const tapOn = alive && R.mode === "fight";

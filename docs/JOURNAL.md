@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2079, suite du signalement de Victor) : mode mini : un combattant qu'on n'a pas vu attendre (premier de la série,
+  gobelin, Poupouce) entre par le bord droit, comme sur la bande, au lieu de surgir au milieu de la scène en fondu ; et le relais
+  depuis la place d'attente est reconnu dès la première image (relevé : 162 à demi effacé, puis 153… ; avant, une image à x 132
+  invisible). « Effets complets » décoché : comme avant. Autotest 262/262 (premier x : 162).
 - 2026-11-17 (it. 2078, vérification) : retour après 8 h d'absence (copie de dev-data) : la bulle « Pendant ton absence (8 h) : 244
   monstres, +29,06 Md or. Cliquer pour le détail. » s'affiche sur la bande (pas avec --open-panel, normal). Rien à corriger.
 - 2026-11-17 (it. 2077) : Quoi de neuf, édition 134 (mode mini : monstre suivant fluide, boss en attente), clés 3258-3259
