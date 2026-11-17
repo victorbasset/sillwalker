@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1974) : harpie (balancement) et tyrannœil (palpitation) vus dans le jeu ; l'autotest des gestes couvre
+  aussi un geste d'espèce (l'ours se dresse). 257/257.
 - 2026-11-17 (it. 1973, journée des monstres) : six gestes d'espèce de plus (guêpe qui bourdonne, diablotin qui se retourne,
   harpie qui se balance, wyverne qui se cabre, tyrannœil et élémentaire de feu qui palpitent), avec les mouvements existants.
   Vérifié (série imposée). Autotest 257/257.
