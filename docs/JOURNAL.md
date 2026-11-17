@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1913, journée des monstres) : un loup (ou un membre de meute) tombe : ses congénères ne sursautent pas en
+  arrière comme les autres, ils s'avancent de 8 px en frémissant, un « ! » rouge au-dessus du premier. Vérifié dans le jeu
+  (série imposée : ours → les loups sursautent ; loup → les deux autres s'avancent, furieux). Autotest 254/254.
 - 2026-11-17 (it. 1912) : autotest « bande : une meute de loups suit son chef, deux ours voisins restent chacun de son côté »
   (série imposée, puis rendue). 254/254.
 - 2026-11-17 (it. 1911, revue générale) : perf:linux bande 18,0 %, panneau 19,1 %, mini 5,4 % ; 12 h graine 211 : druide 64,

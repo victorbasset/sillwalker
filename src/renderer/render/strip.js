@@ -438,8 +438,17 @@ export class StripRenderer {
     g.on("kill", () => {
       // l'événement part avant que le compte avance : le mort est à S.kills, ses voisins juste après
       const k0 = Math.min(this.game.S.kills + 1, this.slots.length - 1);
+      // (it. 1913) un membre de la meute tombe : ses congénères ne reculent pas, ils s'avancent, furieux (« ! » rouge)
+      const dead = this.slots[k0 - 1], packId = dead ? dead.packSeed ?? dead.lifeSeed : null;
+      let shouted = false;
       for (let k = k0; k < Math.min(k0 + 3, this.slots.length - 1); k++) {
-        const a = this.slots[k]; if (!a || a.brave) continue;
+        const a = this.slots[k]; if (!a) continue;
+        if (a.packSeed != null && a.packSeed === packId) {
+          a.react = { kind: "fury", t: 0, d: 0.9, delay: (k - k0) * 0.1 };
+          if (!shouted && a.tx) { shouted = true; const [fx, fy] = a.tx.split(",").map(Number); this.float(fx + a.w / 2, fy - 4, "!", "#ff5a4a", true); }
+          continue;
+        }
+        if (a.brave) continue;
         a.react = { kind: "startle", t: 0, d: 0.7 + (k - k0) * 0.1, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.08 };
       }
     });
@@ -1335,6 +1344,7 @@ export class StripRenderer {
         if (p >= 1) a.react = null;
         else if (p > 0) {
           if (r.kind === "startle") { const b = p < 0.2 ? p / 0.2 : 1 - (p - 0.2) / 0.8; rdx = 8 * r.far * b; rdy = p < 0.2 ? -4 * Math.sin(p / 0.2 * Math.PI) : 0; }
+          else if (r.kind === "fury") { const b = p < 0.25 ? p / 0.25 : 1 - (p - 0.25) / 0.75; rdx = -8 * b + (Math.floor(r.t * 20) % 2 ? 1 : -1) * (p < 0.6 ? 1 : 0); }
           else if (r.kind === "gesture") rdy = -Math.sin(p * Math.PI) * 3;
           else rdy = -Math.abs(Math.sin(p * Math.PI * 3)) * 5;
         }
