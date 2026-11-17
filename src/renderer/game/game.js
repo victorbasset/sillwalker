@@ -536,6 +536,7 @@ export class Game {
     if (m.skillT > 0) return false;
     m.skillT = sk.every * rnd(0.8, 1.2); // (it. 1884) rythme irrégulier : un monstre n'est pas une horloge (même moyenne)
     this.emit("monSkill", { id: sk.id, el: sk.el, phase: "go", mon: m });
+    R.skillsSeen = (R.skillsSeen || 0) + 1; // (it. 1887) pour l'astuce des compétences (hints.js)
     switch (sk.id) {
       case "leap": { // Gluants : bond sur le héros
         if (this.monsterAttack(m, hs, sk.mult * (sk.el === "fire" ? 1.2 : 1))) return true;

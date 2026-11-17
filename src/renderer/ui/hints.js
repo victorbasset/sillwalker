@@ -89,6 +89,9 @@ export const HINTS = [
     when: (g) => g.S.stats.kills >= 300 && g.S.settings.sound !== false && !g.S.settings.muted },
   { id: "speed", tab: "stats", text: tx("La vitesse est le bonus le plus précieux : guette les plumes du vent et clique sur les étoiles filantes !"),
     when: (g) => (g.S.speed || 0) > 0 && statsFull(g.S) }, // (it. 1729) chiffres visibles à partir de la zone 40
+  // (it. 1887) compétences des monstres : à la troisième vue, dire ce qu'annonce le « ! » et où les lire
+  { id: "monskills", tab: "bestiary", text: tx("Chaque sorte de monstre a sa compétence : un « ! » au-dessus de lui annonce son coup. Survole sa carte du Bestiaire pour la connaître."),
+    when: (g) => (g.R.skillsSeen || 0) >= 3 },
   // (it. 1833) le filtre du Journal (it. 1723) restait à découvrir : une fois le journal bien rempli
   { id: "logimp", tab: "stats", sec: "log", text: tx("Le Journal défile vite ? Coche « Lignes importantes seulement » (Statistiques > Journal) : il ne garde que le butin rare, les événements, les quêtes et les chutes du héros."),
     when: (g) => tabOpen(g.S, "stats") && (g.S.stats.kills || 0) >= 2000 && !g.S.settings.logImportant },

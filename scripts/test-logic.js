@@ -4709,4 +4709,10 @@ test("compétences des monstres (it. 1865) : toutes les sortes en ont une (sauf 
   const earned = (g.S.stats.goldTotal || 0) - total0;
   assert.ok(Math.abs(g.S.gold - before - earned - m.stolen) < 1e-6, "l'or volé revient, en plus du butin (pas compté comme gagné)");
 });
+test("astuce des compétences des monstres (it. 1887) : après trois compétences vues, onglet Bestiaire ouvert", () => {
+  const find = (gg, id) => { for (let i = 0; i < 40; i++) { const h = nextHint(gg); if (!h) return null; if (h.id === id) return h; markHint(gg, h.key); } return null; };
+  const mk = (n) => { const g = new Game(freshLocked()); g.S.tabsOpen = { ...(g.S.tabsOpen || {}), bestiary: true }; g.R.skillsSeen = n; return g; };
+  assert.ok(find(mk(3), "monskills"), "trois vues : l'astuce");
+  assert.ok(!find(mk(1), "monskills"), "une seule : pas encore");
+});
 console.log(`\n${pass} tests réussis`);

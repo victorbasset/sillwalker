@@ -2081,4 +2081,5 @@ export default {
   3206: "Each zone holds 7 to 13 monsters, at random.",
   3207: "Every kind of monster has its own skill, visible on the strip and described when you hover its Bestiary card; zone bosses have their family’s.",
   3208: "one per boss, two from the 2nd loop; plus their family’s skill (hover their card)",
+  3209: "Every kind of monster has its own skill: a “!” above it announces its move. Hover its Bestiary card to learn it.",
 };

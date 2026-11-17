@@ -2081,4 +2081,5 @@ export default {
   3206: "Cada zona tiene de 7 a 13 monstruos, al azar.",
   3207: "Cada tipo de monstruo tiene su habilidad, visible en la franja y descrita al pasar el ratón por su carta del Bestiario; los jefes de zona tienen la de su familia.",
   3208: "una por jefe, dos a partir de la 2.ª vuelta; además, la habilidad de su familia (al pasar sobre su carta)",
+  3209: "Cada tipo de monstruo tiene su habilidad: un «!» sobre él anuncia su golpe. Pasa el ratón por su carta del Bestiario para conocerla.",
 };

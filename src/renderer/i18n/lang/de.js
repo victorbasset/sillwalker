@@ -2081,4 +2081,5 @@ export default {
   3206: "Jede Zone hat zufällig 7 bis 13 Monster.",
   3207: "Jede Monsterart hat ihre eigene Fähigkeit, sichtbar auf der Leiste und beim Überfahren ihrer Bestiarium-Karte beschrieben; Zonenbosse haben die ihrer Familie.",
   3208: "eine pro Boss, zwei ab der 2. Runde; dazu die Fähigkeit seiner Familie (beim Überfahren seiner Karte)",
+  3209: "Jede Monsterart hat ihre Fähigkeit: Ein „!“ über ihr kündigt den Angriff an. Fahre über ihre Bestiarium-Karte, um sie kennenzulernen.",
 };

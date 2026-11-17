@@ -2081,4 +2081,5 @@ export default {
   3206: "Każda strefa ma losowo od 7 do 13 potworów.",
   3207: "Każdy rodzaj potwora ma własną umiejętność, widoczną na pasku i opisaną po najechaniu na jego kartę w Bestiariuszu; bossowie stref mają umiejętność swojej rodziny.",
   3208: "jedna na bossa, dwie od 2. okrążenia; do tego umiejętność jego rodziny (po najechaniu na jego kartę)",
+  3209: "Każdy rodzaj potwora ma swoją umiejętność: „!” nad nim zapowiada atak. Najedź na jego kartę w Bestiariuszu, by ją poznać.",
 };

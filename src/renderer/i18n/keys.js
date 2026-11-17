@@ -3210,5 +3210,6 @@ export const KEYS = [
   "Le Rebord vit : en attendant leur tour, les monstres flânent, planent ou sautillent, se tournent vers le héros qui approche et sursautent quand un voisin tombe.",
   "Chaque zone compte de 7 à 13 monstres, au hasard.",
   "Chaque sorte de monstre a sa compétence, visible sur la bande et décrite au survol de sa carte du Bestiaire ; les boss de zone ont celle de leur famille.",
-  "une par boss, deux à partir de la 2e boucle ; en plus, la compétence de sa famille (au survol de sa carte)"
+  "une par boss, deux à partir de la 2e boucle ; en plus, la compétence de sa famille (au survol de sa carte)",
+  "Chaque sorte de monstre a sa compétence : un « ! » au-dessus de lui annonce son coup. Survole sa carte du Bestiaire pour la connaître."
 ];

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1887, journée des monstres) : astuce « monskills » : après trois compétences vues (R.skillsSeen), elle dit
+  ce qu'annonce le « ! » et renvoie au Bestiaire (survol des cartes). Clé 3209, 10 langues, aucune astuce coupée ;
+  test ; npm test 346, autotest 253/253.
 - 2026-11-17 (it. 1886, journée des monstres) : bilan d'équilibre contre aea72772 (avant les compétences), trois graines :
   −1,1 / −0,2 / −1,0 (moyenne −0,8). Venin et ombre compensés à leur tour (PV −4 % / −2 %) : −1,5 / −0,7 / −0,3 (−0,8) :
   pas la cause ; écart résiduel ≈ 1 % de progression en 12 h, gardé (monstres un peu plus coriaces, ressenti voulu).
