@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2038) : autotest « souffles du climat » (toux grise aux Mines naines, bulles au Lagon de corail : particules de
+  leur couleur après un geste forcé). Premier essai : bulles absentes, le plafond de 24 étincelles (MAX_SPARKS) était atteint par
+  la toux encore vivante ; 0,9 s d'attente avant chaque geste. Autotest 260/260 deux fois.
 - 2026-11-17 (it. 2037, journée des monstres) : dans les braises, le yéti et les créatures de givre fondent : un peu de vapeur
   monte (vérifié en capture au Volcan des wyvernes). Autotest : « élite, réplique du héros » échouait selon le tirage
   (makeMonster tirait Poupouce, « Pardon, Poupouce… » passait devant) : poupouce: false dans les deux contrôles d'élite.
