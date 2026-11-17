@@ -1283,7 +1283,10 @@ export class StripRenderer {
     this.chatT = (this.chatT ?? 8) - dt;
     if (this.chatT <= 0) {
       this.chatT = 10 + Math.random() * 8;
-      const k = cur + 2 + Math.floor(Math.random() * Math.max(1, this.fights() - cur - 4)), A = this.slots[k], B = this.slots[k + 1];
+      // (it. 1918) les membres d'une meute bavardent plus volontiers entre eux (deux fois sur trois s'il y en a une en attente)
+      const packPairs = [];
+      for (let j = cur + 2; j < this.fights() - 2; j++) { const P = this.slots[j], Q = this.slots[j + 1]; if (P && Q && Q.packSeed != null && Q.packSeed === (P.packSeed ?? P.lifeSeed)) packPairs.push(j); }
+      const k = packPairs.length && Math.random() < 0.67 ? packPairs[Math.floor(Math.random() * packPairs.length)] : cur + 2 + Math.floor(Math.random() * Math.max(1, this.fights() - cur - 4)), A = this.slots[k], B = this.slots[k + 1];
       if (A && B && k + 1 < this.fights() - 1 && !A.react && !B.react && Math.abs(this.fightX(k + 1) - this.heroX) > 220) { A.chat = { t: 2, side: -1 }; B.chat = { t: 2, side: 1 }; }
     }
     const idle = Math.floor(R.time * 2) % 2, busy = Math.floor(R.time * 4) % 2;
