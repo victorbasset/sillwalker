@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1861, revue générale, journée des monstres) : semaine avec 22 familles de compétences : guerrier 366
+  (dernière course), mage 350 : la fin de partie tient. perf:linux bande 18,3 %, panneau 19,3 %, mini 5,6 % (une première
+  mesure à 25,4 % était faussée par les deux semaines simulées en parallèle : noté dans CLAUDE.md) ; russe : aucun mot
+  français (compétences du Bestiaire comprises). Rien à corriger.
 - 2026-11-17 (it. 1860, journée des monstres) : élémentaires de feu : Flambée (×1,5) ; crabes : Carapace (2 s à 30 % des
   dégâts, par bulwarkFactor : coups, clics, sorts, drone) ; chevaliers noirs : Parade et riposte (bouclier 1,2 s à 80 %,
   puis riposte ×1,3) ; sylvains : Enracinement (+8 % PV ; le pourri empoisonne). Gardes et soins compensés sur les PV.
