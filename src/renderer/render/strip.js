@@ -1412,7 +1412,10 @@ export class StripRenderer {
           const Zd = this.game.zoneDef(), snowy = WEATHER[Zd.src || Zd.name] === "snow";
           const cold = snowy && a.art !== "yeti" && elementOf(a.type || "") !== "frost";
           // (it. 2005) zone de braises : yétis et variantes de givre souffrent de la chaleur (ils s'affaissent, « still »)
-          const hot = WEATHER[Zd.src || Zd.name] === "ember" && (a.art === "yeti" || elementOf(a.type || "") === "frost");
+          const wx = WEATHER[Zd.src || Zd.name];
+          // (it. 2006) …et sous l'eau (bulles), les créatures de feu (diablotins, élémentaires, variantes de feu) aussi
+          const hot = (wx === "ember" && (a.art === "yeti" || elementOf(a.type || "") === "frost"))
+            || (wx === "bubble" && (a.art === "imp" || a.art === "fireelem" || elementOf(a.type || "") === "fire"));
           const nat = cold ? "rattle" : hot ? "still" : ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };

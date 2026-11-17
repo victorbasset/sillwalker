@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2006, journée des monstres) : zones sous l'eau (bulles : Récif abyssal, Cité engloutie, Lagon de corail) : les
+  créatures de feu (diablotins, élémentaires, variantes de feu) s'affaissent. Vérifié (Lagon de corail : diablotin et gluant de
+  lave s'affaissent, ours se dresse).
 - 2026-11-17 (it. 2005, journée des monstres) : zones de braises (Forge volcanique, Abysses ardents, Cœur du volcan, Volcan des
   wyvernes) : yétis et variantes de givre souffrent de la chaleur (ils s'affaissent). Vérifié (Volcan des wyvernes : ours se
   dresse, yéti et gluant de givre s'affaissent). Autotest 258/258.
