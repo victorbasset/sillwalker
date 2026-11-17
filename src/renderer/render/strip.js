@@ -1355,7 +1355,9 @@ export class StripRenderer {
         a.nextGesture -= dt;
         if (a.nextGesture <= 0) {
           a.nextGesture = 18 + Math.random() * 20;
-          a.react = { kind: "gesture", t: 0, d: 0.6, delay: 0 };
+          // (it. 1933) le geste dépend de la nature : furtif (renifle de droite à gauche), colosse (s'enfonce, lourd), volant
+          // (looping : monte haut puis redescend), sauteur (grand bond) ; les autres, le petit bond
+          a.react = { kind: "gesture", t: 0, d: a.nature === "still" ? 1 : 0.6, delay: 0, nat: a.nature };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
         }
       }
@@ -1373,7 +1375,14 @@ export class StripRenderer {
         else if (p > 0) {
           if (r.kind === "startle") { const b = p < 0.2 ? p / 0.2 : 1 - (p - 0.2) / 0.8; rdx = 8 * r.far * b; rdy = p < 0.2 ? -4 * Math.sin(p / 0.2 * Math.PI) : 0; }
           else if (r.kind === "fury") { const b = p < 0.25 ? p / 0.25 : 1 - (p - 0.25) / 0.75; rdx = -8 * b + (Math.floor(r.t * 20) % 2 ? 1 : -1) * (p < 0.6 ? 1 : 0); }
-          else if (r.kind === "gesture") rdy = -Math.sin(p * Math.PI) * 3;
+          else if (r.kind === "gesture") {
+            const sn = Math.sin(p * Math.PI);
+            if (r.nat === "skitter") rdx = Math.floor(p * 6) % 2 ? 3 : -3;
+            else if (r.nat === "still") rdy = sn * 3;
+            else if (r.nat === "fly") rdy = -sn * 9;
+            else if (r.nat === "hop") rdy = -sn * 7;
+            else rdy = -sn * 3;
+          }
           else rdy = -Math.abs(Math.sin(p * Math.PI * 3)) * 5;
         }
       }

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1933, journée des monstres) : le geste au repos dépend de la nature : les furtifs reniflent de droite à
+  gauche, les colosses s'enfoncent lourdement, les volants montent haut puis redescendent, les sauteurs font un grand bond
+  (les autres, le petit bond d'avant). Vérifié (rat, golem, chauve-souris, gluant). Autotest 254/254.
 - 2026-11-17 (it. 1932, journée des monstres) : la nuit, un loup qui attend hurle à la lune (tête levée) toutes les 15 à 30 s ;
   les autres loups de la file répondent 0,6 à 1 s plus tard (howlDelay). Sans son (une alerte sonore nocturne répétée
   dérangerait). Vérifié (nuit forcée : loup 4 à 0,9 s, puis 6 et 5 à 1,6-1,7 s). Autotest 254/254.
