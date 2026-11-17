@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1931, revue générale) : perf:linux bande 18,5 %, panneau 19,4 %, mini 5,3 % ; mémoire 4 min : 569-570 Mo,
+  plat ; 12 h graine 231 : assassin 65, barde 64, paladin 65 ; coréen : aucun mot français. Rien à corriger.
 - 2026-11-17 (it. 1930, contrôle) : coût des spectres qui s'estompent, pire cas (série de 12 spectres imposée) : compteurs de
   dev 91 écritures d'opacité pour 856 déplacements sur la même fenêtre : négligeable. Rien à corriger.
 - 2026-11-17 (it. 1929, journée des monstres) : les spectres qui attendent s'estompent et reviennent lentement (75 / 87,5 /
