@@ -1,7 +1,7 @@
 // Mode mini : petit encart près de l'horloge. Le héros à gauche, le monstre
 // qui approche puis se bat, et à droite niveau / or / zone.
 import { TAB_GATES, tabOpen } from "../game/tabs.js";
-import { CHRONICLES } from "../game/story.js";
+import { CHRONICLES, isFinalZone } from "../game/story.js";
 import { t as tx, txn, fsp, colon, csep, wsp } from "../i18n/index.js";
 import { itemName } from "../i18n/data.js";
 import { todoLabel } from "../ui/todo.js";
@@ -234,8 +234,11 @@ export class MiniRenderer {
     // pendant que le combattant arrive de loin, pendant un boss et pour les monstres à part (gobelin, Poupouce)
     {
       const line = R.lineup || [], nk = S.kills + 1, nx = nk < line.length ? line[nk] : null;
+      // (it. 2075) dernier de la série : le boss attend à son tour au fond (couronne, ou dessin du lieutenant / du Briseur)
+      const Zn = this.game.zoneDef(), bossNext = line.length > 0 && nk === line.length, mbn = bossNext && majorBoss(S.zone), finN = bossNext && isFinalZone(S.zone);
       // (it. 1987) élite / champion : son contour doré / violet, comme sur la bande
-      const nType = nx && !nx.goblin && !nx.poupouce ? nx.type : null, nKey = nType ? nk + ":" + nType + (nx.champion ? ":c" : nx.elite ? ":e" : "") : "";
+      const nType = bossNext ? Zn.boss : nx && !nx.goblin && !nx.poupouce ? nx.type : null;
+      const nKey = nType ? nk + ":" + nType + (bossNext ? ":b" : nx.champion ? ":c" : nx.elite ? ":e" : "") : "";
       // (it. 2071, signalé par Victor : « on voit l'ancien monstre, c'est pas smooth ») le monstre qui attendait est celui que le
       // héros va combattre : il reste à sa place jusqu'à ce que son combat commence (la victoire précédente fait avancer la file
       // aussitôt, il disparaissait pendant la marche), puis le combattant part de cette place (fromNext) au lieu de surgir plus loin
@@ -250,9 +253,14 @@ export class MiniRenderer {
       if (nKey !== this.nextKey && !keepWaiting) {
         this.nextKey = nKey;
         if (this.nextActor) { this.nextActor.remove(); this.nextActor = null; }
-        const set = nType && this.sprites.monsters[nType];
+        const set = nType && (finN ? this.sprites.starbreaker : (mbn && mbn.art && this.sprites.major(mbn.art)) || this.sprites.monsters[nType]);
         this.nextArrive = 0; // (it. 1997) il arrive en glissant du bord droit, comme sur la bande
-        if (set) { const b = new Actor(this.stage, nx.elite ? outlinedFrames(set.normal, nx.champion ? "#c08cff" : "#ffd34d", this.dpr) : set.normal); b.fly = set.fly; b.alpha(0.5); this.nextActor = b; }
+        if (set) {
+          // boss : même contour que pendant son combat (écho : spectral ; boss ordinaire : pâle, avec sa couronne)
+          const frames = bossNext ? outlinedFrames(set.normal, mbn && mbn.echo ? ECHO_OUTLINE : "rgba(232, 238, 255, 0.55)", this.dpr)
+            : nx.elite ? outlinedFrames(set.normal, nx.champion ? "#c08cff" : "#ffd34d", this.dpr) : set.normal;
+          const b = new Actor(this.stage, frames); b.fly = set.fly; if (bossNext && !finN && !(mbn && mbn.art)) b.addCrown(); b.alpha(0.5); this.nextActor = b;
+        }
       }
       const b = this.nextActor;
       if (b) {
