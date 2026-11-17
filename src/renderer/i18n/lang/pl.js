@@ -2127,4 +2127,7 @@ export default {
   3252: "Potwory czują klimat swojej strefy: drżą w śniegu, kichają w zarodnikach, kaszlą w popiołach i wypuszczają bąbelki pod wodą.",
   3253: "typów potworów, ~{0} PŻ. Boss: {1} PŻ.",
   3254: "wzmocnij relikty",
+  3255: "Karta strefy: zapowiadany boss jest prawdziwy (porucznik, echo lub Łamacz Gwiazd), z prawdziwymi PŻ i jedną nazwą.",
+  3256: "Bohater utknął przed porucznikiem lub Łamaczem Gwiazd: nowa wskazówka, „wzmocnij relikty”.",
+  3257: "Po angielsku, chińsku, japońsku i koreańsku procenty przylegają do liczby („10%”).",
 };

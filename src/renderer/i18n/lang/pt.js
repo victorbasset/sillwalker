@@ -2127,4 +2127,7 @@ export default {
   3252: "Os monstros sentem o clima da sua zona: tremem na neve, espirram nos esporos, tossem nas cinzas e soltam bolhas debaixo de água.",
   3253: "tipos de monstros, ~{0} PV. Chefe: {1} PV.",
   3254: "fortaleça suas relíquias",
+  3255: "Ficha da zona: o chefe anunciado é o verdadeiro (tenente, eco ou Quebra-Estrelas), com seus PV reais e um único nome.",
+  3256: "Herói travado diante de um tenente ou do Quebra-Estrelas: uma nova dica, “fortaleça suas relíquias”.",
+  3257: "Em inglês, chinês, japonês e coreano, as porcentagens ficam coladas ao número (“10%”).",
 };

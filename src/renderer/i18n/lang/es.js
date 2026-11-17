@@ -2127,4 +2127,7 @@ export default {
   3252: "Los monstruos sienten el clima de su zona: tiritan en la nieve, estornudan entre esporas, tosen entre cenizas y sueltan burbujas bajo el agua.",
   3253: "tipos de monstruos, ~{0} PV. Jefe: {1} PV.",
   3254: "refuerza tus reliquias",
+  3255: "Ficha de la zona: el jefe anunciado es el verdadero (lugarteniente, eco o Rompeestrellas), con sus PV reales y un solo nombre.",
+  3256: "Héroe atascado ante un lugarteniente o el Rompeestrellas: una nueva pista, «refuerza tus reliquias».",
+  3257: "En inglés, chino, japonés y coreano, los porcentajes van pegados al número («10%»).",
 };

@@ -3256,5 +3256,8 @@ export const KEYS = [
   "Le Cœur de l’aube protège un peu moins : dégâts subis −30 % (au lieu de −45 %).",
   "Les monstres sentent le climat de leur zone : ils grelottent dans la neige, éternuent dans les spores, toussent dans les cendres, lâchent des bulles sous l’eau.",
   "types de monstres, ~{0} PV. Boss : {1} PV.",
-  "renforce tes reliques"
+  "renforce tes reliques",
+  "Carte de la zone : le boss annoncé est le vrai (lieutenant, écho ou Briseur), avec ses vrais PV et un seul nom.",
+  "Héros bloqué devant un lieutenant ou le Briseur : une nouvelle piste, « renforce tes reliques ».",
+  "En anglais, chinois, japonais et coréen, les pourcentages se collent au nombre (« 10% »)."
 ];

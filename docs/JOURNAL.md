@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2070) : Quoi de neuf, édition 133 (carte de la zone : vrai boss ; piste « renforce tes reliques » ; pourcentages
+  collés en en, zh, ja, ko), clés 3255-3257 traduites. lang-overflow a retrouvé 7 px en russe à 1280 px (zones 200 et 300, héros
+  bloqué) selon l'or et l'usure du boss de dev-data : face au Briseur et aux échos (quatre capacités), la carte ne donne qu'une
+  piste, « renforce tes reliques » remonte juste après « équipe le meilleur », et la ligne des pistes tient en deux lignes au plus
+  (texte entier au survol). 10 langues à 1280 et 1366 px : aucun défilement ; autotest 261/261.
 - 2026-11-17 (it. 2069, contrôle) : dix premières minutes après la journée (monstres vivants, arrivées, équilibrage) : first-minutes
   inchangé (zone 9-10, niveau 16-17 à 10 min ; premier objet 42-82 s, premier boss 70-82 s, 1er déblocage 345-408 s).
 - 2026-11-17 (it. 2068, revue des onglets Familiers, Ascension, Bestiaire, Carte en anglais) : rien à corriger (les éclats de

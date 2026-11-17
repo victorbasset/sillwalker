@@ -2127,4 +2127,7 @@ export default {
   3252: "Monsters feel their zone’s climate: they shiver in the snow, sneeze in the spores, cough in the ashes and release bubbles underwater.",
   3253: "monster types, ~{0} HP. Boss: {1} HP.",
   3254: "strengthen your relics",
+  3255: "Zone card: the announced boss is the real one (lieutenant, echo or Starbreaker), with its real HP and a single name.",
+  3256: "Hero stuck before a lieutenant or the Starbreaker: a new tip, “strengthen your relics”.",
+  3257: "In English, Chinese, Japanese and Korean, percentages now stick to the number (“10%”).",
 };
