@@ -2163,4 +2163,5 @@ export default {
   3288: "Vender inútiles ({0})",
   3289: "Talentos: un solo rango (como «+1»)",
   3290: "Deshacer la última elección (Talentos, Habilidades)",
+  3291: "Clic en un talento: tantos rangos como sea posible · Mayús + clic o «+1»: un solo rango · Z: deshacer el último clic. Pasa el ratón por un talento para ver su efecto.",
 };

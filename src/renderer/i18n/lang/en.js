@@ -2163,4 +2163,5 @@ export default {
   3288: "Sell useless ({0})",
   3289: "Talents: a single rank (like “+1”)",
   3290: "Undo the last choice (Talents, Skills)",
+  3291: "Click a talent: as many ranks as possible · Shift + click or “+1”: a single rank · Z: undo the last click. Hover a talent to see its effect.",
 };

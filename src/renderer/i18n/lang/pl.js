@@ -2163,4 +2163,5 @@ export default {
   3288: "Sprzedaj zbędne ({0})",
   3289: "Talenty: jeden poziom (jak „+1”)",
   3290: "Cofnij ostatni wybór (Talenty, Umiejętności)",
+  3291: "Kliknięcie talentu: tyle rang, ile się da · Shift + klik lub „+1”: jedna ranga · Z: cofnij ostatnie kliknięcie. Najedź na talent, aby zobaczyć jego efekt.",
 };

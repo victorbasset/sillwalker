@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2120) : --crawl en français et en russe après les nouvelles fenêtres de confirmation : 671 clics sans erreur ;
+  texte russe (--dump-text) : aucun mot non traduit. Aide ⓘ des Talents complétée (Maj + clic : un rang ; Z : annuler le dernier
+  clic ; clé 3291). Autotest 274/274.
 - 2026-11-17 (it. 2119, clavier) : touche Z : annule le dernier choix dans les Talents (dernier clic) et les Compétences (dernier
   nœud). Raccourcis clavier : le libellé des Talents disait l'inverse (« monter au maximum » pour Maj, qui n'ajoute qu'un rang) ;
   corrigé. Clés 3289-3290 ; fenêtre des raccourcis sans défilement (ru, de, pl, fr à 1280 px) ; autotest « touche Z » ; 274/274.

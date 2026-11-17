@@ -3292,5 +3292,6 @@ export const KEYS = [
   "Rien à annuler : seul le dernier clic sur un talent peut être rendu.",
   "Vendre les inutiles ({0})",
   "Talents : un seul rang (comme « +1 »)",
-  "Annuler le dernier choix (Talents, Compétences)"
+  "Annuler le dernier choix (Talents, Compétences)",
+  "Clic sur un talent : autant de rangs que possible · Maj + clic ou « +1 » : un seul rang · Z : annuler le dernier clic. Survole un talent pour voir son effet."
 ];

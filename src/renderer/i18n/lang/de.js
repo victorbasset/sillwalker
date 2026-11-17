@@ -2163,4 +2163,5 @@ export default {
   3288: "Unnützes verkaufen ({0})",
   3289: "Talente: nur ein Rang (wie „+1“)",
   3290: "Letzte Wahl rückgängig machen (Talente, Fertigkeiten)",
+  3291: "Klick auf ein Talent: so viele Ränge wie möglich · Umschalt + Klick oder „+1“: nur ein Rang · Z: letzten Klick rückgängig machen. Fahre über ein Talent, um seine Wirkung zu sehen.",
 };
