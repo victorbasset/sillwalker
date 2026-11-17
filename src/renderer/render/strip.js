@@ -1411,7 +1411,9 @@ export class StripRenderer {
           // (it. 2004) zone enneigée : qui n'est pas fait pour le froid grelotte (pas les yétis ni les variantes de givre)
           const Zd = this.game.zoneDef(), snowy = WEATHER[Zd.src || Zd.name] === "snow";
           const cold = snowy && a.art !== "yeti" && elementOf(a.type || "") !== "frost";
-          const nat = cold ? "rattle" : ART_GEST[a.art] || a.nature;
+          // (it. 2005) zone de braises : yétis et variantes de givre souffrent de la chaleur (ils s'affaissent, « still »)
+          const hot = WEATHER[Zd.src || Zd.name] === "ember" && (a.art === "yeti" || elementOf(a.type || "") === "frost");
+          const nat = cold ? "rattle" : hot ? "still" : ART_GEST[a.art] || a.nature;
           if (nat === "howl") a.howlT = 0.9;
           a.react = { kind: "gesture", t: 0, d: { camo: 2.2, howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }

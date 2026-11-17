@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2005, journée des monstres) : zones de braises (Forge volcanique, Abysses ardents, Cœur du volcan, Volcan des
+  wyvernes) : yétis et variantes de givre souffrent de la chaleur (ils s'affaissent). Vérifié (Volcan des wyvernes : ours se
+  dresse, yéti et gluant de givre s'affaissent). Autotest 258/258.
 - 2026-11-17 (it. 2004, journée des monstres) : zones enneigées (météo « snow » : Toundra gelée, Pics enneigés, Glacier hurlant) :
   qui n'est pas fait pour le froid grelotte à la place de son geste ; yétis et variantes de givre gardent le leur. Vérifié
   (Pics enneigés : ours grelotte, yéti se frappe la poitrine, gluant de givre sautille). Autotest 258/258.
