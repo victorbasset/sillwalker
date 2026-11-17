@@ -52,6 +52,9 @@ import { monSkillOf } from "./monskills.js";
  *  baisse d'autant son attaque de base (mêmes dégâts au total, plus marqués) ; ce qui empêche le héros de frapper (spores,
  *  gel d'une variante de givre) baisse d'autant ses PV (même durée de combat). Sans cela, chaque famille rendait le jeu
  *  plus dur (balance 12 h : −1,7 zone avec trois familles). */
+/** (it. 1904) Espèces grégaires (dessin de base) : elles vont souvent par deux ou trois dans une série. */
+export const PACK_ARTS = new Set(["wolf", "bat", "rat", "crow", "wasp", "harpy", "slime", "boar"]);
+
 export function skillBalance(m, sk) {
   if (sk.mult) m.atk /= 1 + sk.mult * (sk.el === "fire" ? 1.2 : 1) * (m.interval || 1) / sk.every;
   // (it. 1863) rage : coups plus forts pendant un temps, autant d'attaque en moins
@@ -165,8 +168,12 @@ export class Game {
       const Z = zoneDef(this.S.zone);
       const dm = activeDayMod(this.S);
       // Les monstres de la zone sont tirés « comme des cartes » : tous passent avant qu'un type revienne.
-      let deck = [], last = null;
+      let deck = [], last = null, run = 0;
       const draw = () => {
+        // (it. 1904, journée des monstres) espèces grégaires : un loup, un rat, une chauve-souris… vient souvent avec un ou
+        // deux congénères (meute, nuée ; la bande les fait se déplacer ensemble, strip.js packSeed)
+        if (last && run < 3 && PACK_ARTS.has(MONSTERS[last]?.art || last) && rand() < 0.35) { run++; return last; }
+        run = 1;
         if (!deck.length) { deck = shuffled(Z.monsters); if (deck.length > 1 && deck[deck.length - 1] === last) deck.unshift(deck.pop()); }
         return (last = deck.pop());
       };

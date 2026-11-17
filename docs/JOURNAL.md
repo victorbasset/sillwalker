@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1904, journée des monstres) : la vidéo de contrôle a montré que les meutes de l'it. 1903 ne se formaient
+  presque jamais (le tirage « comme des cartes » interdit deux fois le même monstre de suite). Espèces grégaires
+  (game.js PACK_ARTS : loups, chauves-souris, rats, corbeaux, guêpes, harpies, gluants, sangliers) : 35 % de chances que le
+  suivant soit un congénère, trois au plus. Test (300 séries). Balance +0,4, fuzz 600 / 0, autotest 253/253.
 - 2026-11-17 (it. 1903, journée des monstres) : meutes et nuées : deux voisins (ou plus) de la même espèce qui marchent ou
   volent suivent le même chef de file (65 % de son mouvement, avec 0,25 s de retard, même regard) ; ils se déplacent
   ensemble au lieu de flâner chacun de son côté. Autotest 253/253, bande 18,3 %.

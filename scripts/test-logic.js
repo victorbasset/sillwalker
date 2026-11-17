@@ -50,6 +50,8 @@ import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
+import { PACK_ARTS as PACK_ARTS1904 } from "../src/renderer/game/game.js";
+import { MONSTERS as MONSTERS1904, ZONES as ZONES1904 } from "../src/renderer/game/data.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
@@ -369,6 +371,27 @@ test("équiper, forger, vendre", () => {
   assert.ok(g.unequip(it.slot));
   g.sell(it);
   assert.equal(g.S.bag.length, 0);
+});
+
+test("meutes (it. 1904) : les espèces grégaires vont par deux ou trois, jamais plus ; les autres jamais deux de suite", () => {
+  const g = new Game(freshState());
+  // une zone dont un monstre est grégaire
+  const zi = ZONES1904.findIndex((z) => z.monsters && z.monsters.some((t) => PACK_ARTS1904.has(MONSTERS1904[t]?.art || t)));
+  assert.ok(zi >= 0);
+  let pairs = 0;
+  for (let i = 0; i < 300; i++) {
+    g.S.zone = zi + 1; g.R.lineupZone = -1; g.S.kills = 0;
+    const line = g.lineup().filter((m) => !m.goblin && !m.poupouce).map((m) => m.type);
+    let run = 1;
+    for (let k = 1; k < line.length; k++) {
+      if (line[k] !== line[k - 1]) { run = 1; continue; }
+      run++;
+      assert.ok(PACK_ARTS1904.has(MONSTERS1904[line[k]]?.art || line[k]), "deux de suite hors espèce grégaire : " + line[k]);
+      assert.ok(run <= 3, "meute de plus de trois");
+      pairs++;
+    }
+  }
+  assert.ok(pairs > 30, "des meutes se forment : " + pairs);
 });
 
 test("parcours : file de monstres (avec élites) et étapes", () => {
