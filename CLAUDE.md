@@ -342,6 +342,13 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   place (fromNext, reconnu dès la première image), sinon entre par le bord droit ; un suivant caché revient en glissant ; le
   vainqueur d'une défaite s'efface (leaving). Mesurer : --mode=mini et un --stage qui relève M.monActor / M.nextActor (x, alphaV)
   toutes les 50 ms (window.__mini) ; autotest « le monstre suivant s'avance depuis sa place d'attente ».
+- Actions sans retour (it. 2099-2124, demande de Victor : ergonomie) : jamais de « second clic au même endroit » (bouton dont
+  le libellé change) ; une fenêtre `panel.confirm(titre, texte, libellé, fn)` qui dit ce qui est perdu (chaque onglet reçoit le
+  panneau : `this.panel`). Effacer la partie : `confirmSafe` (Entrée et clic sur le fond annulent, « Annuler » en bouton par défaut).
+  Un clic sur le fond d'une fenêtre l'annule ou la ferme, seulement si l'appui aussi était sur le fond. Rien ne naît ni ne bouge
+  sous le curseur (emplacements réservés, libellés fixes) ; plan et audit : docs/TALENTS-UX.md.
+- Fiche des Talents (it. 2111) : elle suit le survol sans délai et revient au talent CLIQUÉ (`pin`) hors des talents (RESTORE_MS) ;
+  un contrôle qui survole des talents doit re-chercher les éléments après un clic (le clic redessine l'onglet).
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.

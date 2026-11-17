@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2126) : Échap annule « Réinitialiser les talents ? » (dans la fiche) au lieu de fermer le panneau ; autotest ajouté.
+  CLAUDE.md : conventions d'ergonomie de la nuit (panel.confirm et this.panel, confirmSafe, clic sur le fond, rien ne bouge sous le
+  curseur, fiche des Talents qui revient au talent cliqué). 277/277.
 - 2026-11-18 (it. 2125, design des Talents) : fenêtre des bonus de maîtrise en grille (rang | option A | option B), alignée d'un
   palier à l'autre (avant : deux boutons poussés à droite, B passait à la ligne selon la longueur). Sans défilement en allemand et en
   russe à 1280 px ; 276/276.
