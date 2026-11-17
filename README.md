@@ -117,6 +117,13 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   file par à-coups) et fait son geste d'espèce ; espèces grégaires en meutes (elles se suivent, s'avancent, s'emportent ou
   se dispersent quand l'une tombe) ; proies et prédateurs, sommeil de jour ou de nuit, boss impatient, convoitise des
   légendaires, crainte d'un héros trop fort ; tout s'arrête avec « Effets complets » décoché (render/monlife.js, strip.js).
+- **Climat des zones** (17/11) : selon la météo de la zone, le geste au repos change (monlife.js climateGesture) : grelottement
+  et buée dans la neige, affaissement et vapeur dans les braises, bulles sous l'eau, éternuements dans les spores, toux dans
+  les cendres et la poussière, ébrouement sous les gouttes ; le vent (et l'événement Rafale de vent) ballotte les volants.
+  Ordre des règles de la file : vie propre, meute, peur du héros, proies et prédateurs, vent.
+- **Lieutenants et Briseur plus coriaces** (17/11, 0.1.6) : il faut plusieurs ascensions et des reliques améliorées ; la
+  carte de la zone annonce le vrai boss et ses PV, et la piste « renforce tes reliques » aide le héros bloqué.
+- **Mode mini** : le monstre suivant attend au fond de la scène et s'avance de là quand vient son tour.
 - **Garde-fou des combats sans fin** : un monstre qu'on ne peut pas tuer et qui ne peut pas tuer s'emporte après 90 s ; le
   héros abandonne après 3 min (game.js) ; `scripts/stall-check.mjs` cherche ces impasses dans des parties avancées.
 - **Clic sur le monstre** : coup bonus (25 % de l’attaque, 4 par seconde), aussi en mode mini.

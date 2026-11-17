@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2073) : README : climat des zones, ordre des règles de la file, lieutenants et Briseur plus coriaces, monstre
+  suivant du mode mini.
 - 2026-11-17 (it. 2072) : autotest « mode mini : le monstre suivant s'avance depuis sa place d'attente » (bogue de l'it. 2071) :
   première image visible du combattant à x 156 ; avec l'ancien mini.js, 129 : échec, comme attendu. Autotest 262/262.
 - 2026-11-17 (it. 2071, signalé par Victor : mode mini, « on voit l'ancien monstre, c'est pas smooth ») : à la victoire, la file avance
