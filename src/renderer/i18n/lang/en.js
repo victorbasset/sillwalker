@@ -2150,4 +2150,7 @@ export default {
   3275: "The great graph's points come back (free); the paths can be chosen again. The flower stays.",
   3276: "Reset all?",
   3277: "All skill points come back (free), the flower and the great graph included.",
+  3278: "Erase the game?",
+  3279: "Everything is erased, with no way back: hero, items, gold, ascensions, relics, pets and achievements. A new game begins.",
+  3280: "Erase everything",
 };

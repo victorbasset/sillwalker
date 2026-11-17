@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2113, ergonomie) : Réglages : « Effacer la partie et recommencer » se confirme dans la fenêtre du panneau (bouton
+  rouge « Tout effacer », liste de ce qui est perdu) au lieu d'un second clic sur le même bouton ; dans cette fenêtre, Entrée ANNULE
+  (avant, Entrée validait toujours). Clés 3278-3280 ; autotest « Entrée annule » ; 271/271.
 - 2026-11-17 (it. 2112, ergonomie) : Compétences : « Tout réinitialiser » et « Réinitialiser le grand graphe » se confirment dans la
   fenêtre du panneau (ce qui revient, ce qui reste) au lieu d'un second clic sur le même bouton. Clés 3274-3277 ; autotest
   « demande confirmation, Annuler ne change rien » ; 270/270.

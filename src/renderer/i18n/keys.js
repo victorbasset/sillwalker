@@ -3279,5 +3279,8 @@ export const KEYS = [
   "Réinitialiser le grand graphe ?",
   "Les points du grand graphe reviennent (gratuit) ; les voies sont de nouveau au choix. La fleur reste.",
   "Tout réinitialiser ?",
-  "Tous les points de compétence reviennent (gratuit), la fleur et le grand graphe compris."
+  "Tous les points de compétence reviennent (gratuit), la fleur et le grand graphe compris.",
+  "Effacer la partie ?",
+  "Tout est effacé, sans retour : héros, objets, or, ascensions, reliques, familiers et succès. Une nouvelle partie commence.",
+  "Tout effacer"
 ];

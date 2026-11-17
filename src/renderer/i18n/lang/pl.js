@@ -2150,4 +2150,7 @@ export default {
   3275: "Punkty wielkiego grafu wracają (za darmo); ścieżki można wybrać ponownie. Kwiat zostaje.",
   3276: "Zresetować wszystko?",
   3277: "Wszystkie punkty umiejętności wracają (za darmo), wraz z kwiatem i wielkim grafem.",
+  3278: "Usunąć grę?",
+  3279: "Wszystko zostanie usunięte bezpowrotnie: bohater, przedmioty, złoto, wniebowstąpienia, relikwie, pupile i osiągnięcia. Zaczyna się nowa gra.",
+  3280: "Usuń wszystko",
 };

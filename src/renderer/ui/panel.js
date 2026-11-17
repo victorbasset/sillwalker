@@ -1203,7 +1203,7 @@ export class Panel {
       case "mini": this.onMini?.(); return;
       case "feedback": window.sillwalker?.openFeedback?.(); return; // (it. 815) page des avis (itch.io), dans le navigateur
       case "quit": this.confirm(tx("Quitter Sillwalker ?"), tx("Ta partie est sauvegardée. Ton héros continuera de progresser hors ligne (jusqu’à {0} h).", { 0: Math.round(g.offlineCapS() / 3600) }), tx("Quitter le jeu"), () => this.onQuit?.()); return;
-      case "reset": this.confirmReset(b); return;
+      case "reset": this.confirmReset(); return;
       default: return;
     }
     this.renderAll();
@@ -1215,23 +1215,22 @@ export class Panel {
     $(this.root, "#cbody").textContent = text;
     const ok = $(this.root, '[data-action="confirm-ok"]');
     ok.textContent = okLabel;
+    ok.classList.remove("danger"); ok.classList.add("primary"); this.confirmSafe = false; // (it. 2113) confirmReset : rouge, Entrée annule
     this.confirmFn = onOk;
     $(this.root, "#confirm").hidden = false;
     ok.focus();
   }
-  closeConfirm() { $(this.root, "#confirm").hidden = true; this.confirmFn = null; }
+  closeConfirm() { $(this.root, "#confirm").hidden = true; this.confirmFn = null; this.confirmSafe = false; }
 
-  confirmReset(b) {
-    if (b.dataset.armed) {
-      this.selected = null;
-      this.onReset?.();
-      this.renderAll();
-      delete b.dataset.armed; b.textContent = b.dataset.label || tx("Recommencer"); b.classList.remove("danger");
-      return;
-    }
-    b.dataset.label ||= b.textContent;
-    b.dataset.armed = "1"; b.textContent = tx("Tout effacer ? Cliquer encore pour confirmer"); b.classList.add("danger");
-    setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = b.dataset.label; b.classList.remove("danger"); } }, 4000);
+  /** (it. 2113, ergonomie) « Effacer la partie et recommencer » : confirmation dans la fenêtre du panneau, avec ce qui est perdu
+   *  (avant : second clic sur le même bouton, dont le libellé changeait ; un double clic involontaire effaçait toute la partie). */
+  confirmReset() {
+    this.confirm(tx("Effacer la partie ?"), tx("Tout est effacé, sans retour : héros, objets, or, ascensions, reliques, familiers et succès. Une nouvelle partie commence."),
+      tx("Tout effacer"), () => { this.selected = null; this.onReset?.(); this.renderAll(); });
+    $(this.root, '[data-action="confirm-ok"]').classList.replace("primary", "danger");
+    this.confirmSafe = true;
+    // le bouton par défaut (Entrée) est « Annuler » pour une action sans retour
+    $(this.root, '[data-action="confirm-cancel"]').focus();
   }
 
   onChange(e) {
@@ -1262,7 +1261,8 @@ export class Panel {
   onKey(e) {
     if (e.ctrlKey || e.altKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return false;
     if (!$(this.root, "#confirm").hidden) {
-      if (e.key === "Enter") { const fn = this.confirmFn; this.closeConfirm(); fn?.(); return true; }
+      // (it. 2113) effacement de la partie : Entrée annule (seul un vrai clic sur « Tout effacer » efface)
+      if (e.key === "Enter") { const fn = this.confirmSafe ? null : this.confirmFn; this.closeConfirm(); fn?.(); return true; }
       return false;
     }
     const order = "1234567890-=";

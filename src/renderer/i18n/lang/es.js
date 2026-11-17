@@ -2150,4 +2150,7 @@ export default {
   3275: "Los puntos del gran grafo vuelven (gratis); las vías se pueden elegir de nuevo. La flor se queda.",
   3276: "¿Reiniciar todo?",
   3277: "Todos los puntos de habilidad vuelven (gratis), la flor y el gran grafo incluidos.",
+  3278: "¿Borrar la partida?",
+  3279: "Se borra todo, sin vuelta atrás: héroe, objetos, oro, ascensiones, reliquias, mascotas y logros. Empieza una nueva partida.",
+  3280: "Borrarlo todo",
 };

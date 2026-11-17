@@ -2150,4 +2150,7 @@ export default {
   3275: "Os pontos do grande grafo voltam (grátis); os caminhos podem ser escolhidos de novo. A flor fica.",
   3276: "Redefinir tudo?",
   3277: "Todos os pontos de habilidade voltam (grátis), incluindo a flor e o grande grafo.",
+  3278: "Apagar o jogo?",
+  3279: "Tudo é apagado, sem volta: herói, itens, ouro, ascensões, relíquias, mascotes e conquistas. Um novo jogo começa.",
+  3280: "Apagar tudo",
 };

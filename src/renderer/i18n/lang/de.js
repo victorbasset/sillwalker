@@ -2150,4 +2150,7 @@ export default {
   3275: "Die Punkte des großen Graphen kommen zurück (kostenlos); die Wege sind wieder frei wählbar. Die Blume bleibt.",
   3276: "Alles zurücksetzen?",
   3277: "Alle Fertigkeitspunkte kommen zurück (kostenlos), Blume und großer Graph inbegriffen.",
+  3278: "Spielstand löschen?",
+  3279: "Alles wird gelöscht, ohne Rückweg: Held, Gegenstände, Gold, Aufstiege, Relikte, Begleiter und Erfolge. Ein neues Spiel beginnt.",
+  3280: "Alles löschen",
 };
