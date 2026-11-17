@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1922, journée des monstres) : le boss s'impatiente : plus que deux monstres (ou moins) avant lui, il frappe
+  du pied toutes les 2,5 à 3,5 s (deux bonds secs) et le dernier de la file sursaute à chaque coup. Vérifié (série imposée,
+  deux monstres restants). Autotest 254/254.
 - 2026-11-17 (it. 1921, revue générale) : 12 h graine 221 : rôdeur 66, berserker 64, chaman 65 ; fuzz 600 / 0 ; early-pace
   (meutes dans le tirage) : 60 min niveau 40-42, zone 23-26, comme avant ; japonais : aucun mot français (« attributs » =
   repère du dump, « Language / Langue » voulu). Rien à corriger.

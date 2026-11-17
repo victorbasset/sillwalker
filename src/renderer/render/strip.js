@@ -1359,6 +1359,14 @@ export class StripRenderer {
       }
       // (it. 1856) loup de la file qui répond au hurlement : tête levée (petit bond vers le haut), puis repos
       let answer = 0;
+      // (it. 1922) le boss s'impatiente : plus que deux monstres (ou moins) avant lui, il frappe du pied toutes les 2,5 à 3,5 s
+      // (deux petits bonds secs) ; le dernier avant lui sursaute à chaque coup
+      if (!fighting && k === this.fights() - 1 && this.fights() - 1 - S.kills <= 2 && !a.react) {
+        a.stompT = (a.stompT ?? 1.5) - dt;
+        if (a.stompT <= 0) { a.stompT = 2.5 + Math.random(); a.react = { kind: "gesture", t: 0, d: 0.35, delay: 0 }; a.stomp2 = 0.4;
+          const prev = this.slots[k - 1]; if (prev && k - 1 > cur && !prev.react && !prev.brave) prev.react = { kind: "startle", t: 0, d: 0.5, far: 0.5, delay: 0.1 }; }
+      }
+      if (!fighting && a.stomp2 > 0) { a.stomp2 -= dt; if (a.stomp2 <= 0 && !a.react) a.react = { kind: "gesture", t: 0, d: 0.3, delay: 0 }; }
       if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) * (a.brave ? 1.3 : 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
