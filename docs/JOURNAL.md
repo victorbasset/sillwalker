@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2057) : après la sortie : CLAUDE.md (0.1.6 = édition 132, la 0.1.7 prendra after: 132) ; brouillon
+  docs/devlog-0.1.7-brouillon.md ouvert. Fin de la journée des monstres : retour aux priorités normales.
 - 2026-11-17 (it. 2056) : feu vert de Victor : 0.1.6 envoyée sur itch.io (`REF=v0.1.6 scripts/itch-push.sh victor-basset/sillwalker`) ;
   butler status : windows #2417912, linux #2417914, mac #2417917, tous en 0.1.6. Fenêtre des notes de version vérifiée en capture
   (joueur de la 0.1.5 : dix nouveautés sur deux colonnes, sans défilement).
