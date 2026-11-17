@@ -102,6 +102,14 @@ se balançaient qu'au combat.
    (it. 1922) ; chauves-souris somnolentes en plein jour (it. 1915) ; mimique qui frissonne quand son tour approche
    (monlife, it. 1916 : pas de 3 px, l'arrondi d'Actor.move efface 1 px).
 
+9. **Gestes et caractères** (it. 1927-1945, strip.js) : le suivant se tient prêt quand le combattant faiblit (it. 1927) ;
+   spectres qui s'estompent (it. 1929) ; loups qui hurlent à la lune et se répondent (it. 1932) ; geste au repos selon la
+   nature (furtif renifle, colosse s'enfonce, volant monte de 6 px, sauteur bondit ; it. 1933, 1938) et selon l'espèce
+   (ART_GEST : araignée sur son fil, plantes et sylvains qui se balancent, momie qui traîne le pas, sanglier qui gratte,
+   ours qui se dresse, squelette qui s'entrechoque, bandit qui fait le guet, cultiste, orc, chevaliers ; it. 1936-1944) ;
+   bandits et gobelins qui convoitent un butin légendaire (« $ », it. 1945). Contrôles d'autotest : meutes, gestes,
+   volants sous la rangée d'informations.
+
 Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
 série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
 

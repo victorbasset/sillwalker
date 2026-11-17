@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1946) : MONSTRES-VIVANTS, étape 9 (gestes et caractères, it. 1927-1945).
 - 2026-11-17 (it. 1945, journée des monstres) : convoitise : un objet légendaire tombe, les bandits et gobelins de la file le
   convoitent : « $ » doré au-dessus d'eux, ils s'avancent 2 s. Vérifié (butin légendaire émis : les deux bandits à 0,89,
   l'ours entre eux à 0). Autotest 256/256.
