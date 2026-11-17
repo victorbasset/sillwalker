@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1992, journée des monstres) : gestes : champignards et champignons errants se gonflent, le scorpion dresse la
+  queue (vérifié). CLAUDE.md : mesure de mémoire, juger un écart contre l'ancien commit mesuré aussitôt. Autotest 257/257.
 - 2026-11-17 (it. 1991, revue générale) : perf:linux bande 18,3 %, panneau 18,9 %, mini 5,6 % ; 12 h graine 291 : cryomancienne 64,
   lancier 64, gladiateur 66 ; early-pace 60 min : niveau 39-41, zone 23-25 ; --crawl en japonais : 669 clics, aucune erreur.
   Mémoire : deux mesures à 623-630 Mo (plates) ; aussitôt après, 0eb3632d (it. 1971) 557-565 et HEAD 570-571 : variation de
