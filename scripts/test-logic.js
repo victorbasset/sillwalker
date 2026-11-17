@@ -403,6 +403,19 @@ test("compétences réfléchies (it. 1955) : le sylvain se soigne blessé seulem
   assert.ok(run("cultist", 80), "cultiste en forme : il se sacrifie");
 });
 
+test("impasse face à un boss (it. 1958) : après 90 s de combat, le boss s'emporte jusqu'à ce que l'un des deux tombe", () => {
+  const g = new Game(freshState());
+  g.S.kills = g.lineup().length; // le prochain monstre est le boss
+  let fury = 0, downs = 0; g.on("bossSkill", (e) => { if (e.id === "fury") fury++; }); g.on("heroDown", () => downs++);
+  for (let i = 0; i < 600 && !g.R.mon; i++) g.advance(0.1);
+  assert.ok(g.R.mon && g.R.mon.boss, "le boss est là");
+  // boss inusable (régénère tout) et faible : sans le garde-fou, le combat durerait toujours
+  const m = g.R.mon; m.max = m.hp = 1e15; m.mech = ["regen"]; m.atk = Math.max(1, g.stats().hp * 0.002);
+  for (let i = 0; i < 4000 && !downs; i++) g.advance(0.1);
+  assert.ok(fury > 0, "Fureur croissante déclenchée");
+  assert.ok(downs > 0, "le héros finit par tomber : la progression reprend");
+});
+
 test("parcours : file de monstres (avec élites) et étapes", () => {
   const g = new Game(freshState());
   const line = g.lineup();

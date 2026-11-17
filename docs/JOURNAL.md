@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1958, bogue) : impasse face à un boss trouvée par l'endurance de l'it. 1957 : en zone 57 de dev-data, le boss
+  (Régénération + Enragé) régénérait plus vite que le héros ne le blessait, et le héros encaissait tout : 10 min de jeu à 100 %
+  de part et d'autre, sans défaite, donc sans recul (le recul exige deux défaites) : partie figée. Garde-fou : après 90 s de
+  combat, le boss s'emporte (Fureur croissante) toutes les 10 s sans plafond ; vérifié sur la même partie (défaite, nouvelle
+  série, recul). Test logique. Balance +0,1, fuzz 600 / 0, semaine guerrier 349, autotest 257/257.
 - 2026-11-17 (it. 1957, contrôle) : endurance : 8 min à ×10 (≈ 80 min de jeu) sur dev-data et sur la fin de partie, en même
   temps : aucune erreur de l'interface (dev-data reste devant le boss de la zone 57, son mur ; la fin de partie va et vient
   149-151). Rien à corriger.
