@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2066, revue des onglets Quêtes, Boutique, Réglages en anglais) : la note des Quêtes disait « 10 % of quests » : en
+  anglais, chinois, japonais et coréen, le pourcentage se colle au nombre (unit("%") : espace seulement en fr, es, pt, de, pl, ru) ;
+  26 traductions corrigées dans ces quatre langues (« {3} % » et « 15 % », dans quatre variantes de la note des Quêtes et six
+  descriptions), les 260 autres étaient déjà collées. Boutique et Réglages : rien. Autotest 261/261.
 - 2026-11-17 (it. 2065, contrôle après l'équilibrage des it. 2053-2054) : stall-check 4 h sous les bénédictions du jour
   (STALL_DAYMOD=all) : 60 parties, 0 figée ; fuzz 30 graines : 600 parties, 0 bloquée. Rien à corriger.
 - 2026-11-17 (it. 2064) : vérifié : le renforcement d'une relique a sa réaction sur la bande et son son (relicUp), et la carte de la
