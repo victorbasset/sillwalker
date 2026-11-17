@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2091, revue générale) : mémoire 569-572 Mo, stable ; save-fuzz FUZZ_BASE=0.1.2 ok (1 169 corruptions). Rien à
+  corriger.
 - 2026-11-17 (it. 2090, enquête) : berserker 77 / 62 / 69 en 12 h (it. 2074) : mêmes courses jusqu'au mur des zones 61-62 ; la
   graine 7 a le temps d'une 9e course qui franchit le mur et file jusqu'à 77 (palier suivant). Effet des paliers (CLAUDE.md), pas un
   emballement propre au berserker. Rien à corriger.
