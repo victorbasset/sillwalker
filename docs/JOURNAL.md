@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1977, journée des monstres) : à l'inverse (it. 1976), au record après une défaite du héros dans la zone, la
+  file s'enhardit et se tient un peu plus près (≈ 3 px ; pas les craintifs). Vérifié (golems et ours 0,35, rat 0). Autotest 257/257.
 - 2026-11-17 (it. 1976, journée des monstres) : réputation : dans une zone 15 zones ou plus sous le record, les monstres savent le
   héros plus fort : les craintifs se tiennent à 12 px de plus, dos tourné ; les autres tremblent quand il approche (220 px).
   Vérifié (zone 20, record 57 : rat à +12, golems qui tremblent). La revue des « Crit » superposés (it. 1975) : le placement

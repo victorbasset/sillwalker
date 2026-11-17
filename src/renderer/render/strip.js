@@ -1354,7 +1354,9 @@ export class StripRenderer {
         // (it. 1927) le suivant de la file se tient prêt quand le monstre en combat faiblit (sous 25 % de vie)
         const next = k === cur + 1 && R.mon && !R.mon.boss && R.mon.max > 0 && R.mon.hp / R.mon.max < 0.25;
         if (a.greedT > 0) a.greedT -= dt;
-        a.eager = (a.eager || 0) + ((weak ? 1 : a.greedT > 0 ? 0.9 : pack ? 0.7 : next ? 0.6 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
+        // (it. 1977) au record, après une défaite du héros dans la zone : la file, enhardie, se tient un peu plus près
+        const bold = S.zone >= S.best && (R.deaths || 0) > 0 && !TIMID.has(a.art);
+        a.eager = (a.eager || 0) + ((weak ? 1 : a.greedT > 0 ? 0.9 : pack ? 0.7 : next ? 0.6 : bold ? 0.35 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
       }
       // (it. 1878) jour et nuit : la nuit, les espèces de jour bougent à peine et s'endorment (« z »), celles de nuit
       // s'agitent ; l'entrain change lentement (pas de saut à la tombée de la nuit)
