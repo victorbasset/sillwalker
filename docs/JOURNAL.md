@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1932, journée des monstres) : la nuit, un loup qui attend hurle à la lune (tête levée) toutes les 15 à 30 s ;
+  les autres loups de la file répondent 0,6 à 1 s plus tard (howlDelay). Sans son (une alerte sonore nocturne répétée
+  dérangerait). Vérifié (nuit forcée : loup 4 à 0,9 s, puis 6 et 5 à 1,6-1,7 s). Autotest 254/254.
 - 2026-11-17 (it. 1931, revue générale) : perf:linux bande 18,5 %, panneau 19,4 %, mini 5,3 % ; mémoire 4 min : 569-570 Mo,
   plat ; 12 h graine 231 : assassin 65, barde 64, paladin 65 ; coréen : aucun mot français. Rien à corriger.
 - 2026-11-17 (it. 1930, contrôle) : coût des spectres qui s'estompent, pire cas (série de 12 spectres imposée) : compteurs de

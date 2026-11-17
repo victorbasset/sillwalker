@@ -1284,6 +1284,16 @@ export class StripRenderer {
     // Monstres en attente / combat en cours
     const cur = Math.min(S.kills, this.fights() - 1), line = game.lineup();
     // (it. 1890) bavardage : de loin en loin, deux voisins loin du héros se tournent l'un vers l'autre (hochements)
+    // (it. 1932) la nuit, un loup qui attend lève la tête et hurle à la lune toutes les 15 à 30 s ; les autres loups de la
+    // file lui répondent un instant après (même geste que le Hurlement de meute)
+    if ((this.nightV || 0) >= 0.8) {
+      this.moonT = (this.moonT ?? 6 + Math.random() * 10) - dt;
+      if (this.moonT <= 0) {
+        this.moonT = 15 + Math.random() * 15;
+        const wolves = this.slots.filter((a, k) => a.art === "wolf" && k > cur && k < this.fights() - 1 && !a.react);
+        if (wolves.length) { const first = wolves[Math.floor(Math.random() * wolves.length)]; first.howlT = 1.1; for (const w of wolves) if (w !== first) { w.howlDelay = 0.6 + Math.random() * 0.4; w.howlT = 0.9; } }
+      }
+    }
     this.chatT = (this.chatT ?? 8) - dt;
     if (this.chatT <= 0) {
       this.chatT = 10 + Math.random() * 8;
@@ -1377,7 +1387,8 @@ export class StripRenderer {
           const prev = this.slots[k - 1]; if (prev && k - 1 > cur && !prev.react && !prev.brave) prev.react = { kind: "startle", t: 0, d: 0.5, far: 0.5, delay: 0.1 }; }
       }
       if (!fighting && a.stomp2 > 0) { a.stomp2 -= dt; if (a.stomp2 <= 0 && !a.react) a.react = { kind: "gesture", t: 0, d: 0.3, delay: 0 }; }
-      if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
+      if (!fighting && a.howlDelay > 0) a.howlDelay -= dt;
+      else if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
       a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx * (a.act ?? 1) * (a.brave ? 1.3 : 1) : 0) + (pose ? pose.dx : 0) + rdx - (fighting ? 0 : 9 * (a.eager || 0)), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
