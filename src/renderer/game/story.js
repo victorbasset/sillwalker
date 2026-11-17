@@ -1,3 +1,4 @@
+import { majorBoss } from "./relics.js";
 // Histoire du jeu (demande de Victor : une intro, un but final et une fin).
 // Le Rebord : la mince bande au bord du monde, entre le monde et le vide. Le Briseur d'Étoiles a fracassé le ciel ;
 // ses éclats (les éclats d'étoile du jeu) sont tombés sur le Rebord. Ses lieutenants, les boss de zone, retiennent
@@ -14,6 +15,9 @@ export const FINAL_ZONE = 200;
 // (it. 2052) plus coriace (3 → 5 PV, 1,3 → 2,5 attaque ; plus dur que chaque lieutenant) : il faut améliorer la Lame sur quelques courses
 export const FINAL_BOSS = { name: "Le Briseur d’Étoiles", hp: 5, atk: 2.5, mech: ["shards", "smash", "mirror", "fury"] };
 export const isFinalZone = (z) => z === FINAL_ZONE;
+/** (it. 2058) Multiplicateur de PV du boss de la zone z (Briseur, lieutenant ou écho ; 1 pour un boss ordinaire) : le
+ *  panneau de la zone l'affichait sans (« Boss : 2,1 M PV » pour un Chevalier de l'éclipse à 9,5 M). Même calcul que makeMonster. */
+export const bossHpFactor = (z) => (isFinalZone(z) ? FINAL_BOSS.hp : majorBoss(z)?.hp || 1);
 export const storyWon = (S) => !!(S.story && S.story.won);
 
 /** Introduction : trois bulles au tout premier lancement (passables d'un clic). */

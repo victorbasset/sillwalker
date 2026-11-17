@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2058, bogue visible) : le panneau de la zone annonçait le boss ORDINAIRE (nom et PV) même là où se bat un lieutenant,
+  un écho ou le Briseur (zone 150 : « Boss (golem de cristal) : 28,9 Md PV » pour un Chevalier de l'éclipse à 137 Md) ; il nomme
+  maintenant le vrai boss et compte son multiplicateur (story.js bossHpFactor, testé). Vérifié en jeu : zones 150 et 200, PV affichés
+  = PV du boss fabriqué par makeMonster ; russe à 1280 px, rien ne défile (écart de 2 px du cadre déjà présent avant). Autotest 261/261.
 - 2026-11-17 (it. 2057) : après la sortie : CLAUDE.md (0.1.6 = édition 132, la 0.1.7 prendra after: 132) ; brouillon
   docs/devlog-0.1.7-brouillon.md ouvert. Fin de la journée des monstres : retour aux priorités normales.
 - 2026-11-17 (it. 2056) : feu vert de Victor : 0.1.6 envoyée sur itch.io (`REF=v0.1.6 scripts/itch-push.sh victor-basset/sillwalker`) ;

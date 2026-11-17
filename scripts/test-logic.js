@@ -51,6 +51,7 @@ import { nextHint, markHint } from "../src/renderer/ui/hints.js";
 import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { PACK_ARTS as PACK_ARTS1904 } from "../src/renderer/game/game.js";
+import { bossHpFactor as bossHpFactor2058 } from "../src/renderer/game/story.js";
 import { climateGesture as climateGesture2023, gestureOf as gestureOf2024, gestureMotion as gestureMotion2025 } from "../src/renderer/render/monlife.js";
 import { MONSTERS as MONSTERS1904, ZONES as ZONES1904 } from "../src/renderer/game/data.js";
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
@@ -468,6 +469,13 @@ test("mouvement des gestes (it. 2025) : bornes et retour au repos", () => {
   assert.equal(gestureMotion2025("look", 0.5).flip, true);
   assert.equal(gestureMotion2025("look", 0.9).flip, false);
   assert.equal(gestureMotion2025("rear", 0.5).dy, -6);
+});
+
+test("panneau de la zone (it. 2058) : les PV annoncés du boss comptent lieutenant, Briseur et échos", () => {
+  assert.equal(bossHpFactor2058(37), 1, "boss ordinaire");
+  assert.equal(bossHpFactor2058(150), M_relics_js.majorBoss(150).hp, "Chevalier de l'éclipse");
+  assert.equal(bossHpFactor2058(200), FINAL_BOSS.hp, "Briseur");
+  assert.ok(bossHpFactor2058(300) > 1, "écho");
 });
 
 test("parcours : file de monstres (avec élites) et étapes", () => {
