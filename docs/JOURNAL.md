@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2125, design des Talents) : fenêtre des bonus de maîtrise en grille (rang | option A | option B), alignée d'un
+  palier à l'autre (avant : deux boutons poussés à droite, B passait à la ligne selon la longueur). Sans défilement en allemand et en
+  russe à 1280 px ; 276/276.
 - 2026-11-18 (it. 2124, ergonomie) : fermeture d'une fenêtre par le fond seulement si l'appui aussi était sur le fond (appuyer dans
   la fenêtre pour sélectionner un texte et relâcher dehors la fermait). Autotest ajouté ; 276/276.
 - 2026-11-18 (it. 2123, ergonomie) : un clic sur le fond d'une fenêtre la ferme : la confirmation est annulée (jamais validée), la
