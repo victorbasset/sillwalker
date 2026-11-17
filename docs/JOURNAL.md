@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1975, revue visuelle) : vidéo de 16 s, zone 46, série variée imposée (meutes, proies, élite, colosses), quatre
+  images examinées : monstres bien espacés, nuée de chauves-souris ensemble, rien dans la rangée d'informations. Seul
+  encombrement : les « Crit » flottants qui se superposent au-dessus du héros pendant les combats rapides (antérieur à la
+  journée des monstres). Rien corrigé.
 - 2026-11-17 (it. 1974) : harpie (balancement) et tyrannœil (palpitation) vus dans le jeu ; l'autotest des gestes couvre
   aussi un geste d'espèce (l'ours se dresse). 257/257.
 - 2026-11-17 (it. 1973, journée des monstres) : six gestes d'espèce de plus (guêpe qui bourdonne, diablotin qui se retourne,
