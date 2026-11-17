@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2021, revue générale) : perf:linux bande 18,5 %, panneau 19,4 %, mini 5,5 % ; mémoire 571-574 Mo ; balance 12 h
+  graine 11 contre aea72772 (avant les compétences des monstres) : +0,3 ; fuzz 600 / 0 ; chinois : aucun mot français. Rien à
+  corriger.
 - 2026-11-17 (it. 2020, vérification) : corbeau entre deux ours (prédateurs), devFreeze : 30 px en zone venteuse, 15 px en zone
   calme (avant l'it. 2019 : 3 et 9 px, il tremblait sur place). Rien à corriger.
 - 2026-11-17 (it. 2019) : proies et prédateurs (it. 1923) : une proie volante (corbeau) n'est plus « coincée » entre deux
