@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1906, journée des monstres) : meute impatiente : quand un loup (ou tout membre d'une meute) se bat, ses
+  congénères qui attendent derrière lui s'avancent (jusqu'à 6 px, comme devant un héros affaibli), puis reprennent leur place.
+  Vérifié dans le jeu (série de loups imposée), autotest 253/253.
 - 2026-11-17 (it. 1905, journée des monstres) : meutes vérifiées dans le jeu (série de loups imposée, positions relevées
   toutes les 0,5 s : les deux suiveurs avancent et reculent avec le chef, à quelques pixels près). Correction : deux ours
   voisins se suivaient aussi ; seules les espèces grégaires (PACK_ARTS) font meute sur la bande. Autotest 253/253.

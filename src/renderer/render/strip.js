@@ -1298,7 +1298,9 @@ export class StripRenderer {
       // boss restent à leur place) ; elle recule quand il se rétablit
       if (!fighting && k < this.fights() - 1) {
         const hsMax = this.game.stats().hp, weak = R.mode === "fight" && hsMax > 0 && R.hp / hsMax < 0.3;
-        a.eager = (a.eager || 0) + ((weak ? 1 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
+        // (it. 1906) meute : quand un congénère se bat, ceux qui le suivent s'avancent, impatients de prendre la relève
+        const fs = R.mon && cur >= 0 ? this.slots[cur] : null, pack = fs && a.packSeed != null && (fs.packSeed ?? fs.lifeSeed) === a.packSeed && k > cur;
+        a.eager = (a.eager || 0) + ((weak ? 1 : pack ? 0.7 : 0) - (a.eager || 0)) * Math.min(1, dt * 2);
       }
       // (it. 1878) jour et nuit : la nuit, les espèces de jour bougent à peine et s'endorment (« z »), celles de nuit
       // s'agitent ; l'entrain change lentement (pas de saut à la tombée de la nuit)
