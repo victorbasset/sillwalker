@@ -28,14 +28,15 @@ export const PREDATORS = new Set(["wolf", "bear", "snake", "drake", "boar", "spi
  *  art : dessin de base ; el : élément de la variante (monskills elementOf : fire, frost, poison, shadow) ; wx : météo.
  *  neige : qui n'est pas fait pour le froid grelotte ; braises : yétis et variantes de givre s'affaissent ; sous l'eau
  *  (bulles) : créatures de feu aussi ; spores : on éternue (sauf champignons et plantes) ; cendres : on tousse (même geste ;
- *  pas les golems, squelettes, momies, élémentaires de feu).
+ *  pas les golems, squelettes, momies, élémentaires de feu, fantômes).
  */
 export function climateGesture(art, el, wx) {
   if (wx === "snow" && art !== "yeti" && el !== "frost") return "rattle";
   if (wx === "ember" && (art === "yeti" || el === "frost")) return "still";
   if (wx === "bubble" && (art === "imp" || art === "fireelem" || el === "fire")) return "still";
-  if (wx === "spore" && !["mush", "sporeling", "plant", "treant"].includes(art)) return "sneeze";
-  if (wx === "ash" && !["golem", "skel", "fireelem", "mummy"].includes(art)) return "sneeze";
+  // (it. 2030) le fantôme ne respire pas : il ne tousse pas dans la Crypte oubliée ni dans l'Ossuaire des titans
+  if (wx === "spore" && !["mush", "sporeling", "plant", "treant", "ghost"].includes(art)) return "sneeze";
+  if (wx === "ash" && !["golem", "skel", "fireelem", "mummy", "ghost"].includes(art)) return "sneeze";
   return null;
 }
 /**

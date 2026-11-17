@@ -436,6 +436,8 @@ test("climat des zones (it. 2023) : le geste imposé selon la météo", () => {
   assert.equal(climateGesture2023("wolf", null, "spore"), "sneeze");
   assert.equal(climateGesture2023("mush", null, "spore"), null);
   assert.equal(climateGesture2023("golem", null, "ash"), null);
+  assert.equal(climateGesture2023("ghost", null, "ash"), null, "le fantôme ne tousse pas");
+  assert.equal(climateGesture2023("rat", null, "ash"), "sneeze");
   assert.equal(climateGesture2023("bear", null, "leaf"), null);
 });
 

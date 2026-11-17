@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2030, journée des monstres) : revue des espèces des zones de cendres et de spores : le fantôme toussait dans la
+  Crypte oubliée et l'Ossuaire des titans ; il ne respire plus (ni toux ni éternuement). Test logique complété. Autotest 259/259.
 - 2026-11-17 (it. 2029, journée des monstres) : éternuement vérifié en capture dans les trois zones à spores : le souffle vert
   pâle disparaissait sur le Marais brumeux (fond vert clair) ; vert moyen (#6f9636), visible aussi au Bois corrompu et à la
   Champignonnière géante (fonds violets). Autotest 259/259.
