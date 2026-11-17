@@ -31,6 +31,8 @@ import { natureOf, lifeSeed, lifeOffset } from "./monlife.js";
 /** (it. 1853) Couleur des mots et éclats des compétences de monstres selon l'élément de la variante (monskills.js). */
 const MON_EL_COLOR = { fire: "#ff8a3a", frost: "#bfe8ff", poison: "#b98cff", shadow: "#c08cff" };
 /** (it. 1854) Couleur propre d'une compétence sans élément (spores : vert pâle, piqué : violet de la chauve-souris). */
+/** (it. 1867) Craintifs : reculent plus loin quand un voisin tombe. */
+const TIMID = new Set(["rat", "goblin", "bandit", "imp", "frog", "crow", "lizard"]);
 const MON_SKILL_COLOR = { spores: "#d8e8a0", dive: "#c8a8ff", reassemble: "#f0e8d0", sting: "#b8f07a", howl: "#d8e4ff", slam: "#c9b89a", roots: "#8fd36a", scream: "#e8b8ff", phase: "#d8f0ff", fireball: "#ff8a3a", swarm: "#d8c8b8", web: "#f4f4f8", tombcurse: "#c08cff", boulder: "#bfe8ff", feathers: "#f0d8b0", flare: "#ff9a3a", shell: "#9fd8ff", parry: "#c9ced6", riposte: "#ffb07a", rootdeep: "#8fd36a", breath: "#ffb03a", gaze: "#c08cff", tongue: "#ff8ab0", strike: "#c8f07a", pinch: "#d8c890", charge: "#e8c8a0", roar: "#ffd8a8", rage: "#ff5a4a", sacrifice: "#ff4a5a", flutter: "#ffd34d", shock: "#fff6a8", ambush: "#b8f07a", burrow: "#c9a06a", peck: "#c8c8e8", chomp: "#e9b949", pickpocket: "#ffd34d", pollen: "#b8ffd8", thrust: "#d8e0ec", bomb: "#ffb03a" };
 import { spellIconURL, relicIconURL, shopIconCanvas } from "./shopart.js";
 import { CONSUMABLES } from "../game/shop.js";
@@ -410,6 +412,19 @@ export class StripRenderer {
     });
 
     g.on("heroDown", () => this.float(this.heroX + 6, 40, "K.O.", "#ff7a6b", true));
+    // (it. 1867, journée des monstres : comportements de groupe) mort d'un voisin : les suivants de la file sursautent et
+    // reculent d'un pas (les craintifs plus loin) ; héros à terre : la file sautille de joie, chacun à son tour
+    g.on("kill", () => {
+      // l'événement part avant que le compte avance : le mort est à S.kills, ses voisins juste après
+      const k0 = Math.min(this.game.S.kills + 1, this.slots.length - 1);
+      for (let k = k0; k < Math.min(k0 + 3, this.slots.length - 1); k++) {
+        const a = this.slots[k]; if (!a) continue;
+        a.react = { kind: "startle", t: 0, d: 0.7 + (k - k0) * 0.1, far: TIMID.has(a.art) ? 2 : 1, delay: (k - k0) * 0.08 };
+      }
+    });
+    g.on("heroDown", () => {
+      for (let k = 0; k < this.slots.length; k++) { const a = this.slots[k]; if (a) a.react = { kind: "cheer", t: 0, d: 1.2, delay: (k % 4) * 0.12 }; }
+    });
   }
 
   /* ---------- Répliques du héros ---------- */
@@ -1209,10 +1224,21 @@ export class StripRenderer {
       // (it. 1850) en attente : il vit sa vie (flâne, plane, sautille…) et se tourne vers le héros qui approche
       const pose = fighting ? this.monSkillPose(dt) : null; // (it. 1853) compétence en cours : bond, élan…
       const life = fighting ? null : lifeOffset(a.nature, a.lifeSeed || 0, R.time, Math.abs(this.fightX(k + 1) - this.heroX), k === this.fights() - 1);
+      // (it. 1867) réactions de groupe : sursaut (mort d'un voisin), joie (héros à terre)
+      let rdx = 0, rdy = 0;
+      if (!fighting && a.react) {
+        const r = a.react; r.t += dt;
+        const p = (r.t - r.delay) / r.d;
+        if (p >= 1) a.react = null;
+        else if (p > 0) {
+          if (r.kind === "startle") { const b = p < 0.2 ? p / 0.2 : 1 - (p - 0.2) / 0.8; rdx = 8 * r.far * b; rdy = p < 0.2 ? -4 * Math.sin(p / 0.2 * Math.PI) : 0; }
+          else rdy = -Math.abs(Math.sin(p * Math.PI * 3)) * 5;
+        }
+      }
       // (it. 1856) loup de la file qui répond au hurlement : tête levée (petit bond vers le haut), puis repos
       let answer = 0;
       if (!fighting && a.howlT > 0) { a.howlT -= dt; answer = a.howlT > 0.25 ? -3 : 0; }
-      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0) + (pose ? pose.dx : 0), this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer);
+      a.move(this.fightX(k + 1) + (fighting && this.monHit > 0 ? 3 : 0) + (life ? life.dx : 0) + (pose ? pose.dx : 0) + rdx, this.monY(a, bob) + (life ? life.dy : 0) + (pose ? pose.dy : 0) + answer + rdy);
       // (it. 1857) spectre intangible : à demi effacé tant que les coups le traversent
       if (fighting || a.phased) { const ph = !!(fighting && R.mon.phaseT > 0); if (a.phased !== ph) { a.phased = ph; a.alpha(ph ? 0.375 : 1); } }
       const flip = !!(life && life.face < 0);

@@ -80,5 +80,7 @@ se balançaient qu'au combat.
 4. **Boss** (it. 1866, première passe) : chaque boss de zone a la compétence de sa famille (son dessin de base), en plus
    de ses capacités tournantes, listée dans le panneau de zone ; lieutenants et Briseur : leurs pouvoirs uniques (it. 1849).
    À suivre : une variante propre à certains boss (nom, effet renforcé).
-5. **Comportements d'ensemble** : meutes (loups qui attendent ensemble), volants qui changent d'altitude, monstres qui
+5. **Comportements d'ensemble** (it. 1856 : la meute de loups répond au hurlement ; it. 1867 : quand un monstre tombe,
+   les trois suivants sursautent et reculent, les craintifs plus loin ; héros à terre : la file sautille de joie) ;
+   à suivre : meutes (loups qui attendent ensemble), volants qui changent d'altitude, monstres qui
    fuient blessés, réactions à la mort d'un voisin.

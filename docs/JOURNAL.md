@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1867, journée des monstres) : réactions de groupe sur la bande : à la mort d'un monstre, les trois
+  suivants sursautent et reculent (8 px, 16 px pour les craintifs : rats, gobelins, bandits, diablotins, crapauds,
+  corbeaux, lézards) ; héros à terre : la file sautille de joie, chacun à son tour. Mesuré en jeu (le mort est à S.kills
+  quand l'événement part : décalage corrigé). npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1866, journée des monstres) : les boss de zone reçoivent la compétence de leur famille (compensée),
   listée à la suite de leurs capacités dans le panneau de zone (lieutenants et Briseur exclus). Trouvé en passant : le
   Bestiaire > Capacités des boss listait aussi les quatre pouvoirs uniques de l'it. 1849 et défilait en russe (jusqu'à
