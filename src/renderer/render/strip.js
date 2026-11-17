@@ -1358,7 +1358,9 @@ export class StripRenderer {
           // (it. 1933) le geste dépend de la nature : furtif (renifle de droite à gauche), colosse (s'enfonce, lourd), volant
           // (looping : monte haut puis redescend), sauteur (grand bond) ; les autres, le petit bond
           // (it. 1936) l'araignée remonte le long d'un fil de soie, puis redescend
-          a.react = a.art === "spider" ? { kind: "gesture", t: 0, d: 1.6, delay: 0, nat: "spider" } : { kind: "gesture", t: 0, d: a.nature === "still" ? 1 : 0.6, delay: 0, nat: a.nature };
+          // (it. 1942) parmi les colosses : plantes et sylvains se balancent, la momie fait un pas traînant
+          const nat = a.art === "spider" ? "spider" : a.art === "plant" || a.art === "treant" ? "sway" : a.art === "mummy" ? "shuffle" : a.nature;
+          a.react = { kind: "gesture", t: 0, d: nat === "spider" ? 1.6 : nat === "sway" ? 1.4 : a.nature === "still" ? 1 : 0.6, delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
         }
       }
@@ -1387,6 +1389,8 @@ export class StripRenderer {
               if (p > 0.97) { a.silk.hidden = true; a.silkH = -1; }
             }
             else if (r.nat === "skitter") rdx = Math.floor(p * 6) % 2 ? 3 : -3;
+            else if (r.nat === "sway") rdx = Math.round(Math.sin(p * Math.PI * 2) * 1.4) * 3;
+            else if (r.nat === "shuffle") rdx = p < 0.5 ? -3 : p < 0.8 ? -6 : -3;
             else if (r.nat === "still") rdy = sn * 3;
             // (it. 1938) 6 px, pas 9 : un volant au plus haut de sa croisière touchait la rangée d'informations (26 px)
             else if (r.nat === "fly") rdy = -sn * 6;

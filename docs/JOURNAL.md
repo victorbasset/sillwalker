@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1942, journée des monstres) : gestes des colosses affinés : plantes et sylvains se balancent (±3 px, 1,4 s),
+  la momie fait un pas traînant vers le héros ; golems et vers s'enfoncent toujours. Vérifié (série imposée). Autotest 256/256.
 - 2026-11-17 (it. 1941, revue générale) : perf:linux bande 18,2 %, panneau 18,9 %, mini 5,5 % ; balance 12 h contre aea72772
   (avant les compétences des monstres) : −0,9 zone, comme le bilan de l'it. 1886 (−0,8) : les meutes n'ont rien changé ;
   fuzz 600 / 0 ; --crawl en polonais : 675 clics, aucune erreur. Rien à corriger.
