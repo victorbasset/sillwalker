@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1914, journée des monstres) : vidéo des meutes envoyée à Victor (strip-clip, zone 56, série imposée : 3 loups,
+  2 chauves-souris, 2 loups entre des ours). Leçon : en zone basse le héros de dev-data tue tout d'un coup ; filmer près
+  du record (56-57) pour que la file reste en place.
 - 2026-11-17 (it. 1913, journée des monstres) : un loup (ou un membre de meute) tombe : ses congénères ne sursautent pas en
   arrière comme les autres, ils s'avancent de 8 px en frémissant, un « ! » rouge au-dessus du premier. Vérifié dans le jeu
   (série imposée : ours → les loups sursautent ; loup → les deux autres s'avancent, furieux). Autotest 254/254.
