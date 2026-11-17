@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2072) : autotest « mode mini : le monstre suivant s'avance depuis sa place d'attente » (bogue de l'it. 2071) :
+  première image visible du combattant à x 156 ; avec l'ancien mini.js, 129 : échec, comme attendu. Autotest 262/262.
 - 2026-11-17 (it. 2071, signalé par Victor : mode mini, « on voit l'ancien monstre, c'est pas smooth ») : à la victoire, la file avance
   aussitôt : le monstre en attente au fond disparaissait pendant la marche, puis le combattant surgissait plus à gauche (x 132 au lieu
   de 162) en partant de l'invisible. Le monstre en attente reste maintenant à sa place jusqu'à son combat (3 s au plus), puis le

@@ -192,6 +192,17 @@ async function runSelfTest(strip) {
   if (miniTap) await click("#mini .minitap");
   await sleep(300);
   check("mode mini : clic sur le monstre = coup bonus", miniTap && (await state("S.stats.taps || 0")) > mt0 && strip.mode() === "mini");
+  // (it. 2072, bogue signalé par Victor, corrigé à l'it. 2071) le monstre en attente reste visible pendant que le précédent s'efface,
+  // puis le combattant part de sa place d'attente (x ≥ 145 à sa première image visible ; avant : 132, en partant de l'invisible)
+  const miniHand = await js(`(async () => { const G = window.__game, R = G.R, M = window.__mini, keep = { line: R.lineup, lz: R.lineupZone, k: G.S.kills, z: G.S.zone, mon: R.mon, mode: R.mode };
+    window.__pause = false; G.S.zone = 30; R.lineupZone = 30; R.lineup = ['bear','wolf','golem','bear','wolf','golem'].map((type) => ({ type, elite: false, champion: false, affix: null })); G.S.kills = 0; R.mon = null; R.mode = 'walk';
+    let firstX = null, gap = 0, corpse = false; const t0 = Date.now();
+    while (Date.now() - t0 < 12000 && firstX === null) { await new Promise((r) => setTimeout(r, 40)); const a = M.monActor, b = M.nextActor;
+      if (G.S.kills >= 1 && !R.mon) { corpse = true; if (!(b && !b.el.hidden)) gap++; }
+      if (R.mon && R.mon.type === 'wolf' && a && a.alphaV > 0) firstX = a.x; }
+    window.__pause = true; G.S.zone = keep.z; R.lineup = keep.line; R.lineupZone = keep.lz; G.S.kills = keep.k; R.mon = keep.mon; R.mode = keep.mode;
+    return corpse + ' ' + gap + ' ' + firstX; })()`);
+  check("mode mini : le monstre suivant s'avance depuis sa place d'attente, sans disparaître", /^true 0 (1(4[5-9]|[5-9]\d)|2\d\d)$/.test(miniHand), miniHand);
   // (it. 919) Ciel des événements en mode mini (it. 918) : Lune de sang puis Nuée d'étoiles, puis retour au ciel normal.
   const mSky = [];
   // (it. 1244) et Lune pâle
