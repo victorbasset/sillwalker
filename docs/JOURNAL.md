@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2020, vérification) : corbeau entre deux ours (prédateurs), devFreeze : 30 px en zone venteuse, 15 px en zone
+  calme (avant l'it. 2019 : 3 et 9 px, il tremblait sur place). Rien à corriger.
 - 2026-11-17 (it. 2019) : proies et prédateurs (it. 1923) : une proie volante (corbeau) n'est plus « coincée » entre deux
   prédateurs au sol (elle tremblait sur place, vent et dérive écrasés : vu à l'it. 2017). Autotest 259/259.
 - 2026-11-17 (it. 2018) : MONSTRES-VIVANTS, étape 13 complétée (spores, vent, devFreeze).
