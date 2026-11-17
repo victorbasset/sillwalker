@@ -51,7 +51,8 @@
 8. (it. 2105) Code d'état des lignes : presque toutes avaient le même cadre vert. Seules les lignes cliquables gardent le vert vif
    (avec un trait à gauche) ; au maximum : coche et fond calme ; en cours : barre de rang au pied de la ligne ; maîtrises en cadre
    neutre. Thèmes sombre et clair vérifiés en capture.
-   À suivre : la Voie disponible doit appeler l'œil ; la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
+9. (it. 2106) Voie disponible et pas encore choisie : ses deux lignes en or, trait à gauche, « choisir › » (avant : gris).
+   À suivre : la fiche de gauche a un grand vide ; trois pastilles « Choisir un bonus »
    identiques se disputent l'attention.
 
 ## Reste à revoir (hors Talents)
