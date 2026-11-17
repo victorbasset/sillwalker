@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1982) : réputation (it. 1976) : les élites et champions, téméraires, ne tremblent plus devant un héros trop fort.
+  Autotest 257/257.
 - 2026-11-17 (it. 1981, revue générale) : perf:linux bande 18,1 %, panneau 19,5 %, mini 5,5 % ; balance 12 h graine 3 contre
   aea72772 (avant les compétences des monstres) : −0,8, comme le bilan du matin ; fuzz 600 / 0 ; stall-check 60 / 0 ; polonais :
   aucun mot français. Rien à corriger.

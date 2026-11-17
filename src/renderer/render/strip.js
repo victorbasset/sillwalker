@@ -1329,7 +1329,8 @@ export class StripRenderer {
       // les craintifs se tiennent loin, dos tourné, les autres tremblent quand il approche (à moins de 220 px)
       if (life && k < this.fights() - 1 && S.best - S.zone >= 15) {
         if (TIMID.has(a.art)) life = { ...life, dx: life.dx * 0.5 + 12, face: -1 };
-        else if (Math.abs(this.fightX(k + 1) - this.heroX) < 220) life = { ...life, dx: life.dx + (Math.floor(R.time * 14 + k) % 2 ? 3 : 0) };
+        // (it. 1982) élites et champions, téméraires, ne tremblent pas
+        else if (!a.brave && Math.abs(this.fightX(k + 1) - this.heroX) < 220) life = { ...life, dx: life.dx + (Math.floor(R.time * 14 + k) % 2 ? 3 : 0) };
       }
       if (life && TIMID.has(a.art) && k < this.fights() - 1) {
         const L = this.slots[k - 1], Rr = this.slots[k + 1];
