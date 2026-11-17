@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1961, revue générale) : perf:linux bande 18,0 %, panneau 19,3 %, mini 5,3 % ; 12 h graine 261 : chaman 65,
+  druide 64, samouraï 65 ; save-fuzz ok (1 267) ; fuzz sous chaque bénédiction : 400 / 0 (garde-fou anti-impasse compris).
+  Rien à corriger.
 - 2026-11-17 (it. 1960, vérification) : la partie figée de l'it. 1958 (dev-data après 80 min de jeu, zone 57), 4 min à ×10 :
   5 défaites, va-et-vient entre les zones 55 et 57 : elle vit de nouveau. POUR-VICTOR : le bogue corrigé.
 - 2026-11-17 (it. 1959, bogue) : garde-fou de l'it. 1958 étendu à tout monstre (un élite « Régénérant » pouvait figer la partie
