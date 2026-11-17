@@ -292,6 +292,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Gestes au repos : ART_GEST (strip.js, par dessin de base), sinon la nature ; le climat de la zone (juice.js WEATHER : neige,
   braises, bulles, spores) les remplace (it. 2004-2010) : un contrôle de geste se fait dans une zone FIXE (it. 2010 : l'autotest
   échouait selon la zone courante). Nouvelle série : les monstres accourent du bord (arriveDelay ; pas le boss, it. 1993-1996).
+  Mesurer la vie de la file sans que la série change : `g.R.devFreeze = true` (game.js step : ni combat ni marche, le temps
+  avance ; it. 2017). Attention aux règles qui en écrasent d'autres (un craintif entre deux prédateurs tremble sur place).
   Voir la bande en mouvement : `scripts/strip-clip.sh <sortie.mp4> [zone] [secondes] [ffmpeg] [mise-en-scène.js]` (écran
   virtuel à part, copie de dev-data ; ffmpeg d'imageio-ffmpeg dans un environnement virtuel du dossier temporaire).
 - Rangée d'informations de la bande (zone, or, barres de vie du réglage hudBars, it. 1531) : tout nouvel élément y

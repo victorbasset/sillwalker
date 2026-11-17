@@ -295,6 +295,9 @@ export class Game {
   step(dt) {
     const R = this.R, hs = this.stats();
     R.time += dt;
+    // (it. 2017) outil de mesure (mises en scène --stage, autotest) : R.devFreeze suspend la partie (ni combat, ni marche, ni
+    // victoire) ; le temps continue, donc la vie de la file aussi. Jamais posé par le jeu lui-même.
+    if (R.devFreeze) return;
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
     if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh }); // (it. 1105) le grand graphe s'ouvre : annoncé une fois
       // (it. 1740) Statistiques ouvert tôt pour le Journal (it. 1729) : chiffres, succès et carnet de route arrivent à la zone 40,

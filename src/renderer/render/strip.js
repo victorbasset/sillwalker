@@ -1348,8 +1348,9 @@ export class StripRenderer {
         // (it. 1982) élites et champions, téméraires, ne tremblent pas
         else if (!a.brave && Math.abs(this.fightX(k + 1) - this.heroX) < 220) life = { ...life, dx: life.dx + (Math.floor(R.time * 14 + k) % 2 ? 3 : 0) };
       }
-      // (it. 2015) zone venteuse (plumes) : les volants sont ballottés par les rafales (pas les harpies, chez elles)
-      if (life && a.nature === "fly" && a.art !== "harpy" && this.windy) life = { ...life, dx: life.dx + Math.round(Math.sin(R.time * 1.7 + (a.lifeSeed || 0) * 7) * Math.sin(R.time * 0.4) * 3) * 3 };
+      // (it. 2015) zone venteuse (plumes) : les volants sont ballottés par les rafales (pas les harpies, chez elles) ;
+      // (it. 2017) jusqu'à ±12 px : le produit de deux sinus arrondi au pas de 3 px tombait presque toujours à 0
+      if (life && a.nature === "fly" && a.art !== "harpy" && this.windy) life = { ...life, dx: life.dx + Math.round((Math.sin(R.time * 1.7 + (a.lifeSeed || 0) * 7) * 0.6 + Math.sin(R.time * 0.5) * 0.4) * 4) * 3 };
       if (life && TIMID.has(a.art) && k < this.fights() - 1) {
         const L = this.slots[k - 1], Rr = this.slots[k + 1];
         const lp = L && k - 1 > cur && PREDATORS.has(L.art), rp = Rr && k + 1 < this.fights() - 1 && PREDATORS.has(Rr.art);

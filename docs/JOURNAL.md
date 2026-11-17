@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2017) : vent (it. 2015) presque invisible : produit de deux sinus arrondi au pas de 3 px, nul la plupart du
+  temps ; rafales de ±12 px. Outil : g.R.devFreeze (partie suspendue, la vie de la file continue) pour mesurer sans que la série
+  change. Mesure : corbeau entre golems, 30 px de zone venteuse contre 15 px de zone calme (mes mesures précédentes le mettaient
+  entre deux ours, prédateurs : il tremblait sur place, vent écrasé). Autotest 259/259. Noté dans CLAUDE.md.
 - 2026-11-17 (it. 2016, mesure) : vent (it. 2015) : amplitude d'un corbeau sur 10 s, zone venteuse 24 px contre 15 px en zone
   calme (deux lancements). Comparaison dans une même partie impossible : la série change (victoires ou défaites) pendant le
   relevé. Piège noté : de jour, les chauves-souris somnolent (mouvement ×0,35, vent compris) ; mesurer un volant actif.
