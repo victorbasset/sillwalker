@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1940, vérification) : « seconde phase des boss » écartée : les capacités tournantes « Enragé » et « Fureur
+  croissante » (bosses.js) le font déjà. Vidéo de l'it. 1928 en zone 40 : pas un défaut de strip-clip (la série imposée
+  s'applique, relevé à 3, 5, 9 s), le héros l'avait finie avant 20 s ; filmer là où une série dure plus que la vidéo.
 - 2026-11-17 (it. 1939) : autotest « bande : un volant au plus haut ne touche pas la rangée d'informations » (11 chauves-
   souris, gestes forcés 1,5 s ; mesuré 30 / 26 px). 256/256. (La mesure longue de l'it. 1938, 12 s, descendait à 27 px.)
 - 2026-11-17 (it. 1938) : geste des volants (it. 1933) : monté de 9 px, une chauve-souris au plus haut de sa croisière touchait
