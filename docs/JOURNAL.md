@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1889, contrôle) : début de partie après la journée des monstres : first-minutes (premier boss, objet
+  et rare à 71-86 s), tab-pace (talents 1 min, statistiques 2, quêtes 4-5, boutique 8-9, héros 10, carte 11-12, bestiaire
+  13-15), early-pace (niveau 39, zone 24 à 60 min) : inchangés.
 - 2026-11-17 (it. 1888, journée des monstres) : chute du monstre vaincu selon sa famille (strip.js corpseFall,
   CORPSE_FALL) : les volants tombent au sol, spectres et élémentaires montent en se dissipant, gluants et méduses
   s'affaissent, golems, squelettes, momies et sylvains s'effondrent en tremblant. Mesuré (chauve-souris : 48 → 72 px) ;
