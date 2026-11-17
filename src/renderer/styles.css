@@ -83,6 +83,9 @@ body.mode-mini #root { display: none; }
 .actor .frame.on { opacity: 1; }
 /* (it. 1850) monstre en attente qui tourne le dos au héros (monlife.js) : seules ses images se retournent, pas son nom */
 .actor.flip .frame { transform: scaleX(-1); }
+/* (it. 1936) fil de soie de l'araignée qui remonte (geste au repos) : statique, sa hauteur ne change qu'au geste */
+.actor .silk { position: absolute; width: 3px; background: rgba(230, 230, 240, 0.55); pointer-events: none; }
+.actor .silk[hidden] { display: none; }
 .hpbar { position: absolute; left: 0; top: 0; width: 38px; height: 6px; border: 1px solid #14121f; background: #3a1c24; }
 .hpbar[hidden] { display: none; }
 .hpbar > i { display: block; width: 36px; height: 4px; transform-origin: left; }
