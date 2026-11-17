@@ -1408,6 +1408,8 @@ export class StripRenderer {
             // (it. 2028) souffle dirigé vers la gauche (juice.puff) ; gris clair (cendres, fonds bruns) ; (it. 2029) vert moyen : le vert pâle
             // disparaissait sur le Marais brumeux (fond vert clair), le vert moyen se voit aussi sur les fonds violets
             if (nat === "sneeze") this.juice.puff(gx + 2, gy + Math.round(a.h * 0.4), wx === "ash" ? "#d8d2c8" : "#6f9636", 4);
+            // (it. 2035) dans la neige, le frileux qui grelotte souffle une buée (pas le squelette, ni la guêpe : leur cliquetis est le leur)
+            else if (nat === "rattle" && wx === "snow" && a.art !== "skel" && a.art !== "wasp") this.juice.puff(gx + 2, gy + Math.round(a.h * 0.4), "#7896c8", 3);
             else this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3);
           }
         }

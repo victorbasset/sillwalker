@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2035, journée des monstres) : dans la neige, le frileux qui grelotte souffle une buée (juice.puff, bleu acier
+  #7896c8 : le bleu pâle se perdait sur la neige ; pas le squelette ni la guêpe). Vérifié en capture aux Pics enneigés et à la
+  Toundra gelée. Autotest 259/259.
 - 2026-11-17 (it. 2034) : MONSTRES-VIVANTS, étape 13 complétée (cendres, souffles, exclusions, fonctions pures, corbeau) ;
   revue de CORPSE_FALL (façons de tomber) : cohérente.
 - 2026-11-17 (it. 2033, journée des monstres) : le corbeau passe des espèces de nuit à celles de jour (il chasse le jour et
