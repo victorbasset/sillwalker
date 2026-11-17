@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1885, journée des monstres) : annonce lisible : pendant la préparation d'une compétence, un petit « ! »
+  de sa couleur au-dessus du monstre (le joueur voit venir le coup). Mis en scène (sanglier) ; perf bande 18,4 % ;
+  npm test 345, autotest 253/253.
 - 2026-11-17 (it. 1884, journée des monstres) : rythme irrégulier des compétences (intervalle ±20 %, premier usage ±30 %,
   même moyenne) : un monstre n'est plus une horloge. Test de Poupouce rendu indépendant du tirage (compétence retirée
   comme le type). Balance contre HEAD : +0,9 ; fuzz 600 / 0 ; npm test 345, autotest 253/253.
