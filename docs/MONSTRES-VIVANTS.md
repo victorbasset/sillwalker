@@ -88,6 +88,16 @@ se balançaient qu'au combat.
    à suivre : , volants qui changent d'altitude, monstres qui
    fuient blessés, réactions à la mort d'un voisin.
 
+6. **Meutes et nuées** (it. 1903-1907) : espèces grégaires (game.js PACK_ARTS : loups, chauves-souris, rats, corbeaux,
+   guêpes, harpies, gluants, sangliers) : 35 % de chances qu'un congénère suive, trois au plus (le tirage « comme des
+   cartes » interdisait sinon deux fois le même monstre). Sur la bande, les suiveurs reprennent 65 % du mouvement du chef
+   de file (0,25 s de retard, même regard) et s'avancent quand l'un des leurs se bat. Les solitaires (ours…) restent
+   chacun de son côté même voisins. Infobulle du Bestiaire : « Grégaire ». Semaine : 350 / 350, inchangée.
+7. **Rangs** (it. 1899) : élites −15 % d'intervalle de compétence, champions −25 % (compensés), mot doré / violet.
+
+Outils : `scripts/strip-clip.sh` (vidéo courte de la bande, it. 1896) ; mesurer un mouvement : `--stage` qui impose une
+série (`g.R.lineup = …`, `s.slotKey = null`) et relève `slots[k].tx` toutes les 0,5 s (it. 1905).
+
 ## Bilan d'équilibre (it. 1886)
 
 Contre aea72772 (avant les compétences), sur trois graines (7, 3, 11), après toute la journée : −0,8 zone en 12 h en

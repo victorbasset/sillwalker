@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1910) : MONSTRES-VIVANTS : étapes 6 (meutes et nuées) et 7 (rangs), outils de vérification (vidéo, relevé
+  des positions par --stage).
 - 2026-11-17 (it. 1909, contrôle) : semaine simulée après les meutes (tirage des séries changé) : guerrier 350, mage 350
   (6 158 éclats chacun), comme le repère : rien à corriger.
 - 2026-11-17 (it. 1908) : « Quoi de neuf », édition 122 (meutes et nuées ; élites et champions aguerris ; clés 3216-3217,
