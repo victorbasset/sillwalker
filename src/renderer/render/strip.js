@@ -1371,9 +1371,13 @@ export class StripRenderer {
           // (it. 1943) marcheurs : le sanglier gratte le sol, l'ours se dresse, le squelette s'entrechoque
           // (it. 1944) le bandit regarde de part et d'autre, le cultiste se balance en psalmodiant, l'orc se frappe la poitrine,
           // le chevalier salue (deux petits saluts)
-          const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle", bandit: "look", cultist: "sway", orc: "beat", knight: "salute", darkknight: "salute" };
+          const ART_GEST = { spider: "spider", plant: "sway", treant: "sway", mummy: "shuffle", boar: "paw", bear: "rear", skel: "rattle", bandit: "look", cultist: "sway", orc: "beat", knight: "salute", darkknight: "salute",
+            // (it. 1949) le yéti se frappe la poitrine, la méduse pulse, le serpent ondule, le crabe fait un pas de côté, le loup
+            // lève la tête (un petit hurlement muet)
+            yeti: "beat", jelly: "beat", snake: "sway", crab: "paw", wolf: "howl" };
           const nat = ART_GEST[a.art] || a.nature;
-          a.react = { kind: "gesture", t: 0, d: { spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
+          if (nat === "howl") a.howlT = 0.9;
+          a.react = { kind: "gesture", t: 0, d: { howl: 0.9, spider: 1.6, sway: 1.4, rear: 1.2, paw: 0.9, look: 1.6, beat: 0.9, salute: 0.8 }[nat] || (a.nature === "still" ? 1 : 0.6), delay: 0, nat };
           if (this.active && this.juice.full && a.tx) { const [gx, gy] = a.tx.split(",").map(Number); this.juice.sparkles(gx + a.w / 2, gy + 4, MON_SKILL_COLOR[a.skillId] || "#e8e0ff", 3); }
         }
       }
@@ -1414,6 +1418,8 @@ export class StripRenderer {
             // (it. 1938) 6 px, pas 9 : un volant au plus haut de sa croisière touchait la rangée d'informations (26 px)
             else if (r.nat === "fly") rdy = -sn * 6;
             else if (r.nat === "hop") rdy = -sn * 7;
+            // (it. 1949) le loup : la tête levée suffit (howlT)
+            else if (r.nat === "howl") rdy = 0;
             else rdy = -sn * 3;
           }
           else rdy = -Math.abs(Math.sin(p * Math.PI * 3)) * 5;
