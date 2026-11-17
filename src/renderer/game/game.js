@@ -460,12 +460,12 @@ export class Game {
       // et le combat ne finissait jamais (dev-data, zone 57 : 10 min de jeu sans un PV perdu de part et d'autre, le héros ne
       // reculait jamais). Après 90 s de combat, le boss s'emporte (Fureur croissante) toutes les 10 s, sans plafond : l'un
       // des deux finit par tomber et la progression reprend (recul après deux défaites).
-      if (m.boss) {
-        m.fightT = (m.fightT || 0) + dt;
-        if (m.fightT > 90) {
-          m.wrathT = (m.wrathT ?? 0) - dt;
-          if (m.wrathT <= 0) { m.wrathT = 10; m.interval *= FURY.speed; m.fury = (m.fury || 0) + 1; this.emit("bossSkill", { id: "fury", n: m.fury }); }
-        }
+      // (it. 1959) tout monstre, pas seulement les boss : un élite « Régénérant » pouvait figer la partie de la même façon ;
+      // hors boss, l'accélération est discrète (pas de mot de capacité de boss)
+      m.fightT = (m.fightT || 0) + dt;
+      if (m.fightT > 90) {
+        m.wrathT = (m.wrathT ?? 0) - dt;
+        if (m.wrathT <= 0) { m.wrathT = 10; m.interval *= FURY.speed; if (m.boss) { m.fury = (m.fury || 0) + 1; this.emit("bossSkill", { id: "fury", n: m.fury }); } }
       }
       // Capacités spéciales des boss
       if (m.boss && this.bossTick(m, hs, dt)) return;

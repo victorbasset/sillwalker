@@ -403,6 +403,16 @@ test("compétences réfléchies (it. 1955) : le sylvain se soigne blessé seulem
   assert.ok(run("cultist", 80), "cultiste en forme : il se sacrifie");
 });
 
+test("impasse face à un élite qui se régénère (it. 1959) : il finit aussi par l'emporter", () => {
+  const g = new Game(freshState());
+  let downs = 0; g.on("heroDown", () => downs++);
+  for (let i = 0; i < 600 && !g.R.mon; i++) g.advance(0.1);
+  const m = g.R.mon; assert.ok(m && !m.boss);
+  m.max = m.hp = 1e15; m.affix = "regen"; m.elite = true; m.atk = Math.max(1, g.stats().hp * 0.002);
+  for (let i = 0; i < 6000 && !downs; i++) g.advance(0.1);
+  assert.ok(downs > 0, "le héros finit par tomber");
+});
+
 test("impasse face à un boss (it. 1958) : après 90 s de combat, le boss s'emporte jusqu'à ce que l'un des deux tombe", () => {
   const g = new Game(freshState());
   g.S.kills = g.lineup().length; // le prochain monstre est le boss
