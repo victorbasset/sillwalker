@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 1991, revue générale) : perf:linux bande 18,3 %, panneau 18,9 %, mini 5,6 % ; 12 h graine 291 : cryomancienne 64,
+  lancier 64, gladiateur 66 ; early-pace 60 min : niveau 39-41, zone 23-25 ; --crawl en japonais : 669 clics, aucune erreur.
+  Mémoire : deux mesures à 623-630 Mo (plates) ; aussitôt après, 0eb3632d (it. 1971) 557-565 et HEAD 570-571 : variation de
+  la machine, pas du code. Rien à corriger.
 - 2026-11-17 (it. 1990, contrôle) : stall-check sur 12 h de jeu (60 parties : 3 sauvegardes × 20 héros, 2 min 40) : 0 figée.
 - 2026-11-17 (it. 1989, essai d'équilibrage, rien gardé) : nécromancien, serviteur 30 → 35 % : 61,8 sur 7 graines (actuel 63,2).
   Trois réglages (PV, attaque, serviteur) sans gain : son retard (≈ 1 zone sous la moyenne) tient aux paliers des zones, pas
