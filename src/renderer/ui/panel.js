@@ -933,7 +933,8 @@ export class Panel {
       // Demande E de Victor : « clique un objet » ne disait pas pourquoi : on dit ce que fait le clic.
       // (it. 957) l'aide « clic sur un objet » n'a de sens qu'une fois un objet porté (partie neuve : rien à cliquer)
       const anyEq = Object.values(S.equip || {}).some(Boolean);
-      el.innerHTML = `<h2>${tx("Équipement")}${anyEq ? ` <small>${hasUnlock(S, "forge") ? tx("clic sur un objet : détails et forge") : tx("clic sur un objet : détails")}</small>` : ""}</h2>
+      // (it. 2118) l'aide dans un ⓘ : écrite en entier dans le titre, elle était coupée en plein mot (« détails e… ») à 1920 px
+      el.innerHTML = `<h2>${tx("Équipement")}${anyEq ? ` <small><span class="help" title="${esc(hasUnlock(S, "forge") ? tx("clic sur un objet : détails et forge") : tx("clic sur un objet : détails"))}">ⓘ</span></small>` : ""}</h2>
         <div class="eqview"><img class="heroport${v.aura ? " legend" : ""}" src="${dressedPortraitURL(S.cls, v)}" alt="${esc(tx("Ton héros et son équipement"))}">
         <ul class="eqlist">${rows}</ul></div>`;
     }

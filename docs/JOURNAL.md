@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2118, ergonomie) : Aventure : l'aide de l'en-tête « Équipement », coupée en plein mot à 1920 px (« détails e… »),
+  passe dans un ⓘ. Audit des autres onglets noté dans docs/TALENTS-UX.md. lang-overflow 10 langues × 1280 / 1920 : rien ; 273/273.
 - 2026-11-17 (it. 2117, ergonomie) : Boutique, sac plein : ligne « Sac plein · Vendre les inutiles (N) » sous l'en-tête du Marchand
   (même confirmation que dans le sac) ; avant, chaque objet affichait « Sac plein » et il fallait passer par l'Aventure puis revenir.
   Clé 3288 ; autotest « demande confirmation sur place » ; lang-overflow 10 langues × 1280 / 1920 : rien ; 273/273.

@@ -76,3 +76,11 @@
 - (fait it. 2102 et 2112) Ascension puis Compétences (« Tout réinitialiser », « Réinitialiser le grand graphe ») : fenêtre de
   confirmation. Avant, Compétences (« Confirmer la réinitialisation ») confirment par un second clic
   sur le même bouton, dont le libellé change : même défaut que l'ancienne Voie.
+
+## Audit des autres onglets (it. 2116-2118)
+
+- Compétences (it. 2116) : boutons sous le pli, coupés en bas de la colonne : remontés, aide en ⓘ.
+- Boutique (it. 2117) : sac plein, aucun moyen de vider sur place : « Vendre les inutiles (N) » sous l'en-tête du Marchand.
+- Aventure (it. 2118) : aide de l'en-tête « Équipement » coupée en plein mot : passée dans un ⓘ. Le détail d'un objet (clic)
+  remplace les commandes du sac, avec « ← sac » : pas de fiche qui change au survol.
+- Vus sans défaut bloquant : Familiers, Quêtes, Héros, Statistiques, Carte ; Bestiaire (noms longs coupés, nom complet au survol).
