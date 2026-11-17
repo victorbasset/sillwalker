@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-17 (it. 2010, suite) : le commit précédent a été fait alors que l'autotest échouait (258/259 : « geste au repos » mesuré
+  dans la zone courante, à spores au moment du test : tout éternuait). Contrôle fixé en zone 56 ; 259/259. Leçon : lire le
+  résultat de l'autotest AVANT de lancer le commit (ne pas les chaîner, règle déjà écrite).
 - 2026-11-17 (it. 2010, journée des monstres) : zones à spores (Marais brumeux, Bois corrompu, Champignonnière géante) : qui
   n'est ni champignon ni plante éternue (coup sec vers l'avant). Vérifié (Marais brumeux : ours et loup éternuent, champignard se
   gonfle).
