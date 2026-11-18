@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2280, contrôle) : --crawl après les nouvelles entrées de « À faire » (absence de 2 h simulée) : 509 clics (dev-data),
+  697 (fin de partie), aucune erreur.
 - 2026-11-18 (it. 2279, bon voisin) : coût de l'astuce « sac plein » (when → todoNow) : astuces évaluées toutes les 2 s, todoNow 0,10 ms
   (dev-data, 200 appels) : négligeable.
 - 2026-11-18 (it. 2278) : POUR-VICTOR : nouveautés de l'après-midi (sac, Atelier, liens des quêtes, résumé d'absence).
