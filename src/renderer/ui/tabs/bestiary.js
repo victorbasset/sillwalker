@@ -58,7 +58,23 @@ export class BestiaryTab {
     el.innerHTML = `<div class="subrow">${this.jumpHTML()}${npcHTML("bestiary", true)}</div>` + (html || this.beastsHTML(S)); // (it. 1089) Fenouil
     // (it. 2145) nom trop long pour sa fiche (« Élémentaire de… ») : en 11 px (taille déjà employée sur la fiche) plutôt que coupé ;
     // mesuré à l'image suivante, seulement si l'onglet est affiché
-    if (!html) requestAnimationFrame(() => { if (!el.offsetParent) return; for (const n of el.querySelectorAll(".beast .nm")) if (n.scrollWidth > n.clientWidth + 1) n.classList.add("tight"); });
+    if (!html) {
+      const fit = () => {
+        if (!el.offsetParent) return;
+        const nms = el.querySelectorAll(".beast .nm"), rg = document.createRange();
+        // largeur exacte du texte (scrollWidth est arrondi : un dépassement de moins d'un pixel ne s'y voit pas)
+        const over = (n) => { rg.selectNodeContents(n); return rg.getBoundingClientRect().width > n.getBoundingClientRect().width + 0.01 || n.scrollWidth > n.clientWidth; };
+        for (const n of nms) n.classList.remove("tight", "two");
+        // sans tolérance : un dépassement de moins d'un pixel met déjà les points de suspension (« Каменный голе… », it. 2190)
+        for (const n of nms) if (over(n)) n.classList.add("tight");
+        // (it. 2190) encore trop long en 11 px (« Champignard vénéneux », 7 noms en russe) : sur deux lignes, coupé entre les mots
+        for (const n of el.querySelectorAll(".beast .nm.tight")) if (over(n)) n.classList.add("two");
+      };
+      // (it. 2190) mesuré de nouveau une fois les polices chargées : les lettres russes arrivent après coup, plus larges que la police
+      // de secours (« Каменный голе… » restait coupé)
+      requestAnimationFrame(fit);
+      if (document.fonts && document.fonts.status !== "loaded") document.fonts.ready.then(() => requestAnimationFrame(fit));
+    }
   }
 
   beastsHTML(S) {

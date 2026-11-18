@@ -384,6 +384,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .beast .si { min-width: 0; }
 .beast .nm { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; }
 .beast .nm.tight { font-size: 11px; line-height: 15.6px; } /* (it. 2145) même hauteur de ligne qu'en 13 px : la grille ne bouge pas */
+.beast .nm.two { white-space: normal; text-overflow: clip; line-height: 11px; overflow-wrap: normal; } /* (it. 2190) deux lignes au plus, entre les mots */
 .beast .pips { font-size: 11px; line-height: 1.2; white-space: nowrap; }
 .beast.unknown .nm { color: var(--muted); }
 .pips { display: flex; gap: 3px; align-items: center; font-size: 12px; color: var(--muted); margin-top: 3px; }

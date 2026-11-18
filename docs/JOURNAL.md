@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2190) Bestiaire : plus aucun nom coupé. Un nom encore trop long en 11 px passe sur deux lignes (entre les mots ;
+  fiche de 40 à 46 px) ; mesure refaite une fois les polices chargées (lettres russes arrivées après coup) et au centième de pixel
+  (scrollWidth arrondi : « Каменный голе… » dépassait de moins d'un pixel). Fin de partie : 5 noms sur deux lignes en français, 9 en
+  russe, 0 coupé. lang-overflow complet (10 langues, 4 largeurs, fin de partie, 130 %, max) : rien. 294/294.
 - 2026-11-18 (it. 2189, clavier) : Compétences : les flèches font passer au nœud apprenable le plus proche dans leur direction
   (écart de côté compté double) ; raccourcis : « Talents, compétences et sac : se déplacer » (clé 3325). Autotest (avec seulement
   3 nœuds pris le temps du contrôle, pour avoir des nœuds apprenables : la première version passait à vide). 294/294.
@@ -7582,8 +7586,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 - P3 (it. 2188) Autotest à 125 s (293 vérifications) : regrouper les attentes de 100-150 ms des contrôles de la nuit (fenêtres,
   Talents) en une seule mise en scène par onglet si la durée devient gênante.
-- P3 (it. 2188) Bestiaire : 4 noms encore coupés en français même en 11 px (« Champignon luisant… ») : nom au survol ; un retour à la
-  ligne sur deux lignes en 11 px seulement pour ces cas ? Vérifier la hauteur de la grille (7 rangées) à 1920 px.
 - À VOIR AVEC VICTOR (it. 2178) : mage le plus bas sur 12 h (≈ 62 sur 4 graines contre ≈ 65) ; il rattrape en semaine (it. 1115) :
   rien à faire sans son avis.
 - ÉCARTÉ (it. 2132 : bruit, voir Fait) (it. 2130) Mémoire : la bulle « Quoi de neuf » (toast de la bande, 15 s au lancement après une mise à jour) laisse 30 à 60 Mo
