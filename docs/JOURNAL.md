@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2355, contrôle) : mem-watch 10 min, bande (0.1.7) : 619-625 Mo réels, plat (mode haut de la mesure bimodale,
+  ≈ 570 ou ≈ 625 Mo d'une exécution à l'autre : CLAUDE.md) ; pas de fuite.
 - 2026-11-18 (it. 2354, contrôle) : early-pace après les clés de voûte sans malus : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages
   (identique au relevé précédent).
 - 2026-11-18 (it. 2353, contrôle) : i18n-names après les textes du jour : 25 écarts, tous anciens et grammaticaux (génitif allemand,
