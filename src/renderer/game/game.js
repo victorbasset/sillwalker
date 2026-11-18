@@ -154,7 +154,12 @@ export class Game {
     J.push(v === undefined ? { t: Date.now(), k } : { t: Date.now(), k, v });
     if (J.length > JOURNEY_MAX) J.splice(0, J.length - JOURNEY_MAX);
   }
-  noteLevels(from, to) { for (const l of JOURNEY_LEVELS) if (l > from && l <= to) this.milestone("lvl", l); }
+  // (it. 2322) une seule fois par niveau : à chaque ascension le niveau repart de 1 et « Niveau 10 / 25 / 50 / 100 » revenaient,
+  // la moitié des 30 étapes affichées en fin de partie (chroniques, héros libérés, records noyés)
+  noteLevels(from, to) {
+    const J = Array.isArray(this.S.journey) ? this.S.journey : [];
+    for (const l of JOURNEY_LEVELS) if (l > from && l <= to && !J.some((e) => e && e.k === "lvl" && e.v === l)) this.milestone("lvl", l);
+  }
   bagFull() { return this.S.bag.length >= this.S.bagSize; }
   findBagItem(id) { return this.S.bag.find((i) => i.id === id) || null; }
 

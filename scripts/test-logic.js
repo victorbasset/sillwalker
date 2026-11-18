@@ -4963,4 +4963,10 @@ test("succès presque obtenus (it. 2294-2296) : du plus avancé au moins avancé
   const h = nextHint(g); assert.ok(h && h.id === "achnear" && h.tab === "stats" && h.sec === "ach", "astuce à 92 % : " + (h && h.id));
   g.S.stats.potionsUsed = 40; const h2 = nextHint(g); assert.ok(!h2 || h2.id !== "achnear", "80 % : pas d'astuce");
 });
+test("Carnet de route (it. 2322) : un palier de niveau n'est noté qu'une fois, même après une ascension", () => {
+  const g = new Game(freshState()); g.S.journey = [];
+  g.noteLevels(1, 30); const n1 = g.S.journey.filter((e) => e.k === "lvl").length;
+  assert.equal(n1, 2, "niveaux 10 et 25");
+  g.noteLevels(1, 60); assert.deepEqual(g.S.journey.filter((e) => e.k === "lvl").map((e) => e.v), [10, 25, 50], "après l'ascension : seul 50 s'ajoute");
+});
 console.log(`\n${pass} tests réussis`);

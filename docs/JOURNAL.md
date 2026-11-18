@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2322) : Carnet de route : « Niveau 10 / 25 / 50 / 100 atteint » n'est plus noté qu'une fois (à chaque ascension le
+  niveau repart de 1 et ces lignes revenaient : la moitié des 30 étapes affichées en fin de partie, chroniques et héros libérés noyés).
+  Sans nouvelle donnée (cherché dans le carnet) ; les doublons déjà notés restent. Test (366). 302/302, save-fuzz ok.
 - 2026-11-18 (it. 2321, REVUE GÉNÉRALE) : 12 h : arbalétrier 65, prêtresse 64, gladiateur 64 ; --perf : 18,1 / 19,6 %, mini 5,4 %,
   icône 0,8 % ; Carnet de route en japonais à 1280 px (fin de partie, 30 étapes sur trois colonnes) : « 次の節目：エリア 160 » en
   bas, sans défilement. Rien à corriger.
