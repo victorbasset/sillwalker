@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2382, contrôle) : « Dépenser automatiquement » répartit aussi les points du grand graphe (ancienne sauvegarde à
+  0/222 nœuds : rien ne reste bloqué) ; i18n-names après l'astuce skillpath : 25 écarts, les mêmes anciens faux positifs.
 - 2026-11-18 (it. 2381, REVUE GÉNÉRALE) : 12 h : moine 62, samouraï 65, prêtresse 64 ; --perf : 19,2 / 19,3 %, mini 5,6 %, icône 0,7 % ;
   Compétences en polonais à 1366 px (fin de partie) : propre, pluriel « 362 wolne punkty » juste ; texte russe : seuls des noms
   propres et les touches (Esc, Shift) ressortent. Rien à corriger.
