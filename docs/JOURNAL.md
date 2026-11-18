@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2259) : CLAUDE.md : mem-watch panneau ouvert (MEM_ARGS="--open-panel"), repère 580-610 Mo et mesure de 10 min.
 - 2026-11-18 (it. 2258, contrôle) : mem-watch PANNEAU OUVERT (MEM_ARGS="--open-panel") : 5 min 585 → 609 Mo, puis 10 min : 580-610 Mo
   en dents de scie, plat vers 600 (le ramasse-miettes n'était pas encore passé) : pas de fuite.
 - 2026-11-18 (it. 2257, revue) : résumé d'absence (3 h, français, 1280 px) : bilan clair à gauche, sept actions directes à droite
