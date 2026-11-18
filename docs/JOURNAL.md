@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2150, contrôles) : lang-overflow COMPLET (10 langues, 4 largeurs, états max, fin de partie, zoom 130 %) après les
+  changements depuis l'it. 2135 : rien. Focus des ⓘ : contour déjà donné par [tabindex]:focus-visible.
 - 2026-11-18 (it. 2149, clavier) : les ⓘ (aides passées en bulle cette nuit, et les anciennes) prennent le focus (tabindex 0, role
   note) : au clavier, Tab les atteint et leur bulle s'affiche (focusin, it. 853) ; avant, leur aide était inaccessible sans souris.
   Autotest ; 283/283.
