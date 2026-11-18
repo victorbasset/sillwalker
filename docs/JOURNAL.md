@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2193, langues) : suite de l'it. 2192, les 30 libellés de bonus des talents passés en revue dans les 9 langues (libellé
+  qui commence par « HP » ou un nombre, collé à la valeur) : seul « +30% 4撃目のダメージ » (samouraï, clé 1970) ; reformulé en japonais
+  « 居合の4撃目のダメージ（必ず会心） » et en coréen « 거합 4번째 타격 피해 (항상 치명타) ». 294/294.
 - 2026-11-18 (it. 2192, langues) : « dégâts contre les cibles sous 30 % de vie » (clé 1158) en japonais et coréen commençait par
   « HP » : « +65% HP 30% 未満… » se lisait « +65 % PV ». Reformulé « 瀕死の敵（HP 30%未満）へのダメージ » / « 빈사 대상(HP 30% 미만)에게
   주는 피해 » ; capture du total des Talents en japonais. « 30% » collé en pl, pt, ru : usage courant, laissé. 294/294.
