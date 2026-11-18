@@ -2197,4 +2197,5 @@ export default {
   3322: "Talentos: ao ir até a ficha, ela mantém o talento ou a via sob o cursor; o botão deles não some mais no caminho.",
   3323: "Bolsa: as setas do teclado passam de uma casa para outra.",
   3324: "Talentos: a ajuda (ⓘ) cita todos os atalhos, setas incluídas.",
+  3325: "Talentos, competências e bolsa: mover-se",
 };

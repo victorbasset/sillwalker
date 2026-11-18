@@ -2197,4 +2197,5 @@ export default {
   3322: "Talenty: w drodze do karty zostaje na niej talent lub droga spod kursora; ich przycisk nie znika po drodze.",
   3323: "Torba: strzałki na klawiaturze przechodzą z pola na pole.",
   3324: "Talenty: pomoc (ⓘ) wymienia wszystkie skróty, łącznie ze strzałkami.",
+  3325: "Talenty, umiejętności i torba: poruszanie się",
 };

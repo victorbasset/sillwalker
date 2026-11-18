@@ -2197,4 +2197,5 @@ export default {
   3322: "Talentos: al ir hacia la ficha, conserva el talento o la vía bajo el cursor; su botón ya no desaparece por el camino.",
   3323: "Bolsa: las flechas del teclado pasan de una casilla a otra.",
   3324: "Talentos: la ayuda (ⓘ) cita todos los atajos, flechas incluidas.",
+  3325: "Talentos, competencias y bolsa: moverse",
 };

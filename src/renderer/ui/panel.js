@@ -1016,7 +1016,7 @@ export class Panel {
       [tx("Acheter le prochain déblocage (s’il est prêt)"), "U"], [tx("Attraper l’étoile filante"), "F"], [tx("Ouvrir le Journal (Statistiques)"), "J"], [tx("Compétences : aller au nœud suivant, l’apprendre"), `Tab · ${tx("Entrée")}`], [tx("Carte : parcourir les zones atteintes, y aller"), `← → ↑ ↓ · ${tx("Entrée")}`],
       // (it. 2119) le libellé disait l'inverse : un clic monte au maximum, Maj n'ajoute qu'un rang (comme « +1 »)
       [tx("Talents : un seul rang (comme « +1 »)"), `${tx("Maj")} + ${tx("Entrée")} / ${tx("clic")}`],
-      [tx("Annuler le dernier choix (Talents, Compétences)"), "Z"], [tx("Talents et sac : se déplacer dans la grille"), "← → ↑ ↓"]];
+      [tx("Annuler le dernier choix (Talents, Compétences)"), "Z"], [tx("Talents, compétences et sac : se déplacer"), "← → ↑ ↓"]];
     $(this.root, "#mt").textContent = tx("Raccourcis clavier");
     $(this.root, "#mbody").innerHTML = `<ul class="lines keylist">${K.map(([l, k]) => `<li><span>${esc(l)}</span><b>${esc(k)}</b></li>`).join("")}</ul>
       <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>`;

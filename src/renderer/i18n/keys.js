@@ -3326,5 +3326,6 @@ export const KEYS = [
   "Talents et sac : se déplacer dans la grille",
   "Talents : en allant vers la fiche, elle garde le talent ou la voie survolés ; leur bouton ne disparaît plus en route.",
   "Sac : les flèches du clavier se déplacent d’une case à l’autre.",
-  "Talents : l’aide (ⓘ) cite tous les raccourcis, flèches comprises."
+  "Talents : l’aide (ⓘ) cite tous les raccourcis, flèches comprises.",
+  "Talents, compétences et sac : se déplacer"
 ];

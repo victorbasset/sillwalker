@@ -183,6 +183,22 @@ export class SkillsTab {
     });
     box.addEventListener("focusout", () => { tip.hidden = true; });
     box.addEventListener("keydown", (e) => {
+      // (it. 2189, clavier) flèches : le nœud apprenable le plus proche dans cette direction (comme les Talents et le sac) ; le
+      // recadrage suit (focusin)
+      const dir = { ArrowRight: [1, 0], ArrowLeft: [-1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+      if (dir && e.target.dataset && (e.target.dataset.id || e.target.dataset.gid)) {
+        const pos = (el) => SKILL_TREE.nodes[el.dataset.id] || SKILL_GRAPH.nodes[el.dataset.gid];
+        const p0 = pos(e.target); if (!p0) return;
+        let best = null, bs = Infinity;
+        for (const el of box.querySelectorAll('[tabindex="0"]')) {
+          if (el === e.target) continue; const p = pos(el); if (!p) continue;
+          const dx = p.x - p0.x, dy = p.y - p0.y, along = dx * dir[0] + dy * dir[1]; if (along <= 0) continue;
+          const score = along + 2 * Math.abs(dx * dir[1] - dy * dir[0]); if (score < bs) { bs = score; best = el; }
+        }
+        e.preventDefault(); e.stopPropagation();
+        if (best) best.focus();
+        return;
+      }
       const gid = e.target.dataset && e.target.dataset.gid;
       if (gid && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); e.stopPropagation(); if (this.game.takeGraph(gid)) this.update(); return; }
       const id = e.target.dataset && e.target.dataset.id;

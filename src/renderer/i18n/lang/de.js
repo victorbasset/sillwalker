@@ -2197,4 +2197,5 @@ export default {
   3322: "Talente: Auf dem Weg zur Karte bleibt das überfahrene Talent oder der Weg stehen; sein Knopf verschwindet unterwegs nicht mehr.",
   3323: "Tasche: Die Pfeiltasten springen von Feld zu Feld.",
   3324: "Talente: Die Hilfe (ⓘ) nennt alle Tastenkürzel, Pfeile inbegriffen.",
+  3325: "Talente, Fertigkeiten und Tasche: bewegen",
 };

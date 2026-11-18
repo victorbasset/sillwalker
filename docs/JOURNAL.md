@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2189, clavier) : Compétences : les flèches font passer au nœud apprenable le plus proche dans leur direction
+  (écart de côté compté double) ; raccourcis : « Talents, compétences et sac : se déplacer » (clé 3325). Autotest (avec seulement
+  3 nœuds pris le temps du contrôle, pour avoir des nœuds apprenables : la première version passait à vide). 294/294.
 - 2026-11-18 (it. 2187) : durée de l'autotest mesurée : 123 s pour 293 vérifications (≈ 70 s avant la nuit ; les contrôles ajoutés
   attendent chacun quelques centaines de ms). Repère mis à jour dans CLAUDE.md ; loin du délai maximal de 10 min.
 - 2026-11-18 (it. 2186) : « Quoi de neuf », édition 141 (fiche des Talents qui garde le survol, flèches dans le sac, aide des Talents ;
@@ -7577,8 +7580,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 2188) Clavier, Compétences : Tab parcourt les nœuds apprenables ; des flèches qui suivent les liens du graphe (comme les
-  Talents et le sac, it. 2167 et 2185) aideraient. À concevoir : voisin le plus proche dans la direction, selon les liens.
 - P3 (it. 2188) Autotest à 125 s (293 vérifications) : regrouper les attentes de 100-150 ms des contrôles de la nuit (fenêtres,
   Talents) en une seule mise en scène par onglet si la durée devient gênante.
 - P3 (it. 2188) Bestiaire : 4 noms encore coupés en français même en 11 px (« Champignon luisant… ») : nom au survol ; un retour à la

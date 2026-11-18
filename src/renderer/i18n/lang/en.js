@@ -2197,4 +2197,5 @@ export default {
   3322: "Talents: when moving towards the card, it keeps the hovered talent or way; its button no longer disappears on the way.",
   3323: "Bag: the arrow keys move from one slot to another.",
   3324: "Talents: the help (ⓘ) lists every shortcut, arrows included.",
+  3325: "Talents, skills and bag: move around",
 };
