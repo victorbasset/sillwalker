@@ -1016,7 +1016,7 @@ export class Panel {
       [tx("Acheter le prochain déblocage (s’il est prêt)"), "U"], [tx("Attraper l’étoile filante"), "F"], [tx("Ouvrir le Journal (Statistiques)"), "J"], [tx("Compétences : aller au nœud suivant, l’apprendre"), `Tab · ${tx("Entrée")}`], [tx("Carte : parcourir les zones atteintes, y aller"), `← → ↑ ↓ · ${tx("Entrée")}`],
       // (it. 2119) le libellé disait l'inverse : un clic monte au maximum, Maj n'ajoute qu'un rang (comme « +1 »)
       [tx("Talents : un seul rang (comme « +1 »)"), `${tx("Maj")} + ${tx("Entrée")} / ${tx("clic")}`],
-      [tx("Annuler le dernier choix (Talents, Compétences)"), "Z"], [tx("Talents : se déplacer dans la grille"), "← → ↑ ↓"]];
+      [tx("Annuler le dernier choix (Talents, Compétences)"), "Z"], [tx("Talents et sac : se déplacer dans la grille"), "← → ↑ ↓"]];
     $(this.root, "#mt").textContent = tx("Raccourcis clavier");
     $(this.root, "#mbody").innerHTML = `<ul class="lines keylist">${K.map(([l, k]) => `<li><span>${esc(l)}</span><b>${esc(k)}</b></li>`).join("")}</ul>
       <p class="note">${tx("Actifs quand le panneau est ouvert et que tu as cliqué dedans.")}</p>`;
@@ -1327,6 +1327,23 @@ export class Panel {
       }
     }
     if (e.ctrlKey || e.altKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return false;
+    // (it. 2185, clavier) flèches dans le sac : la case voisine selon sa position à l'écran (le nombre de cases par rangée dépend de la
+    // largeur) ; ← → dans l'ordre, ↑ ↓ vers la rangée d'au-dessus / d'en dessous, au plus près
+    if (/^Arrow(Up|Down|Left|Right)$/.test(e.key) && e.target.closest && e.target.closest('.slot[data-from="bag"]')) {
+      const cur = e.target.closest(".slot"), all = [...this.root.querySelectorAll('[data-pane="adventure"] .slot[data-from="bag"]')].filter((x) => x.offsetParent);
+      const i = all.indexOf(cur); if (i < 0) return false;
+      let next = null;
+      if (e.key === "ArrowLeft") next = all[i - 1];
+      else if (e.key === "ArrowRight") next = all[i + 1];
+      else {
+        const r = cur.getBoundingClientRect(), up = e.key === "ArrowUp";
+        const rows = all.filter((x) => { const q = x.getBoundingClientRect(); return up ? q.bottom <= r.top + 1 : q.top >= r.bottom - 1; });
+        let best = Infinity;
+        for (const x of rows) { const q = x.getBoundingClientRect(), d = Math.abs(q.top - r.top) * 10 + Math.abs(q.left - r.left); if (d < best) { best = d; next = x; } }
+      }
+      if (next) { next.focus(); return true; }
+      return false;
+    }
     if (!$(this.root, "#confirm").hidden) {
       // (it. 2113) effacement de la partie : Entrée annule (seul un vrai clic sur « Tout effacer » efface)
       if (e.key === "Enter") { const fn = this.confirmSafe ? null : this.confirmFn; this.closeConfirm(); fn?.(); return true; }

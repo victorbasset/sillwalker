@@ -2193,4 +2193,5 @@ export default {
   3318: "Talente: Die Pfeiltasten bewegen sich im Raster.",
   3319: "Fenster: Per Tastatur bleibt Tab im geöffneten Fenster, und der Fokus kehrt beim Schließen dorthin zurück, wo er war.",
   3320: "Klick auf ein Talent: so viele Ränge wie möglich · Umschalt + Klick oder „+1“: nur ein Rang · Z: letzten Klick rückgängig machen · Pfeiltasten: bewegen. Fahre über ein Talent, um seine Wirkung zu sehen.",
+  3321: "Talente und Tasche: im Raster bewegen",
 };

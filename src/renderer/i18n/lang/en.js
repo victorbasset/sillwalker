@@ -2193,4 +2193,5 @@ export default {
   3318: "Talents: the arrow keys move around the grid.",
   3319: "Windows: with the keyboard, Tab stays inside the open window and focus returns where it was when it closes.",
   3320: "Click a talent: as many ranks as possible · Shift + click or “+1”: a single rank · Z: undo the last click · arrows: move around. Hover a talent to see its effect.",
+  3321: "Talents and bag: move around the grid",
 };

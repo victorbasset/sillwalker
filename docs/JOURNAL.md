@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2185, clavier) : flèches dans le sac (case voisine selon sa position à l'écran, quel que soit le nombre de cases par
+  rangée) ; raccourcis : « Talents et sac : se déplacer dans la grille » (clé 3321). Autotest ; 293/293.
 - 2026-11-18 (it. 2184, contrôle) : save-fuzz à partir d'une partie 0.1.2 (FUZZ_BASE=0.1.2) après les changements de la nuit :
   1169 corruptions, toutes « ok ».
 - 2026-11-18 (it. 2183) : capture de l'onglet Talents dans son état de fin de nuit (1920 px, français) envoyée à Victor.
