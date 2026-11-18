@@ -4950,4 +4950,17 @@ test("astuce des compétences des monstres (it. 1887) : après trois compétence
   assert.ok(find(mk(3), "monskills"), "trois vues : l'astuce");
   assert.ok(!find(mk(1), "monskills"), "une seule : pas encore");
 });
+test("succès presque obtenus (it. 2294-2296) : du plus avancé au moins avancé, ni obtenus ni sous le seuil ; astuce à 90 %", () => {
+  const near = M_achievements_js.nearAchievements;
+  const g = new Game(freshState()); g.S.stats.potionsUsed = 48; g.S.stats.kills = 600;
+  const ids = near(g.S).map(([id]) => id);
+  assert.ok(ids.includes("POTIONS_50") && ids.includes("KILLS_1000"), "Alchimiste 96 %, Mille victoires 60 % : " + ids.join(","));
+  assert.ok(ids.indexOf("POTIONS_50") < ids.indexOf("KILLS_1000"), "le plus avancé d'abord");
+  assert.ok(!near(g.S, 0.9).some(([id]) => id === "KILLS_1000"), "60 % : sous le seuil de 90 %");
+  g.S.stats.potionsUsed = 50; assert.ok(!near(g.S).some(([id]) => id === "POTIONS_50"), "obtenu : plus « presque »");
+  g.S.stats.potionsUsed = 46; g.S.best = g.S.zone = 60; g.S.tabsOpen = { ...(g.S.tabsOpen || {}), stats: true };
+  g.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((x) => x.id !== "achnear").map((x) => [x.id, true]));
+  const h = nextHint(g); assert.ok(h && h.id === "achnear" && h.tab === "stats" && h.sec === "ach", "astuce à 92 % : " + (h && h.id));
+  g.S.stats.potionsUsed = 40; const h2 = nextHint(g); assert.ok(!h2 || h2.id !== "achnear", "80 % : pas d'astuce");
+});
 console.log(`\n${pass} tests réussis`);

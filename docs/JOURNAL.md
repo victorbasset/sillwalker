@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2299, test) : nearAchievements (ordre, seuil, obtenus exclus) et astuce « achnear » (92 % : oui, 80 % : non).
+  365 tests.
 - 2026-11-18 (it. 2298) : POUR-VICTOR : nouveautés de fin d'après-midi (succès expliqués, les trois plus proches en or, astuce,
   édition 148, descriptions Steam).
 - 2026-11-18 (it. 2297) : Quoi de neuf, édition 148 : succès expliqués au survol (it. 2286), les trois plus proches en or et
