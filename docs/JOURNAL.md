@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2224, contrôle) : lang-overflow complet (10 langues, 4 largeurs, fin de partie, 130 %, max) après « Emmener » dans
+  les expéditions et les Réglages Linux : rien. Masquage devant le plein écran : seulement dans le menu de l'icône sous Windows (rien à faire).
 - 2026-11-18 (it. 2223) : autotest « Linux : Réglages sans Windows ni case de démarrage » (window.__game retiré le temps d'un
   affichage ; bouton du thème sans « Windows » ni « macOS », indépendant de la langue). Autres textes qui citent Windows : deux
   anciennes éditions de « Quoi de neuf » (faits propres à Windows, jamais modifiées). 296/296.
