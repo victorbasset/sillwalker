@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2215) : Héros, essai de sorts dans l'en-tête des cartes pour libérer les boutons : pire (sous-titres coupés,
+  boutons toujours sur deux lignes en fr et de) : annulé, noté dans Idées.
 - 2026-11-18 (it. 2214, contrôle) : mem-watch 6 min après les changements de la nuit et du matin : réel 586-594 Mo, plat (fourchette
   bimodale habituelle 570 / 625).
 - 2026-11-18 (it. 2213, revue visuelle) : Quêtes et Héros à 1280 px en français : propres. Héros : « Jouer à l'ascension » et « Prendre
@@ -7653,6 +7655,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 - P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux
   lignes (en-têtes de cartes inégaux, comme les familiers avant l'it. 2207). À reprendre si Victor le signale.
+  ESSAI it. 2215, annulé : sorts déplacés dans l'en-tête (à droite du nom) : les boutons restaient sur deux lignes (« Jouer à /
+  l'ascension », « Beim Aufstieg / spielen ») et les sous-titres se coupaient davantage. Piste restante : libellés plus courts.
 - P3 (revue it. 2211) Familiers : cartes hautes avec un grand vide entre le bonus et le cadre d'expédition (hauteur fixée par la
   carte la plus longue de la rangée) : une mise en page plus dense ? À juger avec Victor, ce n'est pas un défaut.
 - P3 (it. 2188, mesuré it. 2198) Autotest à 125 s : les plus lents sont la bulle du morceau de musique (7 s), la meute (3,5 s), le
