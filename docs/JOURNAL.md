@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2367, contrôle) : semaine, avant (11964efc) / après le grand graphe allégé : rôdeur 72 h 291 → 293, 120 h 335 → 349,
+  168 h 350 → 350 ; paladin 12 h 69 → 65, 96 h 296 → 316, 168 h 349 → 349 ; mêmes paliers (36 h : 150, 48 h : 200). Bruit d'une graine.
 - 2026-11-18 (it. 2366, contrôle) : Compétences en allemand à 1280 px (dev-data : fleur vide, 686 points, fichier inchangé depuis le
   17/11 15:10, donc sans lien avec le grand graphe allégé, qui ne touche que skills.outer) : propre.
 - 2026-11-18 (it. 2365, contrôle) : fuzz (clés de voûte définitives) : 1200 parties, 0 bloquées.
