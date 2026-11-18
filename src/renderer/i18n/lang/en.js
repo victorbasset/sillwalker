@@ -2215,4 +2215,5 @@ export default {
   3340: "Quests: “Bring back expeditions” no longer shows up before expeditions are unlocked; such an impossible quest is replaced.",
   3341: "Translations: the automation boxes (talents, Arms Valet, Astrolabe…) now clearly say “automatically” (English, German, Spanish, Portuguese, Polish, Russian).",
   3342: "Enlarge the bag: +6 slots ({0} gold)",
+  3343: "Your bag is full: the next loot stays on the ground. The Workshop (Shop) enlarges it by 6 slots. Click here.",
 };

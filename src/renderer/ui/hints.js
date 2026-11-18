@@ -31,6 +31,9 @@ export const HINTS = [
     when: (g) => g.S.stats.deaths > 0 && g.S.prestige.count === 0 && g.S.best <= 15 },
   { id: "upgrade", tab: "adventure", text: tx("Un objet plus puissant t’attend dans le sac (▲) : double-clique dessus pour l’équiper (ou clique ici pour ouvrir le sac)."),
     when: (g) => g.hasUpgradeCached() },
+  // (it. 2272) sac plein et agrandissement abordable (même condition que « À faire », it. 2269) : le butin suivant resterait au sol
+  { id: "bagup", tab: "shop", sec: "workshop", text: tx("Ton sac est plein : le butin suivant reste au sol. L’Atelier (Boutique) l’agrandit de 6 places. Clique ici."),
+    when: (g) => g.todoNow().some((t) => t.id === "bagUp") },
   // (it. 1552, retour d'un joueur : « on monte de niveau sans savoir comment ») au premier niveau gagné
   { id: "xp", tab: null, text: tx("Niveau supérieur ! Chaque monstre vaincu donne de l’expérience : la jauge violette sous ton niveau (et tout en bas de la bande) montre le prochain."),
     when: (g) => g.S.lvl >= 2 && g.S.lvl <= 12 && g.S.prestige.count === 0 }, // (it. 1597) jusqu’au niveau 12 : les bulles de bienvenue, d’objet et de talent passent souvent avant

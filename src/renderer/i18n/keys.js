@@ -3344,5 +3344,6 @@ export const KEYS = [
   "Linux : les Réglages ne parlent plus de Windows (thème « Automatique (système) ») et la case de démarrage, sans effet, est retirée.",
   "Quêtes : « Ramener des expéditions » n’apparaît plus avant leur déblocage ; une quête de ce genre impossible est remplacée.",
   "Traductions : les cases d’automatisme (talents, Valet d’armes, Astrolabe…) disent clairement « automatiquement » (anglais, allemand, espagnol, portugais, polonais, russe).",
-  "Agrandir le sac : +6 places ({0} or)"
+  "Agrandir le sac : +6 places ({0} or)",
+  "Ton sac est plein : le butin suivant reste au sol. L’Atelier (Boutique) l’agrandit de 6 places. Clique ici."
 ];

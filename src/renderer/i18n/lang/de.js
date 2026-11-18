@@ -2215,4 +2215,5 @@ export default {
   3340: "Quests: „Expeditionen zurückholen“ erscheint nicht mehr, bevor Expeditionen freigeschaltet sind; eine solche unmögliche Quest wird ersetzt.",
   3341: "Übersetzungen: Die Automatik-Kästchen (Talente, Waffenknecht, Astrolabium…) sagen jetzt klar „automatisch“ (Englisch, Deutsch, Spanisch, Portugiesisch, Polnisch, Russisch).",
   3342: "Tasche vergrößern: +6 Plätze ({0} Gold)",
+  3343: "Deine Tasche ist voll: Die nächste Beute bleibt am Boden liegen. Die Werkstatt (Laden) vergrößert sie um 6 Plätze. Klicke hier.",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2272) : astuce de la bande « Ton sac est plein : le butin suivant reste au sol. L'Atelier (Boutique) l'agrandit de 6
+  places. » (même condition que « À faire », it. 2269 ; un clic ouvre Boutique > Atelier ; clé 3343). Astuces des 10 langues dans la bulle
+  (lang-overflow × 1280) ; 297/297.
 - 2026-11-18 (it. 2271, REVUE GÉNÉRALE) : 12 h : guerrier 61, mage 61, chaman 64 ; --perf : 1re mesure 19,2 / 20,5 % (charge machine 2,6),
   2e 18,4 / 19,6 %, mini 5,5 %, icône 0,5 % : bruit ; capture Aventure en japonais (« やること (8) » : « Agrandir le sac » compté) : propre.
 - 2026-11-18 (it. 2270) : brouillon du devlog 0.1.7 : agrandir le sac depuis « À faire », liens des quêtes et automatismes.

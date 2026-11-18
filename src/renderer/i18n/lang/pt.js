@@ -2215,4 +2215,5 @@ export default {
   3340: "Missões: «Trazer expedições» não aparece mais antes do desbloqueio das expedições; uma missão impossível assim é substituída.",
   3341: "Traduções: as caixas de automação (talentos, Escudeiro de armas, Astrolábio…) dizem claramente «automaticamente» (inglês, alemão, espanhol, português, polonês, russo).",
   3342: "Aumentar a bolsa: +6 espaços ({0} de ouro)",
+  3343: "Sua bolsa está cheia: o próximo saque fica no chão. A Oficina (Loja) aumenta 6 espaços. Clique aqui.",
 };
