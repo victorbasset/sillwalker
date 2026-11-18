@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2306, contrôle) : inconnus du Bestiaire passés en revue après les it. 2303-2305 : élites et panoplies montrent déjà
+  nom et effet avant d'être obtenues ; objets de la Collection : « ??? (emplacement) », suffisant. Plus rien de muet.
 - 2026-11-18 (it. 2305) : Bestiaire : la bulle d'un monstre pas encore rencontré dit où il vit (« Pas encore rencontré · Marais
   brumeux… », comme un monstre connu) : un but à atteindre. Sans nouvelle clé. 300/300.
 - 2026-11-18 (it. 2304) : Bestiaire > Bénédictions du jour : une bénédiction jamais vécue (« ??? ») dit au survol qu'il faut revenir
