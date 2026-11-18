@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2394, doc) : CLAUDE.md : autotest ≈ 119 s pour 307 vérifications (mesuré).
 - 2026-11-19 (it. 2393, contrôle) : partie neuve en russe à 1280 px : emplacements vides (.lab 9 px) lisibles ; « Poupouce ×10. »
   = bénédiction du jour (nom propre, voulu).
 - 2026-11-19 (it. 2392, contrôle) : textes SVG de 8-10 px ailleurs (Carte : numéros, boss majeurs, au-delà) en russe à 1280 px :
