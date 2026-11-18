@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2238, langues) : contresens dans les libellés de cases « faire tout seul » : en « Spend on my own », ru « Распределять
+  самому », es « solo », pt « sozinho », pl « sam », de « selbst » se lisaient « moi-même / à la main », l'inverse du sens (le jeu le fait
+  automatiquement). Clés 1375 (talents), 1408 (Valet d'armes), 1507 (Astrolabe), 2091 (Carte du ciel), 2175 (Grimoire) réécrites avec
+  « automatiquement » en en, es, pt, de, pl, ru (zh, ja, ko déjà justes). lang-overflow complet : rien. 297/297.
 - 2026-11-18 (it. 2237, contrôle) : avec les bénédictions du jour : fuzz FUZZ_DAYMOD=all (600 parties) 0 bloquée, stall-check
   STALL_DAYMOD=all (60) 0 figée. Astuces de la bande : elles mènent déjà à leur onglet au clic (rien à ajouter).
 - 2026-11-18 (it. 2236) : question des boutons des cartes de héros (libellés plus courts ?) posée à Victor dans POUR-VICTOR, avec trois
