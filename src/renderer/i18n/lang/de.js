@@ -2218,4 +2218,6 @@ export default {
   3343: "Deine Tasche ist voll: Die nächste Beute bleibt am Boden liegen. Die Werkstatt (Laden) vergrößert sie um 6 Plätze. Klicke hier.",
   3344: "Volle Tasche: „Jetzt zu tun“ bietet an, sie mit einem Klick zu vergrößern (Werkstatt), wenn es bezahlbar ist; ein Tipp im Streifen erinnert daran.",
   3345: "Quests: Der Link zum Reiter, in dem man handelt, verschwindet, wenn eine Automatik das schon übernimmt (Großer Verwalter, Schmiedemeister, Ewiger Tiegel).",
+  3346: "Werkstatt: dauerhafte Verbesserungen spottbillig für dein Gold",
+  3347: "Werkstatt: günstige dauerhafte Verbesserungen",
 };

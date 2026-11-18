@@ -2218,4 +2218,6 @@ export default {
   3343: "Tu bolsa está llena: el siguiente botín se queda en el suelo. El Taller (Tienda) la agranda 6 casillas. Haz clic aquí.",
   3344: "Bolsa llena: «Qué hacer ahora» propone agrandarla con un clic (Taller) cuando se puede pagar; un consejo en la franja lo recuerda.",
   3345: "Misiones: el enlace a la pestaña donde actuar desaparece cuando un automatismo ya se encarga (Gran intendente, Maestro herrero, Crisol perpetuo).",
+  3346: "Taller: mejoras permanentes baratas para tu oro",
+  3347: "Taller: mejoras permanentes baratas",
 };

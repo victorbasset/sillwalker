@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2275, plaisir de revenir) : « À faire » : « Atelier : améliorations permanentes à petit prix → » quand la moins chère
+  coûte moins de 1 % de l'or (dev-data : 447 Md d'or, Atelier jamais utilisé) ; les prix montant vite, un joueur qui y investit ne le voit
+  presque jamais (test logique). Pas en même temps que « Agrandir le sac » : la ligne de plus faisait défiler le résumé d'absence au pire
+  cas (autotest, 23 px) ; libellé raccourci (clé 3347 ; 3346 abandonnée avant publication). lang-overflow × 1280 : rien. 364 tests, 298/298.
 - 2026-11-18 (it. 2274, autotest) : « Agrandir le sac » dans le résumé d'absence : présent (sac plein, Atelier, or) et un clic passe
   le sac de 24 à 30 places. 298/298.
 - 2026-11-18 (it. 2273) : « Quoi de neuf », édition 146 (sac plein : agrandir d'un clic et astuce ; liens des quêtes cachés quand un

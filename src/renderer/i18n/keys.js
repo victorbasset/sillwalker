@@ -3347,5 +3347,7 @@ export const KEYS = [
   "Agrandir le sac : +6 places ({0} or)",
   "Ton sac est plein : le butin suivant reste au sol. L’Atelier (Boutique) l’agrandit de 6 places. Clique ici.",
   "Sac plein : « À faire maintenant » propose de l’agrandir d’un clic (Atelier) quand c’est abordable ; une astuce le rappelle dans la bande.",
-  "Quêtes : le lien vers l’onglet où agir disparaît quand un automatisme s’en charge déjà (Grand intendant, Maître de forge, Creuset perpétuel)."
+  "Quêtes : le lien vers l’onglet où agir disparaît quand un automatisme s’en charge déjà (Grand intendant, Maître de forge, Creuset perpétuel).",
+  "Atelier : des améliorations permanentes à petit prix pour ton or",
+  "Atelier : améliorations permanentes à petit prix"
 ];

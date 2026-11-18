@@ -2218,4 +2218,6 @@ export default {
   3343: "Sua bolsa está cheia: o próximo saque fica no chão. A Oficina (Loja) aumenta 6 espaços. Clique aqui.",
   3344: "Bolsa cheia: «O que fazer agora» propõe aumentá-la com um clique (Oficina) quando dá para pagar; uma dica na faixa lembra disso.",
   3345: "Missões: o link para a aba onde agir some quando uma automação já cuida disso (Grande intendente, Mestre ferreiro, Cadinho perpétuo).",
+  3346: "Oficina: melhorias permanentes baratas para o seu ouro",
+  3347: "Oficina: melhorias permanentes baratas",
 };

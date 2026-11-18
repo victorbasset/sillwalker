@@ -2830,6 +2830,11 @@ export class Game {
     // 14 objets laissés au sol pendant une absence)
     { const u = UPGRADES.find((x) => x.id === "bag"), have = S.upgrades[u.id] || 0, price = upgradePrice(u, S);
       if (this.bagFull() && hasUnlock(S, "workshop") && have < u.max && S.gold >= price) out.push({ id: "bagUp", n: 1, tab: "shop", sec: "workshop", price }); }
+    // (it. 2275) Atelier délaissé : l'amélioration permanente la moins chère coûte moins de 1 % de l'or (dev-data : 447 Md d'or, tous les
+    // niveaux à 0). Les prix montent vite (×1,45 à ×1,7 par niveau) : un joueur qui y investit ne voit presque jamais ce rappel.
+    // pas en même temps que « Agrandir le sac » (même endroit ; une ligne de plus faisait défiler le résumé d'absence au pire cas)
+    if (hasUnlock(S, "workshop") && !out.some((t) => t.id === "bagUp")) { const W = S.workshop || {}, prices = WORKSHOP.filter((w) => !(w.max && (W[w.id] || 0) >= w.max)).map((w) => workshopPrice(w, S));
+      if (prices.length && Math.min(...prices) * 100 <= S.gold) out.push({ id: "workshop", n: 1, tab: "shop", sec: "workshop" }); }
     const fin = this.setFinisher();
     if (fin) out.push({ id: "setFinish", n: fin.items.length, tab: "adventure", name: SETS[fin.set].name, itemId: fin.items[0].id });
     const stewardOn = hasUnlock(S, "steward") && S.settings.autoPets !== false; // (it. 909) il récupère les expéditions seul

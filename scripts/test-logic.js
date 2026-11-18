@@ -1840,6 +1840,14 @@ test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   });
 }
 
+test("à faire : Atelier délaissé (moins de 1 % de l'or) → rappel ; investi → plus de rappel (it. 2275)", () => {
+  const g = new Game(freshState()); g.S.unlocks.workshop = true; g.S.workshop = {}; g.S.gold = 1e6;
+  assert.ok(g.todoNow().some((t) => t.id === "workshop"), "300 or pour 1 M : proposé");
+  g.S.gold = 1e4; assert.ok(!g.todoNow().some((t) => t.id === "workshop"), "300 or pour 10 k : pas proposé");
+  g.S.gold = 1e9; for (const id of ["ws_atk", "ws_hp", "ws_gold", "ws_xp", "ws_speed"]) g.buyWorkshop(id, 999);
+  assert.ok(!g.todoNow().some((t) => t.id === "workshop"), "après investissement : plus proposé");
+});
+
 test("à faire : sac plein et agrandissement abordable → « Agrandir le sac » (it. 2269)", () => {
   const g = new Game(freshState()); g.S.unlocks.workshop = true; g.S.gold = 1e9;
   while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));
