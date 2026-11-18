@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2347) : CLAUDE.md, sortie d'une version : 0.1.7 = édition 152, la 0.1.8 prendra after: 152.
 - 2026-11-18 (it. 2346, VERSION 0.1.7 ENVOYÉE) : étiquette v0.1.7 ; itch-push --dry-run (win 337 Mo, linux 134, mac 129, signé) ;
   AppImage essayée avec un HOME temporaire (démarre, partie neuve) ; Médias/dist-itch : 3 fichiers + SHA256-0.1.7.txt ; butler :
   windows #2430814, linux #2430816, mac #2430820, en ligne (0.1.7). Devlog : docs/devlog-0.1.7.md (publication), steam/itch/
