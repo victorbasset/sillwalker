@@ -124,6 +124,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   (≈ 500-530 clics en 18 s depuis l'it. 2171 : avant, ≈ 690, dont 300 sur « Changer » des quêtes qui tournaient en boucle, et les
   confirmations restées ouvertes étaient VALIDÉES par le parcours ; ≈ 690 clics en 22 s depuis l'it. 1338 : avant, un clic qui redessinait l'onglet faisait « cliquer » des boutons détachés, sans effet, et le Marchand n'était jamais parcouru)
   (sur une COPIE de sauvegarde : il achète, vend, dépense ; ajouter `--exit-after=200`, sinon le jeu reste ouvert). À lancer après un gros changement d'interface.
+  ⓘ cachés (it. 2204-2205, après le ⓘ des Familiers sous l'ombre d'une rangée qui défile) : `--open-panel --width=1280
+  --stage=scripts/stage/info-probe.js --exit-after=25` sur une copie, « IPROBE 0 » attendu (ⓘ recouvert, hors de son conteneur ou dans
+  l'ombre d'une rangée .hscroll). Préparer la copie JUSTE avant (s.last) : sinon le résumé d'absence s'ouvre et « recouvre » tout.
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
 - Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`

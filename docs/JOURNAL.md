@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2205) : sonde des ⓘ dans les 10 langues à 1280 px, dev-data et fin de partie : IPROBE 0 partout (un premier passage
+  donnait 18 alertes en pl, ru, zh, ja, ko : copies préparées trop tôt, le résumé d'absence s'ouvrait par-dessus ; noté dans CLAUDE.md).
+  Victor confirme sur Mac : le menu du Dock passe maintenant devant la bande (it. 2204).
 - 2026-11-18 (it. 2204, demande de Victor) : macOS : la bande passe du niveau « pop-up-menu » (101, celui des menus contextuels) à
   « status » (25 : au-dessus des fenêtres et du Dock, sous les menus) : le menu du clic droit sur le Dock passera devant (à vérifier
   sur Mac, POUR-VICTOR). Windows et Linux inchangés (le niveau n'y joue guère ; les menus de la barre des tâches, ouverts après la

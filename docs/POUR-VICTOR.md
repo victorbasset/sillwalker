@@ -6,8 +6,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 
-- **Mac : menu du clic droit sur le Dock** : il doit maintenant passer AU-DESSUS de la bande (niveau de fenêtre « status » au lieu
-  de « pop-up-menu », qui est celui des menus). La bande doit rester au-dessus des fenêtres ordinaires.
+- ~~Mac : menu du clic droit sur le Dock au-dessus de la bande~~ : VÉRIFIÉ par Victor le 18/11 (« c'est bon sur mac »).
 - **Windows : clic droit sur la barre des tâches** (liste des raccourcis d'une appli) : il devrait déjà passer devant la bande
   (rien changé sous Windows) ; dis-moi s'il passe dessous.
 - Partie neuve : effets 10 %, ambiance 100 %, musique 20 %, volume général 50 % (vérifié sur un dossier vide).
