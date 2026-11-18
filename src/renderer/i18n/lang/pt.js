@@ -2237,4 +2237,5 @@ export default {
   3362: "Conquistas: as três mais próximas se destacam em ouro; uma dica avisa quando uma delas chega a 90 %.",
   3363: "Poder a descobrir: cada item lendário traz um, sorteado ao acaso.",
   3364: "Bênção ainda não vivida: cada dia traz uma, volte para jogar em outros dias.",
+  3365: "Bestiário: o que falta descobrir diz ao passar o mouse onde encontrar (um monstro, sua zona; um poder, nos lendários; uma bênção, em outros dias).",
 };

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2310) : Quoi de neuf, édition 149 : les inconnus du Bestiaire disent où les trouver (it. 2303-2309). Clé 3365. 301/301.
 - 2026-11-18 (it. 2309) : correction de l'it. 2305 : la bulle d'un monstre inconnu citait les noms de TOUS ses décors, y compris
   ceux que la Carte cache dans le brouillard (au-delà de record + 3). Elle donne maintenant la première zone où il vit, nommée
   seulement si la Carte la nomme (« Zone 12 : Marais brumeux »), sinon le numéro seul (« Zone 140 ») ; gobelin et Poupouce

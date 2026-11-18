@@ -2237,4 +2237,5 @@ export default {
   3362: "Osiągnięcia: trzy najbliższe wyróżniają się złotem; wskazówka daje znać, gdy jedno z nich dojdzie do 90 %.",
   3363: "Moc do odkrycia: każdy legendarny przedmiot ma jedną, losowaną.",
   3364: "Błogosławieństwo jeszcze nieprzeżyte: każdy dzień przynosi jedno, wracaj grać w inne dni.",
+  3365: "Bestiariusz: to, co zostało do odkrycia, po najechaniu mówi, gdzie to znaleźć (potwór – jego strefa; moc – na legendarnych; błogosławieństwo – w inne dni).",
 };

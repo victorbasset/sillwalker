@@ -2237,4 +2237,5 @@ export default {
   3362: "Erfolge: Die drei nächsten leuchten golden; ein Tipp meldet sich, wenn einer davon 90 % erreicht.",
   3363: "Noch zu entdeckende Kraft: Jeder legendäre Gegenstand trägt eine, zufällig gewählt.",
   3364: "Noch nie erlebter Segen: Jeder Tag bringt einen, spiel auch an anderen Tagen.",
+  3365: "Bestiarium: Was noch zu entdecken ist, sagt beim Überfahren, wo man es findet (ein Monster: seine Zone; eine Kraft: auf Legendären; ein Segen: an anderen Tagen).",
 };
