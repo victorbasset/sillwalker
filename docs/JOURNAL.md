@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2213, revue visuelle) : Quêtes et Héros à 1280 px en français : propres. Héros : « Jouer à l'ascension » et « Prendre
+  en duo » sur deux lignes, sous-titre du Mage aussi : serré mais rien de coupé (noté, pas corrigé).
 - 2026-11-18 (it. 2212, contrôle) : save-fuzz exerce aussi le rappel d'expédition et « Emmener » d'un familier parti (it. 2208) ;
   1267 corruptions (dev-data) et 1225 (fin de partie), toutes « ok ».
 - 2026-11-18 (it. 2211, REVUE GÉNÉRALE) : 12 h : paladin 65, nécromancien 63, druide 64 (habituel) ; --perf : bande 18,3 %, panneau
@@ -7647,6 +7649,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux
+  lignes (en-têtes de cartes inégaux, comme les familiers avant l'it. 2207). À reprendre si Victor le signale.
 - P3 (revue it. 2211) Familiers : cartes hautes avec un grand vide entre le bonus et le cadre d'expédition (hauteur fixée par la
   carte la plus longue de la rangée) : une mise en page plus dense ? À juger avec Victor, ce n'est pas un défaut.
 - P3 (it. 2188, mesuré it. 2198) Autotest à 125 s : les plus lents sont la bulle du morceau de musique (7 s), la meute (3,5 s), le
