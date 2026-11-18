@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2249, contrôle) : semaine simulée (simulate.js 168) : guerrier 350 (41 courses), mage 349 (52) : repère inchangé
+  (350 / 350, palier de l'écho de la zone 350, it. 1708).
 - 2026-11-18 (it. 2248, audit) : chasse d'un monstre absent de la zone : déjà « absent d'ici · zone N » (clic : y aller, avec la Carte du
   voyageur ; it. 1426). Classe .qgo partagée avec le lien de l'it. 2233 : la règle de celui-ci reste limitée à .qhead. Rien à corriger.
 - 2026-11-18 (it. 2247) : « Quoi de neuf », édition 145 (quête d'expéditions impossible corrigée, cases d'automatisme traduites
