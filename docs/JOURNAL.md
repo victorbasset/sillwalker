@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2287, contrôle) : texte extrait en russe (--dump-text, bulles comprises) : les explications des succès
+  (it. 2286) sont traduites ; mots latins restants : noms propres (Sillwalker, Poupouce), touches, repères du fichier
+  (« --- attributs », noms d'onglets), DEV et « Windows » (mode de développement) : rien d'oublié.
 - 2026-11-18 (it. 2286) : Statistiques > Succès : les neuf succès au nom obscur (Poupouce ?!, Clé de voûte, Au-delà de la fleur,
   Plume du vent, Cœur pur, Duo parfait, Le ciel rallumé, Écho dissipé, Les trois échos) disent au survol ce qu'il faut faire
   (champ desc d'achievements.js, 10 langues, clés 3350-3358). Autotest : le contrôle des liens de quêtes (it. 2284) comptait les
