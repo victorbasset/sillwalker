@@ -533,7 +533,8 @@ export class Panel {
     const worn = !bi && sum.bestItemId != null ? Object.values(this.game.S.equip).find((e) => e && e.id === sum.bestItemId) : null;
     const best = bi ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${bi.r} wrap">${esc(itemName(bi))}</b></li>${this.game.isUpgrade(bi) ? `<li class="row"><button class="primary" data-action="reveal-equip" data-id="${bi.id}">${tx("Équiper maintenant")}</button></li>` : ""}`
       : worn ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${worn.r} wrap">${esc(tx("{0} (équipé)", { 0: itemName(worn) }))}</b></li>` // déjà porté (Valet d'armes)
-      : sum.best >= 0 ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${sum.best}">${RARITIES[sum.best].name}</b></li>` : "";
+      // (it. 2140) ni dans le sac ni porté (vendu, ou sac plein) : « Épique · pas gardé » (avant : « Épique » seul, on cherchait l'objet)
+      : sum.best >= 0 ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${sum.best}">${tx("{0} · pas gardé", { 0: RARITIES[sum.best].name })}</b></li>` : "";
     // (it. 969) « Or gagné » : le même total que la bulle (combats + expéditions du Grand intendant, it. 968)
     // (it. 2139, plaisir de revenir) deux colonnes dans la grande fenêtre : le bilan à gauche, « À faire maintenant » à droite (avant :
     // une seule colonne de 420 px, 816 px de contenu pour 457 visibles : les actions étaient sous le pli)

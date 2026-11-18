@@ -2171,4 +2171,5 @@ export default {
   3296: "Sprzedaż cennego przedmiotu (legendarnego, z zestawu lub wykutego) wymaga potwierdzenia; pozostałe nadal sprzedaje się jednym kliknięciem.",
   3297: "Kliknięcie w tło okna zamyka je; potwierdzenie zostaje wtedy anulowane.",
   3298: "Umiejętności: przyciski są widoczne bez przewijania; premie mistrzostwa wybiera się w wyrównanej siatce.",
+  3299: "{0} · nie zatrzymano",
 };

@@ -2171,4 +2171,5 @@ export default {
   3296: "Vender um item precioso (lendário, de conjunto ou forjado) pede confirmação; os outros continuam a ser vendidos com um clique.",
   3297: "Um clique no fundo de uma janela a fecha; uma confirmação é então cancelada.",
   3298: "Habilidades: os botões ficam visíveis sem rolar; os bônus de maestria são escolhidos numa grade alinhada.",
+  3299: "{0} · não guardado",
 };

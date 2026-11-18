@@ -2171,4 +2171,5 @@ export default {
   3296: "Der Verkauf eines wertvollen Gegenstands (legendär, Setteil oder geschmiedet) muss bestätigt werden; alles andere verkauft sich weiter mit einem Klick.",
   3297: "Ein Klick auf den Hintergrund eines Fensters schließt es; eine Bestätigung wird dann abgebrochen.",
   3298: "Fertigkeiten: Die Knöpfe bleiben ohne Scrollen sichtbar; Meisterschaftsboni werden in einem ausgerichteten Raster gewählt.",
+  3299: "{0} · nicht behalten",
 };

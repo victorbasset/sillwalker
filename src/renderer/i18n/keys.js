@@ -3300,5 +3300,6 @@ export const KEYS = [
   "Boutique : quand le sac est plein, les objets inutiles se vendent sans quitter le Marchand.",
   "Vendre un objet précieux (légendaire, pièce de panoplie ou forgé) demande confirmation ; les autres se vendent toujours d’un clic.",
   "Un clic sur le fond d’une fenêtre la ferme ; une confirmation est alors annulée.",
-  "Compétences : les boutons restent visibles sans défiler ; les bonus de maîtrise se choisissent dans une grille alignée."
+  "Compétences : les boutons restent visibles sans défiler ; les bonus de maîtrise se choisissent dans une grille alignée.",
+  "{0} · pas gardé"
 ];

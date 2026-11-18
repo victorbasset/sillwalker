@@ -2171,4 +2171,5 @@ export default {
   3296: "Vender un objeto valioso (legendario, de conjunto o forjado) pide confirmación; los demás se siguen vendiendo con un clic.",
   3297: "Un clic en el fondo de una ventana la cierra; una confirmación queda entonces anulada.",
   3298: "Habilidades: los botones siguen visibles sin desplazarse; las bonificaciones de maestría se eligen en una cuadrícula alineada.",
+  3299: "{0} · no guardado",
 };

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2140) : résumé d'absence : meilleur butin ni dans le sac ni porté (vendu, sac plein) : « Épique · pas gardé » au lieu de
+  « Épique » seul (on cherchait l'objet). Clé 3299 ; 282/282.
 - 2026-11-18 (it. 2139, plaisir de revenir) : résumé d'absence (« Pendant ton absence ») sur deux colonnes dans la grande fenêtre :
   bilan à gauche, « À faire maintenant » à droite. Avant : une colonne de 420 px, 816 px de contenu pour 457 visibles, les actions
   (quêtes, bonus, points, déblocage, sac plein…) sous le pli. Sans défilement en français à 1920 et en russe à 1280 ; autotest ;

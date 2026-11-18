@@ -2171,4 +2171,5 @@ export default {
   3296: "Selling a precious item (legendary, set piece or forged) asks for confirmation; others still sell in one click.",
   3297: "Clicking the background of a window closes it; a confirmation is then cancelled.",
   3298: "Skills: the buttons stay visible without scrolling; mastery bonuses are chosen in an aligned grid.",
+  3299: "{0} · not kept",
 };
