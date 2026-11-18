@@ -83,10 +83,10 @@ export class BestiaryTab {
     const cards = keys.map((k) => {
       const n = B[k] || 0, known = n > 0, tier = bestiaryTier(n), next = BESTIARY_TIERS[tier];
       const pips = BESTIARY_TIERS.map((t, i) => `<i class="${i < tier ? "on" : ""}" title="${esc(tx("{0} victoires", { 0: fmt(t) }))}"></i>`).join("");
-      // Fiche compacte (demande 18) : les zones où vit le monstre passent en infobulle.
+      // Fiche compacte (demande 18) : les zones où vit le monstre passent en infobulle (it. 2305 : aussi pour un monstre inconnu, un but).
       // (it. 1437) Carte du voyageur : un clic emmène le héros dans la zone la plus proche où vit le monstre (paliers)
       const gz = known && travel && !zoneDef(S.zone).monsters.includes(k) ? nearestZoneWith(S, k) : 0;
-      return `<article class="panel beast${known ? "" : " unknown"}${gz ? " go" : ""}"${gz ? ` data-action="b-go" data-z="${gz}" role="button" tabindex="0" aria-label="${esc(MONSTERS[k].name + " · " + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }))}"` : ""} title="${esc(known ? MONSTERS[k].name + " · " + where(k) + skillLine(k) + (gz ? "\n" + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }) : "") : tx("Pas encore rencontré"))}">
+      return `<article class="panel beast${known ? "" : " unknown"}${gz ? " go" : ""}"${gz ? ` data-action="b-go" data-z="${gz}" role="button" tabindex="0" aria-label="${esc(MONSTERS[k].name + " · " + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }))}"` : ""} title="${esc(known ? MONSTERS[k].name + " · " + where(k) + skillLine(k) + (gz ? "\n" + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }) : "") : tx("Pas encore rencontré") + " · " + where(k))}">
         <img src="${monsterURL(k, !known)}" alt="">
         <div class="si"><div class="nm">${known ? esc(MONSTERS[k].name) : "???"}</div>
         <div class="pips">${pips}<span>${fmt(n)}${next ? " / " + fmt(next) : " " + tx("(complet)")}</span></div></div>

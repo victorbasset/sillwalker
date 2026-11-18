@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2305) : Bestiaire : la bulle d'un monstre pas encore rencontré dit où il vit (« Pas encore rencontré · Marais
+  brumeux… », comme un monstre connu) : un but à atteindre. Sans nouvelle clé. 300/300.
 - 2026-11-18 (it. 2304) : Bestiaire > Bénédictions du jour : une bénédiction jamais vécue (« ??? ») dit au survol qu'il faut revenir
   d'autres jours. Les événements rares inconnus donnaient déjà leur chance par victoire. Clé 3364. 300/300.
 - 2026-11-18 (it. 2303) : Bestiaire > Pouvoirs : un pouvoir pas encore découvert (« ??? ») dit au survol où le trouver (chaque objet

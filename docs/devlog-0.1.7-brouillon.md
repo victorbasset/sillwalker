@@ -71,3 +71,5 @@ docs/devlog-0.1.6.md).
   général 50 %).
 - **Succès (it. 2286) :** les noms obscurs (Clé de voûte, Cœur pur, Écho dissipé…) disent au survol ce qu’il faut faire ; les trois
   succès les plus proches ressortent en or (it. 2294).
+- **Bestiaire (it. 2303-2305) :** ce qui reste à découvrir dit où le trouver (monstres : leurs zones ; pouvoirs : sur les légendaires ;
+  bénédictions : revenir d’autres jours).
