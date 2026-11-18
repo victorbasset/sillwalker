@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2207) : Familiers : le niveau (« niv. 10 (max) ») toujours sous le nom (avant : à la ligne seulement pour les noms
+  longs, Renardeau, Dragonnet : titres inégaux sur la capture de Victor). lang-overflow complet : rien. 294/294.
 - 2026-11-18 (it. 2206, Victor : « très moche ce que t'as fait avec le i ») : Familiers : le ⓘ, mis en tête à l'it. 2201, gardait sa
   marge automatique et flottait seul au milieu en repoussant tout à droite. Collé maintenant au texte « N / M familiers trouvés · N œufs »
   qu'il explique ; barre alignée à gauche comme avant. Captures 1920 et 1280 ; sonde des ⓘ : 0 (de, ru). 294/294.

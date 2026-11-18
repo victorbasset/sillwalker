@@ -371,6 +371,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .petbar .note.help { flex-basis: auto; margin-left: -6px; } /* (it. 2206) collée au texte qu'elle explique */
 .petcard.current { border-color: var(--accent); box-shadow: 0 4px 0 var(--accent); }
 .petcard .detail-head img { width: 52px; height: auto; }
+.petcard .detail-head .nm small { display: block; } /* (it. 2207) niveau sous le nom, sur toutes les cartes (avant : à la ligne seulement pour les noms longs, titres inégaux) */
 .petcard.unknown { opacity: .6; }
 .petimg { width: 52px; height: 52px; display: grid; place-items: center; font-size: 26px; border: 2px dashed var(--line); border-radius: 3px; color: var(--muted); }
 .ascgrid { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr); gap: 12px; align-items: start; }
