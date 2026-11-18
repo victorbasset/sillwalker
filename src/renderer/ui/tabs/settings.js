@@ -6,6 +6,10 @@ import { shopIconURL } from "../../render/shopart.js";
 import { applyUiScale, applyTheme, themeOf, effectiveUiScale } from "../../render/dom.js";
 // Mac (Victor y joue aussi) : les textes qui nomment Windows ont leur version macOS.
 const IS_MAC = /Mac/i.test(navigator.platform || navigator.userAgent || "");
+// (it. 2222) Linux (version itch.io) : ni « Windows » dans les libellés, ni lancement à l'ouverture de session (Electron ne le gère pas)
+// En dev (window.__game), l'affichage Windows est gardé : l'autotest et lang-overflow tournent sous Linux et doivent mesurer le cas
+// le plus long (case du démarrage comprise). Calculé à l'affichage : window.__game est posé après le chargement de ce module.
+const isLinux = () => !IS_MAC && !window.__game && /Linux/i.test(navigator.platform || "") && !/Windows/i.test(navigator.userAgent || "");
 import { WEATHER } from "../../render/juice.js";
 import { esc, unit } from "../../game/format.js";
 import { musicZone, trackIndex, TRACKS, MUSIC_BLOCK } from "../../render/music.js";
@@ -61,7 +65,7 @@ export class SettingsTab {
         ${check("fullEffects", tx("Effets complets"), tx("Pièces, faisceaux de butin, flashs, monstres qui s’agitent en attendant. Décoche pour une bande plus sobre."))}
         ${check("weather", tx("Météo des zones"), tx("Neige, braises, feuilles, bulles… (un peu plus de calcul)."))}
         <p class="note tight">${tx("Thème du panneau")}</p>
-        <div class="row seg">${[["dark", tx("Sombre")], ["light", tx("Clair")], ["auto", IS_MAC ? tx("Automatique (macOS)") : tx("Automatique (Windows)")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v}" aria-pressed="${themeOf(P.theme) === v}">${esc(label)}</button>`).join("")}</div>
+        <div class="row seg">${[["dark", tx("Sombre")], ["light", tx("Clair")], ["auto", IS_MAC ? tx("Automatique (macOS)") : isLinux() ? tx("Automatique (système)") : tx("Automatique (Windows)")]].map(([v, label]) => `<button data-action="se-theme" data-v="${v}" aria-pressed="${themeOf(P.theme) === v}">${esc(label)}</button>`).join("")}</div>
         <p class="note tight">${tx("Taille du panneau")}</p>
         <div class="row seg">${[1, 1.15, 1.3].map((z) => `<button data-action="se-scale" data-v="${z}" aria-pressed="${Math.abs((P.uiScale || 1) - z) < 0.01}">${Math.round(z * 100)}${unit("%")}</button>`).join("")}</div>
         ${/* (it. 1048) agrandissement plafonné : la phrase utile seule, la phrase générale en info-bulle (les deux ensemble
@@ -79,7 +83,7 @@ export class SettingsTab {
         <div class="row seg">${[["edges", tx("Aux bords")], ["center", tx("Au milieu")], ["auto", tx("Automatique (très grands écrans)")]].map(([v, label]) => `<button data-action="se-hudpos" data-v="${v}" aria-pressed="${(P.hudPos || "auto") === v}">${esc(label)}</button>`).join("")}</div>
         ${check("hudBars", tx("Barres de vie en haut de la bande"), tx("Ta vie et celle du monstre affronté, à côté de la zone et du record, bouclier compris."))}
         <label class="range" title="${esc(tx("À 100 %, la bande arrête les clics et s’attrape n’importe où pour la déplacer ; en dessous, les clics la traversent."))}">${tx("Opacité")} <input type="range" min="5" max="100" step="5" value="${Math.round(opacity * 100)}" data-action="se-opacity-range"> <span>${Math.round(opacity * 100)}${unit("%")}</span></label>
-        <label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${IS_MAC ? tx("Lancer à l’ouverture de session du Mac") : tx("Lancer au démarrage de Windows")}</label>
+        ${isLinux() ? "" : `<label class="toggle"><input type="checkbox" data-action="se-login"${this.win.openAtLogin ? " checked" : ""}> ${IS_MAC ? tx("Lancer à l’ouverture de session du Mac") : tx("Lancer au démarrage de Windows")}</label>`}
         <p class="note">${IS_MAC ? tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la barre des menus, en haut de l’écran, avec le choix de l’écran.") : tx("Ces réglages sont aussi dans le menu de l’icône Sillwalker de la zone de notification (clic droit), avec le choix de l’écran.")}</p>
       </article>
       <div class="stack">

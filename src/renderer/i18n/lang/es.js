@@ -2207,4 +2207,5 @@ export default {
   3332: "Mascotas: «Llevar» en una expedición en curso hace volver a la mascota al instante (sin botín) y la convierte en tu compañera.",
   3333: "Mascotas: el nivel aparece bajo el nombre en todas las tarjetas; la ayuda (ⓘ) está junto al texto que explica.",
   3334: "Mac: el menú del clic derecho en el Dock aparece por encima de la franja.",
+  3335: "Automático (sistema)",
 };

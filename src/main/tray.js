@@ -120,8 +120,9 @@ function createTray({ strip, isDev, steam }) {
       // Plein écran : détecté seulement sous Windows (fullscreen-watch.js) ; ailleurs la case n'aurait aucun effet.
       ...(process.platform === "win32" ? [{ label: L("fullscreen"), type: "checkbox", checked: settings.get("hideOnFullscreen") !== false,
         click: (item) => { settings.set("hideOnFullscreen", item.checked); if (!item.checked) strip.setFullscreenApp(false); build(); } }] : []),
-      { label: L(process.platform === "darwin" ? "loginMac" : "login") + (isDev ? " (dev)" : ""), type: "checkbox", checked: openAtLogin,
-        click: (item) => { app.setLoginItemSettings({ openAtLogin: item.checked, ...loginItemOptions() }); build(); } },
+      // (it. 2222) lancement à l'ouverture de session : Windows et macOS seulement (Electron ne le gère pas sous Linux : case sans effet)
+      ...(process.platform === "linux" ? [] : [{ label: L(process.platform === "darwin" ? "loginMac" : "login") + (isDev ? " (dev)" : ""), type: "checkbox", checked: openAtLogin,
+        click: (item) => { app.setLoginItemSettings({ openAtLogin: item.checked, ...loginItemOptions() }); build(); } }]),
       ...(isDev ? [{ label: "Steam : " + steam.status, enabled: false }] : []),
       { type: "separator" },
       { label: L("quit"), click: () => app.quit() },

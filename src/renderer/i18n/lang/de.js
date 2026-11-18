@@ -2207,4 +2207,5 @@ export default {
   3332: "Begleiter: „Mitnehmen“ bei einer laufenden Expedition ruft den Begleiter sofort zurück (ohne Beute) und macht ihn zu deinem Gefährten.",
   3333: "Begleiter: Die Stufe steht jetzt auf jeder Karte unter dem Namen; die Hilfe (ⓘ) steht direkt beim Text, den sie erklärt.",
   3334: "Mac: Das Rechtsklickmenü im Dock erscheint jetzt über dem Streifen.",
+  3335: "Automatisch (System)",
 };

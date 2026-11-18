@@ -2207,4 +2207,5 @@ export default {
   3332: "Pets: “Take along” on an ongoing expedition calls the pet back right away (with no loot) and makes it your companion.",
   3333: "Pets: the level now shows under the name on every card; the help (ⓘ) sits next to the text it explains.",
   3334: "Mac: the right-click menu on the Dock now appears above the strip.",
+  3335: "Automatic (system)",
 };

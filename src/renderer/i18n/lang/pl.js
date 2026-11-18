@@ -2207,4 +2207,5 @@ export default {
   3332: "Pupile: „Zabierz” przy trwającej wyprawie od razu przywołuje pupila (bez łupu) i czyni go twoim towarzyszem.",
   3333: "Pupile: poziom widać pod nazwą na każdej karcie; pomoc (ⓘ) stoi przy tekście, który wyjaśnia.",
   3334: "Mac: menu prawego przycisku na Docku pojawia się nad paskiem.",
+  3335: "Automatycznie (system)",
 };

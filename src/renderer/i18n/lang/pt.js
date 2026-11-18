@@ -2207,4 +2207,5 @@ export default {
   3332: "Mascotes: «Levar» numa expedição em andamento traz o mascote de volta na hora (sem saque) e o torna seu companheiro.",
   3333: "Mascotes: o nível aparece sob o nome em todos os cartões; a ajuda (ⓘ) fica junto ao texto que explica.",
   3334: "Mac: o menu do clique direito no Dock aparece acima da faixa.",
+  3335: "Automático (sistema)",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2222) : revue Statistiques et Réglages à 1280 px. Linux (version itch.io) : les Réglages disaient « Automatique
+  (Windows) » et proposaient « Lancer au démarrage de Windows », case sans effet (Electron ne gère pas l'ouverture de session sous
+  Linux). Maintenant « Automatique (système) » (clé 3335) et plus de case, ni dans les Réglages ni dans le menu de l'icône ; Windows et
+  Mac inchangés. En dev (window.__game), l'affichage Windows reste (autotest et lang-overflow mesurent le cas le plus long) ; rendu Linux
+  vérifié par une mise en scène qui retire window.__game. 295/295.
 - 2026-11-18 (it. 2221, REVUE GÉNÉRALE) : 12 h : samouraï, moine, chaman 65 ; --perf : bande 18,1 %, panneau 19,0 %, mini 5,5 %,
   icône 0,4 % (deux Electron de test orphelins vus juste avant, partis d'eux-mêmes : chiffres habituels) ; texte en japonais (dev-data
   et fin de partie) : aucun mot non traduit (HP, pt, Lv, BGM : usage japonais) ; captures Aventure en coréen et mini en français :
