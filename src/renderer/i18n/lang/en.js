@@ -2212,4 +2212,6 @@ export default {
   3337: "Quests: forging, transmuting or bringing back expeditions? A link (“→ Adventure”, “→ Pets”) takes you where to do it.",
   3338: "Map: when the Traveler's Map can already be bought, a link goes straight to the shop (before: “Coming soon”).",
   3339: "Linux: Settings no longer mention Windows (theme “Automatic (system)”) and the start-up box, which did nothing, is gone.",
+  3340: "Quests: “Bring back expeditions” no longer shows up before expeditions are unlocked; such an impossible quest is replaced.",
+  3341: "Translations: the automation boxes (talents, Arms Valet, Astrolabe…) now clearly say “automatically” (English, German, Spanish, Portuguese, Polish, Russian).",
 };

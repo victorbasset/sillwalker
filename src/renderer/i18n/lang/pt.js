@@ -2212,4 +2212,6 @@ export default {
   3337: "Missões: forjar, transmutar ou trazer expedições? Um link («→ Aventura», «→ Mascotes») leva aonde fazer isso.",
   3338: "Mapa: quando o Mapa do viajante já pode ser comprado, um link leva direto à loja (antes: «Em breve»).",
   3339: "Linux: as Configurações não falam mais do Windows (tema «Automático (sistema)») e a caixa de inicialização, sem efeito, foi removida.",
+  3340: "Missões: «Trazer expedições» não aparece mais antes do desbloqueio das expedições; uma missão impossível assim é substituída.",
+  3341: "Traduções: as caixas de automação (talentos, Escudeiro de armas, Astrolábio…) dizem claramente «automaticamente» (inglês, alemão, espanhol, português, polonês, russo).",
 };

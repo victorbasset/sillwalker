@@ -2212,4 +2212,6 @@ export default {
   3337: "Quests: Schmieden, Transmutieren oder Expeditionen zurückholen? Ein Link („→ Abenteuer“, „→ Begleiter“) führt dorthin, wo es geht.",
   3338: "Karte: Ist die Karte des Reisenden schon kaufbar, führt ein Link direkt zum Laden (vorher: „Bald“).",
   3339: "Linux: Die Einstellungen erwähnen Windows nicht mehr (Design „Automatisch (System)“), das wirkungslose Autostart-Kästchen ist entfernt.",
+  3340: "Quests: „Expeditionen zurückholen“ erscheint nicht mehr, bevor Expeditionen freigeschaltet sind; eine solche unmögliche Quest wird ersetzt.",
+  3341: "Übersetzungen: Die Automatik-Kästchen (Talente, Waffenknecht, Astrolabium…) sagen jetzt klar „automatisch“ (Englisch, Deutsch, Spanisch, Portugiesisch, Polnisch, Russisch).",
 };

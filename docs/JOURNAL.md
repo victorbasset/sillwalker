@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2247) : « Quoi de neuf », édition 145 (quête d'expéditions impossible corrigée, cases d'automatisme traduites
+  « automatiquement » ; deux points : corrections que les joueurs touchés doivent connaître ; clés 3340-3341). 297/297 ; lang-overflow × 1280 : rien.
 - 2026-11-18 (it. 2246, audit) : bénédictions du jour sans effet pour le joueur (familiers, sorts, élites, champions) : déjà signalées
   dans la bulle (ui/daymodnotes.js, it. 957-1703). Rien à ajouter.
 - 2026-11-18 (it. 2245, contrôle) : autotest trois fois de suite après les contrôles ajoutés aujourd'hui : 297/297 à chaque fois

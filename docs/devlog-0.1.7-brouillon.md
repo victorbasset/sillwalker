@@ -62,6 +62,8 @@ docs/devlog-0.1.6.md).
 - **Mac (it. 2204, vérifié par Victor) :** le menu du clic droit sur le Dock passe devant la bande.
 - **Moins de chemin à chercher (it. 2227-2233) :** les quêtes de forge, de transmutation et d'expéditions mènent d'un clic à l'onglet où
   agir ; la Carte propose la Carte du voyageur dès qu'elle est achetable.
+- **Corrections (it. 2238-2243) :** plus de quête d'expéditions impossible avant leur déblocage ; les cases d'automatisme disaient
+  « moi-même » au lieu d'« automatiquement » dans six langues.
 - **Linux (it. 2222) :** Réglages sans « Windows » ni case de démarrage sans effet.
 - **Première installation (it. 2200, demande de Victor) :** volumes plus doux par défaut (effets 10 %, musique 20 %, ambiance 100 %,
   général 50 %).

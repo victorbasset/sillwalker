@@ -2212,4 +2212,6 @@ export default {
   3337: "Zadania: kucie, transmutacja czy wyprawy? Odnośnik („→ Przygoda”, „→ Pupile”) prowadzi tam, gdzie to zrobić.",
   3338: "Mapa: gdy Mapę podróżnika można już kupić, odnośnik prowadzi prosto do sklepu (wcześniej: „Wkrótce”).",
   3339: "Linux: Ustawienia nie wspominają już o Windows (motyw „Automatycznie (system)”), a bezużyteczne pole autostartu usunięto.",
+  3340: "Zadania: „Przyprowadź wyprawy” nie pojawia się już przed odblokowaniem wypraw; takie niemożliwe zadanie zostaje zastąpione.",
+  3341: "Tłumaczenia: pola automatyzacji (talenty, Giermek, Astrolabium…) mówią teraz jasno „automatycznie” (angielski, niemiecki, hiszpański, portugalski, polski, rosyjski).",
 };

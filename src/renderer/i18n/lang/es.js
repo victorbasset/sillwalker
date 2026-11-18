@@ -2212,4 +2212,6 @@ export default {
   3337: "Misiones: ¿forjar, transmutar o traer expediciones? Un enlace («→ Aventura», «→ Mascotas») lleva adonde hacerlo.",
   3338: "Mapa: cuando el Mapa del viajero ya se puede comprar, un enlace lleva directo a la tienda (antes: «Próximamente»).",
   3339: "Linux: los Ajustes ya no mencionan Windows (tema «Automático (sistema)») y se quitó la casilla de inicio, que no hacía nada.",
+  3340: "Misiones: «Traer expediciones» ya no aparece antes de desbloquear las expediciones; una misión imposible así se reemplaza.",
+  3341: "Traducciones: las casillas de automatismo (talentos, Ayuda de armas, Astrolabio…) dicen claramente «automáticamente» (inglés, alemán, español, portugués, polaco, ruso).",
 };

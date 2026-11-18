@@ -3341,5 +3341,7 @@ export const KEYS = [
   "En vente : la {0} permet d’aller d’un clic dans une zone déjà atteinte.",
   "Quêtes : forger, transmuter ou ramener des expéditions ? Un lien (« → Aventure », « → Familiers ») mène là où le faire.",
   "Carte : quand la Carte du voyageur est déjà achetable, un lien mène directement à la boutique (avant : « Bientôt »).",
-  "Linux : les Réglages ne parlent plus de Windows (thème « Automatique (système) ») et la case de démarrage, sans effet, est retirée."
+  "Linux : les Réglages ne parlent plus de Windows (thème « Automatique (système) ») et la case de démarrage, sans effet, est retirée.",
+  "Quêtes : « Ramener des expéditions » n’apparaît plus avant leur déblocage ; une quête de ce genre impossible est remplacée.",
+  "Traductions : les cases d’automatisme (talents, Valet d’armes, Astrolabe…) disent clairement « automatiquement » (anglais, allemand, espagnol, portugais, polonais, russe)."
 ];
