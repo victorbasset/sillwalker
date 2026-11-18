@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2246, audit) : bénédictions du jour sans effet pour le joueur (familiers, sorts, élites, champions) : déjà signalées
+  dans la bulle (ui/daymodnotes.js, it. 957-1703). Rien à ajouter.
 - 2026-11-18 (it. 2245, contrôle) : autotest trois fois de suite après les contrôles ajoutés aujourd'hui : 297/297 à chaque fois
   (aucune instabilité).
 - 2026-11-18 (it. 2244, audit) : conditions des 18 sortes de quêtes : toutes réalisables quand elles tombent (élites et champions selon
