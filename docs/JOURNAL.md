@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2173, découvrabilité) : la bulle de « Annuler le dernier » (Talents, Compétences) cite son raccourci « (Z) ».
+  290/290.
 - 2026-11-18 (it. 2172) : docs/POUR-VICTOR.md complété (sac plein à la Boutique, bonus des maîtrises, clavier, confirmations des
   objets et quêtes précieux) ; éditions 136 à 139.
 - 2026-11-18 (it. 2171, revue générale) : perf bande 18,1 %, panneau 19,1 %, mini 5,6 % ; lang-overflow 10 langues × 3 largeurs :

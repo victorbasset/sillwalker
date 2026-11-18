@@ -54,7 +54,7 @@ export class SkillsTab {
         <div class="row k-lock"></div>
         <label class="toggle k-autolevel" title="${esc(tx("Prolonge le pétale le plus avancé, nœuds remarquables d’abord."))}"><input type="checkbox" data-action="k-autoon"> ${tx("À chaque niveau, dépenser tout seul")}</label>
         <div class="row">
-          <button data-action="k-undo" class="quiet">${tx("Annuler le dernier")}</button>
+          <button data-action="k-undo" class="quiet" title="${esc(tx("Annuler le dernier"))} (Z)">${tx("Annuler le dernier")}</button>
           <button data-action="k-reset" class="quiet">${tx("Tout réinitialiser")}</button>
           <button data-action="k-greset" class="quiet" hidden>${tx("Réinitialiser le grand graphe")}</button>
           <button data-action="k-center" class="quiet">${tx("Recentrer")}</button>
