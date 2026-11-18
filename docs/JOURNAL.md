@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2178, enquête) : berserker 69 / 69 / 69 au tableau (graines 7, 3, 11) : sur les graines 21, 31, 41, 51 : 65, 65, 64,
+  66 (mage 62, 59, 65, 61 ; paladin 69, 64, 61, 64). Moyenne sur 7 graines : 65,9 ; pas un héros trop fort, les trois graines du tableau
+  lui sont favorables. Aucun réglage.
 - 2026-11-18 (it. 2177, équilibrage) : hero-table 12 h × 3 graines après la voie gratuite et les changements de la nuit : moyenne
   64,6 (64,5 au début de la nuit, 65,0 à l'it. 1825), écart 6,7 zones, berserker en tête (69, déjà vu à l'it. 2090). Stable.
 - 2026-11-18 (it. 2176) : brouillon du devlog 0.1.7 complété (Boutique et sac, maîtrises et quêtes, clavier).
