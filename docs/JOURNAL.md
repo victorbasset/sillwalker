@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2321, REVUE GÉNÉRALE) : 12 h : arbalétrier 65, prêtresse 64, gladiateur 64 ; --perf : 18,1 / 19,6 %, mini 5,4 %,
+  icône 0,8 % ; Carnet de route en japonais à 1280 px (fin de partie, 30 étapes sur trois colonnes) : « 次の節目：エリア 160 » en
+  bas, sans défilement. Rien à corriger.
 - 2026-11-18 (it. 2320, contrôle) : constellations abordables : déjà dans « À faire » (id « stars », game.js todoNow). CLAUDE.md : 302
   vérifications d'autotest.
 - 2026-11-18 (it. 2319, contrôle) : onglet Ascension en français à 1280 px : gardé / perdu, prochain héros, éclats maintenant et à la
