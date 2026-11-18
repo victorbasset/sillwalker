@@ -3349,5 +3349,7 @@ export const KEYS = [
   "Sac plein : « À faire maintenant » propose de l’agrandir d’un clic (Atelier) quand c’est abordable ; une astuce le rappelle dans la bande.",
   "Quêtes : le lien vers l’onglet où agir disparaît quand un automatisme s’en charge déjà (Grand intendant, Maître de forge, Creuset perpétuel).",
   "Atelier : des améliorations permanentes à petit prix pour ton or",
-  "Atelier : améliorations permanentes à petit prix"
+  "Atelier : améliorations permanentes à petit prix",
+  "« À faire maintenant » rappelle l’Atelier quand ses améliorations permanentes ne coûtent presque plus rien pour ton or.",
+  "Retour d’absence : la colonne « À faire maintenant » est plus large ; en allemand et en polonais, le résumé ne défile plus."
 ];

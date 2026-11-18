@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2277) : « Quoi de neuf », édition 147 (rappel de l'Atelier, résumé d'absence en allemand et polonais ; clés 3348-3349).
+  Bulles du mode mini et de l'icône (« À faire » au survol) : texte libre, rien à mesurer. lang-overflow all × 1280 (10 langues, vrai) : rien.
 - 2026-11-18 (it. 2276, mesure + correction) : lang-overflow mesure le résumé d'absence au pire cas dans chaque langue (« absence-pire=N ») :
   25 px en allemand et 9 en polonais à toutes les largeurs (colonne « À faire » de 320 px : actions sur deux lignes) → 380 px, plus rien.
   ERREUR DE MÉTHODE découverte : « lang-overflow.mjs all 1280 » prenait « all » pour une langue inconnue (repli français) : mes mesures

@@ -2220,4 +2220,6 @@ export default {
   3345: "Zadania: odnośnik do zakładki, w której działać, znika, gdy zajmuje się tym już automatyzacja (Wielki zarządca, Mistrz kowalski, Wieczny tygiel).",
   3346: "Warsztat: trwałe ulepszenia tanie jak na twoje złoto",
   3347: "Warsztat: tanie trwałe ulepszenia",
+  3348: "„Do zrobienia teraz” przypomina o Warsztacie, gdy jego trwałe ulepszenia prawie nic nie kosztują przy twoim złocie.",
+  3349: "Powrót: kolumna „Do zrobienia teraz” jest szersza; po niemiecku i polsku podsumowanie już się nie przewija.",
 };

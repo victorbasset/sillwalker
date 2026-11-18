@@ -2220,4 +2220,6 @@ export default {
   3345: "Misiones: el enlace a la pestaña donde actuar desaparece cuando un automatismo ya se encarga (Gran intendente, Maestro herrero, Crisol perpetuo).",
   3346: "Taller: mejoras permanentes baratas para tu oro",
   3347: "Taller: mejoras permanentes baratas",
+  3348: "«Qué hacer ahora» te recuerda el Taller cuando sus mejoras permanentes ya casi no cuestan nada para tu oro.",
+  3349: "Al volver: la columna «Qué hacer ahora» es más ancha; en alemán y polaco el resumen ya no se desplaza.",
 };

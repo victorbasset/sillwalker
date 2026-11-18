@@ -2220,4 +2220,6 @@ export default {
   3345: "Missões: o link para a aba onde agir some quando uma automação já cuida disso (Grande intendente, Mestre ferreiro, Cadinho perpétuo).",
   3346: "Oficina: melhorias permanentes baratas para o seu ouro",
   3347: "Oficina: melhorias permanentes baratas",
+  3348: "«O que fazer agora» lembra a Oficina quando suas melhorias permanentes quase não custam nada para o seu ouro.",
+  3349: "Na volta: a coluna «O que fazer agora» ficou mais larga; em alemão e polonês o resumo não rola mais.",
 };

@@ -2220,4 +2220,6 @@ export default {
   3345: "Quests: the link to the tab where you act disappears when an automation already handles it (Grand Steward, Master Smith, Everlasting Crucible).",
   3346: "Workshop: permanent upgrades going cheap for your gold",
   3347: "Workshop: permanent upgrades going cheap",
+  3348: "“Things to do now” reminds you of the Workshop when its permanent upgrades cost next to nothing for your gold.",
+  3349: "Back from absence: the “Things to do now” column is wider; in German and Polish the summary no longer scrolls.",
 };

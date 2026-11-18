@@ -2220,4 +2220,6 @@ export default {
   3345: "Quests: Der Link zum Reiter, in dem man handelt, verschwindet, wenn eine Automatik das schon übernimmt (Großer Verwalter, Schmiedemeister, Ewiger Tiegel).",
   3346: "Werkstatt: dauerhafte Verbesserungen spottbillig für dein Gold",
   3347: "Werkstatt: günstige dauerhafte Verbesserungen",
+  3348: "„Jetzt zu tun“ erinnert an die Werkstatt, wenn ihre dauerhaften Verbesserungen für dein Gold fast nichts mehr kosten.",
+  3349: "Rückkehr: Die Spalte „Jetzt zu tun“ ist breiter; auf Deutsch und Polnisch scrollt die Übersicht nicht mehr.",
 };
