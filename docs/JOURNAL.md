@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2312) : POUR-VICTOR : bulles des inconnus du Bestiaire (it. 2303-2310).
 - 2026-11-18 (it. 2311, REVUE GÉNÉRALE) : 12 h : rôdeur 65, berserker 66, cryomancien 65 ; --perf : 18,3 / 19,1 %, mini 5,5 %,
   icône 0,5 % ; Bestiaire en coréen à 1280 px, Gluant remis à 0 : « 아직 만나지 않음 · 지역 1: 속삭임의 숲 » (it. 2309), grille
   propre. Rien à corriger.

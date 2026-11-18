@@ -20,6 +20,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   dissipé…) disent au survol ce qu'il faut faire ; les trois plus proches d'être obtenus ressortent en or (ta partie : Alchimiste
   48/50, Dix héros libérés 9/10, Fidèle 5/7) ; une astuce le signale une fois quand l'un d'eux atteint 90 %. Édition 148 de
   « Quoi de neuf ». Pour Steamworks : steam/achievements.md donne aussi ces neuf descriptions dans les 10 langues.
+- **Soir (it. 2303-2310)** : Bestiaire : ce qui reste à découvrir dit au survol où le trouver (monstre : sa première zone, nommée
+  seulement si la Carte la nomme déjà ; pouvoir : sur les légendaires ; bénédiction : revenir d'autres jours). Édition 149.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 
