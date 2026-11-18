@@ -1336,6 +1336,8 @@ export class Panel {
     if (!$(this.root, "#confirm").hidden) { this.closeConfirm(); return; }
     const m = $(this.root, "#modal");
     if (!m.hidden) { m.hidden = true; return; }
+    // (it. 2165) un objet sélectionné (son détail remplace les commandes du sac) : Échap revient d'abord au sac
+    if (this.tab === "adventure" && this.selected) { this.selected = null; this.renderAll(); return; }
     this.onClose?.();
   }
 }

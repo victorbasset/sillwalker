@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2165, clavier) : Échap avec un objet sélectionné (Aventure) revient d'abord au sac ; un second Échap ferme le panneau
+  (avant : le panneau se fermait directement). Autotest ; 286/286.
 - 2026-11-18 (it. 2164, contrôles) : début de partie après les changements de la nuit : first-minutes (première récompense < 90 s,
   onglet Talents à 70-82 s) ; early-pace : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages. Rien d'anormal.
 - 2026-11-18 (it. 2163) : CLAUDE.md : dosage des confirmations (seulement le précieux et sans retour ; gestes courants d'un clic)
