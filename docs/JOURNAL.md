@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2289, autotest) : Statistiques > Succès : 72 succès, 9 avec une explication au survol (it. 2286). 300/300.
 - 2026-11-18 (it. 2288) : steam/achievements.md : second tableau, les descriptions (10 langues) des 9 succès qui en ont une
   (it. 2286), à recopier dans le champ « Description » de Steamworks ; généré par steam-achievements.mjs (vérifié par npm test).
   Quoi de neuf : une seule nouveauté depuis l'édition 147 : attendre la série suivante.
