@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2164, contrôles) : début de partie après les changements de la nuit : first-minutes (première récompense < 90 s,
+  onglet Talents à 70-82 s) ; early-pace : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages. Rien d'anormal.
 - 2026-11-18 (it. 2163) : CLAUDE.md : dosage des confirmations (seulement le précieux et sans retour ; gestes courants d'un clic)
   et achat à sac plein. Bulle de « Reforger » relue : elle dit déjà ce qui change et ce qui est gardé.
 - 2026-11-18 (it. 2162, ergonomie) : quêtes : « Changer » une quête 3 étoiles (rare, une sur dix, belle récompense) demande
