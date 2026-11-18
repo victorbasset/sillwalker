@@ -159,8 +159,21 @@ export class SkillsTab {
       this.view.k = k;
       this.applyView();
     }, { passive: false });
+    // (it. 2337) survol d'un nœud non relié : le chemin le plus court qu'un clic prendrait s'allume (or : assez de points ;
+    // rouge : il en manque) ; le clic prend tout le chemin (it. 2332)
+    const clearPath = () => { for (const el of this.pathEls || []) el.classList.remove("path", "far"); this.pathEls = []; };
+    const showPath = (id, gid) => {
+      clearPath();
+      const S = this.game.S;
+      if (gid ? !flowerComplete(S) || canTakeGraph(S, gid) : !id || canTakeSkill(S, id)) return;
+      const path = gid ? graphPathTo(S, gid) : skillPathTo(S, id);
+      if (!path || path.length < 2) return;
+      const far = path.length > (gid ? graphPointsFree(S) : skillPointsFree(S));
+      for (const p of path) { const el = gid ? this.gNodeEls[p] : this.nodeEls[p]; if (el) { el.classList.add("path"); if (far) el.classList.add("far"); this.pathEls.push(el); } }
+    };
     const showTip = (target) => {
       const id = target.dataset && target.dataset.id, core = target.dataset && target.dataset.core, gid = target.dataset && target.dataset.gid;
+      showPath(id, gid);
       if (!id && !core && !gid) { tip.hidden = true; return; }
       tip.innerHTML = gid ? (flowerComplete(this.game.S) ? this.graphNodeTip(gid) : this.graphTip()) : core ? this.coreTip(core) : this.tipHtml(id);
       tip.hidden = false;
@@ -171,7 +184,7 @@ export class SkillsTab {
       tip.style.top = Math.max(4, Math.min(r.height / z - tip.offsetHeight - 4, (t.top - r.top) / z - 10)) + "px";
     };
     box.addEventListener("mouseover", (e) => showTip(e.target));
-    box.addEventListener("mouseleave", () => { tip.hidden = true; });
+    box.addEventListener("mouseleave", () => { tip.hidden = true; clearPath(); });
     // (it. 850) Au clavier : Tab passe d'un nœud apprenable à l'autre (les seuls focalisables), la vue se recadre
     // sur lui s'il sort du cadre, sa bulle s'affiche ; Entrée ou Espace l'apprend.
     box.addEventListener("focusin", (e) => {

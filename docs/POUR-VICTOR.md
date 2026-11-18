@@ -26,7 +26,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   viennent toutes les 10 zones après la 50) ; « Niveau 10 / 25 / 50 / 100 » n'y revient plus à chaque ascension. Édition 150.
 - **Grand graphe (ta demande, it. 2332)** : 222 nœuds au lieu de 618, plus espacés ; les trois voies de chaque pétale se prennent
   (tes points en surplus servent) ; clic sur un nœud lointain = chemin le plus court pris d'un coup si tu as les points (la bulle dit
-  combien) ; clés de voûte sans malus (valeurs positives réduites d'autant). Ta partie : les nœuds des anciennes voies longues qui
+  combien ; au survol, le chemin s'allume en or, en rouge s'il manque des points) ; clés de voûte sans malus (valeurs positives réduites d'autant). Ta partie : les nœuds des anciennes voies longues qui
   n'existent plus repartent, leurs points redeviennent libres (« Dépenser automatiquement » les replace). Même rythme mesuré sur
   une semaine simulée (350 / 350). Édition 151. À toi de dire si la densité te plaît (voies de 10 nœuds, anneau de 6).
 - **Son des coups (ta demande, it. 2333)** : il suit la vitesse de frappe jusqu'à ≈ 18 coups par seconde (avant 7), chaque coup plus

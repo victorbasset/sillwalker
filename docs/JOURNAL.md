@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2337) : Compétences : au survol d'un nœud non relié (fleur ou grand graphe), le chemin le plus court qu'un clic
+  prendrait s'allume (or ; rouge s'il manque des points), effacé en quittant. Capture fin de partie : 8 nœuds jusqu'au milieu d'une
+  voie, « Clic : prend le chemin le plus court (8 points) ». Autotest : 14 nœuds jusqu'à une clé de voûte. 303/303.
 - 2026-11-18 (it. 2336, contrôle) : lang-overflow complet après le grand graphe allégé et l'édition 151 : aucun défilement ni mot coupé.
 - 2026-11-18 (it. 2335, contrôles après le grand graphe allégé) : --crawl fin de partie 693 clics sans erreur ; stall-check 60 parties,
   0 figées ; fuzz 1200 parties, 0 bloquées.

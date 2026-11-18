@@ -437,6 +437,9 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .skillsvg .gnode.locked { opacity: .55; }
 .skillsvg .gnode.closed { opacity: .2; cursor: help; }
 .skillsvg .gnode:not(.sealed):hover { stroke: #fff; stroke-width: 4; }
+/* (it. 2337) chemin le plus court au survol d'un nœud lointain (or : un clic le prend ; rouge : points manquants) */
+.skillsvg .node.path, .skillsvg .gnode.path { stroke: var(--accent); stroke-width: 4; opacity: 1; }
+.skillsvg .node.path.far, .skillsvg .gnode.path.far { stroke: var(--bad); }
 .skillsvg .gnode:focus-visible { outline: none; stroke: var(--accent); stroke-width: 5; }
 .skillsvg .gico.sealed { display: none; }
 .skillsvg .gico.closed { opacity: .2; }
