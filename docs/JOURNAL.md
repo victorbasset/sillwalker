@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2147, contrôles) : Réglages vus en capture : propres (zone de danger à part, confirmation). fuzz sous toutes les
+  bénédictions du jour : 1200 parties, 0 bloquées ; stall-check idem : 60 parties, 0 figées. Audit d'ergonomie : tous les onglets vus.
 - 2026-11-18 (it. 2146) : onglet Héros : la phrase « N / 20 héros libérés. On change de héros… » (une règle ; le nombre est sur le
   sous-onglet) passe dans un ⓘ à côté des sous-onglets ; la note du duo (ce qu'apporte le compagnon) reste. Une ligne de moins en haut
   de l'onglet. 283/283 ; lang-overflow 10 langues × 1280 / 1920 : rien.
