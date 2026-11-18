@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2232, contrôle) : sonde des ⓘ sur une partie SANS aucun déblocage (liens « 🔒 · prix » dans les rangées), fr, de, ru
+  à 1280 px : IPROBE 0.
 - 2026-11-18 (it. 2231, REVUE GÉNÉRALE) : 12 h : assassin 60, prêtresse 64, lancier 62 (assassin, le plus bas de toujours : une graine) ;
   --perf : 1re mesure bande 20,0 % (charge de la machine ≈ 1,4), 2e 18,8 %, panneau 19,4 %, mini 5,5 %, icône 0,5 % : bruit ; texte en
   coréen : aucun mot non traduit ; captures Carte en anglais (« On sale: … 🔒 Traveler's Map · 90k gold ») et mini en polonais : propres.
