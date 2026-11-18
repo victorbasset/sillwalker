@@ -3114,10 +3114,12 @@ test("sons de coup (demande 25) : un timbre par héros et une matière par monst
 });
 
 test("musique de fond (it. 1541) : 4 morceaux, un par tranche de 50 zones, puis les mêmes au-delà de 200", () => {
-  assert.deepEqual([1, 50, 51, 100, 101, 150, 151, 200].map(trackIndex), [0, 0, 1, 1, 2, 2, 3, 3], "tranches de 50");
+  assert.deepEqual([1, 50, 51, 100, 101, 150, 151, 199].map(trackIndex), [0, 0, 1, 1, 2, 2, 3, 3], "tranches de 50");
+  assert.equal(trackIndex(200), 4, "(it. 2341) zone 200 : le morceau du combat final");
+  assert.equal(musicZone(200), 200);
   assert.deepEqual([201, 250, 251, 400, 401].map(trackIndex), [0, 0, 1, 3, 0], "au-delà du Rebord : les mêmes, dans l'ordre");
   assert.deepEqual([0, 1, 49, 50, 51, 203].map(musicZone), [1, 1, 1, 1, 51, 201], "première zone de la tranche");
-  assert.equal(TRACKS.length, 4);
+  assert.equal(TRACKS.length, 5, "(it. 2341) 4 morceaux par tranches + celui de la zone 200");
   for (const t of TRACKS) assert.ok(fs.statSync(new URL(`../src/renderer/assets/music/${t.id}.opus`, import.meta.url)).size > 500000, t.id + " présent");
 });
 

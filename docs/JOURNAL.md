@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2341, DEMANDE DE VICTOR) : musique de la zone 200, « La Dernière Étoile » (scripts/music/tracks/finale.js) : 116 bpm,
+  ré mineur harmonique → majeur, 68 mesures, 2 min 21, mesures comme les 4 autres (−15,9 LUFS, largeur 0,42). render/music.js : 5e
+  morceau hors du cycle des tranches de 50 (trackIndex(200) = 4, trackZone, trackRange) ; Réglages > Son : flèches de morceau en
+  morceau, « « La Dernière Étoile » · zone 200 ». MP3 dans Médias/dist-itch/musique/07-…-v1.mp3. Plan de la cinématique :
+  docs/FINALE.md. Clés 3378-3379. 367 tests, 303/303.
 - 2026-11-18 (it. 2339-2340, DEMANDES DE VICTOR, captures) : « Choisir les bonus des paliers » : la colonne du rang a la même largeur
   dans toutes les rangées (--rk, le plus long « rang N » + sablier ; avant max-content par rangée, les boutons de « rang 10 » partaient
   plus à gauche que ceux de « rang 25 ⏳ ») et tous les bonus ont la hauteur de deux lignes (les deux colonnes restent alignées).

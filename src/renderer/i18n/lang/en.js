@@ -2250,4 +2250,6 @@ export default {
   3375: "Lighter great Skills graph (222 nodes instead of 618, more spread out): all three paths of each petal can be taken, so surplus points finally count.",
   3376: "Skills: clicking a faraway node takes the shortest path by itself, if you have enough points.",
   3377: "Flower keystones no longer have a negative side; the balance stays the same (same game pace).",
+  3378: "The Last Star",
+  3379: "“{0}” · zone {1}",
 };

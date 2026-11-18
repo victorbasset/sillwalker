@@ -2250,4 +2250,6 @@ export default {
   3375: "Gran grafo de Habilidades aligerado (222 nodos en lugar de 618, más espaciados): se pueden tomar los tres caminos de cada pétalo, y los puntos sobrantes por fin sirven.",
   3376: "Habilidades: un clic en un nodo lejano toma solo el camino más corto, si tienes puntos suficientes.",
   3377: "Las piedras angulares de la flor ya no tienen contrapartida negativa; el equilibrio sigue igual (mismo ritmo de partida).",
+  3378: "La Última Estrella",
+  3379: "«{0}» · zona {1}",
 };

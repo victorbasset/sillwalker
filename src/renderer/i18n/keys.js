@@ -3379,5 +3379,7 @@ export const KEYS = [
   "Chemin le plus court : {2} points, il en manque {n}.|Chemin le plus court : {2} points, il en manque {n}.",
   "Grand graphe des Compétences allégé (222 nœuds au lieu de 618, plus espacés) : les trois voies de chaque pétale se prennent toutes, les points en surplus servent enfin.",
   "Compétences : un clic sur un nœud lointain prend tout seul le chemin le plus court, si tu as assez de points.",
-  "Clés de voûte de la fleur sans contrepartie négative ; l’équilibre reste le même (même rythme de partie)."
+  "Clés de voûte de la fleur sans contrepartie négative ; l’équilibre reste le même (même rythme de partie).",
+  "La Dernière Étoile",
+  "« {0} » · zone {1}"
 ];

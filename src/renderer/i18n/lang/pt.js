@@ -2250,4 +2250,6 @@ export default {
   3375: "Grande grafo de Habilidades mais leve (222 nós em vez de 618, mais espaçados): os três caminhos de cada pétala podem ser pegos, e os pontos excedentes finalmente servem.",
   3376: "Habilidades: um clique num nó distante pega sozinho o caminho mais curto, se você tiver pontos suficientes.",
   3377: "As pedras angulares da flor não têm mais lado negativo; o equilíbrio continua o mesmo (mesmo ritmo de jogo).",
+  3378: "A Última Estrela",
+  3379: "“{0}” · zona {1}",
 };

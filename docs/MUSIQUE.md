@@ -171,4 +171,9 @@ Combat de boss : à décider (couche de percussions rendue à part et jouée en 
   ressembler aux Lieutenants : 108 bpm, grosse caisse sur chaque temps, charlestons ouverts à contretemps, piano en
   croches répétées, nappes qui pompent (duck 0,8), thème à la puce et aux cloches (plus de cordes ni de chœur sur le
   thème, plus de toms façon taiko) ; 133 s, −16,0 LUFS, raccord 0,0006. MP3 : 02-le-rebord-v4, 05-le-briseur-d-etoiles-v3.
-
+- 18/11 (it. 2341, demande de Victor) : 5e morceau « La Dernière Étoile » (`tracks/finale.js`), zone 200 seulement (le combat
+  contre le Briseur d'Étoiles) : ré mineur harmonique → ré majeur, 116 bpm, 68 mesures (2 min 21) ; intro (timbales, chœur),
+  A mineur aux cordes + chœur et taiko, A' puce + supersaw + cloches, pont héroïque vers le majeur, montée, A'' majeur (tout
+  l'orchestre, grosse caisse en croches), souffle, A''' (puce à l'octave haute), coda ♭VI-♭VII-I, outro mineur. Mesures :
+  −15,9 LUFS, LRA 6,9, vrai pic −4,8, largeur 0,42, raccord 0,008 ; octaves proches des morceaux 3 et 4. Rendu en 9 min 25.
+  Envoyé à Victor (07-la-derniere-etoile-zone-200-v1.mp3). Plan : docs/FINALE.md.

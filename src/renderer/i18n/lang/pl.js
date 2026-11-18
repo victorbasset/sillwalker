@@ -2250,4 +2250,6 @@ export default {
   3375: "Wielki graf Umiejętności odchudzony (222 węzły zamiast 618, rzadziej rozmieszczone): można wziąć wszystkie trzy ścieżki każdego płatka, nadmiarowe punkty wreszcie się przydają.",
   3376: "Umiejętności: kliknięcie odległego węzła samo bierze najkrótszą ścieżkę, jeśli masz dość punktów.",
   3377: "Zworniki kwiatu nie mają już negatywnej strony; równowaga pozostaje taka sama (to samo tempo gry).",
+  3378: "Ostatnia Gwiazda",
+  3379: "„{0}” · strefa {1}",
 };

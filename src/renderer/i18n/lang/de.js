@@ -2250,4 +2250,6 @@ export default {
   3375: "Großer Fertigkeiten-Graph verschlankt (222 Knoten statt 618, weiter auseinander): Alle drei Wege jedes Blütenblatts lassen sich nehmen, überschüssige Punkte zählen endlich.",
   3376: "Fertigkeiten: Ein Klick auf einen fernen Knoten nimmt von selbst den kürzesten Weg, wenn du genug Punkte hast.",
   3377: "Die Schlusssteine der Blume haben keinen Nachteil mehr; das Gleichgewicht bleibt gleich (gleiches Spieltempo).",
+  3378: "Der letzte Stern",
+  3379: "„{0}“ · Zone {1}",
 };

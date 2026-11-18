@@ -157,7 +157,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de
   render/sound.js et signale erreur, NaN ou saturation (pic > 0,2 ; les effets font ≈ 0,02) : ajouter tout nouveau son
   à sa liste (selftest.js, « son : tous les sons ») ; pour comparer des volumes, même méthode dans une injection TEMP.
-  Musique (it. 1541) : 4 morceaux composés à la main (un par tranche de 50 zones), rendus HORS du jeu par
+  Musique (it. 1541) : 4 morceaux composés à la main (un par tranche de 50 zones) + « La Dernière Étoile » pour la zone 200
+  seule (it. 2341, docs/FINALE.md : trackIndex(200) = 4, hors du cycle), rendus HORS du jeu par
   `scripts/music/` et livrés en `src/renderer/assets/music/*.opus` ; plan, choix et mesures : docs/MUSIQUE.md. Retoucher
   un morceau : sa partition `scripts/music/tracks/<morceau>.js`, puis `xvfb-run -a node_modules/.bin/electron
   --no-sandbox scripts/music/render.cjs <morceau> <x.wav>` (STEMS=1 : pistes séparées, `scripts/music/stems.py`), puis

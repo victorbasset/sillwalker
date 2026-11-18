@@ -12,11 +12,22 @@ export const TRACKS = [
   { id: "sentiers", name: "Sentiers d’étoiles" },
   { id: "lieutenants", name: "Les Lieutenants" },
   { id: "briseur", name: "Le Briseur d’Étoiles" },
+  // (it. 2341, demande de Victor : « sur la zone 200, la dernière, une musique épique unique de la même qualité que les 4
+  // autres ») le combat contre le Briseur d'Étoiles, zone 200 seulement (scripts/music/tracks/finale.js)
+  { id: "finale", name: "La Dernière Étoile", zone: 200 },
 ];
-/** Morceau d'une zone (0 à 3) : 1-50, 51-100, 101-150, 151-200, puis les mêmes par tranches de 50. */
-export const trackIndex = (zone) => Math.floor(((Math.max(1, zone | 0) - 1) % (MUSIC_BLOCK * TRACKS.length)) / MUSIC_BLOCK);
-/** Première zone de la tranche de 50 d'une zone (1, 51, 101…). */
-export const musicZone = (zone) => Math.floor((Math.max(1, zone | 0) - 1) / MUSIC_BLOCK) * MUSIC_BLOCK + 1;
+/** Morceaux joués par tranches de 50 zones (les 4 premiers ; le 5e est celui de la zone 200 seule). */
+const CYCLE = 4;
+/** Zone de la dernière étoile (story.js FINAL_ZONE) : son propre morceau. */
+export const FINAL_MUSIC_ZONE = 200;
+/** Morceau d'une zone (0 à 4) : 1-50, 51-100, 101-150, 151-199, 200 (le combat final), puis les 4 premiers par tranches de 50. */
+export const trackIndex = (zone) => (zone | 0) === FINAL_MUSIC_ZONE ? CYCLE : Math.floor(((Math.max(1, zone | 0) - 1) % (MUSIC_BLOCK * CYCLE)) / MUSIC_BLOCK);
+/** Première zone de la tranche de 50 d'une zone (1, 51, 101…) ; la zone 200 a la sienne. */
+export const musicZone = (zone) => (zone | 0) === FINAL_MUSIC_ZONE ? FINAL_MUSIC_ZONE : Math.floor((Math.max(1, zone | 0) - 1) / MUSIC_BLOCK) * MUSIC_BLOCK + 1;
+/** Zone représentative d'un morceau (écoute et morceau gardé, Réglages) : 1, 51, 101, 151, 200. */
+export const trackZone = (idx) => (idx === CYCLE ? FINAL_MUSIC_ZONE : 1 + idx * MUSIC_BLOCK);
+/** Zones d'un morceau, pour son libellé : [première, dernière] (la zone 200 seule pour le combat final). */
+export const trackRange = (idx) => (idx === CYCLE ? [FINAL_MUSIC_ZONE, FINAL_MUSIC_ZONE] : idx === CYCLE - 1 ? [151, 199] : [1 + idx * MUSIC_BLOCK, (idx + 1) * MUSIC_BLOCK]);
 
 // Les fichiers sont normalisés à −16 LUFS : ce gain garde l'équilibre d'avant avec les bruitages (anciens airs
 // synthétisés ≈ 0,014 de moyenne quadratique avant le volume général, morceaux ≈ 0,126) ; « Musique » (0 à 2) le module.
@@ -84,7 +95,7 @@ export class Music {
 
   /** Change de morceau (fondu enchaîné) quand on passe dans une autre tranche de 50 zones. */
   setZone(zone) {
-    zone = this.pin >= 0 && this.pin < TRACKS.length ? 1 + this.pin * MUSIC_BLOCK : musicZone(zone); // (it. 1583) morceau gardé
+    zone = this.pin >= 0 && this.pin < TRACKS.length ? trackZone(this.pin) : musicZone(zone); // (it. 1583) morceau gardé
     if (this.previewing) { this.home = zone; return; }
     this.applyZone(zone);
   }
