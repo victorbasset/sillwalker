@@ -1,4 +1,4 @@
-# Bande originale : 4 morceaux (demande de Victor, 15/11/2026, ≈ 24 h de travail en boucle)
+# Bande originale : 4 morceaux (demande de Victor, 15/11/2026, ≈ 24 h de travail en boucle) + « La Dernière Étoile » (zone 200, 18/11)
 
 > « Je veux 4 musiques : zones 0-50, 50-100, 100-150, 150-200. Un mix entre lofi, épique galactique et une ambiance
 > un peu Terraria. Extrêmement bien travaillées, qualité studio. Prends ton temps, découpe le travail. »

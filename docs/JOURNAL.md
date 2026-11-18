@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2358) : README à jour (grand graphe de 222 nœuds, trois voies libres, chemin le plus court ; 5 morceaux dont celui
+  de la zone 200) ; titre de docs/MUSIQUE.md.
 - 2026-11-18 (it. 2357) : autotest 114 s pour 304 vérifications (lents : meute 3,5 s, décodage des 5 morceaux 3,5 s, cinématique de
   libération 3,1 s) ; repère de CLAUDE.md et libellé « les 5 morceaux » à jour.
 - 2026-11-18 (it. 2356, contrôle) : texte russe extrait (fin de partie, 0.1.7) : mots latins = noms propres, touches, repères, DEV et

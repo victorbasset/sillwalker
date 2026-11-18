@@ -43,10 +43,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   permanents d'ascension. Le chemin est conservé à l'ascension et se réactive au fil des niveaux. Chaque nœud porte
   une icône pixel art (une par effet ; un dessin unique pour les remarquables et les clés : `render/skillicons.js`).
 - **Grand graphe** autour de la fleur (`skillgraph.js`, demande de Victor) : grisé tant que la fleur n'est pas
-  entière, puis ouvert aux points en surplus. 618 nœuds : une région par pétale (porte reliée à la clé de voûte),
-  3 voies exclusives par région (on n'en suit qu'une), dont une de synergie (attaque selon les PV, selon l'or…), et un
-  anneau de couronnes. Attaque, PV et défense du graphe multiplient le résultat (`GRAPH_SCALE`, graphe complet ≈
-  ×6 de puissance). Un chemin prend au plus 258 nœuds (une voie par région) ; ensuite chaque point en surplus donne
+  entière, puis ouvert aux points en surplus. 222 nœuds (it. 2332 ; 618 avant) : une région par pétale (porte reliée à la
+  clé de voûte), 3 voies de 10 nœuds par région, toutes prenables, dont une de synergie (attaque selon les PV, selon l'or…),
+  et un anneau de couronnes. Attaque, PV et défense du graphe multiplient le résultat (`GRAPH_SCALE`, `VOIE_SCALE`). Un clic
+  sur un nœud lointain prend le chemin le plus court (`graphPathTo`, fleur : `skillPathTo`). Graphe rempli, chaque point en surplus donne
   +0,1 % d'attaque et de PV (`SURPLUS_BONUS`). « Dépenser automatiquement » continue dans le graphe une fois la fleur pleine ; son ouverture est
   annoncée une fois (bulle, mode mini), la pastille de l'onglet compte ses points ; « Réinitialiser le grand graphe »
   le vide sans toucher à la fleur (changer de voie).
@@ -91,7 +91,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Ascension** (dès la zone 20) : recommencer contre des éclats d'étoile, dépensés dans 16 constellations permanentes
   (attaque, PV, or, expérience, points de talent, zone de départ, temps hors ligne...).
 - **Son** (render/sound.js, render/music.js) : effets variés, ambiance de chaque zone (bulles, braises, oiseaux…),
-  bande originale de 4 morceaux composés pour le jeu (zones 1-50, 51-100, 101-150, 151-200, puis les mêmes), autour
+  bande originale de 5 morceaux composés pour le jeu (zones 1-50, 51-100, 101-150, 151-199, puis les mêmes ; la zone 200, le
+  combat final, a le sien : « La Dernière Étoile »), autour
   d'un même leitmotiv, du lofi chaud au final épique galactique avec une couleur Terraria ; rendus et masterisés hors du
   jeu (scripts/music/, docs/MUSIQUE.md), lus en boucle sans couture, fondu enchaîné, plus de poids contre les boss.
   Volumes séparés (effets, ambiance, musique, général) dans Réglages > Son, avec ◀ ▶ pour écouter les morceaux et 📌
@@ -264,7 +265,7 @@ src/
     render/               art.js = pixel art, dom.js = briques communes,
                           strip.js = bande (parcours de zone), monlife.js = vie des monstres en attente, mini.js = encart mini, heroart.js = héros
                           assemblés à partir de pièces, equipvis.js = équipement visible, juice.js = effets,
-                          sound.js = sons, music.js = lecture des 4 morceaux (assets/music/), trayicons.js = icônes de la zone de notification ;
+                          sound.js = sons, music.js = lecture des 5 morceaux (assets/music/), trayicons.js = icônes de la zone de notification ;
                           sprites.js = images des personnages (contours et halo dessinés une fois : outlinedFrames,
                           glowFrames ; jamais de filtre CSS permanent sur la bande, voir CLAUDE.md)
     i18n/                 traductions : index.js (t(), langue), keys.js (textes source, ordre fixe),
