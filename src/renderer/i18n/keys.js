@@ -3313,5 +3313,8 @@ export const KEYS = [
   "Maîtrises : « Garder les bonus actuels » valide d’un clic les paliers en attente et éteint le rappel.",
   "Bestiaire : les noms longs s’écrivent plus petit au lieu d’être coupés.",
   "Au clavier, Tab atteint aussi les ⓘ et montre leur aide.",
-  "Astuce : dans le sac (Aventure), coche la vente automatique des objets les plus faibles : ils ne prendront plus la place du butin."
+  "Astuce : dans le sac (Aventure), coche la vente automatique des objets les plus faibles : ils ne prendront plus la place du butin.",
+  "Changer cette quête 3 étoiles ?",
+  "Elle est rare (une sur dix) et sa récompense aussi ; une nouvelle quête la remplacera.",
+  "Changer"
 ];

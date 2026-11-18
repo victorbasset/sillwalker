@@ -121,7 +121,12 @@ export class QuestsTab {
     // à la main, une quête à coffre l'ouvre sous les yeux du joueur, comme un coffre de la boutique
     if (a === "q-claim") this.claimShow(g.S.quests.slots.filter((q) => q.uid === +b.dataset.id));
     else if (a === "q-claimall") this.claimShow(g.S.quests.slots.filter(questDone));
-    else if (a === "q-reroll") g.rerollQuest(+b.dataset.id);
+    // (it. 2162) une quête 3 étoiles (rare, 10 %) se remplace après confirmation : un clic de travers la perdait ; les autres d'un clic
+    else if (a === "q-reroll") {
+      const id = +b.dataset.id, q = ((g.S.quests && g.S.quests.slots) || []).find((x) => x && x.uid === id), go = () => g.rerollQuest(id);
+      if (q && (q.stars || 1) >= 3 && this.panel) this.panel.confirm(tx("Changer cette quête 3 étoiles ?"), tx("Elle est rare (une sur dix) et sa récompense aussi ; une nouvelle quête la remplacera."), tx("Changer"), go);
+      else go();
+    }
     else if (a === "q-go" && hasUnlock(g.S, "travelMap")) g.setZone(+b.dataset.z); // (it. 1426)
     else if (a === "q-adv") g.setAutoAdvance(true); // (it. 1470)
     else if (a === "q-auto") { g.S.quests.auto = b.checked; if (b.checked) { g.R.autoClaim = true; g.autoClaimQuests(); } g.changed(); }

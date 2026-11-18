@@ -2184,4 +2184,7 @@ export default {
   3309: "Bestiarium: Lange Namen werden kleiner geschrieben statt abgeschnitten.",
   3310: "Per Tastatur erreicht Tab auch die ⓘ und zeigt ihre Hilfe.",
   3311: "Tipp: In der Tasche (Abenteuer) den automatischen Verkauf der schwächsten Gegenstände ankreuzen: Sie nehmen der Beute keinen Platz mehr weg.",
+  3312: "Diese 3-Sterne-Quest austauschen?",
+  3313: "Sie ist selten (eine von zehn) und ihre Belohnung auch; eine neue Quest ersetzt sie.",
+  3314: "Austauschen",
 };

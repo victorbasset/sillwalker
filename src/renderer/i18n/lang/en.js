@@ -2184,4 +2184,7 @@ export default {
   3309: "Bestiary: long names are written smaller instead of being cut off.",
   3310: "With the keyboard, Tab also reaches the ⓘ and shows their help.",
   3311: "Tip: in the bag (Adventure), tick automatic selling of the weakest items: they will no longer take the loot’s place.",
+  3312: "Replace this 3-star quest?",
+  3313: "It is rare (one in ten) and so is its reward; a new quest will replace it.",
+  3314: "Replace",
 };

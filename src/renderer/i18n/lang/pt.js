@@ -2184,4 +2184,7 @@ export default {
   3309: "Bestiário: os nomes longos ficam menores em vez de cortados.",
   3310: "Pelo teclado, Tab também alcança os ⓘ e mostra a ajuda deles.",
   3311: "Dica: na bolsa (Aventura), marque a venda automática dos itens mais fracos: eles não vão mais ocupar o lugar do saque.",
+  3312: "Trocar esta missão de 3 estrelas?",
+  3313: "Ela é rara (uma em dez) e a recompensa também; uma nova missão vai substituí-la.",
+  3314: "Trocar",
 };

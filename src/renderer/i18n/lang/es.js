@@ -2184,4 +2184,7 @@ export default {
   3309: "Bestiario: los nombres largos se escriben más pequeños en lugar de cortarse.",
   3310: "Con el teclado, Tab también llega a los ⓘ y muestra su ayuda.",
   3311: "Consejo: en la bolsa (Aventura), marca la venta automática de los objetos más débiles: ya no ocuparán el sitio del botín.",
+  3312: "¿Cambiar esta misión de 3 estrellas?",
+  3313: "Es rara (una de cada diez) y su recompensa también; una nueva misión la sustituirá.",
+  3314: "Cambiar",
 };

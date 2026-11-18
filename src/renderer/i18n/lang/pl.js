@@ -2184,4 +2184,7 @@ export default {
   3309: "Bestiariusz: długie nazwy są pisane mniejszą czcionką zamiast obcinane.",
   3310: "Z klawiatury Tab dociera też do ⓘ i pokazuje ich pomoc.",
   3311: "Wskazówka: w torbie (Przygoda) zaznacz automatyczną sprzedaż najsłabszych przedmiotów: nie będą już zajmować miejsca łupów.",
+  3312: "Zmienić to zadanie 3-gwiazdkowe?",
+  3313: "Jest rzadkie (jedno na dziesięć), podobnie jak jego nagroda; zastąpi je nowe zadanie.",
+  3314: "Zmień",
 };
