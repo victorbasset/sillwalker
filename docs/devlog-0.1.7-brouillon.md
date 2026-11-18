@@ -39,3 +39,10 @@ docs/devlog-0.1.6.md).
 - **Moins d'erreurs, moins d'allers-retours (it. 2115-2127) :** annuler le dernier clic sur un talent (bouton ou touche Z) ; vendre
   les inutiles depuis la Boutique quand le sac est plein ; vente des objets précieux confirmée ; un clic sur le fond ferme une
   fenêtre ; Compétences sans boutons cachés ; bonus de maîtrise en grille alignée.
+- **Retour d'absence (it. 2137-2143) :** le résumé détaillé tient sur deux colonnes, « À faire maintenant » visible d'emblée,
+  même au pire cas ; il s'ouvre aussi quand on ouvre le panneau pendant la bulle ; la carte du héros résume l'absence (« Depuis ta
+  dernière visite ») même après un redémarrage ; « Épique · pas gardé » quand le meilleur objet n'est plus là.
+- **Clavier (it. 2119-2149) :** Z annule le dernier choix (Talents, Compétences) ; la fiche des Talents suit le focus ; les ⓘ
+  prennent le focus et montrent leur aide ; Échap et un clic sur le fond annulent une confirmation.
+- **Lisibilité (it. 2145-2146) :** Bestiaire : les noms longs passent en plus petit au lieu d'être coupés ; onglet Héros : une
+  ligne d'explication en moins (dans un ⓘ).

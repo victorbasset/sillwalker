@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2152) : brouillon du devlog 0.1.7 complété (retour d'absence, clavier, lisibilité) ; idées en attente du journal
+  relues : rien d'ouvert qui ne dépende de Victor.
 - 2026-11-18 (it. 2151, revue générale) : simulations 12 h : berserker 69, prêtresse 64, samouraï 65 ; perf bande 18,5 %, panneau
   18,5 %, mini 5,6 % ; --crawl en allemand : 677 clics sans erreur ; texte coréen : aucun mot non traduit. Rien à corriger.
 - 2026-11-18 (it. 2150, contrôles) : lang-overflow COMPLET (10 langues, 4 largeurs, états max, fin de partie, zoom 130 %) après les
