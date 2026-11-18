@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2392, contrôle) : textes SVG de 8-10 px ailleurs (Carte : numéros, boss majeurs, au-delà) en russe à 1280 px :
+  « Сокрушитель Звёзд » lisible, chiffres nets ; rien à agrandir.
 - 2026-11-19 (it. 2391, REVUE GÉNÉRALE) : 12 h : gardien (starwarden) 65, paladin 65, nécromancien (necro) 62 ; --perf : 19,9 / 19,7 %,
   mini 5,5 %, icône 0,6 % ; Héros en japonais à 1280 px (fin de partie) : propre. Rien à corriger.
 - 2026-11-19 (it. 2390) : Compétences : noms des nœuds (.lbl) 10 → 11 px. À 1280 px le graphe est à l'échelle 0,871 : 10 px rendus
