@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2370, contrôle) : --crawl en chinois sur la fin de partie : aucune erreur.
 - 2026-11-18 (it. 2369) : bonus des paliers : largeur de la colonne du rang comptée double pour les caractères chinois, japonais et
   coréens (« ランク 400 » remplissait la colonne, un sablier aurait débordé sur les boutons) ; lang-overflow de, ru, ja, ko à 1280 :
   aucun défilement ; capture en japonais : marge suffisante. 304/304.
