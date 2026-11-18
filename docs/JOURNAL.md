@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2295, contrôle) : capture du mode mini en anglais (370 × 64, combat contre le boss de zone 57) : niveau, or, zone
+  et série lisibles, barres de vie au-dessus des deux combattants, rien ne se chevauche.
 - 2026-11-18 (it. 2294) : Statistiques > Succès : les trois succès chiffrés les plus avancés (au moins à moitié) ressortent (étoile
   vide dorée, texte plein, bulle « Presque obtenu ») ; dev-data : Dix héros libérés 9/10, Alchimiste 48/50, Fidèle 5/7. Thèmes
   sombre et clair vérifiés à 1280 px, mise en page inchangée. Clé 3359. Autotest : 9 explications, 0 à 3 « presque ». 300/300.
