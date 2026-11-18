@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2284, autotest) : quête d'expéditions : 0 lien avec le Grand intendant actif, 1 lien quand il est coupé. 299/299.
 - 2026-11-18 (it. 2283, contrôle) : save-fuzz (todoNow y est appelé : « Agrandir le sac », Atelier) : 1267 corruptions (dev-data),
   1225 (fin de partie), toutes « ok ».
 - 2026-11-18 (it. 2282, contrôle) : --crawl sur dev-data SANS AUCUN déblocage (liens « 🔒 · prix », notes à la place des actions) :
