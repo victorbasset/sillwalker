@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2360, contrôle) : --crawl en portugais sur dev-data : 502 clics, aucune erreur.
 - 2026-11-18 (it. 2359) : README, Histoire : musique de la zone 200 et cinématique de libération sur tout l'écran.
 - 2026-11-18 (it. 2358) : README à jour (grand graphe de 222 nœuds, trois voies libres, chemin le plus court ; 5 morceaux dont celui
   de la zone 200) ; titre de docs/MUSIQUE.md.
