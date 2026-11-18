@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2262, équilibrage) : balance.mjs 12 h, avant / après la correction des quêtes d'expéditions (it. 2243) : moyenne
+  64,4 → 64,3 (−0,1 zone : bruit) ; le paladin 65 → 69 compensé ailleurs (mage 64 → 61, berserker 69 → 66) : trajectoires.
 - 2026-11-18 (it. 2261, REVUE GÉNÉRALE) : 12 h : rôdeur 65, nécromancien 62, paladin 69 (65 à l'it. 2211 : les quêtes tirées ont changé à
   l'it. 2243, donc toute la trajectoire aléatoire ; bruit d'une graine) ; --perf : bande 18,1 %, panneau 19,4 %, mini 5,4 %, icône 0,8 % ;
   captures Quêtes en espagnol (« → Aventura ») et mini en allemand : propres. Rien à corriger.
