@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2352) : POUR-VICTOR : question sur les points au-delà du grand graphe rempli (bonus automatique ou rangs de couronnes au
+  choix ?) ; rien de changé sans sa réponse.
 - 2026-11-18 (it. 2351, REVUE GÉNÉRALE) : 12 h : druide 64, samouraï 65, nécromancien 62 ; --perf : 19,7 / 20,0 %, mini 5,5 %, icône
   0,7 % ; Compétences en anglais à 1280 px (fin de partie, graphe rempli : 222 nœuds, 140 points en surplus → +14 %) : propre.
 - 2026-11-18 (it. 2350, contrôle) : --crawl en coréen sur la fin de partie (0.1.7) : 706 clics, aucune erreur.

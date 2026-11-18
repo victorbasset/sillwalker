@@ -43,6 +43,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   aussi dans Réglages > Son) ; à la première victoire sur le Briseur, ton héros quitte la bande et vole sur tout ton écran (≈ 26 s,
   clics traversants ; rejouable par le ▶ de la chronique « Le ciel rallumé »). À vérifier chez toi : départ depuis la bande, Mac,
   deux écrans. Talents : bonus des paliers alignés, Voie de la hauteur des Maîtrises, voie affichée au clic. Édition 152.
+- **Question (grand graphe, it. 2352)** : une fois les 222 nœuds pris, les points restants (140 sur la partie de fin de partie)
+  donnent toujours un bonus automatique (+0,1 % d'attaque et de PV chacun). Veux-tu pouvoir les placer toi-même (par exemple des
+  rangs supplémentaires sur les 6 couronnes, au choix) ? Je n'y touche pas sans ta réponse.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 
