@@ -4,7 +4,7 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Nuit du 17 au 18/11 (it. 2094-2144) : Talents refaits et ergonomie, à essayer chez toi
+## Nuit du 17 au 18/11 (it. 2094-2171) : Talents refaits et ergonomie, à essayer chez toi
 
 Détail et principes : `docs/TALENTS-UX.md`. Ce que le serveur ne peut pas vérifier (fenêtre sans focus, pas de vraie souris) :
 - **Talents à la souris** : la fiche suit le survol sans délai et revient au talent cliqué quand tu vas vers elle ; le design
@@ -15,7 +15,11 @@ Détail et principes : `docs/TALENTS-UX.md`. Ce que le serveur ne peut pas véri
   ANNULE) ; un clic sur le fond annule. Dis-moi si l'une gêne au quotidien (trop de confirmations ?).
 - **Retour d'absence** : ouvre le panneau pendant la bulle « Pendant ton absence » (le résumé détaillé doit s'ouvrir), et plus
   tard (la carte du héros doit dire « Depuis ta dernière visite »).
-- Ces nouveautés sont dans les éditions 136 à 138 de « Quoi de neuf » et dans le brouillon du devlog 0.1.7.
+- **Boutique, sac plein** : une amélioration du Marchand s'achète quand même (l'ancienne pièce est vendue, jamais une précieuse ;
+  la bulle du bouton le dit). Vente d'un légendaire / panoplie / forgé et changement d'une quête 3 étoiles : confirmés.
+- **Maîtrises** : « Garder les bonus actuels » éteint le rappel des paliers d'un clic.
+- **Clavier** : flèches dans la grille des Talents, Tab sur les ⓘ, Échap qui revient d'abord au sac, focus rendu après une fenêtre.
+- Ces nouveautés sont dans les éditions 136 à 139 de « Quoi de neuf » et dans le brouillon du devlog 0.1.7.
 
 ## Depuis la 0.1.6 (soir du 17/11, it. 2058-2087) : à regarder en jouant (prochaine version)
 
