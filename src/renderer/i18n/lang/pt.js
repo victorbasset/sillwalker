@@ -2194,4 +2194,7 @@ export default {
   3319: "Janelas: pelo teclado, Tab fica dentro da janela aberta e o foco volta para onde estava quando ela fecha.",
   3320: "Clique num talento: o máximo de níveis possível · Shift + clique ou «+1»: um só nível · Z: desfazer o último clique · setas: mover-se. Passe o mouse sobre um talento para ver o efeito.",
   3321: "Talentos e bolsa: mover-se pela grade",
+  3322: "Talentos: ao ir até a ficha, ela mantém o talento ou a via sob o cursor; o botão deles não some mais no caminho.",
+  3323: "Bolsa: as setas do teclado passam de uma casa para outra.",
+  3324: "Talentos: a ajuda (ⓘ) cita todos os atalhos, setas incluídas.",
 };

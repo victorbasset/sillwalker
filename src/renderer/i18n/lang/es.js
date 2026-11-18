@@ -2194,4 +2194,7 @@ export default {
   3319: "Ventanas: con el teclado, Tab se queda en la ventana abierta y el foco vuelve a su sitio al cerrarla.",
   3320: "Clic en un talento: tantos rangos como sea posible · Mayús + clic o «+1»: un solo rango · Z: deshacer el último clic · flechas: moverse. Pasa el ratón por un talento para ver su efecto.",
   3321: "Talentos y bolsa: moverse por la cuadrícula",
+  3322: "Talentos: al ir hacia la ficha, conserva el talento o la vía bajo el cursor; su botón ya no desaparece por el camino.",
+  3323: "Bolsa: las flechas del teclado pasan de una casilla a otra.",
+  3324: "Talentos: la ayuda (ⓘ) cita todos los atajos, flechas incluidas.",
 };

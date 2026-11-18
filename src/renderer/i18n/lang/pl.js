@@ -2194,4 +2194,7 @@ export default {
   3319: "Okna: z klawiatury Tab zostaje w otwartym oknie, a fokus wraca na miejsce po jego zamknięciu.",
   3320: "Kliknięcie talentu: tyle rang, ile się da · Shift + klik lub „+1”: jedna ranga · Z: cofnij ostatnie kliknięcie · strzałki: poruszanie się. Najedź na talent, aby zobaczyć jego efekt.",
   3321: "Talenty i torba: poruszanie się po siatce",
+  3322: "Talenty: w drodze do karty zostaje na niej talent lub droga spod kursora; ich przycisk nie znika po drodze.",
+  3323: "Torba: strzałki na klawiaturze przechodzą z pola na pole.",
+  3324: "Talenty: pomoc (ⓘ) wymienia wszystkie skróty, łącznie ze strzałkami.",
 };

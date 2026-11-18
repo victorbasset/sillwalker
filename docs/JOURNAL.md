@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2186) : « Quoi de neuf », édition 141 (fiche des Talents qui garde le survol, flèches dans le sac, aide des Talents ;
+  3 nouveautés, 10 langues, clés 3322-3324). 293/293 ; lang-overflow 10 langues × 1280 : rien.
 - 2026-11-18 (it. 2185, clavier) : flèches dans le sac (case voisine selon sa position à l'écran, quel que soit le nombre de cases par
   rangée) ; raccourcis : « Talents et sac : se déplacer dans la grille » (clé 3321). Autotest ; 293/293.
 - 2026-11-18 (it. 2184, contrôle) : save-fuzz à partir d'une partie 0.1.2 (FUZZ_BASE=0.1.2) après les changements de la nuit :

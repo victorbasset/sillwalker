@@ -3323,5 +3323,8 @@ export const KEYS = [
   "Talents : les flèches du clavier se déplacent dans la grille.",
   "Fenêtres : au clavier, Tab reste dans la fenêtre ouverte et le focus revient où il était quand elle se ferme.",
   "Clic sur un talent : autant de rangs que possible · Maj + clic ou « +1 » : un seul rang · Z : annuler le dernier clic · flèches : se déplacer. Survole un talent pour voir son effet.",
-  "Talents et sac : se déplacer dans la grille"
+  "Talents et sac : se déplacer dans la grille",
+  "Talents : en allant vers la fiche, elle garde le talent ou la voie survolés ; leur bouton ne disparaît plus en route.",
+  "Sac : les flèches du clavier se déplacent d’une case à l’autre.",
+  "Talents : l’aide (ⓘ) cite tous les raccourcis, flèches comprises."
 ];
