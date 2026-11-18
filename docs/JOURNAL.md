@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2318, contrôle) : STALL_DAYMOD=all stall-check : 60 parties, 0 figées ; FUZZ_DAYMOD=all fuzz (30 graines) :
+  600 parties, 0 bloquées.
 - 2026-11-18 (it. 2317, contrôle) : texte russe extrait : bulles des inconnus du Bestiaire, pouvoir, bénédiction et « Следующий
   этап: зона 60 » traduits ; aucun mot latin nouveau. Devlog 0.1.7 : ligne du Carnet de route.
 - 2026-11-18 (it. 2316, autotest) : Carnet de route : prochaine étape annoncée après le record et sur une zone d'étape (record 57 → 60 ;
