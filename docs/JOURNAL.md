@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2211, REVUE GÉNÉRALE) : 12 h : paladin 65, nécromancien 63, druide 64 (habituel) ; --perf : bande 18,3 %, panneau
+  18,8 %, mini 5,3 %, icône 0,8 % (0,5 à la revue d'avant : bruit sur une valeur infime) ; texte en chinois (dev-data et fin de partie) :
+  aucun mot non traduit ; captures Familiers en anglais à 1280 px (« Great Exped… · 7 h 59 · Take along ») et mini en chinois : propres.
 - 2026-11-18 (it. 2210) : brouillon du devlog 0.1.7 complété (familiers, Dock sur Mac, volumes d'une première installation).
 - 2026-11-18 (it. 2209) : --crawl après le rappel d'expédition : 535 clics (dev-data), 698 (fin de partie), aucune erreur. « Quoi de neuf »,
   édition 143 (rappel d'expédition, cartes des familiers, menu du Dock sur Mac ; clés 3332-3334 ; « Emmener » et « la bande » repris
@@ -7642,6 +7645,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (revue it. 2211) Familiers : cartes hautes avec un grand vide entre le bonus et le cadre d'expédition (hauteur fixée par la
+  carte la plus longue de la rangée) : une mise en page plus dense ? À juger avec Victor, ce n'est pas un défaut.
 - P3 (it. 2188, mesuré it. 2198) Autotest à 125 s : les plus lents sont la bulle du morceau de musique (7 s), la meute (3,5 s), le
   décodage des 4 morceaux (3,2 s), l'arrivée d'une série (2,7 s) ; les contrôles de la nuit ne pèsent que 0,1-0,3 s chacun.
   `SELFTEST_TIMES=1` pour la liste ; à raccourcir d'abord la bulle de musique si la durée devient gênante.
