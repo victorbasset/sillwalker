@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2330) : POUR-VICTOR : Carnet de route (prochaine étape, paliers de niveau une fois).
 - 2026-11-18 (it. 2329) : Quoi de neuf, édition 150 : Carnet de route (prochaine étape, paliers de niveau une seule fois ; it. 2315-2322).
   Clé 3367. 302/302.
 - 2026-11-18 (it. 2328, contrôle) : --crawl en allemand sur la fin de partie : 693 clics, aucune erreur.

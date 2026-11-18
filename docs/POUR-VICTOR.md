@@ -22,6 +22,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   « Quoi de neuf ». Pour Steamworks : steam/achievements.md donne aussi ces neuf descriptions dans les 10 langues.
 - **Soir (it. 2303-2310)** : Bestiaire : ce qui reste à découvrir dit au survol où le trouver (monstre : sa première zone, nommée
   seulement si la Carte la nomme déjà ; pouvoir : sur les légendaires ; bénédiction : revenir d'autres jours). Édition 149.
+- **Carnet de route (it. 2315-2329)** : « Prochaine étape : zone 60 » sur ta partie (une seule étape depuis la zone 51 : elles
+  viennent toutes les 10 zones après la 50) ; « Niveau 10 / 25 / 50 / 100 » n'y revient plus à chaque ascension. Édition 150.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 
