@@ -2235,4 +2235,5 @@ export default {
   3360: "Osiągnięcie jest prawie twoje: najbliższe wyróżniają się złotem w Statystyki > Osiągnięcia. Kliknij tutaj.",
   3361: "Osiągnięcia: niejasne nazwy (Zwornik, Czyste serce, Rozproszone echo…) po najechaniu mówią, co zrobić.",
   3362: "Osiągnięcia: trzy najbliższe wyróżniają się złotem; wskazówka daje znać, gdy jedno z nich dojdzie do 90 %.",
+  3363: "Moc do odkrycia: każdy legendarny przedmiot ma jedną, losowaną.",
 };

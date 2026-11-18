@@ -112,7 +112,7 @@ export class BestiaryTab {
       ${show.powers ? `<h2 class="codexh" id="bj-powers">${tx("Pouvoirs légendaires")} <small>${powersFound(S)} ${tx("/ {0} découverts · chacun donne {1}", { 0: POWERS.length, 1: esc(describeEffects(POWER_CODEX_BONUS)) })}</small></h2>
       <div class="powergrid">${POWERS.map((p) => (S.powersSeen || {})[p.id]
         ? `<span class="chip pow" title="${esc(describeEffects(p.eff))}">★ ${esc(p.name)}</span>`
-        : `<span class="chip pow unknown">???</span>`).join("")}</div>` : ""}
+        : `<span class="chip pow unknown" title="${esc(tx("Pouvoir à découvrir : chaque objet légendaire en porte un, tiré au hasard."))}">???</span>`).join("")}</div>` : ""}
       ${show.sets ? `<h2 class="codexh" id="bj-sets">${tx("Panoplies")} <small>${tx("pièces d’épiques et de légendaires · bonus à 2 et 4 pièces portées")} · ${tx("{0} / {1} complétées · chacune donne {2} pour toujours", { 0: Object.keys(S.setsDone || {}).length, 1: SET_KEYS.length, 2: esc(describeEffects(SET_CODEX_BONUS)) })}</small></h2>
       <div class="setgrid">${SET_KEYS.map((id) => { const st = SETS[id], n = setCounts(S.equip)[id] || 0; // toutes les panoplies, et où en est le héros
         // (it. 1005) pièces gardées dans le sac (une par emplacement non porté) : le joueur voit où en est la panoplie

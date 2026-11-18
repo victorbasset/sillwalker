@@ -2235,4 +2235,5 @@ export default {
   3360: "Uma conquista está quase garantida: as mais próximas se destacam em ouro em Estatísticas > Conquistas. Clique aqui.",
   3361: "Conquistas: os nomes obscuros (Pedra angular, Coração puro, Eco dissipado…) dizem ao passar o mouse o que fazer.",
   3362: "Conquistas: as três mais próximas se destacam em ouro; uma dica avisa quando uma delas chega a 90 %.",
+  3363: "Poder a descobrir: cada item lendário traz um, sorteado ao acaso.",
 };

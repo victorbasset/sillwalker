@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2303) : Bestiaire > Pouvoirs : un pouvoir pas encore découvert (« ??? ») dit au survol où le trouver (chaque objet
+  légendaire en porte un, tiré au hasard : game.js, pick(POWERS)). Clé 3363. 300/300.
 - 2026-11-18 (it. 2302, contrôle) : Bestiaire > Pouvoirs légendaires en allemand à 1280 px (fin de partie, 30 / 30) : noms sur
   quatre rangées sans débordement, effet de chacun au survol ; rien à corriger.
 - 2026-11-18 (it. 2301, REVUE GÉNÉRALE) : 12 h (une graine) : paladin 69, assassin 65, barde 61 (bruit d'une graine, ±4) ; --perf :

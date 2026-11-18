@@ -2235,4 +2235,5 @@ export default {
   3360: "Ein Erfolg ist fast deiner: Die nächsten leuchten golden unter Statistiken > Erfolge. Klicke hier.",
   3361: "Erfolge: unklare Namen (Schlussstein, Reines Herz, Echo vertrieben…) sagen beim Überfahren, was zu tun ist.",
   3362: "Erfolge: Die drei nächsten leuchten golden; ein Tipp meldet sich, wenn einer davon 90 % erreicht.",
+  3363: "Noch zu entdeckende Kraft: Jeder legendäre Gegenstand trägt eine, zufällig gewählt.",
 };
