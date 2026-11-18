@@ -156,7 +156,11 @@ async function runSelfTest(strip) {
   check("boutons de l'en-tête", await js("!!document.querySelector('.ptop [data-action=mini]') && !!document.querySelector('.ptop [data-action=quit]')"), hdr);
   check("pas de boutons de vitesse hors dev", app.isPackaged ? !/×10/.test(hdr) : true);
 
-  // Fermeture
+  // Fermeture ; (it. 2137) la sauvegarde de test revient d'une absence : le résumé détaillé s'ouvre avec le panneau (bulle d'absence
+  // affichée), un vrai clic sur ✕ fermerait d'abord cette fenêtre
+  const awayTitle = await js("!document.querySelector('#modal').hidden && document.querySelector('#mt').textContent");
+  check("panneau ouvert pendant la bulle d'absence : le résumé détaillé s'est ouvert", !!awayTitle, awayTitle);
+  await js("document.querySelector('#modal').hidden = true");
   await click("#panel .close");
   check("panneau refermé", await until(async () => !(await js("document.body.classList.contains('panel-open')"))));
   check("panneau refermé : sa zone laisse passer les clics", await until(() => !strip.hitTest(b0.x + pr.x, b0.y + pr.y)));

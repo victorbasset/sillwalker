@@ -197,6 +197,9 @@ async function boot() {
     clearTimeout(panelTimer);
     body.classList.add("panel-open");
     panel.setOpen(true);
+    // (it. 2137, plaisir de revenir) panneau ouvert autrement que par la bulle d'absence pendant qu'elle s'affiche : le résumé
+    // détaillé s'ouvre quand même (la bulle, masquée par le panneau, était perdue et le panneau ne disait rien de l'absence)
+    if (!toast.hidden && toastAction && toastAction.offline) { const sum = toastAction.offline; clearTimeout(toastTimer); hideToast(); panel.showOfflineSummary(sum); }
     menuBtn.setAttribute("aria-expanded", "true");
     panel.fitTabs();
     // Deux images : le panneau est d'abord rendu hors champ, puis glisse.
@@ -338,7 +341,7 @@ async function boot() {
     }
     strip.welcomeBack();
     showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold + (sum.petGold || 0))}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: (sum.chests ? csep() + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "") + (sum.questsDone ? csep() + txn(sum.questsDone, "{n} quête accomplie|{n} quêtes accomplies", { n: `<b>${sum.questsDone}</b>` }) : "") })}${stepLine(sum)}`,
-      () => { openPanel(); panel.showOfflineSummary(sum); });
+      Object.assign(() => { openPanel(); panel.showOfflineSummary(sum); }, { offline: sum }));
   }
   toast.addEventListener("click", () => {
     clearTimeout(toastTimer);

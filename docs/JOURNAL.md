@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2137, plaisir de revenir) : retour après une absence : la bulle « Pendant ton absence… » est masquée dès que le panneau
+  s'ouvre, et le panneau ouvert au lancement n'avait aucun résumé (photo prise seulement à sa fermeture) : ouvrir le panneau autrement
+  que par la bulle la perdait. Le panneau ouvert pendant la bulle ouvre maintenant le résumé détaillé. Autotest adapté (il ouvre le
+  panneau pendant cette bulle : contrôle « le résumé détaillé s'est ouvert ») ; 280/280.
 - 2026-11-18 (it. 2136, contrôles) : thème clair des ajouts de la nuit (ligne « Vendre les inutiles », grille des bonus de maîtrise) :
   lisibles ; save-fuzz après la voie gratuite : 1267 corruptions (dev-data) et 1225 (fin de partie), toutes « ok ». Rien à corriger.
 - 2026-11-18 (it. 2135) : lang-overflow COMPLET (états max et zoom 130 %, sautés toute la soirée) : la fiche d'une maîtrise
