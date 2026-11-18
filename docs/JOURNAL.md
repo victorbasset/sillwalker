@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2356, contrôle) : texte russe extrait (fin de partie, 0.1.7) : mots latins = noms propres, touches, repères, DEV et
+  « Windows » (dev), suffixes des grands nombres « Qa »/« Qi » (format.js HUGE, voulus dans toutes les langues comme k et M) ; rien d'oublié.
 - 2026-11-18 (it. 2355, contrôle) : mem-watch 10 min, bande (0.1.7) : 619-625 Mo réels, plat (mode haut de la mesure bimodale,
   ≈ 570 ou ≈ 625 Mo d'une exécution à l'autre : CLAUDE.md) ; pas de fuite.
 - 2026-11-18 (it. 2354, contrôle) : early-pace après les clés de voûte sans malus : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages
