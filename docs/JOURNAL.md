@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2365, contrôle) : fuzz (clés de voûte définitives) : 1200 parties, 0 bloquées.
 - 2026-11-18 (it. 2364, contrôle) : sonde des ⓘ cachés à 1280 px (fr, de) après les changements du jour : IPROBE 0.
 - 2026-11-18 (it. 2363) : POUR-VICTOR : correction du morceau épinglé notée pour la 0.1.8 ; stall-check : 60 parties, 0 figées.
 - 2026-11-18 (it. 2362, contrôle) : plus aucune autre limite « 4 morceaux » en dur après la correction de musicPin (it. 2361) ; les
