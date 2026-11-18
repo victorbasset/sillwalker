@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2214, contrôle) : mem-watch 6 min après les changements de la nuit et du matin : réel 586-594 Mo, plat (fourchette
+  bimodale habituelle 570 / 625).
 - 2026-11-18 (it. 2213, revue visuelle) : Quêtes et Héros à 1280 px en français : propres. Héros : « Jouer à l'ascension » et « Prendre
   en duo » sur deux lignes, sous-titre du Mage aussi : serré mais rien de coupé (noté, pas corrigé).
 - 2026-11-18 (it. 2212, contrôle) : save-fuzz exerce aussi le rappel d'expédition et « Emmener » d'un familier parti (it. 2208) ;
