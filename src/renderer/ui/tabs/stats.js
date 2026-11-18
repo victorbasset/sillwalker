@@ -6,7 +6,7 @@ import { CHRONICLES } from "../../game/story.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, getLang, csep, colon } from "../../i18n/index.js";
 import { shopIconURL } from "../../render/shopart.js";
-import { ACHIEVEMENTS, earnedAchievements, ACH_PROGRESS } from "../../game/achievements.js";
+import { ACHIEVEMENTS, earnedAchievements, ACH_PROGRESS, nearAchievements } from "../../game/achievements.js";
 import { CLASSES } from "../../game/classes.js";
 import { codexCounts } from "../../game/codex.js";
 import { SET_KEYS, SETS } from "../../game/sets.js";
@@ -69,8 +69,7 @@ export class StatsTab {
     const chestMul = (dm?.chest || 1) * (1 + (this.game.stats().chests || 0) / 100);
     const reached = earnedAchievements(S); // déjà obtenus compris : un ajout de contenu ne retire pas d'étoile
     // (it. 2294) les trois succès chiffrés les plus avancés (au moins à moitié) ressortent : le prochain objectif se voit d'un coup d'œil
-    const ratio = (a) => { if (reached.has(a.id) || !ACH_PROGRESS[a.id]) return 0; const p = ACH_PROGRESS[a.id](S); return p && p[1] > 0 ? Math.min(1, p[0] / p[1]) : 0; };
-    const near = new Set(ACHIEVEMENTS.map((a) => [a.id, ratio(a)]).filter(([, r]) => r >= 0.5 && r < 1).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([id]) => id));
+    const near = new Set(nearAchievements(S).slice(0, 3).map(([id]) => id));
     const ach = ACHIEVEMENTS.map((a) => {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
       const tip = [near.has(a.id) ? tx("Presque obtenu") : "", a.desc || ""].filter(Boolean).join(" · ");

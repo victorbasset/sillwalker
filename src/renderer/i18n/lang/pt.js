@@ -2232,4 +2232,5 @@ export default {
   3357: "Derrote o primeiro eco de um chefe maior (zona 250).",
   3358: "Derrote os três ecos dos chefes maiores (zonas 250, 300 e 350).",
   3359: "Quase lá",
+  3360: "Uma conquista está quase garantida: as mais próximas se destacam em ouro em Estatísticas > Conquistas. Clique aqui.",
 };

@@ -7,6 +7,7 @@ import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
 import { skillPointsFree, skillSpendable } from "../game/skilltree.js";
 import { nextUnlock, hasUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
+import { nearAchievements } from "../game/achievements.js";
 import { tabOpen, statsFull } from "../game/tabs.js";
 import { classSpells, spellPrice, spellRank } from "../game/spells.js";
 import { CLASS_KEYS, CLASSES, canPartner, DUO_SYNERGIES } from "../game/classes.js";
@@ -34,6 +35,9 @@ export const HINTS = [
   // (it. 2272) sac plein et agrandissement abordable (même condition que « À faire », it. 2269) : le butin suivant resterait au sol
   { id: "bagup", tab: "shop", sec: "workshop", text: tx("Ton sac est plein : le butin suivant reste au sol. L’Atelier (Boutique) l’agrandit de 6 places. Clique ici."),
     when: (g) => g.todoNow().some((t) => t.id === "bagUp") },
+  // (it. 2296) un succès chiffré à 90 % ou plus : les plus proches ressortent en or dans Statistiques > Succès (it. 2294)
+  { id: "achnear", tab: "stats", sec: "ach", text: tx("Un succès est presque à toi : les plus proches ressortent en or dans Statistiques > Succès. Clique ici."),
+    when: (g) => statsFull(g.S) && nearAchievements(g.S, 0.9).length > 0 },
   // (it. 1552, retour d'un joueur : « on monte de niveau sans savoir comment ») au premier niveau gagné
   { id: "xp", tab: null, text: tx("Niveau supérieur ! Chaque monstre vaincu donne de l’expérience : la jauge violette sous ton niveau (et tout en bas de la bande) montre le prochain."),
     when: (g) => g.S.lvl >= 2 && g.S.lvl <= 12 && g.S.prestige.count === 0 }, // (it. 1597) jusqu’au niveau 12 : les bulles de bienvenue, d’objet et de talent passent souvent avant

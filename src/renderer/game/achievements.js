@@ -174,3 +174,16 @@ export const ACH_PROGRESS = {
   TAPS_1000: (S) => [S.stats.taps || 0, 1000],
   ECHOES_ALL: (S) => [ECHO_BOSSES.filter((b) => rec(S) > b.zone).length, ECHO_BOSSES.length],
 };
+
+/** (it. 2294-2296) Succès chiffrés pas encore obtenus, avancés d'au moins `min` (0-1), du plus avancé au moins avancé :
+ *  [[id, ratio]…]. Statistiques > Succès (les trois premiers ressortent) et astuce « presque obtenu ». */
+export function nearAchievements(S, min = 0.5) {
+  const reached = earnedAchievements(S), out = [];
+  for (const a of ACHIEVEMENTS) {
+    if (reached.has(a.id) || !ACH_PROGRESS[a.id]) continue;
+    const p = ACH_PROGRESS[a.id](S);
+    const r = p && p[1] > 0 ? Math.min(1, p[0] / p[1]) : 0;
+    if (r >= min && r < 1) out.push([a.id, r]);
+  }
+  return out.sort((x, y) => y[1] - x[1]);
+}

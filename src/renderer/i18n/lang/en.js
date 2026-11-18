@@ -2232,4 +2232,5 @@ export default {
   3357: "Defeat the first echo of a major boss (zone 250).",
   3358: "Defeat the three echoes of the major bosses (zones 250, 300 and 350).",
   3359: "Almost there",
+  3360: "An achievement is almost yours: the closest ones stand out in gold in Statistics > Achievements. Click here.",
 };

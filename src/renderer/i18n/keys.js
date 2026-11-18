@@ -3361,5 +3361,6 @@ export const KEYS = [
   "Vaincre le Briseur d’Étoiles.",
   "Vaincre le premier écho d’un boss majeur (zone 250).",
   "Vaincre les trois échos des boss majeurs (zones 250, 300 et 350).",
-  "Presque obtenu"
+  "Presque obtenu",
+  "Un succès est presque à toi : les plus proches ressortent en or dans Statistiques > Succès. Clique ici."
 ];

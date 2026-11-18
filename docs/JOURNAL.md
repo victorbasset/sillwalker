@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2296) : astuce « achnear » (une fois) : un succès chiffré à 90 % ou plus (et les Statistiques complètes) mène à
+  Statistiques > Succès, où les plus proches ressortent en or (it. 2294). nearAchievements (achievements.js) partagé avec l'onglet ;
+  0,13 ms par appel (dev-data : Alchimiste 96 %, Dix héros 90 % ; fin de partie : Bestiaire 99 %). Clé 3360. lang-overflow 10
+  langues à 1920 px : aucune astuce coupée. 300/300. Le reste du retour d'un succès (bandeau, journal, bulle au lancement) existait.
 - 2026-11-18 (it. 2295, contrôle) : capture du mode mini en anglais (370 × 64, combat contre le boss de zone 57) : niveau, or, zone
   et série lisibles, barres de vie au-dessus des deux combattants, rien ne se chevauche.
 - 2026-11-18 (it. 2294) : Statistiques > Succès : les trois succès chiffrés les plus avancés (au moins à moitié) ressortent (étoile

@@ -2232,4 +2232,5 @@ export default {
   3357: "Pokonaj pierwsze echo wielkiego bossa (strefa 250).",
   3358: "Pokonaj trzy echa wielkich bossów (strefy 250, 300 i 350).",
   3359: "Prawie zdobyte",
+  3360: "Osiągnięcie jest prawie twoje: najbliższe wyróżniają się złotem w Statystyki > Osiągnięcia. Kliknij tutaj.",
 };

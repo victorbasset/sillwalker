@@ -2232,4 +2232,5 @@ export default {
   3357: "Derrota al primer eco de un jefe mayor (zona 250).",
   3358: "Derrota a los tres ecos de los jefes mayores (zonas 250, 300 y 350).",
   3359: "Casi conseguido",
+  3360: "Un logro está casi a tu alcance: los más cercanos destacan en oro en Estadísticas > Logros. Haz clic aquí.",
 };
