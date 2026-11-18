@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2323, contrôle) : Quêtes en polonais à 1280 px : titres longs sur deux lignes, lien « → Przygoda » de la quête de
+  transmutation dans le coin de sa carte, rien ne déborde.
 - 2026-11-18 (it. 2322) : Carnet de route : « Niveau 10 / 25 / 50 / 100 atteint » n'est plus noté qu'une fois (à chaque ascension le
   niveau repart de 1 et ces lignes revenaient : la moitié des 30 étapes affichées en fin de partie, chroniques et héros libérés noyés).
   Sans nouvelle donnée (cherché dans le carnet) ; les doublons déjà notés restent. Test (366). 302/302, save-fuzz ok.
