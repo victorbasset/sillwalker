@@ -371,6 +371,9 @@ export class SkillsTab {
     greset.hidden = !(S.skills.outer || []).length;
     greset.textContent = tx("Réinitialiser le grand graphe");
     this.el.querySelector('[data-action="k-reset"]').textContent = tx("Tout réinitialiser");
+    // (it. 2134) rien de pris : « Annuler le dernier » et « Tout réinitialiser » grisés (ils semblaient cliquables et ne faisaient rien)
+    { const none = !(S.skills.order || []).length && !(S.skills.outer || []).length;
+      this.el.querySelector('[data-action="k-undo"]').disabled = none; this.el.querySelector('[data-action="k-reset"]').disabled = none; }
   }
 
   onAction(a, b) {

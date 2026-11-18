@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2134, début de partie) : Compétences : « Annuler le dernier » et « Tout réinitialiser » grisés tant qu'aucun nœud
+  n'est pris (ils semblaient cliquables et ne faisaient rien). Capture d'un nouveau joueur (niveau 12) ; 279/279.
 - 2026-11-18 (it. 2133, début de partie) : Talents d'un nouveau joueur (niveau 12) vus en capture : le titre « Total des talents »
   s'affichait seul, sans pastille (grille basse, aucune ne tenait) ; il se cache alors. Le reste se lit bien (« Au clic : +10 rangs →
   +30 % attaque », paliers verrouillés « 🔒 5 »). 279/279.
