@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2386) : Compétences : les noms des grands nœuds passaient sous un nœud dessiné après eux (« Охотник за сокровищами »
+  amputé de « Ох » en russe, fin de partie à 1280 px) : noms regroupés au-dessus de tous les nœuds (deux groupes .sklbls, celui du grand
+  graphe suit .open comme avant). Capture : nom entier ; crawl 699 clics sans erreur. 306/306.
 - 2026-11-19 (it. 2385, contrôle) : Compétences de la fin de partie (grand graphe plein) en russe à 1280 px : graphe lisible, ligne
   « Большой граф завершён · 140 лишних очков: +14 % … » juste.
 - 2026-11-19 (it. 2384) : sauvegarde de fin de partie (scripts/fixtures/endgame-save.json) : son grand graphe était vide depuis

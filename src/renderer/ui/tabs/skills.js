@@ -79,6 +79,9 @@ export class SkillsTab {
     this.gEdgeEls = SKILL_GRAPH.edges.map(([a, b], i) => ({ a, b, el: og.children[SKILL_GRAPH.toFlower.length + i] }));
     this.og = og;
     this.gNodeEls = {}; this.gIconEls = {};
+    // (it. 2386) noms rangés à part puis posés au-dessus de tous les nœuds : un nœud dessiné après un nom le recouvrait
+    // (« Охотник за сокровищами » amputé de ses deux premières lettres en russe)
+    const outerLbls = [], flowerLbls = [];
     for (const id in G) {
       const n = G[id], r = GR[n.kind] || 6;
       const c = svg("circle", { cx: n.x, cy: n.y, r, class: "gnode " + n.kind, "data-action": "k-gtake", "data-gid": id }, og);
@@ -87,7 +90,7 @@ export class SkillsTab {
       // (it. 1077) icône (sur les nœuds de synergie : celle de l'axe d'origine) et nom des grands nœuds, visibles une fois ouvert
       const key = Object.keys(n.eff || {}).map((k) => SYN_ICON[k] || k)[0] || "root", sz = Math.round(r * 1.5);
       this.gIconEls[id] = svg("image", { href: skillIconURL(key), x: n.x - sz / 2, y: n.y - sz / 2, width: sz, height: sz, class: "nico gico sealed" }, og);
-      if (n.kind !== "small") { const t = svg("text", { x: n.x, y: n.y + r + 10, class: "lbl glbl" }, og); t.textContent = n.kind === "gate" ? SECTOR[n.region].name : n.name; }
+      if (n.kind !== "small") { const t = svg("text", { x: n.x, y: n.y + r + 10, class: "lbl glbl" }, og); t.textContent = n.kind === "gate" ? SECTOR[n.region].name : n.name; outerLbls.push(t); }
     }
     this.edgeEls = SKILL_TREE.edges.map(([a, b]) => ({ a, b, el: svg("line", { x1: N[a].x, y1: N[a].y, x2: N[b].x, y2: N[b].y }, g) }));
     this.nodeEls = {}; this.iconEls = {};
@@ -103,6 +106,7 @@ export class SkillsTab {
       if (n.kind === "notable" || n.kind === "keystone") {
         const t = svg("text", { x: n.x, y: n.y + RADIUS[n.kind] + 11, class: "lbl" + (n.kind === "keystone" ? " key" : "") }, g);
         t.textContent = n.name;
+        flowerLbls.push(t);
       }
     }
     this.coreEls = {};
@@ -118,6 +122,10 @@ export class SkillsTab {
       this.coreText ||= {};
       this.coreText[s.id] = svg("text", { x: cx, y: cy + 42, class: "lbl corepct" }, g);
     }
+    const flg = svg("g", { class: "sklbls" }, g), olg = svg("g", { class: "skouter sklbls" }, g);
+    for (const t of flowerLbls) flg.appendChild(t);
+    for (const t of outerLbls) olg.appendChild(t);
+    this.olg = olg;
     this.bindView(el.querySelector(".skillview"), el.querySelector(".skilltip"));
   }
 
@@ -357,7 +365,7 @@ export class SkillsTab {
     }
     // (it. 1077) grand graphe : grisé tant que la fleur n'est pas complète, puis acquis / prévu / prenable / fermé
     const open = flowerComplete(S), gActive = activeGraphSet(S), gPlanned = new Set(S.skills.outer || []);
-    this.og.classList.toggle("open", open);
+    this.og.classList.toggle("open", open); this.olg?.classList.toggle("open", open);
     for (const id in this.gNodeEls) {
       const n = SKILL_GRAPH.nodes[id];
       const st = !open ? "sealed" : gActive.has(id) ? "on" : gPlanned.has(id) ? "planned" : canTakeGraph(S, id) ? "avail" : "locked";
