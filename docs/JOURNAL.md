@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2223) : autotest « Linux : Réglages sans Windows ni case de démarrage » (window.__game retiré le temps d'un
+  affichage ; bouton du thème sans « Windows » ni « macOS », indépendant de la langue). Autres textes qui citent Windows : deux
+  anciennes éditions de « Quoi de neuf » (faits propres à Windows, jamais modifiées). 296/296.
 - 2026-11-18 (it. 2222) : revue Statistiques et Réglages à 1280 px. Linux (version itch.io) : les Réglages disaient « Automatique
   (Windows) » et proposaient « Lancer au démarrage de Windows », case sans effet (Electron ne gère pas l'ouverture de session sous
   Linux). Maintenant « Automatique (système) » (clé 3335) et plus de case, ni dans les Réglages ni dans le menu de l'icône ; Windows et
