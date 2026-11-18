@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2285) : durée de l'autotest : 110 s pour 299 vérifications (les plus lentes : meute 3,5 s, bulle de musique 2,8 s) ;
+  repère de CLAUDE.md mis à jour.
 - 2026-11-18 (it. 2284, autotest) : quête d'expéditions : 0 lien avec le Grand intendant actif, 1 lien quand il est coupé. 299/299.
 - 2026-11-18 (it. 2283, contrôle) : save-fuzz (todoNow y est appelé : « Agrandir le sac », Atelier) : 1267 corruptions (dev-data),
   1225 (fin de partie), toutes « ok ».
