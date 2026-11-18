@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2226, contrôle langues) : i18n-names après les textes du jour (clés 3320-3335) : 25 écarts, tous anciens faux positifs
+  grammaticaux (déclinaisons allemandes, particules coréennes, « Ménagerie » dans « collection complète ») ; aucune clé du jour.
 - 2026-11-18 (it. 2225, contrôle) : début de partie inchangé. first-minutes : premier objet à 42-82 s, premier boss 70-82 s, onglet
   Talents dès le premier boss, Boutique à 493-525 s ; tab-pace : talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12,
   carte 11-14, bestiaire 13-18, ascension 20-41 min (3 graines).
