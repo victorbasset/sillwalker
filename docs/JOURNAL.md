@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2368, contrôle) : fenêtre « What’s new in version 0.1.7 » en anglais à 1920 px (newsSeen 132) : 10 nouveautés sur deux
+  colonnes, sans défilement.
 - 2026-11-18 (it. 2367, contrôle) : semaine, avant (11964efc) / après le grand graphe allégé : rôdeur 72 h 291 → 293, 120 h 335 → 349,
   168 h 350 → 350 ; paladin 12 h 69 → 65, 96 h 296 → 316, 168 h 349 → 349 ; mêmes paliers (36 h : 150, 48 h : 200). Bruit d'une graine.
 - 2026-11-18 (it. 2366, contrôle) : Compétences en allemand à 1280 px (dev-data : fleur vide, 686 points, fichier inchangé depuis le
