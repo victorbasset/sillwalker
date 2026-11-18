@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2170, accessibilité) : la grande fenêtre (Quoi de neuf, raccourcis, résumé d'absence…) rend aussi le focus à
+  l'élément d'avant quand elle se ferme (Échap, « Continuer », clic sur le fond : closeModal). Autotest ; 290/290.
 - 2026-11-18 (it. 2169, accessibilité) : à la fermeture d'une fenêtre de confirmation, le focus revient au bouton qui l'a ouverte
   (au clavier, on ne perd plus sa place). Autotest ; 289/289.
 - 2026-11-18 (it. 2168, accessibilité) : une fenêtre ouverte (confirmation, grande fenêtre) garde le focus : Tab et Maj + Tab bouclent

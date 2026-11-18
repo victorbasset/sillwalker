@@ -288,6 +288,8 @@ export class Panel {
     this.root.appendChild(this.tip);
     // (it. 2124) fermeture par le fond : seulement si l'appui AUSSI était sur le fond (appuyer dans la fenêtre, pour sélectionner
     // un texte, et relâcher dehors envoyait le clic au fond et la fermait)
+    // (it. 2170) dernier élément focalisé hors des fenêtres : le focus y revient quand la grande fenêtre se ferme
+    this.root.addEventListener("focusin", (e) => { if (!e.target.closest("#modal, #confirm")) this.focusOutside = e.target; });
     this.root.addEventListener("mousedown", (e) => { this.downBg = e.target.id === "confirm" || e.target.id === "modal" ? e.target.id : null; }, true);
     this.root.addEventListener("mouseover", (e) => this.onHover(e));
     this.root.addEventListener("mouseleave", () => { this.tip.hidden = true; });
@@ -1142,7 +1144,7 @@ export class Panel {
     if (e.target.id === "confirm" || e.target.id === "modal") {
       const fromBg = this.downBg === e.target.id || e.detail === 0; // detail 0 : clic sans souris (clavier, autotest)
       this.downBg = null;
-      if (fromBg) { if (e.target.id === "confirm") this.closeConfirm(); else e.target.hidden = true; }
+      if (fromBg) { if (e.target.id === "confirm") this.closeConfirm(); else this.closeModal(); }
       return;
     }
     const t = e.target.closest("[data-tab]");
@@ -1230,7 +1232,7 @@ export class Panel {
       case "autoequip": g.autoEquip(); this.selected = null; break;
       case "zprev": g.setZone(g.S.zone - 1); break;
       case "znext": g.setZone(g.S.zone + 1); break;
-      case "closemodal": $(this.root, "#modal").hidden = true; return;
+      case "closemodal": this.closeModal(); return;
       case "visit-ok": this.sinceVisit = null; this.renderHero(); return;
       case "close": this.onClose?.(); return;
       case "mini": this.onMini?.(); return;
@@ -1253,6 +1255,12 @@ export class Panel {
     this.confirmFn = onOk;
     $(this.root, "#confirm").hidden = false;
     ok.focus();
+  }
+  /** (it. 2170) ferme la grande fenêtre et rend le focus à l'élément qui l'avait avant (Échap, « Continuer », clic sur le fond). */
+  closeModal() {
+    $(this.root, "#modal").hidden = true;
+    const r = this.focusOutside;
+    if (r && r.isConnected && typeof r.focus === "function") r.focus({ preventScroll: true });
   }
   closeConfirm() {
     $(this.root, "#confirm").hidden = true; this.confirmFn = null; this.confirmSafe = false;
@@ -1354,7 +1362,7 @@ export class Panel {
   onEscape() {
     if (!$(this.root, "#confirm").hidden) { this.closeConfirm(); return; }
     const m = $(this.root, "#modal");
-    if (!m.hidden) { m.hidden = true; return; }
+    if (!m.hidden) { this.closeModal(); return; }
     // (it. 2165) un objet sélectionné (son détail remplace les commandes du sac) : Échap revient d'abord au sac
     if (this.tab === "adventure" && this.selected) { this.selected = null; this.renderAll(); return; }
     this.onClose?.();
