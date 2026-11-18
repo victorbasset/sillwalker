@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2325, contrôle) : Collection d'objets : un type d'objet tombe partout, tiré au hasard dans son emplacement
+  (rules.js, ITEM_BASES) : « ??? (emplacement) » suffit, pas de zone à indiquer.
 - 2026-11-18 (it. 2324, contrôle) : Boutique en espagnol à 1280 px, sac plein : « Bolsa llena » sur les achats (deux lignes dans la
   colonne étroite des coffres, sans coupure), « Vender inútiles (24) » en évidence. Rien à corriger.
 - 2026-11-18 (it. 2323, contrôle) : Quêtes en polonais à 1280 px : titres longs sur deux lignes, lien « → Przygoda » de la quête de
