@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2129, clavier) : Talents : la fiche suit aussi le talent qui reçoit le focus (Tab) et y reste ; le focus rendu par le
+  programme après un redessin ne la déplace pas (le survol en cours la garde). Autotest (focusin envoyé à la main : la fenêtre --ghost
+  n'a pas le focus du système) ; 279/279.
 - 2026-11-18 (it. 2128) : « Quoi de neuf », édition 137 (annuler le dernier clic et touche Z, vendre sur place à sac plein, vente des
   objets précieux confirmée, clic sur le fond, Compétences et bonus de maîtrise ; 5 nouveautés, 10 langues, clés 3294-3298). Fenêtre au
   pire cas sans défilement ; lang-overflow 10 langues × 1280 / 1920 : rien ; 278/278.

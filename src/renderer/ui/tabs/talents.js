@@ -119,7 +119,8 @@ export class TalentsTab {
     // focus au début du panneau).
     const act = el.contains(document.activeElement) ? document.activeElement.dataset?.tid : null;
     el.innerHTML = `<div class="tgrid">${head}${branches}${extra}</div>`;
-    if (act) el.querySelector(`[data-tid="${act}"]`)?.focus({ preventScroll: true });
+    // (it. 2129) focus rendu par le programme après le redessin : ne pas déplacer la fiche (le survol en cours la garde)
+    if (act) { this.refocus = true; el.querySelector(`[data-tid="${act}"]`)?.focus({ preventScroll: true }); this.refocus = false; }
     // (it. 2108) total des talents : les pastilles qui ne tiennent pas en entier sont masquées (pas de ligne coupée à mi-hauteur)
     // (it. 2110) mesuré à l'image suivante et une fois les polices chargées : au moment du dessin, la mise en page n'était pas
     // finie et une rangée restait coupée à mi-hauteur à 1920 px
@@ -127,7 +128,12 @@ export class TalentsTab {
       const chips = tbox.querySelectorAll(".chip"); for (const c of chips) c.hidden = false;
       const lim = tbox.getBoundingClientRect().bottom + 0.5; for (const c of chips) if (c.getBoundingClientRect().bottom > lim) c.hidden = true; };
     fit(); requestAnimationFrame(fit); document.fonts?.ready.then(fit);
-    if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e)); }
+    if (!this.keysBound) {
+      this.keysBound = true;
+      el.addEventListener("keydown", (e) => this.onKey(e));
+      // (it. 2129, clavier) la fiche suit aussi le talent qui reçoit le focus (Tab), et y reste (avant : seulement la souris)
+      el.addEventListener("focusin", (e) => { const t = e.target.closest && e.target.closest(".talent[data-tid]"); if (t && !this.refocus && TALENT_INDEX[t.dataset.tid]) { this.pin = t.dataset.tid; this.show(t.dataset.tid); } });
+    }
   }
 
   /** (it. 855) Maj + Entrée (ou Espace) sur un talent : comme son petit bouton (« +1 » depuis l'it. 1080, « tout » pour une maîtrise). */
