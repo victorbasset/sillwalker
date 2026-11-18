@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2183) : capture de l'onglet Talents dans son état de fin de nuit (1920 px, français) envoyée à Victor.
 - 2026-11-18 (it. 2182) : aide ⓘ des Talents : elle cite aussi les flèches (clé 3320) ; recherche de TODO / FIXME dans le code : aucun
   (seulement des dessins en pixels). 292/292.
 - 2026-11-18 (it. 2181, revue générale) : perf bande 18,2 %, panneau 18,3 %, mini 5,7 % ; --crawl en russe : 460 clics sans erreur ;
