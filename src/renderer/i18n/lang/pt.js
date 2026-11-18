@@ -2216,4 +2216,6 @@ export default {
   3341: "Traduções: as caixas de automação (talentos, Escudeiro de armas, Astrolábio…) dizem claramente «automaticamente» (inglês, alemão, espanhol, português, polonês, russo).",
   3342: "Aumentar a bolsa: +6 espaços ({0} de ouro)",
   3343: "Sua bolsa está cheia: o próximo saque fica no chão. A Oficina (Loja) aumenta 6 espaços. Clique aqui.",
+  3344: "Bolsa cheia: «O que fazer agora» propõe aumentá-la com um clique (Oficina) quando dá para pagar; uma dica na faixa lembra disso.",
+  3345: "Missões: o link para a aba onde agir some quando uma automação já cuida disso (Grande intendente, Mestre ferreiro, Cadinho perpétuo).",
 };

@@ -2216,4 +2216,6 @@ export default {
   3341: "Translations: the automation boxes (talents, Arms Valet, Astrolabe…) now clearly say “automatically” (English, German, Spanish, Portuguese, Polish, Russian).",
   3342: "Enlarge the bag: +6 slots ({0} gold)",
   3343: "Your bag is full: the next loot stays on the ground. The Workshop (Shop) enlarges it by 6 slots. Click here.",
+  3344: "Full bag: “Things to do now” offers to enlarge it in one click (Workshop) when it's affordable; a tip on the strip reminds you.",
+  3345: "Quests: the link to the tab where you act disappears when an automation already handles it (Grand Steward, Master Smith, Everlasting Crucible).",
 };

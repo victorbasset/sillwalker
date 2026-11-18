@@ -2216,4 +2216,6 @@ export default {
   3341: "Tłumaczenia: pola automatyzacji (talenty, Giermek, Astrolabium…) mówią teraz jasno „automatycznie” (angielski, niemiecki, hiszpański, portugalski, polski, rosyjski).",
   3342: "Powiększ torbę: +6 miejsc ({0} złota)",
   3343: "Twoja torba jest pełna: następny łup zostanie na ziemi. Warsztat (Sklep) powiększa ją o 6 miejsc. Kliknij tutaj.",
+  3344: "Pełna torba: „Do zrobienia teraz” proponuje powiększyć ją jednym kliknięciem (Warsztat), gdy cię stać; wskazówka na pasku o tym przypomina.",
+  3345: "Zadania: odnośnik do zakładki, w której działać, znika, gdy zajmuje się tym już automatyzacja (Wielki zarządca, Mistrz kowalski, Wieczny tygiel).",
 };

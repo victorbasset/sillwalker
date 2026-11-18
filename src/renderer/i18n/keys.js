@@ -3345,5 +3345,7 @@ export const KEYS = [
   "Quêtes : « Ramener des expéditions » n’apparaît plus avant leur déblocage ; une quête de ce genre impossible est remplacée.",
   "Traductions : les cases d’automatisme (talents, Valet d’armes, Astrolabe…) disent clairement « automatiquement » (anglais, allemand, espagnol, portugais, polonais, russe).",
   "Agrandir le sac : +6 places ({0} or)",
-  "Ton sac est plein : le butin suivant reste au sol. L’Atelier (Boutique) l’agrandit de 6 places. Clique ici."
+  "Ton sac est plein : le butin suivant reste au sol. L’Atelier (Boutique) l’agrandit de 6 places. Clique ici.",
+  "Sac plein : « À faire maintenant » propose de l’agrandir d’un clic (Atelier) quand c’est abordable ; une astuce le rappelle dans la bande.",
+  "Quêtes : le lien vers l’onglet où agir disparaît quand un automatisme s’en charge déjà (Grand intendant, Maître de forge, Creuset perpétuel)."
 ];

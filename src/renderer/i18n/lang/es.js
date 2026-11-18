@@ -2216,4 +2216,6 @@ export default {
   3341: "Traducciones: las casillas de automatismo (talentos, Ayuda de armas, Astrolabio…) dicen claramente «automáticamente» (inglés, alemán, español, portugués, polaco, ruso).",
   3342: "Agrandar la bolsa: +6 casillas ({0} de oro)",
   3343: "Tu bolsa está llena: el siguiente botín se queda en el suelo. El Taller (Tienda) la agranda 6 casillas. Haz clic aquí.",
+  3344: "Bolsa llena: «Qué hacer ahora» propone agrandarla con un clic (Taller) cuando se puede pagar; un consejo en la franja lo recuerda.",
+  3345: "Misiones: el enlace a la pestaña donde actuar desaparece cuando un automatismo ya se encarga (Gran intendente, Maestro herrero, Crisol perpetuo).",
 };
