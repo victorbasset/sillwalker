@@ -4,6 +4,12 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Version 0.1.7 (envoyée sur itch.io le 18/11, it. 2346) : reste à publier le devlog
+
+- En ligne (butler) : windows #2430814, linux #2430816, mac #2430820 ; fichiers et SHA256-0.1.7.txt dans Médias/dist-itch.
+- Devlog prêt : titre, couverture (steam/itch/cover-0.1.7.png, aussi Médias/dist-itch/promo/), tags, langues et texte en
+  10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
+
 ## Mi-journée du 18/11 (it. 2205-2249) : à regarder en jouant
 
 - **Familiers** : « Emmener » sur une expédition en cours la rappelle (sans butin) et équipe le familier ; niveau sous le nom.

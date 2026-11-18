@@ -1,24 +1,29 @@
-# Devlog itch.io : version 0.1.7 (BROUILLON, ouvert à l'it. 2057)
+# Devlog itch.io : version 0.1.7
 
-Brouillon tenu à jour par la boucle automatique au fil des nouveautés parues depuis la 0.1.6 (éditions « Quoi de neuf »
-133 et suivantes). Le jour de la sortie : version de package.json, NEWS_RELEASES (news.js, `after: 132`), puis ce texte en
-10 langues (steam/itch/devlog-0.1.7.html) et le bloc « Publication » rempli (CLAUDE.md, « Sortie d'une version » ; modèle :
-docs/devlog-0.1.6.md).
+À publier sur la page itch.io (Devlog > New post). Reprend les éditions « Quoi de neuf » 133 à 152 parues depuis la 0.1.6,
+réduites aux nouveautés majeures (les mêmes que NEWS_RELEASES, news.js : RELEASE_017).
 
-## Publication sur itch.io (à remplir à la sortie)
+## Publication sur itch.io (0.1.7 envoyée le 2026-11-18 par butler, it. 2346 : builds windows #2430814, linux #2430816, mac #2430820)
 
-- **Titre :** (à choisir)
-- **Image de couverture :** scripts/steam-capsules/make.js, entrée `update-0.1.7` (ver, tags)
+- **Titre :** Sillwalker 0.1.7 – a freer skill graph and a final-battle theme
+- **Image de couverture :** steam/itch/cover-0.1.7.png (1920 × 1080 ; aussi dans Médias/dist-itch/promo/cover-0.1.7.png ;
+  `ONLY=update-0.1.7 electron scripts/steam-capsules/make.js <dossier>`)
 - **Tags :** Sillwalker, idle game, idle RPG, incremental game, pixel art, indie game, desktop game, taskbar game,
   cozy game, gamedev
 - **Langues du jeu :** English, French, Spanish, Portuguese (Brazil), German, Polish, Russian, Chinese (Simplified),
   Japanese, Korean
-- **Texte :** steam/itch/devlog-0.1.7.html (à produire, 10 langues)
-- **Envoi :** `REF=v0.1.7 scripts/itch-push.sh victor-basset/sillwalker` (après `--dry-run`) ; étiquette git v0.1.7
+- **Texte :** steam/itch/devlog-0.1.7.html (10 langues, l'anglais d'abord, les autres dans des blocs repliables)
+- **Fichiers :** Médias/dist-itch/Sillwalker-0.1.7-{win.zip, linux.AppImage, mac-arm64.zip}, empreintes dans SHA256-0.1.7.txt ;
+  étiquette git v0.1.7
 
 ---
 
-## Français (nouveautés depuis la 0.1.6, à compléter)
+## Français
+
+**Titre :** Sillwalker 0.1.7 : un graphe plus libre et une musique pour le combat final
+
+Le texte publié (10 langues) est steam/itch/devlog-0.1.7.html. Notes de travail tenues au fil des éditions (plus
+détaillées que le devlog) :
 
 - **Carte de la zone :** le boss annoncé est le vrai (lieutenant, écho ou Briseur, avec ses vrais PV : avant, ceux d'un boss
   ordinaire, cinq fois moins pour le Chevalier de l'éclipse), et un seul nom pour lui (it. 2058-2059).

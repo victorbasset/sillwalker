@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2346, VERSION 0.1.7 ENVOYÉE) : étiquette v0.1.7 ; itch-push --dry-run (win 337 Mo, linux 134, mac 129, signé) ;
+  AppImage essayée avec un HOME temporaire (démarre, partie neuve) ; Médias/dist-itch : 3 fichiers + SHA256-0.1.7.txt ; butler :
+  windows #2430814, linux #2430816, mac #2430820, en ligne (0.1.7). Devlog : docs/devlog-0.1.7.md (publication), steam/itch/
+  devlog-0.1.7.html (10 langues), couverture cover-0.1.7.png (make.js update-0.1.7). Reste à Victor : publier le devlog.
 - 2026-11-18 (it. 2346, VERSION 0.1.7, demande de Victor : « livre la 0.1.7 ») : package.json 0.1.7 ; notes de version RELEASE_017
   (news.js, after: 132, 10 nouveautés traduites, clés 3385-3394) ; tests des notes de version à jour ; scripts/selftest.mjs : la
   copie a lu au-delà de la DERNIÈRE version (lue dans news.js ; la fenêtre de la 0.1.7 s'ouvrait et trois contrôles du panneau
