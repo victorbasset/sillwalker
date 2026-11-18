@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2331, REVUE GÉNÉRALE) : 12 h : mage 61 (toujours le plus bas, à voir avec Victor), chaman 64, maître des lames 64 ;
+  --perf : 18,4 / 19,4 %, mini 5,6 %, icône 0,6 % ; Talents en coréen à 1280 px : propres. Rien à corriger.
 - 2026-11-18 (it. 2330) : POUR-VICTOR : Carnet de route (prochaine étape, paliers de niveau une fois).
 - 2026-11-18 (it. 2329) : Quoi de neuf, édition 150 : Carnet de route (prochaine étape, paliers de niveau une seule fois ; it. 2315-2322).
   Clé 3367. 302/302.
