@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2237, contrôle) : avec les bénédictions du jour : fuzz FUZZ_DAYMOD=all (600 parties) 0 bloquée, stall-check
+  STALL_DAYMOD=all (60) 0 figée. Astuces de la bande : elles mènent déjà à leur onglet au clic (rien à ajouter).
 - 2026-11-18 (it. 2236) : question des boutons des cartes de héros (libellés plus courts ?) posée à Victor dans POUR-VICTOR, avec trois
   propositions ; rien changé sans son choix.
 - 2026-11-18 (it. 2235, contrôle) : --crawl après les liens des quêtes et de la Carte : 520 clics (dev-data), 693 (fin de partie),
