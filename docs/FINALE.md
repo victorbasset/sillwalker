@@ -15,7 +15,7 @@
       la bande, s'élève, se promène sur tout l'écran (trajectoire douce, traînée d'étoiles, quelques bonds), puis revient
       se poser sur la bande ; ≈ 25-30 s, la musique « La Dernière Étoile » en coda. Un clic / Échap la passe. Réglage
       « Cinématiques de l'histoire » respecté ; rejouable depuis la chronique « Le ciel rallumé » (▶).
-- [ ] 3. Mise en scène : texte « Libre ! » / « Le ciel est rallumé », étoiles qui se rallument une à une derrière le
+- [x] 3. (it. 2344 : feu d'artifice ; le reste existait dès la v1) Mise en scène : texte « Libre ! » / « Le ciel est rallumé », étoiles qui se rallument une à une derrière le
       héros, feu d'artifice discret à la fin ; captures et vidéo (strip-clip) pour Victor.
 - [ ] 4. Contrôles : autotest (la fenêtre s'ouvre, se ferme seule, rien ne reste au-dessus), --perf pendant la scène,
       mode mini / icône seule, plusieurs écrans (écran de la bande), macOS (niveau « status »).
@@ -28,3 +28,6 @@
   d'étoiles, compagnon qui suit, « Libre ! » / « Le Rebord ne te retient plus. »), app.js playFinale (images du héros, place à
   l'écran ; 1,5 s après la victoire ; ▶ de « Le ciel rallumé » ; « clic : passer » de la bande la ferme). Option de dev
   --finale-shot=f.png --finale-shot-delay=ms. Autotest : la fenêtre s'ouvre puis se ferme seule.
+- it. 2344 : feu d'artifice dans les 8 dernières secondes (7 gerbes colorées en haut de l'écran, éclair au centre) ; point de
+  départ ramené dans l'écran (bande sur un autre écran ou hors écran : la trajectoire passait très loin, héros invisible à 7,
+  19 et 21,5 s sur la planche) ; planche de 6 captures envoyée à Victor.

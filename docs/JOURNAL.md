@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2344) : cinématique de libération : feu d'artifice final (7 gerbes, 80 étincelles, éclair) ; départ ramené dans
+  l'écran (bande hors écran ou sur un autre écran : le héros sortait du cadre la moitié du temps, vu sur une planche de 6 captures).
+  304/304.
 - 2026-11-18 (it. 2343) : Quoi de neuf, édition 152 : musique de la zone 200, surprise après la victoire (sans dévoiler), Talents
   alignés. POUR-VICTOR à jour. Clés 3382-3384.
 - 2026-11-18 (it. 2342, DEMANDE DE VICTOR) : cinématique de libération, première version (docs/FINALE.md) : à la première victoire sur

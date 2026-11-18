@@ -23,7 +23,9 @@
     const [w1, w2] = await Promise.all([load(d.frames.walk1), load(d.frames.walk2)]);
     const p1 = d.partner ? await load(d.partner.walk1) : null, p2 = d.partner ? await load(d.partner.walk2) : null;
     if (!w1) { api?.finaleDone?.(); return; }
-    const T = (d.duration || 26000) / 1000, from = d.from || { x: W / 2, y: H - 60 };
+    // point de départ (place du héros sur la bande) ramené dans l'écran : bande sur un autre écran, ou hors écran (tests)
+    const T = (d.duration || 26000) / 1000, f0 = d.from || { x: W / 2, y: H - 60 };
+    const from = { x: Math.max(60, Math.min(W - 60, f0.x)), y: Math.max(H * 0.5, Math.min(H - 20, f0.y)) };
     // Trajectoire : du héros sur la bande vers le haut, un grand tour de l'écran (coins, centre), retour à sa place
     const P = [
       { x: from.x, y: from.y }, { x: from.x, y: H * 0.62 }, { x: W * 0.5, y: H * 0.3 }, { x: W * 0.16, y: H * 0.18 },
@@ -32,7 +34,10 @@
     ];
     // ciel qui se rallume : de petites étoiles apparaissent une à une sur tout l'écran, très discrètes
     const sky = Array.from({ length: 90 }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H * 0.85, at: 1.5 + i * 0.16 + Math.random() * 0.6, r: Math.random() < 0.15 ? 2 : 1, ph: Math.random() * 6 }));
-    const trail = [], bursts = [];
+    const trail = [], bursts = [], sparks = [];
+    // feu d'artifice discret dans les dernières secondes (le héros redescend vers la bande) : gerbes colorées en haut de l'écran
+    const FIRE = [T - 8, T - 7.3, T - 6.5, T - 5.9, T - 5.2, T - 4.4, T - 3.7], fired = new Set();
+    const COLORS = ["255, 211, 77", "255, 122, 107", "122, 200, 255", "190, 140, 255", "130, 230, 150"];
     const SCALE = Math.max(4, Math.round(Math.min(W, H) / 170)); // héros bien visible (≈ 5 à 7 fois sa taille sur la bande)
     const RISE = 1.6, FLY0 = 2.2, FLY1 = T - 3.2;           // décollage, vol, retour
     let t0 = performance.now(), last = t0, prev = { ...from }, ended = false;
@@ -90,6 +95,17 @@
         for (let i = 0; i < 40; i++) { const a = Math.random() * Math.PI * 2, v = 40 + Math.random() * 120; trail.push({ x: pos.x, y: pos.y - k * 6, age: 0, life: 1 + Math.random(), r: 2, vy: 0, vx: Math.cos(a) * v, vyy: Math.sin(a) * v }); }
       }
       for (const p of trail) if (p.vx) { p.x += p.vx * dt; p.y += p.vyy * dt; p.vx *= 0.97; p.vyy *= 0.97; }
+      for (const at of FIRE) if (t >= at && !fired.has(at)) {
+        fired.add(at);
+        const cx = W * (0.15 + Math.random() * 0.7), cy = H * (0.12 + Math.random() * 0.25), col = COLORS[Math.floor(Math.random() * COLORS.length)];
+        for (let i = 0; i < 80; i++) { const a = (i / 80) * Math.PI * 2, v = 110 + Math.random() * 150; sparks.push({ x: cx, y: cy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, age: 0, life: 1.5 + Math.random() * 0.7, col, r: 2 }); }
+        sparks.push({ x: cx, y: cy, vx: 0, vy: 0, age: 0, life: 0.35, col: "255, 255, 255", r: 6, flash: true });
+      }
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const p = sparks[i]; p.age += dt; if (p.age > p.life) { sparks.splice(i, 1); continue; }
+        if (p.flash) { p.r = 6 * (1 - p.age / p.life) + 1; } else { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 70 * dt; p.vx *= 0.982; p.vy *= 0.982; }
+        star(p.x, p.y, p.r || 1, (1 - p.age / p.life) * (p.flash ? 1 : 0.95) * fadeAll, p.col);
+      }
       // texte : « Libre ! » puis la phrase, au centre de l'écran
       const tt = d.texts || {};
       const tin = ease((t - 3) / 1), tout = ease((T - 5 - t) / 1.2), ta = Math.max(0, Math.min(tin, tout)) * fadeAll;
