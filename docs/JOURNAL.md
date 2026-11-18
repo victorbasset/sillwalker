@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2251, REVUE GÉNÉRALE) : 12 h : artificier 65, danseuse de lames 64, cryomancien 65 ; --perf : bande 18,1 %, panneau
+  19,0 %, mini 5,6 %, icône 0,5 % ; texte en anglais : aucun mot accentué (reste de français) hors noms de langues ; captures Familiers
+  en portugais (« Levar ») et mini en coréen : propres (« 0 ovo » au singulier : règle CLDR du portugais brésilien). Rien à corriger.
 - 2026-11-18 (it. 2250) : POUR-VICTOR : résumé de la mi-journée (familiers, quêtes, Carte, traductions, Linux).
 - 2026-11-18 (it. 2249, contrôle) : semaine simulée (simulate.js 168) : guerrier 350 (41 courses), mage 349 (52) : repère inchangé
   (350 / 350, palier de l'écho de la zone 350, it. 1708).
