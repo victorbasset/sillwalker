@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2203, contrôle) : volumes d'une vraie première installation (dossier vide, jeu lancé) : général 0,5, effets 0,1,
+  ambiance 1, musique 0,2, en mémoire comme dans le save.json écrit. Conforme à la demande de Victor (it. 2200).
 - 2026-11-18 (it. 2202) : « Quoi de neuf », édition 142 (flèches des Compétences, noms du Bestiaire, ⓘ des Familiers, japonais et
   coréen ; clés 3326-3329, noms d'onglets repris tels que traduits). 294/294 ; lang-overflow 10 langues × 1280 : rien.
 - 2026-11-18 (it. 2201, signalé par Victor) : Familiers : le ⓘ de la barre, dernier de la rangée qui défile, passait sous l'ombre du bord
