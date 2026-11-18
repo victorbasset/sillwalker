@@ -535,8 +535,11 @@ export class Panel {
       : worn ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${worn.r} wrap">${esc(tx("{0} (équipé)", { 0: itemName(worn) }))}</b></li>` // déjà porté (Valet d'armes)
       : sum.best >= 0 ? `<li><span>${tx("Meilleur butin")}</span><b class="rc${sum.best}">${RARITIES[sum.best].name}</b></li>` : "";
     // (it. 969) « Or gagné » : le même total que la bulle (combats + expéditions du Grand intendant, it. 968)
+    // (it. 2139, plaisir de revenir) deux colonnes dans la grande fenêtre : le bilan à gauche, « À faire maintenant » à droite (avant :
+    // une seule colonne de 420 px, 816 px de contenu pour 457 visibles : les actions étaient sous le pli)
     $(this.root, "#mbody").innerHTML =
-      `<p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone), 1: esc(sum.duration) })}</p>
+      `<div class="modalwide offgrid"><div>
+      <p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone), 1: esc(sum.duration) })}</p>
       <ul class="lines">
         <li><span>${tx("Monstres vaincus")}</span><b>${fmt(sum.kills)}</b></li>
         ${sum.elites ? `<li><span>${tx("Élites vaincues")}</span><b>${fmt(sum.elites)}</b></li>` : ""}
@@ -559,11 +562,11 @@ export class Panel {
         ${sum.traded ? `<li><span>${tx("Marchand attitré")}</span><b>${txn(sum.traded, "{n} objet acheté|{n} objets achetés")}</b></li>` : ""}
         ${sum.transmuted ? `<li><span>${tx("Creuset perpétuel")}</span><b>${txn(sum.transmuted, "{n} objet transmuté|{n} objets transmutés")}</b></li>` : ""}
         ${sum.petWork ? `<li><span>${tx("Grand intendant")}</span><b>${txn(sum.petWork, "{n} tâche de familier|{n} tâches de familiers")}${sum.petGold ? " · +" + tx("{0} or", { 0: fmt(sum.petGold) }) : ""}</b></li>` : ""}
-      </ul>
+      </ul></div><div>
       ${this.todoHtml()}
       <p class="note">${sum.capped
         ? tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus. La constellation de la Lune l’allonge.", { 0: sum.capH })
-        : tx("La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.", { 0: sum.capH || 8 })}</p>`;
+        : tx("La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.", { 0: sum.capH || 8 })}</p></div></div>`;
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
     // « Continuer » reçoit le focus sans faire défiler : le résumé s'ouvre en haut (titre et durée visibles).

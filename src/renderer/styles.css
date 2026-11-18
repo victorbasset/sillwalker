@@ -1436,6 +1436,10 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 #modal .panel:has(.modalwide) { max-width: 900px; }
 .modalwide .lines { columns: 2; column-gap: 28px; }
 .modalwide .lines li { break-inside: avoid; }
+/* (it. 2139) résumé d'absence : bilan | « À faire maintenant », côte à côte */
+.modalwide.offgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; align-items: start; }
+.modalwide.offgrid .lines, .modalwide.offgrid ul { columns: 1; }
+@media (max-width: 900px) { .modalwide.offgrid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .modalwide .lines { columns: 1; } }
 .modalwide ul { columns: 2; column-gap: 28px; }
 .modalwide ul li { break-inside: avoid; }
