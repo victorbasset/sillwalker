@@ -53,7 +53,7 @@ export class ShopTab {
         ${it.power && POWER_INDEX[it.power] ? `<div class="sub power-mini one" title="${esc(POWER_INDEX[it.power].name)}">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
         ${it.set && SETS[it.set] ? `<div class="sub tint one" style="--c:${SETS[it.set].color}" title="${esc(SETS[it.set].name)}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
         <div class="verdict ${d > 0.005 || !cur ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${up ? "▲ " : ""}${verdict}</div>
-        ${buy("s-item", it.id, it.price, full && !g.isUpgrade(it) ? tx("Sac plein") : "", up ? "primary" : "", false, g.isUpgrade(it) ? tx("Clic : acheter et équiper tout de suite (il renforce ton héros).") : "")}
+        ${buy("s-item", it.id, it.price, full && !g.canBuyWhenFull(it) ? tx("Sac plein") : "", up ? "primary" : "", false, g.isUpgrade(it) ? tx("Clic : acheter et équiper tout de suite (il renforce ton héros).") : "")}
       </div>`;
     }).join("") : `<p class="empty">${tx("Le marchand a tout vendu. Revenez plus tard !")}</p>`;
 

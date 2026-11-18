@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2154, CORRECTION de l'it. 2153) : à sac plein, l'amélioration achetée faisait déborder le sac (25 / 24) quand
+  l'emplacement était occupé (l'ancienne pièce s'y ajoutait ; le test logique avait un emplacement vide). Maintenant, comme le
+  Marchand attitré (it. 738) : l'ancienne pièce est vendue ; achat refusé (« Sac plein ») si elle est précieuse (légendaire,
+  panoplie, forgée : jamais vendue sans confirmation). game.canBuyWhenFull ; tests logique et autotest (achat d'un clic, sac qui
+  reste plein) ; 284/284.
 - 2026-11-18 (it. 2153, moins de clics) : Boutique, sac plein : une amélioration du Marchand s'achète quand même (équipée aussitôt,
   l'ancienne pièce prend sa place dans le sac, qui reste plein) ; avant, « Sac plein » bloquait justement l'objet à porter. Les autres
   objets restent bloqués. Test logique ; npm test 359, autotest 283/283.

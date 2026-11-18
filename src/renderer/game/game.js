@@ -2307,13 +2307,21 @@ export class Game {
 
   /** (it. 1510, demande de Victor) Achat à la main dans la Boutique : l'objet est équipé tout de suite s'il renforce le
    *  héros (même mesure que la flèche d'amélioration du sac) ; sinon il va dans le sac, comme avant. */
+  /** (it. 2153-2154) sac plein : une amélioration du marchand s'achète quand même, équipée aussitôt, l'ancienne pièce VENDUE (comme
+   *  le Marchand attitré, it. 738) ; refusé si l'ancienne pièce est précieuse (légendaire, panoplie, forgée : jamais vendue sans
+   *  confirmation). Avant, « Sac plein » bloquait justement l'objet qu'on voulait porter. */
+  canBuyWhenFull(it) {
+    if (!it || !it.slot || !this.isUpgrade(it)) return false;
+    const old = this.S.equip[it.slot];
+    return !old || !(old.r >= LEGENDARY || old.set || old.plus > 0);
+  }
   buyFromShop(id) {
-    // (it. 2153) sac plein : une AMÉLIORATION s'achète quand même (équipée aussitôt, l'ancienne pièce prend sa place dans le sac,
-    // qui reste plein) ; avant, « Sac plein » bloquait justement l'objet qu'on voulait porter
     const pre = this.S.shop && this.S.shop.items.find((i) => i.id === id);
-    if (!this.buyShopItem(id, !!pre && this.isUpgrade(pre))) return false;
+    const full = this.bagFull(), swap = full && this.canBuyWhenFull(pre), old = swap ? this.S.equip[pre.slot] : null;
+    if (!this.buyShopItem(id, swap)) return false;
     const it = this.findBagItem(id);
     if (it && this.isUpgrade(it)) this.equip(it);
+    if (swap && old && this.findBagItem(old.id)) this.sell(old);
     return true;
   }
 

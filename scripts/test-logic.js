@@ -280,6 +280,14 @@ test("boutique, sac plein : une amélioration s'achète et s'équipe, le sac res
   assert.ok(g.buyFromShop(up.id), "achetée malgré le sac plein");
   assert.equal(S.equip[up.slot] && S.equip[up.slot].id, up.id, "équipée");
   assert.equal(S.bag.length, n, "sac toujours plein, pas débordé");
+  // emplacement occupé par une pièce ordinaire : elle est vendue, le sac ne déborde pas ; pièce précieuse : achat refusé
+  let up2 = g.newItem(4, S.best + 60); for (let k = 0; k < 400 && !g.canBuyWhenFull(up2); k++) up2 = g.newItem(4, S.best + 60);
+  const oldOne = S.equip[up2.slot]; if (oldOne) { oldOne.r = 1; oldOne.set = null; oldOne.plus = 0; }
+  up2.price = 10; S.shop = { items: [up2], next: Date.now() + 600000 };
+  if (g.canBuyWhenFull(up2)) { assert.ok(g.buyFromShop(up2.id), "achetée"); assert.equal(S.bag.length, n, "ancienne pièce vendue, sac plein mais pas débordé"); }
+  const worn = S.equip[up2.slot]; worn.r = LEGENDARY;
+  let up3 = g.newItem(4, S.best + 90); up3.slot = worn.slot; up3.price = 10; S.shop = { items: [up3], next: Date.now() + 600000 };
+  if (g.isUpgrade(up3)) assert.equal(g.buyFromShop(up3.id), false, "ancienne pièce légendaire : jamais vendue sans confirmation, achat refusé");
   let low = g.newItem(0, 1); for (let k = 0; k < 200 && g.isUpgrade(low); k++) low = g.newItem(0, 1);
   low.price = 10; S.shop = { items: [low], next: Date.now() + 600000 };
   assert.equal(g.buyFromShop(low.id), false, "un objet qui n'améliore pas reste bloqué");
