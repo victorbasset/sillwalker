@@ -7577,6 +7577,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2188) Clavier, Compétences : Tab parcourt les nœuds apprenables ; des flèches qui suivent les liens du graphe (comme les
+  Talents et le sac, it. 2167 et 2185) aideraient. À concevoir : voisin le plus proche dans la direction, selon les liens.
+- P3 (it. 2188) Autotest à 125 s (293 vérifications) : regrouper les attentes de 100-150 ms des contrôles de la nuit (fenêtres,
+  Talents) en une seule mise en scène par onglet si la durée devient gênante.
+- P3 (it. 2188) Bestiaire : 4 noms encore coupés en français même en 11 px (« Champignon luisant… ») : nom au survol ; un retour à la
+  ligne sur deux lignes en 11 px seulement pour ces cas ? Vérifier la hauteur de la grille (7 rangées) à 1920 px.
+- À VOIR AVEC VICTOR (it. 2178) : mage le plus bas sur 12 h (≈ 62 sur 4 graines contre ≈ 65) ; il rattrape en semaine (it. 1115) :
+  rien à faire sans son avis.
 - ÉCARTÉ (it. 2132 : bruit, voir Fait) (it. 2130) Mémoire : la bulle « Quoi de neuf » (toast de la bande, 15 s au lancement après une mise à jour) laisse 30 à 60 Mo
   de plus pendant toute la partie (mem-watch, MEM_NEWS=1 : 625 contre 595 Mo). Piste : une taille ou graisse de police propre au
   toast (CLAUDE.md, « Polices »), ou le texte rendu par-dessus la bande ; mesurer avec un toast d'un autre texte.
