@@ -729,6 +729,7 @@ details.more summary:hover { color: var(--accent); }
 .tdetail .ttotal.empty { visibility: hidden; }
 .tdetail .ttchips .eicon { height: 14px; vertical-align: -2px; margin-right: 4px; }
 @container panel (max-width: 1334px) { #tsel { padding: 2px 6px; margin: 2px 0 0; } }
+@container panel (max-width: 1568px) { .tdetail .tfoot .ulbl { display: none; } }
 
 /* ---------- Boutique illustrée ---------- */
 .shopbar { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }

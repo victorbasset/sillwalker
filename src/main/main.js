@@ -291,7 +291,9 @@ function start() {
             S.talents[S.cls] = {}; S.lvl += 200; G.invalidateStats(); G.autoSpendTalents(); P.setTab("talents"); P.renderAll();
             const v = document.querySelector('[data-pane="talents"] .talent.voie'); if (v) { T.sel = T.pin = v.dataset.id; P.renderAll(); }
             const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("talents-max-voie=" + o);
-            const two = [...document.querySelectorAll('[data-pane="talents"] .tbranch .talent:not(.voie)')].filter((b) => b.getBoundingClientRect().height > 48).map((b) => b.dataset.tid);
+            // (it. 2135) seuil relatif (1,4 × la ligne la plus basse) : à 130 % d'interface, une ligne d'ultime normale dépassait 48 px
+            const rows = [...document.querySelectorAll('[data-pane="talents"] .tbranch .talent:not(.voie)')], hMin = Math.min(...rows.map((b) => b.getBoundingClientRect().height));
+            const two = rows.filter((b) => b.getBoundingClientRect().height > hMin * 1.4).map((b) => b.dataset.tid);
             if (two.length) out.push("talents-2lignes=" + two.join("/"));
             S.talents[S.cls] = JSON.parse(keepR); S.lvl = keepL; T.sel = keepSel; T.pin = keepPin; G.invalidateStats(); P.renderAll(); }
           // (it. 2063) zone d'un lieutenant ou du Briseur, héros bloqué, reliques incomplètes : ligne de la relique gardée et trois

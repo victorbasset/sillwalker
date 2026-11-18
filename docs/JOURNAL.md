@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2135) : lang-overflow COMPLET (états max et zoom 130 %, sautés toute la soirée) : la fiche d'une maîtrise
+  défilait (4 à 25 px, fin de partie à 1600 px et à 130 %) : « ↶ Annuler le dernier » passait sous « Réinitialiser » ; libellé masqué
+  dans un panneau de moins de 1600 px (flèche seule, nom dans la bulle). Contrôle talents-2lignes : seuil relatif (1,4 × la ligne la
+  plus basse ; 48 px fixes donnaient de faux défauts à 130 %). Relance complète : rien ; 279/279. Aventure d'un nouveau joueur : rien.
 - 2026-11-18 (it. 2134, début de partie) : Compétences : « Annuler le dernier » et « Tout réinitialiser » grisés tant qu'aucun nœud
   n'est pris (ils semblaient cliquables et ne faisaient rien). Capture d'un nouveau joueur (niveau 12) ; 279/279.
 - 2026-11-18 (it. 2133, début de partie) : Talents d'un nouveau joueur (niveau 12) vus en capture : le titre « Total des talents »
