@@ -4,6 +4,8 @@ import { WEATHER } from "./juice.js";
 // Sillwalker vit en bas de l'écran pendant qu'on fait autre chose.
 // Chaque son est limité en fréquence pour ne jamais devenir agaçant.
 
+/** (it. 2333) Écart minimal entre deux sons de coup (cadence maximale entendue : ≈ 18 coups par seconde ; avant : 140 ms). */
+const HIT_GAP_MS = 55;
 // Gamme des pièces enchaînées (pentatonique, deux octaves) : chaque victoire rapprochée sonne un cran plus haut.
 const COIN_SCALE = [1318.5, 1480, 1661, 1975.5, 2217.5, 2637, 2217.5, 1975.5]; // monte puis redescend (boucle)
 const NOTES = { C5: 523.25, D5: 587.33, E5: 659.25, G5: 783.99, A5: 880, C6: 1046.5, E6: 1318.5, G6: 1568, D6: 1174.66 };
@@ -325,12 +327,19 @@ export class Sound {
 
   /** Coup du héros : timbre de son arme, modifié par la matière de l'ennemi ; plus fort et plus clair en critique. */
   hit(cls, monType, crit) {
-    if (!this.enabled || !this.ensure() || !this.throttle("hit", 140)) return;
+    // (it. 2333, demande de Victor : « que le son de l'attaque respecte la vitesse de frappe, avec une limite ») un coup
+    // toutes les 55 ms au plus (≈ 18 par seconde ; avant 140 ms, 7 par seconde : au-delà, les coups étaient muets) ; plus
+    // la cadence est rapide, plus chaque coup est bref et doux (sinon l'enchaînement devient un mur de bruit)
+    if (!this.enabled || !this.ensure()) return;
+    const now = performance.now(), dt = "hit" in this.last ? now - this.last.hit : 1e9;
+    if (dt < HIT_GAP_MS) return;
+    this.last.hit = now;
+    const fast = Math.min(1, Math.max(0, (dt - HIT_GAP_MS) / (140 - HIT_GAP_MS))); // 0 : cadence maximale, 1 : 140 ms et plus
     const w = weaponOf(cls), mat = materialOf(monType);
     const p = (mat === "soft" ? 0.72 : mat === "hard" ? 1.25 : mat === "air" ? 1.12 : 1) * (0.94 + Math.random() * 0.12) * (crit ? 1.15 : 1);
     // Variété (demande C : « très répétitif ») : volume, couleur du bruit et durée tirés à chaque coup, et l'un de trois
     // gestes par arme (coup simple, coup appuyé avec souffle, coup bref), jamais deux fois de suite le même.
-    const g = (crit ? 1.35 : 1) * (0.82 + Math.random() * 0.3), c = 0.7 + Math.random() * 0.7, dl = 0.85 + Math.random() * 0.35;
+    const g = (crit ? 1.35 : 1) * (0.82 + Math.random() * 0.3) * (0.6 + 0.4 * fast), c = 0.7 + Math.random() * 0.7, dl = (0.85 + Math.random() * 0.35) * (0.6 + 0.4 * fast);
     let v = Math.floor(Math.random() * 3); if (v === this.lastHitV) v = (v + 1) % 3; this.lastHitV = v;
     if (v === 1) this.noise(0, 0.05, 0.05 * g, 2600 * c, 0.8); // souffle de l'élan, avant l'impact
     const s = v === 1 ? 0.025 : 0;

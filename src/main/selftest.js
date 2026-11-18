@@ -1137,6 +1137,8 @@ async function runSelfTest(strip) {
       if (pk > 0.2) out.push(name + ":" + pk.toFixed(2)); };
     for (const c of ["warrior", "paladin", "lancer", "ranger", "mage", "cryomancer", "necro", "priestess", "bard"]) await render("coup-" + c, (s) => { s.hit(c, "skel", true); s.last = {}; s.hit(c, "slime", false); });
     await render("pièces", (s) => { s.coin(5); s.coinIn(true); });
+    // (it. 2333) cadence maximale (un coup toutes les 55 ms) : trois coups qui se chevauchent, au volume réduit des cadences rapides
+    for (const c of ["warrior", "paladin", "ranger", "mage"]) await render("rafale-" + c, (s) => { for (let i = 0; i < 3; i++) { s.last = { hit: performance.now() - 56 }; s.hit(c, "skel", i === 0); } });
     // (it. 1302) tous les événements du jeu (la liste était écrite à la main : un nouvel événement pouvait l'oublier)
     const { EVENTS: EV } = await import("./game/events.js");
     for (const id of [...Object.keys(EV), "inconnu"]) await render("évén-" + id, (s) => s.eventSound(id));

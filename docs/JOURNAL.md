@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2333, DEMANDE DE VICTOR) : son de l'attaque à la vitesse de frappe : un coup toutes les 55 ms au plus (≈ 18 / s ;
+  avant 140 ms, 7 / s, les coups suivants étaient muets) ; plus la cadence est rapide, plus le coup est bref et doux (×0,6 à la
+  cadence maximale). Autotest : rafale de trois coups superposés, sans saturation. --perf : 18,4 / 19,3 % (inchangé). 302/302.
 - 2026-11-18 (it. 2332, DEMANDE DE VICTOR : grand graphe des Compétences) : « utiliser mes points en surplus, choisir les 3 traits de
   damage, chemin le plus court au clic, pas de point négatif, moins de points (plus simple à cliquer, plus joli), même équilibre ».
   skillgraph.js : voies de 10 nœuds (30), anneau de 6 par région (12) : 222 nœuds (618), plus espacés (STEP 1,7) ; les trois voies
