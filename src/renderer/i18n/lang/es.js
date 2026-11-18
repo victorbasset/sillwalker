@@ -2236,4 +2236,5 @@ export default {
   3361: "Logros: los nombres poco claros (Piedra angular, Corazón puro, Eco disipado…) dicen al pasar el ratón qué hay que hacer.",
   3362: "Logros: los tres más cercanos destacan en oro; un consejo te avisa cuando uno llega al 90 %.",
   3363: "Poder por descubrir: cada objeto legendario lleva uno, elegido al azar.",
+  3364: "Bendición aún no vivida: cada día trae una, vuelve a jugar otros días.",
 };

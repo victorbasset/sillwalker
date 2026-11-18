@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2304) : Bestiaire > Bénédictions du jour : une bénédiction jamais vécue (« ??? ») dit au survol qu'il faut revenir
+  d'autres jours. Les événements rares inconnus donnaient déjà leur chance par victoire. Clé 3364. 300/300.
 - 2026-11-18 (it. 2303) : Bestiaire > Pouvoirs : un pouvoir pas encore découvert (« ??? ») dit au survol où le trouver (chaque objet
   légendaire en porte un, tiré au hasard : game.js, pick(POWERS)). Clé 3363. 300/300.
 - 2026-11-18 (it. 2302, contrôle) : Bestiaire > Pouvoirs légendaires en allemand à 1280 px (fin de partie, 30 / 30) : noms sur

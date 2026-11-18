@@ -170,7 +170,7 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
         const tag = k === today ? ` <span class="daytag">${tx("aujourd’hui")}</span>` : k === tomorrow ? ` <span class="daytag">${tx("demain")}</span>` : "";
         return seen[k] || k === tomorrow
         ? `<div class="setcard${k === today ? " here" : ""}"><b>${m.icon} ${esc(m.name)}</b>${tag} <small>${esc(m.desc)}</small></div>`
-        : `<div class="setcard unknown"><b>???</b></div>`; }).join("")}</div>`;
+        : `<div class="setcard unknown" title="${esc(tx("Bénédiction encore jamais vécue : chaque jour en apporte une, reviens jouer d’autres jours."))}"><b>???</b></div>`; }).join("")}</div>`;
   }
 
   /** Sections affichées : seulement ce que le joueur a déjà rencontré (moins d'informations d'un coup). */

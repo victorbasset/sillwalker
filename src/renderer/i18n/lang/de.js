@@ -2236,4 +2236,5 @@ export default {
   3361: "Erfolge: unklare Namen (Schlussstein, Reines Herz, Echo vertrieben…) sagen beim Überfahren, was zu tun ist.",
   3362: "Erfolge: Die drei nächsten leuchten golden; ein Tipp meldet sich, wenn einer davon 90 % erreicht.",
   3363: "Noch zu entdeckende Kraft: Jeder legendäre Gegenstand trägt eine, zufällig gewählt.",
+  3364: "Noch nie erlebter Segen: Jeder Tag bringt einen, spiel auch an anderen Tagen.",
 };

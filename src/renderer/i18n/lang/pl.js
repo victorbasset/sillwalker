@@ -2236,4 +2236,5 @@ export default {
   3361: "Osiągnięcia: niejasne nazwy (Zwornik, Czyste serce, Rozproszone echo…) po najechaniu mówią, co zrobić.",
   3362: "Osiągnięcia: trzy najbliższe wyróżniają się złotem; wskazówka daje znać, gdy jedno z nich dojdzie do 90 %.",
   3363: "Moc do odkrycia: każdy legendarny przedmiot ma jedną, losowaną.",
+  3364: "Błogosławieństwo jeszcze nieprzeżyte: każdy dzień przynosi jedno, wracaj grać w inne dni.",
 };

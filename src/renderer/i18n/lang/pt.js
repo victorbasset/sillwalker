@@ -2236,4 +2236,5 @@ export default {
   3361: "Conquistas: os nomes obscuros (Pedra angular, Coração puro, Eco dissipado…) dizem ao passar o mouse o que fazer.",
   3362: "Conquistas: as três mais próximas se destacam em ouro; uma dica avisa quando uma delas chega a 90 %.",
   3363: "Poder a descobrir: cada item lendário traz um, sorteado ao acaso.",
+  3364: "Bênção ainda não vivida: cada dia traz uma, volte para jogar em outros dias.",
 };
