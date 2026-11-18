@@ -2183,4 +2183,5 @@ export default {
   3308: "Maestrías: «Conservar las bonificaciones actuales» confirma de un clic los niveles pendientes y apaga el recordatorio.",
   3309: "Bestiario: los nombres largos se escriben más pequeños en lugar de cortarse.",
   3310: "Con el teclado, Tab también llega a los ⓘ y muestra su ayuda.",
+  3311: "Consejo: en la bolsa (Aventura), marca la venta automática de los objetos más débiles: ya no ocuparán el sitio del botín.",
 };

@@ -2183,4 +2183,5 @@ export default {
   3308: "Maestrias: “Manter os bônus atuais” confirma num clique os níveis pendentes e desliga o lembrete.",
   3309: "Bestiário: os nomes longos ficam menores em vez de cortados.",
   3310: "Pelo teclado, Tab também alcança os ⓘ e mostra a ajuda deles.",
+  3311: "Dica: na bolsa (Aventura), marque a venda automática dos itens mais fracos: eles não vão mais ocupar o lugar do saque.",
 };

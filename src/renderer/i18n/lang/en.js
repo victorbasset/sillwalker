@@ -2183,4 +2183,5 @@ export default {
   3308: "Masteries: “Keep current bonuses” confirms the pending tiers in one click and turns the reminder off.",
   3309: "Bestiary: long names are written smaller instead of being cut off.",
   3310: "With the keyboard, Tab also reaches the ⓘ and shows their help.",
+  3311: "Tip: in the bag (Adventure), tick automatic selling of the weakest items: they will no longer take the loot’s place.",
 };

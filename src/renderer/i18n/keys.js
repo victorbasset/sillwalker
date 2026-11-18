@@ -3312,5 +3312,6 @@ export const KEYS = [
   "Boutique : avec le sac plein, une amélioration du Marchand s’achète quand même, équipée aussitôt ; l’ancienne pièce est vendue (jamais une pièce précieuse) et la bulle le dit avant le clic.",
   "Maîtrises : « Garder les bonus actuels » valide d’un clic les paliers en attente et éteint le rappel.",
   "Bestiaire : les noms longs s’écrivent plus petit au lieu d’être coupés.",
-  "Au clavier, Tab atteint aussi les ⓘ et montre leur aide."
+  "Au clavier, Tab atteint aussi les ⓘ et montre leur aide.",
+  "Astuce : dans le sac (Aventure), coche la vente automatique des objets les plus faibles : ils ne prendront plus la place du butin."
 ];

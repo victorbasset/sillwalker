@@ -2183,4 +2183,5 @@ export default {
   3308: "Mistrzostwa: „Zachowaj obecne premie” zatwierdza jednym kliknięciem oczekujące progi i wyłącza przypomnienie.",
   3309: "Bestiariusz: długie nazwy są pisane mniejszą czcionką zamiast obcinane.",
   3310: "Z klawiatury Tab dociera też do ⓘ i pokazuje ich pomoc.",
+  3311: "Wskazówka: w torbie (Przygoda) zaznacz automatyczną sprzedaż najsłabszych przedmiotów: nie będą już zajmować miejsca łupów.",
 };

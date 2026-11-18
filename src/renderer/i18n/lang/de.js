@@ -2183,4 +2183,5 @@ export default {
   3308: "Meisterschaften: „Aktuelle Boni behalten“ bestätigt die offenen Stufen mit einem Klick und schaltet die Erinnerung ab.",
   3309: "Bestiarium: Lange Namen werden kleiner geschrieben statt abgeschnitten.",
   3310: "Per Tastatur erreicht Tab auch die ⓘ und zeigt ihre Hilfe.",
+  3311: "Tipp: In der Tasche (Abenteuer) den automatischen Verkauf der schwächsten Gegenstände ankreuzen: Sie nehmen der Beute keinen Platz mehr weg.",
 };
