@@ -2239,4 +2239,5 @@ export default {
   3364: "Błogosławieństwo jeszcze nieprzeżyte: każdy dzień przynosi jedno, wracaj grać w inne dni.",
   3365: "Bestiariusz: to, co zostało do odkrycia, po najechaniu mówi, gdzie to znaleźć (potwór – jego strefa; moc – na legendarnych; błogosławieństwo – w inne dni).",
   3366: "Następny etap: strefa {0}",
+  3367: "Dziennik podróży (Statystyki): pokazuje następny etap, a etapy poziomów nie wracają już przy każdym wniebowstąpieniu.",
 };

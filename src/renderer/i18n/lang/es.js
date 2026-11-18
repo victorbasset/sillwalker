@@ -2239,4 +2239,5 @@ export default {
   3364: "Bendición aún no vivida: cada día trae una, vuelve a jugar otros días.",
   3365: "Bestiario: lo que queda por descubrir dice al pasar el ratón dónde encontrarlo (un monstruo, su zona; un poder, en los legendarios; una bendición, otros días).",
   3366: "Próxima etapa: zona {0}",
+  3367: "Cuaderno de ruta (Estadísticas): anuncia su próxima etapa, y las etapas de nivel ya no vuelven en cada ascensión.",
 };

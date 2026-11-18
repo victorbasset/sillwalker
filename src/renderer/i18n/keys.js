@@ -3368,5 +3368,6 @@ export const KEYS = [
   "Pouvoir à découvrir : chaque objet légendaire en porte un, tiré au hasard.",
   "Bénédiction encore jamais vécue : chaque jour en apporte une, reviens jouer d’autres jours.",
   "Bestiaire : ce qui reste à découvrir dit au survol où le trouver (un monstre, sa zone ; un pouvoir, sur les légendaires ; une bénédiction, d’autres jours).",
-  "Prochaine étape : zone {0}"
+  "Prochaine étape : zone {0}",
+  "Carnet de route (Statistiques) : il annonce sa prochaine étape, et les paliers de niveau n’y reviennent plus à chaque ascension."
 ];

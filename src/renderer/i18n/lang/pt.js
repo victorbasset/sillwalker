@@ -2239,4 +2239,5 @@ export default {
   3364: "Bênção ainda não vivida: cada dia traz uma, volte para jogar em outros dias.",
   3365: "Bestiário: o que falta descobrir diz ao passar o mouse onde encontrar (um monstro, sua zona; um poder, nos lendários; uma bênção, em outros dias).",
   3366: "Próxima etapa: zona {0}",
+  3367: "Diário de bordo (Estatísticas): ele anuncia a próxima etapa, e as etapas de nível não voltam mais a cada ascensão.",
 };

@@ -2239,4 +2239,5 @@ export default {
   3364: "Blessing not yet experienced: each day brings one, come back and play on other days.",
   3365: "Bestiary: what is left to discover now says on hover where to find it (a monster, its zone; a power, on legendaries; a blessing, on other days).",
   3366: "Next milestone: zone {0}",
+  3367: "Logbook (Statistics): it shows its next milestone, and level milestones no longer come back with every ascension.",
 };
