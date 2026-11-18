@@ -1840,6 +1840,21 @@ test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   });
 }
 
+test("quêtes : pas de quête d'expéditions avant le Chenil des explorateurs (it. 2243)", () => {
+  const g = new Game(freshState()); delete g.S.unlocks.expeditions;
+  g.S.pets.owned = { cat: { lvl: 1, xp: 0 }, fox: { lvl: 1, xp: 0 } };
+  for (let k = 0; k < 400; k++) assert.notEqual(makeQuest(g.S, 1000 + k, []).kind, "expedition", "tirée sans le Chenil");
+  // une sauvegarde qui en contient déjà une (impossible) : remplacée au chargement
+  g.S.quests.slots[0] = { uid: 999, kind: "expedition", goal: 2, progress: 0, reward: { gold: 1 } };
+  g.ensureQuests();
+  assert.ok(!g.S.quests.slots.some((q) => q.kind === "expedition"), "remplacée");
+  assert.equal(g.S.quests.slots.length, 3);
+  // avec le Chenil, elle peut tomber
+  g.S.unlocks.expeditions = true; let seen = false;
+  for (let k = 0; k < 400 && !seen; k++) seen = makeQuest(g.S, 2000 + k, []).kind === "expedition";
+  assert.ok(seen, "jamais tirée avec le Chenil");
+});
+
 test("expéditions : « Emmener » rappelle un familier en route, sans butin (demande de Victor, it. 2208)", () => {
   const g = new Game(freshState()); g.S.unlocks.expeditions = true;
   g.S.pets.owned = { cat: { lvl: 3, xp: 0 }, fox: { lvl: 1, xp: 0 }, owl: { lvl: 1, xp: 0 } };

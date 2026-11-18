@@ -93,7 +93,8 @@ export const QUEST_TEMPLATES = {
   },
   expedition: {
     text: (q) => txn(q.goal, "Ramener {n} expédition de familier|Ramener {n} expéditions de familier"),
-    ok: (S) => Object.keys(S.pets.owned).length >= 2,
+    // (it. 2243) aussi le Chenil des explorateurs (zone 50) : avant, dès deux familiers (Ménagerie, zone 25) la quête pouvait tomber, impossible
+    ok: (S) => !!(S.unlocks && S.unlocks.expeditions) && Object.keys(S.pets.owned).length >= 2,
     make: (S) => ({ goal: randInt(1, 2), reward: { gold: Math.round(goldScale(S) * 100), egg: rand() < 0.5 } }),
   },
   transmute: {

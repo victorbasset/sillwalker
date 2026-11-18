@@ -2552,7 +2552,9 @@ export class Game {
     let added = false;
     // Quête illisible (type inconnu : sauvegarde d'une autre version ; chasse d'un monstre disparu) :
     // remplacée au lieu de casser l'onglet Quêtes.
-    const ok = Q.slots.filter((q) => q && QUEST_TEMPLATES[q.kind] && (q.kind !== "hunt" || MONSTERS[q.type]) && (q.kind !== "prey" || ELITE_AFFIXES[q.type]));
+    // (it. 2243) quête d'expéditions tirée avant le Chenil des explorateurs (impossible) : remplacée aussi, sauf si déjà accomplie
+    const ok = Q.slots.filter((q) => q && QUEST_TEMPLATES[q.kind] && (q.kind !== "hunt" || MONSTERS[q.type]) && (q.kind !== "prey" || ELITE_AFFIXES[q.type])
+      && !(q.kind === "expedition" && !hasUnlock(this.S, "expeditions") && !questDone(q)));
     if (ok.length !== Q.slots.length) { Q.slots = ok; added = true; }
     // Quêtes tirées avant la demande 19 : un œuf promis avant l'onglet Familiers devient un coffre (affichage compris).
     for (const q of Q.slots) if (q.reward && q.reward.egg && !eggsAllowed(this.S)) { fixQuestEgg(this.S, q.reward); added = true; }

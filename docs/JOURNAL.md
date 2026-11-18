@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2243, bug) : la quête « Ramener N expéditions » pouvait tomber dès deux familiers (Ménagerie, zone 25) alors que les
+  expéditions ne se débloquent qu'en zone 50 (Chenil des explorateurs, 87 M or) : quête impossible, à changer à la main. Exigée aussi la
+  possession du Chenil (comme forge et transmutation) ; une quête de ce genre déjà tirée, non accomplie, est remplacée au chargement
+  (ensureQuests). Test logique ; save-fuzz « ok » ; 362 tests, 297/297.
 - 2026-11-18 (it. 2242, langues) : fin de la vérification « tout seul » : portugais « sozinho » sans ambiguïté (≠ « só », seulement) ;
   plus aucun « samodzielnie » (pl) ni « selbst …en » (de) dans un libellé à l'infinitif. Rien d'autre à corriger.
 - 2026-11-18 (it. 2241, REVUE GÉNÉRALE) : 12 h : barde 69, arbalétrier 65, gladiateur 65 (une graine) ; --perf : bande 18,6 %, panneau
