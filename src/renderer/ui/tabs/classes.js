@@ -108,11 +108,14 @@ export class ClassesTab {
     // Sorts et attaque (ancien « Style de combat ») : son propre sous-onglet (demande 18) ; les autres montrent les cartes des héros.
     // (it. 1490) sous-section des sorts : les deux phrases d'introduction (duo, héros libérés) parlent des cartes des héros ;
     // masquées ici, elles laissent la place aux sorts du compagnon affichés en grand
-    const intro = this.sec === "style" ? "" : `${duoNote}<p class="note tabintro"><b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}</p>`;
+    // (it. 2146) la phrase « N / 20 héros libérés… » (règle, pas un état : le nombre est sur le sous-onglet) passe dans un ⓘ à côté des
+    // sous-onglets ; la note du duo, elle, reste (elle dit ce qu'apporte le compagnon)
+    const freedHelp = `${`<b>${freed} / ${CLASS_KEYS.length}</b> ${tx("héros libérés. On change de héros en faisant une")} <b>${tx("ascension")}</b>${fsp()}${tx(":\n      choisis ici le héros de ta prochaine aventure{0}. Les autres héros sont prisonniers d’un boss de zone.", { 0: S.nextCls ? ` ${tx("(actuellement :")} <b>${esc(CLASSES[S.nextCls].name)}</b>)` : "" })}`}`;
+    const intro = this.sec === "style" ? "" : duoNote;
     // (it. 1497) compteur des sorts appris : ceux du compagnon aussi (affichés en grand sur la même page)
     const spellPool = classSpells(S.cls).concat(S.partner && CLASSES[S.partner] ? classSpells(S.partner) : []);
     el.innerHTML = `${intro}
-      <div class="subrow">${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Sorts et attaque"), `${spellPool.filter((x) => spellRank(S, x.id) > 0).length} / ${spellPool.length}`]], this.sec, "c-sec")}${npcHTML("class", true)}</div>
+      <div class="subrow">${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Sorts et attaque"), `${spellPool.filter((x) => spellRank(S, x.id) > 0).length} / ${spellPool.length}`]], this.sec, "c-sec")}${this.sec === "style" ? "" : `<span class="help" title="${esc(freedHelp.replace(/<[^>]*>/g, "").replace(/\s+/g, " "))}">ⓘ</span>`}${npcHTML("class", true)}</div>
       ${this.sec === "style" ? this.spellsHTML(S) + style : `<div class="classgrid hscroll sec-${this.sec}" data-hs="heroes-${this.sec}">${cards}</div>`}`;
   }
 

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2146) : onglet Héros : la phrase « N / 20 héros libérés. On change de héros… » (une règle ; le nombre est sur le
+  sous-onglet) passe dans un ⓘ à côté des sous-onglets ; la note du duo (ce qu'apporte le compagnon) reste. Une ligne de moins en haut
+  de l'onglet. 283/283 ; lang-overflow 10 langues × 1280 / 1920 : rien.
 - 2026-11-18 (it. 2145, lisibilité) : Bestiaire : un nom trop long pour sa fiche passe en 11 px (taille déjà employée sur la fiche,
   même hauteur de ligne) au lieu d'être coupé : 19 noms entiers de plus en français (« Élémentaire de feu », « Grenouille toxique »),
   4 encore coupés (nom au survol) ; en allemand, 1. Mesure à l'image suivante, onglet affiché seulement. 283/283 ; lang-overflow
