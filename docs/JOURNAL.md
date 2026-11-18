@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2397, contrôle) : résumé d'absence de 8 h sur la fin de partie (graphe plein) à 1920 px : complet, cinq actions
+  directes à droite, aucun débordement ; « À faire » signale déjà les points du grand graphe (game.js, it. 1105). Rien à changer.
 - 2026-11-19 (it. 2396, doc) : POUR-VICTOR : section « Nuit du 18 au 19/11 » (retouches visibles des it. 2369-2395).
 - 2026-11-19 (it. 2395, contrôle) : info-probe en russe à 1280 px : IPROBE 0.
 - 2026-11-19 (it. 2394, doc) : CLAUDE.md : autotest ≈ 119 s pour 307 vérifications (mesuré).
