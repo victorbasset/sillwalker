@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2372, autotest) : le ▶ de la chronique « Le ciel rallumé » rejoue la libération (fenêtre ouverte puis fermée seule).
+  305/305.
 - 2026-11-18 (it. 2371, REVUE GÉNÉRALE) : 12 h : assassin 62, berserker 66, barde 65 ; --perf : 19,8 / 19,3 %, mini 5,6 %, icône 0,4 % ;
   Carte en espagnol à 1280 px (fin de partie) : propre ; --crawl en espagnol (fin de partie) : 682 clics, aucune erreur. Les 10
   langues ont été parcourues aujourd'hui.
