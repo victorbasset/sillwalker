@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2274, autotest) : « Agrandir le sac » dans le résumé d'absence : présent (sac plein, Atelier, or) et un clic passe
+  le sac de 24 à 30 places. 298/298.
 - 2026-11-18 (it. 2273) : « Quoi de neuf », édition 146 (sac plein : agrandir d'un clic et astuce ; liens des quêtes cachés quand un
   automatisme s'en charge ; clés 3344-3345 ; noms repris tels que traduits).
 - 2026-11-18 (it. 2272) : astuce de la bande « Ton sac est plein : le butin suivant reste au sol. L'Atelier (Boutique) l'agrandit de 6
