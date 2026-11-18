@@ -656,6 +656,9 @@ export class Panel {
     // Blocs repliables des onglets (data-keep) : rouverts s'ils l'étaient avant le nouveau rendu.
     for (const d of this.root.querySelectorAll("details[data-keep]")) if (this.kept.has(d.dataset.keep)) d.open = true;
     restoreHScroll(this.root, this.hs);
+    // (it. 2149, clavier) les ⓘ prennent le focus (Tab) : leur bulle s'affiche alors comme au survol (focusin, it. 853) ;
+    // avant, l'aide qu'ils portent était inaccessible sans souris
+    for (const h of this.root.querySelectorAll(".help:not([tabindex])")) { h.tabIndex = 0; h.setAttribute("role", "note"); }
     this.renderBadges();
     this.dirty = false;
   }
