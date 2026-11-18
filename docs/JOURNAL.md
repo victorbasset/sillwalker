@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2276, mesure + correction) : lang-overflow mesure le résumé d'absence au pire cas dans chaque langue (« absence-pire=N ») :
+  25 px en allemand et 9 en polonais à toutes les largeurs (colonne « À faire » de 320 px : actions sur deux lignes) → 380 px, plus rien.
+  ERREUR DE MÉTHODE découverte : « lang-overflow.mjs all 1280 » prenait « all » pour une langue inconnue (repli français) : mes mesures
+  « 10 langues × 1280 » des it. 2186-2275 ne couvraient qu'UNE langue (les mesures complètes sans argument, it. 2207, 2224, 2238, étaient
+  justes). « all » accepté désormais ; mesure complète réelle refaite : rien. La mesure du résumé, d'abord placée au milieu, changeait l'état
+  de la page (+5 à 7 px faussement comptés sur l'Aventure) : déplacée en dernier. CLAUDE.md complété. 298/298.
 - 2026-11-18 (it. 2275, plaisir de revenir) : « À faire » : « Atelier : améliorations permanentes à petit prix → » quand la moins chère
   coûte moins de 1 % de l'or (dev-data : 447 Md d'or, Atelier jamais utilisé) ; les prix montant vite, un joueur qui y investit ne le voit
   presque jamais (test logique). Pas en même temps que « Agrandir le sac » : la ligne de plus faisait défiler le résumé d'absence au pire

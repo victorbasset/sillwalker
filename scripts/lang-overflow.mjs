@@ -7,7 +7,10 @@ import os from "node:os";
 import path from "node:path";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const langs = (process.argv[2] || "fr,en,es,pt,de,pl,ru,zh,ja,ko").split(",");
+// (it. 2276) « all » = les 10 langues : avant, il était pris pour UNE langue inconnue (repli sur le français) et les mesures « all 1280 »
+// ne couvraient qu'une langue
+const ALL_LANGS = "fr,en,es,pt,de,pl,ru,zh,ja,ko";
+const langs = (!process.argv[2] || process.argv[2] === "all" ? ALL_LANGS : process.argv[2]).split(",");
 // (it. 1047) 1600 px aussi : écrans 1600 × 900, 1680 × 1050 ; la fin de partie y défilait en russe sans qu'aucune mesure le voie
 const widths = (process.argv[3] || "1920,1600,1366,1280").split(",").map(Number);
 const base = JSON.parse(fs.readFileSync(path.join(root, "dev-data", "save.json"), "utf8"));

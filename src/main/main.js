@@ -328,6 +328,11 @@ function start() {
             const d = document.querySelector("[data-keep=" + k + "]"); if (!d) continue; d.querySelector("summary").click();
             const m = document.getElementById("modal"), mb = m.querySelector(".panel"), mo = mb.scrollHeight - mb.clientHeight;
             if (mo > 2) out.push(k + "=" + mo); m.hidden = true; }
+          // (it. 2276) résumé d'absence au pire cas (mêmes données que l'autotest, it. 2143 : 21 lignes de bilan) dans CHAQUE langue et largeur
+          // (l'autotest ne le mesure qu'en français ; « À faire » s'allonge avec les déblocages) : « absence-pire=N ». EN DERNIER :
+          // afficher le résumé change l'état de la page (l'Aventure montre ensuite « Depuis ta dernière visite » : +5 à 7 px faussement comptés)
+          if (window.__showOffline) { const sum = { seconds: 30000, zone: "Z", duration: "8 h", kills: 1234, elites: 12, champions: 3, gold: 1e10, petGold: 2e9, xp: 3e8, newLevel: 1320, steps: [], kept: 5, best: 4, onGround: 22, feathers: 2, chests: 3, goblins: 4, poupouce: 1, questsDone: 6, spells: 3, forged: 4, anviled: 2, herbs: 5, traded: 2, transmuted: 9, petWork: 30, capH: 16 };
+            window.__showOffline(sum); const mb = document.querySelector("#modal .panel"), o = mb ? mb.scrollHeight - mb.clientHeight : 0; if (o > 2) out.push("absence-pire=" + o); document.querySelector("#modal").hidden = true; }
           return innerWidth + " " + (out.join(" ") || "aucun"); })()`).catch((e) => "erreur " + e.message);
         // (it. 1027) astuces : chacune dans la bulle (trois lignes au plus, it. 1026) ; celles qui seraient coupées par « … »
         const hc = await strip.win.webContents.executeJavaScript(`(async () => { const H = (await import("./ui/hints.js")).HINTS, G = window.__game,

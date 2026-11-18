@@ -1451,7 +1451,7 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .modalwide.offgrid > div > p { margin: 2px 0 4px; }
 .modalwide.offgrid .note { font-size: 12px; }
 #modal .panel:has(.offgrid.long) { max-width: 1150px; }
-.modalwide.offgrid.long { grid-template-columns: minmax(0, 1fr) 320px; }
+.modalwide.offgrid.long { grid-template-columns: minmax(0, 1fr) 380px; } /* (it. 2276) 320 → 380 px : en allemand, les actions de « À faire » passaient sur deux lignes (25 px de défilement au pire cas) */
 .modalwide.offgrid.long > div:first-child .lines { columns: 2; column-gap: 20px; }
 @media (max-width: 900px) { .modalwide.offgrid.long { grid-template-columns: 1fr; } }
 /* (it. 2143) « À faire maintenant » serré dans le résumé d'absence : 7 actions au pire cas */
