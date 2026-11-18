@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2143, plaisir de revenir) : résumé d'absence au pire cas (tous les gains et automatismes : 21 lignes) : 193 px de
+  défilement en russe à 1280 px. Bilan de plus de 11 lignes sur deux colonnes, fenêtre jusqu'à 1150 px, « À faire maintenant » en
+  colonne fixe de 320 px aux boutons resserrés : 0 px en russe, français et allemand. Autotest du pire cas ; 283/283.
 - 2026-11-18 (it. 2142) : « Quoi de neuf », édition 138 (retour d'absence, Talents au clavier, Compétences ; 4 nouveautés, 10 langues,
   clés 3300-3303). Trois éditions = 14 nouveautés : la fenêtre défilait de 11 px en fin de partie à 1280 px ; liste compacte dès 13
   (avant : au-delà de 14). Résumé d'absence : 7 px de trop dans l'autotest (plus de lignes que dans la capture) : interlignes resserrés.

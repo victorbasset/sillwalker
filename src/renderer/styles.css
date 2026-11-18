@@ -1442,6 +1442,13 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .modalwide.offgrid .lines li { padding-top: 1px; padding-bottom: 1px; }
 .modalwide.offgrid > div > p { margin: 2px 0 4px; }
 .modalwide.offgrid .note { font-size: 12px; }
+#modal .panel:has(.offgrid.long) { max-width: 1150px; }
+.modalwide.offgrid.long { grid-template-columns: minmax(0, 1fr) 320px; }
+.modalwide.offgrid.long > div:first-child .lines { columns: 2; column-gap: 20px; }
+@media (max-width: 900px) { .modalwide.offgrid.long { grid-template-columns: 1fr; } }
+/* (it. 2143) « À faire maintenant » serré dans le résumé d'absence : 7 actions au pire cas */
+.modalwide.offgrid .todo-h { margin: 0 0 4px; }
+.modalwide.offgrid .linkbtn { display: block; width: 100%; margin: 0 0 4px; padding: 3px 8px; font-size: 13px; line-height: 1.25; }
 @media (max-width: 900px) { .modalwide.offgrid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .modalwide .lines { columns: 1; } }
 .modalwide ul { columns: 2; column-gap: 28px; }

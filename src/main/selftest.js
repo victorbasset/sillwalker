@@ -163,6 +163,9 @@ async function runSelfTest(strip) {
   // (it. 2139) résumé d'absence sur deux colonnes : sans défilement (avant : 816 px de contenu pour 457 visibles)
   const awayScroll = await js("(() => { const b = document.querySelector('#modal .panel'); return b.scrollHeight - b.clientHeight; })()");
   check("résumé d'absence : rien ne défile (« À faire maintenant » visible)", awayScroll <= 1, awayScroll);
+  // (it. 2143) pire cas : tous les gains et automatismes à la fois (21 lignes de bilan) : sur deux colonnes, toujours sans défilement
+  const awayWorst = await js("(async () => { const sum = { seconds: 30000, zone: 'Z', duration: '8 h', kills: 1234, elites: 12, champions: 3, gold: 1e10, petGold: 2e9, xp: 3e8, newLevel: 1320, steps: [], kept: 5, best: 4, onGround: 22, feathers: 2, chests: 3, goblins: 4, poupouce: 1, questsDone: 6, spells: 3, forged: 4, anviled: 2, herbs: 5, traded: 2, transmuted: 9, petWork: 30, capH: 16 }; window.__showOffline(sum); await new Promise((r) => setTimeout(r, 300)); const b = document.querySelector('#modal .panel'), d = b.scrollHeight - b.clientHeight; document.querySelector('#modal').hidden = true; return d; })()");
+  check("résumé d'absence au pire cas (21 lignes) : rien ne défile", awayWorst <= 1, awayWorst);
   // (it. 2138) et la carte du héros résume l'absence (« Depuis ta dernière visite »), même après la fin de la bulle
   const sinceV = await js("JSON.stringify(window.__panel.sinceVisit && window.__panel.sinceVisit.kills)");
   check("panneau ouvert au retour : « Depuis ta dernière visite » couvre l'absence", +sinceV > 0, sinceV);

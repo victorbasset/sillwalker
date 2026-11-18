@@ -568,6 +568,9 @@ export class Panel {
       <p class="note">${sum.capped
         ? tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus. La constellation de la Lune l’allonge.", { 0: sum.capH })
         : tx("La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.", { 0: sum.capH || 8 })}</p></div></div>`;
+    // (it. 2143) bilan long (plus de 11 lignes : absence riche, tous les automatismes) : sur deux colonnes, les deux tiers de la
+    // largeur (pire cas mesuré : 21 lignes, 193 px de défilement en russe à 1280 px)
+    { const og = $(this.root, "#mbody .offgrid"); if (og && og.firstElementChild.querySelectorAll("li").length > 11) og.classList.add("long"); }
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
     // « Continuer » reçoit le focus sans faire défiler : le résumé s'ouvre en haut (titre et durée visibles).
