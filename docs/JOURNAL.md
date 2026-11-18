@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2219, contrôle) : textes coupés de l'Ascension (revue it. 2218) : « Rang suivant » des constellations (title de la
+  ligne : actuel + suivant) et bulle du PNJ compact (title : nom + réplique) se lisent en entier au survol. Rien à corriger.
 - 2026-11-18 (it. 2218, revue visuelle) : Boutique et Ascension à 1280 px en français : propres (sac plein : « Vendre les inutiles (24) »
   en avant, pièces moins bonnes en « Sac plein » ; bulle du PNJ et « Rang suivant » des constellations raccourcis par « … » dans des
   emplacements prévus pour). Rien à corriger.
