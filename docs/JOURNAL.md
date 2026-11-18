@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2225, contrôle) : début de partie inchangé. first-minutes : premier objet à 42-82 s, premier boss 70-82 s, onglet
+  Talents dès le premier boss, Boutique à 493-525 s ; tab-pace : talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12,
+  carte 11-14, bestiaire 13-18, ascension 20-41 min (3 graines).
 - 2026-11-18 (it. 2224, contrôle) : lang-overflow complet (10 langues, 4 largeurs, fin de partie, 130 %, max) après « Emmener » dans
   les expéditions et les Réglages Linux : rien. Masquage devant le plein écran : seulement dans le menu de l'icône sous Windows (rien à faire).
 - 2026-11-18 (it. 2223) : autotest « Linux : Réglages sans Windows ni case de démarrage » (window.__game retiré le temps d'un
