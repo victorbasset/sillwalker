@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2141, revue générale) : simulations 12 h : mage 64, rôdeur 65, nécromancien 63 ; perf bande 18,4 %, panneau 19,5 %,
+  mini 5,6 % ; --crawl en japonais après une absence de 3 h (résumé d'absence ouvert au passage) : 676 clics sans erreur. Rien à corriger.
 - 2026-11-18 (it. 2140) : résumé d'absence : meilleur butin ni dans le sac ni porté (vendu, sac plein) : « Épique · pas gardé » au lieu de
   « Épique » seul (on cherchait l'objet). Clé 3299 ; 282/282.
 - 2026-11-18 (it. 2139, plaisir de revenir) : résumé d'absence (« Pendant ton absence ») sur deux colonnes dans la grande fenêtre :
