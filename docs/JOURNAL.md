@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2257, revue) : résumé d'absence (3 h, français, 1280 px) : bilan clair à gauche, sept actions directes à droite
+  (quêtes, maîtrises, compétences, Carte du voyageur, sort, éclats, sac plein) ; tient sans défiler. Rien à corriger.
 - 2026-11-18 (it. 2256) : CLAUDE.md, pièges connus : objets tirés dans l'autotest (légendaire ≈ 1 %, Valet d'armes) et méthode pour un
   contrôle instable.
 - 2026-11-18 (it. 2255, vérification) : 91 victoires en 3 h d'absence (it. 2254) expliquées : zone 57, 12,1 M PV par monstre contre
