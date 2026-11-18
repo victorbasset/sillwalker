@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2383, contrôle) : save-fuzz dev / fin / 0.1.2 : ok (1267, 1225, 1169 corruptions).
 - 2026-11-18 (it. 2382, contrôle) : « Dépenser automatiquement » répartit aussi les points du grand graphe (ancienne sauvegarde à
   0/222 nœuds : rien ne reste bloqué) ; i18n-names après l'astuce skillpath : 25 écarts, les mêmes anciens faux positifs.
 - 2026-11-18 (it. 2381, REVUE GÉNÉRALE) : 12 h : moine 62, samouraï 65, prêtresse 64 ; --perf : 19,2 / 19,3 %, mini 5,6 %, icône 0,7 % ;
