@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2369) : bonus des paliers : largeur de la colonne du rang comptée double pour les caractères chinois, japonais et
+  coréens (« ランク 400 » remplissait la colonne, un sablier aurait débordé sur les boutons) ; lang-overflow de, ru, ja, ko à 1280 :
+  aucun défilement ; capture en japonais : marge suffisante. 304/304.
 - 2026-11-18 (it. 2368, contrôle) : fenêtre « What’s new in version 0.1.7 » en anglais à 1920 px (newsSeen 132) : 10 nouveautés sur deux
   colonnes, sans défilement.
 - 2026-11-18 (it. 2367, contrôle) : semaine, avant (11964efc) / après le grand graphe allégé : rôdeur 72 h 291 → 293, 120 h 335 → 349,
