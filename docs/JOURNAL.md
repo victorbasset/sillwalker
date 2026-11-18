@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2335, contrôles après le grand graphe allégé) : --crawl fin de partie 693 clics sans erreur ; stall-check 60 parties,
+  0 figées ; fuzz 1200 parties, 0 bloquées.
 - 2026-11-18 (it. 2334, SIGNALÉ PAR VICTOR, Mac) : fermer le panneau par la croix cachait la bande un court instant : setPanelOpen
   appelait win.blur() pour rendre la main à l'appli précédente, et sous macOS blur() passe la fenêtre derrière les autres
   (orderBack) jusqu'à ce que « toujours devant » la ramène. Plus de blur() sous macOS (le focus reste au jeu). À vérifier par Victor.
