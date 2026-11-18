@@ -56,6 +56,9 @@ export class BestiaryTab {
       if (!html) this.sec = "beasts";
     }
     el.innerHTML = `<div class="subrow">${this.jumpHTML()}${npcHTML("bestiary", true)}</div>` + (html || this.beastsHTML(S)); // (it. 1089) Fenouil
+    // (it. 2145) nom trop long pour sa fiche (« Élémentaire de… ») : en 11 px (taille déjà employée sur la fiche) plutôt que coupé ;
+    // mesuré à l'image suivante, seulement si l'onglet est affiché
+    if (!html) requestAnimationFrame(() => { if (!el.offsetParent) return; for (const n of el.querySelectorAll(".beast .nm")) if (n.scrollWidth > n.clientWidth + 1) n.classList.add("tight"); });
   }
 
   beastsHTML(S) {

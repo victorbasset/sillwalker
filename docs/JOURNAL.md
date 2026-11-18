@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2145, lisibilité) : Bestiaire : un nom trop long pour sa fiche passe en 11 px (taille déjà employée sur la fiche,
+  même hauteur de ligne) au lieu d'être coupé : 19 noms entiers de plus en français (« Élémentaire de feu », « Grenouille toxique »),
+  4 encore coupés (nom au survol) ; en allemand, 1. Mesure à l'image suivante, onglet affiché seulement. 283/283 ; lang-overflow
+  10 langues × 1280 / 1920 : rien.
 - 2026-11-18 (it. 2144) : mode mini au retour d'absence vu en capture (ru, fr) : point d'astuce avec le résumé au survol, comme prévu.
   docs/POUR-VICTOR.md : ce qui reste à essayer sous Windows après la nuit (Talents à la souris et au clavier, confirmations, retour
   d'absence).
