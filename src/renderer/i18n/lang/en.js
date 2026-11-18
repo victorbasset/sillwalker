@@ -2188,4 +2188,8 @@ export default {
   3313: "It is rare (one in ten) and so is its reward; a new quest will replace it.",
   3314: "Replace",
   3315: "Talents: move around the grid",
+  3316: "Bag: after a sale, the next item is selected; sell one after another without clicking back in the bag.",
+  3317: "Quests: replacing a rare 3-star quest asks for confirmation.",
+  3318: "Talents: the arrow keys move around the grid.",
+  3319: "Windows: with the keyboard, Tab stays inside the open window and focus returns where it was when it closes.",
 };

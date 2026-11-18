@@ -2188,4 +2188,8 @@ export default {
   3313: "Sie ist selten (eine von zehn) und ihre Belohnung auch; eine neue Quest ersetzt sie.",
   3314: "Austauschen",
   3315: "Talente: im Raster bewegen",
+  3316: "Tasche: Nach einem Verkauf ist der nächste Gegenstand ausgewählt; Verkäufe lassen sich aneinanderreihen, ohne erneut in die Tasche zu klicken.",
+  3317: "Quests: Das Austauschen einer seltenen 3-Sterne-Quest muss bestätigt werden.",
+  3318: "Talente: Die Pfeiltasten bewegen sich im Raster.",
+  3319: "Fenster: Per Tastatur bleibt Tab im geöffneten Fenster, und der Fokus kehrt beim Schließen dorthin zurück, wo er war.",
 };

@@ -3317,5 +3317,9 @@ export const KEYS = [
   "Changer cette quête 3 étoiles ?",
   "Elle est rare (une sur dix) et sa récompense aussi ; une nouvelle quête la remplacera.",
   "Changer",
-  "Talents : se déplacer dans la grille"
+  "Talents : se déplacer dans la grille",
+  "Sac : après une vente, l’objet suivant est sélectionné ; on enchaîne les ventes sans recliquer dans le sac.",
+  "Quêtes : changer une quête 3 étoiles, rare, demande confirmation.",
+  "Talents : les flèches du clavier se déplacent dans la grille.",
+  "Fenêtres : au clavier, Tab reste dans la fenêtre ouverte et le focus revient où il était quand elle se ferme."
 ];

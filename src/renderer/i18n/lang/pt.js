@@ -2188,4 +2188,8 @@ export default {
   3313: "Ela é rara (uma em dez) e a recompensa também; uma nova missão vai substituí-la.",
   3314: "Trocar",
   3315: "Talentos: mover-se pela grade",
+  3316: "Bolsa: após uma venda, o item seguinte fica selecionado; as vendas se encadeiam sem clicar de novo na bolsa.",
+  3317: "Missões: trocar uma missão de 3 estrelas, rara, pede confirmação.",
+  3318: "Talentos: as setas do teclado se movem pela grade.",
+  3319: "Janelas: pelo teclado, Tab fica dentro da janela aberta e o foco volta para onde estava quando ela fecha.",
 };

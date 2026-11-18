@@ -2188,4 +2188,8 @@ export default {
   3313: "Jest rzadkie (jedno na dziesięć), podobnie jak jego nagroda; zastąpi je nowe zadanie.",
   3314: "Zmień",
   3315: "Talenty: poruszanie się po siatce",
+  3316: "Torba: po sprzedaży zaznaczony jest kolejny przedmiot; sprzedaje się jeden po drugim bez ponownego klikania w torbę.",
+  3317: "Zadania: zmiana rzadkiego zadania 3-gwiazdkowego wymaga potwierdzenia.",
+  3318: "Talenty: strzałki na klawiaturze poruszają się po siatce.",
+  3319: "Okna: z klawiatury Tab zostaje w otwartym oknie, a fokus wraca na miejsce po jego zamknięciu.",
 };

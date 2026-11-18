@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2175) : « Quoi de neuf », édition 140 (ventes enchaînées, quêtes 3 étoiles, flèches des Talents, focus des fenêtres ;
+  4 nouveautés, 10 langues, clés 3316-3319). --crawl : 455 clics sans erreur après l'auto-sélection des ventes ; 291/291 ;
+  lang-overflow 10 langues × 1280 : rien.
 - 2026-11-18 (it. 2174, moins de clics) : après la vente d'un objet depuis son détail, celui qui prend sa place dans le sac est
   sélectionné (ventes enchaînées sans recliquer dans le sac) ; garde-fou : un second « Vendre » à moins de 350 ms d'une vente est
   ignoré (un double clic n'en vend pas deux). Autotest ; 291/291.

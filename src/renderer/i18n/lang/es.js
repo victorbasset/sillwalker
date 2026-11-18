@@ -2188,4 +2188,8 @@ export default {
   3313: "Es rara (una de cada diez) y su recompensa también; una nueva misión la sustituirá.",
   3314: "Cambiar",
   3315: "Talentos: moverse por la cuadrícula",
+  3316: "Bolsa: tras una venta, se selecciona el objeto siguiente; se encadenan las ventas sin volver a pulsar en la bolsa.",
+  3317: "Misiones: cambiar una misión de 3 estrellas, rara, pide confirmación.",
+  3318: "Talentos: las flechas del teclado se mueven por la cuadrícula.",
+  3319: "Ventanas: con el teclado, Tab se queda en la ventana abierta y el foco vuelve a su sitio al cerrarla.",
 };
