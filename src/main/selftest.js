@@ -1172,7 +1172,7 @@ async function runSelfTest(strip) {
     const k = Math.max(...rms) / Math.min(...rms);
     return (bad.join(" ") || "ok") + " rapport " + k.toFixed(2) + " [" + rms.map((r) => r.toFixed(3)).join(" ") + "]";
   } catch (e) { return "erreur " + e.message; } })()`);
-  check("musique : 4 morceaux décodés sans saturation, volumes proches", /^ok rapport /.test(mix) && +mix.split(" ")[2] < 1.3, mix);
+  check("musique : les 5 morceaux décodés sans saturation, volumes proches", /^ok rapport /.test(mix) && +mix.split(" ")[2] < 1.3, mix);
   const play = await js(`(async () => { try {
     const M = window.__music, G = window.__game, { trackIndex } = await import("./render/music.js");
     if (!M.enabled) return "désactivée";
