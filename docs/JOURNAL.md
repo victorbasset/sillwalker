@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2131, revue générale) : simulations 12 h : guerrier 62, paladin 65, assassin 60 ; perf bande 18,1 %, panneau 19,5 %,
+  mini 5,6 %, icône 0,5 % ; mode mini en français, anglais et coréen : lisible ; texte japonais (--dump-text) : aucun mot non traduit
+  (HP, Lv, pt, Shift, BGM voulus). Rien à corriger.
 - 2026-11-18 (it. 2130, mémoire) : mem-watch donnait 632 Mo (contre 589 avant la soirée) ; dichotomie par worktree : le saut vient de
   l'édition 137, pas du code : dev-data a des éditions non lues, et la bulle « Quoi de neuf » du lancement laisse 30 à 60 Mo de plus
   pendant toute la mesure (625 contre 595 avec les éditions lues). mem-watch.sh marque désormais les éditions lues dans sa copie
