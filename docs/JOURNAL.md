@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2391, REVUE GÉNÉRALE) : 12 h : gardien (starwarden) 65, paladin 65, nécromancien (necro) 62 ; --perf : 19,9 / 19,7 %,
+  mini 5,5 %, icône 0,6 % ; Héros en japonais à 1280 px (fin de partie) : propre. Rien à corriger.
 - 2026-11-19 (it. 2390) : Compétences : noms des nœuds (.lbl) 10 → 11 px. À 1280 px le graphe est à l'échelle 0,871 : 10 px rendus
   ≈ 8,7 px, « Жажда », « Тяжесть мира » (11 noms russes avec ж) en taches ; 11 px lisibles, 12 px nets (grands nœuds, déjà à 12).
   Sonde des chevauchements de, ru, pl à 1920 et 1280 : 120 noms, 0. 307/307.
