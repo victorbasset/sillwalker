@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2242, langues) : fin de la vérification « tout seul » : portugais « sozinho » sans ambiguïté (≠ « só », seulement) ;
+  plus aucun « samodzielnie » (pl) ni « selbst …en » (de) dans un libellé à l'infinitif. Rien d'autre à corriger.
 - 2026-11-18 (it. 2241, REVUE GÉNÉRALE) : 12 h : barde 69, arbalétrier 65, gladiateur 65 (une graine) ; --perf : bande 18,6 %, panneau
   18,9 %, mini 5,5 %, icône 0,4 % ; texte en russe (dev-data, fin de partie) : aucun mot non traduit ; captures Quêtes en allemand
   (« → Abenteuer ») et mini en japonais : propres. Rien à corriger.
