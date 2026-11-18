@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2395, contrôle) : info-probe en russe à 1280 px : IPROBE 0.
 - 2026-11-19 (it. 2394, doc) : CLAUDE.md : autotest ≈ 119 s pour 307 vérifications (mesuré).
 - 2026-11-19 (it. 2393, contrôle) : partie neuve en russe à 1280 px : emplacements vides (.lab 9 px) lisibles ; « Poupouce ×10. »
   = bénédiction du jour (nom propre, voulu).
