@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2371, REVUE GÉNÉRALE) : 12 h : assassin 62, berserker 66, barde 65 ; --perf : 19,8 / 19,3 %, mini 5,6 %, icône 0,4 % ;
+  Carte en espagnol à 1280 px (fin de partie) : propre ; --crawl en espagnol (fin de partie) : 682 clics, aucune erreur. Les 10
+  langues ont été parcourues aujourd'hui.
 - 2026-11-18 (it. 2370, contrôle) : --crawl en chinois sur la fin de partie : aucune erreur.
 - 2026-11-18 (it. 2369) : bonus des paliers : largeur de la colonne du rang comptée double pour les caractères chinois, japonais et
   coréens (« ランク 400 » remplissait la colonne, un sablier aurait débordé sur les boutons) ; lang-overflow de, ru, ja, ko à 1280 :
