@@ -4,6 +4,16 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Mi-journée du 18/11 (it. 2205-2249) : à regarder en jouant
+
+- **Familiers** : « Emmener » sur une expédition en cours la rappelle (sans butin) et équipe le familier ; niveau sous le nom.
+- **Quêtes** : un lien « → Aventure » / « → Familiers » sur les quêtes de forge, de transmutation et d'expéditions ; la quête
+  d'expéditions n'apparaît plus avant leur déblocage (elle était impossible entre les zones 25 et 50).
+- **Carte** : « En vente : … » et un lien vers la boutique quand la Carte du voyageur est achetable (avant : « Bientôt »).
+- **Traductions** : les cases d'automatisme disaient « moi-même » au lieu d'« automatiquement » en anglais, allemand, espagnol,
+  portugais, polonais et russe (« Spend on my own ») : corrigé.
+- **Linux** : Réglages sans « Windows » ni case de démarrage (sans effet sous Linux).
+
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 
 - ~~Mac : menu du clic droit sur le Dock au-dessus de la bande~~ : VÉRIFIÉ par Victor le 18/11 (« c'est bon sur mac »).
