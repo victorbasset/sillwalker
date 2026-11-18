@@ -275,7 +275,8 @@ export function migrate(raw) {
   { const z = +s.settings.uiScale; if (s.settings.uiScale != null && !(Number.isFinite(z) && z >= 1 && z <= 1.3)) delete s.settings.uiScale; }
   for (const k of ["musicVol", "ambVol", "fxVol"]) { const v = +s.settings[k]; s.settings[k] = Number.isFinite(v) ? Math.max(0, Math.min(2, v)) : 1; } // ambiance sonore des zones : active sauf refus explicite
   // (it. 1583) morceau gardé (Réglages > Son, 📌) : -1 = selon la zone, sinon 0 à 3
-  { const v = +s.settings.musicPin; s.settings.musicPin = Number.isInteger(v) && v >= 0 && v <= 3 ? v : -1; }
+  // (it. 2361) 5 morceaux depuis l'it. 2341 (render/music.js TRACKS : « La Dernière Étoile » = 4) : avant, l'épingler ne survivait pas au redémarrage
+  { const v = +s.settings.musicPin; s.settings.musicPin = Number.isInteger(v) && v >= 0 && v <= 4 ? v : -1; }
   // Informations de la bande : aux bords, au milieu, ou automatique (au milieu à partir de 2400 px)
   if (!["auto", "center", "edges"].includes(s.settings.hudPos)) s.settings.hudPos = "auto";
   // (it. 1531) barres de vie en haut de la bande : activées par défaut (anciennes sauvegardes comprises)

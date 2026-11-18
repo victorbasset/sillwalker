@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2361, REVUE GÉNÉRALE) : 12 h : moine 62, artificier 65, gardien des astres 65 ; --perf : 19,5 / 19,6 %, mini 5,5 %,
+  icône 0,5 % ; capture Réglages > Son en japonais : « La Dernière Étoile » épinglée revenait au morceau de la zone après un
+  redémarrage (state.js gardait musicPin de 0 à 3 seulement) : corrigé (0 à 4) et testé ; « 「最後の星」· エリア 200 » vérifié.
 - 2026-11-18 (it. 2360, contrôle) : --crawl en portugais sur dev-data : 502 clics, aucune erreur.
 - 2026-11-18 (it. 2359) : README, Histoire : musique de la zone 200 et cinématique de libération sur tout l'écran.
 - 2026-11-18 (it. 2358) : README à jour (grand graphe de 222 nœuds, trois voies libres, chemin le plus court ; 5 morceaux dont celui
