@@ -3331,5 +3331,7 @@ export const KEYS = [
   "Compétences : les flèches du clavier passent d’un nœud apprenable à l’autre.",
   "Bestiaire : plus aucun nom coupé ; un nom trop long passe sur deux lignes.",
   "Familiers : l’aide (ⓘ) passe en tête de la barre, où l’ombre du défilement ne la cache plus.",
-  "Japonais et coréen : deux bonus de talents reformulés pour se lire sans ambiguïté."
+  "Japonais et coréen : deux bonus de talents reformulés pour se lire sans ambiguïté.",
+  "rentre plus tôt de {0}, sans butin.",
+  "Rappelle ce familier de son expédition, sans butin, et l’emmène."
 ];

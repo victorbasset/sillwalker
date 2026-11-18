@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2208, demande de Victor) : Familiers : « Emmener » dans le cadre d'une expédition en cours : le familier est rappelé
+  sans butin (« tant pis si on gagne rien ») et devient le compagnon, d'un clic ; une expédition déjà finie est récupérée d'abord
+  (game.recallExpedition, setPet(id, recall)). Même ligne que « Grande expéd… · 7 h 59 » (aucune hauteur en plus) : le nom se
+  raccourcit, jamais la durée. Journal : « … rentre plus tôt de …, sans butin. » (clés 3330-3331). Test logique et autotest ;
+  lang-overflow 10 langues × 1280 : rien. 361 tests, 295/295.
 - 2026-11-18 (it. 2207) : Familiers : le niveau (« niv. 10 (max) ») toujours sous le nom (avant : à la ligne seulement pour les noms
   longs, Renardeau, Dragonnet : titres inégaux sur la capture de Victor). lang-overflow complet : rien. 294/294.
 - 2026-11-18 (it. 2206, Victor : « très moche ce que t'as fait avec le i ») : Familiers : le ⓘ, mis en tête à l'it. 2201, gardait sa

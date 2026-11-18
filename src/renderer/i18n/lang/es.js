@@ -2202,4 +2202,6 @@ export default {
   3327: "Bestiario: ningún nombre cortado; un nombre demasiado largo pasa a dos líneas.",
   3328: "Mascotas: la ayuda (ⓘ) pasa al inicio de la barra, donde la sombra del desplazamiento ya no la oculta.",
   3329: "Japonés y coreano: dos bonificaciones de talentos reformuladas para leerse sin ambigüedad.",
+  3330: "vuelve antes de tiempo de {0}, sin botín.",
+  3331: "Llama a esta mascota de vuelta de su expedición, sin botín, y la lleva contigo.",
 };

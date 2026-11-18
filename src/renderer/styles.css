@@ -1106,6 +1106,10 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Familiers (demande 18) : cartes plus basses. */
 .petcard .lines { font-size: 12px; }
 .petcard .expe { padding: 3px 8px; white-space: nowrap; }
+.petcard .expe > span { min-width: 0; display: flex; gap: .3em; white-space: nowrap; } /* (it. 2208) le nom se raccourcit, jamais la durée */
+.petcard .expe .exn { font-style: normal; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.petcard .expe > span > b { flex: none; }
+.petcard .expe > button.quiet { flex: none; font-size: 11px; padding: 2px 8px; } /* (it. 2208) « Emmener » : rappel sans butin */
 .petcard .expe.done { padding: 0; border: 0; }
 .petcard .expe.done button { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 #p-bag h2 .help { font-size: 13px; margin-left: 4px; font-weight: normal; }

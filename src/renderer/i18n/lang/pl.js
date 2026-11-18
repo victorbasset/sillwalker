@@ -2202,4 +2202,6 @@ export default {
   3327: "Bestiariusz: żadna nazwa nie jest już ucięta; zbyt długa przechodzi do dwóch linii.",
   3328: "Pupile: pomoc (ⓘ) trafia na początek paska, gdzie cień przewijania już jej nie zasłania.",
   3329: "Japoński i koreański: przeredagowano dwa bonusy talentów, by czytały się jednoznacznie.",
+  3330: "wraca wcześniej z: {0}, bez łupu.",
+  3331: "Przywołuje tego pupila z wyprawy, bez łupu, i zabiera go ze sobą.",
 };

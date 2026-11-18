@@ -26,8 +26,10 @@ export class PetsTab {
       // bouton côte à côte sortaient de la carte) ; « De retour de … ! » en infobulle
       if (done) return `<div class="expe done"><button class="primary" data-action="p-claim" data-id="${p.id}" title="${esc(tx("De retour de {0} !", { 0: lc(ex.name) }))}">${tx("Récupérer le butin")}</button></div>`;
       // Une ligne (demande 18) : « Voyage · 2 h 10 », la phrase complète en infobulle.
-      return `<div class="expe${done ? " done" : ""}" title="${esc(tx("En {0} · retour dans", { 0: lc(ex.name) }))}…"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `${esc(ex.name)} · <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
-        ${done ? `<button class="primary" data-action="p-claim" data-id="${p.id}">${tx("Récupérer le butin")}</button>` : ""}</div>`;
+      return `<div class="expe${done ? " done" : ""}" title="${esc(tx("En {0} · retour dans", { 0: lc(ex.name) }))}…"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `<i class="exn">${esc(ex.name)}</i> · <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
+        ${done ? `<button class="primary" data-action="p-claim" data-id="${p.id}">${tx("Récupérer le butin")}</button>` : `<button class="quiet" data-action="p-set" data-id="${p.id}" title="${esc(tx("Rappelle ce familier de son expédition, sans butin, et l’emmène."))}">${tx("Emmener")}</button>`}</div>`;
+      // (it. 2208, demande de Victor) « Emmener » dans le cadre de l'expédition en cours : rappel sans butin, sur la même ligne (aucune
+      // hauteur en plus, aligné sur toutes les cartes)
     }
     if (active || !hasUnlock(this.game.S, "expeditions")) return "";
     // (it. 714, signalé par Victor) une seule ligne : la durée sur le bouton, le nom en infobulle (« Balade · 30 min »,
@@ -90,7 +92,7 @@ export class PetsTab {
   onAction(a, b) {
     if (a === "p-sec") { this.sec = b.dataset.to; return; }
     if (a === "p-hatch") this.game.hatchEgg();
-    else if (a === "p-set") this.game.setPet(b.dataset.id);
+    else if (a === "p-set") this.game.setPet(b.dataset.id, true); // (it. 2208) en expédition : rappelé sans butin
     else if (a === "p-exp") this.game.sendExpedition(b.dataset.id, b.dataset.kind);
     else if (a === "p-claim") this.game.claimExpedition(b.dataset.id);
     else if (a === "p-claimall") this.game.claimAllExpeditions();

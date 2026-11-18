@@ -2202,4 +2202,6 @@ export default {
   3327: "Bestiarium: Keine abgeschnittenen Namen mehr; ein zu langer Name bricht in zwei Zeilen um.",
   3328: "Begleiter: Die Hilfe (ⓘ) steht jetzt am Anfang der Leiste, wo der Schatten des Bildlaufs sie nicht mehr verdeckt.",
   3329: "Japanisch und Koreanisch: Zwei Talentboni neu formuliert, damit sie eindeutig lesbar sind.",
+  3330: "kehrt früher zurück von: {0}, ohne Beute.",
+  3331: "Ruft diesen Begleiter ohne Beute von seiner Expedition zurück und nimmt ihn mit.",
 };

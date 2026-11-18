@@ -2202,4 +2202,6 @@ export default {
   3327: "Bestiary: no more cut-off names; a name that is too long wraps onto two lines.",
   3328: "Pets: the help (ⓘ) moves to the start of the bar, where the scroll shadow no longer hides it.",
   3329: "Japanese and Korean: two talent bonuses reworded to read unambiguously.",
+  3330: "comes back early from {0}, with no loot.",
+  3331: "Calls this pet back from its expedition, with no loot, and takes it along.",
 };

@@ -1840,6 +1840,21 @@ test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   });
 }
 
+test("expéditions : « Emmener » rappelle un familier en route, sans butin (demande de Victor, it. 2208)", () => {
+  const g = new Game(freshState()); g.S.unlocks.expeditions = true;
+  g.S.pets.owned = { cat: { lvl: 3, xp: 0 }, fox: { lvl: 1, xp: 0 }, owl: { lvl: 1, xp: 0 } };
+  g.S.pets.active = "cat"; g.S.pets.exp = {};
+  const now = Date.now();
+  g.S.pets.exp.fox = { kind: "long", start: now - 60000, end: now + 3600000 };
+  const gold0 = g.S.gold;
+  assert.ok(!g.setPet("fox"), "sans rappel : refusé, comme avant");
+  assert.ok(g.setPet("fox", true), "avec rappel : emmené");
+  assert.equal(g.S.pets.active, "fox"); assert.ok(!g.S.pets.exp.fox, "plus en expédition"); assert.equal(g.S.gold, gold0, "sans butin");
+  // expédition déjà terminée : le butin est récupéré, rien n'est perdu
+  g.S.pets.exp.owl = { kind: "short", start: now - 9e6, end: now - 1000 };
+  assert.ok(g.setPet("owl", true)); assert.equal(g.S.pets.active, "owl"); assert.ok(g.S.gold > gold0, "butin récupéré");
+});
+
 test("expéditions des familiers", () => {
   const g = new Game(freshState());
   g.S.pets.owned = { cat: { lvl: 3, xp: 0 }, fox: { lvl: 1, xp: 0 } };

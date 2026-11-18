@@ -2952,9 +2952,23 @@ export class Game {
 
   claimAllExpeditions(now = Date.now()) { if (!hasUnlock(this.S, "petBulk")) return []; return this.expeditionsReady(now).map((id) => this.claimExpedition(id, now)).filter(Boolean); }
 
-  setPet(id) {
+  /** (it. 2208, demande de Victor) rappelle un familier en expédition, sans butin (« tant pis si on gagne rien ») ; une expédition
+   *  déjà terminée est récupérée, rien n'est perdu. Renvoie true si le familier est libre ensuite. */
+  recallExpedition(id, now = Date.now()) {
+    const P = this.S.pets, e = P.exp && P.exp[id];
+    if (!e) return true;
+    if (e.end <= now) return !!this.claimExpedition(id, now) || !(P.exp && P.exp[id]);
+    delete P.exp[id];
+    const ex = EXPEDITIONS[e.kind];
+    if (!this._quiet && PET_INDEX[id]) this.log(`${PET_INDEX[id].name} ${tx("rentre plus tôt de {0}, sans butin.", { 0: ex ? lc(ex.name) : "" })}`);
+    this.changed();
+    return true;
+  }
+
+  /** Emmène un familier. (it. 2208) recall : s'il est en expédition, le rappelle d'abord (bouton « Emmener » de sa carte). */
+  setPet(id, recall = false) {
     if (!this.S.pets.owned[id] || this.S.pets.active === id) return false;
-    if (this.S.pets.exp && this.S.pets.exp[id]) return false; // en expédition
+    if (this.S.pets.exp && this.S.pets.exp[id] && !(recall && this.recallExpedition(id))) return false; // en expédition
     this.S.pets.active = id;
     this.invalidateStats();
     this.changed();
