@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2377, test) : astuce skillpath : seulement après l'astuce d'ouverture, à 5 points libres, une seule fois. 369 tests.
 - 2026-11-18 (it. 2376) : astuce « skillpath » (une fois, après celle d'ouverture des Compétences, à 5 points libres) : un clic sur un
   nœud lointain prend le chemin le plus court ; 10 langues ; astuces dans la bulle (lang-overflow de, ru, pl). 306/306.
 - 2026-11-18 (it. 2375, contrôle) : lang-overflow 10 langues à 1920 px (après bonus des paliers et Réglages > Son) : aucun défilement.

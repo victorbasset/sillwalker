@@ -1167,6 +1167,21 @@ test("astuce duo : proposée quand un héros de l'autre portée est libre, plus 
   assert.ok(!duo(), "duo formé : plus d'astuce");
 });
 
+test("astuce skillpath (it. 2376) : après celle d'ouverture des Compétences, à 5 points libres seulement", () => {
+  const g = new Game(freshState()), S = g.S;
+  S.tabsOpen = { ...(S.tabsOpen || {}), skills: true };
+  S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((h) => h.id !== "skillpath" && h.id !== "skills").map((h) => [h.id, true]));
+  S.skills.order = []; S.lvl = 30;
+  const sp = () => (M_hints_js.nextHint(g) || {}).id === "skillpath";
+  assert.ok(!sp(), "astuce d'ouverture pas encore vue");
+  S.settings.hints.skills = true;
+  assert.ok(sp(), "15 points libres : l'astuce vient");
+  S.lvl = 8;
+  assert.ok(!sp(), "4 points libres : pas encore");
+  S.lvl = 30; markHint(g, "skillpath");
+  assert.ok(!sp(), "vue une fois : plus jamais");
+});
+
 test("plein écran (bon voisin) : états Windows lus, rien hors de Windows", () => {
   const fw = createRequire(import.meta.url)("../src/main/fullscreen-watch.js");
   assert.equal(fw.parseState("3\r"), true, "jeu D3D en plein écran");
