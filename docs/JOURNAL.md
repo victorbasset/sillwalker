@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2266) : Quêtes : pas de lien « → Familiers » sur la quête d'expéditions quand le Grand intendant est actif (elles
+  partent et reviennent toutes seules, rien à faire là-bas). 297/297.
 - 2026-11-18 (it. 2265) : CLAUDE.md : repère hero-table mis à jour (it. 2264 : 63,8, mage 61,0) et rappel « liste de graines ».
 - 2026-11-18 (it. 2264, équilibrage) : hero-table 20 héros × graines 7/3/11 : 63,8 (mage 61,0 le plus bas) contre 64,6 au commit d'avant
   la correction des quêtes (git worktree, mêmes graines) : −0,8 zone, sous le seuil de bruit (±1,5 ; balance.mjs : −0,1). Rien à régler.
