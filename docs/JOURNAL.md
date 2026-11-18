@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2334, SIGNALÉ PAR VICTOR, Mac) : fermer le panneau par la croix cachait la bande un court instant : setPanelOpen
+  appelait win.blur() pour rendre la main à l'appli précédente, et sous macOS blur() passe la fenêtre derrière les autres
+  (orderBack) jusqu'à ce que « toujours devant » la ramène. Plus de blur() sous macOS (le focus reste au jeu). À vérifier par Victor.
 - 2026-11-18 (it. 2333, DEMANDE DE VICTOR) : son de l'attaque à la vitesse de frappe : un coup toutes les 55 ms au plus (≈ 18 / s ;
   avant 140 ms, 7 / s, les coups suivants étaient muets) ; plus la cadence est rapide, plus le coup est bref et doux (×0,6 à la
   cadence maximale). Autotest : rafale de trois coups superposés, sans saturation. --perf : 18,4 / 19,3 % (inchangé). 302/302.

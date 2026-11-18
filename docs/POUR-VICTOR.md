@@ -29,6 +29,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   combien) ; clés de voûte sans malus (valeurs positives réduites d'autant). Ta partie : les nœuds des anciennes voies longues qui
   n'existent plus repartent, leurs points redeviennent libres (« Dépenser automatiquement » les replace). Même rythme mesuré sur
   une semaine simulée (350 / 350). Édition 151. À toi de dire si la densité te plaît (voies de 10 nœuds, anneau de 6).
+- **Son des coups (ta demande, it. 2333)** : il suit la vitesse de frappe jusqu'à ≈ 18 coups par seconde (avant 7), chaque coup plus
+  bref et doux quand ça va vite. Dis-moi si c'est trop présent.
+- **Mac (ta remarque, it. 2334)** : fermer le panneau par la croix ne devrait plus cacher la bande (cause : le jeu « rendait la main »
+  à l'appli précédente, ce qui sous macOS passe la fenêtre derrière les autres un instant). À vérifier chez toi.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 

@@ -152,7 +152,10 @@ class StripWindow {
 
   setPanelOpen(open) {
     this.panelOpen = !!open;
-    if (!open && this.win.isFocused()) this.win.blur(); // rend la main à l'appli précédente
+    // rend la main à l'appli précédente. (it. 2334, signalé par Victor : « quand je clique sur la croix pour fermer le
+    // panneau sur mon mac ça me cache la barre pendant un court instant ») sous macOS, blur() passe la fenêtre DERRIÈRE les
+    // autres (orderBack) : la bande disparaissait jusqu'à ce que le « toujours devant » la ramène. On garde le focus.
+    if (!open && this.win.isFocused() && process.platform !== "darwin") this.win.blur();
     this.notify();
   }
 
