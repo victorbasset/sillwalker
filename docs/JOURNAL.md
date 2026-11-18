@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2390) : Compétences : noms des nœuds (.lbl) 10 → 11 px. À 1280 px le graphe est à l'échelle 0,871 : 10 px rendus
+  ≈ 8,7 px, « Жажда », « Тяжесть мира » (11 noms russes avec ж) en taches ; 11 px lisibles, 12 px nets (grands nœuds, déjà à 12).
+  Sonde des chevauchements de, ru, pl à 1920 et 1280 : 120 noms, 0. 307/307.
 - 2026-11-19 (it. 2389) : Compétences : sous-titre des pétales (« Сердце зажжено », .corepct) en 10 px réduits par le zoom du graphe :
   « жж » effacé en russe à 1280 px (deux thèmes ; essai de la police seule : flou sous 11 px). Passé à 12 px (11 px : encore flou) :
   net, sans toucher le nom du pétale au-dessus. 307/307.
