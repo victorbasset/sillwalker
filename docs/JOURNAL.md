@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2261, REVUE GÉNÉRALE) : 12 h : rôdeur 65, nécromancien 62, paladin 69 (65 à l'it. 2211 : les quêtes tirées ont changé à
+  l'it. 2243, donc toute la trajectoire aléatoire ; bruit d'une graine) ; --perf : bande 18,1 %, panneau 19,4 %, mini 5,4 %, icône 0,8 % ;
+  captures Quêtes en espagnol (« → Aventura ») et mini en allemand : propres. Rien à corriger.
 - 2026-11-18 (it. 2260, contrôle) : save-fuzz après le remplacement des quêtes d'expéditions impossibles (it. 2243) : base 0.1.2,
   1169 corruptions ; fin de partie, 1225 : toutes « ok ».
 - 2026-11-18 (it. 2259) : CLAUDE.md : mem-watch panneau ouvert (MEM_ARGS="--open-panel"), repère 580-610 Mo et mesure de 10 min.
