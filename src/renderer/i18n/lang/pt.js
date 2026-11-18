@@ -2176,4 +2176,5 @@ export default {
   3301: "Ao voltar: o cartão do herói resume a sua ausência (Desde sua última visita), mesmo depois de reiniciar o jogo.",
   3302: "Talentos pelo teclado: o cartão segue o talento em foco, e Esc cancela um pedido de redefinição sem fechar o painel.",
   3303: "Habilidades: desfazer e redefinir ficam cinzentos até você pegar um nó.",
+  3304: "Clique: comprar e equipar; bolsa cheia, a peça antiga será vendida: {0}.",
 };

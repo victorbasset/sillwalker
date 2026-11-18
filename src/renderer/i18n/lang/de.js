@@ -2176,4 +2176,5 @@ export default {
   3301: "Rückkehr: Die Heldenkarte fasst deine Abwesenheit zusammen (Seit deinem letzten Besuch), auch nach einem Neustart des Spiels.",
   3302: "Talente per Tastatur: Die Karte folgt dem fokussierten Talent, und Esc bricht eine Zurücksetzungsanfrage ab, ohne das Panel zu schließen.",
   3303: "Fertigkeiten: Rückgängig und Zurücksetzen sind ausgegraut, solange kein Knoten genommen ist.",
+  3304: "Klick: kaufen und ausrüsten; Tasche voll, das alte Teil wird verkauft: {0}.",
 };

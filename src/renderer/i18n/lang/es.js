@@ -2176,4 +2176,5 @@ export default {
   3301: "Al volver: la ficha del héroe resume tu ausencia (Desde tu última visita), incluso tras reiniciar el juego.",
   3302: "Talentos con el teclado: la ficha sigue al talento con el foco, y Escape cancela una petición de reinicio sin cerrar el panel.",
   3303: "Habilidades: deshacer y reiniciar aparecen en gris hasta que tomas un nodo.",
+  3304: "Clic: comprar y equipar; bolsa llena, la pieza anterior se venderá: {0}.",
 };

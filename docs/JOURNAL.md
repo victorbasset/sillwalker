@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2155) : Boutique, sac plein : la bulle d'une amélioration dit avant le clic quelle pièce sera vendue (« sac plein,
+  l'ancienne pièce sera vendue : … », tournure sans accord). Clé 3304 ; autotest (la bulle mentionne la vente) ; 284/284.
 - 2026-11-18 (it. 2154, CORRECTION de l'it. 2153) : à sac plein, l'amélioration achetée faisait déborder le sac (25 / 24) quand
   l'emplacement était occupé (l'ancienne pièce s'y ajoutait ; le test logique avait un emplacement vide). Maintenant, comme le
   Marchand attitré (it. 738) : l'ancienne pièce est vendue ; achat refusé (« Sac plein ») si elle est précieuse (légendaire,

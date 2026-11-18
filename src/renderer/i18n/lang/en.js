@@ -2176,4 +2176,5 @@ export default {
   3301: "Coming back: the hero card sums up your absence (Since your last visit), even after restarting the game.",
   3302: "Talents with the keyboard: the card follows the focused talent, and Escape cancels a reset request without closing the panel.",
   3303: "Skills: undo and reset are greyed out until a node is taken.",
+  3304: "Click: buy and equip; bag full, the old piece will be sold: {0}.",
 };

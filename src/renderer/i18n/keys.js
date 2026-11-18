@@ -3305,5 +3305,6 @@ export const KEYS = [
   "Retour d’absence : le résumé détaillé tient sur deux colonnes, avec ce qu’il reste à faire visible d’emblée ; il s’ouvre aussi si tu ouvres le panneau pendant la bulle.",
   "Retour d’absence : la carte du héros résume l’absence (Depuis ta dernière visite), même après un redémarrage du jeu.",
   "Talents au clavier : la fiche suit le talent qui a le focus, et Échap annule une demande de réinitialisation sans fermer le panneau.",
-  "Compétences : annuler et réinitialiser sont grisés tant qu’aucun nœud n’est pris."
+  "Compétences : annuler et réinitialiser sont grisés tant qu’aucun nœud n’est pris.",
+  "Clic : acheter et équiper ; sac plein, l’ancienne pièce sera vendue : {0}."
 ];
