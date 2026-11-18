@@ -63,9 +63,9 @@ export function freshState(now = Date.now()) {
     skills: { order: [], outer: [] },  // arbre de compétences : nœuds choisis, dans l'ordre (conservé à l'ascension)
     // v6
     speed: 0,               // vitesse de déplacement permanente (%), voir events.js
-    // (it. 1679, demande de Victor) partie neuve : volume général 50 %, effets 20 %, musique 50 %, ambiance 100 % ; les
-    // sauvegardes existantes gardent leurs réglages (migrate : 1 par défaut pour un réglage absent)
-    settings: { hudBars: true, sound: true, soundOn2: true, music: true, muted: false, volume: 0.5, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 0.5, ambVol: 1, fxVol: 0.2, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
+    // (it. 1679, demande de Victor ; it. 2200, nouvelle demande) partie neuve : volume général 50 %, effets 10 %, musique 20 %,
+    // ambiance 100 % ; les sauvegardes existantes gardent leurs réglages (migrate : 1 par défaut pour un réglage absent)
+    settings: { hudBars: true, sound: true, soundOn2: true, music: true, muted: false, volume: 0.5, dayNight: true, damageNumbers: true, fullEffects: true, weather: true, eco: false, cinematics: true, zoneAmbience: true, musicVol: 0.2, ambVol: 1, fxVol: 0.1, newsSeen: 1, lang: null, theme: null }, // theme : null = sombre (défaut), "auto" (Windows), "light" ou "dark"
     daily: { last: null, streak: 0, seen: {} }, // récompense quotidienne (série de jours consécutifs) ; seen : bénédictions vécues (it. 1224)
     codex: {},              // collection d'objets { "slot:Type": meilleure rareté }, voir codex.js
     powersSeen: {},         // pouvoirs légendaires découverts { id: true }

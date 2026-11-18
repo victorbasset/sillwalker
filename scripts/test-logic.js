@@ -3664,10 +3664,10 @@ test("journal : heure de chaque ligne, alignée sur les lignes (it. 1800)", () =
   assert.ok(/<time class="lt">/.test(logHTML1715(["a"], 60, false, [Date.now()])), "affichée");
 });
 
-test("partie neuve : volumes par défaut (demande de Victor, it. 1679)", () => {
+test("partie neuve : volumes par défaut (demandes de Victor, it. 1679 et 2200)", () => {
   const P = freshState().settings;
-  assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.2, "effets 20 %");
-  assert.equal(P.musicVol, 0.5, "musique 50 %"); assert.equal(P.ambVol, 1, "ambiance 100 %");
+  assert.equal(P.volume, 0.5, "volume général 50 %"); assert.equal(P.fxVol, 0.1, "effets 10 %");
+  assert.equal(P.musicVol, 0.2, "musique 20 %"); assert.equal(P.ambVol, 1, "ambiance 100 %");
 });
 
 test("depuis ta dernière visite : gains affichés après 5 min, pas avant", () => {

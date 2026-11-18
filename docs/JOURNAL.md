@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2200, demande de Victor) : volumes d'une première installation : effets 10 % (avant 20), ambiance 100 %, musique 20 %
+  (avant 50), volume général 50 % ; les sauvegardes existantes gardent leurs réglages. Test mis à jour. 294/294.
 - 2026-11-18 (it. 2199, autotest) : la bulle du morceau de musique attendait les 6 s d'installation du jeu ; en dev, window.__musicSettle
   les raccourcit (le jeu distribué garde 6 s) : 7 s → 2,3 s ; autotest 123 → 109 s. 294/294.
 - 2026-11-18 (it. 2198, autotest) : SELFTEST_TIMES=1 affiche les 12 vérifications les plus lentes. Deux contrôles instables trouvés
