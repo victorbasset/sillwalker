@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2174, moins de clics) : après la vente d'un objet depuis son détail, celui qui prend sa place dans le sac est
+  sélectionné (ventes enchaînées sans recliquer dans le sac) ; garde-fou : un second « Vendre » à moins de 350 ms d'une vente est
+  ignoré (un double clic n'en vend pas deux). Autotest ; 291/291.
 - 2026-11-18 (it. 2173, découvrabilité) : la bulle de « Annuler le dernier » (Talents, Compétences) cite son raccourci « (Z) ».
   290/290.
 - 2026-11-18 (it. 2172) : docs/POUR-VICTOR.md complété (sac plein à la Boutique, bonus des maîtrises, clavier, confirmations des

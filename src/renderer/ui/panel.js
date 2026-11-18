@@ -1190,7 +1190,12 @@ export class Panel {
       case "desel": this.selected = null; break;
       case "equip": if (it) { g.equip(it); this.selected = { from: "equip", slot: it.slot }; } break;
       case "sell": if (it) {
-        const go = () => { g.sell(it); this.selected = null; g.R.manualSells = (g.R.manualSells || 0) + 1; this.renderAll(); }; // (it. 1546) astuce « bulksell » (hints.js)
+        // (it. 2174) l'objet suivant est sélectionné après une vente : un double clic involontaire en vendrait deux ; un second clic à
+        // moins de 350 ms est ignoré
+        if (Date.now() - (this.lastSellT || 0) < 350) return;
+        // (it. 2174, moins de clics) après la vente, l'objet qui prend sa place dans le sac est sélectionné : on enchaîne les ventes
+        const go = () => { this.lastSellT = Date.now(); const i = g.S.bag.findIndex((x) => x.id === it.id); g.sell(it); const nx = i >= 0 ? g.S.bag[i] || g.S.bag[i - 1] : null;
+          this.selected = nx ? { from: "bag", id: nx.id } : null; g.R.manualSells = (g.R.manualSells || 0) + 1; this.renderAll(); }; // (it. 1546) astuce « bulksell » (hints.js)
         // (it. 2127, ergonomie) objet précieux (légendaire, pièce de panoplie, forgé) : la vente, sans retour, se confirme ; les
         // autres se vendent d'un clic comme avant
         if (it.r >= LEGENDARY || it.set || it.plus > 0) {
