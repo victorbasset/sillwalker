@@ -49,6 +49,9 @@
 16. (it. 2148) Cohérence : la réinitialisation des talents se confirme dans la fenêtre du panneau, comme toutes les autres
    actions sans retour (étape 6 : dans la fiche) ; Échap et le fond l'annulent.
 
+17. (it. 2179) Entrer dans la fiche garde ce qu'elle montre (un talent ou une voie survolés sans clic) : son bouton reste
+   atteignable ; le retour au talent cliqué ne se fait que si la souris part ailleurs.
+
 ## Design visuel (Victor, it. 2104 : « c'est mieux mais le design est toujours pourri »)
 
 8. (it. 2105) Code d'état des lignes : presque toutes avaient le même cadre vert. Seules les lignes cliquables gardent le vert vif

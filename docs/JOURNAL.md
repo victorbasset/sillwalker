@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2179, Talents, la plainte d'origine) : survoler une voie (sans la cliquer) puis aller vers la fiche pour cliquer
+  « Choisir cette voie » : la fiche revenait au talent cliqué en 180 ms et le bouton disparaissait sous le curseur. Entrer dans la fiche
+  garde maintenant ce qu'elle montre ; le retour au talent cliqué ne se fait qu'ailleurs. Autotests (garder ; revenir hors de la
+  fiche) ; 292/292.
 - 2026-11-18 (it. 2178, enquête) : berserker 69 / 69 / 69 au tableau (graines 7, 3, 11) : sur les graines 21, 31, 41, 51 : 65, 65, 64,
   66 (mage 62, 59, 65, 61 ; paladin 69, 64, 61, 64). Moyenne sur 7 graines : 65,9 ; pas un héros trop fort, les trois graines du tableau
   lui sont favorables. Aucun réglage.

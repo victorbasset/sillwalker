@@ -230,10 +230,13 @@ export class TalentsTab {
    *  pause, ressenti comme un retard) ; hors des talents (vers la fiche, pour y cliquer), elle revient au talent CLIQUÉ (`pin`)
    *  après RESTORE_MS : traverser la grille en route ne fait plus perdre le bouton qu'on visait (voie, bonus).
    *  (it. 2094 : première réponse, l'intention de survol par une pause.) */
-  hover(id) {
+  hover(id, inFiche = false) {
     clearTimeout(this.hoverT);
     if (!this.root) return;
     if (id && TALENT_INDEX[id]) { this.show(id); return; }
+    // (it. 2179) la souris entre DANS la fiche (pour cliquer « Choisir cette voie », un bonus…) : elle garde ce qu'elle montre ; avant,
+    // elle revenait au talent cliqué et le bouton survolé sans clic disparaissait sous le curseur
+    if (inFiche) return;
     const back = this.pin && TALENT_INDEX[this.pin] ? this.pin : null;
     if (back && back !== this.sel) this.hoverT = setTimeout(() => this.show(back), RESTORE_MS);
   }

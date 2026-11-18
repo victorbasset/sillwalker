@@ -775,7 +775,7 @@ export class Panel {
 
   onHover(e) {
     // (it. 2094) hors d'un talent aussi : la pause en cours est annulée (traverser la grille ne change pas la fiche)
-    if (this.tab === "talents") { const tb = e.target.closest && e.target.closest("[data-tid]"); this.tabs.talents.hover(tb ? tb.dataset.tid : null); }
+    if (this.tab === "talents") { const tb = e.target.closest && e.target.closest("[data-tid]"); this.tabs.talents.hover(tb ? tb.dataset.tid : null, !!(e.target.closest && e.target.closest(".tdetail"))); }
     const b = e.target.closest && e.target.closest(".slot[data-from]");
     const it = b && (b.dataset.from === "bag" ? this.game.findBagItem(+b.dataset.id) : this.game.S.equip[b.dataset.slot]);
     if (!it) { this.tip.hidden = true; return; }
