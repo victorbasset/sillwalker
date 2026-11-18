@@ -50,8 +50,11 @@ function rewardHTML(rw) {
 // (it. 2233) quêtes qui demandent un geste ailleurs : un lien vers l'onglet où le faire (forger et transmuter : fiche d'un objet du
 // sac ; expéditions : Familiers). Nom de l'onglet tel qu'affiché dans la barre.
 const QUEST_GO = { forge: ["adventure", "Aventure"], transmute: ["adventure", "Aventure"], expedition: ["pets", "Familiers"] };
-// (it. 2266) Grand intendant actif : les expéditions partent et reviennent toutes seules, rien à faire là-bas : pas de lien
-const goLink = (kind, S) => { const g = QUEST_GO[kind]; if (!g || (kind === "expedition" && hasUnlock(S, "steward") && S.settings.autoPets !== false)) return "";
+// (it. 2266-2267) automatisme actif pour ce geste (Grand intendant, Maître de forge, Creuset perpétuel) : la quête avance toute seule,
+// rien à faire là-bas : pas de lien
+const QUEST_AUTO = { expedition: ["steward", "autoPets"], forge: ["masterForge", "autoForge"], transmute: ["crucible", "autoTransmute"] };
+const goLink = (kind, S) => { const g = QUEST_GO[kind], a = QUEST_AUTO[kind];
+  if (!g || (a && hasUnlock(S, a[0]) && S.settings[a[1]] !== false)) return "";
   return `<button class="linkbtn qgo" data-tab="${g[0]}">→ ${tx(g[1])}</button>`; };
 
 export class QuestsTab {

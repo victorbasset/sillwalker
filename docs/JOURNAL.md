@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2267) : Quêtes : lien vers l'onglet masqué aussi quand le Maître de forge (forge) ou le Creuset perpétuel (transmutation)
+  sont actifs, comme pour le Grand intendant (it. 2266) : la quête avance toute seule. Autotest rendu indépendant de ces automatismes. 297/297.
 - 2026-11-18 (it. 2266) : Quêtes : pas de lien « → Familiers » sur la quête d'expéditions quand le Grand intendant est actif (elles
   partent et reviennent toutes seules, rien à faire là-bas). 297/297.
 - 2026-11-18 (it. 2265) : CLAUDE.md : repère hero-table mis à jour (it. 2264 : 63,8, mage 61,0) et rappel « liste de graines ».
