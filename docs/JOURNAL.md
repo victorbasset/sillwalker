@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2366, contrôle) : Compétences en allemand à 1280 px (dev-data : fleur vide, 686 points, fichier inchangé depuis le
+  17/11 15:10, donc sans lien avec le grand graphe allégé, qui ne touche que skills.outer) : propre.
 - 2026-11-18 (it. 2365, contrôle) : fuzz (clés de voûte définitives) : 1200 parties, 0 bloquées.
 - 2026-11-18 (it. 2364, contrôle) : sonde des ⓘ cachés à 1280 px (fr, de) après les changements du jour : IPROBE 0.
 - 2026-11-18 (it. 2363) : POUR-VICTOR : correction du morceau épinglé notée pour la 0.1.8 ; stall-check : 60 parties, 0 figées.
