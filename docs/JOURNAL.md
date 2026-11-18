@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2385, contrôle) : Compétences de la fin de partie (grand graphe plein) en russe à 1280 px : graphe lisible, ligne
+  « Большой граф завершён · 140 лишних очков: +14 % … » juste.
 - 2026-11-19 (it. 2384) : sauvegarde de fin de partie (scripts/fixtures/endgame-save.json) : son grand graphe était vide depuis
   l'allègement (0/222 nœuds après sanitizeOuter) : lang-overflow, save-fuzz et stall-check « fin » mesuraient un état qu'aucun joueur
   avancé n'a. Graphe rempli par autoSpendGraph (222 nœuds), le reste inchangé (zone 150, utilisé aussi par les plans promo) ; test
