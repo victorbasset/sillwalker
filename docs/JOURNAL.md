@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2260, contrôle) : save-fuzz après le remplacement des quêtes d'expéditions impossibles (it. 2243) : base 0.1.2,
+  1169 corruptions ; fin de partie, 1225 : toutes « ok ».
 - 2026-11-18 (it. 2259) : CLAUDE.md : mem-watch panneau ouvert (MEM_ARGS="--open-panel"), repère 580-610 Mo et mesure de 10 min.
 - 2026-11-18 (it. 2258, contrôle) : mem-watch PANNEAU OUVERT (MEM_ARGS="--open-panel") : 5 min 585 → 609 Mo, puis 10 min : 580-610 Mo
   en dents de scie, plat vers 600 (le ramasse-miettes n'était pas encore passé) : pas de fuite.
