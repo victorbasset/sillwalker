@@ -2187,4 +2187,5 @@ export default {
   3312: "Diese 3-Sterne-Quest austauschen?",
   3313: "Sie ist selten (eine von zehn) und ihre Belohnung auch; eine neue Quest ersetzt sie.",
   3314: "Austauschen",
+  3315: "Talente: im Raster bewegen",
 };

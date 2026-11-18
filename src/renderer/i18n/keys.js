@@ -3316,5 +3316,6 @@ export const KEYS = [
   "Astuce : dans le sac (Aventure), coche la vente automatique des objets les plus faibles : ils ne prendront plus la place du butin.",
   "Changer cette quête 3 étoiles ?",
   "Elle est rare (une sur dix) et sa récompense aussi ; une nouvelle quête la remplacera.",
-  "Changer"
+  "Changer",
+  "Talents : se déplacer dans la grille"
 ];

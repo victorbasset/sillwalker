@@ -2187,4 +2187,5 @@ export default {
   3312: "Zmienić to zadanie 3-gwiazdkowe?",
   3313: "Jest rzadkie (jedno na dziesięć), podobnie jak jego nagroda; zastąpi je nowe zadanie.",
   3314: "Zmień",
+  3315: "Talenty: poruszanie się po siatce",
 };

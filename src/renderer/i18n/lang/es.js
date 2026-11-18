@@ -2187,4 +2187,5 @@ export default {
   3312: "¿Cambiar esta misión de 3 estrellas?",
   3313: "Es rara (una de cada diez) y su recompensa también; una nueva misión la sustituirá.",
   3314: "Cambiar",
+  3315: "Talentos: moverse por la cuadrícula",
 };

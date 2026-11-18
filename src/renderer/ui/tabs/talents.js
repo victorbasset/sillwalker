@@ -140,6 +140,21 @@ export class TalentsTab {
 
   /** (it. 855) Maj + Entrée (ou Espace) sur un talent : comme son petit bouton (« +1 » depuis l'it. 1080, « tout » pour une maîtrise). */
   onKey(e) {
+    // (it. 2167, clavier) flèches dans la grille : ↑ ↓ dans la branche (voie et maîtrises comprises), ← → vers la branche voisine au
+    // même rang (avant : seul Tab, dans l'ordre du document)
+    if (/^Arrow(Up|Down|Left|Right)$/.test(e.key) && !e.shiftKey && !e.ctrlKey && !e.altKey) {
+      const cur = e.target.closest && e.target.closest(".talent[data-tid]");
+      if (!cur || !this.root) return;
+      const cols = [...this.root.querySelectorAll(".tbranch")].map((b) => [...b.querySelectorAll(".talent[data-tid]")]).filter((c) => c.length);
+      const ci = cols.findIndex((c) => c.includes(cur)); if (ci < 0) return;
+      const ri = cols[ci].indexOf(cur);
+      let next = null;
+      if (e.key === "ArrowUp") next = cols[ci][ri - 1];
+      else if (e.key === "ArrowDown") next = cols[ci][ri + 1];
+      else { const c2 = cols[ci + (e.key === "ArrowRight" ? 1 : -1)]; if (c2) next = c2[Math.min(ri, c2.length - 1)]; }
+      if (next) { e.preventDefault(); next.focus(); }
+      return;
+    }
     if (!e.shiftKey || (e.key !== "Enter" && e.key !== " ")) return;
     const b = e.target.closest && e.target.closest('.talent[data-action="t-learn"]');
     if (!b) return;

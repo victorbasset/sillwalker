@@ -2187,4 +2187,5 @@ export default {
   3312: "Replace this 3-star quest?",
   3313: "It is rare (one in ten) and so is its reward; a new quest will replace it.",
   3314: "Replace",
+  3315: "Talents: move around the grid",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2167, clavier) : Talents : les flèches déplacent le focus dans la grille (↑ ↓ dans la branche, ← → vers la branche
+  voisine au même rang) ; la fiche suit (it. 2129). Ligne ajoutée aux raccourcis clavier (clé 3315 ; fenêtre sans défilement en ru et
+  de à 1280 px). Autotest ; 287/287.
 - 2026-11-18 (it. 2166, langues) : i18n-names après les ajouts de la nuit : 25 écarts, tous anciens (déclinaisons, faux positifs
   grammaticaux) ; aucun dans les clés de la nuit (3200 et plus).
 - 2026-11-18 (it. 2165, clavier) : Échap avec un objet sélectionné (Aventure) revient d'abord au sac ; un second Échap ferme le panneau
