@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2191, REVUE GÉNÉRALE) : 12 h : guerrier 62, mage 64, rôdeur 65 (habituel) ; --perf (copie neuve) : bande 17,9 %,
+  panneau 19,1 %, mini 5,5 %, icône 0,5 % (stable) ; texte en russe (dev-data et fin de partie) : aucun mot non traduit (Esc, Shift,
+  Poupouce, Qa / Qi, séparateur « --- attributs » de l'outil) ; captures Aventure (anglais), Talents (japonais), mini (japonais) :
+  propres. Rien à corriger.
 - 2026-11-18 (it. 2190) Bestiaire : plus aucun nom coupé. Un nom encore trop long en 11 px passe sur deux lignes (entre les mots ;
   fiche de 40 à 46 px) ; mesure refaite une fois les polices chargées (lettres russes arrivées après coup) et au centième de pixel
   (scrollWidth arrondi : « Каменный голе… » dépassait de moins d'un pixel). Fin de partie : 5 noms sur deux lignes en français, 9 en
