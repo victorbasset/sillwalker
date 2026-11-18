@@ -125,8 +125,10 @@ export class TalentsTab {
     // (it. 2110) mesuré à l'image suivante et une fois les polices chargées : au moment du dessin, la mise en page n'était pas
     // finie et une rangée restait coupée à mi-hauteur à 1920 px
     const fit = () => { const tbox = el.querySelector(".ttotal"); if (!tbox || !tbox.offsetHeight) return;
-      const chips = tbox.querySelectorAll(".chip"); for (const c of chips) c.hidden = false;
-      const lim = tbox.getBoundingClientRect().bottom + 0.5; for (const c of chips) if (c.getBoundingClientRect().bottom > lim) c.hidden = true; };
+      const chips = tbox.querySelectorAll(".chip"); tbox.classList.remove("empty"); for (const c of chips) c.hidden = false;
+      const lim = tbox.getBoundingClientRect().bottom + 0.5; let shown = 0; for (const c of chips) { if (c.getBoundingClientRect().bottom > lim) c.hidden = true; else shown++; }
+      // (it. 2133) aucune pastille ne tient (début de partie, grille basse) : le titre seul ne s'affiche pas
+      tbox.classList.toggle("empty", !shown); };
     fit(); requestAnimationFrame(fit); document.fonts?.ready.then(fit);
     if (!this.keysBound) {
       this.keysBound = true;

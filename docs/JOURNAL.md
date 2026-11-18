@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2133, début de partie) : Talents d'un nouveau joueur (niveau 12) vus en capture : le titre « Total des talents »
+  s'affichait seul, sans pastille (grille basse, aucune ne tenait) ; il se cache alors. Le reste se lit bien (« Au clic : +10 rangs →
+  +30 % attaque », paliers verrouillés « 🔒 5 »). 279/279.
 - 2026-11-18 (it. 2132, mémoire, CORRECTION de l'it. 2130) : la « bulle Quoi de neuf à +30-60 Mo » était du bruit. La bulle seule,
   rejouée par --stage : 618 puis 568 Mo ; avec une couche à part : 579 puis 622 Mo. mem-watch est bimodal (≈ 570 ou ≈ 625 Mo, même
   code) : la dichotomie à une mesure par commit avait désigné à tort l'édition 137. Rien à corriger dans le jeu ; avertissement écrit
@@ -7434,7 +7437,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- ÉCARTÉ (it. 2132 : bruit, voir Fait)(it. 2130) Mémoire : la bulle « Quoi de neuf » (toast de la bande, 15 s au lancement après une mise à jour) laisse 30 à 60 Mo
+- ÉCARTÉ (it. 2132 : bruit, voir Fait) (it. 2130) Mémoire : la bulle « Quoi de neuf » (toast de la bande, 15 s au lancement après une mise à jour) laisse 30 à 60 Mo
   de plus pendant toute la partie (mem-watch, MEM_NEWS=1 : 625 contre 595 Mo). Piste : une taille ou graisse de police propre au
   toast (CLAUDE.md, « Polices »), ou le texte rendu par-dessus la bande ; mesurer avec un toast d'un autre texte.
 - CLOS (it. 1785 : 96 cartes, 8 rangées, en russe à 1920 px et 85 à 1280 px : aucun débordement) P3 (revue it. 1741) Bestiaire : la grille fait exactement 7 rangées de 12 à 1920 px (84 monstres avec Poupouce) ; le prochain
