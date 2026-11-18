@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2194, contrôle langues) : les 38 libellés d'effets (EFFECTS, talents.js, communs aux talents, compétences,
+  maîtrises) dans les 9 langues : aucun ne commence plus par un nombre ou « HP 30 » ; aucune traduction ne colle « % » ou « {n} » à un
+  chiffre. Rien d'autre à corriger.
 - 2026-11-18 (it. 2193, langues) : suite de l'it. 2192, les 30 libellés de bonus des talents passés en revue dans les 9 langues (libellé
   qui commence par « HP » ou un nombre, collé à la valeur) : seul « +30% 4撃目のダメージ » (samouraï, clé 1970) ; reformulé en japonais
   « 居合の4撃目のダメージ（必ず会心） » et en coréen « 거합 4번째 타격 피해 (항상 치명타) ». 294/294.
