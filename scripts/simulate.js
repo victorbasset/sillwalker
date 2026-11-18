@@ -17,6 +17,8 @@ import { fmt } from "../src/renderer/game/format.js";
 import { nextUnlock, unlockAvailable, recordZone } from "../src/renderer/game/unlocks.js";
 
 const HOURS = +process.argv[2] || 12, CLS = process.argv[3] || "warrior";
+// (it. 2291) classe inconnue (« guardian », « necromancer ») : la simulation tournait sans rien dire avec un autre héros
+if (!CLASS_KEYS_BY_UNLOCK().includes(CLS)) { console.error(`Classe inconnue : ${CLS} (classes : ${CLASS_KEYS_BY_UNLOCK().join(", ")})`); process.exit(1); }
 setRandom(seeded(+process.env.SEED || 7)); // SEED=… pour une autre trajectoire
 const g = useVirtualClock(new Game(freshState()));
 g.setClass(CLS);

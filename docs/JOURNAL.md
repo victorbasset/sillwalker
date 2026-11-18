@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2291, REVUE GÉNÉRALE) : 12 h : lancier 64, gardien des astres 65, nécromancien 62 ; --perf : 18,5 / 19,7 %,
+  mini 5,5 %, icône 0,6 % ; capture Familiers en japonais à 1280 px (« 持っていく » sur les expéditions) : propre. simulate.js
+  acceptait une classe inconnue (« guardian », « necromancer ») et simulait sans rien dire un autre héros : il la refuse
+  maintenant en listant les classes.
 - 2026-11-18 (it. 2290, contrôle) : fuzz : 1200 parties, 0 bloquées ; stall-check : 60 parties, 0 figées.
 - 2026-11-18 (it. 2289, autotest) : Statistiques > Succès : 72 succès, 9 avec une explication au survol (it. 2286). 300/300.
 - 2026-11-18 (it. 2288) : steam/achievements.md : second tableau, les descriptions (10 langues) des 9 succès qui en ont une
