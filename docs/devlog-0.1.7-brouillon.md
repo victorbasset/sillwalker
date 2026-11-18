@@ -64,6 +64,8 @@ docs/devlog-0.1.6.md).
   agir ; la Carte propose la Carte du voyageur dès qu'elle est achetable.
 - **Corrections (it. 2238-2243) :** plus de quête d'expéditions impossible avant leur déblocage ; les cases d'automatisme disaient
   « moi-même » au lieu d'« automatiquement » dans six langues.
+- **Sac plein (it. 2269) :** « À faire » propose d'agrandir le sac d'un clic quand c'est abordable (avant : seulement vendre).
+- **Liens des quêtes (it. 2266-2267) :** cachés quand un automatisme fait déjà le geste (Grand intendant, Maître de forge, Creuset).
 - **Linux (it. 2222) :** Réglages sans « Windows » ni case de démarrage sans effet.
 - **Première installation (it. 2200, demande de Victor) :** volumes plus doux par défaut (effets 10 %, musique 20 %, ambiance 100 %,
   général 50 %).

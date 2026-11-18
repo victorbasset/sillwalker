@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2270) : brouillon du devlog 0.1.7 : agrandir le sac depuis « À faire », liens des quêtes et automatismes.
 - 2026-11-18 (it. 2269, plaisir de revenir) : « À faire maintenant » propose « ✦ Agrandir le sac : +6 places (N or) » quand le sac est
   plein, l'Atelier débloqué et l'agrandissement abordable ; un clic l'achète (comme dans l'Atelier). Trouvé en revue : dev-data, 447 Md
   d'or, sac de 24 jamais agrandi, 14 objets laissés au sol pendant l'absence. Test logique (clé 3342) ; capture du résumé ; lang-overflow
