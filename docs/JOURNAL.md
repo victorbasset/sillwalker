@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2192, langues) : « dégâts contre les cibles sous 30 % de vie » (clé 1158) en japonais et coréen commençait par
+  « HP » : « +65% HP 30% 未満… » se lisait « +65 % PV ». Reformulé « 瀕死の敵（HP 30%未満）へのダメージ » / « 빈사 대상(HP 30% 미만)에게
+  주는 피해 » ; capture du total des Talents en japonais. « 30% » collé en pl, pt, ru : usage courant, laissé. 294/294.
 - 2026-11-18 (it. 2191, REVUE GÉNÉRALE) : 12 h : guerrier 62, mage 64, rôdeur 65 (habituel) ; --perf (copie neuve) : bande 17,9 %,
   panneau 19,1 %, mini 5,5 %, icône 0,5 % (stable) ; texte en russe (dev-data et fin de partie) : aucun mot non traduit (Esc, Shift,
   Poupouce, Qa / Qi, séparateur « --- attributs » de l'outil) ; captures Aventure (anglais), Talents (japonais), mini (japonais) :
