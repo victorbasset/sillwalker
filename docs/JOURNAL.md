@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2317, contrôle) : texte russe extrait : bulles des inconnus du Bestiaire, pouvoir, bénédiction et « Следующий
+  этап: зона 60 » traduits ; aucun mot latin nouveau. Devlog 0.1.7 : ligne du Carnet de route.
 - 2026-11-18 (it. 2316, autotest) : Carnet de route : prochaine étape annoncée après le record et sur une zone d'étape (record 57 → 60 ;
   le dernier paragraphe seul : la date d'une étape porte aussi .note). 302/302.
 - 2026-11-18 (it. 2315) : Statistiques > Carnet de route : « Prochaine étape : zone N » sous les étapes (la prochaine zone qui en

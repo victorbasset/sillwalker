@@ -73,3 +73,4 @@ docs/devlog-0.1.6.md).
   succès les plus proches ressortent en or (it. 2294).
 - **Bestiaire (it. 2303-2305) :** ce qui reste à découvrir dit où le trouver (monstres : leurs zones ; pouvoirs : sur les légendaires ;
   bénédictions : revenir d’autres jours).
+- **Carnet de route (it. 2315) :** il annonce sa prochaine étape (« Prochaine étape : zone 60 »).
