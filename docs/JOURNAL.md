@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2264, équilibrage) : hero-table 20 héros × graines 7/3/11 : 63,8 (mage 61,0 le plus bas) contre 64,6 au commit d'avant
+  la correction des quêtes (git worktree, mêmes graines) : −0,8 zone, sous le seuil de bruit (±1,5 ; balance.mjs : −0,1). Rien à régler.
+  (Le 2e argument de hero-table est une LISTE de graines : « 3 » seul ne lance qu'une graine.)
 - 2026-11-18 (it. 2263, contrôle) : --crawl en japonais (690 clics) et en coréen (701, koJosa) sur la fin de partie : aucune erreur.
 - 2026-11-18 (it. 2262, équilibrage) : balance.mjs 12 h, avant / après la correction des quêtes d'expéditions (it. 2243) : moyenne
   64,4 → 64,3 (−0,1 zone : bruit) ; le paladin 65 → 69 compensé ailleurs (mage 64 → 61, berserker 69 → 66) : trajectoires.
