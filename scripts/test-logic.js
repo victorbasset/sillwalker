@@ -4689,7 +4689,9 @@ test("sources de puissance : chaque système mesuré en le retirant (it. 1130)",
   const src = Object.fromEntries(powerSources(S));
   assert(src.equip > 100, "l'équipement compte beaucoup");
   assert(src.flower > 1.5, "la fleur de compétences compte");
-  assert(!("graph" in src), "pas de grand graphe pris : absent");
+  assert(src.graph > 1, "grand graphe plein (it. 2384) : présent");
+  S.skills.outer = [];
+  assert(!("graph" in Object.fromEntries(powerSources(S))), "pas de grand graphe pris : absent");
   S.skills.outer = ["force-gate", "force-v0-0", "force-v0-1"];
   assert(Object.fromEntries(powerSources(S)).graph > 1, "grand graphe pris : présent");
   const before = JSON.stringify(S); powerSources(S);

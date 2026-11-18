@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2384) : sauvegarde de fin de partie (scripts/fixtures/endgame-save.json) : son grand graphe était vide depuis
+  l'allègement (0/222 nœuds après sanitizeOuter) : lang-overflow, save-fuzz et stall-check « fin » mesuraient un état qu'aucun joueur
+  avancé n'a. Graphe rempli par autoSpendGraph (222 nœuds), le reste inchangé (zone 150, utilisé aussi par les plans promo) ; test
+  « sources de puissance » adapté (graphe présent, puis vidé). stall-check 0 figée, save-fuzz fin ok, lang-overflow 10 langues fin
+  1280 : aucun défilement. 369 tests, 306/306.
 - 2026-11-19 (it. 2383, contrôle) : save-fuzz dev / fin / 0.1.2 : ok (1267, 1225, 1169 corruptions).
 - 2026-11-18 (it. 2382, contrôle) : « Dépenser automatiquement » répartit aussi les points du grand graphe (ancienne sauvegarde à
   0/222 nœuds : rien ne reste bloqué) ; i18n-names après l'astuce skillpath : 25 écarts, les mêmes anciens faux positifs.
