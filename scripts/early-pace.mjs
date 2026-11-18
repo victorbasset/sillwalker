@@ -10,6 +10,9 @@ const { Game } = await import(root + "game.js");
 const { freshState } = await import(root + "state.js");
 const { setRandom, seeded } = await import(root + "util.js");
 const { nextUnlock, unlockAvailable } = await import(root + "unlocks.js");
+// (it. 2292) CLS inconnu : la partie tournait avec une classe absente, sans erreur (même piège que simulate.js, it. 2291)
+const { CLASS_KEYS_BY_UNLOCK } = await import(root + "classes.js");
+if (process.env.CLS && !CLASS_KEYS_BY_UNLOCK().includes(process.env.CLS)) { console.error(`Classe inconnue : ${process.env.CLS} (classes : ${CLASS_KEYS_BY_UNLOCK().join(", ")})`); process.exit(1); }
 const MARKS = [120, 300, 600, 900, 1800, 3600];
 const rows = MARKS.map(() => ({ items: 0, lvl: 0, best: 0, unlocks: 0 }));
 const N = Math.max(1, +process.env.SEEDS || 3), last = [];
