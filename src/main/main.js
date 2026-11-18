@@ -285,6 +285,10 @@ function start() {
             if (last) { delete S.unlocks[last]; P.setTab("adventure");
               for (const [gold, tag] of [[1e300, "prêt"], [1, "pas-prêt"]]) { S.gold = gold; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("adventure-avant-dernier-" + tag + "=" + o); }
               S.unlocks[last] = true; S.gold = keepG; } }
+          // (it. 2228) Carte sans la Carte du voyageur (tous les déblocages sont donnés ici : la note « En vente » et son lien n'étaient
+          // jamais mesurés ; l'it. 2227 y a laissé 12 px de défilement que seul l'autotest a vus) : « map-sans-voyage=N »
+          { const S = window.__game.S; if (S.unlocks && S.unlocks.travelMap) { delete S.unlocks.travelMap; P.setTab("map"); P.renderAll();
+              const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("map-sans-voyage=" + o); S.unlocks.travelMap = true; } }
           // (it. 2111) Talents : tous les talents de la classe au maximum (coche), voie pas choisie et montrée dans la fiche : en
           // russe à 1280 px, « ★ Королевская добыча ✓ 1 / 1 » passait sur deux lignes sans qu'aucune mesure le voie
           { const G = window.__game, S = G.S, T = P.tabs.talents, keepR = JSON.stringify(S.talents[S.cls] || {}), keepL = S.lvl, keepSel = T.sel, keepPin = T.pin;

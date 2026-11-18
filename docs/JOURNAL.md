@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2228, mesure) : lang-overflow n'avait pas vu les 12 px de la Carte (it. 2227) : il donne tous les déblocages, la note
+  « En vente » n'était jamais affichée. --overflow-report mesure maintenant la Carte sans la Carte du voyageur (« map-sans-voyage=N ») ;
+  validé : 12 sans le correctif de l'it. 2227, rien avec (fr, de). CLAUDE.md complété. 296/296.
 - 2026-11-18 (it. 2227) : Carte : « Bientôt : la Carte du voyageur… (boutique, zone 22) » s'affichait alors qu'elle était déjà
   achetable (record 57, 447 Md d'or). Maintenant « En vente : … » suivi du lien « 🔒 Carte du voyageur · 90 k or » vers la boutique
   (clé 3336) ; « Bientôt » reste avant la zone 22. Le lien, plus haut que la ligne, faisait défiler la Carte de 12 px (autotest, trois
