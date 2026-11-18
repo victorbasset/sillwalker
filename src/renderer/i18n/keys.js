@@ -3381,5 +3381,7 @@ export const KEYS = [
   "Compétences : un clic sur un nœud lointain prend tout seul le chemin le plus court, si tu as assez de points.",
   "Clés de voûte de la fleur sans contrepartie négative ; l’équilibre reste le même (même rythme de partie).",
   "La Dernière Étoile",
-  "« {0} » · zone {1}"
+  "« {0} » · zone {1}",
+  "Libre !",
+  "Le Rebord ne te retient plus."
 ];

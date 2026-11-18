@@ -452,7 +452,8 @@ export class Juice {
     const state = { done: false, node, npc: !!npc };
     this.cine = state;
     this.syncNpcScene();
-    node.addEventListener("click", () => { state.done = true; });
+    // (it. 2342) passer la victoire passe aussi la promenade du héros sur l'écran (fenêtre à part)
+    node.addEventListener("click", () => { state.done = true; if (kind === "dawn" || kind === "credits") window.sillwalker?.endFinale?.(); });
     this.s.game.emit("cinematic", { kind, id: data.id });
     if (this.onHits) setTimeout(this.onHits, 0); // zones cliquables de la fenêtre à recalculer
     let lastDraw = -1, page = -1;

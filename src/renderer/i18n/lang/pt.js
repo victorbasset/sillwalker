@@ -2252,4 +2252,6 @@ export default {
   3377: "As pedras angulares da flor não têm mais lado negativo; o equilíbrio continua o mesmo (mesmo ritmo de jogo).",
   3378: "A Última Estrela",
   3379: "“{0}” · zona {1}",
+  3380: "Livre!",
+  3381: "O Parapeito não te prende mais.",
 };

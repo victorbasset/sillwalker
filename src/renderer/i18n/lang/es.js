@@ -2252,4 +2252,6 @@ export default {
   3377: "Las piedras angulares de la flor ya no tienen contrapartida negativa; el equilibrio sigue igual (mismo ritmo de partida).",
   3378: "La Última Estrella",
   3379: "«{0}» · zona {1}",
+  3380: "¡Libre!",
+  3381: "El Alféizar ya no te retiene.",
 };

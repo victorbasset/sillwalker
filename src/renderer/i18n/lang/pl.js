@@ -2252,4 +2252,6 @@ export default {
   3377: "Zworniki kwiatu nie mają już negatywnej strony; równowaga pozostaje taka sama (to samo tempo gry).",
   3378: "Ostatnia Gwiazda",
   3379: "„{0}” · strefa {1}",
+  3380: "Wolny!",
+  3381: "Krawędź już cię nie trzyma.",
 };

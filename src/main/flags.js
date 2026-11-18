@@ -19,7 +19,10 @@ module.exports = {
   devSpeed: isDev ? Number(getArg("speed")) || 0 : 0,
   perf: isDev ? getArg("perf") : undefined,            // --perf : mesure RAM/CPU puis quitte
   shot: isDev ? getArg("shot") : undefined,
-  shotDelay: isDev ? Number(getArg("shot-delay")) || 0 : 0,   // --shot-delay=ms            // --shot=fichier.png : capture de la fenêtre
+  shotDelay: isDev ? Number(getArg("shot-delay")) || 0 : 0,
+  // (it. 2342) capture de la cinématique de libération (fenêtre à part, sur tout l'écran) : --finale-shot=f.png --finale-shot-delay=ms
+  finaleShot: isDev ? getArg("finale-shot") : undefined,
+  finaleShotDelay: isDev ? Number(getArg("finale-shot-delay")) || 8000 : 0,   // --shot-delay=ms            // --shot=fichier.png : capture de la fenêtre
   openPanel: isDev && !!getArg("open-panel"),
   tab: isDev ? getArg("tab") : undefined,              // --tab=talents|shop|class : ouvre le panneau sur un onglet
   mode: isDev ? getArg("mode") : undefined,

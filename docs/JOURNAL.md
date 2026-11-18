@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2342, DEMANDE DE VICTOR) : cinématique de libération, première version (docs/FINALE.md) : à la première victoire sur
+  le Briseur d'Étoiles, le héros (habillé, ×5-7) quitte la bande et vole sur tout l'écran (fenêtre transparente, clics traversants,
+  sans focus) : courbe par les quatre coins, halo, traînée et gerbes d'étoiles, compagnon qui suit, « Libre ! », ciel qui se
+  rallume ; ≈ 26 s puis retour sur la bande. Rejouable (▶ de « Le ciel rallumé »). Capture à 10 s vérifiée. Clés 3380-3381. 304/304.
 - 2026-11-18 (it. 2341, DEMANDE DE VICTOR) : musique de la zone 200, « La Dernière Étoile » (scripts/music/tracks/finale.js) : 116 bpm,
   ré mineur harmonique → majeur, 68 mesures, 2 min 21, mesures comme les 4 autres (−15,9 LUFS, largeur 0,42). render/music.js : 5e
   morceau hors du cycle des tranches de 50 (trackIndex(200) = 4, trackZone, trackRange) ; Réglages > Son : flèches de morceau en

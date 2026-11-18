@@ -2252,4 +2252,6 @@ export default {
   3377: "Die Schlusssteine der Blume haben keinen Nachteil mehr; das Gleichgewicht bleibt gleich (gleiches Spieltempo).",
   3378: "Der letzte Stern",
   3379: "„{0}“ · Zone {1}",
+  3380: "Frei!",
+  3381: "Der Saum hält dich nicht mehr.",
 };

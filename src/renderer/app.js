@@ -36,6 +36,7 @@ import { makeTrayIcons } from "./render/trayicons.js";
 import { Sound } from "./render/sound.js";
 import { nextHint, markHint } from "./ui/hints.js";
 import { heroVisual, visualKey } from "./render/equipvis.js";
+import { buildHeroSprites } from "./render/sprites.js";
 import { Panel } from "./ui/panel.js";
 import { initClickThrough } from "./ui/clickthrough.js";
 import { recordZone } from "./game/unlocks.js";
@@ -584,9 +585,26 @@ async function boot() {
   /* ---------- Onglet débloqué (tabs.js) : annonce sobre, un clic l'ouvre ---------- */
   // Nouvelle chronique : bulle sobre ; un clic ouvre le panneau sur la carte du héros, bloc des chroniques déplié.
   // ▶ dans la liste des chroniques : rejoue la cinématique (l'intro pour « Le ciel brisé »).
+  // (it. 2342, demande de Victor : « lorsqu'on le bat, une cinématique magnifique où l'on voit notre personnage libéré du
+  // Rebord et se balader partout sur notre écran ») fenêtre transparente sur tout l'écran (main/finale-window.js,
+  // finale.html) : la bande lui donne les images du héros habillé (et du compagnon) et sa place à l'écran.
+  const playFinale = () => {
+    if (!api || !api.playFinale) return;
+    const S = game.S, h = buildHeroSprites(S.cls, heroVisual(S), 1, 3), ps = S.partner ? buildHeroSprites(S.partner, {}, 1, 3) : null;
+    const st = document.getElementById("strip")?.getBoundingClientRect();
+    const from = { x: Math.round(window.screenX + (strip.heroX || 60) + 16), y: Math.round(window.screenY + (st ? st.bottom - 10 : window.innerHeight - 10)) };
+    api.playFinale({
+      frames: { walk1: h.walk1.toDataURL(), walk2: h.walk2.toDataURL() },
+      partner: ps ? { walk1: ps.walk1.toDataURL(), walk2: ps.walk2.toDataURL() } : null,
+      from, texts: { title: tx("Libre !"), sub: tx("Le Rebord ne te retient plus.") }, duration: window.__finaleMs || 26000,
+    });
+  };
+  if (init.isDev) window.__playFinale = playFinale; // autotest et captures
+  game.on("starbreaker", ({ first }) => { if (first && game.S.settings.cinematics !== false) setTimeout(playFinale, 1500); });
   game.on("chronicleReplay", ({ id }) => {
     const c = CHRONICLES.find((x) => x.id === id);
     if (!c) return;
+    if (id === "dawn") playFinale(); // (it. 2342) ▶ de « Le ciel rallumé » : la libération aussi
     if (id === "sky") { strip.juice.cinematic("intro", { force: true }); return; }
     const n = CHRONICLES.findIndex((x) => x.id === id) + 1;
     strip.juice.cinematic("chronicle", { id, title: tx(c.title), text: tx(c.text), n, total: CHRONICLES.length, force: true });

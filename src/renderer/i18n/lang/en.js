@@ -2252,4 +2252,6 @@ export default {
   3377: "Flower keystones no longer have a negative side; the balance stays the same (same game pace).",
   3378: "The Last Star",
   3379: "“{0}” · zone {1}",
+  3380: "Free!",
+  3381: "The Sill no longer holds you.",
 };

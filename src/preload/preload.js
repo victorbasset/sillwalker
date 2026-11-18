@@ -26,6 +26,13 @@ contextBridge.exposeInMainWorld("sillwalker", {
   dragWindow: (phase) => ipcRenderer.send("win:drag", phase === "start" ? "start" : "end"), // (it. 835) déplacer la fenêtre
   setWindowSettings: (s) => ipcRenderer.send("win:set", s),    // { edge?, opacity?, openAtLogin?, panelZoom? }
   layoutApplied: () => ipcRenderer.send("layout:applied"),
+  // (it. 2342) cinématique de libération sur tout l'écran : la bande la lance, la page de la scène reçoit ses données
+  playFinale: (data) => ipcRenderer.send("finale:play", data),
+  endFinale: () => ipcRenderer.send("finale:end"),
+  finaleOpen: () => ipcRenderer.invoke("finale:open"),
+  finaleDone: () => ipcRenderer.send("finale:done"),
+  onFinale: (cb) => listen("finale:data", cb),
+  onFinaleClosed: (cb) => listen("finale:closed", cb),
 
   onLayout: (cb) => listen("layout", cb),
   onVisibility: (cb) => listen("visibility", cb),

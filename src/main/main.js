@@ -160,6 +160,15 @@ function start() {
     ipcMain.on("mouse:rects", (_e, rects) => strip.setHitRects(rects));
     ipcMain.on("win:drag", (_e, phase) => (phase === "start" ? strip.dragStart() : strip.dragEnd()));
     ipcMain.on("achievements:unlock", (_e, ids) => { if (Array.isArray(ids)) steam.unlock(ids.map(String)); });
+    // (it. 2342, demande de Victor) cinématique de libération : le héros se promène sur tout l'écran (docs/FINALE.md)
+    const finale = require("./finale-window");
+    ipcMain.on("finale:play", (_e, data) => {
+      if (!data || typeof data !== "object") return;
+      const fw = finale.openFinale({ strip, preload: path.join(__dirname, "..", "preload", "preload.js"), url, ghost: flags.ghost && !flags.finaleShot }, data);
+      if (flags.finaleShot && fw) setTimeout(async () => { try { if (!fw.isDestroyed()) require("fs").writeFileSync(flags.finaleShot, (await fw.webContents.capturePage()).toPNG()); } catch (e) { console.error("finale-shot", e); } }, flags.finaleShotDelay);
+    });
+    ipcMain.on("finale:end", () => finale.closeFinale());
+    ipcMain.handle("finale:open", () => finale.finaleOpen());
 
     ipcMain.once("app:ready", () => {
       if (strip.isShown()) strip.reveal();
