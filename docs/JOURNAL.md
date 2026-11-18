@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2398, contrôle) : first-minutes (1er objet 42-82 s, boss 70-82 s) et tab-pace (talents 1 min, boutique 7-11 min,
+  ascension 20-41 min) : début inchangé. Clavier des Compétences vu : flèches entre nœuds prenables, Entrée prend (chemin pas à pas).
 - 2026-11-19 (it. 2397, contrôle) : résumé d'absence de 8 h sur la fin de partie (graphe plein) à 1920 px : complet, cinq actions
   directes à droite, aucun débordement ; « À faire » signale déjà les points du grand graphe (game.js, it. 1105). Rien à changer.
 - 2026-11-19 (it. 2396, doc) : POUR-VICTOR : section « Nuit du 18 au 19/11 » (retouches visibles des it. 2369-2395).
