@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2353, contrôle) : i18n-names après les textes du jour : 25 écarts, tous anciens et grammaticaux (génitif allemand,
+  forme coréenne avant un possessif, nom de succès libre) ; aucun dans les clés 3350-3394.
 - 2026-11-18 (it. 2352) : POUR-VICTOR : question sur les points au-delà du grand graphe rempli (bonus automatique ou rangs de couronnes au
   choix ?) ; rien de changé sans sa réponse.
 - 2026-11-18 (it. 2351, REVUE GÉNÉRALE) : 12 h : druide 64, samouraï 65, nécromancien 62 ; --perf : 19,7 / 20,0 %, mini 5,5 %, icône
