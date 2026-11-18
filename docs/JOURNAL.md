@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2241, REVUE GÉNÉRALE) : 12 h : barde 69, arbalétrier 65, gladiateur 65 (une graine) ; --perf : bande 18,6 %, panneau
+  18,9 %, mini 5,5 %, icône 0,4 % ; texte en russe (dev-data, fin de partie) : aucun mot non traduit ; captures Quêtes en allemand
+  (« → Abenteuer ») et mini en japonais : propres. Rien à corriger.
 - 2026-11-18 (it. 2240, langues) : relecture des 26 déblocages en anglais : sens justes (« on its own » à la 3e personne) ; ordre des mots
   maladroit « … on its own the … » repris en « Automatically … » (Star Net, Personal Merchant, et son annonce dans « Quoi de neuf »). 297/297.
 - 2026-11-18 (it. 2239, langues) : suite de l'it. 2238 dans tout le texte : descriptions à la 3e personne justes (« von selbst », « sam
