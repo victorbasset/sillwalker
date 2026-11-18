@@ -2778,6 +2778,16 @@ export class Game {
    */
   /** (it. 1522, Victor ne trouvait pas le choix des bonus) Paliers de maîtrise atteints dans cette course, à deux
    *  bonus, où le joueur n'a jamais cliqué (le bonus A s'applique en attendant) : [{ id, at }]. */
+  /** (it. 2157) « Garder les bonus actuels » : les paliers en attente de la maîtrise `id` sont validés tels quels (A par défaut, ou
+   *  le choix déjà fait) ; le rappel « choisis leurs bonus » s'éteint sans 18 clics. */
+  keepMasteryPicks(id) {
+    const C = (this.S.masteryChosen ||= {});
+    let n = 0;
+    for (const p of this.pendingMasteryPicks()) if (!id || p.id === id) { C[p.id + ":" + p.at] = true; n++; }
+    if (n) this.changed();
+    return n;
+  }
+
   pendingMasteryPicks() {
     const S = this.S, P = S.masteryPicks || {}, C = S.masteryChosen || {}, ranks = classTalents(S), out = [];
     for (const m of MASTERIES) {

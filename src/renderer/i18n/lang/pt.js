@@ -2177,4 +2177,6 @@ export default {
   3302: "Talentos pelo teclado: o cartão segue o talento em foco, e Esc cancela um pedido de redefinição sem fechar o painel.",
   3303: "Habilidades: desfazer e redefinir ficam cinzentos até você pegar um nó.",
   3304: "Clique: comprar e equipar; bolsa cheia, a peça antiga será vendida: {0}.",
+  3305: "Manter os bônus atuais",
+  3306: "Confirma os bônus pendentes como estão (A por padrão): o lembrete some. Você ainda pode mudá-los aqui.",
 };

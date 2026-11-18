@@ -208,7 +208,7 @@ export class TalentsTab {
     const opt = (g, o) => `<button class="quiet mpick${g.pick === o ? " on" : ""}" data-action="t-mpick" data-keepopen data-id="${id}" data-at="${g.at}" data-opt="${o}" aria-pressed="${g.pick === o}">${esc(describeEffects(g[o]))}</button>`;
     // (it. 1108) dans la ligne « Paliers atteints » (une ligne de moins : l'onglet défilait de 15 px à 1280 px)
     return `<details class="more mpickbox" data-keep="ms-picks"><summary title="${esc(tx("Choisir les bonus des paliers ({0})", { 0: got.length }))}" data-modal-title="${esc(tx("Choisir les bonus des paliers ({0})", { 0: got.length }))}">${tx("choisir")} · ${got.length}</summary>
-      <ul class="lines mpicks">${got.map((g) => `<li${r >= g.at ? "" : ` class="later" title="${esc(tx("Pas encore atteint dans cette course : réglé d’avance."))}"`}><span>${tx("rang {0}", { 0: g.at })}${r >= g.at ? "" : " ⏳"}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul></details>`;
+      <ul class="lines mpicks">${got.map((g) => `<li${r >= g.at ? "" : ` class="later" title="${esc(tx("Pas encore atteint dans cette course : réglé d’avance."))}"`}><span>${tx("rang {0}", { 0: g.at })}${r >= g.at ? "" : " ⏳"}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul>${/* (it. 2157) valider d'un clic les paliers en attente, tels quels */ ""}${this.game.pendingMasteryPicks().some((p) => p.id === id) ? `<div class="row"><button class="quiet" data-action="t-mkeep" data-id="${id}" title="${esc(tx("Valide tels quels les bonus en attente (A par défaut) : le rappel s’éteint. Tu peux toujours les changer ici."))}">${tx("Garder les bonus actuels")}</button></div>` : ""}</details>`;
   }
 
   /** (it. 2111, signalé par Victor : « effet de lag au hover ») la fiche suit le survol tout de suite (avant : après 140 ms de
@@ -251,6 +251,7 @@ export class TalentsTab {
     }
     // Maj + clic : comme le petit bouton (« +1 » sur un talent, « tout » sur une maîtrise)
     else if (a === "t-undo") g.undoTalent();
+    else if (a === "t-mkeep") g.keepMasteryPicks(b.dataset.id);
     else if (a === "t-learn") this.learnFrom(b, !!e?.shiftKey);
     // (it. 2096) clic sur une voie : sa fiche, avec le bouton « Choisir cette voie » (à un autre endroit que le premier clic)
     else if (a === "t-voie") { this.sel = b.dataset.id; g.changed(); }

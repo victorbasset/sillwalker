@@ -297,6 +297,17 @@ test("boutique, sac plein : une amélioration s'achète et s'équipe, le sac res
     assert.equal(m && m.id, up4.id, "proposée dans À faire malgré le sac plein"); assert.ok(g.buyAndEquip(up4.id), "achetée"); assert.equal(S.bag.length, n, "sac plein, pas débordé"); }
 });
 
+test("maîtrises : « Garder les bonus actuels » valide les paliers en attente sans les changer (it. 2157)", () => {
+  const g = new Game(freshState()); const S = g.S; S.lvl = 2000; g.invalidateStats();
+  const ranks = (S.talents[S.cls] ||= {}); ranks.ms_power = 420; S.masteryPicks = {}; S.masteryChosen = {};
+  const before = g.pendingMasteryPicks().filter((p) => p.id === "ms_power").length;
+  assert.ok(before > 0, "des paliers attendent un choix");
+  const eff0 = JSON.stringify(M_talents_js.talentEffects(S));
+  assert.equal(g.keepMasteryPicks("ms_power"), before, "tous validés");
+  assert.equal(g.pendingMasteryPicks().filter((p) => p.id === "ms_power").length, 0, "plus de rappel");
+  assert.equal(JSON.stringify(M_talents_js.talentEffects(S)), eff0, "les bonus n'ont pas changé");
+});
+
 test("voie gratuite (it. 2104) : choisissable sans point libre (dépense automatique à chaque niveau)", () => {
   const g = new Game(freshState()); g.S.lvl = 80; g.invalidateStats();
   g.autoSpendTalents();

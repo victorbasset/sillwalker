@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2157, moins de clics) : maîtrises : « Garder les bonus actuels » dans la fenêtre de choix valide tels quels les
+  paliers en attente (A par défaut) ; le rappel « 18 paliers : choisis leurs bonus » (À faire, résumé d'absence) s'éteignait seulement
+  palier par palier. game.keepMasteryPicks ; clés 3305-3306 ; test logique (bonus inchangés) ; sans défilement en de et ru à 1280 ;
+  --crawl 676 clics et save-fuzz 1267 corruptions propres après les changements d'achat ; 360 tests, 284/284.
 - 2026-11-18 (it. 2156) : « À faire » (carte du héros, résumé d'absence) : l'amélioration du marchand est aussi proposée à sac plein
   quand elle s'achète quand même (canBuyWhenFull), et achetée par le même chemin que la Boutique (buyAndEquip → buyFromShop : ancienne
   pièce vendue, sac jamais débordé). Test logique ; 359 tests, 284/284.

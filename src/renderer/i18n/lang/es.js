@@ -2177,4 +2177,6 @@ export default {
   3302: "Talentos con el teclado: la ficha sigue al talento con el foco, y Escape cancela una petición de reinicio sin cerrar el panel.",
   3303: "Habilidades: deshacer y reiniciar aparecen en gris hasta que tomas un nodo.",
   3304: "Clic: comprar y equipar; bolsa llena, la pieza anterior se venderá: {0}.",
+  3305: "Conservar las bonificaciones actuales",
+  3306: "Confirma tal cual las bonificaciones pendientes (A por defecto): el recordatorio desaparece. Siempre puedes cambiarlas aquí.",
 };

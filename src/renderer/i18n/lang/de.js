@@ -2177,4 +2177,6 @@ export default {
   3302: "Talente per Tastatur: Die Karte folgt dem fokussierten Talent, und Esc bricht eine Zurücksetzungsanfrage ab, ohne das Panel zu schließen.",
   3303: "Fertigkeiten: Rückgängig und Zurücksetzen sind ausgegraut, solange kein Knoten genommen ist.",
   3304: "Klick: kaufen und ausrüsten; Tasche voll, das alte Teil wird verkauft: {0}.",
+  3305: "Aktuelle Boni behalten",
+  3306: "Bestätigt die offenen Boni so, wie sie sind (standardmäßig A): Die Erinnerung verschwindet. Du kannst sie hier jederzeit ändern.",
 };

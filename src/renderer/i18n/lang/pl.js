@@ -2177,4 +2177,6 @@ export default {
   3302: "Talenty z klawiatury: karta podąża za talentem z fokusem, a Esc anuluje prośbę o reset bez zamykania panelu.",
   3303: "Umiejętności: cofanie i reset są wyszarzone, dopóki nie weźmiesz żadnego węzła.",
   3304: "Klik: kup i załóż; torba pełna, stary przedmiot zostanie sprzedany: {0}.",
+  3305: "Zachowaj obecne premie",
+  3306: "Zatwierdza oczekujące premie bez zmian (domyślnie A): przypomnienie znika. Nadal możesz je tu zmienić.",
 };

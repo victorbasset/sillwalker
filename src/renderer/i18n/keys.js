@@ -3306,5 +3306,7 @@ export const KEYS = [
   "Retour d’absence : la carte du héros résume l’absence (Depuis ta dernière visite), même après un redémarrage du jeu.",
   "Talents au clavier : la fiche suit le talent qui a le focus, et Échap annule une demande de réinitialisation sans fermer le panneau.",
   "Compétences : annuler et réinitialiser sont grisés tant qu’aucun nœud n’est pris.",
-  "Clic : acheter et équiper ; sac plein, l’ancienne pièce sera vendue : {0}."
+  "Clic : acheter et équiper ; sac plein, l’ancienne pièce sera vendue : {0}.",
+  "Garder les bonus actuels",
+  "Valide tels quels les bonus en attente (A par défaut) : le rappel s’éteint. Tu peux toujours les changer ici."
 ];
