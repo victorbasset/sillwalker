@@ -2233,4 +2233,6 @@ export default {
   3358: "Defeat the three echoes of the major bosses (zones 250, 300 and 350).",
   3359: "Almost there",
   3360: "An achievement is almost yours: the closest ones stand out in gold in Statistics > Achievements. Click here.",
+  3361: "Achievements: obscure names (Keystone, Pure Heart, Echo Dispelled…) now say on hover what to do.",
+  3362: "Achievements: the three closest to completion stand out in gold; a tip tells you when one of them reaches 90%.",
 };

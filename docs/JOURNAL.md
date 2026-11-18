@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2297) : Quoi de neuf, édition 148 : succès expliqués au survol (it. 2286), les trois plus proches en or et
+  l'astuce à 90 % (it. 2294-2296). Clés 3361-3362. 300/300.
 - 2026-11-18 (it. 2296) : astuce « achnear » (une fois) : un succès chiffré à 90 % ou plus (et les Statistiques complètes) mène à
   Statistiques > Succès, où les plus proches ressortent en or (it. 2294). nearAchievements (achievements.js) partagé avec l'onglet ;
   0,13 ms par appel (dev-data : Alchimiste 96 %, Dix héros 90 % ; fin de partie : Bestiaire 99 %). Clé 3360. lang-overflow 10

@@ -3362,5 +3362,7 @@ export const KEYS = [
   "Vaincre le premier écho d’un boss majeur (zone 250).",
   "Vaincre les trois échos des boss majeurs (zones 250, 300 et 350).",
   "Presque obtenu",
-  "Un succès est presque à toi : les plus proches ressortent en or dans Statistiques > Succès. Clique ici."
+  "Un succès est presque à toi : les plus proches ressortent en or dans Statistiques > Succès. Clique ici.",
+  "Succès : les noms obscurs (Clé de voûte, Cœur pur, Écho dissipé…) disent au survol ce qu’il faut faire.",
+  "Succès : les trois plus proches d’être obtenus ressortent en or ; une astuce te le signale quand l’un d’eux est à 90 %."
 ];
