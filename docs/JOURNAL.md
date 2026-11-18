@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2244, audit) : conditions des 18 sortes de quêtes : toutes réalisables quand elles tombent (élites et champions selon
+  la zone, gobelins attrapables, sort appris, clic déjà essayé, crit ≥ 8 %, forge / transmutation / expéditions selon le déblocage
+  depuis l'it. 2243 ; rafales dès les premières minutes, coffres au trésor sur toute victoire). Rien d'autre à corriger.
 - 2026-11-18 (it. 2243, bug) : la quête « Ramener N expéditions » pouvait tomber dès deux familiers (Ménagerie, zone 25) alors que les
   expéditions ne se débloquent qu'en zone 50 (Chenil des explorateurs, 87 M or) : quête impossible, à changer à la main. Exigée aussi la
   possession du Chenil (comme forge et transmutation) ; une quête de ce genre déjà tirée, non accomplie, est remplacée au chargement
