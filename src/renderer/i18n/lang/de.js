@@ -2179,4 +2179,8 @@ export default {
   3304: "Klick: kaufen und ausrüsten; Tasche voll, das alte Teil wird verkauft: {0}.",
   3305: "Aktuelle Boni behalten",
   3306: "Bestätigt die offenen Boni so, wie sie sind (standardmäßig A): Die Erinnerung verschwindet. Du kannst sie hier jederzeit ändern.",
+  3307: "Laden: Bei voller Tasche lässt sich eine Verbesserung vom Händler trotzdem kaufen und wird sofort ausgerüstet; das alte Teil wird verkauft (nie ein wertvolles), und die Infoblase sagt es vor dem Klick.",
+  3308: "Meisterschaften: „Aktuelle Boni behalten“ bestätigt die offenen Stufen mit einem Klick und schaltet die Erinnerung ab.",
+  3309: "Bestiarium: Lange Namen werden kleiner geschrieben statt abgeschnitten.",
+  3310: "Per Tastatur erreicht Tab auch die ⓘ und zeigt ihre Hilfe.",
 };

@@ -2179,4 +2179,8 @@ export default {
   3304: "Klik: kup i załóż; torba pełna, stary przedmiot zostanie sprzedany: {0}.",
   3305: "Zachowaj obecne premie",
   3306: "Zatwierdza oczekujące premie bez zmian (domyślnie A): przypomnienie znika. Nadal możesz je tu zmienić.",
+  3307: "Sklep: przy pełnej torbie ulepszenie od Kupca nadal można kupić i od razu zostaje założone; stary przedmiot zostaje sprzedany (nigdy cenny), a dymek mówi o tym przed kliknięciem.",
+  3308: "Mistrzostwa: „Zachowaj obecne premie” zatwierdza jednym kliknięciem oczekujące progi i wyłącza przypomnienie.",
+  3309: "Bestiariusz: długie nazwy są pisane mniejszą czcionką zamiast obcinane.",
+  3310: "Z klawiatury Tab dociera też do ⓘ i pokazuje ich pomoc.",
 };

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2158) : « Quoi de neuf », édition 139 (amélioration à sac plein, garder les bonus des maîtrises, noms du Bestiaire,
+  ⓘ au clavier ; 4 nouveautés, 10 langues, clés 3307-3310). 284/284 ; lang-overflow 10 langues × 1280 : rien.
 - 2026-11-18 (it. 2157, moins de clics) : maîtrises : « Garder les bonus actuels » dans la fenêtre de choix valide tels quels les
   paliers en attente (A par défaut) ; le rappel « 18 paliers : choisis leurs bonus » (À faire, résumé d'absence) s'éteignait seulement
   palier par palier. game.keepMasteryPicks ; clés 3305-3306 ; test logique (bonus inchangés) ; sans défilement en de et ru à 1280 ;

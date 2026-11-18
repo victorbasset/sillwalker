@@ -2179,4 +2179,8 @@ export default {
   3304: "Click: buy and equip; bag full, the old piece will be sold: {0}.",
   3305: "Keep current bonuses",
   3306: "Confirms the pending bonuses as they are (A by default): the reminder goes away. You can still change them here.",
+  3307: "Shop: with a full bag, an upgrade from the Merchant can still be bought and is equipped at once; the old piece is sold (never a precious one) and the tooltip says so before the click.",
+  3308: "Masteries: “Keep current bonuses” confirms the pending tiers in one click and turns the reminder off.",
+  3309: "Bestiary: long names are written smaller instead of being cut off.",
+  3310: "With the keyboard, Tab also reaches the ⓘ and shows their help.",
 };

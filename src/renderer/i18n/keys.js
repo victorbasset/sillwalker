@@ -3308,5 +3308,9 @@ export const KEYS = [
   "Compétences : annuler et réinitialiser sont grisés tant qu’aucun nœud n’est pris.",
   "Clic : acheter et équiper ; sac plein, l’ancienne pièce sera vendue : {0}.",
   "Garder les bonus actuels",
-  "Valide tels quels les bonus en attente (A par défaut) : le rappel s’éteint. Tu peux toujours les changer ici."
+  "Valide tels quels les bonus en attente (A par défaut) : le rappel s’éteint. Tu peux toujours les changer ici.",
+  "Boutique : avec le sac plein, une amélioration du Marchand s’achète quand même, équipée aussitôt ; l’ancienne pièce est vendue (jamais une pièce précieuse) et la bulle le dit avant le clic.",
+  "Maîtrises : « Garder les bonus actuels » valide d’un clic les paliers en attente et éteint le rappel.",
+  "Bestiaire : les noms longs s’écrivent plus petit au lieu d’être coupés.",
+  "Au clavier, Tab atteint aussi les ⓘ et montre leur aide."
 ];

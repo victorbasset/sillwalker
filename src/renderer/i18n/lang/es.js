@@ -2179,4 +2179,8 @@ export default {
   3304: "Clic: comprar y equipar; bolsa llena, la pieza anterior se venderá: {0}.",
   3305: "Conservar las bonificaciones actuales",
   3306: "Confirma tal cual las bonificaciones pendientes (A por defecto): el recordatorio desaparece. Siempre puedes cambiarlas aquí.",
+  3307: "Tienda: con la bolsa llena, una mejora del Mercader se puede comprar igualmente y se equipa al instante; la pieza anterior se vende (nunca una pieza valiosa) y la burbuja lo dice antes del clic.",
+  3308: "Maestrías: «Conservar las bonificaciones actuales» confirma de un clic los niveles pendientes y apaga el recordatorio.",
+  3309: "Bestiario: los nombres largos se escriben más pequeños en lugar de cortarse.",
+  3310: "Con el teclado, Tab también llega a los ⓘ y muestra su ayuda.",
 };

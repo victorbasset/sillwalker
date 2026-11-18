@@ -2179,4 +2179,8 @@ export default {
   3304: "Clique: comprar e equipar; bolsa cheia, a peça antiga será vendida: {0}.",
   3305: "Manter os bônus atuais",
   3306: "Confirma os bônus pendentes como estão (A por padrão): o lembrete some. Você ainda pode mudá-los aqui.",
+  3307: "Loja: com a bolsa cheia, uma melhoria do Mercador ainda pode ser comprada e é equipada na hora; a peça antiga é vendida (nunca uma peça preciosa) e a dica avisa antes do clique.",
+  3308: "Maestrias: “Manter os bônus atuais” confirma num clique os níveis pendentes e desliga o lembrete.",
+  3309: "Bestiário: os nomes longos ficam menores em vez de cortados.",
+  3310: "Pelo teclado, Tab também alcança os ⓘ e mostra a ajuda deles.",
 };
