@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2300, contrôle) : lang-overflow complet (10 langues, 1920 / 1600 / 1366 / 1280 px, fin de partie, zoom 130 %, état
+  maximal, absence au pire cas, « Quoi de neuf » avec l'édition 148) : aucun défilement ni mot coupé.
 - 2026-11-18 (it. 2299, test) : nearAchievements (ordre, seuil, obtenus exclus) et astuce « achnear » (92 % : oui, 80 % : non).
   365 tests.
 - 2026-11-18 (it. 2298) : POUR-VICTOR : nouveautés de fin d'après-midi (succès expliqués, les trois plus proches en or, astuce,
