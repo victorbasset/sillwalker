@@ -70,12 +70,13 @@ export class PetsTab {
     }
     // Sous-onglets en tête de la barre (it. 845) : la barre défile de côté sans barre visible, ils n'y sont jamais
     // cachés ; leurs compteurs remplacent alors « N / M familiers trouvés » (place gagnée sur les écrans étroits).
-    // (it. 2201, signalé par Victor) l'aide ⓘ en tête de la barre, après le PNJ : en fin de barre, l'ombre du défilement la cachait
+    // (it. 2201, signalé par Victor) l'aide ⓘ n'est plus en fin de barre (l'ombre du défilement la cachait) ; (it. 2206, Victor : seule au
+    // milieu, « très moche ») collée au texte « N / M familiers trouvés · œufs » qu'elle explique
     el.innerHTML = `<div class="petbar panel hscroll" data-hs="petbar">
         ${npcHTML("pets", "icon")}
-        <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
         ${owned < PETS.length ? subtabsHTML([["found", tx("Trouvés"), owned], ["unknown", tx("À découvrir"), PETS.length - owned]], this.sec, "p-sec") : ""}
         <div>${owned < PETS.length ? "" : `<b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} `}${txn(P.eggs, "{n} œuf en attente|{n} œufs en attente", { n: `<b>${P.eggs}</b>` })}</div>
+        <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
         ${P.eggs > 0 && (hasUnlock(S, "petBulk") || P.eggs <= 1) ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : P.eggs > 1 ? `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>` : ""}
         ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}
         ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${txn(idle, "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}", { 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}

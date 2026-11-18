@@ -368,7 +368,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .reward { font-size: 14px; margin: 4px 0 0; }
 .petbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 12px; }
 .petbar .note { flex-basis: 100%; margin: 0; }
-.petbar .note.help { flex-basis: auto; margin-left: auto; }
+.petbar .note.help { flex-basis: auto; margin-left: -6px; } /* (it. 2206) collée au texte qu'elle explique */
 .petcard.current { border-color: var(--accent); box-shadow: 0 4px 0 var(--accent); }
 .petcard .detail-head img { width: 52px; height: auto; }
 .petcard.unknown { opacity: .6; }

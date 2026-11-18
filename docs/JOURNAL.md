@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2206, Victor : « très moche ce que t'as fait avec le i ») : Familiers : le ⓘ, mis en tête à l'it. 2201, gardait sa
+  marge automatique et flottait seul au milieu en repoussant tout à droite. Collé maintenant au texte « N / M familiers trouvés · N œufs »
+  qu'il explique ; barre alignée à gauche comme avant. Captures 1920 et 1280 ; sonde des ⓘ : 0 (de, ru). 294/294.
 - 2026-11-18 (it. 2205) : sonde des ⓘ dans les 10 langues à 1280 px, dev-data et fin de partie : IPROBE 0 partout (un premier passage
   donnait 18 alertes en pl, ru, zh, ja, ko : copies préparées trop tôt, le résumé d'absence s'ouvrait par-dessus ; noté dans CLAUDE.md).
   Victor confirme sur Mac : le menu du Dock passe maintenant devant la bande (it. 2204).
