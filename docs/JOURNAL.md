@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2346, VERSION 0.1.7, demande de Victor : « livre la 0.1.7 ») : package.json 0.1.7 ; notes de version RELEASE_017
+  (news.js, after: 132, 10 nouveautés traduites, clés 3385-3394) ; tests des notes de version à jour ; scripts/selftest.mjs : la
+  copie a lu au-delà de la DERNIÈRE version (lue dans news.js ; la fenêtre de la 0.1.7 s'ouvrait et trois contrôles du panneau
+  échouaient). 367 tests, 304/304, lang-overflow complet propre.
 - 2026-11-18 (it. 2345, performance) : cinématique de libération : 22 s de processeur sur 22 (un cœur, rendu logiciel) → demi-résolution
   (pixelated) et 30 images/s : 9 s sur 22 au-dessus du jeu ; texte toujours net. Mode mini : la scène s'ouvre puis se ferme. 304/304.
 - 2026-11-18 (it. 2344) : cinématique de libération : feu d'artifice final (7 gerbes, 80 étincelles, éclair) ; départ ramené dans

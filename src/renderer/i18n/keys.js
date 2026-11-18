@@ -3386,5 +3386,15 @@ export const KEYS = [
   "Le Rebord ne te retient plus.",
   "Zone 200 : le combat final a sa propre musique, « La Dernière Étoile ».",
   "Après la victoire finale, une surprise t’attend… sur tout ton écran.",
-  "Talents : les bonus des paliers sont alignés ; une voie ne s’affiche dans la fiche qu’au clic."
+  "Talents : les bonus des paliers sont alignés ; une voie ne s’affiche dans la fiche qu’au clic.",
+  "Onglet Talents refait : la fiche suit le survol, plus rien ne bouge sous le curseur, chaque clic annonce son effet, et Z annule le dernier choix.",
+  "Grand graphe des Compétences allégé (222 nœuds au lieu de 618) : les trois voies de chaque pétale se prennent toutes, et un clic sur un nœud lointain prend le chemin le plus court.",
+  "Les clés de voûte de la fleur n’ont plus de contrepartie négative ; le rythme de la partie reste le même.",
+  "Zone 200 : le combat final a sa propre musique, « La Dernière Étoile », et la victoire finale réserve une surprise sur tout ton écran.",
+  "Les actions sans retour (réinitialiser, monter vers les étoiles, effacer la partie, vendre un objet précieux) se confirment dans une fenêtre.",
+  "Clavier : les flèches parcourent les Talents, le sac et les Compétences ; Z annule ; Échap et Tab se comportent comme on l’attend.",
+  "Retour d’absence plus clair : « À faire maintenant » est visible d’emblée et propose aussi d’agrandir le sac plein ou de passer à l’Atelier.",
+  "Familiers : « Emmener » rappelle un familier parti en expédition et l’équipe d’un clic.",
+  "Succès expliqués au survol, les trois plus proches en or ; le Bestiaire dit où trouver ce qui manque ; le Carnet de route annonce sa prochaine étape.",
+  "Le son des coups suit la vitesse de frappe ; volumes plus doux à la première installation ; sur Mac, le menu du Dock passe devant la bande."
 ];

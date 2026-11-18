@@ -837,9 +837,21 @@ const RELEASE_016 = [
   "Les monstres te jaugent : dans une zone facile, ils te craignent ; à ton record, après une défaite, ils s’enhardissent.",
   "Le Chevalier de l’éclipse et le Briseur d’Étoiles sont bien plus coriaces : il faut plusieurs ascensions et des reliques améliorées pour les vaincre.",
 ];
-// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132 (NEWS_ID) : la suivante
-// prendra after: 132.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }];
+const RELEASE_017 = [
+  "Onglet Talents refait : la fiche suit le survol, plus rien ne bouge sous le curseur, chaque clic annonce son effet, et Z annule le dernier choix.",
+  "Grand graphe des Compétences allégé (222 nœuds au lieu de 618) : les trois voies de chaque pétale se prennent toutes, et un clic sur un nœud lointain prend le chemin le plus court.",
+  "Les clés de voûte de la fleur n’ont plus de contrepartie négative ; le rythme de la partie reste le même.",
+  "Zone 200 : le combat final a sa propre musique, « La Dernière Étoile », et la victoire finale réserve une surprise sur tout ton écran.",
+  "Les actions sans retour (réinitialiser, monter vers les étoiles, effacer la partie, vendre un objet précieux) se confirment dans une fenêtre.",
+  "Clavier : les flèches parcourent les Talents, le sac et les Compétences ; Z annule ; Échap et Tab se comportent comme on l’attend.",
+  "Retour d’absence plus clair : « À faire maintenant » est visible d’emblée et propose aussi d’agrandir le sac plein ou de passer à l’Atelier.",
+  "Familiers : « Emmener » rappelle un familier parti en expédition et l’équipe d’un clic.",
+  "Succès expliqués au survol, les trois plus proches en or ; le Bestiaire dit où trouver ce qui manque ; le Carnet de route annonce sa prochaine étape.",
+  "Le son des coups suit la vitesse de frappe ; volumes plus doux à la première installation ; sur Mac, le menu du Dock passe devant la bande.",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152
+// (NEWS_ID) : la suivante prendra after: 152.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);

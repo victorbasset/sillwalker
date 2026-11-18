@@ -14,7 +14,10 @@ for (const f of ["save.json", "settings.json"]) {
 }
 // (it. 1144) la copie a tout lu jusqu'à la 0.1.3 : sinon la fenêtre de version s'ouvre seule au lancement et dérange les
 // contrôles (elle a son propre contrôle, « notes de version »)
-try { const f = path.join(tmp, "save.json"), s = JSON.parse(fs.readFileSync(f, "utf8")); if ((s.settings?.newsSeen || 0) <= 40) { s.settings.newsSeen = 41; fs.writeFileSync(f, JSON.stringify(s)); } } catch { /* sans sauvegarde : partie neuve */ }
+// (it. 2346) au-delà de la DERNIÈRE version (avant : la 0.1.3 ; à la 0.1.7, dev-data avait lu jusqu'à 129 < 132 et la fenêtre
+// de la 0.1.7 s'ouvrait, trois contrôles du panneau échouaient)
+const lastAfter = await import(new URL("../src/renderer/game/news.js", import.meta.url).href).then((m) => Math.max(...m.NEWS_RELEASES.map((r) => r.after))).catch(() => 40);
+try { const f = path.join(tmp, "save.json"), s = JSON.parse(fs.readFileSync(f, "utf8")); if ((s.settings?.newsSeen || 0) <= lastAfter) { s.settings.newsSeen = lastAfter + 1; fs.writeFileSync(f, JSON.stringify(s)); } } catch { /* sans sauvegarde : partie neuve */ }
 const electron = path.join(ROOT, "node_modules", ".bin", process.platform === "win32" ? "electron.cmd" : "electron");
 const args = [".", "--selftest", "--ghost", `--user-data=${tmp}`];
 const linux = process.argv.includes("--linux");
