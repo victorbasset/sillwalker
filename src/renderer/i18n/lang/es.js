@@ -2192,4 +2192,5 @@ export default {
   3317: "Misiones: cambiar una misión de 3 estrellas, rara, pide confirmación.",
   3318: "Talentos: las flechas del teclado se mueven por la cuadrícula.",
   3319: "Ventanas: con el teclado, Tab se queda en la ventana abierta y el foco vuelve a su sitio al cerrarla.",
+  3320: "Clic en un talento: tantos rangos como sea posible · Mayús + clic o «+1»: un solo rango · Z: deshacer el último clic · flechas: moverse. Pasa el ratón por un talento para ver su efecto.",
 };

@@ -2192,4 +2192,5 @@ export default {
   3317: "Zadania: zmiana rzadkiego zadania 3-gwiazdkowego wymaga potwierdzenia.",
   3318: "Talenty: strzałki na klawiaturze poruszają się po siatce.",
   3319: "Okna: z klawiatury Tab zostaje w otwartym oknie, a fokus wraca na miejsce po jego zamknięciu.",
+  3320: "Kliknięcie talentu: tyle rang, ile się da · Shift + klik lub „+1”: jedna ranga · Z: cofnij ostatnie kliknięcie · strzałki: poruszanie się. Najedź na talent, aby zobaczyć jego efekt.",
 };

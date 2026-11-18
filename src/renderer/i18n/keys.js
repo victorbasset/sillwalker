@@ -3321,5 +3321,6 @@ export const KEYS = [
   "Sac : après une vente, l’objet suivant est sélectionné ; on enchaîne les ventes sans recliquer dans le sac.",
   "Quêtes : changer une quête 3 étoiles, rare, demande confirmation.",
   "Talents : les flèches du clavier se déplacent dans la grille.",
-  "Fenêtres : au clavier, Tab reste dans la fenêtre ouverte et le focus revient où il était quand elle se ferme."
+  "Fenêtres : au clavier, Tab reste dans la fenêtre ouverte et le focus revient où il était quand elle se ferme.",
+  "Clic sur un talent : autant de rangs que possible · Maj + clic ou « +1 » : un seul rang · Z : annuler le dernier clic · flèches : se déplacer. Survole un talent pour voir son effet."
 ];
