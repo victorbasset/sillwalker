@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2363) : POUR-VICTOR : correction du morceau épinglé notée pour la 0.1.8 ; stall-check : 60 parties, 0 figées.
 - 2026-11-18 (it. 2362, contrôle) : plus aucune autre limite « 4 morceaux » en dur après la correction de musicPin (it. 2361) ; les
   « % 4 » restants sont étrangers à la musique (coup iai, animations).
 - 2026-11-18 (it. 2361, REVUE GÉNÉRALE) : 12 h : moine 62, artificier 65, gardien des astres 65 ; --perf : 19,5 / 19,6 %, mini 5,5 %,

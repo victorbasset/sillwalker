@@ -9,6 +9,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - En ligne (butler) : windows #2430814, linux #2430816, mac #2430820 ; fichiers et SHA256-0.1.7.txt dans Médias/dist-itch.
 - Devlog prêt : titre, couverture (steam/itch/cover-0.1.7.png, aussi Médias/dist-itch/promo/), tags, langues et texte en
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
+- Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
 ## Mi-journée du 18/11 (it. 2205-2249) : à regarder en jouant
 
