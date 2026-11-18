@@ -66,7 +66,8 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 1345 : « tout dépenser » du grand graphe à
 400 ms) ; chronométrer un cas isolé avant de chercher une boucle. `FUZZ_BASE=fin` : même balayage à partir de la partie de fin de partie (scripts/fixtures/endgame-save.json, it. 999) ; `FUZZ_BASE=0.1.2` : à partir d'une partie de la version 0.1.2 (scripts/fixtures/save-0.1.2.json, it. 1149).
 - Mémoire dans la durée (fuites) : `scripts/mem-watch.sh [minutes] [vitesse]` (éditions « Quoi de neuf » marquées lues dans sa copie
-  depuis l'it. 2130 : la bulle du lancement ajoutait 30 à 60 Mo ; `MEM_NEWS=1` pour la garder) (Linux ; « réel » = PSS de l'arbre Electron ≈ 565-575 Mo stables
+  depuis l'it. 2130, `MEM_NEWS=1` pour la garder ; mesure BIMODALE ≈ 570 ou ≈ 625 Mo d'une exécution à l'autre, même code : it. 2130-2132,
+  une dichotomie sur une mesure par commit a désigné à tort une édition « Quoi de neuf » ; alterner plusieurs exécutions par commit) (Linux ; « réel » = PSS de l'arbre Electron ≈ 565-575 Mo stables
   attendus (it. 1991 : deux mesures à 625-630 Mo dues à l'état de la machine ; un écart se juge contre l'ancien commit mesuré
   aussitôt après, en git worktree) depuis la bande originale (it. 1541 : +55 Mo, le morceau décodé en mémoire pour une boucle sans blanc ; 485-530 avant ; it. 1728 : 542-550 sur 8 min, plat) (bruit d'une mesure à l'autre), son et musique actifs ; `MEM_ARGS="--stage=<fichier.js>"` y ajoute une mise en scène (it. 1567 : changement de morceau toutes les 20 s, 540-660 Mo en dents de scie, sans croissance) ; l'ancien total RSS ≈ 800 Mo comptait la mémoire partagée plusieurs fois et l'écran virtuel).
 - Rythme de la première heure : `node --experimental-default-type=module scripts/early-pace.mjs` (objets, niveau,
