@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2351, REVUE GÉNÉRALE) : 12 h : druide 64, samouraï 65, nécromancien 62 ; --perf : 19,7 / 20,0 %, mini 5,5 %, icône
+  0,7 % ; Compétences en anglais à 1280 px (fin de partie, graphe rempli : 222 nœuds, 140 points en surplus → +14 %) : propre.
 - 2026-11-18 (it. 2350, contrôle) : --crawl en coréen sur la fin de partie (0.1.7) : 706 clics, aucune erreur.
 - 2026-11-18 (it. 2349, contrôle) : save-fuzz à partir d'une partie 0.1.2 (sanitizeOuter du grand graphe allégé) : 1169 corruptions, ok.
 - 2026-11-18 (it. 2348, contrôle) : semaine après Tempête de lames à +15 % (0.1.7) : graine 7 guerrier 72 h 283 → 293, 168 h 350 → 361,
