@@ -2204,4 +2204,7 @@ export default {
   3329: "Japonés y coreano: dos bonificaciones de talentos reformuladas para leerse sin ambigüedad.",
   3330: "vuelve antes de tiempo de {0}, sin botín.",
   3331: "Llama a esta mascota de vuelta de su expedición, sin botín, y la lleva contigo.",
+  3332: "Mascotas: «Llevar» en una expedición en curso hace volver a la mascota al instante (sin botín) y la convierte en tu compañera.",
+  3333: "Mascotas: el nivel aparece bajo el nombre en todas las tarjetas; la ayuda (ⓘ) está junto al texto que explica.",
+  3334: "Mac: el menú del clic derecho en el Dock aparece por encima de la franja.",
 };

@@ -3333,5 +3333,8 @@ export const KEYS = [
   "Familiers : l’aide (ⓘ) passe en tête de la barre, où l’ombre du défilement ne la cache plus.",
   "Japonais et coréen : deux bonus de talents reformulés pour se lire sans ambiguïté.",
   "rentre plus tôt de {0}, sans butin.",
-  "Rappelle ce familier de son expédition, sans butin, et l’emmène."
+  "Rappelle ce familier de son expédition, sans butin, et l’emmène.",
+  "Familiers : « Emmener » sur une expédition en cours rappelle le familier tout de suite (sans butin) et le prend comme compagnon.",
+  "Familiers : le niveau s’affiche sous le nom sur toutes les cartes ; l’aide (ⓘ) est collée au texte qu’elle explique.",
+  "Mac : le menu du clic droit sur le Dock passe devant la bande."
 ];

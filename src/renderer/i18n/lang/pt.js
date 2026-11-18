@@ -2204,4 +2204,7 @@ export default {
   3329: "Japonês e coreano: dois bônus de talentos reformulados para serem lidos sem ambiguidade.",
   3330: "volta mais cedo de {0}, sem saque.",
   3331: "Chama este mascote de volta da expedição, sem saque, e o leva com você.",
+  3332: "Mascotes: «Levar» numa expedição em andamento traz o mascote de volta na hora (sem saque) e o torna seu companheiro.",
+  3333: "Mascotes: o nível aparece sob o nome em todos os cartões; a ajuda (ⓘ) fica junto ao texto que explica.",
+  3334: "Mac: o menu do clique direito no Dock aparece acima da faixa.",
 };

@@ -2204,4 +2204,7 @@ export default {
   3329: "Japanisch und Koreanisch: Zwei Talentboni neu formuliert, damit sie eindeutig lesbar sind.",
   3330: "kehrt früher zurück von: {0}, ohne Beute.",
   3331: "Ruft diesen Begleiter ohne Beute von seiner Expedition zurück und nimmt ihn mit.",
+  3332: "Begleiter: „Mitnehmen“ bei einer laufenden Expedition ruft den Begleiter sofort zurück (ohne Beute) und macht ihn zu deinem Gefährten.",
+  3333: "Begleiter: Die Stufe steht jetzt auf jeder Karte unter dem Namen; die Hilfe (ⓘ) steht direkt beim Text, den sie erklärt.",
+  3334: "Mac: Das Rechtsklickmenü im Dock erscheint jetzt über dem Streifen.",
 };

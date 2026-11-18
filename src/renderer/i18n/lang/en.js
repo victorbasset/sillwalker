@@ -2204,4 +2204,7 @@ export default {
   3329: "Japanese and Korean: two talent bonuses reworded to read unambiguously.",
   3330: "comes back early from {0}, with no loot.",
   3331: "Calls this pet back from its expedition, with no loot, and takes it along.",
+  3332: "Pets: “Take along” on an ongoing expedition calls the pet back right away (with no loot) and makes it your companion.",
+  3333: "Pets: the level now shows under the name on every card; the help (ⓘ) sits next to the text it explains.",
+  3334: "Mac: the right-click menu on the Dock now appears above the strip.",
 };

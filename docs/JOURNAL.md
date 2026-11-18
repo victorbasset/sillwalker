@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2209) : --crawl après le rappel d'expédition : 535 clics (dev-data), 698 (fin de partie), aucune erreur. « Quoi de neuf »,
+  édition 143 (rappel d'expédition, cartes des familiers, menu du Dock sur Mac ; clés 3332-3334 ; « Emmener » et « la bande » repris
+  tels que traduits ailleurs : franja, Streifen, 长条, 막대). lang-overflow 10 langues × 1280 : rien. 295/295.
 - 2026-11-18 (it. 2208, demande de Victor) : Familiers : « Emmener » dans le cadre d'une expédition en cours : le familier est rappelé
   sans butin (« tant pis si on gagne rien ») et devient le compagnon, d'un clic ; une expédition déjà finie est récupérée d'abord
   (game.recallExpedition, setPet(id, recall)). Même ligne que « Grande expéd… · 7 h 59 » (aucune hauteur en plus) : le nom se

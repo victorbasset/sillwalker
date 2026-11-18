@@ -2204,4 +2204,7 @@ export default {
   3329: "Japoński i koreański: przeredagowano dwa bonusy talentów, by czytały się jednoznacznie.",
   3330: "wraca wcześniej z: {0}, bez łupu.",
   3331: "Przywołuje tego pupila z wyprawy, bez łupu, i zabiera go ze sobą.",
+  3332: "Pupile: „Zabierz” przy trwającej wyprawie od razu przywołuje pupila (bez łupu) i czyni go twoim towarzyszem.",
+  3333: "Pupile: poziom widać pod nazwą na każdej karcie; pomoc (ⓘ) stoi przy tekście, który wyjaśnia.",
+  3334: "Mac: menu prawego przycisku na Docku pojawia się nad paskiem.",
 };
