@@ -2222,4 +2222,13 @@ export default {
   3347: "Werkstatt: günstige dauerhafte Verbesserungen",
   3348: "„Jetzt zu tun“ erinnert an die Werkstatt, wenn ihre dauerhaften Verbesserungen für dein Gold fast nichts mehr kosten.",
   3349: "Rückkehr: Die Spalte „Jetzt zu tun“ ist breiter; auf Deutsch und Polnisch scrollt die Übersicht nicht mehr.",
+  3350: "Besiege Poupouce, ein sehr seltenes Monster, das einen legendären Gegenstand fallen lässt.",
+  3351: "Lerne einen Schlussstein in den Fertigkeiten.",
+  3352: "Lerne einen ersten Knoten des großen Graphen rund um die Blume der Fertigkeiten.",
+  3353: "Finde eine Windfeder, selten nach einem Sieg: Tempo für immer.",
+  3354: "Besiege einen fluchenden Boss mit 100 % Reinheit.",
+  3355: "Bilde ein Duo aus zwei Helden mit einer gemeinsamen Synergie.",
+  3356: "Besiege den Sternenbrecher.",
+  3357: "Besiege das erste Echo eines großen Bosses (Zone 250).",
+  3358: "Besiege die drei Echos der großen Bosse (Zonen 250, 300 und 350).",
 };

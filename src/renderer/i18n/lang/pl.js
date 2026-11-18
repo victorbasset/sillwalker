@@ -2222,4 +2222,13 @@ export default {
   3347: "Warsztat: tanie trwałe ulepszenia",
   3348: "„Do zrobienia teraz” przypomina o Warsztacie, gdy jego trwałe ulepszenia prawie nic nie kosztują przy twoim złocie.",
   3349: "Powrót: kolumna „Do zrobienia teraz” jest szersza; po niemiecku i polsku podsumowanie już się nie przewija.",
+  3350: "Pokonaj Poupouce, bardzo rzadkiego potwora, który zostawia legendarny przedmiot.",
+  3351: "Naucz się zwornika w Umiejętnościach.",
+  3352: "Naucz się pierwszego węzła wielkiego grafu wokół kwiatu Umiejętności.",
+  3353: "Znajdź pióro wiatru, rzadkie po zwycięstwie: szybkość na zawsze.",
+  3354: "Pokonaj przeklinającego bossa przy 100 % czystości.",
+  3355: "Utwórz duet dwóch bohaterów, którzy mają wspólną synergię.",
+  3356: "Pokonaj Łamacza Gwiazd.",
+  3357: "Pokonaj pierwsze echo wielkiego bossa (strefa 250).",
+  3358: "Pokonaj trzy echa wielkich bossów (strefy 250, 300 i 350).",
 };

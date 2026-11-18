@@ -69,3 +69,4 @@ docs/devlog-0.1.6.md).
 - **Linux (it. 2222) :** Réglages sans « Windows » ni case de démarrage sans effet.
 - **Première installation (it. 2200, demande de Victor) :** volumes plus doux par défaut (effets 10 %, musique 20 %, ambiance 100 %,
   général 50 %).
+- **Succès (it. 2286) :** les noms obscurs (Clé de voûte, Cœur pur, Écho dissipé…) disent au survol ce qu’il faut faire.

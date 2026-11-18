@@ -3351,5 +3351,14 @@ export const KEYS = [
   "Atelier : des améliorations permanentes à petit prix pour ton or",
   "Atelier : améliorations permanentes à petit prix",
   "« À faire maintenant » rappelle l’Atelier quand ses améliorations permanentes ne coûtent presque plus rien pour ton or.",
-  "Retour d’absence : la colonne « À faire maintenant » est plus large ; en allemand et en polonais, le résumé ne défile plus."
+  "Retour d’absence : la colonne « À faire maintenant » est plus large ; en allemand et en polonais, le résumé ne défile plus.",
+  "Vaincre Poupouce, un monstre très rare qui laisse un objet légendaire.",
+  "Apprendre une clé de voûte dans les Compétences.",
+  "Apprendre un premier nœud du grand graphe, autour de la fleur des Compétences.",
+  "Trouver une plume du vent, rare après une victoire : de la vitesse pour toujours.",
+  "Vaincre un boss qui maudit avec 100 % de pureté.",
+  "Former un duo de deux héros qui partagent une synergie.",
+  "Vaincre le Briseur d’Étoiles.",
+  "Vaincre le premier écho d’un boss majeur (zone 250).",
+  "Vaincre les trois échos des boss majeurs (zones 250, 300 et 350)."
 ];

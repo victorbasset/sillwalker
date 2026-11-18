@@ -2222,4 +2222,13 @@ export default {
   3347: "Workshop: permanent upgrades going cheap",
   3348: "“Things to do now” reminds you of the Workshop when its permanent upgrades cost next to nothing for your gold.",
   3349: "Back from absence: the “Things to do now” column is wider; in German and Polish the summary no longer scrolls.",
+  3350: "Defeat Poupouce, a very rare monster that drops a legendary item.",
+  3351: "Learn a keystone in Skills.",
+  3352: "Learn a first node of the great graph, around the Skills flower.",
+  3353: "Find a wind feather, rare after a victory: speed, forever.",
+  3354: "Defeat a cursing boss with 100% purity.",
+  3355: "Form a duo of two heroes who share a synergy.",
+  3356: "Defeat the Starbreaker.",
+  3357: "Defeat the first echo of a major boss (zone 250).",
+  3358: "Defeat the three echoes of the major bosses (zones 250, 300 and 350).",
 };

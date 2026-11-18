@@ -2222,4 +2222,13 @@ export default {
   3347: "Oficina: melhorias permanentes baratas",
   3348: "«O que fazer agora» lembra a Oficina quando suas melhorias permanentes quase não custam nada para o seu ouro.",
   3349: "Na volta: a coluna «O que fazer agora» ficou mais larga; em alemão e polonês o resumo não rola mais.",
+  3350: "Derrote Poupouce, um monstro muito raro que deixa um item lendário.",
+  3351: "Aprenda uma pedra angular em Habilidades.",
+  3352: "Aprenda um primeiro nó do grande grafo, ao redor da flor de Habilidades.",
+  3353: "Encontre uma pena do vento, rara após uma vitória: velocidade para sempre.",
+  3354: "Derrote um chefe que amaldiçoa com 100 % de pureza.",
+  3355: "Forme uma dupla de dois heróis que compartilham uma sinergia.",
+  3356: "Derrote o Quebra-Estrelas.",
+  3357: "Derrote o primeiro eco de um chefe maior (zona 250).",
+  3358: "Derrote os três ecos dos chefes maiores (zonas 250, 300 e 350).",
 };

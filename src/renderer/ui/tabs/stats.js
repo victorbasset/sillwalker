@@ -70,7 +70,7 @@ export class StatsTab {
     const reached = earnedAchievements(S); // déjà obtenus compris : un ajout de contenu ne retire pas d'étoile
     const ach = ACHIEVEMENTS.map((a) => {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
-      return `<li class="ach${on ? " on" : ""}"><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
+      return `<li class="ach${on ? " on" : ""}"${a.desc ? ` title="${esc(a.desc)}"` : ""}><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
     }).join("");
     // (it. 1729) avant la zone 40 : le Journal seul (l'onglet s'ouvre tôt pour lui)
     const full = statsFull(S);

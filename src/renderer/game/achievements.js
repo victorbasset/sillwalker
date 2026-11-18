@@ -47,14 +47,14 @@ export const ACHIEVEMENTS = [
   { id: "PETS_ALL",        name: "Ménagerie complète", test: (S) => PETS.every((p) => S.pets?.owned?.[p.id]) },
   { id: "QUESTS_25",       name: "25 quêtes accomplies", test: (S) => (S.quests?.completed || 0) >= 25 },
   { id: "GOBLIN",          name: "Attrape-gobelin",    test: (S) => (S.stats.goblins || 0) >= 1 },
-  { id: "POUPOUCE",        name: "Poupouce ?!",        test: (S) => (+S.stats.poupouce || 0) >= 1 }, // (it. 1576) monstre rare (data.js)
+  { id: "POUPOUCE",        name: "Poupouce ?!",        desc: "Vaincre Poupouce, un monstre très rare qui laisse un objet légendaire.", test: (S) => (+S.stats.poupouce || 0) >= 1 }, // (it. 1576) monstre rare (data.js)
   { id: "BESTIARY_ALL",    name: "Bestiaire complet",  test: (S) => Object.keys(MONSTERS).every((k) => (S.bestiary?.[k] || 0) > 0) },
-  { id: "SKILL_KEYSTONE",  name: "Clé de voûte",       test: (S) => [...activeSkillSet(S)].some((id) => SKILL_TREE.nodes[id].kind === "keystone") },
+  { id: "SKILL_KEYSTONE",  name: "Clé de voûte",       desc: "Apprendre une clé de voûte dans les Compétences.", test: (S) => [...activeSkillSet(S)].some((id) => SKILL_TREE.nodes[id].kind === "keystone") },
   { id: "SKILL_100",       name: "100 compétences",    test: (S) => activeSkillSet(S).size - 1 >= 100 },
   // (it. 1136) grand graphe autour de la fleur : premier nœud, puis rempli (une voie par région, 258 nœuds)
-  { id: "GRAPH_FIRST",     name: "Au-delà de la fleur", test: (S) => activeGraphSet(S).size > 0 },
+  { id: "GRAPH_FIRST",     name: "Au-delà de la fleur", desc: "Apprendre un premier nœud du grand graphe, autour de la fleur des Compétences.", test: (S) => activeGraphSet(S).size > 0 },
   { id: "GRAPH_FULL",      name: "Le grand graphe accompli", test: (S) => activeGraphSet(S).size >= GRAPH_MAX_TAKE },
-  { id: "FEATHER",         name: "Plume du vent",      test: (S) => (S.stats.feathers || 0) >= 1 },
+  { id: "FEATHER",         name: "Plume du vent",      desc: "Trouver une plume du vent, rare après une victoire : de la vitesse pour toujours.", test: (S) => (S.stats.feathers || 0) >= 1 },
   { id: "SHOOTING_STAR",   name: "Vœu exaucé (étoile filante)", test: (S) => (S.stats.stars || 0) >= 1 },
   { id: "SPEED_25",        name: "Rapide comme le vent (+25 % de vitesse)", test: (S) => (S.speed || 0) >= 25 },
   // (it. 1008) ou une panoplie déjà complétée : la tâche « … complètent la panoplie » remet aussitôt l'équipement d'avant
@@ -69,11 +69,11 @@ export const ACHIEVEMENTS = [
   // (it. 1293) nom sans nombre : « Dix jours bénis » devenait faux à chaque nouvelle bénédiction (12 à l'it. 1292)
   { id: "BLESSINGS_ALL",   name: "Toutes les bénédictions du jour", test: (S) => blessingsSeenCount(S) >= DAY_MOD_KEYS.length }, // (it. 1232)
   { id: "ELITES_ALL",      name: "Tueur d’élites",     test: (S) => affixesSeenCount(S) >= Object.keys(ELITE_AFFIXES).length },
-  { id: "PURE_HEART",      name: "Cœur pur",           test: (S) => (S.stats.pureBoss || 0) > 0 },
-  { id: "DUO_SYNERGY",     name: "Duo parfait",        test: (S) => !!duoSynergy(S.cls, S.partner) },
+  { id: "PURE_HEART",      name: "Cœur pur",           desc: "Vaincre un boss qui maudit avec 100 % de pureté.", test: (S) => (S.stats.pureBoss || 0) > 0 },
+  { id: "DUO_SYNERGY",     name: "Duo parfait",        desc: "Former un duo de deux héros qui partagent une synergie.", test: (S) => !!duoSynergy(S.cls, S.partner) },
   { id: "CHRONICLER",      name: "Chroniqueur",        test: (S) => chronRead(S) >= CHRONICLES.length - 1 },
   { id: "HEROES_ALL",      name: "Tous les héros libérés", test: (S) => CLASS_KEYS.every((c) => c === "warrior" || (S.classesUnlocked || []).includes(c)) },
-  { id: "STARBREAKER",     name: "Le ciel rallumé",    test: (S) => !!(S.story && S.story.won) }, // Briseur d'Étoiles vaincu
+  { id: "STARBREAKER",     name: "Le ciel rallumé",    desc: "Vaincre le Briseur d’Étoiles.", test: (S) => !!(S.story && S.story.won) }, // Briseur d'Étoiles vaincu
   { id: "ZONE_50",         name: "Zone 50",            test: (S) => S.best >= 50 },
   { id: "LEVEL_100",       name: "Niveau 100",         test: (S) => S.lvl >= 100 },
   { id: "KILLS_1000",      name: "Mille victoires",    test: (S) => (S.stats.kills || 0) >= 1000 },
@@ -112,8 +112,8 @@ export const ACHIEVEMENTS = [
   { id: "RELICS_ALL",      name: "Les quatre reliques", test: (S) => RELIC_IDS.every((id) => hasRelic(S, id)) },
   { id: "RELIC_MAX",       name: "Relique parfaite (niveau 5)", test: (S) => RELIC_IDS.some((id) => relicLevel(S, id) >= RELIC_MAX_LV) },
   // (it. 803) échos des lieutenants au-delà du Rebord (zones 250, 300, 350) : battu = record au-delà de sa zone
-  { id: "ECHO_FIRST",      name: "Écho dissipé",       test: (S) => rec(S) > ECHO_BOSSES[0].zone },
-  { id: "ECHOES_ALL",      name: "Les trois échos",    test: (S) => rec(S) > ECHO_BOSSES[ECHO_BOSSES.length - 1].zone },
+  { id: "ECHO_FIRST",      name: "Écho dissipé",       desc: "Vaincre le premier écho d’un boss majeur (zone 250).", test: (S) => rec(S) > ECHO_BOSSES[0].zone },
+  { id: "ECHOES_ALL",      name: "Les trois échos",    desc: "Vaincre les trois échos des boss majeurs (zones 250, 300 et 350).", test: (S) => rec(S) > ECHO_BOSSES[ECHO_BOSSES.length - 1].zone },
 ];
 
 /** Identifiants des succès dont la condition est remplie. */

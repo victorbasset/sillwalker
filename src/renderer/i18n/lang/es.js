@@ -2222,4 +2222,13 @@ export default {
   3347: "Taller: mejoras permanentes baratas",
   3348: "«Qué hacer ahora» te recuerda el Taller cuando sus mejoras permanentes ya casi no cuestan nada para tu oro.",
   3349: "Al volver: la columna «Qué hacer ahora» es más ancha; en alemán y polaco el resumen ya no se desplaza.",
+  3350: "Derrota a Poupouce, un monstruo muy raro que deja un objeto legendario.",
+  3351: "Aprende una piedra angular en Habilidades.",
+  3352: "Aprende un primer nodo del gran grafo, alrededor de la flor de Habilidades.",
+  3353: "Encuentra una pluma del viento, rara tras una victoria: velocidad para siempre.",
+  3354: "Derrota a un jefe que maldice con un 100 % de pureza.",
+  3355: "Forma un dúo de dos héroes que comparten una sinergia.",
+  3356: "Derrota al Rompeestrellas.",
+  3357: "Derrota al primer eco de un jefe mayor (zona 250).",
+  3358: "Derrota a los tres ecos de los jefes mayores (zonas 250, 300 y 350).",
 };
