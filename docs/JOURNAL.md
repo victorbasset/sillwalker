@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2160, contrôle) : Talents refaits vus avec la partie de fin de partie (voie choisie, 129 points libres, maîtrises à 0) :
+  états lisibles (voie « choisie », l'autre grisée, maîtrises cliquables en vert avec « tout »). Rien à corriger.
 - 2026-11-18 (it. 2159, plaisir de revenir) : résumé d'absence : « Laissés au sol (sac plein) » porte au survol le remède quand la
   vente automatique est débloquée mais rien n'est coché (« Astuce : dans le sac (Aventure), coche la vente automatique… »). Clé 3311 ;
   i18n-paths 19 onglets cités, 0 écart ; vérifié en jeu.
