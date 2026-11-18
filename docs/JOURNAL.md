@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2233, ergonomie) : Quêtes : les quêtes qui demandent un geste ailleurs ont un lien vers l'onglet où le faire, en haut
+  à droite de la carte (« → Aventure » : forger et transmuter, depuis la fiche d'un objet du sac ; « → Familiers » : expéditions) ; nom
+  d'onglet tel qu'affiché, pas de clé nouvelle ; caché quand la quête est accomplie. Autotest (clic → Aventure) ; captures fr, de ;
+  lang-overflow 10 langues × 1280 : rien. 297/297.
 - 2026-11-18 (it. 2232, contrôle) : sonde des ⓘ sur une partie SANS aucun déblocage (liens « 🔒 · prix » dans les rangées), fr, de, ru
   à 1280 px : IPROBE 0.
 - 2026-11-18 (it. 2231, REVUE GÉNÉRALE) : 12 h : assassin 60, prêtresse 64, lancier 62 (assassin, le plus bas de toujours : une graine) ;

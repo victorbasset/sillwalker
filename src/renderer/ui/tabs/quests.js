@@ -47,6 +47,11 @@ function rewardHTML(rw) {
   return out.join("");
 }
 
+// (it. 2233) quêtes qui demandent un geste ailleurs : un lien vers l'onglet où le faire (forger et transmuter : fiche d'un objet du
+// sac ; expéditions : Familiers). Nom de l'onglet tel qu'affiché dans la barre.
+const QUEST_GO = { forge: ["adventure", "Aventure"], transmute: ["adventure", "Aventure"], expedition: ["pets", "Familiers"] };
+const goLink = (kind) => { const g = QUEST_GO[kind]; return g ? `<button class="linkbtn qgo" data-tab="${g[0]}">→ ${tx(g[1])}</button>` : ""; };
+
 export class QuestsTab {
   constructor(game) { this.game = game; }
 
@@ -94,7 +99,7 @@ export class QuestsTab {
       return `<article class="panel questcard s${stars}${done ? " done" : ""}"${lureTip}>
         <div class="qhead"><img src="${(KIND_ICON[q.kind] || KIND_ICON.kill)(S)}" alt=""><div>
           <div class="stars">${"★".repeat(stars)}<span>${"★".repeat(3 - stars)}</span></div>
-          <h2>${esc(questText(q, fmt))}</h2></div></div>
+          <h2>${esc(questText(q, fmt))}</h2></div>${done ? "" : goLink(q.kind)}</div>
         <div class="kv"><span>${tx("Progression")}</span><span>${prog}${etaTxt}${away}</span></div>
         <div class="bar"><i style="width:${pct}%"></i></div>
         <div class="rewards">${rewardHTML(q.reward.gold ? { ...q.reward, gold: questGold(S, q) } : q.reward)}</div>

@@ -857,6 +857,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .qhead { display: flex; gap: 10px; align-items: center; margin-bottom: 6px; }
 .qhead img { width: 40px; image-rendering: pixelated; flex: none; }
 .qhead h2 { margin: 0; }
+.qhead .qgo { display: inline-block; width: auto; margin: 0 0 0 auto; align-self: flex-start; flex: none; font-size: 12px; padding: 1px 6px; } /* (it. 2233) vers l'onglet où agir */
 .stars { color: color-mix(in oklab, #ffd34d var(--tintk), var(--accent)); font-size: 14px; letter-spacing: 1px; }
 .stars span { color: var(--line); }
 .questcard.s2 { border-color: color-mix(in oklab, #9fd8ff var(--tintk), var(--r2)); }
