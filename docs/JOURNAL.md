@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2348, contrôle) : semaine après Tempête de lames à +15 % (0.1.7) : graine 7 guerrier 72 h 283 → 293, 168 h 350 → 361,
+  mage 349 → 350 ; graine 3 guerrier 72 h 293 → 283, 168 h 350 → 350, mage 350 → 350 : écarts de sens contraires selon la graine,
+  bruit ; mêmes paliers (36 h : 150, 48 h : 200).
 - 2026-11-18 (it. 2347) : CLAUDE.md, sortie d'une version : 0.1.7 = édition 152, la 0.1.8 prendra after: 152.
 - 2026-11-18 (it. 2346, VERSION 0.1.7 ENVOYÉE) : étiquette v0.1.7 ; itch-push --dry-run (win 337 Mo, linux 134, mac 129, signé) ;
   AppImage essayée avec un HOME temporaire (démarre, partie neuve) ; Médias/dist-itch : 3 fichiers + SHA256-0.1.7.txt ; butler :
