@@ -2198,4 +2198,8 @@ export default {
   3323: "Bag: the arrow keys move from one slot to another.",
   3324: "Talents: the help (ⓘ) lists every shortcut, arrows included.",
   3325: "Talents, skills and bag: move around",
+  3326: "Skills: the arrow keys move from one learnable node to another.",
+  3327: "Bestiary: no more cut-off names; a name that is too long wraps onto two lines.",
+  3328: "Pets: the help (ⓘ) moves to the start of the bar, where the scroll shadow no longer hides it.",
+  3329: "Japanese and Korean: two talent bonuses reworded to read unambiguously.",
 };

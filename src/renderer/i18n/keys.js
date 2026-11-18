@@ -3327,5 +3327,9 @@ export const KEYS = [
   "Talents : en allant vers la fiche, elle garde le talent ou la voie survolés ; leur bouton ne disparaît plus en route.",
   "Sac : les flèches du clavier se déplacent d’une case à l’autre.",
   "Talents : l’aide (ⓘ) cite tous les raccourcis, flèches comprises.",
-  "Talents, compétences et sac : se déplacer"
+  "Talents, compétences et sac : se déplacer",
+  "Compétences : les flèches du clavier passent d’un nœud apprenable à l’autre.",
+  "Bestiaire : plus aucun nom coupé ; un nom trop long passe sur deux lignes.",
+  "Familiers : l’aide (ⓘ) passe en tête de la barre, où l’ombre du défilement ne la cache plus.",
+  "Japonais et coréen : deux bonus de talents reformulés pour se lire sans ambiguïté."
 ];

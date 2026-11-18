@@ -2198,4 +2198,8 @@ export default {
   3323: "Bolsa: las flechas del teclado pasan de una casilla a otra.",
   3324: "Talentos: la ayuda (ⓘ) cita todos los atajos, flechas incluidas.",
   3325: "Talentos, competencias y bolsa: moverse",
+  3326: "Habilidades: las flechas del teclado pasan de un nodo aprendible a otro.",
+  3327: "Bestiario: ningún nombre cortado; un nombre demasiado largo pasa a dos líneas.",
+  3328: "Mascotas: la ayuda (ⓘ) pasa al inicio de la barra, donde la sombra del desplazamiento ya no la oculta.",
+  3329: "Japonés y coreano: dos bonificaciones de talentos reformuladas para leerse sin ambigüedad.",
 };

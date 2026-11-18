@@ -2198,4 +2198,8 @@ export default {
   3323: "Bolsa: as setas do teclado passam de uma casa para outra.",
   3324: "Talentos: a ajuda (ⓘ) cita todos os atalhos, setas incluídas.",
   3325: "Talentos, competências e bolsa: mover-se",
+  3326: "Habilidades: as setas do teclado passam de um nó aprendível a outro.",
+  3327: "Bestiário: nenhum nome cortado; um nome longo demais passa para duas linhas.",
+  3328: "Mascotes: a ajuda (ⓘ) vai para o início da barra, onde a sombra da rolagem não a esconde mais.",
+  3329: "Japonês e coreano: dois bônus de talentos reformulados para serem lidos sem ambiguidade.",
 };

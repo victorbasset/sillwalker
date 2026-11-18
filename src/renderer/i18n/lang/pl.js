@@ -2198,4 +2198,8 @@ export default {
   3323: "Torba: strzałki na klawiaturze przechodzą z pola na pole.",
   3324: "Talenty: pomoc (ⓘ) wymienia wszystkie skróty, łącznie ze strzałkami.",
   3325: "Talenty, umiejętności i torba: poruszanie się",
+  3326: "Umiejętności: strzałki na klawiaturze przechodzą między węzłami do nauczenia.",
+  3327: "Bestiariusz: żadna nazwa nie jest już ucięta; zbyt długa przechodzi do dwóch linii.",
+  3328: "Pupile: pomoc (ⓘ) trafia na początek paska, gdzie cień przewijania już jej nie zasłania.",
+  3329: "Japoński i koreański: przeredagowano dwa bonusy talentów, by czytały się jednoznacznie.",
 };

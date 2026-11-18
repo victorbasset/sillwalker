@@ -2198,4 +2198,8 @@ export default {
   3323: "Tasche: Die Pfeiltasten springen von Feld zu Feld.",
   3324: "Talente: Die Hilfe (ⓘ) nennt alle Tastenkürzel, Pfeile inbegriffen.",
   3325: "Talente, Fertigkeiten und Tasche: bewegen",
+  3326: "Fertigkeiten: Die Pfeiltasten springen von einem lernbaren Knoten zum nächsten.",
+  3327: "Bestiarium: Keine abgeschnittenen Namen mehr; ein zu langer Name bricht in zwei Zeilen um.",
+  3328: "Begleiter: Die Hilfe (ⓘ) steht jetzt am Anfang der Leiste, wo der Schatten des Bildlaufs sie nicht mehr verdeckt.",
+  3329: "Japanisch und Koreanisch: Zwei Talentboni neu formuliert, damit sie eindeutig lesbar sind.",
 };
