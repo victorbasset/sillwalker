@@ -4,6 +4,19 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Nuit du 17 au 18/11 (it. 2094-2144) : Talents refaits et ergonomie, à essayer chez toi
+
+Détail et principes : `docs/TALENTS-UX.md`. Ce que le serveur ne peut pas vérifier (fenêtre sans focus, pas de vraie souris) :
+- **Talents à la souris** : la fiche suit le survol sans délai et revient au talent cliqué quand tu vas vers elle ; le design
+  (seul le cliquable en vert, Voie en or, total des talents, « ↶ » pour annuler le dernier clic) te convient-il enfin ?
+- **Talents au clavier** : Tab sur les talents (la fiche suit le focus), Maj + Entrée (un rang), Z (annuler), Échap (annule une
+  demande de réinitialisation).
+- **Fenêtres de confirmation** : réinitialisations, ascension, vente d'un objet précieux, effacement de la partie (là, Entrée
+  ANNULE) ; un clic sur le fond annule. Dis-moi si l'une gêne au quotidien (trop de confirmations ?).
+- **Retour d'absence** : ouvre le panneau pendant la bulle « Pendant ton absence » (le résumé détaillé doit s'ouvrir), et plus
+  tard (la carte du héros doit dire « Depuis ta dernière visite »).
+- Ces nouveautés sont dans les éditions 136 à 138 de « Quoi de neuf » et dans le brouillon du devlog 0.1.7.
+
 ## Depuis la 0.1.6 (soir du 17/11, it. 2058-2087) : à regarder en jouant (prochaine version)
 
 - Mode mini (ton signalement) : le monstre suivant s'avance depuis sa place d'attente ; le boss attend lui aussi au fond ; un

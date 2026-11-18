@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2144) : mode mini au retour d'absence vu en capture (ru, fr) : point d'astuce avec le résumé au survol, comme prévu.
+  docs/POUR-VICTOR.md : ce qui reste à essayer sous Windows après la nuit (Talents à la souris et au clavier, confirmations, retour
+  d'absence).
 - 2026-11-18 (it. 2143, plaisir de revenir) : résumé d'absence au pire cas (tous les gains et automatismes : 21 lignes) : 193 px de
   défilement en russe à 1280 px. Bilan de plus de 11 lignes sur deux colonnes, fenêtre jusqu'à 1150 px, « À faire maintenant » en
   colonne fixe de 320 px aux boutons resserrés : 0 px en russe, français et allemand. Autotest du pire cas ; 283/283.
