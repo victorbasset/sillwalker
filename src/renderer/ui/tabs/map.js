@@ -8,7 +8,8 @@ import { t as tx, colon, wsp } from "../../i18n/index.js";
 import { esc, fmt } from "../../game/format.js";
 import { zoneName, zoneDef } from "../../game/rules.js";
 import { bossName } from "../../game/bosses.js";
-import { recordZone, hasUnlock, UNLOCK_INDEX } from "../../game/unlocks.js";
+import { recordZone, hasUnlock, UNLOCK_INDEX, unlockAvailable } from "../../game/unlocks.js";
+import { lockLink } from "../locks.js";
 import { CLASSES, CLASS_UNLOCK_ZONE, isClassUnlocked } from "../../game/classes.js";
 import { CHRONICLES, chroniclesUnlocked, FINAL_ZONE, storyWon } from "../../game/story.js";
 import { classPortraitURL, starbreakerURL, majorURL } from "../../render/sprites.js";
@@ -127,7 +128,10 @@ export class MapTab {
     // la carte prend la hauteur restante (elle se réduit pour rentrer en entier ; le détail est dans les infobulles).
     el.innerHTML = `<article class="panel mappanel"><h2 class="npch" title="${esc(tx("Ton voyage le long du Rebord : les zones parcourues, les héros à libérer, les chroniques, et le Briseur d’Étoiles qui t’attend au bout."))}">${tx("Carte du Rebord")}
       <small class="mapsum">${tx("Record : zone {0}", { 0: fmt(recordZone(S)) })} / ${FINAL_ZONE} · ${tx("Héros libérés : {0}", { 0: `${freed} / ${Object.keys(CLASSES).length}` })} · 📜 ${tx("Chroniques ({0} / {1})", { 0: got.size, 1: CHRONICLES.length })} · ${relicRow}</small>${npcHTML("map", true)}</h2>
-      ${travel ? `<p class="note tight">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : `<p class="note tight">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
+      ${travel ? `<p class="note tight">${tx("Clique une zone déjà atteinte pour y emmener ton héros.")}</p>` : unlockAvailable(S, UNLOCK_INDEX.travelMap)
+        // (it. 2227) déjà achetable : « Bientôt » trompait (record 57, zone 22 passée) ; le lien mène à la boutique, prix compris
+        ? `<p class="note tight">${tx("En vente : la {0} permet d’aller d’un clic dans une zone déjà atteinte.", { 0: tx(UNLOCK_INDEX.travelMap.name) })} ${lockLink(S, "travelMap")}</p>`
+        : `<p class="note tight">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
       <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W} ${H}" role="group" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div></article>`;
     if (act) el.querySelector(`[data-mz="${cursor}"]`)?.focus({ preventScroll: true });
     if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e, el)); el.addEventListener("focusin", (e) => { const z = +e.target.dataset?.mz; if (z) this.cursor = z; }); }

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2227) : Carte : « Bientôt : la Carte du voyageur… (boutique, zone 22) » s'affichait alors qu'elle était déjà
+  achetable (record 57, 447 Md d'or). Maintenant « En vente : … » suivi du lien « 🔒 Carte du voyageur · 90 k or » vers la boutique
+  (clé 3336) ; « Bientôt » reste avant la zone 22. Le lien, plus haut que la ligne, faisait défiler la Carte de 12 px (autotest, trois
+  largeurs ; lang-overflow ne le voyait pas) : .note .linkbtn.lock compact. prefers-reduced-motion : déjà respecté. 296/296.
 - 2026-11-18 (it. 2226, contrôle langues) : i18n-names après les textes du jour (clés 3320-3335) : 25 écarts, tous anciens faux positifs
   grammaticaux (déclinaisons allemandes, particules coréennes, « Ménagerie » dans « collection complète ») ; aucune clé du jour.
 - 2026-11-18 (it. 2225, contrôle) : début de partie inchangé. first-minutes : premier objet à 42-82 s, premier boss 70-82 s, onglet

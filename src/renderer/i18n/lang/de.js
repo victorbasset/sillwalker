@@ -2208,4 +2208,5 @@ export default {
   3333: "Begleiter: Die Stufe steht jetzt auf jeder Karte unter dem Namen; die Hilfe (ⓘ) steht direkt beim Text, den sie erklärt.",
   3334: "Mac: Das Rechtsklickmenü im Dock erscheint jetzt über dem Streifen.",
   3335: "Automatisch (System)",
+  3336: "Im Angebot: Mit der {0} gelangst du mit einem Klick in eine bereits erreichte Zone.",
 };

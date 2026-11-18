@@ -2208,4 +2208,5 @@ export default {
   3333: "Pupile: poziom widać pod nazwą na każdej karcie; pomoc (ⓘ) stoi przy tekście, który wyjaśnia.",
   3334: "Mac: menu prawego przycisku na Docku pojawia się nad paskiem.",
   3335: "Automatycznie (system)",
+  3336: "W sprzedaży: {0} pozwala jednym kliknięciem przenieść się do już osiągniętej strefy.",
 };

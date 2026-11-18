@@ -3337,5 +3337,6 @@ export const KEYS = [
   "Familiers : « Emmener » sur une expédition en cours rappelle le familier tout de suite (sans butin) et le prend comme compagnon.",
   "Familiers : le niveau s’affiche sous le nom sur toutes les cartes ; l’aide (ⓘ) est collée au texte qu’elle explique.",
   "Mac : le menu du clic droit sur le Dock passe devant la bande.",
-  "Automatique (système)"
+  "Automatique (système)",
+  "En vente : la {0} permet d’aller d’un clic dans une zone déjà atteinte."
 ];

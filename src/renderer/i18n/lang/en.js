@@ -2208,4 +2208,5 @@ export default {
   3333: "Pets: the level now shows under the name on every card; the help (ⓘ) sits next to the text it explains.",
   3334: "Mac: the right-click menu on the Dock now appears above the strip.",
   3335: "Automatic (system)",
+  3336: "On sale: the {0} lets you go to a zone already reached in one click.",
 };

@@ -2208,4 +2208,5 @@ export default {
   3333: "Mascotas: el nivel aparece bajo el nombre en todas las tarjetas; la ayuda (ⓘ) está junto al texto que explica.",
   3334: "Mac: el menú del clic derecho en el Dock aparece por encima de la franja.",
   3335: "Automático (sistema)",
+  3336: "A la venta: el {0} permite ir con un clic a una zona ya alcanzada.",
 };

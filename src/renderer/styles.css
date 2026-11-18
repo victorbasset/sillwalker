@@ -674,6 +674,7 @@ details.more summary:hover { color: var(--accent); }
 .goal.ready { border-style: solid; border-color: var(--accent); }
 .linkbtn.lock { display: inline-block; width: auto; margin: 4px 0; font-size: 12px; padding: 2px 8px; border-color: var(--line); border-style: dashed; color: var(--muted); }
 .linkbtn.lock:hover { color: var(--accent); border-color: var(--accent); }
+.note .linkbtn.lock { margin: 0 0 0 4px; padding: 0 6px; min-height: 0; line-height: inherit; vertical-align: baseline; } /* (it. 2227) dans une note (Carte) : pas plus haut que la ligne */
 .lockmini { font-size: 11px; }
 .statgrid .panel.wide { grid-column: span 2; }
 .statgrid .panel.wide .lines b { white-space: nowrap; }
