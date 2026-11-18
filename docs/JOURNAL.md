@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2180, contrôles) : lang-overflow COMPLET (10 langues, 4 largeurs, états max, fin de partie, zoom 130 %) après les
+  changements depuis l'it. 2150 (Boutique à sac plein, bonus des maîtrises, résumé d'absence, Héros) : rien.
 - 2026-11-18 (it. 2179, Talents, la plainte d'origine) : survoler une voie (sans la cliquer) puis aller vers la fiche pour cliquer
   « Choisir cette voie » : la fiche revenait au talent cliqué en 180 ms et le bouton disparaissait sous le curseur. Entrer dans la fiche
   garde maintenant ce qu'elle montre ; le retour au talent cliqué ne se fait qu'ailleurs. Autotests (garder ; revenir hors de la
