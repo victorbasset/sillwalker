@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2290, contrôle) : fuzz : 1200 parties, 0 bloquées ; stall-check : 60 parties, 0 figées.
 - 2026-11-18 (it. 2289, autotest) : Statistiques > Succès : 72 succès, 9 avec une explication au survol (it. 2286). 300/300.
 - 2026-11-18 (it. 2288) : steam/achievements.md : second tableau, les descriptions (10 langues) des 9 succès qui en ont une
   (it. 2286), à recopier dans le champ « Description » de Steamworks ; généré par steam-achievements.mjs (vérifié par npm test).
