@@ -2172,4 +2172,8 @@ export default {
   3297: "Clicking the background of a window closes it; a confirmation is then cancelled.",
   3298: "Skills: the buttons stay visible without scrolling; mastery bonuses are chosen in an aligned grid.",
   3299: "{0} · not kept",
+  3300: "Coming back: the detailed summary fits in two columns, with what is left to do visible at once; it also opens if you open the panel while the bubble is showing.",
+  3301: "Coming back: the hero card sums up your absence (Since your last visit), even after restarting the game.",
+  3302: "Talents with the keyboard: the card follows the focused talent, and Escape cancels a reset request without closing the panel.",
+  3303: "Skills: undo and reset are greyed out until a node is taken.",
 };

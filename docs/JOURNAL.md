@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2142) : « Quoi de neuf », édition 138 (retour d'absence, Talents au clavier, Compétences ; 4 nouveautés, 10 langues,
+  clés 3300-3303). Trois éditions = 14 nouveautés : la fenêtre défilait de 11 px en fin de partie à 1280 px ; liste compacte dès 13
+  (avant : au-delà de 14). Résumé d'absence : 7 px de trop dans l'autotest (plus de lignes que dans la capture) : interlignes resserrés.
+  Talents à 1366 px vus en capture : propres. 282/282 ; lang-overflow 10 langues × 1280 : rien.
 - 2026-11-18 (it. 2141, revue générale) : simulations 12 h : mage 64, rôdeur 65, nécromancien 63 ; perf bande 18,4 %, panneau 19,5 %,
   mini 5,6 % ; --crawl en japonais après une absence de 3 h (résumé d'absence ouvert au passage) : 676 clics sans erreur. Rien à corriger.
 - 2026-11-18 (it. 2140) : résumé d'absence : meilleur butin ni dans le sac ni porté (vendu, sac plein) : « Épique · pas gardé » au lieu de

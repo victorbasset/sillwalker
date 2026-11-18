@@ -2172,4 +2172,8 @@ export default {
   3297: "Kliknięcie w tło okna zamyka je; potwierdzenie zostaje wtedy anulowane.",
   3298: "Umiejętności: przyciski są widoczne bez przewijania; premie mistrzostwa wybiera się w wyrównanej siatce.",
   3299: "{0} · nie zatrzymano",
+  3300: "Powrót: szczegółowe podsumowanie mieści się w dwóch kolumnach, a to, co zostało do zrobienia, widać od razu; otwiera się też, gdy otworzysz panel w trakcie dymka.",
+  3301: "Powrót: karta bohatera podsumowuje twoją nieobecność (Od twojej ostatniej wizyty), nawet po ponownym uruchomieniu gry.",
+  3302: "Talenty z klawiatury: karta podąża za talentem z fokusem, a Esc anuluje prośbę o reset bez zamykania panelu.",
+  3303: "Umiejętności: cofanie i reset są wyszarzone, dopóki nie weźmiesz żadnego węzła.",
 };

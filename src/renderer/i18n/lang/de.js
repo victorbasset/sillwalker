@@ -2172,4 +2172,8 @@ export default {
   3297: "Ein Klick auf den Hintergrund eines Fensters schließt es; eine Bestätigung wird dann abgebrochen.",
   3298: "Fertigkeiten: Die Knöpfe bleiben ohne Scrollen sichtbar; Meisterschaftsboni werden in einem ausgerichteten Raster gewählt.",
   3299: "{0} · nicht behalten",
+  3300: "Rückkehr: Die ausführliche Zusammenfassung steht in zwei Spalten, das noch zu Erledigende ist sofort sichtbar; sie öffnet sich auch, wenn du das Panel öffnest, während die Blase zu sehen ist.",
+  3301: "Rückkehr: Die Heldenkarte fasst deine Abwesenheit zusammen (Seit deinem letzten Besuch), auch nach einem Neustart des Spiels.",
+  3302: "Talente per Tastatur: Die Karte folgt dem fokussierten Talent, und Esc bricht eine Zurücksetzungsanfrage ab, ohne das Panel zu schließen.",
+  3303: "Fertigkeiten: Rückgängig und Zurücksetzen sind ausgegraut, solange kein Knoten genommen ist.",
 };

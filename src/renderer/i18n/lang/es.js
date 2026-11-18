@@ -2172,4 +2172,8 @@ export default {
   3297: "Un clic en el fondo de una ventana la cierra; una confirmación queda entonces anulada.",
   3298: "Habilidades: los botones siguen visibles sin desplazarse; las bonificaciones de maestría se eligen en una cuadrícula alineada.",
   3299: "{0} · no guardado",
+  3300: "Al volver: el resumen detallado ocupa dos columnas y lo que queda por hacer se ve enseguida; también se abre si abres el panel mientras se muestra la burbuja.",
+  3301: "Al volver: la ficha del héroe resume tu ausencia (Desde tu última visita), incluso tras reiniciar el juego.",
+  3302: "Talentos con el teclado: la ficha sigue al talento con el foco, y Escape cancela una petición de reinicio sin cerrar el panel.",
+  3303: "Habilidades: deshacer y reiniciar aparecen en gris hasta que tomas un nodo.",
 };

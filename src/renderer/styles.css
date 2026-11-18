@@ -1439,6 +1439,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 2139) résumé d'absence : bilan | « À faire maintenant », côte à côte */
 .modalwide.offgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; align-items: start; }
 .modalwide.offgrid .lines, .modalwide.offgrid ul { columns: 1; }
+.modalwide.offgrid .lines li { padding-top: 1px; padding-bottom: 1px; }
+.modalwide.offgrid > div > p { margin: 2px 0 4px; }
+.modalwide.offgrid .note { font-size: 12px; }
 @media (max-width: 900px) { .modalwide.offgrid { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .modalwide .lines { columns: 1; } }
 .modalwide ul { columns: 2; column-gap: 28px; }

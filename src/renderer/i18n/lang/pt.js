@@ -2172,4 +2172,8 @@ export default {
   3297: "Um clique no fundo de uma janela a fecha; uma confirmação é então cancelada.",
   3298: "Habilidades: os botões ficam visíveis sem rolar; os bônus de maestria são escolhidos numa grade alinhada.",
   3299: "{0} · não guardado",
+  3300: "Ao voltar: o resumo detalhado ocupa duas colunas, com o que falta fazer visível de imediato; ele também abre se você abrir o painel enquanto a bolha aparece.",
+  3301: "Ao voltar: o cartão do herói resume a sua ausência (Desde sua última visita), mesmo depois de reiniciar o jogo.",
+  3302: "Talentos pelo teclado: o cartão segue o talento em foco, e Esc cancela um pedido de redefinição sem fechar o painel.",
+  3303: "Habilidades: desfazer e redefinir ficam cinzentos até você pegar um nó.",
 };
