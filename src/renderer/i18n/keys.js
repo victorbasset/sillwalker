@@ -3360,5 +3360,6 @@ export const KEYS = [
   "Former un duo de deux héros qui partagent une synergie.",
   "Vaincre le Briseur d’Étoiles.",
   "Vaincre le premier écho d’un boss majeur (zone 250).",
-  "Vaincre les trois échos des boss majeurs (zones 250, 300 et 350)."
+  "Vaincre les trois échos des boss majeurs (zones 250, 300 et 350).",
+  "Presque obtenu"
 ];

@@ -516,6 +516,7 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .ach.on { color: var(--ink); }
 .ach .aico { display: inline-block; width: 18px; color: var(--muted); }
 .ach.on .aico { color: var(--accent); }
+.ach.near { color: var(--ink); } .ach.near .aico { color: var(--accent); } /* (it. 2294) succès presque obtenu */
 /* Réglages */
 .setgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: stretch; }
 .range { display: flex; align-items: center; gap: 8px; font-size: 14px; margin: 6px 0; }

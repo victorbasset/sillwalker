@@ -2231,4 +2231,5 @@ export default {
   3356: "Derrota al Rompeestrellas.",
   3357: "Derrota al primer eco de un jefe mayor (zona 250).",
   3358: "Derrota a los tres ecos de los jefes mayores (zonas 250, 300 y 350).",
+  3359: "Casi conseguido",
 };

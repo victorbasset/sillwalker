@@ -2231,4 +2231,5 @@ export default {
   3356: "Defeat the Starbreaker.",
   3357: "Defeat the first echo of a major boss (zone 250).",
   3358: "Defeat the three echoes of the major bosses (zones 250, 300 and 350).",
+  3359: "Almost there",
 };

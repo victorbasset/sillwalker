@@ -2231,4 +2231,5 @@ export default {
   3356: "Besiege den Sternenbrecher.",
   3357: "Besiege das erste Echo eines großen Bosses (Zone 250).",
   3358: "Besiege die drei Echos der großen Bosse (Zonen 250, 300 und 350).",
+  3359: "Fast geschafft",
 };

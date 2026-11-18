@@ -2231,4 +2231,5 @@ export default {
   3356: "Pokonaj Łamacza Gwiazd.",
   3357: "Pokonaj pierwsze echo wielkiego bossa (strefa 250).",
   3358: "Pokonaj trzy echa wielkich bossów (strefy 250, 300 i 350).",
+  3359: "Prawie zdobyte",
 };
