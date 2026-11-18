@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2217, autotest) : audit des 18 contrôles qui tirent des objets (newItem) : un objet à rareté minimale 0 sort
+  légendaire ≈ 1 % du temps (20 000 tirages) ; seuls les contrôles de vente en dépendaient (corrigés it. 2216) ; « sac plein vidé d'un
+  clic » forçait déjà r = 0, les autres remplissent le sac sans que la rareté compte.
 - 2026-11-18 (it. 2216, autotest) : « après une vente, l'objet suivant » échouait encore 1 fois sur 3 : l'objet tiré était parfois
   LÉGENDAIRE, la confirmation des objets précieux s'ouvrait (60 essais dans une mise en scène : 1 échec sur 30 avant, 0 sur 60 après).
   Rareté ordinaire forcée ; même correction pour « vendre un objet ordinaire : pas de confirmation » (et niveau 1, Valet d'armes).
