@@ -17,9 +17,11 @@
   };
 
   async function play(d) {
-    const dpr = window.devicePixelRatio || 1, W = d.width || innerWidth, H = d.height || innerHeight;
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.imageSmoothingEnabled = false;
+    // (it. 2345, --perf) demi-résolution agrandie sans lissage (pixel art : invisible) et 30 images par seconde : la scène
+    // plein écran en pleine résolution à 60 images/s coûtait un cœur entier en rendu logiciel (22 s de processeur sur 22)
+    const RES = 0.5, W = d.width || innerWidth, H = d.height || innerHeight;
+    cv.width = Math.round(W * RES); cv.height = Math.round(H * RES);
+    ctx.setTransform(RES, 0, 0, RES, 0, 0); ctx.imageSmoothingEnabled = false;
     const [w1, w2] = await Promise.all([load(d.frames.walk1), load(d.frames.walk2)]);
     const p1 = d.partner ? await load(d.partner.walk1) : null, p2 = d.partner ? await load(d.partner.walk2) : null;
     if (!w1) { api?.finaleDone?.(); return; }
@@ -63,7 +65,8 @@
 
     const frame = (now) => {
       if (ended) return;
-      const t = (now - t0) / 1000, dt = Math.min(0.05, (now - last) / 1000); last = now;
+      if (now - last < 30) { requestAnimationFrame(frame); return; } // 30 images par seconde
+      const t = (now - t0) / 1000, dt = Math.min(0.06, (now - last) / 1000); last = now;
       if (t >= T) { ctx.clearRect(0, 0, W, H); finish(); return; }
       ctx.clearRect(0, 0, W, H);
       const fadeAll = Math.min(1, t / 0.6, (T - t) / 0.8);

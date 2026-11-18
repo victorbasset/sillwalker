@@ -17,7 +17,7 @@
       « Cinématiques de l'histoire » respecté ; rejouable depuis la chronique « Le ciel rallumé » (▶).
 - [x] 3. (it. 2344 : feu d'artifice ; le reste existait dès la v1) Mise en scène : texte « Libre ! » / « Le ciel est rallumé », étoiles qui se rallument une à une derrière le
       héros, feu d'artifice discret à la fin ; captures et vidéo (strip-clip) pour Victor.
-- [ ] 4. Contrôles : autotest (la fenêtre s'ouvre, se ferme seule, rien ne reste au-dessus), --perf pendant la scène,
+- [x] 4. (it. 2345 ; Mac et deux écrans : à vérifier par Victor) Contrôles : autotest (la fenêtre s'ouvre, se ferme seule, rien ne reste au-dessus), --perf pendant la scène,
       mode mini / icône seule, plusieurs écrans (écran de la bande), macOS (niveau « status »).
 
 ## Journal
@@ -31,3 +31,6 @@
 - it. 2344 : feu d'artifice dans les 8 dernières secondes (7 gerbes colorées en haut de l'écran, éclair au centre) ; point de
   départ ramené dans l'écran (bande sur un autre écran ou hors écran : la trajectoire passait très loin, héros invisible à 7,
   19 et 21,5 s sur la planche) ; planche de 6 captures envoyée à Victor.
+- it. 2345 : coût mesuré (temps processeur de l'arbre Electron sur 22 s, rendu logiciel) : 5 s sans la scène, 27 s avec ;
+  demi-résolution agrandie sans lissage + 30 images/s : 14 s (≈ 40 % d'un cœur pour la scène, surtout la composition d'une
+  fenêtre transparente plein écran ; bien moins avec une carte graphique ; 26 s une seule fois). Mode mini : s'ouvre et se ferme.

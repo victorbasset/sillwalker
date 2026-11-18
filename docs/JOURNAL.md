@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2345, performance) : cinématique de libération : 22 s de processeur sur 22 (un cœur, rendu logiciel) → demi-résolution
+  (pixelated) et 30 images/s : 9 s sur 22 au-dessus du jeu ; texte toujours net. Mode mini : la scène s'ouvre puis se ferme. 304/304.
 - 2026-11-18 (it. 2344) : cinématique de libération : feu d'artifice final (7 gerbes, 80 étincelles, éclair) ; départ ramené dans
   l'écran (bande hors écran ou sur un autre écran : le héros sortait du cadre la moitié du temps, vu sur une planche de 6 captures).
   304/304.
