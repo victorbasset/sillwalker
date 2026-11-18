@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2252, langues) : français resté dans l'allemand et le polonais (petits mots « les, avec, pour, une… », dev-data et fin
+  de partie) : aucun (« des », « du » trouvés en allemand sont allemands). Rien à corriger.
 - 2026-11-18 (it. 2251, REVUE GÉNÉRALE) : 12 h : artificier 65, danseuse de lames 64, cryomancien 65 ; --perf : bande 18,1 %, panneau
   19,0 %, mini 5,6 %, icône 0,5 % ; texte en anglais : aucun mot accentué (reste de français) hors noms de langues ; captures Familiers
   en portugais (« Levar ») et mini en coréen : propres (« 0 ovo » au singulier : règle CLDR du portugais brésilien). Rien à corriger.
