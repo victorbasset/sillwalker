@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2293, contrôle) : mem-watch 10 min en mode mini (MEM_ARGS="--mode=mini") : 505-518 Mo réels, plat (le ramasse-miettes
+  redescend à 505 à 540 s) ; repère du mode mini, sous celui de la bande (565-575) et du panneau (580-610).
 - 2026-11-18 (it. 2292) : early-pace.mjs refuse lui aussi un CLS inconnu (il tournait avec une classe absente) ; balance.mjs
   passe par simulate.js (it. 2291), donc protégé ; hero-table et fuzz prennent la liste du jeu.
 - 2026-11-18 (it. 2291, REVUE GÉNÉRALE) : 12 h : lancier 64, gardien des astres 65, nécromancien 62 ; --perf : 18,5 / 19,7 %,
