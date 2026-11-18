@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2354, contrôle) : early-pace après les clés de voûte sans malus : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages
+  (identique au relevé précédent).
 - 2026-11-18 (it. 2353, contrôle) : i18n-names après les textes du jour : 25 écarts, tous anciens et grammaticaux (génitif allemand,
   forme coréenne avant un possessif, nom de succès libre) ; aucun dans les clés 3350-3394.
 - 2026-11-18 (it. 2352) : POUR-VICTOR : question sur les points au-delà du grand graphe rempli (bonus automatique ou rangs de couronnes au
