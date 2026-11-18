@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2239, langues) : suite de l'it. 2238 dans tout le texte : descriptions à la 3e personne justes (« von selbst », « sam
+  idzie », « sozinho ») ; mais en espagnol « verbe + solo + complément » se lisait « seulement » (« Mejora solo el hechizo más barato » =
+  n'améliore que…) : 16 descriptions de déblocages réécrites avec « automáticamente » (« por sí solo », « se gastan solos » gardés).
+  lang-overflow es complet : rien. 297/297.
 - 2026-11-18 (it. 2238, langues) : contresens dans les libellés de cases « faire tout seul » : en « Spend on my own », ru « Распределять
   самому », es « solo », pt « sozinho », pl « sam », de « selbst » se lisaient « moi-même / à la main », l'inverse du sens (le jeu le fait
   automatiquement). Clés 1375 (talents), 1408 (Valet d'armes), 1507 (Astrolabe), 2091 (Carte du ciel), 2175 (Grimoire) réécrites avec
