@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2229, mesure) : --overflow-report mesure aussi chaque onglet sans aucun déblocage (record gardé) : tous les liens
+  « 🔒 nom · prix » s'affichent, ce que l'état « tous les déblocages » de lang-overflow ne montrait jamais. 10 langues × 1920, 1600, 1366,
+  1280 et fin de partie : rien. CLAUDE.md complété.
 - 2026-11-18 (it. 2228, mesure) : lang-overflow n'avait pas vu les 12 px de la Carte (it. 2227) : il donne tous les déblocages, la note
   « En vente » n'était jamais affichée. --overflow-report mesure maintenant la Carte sans la Carte du voyageur (« map-sans-voyage=N ») ;
   validé : 12 sans le correctif de l'it. 2227, rien avec (fr, de). CLAUDE.md complété. 296/296.

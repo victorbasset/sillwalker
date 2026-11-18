@@ -289,6 +289,13 @@ function start() {
           // jamais mesurés ; l'it. 2227 y a laissé 12 px de défilement que seul l'autotest a vus) : « map-sans-voyage=N »
           { const S = window.__game.S; if (S.unlocks && S.unlocks.travelMap) { delete S.unlocks.travelMap; P.setTab("map"); P.renderAll();
               const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("map-sans-voyage=" + o); S.unlocks.travelMap = true; } }
+          // (it. 2229) AUCUN déblocage (record gardé) : chaque onglet montre ses liens « 🔒 nom · prix » (lockLink), jamais mesurés ici
+          // puisque tous les déblocages sont donnés : « onglet-sans-déblocage=N »
+          { const S = window.__game.S, keepU = { ...(S.unlocks || {}) }; S.unlocks = {}; window.__game.invalidateStats?.();
+            for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) {
+              const b = document.querySelector("[data-tab=" + id + "]"); if (!b || !b.getClientRects().length) continue;
+              P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "-sans-déblocage=" + o); }
+            S.unlocks = keepU; window.__game.invalidateStats?.(); P.renderAll(); }
           // (it. 2111) Talents : tous les talents de la classe au maximum (coche), voie pas choisie et montrée dans la fiche : en
           // russe à 1280 px, « ★ Королевская добыча ✓ 1 / 1 » passait sur deux lignes sans qu'aucune mesure le voie
           { const G = window.__game, S = G.S, T = P.tabs.talents, keepR = JSON.stringify(S.talents[S.cls] || {}), keepL = S.lvl, keepSel = T.sel, keepPin = T.pin;
