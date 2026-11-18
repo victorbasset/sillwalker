@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2380, contrôle) : fuzz 1200 parties, 0 bloquée ; stall-check 60 parties, 0 figée.
 - 2026-11-18 (it. 2379, contrôle) : astuce skillpath en mode mini (russe) : ampoule seule, rien ne déborde.
 - 2026-11-18 (it. 2378, contrôle) : capture de l'astuce skillpath en coréen sur la bande (autres astuces vues) : une ligne, lisible.
 - 2026-11-18 (it. 2377, test) : astuce skillpath : seulement après l'astuce d'ouverture, à 5 points libres, une seule fois. 369 tests.
