@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2245, contrôle) : autotest trois fois de suite après les contrôles ajoutés aujourd'hui : 297/297 à chaque fois
+  (aucune instabilité).
 - 2026-11-18 (it. 2244, audit) : conditions des 18 sortes de quêtes : toutes réalisables quand elles tombent (élites et champions selon
   la zone, gobelins attrapables, sort appris, clic déjà essayé, crit ≥ 8 %, forge / transmutation / expéditions selon le déblocage
   depuis l'it. 2243 ; rafales dès les premières minutes, coffres au trésor sur toute victoire). Rien d'autre à corriger.
