@@ -57,3 +57,8 @@ docs/devlog-0.1.6.md).
   l'aide des Talents cite tous les raccourcis ; en allant vers la fiche des Talents, elle garde le talent survolé.
 - **Bestiaire (it. 2190) :** plus aucun nom coupé, même en russe : un nom trop long passe sur deux lignes.
 - **Langues (it. 2192-2193) :** en japonais et en coréen, deux bonus se lisaient mal (« +65% HP 30%… », « +30% 4撃目… ») : reformulés.
+- **Familiers (demandes de Victor, it. 2201-2208) :** « Emmener » sur une expédition en cours rappelle le familier (sans butin) et
+  l'équipe d'un clic ; niveau sous le nom sur toutes les cartes ; aide (ⓘ) à côté du texte qu'elle explique.
+- **Mac (it. 2204, vérifié par Victor) :** le menu du clic droit sur le Dock passe devant la bande.
+- **Première installation (it. 2200, demande de Victor) :** volumes plus doux par défaut (effets 10 %, musique 20 %, ambiance 100 %,
+  général 50 %).

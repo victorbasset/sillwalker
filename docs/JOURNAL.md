@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2210) : brouillon du devlog 0.1.7 complété (familiers, Dock sur Mac, volumes d'une première installation).
 - 2026-11-18 (it. 2209) : --crawl après le rappel d'expédition : 535 clics (dev-data), 698 (fin de partie), aucune erreur. « Quoi de neuf »,
   édition 143 (rappel d'expédition, cartes des familiers, menu du Dock sur Mac ; clés 3332-3334 ; « Emmener » et « la bande » repris
   tels que traduits ailleurs : franja, Streifen, 长条, 막대). lang-overflow 10 langues × 1280 : rien. 295/295.
