@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2216, autotest) : « après une vente, l'objet suivant » échouait encore 1 fois sur 3 : l'objet tiré était parfois
+  LÉGENDAIRE, la confirmation des objets précieux s'ouvrait (60 essais dans une mise en scène : 1 échec sur 30 avant, 0 sur 60 après).
+  Rareté ordinaire forcée ; même correction pour « vendre un objet ordinaire : pas de confirmation » (et niveau 1, Valet d'armes).
+  Trois passages de suite à 295/295.
 - 2026-11-18 (it. 2215) : Héros, essai de sorts dans l'en-tête des cartes pour libérer les boutons : pire (sous-titres coupés,
   boutons toujours sur deux lignes en fr et de) : annulé, noté dans Idées.
 - 2026-11-18 (it. 2214, contrôle) : mem-watch 6 min après les changements de la nuit et du matin : réel 586-594 Mo, plat (fourchette
