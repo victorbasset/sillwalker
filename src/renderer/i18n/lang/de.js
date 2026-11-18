@@ -2209,4 +2209,7 @@ export default {
   3334: "Mac: Das Rechtsklickmenü im Dock erscheint jetzt über dem Streifen.",
   3335: "Automatisch (System)",
   3336: "Im Angebot: Mit der {0} gelangst du mit einem Klick in eine bereits erreichte Zone.",
+  3337: "Quests: Schmieden, Transmutieren oder Expeditionen zurückholen? Ein Link („→ Abenteuer“, „→ Begleiter“) führt dorthin, wo es geht.",
+  3338: "Karte: Ist die Karte des Reisenden schon kaufbar, führt ein Link direkt zum Laden (vorher: „Bald“).",
+  3339: "Linux: Die Einstellungen erwähnen Windows nicht mehr (Design „Automatisch (System)“), das wirkungslose Autostart-Kästchen ist entfernt.",
 };

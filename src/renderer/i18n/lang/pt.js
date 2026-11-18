@@ -2209,4 +2209,7 @@ export default {
   3334: "Mac: o menu do clique direito no Dock aparece acima da faixa.",
   3335: "Automático (sistema)",
   3336: "À venda: o {0} permite ir com um clique a uma zona já alcançada.",
+  3337: "Missões: forjar, transmutar ou trazer expedições? Um link («→ Aventura», «→ Mascotes») leva aonde fazer isso.",
+  3338: "Mapa: quando o Mapa do viajante já pode ser comprado, um link leva direto à loja (antes: «Em breve»).",
+  3339: "Linux: as Configurações não falam mais do Windows (tema «Automático (sistema)») e a caixa de inicialização, sem efeito, foi removida.",
 };

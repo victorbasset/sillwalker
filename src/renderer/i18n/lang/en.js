@@ -2209,4 +2209,7 @@ export default {
   3334: "Mac: the right-click menu on the Dock now appears above the strip.",
   3335: "Automatic (system)",
   3336: "On sale: the {0} lets you go to a zone already reached in one click.",
+  3337: "Quests: forging, transmuting or bringing back expeditions? A link (“→ Adventure”, “→ Pets”) takes you where to do it.",
+  3338: "Map: when the Traveler's Map can already be bought, a link goes straight to the shop (before: “Coming soon”).",
+  3339: "Linux: Settings no longer mention Windows (theme “Automatic (system)”) and the start-up box, which did nothing, is gone.",
 };

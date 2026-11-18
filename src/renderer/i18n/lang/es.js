@@ -2209,4 +2209,7 @@ export default {
   3334: "Mac: el menú del clic derecho en el Dock aparece por encima de la franja.",
   3335: "Automático (sistema)",
   3336: "A la venta: el {0} permite ir con un clic a una zona ya alcanzada.",
+  3337: "Misiones: ¿forjar, transmutar o traer expediciones? Un enlace («→ Aventura», «→ Mascotas») lleva adonde hacerlo.",
+  3338: "Mapa: cuando el Mapa del viajero ya se puede comprar, un enlace lleva directo a la tienda (antes: «Próximamente»).",
+  3339: "Linux: los Ajustes ya no mencionan Windows (tema «Automático (sistema)») y se quitó la casilla de inicio, que no hacía nada.",
 };

@@ -2209,4 +2209,7 @@ export default {
   3334: "Mac: menu prawego przycisku na Docku pojawia się nad paskiem.",
   3335: "Automatycznie (system)",
   3336: "W sprzedaży: {0} pozwala jednym kliknięciem przenieść się do już osiągniętej strefy.",
+  3337: "Zadania: kucie, transmutacja czy wyprawy? Odnośnik („→ Przygoda”, „→ Pupile”) prowadzi tam, gdzie to zrobić.",
+  3338: "Mapa: gdy Mapę podróżnika można już kupić, odnośnik prowadzi prosto do sklepu (wcześniej: „Wkrótce”).",
+  3339: "Linux: Ustawienia nie wspominają już o Windows (motyw „Automatycznie (system)”), a bezużyteczne pole autostartu usunięto.",
 };

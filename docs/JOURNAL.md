@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2234) : « Quoi de neuf », édition 144 (liens des quêtes, Carte « En vente », Réglages Linux ; clés 3337-3339 ; libellés
+  repris tels que traduits). 297/297 ; lang-overflow 10 langues × 1280 : rien.
 - 2026-11-18 (it. 2233, ergonomie) : Quêtes : les quêtes qui demandent un geste ailleurs ont un lien vers l'onglet où le faire, en haut
   à droite de la carte (« → Aventure » : forger et transmuter, depuis la fiche d'un objet du sac ; « → Familiers » : expéditions) ; nom
   d'onglet tel qu'affiché, pas de clé nouvelle ; caché quand la quête est accomplie. Autotest (clic → Aventure) ; captures fr, de ;

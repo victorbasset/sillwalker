@@ -3338,5 +3338,8 @@ export const KEYS = [
   "Familiers : le niveau s’affiche sous le nom sur toutes les cartes ; l’aide (ⓘ) est collée au texte qu’elle explique.",
   "Mac : le menu du clic droit sur le Dock passe devant la bande.",
   "Automatique (système)",
-  "En vente : la {0} permet d’aller d’un clic dans une zone déjà atteinte."
+  "En vente : la {0} permet d’aller d’un clic dans une zone déjà atteinte.",
+  "Quêtes : forger, transmuter ou ramener des expéditions ? Un lien (« → Aventure », « → Familiers ») mène là où le faire.",
+  "Carte : quand la Carte du voyageur est déjà achetable, un lien mène directement à la boutique (avant : « Bientôt »).",
+  "Linux : les Réglages ne parlent plus de Windows (thème « Automatique (système) ») et la case de démarrage, sans effet, est retirée."
 ];
