@@ -675,6 +675,10 @@ async function boot() {
 
   /* ---------- Démarrage ---------- */
   const away = (Date.now() - (game.S.last || Date.now())) / 1000;
+  // (it. 2138, plaisir de revenir) photo des compteurs AVANT la progression hors ligne, datée de la dernière sauvegarde : le bloc
+  // « Depuis ta dernière visite » du panneau couvre aussi l'absence (avant : rien après un redémarrage, la photo ne se prenait qu'à la
+  // fermeture du panneau ; la bulle d'absence, elle, ne dure que 15 s)
+  if (game.S.stats.kills > 0 && !panel.visitSnap) panel.visitSnap = game.visitSnapshot(game.S.last || Date.now());
   if (game.S.stats.kills > 0) { const sum = game.applyOffline(away); if (sum) showOffline(sum); }
   checkAchievements(true);
   checkDaily();

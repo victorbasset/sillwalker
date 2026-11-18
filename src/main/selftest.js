@@ -160,6 +160,9 @@ async function runSelfTest(strip) {
   // affichée), un vrai clic sur ✕ fermerait d'abord cette fenêtre
   const awayTitle = await js("!document.querySelector('#modal').hidden && document.querySelector('#mt').textContent");
   check("panneau ouvert pendant la bulle d'absence : le résumé détaillé s'est ouvert", !!awayTitle, awayTitle);
+  // (it. 2138) et la carte du héros résume l'absence (« Depuis ta dernière visite »), même après la fin de la bulle
+  const sinceV = await js("JSON.stringify(window.__panel.sinceVisit && window.__panel.sinceVisit.kills)");
+  check("panneau ouvert au retour : « Depuis ta dernière visite » couvre l'absence", +sinceV > 0, sinceV);
   await js("document.querySelector('#modal').hidden = true");
   await click("#panel .close");
   check("panneau refermé", await until(async () => !(await js("document.body.classList.contains('panel-open')"))));

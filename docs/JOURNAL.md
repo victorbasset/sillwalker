@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2138, plaisir de revenir) : « Depuis ta dernière visite » (carte du héros) couvre aussi l'absence hors ligne : photo
+  des compteurs prise au démarrage AVANT la progression hors ligne, datée de la dernière sauvegarde (avant : rien après un redémarrage,
+  la photo ne se prenait qu'à la fermeture du panneau ; la bulle ne dure que 15 s). Capture : « 6 h 0 min · +29,35 Md or · 183 monstres
+  · 1 coffre » à l'ouverture 22 s après le lancement. Autotest ; 281/281.
 - 2026-11-18 (it. 2137, plaisir de revenir) : retour après une absence : la bulle « Pendant ton absence… » est masquée dès que le panneau
   s'ouvre, et le panneau ouvert au lancement n'avait aucun résumé (photo prise seulement à sa fermeture) : ouvrir le panneau autrement
   que par la bulle la perdait. Le panneau ouvert pendant la bulle ouvre maintenant le résumé détaillé. Autotest adapté (il ouvre le
