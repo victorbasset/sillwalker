@@ -1294,6 +1294,20 @@ export class Panel {
    * Renvoie true si la touche a été utilisée.
    */
   onKey(e) {
+    // (it. 2168, accessibilité) une fenêtre ouverte garde le focus : Tab et Maj + Tab bouclent sur ses boutons (avant, le focus
+    // passait aux boutons du panneau, cachés derrière)
+    if (e.key === "Tab" && !e.ctrlKey && !e.altKey && !e.metaKey) {
+      const box = !$(this.root, "#confirm").hidden ? $(this.root, "#confirm") : !$(this.root, "#modal").hidden ? $(this.root, "#modal") : null;
+      if (box) {
+        const f = [...box.querySelectorAll("button:not([disabled]), summary, input:not([disabled]), [tabindex='0']")].filter((x) => x.offsetParent);
+        if (f.length) {
+          const i = f.indexOf(document.activeElement);
+          const n = i < 0 ? 0 : (i + (e.shiftKey ? -1 : 1) + f.length) % f.length;
+          f[n].focus();
+          return true;
+        }
+      }
+    }
     if (e.ctrlKey || e.altKey || e.metaKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return false;
     if (!$(this.root, "#confirm").hidden) {
       // (it. 2113) effacement de la partie : Entrée annule (seul un vrai clic sur « Tout effacer » efface)

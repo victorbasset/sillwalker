@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2168, accessibilité) : une fenêtre ouverte (confirmation, grande fenêtre) garde le focus : Tab et Maj + Tab bouclent
+  sur ses boutons au lieu de passer aux boutons du panneau caché derrière. Autotest ; 288/288.
 - 2026-11-18 (it. 2167, clavier) : Talents : les flèches déplacent le focus dans la grille (↑ ↓ dans la branche, ← → vers la branche
   voisine au même rang) ; la fiche suit (it. 2129). Ligne ajoutée aux raccourcis clavier (clé 3315 ; fenêtre sans défilement en ru et
   de à 1280 px). Autotest ; 287/287.
