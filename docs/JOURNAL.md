@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2236) : question des boutons des cartes de héros (libellés plus courts ?) posée à Victor dans POUR-VICTOR, avec trois
+  propositions ; rien changé sans son choix.
 - 2026-11-18 (it. 2235, contrôle) : --crawl après les liens des quêtes et de la Carte : 520 clics (dev-data), 693 (fin de partie),
   aucune erreur.
 - 2026-11-18 (it. 2234) : « Quoi de neuf », édition 144 (liens des quêtes, Carte « En vente », Réglages Linux ; clés 3337-3339 ; libellés

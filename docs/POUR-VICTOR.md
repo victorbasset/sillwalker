@@ -10,6 +10,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **Windows : clic droit sur la barre des tâches** (liste des raccourcis d'une appli) : il devrait déjà passer devant la bande
   (rien changé sous Windows) ; dis-moi s'il passe dessous.
 - Partie neuve : effets 10 %, ambiance 100 %, musique 20 %, volume général 50 % (vérifié sur un dossier vide).
+- **Question (pas urgente) : boutons des cartes de héros.** À 1280 px (écran de portable), « Jouer à l'ascension » et « Prendre en duo »
+  passent sur deux lignes (en allemand aussi : « Beim Aufstieg / spielen »). Ni une police plus petite (essayée jusqu'à 11 px) ni le
+  déplacement des icônes de sorts ne suffisent : il faudrait des libellés plus courts. Propositions (la bulle garde la phrase complète) :
+  (a) « Jouer ensuite » / « En duo » ; (b) « Prochain héros » / « Compagnon » ; (c) laisser tel quel. Dis-moi lequel.
 
 ## Nuit du 17 au 18/11 (it. 2094-2171) : Talents refaits et ergonomie, à essayer chez toi
 
