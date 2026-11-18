@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2387) : noms des Compétences : sonde des chevauchements entre noms (fin de partie, graphe plein, 1920 px) :
+  de, ru, pl : 120 noms, 0 chevauchement ; contrôle ajouté à l'autotest (noms dans .sklbls, aucun recouvrement). 307/307.
 - 2026-11-19 (it. 2386) : Compétences : les noms des grands nœuds passaient sous un nœud dessiné après eux (« Охотник за сокровищами »
   amputé de « Ох » en russe, fin de partie à 1280 px) : noms regroupés au-dessus de tous les nœuds (deux groupes .sklbls, celui du grand
   graphe suit .open comme avant). Capture : nom entier ; crawl 699 clics sans erreur. 306/306.

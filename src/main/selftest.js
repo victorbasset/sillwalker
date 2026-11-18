@@ -1528,6 +1528,16 @@ async function runSelfTest(strip) {
   // (it. 2372) le ▶ de la chronique « Le ciel rallumé » rejoue aussi la libération sur tout l'écran
   const finRe = await js("(async () => { window.__finaleMs = 3000; window.__game.emit('chronicleReplay', { id: 'dawn' }); let opened = false; for (let i = 0; i < 40 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; window.__strip?.juice?.cine && (window.__strip.juice.cine.done = true); return opened + ' ' + closed; })()");
   check("chronique « Le ciel rallumé » : le ▶ rejoue la libération (ouverte puis fermée seule)", finRe === "true true", finRe);
+  // (it. 2386-2387) Compétences : noms posés au-dessus des nœuds (groupes .sklbls), aucun ne recouvre un autre nom
+  const lblOv = await js(`(async () => { const P = window.__panel; P.setTab("skills"); P.renderAll(); await new Promise((r) => setTimeout(r, 300));
+    const pane = document.querySelector('[data-pane=skills]:not([hidden])'), svgEl = pane?.querySelector('.skillsvg'); if (!svgEl) return "pas de graphe";
+    const ts = [...pane.querySelectorAll('.sklbls text')].filter((t) => getComputedStyle(t).display !== 'none' && t.textContent);
+    if (!ts.length) return "aucun nom";
+    if (pane.querySelector('.skillsvg g > text.lbl:not(.corepct)')?.closest('.sklbls') === null) return "nom hors des groupes du dessus";
+    const bb = ts.map((t) => { const b = t.getBBox(); return [t.textContent, b.x, b.x + b.width, b.y, b.y + b.height]; }); let hit = "";
+    for (let i = 0; i < bb.length && !hit; i++) for (let j = i + 1; j < bb.length; j++) { const a = bb[i], b = bb[j]; if (a[1] < b[2] - 1 && b[1] < a[2] - 1 && a[3] < b[4] - 1 && b[3] < a[4] - 1) { hit = a[0] + " / " + b[0]; break; } }
+    return hit || "ok"; })()`);
+  check("Compétences : noms au-dessus des nœuds, aucun chevauchement entre noms", lblOv === "ok", lblOv);
   // (it. 2337) Compétences : le survol d'un nœud lointain allume le chemin le plus court (fleur vidée le temps du contrôle)
   const sPath = await js("(() => { const P = window.__panel, S = window.__game.S, keepTab = P.tab, keep = JSON.stringify(S.skills); S.tabsOpen.skills = true; S.skills.order = []; S.skills.outer = []; P.setTab('skills'); P.renderAll(); const pane = document.querySelector('[data-pane=skills]:not([hidden])'); const key = pane.querySelector('.node.keystone'); key.dispatchEvent(new MouseEvent('mouseover', { bubbles: true })); const n = pane.querySelectorAll('.node.path').length; pane.querySelector('.skillbox, .skillsvg').dispatchEvent(new MouseEvent('mouseleave')); S.skills = JSON.parse(keep); window.__game.invalidateStats(); P.setTab(keepTab); P.renderAll(); return String(n); })()");
   check("compétences : le survol d'une clé de voûte lointaine allume le chemin le plus court", +sPath > 3, sPath);
