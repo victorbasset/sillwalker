@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2336, contrôle) : lang-overflow complet après le grand graphe allégé et l'édition 151 : aucun défilement ni mot coupé.
 - 2026-11-18 (it. 2335, contrôles après le grand graphe allégé) : --crawl fin de partie 693 clics sans erreur ; stall-check 60 parties,
   0 figées ; fuzz 1200 parties, 0 bloquées.
 - 2026-11-18 (it. 2334, SIGNALÉ PAR VICTOR, Mac) : fermer le panneau par la croix cachait la bande un court instant : setPanelOpen
