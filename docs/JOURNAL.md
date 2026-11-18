@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2221, REVUE GÉNÉRALE) : 12 h : samouraï, moine, chaman 65 ; --perf : bande 18,1 %, panneau 19,0 %, mini 5,5 %,
+  icône 0,4 % (deux Electron de test orphelins vus juste avant, partis d'eux-mêmes : chiffres habituels) ; texte en japonais (dev-data
+  et fin de partie) : aucun mot non traduit (HP, pt, Lv, BGM : usage japonais) ; captures Aventure en coréen et mini en français :
+  propres. Rien à corriger.
 - 2026-11-18 (it. 2220, contrôle) : fuzz.mjs 60 graines (1200 parties neuves, 20 héros) : 0 bloquée ; stall-check (60 parties
   avancées) : 0 figée. Anciennes demandes et pistes de l'étude des concurrents relues : toutes faites ou en cours.
 - 2026-11-18 (it. 2219, contrôle) : textes coupés de l'Ascension (revue it. 2218) : « Rang suivant » des constellations (title de la
