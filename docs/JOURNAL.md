@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2136, contrôles) : thème clair des ajouts de la nuit (ligne « Vendre les inutiles », grille des bonus de maîtrise) :
+  lisibles ; save-fuzz après la voie gratuite : 1267 corruptions (dev-data) et 1225 (fin de partie), toutes « ok ». Rien à corriger.
 - 2026-11-18 (it. 2135) : lang-overflow COMPLET (états max et zoom 130 %, sautés toute la soirée) : la fiche d'une maîtrise
   défilait (4 à 25 px, fin de partie à 1600 px et à 130 %) : « ↶ Annuler le dernier » passait sous « Réinitialiser » ; libellé masqué
   dans un panneau de moins de 1600 px (flèche seule, nom dans la bulle). Contrôle talents-2lignes : seuil relatif (1,4 × la ligne la
