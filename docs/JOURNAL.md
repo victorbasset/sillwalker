@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2388, contrôle) : noms des Compétences au-dessus des nœuds en thème clair (russe, 1280 px) : lisibles, contour
+  clair, « Охотник за сокровищами » entier.
 - 2026-11-19 (it. 2387) : noms des Compétences : sonde des chevauchements entre noms (fin de partie, graphe plein, 1920 px) :
   de, ru, pl : 120 noms, 0 chevauchement ; contrôle ajouté à l'autotest (noms dans .sklbls, aucun recouvrement). 307/307.
 - 2026-11-19 (it. 2386) : Compétences : les noms des grands nœuds passaient sous un nœud dessiné après eux (« Охотник за сокровищами »
