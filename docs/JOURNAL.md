@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2314, contrôle) : first-minutes : premier objet 42-82 s, premier boss 70-82 s, zone 9-10 et niveau 16-17 à
+  10 min : identique à l'it. 2225.
 - 2026-11-18 (it. 2313, contrôle) : --crawl sur une partie NEUVE en anglais (dossier vide, --lang=en-US) : 73 clics (peu d'onglets
   ouverts), aucune erreur.
 - 2026-11-18 (it. 2312) : POUR-VICTOR : bulles des inconnus du Bestiaire (it. 2303-2310).
