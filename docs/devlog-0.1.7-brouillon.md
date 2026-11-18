@@ -53,3 +53,7 @@ docs/devlog-0.1.6.md).
   demande confirmation.
 - **Clavier, suite (it. 2165-2170) :** flèches dans la grille des Talents ; Échap revient d'abord au sac ; Tab reste dans une fenêtre
   ouverte et le focus revient à sa place quand elle se ferme.
+- **Clavier, fin (it. 2179-2189) :** les flèches se déplacent aussi dans le sac et entre les nœuds apprenables des Compétences ;
+  l'aide des Talents cite tous les raccourcis ; en allant vers la fiche des Talents, elle garde le talent survolé.
+- **Bestiaire (it. 2190) :** plus aucun nom coupé, même en russe : un nom trop long passe sur deux lignes.
+- **Langues (it. 2192-2193) :** en japonais et en coréen, deux bonus se lisaient mal (« +65% HP 30%… », « +30% 4撃目… ») : reformulés.

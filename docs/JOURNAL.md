@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2196) : brouillon du devlog 0.1.7 complété (clavier, Bestiaire, japonais et coréen ; it. 2179-2193).
 - 2026-11-18 (it. 2195, nettoyage) : recherche des derniers « second clic pour confirmer » : aucun. Retiré le reste de l'ancienne Voie à
   deux clics (talents.js `armed`, règle CSS `.talent.voie.armed`) ; le contrôle de contraste de l'autotest qui l'utilisait mesure
   maintenant le « choisir › » doré de la voie disponible (`.tvoie.ready`), dans les deux thèmes. Commentaire périmé de skills.js
