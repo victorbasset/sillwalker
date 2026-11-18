@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2201, signalé par Victor) : Familiers : le ⓘ de la barre, dernier de la rangée qui défile, passait sous l'ombre du bord
+  droit ; placé en tête, après le PNJ (captures 1920 et 1280 px). Seule rangée défilante avec un ⓘ. 294/294.
 - 2026-11-18 (it. 2200, demande de Victor) : volumes d'une première installation : effets 10 % (avant 20), ambiance 100 %, musique 20 %
   (avant 50), volume général 50 % ; les sauvegardes existantes gardent leurs réglages. Test mis à jour. 294/294.
 - 2026-11-18 (it. 2199, autotest) : la bulle du morceau de musique attendait les 6 s d'installation du jeu ; en dev, window.__musicSettle

@@ -70,8 +70,10 @@ export class PetsTab {
     }
     // Sous-onglets en tête de la barre (it. 845) : la barre défile de côté sans barre visible, ils n'y sont jamais
     // cachés ; leurs compteurs remplacent alors « N / M familiers trouvés » (place gagnée sur les écrans étroits).
+    // (it. 2201, signalé par Victor) l'aide ⓘ en tête de la barre, après le PNJ : en fin de barre, l'ombre du défilement la cachait
     el.innerHTML = `<div class="petbar panel hscroll" data-hs="petbar">
         ${npcHTML("pets", "icon")}
+        <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
         ${owned < PETS.length ? subtabsHTML([["found", tx("Trouvés"), owned], ["unknown", tx("À découvrir"), PETS.length - owned]], this.sec, "p-sec") : ""}
         <div>${owned < PETS.length ? "" : `<b>${owned} / ${PETS.length}</b> ${tx("familiers trouvés ·")} `}${txn(P.eggs, "{n} œuf en attente|{n} œufs en attente", { n: `<b>${P.eggs}</b>` })}</div>
         ${P.eggs > 0 && (hasUnlock(S, "petBulk") || P.eggs <= 1) ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : P.eggs > 1 ? `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>` : ""}
@@ -80,7 +82,6 @@ export class PetsTab {
         ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
           ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
         ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${txn(this.readyN, "Récupérer {n} expédition|Récupérer {n} expéditions")}</button>` : ""}
-        <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
       </div>
       <div class="petgrid hscroll sec-${owned < PETS.length ? this.sec : "found"}" data-hs="pets-${this.sec}">${cards}</div>`;
   }
