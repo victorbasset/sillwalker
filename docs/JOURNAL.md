@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2171, revue générale) : perf bande 18,1 %, panneau 19,1 %, mini 5,6 % ; lang-overflow 10 langues × 3 largeurs :
+  rien. --crawl tombé à ≈ 400 clics : il ne refermait pas la fenêtre de confirmation (mauvais sélecteur) et VALIDAIT ensuite son
+  bouton (confirm-ok cliqué comme les autres) ; corrigé (confirm-cancel, confirm-ok/-cancel exclus) : ≈ 500-530. Comparé par onglet à
+  798d47d5 (670) : l'écart venait des 300 clics « Changer » des quêtes en boucle (arrêtée par la confirmation des quêtes 3 étoiles) ;
+  Bestiaire et Carte mieux couverts (65 et 59 contre 31 et 23). Repère mis à jour dans CLAUDE.md.
 - 2026-11-18 (it. 2170, accessibilité) : la grande fenêtre (Quoi de neuf, raccourcis, résumé d'absence…) rend aussi le focus à
   l'élément d'avant quand elle se ferme (Échap, « Continuer », clic sur le fond : closeModal). Autotest ; 290/290.
 - 2026-11-18 (it. 2169, accessibilité) : à la fermeture d'une fenêtre de confirmation, le focus revient au bouton qui l'a ouverte

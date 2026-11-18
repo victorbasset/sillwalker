@@ -4,7 +4,9 @@
 export async function crawl() {
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   window.addEventListener("error", (e) => console.warn("CRAWL-ERREUR " + e.message));
-  const skip = /^(mini|close|reset|quit|se-lang|se-edge|se-login|se-theme|se-scale|se-opacity|closemodal)$/;
+  // (it. 2171) confirm-ok / confirm-cancel exclus : le parcours VALIDAIT les confirmations restées ouvertes (ascension, réinitialisations,
+  // vente d'un légendaire…) ; une ascension relançait la course et le parcours tombait de ≈ 676 à ≈ 400 clics
+  const skip = /^(mini|close|reset|quit|se-lang|se-edge|se-login|se-theme|se-scale|se-opacity|closemodal|confirm-ok|confirm-cancel)$/;
   let n = 0;
   const t0 = Date.now();
   for (const tab of ["adventure", "talents", "skills", "quests", "shop", "pets", "class", "ascension", "bestiary", "stats", "map", "settings"]) {
@@ -34,7 +36,8 @@ export async function crawl() {
           // Les éléments SVG n'ont pas de click() : un événement de clic à la place.
           try { if (b.click) b.click(); else b.dispatchEvent(new MouseEvent("click", { bubbles: true })); n++; } catch (e) { console.warn("CRAWL-ERREUR " + key + " : " + e.message); }
           await wait(20);
-          if (!document.querySelector("#confirm")?.hidden) document.querySelector("#confirm [data-action=cancel], #confirm button.quiet")?.click();
+          // (it. 2171) la fenêtre de confirmation se referme par son vrai bouton « Annuler » (data-action confirm-cancel)
+          if (!document.querySelector("#confirm")?.hidden) document.querySelector("#confirm [data-action=confirm-cancel]")?.click();
           if (!document.querySelector("#modal")?.hidden) document.querySelector("#modal [data-action=closemodal]")?.click();
           if (!document.body.classList.contains("panel-open")) {
             document.querySelector("#menu-btn")?.click(); await wait(100); document.querySelector(`[data-tab="${tab}"]`)?.click(); await wait(50);

@@ -121,7 +121,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Copie de sauvegarde pour une capture : régler `s.last = Date.now()`, sinon l'absence simulée au lancement épuise
   élixirs et effets avant l'image (it. 1340).
   `--crawl` : clique sur tous les boutons de tous les onglets, chaque sous-section l'une après l'autre, et affiche `CRAWL-ERREUR …` / `CRAWL-FINI N clics en S s`
-  (≈ 690 clics en 22 s depuis l'it. 1338 : avant, un clic qui redessinait l'onglet faisait « cliquer » des boutons détachés, sans effet, et le Marchand n'était jamais parcouru)
+  (≈ 500-530 clics en 18 s depuis l'it. 2171 : avant, ≈ 690, dont 300 sur « Changer » des quêtes qui tournaient en boucle, et les
+  confirmations restées ouvertes étaient VALIDÉES par le parcours ; ≈ 690 clics en 22 s depuis l'it. 1338 : avant, un clic qui redessinait l'onglet faisait « cliquer » des boutons détachés, sans effet, et le Marchand n'était jamais parcouru)
   (sur une COPIE de sauvegarde : il achète, vend, dépense ; ajouter `--exit-after=200`, sinon le jeu reste ouvert). À lancer après un gros changement d'interface.
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
