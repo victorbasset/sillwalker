@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2307, contrôle) : objectifs inconnus hors Bestiaire : Carte (brouillard voulu au-delà de record + 3, héros
+  prisonniers et chroniques disent leur zone), Héros > Prisonniers (« Retenu prisonnier en zone N ») : tous disent où aller.
 - 2026-11-18 (it. 2306, contrôle) : inconnus du Bestiaire passés en revue après les it. 2303-2305 : élites et panoplies montrent déjà
   nom et effet avant d'être obtenues ; objets de la Collection : « ??? (emplacement) », suffisant. Plus rien de muet.
 - 2026-11-18 (it. 2305) : Bestiaire : la bulle d'un monstre pas encore rencontré dit où il vit (« Pas encore rencontré · Marais
