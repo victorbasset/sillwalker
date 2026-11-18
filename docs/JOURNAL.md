@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2281, REVUE GÉNÉRALE) : 12 h : moine 65, druide 64, samouraï 65 ; --perf : 1re mesure 19,9 / 20,5 % (charge 2,4), 2e
+  18,6 / 19,0 %, mini 5,3 %, icône 0,6 % : bruit ; capture Talents en russe (« Распределять автоматически… », it. 2238) : propre.
 - 2026-11-18 (it. 2280, contrôle) : --crawl après les nouvelles entrées de « À faire » (absence de 2 h simulée) : 509 clics (dev-data),
   697 (fin de partie), aucune erreur.
 - 2026-11-18 (it. 2279, bon voisin) : coût de l'astuce « sac plein » (when → todoNow) : astuces évaluées toutes les 2 s, todoNow 0,10 ms
