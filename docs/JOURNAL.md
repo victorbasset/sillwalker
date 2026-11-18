@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2199, autotest) : la bulle du morceau de musique attendait les 6 s d'installation du jeu ; en dev, window.__musicSettle
+  les raccourcit (le jeu distribué garde 6 s) : 7 s → 2,3 s ; autotest 123 → 109 s. 294/294.
 - 2026-11-18 (it. 2198, autotest) : SELFTEST_TIMES=1 affiche les 12 vérifications les plus lentes. Deux contrôles instables trouvés
   en route et rendus indépendants du tirage : « boutique, sac plein » (la pièce tirée pouvait ne pas être une amélioration une fois
   la pièce ordinaire posée : l'amélioration est maintenant vérifiée après) et « après une vente, l'objet suivant » (objets au niveau

@@ -166,7 +166,8 @@ async function boot() {
   let musicZone = game.S.zone, musicSince = Date.now(), announced = new Set([trackIndex(game.S.zone)]);
   setInterval(() => {
     if (game.S.zone !== musicZone) { musicZone = game.S.zone; musicSince = Date.now(); return; }
-    if (Date.now() - musicSince < 6000) return;
+    // (it. 2199) en dev, l'autotest raccourcit l'installation (window.__musicSettle, ms) : sa vérification de la bulle durait 7 s
+    if (Date.now() - musicSince < ((init.isDev && window.__musicSettle) || 6000)) return;
     music.setZone(musicZone);
     // (it. 1574) nouvelle tranche de 50 zones, nouveau morceau : une bulle sobre le nomme, une fois par morceau et par
     // lancement (jamais au lancement ; un héros qui recule d'une tranche après une défaite n'en reçoit pas d'autre)
