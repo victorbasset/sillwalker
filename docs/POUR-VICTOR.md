@@ -13,6 +13,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **Traductions** : les cases d'automatisme disaient « moi-même » au lieu d'« automatiquement » en anglais, allemand, espagnol,
   portugais, polonais et russe (« Spend on my own ») : corrigé.
 - **Linux** : Réglages sans « Windows » ni case de démarrage (sans effet sous Linux).
+- **Après-midi (it. 2266-2277)** : « À faire » propose d'agrandir le sac d'un clic quand il est plein (et une astuce le dit dans la
+  bande) ; il rappelle l'Atelier quand ses améliorations ne coûtent presque rien pour ton or (ta partie de dev : 447 Md, tout à 0) ; les
+  liens des quêtes se cachent quand un automatisme fait le geste ; résumé d'absence : plus de défilement en allemand et polonais.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 
