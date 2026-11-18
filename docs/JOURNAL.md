@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2308, autotest) : Bestiaire : monstres inconnus (le Gluant remis à 0 le temps du contrôle) : leur bulle dit où ils
+  vivent ; pouvoir inconnu : sa bulle dit où le trouver. 301/301.
 - 2026-11-18 (it. 2307, contrôle) : objectifs inconnus hors Bestiaire : Carte (brouillard voulu au-delà de record + 3, héros
   prisonniers et chroniques disent leur zone), Héros > Prisonniers (« Retenu prisonnier en zone N ») : tous disent où aller.
 - 2026-11-18 (it. 2306, contrôle) : inconnus du Bestiaire passés en revue après les it. 2303-2305 : élites et panoplies montrent déjà
