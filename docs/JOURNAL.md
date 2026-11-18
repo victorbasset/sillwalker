@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2338, équilibrage) : hero-table 12 h (graines 7/3/11) après l'it. 2332 : moyenne 65,4 (63,8 avant, mesuré sur le
+  commit d'avant), écart 7,3 : maître des lames 65,0 → 69,3, samouraï 64,7 → 68,3 (Tempête de lames sans son −15 % PV). Tempête
+  ramenée à +15 % de vitesse : moyenne 64,9 (+1,1, bruit), écart 4,0 (5,3 avant), maître des lames 65,0, samouraï 66,3.
 - 2026-11-18 (it. 2337) : Compétences : au survol d'un nœud non relié (fleur ou grand graphe), le chemin le plus court qu'un clic
   prendrait s'allume (or ; rouge s'il manque des points), effacé en quittant. Capture fin de partie : 8 nœuds jusqu'au milieu d'une
   voie, « Clic : prend le chemin le plus court (8 points) ». Autotest : 14 nœuds jusqu'à une clé de voûte. 303/303.

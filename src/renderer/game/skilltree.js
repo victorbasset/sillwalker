@@ -29,7 +29,7 @@ export const SECTORS = [
       { name: "Réflexes", eff: { dodge: 5, spd: 5 } }, { name: "Précision mortelle", eff: { crit: 5, critDmg: 15 } },
       { name: "Vent du nord", eff: { spd: 12 } }, { name: "Danse des lames", eff: { doubleShot: 8, dodge: 3 } },
     ],
-    keystone: { name: "Tempête de lames", eff: { spd: 25 } } },
+    keystone: { name: "Tempête de lames", eff: { spd: 15 } } },
   { id: "arcane", name: "Arcanes", color: "#c08cff",
     small: [{ burn: 2 }, { execute: 3 }, { poison: 1 }, { minion: 2 }],
     notables: [
