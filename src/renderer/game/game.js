@@ -2291,19 +2291,15 @@ export class Game {
   /** Meilleure amélioration abordable chez le marchand (ou null). */
   merchantUpgrade(now = Date.now()) {
     const S = this.S, offers = (S.shop && Array.isArray(S.shop.items) && now < S.shop.next) ? S.shop.items : [];
-    if (this.bagFull()) return null;
+    // (it. 2156) sac plein : seulement les améliorations achetables quand même (l'ancienne pièce vendue, jamais une précieuse)
+    const full = this.bagFull();
     let best = null, bd = 0;
-    for (const it of offers) { if (S.gold < it.price) continue; const d = this.upgradeDelta(it); if (d > UPGRADE_EPS && d > bd) { best = it; bd = d; } }
+    for (const it of offers) { if (S.gold < it.price || (full && !this.canBuyWhenFull(it))) continue; const d = this.upgradeDelta(it); if (d > UPGRADE_EPS && d > bd) { best = it; bd = d; } }
     return best;
   }
 
   /** Achète au marchand puis équipe l'objet (action directe de « À faire »). */
-  buyAndEquip(id) {
-    if (!this.buyShopItem(id)) return false;
-    const it = this.findBagItem(id);
-    if (it) this.equip(it);
-    return true;
-  }
+  buyAndEquip(id) { return this.buyFromShop(id); } // (it. 2156) même achat que la Boutique (sac plein compris)
 
   /** (it. 1510, demande de Victor) Achat à la main dans la Boutique : l'objet est équipé tout de suite s'il renforce le
    *  héros (même mesure que la flèche d'amélioration du sac) ; sinon il va dans le sac, comme avant. */

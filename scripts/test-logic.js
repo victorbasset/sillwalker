@@ -291,6 +291,10 @@ test("boutique, sac plein : une amélioration s'achète et s'équipe, le sac res
   let low = g.newItem(0, 1); for (let k = 0; k < 200 && g.isUpgrade(low); k++) low = g.newItem(0, 1);
   low.price = 10; S.shop = { items: [low], next: Date.now() + 600000 };
   assert.equal(g.buyFromShop(low.id), false, "un objet qui n'améliore pas reste bloqué");
+  // (it. 2156) « À faire » : la même amélioration est proposée à sac plein et s'achète par le même chemin
+  let up4 = g.newItem(4, S.best + 120); for (let k = 0; k < 400 && !g.canBuyWhenFull(up4); k++) up4 = g.newItem(4, S.best + 120);
+  if (g.canBuyWhenFull(up4)) { up4.price = 10; S.shop = { items: [up4], next: Date.now() + 600000 }; const m = g.merchantUpgrade();
+    assert.equal(m && m.id, up4.id, "proposée dans À faire malgré le sac plein"); assert.ok(g.buyAndEquip(up4.id), "achetée"); assert.equal(S.bag.length, n, "sac plein, pas débordé"); }
 });
 
 test("voie gratuite (it. 2104) : choisissable sans point libre (dépense automatique à chaque niveau)", () => {

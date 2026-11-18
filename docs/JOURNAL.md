@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2156) : « À faire » (carte du héros, résumé d'absence) : l'amélioration du marchand est aussi proposée à sac plein
+  quand elle s'achète quand même (canBuyWhenFull), et achetée par le même chemin que la Boutique (buyAndEquip → buyFromShop : ancienne
+  pièce vendue, sac jamais débordé). Test logique ; 359 tests, 284/284.
 - 2026-11-18 (it. 2155) : Boutique, sac plein : la bulle d'une amélioration dit avant le clic quelle pièce sera vendue (« sac plein,
   l'ancienne pièce sera vendue : … », tournure sans accord). Clé 3304 ; autotest (la bulle mentionne la vente) ; 284/284.
 - 2026-11-18 (it. 2154, CORRECTION de l'it. 2153) : à sac plein, l'amélioration achetée faisait déborder le sac (25 / 24) quand
