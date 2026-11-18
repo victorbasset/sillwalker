@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2255, vérification) : 91 victoires en 3 h d'absence (it. 2254) expliquées : zone 57, 12,1 M PV par monstre contre
+  395 k dégâts / s ≈ 31 s par victoire, comme en jeu (héros de dev-data trop faible pour sa zone). L'absence fait combattre sur place,
+  sans changer de zone : la notion de « héros bloqué » ne s'y applique pas. Rien à corriger.
 - 2026-11-18 (it. 2254, relecture) : Journal après une absence de 3 h (dev-data, français) : messages clairs (récompense du jour,
   bénédiction vécue, Grand intendant, niveaux des familiers, œufs) ; 91 victoires en 3 h : héros bloqué au boss de la zone 57. Rien à corriger.
 - 2026-11-18 (it. 2253, langues) : français resté dans l'espagnol et le portugais (« les, avec, pour, dans, une, est, ton… », dev-data et
