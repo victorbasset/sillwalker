@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2393, contrôle) : partie neuve en russe à 1280 px : emplacements vides (.lab 9 px) lisibles ; « Poupouce ×10. »
+  = bénédiction du jour (nom propre, voulu).
 - 2026-11-19 (it. 2392, contrôle) : textes SVG de 8-10 px ailleurs (Carte : numéros, boss majeurs, au-delà) en russe à 1280 px :
   « Сокрушитель Звёзд » lisible, chiffres nets ; rien à agrandir.
 - 2026-11-19 (it. 2391, REVUE GÉNÉRALE) : 12 h : gardien (starwarden) 65, paladin 65, nécromancien (necro) 62 ; --perf : 19,9 / 19,7 %,
