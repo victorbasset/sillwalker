@@ -2254,4 +2254,7 @@ export default {
   3379: "„{0}“ · Zone {1}",
   3380: "Frei!",
   3381: "Der Saum hält dich nicht mehr.",
+  3382: "Zone 200: Der Endkampf hat seine eigene Musik, „Der letzte Stern“.",
+  3383: "Nach dem letzten Sieg wartet eine Überraschung … auf deinem ganzen Bildschirm.",
+  3384: "Talente: Die Stufenboni sind ausgerichtet; ein Pfad erscheint im Steckbrief erst beim Klick.",
 };

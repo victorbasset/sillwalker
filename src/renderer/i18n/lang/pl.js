@@ -2254,4 +2254,7 @@ export default {
   3379: "„{0}” · strefa {1}",
   3380: "Wolny!",
   3381: "Krawędź już cię nie trzyma.",
+  3382: "Strefa 200: ostateczna walka ma własną muzykę, „Ostatnia Gwiazda”.",
+  3383: "Po ostatecznym zwycięstwie czeka niespodzianka… na całym ekranie.",
+  3384: "Talenty: bonusy progów są wyrównane; ścieżka pojawia się w karcie dopiero po kliknięciu.",
 };

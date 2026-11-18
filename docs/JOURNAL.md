@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2343) : Quoi de neuf, édition 152 : musique de la zone 200, surprise après la victoire (sans dévoiler), Talents
+  alignés. POUR-VICTOR à jour. Clés 3382-3384.
 - 2026-11-18 (it. 2342, DEMANDE DE VICTOR) : cinématique de libération, première version (docs/FINALE.md) : à la première victoire sur
   le Briseur d'Étoiles, le héros (habillé, ×5-7) quitte la bande et vole sur tout l'écran (fenêtre transparente, clics traversants,
   sans focus) : courbe par les quatre coins, halo, traînée et gerbes d'étoiles, compagnon qui suit, « Libre ! », ciel qui se

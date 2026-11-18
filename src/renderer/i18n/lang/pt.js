@@ -2254,4 +2254,7 @@ export default {
   3379: "“{0}” · zona {1}",
   3380: "Livre!",
   3381: "O Parapeito não te prende mais.",
+  3382: "Zona 200: o combate final tem sua própria música, “A Última Estrela”.",
+  3383: "Depois da vitória final, uma surpresa te espera… na tela inteira.",
+  3384: "Talentos: os bônus dos marcos estão alinhados; um caminho só aparece na ficha ao clicar.",
 };

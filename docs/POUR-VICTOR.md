@@ -33,6 +33,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   bref et doux quand ça va vite. Dis-moi si c'est trop présent.
 - **Mac (ta remarque, it. 2334)** : fermer le panneau par la croix ne devrait plus cacher la bande (cause : le jeu « rendait la main »
   à l'appli précédente, ce qui sous macOS passe la fenêtre derrière les autres un instant). À vérifier chez toi.
+- **Zone 200 (tes demandes, it. 2341-2342)** : musique « La Dernière Étoile » (à écouter : Médias/dist-itch/musique/07-…-v1.mp3,
+  aussi dans Réglages > Son) ; à la première victoire sur le Briseur, ton héros quitte la bande et vole sur tout ton écran (≈ 26 s,
+  clics traversants ; rejouable par le ▶ de la chronique « Le ciel rallumé »). À vérifier chez toi : départ depuis la bande, Mac,
+  deux écrans. Talents : bonus des paliers alignés, Voie de la hauteur des Maîtrises, voie affichée au clic. Édition 152.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 

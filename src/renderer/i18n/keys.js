@@ -3383,5 +3383,8 @@ export const KEYS = [
   "La Dernière Étoile",
   "« {0} » · zone {1}",
   "Libre !",
-  "Le Rebord ne te retient plus."
+  "Le Rebord ne te retient plus.",
+  "Zone 200 : le combat final a sa propre musique, « La Dernière Étoile ».",
+  "Après la victoire finale, une surprise t’attend… sur tout ton écran.",
+  "Talents : les bonus des paliers sont alignés ; une voie ne s’affiche dans la fiche qu’au clic."
 ];

@@ -2254,4 +2254,7 @@ export default {
   3379: "«{0}» · zona {1}",
   3380: "¡Libre!",
   3381: "El Alféizar ya no te retiene.",
+  3382: "Zona 200: el combate final tiene su propia música, «La Última Estrella».",
+  3383: "Tras la victoria final, te espera una sorpresa… en toda tu pantalla.",
+  3384: "Talentos: los bonus de los niveles están alineados; un camino solo se muestra en la ficha al hacer clic.",
 };

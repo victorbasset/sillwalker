@@ -2254,4 +2254,7 @@ export default {
   3379: "“{0}” · zone {1}",
   3380: "Free!",
   3381: "The Sill no longer holds you.",
+  3382: "Zone 200: the final battle has its own music, “The Last Star”.",
+  3383: "After the final victory, a surprise awaits… across your whole screen.",
+  3384: "Talents: milestone bonuses are aligned; a path only shows in the sheet when clicked.",
 };
