@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2161, revue générale) : perf bande 18,3 %, panneau 19,3 %, mini 5,7 % ; simulations 12 h : lancier 62, assassin 60,
+  artificier 62 (habituels) ; --crawl en polonais après 2 h d'absence : sans erreur. Rien à corriger.
 - 2026-11-18 (it. 2160, contrôle) : Talents refaits vus avec la partie de fin de partie (voie choisie, 129 points libres, maîtrises à 0) :
   états lisibles (voie « choisie », l'autre grisée, maîtrises cliquables en vert avec « tout »). Rien à corriger.
 - 2026-11-18 (it. 2159, plaisir de revenir) : résumé d'absence : « Laissés au sol (sac plein) » porte au survol le remède quand la
