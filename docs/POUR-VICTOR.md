@@ -16,6 +16,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **Après-midi (it. 2266-2277)** : « À faire » propose d'agrandir le sac d'un clic quand il est plein (et une astuce le dit dans la
   bande) ; il rappelle l'Atelier quand ses améliorations ne coûtent presque rien pour ton or (ta partie de dev : 447 Md, tout à 0) ; les
   liens des quêtes se cachent quand un automatisme fait le geste ; résumé d'absence : plus de défilement en allemand et polonais.
+- **Fin d'après-midi (it. 2286-2297)** : Statistiques > Succès : les neuf succès au nom obscur (Clé de voûte, Cœur pur, Écho
+  dissipé…) disent au survol ce qu'il faut faire ; les trois plus proches d'être obtenus ressortent en or (ta partie : Alchimiste
+  48/50, Dix héros libérés 9/10, Fidèle 5/7) ; une astuce le signale une fois quand l'un d'eux atteint 90 %. Édition 148 de
+  « Quoi de neuf ». Pour Steamworks : steam/achievements.md donne aussi ces neuf descriptions dans les 10 langues.
 
 ## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
 
