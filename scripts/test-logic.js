@@ -271,6 +271,20 @@ test("talents : annuler le dernier clic (it. 2115), refusé s'il casserait un pa
   g.autoSpendTalents(); assert.equal(g.canUndoTalent(), false, "la dépense automatique n'est pas annulable");
 });
 
+test("boutique, sac plein : une amélioration s'achète et s'équipe, le sac reste plein (it. 2153)", () => {
+  const g = new Game(freshState()); const S = g.S; S.gold = 1e30;
+  let up = g.newItem(4, S.best + 30); for (let k = 0; k < 200 && !g.isUpgrade(up); k++) up = g.newItem(4, S.best + 30);
+  assert.ok(g.isUpgrade(up), "une vraie amélioration");
+  while (!g.bagFull()) S.bag.push(g.newItem(0, 1));
+  const n = S.bag.length; up.price = 10; S.shop = { items: [up], next: Date.now() + 600000 };
+  assert.ok(g.buyFromShop(up.id), "achetée malgré le sac plein");
+  assert.equal(S.equip[up.slot] && S.equip[up.slot].id, up.id, "équipée");
+  assert.equal(S.bag.length, n, "sac toujours plein, pas débordé");
+  let low = g.newItem(0, 1); for (let k = 0; k < 200 && g.isUpgrade(low); k++) low = g.newItem(0, 1);
+  low.price = 10; S.shop = { items: [low], next: Date.now() + 600000 };
+  assert.equal(g.buyFromShop(low.id), false, "un objet qui n'améliore pas reste bloqué");
+});
+
 test("voie gratuite (it. 2104) : choisissable sans point libre (dépense automatique à chaque niveau)", () => {
   const g = new Game(freshState()); g.S.lvl = 80; g.invalidateStats();
   g.autoSpendTalents();

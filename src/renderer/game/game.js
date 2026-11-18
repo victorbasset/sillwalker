@@ -2308,16 +2308,19 @@ export class Game {
   /** (it. 1510, demande de Victor) Achat à la main dans la Boutique : l'objet est équipé tout de suite s'il renforce le
    *  héros (même mesure que la flèche d'amélioration du sac) ; sinon il va dans le sac, comme avant. */
   buyFromShop(id) {
-    if (!this.buyShopItem(id)) return false;
+    // (it. 2153) sac plein : une AMÉLIORATION s'achète quand même (équipée aussitôt, l'ancienne pièce prend sa place dans le sac,
+    // qui reste plein) ; avant, « Sac plein » bloquait justement l'objet qu'on voulait porter
+    const pre = this.S.shop && this.S.shop.items.find((i) => i.id === id);
+    if (!this.buyShopItem(id, !!pre && this.isUpgrade(pre))) return false;
     const it = this.findBagItem(id);
     if (it && this.isUpgrade(it)) this.equip(it);
     return true;
   }
 
-  buyShopItem(id) {
+  buyShopItem(id, evenIfFull = false) {
     const S = this.S, shop = S.shop;
     const it = shop && shop.items.find((i) => i.id === id);
-    if (!it || this.bagFull() || !this.pay(it.price)) return false;
+    if (!it || (this.bagFull() && !evenIfFull) || !this.pay(it.price)) return false;
     shop.items = shop.items.filter((i) => i !== it);
     delete it.price; delete it.deal;
     if (it.r === LEGENDARY && ++S.stats.legendaries === 1) this.milestone("leg");

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2153, moins de clics) : Boutique, sac plein : une amélioration du Marchand s'achète quand même (équipée aussitôt,
+  l'ancienne pièce prend sa place dans le sac, qui reste plein) ; avant, « Sac plein » bloquait justement l'objet à porter. Les autres
+  objets restent bloqués. Test logique ; npm test 359, autotest 283/283.
 - 2026-11-18 (it. 2152) : brouillon du devlog 0.1.7 complété (retour d'absence, clavier, lisibilité) ; idées en attente du journal
   relues : rien d'ouvert qui ne dépende de Victor.
 - 2026-11-18 (it. 2151, revue générale) : simulations 12 h : berserker 69, prêtresse 64, samouraï 65 ; perf bande 18,5 %, panneau
