@@ -14,6 +14,12 @@ const MODES = ["strip", "mini", "icon"];
 /** Décalage de la fenêtre en mode --ghost (tests) : hors de l'écran, l'utilisateur ne voit rien. */
 const GHOST_OFFSET = 30000;
 
+// (it. 2204, demande de Victor) niveau « toujours au premier plan ». Sous macOS, « pop-up-menu » (niveau 101) est celui des menus
+// contextuels : le menu du clic droit sur le Dock passait sous la bande. « status » (25) reste au-dessus des fenêtres ordinaires et
+// du Dock (20), mais sous les menus. Ailleurs, le niveau n'a guère d'effet (Windows : fenêtre « topmost », les menus de la barre des
+// tâches, ouverts après elle, passent devant) : inchangé.
+const TOP_LEVEL = process.platform === "darwin" ? "status" : "pop-up-menu";
+
 class StripWindow {
   constructor({ settings, preload, url, devTools, openDevTools, ghost, testWidth }) {
     this.testWidth = testWidth || 0;
@@ -52,7 +58,7 @@ class StripWindow {
         devTools,
       },
     });
-    this.win.setAlwaysOnTop(true, "pop-up-menu");
+    this.win.setAlwaysOnTop(true, TOP_LEVEL);
     this.win.setIgnoreMouseEvents(true);
     this.hitRects = [];
     this.pollTimer = setInterval(() => this.pollCursor(), 50);
@@ -192,7 +198,7 @@ class StripWindow {
     if (this.fsHidden) return; // une application est en plein écran : on reviendra après
     if (this.ghost) this.win.setOpacity(0.02);
     this.win.showInactive(); // n'arrache pas le focus à l'appli en cours
-    this.win.setAlwaysOnTop(true, "pop-up-menu");
+    this.win.setAlwaysOnTop(true, TOP_LEVEL);
     this.send("visibility", this.renderVisible());
   }
 

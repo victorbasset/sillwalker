@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2204, demande de Victor) : macOS : la bande passe du niveau « pop-up-menu » (101, celui des menus contextuels) à
+  « status » (25 : au-dessus des fenêtres et du Dock, sous les menus) : le menu du clic droit sur le Dock passera devant (à vérifier
+  sur Mac, POUR-VICTOR). Windows et Linux inchangés (le niveau n'y joue guère ; les menus de la barre des tâches, ouverts après la
+  bande « topmost », passent devant). Sonde des ⓘ (scripts/stage/info-probe.js, --stage) : ⓘ recouvert, hors de son conteneur ou
+  sous l'ombre d'une rangée qui défile ; validée sur l'ancienne barre des Familiers (2 alertes en fr, de, ru) ; aujourd'hui 0 en fr,
+  de, ru, pl, ja (dev-data et fin de partie). Intégrée à --overflow-report, elle donnait de fausses alertes : laissée à part. 294/294.
 - 2026-11-18 (it. 2203, contrôle) : volumes d'une vraie première installation (dossier vide, jeu lancé) : général 0,5, effets 0,1,
   ambiance 1, musique 0,2, en mémoire comme dans le save.json écrit. Conforme à la demande de Victor (it. 2200).
 - 2026-11-18 (it. 2202) : « Quoi de neuf », édition 142 (flèches des Compétences, noms du Bestiaire, ⓘ des Familiers, japonais et

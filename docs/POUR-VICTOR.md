@@ -4,6 +4,14 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Matin du 18/11 (it. 2200-2204) : à vérifier chez toi
+
+- **Mac : menu du clic droit sur le Dock** : il doit maintenant passer AU-DESSUS de la bande (niveau de fenêtre « status » au lieu
+  de « pop-up-menu », qui est celui des menus). La bande doit rester au-dessus des fenêtres ordinaires.
+- **Windows : clic droit sur la barre des tâches** (liste des raccourcis d'une appli) : il devrait déjà passer devant la bande
+  (rien changé sous Windows) ; dis-moi s'il passe dessous.
+- Partie neuve : effets 10 %, ambiance 100 %, musique 20 %, volume général 50 % (vérifié sur un dossier vide).
+
 ## Nuit du 17 au 18/11 (it. 2094-2171) : Talents refaits et ergonomie, à essayer chez toi
 
 Détail et principes : `docs/TALENTS-UX.md`. Ce que le serveur ne peut pas vérifier (fenêtre sans focus, pas de vraie souris) :
