@@ -49,6 +49,9 @@ export const HINTS = [
     when: (g) => g.talentPointsFree() > 0 },
   { id: "skills", tab: "skills", text: tx("L’arbre de compétences s’ouvre : 1 point tous les 2 niveaux. Clique ici pour le découvrir."),
     when: (g) => skillPointsFree(g.S) >= 2 && skillSpendable(g.S) },
+  // (it. 2376) clic sur un nœud lointain = chemin le plus court (it. 2332) : la nouveauté se découvre (après l'astuce d'ouverture)
+  { id: "skillpath", tab: "skills", text: tx("Compétences : clique sur un nœud lointain, le chemin le plus court se prend tout seul si tu as assez de points. Clique ici."),
+    when: (g) => tabOpen(g.S, "skills") && g.S.settings.hints?.skills && skillPointsFree(g.S) >= 5 && skillSpendable(g.S) },
   { id: "quest", tab: "quests", text: tx("Quête accomplie ! Clique ici pour réclamer ta récompense."),
     when: (g) => g.questsReady() > 0 },
   { id: "egg", tab: "pets", text: tx("Tu as trouvé un œuf ! Clique ici pour le faire éclore."),

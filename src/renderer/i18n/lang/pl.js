@@ -2267,4 +2267,5 @@ export default {
   3392: "Pupile: „Zabierz” odwołuje pupila z wyprawy i zakłada go jednym kliknięciem.",
   3393: "Osiągnięcia objaśnione po najechaniu, trzy najbliższe na złoto; Bestiariusz mówi, gdzie znaleźć to, czego brakuje; Dziennik podróży pokazuje następny etap.",
   3394: "Dźwięk ciosów nadąża za szybkością ataku; łagodniejsza głośność przy pierwszej instalacji; na Macu menu Docka pojawia się przed paskiem.",
+  3395: "Umiejętności: kliknij odległy węzeł, a najkrótsza ścieżka zostanie wzięta sama, jeśli masz dość punktów. Kliknij tutaj.",
 };

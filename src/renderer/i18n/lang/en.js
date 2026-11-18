@@ -2267,4 +2267,5 @@ export default {
   3392: "Pets: “Take along” recalls a pet on an expedition and equips it in one click.",
   3393: "Achievements explained on hover, the three closest in gold; the Bestiary says where to find what is missing; the Logbook shows its next milestone.",
   3394: "Hit sounds follow the attack speed; softer volumes on first install; on Mac, the Dock menu shows in front of the strip.",
+  3395: "Skills: click a faraway node and the shortest path is taken by itself if you have enough points. Click here.",
 };

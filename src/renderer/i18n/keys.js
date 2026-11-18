@@ -3396,5 +3396,6 @@ export const KEYS = [
   "Retour d’absence plus clair : « À faire maintenant » est visible d’emblée et propose aussi d’agrandir le sac plein ou de passer à l’Atelier.",
   "Familiers : « Emmener » rappelle un familier parti en expédition et l’équipe d’un clic.",
   "Succès expliqués au survol, les trois plus proches en or ; le Bestiaire dit où trouver ce qui manque ; le Carnet de route annonce sa prochaine étape.",
-  "Le son des coups suit la vitesse de frappe ; volumes plus doux à la première installation ; sur Mac, le menu du Dock passe devant la bande."
+  "Le son des coups suit la vitesse de frappe ; volumes plus doux à la première installation ; sur Mac, le menu du Dock passe devant la bande.",
+  "Compétences : clique sur un nœud lointain, le chemin le plus court se prend tout seul si tu as assez de points. Clique ici."
 ];

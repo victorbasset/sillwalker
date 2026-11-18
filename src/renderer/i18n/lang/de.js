@@ -2267,4 +2267,5 @@ export default {
   3392: "Begleiter: „Mitnehmen“ ruft einen Begleiter von der Expedition zurück und rüstet ihn mit einem Klick aus.",
   3393: "Erfolge beim Überfahren erklärt, die drei nächsten golden; das Bestiarium sagt, wo das Fehlende zu finden ist; das Logbuch zeigt die nächste Etappe.",
   3394: "Trefferklänge folgen dem Angriffstempo; leisere Lautstärken bei der ersten Installation; auf dem Mac erscheint das Dock-Menü vor dem Band.",
+  3395: "Fertigkeiten: Klick auf einen fernen Knoten, und der kürzeste Weg wird von selbst genommen, wenn du genug Punkte hast. Klicke hier.",
 };
