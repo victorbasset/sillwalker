@@ -715,6 +715,8 @@ details.more summary:hover { color: var(--accent); }
 .tgrid .tdetail { grid-row: span 2; }
 /* (it. 1522, demande de Victor) la Voie sur une colonne, les Maîtrises sur deux (place pour « Choisir un bonus ») */
 .tgrid .tvoie { grid-column: 2; }
+/* (it. 2340, demande de Victor) « Voie » et « Maîtrises » de la même hauteur (la grille aligne en haut, la Voie était plus courte) */
+.tgrid .tvoie, .tgrid .tmastery { align-self: stretch; }
 .tvoie .vt { display: none; }
 .tgrid .tmastery { grid-column: 3 / span 2; }
 #tsel { height: auto; min-height: 120px; }
@@ -761,10 +763,15 @@ details.more.mpickbox > summary, details.more.mpickbox > summary:hover { backgro
 .mpicks .mpick.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, var(--panel)); color: var(--ink); }
 /* (it. 2125, design) les paliers en grille : rang | option A | option B, alignés d'un palier à l'autre (avant : les deux boutons
    poussés à droite, B passait à la ligne selon la longueur des textes, l'œil cherchait l'option à chaque rang) */
-.mpicks li { display: grid; grid-template-columns: max-content 1fr 1fr; gap: 4px 6px; align-items: stretch; justify-content: stretch; }
+/* (it. 2339, signalé par Victor : « pas bien aligné ») colonne du rang de même largeur dans toutes les rangées (--rk : le plus
+   long « rang N », sablier compris) : avant, max-content par rangée, « rang 10 » décalait ses boutons par rapport à « rang 25 ⏳ » */
+.mpicks li { display: grid; grid-template-columns: var(--rk, max-content) 1fr 1fr; gap: 4px 6px; align-items: stretch; justify-content: stretch; }
 .mpicks li > span:last-child { display: contents; }
 .mpicks li > span:first-child { align-self: center; }
 .mpicks .mpick { width: 100%; margin: 0; }
+/* (it. 2339) même hauteur pour tous les bonus (deux lignes, texte centré) : un bonus long n'agrandit plus sa rangée seule, les deux
+   colonnes de la fenêtre restent alignées */
+.mpicks .mpick { min-height: calc(2.5em + 6px); display: flex; align-items: center; }
 /* avec la pastille « tout », la tuile débordait (polonais, 1280 px) : le palier reste dans le détail ; (it. 2095) selon la largeur
    et plus selon les points libres (l'emplacement de « tout » existe toujours : le palier n'apparaissait plus, et avant il
    apparaissait ou disparaissait d'un clic à l'autre) */

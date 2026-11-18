@@ -221,7 +221,7 @@ export class TalentsTab {
     const opt = (g, o) => `<button class="quiet mpick${g.pick === o ? " on" : ""}" data-action="t-mpick" data-keepopen data-id="${id}" data-at="${g.at}" data-opt="${o}" aria-pressed="${g.pick === o}">${esc(describeEffects(g[o]))}</button>`;
     // (it. 1108) dans la ligne « Paliers atteints » (une ligne de moins : l'onglet défilait de 15 px à 1280 px)
     return `<details class="more mpickbox" data-keep="ms-picks"><summary title="${esc(tx("Choisir les bonus des paliers ({0})", { 0: got.length }))}" data-modal-title="${esc(tx("Choisir les bonus des paliers ({0})", { 0: got.length }))}">${tx("choisir")} · ${got.length}</summary>
-      <ul class="lines mpicks">${got.map((g) => `<li${r >= g.at ? "" : ` class="later" title="${esc(tx("Pas encore atteint dans cette course : réglé d’avance."))}"`}><span>${tx("rang {0}", { 0: g.at })}${r >= g.at ? "" : " ⏳"}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul>${/* (it. 2157) valider d'un clic les paliers en attente, tels quels */ ""}${this.game.pendingMasteryPicks().some((p) => p.id === id) ? `<div class="row"><button class="quiet" data-action="t-mkeep" data-id="${id}" title="${esc(tx("Valide tels quels les bonus en attente (A par défaut) : le rappel s’éteint. Tu peux toujours les changer ici."))}">${tx("Garder les bonus actuels")}</button></div>` : ""}</details>`;
+      <ul class="lines mpicks" style="--rk:${Math.max(...got.map((g) => tx("rang {0}", { 0: g.at }).length)) + 3}ch">${got.map((g) => `<li${r >= g.at ? "" : ` class="later" title="${esc(tx("Pas encore atteint dans cette course : réglé d’avance."))}"`}><span>${tx("rang {0}", { 0: g.at })}${r >= g.at ? "" : " ⏳"}</span><span>${opt(g, "a")} ${opt(g, "b")}</span></li>`).join("")}</ul>${/* (it. 2157) valider d'un clic les paliers en attente, tels quels */ ""}${this.game.pendingMasteryPicks().some((p) => p.id === id) ? `<div class="row"><button class="quiet" data-action="t-mkeep" data-id="${id}" title="${esc(tx("Valide tels quels les bonus en attente (A par défaut) : le rappel s’éteint. Tu peux toujours les changer ici."))}">${tx("Garder les bonus actuels")}</button></div>` : ""}</details>`;
   }
 
   /** (it. 2111, signalé par Victor : « effet de lag au hover ») la fiche suit le survol tout de suite (avant : après 140 ms de
@@ -231,6 +231,9 @@ export class TalentsTab {
   hover(id, inFiche = false) {
     clearTimeout(this.hoverT);
     if (!this.root) return;
+    // (it. 2340, demande de Victor : « quand on passe en hover sur une voie je veux pas que ça change à gauche, que lorsqu'on
+    // clique ») une voie ne s'affiche dans la fiche qu'au clic ; son survol garde la fiche telle quelle (talent cliqué compris)
+    if (id && TALENT_INDEX[id] && TALENT_INDEX[id].branch === "voie") return;
     if (id && TALENT_INDEX[id]) { this.show(id); return; }
     // (it. 2179) la souris entre DANS la fiche (pour cliquer « Choisir cette voie », un bonus…) : elle garde ce qu'elle montre ; avant,
     // elle revenait au talent cliqué et le bouton survolé sans clic disparaissait sous le curseur

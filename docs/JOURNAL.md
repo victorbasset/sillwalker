@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2339-2340, DEMANDES DE VICTOR, captures) : « Choisir les bonus des paliers » : la colonne du rang a la même largeur
+  dans toutes les rangées (--rk, le plus long « rang N » + sablier ; avant max-content par rangée, les boutons de « rang 10 » partaient
+  plus à gauche que ceux de « rang 25 ⏳ ») et tous les bonus ont la hauteur de deux lignes (les deux colonnes restent alignées).
+  Talents : « Voie » et « Maîtrises » de même hauteur (align-self: stretch) ; le survol d'une voie ne change plus la fiche de gauche,
+  seul le clic (hover : branche « voie » ignorée). 303/303.
 - 2026-11-18 (it. 2338, équilibrage) : hero-table 12 h (graines 7/3/11) après l'it. 2332 : moyenne 65,4 (63,8 avant, mesuré sur le
   commit d'avant), écart 7,3 : maître des lames 65,0 → 69,3, samouraï 64,7 → 68,3 (Tempête de lames sans son −15 % PV). Tempête
   ramenée à +15 % de vitesse : moyenne 64,9 (+1,1, bruit), écart 4,0 (5,3 avant), maître des lames 65,0, samouraï 66,3.
