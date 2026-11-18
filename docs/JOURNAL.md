@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2198, autotest) : SELFTEST_TIMES=1 affiche les 12 vérifications les plus lentes. Deux contrôles instables trouvés
+  en route et rendus indépendants du tirage : « boutique, sac plein » (la pièce tirée pouvait ne pas être une amélioration une fois
+  la pièce ordinaire posée : l'amélioration est maintenant vérifiée après) et « après une vente, l'objet suivant » (objets au niveau
+  record : le Valet d'armes équipait parfois le second ; niveau 1 maintenant). Focus clavier visible du sac et des Compétences :
+  déjà couvert (button / .node :focus-visible). Trois passages de suite à 294/294.
 - 2026-11-18 (it. 2197, contrôle) : --crawl en russe (462 clics) et en polonais (471) sur dev-data, en russe sur la fin de partie
   (685 clics) après les changements de la nuit : aucune erreur.
 - 2026-11-18 (it. 2196) : brouillon du devlog 0.1.7 complété (clavier, Bestiaire, japonais et coréen ; it. 2179-2193).
@@ -7604,8 +7609,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 2188) Autotest à 125 s (293 vérifications) : regrouper les attentes de 100-150 ms des contrôles de la nuit (fenêtres,
-  Talents) en une seule mise en scène par onglet si la durée devient gênante.
+- P3 (it. 2188, mesuré it. 2198) Autotest à 125 s : les plus lents sont la bulle du morceau de musique (7 s), la meute (3,5 s), le
+  décodage des 4 morceaux (3,2 s), l'arrivée d'une série (2,7 s) ; les contrôles de la nuit ne pèsent que 0,1-0,3 s chacun.
+  `SELFTEST_TIMES=1` pour la liste ; à raccourcir d'abord la bulle de musique si la durée devient gênante.
 - À VOIR AVEC VICTOR (it. 2178) : mage le plus bas sur 12 h (≈ 62 sur 4 graines contre ≈ 65) ; il rattrape en semaine (it. 1115) :
   rien à faire sans son avis.
 - ÉCARTÉ (it. 2132 : bruit, voir Fait) (it. 2130) Mémoire : la bulle « Quoi de neuf » (toast de la bande, 15 s au lancement après une mise à jour) laisse 30 à 60 Mo
