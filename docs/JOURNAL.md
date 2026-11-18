@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2279, bon voisin) : coût de l'astuce « sac plein » (when → todoNow) : astuces évaluées toutes les 2 s, todoNow 0,10 ms
+  (dev-data, 200 appels) : négligeable.
 - 2026-11-18 (it. 2278) : POUR-VICTOR : nouveautés de l'après-midi (sac, Atelier, liens des quêtes, résumé d'absence).
 - 2026-11-18 (it. 2277) : « Quoi de neuf », édition 147 (rappel de l'Atelier, résumé d'absence en allemand et polonais ; clés 3348-3349).
   Bulles du mode mini et de l'icône (« À faire » au survol) : texte libre, rien à mesurer. lang-overflow all × 1280 (10 langues, vrai) : rien.
