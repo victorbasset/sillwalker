@@ -46,3 +46,10 @@ docs/devlog-0.1.6.md).
   prennent le focus et montrent leur aide ; Échap et un clic sur le fond annulent une confirmation.
 - **Lisibilité (it. 2145-2146) :** Bestiaire : les noms longs passent en plus petit au lieu d'être coupés ; onglet Héros : une
   ligne d'explication en moins (dans un ⓘ).
+- **Boutique et sac (it. 2153-2174) :** à sac plein, une amélioration du Marchand s'achète quand même (l'ancienne pièce vendue,
+  jamais une précieuse ; la bulle le dit avant le clic), aussi depuis « À faire » ; après une vente, l'objet suivant est sélectionné
+  (double clic protégé).
+- **Maîtrises et quêtes (it. 2157-2162) :** « Garder les bonus actuels » éteint le rappel des paliers ; changer une quête 3 étoiles
+  demande confirmation.
+- **Clavier, suite (it. 2165-2170) :** flèches dans la grille des Talents ; Échap revient d'abord au sac ; Tab reste dans une fenêtre
+  ouverte et le focus revient à sa place quand elle se ferme.

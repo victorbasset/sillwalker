@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2176) : brouillon du devlog 0.1.7 complété (Boutique et sac, maîtrises et quêtes, clavier).
 - 2026-11-18 (it. 2175) : « Quoi de neuf », édition 140 (ventes enchaînées, quêtes 3 étoiles, flèches des Talents, focus des fenêtres ;
   4 nouveautés, 10 langues, clés 3316-3319). --crawl : 455 clics sans erreur après l'auto-sélection des ventes ; 291/291 ;
   lang-overflow 10 langues × 1280 : rien.
