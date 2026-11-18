@@ -16,8 +16,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   bulles), 11 **chroniques** débloquées par paliers (zones 10, 25, 50, 75, 100, 125, 150, 190, première ascension, victoire
   finale), relisibles dans la carte du héros (▶ : revoir), chacune avec sa cinématique propre (décor, ambiance, motif
   musical ; désactivables dans les Réglages). **But final** : le Briseur d'Étoiles, boss unique de la
-  zone 200 (sprite propre, 3 capacités, PV ×2,5) ; sa défaite rallume le ciel (cinématique, générique personnalisé,
-  succès STARBREAKER), puis le jeu continue « au-delà du Rebord ». Libérer un héros a aussi sa cinématique.
+  zone 200 (sprite propre, 3 capacités, PV ×2,5 ; musique propre « La Dernière Étoile ») ; sa défaite rallume le ciel
+  (cinématique, générique personnalisé, succès STARBREAKER) et le héros, libéré, se promène sur tout l'écran (fenêtre
+  transparente traversée par les clics : main/finale-window.js, finale.html, docs/FINALE.md), puis le jeu continue « au-delà du
+  Rebord ». Libérer un héros a aussi sa cinématique.
 - **Boss majeurs et reliques** (`game/relics.js`, demande de Victor) : trois lieutenants du Briseur gardent une
   relique en zones 50 (Geôlier mécanique), 100 (Reine des cendres) et 150 (Chevalier de l'éclipse) : boss plus
   coriaces (PV ×2 à ×2,4, capacités propres), annoncés par une scène et dans le panneau de la zone (à 10 zones).
