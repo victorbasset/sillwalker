@@ -1244,6 +1244,7 @@ export class Panel {
 
   /** Petite fenêtre de confirmation dans le panneau. */
   confirm(title, text, okLabel, onOk) {
+    this.confirmReturn = document.activeElement; // (it. 2169) le focus revient au bouton qui a ouvert la fenêtre
     $(this.root, "#ct").textContent = title;
     $(this.root, "#cbody").textContent = text;
     const ok = $(this.root, '[data-action="confirm-ok"]');
@@ -1253,7 +1254,11 @@ export class Panel {
     $(this.root, "#confirm").hidden = false;
     ok.focus();
   }
-  closeConfirm() { $(this.root, "#confirm").hidden = true; this.confirmFn = null; this.confirmSafe = false; }
+  closeConfirm() {
+    $(this.root, "#confirm").hidden = true; this.confirmFn = null; this.confirmSafe = false;
+    const r = this.confirmReturn; this.confirmReturn = null;
+    if (r && r.isConnected && typeof r.focus === "function") r.focus({ preventScroll: true });
+  }
 
   /** (it. 2113, ergonomie) « Effacer la partie et recommencer » : confirmation dans la fenêtre du panneau, avec ce qui est perdu
    *  (avant : second clic sur le même bouton, dont le libellé changeait ; un double clic involontaire effaçait toute la partie). */

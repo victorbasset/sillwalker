@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2169, accessibilité) : à la fermeture d'une fenêtre de confirmation, le focus revient au bouton qui l'a ouverte
+  (au clavier, on ne perd plus sa place). Autotest ; 289/289.
 - 2026-11-18 (it. 2168, accessibilité) : une fenêtre ouverte (confirmation, grande fenêtre) garde le focus : Tab et Maj + Tab bouclent
   sur ses boutons au lieu de passer aux boutons du panneau caché derrière. Autotest ; 288/288.
 - 2026-11-18 (it. 2167, clavier) : Talents : les flèches déplacent le focus dans la grille (↑ ↓ dans la branche, ← → vers la branche
