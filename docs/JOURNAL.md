@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2320, contrôle) : constellations abordables : déjà dans « À faire » (id « stars », game.js todoNow). CLAUDE.md : 302
+  vérifications d'autotest.
 - 2026-11-18 (it. 2319, contrôle) : onglet Ascension en français à 1280 px : gardé / perdu, prochain héros, éclats maintenant et à la
   zone suivante, constellations ; « 0 gagnés au total » avec 2 765 éclats vient des commandes de dev de dev-data. Rien à corriger.
 - 2026-11-18 (it. 2318, contrôle) : STALL_DAYMOD=all stall-check : 60 parties, 0 figées ; FUZZ_DAYMOD=all fuzz (30 graines) :
