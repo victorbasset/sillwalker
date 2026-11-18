@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2187) : durée de l'autotest mesurée : 123 s pour 293 vérifications (≈ 70 s avant la nuit ; les contrôles ajoutés
+  attendent chacun quelques centaines de ms). Repère mis à jour dans CLAUDE.md ; loin du délai maximal de 10 min.
 - 2026-11-18 (it. 2186) : « Quoi de neuf », édition 141 (fiche des Talents qui garde le survol, flèches dans le sac, aide des Talents ;
   3 nouveautés, 10 langues, clés 3322-3324). 293/293 ; lang-overflow 10 langues × 1280 : rien.
 - 2026-11-18 (it. 2185, clavier) : flèches dans le sac (case voisine selon sa position à l'écran, quel que soit le nombre de cases par

@@ -47,7 +47,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   sur une COPIE temporaire de dev-data : la sauvegarde de dev n'est plus modifiée par les contrôles ; code de sortie 1
   si une vérification échoue) : parcours
   automatique de l'interface, doit afficher « N/N vérifications réussies ».
-  Délai maximal 10 min (≈ 70 s d'habitude ; `SELFTEST_MAX_MIN`) : au-delà, échec citant la dernière vérification (it. 863). Sortie complète gardée dans `logs/selftest-last.log` (et `logs/selftest-last-fail.log` pour le dernier échec) : un échec isolé se relit après coup (it. 906).
+  Délai maximal 10 min (≈ 125 s depuis l'it. 2187, 293 vérifications ; ≈ 70 s avant la nuit du 17-18/11 ; `SELFTEST_MAX_MIN`) : au-delà, échec citant la dernière vérification (it. 863). Sortie complète gardée dans `logs/selftest-last.log` (et `logs/selftest-last-fail.log` pour le dernier échec) : un échec isolé se relit après coup (it. 906).
   Avant une mesure `--perf`, vérifier qu'aucun Electron de test orphelin ne tourne (`ps -ef | grep electron`).
   Ni une simulation lancée en parallèle (it. 1861 : deux semaines `simulate.js` en même temps faisaient monter la bande de
   18,3 à 25,4 % et l'icône seule de 0,5 à 1 %). Pour attendre la fin d'un script : `pgrep -f "<nom>"` se trouve lui-même
