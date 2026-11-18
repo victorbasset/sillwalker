@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2163) : CLAUDE.md : dosage des confirmations (seulement le précieux et sans retour ; gestes courants d'un clic)
+  et achat à sac plein. Bulle de « Reforger » relue : elle dit déjà ce qui change et ce qui est gardé.
 - 2026-11-18 (it. 2162, ergonomie) : quêtes : « Changer » une quête 3 étoiles (rare, une sur dix, belle récompense) demande
   confirmation ; les autres se changent d'un clic. Clés 3312-3314 ; autotest (Annuler la garde) ; 285/285.
 - 2026-11-18 (it. 2161, revue générale) : perf bande 18,3 %, panneau 19,3 %, mini 5,7 % ; simulations 12 h : lancier 62, assassin 60,

@@ -349,6 +349,10 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   panneau : `this.panel`). Effacer la partie : `confirmSafe` (Entrée et clic sur le fond annulent, « Annuler » en bouton par défaut).
   Un clic sur le fond d'une fenêtre l'annule ou la ferme, seulement si l'appui aussi était sur le fond. Rien ne naît ni ne bouge
   sous le curseur (emplacements réservés, libellés fixes) ; plan et audit : docs/TALENTS-UX.md.
+  Dosage (it. 2127-2162) : on ne confirme que ce qui est PRÉCIEUX et sans retour (objet légendaire, de panoplie ou forgé ; quête
+  3 étoiles ; réinitialisations ; ascension ; effacement). Les gestes courants restent d'un clic (vendre un objet ordinaire, changer
+  une quête ordinaire, reforger : sa bulle dit ce qui change). Sac plein : une amélioration du marchand s'achète quand même
+  (game.canBuyWhenFull : ancienne pièce vendue, jamais une précieuse).
 - Fiche des Talents (it. 2111) : elle suit le survol sans délai et revient au talent CLIQUÉ (`pin`) hors des talents (RESTORE_MS) ;
   un contrôle qui survole des talents doit re-chercher les éléments après un clic (le clic redessine l'onglet).
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
