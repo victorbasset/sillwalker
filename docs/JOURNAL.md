@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2288) : steam/achievements.md : second tableau, les descriptions (10 langues) des 9 succès qui en ont une
+  (it. 2286), à recopier dans le champ « Description » de Steamworks ; généré par steam-achievements.mjs (vérifié par npm test).
+  Quoi de neuf : une seule nouveauté depuis l'édition 147 : attendre la série suivante.
 - 2026-11-18 (it. 2287, contrôle) : texte extrait en russe (--dump-text, bulles comprises) : les explications des succès
   (it. 2286) sont traduites ; mots latins restants : noms propres (Sillwalker, Poupouce), touches, repères du fichier
   (« --- attributs », noms d'onglets), DEV et « Windows » (mode de développement) : rien d'oublié.

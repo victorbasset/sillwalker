@@ -16,6 +16,14 @@ const cell = (s) => String(s).replace(/\|/g, "\\|");
 let md = `# Succès Steam : noms dans les 10 langues\n\nGénéré par \`scripts/steam-achievements.mjs\` (${ACHIEVEMENTS.length} succès). À recopier dans Steamworks → Stats & Achievements.\n\n`;
 md += `| Identifiant | ${LANGS.join(" | ")} |\n|${" --- |".repeat(LANGS.length + 1)}\n`;
 for (const a of ACHIEVEMENTS) md += `| \`${a.id}\` | ${LANGS.map((l) => cell(name(a, l))).join(" | ")} |\n`;
+// (it. 2288) descriptions : celles des succès au nom obscur (champ desc, bulle de Statistiques > Succès, it. 2286)
+const descOf = (a, l) => { if (!tabs[l]) return a.desc; const i = KEYS.indexOf(a.desc); return i >= 0 && tabs[l][i] != null ? tabs[l][i] : a.desc; };
+const withDesc = ACHIEVEMENTS.filter((a) => a.desc);
+if (withDesc.length) {
+  md += `\n## Descriptions (champ « Description » de Steamworks)\n\n${withDesc.length} succès ont une description dans le jeu (bulle au survol) ; pour les autres, le nom suffit (ou recopier le nom).\n\n`;
+  md += `| Identifiant | ${LANGS.join(" | ")} |\n|${" --- |".repeat(LANGS.length + 1)}\n`;
+  for (const a of withDesc) md += `| \`${a.id}\` | ${LANGS.map((l) => cell(descOf(a, l))).join(" | ")} |\n`;
+}
 // --check (npm test, it. 653) : échoue si le fichier n'est plus à jour (succès ajouté, nom changé)
 const file = path.join(root, "steam", "achievements.md");
 if (process.argv.includes("--check")) {
