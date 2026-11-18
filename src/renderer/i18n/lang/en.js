@@ -2214,4 +2214,5 @@ export default {
   3339: "Linux: Settings no longer mention Windows (theme “Automatic (system)”) and the start-up box, which did nothing, is gone.",
   3340: "Quests: “Bring back expeditions” no longer shows up before expeditions are unlocked; such an impossible quest is replaced.",
   3341: "Translations: the automation boxes (talents, Arms Valet, Astrolabe…) now clearly say “automatically” (English, German, Spanish, Portuguese, Polish, Russian).",
+  3342: "Enlarge the bag: +6 slots ({0} gold)",
 };

@@ -2826,6 +2826,10 @@ export class Game {
     // (it. 908) pas quand le Grand intendant les fait éclore lui-même (comme les familiers libres, it. 876)
     if (S.pets.eggs > 0 && hasUnlock(S, "menagerie") && !(hasUnlock(S, "steward") && S.settings.autoPets !== false)) out.push({ id: "eggs", n: S.pets.eggs, tab: "pets" });
     if (this.bagFull()) out.push({ id: "bagFull", n: this.uselessItems().length, tab: "adventure" }); // le butin suivant serait vendu d'office
+    // (it. 2269) sac plein et agrandissement abordable (Atelier) : le remède direct (dev-data : 447 Md d'or, sac de 24 jamais agrandi,
+    // 14 objets laissés au sol pendant une absence)
+    { const u = UPGRADES.find((x) => x.id === "bag"), have = S.upgrades[u.id] || 0, price = upgradePrice(u, S);
+      if (this.bagFull() && hasUnlock(S, "workshop") && have < u.max && S.gold >= price) out.push({ id: "bagUp", n: 1, tab: "shop", sec: "workshop", price }); }
     const fin = this.setFinisher();
     if (fin) out.push({ id: "setFinish", n: fin.items.length, tab: "adventure", name: SETS[fin.set].name, itemId: fin.items[0].id });
     const stewardOn = hasUnlock(S, "steward") && S.settings.autoPets !== false; // (it. 909) il récupère les expéditions seul

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2269, plaisir de revenir) : « À faire maintenant » propose « ✦ Agrandir le sac : +6 places (N or) » quand le sac est
+  plein, l'Atelier débloqué et l'agrandissement abordable ; un clic l'achète (comme dans l'Atelier). Trouvé en revue : dev-data, 447 Md
+  d'or, sac de 24 jamais agrandi, 14 objets laissés au sol pendant l'absence. Test logique (clé 3342) ; capture du résumé ; lang-overflow
+  10 langues × 1280 : rien. 363 tests, 297/297.
 - 2026-11-18 (it. 2268, contrôle) : fin de partie : quête de transmutation sans Creuset perpétuel : un lien « → Aventure » (le seul) ;
   comportement attendu après les it. 2266-2267.
 - 2026-11-18 (it. 2267) : Quêtes : lien vers l'onglet masqué aussi quand le Maître de forge (forge) ou le Creuset perpétuel (transmutation)

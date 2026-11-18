@@ -2214,4 +2214,5 @@ export default {
   3339: "Linux: los Ajustes ya no mencionan Windows (tema «Automático (sistema)») y se quitó la casilla de inicio, que no hacía nada.",
   3340: "Misiones: «Traer expediciones» ya no aparece antes de desbloquear las expediciones; una misión imposible así se reemplaza.",
   3341: "Traducciones: las casillas de automatismo (talentos, Ayuda de armas, Astrolabio…) dicen claramente «automáticamente» (inglés, alemán, español, portugués, polaco, ruso).",
+  3342: "Agrandar la bolsa: +6 casillas ({0} de oro)",
 };

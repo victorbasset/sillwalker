@@ -1840,6 +1840,16 @@ test("coffre au trésor : or, potion et objet rare ou mieux", () => {
   });
 }
 
+test("à faire : sac plein et agrandissement abordable → « Agrandir le sac » (it. 2269)", () => {
+  const g = new Game(freshState()); g.S.unlocks.workshop = true; g.S.gold = 1e9;
+  while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));
+  assert.ok(g.todoNow().some((t) => t.id === "bagUp"), "proposé");
+  const size = g.S.bagSize; assert.ok(g.buyUpgrade("bag")); assert.equal(g.S.bagSize, size + 6);
+  assert.ok(!g.todoNow().some((t) => t.id === "bagUp"), "sac plus plein : plus proposé");
+  g.S.gold = 0; while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));
+  assert.ok(!g.todoNow().some((t) => t.id === "bagUp"), "pas assez d'or : pas proposé");
+});
+
 test("quêtes : pas de quête d'expéditions avant le Chenil des explorateurs (it. 2243)", () => {
   const g = new Game(freshState()); delete g.S.unlocks.expeditions;
   g.S.pets.owned = { cat: { lvl: 1, xp: 0 }, fox: { lvl: 1, xp: 0 } };

@@ -3343,5 +3343,6 @@ export const KEYS = [
   "Carte : quand la Carte du voyageur est déjà achetable, un lien mène directement à la boutique (avant : « Bientôt »).",
   "Linux : les Réglages ne parlent plus de Windows (thème « Automatique (système) ») et la case de démarrage, sans effet, est retirée.",
   "Quêtes : « Ramener des expéditions » n’apparaît plus avant leur déblocage ; une quête de ce genre impossible est remplacée.",
-  "Traductions : les cases d’automatisme (talents, Valet d’armes, Astrolabe…) disent clairement « automatiquement » (anglais, allemand, espagnol, portugais, polonais, russe)."
+  "Traductions : les cases d’automatisme (talents, Valet d’armes, Astrolabe…) disent clairement « automatiquement » (anglais, allemand, espagnol, portugais, polonais, russe).",
+  "Agrandir le sac : +6 places ({0} or)"
 ];

@@ -2214,4 +2214,5 @@ export default {
   3339: "Linux: Ustawienia nie wspominają już o Windows (motyw „Automatycznie (system)”), a bezużyteczne pole autostartu usunięto.",
   3340: "Zadania: „Przyprowadź wyprawy” nie pojawia się już przed odblokowaniem wypraw; takie niemożliwe zadanie zostaje zastąpione.",
   3341: "Tłumaczenia: pola automatyzacji (talenty, Giermek, Astrolabium…) mówią teraz jasno „automatycznie” (angielski, niemiecki, hiszpański, portugalski, polski, rosyjski).",
+  3342: "Powiększ torbę: +6 miejsc ({0} złota)",
 };

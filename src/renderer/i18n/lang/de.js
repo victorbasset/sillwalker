@@ -2214,4 +2214,5 @@ export default {
   3339: "Linux: Die Einstellungen erwähnen Windows nicht mehr (Design „Automatisch (System)“), das wirkungslose Autostart-Kästchen ist entfernt.",
   3340: "Quests: „Expeditionen zurückholen“ erscheint nicht mehr, bevor Expeditionen freigeschaltet sind; eine solche unmögliche Quest wird ersetzt.",
   3341: "Übersetzungen: Die Automatik-Kästchen (Talente, Waffenknecht, Astrolabium…) sagen jetzt klar „automatisch“ (Englisch, Deutsch, Spanisch, Portugiesisch, Polnisch, Russisch).",
+  3342: "Tasche vergrößern: +6 Plätze ({0} Gold)",
 };

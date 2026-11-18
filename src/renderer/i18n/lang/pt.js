@@ -2214,4 +2214,5 @@ export default {
   3339: "Linux: as Configurações não falam mais do Windows (tema «Automático (sistema)») e a caixa de inicialização, sem efeito, foi removida.",
   3340: "Missões: «Trazer expedições» não aparece mais antes do desbloqueio das expedições; uma missão impossível assim é substituída.",
   3341: "Traduções: as caixas de automação (talentos, Escudeiro de armas, Astrolábio…) dizem claramente «automaticamente» (inglês, alemão, espanhol, português, polonês, russo).",
+  3342: "Aumentar a bolsa: +6 espaços ({0} de ouro)",
 };

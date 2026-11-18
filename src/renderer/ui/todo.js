@@ -1,6 +1,7 @@
 // « À faire maintenant » : libellé de chaque action disponible (game.todoNow()), partagé par le résumé
 // d'absence (panneau) et la bulle d'aide du mode mini.
 import { t as tx, txn, tr } from "../i18n/index.js";
+import { fmt } from "../game/format.js";
 
 const LABELS = {
   quests: (t) => txn(t.n, "{n} quête à réclamer|{n} quêtes à réclamer"),
@@ -17,6 +18,7 @@ const LABELS = {
   idlePets: (t) => txn(t.n, "{n} familier libre à envoyer en expédition|{n} familiers libres à envoyer en expédition"),
   merchant: () => tx("Le marchand propose une amélioration"),
   bagFull: (t) => t.n ? txn(t.n, "Sac plein : {n} objet inutile à vendre|Sac plein : {n} objets inutiles à vendre") : tx("Sac plein : le butin suivant restera au sol"),
+  bagUp: (t) => tx("Agrandir le sac : +6 places ({0} or)", { 0: fmt(t.price) }), // (it. 2269)
   setFinish: (t) => (t.n > 1 ? txn(t.n, "{n} pièce du sac complète la panoplie {0}|{n} pièces du sac complètent la panoplie {0}", { 0: t.name }) : tx("Une pièce du sac complète la panoplie {0}", { 0: t.name })),
 };
 
