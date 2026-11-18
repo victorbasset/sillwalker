@@ -847,7 +847,7 @@ import { SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, active
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects, graphSpendable, graphSurplus, GRAPH_MAX_TAKE, SURPLUS_BONUS, DEFAULT_BRANCH, graphPathTo } from "../src/renderer/game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects, graphSpendable, graphSurplus, GRAPH_MAX_TAKE, SURPLUS_BONUS, DEFAULT_BRANCH, graphPathTo, sanitizeOuter } from "../src/renderer/game/skillgraph.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -4989,5 +4989,17 @@ test("Carnet de route (it. 2322) : un palier de niveau n'est noté qu'une fois, 
   g.noteLevels(1, 30); const n1 = g.S.journey.filter((e) => e.k === "lvl").length;
   assert.equal(n1, 2, "niveaux 10 et 25");
   g.noteLevels(1, 60); assert.deepEqual(g.S.journey.filter((e) => e.k === "lvl").map((e) => e.v), [10, 25, 50], "après l'ascension : seul 50 s'ajoute");
+});
+test("grand graphe allégé (it. 2332) : une ancienne sauvegarde garde ses nœuds encore reliés, les autres repartent", () => {
+  const old = ["force-gate", "force-v2-0", "force-v2-1", "force-v2-17", "force-v2-29", "force-r0", "force-r1", "vitality-v0-3", "inconnu"];
+  const kept = sanitizeOuter(old);
+  assert.deepEqual(kept.slice(0, 3), ["force-gate", "force-v2-0", "force-v2-1"], "début de voie gardé, dans l'ordre");
+  assert(!kept.includes("force-v2-17") && !kept.includes("force-v2-29"), "nœuds des voies de 30 disparus");
+  assert(!kept.includes("force-r0") && !kept.includes("force-r1"), "anneau coupé de la voie (ses nœuds 2 à 9 manquent) : retiré");
+  assert(!kept.includes("vitality-v0-3"), "voie d'une région sans sa porte : retirée");
+  const S = freshState(); S.lvl = 2000; S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); S.skills.outer = old;
+  const m = migrate(JSON.parse(JSON.stringify(S)));
+  assert.deepEqual(m.skills.outer, kept, "appliqué au chargement");
+  assert.equal(graphPointsFree(m), graphPointsTotal(m) - kept.length, "les points des nœuds retirés redeviennent libres");
 });
 console.log(`\n${pass} tests réussis`);

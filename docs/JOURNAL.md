@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2374, test) : sanitizeOuter : nœuds des anciennes voies de 30 retirés, anneau et voies coupés retirés, ordre gardé,
+  points rendus au chargement. 368 tests.
 - 2026-11-18 (it. 2373, autotest) : en zone 200, la bulle annonce « La Dernière Étoile » (attente du bon nom : une bulle « ♪ The Sill »
   restée du contrôle précédent passait avant). 306/306.
 - 2026-11-18 (it. 2372, autotest) : le ▶ de la chronique « Le ciel rallumé » rejoue la libération (fenêtre ouverte puis fermée seule).
