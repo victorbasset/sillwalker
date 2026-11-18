@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2253, langues) : français resté dans l'espagnol et le portugais (« les, avec, pour, dans, une, est, ton… », dev-data et
+  fin de partie) : aucun. Les 10 langues sont passées aujourd'hui (it. 2191-2253). Rien à corriger.
 - 2026-11-18 (it. 2252, langues) : français resté dans l'allemand et le polonais (petits mots « les, avec, pour, une… », dev-data et fin
   de partie) : aucun (« des », « du » trouvés en allemand sont allemands). Rien à corriger.
 - 2026-11-18 (it. 2251, REVUE GÉNÉRALE) : 12 h : artificier 65, danseuse de lames 64, cryomancien 65 ; --perf : bande 18,1 %, panneau
