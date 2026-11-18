@@ -751,9 +751,9 @@ async function runSelfTest(strip) {
     const bgOf = el => { for (let e = el; e; e = e.parentElement) { const b = rgb(getComputedStyle(e).backgroundColor); if (b[3] >= 1) return b; } return [255, 255, 255]; };
     const box = document.createElement("div");
     box.style.cssText = "position:fixed;left:0;top:0;z-index:-1;opacity:1";
-    box.innerHTML = '<article class="panel questcard s3"><div class="stars">★</div></article><article class="panel"><div class="talent voie armed"><span>Voie</span></div><ul id="log"><li class="lg-epic">épique</li></ul></article>';
+    box.innerHTML = '<article class="panel questcard s3"><div class="stars">★</div></article><article class="panel"><div class="tvoie ready"><div class="talent voie"><span class="tr">choisir</span></div></div><ul id="log"><li class="lg-epic">épique</li></ul></article>';
     (document.querySelector(".tabpane:not([hidden])") || document.body).appendChild(box);
-    const probes = [[".stars", 2.5], [".talent.voie.armed span", 4.5], ["li.lg-epic", 3]];
+    const probes = [[".stars", 2.5], [".tvoie.ready .talent.voie .tr", 4.5], ["li.lg-epic", 3]];
     for (const th of ["dark", "light"]) {
       window.__applyTheme(th);
       for (const [sel, min] of probes) {

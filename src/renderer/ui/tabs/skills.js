@@ -382,7 +382,7 @@ export class SkillsTab {
     const auto = this.el.querySelector('[data-action="k-auto"]');
     auto.disabled = free <= 0; auto.classList.toggle("primary", free > 0);
     this.el.querySelector('[data-action="k-autoon"]').checked = !!S.settings.autoSkills;
-    // (it. 1099) changer de voie sans perdre la fleur : vider le grand graphe seulement (deuxième clic pour confirmer)
+    // (it. 1099) changer de voie sans perdre la fleur : vider le grand graphe seulement (fenêtre de confirmation depuis l'it. 2112)
     const greset = this.el.querySelector('[data-action="k-greset"]');
     greset.hidden = !(S.skills.outer || []).length;
     greset.textContent = tx("Réinitialiser le grand graphe");

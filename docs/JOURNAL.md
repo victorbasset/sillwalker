@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2195, nettoyage) : recherche des derniers « second clic pour confirmer » : aucun. Retiré le reste de l'ancienne Voie à
+  deux clics (talents.js `armed`, règle CSS `.talent.voie.armed`) ; le contrôle de contraste de l'autotest qui l'utilisait mesure
+  maintenant le « choisir › » doré de la voie disponible (`.tvoie.ready`), dans les deux thèmes. Commentaire périmé de skills.js
+  corrigé. Mesures de texte (scrollWidth) : seul le Bestiaire en fait (corrigé à l'it. 2190). 294/294.
 - 2026-11-18 (it. 2194, contrôle langues) : les 38 libellés d'effets (EFFECTS, talents.js, communs aux talents, compétences,
   maîtrises) dans les 9 langues : aucun ne commence plus par un nombre ou « HP 30 » ; aucune traduction ne colle « % » ou « {n} » à un
   chiffre. Rien d'autre à corriger.

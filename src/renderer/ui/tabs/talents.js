@@ -16,7 +16,6 @@ export class TalentsTab {
     this.game = game;
     this.sel = null;      // talent dont le détail est affiché (survol)
     this.root = null;
-    this.armed = null;    // voie en attente de confirmation (2e clic)
   }
 
   badge() { const n = this.game.talentPointsFree(); return n > 0 ? String(n) : ""; }
@@ -64,9 +63,8 @@ export class TalentsTab {
       const cls = ["talent", "voie", taken ? "has maxed" : "", closed ? "closed" : "", locked ? "locked" : "", this.sel === v.id ? "sel" : ""].join(" ");
       // (it. 2096, ergonomie) plus de « cliquer encore pour confirmer » sur la ligne : un clic montre la voie dans la fiche, où un
       // bouton explicite la choisit
-      const armed = false;
       // (it. 1522, demande de Victor : réduire la Voie) la description au survol, une ligne par voie
-      return `<button class="${cls}${armed ? " armed" : ""}" data-action="t-voie" data-id="${v.id}" data-tid="${v.id}" title="${esc(v.text)}"><span class="tn">${taken ? "✦ " : ""}${esc(v.name)}</span>
+      return `<button class="${cls}" data-action="t-voie" data-id="${v.id}" data-tid="${v.id}" title="${esc(v.text)}"><span class="tn">${taken ? "✦ " : ""}${esc(v.name)}</span>
         <span class="tr">${taken ? tx("choisie") : locked ? "🔒 " + txn(VOIE_REQ, "{n} pt|{n} pts") : closed ? "—" : tx("choisir") + " ›"}</span><span class="vt">${esc(v.text)}</span></button>`;
     }).join("");
     // (it. 1522) paliers atteints dont le bonus n'a jamais été choisi : pastille « A/B » qui ouvre le choix

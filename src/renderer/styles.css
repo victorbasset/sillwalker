@@ -699,7 +699,6 @@ details.more summary:hover { color: var(--accent); }
 .talent .mpend { display: inline-grid; }
 .talent .mpend > span { grid-area: 1 / 1; text-align: center; }
 .talent .mpend > .hid { visibility: hidden; }
-.talent.voie.armed { border-color: color-mix(in oklab, #ffd34d var(--tintk), var(--accent)); background: color-mix(in oklab, #ffd34d 14%, var(--panel)); }
 .warnline { color: var(--good); }
 .talent .tr { margin-left: auto; }
 .sendall { display: inline-flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
