@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2230) : textes construits sur la zone d'un déblocage (comme le « Bientôt » de la Carte, it. 2227) : tous vérifient déjà
+  la disponibilité. Boutons des cartes de héros à 1280 px : une police plus petite ne suffit pas (3/12 trop larges même à 11 px) : noté.
 - 2026-11-18 (it. 2229, mesure) : --overflow-report mesure aussi chaque onglet sans aucun déblocage (record gardé) : tous les liens
   « 🔒 nom · prix » s'affichent, ce que l'état « tous les déblocages » de lang-overflow ne montrait jamais. 10 langues × 1920, 1600, 1366,
   1280 et fin de partie : rien. CLAUDE.md complété.
@@ -7700,6 +7702,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   lignes (en-têtes de cartes inégaux, comme les familiers avant l'it. 2207). À reprendre si Victor le signale.
   ESSAI it. 2215, annulé : sorts déplacés dans l'en-tête (à droite du nom) : les boutons restaient sur deux lignes (« Jouer à /
   l'ascension », « Beim Aufstieg / spielen ») et les sous-titres se coupaient davantage. Piste restante : libellés plus courts.
+  MESURE it. 2230 (boutons sur une ligne forcée, 1280 px) : 13 px → 6/12 trop larges en fr et de ; 12 px et 11 px → encore 3/12 (fr, de,
+  ru, pl) : la police ne suffit pas, seuls des libellés plus courts régleraient (à décider avec Victor).
 - P3 (revue it. 2211) Familiers : cartes hautes avec un grand vide entre le bonus et le cadre d'expédition (hauteur fixée par la
   carte la plus longue de la rangée) : une mise en page plus dense ? À juger avec Victor, ce n'est pas un défaut.
 - P3 (it. 2188, mesuré it. 2198) Autotest à 125 s : les plus lents sont la bulle du morceau de musique (7 s), la meute (3,5 s), le
