@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2315) : Statistiques > Carnet de route : « Prochaine étape : zone N » sous les étapes (la prochaine zone qui en
+  ajoutera une : toutes les 5 zones, puis toutes les 10 après la 50, game.js journeyZoneStep). dev-data : une seule étape (zone 51,
+  record 57) et rien ne disait quand viendrait la suivante. Clé 3366. lang-overflow 10 langues à 1280 px (dev et fin) : aucun
+  défilement. 301/301.
 - 2026-11-18 (it. 2314, contrôle) : first-minutes : premier objet 42-82 s, premier boss 70-82 s, zone 9-10 et niveau 16-17 à
   10 min : identique à l'it. 2225.
 - 2026-11-18 (it. 2313, contrôle) : --crawl sur une partie NEUVE en anglais (dossier vide, --lang=en-US) : 73 clics (peu d'onglets

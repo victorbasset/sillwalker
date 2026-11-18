@@ -3367,5 +3367,6 @@ export const KEYS = [
   "Succès : les trois plus proches d’être obtenus ressortent en or ; une astuce te le signale quand l’un d’eux est à 90 %.",
   "Pouvoir à découvrir : chaque objet légendaire en porte un, tiré au hasard.",
   "Bénédiction encore jamais vécue : chaque jour en apporte une, reviens jouer d’autres jours.",
-  "Bestiaire : ce qui reste à découvrir dit au survol où le trouver (un monstre, sa zone ; un pouvoir, sur les légendaires ; une bénédiction, d’autres jours)."
+  "Bestiaire : ce qui reste à découvrir dit au survol où le trouver (un monstre, sa zone ; un pouvoir, sur les légendaires ; une bénédiction, d’autres jours).",
+  "Prochaine étape : zone {0}"
 ];

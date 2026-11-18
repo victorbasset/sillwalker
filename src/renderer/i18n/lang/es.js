@@ -2238,4 +2238,5 @@ export default {
   3363: "Poder por descubrir: cada objeto legendario lleva uno, elegido al azar.",
   3364: "Bendición aún no vivida: cada día trae una, vuelve a jugar otros días.",
   3365: "Bestiario: lo que queda por descubrir dice al pasar el ratón dónde encontrarlo (un monstruo, su zona; un poder, en los legendarios; una bendición, otros días).",
+  3366: "Próxima etapa: zona {0}",
 };

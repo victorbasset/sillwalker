@@ -2238,4 +2238,5 @@ export default {
   3363: "Power to discover: every legendary item carries one, picked at random.",
   3364: "Blessing not yet experienced: each day brings one, come back and play on other days.",
   3365: "Bestiary: what is left to discover now says on hover where to find it (a monster, its zone; a power, on legendaries; a blessing, on other days).",
+  3366: "Next milestone: zone {0}",
 };

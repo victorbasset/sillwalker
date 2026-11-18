@@ -18,6 +18,7 @@ import { describeEffects } from "../../game/talents.js";
 import { tabReady, statsFull, STATS_FULL_ZONE } from "../../game/tabs.js";
 
 import { fmt, fmtShort, esc, dec, unit, uH, uMin } from "../../game/format.js";
+import { journeyZoneStep } from "../../game/game.js";
 const pct = (p) => dec(p * 100 >= 1 ? String(Math.round(p * 1000) / 10) : String(Math.round(p * 10000) / 100)) + unit("%");
 
 const dur = (s) => {
@@ -46,9 +47,11 @@ function journeyHTML(S) {
   const J = (Array.isArray(S.journey) ? S.journey : []).filter((e) => journeyText(e)).slice(-30).reverse();
   let date = () => "";
   try { const f = new Intl.DateTimeFormat(LOCALES[getLang()] || undefined, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }); date = (t) => f.format(new Date(t)); } catch { /* Intl indisponible */ }
+  // (it. 2315) la prochaine zone qui ajoutera une étape (toutes les 5 zones, puis toutes les 10 après la 50 : game.js) : un but visible
+  let nextStep = 0; for (let z = (S.best || 0) + 1; z <= (S.best || 0) + 10; z++) if (journeyZoneStep(z)) { nextStep = z; break; }
   return `<article class="panel journey"><h2><span class="hicon"><img src="${shopIconURL("map", 3)}" alt="">${tx("Carnet de route")}</span></h2>
     ${J.length ? `<ul class="lines">${J.map((e) => `<li><span>${esc(journeyText(e))}</span><b class="note">${esc(date(e.t))}</b></li>`).join("")}</ul>`
-      : `<p class="note">${tx("Les grandes étapes de ta partie apparaîtront ici.")}</p>`}</article>`;
+      : `<p class="note">${tx("Les grandes étapes de ta partie apparaîtront ici.")}</p>`}${nextStep ? `<p class="note">${tx("Prochaine étape : zone {0}", { 0: nextStep })}</p>` : ""}</article>`;
 }
 
 export class StatsTab {

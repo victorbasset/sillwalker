@@ -2238,4 +2238,5 @@ export default {
   3363: "Noch zu entdeckende Kraft: Jeder legendäre Gegenstand trägt eine, zufällig gewählt.",
   3364: "Noch nie erlebter Segen: Jeder Tag bringt einen, spiel auch an anderen Tagen.",
   3365: "Bestiarium: Was noch zu entdecken ist, sagt beim Überfahren, wo man es findet (ein Monster: seine Zone; eine Kraft: auf Legendären; ein Segen: an anderen Tagen).",
+  3366: "Nächste Etappe: Zone {0}",
 };
