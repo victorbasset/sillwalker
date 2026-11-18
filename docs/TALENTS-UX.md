@@ -46,6 +46,9 @@
    nom sur deux lignes en allemand à 1280 px ; 10 langues × 1280 / 1366 / 1920 px, thèmes sombre et clair ; clavier : les
    emplacements invisibles ne prennent pas le focus, les boutons de la fiche (voie, réinitialisation) se tabulent.
 
+16. (it. 2148) Cohérence : la réinitialisation des talents se confirme dans la fenêtre du panneau, comme toutes les autres
+   actions sans retour (étape 6 : dans la fiche) ; Échap et le fond l'annulent.
+
 ## Design visuel (Victor, it. 2104 : « c'est mieux mais le design est toujours pourri »)
 
 8. (it. 2105) Code d'état des lignes : presque toutes avaient le même cadre vert. Seules les lignes cliquables gardent le vert vif

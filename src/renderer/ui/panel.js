@@ -1332,9 +1332,6 @@ export class Panel {
     if (!$(this.root, "#confirm").hidden) { this.closeConfirm(); return; }
     const m = $(this.root, "#modal");
     if (!m.hidden) { m.hidden = true; return; }
-    // (it. 2126) Talents : « Réinitialiser les talents ? » (dans la fiche) se ferme par Échap, sans fermer le panneau
-    const T = this.tabs.talents;
-    if (this.tab === "talents" && T.confirmReset) { T.confirmReset = false; this.renderAll(); return; }
     this.onClose?.();
   }
 }

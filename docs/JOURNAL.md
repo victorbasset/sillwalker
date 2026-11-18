@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2148, cohérence) : la réinitialisation des talents se confirme dans la fenêtre du panneau, comme les autres actions
+  sans retour (it. 2099 : dans la fiche, seule de son espèce) ; code de la confirmation dans la fiche et branche Échap retirés.
+  Autotest réécrit (fenêtre, Annuler, Échap, Tout réinitialiser) ; 282/282.
 - 2026-11-18 (it. 2147, contrôles) : Réglages vus en capture : propres (zone de danger à part, confirmation). fuzz sous toutes les
   bénédictions du jour : 1200 parties, 0 bloquées ; stall-check idem : 60 parties, 0 figées. Audit d'ergonomie : tous les onglets vus.
 - 2026-11-18 (it. 2146) : onglet Héros : la phrase « N / 20 héros libérés. On change de héros… » (une règle ; le nombre est sur le
