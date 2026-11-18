@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2177, équilibrage) : hero-table 12 h × 3 graines après la voie gratuite et les changements de la nuit : moyenne
+  64,6 (64,5 au début de la nuit, 65,0 à l'it. 1825), écart 6,7 zones, berserker en tête (69, déjà vu à l'it. 2090). Stable.
 - 2026-11-18 (it. 2176) : brouillon du devlog 0.1.7 complété (Boutique et sac, maîtrises et quêtes, clavier).
 - 2026-11-18 (it. 2175) : « Quoi de neuf », édition 140 (ventes enchaînées, quêtes 3 étoiles, flèches des Talents, focus des fenêtres ;
   4 nouveautés, 10 langues, clés 3316-3319). --crawl : 455 clics sans erreur après l'auto-sélection des ventes ; 291/291 ;
