@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2309) : correction de l'it. 2305 : la bulle d'un monstre inconnu citait les noms de TOUS ses décors, y compris
+  ceux que la Carte cache dans le brouillard (au-delà de record + 3). Elle donne maintenant la première zone où il vit, nommée
+  seulement si la Carte la nomme (« Zone 12 : Marais brumeux »), sinon le numéro seul (« Zone 140 ») ; gobelin et Poupouce
+  gardent leur phrase. Sans nouvelle clé. 301/301.
 - 2026-11-18 (it. 2308, autotest) : Bestiaire : monstres inconnus (le Gluant remis à 0 le temps du contrôle) : leur bulle dit où ils
   vivent ; pouvoir inconnu : sa bulle dit où le trouver. 301/301.
 - 2026-11-18 (it. 2307, contrôle) : objectifs inconnus hors Bestiaire : Carte (brouillard voulu au-delà de record + 3, héros

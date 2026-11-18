@@ -16,8 +16,8 @@ import { itemName } from "../../i18n/data.js";
 import { RARITIES, SLOTS, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, affixesSeenEffects } from "../../game/data.js";
 import { BOSS_MECHANICS, bossMechanics, UNIQUE_MECHS } from "../../game/bosses.js";
 import { tabOpen } from "../../game/tabs.js";
-import { hasUnlock } from "../../game/unlocks.js";
-import { zoneDef, nearestZoneWith } from "../../game/rules.js";
+import { hasUnlock, recordZone } from "../../game/unlocks.js";
+import { zoneDef, nearestZoneWith, zoneName } from "../../game/rules.js";
 import { PACK_ARTS } from "../../game/game.js";
 import { TIMID, PREDATORS } from "../../render/monlife.js";
 
@@ -39,6 +39,18 @@ const where = (type) => {
   if (type === "poupouce") return tx("Extrêmement rare, partout. Or à foison et un objet légendaire."); // (it. 1730)
   const z = ZONES.filter((x) => x.monsters.includes(type) || x.boss === type).map((x) => x.name);
   return z.join(csep());
+};
+
+/** (it. 2309) Monstre pas encore rencontré : la première zone où il vit, nommée seulement si la Carte la nomme déjà (jusqu'au
+ *  record + 3, comme map.js ; au-delà, brouillard : le numéro seul). Avant (it. 2305), les noms des décors lointains passaient. */
+const whereUnknown = (S, type) => {
+  if (type === "goblin" || type === "poupouce") return where(type);
+  const rec = Math.max(recordZone(S), S.zone);
+  for (let z = 1; z <= ZONES.length * 3; z++) {
+    const d = zoneDef(z);
+    if (d.monsters.includes(type) || d.boss === type) return z <= rec + 3 ? tx("Zone {0}", { 0: z }) + colon() + zoneName(z) : tx("Zone {0}", { 0: z });
+  }
+  return "";
 };
 
 export class BestiaryTab {
@@ -86,7 +98,7 @@ export class BestiaryTab {
       // Fiche compacte (demande 18) : les zones où vit le monstre passent en infobulle (it. 2305 : aussi pour un monstre inconnu, un but).
       // (it. 1437) Carte du voyageur : un clic emmène le héros dans la zone la plus proche où vit le monstre (paliers)
       const gz = known && travel && !zoneDef(S.zone).monsters.includes(k) ? nearestZoneWith(S, k) : 0;
-      return `<article class="panel beast${known ? "" : " unknown"}${gz ? " go" : ""}"${gz ? ` data-action="b-go" data-z="${gz}" role="button" tabindex="0" aria-label="${esc(MONSTERS[k].name + " · " + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }))}"` : ""} title="${esc(known ? MONSTERS[k].name + " · " + where(k) + skillLine(k) + (gz ? "\n" + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }) : "") : tx("Pas encore rencontré") + " · " + where(k))}">
+      return `<article class="panel beast${known ? "" : " unknown"}${gz ? " go" : ""}"${gz ? ` data-action="b-go" data-z="${gz}" role="button" tabindex="0" aria-label="${esc(MONSTERS[k].name + " · " + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }))}"` : ""} title="${esc(known ? MONSTERS[k].name + " · " + where(k) + skillLine(k) + (gz ? "\n" + tx("Clic : y aller") + " · " + tx("Zone {0}", { 0: gz }) : "") : tx("Pas encore rencontré") + (whereUnknown(S, k) ? " · " + whereUnknown(S, k) : ""))}">
         <img src="${monsterURL(k, !known)}" alt="">
         <div class="si"><div class="nm">${known ? esc(MONSTERS[k].name) : "???"}</div>
         <div class="pips">${pips}<span>${fmt(n)}${next ? " / " + fmt(next) : " " + tx("(complet)")}</span></div></div>
