@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2283, contrôle) : save-fuzz (todoNow y est appelé : « Agrandir le sac », Atelier) : 1267 corruptions (dev-data),
+  1225 (fin de partie), toutes « ok ».
 - 2026-11-18 (it. 2282, contrôle) : --crawl sur dev-data SANS AUCUN déblocage (liens « 🔒 · prix », notes à la place des actions) :
   518 clics, aucune erreur.
 - 2026-11-18 (it. 2281, REVUE GÉNÉRALE) : 12 h : moine 65, druide 64, samouraï 65 ; --perf : 1re mesure 19,9 / 20,5 % (charge 2,4), 2e
