@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2256) : CLAUDE.md, pièges connus : objets tirés dans l'autotest (légendaire ≈ 1 %, Valet d'armes) et méthode pour un
+  contrôle instable.
 - 2026-11-18 (it. 2255, vérification) : 91 victoires en 3 h d'absence (it. 2254) expliquées : zone 57, 12,1 M PV par monstre contre
   395 k dégâts / s ≈ 31 s par victoire, comme en jeu (héros de dev-data trop faible pour sa zone). L'absence fait combattre sur place,
   sans changer de zone : la notion de « héros bloqué » ne s'y applique pas. Rien à corriger.

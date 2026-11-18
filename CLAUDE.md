@@ -359,6 +359,10 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   (game.canBuyWhenFull : ancienne pièce vendue, jamais une précieuse).
 - Fiche des Talents (it. 2111) : elle suit le survol sans délai et revient au talent CLIQUÉ (`pin`) hors des talents (RESTORE_MS) ;
   un contrôle qui survole des talents doit re-chercher les éléments après un clic (le clic redessine l'onglet).
+- Objets tirés dans l'autotest (it. 2198-2217) : `newItem(0, …)` sort LÉGENDAIRE ≈ 1 % du temps (la vente demande alors confirmation) et un
+  objet au niveau record peut être équipé tout seul par le Valet d'armes (il quitte le sac) : un contrôle qui suppose un objet ordinaire
+  dans le sac force `r = 0`, `set = null`, `plus = 0` et un niveau 1. Contrôle instable : `SELFTEST_TIMES=1` et une mise en scène qui
+  rejoue le cas 30 fois (it. 2216) trouvent la cause vite.
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.
