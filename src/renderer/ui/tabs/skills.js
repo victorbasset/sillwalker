@@ -3,13 +3,13 @@
 // Le SVG est construit une seule fois ; ensuite seuls les états changent.
 import { npcHTML } from "../npc.js";
 import { t as tx, txn } from "../../i18n/index.js";
-import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, skillSpendable, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors } from "../../game/skilltree.js";
+import { SECTORS, SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, skillSpendable, activeSkillSet, canTakeSkill, skillTreeEffects , SECTOR_CORES, sectorProgress, completedSectors, skillPathTo } from "../../game/skilltree.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc, dec, unit } from "../../game/format.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
 import { skillIconURL, skillIconKey } from "../../render/skillicons.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, chosenBranch, graphPointsFree, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS, GRAPH_MAX_TAKE, nextGraphNode, DEFAULT_BRANCH } from "../../game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, REGIONS, flowerComplete, canTakeGraph, activeGraphSet, graphPointsFree, graphPathTo, skillGraphEffects, graphNodeEffects, graphSpendable, graphSurplus, SURPLUS_BONUS, GRAPH_MAX_TAKE, nextGraphNode, DEFAULT_BRANCH } from "../../game/skillgraph.js";
 
 const SVGNS = "http://www.w3.org/2000/svg";
 // Nœuds assez grands pour porter une icône (demande 34).
@@ -236,7 +236,7 @@ export class SkillsTab {
   graphTip() {
     const S = this.game.S, done = activeSkillSet(S).size - 1;
     return `<b>${tx("Grand graphe")}</b><div class="sub">${tx("{0} nœuds autour de la fleur", { 0: SKILL_GRAPH_COUNT })}</div>
-      <p>${tx("Des voies à choisir (une par pétale), des synergies et un anneau de couronnes : pour aller jusqu’au bout du Rebord.")}</p>
+      <p>${tx("Trois voies par pétale, des synergies et un anneau de couronnes : pour aller jusqu’au bout du Rebord.")}</p>
       <div class="note">${flowerComplete(S) ? tx("Bientôt : il s’ouvrira dans une prochaine mise à jour.") : tx("S’ouvre quand toute la fleur est acquise : {0} / {1} nœuds.", { 0: done, 1: SKILL_NODE_COUNT })}</div>`;
   }
 
@@ -245,19 +245,24 @@ export class SkillsTab {
     const S = this.game.S, n = SKILL_GRAPH.nodes[id], outer = S.skills.outer || [], active = activeGraphSet(S);
     const region = SECTOR[n.region].name, voie = n.branch != null ? REGIONS[n.region][n.branch].name : "";
     const kind = { gate: tx("Porte · {0}", { 0: region }), small: voie || region, notable: tx("Nœud remarquable · ") + (voie || region), voiekey: tx("Clé de voie · {0}", { 0: voie }), crown: tx("Couronne · {0}", { 0: region }) }[n.kind];
-    const chosen = n.branch != null ? chosenBranch(S, n.region) : -1;
     let state;
     if (active.has(id)) state = tx("Acquis.");
     else if (outer.includes(id)) state = tx("Dans ton chemin : se réactivera avec plus de points.");
-    else if (chosen >= 0 && chosen !== n.branch) state = tx("Voie fermée : dans cette région, tu suis « {0} ».", { 0: REGIONS[n.region][chosen].name });
-    else if (canTakeGraph(S, id)) state = tx("Clic pour l’apprendre (1 point).") + (n.group ? " " + tx("Choisir cette voie ferme les deux autres de la région.") : "");
+    else if (canTakeGraph(S, id)) state = tx("Clic pour l’apprendre (1 point).");
     else if (graphPointsFree(S) <= 0) state = tx("Plus de point libre.");
-    else state = tx("Doit être relié à un nœud acquis.");
+    else state = this.pathNote(graphPathTo(S, id), graphPointsFree(S));
     return `<b>${esc(n.name || (n.kind === "small" ? tx("Compétence") : ""))}</b><div class="sub">${esc(kind)}</div>
-      <p class="delta-p">${esc(describeEffects(graphNodeEffects(n)))}</p>${this.synNow(n)}${n.branch != null && chosen < 0 ? this.voieTotal(n) : ""}<div class="note">${esc(state)}</div>`;
+      <p class="delta-p">${esc(describeEffects(graphNodeEffects(n)))}</p>${this.synNow(n)}${n.branch != null && !outer.includes(id) ? this.voieTotal(n) : ""}<div class="note">${esc(state)}</div>`;
   }
 
-  /** (it. 1114) voie pas encore choisie : ce que donne la voie entière (choix exclusif dans la région). */
+  /** (it. 2332, demande de Victor) Nœud lointain : un clic prend le chemin le plus court s'il y a assez de points. */
+  pathNote(path, free) {
+    if (!path) return tx("Doit être relié à un nœud acquis.");
+    return path.length <= free ? txn(path.length, "Clic : prend le chemin le plus court ({n} point).|Clic : prend le chemin le plus court ({n} points).")
+      : txn(path.length - free, "Chemin le plus court : {2} points, il en manque {n}.|Chemin le plus court : {2} points, il en manque {n}.", { 2: path.length });
+  }
+
+  /** (it. 1114) ce que donne la voie entière (it. 2332 : les trois voies d'une région se prennent toutes). */
   voieTotal(n) {
     const key = n.region + ":" + n.branch;
     if (!(this._voieEff ||= {})[key]) {
@@ -266,7 +271,7 @@ export class SkillsTab {
       this._voieEff[key] = e;
     }
     // (it. 1155) la voie que prendrait « Dépenser automatiquement » (la plus puissante, it. 1154) est signalée
-    const auto = DEFAULT_BRANCH[n.region] === n.branch ? `<div class="sub">${esc(tx("Voie que prend « {0} ».", { 0: tx("Dépenser automatiquement") }))}</div>` : "";
+    const auto = DEFAULT_BRANCH[n.region] === n.branch ? `<div class="sub">${esc(tx("Voie que « {0} » prend en premier.", { 0: tx("Dépenser automatiquement") }))}</div>` : "";
     return `<div class="sub">${esc(tx("Toute la voie : {0}", { 0: describeEffects(this._voieEff[key]) }))}</div>${this.synNowEff(this._voieEff[key], "Toute la voie, en ce moment : ≈ {0}")}${auto}`;
   }
 
@@ -299,7 +304,7 @@ export class SkillsTab {
     else if (order.includes(id)) state = tx("Dans ton chemin : se réactivera avec plus de points.");
     else if (canTakeSkill(S, id)) state = tx("Clic pour l’apprendre (1 point).");
     else if (skillPointsFree(S) <= 0) state = tx("Plus de point libre.");
-    else state = tx("Doit être relié à un nœud acquis.");
+    else state = this.pathNote(skillPathTo(S, id), skillPointsFree(S));
     const kind = { small: "", notable: tx("Nœud remarquable · "), keystone: tx("Clé de voûte · "), root: "" }[n.kind];
     return `<b>${esc(title)}</b><div class="sub">${kind}${esc(sector)}</div>
       ${n.text ? `<p>${esc(n.text)}</p>` : Object.keys(n.eff).length ? `<p class="delta-p">${esc(describeEffects(n.eff))}</p>` : ""}
@@ -338,12 +343,11 @@ export class SkillsTab {
       if ((e.el.getAttribute("class") || "") !== cls) e.el.setAttribute("class", cls);
     }
     // (it. 1077) grand graphe : grisé tant que la fleur n'est pas complète, puis acquis / prévu / prenable / fermé
-    const open = flowerComplete(S), gActive = activeGraphSet(S), gPlanned = new Set(S.skills.outer || []), closed = {};
+    const open = flowerComplete(S), gActive = activeGraphSet(S), gPlanned = new Set(S.skills.outer || []);
     this.og.classList.toggle("open", open);
-    for (const reg in REGIONS) closed[reg] = chosenBranch(S, reg);
     for (const id in this.gNodeEls) {
       const n = SKILL_GRAPH.nodes[id];
-      const st = !open ? "sealed" : gActive.has(id) ? "on" : gPlanned.has(id) ? "planned" : n.branch != null && closed[n.region] >= 0 && closed[n.region] !== n.branch ? "closed" : canTakeGraph(S, id) ? "avail" : "locked";
+      const st = !open ? "sealed" : gActive.has(id) ? "on" : gPlanned.has(id) ? "planned" : canTakeGraph(S, id) ? "avail" : "locked";
       const cls = `gnode ${n.kind} ${st}`, el = this.gNodeEls[id];
       if (el.getAttribute("class") !== cls) {
         el.setAttribute("class", cls);
@@ -394,8 +398,9 @@ export class SkillsTab {
 
   onAction(a, b) {
     const g = this.game;
-    if (a === "k-take") { if (!this.dragged) g.takeSkill(b.dataset.id); }
-    else if (a === "k-gtake") { if (!this.dragged) g.takeGraph(b.dataset.gid); }
+    // (it. 2332) un nœud lointain : tout le chemin le plus court, si les points suffisent
+    if (a === "k-take") { if (!this.dragged) g.takeSkillPath(b.dataset.id); }
+    else if (a === "k-gtake") { if (!this.dragged) g.takeGraphPath(b.dataset.gid); }
     else if (a === "k-auto") g.autoSpendSkills();
     else if (a === "k-autoon") { g.S.settings.autoSkills = b.checked; if (b.checked) g.autoSpendSkills(); g.changed(); }
     else if (a === "k-undo") g.undoSkill();
@@ -404,7 +409,7 @@ export class SkillsTab {
     // changeait ; un double clic involontaire effaçait l'arbre)
     else if (a === "k-greset") {
       const go = () => g.resetGraph();
-      if (!this.panel) go(); else this.panel.confirm(tx("Réinitialiser le grand graphe ?"), tx("Les points du grand graphe reviennent (gratuit) ; les voies sont de nouveau au choix. La fleur reste."), tx("Réinitialiser le grand graphe"), go);
+      if (!this.panel) go(); else this.panel.confirm(tx("Réinitialiser le grand graphe ?"), tx("Les points du grand graphe reviennent (gratuit). La fleur reste."), tx("Réinitialiser le grand graphe"), go);
     }
     else if (a === "k-reset") {
       const go = () => g.resetSkills();

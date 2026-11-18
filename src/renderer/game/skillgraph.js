@@ -71,9 +71,12 @@ const CROWNS = {
 };
 
 const UNIT = 34;                // même échelle que la fleur
-const BRANCH_LEN = 30;          // nœuds par voie
-const NOTABLE_AT = [7, 15, 23]; // positions des remarquables (la clé de voie est le dernier)
-const RING_PER = 12;            // nœuds d'anneau par région
+// (it. 2332, demande de Victor : « moins de points, plus simple à cliquer et plus joli ») voies de 10 nœuds (30 avant) et
+// anneau de 6 par région (12) : 222 nœuds au lieu de 618, plus espacés ; les trois voies d'une région sont toutes prenables
+const BRANCH_LEN = 10;          // nœuds par voie
+const NOTABLE_AT = [2, 5, 7];   // positions des remarquables (la clé de voie est le dernier)
+const RING_PER = 6;             // nœuds d'anneau par région
+const STEP = 1.7;               // écart entre deux nœuds d'une voie (0,58 avec 30 nœuds : même étendue)
 
 function build() {
   const nodes = {}, edges = [];
@@ -90,14 +93,13 @@ function build() {
       const ang0 = base + (bi - 1) * 0.3;
       let p = gate, notable = 0;
       for (let k = 0; k < BRANCH_LEN; k++) {
-        const r = 17.6 + k * 0.58;
+        const r = 17.6 + k * STEP;
         // les voies s'écartent puis se resserrent un peu vers l'anneau
         const ang = ang0 + (bi - 1) * 0.06 * Math.sin((k / BRANCH_LEN) * Math.PI);
         const id = `${sec.id}-v${bi}-${k}`, data = { region: sec.id, branch: bi };
         if (k === BRANCH_LEN - 1) add(id, ...polar(ang, r), "voiekey", { ...data, name: br.end.name, eff: br.end.eff });
         else if (NOTABLE_AT.includes(k)) { const n = br.notables[notable++]; add(id, ...polar(ang, r), "notable", { ...data, name: n.name, eff: n.eff }); }
         else add(id, ...polar(ang, r), "small", { ...data, eff: br.small[k % br.small.length] });
-        if (k === 0) nodes[id].group = `${sec.id}-voie`; // premier nœud : choix de la voie (exclusif)
         link(p, id); p = id;
       }
     });
@@ -133,8 +135,9 @@ export const flowerComplete = (S) => flowerOrder(S).length >= SKILL_NODE_COUNT &
 /** Points disponibles pour le grand graphe : au-delà de la fleur entière. */
 export const graphPointsTotal = (S) => flowerComplete(S) ? Math.max(0, skillPointsTotal(S) - SKILL_NODE_COUNT) : 0;
 export const graphPointsFree = (S) => Math.max(0, graphPointsTotal(S) - outer(S).length);
-/** (it. 1115) Nœuds qu'un chemin peut prendre au plus (une voie par région : 258 sur 618). */
-export const GRAPH_MAX_TAKE = Object.values(SKILL_GRAPH.nodes).filter((n) => n.branch == null || n.branch === 0).length;
+/** (it. 1115) Nœuds qu'un chemin peut prendre au plus. (it. 2332, demande de Victor) Tous : les trois voies d'une région
+ *  ne s'excluent plus (avant : une voie par région, 258 sur 618 ; les points en plus ne pouvaient pas être dépensés). */
+export const GRAPH_MAX_TAKE = SKILL_GRAPH_COUNT;
 /** (it. 1115) Points en surplus : graphe rempli, chaque point de plus donne SURPLUS_BONUS % d'attaque et de PV
  *  (multiplicatif, dans l'étage du graphe). La partie de fin de partie (48 h) en avait déjà 104 qui ne servaient à rien. */
 export const SURPLUS_BONUS = 0.1;
@@ -156,29 +159,47 @@ export function graphSpendable(S) {
   return spendCache.v;
 }
 
-/** Voie déjà choisie dans une région (indice), ou -1. */
-export function chosenBranch(S, region) {
-  for (const id of outer(S)) { const n = SKILL_GRAPH.nodes[id]; if (n && n.region === region && n.branch != null) return n.branch; }
-  return -1;
-}
-
-/** Un nœud peut-il être pris ? Relié à un nœud déjà acquis (fleur entière ou grand graphe), point libre, et pas dans
- *  une voie fermée par le choix d'une autre voie de la même région. */
+/** Un nœud peut-il être pris ? Relié à un nœud déjà acquis (fleur entière ou grand graphe) et point libre. */
 export function canTakeGraph(S, id) {
-  return graphPointsFree(S) > 0 && canLink(S, id, new Set(outer(S)), branchesOf(S));
+  return graphPointsFree(S) > 0 && canLink(id, new Set(outer(S)));
 }
-/** (it. 1345) Voie choisie dans chaque région (une seule lecture de outer) : { région: voie }. */
-function branchesOf(S) {
-  const out = {};
-  for (const id of outer(S)) { const n = SKILL_GRAPH.nodes[id]; if (n && n.branch != null && !(n.region in out)) out[n.region] = n.branch; }
-  return out;
-}
-/** Le nœud est-il relié et dans une voie ouverte ? (points libres vérifiés par l'appelant) */
-function canLink(S, id, chosen, branches) {
+/** Le nœud est-il relié à un nœud acquis ? (points libres vérifiés par l'appelant) */
+function canLink(id, chosen) {
   const n = SKILL_GRAPH.nodes[id];
   if (!n || chosen.has(id)) return false;
-  if (n.branch != null) { const c = branches[n.region] ?? -1; if (c >= 0 && c !== n.branch) return false; }
   return n.links.some((l) => chosen.has(l) || (SKILL_TREE.nodes[l] && l.endsWith("-key")));
+}
+
+/** (it. 2332, demande de Victor) Chemin le plus court jusqu'à un nœud : les nœuds à prendre, dans l'ordre (le dernier est
+ *  la cible), ou null s'il n'y en a pas. Un clic sur un nœud lointain prend tout le chemin si les points suffisent. */
+export function graphPathTo(S, target) {
+  const N = SKILL_GRAPH.nodes, chosen = new Set(outer(S));
+  if (!N[target] || chosen.has(target) || !flowerComplete(S)) return null;
+  const prev = new Map(), queue = [];
+  for (const id in N) if (canLink(id, chosen)) { prev.set(id, null); queue.push(id); }
+  for (let i = 0; i < queue.length; i++) {
+    const id = queue[i];
+    if (id === target) break;
+    for (const l of N[id].links) if (N[l] && !chosen.has(l) && !prev.has(l)) { prev.set(l, id); queue.push(l); }
+  }
+  if (!prev.has(target)) return null;
+  const path = [];
+  for (let id = target; id; id = prev.get(id)) path.unshift(id);
+  return path;
+}
+
+/** (it. 2332) Nœuds du grand graphe gardés d'une sauvegarde : ceux qui existent et restent reliés (dans l'ordre ; les
+ *  graphes plus anciens avaient des voies de 30 nœuds : un nœud coupé de la fleur repart, son point redevient libre). */
+export function sanitizeOuter(list) {
+  const kept = [], set = new Set();
+  let rest = list.filter((id) => typeof id === "string" && SKILL_GRAPH.nodes[id]);
+  for (let changed = true; changed;) {
+    changed = false;
+    const next = [];
+    for (const id of rest) if (!set.has(id) && canLink(id, set)) { kept.push(id); set.add(id); changed = true; } else if (!set.has(id)) next.push(id);
+    rest = next;
+  }
+  return kept;
 }
 
 /** Prendre un nœud du grand graphe (Game.takeGraph). */
@@ -192,12 +213,16 @@ export function takeGraphNode(S, id) {
  *  ×126, une soixantaine de zones ; à 0,3, attaque ×2,3, PV ×1,4, puissance ×6,1, ≈ 23 zones). Les valeurs écrites dans
  *  REGIONS restent lisibles ; l'échelle s'applique ici. */
 export const GRAPH_SCALE = 0.3;
+/** (it. 2332) Nœuds des voies (plus courtes depuis l'it. 2332, leurs remarquables arrivent plus tôt) : un peu adoucis pour
+ *  que la puissance suive la même courbe qu'avant selon les points dépensés (la partie ne doit pas finir plus tôt). */
+export const VOIE_SCALE = 0.85;
+const nodeScale = (n) => GRAPH_SCALE * (n && n.branch != null ? VOIE_SCALE : 1);
 
 /** (it. 1102) Effets d'un nœud tels qu'ils comptent (échelle comprise) : c'est ce que la bulle affiche (avant : la valeur
  *  écrite dans REGIONS, ×3,3 trop forte depuis l'échelle de l'it. 1078). */
 export function graphNodeEffects(n) {
   const out = {};
-  for (const k in (n && n.eff) || {}) out[k] = Math.round(n.eff[k] * GRAPH_SCALE * 100) / 100;
+  for (const k in (n && n.eff) || {}) out[k] = Math.round(n.eff[k] * nodeScale(n) * 100) / 100;
   return out;
 }
 
@@ -205,8 +230,8 @@ export function graphNodeEffects(n) {
 export function skillGraphEffects(S) {
   const out = {};
   for (const id of activeGraphSet(S)) {
-    const eff = SKILL_GRAPH.nodes[id]?.eff || {};
-    for (const k in eff) out[k] = (out[k] || 0) + eff[k] * GRAPH_SCALE;
+    const n = SKILL_GRAPH.nodes[id], eff = n?.eff || {}, sc = nodeScale(n);
+    for (const k in eff) out[k] = (out[k] || 0) + eff[k] * sc;
   }
   const sp = graphSurplus(S);
   if (sp > 0) { out.atkPct = (out.atkPct || 0) + sp * SURPLUS_BONUS; out.hpPct = (out.hpPct || 0) + sp * SURPLUS_BONUS; }
@@ -262,18 +287,21 @@ export function nextGraphNode(S) {
   // (it. 1345) points libres, nœuds pris et voies calculés une fois par appel, pas une fois par nœud (618 nœuds :
   // « tout dépenser » sur une fin de partie prenait 258 nœuds en ≈ 400 ms, jeu figé pendant ce temps)
   if (graphPointsFree(S) <= 0) return null;
-  const chosen = new Set(outer(S)), branches = branchesOf(S), count = {};
-  for (const id of chosen) { const r = N[id] && N[id].region; if (r) count[r] = (count[r] || 0) + 1; }
+  const chosen = new Set(outer(S)), count = {}, started = new Set(), startedReg = new Set();
+  for (const id of chosen) { const n = N[id], r = n && n.region; if (r) count[r] = (count[r] || 0) + 1; if (n && n.branch != null) { started.add(r + ":" + n.branch); startedReg.add(r); } }
   const order = SECTORS.map((x) => x.id);
   const rank = (r) => -(count[r] || 0) * 100 + order.indexOf(r);
   let best = null, bw = Infinity;
   for (const id in N) {
-    if (!canLink(S, id, chosen, branches)) continue;
+    if (!canLink(id, chosen)) continue;
     const n = N[id];
-    if (n.group) { const c = branches[n.region] ?? -1; if (c >= 0 ? c !== n.branch : n.branch !== DEFAULT_BRANCH[n.region]) continue; }
-    // région d'abord, puis le long de la voie (distance à la fleur : la porte, la voie, puis l'anneau, que la voie
-    // rejoint à sa couronne)
-    const w = rank(n.region) * 1e5 + Math.hypot(n.x, n.y);
+    // région d'abord ; dans la région, les voies déjà commencées (celle du joueur), la porte et l'anneau, puis la voie la
+    // plus puissante (DEFAULT_BRANCH), enfin les autres (it. 2332 : elles ne sont plus exclusives) ; le long d'une voie,
+    // la distance à la fleur
+    // (l'anneau d'une région dont aucune voie n'est commencée passe après sa voie la plus forte : on y arrive par l'anneau
+    // de la région voisine)
+    const tier = n.branch == null ? (n.ring && !startedReg.has(n.region) ? 1.5 : 0) : started.has(n.region + ":" + n.branch) ? 0 : n.branch === DEFAULT_BRANCH[n.region] ? 1 : 2;
+    const w = rank(n.region) * 1e6 + tier * 1e5 + Math.hypot(n.x, n.y);
     if (w < bw) { bw = w; best = id; }
   }
   return best;

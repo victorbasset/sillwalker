@@ -3369,5 +3369,15 @@ export const KEYS = [
   "Bénédiction encore jamais vécue : chaque jour en apporte une, reviens jouer d’autres jours.",
   "Bestiaire : ce qui reste à découvrir dit au survol où le trouver (un monstre, sa zone ; un pouvoir, sur les légendaires ; une bénédiction, d’autres jours).",
   "Prochaine étape : zone {0}",
-  "Carnet de route (Statistiques) : il annonce sa prochaine étape, et les paliers de niveau n’y reviennent plus à chaque ascension."
+  "Carnet de route (Statistiques) : il annonce sa prochaine étape, et les paliers de niveau n’y reviennent plus à chaque ascension.",
+  "Grand graphe réinitialisé : tous ses points sont rendus.",
+  "Clique loin dans le jardin : le plus court chemin se trace tout seul.",
+  "Trois voies par pétale, des synergies et un anneau de couronnes : pour aller jusqu’au bout du Rebord.",
+  "Voie que « {0} » prend en premier.",
+  "Les points du grand graphe reviennent (gratuit). La fleur reste.",
+  "Clic : prend le chemin le plus court ({n} point).|Clic : prend le chemin le plus court ({n} points).",
+  "Chemin le plus court : {2} points, il en manque {n}.|Chemin le plus court : {2} points, il en manque {n}.",
+  "Grand graphe des Compétences allégé (222 nœuds au lieu de 618, plus espacés) : les trois voies de chaque pétale se prennent toutes, les points en surplus servent enfin.",
+  "Compétences : un clic sur un nœud lointain prend tout seul le chemin le plus court, si tu as assez de points.",
+  "Clés de voûte de la fleur sans contrepartie négative ; l’équilibre reste le même (même rythme de partie)."
 ];

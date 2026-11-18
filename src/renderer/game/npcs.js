@@ -77,7 +77,7 @@ export const NPCS = {
       "Chaque pétale de la fleur est une manière de combattre.",
       "Une fois la fleur entière, le grand jardin autour s’ouvrira.",
       "Arrose un pétale jusqu’au bout : son cœur s’allumera.",
-      "Les voies du grand graphe ? On n’en suit qu’une par pétale. Choisis bien.",
+      "Clique loin dans le jardin : le plus court chemin se trace tout seul.",
       "Les fleurs d’étoile ne fanent jamais. Même après une ascension.",
     ],
   },

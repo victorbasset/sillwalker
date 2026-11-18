@@ -347,7 +347,7 @@ async function runSelfTest(strip) {
       const t = document.querySelector('[data-pane="skills"]:not([hidden]) .skpts').textContent;
       return "nœuds " + S.skills.outer.length + " annonces " + n + (/surplus/.test(t) ? " ligne" : " sans ligne : " + t.slice(0, 80));
     } finally { S.lvl = keep.lvl; S.skills = keep.skills; S.settings.autoSkills = keep.auto; G.invalidateStats(); P.setTab("adventure"); P.renderAll(); } })()`);
-  check("grand graphe rempli : annoncé une fois, points en surplus affichés", gFull === "nœuds 258 annonces 1 ligne", gFull);
+  check("grand graphe rempli (222 nœuds depuis l’it. 2332) : annoncé une fois, points en surplus affichés", gFull === "nœuds 222 annonces 1 ligne", gFull);
   check("onglet Talents : dépenser automatiquement", (await js("window.__game.talentPointsFree()")) === 0 || (await js("window.__game.nextAutoTalent()")) === null);
   await click('[data-tab="shop"]');
   await sleep(150);

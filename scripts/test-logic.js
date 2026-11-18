@@ -847,7 +847,7 @@ import { SKILL_TREE, SKILL_NODE_COUNT, skillPointsTotal, skillPointsFree, active
 import { ruAdjective, itemName, itemKindLine as itemKindLineNb } from "../src/renderer/i18n/data.js";
 import { rollItem } from "../src/renderer/game/rules.js";
 import { NPCS, npcFor, npcLine } from "../src/renderer/game/npcs.js";
-import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, chosenBranch, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects, graphSpendable, graphSurplus, GRAPH_MAX_TAKE, SURPLUS_BONUS } from "../src/renderer/game/skillgraph.js";
+import { SKILL_GRAPH, SKILL_GRAPH_COUNT, flowerComplete, graphPointsTotal, graphPointsFree, canTakeGraph, activeGraphSet, skillGraphEffects, graphLayer, nextGraphNode, graphNodeEffects, graphSpendable, graphSurplus, GRAPH_MAX_TAKE, SURPLUS_BONUS, DEFAULT_BRANCH, graphPathTo } from "../src/renderer/game/skillgraph.js";
 
 test("migration v4 -> v5", () => {
   const v4 = freshState(); v4.v = 4; delete v4.skills;
@@ -4426,9 +4426,9 @@ test("PNJ : un onglet connu par PNJ, une réplique stable 30 s, la suivante à c
   assert(npcLine(n, t0, 1) === npcLine(n, t0 + 30000), "un clic = la suivante");
 });
 
-test("grand graphe : fermé tant que la fleur n'est pas complète ; voies exclusives ; points du surplus (it. 1075)", () => {
+test("grand graphe : fermé tant que la fleur n'est pas complète ; trois voies libres ; points du surplus (it. 1075, 2332)", () => {
   const S = freshState();
-  assert(SKILL_GRAPH_COUNT > 4 * SKILL_NODE_COUNT, "≈ 4 fois la fleur et plus");
+  assert(SKILL_GRAPH_COUNT > SKILL_NODE_COUNT && SKILL_GRAPH_COUNT < 300, "allégé (it. 2332) : plus grand que la fleur, moins de 300 nœuds");
   S.lvl = 600; S.skills.order = []; S.skills.outer = [];
   assert(!flowerComplete(S) && graphPointsTotal(S) === 0, "fleur vide : graphe fermé");
   assert(!canTakeGraph(S, "force-gate"), "porte fermée");
@@ -4440,9 +4440,8 @@ test("grand graphe : fermé tant que la fleur n'est pas complète ; voies exclus
   S.skills.outer.push("force-gate");
   assert(canTakeGraph(S, "force-v0-0") && canTakeGraph(S, "force-v2-0"), "trois voies au choix");
   S.skills.outer.push("force-v2-0");
-  assert.equal(chosenBranch(S, "force"), 2);
-  assert(!canTakeGraph(S, "force-v0-0") && !canTakeGraph(S, "force-v1-0"), "les deux autres voies se ferment");
-  assert(canTakeGraph(S, "force-v2-1"), "la voie choisie continue");
+  assert(canTakeGraph(S, "force-v0-0") && canTakeGraph(S, "force-v1-0"), "(it. 2332, demande de Victor) les deux autres voies restent ouvertes");
+  assert(canTakeGraph(S, "force-v2-1"), "la voie continue");
   assert(!canTakeGraph(S, "agility-v0-0"), "une autre région : par sa propre porte");
   // les nœuds actifs suivent les points (niveau perdu à l'ascension : la fin du chemin s'éteint)
   assert.equal(activeGraphSet(S).size, 2);
@@ -4457,7 +4456,8 @@ test("grand graphe : points en surplus une fois rempli (it. 1115)", () => {
   const S = freshState(); S.lvl = 2 * SKILL_NODE_COUNT + 2 * (GRAPH_MAX_TAKE + 50) + 4; S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
   S.skills.outer = [];
   for (let id; (id = nextGraphNode(S)) && S.skills.outer.length < 2000;) S.skills.outer.push(id);
-  assert.equal(S.skills.outer.length, GRAPH_MAX_TAKE, "une voie par région : 258 nœuds au plus");
+  assert.equal(S.skills.outer.length, GRAPH_MAX_TAKE, "(it. 2332) tout le graphe se prend");
+  assert.equal(GRAPH_MAX_TAKE, SKILL_GRAPH_COUNT);
   const sp = graphSurplus(S);
   assert(sp >= 50, "points en surplus comptés");
   const before = skillGraphEffects(S).atkPct;
@@ -4476,8 +4476,8 @@ test("grand graphe : synergies (« si je suis tanky, je tape plus fort », « pl
   assert.equal(graphLayer({}, { hpPct: 80 }, 1e20).atk, 0, "rien sans nœud de synergie");
   const S = freshState(); S.lvl = 600; S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root");
   const before = heroStats(S).atk;
-  S.skills.outer = ["vitality-gate", ...Array.from({ length: 30 }, (_, k) => "vitality-v2-" + k)];
-  assert(heroStats(S).atk > before * 1.05, "la voie du colosse furieux fait taper plus fort");
+  S.skills.outer = ["vitality-gate", ...Array.from({ length: 10 }, (_, k) => "vitality-v2-" + k)];
+  assert(heroStats(S).atk > before * 1.02, "la voie du colosse furieux fait taper plus fort (10 nœuds depuis l’it. 2332)");
   // (it. 1112) part actuelle de chaque synergie (affichée « = +N % » dans l'onglet Compétences)
   const gs = heroStats(S).graphSyn;
   assert(gs && gs.synHpAtk > 0, "part de la synergie PV → attaque connue");
@@ -4496,7 +4496,8 @@ test("grand graphe : prise, annulation (le graphe d'abord) et réinitialisation 
   const g = new Game(freshState());
   g.S.lvl = 600; g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];
   assert(g.takeGraph("fortune-gate") && g.takeGraph("fortune-v2-0"), "porte puis voie de l'or tranchant");
-  assert(!g.takeGraph("fortune-v0-0"), "voie fermée");
+  assert(g.takeGraph("fortune-v0-0"), "(it. 2332) une autre voie de la même région reste ouverte");
+  g.undoSkill();
   assert.equal(g.S.skills.outer.length, 2);
   const nFlower = g.S.skills.order.length;
   g.undoSkill(); assert.equal(g.S.skills.outer.length, 1, "annuler retire d'abord le dernier nœud du graphe");
@@ -4508,16 +4509,32 @@ test("grand graphe : prise, annulation (le graphe d'abord) et réinitialisation 
   g.resetSkills(); assert.equal(g.S.skills.outer.length, 0); assert.equal(g.S.skills.order.length, 0);
 });
 
-test("grand graphe : dépense automatique dans une seule voie par région (it. 1078)", () => {
+test("grand graphe : dépense automatique, la voie la plus forte d'abord puis tout le graphe (it. 1078, 2332)", () => {
   const g = new Game(freshState());
   g.S.lvl = 2000; g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];
   const n = g.autoSpendGraph();
-  assert(n > 200, "tout ce qui est permis : " + n);
-  for (const reg of ["force", "vitality", "fortune"]) {
-    const br = new Set(g.S.skills.outer.map((id) => SKILL_GRAPH.nodes[id]).filter((x) => x.region === reg && x.branch != null).map((x) => x.branch));
-    assert.equal(br.size, 1, "une seule voie : " + reg);
-  }
+  assert.equal(n, SKILL_GRAPH_COUNT, "(it. 2332) les trois voies de chaque région se prennent : tout le graphe");
+  const first = g.S.skills.outer.slice(0, 11).map((id) => SKILL_GRAPH.nodes[id]);
+  assert(first[0].kind === "gate" && first.slice(1).every((x) => x.branch === DEFAULT_BRANCH[x.region]), "d'abord la porte puis la voie la plus forte");
   assert.equal(nextGraphNode(g.S), null, "plus rien de prenable");
+});
+
+test("compétences : un clic sur un nœud lointain prend le chemin le plus court si les points suffisent (it. 2332)", () => {
+  const g = new Game(freshState());
+  g.S.lvl = 2 * SKILL_NODE_COUNT + 2 * 12; g.S.skills.order = Object.keys(SKILL_TREE.nodes).filter((id) => id !== "root"); g.S.skills.outer = [];
+  const free = graphPointsFree(g.S);
+  const path = graphPathTo(g.S, "force-v1-5");
+  assert(path && path.length === 7 && path[0] === "force-gate" && path[6] === "force-v1-5", "porte puis 6 nœuds de la voie : " + (path || []).join(","));
+  assert.equal(g.takeGraphPath("force-v1-5"), 7, "tout le chemin d'un clic");
+  assert.equal(graphPointsFree(g.S), free - 7);
+  assert.equal(g.takeGraphPath("agility-v0-9"), 0, "trop loin pour les points restants : rien n'est pris");
+  // la fleur aussi
+  const f = new Game(freshState()); f.S.lvl = 200; f.S.skills.order = [];
+  const far = Object.keys(SKILL_TREE.nodes).find((id) => SKILL_TREE.nodes[id].kind === "keystone");
+  const fp = M_skilltree_js.skillPathTo(f.S, far);
+  assert(fp && fp.length > 3 && fp[fp.length - 1] === far, "chemin jusqu'à une clé de voûte");
+  assert.equal(f.takeSkillPath(far), fp.length, "pris d'un clic");
+  assert(f.S.skills.order.includes(far));
 });
 
 test("bande : prochain monstre de la file pour la barre du haut (it. 1539)", () => {
@@ -4593,7 +4610,7 @@ test("grand graphe : la dépense automatique suit la ligne la plus avancée (it.
   for (let k = 0; k < 4; k++) assert(g.takeGraph("vitality-v1-" + k));
   const before = g.S.skills.outer.length;
   // la suite de sa voie, nœud après nœud, puis sa couronne ; aucune autre région avant
-  for (let k = 4; k < 30; k++) { const id = nextGraphNode(g.S); assert.equal(id, "vitality-v1-" + k); g.takeGraph(id); }
+  for (let k = 4; k < 10; k++) { const id = nextGraphNode(g.S); assert.equal(id, "vitality-v1-" + k); g.takeGraph(id); }
   assert.equal(nextGraphNode(g.S), "vitality-r0", "la couronne de la région au bout de la voie");
   while (nextGraphNode(g.S) && SKILL_GRAPH.nodes[nextGraphNode(g.S)].region === "vitality") g.takeGraph(nextGraphNode(g.S));
   const regs = new Set(g.S.skills.outer.slice(before).map((id) => SKILL_GRAPH.nodes[id].region));

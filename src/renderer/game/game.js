@@ -8,7 +8,7 @@
 // shield({amount}), absorb({amount}), minion({dmg}), event({id}), eventEnd({id}),
 // feather({speed}), star(), starCaught({gold}), starMissed(), zoneUp({zone, record}),
 // bossSkill({id}), telegraph(), smash({dmg}), bossShieldHit({amount}).
-import { SKILL_GRAPH, takeGraphNode, nextGraphNode, graphSpendable, graphPointsFree, flowerComplete, GRAPH_MAX_TAKE } from "./skillgraph.js";
+import { SKILL_GRAPH, takeGraphNode, nextGraphNode, graphSpendable, graphPointsFree, flowerComplete, GRAPH_MAX_TAKE, canTakeGraph, graphPathTo } from "./skillgraph.js";
 import { RELICS, RELIC_IDS, DRONE, RELIC_POWER, RELIC_MAX_LV, hasRelic, majorBoss, relicLevel, relicPow } from "./relics.js";
 /** Dégâts subis avec le Cœur de l'aube (sa protection grandit avec son niveau), 1 sans lui. */
 const heartGuard = (S) => (hasRelic(S, "heart") ? 1 - (1 - RELIC_POWER.heartGuard) * relicPow(S, "heart") : 1);
@@ -43,7 +43,7 @@ import { SETS, SET_KEYS, setCounts } from "./sets.js";
 import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
-import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet } from "./skilltree.js";
+import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
@@ -3184,6 +3184,23 @@ export class Game {
     return true;
   }
 
+  /** (it. 2332, demande de Victor) Clic sur un nœud : relié, il est pris ; plus loin, tout le chemin le plus court est pris
+   *  si les points suffisent (fleur ou grand graphe). Renvoie le nombre de nœuds pris (0 : rien). */
+  takeSkillPath(id) {
+    const path = canTakeSkill(this.S, id) ? [id] : skillPathTo(this.S, id);
+    if (!path || path.length > skillPointsFree(this.S)) return 0;
+    let n = 0;
+    for (const p of path) { if (!this.takeSkill(p)) break; n++; }
+    return n;
+  }
+  takeGraphPath(id) {
+    const path = canTakeGraph(this.S, id) ? [id] : graphPathTo(this.S, id);
+    if (!path || path.length > graphPointsFree(this.S)) return 0;
+    let n = 0;
+    for (const p of path) { if (!this.takeGraph(p)) break; n++; }
+    return n;
+  }
+
   /** (it. 1078) Dépense automatique dans le grand graphe (voie déjà choisie, sinon celle par défaut) ; renvoie le nombre. */
   autoSpendGraph() {
     let n = 0;
@@ -3222,7 +3239,7 @@ export class Game {
     this.S.skills.outer = [];
     this.invalidateStats();
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
-    this.log(tx("Grand graphe réinitialisé : les voies sont de nouveau au choix."));
+    this.log(tx("Grand graphe réinitialisé : tous ses points sont rendus."));
     this.changed();
     return true;
   }

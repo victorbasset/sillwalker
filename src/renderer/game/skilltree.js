@@ -3,7 +3,8 @@
 //  - Un nœud central (déjà acquis), 6 secteurs en étoile.
 //  - Chaque secteur : une chaîne de 3 nœuds, puis deux bras de 5 + 3 petits
 //    nœuds, chacun avec 2 nœuds remarquables, qui se rejoignent sur une clé de
-//    voûte (effet puissant, souvent à double tranchant).
+//    voûte (effet puissant ; it. 2332, demande de Victor : plus aucune contrepartie négative, la partie positive
+//    réduite d'autant pour garder le même rythme de jeu).
 //  - Des passerelles relient les secteurs voisins (on peut circuler en anneau).
 //  - On ne peut prendre qu'un nœud relié à un nœud déjà acquis.
 //
@@ -21,42 +22,42 @@ export const SECTORS = [
       { name: "Bras de titan", eff: { atkPct: 10 } }, { name: "Coup fatal", eff: { critDmg: 25, execute: 10 } },
       { name: "Tueur de géants", eff: { bossDmg: 20 } }, { name: "Massacre", eff: { atkPct: 8, doubleShot: 5 } },
     ],
-    keystone: { name: "Brute", eff: { atkPct: 40, critDmg: -40 }, text: "+40 % d’attaque, mais −40 % de dégâts critiques." } },
+    keystone: { name: "Brute", eff: { atkPct: 18 } } },
   { id: "agility", name: "Agilité", color: "#5fd36f",
     small: [{ spd: 2 }, { crit: 1 }, { dodge: 1 }, { spd: 2 }],
     notables: [
       { name: "Réflexes", eff: { dodge: 5, spd: 5 } }, { name: "Précision mortelle", eff: { crit: 5, critDmg: 15 } },
       { name: "Vent du nord", eff: { spd: 12 } }, { name: "Danse des lames", eff: { doubleShot: 8, dodge: 3 } },
     ],
-    keystone: { name: "Tempête de lames", eff: { spd: 45, hpPct: -15 }, text: "+45 % de vitesse d’attaque, mais −15 % de PV." } },
+    keystone: { name: "Tempête de lames", eff: { spd: 25 } } },
   { id: "arcane", name: "Arcanes", color: "#c08cff",
     small: [{ burn: 2 }, { execute: 3 }, { poison: 1 }, { minion: 2 }],
     notables: [
       { name: "Pyromancie", eff: { burn: 12 } }, { name: "Venin noir", eff: { poison: 6 } },
       { name: "Invocation", eff: { minion: 15 } }, { name: "Coup de grâce", eff: { execute: 20 } },
     ],
-    keystone: { name: "Flamme intérieure", eff: { burn: 60, poison: 15, atkPct: -10 }, text: "Brûlure +60 % et poison +15 %, mais −10 % d’attaque." } },
+    keystone: { name: "Flamme intérieure", eff: { burn: 40, poison: 8 } } },
   { id: "vitality", name: "Vitalité", color: "#ff7a6b",
     small: [{ hpPct: 3 }, { defPct: 3 }, { regen: 0.5 }, { hpPct: 3 }],
     notables: [
       { name: "Constitution de fer", eff: { hpPct: 12 } }, { name: "Carapace", eff: { defPct: 15, shield: 5 } },
       { name: "Sang chaud", eff: { regen: 3, lifesteal: 1 } }, { name: "Ronces", eff: { thorns: 15 } },
     ],
-    keystone: { name: "Colosse", eff: { hpPct: 50, shield: 15, spd: -15 }, text: "+50 % de PV et bouclier +15 %, mais −15 % de vitesse d’attaque." } },
+    keystone: { name: "Colosse", eff: { hpPct: 30, shield: 8 } } },
   { id: "fortune", name: "Fortune", color: "#ffd34d",
     small: [{ gold: 3 }, { xp: 3 }, { drop: 2 }, { gold: 3 }],
     notables: [
       { name: "Trésorier", eff: { gold: 15 } }, { name: "Érudit", eff: { xp: 15 } },
       { name: "Chasseur de trésors", eff: { drop: 12 } }, { name: "Rêveur", eff: { offline: 15 } },
     ],
-    keystone: { name: "Midas", eff: { gold: 100, xp: -20 }, text: "Or ×2, mais −20 % d’expérience." } },
+    keystone: { name: "Midas", eff: { gold: 70 } } },
   { id: "mastery", name: "Maîtrise", color: "#6aa8ff",
     small: [{ riposte: 1 }, { lifesteal: 0.3 }, { firstStrike: 0.1 }, { combo: 0.3 }],
     notables: [
       { name: "Contre-attaque", eff: { riposte: 8 } }, { name: "Première frappe", eff: { firstStrike: 0.8 } },
       { name: "Rythme", eff: { combo: 2 } }, { name: "Vampirisme", eff: { lifesteal: 3 } },
     ],
-    keystone: { name: "Immortel", eff: { secondWind: 1, regen: 5, atkPct: -5 }, text: "Second souffle et régénération +5 %, mais −5 % d’attaque." } },
+    keystone: { name: "Immortel", eff: { secondWind: 1, regen: 2 } } },
 ];
 
 const UNIT = 34; // espacement (unités de dessin)
@@ -100,7 +101,7 @@ function build() {
       });
       ends.push(p);
     });
-    const ks = add(`${sec.id}-key`, ...polar(base, 14.2), "keystone", { sector: sec.id, name: sec.keystone.name, eff: sec.keystone.eff, text: sec.keystone.text });
+    const ks = add(`${sec.id}-key`, ...polar(base, 14.2), "keystone", { sector: sec.id, name: sec.keystone.name, eff: sec.keystone.eff });
     ends.forEach((e) => link(e, ks));
   });
   // Passerelles entre secteurs voisins (au milieu et vers l'extérieur des bras)
@@ -141,6 +142,24 @@ export function canTakeSkill(S, id) {
   if (skillPointsFree(S) <= 0) return false;
   const chosen = new Set(["root", ...order(S)]);
   return n.links.some((l) => chosen.has(l));
+}
+
+/** (it. 2332, demande de Victor) Chemin le plus court jusqu'à un nœud de la fleur : les nœuds à prendre dans l'ordre (le
+ *  dernier est la cible), ou null. Un clic sur un nœud lointain prend tout le chemin si les points suffisent. */
+export function skillPathTo(S, target) {
+  const N = SKILL_TREE.nodes, chosen = new Set(["root", ...order(S)]);
+  if (!N[target] || chosen.has(target)) return null;
+  const prev = new Map(), queue = [];
+  for (const id in N) if (!chosen.has(id) && N[id].links.some((l) => chosen.has(l))) { prev.set(id, null); queue.push(id); }
+  for (let i = 0; i < queue.length; i++) {
+    const id = queue[i];
+    if (id === target) break;
+    for (const l of N[id].links) if (N[l] && !chosen.has(l) && !prev.has(l)) { prev.set(l, id); queue.push(l); }
+  }
+  if (!prev.has(target)) return null;
+  const path = [];
+  for (let id = target; id; id = prev.get(id)) path.unshift(id);
+  return path;
 }
 
 /**

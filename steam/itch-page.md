@@ -28,7 +28,7 @@ loots and grows stronger while you work, play or watch videos. A glance is enoug
 like. Drag the strip to any screen, or make it a little transparent and your clicks go right through it.
 
 - 20 heroes to free, fighting in pairs, each with their own talents and unique spells
-- A 144-node skill tree, then a great 618-node graph around it with paths to choose and synergies
+- A 144-node skill tree, then a great 222-node graph around it with paths and synergies
 - Gear sets, a forge, pets and expeditions, and characters met along the road (one per tab)
 - 30+ regions, 80 monsters, golden elites, fleeing goblins and bosses guarding relics
 - A story told through tiny cutscenes, all the way to the Starbreaker… and beyond
@@ -48,7 +48,7 @@ suffit, et le panneau s'ouvre quand tu veux. Glisse la bande sur l'écran de ton
 transparente pour que tes clics la traversent.
 
 - 20 héros à libérer, qui combattent en duo, chacun avec ses talents et ses sorts uniques
-- Un arbre de 144 compétences, puis un grand graphe de 618 nœuds autour, avec des voies à choisir et des synergies
+- Un arbre de 144 compétences, puis un grand graphe de 222 nœuds autour, avec des voies et des synergies
 - Des panoplies, une forge, des familiers et leurs expéditions, et des personnages rencontrés en route (un par onglet)
 - Plus de 30 régions, 80 monstres, élites dorés, gobelins fuyards et boss gardiens de reliques
 - Une histoire en petites cinématiques, jusqu'au Briseur d'Étoiles… et au-delà

@@ -89,7 +89,7 @@ Whenever you feel like it, open the panel and dive in: free new heroes, grow you
 
 What's inside:
 • 20 heroes to free, fighting in pairs, each with their own talents and spells
-• A skill tree surrounded by a great 618-node graph of paths and synergies
+• A skill tree surrounded by a great 222-node graph of paths and synergies
 • Over 30 pixel-art regions, golden elites, thieving goblins and bosses guarding relics
 • Rare events, daily blessings and a small story told in tiny cutscenes
 • Progress continues while the game is closed (up to 8 hours)

@@ -75,3 +75,6 @@ docs/devlog-0.1.6.md).
   bénédictions : revenir d’autres jours).
 - **Carnet de route (it. 2315-2322) :** il annonce sa prochaine étape (« Prochaine étape : zone 60 ») ; les paliers de niveau
   n’y reviennent plus à chaque ascension.
+- **Grand graphe des Compétences (demande de Victor, it. 2332) :** allégé (222 nœuds au lieu de 618), les trois voies de chaque
+  pétale se prennent toutes (les points en surplus servent), un clic sur un nœud lointain prend le chemin le plus court ; clés de
+  voûte sans contrepartie négative ; même rythme de partie (simulations d’une semaine).

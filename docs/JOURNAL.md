@@ -5,6 +5,19 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2332, DEMANDE DE VICTOR : grand graphe des Compétences) : « utiliser mes points en surplus, choisir les 3 traits de
+  damage, chemin le plus court au clic, pas de point négatif, moins de points (plus simple à cliquer, plus joli), même équilibre ».
+  skillgraph.js : voies de 10 nœuds (30), anneau de 6 par région (12) : 222 nœuds (618), plus espacés (STEP 1,7) ; les trois voies
+  d'une région ne s'excluent plus (GRAPH_MAX_TAKE = tous) ; graphPathTo / skillPathTo (BFS) et Game.takeGraphPath / takeSkillPath :
+  un clic sur un nœud lointain prend le chemin le plus court si les points suffisent (bulle : « Clic : prend le chemin le plus court
+  (N points) » ou ce qui manque) ; sanitizeOuter (state.js) : nœuds disparus ou coupés retirés, points rendus. Dépense automatique :
+  voies commencées, puis la plus forte, l'anneau (après la voie la plus forte si aucune n'est commencée), puis les autres.
+  Clés de voûte de la fleur sans malus (Brute +18 % attaque au lieu de +40 / −40 % dégâts critiques ; Tempête +25 % vitesse ;
+  Flamme brûlure 40, poison 8 ; Colosse PV 30, bouclier 8 ; Midas or 70 ; Immortel second souffle, régénération 2), texte retiré
+  (la bulle décrit l'effet). Équilibre : VOIE_SCALE 0,85 sur les nœuds des voies (courbe puissance / points : +20 % à 150 points,
+  −10 % graphe plein) ; semaine (graine 7) guerrier 350 → 350, mage 349 → 350, mêmes paliers (36 h : 150, 48 h : 200, 41 et 52
+  courses) ; graine 3 : 350 / 350 ; balance 12 h : 64,3 → 65,0 (bruit ; clés à +25 % : +1,3, réduites). Page Steam, itch.io, promo :
+  222 nœuds. 7 + 3 clés (3368-3377) ; édition 151. 367 tests, 302/302, save-fuzz dev et fin ok.
 - 2026-11-18 (it. 2331, REVUE GÉNÉRALE) : 12 h : mage 61 (toujours le plus bas, à voir avec Victor), chaman 64, maître des lames 64 ;
   --perf : 18,4 / 19,4 %, mini 5,6 %, icône 0,6 % ; Talents en coréen à 1280 px : propres. Rien à corriger.
 - 2026-11-18 (it. 2330) : POUR-VICTOR : Carnet de route (prochaine étape, paliers de niveau une fois).

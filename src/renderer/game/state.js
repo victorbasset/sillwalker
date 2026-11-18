@@ -7,7 +7,7 @@ import { codexRecord } from "./codex.js";
 import { grandfatherUnlocks } from "./unlocks.js";
 import { PET_INDEX } from "./pets.js";
 import { SKILL_TREE } from "./skilltree.js";
-import { SKILL_GRAPH } from "./skillgraph.js";
+import { SKILL_GRAPH, sanitizeOuter } from "./skillgraph.js";
 import { LANGS } from "../i18n/index.js";
 import { seedTabs } from "./tabs.js";
 import { SPELL_INDEX, SPELL_MAX } from "./spells.js";
@@ -214,7 +214,8 @@ export function migrate(raw) {
   // Nœuds inconnus (autre version) ou doublons retirés : skillTreeEffects lit chaque nœud.
   s.skills.order = Array.isArray(s.skills.order) ? [...new Set(s.skills.order)].filter((id) => typeof id === "string" && SKILL_TREE.nodes[id]) : [];
   // (it. 1075) grand graphe autour de la fleur : mêmes règles (nœuds inconnus ou doublons retirés)
-  s.skills.outer = Array.isArray(s.skills.outer) ? [...new Set(s.skills.outer)].filter((id) => typeof id === "string" && SKILL_GRAPH.nodes[id]) : [];
+  // (it. 2332) graphe allégé (voies de 10 nœuds) : seuls les nœuds qui existent encore ET restent reliés sont gardés
+  s.skills.outer = Array.isArray(s.skills.outer) ? sanitizeOuter([...new Set(s.skills.outer)]) : [];
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
   s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});
