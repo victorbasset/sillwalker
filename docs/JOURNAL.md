@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2350, contrôle) : --crawl en coréen sur la fin de partie (0.1.7) : 706 clics, aucune erreur.
 - 2026-11-18 (it. 2349, contrôle) : save-fuzz à partir d'une partie 0.1.2 (sanitizeOuter du grand graphe allégé) : 1169 corruptions, ok.
 - 2026-11-18 (it. 2348, contrôle) : semaine après Tempête de lames à +15 % (0.1.7) : graine 7 guerrier 72 h 283 → 293, 168 h 350 → 361,
   mage 349 → 350 ; graine 3 guerrier 72 h 293 → 283, 168 h 350 → 350, mage 350 → 350 : écarts de sens contraires selon la graine,
