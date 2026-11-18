@@ -36,6 +36,8 @@ function exercise(g) {
   for (const x of WORKSHOP) g.buyWorkshop(x.id);
   R.hp = 1; R.potionCd = 0; g.drinkPotion(g.stats());
   g.hatchEgg(); const pet = Object.keys(S.pets.owned || {})[0]; if (pet) { g.setPet(pet); g.sendExpedition(pet, "short"); }
+  // (it. 2212) rappel d'une expédition et « Emmener » d'un familier parti (it. 2208)
+  { const away = Object.keys((S.pets && S.pets.exp) || {})[0]; if (away) { g.setPet(away, true); g.recallExpedition(away); } }
   const sp = classSpells(S.cls)[0]; if (sp) g.learnSpell(sp.id);
   const tr = TREES[S.cls]; if (tr) g.learnTalent(tr[0].talents[0].id);
   for (const c of CONSTELLATIONS) g.buyConstellation(c.id, { quiet: true });

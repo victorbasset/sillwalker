@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2212, contrôle) : save-fuzz exerce aussi le rappel d'expédition et « Emmener » d'un familier parti (it. 2208) ;
+  1267 corruptions (dev-data) et 1225 (fin de partie), toutes « ok ».
 - 2026-11-18 (it. 2211, REVUE GÉNÉRALE) : 12 h : paladin 65, nécromancien 63, druide 64 (habituel) ; --perf : bande 18,3 %, panneau
   18,8 %, mini 5,3 %, icône 0,8 % (0,5 à la revue d'avant : bruit sur une valeur infime) ; texte en chinois (dev-data et fin de partie) :
   aucun mot non traduit ; captures Familiers en anglais à 1280 px (« Great Exped… · 7 h 59 · Take along ») et mini en chinois : propres.
