@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2373, autotest) : en zone 200, la bulle annonce « La Dernière Étoile » (attente du bon nom : une bulle « ♪ The Sill »
+  restée du contrôle précédent passait avant). 306/306.
 - 2026-11-18 (it. 2372, autotest) : le ▶ de la chronique « Le ciel rallumé » rejoue la libération (fenêtre ouverte puis fermée seule).
   305/305.
 - 2026-11-18 (it. 2371, REVUE GÉNÉRALE) : 12 h : assassin 62, berserker 66, barde 65 ; --perf : 19,8 / 19,3 %, mini 5,6 %, icône 0,4 % ;

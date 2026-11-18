@@ -1225,6 +1225,12 @@ async function runSelfTest(strip) {
     let t = ""; for (let i = 0; i < 40 && !/♪/.test(t); i++) { await new Promise((r) => setTimeout(r, 250)); t = document.querySelector("#toast")?.textContent || ""; }
     window.__musicSettle = 0; G.S.zone = z0; G.S.best = b0; G.changed(); window.__clearToasts?.(); return /♪/.test(t) && t.includes(tr(TRACKS[trackIndex(to)].name)) ? "ok" : "rien : " + t.slice(0, 60); })()`);
   check("musique : une bulle nomme le morceau d'une nouvelle tranche", bub === "ok" || bub === "désactivée", bub);
+  // (it. 2373) la zone 200 : la bulle nomme « La Dernière Étoile »
+  const bub200 = await js(`(async () => { const G = window.__game, M = window.__music, { TRACKS } = await import("./render/music.js"), { t: tr } = await import("./i18n/index.js");
+    if (!M.enabled) return "désactivée"; window.__clearToasts?.(); window.__musicSettle = 1; const z0 = G.S.zone, b0 = G.S.best; G.S.best = Math.max(b0, 200); G.S.zone = 200; G.changed();
+    const want = tr(TRACKS[4].name); let t = ""; for (let i = 0; i < 40 && !t.includes(want); i++) { await new Promise((r) => setTimeout(r, 250)); t = document.querySelector("#toast")?.textContent || ""; }
+    window.__musicSettle = 0; G.S.zone = z0; G.S.best = b0; G.changed(); window.__clearToasts?.(); return /♪/.test(t) && t.includes(want) ? "ok" : "rien : " + t.slice(0, 60); })()`);
+  check("musique : en zone 200, la bulle annonce « La Dernière Étoile »", bub200 === "ok" || bub200 === "désactivée", bub200);
   check("musique : 📌 garde un morceau, puis revient à celui de la zone", pin === "true true" || pin === "désactivée", pin);
   check("musique : le morceau de la zone joue, l'aperçu en change", play === "true true" || play === "désactivée", play);
   check("son : tous les sons se rendent sans erreur, NaN ni saturation", sndAll === "ok", sndAll);
