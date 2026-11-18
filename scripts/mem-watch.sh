@@ -12,6 +12,9 @@ cd "$(dirname "$0")/.."
 # options en plus (le panneau ouvert fait travailler les onglets, bulles et caches de l'interface)
 D=$(mktemp -d /tmp/sillwalker-mem-XXXX); cp dev-data/save.json dev-data/settings.json "$D"/ 2>/dev/null
 [ -n "$MEM_SAVE" ] && cp "$MEM_SAVE" "$D/save.json"
+# (it. 2130) éditions « Quoi de neuf » toutes lues dans la copie (sauf MEM_NEWS=1) : la bulle du lancement laissait 30 à 60 Mo
+# de plus pendant toute la mesure, et dev-data en avait de non lues : un écart se lisait sans rapport avec le code mesuré
+[ -z "$MEM_NEWS" ] && node -e 'const f=process.argv[1],fs=require("fs");const s=JSON.parse(fs.readFileSync(f,"utf8"));s.settings=s.settings||{};s.settings.newsSeen=99999;fs.writeFileSync(f,JSON.stringify(s))' "$D/save.json" 2>/dev/null
 xvfb-run -a -s "-screen 0 1920x1080x24" ./node_modules/.bin/electron . --ghost --no-sandbox --user-data="$D" --speed="$SPEED" --exit-after=$((MIN * 60)) $MEM_ARGS > /dev/null 2>&1 &
 sleep 20
 desc() { for c in $(pgrep -P "$1"); do echo "$c"; desc "$c"; done; }

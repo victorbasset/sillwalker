@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2130, mémoire) : mem-watch donnait 632 Mo (contre 589 avant la soirée) ; dichotomie par worktree : le saut vient de
+  l'édition 137, pas du code : dev-data a des éditions non lues, et la bulle « Quoi de neuf » du lancement laisse 30 à 60 Mo de plus
+  pendant toute la mesure (625 contre 595 avec les éditions lues). mem-watch.sh marque désormais les éditions lues dans sa copie
+  (MEM_NEWS=1 pour l'ancien comportement) : 593 Mo, plat. Piste notée dans Idées.
 - 2026-11-18 (it. 2129, clavier) : Talents : la fiche suit aussi le talent qui reçoit le focus (Tab) et y reste ; le focus rendu par le
   programme après un redessin ne la déplace pas (le survol en cours la garde). Autotest (focusin envoyé à la main : la fenêtre --ghost
   n'a pas le focus du système) ; 279/279.
@@ -7423,6 +7427,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2130) Mémoire : la bulle « Quoi de neuf » (toast de la bande, 15 s au lancement après une mise à jour) laisse 30 à 60 Mo
+  de plus pendant toute la partie (mem-watch, MEM_NEWS=1 : 625 contre 595 Mo). Piste : une taille ou graisse de police propre au
+  toast (CLAUDE.md, « Polices »), ou le texte rendu par-dessus la bande ; mesurer avec un toast d'un autre texte.
 - CLOS (it. 1785 : 96 cartes, 8 rangées, en russe à 1920 px et 85 à 1280 px : aucun débordement) P3 (revue it. 1741) Bestiaire : la grille fait exactement 7 rangées de 12 à 1920 px (84 monstres avec Poupouce) ; le prochain
   monstre ajouté ouvre une 8e rangée : relancer lang-overflow (Bestiaire, 1280 et 1920 px) et prévoir des cartes plus basses si ça défile.
 - FAIT (it. 1653) P3 (it. 1652) Bande, fin de partie : le nom d'un sort lancé (« Volley of Arr… », en haut) passe sous la bulle de parole du
