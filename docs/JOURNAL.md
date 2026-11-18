@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2389) : Compétences : sous-titre des pétales (« Сердце зажжено », .corepct) en 10 px réduits par le zoom du graphe :
+  « жж » effacé en russe à 1280 px (deux thèmes ; essai de la police seule : flou sous 11 px). Passé à 12 px (11 px : encore flou) :
+  net, sans toucher le nom du pétale au-dessus. 307/307.
 - 2026-11-19 (it. 2388, contrôle) : noms des Compétences au-dessus des nœuds en thème clair (russe, 1280 px) : lisibles, contour
   clair, « Охотник за сокровищами » entier.
 - 2026-11-19 (it. 2387) : noms des Compétences : sonde des chevauchements entre noms (fin de partie, graphe plein, 1920 px) :

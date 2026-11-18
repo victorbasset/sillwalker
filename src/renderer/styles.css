@@ -881,7 +881,7 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 /* Cœurs des pétales (arbre de compétences) */
 .skillsvg .core { fill: var(--panel); stroke: var(--c); stroke-width: 3; stroke-dasharray: 4 3; opacity: .8; cursor: help; }
 .skillsvg .core.on { fill: var(--c); stroke: #fff; stroke-dasharray: none; opacity: 1; filter: drop-shadow(0 0 6px var(--c)); }
-.skillsvg .corepct { fill: var(--muted); }
+.skillsvg .corepct { fill: var(--muted); font-size: 12px; } /* (it. 2389) 10 px réduits par le zoom du graphe : « зажжено » illisible à 10 et 11 px, net à 12 */
 /* Feux follets des cœurs, autour du héros */
 .wisp { position: absolute; left: 0; top: 0; width: 6px; height: 6px; background: var(--c); box-shadow: 0 0 6px 2px var(--c); pointer-events: none; }
 /* (it. 720, demande V) le héros entre les feux follets : z-index 1 derrière lui, 3 devant (strip.js drawCores) ;
