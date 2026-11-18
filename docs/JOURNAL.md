@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-18 (it. 2254, relecture) : Journal après une absence de 3 h (dev-data, français) : messages clairs (récompense du jour,
+  bénédiction vécue, Grand intendant, niveaux des familiers, œufs) ; 91 victoires en 3 h : héros bloqué au boss de la zone 57. Rien à corriger.
 - 2026-11-18 (it. 2253, langues) : français resté dans l'espagnol et le portugais (« les, avec, pour, dans, une, est, ton… », dev-data et
   fin de partie) : aucun. Les 10 langues sont passées aujourd'hui (it. 2191-2253). Rien à corriger.
 - 2026-11-18 (it. 2252, langues) : français resté dans l'allemand et le polonais (petits mots « les, avec, pour, une… », dev-data et fin
