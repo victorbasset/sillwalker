@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2673, contrôle) : semaine du guerrier (simulate 168) : 40 courses, record 350, 6 158 éclats : palier habituel.
 - 2026-11-19 (it. 2672, contrôle) : mode mini en allemand, russe et portugais (« Stf. 1313 · 447 Mrd », « Ур. 1313 · 447 млрд »,
   « Nv. 1313 · 447 B ») : tout tient, rien de coupé.
 - 2026-11-19 (it. 2671, REVUE GÉNÉRALE) : 12 h : ranger 62, moine 65, lancier 65 (graine 7, identiques à l'it. 2621) ; --perf : 19,4 / 19,4 %,
