@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2457, contrôle) : « 618 » encore cité : README (« 618 avant ») et devlog 0.1.3 (historique) seulement ; pages de
+  magasin à 222 (vérifiées par npm test).
 - 2026-11-19 (it. 2456, contrôle) : --crawl en français sur la fin de partie après les bulles et puces focalisables : aucune erreur.
 - 2026-11-19 (it. 2455, autotest) : vraie touche Tab (sendInputEvent) sur les puces du héros : le focus passe à la puce suivante
   (contrôlé) ; :focus-visible reste faux dans la fenêtre fantôme sans focus système (contour et bulle non vérifiables ici). 316/316.
