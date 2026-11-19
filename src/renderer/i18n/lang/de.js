@@ -109,7 +109,7 @@ export default {
   773: "Blinde Wut", 774: "Wut und Axt, Nahkampf", 775: "Unsterbliche Wut", 776: "Blutrausch: 6 % des verursachten Schadens stellen LP her, und +35 % Schaden gegen Ziele unter 30 % Leben.", 777: "{0} Gold sammeln",
   778: "{0} Begleiter-{1} zurückbringen", 779: "Nächster Rang", 780: "Nächster Rang: ", 781: "Schnell", 782: "Schnell wie der Wind (+25 % Tempo)", 783: "Schnell, Fernkampf", 784: "Selten", 785: "Selten, überall. Flieht schnell!", 786: "Riesenratte",
   787: "Pestratte", 788: "Zentrieren", 789: "Neu beginnen", 790: "Rekorde", 791: "Rekrut", 792: "Wall", 793: "Wiedergeburt (den Phönix erhalten)", 794: "Fuchsjunges", 795: "Stellt 50 % der LP wieder her", 796: "Erneuerung",
-  797: "Angebot erneuern ({0} Gold)", 798: "Erkennt die Schwachstellen des Feindes.", 799: "Gefangen in", 800: "Ablegen", 801: "Reichtum und Beute", 802: "Konter", 803: "Konter ",
+  797: "Angebot erneuern ({0} Gold)", 798: "Erkennt die Schwachstellen des Feindes.", 799: "Gefangen in", 800: "Ablegen", 801: "Gold und Beute", 802: "Konter", 803: "Konter ",
   804: "Konter: 15 % Chance, bei einem Treffer zurückzuschlagen (50 % seines Angriffs).", 805: "Scharfer Konter", 806: "Ritual", 807: "Robe", 808: "Robust, Nahkampf", 809: "Robustheit", 810: "Ewiger Dornbusch", 811: "Dornen",
   812: "Umherziehender Ronin", 813: "Reich der Leere", 814: "Himmlische Ruinen", 815: "Rhythmus", 816: "Abgrundriff", 817: "Automatisch abholen", 818: "Abholen · +{0} Ruf", 819: "Questbelohnung: ",
   820: "Tagesbelohnung {0}/7: +{1} Gold{2}{3}.", 821: "Stellt 2 % seiner LP pro Sekunde wieder her, außer wenn er brennt oder vergiftet ist.", 822: "Stellt 40 % des verursachten Schadens wieder her.", 823: "Beute abholen", 824: "{0} Expeditionen abholen",

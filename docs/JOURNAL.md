@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2676) Statistiques : « Richesse et butin » raccourci en allemand (« Gold und Beute ») et en russe (« Золото и добыча ») :
+  titres des cinq cartes sur une ligne à 1280 et 1366 px dans les 10 langues (suite de l'it. 2675). npm test 376, autotest 326/326.
 - 2026-11-19 (it. 2675) Statistiques > Chiffres, écrans de portable : à 1280 px, le titre « Richesse et butin » passait sur deux lignes dans les
   7 langues latines et cyrilliques (« Moments rares » aussi en de, ru), et sa liste commençait plus bas que les autres. Titres des cartes en
   17 px (taille déjà utilisée par les quêtes) sous un panneau de 1334 px (@container) : fr, en, es, pt, pl sur une ligne à 1280 et 1366 px ;
