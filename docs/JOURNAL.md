@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2448, contrôle) : contour de focus des puces non capturable ici (focus({focusVisible}) non pris en charge par cet
+  Electron : :focus-visible faux) ; à voir chez Victor au clavier si besoin. À 1920 px, « Plumage du phénix 2/4 » s'affiche en entier.
 - 2026-11-19 (it. 2447, contrôle) : contour de focus des puces du héros : règle générale [tabindex]:focus-visible (3 px, --accent) ;
   rien à ajouter (le contour peut être rogné de 2 px par la rangée .hscroll, sans gêner la lecture).
 - 2026-11-19 (it. 2446, accessibilité) : puces de la carte du héros (bénédiction du jour, panoplies, reliques, effets) atteignables
