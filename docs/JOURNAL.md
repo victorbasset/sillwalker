@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2510, contrôle) : durée de l'autotest examinée (SELFTEST_TIMES, voir Idées) : rien à raccourcir sans toucher au
+  code distribué ; 320/320 trois fois de suite.
 - 2026-11-19 (it. 2509, contrôle) : i18n-names après l'édition 154 (clés 3403-3406) : 25 écarts, les mêmes anciens faux positifs ;
   aucun dans les nouveaux textes.
 - 2026-11-19 (it. 2508, contrôle) : après l'édition 154, lang-overflow all 1280 (« Quoi de neuf » au pire cas compris) : 20 mesures,
@@ -8295,6 +8297,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - P3 (it. 2188, mesuré it. 2198) Autotest à 125 s : les plus lents sont la bulle du morceau de musique (7 s), la meute (3,5 s), le
   décodage des 4 morceaux (3,2 s), l'arrivée d'une série (2,7 s) ; les contrôles de la nuit ne pèsent que 0,1-0,3 s chacun.
   `SELFTEST_TIMES=1` pour la liste ; à raccourcir d'abord la bulle de musique si la durée devient gênante.
+  MESURE it. 2510 (≈ 145 s, 320 contrôles) : les trois attentes de la libération (plein écran, icône, verrou) 5,6 s chacune ;
+  la cinématique dure au moins 3 s (finale-window.js, minimum du processus principal) : rien à gagner sans passe-droit de test.
+  « panneau rouvert » 9,5 s une fois sur trois exécutions (clics souris ratés sous xvfb, 0,85 s sinon) : intermittent, déjà rattrapé.
 - À VOIR AVEC VICTOR (it. 2178) : mage le plus bas sur 12 h (≈ 62 sur 4 graines contre ≈ 65) ; il rattrape en semaine (it. 1115) :
   rien à faire sans son avis.
 - ÉCARTÉ (it. 2132 : bruit, voir Fait) (it. 2130) Mémoire : la bulle « Quoi de neuf » (toast de la bande, 15 s au lancement après une mise à jour) laisse 30 à 60 Mo
