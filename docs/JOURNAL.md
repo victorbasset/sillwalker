@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2476, accessibilité) : éléments cliquables ([data-action], [data-tab]) hors boutons et sans tabindex, tous les onglets et
+  sous-sections, fin de partie : aucun (SVG exclus : nœuds des Compétences et zones de la Carte ont leur clavier propre).
 - 2026-11-19 (it. 2475, contrôle) : texte coupé sans bulle, fin de partie à 1280 px, russe et japonais, toutes sous-sections : aucun.
 - 2026-11-19 (it. 2474) : audit « texte coupé par … sans bulle » (tous les onglets et sous-sections, en et de, 1366 px) : aucun ;
   devient un contrôle de l'autotest. 317/317.
