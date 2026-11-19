@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2705, contrôle) : Ascension en fin de partie, anglais à 1280 px (19 ascensions, « What is kept or lost » replié,
+  17 constellations au maximum, compagnon « Brothers in Arms ») : propre.
 - 2026-11-19 (it. 2704, contrôle) : Carte en fin de partie, anglais à 1280 px (record 150, 16 / 20 héros, reliques 5/5 et 2/5, Briseur) : propre.
 - 2026-11-19 (it. 2703, contrôle) : lang-overflow all 1280 après les espaces insécables des noms de zone (it. 2701-2702) : aucun.
 - 2026-11-19 (it. 2702) Marque de boucle « + » collée au nom de zone aussi dans le résumé d'absence (« … a continué de farmer X + ») et la
