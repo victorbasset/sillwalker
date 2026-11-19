@@ -214,6 +214,7 @@ class StripWindow {
   setFullscreenApp(on) {
     if (on === !!this.fsHidden) return;
     this.fsHidden = on;
+    this.onFullscreen?.(on); // (it. 2410) main.js : la cinématique de libération attend la fin du plein écran
     if (on) { if (this.isShown() && this.win.isVisible()) this.win.hide(); this.send("visibility", false); }
     else if (this.isShown()) this.reveal();
   }

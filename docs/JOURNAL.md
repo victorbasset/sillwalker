@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2410, bon voisin) : cinématique de libération jamais par-dessus une application en plein écran : main.js la met en
+  attente (strip.fsHidden) et la joue 1,5 s après la fin du plein écran ; si le plein écran commence pendant la scène, elle se ferme et
+  sera rejouée en entier (StripWindow.onFullscreen). Contrôle de l'autotest en fin de parcours (cacher la bande change l'état des
+  contrôles suivants : 3 échecs quand il était au milieu). 308/308.
 - 2026-11-19 (it. 2409, bon voisin) : cinématique de libération à 15 images/s aussi sur batterie (music.onBattery) ; capture --battery
   à 8 s : scène dessinée.
 - 2026-11-19 (it. 2408, bon voisin) : cinématique de libération : suit « Économie d'énergie » (15 images/s au lieu de 30 ; data.eco

@@ -162,10 +162,22 @@ function start() {
     ipcMain.on("achievements:unlock", (_e, ids) => { if (Array.isArray(ids)) steam.unlock(ids.map(String)); });
     // (it. 2342, demande de Victor) cinématique de libération : le héros se promène sur tout l'écran (docs/FINALE.md)
     const finale = require("./finale-window");
-    ipcMain.on("finale:play", (_e, data) => {
-      if (!data || typeof data !== "object") return;
+    // (it. 2410, bon voisin) jamais par-dessus un jeu ou une vidéo en plein écran : la scène attend la fin du plein écran (ou
+    // s'interrompt s'il commence pendant qu'elle se joue) puis se joue (de nouveau) en entier
+    let finalePending = null, finaleLast = null;
+    strip.onFullscreen = (on) => {
+      if (on) { if (finale.finaleOpen()) { finalePending = finaleLast; finale.closeFinale(); } }
+      else if (finalePending) { const d = finalePending; finalePending = null; setTimeout(() => { if (!strip.fsHidden) playFinaleWin(d); else finalePending = d; }, 1500); }
+    };
+    const playFinaleWin = (data) => {
+      finaleLast = data;
       const fw = finale.openFinale({ strip, preload: path.join(__dirname, "..", "preload", "preload.js"), url, ghost: flags.ghost && !flags.finaleShot }, data);
       if (flags.finaleShot && fw) setTimeout(async () => { try { if (!fw.isDestroyed()) require("fs").writeFileSync(flags.finaleShot, (await fw.webContents.capturePage()).toPNG()); } catch (e) { console.error("finale-shot", e); } }, flags.finaleShotDelay);
+    };
+    ipcMain.on("finale:play", (_e, data) => {
+      if (!data || typeof data !== "object") return;
+      if (strip.fsHidden) { finalePending = data; return; }
+      playFinaleWin(data);
     });
     ipcMain.on("finale:end", () => finale.closeFinale());
     ipcMain.handle("finale:open", () => finale.finaleOpen());

@@ -1717,6 +1717,15 @@ async function runSelfTest(strip) {
   const sm = await js("(async () => { const snd = window.__sound, S = window.__game.S, was = S.settings.muted; if (!snd.ctx) snd.audio(); const b = document.querySelector('#sound-btn'); if (was) b.click(); b.click(); await new Promise((r) => setTimeout(r, 300)); const off = snd.ctx ? snd.ctx.state : 'none'; b.click(); await new Promise((r) => setTimeout(r, 300)); const on = snd.ctx ? snd.ctx.state : 'none'; if (S.settings.muted !== was) b.click(); return off + ' ' + on; })()");
   check("son coupé : moteur audio suspendu, repris au second clic", /^suspended (running|suspended)$/.test(sm) && sm.startsWith("suspended"), sm);
   if (process.env.SELFTEST_SHOT3) require("fs").writeFileSync(process.env.SELFTEST_SHOT3, (await wc.capturePage()).toPNG());
+  // (it. 2410, bon voisin ; en fin de parcours : la bande cachée puis rendue change l'état des contrôles suivants) application en plein écran : la libération attend sa fin, puis se joue
+  strip.setFullscreenApp(true); await sleep(200);
+  await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+  await sleep(1500);
+  const fsBlocked = !(await js("window.sillwalker.finaleOpen()"));
+  strip.setFullscreenApp(false);
+  const fsAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
+  check("libération : jamais par-dessus une application en plein écran, jouée après", fsBlocked && fsAfter === "true true", fsBlocked + " / " + fsAfter);
+
   await click("#menu-btn");
   await sleep(400);
 
