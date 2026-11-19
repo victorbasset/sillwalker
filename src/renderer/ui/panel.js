@@ -1046,7 +1046,11 @@ export class Panel {
   /** (it. 1144) Notes d'une version distribuée (news.js, NEWS_RELEASES) : ses nouveautés majeures, même fenêtre. */
   showRelease(rel = NEWS_RELEASES[NEWS_RELEASES.length - 1]) {
     $(this.root, "#mt").textContent = tx("Nouveautés de la version {0}", { 0: rel.version });
-    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist">${rel.items.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`;
+    // (it. 2614) versions voisines : « ← 0.1.6 » / « 0.1.8 → » (avant, seules les notes de la dernière se relisaient)
+    const i = NEWS_RELEASES.indexOf(rel), prev = NEWS_RELEASES[i - 1], next = NEWS_RELEASES[i + 1];
+    const nav = (r, label) => `<button class="linkbtn lock more" data-action="release-nav" data-v="${esc(r.version)}">${esc(label)}</button>`;
+    $(this.root, "#mbody").innerHTML = `<ul class="lines newslist">${rel.items.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`
+      + (prev || next ? `<p class="note">${prev ? nav(prev, "← " + prev.version) : ""} ${next ? nav(next, next.version + " →") : ""}</p>` : "");
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }
@@ -1180,6 +1184,7 @@ export class Panel {
     if (a === "chron-play") { this.game.emit("chronicleReplay", { id: b.dataset.id }); return; }
     if (a === "relic-play") { this.game.emit("relicReplay", { id: b.dataset.id }); return; } // (it. 631) revoir la scène d'une relique
     if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); return; }
+    if (a === "release-nav") { const r = NEWS_RELEASES.find((x) => x.version === b.dataset.v); if (r) this.showRelease(r); return; } // (it. 2614)
     if (a === "news-older") { this.showNews(+b.dataset.seen || 0, +b.dataset.skip || 0); return; } // (it. 2594)
     if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }

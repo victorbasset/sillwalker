@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2614, plaisir de revenir) : notes de version (Réglages > « Version 0.1.7 ») : boutons « ← 0.1.6 » / « 0.1.7 → » pour relire
+  les versions précédentes (avant : seule la dernière ; 0.1.3 à 0.1.6, 40 nouveautés, introuvables). Numéro de version et flèche,
+  aucune clé. 10 langues à 1280 px : aucun défilement ; contrôle de l'autotest (324/324).
 - 2026-11-19 (it. 2613, doc) : POUR-VICTOR : « ← Plus récentes » dans « Quoi de neuf ».
 - 2026-11-19 (it. 2612, moins de clics) : « Quoi de neuf », pages anciennes : bouton « ← Plus récentes » (retour à la première page ;
   avant, fermer et rouvrir). Clé 3417 dans les 9 langues. Les 40 pages vérifiées dans les 10 langues à 1280 px : sans défilement, retour
