@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2452, équilibrage) : hero-table 20 héros, 12 h, graines 7/3/11 : moyenne 64,9, écart 4,0 (nécromancien 62,7 →
+  chaman 66,7) : identique à l'it. 2332.
 - 2026-11-19 (it. 2451, REVUE GÉNÉRALE) : 12 h : berserker 66, samouraï 65, chaman 69 ; --perf : 19,7 / 19,3 %, mini 5,4 %, icône 0,7 % ;
   Talents en anglais et coréen à 1920 px : propres. Rien à corriger.
 - 2026-11-19 (it. 2450, doc) : POUR-VICTOR : accessibilité de la nuit (it. 2435-2448) et le contour de focus à vérifier chez lui.
