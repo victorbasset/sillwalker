@@ -1744,7 +1744,7 @@ async function runSelfTest(strip) {
   // (it. 2410, bon voisin ; en fin de parcours : la bande cachée puis rendue change l'état des contrôles suivants) application en plein écran : la libération attend sa fin, puis se joue
   strip.setFullscreenApp(true); await sleep(200);
   await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
-  await sleep(1500);
+  await sleep(800);
   const fsBlocked = !(await js("window.sillwalker.finaleOpen()"));
   strip.setFullscreenApp(false);
   const fsAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
@@ -1752,7 +1752,7 @@ async function runSelfTest(strip) {
   // (it. 2412) jeu réduit à son icône : la libération attend que la bande revienne
   await strip.setMode("icon"); await sleep(300);
   await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
-  await sleep(1500);
+  await sleep(800);
   const icBlocked = !(await js("window.sillwalker.finaleOpen()"));
   await strip.setMode("strip");
   const icAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
@@ -1760,7 +1760,7 @@ async function runSelfTest(strip) {
   // (it. 2415) session verrouillée : la libération attend le retour du joueur
   strip.setLocked(true); await sleep(200);
   await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
-  await sleep(1500);
+  await sleep(800);
   const lkBlocked = !(await js("window.sillwalker.finaleOpen()"));
   strip.setLocked(false);
   const lkAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");

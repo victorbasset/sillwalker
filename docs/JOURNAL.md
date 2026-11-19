@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2428, autotest) : durée mesurée 140 s (312 vérifications) ; attente « scène non ouverte » des trois contrôles de la
+  libération 1,5 → 0,8 s (6,3 → 5,6 s chacun) : 139 s ; CLAUDE.md à jour.
 - 2026-11-19 (it. 2427) : boutons grisés sans bulle, chaque sous-section aussi (Bestiaire, Boutique, Statistiques, Familiers, Héros) :
   partie neuve, dev et fin de partie : 0 ; le contrôle de l'autotest parcourt maintenant les sous-sections. 312/312.
 - 2026-11-19 (it. 2426) : contrôle permanent de l'autotest : aucun bouton grisé sans bulle dans tous les onglets (« Maximum »
