@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2443, contrôle) : rangée des puces du héros à 1366 px : fondu de bord droit visible (.hscroll.more-r) : la suite
+  est signalée ; conforme.
 - 2026-11-19 (it. 2442) : puce de panoplie « coupée » (revue 2441) : la rangée des puces du héros est une rangée latérale (.hscroll,
   data-hs="hero-chips" : molette, glisser) ; la fin est atteignable, conception voulue (CLAUDE.md, remède aux listes qui grandissent). Rien à changer.
 - 2026-11-19 (it. 2441, REVUE GÉNÉRALE) : 12 h : assassin 62, moine 62, paladin 65 ; --perf : 19,1 / 18,9 %, mini 5,4 %, icône 0,4 % ;
