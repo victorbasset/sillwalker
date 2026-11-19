@@ -3922,6 +3922,16 @@ test("retour d'absence : le meilleur objet gardé est désigné (amélioration e
   if (ups.length) assert.ok(g.isUpgrade(it), "une amélioration passe avant un objet plus rare inutile");
 });
 
+test("retour d'absence, sac plein : le nom du meilleur objet perdu est gardé pour le résumé (it. 2523)", () => {
+  const g = new Game(freshState());
+  g.S.autoSell = { common: false, uncommon: false, rare: false };
+  g.S.unlocks.armsValet = false;
+  g.S.bag = []; while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));
+  const sum = g.applyOffline(4 * 3600);
+  assert.ok(sum.onGround > 0, "des objets restés au sol");
+  assert.ok(typeof sum.bestLostName === "string" && sum.bestLostName.length > 0, JSON.stringify(sum.bestLostName));
+});
+
 test("hors ligne : plafond de 8 h allongé par la Lune, signalé quand il est atteint", () => {
   const g = new Game(freshLocked());
   assert.equal(g.offlineCapS(), 8 * 3600);
