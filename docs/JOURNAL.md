@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2540, contrôle) : i18n-names après les éditions 155-156 (clés 3407-3413) : 25 écarts, les mêmes anciens faux
+  positifs ; aucun dans les nouveaux textes.
 - 2026-11-19 (it. 2539, contenu) : « Quoi de neuf » édition 156 (moins de clics : déblocage acheté sur place, sort appris d'un clic,
   nom du butin perdu au survol ; it. 2523-2532) ; clés 3411-3413 dans les 9 langues (noms d'onglets tels que traduits). Autotest
   320/320, lang-overflow all 1280 : aucun défilement.
