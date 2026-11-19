@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2565, langues) : coréen, bulle des coffres (clé 3407) « {0}(쓸모없음)을(를) » : koJosa saute la parenthèse et
+  garde « 을 » (« 별철 단검(쓸모없음)을 팝니다 ») ; correct.
 - 2026-11-19 (it. 2564, test) : test-logic : en japonais, aucun « つ » après un nombre variable ou à deux chiffres (échoue avec la
   traduction d'avant les it. 2562-2563) ; 376 tests.
 - 2026-11-19 (it. 2563, langues) : japonais : dernier « {n} つ » variable corrigé (« （ほかに {n} 個の節目） », paliers restants) ;
