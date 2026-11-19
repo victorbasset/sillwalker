@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2502, doc) : README : paragraphe « Accessibilité » (clavier, daltonisme, contraste, lecteurs d'écran, mouvements).
 - 2026-11-19 (it. 2501, REVUE GÉNÉRALE) : 12 h : guerrier 65, ranger 64, paladin 65 ; --perf : 19,4 / 19,5 %, mini 5,5 %, icône 0,4 % ;
   Réglages en russe : propres (« Windows » visible sous xvfb : isLinux() faux exprès en dev, window.__game ; masqué en version
   distribuée) ; --crawl en anglais : 513 clics, aucune erreur. Rien à corriger.

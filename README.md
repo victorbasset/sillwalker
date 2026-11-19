@@ -181,6 +181,10 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   M mode mini ; Entrée confirmer ; Échap fermer.
 - **Souris** : double-clic sur un objet pour l'équiper ou le retirer ; ou le glisser du sac vers le panneau Équipement
   (n'importe où : il va à son emplacement), et inversement ; glisser le bouton ⌃ déplace la bande (autre écran, haut ou bas).
+- **Accessibilité** : tout se fait au clavier (Tab, flèches, Entrée ; puces du héros et ⓘ focalisables, leur bulle au focus) ;
+  rareté lisible sans les couleurs (• •• ••• ★) ; contraste des couleurs ≥ 3:1 dans les deux thèmes (test) ; boutons grisés et
+  textes coupés avec une bulle qui dit pourquoi ; lecteurs d'écran : boutons nommés, images décrites, fenêtres de dialogue
+  annoncées, langue de la page ; « réduire les animations » du système : effets réduits, pas de vol plein écran (it. 2422-2499).
 - **Conseils** : une bulle explique chaque fonctionnalité la première fois qu'elle devient utile.
 - **Onglets** : quand ils ne tiennent pas sur une ligne (langue aux mots longs, petit écran), marges resserrées, puis
   sans icônes, puis police réduite ; les icônes seules en dernier recours.
