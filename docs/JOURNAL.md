@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2420, contrôle) : mem-watch 10 min (bande) après les changements de la nuit : 569-573 Mo réels de 420 à 570 s,
+  plat (mode bas de la mesure bimodale).
 - 2026-11-19 (it. 2419, contrôle) : --crawl en coréen sur la fin de partie à graphe plein : aucune erreur.
 - 2026-11-19 (it. 2418, contrôle) : édition 153 en allemand à 1920 px (panel.showNews(152)) : trois nouveautés sur deux colonnes,
   lisibles, « Weiter ».
