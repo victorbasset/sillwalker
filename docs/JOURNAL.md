@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2722) Autotest : « aucun libellé coupé par « … » (1280 px, hors noms d'objets et bulles) » : tous les onglets, après
+  document.fonts.ready, hors .nm / .sub / .say (infobulle voulue). Vérifié qu'il attrape l'ancien défaut (pets.js d'avant l'it. 2716 :
+  ÉCHEC « pets:exn:Great Expedition » ×4). npm test 376, autotest 327/327.
 - 2026-11-19 (it. 2721, REVUE GÉNÉRALE) : 12 h : nécromancien 65, berserker 65, barde 65 ; --perf : 19,6 / 19,0 %, mini 5,8 %, icône 0,6 % ;
   Familiers en polonais à 1280 px (« ⏳ 7 godz. 59 », it. 2716) propres ; texte russe : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2720, contrôle) : sonde des textes à « … » sur la partie de fin de partie à 1280 px (de, en) : hors noms d'objets et

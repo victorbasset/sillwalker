@@ -1073,6 +1073,16 @@ async function runSelfTest(strip) {
     await js("document.fonts.ready.then(() => 'ok')");
     const ovf2 = await js(OVF_JS.replace("window.innerWidth < 1800", "window.innerWidth < 1200"));
     check(`aucun onglet ne défile verticalement (${w} px, écran de portable)`, ovf2 === "aucun", ovf2);
+    // (it. 2722) aucun libellé coupé par « … » (hors noms d'objets .nm / .sub et bulles des PNJ .say, qui gardent leur infobulle) :
+    // le nom de l'expédition l'était sur chaque carte de familier en allemand et en anglais (it. 2716)
+    if (w === 1280) {
+      const el = await js(`(async () => { const P = window.__panel, cur = P.tab, out = []; await document.fonts.ready;
+        for (const t of Object.keys(P.tabs)) { try { P.setTab(t); P.renderAll(); } catch (e) { continue; } const pane = document.querySelector('[data-pane=' + t + ']:not([hidden])'); if (!pane) continue;
+          for (const e of pane.querySelectorAll('*')) { if (e.children.length || !e.getClientRects().length || getComputedStyle(e).textOverflow !== 'ellipsis') continue;
+            if (e.closest('.nm, .sub, .say')) continue; if (e.scrollWidth > e.clientWidth + 1) out.push(t + ':' + (e.className || e.tagName) + ':' + e.textContent.trim().slice(0, 20)); } }
+        P.setTab(cur || 'adventure'); P.renderAll(); return out.length ? out.slice(0, 4).join(' ; ') : 'aucun'; })()`);
+      check("aucun libellé coupé par « … » (1280 px, hors noms d'objets et bulles)", el === "aucun", el);
+    }
     if (w === 1366) { // sous-onglets des Statistiques (la liste des succès grandit à chaque ajout)
       const subs = await js("(() => { const P = window.__panel, p = document.getElementById('panel'), cur = P.tab, sec = P.tabs.stats.sec, out = []; P.setTab('stats'); for (const s of ['ach', 'journey']) { P.tabs.stats.sec = s; P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(s + '=' + o); } P.tabs.stats.sec = sec; P.setTab(cur); P.renderAll(); return out.join(' ') || 'aucun'; })()");
       check("statistiques : succès et carnet de route sans défilement (1366 px)", subs === "aucun", subs);
