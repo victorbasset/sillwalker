@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2500, doc) : POUR-VICTOR : accessibilité de la nuit complétée (it. 2474-2499).
 - 2026-11-19 (it. 2499, accessibilité) : barres de progression (.bar) sans role="progressbar", mais toujours accompagnées de leur
   valeur en texte (kv « 70 / 70 », expérience, avant le boss) : l'information est lue ; rien de nécessaire.
 - 2026-11-19 (it. 2498, accessibilité) : onglets et sous-sections : role="tablist" / "tab", aria-selected tenu à jour (panel.js 420,
