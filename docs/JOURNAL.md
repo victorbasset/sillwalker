@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2701, REVUE GÉNÉRALE) : 12 h : arbalétrier 66, prêtresse 64, cryomancien 62 ; --perf : 19,7 / 19,0 %, mini 5,5 %, icône 0,5 % ;
+  texte coréen : aucun mot latin suspect. Aventure en portugais à 1366 px : la marque de boucle « + » du nom de zone passait seule à la
+  ligne (« Bosque de cogumelos gigantes / + ») : collée au nom par une espace insécable dans la carte de la Zone (panel.js ; pas sur la
+  bande, dessinée au canevas). Capture : « gigantes + » ensemble. npm test 376, autotest 326/326.
 - 2026-11-19 (it. 2700, contrôle) : partie neuve en polonais à 1280 px : propre (emplacements « Rękawice / pusto », rien de coupé).
 - 2026-11-19 (it. 2699) docs/POUR-VICTOR.md : emplacements vides sur deux lignes (it. 2697) ajoutés au résumé de la soirée.
 - 2026-11-19 (it. 2698, contrôle) : emplacements vides (it. 2697) en japonais sur une partie neuve, 1920 px : « 武器 / 空き » … propres.

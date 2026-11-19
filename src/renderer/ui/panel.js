@@ -1109,7 +1109,7 @@ export class Panel {
     const names = Z.monsters.map((m) => MONSTERS[m].name);
     const list = listJoin(names);
     $(this.root, "#p-zone").innerHTML = `<h2>${tx("Zone {0}", { 0: S.zone })} <small>${recordZone(S) > S.best ? tx("course : {0} · record : {1}", { 0: S.best, 1: recordZone(S) }).split(" · ").map((x) => `<span class="nw">${esc(x)}</span>`).join(" · ") : tx("record : {0}", { 0: S.best })}</small></h2>
-      <p class="zname">${esc(this.game.zoneName())}</p>
+      ${/* (it. 2701) la marque de boucle (« + ») reste collée au nom : en portugais à 1366 px, elle passait seule à la ligne */ ""}<p class="zname">${esc(this.game.zoneName()).replace(/ ([+＋])/g, "\u00a0$1")}</p>
       <p class="note tight" title="${esc(list)}">${names.length} ${tx("types de monstres, ~{0} PV. Boss : {1} PV.", { 0: fmt(b.hp), 1: fmt(bb.hp * bossHpFactor(S.zone) * (1 - bossWear(S, S.zone))) })}${
         // (it. 1010) boss épuisé : « (−5 %) » après ses PV, la phrase en info-bulle (une ligne de moins : en russe à
         // 1280 px, avec les capacités et une relique annoncée, « Zone suivante » passait sous le bord)
