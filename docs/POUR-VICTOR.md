@@ -55,6 +55,8 @@ bloquées, mémoire, performance), rien de cassé. Six retouches visibles :
 **Bug corrigé, présent dans la 0.1.7 distribuée (it. 2730)** : un TOUT NOUVEAU joueur voyait, à son deuxième lancement, la fenêtre
 « Nouveautés de la version 0.1.7 » (sans objet pour lui). Corrigé pour la prochaine version : à la première visite, toutes les nouveautés
 comptent comme lues.
+Dans la même veine : au retour d'une courte absence, un débutant ne rapportait JAMAIS d'objet (54 monstres en 10 min, « Objets gardés :
+0 », arrondi par défaut). Arrondi au hasard, même moyenne : environ un retour sur deux rapporte maintenant un objet (it. 2731).
 
 **Soirée (it. 2684-2689)** : l'outil qui vérifie les 10 langues (lang-overflow) mesurait certains onglets avant le chargement de
 leur police, avec une police de secours plus étroite : un texte trop long pouvait sembler tenir. Corrigé (l'outil et l'autotest
