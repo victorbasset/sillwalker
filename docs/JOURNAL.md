@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2483, accessibilité) : contraste des jetons de couleur sur --panel : thème clair ink 14,5, muted 6,2, good 4,1, bad 5,1,
+  accent 4,7, raretés 3,7-5,1 (r4 4,4 depuis l'it. 2482) ; thème sombre 6,6-13,5. Tous au-dessus de 3:1.
 - 2026-11-19 (it. 2482, accessibilité) : sonde de contraste des textes (WCAG, < 3:1) dans les deux thèmes : faux positifs sur les fonds
   en dégradé (Talents, étoiles des quêtes, vérifiés en capture) ; un vrai : légendaire en thème clair (--r4 #c97a00, 2,9:1 sur
   #fcf8f0) foncé en #a96500 (4,4:1), capture de la Boutique : lisible. 319/319.
