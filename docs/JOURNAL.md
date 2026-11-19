@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2609, contrôle) : hero-table HEROES=all 12 h, graines 7,3,11, avec le sac agrandi par le joueur simulé : moyenne 65,1
+  (64,9 avant), écart 5,0 (ranger 62,7 ; gladiateur, gardien des étoiles 67,7) ; nouveau repère dans CLAUDE.md, pas de réglage (bruit
+  d'une graine ±4 par héros).
 - 2026-11-19 (it. 2608, doc) : POUR-VICTOR : vente du Valet au journal, joueur simulé qui agrandit son sac.
 - 2026-11-19 (it. 2607, contrôle) : après la retouche du Valet (it. 2606) : save-fuzz ok (1 267 corruptions), fuzz 1 200 parties 0 bloquée.
 - 2026-11-19 (it. 2606, lisible) : Valet d'armes, pièce précieuse gardée : la vente de l'objet ordinaire passe par sell() en jeu
