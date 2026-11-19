@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2638, contrôle) : --perf à 3840 px (informations au milieu par défaut, écran de Victor) après les it. 2633-2635 :
+  bande 27,1 / 26,8 / 27,2 % contre 27,2 / 27,0 % avant (worktree f741d819^, dev-data copiée) : aucun coût.
 - 2026-11-19 (it. 2637, contrôle) : bande de fin de partie à 1280 px (zone 150, lieutenant « Rycerz Zaćmienia · -5% PŻ · więzień… »)
   en polonais et allemand : nom entier, barre du monstre cachée faute de place, aucune erreur.
 - 2026-11-19 (it. 2636) Autotest : le contrôle du nom du boss couvre aussi les informations au milieu (réglage hudPos, nom réel puis
