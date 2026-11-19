@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2414, contrôle) : libération et absence : applyOffline farme la zone en cours sans boss (monsterBase(S.zone, false)) :
+  le Briseur ne tombe jamais hors ligne, la scène ne peut pas surgir au lancement sous le résumé d'absence.
 - 2026-11-19 (it. 2413, doc) : FINALE.md et POUR-VICTOR : retouches « bon voisin » de la libération (it. 2408-2412).
 - 2026-11-19 (it. 2412, bon voisin) : jeu réduit à son icône (bande cachée par le joueur) : la cinématique de libération attend que la
   bande revienne (StripWindow.onModeChange ; si on réduit pendant la scène, elle se ferme et sera rejouée). Contrôle de l'autotest en
