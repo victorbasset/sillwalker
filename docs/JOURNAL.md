@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2671, REVUE GÉNÉRALE) : 12 h : ranger 62, moine 65, lancier 65 (graine 7, identiques à l'it. 2621) ; --perf : 19,4 / 19,4 %,
+  mini 5,4 %, icône 0,7 % ; Carte en espagnol (« Comprar: Mapa del viajero (90 k de oro) ») propre ; texte russe : aucun mot latin suspect.
+  Rien à corriger.
 - 2026-11-19 (it. 2670, contrôle) : early-pace : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages (identique à l'it. 2585) ;
   first-minutes : premier objet à 42-82 s, premier boss à 70-82 s, 1er déblocage à 345-408 s.
 - 2026-11-19 (it. 2669, contrôle) : stall-check STALL_DAYMOD=all (sauvegardes avancées, une bénédiction par héros) : 60 parties, 0 figées.
